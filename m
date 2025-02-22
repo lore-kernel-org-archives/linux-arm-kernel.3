@@ -4,64 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6AABC021B6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 00:02:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5132C021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 00:09:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=bBC7ol6BD2My4dTmLEOX0IGZHYDK0jtI74mzMD6FJdw=; b=IQZ0+EXWl8K2n2
-	LtQ2nTvvnpsG3ZaWH+ignuoRR8RMUnLneWpz7JIK4rGmc4q9/TGLoYi4DhMD/XN/4Q8kcfTHZYhG3
-	P41gsPFjlyfWylrXUIKVXwIiT1Mde/5JS8QSs2BppcK0sdoTs806YJhdw5AcZ9+sjbjyG0ufBO7eg
-	XkJdOYLnQIqLRQdtK2y37+rJYQIqBChQfHmbNroYlNBxDeiv0fRojQehi09ZhllqngvMBX6NOQDig
-	udosKQUs9ZwbdLw4+gqxz4bekQnSeYXN0aBed1pWg0+ZyXh2w3C8wZcTRZSJVh+ddMGfSW3oHrfJZ
-	TujF6YAIoZOEawgLcV6w==;
+	List-Owner; bh=oy+bmHB35J/IIj4g9aPgq7O/UDdajrtDQwmvj9WLMec=; b=DkHIeIy6YH1zRp
+	Get0UxhBklkd5b2Ggy4eZxk/U00IBney5qtsB51GSaPbMiMszN85rsEIw0+6v2cDCbBeOMM6N3RdR
+	D9PXfizhvm77dljnpkapabV6wyvVjjT62prxEl/cxIqTneO+DX6NCyw5louafdf42Mb3Li6rUTi3v
+	O8ZQnuQeRGMv68jrdUm7zhPX5KADJ7L5pKveYZ+aXxhAI5DMJsk7cm4k1vKYaSi9nHJJ/K2XC2qZO
+	ywlce3bx3X8eshDZWxpE8xO6+wpSqLlNO0oBaCY0TDPNKXUQlhFmhgqC9Zd51GZ3eBEvUccHp9bYf
+	4lN5YWkyuH3ApZUHPuyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlcy5-00000007BIe-0qIy;
-	Sat, 22 Feb 2025 00:02:05 +0000
+	id 1tld4u-00000007Bh6-2b1c;
+	Sat, 22 Feb 2025 00:09:08 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlcwb-00000007BF1-0Hgc;
-	Sat, 22 Feb 2025 00:00:34 +0000
+	id 1tld3R-00000007Bb4-2SO2;
+	Sat, 22 Feb 2025 00:07:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A5E015C545D;
-	Fri, 21 Feb 2025 23:59:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30A97C4CED6;
-	Sat, 22 Feb 2025 00:00:31 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C6B7B5C582B;
+	Sat, 22 Feb 2025 00:06:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F75AC4CED6;
+	Sat, 22 Feb 2025 00:07:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740182431;
-	bh=IaOPCrH3kw57a9AP/P15cOXKdwI6oMqM5L5tl5C6SV0=;
+	s=k20201202; t=1740182856;
+	bh=AWj4ITZuRanuJ+M84ptjWCJk4l50otylm68xoUwxSgs=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=YdNT/KjSojaK2abE6rwyi+ctzkbBJ2TWp3tMtGCwMJH3FcdT4TgNwiMQ9SodstG8l
-	 TgNed1ktruibdiLre7E481mfQsMmowjwPIgogVtq2rbWVCWB4B/cfYN/kYryIhSzjp
-	 4cchOH+1fNZtfVDPVNs69hhUnolEbEW+Q1mxineVn5L2w44CNWyl1G61AOmyPG6q3Z
-	 Sbt9z0I2Hihntk7vsbgdtFMzIPrvUYYckp0CJ9+A4ljinEOGOqh5wfk3G8/1DC1VMs
-	 6YqH8QjgH7vuLxaNpVYgmb+ZdqC27cykI3MgJQvfNzb2lcrTSR8M8rx2PQWsiI2O8a
-	 Bxkfe8BLpcRsw==
-Date: Fri, 21 Feb 2025 18:00:29 -0600
+	b=b2fs5jSvzjiXNBjYZMclGhfJIA7V+BQx9LiQB8PGf5kbHASKga5yF4WsFKCbBpt8M
+	 dlyRA7mDkiuF4ZGwRP1NbkGuVTYM6naci/SCiqugfhxKJCQd/i1q/9Q54QbdibkdEn
+	 dqgVLT3UMG4L8e1ZFFpHsLeJTxwtDh5EG/V/HDaIerZBaD/TO8IgbleYjuvzxanGqg
+	 bEF3zrzxSwhYJ5h4C3zHgzMaLR+TFo7KefxHmRbcAtDu0d63+HsfgqqUqNdgc3krqP
+	 wD7/HM+Fwu46kKbLlhxGP9iQWdiDFxa3a65sdM/lSya7bwWZ/QicToi6rc91engsnS
+	 LJ7R4Vr+nq9Iw==
+Date: Fri, 21 Feb 2025 18:07:35 -0600
 From: Bjorn Helgaas <helgaas@kernel.org>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Hui Ma =?utf-8?B?KOmprOaFpyk=?= <Hui.Ma@airoha.com>,
+	Ryder Lee <Ryder.Lee@mediatek.com>,
+	Jianjun Wang =?utf-8?B?KOeOi+W7uuWGmyk=?= <Jianjun.Wang@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
 	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
 	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Shawn Lin <shawn.lin@rock-chips.com>, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 2/2] PCI: dw-rockchip: hide broken ATS capability
-Message-ID: <20250222000029.GA373377@bhelgaas>
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Frank Li <Frank.li@nxp.com>, upstream <upstream@airoha.com>
+Subject: Re: =?utf-8?B?5Zue5aSNOiBbUEFUQ0ggdjIgMi8y?= =?utf-8?Q?=5D_PCI?=
+ =?utf-8?Q?=3A?= mediatek-gen3: Configure PBUS_CSR registers for EN7581 SoC
+Message-ID: <20250222000735.GA373804@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250221202646.395252-4-cassel@kernel.org>
+In-Reply-To: <Z7kJ3Ejd4Mi_Lj0b@lore-desk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_160033_167015_323C06A4 
-X-CRM114-Status: GOOD (  14.97  )
+X-CRM114-CacheID: sfid-20250221_160737_734509_6DD6A442 
+X-CRM114-Status: GOOD (  27.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,44 +84,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 21, 2025 at 09:26:48PM +0100, Niklas Cassel wrote:
-> When running the rk3588 in endpoint mode, with an Intel host with IOMMU
-> enabled, the host side prints:
-> DMAR: VT-d detected Invalidation Time-out Error: SID 0
+On Sat, Feb 22, 2025 at 12:18:52AM +0100, Lorenzo Bianconi wrote:
+> [...]
 > 
-> When running the rk3588 in endpoint mode, with an AMD host with IOMMU
-> enabled, the host side prints:
-> iommu ivhd0: AMD-Vi: Event logged [IOTLB_INV_TIMEOUT device=63:00.0 address=0x42b5b01a0]
-
-Maybe add a blank line and indent the message since it's quoted
-material?  E.g.,
-
-  When running the rk3588 in endpoint mode, with an Intel IOMMU, the
-  host side prints:
-
-    DMAR: VT-d detected Invalidation Time-out Error: SID 0
-
-  When running the rk3588 in endpoint mode, with an AMD ...
-
-    iommu ivhd0: AMD-Vi: Event logged [IOTLB_INV_TIMEOUT device=63:00.0 address=0x42b5b01a0]
-
-Too bad DMAR isn't smart enough to include a device ID in its message ;)
-
-Can you include something here about what the issue is?  Based on the
-subject line and the patch, I assume something is wrong with the ATS
-Capability?  I guess this is some kind of rk3588 defect, right?
-
-> Usually, to handle these issues, we add a quirk for the PCI vendor and
-> device ID in drivers/pci/quirks.c with quirk_no_ats(). That is because
-> we cannot usually modify the capabilities on the EP side.
+> > >
+> > > 	Pbus-csr (base and mask) is used to determine the address
+> > > 	range can be access by PCIe bus.
+> > > 
+> > > 1FBE3400 PCIE0_MEM_BASE 32 PCIE0 base address
+> > > 1FBE3404 PCIE0_MEM_MASK 32 PCIE0 base address mask
+> > > 1FBE3408 PCIE1_MEM_BASE 32 PCIE1 base address
+> > > 1FBE340C PCIE1_MEM_MASK 32 PCIE1 base address mask
+> > > 1FBE3410 PCIE2_MEM_BASE 32 PCIE2 base address
+> > > 1FBE3414 PCIE2_MEM_MASK 32 PCIE2 base address mask
+> > 
+> > "Can be accessed by PCIe bus" sounds like DMA.  Is that what you mean?
+> > 
+> > I doubt it, because if you have multiple host bridges, I assume they
+> > would all be able to handle DMA to all of system memory.
+> > 
+> > It would make more sense if this is some sort of description of host
+> > bridge apertures, e.g., something like this to allow CPU MMIO accesses
+> > to reach the first 2GB of PCI memory space below any of the pcie0,
+> > pcie1, pcie2 host bridges:
+> > 
+> >   pcie0 0000:00: root bus resource [mem 0x84000000000-0x8407fffffff] (bus address [0x00000000-0x7fffffff])
+> >   pcie1 0001:00: root bus resource [mem 0x84100000000-0x8417fffffff] (bus address [0x00000000-0x7fffffff])
+> >   pcie2 0002:00: root bus resource [mem 0x84200000000-0x8427fffffff] (bus address [0x00000000-0x7fffffff])
+> > 
+> > But I think this would be described via 'ranges' properties.  And I
+> > think it would make sense if the driver had to learn this address map
+> > from devicetree and program it into the hardware, so maybe that's
+> > what Pbus-csr is for?  Total speculation on my part.
 > 
-> In this case, we can modify the capabilties on the EP side. Thus, hide the
-> broken ATS capability on rk3588 when running in EP mode. That way,
-> we don't need any quirk on the host side, and we see no errors on the host
-> side, and we can run pci_endpoint_test successfully, with the IOMMU
-> enabled on the host side.
+> I agree we should provide these info to the driver via the dts.
+> 
+> Do you agree to pass the register offsets, base address and base mask values
+> in the 'mediatek,pbus-csr' phandle array? Something like:
+> 
+> pcie0: pcie@1fc00000 {
+> 	...
+> 	mediatek,pbus-csr = <&pbus_csr 0x0 0x20000000 0x4 0xfc000000>;
+> 	...
+> }
+> 
+> where:
+> - reg offset for base address:	0x0
+> - base address value:		0x20000000
+> - reg offset for base mask:	0x4
+> - base mask value:		0xfc000000
+> 
+> Or do you prefer to just pass register offsets in mediatek,pbus-csr phandle
+> array and get base address values reading ranges property? Something like:
+> 
+> pcie0: pcie@1fc00000 {
+> 	...
+> 	ranges = <0x02000000 0 0x20000000 0x0 0x20000000 0 0x4000000>;
+> 	...
+> 	mediatek,pbus-csr = <&pbus_csr 0x0 0x4>;
+> 	...
+> }
+> 
+> Considering the latter, even if it is not a real problem for EN7581 since we
+> have just a single range, what if we have multiple ranges?
 
-s/capabilties/capabilities/
+I'm really hesitant about giving DT advice because I don't understand
+it well, but I do think it's important to specify host bridge aperture
+addresses in 'ranges' because there's lots of generic code that
+expects them there.
+
+If you have to program the aperture addresses into the hardware, those
+register addresses should be described separately elsewhere.  I assume
+the aperture size is configurable since you have to write a mask
+value, so the driver would have to compute the mask value based on the
+aperture size.
 
 Bjorn
 
