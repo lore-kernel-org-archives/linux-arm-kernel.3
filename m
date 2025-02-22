@@ -4,93 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35E7DC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 10:16:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F8CEC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 10:46:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NYt57ZYgbjy6ej8hXDty7Cfp9Tf5nA32oYEo7YLt3U4=; b=xm3pfCDr48khKJI8QqWDL+2qUg
-	zqq6D3zSRnKO4r/JFwlqZSFq65VgASXxw9Auic0T85PGNHAd51J+rJ/r1IcI5xMIFbezs4cdeeQ3I
-	a/d75IhTEvw2ILc3Pl9s9JEnAhmsWfJLZ70MonJ9QLdRnj7ApRStrmZ9QVAx7t1/BvLmQzEYB9EDs
-	ejHf+na9HWpLYL0D8Mgr+/ks8u+F/c/+TmpwvvnB4iO+f+HQqrzbBCcgC6i3VDzvuWmVdbDm2rsMk
-	NyjXRHfiikJswyXuoY4Q/n3ZSndpfKuFkjWwTXiOQ2f6UHgMBFxXydvcWG3SwW9yg2Qe0fz+WmrJ5
-	oN/D+aXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tdmIHdsbzb8umbERSlAF5QUn1kxQ5VRQnjnz4IKcAf4=; b=UOTfhGVxa6HwLL
+	vsdixlNHSr0762hULzIaaHYBYlEBkSgl0zF3sL2rj4hRMaCibeqRB5aqhLM/SLDOmm9Es/wDxq00N
+	cKqlE7n7ABH8KufV7m+32I9uyfJpGh1s2kdYWMh+xaUa1owQctaj7OeW0Rt4jTp4dJ/9MHD+3lRAM
+	lbUvfTyR4Xj9QRNIO6l0ro5rRBRWclQ7m+l9Gzn/ioY9JsxFaSs8M34pU2cjTMQIo9FcBbYucnEiW
+	iRGjsWttPOqfpSItak7abt7vJM2LQNRT5CvMAev8+mpbPWcDYrd6h48ybUrzJoRg3sjCLSZDuxdqm
+	XYauWV4jUChD/bDEoaXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlmYE-00000007oZ2-3Tv8;
-	Sat, 22 Feb 2025 10:16:02 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1tln12-00000007qME-2ihI;
+	Sat, 22 Feb 2025 10:45:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlmWj-00000007oKT-28QK;
-	Sat, 22 Feb 2025 10:14:33 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1740219265;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=NYt57ZYgbjy6ej8hXDty7Cfp9Tf5nA32oYEo7YLt3U4=;
-	b=E0xbOLPRJ+XD/M3Ao9By6szoKCsyLxcxtVTGsSbhAcE5NU1NK5C2+Dfl+zJ4+rpk8p2vce
-	IgpgL+eLpTnyqk83xyrJHvEqqHTXl3g07KURIn1lsZ0aq6OKRUYTD54okHfdjXqNbDsSjC
-	8vSMloBPM2AV4QgA0stwUEWMG6uZx3A9biypqi3p4tS6E2BLtlPpYMDvXniwVQOifJQaz1
-	6Qig6O/uBgxjjBbGrOo71YvA2kL4peLeza5WOnn/Kdf4/Lf3rBALBWYLzmAVI3S8o31rMK
-	Fy+Fe19AlwTl2IsoJXlYAVNRDdBMW1sP8B0maDlcTMTjaB57ZbWi7eIerkehlg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1740219265;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=NYt57ZYgbjy6ej8hXDty7Cfp9Tf5nA32oYEo7YLt3U4=;
-	b=z74TsqYtERi/FO28k1WNxuOk/eCrttvKrCalx/NPgzVgRgvry4d1qCKiaSmbcNlhBsMonW
-	bE0L5AunrFXssYCw==
-To: Xi Ruoyao <xry111@xry111.site>, Thomas =?utf-8?Q?Wei=C3=9Fschuh?=
- <thomas.weissschuh@linutronix.de>, "James E.J. Bottomley"
- <James.Bottomley@HansenPartnership.com>, Helge
- Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>, Vincenzo
- Frascino <vincenzo.frascino@arm.com>, Anna-Maria Behnsen
- <anna-maria@linutronix.de>, Frederic Weisbecker <frederic@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, Catalin
- Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Theodore
- Ts'o <tytso@mit.edu>, "Jason A. Donenfeld" <Jason@zx2c4.com>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>, Russell King <linux@armlinux.org.uk>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger
- <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Thomas
- Bogendoerfer <tsbogend@alpha.franken.de>, Michael Ellerman
- <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Christophe
- Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao <naveen@kernel.org>,
- Madhavan
- Srinivasan <maddy@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>, Borislav
- Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann
- <arnd@arndb.de>, Guo Ren <guoren@kernel.org>
-Cc: linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- loongarch@lists.linux.dev, linux-s390@vger.kernel.org,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>,
- linux-csky@vger.kernel.org
-Subject: Re: [PATCH v3 09/18] riscv: vdso: Switch to generic storage
- implementation
-In-Reply-To: <1adbf1603237b654a2948ae13692c6b6db0ab7eb.camel@xry111.site>
-References: <20250204-vdso-store-rng-v3-0-13a4669dfc8c@linutronix.de>
- <20250204-vdso-store-rng-v3-9-13a4669dfc8c@linutronix.de>
- <1adbf1603237b654a2948ae13692c6b6db0ab7eb.camel@xry111.site>
-Date: Sat, 22 Feb 2025 11:14:23 +0100
-Message-ID: <87a5aegubk.ffs@tglx>
+	id 1tlmzZ-00000007qBg-451v;
+	Sat, 22 Feb 2025 10:44:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 310F86113C;
+	Sat, 22 Feb 2025 10:44:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6982FC4CED1;
+	Sat, 22 Feb 2025 10:44:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740221054;
+	bh=1EgGu4K6OScm1oy60Hd1e93/YxaKGFVdoWrvXutqVW0=;
+	h=From:Subject:Date:To:Cc:From;
+	b=Tut8NhPHV5YQ2j2Cev3+E18p21LBX32h8+hopks7Bc4vtsyFbNqRH4xkbQMBMCJDO
+	 OYeTrgmvjXNISssHiWIxn3wS9rVvd/CTcKgMmiFzDcygh3lltunhat8ucN4l3FD2F/
+	 NDPFknDY/44+wpxk86KxMULtCFu4nGgDYCP361CpWpGTrtSyW4wBbP04fDM+VNqDk8
+	 he1Xu61wRtYpWDS07ojJIXiMYhqHa83hBRDwRG8cSO+9/jnODJGOsM0jIsu5zQFILG
+	 AQmAuEuyA8ULMNzAEWBZkPsZwtd9+g9kT3E9GF8PuvYzH7arvfN+dXYlvqZAlUjYJH
+	 zHCia7a6oIm4A==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Subject: [PATCH v3 0/2] PCI: mediatek-gen3: Set PBUS_CSR regs for Airoha
+ EN7581 SoC.
+Date: Sat, 22 Feb 2025 11:43:43 +0100
+Message-Id: <20250222-en7581-pcie-pbus-csr-v3-0-e0cca1f4d394@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_021429_741896_CE7928AE 
-X-CRM114-Status: GOOD (  11.58  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAF+quWcC/22NQQ6CMBBFr0Jm7ZhSrIIr72FYwDDARNOSqRIN4
+ e5WEncu30/+ewtEVuEI52wB5VmiBJ+g2GVAY+MHRukSgzXWGWtyZH9yZY4TCePUPiNSVOwrOvR
+ lSezaAtJ1Uu7ltWmvdeJR4iPoe6vM9rv+hPa/cLZo8Og6alOTqqa63Fg93/dBB6jXdf0A6iDIO
+ LkAAAA=
+X-Change-ID: 20250201-en7581-pcie-pbus-csr-f9c4f88ce5b3
+To: Ryder Lee <ryder.lee@mediatek.com>, 
+ Jianjun Wang <jianjun.wang@mediatek.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,24 +83,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 22 2025 at 16:17, Xi Ruoyao wrote:
-> On Tue, 2025-02-04 at 13:05 +0100, Thomas Wei=C3=9Fschuh wrote:
->> The generic storage implementation provides the same features as the
->> custom one. However it can be shared between architectures, making
->> maintenance easier.
->>=20
->> Co-developed-by: Nam Cao <namcao@linutronix.de>
->> Signed-off-by: Nam Cao <namcao@linutronix.de>
->> Signed-off-by: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de>
->
-> I made a RISC-V vDSO getrandom implementation on top of this and it
-> works fine.  I'll submit it when this is merged.
+Configure PBus base address and base address mask to allow the hw
+to detect if a given address is accessible on the PCIe controller.
+Introduce mediatek,pbus-csr phandle array property.
 
-You can submit it right now. If it's reviewed and if Jason agrees, this
-can be merged through the timers/vdso branch on top of the pending
-changes.
+Changes in v3:
+- Get base address and base address mask from range property
+- Define mediatek,pbus-csr as phandle array
+- Link to v2: https://lore.kernel.org/r/20250202-en7581-pcie-pbus-csr-v2-0-65dcb201c9a9@kernel.org
 
-Thanks for testing it!
+Changes in v2:
+- Introduce mediatek,pbus-csr phandle property
+- Drop patch 1/2 in v1
+- Do not hard-code compatible sting in the driver and use phandle
+  instead
 
-       tglx
+---
+Lorenzo Bianconi (2):
+      dt-bindings: PCI: mediatek-gen3: Add mediatek,pbus-csr phandle array property
+      PCI: mediatek-gen3: Configure PBUS_CSR registers for EN7581 SoC
+
+ .../bindings/pci/mediatek-pcie-gen3.yaml           | 17 +++++++++++
+ drivers/pci/controller/pcie-mediatek-gen3.c        | 34 +++++++++++++++++++++-
+ 2 files changed, 50 insertions(+), 1 deletion(-)
+---
+base-commit: b6d7bb0d3bd74b491e2e6fd59c4d5110d06fd63b
+change-id: 20250201-en7581-pcie-pbus-csr-f9c4f88ce5b3
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
