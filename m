@@ -4,117 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C06BC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 02:50:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 394B0C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 03:13:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Ml4921wRMeo4Va2Ot0cFWeiFqoEb/SaXu+3hQO+9WI=; b=JJiYzEyVeWocZ1DHRzdrLVEar9
-	baqXu4xcxhG/N6i3aEIzGEQd8t8wvRMOJTTdIEZTBm0LYVIgy/uIyamz+qmIQfPfWCnsUv/qh1A44
-	3RNLGMUpBS0e9uxUAnhQHVYCOWTac7i/izGoYlOK5i7z8ebDOPTvoaSrR7yqLopRqppMOgXl8co+e
-	BnnRdBXfQ/oAdwdC/nGnhVgdLem+9Cm9Ek68tMuRvllnNQNBLIT+V4vJIbD56kq1oI7tmQyYoZU5d
-	UHaDTGftu1+i9xBJ+7Az/oSZMtH1RetRqZj3WDTtYRHGs0h8ftOyEdL1jHZCugRay/EcLT/+Pjioo
-	P7aPpCMg==;
+	bh=eWeCVs/LUULbQLdaOp27Hroq5hpYWQynHTMF6/hHolU=; b=2NTlfRQeAPAq0ZkOQTKL0wAijF
+	fmr8p3sf/loJ6Kr4/oeM0jAZtJSsYGzrsRIMnU/s4WkwoiLGSy6ixXCM2bO8KKWmQwnGBHSIWPF6L
+	BYeguTRZwldP/6RMKdcVUdgYPleXF37yeBDpFe1tGhvtFNRCt3vYhkksdJxt0srV2UDtVC9ruSFEn
+	HJ5jdiICszSIVK7KLCn8WgwZag7fbHEa8wpPxiqCM7mL5IjSPGSLxeo+PeCHBO9sU6zj0xWrSThmD
+	81aS6kQan+JUCC56YHuSXVZyymgCKI+IJ7HoYasb2nNl2lQ43a9YE4vEUV5OElgaC64MriHW+CGKq
+	I++PMO5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlfaa-00000007N3i-1e4g;
-	Sat, 22 Feb 2025 02:50:00 +0000
-Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
+	id 1tlfx6-00000007OEI-2X9W;
+	Sat, 22 Feb 2025 03:13:16 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlfZ6-00000007MzM-0aVO
+	id 1tlfvd-00000007O7x-0RUv
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Feb 2025 02:48:29 +0000
-Received: from phl-compute-13.internal (phl-compute-13.phl.internal [10.202.2.53])
-	by mailfout.phl.internal (Postfix) with ESMTP id B21EA1380A37;
-	Fri, 21 Feb 2025 21:48:24 -0500 (EST)
-Received: from phl-imap-07 ([10.202.2.97])
-  by phl-compute-13.internal (MEProxy); Fri, 21 Feb 2025 21:48:24 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
-	 t=1740192504; x=1740278904; bh=+Ml4921wRMeo4Va2Ot0cFWeiFqoEb/Sa
-	Xu+3hQO+9WI=; b=W9eTPIktQ2s23LhhHptCJ14xAtHMXQN1J5/nwPzlwHn5mb8X
-	sI024syw071x9sjmeAMIh2ftcBEykETf38Nl2CP7BTK7GqWMZfX4fUmBmRkCIlMW
-	dQhWbSSu2hdIQXmrR1r69jnBmAj8YpxtfcPMQbmNzV0zUl0h3pu7Zk0nBdM6fELV
-	mUc989mZIHLY8Gmsp5Kwl1IUwa4e6VG35ej8EaAbZjxey4rjBVIDgHrHeq8YTq+m
-	1fT5PIpqBLZdviWZZS6AOtgOS4tMgMONJuFtAay0fzNZVAHNRTAkMIM+T9de3zBG
-	QVeI/YedqDEgPDzIHJripftg8fgCXMyWToPwsQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1740192504; x=
-	1740278904; bh=+Ml4921wRMeo4Va2Ot0cFWeiFqoEb/SaXu+3hQO+9WI=; b=G
-	XuQ/77mgC6GJMn17RU4R49h0XDjO1x78fm9CQsYnhSGGz7FGqN7m8MPASSVsdKX2
-	XtRZlsjzBEfYdYiSaaOkLo4ipcW2Y4hjAO7Dsq52o/XbRhc9HHRJRuKsLGr70gid
-	nIHrNBRBjZqfGl4KjkwXBQGlrzt3JaAZszJdI8sciJ47t51/JuxjoaQrFR2Qd7Ae
-	Be/icjIs47N05h2qmtc4L4V3tlmDTwx7WbRgIvjm/YG2clO8rEg6VVOHohfflkql
-	RecwZ3tCft1KmZ9d9l3ly40p8i3CiVbJMbc4vBTEIyX0hKsbASY/asSTDFO6YP4j
-	dmRt/Px0h+KMkveO53KRw==
-X-ME-Sender: <xms:9zq5Z0hLvkeuMwA_cnETwKqgUSlolXj9MQgsXpgwQzmaXeRWJMGNvA>
-    <xme:9zq5Z9DZ_qFRkViArcKCqmvRfwe8qbS8DdjR44qSon968tNtS82Eb82LLfPVJL4ph
-    gDB-8zLNei5Ue3SLA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdejudejfecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthhqredtredt
-    jeenucfhrhhomhepfdfthigrnhcuhggrlhhklhhinhdfuceorhihrghnsehtvghsthhtoh
-    grshhtrdgtohhmqeenucggtffrrghtthgvrhhnpeeghffgkedtueeiudeukedvveevhfdu
-    uefhhedviefgffduheeuieeihefhfefgveenucevlhhushhtvghrufhiiigvpedtnecurf
-    grrhgrmhepmhgrihhlfhhrohhmpehrhigrnhesthgvshhtthhorghsthdrtghomhdpnhgs
-    pghrtghpthhtohepvdefpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegrnhgurh
-    gvrdhprhiihiifrghrrgesrghrmhdrtghomhdprhgtphhtthhopehmthhurhhquhgvthht
-    vgessggrhihlihgsrhgvrdgtohhmpdhrtghpthhtohepfigvnhhssegtshhivgdrohhrgh
-    dprhgtphhtthhopegurghnihgvlhesfhhffihllhdrtghhpdhrtghpthhtoheprghirhhl
-    ihgvugesghhmrghilhdrtghomhdprhgtphhtthhopehjvghrnhgvjhdrshhkrhgrsggvtg
-    esghhmrghilhdrtghomhdprhgtphhtthhopehkihhkuhgthhgrnhelkeesghhmrghilhdr
-    tghomhdprhgtphhtthhopehmrggtrhhorghlphhhrgekvdesghhmrghilhdrtghomhdprh
-    gtphhtthhopehsihhmohhnshdrphhhihhlihhpphgvsehgmhgrihhlrdgtohhm
-X-ME-Proxy: <xmx:9zq5Z8H1UxQeIorLCKziqKv-KX9dnWKQiRQFXXGqAoBi65EUPZ6f7g>
-    <xmx:9zq5Z1R1WkfRMZyxeOBaSEtFx6cRh4UH_ab5KOUMnXy_KDTCeK0r7Q>
-    <xmx:9zq5ZxwxoeTWFJcclrbFIm3Ibl6snmPR30wUQy_jZDWm6wqtin3Syw>
-    <xmx:9zq5Zz6tdzmIBMOl6MSs-EtVdatVYUt7niiNsSRE8LwWs3vQAfe2Jg>
-    <xmx:-Dq5Z4ipYhLDsQw2gde9HrsjorcDR9629C5VR3jImetuL6B0DxBdTVin>
-Feedback-ID: idc0145fc:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 1E245BA006F; Fri, 21 Feb 2025 21:48:23 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Sat, 22 Feb 2025 03:11:46 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-439950a45daso17038865e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 19:11:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740193903; x=1740798703; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eWeCVs/LUULbQLdaOp27Hroq5hpYWQynHTMF6/hHolU=;
+        b=aYu9t9ENVpq44BsbNVgUSflx9brKgIKB3H7QW3x/JUy++i1FvnjWrlhzVc2pPZHqTT
+         Pore3EYaEBU3zVpE4GMIk3YyeVZj6WbVxM3ljVEtrMWwISrQJxa+LBpA9ybriiCgxKy+
+         Yoy/SSGIPJc22I7/EpKJjaH3jCSnaYwqlghLB+5gd2MnSkfcMlbzooBSF1ztcWjylnAO
+         B3VYXyla/ccuO1T+pIJGoe7WfOWq1h8ZrsP58Se5gSN1B3E83kZiU5jOSU7yFRUIeySp
+         Hjr0GY9f7XFSMpSBWfI55WPsjvpUcApbDQFkKUX0i2c7M+G9hy+13U+dBuE009oc4HGT
+         Zgew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740193903; x=1740798703;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=eWeCVs/LUULbQLdaOp27Hroq5hpYWQynHTMF6/hHolU=;
+        b=ly6WGt/D0NkdCwBQVs/GMl9ZJBVR5z2ocXyqCDBGM2o/knKJ72m+SE1so7VVVGyMRn
+         /ApbxRw2pv/prCrF83JI8P2aCHymUp4O0+r+it3u0l1GZSF6RefaI39nM7lI/kPSzN88
+         E8BJf1m+lTX4x2KDAz3WCl7hoQgoFW1krZzcf+21F9kIIxKNJ3add0+IU03kxP1DtNMT
+         g9MuUHLLM/FfkNedkImUCFO3hKZu1RW4stg2kgGbQxQsRrC1Tpql1V74P3CpmURTSnGl
+         aav16b/RCVsN8QyhNVlOl5Us83gIFOx6KJKTIUHOAC+d80dyf6l5dtqKT0AgzY7jIJLX
+         W43Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUlKi/PfRl2lNbkx9RiBmm0DgaeEWzicAFkjcIflixMlhHW18ZO54zpMoQUEPeKROjsrV0BaUW7kRbzhS3HGVev@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKiA1/httbs8qIoIpIcFvsscL0YSDU0p+iXtrXAxlQ3vvI7soP
+	PcLO/NaygJM7h1T7bNlWxzSmtVHRkJAgJc6B9Z5W4Uc9Mkvy/WAhR0SnnpN6NJAYM0hrKRODlIl
+	weRxounKi//CzV1V0P59YuRFZ4y0=
+X-Gm-Gg: ASbGnctrwb9GlH0vglOT2EuU3boe34N2jPtC89O9jsmtAe5b1a1et7lQRxoo6Z8mc1f
+	Fr3a1f9//3GFfTCT8mShznxc9IDN7zEcM1SWaucGPbtm1+tcN9NHC/8KeB0iQ5LZ+iTXqdyb+eW
+	z+PBhw14HDjzzI8gZf6SSCK3Y=
+X-Google-Smtp-Source: AGHT+IFHd4FjvQqCrCtKgqnPKpghXHhZlzz58QS00WpJ2p2XRTL9M2RMPB6SCT69PYsT5XfrlmC6wGcJGaq0WN+opd4=
+X-Received: by 2002:a5d:5350:0:b0:38f:2a84:7542 with SMTP id
+ ffacd0b85a97d-38f6e97af1emr3987132f8f.28.1740193903162; Fri, 21 Feb 2025
+ 19:11:43 -0800 (PST)
 MIME-Version: 1.0
-Date: Sat, 22 Feb 2025 15:48:01 +1300
-From: "Ryan Walklin" <ryan@testtoast.com>
-To: "Jernej Skrabec" <jernej.skrabec@gmail.com>,
- "Maxime Ripard" <mripard@kernel.org>, "Chen-Yu Tsai" <wens@csie.org>,
- "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
- "Thomas Zimmermann" <tzimmermann@suse.de>,
- "David Airlie" <airlied@gmail.com>, "Daniel Vetter" <daniel@ffwll.ch>,
- "Samuel Holland" <samuel@sholland.org>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>,
- "Michael Turquette" <mturquette@baylibre.com>,
- "Stephen Boyd" <sboyd@kernel.org>
-Cc: "Andre Przywara" <andre.przywara@arm.com>,
- "Chris Morgan" <macroalpha82@gmail.com>,
- "Hironori KIKUCHI" <kikuchan98@gmail.com>,
- "Philippe Simons" <simons.philippe@gmail.com>,
- "Dmitry Baryshkov" <dmitry.baryshkov@linaro.org>,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org,
- linux-clk@vger.kernel.org
-Message-Id: <2a864555-d81f-4048-aa0b-c286544faa50@app.fastmail.com>
-In-Reply-To: <2221204.Mh6RI2rZIc@jernej-laptop>
-References: <20250216183524.12095-1-ryan@testtoast.com>
- <2221204.Mh6RI2rZIc@jernej-laptop>
-Subject: Re: [PATCH v7 00/27] drm: sun4i: add Display Engine 3.3 (DE33) support
-Content-Type: text/plain; charset=utf-8
+References: <cover.1740009184.git.yepeilin@google.com> <e2eb5c6912f292ed229aa4fb14e42d7f4c2f8571.1740009184.git.yepeilin@google.com>
+In-Reply-To: <e2eb5c6912f292ed229aa4fb14e42d7f4c2f8571.1740009184.git.yepeilin@google.com>
+From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Date: Fri, 21 Feb 2025 19:11:32 -0800
+X-Gm-Features: AWEUYZlZHAk5-Pi4bkDG584UOJ60mu8CwbUKbEyBXUnO5vXzR3fB-Zakai_-2X0
+Message-ID: <CAADnVQ+bJwwYKCU-HRWdgdfpc4pETxsVFtBOKAvfzLrR0Xvs4A@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v3 6/9] arm64: insn: Add load-acquire and
+ store-release instructions
+To: Peilin Ye <yepeilin@google.com>
+Cc: bpf <bpf@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, bpf@ietf.org, 
+	Xu Kuohai <xukuohai@huaweicloud.com>, Eduard Zingerman <eddyz87@gmail.com>, 
+	David Vernet <void@manifault.com>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
+	Jiri Olsa <jolsa@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	"Paul E. McKenney" <paulmck@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
+	Ilya Leoshkevich <iii@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Quentin Monnet <qmo@kernel.org>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
+	Ihor Solodrai <ihor.solodrai@linux.dev>, Yingchi Long <longyingchi24s@ict.ac.cn>, 
+	Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>, Neel Natu <neelnatu@google.com>, 
+	Benjamin Segall <bsegall@google.com>, LKML <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_184828_683003_4CC5DC23 
-X-CRM114-Status: GOOD (  34.44  )
+X-CRM114-CacheID: sfid-20250221_191145_154376_CA5C8D1E 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,124 +109,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 22 Feb 2025, at 7:57 AM, Jernej =C5=A0krabec wrote:
-> Hi Ryan,
+On Wed, Feb 19, 2025 at 5:21=E2=80=AFPM Peilin Ye <yepeilin@google.com> wro=
+te:
 >
-> sorry for very late review, but here we go...
-
-No problem, thanks for the review!
-
-> This patchset actually introduces 3 disticnt features, which should IM=
-O=20
-> be separated
-> and thus making reviewing patches easier.
+> Add load-acquire ("load_acq", LDAR{,B,H}) and store-release
+> ("store_rel", STLR{,B,H}) instructions.  Breakdown of encoding:
 >
-> 1. native 10-bit YUV420 output (without YUV->RGB->YUV conversions) -=20
-> this is used on
->     HDMI for proper 10-bit 4K@60 HDR output
-> 2. Display Engine 3.3 (DE33) support
-> 3. AFBC modifier/format support (used for more efficient GPU or VPU=20
-> output rendering)
+>                                 size        L   (Rs)  o0 (Rt2) Rn    Rt
+>              mask (0x3fdffc00): 00 111111 1 1 0 11111 1  11111 00000 0000=
+0
+>   value, load_acq (0x08dffc00): 00 001000 1 1 0 11111 1  11111 00000 0000=
+0
+>  value, store_rel (0x089ffc00): 00 001000 1 0 0 11111 1  11111 00000 0000=
+0
 >
-> If I'm not mistaken, your goal is only DE33 support.=20
-
-This is my initial goal, but I would still like good HDMI and video supp=
-ort (including HW decode).=20
-
-It took some refactoring and resequencing of (your) existing driver work=
- to get to this series, and I have left out the HDMI and separated the T=
-CON code for the same reason, that initially I am intending to just supp=
-ort RGB operation to an LCD. I do intend however to use the HDMI code ei=
-ther in or out of tree but think that will be a much bigger/more complex=
- change to mainline given the current HDMI code is more invasive to the =
-generic driver.
-
-The YUV and AFBC changes seemed more self-contained and seemed reasonabl=
-e approaches given that they were both features of the DE3 and up. I am =
-happy either to split these into either 4 or 5 separate patches ie:
-
-1a. refactor CSC code to prepare for YUV
-1b. add YUV for DE3
-2. refactor mixer enumeration and regmaps to support DE3+
-3. add DE33
-4. Add AFBC
-
-My only reluctance is that that adds more work to manage multiple patche=
-s which are logically grouped and in terms of ease of review, all these =
-4 steps are in the current set in that order (apart from AFBC which is c=
-ompletely standalone), and I don't think submitting them separately redu=
-ces complexity. It however will reduce reviewer burden as you suggest, b=
-ut this has been a slow process already.
-
-I am happy to accept either process but this has been some time already =
-now with lots of stylistic feedback but not much on the correctness of t=
-he approach and code, and I am keen to get this landed.
-
-There is are two=20
-> reasons why
-> I've never sent these patches myself:
+> As suggested by Xu [1], include all Should-Be-One (SBO) bits ("Rs" and
+> "Rt2" fields) in the "mask" and "value" numbers.
 >
-> 1. scaling YUV images doesn't work
+> It is worth noting that we are adding the "no offset" variant of STLR
+> instead of the "pre-index" variant, which has a different encoding.
 >
-> Not a problem for any user who doesn't use video player with DRM plane=20
-> rendering,
-> which I assume is most of them. We can get around of this issue to den=
-y=20
-> scaling
-> YUV buffers until the issue is sorted out.
-
-Good to know, I hadn't appreciated that. Mostly relevant for video as yo=
-u say and it would be good to land YUV support without scaling, then ext=
-end subsequently, possibly when we get to the video engine?
-
-> 2. plane allocations are hackish
+> Reference: Arm Architecture Reference Manual (ARM DDI 0487K.a,
+>            ID032224),
 >
-> DE33 for the first time introduced option to move planes between the=20
-> mixers. DRM
-> has also support for this, but for time being static allocation is=20
-> acceptable and tbh,
-> even dynamic support need appropriate initial setting.
-> As you might guessed this is done in DE33 clock driver using magic=20
-> values. Proper
-> way would be to introduce some kind of connection between mixer/plane=20
-> and clock
-> driver, so initial configuration can be moved to appropriate module=20
-> instead of
-> being thrown into clock driver. I need to check where to put it and ho=
-w=20
-> to properly
-> connect DT nodes. Maybe syscon phandle? I'll do some research.
+>   * C6.2.161 LDAR
+>   * C6.2.353 STLR
+>
+> [1] https://lore.kernel.org/bpf/4e6641ce-3f1e-4251-8daf-4dd4b77d08c4@huaw=
+eicloud.com/
+>
+> Signed-off-by: Peilin Ye <yepeilin@google.com>
+> ---
+>  arch/arm64/include/asm/insn.h |  8 ++++++++
+>  arch/arm64/lib/insn.c         | 29 +++++++++++++++++++++++++++++
+>  2 files changed, 37 insertions(+)
+>
+> diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.=
+h
+> index 2d8316b3abaf..39577f1d079a 100644
+> --- a/arch/arm64/include/asm/insn.h
+> +++ b/arch/arm64/include/asm/insn.h
+> @@ -188,8 +188,10 @@ enum aarch64_insn_ldst_type {
+>         AARCH64_INSN_LDST_STORE_PAIR_PRE_INDEX,
+>         AARCH64_INSN_LDST_LOAD_PAIR_POST_INDEX,
+>         AARCH64_INSN_LDST_STORE_PAIR_POST_INDEX,
+> +       AARCH64_INSN_LDST_LOAD_ACQ,
+>         AARCH64_INSN_LDST_LOAD_EX,
+>         AARCH64_INSN_LDST_LOAD_ACQ_EX,
+> +       AARCH64_INSN_LDST_STORE_REL,
+>         AARCH64_INSN_LDST_STORE_EX,
+>         AARCH64_INSN_LDST_STORE_REL_EX,
+>         AARCH64_INSN_LDST_SIGNED_LOAD_IMM_OFFSET,
 
-Thanks, I was not aware of this either.
+Xu, Puranjay, other arm experts,
 
-> There is one glaring issue (when you work on driver and test every=20
-> aspect of it).
-> DE33 introduced RCQ, which is basically DMA, which copies shadowed=20
-> registers
-> from memory buffer directly to hw registers. IIRC it does that at=20
-> vblank time. This
-> tells you that current concept of writing register values at any time=20
-> userspace feels
-> to do commit is wrong and we've been lucky that it works as well as it=20
-> does. So,
-> in order to fix this, driver would need quite a big reorganization.=20
-> Introducing
-> shadow buffers would solve most of the issues, most likely also with=20
-> YUV scaling.
-> Implementing RCQ would be then relatively simple and even improve=20
-> timings.
-> Note that even DE3 has occasional issue with YUV scaler and also=20
-> read-modify-read
-> access to some of its register can produce bogus value and thus corrup=
-t=20
-> image
-> until next commit.
+Please help review these patches.
 
-Thanks, again I wasn't aware. All my testing has shown remarkable stabil=
-ity and there are some downstream users out-of-tree with good feedback, =
-but would be happy to support an effort to improve this.
-
-Regards,
-
-Ryan
+Thanks!
 
