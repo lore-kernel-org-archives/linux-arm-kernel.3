@@ -4,76 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 581AAC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 17:05:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A941EC021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 17:30:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Wu0UUcPqlB9jM5KfZwSa4HyJrl2/i+GDvmq1IOn9y4=; b=Yd46GXppzOOHRhI75JrisnaNru
-	VardV94v0ikmSAgvDKHuFAm88YJ4ijh+VUc125GVvRZEkz6T6pwC5lG494nl379D7t0kRSCx22ZvD
-	AS46ycSds/3nOzBU/FJkOoi0aUUUeCGP41fAAYDAfQUhvxqGUAX6vGn9wcdjDAbO65zDrM+Qk5gI/
-	MTjSFl5dDoDqyrRQwgHyBxW+eeAdQieX0UwgZ3BBRY+DfMBgzP42KTedS2h4Ik1M25cQNz64d7/ar
-	47YB63eVtZNpol+hvzc3W9aJ+c17B7DNziBmT/sq0143MLyfouegvRQGIDwkV7Y9IWFRVVnfjBKkc
-	dCSWpqWw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/RDwd1dzgwI+i7ONubzdJYvtvlrF6300doLfGnBg5ak=; b=UOaaxYBRnq/VarnQg1DtSdSH3k
+	Z0KvPZuDwgxnM2E9/Mq4TWQvn5fYyDUUETeP0NnnF5ign03RyqV0Or6trl2ToFFptJ93bI4d2nDPi
+	p3vzX/54sxFSSmL+WqscGC0rYG57MRNFWodl+F2+R9X7UlLBO8IWVxL+cq1Vb27FJu5rW9pLX6xlh
+	aaZn1lWjj/1ozkaLkRUbfT97OQfxSRdb1f2/Z65u3SIEDdd2AFznC7MOMyvPpRhUUyrjuxGimg6vg
+	r74k/3b1E35P+7cxkhxs/8LBjceIH9FVmgTo+IjGWvr/ydLlS49grGJWZevCm2YQjqfXRVX1KW3Yw
+	kKsW3ZXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlsvx-00000008Q9d-1NLp;
-	Sat, 22 Feb 2025 17:04:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tltKL-00000008RvU-2Olp;
+	Sat, 22 Feb 2025 17:30:09 +0000
+Received: from mail-oi1-x236.google.com ([2607:f8b0:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlsoi-00000008PFi-3Gsa
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Feb 2025 16:57:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BC8725C5B74;
-	Sat, 22 Feb 2025 16:56:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 7A01AC4CEE4;
-	Sat, 22 Feb 2025 16:57:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740243447;
-	bh=An5J6IqDp2zWwUNORXgBiUZy9PXB7xSOmI3qj26bEQs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=muvyDUndkBAKBPQHlC5moP1e+2pHsgPnei8eGoUIhaYWbASHiTmkT4AwAzx0Dyghk
-	 xzRDaOX2M1bSwndpb/hL+WUJXowO/NGouW5t36AN07YZXaHO0wENbvdoxJGQ6t32zj
-	 Bmxe7pNKzKawMcCUXs4RXxo3xYs9AHzsxZ2j+UtRstxiUl7XJQA0hkHoWySzQIq9tI
-	 zuZ6jfVYbNSmiYTFQpJDP93pCPdt8EB2PpN6GS2NKkhX3NKxt2ZHLDL9ZiOXu9ZBxJ
-	 FIig97FyrugSGg9RVJ+irQOb/WkJhfQW9lSN3xewUtX5y1QOSTavJc67I70827QlZF
-	 jtOjsBy77YPgw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6A596C021B8;
-	Sat, 22 Feb 2025 16:57:27 +0000 (UTC)
-From: Sven Peter via B4 Relay <devnull+sven.svenpeter.dev@kernel.org>
-Date: Sat, 22 Feb 2025 16:56:47 +0000
-Subject: [PATCH 2/4] soc: apple: rtkit: Implement OSLog buffers properly
+	id 1tltIr-00000008Rio-42bJ;
+	Sat, 22 Feb 2025 17:28:39 +0000
+Received: by mail-oi1-x236.google.com with SMTP id 5614622812f47-3f3fc8f5ffdso682694b6e.0;
+        Sat, 22 Feb 2025 09:28:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740245317; x=1740850117; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=/RDwd1dzgwI+i7ONubzdJYvtvlrF6300doLfGnBg5ak=;
+        b=H10TRhl+PWYqhlTW2TJ4xJfwro7ntdgo9AufR8RhqmEypJntKV3OVMtvFccnQqLBeB
+         B/1C45aNWy53vZW180s6wVCWrCZixWhsIvXq3bjb1doqd9BpxIBjGpBBEHb3G6t4pc/M
+         3L6su3MMOHTKj2Iiz9JXvksD2FCa8R089mTZDShMWYB+ybtbkWyP3PMKasqpr+0WUj/B
+         EMUF/nkKSBRiBsldwLUvgTdsUXsLGq5n/HVkP2BTZzhu+j/a6c4yneoect0SsUkE2HR8
+         JNiVaxuCXWChmiA7Pur0aE6nw6lg4/edF80mf00KxgdZVH58IpKaiWqohxJDY5Hf9OB0
+         cfxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740245317; x=1740850117;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/RDwd1dzgwI+i7ONubzdJYvtvlrF6300doLfGnBg5ak=;
+        b=sxUiI9clhlKFOkPafrbeREbkCYWN8EUUjtb+gzBxVnDB0Qg35mkPGR0fRYZfJVS8UP
+         AUd9uVHJFSZ0do9Z/HgBz1m0OrI+q9bjehvQbXH6y/xLpsOfYSU4oBgDGhi2O3mdpDCC
+         ZLf4YF+75QbeYJzKfmraG4EVj5UCcOJo8MKvxz7R6S/Dasatec3TrmUfQ3P7I/Jc8pdZ
+         nsCCC8KFkGimBDgyA3/ee2W3gxmBmh2rBZvaLBf3xgQEHReQQRYlpHqMMKSQE/sAYbR6
+         T6vdQltEBSheKEtmoI8GJQVFxuT61LEr4wg3Mxyc/scxj/qhWQTjwTxWmwlsFkkm7PwC
+         sdOw==
+X-Forwarded-Encrypted: i=1; AJvYcCV+6L3CEQScrZb9wbp1CySigI7/d1xu2PXnobVuCTG++ANl5vyarhqZZ2AFR0d9mgnXDbaKPfKpj7KlPS3P9Jc=@lists.infradead.org, AJvYcCWA3AOJ44GtNPfKUaDqfGyOAqku3h1tY1wkr7RTk6HCpsaeHBVXngO2d/dUb+MXyG+ZzPWusG4Ohr0pkhwJl/mV@lists.infradead.org
+X-Gm-Message-State: AOJu0YzlGacwjPc5lJ8yThRKzW6vw5xun9SiSx5cyo+86Jzz7Cjz+4SL
+	+xXyXBf2AKC8hMZQBF2GOA6NRMSsGVOqWhzOgzt4a2v2cEW+HS50
+X-Gm-Gg: ASbGnct4zCSoyPBOs4YtyNa3WgmP977PygOXBippxHPeo4Mb2xIAbP/tzhZBT8BHM1H
+	6FI8+wCAI0HGnIMSYML3+Is/RBduUIq7PtGmesD28+q0iUXj/xDyoiguu4q7cvcPp5J720rISGQ
+	PL8NYjXor/fXF2DElRhdmAYKTjr3cPsNY3AmL7Rg8y6I18WQaOuACy8HHCXVPDCYcern16OWeaq
+	ZH0VXpl3dv9xLABS3v9zjRirCY6FM4kwqnOZcbhyOKGt5DdI7jE24gt3Ze8EYg0xsJV0ptIfjg9
+	ToJN6uD+oPAA2MfK6TG9Js44ySwmm745WKw=
+X-Google-Smtp-Source: AGHT+IF0NTsU8DfMoaFZ2lsiXddsrGmALe0QLSbx/QBGxRbH4pRWZ/f5aNtmVBWOMYxv3yoy32tzkA==
+X-Received: by 2002:a05:6808:1815:b0:3f4:1197:29ba with SMTP id 5614622812f47-3f425a5fa53mr5553662b6e.2.1740245316893;
+        Sat, 22 Feb 2025 09:28:36 -0800 (PST)
+Received: from tower.cjhon.com ([2603:8081:ad00:4a:996a:132b:43a2:f7b0])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2b963a0ac4bsm7244238fac.47.2025.02.22.09.28.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 22 Feb 2025 09:28:35 -0800 (PST)
+From: Jimmy Hon <honyuenkwun@gmail.com>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Johannes Erdfelt <johannes@erdfelt.com>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Jimmy Hon <honyuenkwun@gmail.com>
+Subject: [PATCH v6 0/5] Orange Pi 5 Ultra
+Date: Sat, 22 Feb 2025 11:27:47 -0600
+Message-ID: <20250222172752.6254-1-honyuenkwun@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250222-apple-soc-misc-v1-2-1a3af494a48a@svenpeter.dev>
-References: <20250222-apple-soc-misc-v1-0-1a3af494a48a@svenpeter.dev>
-In-Reply-To: <20250222-apple-soc-misc-v1-0-1a3af494a48a@svenpeter.dev>
-To: Alyssa Rosenzweig <alyssa@rosenzweig.io>, Janne Grunau <j@jannau.net>, 
- Sven Peter <sven@svenpeter.dev>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Hector Martin <marcan@marcan.st>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5240; i=sven@svenpeter.dev;
- h=from:subject:message-id;
- bh=R+qHwP6N7Wo+pbfFcnEksJfkuPHxCovWxSbr4FQ4Ruc=;
- b=owGbwMvMwCHmIlirolUq95LxtFoSQ/ouxs8NTSUv34Q7hytKBahp98uzVDzsaVa4/5D/5xwGd
- Rn2R1s6SlkYxDgYZMUUWbbvtzd98vCN4NJNl97DzGFlAhnCwMUpABOxCmRkWMv261PWkZlvD+hf
- /nhMiGNH+cvME28+Lq18kSo49UHhpFsMf8Wu7kmbt5i//W6Z+r1JolqTeYzc1u9nMNdNmfesR7u
- 6jAkA
-X-Developer-Key: i=sven@svenpeter.dev; a=openpgp;
- fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
-X-Endpoint-Received: by B4 Relay for sven@svenpeter.dev/default with
- auth_id=167
-X-Original-From: Sven Peter <sven@svenpeter.dev>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_085728_926420_B9FDA584 
-X-CRM114-Status: GOOD (  13.90  )
+X-CRM114-CacheID: sfid-20250222_092838_001189_DBD35B86 
+X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,155 +96,67 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: sven@svenpeter.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hector Martin <marcan@marcan.st>
+Add device-tree for Orange Pi 5 Ultra
 
-Apparently nobody can figure out where the old logic came from, but it
-seems like it has never been actually used on any supported firmware to
-this day. OSLog buffers were apparently never requested.
+Thanks to Johannes for testing
 
-But starting with 13.3, we actually need this implemented properly for
-MTP (and later AOP) to work, so let's actually do that.
+The schematic has been published for the Orange 5 Ultra. [1]
 
-Signed-off-by: Hector Martin <marcan@marcan.st>
-Signed-off-by: Sven Peter <sven@svenpeter.dev>
----
- drivers/soc/apple/rtkit-internal.h |  1 +
- drivers/soc/apple/rtkit.c          | 55 +++++++++++++++++++++++---------------
- 2 files changed, 34 insertions(+), 22 deletions(-)
+It's a sibling of the Orange Pi 5 Max [2] with the HDMI0 switched out 
+for the HDMI RX. As a side affect the pin for USB_OTG_PWREN [3][4] has 
+changed.
 
-diff --git a/drivers/soc/apple/rtkit-internal.h b/drivers/soc/apple/rtkit-internal.h
-index 27c9fa745fd5..b8d5244678f0 100644
---- a/drivers/soc/apple/rtkit-internal.h
-+++ b/drivers/soc/apple/rtkit-internal.h
-@@ -44,6 +44,7 @@ struct apple_rtkit {
- 
- 	struct apple_rtkit_shmem ioreport_buffer;
- 	struct apple_rtkit_shmem crashlog_buffer;
-+	struct apple_rtkit_shmem oslog_buffer;
- 
- 	struct apple_rtkit_shmem syslog_buffer;
- 	char *syslog_msg_buffer;
-diff --git a/drivers/soc/apple/rtkit.c b/drivers/soc/apple/rtkit.c
-index be0d08861168..35734ae8c9ce 100644
---- a/drivers/soc/apple/rtkit.c
-+++ b/drivers/soc/apple/rtkit.c
-@@ -67,8 +67,9 @@ enum {
- #define APPLE_RTKIT_SYSLOG_MSG_SIZE  GENMASK_ULL(31, 24)
- 
- #define APPLE_RTKIT_OSLOG_TYPE GENMASK_ULL(63, 56)
--#define APPLE_RTKIT_OSLOG_INIT	1
--#define APPLE_RTKIT_OSLOG_ACK	3
-+#define APPLE_RTKIT_OSLOG_BUFFER_REQUEST 1
-+#define APPLE_RTKIT_OSLOG_SIZE GENMASK_ULL(55, 36)
-+#define APPLE_RTKIT_OSLOG_IOVA GENMASK_ULL(35, 0)
- 
- #define APPLE_RTKIT_MIN_SUPPORTED_VERSION 11
- #define APPLE_RTKIT_MAX_SUPPORTED_VERSION 12
-@@ -259,15 +260,20 @@ static int apple_rtkit_common_rx_get_buffer(struct apple_rtkit *rtk,
- 					    struct apple_rtkit_shmem *buffer,
- 					    u8 ep, u64 msg)
- {
--	size_t n_4kpages = FIELD_GET(APPLE_RTKIT_BUFFER_REQUEST_SIZE, msg);
- 	u64 reply;
- 	int err;
- 
-+	if (ep == APPLE_RTKIT_EP_OSLOG) {
-+		buffer->size = FIELD_GET(APPLE_RTKIT_OSLOG_SIZE, msg);
-+		buffer->iova = FIELD_GET(APPLE_RTKIT_OSLOG_IOVA, msg) << 12;
-+	} else {
-+		buffer->size = FIELD_GET(APPLE_RTKIT_BUFFER_REQUEST_SIZE, msg) << 12;
-+		buffer->iova = FIELD_GET(APPLE_RTKIT_BUFFER_REQUEST_IOVA, msg);
-+	}
-+
- 	buffer->buffer = NULL;
- 	buffer->iomem = NULL;
- 	buffer->is_mapped = false;
--	buffer->iova = FIELD_GET(APPLE_RTKIT_BUFFER_REQUEST_IOVA, msg);
--	buffer->size = n_4kpages << 12;
- 
- 	dev_dbg(rtk->dev, "RTKit: buffer request for 0x%zx bytes at %pad\n",
- 		buffer->size, &buffer->iova);
-@@ -292,11 +298,21 @@ static int apple_rtkit_common_rx_get_buffer(struct apple_rtkit *rtk,
- 	}
- 
- 	if (!buffer->is_mapped) {
--		reply = FIELD_PREP(APPLE_RTKIT_SYSLOG_TYPE,
--				   APPLE_RTKIT_BUFFER_REQUEST);
--		reply |= FIELD_PREP(APPLE_RTKIT_BUFFER_REQUEST_SIZE, n_4kpages);
--		reply |= FIELD_PREP(APPLE_RTKIT_BUFFER_REQUEST_IOVA,
--				    buffer->iova);
-+		/* oslog uses different fields */
-+		if (ep == APPLE_RTKIT_EP_OSLOG) {
-+			reply = FIELD_PREP(APPLE_RTKIT_OSLOG_TYPE,
-+					   APPLE_RTKIT_OSLOG_BUFFER_REQUEST);
-+			reply |= FIELD_PREP(APPLE_RTKIT_OSLOG_SIZE, buffer->size);
-+			reply |= FIELD_PREP(APPLE_RTKIT_OSLOG_IOVA,
-+					    buffer->iova >> 12);
-+		} else {
-+			reply = FIELD_PREP(APPLE_RTKIT_SYSLOG_TYPE,
-+					   APPLE_RTKIT_BUFFER_REQUEST);
-+			reply |= FIELD_PREP(APPLE_RTKIT_BUFFER_REQUEST_SIZE,
-+					    buffer->size >> 12);
-+			reply |= FIELD_PREP(APPLE_RTKIT_BUFFER_REQUEST_IOVA,
-+					    buffer->iova);
-+		}
- 		apple_rtkit_send_message(rtk, ep, reply, NULL, false);
- 	}
- 
-@@ -494,25 +510,18 @@ static void apple_rtkit_syslog_rx(struct apple_rtkit *rtk, u64 msg)
- 	}
- }
- 
--static void apple_rtkit_oslog_rx_init(struct apple_rtkit *rtk, u64 msg)
--{
--	u64 ack;
--
--	dev_dbg(rtk->dev, "RTKit: oslog init: msg: 0x%llx\n", msg);
--	ack = FIELD_PREP(APPLE_RTKIT_OSLOG_TYPE, APPLE_RTKIT_OSLOG_ACK);
--	apple_rtkit_send_message(rtk, APPLE_RTKIT_EP_OSLOG, ack, NULL, false);
--}
--
- static void apple_rtkit_oslog_rx(struct apple_rtkit *rtk, u64 msg)
- {
- 	u8 type = FIELD_GET(APPLE_RTKIT_OSLOG_TYPE, msg);
- 
- 	switch (type) {
--	case APPLE_RTKIT_OSLOG_INIT:
--		apple_rtkit_oslog_rx_init(rtk, msg);
-+	case APPLE_RTKIT_OSLOG_BUFFER_REQUEST:
-+		apple_rtkit_common_rx_get_buffer(rtk, &rtk->oslog_buffer,
-+						 APPLE_RTKIT_EP_OSLOG, msg);
- 		break;
- 	default:
--		dev_warn(rtk->dev, "RTKit: Unknown oslog message: %llx\n", msg);
-+		dev_warn(rtk->dev, "RTKit: Unknown oslog message: %llx\n",
-+			 msg);
- 	}
- }
- 
-@@ -729,6 +738,7 @@ int apple_rtkit_reinit(struct apple_rtkit *rtk)
- 
- 	apple_rtkit_free_buffer(rtk, &rtk->ioreport_buffer);
- 	apple_rtkit_free_buffer(rtk, &rtk->crashlog_buffer);
-+	apple_rtkit_free_buffer(rtk, &rtk->oslog_buffer);
- 	apple_rtkit_free_buffer(rtk, &rtk->syslog_buffer);
- 
- 	kfree(rtk->syslog_msg_buffer);
-@@ -916,6 +926,7 @@ void apple_rtkit_free(struct apple_rtkit *rtk)
- 
- 	apple_rtkit_free_buffer(rtk, &rtk->ioreport_buffer);
- 	apple_rtkit_free_buffer(rtk, &rtk->crashlog_buffer);
-+	apple_rtkit_free_buffer(rtk, &rtk->oslog_buffer);
- 	apple_rtkit_free_buffer(rtk, &rtk->syslog_buffer);
- 
- 	kfree(rtk->syslog_msg_buffer);
+Also, the Ultra's PWM_LEDs have the polarity inverted
 
+Patch 1 can be included in 6.14-fixes
+Patch 2 and 3 can be used on 6.14-rc1
+Patch 4 can be used with 6.15-rc1
+Patch 5 is waiting for HDMI audio patchset [5]
+
+My testing branch with dependent patchsets is on github [6]. This now 
+includes extra patch in clk to throw NOENT [7]
+
+[1] http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-5-Ultra.html
+[2] http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-5-Max.html
+[3] https://github.com/orangepi-xunlong/linux-orangepi/blob/orange-pi-6.1-rk35xx/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts#L306
+[4] https://github.com/orangepi-xunlong/linux-orangepi/blob/orange-pi-6.1-rk35xx/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-ultra.dts#L321
+[5] https://lore.kernel.org/linux-rockchip/20250217215641.372723-1-detlev.casanova@collabora.com/
+[6] https://github.com/jimmyhon/linux/tree/integrate-6.15
+[7] https://lore.kernel.org/linux-rockchip/2425191.NG923GbCHz@diego/
+
+Changes in v6:
+- Add R-b from Rob
+- More differences between Max and Ultra
+- Ultra PWM_LEDs have different polarity than Max
+Link to v5: https://lore.kernel.org/linux-rockchip/20250220041010.3801-1-honyuenkwun@gmail.com/
+
+Changes in v5:
+- add USB 3.0
+- add HDMI1
+- add HDMI audio
+Link to v4: https://lore.kernel.org/linux-rockchip/20241229184256.1870-10-honyuenkwun@gmail.com/
+
+Jimmy Hon (5):
+  arm64: dts: rockchip: Differences in Orange Pi 5 Max
+  dt-bindings: arm: rockchip: Add Xunlong Orange Pi 5 Ultra
+  arm64: dts: rockchip: Add Orange Pi 5 Ultra board
+  arm64: dts: rockchip: Enable HDMI1 on Orange Pi 5 Ultra
+  arm64: dts: rockchip: Enable HDMI1 audio output for Orange Pi 5 Ultra
+
+ .../devicetree/bindings/arm/rockchip.yaml     |  3 +-
+ arch/arm64/boot/dts/rockchip/Makefile         |  1 +
+ .../rockchip/rk3588-orangepi-5-compact.dtsi   |  9 --
+ .../dts/rockchip/rk3588-orangepi-5-max.dts    |  8 ++
+ .../dts/rockchip/rk3588-orangepi-5-ultra.dts  | 83 +++++++++++++++++++
+ 5 files changed, 94 insertions(+), 10 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-ultra.dts
+
+base-commit: fa15cc73121279f93757ec76312b0d0b73f7462a
+prerequisite-patch-id: e7cb3b62d173506d38a10a8e71eedd62ba6a1bc0
 -- 
-2.34.1
-
+2.48.1
 
 
