@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECAA8C021B6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 00:40:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC65AC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 00:41:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ssOi1VCJRc6WEf+VUNdD01niQTyalPzzhTyADiWu7H8=; b=zpZG08b5kzoCWiGhsIFtbyck2N
-	tXsJDTxkF1q+QGHvPw99PDRxIYLqzxydIy1QFjzSDwF8qIzoAcmOHtfhvQ4j+3acM2U0XSdQntl8B
-	Z8YK5/YzMLqhcHYYmkIqacuMz29loQd6225Ma0lRiUx0N0md4RZ2PFkwYAapsgKnTLtLwsBPr6K4l
-	EUhLskv/b+rh6Wniwcl7WoTiaTuL7KB+oPQAErOnK6B1HJc1kPd82tGSkQQ6mpgXfI8gyhrHeXAh2
-	oj/uU3ez57BFMhY2Yf0xtApXhQDCjmg/a2WrAy9/JcYW3YcMsSKnZxN/jgQs5oCIB74HSx+TNgL2X
-	3pFscmBg==;
+	bh=fzKEU6OM3UYFXa02K7RzmXgbWl3xhuTboqbk8Ym14Vo=; b=yjwQunbt4zA12tpisX0C20JgVF
+	BHSBqmm50v8/T1vjWaDCaOFDdhrxZ9UhRgyXSZR7R1wwpuWbzdAAqIGs6uCMEZkBlvHXF0Ls3sUkd
+	N5iDz8v6vyN1LpPSdXduecLSY67DMCzzizsqN5r2/3qx5YpaP6TcFx4jO8eqNexVxEBvkOidVs+kQ
+	Fj15n48LNicDYuii3fe6Hjmd4NGJvbkc+sC1VFV/8GkrhdyVhE6Zvmkf6KmdxCIUe9qRKmfRX/XKr
+	jqlHdjGE+spHbO9owZRLgyc6OrlQskQoHi+WY1eihOr9wEIVl0eMVFBxKNF8gmNS/o5DFNCbaHd6k
+	+cQWzL9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tldZ3-00000007EiC-2KV5;
-	Sat, 22 Feb 2025 00:40:17 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tldaV-00000007Ev3-2AYf;
+	Sat, 22 Feb 2025 00:41:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tldXa-00000007EYU-0Yom;
-	Sat, 22 Feb 2025 00:38:47 +0000
+	id 1tldYt-00000007EfY-0WRa
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 22 Feb 2025 00:40:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A8D815C5D03;
-	Sat, 22 Feb 2025 00:38:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4731C4CED6;
-	Sat, 22 Feb 2025 00:38:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 88306613DE;
+	Sat, 22 Feb 2025 00:40:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04B6EC4CED6;
+	Sat, 22 Feb 2025 00:40:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740184724;
-	bh=FQ2i0wx4TGUTjsWy2c0bZNoWOkyscg1zzRkTcOHmSi4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=NGuNNBiZcujTvg2vGTQMV1HJz8aJPA3l4fuod5f7gzqx/YPxrdXwR/sqVQZ9dA2MG
-	 6uvM0N98xnGFLvBdlfJF1j8NKW9re/MTh/MrRD2Qm53xQqOKrjdWL9w9IPctm1MFag
-	 paIJjNuejhsoVoznJJ6ZMIMwKSjJpGZtG97biBu16Xr6wnzjkAZHimqiZsfQDwzTbF
-	 LAg2ApM/FtH43YFeTcldqvhgE86lS4FBSTQ/+4qsrT3Uy2wUUWH5fg8guJAYFQ7jLQ
-	 pdZtz8PZQhjx0v/IQwQBKcYPuiX02x4m5jZu5u7aIXMj/YdCBkYoH0pXVQC/2iXsSV
-	 bowAQUVgDxZ7g==
-Date: Fri, 21 Feb 2025 16:38:42 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Heiko Stuebner <heiko@sntech.de>, Chen-Yu Tsai
- <wens@csie.org>, Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- stable@vger.kernel.org
-Subject: Re: [PATCH RESEND net-next] net: stmmac: dwmac-rk: Provide FIFO
- sizes for DWMAC 1000
-Message-ID: <20250221163842.04863ba1@kernel.org>
-In-Reply-To: <20250220164031.1886057-1-wens@kernel.org>
-References: <20250220164031.1886057-1-wens@kernel.org>
+	s=k20201202; t=1740184806;
+	bh=H48JW7AW173NYuh0XY8Bexb5wuYfEmHh77BrSrgAcTw=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=IP5DaEZAGMCYAd7SYzf3poZOQnKpJUjp2s7WUISj87KW05YphO3WIX5+BCtPOifmp
+	 5OqZCesEWqKAWvtfvysDZ8DFGoB6ZaXCq779oNeJzpH65QoX/Pr1Tn7ahvG/PL+tcZ
+	 5GSDt+ih3RWfLL4ST7jozwiWLrkwejK/hy/0iQzDr0F20lxHSLJr6DI4WcbWEzuIUH
+	 uNbKuCCd6G0iqwyIVeWMHKpH3oO9rPemjpv4wsZI40GhTIwbCDjKOEx++zSLSviNvb
+	 OSicv/HEvr6pS0U0+PpfoJsjGzin9npFsiCNquWg8n5rjBxvsWaPF6y1OU0wPwkoJS
+	 xwYqVbVL7wCcA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 34031380CEF6;
+	Sat, 22 Feb 2025 00:40:38 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_163846_239109_129258D1 
-X-CRM114-Status: GOOD (  16.87  )
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next] net: stmmac: print stmmac_init_dma_engine() errors
+ using netdev_err()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <174018483699.2253519.16103743510022533749.git-patchwork-notify@kernel.org>
+Date: Sat, 22 Feb 2025 00:40:36 +0000
+References: <E1tl5y1-004UgG-8X@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1tl5y1-004UgG-8X@rmk-PC.armlinux.org.uk>
+To: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
+ netdev@vger.kernel.org, pabeni@redhat.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,37 +75,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 21 Feb 2025 00:40:31 +0800 Chen-Yu Tsai wrote:
-> The recent commit 8865d22656b4 ("net: stmmac: Specify hardware
-> capability value when FIFO size isn't specified") changed this by
-> requiring the FIFO sizes to be provided, breaking devices that were
-> working just fine.
-> 
-> Provide the FIFO sizes through the driver's platform data, to not
-> only fix the breakage, but also enable MTU changes. The FIFO sizes
-> are confirmed to be the same across RK3288, RK3328, RK3399 and PX30,
-> based on their respective manuals. It is likely that Rockchip
-> synthesized their DWMAC 1000 with the same parameters on all their
-> chips that have it.
-> 
-> Fixes: eaf4fac47807 ("net: stmmac: Do not accept invalid MTU values")
-> Fixes: 8865d22656b4 ("net: stmmac: Specify hardware capability value when FIFO size isn't specified")
-> Cc: <stable@vger.kernel.org>
-> Signed-off-by: Chen-Yu Tsai <wens@csie.org>
-> ---
-> (Resending to net-next instead of netdev.)
-> 
-> The commit that broke things has already been reverted in netdev.
-> 
-> The reason for stable inclusion is not to fix the device breakage
-> (which only broke in v6.14-rc1), but to provide the values so that MTU
-> changes can work in older kernels.
+Hello:
 
-Thanks for the resend, the explanation under the --- marker makes sense
-but that part gets cut off when we apply the patch. You need to improve
-the main body of the commit. Remove the references to the reverted
-commit, please, for all practical purposes it no longer matters.
-Please remove the Fixes tags and CC stable since it's not a fix
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Thu, 20 Feb 2025 12:47:49 +0000 you wrote:
+> stmmac_init_dma_engine() uses dev_err() which leads to errors being
+> reported as e.g:
+> 
+> dwc-eth-dwmac 2490000.ethernet: Failed to reset the dma
+> dwc-eth-dwmac 2490000.ethernet eth0: stmmac_hw_setup: DMA engine initialization failed
+> 
+> stmmac_init_dma_engine() is only called from stmmac_hw_setup() which
+> itself uses netdev_err(), and we will have a net_device setup. So,
+> change the dev_err() to netdev_err() to give consistent error
+> messages.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net-next] net: stmmac: print stmmac_init_dma_engine() errors using netdev_err()
+    https://git.kernel.org/netdev/net-next/c/3e401818c81b
+
+You are awesome, thank you!
 -- 
-pw-bot: cr
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
