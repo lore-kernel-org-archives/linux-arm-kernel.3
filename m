@@ -4,89 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD1C9C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 23:43:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9408C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 23:45:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0G9GKdeKSYZ3LWo2VXAgcMsNqDKh2DpiL0hMKGFwFBw=; b=KoT7w46qunBKQUazsHTzClufVh
-	zG7pw/JHl2wlub5UeWN+XHQm3iw3HthwY3Q90hpXm0mqiziGqaUxuIusI9wh6ld3kpAHh+Sj5xLGG
-	FKo7+4XCcL2gYscw6BVfC04IlPhE3c4EL1+qiBuC5tCYxhX7rJMzRU2tciV4xUS83kSsnKZLohV3a
-	8hQZ/a37y4r5kpiTQiKGchgQFTmczLMSu8SpLpD4QPKwxel+fBXl+ZJl6JxLFNzm1Kk6G2w4/iY4z
-	h1agHIxTEOydbEDp/+5FhTQ9bgayAJKMU/RxaxgcMlX58x2nGbgi83J/EDulQ5umMbXqTyz+D8uhS
-	6aISMTHQ==;
+	bh=+KnZ+bHpq3Adbno5MHK+SYpaXqn+rPN2eRCC8cungUg=; b=B990IyEsj2iG/dHzKb0J84byaZ
+	zMbLdw6FOaYwWYD0rX41lWYzGE8LbKZcaMd1yjbXK9cXtAkdr8a/zuTdlgBpyLWEEO3V0xv23I0TB
+	eUuaDXL8qSrIxXvbQJfrcIVQaXY6HpLsMha5nob8QdcgCuHSp8mFXBZoRMdG8/gbh/ef14/SV5zZ8
+	gSMhjrBHwZkx+1gET3ynHKjhrciRjiv+UOAX99obiFMI65NCt1kJVgVfWXoDUq/8XalxtsaYRg9Ae
+	IOoJJSPvFWBklaUCBZ+7//LmWPAjwtY8e6g4Q/9BL/HUve/jYg2kqWhc3R1w4CJb80nizEFhYGcY9
+	MFj3B1kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlz9S-00000009Hig-1Wum;
-	Sat, 22 Feb 2025 23:43:18 +0000
-Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
+	id 1tlzAv-00000009I1P-0bnC;
+	Sat, 22 Feb 2025 23:44:49 +0000
+Received: from fout-a5-smtp.messagingengine.com ([103.168.172.148])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlz6M-00000009Gtl-0HkP
+	id 1tlz7U-00000009HDl-1s3V
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Feb 2025 23:40:07 +0000
+	Sat, 22 Feb 2025 23:41:17 +0000
 Received: from phl-compute-13.internal (phl-compute-13.phl.internal [10.202.2.53])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 569F911400E2;
-	Sat, 22 Feb 2025 18:40:05 -0500 (EST)
+	by mailfout.phl.internal (Postfix) with ESMTP id B4394138098E;
+	Sat, 22 Feb 2025 18:41:15 -0500 (EST)
 Received: from phl-imap-07 ([10.202.2.97])
-  by phl-compute-13.internal (MEProxy); Sat, 22 Feb 2025 18:40:05 -0500
+  by phl-compute-13.internal (MEProxy); Sat, 22 Feb 2025 18:41:15 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
 	 h=cc:cc:content-transfer-encoding:content-type:content-type
 	:date:date:from:from:in-reply-to:in-reply-to:message-id
 	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
-	 t=1740267605; x=1740354005; bh=0G9GKdeKSYZ3LWo2VXAgcMsNqDKh2Dpi
-	L0hMKGFwFBw=; b=BI0ZfMfYtJdfydRbGbBGYM2lHDiqUgmB+Y1YWhFttnR8Rgdx
-	gdNhxwHnxzBWU4w13nKce8wbactgWyJ4VjuTUAcQi61bLnRChEOqFUYNt1JQelX/
-	W89tBZFDi7rdX3tB48Rp+sZxQdrism9HTWdY1l1FDxmSoTX9LH4Zw7bFkfrTlm0d
-	HWImAB7QZDukgSZs8FtjqfH52G6hBSJOFlN7JhXV3K9UHGiH1t9HMJNK4dBx6Ju1
-	UPrWTwIAb4T4mXdmkzBMRtwlAX514pIWr3+iLP8eCm6Mkv0kU8t0tAnmMvQONYPX
-	AdGWiP3PL0b42cE4z4gUA1T22PR9/NuHmVs+TQ==
+	 t=1740267675; x=1740354075; bh=+KnZ+bHpq3Adbno5MHK+SYpaXqn+rPN2
+	eRCC8cungUg=; b=VIPasXYgFYZXnBRT1VNix9zYrQg+fBuQiS88EXgxYAB3w6fM
+	hG8bytPl4UWmCOkwi8OrrxMaHhaQsf1oDNv3nbj52/CgFOFjb9zTt0pJTbrEmfS1
+	Kd4BXEKhmxFJgB5DRz8tyAF6pMzSML1B88z6MjYyFlzbp2JNdxi7W1Gm54VtoePR
+	XDCBdvhLMnrP6AZVJfkRYkg9IIQRltVI8PT1AX4a/T7xqXcmPLbmnkS79SdwdTR9
+	CDtSxzpSTYmPd1++v/zMRsiYKDaNBA6C1O26/LMUwmqfL6gocs85H2qyxMkO4hGc
+	6U7yivCuajyWMz0QbnEt3JLuRp5RMnzlGx4e1w==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
 	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1740267605; x=
-	1740354005; bh=0G9GKdeKSYZ3LWo2VXAgcMsNqDKh2DpiL0hMKGFwFBw=; b=x
-	DHK+hdANk5rPYN1/Iq1V3MGU58fAZEw+YzTvSp16YHPJQzL10jJ4Le1LOQc+Fh2b
-	NScD81p1iDZo4znuadxa5y1ajz64oYRxJc2GGvCfmKqYbjCy7pDGsUItzPMBChKj
-	k7Z9cLq2HWfPR38sICvXMTbRcnVHAuKw9Ou6BByO/g/ypz2Y+HkK4g7BDuUyppri
-	45dIyVCOw7d8cIRdmYlcZ0wKKgB6ojTpLrwPdXxAMYctrj+Q20S+zWMYG92oQ2hM
-	7Fic+Z0ZhoggWNVPFYIzZ3pMOwNiW7ch77eY7FeueAJe1uTQxXqSIeO4c1hl865H
-	WOZPsL+JDQ/ICyC1hLULg==
-X-ME-Sender: <xms:VWC6Z9Piqh4uKoQ3cPnosXYqgqiIylgqhID-QMWJC1b1qUIgDA9QmA>
-    <xme:VWC6Z_9BBvNF3-fVNyRxQXKoyd5BHFMvoHd9uHnxLqIw1U7777KeHXS8l1iddwzKr
-    WbGf7Q23FysSc8aeA>
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1740267675; x=
+	1740354075; bh=+KnZ+bHpq3Adbno5MHK+SYpaXqn+rPN2eRCC8cungUg=; b=N
+	qROBFzdGqd48ACpHZMA4RQ34K7/CbqYwDeYRuhd1zeswpqR8NstOCAD3RW6pZ0PV
+	BH4Myiec7K4535df5NABB39sKb2v1Nsnb9cNPrQaELABK99IXcXXKpRQx/zU4Id0
+	e+AG8gjDbU7DC9LoM75jT9eNH+V+Cc2MuToBDmlt33KrI9zNH9V/3TcVByow01MS
+	xANEZM8QUIr1LBdPygppUWtrCPD4+VpELOwBrs95DP7kychTFjA4jY+HFRuJLWg2
+	B5D7YJqHQI/3klc8qeJy36VqXj2fKha/0Uz7MHrJsNDqRS/8f++/tJesbCq5Kn2d
+	Jw41AOvaWMaXA9odMumaw==
+X-ME-Sender: <xms:m2C6Z0CKr54xzCZX3ePLmZ-I3_J8CBdmV9SQzSf2YfQcuvpOIPgUfw>
+    <xme:m2C6Z2h56YFUIJyrkBEW1M3usrm2Imq4dWgW_TI4gYBNeD3r1s5o7TgkcaDH3ZAM2
+    fLm0D2CdF9fNgtSiA>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdejgedvjecutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
     uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
     hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthhqredtredt
     jeenucfhrhhomhepfdfthigrnhcuhggrlhhklhhinhdfuceorhihrghnsehtvghsthhtoh
-    grshhtrdgtohhmqeenucggtffrrghtthgvrhhnpefhvdetfffhffejteetieffheekuedv
-    tdehieevtdelueejhfejudeiteeivdfhgeenucffohhmrghinhepghhithhhuhgsrdgtoh
-    hmpdhkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhep
-    mhgrihhlfhhrohhmpehrhigrnhesthgvshhtthhorghsthdrtghomhdpnhgspghrtghpth
-    htohepudefpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegrnhgurhgvrdhprhii
-    hiifrghrrgesrghrmhdrtghomhdprhgtphhtthhopeifvghnshestghsihgvrdhorhhgpd
-    hrtghpthhtohepjhgvrhhnvghjrdhskhhrrggsvggtsehgmhgrihhlrdgtohhmpdhrtghp
-    thhtohepkhhikhhutghhrghnleeksehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrtg
-    hrohgrlhhphhgrkedvsehgmhgrihhlrdgtohhmpdhrtghpthhtohepshhimhhonhhsrdhp
-    hhhilhhiphhpvgesghhmrghilhdrtghomhdprhgtphhtthhopegtohhnohhrodgutheskh
-    gvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhg
-    pdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:VWC6Z8SLaQk00of6S9lw02jmzoertg_38eesUWjV4Baj0zU8PUdunA>
-    <xmx:VWC6Z5sGFuv38W8EjUMozP6qZrbdh2YDc0NdbkKXNxOAbt-6ziFHoQ>
-    <xmx:VWC6Z1fWd58-B38KlwfpCQ-izK8qwt2gnk3FOmAub1Kpf_bCz8yNpg>
-    <xmx:VWC6Z10JsxsfIhv4LMRmyYDlBAlt5Av5T83zSPgboiTq0JJ5_k_zvQ>
-    <xmx:VWC6Zz1idWDQ_Fbf_A_IqaJTG4DW2dGser9V8FP8qDAI5PLVvPmnrWBn>
+    grshhtrdgtohhmqeenucggtffrrghtthgvrhhnpeeghffgkedtueeiudeukedvveevhfdu
+    uefhhedviefgffduheeuieeihefhfefgveenucevlhhushhtvghrufhiiigvpedvnecurf
+    grrhgrmhepmhgrihhlfhhrohhmpehrhigrnhesthgvshhtthhorghsthdrtghomhdpnhgs
+    pghrtghpthhtohepudefpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegrnhgurh
+    gvrdhprhiihiifrghrrgesrghrmhdrtghomhdprhgtphhtthhopeifvghnshestghsihgv
+    rdhorhhgpdhrtghpthhtohepjhgvrhhnvghjrdhskhhrrggsvggtsehgmhgrihhlrdgtoh
+    hmpdhrtghpthhtohepkhhikhhutghhrghnleeksehgmhgrihhlrdgtohhmpdhrtghpthht
+    ohepmhgrtghrohgrlhhphhgrkedvsehgmhgrihhlrdgtohhmpdhrtghpthhtohepshhimh
+    honhhsrdhphhhilhhiphhpvgesghhmrghilhdrtghomhdprhgtphhtthhopegtohhnohhr
+    odgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvg
+    hlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:m2C6Z3l5vCZ3r4nRVTB4zUpEz5Zm54INr-rWHDQLOnQHOblRzgxhbg>
+    <xmx:m2C6Z6za0QFUiDxuRCN17QEN8gJRBnllq3-hmjctAHdfqAhTsVTbhQ>
+    <xmx:m2C6Z5RnpEu3JDgm9R0IL7k7oZEjZaCYpKK1TW6XVU20H-E7UPqejQ>
+    <xmx:m2C6Z1auZT8EbfpaOZTeBjtGkqQvf5IBDZRSxVV2DtO5KX8LUAtvyQ>
+    <xmx:m2C6Z4JhcubZ1qsHl2-1f2nPREQtGv81LjK19ySJq6RnFgtmzhfE94vK>
 Feedback-ID: idc0145fc:Fastmail
 Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 26685BA006F; Sat, 22 Feb 2025 18:40:05 -0500 (EST)
+	id 854E6BA006F; Sat, 22 Feb 2025 18:41:15 -0500 (EST)
 X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Date: Sun, 23 Feb 2025 12:39:43 +1300
+Date: Sun, 23 Feb 2025 12:40:54 +1300
 From: "Ryan Walklin" <ryan@testtoast.com>
 To: "Jernej Skrabec" <jernej.skrabec@gmail.com>,
  "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
@@ -97,17 +96,17 @@ Cc: "Andre Przywara" <andre.przywara@arm.com>,
  "Hironori KIKUCHI" <kikuchan98@gmail.com>,
  "Philippe Simons" <simons.philippe@gmail.com>, linux-sunxi@lists.linux.dev,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Message-Id: <b1e36d92-552e-45b9-b93b-76f369e1a235@app.fastmail.com>
-In-Reply-To: <1916004.CQOukoFCf9@jernej-laptop>
+Message-Id: <840e7248-de05-4c96-b743-917649d71dfa@app.fastmail.com>
+In-Reply-To: <4407188.ejJDZkT8p0@jernej-laptop>
 References: <20250216092827.15444-1-ryan@testtoast.com>
- <20250216092827.15444-6-ryan@testtoast.com>
- <1916004.CQOukoFCf9@jernej-laptop>
-Subject: Re: [PATCH 5/8] arm64: dts: allwinner: h616: Add TCON nodes to H616 DTSI
+ <20250216092827.15444-7-ryan@testtoast.com>
+ <4407188.ejJDZkT8p0@jernej-laptop>
+Subject: Re: [PATCH 6/8] arm64: dts: allwinner: h616: add LCD, LVDS and PWM pins
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_154006_183485_1D19C5C1 
-X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-CacheID: sfid-20250222_154116_571401_A9E9CF8D 
+X-CRM114-Status: UNSURE (   6.79  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -123,32 +122,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 22 Feb 2025, at 10:45 PM, Jernej =C5=A0krabec wrote:
-> Dne nedelja, 16. februar 2025 ob 10:27:12 Srednjeevropski standardni=20
->> Add TCON nodes for the TOP, and the LCD and TV timing controllers. The
->> timing controllers are compatible with the existing R40 driver.
->> +			resets =3D <&ccu RST_BUS_TCON_LCD0>, <&ccu RST_BUS_TCON_LCD1>;
->> +			reset-names =3D "lcd", "lvds";
+On Sat, 22 Feb 2025, at 10:48 PM, Jernej =C5=A0krabec wrote:
+> Dne nedelja, 16. februar 2025 ob 10:27:13 Srednjeevropski standardni=20
+> =C4=8Das je Ryan Walklin napisal(a):
+>> From: Jernej Skrabec <jernej.skrabec@gmail.com>
+>> Add device tree nodes for the LCD, LVDS0, LVDS1 and PWM pins.
 >
-> That's not true, is it? LVDS should be LVDS reset. Check my WIP patch:
-> https://github.com/jernejsk/linux-1/commit/8b090dc866d4c4b5b0a1804da02=
-1a9f44c67d5f1
+> Let's just drop PWM pins. PWM support is not yet implemented and it do=
+esn't
+> fall into display themed patch anyway.
 
-Thanks, will correct for next version.
-
-> It turns out that H616 clock driver missed LVDS reset, as it can be=20
-> seen here:
-> https://github.com/jernejsk/linux-1/commit/88bad1a59876f5d385bcd45a363=
-784ed2beec6ae#diff-b340c978bcdbe240f7b99f4d0d96ea130a8acb1a5786a8efbb24d=
-9e7a0b14e53R1084
->
-> I also commented on this series:
-> https://lore.kernel.org/linux-sunxi/20250213172248.158447-1-macroalpha=
-82@gmail.com/T/#t
-
-Thanks, I will add those in for next version with this patch.
-
-Regards,
+That's fine, this can be re-added when the PWM driver is implemented, an=
+d will squash the backlight and panel nodes in the next patch.
 
 Ryan
 
