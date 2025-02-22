@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5990C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 12:00:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42C16C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 13:19:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wGmhqrAjYzagqI94aWqLld2LAsNs8E1/VGtS52n0S4U=; b=eqREFAae9+UdayeyAAf5UJ8Bai
-	A73CZFHux/vyRLuIKo0tsQw9vG9D2fYKgFqZBpzc1vJ4joeAfnc6FaqUFqllyypSLADKzvro77A0v
-	al6XutY8yc5Bfs9IrMLBpmgDHMfx8iKR4if4iX2K173IEDCaepmGOdfHeD6uWzmmxVMLBdeFFrYN1
-	n3SHfgwxqd+F/FeoME7G281AWZ0QTPP1hd4YVMASt2o2Cb1NdBreRtDjgRSXgRYbUSRnOyElLqtFh
-	smjCXDYZ3jxmyA+K1Lx6fLGQ2Jju1Z25hKRSPgMRYVnHhjF/UghMFrH9evZ1Iuins/qPKsOaP6xvi
-	Wra9hmJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9CgxyAkzkzC+kqLdjAZT0dTilq3ap9KRK2oKmLc5R7w=; b=28iYSeHscQb7B+jruw1HsxBnGZ
+	CzCVJlNvGgAqv+8lEvXCUwaI0z+osoIXnhibM/Y7kVRz6IiQWiyNXmtTCc/2BKc5ArdyWFetH19Ji
+	kXXFvOKnrj5mDfKQudULV6TltRbyd8Yydw3+afaezX6YEW9bZ/Zi9mvUbim0QF4PU1wUCXtRc/Ips
+	s5UTrE+dpXR/AXWqZ8V65gWnbSnT+J13q8YHHPaZb/39LEKzec+oGXlcSW0OLOXZrFvYtqDw9mJgO
+	34d0mvuQAyuuZSdsyszMhZOF2L4PGNO84mG8e+hLivLa+9oSsWrJVs4lQ1NbUuaWXA5LGXfkFUOY6
+	OnO9ohBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tloAp-00000007yRI-31dJ;
-	Sat, 22 Feb 2025 11:59:59 +0000
-Received: from mail-m3292.qiye.163.com ([220.197.32.92])
+	id 1tlpPi-000000084ah-0ADC;
+	Sat, 22 Feb 2025 13:19:26 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlo8I-00000007xyw-2Lui;
-	Sat, 22 Feb 2025 11:57:24 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id bdb96d2d;
-	Sat, 22 Feb 2025 19:57:15 +0800 (GMT+08:00)
-Message-ID: <eb46b2d8-a170-4813-963d-8509089f72fa@rock-chips.com>
-Date: Sat, 22 Feb 2025 19:57:15 +0800
+	id 1tlpOE-000000084UG-2i6o
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 22 Feb 2025 13:17:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1550F5C572C;
+	Sat, 22 Feb 2025 13:17:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 221E4C4CED1;
+	Sat, 22 Feb 2025 13:17:49 +0000 (UTC)
+Date: Sat, 22 Feb 2025 13:17:47 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	David Hildenbrand <david@redhat.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 07/14] arm64/mm: Avoid barriers for invalid or
+ userspace mappings
+Message-ID: <Z7nOe78W4JXFAkMb@arm.com>
+References: <20250217140809.1702789-1-ryan.roberts@arm.com>
+ <20250217140809.1702789-8-ryan.roberts@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 08/14] drm/rockchip: analogix_dp: Add support to get
- panel from the DP AUX bus
-To: Lucas Stach <l.stach@pengutronix.de>, heiko@sntech.de
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- rfoss@kernel.org, vkoul@kernel.org, sebastian.reichel@collabora.com,
- cristian.ciocaltea@collabora.com, dmitry.baryshkov@linaro.org,
- andy.yan@rock-chips.com, hjc@rock-chips.com, algea.cao@rock-chips.com,
- kever.yang@rock-chips.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org
-References: <20250123100747.1841357-1-damon.ding@rock-chips.com>
- <20250123100747.1841357-9-damon.ding@rock-chips.com>
- <cfc5b39e21fb214c53fda3276847b8e235af818f.camel@pengutronix.de>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <cfc5b39e21fb214c53fda3276847b8e235af818f.camel@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0odQ1ZCQ09CGEhCQ0tMTklWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a952d84d7db03a3kunmbdb96d2d
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Njo6HDo6IzISGR8CThJLNRoh
-	GU8aCwhVSlVKTE9LSUlOT0hMSUlKVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFPSk5JNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=gTKOoqjoAKeFhXf1a8vmXg379vWYpEnKYnWD8KI0jK15KYdeKWwgwvp3kY0GK0x79LyCoTpcw+VSZq059SK53WSlCuP5TJKbYlTRYmQRY19EDQdLxuTeMVNBb+bqPTib5svQpS9eeXAMEptvdCAFFK74gn2utyUTVoD/0KO+uqw=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=wGmhqrAjYzagqI94aWqLld2LAsNs8E1/VGtS52n0S4U=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250217140809.1702789-8-ryan.roberts@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_035723_148700_B3CED8FC 
-X-CRM114-Status: GOOD (  21.68  )
+X-CRM114-CacheID: sfid-20250222_051754_772665_EC1866B9 
+X-CRM114-Status: GOOD (  37.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,128 +74,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lucas,
+On Mon, Feb 17, 2025 at 02:07:59PM +0000, Ryan Roberts wrote:
+> __set_pte_complete(), set_pmd(), set_pud(), set_p4d() and set_pgd() are
+> used to write entries into pgtables. And they issue barriers (currently
+> dsb and isb) to ensure that the written values are observed by the table
+> walker prior to any program-order-future memory access to the mapped
+> location.
+> 
+> Over the years some of these functions have received optimizations: In
+> particular, commit 7f0b1bf04511 ("arm64: Fix barriers used for page
+> table modifications") made it so that the barriers were only emitted for
+> valid-kernel mappings for set_pte() (now __set_pte_complete()). And
+> commit 0795edaf3f1f ("arm64: pgtable: Implement p[mu]d_valid() and check
+> in set_p[mu]d()") made it so that set_pmd()/set_pud() only emitted the
+> barriers for valid mappings.
 
-On 2025/2/8 3:42, Lucas Stach wrote:
-> Hi Damon,
-> 
-> Am Donnerstag, dem 23.01.2025 um 18:07 +0800 schrieb Damon Ding:
->> Move drm_of_find_panel_or_bridge() a little later and combine it with
->> component_add() into a new function rockchip_dp_link_panel(). The function
->> will serve as done_probing() callback of devm_of_dp_aux_populate_bus(),
->> aiding to support for obtaining the eDP panel via the DP AUX bus.
->>
->> If failed to get the panel from the DP AUX bus, it will then try the other
->> way to get panel information through the platform bus.
->>
-> The changes in this patch effectively revert 86caee745e45
-> ("drm/rockchip: analogix_dp: allow to work without panel"). Please
-> correct this in the next revision of this patchset.
-> 
-> Regards,
-> Lucas
-> 
+The assumption probably was that set_pmd/pud() are called a lot less
+often than set_pte() as they cover larger address ranges (whether table
+or leaf).
 
-Oh, I see. I will fix it in the next version.
+> set_p4d()/set_pgd() continue to emit the barriers unconditionally.
 
->> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->>
->> ---
->>
->> Changes in v4:
->> - Use done_probing() to call drm_of_find_panel_or_bridge() and
->>    component_add() when getting panel from the DP AUX bus
->>
->> Changes in v5:
->> - Use the functions exported by the Analogix side to get the pointers of
->>    struct analogix_dp_plat_data and struct drm_dp_aux.
->> - Use dev_err() instead of drm_err() in rockchip_dp_poweron().
->>
->> Changes in v6:
->> - Keep drm_err() in rockchip_dp_poweron()
->> - Pass 'dp' in drm_...() rather than 'dp->drm_dev'
->> ---
->>   .../gpu/drm/rockchip/analogix_dp-rockchip.c   | 37 ++++++++++++++-----
->>   1 file changed, 28 insertions(+), 9 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
->> index 13f32aeea7ca..004b1b68d1cf 100644
->> --- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
->> +++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
->> @@ -393,11 +393,27 @@ static const struct component_ops rockchip_dp_component_ops = {
->>   	.unbind = rockchip_dp_unbind,
->>   };
->>   
->> +static int rockchip_dp_link_panel(struct drm_dp_aux *aux)
->> +{
->> +	struct analogix_dp_plat_data *plat_data = analogix_dp_aux_to_plat_data(aux);
->> +	struct rockchip_dp_device *dp = pdata_encoder_to_dp(plat_data);
->> +	int ret;
->> +
->> +	ret = drm_of_find_panel_or_bridge(dp->dev->of_node, 1, 0, &plat_data->panel, NULL);
->> +	if (ret)
->> +		return ret;
->> +
->> +	ret = component_add(dp->dev, &rockchip_dp_component_ops);
->> +	if (ret)
->> +		return ret;
->> +
->> +	return ret;
->> +}
->> +
->>   static int rockchip_dp_probe(struct platform_device *pdev)
->>   {
->>   	struct device *dev = &pdev->dev;
->>   	const struct rockchip_dp_chip_data *dp_data;
->> -	struct drm_panel *panel = NULL;
->>   	struct rockchip_dp_device *dp;
->>   	struct resource *res;
->>   	int i;
->> @@ -407,10 +423,6 @@ static int rockchip_dp_probe(struct platform_device *pdev)
->>   	if (!dp_data)
->>   		return -ENODEV;
->>   
->> -	ret = drm_of_find_panel_or_bridge(dev->of_node, 1, 0, &panel, NULL);
->> -	if (ret < 0 && ret != -ENODEV)
->> -		return ret;
->> -
->>   	dp = devm_kzalloc(dev, sizeof(*dp), GFP_KERNEL);
->>   	if (!dp)
->>   		return -ENOMEM;
->> @@ -434,7 +446,6 @@ static int rockchip_dp_probe(struct platform_device *pdev)
->>   
->>   	dp->dev = dev;
->>   	dp->adp = ERR_PTR(-ENODEV);
->> -	dp->plat_data.panel = panel;
->>   	dp->plat_data.dev_type = dp->data->chip_type;
->>   	dp->plat_data.power_on = rockchip_dp_poweron;
->>   	dp->plat_data.power_off = rockchip_dp_powerdown;
->> @@ -450,9 +461,17 @@ static int rockchip_dp_probe(struct platform_device *pdev)
->>   	if (IS_ERR(dp->adp))
->>   		return PTR_ERR(dp->adp);
->>   
->> -	ret = component_add(dev, &rockchip_dp_component_ops);
->> -	if (ret)
->> -		return ret;
->> +	ret = devm_of_dp_aux_populate_bus(analogix_dp_get_aux(dp->adp), rockchip_dp_link_panel);
->> +	if (ret) {
->> +		if (ret != -ENODEV) {
->> +			drm_err(dp, "failed to populate aux bus : %d\n", ret);
->> +			return ret;
->> +		}
->> +
->> +		ret = rockchip_dp_link_panel(analogix_dp_get_aux(dp->adp));
->> +		if (ret)
->> +			return ret;
->> +	}
->>   
->>   	return 0;
->>   }
-> 
-> 
-> 
+We probably missed them, should have been the same as set_pmd().
 
-Best regards
-Damon
+> This is all very confusing to the casual observer; surely the rules
+> should be invariant to the level? Let's change this so that every level
+> consistently emits the barriers only when setting valid, non-user
+> entries (both table and leaf).
 
+Also see commit d0b7a302d58a ("Revert "arm64: Remove unnecessary ISBs
+from set_{pte,pmd,pud}"") why we added back the ISBs to the pmd/pud
+accessors and the last paragraph on why we are ok with the spurious
+faults for PTEs.
+
+For user mappings, the translation fault is routed through the usual
+path that can handle mapping new entries, so I think we are fine. But
+it's worth double-checking Will's comment (unless he only referred to
+kernel table entries).
+
+> It seems obvious that if it is ok to elide barriers all but valid kernel
+> mappings at pte level, it must also be ok to do this for leaf entries at
+> other levels: If setting an entry to invalid, a tlb maintenance
+> operation must surely follow to synchronise the TLB and this contains
+> the required barriers.
+
+Setting to invalid is fine indeed, handled by the TLB flushing code,
+hence the pmd_valid() checks.
+
+> If setting a valid user mapping, the previous
+> mapping must have been invalid and there must have been a TLB
+> maintenance operation (complete with barriers) to honour
+> break-before-make.
+
+That's not entirely true for change_protection() for example or the
+fork() path when we make the entries read-only from writeable without
+BBM. We could improve these cases as well, I haven't looked in detail.
+ptep_modify_prot_commit() via change_pte_range() can defer the barriers
+to tlb_end_vma(). Something similar on the copy_present_ptes() path.
+
+> So the worst that can happen is we take an extra
+> fault (which will imply the DSB + ISB) and conclude that there is
+> nothing to do. These are the arguments for doing this optimization at
+> pte level and they also apply to leaf mappings at other levels.
+
+It's worth clarifying Will's comment in the commit I mentioned above.
+
+> For table entries, the same arguments hold: If unsetting a table entry,
+> a TLB is required and this will emit the required barriers. If setting a
+> table entry, the previous value must have been invalid and the table
+> walker must already be able to observe that. Additionally the contents
+> of the pgtable being pointed to in the newly set entry must be visible
+> before the entry is written and this is enforced via smp_wmb() (dmb) in
+> the pgtable allocation functions and in __split_huge_pmd_locked(). But
+> this last part could never have been enforced by the barriers in
+> set_pXd() because they occur after updating the entry. So ultimately,
+> the wost that can happen by eliding these barriers for user table
+> entries is an extra fault.
+> 
+> I observe roughly the same number of page faults (107M) with and without
+> this change when compiling the kernel on Apple M2.
+
+That's microarch specific, highly dependent on timing, so you may never
+see a difference.
+
+> +static inline bool pmd_valid_not_user(pmd_t pmd)
+> +{
+> +	/*
+> +	 * User-space table entries always have (PXN && !UXN). All other
+> +	 * combinations indicate it's a table entry for kernel space.
+> +	 * Valid-not-user leaf entries follow the same rules as
+> +	 * pte_valid_not_user().
+> +	 */
+> +	if (pmd_table(pmd))
+> +		return !((pmd_val(pmd) & (PMD_TABLE_PXN | PMD_TABLE_UXN)) == PMD_TABLE_PXN);
+> +	return pte_valid_not_user(pmd_pte(pmd));
+> +}
+
+With the 128-bit format I think we lost the PXN/UXNTable bits, though we
+have software bits if we need to. I just wonder whether it's worth the
+hassle of skipping some barriers for user non-leaf entries. Did you see
+any improvement in practice?
+
+-- 
+Catalin
 
