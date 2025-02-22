@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8C95C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 01:04:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF594C021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 01:25:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S9ETAjvvalTxJAz5WZGNMYcUgNTOmlxvFzAQwoX+eOc=; b=WLWVSBETEoo4/JYqAOO1sBvz+t
-	eqTXmB7ZYvZr+TW5Lm/ca9/43h+ZcLq0+F3xOXM894wHdzjyZ1zwvW+/ymBxbzHYTQ/73+0NyQKVQ
-	pksKgMlikeCplOGXm7ONCzahQGxlPyF6lQPx7VHtijgKpRlJCkKBaSD4pBl+Fj64yWx+C4ItL297b
-	CFVVJ1xEMCqSOVuQky28RlkqHfC+EERVXHVp78HtXgDYijjMEKOT4itSOlbszJumAFso9Gbo2xGHo
-	H79CeMjGjBOkSxfRfFcNEI4w+ppZUK3bt0++6mXooIlnhTITM3Ei/p2CtHH/EJy33MQ/xiLHuyWHC
-	X5Cis/nw==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yhpklwBnBdF83FBre0/tkR3DVtuVLWezPApNRpdK4qw=; b=UydFRxWIzB2AAIvJ4dyFfj+G5C
+	dHlAOhJHLDHtrSUrxpb643L7HcNJafF8cxsTB0gWGSDzcYFA2FGf+wnXjpTDhq05Zil3Tc1o5PzWY
+	t2/yg6cKuZojxiDHrvamZ+2D78TWQgfIHOgtMoN7TzOU8+1ulLSJuDXZ26eEaiJA8Ygt4Y31mFX7I
+	O6AKQEF/hoNzZGhQREOsD7zN15PUIrhrnBYjXU0aRtFLsWfOtOAKyOT6A/3aZ4hpB7iWOWtu3eH2W
+	MDFxfqde7pkQl5s/n4Rzz6gJhtg77somea15T0iktcmqP44MILTl2LidaQSI0H8uZaQDIQcjy0bwZ
+	ISysUL7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tldwK-00000007GPm-2jfK;
-	Sat, 22 Feb 2025 01:04:20 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1tleGZ-00000007Hpm-3d0U;
+	Sat, 22 Feb 2025 01:25:15 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlds2-00000007Fyh-1e2P
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Feb 2025 00:59:55 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2fc4fc93262so5887668a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 16:59:51 -0800 (PST)
+	id 1tleF6-00000007HjQ-0n2h;
+	Sat, 22 Feb 2025 01:23:45 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-38f31f7731fso1340513f8f.0;
+        Fri, 21 Feb 2025 17:23:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740185991; x=1740790791; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=S9ETAjvvalTxJAz5WZGNMYcUgNTOmlxvFzAQwoX+eOc=;
-        b=vCSAO3gUq1QOp0/HlGElDxa04uWo/MnXIQ1rqVOnS4fVtMkK3aqKbkPw6GIXJ+/DNJ
-         ywuNv/gRx6DA0OArhxg+FbY0cacSe6D70vHeRjRmbinGLsJomZvtwnfFBpDUpwzDky+E
-         XXrLUwKe8MWwlmpIEh2eyRmJDTO/5ZqFVXsKQKffVXo8zYcJ9i66xX4wUlkkkCXEgUbh
-         kFacuU+dnH5U+WCK3W7i3y9/6yLreVmCWSYnV3Iz+bmVzOlGVysgV+jDytAu5J0Ch/a4
-         6cLl2nB7R9BhceCQktIXEI1RoKD4Aezw/RVntTXBSLcZhq4FsnOsy7fxatbc4N0v9Btv
-         BiTg==
+        d=gmail.com; s=20230601; t=1740187422; x=1740792222; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yhpklwBnBdF83FBre0/tkR3DVtuVLWezPApNRpdK4qw=;
+        b=QiXAgX5ZuT2yPL1K2eMcz65/cifrgaFmQeS9r7CpMANlq2CnjVd4ZcBH/M9OEMDAA+
+         A9++Th4Q4evM0+LU86eLS8OWMfo5EiLZ8PgHztwhSit4FiY0AH2qOC/mOpzQIbT6dv77
+         xu7HlZn+8jO68bmZOaS5fHfA6qVQ/RFRulpOfEBtMfj7mm7ltePh7rJR7w4GernezGr7
+         1jdNlSGRDiAhw4rEi9tzHMCv6U/WW5U937tnqgmgJHPPaimhm6NOrFZGZA9jamXnF4p+
+         yETpW0dJMCYl56ZITcLPG9I9mCdiCGAEUmFq7lnsnBnQIPyTRxENJC67df8Ww9xXWvF3
+         tvlQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740185991; x=1740790791;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=S9ETAjvvalTxJAz5WZGNMYcUgNTOmlxvFzAQwoX+eOc=;
-        b=xPgsF42bgn3WM40jr3P0GkcR96AjcvvIwx6FbPWxf03YRGL29UMj/BNALoDMSOTWT3
-         ighvJenMqG4iDbc3d33sDjpC623MTLjnqJWBGaHZ6qN5Q6hb+n2p4WRDDexfCVeovsU3
-         FcrOy79AAoa+UmXCOwahI6rzjc7onnxQmSchVzi7nOSIfWM/TZg5r1fpn1OPq/BZLsX7
-         7kBAhkQtjbph41I9ousBCVsNh74G70ovKQs4ViAPcjJNhvHjfJ30qpxzHvkkpHJmGRVd
-         qTZ+va8loOmP5lHkWZQhSteFRErZ3mWhDMw/EQGJ7ynOPi8TEW1LEw7/SJglVjDkkZj9
-         Y6ew==
-X-Forwarded-Encrypted: i=1; AJvYcCWDEtONSdbEh8g5FsdPQFosW2mnqR4X3MvqProLCQ0YEtytQF2JvGFtyJPU/ptNuBod10/Z7unpdmanNfQrgkkW@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGU7C2CWoPK1A9/MqYNSU0Dt7gO1rRjSf6gn9dRBoPUvyJae8Q
-	0Nx8dRMPIRJIBwWP9NmxRs7lQzslP2yhCOHBLGajF9+m1/p7FHh6aymYaOBXdl2bdToPmu/2TPT
-	lePVRKw==
-X-Google-Smtp-Source: AGHT+IHCI1eCveOzHRO9wymEe+6WfTHE/ANfyN9OtDD+61Q0zEDS7M7t5/7XLTAP4RotsZhFw+AuUixUqPQf
-X-Received: from pjg5.prod.google.com ([2002:a17:90b:3f45:b0:2ef:d136:17fc])
- (user=vipinsh job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:41:b0:2fa:228d:5b03
- with SMTP id 98e67ed59e1d1-2fce78abcd9mr8111088a91.19.1740185991168; Fri, 21
- Feb 2025 16:59:51 -0800 (PST)
-Date: Fri, 21 Feb 2025 16:59:30 -0800
-In-Reply-To: <20250222005943.3348627-1-vipinsh@google.com>
-Mime-Version: 1.0
-References: <20250222005943.3348627-1-vipinsh@google.com>
-X-Mailer: git-send-email 2.48.1.601.g30ceb7b040-goog
-Message-ID: <20250222005943.3348627-3-vipinsh@google.com>
-Subject: [PATCH 2/2] KVM: selftests: Create KVM selftest runner
-From: Vipin Sharma <vipinsh@google.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Cc: seanjc@google.com, pbonzini@redhat.com, anup@brainfault.org, 
-	borntraeger@linux.ibm.com, frankja@linux.ibm.com, imbrenda@linux.ibm.com, 
-	maz@kernel.org, oliver.upton@linux.dev, Vipin Sharma <vipinsh@google.com>
+        d=1e100.net; s=20230601; t=1740187422; x=1740792222;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=yhpklwBnBdF83FBre0/tkR3DVtuVLWezPApNRpdK4qw=;
+        b=lg/0ZmmgdWsWKv/53D1TOOVH8FWV1/FQH+Ycbg0ZhBcjkjQ93iMJx0/MUfcH6IBJRz
+         M/y0S8VDFS3lrjB/pFUYmxujqtAkko0Oly6PBGJZv2BDL5p7HMPhuz6flN4lEbggpQVz
+         pku2lcJ+BpuS+rg94Y6fmZ9zlkPoV5liqeeqI/hmQFh9j4HBf1jH0GoUMI5xxok6X2H4
+         RDTycpTv5J/H3Z1rrHOoZK3cDCgpsg/MfM5wZ26O8CMfu/oxxk7sJgOYXEjb2nvWcMre
+         8sG4hN6na2jUXlmX4whZAb/D9OQIl1pNqkCWn5kRD2gl7CN8wyJwPS+76RiMGXI29RXx
+         3jlw==
+X-Forwarded-Encrypted: i=1; AJvYcCUGBzZtP6uZTycCITSQ7b9oQJTVjaH2UxF+QhDOsnjTFWx7tWvuSV0MYa2rv9w9DYpCTNN8vWxT+kuH/W9sa7M0@lists.infradead.org, AJvYcCWM7mIFjcpOqmd1IjI9Q7yYI7lelkpwrPp0fKuctQHpFA04E9uWO3gFQAhSGXrYqetHCWR7PjEUwUrOWKrL0rM=@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywo/qKFWY/z0JzqdPz8MGvyEYu4h/2f35+6U5XVV0qwr9sn4niL
+	bTB/OP89MaLqRbltqwNVr/VkU73BAy/9zpppzdxpVJf/N3YQnj6TiRTISnlkF12165vM/i8wVB5
+	4jriJT4d3GCatmM8l2lBvsUDvZWU=
+X-Gm-Gg: ASbGnctcI5XKECae/s3zZcSjr7mdbtFry0jDDgdp6717sTvhN2xdV3ZU1CBRU/r3hlW
+	CRqEKntnhshGC3bTu4/vnVZ2p4jPED8+yaf8yzu5DHbc3luS+Y6LlHfqu4I+cY4EEf6SONheNLN
+	6Ftew8CeJ/1y0G9uOiBLdJOBbrjimx/cKgJopHVAU=
+X-Google-Smtp-Source: AGHT+IG6BhZoWxIICbyhwCocwO6xXPSTdwoF7JNw6rq6Z7HpxVUaKQWpWlNOEVmxHVYRzUrHtcVK/scClbl6g5MFXm4=
+X-Received: by 2002:a05:6000:1f83:b0:38f:2193:f8c2 with SMTP id
+ ffacd0b85a97d-38f6e979541mr4649885f8f.31.1740187421737; Fri, 21 Feb 2025
+ 17:23:41 -0800 (PST)
+MIME-Version: 1.0
+References: <20250220041010.3801-1-honyuenkwun@gmail.com> <20250221231340.GS16911@sventech.com>
+In-Reply-To: <20250221231340.GS16911@sventech.com>
+From: Jimmy Hon <honyuenkwun@gmail.com>
+Date: Fri, 21 Feb 2025 19:23:30 -0600
+X-Gm-Features: AWEUYZmVkmKF-0YNx_3i9PYhg9DTepHiFBL2v1CGPi2zlflcOJAt316mjfq3NKU
+Message-ID: <CALWfF7KW8_vAx49nNygKpLHNJQVpjvVdVpzYiTAWgQvSopHikw@mail.gmail.com>
+Subject: Re: [PATCH UNTESTED v5 0/4] Orange Pi 5 Ultra
+To: Johannes Erdfelt <johannes@erdfelt.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_165954_427548_87059B6A 
-X-CRM114-Status: GOOD (  20.26  )
+X-CRM114-CacheID: sfid-20250221_172344_234203_D9A477A4 
+X-CRM114-Status: GOOD (  20.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,372 +94,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Create KVM selftest runner to run selftests and provide various options
-for execution.
+On Fri, Feb 21, 2025 at 5:13=E2=80=AFPM Johannes Erdfelt <johannes@erdfelt.=
+com> wrote:
+>
+> On Wed, Feb 19, 2025, Jimmy Hon <honyuenkwun@gmail.com> wrote:
+> > This patchset is looking for testers. I do not have the hardware to tes=
+t.
+>
+> I do have hardware and I gave your branch[1] a test.
+Thanks for the test results
 
-Provide following features in the runner:
-1. --timeout/-t: Max time each test should finish in before killing it.
-2. --jobs/-j: Run these many tests in parallel.
-3. --tests: Provide space separated path of tests to execute.
-4. --test_dirs: Directories to search for test files and run them.
-5. --output/-o: Create the folder with given name and dump output of
-   each test in a hierarchical way.
-6. Add summary at the end.
+>
+> The following things tested successfully for me:
+> - Kernel boots
+> - Ethernet
+> - SPI NOR
+> - Micro SD card
+> - eMMC
+> - Bottom M.2 M-key slot (using an NVME drive)
+> - USB 2.0 ports
+> - Blue LED (using heartbeat trigger at least)
+>
+> I did not test:
+> - RTC
+> - UART
+> - HDMI1
+> - HDMI IN
+> - Analog audio
+> - Mali GPU
+> - Heat sink fan
+>
+> However, neither of the USB 3.0 ports work. There are no XHCI messages
+> during boot. I confirmed my kernel config does build XHCI. I haven't
+> ruled out a mistake on my end yet.
+Does your kernel config have CONFIG_PHY_ROCKCHIP_USBDP?
+Both USB 3 ports on the Max/Ultra ports are wired to the usbdp
+controller and not combphy2_psu controller.
+It'll be set if you're using the arm64 defconfig.
 
-Runner needs testcase files which are provided in the previous patch.
-Following are the examples to start the runner (cwd is
-tools/testing/selftests/kvm)
+On my Orange Pi 5 Max, dmesg | grep xhci will show (e.g. io mem)
+[    0.769699] xhci-hcd xhci-hcd.4.auto: xHCI Host Controller
+[    0.769919] xhci-hcd xhci-hcd.4.auto: new USB bus registered,
+assigned bus number 1
+[    0.770062] xhci-hcd xhci-hcd.4.auto: hcc params 0x0220fe64 hci
+version 0x110 quirks 0x0000808002000010
+[    0.770119] xhci-hcd xhci-hcd.4.auto: irq 89, io mem 0xfc000000
+[    0.770351] xhci-hcd xhci-hcd.4.auto: xHCI Host Controller
+[    0.770585] xhci-hcd xhci-hcd.4.auto: new USB bus registered,
+assigned bus number 2
+[    0.770602] xhci-hcd xhci-hcd.4.auto: Host supports USB 3.0 SuperSpeed
+[    0.770837] usb usb1: Manufacturer: Linux 6.14.0-rc1-2-rockchip-ARCH xhc=
+i-hcd
+[    0.770844] usb usb1: SerialNumber: xhci-hcd.4.auto
+[    0.772069] usb usb2: Manufacturer: Linux 6.14.0-rc1-2-rockchip-ARCH xhc=
+i-hcd
+[    0.772076] usb usb2: SerialNumber: xhci-hcd.4.auto
+[    0.792369] xhci-hcd xhci-hcd.5.auto: xHCI Host Controller
+[    0.792640] xhci-hcd xhci-hcd.5.auto: new USB bus registered,
+assigned bus number 3
+[    0.792781] xhci-hcd xhci-hcd.5.auto: hcc params 0x0220fe64 hci
+version 0x110 quirks 0x0000808002000010
+[    0.792826] xhci-hcd xhci-hcd.5.auto: irq 90, io mem 0xfc400000
+[    0.793058] xhci-hcd xhci-hcd.5.auto: xHCI Host Controller
+[    0.793311] xhci-hcd xhci-hcd.5.auto: new USB bus registered,
+assigned bus number 4
+[    0.793327] xhci-hcd xhci-hcd.5.auto: Host supports USB 3.0 SuperSpeed
+[    0.793530] usb usb3: Manufacturer: Linux 6.14.0-rc1-2-rockchip-ARCH xhc=
+i-hcd
+[    0.793537] usb usb3: SerialNumber: xhci-hcd.5.auto
+[    0.794703] usb usb4: Manufacturer: Linux 6.14.0-rc1-2-rockchip-ARCH xhc=
+i-hcd
+[    0.794710] usb usb4: SerialNumber: xhci-hcd.5.auto
 
-- Basic run:
-  python3 runner --test_dirs testcases
+>
+> Also, the green LED is constantly lit even when the trigger is set to
+> none and the brightness is set to 0. This made is a bit harder to
+> confirm that the blue LED was working. I haven't ruled out a mistake on
+> my end for this one yet either.
+Checking the schematic for the Max and the Ultra, they both use
+PWM4_M0 and PWM5_M1 to control the blue and green LEDs.
 
-- Run specific test
-  python3 runner --tests ./testcases/dirty_log_perf_test/default.test
+Have you tried booting the vendor BSP 5.10 or 6.1 kernels? What's the
+behavior on those kernels? It's using GPIO pins there, whereas we're
+using PWM to be able to control brightness.
 
-- Run tests parallel
-  python3 runner --test_dirs testcases -j 10
+>
+> I'll also see if I can give HDMI a test.
+Please report your results when you do. This is one of the differences
+from the Orange Pi 5 Max. The HDMI1 pinctrls does not use the default
+pinctrls like other RK3588 boards (including the Orange Pi 5 Plus).
 
-- Run 5 tests parallely at a time, with the timeout of 10 seconds and
-  dump output in "result" directory
-  python3 runner --test_dirs testcases -j 5 -t 10 --output result
+>
+> JE
+>
+> [1] https://github.com/jimmyhon/linux/tree/integrate-6.15
+>
 
-Sample output from the above command:
-
-python3_binary runner --test_dirs testcases -j 5 -t 10 --output result
-
-2025-02-21 16:45:46,774 | 16809 |     INFO | [Passed] testcases/guest_print=
-_test/default.test
-2025-02-21 16:45:47,040 | 16809 |     INFO | [Passed] testcases/kvm_create_=
-max_vcpus/default.test
-2025-02-21 16:45:49,244 | 16809 |     INFO | [Passed] testcases/dirty_log_p=
-erf_test/default.test
-...
-2025-02-21 16:46:07,225 | 16809 |     INFO | [Passed] testcases/x86_64/pmu_=
-event_filter_test/default.test
-2025-02-21 16:46:08,020 | 16809 |     INFO | [Passed] testcases/x86_64/vmx_=
-preemption_timer_test/default.test
-2025-02-21 16:46:09,734 | 16809 |     INFO | [Timed out] testcases/x86_64/p=
-mu_counters_test/default.test
-2025-02-21 16:46:10,202 | 16809 |     INFO | [Passed] testcases/hardware_di=
-sable_test/default.test
-2025-02-21 16:46:10,203 | 16809 |     INFO | Tests ran: 85 tests
-2025-02-21 16:46:10,204 | 16809 |     INFO | Passed: 61
-2025-02-21 16:46:10,204 | 16809 |     INFO | Failed: 4
-2025-02-21 16:46:10,204 | 16809 |     INFO | Skipped: 17
-2025-02-21 16:46:10,204 | 16809 |     INFO | Timed out: 3
-2025-02-21 16:46:10,204 | 16809 |     INFO | No run: 0
-
-Output dumped in result directory
-
-$ tree result/
-result/
-=E2=94=9C=E2=94=80=E2=94=80 log
-=E2=94=94=E2=94=80=E2=94=80 testcases
-    =E2=94=9C=E2=94=80=E2=94=80 access_tracking_perf_test
-    =E2=94=82=C2=A0=C2=A0 =E2=94=94=E2=94=80=E2=94=80 default.test
-    =E2=94=82=C2=A0=C2=A0     =E2=94=9C=E2=94=80=E2=94=80 stderr
-    =E2=94=82=C2=A0=C2=A0     =E2=94=94=E2=94=80=E2=94=80 stdout
-    =E2=94=9C=E2=94=80=E2=94=80 coalesced_io_test
-    =E2=94=82=C2=A0=C2=A0 =E2=94=94=E2=94=80=E2=94=80 default.test
-    =E2=94=82=C2=A0=C2=A0     =E2=94=9C=E2=94=80=E2=94=80 stderr
-    =E2=94=82=C2=A0=C2=A0     =E2=94=94=E2=94=80=E2=94=80 stdout
-...
-
-results/log file will have the status of each test like the one printed
-on console. Each stderr and stdout will have data based on the
-execution.
-
-Runner is implemented in python and needs at least 3.6 version.
-
-Signed-off-by: Vipin Sharma <vipinsh@google.com>
----
- tools/testing/selftests/kvm/.gitignore        |  1 +
- .../testing/selftests/kvm/runner/__main__.py  | 96 +++++++++++++++++++
- tools/testing/selftests/kvm/runner/command.py | 42 ++++++++
- .../testing/selftests/kvm/runner/selftest.py  | 49 ++++++++++
- .../selftests/kvm/runner/test_runner.py       | 40 ++++++++
- 5 files changed, 228 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/runner/__main__.py
- create mode 100644 tools/testing/selftests/kvm/runner/command.py
- create mode 100644 tools/testing/selftests/kvm/runner/selftest.py
- create mode 100644 tools/testing/selftests/kvm/runner/test_runner.py
-
-diff --git a/tools/testing/selftests/kvm/.gitignore b/tools/testing/selftes=
-ts/kvm/.gitignore
-index 550b7c2b4a0c..a23fd4b2cb5f 100644
---- a/tools/testing/selftests/kvm/.gitignore
-+++ b/tools/testing/selftests/kvm/.gitignore
-@@ -11,3 +11,4 @@
- !Makefile
- !Makefile.kvm
- !*.test
-+!*.py
-diff --git a/tools/testing/selftests/kvm/runner/__main__.py b/tools/testing=
-/selftests/kvm/runner/__main__.py
-new file mode 100644
-index 000000000000..008d862757f2
---- /dev/null
-+++ b/tools/testing/selftests/kvm/runner/__main__.py
-@@ -0,0 +1,96 @@
-+# SPDX-License-Identifier: GPL-2.0
-+import pathlib
-+import argparse
-+import platform
-+import logging
-+import os
-+import enum
-+import test_runner
-+
-+
-+def cli():
-+    parser =3D argparse.ArgumentParser(
-+        prog=3D"KVM Selftests Runner",
-+        description=3D"Run KVM selftests with different configurations",
-+        formatter_class=3Dargparse.RawTextHelpFormatter
-+    )
-+
-+    parser.add_argument("--tests",
-+                        nargs=3D"*",
-+                        default=3D[],
-+                        help=3D"Test cases to run. Provide the space separ=
-ated test case file paths")
-+
-+    parser.add_argument("--test_dirs",
-+                        nargs=3D"*",
-+                        default=3D[],
-+                        help=3D"Run tests in the given directory and all i=
-ts sub directories. Provide the space separated paths to add multiple direc=
-tories.")
-+
-+    parser.add_argument("-j",
-+                        "--jobs",
-+                        default=3D1,
-+                        type=3Dint,
-+                        help=3D"Number of parallel test runners to start")
-+
-+    parser.add_argument("-t",
-+                        "--timeout",
-+                        default=3D120,
-+                        type=3Dint,
-+                        help=3D"How long to wait for a single test to fini=
-sh before killing it")
-+
-+    parser.add_argument("-o",
-+                        "--output",
-+                        nargs=3D'?',
-+                        help=3D"Output directory for test results.")
-+
-+    return parser.parse_args()
-+
-+
-+def setup_logging(args):
-+    output =3D args.output
-+    if output =3D=3D None:
-+        logging.basicConfig(level=3Dlogging.INFO,
-+                            format=3D"%(asctime)s | %(process)d | %(leveln=
-ame)8s | %(message)s")
-+    else:
-+        logging_file =3D os.path.join(output, "log")
-+        pathlib.Path(output).mkdir(parents=3DTrue, exist_ok=3DTrue)
-+        logging.basicConfig(level=3Dlogging.INFO,
-+                            format=3D"%(asctime)s | %(process)d | %(leveln=
-ame)8s | %(message)s",
-+                            handlers=3D[
-+                                logging.FileHandler(logging_file, mode=3D'=
-w'),
-+                                logging.StreamHandler()
-+                            ])
-+
-+
-+def fetch_tests_from_dirs(scan_dirs, exclude_dirs):
-+    test_files =3D []
-+    for scan_dir in scan_dirs:
-+        for root, dirs, files in os.walk(scan_dir):
-+            dirs[:] =3D [dir for dir in dirs if dir not in exclude_dirs]
-+            for file in files:
-+                test_files.append(os.path.join(root, file))
-+    return test_files
-+
-+
-+def fetch_test_files(args):
-+    exclude_dirs =3D ["aarch64", "x86_64", "riscv", "s390x"]
-+    # Don't exclude tests of the current platform
-+    exclude_dirs.remove(platform.machine())
-+
-+    test_files =3D args.tests
-+    test_files.extend(fetch_tests_from_dirs(args.test_dirs, exclude_dirs))
-+    # Remove duplicates
-+    test_files =3D list(dict.fromkeys(test_files))
-+    return test_files
-+
-+
-+def main():
-+    args =3D cli()
-+    setup_logging(args)
-+    test_files =3D fetch_test_files(args)
-+    tr =3D test_runner.TestRunner(
-+        test_files, args.output, args.timeout, args.jobs)
-+    tr.start()
-+
-+
-+if __name__ =3D=3D "__main__":
-+    main()
-diff --git a/tools/testing/selftests/kvm/runner/command.py b/tools/testing/=
-selftests/kvm/runner/command.py
-new file mode 100644
-index 000000000000..a58f16fe4542
---- /dev/null
-+++ b/tools/testing/selftests/kvm/runner/command.py
-@@ -0,0 +1,42 @@
-+# SPDX-License-Identifier: GPL-2.0
-+import contextlib
-+import subprocess
-+import os
-+import pathlib
-+
-+
-+class Command:
-+    """Executes a command
-+
-+    Just execute a command. Dump output to the directory if provided.
-+
-+    Returns the exit code of the command.
-+    """
-+
-+    def __init__(self, command, timeout=3DNone, output_dir=3DNone):
-+        self.command =3D command
-+        self.timeout =3D timeout
-+        self.output_dir =3D output_dir
-+
-+    def __run(self, output=3DNone, error=3DNone):
-+        proc =3D subprocess.run(self.command, stdout=3Doutput,
-+                              stderr=3Derror, universal_newlines=3DTrue,
-+                              shell=3DTrue, timeout=3Dself.timeout)
-+        return proc.returncode
-+
-+    def run(self):
-+        if self.output_dir is not None:
-+            pathlib.Path(self.output_dir).mkdir(parents=3DTrue, exist_ok=
-=3DTrue)
-+
-+        output =3D None
-+        error =3D None
-+        with contextlib.ExitStack() as stack:
-+            if self.output_dir is not None:
-+                output_path =3D os.path.join(self.output_dir, "stdout")
-+                output =3D stack.enter_context(
-+                    open(output_path, encoding=3D"utf-8", mode=3D"w"))
-+
-+                error_path =3D os.path.join(self.output_dir, "stderr")
-+                error =3D stack.enter_context(
-+                    open(error_path, encoding=3D"utf-8", mode=3D"w"))
-+            return self.__run(output, error)
-diff --git a/tools/testing/selftests/kvm/runner/selftest.py b/tools/testing=
-/selftests/kvm/runner/selftest.py
-new file mode 100644
-index 000000000000..cdf5d1085c08
---- /dev/null
-+++ b/tools/testing/selftests/kvm/runner/selftest.py
-@@ -0,0 +1,49 @@
-+# SPDX-License-Identifier: GPL-2.0
-+import subprocess
-+import command
-+import pathlib
-+import enum
-+import os
-+import logging
-+
-+
-+class SelftestStatus(str, enum.Enum):
-+    PASSED =3D "Passed"
-+    FAILED =3D "Failed"
-+    SKIPPED =3D "Skipped"
-+    TIMED_OUT =3D "Timed out"
-+    NO_RUN =3D "No run"
-+
-+    def __str__(self):
-+        return str.__str__(self)
-+
-+
-+class Selftest:
-+    """A single test.
-+
-+    A test which can be run on its own.
-+    """
-+
-+    def __init__(self, test_path, output_dir=3DNone, timeout=3DNone,):
-+        test_command =3D pathlib.Path(test_path).read_text().strip()
-+        if not test_command:
-+            raise ValueError("Empty test command in " + test_path)
-+
-+        if output_dir is not None:
-+            output_dir =3D os.path.join(output_dir, test_path)
-+        self.test_path =3D test_path
-+        self.command =3D command.Command(test_command, timeout, output_dir=
-)
-+        self.status =3D SelftestStatus.NO_RUN
-+
-+    def run(self):
-+        try:
-+            ret =3D self.command.run()
-+            if ret =3D=3D 0:
-+                self.status =3D SelftestStatus.PASSED
-+            elif ret =3D=3D 4:
-+                self.status =3D SelftestStatus.SKIPPED
-+            else:
-+                self.status =3D SelftestStatus.FAILED
-+        except subprocess.TimeoutExpired as e:
-+            # logging.error(type(e).__name__ + str(e))
-+            self.status =3D SelftestStatus.TIMED_OUT
-diff --git a/tools/testing/selftests/kvm/runner/test_runner.py b/tools/test=
-ing/selftests/kvm/runner/test_runner.py
-new file mode 100644
-index 000000000000..b9d34c20bf88
---- /dev/null
-+++ b/tools/testing/selftests/kvm/runner/test_runner.py
-@@ -0,0 +1,40 @@
-+# SPDX-License-Identifier: GPL-2.0
-+import queue
-+import concurrent.futures
-+import logging
-+import time
-+import selftest
-+
-+
-+class TestRunner:
-+    def __init__(self, test_files, output_dir, timeout, parallelism):
-+        self.parallelism =3D parallelism
-+        self.tests =3D []
-+
-+        for test_file in test_files:
-+            self.tests.append(selftest.Selftest(
-+                test_file, output_dir, timeout))
-+
-+    def _run(self, test):
-+        test.run()
-+        return test
-+
-+    def start(self):
-+
-+        status =3D {x: 0 for x in selftest.SelftestStatus}
-+        count =3D 0
-+        with concurrent.futures.ProcessPoolExecutor(max_workers=3Dself.par=
-allelism) as executor:
-+            all_futures =3D []
-+            for test in self.tests:
-+                future =3D executor.submit(self._run, test)
-+                all_futures.append(future)
-+
-+            for future in concurrent.futures.as_completed(all_futures):
-+                test =3D future.result()
-+                logging.info(f"[{test.status}] {test.test_path}")
-+                status[test.status] +=3D 1
-+                count +=3D 1
-+
-+        logging.info(f"Tests ran: {count} tests")
-+        for result, count in status.items():
-+            logging.info(f"{result}: {count}")
---=20
-2.48.1.601.g30ceb7b040-goog
-
+Jimmy
 
