@@ -4,129 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACA8AC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 11:01:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80328C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 11:02:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=GDrRxJdDKDeQsLoUyWU3HU1LlEhYeBjbVEKvneEwPbA=; b=Hol25GWE5098J/Fj8IvFOayFXn
-	FS+JWeQII6PYyYufxueRxMMVdyXHFBGnejyX6vK1+KTX//x+Q75Q/5LVuIdsvg3BJxmND6/DosEky
-	hHfKaRu4EnfLxb6dmBg8JADb4fdmRlAJ7cwbXaZvwHWFjlHqZtD/0SQIhUNXql7olY1RTqxXiCs9m
-	n0iog7JVYPmFGKuVJHTDz8dWuxhTWRPy1foLbUo2FdMGir0dWVzxGq/O3cBCJR6wu6iEY7TA+WZsZ
-	vtYy6bqWfqq5FI2mLwmFQaE3LvHS9p73Ums0u00r+hlKAlNIvuDIy2X6Y9DfI9k0NqHQ74a3cLvre
-	VaSV0pzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Aw6pR2f8aOsPeIBUPQxbT1NRYua1Nx6Z20tWv/SkYUs=; b=Xas0VMRmDjU4BpQ0cybfkVdvX5
+	bIsE9r09r3atLtpqlrXhMwnNMS2UQ4FWprJ2IkKs11qujcrXy/FgGDOBTWxEvgidm4MO797o0MPcL
+	uOLCtW/uTcqh1TXnIHclwlflKwSVO7w5zDMc1uZFchUm389+D7Vd+vrkncdaJOqev68w0z6IQjyX7
+	tBnt1In7nwuyYIiPQNyttgIBPFkfz9g3gCOuN3gX5JZIgNCAm7Sbk3uxfgo1KV9Y0FOdf15OZU8+O
+	hMJaOSRQoQWy1EYQScbtUmkVKVCGFSsXxRhYrMMVoGB5qj/MQCYv5JgTKBIerMKTgrbRS/r82zjgq
+	zu3gvMig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlnFk-00000007sGJ-3dQ8;
-	Sat, 22 Feb 2025 11:01:00 +0000
-Received: from [203.254.224.34] (helo=mailout4.samsung.com)
+	id 1tlnHC-00000007sWc-2wcJ;
+	Sat, 22 Feb 2025 11:02:30 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlnCG-00000007rbN-052Q
+	id 1tlnCX-00000007reX-2uUo
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Feb 2025 10:57:26 +0000
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250222105720epoutp040e777e6f444a0c9f4d285018f6868479~mgotO3u4O1558515585epoutp04V
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Feb 2025 10:57:20 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250222105720epoutp040e777e6f444a0c9f4d285018f6868479~mgotO3u4O1558515585epoutp04V
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1740221840;
-	bh=GDrRxJdDKDeQsLoUyWU3HU1LlEhYeBjbVEKvneEwPbA=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=GYXp/GXqD2Dic8EuXYEAysvkDYMeGSY6HiwnB7lrUzsjwPH2I5Ri2br086yu0o6Z5
-	 DRoYb/nrHDIxOtRLoqabNnvczSBlTYr5R5m6Qt4XQ8T610GLftTVQILWsJ77RpzAsE
-	 rjalYyCBZdHGaU1l2N/lqxghkwRorDzrCjC/4y08=
-Received: from epsnrtp4.localdomain (unknown [182.195.42.165]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTP id
-	20250222105720epcas5p30631c60540b66daefad7ce8b0694f303~mgosqZVgq0573205732epcas5p3p;
-	Sat, 22 Feb 2025 10:57:20 +0000 (GMT)
-Received: from epsmgec5p1new.samsung.com (unknown [182.195.38.176]) by
-	epsnrtp4.localdomain (Postfix) with ESMTP id 4Z0P8Z29D0z4x9Pv; Sat, 22 Feb
-	2025 10:57:18 +0000 (GMT)
-Received: from epcas5p1.samsung.com ( [182.195.41.39]) by
-	epsmgec5p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	BF.F1.19710.E8DA9B76; Sat, 22 Feb 2025 19:57:18 +0900 (KST)
-Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250221132011epcas5p4dea1e9ae5c09afaabcd1822f3a7d15c5~mO8JJOwUe2791427914epcas5p4r;
-	Fri, 21 Feb 2025 13:20:11 +0000 (GMT)
-Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
-	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250221132011epsmtrp22f7624b78aa3385ffea22835fa5d06a6~mO8JIRaK91906719067epsmtrp26;
-	Fri, 21 Feb 2025 13:20:11 +0000 (GMT)
-X-AuditID: b6c32a44-363dc70000004cfe-8d-67b9ad8eb5a4
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
-	EB.3F.33707.B8D78B76; Fri, 21 Feb 2025 22:20:11 +0900 (KST)
-Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250221132008epsmtip24b146ccec521cc047535442a2ce80e91~mO8GTgdud0684606846epsmtip2x;
-	Fri, 21 Feb 2025 13:20:08 +0000 (GMT)
-From: Shradha Todi <shradha.t@samsung.com>
-To: linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org
-Cc: manivannan.sadhasivam@linaro.org, lpieralisi@kernel.org, kw@linux.com,
-	robh@kernel.org, bhelgaas@google.com, jingoohan1@gmail.com,
-	Jonathan.Cameron@Huawei.com, fan.ni@samsung.com, nifan.cxl@gmail.com,
-	a.manzanares@samsung.com, pankaj.dubey@samsung.com, cassel@kernel.org,
-	18255117159@163.com, xueshuai@linux.alibaba.com, renyu.zj@linux.alibaba.com,
-	will@kernel.org, mark.rutland@arm.com, Shradha Todi <shradha.t@samsung.com>
-Subject: [PATCH v7 0/5] Add support for debugfs based RAS DES feature in
- PCIe DW
-Date: Fri, 21 Feb 2025 18:45:43 +0530
-Message-Id: <20250221131548.59616-1-shradha.t@samsung.com>
-X-Mailer: git-send-email 2.17.1
+	Sat, 22 Feb 2025 10:57:42 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5ded6c31344so4129108a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Feb 2025 02:57:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740221860; x=1740826660; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Aw6pR2f8aOsPeIBUPQxbT1NRYua1Nx6Z20tWv/SkYUs=;
+        b=ng03GjfSB5n0QCndHszmXAPAFxDccXCBHYV9Q3TqI+BbZ/yuxes7Q0NoCOyyWJbspq
+         52mYGb6+xmnKw5Uz/t2dt3C8UBsjXHdcJuONy4WnpyufVo+GyPH54n09jZPp1hrrbeBQ
+         vPlZxo43apKbe9p5Jr7ipvgPQ6jWjhNDWVKVAEKC/hIYAC7+zL30bbNcIA57FzOa0WJK
+         CGn16RMo8G8fjkgC/b2ssFEDqZ/o6AMoDHcO1T8818WmGzb4vfYV/40dZ7joS1SnMfCr
+         52ndKPN8WyRUSgEvdC24M4Ag+/+iE7BFwX2ZA/BcagpHjWmICeaRTFD8Chss8ntK0Gh+
+         +ddQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740221860; x=1740826660;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Aw6pR2f8aOsPeIBUPQxbT1NRYua1Nx6Z20tWv/SkYUs=;
+        b=qexbgw5QkTI3J8hfpdEzEqcO3OU/G5AaSTSLNbZOSmr4zw9PLQKpAVB5/hk4eT3mov
+         +ECG/FQjAeqK+vk8WVeYahJZJBvgI0GOrJLJeBXwDw4BhwevkzPjxWgzVXJjxRgLVOCb
+         SWp0PctAONBmjD6+QE8frVNsz7hkWI1w1ucDSvvo4Eropt1t4EkBtToqrop74XbLmu5W
+         pGtW+BW03jz2KMxDOQ5zEQvq9J3LjTMG8ZPFYQsTog104kSY4fEVMjCrp4/zsYiTSZyG
+         rpL6MhxE7UuJJO1Yd2008xsVd2G4G45P+1UXLpGAtxckHoWVzzFYT4hMUXc9u0PIqp88
+         8aJw==
+X-Forwarded-Encrypted: i=1; AJvYcCV8/1zKRXEvpNyal/Sw2xLy/dwLsRQug7E3MmfdvLmYq7t6ys7mBcPsk9w6ipLiwjRN4syDATv55zVEZ8RorQT9@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJUuwwt4rcW/A0B8xZKydykGP85i/m8C/vXGX+/iCvTL/GHubt
+	XL/vt4BVuk1i24A/u+wZsFo2wbaKQ4hcqyh7ja4ISGiU+tHetvwu
+X-Gm-Gg: ASbGncsnBjISvHkYRjU490WGDvivyxxSyASH32zbgWt6HGiruzM5dLo7XSKeQrrsV/5
+	zFarGVJg62xlCQyBGJX3WDWCmLvJOgabCM64pih0dzTX+wI6iptkheI+6KihNtkdGeMZ439Q/4D
+	LRx/4dwTX2FgtvR0FZaB/krC6EvQVN7fPSgM+VI4onaQKVwZhGG09QZvl42BMGRWadS79k3oJdn
+	BzTNHa3F4Ml06oYxU5Klm8iq20tXsSNXEFbw7m+EIipDk8SWwpLAFrP0AM4xWGnZJgfX/B5j5bO
+	z0g7S2EuAYW9SeQZpx1gQvg932U8ZjVhY+AiMBbFhgBu7Zbshgfst5Rsi9XLZ7AdjGX+Y/JJdUM
+	5
+X-Google-Smtp-Source: AGHT+IGnhvm54Vik2CF39bEJRoMEQ5ix1N9FJYonN4QOztOqVwTssq2Iz96ESOuZiaBNAxHqfsX97g==
+X-Received: by 2002:a05:6402:234f:b0:5df:b6e1:4690 with SMTP id 4fb4d7f45d1cf-5e0b7106a9cmr14970904a12.12.1740221859769;
+        Sat, 22 Feb 2025 02:57:39 -0800 (PST)
+Received: from [192.168.50.244] (83.8.202.192.ipv4.supernova.orange.pl. [83.8.202.192])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aba5323225fsm1813486166b.24.2025.02.22.02.57.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 22 Feb 2025 02:57:39 -0800 (PST)
+Message-ID: <d68e179d-73ac-48d0-acb1-aab644cdf8c6@gmail.com>
+Date: Sat, 22 Feb 2025 11:57:37 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrBJsWRmVeSWpSXmKPExsWy7bCmum7f2p3pBpev8Fhcaf/NbjH9sKLF
-	kqYMi2MTVjBbNK2+y2qx4stMdotVC6+xWTT0/Ga12PT4GqvF5V1z2CzOzjvOZnFl6zoWi5Y/
-	LSwWd1s6WS2WXr/IZPF3215Gi0Vbv7BbLGx+yWjxf88Odovew7UWLXdMLd7/3MzmIOaxeMUU
-	Vo8189YweuycdZfdY8GmUo+WI29ZPTat6mTzuHNtD5vHzoeWHk+uTGfy2Lyk3qNvyypGj8+b
-	5AJ4orJtMlITU1KLFFLzkvNTMvPSbZW8g+Od403NDAx1DS0tzJUU8hJzU22VXHwCdN0yc4C+
-	VVIoS8wpBQoFJBYXK+nb2RTll5akKmTkF5fYKqUWpOQUmBToFSfmFpfmpevlpZZYGRoYGJkC
-	FSZkZ9w5vYalYLZqxYb7X5gaGB/IdjFyckgImEi83vKXqYuRi0NIYDejxLsX7UwgCSGBT4wS
-	u6dkQySA7IMTF7PDdKyZ08QKkdjJKHFn3nso5wujxL2+j2BVbAJaEo1fu5hBbBGBVkaJI8/E
-	QIqYBbYxSxxYsQIsISwQJPFjXRsLiM0ioCrx/e98oGYODl4BK4k9K+0htslLrN5wAKycV0BQ
-	4uTMJ2DlzEDx5q2zmSFqvnBIfJnNB2G7SCzadQPqUmGJV8e3QNlSEp/f7WWDsNMlVm6eAdWb
-	I/Ft8xImCNte4sCVOSwgJzALaEqs36UPEZaVmHpqHRPEWj6J3t9PoMp5JXbMg7GVJb783cMC
-	YUtKzDt2mRXC9pDYufkh2EghgViJ/v+2ExjlZyF5ZhaSZ2YhLF7AyLyKUTK1oDg3PTXZtMAw
-	L7UcHq3J+bmbGMFJXstlB+ON+f/0DjEycTAeYpTgYFYS4dUt2ZEuxJuSWFmVWpQfX1Sak1p8
-	iNEUGMATmaVEk/OBeSavJN7QxNLAxMzMzMTS2MxQSZy3eWdLupBAemJJanZqakFqEUwfEwen
-	VAOTyWph2UVGD0z1j0+NvfvEdnGQ413ON1OnCFx4vMfJeqvN3Mp7Kx86NXwKsN+sdkziZXTt
-	kesTTnswSfQ/W1W2UrvUr+Mf14yGGbL9V1cY802NfhC1Su7CI57OFPH5lz5En/srKjG9MXbJ
-	wbvLF2vMuPtkX2nEE4bFtdvOlN1YvEY1xMF6apLnj5CG0sSSXn3PgKUsajzVWQ/TfU7n/lD5
-	bfjrwVJLhqPcRqoTSkq8zi29HTM1wO3dCcNfq6we9H4Sbrx8ef67MN+3L8NLzveyuAo5iV1+
-	s8+BVbngfu6khvO+c9YriUadC2QxkJvBY3eiVHQx3yuDqBXzeubVRsnkfzzpt9tl19/cGTOv
-	1GuzKrEUZyQaajEXFScCAMosolJ7BAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrJIsWRmVeSWpSXmKPExsWy7bCSvG537Y50g2MLlC2utP9mt5h+WNFi
-	SVOGxbEJK5gtmlbfZbVY8WUmu8WqhdfYLBp6frNabHp8jdXi8q45bBZn5x1ns7iydR2LRcuf
-	FhaLuy2drBZLr19ksvi7bS+jxaKtX9gtFja/ZLT4v2cHu0Xv4VqLljumFu9/bmZzEPNYvGIK
-	q8eaeWsYPXbOusvusWBTqUfLkbesHptWdbJ53Lm2h81j50NLjydXpjN5bF5S79G3ZRWjx+dN
-	cgE8UVw2Kak5mWWpRfp2CVwZd06vYSmYrVqx4f4XpgbGB7JdjJwcEgImEmvmNLF2MXJxCAls
-	Z5Q4cm4FE0RCUuLzxXVQtrDEyn/P2SGKPjFKnLi3HyzBJqAl0fi1ixkkISLQySix98g7sCpm
-	gXPMEjM/tzCCVAkLBEicWbwezGYRUJX4/nc+UBEHB6+AlcSelfYQG+QlVm84wAxi8woISpyc
-	+YQFpIRZQF1i/TwhkDAzUEnz1tnMExj5ZyGpmoVQNQtJ1QJG5lWMoqkFxbnpuckFhnrFibnF
-	pXnpesn5uZsYwbGpFbSDcdn6v3qHGJk4GA8xSnAwK4nw6pbsSBfiTUmsrEotyo8vKs1JLT7E
-	KM3BoiTOq5zTmSIkkJ5YkpqdmlqQWgSTZeLglGpg4pjMtu2b3EL3R9/vnl2nEvFC55TM2YSA
-	my6J94qZeTt8782a/COa5zfzt5k3prcfseJ7luLkekH78Adlm03yN7mZkk1XMM56/M3uTPar
-	ex8KP295FMh6s2nhnKm/5osxdX5TKq3b61nX9iT1YXNdyKerQsdqYjgT+VaEJK99GX3A6He8
-	1XIWZ2vz9ffnsnQutJ2jtMajR/n7bM0NmbNmena/SZXhnfzD5alN2PFWrd0vK8Je8Blf3/b1
-	x9bwBX5/Yl/s/XhNzGKZrer2uvBbUQqvGNOWb17bYhX/xT3W2q3tpEjcHY7SxiIpxtc63+us
-	rinukH9y8IUFl3ej4vrW9/u/5z0wPMPHsW9quEntZSWW4oxEQy3mouJEAI4aFoM8AwAA
-X-CMS-MailID: 20250221132011epcas5p4dea1e9ae5c09afaabcd1822f3a7d15c5
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250221132011epcas5p4dea1e9ae5c09afaabcd1822f3a7d15c5
-References: <CGME20250221132011epcas5p4dea1e9ae5c09afaabcd1822f3a7d15c5@epcas5p4.samsung.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/9] dt-bindings: mfd: brcm,bcm59056: Convert to YAML
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
+ <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Stanislav Jakubek <stano.jakubek@gmail.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ ~postmarketos/upstreaming@lists.sr.ht
+References: <20250221-bcm59054-v5-0-065f516a9042@gmail.com>
+ <20250221-bcm59054-v5-1-065f516a9042@gmail.com>
+ <20250222-orthodox-black-mayfly-984ffc@krzk-bin>
+From: Artur Weber <aweber.kernel@gmail.com>
+Content-Language: en-US
+In-Reply-To: <20250222-orthodox-black-mayfly-984ffc@krzk-bin>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_025724_372011_DEE6707C 
-X-CRM114-Status: GOOD (  24.92  )
+X-CRM114-CacheID: sfid-20250222_025741_735758_1D0A5281 
+X-CRM114-Status: GOOD (  17.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,99 +111,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DesignWare controller provides a vendor specific extended capability
-called RASDES as an IP feature. This extended capability  provides
-hardware information like:
- - Debug registers to know the state of the link or controller. 
- - Error injection mechanisms to inject various PCIe errors including
-   sequence number, CRC
- - Statistical counters to know how many times a particular event
-   occurred
+On 22.02.2025 10:43, Krzysztof Kozlowski wrote:
+> On Fri, Feb 21, 2025 at 09:16:23PM +0100, Artur Weber wrote:
+>> Convert devicetree bindings for the Broadcom BCM59056 PMU MFD from
+>> TXT to YAML format. This patch does not change any functionality;
+>> the bindings remain the same.
+>>
+>> The bindings have been split into two parts: the MFD binding and
+>> a separate binding for the regulator node, to simplify the addition
+>> of other models later (which have different regulators).
+>>
+>> Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
+>> ---
+>> Changes in v5:
+>> - Replace mfd/brcm,bcm59056.yaml with mfd/brcm,bcm590xx.yaml in
+>>    regulator binding description
+>>
+>> Changes in v4:
+>> - Made $ref use full schema path
+>> - Cleaned up example
+>> - Dropped regulator name list comment
+>> - Changed description of regulator binding to mention BCM59056
+>>    explicitly
+>> - Changed "Power Management IC" to "Power Management Unit" to match
+>>    official Broadcom naming
+>> - Renamed mfd/brcm,bcm59056.yaml to mfd/brcm,bcm590xx.yaml
+> 
+> I don't understand why the name became "xx", instead of matching exactly
+> compatible. It wasn't like this when I reviewed it last time and this is
+> really unexpected change.
+> 
+> Please follow standard rules: filename must match compatible.
 
-However, in Linux we do not have any generic or custom support to be
-able to use this feature in an efficient manner. This is the reason we
-are proposing this framework. Debug and bring up time of high-speed IPs
-are highly dependent on costlier hardware analyzers and this solution
-will in some ways help to reduce the HW analyzer usage.
+The change was mostly to make it more generic; it felt a bit weird that
+the BCM59054 regulator binding (added in the next patch) referenced a
+binding named after BCM59056. But if this is not a problem, and a
+concrete model number is required (even if it is only one of the
+supported devices), then I'll switch back to the bcm59056 name.
 
-The debugfs entries can be used to get information about underlying
-hardware and can be shared with user space. Separate debugfs entries has
-been created to cater to all the DES hooks provided by the controller.
-The debugfs entries interacts with the RASDES registers in the required
-sequence and provides the meaningful data to the user. This eases the
-effort to understand and use the register information for debugging.
-
-This series creates a generic debugfs framework for DesignWare PCIe
-controllers where other debug features apart from RASDES can also be
-added as and when required.
-
-v7:
-    - Moved the patches to make finding VSEC IDs common from Mani's patchset [1]
-      into this series to remove dependancy as discussed
-    - Addressed style related change requests from v6
-
-v6: https://lore.kernel.org/all/20250214105007.97582-1-shradha.t@samsung.com/
-    - Addressed Niklas's comment to make vsec ID finding similar to perf
-    - Minor changes in the driver to make the debugfs file common and
-      not specefic to RASDES so that other developers can add debug
-      related features to this file.
-
-v5: https://lore.kernel.org/all/20250121111421.35437-1-shradha.t@samsung.com/
-    - Addressed Fan's comment to split the patches for easier review
-    - Addressed Bjorn's comment to fix vendor specific cap search
-    - Addressed style related change requests from v4
-    - Added rasdes debugfs init call to common designware files for host
-      and EP.
-
-v4: https://lore.kernel.org/lkml/20241206074456.17401-1-shradha.t@samsung.com/
-    - Addressed comments from Manivannan, Bjorn and Jonathan
-    - Addressed style related change requests from v3
-    - Added Documentation under Documentation/ABI/testing and kdoc stype
-      comments wherever required for better understanding
-    - Enhanced error injection to include all possible error groups
-    - Removed debugfs init call from common designware file and left it
-      up to individual platform drivers to init/deinit as required.
-
-v3: https://lore.kernel.org/all/20240625093813.112555-1-shradha.t@samsung.com/
-    - v2 had suggestions about moving this framework to perf/EDAC instead of a
-      controller specific debugfs but after discussions we decided to go ahead
-      with the same. Rebased and posted v3 with minor style changes.
-
-v2: https://lore.kernel.org/lkml/20231130115044.53512-1-shradha.t@samsung.com/
-    - Addressed comments from Krzysztof Wilczyński, Bjorn Helgaas and
-      posted v2 with a changed implementation for a better code design
-
-v1: https://lore.kernel.org/all/20210518174618.42089-1-shradha.t@samsung.com/T/
-
-[1] https://lore.kernel.org/all/20250218-pcie-qcom-ptm-v1-0-16d7e480d73e@linaro.org/
-
-Manivannan Sadhasivam (1):
-  perf/dwc_pcie: Move common DWC struct definitions to 'pcie-dwc.h'
-
-Shradha Todi (4):
-  PCI: dwc: Add helper to find the Vendor Specific Extended Capability
-    (VSEC)
-  Add debugfs based silicon debug support in DWC
-  Add debugfs based error injection support in DWC
-  Add debugfs based statistical counter support in DWC
-
- Documentation/ABI/testing/debugfs-dwc-pcie    | 144 +++++
- MAINTAINERS                                   |   1 +
- drivers/pci/controller/dwc/Kconfig            |  10 +
- drivers/pci/controller/dwc/Makefile           |   1 +
- .../controller/dwc/pcie-designware-debugfs.c  | 564 ++++++++++++++++++
- .../pci/controller/dwc/pcie-designware-ep.c   |   5 +
- .../pci/controller/dwc/pcie-designware-host.c |   6 +
- drivers/pci/controller/dwc/pcie-designware.c  |  46 ++
- drivers/pci/controller/dwc/pcie-designware.h  |  21 +
- drivers/perf/dwc_pcie_pmu.c                   |  25 +-
- include/linux/pcie-dwc.h                      |  36 ++
- 11 files changed, 837 insertions(+), 22 deletions(-)
- create mode 100644 Documentation/ABI/testing/debugfs-dwc-pcie
- create mode 100644 drivers/pci/controller/dwc/pcie-designware-debugfs.c
- create mode 100644 include/linux/pcie-dwc.h
-
--- 
-2.17.1
-
+Best regards
+Artur
 
