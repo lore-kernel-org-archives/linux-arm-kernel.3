@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52D3BC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 11:44:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63F7BC021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 11:46:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e9EcpsvlfdILzMAQp2/jsodVgf7CmKMPZrf0qtieAZk=; b=kAGqkI+9VDg55/F4jPRPiVyijE
-	XzXsrU984PQC20yuKjxUTwET6d90mP2r3hVfZnMgtT7tDuErquRroSHvYalIdtK/caezMqSILqIzm
-	TPtRB/+cKqK6won85gKMlS+vNsqZbxNLpdYjPMPjjFyZWKNEYQzOiNtqnjh3j599ILl5b+OroJKU/
-	xB3S1Uqv/jPM6DFsefiNev8fTZfFSIus+RxRM0ZS4PrrCQnwxKRYRDEUh3xLpTrdryvi1B4NbLv1n
-	/8B+vFMK1oA4/Fr0fcrtpi9/yt6e4Jk2pq9vC3oVMWZFeK7xOuRDUHTH/K/w+t42MzP2UDnhvaApN
-	p8Lgm+Eg==;
+	bh=GciUUqj1RmNWWcZPAfK8/8tZx9TktRuEfZAKKaKTmos=; b=10h+kSygxc2HlsDgDzIoWKB0j0
+	DKA+ziJO+M94PPXei4E4PzmCuh5Fv6h60kZOZCrO88auk+v8tPvPgoxooSyxlhJdwb8sxrlU/km37
+	m5F3mQktL5h4iZZNAjpFiK7CMeNavzqO0yb23D+vNH7d3PoFBEAe5n5KLpaq94ZgdNeoPPn8PLBUR
+	iczqaxCAV5PRD+HIkGfgT8wRVRXQQf5QcbReaUPqxiWn7KV8weMWW5Yw62ssv1dF2raKYk8x/fbEK
+	7gm7cKLgiXTkOT1E6q6smjEC5UtH+wDdZcafbaeXjiZjSc+yn08I4kil/IHUTBcC0JCkOZgPgzsnK
+	mU11S0Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlnvx-00000007wFb-20XS;
-	Sat, 22 Feb 2025 11:44:37 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1tlnxP-00000007wMz-18n7;
+	Sat, 22 Feb 2025 11:46:07 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlnqf-00000007vXU-0RmE
+	id 1tlnqg-00000007vXq-0QZ2
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Feb 2025 11:39:10 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-ab7d8953b48so45148566b.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Feb 2025 03:39:08 -0800 (PST)
+	Sat, 22 Feb 2025 11:39:11 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5debb4aef2eso473988a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Feb 2025 03:39:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740224347; x=1740829147; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1740224348; x=1740829148; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=e9EcpsvlfdILzMAQp2/jsodVgf7CmKMPZrf0qtieAZk=;
-        b=lbRcFdlY+RQnQTQY8kBPT/f6RgWInZdMCZMtUtoNX17g1EML7wg++nEqquN+wM7FLu
-         SWvBRSg/h1tbtMKMGj9jQoiMWEHT4OoBjtJHv4kU4EVkjSxkfLYK5LYjQOwx/kcCfrtp
-         /s38eo/Ex0Mo+boygOhsBf5XRl/BKVxTq6zRyZ+WwKcmLfET1Q8vfujRJnnU+Q5lvmx/
-         puFdwWU6VUxP1oB5w7tYbnK7loMCW0MQFb/lFiii/Y37JQTL7P+0q70qUG2Lg504Mbck
-         SWvRVT5Xo7lBDUDRQnw2SR8tp8kVZWlqhyZqRngey2WsZee0PQ205dDgq3hdk6JDm484
-         +V2A==
+        bh=GciUUqj1RmNWWcZPAfK8/8tZx9TktRuEfZAKKaKTmos=;
+        b=OadWc/1udspIMObJZn0vkPfTpajtFJ7d9hB3a64XiKaNx1iYSq8qLcqmpFIQknAq0s
+         kEpfFPVjFUm3BHi+MAQI/eZGhoJ3tNIwUnkypCJauUwbCxAGLYlrBUBKOTLMUCYvMYtj
+         eEiWpiDHKa8XWNPEEEaFrFfd/LrNhMbWTyV8+E9NC3mCfhPTUgFpwAOZNXhZmYBjRbvZ
+         cfIfiH56lxIFT8fLHT+PqYqdRp+JkVJRHLR0Vl3u+wwjDcvw2TL+Sq+XE3aRH9G8CW1t
+         me0A2MXb5zHjN3rwyC3MmEaxXwAVkNWyfOFRZf1nQ+RTIn3BcVQCnCQpIBOzA1C0YZby
+         AysA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740224347; x=1740829147;
+        d=1e100.net; s=20230601; t=1740224348; x=1740829148;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=e9EcpsvlfdILzMAQp2/jsodVgf7CmKMPZrf0qtieAZk=;
-        b=ZTR0B98cP9244ZMqDs7NTdJsRkgQyngMwCQx39Myz7Yun3AEClEyRs5HTunstU0qye
-         BdREukJmtOyn8HVIW3gWhl1P66i7JY1nB6z4U1tk3yeQedl/PC2j4z8YRSXErG1CmfzN
-         t9oOR4i7Vd51vXPZ+8+FAl/BNZrzwjEegnZGAI2ciqCm5tYr/ArQCVWgvMWnILGXjafj
-         OaFKNIVFCmr/xtt5n8pTnQuydUlN5Sb0NTkyTWJ3Of417j9Ef/BbgRoTF+my4wgy3Kfq
-         yiwqqzDqOYMqOAR84ddulQQ97Y1pAkC/6GwyxbHszPkoZn1cgOVm0ZdW0sfl/0R3Wsqm
-         +CoA==
-X-Forwarded-Encrypted: i=1; AJvYcCXtsBdGEx4K5CdmTFMN53/rKaC9Nw+blpcWZQ47vguuAUAprLwJlZBp3BwZd/ILgEefKg+W5Kd45mfSCvY3JdCZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyoBnE7KDpgzcMGMVwWZ15s/Ge7MkLUBkrwbuELhCr+bJ3GKWL8
-	GFbIpSZKQod00Y9ma9A6UkqWH7NcpWeMvjWl9VvC5IP2u0j8f9QrgWBKbJuqmavcW7i8JIcHC9x
-	z57A=
-X-Gm-Gg: ASbGncsoRsro+NY0LtjFTHP+k60BBaNcbD28r+gyf35/P0V1r1WByE2ON4ZDCZvO2ri
-	ZH6mgPk5JvHFqwkrsxWml1nXboJIYFkiW8Wbz0M4dMYWTyH0idtQ+jUIpZ2xp3Gs72EwW5o+DMG
-	YMO6EQvOhdeYOrHmrIaW0Dg/ahaajdtYoiHHm/j7eDqI7c+bw3caGzmZYHR74lgLdUVXivykoEM
-	V7MLmUb1+hOL4X5zlpF3Z4xysekvIU4UWMqW5JUpkxBjKjUMriog7/kKLuott+o2gAjYj2R8N5J
-	CgBkLuXPGrmQUGmbTle2Op1dh7ZcuPoU8By5FeiUR+ZYfakMMmeZ9qLoQAblFyUsR6FSJQZ7sR2
+        bh=GciUUqj1RmNWWcZPAfK8/8tZx9TktRuEfZAKKaKTmos=;
+        b=PTxWbkf+AREYB4rNmsyBcEXIoUSeMOvdFURsRW1okOGIqeI+cIMMz9DsMhptcLC45n
+         q0zPaZErgfI77uso0d1ViP/Wx9zHOR//HS+tpgeQNhDfuQhyGcVsbD7hz93UKT9VV0rX
+         abp3cC7WgF8s9vU5VD+0aZT59WKsV6oHu6YJGYDFu1CjNEQTTyaBq48i1OY05I9A+XMm
+         vsDGHgVfNHEjMDU2FeM4eEooABVXEmTR9A8MoDaWMyFS8N1c8PvPZmfSHljEAottMoal
+         R8C4c6MJ4w55wz3x7GetOuQs6FwC/wdrC4P9cOXIUY6BSWdTKs5Q8KU3/bURdHFC2TXl
+         JsXA==
+X-Forwarded-Encrypted: i=1; AJvYcCWlXdJWkdogCu7oI9ZSaZmLm80eb5c/WbNaupc1Tvq4oF4MmBBpo6w0x4R7+MHMbUzzSrKjOPhQX0oqd/Ju6uAV@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEtOCj2VRTR07S4kS43l/Hd502aTIIv3FESnorjfkn0f/eUaMR
+	9k5goFRj6hb2MwqXmUYIK37LdmCjC17NfnsTMzHMWis1RUqjdxGzCnUsJYBPUCjn+scQ8vfF0y5
+	Z4dc=
+X-Gm-Gg: ASbGncvWP4GMi6MerOH60pRPXAGOmOEDREo4SnkWDICkmf3gWDHaGC730Hm2QIgduiM
+	JleTSqR9XWgbfBUVjzfEx4FwQ6UOsch72F+yBKi7qnZ09vInGVsEghscEymR3AcxNJgvXjfRV7u
+	YehmVDVQs1GN8meAFYUdIbQNxtWX2PJXhKmOOoFn+4SBSw3sWkRDfAqPZRMtVSCAzMRADC2r102
+	kWKUvGsOZcLdvvB92y+cTeQ8JIXL8+66O6TGblbVRdqRaXOFsUMh4F5U/FHh9V2Xdd4ZkfhaxcE
+	ERrlXqcdClg29ygz3AQe0o8L3LzZQX3tcSv6EqiiZP+5aTIIT6TaDPnnwZE3dC2EYhMG0tIBN6W
 	i
-X-Google-Smtp-Source: AGHT+IGE0bApSp7dpESrNQt49BwR4WA+qiKhIkXWSHbpkmvW4yQXqhCs1JVsFtKIeRDqIfBdSklEfg==
-X-Received: by 2002:a17:907:2d8b:b0:ab6:db64:b040 with SMTP id a640c23a62f3a-abc09e5c67bmr270858866b.12.1740224347024;
-        Sat, 22 Feb 2025 03:39:07 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IG/9B+Bl7UV1RnTVBHCf1VORpcGI7KStjZd+OYFng1yCCZXzpskS3vRcsDqBd9OG8mC4clNlw==
+X-Received: by 2002:a05:6402:27cf:b0:5e0:8275:e9dd with SMTP id 4fb4d7f45d1cf-5e0b7252e4fmr2256164a12.10.1740224348212;
+        Sat, 22 Feb 2025 03:39:08 -0800 (PST)
 Received: from [127.0.1.1] (78-11-220-99.static.ip.netia.com.pl. [78.11.220.99])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb9723a559sm1202702066b.96.2025.02.22.03.39.05
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb9723a559sm1202702066b.96.2025.02.22.03.39.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 22 Feb 2025 03:39:05 -0800 (PST)
+        Sat, 22 Feb 2025 03:39:07 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Sat, 22 Feb 2025 12:38:58 +0100
-Subject: [PATCH 2/3] coresight: tpda: Constify amba_id table
+Date: Sat, 22 Feb 2025 12:38:59 +0100
+Subject: [PATCH 3/3] coresight: tpdm: Constify amba_id table
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250222-coresight-const-arm-id-v1-2-69a377cd098b@linaro.org>
+Message-Id: <20250222-coresight-const-arm-id-v1-3-69a377cd098b@linaro.org>
 References: <20250222-coresight-const-arm-id-v1-0-69a377cd098b@linaro.org>
 In-Reply-To: <20250222-coresight-const-arm-id-v1-0-69a377cd098b@linaro.org>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -86,25 +86,25 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=910;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=906;
  i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=xeg5lwI6l9nm70MC/C/1m/cmoxok9e9nkZsk3Cz9ITM=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBnubdTnCMPcpy6c2h/pgiuP66+FVJGGwEqtA4gO
- wTNczwr0wGJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCZ7m3UwAKCRDBN2bmhouD
- 14ZGD/9qBAFceci9UnQuGsh2nJFoNvu/OliVMqj48SwI0tusP3wiJn7Sdyk7XzGzeDiZQm4q/Z0
- JrNWwa0v8qy+GPgQZ+/Qpu3yWA9hqOHl3RIG4/UUzDKui3OdO5Qh4OAXUELdPOXg9CFwGcFCtWJ
- EXkJdl3M9btre2yODtwbOhg+dvViv8+5tuTb1ye7m4g460S4Q9SnsdOPsi8oTgH6ri9/g3KKiQG
- DrSsyugTA6gYmBcAqEMl8EK64XZTAmr3M1JOj5msdA5lfgy40nzpi2Y6xlBJ9iqFhgQuSaS011J
- I1WyvTGa4P3k482/+Yi3BdRMWYbEyXDiddotc4BrAiN100k520LQm0chHWT3XtpNORGdD3xY3cM
- w9SWJzPwowHSQPx3mWwyX1EcCWUTA3XypkpTjZg/HSZSKmBzlhLYKpsa5Jd2+nC1Vrzcg9cCYSK
- 6XzccWtHE02pvbWexV3BRhhDXsHmYcP+Uex4KP0+hwDnmwHY01/AI4uRIwyUPWC/85ecK6aBhW5
- LolTUMbxXnocBMil7RV0zAakeNCNsW+3QLgivv7/5JwIn6RmXIRHXK4Aq19NFkQlDqne+uDXsqM
- JrOL8Yp68oz/o7hxk+nbNU+USsPh+954RR8/zTBebVoN2tRWK3mS3+WqtF4UsNxu0Nq1p310MBZ
- TVLl6Zqv5iMuQzw==
+ bh=Sky15R0RXBLNCxJhjHjePt0w92unXWiCXbaOvxX5Lzo=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBnubdUTnr/bCumbFZ9TWCRWI0l2q73SVxaJlZ4Q
+ T6AybTflvGJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCZ7m3VAAKCRDBN2bmhouD
+ 1/KhD/0Vl495GI6HdSY/B+vUKWLh2qeBUCi+4tl+EQFNUage6r0m1EuQj8bD8/e9OHQGKohQcJQ
+ Vtj10TDMDDESaRn4g0sutiP+Pkg/GSsgE6Pdwjq3kWO3EkG8O/a34PlSacmdnkctsHPKuZUYc4o
+ XSUdOwS4Y2KN/q1+hKkgMRa+wtEy/dw+cyMQtGeyi15mudYVggZk9ir5D9IxwQRupbx0pXew2jd
+ BdMinRcMHBpBRg2LrJTgdd7kOE5tnbZwxr8kgLrUv/Lik0QnXpG60GcwK+eBi5g2BSp2nBWJQ5X
+ fTuF/a8MMirtihZQdJzaHuuSgKxgME7+XAIDroK56Idw8LTaxKB1VLX+jMakoq/grb2Srtquv98
+ Un9YktybZuHoCs9AJeHvPOqiF73E5NzG1dO6+UHrxRk2P6NN51wlFoXsKFvMISkG1Qtfh6UUcwE
+ ssJBuJS1AgiG5HRzE4qntaZiGb/XhD9w9/9H+KBJ8NVEIefy1ioiaUrUhrCYi7ra7xohus7R0kC
+ +yOSQaLFsNRCJmfNRaCNrB2lng+TXSS90STPdeA83E9IEN0d25sMOecQmPzjBOmYVedCrVAtIVM
+ DbIJS9o7UgyGyt/29ArXpBBez9cTAQSslWoxzji7AZOW9dK7lF1Co0ZVGuwnP/0SILTFRuHBNGc
+ Ila9TBdtA/uS7fw==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_033909_160849_D3670AE7 
+X-CRM114-CacheID: sfid-20250222_033910_142576_ECA37A61 
 X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,22 +125,22 @@ more safety.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/hwtracing/coresight/coresight-tpda.c | 2 +-
+ drivers/hwtracing/coresight/coresight-tpdm.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
-index 189a4abc2561e3ec256c63f615112c2159360c86..573da8427428d430ab7f11398d1980193e21481f 100644
---- a/drivers/hwtracing/coresight/coresight-tpda.c
-+++ b/drivers/hwtracing/coresight/coresight-tpda.c
-@@ -331,7 +331,7 @@ static void tpda_remove(struct amba_device *adev)
-  * Different TPDA has different periph id.
+diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/hwtracing/coresight/coresight-tpdm.c
+index c38f9701665e70c0fb58726980332dbe65e09790..afc4c18dd35d0ab1cc474214b1df6f816e1aed68 100644
+--- a/drivers/hwtracing/coresight/coresight-tpdm.c
++++ b/drivers/hwtracing/coresight/coresight-tpdm.c
+@@ -1305,7 +1305,7 @@ static void tpdm_remove(struct amba_device *adev)
+  * Different TPDM has different periph id.
   * The difference is 0-7 bits' value. So ignore 0-7 bits.
   */
--static struct amba_id tpda_ids[] = {
-+static const struct amba_id tpda_ids[] = {
+-static struct amba_id tpdm_ids[] = {
++static const struct amba_id tpdm_ids[] = {
  	{
- 		.id     = 0x000f0f00,
- 		.mask   = 0x000fff00,
+ 		.id	= 0x001f0e00,
+ 		.mask	= 0x00ffff00,
 
 -- 
 2.43.0
