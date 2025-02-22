@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72186C021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 04:38:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7F43C021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 04:43:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JVPXaGswn6h9CQME9YRi+phZaOE/13SLpDLogchJANM=; b=JynJngnqeuq5BnZEfJZ+I/X5ec
-	YLYb7RHGKKdT8Jkyot9GUE5uR147I6SukCB0q7cGMfcuvUvrr5FEdX37+Y/A+GnKqMt09XXyKoY7e
-	5ZoO6nfX4/f7QxQM85zyOHluXkN8OgROyFSdMMZsidilyRUXGpjcvQzgEpICHBwrOODvFXhwSytTC
-	31YVuGz0xi1jhXpghVB0AL6u37kETM1CqUN6zhwSazjMl3jBLiOMn7DGMozHThISadvCPGX7gg7R/
-	CRj/HMyvdmEFmThtYM1al0/DKXrHVbbmSAaix4vFH0fpQcNB9C5PsDzq+Z0zfP2PmPP0pPQ7eVnML
-	grz60H5Q==;
+	bh=KYidVVPbXZ8EndCbxcLt4iY9PCBO9quW0Sn8Sh3yyAM=; b=1+qfULi/x8nYYfUYm8tOU0rbtL
+	m2GOn+ixTrKZ1gzNrslJ6nQSXwEcPxqMI/aN/HHTbKiU2ZNc3hxLjcXPidFEf9jrWVv9FlkhNcyKc
+	DtYrW3xi1o/oH1lKbxuaDaW9dYz9X7hXb2+Cpjtpt53+9xQgaxFDn+Ht64F64etXqEfpvpFVzPP6N
+	2bagV68vnfy/PsHYg9mRu+hK/FhL9t8oPY24Wv9ACnEX1vgtxk5sgtOtbDTYDGZx6+qy4HFIeqnTr
+	dG5dkn14mMjwmiSgBM8g81m8LdrALozHGJ94ClzXgho93jJkXg0c5YYExKy+bIVx5fjFOBJLjC7ME
+	Xhj5GDwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlhHI-00000007RsC-1c8s;
-	Sat, 22 Feb 2025 04:38:12 +0000
+	id 1tlhM0-00000007SCR-2OOu;
+	Sat, 22 Feb 2025 04:43:04 +0000
 Received: from out.bound.email ([141.193.244.10])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlhFp-00000007RkB-1e9n;
-	Sat, 22 Feb 2025 04:36:42 +0000
+	id 1tlhKX-00000007S2G-3acL;
+	Sat, 22 Feb 2025 04:41:35 +0000
 Received: from mail.sventech.com (localhost [127.0.0.1])
-	by out.bound.email (Postfix) with ESMTP id 6B4318A0A03;
-	Fri, 21 Feb 2025 20:31:38 -0800 (PST)
+	by out.bound.email (Postfix) with ESMTP id 68E9E8A1124;
+	Fri, 21 Feb 2025 20:36:32 -0800 (PST)
 Received: by mail.sventech.com (Postfix, from userid 1000)
-	id 53B7B160036F; Fri, 21 Feb 2025 20:31:38 -0800 (PST)
+	id 51591160036F; Fri, 21 Feb 2025 20:36:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=erdfelt.com;
-	s=default; t=1740198698;
-	bh=JVPXaGswn6h9CQME9YRi+phZaOE/13SLpDLogchJANM=;
+	s=default; t=1740198992;
+	bh=KYidVVPbXZ8EndCbxcLt4iY9PCBO9quW0Sn8Sh3yyAM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=E/dlZ6D1Arf0WodgxXqPt7bEWnIj0uZOjyg5MC8RpBmWOdzP+vhBPGysfC826Lk6c
-	 CR/F3LJo6ghe6xix0waGz2pVBrcmgBBZ4ZCLo7r7o4PGUvANoq5eX+UhShO0yp9HzY
-	 10uZfly67E3E8fptEz2mMXBCggsZshbeEPq9JA50=
-Date: Fri, 21 Feb 2025 20:31:38 -0800
+	b=jDZVCFsYVj0up9ILlSts8dv0EmlHIke6IPWh9AU7WtWN97dKRCnY0UuOswdkseXF1
+	 Rxcm9Ut1PzwfY91SV6uIMyz/A9KlL1KrBVB7gx98C3aSyvzbTt8UaqmhUTiESVnLtO
+	 /uGlavYX82YGNuYAmENU5Vx7M0uY9Ik+in9B1wPM=
+Date: Fri, 21 Feb 2025 20:36:32 -0800
 From: Johannes Erdfelt <johannes@erdfelt.com>
 To: Jimmy Hon <honyuenkwun@gmail.com>
 Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
@@ -47,7 +47,7 @@ Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org
 Subject: Re: [PATCH UNTESTED v5 0/4] Orange Pi 5 Ultra
-Message-ID: <20250222043138.GT16911@sventech.com>
+Message-ID: <20250222043632.GU16911@sventech.com>
 References: <20250220041010.3801-1-honyuenkwun@gmail.com>
  <20250221231340.GS16911@sventech.com>
  <CALWfF7KW8_vAx49nNygKpLHNJQVpjvVdVpzYiTAWgQvSopHikw@mail.gmail.com>
@@ -58,8 +58,9 @@ Content-Transfer-Encoding: 8bit
 In-Reply-To: <CALWfF7KW8_vAx49nNygKpLHNJQVpjvVdVpzYiTAWgQvSopHikw@mail.gmail.com>
 User-Agent: Mutt/1.11.4 (2019-03-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_203641_553856_DBE42E88 
-X-CRM114-Status: GOOD (  23.04  )
+X-CRM114-CacheID: sfid-20250221_204134_021494_BC7D00EA 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,67 +77,18 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Fri, Feb 21, 2025, Jimmy Hon <honyuenkwun@gmail.com> wrote:
 > On Fri, Feb 21, 2025 at 5:13 PM Johannes Erdfelt <johannes@erdfelt.com> wrote:
-> > However, neither of the USB 3.0 ports work. There are no XHCI messages
-> > during boot. I confirmed my kernel config does build XHCI. I haven't
-> > ruled out a mistake on my end yet.
-> 
-> Does your kernel config have CONFIG_PHY_ROCKCHIP_USBDP?
-> Both USB 3 ports on the Max/Ultra ports are wired to the usbdp
-> controller and not combphy2_psu controller.
-> It'll be set if you're using the arm64 defconfig.
+> > I'll also see if I can give HDMI a test.
+>
+> Please report your results when you do. This is one of the differences
+> from the Orange Pi 5 Max. The HDMI1 pinctrls does not use the default
+> pinctrls like other RK3588 boards (including the Orange Pi 5 Plus).
 
-Yeah, we came to the same conclusion. I noticed this was disabled in my
-config when I was looking for potential mistakes I may have made.
+No luck yet. I do see this message in the kernel logs 8 times at boot:
 
-Enabling it fixes the USB 3.0 port problem.
+[   41.552751] rockchip-drm display-subsystem: [drm] *ERROR* failed to
+get pll_hdmiphy0
 
-> > Also, the green LED is constantly lit even when the trigger is set to
-> > none and the brightness is set to 0. This made is a bit harder to
-> > confirm that the blue LED was working. I haven't ruled out a mistake on
-> > my end for this one yet either.
-> 
-> Checking the schematic for the Max and the Ultra, they both use
-> PWM4_M0 and PWM5_M1 to control the blue and green LEDs.
-
-Some brief testing makes it seem like the LEDs are inverted.
-
-If I set the trigger for each LED to "default-on", then they turn off.
-If both are set to "default-on", then only the red LED is lit.
-
-Also, "heartbeat" appears to be inverted.
-
-I tried a new DT with this patch and it appears to work correctly on the
-Ultra I have. However, it raises the question why the Max behaves
-differently from the Ultra.
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-compact.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-compact.dtsi
-index 87090cb98020..ed51a4763318 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-compact.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-compact.dtsi
-@@ -4,6 +4,7 @@
- 
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/pinctrl/rockchip.h>
-+#include <dt-bindings/pwm/pwm.h>
- #include "rk3588-orangepi-5.dtsi"
- 
- / {
-@@ -62,13 +63,13 @@ &hym8563 {
- 
- &led_blue_pwm {
- 	/* PWM_LED1 */
--	pwms = <&pwm4 0 25000 0>;
-+	pwms = <&pwm4 0 25000 PWM_POLARITY_INVERTED>;
- 	status = "okay";
- };
- 
- &led_green_pwm {
- 	/* PWM_LED2 */
--	pwms = <&pwm5 0 25000 0>;
-+	pwms = <&pwm5 0 25000 PWM_POLARITY_INVERTED>;
- };
- 
- /* phy2 */
+I'll confirm with the vendor image that my HDMI setup is correct.
 
 JE
 
