@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27C96C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 06:51:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58270C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 07:09:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7nkyzhUAIUILTehy2NCed83PYthn0cUXhH41BKltKmU=; b=0ogv/78wSRah/QXkbWr5Xm6VS3
-	jA8W8xwYSENQnmwUwfTr1Q6rPRSJCQ0SiOv5g9ZRYnZmbbS1jz8JqT7DzYlwj9ctAuunpK2MoBHEw
-	Hi0vrT36CVEdlYsPL1S7/AduRbApjFAyIWeEKdjFyPKCE47KVQsOPIeBSJ4gWMZ+/umesUeaBJb14
-	eNpVE5rLr7Ub+YGeHPpse2Z4qBc8zY0gje8ApTr3jE3AW2K++KUTWaZGwf9zXcBe5qQzTo+GecSNn
-	mKAX1OSx5U4qOlDmaXLVMVn865H8jAgBM4A6JQZLCZFOcJJMSJRQmCSsfDDkt/+eT4NBNStneXwpJ
-	ouasmpNQ==;
+	bh=HJyf244BKYlmxx6vt7GoqUcdxk6vRqqaQBKzOBNAKR4=; b=CkYLQ+Rne726WttGt/cr8eyqtk
+	jLkTXe2ZX2RaoBuDmHhJdiT9IslBB90frEa/kysLoOqD8NXq5wHlNpWDbOWEpf7aOzfzaFa0u9bMP
+	h8k/17sJrD8vFsYYEhlbKwIQyJvIexoC95h1Dz/WGdfD7KfmBrMIOYeb89wo0suv603deQi6aQqz8
+	P0VTKuHJFjGbAmmb7ryLGEu43xopSAUztixhUwtFrsR5EaaLVg36O4pWSqkKGPkpjnv5+uxQsfYMu
+	UFdHDe0Fv62BGCfAt/FBJwB2D2HGlCH9kO9jahgenyCsfGT3EkeX/+c/r4hIst84UvoTFt1go37y9
+	FWlsK7EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm5pe-0000000AXXQ-2ZPe;
-	Sun, 23 Feb 2025 06:51:18 +0000
+	id 1tm66p-0000000AYyM-3kza;
+	Sun, 23 Feb 2025 07:09:03 +0000
 Received: from mail-m16.yeah.net ([220.197.32.17])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm5oA-0000000AXNq-0ZDI
+	id 1tm65L-0000000AYrT-17XQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Feb 2025 06:49:47 +0000
+	Sun, 23 Feb 2025 07:07:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=7nkyzhUAIUILTehy2NCed83PYthn0cUXhH41BKltKmU=;
-	b=UgrXzXR7cRT8tR2FkAsO2LRawUq5GElco1X3tJXMpFioNkaIyfSQRPuZIi1QEJ
-	YPVGkVFiZ/Wg6SWANKfz+kzKP6z8DUC+bMlGL2dnNA5xwdvhjrDs/c4nrtUASYiu
-	xh5MfToa7LVgSetW/S3dAIn1+rgPYzMRfFgS1z/ZjeUYU=
+	Content-Type; bh=HJyf244BKYlmxx6vt7GoqUcdxk6vRqqaQBKzOBNAKR4=;
+	b=pwiskjuREwWzmU2YFTlaqpcyXqeUMxp/OSfnAqVymbXf9hiw9Lvtd+aoSjNZHe
+	BUYwi1YXBYOj5bCWYD0HVnYRlE0r6lp4+qthgYGqkJbRtoulqY9meTBgNnJE6azb
+	lQndUIoPaIjdjeueuP/UIS8n3dTWxJUZRp/W4vAFhnD+A=
 Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgDXDtT6xLpnBAiLCQ--.21546S3;
-	Sun, 23 Feb 2025 14:49:32 +0800 (CST)
-Date: Sun, 23 Feb 2025 14:49:30 +0800
+	by gzsmtp3 (Coremail) with SMTP id M88vCgC3CsgOybpn9z2LCQ--.22768S3;
+	Sun, 23 Feb 2025 15:06:56 +0800 (CST)
+Date: Sun, 23 Feb 2025 15:06:53 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
-To: Fabio Estevam <festevam@gmail.com>
-Cc: shawnguo@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Fabio Estevam <festevam@denx.de>
-Subject: Re: [PATCH] ARM: dts: imx28-sps1: Fix GPIO LEDs description
-Message-ID: <Z7rE+kwcEvL1LS5b@dragon>
-References: <20250203173020.39830-1-festevam@gmail.com>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>, Shawn Guo <shawnguo@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shengjiu Wang <shengjiu.wang@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>, Mark Brown <broonie@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Peng Fan <peng.fan@nxp.com>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] firmware: imx: Make IMX SCMI MISC driver only selectable
+ on i.MX
+Message-ID: <Z7rJDYrPFf9dS+9t@dragon>
+References: <20250204101531.233549-2-u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20250203173020.39830-1-festevam@gmail.com>
-X-CM-TRANSID: M88vCgDXDtT6xLpnBAiLCQ--.21546S3
-X-Coremail-Antispam: 1Uf129KBjvdXoWrKryrCrWrXrWfJr45Gr4rKrg_yoW3ZrbEkr
-	WUJr1kuw4UZa129a43AF1Skayjkw4DCry3JrW3GwnIga1Ik3Z0qan2qr45AF1UCrZIvry7
-	CFy5Z3s8J34S9jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU8d9N3UUUUU==
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250204101531.233549-2-u.kleine-koenig@baylibre.com>
+X-CM-TRANSID: M88vCgC3CsgOybpn9z2LCQ--.22768S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUVxR6UUUUU
 X-Originating-IP: [117.82.86.124]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiEgn8ZWe6kuGqOAAAs+
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiEQf8ZWe6ksy3WAAAsj
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_224946_489057_97DBBD43 
-X-CRM114-Status: UNSURE (   9.07  )
+X-CRM114-CacheID: sfid-20250222_230731_623155_1E8D6EF5 
+X-CRM114-Status: UNSURE (   6.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,23 +79,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 03, 2025 at 02:30:20PM -0300, Fabio Estevam wrote:
-> From: Fabio Estevam <festevam@denx.de>
+On Tue, Feb 04, 2025 at 11:15:30AM +0100, Uwe Kleine-König wrote:
+> This hardware component is only available on i.MX9. So don't offer to
+> enable this driver without i.MX support or compile coverage testing.
 > 
-> According to leds-gpio.yaml, the LED nodes should not contain
-> unit addresses. Remove them.
-> 
-> Also, 'default-trigger' is not a valid property. Change it to
-> 'linux,default-trigger'.
-> 
-> These changes fix the following dt-schema warnings: 
-> 
-> led@1: Unevaluated properties are not allowed ('reg' was unexpected)
-> led@2: Unevaluated properties are not allowed ('reg' was unexpected)
-> led@3: Unevaluated properties are not allowed ('default-trigger', 'reg' were unexpected)
-> leds: '#address-cells', '#size-cells' do not match any of the regexes: '(^led-[0-9a-f]$|led)', 'pinctrl-[0-9]+'
-> 
-> Signed-off-by: Fabio Estevam <festevam@denx.de>
+> Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
 
 Applied, thanks!
 
