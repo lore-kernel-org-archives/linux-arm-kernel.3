@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 593BFC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 08:55:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A30FC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 08:56:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ad9dzdTy8RTwSvQ6ETQBmoHLcKIOzrrIpSyMRpInjto=; b=Brv65wpHo6/L+Cil2b7r5ylMQx
-	H+6iJV1mx6qfamOQlcHYZEHGzx7P5n+wip4RE0dW8IqqFesdM5UQFZiAqF+S/9USf0gI7eFDEnL6v
-	rkKlrkCVla1iBu4+07dC7rGAUP0uCUllb1ckdGgiDLuJ+bMTeUBZsJs1BeagFAwBfxE2PtMPH5KRR
-	oK1ZsOvC4x8Hos+HcO/J5NGadV6UxstZj36+xwMWrghhrExKOR0dJ90yoGFINvEr7leCTOpfHr6mV
-	YB0NDGI+Ix8icn/6lu7N45KPMNDpkZY9ymJsHm8gPBdw0B5BaYbDLBGBDIg0tS6KAafUsaoQKTe2g
-	z0SVuaVg==;
+	bh=qhtfFGtrm/r/EdIHI4NWAw5GAp/ALVl3MX5Mqx7Mu6w=; b=ThILGKpE2evUFJXoe0os7pZeOo
+	icmI6pWc/tRPDX5IjfMXJKYvQ2E4UOHD7pB3hijdI6sNGwBv8cql7FvoxlyJdqEmE5C2LQj3mYui1
+	EM2tc5yQ3N5wLUyeV2e/TtF6crz6N+t7YhQxVaf8Q7/hiySzowwKoFImSlOG3XO/rLzThDmVEw6NV
+	Xbqt5YIbS1M16Ki9A8UYc68lRWXvC0X1pvYLz4LsBbOyYP26afkxyD6XQu3Wthrw0Y9sPOwisuTIE
+	8OYgPxFtExF11QasbQXqgABhk7SAjxn1+oKlWFJ4xNxL/BR6KzoExyiZuXHCBgKEAGkOapdQcr5A9
+	q2dxqoow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm7lb-0000000AiI0-1Px3;
-	Sun, 23 Feb 2025 08:55:15 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1tm7n2-0000000AiPp-45NV;
+	Sun, 23 Feb 2025 08:56:45 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm7k7-0000000Ai5g-1dsZ
+	id 1tm7l9-0000000AiDL-3ZIp
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Feb 2025 08:53:44 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-220ca204d04so53132115ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Feb 2025 00:53:43 -0800 (PST)
+	Sun, 23 Feb 2025 08:54:49 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-22101839807so73769885ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Feb 2025 00:54:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740300822; x=1740905622; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1740300887; x=1740905687; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=Ad9dzdTy8RTwSvQ6ETQBmoHLcKIOzrrIpSyMRpInjto=;
-        b=L4J2nxaUGu+rNrxX+upvh7pLAFDs80UzkNoViWovveOWGNr1eXD1NaEbF5wgzpFc+k
-         /6GSJyaOoatM+wb7C8DVRg6VgcGTAQxkzNiZyzpR/eg1Plsf/WIIduPyM2w6bRK9r2cf
-         uKanhaA6omlBHM0mexRyi5FzpeKekrMBFzC52RNxLiGr1hEmcB3Wok8r3RFkNMJAG/RI
-         vY5WBGkHtyogO2Wqgyu4JCWnzAMXOf5dBe2K7T+1qZcxvkvkKa4QBbhk3SwRLjgPNrBP
-         8wDHvyLO9/4L9HcaVFjGaHWbaPhMma5HlhTCYPWSrfl/EZQYHOlBszyJoLGUSibSAYIE
-         Ii4w==
+        bh=qhtfFGtrm/r/EdIHI4NWAw5GAp/ALVl3MX5Mqx7Mu6w=;
+        b=PIUNqyekKgkXiR3gtTYst0vGy4lnZh0daWEioI7oO2iYRPY3q9CwtlQxwGmSl/9rFH
+         QqdbjdS6UAz+mguGXGsJw1qTDwPkvlvCWHBJh7ksKXAe8grUsup3VbMiFcXLcd92GJQ+
+         f0L+m2fVKSynt2Uvnz8q3ogZ3ezPNs78iXdooDKHbEhx8dY77mrAbjh1Bkw9+01pzcif
+         6vCcCwmyvc13Ck/qyoToE0X503g2DofM5t+W+1+89yx6S/Vl8JyLxAom8Bp7Z4qZ2rPS
+         k2EQcOqri+3cxr9iU4n+4QSReIh6i3zDxr1ZAgNCkbsswKfUp8N4Yk/gakC0jSO0lqUP
+         7TcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740300822; x=1740905622;
+        d=1e100.net; s=20230601; t=1740300887; x=1740905687;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ad9dzdTy8RTwSvQ6ETQBmoHLcKIOzrrIpSyMRpInjto=;
-        b=QRwrnrcE/CGBlRcr/P8nPG8aJSCMuiAfdBgKZrIAbOfGlk7DBWXWsP7De2vO71jcye
-         JPeB3c4Rpq/rzmWxv9KSFTZLi92RzW76bFovGC5yFY5iP3/K3JN6rNp8km6V3xIVGYgz
-         As6tt2o7HQ0MpEfyRJX13/jxktr6i1bKJ7IKa7WC1z2abVXb7bp/ZNqVszvHJYXzodF2
-         S56ycDGdnXcvjelhsziitwPH3z5NOSf8NMAFFLgNi8/zihCdTGBnyeHXoqMmQT1n2K5q
-         Ay33+LqgJ8QASOAxSjfBQNvoMhWLF/aOkgISutwU+XAqkr/ytloFU4M6OJXD7dGkeMHk
-         3BNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXA2eCNBfCuRPlfRggi5Tkk0QRa20Vr6ze1OChwOG1tsyoSS5aHS+6CqefzvKOTV7NkX0Z5EJkU9Ldo4666LFPf@lists.infradead.org
-X-Gm-Message-State: AOJu0YxobdNZzdhQQVwbW8Fudu00Gx7cT0vxiSNrOkYQ0J/RALnOQsBR
-	LVOfXJmhALcDOKyLQev6F+ZTZUt8M0Wx5SimhlpE/2sUDQvaDpBBiKvAhXW9hA==
-X-Gm-Gg: ASbGncvO+hc5veGEgnbLUBSqGKejuJ6adFGkDZH3zj/CUGeq0cR9Y1d8WaYhrcGod3d
-	evX6lMvOpaDkFbz3a2Q8O+kkzjUaZNFRmrquLhtl9Ozl+iiZmDd/UjyQqalhT/I8YWUe7cg+1r9
-	LZY2kF8h2ReqMb9PXLgSonglWvxmLCdRlrgzyk7QP9G2IZ/lgXjCPMD7zye9Rju3ycLoM3JbICg
-	I9Uy67LWSfZ1ZafsHot9XX4W7Gm0gNA1fBIyN4zrwmK2Tb1ZLw94q9nVF9RcJeR0fxGDrPh+8Bj
-	yTUVojiP6lEZ9Ydqphp3izs+j0komuCMGUXeBFg=
-X-Google-Smtp-Source: AGHT+IEz7p5KlVP+Ilo+be7FWF08jgj28/sTosNcYmT3M/2Xud7EjsRe7o7bLRLnPa/TUc1mn9/r5g==
-X-Received: by 2002:a17:902:da8c:b0:220:c813:dfcb with SMTP id d9443c01a7336-2219ffa7c51mr132859635ad.39.1740300822494;
-        Sun, 23 Feb 2025 00:53:42 -0800 (PST)
+        bh=qhtfFGtrm/r/EdIHI4NWAw5GAp/ALVl3MX5Mqx7Mu6w=;
+        b=Ot1h5aVC+frOZAaI8WiUinHUjgC66N8siweDbl18v5JhyWZ9ArB3hWH29GfAFtEf9i
+         Qqex1x4ll/iOXO0bqVMyBOwvswQxiD9AOYMfbx4zBf4JeuuN0zxbvyCi0W8PNCFcDP0H
+         hOb4uE9ivqnI/gjzGKoe6hY/Vf6waWlWIsVmgRHZ95H92Uug70D4Vrav8EB7Aw4sEUsv
+         LL1XbSavAZId7Yjej57KVsgvM8drN+BrQAIgGOadrIdvXJIAEyb57OXlOiVeKNuWE/zZ
+         BnQY8EHaC50MEk5JuM5YA5JO+8O7Fc/J4JOTzawtzWVuTNFDwnGXK7NZC6dzvTasnllx
+         T96Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXieBMJR+zfmhA+t3UovkZEAjtTL54UB3CGh9oswnCfO79bdOTEetM3gSppsuMIgRNbr3Lncq38aGnXtUexBDut@lists.infradead.org
+X-Gm-Message-State: AOJu0YwyC1wIHX1z6e9gfwSA31AHURgBP2qW2nKdcOLq35Al1EnDqxq4
+	4+exHXj8H/1mxTyM6X/JTPYd7H+s9h4cukyKLZNuEZ4P3/ZRuRnzpxjChIuIVg==
+X-Gm-Gg: ASbGncsyhboz0eC4/vVbIvs9XTJc0hAaOl8DlLGu35Io67yeecbqPUFlxD9O6wq0iOd
+	mmuFynAD3qt2XncSlXPlypRh+heY1HRMYNgTVUC0Azr3Xdu59OGh4OW+3ceqbTkaKNCey/+DI9J
+	1cllRKFN2AEQMcccOovcPL9uJ12I4wtZTUR5goIkiV/VxWflbMNG7VCnAvfWaWdKm9M+kQr3soB
+	G5l3pN3hytp5qAJyuCNe+9+Jgv9PklsMTWz3RHEuDbhKu1k3r4w1rYhzvP8WnS3vNhYJuLfCDlV
+	/nlr4U6B4AkyQIyoWFHvjNn3bFyjH8XrPDHzE+U=
+X-Google-Smtp-Source: AGHT+IEccR+ch+6Bpf4ueioZ0PgXfplXUF7AWlKJxIQS4x0ObG/yscvNDoElJGtPW6a87MTyMeTVtQ==
+X-Received: by 2002:a17:90b:5106:b0:2f9:9ddd:68b9 with SMTP id 98e67ed59e1d1-2fce7b1da4amr13812767a91.26.1740300887190;
+        Sun, 23 Feb 2025 00:54:47 -0800 (PST)
 Received: from thinkpad ([220.158.156.216])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-220d5364351sm161848705ad.76.2025.02.23.00.53.36
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fcbaaf9785sm6461472a91.1.2025.02.23.00.54.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 23 Feb 2025 00:53:41 -0800 (PST)
-Date: Sun, 23 Feb 2025 14:23:34 +0530
+        Sun, 23 Feb 2025 00:54:46 -0800 (PST)
+Date: Sun, 23 Feb 2025 14:24:39 +0530
 From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 To: Shradha Todi <shradha.t@samsung.com>
 Cc: linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
@@ -80,19 +80,20 @@ Cc: linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
 	pankaj.dubey@samsung.com, cassel@kernel.org, 18255117159@163.com,
 	xueshuai@linux.alibaba.com, renyu.zj@linux.alibaba.com,
 	will@kernel.org, mark.rutland@arm.com
-Subject: Re: [PATCH v7 4/5] Add debugfs based error injection support in DWC
-Message-ID: <20250223085334.l22epoycjhwqbtkd@thinkpad>
+Subject: Re: [PATCH v7 5/5] Add debugfs based statistical counter support in
+ DWC
+Message-ID: <20250223085439.esnpificf3xxih56@thinkpad>
 References: <20250221131548.59616-1-shradha.t@samsung.com>
- <CGME20250221132039epcas5p31913eab0acec1eb5e7874897a084c725@epcas5p3.samsung.com>
- <20250221131548.59616-5-shradha.t@samsung.com>
+ <CGME20250221132043epcas5p27fde98558b13b3311cdc467e8f246380@epcas5p2.samsung.com>
+ <20250221131548.59616-6-shradha.t@samsung.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250221131548.59616-5-shradha.t@samsung.com>
+In-Reply-To: <20250221131548.59616-6-shradha.t@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250223_005343_442059_39022DA9 
-X-CRM114-Status: GOOD (  36.17  )
+X-CRM114-CacheID: sfid-20250223_005447_894743_6BF2D650 
+X-CRM114-Status: GOOD (  30.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,8 +108,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 21, 2025 at 06:45:47PM +0530, Shradha Todi wrote:
-> Add support to provide error injection interface to userspace. This set
+On Fri, Feb 21, 2025 at 06:45:48PM +0530, Shradha Todi wrote:
+> Add support to provide statistical counter interface to userspace. This set
 > of debug registers are part of the RASDES feature present in DesignWare
 > PCIe controllers.
 > 
@@ -119,290 +120,339 @@ Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 - Mani
 
 > ---
->  Documentation/ABI/testing/debugfs-dwc-pcie    |  70 ++++++++
->  .../controller/dwc/pcie-designware-debugfs.c  | 165 +++++++++++++++++-
->  2 files changed, 233 insertions(+), 2 deletions(-)
+>  Documentation/ABI/testing/debugfs-dwc-pcie    |  61 +++++
+>  .../controller/dwc/pcie-designware-debugfs.c  | 229 +++++++++++++++++-
+>  2 files changed, 289 insertions(+), 1 deletion(-)
 > 
 > diff --git a/Documentation/ABI/testing/debugfs-dwc-pcie b/Documentation/ABI/testing/debugfs-dwc-pcie
-> index e8ed34e988ef..6ee0897fe753 100644
+> index 6ee0897fe753..650a89b0511e 100644
 > --- a/Documentation/ABI/testing/debugfs-dwc-pcie
 > +++ b/Documentation/ABI/testing/debugfs-dwc-pcie
-> @@ -11,3 +11,73 @@ Contact:	Shradha Todi <shradha.t@samsung.com>
->  Description:	(RW) Write the lane number to be checked as valid or invalid. Read
->  		will return the status of PIPE RXVALID signal of the selected lane.
->  		The default selected lane is Lane0.
+> @@ -81,3 +81,64 @@ Description:	rasdes_err_inj is the directory which can be used to inject errors
+>  
+>  			<count>
+>  				Number of errors to be injected
 > +
-> +What:		/sys/kernel/debug/dwc_pcie_<dev>/rasdes_err_inj/<error>
+> +What:		/sys/kernel/debug/dwc_pcie_<dev>/rasdes_event_counters/<event>/counter_enable
 > +Date:		Feburary 2025
 > +Contact:	Shradha Todi <shradha.t@samsung.com>
-> +Description:	rasdes_err_inj is the directory which can be used to inject errors in the
-> +		system. The possible errors that can be injected are:
+> +Description:	rasdes_event_counters is the directory which can be used to collect
+> +		statistical data about the number of times a certain event has occurred
+> +		in the controller. The list of possible events are:
 > +
-> +		1) TLP LCRC error injection TX Path - tx_lcrc
-> +		2) 16b CRC error injection of ACK/NAK DLLP - b16_crc_dllp
-> +		3) 16b CRC error injection of Update-FC DLLP - b16_crc_upd_fc
-> +		4) TLP ECRC error injection TX Path - tx_ecrc
-> +		5) TLP's FCRC error injection TX Path - fcrc_tlp
-> +		6) Parity error of TSOS - parity_tsos
-> +		7) Parity error on SKPOS - parity_skpos
-> +		8) LCRC error injection RX Path - rx_lcrc
-> +		9) ECRC error injection RX Path - rx_ecrc
-> +		10) TLPs SEQ# error - tlp_err_seq
-> +		11) DLLPS ACK/NAK SEQ# error - ack_nak_dllp_seq
-> +		12) ACK/NAK DLLPs transmission block - ack_nak_dllp
-> +		13) UpdateFC DLLPs transmission block - upd_fc_dllp
-> +		14) Always transmission for NAK DLLP - nak_dllp
-> +		15) Invert SYNC header - inv_sync_hdr_sym
-> +		16) COM/PAD TS1 order set - com_pad_ts1
-> +		17) COM/PAD TS2 order set - com_pad_ts2
-> +		18) COM/FTS FTS order set - com_fts
-> +		19) COM/IDL E-idle order set - com_idl
-> +		20) END/EDB symbol - end_edb
-> +		21) STP/SDP symbol - stp_sdp
-> +		22) COM/SKP SKP order set - com_skp
-> +		23) Posted TLP Header credit value control - posted_tlp_hdr
-> +		24) Non-Posted TLP Header credit value control - non_post_tlp_hdr
-> +		25) Completion TLP Header credit value control - cmpl_tlp_hdr
-> +		26) Posted TLP Data credit value control - posted_tlp_data
-> +		27) Non-Posted TLP Data credit value control - non_post_tlp_data
-> +		28) Completion TLP Data credit value control - cmpl_tlp_data
-> +		29) Generates duplicate TLPs - duplicate_dllp
-> +		30) Generates Nullified TLPs - nullified_tlp
+> +		1) EBUF Overflow
+> +		2) EBUF Underrun
+> +		3) Decode Error
+> +		4) Running Disparity Error
+> +		5) SKP OS Parity Error
+> +		6) SYNC Header Error
+> +		7) Rx Valid De-assertion
+> +		8) CTL SKP OS Parity Error
+> +		9) 1st Retimer Parity Error
+> +		10) 2nd Retimer Parity Error
+> +		11) Margin CRC and Parity Error
+> +		12) Detect EI Infer
+> +		13) Receiver Error
+> +		14) RX Recovery Req
+> +		15) N_FTS Timeout
+> +		16) Framing Error
+> +		17) Deskew Error
+> +		18) Framing Error In L0
+> +		19) Deskew Uncompleted Error
+> +		20) Bad TLP
+> +		21) LCRC Error
+> +		22) Bad DLLP
+> +		23) Replay Number Rollover
+> +		24) Replay Timeout
+> +		25) Rx Nak DLLP
+> +		26) Tx Nak DLLP
+> +		27) Retry TLP
+> +		28) FC Timeout
+> +		29) Poisoned TLP
+> +		30) ECRC Error
+> +		31) Unsupported Request
+> +		32) Completer Abort
+> +		33) Completion Timeout
+> +		34) EBUF SKP Add
+> +		35) EBUF SKP Del
 > +
-> +		(WO) Write to the attribute will prepare controller to inject the respective
-> +		error in the next transmission of data. Parameter required to write will
-> +		change in the following ways:
+> +		(RW) Write 1 to enable the event counter and write 0 to disable the event counter.
+> +		Read will return whether the counter is currently enabled or disabled. Counter is
+> +		disabled by default.
 > +
-> +		i) Errors 9) - 10) are sequence errors. The write command for these will be
+> +What:		/sys/kernel/debug/dwc_pcie_<dev>/rasdes_event_counters/<event>/counter_value
+> +Date:		Feburary 2025
+> +Contact:	Shradha Todi <shradha.t@samsung.com>
+> +Description:	(RO) Read will return the current value of the event counter. To reset the counter,
+> +		counter should be disabled and enabled back using the 'counter_enable' attribute.
 > +
-> +			echo <count> <diff> > /sys/kernel/debug/dwc_pcie_<dev>/rasdes_err_inj/<error>
-> +
-> +			<count>
-> +				Number of errors to be injected
-> +			<diff>
-> +				The difference to add or subtract from natural sequence number to
-> +				generate sequence error. Range (-4095 : 4095)
-> +
-> +		ii) Errors 23) - 28) are credit value error insertions. Write command:
-> +
-> +			echo <count> <diff> <vc> > /sys/kernel/debug/dwc_pcie_<dev>/rasdes_err_inj/<error>
-> +
-> +			<count>
-> +				Number of errors to be injected
-> +			<diff>
-> +				The difference to add or subtract from UpdateFC credit value.
-> +				Range (-4095 : 4095)
-> +			<vc>
-> +				Target VC number
-> +
-> +		iii) All other errors. Write command:
-> +
-> +			echo <count> > /sys/kernel/debug/dwc_pcie_<dev>/rasdes_err_inj/<error>
-> +
-> +			<count>
-> +				Number of errors to be injected
+> +What:		/sys/kernel/debug/dwc_pcie_<dev>/rasdes_event_counters/<event>/lane_select
+> +Date:		Feburary 2025
+> +Contact:	Shradha Todi <shradha.t@samsung.com>
+> +Description:	(RW) Some lanes in the event list are lane specific events. These include
+> +		events 1) - 11) and 34) - 35).
+> +		Write lane number for which counter needs to be enabled/disabled/dumped.
+> +		Read will return the current selected lane number. Lane0 is selected by default.
 > diff --git a/drivers/pci/controller/dwc/pcie-designware-debugfs.c b/drivers/pci/controller/dwc/pcie-designware-debugfs.c
-> index 3887a6996706..b7260edd2336 100644
+> index b7260edd2336..dca1e9999113 100644
 > --- a/drivers/pci/controller/dwc/pcie-designware-debugfs.c
 > +++ b/drivers/pci/controller/dwc/pcie-designware-debugfs.c
-> @@ -17,6 +17,20 @@
->  #define PIPE_DETECT_LANE		BIT(17)
->  #define LANE_SELECT			GENMASK(3, 0)
+> @@ -31,6 +31,17 @@
 >  
-> +#define ERR_INJ0_OFF			0x34
-> +#define EINJ_VAL_DIFF			GENMASK(28, 16)
-> +#define EINJ_VC_NUM			GENMASK(14, 12)
-> +#define EINJ_TYPE_SHIFT			8
-> +#define EINJ0_TYPE			GENMASK(11, 8)
-> +#define EINJ1_TYPE			BIT(8)
-> +#define EINJ2_TYPE			GENMASK(9, 8)
-> +#define EINJ3_TYPE			GENMASK(10, 8)
-> +#define EINJ4_TYPE			GENMASK(10, 8)
-> +#define EINJ5_TYPE			BIT(8)
-> +#define EINJ_COUNT			GENMASK(7, 0)
+>  #define ERR_INJ_ENABLE_REG		0x30
+>  
+> +#define RAS_DES_EVENT_COUNTER_DATA_REG	0xc
 > +
-> +#define ERR_INJ_ENABLE_REG		0x30
+> +#define RAS_DES_EVENT_COUNTER_CTRL_REG	0x8
+> +#define EVENT_COUNTER_GROUP_SELECT	GENMASK(27, 24)
+> +#define EVENT_COUNTER_EVENT_SELECT	GENMASK(23, 16)
+> +#define EVENT_COUNTER_LANE_SELECT	GENMASK(11, 8)
+> +#define EVENT_COUNTER_STATUS		BIT(7)
+> +#define EVENT_COUNTER_ENABLE		GENMASK(4, 2)
+> +#define PER_EVENT_ON			0x3
+> +#define PER_EVENT_OFF			0x1
 > +
 >  #define DWC_DEBUGFS_BUF_MAX		128
 >  
 >  /**
-> @@ -33,6 +47,72 @@ struct dwc_pcie_rasdes_info {
->  	struct mutex reg_event_lock;
+> @@ -113,6 +124,61 @@ static const u32 err_inj_type_mask[] = {
+>  	EINJ5_TYPE,
 >  };
 >  
 > +/**
-> + * struct dwc_pcie_rasdes_priv - Stores file specific private data information
-> + * @pci: Reference to the dw_pcie structure
-> + * @idx: Index to point to specific file related information in array of structs
-> + *
-> + * All debugfs files will have this struct as its private data.
+> + * struct dwc_pcie_event_counter - Store details about each event counter supported in DWC RASDES
+> + * @name: Name of the error counter
+> + * @group_no: Group number that the event belongs to. Value ranges from 0 - 4
+> + * @event_no: Event number of the particular event. Value ranges from -
+> + *		Group 0: 0 - 10
+> + *		Group 1: 5 - 13
+> + *		Group 2: 0 - 7
+> + *		Group 3: 0 - 5
+> + *		Group 4: 0 - 1
 > + */
-> +struct dwc_pcie_rasdes_priv {
-> +	struct dw_pcie *pci;
-> +	int idx;
-> +};
-> +
-> +/**
-> + * struct dwc_pcie_err_inj - Store details about each error injection supported by DWC RASDES
-> + * @name: Name of the error that can be injected
-> + * @err_inj_group: Group number to which the error belongs to. Value can range from 0 - 5
-> + * @err_inj_type: Each group can have multiple types of error
-> + */
-> +struct dwc_pcie_err_inj {
+> +struct dwc_pcie_event_counter {
 > +	const char *name;
-> +	u32 err_inj_group;
-> +	u32 err_inj_type;
+> +	u32 group_no;
+> +	u32 event_no;
 > +};
 > +
-> +static const struct dwc_pcie_err_inj err_inj_list[] = {
-> +	{"tx_lcrc", 0x0, 0x0},
-> +	{"b16_crc_dllp", 0x0, 0x1},
-> +	{"b16_crc_upd_fc", 0x0, 0x2},
-> +	{"tx_ecrc", 0x0, 0x3},
-> +	{"fcrc_tlp", 0x0, 0x4},
-> +	{"parity_tsos", 0x0, 0x5},
-> +	{"parity_skpos", 0x0, 0x6},
-> +	{"rx_lcrc", 0x0, 0x8},
-> +	{"rx_ecrc", 0x0, 0xb},
-> +	{"tlp_err_seq", 0x1, 0x0},
-> +	{"ack_nak_dllp_seq", 0x1, 0x1},
-> +	{"ack_nak_dllp", 0x2, 0x0},
-> +	{"upd_fc_dllp", 0x2, 0x1},
-> +	{"nak_dllp", 0x2, 0x2},
-> +	{"inv_sync_hdr_sym", 0x3, 0x0},
-> +	{"com_pad_ts1", 0x3, 0x1},
-> +	{"com_pad_ts2", 0x3, 0x2},
-> +	{"com_fts", 0x3, 0x3},
-> +	{"com_idl", 0x3, 0x4},
-> +	{"end_edb", 0x3, 0x5},
-> +	{"stp_sdp", 0x3, 0x6},
-> +	{"com_skp", 0x3, 0x7},
-> +	{"posted_tlp_hdr", 0x4, 0x0},
-> +	{"non_post_tlp_hdr", 0x4, 0x1},
-> +	{"cmpl_tlp_hdr", 0x4, 0x2},
-> +	{"posted_tlp_data", 0x4, 0x4},
-> +	{"non_post_tlp_data", 0x4, 0x5},
-> +	{"cmpl_tlp_data", 0x4, 0x6},
-> +	{"duplicate_dllp", 0x5, 0x0},
-> +	{"nullified_tlp", 0x5, 0x1},
-> +};
-> +
-> +static const u32 err_inj_type_mask[] = {
-> +	EINJ0_TYPE,
-> +	EINJ1_TYPE,
-> +	EINJ2_TYPE,
-> +	EINJ3_TYPE,
-> +	EINJ4_TYPE,
-> +	EINJ5_TYPE,
+> +static const struct dwc_pcie_event_counter event_list[] = {
+> +	{"ebuf_overflow", 0x0, 0x0},
+> +	{"ebuf_underrun", 0x0, 0x1},
+> +	{"decode_err", 0x0, 0x2},
+> +	{"running_disparity_err", 0x0, 0x3},
+> +	{"skp_os_parity_err", 0x0, 0x4},
+> +	{"sync_header_err", 0x0, 0x5},
+> +	{"rx_valid_deassertion", 0x0, 0x6},
+> +	{"ctl_skp_os_parity_err", 0x0, 0x7},
+> +	{"retimer_parity_err_1st", 0x0, 0x8},
+> +	{"retimer_parity_err_2nd", 0x0, 0x9},
+> +	{"margin_crc_parity_err", 0x0, 0xA},
+> +	{"detect_ei_infer", 0x1, 0x5},
+> +	{"receiver_err", 0x1, 0x6},
+> +	{"rx_recovery_req", 0x1, 0x7},
+> +	{"n_fts_timeout", 0x1, 0x8},
+> +	{"framing_err", 0x1, 0x9},
+> +	{"deskew_err", 0x1, 0xa},
+> +	{"framing_err_in_l0", 0x1, 0xc},
+> +	{"deskew_uncompleted_err", 0x1, 0xd},
+> +	{"bad_tlp", 0x2, 0x0},
+> +	{"lcrc_err", 0x2, 0x1},
+> +	{"bad_dllp", 0x2, 0x2},
+> +	{"replay_num_rollover", 0x2, 0x3},
+> +	{"replay_timeout", 0x2, 0x4},
+> +	{"rx_nak_dllp", 0x2, 0x5},
+> +	{"tx_nak_dllp", 0x2, 0x6},
+> +	{"retry_tlp", 0x2, 0x7},
+> +	{"fc_timeout", 0x3, 0x0},
+> +	{"poisoned_tlp", 0x3, 0x1},
+> +	{"ecrc_error", 0x3, 0x2},
+> +	{"unsupported_request", 0x3, 0x3},
+> +	{"completer_abort", 0x3, 0x4},
+> +	{"completion_timeout", 0x3, 0x5},
+> +	{"ebuf_skp_add", 0x4, 0x0},
+> +	{"ebuf_skp_del", 0x4, 0x1},
 > +};
 > +
 >  static ssize_t lane_detect_read(struct file *file, char __user *buf, size_t count, loff_t *ppos)
 >  {
 >  	struct dw_pcie *pci = file->private_data;
-> @@ -93,6 +173,63 @@ static ssize_t rx_valid_write(struct file *file, const char __user *buf, size_t
->  	return lane_detect_write(file, buf, count, ppos);
+> @@ -230,6 +296,127 @@ static ssize_t err_inj_write(struct file *file, const char __user *buf, size_t c
+>  	return count;
 >  }
 >  
-> +static ssize_t err_inj_write(struct file *file, const char __user *buf, size_t count, loff_t *ppos)
+> +static void set_event_number(struct dwc_pcie_rasdes_priv *pdata, struct dw_pcie *pci,
+> +			     struct dwc_pcie_rasdes_info *rinfo)
+> +{
+> +	u32 val;
+> +
+> +	val = dw_pcie_readl_dbi(pci, rinfo->ras_cap_offset + RAS_DES_EVENT_COUNTER_CTRL_REG);
+> +	val &= ~EVENT_COUNTER_ENABLE;
+> +	val &= ~(EVENT_COUNTER_GROUP_SELECT | EVENT_COUNTER_EVENT_SELECT);
+> +	val |= FIELD_PREP(EVENT_COUNTER_GROUP_SELECT, event_list[pdata->idx].group_no);
+> +	val |= FIELD_PREP(EVENT_COUNTER_EVENT_SELECT, event_list[pdata->idx].event_no);
+> +	dw_pcie_writel_dbi(pci, rinfo->ras_cap_offset + RAS_DES_EVENT_COUNTER_CTRL_REG, val);
+> +}
+> +
+> +static ssize_t counter_enable_read(struct file *file, char __user *buf, size_t count, loff_t *ppos)
 > +{
 > +	struct dwc_pcie_rasdes_priv *pdata = file->private_data;
 > +	struct dw_pcie *pci = pdata->pci;
 > +	struct dwc_pcie_rasdes_info *rinfo = pci->debugfs->rasdes_info;
-> +	u32 val, counter, vc_num, err_group, type_mask;
-> +	int val_diff = 0;
-> +	char *kern_buf;
+> +	char debugfs_buf[DWC_DEBUGFS_BUF_MAX];
+> +	ssize_t pos;
+> +	u32 val;
 > +
-> +	err_group = err_inj_list[pdata->idx].err_inj_group;
-> +	type_mask = err_inj_type_mask[err_group];
+> +	mutex_lock(&rinfo->reg_event_lock);
+> +	set_event_number(pdata, pci, rinfo);
+> +	val = dw_pcie_readl_dbi(pci, rinfo->ras_cap_offset + RAS_DES_EVENT_COUNTER_CTRL_REG);
+> +	mutex_unlock(&rinfo->reg_event_lock);
+> +	val = FIELD_GET(EVENT_COUNTER_STATUS, val);
+> +	if (val)
+> +		pos = scnprintf(debugfs_buf, DWC_DEBUGFS_BUF_MAX, "Counter Enabled\n");
+> +	else
+> +		pos = scnprintf(debugfs_buf, DWC_DEBUGFS_BUF_MAX, "Counter Disabled\n");
 > +
-> +	kern_buf = memdup_user_nul(buf, count);
-> +	if (IS_ERR(kern_buf))
-> +		return PTR_ERR(kern_buf);
+> +	return simple_read_from_buffer(buf, count, ppos, debugfs_buf, pos);
+> +}
 > +
-> +	if (err_group == 4) {
-> +		val = sscanf(kern_buf, "%u %d %u", &counter, &val_diff, &vc_num);
-> +		if ((val != 3) || (val_diff < -4095 || val_diff > 4095)) {
-> +			kfree(kern_buf);
-> +			return -EINVAL;
-> +		}
-> +	} else if (err_group == 1) {
-> +		val = sscanf(kern_buf, "%u %d", &counter, &val_diff);
-> +		if ((val != 2) || (val_diff < -4095 || val_diff > 4095)) {
-> +			kfree(kern_buf);
-> +			return -EINVAL;
-> +		}
-> +	} else {
-> +		val = kstrtou32(kern_buf, 0, &counter);
-> +		if (val) {
-> +			kfree(kern_buf);
-> +			return val;
-> +		}
-> +	}
+> +static ssize_t counter_enable_write(struct file *file, const char __user *buf,
+> +				    size_t count, loff_t *ppos)
+> +{
+> +	struct dwc_pcie_rasdes_priv *pdata = file->private_data;
+> +	struct dw_pcie *pci = pdata->pci;
+> +	struct dwc_pcie_rasdes_info *rinfo = pci->debugfs->rasdes_info;
+> +	u32 val, enable;
 > +
-> +	val = dw_pcie_readl_dbi(pci, rinfo->ras_cap_offset + ERR_INJ0_OFF + (0x4 * err_group));
-> +	val &= ~(type_mask | EINJ_COUNT);
-> +	val |= ((err_inj_list[pdata->idx].err_inj_type << EINJ_TYPE_SHIFT) & type_mask);
-> +	val |= FIELD_PREP(EINJ_COUNT, counter);
+> +	val = kstrtou32_from_user(buf, count, 0, &enable);
+> +	if (val)
+> +		return val;
 > +
-> +	if (err_group == 1 || err_group == 4) {
-> +		val &= ~(EINJ_VAL_DIFF);
-> +		val |= FIELD_PREP(EINJ_VAL_DIFF, val_diff);
-> +	}
-> +	if (err_group == 4) {
-> +		val &= ~(EINJ_VC_NUM);
-> +		val |= FIELD_PREP(EINJ_VC_NUM, vc_num);
-> +	}
+> +	mutex_lock(&rinfo->reg_event_lock);
+> +	set_event_number(pdata, pci, rinfo);
+> +	val = dw_pcie_readl_dbi(pci, rinfo->ras_cap_offset + RAS_DES_EVENT_COUNTER_CTRL_REG);
+> +	if (enable)
+> +		val |= FIELD_PREP(EVENT_COUNTER_ENABLE, PER_EVENT_ON);
+> +	else
+> +		val |= FIELD_PREP(EVENT_COUNTER_ENABLE, PER_EVENT_OFF);
 > +
-> +	dw_pcie_writel_dbi(pci, rinfo->ras_cap_offset + ERR_INJ0_OFF + (0x4 * err_group), val);
-> +	dw_pcie_writel_dbi(pci, rinfo->ras_cap_offset + ERR_INJ_ENABLE_REG, (0x1 << err_group));
+> +	dw_pcie_writel_dbi(pci, rinfo->ras_cap_offset + RAS_DES_EVENT_COUNTER_CTRL_REG, val);
+> +	mutex_unlock(&rinfo->reg_event_lock);
 > +
-> +	kfree(kern_buf);
 > +	return count;
+> +}
+> +
+> +static ssize_t counter_lane_read(struct file *file, char __user *buf, size_t count, loff_t *ppos)
+> +{
+> +	struct dwc_pcie_rasdes_priv *pdata = file->private_data;
+> +	struct dw_pcie *pci = pdata->pci;
+> +	struct dwc_pcie_rasdes_info *rinfo = pci->debugfs->rasdes_info;
+> +	char debugfs_buf[DWC_DEBUGFS_BUF_MAX];
+> +	ssize_t pos;
+> +	u32 val;
+> +
+> +	mutex_lock(&rinfo->reg_event_lock);
+> +	set_event_number(pdata, pci, rinfo);
+> +	val = dw_pcie_readl_dbi(pci, rinfo->ras_cap_offset + RAS_DES_EVENT_COUNTER_CTRL_REG);
+> +	mutex_unlock(&rinfo->reg_event_lock);
+> +	val = FIELD_GET(EVENT_COUNTER_LANE_SELECT, val);
+> +	pos = scnprintf(debugfs_buf, DWC_DEBUGFS_BUF_MAX, "Lane: %d\n", val);
+> +
+> +	return simple_read_from_buffer(buf, count, ppos, debugfs_buf, pos);
+> +}
+> +
+> +static ssize_t counter_lane_write(struct file *file, const char __user *buf,
+> +				  size_t count, loff_t *ppos)
+> +{
+> +	struct dwc_pcie_rasdes_priv *pdata = file->private_data;
+> +	struct dw_pcie *pci = pdata->pci;
+> +	struct dwc_pcie_rasdes_info *rinfo = pci->debugfs->rasdes_info;
+> +	u32 val, lane;
+> +
+> +	val = kstrtou32_from_user(buf, count, 0, &lane);
+> +	if (val)
+> +		return val;
+> +
+> +	mutex_lock(&rinfo->reg_event_lock);
+> +	set_event_number(pdata, pci, rinfo);
+> +	val = dw_pcie_readl_dbi(pci, rinfo->ras_cap_offset + RAS_DES_EVENT_COUNTER_CTRL_REG);
+> +	val &= ~(EVENT_COUNTER_LANE_SELECT);
+> +	val |= FIELD_PREP(EVENT_COUNTER_LANE_SELECT, lane);
+> +	dw_pcie_writel_dbi(pci, rinfo->ras_cap_offset + RAS_DES_EVENT_COUNTER_CTRL_REG, val);
+> +	mutex_unlock(&rinfo->reg_event_lock);
+> +
+> +	return count;
+> +}
+> +
+> +static ssize_t counter_value_read(struct file *file, char __user *buf, size_t count, loff_t *ppos)
+> +{
+> +	struct dwc_pcie_rasdes_priv *pdata = file->private_data;
+> +	struct dw_pcie *pci = pdata->pci;
+> +	struct dwc_pcie_rasdes_info *rinfo = pci->debugfs->rasdes_info;
+> +	char debugfs_buf[DWC_DEBUGFS_BUF_MAX];
+> +	ssize_t pos;
+> +	u32 val;
+> +
+> +	mutex_lock(&rinfo->reg_event_lock);
+> +	set_event_number(pdata, pci, rinfo);
+> +	val = dw_pcie_readl_dbi(pci, rinfo->ras_cap_offset + RAS_DES_EVENT_COUNTER_DATA_REG);
+> +	mutex_unlock(&rinfo->reg_event_lock);
+> +	pos = scnprintf(debugfs_buf, DWC_DEBUGFS_BUF_MAX, "Counter value: %d\n", val);
+> +
+> +	return simple_read_from_buffer(buf, count, ppos, debugfs_buf, pos);
 > +}
 > +
 >  #define dwc_debugfs_create(name)			\
 >  debugfs_create_file(#name, 0644, rasdes_debug, pci,	\
 >  			&dbg_ ## name ## _fops)
-> @@ -107,6 +244,11 @@ static const struct file_operations dbg_ ## name ## _fops = {	\
->  DWC_DEBUGFS_FOPS(lane_detect);
->  DWC_DEBUGFS_FOPS(rx_valid);
+> @@ -249,6 +436,23 @@ static const struct file_operations dwc_pcie_err_inj_ops = {
+>  	.write = err_inj_write,
+>  };
 >  
-> +static const struct file_operations dwc_pcie_err_inj_ops = {
+> +static const struct file_operations dwc_pcie_counter_enable_ops = {
 > +	.open = simple_open,
-> +	.write = err_inj_write,
+> +	.read = counter_enable_read,
+> +	.write = counter_enable_write,
+> +};
+> +
+> +static const struct file_operations dwc_pcie_counter_lane_ops = {
+> +	.open = simple_open,
+> +	.read = counter_lane_read,
+> +	.write = counter_lane_write,
+> +};
+> +
+> +static const struct file_operations dwc_pcie_counter_value_ops = {
+> +	.open = simple_open,
+> +	.read = counter_value_read,
 > +};
 > +
 >  static void dwc_pcie_rasdes_debugfs_deinit(struct dw_pcie *pci)
 >  {
 >  	struct dwc_pcie_rasdes_info *rinfo = pci->debugfs->rasdes_info;
-> @@ -116,10 +258,11 @@ static void dwc_pcie_rasdes_debugfs_deinit(struct dw_pcie *pci)
+> @@ -258,7 +462,7 @@ static void dwc_pcie_rasdes_debugfs_deinit(struct dw_pcie *pci)
 >  
 >  static int dwc_pcie_rasdes_debugfs_init(struct dw_pcie *pci, struct dentry *dir)
 >  {
-> -	struct dentry *rasdes_debug;
-> +	struct dentry *rasdes_debug, *rasdes_err_inj;
+> -	struct dentry *rasdes_debug, *rasdes_err_inj;
+> +	struct dentry *rasdes_debug, *rasdes_err_inj, *rasdes_event_counter, *rasdes_events;
 >  	struct dwc_pcie_rasdes_info *rasdes_info;
-> +	struct dwc_pcie_rasdes_priv *priv_tmp;
+>  	struct dwc_pcie_rasdes_priv *priv_tmp;
 >  	struct device *dev = pci->dev;
-> -	int ras_cap;
-> +	int ras_cap, i, ret;
->  
->  	ras_cap = dw_pcie_find_rasdes_capability(pci);
->  	if (!ras_cap) {
-> @@ -133,6 +276,7 @@ static int dwc_pcie_rasdes_debugfs_init(struct dw_pcie *pci, struct dentry *dir)
->  
+> @@ -277,6 +481,7 @@ static int dwc_pcie_rasdes_debugfs_init(struct dw_pcie *pci, struct dentry *dir)
 >  	/* Create subdirectories for Debug, Error injection, Statistics */
 >  	rasdes_debug = debugfs_create_dir("rasdes_debug", dir);
-> +	rasdes_err_inj = debugfs_create_dir("rasdes_err_inj", dir);
+>  	rasdes_err_inj = debugfs_create_dir("rasdes_err_inj", dir);
+> +	rasdes_event_counter = debugfs_create_dir("rasdes_event_counter", dir);
 >  
 >  	mutex_init(&rasdes_info->reg_event_lock);
 >  	rasdes_info->ras_cap_offset = ras_cap;
-> @@ -142,7 +286,24 @@ static int dwc_pcie_rasdes_debugfs_init(struct dw_pcie *pci, struct dentry *dir)
->  	dwc_debugfs_create(lane_detect);
->  	dwc_debugfs_create(rx_valid);
->  
-> +	/* Create debugfs files for Error injection subdirectory */
-> +	for (i = 0; i < ARRAY_SIZE(err_inj_list); i++) {
+> @@ -299,6 +504,28 @@ static int dwc_pcie_rasdes_debugfs_init(struct dw_pcie *pci, struct dentry *dir)
+>  		debugfs_create_file(err_inj_list[i].name, 0200, rasdes_err_inj, priv_tmp,
+>  				    &dwc_pcie_err_inj_ops);
+>  	}
+> +
+> +	/* Create debugfs files for Statistical counter subdirectory */
+> +	for (i = 0; i < ARRAY_SIZE(event_list); i++) {
 > +		priv_tmp = devm_kzalloc(dev, sizeof(*priv_tmp), GFP_KERNEL);
 > +		if (!priv_tmp) {
 > +			ret = -ENOMEM;
@@ -411,17 +461,20 @@ Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 > +
 > +		priv_tmp->idx = i;
 > +		priv_tmp->pci = pci;
-> +		debugfs_create_file(err_inj_list[i].name, 0200, rasdes_err_inj, priv_tmp,
-> +				    &dwc_pcie_err_inj_ops);
+> +		rasdes_events = debugfs_create_dir(event_list[i].name, rasdes_event_counter);
+> +		if (event_list[i].group_no == 0 || event_list[i].group_no == 4) {
+> +			debugfs_create_file("lane_select", 0644, rasdes_events,
+> +					    priv_tmp, &dwc_pcie_counter_lane_ops);
+> +		}
+> +		debugfs_create_file("counter_value", 0444, rasdes_events, priv_tmp,
+> +				    &dwc_pcie_counter_value_ops);
+> +		debugfs_create_file("counter_enable", 0644, rasdes_events, priv_tmp,
+> +				    &dwc_pcie_counter_enable_ops);
 > +	}
->  	return 0;
 > +
-> +err_deinit:
-> +	dwc_pcie_rasdes_debugfs_deinit(pci);
-> +	return ret;
->  }
+>  	return 0;
 >  
->  void dwc_pcie_debugfs_deinit(struct dw_pcie *pci)
+>  err_deinit:
 > -- 
 > 2.17.1
 > 
