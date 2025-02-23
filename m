@@ -4,113 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11381C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 08:50:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71D1FC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 08:51:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yna9BC52Gbo0fEqfQviKOOE4RyaQ9NZPJR+dadrSXVA=; b=JhkfBw3t7ZEcKYelci5LSoqhFz
-	37DEf4D761q4vjXMEok+xWJVdmbPE9N4KnaA5jP/2OkBN9uO7NxLfnGH7mm5cAhKF3Vn+K3o+AN/8
-	SL8L0J0SOtNLHI6k9ZSEymKnLs8WMF38dyHzHMA3+oM6If8n+knUdGROstoFbURbx8x6f5jTFZPG4
-	Zi0wT+uoyI2liOEovfCI8QBGaCOVbyHlTwYi/fvLN3Q3SoJQwaEGxNJBgCuN/XQE2tdQm+yzarOgt
-	YveshjHVRc0PI4v73Ve+7ayvMj46OOtlImWpWDEP13nwCD/p4DZ2sROrykcAgcmLLVsI3tHJwjE7u
-	Q+Xg9Wsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CRNAVvYYeCRwQ3a1xM+1m/wJzn5pqIvsuHf0zaTzy2U=; b=Q9ydfo+gvLvkVyu0IWlkCjU6px
+	PtmEbxLy293xVGBrQJy7L/M2pUcbO+VNcx3FvjqAptopFghHQkPb8mXeZAQw0R0OJf9on2za3MhET
+	v5f2ANoXccbvAiJOeD0YlecRmLgV1KysuFqp1tm4gCAh0Saqkcbvl1tfKYX/wDlB6H+XR9TzJsWLO
+	k1UGZcYLRlpFpipiDkEma+lkMjm2WFUcyCCAdwEos8/il+JRAv/iBncLLBtCPzRz/Ec3x1HZw07KW
+	GGJhxUz5XnsMDAHb3ctdtr2LkfUYb8QyKEyEVNLYc5kjZhsRbzgi8rVjjsR95F+cD+UVr0MXIZGdE
+	epbZoAIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm7ge-0000000AhcG-0OTH;
-	Sun, 23 Feb 2025 08:50:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tm7i5-0000000AhlZ-3BLK;
+	Sun, 23 Feb 2025 08:51:37 +0000
+Received: from mail-yb1-xb29.google.com ([2607:f8b0:4864:20::b29])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm7fB-0000000AhLx-3ymv
+	id 1tm7fG-0000000AhMa-3Gsh
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Feb 2025 08:48:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8F61861120;
-	Sun, 23 Feb 2025 08:48:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44BB1C4CEDD;
-	Sun, 23 Feb 2025 08:48:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740300516;
-	bh=rpycrvI3qn3Uju8hG/7fBkNu9SyGAvQZz4fJVKKo618=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ocFPuMo57XeN+YARf2FrCJOl+ICeBvFFMdK+9vaccbcNaaTvgc81Gad/7ZJyajjgi
-	 wrmj4zmNCTPN2DzIpRw5IVJpD3PYmhFEUZ4BJZKjHfXrVpuE9fo3ozATZE9uP8c+sz
-	 6tW11VKmmq3tijy3YL2TQsE0WPD25xI5uMWh6hk3QCxE6Xgf7EQHgrtPcrXAMBmkVg
-	 n3U2n1GZ+6Iod5UZ60GJIDwhviGaTyUaQPiY6u0kKFqnXDDlesR0egJGXZPI7R0UQE
-	 8TEQH47Be59z30TuolBOHSTMMORfSq5tjXJd2FRWMOcdZsyWjF/DxeS6l2Pz1z5ut4
-	 vxz3zoVC2Zp8g==
-Message-ID: <a8ad3469-f170-4af0-abaf-d34c60e4df52@kernel.org>
-Date: Sun, 23 Feb 2025 09:48:31 +0100
+	Sun, 23 Feb 2025 08:48:43 +0000
+Received: by mail-yb1-xb29.google.com with SMTP id 3f1490d57ef6-e5dc299deb4so3082407276.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Feb 2025 00:48:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740300521; x=1740905321; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=CRNAVvYYeCRwQ3a1xM+1m/wJzn5pqIvsuHf0zaTzy2U=;
+        b=PeQNb3R63niES0jx+iLzvU2DKtg0FSNiQApbbbqjKgi3C98H6ajunz8Q8Td67K5GV8
+         bhA2nQBi4lrI9a+OSS/WlsZyRGWQoaG9BRX3YPxGhzVC2d6N3s8jFGV5WeX8wGzC7tGH
+         OM9/s9RPojvNKcE/h3u3rUY1SiJdET4y2xrT6urNWgARtV1/tuC2V64uvANrF/NPdyNO
+         SsAgaYFraTzBBCElJDr2qG2tcKAXxUjUZE+wakMEAg5fdRaIT9ccYgthek21kZRHGqyJ
+         I/OP5Q5HnaBW5rYElSgG9n3k+xp0OAWPznDSMA3UN8LWeoSmnN44YNgJ4YQEVJbd7VbY
+         gxnQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740300521; x=1740905321;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CRNAVvYYeCRwQ3a1xM+1m/wJzn5pqIvsuHf0zaTzy2U=;
+        b=bwQT4IUmhRXDwLLeL+dkYiCtphyhIEifbnRK6osVAmZoes+ZrMYOfgQXgUOq4Pl15Q
+         ES769cL6RnJBNn4DKIhyMjzOdH8KO8CfDZFQ+U/1daeXcLL5dVj2+gLJeT2Mnm3iwO8w
+         Itof+O5jbN4gBuhhClvlLmTQQ5qIWODKHmKVcvKQpvdrU5ddbr4hB9XR7ZswczAUPSC7
+         gmJCiqB6aYNx6xtKAkGkOI6Bpu3govKHNW2w2v1hMWAc9En7e6yZOM+4KMLSVMNicRK+
+         6P7XfgAA7ULIDX6tNDHkLudb7wkYEkj7mZkF9l1BEFFFAyPY+9EBSVML4KR6NQCzqQxz
+         e3+g==
+X-Forwarded-Encrypted: i=1; AJvYcCVUFf1HUAs6PZ2PKml9O08otewBTgucydmu1RLi9++49d6k++/xPPHcBfrLljlq1Q2IWqrlNRWDYI0vOnn/7ibS@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkSl7WoUiERKxzEHEW5qfmBsqf3RZzl6IUcmpBBEZ3mfTChKN0
+	tngiEy7tDQ7jY9+wkvKrwSIuXQrK1J0Cex8UD430WlNRMK+6u6IzSRdhZDA4koxnhS2Yaj/8D42
+	7ztJStHnEaJFGQG3e/p+8HCzwbC4=
+X-Gm-Gg: ASbGncsJheyHc4VrsqH6uwqZH4INkhuF6YnZYEbS+KTL+UGcOqv3Es29kuluRl6bRXs
+	1vcOxVIGLSc+8BPCMVYWD4E/IvunmkPrXwxdVZaogyh3QdpikNVDvP0hOKtF2Z/z3jPDI6yItZM
+	ltP7jvXhez
+X-Google-Smtp-Source: AGHT+IHb12XReeyoJDdKwjTiybo5Sj6fWeU+stjIr25RfUjMsbR/05GXSFVxnSxTw+cp3RjuECFwksFzSO61LWq7Pjs=
+X-Received: by 2002:a05:6902:200b:b0:e5e:1389:cb40 with SMTP id
+ 3f1490d57ef6-e5e245e7139mr6807165276.13.1740300521431; Sun, 23 Feb 2025
+ 00:48:41 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] dt-bindings: reset: Add Armada8K reset controller
-To: Wilson Ding <dingwei@marvell.com>, Rob Herring <robh@kernel.org>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "andrew@lunn.ch" <andrew@lunn.ch>,
- "gregory.clement@bootlin.com" <gregory.clement@bootlin.com>,
- "sebastian.hesselbarth@gmail.com" <sebastian.hesselbarth@gmail.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- Sanghoon Lee <salee@marvell.com>, Geethasowjanya Akula <gakula@marvell.com>
-References: <20250220232527.882888-1-dingwei@marvell.com>
- <20250220232527.882888-2-dingwei@marvell.com>
- <20250221-icy-flounder-of-potency-ee1a05@krzk-bin>
- <20250221234041.GA387671-robh@kernel.org>
- <BY3PR18MB4673F55565B70458E1F3F9A6A7C62@BY3PR18MB4673.namprd18.prod.outlook.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <BY3PR18MB4673F55565B70458E1F3F9A6A7C62@BY3PR18MB4673.namprd18.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250219-isp-v1-0-6d3e89b67c31@gmail.com> <20250219-isp-v1-4-6d3e89b67c31@gmail.com>
+ <20250219113422.GA26386@robin.jannau.net>
+In-Reply-To: <20250219113422.GA26386@robin.jannau.net>
+From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Date: Sun, 23 Feb 2025 09:48:30 +0100
+X-Gm-Features: AWEUYZlT7UA0f04bSLad26HmgfbyXA2dYAU1yBLaWwGCtq5yfIfuPEY4zNm_Co4
+Message-ID: <CAMT+MTR4yPzC-NBLT6uLhveHFDWpwwn=hUzU6=WDc73+UVEMwQ@mail.gmail.com>
+Subject: Re: [PATCH 4/5] media: apple: Add Apple ISP driver
+To: Janne Grunau <j@jannau.net>
+Cc: Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Hector Martin <marcan@marcan.st>, Ulf Hansson <ulf.hansson@linaro.org>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-media@vger.kernel.org, imx@lists.linux.dev, Eileen Yoon <eyn@gmx.com>, 
+	Asahi Lina <lina@asahilina.net>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250223_004842_841240_B3434B68 
+X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,44 +102,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/02/2025 21:57, Wilson Ding wrote:
+On Wed, 19 Feb 2025 at 12:34, Janne Grunau <j@jannau.net> wrote:
+> > +     while (maps < end) {
+> > +             maps++;
+> > +             maps = of_translate_dma_region(dev->of_node, maps, &heap_base,
+> > +                                            &heap_size);
+> > +     }
+>
+> The hand-rolled reserved memory parsing looks like it can be replaced
+> with of_iommu_get_resv_region();
 
->>>> +  offset:
->>>> +    $ref: /schemas/types.yaml#/definitions/uint32
->>>> +    description: Offset in the register map for the gpio registers
->>>> + (in bytes)
->>>
->>> That's neither correct nor needed. Your device knows ofsset based on
->>> the compatible.
->>
->> Or use 'reg'.
->>
->> But really, just add #reset-cells to the parent node. There's no need for a child
->> node here. The parent needs a specific compatible though.
->>
-> 
-> I am not inventing the 'offset' property. I just tried to follow the other existing
-> sub-nodes under the same parent node (system-controller). The mvebu-gpio
-> driver also uses 'offset' instead of 'reg' for the syscon device (see below). But it
-
-
-You never answered why do you need offset and why it cannot work without.
-
-> seems also not correct from your point of view. Now, I am a bit confused what
-> should be the right scheme for the Armada's system-controller, including GPIO
-> and Reset controller. And dt_binding_check complains "system-controller@
-> 440000:  compatible: ['syscon', 'simple-mfd'] is too short". Can you point me
-> any  reference for me to fix these issues.
-
-See all other syscon devices. 'git grep simple-mfd' or for syscon
-
-
-> 
-> CP110_LABEL(syscon0): system-controller@440000 {
-> 	compatible = "syscon", "simple-mfd";
-> 	reg = <0x440000 0x1000>;
-
-
-Best regards,
-Krzysztof
+I have looked into it, and `of_iommu_get_resv_region` does the wrong
+thing. We fill out `reg`, and it grabs that instead of `iommu-addresses`.
 
