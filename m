@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72950C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 12:28:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED87EC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 12:30:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2TbGBzUDvgVe7DZmZtqsqC9SxMmEhDsYTwwUDb5o6oI=; b=Vn5daBeN3r3DoN+b8LqKDGjWGb
-	QQ45UicGakhm1c/Pm+y36N06EFlywQkDJfGOB1q3gOwy54Y+56ucR2p9DThceXonmAn9UtG5HnbOp
-	rgnXAEuJ700ownyMuT6+kODRsXlwerYMXzdFvzEB0FEIT1yTrxVJ7joSE3M/b9iUOpQlMMfDQlbp0
-	sQJ5dG7Cbk/PKbatItjPeEVySbEggrvo4Xgw0SNghpovzFfilBAdv4Ia5oGA1IHHNoUlZwUjjhh3t
-	jcvkxqoyCSVFLIfhF6/v5szAuyl6tPKys0QF5/qRJs2Jwxq9PCOpd6PTksJBpEmHiur58nixM7rJK
-	NoP36wsQ==;
+	bh=w5AqloAAA42MXmA8w7bAhHKGWmPLv+VF0Ofk4tbyqKU=; b=NbtQNAvlFS6dnmb2Oymu0Jpbvg
+	c067VReaLlxlvh7pfIDE03LReJY1lpcAQiVV9FQbKAZLMzgTiFQg7Fudf9Czm1sUH6rID/lbcCLxs
+	oVLVJCkdx4RXE0o2YSXXVsJAXreEQQnMmsAClii3iJOnCbBqKCXRVRUKEE2HNhVq5yeWbgQ9bgY5J
+	ftaU9Rsxbz4jpar7YQS2iSIhzIeeLTKH3ZYSSRNateO5VJGlyix7alhyVlq1WdH1RBnX9kcLrE/fF
+	1VS54EgiN0xpqMNNvAahurGdgu7X6tOO8h4Ejk9SF80k2Ff+6b/nTkWfIrZZvmctTT4lyC5OtF4A0
+	8lMr4qmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmB62-0000000B5sE-0yrL;
-	Sun, 23 Feb 2025 12:28:34 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1tmB7U-0000000B61U-0dhc;
+	Sun, 23 Feb 2025 12:30:04 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmB0G-0000000B4qg-1hYX;
-	Sun, 23 Feb 2025 12:22:37 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-38a8b17d7a7so1901169f8f.2;
-        Sun, 23 Feb 2025 04:22:36 -0800 (PST)
+	id 1tmB0H-0000000B4rV-3zYC;
+	Sun, 23 Feb 2025 12:22:39 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4399d14334aso31121545e9.0;
+        Sun, 23 Feb 2025 04:22:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740313355; x=1740918155; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1740313356; x=1740918156; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=2TbGBzUDvgVe7DZmZtqsqC9SxMmEhDsYTwwUDb5o6oI=;
-        b=Kw33UKd6+71um4AmgkoL3O4PFB+bGr9dHcE7AfelFmvgZzZxHfBlLwXn66bU1YtxNT
-         q4rNoo1wKxq6vI8AgIzg869Q8rS3B0FTNDL6nWwfxX9DhRrNqR/JOqkHhCSxOSNvv/aw
-         hnzyhFRaWIOFqD4LnA9y/cVuyZHhErlr3dVon2js5PytCLBlq3ffOm7VbhU92PdfLH3i
-         6udGCcaOIxIOzy6VcISeMASQjJKv+zT/XYMr7oA99yqrsOjm9ayuC/m5KQaX66nNHtoF
-         6bfwy55oyezMu2Vsozlm8rLHy7zwoaedPXtBEpZlmiPGqjI+gSt0Tn/f1ijVTjib1xF2
-         xung==
+        bh=w5AqloAAA42MXmA8w7bAhHKGWmPLv+VF0Ofk4tbyqKU=;
+        b=Af7crL4SZpF5g5jAEhx7cOdTF374hNxDE1SHCExpDNVxMeX3NzOR9XBT5aHyjmmz2o
+         JAKjbnxaHD5P3V7FsA5yfNgY+PJZBK+a35n4mJqsBkkOKl8/yJSsCVBQjCt257AF9Myj
+         ZvjePSDzv5p0ovjx+8561C7wJ8CY3KSKEn+9Z3FzrGibPG3hkifPBNTluLEejFv27IB6
+         1eKZmWCNIEmuNqMpr8VgN8HuzPyM8ceJBLAxsP4Z//5gQbdMv2PXbQAcnsVDPSDoHM07
+         8QXEny9I2b2gb/V754GtCEdgT2KX+R1cRxpEFn3dsx31+CJPjVoyXups0SFh6Vp84BsK
+         Nqsg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740313355; x=1740918155;
+        d=1e100.net; s=20230601; t=1740313356; x=1740918156;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=2TbGBzUDvgVe7DZmZtqsqC9SxMmEhDsYTwwUDb5o6oI=;
-        b=evdAG0Kba18/FD2a+MQX+0ekkAXnIviKc+yMn7Sboqf4bXPqBIDGO8EEfc+Jr1OsRo
-         ODle4sVc57/wkUwJp2ybHDiFfIzRcoY1E4a0n23F21U1Ce0GoT4UHHgJlhqBfa7zAYdZ
-         zBqHU1GrwKwoW4V1kJoY/vAXIeW6u0PPF59BsQMzyVbIyGcHesGZbqYK9KCsTr2EcKkw
-         NyjLmRMadTHUODq2uHRY25NmdakYy9poUCU2wdCRQtISVHGpVxu2s8hZAhdNrrHD/aiz
-         xseLJQ24yqT8LxHVzzPk/9Q3ei63JwnLUgM/t81V/yQw2pUon64LpzALnDCggltJnncT
-         2L0Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVL9dJhHdYA2+IrBMM1PIFd0y21LeCm1tYjVCZrM71Qf3jhZPAQtaIyS+leF4MtxNbcaGk1vMc/wfFKLtilGest@lists.infradead.org, AJvYcCVgI/llYbApWcLZp12qjPWxXJzMkYoVvHucwrtUMbXt8rwqIcox6TFxL5hOyInsfZd64d89l2XMTYxw@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHq4G7TG1Q/eGjynnla423CV6FlSpDB6PMelRP4LEyFwPxb7zh
-	0VElHOBO81KKiTxYvs+cW+m0TSVNaU+xKUiIHVO6UEJB4yEcX1Bt
-X-Gm-Gg: ASbGncs8r/W5byOFqtrCSey3FdEgWXutCHDK/IXipEf9b25KvgaekxMoKcHz1Lthzj1
-	wCse/XiysPU3/9xde6TboO/Vo5N37Fx+IuyI0u3opDoJel+Kd0aFyDTRu3ELuC0pmfqXXtFtAr0
-	+9u51rY4evTO1GUWTpppvv9JwcuG2ukVPf1QLRnAgI7BCrQ0dB8MAVM7Ksux0pOvV+2RB3tN3LL
-	aBdh7VhIQyu6tOyKBgW3Z+4x+UY9aBU4H7ToopCBkwQkpzBS08vLRs8oV6dGbu/Ct1pWvw4vM0J
-	WkT65vtG32bBQdVbZHTQC8hCkIUIsE8WVJTHkAM5emU5ke3QSViGzU3uiJFpBSlbhWlEV2gXz5y
-	kJA==
-X-Google-Smtp-Source: AGHT+IFMMFEPDMQAE9igHIO1s4NQHd7QMje6bLzkA+Bu0OEI2dPAuclKIJlYvuVA53CK1jDPbgzvtA==
-X-Received: by 2002:a5d:584b:0:b0:38f:3b41:c952 with SMTP id ffacd0b85a97d-38f6e754b82mr7082161f8f.4.1740313354607;
-        Sun, 23 Feb 2025 04:22:34 -0800 (PST)
+        bh=w5AqloAAA42MXmA8w7bAhHKGWmPLv+VF0Ofk4tbyqKU=;
+        b=cdix4LUOIZUZ8hDMOmFYDg6/IWiho8U69k0E12nJMkQ+FVdMLC9mWT4c6zym+KaUqL
+         szrJ8IKpR7agegtUYGV/Aq4A34VK5ijmhLZ9soVGAgrq25r1AoxjKVI3jUsVJrgbWueb
+         KLCqWri8bJ/kp6Td44QPpbOChOeiaxDVmi+nK1lhXHrMWxz+dRTb8JUuKqC75GCx5WFo
+         esowR7KdtPQTY7QRZQsDNmHF86sIfobrr62viRwkCTkCzSmFPiAR4IF1ewPgjYUfpAfy
+         M16DbgmStmVxnF260HD8gZXb97q5IltQuCJyAv7tIUbkQnTqfqGv/Uo6FNvyx02UcMFR
+         qdQg==
+X-Forwarded-Encrypted: i=1; AJvYcCUucIyVBcLOZRbhcrNs9DsR1QOahpm17vfWjw88YR1B6S7OMPJfqD0Ceoy46rHK9wpidOmYVOKbcuBSQZ21L5Dn@lists.infradead.org, AJvYcCVPCJPAD2HDqlU5rEUu/degxrOk+T3q31B85AbMNGCot/HVovtKoPZK0fyC8dsBwFwqpMLbY0nUFNt1@lists.infradead.org
+X-Gm-Message-State: AOJu0YxSV4sQ2skcC0bo9s7dMmgLexgeJ8HHB/0i208gwVPuJKI0MnMt
+	DaKxjS3KH/vvPaVKOA63ahUvJEsgoR8u31h7T66rV3vh3DQzgxp9
+X-Gm-Gg: ASbGncvnJDKQSgTHFlUAbV2Ahdh+ldZqsaY+M5GTzx9RrIv4VD13vlM6T/1JQdpITGJ
+	vq6bwuwClgjtCzzNstf9WCcYGOitVZzLOLsGMekrVoohysjPlmR5gm4BptAx4f9kasf3YOl/lXR
+	2IRaYUHpK4pq4nUkegMfMf9BTdr5IJ6muf7gDLYTDhyT/Z6ONV8k4S9O+YkcnMgF90UomxgKCPU
+	FMRfRWDhCHXmxyLgb56kcSb5QvSausp+AUjwvlg2xoLUed0CKx/9zvCXMGzzvn8e0I4M9zU5Hxu
+	JemSLv/9HUPtJJr9PIttF1bYcNh6dzDeX/ULFFZFPiyybqQjnwYw6GB2TW9aS4sfPh8BhuTQHQo
+	uEA==
+X-Google-Smtp-Source: AGHT+IHqP76iHfiYngmm0o31mQ9yL26b7/JkdUj5J77MLt+JVK4hCOloOw0no10cd3jakQMTipP2eA==
+X-Received: by 2002:a05:6000:184f:b0:38d:dffc:c144 with SMTP id ffacd0b85a97d-38f6f0c8e74mr7319751f8f.55.1740313356080;
+        Sun, 23 Feb 2025 04:22:36 -0800 (PST)
 Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f259f8602sm29611608f8f.94.2025.02.23.04.22.33
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f259f8602sm29611608f8f.94.2025.02.23.04.22.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 23 Feb 2025 04:22:34 -0800 (PST)
+        Sun, 23 Feb 2025 04:22:35 -0800 (PST)
 From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 To: Vinod Koul <vkoul@kernel.org>,
 	Kishon Vijay Abraham I <kishon@kernel.org>,
@@ -83,17 +83,17 @@ Cc: linux-arm-msm@vger.kernel.org,
 	linux-phy@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 3/8] dt-bindings: phy: add samsung,exynos2200-usbcon-phy schema file
-Date: Sun, 23 Feb 2025 14:22:22 +0200
-Message-ID: <20250223122227.725233-4-ivo.ivanov.ivanov1@gmail.com>
+Subject: [PATCH v2 4/8] phy: move phy-qcom-snps-eusb2 out of its vendor sub-directory
+Date: Sun, 23 Feb 2025 14:22:23 +0200
+Message-ID: <20250223122227.725233-5-ivo.ivanov.ivanov1@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250223122227.725233-1-ivo.ivanov.ivanov1@gmail.com>
 References: <20250223122227.725233-1-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250223_042236_444911_6AA21475 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20250223_042237_999611_A6A227D0 
+X-CRM114-Status: GOOD (  19.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,98 +108,1053 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Exynos2200 SoC has a USB controller PHY, which acts as an
-intermediary between a USB controller (typically DWC3) and other PHYs
-(UTMI, PIPE3). Add a dt-binding schema for it.
+As Samsung is using the same Synopsys eUSB2 IP in Exynos2200, albeit
+with a different register layout, it only makes sense to implement
+support for that in the existing eUSB2 driver.
+
+To make room for new non-qcom SoCs, do the following:
+1. Move phy-qcom-snps-eusb2.c to phy-snps-eusb2.c
+2. Rename all qcom_snps_eusb2 functions and structs to snps_eusb2_phy
+3. Add a prefix to the qcom-specific register offset definitions
+4. Make a generic phy_ops init that sets up power before the SoC-specific
+eUSB2 IP init
+5. Introduce a driver data structure with init function and clocks
 
 Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Suggested-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- .../phy/samsung,exynos2200-usbcon-phy.yaml    | 76 +++++++++++++++++++
- 1 file changed, 76 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
+ drivers/phy/Kconfig                        |   8 +
+ drivers/phy/Makefile                       |   1 +
+ drivers/phy/phy-snps-eusb2.c               | 505 +++++++++++++++++++++
+ drivers/phy/qualcomm/Kconfig               |   9 -
+ drivers/phy/qualcomm/Makefile              |   1 -
+ drivers/phy/qualcomm/phy-qcom-snps-eusb2.c | 442 ------------------
+ 6 files changed, 514 insertions(+), 452 deletions(-)
+ create mode 100644 drivers/phy/phy-snps-eusb2.c
+ delete mode 100644 drivers/phy/qualcomm/phy-qcom-snps-eusb2.c
 
-diff --git a/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
+diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
+index 8d58efe99..11c166204 100644
+--- a/drivers/phy/Kconfig
++++ b/drivers/phy/Kconfig
+@@ -43,6 +43,14 @@ config PHY_PISTACHIO_USB
+ 	help
+ 	  Enable this to support the USB2.0 PHY on the IMG Pistachio SoC.
+ 
++config PHY_SNPS_EUSB2
++	tristate "SNPS eUSB2 PHY Driver"
++	depends on OF && (ARCH_QCOM || COMPILE_TEST)
++	select GENERIC_PHY
++	help
++	  Enable support for the USB high-speed SNPS eUSB2 phy on select
++	  SoCs. The PHY is usually paired with a Synopsys DWC3 USB controller.
++
+ config PHY_XGENE
+ 	tristate "APM X-Gene 15Gbps PHY support"
+ 	depends on HAS_IOMEM && OF && (ARCH_XGENE || COMPILE_TEST)
+diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
+index e281442ac..c670a8dac 100644
+--- a/drivers/phy/Makefile
++++ b/drivers/phy/Makefile
+@@ -9,6 +9,7 @@ obj-$(CONFIG_PHY_CAN_TRANSCEIVER)	+= phy-can-transceiver.o
+ obj-$(CONFIG_PHY_LPC18XX_USB_OTG)	+= phy-lpc18xx-usb-otg.o
+ obj-$(CONFIG_PHY_XGENE)			+= phy-xgene.o
+ obj-$(CONFIG_PHY_PISTACHIO_USB)		+= phy-pistachio-usb.o
++obj-$(CONFIG_PHY_SNPS_EUSB2)		+= phy-snps-eusb2.o
+ obj-$(CONFIG_USB_LGM_PHY)		+= phy-lgm-usb.o
+ obj-$(CONFIG_PHY_AIROHA_PCIE)		+= phy-airoha-pcie.o
+ obj-$(CONFIG_PHY_NXP_PTN3222)		+= phy-nxp-ptn3222.o
+diff --git a/drivers/phy/phy-snps-eusb2.c b/drivers/phy/phy-snps-eusb2.c
 new file mode 100644
-index 000000000..7d879ec8b
+index 000000000..4e5914a76
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
-@@ -0,0 +1,76 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/phy/samsung,exynos2200-usbcon-phy.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/phy/phy-snps-eusb2.c
+@@ -0,0 +1,505 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2023, Linaro Limited
++ */
 +
-+title: Exynos2200 USB controller PHY
++#include <linux/bitfield.h>
++#include <linux/clk.h>
++#include <linux/delay.h>
++#include <linux/iopoll.h>
++#include <linux/mod_devicetable.h>
++#include <linux/phy/phy.h>
++#include <linux/platform_device.h>
++#include <linux/regulator/consumer.h>
++#include <linux/reset.h>
 +
-+maintainers:
-+  - Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
++#define QCOM_USB_PHY_UTMI_CTRL0		(0x3c)
++#define SLEEPM				BIT(0)
++#define OPMODE_MASK			GENMASK(4, 3)
++#define OPMODE_NONDRIVING		BIT(3)
 +
-+description:
-+  Exynos2200 USB controller PHY is an intermediary between a USB controller
-+  (typically DWC3) and other PHYs (UTMI, PIPE3).
++#define QCOM_USB_PHY_UTMI_CTRL5		(0x50)
++#define POR				BIT(1)
 +
-+properties:
-+  compatible:
-+    enum:
-+      - samsung,exynos2200-usbcon-phy
++#define QCOM_USB_PHY_HS_PHY_CTRL_COMMON0	(0x54)
++#define PHY_ENABLE			BIT(0)
++#define SIDDQ_SEL			BIT(1)
++#define SIDDQ				BIT(2)
++#define RETENABLEN			BIT(3)
++#define FSEL_MASK			GENMASK(6, 4)
++#define FSEL_19_2_MHZ_VAL		(0x0)
++#define FSEL_38_4_MHZ_VAL		(0x4)
 +
-+  reg:
-+    maxItems: 1
++#define QCOM_USB_PHY_CFG_CTRL_1		(0x58)
++#define PHY_CFG_PLL_CPBIAS_CNTRL_MASK	GENMASK(7, 1)
 +
-+  clocks:
-+    items:
-+      - description: bus clock
++#define QCOM_USB_PHY_CFG_CTRL_2		(0x5c)
++#define PHY_CFG_PLL_FB_DIV_7_0_MASK	GENMASK(7, 0)
++#define DIV_7_0_19_2_MHZ_VAL		(0x90)
++#define DIV_7_0_38_4_MHZ_VAL		(0xc8)
 +
-+  clock-names:
-+    items:
-+      - const: bus
++#define QCOM_USB_PHY_CFG_CTRL_3		(0x60)
++#define PHY_CFG_PLL_FB_DIV_11_8_MASK	GENMASK(3, 0)
++#define DIV_11_8_19_2_MHZ_VAL		(0x1)
++#define DIV_11_8_38_4_MHZ_VAL		(0x0)
 +
-+  "#phy-cells":
-+    const: 0
++#define PHY_CFG_PLL_REF_DIV		GENMASK(7, 4)
++#define PLL_REF_DIV_VAL			(0x0)
 +
-+  phys:
-+    maxItems: 1
-+    description:
-+      Phandle to eUSB2 PHY
++#define QCOM_USB_PHY_HS_PHY_CTRL2	(0x64)
++#define VBUSVLDEXT0			BIT(0)
++#define USB2_SUSPEND_N			BIT(2)
++#define USB2_SUSPEND_N_SEL		BIT(3)
++#define VBUS_DET_EXT_SEL		BIT(4)
 +
-+  samsung,pmu-syscon:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    maxItems: 1
-+    items:
-+      minItems: 1
-+      items:
-+        - description: phandle for PMU system controller interface, used to
-+                       control PMU registers bits for USBCON PHY
-+        - description: offset of the pmu control register
-+    description:
-+      Should be phandle/offset pair. The phandle to System Register syscon node
-+      and the offset for USBCON PHY.
++#define QCOM_USB_PHY_CFG_CTRL_4		(0x68)
++#define PHY_CFG_PLL_GMP_CNTRL_MASK	GENMASK(1, 0)
++#define PHY_CFG_PLL_INT_CNTRL_MASK	GENMASK(7, 2)
 +
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - "#phy-cells"
-+  - phys
-+  - samsung,pmu-syscon
++#define QCOM_USB_PHY_CFG_CTRL_5		(0x6c)
++#define PHY_CFG_PLL_PROP_CNTRL_MASK	GENMASK(4, 0)
++#define PHY_CFG_PLL_VREF_TUNE_MASK	GENMASK(7, 6)
 +
-+additionalProperties: false
++#define QCOM_USB_PHY_CFG_CTRL_6		(0x70)
++#define PHY_CFG_PLL_VCO_CNTRL_MASK	GENMASK(2, 0)
 +
-+examples:
-+  - |
-+    #include <dt-bindings/clock/samsung,exynos2200-cmu.h>
++#define QCOM_USB_PHY_CFG_CTRL_7		(0x74)
 +
-+    usb_con_phy: phy@10aa0000 {
-+        compatible = "samsung,exynos2200-usbcon-phy";
-+        reg = <0x10aa0000 0x10000>;
-+        clocks = <&cmu_hsi0 CLK_MOUT_HSI0_NOC>;
-+        clock-names = "bus";
-+        #phy-cells = <0>;
-+        phys = <&usb_hs_phy>;
-+        samsung,pmu-syscon = <&pmu_system_controller 0x72c>;
-+    };
++#define QCOM_USB_PHY_CFG_CTRL_8		(0x78)
++#define PHY_CFG_TX_FSLS_VREF_TUNE_MASK	GENMASK(1, 0)
++#define PHY_CFG_TX_FSLS_VREG_BYPASS	BIT(2)
++#define PHY_CFG_TX_HS_VREF_TUNE_MASK	GENMASK(5, 3)
++#define PHY_CFG_TX_HS_XV_TUNE_MASK	GENMASK(7, 6)
++
++#define QCOM_USB_PHY_CFG_CTRL_9		(0x7c)
++#define PHY_CFG_TX_PREEMP_TUNE_MASK	GENMASK(2, 0)
++#define PHY_CFG_TX_RES_TUNE_MASK	GENMASK(4, 3)
++#define PHY_CFG_TX_RISE_TUNE_MASK	GENMASK(6, 5)
++#define PHY_CFG_RCAL_BYPASS		BIT(7)
++
++#define QCOM_USB_PHY_CFG_CTRL_10	(0x80)
++
++#define QCOM_USB_PHY_CFG0		(0x94)
++#define DATAPATH_CTRL_OVERRIDE_EN	BIT(0)
++#define CMN_CTRL_OVERRIDE_EN		BIT(1)
++
++#define QCOM_UTMI_PHY_CMN_CTRL0		(0x98)
++#define TESTBURNIN			BIT(6)
++
++#define QCOM_USB_PHY_FSEL_SEL		(0xb8)
++#define FSEL_SEL			BIT(0)
++
++#define QCOM_USB_PHY_APB_ACCESS_CMD	(0x130)
++#define RW_ACCESS			BIT(0)
++#define APB_START_CMD			BIT(1)
++#define APB_LOGIC_RESET			BIT(2)
++
++#define QCOM_USB_PHY_APB_ACCESS_STATUS	(0x134)
++#define ACCESS_DONE			BIT(0)
++#define TIMED_OUT			BIT(1)
++#define ACCESS_ERROR			BIT(2)
++#define ACCESS_IN_PROGRESS		BIT(3)
++
++#define QCOM_USB_PHY_APB_ADDRESS	(0x138)
++#define APB_REG_ADDR_MASK		GENMASK(7, 0)
++
++#define QCOM_USB_PHY_APB_WRDATA_LSB	(0x13c)
++#define APB_REG_WRDATA_7_0_MASK		GENMASK(3, 0)
++
++#define QCOM_USB_PHY_APB_WRDATA_MSB	(0x140)
++#define APB_REG_WRDATA_15_8_MASK	GENMASK(7, 4)
++
++#define QCOM_USB_PHY_APB_RDDATA_LSB	(0x144)
++#define APB_REG_RDDATA_7_0_MASK		GENMASK(3, 0)
++
++#define QCOM_USB_PHY_APB_RDDATA_MSB	(0x148)
++#define APB_REG_RDDATA_15_8_MASK	GENMASK(7, 4)
++
++static const char * const eusb2_hsphy_vreg_names[] = {
++	"vdd", "vdda12",
++};
++
++#define EUSB2_NUM_VREGS		ARRAY_SIZE(eusb2_hsphy_vreg_names)
++
++struct snps_eusb2_phy_drvdata {
++	int (*phy_init)(struct phy *p);
++	const char * const *clk_names;
++	int num_clks;
++};
++
++struct snps_eusb2_hsphy {
++	struct phy *phy;
++	void __iomem *base;
++
++	struct clk *ref_clk;
++	struct clk_bulk_data *clks;
++
++	struct reset_control *phy_reset;
++
++	struct regulator_bulk_data vregs[EUSB2_NUM_VREGS];
++
++	enum phy_mode mode;
++
++	struct phy *repeater;
++
++	const struct snps_eusb2_phy_drvdata *data;
++};
++
++static int snps_eusb2_hsphy_set_mode(struct phy *p, enum phy_mode mode, int submode)
++{
++	struct snps_eusb2_hsphy *phy = phy_get_drvdata(p);
++
++	phy->mode = mode;
++
++	return phy_set_mode_ext(phy->repeater, mode, submode);
++}
++
++static void snps_eusb2_hsphy_write_mask(void __iomem *base, u32 offset,
++					u32 mask, u32 val)
++{
++	u32 reg;
++
++	reg = readl_relaxed(base + offset);
++	reg &= ~mask;
++	reg |= val & mask;
++	writel_relaxed(reg, base + offset);
++
++	/* Ensure above write is completed */
++	readl_relaxed(base + offset);
++}
++
++static void qcom_eusb2_default_parameters(struct snps_eusb2_hsphy *phy)
++{
++	/* default parameters: tx pre-emphasis */
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_CFG_CTRL_9,
++				    PHY_CFG_TX_PREEMP_TUNE_MASK,
++				    FIELD_PREP(PHY_CFG_TX_PREEMP_TUNE_MASK, 0));
++
++	/* tx rise/fall time */
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_CFG_CTRL_9,
++				    PHY_CFG_TX_RISE_TUNE_MASK,
++				    FIELD_PREP(PHY_CFG_TX_RISE_TUNE_MASK, 0x2));
++
++	/* source impedance adjustment */
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_CFG_CTRL_9,
++				    PHY_CFG_TX_RES_TUNE_MASK,
++				    FIELD_PREP(PHY_CFG_TX_RES_TUNE_MASK, 0x1));
++
++	/* dc voltage level adjustement */
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_CFG_CTRL_8,
++				    PHY_CFG_TX_HS_VREF_TUNE_MASK,
++				    FIELD_PREP(PHY_CFG_TX_HS_VREF_TUNE_MASK, 0x3));
++
++	/* transmitter HS crossover adjustement */
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_CFG_CTRL_8,
++				    PHY_CFG_TX_HS_XV_TUNE_MASK,
++				    FIELD_PREP(PHY_CFG_TX_HS_XV_TUNE_MASK, 0x0));
++}
++
++static int qcom_eusb2_ref_clk_init(struct snps_eusb2_hsphy *phy)
++{
++	unsigned long ref_clk_freq = clk_get_rate(phy->ref_clk);
++
++	switch (ref_clk_freq) {
++	case 19200000:
++		snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_HS_PHY_CTRL_COMMON0,
++					    FSEL_MASK,
++					    FIELD_PREP(FSEL_MASK, FSEL_19_2_MHZ_VAL));
++
++		snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_CFG_CTRL_2,
++					    PHY_CFG_PLL_FB_DIV_7_0_MASK,
++					    DIV_7_0_19_2_MHZ_VAL);
++
++		snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_CFG_CTRL_3,
++					    PHY_CFG_PLL_FB_DIV_11_8_MASK,
++					    DIV_11_8_19_2_MHZ_VAL);
++		break;
++
++	case 38400000:
++		snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_HS_PHY_CTRL_COMMON0,
++					    FSEL_MASK,
++					    FIELD_PREP(FSEL_MASK, FSEL_38_4_MHZ_VAL));
++
++		snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_CFG_CTRL_2,
++					    PHY_CFG_PLL_FB_DIV_7_0_MASK,
++					    DIV_7_0_38_4_MHZ_VAL);
++
++		snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_CFG_CTRL_3,
++					    PHY_CFG_PLL_FB_DIV_11_8_MASK,
++					    DIV_11_8_38_4_MHZ_VAL);
++		break;
++
++	default:
++		dev_err(&phy->phy->dev, "unsupported ref_clk_freq:%lu\n", ref_clk_freq);
++		return -EINVAL;
++	}
++
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_CFG_CTRL_3,
++				    PHY_CFG_PLL_REF_DIV, PLL_REF_DIV_VAL);
++
++	return 0;
++}
++
++static int qcom_snps_eusb2_hsphy_init(struct phy *p)
++{
++	struct snps_eusb2_hsphy *phy = phy_get_drvdata(p);
++	int ret;
++
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_CFG0,
++				    CMN_CTRL_OVERRIDE_EN, CMN_CTRL_OVERRIDE_EN);
++
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_UTMI_CTRL5, POR, POR);
++
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_HS_PHY_CTRL_COMMON0,
++				    PHY_ENABLE | RETENABLEN, PHY_ENABLE | RETENABLEN);
++
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_APB_ACCESS_CMD,
++				    APB_LOGIC_RESET, APB_LOGIC_RESET);
++
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_UTMI_PHY_CMN_CTRL0, TESTBURNIN, 0);
++
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_FSEL_SEL,
++				    FSEL_SEL, FSEL_SEL);
++
++	/* update ref_clk related registers */
++	ret = qcom_eusb2_ref_clk_init(phy);
++	if (ret)
++		return ret;
++
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_CFG_CTRL_1,
++				    PHY_CFG_PLL_CPBIAS_CNTRL_MASK,
++				    FIELD_PREP(PHY_CFG_PLL_CPBIAS_CNTRL_MASK, 0x1));
++
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_CFG_CTRL_4,
++				    PHY_CFG_PLL_INT_CNTRL_MASK,
++				    FIELD_PREP(PHY_CFG_PLL_INT_CNTRL_MASK, 0x8));
++
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_CFG_CTRL_4,
++				    PHY_CFG_PLL_GMP_CNTRL_MASK,
++				    FIELD_PREP(PHY_CFG_PLL_GMP_CNTRL_MASK, 0x1));
++
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_CFG_CTRL_5,
++				    PHY_CFG_PLL_PROP_CNTRL_MASK,
++				    FIELD_PREP(PHY_CFG_PLL_PROP_CNTRL_MASK, 0x10));
++
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_CFG_CTRL_6,
++				    PHY_CFG_PLL_VCO_CNTRL_MASK,
++				    FIELD_PREP(PHY_CFG_PLL_VCO_CNTRL_MASK, 0x0));
++
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_CFG_CTRL_5,
++				    PHY_CFG_PLL_VREF_TUNE_MASK,
++				    FIELD_PREP(PHY_CFG_PLL_VREF_TUNE_MASK, 0x1));
++
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_HS_PHY_CTRL2,
++				    VBUS_DET_EXT_SEL, VBUS_DET_EXT_SEL);
++
++	/* set default parameters */
++	qcom_eusb2_default_parameters(phy);
++
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_HS_PHY_CTRL2,
++				    USB2_SUSPEND_N_SEL | USB2_SUSPEND_N,
++				    USB2_SUSPEND_N_SEL | USB2_SUSPEND_N);
++
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_UTMI_CTRL0, SLEEPM, SLEEPM);
++
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_HS_PHY_CTRL_COMMON0,
++				    SIDDQ_SEL, SIDDQ_SEL);
++
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_HS_PHY_CTRL_COMMON0,
++				    SIDDQ, 0);
++
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_UTMI_CTRL5, POR, 0);
++
++	snps_eusb2_hsphy_write_mask(phy->base, QCOM_USB_PHY_HS_PHY_CTRL2,
++				    USB2_SUSPEND_N_SEL, 0);
++
++	return 0;
++}
++
++static const char * const qcom_eusb2_hsphy_clock_names[] = {
++	"ref",
++};
++
++static const struct snps_eusb2_phy_drvdata sm8550_snps_eusb2_phy = {
++	.phy_init	= qcom_snps_eusb2_hsphy_init,
++	.clk_names	= qcom_eusb2_hsphy_clock_names,
++	.num_clks	= ARRAY_SIZE(qcom_eusb2_hsphy_clock_names),
++};
++
++static int snps_eusb2_hsphy_init(struct phy *p)
++{
++	struct snps_eusb2_hsphy *phy = phy_get_drvdata(p);
++	int ret;
++
++	ret = regulator_bulk_enable(ARRAY_SIZE(phy->vregs), phy->vregs);
++	if (ret)
++		return ret;
++
++	ret = phy_init(phy->repeater);
++	if (ret) {
++		dev_err(&p->dev, "repeater init failed. %d\n", ret);
++		goto disable_vreg;
++	}
++
++	ret = clk_prepare_enable(phy->ref_clk);
++	if (ret) {
++		dev_err(&p->dev, "failed to enable ref clock, %d\n", ret);
++		goto disable_vreg;
++	}
++
++	ret = reset_control_assert(phy->phy_reset);
++	if (ret) {
++		dev_err(&p->dev, "failed to assert phy_reset, %d\n", ret);
++		goto disable_ref_clk;
++	}
++
++	usleep_range(100, 150);
++
++	ret = reset_control_deassert(phy->phy_reset);
++	if (ret) {
++		dev_err(&p->dev, "failed to de-assert phy_reset, %d\n", ret);
++		goto disable_ref_clk;
++	}
++
++	ret = phy->data->phy_init(p);
++	if (ret)
++		goto disable_ref_clk;
++
++	return 0;
++
++disable_ref_clk:
++	clk_disable_unprepare(phy->ref_clk);
++
++disable_vreg:
++	regulator_bulk_disable(ARRAY_SIZE(phy->vregs), phy->vregs);
++
++	return ret;
++}
++
++static int snps_eusb2_hsphy_exit(struct phy *p)
++{
++	struct snps_eusb2_hsphy *phy = phy_get_drvdata(p);
++
++	clk_disable_unprepare(phy->ref_clk);
++
++	regulator_bulk_disable(ARRAY_SIZE(phy->vregs), phy->vregs);
++
++	phy_exit(phy->repeater);
++
++	return 0;
++}
++
++static const struct phy_ops snps_eusb2_hsphy_ops = {
++	.init		= snps_eusb2_hsphy_init,
++	.exit		= snps_eusb2_hsphy_exit,
++	.set_mode	= snps_eusb2_hsphy_set_mode,
++	.owner		= THIS_MODULE,
++};
++
++static int snps_eusb2_hsphy_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct device_node *np = dev->of_node;
++	struct snps_eusb2_hsphy *phy;
++	struct phy_provider *phy_provider;
++	struct phy *generic_phy;
++	const struct snps_eusb2_phy_drvdata *drv_data;
++	int ret, i;
++	int num;
++
++	phy = devm_kzalloc(dev, sizeof(*phy), GFP_KERNEL);
++	if (!phy)
++		return -ENOMEM;
++
++	drv_data = of_device_get_match_data(dev);
++	if (!drv_data)
++		return -EINVAL;
++	phy->data = drv_data;
++
++	phy->base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(phy->base))
++		return PTR_ERR(phy->base);
++
++	phy->phy_reset = devm_reset_control_get_exclusive(dev, NULL);
++	if (IS_ERR(phy->phy_reset))
++		return PTR_ERR(phy->phy_reset);
++
++	phy->clks = devm_kcalloc(dev,
++				 phy->data->num_clks,
++				 sizeof(*phy->clks),
++				 GFP_KERNEL);
++	if (!phy->clks)
++		return -ENOMEM;
++
++	for (int i = 0; i < phy->data->num_clks; ++i)
++		phy->clks[i].id = phy->data->clk_names[i];
++
++	ret = devm_clk_bulk_get(dev, phy->data->num_clks,
++				phy->clks);
++	if (ret)
++		return dev_err_probe(dev, ret,
++				     "failed to get phy clock(s)\n");
++
++	phy->ref_clk = NULL;
++	for (int i = 0; i < phy->data->num_clks; ++i) {
++		if (!strcmp(phy->clks[i].id, "ref")) {
++			phy->ref_clk = phy->clks[i].clk;
++			break;
++		}
++	}
++
++	if (IS_ERR_OR_NULL(phy->ref_clk))
++		return dev_err_probe(dev, PTR_ERR(phy->ref_clk),
++				     "failed to get ref clk\n");
++
++	num = ARRAY_SIZE(phy->vregs);
++	for (i = 0; i < num; i++)
++		phy->vregs[i].supply = eusb2_hsphy_vreg_names[i];
++
++	ret = devm_regulator_bulk_get(dev, num, phy->vregs);
++	if (ret)
++		return dev_err_probe(dev, ret,
++				     "failed to get regulator supplies\n");
++
++	phy->repeater = devm_of_phy_get_by_index(dev, np, 0);
++	if (IS_ERR(phy->repeater))
++		return dev_err_probe(dev, PTR_ERR(phy->repeater),
++				     "failed to get repeater\n");
++
++	generic_phy = devm_phy_create(dev, NULL, &snps_eusb2_hsphy_ops);
++	if (IS_ERR(generic_phy)) {
++		dev_err(dev, "failed to create phy %d\n", ret);
++		return PTR_ERR(generic_phy);
++	}
++
++	dev_set_drvdata(dev, phy);
++	phy_set_drvdata(generic_phy, phy);
++
++	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
++	if (IS_ERR(phy_provider))
++		return PTR_ERR(phy_provider);
++
++	dev_info(dev, "Registered Snps-eUSB2 phy\n");
++
++	return 0;
++}
++
++static const struct of_device_id snps_eusb2_hsphy_of_match_table[] = {
++	{
++		.compatible = "qcom,sm8550-snps-eusb2-phy",
++		.data = &sm8550_snps_eusb2_phy,
++	}, { },
++};
++MODULE_DEVICE_TABLE(of, snps_eusb2_hsphy_of_match_table);
++
++static struct platform_driver snps_eusb2_hsphy_driver = {
++	.probe		= snps_eusb2_hsphy_probe,
++	.driver = {
++		.name	= "snps-eusb2-hsphy",
++		.of_match_table = snps_eusb2_hsphy_of_match_table,
++	},
++};
++
++module_platform_driver(snps_eusb2_hsphy_driver);
++MODULE_DESCRIPTION("SNPS eUSB2 HS PHY driver");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/phy/qualcomm/Kconfig b/drivers/phy/qualcomm/Kconfig
+index 846f8c995..914547068 100644
+--- a/drivers/phy/qualcomm/Kconfig
++++ b/drivers/phy/qualcomm/Kconfig
+@@ -125,15 +125,6 @@ config PHY_QCOM_QUSB2
+ 	  PHY which is usually paired with either the ChipIdea or Synopsys DWC3
+ 	  USB IPs on MSM SOCs.
+ 
+-config PHY_QCOM_SNPS_EUSB2
+-	tristate "Qualcomm SNPS eUSB2 PHY Driver"
+-	depends on OF && (ARCH_QCOM || COMPILE_TEST)
+-	select GENERIC_PHY
+-	help
+-	  Enable support for the USB high-speed SNPS eUSB2 phy on Qualcomm
+-	  chipsets. The PHY is paired with a Synopsys DWC3 USB controller
+-	  on Qualcomm SOCs.
+-
+ config PHY_QCOM_EUSB2_REPEATER
+ 	tristate "Qualcomm SNPS eUSB2 Repeater Driver"
+ 	depends on OF && (ARCH_QCOM || COMPILE_TEST)
+diff --git a/drivers/phy/qualcomm/Makefile b/drivers/phy/qualcomm/Makefile
+index eb60e950a..2121e92df 100644
+--- a/drivers/phy/qualcomm/Makefile
++++ b/drivers/phy/qualcomm/Makefile
+@@ -15,7 +15,6 @@ obj-$(CONFIG_PHY_QCOM_QMP_USB)		+= phy-qcom-qmp-usb.o
+ obj-$(CONFIG_PHY_QCOM_QMP_USB_LEGACY)	+= phy-qcom-qmp-usb-legacy.o
+ 
+ obj-$(CONFIG_PHY_QCOM_QUSB2)		+= phy-qcom-qusb2.o
+-obj-$(CONFIG_PHY_QCOM_SNPS_EUSB2)	+= phy-qcom-snps-eusb2.o
+ obj-$(CONFIG_PHY_QCOM_EUSB2_REPEATER)	+= phy-qcom-eusb2-repeater.o
+ obj-$(CONFIG_PHY_QCOM_USB_HS) 		+= phy-qcom-usb-hs.o
+ obj-$(CONFIG_PHY_QCOM_USB_HSIC) 	+= phy-qcom-usb-hsic.o
+diff --git a/drivers/phy/qualcomm/phy-qcom-snps-eusb2.c b/drivers/phy/qualcomm/phy-qcom-snps-eusb2.c
+deleted file mode 100644
+index 1484691a4..000000000
+--- a/drivers/phy/qualcomm/phy-qcom-snps-eusb2.c
++++ /dev/null
+@@ -1,442 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0
+-/*
+- * Copyright (c) 2023, Linaro Limited
+- */
+-
+-#include <linux/bitfield.h>
+-#include <linux/clk.h>
+-#include <linux/delay.h>
+-#include <linux/iopoll.h>
+-#include <linux/mod_devicetable.h>
+-#include <linux/phy/phy.h>
+-#include <linux/platform_device.h>
+-#include <linux/regulator/consumer.h>
+-#include <linux/reset.h>
+-
+-#define USB_PHY_UTMI_CTRL0		(0x3c)
+-#define SLEEPM				BIT(0)
+-#define OPMODE_MASK			GENMASK(4, 3)
+-#define OPMODE_NONDRIVING		BIT(3)
+-
+-#define USB_PHY_UTMI_CTRL5		(0x50)
+-#define POR				BIT(1)
+-
+-#define USB_PHY_HS_PHY_CTRL_COMMON0	(0x54)
+-#define PHY_ENABLE			BIT(0)
+-#define SIDDQ_SEL			BIT(1)
+-#define SIDDQ				BIT(2)
+-#define RETENABLEN			BIT(3)
+-#define FSEL_MASK			GENMASK(6, 4)
+-#define FSEL_19_2_MHZ_VAL		(0x0)
+-#define FSEL_38_4_MHZ_VAL		(0x4)
+-
+-#define USB_PHY_CFG_CTRL_1		(0x58)
+-#define PHY_CFG_PLL_CPBIAS_CNTRL_MASK	GENMASK(7, 1)
+-
+-#define USB_PHY_CFG_CTRL_2		(0x5c)
+-#define PHY_CFG_PLL_FB_DIV_7_0_MASK	GENMASK(7, 0)
+-#define DIV_7_0_19_2_MHZ_VAL		(0x90)
+-#define DIV_7_0_38_4_MHZ_VAL		(0xc8)
+-
+-#define USB_PHY_CFG_CTRL_3		(0x60)
+-#define PHY_CFG_PLL_FB_DIV_11_8_MASK	GENMASK(3, 0)
+-#define DIV_11_8_19_2_MHZ_VAL		(0x1)
+-#define DIV_11_8_38_4_MHZ_VAL		(0x0)
+-
+-#define PHY_CFG_PLL_REF_DIV		GENMASK(7, 4)
+-#define PLL_REF_DIV_VAL			(0x0)
+-
+-#define USB_PHY_HS_PHY_CTRL2		(0x64)
+-#define VBUSVLDEXT0			BIT(0)
+-#define USB2_SUSPEND_N			BIT(2)
+-#define USB2_SUSPEND_N_SEL		BIT(3)
+-#define VBUS_DET_EXT_SEL		BIT(4)
+-
+-#define USB_PHY_CFG_CTRL_4		(0x68)
+-#define PHY_CFG_PLL_GMP_CNTRL_MASK	GENMASK(1, 0)
+-#define PHY_CFG_PLL_INT_CNTRL_MASK	GENMASK(7, 2)
+-
+-#define USB_PHY_CFG_CTRL_5		(0x6c)
+-#define PHY_CFG_PLL_PROP_CNTRL_MASK	GENMASK(4, 0)
+-#define PHY_CFG_PLL_VREF_TUNE_MASK	GENMASK(7, 6)
+-
+-#define USB_PHY_CFG_CTRL_6		(0x70)
+-#define PHY_CFG_PLL_VCO_CNTRL_MASK	GENMASK(2, 0)
+-
+-#define USB_PHY_CFG_CTRL_7		(0x74)
+-
+-#define USB_PHY_CFG_CTRL_8		(0x78)
+-#define PHY_CFG_TX_FSLS_VREF_TUNE_MASK	GENMASK(1, 0)
+-#define PHY_CFG_TX_FSLS_VREG_BYPASS	BIT(2)
+-#define PHY_CFG_TX_HS_VREF_TUNE_MASK	GENMASK(5, 3)
+-#define PHY_CFG_TX_HS_XV_TUNE_MASK	GENMASK(7, 6)
+-
+-#define USB_PHY_CFG_CTRL_9		(0x7c)
+-#define PHY_CFG_TX_PREEMP_TUNE_MASK	GENMASK(2, 0)
+-#define PHY_CFG_TX_RES_TUNE_MASK	GENMASK(4, 3)
+-#define PHY_CFG_TX_RISE_TUNE_MASK	GENMASK(6, 5)
+-#define PHY_CFG_RCAL_BYPASS		BIT(7)
+-
+-#define USB_PHY_CFG_CTRL_10		(0x80)
+-
+-#define USB_PHY_CFG0			(0x94)
+-#define DATAPATH_CTRL_OVERRIDE_EN	BIT(0)
+-#define CMN_CTRL_OVERRIDE_EN		BIT(1)
+-
+-#define UTMI_PHY_CMN_CTRL0		(0x98)
+-#define TESTBURNIN			BIT(6)
+-
+-#define USB_PHY_FSEL_SEL		(0xb8)
+-#define FSEL_SEL			BIT(0)
+-
+-#define USB_PHY_APB_ACCESS_CMD		(0x130)
+-#define RW_ACCESS			BIT(0)
+-#define APB_START_CMD			BIT(1)
+-#define APB_LOGIC_RESET			BIT(2)
+-
+-#define USB_PHY_APB_ACCESS_STATUS	(0x134)
+-#define ACCESS_DONE			BIT(0)
+-#define TIMED_OUT			BIT(1)
+-#define ACCESS_ERROR			BIT(2)
+-#define ACCESS_IN_PROGRESS		BIT(3)
+-
+-#define USB_PHY_APB_ADDRESS		(0x138)
+-#define APB_REG_ADDR_MASK		GENMASK(7, 0)
+-
+-#define USB_PHY_APB_WRDATA_LSB		(0x13c)
+-#define APB_REG_WRDATA_7_0_MASK		GENMASK(3, 0)
+-
+-#define USB_PHY_APB_WRDATA_MSB		(0x140)
+-#define APB_REG_WRDATA_15_8_MASK	GENMASK(7, 4)
+-
+-#define USB_PHY_APB_RDDATA_LSB		(0x144)
+-#define APB_REG_RDDATA_7_0_MASK		GENMASK(3, 0)
+-
+-#define USB_PHY_APB_RDDATA_MSB		(0x148)
+-#define APB_REG_RDDATA_15_8_MASK	GENMASK(7, 4)
+-
+-static const char * const eusb2_hsphy_vreg_names[] = {
+-	"vdd", "vdda12",
+-};
+-
+-#define EUSB2_NUM_VREGS		ARRAY_SIZE(eusb2_hsphy_vreg_names)
+-
+-struct qcom_snps_eusb2_hsphy {
+-	struct phy *phy;
+-	void __iomem *base;
+-
+-	struct clk *ref_clk;
+-	struct reset_control *phy_reset;
+-
+-	struct regulator_bulk_data vregs[EUSB2_NUM_VREGS];
+-
+-	enum phy_mode mode;
+-
+-	struct phy *repeater;
+-};
+-
+-static int qcom_snps_eusb2_hsphy_set_mode(struct phy *p, enum phy_mode mode, int submode)
+-{
+-	struct qcom_snps_eusb2_hsphy *phy = phy_get_drvdata(p);
+-
+-	phy->mode = mode;
+-
+-	return phy_set_mode_ext(phy->repeater, mode, submode);
+-}
+-
+-static void qcom_snps_eusb2_hsphy_write_mask(void __iomem *base, u32 offset,
+-					     u32 mask, u32 val)
+-{
+-	u32 reg;
+-
+-	reg = readl_relaxed(base + offset);
+-	reg &= ~mask;
+-	reg |= val & mask;
+-	writel_relaxed(reg, base + offset);
+-
+-	/* Ensure above write is completed */
+-	readl_relaxed(base + offset);
+-}
+-
+-static void qcom_eusb2_default_parameters(struct qcom_snps_eusb2_hsphy *phy)
+-{
+-	/* default parameters: tx pre-emphasis */
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_CFG_CTRL_9,
+-					 PHY_CFG_TX_PREEMP_TUNE_MASK,
+-					 FIELD_PREP(PHY_CFG_TX_PREEMP_TUNE_MASK, 0));
+-
+-	/* tx rise/fall time */
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_CFG_CTRL_9,
+-					 PHY_CFG_TX_RISE_TUNE_MASK,
+-					 FIELD_PREP(PHY_CFG_TX_RISE_TUNE_MASK, 0x2));
+-
+-	/* source impedance adjustment */
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_CFG_CTRL_9,
+-					 PHY_CFG_TX_RES_TUNE_MASK,
+-					 FIELD_PREP(PHY_CFG_TX_RES_TUNE_MASK, 0x1));
+-
+-	/* dc voltage level adjustement */
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_CFG_CTRL_8,
+-					 PHY_CFG_TX_HS_VREF_TUNE_MASK,
+-					 FIELD_PREP(PHY_CFG_TX_HS_VREF_TUNE_MASK, 0x3));
+-
+-	/* transmitter HS crossover adjustement */
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_CFG_CTRL_8,
+-					 PHY_CFG_TX_HS_XV_TUNE_MASK,
+-					 FIELD_PREP(PHY_CFG_TX_HS_XV_TUNE_MASK, 0x0));
+-}
+-
+-static int qcom_eusb2_ref_clk_init(struct qcom_snps_eusb2_hsphy *phy)
+-{
+-	unsigned long ref_clk_freq = clk_get_rate(phy->ref_clk);
+-
+-	switch (ref_clk_freq) {
+-	case 19200000:
+-		qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_HS_PHY_CTRL_COMMON0,
+-						 FSEL_MASK,
+-						 FIELD_PREP(FSEL_MASK, FSEL_19_2_MHZ_VAL));
+-
+-		qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_CFG_CTRL_2,
+-						 PHY_CFG_PLL_FB_DIV_7_0_MASK,
+-						 DIV_7_0_19_2_MHZ_VAL);
+-
+-		qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_CFG_CTRL_3,
+-						 PHY_CFG_PLL_FB_DIV_11_8_MASK,
+-						 DIV_11_8_19_2_MHZ_VAL);
+-		break;
+-
+-	case 38400000:
+-		qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_HS_PHY_CTRL_COMMON0,
+-						 FSEL_MASK,
+-						 FIELD_PREP(FSEL_MASK, FSEL_38_4_MHZ_VAL));
+-
+-		qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_CFG_CTRL_2,
+-						 PHY_CFG_PLL_FB_DIV_7_0_MASK,
+-						 DIV_7_0_38_4_MHZ_VAL);
+-
+-		qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_CFG_CTRL_3,
+-						 PHY_CFG_PLL_FB_DIV_11_8_MASK,
+-						 DIV_11_8_38_4_MHZ_VAL);
+-		break;
+-
+-	default:
+-		dev_err(&phy->phy->dev, "unsupported ref_clk_freq:%lu\n", ref_clk_freq);
+-		return -EINVAL;
+-	}
+-
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_CFG_CTRL_3,
+-					 PHY_CFG_PLL_REF_DIV, PLL_REF_DIV_VAL);
+-
+-	return 0;
+-}
+-
+-static int qcom_snps_eusb2_hsphy_init(struct phy *p)
+-{
+-	struct qcom_snps_eusb2_hsphy *phy = phy_get_drvdata(p);
+-	int ret;
+-
+-	ret = regulator_bulk_enable(ARRAY_SIZE(phy->vregs), phy->vregs);
+-	if (ret)
+-		return ret;
+-
+-	ret = phy_init(phy->repeater);
+-	if (ret) {
+-		dev_err(&p->dev, "repeater init failed. %d\n", ret);
+-		goto disable_vreg;
+-	}
+-
+-	ret = clk_prepare_enable(phy->ref_clk);
+-	if (ret) {
+-		dev_err(&p->dev, "failed to enable ref clock, %d\n", ret);
+-		goto disable_vreg;
+-	}
+-
+-	ret = reset_control_assert(phy->phy_reset);
+-	if (ret) {
+-		dev_err(&p->dev, "failed to assert phy_reset, %d\n", ret);
+-		goto disable_ref_clk;
+-	}
+-
+-	usleep_range(100, 150);
+-
+-	ret = reset_control_deassert(phy->phy_reset);
+-	if (ret) {
+-		dev_err(&p->dev, "failed to de-assert phy_reset, %d\n", ret);
+-		goto disable_ref_clk;
+-	}
+-
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_CFG0,
+-					 CMN_CTRL_OVERRIDE_EN, CMN_CTRL_OVERRIDE_EN);
+-
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_UTMI_CTRL5, POR, POR);
+-
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_HS_PHY_CTRL_COMMON0,
+-					 PHY_ENABLE | RETENABLEN, PHY_ENABLE | RETENABLEN);
+-
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_APB_ACCESS_CMD,
+-					 APB_LOGIC_RESET, APB_LOGIC_RESET);
+-
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, UTMI_PHY_CMN_CTRL0, TESTBURNIN, 0);
+-
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_FSEL_SEL,
+-					 FSEL_SEL, FSEL_SEL);
+-
+-	/* update ref_clk related registers */
+-	ret = qcom_eusb2_ref_clk_init(phy);
+-	if (ret)
+-		goto disable_ref_clk;
+-
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_CFG_CTRL_1,
+-					 PHY_CFG_PLL_CPBIAS_CNTRL_MASK,
+-					 FIELD_PREP(PHY_CFG_PLL_CPBIAS_CNTRL_MASK, 0x1));
+-
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_CFG_CTRL_4,
+-					 PHY_CFG_PLL_INT_CNTRL_MASK,
+-					 FIELD_PREP(PHY_CFG_PLL_INT_CNTRL_MASK, 0x8));
+-
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_CFG_CTRL_4,
+-					 PHY_CFG_PLL_GMP_CNTRL_MASK,
+-					 FIELD_PREP(PHY_CFG_PLL_GMP_CNTRL_MASK, 0x1));
+-
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_CFG_CTRL_5,
+-					 PHY_CFG_PLL_PROP_CNTRL_MASK,
+-					 FIELD_PREP(PHY_CFG_PLL_PROP_CNTRL_MASK, 0x10));
+-
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_CFG_CTRL_6,
+-					 PHY_CFG_PLL_VCO_CNTRL_MASK,
+-					 FIELD_PREP(PHY_CFG_PLL_VCO_CNTRL_MASK, 0x0));
+-
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_CFG_CTRL_5,
+-					 PHY_CFG_PLL_VREF_TUNE_MASK,
+-					 FIELD_PREP(PHY_CFG_PLL_VREF_TUNE_MASK, 0x1));
+-
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_HS_PHY_CTRL2,
+-					 VBUS_DET_EXT_SEL, VBUS_DET_EXT_SEL);
+-
+-	/* set default parameters */
+-	qcom_eusb2_default_parameters(phy);
+-
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_HS_PHY_CTRL2,
+-					 USB2_SUSPEND_N_SEL | USB2_SUSPEND_N,
+-					 USB2_SUSPEND_N_SEL | USB2_SUSPEND_N);
+-
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_UTMI_CTRL0, SLEEPM, SLEEPM);
+-
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_HS_PHY_CTRL_COMMON0,
+-					 SIDDQ_SEL, SIDDQ_SEL);
+-
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_HS_PHY_CTRL_COMMON0,
+-					 SIDDQ, 0);
+-
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_UTMI_CTRL5, POR, 0);
+-
+-	qcom_snps_eusb2_hsphy_write_mask(phy->base, USB_PHY_HS_PHY_CTRL2,
+-					 USB2_SUSPEND_N_SEL, 0);
+-
+-	return 0;
+-
+-disable_ref_clk:
+-	clk_disable_unprepare(phy->ref_clk);
+-
+-disable_vreg:
+-	regulator_bulk_disable(ARRAY_SIZE(phy->vregs), phy->vregs);
+-
+-	return ret;
+-}
+-
+-static int qcom_snps_eusb2_hsphy_exit(struct phy *p)
+-{
+-	struct qcom_snps_eusb2_hsphy *phy = phy_get_drvdata(p);
+-
+-	clk_disable_unprepare(phy->ref_clk);
+-
+-	regulator_bulk_disable(ARRAY_SIZE(phy->vregs), phy->vregs);
+-
+-	phy_exit(phy->repeater);
+-
+-	return 0;
+-}
+-
+-static const struct phy_ops qcom_snps_eusb2_hsphy_ops = {
+-	.init		= qcom_snps_eusb2_hsphy_init,
+-	.exit		= qcom_snps_eusb2_hsphy_exit,
+-	.set_mode	= qcom_snps_eusb2_hsphy_set_mode,
+-	.owner		= THIS_MODULE,
+-};
+-
+-static int qcom_snps_eusb2_hsphy_probe(struct platform_device *pdev)
+-{
+-	struct device *dev = &pdev->dev;
+-	struct device_node *np = dev->of_node;
+-	struct qcom_snps_eusb2_hsphy *phy;
+-	struct phy_provider *phy_provider;
+-	struct phy *generic_phy;
+-	int ret, i;
+-	int num;
+-
+-	phy = devm_kzalloc(dev, sizeof(*phy), GFP_KERNEL);
+-	if (!phy)
+-		return -ENOMEM;
+-
+-	phy->base = devm_platform_ioremap_resource(pdev, 0);
+-	if (IS_ERR(phy->base))
+-		return PTR_ERR(phy->base);
+-
+-	phy->phy_reset = devm_reset_control_get_exclusive(dev, NULL);
+-	if (IS_ERR(phy->phy_reset))
+-		return PTR_ERR(phy->phy_reset);
+-
+-	phy->ref_clk = devm_clk_get(dev, "ref");
+-	if (IS_ERR(phy->ref_clk))
+-		return dev_err_probe(dev, PTR_ERR(phy->ref_clk),
+-				     "failed to get ref clk\n");
+-
+-	num = ARRAY_SIZE(phy->vregs);
+-	for (i = 0; i < num; i++)
+-		phy->vregs[i].supply = eusb2_hsphy_vreg_names[i];
+-
+-	ret = devm_regulator_bulk_get(dev, num, phy->vregs);
+-	if (ret)
+-		return dev_err_probe(dev, ret,
+-				     "failed to get regulator supplies\n");
+-
+-	phy->repeater = devm_of_phy_get_by_index(dev, np, 0);
+-	if (IS_ERR(phy->repeater))
+-		return dev_err_probe(dev, PTR_ERR(phy->repeater),
+-				     "failed to get repeater\n");
+-
+-	generic_phy = devm_phy_create(dev, NULL, &qcom_snps_eusb2_hsphy_ops);
+-	if (IS_ERR(generic_phy)) {
+-		dev_err(dev, "failed to create phy %d\n", ret);
+-		return PTR_ERR(generic_phy);
+-	}
+-
+-	dev_set_drvdata(dev, phy);
+-	phy_set_drvdata(generic_phy, phy);
+-
+-	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
+-	if (IS_ERR(phy_provider))
+-		return PTR_ERR(phy_provider);
+-
+-	dev_info(dev, "Registered Qcom-eUSB2 phy\n");
+-
+-	return 0;
+-}
+-
+-static const struct of_device_id qcom_snps_eusb2_hsphy_of_match_table[] = {
+-	{ .compatible = "qcom,sm8550-snps-eusb2-phy", },
+-	{ },
+-};
+-MODULE_DEVICE_TABLE(of, qcom_snps_eusb2_hsphy_of_match_table);
+-
+-static struct platform_driver qcom_snps_eusb2_hsphy_driver = {
+-	.probe		= qcom_snps_eusb2_hsphy_probe,
+-	.driver = {
+-		.name	= "qcom-snps-eusb2-hsphy",
+-		.of_match_table = qcom_snps_eusb2_hsphy_of_match_table,
+-	},
+-};
+-
+-module_platform_driver(qcom_snps_eusb2_hsphy_driver);
+-MODULE_DESCRIPTION("Qualcomm SNPS eUSB2 HS PHY driver");
+-MODULE_LICENSE("GPL");
 -- 
 2.43.0
 
