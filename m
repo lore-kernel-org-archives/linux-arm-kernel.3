@@ -4,68 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17959C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 07:23:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E0D8C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 07:34:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9y4HplaZVCu1QQjMAnhjKML9wwHJeOFR7OdXRZKJR4s=; b=4p4IgWBLXQI/nZF8SgQ1Zf8Wv2
-	1kD2lTE+YQbe14vKqPupaRr5bGiCMGlfR+JrrnSjDORTiuLR2StXbbeEecDkkSzZWX0XuNTrpPBgg
-	AZPC+XwoJvxgQ3hdkJg+oqjKeb4eey6Nbz5xCy1UOLyRLWlHNi1MIwM5NMMbRCx15sOaFHIKDVhy9
-	HeYczDDJ1YPxTK6wdS5zx4M4jt1pER4nP2ILEQAxZuNOY+BmDgkXHPV/aWefsGVGj2aKm375X/jor
-	Fl4Mxs50g2h2iocb3rE94mSmWhXedsE+65G3qFliHh1Nm738+73QYe521L63Zf/1oDuVW26g1mR88
-	SQ84ZRjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YO/cwSARohYD9TXD0q8IqQzlCY/DK1djNp+I0Bb/gO0=; b=w6d9YYe8QBLKWXF21HQ/87N2BO
+	6Fl23TxQ4P0sQY62x0r/JaYyUrVtcPeeuzbZLDjoqoL7uS7vKQ6bcOlg39/pV8ShCpb4EmQVe1SSC
+	8zUKWgU4/c3p5yRhHqLx1dK46CIwcrpt7EGDjT4szQcQCYqu6ENE4Rg6dx8vd4iziCT02NYj/mezO
+	ZyVx+vYtzGNDDEoMlGkuXLz/vH+qEQ8BEKiFHzYZENVkKxTlvlAqpsV/D6Ao5R/mDiiXKTzi1/EQ6
+	6G4kBWSJ2ok9t9iG7iMfzerAXrRx0C70YKB/5xli7p5eVWnWoLVcSVB9O9Ge8B/soG1phKecSNoIs
+	UisO5wRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm6Kk-0000000AaV8-17QW;
-	Sun, 23 Feb 2025 07:23:26 +0000
-Received: from mail-m16.yeah.net ([1.95.21.14])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm6JG-0000000AaNb-1C6S
+	id 1tm6Vh-0000000AbRB-0Ny6;
+	Sun, 23 Feb 2025 07:34:45 +0000
+Received: from fout-a1-smtp.messagingengine.com ([103.168.172.144])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tm6UD-0000000AbFw-1JgC
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Feb 2025 07:21:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=9y4HplaZVCu1QQjMAnhjKML9wwHJeOFR7OdXRZKJR4s=;
-	b=EXuso7zTjRTSduWNS6SUjCikx4WLdlc5rZmclXdlA/4OTl/VNctCXl0HhEX5jI
-	DGA06+qWahBDZyhHrB0z5anwOLLSWiKaC7/JjW7VYCj6/YS19TGs7e7oSFwz2f69
-	YqtVXwxG/33r2ZtT4iTBFw6vx6Knh6mV0Ng07gholDUCE=
-Received: from dragon (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id Mc8vCgAnC6x2zLpn1yKfCQ--.22908S3;
-	Sun, 23 Feb 2025 15:21:27 +0800 (CST)
-Date: Sun, 23 Feb 2025 15:21:26 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Arnd Bergmann <arnd@arndb.de>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Mark Brown <broonie@kernel.org>, soc@lists.linux.dev,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH resend] firmware: imx: IMX_SCMI_MISC_DRV should depend on
- ARCH_MXC
-Message-ID: <Z7rMdg7+m6qa0Hft@dragon>
-References: <9638976432d8dfcb0c4df9d454b661f9022a2d7b.1738766259.git.geert+renesas@glider.be>
+	Sun, 23 Feb 2025 07:33:15 +0000
+Received: from phl-compute-13.internal (phl-compute-13.phl.internal [10.202.2.53])
+	by mailfout.phl.internal (Postfix) with ESMTP id 02074138098D;
+	Sun, 23 Feb 2025 02:33:10 -0500 (EST)
+Received: from phl-imap-07 ([10.202.2.97])
+  by phl-compute-13.internal (MEProxy); Sun, 23 Feb 2025 02:33:10 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
+	 t=1740295989; x=1740382389; bh=YO/cwSARohYD9TXD0q8IqQzlCY/DK1dj
+	Np+I0Bb/gO0=; b=B85Pk0aHwQOrsXRWLCJZbxiYDDxHSLrrHPt3K81mN79wkUP/
+	Tsw9D8bX4J6WRPjHYjWFlT80ErJ8ITWr3JGVF/JGjS9lvhFLOowTpY3XbbNdSeIZ
+	JVxL68NfTI8aKGboE+XqXsGmDl5YrWGKYuwP/K4jX/l3Z+RCRXdEGqpmhlh6Htj9
+	jlN6sBZymlaE0D/DwHoysrKtOK2gqaOsM2xgnq6RSdZbla07qWS5uOYEIhH5XQqq
+	cRe9aDkRCKJIZ1k81gJal7gWFXaJcPk7d6OHzYWADxOwOuXs9240xLhaz18ZoJtp
+	yZ7xxbYOcmluZZwdVJZM5k3PxN0/iqy3wxD1hg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1740295989; x=
+	1740382389; bh=YO/cwSARohYD9TXD0q8IqQzlCY/DK1djNp+I0Bb/gO0=; b=O
+	OkWfm1qlADVUEjPOFggO5OUEZznUfHAn/OLo62JPh4oIaW+0g/vtuCVP1jQ9NL0f
+	rcBn0tg5BbvZ5OkC47NPux3WJxOjuBx3lQVgAQT65e1D8l2pxGYLVSTGRLSVA5So
+	DfIEf7TO0kwz8Hfsznch7YMDCjU3y4xA3GlByicglwNR9ht+5Y/CxSK8LwjFo1UW
+	RYXhgSAtfDNC1+a88NJ6qj4pdSvIhDq6L1YF3WtKqphi7PtrRaTjrn4hxspRWIYs
+	3yR9TWLQz6M1LmZFrkGbSqYPDI7scGrG2An6m0/OfTiHjxSZbLimjxIo3hj+3K24
+	A127Uh6twNK0BHjdTlh4w==
+X-ME-Sender: <xms:M8-6ZwmoqYi-W5Hxur5QDvuQq0s_erowB2HeyAaVrp1GUDCCdtDecA>
+    <xme:M8-6Z_29dpt6xcy_txOx_KluiqsGOlOKINywf7KfHvZBGMt4zwA-FbJhr6Rlgu5AT
+    s4LjI1FKPmDoxHgAQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdejhedvvdcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthhqredtredt
+    jeenucfhrhhomhepfdfthigrnhcuhggrlhhklhhinhdfuceorhihrghnsehtvghsthhtoh
+    grshhtrdgtohhmqeenucggtffrrghtthgvrhhnpeeghffgkedtueeiudeukedvveevhfdu
+    uefhhedviefgffduheeuieeihefhfefgveenucevlhhushhtvghrufhiiigvpedtnecurf
+    grrhgrmhepmhgrihhlfhhrohhmpehrhigrnhesthgvshhtthhorghsthdrtghomhdpnhgs
+    pghrtghpthhtohepvdefpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegrnhgurh
+    gvrdhprhiihiifrghrrgesrghrmhdrtghomhdprhgtphhtthhopehmthhurhhquhgvthht
+    vgessggrhihlihgsrhgvrdgtohhmpdhrtghpthhtohepfigvnhhssegtshhivgdrohhrgh
+    dprhgtphhtthhopegurghnihgvlhesfhhffihllhdrtghhpdhrtghpthhtoheprghirhhl
+    ihgvugesghhmrghilhdrtghomhdprhgtphhtthhopehjvghrnhgvjhdrshhkrhgrsggvtg
+    esghhmrghilhdrtghomhdprhgtphhtthhopehkihhkuhgthhgrnhelkeesghhmrghilhdr
+    tghomhdprhgtphhtthhopehmrggtrhhorghlphhhrgekvdesghhmrghilhdrtghomhdprh
+    gtphhtthhopehsihhmohhnshdrphhhihhlihhpphgvsehgmhgrihhlrdgtohhm
+X-ME-Proxy: <xmx:M8-6Z-qK3GJbOo2HrUtH1j6D8XhiVwoxyw9w5myfgVA9wMaBYp1b3A>
+    <xmx:M8-6Z8nNUH3qZgdhVG4Sm377YpZEAIa-COENbbGPbz_dG2ITaWtgIw>
+    <xmx:M8-6Z-342TNHw5ogjc7HuId_9-cE4ZAHRIXc1iShDeMDv9f185zfpw>
+    <xmx:M8-6ZzuH1moPiT5amhZSr5tbvDlnsNtQ7zqa6ymFMKXI68WwhVUtIA>
+    <xmx:Nc-6Z8l66FRADge18OgwVJ22ICJV6mgdyL1w-dxVaoKS7Qe7xa9EUVkV>
+Feedback-ID: idc0145fc:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 76A89BA006F; Sun, 23 Feb 2025 02:33:07 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <9638976432d8dfcb0c4df9d454b661f9022a2d7b.1738766259.git.geert+renesas@glider.be>
-X-CM-TRANSID: Mc8vCgAnC6x2zLpn1yKfCQ--.22908S3
-X-Coremail-Antispam: 1Uf129KBjvdXoWrtw1xZr17Jr13JFW3tryrJFb_yoWxAFXEv3
-	9Y9wnrC3s5GrZ7KF10gr1ayF1Sg3yqg3y5Jw1IqF4agFySq34xtF4vy3s3WF1S9FZ2grya
-	kas09rsI9ryaqjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU0uMKJUUUUU==
-X-Originating-IP: [117.82.86.124]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiAgb8ZWe6xy0Q-QAAsH
+Date: Sun, 23 Feb 2025 20:32:46 +1300
+From: "Ryan Walklin" <ryan@testtoast.com>
+To: "Jernej Skrabec" <jernej.skrabec@gmail.com>,
+ "Maxime Ripard" <mripard@kernel.org>, "Chen-Yu Tsai" <wens@csie.org>,
+ "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>,
+ "David Airlie" <airlied@gmail.com>, "Daniel Vetter" <daniel@ffwll.ch>,
+ "Samuel Holland" <samuel@sholland.org>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>,
+ "Michael Turquette" <mturquette@baylibre.com>,
+ "Stephen Boyd" <sboyd@kernel.org>
+Cc: "Andre Przywara" <andre.przywara@arm.com>,
+ "Chris Morgan" <macroalpha82@gmail.com>,
+ "Hironori KIKUCHI" <kikuchan98@gmail.com>,
+ "Philippe Simons" <simons.philippe@gmail.com>,
+ "Dmitry Baryshkov" <dmitry.baryshkov@linaro.org>,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-clk@vger.kernel.org
+Message-Id: <90ecf54e-cd2d-4cf7-96f0-d93448111a7c@app.fastmail.com>
+In-Reply-To: <15402414.tv2OnDr8pf@jernej-laptop>
+References: <20250216183710.8443-3-ryan@testtoast.com>
+ <20250216183710.8443-25-ryan@testtoast.com>
+ <15402414.tv2OnDr8pf@jernej-laptop>
+Subject: Re: [PATCH v7 24/27] drm: sun4i: de33: mixer: add Display Engine 3.3 (DE33)
+ support
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_232154_654198_4E8F36F9 
-X-CRM114-Status: UNSURE (   9.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250222_233313_942655_869FC509 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,20 +131,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 05, 2025 at 03:41:43PM +0100, Geert Uytterhoeven wrote:
-> The i.MX System Controller Management Interface firmware is only present
-> on Freescale i.MX SoCs.  Hence add a dependency on ARCH_MXC, to prevent
-> asking the user about this driver when configuring a kernel without
-> Freescale i.MX platform support.
-> 
-> Fixes: 514b2262ade48a05 ("firmware: arm_scmi: Fix i.MX build dependency")
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+On Sun, 23 Feb 2025, at 8:15 PM, Jernej =C5=A0krabec wrote:
 
-Thanks for the patch, Geert!  But I have just picked up the change from
-Uwe [1].
+>> +	if (mixer->cfg->de_type =3D=3D sun8i_mixer_de33)
+>> +		regmap_write(mixer->top_regs, SUN50I_MIXER_GLOBAL_DBUFF,
+>> +			     SUN8I_MIXER_GLOBAL_DBUFF_ENABLE);
+>
+> This was my mistake. There is no such thing as=20
+> SUN50I_MIXER_GLOBAL_DBUFF in DE33
+> anymore. Values are generally applied at vblank time (I think). Above=20
+> write actually
+> writes to RCQ register, which is not great. Just drop this code and fi=
+x=20
+> condition to !=3D.
 
-Shawn
+Ah yes, good spotting.
 
-[1] https://lore.kernel.org/imx/20250204101531.233549-2-u.kleine-koenig@baylibre.com/
+>> +static const struct sun8i_mixer_cfg sun50i_h616_mixer0_cfg =3D {
+>> +	.ccsc		=3D CCSC_MIXER0_LAYOUT,
+>> +	.de_type	=3D sun8i_mixer_de33,
+>> +	.has_formatter	=3D 1,
+>> +	.mod_rate	=3D 600000000,
+>> +	.scaler_mask	=3D 0xf,
+>> +	.scanline_yuv	=3D 4096,
+>> +	.ui_num		=3D 3,
+>> +	.vi_num		=3D 1,
+>> +	.map		=3D {0, 6, 7, 8},
+>> +};
+>> +
+>>  static const struct of_device_id sun8i_mixer_of_table[] =3D {
+>>  	{
+>>  		.compatible =3D "allwinner,sun8i-a83t-de2-mixer-0",
+>> @@ -832,6 +907,10 @@ static const struct of_device_id sun8i_mixer_of_=
+table[] =3D {
+>>  		.compatible =3D "allwinner,sun50i-h6-de3-mixer-0",
+>>  		.data =3D &sun50i_h6_mixer0_cfg,
+>>  	},
+>> +	{
+>> +		.compatible =3D "allwinner,sun50i-h616-de33-mixer-0",
+>> +		.data =3D &sun50i_h616_mixer0_cfg,
+>> +	},
+>
+> This should go to separate patch, adding feature (DE33) and adding cor=
+e support
+> are two distinct things.
 
+Thanks, will split those out.=20
+
+Regards,
+
+Ryan
 
