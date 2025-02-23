@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFBA1C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 10:21:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C64AC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 10:22:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cf9O8t9V5AakIYZNP58AyGav6PE8nNBr8k0HlkRhfzw=; b=fn8TGLDCD3GjdKLenkoSq9qR5m
-	F1Nhs0mGf7sGXougxLRewXUuYre4IsA9LR0zWOLpGC2ou3U3U6Zaaz5HHFThdsfCcXSZRI2FivYCa
-	rcFWMXrYS6tY1PvSOBzSE3uWbNGe8kpgz1zR1YJw+xzBHyws4VgVvTjfJ6C9n6tDx3S2oLx/CcWov
-	CN1JF0Vrw21dpNo95JOP7okln5fD/LPZ1qhaRKSjhdDXN+UdVIlA2Z6wT0cIb/iG+5DG4nRuBn3c6
-	TTuStBffRIi/OED1YcvSDhQmPaAPBmHuiXsMhMzTRKOXVV8baA2Uvh1PIaKhQw2PkOIbAlyU1URQA
-	+KqspoNg==;
+	bh=UYGqLSe2A2IxW8kISa8/4xPa7wJVAzZFUKdvw4ptHlA=; b=3NVf73JDrCNe4ELB2mX2/37a4B
+	88wNoe2WMxDMrN/XGQbRk+jyiEjmYYgTUpnYnIKjPoGZpasFrHik8ttgii8vtHpGwU3M2bfVvaQVd
+	k6u3N+U/0ejCc903sYA6ZlQHIgQSeoZzvN78Z4+LYgS2zZIBsxDrUfO6/PX/V6cqOpPW8rC36seYI
+	YhN1aNNvhz/MRYXh5jqjwprRZ0WxXANSsuT+OaHx2TolBIHaYqNnUsdT17eRWv5rhuGc+XtIIJERH
+	JX133ILWWmNShQ3OQZADhQ6pcxhNIKc1XqbYv/IC4Tjen4nlFVoeskOF3rWcyH3Pf9TXRWHtFC92B
+	+qWezRzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm96T-0000000ArSV-2U56;
-	Sun, 23 Feb 2025 10:20:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tm97v-0000000Are9-0zNo;
+	Sun, 23 Feb 2025 10:22:23 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm951-0000000Ar7P-1rGw
+	id 1tm96D-0000000ArOq-3Ysf
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Feb 2025 10:19:23 +0000
+	Sun, 23 Feb 2025 10:20:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 557B261120;
-	Sun, 23 Feb 2025 10:19:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CBD6C4CEDD;
-	Sun, 23 Feb 2025 10:19:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id AACE55C667D;
+	Sun, 23 Feb 2025 10:19:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3BFEC4CEDD;
+	Sun, 23 Feb 2025 10:20:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740305962;
-	bh=6a6RvYODvsCvev2GgRgrCtu9df64yuXStOe4JoBEGhY=;
+	s=k20201202; t=1740306035;
+	bh=SlJhErMDnJ/cJ096qh9yESBigz+dtJhOqtJDEx/QLpk=;
 	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=gbqP2PGkkwu5UtpATWbbW9uIV9GH1pYNemMW7TlkCSQqwQjgPVOoJhPldecTVzeGs
-	 Zz/IPAxrQvT0w2saAupyzRyDotw0DP++9Ek0w5NRMuoGQDinXQczMjciUJbThPqKno
-	 kJ1m3Ukc/kBSnAlxmdZm6Q2tGGrn9Erlw1eVokqso9QDqtSF/HfnsGXVuo6aYYZhi/
-	 rGSl3m9DleD5MtjxAYR4MxJle3dLqrktkisV7jsunbS+6Jz/owfPwkI2UJ4abmdC1r
-	 lX9Yc0YUzocf/3wyeqqABtsRDhpiHYvf/tRuZY0F0cSK7BsZJJFGjwVY7zStw7KCcJ
-	 ynFFKpd/CXM7g==
-Message-ID: <e190d51a-b585-4544-8154-b9a287f907be@kernel.org>
-Date: Sun, 23 Feb 2025 11:19:16 +0100
+	b=F8KNOmAHdJUWi+t+RO2TS9lWsYgtyLB2HTGzceD00pSWipX4a+UjLz9JnEywsofIv
+	 APcqpoJI6HY7gOLr1ugCHRMtypSNdcs2wWdCwj/4V+jlmMfV+YULV/oTJoIoXJMoJc
+	 AVhbnfcPbB6fudnBVGcojd2d7EVjD+VJD7WTsr75qlQxWsl4ZVu1oGiueVRJNHt5t4
+	 RCmxTF88eGWKoxJ/2FsexMp22eShje4/0wHdJ/6W3ykBF9+XuOGCUEGAgHIuRBjYMo
+	 7VeXQFQPc/1SLEcJS6VQSGiR1R/BCOtmnhAVWvB9OuDu696J1ZDpJH9CBpzOLeGIsU
+	 /z1XxIqwzl4bQ==
+Message-ID: <40b63bcb-799a-4ec3-87f8-28e3987845fa@kernel.org>
+Date: Sun, 23 Feb 2025 11:20:28 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] dt-bindings: clock: samsung,exynos990-clock: add
- PERIC0/1 clock management unit
+Subject: Re: [PATCH v2 4/4] arm64: dts: exyno990: enable cmu-peric0/1 clock
+ controller
 To: Denzeel Oliva <wachiturroxd150@gmail.com>, s.nawrocki@samsung.com,
  cw00.choi@samsung.com, alim.akhtar@samsung.com, mturquette@baylibre.com,
  sboyd@kernel.org, robh@kernel.org, conor+dt@kernel.org,
@@ -56,7 +56,7 @@ To: Denzeel Oliva <wachiturroxd150@gmail.com>, s.nawrocki@samsung.com,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org
 References: <20250212004824.1011-1-wachiturroxd150@gmail.com>
- <20250212004824.1011-2-wachiturroxd150@gmail.com>
+ <20250212004824.1011-5-wachiturroxd150@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,9 +102,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250212004824.1011-2-wachiturroxd150@gmail.com>
+In-Reply-To: <20250212004824.1011-5-wachiturroxd150@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250223_022038_004996_BC9D8C8C 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,46 +123,25 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 12/02/2025 01:48, Denzeel Oliva wrote:
-> Add dt-schema documentation for the Connectivity Peripheral 0 / 1
-> (PERIC0/1) clock management unit.
+> Enable the cmu-peric0/1 clock controller. It feeds USI and I2C.
 > 
 > Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
 > ---
->  .../clock/samsung,exynos990-clock.yaml        |  24 +++
->  include/dt-bindings/clock/samsung,exynos990.h | 176 ++++++++++++++++++
->  2 files changed, 200 insertions(+)
+>  arch/arm64/boot/dts/exynos/exynos990.dtsi | 22 ++++++++++++++++++++++
+>  1 file changed, 22 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/clock/samsung,exynos990-clock.yaml b/Documentation/devicetree/bindings/clock/samsung,exynos990-clock.yaml
-> index c15cc1752..dd301deda 100644
-> --- a/Documentation/devicetree/bindings/clock/samsung,exynos990-clock.yaml
-> +++ b/Documentation/devicetree/bindings/clock/samsung,exynos990-clock.yaml
-> @@ -30,6 +30,8 @@ description: |
->  properties:
->    compatible:
->      enum:
-> +      - samsung,exynos990-cmu-peric0
-> +      - samsung,exynos990-cmu-peric1
-
-Mismatched order.
-
->        - samsung,exynos990-cmu-hsi0
->        - samsung,exynos990-cmu-peris
->        - samsung,exynos990-cmu-top
-> @@ -56,6 +58,28 @@ required:
->    - reg
+> diff --git a/arch/arm64/boot/dts/exynos/exynos990.dtsi b/arch/arm64/boot/dts/exynos/exynos990.dtsi
+> index dd7f99f51..843587b17 100644
+> --- a/arch/arm64/boot/dts/exynos/exynos990.dtsi
+> +++ b/arch/arm64/boot/dts/exynos/exynos990.dtsi
+> @@ -231,12 +231,34 @@ pinctrl_peric0: pinctrl@10430000 {
+>  			interrupts = <GIC_SPI 392 IRQ_TYPE_LEVEL_HIGH>;
+>  		};
 >  
->  allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - samsung,exynos990-cmu-peric1
-> +              - samsung,exynos990-cmu-peric0
+> +		cmu_peric0: clock-controller@10400000 {
 
-These also reverse.  Keep things ordered alphabetically. Also this
-if:then: block should go to appropriate place.
 
+All entries are sorted by unit address.
 
 Best regards,
 Krzysztof
