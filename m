@@ -4,84 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 756CDC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 23:40:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA05C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 23:45:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NorJPaAWMRgfUr5xe1GpsIw0IDjSs1x/V3X7c0koEtI=; b=vconim/MscqjdKNjZZPurtBnPV
-	xlLYeg8Xg1yGYKTz/qkrzaTzBgHHmS/f52Q49lFQCl1W6DO0PLxlq+2aFxbWLhdY1NOoaiWr2mD4/
-	5fnPw2edUXhqKM2H5eo6kIBlcy2J2xABdysZJB3UlMi7Tp/VnBoPQJwcjuV3CiS3R7KfFBX7FUbq6
-	GKohLhNGSB4DR9lHf/rkQ2wD1mG7cgK/mm9c65qUTMa1aQyC8xNw/BPl5AqzqSS00dCs++/THkK2R
-	VH2b0nYzbnLpChtDOOSvbyNf66Jej31T6C4fQIQXQB++W3cFNCicd9P2TLsSjKBlhUSZk1FpjVyr1
-	Fph7JexQ==;
+	bh=28j2oUhHrE0UtIm5Z7Iu9myzi6x7Y72gOBfh9gvCc7A=; b=j5m/xQPwKaBFEJuV10cGNRl1kG
+	f5nCOYeYWFeU3pBQal+j3tPqC55YprFDbJZCrUSIACCu81SUHpS7PzZRG5MSqX2Dm4nd+OTgGVRMY
+	tQFS94LyhvTZ48dQhRnZ5sucy1I0EykbNkeq8db0u8P0vvGe/SuBupKSpknN+I50s1FGbg4I7l2do
+	aAUnkGyINAJoad67cnAZajC1oTyutJNmqxNO0ucDggijsWMz2FvdyiXSIosAJkTUOrLlSJJ4wsCT7
+	1Go2zz6YX8h2z5i2E4gs4gtQm72nhNOw+Di2t0U2TX6VMh06Zt+qhGgPPzb8Og5JlN4y5HDyiWBXw
+	BFj/g0eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmLa3-0000000BylP-3KaT;
-	Sun, 23 Feb 2025 23:40:15 +0000
-Received: from mail-yw1-x112a.google.com ([2607:f8b0:4864:20::112a])
+	id 1tmLf6-0000000Bz60-3Typ;
+	Sun, 23 Feb 2025 23:45:28 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmLYa-0000000Byd3-11e2
+	id 1tmLda-0000000ByyN-4681
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Feb 2025 23:38:45 +0000
-Received: by mail-yw1-x112a.google.com with SMTP id 00721157ae682-6ef7c9e9592so30272437b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Feb 2025 15:38:43 -0800 (PST)
+	Sun, 23 Feb 2025 23:43:57 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5452c29bacfso4228864e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Feb 2025 15:43:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740353922; x=1740958722; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=NorJPaAWMRgfUr5xe1GpsIw0IDjSs1x/V3X7c0koEtI=;
-        b=dEkvN+WicwY3b6HZjnSy6qbsX22AMgYRrpZE5Si5OVHz6a7ZY1JagpQT139Cqlfi6g
-         mz1FUjdqd7xHwkCJccVCAa7vgzv8Jh8JNW5DF6bGAatvYR0OmUO3ZqeoGDbPWq/8LAf+
-         SURNvaGWSl4DzKed4k/APHf8ya+yKMwqHnPkLd9U+IUgNHOD6671xaEwznhY8do0VDqy
-         Rtu2lJjMaouDi1Rk8KTkHlnjMlGo3D/l4HHxUs1/fii1I3qU4OtQTVWZqgvx0ia0HQPQ
-         Hj1GOMA+72z9n9ppsvE9FOU1t21FpZNOs91RD3/a93Yw8Ym5h4FdZ6sGz3Fi4MBSLdVm
-         t1aQ==
+        d=linaro.org; s=google; t=1740354233; x=1740959033; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=28j2oUhHrE0UtIm5Z7Iu9myzi6x7Y72gOBfh9gvCc7A=;
+        b=UNdDFHlyRbITs+mgKWniuWv6QMU0gL2lQjBWQJ2z+6zeZoqVK8+QFGSdTtZRApqhtu
+         Ynw15KYMtXJv4qKMixwSBtFK7un4uIXch1SQrGERaN/E+SL3UzQV3KbxU7xorbJb1Y9u
+         FP9Mr2aIcO/oMqYpNW0tPw63dVcfhQaqi5LebjrU8/sko3a1Q1V5C48hJiYjPQATwyu5
+         ZtJASIWUkV/8TQv8Tu8J4rZGI/oVfNbHJ4odisEPbZe/EU3V+s2KN+L5l9DyLyctmEfm
+         ZvS8yW8kGIZYqW8mVHJJjdAKYYh4gbqgn9wSfIp+o4MIsDBsmDV0nRbXtDMn+5vgU1Tm
+         lD3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740353922; x=1740958722;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=NorJPaAWMRgfUr5xe1GpsIw0IDjSs1x/V3X7c0koEtI=;
-        b=twPYdZ6maI1i1Qude3PoZvBACZVxsiDwWkvDjILQR7ONyqDGWGw2b9mhcWHMgQxqpy
-         N0sUzFAOUa40/4eDEaKjPKwkeXm3vDCUrIJT70EzVHG1xi58NjBV75TwWs5xkJvZAoVZ
-         ZOJ8456exGVPr3RonDdIo35mFjXvMPVr2LJ0+sbduIJEpn91FWOVBBVDB4GDd25owWtS
-         j7LmhQZdbeYwJ1jMAOiBT1oZDk2a6jb4xlYDaugous+1ZMyDD96VL2fz0SlHfEpANZ7s
-         1PsLQcDHRtPDdylQeh0hHAT2xBzkE4+630X3o91/5ZulFm84TvWoA39aYUqME0GI1p00
-         WDZA==
-X-Forwarded-Encrypted: i=1; AJvYcCWUhhyR/i+XsMItPblMmnnqqiq6nPHzFfhJsvjd4/gw+zFlPvF2M0LzVTMI6mc0c//Lz5uEy7nKHnHgI3NgcrdW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9iZtt1S/7h2EcMF5tDj0LxGxD0B/gUtLe4HE+Y0PvIAwS9xJa
-	tmitF6ZQ8ACPTU7WThGyD1HdkwF6avSPg9qaIoeKjIJx7wSeTEDNDauTEf51YqvkJttEVpxxdNa
-	3pBlbNZkbQvZ+Ch9Y0/W8ZlrkvJVB1cGooXo2Qw==
-X-Gm-Gg: ASbGncsUE5bUsx8D0a5u9GccKiiTct8uWVioW0uh5fMo5a37ZIoeIixG2x2LyQnvbsg
-	XsFhe7DbQp6i00vQ9qt52/gXfxmiLpwKUVu+Auzln1b2AYVjX5ZM15abnX5S4mA0sKb9S4O4GPi
-	ZT2oGckvBrZeDIRXG1YsmPBalqEfVyKG3mDLo2Nus=
-X-Google-Smtp-Source: AGHT+IGFegxU0/BAO58BmfLqgVu14539PaOFZp3Jh6MOJGQnzwNm3VyUN+k9CDauRsvVnXt6ZCaaCQFePUkkFp0b59E=
-X-Received: by 2002:a05:690c:25c5:b0:6f9:7d7d:a725 with SMTP id
- 00721157ae682-6fbcc3ad1abmr98769257b3.33.1740353920862; Sun, 23 Feb 2025
- 15:38:40 -0800 (PST)
-MIME-Version: 1.0
-References: <20250223-phy-sam-hdptx-bpc-v3-0-66a5c8e68327@collabora.com> <20250223-phy-sam-hdptx-bpc-v3-5-66a5c8e68327@collabora.com>
-In-Reply-To: <20250223-phy-sam-hdptx-bpc-v3-5-66a5c8e68327@collabora.com>
+        d=1e100.net; s=20230601; t=1740354233; x=1740959033;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=28j2oUhHrE0UtIm5Z7Iu9myzi6x7Y72gOBfh9gvCc7A=;
+        b=XEuAAhu7KUjNo+XheigoiS6bHYXCkdGd/UvmT4eX3qnpJ+yYcl/bEHNO+Ucx0SGY9V
+         3DScWyv6Lm4tuhxTbXdwhifvuXqJHrIrwZlTKXCgMq1+iT9ZpBm2vG1TsE2Olzw0f1Eo
+         ranRpBHFEnZknrzANthlh28MviX2B4JlPeELTN4KkWelEBe4ZDpMfjQ7NRHyLWW3zwPA
+         VafhDpcmqhtswetpMBxmNaqIbFlPxuMsNCfWb0y8oXXkdViOcydYVnY9unFjSz9IsX3e
+         /on54Z9Q+W55DC0jS6qWMRcYypKcUQkeZBT2ZOiW65Ae7QBPWgX21GUn3mw3mEbHTwak
+         HQcg==
+X-Forwarded-Encrypted: i=1; AJvYcCXTvaGTCvYs/XHUclBRlgA8PEZgeczHLv8fW8vHr5iZZN10KxR74eb1k26v+cF4RsQKyDEkTyffmno4bbxdrBTZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzazD1BOgNESEmQNPM4IdatBT7+3RqvYT5HuaD8gM42SpBX+oGj
+	FbP4n3hFVAqzv+EgLc3PSmP5oLDrwOq8h9AOo3Hygy0sR4ivkQYXHhrjpWXbR3I=
+X-Gm-Gg: ASbGncuAWKR+PM24dHXw/ydm0xzPdJkO6AIeiMLBOGSVR2low6CAsG6fabBTBy8ykIC
+	AmyNF89w+b9tD5axntMK9CIyFqYD2GGE6cAK4780VYKCZgGmEXaka3CDg+Wkw5f44ovIDsV06jP
+	sY+V/l+GiyTAG1/VUPrb2poYnDIBgzbTgLTlDX9fQxF11kDec8XOqSDOjSbNaE7lQeW07D0j3MX
+	mp8y85e2z/rTgx3iFMaqCAjXqrtmeQXmQ2WgQ74GR8bWB7NnWFF5Q/WxTZRB6IwOXDPywyOFZbX
+	inu/666+qg/6w4TPghXeavSTmDjRZOb8nXXFlXnDU+v8egOnudgtcz3dvPs2YcwRa/tD9uB0mR6
+	mQNirdQ==
+X-Google-Smtp-Source: AGHT+IHqDyDmO/r2yjSG30eHo/aZTvnzBBS3IoH2SUfydcMTabalwcojF162vAWAlTXJ3voBa2nsQQ==
+X-Received: by 2002:a05:6512:308a:b0:545:296e:ac28 with SMTP id 2adb3069b0e04-54839144ee2mr4857016e87.24.1740354232909;
+        Sun, 23 Feb 2025 15:43:52 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54526741fe5sm3065509e87.90.2025.02.23.15.43.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 23 Feb 2025 15:43:51 -0800 (PST)
+Date: Mon, 24 Feb 2025 01:43:49 +0200
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Date: Mon, 24 Feb 2025 01:38:30 +0200
-X-Gm-Features: AWEUYZmTHJ2dAKAOg_4O6EdrI6McHGH1cJfHE45231CZ1NkDjfb9qIrmX-8DI0c
-Message-ID: <CAA8EJppjRFWXXYSp=SKPKBV-ceO7gu3n37k-5eUeYG_x6rOmsg@mail.gmail.com>
-Subject: Re: [PATCH v3 5/8] phy: rockchip: samsung-hdptx: Setup TMDS char rate
- via phy_configure_opts_hdmi
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>, 
-	Sandor Yu <Sandor.yu@nxp.com>, Maxime Ripard <mripard@kernel.org>, kernel@collabora.com, 
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Abel Vesa <abel.vesa@linaro.org>, linux-arm-msm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/8] dt-bindings: phy: snps-eusb2: add exynos2200
+ support
+Message-ID: <4tvpl3pujnuw2qjwu7f7ryrr5dndxow7srkkp2223wmexr23bi@7nmgrpq6znpg>
+References: <20250223122227.725233-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250223122227.725233-3-ivo.ivanov.ivanov1@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250223122227.725233-3-ivo.ivanov.ivanov1@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250223_153844_298775_5858C225 
-X-CRM114-Status: GOOD (  26.83  )
+X-CRM114-CacheID: sfid-20250223_154355_023415_F43B8776 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,110 +104,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 23 Feb 2025 at 13:02, Cristian Ciocaltea
-<cristian.ciocaltea@collabora.com> wrote:
->
-> The current workaround to setup the TMDS character rate relies on the
-> unconventional usage of phy_set_bus_width().
->
-> Make use of the recently introduced HDMI PHY configuration API for this
-> purpose.  The workaround will be dropped as soon as the switch has been
-> completed on both ends.
->
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+On Sun, Feb 23, 2025 at 02:22:21PM +0200, Ivaylo Ivanov wrote:
+> Exynos 2200 makes use of the Synposys eUSB2 IP, so document it in the
+> binding. Unlike the currently documented Qualcomm SoCs, it doesn't provide
+> reset lines for reset control and uses more clocks.
+> 
+> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov@gmail.com>
 > ---
->  drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 37 +++++++++++++++++------
->  1 file changed, 27 insertions(+), 10 deletions(-)
->
-> diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-> index f9b5c96d6c789e435657e224032d35b5a6950945..dd91a7272e246b2133112effdb080a847fd15abe 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-> @@ -402,6 +402,9 @@ struct rk_hdptx_phy {
->         int nr_clks;
->         struct reset_control_bulk_data rsts[RST_MAX];
->
-> +       /* PHY config opts */
-> +       unsigned long tmds_char_rate;
+>  .../bindings/phy/snps,eusb2-phy.yaml          | 64 +++++++++++++++++--
+>  1 file changed, 57 insertions(+), 7 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/snps,eusb2-phy.yaml b/Documentation/devicetree/bindings/phy/snps,eusb2-phy.yaml
+> index 22c77968f..f4164db71 100644
+> --- a/Documentation/devicetree/bindings/phy/snps,eusb2-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/snps,eusb2-phy.yaml
+> @@ -23,6 +23,7 @@ properties:
+>                - qcom,x1e80100-snps-eusb2-phy
+>            - const: qcom,sm8550-snps-eusb2-phy
+>        - const: qcom,sm8550-snps-eusb2-phy
+> +      - const: samsung,exynos2200-snps-eusb2-phy
+>  
+>    reg:
+>      maxItems: 1
+> @@ -31,12 +32,12 @@ properties:
+>      const: 0
+>  
+>    clocks:
+> -    items:
+> -      - description: ref
+> +    minItems: 1
+> +    maxItems: 3
+>  
+>    clock-names:
+> -    items:
+> -      - const: ref
+> +    minItems: 1
+> +    maxItems: 3
+>  
+>    resets:
+>      maxItems: 1
+> @@ -58,11 +59,60 @@ required:
+>    - compatible
+>    - reg
+>    - "#phy-cells"
+> -  - clocks
+> -  - clock-names
 
-It's easier to embed struct phy_configure_opts_hdmi here, in the end
-you  add bpc here in one of the next patches.
+Why? Clocks are required in both if clauses.
 
+>    - vdd-supply
+>    - vdda12-supply
+> -  - resets
 > +
->         /* clk provider */
->         struct clk_hw hw;
->         unsigned long rate;
-> @@ -1413,19 +1416,21 @@ static int rk_hdptx_dp_aux_init(struct rk_hdptx_phy *hdptx)
->  static int rk_hdptx_phy_power_on(struct phy *phy)
->  {
->         struct rk_hdptx_phy *hdptx = phy_get_drvdata(phy);
-> -       int bus_width = phy_get_bus_width(hdptx->phy);
-> +       unsigned int rate = hdptx->tmds_char_rate / 100;
->         enum phy_mode mode = phy_get_mode(phy);
->         int ret, lane;
->
-> -       /*
-> -        * FIXME: Temporary workaround to pass pixel_clk_rate
-> -        * from the HDMI bridge driver until phy_configure_opts_hdmi
-> -        * becomes available in the PHY API.
-> -        */
-> -       unsigned int rate = bus_width & 0xfffffff;
-> +       if (rate == 0) {
-> +               /*
-> +                * FIXME: Temporary workaround to setup TMDS char rate
-> +                * from the RK HDMI bridge driver.
-> +                * Will be removed as soon the switch to the HDMI PHY
-> +                * configuration API has been completed on both ends.
-> +                */
-> +               rate = phy_get_bus_width(hdptx->phy) & 0xfffffff;
-> +       }
->
-> -       dev_dbg(hdptx->dev, "%s bus_width=%x rate=%u\n",
-> -               __func__, bus_width, rate);
-> +       dev_dbg(hdptx->dev, "%s rate=%u\n", __func__, rate);
->
->         ret = rk_hdptx_phy_consumer_get(hdptx, rate);
->         if (ret)
-> @@ -1734,8 +1739,10 @@ static int rk_hdptx_phy_configure(struct phy *phy, union phy_configure_opts *opt
->         enum phy_mode mode = phy_get_mode(phy);
->         int ret;
->
-> -       if (mode != PHY_MODE_DP)
-> +       if (mode != PHY_MODE_DP) {
-> +               hdptx->tmds_char_rate = opts->hdmi.tmds_char_rate;
->                 return 0;
-> +       }
->
->         ret = rk_hdptx_phy_verify_config(hdptx, &opts->dp);
->         if (ret) {
-> @@ -1830,6 +1837,16 @@ static int rk_hdptx_phy_clk_set_rate(struct clk_hw *hw, unsigned long rate,
->  {
->         struct rk_hdptx_phy *hdptx = to_rk_hdptx_phy(hw);
->
-> +       /*
-> +        * The TMDS char rate set via phy_configure(), if any, has
-> +        * precedence over the rate provided via clk_set_rate().
-
-I think this is not so nice. It makes CCF desync from the actual rate
-programmed into the hardware. Maybe you can make the clock r/o?
-
-> +        */
-> +       if (hdptx->tmds_char_rate && hdptx->tmds_char_rate != rate) {
-> +               dev_dbg(hdptx->dev, "Replaced clk_set_rate=%lu with tmds_char_rate=%lu\n",
-> +                       rate, hdptx->tmds_char_rate);
-> +               rate = hdptx->tmds_char_rate;
-> +       }
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - qcom,sm8550-snps-eusb2-phy
 > +
->         return rk_hdptx_ropll_tmds_cmn_config(hdptx, rate / 100);
->  }
->
->
-> --
-> 2.48.1
->
+> +    then:
+> +      properties:
+> +        reg:
+> +          maxItems: 1
+> +
+> +        clocks:
+> +          items:
+> +            - description: ref
+> +
+> +        clock-names:
+> +          items:
+> +            - const: ref
+> +
+> +      required:
+> +        - clocks
+> +        - clock-names
+> +        - resets
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - samsung,exynos2200-snps-eusb2-phy
+> +
+> +    then:
+> +      properties:
+> +
+> +        clocks:
+> +          items:
+> +            - description: Reference clock
+> +            - description: Bus (APB) clock
+> +            - description: Control clock
+> +
+> +        clock-names:
+> +          items:
+> +            - const: ref
+> +            - const: bus
+> +            - const: ctrl
+> +
+> +      required:
+> +        - clocks
+> +        - clock-names
+>  
+>  additionalProperties: false
+>  
+> -- 
+> 2.43.0
+> 
 
-
---
+-- 
 With best wishes
 Dmitry
 
