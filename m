@@ -4,117 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6991C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 00:24:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE5C6C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 04:05:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b6kBdqL5Mv/zHgRCB8+EQApG54lUy8sBQC0RT66qpTY=; b=uGui9rlmwbST7Q9NQeXNAv7kdT
-	hjfUdRXmINCN0tdi4Qu0ZyrVoh9ceL9u4/MV+cZx78xTwFdsJBHz1IwLgCBtRDMQAcOXZKeWzCn62
-	d8ayZPcf5OJsysYbWRe8fRqvpbxwog0XX/vacRIByrvZ253lbaayIxThM0mDsLeA1yH3S0H7Kegcm
-	uVXb3toKFlDfdyOYoFh6Fd0CPxJW+Tb8n7F6kFa/6DQ6wx+FR/XYX/JjO2YrAsD01iIWR7VtVqUKV
-	sL+BwrJRI6sjn/HwdnVuq38ATHIjQGPif+3P1qOtOoID1Q7z+ZuuIhNrxHZrNimB5xaLcrX7aijzs
-	L1B8Ly0w==;
+	bh=JIgRN+3XWpbCfDnE3nN0Ey2Rm2UwEB6WW3O8E2/greM=; b=wyAknuOd+UV2squ0EHPQQn+yUN
+	zmHJaEons64981fg2rmoqeXmZpa8reOi+9D5hahW98Oj7u06wOkY4l5jnNttv0v6/O3y5kzoQGxqe
+	eOt6dyh0PQRrToX2boKp0eJXrF2Jn1kTJeJT8catn1quiczx58QuPJGocJDaSIbt1i73Xf895NYHl
+	dPd8S268m/LfV5mfNsHf36grlgI0QlnSkNyCj5EKLIY9c4/K9zZP0ugCpmA0i+1jr4S/NY6FdMG4J
+	v+Xz7L+9Qtujwm0IfrL3E3hJ9Zr/Thd4YOTufH/fn8Uo7wkoHBZ3OVZOgB/N+YM+vt0/6A3P9TcYH
+	Qu4iFXag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlzmy-00000009R90-362P;
-	Sun, 23 Feb 2025 00:24:08 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlzlQ-00000009Ql2-3fJ5;
-	Sun, 23 Feb 2025 00:22:34 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5dec996069aso5344107a12.2;
-        Sat, 22 Feb 2025 16:22:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740270151; x=1740874951; darn=lists.infradead.org;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=b6kBdqL5Mv/zHgRCB8+EQApG54lUy8sBQC0RT66qpTY=;
-        b=AahB46zxTa8FPqI+Hl6gpW8fB12SWv4u41Rt3kxrblxa8eEcG10yw/Yy80bh5/x+W4
-         tQVY9PsoIeDCunDyLqXKWRa2jB1LO3ZFAK3tzauo12c9c0+uFCc4sCKUDL6o6uisqKdD
-         XW2QcGdGN77V2M6tDN3k2kkjVcT+Us1poOiyQaPPgQyJ7YavorouJZKuLFHWoLTP16R+
-         Db/rP/1UcJZj8aVi3pLMs91k0Vzg4DhXCfLgWxfkebHoe3GipizWal0V3jxudOMasyFz
-         lyf6JSLL1JfCMb/E8ueIMj/hKQbDyDMfYuJS+Hae2cxyj8Sa/+r1KHrYkGQ1ubIc2uQN
-         uVsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740270151; x=1740874951;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :reply-to:message-id:subject:cc:to:from:date:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=b6kBdqL5Mv/zHgRCB8+EQApG54lUy8sBQC0RT66qpTY=;
-        b=EFZ8p48RgYrXD6LdNAX0mIB8Xhmcs+wqFNhb4qlttxVeZNZuCqx2xBgJjEBe6Ns+Ch
-         UMl+SgNPH/EzAFAgO8Dysqrp2hbju+dD90mlHMng5zgeIHg7rGtmYtFv069e5imZC4sx
-         HHk04J0uWL9BRzV0nx83PNqYzxw0HlvNWjWcj8yYFEnNd6nXy3/oUeQTyI56gGg1XuaT
-         ae/2eYQsQ26v8ciRB9361X4BzZ5i7sShKpSBSbMf5FN0E18q5uUrODuEvzeaGchmQCLh
-         T4XiPRlIV8m8ZQVuBclXGHEgxdxqdqEgxMD3BhD1ucacAv3v1UMALgqP8OFlkGJyq/jj
-         wsIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVp+peZyDr32DUqrGxddcCo2PPhSAvnh1GIH7gI8mKrb/g5A+dC3MfFVPDtGmQesZzls8HiDV4dlJtQDwZznz2MTw==@lists.infradead.org, AJvYcCX49fa/8AnczGNogXeqg93HSxH1gXqlfPlPPMzR1n6mureJJ0hI1K38D28gDIgiDmsLLJAX8A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPni03GKNRtY8v9owfZgsZfsEZSDTpYd8tuoG2udO702X1rkFX
-	xDfg8WCnDm9aU8UlE/CJF1Ir+jkkvFKDAtHylZmG8MkuAWntLksE
-X-Gm-Gg: ASbGncs/KqRy/2b9cJ/RqZN1N198eubMvZM88DfLTFpMJrstR6xZZbH/2BL4B2qn7JD
-	R0NaY8NwRymA00pQgZirxFjvJw/BWgAaiJAWs6nyfe7WFljqHPCDAqSPcTLn/pv8yrVfH4AdxJT
-	sIZrFQywmWelP5rI8At6/aHfnXWkBBj6sm0tc89JeCt6Q6hBNPC1Od+DyHJSWUCGCHE2ju3don/
-	6o+RsYSrueO/wxLmuXIZYgJp2qwmyDZE+rnK8OvqZCl7JaZUPn5CmLnRpQgYEDqKsMnXj7BeCt8
-	s76+fbicin/hYzdr1VDLOb11hQ==
-X-Google-Smtp-Source: AGHT+IHi6/1q2H/JzaBPY2EM3gZK+t9ZOl1hJ37YMXiB93ksHODnJQh+Uw5lQW63dWTHlum7aHYuYw==
-X-Received: by 2002:a05:6402:440b:b0:5e0:4064:add6 with SMTP id 4fb4d7f45d1cf-5e0b722d3e0mr7683404a12.31.1740270150552;
-        Sat, 22 Feb 2025 16:22:30 -0800 (PST)
-Received: from localhost ([185.92.221.13])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e09072247esm6510575a12.51.2025.02.22.16.22.29
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Sat, 22 Feb 2025 16:22:30 -0800 (PST)
-Date: Sun, 23 Feb 2025 00:22:29 +0000
-From: Wei Yang <richard.weiyang@gmail.com>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Wei Yang <richard.weiyang@gmail.com>, linux-kernel@vger.kernel.org,
-	Alexander Graf <graf@amazon.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>,
-	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pratyush Yadav <ptyadav@amazon.de>,
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v4 02/14] memblock: add MEMBLOCK_RSRV_KERN flag
-Message-ID: <20250223002229.xuk6xlp23zr72hkc@master>
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <20250206132754.2596694-3-rppt@kernel.org>
- <20250218155004.n53fcuj2lrl5rxll@master>
- <Z7WHL_Xqgoln9oLg@kernel.org>
+	id 1tm3Ea-0000000AB9X-3MUR;
+	Sun, 23 Feb 2025 04:04:52 +0000
+Received: from mail-m16.yeah.net ([1.95.21.17])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tm3D6-0000000AAkd-3po0
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 23 Feb 2025 04:03:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=JIgRN+3XWpbCfDnE3nN0Ey2Rm2UwEB6WW3O8E2/greM=;
+	b=ZEx5XNFTiFbr2pRhIM56TXOExKvgiNVvoa9/oTHwGTqtXcxtydYDRufHTk9p+1
+	K8/+114z56brO9VRWxiou3kcDvtHJBpgyNA83/HvdBdysTotDNrtm2cYFDO8zRLG
+	O7g5v61Mwp4PcQZuRXoffIT1hcQkIU6n54GdxFmZ3ZYv0=
+Received: from dragon (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id Ms8vCgAHj_D0nbpnJRTGCQ--.24347S3;
+	Sun, 23 Feb 2025 12:03:01 +0800 (CST)
+Date: Sun, 23 Feb 2025 12:03:00 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Mathew McBride <matt@traverse.com.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>
+Subject: Re: [PATCH] arm64: dts: freescale: ten64: add usb hub definition
+Message-ID: <Z7qd9GPGM8+NBioH@dragon>
+References: <20250129045352.10728-1-matt@traverse.com.au>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z7WHL_Xqgoln9oLg@kernel.org>
-User-Agent: NeoMutt/20170113 (1.7.2)
+In-Reply-To: <20250129045352.10728-1-matt@traverse.com.au>
+X-CM-TRANSID: Ms8vCgAHj_D0nbpnJRTGCQ--.24347S3
+X-Coremail-Antispam: 1Uf129KBjvJXoWxGFyUGr45JF1rCr1DKr4fuFg_yoW5XF4kp3
+	Z8ursrCrs5XFy7t3W2gF1xtFZ8Ww4rKF93Zr98Jr4UAryDuasrKrnFkr43uF1UXF18Cw4a
+	vF4DZry2kFnIg3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UoMKZUUUUU=
+X-Originating-IP: [117.82.86.124]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiBBX7ZWe5p-zUGwABsE
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_162232_994945_8ADC6BE4 
-X-CRM114-Status: GOOD (  22.55  )
+X-CRM114-CacheID: sfid-20250222_200321_391904_6A0516C4 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,85 +71,113 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Wei Yang <richard.weiyang@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 19, 2025 at 09:24:31AM +0200, Mike Rapoport wrote:
->Hi,
->
->On Tue, Feb 18, 2025 at 03:50:04PM +0000, Wei Yang wrote:
->> On Thu, Feb 06, 2025 at 03:27:42PM +0200, Mike Rapoport wrote:
->> >From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
->> >
->> >to denote areas that were reserved for kernel use either directly with
->> >memblock_reserve_kern() or via memblock allocations.
->> >
->> >Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
->> >---
->> > include/linux/memblock.h | 16 +++++++++++++++-
->> > mm/memblock.c            | 32 ++++++++++++++++++++++++--------
->> > 2 files changed, 39 insertions(+), 9 deletions(-)
->> >
->> >diff --git a/include/linux/memblock.h b/include/linux/memblock.h
->> >index e79eb6ac516f..65e274550f5d 100644
->> >--- a/include/linux/memblock.h
->> >+++ b/include/linux/memblock.h
->> >@@ -50,6 +50,7 @@ enum memblock_flags {
->> > 	MEMBLOCK_NOMAP		= 0x4,	/* don't add to kernel direct mapping */
->> > 	MEMBLOCK_DRIVER_MANAGED = 0x8,	/* always detected via a driver */
->> > 	MEMBLOCK_RSRV_NOINIT	= 0x10,	/* don't initialize struct pages */
->> >+	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
->> 
->> Above memblock_flags, there are comments on explaining those flags.
->> 
->> Seems we miss it for MEMBLOCK_RSRV_KERN.
->
->Right, thanks!
+On Wed, Jan 29, 2025 at 03:53:52PM +1100, Mathew McBride wrote:
+> A device tree binding for the Microchip USB5744 hub controller
+> was added in commit 02be19e914b8 ("dt-bindings: usb: Add support
+> for Microchip usb5744 hub controller").
 > 
->> > 
->> > #ifdef CONFIG_HAVE_MEMBLOCK_PHYS_MAP
->> >@@ -1459,14 +1460,14 @@ phys_addr_t __init memblock_alloc_range_nid(phys_addr_t size,
->> > again:
->> > 	found = memblock_find_in_range_node(size, align, start, end, nid,
->> > 					    flags);
->> >-	if (found && !memblock_reserve(found, size))
->> >+	if (found && !__memblock_reserve(found, size, nid, MEMBLOCK_RSRV_KERN))
->> 
->> Maybe we could use memblock_reserve_kern() directly. If my understanding is
->> correct, the reserved region's nid is not used.
->
->We use nid of reserved regions in reserve_bootmem_region() (commit
->61167ad5fecd ("mm: pass nid to reserve_bootmem_region()")) but KHO needs to
->know the distribution of reserved memory among the nodes before
->memmap_init_reserved_pages().
+> U-Boot will consume this binding in order to perform the
+> necessary actions to enable the USB hub ports over I2C.
+> (We previously used our own out-of-tree driver for
+> this task)
+> 
+> The Ten64 board does not have any switchable supplies
+> for the voltage rails utilized by the USB5744, so a
+> pair of dummy supplies have been added to facilitate
+> operation with U-Boot's hub driver.
+> 
+> Signed-off-by: Mathew McBride <matt@traverse.com.au>
+> ---
+>  .../boot/dts/freescale/fsl-ls1088a-ten64.dts  | 45 +++++++++++++++++++
+>  1 file changed, 45 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts b/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts
+> index bc0d89427fbe5..fc15c83d222f6 100644
+> --- a/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts
+> +++ b/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts
+> @@ -87,6 +87,22 @@ sfp_xg1: dpmac1-sfp {
+>  		los-gpios = <&sfpgpio 7 GPIO_ACTIVE_HIGH>;
+>  		maximum-power-milliwatt = <2000>;
+>  	};
+> +
+> +	usb1v2_supply: regulator {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "usbhub_1v2";
+> +		regulator-min-microvolt = <1200000>;
+> +		regulator-max-microvolt = <1200000>;
+> +		regulator-always-on;
+> +	};
+> +
+> +	system3v3_supply: regulator {
+
+Same node name for two regulators above?  Won't kernel complain?
+
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "system_3v3";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-always-on;
+> +	};
+>  };
+>  
+>  /* XG1 - Upper SFP */
+> @@ -231,6 +247,12 @@ at97sc: tpm@29 {
+>  		compatible = "atmel,at97sc3204t";
+>  		reg = <0x29>;
+>  	};
+> +
+> +	usbhub: usb-hub@2d {
+> +		compatible = "microchip,usb5744";
+> +		reg = <0x2d>;
+> +	};
+> +
+>  };
+>  
+>  &i2c2 {
+> @@ -378,10 +400,33 @@ partition@9400000 {
+>  	};
+>  };
+>  
+> +/* LS1088A USB Port 0 - direct to bottom USB-A port */
+>  &usb0 {
+>  	status = "okay";
+>  };
+>  
+> +/* LS1088A USB Port 1 - to Microchip USB5744 USB Hub */
+>  &usb1 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +
+
+Nit: unnecessary newline
+
+Shawn
+
+>  	status = "okay";
+> +
+> +	hub_2_0: hub@1 {
+> +		compatible = "usb424,2744";
+> +		reg = <1>;
+> +		peer-hub = <&hub_3_0>;
+> +		i2c-bus = <&usbhub>;
+> +		vdd-supply = <&system3v3_supply>;
+> +		vdd2-supply = <&usb1v2_supply>;
+> +	};
+> +
+> +	hub_3_0: hub@2 {
+> +		compatible = "usb424,5744";
+> +		reg = <2>;
+> +		peer-hub = <&hub_2_0>;
+> +		i2c-bus = <&usbhub>;
+> +		vdd-supply = <&system3v3_supply>;
+> +		vdd2-supply = <&usb1v2_supply>;
+> +	};
+>  };
+> -- 
+> 2.45.1
 > 
 
-I took another look into this commit. There maybe a very corner case in which
-will leave a reserved region with no nid set.
-
-memmap_init_reserved_pages()
-    for_each_mem_region() {
-        ...
-	memblock_set_node(start, end, &memblock.reserved, nid);
-    }
-
-We leverage the iteration here to set nid to all regions in memblock.reserved.
-But memblock_set_node() may call memblock_double_array() to expand the array,
-which may get a range before current start. So we would miss to set the
-correct nid to the new reserved region.
-
-I have tried to create a case in memblock test. This would happen when there
-are 126 memblock.reserved regions. And the last region is across the last two
-node.
-
-One way to fix this is compare type->max in memblock_set_node(). Then check
-this return value in memmap_init_reserved_pages(). If we found the size
-changes, repeat the iteration.
-
-But this is a very trivial one, not sure it worth fix.
-
--- 
-Wei Yang
-Help you, Help me
 
