@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B37FC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 09:56:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E392C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 09:57:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/ZQTrkwpjtG4VQ+iyo1Us5PtHS22RQjzNw7EGfqvuTw=; b=qwjNAalbzEM2RlaofkEBxvqjOw
-	rhFLDZ4EnZYaT0/6aZ5oegPHEg2CY3mfkBCPRKe8hSSAD1pKtPE+eqUjFMzal2RBGk0CJlnrsFus4
-	qKMrLwyy7i5NDnhVnquTk+Rh7y8BhPJNGEj5DnhGHdeUgdReyp+w/T/zDA0sKf9C1KAo2ou7DyF6L
-	qCs0QbZSkMbSE3OIij39NhYZ+/WzMdoDGHPotEH+xIONYNRQm2JX2icp8P9Mmf0kXlM/Ypn9L+5k/
-	c7g7sGioct1fnInMcuDNH6trHs6o0rWpPotpTxxZ7STdgJzxuvMpebCgQnLWUiiOzqN3nVPCaIgFv
-	wgirwV5w==;
+	bh=nk1UNYA9psfOJ2c67WB7Y8xH1Rzl9Wk5TgxCFpJoNpw=; b=Y+6yBasfZacJlrB/et3eCGWTAv
+	q6iZDNpYQH6gsbksfX0eQxarnhNafoJMgmWDbou1NJ/ptcEkslO3GgnoQNxb3X0BqACj1EAUgPUdh
+	9PveRQ/4rfjcL8JLd3toIRpDR3J+9jx4/tOO94b+QomrbsXGH3OpF/QQgasH+7O6Z8MN+noaqynxk
+	oxzPXT6T7fltIkIHBAAo6zSKsx2/d4j6AINeou04YHwu8EAnLDapMB8/bMh9UpXZ+C8saSztMHjDg
+	nxa4QwDgI44aczT6rPkPlp7d1xLYSyiXQozPZOP+1KTUK6UH04inH9iD5oD3FAu/1ouLk3Sj86VNp
+	aw5D5K+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm8iN-0000000AokN-3xUj;
-	Sun, 23 Feb 2025 09:55:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tm8jq-0000000Aosb-2vxH;
+	Sun, 23 Feb 2025 09:57:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm8gu-0000000AoZ1-0nWk
+	id 1tm8h0-0000000Aoa5-2eCo
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Feb 2025 09:54:28 +0000
+	Sun, 23 Feb 2025 09:54:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 74F9761120;
-	Sun, 23 Feb 2025 09:54:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26159C4CEDD;
-	Sun, 23 Feb 2025 09:54:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3B2036112F;
+	Sun, 23 Feb 2025 09:54:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BBF6C4CEDD;
+	Sun, 23 Feb 2025 09:54:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740304465;
-	bh=IXC+QnwUgx7budvbxqlsKE7CWwRuNIefFivX39u2m48=;
+	s=k20201202; t=1740304473;
+	bh=RQF52wYo0aKPNoeoj6LKwhlRLm5ADHcZDc58q17xfPE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CgYX801sO8add/I/MBw38bfCjbRPTrB+AZLZM6Zw0jqY1Hm+hFP8ZZ3NPOc+CJDfU
-	 K4eZKUhf1k1wajNNKo67MR0ks8d5hT06cvL6PzcMQ4LQ1E+IezeDLk3afieL8X/NMj
-	 UlMr9p+o9NpV4Z8WKWXSHnuvUbdcXXZzi0/AXGzbhj9W+w4mSgDdUoqsOBTVJkmT0o
-	 Q3+RFsj2SDoRni0hzFmjcKhyK7KXHLPYTNmsQLC4IhxO6MiUEOT2oYdx94SLQR1LLt
-	 r4yA8Os6KsTVChT4gpcSAgwNkHUXXHVSyhdppcOYgIjFUHzgvbT/LQ1L77ydmoiovC
-	 0F8Dn9Ct6RqqA==
-Message-ID: <c710e85c-dc72-41ea-b2c6-51d5d2132eab@kernel.org>
-Date: Sun, 23 Feb 2025 10:54:19 +0100
+	b=ApoVHDqI+1R4xUj2mRicBCe7fvBP28cWuEF7rZitDbD9vopK18XRIhwc0k6aJUvok
+	 XjLK/GP6lcvGLsUkLCZl4pnGmDpDpFHvaO4YQseYiu6ySZ3exWOuetye2swbRqZkn2
+	 s0GFSQVQnt+kWLM7Fpwltpl/P5Ux0kiO9v147PEXh0ISKKAdCE3TcVG3NCgp9JZAhs
+	 i7ucAVXNIrac//xnkNKpFi5OE7wwgnzZMOsiKg4OHNa3b1mVqYR0RoBZ+lAS7VeOGq
+	 JqgEZNfup4NIJOiKWuEffzxGY61NkhwRkc2Jmij4QS2D99/dDc8rZJN0wjAzExKyNA
+	 tCpuOqXrew37w==
+Message-ID: <99261067-5c13-483b-be3b-5370b36e3978@kernel.org>
+Date: Sun, 23 Feb 2025 10:54:29 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] watchdog: s3c2410_wdt: Add exynos990-wdt
- compatible data
+Subject: Re: [PATCH v2 1/2] dt-bindings: watchdog: samsung-wdt: Add
+ exynos990-wdt compatible
 To: Igor Belwon <igor.belwon@mentallysanemainliners.org>,
  Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
  <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
@@ -57,7 +57,7 @@ Cc: linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-samsung-soc@vger.kernel.org
 References: <20250217-exynos990-wdt-v2-0-3eb4fbc113f4@mentallysanemainliners.org>
- <20250217-exynos990-wdt-v2-2-3eb4fbc113f4@mentallysanemainliners.org>
+ <20250217-exynos990-wdt-v2-1-3eb4fbc113f4@mentallysanemainliners.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,7 +103,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250217-exynos990-wdt-v2-2-3eb4fbc113f4@mentallysanemainliners.org>
+In-Reply-To: <20250217-exynos990-wdt-v2-1-3eb4fbc113f4@mentallysanemainliners.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -121,9 +121,11 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 17/02/2025 20:57, Igor Belwon wrote:
-> The Exynos990 has two watchdog clusters - cl0 and cl2. Add new
-> driver data for these two clusters, making it possible to use the
-> watchdog timer on this SoC.
+> Add a dt-binding compatible for the Exynos990 Watchdog timer.
+> This watchdog is compatible with the GS101/Exynos850 design, as
+> such it requires the cluster-index and syscon-phandle properties
+> to be present. It also contains a cl2 cluster, as such the
+> cluster-index property has been expanded.
 > 
 > Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
 > ---
