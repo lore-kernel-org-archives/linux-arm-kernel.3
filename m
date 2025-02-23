@@ -4,78 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D5F4C021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 23:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6991C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 00:24:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tzYj2SBwZYdiAHJqAPsKe/dFQvpKAGWUcio6ju4eMVk=; b=ukwJIa0jIiblD3NfPQJJJqM0OD
-	T2oZQQhjfRE+w24BDtNKUAJNQrFG7CYffmKeAlfNFGSyaaf5zGWYcWIoBpd3ELNEDUHbljdhufEC2
-	uH0vQm8rVLGIFTL5/t5CJakMagwKgu3xd2URtiHgNoJwjx6yga3D2CKGM/eLQj03L8E9zPAzknqTv
-	Ld1roI4pdDdqPL/I5nb+HrmGM/kDm0RW027XP4A/Kmzn5dJlmmDXEwyosynsSUKGStuZ9CkDB/X7q
-	1lV+z5Ffr5uMpbtCoB5pZ6RldWujly1qaSJmLesc1w8afrov5l1qYx3trN0fC9MbsPUOkKhHH/1if
-	VnDVKMnA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b6kBdqL5Mv/zHgRCB8+EQApG54lUy8sBQC0RT66qpTY=; b=uGui9rlmwbST7Q9NQeXNAv7kdT
+	hjfUdRXmINCN0tdi4Qu0ZyrVoh9ceL9u4/MV+cZx78xTwFdsJBHz1IwLgCBtRDMQAcOXZKeWzCn62
+	d8ayZPcf5OJsysYbWRe8fRqvpbxwog0XX/vacRIByrvZ253lbaayIxThM0mDsLeA1yH3S0H7Kegcm
+	uVXb3toKFlDfdyOYoFh6Fd0CPxJW+Tb8n7F6kFa/6DQ6wx+FR/XYX/JjO2YrAsD01iIWR7VtVqUKV
+	sL+BwrJRI6sjn/HwdnVuq38ATHIjQGPif+3P1qOtOoID1Q7z+ZuuIhNrxHZrNimB5xaLcrX7aijzs
+	L1B8Ly0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlzKR-00000009KVo-3Y40;
-	Sat, 22 Feb 2025 23:54:39 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tlzmy-00000009R90-362P;
+	Sun, 23 Feb 2025 00:24:08 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlzEk-00000009ItI-2B4m;
-	Sat, 22 Feb 2025 23:48:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=tzYj2SBwZYdiAHJqAPsKe/dFQvpKAGWUcio6ju4eMVk=; b=s5Hgk1ZaHT8uyo1V0KFNKBG13Q
-	zjV6RXP84BOVzBXJEm+GgJgVWSEmzBLzu9mogqDdbrgilm0MVthYje9q9/mJnYBATkiHYTiX3w8wQ
-	fuAE7X0bFIvpqsz5uZfs7TSHF6fulhi5E94SMS26d6w3HSfO8M4vKtVTE6kAEBRY/CMblw8OyJ1u1
-	ACKVx9wTemKktI+imsrHU0umpqVfWHZl3c6jo72DeDdsln+qZgZPO0B0ya3QOihMhNFK18sLfcVR+
-	Fg6Q62ms02VS5GXU4Gquz2fj8JzZGD5axR3ZFMvWIPEwL9JZH6m152GRYj+ygcchPIPID8xgbJgs8
-	LT1kRlQg==;
-Received: from i53875a10.versanet.de ([83.135.90.16] helo=phil.fritz.box)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tlzEN-0004TL-OW; Sun, 23 Feb 2025 00:48:23 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: linux-kernel@vger.kernel.org,
-	Detlev Casanova <detlev.casanova@collabora.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Chris Morgan <macromorgan@hotmail.com>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Tim Lunn <tim@feathertop.org>,
-	Michael Riesch <michael.riesch@wolfvision.net>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Alexey Charkov <alchark@gmail.com>,
-	Stephen Chen <stephen@radxa.com>,
-	Elon Zhang <zhangzj@rock-chips.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	kernel@collabora.com
-Subject: Re: [PATCH v5 0/2] Add Radxa Rock 4D support
-Date: Sun, 23 Feb 2025 00:48:16 +0100
-Message-ID: <174026756680.3008209.2974583864870803696.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250218160714.140709-1-detlev.casanova@collabora.com>
-References: <20250218160714.140709-1-detlev.casanova@collabora.com>
+	id 1tlzlQ-00000009Ql2-3fJ5;
+	Sun, 23 Feb 2025 00:22:34 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5dec996069aso5344107a12.2;
+        Sat, 22 Feb 2025 16:22:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740270151; x=1740874951; darn=lists.infradead.org;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=b6kBdqL5Mv/zHgRCB8+EQApG54lUy8sBQC0RT66qpTY=;
+        b=AahB46zxTa8FPqI+Hl6gpW8fB12SWv4u41Rt3kxrblxa8eEcG10yw/Yy80bh5/x+W4
+         tQVY9PsoIeDCunDyLqXKWRa2jB1LO3ZFAK3tzauo12c9c0+uFCc4sCKUDL6o6uisqKdD
+         XW2QcGdGN77V2M6tDN3k2kkjVcT+Us1poOiyQaPPgQyJ7YavorouJZKuLFHWoLTP16R+
+         Db/rP/1UcJZj8aVi3pLMs91k0Vzg4DhXCfLgWxfkebHoe3GipizWal0V3jxudOMasyFz
+         lyf6JSLL1JfCMb/E8ueIMj/hKQbDyDMfYuJS+Hae2cxyj8Sa/+r1KHrYkGQ1ubIc2uQN
+         uVsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740270151; x=1740874951;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :reply-to:message-id:subject:cc:to:from:date:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=b6kBdqL5Mv/zHgRCB8+EQApG54lUy8sBQC0RT66qpTY=;
+        b=EFZ8p48RgYrXD6LdNAX0mIB8Xhmcs+wqFNhb4qlttxVeZNZuCqx2xBgJjEBe6Ns+Ch
+         UMl+SgNPH/EzAFAgO8Dysqrp2hbju+dD90mlHMng5zgeIHg7rGtmYtFv069e5imZC4sx
+         HHk04J0uWL9BRzV0nx83PNqYzxw0HlvNWjWcj8yYFEnNd6nXy3/oUeQTyI56gGg1XuaT
+         ae/2eYQsQ26v8ciRB9361X4BzZ5i7sShKpSBSbMf5FN0E18q5uUrODuEvzeaGchmQCLh
+         T4XiPRlIV8m8ZQVuBclXGHEgxdxqdqEgxMD3BhD1ucacAv3v1UMALgqP8OFlkGJyq/jj
+         wsIQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVp+peZyDr32DUqrGxddcCo2PPhSAvnh1GIH7gI8mKrb/g5A+dC3MfFVPDtGmQesZzls8HiDV4dlJtQDwZznz2MTw==@lists.infradead.org, AJvYcCX49fa/8AnczGNogXeqg93HSxH1gXqlfPlPPMzR1n6mureJJ0hI1K38D28gDIgiDmsLLJAX8A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPni03GKNRtY8v9owfZgsZfsEZSDTpYd8tuoG2udO702X1rkFX
+	xDfg8WCnDm9aU8UlE/CJF1Ir+jkkvFKDAtHylZmG8MkuAWntLksE
+X-Gm-Gg: ASbGncs/KqRy/2b9cJ/RqZN1N198eubMvZM88DfLTFpMJrstR6xZZbH/2BL4B2qn7JD
+	R0NaY8NwRymA00pQgZirxFjvJw/BWgAaiJAWs6nyfe7WFljqHPCDAqSPcTLn/pv8yrVfH4AdxJT
+	sIZrFQywmWelP5rI8At6/aHfnXWkBBj6sm0tc89JeCt6Q6hBNPC1Od+DyHJSWUCGCHE2ju3don/
+	6o+RsYSrueO/wxLmuXIZYgJp2qwmyDZE+rnK8OvqZCl7JaZUPn5CmLnRpQgYEDqKsMnXj7BeCt8
+	s76+fbicin/hYzdr1VDLOb11hQ==
+X-Google-Smtp-Source: AGHT+IHi6/1q2H/JzaBPY2EM3gZK+t9ZOl1hJ37YMXiB93ksHODnJQh+Uw5lQW63dWTHlum7aHYuYw==
+X-Received: by 2002:a05:6402:440b:b0:5e0:4064:add6 with SMTP id 4fb4d7f45d1cf-5e0b722d3e0mr7683404a12.31.1740270150552;
+        Sat, 22 Feb 2025 16:22:30 -0800 (PST)
+Received: from localhost ([185.92.221.13])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e09072247esm6510575a12.51.2025.02.22.16.22.29
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Sat, 22 Feb 2025 16:22:30 -0800 (PST)
+Date: Sun, 23 Feb 2025 00:22:29 +0000
+From: Wei Yang <richard.weiyang@gmail.com>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Wei Yang <richard.weiyang@gmail.com>, linux-kernel@vger.kernel.org,
+	Alexander Graf <graf@amazon.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Anthony Yznaga <anthony.yznaga@oracle.com>,
+	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pratyush Yadav <ptyadav@amazon.de>,
+	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v4 02/14] memblock: add MEMBLOCK_RSRV_KERN flag
+Message-ID: <20250223002229.xuk6xlp23zr72hkc@master>
+References: <20250206132754.2596694-1-rppt@kernel.org>
+ <20250206132754.2596694-3-rppt@kernel.org>
+ <20250218155004.n53fcuj2lrl5rxll@master>
+ <Z7WHL_Xqgoln9oLg@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z7WHL_Xqgoln9oLg@kernel.org>
+User-Agent: NeoMutt/20170113 (1.7.2)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_154846_553955_995F85F7 
-X-CRM114-Status: GOOD (  13.96  )
+X-CRM114-CacheID: sfid-20250222_162232_994945_8ADC6BE4 
+X-CRM114-Status: GOOD (  22.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,28 +126,85 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Wei Yang <richard.weiyang@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 18 Feb 2025 11:04:17 -0500, Detlev Casanova wrote:
-> Add the basic support for the board. (Not officially released yet)
-> It is based on the Rockchip rk3576 SoC, so I haven't added the
-> following devices yet:
->  - VOP/HDMI
->  - UFS
-> as the support for those has not been merged yet, but are close to be
-> and I already validated that they work.
-> It will come with another patch set.
+On Wed, Feb 19, 2025 at 09:24:31AM +0200, Mike Rapoport wrote:
+>Hi,
+>
+>On Tue, Feb 18, 2025 at 03:50:04PM +0000, Wei Yang wrote:
+>> On Thu, Feb 06, 2025 at 03:27:42PM +0200, Mike Rapoport wrote:
+>> >From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+>> >
+>> >to denote areas that were reserved for kernel use either directly with
+>> >memblock_reserve_kern() or via memblock allocations.
+>> >
+>> >Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+>> >---
+>> > include/linux/memblock.h | 16 +++++++++++++++-
+>> > mm/memblock.c            | 32 ++++++++++++++++++++++++--------
+>> > 2 files changed, 39 insertions(+), 9 deletions(-)
+>> >
+>> >diff --git a/include/linux/memblock.h b/include/linux/memblock.h
+>> >index e79eb6ac516f..65e274550f5d 100644
+>> >--- a/include/linux/memblock.h
+>> >+++ b/include/linux/memblock.h
+>> >@@ -50,6 +50,7 @@ enum memblock_flags {
+>> > 	MEMBLOCK_NOMAP		= 0x4,	/* don't add to kernel direct mapping */
+>> > 	MEMBLOCK_DRIVER_MANAGED = 0x8,	/* always detected via a driver */
+>> > 	MEMBLOCK_RSRV_NOINIT	= 0x10,	/* don't initialize struct pages */
+>> >+	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
+>> 
+>> Above memblock_flags, there are comments on explaining those flags.
+>> 
+>> Seems we miss it for MEMBLOCK_RSRV_KERN.
+>
+>Right, thanks!
 > 
-> [...]
+>> > 
+>> > #ifdef CONFIG_HAVE_MEMBLOCK_PHYS_MAP
+>> >@@ -1459,14 +1460,14 @@ phys_addr_t __init memblock_alloc_range_nid(phys_addr_t size,
+>> > again:
+>> > 	found = memblock_find_in_range_node(size, align, start, end, nid,
+>> > 					    flags);
+>> >-	if (found && !memblock_reserve(found, size))
+>> >+	if (found && !__memblock_reserve(found, size, nid, MEMBLOCK_RSRV_KERN))
+>> 
+>> Maybe we could use memblock_reserve_kern() directly. If my understanding is
+>> correct, the reserved region's nid is not used.
+>
+>We use nid of reserved regions in reserve_bootmem_region() (commit
+>61167ad5fecd ("mm: pass nid to reserve_bootmem_region()")) but KHO needs to
+>know the distribution of reserved memory among the nodes before
+>memmap_init_reserved_pages().
+> 
 
-Applied, thanks!
+I took another look into this commit. There maybe a very corner case in which
+will leave a reserved region with no nid set.
 
-[1/2] dt-bindings: arm: rockchip: Add Radxa ROCK 4D board
-[2/2] arm64: dts: rockchip: Add Radxa ROCK 4D device tree
+memmap_init_reserved_pages()
+    for_each_mem_region() {
+        ...
+	memblock_set_node(start, end, &memblock.reserved, nid);
+    }
 
-Best regards,
+We leverage the iteration here to set nid to all regions in memblock.reserved.
+But memblock_set_node() may call memblock_double_array() to expand the array,
+which may get a range before current start. So we would miss to set the
+correct nid to the new reserved region.
+
+I have tried to create a case in memblock test. This would happen when there
+are 126 memblock.reserved regions. And the last region is across the last two
+node.
+
+One way to fix this is compare type->max in memblock_set_node(). Then check
+this return value in memmap_init_reserved_pages(). If we found the size
+changes, repeat the iteration.
+
+But this is a very trivial one, not sure it worth fix.
+
 -- 
-Heiko Stuebner <heiko@sntech.de>
+Wei Yang
+Help you, Help me
 
