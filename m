@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E392C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 09:57:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33970C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 09:59:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nk1UNYA9psfOJ2c67WB7Y8xH1Rzl9Wk5TgxCFpJoNpw=; b=Y+6yBasfZacJlrB/et3eCGWTAv
-	q6iZDNpYQH6gsbksfX0eQxarnhNafoJMgmWDbou1NJ/ptcEkslO3GgnoQNxb3X0BqACj1EAUgPUdh
-	9PveRQ/4rfjcL8JLd3toIRpDR3J+9jx4/tOO94b+QomrbsXGH3OpF/QQgasH+7O6Z8MN+noaqynxk
-	oxzPXT6T7fltIkIHBAAo6zSKsx2/d4j6AINeou04YHwu8EAnLDapMB8/bMh9UpXZ+C8saSztMHjDg
-	nxa4QwDgI44aczT6rPkPlp7d1xLYSyiXQozPZOP+1KTUK6UH04inH9iD5oD3FAu/1ouLk3Sj86VNp
-	aw5D5K+w==;
+	bh=imEzMTt8Cp6BMtvnlfV44yowW6B84ecusCJsgfbO2PE=; b=2nPDXtPtXUvpX3KiVvrxThz0u8
+	608Atdl88PlIM1XMIfnDtBHb1IoEZGEtnc2X3/7d+zH9q8Eq8axFWN5Q648DH9gGX+D+PGQVkRGM4
+	fhWN5i2EDEZ+HhWqU99QfCIpLzdEG+5h4Uanko14yCeCgC2uSmKTq40fiiBHJNGJwqLlTSZcBeueP
+	X5UusrWUGQozeGKyUMW2PRMHSLmmuzSNB+28OD+ZxMiNZmJ6xVaLxXvMyijqGTFGBw+gKt5+Fo/rB
+	JhtuT9zDE9fQCt3NSXOyvMQpMp9jqBYhL0GAM43Tomo1rcu8AIfKUeqDdeoZeETS4sJipyCO+QQt0
+	fuN7JdAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm8jq-0000000Aosb-2vxH;
-	Sun, 23 Feb 2025 09:57:30 +0000
+	id 1tm8lI-0000000Ap35-35Yh;
+	Sun, 23 Feb 2025 09:59:00 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm8h0-0000000Aoa5-2eCo
+	id 1tm8jk-0000000AosI-0zI6
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Feb 2025 09:54:34 +0000
+	Sun, 23 Feb 2025 09:57:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3B2036112F;
-	Sun, 23 Feb 2025 09:54:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BBF6C4CEDD;
-	Sun, 23 Feb 2025 09:54:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2388561120;
+	Sun, 23 Feb 2025 09:57:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48616C4CEDD;
+	Sun, 23 Feb 2025 09:57:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740304473;
-	bh=RQF52wYo0aKPNoeoj6LKwhlRLm5ADHcZDc58q17xfPE=;
+	s=k20201202; t=1740304643;
+	bh=JJ/5kg2fJoqJeDK3oO+dWfiu8sG5fIVw8kskBX7yy4c=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ApoVHDqI+1R4xUj2mRicBCe7fvBP28cWuEF7rZitDbD9vopK18XRIhwc0k6aJUvok
-	 XjLK/GP6lcvGLsUkLCZl4pnGmDpDpFHvaO4YQseYiu6ySZ3exWOuetye2swbRqZkn2
-	 s0GFSQVQnt+kWLM7Fpwltpl/P5Ux0kiO9v147PEXh0ISKKAdCE3TcVG3NCgp9JZAhs
-	 i7ucAVXNIrac//xnkNKpFi5OE7wwgnzZMOsiKg4OHNa3b1mVqYR0RoBZ+lAS7VeOGq
-	 JqgEZNfup4NIJOiKWuEffzxGY61NkhwRkc2Jmij4QS2D99/dDc8rZJN0wjAzExKyNA
-	 tCpuOqXrew37w==
-Message-ID: <99261067-5c13-483b-be3b-5370b36e3978@kernel.org>
-Date: Sun, 23 Feb 2025 10:54:29 +0100
+	b=SWC24kSQqwSsT7vd0uWDsqcnqNPganH2w+wOs12yJtcjH5f6N1KSYpOaWnJrap64u
+	 nruouOjAGst819VCOWl+PiTj/tiJrVWE1i63B1eZdaiC3IpchRW4cU7Rji0P5osQB/
+	 nUKg5Wmm6FqShE7wpBH4Yr5G6ziXw/8poJvaP+3ztGuous80Q+k69UPLkFNt9NWJ1+
+	 lTMfkUF0OQXOz3FIFzMr5dXq7lXWF7fKzJ4sHxS3ASHQljRRld9xn3oazkgNpw7fPZ
+	 7oM5POPsuGl/cTcckZS4JoEV99c4dTfA1vYPPWr2hNNAkqq0uhpe40qQOeq5W7STGE
+	 3qFsRPMlgFhJg==
+Message-ID: <a2ea77cc-90d8-40b8-b9f0-5823ece0db33@kernel.org>
+Date: Sun, 23 Feb 2025 10:57:17 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: watchdog: samsung-wdt: Add
- exynos990-wdt compatible
-To: Igor Belwon <igor.belwon@mentallysanemainliners.org>,
- Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
- <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org
-References: <20250217-exynos990-wdt-v2-0-3eb4fbc113f4@mentallysanemainliners.org>
- <20250217-exynos990-wdt-v2-1-3eb4fbc113f4@mentallysanemainliners.org>
+Subject: Re: [PATCH v3 1/5] dt-bindings: clock: add clock definitions for
+ exynos7870 CMU
+To: Kaustabh Chakraborty <kauschluss@disroot.org>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250219-exynos7870-pmu-clocks-v3-0-0d1e415e9e3a@disroot.org>
+ <20250219-exynos7870-pmu-clocks-v3-1-0d1e415e9e3a@disroot.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,7 +104,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250217-exynos990-wdt-v2-1-3eb4fbc113f4@mentallysanemainliners.org>
+In-Reply-To: <20250219-exynos7870-pmu-clocks-v3-1-0d1e415e9e3a@disroot.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -120,17 +121,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/02/2025 20:57, Igor Belwon wrote:
-> Add a dt-binding compatible for the Exynos990 Watchdog timer.
-> This watchdog is compatible with the GS101/Exynos850 design, as
-> such it requires the cluster-index and syscon-phandle properties
-> to be present. It also contains a cl2 cluster, as such the
-> cluster-index property has been expanded.
+On 18/02/2025 19:50, Kaustabh Chakraborty wrote:
+> Add unique identifiers for exynos7870 clocks for every bank. It adds all
+> clocks of CMU_MIF, CMU_DISPAUD, CMU_G3D, CMU_ISP, CMU_MFCMSCL, and
+> CMU_PERI.
 > 
-> Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 > ---
+>  include/dt-bindings/clock/exynos7870.h | 324 +++++++++++++++++++++++++++++++++
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Filename matching compatible. Look at other latest submissions.
+
 
 Best regards,
 Krzysztof
