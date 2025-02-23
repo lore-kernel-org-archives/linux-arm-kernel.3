@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0E37C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 23:53:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B6DCC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 23:56:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZqpsSfd4hK9sMOyyiNPBFdSaUXrM9eOMXEQlPVLZ1L4=; b=VZf57QgfDmnIbINI+jYBr0WHBo
-	XrHtgGNXLC08E/VnYgqDIk3ZizdK4Cp8K0hxoausFkT0Hxj3Su2p9FOnSp9XhgS6oH92Ke8BLhJyp
-	PCIMTSbuF3sCu4rTJyKMi9uRYtbj8ZGqeMQ2So1vum/cxIUw+VjquZORlkiZLhIg/qY3z/sDMNb4p
-	Leay0p+7GE5L0dffLhMPzgiXsNst0Sfyzsl9L2qYzE/dwQERV0enKkg6tU8NYg/z/ZeG6O2w3RlPT
-	VYmGTQQtB851VcuIjabxAmrQ4Jccpf7zmwF4IxPk5IrkXBg+TmX0kIUBN1QNCie+W4OC9oRgGcmx7
-	Tx1Lw2qg==;
+	bh=MO69vvfxawoe2HNuQ/9QFZVUJBZNSU898FyLnskC1yc=; b=Kt/lb0WKANKSNA4JDlQHNawjuZ
+	NpEh0zmcl5Y0ibPXIAQ3xF9/Ceis0zkY5VTZqJJvrF6xG6rvJdHo2bqBTNgKRZ/bXSQgALlw19Teq
+	+LqMXT7nvr8MdBBuw8HNArerNtJFZZ5ypc0h3+YErDQEbJdGGIo5lblRrU7PGZycQr4ycIsOtOxsX
+	vHlMM0bAlZnRuBEbO31cbdYfwW+C9h6B++1kkvwz2iuzvKcDujJWgSZtnUncLSzEa3DSjedl/tifZ
+	luLraoeOhrNxFb0Q/C6Yec8aHYvRc9I8leEFunmTZQgWFkkUC3dXxdp2EOr1raJp8eg5Mt0eC34tS
+	6/tIuJNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmLmt-0000000Bzje-3cuX;
-	Sun, 23 Feb 2025 23:53:31 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1tmLpo-0000000C04y-43af;
+	Sun, 23 Feb 2025 23:56:32 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmLlQ-0000000Bzc2-0vCK
+	id 1tmLoL-0000000BzwF-06Np
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Feb 2025 23:52:01 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-54626a71b40so3714135e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Feb 2025 15:51:59 -0800 (PST)
+	Sun, 23 Feb 2025 23:55:02 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-54838cd334cso2806753e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Feb 2025 15:55:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740354718; x=1740959518; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1740354899; x=1740959699; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZqpsSfd4hK9sMOyyiNPBFdSaUXrM9eOMXEQlPVLZ1L4=;
-        b=S5fRIq+W3+rNKXGlQFPADZpcppbckkUCTvg6JNvmMnQQwdFBTWKW2RoanQkGwM4bJ2
-         PZW0pHxQE9SsNozaN+4XmvwxKbmjK1NP/GOYCloJtwmzvZ98NCIG0nJXu0VT2crFs42F
-         4LcMaqKaCEvLQYKHm4W1dClA4VZ+Tv2ygfReZOTeQsOodJTRLF+fqiX4kOwFUT+v9rND
-         EQ2WhsUgS5AaooaK5fJQJ8P0gVTMFVvwhMvT/iSLq02JEvJAdNt1bMVNSo8RjNKzWfcB
-         5JMtrgWoKF+kr/YWjjoB3R+VWsPepSYsTkGOUUmEw/fe0zNbKjDxqo8fUVUxAWEtdNXH
-         AOmQ==
+        bh=MO69vvfxawoe2HNuQ/9QFZVUJBZNSU898FyLnskC1yc=;
+        b=tGXG4JkiC7hxRDBxO7YDtXoCX+rysFj/gqHN1bhrdHs89p8IueZabgYh+Nk6L8DtWK
+         6o8cBCd1ifyPd6Gn7q7Z0n05xmwxAhwmzi4Gbe2XRJm9jAydaUotyqvMA6cWhET63o0Q
+         PhbZ2mqfhcrphl96737phAfnXp3GpmgTsLjYpNzdQlVGoYOIlM7lXm++itmxMdMG3Gfm
+         3N+yhWQXQwfAPPhPGhagm+DQDbv5bp/zvv+z9zNYt5r5Qqh/hVpWsR+1FEJMTVQeWszj
+         tNxD2+Ypjc4cRQ4iPihVLWrVXiihEFryupMbUH0m+KjSbGR+aXzclA7zTmClQgS1MMqX
+         OizQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740354718; x=1740959518;
+        d=1e100.net; s=20230601; t=1740354899; x=1740959699;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ZqpsSfd4hK9sMOyyiNPBFdSaUXrM9eOMXEQlPVLZ1L4=;
-        b=L6XsxXB6mEiSfH9m3B+KAE/rAFqsNZX7txItnQCH1q+sSLMeREFvLM8QcMNKtEAGOv
-         /ipViZktZm8X5v8r9rawJ5UIokmHOgY0TnGMgdKm5OXZz5j/bfqtanz7f749qweUvbZK
-         h2R5SxGlN0+81Ns++0JpyVnQjwlaj4lOoolLCj37dRvTETIHK3qWdBwXbh8Oca/xTSqC
-         Qg8gIHunyuCVhGfQqtdtFUpfRaBU2o08W8Fe0nu2YjWPNiRkzCy7ux3lmnEGOifTLVu0
-         polmqv7H7mQK5fRN+o+oLNeVJ2fSa7KLnYWmce5yAg6alCeX+GuGuhh04TbAxw36MgFW
-         R0Yw==
-X-Forwarded-Encrypted: i=1; AJvYcCWBQXnUhH1wY7RZ6i+DlOneRas8OID2Ikm4k1+WXOtTzcuU71NEoOmZ0vtjKWLx9rRynxi56iobl1rJKnLpPrP7@lists.infradead.org
-X-Gm-Message-State: AOJu0YzaWz9oahUmZdKR8Uhvbnk2cEoTs9qSaXTJJhPUck+/pH5tQ911
-	MbT7V8XWM8zgr0FUlk3HHHXyWTK4o2sxN6UoI/cJCo1mr/dWyuqAXB7by4NWbTs=
-X-Gm-Gg: ASbGncsL5nUVshouhZubn0tk6TPTU8DZs8jQ+9gH8+4GJJn1AuJHVQc0kQyA4F2syVK
-	2HXfOHcAuPW13EFCufkwhdrzd92W0k4VzMgml+6h1frrb7Ykjd7eUZU6Phw7engt+1vn3TDkoAJ
-	xvbHmW7L80iKdIFR6Rs9Ps9M1r/4SWj1+GVZw6goTUirenuz2vkQdXuMoMn1wBopwEiwruEkkPT
-	mJwb2myVP8cygq/HH1dhbMJN3gYjUIucnWnidDdLdnJ+nXJtCR2uETjy4rIZMrdgD6k1vBKBRzT
-	AnCBVt1p6BOeaB34rPT54mkNBTyKM5vVunUmav3U/3yKm89cluJG5hKKOf7QfTbHgGQCioy5mVF
-	art8f6w==
-X-Google-Smtp-Source: AGHT+IEpJwtjfAQELBV6QLX+Dx/RJbukpSeVjI5C/XlxolpeCymBYYRyu1xtRVKJ/uK17lMxs8fvVw==
-X-Received: by 2002:a05:6512:12c4:b0:546:3136:f03d with SMTP id 2adb3069b0e04-5483925996emr3876237e87.35.1740354718344;
-        Sun, 23 Feb 2025 15:51:58 -0800 (PST)
+        bh=MO69vvfxawoe2HNuQ/9QFZVUJBZNSU898FyLnskC1yc=;
+        b=X3fVRsqQeifjJ1us7pBvZt1mb4kMco4YtyKo+YiwgWG5jnmPMamIjADtJ3NiEEXB25
+         5Ef40YuMK4T09vIf7TK4Wwn8yBv1DFk2hhJsDbTr7yOi1x7uVSGdLSu0RoMykm7dQ0Pe
+         s7PL/UnvkZx5x7v/lhTB0VFhpupPXRSEEiIMqFTOFahQL7fZJ2keEnDlQaTY8MdP4YsQ
+         yolSeuQE5Y39yXu5mBm/41yUyvqWLZz83udEGR3kC+6QLd6OntT0xku0k7dpJ55RKKiI
+         SVeD6oBUznF6TosxzbI2Aor/BIqdAfxmyw9BfUth6X5lgimcV2NswmtKL9Hg8NrqJglH
+         rgxw==
+X-Forwarded-Encrypted: i=1; AJvYcCVov2xMkpTRg9zRLMnLfmYiznF1ACHpyA3q2TT48yU9qJpEcavjbEjhn0xWSbmIwb6SEpcLn8abfliPUnA5oNNR@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGtjyZn6nRE2kVwv54jixE2fN0Biplr19m5j4DsiglvlS4UFZY
+	xihB68K1HUtU0iBoozAc9uWuP69YZekOuY9pb13aXWX1cb1tMMqtsjIXXZRVRRo=
+X-Gm-Gg: ASbGncs7xDdF0RwrYR7vekA5Pjs/BfnMrkBQn3Tjvy4mS7WPEW8TrLT+PCTTlNXIA/i
+	hgnDuQa3bOcuFgqms0TEVAfnlgdlfqHZLX2D9xqcQLD/2lWs4Iw7Vyny8u5x66+UIKXUH+SIEny
+	Od4l5cfwixc5OAgkh2svq25KR6sV+qE5rNHXXaRju4h+ZjjVdZI2q0iMA/A4abMblKorwLQXKuS
+	iqepWAirY7ExJfwAUySqO/fi1T1SeCo4EsWcqxVfjv5r95vg5UVq456mIesyLUfW+fPd35v+PqE
+	5Tj3iaBo1uTt/Nijx3e1CcPIQ8xM1BRYP29e7XyTAzrHmsXzUPE0GTAaDNq5KrTGL2ss/hlvyfp
+	Eri4AiQ==
+X-Google-Smtp-Source: AGHT+IHWZiY9l4ceFSLMfzXCkrvrA7BoZtPrqLKoUOz7ReQ2TLLajGXi72SpKOyuPoZptA2mBy16jg==
+X-Received: by 2002:a05:6512:3b10:b0:545:2efc:745d with SMTP id 2adb3069b0e04-54838f79c81mr4594575e87.46.1740354898995;
+        Sun, 23 Feb 2025 15:54:58 -0800 (PST)
 Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54530df9016sm2706600e87.36.2025.02.23.15.51.55
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5462f125a0esm1423144e87.24.2025.02.23.15.54.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 23 Feb 2025 15:51:56 -0800 (PST)
-Date: Mon, 24 Feb 2025 01:51:54 +0200
+        Sun, 23 Feb 2025 15:54:57 -0800 (PST)
+Date: Mon, 24 Feb 2025 01:54:55 +0200
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 Cc: Vinod Koul <vkoul@kernel.org>, 
@@ -78,17 +78,17 @@ Cc: Vinod Koul <vkoul@kernel.org>,
 	Abel Vesa <abel.vesa@linaro.org>, linux-arm-msm@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org, 
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 7/8] phy: phy-snps-eusb2: add support for exynos2200
-Message-ID: <ac7bq3toicuoppmspqvohiss5wkhgw4v6aozzstd5pr66bfcse@k7tqijab4csq>
+Subject: Re: [PATCH v2 8/8] phy: samsung: add Exynos2200 usb phy controller
+Message-ID: <tkzfgfbu6j22c75zieponozeld5vvlqv65fnzjy3n2am2ajim5@yhc3tcr5ulfy>
 References: <20250223122227.725233-1-ivo.ivanov.ivanov1@gmail.com>
- <20250223122227.725233-8-ivo.ivanov.ivanov1@gmail.com>
+ <20250223122227.725233-9-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250223122227.725233-8-ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <20250223122227.725233-9-ivo.ivanov.ivanov1@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250223_155200_269853_B45238BC 
-X-CRM114-Status: GOOD (  22.48  )
+X-CRM114-CacheID: sfid-20250223_155501_102688_931D8541 
+X-CRM114-Status: GOOD (  32.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,123 +103,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Feb 23, 2025 at 02:22:26PM +0200, Ivaylo Ivanov wrote:
-> The Exynos2200 SoC reuses the Synopsis eUSB2 PHY IP, alongside an
-> external repeater, for USB 2.0. Add support for it to the existing
-> driver.
+On Sun, Feb 23, 2025 at 02:22:27PM +0200, Ivaylo Ivanov wrote:
+> The Exynos2200 SoC comes with a TI external repeater and 3 USB PHYs:
+> - snps eUSB2 for UTMI
+> - snps USBDP combophy for PIPE3 and DP
+> - samsung USBCON phy
+> 
+> The USBCON phy is an intermediary between the USB controller (DWC3)
+> and the underlying PHYs. Add a new driver for it, modelled to take
+> a phandle to the high-speed PHY for now.
 > 
 > Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 > ---
->  drivers/phy/Kconfig          |   2 +-
->  drivers/phy/phy-snps-eusb2.c | 172 +++++++++++++++++++++++++++++++++++
->  2 files changed, 173 insertions(+), 1 deletion(-)
+>  drivers/phy/samsung/Kconfig                 |  12 +
+>  drivers/phy/samsung/Makefile                |   1 +
+>  drivers/phy/samsung/phy-exynos2200-usbcon.c | 250 ++++++++++++++++++++
+>  3 files changed, 263 insertions(+)
+>  create mode 100644 drivers/phy/samsung/phy-exynos2200-usbcon.c
 > 
-> diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
-> index 11c166204..58c911e1b 100644
-> --- a/drivers/phy/Kconfig
-> +++ b/drivers/phy/Kconfig
-> @@ -45,7 +45,7 @@ config PHY_PISTACHIO_USB
+> diff --git a/drivers/phy/samsung/Kconfig b/drivers/phy/samsung/Kconfig
+> index e2330b089..0f809a382 100644
+> --- a/drivers/phy/samsung/Kconfig
+> +++ b/drivers/phy/samsung/Kconfig
+> @@ -77,6 +77,18 @@ config PHY_S5PV210_USB2
+>  	  particular SoC is compiled in the driver. In case of S5PV210 two phys
+>  	  are available - device and host.
 >  
->  config PHY_SNPS_EUSB2
->  	tristate "SNPS eUSB2 PHY Driver"
-> -	depends on OF && (ARCH_QCOM || COMPILE_TEST)
-> +	depends on OF && (ARCH_EXYNOS || ARCH_QCOM || COMPILE_TEST)
->  	select GENERIC_PHY
->  	help
->  	  Enable support for the USB high-speed SNPS eUSB2 phy on select
-> diff --git a/drivers/phy/phy-snps-eusb2.c b/drivers/phy/phy-snps-eusb2.c
-> index 7a242fe32..67a19d671 100644
-> --- a/drivers/phy/phy-snps-eusb2.c
-> +++ b/drivers/phy/phy-snps-eusb2.c
-> @@ -13,6 +13,39 @@
->  #include <linux/regulator/consumer.h>
->  #include <linux/reset.h>
->  
-> +#define EXYNOS_USB_PHY_HS_PHY_CTRL_RST	(0x0)
-> +#define USB_PHY_RST_MASK		GENMASK(1, 0)
-> +#define UTMI_PORT_RST_MASK		GENMASK(5, 4)
+> +config PHY_EXYNOS2200_USBCON
+> +	tristate "Exynos2200 USBCON PHY driver"
+> +	depends on (ARCH_EXYNOS && OF) || COMPILE_TEST
+> +	depends on HAS_IOMEM
+> +	select GENERIC_PHY
+> +	select MFD_SYSCON
+> +	default y
+> +	help
+> +	  Enable USBCON PHY support for Exynos2200 SoC.
+> +	  This driver provides PHY interface for the USBCON phy, which acts as
+> +	  an intermediary between the USB controller and underlying PHYs.
 > +
-> +#define EXYNOS_USB_PHY_HS_PHY_CTRL_COMMON	(0x4)
-> +#define RPTR_MODE			BIT(10)
-> +#define FSEL_20_MHZ_VAL			(0x1)
-> +#define FSEL_24_MHZ_VAL			(0x2)
-> +#define FSEL_26_MHZ_VAL			(0x3)
-> +#define FSEL_48_MHZ_VAL			(0x2)
+>  config PHY_EXYNOS5_USBDRD
+>  	tristate "Exynos5 SoC series USB DRD PHY driver"
+>  	depends on (ARCH_EXYNOS && OF) || COMPILE_TEST
+> diff --git a/drivers/phy/samsung/Makefile b/drivers/phy/samsung/Makefile
+> index fea1f96d0..e2686a3f5 100644
+> --- a/drivers/phy/samsung/Makefile
+> +++ b/drivers/phy/samsung/Makefile
+> @@ -14,5 +14,6 @@ phy-exynos-usb2-$(CONFIG_PHY_EXYNOS4210_USB2)	+= phy-exynos4210-usb2.o
+>  phy-exynos-usb2-$(CONFIG_PHY_EXYNOS4X12_USB2)	+= phy-exynos4x12-usb2.o
+>  phy-exynos-usb2-$(CONFIG_PHY_EXYNOS5250_USB2)	+= phy-exynos5250-usb2.o
+>  phy-exynos-usb2-$(CONFIG_PHY_S5PV210_USB2)	+= phy-s5pv210-usb2.o
+> +obj-$(CONFIG_PHY_EXYNOS2200_USBCON)	+= phy-exynos2200-usbcon.o
+>  obj-$(CONFIG_PHY_EXYNOS5_USBDRD)	+= phy-exynos5-usbdrd.o
+>  obj-$(CONFIG_PHY_EXYNOS5250_SATA)	+= phy-exynos5250-sata.o
+> diff --git a/drivers/phy/samsung/phy-exynos2200-usbcon.c b/drivers/phy/samsung/phy-exynos2200-usbcon.c
+> new file mode 100644
+> index 000000000..aad59349e
+> --- /dev/null
+> +++ b/drivers/phy/samsung/phy-exynos2200-usbcon.c
+> @@ -0,0 +1,250 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c) 2025, Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+> + */
 > +
-> +#define EXYNOS_USB_PHY_CFG_PLLCFG0	(0x8)
-> +#define PHY_CFG_PLL_FB_DIV_19_8_MASK	GENMASK(19, 8)
-> +#define DIV_19_8_19_2_MHZ_VAL		(0x170)
-> +#define DIV_19_8_20_MHZ_VAL		(0x160)
-> +#define DIV_19_8_24_MHZ_VAL		(0x120)
-> +#define DIV_19_8_26_MHZ_VAL		(0x107)
-> +#define DIV_19_8_48_MHZ_VAL		(0x120)
+> +#include <linux/clk.h>
+> +#include <linux/delay.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/phy/phy.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+> +#include <linux/regulator/consumer.h>
+> +#include <linux/soc/samsung/exynos-regs-pmu.h>
 > +
-> +#define EXYNOS_USB_PHY_CFG_PLLCFG1	(0xc)
-> +#define EXYNOS_PHY_CFG_PLL_FB_DIV_11_8_MASK	GENMASK(11, 8)
-> +#define EXYNOS_DIV_11_8_19_2_MHZ_VAL	(0x0)
-> +#define EXYNOS_DIV_11_8_20_MHZ_VAL	(0x0)
-> +#define EXYNOS_DIV_11_8_24_MHZ_VAL	(0x0)
-> +#define EXYNOS_DIV_11_8_26_MHZ_VAL	(0x0)
-> +#define EXYNOS_DIV_11_8_48_MHZ_VAL	(0x1)
+> +#define EXYNOS2200_USBCON_LINKCTRL		0x4
+> +#define LINKCTRL_FORCE_QACT			BIT(8)
 > +
-> +#define EXYNOS_PHY_CFG_TX		(0x14)
-> +#define EXYNOS_PHY_CFG_TX_FSLS_VREF_TUNE_MASK	GENMASK(2, 1)
+> +#define EXYNOS2200_USBCON_UTMI_CTRL		0x10
+> +#define UTMI_CTRL_FORCESLEEP			BIT(13)
+> +#define UTMI_CTRL_FORCESUSPEND			BIT(12)
+> +#define UTMI_CTRL_FORCE_VBUSVALID		BIT(1)
+> +#define UTMI_CTRL_FORCE_BVALID			BIT(0)
 > +
-> +#define EXYNOS_USB_PHY_UTMI_TESTSE	(0x20)
-> +#define TEST_IDDQ			BIT(6)
+> +#define EXYNOS2200_USBCON_LINK_CLKRST		0xc
+> +#define LINK_CLKRST_SW_RST			BIT(0)
 > +
->  #define QCOM_USB_PHY_UTMI_CTRL0		(0x3c)
->  #define SLEEPM				BIT(0)
->  #define OPMODE_MASK			GENMASK(4, 3)
-> @@ -196,6 +229,93 @@ static void qcom_eusb2_default_parameters(struct snps_eusb2_hsphy *phy)
->  				    FIELD_PREP(PHY_CFG_TX_HS_XV_TUNE_MASK, 0x0));
->  }
->  
-> +static int exynos_eusb2_ref_clk_init(struct snps_eusb2_hsphy *phy)
+> +struct exynos2200_usbcon_phy_drvdata {
+> +	const char * const *clk_names;
+> +	int num_clks;
+> +};
+> +
+> +struct exynos2200_usbcon_phy {
+> +	struct phy *phy;
+> +	void __iomem *base;
+> +	struct regmap *reg_pmu;
+> +	struct clk_bulk_data *clks;
+> +	const struct exynos2200_usbcon_phy_drvdata *drv_data;
+> +	u32 pmu_offset;
+> +	struct phy *hs_phy;
+> +};
+> +
+> +static void exynos2200_usbcon_phy_isol(struct exynos2200_usbcon_phy *inst,
+> +				       bool isolate)
 > +{
-> +	unsigned long ref_clk_freq = clk_get_rate(phy->ref_clk);
+> +	unsigned int val;
 > +
-> +	switch (ref_clk_freq) {
-> +	case 19200000:
-> +		snps_eusb2_hsphy_write_mask(phy->base, EXYNOS_USB_PHY_HS_PHY_CTRL_COMMON,
-> +					    FSEL_MASK,
-> +					    FIELD_PREP(FSEL_MASK, FSEL_19_2_MHZ_VAL));
+> +	if (!inst->reg_pmu)
+> +		return;
 > +
+> +	val = isolate ? 0 : EXYNOS4_PHY_ENABLE;
+> +
+> +	regmap_update_bits(inst->reg_pmu, inst->pmu_offset,
+> +			   EXYNOS4_PHY_ENABLE, val);
+> +}
+> +
+> +static void exynos2200_usbcon_phy_write_mask(void __iomem *base, u32 offset,
+> +					     u32 mask, u32 val)
+> +{
+> +	u32 reg;
+> +
+> +	reg = readl(base + offset);
+> +	reg &= ~mask;
+> +	reg |= val & mask;
+> +	writel(reg, base + offset);
 
-Could you please unify the switchcase? assign the values to temp
-variables, then program them from a single code stream. Or maybe even
-replace switch-case with a table-based lookup.
+Does this need any kind of locking? Maybe you can use regmap for this
+access too?
 
-(we probably should implement the similar change for qcom part. Maybe
-you can refactor it too?)
+> +
+> +	/* Ensure above write is completed */
+> +	readl(base + offset);
+> +}
 
-Other than that LGTM.
+[...]
 
-> +		snps_eusb2_hsphy_write_mask(phy->base, EXYNOS_USB_PHY_CFG_PLLCFG0,
-> +					    PHY_CFG_PLL_FB_DIV_19_8_MASK,
-> +					    FIELD_PREP(PHY_CFG_PLL_FB_DIV_19_8_MASK,
-> +						       DIV_19_8_19_2_MHZ_VAL));
 > +
-> +		snps_eusb2_hsphy_write_mask(phy->base, EXYNOS_USB_PHY_CFG_PLLCFG1,
-> +					    EXYNOS_PHY_CFG_PLL_FB_DIV_11_8_MASK,
-> +					    EXYNOS_DIV_11_8_19_2_MHZ_VAL);
-> +		break;
+> +	generic_phy = devm_phy_create(dev, NULL, &exynos2200_usbcon_phy_ops);
+> +	if (IS_ERR(generic_phy))
+> +		return dev_err_probe(dev, PTR_ERR(generic_phy),
+> +				     "failed to create phy %d\n", ret);
 > +
-> +	case 20000000:
-> +		snps_eusb2_hsphy_write_mask(phy->base, EXYNOS_USB_PHY_HS_PHY_CTRL_COMMON,
-> +					    FSEL_MASK,
-> +					    FIELD_PREP(FSEL_MASK, FSEL_20_MHZ_VAL));
+> +	dev_set_drvdata(dev, phy);
+
+Nit: unused. LGTM otherwise.
+
+> +	phy_set_drvdata(generic_phy, phy);
 > +
-> +		snps_eusb2_hsphy_write_mask(phy->base, EXYNOS_USB_PHY_CFG_PLLCFG0,
-> +					    PHY_CFG_PLL_FB_DIV_19_8_MASK,
-> +					    FIELD_PREP(PHY_CFG_PLL_FB_DIV_19_8_MASK,
-> +						       DIV_19_8_20_MHZ_VAL));
+> +	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
+> +	if (IS_ERR(phy_provider))
+> +		return dev_err_probe(dev, PTR_ERR(phy_provider),
+> +				     "failed to register phy provider\n");
 > +
-> +		snps_eusb2_hsphy_write_mask(phy->base, EXYNOS_USB_PHY_CFG_PLLCFG1,
-> +					    EXYNOS_PHY_CFG_PLL_FB_DIV_11_8_MASK,
-> +					    EXYNOS_DIV_11_8_20_MHZ_VAL);
-> +		break;
+> +	return 0;
+> +}
 > +
+> +static const char * const exynos2200_clk_names[] = {
+> +	"bus",
+> +};
+> +
+> +static const struct exynos2200_usbcon_phy_drvdata exynos2200_usbcon_phy = {
+> +	.clk_names		= exynos2200_clk_names,
+> +	.num_clks		= ARRAY_SIZE(exynos2200_clk_names),
+> +};
+> +
+> +static const struct of_device_id exynos2200_usbcon_phy_of_match_table[] = {
+> +	{
+> +		.compatible = "samsung,exynos2200-usbcon-phy",
+> +		.data = &exynos2200_usbcon_phy,
+> +	}, { },
+> +};
+> +MODULE_DEVICE_TABLE(of, exynos2200_usbcon_phy_of_match_table);
+> +
+> +static struct platform_driver exynos2200_usbcon_phy_driver = {
+> +	.probe		= exynos2200_usbcon_phy_probe,
+> +	.driver = {
+> +		.name	= "exynos2200-usbcon-phy",
+> +		.of_match_table = exynos2200_usbcon_phy_of_match_table,
+> +	},
+> +};
+> +
+> +module_platform_driver(exynos2200_usbcon_phy_driver);
+> +MODULE_DESCRIPTION("Exynos2200 USBCON PHY driver");
+> +MODULE_LICENSE("GPL");
+> -- 
+> 2.43.0
+> 
 
 -- 
 With best wishes
