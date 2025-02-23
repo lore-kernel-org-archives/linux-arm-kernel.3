@@ -4,75 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E202C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 11:46:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C06FCC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 11:49:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NgBWyniUF/OIJUlHK2K7BrSpGMn7fltVSGcDSX0c/GY=; b=t//wca6q6jhnJitRtiGZ78ZZzc
-	2GrEOWf1eXVGnP5nK8klGuYzbWUutLSHh1yURYaHzttyPxF+jyPYvQbSt+pehmSyNW0850b2Sxkok
-	IJn0c/vZGYthppmrLmbaKrsDvUSDJohuZpp3a+IjwL8g4X4TLiPr8o3ESv8g6QfBHVcnE9Z3Nr/CN
-	JCRRzR8ZwJ/5+fw5T+/6kmrjp6xIdBAPKn3OuwvsRInYpYuz46zAxg7HgTL2tv6fNTmnCNkuy3Im3
-	SLoFfD4j4eBR44IePcMrq4sO9Ai7almXWdpnjLgKgGIwj2UsJDbkIRHw9E5R03uM4T6QJpvKROhAy
-	KlKPti3A==;
+	bh=m70OakGwCdr54vivJBtmBWI+oSVHcmNI9aCtPbQHn8o=; b=AV5BMnbb1qrZOscdt4tGPF8BmO
+	t0FQ/+sPVaF4SGbVquE7BFSUPzt585IQX8YxwYT+hfhHv9PrERal5ZNRG9ghqk71ZHsfWwXT7PM2q
+	bT3u4akSn11oQ51Ua4GFDacgPt8ENxCiaqh9BRpSzF9uv5APx/5D5szrHbUTig9qsodiylCtn19QY
+	Bym/0i33qitB97pdCtu/H7hnu+FOvJxcGwbUOhXncPJWGBrqi+E3/5xA/k/spqNpkteF8wp5D0pRr
+	4AsQQYkjvouzGDmWu9Xsbv7nmnj7xLyJCnUnKOcwChQoyiAeQKd90QHUPJVNZscqOkFqQTmRQf+Hh
+	By/VBaFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmARO-0000000B0wL-2hoE;
-	Sun, 23 Feb 2025 11:46:34 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tmATo-0000000B1JC-0VTO;
+	Sun, 23 Feb 2025 11:49:04 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmANc-0000000B0EX-1hH7;
-	Sun, 23 Feb 2025 11:42:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=NgBWyniUF/OIJUlHK2K7BrSpGMn7fltVSGcDSX0c/GY=; b=FIAYQaLjg14eiUynjgEta+jcV6
-	ncxKfDn7c5vT5jHvjLpNKBzxSR2LuYPX5WP+/lc2+LAqfFPlpt7Qs4BD2AwPzTyEXn/UpwVRDUZB3
-	/MRe/uM63FmDNZdf5bVjldLKiOO1nIkxngExo/E4aGlwssrsJ5oRcJc73KZviwtFnlzarbFIpvB7p
-	6AltjBZbgtnoHheNlX2hixabQQ3/c4pvYzicE+QOJ/cthdCVawlAKTjsC0HSNUB8kgr1FexuYxrVE
-	tvEw6B+danCezT63cQdu8rdfSQ/T23RYTBcHT9sAi6W1Hp8G/z8cU5awaH0e5pWTXn66r9afrOw1U
-	y05zJiOw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54522)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tmALM-0002rw-1T;
-	Sun, 23 Feb 2025 11:40:20 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tmALG-0003y2-2N;
-	Sun, 23 Feb 2025 11:40:14 +0000
-Date: Sun, 23 Feb 2025 11:40:14 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>, Joe Perches <joe@perches.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Drew Fustini <drew@pdp7.com>, Eric Dumazet <edumazet@google.com>,
-	Fu Wei <wefu@redhat.com>, Guo Ren <guoren@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 0/2] net: stmmac: thead: clean up clock rate
- setting
-Message-ID: <Z7sJHuiqbr4GU05c@shell.armlinux.org.uk>
-References: <Z7iKdaCp4hLWWgJ2@shell.armlinux.org.uk>
+	id 1tmASL-0000000B17v-1Fvn
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 23 Feb 2025 11:47:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 97A8F5C684B;
+	Sun, 23 Feb 2025 11:46:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3B5AC4CEDD;
+	Sun, 23 Feb 2025 11:47:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740311252;
+	bh=c4aBh0SYBAutVvanVxoT09U90yHT1CI9HJ/ZAilY5pw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=d6hIdrU4aGsFHMMbxt1e9/3Y0ICd4bfWi47R5Uug8BSA/kXMSRCX/EC9EBIX5UAXG
+	 wZMAjExlH1Nyj42BjFD4Ugzxw+Vj9xckTxsnHtxaw/WyZeETnHy//jyUeOv4E2SaxA
+	 pmA/At6I4FTTbqRtU19T5ZKg5i2K7YvonGYCX4eQTQY6ecbWowqRNB/gnLcQQBLy/A
+	 sDDXxfvevXqY7hGH26jvPfeECvlD/beQoi3rc3yn7s/1iIQqHRSZJTwW3OoRUGyMlV
+	 oDFmIa4TReSq41pgSUls1VpcL4rPUKA7QK2gHOfU9aisL0iqhNs8O2iTxu0wuMKUOY
+	 pol7tTiEHedLw==
+Date: Sun, 23 Feb 2025 12:47:29 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Mirela Rabulea <mirela.rabulea@nxp.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Ming Qian <ming.qian@nxp.com>
+Subject: Re: [PATCH 1/2] media: dt-bindings: nxp,imx8-jpeg: Add compatible
+ strings for IMX95 JPEG
+Message-ID: <20250223-military-garrulous-toucan-c9a410@krzk-bin>
+References: <20250221-95_jpeg-v1-0-053decdb452c@nxp.com>
+ <20250221-95_jpeg-v1-1-053decdb452c@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <Z7iKdaCp4hLWWgJ2@shell.armlinux.org.uk>
+In-Reply-To: <20250221-95_jpeg-v1-1-053decdb452c@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250223_034240_453693_E1234916 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20250223_034733_390127_C49C3F67 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,87 +78,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adding Joe Perches.
-
-On Fri, Feb 21, 2025 at 02:15:17PM +0000, Russell King (Oracle) wrote:
-> Hi,
+On Fri, Feb 21, 2025 at 12:48:18PM -0500, Frank Li wrote:
+> Add compatible strings "nxp,imx95-jpgdec" and "nxp,imx95-jpgenc", which
+> are backward compatible with "nxp,imx8qxp-jpgdec" and
+> "nxp,imx8qxp-jpegenc". i.MX95 just need one power domain which combine
+> wrap and all slots together. Reduce minItems of power-domains to 1 for
+> i.MX95 and keep the same restriction for others.
 > 
-> This series cleans up the thead clock rate setting to use the
-> rgmii_clock() helper function added to phylib.
-> 
-> The first patch switches over to using the rgmii_clock() helper,
-> and the second patch cleans up the verification that the desired
-> clock rate is achievable, allowing the private clock rate
-> definitions to be removed.
-> 
->  drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c | 28 ++++++++---------------
->  1 file changed, 9 insertions(+), 19 deletions(-)
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  .../devicetree/bindings/media/nxp,imx8-jpeg.yaml   | 28 +++++++++++++++++++---
+>  1 file changed, 25 insertions(+), 3 deletions(-)
 
-I've been investigating why the NIPA bot complains about maintainers
-not being Cc'd, such as for patch 1 of this series:
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-https://netdev.bots.linux.dev/static/nipa/936447/13985595/cc_maintainers/stdout
+Best regards,
+Krzysztof
 
-I think this is a bug in either get_maintainers.pl or the NIPA bot.
-
-On the bare patch without any Cc: header added:
-
-$ scripts/get_maintainer.pl 0001-net-stmmac-thead-use-rgmii_clock-for-RGMII-clock-rat.patch
-Drew Fustini <drew@pdp7.com> (maintainer:RISC-V THEAD SoC SUPPORT)
-Guo Ren <guoren@kernel.org> (maintainer:RISC-V THEAD SoC SUPPORT)
-Fu Wei <wefu@redhat.com> (maintainer:RISC-V THEAD SoC SUPPORT)
-Andrew Lunn <andrew+netdev@lunn.ch> (maintainer:NETWORKING DRIVERS)
-"David S. Miller" <davem@davemloft.net> (maintainer:NETWORKING DRIVERS)
-Eric Dumazet <edumazet@google.com> (maintainer:NETWORKING DRIVERS)
-Jakub Kicinski <kuba@kernel.org> (maintainer:NETWORKING DRIVERS)
-Paolo Abeni <pabeni@redhat.com> (maintainer:NETWORKING DRIVERS)
-Maxime Coquelin <mcoquelin.stm32@gmail.com> (maintainer:ARM/STM32 ARCHITECTURE)
-Alexandre Torgue <alexandre.torgue@foss.st.com> (maintainer:ARM/STM32 ARCHITECTURE)
-linux-riscv@lists.infradead.org (open list:RISC-V THEAD SoC SUPPORT)
-netdev@vger.kernel.org (open list:STMMAC ETHERNET DRIVER)
-linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE)
-linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE)
-
-If I add those maintainers to a Cc header in the patch file (as it would
-be if NIPA runs on the unmodified received email), and then re-run
-get_maintainer.pl, then:
-
-$ scripts/get_maintainer.pl 0001-net-stmmac-thead-use-rgmii_clock-for-RGMII-clock-rat.patch
-Drew Fustini <drew@pdp7.com> (maintainer:RISC-V THEAD SoC SUPPORT)
-Guo Ren <guoren@kernel.org> (maintainer:RISC-V THEAD SoC SUPPORT)
-Fu Wei <wefu@redhat.com> (maintainer:RISC-V THEAD SoC SUPPORT)
-Andrew Lunn <andrew+netdev@lunn.ch> (maintainer:NETWORKING DRIVERS)
-"David S. Miller" <davem@davemloft.net> (maintainer:NETWORKING DRIVERS)
-Eric Dumazet <edumazet@google.com> (maintainer:NETWORKING DRIVERS)
-Jakub Kicinski <kuba@kernel.org> (maintainer:NETWORKING DRIVERS)
-Paolo Abeni <pabeni@redhat.com> (maintainer:NETWORKING DRIVERS)
-Maxime Coquelin <mcoquelin.stm32@gmail.com> (maintainer:ARM/STM32 ARCHITECTURE)
-Alexandre Torgue <alexandre.torgue@foss.st.com> (maintainer:ARM/STM32 ARCHITECTURE)
-Paul Walmsley <paul.walmsley@sifive.com> (supporter:RISC-V ARCHITECTURE:Keyword:riscv)
-Palmer Dabbelt <palmer@dabbelt.com> (supporter:RISC-V ARCHITECTURE:Keyword:riscv)
-Albert Ou <aou@eecs.berkeley.edu> (supporter:RISC-V ARCHITECTURE:Keyword:riscv)
-linux-riscv@lists.infradead.org (open list:RISC-V THEAD SoC SUPPORT)
-netdev@vger.kernel.org (open list:STMMAC ETHERNET DRIVER)
-linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE)
-linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE)
-linux-kernel@vger.kernel.org (open list)
-
-Note the addition of Paul Walmsley, Palmer Dabbelt and Albert Ou that
-was not in the original.
-
-It seems that K: is fed everything in the file, including all headers.
-In the second run, the addition of the linux-riscv@lists.infradead.org
-mailing list in the headers then causes a subseqent run of
-get_maintainer.pl (and nipa's run of get_maintainer.pl) to then match
-using K: riscv in the "RISC-V ARCHITECTURE" entry.
-
-So, it seems running get_maintainer.pl on an email received from
-mailing lists without first stripping many of the email headers can
-lead to false K: matches.
-
-This makes NIPA's cc_maintainers test unreliable.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
