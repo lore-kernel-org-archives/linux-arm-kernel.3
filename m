@@ -4,70 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3DCDC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 12:37:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE077C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 12:39:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=snjxivABr1OyDqYb2NVPxunB52diksXhIJ5NrLLPtwA=; b=2/KPw7nFqGZMdCnp4/0Fp3M1Eh
-	FEluC7h03TUcvjjx8fYFpk49SNVJSCS/I6vfFwAYWFeZnDjn9w9a9HAuAiw+kzlsxErjn9MN7E2Lb
-	0VgYFcATcmaj1KfR7ZRP3P5jrsBVmUcHT97QqtI8U6IQXrDjDdX66pDVL3agc6Uvba1PS2+/dAGKT
-	Zp3bctk70ZDFKu1t5FCagEMn/Ktzr9WEaPOFOAepqRBwsmlm13BnWmD3yZInXu+CFVGgXYMc2M/v7
-	Nb8ReK4Ls7icxTMkf/U4PlhsU2O96/NmHxht5KBB49Inu5hyQgv94waYyh+abXGoxvaL31M0epIeX
-	+Q3OH+qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eXqHi+96U8DE66IBSv5ozW+UKbtywue+9B2TMWS46o8=; b=lbhyIxsm3iR6SthWq+CYHXkhKj
+	JQtKT7NCVThgn/sm7z180UyZUQWbnZ/fe3T119DU7lz1nt1CN8iRv9W5CWIaJL1qX4Q/O62ZWyQzS
+	8cbxr09fCnd8R1kEyPRiiHU8JcvgiLX7jYFbNEqIxFYEzXUwjo7S6mlv1PlgxYONagpxqnW5Ukj1L
+	KwVp98sGBo1Bmkog/tYING7+08CVaN9OGPzR6uUge+/Iop3x4Nghz32fR8LlcZ7F5F293FcffdPUO
+	yvVdIAit/vIsE50QdBMedndDd8IExRamR2DLOGGB1i/fZzo6j6hL1vq4Jgu9EW41LZLjrrhIeWg1V
+	ubYOpdZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmBEi-0000000B72H-0oMh;
-	Sun, 23 Feb 2025 12:37:32 +0000
-Received: from mail-m16.yeah.net ([1.95.21.14])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmB1L-0000000B54N-3zPS
+	id 1tmBG8-0000000B7B2-3r7V;
+	Sun, 23 Feb 2025 12:39:00 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmB8C-0000000B68T-3I94
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Feb 2025 12:23:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=snjxivABr1OyDqYb2NVPxunB52diksXhIJ5NrLLPtwA=;
-	b=eRTbiZ7C2HzhplWvs668ZS3GL4umJm5x5LFASkoRGSETScNulnTjRECIP0N2qg
-	LJjI6/yLL6PMYe+JlohMdMxDdVmqHgYcs0gZQvAkH4G1m3innCX8fH44Vsh6zIYZ
-	T3hF4SScFaLi4FR8iEYTSyqXI1z3qju5RjMO1iamFp4TI=
-Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgBHbxscE7tnTfSOCQ--.21898S3;
-	Sun, 23 Feb 2025 20:22:54 +0800 (CST)
-Date: Sun, 23 Feb 2025 20:22:51 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	Arnd Bergmann <arnd@arndb.de>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Mark Brown <broonie@kernel.org>, soc@lists.linux.dev,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Sun, 23 Feb 2025 12:30:50 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-439a4fc2d65so32813935e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Feb 2025 04:30:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740313847; x=1740918647; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=eXqHi+96U8DE66IBSv5ozW+UKbtywue+9B2TMWS46o8=;
+        b=mfyS3yvTzIX3jV2DzgNr+N5uSllC3DHB1xLe/c5ihtjICe2z/4cvIsyg+5E92s9AYW
+         KCFMjNUZrLzQnui2N2C8aD+CVRWbFokpSUaunKE/qF0tGTr7uuaPEFv+vUT/1BMMEX/s
+         E/3aUTcodNhfIzC+Qg2JgvaP/qCVJGjD0lbO+Cl8YvOq/PVRPs4AWK0k7DpoKDNqZqFN
+         sRzNLXl7FiprBF0UkAZw3n+256zrtZk7jGsIPjmDGHZhrq8CAE/7+Z/F37Gm4+mMNZQi
+         AntaEjgqBg9UoJjymDtKeEqe5TjvE5Qc5BRNuVoz5UArhBRxG9S7paQCUs3D8BURqKIe
+         AikQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740313847; x=1740918647;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=eXqHi+96U8DE66IBSv5ozW+UKbtywue+9B2TMWS46o8=;
+        b=av8NuImFx4PIZfmB+LScd9/73rXXCmSi7EpkmRMrVKUlj6tjRWtxl1nhzzzZ9imKq8
+         xqHd3d4TkUSHDiyEOXmySmNuLymdciTqn72Fsic3fgJFvHZS5rv+DJg08Jv+M7LlBWb7
+         Tm8c50kTkK6YvHsPsx5VdqQzUXIyWWc2CaNKHmFt8EPnvI0z9w65Gqd4UgXsX1lq8Aoy
+         GQFQDuqdJPk7SkPS8RY7AQkh85HsAe18JoKPcS4mT5R0NArnfvxYSLHXU6Y+NnmE4Wnv
+         eUT40Sh65gBKTM/Bc2yKD7r76U+gHYfcbvoeMtN37L/jdEXf/gg7zugaRWkg0g9qItu3
+         rccA==
+X-Forwarded-Encrypted: i=1; AJvYcCVmLwlPPPBJu47XileZsgbSd9jSu//EOPYdqrwOJe+8KnbScmAIDODf+Q6TIojcpED2egYmv2HHTE3sNN+vbkV0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyy474QrUvzy7rn4zpRLuMo3xlYC6+fp2/BGimHHRufAh8WN/Ri
+	bAKGzSOTT+rMnd8Ti1WlT40vBXu81TRHpfFLts43fcvopxZ2+TDJ
+X-Gm-Gg: ASbGncvM9fBIOPxBb2eOlgUx2nka68ppJC3h4Vkypybow8YwPYpceEE4z8Wi+yiDSp8
+	28mPMRGE27h+YCQm0ddYnQSC9GUplWVG0YPGvHUjChxKOT94Tc1FoZ6x3VvTZJiaNJL9PdwkDhs
+	Uwty8p7qg3r7LzjCk9fNTgcnjo1FH9VOOIC1uKSVbc/xdjZ0EGnX01rTsu8z95xDj/CDLwCmuV3
+	miCj50q/Jscx+Zs+cte/W0RGuIBQSskcK+SpzDIIUtzhRXL8K+y23hcZUh/ARiG7mXp2eYyYleV
+	36hJTAX7ipPaQLLCGfrRyfdcg2/uXdxNdDT5g5euQk9bplFKPxGn8W0QhE7tBwrGNBSOkH+JUtp
+	99Q==
+X-Google-Smtp-Source: AGHT+IHG4/4YB1K+lr5+3mLAj1UHPyPnxgbTM9pHrmIXg39uKwLK46eTLD1PeNVsgfYMaSy2k340EA==
+X-Received: by 2002:a05:600c:4f88:b0:439:96aa:e502 with SMTP id 5b1f17b1804b1-439ae1e6a2fmr90254375e9.12.1740313846813;
+        Sun, 23 Feb 2025 04:30:46 -0800 (PST)
+Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-439b030b2c8sm77061935e9.25.2025.02.23.04.30.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 23 Feb 2025 04:30:46 -0800 (PST)
+From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-samsung-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH resend] firmware: imx: IMX_SCMI_MISC_DRV should depend on
- ARCH_MXC
-Message-ID: <Z7sTG4yMsek11nLe@dragon>
-References: <9638976432d8dfcb0c4df9d454b661f9022a2d7b.1738766259.git.geert+renesas@glider.be>
- <Z7rMdg7+m6qa0Hft@dragon>
- <CAMuHMdW=ZH7D+m54rh-25nFShCYhRhEjkjaB1LtOrRF5RyrXiQ@mail.gmail.com>
+Subject: [PATCH v2 0/4] arm64: dts: exynos: add initial support for Samsung Galaxy S22+
+Date: Sun, 23 Feb 2025 14:30:40 +0200
+Message-ID: <20250223123044.725493-1-ivo.ivanov.ivanov1@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMuHMdW=ZH7D+m54rh-25nFShCYhRhEjkjaB1LtOrRF5RyrXiQ@mail.gmail.com>
-X-CM-TRANSID: M88vCgBHbxscE7tnTfSOCQ--.21898S3
-X-Coremail-Antispam: 1Uf129KBjvdXoWrur45ur18tFW3AFWUGFykZrb_yoWDGwbEyr
-	4vkw1DC345GryDCF1qgr1avr17t3y2qFWYq3s5Ga17WayfXayDAFn5CrWfAwnakay0gF1a
-	krnIqrnYk34aqjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUnI38UUUUUU==
-X-Originating-IP: [117.82.86.124]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiEgH8ZWe63ifITQAAsr
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250223_042344_342149_75159213 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20250223_043048_824270_EA71CCE0 
+X-CRM114-Status: GOOD (  17.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,30 +100,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+ Uwe
+Hey folks,
 
-On Sun, Feb 23, 2025 at 09:29:29AM +0100, Geert Uytterhoeven wrote:
-> Hi Shawn,
-> 
-> On Sun, 23 Feb 2025 at 08:21, Shawn Guo <shawnguo2@yeah.net> wrote:
-> > On Wed, Feb 05, 2025 at 03:41:43PM +0100, Geert Uytterhoeven wrote:
-> > > The i.MX System Controller Management Interface firmware is only present
-> > > on Freescale i.MX SoCs.  Hence add a dependency on ARCH_MXC, to prevent
-> > > asking the user about this driver when configuring a kernel without
-> > > Freescale i.MX platform support.
-> > >
-> > > Fixes: 514b2262ade48a05 ("firmware: arm_scmi: Fix i.MX build dependency")
-> > > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> >
-> > Thanks for the patch, Geert!  But I have just picked up the change from
-> > Uwe [1].
-> 
-> Thanks, but mine has been upstream since Friday ;-)
-> 
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=be6686b823b30a69b1f71bde228ce042c78a1941
+This patchset adds device tree files for Exynos 2200 and Samsung
+Galaxy S22+.
 
-Ah, Arnd beat me to it.  Thanks for information!
+Exynos 2200 SoC is an ARMv8 mobile SoC found in the Samsung Galaxy S22
+(r0s), S22+ (g0s), S22 Ultra (b0s) Add minimal support for that SoC,
+including psci, pmu, chipid, architecture timer and mct, pinctrl,
+clocks and usb.
 
-Shawn
+The devices using this SoC suffer from an issue caused by the stock
+Samsung bootloader, as it doesn't configure CNTFRQ_EL0. Hence it's
+needed to hardcode the adequate frequency in the timer node,
+otherwise the kernel panics.
+
+Another issue is that cpu2 and cpu3 fail to come up consistently, which
+leads to a hang later in the boot process. As A510 cores are clustered
+by two, it makes sense for both of these cpus to fail if there is a
+power issue. Disable them until the problem is figured out.
+
+Samsung Galaxy S22+ (SM-S906B), codenamed g0s, is a mobile phone from
+2022. It features 8GB RAM, 128/256GB UFS 3.1, Exynos 2200 SoC and a
+1080x2340 Dynamic AMOLED display.
+
+Further platform support will be added over time.
+
+I expect [1], [2], [3], [4], [5], [6] to be merged before this patchset
+because it relies on the aforementioned series for drivers and device
+tree bindings.
+
+[1] https://lore.kernel.org/all/20250215112716.159110-1-ivo.ivanov.ivanov1@gmail.com/
+[2] https://lore.kernel.org/all/20250215113248.159386-1-ivo.ivanov.ivanov1@gmail.com/
+[3] https://lore.kernel.org/all/20250223115601.723886-1-ivo.ivanov.ivanov1@gmail.com/
+[4] https://lore.kernel.org/all/20250223122227.725233-1-ivo.ivanov.ivanov1@gmail.com/
+[5] https://lore.kernel.org/all/20250215123453.163434-1-ivo.ivanov.ivanov1@gmail.com/
+[6] https://lore.kernel.org/all/20250215123922.163630-1-ivo.ivanov.ivanov1@gmail.com/
+
+Best regards,
+Ivaylo
+
+Changes in v2:
+- mention the board codename in the first patch's commit message
+- make all reg values hex in device trees
+- reorder usb_con above usb_dwc3
+- drop regulators for usb_con
+- remodel usb_con_phy to take usb_hsphy phandle
+- include MAINTAINERS patch in this patchset
+
+Ivaylo Ivanov (4):
+  dt-bindings: arm: samsung: document g0s board binding
+  arm64: dts: exynos: add initial support for exynos2200 SoC
+  arm64: dts: exynos: add initial support for Samsung Galaxy S22+
+  MAINTAINERS: add entry for Samsung Exynos2200 SoC
+
+ .../bindings/arm/samsung/samsung-boards.yaml  |    6 +
+ MAINTAINERS                                   |   12 +
+ arch/arm64/boot/dts/exynos/Makefile           |    1 +
+ arch/arm64/boot/dts/exynos/exynos2200-g0s.dts |  175 ++
+ .../boot/dts/exynos/exynos2200-pinctrl.dtsi   | 1765 +++++++++++++++++
+ arch/arm64/boot/dts/exynos/exynos2200.dtsi    |  560 ++++++
+ 6 files changed, 2519 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/exynos/exynos2200-g0s.dts
+ create mode 100644 arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi
+ create mode 100644 arch/arm64/boot/dts/exynos/exynos2200.dtsi
+
+-- 
+2.43.0
 
 
