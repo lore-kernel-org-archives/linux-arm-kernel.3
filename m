@@ -4,82 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56A24C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 16:13:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E23E8C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 16:15:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h6RHMJs7PqkrNK9Y/YAwxZLPAZtSgRd9y+M0g8dXsWI=; b=h/l2qKI08lp8Ef+4tDGHhKw9Js
-	OAY6UgtiJN4SInOWnPtoHWuN4Sq3aOQrfymskWyWG6mTHTI+jrrst/JWsaWMg2/eX36nT4Zten6wG
-	TnRkyghmLFUhb+kQRVUuj1WUcOlHtWTYZDQjv0TI65wdHVq1uCnNFieOtTDG+isZqJ0vVU77LynxF
-	Ej7J+T4S/7k+4n+HUZNvmlSACQfvswE2+COfQHAfjpqp+9O4j2LdZm5Z0kYTIkK/Lf6vGJ7//+1NA
-	Az4X4WnCbG9NUWWOQPROMiZEchZy0Xn4gCk47ioyV1JPHOjZxhSVfc+xR4y/7aLId1+yoJnC+cksQ
-	gWQ93wtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ySpp1IDz1csWmrjiuW1WNzXzATVIA3MQ5tYA0K92A2Y=; b=aFxiE6prBU9Qp3TmYxzb3MSKBz
+	ETjUJl+xKkyJPcqVOs43Q5porB8ZkH21tV1oPZl/SjKxBirNyHwTy31RZuaWUKMREPjhMgbqX9nuZ
+	5pr4hny16KU/IGAV1J7yG46X/+TzfGYuy1IlkO/pcMIWFUXf35RjG9kXXx/YgScPvape4DBjkijWz
+	OdF0ldGcz0IlI87O/yhv36b+TlBhW9GBDcAWV3RGJSK9Qc3KxrxrCNapdBdef2gOopP6zeF5ElqE8
+	qP/ggd/BXSdxvt+X6eHYpq9BNnpHXzxX6D0jZmL0G2+eeF/iYK6sioS0jyrhROQDQvXQPiFQ97i2a
+	E6W6lUJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmEbL-0000000BNZF-2k1y;
-	Sun, 23 Feb 2025 16:13:07 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1tmEdi-0000000BNsO-1UWy;
+	Sun, 23 Feb 2025 16:15:34 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmEZo-0000000BNQz-2532
+	id 1tmEcA-0000000BNf0-43DG
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Feb 2025 16:11:33 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-aaeec07b705so579672666b.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Feb 2025 08:11:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1740327089; x=1740931889; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=h6RHMJs7PqkrNK9Y/YAwxZLPAZtSgRd9y+M0g8dXsWI=;
-        b=eDmLOB1KXS2WV6QT6UgVkI1F1XEoo058ALnJO5fWtE2R/BQWclOCrzm/KAvxu4CK90
-         fzHWGCZfsPr1sXH10C+ePHkxal5+fwy4CMqvrNZvUjUXZfuGvrxoikBDqs/VsQXpLPGK
-         BQ85IVOMZsqcz3BDO11bJ+Ce5mVcThmfkthgsOSbouCeTBqv+Gjv+svSWH/Tv+7ccj//
-         aERA8/UoGpLO7OkWTDcoQtEAcfvkvmjk5lrpHBHCGPW9bgxHYiqB1UZiYY5gOAoVrr/U
-         SIOHCegA+AaUtCU4OywlKvZ17fAV6QiTNNYyCFRLnP/K4jHRo5NbhxygfKD0EvyG/K9j
-         u/hQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740327089; x=1740931889;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=h6RHMJs7PqkrNK9Y/YAwxZLPAZtSgRd9y+M0g8dXsWI=;
-        b=o021t3SaB1tffkbnScQHBMhpV7ghZvLAx9sh+KRLU9iFnG9pwsLeRyrTCu31lrfrfB
-         Fi6zcgahdmhNlf0+schSUsEKkj1kYYDwcr7vdEIS4bbVd3OJ7I652Gwp9z0rLqVUB4lQ
-         0+hWiOPvVBaFqr+KD7sTZeQb/alAvm3wPm0joRuiVHylp//cavWovgSqG0BIh4tQrMB4
-         Jhf1b1BMYZ/hlFPlu5KrfkgtIMhffKdiUDqkPeUHXatBosJzlF1EvKAJOZGvnLNpOx1a
-         uvxv8G3c9mteHsRU0bCH8UVK0n/KNUDsI+5H05L4+NYoS6X/lN7MHIdCGqQPkUZpqLWm
-         SgNA==
-X-Forwarded-Encrypted: i=1; AJvYcCVX9xeBV8nGBAs4dg/wzPJJqvzmViBLyyLG9wQsmgqq/ZweeJnCo707tATmfIS5CMgtx9L/7x/q2kjvk+VYxh7i@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUm5l7yuQ0NC6pWyy9CsNkEnr0LB8T8IBclDpLQZE1OUft65lP
-	QoiHQESXEeJKVLBowyMr+HeJX5A/HaDAUFShxUJ5OSBHrMlAFCanQVH+r9hTp5lZBXu0zCz29VJ
-	xRzg8h45Omw9xJGo2hcs7YwIn/PJixqwnTEF7zCa/NH2GRfUHMx4=
-X-Gm-Gg: ASbGncsqZUFDXR4JtUM3n2YpGPBwkjrc0zyGal2Vs9FLc+XR48L2JCeU5yVkAVgPo9S
-	VSZcw3fdQ0N4WqBEwEUug+2/cMXSJM/wIsME9rkbEGZbmokRnVqDWVkmEhmBXliykl64OLfSG7u
-	Renp8MCf8=
-X-Google-Smtp-Source: AGHT+IFIDZJr6Jur/hwIghGQ2Qq9i/9D/BgAwgxNvwuLBG06ES9xqEPe80nvc5cmXe6MC221B1H3UO7JvZ3cGAzb6AU=
-X-Received: by 2002:a17:907:8688:b0:ab2:faed:f180 with SMTP id
- a640c23a62f3a-abc0da33a30mr1190754766b.33.1740327089277; Sun, 23 Feb 2025
- 08:11:29 -0800 (PST)
+	Sun, 23 Feb 2025 16:14:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A8D315C5F41;
+	Sun, 23 Feb 2025 16:13:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC9D1C4CEDD;
+	Sun, 23 Feb 2025 16:13:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740327236;
+	bh=sDkNg7EsIX+yFBaP6hmeYuV+cRir/F4DdwT8FyBvT+4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=rtQ7qqK78gSBGWcm35497glQNbZaUgh9WYNIAgzDdEzRPmBaASPmBgT0yb9hdU5Nc
+	 BYxGnnDyBdaddfZA/LcdEHFBNJWfIwXeQaUnx0xjn6MJnke1CIDzh7aUt+sTEK69C6
+	 i/JDcufAr6KNHPkQUEI4U7qU74w0uRkiwvLsQIgnew9g1yW80+6TbGIhpa70iDS84B
+	 PjmsXRoQa3DLY+iEfSiiygyX0mCoJ/KNUH2kvaa2I90khny3zWUWfOcgdKm90ImpDW
+	 obRQvNl1eMGK8MLfT7syymWfw3MujmDpEEe9B/zb6Nvw2TpRRtR60HFsUoThZpeZlz
+	 IKZufSF37SyQA==
+Date: Sun, 23 Feb 2025 16:13:38 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Matti Vaittinen <mazziesaccount@gmail.com>
+Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>, Lars-Peter Clausen
+ <lars@metafoo.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Lad Prabhakar
+ <prabhakar.mahadev-lad.rj@bp.renesas.com>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
+ <samuel@sholland.org>, Hugo Villeneuve <hvilleneuve@dimonoff.com>, Nuno Sa
+ <nuno.sa@analog.com>, David Lechner <dlechner@baylibre.com>, Javier
+ Carrasco <javier.carrasco.cruz@gmail.com>, Andy Shevchenko
+ <andriy.shevchenko@linux.intel.com>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v3 2/9] iio: adc: add helpers for parsing ADC nodes
+Message-ID: <20250223161338.5c896280@jic23-huawei>
+In-Reply-To: <6c5b678526e227488592d004c315a967b9809701.1739967040.git.mazziesaccount@gmail.com>
+References: <cover.1739967040.git.mazziesaccount@gmail.com>
+	<6c5b678526e227488592d004c315a967b9809701.1739967040.git.mazziesaccount@gmail.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20250222094113.48198-1-wahrenst@gmx.net> <5ab95f85-9a91-4bbc-8eef-299376ab46f2@kernel.org>
-In-Reply-To: <5ab95f85-9a91-4bbc-8eef-299376ab46f2@kernel.org>
-From: Phil Elwell <phil@raspberrypi.com>
-Date: Sun, 23 Feb 2025 16:11:18 +0000
-X-Gm-Features: AWEUYZmkjkeF07rULr98ZcLeKWQEtabmSV1J-NMRHam6ld1g-hvY8YToBNU7zvM
-Message-ID: <CAMEGJJ04D-LJ5=NdYYu=8Dfsy+mb0sQpL6n_pT+DAcyKAiPyvw@mail.gmail.com>
-Subject: Re: [PATCH] ARM: dts: bcm2711: Don't mark timer regs unconfigured
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Stefan Wahren <wahrenst@gmx.net>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, linux-arm-kernel@lists.infradead.org, 
-	bcm-kernel-feedback-list@broadcom.com, devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250223_081132_622628_F3863802 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20250223_081359_137878_BA7919AC 
+X-CRM114-Status: GOOD (  66.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,29 +83,572 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 22 Feb 2025 at 10:44, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->
-> On 22/02/2025 10:41, Stefan Wahren wrote:
-> > From: Phil Elwell <phil@raspberrypi.com>
-> >
-> > During upstream process of Raspberry Pi 4 back in 2019 the ARMv7 stubs
-> > didn't configured the ARM architectural timer. This firmware issue has
-> > been fixed in 2020, which gave users enough time to update their system.
-> >
-> > So drop this property to allow the use of the vDSO version of
-> > clock_gettime.
-> >
-> > Link: https://github.com/raspberrypi/tools/pull/113
-> > Fixes: 7dbe8c62ceeb ("ARM: dts: Add minimal Raspberry Pi 4 support")
-> > Signed-off-by: Phil Elwell <phil@raspberrypi.com>
-> > Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
-> > ---
->
->
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+On Wed, 19 Feb 2025 14:30:27 +0200
+Matti Vaittinen <mazziesaccount@gmail.com> wrote:
 
-FYI, although the patch was written by me, the commit message has been
-completely rewritten.
+> There are ADC ICs which may have some of the AIN pins usable for other
+> functions. These ICs may have some of the AIN pins wired so that they
+> should not be used for ADC.
+> 
+> (Preferred?) way for marking pins which can be used as ADC inputs is to
+> add corresponding channels@N nodes in the device tree as described in
+> the ADC binding yaml.
+> 
+> Add couple of helper functions which can be used to retrieve the channel
+> information from the device node.
+> 
+> Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
+> 
+> ---
+> Revision history:
+> v2 => v3: Mostly based on review comments by Jonathan
+>  - Support differential and single-ended channels(*)
+>  - Rename iio_adc_device_get_channels() as
+>  - Improve spelling
+>  - Drop support for cases where DT comes from parent device's node
+>  - Decrease loop indent by reverting node name check conditions
+>  - Don't set 'chan->indexed' by number of channels to keep the
+>    interface consistent no matter how many channels are connected.
+>  - Fix ID range check and related comment
+> RFC v1 => v2:
+>  - New patch
+> 
+> (*) The support for single-ended and differential channels is 100%
+> untested. I am not convinced it is actually an improvement over the
+> *_simple() helpers which only supported getting the ID from the "reg
 
-Phil
+Currently it definitely feels too complex.  Partly, whilst I haven't
+tried fleshing out the alternative, it feels like you've tried to make
+it too general.  I really don't like the allowed bitmap as those
+relationships are complex.
+
+> In theory they could be used. In practice, while I skimmed through the
+> in-tree ADC drivers which used the for_each_child_node() construct - it
+> seemed that most of those which supported differential inputs had also
+> some other per-channel properties to read. Those users would in any case
+> need to loop through the nodes to get those other properties.
+That doesn't surprise me that much. I'm still not sure there are enough
+'simple' cases (i.e. more than maybe 3) to justify this being shared.
+
+> 
+> If I am once more allowed to go back to proposing the _simple() variant
+> which only covers the case: "chan ID in 'reg' property"... Dropping
+> support for differential and single-ended channels would simplify this
+> helper a lot. It'd allow dropping the sanity check as well as the extra
+> parameters callers need to pass to tell what kind of properties they
+> expect. That'd (in my opinion) made the last patches (to actual ADC
+> drivers) in this series a much more lean and worthy ;)
+
+If you do, call it _se() or something like that.
+
+> 
+> Finally, we could add own functions for differential/single-ended/all
+> channels when the next driver which uses differential or single-ended
+> channels - and which does not need other per-channel properties - lands
+> in tree. That would still simplify the helper API usage for those
+> drivers touched at the end of this series.
+
+This sounds reasonable approach but I still want more than one before
+we bother.
+
+> 
+> I (still) think it might be nice to have helpers for fetching also the
+> other generic (non vendor specific) ADC properties (as listed in the
+> Documentation/devicetree/bindings/iio/adc/adc.yaml) - but as I don't
+> have use for those in BD79124 driver (at least not for now), I don't
+> imnplement them yet. Anyways, this commit creates a place for such
+> helpers.
+Definitely need usecases.
+
+So my current feeling is if you can find a second case that a
+_se() variant works for then I don't mind this being a separate module.
+If not put just what you need in your driver.
+
+Various comments inline.
+> ---
+>  drivers/iio/adc/Kconfig            |   3 +
+>  drivers/iio/adc/Makefile           |   1 +
+>  drivers/iio/adc/industrialio-adc.c | 304 +++++++++++++++++++++++++++++
+>  include/linux/iio/adc-helpers.h    |  56 ++++++
+>  4 files changed, 364 insertions(+)
+>  create mode 100644 drivers/iio/adc/industrialio-adc.c
+>  create mode 100644 include/linux/iio/adc-helpers.h
+> 
+> diff --git a/drivers/iio/adc/Kconfig b/drivers/iio/adc/Kconfig
+> index 849c90203071..37b70a65da6f 100644
+> --- a/drivers/iio/adc/Kconfig
+> +++ b/drivers/iio/adc/Kconfig
+> @@ -6,6 +6,9 @@
+>  
+>  menu "Analog to digital converters"
+>  
+> +config IIO_ADC_HELPER
+> +	tristate
+> +
+>  config AB8500_GPADC
+>  	bool "ST-Ericsson AB8500 GPADC driver"
+>  	depends on AB8500_CORE && REGULATOR_AB8500
+> diff --git a/drivers/iio/adc/Makefile b/drivers/iio/adc/Makefile
+> index ee19afba62b7..956c121a7544 100644
+> --- a/drivers/iio/adc/Makefile
+> +++ b/drivers/iio/adc/Makefile
+> @@ -57,6 +57,7 @@ obj-$(CONFIG_FSL_MX25_ADC) += fsl-imx25-gcq.o
+>  obj-$(CONFIG_GEHC_PMC_ADC) += gehc-pmc-adc.o
+>  obj-$(CONFIG_HI8435) += hi8435.o
+>  obj-$(CONFIG_HX711) += hx711.o
+> +obj-$(CONFIG_IIO_ADC_HELPER) += industrialio-adc.o
+As per other discussion. Move this to new block at the top.
+>  obj-$(CONFIG_IMX7D_ADC) += imx7d_adc.o
+>  obj-$(CONFIG_IMX8QXP_ADC) += imx8qxp-adc.o
+>  obj-$(CONFIG_IMX93_ADC) += imx93_adc.o
+> diff --git a/drivers/iio/adc/industrialio-adc.c b/drivers/iio/adc/industrialio-adc.c
+> new file mode 100644
+> index 000000000000..0281d64ae112
+> --- /dev/null
+> +++ b/drivers/iio/adc/industrialio-adc.c
+> @@ -0,0 +1,304 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Helpers for parsing common ADC information from a firmware node.
+> + *
+> + * Copyright (c) 2025 Matti Vaittinen <mazziesaccount@gmail.com>
+> + */
+> +
+> +#include <linux/device.h>
+> +#include <linux/errno.h>
+> +#include <linux/property.h>
+> +
+> +#include <linux/iio/adc-helpers.h>
+> +
+> +int iio_adc_device_num_channels(struct device *dev)
+> +{
+> +	int num_chan = 0;
+> +
+> +	device_for_each_child_node_scoped(dev, child)
+> +		if (fwnode_name_eq(child, "channel"))
+> +			num_chan++;
+> +
+> +	return num_chan;
+
+This function seems easy to generalize to count nodes of particular
+name.  So I'd promote this as a generic property.h helper and
+just use that in here.
+
+
+> +}
+> +EXPORT_SYMBOL_GPL(iio_adc_device_num_channels);
+> +
+> +static const char *iio_adc_type2prop(int type)
+> +{
+> +	switch (type) {
+> +	case IIO_ADC_CHAN_PROP_TYPE_REG:
+> +		return "reg";
+> +	case IIO_ADC_CHAN_PROP_TYPE_SINGLE_ENDED:
+> +		return "single-channel";
+> +	case IIO_ADC_CHAN_PROP_TYPE_DIFF:
+> +		return "diff-channels";
+> +	case IIO_ADC_CHAN_PROP_COMMON:
+> +		return "common-mode-channel";
+> +	default:
+> +		return "unknown";
+> +	}
+> +}
+> +
+> +/*
+> + * Sanity check. Ensure that:
+> + * - At least some type(s) are allowed
+> + * - All types found are also expected
+> + * - If plain "reg" is not allowed, either single-ended or differential
+> + *   properties are found.
+
+I'd worry this is a combination of fragile and overly separate from
+the parser.  I'd just encode this stuff down there based on accepted type
+of channels.  Two flags, differential and single ended may be enough.
+If single only then reg is expected solution but I don't see a reason to
+ignore single-channel even then as meaning is well defined.
+If differential only - then that property must be present for all channels.
+If both single and differential then need either differential or single-channel.
+
+> + */
+> +static int iio_adc_prop_type_check_sanity(struct device *dev,
+> +		const struct iio_adc_props *expected_props, int found_types)
+> +{
+> +	unsigned long allowed_types = expected_props->allowed |
+> +				      expected_props->required;
+> +
+> +	if (!allowed_types || allowed_types & (~IIO_ADC_CHAN_PROP_TYPE_ALL)) {
+> +		dev_dbg(dev, "Invalid adc allowed prop types 0x%lx\n",
+> +			allowed_types);
+> +
+> +		return -EINVAL;
+> +	}
+> +	if (found_types & (~allowed_types)) {
+> +		long unknown_types = found_types & (~allowed_types);
+> +		int type;
+> +
+> +		for_each_set_bit(type, &unknown_types,
+> +				 IIO_ADC_CHAN_NUM_PROP_TYPES - 1) {
+> +			dev_err(dev, "Unsupported channel property %s\n",
+> +				iio_adc_type2prop(type));
+> +		}
+> +
+> +		return -EINVAL;
+> +	}
+> +
+> +	/*
+> +	 * The IIO_ADC_CHAN_PROP_TYPE_REG is special. We always require it to
+> +	 * be found in the dt. (If not, we'll error out before calling this
+> +	 * function.) However, listing it in 'allowed' types means the "reg"
+> +	 * alone can be used to indicate the channel ID.
+> +	 *
+> +	 * Thus, we don't add it in the found properties either - so check for
+> +	 * found and allowed properties passes even if user hasn't explicitly
+> +	 * added the 'IIO_ADC_CHAN_PROP_TYPE_REG' to be allowed. (This is the
+> +	 * case if either differential or single-ended property is required).
+> +	 *
+> +	 * Hence, for this check we need to explicitly add the
+> +	 * IIO_ADC_CHAN_PROP_TYPE_REG to 'found' properties to make the check
+> +	 * pass when "reg" is the property which is required to have the
+> +	 * channel ID.
+> +	 *
+> +	 * We could of course always add the IIO_ADC_CHAN_PROP_TYPE_REG in
+> +	 * allowed types and found types - but then we wouldn't catch the case
+> +	 * where user says the "reg" alone is not sufficient.
+> +	 */
+> +	if ((~(found_types | IIO_ADC_CHAN_PROP_TYPE_REG)) & expected_props->required) {
+> +		long missing_types;
+> +		int type;
+> +
+> +		missing_types = (~found_types) & expected_props->required;
+> +
+> +		for_each_set_bit(type, &missing_types,
+> +				 IIO_ADC_CHAN_NUM_PROP_TYPES - 1) {
+> +			dev_err(dev, "required channel specifier '%s' not found\n",
+> +				iio_adc_type2prop(type));
+> +		}
+> +
+> +		return -EINVAL;
+> +	}
+> +
+> +	/* Check if we require something else but the "reg" property */
+> +	if (!(allowed_types & IIO_ADC_CHAN_PROP_TYPE_REG)) {
+> +		if (found_types & IIO_ADC_CHAN_PROP_TYPE_SINGLE_ENDED ||
+> +				found_types & IIO_ADC_CHAN_PROP_TYPE_DIFF)
+> +			return 0;
+> +
+> +		dev_err(dev, "channel specifier not found\n");
+> +
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +/**
+> + * iio_adc_device_channels_by_property - get ADC channel IDs
+> + *
+> + * Scan the device node for ADC channel information. Return an array of found
+> + * IDs. Caller needs to provide the memory for the array and provide maximum
+> + * number of IDs the array can store.
+
+I'm somewhat confused by this. Feels like you can get same info from the
+iio_chan_spec array generated by the next function.
+
+> + *
+> + * @dev:		Pointer to the ADC device
+> + * @channels:		Array where the found IDs will be stored.
+> + * @max_channels:	Number of IDs that fit in the array.
+> + * @expected_props:	Bitmaps of channel property types (for checking).
+> + *
+> + * Return:		Number of found channels on succes. 0 if no channels
+> + *			was found. Negative value to indicate failure.
+> + */
+> +int iio_adc_device_channels_by_property(struct device *dev, int *channels,
+> +		int max_channels, const struct iio_adc_props *expected_props)
+> +{
+> +	int num_chan = 0, ret;
+> +
+> +	device_for_each_child_node_scoped(dev, child) {
+> +		u32 ch, diff[2], se;
+> +		struct iio_adc_props tmp;
+> +		int chtypes_found = 0;
+> +
+> +		if (!fwnode_name_eq(child, "channel"))
+> +			continue;
+> +
+> +		if (num_chan == max_channels)
+> +			return -EINVAL;
+> +
+> +		ret = fwnode_property_read_u32(child, "reg", &ch);
+> +		if (ret)
+> +			return ret;
+> +
+> +		ret = fwnode_property_read_u32_array(child, "diff-channels",
+> +						     &diff[0], 2);
+> +		if (!ret)
+> +			chtypes_found |= IIO_ADC_CHAN_PROP_TYPE_DIFF;
+> +
+> +		ret = fwnode_property_read_u32(child, "single-channel", &se);
+> +		if (!ret)
+> +			chtypes_found |= IIO_ADC_CHAN_PROP_TYPE_SINGLE_ENDED;
+> +
+> +		tmp = *expected_props;
+> +		/*
+> +		 * We don't bother reading the "common-mode-channel" here as it
+> +		 * doesn't really affect on the primary channel ID. We remove
+> +		 * it from the required properties to allow the sanity check
+> +		 * pass here  also for drivers which require it.
+> +		 */
+> +		tmp.required &= (~BIT(IIO_ADC_CHAN_PROP_COMMON));
+> +
+> +		ret = iio_adc_prop_type_check_sanity(dev, &tmp, chtypes_found);
+> +		if (ret)
+> +			return ret;
+> +
+> +		if (chtypes_found & IIO_ADC_CHAN_PROP_TYPE_DIFF)
+> +			ch = diff[0];
+> +		else if (chtypes_found & IIO_ADC_CHAN_PROP_TYPE_SINGLE_ENDED)
+> +			ch = se;
+> +
+> +		/*
+> +		 * We assume the channel IDs start from 0. If it seems this is
+> +		 * not a sane assumption, then we can relax this check or add
+> +		 * 'allowed ID range' parameter.
+> +		 *
+> +		 * Let's just start with this simple assumption.
+> +		 */
+> +		if (ch >= max_channels)
+> +			return -ERANGE;
+> +
+> +		channels[num_chan] = ch;
+> +		num_chan++;
+> +	}
+> +
+> +	return num_chan;
+> +
+> +}
+> +EXPORT_SYMBOL_GPL(iio_adc_device_channels_by_property);
+> +
+> +/**
+> + * devm_iio_adc_device_alloc_chaninfo - allocate and fill iio_chan_spec for adc
+
+ADC
+
+> + *
+> + * Scan the device node for ADC channel information. Allocate and populate the
+> + * iio_chan_spec structure corresponding to channels that are found. The memory
+> + * for iio_chan_spec structure will be freed upon device detach. Try parent
+> + * device node if given device has no fwnode associated to cover also MFD
+> + * devices.
+> + *
+> + * @dev:		Pointer to the ADC device.
+> + * @template:		Template iio_chan_spec from which the fields of all
+> + *			found and allocated channels are initialized.
+> + * @cs:			Location where pointer to allocated iio_chan_spec
+> + *			should be stored
+> + * @expected_props:	Bitmaps of channel property types (for checking).
+Input parameter so should be after template.
+
+> + *
+> + * Return:	Number of found channels on succes. Negative value to indicate
+> + *		failure.
+
+I wonder if an alloc function would be better returning the pointer and
+providing num_chans via a parameter.
+
+> + */
+> +int devm_iio_adc_device_alloc_chaninfo(struct device *dev,
+> +				const struct iio_chan_spec *template,
+> +				struct iio_chan_spec **cs,
+> +				const struct iio_adc_props *expected_props)
+
+I'm not sure this expected props thing works as often it's a case
+of complex relationships 
+
+> +{
+> +	struct iio_chan_spec *chan;
+> +	int num_chan = 0, ret;
+Initialized just after this so don't set num_chan = 0.
+
+> +
+> +	num_chan = iio_adc_device_num_channels(dev);
+> +	if (num_chan < 1)
+> +		return num_chan;
+> +
+> +	*cs = devm_kcalloc(dev, num_chan, sizeof(**cs), GFP_KERNEL);
+> +	if (!*cs)
+> +		return -ENOMEM;
+> +
+> +	chan = &(*cs)[0];
+> +
+> +	device_for_each_child_node_scoped(dev, child) {
+> +		u32 ch, diff[2], se, common;
+> +		int chtypes_found = 0;
+> +
+> +		if (!fwnode_name_eq(child, "channel"))
+> +			continue;
+> +
+> +		ret = fwnode_property_read_u32(child, "reg", &ch);
+> +		if (ret)
+> +			return ret;
+> +
+
+diff channels and single channel take precedence over reg, so check them
+first. If present no need to look for reg can also read it then throw
+it away giving simpler.
+
+		*chan = *template;
+
+		// reg should exist either way.
+		ret = fwnode_property_read_u32(child, "reg", &reg);
+		if (ret)
+			return -EINVAL; //should be a reg whatever.
+
+		ret = fwnode_property_read_u32_array(child, "diff-channels",
+						     diff, ARRAY_SIZE(diff));
+		if (ret == 0) {
+			chan->differential = 1;
+			chan->channel = diff[0];
+			chan->channel2 = diff[1];
+		} else {
+			ret = fwnode_property_read_u32(child, "single-channel", &se);
+			if (ret)
+				se = reg;
+
+			chan->channel = se;
+			//IIRC common mode channel is rare. I'd skip it. That
+			//also makes it a differential channel be it a weird one.
+		}
+					
+
+> +		ret = fwnode_property_read_u32_array(child, "diff-channels",
+> +						     &diff[0], 2);
+> +		if (!ret)
+> +			chtypes_found |= IIO_ADC_CHAN_PROP_TYPE_DIFF;
+> +
+> +		ret = fwnode_property_read_u32(child, "single-channel", &se);
+> +		if (!ret)
+> +			chtypes_found |= IIO_ADC_CHAN_PROP_TYPE_SINGLE_ENDED;
+> +
+> +		ret = fwnode_property_read_u32(child, "common-mode-channel",
+> +					       &common);
+> +		if (!ret)
+> +			chtypes_found |= BIT(IIO_ADC_CHAN_PROP_COMMON);
+> +
+> +		ret = iio_adc_prop_type_check_sanity(dev, expected_props,
+> +						     chtypes_found);
+
+If we want to verify this (I'm not yet sure) then do it as you parse the
+properties, not separately.
+
+> +		if (ret)
+> +			return ret;
+> +
+> +		*chan = *template;
+> +		chan->channel = ch;
+> +
+> +		if (chtypes_found & IIO_ADC_CHAN_PROP_TYPE_DIFF) {
+> +			chan->differential = 1;
+> +			chan->channel = diff[0];
+> +			chan->channel2 = diff[1];
+> +
+> +		} else if (chtypes_found & IIO_ADC_CHAN_PROP_TYPE_SINGLE_ENDED) {
+> +			chan->channel = se;
+> +			if (chtypes_found & BIT(IIO_ADC_CHAN_PROP_COMMON))
+> +				chan->channel2 = common;
+> +		}
+> +
+> +		/*
+> +		 * We assume the channel IDs start from 0. If it seems this is
+> +		 * not a sane assumption, then we have to add 'allowed ID ranges'
+> +		 * to the struct iio_adc_props because some of the callers may
+> +		 * rely on the IDs being in this range - and have arrays indexed
+> +		 * by the ID.
+
+Not a requirement in general.  It is more than possible to have a single channel
+provided that is number 7.
+
+> +		 */
+> +		if (chan->channel >= num_chan)
+> +			return -ERANGE;
+> +
+> +		chan++;
+> +	}
+> +
+> +	return num_chan;
+> +}
+> +EXPORT_SYMBOL_GPL(devm_iio_adc_device_alloc_chaninfo);
+> +
+> +MODULE_LICENSE("GPL");
+> +MODULE_AUTHOR("Matti Vaittinen <mazziesaccount@gmail.com>");
+> +MODULE_DESCRIPTION("IIO ADC fwnode parsing helpers");
+> diff --git a/include/linux/iio/adc-helpers.h b/include/linux/iio/adc-helpers.h
+> new file mode 100644
+> index 000000000000..f7791d45dbd2
+> --- /dev/null
+> +++ b/include/linux/iio/adc-helpers.h
+> @@ -0,0 +1,56 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +
+> +/* The industrial I/O ADC helpers
+Comment syntax and make it more obvious that while this might be useful
+it isn't something we necessarily expect to be useful to every driver.
+/*
+ * Industrial I/O ADC firmware property passing helpers.
+ *
+
+> + *
+> + * Copyright (c) 2025 Matti Vaittinen <mazziesaccount@gmail.com>
+> + */
+> +
+> +#ifndef _INDUSTRIAL_IO_ADC_HELPERS_H_
+> +#define _INDUSTRIAL_IO_ADC_HELPERS_H_
+> +
+> +#include <linux/iio/iio.h>
+> +
+> +struct device;
+> +struct fwnode_handle;
+> +
+> +enum {
+> +	IIO_ADC_CHAN_PROP_REG,
+> +	IIO_ADC_CHAN_PROP_SINGLE_ENDED,
+> +	IIO_ADC_CHAN_PROP_DIFF,
+> +	IIO_ADC_CHAN_PROP_COMMON,
+> +	IIO_ADC_CHAN_NUM_PROP_TYPES
+> +};
+> +
+> +/*
+> + * Channel property types to be used with iio_adc_device_get_channels,
+> + * devm_iio_adc_device_alloc_chaninfo, ...
+> + */
+> +#define IIO_ADC_CHAN_PROP_TYPE_REG BIT(IIO_ADC_CHAN_PROP_REG)
+> +#define IIO_ADC_CHAN_PROP_TYPE_SINGLE_ENDED BIT(IIO_ADC_CHAN_PROP_SINGLE_ENDED)
+> +#define IIO_ADC_CHAN_PROP_TYPE_SINGLE_COMMON					\
+> +	(BIT(IIO_ADC_CHAN_PROP_SINGLE_ENDED) | BIT(IIO_ADC_CHAN_PROP_COMMON))
+> +#define IIO_ADC_CHAN_PROP_TYPE_DIFF BIT(IIO_ADC_CHAN_PROP_DIFF)
+> +#define IIO_ADC_CHAN_PROP_TYPE_ALL GENMASK(IIO_ADC_CHAN_NUM_PROP_TYPES - 1, 0)
+> +
+> +/**
+> + * iio_adc_chan_props - information of expected device-tree channel properties
+> + *
+> + * @required:	Bitmask of property definitions of required channel properties
+> + * @allowed:	Bitmask of property definitions of optional channel properties.
+> + *		Listing of required properties is not needed here.
+> + */
+> +struct iio_adc_props {
+> +	unsigned long required;
+> +	unsigned long allowed;
+> +};
+> +
+> +int iio_adc_device_num_channels(struct device *dev);
+> +int devm_iio_adc_device_alloc_chaninfo(struct device *dev,
+> +				const struct iio_chan_spec *template,
+> +				struct iio_chan_spec **cs,
+> +				const struct iio_adc_props *expected_props);
+> +
+> +int iio_adc_device_channels_by_property(struct device *dev, int *channels,
+> +				int max_channels,
+> +				const struct iio_adc_props *expected_props);
+> +#endif /* _INDUSTRIAL_IO_ADC_HELPERS_H_ */
+
 
