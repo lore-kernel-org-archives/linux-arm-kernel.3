@@ -4,61 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0E8BC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 10:18:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFBA1C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 10:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g5bznr0EfGorkRZNO0whjNgInFq6x6uI6qe1raw+69E=; b=C1th0BUZFfNSJowVKKnk7Jlaio
-	xUBF54C4TBplgKxTELlRX4mU6nDrai3ikqWQLZOs1Mp90+t4FPEn/gqvYOo1DIt/ds5Vq4lUJL9r4
-	3/HIiMWh97OG1h0Ux576F56Wj6L4d62Q/nZ0N+8gLE82tnPGOqghnZNn5yerw0aZMXz9hzS0LyuSC
-	+DCkGpts7Jy+TpJkAhDXNyxcv/qT/lUlXJx1cPoJak2Pa1wvQuVU1hf+MRCiKsopb+wp8R0+zCodM
-	lwNSO+s4ngzmXPU+dcHJpFx6w/PXuYJsZB4f1Ta/Dwpt9tuSwkvCV9IUuXE/MfvUknDN6YTpZC8dF
-	zjI2Cijw==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cf9O8t9V5AakIYZNP58AyGav6PE8nNBr8k0HlkRhfzw=; b=fn8TGLDCD3GjdKLenkoSq9qR5m
+	F1Nhs0mGf7sGXougxLRewXUuYre4IsA9LR0zWOLpGC2ou3U3U6Zaaz5HHFThdsfCcXSZRI2FivYCa
+	rcFWMXrYS6tY1PvSOBzSE3uWbNGe8kpgz1zR1YJw+xzBHyws4VgVvTjfJ6C9n6tDx3S2oLx/CcWov
+	CN1JF0Vrw21dpNo95JOP7okln5fD/LPZ1qhaRKSjhdDXN+UdVIlA2Z6wT0cIb/iG+5DG4nRuBn3c6
+	TTuStBffRIi/OED1YcvSDhQmPaAPBmHuiXsMhMzTRKOXVV8baA2Uvh1PIaKhQw2PkOIbAlyU1URQA
+	+KqspoNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm94E-0000000AqoJ-3jGc;
-	Sun, 23 Feb 2025 10:18:34 +0000
+	id 1tm96T-0000000ArSV-2U56;
+	Sun, 23 Feb 2025 10:20:53 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm92m-0000000AqhT-0KJH
+	id 1tm951-0000000Ar7P-1rGw
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Feb 2025 10:17:04 +0000
+	Sun, 23 Feb 2025 10:19:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8C16161120;
-	Sun, 23 Feb 2025 10:16:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 060D8C4CEDD;
-	Sun, 23 Feb 2025 10:16:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 557B261120;
+	Sun, 23 Feb 2025 10:19:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CBD6C4CEDD;
+	Sun, 23 Feb 2025 10:19:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740305821;
-	bh=PdL/hRhsO0gx/0YHDB05i2/ZUTqfxN5Dx9Zq0dI5Ayk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NWQ3uEtshzV/EO70tpXYVXFxd+Ztfw4e4tG1xjq/3x2D4LAodKM8jKYzitqsGPJaN
-	 l9F5vjv+bL6SZAaugkuy3R23vRRq387O/Rv9G6VJIGEERNdiloVv4WmqH3gIn33unl
-	 jRAZ0LfUn2Aonl9cB7A/ZAiB4ujD1lfGNMp3/rfsCl77H26Bq1KgW09/r0zcEsTnw0
-	 LsxDpU0U4Cq06daeJ4u/a9VrZ/Wd/xqgRJyMFLuAsd0TcCqytG6c+/1teyCkmuZlwU
-	 FbuaLJXjktcNnz+heNAhkvQbjXE9xGInq/E0QAzOKgXniZ8H8CQGiyyPlWy7UzcaRN
-	 j/ToJXWSx6lnw==
-Message-ID: <38b2f870-9965-4fd7-b9f1-dde8cbeed41e@kernel.org>
-Date: Sun, 23 Feb 2025 11:16:55 +0100
+	s=k20201202; t=1740305962;
+	bh=6a6RvYODvsCvev2GgRgrCtu9df64yuXStOe4JoBEGhY=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=gbqP2PGkkwu5UtpATWbbW9uIV9GH1pYNemMW7TlkCSQqwQjgPVOoJhPldecTVzeGs
+	 Zz/IPAxrQvT0w2saAupyzRyDotw0DP++9Ek0w5NRMuoGQDinXQczMjciUJbThPqKno
+	 kJ1m3Ukc/kBSnAlxmdZm6Q2tGGrn9Erlw1eVokqso9QDqtSF/HfnsGXVuo6aYYZhi/
+	 rGSl3m9DleD5MtjxAYR4MxJle3dLqrktkisV7jsunbS+6Jz/owfPwkI2UJ4abmdC1r
+	 lX9Yc0YUzocf/3wyeqqABtsRDhpiHYvf/tRuZY0F0cSK7BsZJJFGjwVY7zStw7KCcJ
+	 ynFFKpd/CXM7g==
+Message-ID: <e190d51a-b585-4544-8154-b9a287f907be@kernel.org>
+Date: Sun, 23 Feb 2025 11:19:16 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/3] dt-bindings: clock: add Exynos2200 SoC
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- "open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250215115433.161091-1-ivo.ivanov.ivanov1@gmail.com>
- <20250215115433.161091-2-ivo.ivanov.ivanov1@gmail.com>
+Subject: Re: [PATCH v2 1/4] dt-bindings: clock: samsung,exynos990-clock: add
+ PERIC0/1 clock management unit
+To: Denzeel Oliva <wachiturroxd150@gmail.com>, s.nawrocki@samsung.com,
+ cw00.choi@samsung.com, alim.akhtar@samsung.com, mturquette@baylibre.com,
+ sboyd@kernel.org, robh@kernel.org, conor+dt@kernel.org,
+ andi.shyti@kernel.org, igor.belwon@mentallysanemainliners.org,
+ linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org
+References: <20250212004824.1011-1-wachiturroxd150@gmail.com>
+ <20250212004824.1011-2-wachiturroxd150@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,7 +102,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250215115433.161091-2-ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <20250212004824.1011-2-wachiturroxd150@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -121,28 +119,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/02/2025 12:54, Ivaylo Ivanov wrote:
-> Provide dt-schema documentation for Exynos2200 SoC clock controller.
-> Add device tree clock binding definitions for the following CMU blocks:
-> - CMU_ALIVE
-> - CMU_CMGP
-> - CMU_HSI0
-> - CMU_PERIC0/1/2
-> - CMU_PERIS
-> - CMU_TOP
-> - CMU_UFS
-> - CMU_VTS
+On 12/02/2025 01:48, Denzeel Oliva wrote:
+> Add dt-schema documentation for the Connectivity Peripheral 0 / 1
+> (PERIC0/1) clock management unit.
 > 
-> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+> Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
 > ---
->  .../clock/samsung,exynos2200-clock.yaml       | 247 ++++++++++
->  .../dt-bindings/clock/samsung,exynos2200.h    | 431 ++++++++++++++++++
+>  .../clock/samsung,exynos990-clock.yaml        |  24 +++
+>  include/dt-bindings/clock/samsung,exynos990.h | 176 ++++++++++++++++++
+>  2 files changed, 200 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/clock/samsung,exynos990-clock.yaml b/Documentation/devicetree/bindings/clock/samsung,exynos990-clock.yaml
+> index c15cc1752..dd301deda 100644
+> --- a/Documentation/devicetree/bindings/clock/samsung,exynos990-clock.yaml
+> +++ b/Documentation/devicetree/bindings/clock/samsung,exynos990-clock.yaml
+> @@ -30,6 +30,8 @@ description: |
+>  properties:
+>    compatible:
+>      enum:
+> +      - samsung,exynos990-cmu-peric0
+> +      - samsung,exynos990-cmu-peric1
 
+Mismatched order.
 
-Let's unify the naming from now on to match compatible:
+>        - samsung,exynos990-cmu-hsi0
+>        - samsung,exynos990-cmu-peris
+>        - samsung,exynos990-cmu-top
+> @@ -56,6 +58,28 @@ required:
+>    - reg
+>  
+>  allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - samsung,exynos990-cmu-peric1
+> +              - samsung,exynos990-cmu-peric0
 
-samsung,exynos2200-cmu.yaml
-amsung,exynos2200-cmu.h
+These also reverse.  Keep things ordered alphabetically. Also this
+if:then: block should go to appropriate place.
 
 
 Best regards,
