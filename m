@@ -4,70 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 176F7C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 13:41:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31993C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 13:42:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VSiLDaWP9B5Sb14CsStBZenwHQk4lwRuXBYXlR20pcs=; b=3k81G6rAZ8+IOgLgEtrftPyvYp
-	IBlH+19nOmywrelxrNOncOl7bxlx2XGCL7fyjqpXvR9+PTVeZbEEi1JiaykkKzLgI9VQZ4kQQygyf
-	qABqqXcMzSNQOgKQms+VN6KHG/5ge7w776noywu3ZQa9DlhGZm7el+TA2OdnG1vsqrS7nKioiyDeS
-	TXr/2PVGjjMysLWi7l/1tyW94jRfLrh4syL47Z7qgaNkCGxrZPwkA5+eUf53uTJyt/p1d6DcnT9w9
-	lnJdLKij5js9N+27eq4GvWoiMOrwTnOU3VxPRt5Y2XKR7VV3jtKdm27B3SHuXivE2fMNSacSUmkF7
-	ndcaACtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K6bIJuULWhsZxJCwa0hMVmk2iWw7cX6L/3fW6XmaZJY=; b=uUCNcqMg2SP40Ie0MvIXl0RK6M
+	bC1BmjDkUnhagIX7pIk0pyV5C3tPPLWA3/Oka56iF6v3EXQq/TiLKw4gveYVHDEOvSk32IOWBEyLq
+	oLo++BzKUR8TG4LjDcuNngOuAuYKE2CAd5zeWa2lBTw0fn4fsjE1lZ9Rde7QGxsbZOMnXIGIyLZQj
+	MSrpNgsVsByebGv1FdN/GIth/Yilke1xrGzUwRhBcsY4evcjjqCI4V8V5rfWnmdGBBFYp573l9DDl
+	J9xUpsjDiU404Bc1uqR83aXKHDPk2CkecJHrMrUaIf/btgiZr11ZXDyr6Kxq+YYt3YjP0dNybSM7Y
+	tVHiQRdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmCED-0000000BDpf-1h1d;
-	Sun, 23 Feb 2025 13:41:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tmCFe-0000000BE3a-1IIU;
+	Sun, 23 Feb 2025 13:42:34 +0000
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmCCk-0000000BDeb-0YEF;
-	Sun, 23 Feb 2025 13:39:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E841161144;
-	Sun, 23 Feb 2025 13:39:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 847C3C4CEDD;
-	Sun, 23 Feb 2025 13:39:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740317970;
-	bh=VYHAAbUCUiGYFAjtyjDhjex55dizi9CWqp4qfEujigE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SEmd8SjXchvYTXVG5atKw3xbjW2JO9AMH5ttIiw9mLwE6biRdEUFCrohtDDXFK9Vx
-	 ds4iJbPcOuDT+4z0DP4fZHkZOpXQYLavo5thpJ2/BOpXfkHOScg0R4YAXuKszdvh8R
-	 TAduUGcDDNMtHzy4ZOTYSU3YFuB25on7Ho9rUXGiiHYVmvILEkmL7QGVBU2SS8Bte+
-	 Ah8UFr4MrzET2ns/pTHERSxJ7sQha7I1cSu6IBAbnT2sSND86o18wSUypcIcV6p+a9
-	 k8H17kVJtKplzHYusTyMDcZ7p9gVq4QN+sJRaXdaJRd92LDokt92gIU9NuNDQaVqDY
-	 OmibVSyXn+bbQ==
-Date: Sun, 23 Feb 2025 14:39:28 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>
-Subject: Re: [PATCH v3 1/2] dt-bindings: PCI: mediatek-gen3: Add
- mediatek,pbus-csr phandle array property
-Message-ID: <Z7slEJgCQMqp_I6p@lore-desk>
-References: <20250222-en7581-pcie-pbus-csr-v3-0-e0cca1f4d394@kernel.org>
- <20250222-en7581-pcie-pbus-csr-v3-1-e0cca1f4d394@kernel.org>
- <20250223-hulking-goldfish-of-symmetry-cbfed4@krzk-bin>
+	id 1tmCDy-0000000BDmx-1vMX
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 23 Feb 2025 13:40:52 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id D908844388;
+	Sun, 23 Feb 2025 13:40:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1740318045;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=K6bIJuULWhsZxJCwa0hMVmk2iWw7cX6L/3fW6XmaZJY=;
+	b=oBlq8azH+BF3Jjf44h2fXFP4YWqwNaegZtOSOGTfSqIOT1AFfSfYqFmyz5BobJH+FtwYxX
+	7rUdaZtPc/VvY69ZzMXGzrvYXIwY2/SSLKHiIIchfSsW1sRCgkLv2NAQuQ8bMTw2Y+g/0r
+	WoTcPJ5UU2/7+qzv/EsMrNX0aohLiMbKuVMkn16JUdTb5jQwX3VQL6ZTv1dl9vl3DsdfAu
+	gcIZy5TWsnQU1dUPVNKhJiwHoutc5YyMTCH3KwfwUFaSUF0tVh7/lr4Rt035QzlGD5jdgQ
+	ioXiVTa6R6kIl+KSX1yjoJJYSPXoBm3rhqwgPtbU3jB1X0wM22iqVIuDVHTkUg==
+Date: Sun, 23 Feb 2025 14:40:41 +0100
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: kernel test robot <lkp@intel.com>
+Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
+ <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>, Heiner Kallweit
+ <hkallweit1@gmail.com>, oe-kbuild-all@lists.linux.dev,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <christophe.leroy@csgroup.eu>, Herve Codina
+ <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>, =?UTF-8?B?S8O2cnk=?= Maincent
+ <kory.maincent@bootlin.com>, Oleksij Rempel <o.rempel@pengutronix.de>,
+ Simon Horman <horms@kernel.org>, Romain Gantois
+ <romain.gantois@bootlin.com>
+Subject: Re: [PATCH net-next 08/13] net: phy: phy_caps: Introduce
+ link_caps_valid
+Message-ID: <20250223144041.1bf253ca@fedora.home>
+In-Reply-To: <202502231409.QTfXTqrD-lkp@intel.com>
+References: <20250222142727.894124-9-maxime.chevallier@bootlin.com>
+	<202502231409.QTfXTqrD-lkp@intel.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="LboHElsNia9vOOZK"
-Content-Disposition: inline
-In-Reply-To: <20250223-hulking-goldfish-of-symmetry-cbfed4@krzk-bin>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdejheeliecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegveeltddvveeuhefhvefhlefhkeevfedtgfeiudefffeiledttdfgfeeuhfeukeenucfkphepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvuddprhgtphhtthhopehlkhhpsehinhhtvghlrdgtohhmpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgesk
+ hgvrhhnvghlrdhorhhgpdhrtghpthhtohepvgguuhhmrgiivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomh
+X-GND-Sasl: maxime.chevallier@bootlin.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250223_054051_277252_B748D828 
+X-CRM114-Status: UNSURE (   7.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,55 +90,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, 23 Feb 2025 14:38:46 +0800
+kernel test robot <lkp@intel.com> wrote:
 
---LboHElsNia9vOOZK
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> >> drivers/net/phy/phy_caps.c:152: warning: Function parameter or struct member 'speed' not described in 'phy_caps_valid'
+> >> drivers/net/phy/phy_caps.c:152: warning: Function parameter or struct member 'duplex' not described in 'phy_caps_valid'
+> >> drivers/net/phy/phy_caps.c:152: warning: Function parameter or struct member 'linkmodes' not described in 'phy_caps_valid'  
+> 
 
-> On Sat, Feb 22, 2025 at 11:43:44AM +0100, Lorenzo Bianconi wrote:
-> > Introduce the mediatek,pbus-csr property for the pbus-csr syscon node
-> > available on EN7581 SoC. The airoha pbus-csr block provides a configura=
-tion
-> > interface for the PBUS controller used to detect if a given address is
-> > accessible on PCIe controller.
-> >=20
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> > ---
-> >  .../devicetree/bindings/pci/mediatek-pcie-gen3.yaml     | 17 +++++++++=
-++++++++
-> >  1 file changed, 17 insertions(+)
-> >=20
->=20
-> You got review tag, so if you decided to skip it, this should be
-> mentioned why.
->=20
->=20
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Ah indeed, I'm missing the kdoc description here.
 
-Since I modified the patch with respect to the previous version, I was thin=
-king
-you want to review it again before applying the Reviewed-by tag. Added it n=
-ow.
+Meh and the commit title should be :
 
-Regards,
-Lorenzo
+	net: phy: phy_caps: Introduce phy_caps_valid
 
->=20
-> Best regards,
-> Krzysztof
->=20
+I'll wait a bit for reviews and fix that in the next round.
 
---LboHElsNia9vOOZK
-Content-Type: application/pgp-signature; name="signature.asc"
+Thanks mister robot,
 
------BEGIN PGP SIGNATURE-----
+Maxime
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ7slEAAKCRA6cBh0uS2t
-rPy9AQCgBZ/Fs6+vlGg02YKCLsxEfSZgokp+F0deZxshMw9y8AEAwEhLv/Dps1LX
-LD5v1+vVobF58lYLVJoLkG/UfUOe7QA=
-=W+YN
------END PGP SIGNATURE-----
-
---LboHElsNia9vOOZK--
 
