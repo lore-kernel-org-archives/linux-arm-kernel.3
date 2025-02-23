@@ -4,85 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8F1BC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 08:31:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36F12C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 08:48:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8ki/B4ELY4rZob+oGFNIp8+cpQQDcjVNezaRSiDE1TE=; b=xnp1DzxDcS8SHdRin7+YyBySvG
-	/QPYVRHPdS6r777kaPh3XPqs3glMlokkSdaZSgdKLvCk214fc91o91W8wMi5uGy9VcnXF0G/NxvV1
-	BCls0cIunCe9L5xaN9WSMQqwNolmDDuzclbUaEZp/Ty7HwwIECeM+oB2F4Xg15Ad2IxTyUiJVUbbo
-	QeKBp/2oUvsmFEeYVEqdh2xDm+YsvV4E4S33ZFBr/SOP49RPS2CnyUfuvSo4sU5oamCJ12Slv+4/d
-	B9tNEmnzRsT+qxQ5yBOArfC8MeDq4W/4A/VNSJS+5obJacII5hG7h45+/aJlbB5nuZxwm4cQ+izTI
-	GUyEygqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ipBmD1hXeCqG7HlMuh/eFtcuhK07Gu6+qGxckxHDO9I=; b=HlwI782tHjFsKy+heGX8qovlGr
+	a4NUJHPOMex/ebOYBfUL3d0mR5pGvoWZPAWGweJNLmGPLrUtTUPtxvXXfY/qDTroJ3f+G6TtcwIYB
+	ObrW3sA5ELaI2LVRtE+T0PY9+6rHKP6CmmVqAObdzZgJbnMBHMeaGCyRf2Wfi8Hi05lNq3TfD4RD/
+	6rMJfHU774MvYznIRb2LulnIZpnXeMtx0W3NZjBYTawiiX9UXwvYj2TAM8EGIsHj3NMK50M5jrTn+
+	3IR2byczM3aB28W9NCBORCc/vkBazbpZ2nWW1f2JeYMOxETvxABocJ+odlRrNYUxUsCFHMWeqWc9P
+	dGdMfiGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm7OQ-0000000Ag52-2BGi;
-	Sun, 23 Feb 2025 08:31:18 +0000
-Received: from mail-vs1-f52.google.com ([209.85.217.52])
+	id 1tm7ea-0000000AhFa-1ZEV;
+	Sun, 23 Feb 2025 08:48:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm7Mv-0000000AfxR-3tF4
+	id 1tm7d7-0000000Ah9F-3PlQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Feb 2025 08:29:47 +0000
-Received: by mail-vs1-f52.google.com with SMTP id ada2fe7eead31-4be76fecac5so1257437137.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Feb 2025 00:29:45 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740299383; x=1740904183;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=8ki/B4ELY4rZob+oGFNIp8+cpQQDcjVNezaRSiDE1TE=;
-        b=JH+yaifuPl4NpPZhJiOLYnxfvpcQ8IqgigQQ6Ylymdf0eCefSTWcL19pxGdHiZvdLt
-         ZY5iOH8AftC5WRRqK8o1JLZ3JP3Syhyg0bYkQzT4rwDsjRPZbTYJ9turr8D3k98n1H7A
-         FIVOqmi5+6t2BpfskWanC+MPmgMdqHf0ZZNQFRZKQ8VspUq7WmzHV7oLDsn27baeXlmF
-         D+ZlMg015K+JeF75BxcekovT46zlrSUC4/sEqnigx6ZRadQIk4lAVSm0KO2Dy+tn2od0
-         DLpYFpcAC6CGHWhsf9R6p7+uX+kSUdiEEp3MqlPOJkCit+8Jm6DY/jahIzXzcEeRKlDA
-         inLw==
-X-Forwarded-Encrypted: i=1; AJvYcCWwKFeMdSmgVR7SfldocFRcmf+BPIeYmiGD4wj7ieita43Oug91KSwH66mVH8bH5oKyDj5t7eSTOOtsjgdPzq5d@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9+XG+oeGtVhbsXEXUvSsp3stRfN/HOQrcdf2BJEh1SOh4WDdw
-	/GSvv9dL6pDbVC+n647bh4iLSvCFOQ1YGwEnByzEcr6xvYZDfOy5YchuNbFJ
-X-Gm-Gg: ASbGncuGajtFMFHP1paOCQo9BTcaCkMmvD3942BvoTVpER8VZP9wui/QltFEngeHiVQ
-	tnsAcFAFWFP9iG+6SfYNdQwTz7jy/H0wa8j8FjiWq4+GZy0URbQ09A5Ny2wc4sZKqdvpl3zoZcQ
-	qmeHI0NsK92KYpMYYQXn75wEw82ppD9Sjp35uzkrSvEHMWatqE/aqL73hxHYdv7gQ+OXVoGBED8
-	rpXWVIKUNVnFpCEVwL8r5smukRtcXA1UnPzDNx5+xKhcMGuvvgwAaIwt/cEuPvtyqfTHcMueDzN
-	jU6cOC5bm6hXC7TbgoF42KGrQ95n0BePCYnsHVY1HLpI9t47khBkrrOTDscrGxV5
-X-Google-Smtp-Source: AGHT+IE04l1rfhminJldCW5en+3/FiHjZ29N+zCH5V9vGJyjWiSrOeVZNQ/xpqF5qqPjUj5Z+tIn4w==
-X-Received: by 2002:a05:6102:6cc:b0:4bb:c8e5:aa8b with SMTP id ada2fe7eead31-4bfc01c63e9mr4717371137.22.1740299383379;
-        Sun, 23 Feb 2025 00:29:43 -0800 (PST)
-Received: from mail-vs1-f47.google.com (mail-vs1-f47.google.com. [209.85.217.47])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4be09ff5aaasm3334257137.6.2025.02.23.00.29.42
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 23 Feb 2025 00:29:42 -0800 (PST)
-Received: by mail-vs1-f47.google.com with SMTP id ada2fe7eead31-4bbbaef28a5so1121871137.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Feb 2025 00:29:42 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUpVr09hOmrh41pw7BslXyz7royLdr8ko4eEy5dvils8sXpMomOHIG5YCnR44ove3UYtCmLIL0jCSsmBxrS+nTL@lists.infradead.org
-X-Received: by 2002:a05:6102:f9a:b0:4bb:eb4a:fa03 with SMTP id
- ada2fe7eead31-4bfc01cf2d4mr5204466137.23.1740299382047; Sun, 23 Feb 2025
- 00:29:42 -0800 (PST)
+	Sun, 23 Feb 2025 08:46:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 76ECE6112F;
+	Sun, 23 Feb 2025 08:46:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5E3CC4CEDD;
+	Sun, 23 Feb 2025 08:46:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740300388;
+	bh=0RaAMpQoMMIAtos2wWNjuemUUO6cn0qCxmF+EkB+HFM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=tFbaoZJNL4cgXw4FX2l82CP89M+V4sPB0gBJoIHY/f3dFqQ16XRiXwE4pqggDFhZi
+	 0OeTKLCR/1UoOIWMnLJxXrh7Ao71EVc+sG3bVcFCrXarDap0VEEdEAN+Ssyp9pudWP
+	 yp2g7NiXgBxSTi4GzMkPofCxAbYNlp21l/5qvrgyjI724FyoK+K5y7MVEnjhNL0tdM
+	 OGnnxbdcZEMB83a/bxp51EQMJAKh3jzCWH7NWOieRsblAFSCdcb9lvCIQMBQiX5T7v
+	 DhqRZ9iSnO+IiJFOhKKNJ/aTD2+hzTMG4DVRoKWH2r6y7tvPkXmFwsuhaOmkUWugLL
+	 o/NUfZSnFQAgw==
+Message-ID: <50acb698-c32c-4276-90d2-46ee9de7bfe9@kernel.org>
+Date: Sun, 23 Feb 2025 09:46:22 +0100
 MIME-Version: 1.0
-References: <9638976432d8dfcb0c4df9d454b661f9022a2d7b.1738766259.git.geert+renesas@glider.be>
- <Z7rMdg7+m6qa0Hft@dragon>
-In-Reply-To: <Z7rMdg7+m6qa0Hft@dragon>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Sun, 23 Feb 2025 09:29:29 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdW=ZH7D+m54rh-25nFShCYhRhEjkjaB1LtOrRF5RyrXiQ@mail.gmail.com>
-X-Gm-Features: AWEUYZmS7rXgq0ILXCQzgoTNJCt0MsAd5CmZz4lNsRJMvj13mGrXdUP0DGSg_yA
-Message-ID: <CAMuHMdW=ZH7D+m54rh-25nFShCYhRhEjkjaB1LtOrRF5RyrXiQ@mail.gmail.com>
-Subject: Re: [PATCH resend] firmware: imx: IMX_SCMI_MISC_DRV should depend on ARCH_MXC
-To: Shawn Guo <shawnguo2@yeah.net>
-Cc: Arnd Bergmann <arnd@arndb.de>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Sudeep Holla <sudeep.holla@arm.com>, 
-	Mark Brown <broonie@kernel.org>, soc@lists.linux.dev, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250223_002945_967003_19E05484 
-X-CRM114-Status: GOOD (  23.32  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [EXTERNAL] Re: [PATCH v2 2/4] dt-bindings: cp110: Document the
+ reset controller
+To: Wilson Ding <dingwei@marvell.com>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "andrew@lunn.ch" <andrew@lunn.ch>,
+ "gregory.clement@bootlin.com" <gregory.clement@bootlin.com>,
+ "sebastian.hesselbarth@gmail.com" <sebastian.hesselbarth@gmail.com>,
+ "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ Sanghoon Lee <salee@marvell.com>, Geethasowjanya Akula <gakula@marvell.com>
+References: <20250220232527.882888-1-dingwei@marvell.com>
+ <20250220232527.882888-3-dingwei@marvell.com>
+ <20250221-huge-able-ostrich-5c70cd@krzk-bin>
+ <BY3PR18MB4673E3FA63FA85F1C11E68F0A7C62@BY3PR18MB4673.namprd18.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <BY3PR18MB4673E3FA63FA85F1C11E68F0A7C62@BY3PR18MB4673.namprd18.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,34 +125,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shawn,
+On 22/02/2025 22:02, Wilson Ding wrote:
+> 
+> 
+>> -----Original Message-----
+>> From: Krzysztof Kozlowski <krzk@kernel.org>
+>> Sent: Friday, February 21, 2025 12:47 AM
+>> To: Wilson Ding <dingwei@marvell.com>
+>> Cc: linux-kernel@vger.kernel.org; devicetree@vger.kernel.org; linux-arm-
+>> kernel@lists.infradead.org; andrew@lunn.ch; gregory.clement@bootlin.com;
+>> sebastian.hesselbarth@gmail.com; robh@kernel.org; krzk+dt@kernel.org;
+>> conor+dt@kernel.org; p.zabel@pengutronix.de; Sanghoon Lee
+>> <salee@marvell.com>; Geethasowjanya Akula <gakula@marvell.com>
+>> Subject: [EXTERNAL] Re: [PATCH v2 2/4] dt-bindings: cp110: Document the
+>> reset controller
+>>
+>> On Thu, Feb 20, 2025 at 03: 25: 25PM -0800, Wilson Ding wrote: > Add reset-
+>> controller sub-node into the system controller node, and > document the
+>> supported reset lines. > > Signed-off-by: Wilson Ding
+>> <dingwei@ marvell. com> > 
+>> On Thu, Feb 20, 2025 at 03:25:25PM -0800, Wilson Ding wrote:
+>>> Add reset-controller sub-node into the system controller node, and
+>>> document the supported reset lines.
+>>>
+>>> Signed-off-by: Wilson Ding <dingwei@marvell.com>
+>>> ---
+>>>  .../arm/marvell/cp110-system-controller.txt   | 43 +++++++++++++++++++
+>>
+>> NAK.
+>>
+>> You already got feedback that TXT bindings are not accepted.
+>>
+> 
+> I am not trying to use this TXT for dt-binding. But as you can see this file
+> describes all the sub-nodes details, such as mpps, clocks information. So
+> that I add the reset line info here. If this is not the right place, where shall
+> I put this information. I wonder if you are asking to convert this txt into
+> yaml.
+You just duplicated the YAML binding in TXT. If you wanted to reference
+the child, you would say something that there is a reset device in
+binding foo.yaml.
 
-On Sun, 23 Feb 2025 at 08:21, Shawn Guo <shawnguo2@yeah.net> wrote:
-> On Wed, Feb 05, 2025 at 03:41:43PM +0100, Geert Uytterhoeven wrote:
-> > The i.MX System Controller Management Interface firmware is only present
-> > on Freescale i.MX SoCs.  Hence add a dependency on ARCH_MXC, to prevent
-> > asking the user about this driver when configuring a kernel without
-> > Freescale i.MX platform support.
-> >
-> > Fixes: 514b2262ade48a05 ("firmware: arm_scmi: Fix i.MX build dependency")
-> > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
->
-> Thanks for the patch, Geert!  But I have just picked up the change from
-> Uwe [1].
+But yeah, ideally this entire binding should be also converted to DT
+Schema / YAML.
 
-Thanks, but mine has been upstream since Friday ;-)
-
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=be6686b823b30a69b1f71bde228ce042c78a1941
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Best regards,
+Krzysztof
 
