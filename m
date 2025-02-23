@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA05C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 23:45:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6393EC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 23:49:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=28j2oUhHrE0UtIm5Z7Iu9myzi6x7Y72gOBfh9gvCc7A=; b=j5m/xQPwKaBFEJuV10cGNRl1kG
-	f5nCOYeYWFeU3pBQal+j3tPqC55YprFDbJZCrUSIACCu81SUHpS7PzZRG5MSqX2Dm4nd+OTgGVRMY
-	tQFS94LyhvTZ48dQhRnZ5sucy1I0EykbNkeq8db0u8P0vvGe/SuBupKSpknN+I50s1FGbg4I7l2do
-	aAUnkGyINAJoad67cnAZajC1oTyutJNmqxNO0ucDggijsWMz2FvdyiXSIosAJkTUOrLlSJJ4wsCT7
-	1Go2zz6YX8h2z5i2E4gs4gtQm72nhNOw+Di2t0U2TX6VMh06Zt+qhGgPPzb8Og5JlN4y5HDyiWBXw
-	BFj/g0eQ==;
+	bh=9wcnMV7bCjw+onbQP13XkDfLLYTKBRINzQvJtc5RrEM=; b=bLSMjUPB1VbHMfS/7wvxquD6bc
+	BOy345x60+2+Sn/PnXWrihBcWPOAgF+r9g/vwkdsfuZL0/MXmw33sQciBQaa0BptM6cgFce9/4Ueo
+	VIurz4NR7NgZJ/G/tVIjuT0z9OvKGlsgAfEZXa9lkQ9aOLjXOzSiVvsPyHRjbt3PDcm3zF4ANGYFg
+	h3hyAopEamjeYMiqyV5Cdk9eiUauEZLSgIHuUBh2vEQL09cDoVAvtavKDd58ZaiRmSpaVQbyyphQg
+	jqd0LE3ap8J9f18rGz83tyRWr/d1oVKCSXROloNpwGjZun/1c4A3DjkzY1pTveHIPipBLNmBUKLnV
+	V28rVVhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmLf6-0000000Bz60-3Typ;
-	Sun, 23 Feb 2025 23:45:28 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1tmLjE-0000000BzTY-01Km;
+	Sun, 23 Feb 2025 23:49:44 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmLda-0000000ByyN-4681
+	id 1tmLhl-0000000BzM6-0P2g
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Feb 2025 23:43:57 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5452c29bacfso4228864e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Feb 2025 15:43:54 -0800 (PST)
+	Sun, 23 Feb 2025 23:48:14 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-5439a6179a7so4285078e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Feb 2025 15:48:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740354233; x=1740959033; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1740354491; x=1740959291; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=28j2oUhHrE0UtIm5Z7Iu9myzi6x7Y72gOBfh9gvCc7A=;
-        b=UNdDFHlyRbITs+mgKWniuWv6QMU0gL2lQjBWQJ2z+6zeZoqVK8+QFGSdTtZRApqhtu
-         Ynw15KYMtXJv4qKMixwSBtFK7un4uIXch1SQrGERaN/E+SL3UzQV3KbxU7xorbJb1Y9u
-         FP9Mr2aIcO/oMqYpNW0tPw63dVcfhQaqi5LebjrU8/sko3a1Q1V5C48hJiYjPQATwyu5
-         ZtJASIWUkV/8TQv8Tu8J4rZGI/oVfNbHJ4odisEPbZe/EU3V+s2KN+L5l9DyLyctmEfm
-         ZvS8yW8kGIZYqW8mVHJJjdAKYYh4gbqgn9wSfIp+o4MIsDBsmDV0nRbXtDMn+5vgU1Tm
-         lD3Q==
+        bh=9wcnMV7bCjw+onbQP13XkDfLLYTKBRINzQvJtc5RrEM=;
+        b=oCvCtweQlRFMIqOFgr3Ml4mK7U/vp8B14Hv9+iHNOiJGUsMuInu2USSMMEKsV/bQZR
+         lmhjUgHTPFZCu2pF1my3QKbuR75M7G17xg9ATMJW1GIcbIWUUQhRpsiaR1Hzq72kuyvK
+         mnWfGZUubmTlHW5M1nceVfclteyGDaIH2ddlyzwJ8ovMjbrpy9jqc3IWoD5seXkrbN7U
+         vbdPrXNnCgaODimj9mMY6HZTkqY5GI4VbyEohoAdGO+WZl/cZvO8vPbFOesL5ABH4AeQ
+         ken/U7GZpkNg+TtGw9jVuej63f+ndLwY0+KjlzxmG/XDF59Z4tols6tD9sgu+NjvjjDG
+         N8/w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740354233; x=1740959033;
+        d=1e100.net; s=20230601; t=1740354491; x=1740959291;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=28j2oUhHrE0UtIm5Z7Iu9myzi6x7Y72gOBfh9gvCc7A=;
-        b=XEuAAhu7KUjNo+XheigoiS6bHYXCkdGd/UvmT4eX3qnpJ+yYcl/bEHNO+Ucx0SGY9V
-         3DScWyv6Lm4tuhxTbXdwhifvuXqJHrIrwZlTKXCgMq1+iT9ZpBm2vG1TsE2Olzw0f1Eo
-         ranRpBHFEnZknrzANthlh28MviX2B4JlPeELTN4KkWelEBe4ZDpMfjQ7NRHyLWW3zwPA
-         VafhDpcmqhtswetpMBxmNaqIbFlPxuMsNCfWb0y8oXXkdViOcydYVnY9unFjSz9IsX3e
-         /on54Z9Q+W55DC0jS6qWMRcYypKcUQkeZBT2ZOiW65Ae7QBPWgX21GUn3mw3mEbHTwak
-         HQcg==
-X-Forwarded-Encrypted: i=1; AJvYcCXTvaGTCvYs/XHUclBRlgA8PEZgeczHLv8fW8vHr5iZZN10KxR74eb1k26v+cF4RsQKyDEkTyffmno4bbxdrBTZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzazD1BOgNESEmQNPM4IdatBT7+3RqvYT5HuaD8gM42SpBX+oGj
-	FbP4n3hFVAqzv+EgLc3PSmP5oLDrwOq8h9AOo3Hygy0sR4ivkQYXHhrjpWXbR3I=
-X-Gm-Gg: ASbGncuAWKR+PM24dHXw/ydm0xzPdJkO6AIeiMLBOGSVR2low6CAsG6fabBTBy8ykIC
-	AmyNF89w+b9tD5axntMK9CIyFqYD2GGE6cAK4780VYKCZgGmEXaka3CDg+Wkw5f44ovIDsV06jP
-	sY+V/l+GiyTAG1/VUPrb2poYnDIBgzbTgLTlDX9fQxF11kDec8XOqSDOjSbNaE7lQeW07D0j3MX
-	mp8y85e2z/rTgx3iFMaqCAjXqrtmeQXmQ2WgQ74GR8bWB7NnWFF5Q/WxTZRB6IwOXDPywyOFZbX
-	inu/666+qg/6w4TPghXeavSTmDjRZOb8nXXFlXnDU+v8egOnudgtcz3dvPs2YcwRa/tD9uB0mR6
-	mQNirdQ==
-X-Google-Smtp-Source: AGHT+IHqDyDmO/r2yjSG30eHo/aZTvnzBBS3IoH2SUfydcMTabalwcojF162vAWAlTXJ3voBa2nsQQ==
-X-Received: by 2002:a05:6512:308a:b0:545:296e:ac28 with SMTP id 2adb3069b0e04-54839144ee2mr4857016e87.24.1740354232909;
-        Sun, 23 Feb 2025 15:43:52 -0800 (PST)
+        bh=9wcnMV7bCjw+onbQP13XkDfLLYTKBRINzQvJtc5RrEM=;
+        b=FDNb1SM/DtZHMdTzzHyB7rxA6SAox7fnpNMwoCT6yA5LeUT0rKeITl0O0yc3J/NNCI
+         N/pHkceC4/byEk8es2p/9mHPdSOZOmXkLCowOQF2a3pc2soyu++9uQlMQZjEcDlQ8oZL
+         GAw4N/xMidi6VE/3XX1chrunEqw2hwzuB1bSp0onMhXDzmDosZEnIxID5l0LShktSDYU
+         X6WCA4WcY6t2+iMzzcX6BrMROgegZlL7PRsGT5hNoIPDQAJWvi+WJ0QsXY9a4JUQwEbN
+         m7xPCPUXE8Nzuz6XEjUC+UjLy6bjhSmuIOhZ5pmY08eBhYKbbY3dXRPh93dNa/yLk8Ag
+         iZ4w==
+X-Forwarded-Encrypted: i=1; AJvYcCVs65s0hCk5BS1iUg71tkrwdTJfu2Um3fV2qKKO0J3w0Gmrpk39zS4HArIpXCI6X/QHRvwIci0Wjhg8Qgczi2Ea@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1ZuF0bG7dypwmAX4YPnJ7vqKajnAUa8ijUF8ZXuPb3Aa4Rcb0
+	3TWsbYQffLWmherurc+MH4IQRNwsC0FilTMSjnDMgF+kiEneLtxfoiADpWn7+kc=
+X-Gm-Gg: ASbGnctFPjrNWnhD0c9MNJ+adRrzYBmXRNiOtHrksdwuXm0ZtSnAHuRDVm8ShQvCAXI
+	lZOgrgUC80OIdbXydL9bj2+bM3SFsjAr75A4WATjoms1bgM+mDr7iAWoWyjw8QN3nxcVuVK7ev1
+	FvXIxaa5f0SviAhhjsbLaS9zhOYBRWtJZ9TkrB1XCWU7uhdzLvEQCqMbp00mXPZBoRZYdafoRWz
+	Sj+gK/Vdj/2+e4vZwFcEH2RmTQ2jHVyaMvhaUk0n47vsKyrdlDQJzDDmgai1u30/2zQfGjKsLPx
+	U9wPZSY4OSLtdIe2uArG2PeUfbmXWHauYqwQ2WzJOraEbGbpXI1hW/BOd2o/qU6MuCCdugl8by4
+	Xgh37qg==
+X-Google-Smtp-Source: AGHT+IGXmEWcaphU72erBHimrC5JqF3fr1E4pBz3cUxisqWzEmoQZicuyftwCeCY3akeN/V+TAZxhg==
+X-Received: by 2002:a05:6512:3f29:b0:545:1049:eb4f with SMTP id 2adb3069b0e04-54838a00232mr4288474e87.0.1740354491225;
+        Sun, 23 Feb 2025 15:48:11 -0800 (PST)
 Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54526741fe5sm3065509e87.90.2025.02.23.15.43.50
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5452a67e6c3sm2955721e87.1.2025.02.23.15.48.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 23 Feb 2025 15:43:51 -0800 (PST)
-Date: Mon, 24 Feb 2025 01:43:49 +0200
+        Sun, 23 Feb 2025 15:48:09 -0800 (PST)
+Date: Mon, 24 Feb 2025 01:48:07 +0200
 From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 Cc: Vinod Koul <vkoul@kernel.org>, 
@@ -78,18 +78,17 @@ Cc: Vinod Koul <vkoul@kernel.org>,
 	Abel Vesa <abel.vesa@linaro.org>, linux-arm-msm@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org, 
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/8] dt-bindings: phy: snps-eusb2: add exynos2200
- support
-Message-ID: <4tvpl3pujnuw2qjwu7f7ryrr5dndxow7srkkp2223wmexr23bi@7nmgrpq6znpg>
+Subject: Re: [PATCH v2 6/8] phy: phy-snps-eusb2: make reset control optional
+Message-ID: <rcny5iaxs6gr6vcxmjep6hwtkt2fvtgzhbxlpu3ax6vj7maure@n5bg5y74vwc7>
 References: <20250223122227.725233-1-ivo.ivanov.ivanov1@gmail.com>
- <20250223122227.725233-3-ivo.ivanov.ivanov1@gmail.com>
+ <20250223122227.725233-7-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250223122227.725233-3-ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <20250223122227.725233-7-ivo.ivanov.ivanov1@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250223_154355_023415_F43B8776 
-X-CRM114-Status: GOOD (  15.79  )
+X-CRM114-CacheID: sfid-20250223_154813_143136_9CAC5804 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,115 +103,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Feb 23, 2025 at 02:22:21PM +0200, Ivaylo Ivanov wrote:
-> Exynos 2200 makes use of the Synposys eUSB2 IP, so document it in the
-> binding. Unlike the currently documented Qualcomm SoCs, it doesn't provide
-> reset lines for reset control and uses more clocks.
+On Sun, Feb 23, 2025 at 02:22:25PM +0200, Ivaylo Ivanov wrote:
+> Some SoCs don't provide explicit reset lines, so make them optional.
+
+Is there an external reset or some other signal?
+
 > 
-> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov@gmail.com>
+> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 > ---
->  .../bindings/phy/snps,eusb2-phy.yaml          | 64 +++++++++++++++++--
->  1 file changed, 57 insertions(+), 7 deletions(-)
+>  drivers/phy/phy-snps-eusb2.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/phy/snps,eusb2-phy.yaml b/Documentation/devicetree/bindings/phy/snps,eusb2-phy.yaml
-> index 22c77968f..f4164db71 100644
-> --- a/Documentation/devicetree/bindings/phy/snps,eusb2-phy.yaml
-> +++ b/Documentation/devicetree/bindings/phy/snps,eusb2-phy.yaml
-> @@ -23,6 +23,7 @@ properties:
->                - qcom,x1e80100-snps-eusb2-phy
->            - const: qcom,sm8550-snps-eusb2-phy
->        - const: qcom,sm8550-snps-eusb2-phy
-> +      - const: samsung,exynos2200-snps-eusb2-phy
->  
->    reg:
->      maxItems: 1
-> @@ -31,12 +32,12 @@ properties:
->      const: 0
->  
->    clocks:
-> -    items:
-> -      - description: ref
-> +    minItems: 1
-> +    maxItems: 3
->  
->    clock-names:
-> -    items:
-> -      - const: ref
-> +    minItems: 1
-> +    maxItems: 3
->  
->    resets:
->      maxItems: 1
-> @@ -58,11 +59,60 @@ required:
->    - compatible
->    - reg
->    - "#phy-cells"
-> -  - clocks
-> -  - clock-names
 
-Why? Clocks are required in both if clauses.
-
->    - vdd-supply
->    - vdda12-supply
-> -  - resets
-> +
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - qcom,sm8550-snps-eusb2-phy
-> +
-> +    then:
-> +      properties:
-> +        reg:
-> +          maxItems: 1
-> +
-> +        clocks:
-> +          items:
-> +            - description: ref
-> +
-> +        clock-names:
-> +          items:
-> +            - const: ref
-> +
-> +      required:
-> +        - clocks
-> +        - clock-names
-> +        - resets
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - samsung,exynos2200-snps-eusb2-phy
-> +
-> +    then:
-> +      properties:
-> +
-> +        clocks:
-> +          items:
-> +            - description: Reference clock
-> +            - description: Bus (APB) clock
-> +            - description: Control clock
-> +
-> +        clock-names:
-> +          items:
-> +            - const: ref
-> +            - const: bus
-> +            - const: ctrl
-> +
-> +      required:
-> +        - clocks
-> +        - clock-names
->  
->  additionalProperties: false
->  
-> -- 
-> 2.43.0
-> 
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
 -- 
 With best wishes
