@@ -4,80 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54010C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 17:02:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 196F0C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 17:05:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=53H7uDSkBtXAo9MHEP9x3/4U30uqaP2kMs5+ExlSJ2o=; b=2XKNxiv068Stb4PoskxcSvfeZ4
-	jsHf2Y543JKWCRRKZGJZPxfURoPnjk1LV0ic+v+lrmj9Jn8Engci0Nq1PUpSORF0wM61kMci2jAGS
-	mGy8nvg9tb/iHyTZlkLCKVu6q1htbP2Hd2jk4VflUNJEKBJggIKFVd/Oypeb9Q/SDs49rAQqCLnB+
-	SbiU8WsQ5v9wGmtmY3WLiT8J1icCAs3ky3eagboRUx85C6rBewjCH1kws0TboOS9xTnUTXKdKP7Ax
-	1DvxEhLyV1cd/3Ffo/agXry3s2yaeta4+kfOU3p0KzlmJ41vXnUEbwtWvil+EmEpKkaM/AkCfeqv7
-	8wUP+0AQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2A06E11dJcoAkc5npjBGpYdxmZnwWJg1jPV6ypYhs1I=; b=d3WJsD9hQIlBMNda3WTK3L4aLA
+	vgrSXXX9fVR0b2HKJWpoYZejYQKwMba7BW5azTh6Hjvk31UVQxMZ5N20E+TRrTTAq9XURxN0BJDmO
+	nhbiaGmbO/R6EZqPJrfJ2u0vV+ZDZBfuhw4IMRgv0FkxEevwpSMA9OtgI6DdBf/s/Y7UjXX3WeF6i
+	TdNb1i9Y/2BWMZRPoYgP6DE6TV1A07AXSpRQuHi+nh2wWsNe7GMuP0LGqQVvixD+k/ApMRdFNRrhO
+	HPIGXzxpAliEEXSLH684T08p6dZqglo4Kw6Gmqcpz0R5jQm8+/SA9PmzZhoI5KyIn9TZt9F9ubDt8
+	fe7/inGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmFNR-0000000BSzE-1vBB;
-	Sun, 23 Feb 2025 17:02:49 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1tmFPd-0000000BTT6-1GPU;
+	Sun, 23 Feb 2025 17:05:05 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmFLs-0000000BSrz-2ljb
+	id 1tmFO5-0000000BT4W-2cQu
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Feb 2025 17:01:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740330073; x=1771866073;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=hce+YrPGmrSFkOORUi3xYv5tzmbWodZaL3ZsXnTZWtQ=;
-  b=XiXDHEr3d3JvkDEa9sPwmjhHqJYLWWSHCOLIRMuAJY03WNHoHS8/Khw9
-   KQRew84sb/xj4cehG4ED+XOYX0yRbODsdHx4KPCqyR6Iy6qKcPh4l0W12
-   1RWkdwRL5o/18qMIt2G+PQtuVMlqdz1bDgF1QpC8lfOofSyji7pVGlH4M
-   7dXvuU9dHGii+ZwzKt/HXoEGmWcvRkZyPVSHKDDYiZ4JFSJ8LAggJ14I7
-   ZtswQFz6SxQKfLx8MLkTfXxRxJCu4eREo0hKQ5P1ECr8K53JGvyFsHp+Z
-   OMCZ7WJ5AQu4ZnhdgPMuQDP7NXOSA2ENtAgoA8DK81D4oIZVLiVT1z0WL
-   w==;
-X-CSE-ConnectionGUID: tliMIqvkQxmhhQegC+NgSg==
-X-CSE-MsgGUID: GSg/sRPaTXKYlnvhtE2m8g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11354"; a="63557683"
-X-IronPort-AV: E=Sophos;i="6.13,309,1732608000"; 
-   d="scan'208";a="63557683"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Feb 2025 09:01:11 -0800
-X-CSE-ConnectionGUID: pt1LIXu7QMCp6BV5jQiC4w==
-X-CSE-MsgGUID: dtvLSN++Sc+fPbZlSCdwpQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,309,1732608000"; 
-   d="scan'208";a="116360702"
-Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
-  by fmviesa010.fm.intel.com with ESMTP; 23 Feb 2025 09:01:07 -0800
-Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tmFLk-0007T1-38;
-	Sun, 23 Feb 2025 17:01:04 +0000
-Date: Mon, 24 Feb 2025 01:00:30 +0800
-From: kernel test robot <lkp@intel.com>
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 4/4] MAINTAINERS: add entry for Samsung Exynos2200 SoC
-Message-ID: <202502240019.JZE1rcyX-lkp@intel.com>
-References: <20250223123044.725493-5-ivo.ivanov.ivanov1@gmail.com>
+	Sun, 23 Feb 2025 17:03:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A36375C3F85;
+	Sun, 23 Feb 2025 17:02:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 351EEC4CEDD;
+	Sun, 23 Feb 2025 17:03:28 +0000 (UTC)
+Received: from wens.tw (localhost [127.0.0.1])
+	by wens.tw (Postfix) with ESMTP id 97A795FCC4;
+	Mon, 24 Feb 2025 01:03:25 +0800 (CST)
+From: Chen-Yu Tsai <wens@csie.org>
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, linux-clk@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Philippe Simons <simons.philippe@gmail.com>
+Cc: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20250220113808.1122414-2-simons.philippe@gmail.com>
+References: <20250220113808.1122414-1-simons.philippe@gmail.com>
+ <20250220113808.1122414-2-simons.philippe@gmail.com>
+Subject: Re: [PATCH v3 1/1] clk: sunxi-ng: h616: Reparent GPU clock during
+ frequency changes
+Message-Id: <174033020559.3257225.10440748576870743856.b4-ty@csie.org>
+Date: Mon, 24 Feb 2025 01:03:25 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250223123044.725493-5-ivo.ivanov.ivanov1@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250223_090112_773139_E06EFE4A 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20250223_090329_723186_2A72BE35 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,41 +71,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ivaylo,
+On Thu, 20 Feb 2025 12:38:08 +0100, Philippe Simons wrote:
+> The H616 manual does not state that the GPU PLL supports
+> dynamic frequency configuration, so we must take extra care when changing
+> the frequency. Currently any attempt to do device DVFS on the GPU lead
+> to panfrost various ooops, and GPU hangs.
+> 
+> The manual describes the algorithm for changing the PLL
+> frequency, which the CPU PLL notifier code already support, so we reuse
+> that to reparent the GPU clock to GPU1 clock during frequency
+> changes.
+> 
+> [...]
 
-kernel test robot noticed the following build warnings:
+Applied to clk-for-6.15 in git@github.com:linux-sunxi/linux-sunxi.git, thanks!
 
-[auto build test WARNING on krzk/for-next]
-[also build test WARNING on robh/for-next krzk-dt/for-next pinctrl-samsung/for-next linus/master v6.14-rc3 next-20250221]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+[1/1] clk: sunxi-ng: h616: Reparent GPU clock during frequency changes
+      commit: eb963d7948ce6571939c6875424b557b25f16610
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Ivaylo-Ivanov/dt-bindings-arm-samsung-document-g0s-board-binding/20250223-203243
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git for-next
-patch link:    https://lore.kernel.org/r/20250223123044.725493-5-ivo.ivanov.ivanov1%40gmail.com
-patch subject: [PATCH v2 4/4] MAINTAINERS: add entry for Samsung Exynos2200 SoC
-reproduce: (https://download.01.org/0day-ci/archive/20250224/202502240019.JZE1rcyX-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202502240019.JZE1rcyX-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   Warning: Documentation/translations/zh_TW/admin-guide/README.rst references a file that doesn't exist: Documentation/dev-tools/kgdb.rst
-   Warning: Documentation/translations/zh_TW/dev-tools/gdb-kernel-debugging.rst references a file that doesn't exist: Documentation/dev-tools/gdb-kernel-debugging.rst
-   Warning: Documentation/userspace-api/netlink/index.rst references a file that doesn't exist: Documentation/networking/netlink_spec/index.rst
-   Warning: Documentation/userspace-api/netlink/specs.rst references a file that doesn't exist: Documentation/networking/netlink_spec/index.rst
-   Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/misc/fsl,qoriq-mc.txt
->> Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/clock/samsung,exynos2200-cmu.yaml
-   Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
-   Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/leds/backlight/ti,lp8864.yaml
-   Warning: lib/Kconfig.debug references a file that doesn't exist: Documentation/dev-tools/fault-injection/fault-injection.rst
-   Using alabaster theme
-
+Best regards,
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Chen-Yu Tsai <wens@csie.org>
+
 
