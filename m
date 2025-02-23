@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A73C7C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 10:35:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC603C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 11:04:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g9gUhh1b0Gkme/HS8sn37lbz/ZA/BsNTt5p50WGNMak=; b=vN8v4qVKOP10fjfFdT+Smm50i4
-	zb4sgcrUxncJocKtX/C76f1N2F2v46JZ8IZ2XECk51jVaf/lO1xDjcz3w7fFwn9gS1DA6DmRuQVXl
-	95fIXlypBwWRLOX0eAgUbV9rXakadR3sVerRaaAwCAMoJl5nZBTaUS+AoAECYSOQ5vqn6SeZCxET9
-	c3JV2/6CIsCdRyiBdLrn7njKHhvnPp6oBwbdBWL3+gNig0bRhn0P2mfgX4ft3z7E4to3NRbO08uDd
-	nlHBbAh+HQvlFGSUlnfnA2f69l01DPefN4zF5wgGb0a1qq6+FfNyVJMfSUawdq1RbmA5IB8606o8S
-	h/U18AAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=N4+78CNRII9omIhoaJlFP6QPZRrQbPgoXm0aliYZh0M=; b=bEPxS65DGYRbi9
+	3takSDug/7ALkv379rTlh3pfLtXMjWEBLiEMD1sQoTSZ6DAeVcxAn67r7hBHHTli9l0xLTSurDE+i
+	aRedcQskBW08vJ2nNq7myUZP4IXWrewz72CoS5t6rOZviwwR2T3/mSoZZ7BvRVLuepnD8zM2XyxDt
+	1vpst06MODuTQjBS6LIwzMMNXI8ycDaVA/jVCW1MvEpNhR9yRk6Yh/Ca58I//wAkoU98on1HkpFSj
+	dMqXLtvytHAkznhbmZHG3lD6yFS+pBv7Od/nDeSuj1rvL925sYdp1KeLWAeUyouKzuR98vbwRc9HG
+	2pKMNRVwyOaP3Fpcwi0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm9Jy-0000000Askj-1EsM;
-	Sun, 23 Feb 2025 10:34:50 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tm9mC-0000000AvKT-1ND6;
+	Sun, 23 Feb 2025 11:04:00 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm9IU-0000000AsdN-2V12
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Feb 2025 10:33:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E9F745C48DB;
-	Sun, 23 Feb 2025 10:32:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBC8DC4CEDD;
-	Sun, 23 Feb 2025 10:33:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740306797;
-	bh=FLirW3ftLfXRJNxdSRNnrqsyTaGJiadECUqG3czTtBs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=V+gd4JXlabh+DhfEPBhrqC28xt0zFouB40fJznlRA8WX25vNK4NpubB/XTu9wdohm
-	 TUGFxqw3M5vfgiYGMVDeJw93JSRd0+pzHg6bwb+p0POjtkPZpR5FBWvKR2IvCGFgaL
-	 qvfBnula+H7SpAGtgz43ix3B2A63IznR0saRl7T6fbhv1GcpsyGBhmvHW1cTVA244W
-	 rg87/ohN6zauB+kSi9VAq9DWeT/OGUIZPAGBc9I5O/Be2KEd2VuJDI+LjdGCFO5oUG
-	 k/iZVR2YHYsJobPDLZlBWjG6i258UqwoEIDZWqNSALq65CSxUM4RClCltHUPSDyfQ4
-	 ml4X5nhorGRMQ==
-Date: Sun, 23 Feb 2025 11:33:14 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Kaustabh Chakraborty <kauschluss@disroot.org>
-Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Tomasz Figa <tomasz.figa@gmail.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/3] pinctrl: samsung: add support for exynos7870
- pinctrl
-Message-ID: <20250223-peculiar-coati-of-gallantry-6556ee@krzk-bin>
-References: <20250219-exynos7870-pinctrl-v2-0-1ff9b10bf913@disroot.org>
- <20250219-exynos7870-pinctrl-v2-3-1ff9b10bf913@disroot.org>
+	id 1tm9kh-0000000AuoL-3pgH;
+	Sun, 23 Feb 2025 11:02:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1740308545;
+	bh=ujHLAB81bLDG1rFjYTdk8D4Cj+5uJUkDjmnklWgTiik=;
+	h=From:Subject:Date:To:Cc:From;
+	b=J/V4EFkj7fkhmQYQbOzNAV2yL40vgJCy4A2toGa8Q/dE3HefV2Yyu4ydtHlls222Y
+	 3Fs1BNuUnL19atnl1HV96ZSmRtBwCm4v8xGz4eEW848feY5gauMhm1bmTuLlzh4lAs
+	 bxair9Nf1NxHuRETdf/bpvRzqVo4mvR95wJElcdU3eshtZ8QQfXirv0vp4eiOg8oXH
+	 jtFNoB9X2QyU0nb5AXZKAMIOnjHzSpZ/VzknIdCZsVjtfI888FtZ0w5ah8+VnLxnPd
+	 DnyfsxN2+EDTLSrseGM5neMhExRo215BSXqjapmxB1CyA9rk0MGqohrQJ3jlxfiJoO
+	 +CFpWGy4TxVEA==
+Received: from localhost (unknown [188.27.58.83])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 8FB6717E0199;
+	Sun, 23 Feb 2025 12:02:25 +0100 (CET)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Subject: [PATCH v3 0/8] phy: rockchip: samsung-hdptx: Support high color
+ depth management
+Date: Sun, 23 Feb 2025 13:02:07 +0200
+Message-Id: <20250223-phy-sam-hdptx-bpc-v3-0-66a5c8e68327@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250219-exynos7870-pinctrl-v2-3-1ff9b10bf913@disroot.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAC8Au2cC/23NUQuDIBDA8a8SPu+GXaVsT/seYw+mNoVK0ZAi+
+ u6zYDBG3NP/4H63kqiD1ZHci5UEnWy0bsxRXQoijRjfGqzKTZBiXSJl4M0CUQxglJ9maL2EqqW
+ NZMhZpzjJdz7ozs6H+XzlNjZOLizHi1Tu26/GT7RUAgVaSdS1Yorf+EO6vhetC+Iq3UB2MeGPU
+ uKZgllpuGYcJc9T/yvbtn0A3SXvX/wAAAA=
+X-Change-ID: 20241206-phy-sam-hdptx-bpc-3b05c6276fd7
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: Algea Cao <algea.cao@rock-chips.com>, Sandor Yu <Sandor.yu@nxp.com>, 
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+ Maxime Ripard <mripard@kernel.org>, kernel@collabora.com, 
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250223_023318_689096_6256CC10 
-X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-CacheID: sfid-20250223_030228_148527_4D567680 
+X-CRM114-Status: UNSURE (   6.10  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,41 +83,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 19, 2025 at 12:18:59AM +0530, Kaustabh Chakraborty wrote:
- +
-> +/* pin banks of exynos7870 pin-controller 2 (ESE) */
-> +static const struct samsung_pin_bank_data exynos7870_pin_banks2[] __initconst = {
-> +	EXYNOS7870_PIN_BANK_EINTG(5, 0x000, "gpc7", 0x00),
-> +};
-> +
-> +/* pin banks of exynos7870 pin-controller 3 (FSYS) */
-> +static const struct samsung_pin_bank_data exynos7870_pin_banks3[] __initconst = {
-> +	EXYNOS7870_PIN_BANK_EINTG(3, 0x000, "gpr0", 0x00),
-> +	EXYNOS7870_PIN_BANK_EINTG(8, 0x020, "gpr1", 0x04),
-> +	EXYNOS7870_PIN_BANK_EINTG(2, 0x040, "gpr2", 0x08),
-> +	EXYNOS7870_PIN_BANK_EINTG(4, 0x060, "gpr3", 0x0c),
-> +	EXYNOS7870_PIN_BANK_EINTG(6, 0x080, "gpr4", 0x10),
-> +};
-> +
-> +/* pin banks of exynos7870 pin-controller 4 (MIF) */
-> +static const struct samsung_pin_bank_data exynos7870_pin_banks4[] __initconst = {
-> +	EXYNOS7870_PIN_BANK_EINTG(2, 0x000, "gpm0", 0x00),
-> +};
-> +
-> +/* pin banks of exynos7870 pin-controller 5 (NFC) */
-> +static const struct samsung_pin_bank_data exynos7870_pin_banks5[] __initconst = {
-> +	EXYNOS7870_PIN_BANK_EINTG(4, 0x000, "gpc2", 0x00),
-> +};
-> +
-> +/* pin banks of exynos7870 pin-controller 6 (TOP) */
-> +static const struct samsung_pin_bank_data exynos7870_pin_banks6[] __initconst = {
-> +	EXYNOS7870_PIN_BANK_EINTG(4, 0x000, "gpb0", 0x00),
+This series relies on the new HDMI PHY configuration options [1] (patch
+included here for convenience) to provide high color depth management
+for rockchip-samsung-hdptx, and to introduce a proper solution to setup
+the TMDS character rate on this PHY.
 
-Why do you need this new macro? Isn't this the same as existing
-exynos8895? Maybe just rename exynos8895 driver bits/structs/types into
-7870?
+[1] https://lore.kernel.org/lkml/d1cff6c03ec3732d2244022029245ab2d954d997.1734340233.git.Sandor.yu@nxp.com/
 
-Best regards,
-Krzysztof
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+Changes in v3:
+- Rebased series onto next-20250221 and fixed several conflicts due to
+  the recently introduced eDP support
+- Link to v2: https://lore.kernel.org/r/20241212-phy-sam-hdptx-bpc-v2-0-57e672c7c7c4@collabora.com
+
+Changes in v2:
+- Added new patches providing a bug fix and several driver cleanups and
+  improvements
+- Link to v1: https://lore.kernel.org/r/20241207-phy-sam-hdptx-bpc-v1-0-03c2e4d6d797@collabora.com
+
+---
+Cristian Ciocaltea (7):
+      phy: hdmi: Add color depth configuration
+      phy: rockchip: samsung-hdptx: Fix clock ratio setup
+      phy: rockchip: samsung-hdptx: Drop unused lcpll_config
+      phy: rockchip: samsung-hdptx: Setup TMDS char rate via phy_configure_opts_hdmi
+      phy: rockchip: samsung-hdptx: Add high color depth management
+      phy: rockchip: samsung-hdptx: Cleanup internal rate handling
+      phy: rockchip: samsung-hdptx: Avoid Hz-hHz unit conversion overhead
+
+Sandor Yu (1):
+      phy: Add HDMI configuration options
+
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 163 +++++++++++-----------
+ include/linux/phy/phy-hdmi.h                      |  21 +++
+ include/linux/phy/phy.h                           |   7 +-
+ 3 files changed, 111 insertions(+), 80 deletions(-)
+---
+base-commit: d4b0fd87ff0d4338b259dc79b2b3c6f7e70e8afa
+change-id: 20241206-phy-sam-hdptx-bpc-3b05c6276fd7
 
 
