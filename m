@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9ED8C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 07:40:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A786BC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 07:58:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oPXVRdAdTKk+04iwLdlaaflbSGUMVrgPOHzRGIn45yQ=; b=0ug0PcxFcpDGJv1Q4dWf9lNWmG
-	k//go/zWDYu6sNGnexM6MW0pFCAtunKEYVTyr2nxdLJVlv/Q582Wfx6lfn5rzvNa9BdARsILzTQjl
-	8oHXhcgJIbjQIqQMAVqEoyO8eehVlx7sB3fG0XWKTHmCoHG/N6q0oE4GhDGJ30rVLYu+dGONvVLiU
-	+aio39uCHQ9gaeS1Udaq7bL+PnFvkw6FfdjqxqgumDVXb0ew6WTIw4GJYZ+Ksy40Pv+u26PVqMC1P
-	iKuYiY0DDNAlT42/ovmJsGp2DkdHzSd7xuyEQ7FHVfMMFrvZucupdM0jbU/EslT+pRJrzFrRvMCIe
-	coW3pzdw==;
+	bh=5DVOc43tpuHAeSYUprVK/px81spsWiqY11TWh6bFcbI=; b=JBg4z4Xf1ZE0+L2MfDGsViN7es
+	ajftjSJaWDdCJVjbKVN8kA37qFTDCsD2nHhGym6tuG6aVbxEI5BcmJGZW7rLGaRjIKCNx+JaBciyi
+	8C9Q0jqe2bX1TqDxdnYU7SU8vfd9+t4pFZE7pjRjXvRo+pMe6Zs97mj87ljJkr5yBcUL287F/g1fO
+	FGZ03JrOq9YO0cU309nj+lhMWW1QsLyQMNqxBcTxj6zFwiMRFWdSFHl9kNSSoWzNb6OVjAf78RJSv
+	Y4bi1AKcv0qDzCDhmKJ0NTQZ829HpjS4RHHJp9BA2HzRhhJNxyYxFwSqJ6FjPGk8eRXScify01UjK
+	Wnr7be6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm6aj-0000000AcHU-0ACd;
-	Sun, 23 Feb 2025 07:39:57 +0000
+	id 1tm6sc-0000000AdUz-3haO;
+	Sun, 23 Feb 2025 07:58:26 +0000
 Received: from mail-m16.yeah.net ([220.197.32.17])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm6ZE-0000000Ac9e-2QSG
+	id 1tm6r9-0000000AdNv-18O3
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Feb 2025 07:38:26 +0000
+	Sun, 23 Feb 2025 07:56:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=oPXVRdAdTKk+04iwLdlaaflbSGUMVrgPOHzRGIn45yQ=;
-	b=NJ25arv6TSaeOvQf8IygctFsn3BzU1ead0BXGkM/ZNb2emKqNBj2QZ7MiKFSRM
-	4TEWq7VmJE/7hetNDF693lfCMLIuERGkIzwypO8oW2Rlc58WMkFT6o0lpeWJO+a1
-	NUEmVZ4McAIcgXGFYsi5D0N4hL+63Yaza4qw92VJku7I8=
+	Content-Type; bh=5DVOc43tpuHAeSYUprVK/px81spsWiqY11TWh6bFcbI=;
+	b=Hc5YUR7RMKeIPr9yWOW0WaAIKkxFLkGacRfrAK1j5qvMpYwQabpQ0MeSeMHzjy
+	B7rglAa0ztRY/yrNz3B9TzR377wkkHaN7L1bDR5DwRZmGHEYJgxEzZ4eIyiKPMkf
+	ZlUWQ7yAfWHmmSJXBa4yLNmRl7BJwwxkrfLSgy5IExSNY=
 Received: from dragon (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id Mc8vCgCXS3Zg0Lpnl1efCQ--.23292S3;
-	Sun, 23 Feb 2025 15:38:10 +0800 (CST)
-Date: Sun, 23 Feb 2025 15:38:08 +0800
+	by gzsmtp3 (Coremail) with SMTP id M88vCgAnL+au1LpnwNGLCQ--.21312S3;
+	Sun, 23 Feb 2025 15:56:32 +0800 (CST)
+Date: Sun, 23 Feb 2025 15:56:30 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
-To: rafael@beims.me
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rafael Beims <rafael.beims@toradex.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: colibri-imx8x: Add missing gpio-line-names
-Message-ID: <Z7rQYN06RUFR2Xqy@dragon>
-References: <20250210123134.1659719-1-rafael@beims.me>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, marex@denx.de,
+	Peng Fan <peng.fan@nxp.com>, Marco Felsch <m.felsch@pengutronix.de>
+Subject: Re: [PATCH V4] soc: imx8m: Unregister cpufreq and soc dev in cleanup
+ path
+Message-ID: <Z7rUrhJxZ3gk9nTW@dragon>
+References: <20250214084751.2975503-1-peng.fan@oss.nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250210123134.1659719-1-rafael@beims.me>
-X-CM-TRANSID: Mc8vCgCXS3Zg0Lpnl1efCQ--.23292S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUxuWlDUUUU
+In-Reply-To: <20250214084751.2975503-1-peng.fan@oss.nxp.com>
+X-CM-TRANSID: M88vCgAnL+au1LpnwNGLCQ--.21312S3
+X-Coremail-Antispam: 1Uf129KBjvdXoWrAw13Gw47GF1fZr4UZFy5Arb_yoWxXFX_uF
+	4Iyw1UGw48Ga9Fgr93Wrn7W3ZrKa93tr4UZ3Wqyrs2yr93K34DGFnYkrsYqF1UGw1rWa9F
+	vF98tFW0grZxCjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU05rcDUUUUU==
 X-Originating-IP: [117.82.86.124]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiAgb8ZWe6xy0Q-QABsG
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiEQ38ZWe6kszZYgAAs9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_233824_933975_7C95051D 
-X-CRM114-Status: UNSURE (   6.76  )
+X-CRM114-CacheID: sfid-20250222_235655_656288_31EB0DFB 
+X-CRM114-Status: UNSURE (   7.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,12 +76,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 09:30:50AM -0300, rafael@beims.me wrote:
-> From: Rafael Beims <rafael.beims@toradex.com>
+On Fri, Feb 14, 2025 at 04:47:51PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
 > 
-> Add missing gpio-line-names for SODIMM_79 and SODIMM_97
+> Unregister the cpufreq device and soc device when resource unwinding,
+> otherwise there will be warning when do removing test:
+> sysfs: cannot create duplicate filename '/devices/platform/imx-cpufreq-dt'
+> CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.13.0-rc1-next-20241204
+> Hardware name: NXP i.MX8MPlus EVK board (DT)
 > 
-> Signed-off-by: Rafael Beims <rafael.beims@toradex.com>
+> Fixes: 9cc832d37799 ("soc: imx8m: Probe the SoC driver as platform driver")
+> Cc: Marco Felsch <m.felsch@pengutronix.de>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
 Applied, thanks!
 
