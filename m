@@ -4,63 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB936C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 10:10:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0E8BC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 10:18:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qjFPs7F+XO2HKOCjLIfMrNdfI+E1rn21TAwcThQVHuY=; b=04uxZr6ip+duGk+F8dJNpClRfK
-	xEInHzI1CBFcOVXse4CYqGSH52PIxJskWnHgwdpW9U3zm+HBOf1Iz4V4ssQJaEDfoAf3HG8XcFyyv
-	YlLS7b3b6XyEFxTxkLFDr32gZbUYmaQpNET85rkgfGWXrAQZapWE2VaVaqC+ZqNdJfflK8dcPleyJ
-	/kAD7nSqw4YlDxDm4f+RWisaUXIXGKvYzMxJBIu7tqNSm5hoJlCsT8iLRnLJNTgFfC6M+yJZSelbH
-	OdGSyB24GFdSqDvc9ZYGte4zIDCoXLBGntHqhQQ5+h8LQ6Ajm0NI1ejFPUoPC0Ai0mVQTRWVUaNil
-	TypR1nmQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g5bznr0EfGorkRZNO0whjNgInFq6x6uI6qe1raw+69E=; b=C1th0BUZFfNSJowVKKnk7Jlaio
+	xUBF54C4TBplgKxTELlRX4mU6nDrai3ikqWQLZOs1Mp90+t4FPEn/gqvYOo1DIt/ds5Vq4lUJL9r4
+	3/HIiMWh97OG1h0Ux576F56Wj6L4d62Q/nZ0N+8gLE82tnPGOqghnZNn5yerw0aZMXz9hzS0LyuSC
+	+DCkGpts7Jy+TpJkAhDXNyxcv/qT/lUlXJx1cPoJak2Pa1wvQuVU1hf+MRCiKsopb+wp8R0+zCodM
+	lwNSO+s4ngzmXPU+dcHJpFx6w/PXuYJsZB4f1Ta/Dwpt9tuSwkvCV9IUuXE/MfvUknDN6YTpZC8dF
+	zjI2Cijw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm8vp-0000000Aq0l-1M1U;
-	Sun, 23 Feb 2025 10:09:53 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tm8uJ-0000000ApsJ-3jR1;
-	Sun, 23 Feb 2025 10:08:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=qjFPs
-	7F+XO2HKOCjLIfMrNdfI+E1rn21TAwcThQVHuY=; b=Sx0V7dpmMVrZUXv0rakZC
-	zIjXW0B/u+sl4ab7/wRyY0E+JnewWZ9IHAjKHMth5x5pw41DM2iEbSvmgfgamvar
-	srJxuEXRvzGGY8c7yocIc5e2ZiiYsFtPi3c+08riuylQIDzkFZ1pisAftAy7dmkz
-	KMi+uoOquINEinH7G2tfq4=
-Received: from ProDesk.. (unknown [])
-	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wDnX7t+87pn0ncQOA--.33463S2;
-	Sun, 23 Feb 2025 18:08:02 +0800 (CST)
-From: Andy Yan <andyshrk@163.com>
-To: heiko@sntech.de
-Cc: krzk+dt@kernel.org,
-	robh@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Andy Yan <andyshrk@163.com>
-Subject: [PATCH] arm64: dts: rockchip: Enable USB3 OTG on rk3588s Cool Pi 4B
-Date: Sun, 23 Feb 2025 18:07:46 +0800
-Message-ID: <20250223100757.73531-1-andyshrk@163.com>
-X-Mailer: git-send-email 2.43.0
+	id 1tm94E-0000000AqoJ-3jGc;
+	Sun, 23 Feb 2025 10:18:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tm92m-0000000AqhT-0KJH
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 23 Feb 2025 10:17:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8C16161120;
+	Sun, 23 Feb 2025 10:16:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 060D8C4CEDD;
+	Sun, 23 Feb 2025 10:16:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740305821;
+	bh=PdL/hRhsO0gx/0YHDB05i2/ZUTqfxN5Dx9Zq0dI5Ayk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NWQ3uEtshzV/EO70tpXYVXFxd+Ztfw4e4tG1xjq/3x2D4LAodKM8jKYzitqsGPJaN
+	 l9F5vjv+bL6SZAaugkuy3R23vRRq387O/Rv9G6VJIGEERNdiloVv4WmqH3gIn33unl
+	 jRAZ0LfUn2Aonl9cB7A/ZAiB4ujD1lfGNMp3/rfsCl77H26Bq1KgW09/r0zcEsTnw0
+	 LsxDpU0U4Cq06daeJ4u/a9VrZ/Wd/xqgRJyMFLuAsd0TcCqytG6c+/1teyCkmuZlwU
+	 FbuaLJXjktcNnz+heNAhkvQbjXE9xGInq/E0QAzOKgXniZ8H8CQGiyyPlWy7UzcaRN
+	 j/ToJXWSx6lnw==
+Message-ID: <38b2f870-9965-4fd7-b9f1-dde8cbeed41e@kernel.org>
+Date: Sun, 23 Feb 2025 11:16:55 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wDnX7t+87pn0ncQOA--.33463S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWrtryrKr47KF1rZryUtFy3CFg_yoW8JF1fp3
-	srCrW3Jrs3Wr4rAas8tr1Skrs3Aws5JFWfArn3A3ZIyF42g34kZr1rG3s3Zr4YqrW3Gayr
-	CF1vgFy2gF4DtF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pi7KIdUUUUU=
-X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqBj8Xme65IDlCwABsE
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250223_020820_284481_687B4780 
-X-CRM114-Status: UNSURE (   8.01  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/3] dt-bindings: clock: add Exynos2200 SoC
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ "open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250215115433.161091-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250215115433.161091-2-ivo.ivanov.ivanov1@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250215115433.161091-2-ivo.ivanov.ivanov1@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,64 +121,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable USB3 OTG and it's related PHY node. And the PHY will
-also be shared with the upcoming DisplayPort controller.
+On 15/02/2025 12:54, Ivaylo Ivanov wrote:
+> Provide dt-schema documentation for Exynos2200 SoC clock controller.
+> Add device tree clock binding definitions for the following CMU blocks:
+> - CMU_ALIVE
+> - CMU_CMGP
+> - CMU_HSI0
+> - CMU_PERIC0/1/2
+> - CMU_PERIS
+> - CMU_TOP
+> - CMU_UFS
+> - CMU_VTS
+> 
+> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+> ---
+>  .../clock/samsung,exynos2200-clock.yaml       | 247 ++++++++++
+>  .../dt-bindings/clock/samsung,exynos2200.h    | 431 ++++++++++++++++++
 
-Signed-off-by: Andy Yan <andyshrk@163.com>
----
 
- .../boot/dts/rockchip/rk3588s-coolpi-4b.dts   | 23 +++++++++++++++++++
- 1 file changed, 23 insertions(+)
+Let's unify the naming from now on to match compatible:
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts b/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
-index 9c394f733bbf..7faf189c4776 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
-@@ -803,6 +803,14 @@ &tsadc {
- 	status = "okay";
- };
- 
-+&u2phy0 {
-+	status = "okay";
-+};
-+
-+&u2phy0_otg {
-+	status = "okay";
-+};
-+
- &u2phy2 {
- 	status = "okay";
- };
-@@ -832,6 +840,16 @@ &uart9 {
- 	pinctrl-0 = <&uart9m2_xfer &uart9m2_ctsn>;
- };
- 
-+&usbdp_phy0 {
-+	/*
-+	 * USBDP PHY0 is wired to a USB3 Type-A OTG connector. Additionally
-+	 * the differential pairs 0+1 and the aux channel are wired to a
-+	 * mini DP connector.
-+	 */
-+	rockchip,dp-lane-mux = <0 1>;
-+	status = "okay";
-+};
-+
- &usb_host0_ehci {
- 	status = "okay";
- };
-@@ -840,6 +858,11 @@ &usb_host0_ohci {
- 	status = "okay";
- };
- 
-+&usb_host0_xhci {
-+	extcon = <&u2phy0>;
-+	status = "okay";
-+};
-+
- &usb_host1_ehci {
- 	status = "okay";
- };
--- 
-2.43.0
+samsung,exynos2200-cmu.yaml
+amsung,exynos2200-cmu.h
 
+
+Best regards,
+Krzysztof
 
