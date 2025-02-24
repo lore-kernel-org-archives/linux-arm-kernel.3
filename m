@@ -4,81 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E423C021BB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 13:14:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1656AC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 13:14:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mHlM9lUjZccT/hO6qimQm/Cu7ACcDUwO9z1UJAm9UVA=; b=do355tTticZHsd1Wc2PWVkd5yl
-	lOgt12fUim2sLlOypWhkyNHB3QfIp5CyAGpCYXgINuI37O3oq9nad/lNtkBvdPkl22gjTauFltyNR
-	PtnpUQnarapF+Qsf2ceyDDPRIWtZ5u613s9Qq/ZKG975GdU4yiQakgLOWdfDUQ8YVk1s/h8NLQ3u0
-	Cl7knN3zsT6kob4ivZcB9Da+HfZbbxV5+qZJTfN+gPj2fU2oo3GhZBnhDB6EH8RNyxZcg71QufqeG
-	rj4AeukTisaV3xhqufUrrMPem8dkV0dkpkYhxDqalLIILgOo6IFEBDj6vUGzlhM0H92WaQ23gWwII
-	MxZ7SRPg==;
+	bh=+rltBeeIiJHnpQoRRdWFs7tjBrGlAOLubcOAdWZhwP0=; b=SP43BAbhbE30MEQemoZ8sZRfXR
+	08WipDiPxw5cU/sPK6AnK71Ik2N9M+YRPErOL3sFla61bg9NThDqIphXhDOqrom2i8KfJpPaqso5J
+	q1KiddRveniNtHDuKTtaH17f2HQn/AUfjpdU4qLBKypHGij+CdKlZ/RPTC0kQf2+x9VcOWeQY+5XD
+	tbj5TRPWThIRsp3YdfGcjXkS6Q+LenGr/vYWHJca+sEkZwtbSLr0/jutHFNNEL32Jwoc8qkMFOEiD
+	JeDxaJBQVwVYXdw2qMvXYm+1FHuBPUsAsKWQ8DfDl9QzdUZDvJp21UUt0Jj8cxwYE42Nrxd7Bz1lI
+	NTzOl+uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmYHb-0000000DnQb-29RB;
-	Mon, 24 Feb 2025 13:14:03 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmXQJ-0000000DfRG-0ACy;
-	Mon, 24 Feb 2025 12:19:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1740399537;
-	bh=TgNZAgjSLI03J+0oLYbfYvcRE9moSayu1l7EX/brVYo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hQpPXP8ypkU1j0KONnWG3KE49hGsbMsEcL9kT47k/YJQs2fnJ1m8V/ezcvfUvH5jr
-	 s2ZgH3FWlJZpogW58JV5dQMv55OmnJdRSsmJQZizXWFlWz3etQcqUaurC6FrD9bUtB
-	 ZGKTj2m4BYEn7ysUTpCN1GWJsha7aECg7uILTrVeATjweKW6xZRN8VE+BOPpz+PHcS
-	 C7Fa2rSyjbN3iHkECVjpdNBsWb9OIOXjZJDoRGMMnQTgkyEGxUiqMPJTOTEWU2Z14u
-	 JdKVeEbL3rbnAFpyBI9CUDniQUtBB3OdVkV2mZPeuikzzZqU3bt49hknaL4OfXQFT3
-	 qhsXQ8hCFjc4g==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B21C617E00EC;
-	Mon, 24 Feb 2025 13:18:56 +0100 (CET)
-Message-ID: <fd173075-df66-4ee7-a9fa-07e840976f26@collabora.com>
-Date: Mon, 24 Feb 2025 13:18:55 +0100
+	id 1tmYHe-0000000DnVr-01NI;
+	Mon, 24 Feb 2025 13:14:06 +0000
+Received: from pegase2.c-s.fr ([93.17.235.10])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmXRM-0000000Dfe6-0qDU;
+	Mon, 24 Feb 2025 12:20:05 +0000
+Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4Z1fV21lT7z9sSH;
+	Mon, 24 Feb 2025 13:01:46 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id RSWOAySpYadf; Mon, 24 Feb 2025 13:01:46 +0100 (CET)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4Z1fV20Znwz9sRy;
+	Mon, 24 Feb 2025 13:01:46 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id EF2E28B775;
+	Mon, 24 Feb 2025 13:01:45 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id U8aocdpqgbdH; Mon, 24 Feb 2025 13:01:45 +0100 (CET)
+Received: from [10.25.207.138] (unknown [10.25.207.138])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id A584D8B763;
+	Mon, 24 Feb 2025 13:01:45 +0100 (CET)
+Message-ID: <ba5b12e4-850c-445b-a1b1-0dc5f3905dda@csgroup.eu>
+Date: Mon, 24 Feb 2025 13:01:45 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: usb: mtu3: Add ports property
-To: =?UTF-8?B?Q2h1bmZlbmcgWXVuICjkupHmmKXls7Ap?= <Chunfeng.Yun@mediatek.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- =?UTF-8?B?TWFjcGF1bCBMaW4gKOael+aZuuaWjCk=?= <Macpaul.Lin@mediatek.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "robh@kernel.org" <robh@kernel.org>,
- Alexandre Mergnat <amergnat@baylibre.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>
-Cc: "macpaul@gmail.com" <macpaul@gmail.com>,
- =?UTF-8?B?QmVhciBXYW5nICjokKnljp/mg5/lvrcp?= <bear.wang@mediatek.com>,
- =?UTF-8?B?Q2hyaXMtcWogQ2hlbiAo6Zmz5aWH6YCyKQ==?=
- <Chris-qj.Chen@mediatek.com>, =?UTF-8?B?UGFibG8gU3VuICjlravmr5Pnv5Qp?=
- <pablo.sun@mediatek.com>,
- Project_Global_Chrome_Upstream_Group
- <Project_Global_Chrome_Upstream_Group@mediatek.com>
-References: <20250220142230.2530583-1-macpaul.lin@mediatek.com>
- <0e58bfb8f2f7b7e83e3da6075986ddbcc84531fc.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <0e58bfb8f2f7b7e83e3da6075986ddbcc84531fc.camel@mediatek.com>
+Subject: Re: [PATCH V2 5/5] mm: Rename GENERIC_PTDUMP and PTDUMP_CORE
+To: Anshuman Khandual <anshuman.khandual@arm.com>, linux-mm@kvack.org
+Cc: steven.price@arm.com, Andrew Morton <akpm@linux-foundation.org>,
+ Mark Rutland <mark.rutland@arm.com>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>
+References: <20250217042220.32920-1-anshuman.khandual@arm.com>
+ <20250217042220.32920-6-anshuman.khandual@arm.com>
+Content-Language: fr-FR
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+In-Reply-To: <20250217042220.32920-6-anshuman.khandual@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_041859_221956_5E388906 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20250224_042004_405398_A7C5A40A 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,58 +88,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 22/02/25 09:35, Chunfeng Yun (云春峰) ha scritto:
-> On Thu, 2025-02-20 at 22:22 +0800, Macpaul Lin wrote:
->> Define the ports property in the mediatek,mtu3 device tree binding
->> schema.
->> Include definitions for port@0 and port@1, specifying their roles as
->> High Speed (HS) and Super Speed (SS) data buses, respectively.
->>
->> Suggested-by: AngeloGioacchino Del Regno <
->> angelogioacchino.delregno@collabora.com>
->> Signed-off-by: Macpaul Lin <macpaul.lin@mediatek.com>
->> ---
->>   .../devicetree/bindings/usb/mediatek,mtu3.yaml       | 12
->> ++++++++++++
->>   1 file changed, 12 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/usb/mediatek,mtu3.yaml
->> b/Documentation/devicetree/bindings/usb/mediatek,mtu3.yaml
->> index d4e187c78a0b..21fc6bbe954f 100644
->> --- a/Documentation/devicetree/bindings/usb/mediatek,mtu3.yaml
->> +++ b/Documentation/devicetree/bindings/usb/mediatek,mtu3.yaml
->> @@ -155,6 +155,18 @@ properties:
->>         property is used. See graph.txt
->>       $ref: /schemas/graph.yaml#/properties/port
->>   
->> +  ports:
->> +    $ref: /schemas/graph.yaml#/properties/ports
->> +
->> +    properties:
->> +      port@0:
->> +        $ref: /schemas/graph.yaml#/properties/port
->> +        description: High Speed (HS) data bus.
->> +
->> +      port@1:
->> +        $ref: /schemas/graph.yaml#/properties/port
->> +        description: Super Speed (SS) data bus.
->> +
->>     enable-manual-drd:
->>       $ref: /schemas/types.yaml#/definitions/flag
->>       description:
-> Reviewed-by: Chunfeng Yun <chunfeng.yun@mediatek.com>
+
+
+Le 17/02/2025 à 05:22, Anshuman Khandual a écrit :
+> Platforms subscribe into generic ptdump implementation via GENERIC_PTDUMP.
+> But generic ptdump gets enabled via PTDUMP_CORE. These configs combination
+> is confusing as they sound very similar and does not differentiate between
+> platform's feature subscription and feature enablement for ptdump. Rename
+> the configs as ARCH_HAS_PTDUMP and PTDUMP making it more clear and improve
+> readability.
 > 
-> Thank you
-> 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Jonathan Corbet <corbet@lwn.net>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Michael Ellerman <mpe@ellerman.id.au>
+> Cc: Nicholas Piggin <npiggin@gmail.com>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Heiko Carstens <hca@linux.ibm.com>
+> Cc: Vasily Gorbik <gor@linux.ibm.com>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Ingo Molnar <mingo@redhat.com>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-doc@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: kvmarm@lists.linux.dev
+> Cc: linuxppc-dev@lists.ozlabs.org
+> Cc: linux-riscv@lists.infradead.org
+> Cc: linux-s390@vger.kernel.org
+> Cc: linux-mm@kvack.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 7612c52e9b1e..5aef2aa4103c 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -43,6 +43,7 @@ config RISCV
+>   	select ARCH_HAS_PMEM_API
+>   	select ARCH_HAS_PREEMPT_LAZY
+>   	select ARCH_HAS_PREPARE_SYNC_CORE_CMD
+> +	select ARCH_HAS_PTDUMP
 
-Is everyone okay if I pick this (and the XHCI one [1]) in the MediaTek trees?
+Is it OK to drop the 'if MMU' from below ?
 
-This is so that I don't get devicetree warnings when picking the DT patches
-that are adding USB MUX/TCPC to the MediaTek boards.
-
-[1]: 
-https://lore.kernel.org/r/20250220105514.43107-2-angelogioacchino.delregno@collabora.com
-
-Thanks,
-Angelo
+>   	select ARCH_HAS_PTE_DEVMAP if 64BIT && MMU
+>   	select ARCH_HAS_PTE_SPECIAL
+>   	select ARCH_HAS_SET_DIRECT_MAP if MMU
+> @@ -112,7 +113,6 @@ config RISCV
+>   	select GENERIC_IRQ_SHOW_LEVEL
+>   	select GENERIC_LIB_DEVMEM_IS_ALLOWED
+>   	select GENERIC_PCI_IOMAP
+> -	select GENERIC_PTDUMP if MMU
+>   	select GENERIC_SCHED_CLOCK
+>   	select GENERIC_SMP_IDLE_THREAD
+>   	select GENERIC_TIME_VSYSCALL if MMU && 64BIT
 
