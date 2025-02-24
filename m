@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75C38C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 11:28:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E6B2C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 11:30:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oS6LsnRdIQwDO0QxVneuSfXM62G9F51L3J0+Lw7VrmA=; b=l0u/uei3C/5b5reG062w1J2n0m
-	botoAGTcbf0UGR8pW8K93XaBFKRsihw7Psjriw854pu26LrFtWPvQI/PQug5BFVAgwRxA+EQRGk67
-	eKqP+vZx8XZdMgaWIwRHA7Ve+IgWCP4Afz2E+mnYcs43WRgU3/MLR8AGAn4e/S3yrWYWCjl5xjAsy
-	09C8lNQreF2uycOiQgIpBLW8FffQxXgZkoKdemAYOZWMqzESd9TtFuQ9+eDv1baKk05oVHiMe8YDs
-	8byLe5SjW3bmy893//ik/IBENRXZTZJZv3v2cylGtXZ/8EnHO+tcgxPv/dizpm2xuH7KWjb2JdEVK
-	mGQgdVww==;
+	bh=wySahytB2Ta4DvPdTT8lSPVWAO36Jkpqk6NhDD4tG+Q=; b=3cF1HK7o31dImpi6ByZNqs45p7
+	2NJls8KxT2pTbTTLkWzCYI9qJux6zwSSC8XuPv/Cr6o2aZKPmGMDDIE00bB23AiSHL6kmSJDj/ZWR
+	2GF1h3h/loHPwB4s40cDx23A9RIpTwQGrX5ZUrxJnbulWDK9mRyD/g+CFzCke32o9QqDTk5QF8cFn
+	VNRFTAFYH7K5q90F/OLfQBMiYdmrJ6mRCHIitQnAB/I7HdjjHVo1o1gNLtms9KPQwFChmz6h4F1ph
+	/BBfmGmggf32oOuCpggu4LY/g7rZKZ/jesOb+2Eb65pvFWVFyYjaFz8idJTn0xAntovHpGt098kgk
+	FdbFccrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmWdJ-0000000DNqC-2Bmo;
-	Mon, 24 Feb 2025 11:28:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tmWen-0000000DOfh-0BAv;
+	Mon, 24 Feb 2025 11:29:53 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmWT8-0000000DJIN-15YN;
-	Mon, 24 Feb 2025 11:17:50 +0000
+	id 1tmWUO-0000000DJmt-0fy7;
+	Mon, 24 Feb 2025 11:19:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EC3F2611A9;
-	Mon, 24 Feb 2025 11:17:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08D7DC4CED6;
-	Mon, 24 Feb 2025 11:17:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B0F1E5C697C;
+	Mon, 24 Feb 2025 11:18:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 009FAC4CEE6;
+	Mon, 24 Feb 2025 11:19:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740395869;
-	bh=LDVGiLQYV/om9iCPbzlHs+RRDrKvhxgu/48IGJERWAA=;
+	s=k20201202; t=1740395947;
+	bh=G23AKcUUhcPBQNTXagmQkFOIFePG7LUUEUlJGCkB2o8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=N4EvfZ3iTdpzan8dwcam1q0+i0m3CGliAH7xeZW5ZVIi1Cplfs8xpfxfp6TUsHXg7
-	 bAO4vnXe4Br6CbHlW74pFnFApi+DQZ/eJU1DzJzzCj14XIYX26oUNmyo7p5vIgRNIM
-	 iTZKMDgKHMKGHpDlNJQSyQNSInBLkG8ivCAfaV7KP5iwoZc4Sxx/tzRPFpznv0GGW1
-	 BEg0aSHKdx7bPbYeL1JmEUEEoC/9bAs2fv9pMVg2erlWkYQhqFc2Hj1rAQSn5clyUH
-	 I8D7bY1gpJ6E6Vm7Zh/oXjRDYI6XAdByzIXUQnrL+ag/EYDNidBKi2M20BM1/PLR8z
-	 pS0RHJwSA/MNw==
+	b=fmyDgwrEuN3wRoi/6j8fSlveG6yK5hqsF2xtXm40I1SejK5WqtCyXUzOo/VurLChY
+	 GYT7BmVXmriyrN6WiH+rBv5zH17lC4ojzrdZmNjZnkru0RflQrTpVB1N0yLKRyI0wG
+	 ZdMWqBKNG57stU/7RrOPAnc6vx3bKNBE9wOyYtVWNKLVOkrJqCh/ATsZWf22D2uwDB
+	 XIYKJKqSqjgsNZYVt96SkG0RtfG04HOtYu8gbrEjg/7kBEeXiuEzqS6ZDezuva2ZTF
+	 Qfai7sm7AR5BZOpE1/ccinEx5p5voF4fNq7M9UB0JHMd71qjfInur4RdJf9q+2ThXw
+	 NeBVQJCDxwgFA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -55,17 +55,21 @@ Cc: Hector Martin <marcan@marcan.st>,
 	asahi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-nvme@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.13 26/32] apple-nvme: Release power domains when probe fails
-Date: Mon, 24 Feb 2025 06:16:32 -0500
-Message-Id: <20250224111638.2212832-26-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.12 24/28] apple-nvme: Release power domains when probe fails
+Date: Mon, 24 Feb 2025 06:17:55 -0500
+Message-Id: <20250224111759.2213772-24-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250224111638.2212832-1-sashal@kernel.org>
-References: <20250224111638.2212832-1-sashal@kernel.org>
+In-Reply-To: <20250224111759.2213772-1-sashal@kernel.org>
+References: <20250224111759.2213772-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.13.4
+X-stable-base: Linux 6.12.16
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250224_031908_239214_53938642 
+X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,7 +99,7 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 2 insertions(+)
 
 diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
-index 4319ab50c10d1..0bca33dc48cc9 100644
+index b1387dc459a32..df054cd38c3e3 100644
 --- a/drivers/nvme/host/apple.c
 +++ b/drivers/nvme/host/apple.c
 @@ -1518,6 +1518,7 @@ static struct apple_nvme *apple_nvme_alloc(struct platform_device *pdev)
