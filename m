@@ -4,72 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE007C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 09:48:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E49BFC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 09:49:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mnjQSbOC4oHs3NtC4TqHzfmBo9PpGjNbcQzvcBVoxss=; b=IIf+gylzajydBOf0oIX81pivUq
-	AAWougUhx3S2gqSbZHK9D/JIzdHLS5uEjDxK6GTucbGU3ftif0tCTEjda4+Rvxw8VXc83jDGoFffF
-	JXUuBI1hGSV7Ik8eTLBxResgy63NICfzSx4z/CxPC9+ZLx+xnDVn7+8AjkfNTqRCEDOar/5ttvHJq
-	ZzcvgSnuG0u1NOG8BmmrbbQSoQ8yrJD9Z+1FRM5mqJrCT/GbsN+k1qOMC/+kLyZz8l1nkUolS7g4l
-	A+XbDISHSALj7V0IlmIT1ShqrTpdLMyFAFCXJHMf39lVgfOQ142O022KTHOCe4Q8N7kqUvJfQK+XJ
-	z6bhOwZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vuD8HIVE8bo2sG8oaIJBflqYPCKQyXMGsdv5Cy4eiE0=; b=zbuEjG8jsnfrS3LidX3+NE7tJE
+	IDk0jwcrUmERHyfc4PWfOGyo95+nLWdI9OiCAb2hpMFe5TwHfmidaC9uG/yvcXGBayIvFI5Dc1V1Z
+	U8a5Ta06Z8lc+LXo94zOXytLgfiLXBwxWd849cRQmjR0IaCIPISd8lr/yGAn0PYy62ySUXXtuUIVb
+	JOEPP/GeTm9+VuCniRqzbaecY27C0ZVoYe0+WIhejwv/C/Uya2/dabMyFlPf3svw6X/Qaqvr7Uisb
+	awjcCax0IB0KWkW1F1kFnI3HMiKLNAHzEb52Rkab+Rv6U2roMnGm+4zYq/yo+LKvD63Fm5WZ6oWQd
+	wecebPUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmV4F-0000000Cyjn-2x9O;
-	Mon, 24 Feb 2025 09:48:03 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1tmV5g-0000000Cysu-2xh3;
+	Mon, 24 Feb 2025 09:49:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmUsv-0000000Cwhi-05kA
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 09:36:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1740389780; x=1771925780;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=FWYWFNS+oT7mj2E21f3jXpR3gYQLoWEmXq14pHcLk7o=;
-  b=BLC0g3salrPZyPpOaNJkR/QdgaNXH87WNsfK9NEzOSQW8dnBVg+MjGSS
-   qKK1eTmFn9gDm3mYwPxU/Q6qQWJI+SfE/uR8ENBUwUdpQp7PODrvzhpGv
-   d4/qgt0KO5K0L9fu75jg6rx3OpXGxlGP7Pce10sBphYPDRkjAnfd2mFUD
-   2njPrE/6jNlEX0V+i6R2Fg4n90AKUFfOtLagnOKuKItXrAG7PeyeaVAkX
-   Q2VwqEDTC5DRB11DDTxbZBVaq+G7E6uLbNpSnH43H86r7Bb1lZFNQg1es
-   grHP/joami0LGPMyi/WKwx4fZHRt/3nMXduQ7/OQu1V/ydA8pt8Ds3dBp
-   w==;
-X-CSE-ConnectionGUID: UsE/WXwmTmibXe7m321U4A==
-X-CSE-MsgGUID: OrAZ7Jx8RAeeUXHDGrzUBg==
-X-IronPort-AV: E=Sophos;i="6.13,309,1732604400"; 
-   d="scan'208";a="42160288"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 24 Feb 2025 02:36:18 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Mon, 24 Feb 2025 02:36:17 -0700
-Received: from DEN-DL-M31836.microchip.com (10.10.85.11) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Mon, 24 Feb 2025 02:36:15 -0700
-From: Horatiu Vultur <horatiu.vultur@microchip.com>
-To: <p.zabel@pengutronix.de>, <Steen.Hegelund@microchip.com>,
-	<daniel.machon@microchip.com>, <UNGLinuxDriver@microchip.com>,
-	<herve.codina@bootlin.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>
-Subject: [PATCH] reset: mchp: sparx5: Fix for lan966x
-Date: Mon, 24 Feb 2025 10:29:23 +0100
-Message-ID: <20250224092923.2648680-1-horatiu.vultur@microchip.com>
-X-Mailer: git-send-email 2.34.1
+	id 1tmUvq-0000000CxAg-1Ky6;
+	Mon, 24 Feb 2025 09:39:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 191A261192;
+	Mon, 24 Feb 2025 09:39:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73131C4CEDD;
+	Mon, 24 Feb 2025 09:39:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740389961;
+	bh=3PKhhqDl4PavsonkGg8Yx9ObgvEzeG4jz8Tmf0mpBko=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=u6uMHcNFouGfid1zt39RmM5n/d/QvxqWMP6UjEwnVFHVnd3OIbt8vvkwNIA1OEd+C
+	 ok1+0bImlugkG6eFWSnf9e9TVWoHLVgzzrmmGho1/VvnXjOY/rtS9KUrVtYozgmAS4
+	 QGEoHlzy6QWkHj6fqXky/sEEfU+Nv0ZU3GqHZlJEvv1MGCS6un2Gxt8vZYW5bSWGtU
+	 kf0RFfuOdIoXDwW8krT9nrJchhwbcdQVsK6mKXu9Ja/eO15iW7tjYlq6Wpdy4q61fx
+	 AfLXqBLBFqgNUYXknclqQRIxgEXkVLVRMCr5zU8uk1KzBcR1/GNfkun6iV4kCQBf/r
+	 nECuGAbkRVSrg==
+Message-ID: <5e740543-9bd6-483a-9722-f5d8307b6915@kernel.org>
+Date: Mon, 24 Feb 2025 10:39:15 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] dt-bindings: clock, reset: rockchip: Add support
+ for rk3562
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Kever Yang <kever.yang@rock-chips.com>
+Cc: linux-rockchip@lists.infradead.org,
+ Finley Xiao <finley.xiao@rock-chips.com>, Liang Chen <cl@rock-chips.com>,
+ devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Stephen Boyd <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20241224092310.3814460-1-kever.yang@rock-chips.com>
+ <z7jb32foci6bamqqddkkp34hazi2itp6uclarsoi5pkrgso2go@bxflagkaciq6>
+ <28dcac28-9060-4f65-8167-64f6a0e4532d@rock-chips.com>
+ <2920539.yaVYbkx8dN@diego>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <2920539.yaVYbkx8dN@diego>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_013621_186677_CFC38B9B 
-X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,54 +122,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With the blamed commit it seems that lan966x doesn't seem to boot
-anymore when the internal CPU is used.
-The reason seems to be the usage of the devm_of_iomap, if we replace
-this with of_iomap, this seems to fix the issue as we use the same
-region also for other devices.
+On 24/02/2025 10:14, Heiko Stübner wrote:
+> Am Montag, 24. Februar 2025, 09:47:40 MEZ schrieb Kever Yang:
+>> Hi Krzysztof,
+>>
+>> On 2024/12/27 16:28, Krzysztof Kozlowski wrote:
+>>> On Tue, Dec 24, 2024 at 05:23:09PM +0800, Kever Yang wrote:
+>>>> From: Finley Xiao <finley.xiao@rock-chips.com>
+>>>>
+>>>> Add the dt-bindings header for the rk3562, that gets shared between
+>>>> the clock controller and the clock references in the dts.
+>>>> Add softreset ID for rk3562.
+>>>>
+>>>> Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
+>>>> Signed-off-by: Liang Chen <cl@rock-chips.com>
+>>>> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+>>>> ---
+>>>>
+>>>> Changes in v2:
+>>>> - rename the file to rockchip,rk3562-cru.h
+>>>> - remove CLK_NR_CLKS
+>>>> - add new file for reset ID
+>>>> - update to use dual license
+>>>>
+>>>>   .../dt-bindings/clock/rockchip,rk3562-cru.h   | 377 ++++++++++++++++++
+>>>>   .../dt-bindings/reset/rockchip,rk3562-cru.h   | 360 +++++++++++++++++
+>>>
+>>> No, that's not a separate patch. Headers *ALWAYS* go with the bindings
+>>> patch.
+>> Will fix.
+>>>>   2 files changed, 737 insertions(+)
+>>>>   create mode 100644 include/dt-bindings/clock/rockchip,rk3562-cru.h
+>>>>   create mode 100644 include/dt-bindings/reset/rockchip,rk3562-cru.h
+>>>>
+>>>> diff --git a/include/dt-bindings/clock/rockchip,rk3562-cru.h b/include/dt-bindings/clock/rockchip,rk3562-cru.h
+>>>> new file mode 100644
+>>>> index 000000000000..ad07ad3a12ad
+>>>> --- /dev/null
+>>>> +++ b/include/dt-bindings/clock/rockchip,rk3562-cru.h
+>>>> @@ -0,0 +1,377 @@
+>>>> +/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
+>>> Why not using license requested by checkpatch?
+>>
+>> The checkpatch does not report error/warning for this license, and this 
+>> is the same as many other SoCs.
+>>
+>> Which license is recommend in the header file?
+> 
+> I suppose
+> 
+> /* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
+> 
+> According to [0] "GPL-2.0" and "GPL-2.0-only" are equivalent, but I guess
+> "GPL-2.0-only" simply makes the "only" part more visible.
 
-Fixes: 0426a920d6269c ("reset: mchp: sparx5: Map cpu-syscon locally in case of LAN966x")
-Signed-off-by: Horatiu Vultur <horatiu.vultur@microchip.com>
----
- drivers/reset/reset-microchip-sparx5.c | 14 +++++++++-----
- 1 file changed, 9 insertions(+), 5 deletions(-)
+No, rather use the one expressed in checkpatch.
 
-diff --git a/drivers/reset/reset-microchip-sparx5.c b/drivers/reset/reset-microchip-sparx5.c
-index aa5464be7053b..5a75f9833a91a 100644
---- a/drivers/reset/reset-microchip-sparx5.c
-+++ b/drivers/reset/reset-microchip-sparx5.c
-@@ -8,6 +8,7 @@
-  */
- #include <linux/mfd/syscon.h>
- #include <linux/of.h>
-+#include <linux/of_address.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
- #include <linux/property.h>
-@@ -72,14 +73,17 @@ static struct regmap *mchp_lan966x_syscon_to_regmap(struct device *dev,
- 						    struct device_node *syscon_np)
- {
- 	struct regmap_config regmap_config = mchp_lan966x_syscon_regmap_config;
--	resource_size_t size;
-+	struct resource res;
- 	void __iomem *base;
- 
--	base = devm_of_iomap(dev, syscon_np, 0, &size);
--	if (IS_ERR(base))
--		return ERR_CAST(base);
-+	if (of_address_to_resource(syscon_np, 0, &res))
-+		return ERR_PTR(-ENOMEM);
- 
--	regmap_config.max_register = size - 4;
-+	base = of_iomap(syscon_np, 0);
-+	if (!base)
-+		return ERR_PTR(-ENOMEM);
-+
-+	regmap_config.max_register =  resource_size(&res) - 4;
- 
- 	return devm_regmap_init_mmio(dev, base, &regmap_config);
- }
--- 
-2.34.1
-
+Best regards,
+Krzysztof
 
