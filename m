@@ -4,110 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4444AC021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 08:12:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88695C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 08:14:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AZHwCS1GgwWB9FtGj9L8VYzRncY+0I9LjwCxFfDspR8=; b=LPYT7knUqJILPb7S2rWbbce1Nm
-	v0igyNRFpR5z8lPN5sorV6Z2sVxPbHgv3n7Y9aJzqjqSRXQ9lJG5IiH2CqcunC0oqqBzOjTBea8kc
-	MLljnl5Rd9hNVHk0VfeoQxXnXbVjmz+8vnXOrK3H14+BDnFuhQZdRatJZrv8hlGzPoeP7mCen32d5
-	fB2MPQ4gW1OkQk+FHO42IcKCrUoEyu16x8V24ZybLb0C3wdiV8vzNHaJybtRTGlB8oW6VTkGDleFo
-	aYgN9zRQoSNXOZonquKHJsCgYrUj5RKueeBJ0TDEfDBxFpwGVnHE7vXPpQ5ThcPc0l9QzJLc0t0R7
-	8DL8t94Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9ZM8dPTsCDKK8ML4+7mISE8lMMELY3op8KDQ6VRvfF8=; b=PxwDfT1xZA7O96Gr/dFfd4h65X
+	eoQ73Iaya1XWx1iveAnQvYMS2CCgYKjchjc0nr1E7o8/HlCjphX4a5pt5qAm3CmKDrX4zJgSk/d4M
+	6RStyoyU7zFrxVA3+KtKyQ31e+SEAw06gcsLMQpskT2gtfycHNLx50Khvx6ki7PoBGRWpL0chc7n5
+	kocFdDoiHkpTuwAu7bX+8P0OpkfjX3QmbHSTCMdzoLX94l+yatTbFaGu1E3t2IUJ6Xu5vgUd6CtYA
+	aJKSD+SNF0hQBz5MAe/fkXAehiIo91Waala8Jpz8oJf3nKmhZQxlbqqkv4As0wMqyviaw44bKMJAv
+	ZVAmWIMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmTZm-0000000Cdmy-1PQN;
-	Mon, 24 Feb 2025 08:12:30 +0000
+	id 1tmTbI-0000000Ce5E-022R;
+	Mon, 24 Feb 2025 08:14:04 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmTTz-0000000Ccz5-1ciK
+	id 1tmTYR-0000000CdWt-3bot
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 08:06:31 +0000
+	Mon, 24 Feb 2025 08:11:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0F55E61179;
-	Mon, 24 Feb 2025 08:06:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64615C4CED6;
-	Mon, 24 Feb 2025 08:06:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 37F5261178
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 08:11:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78BC1C4AF09
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 08:11:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740384390;
-	bh=L1yCr5hgdRKfqx0DyVyugUBHvCWmuEVLq6atduGS5AY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BqCplxyRMmTeGfFSDgEszc4kqjJWQL4nejg7VVTYmMx1Cb3nVH/MsOmzdKDKSyFJr
-	 wuLvQZKuLz3jw6GP9RnLSjcGeBPlMhmdReIV0I5v5HZ54T1OA3kAZcCVmPnrcCTZZf
-	 gt5Q/RLPBIQ1vKONePGB1PpichU20R22e7KzMiaHB/PUFwneKwBf8pUHG4CzLU3BBj
-	 lRsD5RDKs1jJtrtnBeppfWB40/TgDHiEMkBSlP8jrgxj4cb99WOtckqYUUIZJ8lPNP
-	 5i6BLMi7TcOs6MGDYmrs0urZmK7Dke7ZdCmnGHqyBDUAosMGnYnXsoqeJcz7ztK7z+
-	 G4vznsW3UosZA==
-Message-ID: <0bd5af6c-979b-4403-b1e7-5847979a8780@kernel.org>
-Date: Mon, 24 Feb 2025 09:06:23 +0100
+	s=k20201202; t=1740384665;
+	bh=wpaTUIwidiE3GZ8YUXT7uXhOSdSbxhbvnoqkGr7J4/M=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=MgFqjvSnEXfT2dN4JbrW/VYqYgG0nWOsQqlUPQ9awS2RrhQZZkwg2OtAbIQLfcY7P
+	 tmsnful6TtvtS4w6HHnFxFlDrugVAC3GoSEtUbRJonDvXS2eElxEb5eqcI6VYxVsCj
+	 3sSUMT+fkiS1zfZhpJIrexfUdY7cl6RnZ0p3HD3ZgaDgklHkiUtE1fM4kpOxe6cPv3
+	 yyCBCIvdRTFbTEbCeJXshwAP6fr2U177a81O0o6wUp76E+U0eybAZ3PAjr0JuX6UGo
+	 03moZsKieEmNVnbMZ/Q+aH69KZK4RC9v1/OH3RdWLpiqERS7ufPP9WkuKKnEaGWrZS
+	 QbcQLVyKeM8xw==
+Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-30613802a6bso42401831fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 00:11:05 -0800 (PST)
+X-Gm-Message-State: AOJu0YyJDuDM6z5inWphNPCaqmh0H/aX4FzLb9byGM5NaWhy5rhA0x4A
+	XRMTBcsw8zEV3/VZwl+ZwPhi8BT4G3gn7hZJCSTkDEuuUVx11Tfov7g55ajVQe15MbhqZMutB0J
+	KdnILyK6Xt2z5R/2Hybf3QH/I/4Y=
+X-Google-Smtp-Source: AGHT+IGWAdvh8Uk5kDUolWyUpntZPHToLER0sCEfBzrsbMTUct8qTsWzLwAR4xPwH4meMXT3mHvjOWDudLYqwdHehTo=
+X-Received: by 2002:a05:6512:2211:b0:545:58e:e543 with SMTP id
+ 2adb3069b0e04-54838ee9334mr4265598e87.21.1740384663815; Mon, 24 Feb 2025
+ 00:11:03 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/6] arm64: dts: cix: add initial CIX P1(SKY1) dts support
-To: Peter Chen <peter.chen@cixtech.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>,
- krzk+dt@kernel.org, Conor Dooley <conor+dt@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
- "Fugang . duan" <fugang.duan@cixtech.com>
-References: <20250220084020.628704-1-peter.chen@cixtech.com>
- <20250220084020.628704-7-peter.chen@cixtech.com>
- <4add2867-8c09-454a-b3e2-b4baaeccfd44@app.fastmail.com>
- <Z7cga0L6UYmPXoFw@nchen-desktop>
- <5f88cdbe-f396-49c6-bb48-f50cbbb21caf@kernel.org>
- <Z7vY5kHfEGzCCuWW@nchen-desktop>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <Z7vY5kHfEGzCCuWW@nchen-desktop>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250224062111.66528-1-kpark3469@gmail.com>
+In-Reply-To: <20250224062111.66528-1-kpark3469@gmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 24 Feb 2025 09:10:52 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXG5uTUH3--A3OtPQcMqj4hiNrONL6tUKkmwqmjkOYMuyQ@mail.gmail.com>
+X-Gm-Features: AWEUYZml3zcWsZttkBGhQ352lKORrZnbm7B76-btGrHm4knlWfWj1Hj1AfPuHtk
+Message-ID: <CAMj1kXG5uTUH3--A3OtPQcMqj4hiNrONL6tUKkmwqmjkOYMuyQ@mail.gmail.com>
+Subject: Re: [PATCH] arm64: kaslr: consider parange is bigger than linear_region_size
+To: keun-o.park@katim.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	catalin.marinas@arm.com, will@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,180 +78,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/02/2025 03:26, Peter Chen wrote:
-> On 25-02-21 12:42:23, Krzysztof Kozlowski wrote:
-> 
-> Hi Krysztof,
-> 
-> Thanks for your detail reviewing. I am afraid my email client did not
-> receive your email for comment for this patch, I reply at this one.
-> 
->>> +#include "sky1.dtsi"
->>> +/ {
->>> +	model = "Radxa Orion O6";
->>> +	compatible = "radxa,orion-o6";
-> 
->> Never tested.
-> 
->> It does not look like you tested the DTS against bindings. Please run
->> `make dtbs_check W=1` (see
->> Documentation/devicetree/bindings/writing-schema.rst or
->> https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
->> for instructions).
->> Maybe you need to update your dtschema and yamllint. Don't rely on
->> distro packages for dtschema and be sure you are using the latest
->> released dtschema.
-> 
-> I am sorry for that. I just reviewed device driver patch in recent 3-4 years,
-> forget doing additional check for dts patch.
-> 
->>
->> On 20/02/2025 13:30, Peter Chen wrote:
->>>>
->>>>> +
->>>>> +       aliases {
->>>>> +               serial2 = &uart2;
->>>>> +       };
->>>>
->>>> Please put the aliases in the .dts file, not the chip specific
->>>> .dtsi file, as each board typically wires these up differently.
->>>>
->>>> Note that the 'serial2' alias names are meant to correspond
->>>> to whatever label you find on the board, not the internal
->>>> numbering inside of the chip they are wired up to. Usually
->>>> these start with 'serial0' for the first one that is enabled.
->>>
->>> In fact, we would like to alias the SoC UART controller index here,
->>> and amba-pl011.c will try to get it, see function pl011_probe_dt_alias.
->>> It is initial dtsi file, so I only add console one which needs
->>> to align the bootargs passed by UEFI.
->>
->>
->> Your "in fact" is not really related to the problem described. If you
->> put it in the correct place, drivers will work just as fine.
-> 
-> You also mentioned that in your comments. Yes, indeed the board dts file
-> could remap physical controller index as different board serial number,
-> but it is not what we would like to do (at least for CIX platforms).
-> In our both HW and SW documents, we have fixed our uart usage cases,
-> for example, UART2 as AP serial ports. UART0-UART1 as uart application,eg
-> bluetooth. Customer will do their design to follow above rules, and
-> it avoids each customer writing this alias at their board file.
+On Mon, 24 Feb 2025 at 07:21, Keun-O Park <kpark3469@gmail.com> wrote:
+>
+> From: Keuno Park <keun-o.park@katim.com>
+>
+> On systems using 4KB pages and having 39 VA_BITS, linear_region_size
+> gets 256GiB space. It was observed that some SoCs such as Qualcomm
+> QCM8550 returns 40bits of PA range from MMFR0_EL1. This leads range
+> value to have minus as the variable range is s64, so that all the
+> calculations for randomizing linear address space are skpped.
+> As a result of this, the kernel's linear region is not randomized.
+> For this case, this patch sets the range by calculating memblock
+> DRAM range to randomize the linear region of kernel.
+>
+> Change-Id: Ib29e45f44928937881d514fb87b4cac828b5a3f5
+> Fixes: 97d6786e0669 ("arm64: mm: account for hotplug memory when randomizing the linear region")
+> Signed-off-by: Keuno Park <keun-o.park@katim.com>
+> ---
+>  arch/arm64/mm/init.c | 5 +++++
+>  1 file changed, 5 insertions(+)
+>
+> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+> index 9c0b8d9558fc..2ee657e2d60f 100644
+> --- a/arch/arm64/mm/init.c
+> +++ b/arch/arm64/mm/init.c
+> @@ -290,6 +290,11 @@ void __init arm64_memblock_init(void)
+>                 s64 range = linear_region_size -
+>                             BIT(id_aa64mmfr0_parange_to_phys_shift(parange));
+>
+> +               if (range < 0) {
+> +                       range = linear_region_size -
+> +                               (memblock_end_of_DRAM() - memblock_start_of_DRAM());
+> +               }
+> +
 
-Follow standard rules, you don't get an exception. That's not a property
-of the SoC.
-
-> 
-> Meanwhile, fixed uart alias as its physical index is better to
-
-This is not being discussed.
-
-> understand SW/HW relationship. Imaging you are debugging one UART
-> bluetooth use case, your application passes "/dev/ttyAMA0" as its
-> communication port due to board dts alias, but in board schematic,
-> it is connects to SoC uart 1, the person to debug may confuse the
-> different mapping at first.
-> 
-> Also, in kernel device driver, it also uses alias id to its uart
-> port index, it could better understand device driver hardware
-> behaviours, esp you may dump hardware register to debug, you could
-> easy to find related registers if the mapping is the same.
-
-Not related to topic at all.
-
-> 
->>
->>>
->>>>
->>>>> +               CPU0: cpu0@0 {
->>>>> +                       compatible = "arm,armv8";
->>>>> +                       enable-method = "psci";
-> 
-> Will change Label "CPU0" as "cpu0", and name "cpu0" as "cpu"
-> 
->>>>
->>>> This should list the actual identifier of the CPU core, not
->>>> just "arm,armv8" which is the generic string used in the
->>>> models for emulators that don't try to model a particular
->>>> core.
->>>
->>> Will change big core to 'compatible = "arm,cortex-a720";'
->>> and LITTLE core to 'compatible = "arm,cortex-a520";'
->>>
->>>>
->>>>> +       memory@80000000 {
->>>>> +               #address-cells = <2>;
->>>>> +               #size-cells = <2>;
->>>>> +               device_type = "memory";
->>>>> +               reg = <0x00000000 0x80000000 0x1 0x00000000>;
->>>>> +       };
->>>>
->>>> The memory size is not part of the SoC either, unless the only
->>>> way to use this SoC is with on-chip eDRAM or similar.
->>>>
->>>> Normally this gets filled by the bootloader based on how
->>>> much RAM gets detected.
->>>
->>> Will move it to dts file.
->>>
->>>>
->>>>> +               linux,cma {
->>>>> +                       compatible = "shared-dma-pool";
->>>>> +                       reusable;
->>>>> +                       size = <0x0 0x28000000>;
->>>>> +                       linux,cma-default;
->>>>> +               };
->>>>
->>>> Same here, this is a setting from the firmware, not the
->>>> SoC.
->>>
->>> Will move it to dts file since our firmware has already released,
->>> and it needs to support different kernels.
->>>
->>>>
->>>>> +       sky1_fixed_clocks: fixed-clocks {
->>>>> +               uartclk: uartclk {
->>>>> +                       compatible = "fixed-clock";
->>>>> +                       #clock-cells = <0>;
->>>>> +                       clock-frequency = <100000000>;
->>>>> +                       clock-output-names = "uartclk";
->>>>
->>>>> +               uart_apb_pclk: uart_apb_pclk {
->>>>> +                       compatible = "fixed-clock";
->>>>> +                       #clock-cells = <0>;
->>>>> +                       clock-frequency = <200000000>;
->>>>> +                       clock-output-names = "apb_pclk";
->>>>
->>>>
->>>> Clock names don't need "clk" in them, and there should
->>>> be no underscore -- use '-' instead of '_' when separating
->>>> strings in DT.
->>>
->>> Will change to:
->>> uart_apb: clock-uart-apb {
->>
->> No, instead explain why this is part of SoC - or what are you missing
->> here - and use preferred naming.
-> 
-> It is in SoC part, APB clock uses to visit register, and the function
-> amba_get_enable_pclk at file drivers/amba/bus.c needs it during uart
-> device probes. It uses common Arm uart pl011 IP, the binding doc
-> described at: Documentation/devicetree/bindings/serial/pl011.yaml
-
-So you added fake clock? Everything you wrote is not the reason to add
-such clock.
-
-DTS describes hardware, not what your drivers expect.
-
-Drop the clock or add proper hardware description.
-
-> 
-> Since it is the initial dts support patch, I do not want to add
-> more to avoid reviewing efforts, eg, clock gate, reset, etc.
-> That's the reason I use fixed clock here to let basic system
-> work, and boots to console.
-> 
->>
-Best regards,
-Krzysztof
+Please explain how this ensures that hotplug memory still works as expected.
 
