@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9E2DC021BB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 17:58:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9F66C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 18:00:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D7ToUrKObJPKIOVkevwffLEL8FdMKLuEHQdCANKFQD4=; b=YutkH1MZ8mC8K6cSXYwCm++2wb
-	mPP/6CoBH5XmDtXxLUvDhYYzgAANQLrn9rs4t/CY0n4Srwb1IUTL/+K6z+xgN76gWCh+O4Lht7PgY
-	NVF/ByL8RqT4lpv/YLULGDt83baqZDboPMUa1oYREyDj2F1ixwXbPLuqH3Z660JONpQdnTD9xTVDA
-	nGTqdghhaEl5QT4S60vbbjL2zhFh4vo/PexU+iilOn0pN7bl07YZPpcPt1F6yeNOMxaTNI6gRO1fx
-	7EtjnoM7+RzcjgXPFK0q13I/9NhkYaYaKU2OL6zmkiQiJ6ocpfAmCl4un9dki3/hNXHOGo9FRtPg3
-	YsEkKjcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pC6o0YRw4Cq9mwJe3XI9Hc69xoJLRhFW95eup2iayaI=; b=m2zbbavz2t6WIYpui+oMuQ3XDl
+	R/NGwh5DYbj2CPOr4UJu9yKG2KfRa1gmmX7HMKSrAO7brvkz/Qt+Vw5+YfwWysws59aCVhOwV1w6E
+	cP+C0w/LWIlHg+AhAYamVIHQfKa+aH/ISlYnI2DZKfOGqVV6zHSnssPj7EIk1UMuTI0Pbfu7txMRN
+	nMJ32G8UaDGK6tugKU/kwfxe91dkpudZFnixa3jpXikFA4dBy2PggrQyeOdHmH1frfO5dfMM1RRL2
+	ramxEDy3tkkkibaY0A4X8cVvWHFNz/2op7gv0i5e8JRSa3J9OmQ3AjyXtQAthjjrHa2vvCX8ckwno
+	FB5vKkBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmcj6-0000000EiIP-38CX;
-	Mon, 24 Feb 2025 17:58:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmcgs-0000000Ehs9-0TW9
+	id 1tmcka-0000000EiUH-1kqD;
+	Mon, 24 Feb 2025 18:00:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmchJ-0000000EhwO-371l
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 17:56:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 84DCA611D9;
-	Mon, 24 Feb 2025 17:56:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28DE2C4CED6;
-	Mon, 24 Feb 2025 17:56:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740419785;
-	bh=Bt7VoPhcsSkXtYjPHqWG20sRUthCsltNi81xM60UOWc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GGXguZ/qhyClnkyquiJduCOndGjtbuEHy51vgO2CgfUp+T7mVmkc/gKDJZNqC5YqC
-	 kVwpTJYN6GbyDaTm+3LcD85SnkMHbJu6PHfmbxGA49igZ0gZ3ee0MDti+bO91h3Nuj
-	 sSwbgSKaWxVxDz8JD/OjVoZBXjyKXAsusTV3Aemn57N1Uhgc1SuKoMBq/tuQVWmw0+
-	 JjkF8BUo17JNM5rkz8L4FhL4EXQ9xc5wgRhmDWbU28fsCkO/V8bdrp2FRO3UdFmjX6
-	 dr93AlMnkFKsR52pEGJaEVA8lSw342sfv/6nOulOwG7yv++fxZM7etsczsQGkiDMj7
-	 FpyDIUi3HerxQ==
-Date: Mon, 24 Feb 2025 17:56:18 +0000
-From: Simon Horman <horms@kernel.org>
-To: Peter Hilber <quic_philber@quicinc.com>
-Cc: "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowang@redhat.com>,
-	Trilok Soni <quic_tsoni@quicinc.com>,
-	Srivatsa Vaddagiri <quic_svaddagi@quicinc.com>,
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-	Eugenio =?utf-8?B?UMOpcmV6?= <eperezma@redhat.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	linux-kernel@vger.kernel.org, virtualization@lists.linux.dev,
-	netdev@vger.kernel.org, David Woodhouse <dwmw2@infradead.org>,
-	"Ridoux, Julien" <ridouxj@amazon.com>,
-	Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Parav Pandit <parav@nvidia.com>,
-	Matias Ezequiel Vara Larsen <mvaralar@redhat.com>,
-	Cornelia Huck <cohuck@redhat.com>, virtio-dev@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 2/4] virtio_rtc: Add PTP clocks
-Message-ID: <20250224175618.GG1615191@kernel.org>
-References: <20250219193306.1045-1-quic_philber@quicinc.com>
- <20250219193306.1045-3-quic_philber@quicinc.com>
+	Mon, 24 Feb 2025 17:56:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7991B152B;
+	Mon, 24 Feb 2025 09:57:06 -0800 (PST)
+Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4D9C63F5A1;
+	Mon, 24 Feb 2025 09:56:46 -0800 (PST)
+Date: Mon, 24 Feb 2025 17:56:42 +0000
+From: Andre Przywara <andre.przywara@arm.com>
+To: Ryan Walklin <ryan@testtoast.com>
+Cc: Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
+ <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Daniel Vetter
+ <daniel@ffwll.ch>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
+ Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Michael
+ Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Chris
+ Morgan <macroalpha82@gmail.com>, Hironori KIKUCHI <kikuchan98@gmail.com>,
+ Philippe Simons <simons.philippe@gmail.com>, Dmitry Baryshkov
+ <dmitry.baryshkov@linaro.org>, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org, Conor Dooley
+ <conor.dooley@microchip.com>
+Subject: Re: [PATCH v7 22/27] dt-bindings: allwinner: add H616 DE33 mixer
+ binding
+Message-ID: <20250224175642.170c124e@donnerap.manchester.arm.com>
+In-Reply-To: <20250216183710.8443-23-ryan@testtoast.com>
+References: <20250216183710.8443-3-ryan@testtoast.com>
+	<20250216183710.8443-23-ryan@testtoast.com>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250219193306.1045-3-quic_philber@quicinc.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250224_095653_871167_840ACEF6 
+X-CRM114-Status: GOOD (  19.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,27 +77,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 19, 2025 at 08:32:57PM +0100, Peter Hilber wrote:
+On Mon, 17 Feb 2025 07:36:22 +1300
+Ryan Walklin <ryan@testtoast.com> wrote:
 
-...
+Hi,
 
-> +/**
-> + * viortc_ptp_gettimex64() - PTP clock gettimex64 op
-> + *
+> The Allwinner H616 and variants have a new display engine revision
+> (DE33).
+> 
+> The mixer configuration registers are significantly different to the DE3
+> and DE2 revisions, being split into separate top and display blocks,
+> therefore a fallback for the mixer compatible is not provided.
+> 
+> Add a display engine mixer binding for the DE33.
+> 
+> Signed-off-by: Ryan Walklin <ryan@testtoast.com>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Reviewed-by: Chen-Yu Tsai <wens@csie.org>
+> 
+> ---
+> Changelog v2..v3:
+> - Separate content into three patches for three separate subsystems
+> 
+> Changelog v5..v6:
+> - increase reg maxItems to 3 and add conditional for h616-de33
+> ---
+>  .../allwinner,sun8i-a83t-de2-mixer.yaml       | 21 ++++++++++++++++++-
+>  1 file changed, 20 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml b/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml
+> index b75c1ec686ad2..274f5e6327333 100644
+> --- a/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml
+> +++ b/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml
+> @@ -24,9 +24,11 @@ properties:
+>        - allwinner,sun50i-a64-de2-mixer-0
+>        - allwinner,sun50i-a64-de2-mixer-1
+>        - allwinner,sun50i-h6-de3-mixer-0
+> +      - allwinner,sun50i-h616-de33-mixer-0
+>  
+>    reg:
+> -    maxItems: 1
+> +    minItems: 1
+> +    maxItems: 3
 
-Hi Peter,
+What are those three regions? I wonder if we should have reg-names here,
+to fix the order, and to document them on the way?
 
-Tooling recognises this as a kernel doc, and complains
-that there is no documentation present for the function's
-parameters: ptp, ts, and sts.
+>  
+>    clocks:
+>      items:
+> @@ -61,6 +63,23 @@ properties:
+>      required:
+>        - port@1
+>  
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          enum:
+> +            - allwinner,sun50i-h616-de33-mixer-0
+> +
+> +    then:
+> +      properties:
+> +        reg:
+> +          maxItems: 3
 
-Flagged by W=1 builds.
+Should we override minItems here as well? I guess any driver would need
+all three region to work?
 
-> + * Context: Process context.
-> + */
-> +static int viortc_ptp_gettimex64(struct ptp_clock_info *ptp,
-> +				 struct timespec64 *ts,
-> +				 struct ptp_system_timestamp *sts)
+Cheers,
+Andre
 
-...
+> +
+> +    else:
+> +      properties:
+> +        reg:
+> +          maxItems: 1
+> +
+>  required:
+>    - compatible
+>    - reg
+
 
