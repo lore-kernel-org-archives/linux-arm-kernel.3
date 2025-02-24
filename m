@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C863CC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 08:06:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71EC8C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 08:08:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eldJ3fyZ9RULfFnJAoQ78yq6LgsezdF6MepZXaC6j0I=; b=tB21OOx0b5dORtWfvTEeIyhHNl
-	C7NtIk+hlLt1fsmqHqSbp7t+dMqJI9sNlb1vyjTEDM9bep/eImIQl1l9Oh6EKUoYXFoAmXB89eV+s
-	YM3OnVZgLMFrdWLl9zp2XMengY/ox41DV7+NlZAySwF22SsBeDLf7y+wFIqKp6bziY+KdsR0+dGuI
-	QobZdJVy0+OUB9qckI5FDNayuL7tb08J68VCNgZbbXsYdMj2gI3Pi/Gk71GZujqfKvdR1+3sEEgtC
-	3DJ8ziqOEcYrKUFK/gLBJgxMoVfzL/ObDLM6e+EhYGphSSGh5BvP+XZpK68pA4rt5TGouLIHTV4zL
-	CkmnYgLw==;
+	bh=ANBTnMfI9AQjQqjIoJpw4o9wa0/J78oX/h2BbyetABQ=; b=wfVRrWEtjwt6j5pekzx0e+8smt
+	y+35VXi9IxLg/ad7Uo15+SEJF//mOYld0GWiQC94JGj75PTiq/CXXCK+mWEWFCvvCbf0CgslnBrPd
+	OsgoHzogieo5rxS/N8dnRHhwqYuVuwGR1/T12GB9C8XBilYADVE+ys3AO12xkQbcubU3AH1i8HKdZ
+	88/IHEZwOHED+WDF7SF8BLfAQ6ytwIKT8Xn8TchLBWtU/U4On0YTfYPyioY23CvyfwFDeWPlCzOL0
+	ydq0C7L2q1F4cM8Z+k6kz5+GmP3/7/izmmwAOqQ8MX4F1g6uDKmGs8wKJT0IPBn7Su0Ze3jj24zP/
+	qsREnfww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmTTj-0000000CcwX-2wIb;
-	Mon, 24 Feb 2025 08:06:15 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1tmTVG-0000000CdDm-1eLl;
+	Mon, 24 Feb 2025 08:07:50 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmTPC-0000000CcKd-2wf0
+	id 1tmTPD-0000000CcKi-3KCn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 08:01:35 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-38f2f748128so1788622f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 00:01:34 -0800 (PST)
+	Mon, 24 Feb 2025 08:01:37 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4398e839cd4so29044995e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 00:01:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740384093; x=1740988893; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1740384094; x=1740988894; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=eldJ3fyZ9RULfFnJAoQ78yq6LgsezdF6MepZXaC6j0I=;
-        b=QoiiLYWQ+/cR1osYgDJWwmO9XRGkr05CYdq5coZkNsdj+j7oX6wXRwJO6gk8zfQto7
-         q1BlQYNMloBChvyurWZSO2s87CHWNgTtHOQtfiB/qaJM2bVPBDQFEfs1zlURGcFHpv8W
-         kX9KVsIW4RDZ34oiL1zm6KGwXlQaxa1J+4l7FziMzEcz54O/9sWhzc95tkdZbKEd8GPP
-         oGF+RpY9j27C3gR94c3UrJh6WKn8caHGAv0Dnu1DYZ+KrB+IyxZ8JCkqQs6IwnJHmPKh
-         oTjjRGC3odPhyUafi34tldbDHSe/fSUV/mCXpfxH3WL6VcU8Z6HqpH8TmG197D4b0Y/j
-         aCkg==
+        bh=ANBTnMfI9AQjQqjIoJpw4o9wa0/J78oX/h2BbyetABQ=;
+        b=GJbCD/t12tTINxfb1W8SdvmVDKGQWKpln1+wecSg8xVDDtuRVl3ggfuaZLKNQ6KGWv
+         pgaDTOuSqsWxScsyf9rvEUQdvHtHR8PpMs94JfDqNEFF1//wrqombwYqyTdHgaeKSgA9
+         aMKkMHaowZTWKCevqKiDg/h4lPtyBVOmrec4R7E5VU8XXW8rX+FL3qFSh/Ba06jCqzpn
+         qlHb4RpcWBQOHOtT4LPghPOJntjWaRlj1Hm6GzYzQD8gfdS1ONt/wJq1IvwxGyObLLVF
+         +rKtfCDcje41sXPsCUqq57/ubSiYn7Y6Q5MhzJDPodLaK1XhEUz5X/BzVlRr4I+gk6Lu
+         iaRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740384093; x=1740988893;
+        d=1e100.net; s=20230601; t=1740384094; x=1740988894;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=eldJ3fyZ9RULfFnJAoQ78yq6LgsezdF6MepZXaC6j0I=;
-        b=J9/2r65Y9R+YBHGmApNUvHdajOEEVOt+fCdkkqtLn9MtbvpnBcoB8TS21wQMVteK7+
-         MKnMJvuaTSNdd+76KGJ77XZezdAjv19vPiPAbfUgtb2GcYGLmyO2SBwdLd/cx3tNOClQ
-         wFMPb9eLeH1wUHy+LbYP8bf1UsZpY4ICnvyzTgSDcXOpFGHJwGqINsswwNCcUyTbrDt5
-         zVhI2y5w+KtNsoRVn/abKNmMY57p5t0/aFl1PPLe7pG0jEcHSYUP2n5rOLq5UOXTSP7j
-         HWtwDK3C+s4anfsbqZHWWWAs6hXNkCyItx0qBWnqmoL1v27L7ZPJ+9IVeNfLzJDtH4wu
-         SaZA==
-X-Forwarded-Encrypted: i=1; AJvYcCV+pqlE4r9C2FlT9K8NIlkXmGaAlK1TBr1hXnV8eGPpXDjE4JRvNcpdElisjdSwyMEy5V5/aeZvGihFXhch935D@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7tlEs0V8b5/qixIqfZQHqWdczLNmWavE4w3BwoBHdSrv2kpJo
-	Ompkw0AqJldK8kJRY5ifYGZ12mxkZI1UQD4atUR+j70euzlt7qvww+1cvmIq/G4=
-X-Gm-Gg: ASbGncs4XBXnmhDFJgQUX9GIsfmNCGNKhmERXIGCbttV3K9maHmaToMkCZlCSbc4JO4
-	OBUgdIKe1pfteaEaBcg6hcTuGsIWuFyaSjS6w/dkShbZ2eNzA5wLHcUaFQP6wqgz7HAhZz2zaWg
-	wJztrrDotmAS1cS4OO/8Fw4ybMoOtGlIUOlRIm5h81sIQWX9NlTPLgROkLE59Rsqkj52cPBvNhU
-	tUkfSRLzLm1DG/12NwUvsAPqXjPAqZCFBt2PGoNmK11AUDGpm5vnarSYJP+efdHjfToYKoE72A/
-	p2pZnPJ55SbWJA60qT1Z7gwgHKnuRd9tSfKHwby5+UafiHSnXq5+ncQgW2DSDulIv51+1FvRhSn
-	asRg7iA==
-X-Google-Smtp-Source: AGHT+IHtf5uVeObOSZyCBZwbvEGvCzNRNum9va67etYAmQ/b61RunJpq5G91CksEuJbTMQeAIBjKag==
-X-Received: by 2002:a05:6000:144a:b0:38f:2766:7594 with SMTP id ffacd0b85a97d-38f6e95c60cmr8671320f8f.12.1740384093024;
+        bh=ANBTnMfI9AQjQqjIoJpw4o9wa0/J78oX/h2BbyetABQ=;
+        b=VgS53Qo+KLbZm6xclJFViZa9ADyG+3C6gnTuiIxCj7F8MaM/lupQaeuNu0u1hTV/SW
+         yDDcR4v5eFmA/5zirpp0I7Hx5aysaE1pwQr4Nq4o4Mu+FLfHvaWUTx2FoB3ihRd9sOL8
+         TMq94L0oZVWMN8XRdKmmaU+vnb++q0elF1gFwDzm4uvRQ6l7XMB3Ui+APC/zNAcoI0c/
+         Vz06cKCSH/soetqlXmEeMPeCm8zvDswZnNp7inUI9nnmhHUBqnrp3ThuujrKUfqZ0D+o
+         FTdZKso5AlSOmt/cWEzm67savZXK0NemtJVKro9rc44Mp4ooqFbKHes2aRfT8uq5+Rlq
+         cxSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXVcOCCBWBTdGSCzCRX94tDGd5thKjAF9bYjcrp8bEMp58pDvonW/l3oF3/SZaD2lkGndTHr4HCVr0aLD+vJAQI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxt/cxVUxENMb//mA3LgnkDNRFTVwrk772BJL1TYp2V6hA5VoY4
+	ZDmu7un4ZYV/hK1b+r4cxIE8yvmnfdV9Y1AiD0WsXa1WA/5BESBkqDBfs8HhGJo=
+X-Gm-Gg: ASbGncto4Mx1nZvsWPorD9u50rRvIu1Xl5g0/YqvvR14hmAHeU+C8z47ek2LjJVJcTh
+	0MqW9/eYtPusv7F/4d3VvLpHyfRlCKx7iA3VpwqS5fnNAHgG8StCebEr0KkJZXPEsYowGjFoCob
+	N0XjGr+8NYEhw5mtD4i/G6hUKuVlp8a/b+OjR7XJTJ7096bxto9jm8H1AMh3ugPUkbac72iP7gC
+	/hCI9+92M0MDO8/+KxYnSqjfcdkeTvu0GDrTUUnsfDRSsBdrx3uJ3UEMkiNSPQzapSW5gD1Q7E5
+	9+dq8hwDy3XY3VZ0zpdgCDOJsalWOhfM/mHGBR5tFb2ys+bsefpco7Btt8iC9SDC8Yic+O6Hl0K
+	F/oR0yQ==
+X-Google-Smtp-Source: AGHT+IEqfqMAMX2FuVdCvP6EGCIXoyx24NwpIDqRPz+vP4XEI0A0Wy6Bj5qbITURwMDVrZtU+s5Seg==
+X-Received: by 2002:a5d:6d8e:0:b0:38d:e420:3942 with SMTP id ffacd0b85a97d-38f61499154mr12080345f8f.3.1740384093973;
         Mon, 24 Feb 2025 00:01:33 -0800 (PST)
 Received: from ta2.c.googlers.com (169.178.77.34.bc.googleusercontent.com. [34.77.178.169])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-439b0367533sm97690395e9.27.2025.02.24.00.01.31
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-439b0367533sm97690395e9.27.2025.02.24.00.01.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Feb 2025 00:01:32 -0800 (PST)
+        Mon, 24 Feb 2025 00:01:33 -0800 (PST)
 From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Mon, 24 Feb 2025 08:01:23 +0000
-Subject: [PATCH 2/3] firmware: exynos-acpm: move common structures to
- exynos-acpm.h
+Date: Mon, 24 Feb 2025 08:01:24 +0000
+Subject: [PATCH 3/3] firmware: samsung: add ACPM debugfs support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250224-acpm-debugfs-v1-2-2418a3ea1b17@linaro.org>
+Message-Id: <20250224-acpm-debugfs-v1-3-2418a3ea1b17@linaro.org>
 References: <20250224-acpm-debugfs-v1-0-2418a3ea1b17@linaro.org>
 In-Reply-To: <20250224-acpm-debugfs-v1-0-2418a3ea1b17@linaro.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -87,16 +86,16 @@ Cc: andre.draszik@linaro.org, peter.griffin@linaro.org,
  linux-arm-kernel@lists.infradead.org, 
  Tudor Ambarus <tudor.ambarus@linaro.org>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1740384089; l=4949;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1740384089; l=16318;
  i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=hCBzOfJSymMyHvVROjcOk8C8vSA3TYnFB5U/O/rnkDE=;
- b=ATLynd3c1Y0yvN4/G4Wd0ln2S20qs67kvDyIgdhR9p4lEnrThWwETuUT7EpmvVxuE4ICAf2Hk
- NacKRW6DfReDLvZ+0SKuVRyS5pZc2HH7MZxIvDXf0/JNF0VtXLnWvh9
+ bh=yJbsmqHNsqYyrsA8KdtCD6cvsa5ry8OHqgcCrFKEErI=;
+ b=4WepINivv1JjzEyjhrwc6g4Yvi0pDVfys7W1afXQ2GW7ziUplgb4Z4xyvzjR4PA/cdg/5qrC0
+ IeDT/72ZeonC/J/pHMioXXMC5bkqMwILOJ0MzA4O0AD/R/tawbzifYu
 X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
  pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_000134_770699_19F5B902 
-X-CRM114-Status: GOOD (  19.59  )
+X-CRM114-CacheID: sfid-20250224_000135_853992_15E93270 
+X-CRM114-Status: GOOD (  24.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,174 +110,559 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Prepare for the ACPM logging feature addition. ACPM is capable of logging
-things to SRAM. The logging feature needs access to struct acpm_info
-in order to get the sram_base, to the configuration data from SRAM, and to
-the struct acpm_queue internal driver representation of a queue.
-Move these structs to a common exynos-acpm.h.
+The ACPM firmware saves debug information to SRAM. Add debugfs entries
+in order to expose the ACPM logs.
+
+acpm_framework/logb_gprio_level controls the ACPM print verbosity to
+the SRAM log buffer. It encodes a 64 bit value, 4 bits for each of the
+16 Plugin IDs, with verbosity levels from 0xf (log error) to
+0x0 (log debug).
+
+echo 0xffffffffffffff1f > /sys/kernel/debug/acpm_framework/logb_gprio_level
+Will allow only LOG_ERR prints for all Plugin IDs but Plugin ID 1,
+which will issue prints for any log levels greater or equal to 1.
+On the ACPM firmware side, logb_gprio_level has a default value of zero,
+all logs enabled for all Plugin IDs.
+
+acpm_framework/log_level has a maximum value of 2 and controls which
+SRAM log buffers are printed.
+
+Finally, acpm_framework/acpm_debug_cmd provides a way to issue
+ACPM DEBUG commands to the firmware.
+
+Add ACPM debugfs support with the above capabilities.
 
 Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 ---
- drivers/firmware/samsung/exynos-acpm.c | 48 +-------------------------
- drivers/firmware/samsung/exynos-acpm.h | 63 ++++++++++++++++++++++++++++++++++
- 2 files changed, 64 insertions(+), 47 deletions(-)
+ drivers/firmware/samsung/Makefile              |   1 +
+ drivers/firmware/samsung/exynos-acpm-debugfs.c | 359 +++++++++++++++++++++++++
+ drivers/firmware/samsung/exynos-acpm.c         |  15 ++
+ drivers/firmware/samsung/exynos-acpm.h         |  37 +++
+ 4 files changed, 412 insertions(+)
 
-diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
-index 3c14afc89fd7..8d83841f1d62 100644
---- a/drivers/firmware/samsung/exynos-acpm.c
-+++ b/drivers/firmware/samsung/exynos-acpm.c
-@@ -12,7 +12,6 @@
- #include <linux/container_of.h>
- #include <linux/delay.h>
- #include <linux/device.h>
--#include <linux/firmware/samsung/exynos-acpm-protocol.h>
- #include <linux/io.h>
- #include <linux/iopoll.h>
- #include <linux/mailbox/exynos-message.h>
-@@ -27,7 +26,7 @@
- #include <linux/slab.h>
- #include <linux/types.h>
+diff --git a/drivers/firmware/samsung/Makefile b/drivers/firmware/samsung/Makefile
+index 7b4c9f6f34f5..ca6b71872ac3 100644
+--- a/drivers/firmware/samsung/Makefile
++++ b/drivers/firmware/samsung/Makefile
+@@ -1,4 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0-only
  
--#include "exynos-acpm-xfer.h"
-+#include "exynos-acpm.h"
- #include "exynos-acpm-pmic.h"
- 
- #define ACPM_PROTOCOL_SEQNUM		GENMASK(21, 16)
-@@ -38,20 +37,6 @@
- 
- #define ACPM_GS101_INITDATA_BASE	0xa000
- 
--/**
-- * struct acpm_shmem - shared memory configuration information.
-- * @reserved:	unused fields.
-- * @chans:	offset to array of struct acpm_chan_shmem.
-- * @reserved1:	unused fields.
-- * @num_chans:	number of channels.
-- */
--struct acpm_shmem {
--	u32 reserved[2];
--	u32 chans;
--	u32 reserved1[3];
--	u32 num_chans;
--};
--
- /**
-  * struct acpm_chan_shmem - descriptor of a shared memory channel.
-  *
-@@ -85,19 +70,6 @@ struct acpm_chan_shmem {
- 	u32 poll_completion;
- };
- 
--/**
-- * struct acpm_queue - exynos acpm queue.
-- *
-- * @rear:	rear address of the queue.
-- * @front:	front address of the queue.
-- * @base:	base address of the queue.
-- */
--struct acpm_queue {
--	void __iomem *rear;
--	void __iomem *front;
--	void __iomem *base;
--};
--
- /**
-  * struct acpm_rx_data - RX queue data.
-  *
-@@ -155,24 +127,6 @@ struct acpm_chan {
- 	struct acpm_rx_data rx_data[ACPM_SEQNUM_MAX];
- };
- 
--/**
-- * struct acpm_info - driver's private data.
-- * @shmem:	pointer to the SRAM configuration data.
-- * @sram_base:	base address of SRAM.
-- * @chans:	pointer to the ACPM channel parameters retrieved from SRAM.
-- * @dev:	pointer to the exynos-acpm device.
-- * @handle:	instance of acpm_handle to send to clients.
-- * @num_chans:	number of channels available for this controller.
-- */
--struct acpm_info {
--	struct acpm_shmem __iomem *shmem;
--	void __iomem *sram_base;
--	struct acpm_chan *chans;
--	struct device *dev;
--	struct acpm_handle handle;
--	u32 num_chans;
--};
--
- /**
-  * struct acpm_match_data - of_device_id data.
-  * @initdata_base:	offset in SRAM where the channels configuration resides.
-diff --git a/drivers/firmware/samsung/exynos-acpm.h b/drivers/firmware/samsung/exynos-acpm.h
+ acpm-protocol-objs			:= exynos-acpm.o exynos-acpm-pmic.o
++acpm-protocol-$(CONFIG_DEBUG_FS)	+= exynos-acpm-debugfs.o
+ obj-$(CONFIG_EXYNOS_ACPM_PROTOCOL)	+= acpm-protocol.o
+diff --git a/drivers/firmware/samsung/exynos-acpm-debugfs.c b/drivers/firmware/samsung/exynos-acpm-debugfs.c
 new file mode 100644
-index 000000000000..c212fe28758a
+index 000000000000..d839321d8901
 --- /dev/null
-+++ b/drivers/firmware/samsung/exynos-acpm.h
-@@ -0,0 +1,63 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
++++ b/drivers/firmware/samsung/exynos-acpm-debugfs.c
+@@ -0,0 +1,359 @@
++// SPDX-License-Identifier: GPL-2.0-only
 +/*
 + * Copyright 2020 Samsung Electronics Co., Ltd.
 + * Copyright 2020 Google LLC.
-+ * Copyright 2024 Linaro Ltd.
++ * Copyright 2025 Linaro Ltd.
 + */
-+#ifndef __EXYNOS_ACPM_H__
-+#define __EXYNOS_ACPM_H__
 +
++#include <linux/bitfield.h>
++#include <linux/bits.h>
++#include <linux/cleanup.h>
++#include <linux/container_of.h>
 +#include <linux/debugfs.h>
-+#include <linux/firmware/samsung/exynos-acpm-protocol.h>
-+#include <linux/types.h>
++#include <linux/device.h>
++#include <linux/io.h>
++#include <linux/ktime.h>
++#include <linux/math64.h>
++#include <linux/workqueue.h>
 +
-+#include "exynos-acpm-xfer.h"
++#include "exynos-acpm.h"
 +
-+/**
-+ * struct acpm_shmem - shared memory configuration information.
-+ * @reserved:	unused fields.
-+ * @chans:	offset to array of struct acpm_chan_shmem.
-+ * @reserved1:	unused fields.
-+ * @num_chans:	number of channels.
-+ */
-+struct acpm_shmem {
-+	u32 reserved[2];
-+	u32 chans;
-+	u32 reserved1[3];
-+	u32 num_chans;
++#define ACPM_DEBUG_CMD				BIT(14)
++
++#define ACPM_PRINT_CONFIG			GENMASK(15, 14)
++#define ACPM_PRINT_CMD				BIT(13)
++#define ACPM_PRINT_SET_LOGB_GPRIO_LEVEL		1
++#define ACPM_PRINT_GET_LOGB_GPRIO_LEVEL		3
++
++#define ACPM_LOG_LEVEL_MAX			2
++#define ACPM_LOG_POLL_PERIOD_US			500
++
++/* Tick runs at 49.152 MHz, the period below is in picoseconds. */
++#define ACPM_APM_SYSTICK_PERIOD_PS		20345
++
++#define ACPM_DEBUGFS_ROOT "acpm_framework"
++
++enum acpm_debug_commands {
++	ACPM_DEBUG_DISABLE_WATCHDOG,
++	ACPM_DEBUG_ENABLE_WATCHDOG,
++	ACPM_DEBUG_SOFT_LOCKUP,
++	ACPM_DEBUG_HARD_LOCKUP,
++	ACPM_DBUG_EXCEPTION,
++	ACPM_DEBUG_NOTIFY_SHUTDOWN,
++	ACPM_DEBUG_RAMDUMP_ON,
++	ACPM_DEBUG_MAX,
 +};
 +
-+/**
-+ * struct acpm_queue - exynos acpm queue.
-+ * @rear:	rear address of the queue.
-+ * @front:	front address of the queue.
-+ * @base:	base address of the queue.
-+ */
-+struct acpm_queue {
-+	void __iomem *rear;
-+	void __iomem *front;
-+	void __iomem *base;
++struct acpm_log_buf {
++	struct acpm_queue q;
++	unsigned int qlen;
++	unsigned int mlen;
++	unsigned int rear_index;
 +};
 +
-+struct device;
-+struct acpm_chan;
-+
-+/**
-+ * struct acpm_info - driver's private data.
-+ * @shmem:	pointer to the SRAM configuration data.
-+ * @sram_base:	base address of SRAM.
-+ * @chans:	pointer to the ACPM channel parameters retrieved from SRAM.
-+ * @dev:	pointer to the exynos-acpm device.
-+ * @handle:	instance of acpm_handle to send to clients.
-+ * @num_chans:	number of channels available for this controller.
-+ */
-+struct acpm_info {
-+	struct acpm_shmem __iomem *shmem;
-+	void __iomem *sram_base;
-+	struct acpm_chan *chans;
-+	struct device *dev;
-+	struct acpm_handle handle;
-+	u32 num_chans;
++struct acpm_log_info {
++	struct workqueue_struct *wq;
++	struct acpm_info *acpm;
++	struct delayed_work work;
++	struct acpm_log_buf normal;
++	struct acpm_log_buf preempt;
++	unsigned int level;
++	unsigned int poll_period;
 +};
 +
-+#endif /* __EXYNOS_ACPM_H__ */
++union acpm_log_entry {
++	u32 raw[4];
++	struct {
++		u32 systicks0 : 24;
++		u32 dummy : 2;
++		u32 is_err : 1;
++		u32 is_raw : 1;
++		u32 plugin_id : 4;
++		u32 systicks24;
++		u32 msg : 24;
++		u32 systicks56 : 8;
++		u32 data;
++	} __packed;
++};
++
++static struct dentry *rootdir;
++
++static DEFINE_MUTEX(acpm_log_level_mutex);
++
++static void acpm_log_print_entry(struct acpm_info *acpm,
++				 const union acpm_log_entry *log_entry)
++{
++	u64 systicks, time, msg;
++
++	if (log_entry->is_err)
++		return;
++
++	if (log_entry->is_raw) {
++		dev_info(acpm->dev, "[ACPM_FW raw] : id:%u, %x, %x, %x\n",
++			 log_entry->plugin_id, log_entry->raw[1],
++			 log_entry->raw[2], log_entry->raw[3]);
++	} else {
++		systicks = ((u64)(log_entry->systicks56) << 56) +
++			   ((u64)(log_entry->systicks24) << 24) +
++			   log_entry->systicks0;
++
++		/* report time in ns */
++		time = mul_u64_u32_div(systicks, ACPM_APM_SYSTICK_PERIOD_PS,
++				       1000);
++
++		msg = readl(acpm->sram_base + log_entry->msg);
++
++		dev_info(acpm->dev, "[ACPM_FW] : %llu id:%u, %s, %x\n", time,
++			 log_entry->plugin_id, (char *)&msg, log_entry->data);
++	}
++}
++
++static void acpm_log_print_entries(struct acpm_info *acpm,
++				   struct acpm_log_buf *lbuf)
++{
++	union acpm_log_entry log_entry = {0};
++	u32 front, rear;
++
++	front = readl(lbuf->q.front);
++	rear = lbuf->rear_index;
++
++	while (rear != front) {
++		__ioread32_copy(&log_entry, lbuf->q.base + lbuf->mlen * rear,
++				sizeof(log_entry) / 4);
++
++		acpm_log_print_entry(acpm, &log_entry);
++
++		if (lbuf->qlen == rear + 1)
++			rear = 0;
++		else
++			rear++;
++
++		lbuf->rear_index = rear;
++		front = readl(lbuf->q.front);
++	}
++}
++
++static void acpm_log_print(struct acpm_info *acpm)
++{
++	struct acpm_log_info *acpm_log = acpm->log;
++
++	guard(mutex)(&acpm_log_level_mutex);
++
++	if (acpm_log->level == 0)
++		return;
++
++	if (acpm_log->level == ACPM_LOG_LEVEL_MAX)
++		acpm_log_print_entries(acpm, &acpm_log->preempt);
++
++	acpm_log_print_entries(acpm, &acpm_log->normal);
++}
++
++static void acpm_work_fn(struct work_struct *work)
++{
++	struct acpm_log_info *acpm_log =
++		container_of(work, struct acpm_log_info, work.work);
++	struct acpm_info *acpm = acpm_log->acpm;
++
++	acpm_log_print(acpm);
++
++	queue_delayed_work(acpm_log->wq, &acpm_log->work,
++			   msecs_to_jiffies(acpm_log->poll_period));
++}
++
++static int acpm_log_level_get(void *data, u64 *val)
++{
++	struct acpm_info *acpm = data;
++
++	*val = acpm->log->level;
++
++	return 0;
++}
++
++static int acpm_log_level_set(void *data, u64 val)
++{
++	struct acpm_info *acpm = data;
++	struct acpm_log_info *acpm_log = acpm->log;
++
++	if (val > ACPM_LOG_LEVEL_MAX) {
++		dev_err(acpm->dev, "Log level %llu out of range [0:%u]!\n",
++			val, ACPM_LOG_LEVEL_MAX);
++		return -EINVAL;
++	}
++
++	scoped_guard(mutex, &acpm_log_level_mutex)
++		acpm_log->level = val;
++
++	if (acpm_log->level == 0)
++		cancel_delayed_work_sync(&acpm_log->work);
++	else
++		queue_delayed_work(acpm_log->wq, &acpm_log->work,
++				   msecs_to_jiffies(acpm_log->poll_period));
++	return 0;
++}
++
++DEFINE_DEBUGFS_ATTRIBUTE(acpm_log_level_fops, acpm_log_level_get,
++			 acpm_log_level_set, "0%llu\n");
++
++/**
++ * acpm_logb_gprio_level_get() - get ACPM Log Buffer Group Priority logging
++ * level.
++ * @data:	pointer to the driver data.
++ * @val:	pointer where the ACPM Log Buffer Group Priority logging level
++ *		will be saved.
++ *
++ * The 64 bit hex value encodes the plugin ID log level request on 4 bits,
++ * supporting a maximum of 16 plugin IDs. Plugin ID 0 is described by
++ * GENMASK(3, 0), followed by the other plugin IDs in ascending order, up to
++ * plugin ID 15 which is described by GENMASK(63, 60).
++ * Value 0xf is log error level, and 0x0 is log debug level.
++ */
++static int acpm_logb_gprio_level_get(void *data, u64 *val)
++{
++	struct acpm_info *acpm = data;
++	struct acpm_xfer xfer;
++	u32 cmd[4] = {0};
++	int ret;
++
++	cmd[0] = ACPM_PRINT_CMD |
++		 FIELD_PREP(ACPM_PRINT_CONFIG, ACPM_PRINT_GET_LOGB_GPRIO_LEVEL);
++
++	xfer.txd = cmd;
++	xfer.txlen = sizeof(cmd);
++	xfer.rxd = cmd;
++	xfer.rxlen = sizeof(cmd);
++	xfer.acpm_chan_id = acpm->mbox_dbg_chan;
++
++	ret = acpm_do_xfer(&acpm->handle, &xfer);
++	if (!ret)
++		*val = (((u64)xfer.rxd[2]) << 32) | xfer.rxd[1];
++
++	return ret;
++}
++
++/**
++ * acpm_logb_gprio_level_set() - set ACPM Log Buffer Group Priority logging
++ * level.
++ * @data:	pointer to the driver data.
++ * @val:	64 bit hex value to set.
++ * The 64 bit hex value encodes the plugin ID log level request on 4 bits,
++ * supporting a maximum of 16 plugin IDs. Plugin ID 0 is described by
++ * GENMASK(3, 0), followed by the other plugin IDs in ascending order, up to
++ * plugin ID 15 which is described by GENMASK(63, 60).
++ * Value 0xf is log error level, and 0x0 is log debug level.
++ */
++static int acpm_logb_gprio_level_set(void *data, u64 val)
++{
++	struct acpm_info *acpm = data;
++	struct acpm_xfer xfer = {0};
++	u32 cmd[4] = {0};
++
++	cmd[0] = ACPM_PRINT_CMD |
++		 FIELD_PREP(ACPM_PRINT_CONFIG, ACPM_PRINT_SET_LOGB_GPRIO_LEVEL);
++	cmd[1] = val;
++	cmd[2] = val >> 32;
++
++	xfer.txd = cmd;
++	xfer.txlen = sizeof(cmd);
++	xfer.acpm_chan_id = acpm->mbox_dbg_chan;
++
++	return acpm_do_xfer(&acpm->handle, &xfer);
++}
++
++DEFINE_DEBUGFS_ATTRIBUTE(acpm_logb_gprio_level_fops, acpm_logb_gprio_level_get,
++			 acpm_logb_gprio_level_set, "0x%016llx\n");
++
++static int acpm_debug_cmd_set(void *data, u64 val)
++{
++	struct acpm_info *acpm = data;
++	struct acpm_xfer xfer = {0};
++	u32 cmd[4] = {0};
++
++	if (val >= ACPM_DEBUG_MAX) {
++		dev_err(acpm->dev, "sub-cmd:%llu out of range!\n", val);
++		return 0;
++	}
++
++	cmd[0] = val | ACPM_DEBUG_CMD;
++
++	xfer.txd = cmd;
++	xfer.txlen = sizeof(cmd);
++	xfer.acpm_chan_id = acpm->mbox_dbg_chan;
++
++	return acpm_do_xfer(&acpm->handle, &xfer);
++}
++
++DEFINE_DEBUGFS_ATTRIBUTE(acpm_debug_cmd_fops, NULL, acpm_debug_cmd_set,
++			 "0x%016llx\n");
++
++static void acpm_debugfs_init(struct acpm_info *acpm)
++{
++	rootdir = debugfs_create_dir(ACPM_DEBUGFS_ROOT, NULL);
++
++	debugfs_create_file("log_level", 0644, rootdir, acpm,
++			    &acpm_log_level_fops);
++	debugfs_create_file("logb_gprio_level", 0644, rootdir, acpm,
++			    &acpm_logb_gprio_level_fops);
++	debugfs_create_file("acpm_debug_cmd", 0644, rootdir, acpm,
++			    &acpm_debug_cmd_fops);
++}
++
++/**
++ * acpm_debug_get_params() - get debug parameters of the normal and preempt
++ * queues.
++ * @acpm:	pointer to the driver data.
++ */
++static void acpm_debug_get_params(struct acpm_info *acpm)
++{
++	struct acpm_shmem __iomem *shmem = acpm->shmem;
++	void __iomem *base = acpm->sram_base;
++	struct acpm_log_info *acpm_log = acpm->log;
++	struct acpm_log_buf *lbuf;
++
++	lbuf = &acpm_log->normal;
++	lbuf->q.base = base + readl(&shmem->log_base);
++	lbuf->q.rear = base + readl(&shmem->log_rear);
++	lbuf->q.front = base + readl(&shmem->log_front);
++	lbuf->qlen = readl(&shmem->log_qlen);
++	lbuf->mlen = readl(&shmem->log_mlen);
++
++	lbuf = &acpm_log->preempt;
++	lbuf->q.base = base + readl(&shmem->preempt_log_base);
++	lbuf->q.rear = base + readl(&shmem->preempt_log_rear);
++	lbuf->q.front = base + readl(&shmem->preempt_log_front);
++	lbuf->qlen = readl(&shmem->preempt_log_qlen);
++	lbuf->mlen = acpm_log->normal.mlen;
++}
++
++/**
++ * acpm_debugfs_register() - register ACPM debug capabilities via debugfs.
++ * @acpm:	pointer to the driver data.
++ */
++int acpm_debugfs_register(struct acpm_info *acpm)
++{
++	struct acpm_log_info *acpm_log;
++
++	acpm_log = devm_kzalloc(acpm->dev, sizeof(*acpm_log), GFP_KERNEL);
++	if (!acpm_log)
++		return -ENOMEM;
++
++	acpm->log = acpm_log;
++	acpm_log->acpm = acpm;
++
++	acpm_log->wq = alloc_workqueue("exynos-acpm-log-wq", 0, 0);
++	if (!acpm_log->wq)
++		return -ENOMEM;
++
++	INIT_DELAYED_WORK(&acpm_log->work, acpm_work_fn);
++	acpm_log->poll_period = ACPM_LOG_POLL_PERIOD_US;
++
++	acpm_debug_get_params(acpm);
++
++	acpm_debugfs_init(acpm);
++
++	return 0;
++}
++
++void acpm_debugfs_remove(void)
++{
++	debugfs_remove_recursive(rootdir);
++}
+diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
+index 8d83841f1d62..53f0d3db3400 100644
+--- a/drivers/firmware/samsung/exynos-acpm.c
++++ b/drivers/firmware/samsung/exynos-acpm.c
+@@ -36,6 +36,7 @@
+ #define ACPM_TX_TIMEOUT_US		500000
+ 
+ #define ACPM_GS101_INITDATA_BASE	0xa000
++#define ACPM_GS101_MBOX_DBG_CHAN	4
+ 
+ /**
+  * struct acpm_chan_shmem - descriptor of a shared memory channel.
+@@ -130,9 +131,11 @@ struct acpm_chan {
+ /**
+  * struct acpm_match_data - of_device_id data.
+  * @initdata_base:	offset in SRAM where the channels configuration resides.
++ * @mbox_dbg_chan:	mailbox channel number used for ACPM debug.
+  */
+ struct acpm_match_data {
+ 	loff_t initdata_base;
++	unsigned int mbox_dbg_chan;
+ };
+ 
+ #define client_to_acpm_chan(c) container_of(c, struct acpm_chan, cl)
+@@ -577,12 +580,17 @@ static int acpm_probe(struct platform_device *pdev)
+ 				     "Failed to get match data.\n");
+ 
+ 	acpm->shmem = acpm->sram_base + match_data->initdata_base;
++	acpm->mbox_dbg_chan = match_data->mbox_dbg_chan;
+ 	acpm->dev = dev;
+ 
+ 	ret = acpm_channels_init(acpm);
+ 	if (ret)
+ 		return ret;
+ 
++	ret = acpm_debugfs_register(acpm);
++	if (ret)
++		return ret;
++
+ 	acpm_setup_ops(acpm);
+ 
+ 	platform_set_drvdata(pdev, acpm);
+@@ -590,6 +598,11 @@ static int acpm_probe(struct platform_device *pdev)
+ 	return 0;
+ }
+ 
++static void acpm_remove(struct platform_device *pdev)
++{
++	acpm_debugfs_remove();
++}
++
+ /**
+  * acpm_handle_put() - release the handle acquired by acpm_get_by_phandle.
+  * @handle:	Handle acquired by acpm_get_by_phandle.
+@@ -698,6 +711,7 @@ const struct acpm_handle *devm_acpm_get_by_phandle(struct device *dev,
+ 
+ static const struct acpm_match_data acpm_gs101 = {
+ 	.initdata_base = ACPM_GS101_INITDATA_BASE,
++	.mbox_dbg_chan = ACPM_GS101_MBOX_DBG_CHAN,
+ };
+ 
+ static const struct of_device_id acpm_match[] = {
+@@ -711,6 +725,7 @@ MODULE_DEVICE_TABLE(of, acpm_match);
+ 
+ static struct platform_driver acpm_driver = {
+ 	.probe	= acpm_probe,
++	.remove = acpm_remove,
+ 	.driver	= {
+ 		.name = "exynos-acpm-protocol",
+ 		.of_match_table	= acpm_match,
+diff --git a/drivers/firmware/samsung/exynos-acpm.h b/drivers/firmware/samsung/exynos-acpm.h
+index c212fe28758a..d22ffada29a6 100644
+--- a/drivers/firmware/samsung/exynos-acpm.h
++++ b/drivers/firmware/samsung/exynos-acpm.h
+@@ -19,12 +19,36 @@
+  * @chans:	offset to array of struct acpm_chan_shmem.
+  * @reserved1:	unused fields.
+  * @num_chans:	number of channels.
++ * @reserved2:	unused fields.
++ * @log_rear:	rear pointer of APM log queue.
++ * @log_front:	front pointer of APM log queue.
++ * @log_base:	base address of APM log queue.
++ * @log_mlen:	log message length.
++ * @log_qlen:	log queue length.
++ * @reserved3:	unused fields.
++ * @preempt_log_rear:	rear pointer of APM preempt log queue.
++ * @preempt_log_front:	front pointer of APM preempt log queue.
++ * @preempt_log_base:	base address of APM preempt log queue.
++ * @preempt_log_qlen:	preempt log queue length.
++ * @reserved4:	unused fields.
+  */
+ struct acpm_shmem {
+ 	u32 reserved[2];
+ 	u32 chans;
+ 	u32 reserved1[3];
+ 	u32 num_chans;
++	u32 reserved2[6];
++	u32 log_rear;
++	u32 log_front;
++	u32 log_base;
++	u32 log_mlen;
++	u32 log_qlen;
++	u32 reserved3[24];
++	u32 preempt_log_rear;
++	u32 preempt_log_front;
++	u32 preempt_log_base;
++	u32 preempt_log_qlen;
++	u32 reserved4[64];
+ };
+ 
+ /**
+@@ -41,23 +65,36 @@ struct acpm_queue {
+ 
+ struct device;
+ struct acpm_chan;
++struct acpm_log_info;
+ 
+ /**
+  * struct acpm_info - driver's private data.
+  * @shmem:	pointer to the SRAM configuration data.
+  * @sram_base:	base address of SRAM.
++ * @log:	pointer to the ACPM logging info.
+  * @chans:	pointer to the ACPM channel parameters retrieved from SRAM.
+  * @dev:	pointer to the exynos-acpm device.
+  * @handle:	instance of acpm_handle to send to clients.
++ * @mbox_dbg_chan: mailbox debug channel.
+  * @num_chans:	number of channels available for this controller.
+  */
+ struct acpm_info {
+ 	struct acpm_shmem __iomem *shmem;
+ 	void __iomem *sram_base;
++	struct acpm_log_info *log;
+ 	struct acpm_chan *chans;
+ 	struct device *dev;
+ 	struct acpm_handle handle;
++	unsigned int mbox_dbg_chan;
+ 	u32 num_chans;
+ };
+ 
++#ifdef CONFIG_DEBUG_FS
++int acpm_debugfs_register(struct acpm_info *acpm);
++void acpm_debugfs_remove(void);
++#else
++static inline int acpm_debugfs_register(struct acpm_info *acpm) {}
++static inline void acpm_debugfs_remove(void) {}
++#endif
++
+ #endif /* __EXYNOS_ACPM_H__ */
 
 -- 
 2.48.1.601.g30ceb7b040-goog
