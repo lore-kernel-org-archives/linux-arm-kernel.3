@@ -4,91 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B6DCC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Feb 2025 23:56:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1BA0C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 01:33:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MO69vvfxawoe2HNuQ/9QFZVUJBZNSU898FyLnskC1yc=; b=Kt/lb0WKANKSNA4JDlQHNawjuZ
-	NpEh0zmcl5Y0ibPXIAQ3xF9/Ceis0zkY5VTZqJJvrF6xG6rvJdHo2bqBTNgKRZ/bXSQgALlw19Teq
-	+LqMXT7nvr8MdBBuw8HNArerNtJFZZ5ypc0h3+YErDQEbJdGGIo5lblRrU7PGZycQr4ycIsOtOxsX
-	vHlMM0bAlZnRuBEbO31cbdYfwW+C9h6B++1kkvwz2iuzvKcDujJWgSZtnUncLSzEa3DSjedl/tifZ
-	luLraoeOhrNxFb0Q/C6Yec8aHYvRc9I8leEFunmTZQgWFkkUC3dXxdp2EOr1raJp8eg5Mt0eC34tS
-	6/tIuJNA==;
+	bh=A4GvaqVIL/hNKQlnj0DT9cN3mMKxJVdcE+NJpBmVvb8=; b=ydvRjKR6QPLXmRK67yBS+83TLC
+	4XAzIydtfA4M9ZmgOzTWBG0FWKlq/9FlAkXX0GNokCQXQBtc+J1wr+FONMXQ2u0uGimGNOM+K2z/9
+	zVlNTkEDwy2HP2MJXfgs0/Ezw4Hj8i0mnDBdifzQesoZ9UfT7avZynilRB+MQV72YI3oYPGvPTcNT
+	ZlSxE8o4qYmG63N/uxR96WzXvOVOTJ4j3FcoXyGXUTavFxkNYtzkfbwTvy9qwmVK8ZMlxalQTE5OK
+	DJgOHaqrGK73A2wFpz8a9PZnZZVeMvUvGXC9ofNQmfATLLm7mcDGdbYGMhacIFuhnH8ih3GHuLC+S
+	y9K+Fw/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmLpo-0000000C04y-43af;
-	Sun, 23 Feb 2025 23:56:32 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1tmNLH-0000000C4Y8-24Wa;
+	Mon, 24 Feb 2025 01:33:07 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmLoL-0000000BzwF-06Np
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Feb 2025 23:55:02 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-54838cd334cso2806753e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Feb 2025 15:55:00 -0800 (PST)
+	id 1tmNJn-0000000C4OU-18Ao;
+	Mon, 24 Feb 2025 01:31:36 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5e04064af07so5560279a12.0;
+        Sun, 23 Feb 2025 17:31:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740354899; x=1740959699; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=MO69vvfxawoe2HNuQ/9QFZVUJBZNSU898FyLnskC1yc=;
-        b=tGXG4JkiC7hxRDBxO7YDtXoCX+rysFj/gqHN1bhrdHs89p8IueZabgYh+Nk6L8DtWK
-         6o8cBCd1ifyPd6Gn7q7Z0n05xmwxAhwmzi4Gbe2XRJm9jAydaUotyqvMA6cWhET63o0Q
-         PhbZ2mqfhcrphl96737phAfnXp3GpmgTsLjYpNzdQlVGoYOIlM7lXm++itmxMdMG3Gfm
-         3N+yhWQXQwfAPPhPGhagm+DQDbv5bp/zvv+z9zNYt5r5Qqh/hVpWsR+1FEJMTVQeWszj
-         tNxD2+Ypjc4cRQ4iPihVLWrVXiihEFryupMbUH0m+KjSbGR+aXzclA7zTmClQgS1MMqX
-         OizQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740354899; x=1740959699;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1740360693; x=1740965493; darn=lists.infradead.org;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MO69vvfxawoe2HNuQ/9QFZVUJBZNSU898FyLnskC1yc=;
-        b=X3fVRsqQeifjJ1us7pBvZt1mb4kMco4YtyKo+YiwgWG5jnmPMamIjADtJ3NiEEXB25
-         5Ef40YuMK4T09vIf7TK4Wwn8yBv1DFk2hhJsDbTr7yOi1x7uVSGdLSu0RoMykm7dQ0Pe
-         s7PL/UnvkZx5x7v/lhTB0VFhpupPXRSEEiIMqFTOFahQL7fZJ2keEnDlQaTY8MdP4YsQ
-         yolSeuQE5Y39yXu5mBm/41yUyvqWLZz83udEGR3kC+6QLd6OntT0xku0k7dpJ55RKKiI
-         SVeD6oBUznF6TosxzbI2Aor/BIqdAfxmyw9BfUth6X5lgimcV2NswmtKL9Hg8NrqJglH
-         rgxw==
-X-Forwarded-Encrypted: i=1; AJvYcCVov2xMkpTRg9zRLMnLfmYiznF1ACHpyA3q2TT48yU9qJpEcavjbEjhn0xWSbmIwb6SEpcLn8abfliPUnA5oNNR@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGtjyZn6nRE2kVwv54jixE2fN0Biplr19m5j4DsiglvlS4UFZY
-	xihB68K1HUtU0iBoozAc9uWuP69YZekOuY9pb13aXWX1cb1tMMqtsjIXXZRVRRo=
-X-Gm-Gg: ASbGncs7xDdF0RwrYR7vekA5Pjs/BfnMrkBQn3Tjvy4mS7WPEW8TrLT+PCTTlNXIA/i
-	hgnDuQa3bOcuFgqms0TEVAfnlgdlfqHZLX2D9xqcQLD/2lWs4Iw7Vyny8u5x66+UIKXUH+SIEny
-	Od4l5cfwixc5OAgkh2svq25KR6sV+qE5rNHXXaRju4h+ZjjVdZI2q0iMA/A4abMblKorwLQXKuS
-	iqepWAirY7ExJfwAUySqO/fi1T1SeCo4EsWcqxVfjv5r95vg5UVq456mIesyLUfW+fPd35v+PqE
-	5Tj3iaBo1uTt/Nijx3e1CcPIQ8xM1BRYP29e7XyTAzrHmsXzUPE0GTAaDNq5KrTGL2ss/hlvyfp
-	Eri4AiQ==
-X-Google-Smtp-Source: AGHT+IHWZiY9l4ceFSLMfzXCkrvrA7BoZtPrqLKoUOz7ReQ2TLLajGXi72SpKOyuPoZptA2mBy16jg==
-X-Received: by 2002:a05:6512:3b10:b0:545:2efc:745d with SMTP id 2adb3069b0e04-54838f79c81mr4594575e87.46.1740354898995;
-        Sun, 23 Feb 2025 15:54:58 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5462f125a0esm1423144e87.24.2025.02.23.15.54.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 23 Feb 2025 15:54:57 -0800 (PST)
-Date: Mon, 24 Feb 2025 01:54:55 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Abel Vesa <abel.vesa@linaro.org>, linux-arm-msm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 8/8] phy: samsung: add Exynos2200 usb phy controller
-Message-ID: <tkzfgfbu6j22c75zieponozeld5vvlqv65fnzjy3n2am2ajim5@yhc3tcr5ulfy>
-References: <20250223122227.725233-1-ivo.ivanov.ivanov1@gmail.com>
- <20250223122227.725233-9-ivo.ivanov.ivanov1@gmail.com>
+        bh=A4GvaqVIL/hNKQlnj0DT9cN3mMKxJVdcE+NJpBmVvb8=;
+        b=X1MVpz5IvdD3JyFjiq4k8Hu200l0vQa4R+b0ABs4h5WENUUMfHqKE3vlx0CzVBsOWV
+         JC7W2rYixVUsN+fvoOuF21txuLgtp4Ee4RvvInsfSU5qNwtmsS5NGre9ZTS07p3Y+s7H
+         5gHQbXOgOVSa3FSi9vV1vMDYapabjWiMNFMy0pzI7tnoA87AKrM3Iw/SPbYKc0bfgbIS
+         dETxff06ggJENSp+l5173qwTEWIcNRFGK8TTOMJ+z6f44cqNecYjrOC+M/iiI3MFB3l8
+         VY1EuCG9uLuCQ9aPSOEdfdkm7WJtInG86BAWN4PZgdU5HsQ2LgaWhHC1LD1ePjt2ExBi
+         UI7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740360693; x=1740965493;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :reply-to:message-id:subject:cc:to:from:date:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=A4GvaqVIL/hNKQlnj0DT9cN3mMKxJVdcE+NJpBmVvb8=;
+        b=kmEgXlbe3g39zLTebS/uNUvlrYtXR8gubXwbibI+gazilsYUMHBaYtkIR22NP3qaRT
+         jGRaDOExGi1XEfTnUstpn2cTwnGOPRIcWcJok44aTQqD0+YaNsNwXw6Yz3dLivWkLWNQ
+         7j/8JxquOauGK5sZF+bG3pfngo4H/mLEMBzWD0sknafP7I3OXksZoVuwLSMj5CAoBTCS
+         3lFIcZ+0Tk8auqHCtCjr5W7c8v4AzmeE3xaBcZTeoCnTWxnVzgLU9kXga9iudyeAno03
+         wFFftqVoisNiu71UQrhSBLA8WO5UiepDvy1EUviZ2oMktaxZ3Kb6Up0wZgwdBaH/7NBs
+         hYsg==
+X-Forwarded-Encrypted: i=1; AJvYcCVE2KqNUQidrbuWklOFttPc+CQG4gyeNdRdiCYR3flqHBsYF5sjQVXbcCx9GB7VomRLVMlXlN0K5GCFhaGX6UeIkg==@lists.infradead.org, AJvYcCX1Gl+X79E0Ati6nW10sWl8UCHDcGRsdCQ0svke/x3Z8eROx4/b8N2FazwxPkI2HI/hhwKzCg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0vBsDDnfKKNbGZBFigjvwb2dBkpzZ1IxtfBcqXfbGqrB1aW3y
+	HmhnNzBAFcrBhqRwn4Tawh6a93D3KSHTphZiSxusetZ24TKSTMU2
+X-Gm-Gg: ASbGncuWsbOr8JQLEJAfDriRcgQ7c9cL9KkJ3tNhNuwpHsduj7NmIzwFYfKoGuOaE20
+	CVfRB47ocTlvp49umfkZ7WX99/5z5wLetfKM9zjPXDGdJD9BXFBqM5NIIfJwquIznxMobAhjNSa
+	XwXjF9hAWdx/CBJBc7Ti8LQKD+1i+WgWRx7dstpWHnXE+oPXXO2w+tKfAinK4jn+MTDXlztS0ic
+	hX/19so4gBb0M1s1HgN9RbXloDmRVtfVEUJUPO3d0UlmFEPi0T8xlEN5cxfHmh4y0M3XhEU4c80
+	TTI1BakL3ziMRZFCXGg6fA6oSg==
+X-Google-Smtp-Source: AGHT+IHSNuXjvZ6j34bY7irzKgYOPZ2Pc9eRXhFT7vf6gvwUpLsnEqOodUyWWZF1htL/xJzW8ObUNw==
+X-Received: by 2002:a05:6402:4313:b0:5de:4b81:d3fd with SMTP id 4fb4d7f45d1cf-5e0b70fa0efmr10728444a12.13.1740360692719;
+        Sun, 23 Feb 2025 17:31:32 -0800 (PST)
+Received: from localhost ([185.92.221.13])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dece1c43a0sm17589157a12.28.2025.02.23.17.31.31
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Sun, 23 Feb 2025 17:31:31 -0800 (PST)
+Date: Mon, 24 Feb 2025 01:31:31 +0000
+From: Wei Yang <richard.weiyang@gmail.com>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Wei Yang <richard.weiyang@gmail.com>, linux-kernel@vger.kernel.org,
+	Alexander Graf <graf@amazon.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Anthony Yznaga <anthony.yznaga@oracle.com>,
+	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pratyush Yadav <ptyadav@amazon.de>,
+	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v4 02/14] memblock: add MEMBLOCK_RSRV_KERN flag
+Message-ID: <20250224013131.fzz552bn7fs64umq@master>
+References: <20250206132754.2596694-1-rppt@kernel.org>
+ <20250206132754.2596694-3-rppt@kernel.org>
+ <20250218155004.n53fcuj2lrl5rxll@master>
+ <Z7WHL_Xqgoln9oLg@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250223122227.725233-9-ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <Z7WHL_Xqgoln9oLg@kernel.org>
+User-Agent: NeoMutt/20170113 (1.7.2)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250223_155501_102688_931D8541 
-X-CRM114-Status: GOOD (  32.35  )
+X-CRM114-CacheID: sfid-20250223_173135_314234_AA2E936A 
+X-CRM114-Status: GOOD (  28.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,196 +126,97 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Wei Yang <richard.weiyang@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Feb 23, 2025 at 02:22:27PM +0200, Ivaylo Ivanov wrote:
-> The Exynos2200 SoC comes with a TI external repeater and 3 USB PHYs:
-> - snps eUSB2 for UTMI
-> - snps USBDP combophy for PIPE3 and DP
-> - samsung USBCON phy
+On Wed, Feb 19, 2025 at 09:24:31AM +0200, Mike Rapoport wrote:
+>Hi,
+>
+>On Tue, Feb 18, 2025 at 03:50:04PM +0000, Wei Yang wrote:
+>> On Thu, Feb 06, 2025 at 03:27:42PM +0200, Mike Rapoport wrote:
+>> >From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+>> >
+>> >to denote areas that were reserved for kernel use either directly with
+>> >memblock_reserve_kern() or via memblock allocations.
+>> >
+>> >Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+>> >---
+>> > include/linux/memblock.h | 16 +++++++++++++++-
+>> > mm/memblock.c            | 32 ++++++++++++++++++++++++--------
+>> > 2 files changed, 39 insertions(+), 9 deletions(-)
+>> >
+>> >diff --git a/include/linux/memblock.h b/include/linux/memblock.h
+>> >index e79eb6ac516f..65e274550f5d 100644
+>> >--- a/include/linux/memblock.h
+>> >+++ b/include/linux/memblock.h
+>> >@@ -50,6 +50,7 @@ enum memblock_flags {
+>> > 	MEMBLOCK_NOMAP		= 0x4,	/* don't add to kernel direct mapping */
+>> > 	MEMBLOCK_DRIVER_MANAGED = 0x8,	/* always detected via a driver */
+>> > 	MEMBLOCK_RSRV_NOINIT	= 0x10,	/* don't initialize struct pages */
+>> >+	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
+>> 
+>> Above memblock_flags, there are comments on explaining those flags.
+>> 
+>> Seems we miss it for MEMBLOCK_RSRV_KERN.
+>
+>Right, thanks!
 > 
-> The USBCON phy is an intermediary between the USB controller (DWC3)
-> and the underlying PHYs. Add a new driver for it, modelled to take
-> a phandle to the high-speed PHY for now.
+>> > 
+>> > #ifdef CONFIG_HAVE_MEMBLOCK_PHYS_MAP
+>> >@@ -1459,14 +1460,14 @@ phys_addr_t __init memblock_alloc_range_nid(phys_addr_t size,
+>> > again:
+>> > 	found = memblock_find_in_range_node(size, align, start, end, nid,
+>> > 					    flags);
+>> >-	if (found && !memblock_reserve(found, size))
+>> >+	if (found && !__memblock_reserve(found, size, nid, MEMBLOCK_RSRV_KERN))
+>> 
+>> Maybe we could use memblock_reserve_kern() directly. If my understanding is
+>> correct, the reserved region's nid is not used.
+>
+>We use nid of reserved regions in reserve_bootmem_region() (commit
+>61167ad5fecd ("mm: pass nid to reserve_bootmem_region()")) but KHO needs to
+>know the distribution of reserved memory among the nodes before
+>memmap_init_reserved_pages().
 > 
-> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-> ---
->  drivers/phy/samsung/Kconfig                 |  12 +
->  drivers/phy/samsung/Makefile                |   1 +
->  drivers/phy/samsung/phy-exynos2200-usbcon.c | 250 ++++++++++++++++++++
->  3 files changed, 263 insertions(+)
->  create mode 100644 drivers/phy/samsung/phy-exynos2200-usbcon.c
+>> BTW, one question here. How we handle concurrent memblock allocation? If two
+>> threads find the same available range and do the reservation, it seems to be a
+>> problem to me. Or I missed something?
+>
+>memblock allocations end before smp_init(), there is no possible concurrency.
 > 
-> diff --git a/drivers/phy/samsung/Kconfig b/drivers/phy/samsung/Kconfig
-> index e2330b089..0f809a382 100644
-> --- a/drivers/phy/samsung/Kconfig
-> +++ b/drivers/phy/samsung/Kconfig
-> @@ -77,6 +77,18 @@ config PHY_S5PV210_USB2
->  	  particular SoC is compiled in the driver. In case of S5PV210 two phys
->  	  are available - device and host.
->  
-> +config PHY_EXYNOS2200_USBCON
-> +	tristate "Exynos2200 USBCON PHY driver"
-> +	depends on (ARCH_EXYNOS && OF) || COMPILE_TEST
-> +	depends on HAS_IOMEM
-> +	select GENERIC_PHY
-> +	select MFD_SYSCON
-> +	default y
-> +	help
-> +	  Enable USBCON PHY support for Exynos2200 SoC.
-> +	  This driver provides PHY interface for the USBCON phy, which acts as
-> +	  an intermediary between the USB controller and underlying PHYs.
-> +
->  config PHY_EXYNOS5_USBDRD
->  	tristate "Exynos5 SoC series USB DRD PHY driver"
->  	depends on (ARCH_EXYNOS && OF) || COMPILE_TEST
-> diff --git a/drivers/phy/samsung/Makefile b/drivers/phy/samsung/Makefile
-> index fea1f96d0..e2686a3f5 100644
-> --- a/drivers/phy/samsung/Makefile
-> +++ b/drivers/phy/samsung/Makefile
-> @@ -14,5 +14,6 @@ phy-exynos-usb2-$(CONFIG_PHY_EXYNOS4210_USB2)	+= phy-exynos4210-usb2.o
->  phy-exynos-usb2-$(CONFIG_PHY_EXYNOS4X12_USB2)	+= phy-exynos4x12-usb2.o
->  phy-exynos-usb2-$(CONFIG_PHY_EXYNOS5250_USB2)	+= phy-exynos5250-usb2.o
->  phy-exynos-usb2-$(CONFIG_PHY_S5PV210_USB2)	+= phy-s5pv210-usb2.o
-> +obj-$(CONFIG_PHY_EXYNOS2200_USBCON)	+= phy-exynos2200-usbcon.o
->  obj-$(CONFIG_PHY_EXYNOS5_USBDRD)	+= phy-exynos5-usbdrd.o
->  obj-$(CONFIG_PHY_EXYNOS5250_SATA)	+= phy-exynos5250-sata.o
-> diff --git a/drivers/phy/samsung/phy-exynos2200-usbcon.c b/drivers/phy/samsung/phy-exynos2200-usbcon.c
-> new file mode 100644
-> index 000000000..aad59349e
-> --- /dev/null
-> +++ b/drivers/phy/samsung/phy-exynos2200-usbcon.c
-> @@ -0,0 +1,250 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (c) 2025, Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/delay.h>
-> +#include <linux/mfd/syscon.h>
-> +#include <linux/mod_devicetable.h>
-> +#include <linux/phy/phy.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/regmap.h>
-> +#include <linux/regulator/consumer.h>
-> +#include <linux/soc/samsung/exynos-regs-pmu.h>
-> +
-> +#define EXYNOS2200_USBCON_LINKCTRL		0x4
-> +#define LINKCTRL_FORCE_QACT			BIT(8)
-> +
-> +#define EXYNOS2200_USBCON_UTMI_CTRL		0x10
-> +#define UTMI_CTRL_FORCESLEEP			BIT(13)
-> +#define UTMI_CTRL_FORCESUSPEND			BIT(12)
-> +#define UTMI_CTRL_FORCE_VBUSVALID		BIT(1)
-> +#define UTMI_CTRL_FORCE_BVALID			BIT(0)
-> +
-> +#define EXYNOS2200_USBCON_LINK_CLKRST		0xc
-> +#define LINK_CLKRST_SW_RST			BIT(0)
-> +
-> +struct exynos2200_usbcon_phy_drvdata {
-> +	const char * const *clk_names;
-> +	int num_clks;
-> +};
-> +
-> +struct exynos2200_usbcon_phy {
-> +	struct phy *phy;
-> +	void __iomem *base;
-> +	struct regmap *reg_pmu;
-> +	struct clk_bulk_data *clks;
-> +	const struct exynos2200_usbcon_phy_drvdata *drv_data;
-> +	u32 pmu_offset;
-> +	struct phy *hs_phy;
-> +};
-> +
-> +static void exynos2200_usbcon_phy_isol(struct exynos2200_usbcon_phy *inst,
-> +				       bool isolate)
-> +{
-> +	unsigned int val;
-> +
-> +	if (!inst->reg_pmu)
-> +		return;
-> +
-> +	val = isolate ? 0 : EXYNOS4_PHY_ENABLE;
-> +
-> +	regmap_update_bits(inst->reg_pmu, inst->pmu_offset,
-> +			   EXYNOS4_PHY_ENABLE, val);
-> +}
-> +
-> +static void exynos2200_usbcon_phy_write_mask(void __iomem *base, u32 offset,
-> +					     u32 mask, u32 val)
-> +{
-> +	u32 reg;
-> +
-> +	reg = readl(base + offset);
-> +	reg &= ~mask;
-> +	reg |= val & mask;
-> +	writel(reg, base + offset);
 
-Does this need any kind of locking? Maybe you can use regmap for this
-access too?
+Thanks, I still have one question here.
 
-> +
-> +	/* Ensure above write is completed */
-> +	readl(base + offset);
-> +}
+Below is a simplified call flow.
 
-[...]
+    mm_core_init()
+        mem_init()
+            memblock_free_all()
+                free_low_memory_core_early()
+                    memmap_init_reserved_pages()
+                        memblock_set_node(..., memblock.reserved, )   --- (1)
+                    __free_memory_core()
+        kmem_cache_init()
+            slab_state = UP;                                          --- (2)
 
-> +
-> +	generic_phy = devm_phy_create(dev, NULL, &exynos2200_usbcon_phy_ops);
-> +	if (IS_ERR(generic_phy))
-> +		return dev_err_probe(dev, PTR_ERR(generic_phy),
-> +				     "failed to create phy %d\n", ret);
-> +
-> +	dev_set_drvdata(dev, phy);
+And memblock_allloc_range_nid() is not supposed to be called after
+slab_is_available(). Even someone do dose it, it will get memory from slab
+instead of reserve region in memblock.
 
-Nit: unused. LGTM otherwise.
+From the above call flow and background, there are three cases when
+memblock_alloc_range_nid() would be called:
 
-> +	phy_set_drvdata(generic_phy, phy);
-> +
-> +	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
-> +	if (IS_ERR(phy_provider))
-> +		return dev_err_probe(dev, PTR_ERR(phy_provider),
-> +				     "failed to register phy provider\n");
-> +
-> +	return 0;
-> +}
-> +
-> +static const char * const exynos2200_clk_names[] = {
-> +	"bus",
-> +};
-> +
-> +static const struct exynos2200_usbcon_phy_drvdata exynos2200_usbcon_phy = {
-> +	.clk_names		= exynos2200_clk_names,
-> +	.num_clks		= ARRAY_SIZE(exynos2200_clk_names),
-> +};
-> +
-> +static const struct of_device_id exynos2200_usbcon_phy_of_match_table[] = {
-> +	{
-> +		.compatible = "samsung,exynos2200-usbcon-phy",
-> +		.data = &exynos2200_usbcon_phy,
-> +	}, { },
-> +};
-> +MODULE_DEVICE_TABLE(of, exynos2200_usbcon_phy_of_match_table);
-> +
-> +static struct platform_driver exynos2200_usbcon_phy_driver = {
-> +	.probe		= exynos2200_usbcon_phy_probe,
-> +	.driver = {
-> +		.name	= "exynos2200-usbcon-phy",
-> +		.of_match_table = exynos2200_usbcon_phy_of_match_table,
-> +	},
-> +};
-> +
-> +module_platform_driver(exynos2200_usbcon_phy_driver);
-> +MODULE_DESCRIPTION("Exynos2200 USBCON PHY driver");
-> +MODULE_LICENSE("GPL");
-> -- 
-> 2.43.0
-> 
+  * If it is called before (1), memblock.reserved's nid would be adjusted correctly.
+  * If it is called after (2), we don't touch memblock.reserved.
+  * If it happens between (1) and (2), it looks would break the consistency of
+    nid information in memblock.reserved. Because when we use
+    memblock_reserve_kern(), NUMA_NO_NODE would be stored in region.
+
+So my question is if the third case happens, would it introduce a bug? If it
+won't happen, seems we don't need to specify the nid here?
 
 -- 
-With best wishes
-Dmitry
+Wei Yang
+Help you, Help me
 
