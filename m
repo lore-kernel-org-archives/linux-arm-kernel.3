@@ -4,89 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF645C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 15:05:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A82FC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 15:07:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qkQqnpwYqndRUX8UXmwWgcvggVsTxywAsyTI1tHWoEM=; b=msy6KZZ8xyJSrnl7XVRtJ3PQYb
-	xLMFJLZQFxqfTLCBFvMWa90HwPPGFVDL9O31TYWh9lru8R1olzwrRC9ETGHPY/7bVHYy3w3goIpmj
-	XP9/5Bzo2XbLWQK42ztHQgDLgr0qa3wnVdx4hkKX5bRQTARQQrwr1OW9NP06dvegNvpGDjc9LBKDQ
-	/OkIPMVi28grhOQAPdFgJTz5SNAig/IqdwV10BcHEdhxSotndLeKjO+rj20HBorDKGdu4vpjMdBpr
-	Iy2IU+WKAUO269WY/JWvZpgUfrkvicHUenaNfabZ/S6G+Ix0sEVtIL/koPBgUWuxMQhk2KhO8nha4
-	hgHnA5/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U2kxLp8PGsF6no9olkoxvVLRBxQRM1JnR8fdH/vpckg=; b=orbmnWGzG0+lDoPV3US3zkSopa
+	e2BeDIcE9oOniNkUk/e3isht2Yof9dyJ2VXnEJ1XtQCFeYMJ9jUx7/6tf4f3FvzIkiKCH/mW6y6F/
+	5Fyn75qb9iRqsl+0UEZjWQjT7FPfqUzlv/uhgfvQ0ecDU4ZVbDcIPReioiHSg6CBA4TIkEp7a/Nbm
+	OMqQBFg66fLId0JtyyE2XvzncP7DOzrF9fLIRGuF9ZgZGlkCG+JBmOfOe3Z38RWg4MET7KDZAyp3s
+	GBfnp1ChuubYtchFKQ9Zv5jVH8MmACj8qDkC191yzNBL3OJgWhpSxGPczNyyBfiYiC0DPnoC0aZJv
+	tYBeubQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tma1j-0000000EDSp-3bUM;
-	Mon, 24 Feb 2025 15:05:47 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1tma3B-0000000EDkm-34Ux;
+	Mon, 24 Feb 2025 15:07:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmZXM-0000000E6zB-30Gj
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 14:34:26 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5dedd4782c6so8339703a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 06:34:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1740407663; x=1741012463; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qkQqnpwYqndRUX8UXmwWgcvggVsTxywAsyTI1tHWoEM=;
-        b=vu15AYUNmwYEVqVhpsaq56jFp9Tqin31wYlz5srRB7KObX1qn6JGGSXqFMJ0I+lcpq
-         oDV3DZRD/4nmxXSFntqfv4Z5Fuke++sA017n1VK0CZddIpOLNp73OXfEdbipFtF+6beF
-         WTly36AzOi/V4xMDtmX7r8R+ed9dILC4JieljgdXeTsWvFSXOHmPGP815rEdu0DBsFfw
-         viIypCRYRmXEmjvnpsmR/7R7VVElaXcwvDGbW48HvSZ3nPKuiebut2n6Y5ZR2Nmenp6X
-         q93kWRdFe1nil2M8ITqD3NeSht62Z9UhEMb72j4JqjH/gtArMJr5yxuFSFvgz/oGLYI2
-         t8pg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740407663; x=1741012463;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qkQqnpwYqndRUX8UXmwWgcvggVsTxywAsyTI1tHWoEM=;
-        b=T/zGJuA7nOUa2ZHp9vGPiMZvyfRXZsbt74Ry7ghNcApfOC30fCKUWTzMkd650dzpgs
-         HrYo8UhAMduFB15hKjaO8EXkV3P7InCfKeGy4NUbCh+FxiKwLVWCTxHvHUXrwy4fGc+p
-         9qZ9yvV4UR4U6c01niKxnaWWG2wRQkviOnN0iOTvUD8hbvkcE8SyMVr1joOUcL9ggtoi
-         30BWd2NTiH4dSuLWEEcremqe2oHDfrgGbFGyOk8d7EHTgivMfALW9hxT64REyMt4N/zA
-         MsA2m23S84p9CNJXES+grwgk16lKEa6vma2jvK9LBT4AdcYotgISpk99e2r0NhhJ0Wdm
-         mbNw==
-X-Forwarded-Encrypted: i=1; AJvYcCWaHTfh66fW2739bIBNEwXO8158EEyopDQ0wlhyaHCWKTvO8RxnSkZsllhWw4+Ts4lWAIZt+P3KmZtXjARUyUY6@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywg+gYYC+8218X5Ki/12QIcdiILS7pekCEjR6doDFUbx38mxSAL
-	3ri+GPf0S/d606NMenSuVxMP5lVdXS+XMbo/ZesW127QWf2lltTgwYDcfV0NyaiX6m7J9vkddlK
-	/VgWXGLGd7Z705Qp8QQR+NEk34oadQe8uSBXRlQ==
-X-Gm-Gg: ASbGncuhgLODlVexmh4fu05FjoF7WvTJkWphxIR01JaRr56D9POXfKIKO3QihfbholS
-	ZtsRvNXspANsldXW6Luf0H/tt9AQ7yYA1YH/dD8WP6P92v9W5KyRWT9QMDqqJutUiY5ojEmIXAU
-	cDG/bEW+8=
-X-Google-Smtp-Source: AGHT+IGwinAFCE/+cod9Wduw27y3lE5NvmD0zotgNUTu5vxJxVcMXBTXPbgxsG+pETb3Ou9qZ9ES5D869/jPdRTLpmg=
-X-Received: by 2002:a05:6402:3788:b0:5dc:8fb1:d43e with SMTP id
- 4fb4d7f45d1cf-5e0b70e6a03mr11963042a12.12.1740407663035; Mon, 24 Feb 2025
- 06:34:23 -0800 (PST)
+	id 1tmZZs-0000000E7Pt-0ZQZ;
+	Mon, 24 Feb 2025 14:37:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 71174611B9;
+	Mon, 24 Feb 2025 14:36:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C36ADC4CEE6;
+	Mon, 24 Feb 2025 14:36:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740407819;
+	bh=ZPkqFHkfpEEXBvv/JiiAXJD73VY1MQPjnfI68AzNmMg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HMR9ZyF51+gCTr5O6+tVcp768/JhJHldAdQMuQdHABvUY7CdUug/Ab1wT3ObgQGAC
+	 7NzdY7UbKVP+eM8BgNncEZMMwXw3Wso7TJk0q2VyeryHtrjfnrTE2e5UNcbDKvPLhE
+	 5rK+17rtGXNWyA/lMLkVwP2uxrzQbGpoqpM86P+xp+fCHrb56wfT+YG6s+mEWHlMq7
+	 +kkYVhJASr3nwSzp8WJx6sGZ3GtEKDCIWteAIxOWx0XP2wkAbG4nWMVBfM/fSU2Vi1
+	 69Xel5I0sX2/L5q0XRAaPHw5kaC8vo10XnIAcPaeS8jvBssTAmWVUTy3s4cxy0sDjX
+	 NCx7zo+hSuMbw==
+Date: Mon, 24 Feb 2025 16:36:38 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Wei Yang <richard.weiyang@gmail.com>
+Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Anthony Yznaga <anthony.yznaga@oracle.com>,
+	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pratyush Yadav <ptyadav@amazon.de>,
+	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v4 12/14] x86: Add KHO support
+Message-ID: <Z7yD9g1AgtUUfKr0@kernel.org>
+References: <20250206132754.2596694-1-rppt@kernel.org>
+ <20250206132754.2596694-13-rppt@kernel.org>
+ <20250224071355.xsl2dbupda4dhfzl@master>
 MIME-Version: 1.0
-References: <20250127093530.19548-1-alexghiti@rivosinc.com>
- <20250127093530.19548-3-alexghiti@rivosinc.com> <Z5ePZt61CM84Hb36@casper.infradead.org>
- <CAHVXubhf7aMwsKA0H9OvTg2Lk8U7+bwntVT9Cm-7L4o7=LM4TQ@mail.gmail.com>
-In-Reply-To: <CAHVXubhf7aMwsKA0H9OvTg2Lk8U7+bwntVT9Cm-7L4o7=LM4TQ@mail.gmail.com>
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-Date: Mon, 24 Feb 2025 15:34:12 +0100
-X-Gm-Features: AWEUYZn3wPoYfPCBnGXzuvofr3D1NoWw4LTFmErwOP5gdYPjvL31yv0cddSq81Q
-Message-ID: <CAHVXubjhkDvFKtK4mQDxJrRekOEAF2P9tmQ-4dyyE9A2O8ojGw@mail.gmail.com>
-Subject: Re: [PATCH v4 2/9] riscv: Restore the pfn in a NAPOT pte when
- manipulated by core mm code
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Andrew Morton <akpm@linux-foundation.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-mm@kvack.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_063425_024487_16206ED0 
-X-CRM114-Status: GOOD (  34.59  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250224071355.xsl2dbupda4dhfzl@master>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,102 +97,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Matthew,
+On Mon, Feb 24, 2025 at 07:13:55AM +0000, Wei Yang wrote:
+> On Thu, Feb 06, 2025 at 03:27:52PM +0200, Mike Rapoport wrote:
+> >From: Alexander Graf <graf@amazon.com>
+> [...]
+> >diff --git a/arch/x86/kernel/e820.c b/arch/x86/kernel/e820.c
+> >index 82b96ed9890a..0b81cd70b02a 100644
+> >--- a/arch/x86/kernel/e820.c
+> >+++ b/arch/x86/kernel/e820.c
+> >@@ -1329,6 +1329,24 @@ void __init e820__memblock_setup(void)
+> > 		memblock_add(entry->addr, entry->size);
+> > 	}
+> > 
+> >+	/*
+> >+	 * At this point with KHO we only allocate from scratch memory.
+> >+	 * At the same time, we configure memblock to only allow
+> >+	 * allocations from memory below ISA_END_ADDRESS which is not
+> >+	 * a natural scratch region, because Linux ignores memory below
+> >+	 * ISA_END_ADDRESS at runtime. Beside very few (if any) early
+> >+	 * allocations, we must allocate real-mode trapoline below
+> >+	 * ISA_END_ADDRESS.
+> >+	 *
+> >+	 * To make sure that we can actually perform allocations during
+> >+	 * this phase, let's mark memory below ISA_END_ADDRESS as scratch
+> >+	 * so we can allocate from there in a scratch-only world.
+> >+	 *
+> >+	 * After real mode trampoline is allocated, we clear scratch
+> >+	 * marking from the memory below ISA_END_ADDRESS
+> >+	 */
+> >+	memblock_mark_kho_scratch(0, ISA_END_ADDRESS);
+> >+
+> 
+> At the beginning of e820__memblock_setup() we call memblock_allow_resize(),
+> which means during adding memory region it could double the array. And the
+> memory used here is from some region just added.
 
-On Fri, Feb 14, 2025 at 1:39=E2=80=AFPM Alexandre Ghiti <alexghiti@rivosinc=
-.com> wrote:
->
-> Hi Matthew,
->
-> Sorry for the very late reply, the flu hit me!
->
-> On Mon, Jan 27, 2025 at 2:51=E2=80=AFPM Matthew Wilcox <willy@infradead.o=
-rg> wrote:
-> >
-> > On Mon, Jan 27, 2025 at 10:35:23AM +0100, Alexandre Ghiti wrote:
-> > > +#ifdef CONFIG_RISCV_ISA_SVNAPOT
-> > > +static inline void set_ptes(struct mm_struct *mm, unsigned long addr=
-,
-> > > +                         pte_t *ptep, pte_t pteval, unsigned int nr)
-> > > +{
-> > > +     if (unlikely(pte_valid_napot(pteval))) {
-> > > +             unsigned int order =3D ilog2(nr);
-> > > +
-> > > +             if (!is_napot_order(order)) {
-> > > +                     /*
-> > > +                      * Something's weird, we are given a NAPOT pte =
-but the
-> >
-> > No, nothing is weird.  This can happen under a lot of different
-> > circumstances.  For example, one might mmap() part of a file and the
-> > folio containing the data is only partially mapped.
->
-> I don't see how/when we would mark a PTE as napot if we try to mmap an
-> address that is not aligned on the size of a napot mapping or does not
-> have a napot mapping size.
->
-> > The filesystem /
-> > page cache might choose to use a folio order that isn't one of your
-> > magic hardware orders.
-> >
-> > > +                      * size of the mapping is not a known NAPOT map=
-ping
-> > > +                      * size, so clear the NAPOT bit and map this wi=
-thout
-> > > +                      * NAPOT support: core mm only manipulates pte =
-with the
-> > > +                      * real pfn so we know the pte is valid without=
- the N
-> > > +                      * bit.
-> > > +                      */
-> > > +                     pr_err("Incorrect NAPOT mapping, resetting.\n")=
-;
-> > > +                     pteval =3D pte_clear_napot(pteval);
-> > > +             } else {
-> > > +                     /*
-> > > +                      * NAPOT ptes that arrive here only have the N =
-bit set
-> > > +                      * and their pfn does not contain the mapping s=
-ize, so
-> > > +                      * set that here.
-> > > +                      */
-> > > +                     pteval =3D pte_mknapot(pteval, order);
-> >
-> > You're assuming that pteval is aligned to the order that you've
-> > calculated, and again that's not true.  For example, the user may have
-> > called mmap() on range 0x21000-0x40000 of a file which is covered by
-> > a 128kB folio.  You'll be called with a pteval pointing to 0x21000 and
-> > calculate that you can put a 64kB entry there ... no.
->
-> Yes, I agree with this, then we have to go through the list of ptes
-> and check if inside the region we are currently setting, some
-> subregions correspond to a napot mapping.
+There are large KHO scratch areas that will be used for most allocations.
+Marking the memory below ISA_END_ADDRESS as KHO scratch is required to
+satisfy allocations that explicitly limit the allocation to ISA_END_ADDRESS,
+e.g the real time trampoline.
+ 
+> But with KHO, I am afraid it would fail?
+> 
+> > 	/* Throw away partial pages: */
+> > 	memblock_trim_memory(PAGE_SIZE);
+> > 
+> 
+> -- 
+> Wei Yang
+> Help you, Help me
 
-So I looked at that and I think we are safe with the implementation in
-this patch because:
-
-- this patchset only deals with hugetlb, which cannot be partially
-mapped (right?)
-- when we'll add support for THP (upcoming series), we'll use arm64
-set_ptes() implementation which splits the region to map using the
-contpte mapping size
-(https://elixir.bootlin.com/linux/v6.13.4/source/arch/arm64/mm/contpte.c#L2=
-68),
-so we can't mark an unaligned region with the contpte bit.
-
-Let me know if I missed something,
-
-Thanks again,
-
-Alex
-
->
-> Thanks for your feedback,
->
-> Alex
->
->
-> >
-> > I'd suggest you do some testing with fstests and xfs as your underlying
-> > filesystem.  It should catch these kinds of mistakes.
+-- 
+Sincerely yours,
+Mike.
 
