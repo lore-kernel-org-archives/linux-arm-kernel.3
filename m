@@ -4,136 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 552C8C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 12:04:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85160C021A6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 12:05:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gt/cmEL9D93k5bWb2cTiqgCz8cZnXiVXnIFSe3vC5VU=; b=UermKcUapJoymG4l4PmjbF4vpj
-	A+C/hpOCmbrXpJuvzzLkmmlemu57XMMX+Tq/5H+6MO2aQSOrZ+4Y/qGVb/X29hQHHimwBVrIECIwo
-	2ouAWLctC6l/EE5Lhu2V5hr4TPvBobo7IVeYS1uO1opb2I78MWYyhuljf8Yb8oim5Xq9MJliWPMbE
-	q3gXtcwdyOWQxQW90AXBOpRRCSXaAm9C2hyaAnOB5vCq8RXfLgS0eVKHELbgROujYAceCxNJpkBfe
-	3AM4y4FPSQ1dlJmv2uMwFigMotFunYys4pBFfPBHN8TCwC8Fm9AWOjLlvK07Kjs8ozikaxOaE2m9J
-	fYr2i6sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D6Mlr0wbAMCOEN0+YLkpDA5vstdeAdhSzTHRytWnpTE=; b=FyufAA4GoY7ZEA97OZ6BHjF/e5
+	/bdXb+zbLqQRbYDCeZu1EmTcrxxZAzWDKYn7IOWSzSjPC3pqGURxAjmfxbWK98lpmhJeVsqCmEoQI
+	DANLnm5LNqHLwSNjIOyyrM6IaGn62xYhW/LpLAnSUg4O7shuLjUZVRib4ETy2E8e180Uy+T2W4yJ9
+	q/orlKxVv44qszKFkARQQpsdGci4+EM74Op7bZ9fK/ekVYjBRwSGFHKnLrZrmP+YwK/Iu3AJZ+QS3
+	2UDANCdtPDKESYRMcFU8ORAF8PQ7b0zp59wfhxGJX9N1Danmjsma+tuL+fJ9cPh2V0u2CN0YxevtQ
+	xbjOU6xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmXBw-0000000Db2i-1Vn0;
-	Mon, 24 Feb 2025 12:04:08 +0000
-Received: from mail-eastasiaazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c400::] helo=HK2PR02CU002.outbound.protection.outlook.com)
+	id 1tmXDO-0000000DbgX-0Rhw;
+	Mon, 24 Feb 2025 12:05:38 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmWlR-0000000DRmx-2rvI
+	id 1tmWs7-0000000DTUw-2B5u
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 11:36:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IMpWF0PFIWn+Y1ZzfP2b9xOzuVQtxPiPCC+F0E9+JwtZnZviLhs2PPovE57uX5Cq1qSg+AaI224yuPFle6kKxUJoTCs2Nhf+2M0AF4oSuNUT0p4l/UgZVRFDHGfVpM2urEUlLbWZvFswkZE76ZLY/L+5FkxHjDyWDSDOR5kLxnu2Lvq7bbNIkGYv3pbgyvhBPFRaD7qtcV8hqckmNBLYQvBy5SoHglUeLre1KA0A82LLEjMci0Y42+DRAOgVx9cg2Wx9wX94vwZ1dquNms20z7a9OtHpaSHU3jxyhiU1GUi+COKkzUvMmZ0yOS5qsWZXNLj7/g8kfkD2REDAfodSaA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Gt/cmEL9D93k5bWb2cTiqgCz8cZnXiVXnIFSe3vC5VU=;
- b=eBC0Iytji2tVdIKcwGFtHM2f+2Vgh/RANDP7dh4QtJHMlzPxCx4WI2y9QwNPeqDOkP52GNrxQfrfP0Bb2BuFtsyY7leZU5I0h+SfiWclve+GE2RcL35nNpX1wnM2OoUSeIZUT5NnOlXusYxCXuPRKg7zhRT8ZiKf/pEetB6womZhvDT/7bmJYKNj8bOHk8BIDXs8AKfCX3npwEMnGB62si7Zvs4CTuC4gtD4oG6xFdRTHfg2ONIcWjvsK/gFt9S/j9D/vxOQdLmL2pwbCTZs56XuI5dgBQQRMjNd755izWnDPp0hjgzSk9QtNv4OaVnIbyUC6iu+8betHOkvr/rv0g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cixtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Gt/cmEL9D93k5bWb2cTiqgCz8cZnXiVXnIFSe3vC5VU=;
- b=Lk6Pmg49+TWGHm6MNJfnFPTeHX4RYsst9eIdDP5fZilF6bAVlCnpEevbcytUJ7RCKYeU8x7y7MAYXQWzYdtRehGAgmJHJ/hUYRNLAAaD6zup3vlRm6gJmcdHHC2l9yE4WvyofrtwpNXeyVO2xr/fMhVvQPRWLDL5x+SmPjLep28IIXme0makG8wXIB5bbuLXv/FtiAFQXFYvp0ibxFPUy9eDfz+cOjj4EoKHYvw55zOj87u+kwKsRrBfrqMNRsxZhOCQhRXpm8Zi1TnzDONOrHkoS95PRO9Qn43clvJRHuiRrltV/5+cLZz/JCeEdN7JAdtInrtZOfmAG4BO5iAgfA==
-Received: from SG2PR03CA0132.apcprd03.prod.outlook.com (2603:1096:4:91::36) by
- SEZPR06MB5174.apcprd06.prod.outlook.com (2603:1096:101:70::10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8466.12; Mon, 24 Feb 2025 11:36:36 +0000
-Received: from SG2PEPF000B66CC.apcprd03.prod.outlook.com
- (2603:1096:4:91:cafe::2c) by SG2PR03CA0132.outlook.office365.com
- (2603:1096:4:91::36) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8489.15 via Frontend Transport; Mon,
- 24 Feb 2025 11:36:35 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG2PEPF000B66CC.mail.protection.outlook.com (10.167.240.25) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8466.11 via Frontend Transport; Mon, 24 Feb 2025 11:36:35 +0000
-Received: from nchen-desktop (unknown [172.16.64.25])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id BC6CB4160CA0;
-	Mon, 24 Feb 2025 19:36:33 +0800 (CST)
-Date: Mon, 24 Feb 2025 19:36:32 +0800
-From: Peter Chen <peter.chen@cixtech.com>
-To: Marcin Juszkiewicz <marcin@juszkiewicz.com.pl>
-Cc: "arnd@arndb.de" <arnd@arndb.de>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	cix-kernel-upstream <cix-kernel-upstream@cixtech.com>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	Fugang Duan <fugang.duan@cixtech.com>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"will@kernel.org" <will@kernel.org>
-Subject: Re: [PATCH 6/6] arm64: dts: cix: add initial CIX P1(SKY1) dts support
-Message-ID: <Z7xZwGTIKgj9_zNZ@nchen-desktop>
-References: <20250220084020.628704-7-peter.chen@cixtech.com>
- <068655e7-2ad7-4497-aca7-4100ad478d99@juszkiewicz.com.pl>
+	Mon, 24 Feb 2025 11:43:40 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-aaecf50578eso841751666b.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 03:43:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1740397418; x=1741002218; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=D6Mlr0wbAMCOEN0+YLkpDA5vstdeAdhSzTHRytWnpTE=;
+        b=dr1COaedEgM60DKaQ30VqqUbvjMT1wP9HoV4ZlyiBpsUe7bPjqYbplzOYq3idpJDyy
+         i6kqsLCQHHcNR+gx9C61b93e5QbKVUb3Gy653Sf9JdDHXh2FvxSNIjO3AHsbjf0mvIXb
+         agL3I2/iOj0OEeKtipQLMohz+pbibhvtCCt6gaUtyZi0cuQTbBrBjH0jEtgWeEyQ6Tyi
+         0X0Yz0DF9P3mcm68wCBtHPM1SUWfKlR3ZfqEuCki5XHiT2Vk9JPPQUfi1JfE1FXTa7GD
+         LUdoZI8kmzQ1ZqagGEievAcS83H9OlJjlwOrYa2TgeaJ4Lt+05CTn+yoSOl+Ru26tZfU
+         Fx7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740397418; x=1741002218;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=D6Mlr0wbAMCOEN0+YLkpDA5vstdeAdhSzTHRytWnpTE=;
+        b=XgpvKY7VEXptbtgXj1dXn+gWp/kQf8Te5wqSA9sTHOurKB2AN4bhpWiSyFd5MzYU/D
+         s3QEp8K2uyR2MhkPBC71L7j283QQqOHLNU6JVbr8L0cVqluH/oux102W+Hn1aCaJvh3L
+         cZVIhjIee2Hp5vM0XqRsUA9F86k5raEdlA8nIxA7Dz/vF4F7zyoWxtEmG32hunIDRDdf
+         po8i8tE0KPm300goMhRCGxzpqVtNOo6UM1F1Ip0ONF4Dgmd66xsr189mL2Pxof988UPq
+         wXVVzJYxaKT2jCTM/ZTixezt7UdxJzlN9nbESoUTTF9nnORjD863AAgBmOsY/hghlmB9
+         GhCw==
+X-Forwarded-Encrypted: i=1; AJvYcCXKJ9TUd1CKbYqmeVSGmTWwjRAhgSb7MG614Kpx37Lf7AZnEGeazhywx0YmSuW1Ln1pApzj/j1SGMsNxGWMwd8x@lists.infradead.org
+X-Gm-Message-State: AOJu0YztcLHmCa8tj6nvkt+KPfJJ8JJUKEa5oaSOhlld+ZmHARLDWCr5
+	6Af9cNFBXltMP7AbGFPsn+0ScoMih+ehz0+u4ZLLIoWyWbRJg7LgF5cc23MWvPrP1+sIiFAhOq2
+	4ZW4=
+X-Gm-Gg: ASbGnctpPCw3IMSlDF+TLl6x13floIv4mC4QXKCbm7E0MVTzvCCCccmWGIX7CTOZcx2
+	Mn5mRHmIjbAY+Xvt7wp7yr+iMBr/aog+fJ6XYWGyW527Cb31ACBSlUm+yZmYNwMp/mHKgBTrKlx
+	zPHRTw8wWeYulsaXW3n6CiLbCJTEjnmS8tCAdkuByq4nF5iUZ/LhN/VofkSAs3wTfyz7VdxPIOL
+	0xhMYAvku20qShmcA1pZ/cCcw19pZzR32RpxYnvG2yAvxOZ5T/AV0l4AO88KG+EtgV7KAbQJKsk
+	33REz7u0k/VCxVcIuiVURDKca4/p2tRGDA==
+X-Google-Smtp-Source: AGHT+IF5iaBYNZgpTldExBVQhpm8bwV77vFMEYcbfb9p2terRRNut6cbNBxpAfkhBHP6mSJK7U7EiQ==
+X-Received: by 2002:a17:907:7e93:b0:abb:6b1a:7b22 with SMTP id a640c23a62f3a-abc0da3b46fmr1334031166b.29.1740397417602;
+        Mon, 24 Feb 2025 03:43:37 -0800 (PST)
+Received: from [192.168.50.4] ([82.78.167.25])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb8ab30726sm1658222166b.153.2025.02.24.03.43.35
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 24 Feb 2025 03:43:37 -0800 (PST)
+Message-ID: <2ef91384-53a0-4eeb-8eee-3f704416f299@tuxon.dev>
+Date: Mon, 24 Feb 2025 13:43:34 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <068655e7-2ad7-4497-aca7-4100ad478d99@juszkiewicz.com.pl>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CC:EE_|SEZPR06MB5174:EE_
-X-MS-Office365-Filtering-Correlation-Id: a86333e3-0ec7-469e-8b8e-08dd54c77e79
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?IdKrXEFKCLHep0YogcxKC+/ayGc74qXnEbHZvwDuBuk7jr+6omJEG0j0YExN?=
- =?us-ascii?Q?0ueYt1aLw3t06isU25lEq4IilB0EqG1JdCEfmNb6hVFXveGQLqXBqfuzkTKt?=
- =?us-ascii?Q?F+hmtvBh+hJBpFZjgF/Ii5Q3JY/g4tnrSwBv6XkHARKLJvm7oSrIR13i/qQB?=
- =?us-ascii?Q?DBvX5nmP29jg0R+fcCsoOfHmL/3K/tGnuQk6F8jNH7pTPA+k/BCfnhhk+E8l?=
- =?us-ascii?Q?OtwjXF4aPGxYoi8F6vnw90jMBvQneSQ+83unKJwWW3iYDociM9zaqnjqyJFo?=
- =?us-ascii?Q?1oRI5py1XAdF1x4PLVzIVBxbI6iBFSQJhYVHmAAp2NnE4TlGt0pRibnTDP8v?=
- =?us-ascii?Q?3hkDewBFRuYaLJQsWBD8/TRMCwszCgnQqjqbNlHEio2rCVU5GTYg5YdFJYd+?=
- =?us-ascii?Q?fbchKgMt30DiC1EOZe1Hp80I0ibQhNvIONmiKd86uxD1azqxHFGqmWcf5L4I?=
- =?us-ascii?Q?edp46PGlL0NQonawRhuHmiL9U0H17hMoFKE7u4ebQDadPjVlD4Qmo2MtlQNi?=
- =?us-ascii?Q?awUayMP30pE1g7ua9UnRbVUHCfxdxRyPXPDFbZ0YhOG5Z7HiPFcxDZpmgtmC?=
- =?us-ascii?Q?CGSv2bX4UMid9YtcFUJXNISpmz3kCiWXGWi20wS43GAeUGdi86bXFD0tpgM+?=
- =?us-ascii?Q?WcG0+qHTRNX0zR5ZsnsJSwYzEq+ficl+SEG1dCp3jSX3OaIbhs8qRAEbV7ts?=
- =?us-ascii?Q?K3zyQE13s6Hp/A9naBY0PBV8pkHLhudWxNddBxo+XjO0G26KWiDswivWhq17?=
- =?us-ascii?Q?cWqrVlvRfnk16JbfpFIV0Qq2nyL9nM0QGTZSL3dqm8KQBfIW/3ZkY6m7MldA?=
- =?us-ascii?Q?Sk3Ir4CzqgHQiM0ggiRPk/UKb+KDHHi/Q3i6IW2TURTCVkpfm7z8S0oL+G96?=
- =?us-ascii?Q?xHybYL+yQcHLcvyA0yzg6wUCrdtudtko+JMB7q+wgg0MYv5kgBQLQN8VX80a?=
- =?us-ascii?Q?e2LWFssDbJewDAL7Pho4nG8iXk0XUIdHRkkXzRxXdLjN47OxMkbOP1NOt31D?=
- =?us-ascii?Q?oJbEHkwRk6SQa4SrR6tJhTA9O8GtDenB8b9WbA7ri7gSOacfQwsU3LBumyHd?=
- =?us-ascii?Q?U6JE/njoGdWiTwh6cvFKlqCPjr8klGcKyTpLPVaQn5rLutVu4+8tQG7JeRvs?=
- =?us-ascii?Q?9N6s/pX6GhYWWP2QKLCbyvz9C1HMRUQxmYHxHrzxVlMRqVqN5T6MdvBtqDEh?=
- =?us-ascii?Q?spQ289gefC2R0OEEl8SQnj1KYMI+T4MD3atGssVVLttC8Zi1WEbkdmkYF7Ud?=
- =?us-ascii?Q?MybB7mDVSJNUzGE6Ht+l7bDbOLU+3cFSpM0lMFD7oNEeX1FohEWW2b/NZhXa?=
- =?us-ascii?Q?/f/Ioi0mJ9vjnFu9fmg+V/aEqSyAS1vDmcy4fuyquiRBx/PDkA1uut6uk1m6?=
- =?us-ascii?Q?ligLrKxyg8RgRve4Fv5LXul8m7/FM+kX61qkLhZhE/W988/JCxP0xoxMjKmV?=
- =?us-ascii?Q?v72z0V9ak/ncWe4X93nMAvVxAkJwDGCmcP/JdKL3vcRcqrIOBy4KCGv5R3YR?=
- =?us-ascii?Q?KfRU7IYIZC53Qsw=3D?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(376014);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Feb 2025 11:36:35.1254
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a86333e3-0ec7-469e-8b8e-08dd54c77e79
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CC.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB5174
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6/8] ARM: dts: microchip: sama7d65: Add watchdog for
+ sama7d65
+To: Ryan.Wanner@microchip.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, nicolas.ferre@microchip.com,
+ alexandre.belloni@bootlin.com, vkoul@kernel.org, wim@linux-watchdog.org,
+ linux@roeck-us.net
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
+ linux-watchdog@vger.kernel.org
+References: <cover.1739555984.git.Ryan.Wanner@microchip.com>
+ <05431cf86beb742a9a53336c4ec792be8bde14e2.1739555984.git.Ryan.Wanner@microchip.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Content-Language: en-US
+In-Reply-To: <05431cf86beb742a9a53336c4ec792be8bde14e2.1739555984.git.Ryan.Wanner@microchip.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_033645_774379_CBE36E63 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20250224_034339_559609_7E4BCAF9 
+X-CRM114-Status: UNSURE (   6.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,41 +107,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-02-23 04:05:10, Marcin Juszkiewicz wrote:
-> 
-> > diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
-> > new file mode 100644
-> > index 000000000000..d98735f782e0
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/cix/sky1.dtsi
-> > @@ -0,0 +1,264 @@
-> > +// SPDX-License-Identifier: BSD-3-Clause
-> > +/*
-> > + * Copyright 2025 Cix Technology Group Co., Ltd.
-> > + *
-> > + */
-> > +
-> > +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> 
-> [..]
-> 
-> > +     arch_timer: timer {
-> > +             compatible = "arm,armv8-timer";
-> > +             interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
-> > +                          <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
-> > +                          <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-> > +                          <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
-> > +             clock-frequency = <1000000000>;
-> > +             interrupt-parent = <&gic>;
-> > +             arm,no-tick-in-suspend;
-> > +     };
-> 
-> This is not Arm v8.0 SoC so where is non-secure EL2 virtual timer?
+Hi, Ryan,
 
-It is the Arm v9 SoC and back compatible with Arm v8.
+On 14.02.2025 20:08, Ryan.Wanner@microchip.com wrote:
+> +		ps_wdt: watchdog@e001d180 {
+> +			compatible = "microchip,sama7d65-wdt", "microchip,sama7g5-wdt";
+> +			reg = <0xe001d000 0x30>;
 
--- 
+The node address and the one specified in reg don't match.
+I will skip applying this.
 
-Best regards,
-Peter
+Also, please sort the nodes by their addresses.
+
+Thank you,
+Claudiu
+
+> +			interrupts = <GIC_SPI 2 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clk32k 0>;
+> +		};
+> +
+
 
