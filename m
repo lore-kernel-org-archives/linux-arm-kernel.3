@@ -4,62 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 260E6C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 10:45:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4DD3C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 10:50:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zzBVsFabiWAnyMSq6V9b4qtBB3ya/HcLU8Bf8HeQ/JE=; b=eokqZvn51ADNhxHTExKr/grHl4
-	r9wjsldySyFpBFHI0Jxof9ogd5PS5gGs7kxafEaXAsx8Y//rTCL4F+bO2d6aciqFyK9lp7+JXw7GV
-	3Eny6Zk3RhZkl6K9SNDW3FiAp95iNp0Eu5xo0OLp0EAF5i+7GmWaVj61dLNa/7Y8IoQBYVnxK2lth
-	ynzbN6ab+xSp2XnPSEM4Ga2lkYz6JO+iAAQfBsEXAwP81YpPnqC2V4Uq1+JJ/KQfrBGGRL8dufg64
-	HoBNECGMULrkT6as904Z+EPMEF87sWtTYu7TbBoDgCRfO81hbzYT1WfpsMqohIrpdHJ9b0zo1+/mM
-	r40Btwlg==;
+	bh=sSmks02sU0pz6NtlK+7aTkPg3Il2n2N4xYhuuXfu8rM=; b=4ermDKcQLZXzr+QucOuhKJg+5p
+	YCx7ygJWfhJ+uw2LAXUSrejGgM8btLErmX83QjC8LaWD/S4YQ/YzBXZ6Jzf88dRsSwuFvL1vnP2wZ
+	dYhUUK/PcVycjXR8pu/uzFIQPO8qigAwPCXrhPhJlOcV3nGQGbyof2IFHlAv5Dy6A0t5ihOCWgEiN
+	kBe75WaDdvaYPAKuFf4bVNTIW0c5km2+zoqE3BWPaqEBKY3mRlAGhTdtcG1plOrBUxnIIdvH6uALd
+	dRk77QDU2cReCj1CO2vbX36ssz/HNOAh3Z89uLVw62aNrOQ5SqywV8BAF1y8Dey/p7uN0J93Viq/Y
+	owm5oRKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmVxI-0000000DBh5-3EkK;
-	Mon, 24 Feb 2025 10:44:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmVvM-0000000DBUN-3C4g
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 10:42:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 14A231FCD;
-	Mon, 24 Feb 2025 02:43:13 -0800 (PST)
-Received: from [10.57.66.132] (unknown [10.57.66.132])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1EE393F673;
-	Mon, 24 Feb 2025 02:42:53 -0800 (PST)
-Message-ID: <a61a762a-3606-4421-b1fb-c8f7b2923fea@arm.com>
-Date: Mon, 24 Feb 2025 10:42:52 +0000
+	id 1tmW2a-0000000DCqM-3DK3;
+	Mon, 24 Feb 2025 10:50:24 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmW14-0000000DC9M-3Bcu;
+	Mon, 24 Feb 2025 10:48:52 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-439a331d981so36572385e9.3;
+        Mon, 24 Feb 2025 02:48:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740394129; x=1740998929; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=sSmks02sU0pz6NtlK+7aTkPg3Il2n2N4xYhuuXfu8rM=;
+        b=Of8ynbjeAIUmFYQSziCHVufdLAF7JLclbI8lUz6JiKF2cEckqLqYO2xe6s1TaYOf8C
+         dv9/E4pzqgCSaY63H0xSYHsGo7AFcTuLzBv74L7rCbheSG3attmyCtpyd4TQG2Kn5eT2
+         JPd45XLRFudGnvozPNFWP7b3riMhhmblOmxCqBOuOVr2Ivtc4Y+J2oO9aDETXifSorgN
+         XKn/ZgOIeqgz9tJpj+a79iNc1/R6WadYJX9YIQlaQ3OhOzfzq6bea6N9F11SxROtV2jW
+         Hfuhxke+KRwYbQgEAblq2hCXw5HYCUsC3pkj3ozx4YlisPX1VPI2U5MN8tAXQkGpKZ9U
+         3NNA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740394129; x=1740998929;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=sSmks02sU0pz6NtlK+7aTkPg3Il2n2N4xYhuuXfu8rM=;
+        b=Avmb+2ppBDz5x/abKHkTMnFpyXfqe2xoHwCqnfamECMqMHYZ8riu5m9y/ChjecNQP4
+         ID5yxf2W+i4qqybqTgF3qRBjJ+gyW79GTzq+7p+kXisM55+dSG2lwJC8ILJCeAUmPlXM
+         mZXF+ALZtuv3WnY62pg2MHhA7wh7tLC+Lo/kkAAh83EKtrXEUYJPL69S01+k2DFotSFB
+         DlImryNBlDQL5q6UIILnm5MreIF/LhhMMx9dXnIsO57k/IJxq1TrhMTp05JSOUpqjUPj
+         gS8O25LWOfzgdPoHAfemuYacakufIOhMKeTwwK0EQyl6Vm0L7PO5LnmBxUAM1xEXHKpJ
+         Sprw==
+X-Forwarded-Encrypted: i=1; AJvYcCWN9+GWA/sbK7lE3BkLCEmAY8DMNf1AdfFIn0UpUUUbHGvd7EAu1oser2p8Ct5uoA2IIvi+mGXJD/+W@lists.infradead.org, AJvYcCWysOE17p78tDB1VKLPuyzNWAgbgRS1uL1TO9a4CsZwVtcMvCuLSBug3ClSUWkomN/amrn0L3Qqb2ZB5qlkK4IJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwbmISHOjfEbeFC1BA51hbvi5kOkmTw/9732thvCIuEwdhNAma5
+	nkpteZlJqeNJT6Td3VtQYkrpMB2geaz2Eh8T2y4PzqaRTPobxY3O
+X-Gm-Gg: ASbGncsPm0ujLhGm7T0Asowvfr21Fv/jnzRzGChEsflyy0XN7atOkvH4HCEmQ4A2F2S
+	qPhCNb8DG5FnkPbsjs4TrzTCZgE9f+jqajDGHYv2qVFNNlkZb5jYeK3l6zkLC8I8aYl0tHUIwGH
+	alu6Jg9o70wXdbFb3MBmkULlmEXwcukVz6OLncsnCzoSeKjNw29adg/5RoK8Mb86iHVATRZ43bD
+	srWywC9qMTKGQT3KkM/JbUaTjsiTUGPAxzgpq2+/mVsHg/kAQlSQLalEI+x0D2pEPpa4dzSl2PK
+	9PswedyNgck6Q2XsFgP9O0SNLptX4Trvm8XryPppK4GuPxRx8JjeGOkyr3ioTpUlVaw=
+X-Google-Smtp-Source: AGHT+IH22dUu6cq5GnZj2ahBsH99nikrHZTprN2kXwautV7u6WDRYUVZbgvuJyXenM0CCPaMHdFeZg==
+X-Received: by 2002:a05:600c:154a:b0:439:44eb:2d81 with SMTP id 5b1f17b1804b1-439ae1f34f8mr103722245e9.15.1740394128909;
+        Mon, 24 Feb 2025 02:48:48 -0800 (PST)
+Received: from [172.16.20.186] (62-73-104-42.ip.btc-net.bg. [62.73.104.42])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-439b02d53e8sm101787135e9.12.2025.02.24.02.48.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 24 Feb 2025 02:48:48 -0800 (PST)
+Message-ID: <a4f63721-d094-4eda-b68a-6ef62ff54680@gmail.com>
+Date: Mon, 24 Feb 2025 12:48:46 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 04/10] dt-bindings: arm: Add Rainier compatibility
-Content-Language: en-GB
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v2 3/8] dt-bindings: phy: add
+ samsung,exynos2200-usbcon-phy schema file
+Content-Language: en-US
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
+ <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
- Sudeep Holla <sudeep.holla@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
- Jessica Clarke <jrtc27@jrtc27.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-References: <20250221180349.1413089-1-vincenzo.frascino@arm.com>
- <20250221180349.1413089-5-vincenzo.frascino@arm.com>
- <Z7jMLCd4i_jtpAA5@J2N7QTR9R3.cambridge.arm.com>
-From: Vincenzo Frascino <vincenzo.frascino@arm.com>
-In-Reply-To: <Z7jMLCd4i_jtpAA5@J2N7QTR9R3.cambridge.arm.com>
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Abel Vesa <abel.vesa@linaro.org>,
+ linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250223122227.725233-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250223122227.725233-4-ivo.ivanov.ivanov1@gmail.com>
+ <20250224-curly-cyber-spaniel-efdc39@krzk-bin>
+From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <20250224-curly-cyber-spaniel-efdc39@krzk-bin>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_024256_864196_4AA45B4E 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20250224_024850_833059_6032C241 
+X-CRM114-Status: GOOD (  22.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,58 +107,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Mark,
-
-On 21/02/2025 18:55, Mark Rutland wrote:
-> On Fri, Feb 21, 2025 at 06:03:43PM +0000, Vincenzo Frascino wrote:
->> The Arm Morello System Development Platform uses Rainier CPUs.
+On 2/24/25 10:56, Krzysztof Kozlowski wrote:
+> On Sun, Feb 23, 2025 at 02:22:22PM +0200, Ivaylo Ivanov wrote:
+>> The Exynos2200 SoC has a USB controller PHY, which acts as an
+>> intermediary between a USB controller (typically DWC3) and other PHYs
+>> (UTMI, PIPE3). Add a dt-binding schema for it.
 >>
->> Add compatibility to Rainier.
-> 
-> Where's the TRM? Are there any known errata such that we might need to
-> know the MIDR, etc?
-> 
-
-Please find the documents below:
-- TRM [0]
-- Erratum [1]
-
-This series mainly focuses on basic DT functionalities, but I have plans to
-continue with the enablement in future.
-
-Thanks,
-Vincenzo
-
-[0] https://developer.arm.com/documentation/102278/latest/
-[1] https://developer.arm.com/documentation/SDEN2275302/0000
-
-> Mark.
-> 
->>
->> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->> Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
+>> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 >> ---
->>  Documentation/devicetree/bindings/arm/cpus.yaml | 1 +
->>  1 file changed, 1 insertion(+)
->>
->> diff --git a/Documentation/devicetree/bindings/arm/cpus.yaml b/Documentation/devicetree/bindings/arm/cpus.yaml
->> index 73dd73d2d4fa..2e666b2a4dcd 100644
->> --- a/Documentation/devicetree/bindings/arm/cpus.yaml
->> +++ b/Documentation/devicetree/bindings/arm/cpus.yaml
->> @@ -177,6 +177,7 @@ properties:
->>        - arm,neoverse-v2
->>        - arm,neoverse-v3
->>        - arm,neoverse-v3ae
->> +      - arm,rainier
->>        - brcm,brahma-b15
->>        - brcm,brahma-b53
->>        - brcm,vulcan
->> -- 
->> 2.43.0
->>
+>>  .../phy/samsung,exynos2200-usbcon-phy.yaml    | 76 +++++++++++++++++++
+>>  1 file changed, 76 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
+> You have undocumented dependencies which prevent merging this file.
+> First, dependencies have to be clearly expressed.
 
--- 
-Regards,
-Vincenzo
+They are, in the cover letter.
+
+> Second, you should
+> rather decouple the code from header dependencies, otherwise this cannot
+> be merged for current release (just use clocks with long names, without IDs).
+
+Sure
+
+>
+>> diff --git a/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
+>> new file mode 100644
+>> index 000000000..7d879ec8b
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
+>> @@ -0,0 +1,76 @@
+>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/phy/samsung,exynos2200-usbcon-phy.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Exynos2200 USB controller PHY
+>> +
+>> +maintainers:
+>> +  - Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>> +
+>> +description:
+>> +  Exynos2200 USB controller PHY is an intermediary between a USB controller
+>> +  (typically DWC3) and other PHYs (UTMI, PIPE3).
+> Isn't this the same as usbdrd phy? see: samsung,usb3-drd-phy.yaml
+
+It's not (I think). There's a few reasons I've decided to make this separate
+from the usb3-drd-phy bindings and exynos5-usbdrd driver:
+
+1. This PHY does not provide UTMI and PIPE3 on its own. There's no tuning
+for them, and all that is needed from it is to disable HWACG, assert/
+deassert reset and force bvalid/vbusvalid. After that SNPS eUSB2
+initialization can be done and USB2 works. If the USBCON phy is not set
+up before the eUSB2 one, the device hangs, so there is definitely a
+dependancy between them. For PIPE3 we'd need to control the pipe3
+attaching/deattaching and then initialize the synopsys USBDP combophy.
+
+2. With the way it's modelled, we need to parse phandles from eUSB2 and
+USBDP to the controller. Adding that to the usbdrd driver would be...
+weird. It makes more sense to model it as a separate driver, because
+it functions in a different way.
+
+I've described this in the cover letter as well.
+
+Best regards,
+Ivaylo
+
+>
+> I think there is no PHY between DWC3 and UTMI/PIPE. There is a PHY
+> controller (so the samsung,usb3-drd-phy.yaml) which we call here the
+> phy.
+>
+>
+> Best regards,
+> Krzysztof
+>
 
 
