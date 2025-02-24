@@ -4,58 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 855D2C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 09:54:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B8D9C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 09:55:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DpC01PEZM/W9HM/o03BmQmRd6L/6f76/vyKI8m9qCCk=; b=LP+bWHySn7L8D5IwXxesD5b8Kh
-	Ipy2UfD7BRVxaWhilvzlwKU8aN5hP0IQkFJ+WFlfSmzZyvcIkekMkRngmGbTQK7iRtO6nqQHT0JYg
-	Fa4rAJUnJNTUlv12ilZOr3XWdqnKKRsvJahGqGY4zdR4CX0Sh7r+4cquAqOv7rXAUuZplUvNo9tqj
-	SkBNdsHbF3TmDUIDOWCFDMTrEg8PXpaTg/EkERZuyjRGdJJO264hl+D5woCVTqcJUOXkef6QEjBlP
-	OrMuiqq5bCgak0KvaOleI1VS/eFXsyQ/GMXOC47/gL48tWFDjwfA4L7KQ0C0PdcHTxdqdLeRKXUpy
-	LC0iILAw==;
+	bh=B5+SXx8gS28YW3XnZioVGNyaVti5s6+etPyzo/YKqk4=; b=g57+PdWUoLOA8qusPYppvLs27p
+	pvXKDtMz+XViWOKjYpe52b864d4rjCBH8AlBhrf9pUf79ho84N1RSLjoGf8ebagwNKzUgj82DGpF7
+	hF/Gg+PxijoXbDc/sFXktjKfk9+l1AWEKsIbkukFCSsOZSqnrPIQog5lnhBtZfwrJjQqrca5Gk0wd
+	8s8M/XnIi+aoHgdMpeQAeAOC+dQFyyvslXrmMOHgb0TuOVEcY3bPp5V/BQKL3gI3t3d4jA1n6kS1p
+	hLtZd3frUtHqJMq9L2bMu9JE21YFmSXDRA2p2YI/rqYQuNmyiVxh194Vc9W4VnBUn6imNXl0BA64c
+	Esvf9uKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmVA1-0000000Czj5-2Jl2;
-	Mon, 24 Feb 2025 09:54:01 +0000
+	id 1tmVBS-0000000D06g-2Z4C;
+	Mon, 24 Feb 2025 09:55:30 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmUzR-0000000Cxvz-3Vqs;
-	Mon, 24 Feb 2025 09:43:06 +0000
+	id 1tmV0k-0000000Cy8j-3am9;
+	Mon, 24 Feb 2025 09:44:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 421A65C4C2D;
-	Mon, 24 Feb 2025 09:42:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34C0FC4CED6;
-	Mon, 24 Feb 2025 09:43:00 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 384765C571D;
+	Mon, 24 Feb 2025 09:43:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6361CC4CED6;
+	Mon, 24 Feb 2025 09:44:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740390184;
-	bh=GKXPJt6PDAEEN20K7wi1bEHw7PlMz/Omr8DfE7ItQtw=;
+	s=k20201202; t=1740390265;
+	bh=ifibO1zkLeGq0eA8wnCWCI+ESCrio96iC90ZCyr6foI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pEFgTcx9zDAyL+ji5FQCOmJOZBiE0tIDromtpWTzlSl1fZXLLEhGyCOmwUdC0E3/v
-	 ZHVEH6BFfqLLRup1k4yhr4vP2ePrhMdqfxD6gvcGZ84F6PSlNeg96ZQhIHGrbZ+ZCN
-	 VIAtAQBFdB0SLkB2/aaRUuK6weOUovS4Fyp/VlLAkXpFjqd+A9AWqklchoJg4uFyoC
-	 x4cl5vnOfcrmRoIF1uzpjggOmgpF4EWYO/+SeNBj6xOpjzROcS3RHWbyOS/1ZDn9CC
-	 dVkQmdLpFttRiJ/4mpQynIvOGu2aXG5BXbtbHagoy5TOKkmB12PEEeoe24EotA47PN
-	 yKaXRQr1rU72w==
-Message-ID: <ff536bec-36e3-4067-b0a8-764dd6a6c65f@kernel.org>
-Date: Mon, 24 Feb 2025 10:42:59 +0100
+	b=OuOiII+P+/r4xVupnknX3eR5CKKhg3ub7B2nfA2uB0u8ZHmaGqZGiAhnYqWkluqNG
+	 p+Ib3q46YAB5JM59JSmuvUdIu6b6NDxS/E7lo2Ouj5mDy6bzvIKSWNwUVrn4vsXjNt
+	 o/5c/XeqBmJvuj7twNKBfLtBg546V2h3sOAdS58esvLtdhMA2o0Y4f+uKVRi+MUi5g
+	 ZEmu49yaKfRPXT7kiuyyr3r8Nd8f1VylnMnmwcoSffMDJ5QX2TJqJpP6FrvhPrA/Au
+	 w3X1xtqBr1R84VLeH5uhYv8lhIvkom/XGEMXNjCGbMczKyv0l4uleTaK0JBJ5xbTlu
+	 iQ0hIRe8gVORg==
+Message-ID: <ef7db81a-5f7a-4a5e-b3d5-d8580a6484b6@kernel.org>
+Date: Mon, 24 Feb 2025 10:44:19 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/2] arm64: dts: rockchip: Add rk3576 pcie nodes
+Subject: Re: [PATCH v6 1/2] dt-bindings: PCI: dw: rockchip: Add rk3576 support
 To: Kever Yang <kever.yang@rock-chips.com>, heiko@sntech.de
-Cc: linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
- Conor Dooley <conor+dt@kernel.org>, Finley Xiao
- <finley.xiao@rock-chips.com>, Frank Wang <frank.wang@rock-chips.com>,
- Rob Herring <robh@kernel.org>,
- Detlev Casanova <detlev.casanova@collabora.com>,
- linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Elaine Zhang <zhangqing@rock-chips.com>, linux-arm-kernel@lists.infradead.org
+Cc: linux-rockchip@lists.infradead.org,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Simon Xue <xxm@rock-chips.com>, Conor Dooley <conor+dt@kernel.org>,
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ linux-pci@vger.kernel.org, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?=
+ <kw@linux.com>, linux-kernel@vger.kernel.org,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Shawn Lin <shawn.lin@rock-chips.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ linux-arm-kernel@lists.infradead.org
 References: <20250224074928.2005744-1-kever.yang@rock-chips.com>
- <20250224074928.2005744-2-kever.yang@rock-chips.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,12 +104,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250224074928.2005744-2-kever.yang@rock-chips.com>
+In-Reply-To: <20250224074928.2005744-1-kever.yang@rock-chips.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_014305_989999_91EF8C52 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20250224_014427_015928_879487E2 
+X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,42 +126,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 24/02/2025 08:49, Kever Yang wrote:
-> rk3576 has two pcie controllers, both are pcie2x1 work with
-> naneng-combphy.
+> rk3576 is using DWC PCIe controller, with msi interrupt directly to GIC
+> instead of using GIC ITS, so
+> - no ITS support is required and the 'msi-map' is not required,
+> - a new 'msi' interrupt is needed.
 > 
 > Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 > ---
 > 
-> Changes in v6: None
-> Changes in v5: None
-> Changes in v4: None
-> Changes in v3:
-> - Update the subject
-> 
-> Changes in v2:
-> - Update clock and reset names and sequence to pass DTB check
-> 
->  arch/arm64/boot/dts/rockchip/rk3576.dtsi | 109 +++++++++++++++++++++++
->  1 file changed, 109 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-> index 4dde954043ef..b4f396421686 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-> @@ -1127,6 +1127,115 @@ qos_npu_m1ro: qos@27f22100 {
->  			reg = <0x0 0x27f22100 0x0 0x20>;
->  		};
->  
-> +		pcie0: pcie@2a200000 {
-> +			compatible = "rockchip,rk3576-pcie", "rockchip,rk3568-pcie";
-> +			#address-cells = <3>;
-> +			#size-cells = <2>;
+> Changes in v6:
+> - Fix make dt_binding_check and make CHECK_DTBS=y
 
 
-Follow DTS coding style.
+Now I see you already sent v6 and you already received review.
 
-In case you respond to above after 2 months, like you do for other
-patches: don't know, follow the DTS coding style.
+Implement previous review and respond to it.
 
 Best regards,
 Krzysztof
