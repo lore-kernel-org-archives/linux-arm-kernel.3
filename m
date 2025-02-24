@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E6B2C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 11:30:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C764C021A6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 11:31:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wySahytB2Ta4DvPdTT8lSPVWAO36Jkpqk6NhDD4tG+Q=; b=3cF1HK7o31dImpi6ByZNqs45p7
-	2NJls8KxT2pTbTTLkWzCYI9qJux6zwSSC8XuPv/Cr6o2aZKPmGMDDIE00bB23AiSHL6kmSJDj/ZWR
-	2GF1h3h/loHPwB4s40cDx23A9RIpTwQGrX5ZUrxJnbulWDK9mRyD/g+CFzCke32o9QqDTk5QF8cFn
-	VNRFTAFYH7K5q90F/OLfQBMiYdmrJ6mRCHIitQnAB/I7HdjjHVo1o1gNLtms9KPQwFChmz6h4F1ph
-	/BBfmGmggf32oOuCpggu4LY/g7rZKZ/jesOb+2Eb65pvFWVFyYjaFz8idJTn0xAntovHpGt098kgk
-	FdbFccrw==;
+	bh=whAn9HDt9mSKClg5hziRBkx+g8jCN8EwgeptHANy/I4=; b=iUNiFucJ65sDIfeP7J3XJLhK0F
+	FIAVqhcLLQuy+l9LODqFCaGNRmeWSs/fzgfShji/tYTfaL3iEzNXu/L4w465OsG9bK2SWFuN496Ds
+	Q9JZydAgID56WBxKElFpEtxwpU387Qq5s3SvydfAlbYM+jPvnqK02/F+B7p5PkO2S/iLeLup8UoYF
+	rygo+Mpwr9vss3aFRJNSAExCJMbjHZn2TkdW0Uvq77xxMH5dTI3+YrQV0K5mq//M3JaA/i7fNSz1R
+	Vop4b/HMjR2fMzMNemHlEzfBZ23UnyEW7i/dU1OPWcTnCMILdLXxi1y7sU+5pe9uojx+L0tayCmuv
+	gtLa7rfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmWen-0000000DOfh-0BAv;
-	Mon, 24 Feb 2025 11:29:53 +0000
+	id 1tmWgJ-0000000DPZS-01NA;
+	Mon, 24 Feb 2025 11:31:27 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmWUO-0000000DJmt-0fy7;
-	Mon, 24 Feb 2025 11:19:09 +0000
+	id 1tmWV8-0000000DK7T-3hOL;
+	Mon, 24 Feb 2025 11:19:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B0F1E5C697C;
-	Mon, 24 Feb 2025 11:18:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 009FAC4CEE6;
-	Mon, 24 Feb 2025 11:19:05 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6C4C15C6979;
+	Mon, 24 Feb 2025 11:19:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0EBBC4CEE8;
+	Mon, 24 Feb 2025 11:19:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740395947;
-	bh=G23AKcUUhcPBQNTXagmQkFOIFePG7LUUEUlJGCkB2o8=;
+	s=k20201202; t=1740395994;
+	bh=f7BaXmA/i6cjvHiTSfCrSYaivOytH1GHzL/ySrXPPnw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fmyDgwrEuN3wRoi/6j8fSlveG6yK5hqsF2xtXm40I1SejK5WqtCyXUzOo/VurLChY
-	 GYT7BmVXmriyrN6WiH+rBv5zH17lC4ojzrdZmNjZnkru0RflQrTpVB1N0yLKRyI0wG
-	 ZdMWqBKNG57stU/7RrOPAnc6vx3bKNBE9wOyYtVWNKLVOkrJqCh/ATsZWf22D2uwDB
-	 XIYKJKqSqjgsNZYVt96SkG0RtfG04HOtYu8gbrEjg/7kBEeXiuEzqS6ZDezuva2ZTF
-	 Qfai7sm7AR5BZOpE1/ccinEx5p5voF4fNq7M9UB0JHMd71qjfInur4RdJf9q+2ThXw
-	 NeBVQJCDxwgFA==
+	b=bphc5cVXpYOotoA7rF6mTvaYimjWjtWzTqNCwQ14guVd0Rf0rv+JsCLnKIq2RlMOq
+	 zfkppt4WB2IiYvecFUPWU1CILikbUt81gw4+CmRUPwV2qaGzjfGUMruEA17cx4G8ao
+	 cBKDh7wydhDgmGQawmwlj/YCZsAk6SQS4heSlFI1qDOPSHk6n49jdX7TisywwawtKL
+	 i/v5cpG5ADKLOv/JZS4bRryV9tbu0p3ecLk64S7zCZqxB5zkVL+VShNJRoARdjHtlN
+	 JJnnR8cIFradC3cpyB8OSITx3l765PhfeBdzlzIu/f7le41K6u77J8ZAPYDy04TBg4
+	 U+tCHZ4IwbVOQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -55,19 +55,19 @@ Cc: Hector Martin <marcan@marcan.st>,
 	asahi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-nvme@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.12 24/28] apple-nvme: Release power domains when probe fails
-Date: Mon, 24 Feb 2025 06:17:55 -0500
-Message-Id: <20250224111759.2213772-24-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.6 16/20] apple-nvme: Release power domains when probe fails
+Date: Mon, 24 Feb 2025 06:19:09 -0500
+Message-Id: <20250224111914.2214326-16-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250224111759.2213772-1-sashal@kernel.org>
-References: <20250224111759.2213772-1-sashal@kernel.org>
+In-Reply-To: <20250224111914.2214326-1-sashal@kernel.org>
+References: <20250224111914.2214326-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.12.16
+X-stable-base: Linux 6.6.79
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_031908_239214_53938642 
+X-CRM114-CacheID: sfid-20250224_031954_963303_D8A576F2 
 X-CRM114-Status: UNSURE (   7.95  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -99,10 +99,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 2 insertions(+)
 
 diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
-index b1387dc459a32..df054cd38c3e3 100644
+index 396eb94376597..9b1019ee74789 100644
 --- a/drivers/nvme/host/apple.c
 +++ b/drivers/nvme/host/apple.c
-@@ -1518,6 +1518,7 @@ static struct apple_nvme *apple_nvme_alloc(struct platform_device *pdev)
+@@ -1517,6 +1517,7 @@ static struct apple_nvme *apple_nvme_alloc(struct platform_device *pdev)
  
  	return anv;
  put_dev:
@@ -110,9 +110,9 @@ index b1387dc459a32..df054cd38c3e3 100644
  	put_device(anv->dev);
  	return ERR_PTR(ret);
  }
-@@ -1551,6 +1552,7 @@ static int apple_nvme_probe(struct platform_device *pdev)
+@@ -1545,6 +1546,7 @@ static int apple_nvme_probe(struct platform_device *pdev)
+ out_uninit_ctrl:
  	nvme_uninit_ctrl(&anv->ctrl);
- out_put_ctrl:
  	nvme_put_ctrl(&anv->ctrl);
 +	apple_nvme_detach_genpd(anv);
  	return ret;
