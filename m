@@ -4,70 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CE99C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 14:43:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 350A2C021BC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 14:44:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8y7RULCgtA+twMB2yoTCUBB2R8TtZLUOKexPHO9EEnY=; b=kmVpsWS1q5P8xwoGukYqCnY5Mt
-	NADWC50COWUp5kTHc4HgbExl3bNaA/JZtIZQqHrsK9uuU1Y76G4/XbS/hKndi+zw40NQyATl/JTGm
-	kjYPr+t22S6iG44rNZNbY9O5Bq5i4h6yL9qGVivsrxUw24vGN0tstVb3JJlL0tKoa9q84i1ng21X7
-	JuLjtvewRl04xhuz14lGNrOO4q4Vi2+inNy7Um4fBuuf/lHAtMgDaRo3e9k7nNV1qmiv/w18GvgdE
-	YAytBvOMNKvwH2rzxxODC2UIDfSylst2EmTZW84ZK/05VL2kCIKTsWdcemIVBt44YWrcuIvB8KR4C
-	rIKrh6iA==;
+	bh=rQq55i9sPiHAagM17ICTCVjXUcSmU6FsFp44CyEwhoY=; b=Ei97AlEIYC8WhvqT0uQgtzE5hR
+	77gIP9hpC2+eMudCOFOYF1/jBksnhqu/gEon8scjHiuAtb8vAE6FK7FLSLnf55lv2M71/AA/OIphq
+	egsoYNG8iUG+EVv35b2Gp1NCbPi5UA4HxNfAm+I/TJ9HmQFNxR/4cgruRf3bjNOKSKSwtdueExl9Z
+	jbR1dNP9uvQ9ue34Mb8fPka3NCXwu3cknp49mNgTwOpe5QMdW7n46CXEQ1WK4NUXaAVoYpRD8rDGV
+	Q0qoZ1SVIkKACnPPK/sL3cnrGdxCRwb8UrESjXABo/YOOlacgtjX4Nu2p5qsXLRXTtZymFgf2KkJ7
+	cXaQzbMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmZfw-0000000E99i-2pdS;
-	Mon, 24 Feb 2025 14:43:16 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1tmZhO-0000000E9RN-1L1L;
+	Mon, 24 Feb 2025 14:44:46 +0000
+Received: from mail-pl1-f175.google.com ([209.85.214.175])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmZH6-0000000E3uH-2M4r
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 14:17:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1740406643; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=jh4G+fge5VpcjAQvBdSnRAzNFmDfBuNbnwANkTlPuMo4R32/1T5hKa5IFixFAXUtxBaITENB/2oVbSbzmXC5sU4qoOmLFi++ReaOhpn2XjVrwOOK0CwlTV4ZNJOdndnrOflbm9y5zo6GPNdBJtT3miYK42lSUkcUQ1ADdDRKWf8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1740406643; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=8y7RULCgtA+twMB2yoTCUBB2R8TtZLUOKexPHO9EEnY=; 
-	b=UM59J+AyUZGyT5ZELv/DWFRQl6CzSlHRC433YB5pMxBv7mHp8AhcCfjNwFaoLtqjstSEQjfj08bjw5iAHb7LQuilMZPt58xJfJ0DgREAqCERZW16dURYG5hALvUFPM4VvwZXfpgRKzrZxM7jcoFtykbimhY/QA5dMwoenaF6SEk=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.fricke@collabora.com;
-	dmarc=pass header.from=<sebastian.fricke@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1740406643;
-	s=zohomail; d=collabora.com; i=sebastian.fricke@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=8y7RULCgtA+twMB2yoTCUBB2R8TtZLUOKexPHO9EEnY=;
-	b=ZmFz/uEhN425WoWrs4s1sezOV6J9789a3rllYJQU+DFg/XxZcrotZsP9G4pyx3HD
-	e4YKJT08UbPcbCPDBBIzj60wK2wH7KVP2u3UJbk93cJnXIf3MmFQrcFoMDk383jYLU8
-	BE/CaejoUqQQZ+TsgotKmNRWAzHlCRuIrHOwixl4=
-Received: by mx.zohomail.com with SMTPS id 1740406641336970.3444548054779;
-	Mon, 24 Feb 2025 06:17:21 -0800 (PST)
-Date: Mon, 24 Feb 2025 15:17:12 +0100
-From: Sebastian Fricke <sebastian.fricke@collabora.com>
-To: Ming Qian <ming.qian@oss.nxp.com>
-Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl, nicolas@ndufresne.ca,
-	shawnguo@kernel.org, robh+dt@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
-	xiahong.bao@nxp.com, eagle.zhou@nxp.com, tao.jiang_2@nxp.com,
-	imx@lists.linux.dev, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 2/2] media: amphion: Add a frame flush mode for decoder
-Message-ID: <20250224141712.soexl43hrimwf236@basti-XPS-13-9310>
-References: <20250117075720.4018076-1-ming.qian@oss.nxp.com>
- <20250117075720.4018076-2-ming.qian@oss.nxp.com>
+	id 1tmZIT-0000000E4GO-3BnO;
+	Mon, 24 Feb 2025 14:19:02 +0000
+Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-220c92c857aso75894325ad.0;
+        Mon, 24 Feb 2025 06:19:00 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740406740; x=1741011540;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rQq55i9sPiHAagM17ICTCVjXUcSmU6FsFp44CyEwhoY=;
+        b=q0iy92h3bIKOhqND5j4g6SBDz7A1All/5Yr/4Qqo7pP1q5AeJ7cG3mcsT8tgiBS3oE
+         YxFKUMIk/HtzDWFRC2pBAQrZPlSUbTn9o6HBY6FyMMLx6cA3SVaoUG9nptZvl8VTXF+8
+         cKh4sQJ3P8dHMT8pR9PVhNkz5SBUtCZDdZbtczNIm/qSIwxN6L1BJiCihILHBkF/Bibh
+         7XCHKKOqlFNFsGr7ujONkb2fovZg5AFOz+O/qOmsWKa7LCZUCL4B9P7WAXdEyy0W+srD
+         I1rMWILa6uE8aN//um9eHezIvmtKW+zr6MtDtFcS01hscd1oiM7vBjf4Rkc9mzrW9Us6
+         1jlQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW1f44E/SZbliOUEj0kqtXjZZbK+CglVjI5UvqqPkDxaV7mB/cdLWPXtG1k91Ke0y+gyHxjYmdrVjmYoPhwiss=@lists.infradead.org, AJvYcCXSRwcC3zJ4eIS9PPIno0EYiIEB5L8SlQeDWDQwjwSv0i7RNHMB9LByCaO+P66pY6KK46Tnpl9DH3x6otF8izP2@lists.infradead.org
+X-Gm-Message-State: AOJu0YyM9QsRwrljeSL08EoTzJKBry57lcRArPpgX5x8ReI/ezfbrfHX
+	weDwQHVT6kS1Bb5YB6wIzQeWASBKDHPto41Qs3ikqoMIcrmpu3rY
+X-Gm-Gg: ASbGncu07NCdkgtA1Wp68WZ9veVTxWZKHk3xs1SapibRHsRJJ5nmeMOAGPscqNYKAYT
+	DMBCNijRXNebZZtOsa2FstzleKEAicmSDD4C/CnwZcXH615M1PWzpf9DktqgSwS/1Mmp+YhPP7r
+	XqHZoFpE4Lwj7qdMBue68IuOW9QVYAaI/Fv392HyZI6+Kgny+QlWY9/z24PPFrLsQQVrR0LGQcF
+	EwN5yi4AA9Da9Ni0leXkvdg1uC5gSMQlA9PA3qnB1QSTRr1V6E3xSSVStA+94zqwifr/Bb7JtNO
+	M1v8/0a1h3zO9u0zd03UI9O+ii1xHDDSg7mzu37MgozK7ldUjNKUNM/ImPMF
+X-Google-Smtp-Source: AGHT+IEArhAzVGpSC5/pwMA8672aG8JuHulEEM/yIdtoSC6FajaFQZpNsOz5Nyb51qV69zSmstlAhA==
+X-Received: by 2002:a17:902:d4cf:b0:21f:6546:9adc with SMTP id d9443c01a7336-2218c3f4333mr288752845ad.13.1740406740281;
+        Mon, 24 Feb 2025 06:19:00 -0800 (PST)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-220d5586075sm178543045ad.228.2025.02.24.06.18.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Feb 2025 06:18:59 -0800 (PST)
+Date: Mon, 24 Feb 2025 23:18:58 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Niklas Cassel <cassel@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Simon Xue <xxm@rock-chips.com>,
+	Wenrui Li <wenrui.li@rock-chips.com>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 2/2] PCI: dw-rockchip: hide broken ATS capability
+Message-ID: <20250224141858.GB76745@rocinante>
+References: <20250221202646.395252-4-cassel@kernel.org>
+ <20250222000029.GA373377@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250117075720.4018076-2-ming.qian@oss.nxp.com>
-X-ZohoMailClient: External
+In-Reply-To: <20250222000029.GA373377@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_061736_684999_AD426EE4 
-X-CRM114-Status: GOOD (  18.97  )
+X-CRM114-CacheID: sfid-20250224_061901_793432_1B31C89C 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,85 +94,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Ming,
+Hello,
 
-On 17.01.2025 16:57, Ming Qian wrote:
->The amphion decoder will pre-parse 3 frames before decoding the first
->frame. If we append a flush padding data after frame, the decoder
->will finish parsing and start to decode when the flush data is parsed.
->It can reduce the decoding latency.
->In the past, we only enable this mode when the display delay is set to
->0. But we still can enable this mode without changing the display order,
->so we add a frame_flush_mode parameter to enable it.
+[...]
+> Can you include something here about what the issue is?  Based on the
+> subject line and the patch, I assume something is wrong with the ATS
+> Capability?  I guess this is some kind of rk3588 defect, right?
+> 
+> > Usually, to handle these issues, we add a quirk for the PCI vendor and
+> > device ID in drivers/pci/quirks.c with quirk_no_ats(). That is because
+> > we cannot usually modify the capabilities on the EP side.
+> > 
+> > In this case, we can modify the capabilties on the EP side. Thus, hide the
+> > broken ATS capability on rk3588 when running in EP mode. That way,
+> > we don't need any quirk on the host side, and we see no errors on the host
+> > side, and we can run pci_endpoint_test successfully, with the IOMMU
+> > enabled on the host side.
 
-My recommendation:
+Rockchip folks, anything to add about this issue?  Perhaps there is an
+erratum about this?  Any code reviews?  Anything?
 
-By default the amphion decoder will pre-parse 3 frames before starting
-to decode the first frame. Alternatively, a block of flush padding data
-can be appended to the frame, which will ensure that the decoder can
-start decoding immediately after parsing the flush padding data, thus
-potentially reducing decoding latency.
-This mode was previously only enabled, when the display delay was set to
-0. Allow the user to manually toggle the use of that mode via a module
-parameter called frame_flush_mode, which enables the mode without
-changing the display order.
+Western Digital folks are doing you a lot of favour with all the upstream
+work they do maintaining drivers for your platforms.  But it would be nice
+if Rockchip took some ownership.  I have seen none recently.  No reviews,
+not even an Acked-by, nothing.  A bit of a letdown, if you ask me.
 
+Thank you!
 
-Which fixes a few grammatical issues and tries to be a bit more clear.
-But please confirm to me that I hit your intended meaning.
-
-More comments below ...
-
->
->Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
->---
-> drivers/media/platform/amphion/vpu_malone.c | 5 ++++-
-> 1 file changed, 4 insertions(+), 1 deletion(-)
->
->diff --git a/drivers/media/platform/amphion/vpu_malone.c b/drivers/media/platform/amphion/vpu_malone.c
->index 1d9e10d9bec1..f07660dc3b07 100644
->--- a/drivers/media/platform/amphion/vpu_malone.c
->+++ b/drivers/media/platform/amphion/vpu_malone.c
->@@ -25,6 +25,9 @@
-> #include "vpu_imx8q.h"
-> #include "vpu_malone.h"
->
->+static bool frame_flush_mode;
->+module_param(frame_flush_mode, bool, 0644);
-
-Could you add a comment here that makes clear to the reader briefly what
-the expected behavior of frame_flush_mode = 0 and frame_flush_mode = 1
-is?
-
->+
-> #define CMD_SIZE			25600
-> #define MSG_SIZE			25600
-> #define CODEC_SIZE			0x1000
->@@ -1579,7 +1582,7 @@ static int vpu_malone_input_frame_data(struct vpu_malone_str_buffer __iomem *str
->
-> 	vpu_malone_update_wptr(str_buf, wptr);
->
->-	if (disp_imm && !vpu_vb_is_codecconfig(vbuf)) {
->+	if ((disp_imm || frame_flush_mode) && !vpu_vb_is_codecconfig(vbuf)) {
-
-So you say that the mode was enabled with display delay set to 0,
-meaning (disp_imm = 1) == (display delay = 0), right? E.g. disp_imm
-means display_immediately I guess.
-
-I think this all deserves a lot better documentation, otherwise the code
-becomes quite cryptic. Could you add a comment before this line, which
-explains the entry conditions disp_imm & frame_flush_mode and the
-codeconfig thing and that explains briefly what kind of mode we are
-entering here?
-
-> 		ret = vpu_malone_add_scode(inst->core->iface,
-> 					   inst->id,
-> 					   &inst->stream_buffer,
->-- 
->2.43.0-rc1
->
->
-
-Regards,
-Sebastian Fricke
+	Krzysztof
 
