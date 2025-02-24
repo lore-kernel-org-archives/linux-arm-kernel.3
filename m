@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 376D0C021BC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 18:17:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFFC1C021BB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 18:19:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Pv8LFCx4t6NMriqTItuy7XpPPudhzwAqEqZ8Lq4mjI=; b=kqwz7fnNkMZBDbXxl65X++7wck
-	/5KeMMzlJQbBBnFgyJ/HMtAZ11vQJyOEFeZOKyu2f+o1hLw1k1SNtvhMx75d9eNz+zehD3q5gVXtI
-	imOc0DXvKiGR4s7MQnTo2VtscHgBXekEmRhWa6ZGhtZekEOmMsWst5lGvbAvfI7anCHq4BLD/ZqPn
-	YAcMLkO4DDNSGb8zm7bKxntWY0KgVq7TLSucCb/XRSGQoU355b1UmvBJCYYklCRZVGPjGYimPda13
-	f1d6RLb6r7hvg6HrfCAhF2Hp/bpw8BpW2KM9PS7DBk6PUzcYHnulrOelxEGzjGWnSz5pNyXfQQ6dp
-	PqaXBKzg==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=caTOVoBOyF0MRwCSZLjQta/N2cLC0otSKq3vfvnJa1k=; b=hc6OTd4tjkriqFFi7Pr66HeUiw
+	lErLDSLP+K7zWpTpeogXjLfy7SR48h9bhwzMi9bLz+L0esu/cINPY365Ucz1uJAh7z/MKtizDJULR
+	Tu29wQQ55h+VC75TNqgFimg9anRSTQPWnRA6NoSCoUoVM9cBlnTxSI6U9qPW2F/0Kobe/06PnkNqT
+	Ezqh8z189oJwc4679AZcHn4la9kz4maoDSoEDcYfnBmlpyvMqhxqH6DVih5RJpoBRXy9JrM8qYKxY
+	+xLdyaEupfZ6hnjw1uMOuebJ5pxMPYZXCnkJq9EjafxICWl6gJR2k9Zp/bpOYDK9cOME1dZIpUYvS
+	cP3+UhPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmd16-0000000ElqU-0hfL;
-	Mon, 24 Feb 2025 18:17:20 +0000
+	id 1tmd2Y-0000000Em3d-3LJM;
+	Mon, 24 Feb 2025 18:18:50 +0000
 Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmcxj-0000000El8g-2f1A
+	id 1tmcxp-0000000ElAK-2iep
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 18:13:53 +0000
+	Mon, 24 Feb 2025 18:13:59 +0000
 Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51OFKCXP023814;
-	Mon, 24 Feb 2025 19:13:43 +0100
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51OEnHnD025112;
+	Mon, 24 Feb 2025 19:13:50 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	3Pv8LFCx4t6NMriqTItuy7XpPPudhzwAqEqZ8Lq4mjI=; b=SEzwfKKXhOi0idtv
-	A6QNfbDuVgfR9QDuvk2NlwNvjRR2k17PvPHMp/2BgxeolZJ/7A1icFkNT5GdLttU
-	Rs/I56jtDtEsLC208t0ujEia+MiAfKMcZMR3etFYpksvgB8ySlp+qSHCs9Y68JVD
-	g6cJ008Q+5MbkcFSQrUMKm3HocBeNo7zHrzjny1418gl0H1KCd6RNqT0hvr6G8fT
-	iCVoG93zwc3V2WUjEJNPg0GRSXxGJ7D9TpjoHeP1goDngUyCFQghC0GTGTUvfhI3
-	GKYWk8ClQujK4Vjk33KTNbK82Pk/Z+EPgZAjK2fDG+jPbCwOruto868lDCi7cmoC
-	XxvPjQ==
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=caTOVoBOyF0MRwCSZLjQta
+	/N2cLC0otSKq3vfvnJa1k=; b=hZxP1mkOfRngm5RL60oLFe+P5QXMX3xTexdEVl
+	r2x+eIpTbr7WghKVqnotLaXzBtP6Rwc0rK2iaYAzfTPvP/1N2WjcCvTxOKxYiY7G
+	XkHVYMbIj5x8BRGk4Vx3RFTNHG0geClTz3Nwtbt8CWV5BuMxEQN9/Nv8Ae07hbEQ
+	bgVCLpfVaZC/MAQT8ofiOJ4hdIY8UdeT9pT8F/uOoYja0yCiSU4rrSZCLleGdNLj
+	2RMUTlYrTbogHnZlDnzp6RNWXKFkxIyh8Qf08PY7THwYRdpW7pHUWfMTCCsDMqDu
+	ofjozVhCqDtpQYr6YLbNy1l5kzi1u5kq687RXGSbjaH6HSIg==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44y6bh0hw4-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44y6bh0hwq-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 24 Feb 2025 19:13:38 +0100 (CET)
+	Mon, 24 Feb 2025 19:13:50 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 184994002D;
-	Mon, 24 Feb 2025 19:12:21 +0100 (CET)
-Received: from Webmail-eu.st.com (eqndag1node4.st.com [10.75.129.133])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 933E553FC05;
-	Mon, 24 Feb 2025 19:02:30 +0100 (CET)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE4.st.com
- (10.75.129.133) with Microsoft SMTP Server (version=TLS1_2,
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 8D8B440046;
+	Mon, 24 Feb 2025 19:12:25 +0100 (CET)
+Received: from Webmail-eu.st.com (eqndag1node5.st.com [10.75.129.134])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id C9221544742;
+	Mon, 24 Feb 2025 19:02:29 +0100 (CET)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE5.st.com
+ (10.75.129.134) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 24 Feb
- 2025 19:02:30 +0100
+ 2025 19:02:29 +0100
 Received: from localhost (10.252.23.75) by SAFDAG1NODE1.st.com (10.75.90.17)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 24 Feb
- 2025 19:02:30 +0100
+ 2025 19:02:29 +0100
 From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 To: <lee@kernel.org>, <ukleinek@kernel.org>, <alexandre.torgue@foss.st.com>,
         <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
@@ -68,12 +67,10 @@ CC: <catalin.marinas@arm.com>, <will@kernel.org>, <devicetree@vger.kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
         <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
         <olivier.moysan@foss.st.com>, <fabrice.gasnier@foss.st.com>
-Subject: [PATCH 1/8] dt-bindings: mfd: stm32-lptimer: add support for stm32mp25
-Date: Mon, 24 Feb 2025 19:01:43 +0100
-Message-ID: <20250224180150.3689638-2-fabrice.gasnier@foss.st.com>
+Subject: [PATCH 0/8] Add STM32MP25 LPTIM support: MFD, PWM, IIO, counter, clocksource
+Date: Mon, 24 Feb 2025 19:01:42 +0100
+Message-ID: <20250224180150.3689638-1-fabrice.gasnier@foss.st.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250224180150.3689638-1-fabrice.gasnier@foss.st.com>
-References: <20250224180150.3689638-1-fabrice.gasnier@foss.st.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -84,8 +81,9 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-02-24_09,2025-02-24_02,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_101351_953459_65F3319A 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20250224_101357_977236_709210D4 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,85 +98,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new stm32mp25 compatible to stm32-lptimer dt-bindings, to support
-STM32MP25 SoC. Some features has been added to the low-power timer like
-new capture compare channels (hence more PWM channels, and PWM input
-capture). Some registers/bits has been revisited to support this.
-So introduce a new compatible to handle this diversity.
+This series adds support for STM32MP25 to MFD PWM, IIO, counter and
+clocksource low-power timer (LPTIM) drivers.
+This new variant is managed by using a new DT compatible string.
+It comes with a slightly updated register set, some new features and new
+interconnect signals inside the SoC.
+Same feature list as on STM32MP1x is supported currently.
+The device tree files add all instances in stm32mp251 dtsi file.
 
-Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
----
- .../bindings/mfd/st,stm32-lptimer.yaml        | 23 +++++++++++++++----
- 1 file changed, 18 insertions(+), 5 deletions(-)
+Fabrice Gasnier (6):
+  dt-bindings: mfd: stm32-lptimer: add support for stm32mp25
+  mfd: stm32-lptimer: add support for stm32mp25
+  pwm: stm32-lp: add support for stm32mp25
+  counter: stm32-lptimer-cnt: add support for stm32mp25
+  arm64: defconfig: enable STM32 LP timers drivers
+  arm64: dts: st: add low-power timer nodes on stm32mp251
 
-diff --git a/Documentation/devicetree/bindings/mfd/st,stm32-lptimer.yaml b/Documentation/devicetree/bindings/mfd/st,stm32-lptimer.yaml
-index d41308856408..4822ce5d0c76 100644
---- a/Documentation/devicetree/bindings/mfd/st,stm32-lptimer.yaml
-+++ b/Documentation/devicetree/bindings/mfd/st,stm32-lptimer.yaml
-@@ -21,7 +21,9 @@ maintainers:
- 
- properties:
-   compatible:
--    const: st,stm32-lptimer
-+    enum:
-+      - st,stm32-lptimer
-+      - st,stm32mp25-lptimer
- 
-   reg:
-     maxItems: 1
-@@ -48,13 +50,18 @@ properties:
-     minItems: 1
-     maxItems: 2
- 
-+  power-domains:
-+    maxItems: 1
-+
-   pwm:
-     type: object
-     additionalProperties: false
- 
-     properties:
-       compatible:
--        const: st,stm32-pwm-lp
-+        enum:
-+          - st,stm32-pwm-lp
-+          - st,stm32mp25-pwm-lp
- 
-       "#pwm-cells":
-         const: 3
-@@ -69,7 +76,9 @@ properties:
- 
-     properties:
-       compatible:
--        const: st,stm32-lptimer-counter
-+        enum:
-+          - st,stm32-lptimer-counter
-+          - st,stm32mp25-lptimer-counter
- 
-     required:
-       - compatible
-@@ -80,7 +89,9 @@ properties:
- 
-     properties:
-       compatible:
--        const: st,stm32-lptimer-timer
-+        enum:
-+          - st,stm32-lptimer-timer
-+          - st,stm32mp25-lptimer-timer
- 
-     required:
-       - compatible
-@@ -92,7 +103,9 @@ patternProperties:
- 
-     properties:
-       compatible:
--        const: st,stm32-lptimer-trigger
-+        enum:
-+          - st,stm32-lptimer-trigger
-+          - st,stm32mp25-lptimer-trigger
- 
-       reg:
-         description: Identify trigger hardware block.
+Olivier Moysan (1):
+  iio: trigger: stm32-lptimer: add support for stm32mp25
+
+Patrick Delaunay (1):
+  clocksource: stm32-lptimer: add stm32mp25 support
+
+ .../bindings/mfd/st,stm32-lptimer.yaml        |  23 +-
+ arch/arm64/boot/dts/st/stm32mp251.dtsi        | 177 ++++++++++++++
+ arch/arm64/configs/defconfig                  |   5 +
+ drivers/clocksource/timer-stm32-lp.c          |   1 +
+ drivers/counter/stm32-lptimer-cnt.c           |   1 +
+ drivers/iio/trigger/stm32-lptimer-trigger.c   | 109 +++++++--
+ drivers/mfd/stm32-lptimer.c                   |  30 ++-
+ drivers/pwm/pwm-stm32-lp.c                    | 220 +++++++++++++++---
+ include/linux/iio/timer/stm32-lptim-trigger.h |   9 +
+ include/linux/mfd/stm32-lptimer.h             |  32 ++-
+ 10 files changed, 554 insertions(+), 53 deletions(-)
+
 -- 
 2.25.1
 
