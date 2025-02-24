@@ -4,77 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD285C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 10:56:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 899FFC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 10:58:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Z15wXjwmbvS8pqfSjgPL6Cg4YPAigbSKI6xhgGV4nu4=; b=VH431pxPihHTG0jkG/iNSHZtIF
-	YykGQdIQFvEPiKt0X3muJKKw/BUkLudqglk+TKyfDGkzB8IRlSLfpoZ5uP0SkGddq6UV1/lBHAefV
-	oUk1yHe2JrmLYkNdM5QIR3h91e2Jg7dLnH9xnU6moNG28q3kxTDuQKXhYbqFnJCGyjXFmXgj4Ka4G
-	yj8dVP8+TKZgCG18Y2B4QtyDc9fnA8euUg3oK9IUVj12ZFduzIol07iy4Of/XSVqMg5aw+PfqP/zW
-	u4c/w4gvw0QClw3reiB2KMrJc9hjgqx3vcE+e6IffjeS+4sUKOXeK4txr1itgcpS2/1xczXlGR0w2
-	vCIwY4uQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4Iot9I4h4jJMqZbR9/3Iio7a6IBbtlOgx6s1kh41LTE=; b=bT8Zl/BsiMyYTliLwPIe+JMWX3
+	QaWB3NHBD2/aShC4/CyhhDQCGO9ex6lu3dejecHRTruF/KXU8/e9tzOVQvnidH7k0fTFU3sjFFHa3
+	657jpQ82uexvRyhVI7axLKe/lGprk5S/QIdwD0TeQZ5o4HmShzBrmgD0OzYGz2c2Lk9ozDcq63Fx+
+	apw/p+Dxd57yB+FXa6diOPDtbojC7FNOeaJsSpLT6TWrFg270XfNVLOuPy9ojolWO2hCSNwH1hc0h
+	815T4X8wZ4NPsNmAvbzy2NBLSST3eTR1wBwhZx2h4odV8eAwzOzq64tYDQY+VveUtD1oso/Gzmg9G
+	oK4RiO/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmW8P-0000000DEbb-0fTu;
-	Mon, 24 Feb 2025 10:56:25 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1tmW9r-0000000DEzz-1bci;
+	Mon, 24 Feb 2025 10:57:55 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmW6S-0000000DEFO-0c1t;
-	Mon, 24 Feb 2025 10:54:25 +0000
-X-UUID: b18e0926f29d11ef83f2a1c9db70dae0-20250224
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=Z15wXjwmbvS8pqfSjgPL6Cg4YPAigbSKI6xhgGV4nu4=;
-	b=Z+mGIdnxAueXSk1PXVm3TTT1zGNH/9vgwJclbjF3ohOCo3UpwHQzknimhcgX4WzgXoOFYt3iH/3u9zxY/CLClCx9/wRJmcR8Qs7nKQXYMT96keGmT+FbV1KyZzPdULH/0nEgKsi0ckVWaFwrYLUGuEGhFS4uxhAHpZ8h9cKg6X8=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:56e3e185-bd69-4ba7-9b38-7eb080e7bed2,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:60aa074,CLOUDID:ba2482b5-a2a1-4ef3-9ef9-e116773da0a7,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
-	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: b18e0926f29d11ef83f2a1c9db70dae0-20250224
-Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw01.mediatek.com
-	(envelope-from <jason-jh.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1704447295; Mon, 24 Feb 2025 03:54:17 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Mon, 24 Feb 2025 18:54:14 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Mon, 24 Feb 2025 18:54:14 +0800
-From: Jason-JH Lin <jason-jh.lin@mediatek.com>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: "Jason-JH . Lin" <jason-jh.lin@mediatek.com>, Nancy Lin
-	<nancy.lin@mediatek.com>, Singo Chang <singo.chang@mediatek.com>, Yongqiang
- Niu <yongqiang.niu@mediatek.com>, Sirius Wang <sirius.wang@mediatek.com>,
-	Xavier Chang <xavier.chang@mediatek.com>, Fei Shao <fshao@chromium.org>,
-	Chen-yu Tsai <wenst@chromium.org>, Pin-yen Lin <treapking@chromium.org>,
-	<dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
-	<linux-mediatek@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: [PATCH v2] mailbox: mtk-cmdq: Refine GCE_GCTL_VALUE setting
-Date: Mon, 24 Feb 2025 18:50:13 +0800
-Message-ID: <20250224105414.3576243-1-jason-jh.lin@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+	id 1tmW79-0000000DERG-2Yhm
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Feb 2025 10:55:09 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-38f488f3161so2260387f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 02:55:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1740394506; x=1740999306; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4Iot9I4h4jJMqZbR9/3Iio7a6IBbtlOgx6s1kh41LTE=;
+        b=G9vLz291+MbV5m79zK/Z/LM2XGYG1k67apBNmSgVz6xpCzY7vwBQyTcUKE8f7m+uw6
+         FL68DP/QZVTXFEVIIpof1kps56EaEPb8uoqjc2wBeWfotOJNprAnlXKCKsd3IGymvZqJ
+         MeZIgvwM2qORfBi3Z7c8cPz1jCKjPNmmM3OPuAmH1V+leqPAKGOCBmzUZbp2ipXPNVIq
+         hO2vl/Qe8p6Ju2TMTxpGNHTUSAwsj83qdppUC3mGRNaFCLF2udFuofXcC3WX18UqxjID
+         DFp0HSf4J+BPf9RU9AzSmfrcShb0S9CrA5agZ4UClFZAJ2mBNbbS71SJ7APdsez2mjUE
+         KttA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740394506; x=1740999306;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=4Iot9I4h4jJMqZbR9/3Iio7a6IBbtlOgx6s1kh41LTE=;
+        b=YwySDZqY6hpVtCUutskVTAfJZpRCtlJJqHktJVq8Jw1Ks5bE3VOOJM9MEv/MMxBb5w
+         fyjtjALiYh2i4miqSBSDzSeMpeLIaIEC65Frxuxison7Ye0qd9rvkHj20U5tqJtzLDVg
+         6PlZ2PbSX5m64Rm6cqGn+npv/RxJ9NbFITxN5DG4zrDl5sHohWoLworyG2Ufhyu5HGV9
+         allP9PL3bhd05Q58okgv/dW5svSEyCVUkLTEFBMsnTWbomARWh8tfC+PL8lHJ/0D9rp4
+         EVKFHMAQ7i8KoaxRCcsFwK9fl7FnAi4irEkEtdtaE066R98usTt8UpF8dt4TD0ydjfUs
+         v1iA==
+X-Forwarded-Encrypted: i=1; AJvYcCXe7KcqgLOEiCt0y13R1vP3yJRLvojh/1uiH8aZLbTFXKFp2oecJBKh+mx1GuUuM+qLpDPoC51T98xnt5oM9h+8@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTQkLOmx6gkdxnzamTkg4xg3VllH/4P8gnxddntUFAvkuR0/vE
+	qhNh3Z7LT6TkJb+/fnE4+dxb96lj21zMTno8Oz+gjcvr4eSz8N0t7X2yEfjt4OY=
+X-Gm-Gg: ASbGnct/8mtuZAk1sUfSjEy7XTECYI0Q26ObgKJkF4w0a/00oV6ev3DIg7r3TLBXmDF
+	ptBPgaEw3iVIKWLwYN7ZeJgftW4HxkXQ0oWKJzJtXttNT+P5Zc90qijp6amBcUYzyocq+835WDf
+	CMRp6C9p5LyUYFToy827lJtBVN7T8H0Twn8KC0UfeGWtCu1RcIfjjmtlfKcN9GAKKrrDPocThfX
+	CiJZk4ecJ3G8n2yuJO2y+eBTeaBtLEkSIeUzixZ+IvEP57g6rkrYzg9Bi9F95km3X4TWJUCelkN
+	N3XHinyV5324knEBl5ow0EfqGkDya22ZjKk4SjrRqltEY9XNX9hHRBTr+Ndz9+dQW0Iiqh6pM6l
+	rz+k=
+X-Google-Smtp-Source: AGHT+IE4j4S+EDiD5wh2IMuUEhCY86d7JCH8Dc3GdjFV6vdXtjgVdXLV1ClcAd5tybFFKQM3S7o/Bw==
+X-Received: by 2002:a5d:5985:0:b0:38f:4808:b9f with SMTP id ffacd0b85a97d-38f7085c617mr10519652f8f.47.1740394505896;
+        Mon, 24 Feb 2025 02:55:05 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:982:cbb0:825b:5392:ef70:cc0b? ([2a01:e0a:982:cbb0:825b:5392:ef70:cc0b])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f259f7979sm30904426f8f.83.2025.02.24.02.55.05
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 24 Feb 2025 02:55:05 -0800 (PST)
+Message-ID: <d3067b8e-38fe-48b0-b031-8aacd1aedca4@linaro.org>
+Date: Mon, 24 Feb 2025 11:55:04 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+User-Agent: Mozilla Thunderbird
+From: neil.armstrong@linaro.org
+Subject: Re: [PATCH v2 5/8] phy: phy-snps-eusb2: make repeater optional
+To: Abel Vesa <abel.vesa@linaro.org>,
+ Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
+ <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, linux-arm-msm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250223122227.725233-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250223122227.725233-6-ivo.ivanov.ivanov1@gmail.com>
+ <Z7xF66TctF2wuoGj@linaro.org>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <Z7xF66TctF2wuoGj@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_025424_195650_E954E937 
-X-CRM114-Status: GOOD (  14.57  )
+X-CRM114-CacheID: sfid-20250224_025507_807898_52C518CE 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,125 +133,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add cmdq_gctl_value_toggle() to configure GCE_CTRL_BY_SW and GCE_DDR_EN
-together in the same GCE_GCTL_VALUE register.
+On 24/02/2025 11:11, Abel Vesa wrote:
+> On 25-02-23 14:22:24, Ivaylo Ivanov wrote:
+>> Some platforms initialize their eUSB2 to USB repeater in the previous
+>> stage bootloader and leave it in a working state for linux. Make the
+>> repeater optional in order to allow for reusing that state until
+>> proper repeater drivers are introduced.
+>>
+>> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>> ---
+>>   drivers/phy/phy-snps-eusb2.c | 2 +-
+>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/phy/phy-snps-eusb2.c b/drivers/phy/phy-snps-eusb2.c
+>> index 4e5914a76..dcc69c00a 100644
+>> --- a/drivers/phy/phy-snps-eusb2.c
+>> +++ b/drivers/phy/phy-snps-eusb2.c
+>> @@ -461,7 +461,7 @@ static int snps_eusb2_hsphy_probe(struct platform_device *pdev)
+>>   		return dev_err_probe(dev, ret,
+>>   				     "failed to get regulator supplies\n");
+>>   
+>> -	phy->repeater = devm_of_phy_get_by_index(dev, np, 0);
+>> +	phy->repeater = devm_of_phy_optional_get(dev, np, 0);
+> 
+> Maybe make it optional based on compatible or something?
 
-For the SoCs whose GCE is located in MMINFRA and uses MMINFRA_AO power,
-this allows it to be written without enabling the clocks. Otherwise, all
-GCE registers should be written after the GCE clocks are enabled.
-Move this function into cmdq_runtime_resume() and cmdq_runtime_suspend()
-to ensure it is called when the GCE clock is enabled.
+It's already optional in the bindings:
+Documentation/devicetree/bindings/phy/qcom,snps-eusb2-phy.yaml
 
-Fixes: 7abd037aa581 ("mailbox: mtk-cmdq: add gce ddr enable support flow")
-Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
----
- drivers/mailbox/mtk-cmdq-mailbox.c | 41 +++++++++++++-----------------
- 1 file changed, 17 insertions(+), 24 deletions(-)
+So it's:
+Acked-by: Neil Armstrong <neil.armstrong@linaro.org>
 
-diff --git a/drivers/mailbox/mtk-cmdq-mailbox.c b/drivers/mailbox/mtk-cmdq-mailbox.c
-index d186865b8dce..a1841e4dc414 100644
---- a/drivers/mailbox/mtk-cmdq-mailbox.c
-+++ b/drivers/mailbox/mtk-cmdq-mailbox.c
-@@ -92,16 +92,17 @@ struct gce_plat {
- 	u32 gce_num;
- };
- 
--static void cmdq_sw_ddr_enable(struct cmdq *cmdq, bool enable)
-+static void cmdq_gctl_value_toggle(struct cmdq *cmdq, bool ddr_enable)
- {
--	WARN_ON(clk_bulk_enable(cmdq->pdata->gce_num, cmdq->clocks));
-+	u32 val = cmdq->pdata->control_by_sw ? GCE_CTRL_BY_SW : 0;
- 
--	if (enable)
--		writel(GCE_DDR_EN | GCE_CTRL_BY_SW, cmdq->base + GCE_GCTL_VALUE);
--	else
--		writel(GCE_CTRL_BY_SW, cmdq->base + GCE_GCTL_VALUE);
-+	if (!cmdq->pdata->control_by_sw && !cmdq->pdata->sw_ddr_en)
-+		return;
- 
--	clk_bulk_disable(cmdq->pdata->gce_num, cmdq->clocks);
-+	if (cmdq->pdata->sw_ddr_en && ddr_enable)
-+		val |= GCE_DDR_EN;
-+
-+	writel(val, cmdq->base + GCE_GCTL_VALUE);
- }
- 
- u8 cmdq_get_shift_pa(struct mbox_chan *chan)
-@@ -140,16 +141,10 @@ static void cmdq_thread_resume(struct cmdq_thread *thread)
- static void cmdq_init(struct cmdq *cmdq)
- {
- 	int i;
--	u32 gctl_regval = 0;
- 
- 	WARN_ON(clk_bulk_enable(cmdq->pdata->gce_num, cmdq->clocks));
--	if (cmdq->pdata->control_by_sw)
--		gctl_regval = GCE_CTRL_BY_SW;
--	if (cmdq->pdata->sw_ddr_en)
--		gctl_regval |= GCE_DDR_EN;
- 
--	if (gctl_regval)
--		writel(gctl_regval, cmdq->base + GCE_GCTL_VALUE);
-+	cmdq_gctl_value_toggle(cmdq, true);
- 
- 	writel(CMDQ_THR_ACTIVE_SLOT_CYCLES, cmdq->base + CMDQ_THR_SLOT_CYCLES);
- 	for (i = 0; i <= CMDQ_MAX_EVENT; i++)
-@@ -315,14 +310,21 @@ static irqreturn_t cmdq_irq_handler(int irq, void *dev)
- static int cmdq_runtime_resume(struct device *dev)
- {
- 	struct cmdq *cmdq = dev_get_drvdata(dev);
-+	int ret;
- 
--	return clk_bulk_enable(cmdq->pdata->gce_num, cmdq->clocks);
-+	ret = clk_bulk_enable(cmdq->pdata->gce_num, cmdq->clocks);
-+	if (ret)
-+		return ret;
-+
-+	cmdq_gctl_value_toggle(cmdq, true);
-+	return 0;
- }
- 
- static int cmdq_runtime_suspend(struct device *dev)
- {
- 	struct cmdq *cmdq = dev_get_drvdata(dev);
- 
-+	cmdq_gctl_value_toggle(cmdq, false);
- 	clk_bulk_disable(cmdq->pdata->gce_num, cmdq->clocks);
- 	return 0;
- }
-@@ -347,9 +349,6 @@ static int cmdq_suspend(struct device *dev)
- 	if (task_running)
- 		dev_warn(dev, "exist running task(s) in suspend\n");
- 
--	if (cmdq->pdata->sw_ddr_en)
--		cmdq_sw_ddr_enable(cmdq, false);
--
- 	return pm_runtime_force_suspend(dev);
- }
- 
-@@ -360,9 +359,6 @@ static int cmdq_resume(struct device *dev)
- 	WARN_ON(pm_runtime_force_resume(dev));
- 	cmdq->suspended = false;
- 
--	if (cmdq->pdata->sw_ddr_en)
--		cmdq_sw_ddr_enable(cmdq, true);
--
- 	return 0;
- }
- 
-@@ -370,9 +366,6 @@ static void cmdq_remove(struct platform_device *pdev)
- {
- 	struct cmdq *cmdq = platform_get_drvdata(pdev);
- 
--	if (cmdq->pdata->sw_ddr_en)
--		cmdq_sw_ddr_enable(cmdq, false);
--
- 	if (!IS_ENABLED(CONFIG_PM))
- 		cmdq_runtime_suspend(&pdev->dev);
- 
--- 
-2.43.0
+> 
+>>   	if (IS_ERR(phy->repeater))
+>>   		return dev_err_probe(dev, PTR_ERR(phy->repeater),
+>>   				     "failed to get repeater\n");
+>> -- 
+>> 2.43.0
+>>
+> 
 
 
