@@ -4,77 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAAACC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 23:24:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8569BC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 23:37:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PGCg6n2Q6WZLrimz+DtE8iD6q+LYJzZzjnV1WXJIGMU=; b=BaBqaO0W8H/QmMhAoxKwXQWXBR
-	WyhhQ0WX7hFXr28gX68UjOg0+HMXDpRQSpJ2L4/XD65wSGEb2PBu8GvVOA+LCDl2G7XRk4XTdh/O7
-	18zWOGhZody+hJNcatzCBwnY5sCjwKeUnFGZUceeNDjmS0MLbjCIoQ2SvXZI93BThLDQoKBTOcnkQ
-	cpKRdX4QOUHrqo3BiuDtBC4S4x62EaKdMLHfD5Et1tQLmhjEoxqSBNomMGcPrFrm5PJOcDooyq3I+
-	s25b2fRvL07NrWMDmzK1WDDaJuwVZKmUuu1k8TJ9eRvTCvkDzX7BqKjefQDXprBQA6dka1f1BvED3
-	/exOHIyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gu9j43OOTQcwct3Jmzmd7WVfClwmVmUuuzlBwEXTvo4=; b=ka6Lyi08yYC5ZZ8LAc6JMzkO1s
+	ieQICI+YEXIDIGvAMH9OkfnKMlEslUCrFrylVnu8az6ARNIGOKO1gv82upHK8YQtmFSbRdmGaWvkf
+	r/i1rO7SBHcgajiEu/tFklDo6CUNPDxKcem/5V+lvVTfR4teoOK8HopKZ2bMeCz6+XrKEA75YDz+h
+	T1caLO+Ip6TVAs+pNfV907IcWZWkhbaI6K2RrOmXB6frKQgBDyKykqwsidT16TsGhdT5EbCSx14M2
+	ZV9irYjYMdnd12FtUTLGRSqK6Yg3bj4wWCIcKdEXij9u1dyMK9b9ik/4PbEKF8eYA0StiHgCWjzwT
+	FjxWODyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmhnn-0000000FTVI-26Na;
-	Mon, 24 Feb 2025 23:23:55 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmhmI-0000000FTFC-3WDM
+	id 1tmi0J-0000000FVCu-1bme;
+	Mon, 24 Feb 2025 23:36:51 +0000
+Received: from mail-sn1nam02on20626.outbound.protection.outlook.com ([2a01:111:f403:2406::626] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmhyo-0000000FV4Z-1JEq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 23:22:24 +0000
-Received: from [10.137.184.60] (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id A89DB203CDE5;
-	Mon, 24 Feb 2025 15:22:19 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com A89DB203CDE5
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1740439339;
-	bh=PGCg6n2Q6WZLrimz+DtE8iD6q+LYJzZzjnV1WXJIGMU=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=A67uPgO/+1Vash+VgNUVaceBsg/GexArtBCVuHxE8ACpVzrz2pN98+Xcn6Tv24C9f
-	 Ksrr6XADjWe9pi9xFXy/83nYiZhMNz2DH0BEiPr4KgD7WAl80TTo69rmmi5IhDvZrK
-	 FcuHnJztFWfI3aKDOM/9KD7bnAJWekyXirTS3SBU=
-Message-ID: <14a199d8-1cf3-49bc-8e0d-92d9c8407b4f@linux.microsoft.com>
-Date: Mon, 24 Feb 2025 15:22:19 -0800
+	Mon, 24 Feb 2025 23:35:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XdqCNAwWi7arUy+2oQVojRzUTtb81h00jg+uDQ7htpblMXhYxxagHwJnYo0PuNOxgoUnsSLNOBNzzynJ778p1M5VgB5dug1eirZ5hjMHCfGIXx+YoZaAO+KBUXbbZFMtW6xr/caOVhPbUJuSTJ7jTSARCcJ/NReZASIK0LJqngbR5slUQkf6Yh2Qb3MxlteLxD8Xbbz529J0psMt7rUb8ynumpTg23UMdAz0nmsUpmykgBx2oamFlmshGPtDrZADZyY3li/djONlMUEyNQGRWtpmTTtIm3zbz8BNP9W69LAoltra8C71MXVnQRHLhBtiA4bFzQ1vgIZ5eAcPD7gyvw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Gu9j43OOTQcwct3Jmzmd7WVfClwmVmUuuzlBwEXTvo4=;
+ b=DJZPRobw2LRZWwlfYSznl1e+FPL155oyW9gWlVjCY4LPpbGccYNmW7ZQykJwFNAaeLtbNID/We4mn7SMMXjtc4Y6y+NTUMp0F7mXkfk+sSSOduJNDp7zzu9GKviTvbk2vYYKF2aiRd3LLFpzSphXk5a7Wz+nJxaQGQWPHAyCS1sNCGaH7xMOC+Q4HobaIgPRgasBsfSeAweahggG9uXkXBaSqSy0BTgzCEwI250ib9m2t5ZEUzAxkCSKe5PAQBdfuzUmazPPmSw8Ul6zn7ZO8UTi/Qefs1ZSWnxNiT1eIUqBojUn+rxd5baJQuLldaXCUtVEdhZKxFrGlEDzGusVuA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Gu9j43OOTQcwct3Jmzmd7WVfClwmVmUuuzlBwEXTvo4=;
+ b=umuuZ1wCG7AyWq59APhe79OSRY2DxBcVvxS/bpYRTOfNPBTaPSROjak5j/sxYnLIYB2yhst0p+nkNn/TVhZNVrLiAm44B/eudICydUqI4uHT/g6l5Gi/XNs3GT2kQu9mqcB14roZ3JKkbcwj9TP/qvr+TcwZBbNzjKpcyGZyoOzSHMz0kOg5mbQrriYZkklOZZkN5H6QpvcQlbZtUc93HhjjjshjyKo788UikYZlg44097PK0YCmVyl+FdH7mBhL5DjkoRVIP3Hxy2yREBptxBrMSepXcbubXEhKnUR+iks36cqWPt9L6GWTJCU0g0hDSO21P1mPlD20Lfqit4a5Tg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by CYYPR12MB8938.namprd12.prod.outlook.com (2603:10b6:930:c7::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.20; Mon, 24 Feb
+ 2025 23:35:07 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8466.016; Mon, 24 Feb 2025
+ 23:35:07 +0000
+Date: Mon, 24 Feb 2025 19:35:05 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Pranjal Shrivastava <praan@google.com>, kevin.tian@intel.com,
+	corbet@lwn.net, will@kernel.org, joro@8bytes.org,
+	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
+	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
+	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
+	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
+	patches@lists.linux.dev
+Subject: Re: [PATCH v7 13/14] iommu/arm-smmu-v3: Report events that belong to
+ devices attached to vIOMMU
+Message-ID: <20250224233505.GF520155@nvidia.com>
+References: <cover.1740238876.git.nicolinc@nvidia.com>
+ <b1930038cf828dc13c080e2b46b3003a8c98ef24.1740238876.git.nicolinc@nvidia.com>
+ <Z7zmErar4YvQSSxw@google.com>
+ <Z7zrHn3tPBD5chv1@Asurada-Nvidia>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z7zrHn3tPBD5chv1@Asurada-Nvidia>
+X-ClientProxiedBy: YQBPR0101CA0333.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c01:6b::26) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH hyperv-next v4 1/6] arm64: hyperv: Use SMCCC to detect
- hypervisor presence
-From: Roman Kisel <romank@linux.microsoft.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: benhill@microsoft.com, bperkins@microsoft.com, sunilmut@microsoft.com,
- bhelgaas@google.com, Borislav Petkov <bp@alien8.de>,
- Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley
- <conor+dt@kernel.org>, Dave Hansen <dave.hansen@linux.intel.com>,
- Dexuan Cui <decui@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>,
- "H. Peter Anvin" <hpa@zytor.com>, krzk+dt@kernel.org,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- "K. Y. Srinivasan" <kys@microsoft.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Ingo Molnar <mingo@redhat.com>, Rob Herring <robh@kernel.org>,
- ssengar@linux.microsoft.com, Thomas Gleixner <tglx@linutronix.de>,
- Wei Liu <wei.liu@kernel.org>, Will Deacon <will@kernel.org>,
- devicetree@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org
-References: <20250212014321.1108840-1-romank@linux.microsoft.com>
- <20250212014321.1108840-2-romank@linux.microsoft.com>
- <1b14e3de-4d3e-420c-819c-31ffb2d448bd@app.fastmail.com>
- <593c22ca-6544-423d-84ee-7a06c6b8b5b9@linux.microsoft.com>
- <97887849-faa8-429b-862b-daf6faf89481@app.fastmail.com>
- <6e4685fe-68e9-43bd-96c5-b871edb1b971@linux.microsoft.com>
-Content-Language: en-US
-In-Reply-To: <6e4685fe-68e9-43bd-96c5-b871edb1b971@linux.microsoft.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CYYPR12MB8938:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3d7f9295-cd4c-4f0a-6afe-08dd552bdf05
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?LCLu43u8NqdBzWrDvNw4/yut8Bc8dmvCcvQH1UaxRZ/BBwr9oSJt1iZt6hLQ?=
+ =?us-ascii?Q?fuxcDrEMdz71e59JP9DUUR8lybdvZgQ4lMjJnHB8khDzRGWhXucTSA8em0Ec?=
+ =?us-ascii?Q?4ywSsdxDJj4egduwrKh9thvu4T5OhTYkHtBpPE4iD+U7JahEbTkxN4vz5Rfq?=
+ =?us-ascii?Q?hELskMoz1Vf/FZeC3WqY8ngGhxeUwu4xhajuKdVVq2dkGred727zT4n7M97R?=
+ =?us-ascii?Q?V0qaDpDt3NNUkoTnU/K/8b1mK7Mibab1lQOj8hXsf+62DgkoPvY9bx10vB6u?=
+ =?us-ascii?Q?avUnCC29NTJlu7YtN3dT+j1lB9iKZas5N7O7unOGtxqqomg3w1GJ+R0L3/HI?=
+ =?us-ascii?Q?Hh+/Alotw5S/Uptpo5rYaGWXnNhPjiHSe4dyLcpwYKC/IvGk6Qr26Fd3G/zV?=
+ =?us-ascii?Q?5+63WWtvRabBnSVqEmqSGHZ36ExcChTgjorLDuTg7C1t4zlJ6X9ZEtMtzOBW?=
+ =?us-ascii?Q?8it7jJb1kQyC7UrjnJ+r0cUTDdVX9lvNSxmE1bmpTbFmpBjXZVyxG4fhZOiH?=
+ =?us-ascii?Q?F48DotoEF/iSbm0xAgPfvft7A4fVvzPlaHzDUFWKMIqeAnV8wOZeKYH+gNQ9?=
+ =?us-ascii?Q?KJ/D9RPwmRQf+J64L97Drbz/fkbHqs4THSY19cEM4oVoIM38v6H3Kd1WPYVM?=
+ =?us-ascii?Q?CQx5sqAQktPmRrKYcm0ua4K0PCNBdrC+eRrTh/1UL+rjm2Hb832meAkl8abW?=
+ =?us-ascii?Q?LpCRXahj0qVkD27Lk1+0iJHxEHPNRHRQYZHpXv7D72BqaUPlCXW27153loXn?=
+ =?us-ascii?Q?RB2jEaCn5wRg5wH5EMt1625iekvXH26+r8+Gk7B9u612wSBs90+/ramu5vEk?=
+ =?us-ascii?Q?hDA1ZEXM63Sm5HFuoW4kDEhXMi+1kmxHeVcvkV7rY80eBPAAotqRFs1B08ua?=
+ =?us-ascii?Q?GEN+0teqrwwb5UReWBd3cG3aBmYG37QBw1sxdKU0wIyDJ+gkQY0TOjFadBSQ?=
+ =?us-ascii?Q?qB7AMqqt3a4rw54MKTiMQh095KG35GJ4R1ef0pJGdRhbSTqxkmCIejeuCCR1?=
+ =?us-ascii?Q?TuFnTtS7mjVbCEBpiO0g2B3Y161OTj0iQsYvNuum92u7Bc5VHeI1yLxkGZNr?=
+ =?us-ascii?Q?5Ocd8QVgXtB/EjcbQBe41lvBey12btrKj4uLdiWBeMtFtA6deHfg6CMKuwiY?=
+ =?us-ascii?Q?hv6MXiA74CmjW5/hVtTLvYYjIShygM6+DsldwOjvzlCO43Hq4BlhHAnAtshd?=
+ =?us-ascii?Q?FxQfEffSzHhLNQmAjnxy8afvchMni4/dByRIpd3xeAlR3p5Oqe4WWfpMI1Bo?=
+ =?us-ascii?Q?m7WCTFHmesMJv2TR4QkzRMt+/tCne45RgDBNXCbdINhNnUpnIyI+ETzZLKVf?=
+ =?us-ascii?Q?zsE6mUv9Jg8KpgNlPPitWEDqnsVQ+xVErDjNE+Hm+/1Y4LKDzY4QLtcinlMh?=
+ =?us-ascii?Q?UAQZCm4Xdk3IKquc3beufhz1Pp8u?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rwtzBgKQKHq15yxRcj07N8oWr0foKLf9rT/pC1bEbADVniEf76Du0YCB2zwN?=
+ =?us-ascii?Q?mgnVufdoPNZQ0yjjP8IbFRxEfEsTLMBJDOQ5Iz19hHJPDtz1Ohu5zhE4i/ay?=
+ =?us-ascii?Q?owd4xGWyoKrhW5idMtw3b+B74YnZBrbyEdDYuxedZTFnvl6PmezYLG9JTSjd?=
+ =?us-ascii?Q?/1ygw+BAyHcFkyLGWGcmwSSVtSNpIQZaiQqkdJe99Vs8pYY01AoSHAr6fOhA?=
+ =?us-ascii?Q?9cobwdv+BQ+fHCz6NOvRrbUqv2fh2rS3rSF7SXyhbuI2ygqDW+vBm9hYXalz?=
+ =?us-ascii?Q?GXd4dY1aod+IFqDKO8f6Siar+h2+pXvLMBDgP3tUlw4NroXrVsPy2s9Db8BB?=
+ =?us-ascii?Q?UF0PElVPRA/LiESC6PBaKd2qWJi41v5fc9ILPw3ZpGysr/2BHr5iUlsAK8jV?=
+ =?us-ascii?Q?Hj4Le8Bbefv03nzrU69XXedbnEIMtswYuBimmOi/9cVg6F4Q+7QlziJPxnMR?=
+ =?us-ascii?Q?7jGBGsD841NnEVMzqeV4T64/KW1zEVGB8ZPGUvzbL1pQHHTQJ28mWMz+J1YF?=
+ =?us-ascii?Q?O0ywg8bfCEE3IXxYCFEc5GKhh6y/ylPosA11Evng25ngV8FD1MYXhAHfjjmx?=
+ =?us-ascii?Q?HEQQRzEic0Z0GSM53938HtT3YT3fy4FdQ11pMc4/66y8Hnh+C3A3ui5ocBiw?=
+ =?us-ascii?Q?6gGOgXq3WxS9hcxqB/uMPxScpmpao8pFxe1gu8PlMctbz8mEBOR1ujBShPEH?=
+ =?us-ascii?Q?c7W/3jxFwGOA9oDpjNjHyaJwcD73aPMJ0JudUwzvvrtm9xW/Eok7ke8lRRTM?=
+ =?us-ascii?Q?UofmmdRC6LZimS1V4Ph6L6rexmpZ0eWgL3tSS9PGV05T1hi/wc+YdtAqpsEd?=
+ =?us-ascii?Q?PbDbfunV3Lr/i/7tWVaZ6bRA1NlbpsC/KZ6c49hC2x0RMvB2JbZJxBqOFJ9u?=
+ =?us-ascii?Q?z7OT8gIEvD4z9hWQZosBSu0pkFwwmpoDleyxmR1j7zlJn9nIAg0rvXHbMrQs?=
+ =?us-ascii?Q?kNbMICas4Z0hsA2egFIpLxTcEqSqxD8MKiLuZJqGJDvsrdJ7hpz//HzgZKpD?=
+ =?us-ascii?Q?yJlXDdo5mZ7CT30Ouofjf99Yujzz0Wo5BzpJUT14dMUyRJskLaMCoHH4yxgl?=
+ =?us-ascii?Q?pqnBGb0u4zZJsYqsK8v/kJZHZfpeOIa8QG1T2sdcC7/O1vSIZqgXUHTLTxW/?=
+ =?us-ascii?Q?00YKnuCFHXGpWRF5qKCsekTuaKCxWonrwJKorMoQDwTCjMgCx3eJds4WkZo0?=
+ =?us-ascii?Q?WwzBJlhJaetITh1E4hNBNH+G85kJgfQCTsMW14J4k4IR+odhO/R26m73iWA3?=
+ =?us-ascii?Q?NPlGOTUT9ZPKW0QCaVBpuCDRR0d6AF7kvsMvVtXVkKvH5eFgyc1OffWc7Qxd?=
+ =?us-ascii?Q?oIxKbBtbbZBTzSXxmiJcxwnQbJFTg5YJrQLIbFqLJVhlyNVCYD+AHY8GgfGT?=
+ =?us-ascii?Q?QoQKV+BLdQtmMMXkugmL3CS1XR8g3QddlBkGBOh9qLXeFQZayvd/XcZorGmk?=
+ =?us-ascii?Q?U8uN4XoS/3nydBMC723C0xRDqSZXkht/wgOixXtvNuSnrvubq1zZRw2bN2K+?=
+ =?us-ascii?Q?GE6Ajh9RrM4/mlN80oVU1gwkdFG/Z2SGGFfSxPeNkd3OF90HJJyly2AF6tIm?=
+ =?us-ascii?Q?GNcLtlaYFBihD5W/2Jwr6rGZqqJOyv4vot5Mt9EC?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3d7f9295-cd4c-4f0a-6afe-08dd552bdf05
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Feb 2025 23:35:07.1821
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kFLlIGNGiVFfpXjLvOKOMgSzrQO7RlMp2i7+kXVzO1pEYwHoNW+YiZb7+kp5Okhf
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR12MB8938
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_152222_922843_9243B1FB 
-X-CRM114-Status: GOOD (  18.26  )
+X-CRM114-CacheID: sfid-20250224_153518_351961_8B85121E 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,193 +168,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+On Mon, Feb 24, 2025 at 01:56:46PM -0800, Nicolin Chen wrote:
 
-[...]
+> > Just thinking out loud here:
+> > I understand the goal here is to "emulate" an IOMMU. But I'm just
+> > wondering if we could report struct events instead of the raw event?
+> > 
+> > For example, can't we have something like arm_smmu_event here with the
+> > sid changed to vsid? 
+> > 
+> > Are we taking the raw event since we want to keep the `u64 event_data[]`
+> > field within `struct iommufd_vevent` generic to all architectures?
+> 
+> The ABIs for vSMMU are defined in the HW languange, e.g. cmd, ste.
+> Thus, here evt in raw too.
 
->> I would suggest moving the UUID values into a variable next
->> to the caller like
->>
->> #define ARM_SMCCC_VENDOR_HYP_UID_KVM \
->>      UUID_INIT(0x28b46fb6, 0x2ec5, 0x11e9, 0xa9, 0xca, 0x4b, 0x56, 
->> 0x4d, 0x00, 0x3a, 0x74)
->>
->> and then just pass that into arm_smccc_hyp_present(). (please
->> double-check the endianess of the definition here, I probably
->> got it wrong myself).
+Right, the point is that it gives as a safe uABI that is effectively
+being managed by ARM.
 
-I worked out a variation [1] of the change that you said looked good.
+If we make our own thing then we have to take the responsiblity to
+make it safe and extensible. I don't see a justification to do that..
 
-Here, there is a helper macro for creating uuid_t's when checking
-for the hypervisor running via SMCCC to avoid using the bare UUID_INIT. 
-Valiadted with KVM/arm64 and Hyper-V/arm64. Do you think this is a
-better approach than converting by hand?
+It is the same discussion we had around the vSTE as input, the raw
+invalidation command and the IDRs. Since we've already done 'follow
+the SMMU spec' so many times already now we should keep doing it.
 
-If that looks too heavy, maybe could leave out converting the expected
-register values to UUID, and pass the expected register values to
-arm_smccc_hyp_present directly. That way, instead of
-
-bool arm_smccc_hyp_present(const uuid_t *hyp_uuid);
-
-we'd have
-
-bool arm_smccc_hyp_present(u32 reg0, u32 reg1, u32 reg2, u32 reg2);
-
-
-Please let me know what you think!
-
-[1]
----
-  arch/arm64/hyperv/mshyperv.c       | 16 +++++---------
-  drivers/firmware/smccc/kvm_guest.c | 13 +++++------
-  drivers/firmware/smccc/smccc.c     | 19 ++++++++++++++++
-  include/linux/arm-smccc.h          | 35 ++++++++++++++++++++++++++++++
-  4 files changed, 64 insertions(+), 19 deletions(-)
-
-diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
-index 16e721d8e5df..b8468bd65ec0 100644
---- a/arch/arm64/hyperv/mshyperv.c
-+++ b/arch/arm64/hyperv/mshyperv.c
-@@ -43,18 +43,12 @@ static bool hyperv_detect_via_acpi(void)
-
-  static bool hyperv_detect_via_smccc(void)
-  {
--	struct arm_smccc_res res = {};
-+	uuid_t hyperv_uuid = HYP_UUID_INIT(ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_0,
-+		ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_1,
-+		ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_2,
-+		ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_3);
-
--	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_HVC)
--		return false;
--	arm_smccc_1_1_hvc(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, &res);
--	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
--		return false;
--
--	return res.a0 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_0 &&
--		res.a1 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_1 &&
--		res.a2 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_2 &&
--		res.a3 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_3;
-+	return arm_smccc_hyp_present(&hyperv_uuid);
-  }
-
-  static int __init hyperv_init(void)
-diff --git a/drivers/firmware/smccc/kvm_guest.c 
-b/drivers/firmware/smccc/kvm_guest.c
-index f3319be20b36..48c3622b2aa6 100644
---- a/drivers/firmware/smccc/kvm_guest.c
-+++ b/drivers/firmware/smccc/kvm_guest.c
-@@ -14,17 +14,14 @@ static DECLARE_BITMAP(__kvm_arm_hyp_services, 
-ARM_SMCCC_KVM_NUM_FUNCS) __ro_afte
-
-  void __init kvm_init_hyp_services(void)
-  {
-+	uuid_t kvm_uuid = HYP_UUID_INIT(ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_0,
-+		ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_1,
-+		ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_2,
-+		ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_3);
-  	struct arm_smccc_res res;
-  	u32 val[4];
-
--	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_HVC)
--		return;
--
--	arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, &res);
--	if (res.a0 != ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_0 ||
--	    res.a1 != ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_1 ||
--	    res.a2 != ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_2 ||
--	    res.a3 != ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_3)
-+	if (!arm_smccc_hyp_present(&kvm_uuid))
-  		return;
-
-  	memset(&res, 0, sizeof(res));
-diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smccc.c
-index a74600d9f2d7..0943abb3f4c9 100644
---- a/drivers/firmware/smccc/smccc.c
-+++ b/drivers/firmware/smccc/smccc.c
-@@ -67,6 +67,25 @@ s32 arm_smccc_get_soc_id_revision(void)
-  }
-  EXPORT_SYMBOL_GPL(arm_smccc_get_soc_id_revision);
-
-+bool arm_smccc_hyp_present(const uuid_t *hyp_uuid)
-+{
-+	struct arm_smccc_res res = {};
-+
-+	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_HVC)
-+		return false;
-+	arm_smccc_1_1_hvc(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, &res);
-+	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
-+		return false;
-+
-+	return ({
-+		const uuid_t uuid = HYP_UUID_INIT(res.a0, res.a1, res.a2, res.a3);
-+		const bool present = uuid_equal(&uuid, hyp_uuid);
-+
-+		present;
-+	});
-+}
-+EXPORT_SYMBOL_GPL(arm_smccc_hyp_present);
-+
-  static int __init smccc_devices_init(void)
-  {
-  	struct platform_device *pdev;
-diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
-index 67f6fdf2e7cd..60be36254364 100644
---- a/include/linux/arm-smccc.h
-+++ b/include/linux/arm-smccc.h
-@@ -7,6 +7,11 @@
-
-  #include <linux/args.h>
-  #include <linux/init.h>
-+
-+#ifndef __ASSEMBLER__
-+#include <linux/uuid.h>
-+#endif
-+
-  #include <uapi/linux/const.h>
-
-  /*
-@@ -333,6 +338,36 @@ s32 arm_smccc_get_soc_id_version(void);
-   */
-  s32 arm_smccc_get_soc_id_revision(void);
-
-+#ifndef __ASSEMBLER__
-+
-+/**
-+ * arm_smccc_hyp_present(const uuid_t *hyp_uuid)
-+ *
-+ * Returns `true` if the hypervisor advertises its presence via SMCCC.
-+ *
-+ * When the function returns `false`, the caller shall not assume that
-+ * there is no hypervisor running. Instead, the caller must fall back to
-+ * other approaches if any are available.
-+ */
-+bool arm_smccc_hyp_present(const uuid_t *hyp_uuid);
-+
-+#define HYP_UUID_INIT(r0, r1, r2, r3) \
-+	UUID_INIT( \
-+		cpu_to_le32(lower_32_bits(r0)), \
-+		cpu_to_le32(lower_32_bits(r1)) & 0xffff, \
-+		cpu_to_le32(lower_32_bits(r1)) >> 16, \
-+		cpu_to_le32(lower_32_bits(r2)) & 0xff, \
-+		(cpu_to_le32(lower_32_bits(r2)) >> 8) & 0xff, \
-+		(cpu_to_le32(lower_32_bits(r2)) >> 16) & 0xff, \
-+		(cpu_to_le32(lower_32_bits(r2)) >> 24) & 0xff, \
-+		cpu_to_le32(lower_32_bits(r3)) & 0xff, \
-+		(cpu_to_le32(lower_32_bits(r3)) >> 8) & 0xff, \
-+		(cpu_to_le32(lower_32_bits(r3)) >> 16) & 0xff, \
-+		(cpu_to_le32(lower_32_bits(r3)) >> 24) & 0xff \
-+	)
-+
-+#endif /* !__ASSEMBLER__ */
-+
-  /**
-   * struct arm_smccc_res - Result from SMC/HVC call
-   * @a0-a3 result values from registers 0 to 3
-
-
--- 
-Thank you,
-Roman
-
+Jason
 
