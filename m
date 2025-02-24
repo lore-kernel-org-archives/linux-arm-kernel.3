@@ -4,61 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18693C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 09:34:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B50ACC021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 09:36:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jm/8ruoAO9qULThvArgpJHnnXXQmdGEmsF1uURgFquw=; b=NxNIcxTGiwOcQKgcc3iKV74k9c
-	pjZrxCSUMu7gIHWTaI+nA6kPQ9xuKt0QgkjITV2JHWYa6VtHKTxlb9LS6l3kuJhukpNUEaO++tak3
-	KkKfIf3OUvbRePGRO1vUZh5ItZpg+hZIwIL1X9YEnhnL5BgnX1J2BPFtUgJ6vMls0I49e3+/Ivo5c
-	pwSVAuOMTzZmYGOSC6Dvbewax7LI9eqJMek5LSvdb/Yc+eRugmO43gDpHVBTqLwbwLewQv1IGWJ4Q
-	2KpMw8twMlc+MgugBGFABSFnys/e2ogNER9ZyeU/8x/lSUOnNZFlNt3BWV5ulC5n7+mThDR9wO8vV
-	XZQLyenw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aNM4/TmVJxnqlb7EUxRh0Hh4V0whmIZTNWrmXbvIn0Q=; b=WOarl3RKB71zQc3tLONkkzluLg
+	Ul7tDfSIbWFq2xBdK0lpj7kUnwsL0N5XqD3X70F9bVqMQqJGP7cyGa6zoXTThcM1VCVYjY18eHYcw
+	JYZzL2Im6FUWJ6XmXlK8cnrQyZ5XYXK8UBv1YtWYQ99LE3HgeeaSpz9YhCl9KTJGbcptBjtF5Ekng
+	9S5aYPXXXQYOICRlS6Cd3zfTa5mpJrtwldYOYzKPZ1ZCDTb4YfD+ZIb6USMGARPV3ndgzDQIx57qX
+	1TpQpf7jCHDFxKwESdoGCMlzAXq41kQd6Qu+24TyEoEebn1Xubdx+/jsnp4js7TiVnHK5jiNn/nxr
+	3Skh9DgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmUrG-0000000CwVG-0TTA;
-	Mon, 24 Feb 2025 09:34:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tmUsh-0000000Cweo-39o7;
+	Mon, 24 Feb 2025 09:36:07 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmUUT-0000000CqM6-0NcM
+	id 1tmUWK-0000000Cqtw-3y7e
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 09:11:05 +0000
+	Mon, 24 Feb 2025 09:13:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B895A61183;
-	Mon, 24 Feb 2025 09:10:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 571D5C4CED6;
-	Mon, 24 Feb 2025 09:11:03 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 35EDD5C0170;
+	Mon, 24 Feb 2025 09:12:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5D5CC4CED6;
+	Mon, 24 Feb 2025 09:12:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740388264;
-	bh=paqcVaN+9js9H2BBnIzPb/KQmMraUhcTcdEAOrrYxGc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UVDyb9A6iSFEZR+LjdELpEgVGyTrHax22CwW4kimVb/iLXTObfEsv95EuplSKgtBc
-	 5oUowBkfia/PWtbiRSow61VRZSQVmbFYD6RuAi+aQDfk5QP5t3a5vTE1HHtVr+B9CK
-	 myk1UQDUe+goU/zFwEjgPNeMwTMX64NNYwl34jsmeunRzgU+oexHDv6r+OlHpWtxyt
-	 TzfKctNBcaeHe1aHUHgRjNE+k5yxN2tN4eH9gAfY5kzqN7cN0P4vy0gQFGtG/5nylJ
-	 p1CFFYYDurj9gQex5jiwi5Ba5lGwPbayQsy2BFTfJ4wzexIHkq5cC4FjIqPAZZz+Rd
-	 260/jfeD3TjfQ==
-Date: Mon, 24 Feb 2025 10:11:01 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: benh@kernel.crashing.org, joel@jms.id.au, andi.shyti@kernel.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	andrew@codeconstruct.com.au, p.zabel@pengutronix.de, andriy.shevchenko@linux.intel.com, 
-	linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+	s=k20201202; t=1740388379;
+	bh=nfTjtiHyp8YGDOE8b1GEzYjeYB8+AdaUbbLsHlXE8eo=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=ofGBndUjMXr7JS9BdSm4YcM1dAaIQZc6xxC6EAzaJijdbpp46D/tOjfoPu4kzYyQF
+	 FrwFsCBqhOkr0wt8//5ylpg1cxhyGNAQDnaxY3ARyU0PdbRzM4VeIbhFkLRFdweNvG
+	 bCW4HzXRx4Hk67IzCFUjFbgVHfKNVvje+RkPR+3XY+XPKaTIzCkRO1Ui2DJhgOuWOP
+	 gD61a0hvcyWkv2kICrt0308s/YM4XElfG+H+X6qgOyO7fM9DVLfHZ+0yYzmJno3GuO
+	 a40kvjPKN5UrxcNiLICNqKMzhasx/hbuMymoJTgk3Bs6ZjLLp3zusdYkFg8STC3DkJ
+	 YUOiXClou1RAQ==
+Message-ID: <972b2116-3343-49a6-9304-ed22eb909eaa@kernel.org>
+Date: Mon, 24 Feb 2025 10:12:51 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v16 1/3] dt-bindings: i2c: aspeed: support for
  AST2600-i2cv2
-Message-ID: <20250224-arrogant-adventurous-mackerel-0dc18a@krzk-bin>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: benh@kernel.crashing.org, joel@jms.id.au, andi.shyti@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ andrew@codeconstruct.com.au, p.zabel@pengutronix.de,
+ andriy.shevchenko@linux.intel.com, linux-i2c@vger.kernel.org,
+ openbmc@lists.ozlabs.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org
 References: <20250224055936.1804279-1-ryan_chen@aspeedtech.com>
  <20250224055936.1804279-2-ryan_chen@aspeedtech.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250224055936.1804279-2-ryan_chen@aspeedtech.com>
+ <20250224-arrogant-adventurous-mackerel-0dc18a@krzk-bin>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250224-arrogant-adventurous-mackerel-0dc18a@krzk-bin>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250224_011301_077035_72025BE1 
+X-CRM114-Status: UNSURE (   6.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,98 +125,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 24, 2025 at 01:59:34PM +0800, Ryan Chen wrote:
-> Add ast2600-i2cv2 compatible and aspeed,global-regs, aspeed,enable-dma
-> and description for ast2600-i2cv2.
+On 24/02/2025 10:11, Krzysztof Kozlowski wrote:
 > 
-> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
-> ---
->  .../devicetree/bindings/i2c/aspeed,i2c.yaml   | 58 +++++++++++++++++++
->  1 file changed, 58 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml b/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
-> index 5b9bd2feda3b..356033d18f90 100644
-> --- a/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
-> +++ b/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
-> @@ -44,12 +44,60 @@ properties:
->      description: frequency of the bus clock in Hz defaults to 100 kHz when not
->        specified
->  
-> +  multi-master:
-> +    type: boolean
-> +    description:
-> +      states that there is another master active on this bus
+>> +
+>>  required:
+>>    - reg
+>>    - compatible
+>>    - clocks
+>>    - resets
+>>  
+>> +allOf:
+>> +  - $ref: /schemas/i2c/i2c-controller.yaml#
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            const: aspeed,ast2600-i2cv2
+> 
+> NAK, undocumented compatible.
 
-Except that this wasn't ever tested...
+Heh, and this was in previous versions as well.
 
-Don't duplicate properties. i2c-controller schema has it already.
-
-> +
-> +  aspeed,enable-dma:
-> +    type: boolean
-> +    description: |
-> +      I2C bus enable dma mode transfer.
-> +
-> +      ASPEED ast2600 platform equipped with 16 I2C controllers that share a
-> +      single DMA engine. DTS files can specify the data transfer mode to/from
-> +      the device, either DMA or programmed I/O. However, hardware limitations
-
-so what is byte mode?
-
-> +      may require a DTS to manually allocate which controller can use DMA mode.
-> +      The "aspeed,enable-dma" property allows control of this.
-> +
-> +      In cases where one the hardware design results in a specific
-> +      controller handling a larger amount of data, a DTS would likely
-> +      enable DMA mode for that one controller.
-> +
-> +  aspeed,enable-byte:
-> +    type: boolean
-> +    description: |
-> +      I2C bus enable byte mode transfer.
-
-No, either this is expressed as lack of dma mode property or if you have
-three modes, then rather some enum (aspeed,transfer-mode ?)
-
-
-
-> +
-> +  aspeed,global-regs:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: The phandle of i2c global register node.
-
-For what? Same question as usual: do not repeat property name, but say
-what is this used for and what exactly it points to.
-
-s/i2c/I2C/ but then what is "I2C global register node"? This is how you
-call your device in datasheet?
-
-
-> +
->  required:
->    - reg
->    - compatible
->    - clocks
->    - resets
->  
-> +allOf:
-> +  - $ref: /schemas/i2c/i2c-controller.yaml#
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: aspeed,ast2600-i2cv2
-
-NAK, undocumented compatible.
-
-> +
-> +    then:
-> +      properties:
-> +        reg:
-> +          minItems: 2
-
+You have never tested your DTS. At v16 still no testing. This is not
+acceptable.
 
 Best regards,
 Krzysztof
-
 
