@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21082C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 17:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39F78C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 17:50:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YehX51z9ruoSTdHs0xpzKQo4FPSrQVEIkSiaWIjTk8A=; b=R5OFtEijm+mS6FLHA9xt1SMTrf
-	shAm/T4fEb1Y95AifONvsCKLAmSc7M34/1wss+5O+dvO7HQcB0ncTkZf82xRFS6tId36kJ+NWE8Ay
-	CoxAH9h1edB/GJ0eEJGptYEaVpbn9Eqo2ZvunCEBBYgoB2Ma/emFGkEoehwMpMRPPhiukc6Wszi0M
-	ahr8eo62N7vqgy5EHfyAV/53I0jguxItL35nR2necWOlAudFoZa+pWpmunzu1BiCcVKplvrPOz57/
-	0F6fIPKeI97+FPKm5wGm/Nap9pMSUtRW797Z75hvgDFrY/pclvxiDwUOpuB2wJsyZibcwLudvnWKn
-	NAp9ZFoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rM6j4LxhLEjn1kGDVHysH7RTmZzEzRB3fWDO+/C5SmY=; b=TDuejLXt5H6gPr8GQYqcomxqQY
+	D/9mz+eVNwNmW3H3or5vqJCATqA80JVZCoHI6ifjS5sA10K3GaMDCH49Z3OacNprLXnD1JjmZ7REF
+	18NQkMdCa2P2e+joGbrCc94noExtQBtNEoMmOvGvgJQeQ7wuM3iwnyZClQgdBm/TS6tt5LsFyids9
+	GIaEHybzoDzV4LDPqLYvjYHPx7ByzPXPNhnkVMeOHSHoMUD7G8PBpBaoNJnjQft7iyPmifPPB7wXd
+	OY9RCB8dUVpPSwuXSu7nAQFmWdPWHG34F9qII/gk46Q3odp0aYHqyrEcy2enQ3B0l9EaS46IOcE9/
+	U8VQDJjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmcYR-0000000Egh0-3yf3;
-	Mon, 24 Feb 2025 17:47:43 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tmcaj-0000000Eh8s-1s4G;
+	Mon, 24 Feb 2025 17:50:05 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmcOg-0000000Eedo-3Fi8
+	id 1tmcYj-0000000EgmY-2fII
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 17:37:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 42CB05C5E8A;
-	Mon, 24 Feb 2025 17:36:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8986C4CED6;
-	Mon, 24 Feb 2025 17:37:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740418657;
-	bh=pVP6oSh37lwNecWx7K2k2tpwE4ZYLxObmjX1W2oGxWE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sze/6fdQaK0PlMPWzvgHJPIrUCQ495IMk+EWPQ3KlErm4UcrdtM1WmS8PRIUHnRKD
-	 bs5xju+htMMxr3IYtafwD1Do7fnECEObHlfFC6p/xgcvMiVxXcpbS9UM+FWDrCNzN5
-	 A9Uiu9rqYF7XfgsjjdEYxA+UwLLGit8IJtzLzZBLhSL7p7yjiVZDHQDAt9JT7W6NJl
-	 rYHqVmw8U/l0stw1Cf98pf0KJTlUMLM5JRjlFWzp73rYFY4j6HPwu5SxmHl6O8XUBU
-	 /vS2yh13PpJ5laUJlSj4ElJlJM44kF7zQjE+orV60J+e/oJZIpmDNckX8Yq0xErqMt
-	 uIpAS+mw2OIeg==
-Date: Mon, 24 Feb 2025 11:37:36 -0600
-From: Rob Herring <robh@kernel.org>
-To: Artur Weber <aweber.kernel@gmail.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Stanislav Jakubek <stano.jakubek@gmail.com>,
-	~postmarketos/upstreaming@lists.sr.ht
-Subject: Re: [PATCH v2 1/6] dt-bindings: pinctrl: Add bindings for BCM21664
- pin controller
-Message-ID: <20250224173736.GA3566877-robh@kernel.org>
-References: <20250221-bcm21664-pinctrl-v2-0-7d1f0279fe16@gmail.com>
- <20250221-bcm21664-pinctrl-v2-1-7d1f0279fe16@gmail.com>
- <2b3059be-2a82-44c9-9bf3-d1c98f66b0e8@gmail.com>
+	Mon, 24 Feb 2025 17:48:02 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 1950725B19;
+	Mon, 24 Feb 2025 18:47:57 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id PArui_dNLN8n; Mon, 24 Feb 2025 18:47:56 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1740419266; bh=5Dld904E0IHeG2LNNgItT8r0/muuiN9ws/qnIs7U5TA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=P3g1rziAdnhX2YblNyPfiR3AAhxzFY2a2ndkuJ+aIHo+hULpG9FghSrzHhVtVdkPw
+	 g2kzCK2lwW8jQ+OKADQw2BLZi5hm7jkm6gEYKxoINcdipif3I0+1KkNHELE51n20V1
+	 LQR4Lgx4X9CqwGrTZ7tDQ3gv/xq6Ff5AJJePUs7M/GxohccFfbhaq6n/OR80CLKCdP
+	 owPUxMgy93fpcc7bzJEMIZDhB2hIlMcDs91CL6juJrTqM9t/QbJGhvNpN8im43POvQ
+	 o+FEh2iq9EgOVFiGITvxkinTitrZ++pjeDedL6eeX8Ra7ECzAS/3a9pDmcGZ/9+IkO
+	 15sPoMRjczZ+g==
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2b3059be-2a82-44c9-9bf3-d1c98f66b0e8@gmail.com>
+Date: Mon, 24 Feb 2025 23:17:46 +0530
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>, Chanwoo Choi
+ <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, Michael
+ Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob
+ Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Kaustabh
+ Chakraborty <kauschluss@disroot.org>
+Subject: Re: [PATCH v3 5/5] clk: samsung: add exynos7870 CLKOUT support
+In-Reply-To: <20250219-discerning-affable-chital-1fdff4@krzk-bin>
+References: <20250219-exynos7870-pmu-clocks-v3-0-0d1e415e9e3a@disroot.org>
+ <20250219-exynos7870-pmu-clocks-v3-5-0d1e415e9e3a@disroot.org>
+ <20250219-discerning-affable-chital-1fdff4@krzk-bin>
+Message-ID: <e2ebd4503100ddbbe8d7e21290329e38@disroot.org>
+X-Sender: kauschluss@disroot.org
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_093738_853161_13B4DF0D 
-X-CRM114-Status: GOOD (  15.56  )
+X-CRM114-CacheID: sfid-20250224_094801_808880_E734880E 
+X-CRM114-Status: GOOD (  17.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,44 +81,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 21, 2025 at 09:37:48PM +0100, Artur Weber wrote:
-> On 21.02.2025 21:32, Artur Weber wrote:
-> > Add device tree bindings for the pin controller included in the
-> > BCM21664 chip. The bindings are based off brcm,bcm11351-pinctrl.yaml;
-> > both chips use the same driver, but have different pins, and the
-> > BCM21664 has 6 alt modes instead of 4.
-> > 
-> > Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
-> > ---
-> > (...)
-> > +examples:
-> > +  - |
-> > +    pinctrl@35004800 {
-> > +      compatible = "brcm,bcm21664-pinctrl";
-> > +      reg = <0x35004800 0x7f0>;
-> > +
-> > +      dev-a-active-pins {
-> > +        /* group node defining 1 standard pin */
-> > +        std-grp0 {
-> > +          pins = "gpio00";
-> > +          function = "alt1";
-> > +          input-schmitt-enable;
-> > +          bias-disable;
-> > +          slew-rate = <1>;
-> > +          drive-strength = <4>;
-> > +        };
-> > +
-> > +        /* group node defining 2 I2C pins */
-> > +        i2c-grp0 {
-> > +          pins = "bsc1clk", "bsc1dat";
-> > +          function = "alt2";
-> > +          bias-pull-up = <720>;
-> > +          input-enable;
+On 2025-02-19 13:41, Krzysztof Kozlowski wrote:
+> On Wed, Feb 19, 2025 at 12:20:32AM +0530, Kaustabh Chakraborty wrote:
+>> Exynos7870's CLKOUT registers are the same as Exynos5's. Add the PMU
+>> compatible to the existing CLKOUT ID list.
+>> 
+>> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+>> ---
+>>  drivers/clk/samsung/clk-exynos-clkout.c | 3 +++
+>>  1 file changed, 3 insertions(+)
+>> 
+>> diff --git a/drivers/clk/samsung/clk-exynos-clkout.c b/drivers/clk/samsung/clk-exynos-clkout.c
+>> index 2ef5748c139b37ca5429b9071ee0e06f44fcf28e..9a31b1c311b45096f1d680b6724571854c08725c 100644
+>> --- a/drivers/clk/samsung/clk-exynos-clkout.c
+>> +++ b/drivers/clk/samsung/clk-exynos-clkout.c
+>> @@ -75,6 +75,9 @@ static const struct of_device_id exynos_clkout_ids[] = {
+>>  	}, {
+>>  		.compatible = "samsung,exynos5433-pmu",
+>>  		.data = &exynos_clkout_exynos5,
+>> +	}, {
+>> +		.compatible = "samsung,exynos7870-pmu",
+>> +		.data = &exynos_clkout_exynos5,
 > 
-> bias-pull-up should not have a value (pull up strength is not
-> supported). Will fix this in the next version.
+> I wonder why do we need to keep growing this list? All devices are
+> compatible, aren't they?
 
-Please make the schema enforce that, not just fix the example.
+Well, there are two variants of compatibility having different mask
+values.
 
-Rob
+> Do you use clkout, BTW?
+
+Using the clocks defined by clkout? No. I added it as downstream
+had it too. And the devices work fine without it. If you want me
+to remove this patch and send the PMU patch to its respective
+series I'll do that then (unless you object or suggest something
+else).
+
+> Best regards,
+> Krzysztof
 
