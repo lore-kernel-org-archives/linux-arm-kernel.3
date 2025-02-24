@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9E81C021BB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 20:15:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F0F9C021BB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 20:17:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PX2xYoeXuWV6mk5F9uoheYfJE5K6HuHLujN3K6Dig+A=; b=OeOWRHoSxqwT4D49S6ThYL8l6O
-	XScgSuMJKRyoZ1yNfGrzAwvGJNip79YGLZgmbD/49/JpFKMCbNMJZ+pC9d0U5Vr3NkNhhHvgGgFZm
-	GMiivAtUzQiPqgqX3dfOVp+oAyhRPnaiFHDlOjD5tpmWKYRfO50n/+y6tTDEVDO2XoIPhC1S3oMz6
-	lpY12q19ER4BkPceWUGozGi46jsmBdqFQ9HDYsHkIVxZdhGrwACoFHPZBkoCLellGCnKc6FoHSwHg
-	bm1rQqPJL6p7lRAU4OYDDuP+7LM0QMOYXM0RlNxMJC9OdXc+tKbJ9fMrrxp1mHcdJJ3y7kFubRWNl
-	Z3U6b28Q==;
+	bh=XnmD8NZ76hN2TD62f1RhP9wc/6o9wFnAA4l3dnD7Z3g=; b=KF2QxY3dpUI5JWr0gnV98dyiav
+	USdxaX/TBXoe6gqlGn+iLUAkK7rsKIlIWu/F/8d4UoyJuWFQKaO4rNAhR5RFN2IfWhUCkto4XL4e6
+	m/8emXRXNvo9psS5xrsSPMYHZ3n0MQrZZNrq7ACYC9NxznyyZBQuHYU59maLQbmk96hOxNhqH82AO
+	C0EjKQO2RkEQVSGYpVCpC5bX4qRmBrKIvPsUB2iiKXrK7R2VsfZb/mEHUTV/SGf4tZQZTuetIzLd5
+	QLz4eY9hiKxAlkJjC+/6fO2YBnM4HslAh6quDPcBG/GbZHdUO8qPfWC4FtxnF0jwGUXZMqwG9k4Q5
+	PfBrrWVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmerl-0000000F41i-29oF;
-	Mon, 24 Feb 2025 20:15:49 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tmetD-0000000F4Ac-2KDQ;
+	Mon, 24 Feb 2025 20:17:19 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmelt-0000000F30P-3Kb2;
-	Mon, 24 Feb 2025 20:09:46 +0000
+	id 1tmemJ-0000000F35z-1jwb
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Feb 2025 20:10:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E45BE5C3A57;
-	Mon, 24 Feb 2025 20:09:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FFD3C4CED6;
-	Mon, 24 Feb 2025 20:09:44 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id AD9385C4B84;
+	Mon, 24 Feb 2025 20:09:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AAFFC4CED6;
+	Mon, 24 Feb 2025 20:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740427784;
-	bh=YWblvzyL6cWwWDLx/Cb21hLUSZ83nNZh13vfA6xbIdw=;
+	s=k20201202; t=1740427810;
+	bh=oMyxUXCNCt5QbA9y/tZas4vEAJMKHD5JIO/9lW44SUk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=j9WqobFEmTEBiK03iSDs7rBWeNj2Enp3iOKbXMubwdCVqTH3nR7Z6Orq2THBIQCa6
-	 zIsqI2hSJvv8RohqUfpxeUDzAdGknsZ/+3W/kxe409xhPovrxLr7xHdy0waAMMWXju
-	 RfsTSuvr0gFY68ScJwgAX+qMUX14rPFUEJgRO9s1FhJAWAEq4w10TvVOObvqldia9d
-	 pb0Bqp/f8NaTDha2k/C71GuXPDL8M9JzTRflwH18Eh/RfsSLKyyKQS1hKwlFyF5VgM
-	 ak7+42bDdgp2CrkD7ZDEXBu/Gce+GuYtHiXIeEvjqdECRCr66UOZOV5wi6ezFKRVtv
-	 hzjlS8AA6+Tug==
-Date: Mon, 24 Feb 2025 14:09:42 -0600
+	b=Sbzk8jyJ0X2AqiIspNONwXAgICaK46vYrAEvI8ULM4VFS5Jc3VelDL/Kxn7Sk+dkv
+	 4NHwKBtu08YVyezofQpAQ2wirDnS+/llCLYOtML9P6iQ011S4YvfpEG27A9OK8zcGC
+	 F/lStpEFZU6nv2ahrVqTrsL8bw8Wij0YPWkBDj+5CDginuNIdRNSJcPQWf7J5M+k3M
+	 LJdznxaoray8yz2g/StcHrwsyJeUOCypO6FOR3F5EpBgcjGiCHcflPyTLDfBTrrHF2
+	 8f/G5PHUgK5QG7nyQdUWTEl4AhSWJ3bAEtoVuER/w61oDDL41STFBHaACNg4ZTANHk
+	 jtYZtlisSskbQ==
+Date: Mon, 24 Feb 2025 14:10:08 -0600
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Damon Ding <damon.ding@rock-chips.com>
-Cc: andy.yan@rock-chips.com, boris.brezillon@collabora.com,
-	cristian.ciocaltea@collabora.com, devicetree@vger.kernel.org,
-	l.stach@pengutronix.de, dri-devel@lists.freedesktop.org,
-	andrzej.hajda@intel.com, conor+dt@kernel.org, hjc@rock-chips.com,
-	linux-kernel@vger.kernel.org, heiko@sntech.de,
-	linux-rockchip@lists.infradead.org, jonas@kwiboo.se,
-	sebastian.reichel@collabora.com, Laurent.pinchart@ideasonboard.com,
-	jernej.skrabec@gmail.com, linux-arm-kernel@lists.infradead.org,
-	dmitry.baryshkov@linaro.org, neil.armstrong@linaro.org,
-	rfoss@kernel.org, krzk+dt@kernel.org, dianders@chromium.org
-Subject: Re: [PATCH v7 11/15] dt-bindings: display: rockchip: analogix-dp:
- Add support for RK3588
-Message-ID: <174042778228.4021934.12821302542409218645.robh@kernel.org>
-References: <20250224081325.96724-1-damon.ding@rock-chips.com>
- <20250224081325.96724-12-damon.ding@rock-chips.com>
+To: Shengjiu Wang <shengjiu.wang@nxp.com>
+Cc: festevam@gmail.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
+	krzk+dt@kernel.org, linux-sound@vger.kernel.org,
+	lgirdwood@gmail.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	shawnguo@kernel.org, linux-arm-kernel@lists.infradead.org,
+	broonie@kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev
+Subject: Re: [PATCH 1/2] ASoC: dt-bindings: fsl,easrc: Reference common DAI
+ properties
+Message-ID: <174042780757.4022495.9496011863536978047.robh@kernel.org>
+References: <20250224090413.727911-1-shengjiu.wang@nxp.com>
+ <20250224090413.727911-2-shengjiu.wang@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250224081325.96724-12-damon.ding@rock-chips.com>
+In-Reply-To: <20250224090413.727911-2-shengjiu.wang@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_120945_873876_8752D92D 
-X-CRM114-Status: GOOD (  14.24  )
+X-CRM114-CacheID: sfid-20250224_121011_504977_7A846371 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,44 +79,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 24 Feb 2025 16:13:21 +0800, Damon Ding wrote:
-> Compared with RK3288/RK3399, the HBR2 link rate support is the main
-> improvement of RK3588 eDP TX controller, and there are also two
-> independent eDP display interfaces on RK3588 Soc.
+On Mon, 24 Feb 2025 17:04:12 +0800, Shengjiu Wang wrote:
+> Reference the dai-common.yaml schema to allow '#sound-dai-cells' and
+> "sound-name-prefix' to be used.
 > 
-> The newly added 'apb' reset is to ensure the APB bus of eDP controller
-> works well on the RK3588 SoC.
-> 
-> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-> 
+> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
 > ---
-> 
-> Changes in v2:
-> - Add the main defferences of the RK3588 eDP and the previous versions
->   in commit message
-> 
-> Changes in v3:
-> - Expand the property clock-names, resets and reset-names
-> 
-> Changes in v4:
-> - Remove 'spdif' clock which added in v3
-> - Add the comment of newly added 'apb' reset in commit message
-> 
-> Changes in v5:
-> - Put the differences between RK3288/RK3399 and RK3588 into 'allOf'
-> 
-> Changes in v6:
-> - Keep the widest constraints and add only RK3588 related constraints
->   into 'allOf'
-> 
-> Changes in v7:
-> - Fix the errors related to 'reset-names'
-> - Remove unnecessary 'maxItems' under 'reset-names'
-> ---
->  .../rockchip/rockchip,analogix-dp.yaml        | 22 +++++++++++++++++--
->  1 file changed, 20 insertions(+), 2 deletions(-)
+>  Documentation/devicetree/bindings/sound/fsl,easrc.yaml | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
 > 
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
