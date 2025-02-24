@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95626C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 16:07:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA7CFC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 16:29:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
+	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z4liPRUauSk7j3cphN3GxnVBQH70wiNZYYEv+G4e9rg=; b=Ag7nG9rYjRkqqZ1+n3mTdv0FJJ
-	J3H4YCMzO9S8ExT6OiYNawgRMgCRccvHk9szpF8a1upak6a9U38fx8CpYvrV3J8ndgZNCqLXnbYqg
-	J8OaVHXKOOvfiMfs/hP5rURM/0qr9NRredT4jPVP0Dcf8HnvQvMz5X2PRGfzdc1Ilz71c77OH33uF
-	GeHuoYbwWYPPsZPUefG57TK1cUJqKXiDnk11oNZg5INR13x9vB7D74Tw7wtBndonK/sYROEw5lu4i
-	XbbqOYU/cCNjDDv5g3umEeSHTfMPmhdovJtWqPPTOejLE5GQWyBZwmH2RGXlkhFjukg4nq0ieaxyS
-	dpLOREoQ==;
+	bh=ejxJxjGKAAfQRBFmJWKeW9bc62PHTjH8bG/g1795Hcw=; b=UmU35il0wzLS+475hAi/yJ2HeU
+	ZNAst0tNh4psnan7VFikXuWUnwM/ShoD9Qf8+5psDwDAjWa9xhRayn1g+TViH6fBaJqz3+Xk0SzF/
+	7dkSIrMAhZbQwvItgxi9pkNJC1zDxfIbGGwzXxBjWpsNJPj6C/MFiNd3SvW9PrKpjqt9dKDqQmjJK
+	LfPGnJ3il6ZKyIBWCRijIkSyOlufmofWI3nliC7+a/GYrwWwAYyibsYB6AZvT256VBTebvU1XotiP
+	avCA+MOe5DFClOOwYZOO3nwflG9229lJYVG5S7tz+dQ7P5K40SvJccq+kEbYa1Kp+LOuGkZhTWHce
+	anFKIn9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmazT-0000000EPO8-0hrO;
-	Mon, 24 Feb 2025 16:07:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmaxs-0000000EP9C-0h6K
+	id 1tmbKo-0000000ESG5-47Bm;
+	Mon, 24 Feb 2025 16:29:34 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmbJG-0000000ES7z-05p6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 16:05:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 074DE1477;
-	Mon, 24 Feb 2025 08:06:05 -0800 (PST)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D0BE73F6A8;
-	Mon, 24 Feb 2025 08:05:45 -0800 (PST)
-Date: Mon, 24 Feb 2025 16:05:43 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Leo Yan <leo.yan@arm.com>
-Cc: Rob Herring <robh@kernel.org>, Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	James Clark <james.clark@linaro.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH v20 11/11] perf: arm_pmuv3: Add support for the Branch
- Record Buffer Extension (BRBE)
-Message-ID: <Z7yY19UtSnND5KTl@J2N7QTR9R3.cambridge.arm.com>
-References: <20250218-arm-brbe-v19-v20-0-4e9922fc2e8e@kernel.org>
- <20250218-arm-brbe-v19-v20-11-4e9922fc2e8e@kernel.org>
- <20250224122507.GE8144@e132581.arm.com>
- <CAL_Jsq+0fZ2uasgAam7qGTdCeDBQxXeyL-J1_suyxy6GE_ERTg@mail.gmail.com>
- <20250224140317.GF8144@e132581.arm.com>
+	Mon, 24 Feb 2025 16:27:59 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tmbIv-0005GS-HA; Mon, 24 Feb 2025 17:27:37 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tmbIu-002csr-0G;
+	Mon, 24 Feb 2025 17:27:36 +0100
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tmbIu-000DzX-00;
+	Mon, 24 Feb 2025 17:27:36 +0100
+Message-ID: <b00aef9582e223a5770cebc714ad65168eab744b.camel@pengutronix.de>
+Subject: Re: [PATCH v9 2/3] reset: aspeed: register AST2700 reset auxiliary
+ bus device
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Ryan Chen
+ <ryan_chen@aspeedtech.com>,  Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew
+ Jeffery <andrew@aj.id.au>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+Date: Mon, 24 Feb 2025 17:27:35 +0100
+In-Reply-To: <d5d90f03-3db8-4f90-baad-0be4f3d3e0ea@kernel.org>
+References: <20250224095506.2047064-1-ryan_chen@aspeedtech.com>
+	 <20250224095506.2047064-3-ryan_chen@aspeedtech.com>
+	 <71cf8012-3b77-43de-b8ac-54c84a97f9d3@kernel.org>
+	 <d5d90f03-3db8-4f90-baad-0be4f3d3e0ea@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250224140317.GF8144@e132581.arm.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_080552_295100_F219BE38 
-X-CRM114-Status: GOOD (  37.35  )
+X-CRM114-CacheID: sfid-20250224_082758_060771_963498AC 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,105 +85,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 24, 2025 at 02:03:17PM +0000, Leo Yan wrote:
-> On Mon, Feb 24, 2025 at 06:46:35AM -0600, Rob Herring wrote:
-> > On Mon, Feb 24, 2025 at 6:25 AM Leo Yan <leo.yan@arm.com> wrote:
-> > > On Tue, Feb 18, 2025 at 02:40:06PM -0600, Rob Herring (Arm) wrote:
-> > > >
-> > > > From: Anshuman Khandual <anshuman.khandual@arm.com>
-> > >
-> > > [...]
-> > >
-> > > > BRBE records are invalidated whenever events are reconfigured, a new
-> > > > task is scheduled in, or after recording is paused (and the records
-> > > > have been recorded for the event). The architecture allows branch
-> > > > records to be invalidated by the PE under implementation defined
-> > > > conditions. It is expected that these conditions are rare.
-> > >
-> > > [...]
-> > >
-> > > > +static void armv8pmu_sched_task(struct perf_event_pmu_context *pmu_ctx, bool sched_in)
-> > > > +{
-> > > > +       struct arm_pmu *armpmu = *this_cpu_ptr(&cpu_armpmu);
-> > > > +       struct pmu_hw_events *hw_events = this_cpu_ptr(armpmu->hw_events);
-> > > > +
-> > > > +       if (!hw_events->branch_users)
-> > > > +               return;
-> > > > +
-> > > > +       if (sched_in)
-> > > > +               brbe_invalidate();
-> > > > +}
-> > >
-> > > Just a minor concern.  I don't see any handling for task migration.
-> > > E.g., for a task is migrated from one CPU to another CPU, I expect we
-> > > need to save and restore branch records based on BRBE injection.  So
-> > > far, the driver simply invalidates all records.
-> > >
-> > > I think this topic is very likely discussed before.  If this is the
-> > > case, please ignore my comment.  Except this, the code looks good
-> > > to me.
-> > 
-> > Not really discussed on the list, but that was present in v18 (though
-> > not functional because .sched_task() hook wasn't actually enabled) and
-> > Mark removed it. His work is here[1].The only comment was:
-> > 
-> > Note: saving/restoring at context-switch doesn't interact well with
-> > event rotation (e.g. if filters change)
-> 
-> In the brbe_enable() function, it "Merge the permitted branch filters
-> of all events".  Based on current implementation, all events share the
-> same branch filter.
+On Mo, 2025-02-24 at 11:15 +0100, Krzysztof Kozlowski wrote:
+> On 24/02/2025 11:12, Krzysztof Kozlowski wrote:
+> > On 24/02/2025 10:55, Ryan Chen wrote:
+> > > +
+> > > +static void aspeed_reset_unregister_adev(void *_adev)
+> > > +{
+> > > +	struct auxiliary_device *adev =3D _adev;
+> > > +
+> > > +	auxiliary_device_delete(adev);
+> > > +	auxiliary_device_uninit(adev);
+> > > +}
+> > > +
+> > > +static void aspeed_reset_adev_release(struct device *dev)
+> > > +{
+> > > +	struct auxiliary_device *adev =3D to_auxiliary_dev(dev);
+> > > +
+> > > +	kfree(adev);
+> > > +}
+> > > +
+> >=20
+> > Every exported function *must* have kerneldoc.
+> >=20
+> > > +int aspeed_reset_controller_register(struct device *clk_dev, void __=
+iomem *base,
+> > > +				     const char *adev_name)
+> > > +{
+> > > +	struct auxiliary_device *adev;
+> > > +	int ret;
+> > > +
+> > > +	adev =3D kzalloc(sizeof(*adev), GFP_KERNEL);
+> > > +	if (!adev)
+> > > +		return -ENOMEM;
+> > > +
+> > > +	adev->name =3D adev_name;
+> > > +	adev->dev.parent =3D clk_dev;
+> > > +	adev->dev.release =3D aspeed_reset_adev_release;
+> > > +	adev->id =3D 666u;
+> > > +
+> > > +	ret =3D auxiliary_device_init(adev);
+> > > +	if (ret) {
+> > > +		kfree(adev);
+> > > +		return ret;
+> > > +	}
+> > > +
+> > > +	ret =3D auxiliary_device_add(adev);
+> > > +	if (ret) {
+> > > +		auxiliary_device_uninit(adev);
+> > > +		return ret;
+> > > +	}
+> > > +
+> > > +	adev->dev.platform_data =3D (__force void *)base;
+> > > +
+> > > +	return devm_add_action_or_reset(clk_dev, aspeed_reset_unregister_ad=
+ev, adev);
+> > > +}
+> > > +EXPORT_SYMBOL_GPL(aspeed_reset_controller_register);
+> >=20
+> > No, you cannot export functions without users. There is no single user
+> > of this, so this is not justified at all.
+> My mistake, I missed patch #3 which uses it.
+>=20
+> I don't get why do you need to export this in the first place, instead
+> of putting it in the clock driver, as usually expected. Handling child
+> creation is logically the task of the device having children, the
+> parent. Not the child.
 
-Critically, the brbe_enable() function merges the filters of all
-*active* events which have been installed into hardware. It does not
-track all events which can be rotated, and the resulting filter is not
-the same -- it can change as a result of rotation.
+Also, consider basing this on top of:
 
-> When event rotation happens, if without context switch, in theory we
-> should can directly use the branch record (no invalidation, no injection)
-> for all events.
+https://lore.kernel.org/all/20250218-aux-device-create-helper-v4-0-c3d7dfde=
+a2e6@baylibre.com/
 
-No; that only works in *some* cases, and will produce incorrect results
-in others.
-
-For example, consider filtering. Imagine a PMU with a single counter,
-and two events, where event-A filters for calls-and-returns and event-B
-filters for calls-only. When switching from event-A to event-B, it's
-theoretically possible to keep the existing records around, knowing that
-the returns can be filtered out later. When switching from event-B to
-event-A we cannot keep the existing records, since there are gaps
-whenever a return should have been recorded.
-
-There are a number of cases of that shape given the set of configurable
-filters. In theory it's possible to retain those in some cases, but I
-don't think that the complexity is justified.
-
-Similarly, whenever kernel branches are recorded it's necessary to drop
-the stale branches whenever branch recording is paused, as there's
-necessarily a blackout period and hence a gap in the records.
-
-Do you think that you have a case where losing branches across rotation
-*really* matters?
-
-> For a context-switch case, we need to save and re-inject branch record.
-> BRBE record sticks to a process context, no matter what events have been
-> enabled.
-
-I had originally wanted to keep per-event records around, but it doesn't
-work in all cases. One reason events get discarded at context-switch
-time is that CPU-bound events can sample branches, and would
-mis-attribute stale userspace branches to the wrong context when
-switching tasks. There are explicit comments about this in
-amd_pmu_brs_sched_task() and intel_pmu_lbr_sched_task().
-
-Given we discard records when reprogramming events, we *could* try to
-preserve events in some cases, but I suspect that as with the rotation
-case this'll be a lot of complexity for little gain. Note that as we
-discard events when enabling the PMU, we'd throw some task-bound records
-away anyway, and practically the gain would be limited to cpu-bound
-records.
-
-Do you have a reason why you think we *must* keep events around?
-
-Mark.
+regards
+Philipp
 
