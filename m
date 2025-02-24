@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90F30C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 14:31:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC2BC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 14:32:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7FcfdZAXTLXvcHgZD//PibXN7xW8sVKwsd4qd15t5hw=; b=tWFM5ZwmQsGOLY1fcSoJXyoMIS
-	rbhCIW5reVJ0Ap2HU8jvvsI6aeemgNltlufcCOF0kDOfT4V5G3fGCYAJ5IXoKqrx7hmRE4sObfIqg
-	Kda7Ng1HYXaGZsWey6Yc+OA3Q4aqpqE045ItMC5mu+CPCwHK5umxBe/Du/HvjawDxH+u1a8oSteef
-	ooiqIQf8FegZpHOjPHBv9ehrcOG/TgUcTxHrx6f04sslqAI8JKqv+L7ugXrU5A9SZ30ZLaBt1sMs6
-	pXQ9eF0QvUuRVNvazCtd+/ADvp6F7EBsqy9EIlXkzltFGaSEEJNdU/svTVEWkAcM1rPfZcWYjRWzW
-	r9YrhHIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+n/fOwu3vnOZMAca95n4Vw6Au6UlYsDHbq/0YFH5/xk=; b=xi9fKg/AGI4gRSIm+DSx8u496T
+	HQzLEf9kYi8hQ1eGxDN/R6bY0dsesNXjgQpjPN0rAHA5lYLQ1nfotDxHipCVRRnRxdTJUj2s4peUN
+	7f5BQJUT5/UsY9w2wbovjWLriLJat4gDgvy5jc9FR+hjTaD94TVV+ilcrDa9oNrXWrGKi21rGLsAK
+	/TEwQhz9wqtrwiSLAE4vTHGcshEw8j+BNV/wl73BWdLLNNMuHtKLI+x6zkBlk108+NOD7GXOL2cbp
+	57GhxQXg1dL6g1ObAXKfLoTXK39CnfT9zXRcEJvgCkqf/bMoUt2nXExsUfwLA89FNkNMxadL8eilb
+	LX9Yeppg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmZUI-0000000E6Vh-1wT4;
-	Mon, 24 Feb 2025 14:31:14 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmZ2d-0000000E0Ut-0SaE;
-	Mon, 24 Feb 2025 14:02:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1740405757;
-	bh=NtQ8UJ5HySKPPmQnEnNNQwk1UmdTw09FLFYUk5geJ0s=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=lmYWGnuVgm+KmTD5YIxehDk+tVlRC1vDVfK3HtWmF4+Xq4+qBxIDwOjpAaJvHPift
-	 Iui0tPLrBtCwaPZFe1Y0gbWZIrnAXC10sAKWIMuEnQs3olEYWEDjRCysz/YtqhkcYH
-	 lWyzHOV4kXH761x7If9uEk2Ps2sjc7XQNhouXivC3kLAogKB4Fj1QFoIWUjp28UJIW
-	 VwWMp6/+QipGW+jONwhGszvac4z5tVDFcVG86uo2VvwY+0EjwCVhO4/kTG+8wgKlRP
-	 QNzimmhM4cg2etTnbrfvkeV0PvBbGwLAEkIuJjOqVK/BRTREvZESd7DV3lvUAh0NU8
-	 CAzRrDrDeB5rA==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B74F517E00F6;
-	Mon, 24 Feb 2025 15:02:36 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Jason-JH Lin <jason-jh.lin@mediatek.com>
-Cc: Nancy Lin <nancy.lin@mediatek.com>, 
- Singo Chang <singo.chang@mediatek.com>, 
- Yongqiang Niu <yongqiang.niu@mediatek.com>, 
- Sirius Wang <sirius.wang@mediatek.com>, 
- Xavier Chang <xavier.chang@mediatek.com>, Fei Shao <fshao@chromium.org>, 
- Chen-yu Tsai <wenst@chromium.org>, Pin-yen Lin <treapking@chromium.org>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Project_Global_Chrome_Upstream_Group@mediatek.com
-In-Reply-To: <20250224105414.3576243-1-jason-jh.lin@mediatek.com>
-References: <20250224105414.3576243-1-jason-jh.lin@mediatek.com>
-Subject: Re: [PATCH v2] mailbox: mtk-cmdq: Refine GCE_GCTL_VALUE setting
-Message-Id: <174040575668.71176.5895162308675381424.b4-ty@collabora.com>
-Date: Mon, 24 Feb 2025 15:02:36 +0100
+	id 1tmZVk-0000000E6if-1i78;
+	Mon, 24 Feb 2025 14:32:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmZ3L-0000000E0ij-12sy
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Feb 2025 14:03:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 37BD71516;
+	Mon, 24 Feb 2025 06:03:39 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.2.76.71])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 234F93F5A1;
+	Mon, 24 Feb 2025 06:03:22 -0800 (PST)
+Date: Mon, 24 Feb 2025 14:03:17 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Rob Herring <robh@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	James Clark <james.clark@linaro.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
+Subject: Re: [PATCH v20 11/11] perf: arm_pmuv3: Add support for the Branch
+ Record Buffer Extension (BRBE)
+Message-ID: <20250224140317.GF8144@e132581.arm.com>
+References: <20250218-arm-brbe-v19-v20-0-4e9922fc2e8e@kernel.org>
+ <20250218-arm-brbe-v19-v20-11-4e9922fc2e8e@kernel.org>
+ <20250224122507.GE8144@e132581.arm.com>
+ <CAL_Jsq+0fZ2uasgAam7qGTdCeDBQxXeyL-J1_suyxy6GE_ERTg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAL_Jsq+0fZ2uasgAam7qGTdCeDBQxXeyL-J1_suyxy6GE_ERTg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_060239_316269_98C10071 
-X-CRM114-Status: UNSURE (   7.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250224_060323_335480_C977E80A 
+X-CRM114-Status: GOOD (  25.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,25 +77,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Feb 2025 18:50:13 +0800, Jason-JH Lin wrote:
-> Add cmdq_gctl_value_toggle() to configure GCE_CTRL_BY_SW and GCE_DDR_EN
-> together in the same GCE_GCTL_VALUE register.
+On Mon, Feb 24, 2025 at 06:46:35AM -0600, Rob Herring wrote:
+> On Mon, Feb 24, 2025 at 6:25 AM Leo Yan <leo.yan@arm.com> wrote:
+> > On Tue, Feb 18, 2025 at 02:40:06PM -0600, Rob Herring (Arm) wrote:
+> > >
+> > > From: Anshuman Khandual <anshuman.khandual@arm.com>
+> >
+> > [...]
+> >
+> > > BRBE records are invalidated whenever events are reconfigured, a new
+> > > task is scheduled in, or after recording is paused (and the records
+> > > have been recorded for the event). The architecture allows branch
+> > > records to be invalidated by the PE under implementation defined
+> > > conditions. It is expected that these conditions are rare.
+> >
+> > [...]
+> >
+> > > +static void armv8pmu_sched_task(struct perf_event_pmu_context *pmu_ctx, bool sched_in)
+> > > +{
+> > > +       struct arm_pmu *armpmu = *this_cpu_ptr(&cpu_armpmu);
+> > > +       struct pmu_hw_events *hw_events = this_cpu_ptr(armpmu->hw_events);
+> > > +
+> > > +       if (!hw_events->branch_users)
+> > > +               return;
+> > > +
+> > > +       if (sched_in)
+> > > +               brbe_invalidate();
+> > > +}
+> >
+> > Just a minor concern.  I don't see any handling for task migration.
+> > E.g., for a task is migrated from one CPU to another CPU, I expect we
+> > need to save and restore branch records based on BRBE injection.  So
+> > far, the driver simply invalidates all records.
+> >
+> > I think this topic is very likely discussed before.  If this is the
+> > case, please ignore my comment.  Except this, the code looks good
+> > to me.
 > 
-> For the SoCs whose GCE is located in MMINFRA and uses MMINFRA_AO power,
-> this allows it to be written without enabling the clocks. Otherwise, all
-> GCE registers should be written after the GCE clocks are enabled.
-> Move this function into cmdq_runtime_resume() and cmdq_runtime_suspend()
-> to ensure it is called when the GCE clock is enabled.
+> Not really discussed on the list, but that was present in v18 (though
+> not functional because .sched_task() hook wasn't actually enabled) and
+> Mark removed it. His work is here[1].The only comment was:
 > 
-> [...]
+> Note: saving/restoring at context-switch doesn't interact well with
+> event rotation (e.g. if filters change)
 
-Applied to v6.14-next/soc, thanks!
+In the brbe_enable() function, it "Merge the permitted branch filters
+of all events".  Based on current implementation, all events share the
+same branch filter.
 
-[1/1] mailbox: mtk-cmdq: Refine GCE_GCTL_VALUE setting
-      commit: 6b9a5fc65a7880f7ac6a981a0a30b5ecba7bd5ae
+When event rotation happens, if without context switch, in theory we
+should can directly use the branch record (no invalidation, no injection)
+for all events.
 
-Cheers,
-Angelo
+For a context-switch case, we need to save and re-inject branch record.
+BRBE record sticks to a process context, no matter what events have been
+enabled.
 
-
+Thanks,
+Leo
 
