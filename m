@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D39EAC021BC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 20:06:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5960DC021BB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 20:08:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AekzSPGBth5emf9W8MMPPGH/AY7iv/rs/Urm2hfXkCI=; b=gZmUHI9MkxuoGGWfM7H3h2okQz
-	TJy7UT9Nt3rIys6PwDNccG7cRz6lNIz7cmMz44o+fGDHxFQOiLbwSLS/6SqoudoZPRxpCKjGffFLK
-	GOAaez5lmQBPkIn5xaLncm07VyBuk25TayVIm3RshbEVzD7Jnd6jk9H+j+Qw3hFt7miHfZsTw01W9
-	PihqCaw8spEd3U1iHIz+WsQTS6r+4GAS8ZWCN/XSzA8evVaan/Ej2Pe4zxeicTBjd6ijWWmf9x09c
-	56tGmvGm02BcWHKxUP+jSEjulyK0hpCRsN2KTOiABVFCp0tvcs30jKfr2k/VKzvzLx1dckZGDyVzR
-	G9zmnSkg==;
+	bh=8v+VH5qHJ9s8s5Z5uS138U4uFYC8T8PcRHjdrcA0cR4=; b=BeXjx/Zsq++k8xRty9ibdyoxDO
+	vS+EZcPI++XLi+MZ461qnMtr31OcohyjwM9p68D5AmfLqLFQdT7SILThKwzwHw4txm/ITkqVaNcj8
+	MHXlF5BzkaEm5iDEkECpNPY56k4p3MoAnqdNL7Pz1Awdc+rwWYKKHIGyE+iderINPhhIkpVM3E4YZ
+	pbySic7iy6v05CP8bNyujpx19m832uEoX5jRSY7lX9LdJGLQpma5bU3jVaKpjhJ3hJ/6VdYc+g4Qe
+	Jhkk5BY7dwbLEXfmHh1HGWE2Z3ptIyN0y1H8PYVlodB72noUKMk0nTf/+5ArGpMuvXD600+1sCfh2
+	nPeZ+xWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmej3-0000000F2Sa-10l1;
-	Mon, 24 Feb 2025 20:06:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tmekU-0000000F2fX-19C8;
+	Mon, 24 Feb 2025 20:08:18 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmegA-0000000F23R-1WFy;
-	Mon, 24 Feb 2025 20:03:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A15046112C;
-	Mon, 24 Feb 2025 20:03:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FD12C4CED6;
-	Mon, 24 Feb 2025 20:03:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740427429;
-	bh=q+d7nm16qN8obUZdl22kTIu5V70Mi/RYYzCCy6bqBeI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qreTVj6NyKUm6lrRKJbd3QXAxIqqOAJWW8G16C5zFxWhZCQDN1BM6OAGYPLK8+CyZ
-	 1FRGrGG5N7qqtX5xzjmsQYb8/ojIngs7HVgz2F6fXoXPi0coG24ncjg578qVp1tL6V
-	 CTsoZeST5a0x5h1xMyu0fuWWkWEkOVvIpp9G9PaHC2W3yNb8M4ibhsIUNMKB5dojV4
-	 kmpAIrzQk1gIPOzxo1dJ7Pkv4QD1dpfdlV/bNRrqNEEHL5Kd+g3HFabCw85n+SVN0q
-	 sIX/kHXEUh1r4I/KgO/yF9HVqbfplwRbkd+TsnyVKxb+IupTJ0hZjpXP1SlA2uRG7l
-	 pefph794JXEvA==
-Date: Mon, 24 Feb 2025 14:03:47 -0600
-From: Rob Herring <robh@kernel.org>
-To: Andy Yan <andyshrk@163.com>
-Cc: heiko@sntech.de, hjc@rock-chips.com, mripard@kernel.org,
-	cristian.ciocaltea@collabora.com, neil.armstrong@linaro.org,
-	yubing.zhang@rock-chips.com, krzk+dt@kernel.org,
-	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, sebastian.reichel@collabora.com,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: Re: [PATCH 1/6] dt-bindings: display: rockchip: Add schema for
- RK3588 DPTX Controller
-Message-ID: <20250224200347.GA4011821-robh@kernel.org>
-References: <20250223113036.74252-1-andyshrk@163.com>
- <20250223113036.74252-2-andyshrk@163.com>
+	id 1tmeiA-0000000F2KB-18sR;
+	Mon, 24 Feb 2025 20:05:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=8v+VH5qHJ9s8s5Z5uS138U4uFYC8T8PcRHjdrcA0cR4=; b=hiJM3wShZ1F6hQpNG6O5e6tdzx
+	liLjE0PO4fhNah/NHBzsmkK7ZvMVvyR41x86x6eyBT9i11DssvhJd+4tln34zkg4VW1lR2zHeufsA
+	pW8KXOqR+Nupxk+pxToKpdFFIXJZhweIaOIJeiQVPn8rblXCaY3DQXskY5QkIqJMCAkY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tmei4-00HHMQ-Hw; Mon, 24 Feb 2025 21:05:48 +0100
+Date: Mon, 24 Feb 2025 21:05:48 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Drew Fustini <drew@pdp7.com>, Eric Dumazet <edumazet@google.com>,
+	Fu Wei <wefu@redhat.com>, Guo Ren <guoren@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 1/2] net: stmmac: thead: use rgmii_clock() for
+ RGMII clock rate
+Message-ID: <09e0ee41-f061-4e24-a58d-477758812f74@lunn.ch>
+References: <Z7iKdaCp4hLWWgJ2@shell.armlinux.org.uk>
+ <E1tlTo8-004W3a-CO@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250223113036.74252-2-andyshrk@163.com>
+In-Reply-To: <E1tlTo8-004W3a-CO@rmk-PC.armlinux.org.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250224_120554_307004_7FE48599 
+X-CRM114-Status: UNSURE (   6.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,54 +79,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Feb 23, 2025 at 07:30:24PM +0800, Andy Yan wrote:
-> From: Andy Yan <andy.yan@rock-chips.com>
+On Fri, Feb 21, 2025 at 02:15:12PM +0000, Russell King (Oracle) wrote:
+> Switch to using rgmii_clock() to get the RGMII TXC rate, and calculate
+> the divisor from the parent clock rate and the rate indicated by
+> rgmii_clock().
 > 
-> The Rockchip RK3588 SoC integrates the Synopsys DesignWare DPTX
-> controller. And this DPTX controller need share a USBDP PHY with
-> the USB 3.0 OTG controller during operation.
-> 
-> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-> 
-> ---
-> 
->  .../display/rockchip/rockchip,dw-dp.yaml      | 150 ++++++++++++++++++
->  1 file changed, 150 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
-> new file mode 100644
-> index 000000000000..b48af8c3e68b
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
-> @@ -0,0 +1,150 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/display/rockchip/rockchip,dw-dp.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Rockchip DW DisplayPort Transmitter
-> +
-> +maintainers:
-> +  - Andy Yan <andy.yan@rock-chips.com>
-> +
-> +description: |
-> +  The Rockchip RK3588 SoC integrates the Synopsys DesignWare DPTX controller
-> +  which is compliant with the DisplayPort Specification Version 1.4 with the
-> +  following features:
-> +
-> +  * DisplayPort 1.4a
-> +  * Main Link: 1/2/4 lanes
-> +  * Main Link Support 1.62Gbps, 2.7Gbps, 5.4Gbps and 8.1Gbps
-> +  * AUX channel 1Mbps
-> +  * Single Stream Transport(SST)
-> +  * Multistream Transport (MST)
-> +  *Type-C support (alternate mode)
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-???   ^
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Otherwise,
-
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+    Andrew
 
