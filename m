@@ -4,152 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 608FCC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 19:53:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 857FBC021BB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 19:55:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=txWpIhHIPTiPy1KE/Yga9qd2isT5p5xWtJOv6nRNVpw=; b=vauEfVR9xTRN5nDf/aTRVGc24Y
-	6mOKu5uJ8xST86u8aegdKrw5FYHgG5SsJncUfYvybhkTVg0JunHURrIYTDA531LQc2IOCC+jdYXKU
-	jsBEkTQa830k8AuqXG6ULvzYrwSHcTbbQorkvM3xVskgt0T+vOkLkn+LxZeAxdgzEz4zhCRCJinXE
-	Nl/zuMzVItDsDlvZOluiWHUdDPLjvVoROzgeKFiNTWMdHdfo5sreN2PmKYsvpAQ0nCAD43y4ujgpO
-	07JU6gt/Z+0lFgmXdwr2HyowqzrKmFryndOv/S9t70xKfJD17hx/BsRKUxfcbWuHwuE5kli9Dp/7p
-	5lR4ry6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7Xh1+d4+0/2s7r35AQ1iEnqkZSbg7dbv/TfdOk1/Ssg=; b=pEMuG9qdDNKkKnMLogsW9vQgqC
+	9TZExZCSVFsLMa4JYqPF+9H75D2amofZ2SdarsyG8PdSzXu+51jTgYNQCbkY1CwjBjNJpG7bDPXkY
+	YujfSRkTY0klSw6DsQd4n3jhkBkRAPsNEQU2mcW2xIjd+VAOuck/BAKV/F1YORCSsKlbj/yQMGem6
+	dYlfYodpKIATJ5d+Ebxp3+KJt1n2MAlj+PrsLFThBIMhFUbrAA1pKidzrEjgZnTeyBJ5KgH4p4Mqd
+	wuIAYoNkqhajzZvru69KIPwoXFtN1xw7u3wVqVkxYp3DzaCFeIAx6cM7Gji8Dtk72RdPZ4TbFK1Bb
+	cpcuQ8Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmeW7-0000000F0Ts-1m9M;
-	Mon, 24 Feb 2025 19:53:27 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	id 1tmeXZ-0000000F0dI-0MgN;
+	Mon, 24 Feb 2025 19:54:57 +0000
+Received: from out-172.mta1.migadu.com ([95.215.58.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmeUc-0000000F0HO-1evB
+	id 1tmeVo-0000000F0RU-0eUK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 19:51:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nAnGJjIwdXoL9s57RF6jx8JL81XKwCrehIlnDvvVQtv5+4sYRwABpNexGUpSz6C/OX+1oRS/m6iRJ5v6Z3WhwGgzJdvNxPb7wUzOgWvwaaucqWLG2lR+4DAhD4aPzWy8X9myzi/9U5MZ6XGu7As2qtJEH97loDyrD2rjm4KzxAg3M+bg7KUPtzpjRc7E+gzg29jHgK1QOrWYIK+IE8dSTShzWGhCZA1TFy4eC3wgckG6aZSc/brdIxEgldtTtoiht2lU83JKFwax9JCn/6Mcvua5BuHu0tCWrQav0d8y69lg/o9tv8Op7WYNfBd2Ptr4LaTVr4DjwgZm9kIzHokNwA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=txWpIhHIPTiPy1KE/Yga9qd2isT5p5xWtJOv6nRNVpw=;
- b=u+z5tPL9qpxFaaJwRUzraV+Rg8ktrFQt9Kgj78Oi81pv9E8hP4gl62ZfyW7MCJc/RiEJXFI8j0QsgZ/Y1lauZOnHruExIZEZdTVnHg7sdmA2VZUyZxwbKTmA7ICIA1H3wssyukUBn0qB/dCW09myVir7mY0EYww7M2QhszWcClSfIo59lwWAEFlR3x+OxcKfT0aqLbPppLFOsU2xrZ+3RIGDHQl5Fu13mvqhRQMYaEjOFpmy4DIqRbLB2UJA7uCmM5kj4a12frhepyYXcdOD580/uUl9jeykOmg0DSfGDd5cOKWwTyEeP5IdNQFEn9KT8lfS7njlAhMxIO8WUOti8Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=txWpIhHIPTiPy1KE/Yga9qd2isT5p5xWtJOv6nRNVpw=;
- b=bQk8jn0gEGEEzejGGra4OYvoimJri/EOASXyEBoAQet4C9PULZolohwbLM8At2OyPFIKi+1WXwWmPsLYZNECc9FKT6/oLOS/ds9BRmL5bqcI4ED5yNhh67siNBCF2ZYTtRPuKsBAr1HVNjtx7WCYLiuVXrrbxh0PARsoEHncZFvboI+6CLAwUjAYmJzIfVf9/oBlOr++senuyB4+4EJv+rke/QzAr9tyf7r/ZYawd63k+Qdi8GeKRxVpqnlO9FK++TurBpC9KCUjS+C2tkUdMW8tzC1Gaw7upo7PzYIiv12eRwVoXbJW8rov5RbRx1felX6cSLukJUz/yvWOgMWzoA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PR3PR04MB7401.eurprd04.prod.outlook.com (2603:10a6:102:8d::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.20; Mon, 24 Feb
- 2025 19:51:47 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8466.016; Mon, 24 Feb 2025
- 19:51:46 +0000
-Date: Mon, 24 Feb 2025 14:51:38 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Mihalcea Laurentiu <laurentiumihalcea111@gmail.com>
-Cc: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 3/3] arm64: dts: imx: add imx95 dts for sof
-Message-ID: <Z7zNymSs5qeHp9wL@lizhi-Precision-Tower-5810>
-References: <20250211225808.3050-1-laurentiumihalcea111@gmail.com>
- <20250211225808.3050-4-laurentiumihalcea111@gmail.com>
- <Z6vcBvs4xGQ+pGCJ@lizhi-Precision-Tower-5810>
- <36ca7549-aee7-4f14-9311-77978a42362a@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <36ca7549-aee7-4f14-9311-77978a42362a@gmail.com>
-X-ClientProxiedBy: BYAPR01CA0064.prod.exchangelabs.com (2603:10b6:a03:94::41)
- To PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+	Mon, 24 Feb 2025 19:53:09 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1740426782;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=7Xh1+d4+0/2s7r35AQ1iEnqkZSbg7dbv/TfdOk1/Ssg=;
+	b=aN0tE1Pd1MEvzE4n+wYxC+wbOBiJbdoTQwM05uEvYofjAXAPxnfokLf1kAfI9sWOuqxmp8
+	hhsHxyhQr/nWZPPkewHxSc9EC8AH5L8F7zz3RIfJnceWkFkmSz3C2J52Frot0hhPBuWoXj
+	cFWZwESFmcvtbDmYJQ662pddCSqOVuo=
+From: Oliver Upton <oliver.upton@linux.dev>
+To: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Eric Auger <eric.auger@redhat.com>,
+	gankulkarni@os.amperecomputing.com
+Subject: Re: (subset) [PATCH v2 00/14] KVM: arm64: NV userspace ABI
+Date: Mon, 24 Feb 2025 11:52:52 -0800
+Message-Id: <174042670061.586392.7441716091084012083.b4-ty@linux.dev>
+In-Reply-To: <20250220134907.554085-1-maz@kernel.org>
+References: <20250220134907.554085-1-maz@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PR3PR04MB7401:EE_
-X-MS-Office365-Filtering-Correlation-Id: 10e1e3e0-5006-429b-0403-08dd550cabcd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|52116014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?q1Nrjo7G/yPKF1dpb1uTlWkmyVW7WMrL8ES4FqgDbSEDpbQa+0Yv55Bm5SAw?=
- =?us-ascii?Q?VyC6kAUNBhvuMn4q3Rl9HrDc+Vs6WoQj+pcxaxdyAzd3gxXydi4QBuf4jvTA?=
- =?us-ascii?Q?0bZCRfBTK5yY5xqLBLD38G68KhMZkWMvLPZLhOSYOOdZOksoRkzBLH5AQ7B9?=
- =?us-ascii?Q?EypstEihYR+veNFZLvGHzXhSBxx2gXrUnmgVnOiNKyLoNIx7acAgAwr55OiU?=
- =?us-ascii?Q?8DQKGPbkh2zjezTvvnCozMjaLYF30NNAougEnGVr3pPtNN2qFZFCbeCOzQZB?=
- =?us-ascii?Q?kk1w4J84tBYxvbYG6DBP3DfNDsJoF/xoEQQgNXpvu/vBp81uGeuXvoo30Vml?=
- =?us-ascii?Q?fQYCXOrdn6YOsID4YYBM9UrSowL919LMZD243+Hc3hyyp7RKZVF/ZCTDYPMB?=
- =?us-ascii?Q?sE5fP0ffYdyRxggQoBLjT0ogefltACYORG6zVeH5baRoYEnwxTLMohCn9MHT?=
- =?us-ascii?Q?9rrboQ9B9PmlMtLOQfIESQuPHqnbFtxML2MLsJK1Ay+TREi7y7yyTGqYCjJv?=
- =?us-ascii?Q?pweqKeCt9N4p1vVDJjX3M1zu4/o2BusLKRdCaOzskr0sninFUmRv0b/oiE1D?=
- =?us-ascii?Q?+nVg9vrAfKNrnQDhJLX7iDoI/tsXkZE6Xc5HIlo9XQjlVUVwaSF7INbqLZXG?=
- =?us-ascii?Q?BOs119wj78JoA51D6bl2+/qIu9sIweyFiv8AmhpD9QVHKplM9+7iZ0q52hfc?=
- =?us-ascii?Q?WKUBFOoiUjws1FuLanRpDbDj4Q62x17t1dpRa6nliDCrpWpa25SpD48MFmDj?=
- =?us-ascii?Q?RzZuSjGYH0+ch3wdqZ1yNzr5oZwElrMxzqu+3XwMsUled8pIM6sUiwppZ/9S?=
- =?us-ascii?Q?WNL0WJ3nddZl3g0xD4T2WgrK6L1/814dT1pP1+VJolbBXZgfVKTn/bX6c4SW?=
- =?us-ascii?Q?/92G+0Qtv4UzKlKi+hheFYiDDX2VCV+mhKY7E8JMQ/EoRBWZPY0hCXXSooqF?=
- =?us-ascii?Q?ZT2maJVXqK0TslInXGDrm0imZ6LBiYY7oonOgBc/bFP26ZWRvAFS0f/CfgGh?=
- =?us-ascii?Q?6iuPpkTMHqU6Et8RYZ5muOzGCrec/tfzKaiUnEoSJzlK8+g0KVu1XeOo2kv6?=
- =?us-ascii?Q?P+VDmGgs9cEzrh6GFvzVS4v+Ukh/BOe5b2MpQ9Y3VlsfXF2Sr0TI6+PIazNK?=
- =?us-ascii?Q?rBq+HDzqMxQDYW/UeiCKGK6WTkLYT+GkQJGfRNh+86q8Esr8WEO+yatkKarg?=
- =?us-ascii?Q?weA6ht2OFRaA/8LQmT+2rDbRLVf6Jp7FDGvyAw41FPhl6rAfjI1j87zGyqoF?=
- =?us-ascii?Q?8jnhEMQxM7bWiJu9B08eOOyTbZ8b4s75VnLgrkGVgSSAheLfS7wzHv3A820i?=
- =?us-ascii?Q?y09nt4viIxVFjCJP4KEWMAn1o0VOM4Fl379XrocKULmcEnO/ink8hxXbFF62?=
- =?us-ascii?Q?42SoMC/RXvYB38mC7Q1Ui/oj0FasfChvuRXvcayNL6++maFhzmw1wbmfQMiU?=
- =?us-ascii?Q?IR/CYwwgiWf/BBFB2JicXUMruMJmzBAE?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YZrbQUfGHlVoqoAot6xNMlbtRjgTIB3Nlnf9B93yTCYq2ZiShiHCDoCYCaFh?=
- =?us-ascii?Q?ukBFD9F7v1ydyw8yV9hSHe9UsNkAjTXnCMgg1d8z76vyPXP7qPoMNKTZLpmu?=
- =?us-ascii?Q?TPG+JyA+lH22seUc185ptzKgHm8x8oTEEUGAMleM2fRmrYNbEPo8FTMiIJhJ?=
- =?us-ascii?Q?60Jvw7J5gODghJWM/xRoPCA3PSHnh0FYVR9MpwXhavApAYgAoww/3NRNWK7V?=
- =?us-ascii?Q?PNStYj0CAmKQ634rBIYarXI7Y8sFjxE1hBI1Mfg7wPt8uBUk6qUJ0FRXREfl?=
- =?us-ascii?Q?rDy5EqgZBtQmL2P3+2TiAanltfTee59FA+xPGTxRNjLnz1xm9M5mZjnmnhT7?=
- =?us-ascii?Q?5mY1f8HaOtr8e3fFmYXmU4Vlm+AeUpk7steE6eEK993KZF73v0XpnqJbbm7t?=
- =?us-ascii?Q?HqQmpaBF5wjJq7bkngk5d77tG0ENO5MBXg3ELZqMgHuSujZURFjzQaD1cCAb?=
- =?us-ascii?Q?m7nMvlRsQ4RvEUdMUbotcN37MK8lQMLdvZC59pRxgnEG6pUT8KQDY3qomZjD?=
- =?us-ascii?Q?0676nEFI8rkbnV03WCKxULV8SyD6WAeiO6hnLpUnWMh1x1/0D+1a687aC2jl?=
- =?us-ascii?Q?yJ2DGg4sY4Rdn1AH4j5vzN/rOOLXcnbIJ/BsBVRyxIpS6tHKqH5EzlSJIsRm?=
- =?us-ascii?Q?U0l3MRr/Cj7NTUlHonc1PUPMfNpwwmK9eI9OP1RBbIWvSXsHKgskOnZZGw1Y?=
- =?us-ascii?Q?lUDZgv3JQbvwvwzR1OI/XEOUosieccUg6PIBjHu04uBuMOJ9iB0nkvlmoXTL?=
- =?us-ascii?Q?H6Z6zfLVSSuliu1KrSfuPbyJ3E3a9+tglv2kDK++lUc7nGWh1oObIs2u2lb3?=
- =?us-ascii?Q?Q8Q47B3oRQ12oAodi0zIFXDzUDsg84A91O7YuvQtlgURnF7LL3MPRo4Iq8a8?=
- =?us-ascii?Q?eyGVCw2WfeipX4sicYMKjW7IYH2aifdP4A50dzFCMGiu+f+lWaiXH1NUfBvX?=
- =?us-ascii?Q?kyijhPSbU4Npv60kCE62pfc9r3Cq/WzdZDL0a7rdfNPFtoaAuXdAsYrXERuB?=
- =?us-ascii?Q?eHRKTPR1SL3zrra0RA/DOkkWn+ONKoZdt8d6gmLPqqxy1QKmvMCWqI6mxMas?=
- =?us-ascii?Q?SnuAvAS2rXqF1+9O9+lH6d/iNHXL1JacQZwdYEs0kCSa8t32M4JO87WD9F6y?=
- =?us-ascii?Q?8CWtp36/3N5eArtMY2uxBbuY3gNFixAtxvHs2+F9mD6jjjUkxd002KAE5mtE?=
- =?us-ascii?Q?CPya0cxpBnaCW1WWiN3cVCODU2oDKvV4S+bS+efCPODD4bVgPYKpOnYRkr9e?=
- =?us-ascii?Q?ln/Ri9Wcz4hPEeO2Adnzl/hxt/HkUi2UnuXvpkM0J/0XYOoyBAE2YYmiNxKE?=
- =?us-ascii?Q?OIsw1TxVyz8/IzRe/mzzlDs733azmwlmUtLxfjm+bJC1O60iHlsrfGIccOV5?=
- =?us-ascii?Q?axn42SZiVJY7ONtZMXVpLkzv1Uhh2oGjaFhZKzwJ6AUfDbcOvwS/yOVFOs7N?=
- =?us-ascii?Q?HzcW84JiAaLgVX+9q8Qrh8jEm6XpuDMWF6j3Bq/zQyFG9ysfh+wr2kbJb5jS?=
- =?us-ascii?Q?XaBVRbB9gJ9qUL/slzooWb6xMX93Scuc1wOsUVbC6SFIqI7taSOY16j8P+gH?=
- =?us-ascii?Q?CeA/z+ein090Hbk0CvvorjxrL9hJxihZzx7TFR8U?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 10e1e3e0-5006-429b-0403-08dd550cabcd
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Feb 2025 19:51:46.7849
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8eDuqNmb51jIrOkT/7IScH+qbX33K8jgiNqExZfyNTtFlL7lzktp9R5SXJ7yQyVw36Gh1ful7Z0aTytNICwU6w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7401
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_115154_436392_2CC0D2E7 
-X-CRM114-Status: GOOD (  23.92  )
+X-CRM114-CacheID: sfid-20250224_115308_344563_F8E0B0F9 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,89 +75,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 24, 2025 at 09:17:03PM +0200, Mihalcea Laurentiu wrote:
->
-> On 12.02.2025 01:23, Frank Li wrote:
-> > On Tue, Feb 11, 2025 at 05:58:08PM -0500, Laurentiu Mihalcea wrote:
-> >> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> >>
-> >> Add imx95 DTS for SOF usage.
-> >>
-> >> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> >> ---
-> >>  arch/arm64/boot/dts/freescale/Makefile        |  1 +
-> >>  .../dts/freescale/imx95-19x19-evk-sof.dts     | 85 +++++++++++++++++++
-> >>  2 files changed, 86 insertions(+)
-> >>  create mode 100644 arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts
-> >>
-> >> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-> >> index 839432153cc7..27f64e333e4b 100644
-> >> --- a/arch/arm64/boot/dts/freescale/Makefile
-> >> +++ b/arch/arm64/boot/dts/freescale/Makefile
-> >> @@ -282,6 +282,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxca.dtb
-> >>  dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla.dtb
-> >>  dtb-$(CONFIG_ARCH_MXC) += imx93-var-som-symphony.dtb
-> >>  dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk.dtb
-> >> +dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-sof.dtb
-> > look like should use dt overlay ?
->
->
-> can you pls explain why you'd see this as an overlay?
+On Thu, 20 Feb 2025 13:48:53 +0000, Marc Zyngier wrote:
+> Since the previous incarnation of the ABI was proved to be subtly
+> wrong, I have reworked it to be more in line with the current way KVM
+> operates.
+> 
+> No more late NV-specific adjustment nor writable ID_AA64MMFR0_EL1.VH.
+> The NV configuration is now entirely selected from the vcpu flags.
+> I've preserved the KVM_ARM_VCPU_EL2 flag which enables NV with VHE,
+> and added KVM_ARM_VCPU_EL2_E2H0 which alters the NV behaviour to only
+> allow nVHE guests without recursive NV support.
+> 
+> [...]
 
-It is addtional option, which base on imx95-19x19-evk.dtb. Default wm8962
-is used for built-in dai, this provide option to move it dsp.
+I fixed up the typos, including the one that breaks bisection. Can
+always back this out if anything is out of place.
 
-Ideally this option should work for all boards, which use wm8962.
+Applied to next, thanks!
 
-We try to move MxN problem to M + N. otherwise, there are huge numbers of
-dtb files.
+[01/14] arm64: cpufeature: Handle NV_frac as a synonym of NV2
+        https://git.kernel.org/kvmarm/kvmarm/c/88aea41b9bc5
+[02/14] KVM: arm64: Hide ID_AA64MMFR2_EL1.NV from guest and userspace
+        https://git.kernel.org/kvmarm/kvmarm/c/9d6745572899
+[03/14] KVM: arm64: Mark HCR.EL2.E2H RES0 when ID_AA64MMFR1_EL1.VH is zero
+        https://git.kernel.org/kvmarm/kvmarm/c/d9f943f76506
+[04/14] KVM: arm64: Mark HCR.EL2.{NV*,AT} RES0 when ID_AA64MMFR4_EL1.NV_frac is 0
+        https://git.kernel.org/kvmarm/kvmarm/c/8f8d6084f5b5
+[05/14] KVM: arm64: Advertise NV2 in the boot messages
+        https://git.kernel.org/kvmarm/kvmarm/c/2cd9542a375a
+[06/14] KVM: arm64: Consolidate idreg callbacks
+        https://git.kernel.org/kvmarm/kvmarm/c/57e7de2650c8
+[07/14] KVM: arm64: Make ID_REG_LIMIT_FIELD_ENUM() more widely available
+        https://git.kernel.org/kvmarm/kvmarm/c/179fd7e30f04
+[08/14] KVM: arm64: Enforce NV limits on a per-idregs basis
+        https://git.kernel.org/kvmarm/kvmarm/c/e7ef6ed4583e
+[09/14] KVM: arm64: Move NV-specific capping to idreg sanitisation
+        https://git.kernel.org/kvmarm/kvmarm/c/94f296dcd6d9
+[10/14] KVM: arm64: Allow userspace to limit NV support to nVHE
+        https://git.kernel.org/kvmarm/kvmarm/c/f83c41fb3ddd
+[11/14] KVM: arm64: Make ID_AA64MMFR4_EL1.NV_frac writable
+        https://git.kernel.org/kvmarm/kvmarm/c/642c23ea8b45
+[12/14] KVM: arm64: Advertise FEAT_ECV when possible
+        https://git.kernel.org/kvmarm/kvmarm/c/8b0b98ebf34d
 
-Frank
-
->
-> (snip)
->
-> >> +
-> >> +	sof-sound-wm8962 {
-> >> +		compatible = "audio-graph-card2";
-> >> +		links = <&cpu>;
-> >> +		label = "wm8962-audio";
-> >> +		hp-det-gpios = <&gpio2 11 GPIO_ACTIVE_HIGH>;
-> >> +		pinctrl-names = "default";
-> >> +		pinctrl-0 = <&pinctrl_hp>;
-> >> +		widgets =
-> >> +			"Headphone", "Headphones",
-> >> +			"Microphone", "Headset Mic";
-> > Generally, align to  =
-> > 	widgets = "Headphone", "Headphones",
-> > 		  "Microphone", "Headset Mic";
->
->
-> sure
->
->
-> >> +		routing =
-> >> +			"Headphones", "HPOUTL",
-> >> +			"Headphones", "HPOUTR",
-> >> +			"Headset Mic", "MICBIAS",
-> >> +			"IN3R", "Headset Mic",
-> >> +			"IN1R", "Headset Mic";
-> >> +	};
-> >> +
-> >> +	sound-wm8962 {
-> >> +		status = "disabled";
-> >> +	};
-> >> +
-> >> +};
-> >> +
-> >> +&edma2 {
-> >> +	dma-channel-mask = <0xc0000000>, <0x0>;
-> >> +};
-> > Not sure why need mask edma2's some channel, can you add comments for it
-> >
-> > Frank
->
->
-> sure, can add comment in commit msg
->
+--
+Best,
+Oliver
 
