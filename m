@@ -4,80 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AE9EC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 14:29:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90F30C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 14:31:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g3pKjimdpYHYRgRlkEN2TeR5MtbKLWDqPslqiEwTKl0=; b=WZDJVuuZdt69J/t9JxZsq0WHU2
-	83qAGNW3pvDARgQwG5QMCyqA47g4nKzPQvsBgwQ71x+JYV1fnVToXtxLdnMIeInBWUPTklk9kcrMS
-	X4TsFTFvJbrCyzs8QgMTUWOUCOnBLetit90+G3NREqFd4UXLkNXmzaRt6l0nC0JK3Q/iBEXDEHgZx
-	yfnRm13O1lZP1lqZ46mVu/RyKBOPBYS1+irNDsxMPNs4CkuwMccWYCjWNxpmUZrIjebAmM0Xslgqs
-	6RpZtnnp8D94c73xBMy1QWODsm2ag6Ui4DSXMQiXlVZZME0bPiQEbF7xu+NXbvXTw9X64GKA7gBsx
-	Y1DBYxiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7FcfdZAXTLXvcHgZD//PibXN7xW8sVKwsd4qd15t5hw=; b=tWFM5ZwmQsGOLY1fcSoJXyoMIS
+	rbhCIW5reVJ0Ap2HU8jvvsI6aeemgNltlufcCOF0kDOfT4V5G3fGCYAJ5IXoKqrx7hmRE4sObfIqg
+	Kda7Ng1HYXaGZsWey6Yc+OA3Q4aqpqE045ItMC5mu+CPCwHK5umxBe/Du/HvjawDxH+u1a8oSteef
+	ooiqIQf8FegZpHOjPHBv9ehrcOG/TgUcTxHrx6f04sslqAI8JKqv+L7ugXrU5A9SZ30ZLaBt1sMs6
+	pXQ9eF0QvUuRVNvazCtd+/ADvp6F7EBsqy9EIlXkzltFGaSEEJNdU/svTVEWkAcM1rPfZcWYjRWzW
+	r9YrhHIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmZSp-0000000E6Eg-3SrJ;
-	Mon, 24 Feb 2025 14:29:43 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tmZUI-0000000E6Vh-1wT4;
+	Mon, 24 Feb 2025 14:31:14 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmZ1O-0000000E0GF-14In
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 14:01:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=g3pKjimdpYHYRgRlkEN2TeR5MtbKLWDqPslqiEwTKl0=; b=Tqfi03odd2+9ApJmXuG5zGIJn1
-	Zow5gKtlUufYs/nsd2wd1D7M1NMeAjhJx2Shk8aM9+oZ3+8CLXQXjVLhEnt1OTlLby5v80W5bCtts
-	CzamauiUl0gsK/XkFcOoy3jCqrOiTVYBZkthwApVgF4LftlsryTI5DC3rCu/FIJI85K87jdLb97Ib
-	rsBJGWAQvN2BQdiqvcgLr7K/SyfqgKW3H/HfW5gxUng30HcW1s91E5pmJMwn5n3QKyUie2hEt3MVW
-	gC9jEtoXGj2j0CMfYdAQUtGmADQk/MQXsYbaaVpteWjSWgRCHLktDSWv8Q5Drbgk3Nr29OMPsnJl/
-	RLTFQgfg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47558)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tmZ1F-0006W1-0p;
-	Mon, 24 Feb 2025 14:01:13 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tmZ1D-000535-1W;
-	Mon, 24 Feb 2025 14:01:11 +0000
-Date: Mon, 24 Feb 2025 14:01:11 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Simon Horman <horms@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>
-Subject: Re: [PATCH net-next 01/13] net: phy: Extract the speed/duplex to
- linkmode conversion from phylink
-Message-ID: <Z7x7p3W0ZpkFu44m@shell.armlinux.org.uk>
-References: <20250222142727.894124-1-maxime.chevallier@bootlin.com>
- <20250222142727.894124-2-maxime.chevallier@bootlin.com>
+	id 1tmZ2d-0000000E0Ut-0SaE;
+	Mon, 24 Feb 2025 14:02:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1740405757;
+	bh=NtQ8UJ5HySKPPmQnEnNNQwk1UmdTw09FLFYUk5geJ0s=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=lmYWGnuVgm+KmTD5YIxehDk+tVlRC1vDVfK3HtWmF4+Xq4+qBxIDwOjpAaJvHPift
+	 Iui0tPLrBtCwaPZFe1Y0gbWZIrnAXC10sAKWIMuEnQs3olEYWEDjRCysz/YtqhkcYH
+	 lWyzHOV4kXH761x7If9uEk2Ps2sjc7XQNhouXivC3kLAogKB4Fj1QFoIWUjp28UJIW
+	 VwWMp6/+QipGW+jONwhGszvac4z5tVDFcVG86uo2VvwY+0EjwCVhO4/kTG+8wgKlRP
+	 QNzimmhM4cg2etTnbrfvkeV0PvBbGwLAEkIuJjOqVK/BRTREvZESd7DV3lvUAh0NU8
+	 CAzRrDrDeB5rA==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B74F517E00F6;
+	Mon, 24 Feb 2025 15:02:36 +0100 (CET)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Jason-JH Lin <jason-jh.lin@mediatek.com>
+Cc: Nancy Lin <nancy.lin@mediatek.com>, 
+ Singo Chang <singo.chang@mediatek.com>, 
+ Yongqiang Niu <yongqiang.niu@mediatek.com>, 
+ Sirius Wang <sirius.wang@mediatek.com>, 
+ Xavier Chang <xavier.chang@mediatek.com>, Fei Shao <fshao@chromium.org>, 
+ Chen-yu Tsai <wenst@chromium.org>, Pin-yen Lin <treapking@chromium.org>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+In-Reply-To: <20250224105414.3576243-1-jason-jh.lin@mediatek.com>
+References: <20250224105414.3576243-1-jason-jh.lin@mediatek.com>
+Subject: Re: [PATCH v2] mailbox: mtk-cmdq: Refine GCE_GCTL_VALUE setting
+Message-Id: <174040575668.71176.5895162308675381424.b4-ty@collabora.com>
+Date: Mon, 24 Feb 2025 15:02:36 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250222142727.894124-2-maxime.chevallier@bootlin.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_060122_294182_8D05EB59 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20250224_060239_316269_98C10071 
+X-CRM114-Status: UNSURE (   7.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,29 +82,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 22, 2025 at 03:27:13PM +0100, Maxime Chevallier wrote:
-> Phylink uses MAC capabilities to represent the Pause, AsymPause, Speed
-> and Duplex capabilities of a given MAC device. These capabilities are
-> used internally by phylink for link validation and get a coherent set of
-> linkmodes that we can effectively use on a given interface.
+On Mon, 24 Feb 2025 18:50:13 +0800, Jason-JH Lin wrote:
+> Add cmdq_gctl_value_toggle() to configure GCE_CTRL_BY_SW and GCE_DDR_EN
+> together in the same GCE_GCTL_VALUE register.
 > 
-> The conversion from MAC capabilities to linkmodes is done in a dedicated
-> function, that associates speed/duplex to linkmodes.
+> For the SoCs whose GCE is located in MMINFRA and uses MMINFRA_AO power,
+> this allows it to be written without enabling the clocks. Otherwise, all
+> GCE registers should be written after the GCE clocks are enabled.
+> Move this function into cmdq_runtime_resume() and cmdq_runtime_suspend()
+> to ensure it is called when the GCE clock is enabled.
 > 
-> As preparation work for phy_port, extract this logic away from phylink
-> and have it in a dedicated file that will deal with all the conversions
-> between capabilities, linkmodes and interfaces.
+> [...]
 
-Fundamental question: why do you want to extract MAC capabilities from
-phylink?
+Applied to v6.14-next/soc, thanks!
 
-At the moment, only phylink uses the MAC capabilities (they're a phylink
-thing.) Why should they be made generic, and what use will they be
-applied to as something generic?
+[1/1] mailbox: mtk-cmdq: Refine GCE_GCTL_VALUE setting
+      commit: 6b9a5fc65a7880f7ac6a981a0a30b5ecba7bd5ae
 
-If there's no answer for that, then I worry that they'll get abused.
+Cheers,
+Angelo
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+
 
