@@ -4,66 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEEC8C021BB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 20:18:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 722F4C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 20:27:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0G09gMfcqfpgHiddZLQ1kedAmZ3aAU2WNscdLfGcItM=; b=DX0G/oOsr6TQGZkj9mWvRMO2xh
-	HHQ46bcyUFRx7hLMCsJIemepH314w26XiV4YYzThRGQ3M0koW/X44JsLMVZiO8Ruht5tcY5SYSP42
-	mtN5eJUYya+DPl9KJt94Z8oCpRh6gUBw7RXUYwlDfhEcvr/FfLj3lul4QXDq8pU/BNdMpwj9bwVan
-	TvjrqrE26rK3V4smSY8cySR8T+fPQrEeHF22qprB3kOtd1wHltkfsUWsWbFXBGtUDpYKTYdL13PpC
-	mDZmK8pJY9MhWaxl6UDJl1FMXdQlmuJWjc0Cq5irzSiD3E/6UraTIsxpERzm6R6n14Yvsz9xrQzyH
-	rgNNQU6g==;
+	bh=TgBgqyu4tKatdMND7+/18VtL/05cP3jlzOPJySx+wMI=; b=kF8PtCzeeAZtwbNsFrjDBaygEv
+	Hh9d8ZKHd1QGfq0EDzNaLtS6ENphKHIN7ca1BVqTcgNAhd0UT2gQXMxJ5j0KqyZlyKgS9yWZDqkY6
+	zXnpI9W1m+TLkoVz0erRQR7W8AntpFRHmLm2UI1OIM1I3/nCupCmi7a4mIVggf1xbsDXhc8Y2Arc8
+	WJuwxp33NuH/mYpfDdqejkzR3d1nEVVBho0h5reKf6EsSvYahiok8INzI6LJIO3DRCrv4Quk7cf6D
+	KLrTAR2yyYaXyaJielQPidpw621pLTEamQI9q8IIciCykRe58C28PPPIea4mBbPXgVe73FoKIl5a4
+	FG5hwpCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmeuf-0000000F4IQ-0fnx;
-	Mon, 24 Feb 2025 20:18:49 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tmf3H-0000000F5Vt-16ks;
+	Mon, 24 Feb 2025 20:27:43 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmemV-0000000F39g-28n3
+	id 1tmf1m-0000000F5EB-1Dcu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 20:10:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id F0D0B5C660E;
-	Mon, 24 Feb 2025 20:09:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FE86C4CED6;
-	Mon, 24 Feb 2025 20:10:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740427822;
-	bh=//I4s2iMr9J6rEdDAzVgVvZ0bgv+PoI6wUAC1Ve268s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LLh1QEjvRNIcuhtCtWxYwMeqdndZeuETHVY2Zuyp83rJDJ9eYOnSB+RDITXFc929h
-	 jTaNDmQGFUIFWzu+L5lT4DBF5Fkz9w9vup88nYgrb1Oo8OlSn0CpncSwSK5dBiHu8D
-	 5/LD2tsNm+maVu0/2Ik4OkbcA5dOojRMyuqsrlp9hdS2Fr0PN8ZcokvGPvD9G5Jd4S
-	 +Xk+7l2PWOxwnVyfd+75hMRTgvwyE8gYtcCTDOGDNWCAkUZzZoZpXXqazTFY4ZMUWV
-	 maLviKqCVoJTYK9667ObN1pKQsUfMp31WWjyQd/+pbW8+pk/2jOi8/vtQXpVQxKXl3
-	 aMNRBiWr0Lh7A==
-Date: Mon, 24 Feb 2025 14:10:20 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Shengjiu Wang <shengjiu.wang@nxp.com>
-Cc: imx@lists.linux.dev, shawnguo@kernel.org, linux-kernel@vger.kernel.org,
-	s.hauer@pengutronix.de, devicetree@vger.kernel.org,
-	krzk+dt@kernel.org, festevam@gmail.com, lgirdwood@gmail.com,
-	broonie@kernel.org, conor+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org, kernel@pengutronix.de,
-	linux-sound@vger.kernel.org
-Subject: Re: [PATCH 2/2] ASoC: dt-bindings: fsl,imx-asrc: Reference common
- DAI properties
-Message-ID: <174042782051.4022847.1009470798524846957.robh@kernel.org>
-References: <20250224090413.727911-1-shengjiu.wang@nxp.com>
- <20250224090413.727911-3-shengjiu.wang@nxp.com>
+	Mon, 24 Feb 2025 20:26:11 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-22113560c57so13515635ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 12:26:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1740428769; x=1741033569; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=TgBgqyu4tKatdMND7+/18VtL/05cP3jlzOPJySx+wMI=;
+        b=t/83BnntH4Qnx0mg7Bq32IU3KP2xbJA4LIcvN/ZAt+cXBhuwdoQgcgClAi4dSkYFna
+         KAM944/l1HuBqrisdbJ0OzbX8+BgjhC77lLNQyWtErZhDipTXmTOZSDZMLiWMTQIT1HG
+         ljzU5TTIUZHCs09sOFlYRcPBIUHsuVZAhA3srTj8IGEtiP241YF04jNarECyb5yusokG
+         wzm+NNQBJUFI5fifvI1aXzYRE4Uh/+YFwz7ExtW97ARufkY5f/j/bW6+ZHty2rjOli9R
+         E2VgzZUYMQ+buKQ+9MjvIZBXGI0TGWyOWx3XrDLCKhAi9fL2x95QS5DBHaBixVKPaK7/
+         qKvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740428769; x=1741033569;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TgBgqyu4tKatdMND7+/18VtL/05cP3jlzOPJySx+wMI=;
+        b=VUndo6xtCb83epcEBV/TxTDk1B3CZtrtll5Fv9GCCR/MNZ9kp+q4+7YcOWV5TYF3Jk
+         Ahtj+3fPTlVdFgntSGRFg9Dwx1k3OwNLFWeIqlIBFNGGEVRMc2sX/kotZmRH66LpeQB5
+         U3TqEWPkXaHAb/N8sEO/98FuwiSHQk6KIApNZ5qO0l9awHqQmw0QRVJqUCQG/76gDZgV
+         Lrvtyzn84HVK7ffzdt+zrBLPoquTVPO0fcQtLNKa/4TVbqBn3tUO7yCn4qDB1a/JSulx
+         zv1WcCJfbS6EvsEBxOn3xyu3H2CB7IpFc3z/A4+t4Ai+iSlTp/MAl4T/Mrm9c4L0Z0Qk
+         whrA==
+X-Forwarded-Encrypted: i=1; AJvYcCU4EKchFU7Q2MP9bRTF8yVoLd15STPydP38a8tWFBFvZr27wgQvUfPPnwObkzD1i4WXBNoozY6uGeSNCj8RSfRW@lists.infradead.org
+X-Gm-Message-State: AOJu0YxwmgvnrTgEB3QzaOQmr8fWp1jvEn6Q2xJXQjaUbw++gRU1yfOs
+	9fxdAQfhsy9xW5xfJY4nPoYNiDh23OY9/XMdEGdUtna7XDpJMXKDZxhhaFvsMSY=
+X-Gm-Gg: ASbGncuoKCfY+kQf5iA64wGfBrsKlZ5cRtxP2zqWT4Zly4fRzbWG8UFprlk0OMfjDl4
+	eukAjVkCbF87HG5Kvwk3lpM9KBQJmtGBTneIE8LLmSVDHHHvSyfejm9zIaDUx0X0jTGuTm+XE1g
+	bDdgNDtnIX1M7SRd6qUWBLOhWMZMDsKlWjRnCshoQ+yt5tXERZagDZrhZecGVhfzB6CncDHGJ0b
+	gxVhiacMkFXMowwhsjLLj88ihXHz5EzKQrRG/hEa1efk7sUJU0VpEP4QN9biatph+yytYgtGR+d
+	kxszmGw=
+X-Google-Smtp-Source: AGHT+IGji8X4JW99D82J1gNUv4VGOe8Di1Z0iUYkFrnt5DobfIi0K1SZsszK6YCNFA/kxOX0YVJuVQ==
+X-Received: by 2002:a17:902:e80d:b0:220:f069:eab4 with SMTP id d9443c01a7336-221a0ed87cdmr259370375ad.22.1740428768763;
+        Mon, 24 Feb 2025 12:26:08 -0800 (PST)
+Received: from x1 ([97.115.231.194])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fceb12e4casm7009510a91.48.2025.02.24.12.26.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Feb 2025 12:26:08 -0800 (PST)
+Date: Mon, 24 Feb 2025 12:26:05 -0800
+From: Drew Fustini <drew@pdp7.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Fu Wei <wefu@redhat.com>,
+	Guo Ren <guoren@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 0/2] net: stmmac: thead: clean up clock rate
+ setting
+Message-ID: <Z7zV3Z8L6PQCLKnC@x1>
+References: <Z7iKdaCp4hLWWgJ2@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250224090413.727911-3-shengjiu.wang@nxp.com>
+In-Reply-To: <Z7iKdaCp4hLWWgJ2@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_121023_587174_8D1AB6E2 
-X-CRM114-Status: UNSURE (   9.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250224_122610_579904_599C0EF0 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,17 +106,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 24 Feb 2025 17:04:13 +0800, Shengjiu Wang wrote:
-> Reference the dai-common.yaml schema to allow '#sound-dai-cells' and
-> "sound-name-prefix' to be used.
+On Fri, Feb 21, 2025 at 02:15:17PM +0000, Russell King (Oracle) wrote:
+> Hi,
 > 
-> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> ---
->  Documentation/devicetree/bindings/sound/fsl,imx-asrc.yaml | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
+> This series cleans up the thead clock rate setting to use the
+> rgmii_clock() helper function added to phylib.
 > 
+> The first patch switches over to using the rgmii_clock() helper,
+> and the second patch cleans up the verification that the desired
+> clock rate is achievable, allowing the private clock rate
+> definitions to be removed.
+> 
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c | 28 ++++++++---------------
+>  1 file changed, 9 insertions(+), 19 deletions(-)
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Thanks for improving the dwmac-thead driver. I've applied it on top of
+next-20250221 and booted on the LPi4a board. Ethernet networking is
+still working correctly.
 
+Tested-by: Drew Fustini <drew@pdp7.com>
 
