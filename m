@@ -4,81 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B490C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 17:21:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F5E8C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 17:25:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GTr3MiF+X8E++5/d1k9zNiwhyWX8NQucbTgDgyPXgzM=; b=1+nd6ev50oYBv9pSszbKvqkAkD
-	msa7L8RHTNTXjIdGb6qNASuasLo9swLHgf6+5t8E/JnXEVp3kMc/Fk2Pi8+wxNuI+OpGr5yAD/zjH
-	EL6xfW+8s4vfxSEcEruMDmKZG/l7SRcVK3IhMWty9lGlj4Q0VYhfOM/wxv4XG9YWbNh0vD1tZaazX
-	4OAq7mpUM370wGLZS0kfyRy0zOSyMvDGIidLnd7sRsEqlV/IykMRWoKj6dfr9a49M1vSUfRsizJGM
-	dvxrHzZBSHtzKGDvlpFjBxIOR/er7MYpT26SMCejNTtmMlPWsZpFbMjXy3xcZONjgUdDv9xAARDd2
-	iJXtLqbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bY2wNWP9rT3ZRCyoWSDfMM1KQA/hqDvZuw8RHNaHB9g=; b=B3HS9FaJCpr6bEVWJXSOX2dYCh
+	TGgfzyKg9aNYF17fUd026aLmsBRJPaQOWmdEh5LyayLH2E2ZEZcFUl/Lon6wrsjLh3CT1yiEy0rjy
+	wdqACL+kKOOXdt/c73x/gya5YYgd4+9TeRCq5UXcUFRtqK5HpHjQfon3mQCwGlYxEPm6b4v299b7w
+	EMOlXI4lCS/VjC547tfF4YIFRxGh/JQnK9B2tX73fcvm1vgM6qQoj3XUeCBl8E/Ser7TuYEX1N+yb
+	DC0tGeQBePtahkRC4XJza9V8KumblL1BSz8SuxIJpQ+8VUIDtOsDy6DOLiBQzrMufPjIKf+kGIv0B
+	828AmzLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmc8e-0000000EbMO-1Ml7;
-	Mon, 24 Feb 2025 17:21:04 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1tmcCj-0000000Ec8n-14Vf;
+	Mon, 24 Feb 2025 17:25:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmc74-0000000Eb2G-40BK
+	id 1tmcBC-0000000Ebq6-3q3T
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 17:19:28 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51OCixFa013141;
-	Mon, 24 Feb 2025 18:18:53 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=selector1; bh=GTr3MiF+X8E++5/d1k9zNi
-	whyWX8NQucbTgDgyPXgzM=; b=FUDrhTvWnYasctYRtyGBXE9jaB4Bb2fd9efqkz
-	U0icqpJMn4T+2PKvta5rvS3Ovu1JM0cXFy/eTYjh9gqTWmAyR6fyvovwYnJgbFWM
-	bg2RG0PdeEvQs4Cn/iABWV+uMzcoJLfYZ6ovLb9eJcVs8nKsW0ksVFFeYn0Qz1x6
-	pHGP5gRfJLlC4sVthXChcXruHPGgvIT5xI/q4+xDG8jTA5vYzPYDTJf2si1s2Yug
-	GoQuKbknH2VNCz5CJwmkqQPyAJzlR2KFA34H0LMECIX9l5XGM8KE/dHZO4NiJF9a
-	GGtSSqKkrJazdZsg9JOgyjN8h7BhRHZtORuRJIxQ985ml4Tg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44y6t20jjm-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 24 Feb 2025 18:18:53 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 3B60640044;
-	Mon, 24 Feb 2025 18:17:49 +0100 (CET)
-Received: from Webmail-eu.st.com (eqndag1node4.st.com [10.75.129.133])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id BC8145387F7;
-	Mon, 24 Feb 2025 18:07:40 +0100 (CET)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE4.st.com
- (10.75.129.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 24 Feb
- 2025 18:07:40 +0100
-Received: from localhost (10.252.23.75) by SAFDAG1NODE1.st.com (10.75.90.17)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 24 Feb
- 2025 18:07:40 +0100
-From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-To: <wbg@kernel.org>
-CC: <alexandre.torgue@foss.st.com>, <olivier.moysan@foss.st.com>,
-        <fabrice.gasnier@foss.st.com>, <linux-iio@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>
-Subject: [PATCH] counter: stm32-lptimer-cnt: fix error handling when enabling
-Date: Mon, 24 Feb 2025 18:06:57 +0100
-Message-ID: <20250224170657.3368236-1-fabrice.gasnier@foss.st.com>
-X-Mailer: git-send-email 2.25.1
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.252.23.75]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SAFDAG1NODE1.st.com
- (10.75.90.17)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-24_08,2025-02-24_02,2024-11-22_01
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_091927_542417_1D18E83A 
-X-CRM114-Status: GOOD (  14.64  )
+	Mon, 24 Feb 2025 17:23:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1D618611DD;
+	Mon, 24 Feb 2025 17:23:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1129C4CED6;
+	Mon, 24 Feb 2025 17:23:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740417821;
+	bh=EOHkScJ21kPJERJ4vHxyi3a9gQDRS0eSBhy4oC7+jlk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Kq/FbduVIRmEUdzkGlX2ICEd2o6ytA+MHjXmK1DWaFyrK1zFS9k0UcJZqxb25ObgF
+	 3xJIZMDMhj9Lcztzid6pp4CQRz6Gvv8tez2HNTU7iDQ4YciY0DcLIZfIUTMNuMw10J
+	 Ne87AKYvOE+OhArM7LokqzeXUGXi1XvjnMTIJW/RNcFl7HodXnQb31P/v9OuZe+6wJ
+	 f/ko5bx2uTJjuOg2FsQqIUagjUgje/VLfTdYfuK/UsQk1QdjQwgbIyOuCVOf2TWUb3
+	 uEa7go52Zh3/PiuXwOtO9Iwg8ODDd4tfaIScV2t+EZ2YUDLn6dKU3FkXVtTzAOjGUw
+	 olTIbh1VkHXLw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tmcB9-007SPs-FT;
+	Mon, 24 Feb 2025 17:23:39 +0000
+Date: Mon, 24 Feb 2025 17:23:38 +0000
+Message-ID: <86ikozqmsl.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Peter Collingbourne <pcc@google.com>
+Subject: Re: [PATCH] KVM: arm64: Drop mte_allowed check during memslot creation
+In-Reply-To: <yq5aseo3gund.fsf@kernel.org>
+References: <20250224093938.3934386-1-aneesh.kumar@kernel.org>
+	<Z7xSfVME4z2ComUm@arm.com>
+	<86ldtvr0nl.wl-maz@kernel.org>
+	<Z7yElHKrJGn8XuPS@arm.com>
+	<86jz9fqtbk.wl-maz@kernel.org>
+	<yq5aseo3gund.fsf@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: aneesh.kumar@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, oliver.upton@linux.dev, joey.gouly@arm.com, yuzenghui@huawei.com, will@kernel.org, Suzuki.Poulose@arm.com, steven.price@arm.com, pcc@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,84 +94,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In case the stm32_lptim_set_enable_state() fails to update CMP and ARR,
-a timeout error is raised, by regmap_read_poll_timeout. It may happen,
-when the lptimer runs on a slow clock, and the clock is gated only
-few times during the polling.
+On Mon, 24 Feb 2025 16:44:06 +0000,
+Aneesh Kumar K.V <aneesh.kumar@kernel.org> wrote:
+> 
+> Marc Zyngier <maz@kernel.org> writes:
+> 
+> > On Mon, 24 Feb 2025 14:39:16 +0000,
+> > Catalin Marinas <catalin.marinas@arm.com> wrote:
+> >>
+> >> On Mon, Feb 24, 2025 at 12:24:14PM +0000, Marc Zyngier wrote:
+> >> > On Mon, 24 Feb 2025 11:05:33 +0000,
+> >> > Catalin Marinas <catalin.marinas@arm.com> wrote:
+> >> > > On Mon, Feb 24, 2025 at 03:09:38PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> >> > > > This change is needed because, without it, users are not able to use MTE
+> >> > > > with VFIO passthrough (currently the mapping is either Device or
+> >> > > > NonCacheable for which tag access check is not applied.), as shown
+> >> > > > below (kvmtool VMM).
+> >> > >
+> >> > > Another nit: "users are not able to user VFIO passthrough when MTE is
+> >> > > enabled". At a first read, the above sounded to me like one wants to
+> >> > > enable MTE for VFIO passthrough mappings.
+> >> >
+> >> > What the commit message doesn't spell out is how MTE and VFIO are
+> >> > interacting here. I also don't understand the reference to Device or
+> >> > NC memory here.
+> >>
+> >> I guess it's saying that the guest cannot turn MTE on (Normal Tagged)
+> >> for these ranges anyway since Stage 2 is Device or Normal NC. So we
+> >> don't break any use-case specific to VFIO.
+> >>
+> >> > Isn't the issue that DMA doesn't check/update tags, and therefore it
+> >> > makes little sense to prevent non-tagged memory being associated with
+> >> > a memslot?
+> >>
+> >> The issue is that some MMIO memory range that does not support MTE
+> >> (well, all MMIO) could be mapped by the guest as Normal Tagged and we
+> >> have no clue what the hardware does as tag accesses, hence we currently
+> >> prevent it altogether. It's not about DMA.
+> >>
+> >> This patch still prevents such MMIO+MTE mappings but moves the decision
+> >> to user_mem_abort() and it's slightly more relaxed - only rejecting it
+> >> if !VM_MTE_ALLOWED _and_ the Stage 2 is cacheable. The side-effect is
+> >> that it allows device assignment into the guest since Stage 2 is not
+> >> Normal Cacheable (at least for now, we have some patches Ankit but they
+> >> handle the MTE case).
+> >
+> > The other side effect is that it also allows non-tagged cacheable
+> > memory to be given to the MTE-enabled guest, and the guest has no way
+> > to distinguish between what is tagged and what's not.
+> >
+> >>
+> >> > My other concern is that this gives pretty poor consistency to the
+> >> > guest, which cannot know what can be tagged and what cannot, and
+> >> > breaks a guarantee that the guest should be able to rely on.
+> >>
+> >> The guest should not set Normal Tagged on anything other than what it
+> >> gets as standard RAM. We are not changing this here. KVM than needs to
+> >> prevent a broken/malicious guest from setting MTE on other (physical)
+> >> ranges that don't support MTE. Currently it can only do this by forcing
+> >> Device or Normal NC (or disable MTE altogether). Later we'll add
+> >> FEAT_MTE_PERM to permit Stage 2 Cacheable but trap on tag accesses.
+> >>
+> >> The ABI change is just for the VMM, the guest shouldn't be aware as
+> >> long as it sticks to the typical recommendations for MTE - only enable
+> >> on standard RAM.
+> >
+> > See above. You fall into the same trap with standard memory, since you
+> > now allow userspace to mix things at will, and only realise something
+> > has gone wrong on access (and -EFAULT is not very useful).
+> >
+> >>
+> >> Does any VMM rely on the memory slot being rejected on registration if
+> >> it does not support MTE? After this change, we'd get an exit to the VMM
+> >> on guest access with MTE turned on (even if it's not mapped as such at
+> >> Stage 1).
+> >
+> > I really don't know what userspace expects w.r.t. mixing tagged and
+> > non-tagged memory. But I don't expect anything good to come out of it,
+> > given that we provide zero information about the fault context.
+> >
+> > Honestly, if we are going to change this, then let's make sure we give
+> > enough information for userspace to go and fix the mess. Not just "it
+> > all went wrong".
+> >
+> 
+> What if we trigger a memory fault exit with the TAGACCESS flag, allowing
+> the VMM to use the GPA to retrieve additional details and print extra
+> information to aid in analysis? BTW, we will do this on the first fault
+> in cacheable, non-tagged memory even if there is no tagaccess in that
+> region. This can be further improved using the NoTagAccess series I
+> posted earlier, which ensures the memory fault exit occurs only on
+> actual tag access
+> 
+> Something like below?
 
-Badly, when this happen, STM32_LPTIM_ENABLE in CR register has been set.
-So the 'enable' state in sysfs wrongly lies on the counter being
-correctly enabled, due to CR is read as one in stm32_lptim_is_enabled().
+Something like that, only with:
 
-To fix both issues:
-- enable the clock before writing CMP, ARR and polling ISR bits. It will
-avoid the possible timeout error.
-- clear the ENABLE bit in CR and disable the clock in the error path.
+- a capability informing userspace of this behaviour
 
-Fixes: d8958824cf07 ("iio: counter: Add support for STM32 LPTimer")
-Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
----
- drivers/counter/stm32-lptimer-cnt.c | 24 +++++++++++++++---------
- 1 file changed, 15 insertions(+), 9 deletions(-)
+- a per-VM (or per-VMA) flag as a buy-in for that behaviour
 
-diff --git a/drivers/counter/stm32-lptimer-cnt.c b/drivers/counter/stm32-lptimer-cnt.c
-index cf73f65baf60..b249c8647639 100644
---- a/drivers/counter/stm32-lptimer-cnt.c
-+++ b/drivers/counter/stm32-lptimer-cnt.c
-@@ -58,37 +58,43 @@ static int stm32_lptim_set_enable_state(struct stm32_lptim_cnt *priv,
- 		return 0;
- 	}
- 
-+	ret = clk_enable(priv->clk);
-+	if (ret)
-+		goto disable_cnt;
-+
- 	/* LP timer must be enabled before writing CMP & ARR */
- 	ret = regmap_write(priv->regmap, STM32_LPTIM_ARR, priv->ceiling);
- 	if (ret)
--		return ret;
-+		goto disable_clk;
- 
- 	ret = regmap_write(priv->regmap, STM32_LPTIM_CMP, 0);
- 	if (ret)
--		return ret;
-+		goto disable_clk;
- 
- 	/* ensure CMP & ARR registers are properly written */
- 	ret = regmap_read_poll_timeout(priv->regmap, STM32_LPTIM_ISR, val,
- 				       (val & STM32_LPTIM_CMPOK_ARROK) == STM32_LPTIM_CMPOK_ARROK,
- 				       100, 1000);
- 	if (ret)
--		return ret;
-+		goto disable_clk;
- 
- 	ret = regmap_write(priv->regmap, STM32_LPTIM_ICR,
- 			   STM32_LPTIM_CMPOKCF_ARROKCF);
- 	if (ret)
--		return ret;
-+		goto disable_clk;
- 
--	ret = clk_enable(priv->clk);
--	if (ret) {
--		regmap_write(priv->regmap, STM32_LPTIM_CR, 0);
--		return ret;
--	}
- 	priv->enabled = true;
- 
- 	/* Start LP timer in continuous mode */
- 	return regmap_update_bits(priv->regmap, STM32_LPTIM_CR,
- 				  STM32_LPTIM_CNTSTRT, STM32_LPTIM_CNTSTRT);
-+
-+disable_clk:
-+	clk_disable(priv->clk);
-+disable_cnt:
-+	regmap_write(priv->regmap, STM32_LPTIM_CR, 0);
-+
-+	return ret;
- }
- 
- static int stm32_lptim_setup(struct stm32_lptim_cnt *priv, int enable)
+- the relaxation is made conditional on the memslot not being memory
+(i.e. really MMIO-only).
+
+and keep the current behaviour otherwise.
+
+Thanks,
+
+	M.
+
 -- 
-2.25.1
-
+Without deviation from the norm, progress is not possible.
 
