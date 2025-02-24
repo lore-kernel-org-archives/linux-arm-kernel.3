@@ -4,58 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C279EC021B6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 22:06:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E1B2C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 22:22:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KzttHuqwbO250SJZmkXY5X6iacccx0fS7kQMrYMCK/A=; b=oPAf4wgByfLF6zFMs9d8ziRMCp
-	6UP4CPp3QqS4DM3GKdelc8nYyHcwDdccLxKJIOAv52qgJdMaBFg9wcpNXZo7UWYtleJKCkjnNUg+d
-	Lpxh6KJjgE8xS7MWfmzgKWJyJe3JTArwfRaOxv74vSyK7bZCk/UDFqpbGmS8aQ3+t/ppCJrKFDT2Y
-	RlF9II/E7hbuvpCpZcbaMk15NcUhf3eypsssu+3ne50lk9IsrW/O6uGKe42sg2dlRDlYvg4YbuuKr
-	Hhn+qxpep/JRRMrlIuxbF1KU3LEYQ4xUfvCs/6GNT5NP2YjLJqR3hICkYBRixdrxtLMH3DLdPa9jL
-	BuIdkYDg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FJhYQvKwmvTaYugApDDBG746sf34tZee/3nwBqcoPts=; b=ejlLRSEcIkHA+AjaQinEbY+gH9
+	cx2bbA5ZpYn+uxw/bU9XuLJQ+yuEC1/icVKmlrE2FEsoy6Mg3l3c14/emD7rwMslKNcErjYX9jSTr
+	5donk3tvzGqgQ9tbMLMbJdxxDNq2ljgD48G2sq9QcCZgrZ80e9Gt4NR3hW+DokOpWSo8FrX1su9H4
+	camzIDzC/fzGRF1r6UmmsZbqNKxegPTAnTUqr2i+84ikasxaBhqHP09wVgCGkrEILmb5u4EmwqiE9
+	3UnVqJ5hlqBMPznixjzxkP7ySCXqMmJ1s8VP6qMtju1aGNi4opzM0oF3MYFuFXKyPDHM3lgxjTGhu
+	LvX0F5jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmgaH-0000000FJpk-04J3;
-	Mon, 24 Feb 2025 22:05:53 +0000
-Received: from out-182.mta1.migadu.com ([2001:41d0:203:375::b6])
+	id 1tmgqb-0000000FLt4-45W1;
+	Mon, 24 Feb 2025 22:22:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmgYk-0000000FJcx-4ADF
+	id 1tmgp9-0000000FLhK-0MvA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 22:04:21 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1740434654;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=KzttHuqwbO250SJZmkXY5X6iacccx0fS7kQMrYMCK/A=;
-	b=HDsum1tiv3YaUTzCuEGY0f0iNnWNF3YkCKRoJsvAvPLZOXaHhRZ/Q1Wf0aZYIv8t/+uDev
-	2+gzfBDjGTbPOg4bVCwJYvqPBX32P7zl0yq1HU/VZP1275Es9oEddZh7YPpVl9O7wFxBQy
-	ewk2ywTaBya3+MtyMk43i8WPUEsLuhU=
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Thorsten Blum <thorsten.blum@linux.dev>,
-	linux-phy@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] phy: rockchip: usbdp: Remove unnecessary bool conversion
-Date: Mon, 24 Feb 2025 23:03:39 +0100
-Message-ID: <20250224220339.199180-2-thorsten.blum@linux.dev>
+	Mon, 24 Feb 2025 22:21:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 77200611B2;
+	Mon, 24 Feb 2025 22:21:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 701C6C4CED6;
+	Mon, 24 Feb 2025 22:21:11 +0000 (UTC)
+Date: Mon, 24 Feb 2025 17:21:47 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: "Arnd Bergmann" <arnd@arndb.de>
+Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-kbuild@vger.kernel.org, bpf <bpf@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org, "Masami
+ Hiramatsu" <mhiramat@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>,
+ "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>, "Andrew Morton"
+ <akpm@linux-foundation.org>, "Peter Zijlstra" <peterz@infradead.org>,
+ "Linus Torvalds" <torvalds@linux-foundation.org>, "Masahiro Yamada"
+ <masahiroy@kernel.org>, "Nathan Chancellor" <nathan@kernel.org>, "Nicolas
+ Schier" <nicolas@fjasle.eu>, "Zheng Yejian" <zhengyejian1@huawei.com>,
+ "Martin Kelly" <martin.kelly@crowdstrike.com>, "Christophe Leroy"
+ <christophe.leroy@csgroup.eu>, "Josh Poimboeuf" <jpoimboe@redhat.com>,
+ "Heiko Carstens" <hca@linux.ibm.com>, "Catalin Marinas"
+ <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Vasily Gorbik"
+ <gor@linux.ibm.com>, "Alexander Gordeev" <agordeev@linux.ibm.com>
+Subject: Re: [PATCH v5 2/6] scripts/sorttable: Have mcount rela sort use
+ direct values
+Message-ID: <20250224172147.1de3fda5@gandalf.local.home>
+In-Reply-To: <893cd8f1-8585-4d25-bf0f-4197bf872465@app.fastmail.com>
+References: <20250218195918.255228630@goodmis.org>
+	<20250218200022.538888594@goodmis.org>
+	<893cd8f1-8585-4d25-bf0f-4197bf872465@app.fastmail.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_140419_300599_2E652E6C 
-X-CRM114-Status: UNSURE (   8.66  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,27 +74,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the unnecessary bool conversion and simplify the code.
+On Mon, 24 Feb 2025 22:10:53 +0100
+"Arnd Bergmann" <arnd@arndb.de> wrote:
 
-Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
----
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> This is what I get on arm64 randconfig builds using clang after your
+> patch:
+> 
+>   failed to sort mcount 'Expected 24260 mcount elements but found 0
+>   ': vmlinux
+>   Failed to sort kernel tables
+> 
+> I have not tried to understand what your patch does. See the attached
+> defconfig for a reproducer.
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 5b1e8a3806ed..f7a36ed59ef7 100644
---- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
-+++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -978,7 +978,7 @@ static int rk_udphy_parse_dt(struct rk_udphy *udphy)
- 
- 	if (device_property_present(dev, "maximum-speed")) {
- 		maximum_speed = usb_get_maximum_speed(dev);
--		udphy->hs = maximum_speed <= USB_SPEED_HIGH ? true : false;
-+		udphy->hs = maximum_speed <= USB_SPEED_HIGH;
- 	}
- 
- 	ret = rk_udphy_clk_init(udphy, dev);
--- 
-2.48.1
+Hmm, I haven't tried building this with clang.
 
+Can you compile without that commit, run and give me the output from these
+two programs:
+
+ ./dump_elf_sym vmlinux __start_mcount_loc __stop_mcount_loc
+ ./dump_elf_rela vmlinux .rela.dyn
+
+If the second one fails, remove the '.rela.dyn' and see what that shows.
+
+ https://rostedt.org/code/dump_elf_sym.c
+ https://rostedt.org/code/dump_elf_rela.c
+
+
+Thanks,
+
+-- Steve
 
