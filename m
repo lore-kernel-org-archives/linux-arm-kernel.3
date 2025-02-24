@@ -4,77 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAEC6C021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 13:13:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 382C4C021BB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 13:13:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=heGJaT8pu0zxBpZh0rGBHvZD2Wf0HXTD26JsNXiCq4k=; b=USNRuzjZQQIqHovsI6pFLuhq61
-	jlHwAKsin9uhBbgmN023K9rFkUpXCCydJH84vwXvgUkj5CxfmBrhKqFXSKVkMKgJgmKM/PiE+/iB6
-	3CfqVcZ78fmQP7qv2oJLKGiaz/8JAdTx7OU5N8icBG2lCGo6jgNoAhwZ2yykdw2O7nj/F//gZozoo
-	+i2478DRgx+GcdlcLy+aHTyhHw0o4wIkPjAdzyxiIDzQ9AD5k5g7FC0BhO9si8d21LMlIAWlqNdCT
-	HNm4F5k6cPC1wUK+b4jrYkB5mDheUzZ3tI9SyrA4jetJTcUjKamXADeMndOGFfhsndSXp8C8dLF+l
-	khV/WA2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=boWUnC75AglyvSxymfq6WOxHhiCHfMqe3a7p6Cadurk=; b=UqQyH6WqN9JlWR8KsAyzf1AV/K
+	nDslbHzJd0QOk1Y3A7WVVmFDSbN0eyZri20bR150VoxSNj0BYPMcM6+jGsoXxt9ks2z2ko3l+oOpd
+	p3u8fMps0BT+KGrCSMKj1iEu88e7e8mokC4pqUxphPEHHbSTezaHA22JlgNtGDDehXNVu7EDUYsSa
+	l2Lz8XL1kkYSoX+Zo+/dv3aNoerBvi++6uRmfOpqojH7cW5CEDsfkj2slRrtl6eAcxXFQ0mzRMs7C
+	xueWCRmmpfLFINrIIgIlalT9nP/eM7c8O6LMvsubIB8vqrxYytzVqLsGB1TTbieXV1Ek8RTtO80zO
+	dlhUGjrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmYHM-0000000Dn4A-3hVR;
-	Mon, 24 Feb 2025 13:13:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmXL2-0000000DduI-2xpj
+	id 1tmYHP-0000000Dn66-0fUx;
+	Mon, 24 Feb 2025 13:13:51 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmXMx-0000000DeJZ-3gB2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 12:13:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EF6111756;
-	Mon, 24 Feb 2025 04:13:48 -0800 (PST)
-Received: from [10.1.27.150] (XHFQ2J9959.cambridge.arm.com [10.1.27.150])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 391C13F6A8;
-	Mon, 24 Feb 2025 04:13:27 -0800 (PST)
-Message-ID: <e4b5f389-e3c6-48f5-8d13-a4a6f364fd92@arm.com>
-Date: Mon, 24 Feb 2025 12:13:25 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/4] Fixes for hugetlb and vmalloc on arm64
-Content-Language: en-GB
-To: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>
-Cc: Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Naveen N Rao <naveen@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- "David S. Miller" <davem@davemloft.net>,
- Andreas Larsson <andreas@gaisler.com>, Arnd Bergmann <arnd@arndb.de>,
- Muchun Song <muchun.song@linux.dev>,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- David Hildenbrand <david@redhat.com>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>, Dev Jain <dev.jain@arm.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>,
- linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-References: <20250217140419.1702389-1-ryan.roberts@arm.com>
- <Z7YsqO7ykGgcBFEI@arm.com> <20250221153501.GD20567@willie-the-truck>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250221153501.GD20567@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Mon, 24 Feb 2025 12:15:33 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4394b2c19ccso33627225e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 04:15:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1740399330; x=1741004130; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=boWUnC75AglyvSxymfq6WOxHhiCHfMqe3a7p6Cadurk=;
+        b=w6J7MxyWcr8CgfF4ooxdJCZyecJs6xqvIKjhTNcb4cIzKY2akUZPU8JuK6z5vVN9RX
+         s7LH5RE5VdCWBbPU20I/vfMvbF4d+Iidk2NT3ohhB5tZMNyHuFJVbTBdAJwmvTR7SeNd
+         XeYTMb5UP8SdbuFRxyUEqDLshW4RQ7zlWWnyoZFklvRGKBi0K4w981Ydq1NTdqpjbtb4
+         /bh+x7BLB5uxmLRKcqIDRfpNcR1pgqIFCknkzVxXNG9jPRKC53Px8OjS2zUoTllQYca4
+         /GYn5YkOKVtHa3sf5Hl7hkJWzHHU9w6Qg83AtRHHO5ctrI3SfUS/dY2kR7MYklfRMxL0
+         mejg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740399330; x=1741004130;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=boWUnC75AglyvSxymfq6WOxHhiCHfMqe3a7p6Cadurk=;
+        b=cxdC6aPqgIxlEjSn4NF8JIYpnrlG+9zjYbuVLowh3HeAAE70H5+Q9C3qIJ2N9c8TqP
+         Q1T1fgOWysr0n+HOJRFhfRsMBmiXyjgzhvWcUGZdCRy+p3ETpmiujdIOh0s9enNd4/pd
+         9oHpU5XUT3xRjsD0wG7cER4gpdo5fo5Ft/GW/AbaNLweTR9g7bl8dx9vLNqduUH6NdUW
+         FXHbGMCqsUZYNkMv5FI4TeEFFhYKjxd93tg7jDVVYo7zLr9fN1VF+6Bo3lsLFhwW/Wtm
+         OIrGF/iecTBhWuglgYZZPYeHQBF9zui536jMr3cB0H8wzgfp2x71dptzwXXkP1HgFWP3
+         5UfA==
+X-Forwarded-Encrypted: i=1; AJvYcCWyn6ecJtdMJ5pcG6LL+LcAYfWPz+pZ5HMXiEjMBgiGYaPY7PhnJMA+MyMq+6DfJFR1gcwm+7hcwFyU56GQxDxY@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpmqwSLecYOobC1VOGv1Ln4fWchcvUCbmCH2O/o/XJt70RkFSe
+	A086dfZQhFB90OSfvjN4pfYxRbokyWHBZHhDabkUgmPZN4n9Ct+4+DZoRPOoC6DkTOoRn3AQYky
+	BM35U0pchLGTEfOHEPg==
+X-Google-Smtp-Source: AGHT+IEZCk3oy+HQSHrsEDAqwXlupd0xHmeS8IuL0N9dhMMAdmGlo9OyR+iiK51V+OKl7+wJfLEr+VwrJuInfXQr
+X-Received: from wmbjg14.prod.google.com ([2002:a05:600c:a00e:b0:439:4366:35c2])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:4f88:b0:439:96aa:e502 with SMTP id 5b1f17b1804b1-439ae1e6a2fmr119293615e9.12.1740399330189;
+ Mon, 24 Feb 2025 04:15:30 -0800 (PST)
+Date: Mon, 24 Feb 2025 12:13:45 +0000
+In-Reply-To: <20250224121353.98697-1-vdonnefort@google.com>
+Mime-Version: 1.0
+References: <20250224121353.98697-1-vdonnefort@google.com>
+X-Mailer: git-send-email 2.48.1.601.g30ceb7b040-goog
+Message-ID: <20250224121353.98697-4-vdonnefort@google.com>
+Subject: [PATCH 03/11] KVM: arm64: Support unaligned fixmap in the nVHE hyp
+From: Vincent Donnefort <vdonnefort@google.com>
+To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
+	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	jstultz@google.com, qperret@google.com, will@kernel.org, 
+	kernel-team@android.com, linux-kernel@vger.kernel.org, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_041332_790841_1EE57B43 
-X-CRM114-Status: GOOD (  20.41  )
+X-CRM114-CacheID: sfid-20250224_041531_911231_11337C3E 
+X-CRM114-Status: UNSURE (   7.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,39 +94,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/02/2025 15:35, Will Deacon wrote:
-> On Wed, Feb 19, 2025 at 07:10:32PM +0000, Catalin Marinas wrote:
->> Will, Ryan,
->>
->> On Mon, Feb 17, 2025 at 02:04:13PM +0000, Ryan Roberts wrote:
->>> This series contains some fixes for hugetlb on arm64, and is split out from v1
->>> of a wider series at [1]. While the last patch is technically targetting core-mm
->>> and is not directly related to arm64, I'd like to to go via the arm64 tree so
->>> that the wider performance improvement series (v2 to be posted shortly) that
->>> depends on this series doesn't have to be robust to the fix not being present.
->>>
->>> I've included maintainers/reviewers for all the arches that are (trivially)
->>> touched due to the API changes, hoping for some ACKs.
->>
->> These fixes look fine to me and I think we should get them in for 6.14.
->> I think Andrew was ok with them going in via the arm64 tree:
->>
->> https://lore.kernel.org/linux-arm-kernel/20250205235219.3c3a4b968087d1386d708b04@linux-foundation.org/
-> 
-> I think the diffstat looks worse than it really is, as the arch changes
-> are reasonably mechanical. I'd like to let it sit in next for a few days
-> though, so I'll pick this up once we've resolved my comment on patch #2.
+Return the fixmap VA with the page offset, instead of the page base
+address.
 
-Sounds good to me; if you're happy with my proposal in the patch 2 thread, then
-I'll respin.
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-> 
-> Ryan -- did you find all of these issues by inspection, or are you aware
-> of anybody hitting them in practice?
-
-All by inspection. So I guess they are not urgent to fix from that perspective.
-
-> 
-> Will
+diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
+index f41c7440b34b..720cc3b36596 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mm.c
++++ b/arch/arm64/kvm/hyp/nvhe/mm.c
+@@ -240,7 +240,7 @@ void *hyp_fixmap_map(phys_addr_t phys)
+ 	WRITE_ONCE(*ptep, pte);
+ 	dsb(ishst);
+ 
+-	return (void *)slot->addr;
++	return (void *)slot->addr + offset_in_page(phys);
+ }
+ 
+ static void fixmap_clear_slot(struct hyp_fixmap_slot *slot)
+-- 
+2.48.1.601.g30ceb7b040-goog
 
 
