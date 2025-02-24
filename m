@@ -4,54 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11B20C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 04:41:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8E88C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 05:10:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WiiDLS58P+ClZLkDID7ZPyVh9jbaXufL3Zxk0yrRH3U=; b=v0Iymn3pvCl/M6fI+eYpy4v2Dr
-	qH3HfAObDORL+37OUZzGkndZLgHTt0jNow/sv0ss5rzIy00ih5OEOMmTeI3WLsRHuQyjKjuWDyXsV
-	meDF/XeJxeuSaZRiZW0CNxuxg2N4dAXp5JDLRUSbcvOyV5HSDfd4BwU+FhwMlnGQHLqQM7s2LKwNj
-	GCE29iEXiOHnzKT8J7g2yCYyYSVM68284mFmMqSPXHZj2ubsDLmB81MdTiEJgIhiLd5QJtM5dllj+
-	UDjs4BaKvrnlstPjox1YHpDwRjyqG7On6hNh7IWM+mlnUDWgD+qAY3VF85s8PP1PmqYf13Ds+JBiU
-	r4y8a9BA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BDIl4d2oYLCth691SnpOglTDGFjNLfuXxv8ji8Rlnto=; b=ie9oL79mOagwUhY6yYwAPpVZhk
+	UJ4fLKeqF+32t9CThJCtMEXmswyfEre+TonzqnBTtdVP05FWXhA3e8114n32O0T2N5U5P8AFxPiwk
+	t/HJ8nDGWndAebX9zSBEnCJqSU1ZKBC0a0QZw99r1oMNPvU8mpU09dyoTXm7XzMxMCZ7xTtG5sMpA
+	DpDSjPFcVvcl+36k8VPFVsOyKdNNJOaemsBiT+tvy1yPE4yHqP37ol01iormtlXYVkuZQDRULDXA4
+	NSvuLNd86bspvLhSv6LbQtJncoS/CoTsPlaSa0W3DlI/YBn4b+6XQGN8GSJ6BLarZgq84E92qD89s
+	37+O2Z6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmQHl-0000000CJS1-0zdH;
-	Mon, 24 Feb 2025 04:41:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmQFn-0000000CJCs-2tnC
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 04:39:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1EB7E152B;
-	Sun, 23 Feb 2025 20:39:53 -0800 (PST)
-Received: from [10.163.39.8] (unknown [10.163.39.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 430EA3F5A1;
-	Sun, 23 Feb 2025 20:39:33 -0800 (PST)
-Message-ID: <701e3700-d57b-4be7-97b7-add86636cece@arm.com>
-Date: Mon, 24 Feb 2025 10:09:34 +0530
+	id 1tmQj7-0000000CLKf-1a1e;
+	Mon, 24 Feb 2025 05:09:57 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmQhZ-0000000CLFz-3yt3;
+	Mon, 24 Feb 2025 05:08:23 +0000
+X-UUID: 5b1bad4ef26d11ef83f2a1c9db70dae0-20250223
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=BDIl4d2oYLCth691SnpOglTDGFjNLfuXxv8ji8Rlnto=;
+	b=Qs9Mn6/W37xIA24nrjyg7NYI6R5fw5pXzIR6A3D3AvHxTbk/NVbNUQmhwshwX50tHmKMxF68Vwx3SqFLw/AD0QcB8vyBl/zerzxXBEicx1d6jcdZjfU9WnSUuP6fYOQV0X0WfZvdfkJRoovKMAJA8dHqVLkNrKgtLqnvHwdVtm4=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.46,REQID:f2397a51-8c3b-4ebd-bdb5-12108c36099c,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:60aa074,CLOUDID:8bed3fdc-d480-4873-806f-0f365159227b,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 5b1bad4ef26d11ef83f2a1c9db70dae0-20250223
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
+	(envelope-from <jason-jh.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1320820933; Sun, 23 Feb 2025 22:08:16 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.28; Mon, 24 Feb 2025 13:08:13 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.28 via Frontend Transport; Mon, 24 Feb 2025 13:08:13 +0800
+From: Jason-JH Lin <jason-jh.lin@mediatek.com>
+To: Jassi Brar <jassisinghbrar@gmail.com>, Chun-Kuang Hu
+	<chunkuang.hu@kernel.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: "Jason-JH . Lin" <jason-jh.lin@mediatek.com>, Nancy Lin
+	<nancy.lin@mediatek.com>, Singo Chang <singo.chang@mediatek.com>, "Yongqiang
+ Niu" <yongqiang.niu@mediatek.com>, Xiandong Wang
+	<xiandong.wang@mediatek.com>, Sirius Wang <sirius.wang@mediatek.com>, Xavier
+ Chang <xavier.chang@mediatek.com>, Fei Shao <fshao@chromium.org>, Chen-yu
+ Tsai <wenst@chromium.org>, Pin-yen Lin <treapking@chromium.org>,
+	<linux-kernel@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+Subject: [PATCH] mailbox: mtk-cmdq: Refine GCE_GCTL_VALUE setting
+Date: Mon, 24 Feb 2025 13:01:07 +0800
+Message-ID: <20250224050812.3537569-1-jason-jh.lin@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [boot-wrapper] aarch64: Enable access into FEAT_FGT2 registers
- from EL2 and below
-To: linux-arm-kernel@lists.infradead.org
-Cc: mark.rutland@arm.com, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Rob Herring <robh@kernel.org>,
- Aishwarya TCV <Aishwarya.TCV@arm.com>
-References: <20240730054643.157295-1-anshuman.khandual@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20240730054643.157295-1-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250223_203939_779367_AFA899FC 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20250223_210822_010643_F3F6A913 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,87 +91,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/30/24 11:16, Anshuman Khandual wrote:
-> FEAT_FGT2 adds system registers HDFGRTR2_EL2, HDFGWTR2_EL2, HFGITR2_EL2,
-> HFGRTR2_EL2 and HFGWTR2_EL2. But access into these system registers from
-> EL2 and below exception levels, will trap into EL3 unless SCR_EL3.FGTEN2
-> is set.
-> 
-> Enable access to FEAT_FGT2 registers when they are implemented. Given that
-> these new FEAT_FGT2 trap registers have fields that reset to UNKNOWN values
-> when resets are taken to EL3, this initialises all registers as cleared.
-> 
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Add cmdq_gctl_value_toggle() to configure GCE_CTRL_BY_SW and GCE_DDR_EN
+together in same the GCE_GCTL_VALUE register.
 
-Hello Mark,
+Move this function into cmdq_runtime_resume() and cmdq_runtime_suspend()
+to ensure it can be called when the GCE clock is enabled.
 
-Below patch still applies cleanly on the latest boot wrapper mainline
-with the commit ac6742520ded ("aarch64: Start Xen on Armv8-R at EL2").
+Fixes: 7abd037aa581 ("mailbox: mtk-cmdq: add gce ddr enable support flow")
+Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
+---
+ drivers/mailbox/mtk-cmdq-mailbox.c | 41 +++++++++++++-----------------
+ 1 file changed, 17 insertions(+), 24 deletions(-)
 
-Please do consider merging this patch as SCR_EL3.FGTEN2 field being set
-(updated as arm64 kernel booting requirement) is required for FEAT_FGT2
-based early configuration at EL2 which is now enabled via the following
-series.
+diff --git a/drivers/mailbox/mtk-cmdq-mailbox.c b/drivers/mailbox/mtk-cmdq-mailbox.c
+index d186865b8dce..be17697d7785 100644
+--- a/drivers/mailbox/mtk-cmdq-mailbox.c
++++ b/drivers/mailbox/mtk-cmdq-mailbox.c
+@@ -92,16 +92,17 @@ struct gce_plat {
+ 	u32 gce_num;
+ };
+ 
+-static void cmdq_sw_ddr_enable(struct cmdq *cmdq, bool enable)
++static void cmdq_gctl_value_toggle(struct cmdq *cmdq, bool ddr_enable)
+ {
+-	WARN_ON(clk_bulk_enable(cmdq->pdata->gce_num, cmdq->clocks));
++	u32 val = (cmdq->pdata->control_by_sw) ? GCE_CTRL_BY_SW : 0;
+ 
+-	if (enable)
+-		writel(GCE_DDR_EN | GCE_CTRL_BY_SW, cmdq->base + GCE_GCTL_VALUE);
+-	else
+-		writel(GCE_CTRL_BY_SW, cmdq->base + GCE_GCTL_VALUE);
++	if (!cmdq->pdata->control_by_sw && !cmdq->pdata->sw_ddr_en)
++		return;
+ 
+-	clk_bulk_disable(cmdq->pdata->gce_num, cmdq->clocks);
++	if (cmdq->pdata->sw_ddr_en && ddr_enable)
++		val |= GCE_DDR_EN;
++
++	writel(val, cmdq->base + GCE_GCTL_VALUE);
+ }
+ 
+ u8 cmdq_get_shift_pa(struct mbox_chan *chan)
+@@ -140,16 +141,10 @@ static void cmdq_thread_resume(struct cmdq_thread *thread)
+ static void cmdq_init(struct cmdq *cmdq)
+ {
+ 	int i;
+-	u32 gctl_regval = 0;
+ 
+ 	WARN_ON(clk_bulk_enable(cmdq->pdata->gce_num, cmdq->clocks));
+-	if (cmdq->pdata->control_by_sw)
+-		gctl_regval = GCE_CTRL_BY_SW;
+-	if (cmdq->pdata->sw_ddr_en)
+-		gctl_regval |= GCE_DDR_EN;
+ 
+-	if (gctl_regval)
+-		writel(gctl_regval, cmdq->base + GCE_GCTL_VALUE);
++	cmdq_gctl_value_toggle(cmdq, true);
+ 
+ 	writel(CMDQ_THR_ACTIVE_SLOT_CYCLES, cmdq->base + CMDQ_THR_SLOT_CYCLES);
+ 	for (i = 0; i <= CMDQ_MAX_EVENT; i++)
+@@ -315,14 +310,21 @@ static irqreturn_t cmdq_irq_handler(int irq, void *dev)
+ static int cmdq_runtime_resume(struct device *dev)
+ {
+ 	struct cmdq *cmdq = dev_get_drvdata(dev);
++	int ret;
+ 
+-	return clk_bulk_enable(cmdq->pdata->gce_num, cmdq->clocks);
++	ret = clk_bulk_enable(cmdq->pdata->gce_num, cmdq->clocks);
++	if (ret)
++		return ret;
++
++	cmdq_gctl_value_toggle(cmdq, true);
++	return 0;
+ }
+ 
+ static int cmdq_runtime_suspend(struct device *dev)
+ {
+ 	struct cmdq *cmdq = dev_get_drvdata(dev);
+ 
++	cmdq_gctl_value_toggle(cmdq, false);
+ 	clk_bulk_disable(cmdq->pdata->gce_num, cmdq->clocks);
+ 	return 0;
+ }
+@@ -347,9 +349,6 @@ static int cmdq_suspend(struct device *dev)
+ 	if (task_running)
+ 		dev_warn(dev, "exist running task(s) in suspend\n");
+ 
+-	if (cmdq->pdata->sw_ddr_en)
+-		cmdq_sw_ddr_enable(cmdq, false);
+-
+ 	return pm_runtime_force_suspend(dev);
+ }
+ 
+@@ -360,9 +359,6 @@ static int cmdq_resume(struct device *dev)
+ 	WARN_ON(pm_runtime_force_resume(dev));
+ 	cmdq->suspended = false;
+ 
+-	if (cmdq->pdata->sw_ddr_en)
+-		cmdq_sw_ddr_enable(cmdq, true);
+-
+ 	return 0;
+ }
+ 
+@@ -370,9 +366,6 @@ static void cmdq_remove(struct platform_device *pdev)
+ {
+ 	struct cmdq *cmdq = platform_get_drvdata(pdev);
+ 
+-	if (cmdq->pdata->sw_ddr_en)
+-		cmdq_sw_ddr_enable(cmdq, false);
+-
+ 	if (!IS_ENABLED(CONFIG_PM))
+ 		cmdq_runtime_suspend(&pdev->dev);
+ 
+-- 
+2.43.0
 
-https://lore.kernel.org/all/20250203050828.1049370-1-anshuman.khandual@arm.com/
-
-Without this patch kernel will not boot and will get stuck i.e trapped
-into EL3.
-
-- Anshuman
-
-> ---
-> This picks up from an earlier discussion regarding [PATCH 2/2].
-> 
-> https://lore.kernel.org/all/20240404073726.947215-1-anshuman.khandual@arm.com/
-> 
->  arch/aarch64/include/asm/cpu.h | 7 +++++++
->  arch/aarch64/init.c            | 9 +++++++++
->  2 files changed, 16 insertions(+)
-> 
-> diff --git a/arch/aarch64/include/asm/cpu.h b/arch/aarch64/include/asm/cpu.h
-> index a5744e1..878d03d 100644
-> --- a/arch/aarch64/include/asm/cpu.h
-> +++ b/arch/aarch64/include/asm/cpu.h
-> @@ -23,6 +23,12 @@
->  #define SCTLR2_EL1		s3_0_c1_c0_3
->  #define SCTLR2_EL2		s3_4_c1_c0_3
->  
-> +#define HDFGRTR2_EL2		s3_4_c3_c1_0
-> +#define HDFGWTR2_EL2		s3_4_c3_c1_1
-> +#define HFGRTR2_EL2		s3_4_c3_c1_2
-> +#define HFGWTR2_EL2		s3_4_c3_c1_3
-> +#define HFGITR2_EL2		s3_4_c3_c1_7
-> +
->  /*
->   * RES1 bit definitions definitions as of ARM DDI 0487G.b
->   *
-> @@ -63,6 +69,7 @@
->  #define SCR_EL3_SCTLR2En		BIT(44)
->  #define SCR_EL3_PIEN			BIT(45)
->  #define SCR_EL3_D128En			BIT(47)
-> +#define SCR_EL3_FGTEN2			BIT(59)
->  
->  #define HCR_EL2_RES1			BIT(1)
->  
-> diff --git a/arch/aarch64/init.c b/arch/aarch64/init.c
-> index c9fc7f1..b4d64a0 100644
-> --- a/arch/aarch64/init.c
-> +++ b/arch/aarch64/init.c
-> @@ -68,6 +68,15 @@ void cpu_init_el3(void)
->  	if (mrs_field(ID_AA64MMFR0_EL1, FGT))
->  		scr |= SCR_EL3_FGTEN;
->  
-> +	if (mrs_field(ID_AA64MMFR0_EL1, FGT) >= 2) {
-> +		scr |= SCR_EL3_FGTEN2;
-> +		msr(HDFGRTR2_EL2, 0);
-> +		msr(HDFGWTR2_EL2, 0);
-> +		msr(HFGITR2_EL2, 0);
-> +		msr(HFGRTR2_EL2, 0);
-> +		msr(HFGWTR2_EL2, 0);
-> +	}
-> +
->  	if (mrs_field(ID_AA64MMFR0_EL1, ECV) >= 2)
->  		scr |= SCR_EL3_ECVEN;
->  
 
