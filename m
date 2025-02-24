@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5AC6C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 08:23:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30D69C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 08:24:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=owN4Uvb9g/wwDNXDyBtx8Lfi2w2RRbPY42uBD7u7orc=; b=Mt4YyDt09+tUBB3S+43xKIRNcb
-	2hSM6bvOe8jYLOJ6EB5NFrjz8lxo/J8+CTaQtvExPBHSXaVHHrssx21/bk8Bf1bGLHhg//InbsluP
-	Hynr6HDslx0O+cGNqsCQ246WajdWumC5yVoled0MuDCX7cFFg3qLyXptajcJjMDt+s5Lz3xboqWA+
-	lweA1F5VeFypWRb7Kjo9NKsrttXvD0wiDVtzN/4Acr2XB8HnTYJUBYzWAaqsXuux1lmRAiaGSRGbt
-	yjYoxINxDHUBs0i+wxJNdh9FuBbN7fALnshu84Bk79uv0S4h62Ru3GaD6Lz6r4E1yUPLcAVIMeZC6
-	wZJovXYA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lHxIGASN99m5dXd91pj3fT+U9t8J1461WyjTg1w5KfA=; b=fhu0sRFBeufYmzf/KPc4XA4P7o
+	rlgN2hk3FWXrTcpChb5L7r7YHFfrXn6QBLUIPI+VZQtc3wpbgbICAelrxeybms6dkYS4bXdvg1eSC
+	wl8sdIK14kGgF5pU1BTsAuU2FzxHi2/D9gKkYUPTOzwgztl7d57Hh3Vq3NhW2rLCvbbNhnzRGSrCC
+	QiPwYbfWeciS+Ri9dnZsVpX/7sPBDEdb1HkwT9g6gSPuYSbYDaIQmlaDW4GJcYCX+lZPedh3MPlYo
+	WiNP7xISuHx09Cxa1SyoahU+3Ej4SSUOSWfOAQW5Itmy3pnrTq07MCZzyQiXmI9ETVDpJf2X4WCGX
+	Y3Hlu5cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmTjr-0000000CgCe-15tz;
-	Mon, 24 Feb 2025 08:22:55 +0000
-Received: from mail-m19731112.qiye.163.com ([220.197.31.112])
+	id 1tmTlM-0000000CgNH-3p8V;
+	Mon, 24 Feb 2025 08:24:29 +0000
+Received: from mail-m49227.qiye.163.com ([45.254.49.227])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmTbF-0000000Ce3s-0lPa;
-	Mon, 24 Feb 2025 08:14:03 +0000
+	id 1tmTbH-0000000Ce4G-2YSm;
+	Mon, 24 Feb 2025 08:14:04 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id bfd28778;
-	Mon, 24 Feb 2025 16:13:54 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id bfd2879f;
+	Mon, 24 Feb 2025 16:13:59 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: heiko@sntech.de
 Cc: andy.yan@rock-chips.com,
@@ -54,29 +54,30 @@ Cc: andy.yan@rock-chips.com,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v7 00/15] Add eDP support for RK3588
-Date: Mon, 24 Feb 2025 16:13:10 +0800
-Message-Id: <20250224081325.96724-1-damon.ding@rock-chips.com>
+Subject: [PATCH v7 02/15] drm/rockchip: analogix_dp: Expand device data to support multiple edp display
+Date: Mon, 24 Feb 2025 16:13:12 +0800
+Message-Id: <20250224081325.96724-3-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250224081325.96724-1-damon.ding@rock-chips.com>
+References: <20250224081325.96724-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGU0dHlZMHkNPGkpNGUpKQktWFRQJFh
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGk5NHlZDTEoeTBkaTBhMGhlWFRQJFh
 	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
 	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a95370514af03a3kunmbfd28778
+X-HM-Tid: 0a95370525bc03a3kunmbfd2879f
 X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6ORA6Mhw5FTIXHRMWGDwtETBR
-	HhgaCglVSlVKTE9LSENPQ0hNTEtNVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJT09JNwY+
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MQw6CRw6AzIIIxMfTT5KETJD
+	SC8wC09VSlVKTE9LSENPQ09KS0JCVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFISktONwY+
 DKIM-Signature: a=rsa-sha256;
-	b=Hvi2x/xIm/hiJkL1YeZk7qEBq3qJjxVlm2s6qU+dKNb18pWP/cGH9a5fsw9coIF3IfFeTc+WQar86Ck13J06Xxs4jMdIKCRZLr4OwZFiKqE+FlXEQtgetapjDUaWEuT57H/dLzU8SKZom/UTyokevARgSmIC+6Geh1sjoWmJq5s=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=owN4Uvb9g/wwDNXDyBtx8Lfi2w2RRbPY42uBD7u7orc=;
+	b=g3HtaH9YDtf9RQV/XLA+RPk22LW/TKr/xVe6jAp/bzrSg0eE5Hw/Blr0wkHIZqXt6XswF7xyGph4UmQnR9qIOXa6BkND1S/mlJAsPrGaqGU3dcDY0wzWJ0JKbvRaFU7743h6rr9el5pUGSqcphMlKvyNm9AiMQQvPCwfGD8z6AY=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=lHxIGASN99m5dXd91pj3fT+U9t8J1461WyjTg1w5KfA=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_001401_709134_BDC26C08 
-X-CRM114-Status: UNSURE (   9.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250224_001403_876514_3ED90180 
+X-CRM114-Status: GOOD (  14.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,56 +92,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Picked from:
-https://patchwork.kernel.org/project/linux-rockchip/list/?series=927765
+There are two main modifications: one is expanding struct
+rockchip_dp_chip_data to an array, and the other is adding
+&rockchip_dp_chip_data.reg to separate different edp devices.
 
-These patchs have been tested with a 1536x2048p60 eDP panel on
-RK3588S EVB1 board, and HDMI 1080P/4K display also has been verified
-on RK3588 EVB1 board. Furthermore, the eDP display has been rechecked
-on RK3399 sapphire excavator board.
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 
-Patch 1~6   are preparations for the RK3588 eDP support on both Analogix
-            side and Rockchip side.
-Patch 7~10  are to support to get panel from the DP AUX bus.
-Patch 11~13 are the RK3588 Analogix DP driver support.
-Patch 14    is the addition of RK3588 eDP0 node.
-Patch 15    is to enable the eDP0 display on RK3588S EVB1 board.
+---
 
-Damon Ding (15):
-  drm/rockchip: analogix_dp: Use formalized struct definition for grf
-    field
-  drm/rockchip: analogix_dp: Expand device data to support multiple edp
-    display
-  drm/bridge: analogix_dp: Add irq flag IRQF_NO_AUTOEN instead of
-    calling disable_irq()
-  drm/bridge: analogix_dp: Remove the unnecessary calls to
-    clk_disable_unprepare() during probing
-  drm/bridge: analogix_dp: Remove CONFIG_PM related check in
-    analogix_dp_bind()/analogix_dp_unbind()
-  drm/bridge: analogix_dp: Add support for phy configuration.
-  dt-bindings: display: rockchip: analogix-dp: Add support to get panel
-    from the DP AUX bus
-  drm/bridge: analogix_dp: Support to get &analogix_dp_device.plat_data
-    and &analogix_dp_device.aux
-  drm/bridge: analogix_dp: Add support to get panel from the DP AUX bus
-  drm/rockchip: analogix_dp: Add support to get panel from the DP AUX
-    bus
-  dt-bindings: display: rockchip: analogix-dp: Add support for RK3588
-  drm/bridge: analogix_dp: Add support for RK3588
-  drm/rockchip: analogix_dp: Add support for RK3588
-  arm64: dts: rockchip: Add eDP0 node for RK3588
-  arm64: dts: rockchip: Enable eDP0 display on RK3588S EVB1 board
+Changes in v6:
+- Add the description of &rockchip_dp_chip_data.reg
+- Use drm_...() uniformly rather than mixing drm_...() and dev_..()
 
- .../rockchip/rockchip,analogix-dp.yaml        |  25 ++-
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  28 +++
- .../boot/dts/rockchip/rk3588s-evb1-v10.dts    |  55 +++++
- .../drm/bridge/analogix/analogix_dp_core.c    |  99 +++++----
- .../gpu/drm/bridge/analogix/analogix_dp_reg.c |  52 +++++
- drivers/gpu/drm/rockchip/Kconfig              |   1 +
- .../gpu/drm/rockchip/analogix_dp-rockchip.c   | 206 ++++++++++++++----
- include/drm/bridge/analogix_dp.h              |   7 +-
- 8 files changed, 380 insertions(+), 93 deletions(-)
+Changes in v7:
+- Call dev_err_probe() if failed to find the chip-data
+---
+ .../gpu/drm/rockchip/analogix_dp-rockchip.c   | 41 +++++++++++++++----
+ 1 file changed, 34 insertions(+), 7 deletions(-)
 
+diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+index 0d93df6b5144..a8265a1bf9ff 100644
+--- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+@@ -52,10 +52,12 @@ struct rockchip_grf_reg_field {
+  * struct rockchip_dp_chip_data - splite the grf setting of kind of chips
+  * @lcdc_sel: grf register field of lcdc_sel
+  * @chip_type: specific chip type
++ * @reg: register base address
+  */
+ struct rockchip_dp_chip_data {
+ 	const struct rockchip_grf_reg_field lcdc_sel;
+ 	u32	chip_type;
++	u32	reg;
+ };
+ 
+ struct rockchip_dp_device {
+@@ -396,6 +398,8 @@ static int rockchip_dp_probe(struct platform_device *pdev)
+ 	const struct rockchip_dp_chip_data *dp_data;
+ 	struct drm_panel *panel = NULL;
+ 	struct rockchip_dp_device *dp;
++	struct resource *res;
++	int i;
+ 	int ret;
+ 
+ 	dp_data = of_device_get_match_data(dev);
+@@ -410,9 +414,24 @@ static int rockchip_dp_probe(struct platform_device *pdev)
+ 	if (!dp)
+ 		return -ENOMEM;
+ 
++	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++
++	i = 0;
++	while (dp_data[i].reg) {
++		if (dp_data[i].reg == res->start) {
++			dp->data = &dp_data[i];
++			break;
++		}
++
++		i++;
++	}
++
++	if (!dp->data)
++		return dev_err_probe(dev, -EINVAL, "no chip-data for %s node\n",
++				     dev->of_node->name);
++
+ 	dp->dev = dev;
+ 	dp->adp = ERR_PTR(-ENODEV);
+-	dp->data = dp_data;
+ 	dp->plat_data.panel = panel;
+ 	dp->plat_data.dev_type = dp->data->chip_type;
+ 	dp->plat_data.power_on = rockchip_dp_poweron;
+@@ -464,14 +483,22 @@ static int rockchip_dp_resume(struct device *dev)
+ static DEFINE_RUNTIME_DEV_PM_OPS(rockchip_dp_pm_ops, rockchip_dp_suspend,
+ 		rockchip_dp_resume, NULL);
+ 
+-static const struct rockchip_dp_chip_data rk3399_edp = {
+-	.lcdc_sel = GRF_REG_FIELD(0x6250, 5, 5),
+-	.chip_type = RK3399_EDP,
++static const struct rockchip_dp_chip_data rk3399_edp[] = {
++	{
++		.lcdc_sel = GRF_REG_FIELD(0x6250, 5, 5),
++		.chip_type = RK3399_EDP,
++		.reg = 0xff970000,
++	},
++	{ /* sentinel */ }
+ };
+ 
+-static const struct rockchip_dp_chip_data rk3288_dp = {
+-	.lcdc_sel = GRF_REG_FIELD(0x025c, 5, 5),
+-	.chip_type = RK3288_DP,
++static const struct rockchip_dp_chip_data rk3288_dp[] = {
++	{
++		.lcdc_sel = GRF_REG_FIELD(0x025c, 5, 5),
++		.chip_type = RK3288_DP,
++		.reg = 0xff970000,
++	},
++	{ /* sentinel */ }
+ };
+ 
+ static const struct of_device_id rockchip_dp_dt_ids[] = {
 -- 
 2.34.1
 
