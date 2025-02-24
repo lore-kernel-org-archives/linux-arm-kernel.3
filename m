@@ -4,55 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17FD8C021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 09:39:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 776D3C021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 09:40:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4au6p2g67B6jACO8rLbkD22kSc4fhlSgybMbZ/B8jGQ=; b=3RjFwEj6Bk98Nchs3daiDl/16U
-	IS9cEr7Ugr0Afgn2xzCHxxB0Bpp0uN2IsZTLKo0H5GIlZludKHGFU3JajtXmiORfkmLWwTALhSN7S
-	5MKezUT7tP0osMSESN0TFHD6QAW4KPIph2gMmGSkZsC29U6DzdfAu4amannMULPInePK2c6YpgQQ9
-	lOVA18Hjp6LbWxHk7D7nrl2kVY8hBlO49nNh3+QGpyEb2XkKO9IhjHb/exJm9Bx6i7ATW5yID0hd8
-	j6RmZyqvjwANIlPpmIG0HTMzNQQQEmezbZKDWjyi+c96gHr1CN+74qabebu0SEyCrnHeW+mOefvpd
-	XG2n1lcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XWEADniHRGWcnzqbekRTv6/vtyL/MFZqYvazyCcPL/Y=; b=P7k65dJSY/k5yoiH7rH/M5YkEx
+	kPgzjbBzj22XhRlY6NurC8aFxYgFIbcUqXqWiry9jiJpPXc9tDWGxpzTKhieUDmFm6SDRUejIYGQv
+	dW3g3fVcDDwQRi6iKjNnL9Xwj+u5O9OLGbdbGOrM7EKSSzsFTZ7K/NyR0GGHnPDMdGAaBuU/5YiDb
+	PKDrOAj+ml29GRWCdQGzq89supSqWPbm3ZMyCN/Xu/FrXY2Ekw1M4+IORMRkFB35aS+1M1fFn6f8k
+	Fazb2vkCQxAvHbfoS4zhb0rCrucj0hL7LHtsRzfCTGio4zxhhrkE1WNPu6fSTpbIxXVxSV8GwXQjD
+	n0a91+YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmUvZ-0000000Cx5H-3hOW;
-	Mon, 24 Feb 2025 09:39:05 +0000
-Received: from mail.primefinix.com ([141.95.160.218])
+	id 1tmUx0-0000000CxQ9-3bmo;
+	Mon, 24 Feb 2025 09:40:34 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmUXo-0000000CrCH-2DA8
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 09:14:34 +0000
-Received: by mail.primefinix.com (Postfix, from userid 1002)
-	id E44ABA43BF; Mon, 24 Feb 2025 10:11:29 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=primefinix.com;
-	s=mail; t=1740388319;
-	bh=4au6p2g67B6jACO8rLbkD22kSc4fhlSgybMbZ/B8jGQ=;
-	h=Date:From:To:Subject:From;
-	b=SahdWmWl3XTdrOHoT5o8GPdyY5m3KG+rKa4TfhLxagJtC6How4m/gdA0CBXAIemUd
-	 qd+fxB3u/mB2cMwyJJD09TqdLa1c5W2MZN6Ik/wwVIBvwlHM08ZZrqPhkr2V+ykmfx
-	 jJeYqopbKyAu8hi6lfgjT/329FOCP8KoJz3NerWhqTHeMeLXztcMQIKqg1erBexoi2
-	 aLXjNorIOCIE9OudDtx5IDG63Q/oD3hTOb4Qlwl2qNk4uwjKZxaW7xfs52iT+05G5y
-	 Vxs9H+oPqeJDZCcxFkeH6F4G2bI6xGb6F5Qqx0PMGzQS3cW3HrgZC0YRUrC4vMj59/
-	 usRIkltUeqXDw==
-Received: by mail.primefinix.com for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 09:11:04 GMT
-Message-ID: <20250224084500-0.1.j2.1m1ra.0.dpekglneif@primefinix.com>
-Date: Mon, 24 Feb 2025 09:11:04 GMT
-From: "Brendon Roy" <brendon.roy@primefinix.com>
-To: <linux-arm-kernel@lists.infradead.org>
-Subject: New mattresses
-X-Mailer: mail.primefinix.com
+	id 1tmUXv-0000000CrEm-0GgV;
+	Mon, 24 Feb 2025 09:14:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=XWEADniHRGWcnzqbekRTv6/vtyL/MFZqYvazyCcPL/Y=; b=C2Fa0CsgkZ2/azdEMvlOzuYSf7
+	k3nUPkbtzi80jhqlddLODTZArqrjOaDbkhu6v27OfN1fu15qYrE1R7QEaDmBLvJTpwOZuImxSCdlv
+	PT7OHUIEehio+7EhaWCLkC5l2t1hnzwI3nK3xiD5mN1WzY9Ka+RgqS0uWK29Azt0pT4VxziiuCJYS
+	3+2l23UyPbiwiiGCJJ2j0ecmxMejx0hIixnJwUe4ao8qPsil05p4lQCEFfZyV9tyVszURLYogUaFm
+	F4EZIRXEQXn/DnoDqOooXtpsFYdHDBnzKB+LhJ2uBs5gGKOt+rhPaMwyRhRKK9AWlvUvhOiODeSmY
+	AsSi5PrQ==;
+Received: from i53875a0d.versanet.de ([83.135.90.13] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tmUXo-0006wL-ID; Mon, 24 Feb 2025 10:14:32 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Kever Yang <kever.yang@rock-chips.com>
+Cc: linux-rockchip@lists.infradead.org,
+ Finley Xiao <finley.xiao@rock-chips.com>, Liang Chen <cl@rock-chips.com>,
+ devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Stephen Boyd <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 2/3] dt-bindings: clock,
+ reset: rockchip: Add support for rk3562
+Date: Mon, 24 Feb 2025 10:14:31 +0100
+Message-ID: <2920539.yaVYbkx8dN@diego>
+In-Reply-To: <28dcac28-9060-4f65-8167-64f6a0e4532d@rock-chips.com>
+References: <20241224092310.3814460-1-kever.yang@rock-chips.com>
+ <z7jb32foci6bamqqddkkp34hazi2itp6uclarsoi5pkrgso2go@bxflagkaciq6>
+ <28dcac28-9060-4f65-8167-64f6a0e4532d@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_011433_275953_4B482715 
-X-CRM114-Status: UNSURE (   4.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250224_011439_104452_0C9E5152 
+X-CRM114-Status: GOOD (  26.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,21 +81,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Am Montag, 24. Februar 2025, 09:47:40 MEZ schrieb Kever Yang:
+> Hi Krzysztof,
+> 
+> On 2024/12/27 16:28, Krzysztof Kozlowski wrote:
+> > On Tue, Dec 24, 2024 at 05:23:09PM +0800, Kever Yang wrote:
+> >> From: Finley Xiao <finley.xiao@rock-chips.com>
+> >>
+> >> Add the dt-bindings header for the rk3562, that gets shared between
+> >> the clock controller and the clock references in the dts.
+> >> Add softreset ID for rk3562.
+> >>
+> >> Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
+> >> Signed-off-by: Liang Chen <cl@rock-chips.com>
+> >> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+> >> ---
+> >>
+> >> Changes in v2:
+> >> - rename the file to rockchip,rk3562-cru.h
+> >> - remove CLK_NR_CLKS
+> >> - add new file for reset ID
+> >> - update to use dual license
+> >>
+> >>   .../dt-bindings/clock/rockchip,rk3562-cru.h   | 377 ++++++++++++++++++
+> >>   .../dt-bindings/reset/rockchip,rk3562-cru.h   | 360 +++++++++++++++++
+> >
+> > No, that's not a separate patch. Headers *ALWAYS* go with the bindings
+> > patch.
+> Will fix.
+> >>   2 files changed, 737 insertions(+)
+> >>   create mode 100644 include/dt-bindings/clock/rockchip,rk3562-cru.h
+> >>   create mode 100644 include/dt-bindings/reset/rockchip,rk3562-cru.h
+> >>
+> >> diff --git a/include/dt-bindings/clock/rockchip,rk3562-cru.h b/include/dt-bindings/clock/rockchip,rk3562-cru.h
+> >> new file mode 100644
+> >> index 000000000000..ad07ad3a12ad
+> >> --- /dev/null
+> >> +++ b/include/dt-bindings/clock/rockchip,rk3562-cru.h
+> >> @@ -0,0 +1,377 @@
+> >> +/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
+> > Why not using license requested by checkpatch?
+> 
+> The checkpatch does not report error/warning for this license, and this 
+> is the same as many other SoCs.
+> 
+> Which license is recommend in the header file?
 
-Would you like access to the best-selling products without the need for s=
-torage?
+I suppose
 
-You can run a profitable online store without purchasing additional stock=
- or having a warehouse.
+/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
 
-Simply add our products to your offer, and when a customer makes a purcha=
-se, we will handle the shipping directly to the recipient.
-
-If you=E2=80=99d like to check our assortment and analyze potential profi=
-ts, please reply to this message.
+According to [0] "GPL-2.0" and "GPL-2.0-only" are equivalent, but I guess
+"GPL-2.0-only" simply makes the "only" part more visible.
 
 
-Best regards
-Brendon Roy
+Heiko
+
+[0] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/LICENSES/preferred/GPL-2.0
+
+
+
 
