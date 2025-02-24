@@ -4,95 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85160C021A6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 12:05:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BB1DC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 12:10:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D6Mlr0wbAMCOEN0+YLkpDA5vstdeAdhSzTHRytWnpTE=; b=FyufAA4GoY7ZEA97OZ6BHjF/e5
-	/bdXb+zbLqQRbYDCeZu1EmTcrxxZAzWDKYn7IOWSzSjPC3pqGURxAjmfxbWK98lpmhJeVsqCmEoQI
-	DANLnm5LNqHLwSNjIOyyrM6IaGn62xYhW/LpLAnSUg4O7shuLjUZVRib4ETy2E8e180Uy+T2W4yJ9
-	q/orlKxVv44qszKFkARQQpsdGci4+EM74Op7bZ9fK/ekVYjBRwSGFHKnLrZrmP+YwK/Iu3AJZ+QS3
-	2UDANCdtPDKESYRMcFU8ORAF8PQ7b0zp59wfhxGJX9N1Danmjsma+tuL+fJ9cPh2V0u2CN0YxevtQ
-	xbjOU6xQ==;
+	bh=dKGBWYRfknZ7iK1RC8/+7OFUWMWukeU3pmJqdL1AngY=; b=GYyu0MzbQYew8RYZ+UG86seRcU
+	SGfAIJstdKad7xDyYatxkerlFrXCAyarAPyy7NA+1j8cUaGl8rUj+47J0O2UiCkhwgYVNYyGB4AP3
+	BlYRlQLNdUTYnrzlw/7Azy4sD11tB6P3DR8lbq9K0z91H295e9vsb1aFczbUgd3x1lk2bQlr1NyKC
+	1gpTvMri7UmPJ3cELQ/SSUJWSidLcI1eXMwRMrQGLOb3cU313+fcSY9JKeLgm0RNLdR1wUesW8Ljs
+	Ukfl0hXeJ1090BNqTbY3rrRGJtBH/Zeo50izWTAJUqHfj2dyuKwL5kNybYPuXwCp39w7CGpMhZbPL
+	ViU4yHVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmXDO-0000000DbgX-0Rhw;
-	Mon, 24 Feb 2025 12:05:38 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1tmXHS-0000000DcyH-2T0s;
+	Mon, 24 Feb 2025 12:09:50 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmWs7-0000000DTUw-2B5u
+	id 1tmXDf-0000000Dbt0-32Fe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 11:43:40 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-aaecf50578eso841751666b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 03:43:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1740397418; x=1741002218; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=D6Mlr0wbAMCOEN0+YLkpDA5vstdeAdhSzTHRytWnpTE=;
-        b=dr1COaedEgM60DKaQ30VqqUbvjMT1wP9HoV4ZlyiBpsUe7bPjqYbplzOYq3idpJDyy
-         i6kqsLCQHHcNR+gx9C61b93e5QbKVUb3Gy653Sf9JdDHXh2FvxSNIjO3AHsbjf0mvIXb
-         agL3I2/iOj0OEeKtipQLMohz+pbibhvtCCt6gaUtyZi0cuQTbBrBjH0jEtgWeEyQ6Tyi
-         0X0Yz0DF9P3mcm68wCBtHPM1SUWfKlR3ZfqEuCki5XHiT2Vk9JPPQUfi1JfE1FXTa7GD
-         LUdoZI8kmzQ1ZqagGEievAcS83H9OlJjlwOrYa2TgeaJ4Lt+05CTn+yoSOl+Ru26tZfU
-         Fx7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740397418; x=1741002218;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=D6Mlr0wbAMCOEN0+YLkpDA5vstdeAdhSzTHRytWnpTE=;
-        b=XgpvKY7VEXptbtgXj1dXn+gWp/kQf8Te5wqSA9sTHOurKB2AN4bhpWiSyFd5MzYU/D
-         s3QEp8K2uyR2MhkPBC71L7j283QQqOHLNU6JVbr8L0cVqluH/oux102W+Hn1aCaJvh3L
-         cZVIhjIee2Hp5vM0XqRsUA9F86k5raEdlA8nIxA7Dz/vF4F7zyoWxtEmG32hunIDRDdf
-         po8i8tE0KPm300goMhRCGxzpqVtNOo6UM1F1Ip0ONF4Dgmd66xsr189mL2Pxof988UPq
-         wXVVzJYxaKT2jCTM/ZTixezt7UdxJzlN9nbESoUTTF9nnORjD863AAgBmOsY/hghlmB9
-         GhCw==
-X-Forwarded-Encrypted: i=1; AJvYcCXKJ9TUd1CKbYqmeVSGmTWwjRAhgSb7MG614Kpx37Lf7AZnEGeazhywx0YmSuW1Ln1pApzj/j1SGMsNxGWMwd8x@lists.infradead.org
-X-Gm-Message-State: AOJu0YztcLHmCa8tj6nvkt+KPfJJ8JJUKEa5oaSOhlld+ZmHARLDWCr5
-	6Af9cNFBXltMP7AbGFPsn+0ScoMih+ehz0+u4ZLLIoWyWbRJg7LgF5cc23MWvPrP1+sIiFAhOq2
-	4ZW4=
-X-Gm-Gg: ASbGnctpPCw3IMSlDF+TLl6x13floIv4mC4QXKCbm7E0MVTzvCCCccmWGIX7CTOZcx2
-	Mn5mRHmIjbAY+Xvt7wp7yr+iMBr/aog+fJ6XYWGyW527Cb31ACBSlUm+yZmYNwMp/mHKgBTrKlx
-	zPHRTw8wWeYulsaXW3n6CiLbCJTEjnmS8tCAdkuByq4nF5iUZ/LhN/VofkSAs3wTfyz7VdxPIOL
-	0xhMYAvku20qShmcA1pZ/cCcw19pZzR32RpxYnvG2yAvxOZ5T/AV0l4AO88KG+EtgV7KAbQJKsk
-	33REz7u0k/VCxVcIuiVURDKca4/p2tRGDA==
-X-Google-Smtp-Source: AGHT+IF5iaBYNZgpTldExBVQhpm8bwV77vFMEYcbfb9p2terRRNut6cbNBxpAfkhBHP6mSJK7U7EiQ==
-X-Received: by 2002:a17:907:7e93:b0:abb:6b1a:7b22 with SMTP id a640c23a62f3a-abc0da3b46fmr1334031166b.29.1740397417602;
-        Mon, 24 Feb 2025 03:43:37 -0800 (PST)
-Received: from [192.168.50.4] ([82.78.167.25])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb8ab30726sm1658222166b.153.2025.02.24.03.43.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 24 Feb 2025 03:43:37 -0800 (PST)
-Message-ID: <2ef91384-53a0-4eeb-8eee-3f704416f299@tuxon.dev>
-Date: Mon, 24 Feb 2025 13:43:34 +0200
+	Mon, 24 Feb 2025 12:05:57 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51OC5pXW1484803
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 24 Feb 2025 06:05:51 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1740398751;
+	bh=dKGBWYRfknZ7iK1RC8/+7OFUWMWukeU3pmJqdL1AngY=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=H3N+dfypXQjQfq0xw7E48JTWB+hcyrs/gUd1D+jA6AACEWXNnA+ec9GO8nE7hWI4S
+	 JBjQMfKEtgDPqKWgmGpvP1a8Py0FGmjeoy2YkF+k6P+ZZOMf7w6m2j+TjRiseRT8Yu
+	 Avdu8dGhdl4Nf1izFiwKFbochlWOCAUiWo357940=
+Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51OC5pJA008018
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 24 Feb 2025 06:05:51 -0600
+Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 24
+ Feb 2025 06:05:51 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 24 Feb 2025 06:05:51 -0600
+Received: from [172.24.227.245] (uda0132425.dhcp.ti.com [172.24.227.245])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51OC5lcd073883;
+	Mon, 24 Feb 2025 06:05:48 -0600
+Message-ID: <d6440feb-ea23-49f8-9886-82d0e2145f12@ti.com>
+Date: Mon, 24 Feb 2025 17:35:47 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/8] ARM: dts: microchip: sama7d65: Add watchdog for
- sama7d65
-To: Ryan.Wanner@microchip.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, nicolas.ferre@microchip.com,
- alexandre.belloni@bootlin.com, vkoul@kernel.org, wim@linux-watchdog.org,
- linux@roeck-us.net
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
- linux-watchdog@vger.kernel.org
-References: <cover.1739555984.git.Ryan.Wanner@microchip.com>
- <05431cf86beb742a9a53336c4ec792be8bde14e2.1739555984.git.Ryan.Wanner@microchip.com>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Subject: Re: [PATCH 2/3] arm64: dts: ti: k3-j784s4-j742s2-evm: Add overlay for
+ PCIe NTB
+To: Siddharth Vadapalli <s-vadapalli@ti.com>, <nm@ti.com>, <kristo@kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
+References: <20250202093636.2699064-1-s-vadapalli@ti.com>
+ <20250202093636.2699064-3-s-vadapalli@ti.com>
+From: Vignesh Raghavendra <vigneshr@ti.com>
 Content-Language: en-US
-In-Reply-To: <05431cf86beb742a9a53336c4ec792be8bde14e2.1739555984.git.Ryan.Wanner@microchip.com>
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <20250202093636.2699064-3-s-vadapalli@ti.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_034339_559609_7E4BCAF9 
-X-CRM114-Status: UNSURE (   6.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250224_040555_854681_80392D7D 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,24 +88,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Ryan,
 
-On 14.02.2025 20:08, Ryan.Wanner@microchip.com wrote:
-> +		ps_wdt: watchdog@e001d180 {
-> +			compatible = "microchip,sama7d65-wdt", "microchip,sama7g5-wdt";
-> +			reg = <0xe001d000 0x30>;
 
-The node address and the one specified in reg don't match.
-I will skip applying this.
-
-Also, please sort the nodes by their addresses.
-
-Thank you,
-Claudiu
-
-> +			interrupts = <GIC_SPI 2 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&clk32k 0>;
-> +		};
+On 02/02/25 15:06, Siddharth Vadapalli wrote:
+> diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-pcie-ntb.dtso b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-pcie-ntb.dtso
+> new file mode 100644
+> index 000000000000..e44173f670fa
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-pcie-ntb.dtso
+> @@ -0,0 +1,92 @@
+> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
+> +/**
+> + * DT Overlay for enabling NTB functionality using PCIE0 and PCIE1 instances of
+> + * PCIe on the J784S4 EVM and the J742S2 EVM.
+> + *
+> + * J784S4 EVM Product Link: https://www.ti.com/tool/J784S4XEVM
+> + * J742S2 EVM Product Link: https://www.ti.com/tool/J742S2XH01EVM
+> + *
+> + * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
+> + */
 > +
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include <dt-bindings/soc/ti,sci_pm_domain.h>
+> +
+> +#include "k3-pinctrl.h"
+> +
+> +&{/} {
+> +	epf_bus {
+
+
+no underscore in node name please
+
+> +		compatible = "pci-epf-bus";
+> +
+> +		ntb {
+> +			compatible = "pci-epf-ntb";
+> +			epcs = <&pcie0_ep>, <&pcie1_ep>;
+> +			epc-names = "primary", "secondary";
+> +			vendor-id = /bits/ 16 <0x104c>;
+> +			device-id = /bits/ 16 <0xb012>;
+> +			num-mws = <4>;
+> +			mws-size = <0x100000>, <0x100000>, <0x100000>, <0x100000>;
+> +		};
+> +	};
+> +};
+> +
+
+-- 
+Regards
+Vignesh
+https://ti.com/opensource
 
 
