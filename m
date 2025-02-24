@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87FAEC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 15:33:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA23DC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 15:34:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iODuqd/f9BFkU4ViTlsuH7Iqb6+MXNBtbvs5shCQdSM=; b=2QXqCd/LJ7M3Lkje5Z9eU2ey2I
-	28H+xp5Rz3nVXbbfG7kFOOGxGhqxcSeHIpBBCKBtWEn82kYU9vpWm3aA2ANBCE1yjUE0skKCxQ/JQ
-	ooraju4TORn9Nl1fyUXEk0qZGh9d06ioVDmb8wxfJkwjDpNnKptek6c9JxZUGZVv/oWYRBKPYx5yf
-	Ji9RIUhW1AK0Mm7VLTgWLbj2f94iGPgRn1ZTDh/SkzrGsydXEhuvAkCfr1te4nGyf9l7qRfifx8gb
-	sLR1T9hyu+YPliWLrxSAHNK1FR7qIOS6vsKu9L/RhYU1e9ts9SrXB8+UJbQ3zD5s9msfkaJGaK+Rn
-	HFk+qD1g==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qwlGj6Hchdxakq37kd6CdZyEXv9W6UVVmypf4GHk0yI=; b=4zQYjEP2jlDlfOzML0Y6BkA6cK
+	CP9+RQEVcf/8s7W/uhNQxi07ryLrrYEvkV+gt3dwfpEPAHl1Uv5UBH2ldSC9mfIY4jM1dEuqRmjNp
+	48/vD42sZuA+GReyYD2apUXUpLaZHlndgGjCGe2N0IYYYKe5bYKLkKdFb4PPfsjtASraSDEJrY6OX
+	MrNUxRu0DMKRf5PbOQfGdz29SNv/bhnxnFfEWst/4u6k9YaZqkUWYxz5Jc7UAVackQTiEpq7xHzrC
+	zS871DU4NwByTNlZLQE3M1SLUvfGvnds0uwnT4UkoBsEO96ssWWcjgEYjOv3Y9GFG6ZshJFcZUDbt
+	P4GnlnEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmaRt-0000000EIB0-0yNQ;
-	Mon, 24 Feb 2025 15:32:49 +0000
+	id 1tmaTL-0000000EIPj-49Vg;
+	Mon, 24 Feb 2025 15:34:19 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmaAe-0000000EFHV-0GVJ
+	id 1tmaAe-0000000EFHW-0Dsz
 	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 24 Feb 2025 15:15:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=iODuqd/f9BFkU4ViTlsuH7Iqb6+MXNBtbvs5shCQdSM=; b=gvewFHePqXSEVrQDEPoRfWF6IH
-	y0XsKdzsezzHtditnCSLLJayTHfHn7ucRTe2BoILJvQzMQQuRu8EAeSxlbEnBu9Q0yTtEWQEyhepj
-	AQQLazKHkUEpe9/9L9nMMR6uuxVash6nFjnGFZO6WEH4r/CkM1SUTwkU7BwJxLHkdfTJ5U6miCBc4
-	dcRhUhmCCN1m/EnCRMtEqF3/K/mjGUBcdglb9jVjaTzLZXn9rIiEeqH+fpVmnhZvfCkAbbvqJauN5
-	vQZKL4/0eAj5G4WtUbgORZNFNFofUv1BXO6P4MDhz0ZTxIAUtl0ozuX5N2/R6BdpAH0wDha8Olfja
-	14ILo9Kg==;
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=qwlGj6Hchdxakq37kd6CdZyEXv9W6UVVmypf4GHk0yI=; b=KqkqOWH9HHTcQ9qxORm3mmVcup
+	5wbLBhONHuLIq25g8K6zv+WiTCvugf1tAQciU/Tiwh58Jy3X0kWsEMGrk/jMyeU6QmHabZmGAOWWZ
+	L7seNoBcPqssfRmmGGJEw1fypEKaPhMadwIforRRPGFyR2v2Xzt6UJxHk0ZIbTQQwP4egAN/YOHjB
+	xuABH/enFF4CWWwxgZWEIHlOmluqVWPdwYoxtVXvUqcmXKHj7t4iVG5TDEb7MvDOr2LC5We0KFVKQ
+	/rlywfygxy4/gjrG5A6Cfoz3m0n9hns977ywLAhWtg6Wu3MOXSyzR2f0aaq7dxSSFU6HzaqkQYBE5
+	69QANUdQ==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmaAa-00000003DYK-3xZy
+	id 1tmaAa-00000003DYI-3sry
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 24 Feb 2025 15:14:58 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F1906152B;
-	Mon, 24 Feb 2025 07:14:59 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 142302681;
+	Mon, 24 Feb 2025 07:15:10 -0800 (PST)
 Received: from e132581.cambridge.arm.com (e132581.arm.com [10.2.76.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 857503F6A8;
-	Mon, 24 Feb 2025 07:14:41 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A491B3F6A8;
+	Mon, 24 Feb 2025 07:14:51 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Mike Leach <mike.leach@linaro.org>,
@@ -61,15 +61,17 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v1 0/8] Arm CoreSight: Support AUX pause and resume
-Date: Mon, 24 Feb 2025 15:14:15 +0000
-Message-Id: <20250224151423.1630639-1-leo.yan@arm.com>
+Subject: [PATCH v1 5/8] coresight: etm: Add an attribute for updating buffer
+Date: Mon, 24 Feb 2025 15:14:20 +0000
+Message-Id: <20250224151423.1630639-6-leo.yan@arm.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250224151423.1630639-1-leo.yan@arm.com>
+References: <20250224151423.1630639-1-leo.yan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_151457_269329_AF6EF93F 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20250224_151457_295118_EE0CE135 
+X-CRM114-Status: GOOD (  18.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,52 +86,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series is to enable AUX pause and resume on Arm CoreSight.
+Add an attribute for updating buffer when the AUX trace is paused.  And
+populate the value to the 'update_buf_on_pause' flag during the AUX
+setting up.
 
-The first patch extracts the trace unit controlling operations to two
-functions.  These two functions will be used by AUX pause and resume.
+If the AUX pause operation is attached to a PMU counter, when the
+counter is overflow and if the PMU interrupt in an NMI, then AUX pause
+operation will be triggered in the NMI context.  On the other hand, the
+per CPU sink has its own interrupt handling.  Thus, there will be a race
+condition between the updating buffer in NMI and sink's interrupt
+handler.
 
-Patches 02 and 03 change the ETMv4 driver to prepare callback functions
-for AUX pause and resume.
+To avoid the race condition, this commit disallows updating buffer on
+AUX pause for the per CPU sink.  Currently, this is only applied for
+TRBE.
 
-Patch 04 changes the ETM perf layer to support AUX pause and resume in a
-perf session.  The patches 05 and 06 offers an extra feature for
-updating buffer on AUX pause occasion, which can mitigate the trace data
-lose issue.
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+ .../hwtracing/coresight/coresight-etm-perf.c  | 20 +++++++++++++++++++
+ .../hwtracing/coresight/coresight-etm-perf.h  |  2 ++
+ include/linux/coresight-pmu.h                 |  1 +
+ 3 files changed, 23 insertions(+)
 
-Patch 07 documents the AUX pause usages with Arm CoreSight.  The last
-patch syncs headers between user space and the kernel.
-
-This patch set has been verified on the Hikey960 board and TC platform.
-The previous one uses ETR and the later uses TRBE as sink.
-
-It is suggested to disable CPUIdle (add `nohlt` option in Linux command
-line) when verifying this series.  ETM and funnel drivers are found
-issues during CPU suspend and resume which will be addressed separately.
-
-
-Leo Yan (8):
-  coresight: etm4x: Extract the trace unit controlling
-  coresight: Introduce pause and resume APIs for source
-  coresight: etm4x: Hook pause and resume callbacks
-  coresight: perf: Support AUX trace pause and resume
-  coresight: etm: Add an attribute for updating buffer
-  coresight: perf: Update buffer on AUX pause
-  Documentation: coresight: Document AUX pause and resume
-  perf cs-etm: Sync kernel coresight-pmu.h header
-
- .../trace/coresight/coresight-perf.rst        |  50 ++++++
- drivers/hwtracing/coresight/coresight-core.c  |  12 ++
- .../hwtracing/coresight/coresight-etm-perf.c  |  94 +++++++++-
- .../hwtracing/coresight/coresight-etm-perf.h  |   2 +
- .../coresight/coresight-etm4x-core.c          | 166 ++++++++++++------
- drivers/hwtracing/coresight/coresight-etm4x.h |   2 +
- drivers/hwtracing/coresight/coresight-priv.h  |   2 +
- include/linux/coresight-pmu.h                 |   1 +
- include/linux/coresight.h                     |   4 +
- tools/include/linux/coresight-pmu.h           |   1 +
- 10 files changed, 281 insertions(+), 53 deletions(-)
-
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+index 29d52386ffbb..d759663a1f7d 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.c
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+@@ -62,6 +62,8 @@ PMU_FORMAT_ATTR(contextid1,	"config:" __stringify(ETM_OPT_CTXTID));
+ PMU_FORMAT_ATTR(contextid2,	"config:" __stringify(ETM_OPT_CTXTID2));
+ PMU_FORMAT_ATTR(timestamp,	"config:" __stringify(ETM_OPT_TS));
+ PMU_FORMAT_ATTR(retstack,	"config:" __stringify(ETM_OPT_RETSTK));
++PMU_FORMAT_ATTR(update_buf_on_pause,
++		"config:" __stringify(ETM_OPT_UPDATE_BUF_ON_PAUSE));
+ /* preset - if sink ID is used as a configuration selector */
+ PMU_FORMAT_ATTR(preset,		"config:0-3");
+ /* Sink ID - same for all ETMs */
+@@ -103,6 +105,7 @@ static struct attribute *etm_config_formats_attr[] = {
+ 	&format_attr_configid.attr,
+ 	&format_attr_branch_broadcast.attr,
+ 	&format_attr_cc_threshold.attr,
++	&format_attr_update_buf_on_pause.attr,
+ 	NULL,
+ };
+ 
+@@ -434,6 +437,23 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
+ 	if (!sink)
+ 		goto err;
+ 
++	/* Populate the flag for updating buffer on AUX pause */
++	event_data->update_buf_on_pause =
++		!!(event->attr.config & BIT(ETM_OPT_UPDATE_BUF_ON_PAUSE));
++
++	if (event_data->update_buf_on_pause) {
++		/*
++		 * The per CPU sink has own interrupt handling, it might have
++		 * race condition with updating buffer on AUX trace pause if
++		 * it is invoked from NMI.  To avoid the race condition,
++		 * disallows updating buffer for the per CPU sink case.
++		 */
++		if (coresight_is_percpu_sink(sink)) {
++			dev_err(&sink->dev, "update_buf_on_pause is not permitted.\n");
++			goto err;
++		}
++	}
++
+ 	/* If we don't have any CPUs ready for tracing, abort */
+ 	cpu = cpumask_first(mask);
+ 	if (cpu >= nr_cpu_ids)
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.h b/drivers/hwtracing/coresight/coresight-etm-perf.h
+index 744531158d6b..52b9385f8c11 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.h
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.h
+@@ -51,6 +51,7 @@ struct etm_filters {
+  * @aux_hwid_done:	Whether a CPU has emitted the TraceID packet or not.
+  * @snk_config:		The sink configuration.
+  * @cfg_hash:		The hash id of any coresight config selected.
++ * @update_buf_on_pause: The flag to indicate updating buffer on AUX pause.
+  * @path:		An array of path, each slot for one CPU.
+  */
+ struct etm_event_data {
+@@ -59,6 +60,7 @@ struct etm_event_data {
+ 	cpumask_t aux_hwid_done;
+ 	void *snk_config;
+ 	u32 cfg_hash;
++	bool update_buf_on_pause;
+ 	struct list_head * __percpu *path;
+ };
+ 
+diff --git a/include/linux/coresight-pmu.h b/include/linux/coresight-pmu.h
+index 89b0ac0014b0..04147e30c2f2 100644
+--- a/include/linux/coresight-pmu.h
++++ b/include/linux/coresight-pmu.h
+@@ -35,6 +35,7 @@
+ #define ETM_OPT_CTXTID2		15
+ #define ETM_OPT_TS		28
+ #define ETM_OPT_RETSTK		29
++#define ETM_OPT_UPDATE_BUF_ON_PAUSE	30
+ 
+ /* ETMv4 CONFIGR programming bits for the ETM OPTs */
+ #define ETM4_CFG_BIT_BB         3
 -- 
 2.34.1
 
