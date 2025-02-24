@@ -4,98 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A324C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 20:47:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E859C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 20:48:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=noZHVLSF3h7hKAjQZ/VCvQY0kjlT62H69LdUcMJIhCg=; b=DMCcG3cBVAMJBjd7W/8Sj3dsGe
-	AhnhdUlK+Re6z2n/gtQXlihujHzk3D0T0Dhp3obDNAUvAPwqXZx4YETw+zOoui/cTp4aJ9MiXIGNI
-	WGFnsgJ5iCaKjctSqvcIZbYGW5G7qMFll4nG/vvT34m+dZgnAqrWySI98spylP/ytMim9BJPSBw03
-	ARzJ5KFGZK8mqhx2UvVmXa+6jkXuMG4vz+HiVSJ03TjyKqDP/b9gYAHG7KcEXjZG06w1cPkM7be8p
-	cBNBMluZBX0CjN+ttqPhyLbhPsxJKE1RLRnT5Y/yCpsJOSdYc2VRmGQjDH7rEZai+NXcgkOKq2J2c
-	qvDnXiOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bb2exU8QC7Sc/2+pBbZOOQIwxvwspOiOa+qNHnsQ8Sk=; b=q1AmwuGWcRcxCQKmNKWzBva2n6
+	XpysIj63/Dv7uWFIycxp9klB6rD4OqPbKWn1Iv5Sq51+whIWVI6hYktzttg6tuaQi+2mrW31V1pQY
+	vQYDN2WPWJmgYBTr72PdxIpATn4xayDZj8rfp5eY3VEde7Zxon2AAqvxVXterXr9LU9nIRvtQZKdP
+	kntc4+1M47lI75RdL22bkXWjC3GEjLTZ41OC0g8KZsQEFbz+ozv0L6q6woSHk+QmZTcazBK6F99E0
+	eckJRay5VxcX0EOVOG8XcuQyacKPsEqbt8dlyhim8emGt0IOxMTNUuqaCmYujsCN1JxdmoAcaIt/A
+	HeL3GJbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmfMC-0000000F8tB-26xf;
-	Mon, 24 Feb 2025 20:47:16 +0000
-Received: from mx-rz-1.rrze.uni-erlangen.de ([131.188.11.20])
+	id 1tmfNf-0000000F90y-0b5K;
+	Mon, 24 Feb 2025 20:48:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmfEY-0000000F7a8-1aWy
+	id 1tmfJX-0000000F8PS-3np2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 20:39:23 +0000
-Received: from mx-rz-smart.rrze.uni-erlangen.de (mx-rz-smart.rrze.uni-erlangen.de [IPv6:2001:638:a000:1025::1e])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-rz-1.rrze.uni-erlangen.de (Postfix) with ESMTPS id 4Z1szD6jmbz8snD;
-	Mon, 24 Feb 2025 21:39:20 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fau.de; s=fau-2021;
-	t=1740429561; bh=noZHVLSF3h7hKAjQZ/VCvQY0kjlT62H69LdUcMJIhCg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From:To:CC:
-	 Subject;
-	b=pt8ej8hPguiGhxOJGWJA3Ym6n6lZSbNUoW5FJ+SRATpnN/AU0tK7udawXe3+ggKUb
-	 tkLqDsyivIPqQbGyI2wJgp+7N1Al7IryPoQ4YxStxXumzUzeEf/i1jPQAQFgoy2Ayw
-	 lyesPhgS5IntM20GnmCB4j7EVfFOPCTMtZLvNWjLYB6vBTlc/BAo6UE6vxoV+/H+fw
-	 PjGLlumxMXsapRBc5ERBIa2mf9ADjbmwDi5VD8XB8slDA/4AmOaiyodPQrJ85Yhsms
-	 Aj0yicrWYelvP8xU7Iq04TJMe7hWwQ4rPzBP4hMziVqpJ9epwVWdTCkiAI1PUaFxYg
-	 rO1G/IaBKjvVg==
-X-Virus-Scanned: amavisd-new at boeck1.rrze.uni-erlangen.de (RRZE)
-X-RRZE-Flag: Not-Spam
-X-RRZE-Submit-IP: 2001:9e8:362e:e00:55a6:11d5:2473:17a9
-Received: from luis-tp.fritz.box (unknown [IPv6:2001:9e8:362e:e00:55a6:11d5:2473:17a9])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: U2FsdGVkX19dMwhCmCOPbU26XMvpPI/TJlM0l3YfMgs=)
-	by smtp-auth.uni-erlangen.de (Postfix) with ESMTPSA id 4Z1sz96rnpz8sns;
-	Mon, 24 Feb 2025 21:39:17 +0100 (CET)
-From: Luis Gerhorst <luis.gerhorst@fau.de>
-To: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mykola Lysenko <mykolal@fb.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Luis Gerhorst <luis.gerhorst@fau.de>,
-	Henriette Herzog <henriette.herzog@rub.de>,
-	Cupertino Miranda <cupertino.miranda@oracle.com>,
-	Matan Shachnai <m.shachnai@gmail.com>,
-	Dimitar Kanaliev <dimitar.kanaliev@siteground.com>,
-	Shung-Hsi Yu <shung-hsi.yu@suse.com>,
-	Daniel Xu <dxu@dxuuu.xyz>,
-	bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Cc: Maximilian Ott <ott@cs.fau.de>,
-	Milan Stephan <milan.stephan@fau.de>
-Subject: [RFC PATCH 4/9] bpf: Return EFAULT on internal errors
-Date: Mon, 24 Feb 2025 21:36:14 +0100
-Message-ID: <20250224203619.594724-5-luis.gerhorst@fau.de>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250224203619.594724-1-luis.gerhorst@fau.de>
-References: <20250224203619.594724-1-luis.gerhorst@fau.de>
+	Mon, 24 Feb 2025 20:44:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 29099611F7;
+	Mon, 24 Feb 2025 20:44:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9165DC4CED6;
+	Mon, 24 Feb 2025 20:44:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740429870;
+	bh=6ZQ2uzFiFhD7gkzk+n7hLxToXvw9f/qLjNwvw3IN058=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mwWbpNhCqwW2+IaFJM8s1EadrnggVS8HGVSkSAatxVKhTW1CDmZCPuIV58P2ejefE
+	 9fFCKKpdviw7OhuqtW474AqL9TJoMz+idxN5Dg1PXNJ2HAJs/aJP2T2Com9JjsU/WN
+	 ccOvcuOl8SzV1MhWguZaOXc2gHGBy2MZfmB8pjl0yWZLUKRgLpAgoxCgkJBeAPKcV/
+	 6Mkkpf0jw2ofTdTGrB+rw6+cpM20zOg8/7qHNCeg+WOYOaTA1nymb9+I6nhpR0oc/f
+	 UM9JJvk16LHop1JdTSdslzTFJrIcugsdLECkKsvah8C1ZpSmpEWHx+fpN/InM+TFRx
+	 2YaKffluH7H3w==
+Date: Mon, 24 Feb 2025 14:44:28 -0600
+From: Rob Herring <robh@kernel.org>
+To: Maud Spierings <maudspierings@gocontroll.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Jessica Zhang <quic_jesszhan@quicinc.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Sam Ravnborg <sam@ravnborg.org>, Liu Ying <victor.liu@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 05/14] dt-bindings: trivial-devices: add GOcontroll
+ Moduline IO modules
+Message-ID: <20250224204428.GA4050751-robh@kernel.org>
+References: <20250224-initial_display-v1-0-5ccbbf613543@gocontroll.com>
+ <20250224-initial_display-v1-5-5ccbbf613543@gocontroll.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_123922_559366_9206366A 
-X-CRM114-Status: GOOD (  10.18  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250224-initial_display-v1-5-5ccbbf613543@gocontroll.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,46 +84,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This prevents us from trying to recover from these on speculative paths
-in the future.
+On Mon, Feb 24, 2025 at 02:50:55PM +0100, Maud Spierings wrote:
+> The main point of the Moduline series of embedded controllers is its
+> ecosystem of IO modules, these currently are operated through the spidev
+> interface. Ideally there will be a full dedicated driver in the future.
+> 
+> Add the gocontroll moduline-module-slot device to enable the required
+> spidev interface.
+> 
+> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
+> ---
+>  Documentation/devicetree/bindings/trivial-devices.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/trivial-devices.yaml b/Documentation/devicetree/bindings/trivial-devices.yaml
+> index 8255bb590c0cc619d15b27dcbfd3aa85389c0a54..24ba810f91b73efdc615c7fb46f771a300926f05 100644
+> --- a/Documentation/devicetree/bindings/trivial-devices.yaml
+> +++ b/Documentation/devicetree/bindings/trivial-devices.yaml
+> @@ -107,6 +107,8 @@ properties:
+>            - fsl,mpl3115
+>              # MPR121: Proximity Capacitive Touch Sensor Controller
+>            - fsl,mpr121
+> +            # GOcontroll Moduline module slot for spi based IO modules
 
-Signed-off-by: Luis Gerhorst <luis.gerhorst@fau.de>
-Acked-by: Henriette Herzog <henriette.herzog@rub.de>
-Cc: Maximilian Ott <ott@cs.fau.de>
-Cc: Milan Stephan <milan.stephan@fau.de>
----
- kernel/bpf/verifier.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+I couldn't find anything about SPI for GOcontroll Moduline. Can you 
+point me to what this hardware looks like. Based on what I did find, 
+this seems incomplete and not likely a trivial device.
 
-diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-index d8a95b84c566..03e27b012af3 100644
---- a/kernel/bpf/verifier.c
-+++ b/kernel/bpf/verifier.c
-@@ -11368,7 +11368,7 @@ static int check_helper_call(struct bpf_verifier_env *env, struct bpf_insn *insn
- 				verbose(env, "verifier internal error:");
- 				verbose(env, "func %s has non-overwritten BPF_PTR_POISON return type\n",
- 					func_id_name(func_id));
--				return -EINVAL;
-+				return -EFAULT;
- 			}
- 			ret_btf = btf_vmlinux;
- 			ret_btf_id = *fn->ret_btf_id;
-@@ -14856,12 +14856,12 @@ static int adjust_reg_min_max_vals(struct bpf_verifier_env *env,
- 	if (WARN_ON_ONCE(ptr_reg)) {
- 		print_verifier_state(env, vstate, vstate->curframe, true);
- 		verbose(env, "verifier internal error: unexpected ptr_reg\n");
--		return -EINVAL;
-+		return -EFAULT;
- 	}
- 	if (WARN_ON(!src_reg)) {
- 		print_verifier_state(env, vstate, vstate->curframe, true);
- 		verbose(env, "verifier internal error: no src_reg\n");
--		return -EINVAL;
-+		return -EFAULT;
- 	}
- 	err = adjust_scalar_min_max_vals(env, insn, dst_reg, *src_reg);
- 	if (err)
--- 
-2.48.1
-
+> +          - gocontroll,moduline-module-slot
+>              # Honeywell Humidicon HIH-6130 humidity/temperature sensor
+>            - honeywell,hi6130
+>              # IBM Common Form Factor Power Supply Versions (all versions)
+> 
+> -- 
+> 2.48.1
+> 
 
