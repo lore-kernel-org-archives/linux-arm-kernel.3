@@ -4,114 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1DB1C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 03:04:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18B05C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 03:09:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SjsUMYFp+Mx49YvN7hD/3KWP7s9neIA8zwh6iIzC7CU=; b=DP4GXwoIm3fOPLK3ZoC40lFBv6
-	ICzY1jBDTYJUwFCERAJCOjjuB7OumUKEZeEc9OQ6gZuCJgMzjP0e7j+YoG+zRj3vhWJSyGV2vjiw6
-	xfz9Sn6Z1LelhBqZwpgMAuExW+DlMAQC91J8MDrLtBae4gULqfP6H0R/VamSiDiayd5hBx2l9BfiM
-	3GZSvYJKxMl4T3jdnqfO8P1crMMbtcwY6aG6vFelRonwt62W5MW7NOrkjfaU8jGJqOdQeK35/e5xy
-	VJD91j8nsz6PNpNjYog/B6P8TMPykFdrDjlGByarajsMXoaiOvS4cKeQe7gDCHiUvqmKV5dYJVTM7
-	Bv3XvKiA==;
+	bh=FjeToehox1GOVVgAzNcvzKA8CxY9UGj72X9yocM0jjA=; b=DPlFIOHra61/aNIinxnv7hXcRt
+	rxyMGfQNYpHuUam1CVfGmDM6n0CR2dr4tedp6uVcP4VhA+dz8KfwhkcsVr0LPO+qsZYyhEa1TiFkK
+	rAmgZo3zb++9IgDhgcHWvfcAhYv8Us6eXskZFHteJDRmEIuFZWVzSbqD9Orw4H10FfD13m199/vx8
+	3Bpqzzr7fiXWpQaDMvt6BelTHKMJfriO1sisoGNelGD+eb+3SHPhZZStZLLz7l8yILa8RicEYFxKm
+	TAccEutJGtapM40pLz84pEaFeK9w69rRRAdK352q9VC1l9iafWQ4Q7py6T0hFxeYbxMCkohgi8RCX
+	rntqRJMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmOla-0000000CCxm-1T6s;
-	Mon, 24 Feb 2025 03:04:22 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1tmOqb-0000000CDJB-1Yt3;
+	Mon, 24 Feb 2025 03:09:33 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmOk1-0000000CCma-3n52;
-	Mon, 24 Feb 2025 03:02:47 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5e058ca6806so7197279a12.3;
-        Sun, 23 Feb 2025 19:02:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740366164; x=1740970964; darn=lists.infradead.org;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SjsUMYFp+Mx49YvN7hD/3KWP7s9neIA8zwh6iIzC7CU=;
-        b=GZo2zeJ8j87XYzad07BhUf0iqb/HM9mZ7apEQDzceMuFyHqpS/lKvwKhhxupW+qJJ6
-         whGppcRkrSv55Sc+x+A9p5X4b9Is/l5f4P30dXeCPqsjkoHmF3wMZ1wA9/7RpB7g4T8f
-         u2qrS5G/3jgeGSvbN64rvtkEEtVoS66Y/puuZ6XEUwA88HvNrS58GvCzb5pk8gKi6oAN
-         UgIkA7JPThtreMq/6+9GR7pX4gEvgXBqVl4lOoUn7WKv65zfVHtBt7eDaVI9Or1wAENt
-         d16MQAF4Ml9MQlxpAJ2NrtXwFKbrNuSWtlHZUphiHWv4d2AR25X1dZts04cUzhVL97UQ
-         dMcw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740366164; x=1740970964;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :reply-to:message-id:subject:cc:to:from:date:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=SjsUMYFp+Mx49YvN7hD/3KWP7s9neIA8zwh6iIzC7CU=;
-        b=bTPwIrSwcBuXUZjAtmPTGIoFnXxOaqIktmnTxaxx8quF3Ny4oEW+CgF3dUky4i4QHR
-         al4c3XZbTdxZ3mBdzDYXTn/+P+40HWaKdGhRj3Fzfe8emGsmaMhGSxoZW/r4pRjvYufR
-         fA+Xgh7kaTjtqQvsmcd5LN0aOoZMJ6OAdP0uJAptcBqoeMyotvrKxMD7eKgCB3YcA83M
-         p5vdwUElI6lw2T9QI+PSDxkxut1ddmP1rMZ4bAJN13z12QFLHn+6dJXz6+0bs5wNo0eF
-         kjqL8WFddOvnveVx4I8e+/hPtQB0moR/zxpQBdNGZKvipu0mPFych3ImdP11kFCCcg0L
-         6TVA==
-X-Forwarded-Encrypted: i=1; AJvYcCW0iNqf3GChttDK0LQeCKw8C8z4pmj6HInQIL8o0u70qHl6xU4l59dNa8Wg7JFvwVPXijNB8kguNyWMW/Xhgo/lqA==@lists.infradead.org, AJvYcCX3Ek8uKoNA3D0oUrmi0HGqHJAGpNsl1lodXIkqtD3A/Jnp4j0xQz8qWAsStU0uRHNyzCUyzw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDT9e6zygVp0EkkK0OM8TsOQk2d+UZKJOaWpGRpSKVSEj1EKFa
-	BP0a4+V22eAF6Hb7ntXMFt14rk8IovKVKlrgPNCOV39S+gSSJoyC
-X-Gm-Gg: ASbGncstN2TWsGAATmr9XQROwYPQXp77jBllpAi/43P1HSrDXVBMqguMf5YqveMSArQ
-	QBaiBByuL7gCOr3O9cm1UBoA5/ob39hltYWksqxLSU5tLWQhEijq80d/k87e7SyTQjKMnKiNsG/
-	pCJ/9t9G9OcG4PdxWBvtqmfphhx6XlI07BvW7pWhgBHdUfsY/YEUh0p2nN+uK28dTZbo+HPnck4
-	/PEOY8mOueD5pcxaoVqh+WL6zvRO6pO/mxO8AcC51CSumIBCYzc6c+yHWuFVkj+YvTOTfzE2gOJ
-	Utpm9by4BqQv4lPgD6Lw9u5W3A==
-X-Google-Smtp-Source: AGHT+IHzUc14TKjsGWWce5aAn1HH4tsAMVuHoPc6eeAzqtQVN04INfU1hh5sqPpMyJ9gzD/SRveTag==
-X-Received: by 2002:a17:906:c148:b0:ab7:b250:aaa with SMTP id a640c23a62f3a-abc0df5a73cmr933979066b.54.1740366163994;
-        Sun, 23 Feb 2025 19:02:43 -0800 (PST)
-Received: from localhost ([185.92.221.13])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb961594absm1510893366b.111.2025.02.23.19.02.42
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Sun, 23 Feb 2025 19:02:43 -0800 (PST)
-Date: Mon, 24 Feb 2025 03:02:42 +0000
-From: Wei Yang <richard.weiyang@gmail.com>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>,
-	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pratyush Yadav <ptyadav@amazon.de>,
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v4 04/14] memblock: introduce memmap_init_kho_scratch()
-Message-ID: <20250224030242.rdmzcdrth6qmlims@master>
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <20250206132754.2596694-5-rppt@kernel.org>
+	id 1tmOp2-0000000CDEH-2Lsd
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Feb 2025 03:07:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 654EA5C6BA6;
+	Mon, 24 Feb 2025 03:07:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E53DC4CEDD;
+	Mon, 24 Feb 2025 03:07:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740366475;
+	bh=Ba3wMsdsMZt4q0+MdOQd3tGZpmRW5h3c/acmhZctCSc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TpEcIqG2zo2PySpCB2ecwND0bLf3YDv19Z47qbF4Kb68l5SU0LTrKOmqNUw/GhMeY
+	 Ueeyf3/B/s0+KG+uRb5tPlLt/ddF+0hHBXzb7L0K7YLcc7SE7sh/QQc67RGuDk9dLw
+	 owDmBIAgqVw6FlN8F2+1NFRP12DJBvcdu9qGxMj+rjcFE0SR02HzqLVu+ff9EUiV5g
+	 Y40i1uT9KIVYoVHMZjqF9Ig/e2zjoCiu0IYP34LgSfcEKj7ImNLXtK8iCGtsJ4GVBn
+	 o04oaGim9Osi8DkBzGqUQxDrqBF4HrCnL4A1zAvTNbt+/ooHRU9Lwq9VMw9u0Okh2G
+	 l3XpDnrc8MK3g==
+Date: Mon, 24 Feb 2025 12:07:48 +0900
+From: William Breathitt Gray <wbg@kernel.org>
+To: =?iso-8859-1?B?Q3Pza+Fz?= Bence <csokas.bence@prolan.hu>
+Cc: linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Kamel Bouhara <kamel.bouhara@bootlin.com>, Dharma.B@microchip.com
+Subject: Re: [PATCH v4 0/2] microchip-tcb-capture: Add Capture, Compare,
+ Overflow etc. events
+Message-ID: <Z7vihBqOgP3fBUVq@ishi>
+References: <20250211151914.313585-3-csokas.bence@prolan.hu>
+ <Z7h0AXV1zlgp9Nw-@ishi>
+ <8fb9f188-3065-4fdc-a9f1-152cc5959186@prolan.hu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="/Tmqyh1uo1sTZuwD"
 Content-Disposition: inline
-In-Reply-To: <20250206132754.2596694-5-rppt@kernel.org>
-User-Agent: NeoMutt/20170113 (1.7.2)
+In-Reply-To: <8fb9f188-3065-4fdc-a9f1-152cc5959186@prolan.hu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250223_190245_950606_5BC2A96B 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20250223_190756_734787_C80919EB 
+X-CRM114-Status: GOOD (  62.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,24 +73,166 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Wei Yang <richard.weiyang@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 03:27:44PM +0200, Mike Rapoport wrote:
->From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
->
->With deferred initialization of struct page it will be necessary to
->initialize memory map for KHO scratch regions early.
->
->Add memmap_init_kho_scratch() method that will allow such initialization
 
-memmap_init_kho_scratch_pages ?
+--/Tmqyh1uo1sTZuwD
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->in upcoming patches.
->
+On Fri, Feb 21, 2025 at 03:14:44PM +0100, Cs=F3k=E1s Bence wrote:
+> On 2025. 02. 21. 13:39, William Breathitt Gray wrote:
+> > First, register RC seems to serve only as a threshold value for a
+> > compare operation. So it shouldn't be exposed as "capture2", but rather
+> > as its own dedicated threshold component. I think the 104-quad-8 module
+> > is the only other driver supporting THRESHOLD events; it exposes the
+> > threshold value configuration via the "preset" component, but perhaps we
+> > should introduce a proper "threshold" component instead so counter
+> > drivers have a standard way to expose this functionality. What do you
+> > think?
+>=20
+> Possibly. What's the semantics of the `preset` component BTW? If we can
+> re-use that here as well, that could work too.
 
--- 
-Wei Yang
-Help you, Help me
+You can find the semantics of each attribute under the sysfs ABI doc
+file located at Documentation/ABI/testing/sysfs-bus-counter. For the
+`preset` component, its essential purpose is to configure a value to
+preset register to reload the Count when some condition is met (e.g.
+when an external INDEX/SYNC trigger line goes high).
+
+In the 104-quad-8 module,  the `preset` component is used for a number
+of threshold-like purposes; you can see some of the uses by reading the
+description of the /sys/bus/counter/devices/counterX/countY/count_mode
+attribute. Of relevance to the SAMA5D2, the 104-quad-8 has a mode where
+the current Count value is compared against the preset register and an
+interrupt is fired when they match (i.e. our Counter THRESHOLD event).
+
+I think it'll be fine to use the preset component to expose the RC
+register because the 104-quad-8 already uses the preset component in a
+similar fashion; also I would like to keep things simple in this
+patchset to avoid the complexities of introducing a new `threshold`
+component interface, at least until we get the rest of the capture
+functionality in this driver merged.
+
+So for now, use COUNTER_COMP_PRESET() to expose the RC register as a
+`preset` component. In the next patchset revision, put this code in its
+own patch after the capture components patch, so that we can review the
+RC register code separately.
+
+In the same vein, move the uapi header introduction to its own patch.
+That will separate the userspace-exposed changes and make things easier
+for future users when bisecting the linux kernel history when tracking
+down possible bugs.
+=20
+> > Regarding registers RA and RB, these do hold historic captures of count
+> > data so it does seem appropriate to expose these as "capture0" and
+> > "capture1". However, I'm still somewhat confused about why there are two
+> > registers holding the same sampled CV (or do RA and RB hold different
+> > values from each other?). Does a single external line trigger the sample
+> > of CV to both RA and RB, or are there two separate external lines
+> > triggering the samples independently; or is this a situation where it's
+> > a single external line where rising edge triggers a sample to RA while
+> > falling edge triggers a sample to RB?
+>=20
+> It is exactly the latter. And you can configure which edge should sample
+> which register; you can also set them to the same edge in which case they
+> would (presumably) hold the same value, but as you said, it wouldn't be
+> practical.
+
+Ah okay, I think I understand now. Thank you for clarifying.
+
+> > Next, the driver right now has three separate event channels, but I
+> > believe you only need two. The purpose of counter event channels is to
+> > provide a way for users to differentiate between the same type of event
+> > being issued from different sources. An example might clarify what I
+> > mean.
+>=20
+> Yeah true, I could shove the RC compare event to event channel 0. It just
+> made more sense to have event channels 0, 1, 2 correspond to RA, RB and R=
+C.
+> And it's not like we're short on channels, it's a u8, and we have 5 event=
+s;
+> if we wanted to, we could give each a channel and still have plenty left
+> over. I also thought about separating RA capture from channel 0, but I
+> figured it would be fine, as you said, the event type would differentiate
+> among them.
+>=20
+> The reason I did not put the RC compare event to channel 0 as well is tha=
+t I
+> only have the SAMA5D2, and I don't know whether other parts are capable of
+> generating other events related to RC, potentially clashing with other
+> channel 0 use, if we later decide to support them. One channel per
+> event-sourcing register seems like a safe bet; having CV and RA on the sa=
+me
+> channel still seems to be an acceptable compromise (but again, I don't kn=
+ow
+> about the other parts' capabilities, so it _might_ still lead to clashes).
+
+I can see your rationale, and I don't have too strong of an opinion
+either way, so I'll leave it up to your best judgement. Ultimately, as
+you point out we do have a large enough availability of channels that
+will accommodate future introductions, which can be abstracted to users
+via the uapi header, so we should be fine.
+
+Regarding future additions, I took a look at the Microchip SAMA5D2
+datasheet[^1] (is the right document?) and it looks like this chip has
+three timer counter channels described in section 54. Currently, the
+microchip-tcb-capture module is exposing only one timer counter channel
+(as Count0), correct? Should this driver expose all three channels (as
+Count0, Count1, and Count2)?
+
+> > Suppose a hypothetical counter device has two independent timers. When
+> > either timer overflows, the device fires off a single interrupt. We can
+> > consider this interrupt a counter OVERFLOW event. As users we can watch
+> > for COUNTER_EVENT_OVERFLOW to collect these events. However, a problem
+> > arises: we know an OVERFLOW event occurred, but we don't know which
+> > particular timer is the source of the overflow. The solution is to
+> > dedicate each source to its own event channel so that users can
+> > differentiate between them (e.g. channel 0 are events sourced from the
+> > first timer whereas channel 1 are events sourced from the second timer).
+> >=20
+> > Going back to your driver, there seems to be no ambiguity about the
+> > source of the CHANGE-OF-STATE, THRESHOLD, and OVERFLOW events, so these
+> > events can all coexist in the same event channel. The only possible
+> > ambiguity I see is regarding the CAPTURE events, which could be sourced
+> > by either a sample to RA or RB. Given this, I believe all your events
+> > could go in channel 0, with channel 1 serving to simply differentiate
+> > CAPTURE events that are sourced by samples to RB.
+> >=20
+> > Finally, you mentioned that this device supports a PWM mode that also
+> > makes use of the RA, RB, and RC registers. To prevent globbering the
+> > registers when in the wrong mode, you should verify the device is in the
+> > counter capture mode before handling the capture components (or return
+> > an appropriate "Operation not support" error code when in PWM mode). You
+> > don't need to worry about adding these checks for now because it looks
+> > like this driver does not support PWM mode yet, but it's something to
+> > keep in mind if you do add support for it in the future.
+>=20
+> The `mchp_tc_count_function_write()` function already disables PWM mode by
+> clearing the `ATMEL_TC_WAVE` bit from the Channel Mode Register (CMR).
+
+So capture mode is unconditionally set by mchp_tc_count_function_write()
+which means the first time the user sets the Count function then PWM
+mode will be disabled. However, what happens if the user does not set
+the Count function? Should PWM mode be disabled by default in
+mchp_tc_probe(), or does that already happen?
+
+William Breathitt Gray
+
+[^1] https://ww1.microchip.com/downloads/en/DeviceDoc/DS60001476B.pdf
+
+--/Tmqyh1uo1sTZuwD
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQSNN83d4NIlKPjon7a1SFbKvhIjKwUCZ7vihAAKCRC1SFbKvhIj
+K0AEAQDJspkJEtu7+1N2PmNO7mzKvaWSEPhzCTQUbAYZILYDYAEAuzh92eO/ENSb
+SaJWYNoXvQdyag5Hw+MTo7vm2P7vdA4=
+=1lMt
+-----END PGP SIGNATURE-----
+
+--/Tmqyh1uo1sTZuwD--
 
