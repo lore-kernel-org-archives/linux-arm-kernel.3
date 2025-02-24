@@ -4,77 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DAC7C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 14:35:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E5BC021BC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 14:37:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EPcHCivrgVNEm/ByMHyUufAZZi+qh9K6loCNTwKX1V0=; b=4Y0Y7bYb07Stm65NQnLFYBLhOW
-	pux7lCFTo7KdaonTI5Y7EWcrb7oYetg86+0qSvSHHluKLK5CtM2Scw5QbC2Fkydk3mgdxPVmH0qIv
-	DbNnxhtxWj3eco00uolhbMgFyGx7j5N10QdKZnL2hnSA5bO0KAwQ5ckvcRbDTntmrPe3ZcVLds9QZ
-	4StpvlugLCDfMbSnDQ7g8ZGPqesrdrgY6NR9j67SVrWQsXKLL+/L5uTjIJGOhVor7ME4jI2JXZpAD
-	hhoF9M0Q1y7czqt4AQvRchuSyPR9PjH+8shdKZD1zw8Ev0/eDdORo7SZJIj6osXcXo5IgJwLqzctN
-	23bBF7gA==;
+	bh=PcZ9xPvGi8ims+c2/a8qp2K7FN14062QE/zaFsTfD44=; b=Ee08Rl1a7OyNvMk3JWwb5Onbvl
+	Sy23vfhwxI0bjKzyxY9Yjsai9wdNvPiWB0uf3NdVZp1Z9TiVSLi00LBUVKqaRI/SRV60M+zXcFtq+
+	1M9J5/zZHiYEs3pyth9wg8eEP9zs5FSbUyptkRAUZaGKOkTqJiKQMLnW+x86CAAJ0uFI4GslrAkMi
+	0aYOWJNShke7IRz0zRe/x2usp+l68YHzVpNS+8rxG/2WetIxZA2MMJUW8kFgxmtuhMHBPUof127cH
+	YZJ+3H6FJKa0e5TmtfW2jxyfUhI8I9vcYw+jQGFOJmtE7xtQ4khza5e8yI6SiL8nO3ARkacutHtev
+	0rg4SVGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmZYe-0000000E7Dn-3EDl;
-	Mon, 24 Feb 2025 14:35:44 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1tmZa6-0000000E7X4-1nK0;
+	Mon, 24 Feb 2025 14:37:14 +0000
+Received: from haruka.juszkiewicz.com.pl ([185.243.53.191])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmZ4f-0000000E13Y-3QT3
+	id 1tmZ6N-0000000E1QJ-0UxB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 14:04:47 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 3F66F44124;
-	Mon, 24 Feb 2025 14:04:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1740405882;
+	Mon, 24 Feb 2025 14:06:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=juszkiewicz.com.pl;
+	s=mail; t=1740405986;
+	bh=Rrh8Qdukg1Q9sg3ZBF4IlAc2JjQo/OBav10chUu9xTM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jmEONay1YjesVmD43PDrADy6n0HTW47o9x/t2XoS4fWW1zGbhByHn22DUKQK94k3Z
+	 grozc7DqlfBRUrY4nfTMcPJSf3onQTZfmkrSDSIXbIlsxOik88OeM8V5q6R97aTP6/
+	 KM8Jp221QRGMYKWF5nVYzUD2kswWG7qAIEV5hPtz8YwYVQ8jI+Pg82qwnU8Ijf/dUw
+	 I60JUZl/OaHZ+NKK1ms9wy514tv3c0i98UwrRqvUTBzuHCdU1XHpjD/6+VbLokH7ps
+	 xeY8zPvO/7qalHjAVzy1xansu1NrGrP7Panrqoikstya4xlmaVbtnUALhozrpefRid
+	 Sw80RGdW3Q2iA==
+Received: from utena.juszkiewicz.com.pl (utena.juszkiewicz.com.pl [158.101.208.177])
+	by haruka.juszkiewicz.com.pl (Postfix) with ESMTPSA id C9FBB22AA6;
+	Mon, 24 Feb 2025 15:06:26 +0100 (CET)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 87B9442007;
+	Mon, 24 Feb 2025 15:06:20 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=juszkiewicz.com.pl;
+	s=mail; t=1740405985;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=EPcHCivrgVNEm/ByMHyUufAZZi+qh9K6loCNTwKX1V0=;
-	b=FaCKg6csEf5Yj70+AItRKH2YVOKtzEd4JKrPyZsWGELHjx66vdfqN0tMT1FtlsZ9tuZYmY
-	3gavhs9ZLYl1nbadbctHOZOmYWNhLMKjRVHVUhYjaB2R2QChme68lbkXqTmrZOj1Svq6ba
-	EZOwMv91cOBXdNfC5RyG1h5743HAX9fE6D/s4iDD1lJUx45mvoTtjqcFAZBf5sV4H94BGr
-	/HaRDCgYqGsEcU6qlLCyfRSeooFiNZjT/4TJ/A6fZA96OB5UAMCTthxFLpwrqpUuhRZjn0
-	9wG9wvNqrwseXAx/l5B8CZcJ5PF+36yiFq6y1RwYjO3nuHE/T/+r6t18Pai+ZQ==
-Date: Mon, 24 Feb 2025 15:04:40 +0100
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, davem@davemloft.net,
- Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>, Eric
- Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Heiner
- Kallweit <hkallweit1@gmail.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
- linux-arm-kernel@lists.infradead.org, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Vladimir Oltean
- <vladimir.oltean@nxp.com>, Oleksij Rempel <o.rempel@pengutronix.de>, Simon
- Horman <horms@kernel.org>, Romain Gantois <romain.gantois@bootlin.com>
-Subject: Re: [PATCH net-next 12/13] net: phy: phylink: Use phy_caps_lookup
- for fixed-link configuration
-Message-ID: <20250224150440.7fe5458d@kmaincent-XPS-13-7390>
-In-Reply-To: <Z7x52C5dE3eXWomq@shell.armlinux.org.uk>
-References: <20250222142727.894124-1-maxime.chevallier@bootlin.com>
-	<20250222142727.894124-13-maxime.chevallier@bootlin.com>
-	<20250224144431.2dca9d19@kmaincent-XPS-13-7390>
-	<Z7x52C5dE3eXWomq@shell.armlinux.org.uk>
-Organization: bootlin
-X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
+	bh=PcZ9xPvGi8ims+c2/a8qp2K7FN14062QE/zaFsTfD44=;
+	b=q6yWtIK0uB1F4ZZabwBCXXsjWOOxOlW2t+fe5bRDcn+aEtpmpYzdN9GOra+KUrMNU4m+dj
+	G/2r1WlUJ3bnZTWdKLmuOwEva3zTlbKW94+y102nG4cujngUUMe1DeXF2zSFsh3i9vJHF8
+	Q7IAOd+GezO7T1OhRYFnPbmPaHHYaYCMPuZUpniC6QmIjbYkC/eugwRz3NVsf6jTcijiJ8
+	VCXx9bpSbythjTjNBO7tZ6zLS3CCZ5rqoyX+KXRIZcc5SHmLcNCiKV5aatu7RjoeBMBnH/
+	bod68heInTNHMp57SExUN/MBLBAhxDgesmqCoHBiIUoiY9W8z9hEGcq0pONU0Q==
+Message-ID: <7f673cea-8d85-404a-b380-4282c0e3c0ad@juszkiewicz.com.pl>
+Date: Mon, 24 Feb 2025 15:06:19 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdejkeeljecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthhqredtredtjeenucfhrhhomhepmfhorhihucforghinhgtvghnthcuoehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpefguddtfeevtddugeevgfevtdfgvdfhtdeuleetffefffffhffgteekvdefudeiieenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghlohepkhhmrghinhgtvghnthdqigfrufdqudefqdejfeeltddpmhgrihhlfhhrohhmpehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduledprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrt
- ghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomh
-X-GND-Sasl: kory.maincent@bootlin.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6/6] arm64: dts: cix: add initial CIX P1(SKY1) dts support
+To: Peter Chen <peter.chen@cixtech.com>
+Cc: "arnd@arndb.de" <arnd@arndb.de>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ cix-kernel-upstream <cix-kernel-upstream@cixtech.com>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ Fugang Duan <fugang.duan@cixtech.com>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "robh@kernel.org" <robh@kernel.org>, "will@kernel.org" <will@kernel.org>
+References: <20250220084020.628704-7-peter.chen@cixtech.com>
+ <068655e7-2ad7-4497-aca7-4100ad478d99@juszkiewicz.com.pl>
+ <Z7xZwGTIKgj9_zNZ@nchen-desktop>
+From: Marcin Juszkiewicz <marcin@juszkiewicz.com.pl>
+Content-Language: pl-PL, en-GB
+In-Reply-To: <Z7xZwGTIKgj9_zNZ@nchen-desktop>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_060446_300867_03D31823 
-X-CRM114-Status: GOOD (  23.62  )
+X-CRM114-CacheID: sfid-20250224_060631_319498_81AB373E 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,59 +98,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Feb 2025 13:53:28 +0000
-"Russell King (Oracle)" <linux@armlinux.org.uk> wrote:
+W dniu 24.02.2025 o 12:36, Peter Chen pisze:
+> On 25-02-23 04:05:10, Marcin Juszkiewicz wrote:
+>>
+>>> diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
+>>> new file mode 100644
+>>> index 000000000000..d98735f782e0
+>>> --- /dev/null
+>>> +++ b/arch/arm64/boot/dts/cix/sky1.dtsi
+>>> @@ -0,0 +1,264 @@
+>>> +// SPDX-License-Identifier: BSD-3-Clause
+>>> +/*
+>>> + * Copyright 2025 Cix Technology Group Co., Ltd.
+>>> + *
+>>> + */
+>>> +
+>>> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+>>
+>> [..]
+>>
+>>> +     arch_timer: timer {
+>>> +             compatible = "arm,armv8-timer";
+>>> +             interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+>>> +                          <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+>>> +                          <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+>>> +                          <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
+>>> +             clock-frequency = <1000000000>;
+>>> +             interrupt-parent = <&gic>;
+>>> +             arm,no-tick-in-suspend;
+>>> +     };
+>>
+>> This is not Arm v8.0 SoC so where is non-secure EL2 virtual timer?
+> 
+> It is the Arm v9 SoC and back compatible with Arm v8.
 
-> On Mon, Feb 24, 2025 at 02:44:31PM +0100, Kory Maincent wrote:
-> > On Sat, 22 Feb 2025 15:27:24 +0100
-> > Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
-> >  =20
-> > > When phylink creates a fixed-link configuration, it finds a matching
-> > > linkmode to set as the advertised, lp_advertising and supported modes
-> > > based on the speed and duplex of the fixed link.
-> > >=20
-> > > Use the newly introduced phy_caps_lookup to get these modes instead of
-> > > phy_lookup_settings(). This has the side effect that the matched
-> > > settings and configured linkmodes may now contain several linkmodes (=
-the
-> > > intersection of supported linkmodes from the phylink settings and the
-> > > linkmodes that match speed/duplex) instead of the one from
-> > > phy_lookup_settings(). =20
-> >=20
-> > ...
-> >  =20
-> > > =20
-> > >  	linkmode_set_bit(ETHTOOL_LINK_MODE_Pause_BIT, mask);
-> > >  	linkmode_set_bit(ETHTOOL_LINK_MODE_Asym_Pause_BIT, mask);
-> > > @@ -588,9 +591,9 @@ static int phylink_parse_fixedlink(struct phylink=
- *pl,
-> > > =20
-> > >  	phylink_set(pl->supported, MII);
-> > > =20
-> > > -	if (s) {
-> > > -		__set_bit(s->bit, pl->supported);
-> > > -		__set_bit(s->bit, pl->link_config.lp_advertising);
-> > > +	if (c) {
-> > > +		linkmode_or(pl->supported, pl->supported, match);
-> > > +		linkmode_or(pl->link_config.lp_advertising,
-> > > pl->supported, match); =20
-> >=20
-> > You are doing the OR twice. You should use linkmode_copy() instead. =20
->=20
-> No, we don't want to copy pl->supported to
-> pl->link_config.lp_advertising. We just want to set the linkmode bit
-> that corresponds to the speed/duplex in each mask.
->=20
-> That will result in e.g. the pause mode bits will be overwritten despite
-> being appropriately set in the advertising mask in the code above this.
+Arm SoC has several timer interrupts:
 
-Ok, so the right thing should be this:
-linkmode_or(pl->link_config.lp_advertising, pl->link_config.lp_advertising,
-	    match)
+PPI 10: Non-secure EL2 physical timer interrupt
+PPI 11: Virtual timer interrupt
+PPI 12: Non-secure EL2 virtual timer
+PPI 13: Secure physical timer interrupt
+PPI 14: Non-secure physical timer interrupt
 
-Regards,
---=20
-K=C3=B6ry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
+You mention 10, 11, 13, 14 only like your SoC would be plain old Arm 
+v8.0 one (Cortex-A53/A72).
+
+Sky1 (CP/CA/CS8180) is Arm v9 so should also list PPI 12 which came with 
+VHE (Virtualization host extensions) which is mandatory for each Arm cpu 
+v8.1 or above (and is implemented in A520/A720 cores).
 
