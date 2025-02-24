@@ -4,67 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C549FC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 22:01:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C279EC021B6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 22:06:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YMTyyljeSoeEZ1qX/m1e4DsAMF9julblfGhRWJUGgNs=; b=0vqhWfb8WjLNqb/AI8TRJVBHUB
-	xSO9aAQYZnVorZCeMqvMHXzdZdeFO4+U9+4JlbZnGIgNKrZBtiPO/Hink/senpC0zUjQh9SKyXKgz
-	9JK/dvYZvrPt7y/SD+RJWCKtgUnWGWtUXNBfl88Rfh34OPAn7JxXQbxYzQZe96bYB6FiCPuftepJT
-	eyZ6ttBpTK/SSqvY5SFlb9OE2xHdPtt7lxLMS3kK87d3mpW4uXJnJPFT3p7PCuwogrJ1mSVO9Ido4
-	VnmczuFvn8p6EO64ZPSoGxWR38nTvQVd3Jgv1BGTNzwPEL3uEH+RYDTJceEKjcK+sxZv+9CyCQgZ8
-	g7bXit+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KzttHuqwbO250SJZmkXY5X6iacccx0fS7kQMrYMCK/A=; b=oPAf4wgByfLF6zFMs9d8ziRMCp
+	6UP4CPp3QqS4DM3GKdelc8nYyHcwDdccLxKJIOAv52qgJdMaBFg9wcpNXZo7UWYtleJKCkjnNUg+d
+	Lpxh6KJjgE8xS7MWfmzgKWJyJe3JTArwfRaOxv74vSyK7bZCk/UDFqpbGmS8aQ3+t/ppCJrKFDT2Y
+	RlF9II/E7hbuvpCpZcbaMk15NcUhf3eypsssu+3ne50lk9IsrW/O6uGKe42sg2dlRDlYvg4YbuuKr
+	Hhn+qxpep/JRRMrlIuxbF1KU3LEYQ4xUfvCs/6GNT5NP2YjLJqR3hICkYBRixdrxtLMH3DLdPa9jL
+	BuIdkYDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmgW6-0000000FJAX-41m5;
-	Mon, 24 Feb 2025 22:01:34 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tmgaH-0000000FJpk-04J3;
+	Mon, 24 Feb 2025 22:05:53 +0000
+Received: from out-182.mta1.migadu.com ([2001:41d0:203:375::b6])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmgUc-0000000FIvZ-2f7Y
+	id 1tmgYk-0000000FJcx-4ADF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 22:00:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id F3C005C6CF8;
-	Mon, 24 Feb 2025 21:59:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93592C4CED6;
-	Mon, 24 Feb 2025 21:59:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740434399;
-	bh=QJ6yGM33Uq3KSv4SQnLLE1QPSeX+HvMHB5AJdp87OT4=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=MOgJHU6OfhBTuNWGYBpN4QLCNtIs17/THkJ+6x6bx8RUfpOh7xdPbjpeENfeDA9Ky
-	 uecn4B8DXoySXeGB+nTKrv7bkPZm7h/t1g7fGr1wMu5v1p41AGlAlV+aD6Q+K/h5Q/
-	 W/KIkyAMAj9giaakzEasG8fEwLVkP0HDmoL1x9kk6VH1/FaNmfHyZxoI6RAzGlG4C/
-	 do2qowMpLI6zNCIhZmJhq71WliEwpbxBFVMtV0ecgHF4qeR7meDTgNhQ+cCEyDnZIB
-	 MQsXWK1EuZY29du1OeSjHNkIqmPzME5ejcvoMkbgGHF7utE2P4LTcbEZIoGDLQ/6CM
-	 CBz0QvKnTSgyw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33D6F380CEDD;
-	Mon, 24 Feb 2025 22:00:32 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Mon, 24 Feb 2025 22:04:21 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1740434654;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=KzttHuqwbO250SJZmkXY5X6iacccx0fS7kQMrYMCK/A=;
+	b=HDsum1tiv3YaUTzCuEGY0f0iNnWNF3YkCKRoJsvAvPLZOXaHhRZ/Q1Wf0aZYIv8t/+uDev
+	2+gzfBDjGTbPOg4bVCwJYvqPBX32P7zl0yq1HU/VZP1275Es9oEddZh7YPpVl9O7wFxBQy
+	ewk2ywTaBya3+MtyMk43i8WPUEsLuhU=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Thorsten Blum <thorsten.blum@linux.dev>,
+	linux-phy@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] phy: rockchip: usbdp: Remove unnecessary bool conversion
+Date: Mon, 24 Feb 2025 23:03:39 +0100
+Message-ID: <20250224220339.199180-2-thorsten.blum@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next] net: stmmac: qcom-ethqos: use rgmii_clock() to set
- the link clock
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174043443104.3623128.840309022243977791.git-patchwork-notify@kernel.org>
-Date: Mon, 24 Feb 2025 22:00:31 +0000
-References: <E1tlRMK-004Vsx-Ss@rmk-PC.armlinux.org.uk>
-In-Reply-To: <E1tlRMK-004Vsx-Ss@rmk-PC.armlinux.org.uk>
-To: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- mcoquelin.stm32@gmail.com, netdev@vger.kernel.org, pabeni@redhat.com,
- vkoul@kernel.org
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_140002_714386_EECB4EC4 
-X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-CacheID: sfid-20250224_140419_300599_2E652E6C 
+X-CRM114-Status: UNSURE (   8.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,28 +70,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Remove the unnecessary bool conversion and simplify the code.
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+---
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-On Fri, 21 Feb 2025 11:38:20 +0000 you wrote:
-> The link clock operates at twice the RGMII clock rate. Therefore, we
-> can use the rgmii_clock() helper to set this clock rate.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->  .../stmicro/stmmac/dwmac-qcom-ethqos.c        | 23 ++++---------------
->  1 file changed, 5 insertions(+), 18 deletions(-)
-
-Here is the summary with links:
-  - [net-next] net: stmmac: qcom-ethqos: use rgmii_clock() to set the link clock
-    https://git.kernel.org/netdev/net-next/c/98f992884333
-
-You are awesome, thank you!
+diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+index 5b1e8a3806ed..f7a36ed59ef7 100644
+--- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
++++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+@@ -978,7 +978,7 @@ static int rk_udphy_parse_dt(struct rk_udphy *udphy)
+ 
+ 	if (device_property_present(dev, "maximum-speed")) {
+ 		maximum_speed = usb_get_maximum_speed(dev);
+-		udphy->hs = maximum_speed <= USB_SPEED_HIGH ? true : false;
++		udphy->hs = maximum_speed <= USB_SPEED_HIGH;
+ 	}
+ 
+ 	ret = rk_udphy_clk_init(udphy, dev);
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.48.1
 
 
