@@ -4,82 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F5E8C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 17:25:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C383C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 17:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bY2wNWP9rT3ZRCyoWSDfMM1KQA/hqDvZuw8RHNaHB9g=; b=B3HS9FaJCpr6bEVWJXSOX2dYCh
-	TGgfzyKg9aNYF17fUd026aLmsBRJPaQOWmdEh5LyayLH2E2ZEZcFUl/Lon6wrsjLh3CT1yiEy0rjy
-	wdqACL+kKOOXdt/c73x/gya5YYgd4+9TeRCq5UXcUFRtqK5HpHjQfon3mQCwGlYxEPm6b4v299b7w
-	EMOlXI4lCS/VjC547tfF4YIFRxGh/JQnK9B2tX73fcvm1vgM6qQoj3XUeCBl8E/Ser7TuYEX1N+yb
-	DC0tGeQBePtahkRC4XJza9V8KumblL1BSz8SuxIJpQ+8VUIDtOsDy6DOLiBQzrMufPjIKf+kGIv0B
-	828AmzLw==;
+	bh=kQrUAITU93VrAiphJdlsU3OfsTIWVD1xNqBO+RHHd7E=; b=iGVAaIV7k4QqIbQcyuDoY4tYLT
+	s7HlXGV/LgxY9DRgt218kW/mXHGR9HqKhl1GuyvvnAv0jkawCFFaRxV2qWRr901QKzQU3j0t/xmOH
+	T5uZ7jdnfKwzmRBayS/ou1oL1QuTYqOhcrWZ71KigBP9/37uvZpNZ0Sp6TPALXdNnpFP8yHrbqtZ6
+	PlRofKg7jdgxewgeMxQ/hdFIS/vU+7ATZXsMoiCYsoFSrHLgGuS/LO3r0G6hRZY0/dgLZ5bkHyolC
+	GPwSeL0NuwAX6Jk/fIGVwi/xmuHwsvEwVb1V3J7KNMfaveDuEIDRnK4u9Vi8htIqSUegHcLQrGyOI
+	2ngEy0sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmcCj-0000000Ec8n-14Vf;
-	Mon, 24 Feb 2025 17:25:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tmcIQ-0000000EdIb-1D6x;
+	Mon, 24 Feb 2025 17:31:10 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmcBC-0000000Ebq6-3q3T
+	id 1tmcGr-0000000Ed2b-0TcD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 17:23:43 +0000
+	Mon, 24 Feb 2025 17:29:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1D618611DD;
-	Mon, 24 Feb 2025 17:23:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1129C4CED6;
-	Mon, 24 Feb 2025 17:23:41 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 985055C0348;
+	Mon, 24 Feb 2025 17:28:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23093C4CED6;
+	Mon, 24 Feb 2025 17:29:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740417821;
-	bh=EOHkScJ21kPJERJ4vHxyi3a9gQDRS0eSBhy4oC7+jlk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Kq/FbduVIRmEUdzkGlX2ICEd2o6ytA+MHjXmK1DWaFyrK1zFS9k0UcJZqxb25ObgF
-	 3xJIZMDMhj9Lcztzid6pp4CQRz6Gvv8tez2HNTU7iDQ4YciY0DcLIZfIUTMNuMw10J
-	 Ne87AKYvOE+OhArM7LokqzeXUGXi1XvjnMTIJW/RNcFl7HodXnQb31P/v9OuZe+6wJ
-	 f/ko5bx2uTJjuOg2FsQqIUagjUgje/VLfTdYfuK/UsQk1QdjQwgbIyOuCVOf2TWUb3
-	 uEa7go52Zh3/PiuXwOtO9Iwg8ODDd4tfaIScV2t+EZ2YUDLn6dKU3FkXVtTzAOjGUw
-	 olTIbh1VkHXLw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tmcB9-007SPs-FT;
-	Mon, 24 Feb 2025 17:23:39 +0000
-Date: Mon, 24 Feb 2025 17:23:38 +0000
-Message-ID: <86ikozqmsl.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	linux-kernel@vger.kernel.org,
+	s=k20201202; t=1740418172;
+	bh=ZE/NEtbynjcPPwiQn6F5zBRoR3rxw4L9qULJd2Dyna4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=l9jOf27sh5BxkMJnzTSGKLkK3hX9UoVHBuhMfVa85W0SbmoxIouYZh/1xTg46QW0t
+	 3kQYJhAXzTvFqFUUH/w4Dl/4IcPbiBoZXNPU53neJDI6FDevXvA3TJUPhjd4Lw9mkA
+	 ZbdJmESM+8VETxkughSaDzHfMqZurlcKcG+3brIhAwzaTI7Yn1GNEWeOL+mfc7i5hH
+	 0qOwgOz4wKxs6xFNSPwb7aghuEaIAOf8hZoWFu+nSvHC3qbZxAv+uh29erCRd6IIjy
+	 t+Tyr6EYF2HRENtHVzp3pDlQTiWQkdQSuX1TAFBaAIPBsM17mFHwIK7mg6IiVS2nm/
+	 OJD6Idl/Y5lxg==
+Date: Mon, 24 Feb 2025 11:29:30 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Vincenzo Frascino <vincenzo.frascino@arm.com>
+Cc: devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Peter Collingbourne <pcc@google.com>
-Subject: Re: [PATCH] KVM: arm64: Drop mte_allowed check during memslot creation
-In-Reply-To: <yq5aseo3gund.fsf@kernel.org>
-References: <20250224093938.3934386-1-aneesh.kumar@kernel.org>
-	<Z7xSfVME4z2ComUm@arm.com>
-	<86ldtvr0nl.wl-maz@kernel.org>
-	<Z7yElHKrJGn8XuPS@arm.com>
-	<86jz9fqtbk.wl-maz@kernel.org>
-	<yq5aseo3gund.fsf@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: aneesh.kumar@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, oliver.upton@linux.dev, joey.gouly@arm.com, yuzenghui@huawei.com, will@kernel.org, Suzuki.Poulose@arm.com, steven.price@arm.com, pcc@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Conor Dooley <conor+dt@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Liviu Dudau <liviu.dudau@arm.com>, Will Deacon <will@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	linux-kernel@vger.kernel.org, Mark Rutland <mark.rutland@arm.com>,
+	Jessica Clarke <jrtc27@jrtc27.com>,
+	Linus Walleij <linus.walleij@linaro.org>
+Subject: Re: [PATCH v7 03/10] dt-bindings: arm: Add Morello fvp compatibility
+Message-ID: <174041816976.3560154.3926708156600957732.robh@kernel.org>
+References: <20250221180349.1413089-1-vincenzo.frascino@arm.com>
+ <20250221180349.1413089-4-vincenzo.frascino@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250221180349.1413089-4-vincenzo.frascino@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250224_092933_192503_55977208 
+X-CRM114-Status: UNSURE (   9.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,115 +81,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Feb 2025 16:44:06 +0000,
-Aneesh Kumar K.V <aneesh.kumar@kernel.org> wrote:
+
+On Fri, 21 Feb 2025 18:03:42 +0000, Vincenzo Frascino wrote:
+> Add compatibility to Arm Morello Fixed Virtual Platform.
 > 
-> Marc Zyngier <maz@kernel.org> writes:
+> Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
+> ---
+>  Documentation/devicetree/bindings/arm/arm,morello.yaml | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
 > 
-> > On Mon, 24 Feb 2025 14:39:16 +0000,
-> > Catalin Marinas <catalin.marinas@arm.com> wrote:
-> >>
-> >> On Mon, Feb 24, 2025 at 12:24:14PM +0000, Marc Zyngier wrote:
-> >> > On Mon, 24 Feb 2025 11:05:33 +0000,
-> >> > Catalin Marinas <catalin.marinas@arm.com> wrote:
-> >> > > On Mon, Feb 24, 2025 at 03:09:38PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> >> > > > This change is needed because, without it, users are not able to use MTE
-> >> > > > with VFIO passthrough (currently the mapping is either Device or
-> >> > > > NonCacheable for which tag access check is not applied.), as shown
-> >> > > > below (kvmtool VMM).
-> >> > >
-> >> > > Another nit: "users are not able to user VFIO passthrough when MTE is
-> >> > > enabled". At a first read, the above sounded to me like one wants to
-> >> > > enable MTE for VFIO passthrough mappings.
-> >> >
-> >> > What the commit message doesn't spell out is how MTE and VFIO are
-> >> > interacting here. I also don't understand the reference to Device or
-> >> > NC memory here.
-> >>
-> >> I guess it's saying that the guest cannot turn MTE on (Normal Tagged)
-> >> for these ranges anyway since Stage 2 is Device or Normal NC. So we
-> >> don't break any use-case specific to VFIO.
-> >>
-> >> > Isn't the issue that DMA doesn't check/update tags, and therefore it
-> >> > makes little sense to prevent non-tagged memory being associated with
-> >> > a memslot?
-> >>
-> >> The issue is that some MMIO memory range that does not support MTE
-> >> (well, all MMIO) could be mapped by the guest as Normal Tagged and we
-> >> have no clue what the hardware does as tag accesses, hence we currently
-> >> prevent it altogether. It's not about DMA.
-> >>
-> >> This patch still prevents such MMIO+MTE mappings but moves the decision
-> >> to user_mem_abort() and it's slightly more relaxed - only rejecting it
-> >> if !VM_MTE_ALLOWED _and_ the Stage 2 is cacheable. The side-effect is
-> >> that it allows device assignment into the guest since Stage 2 is not
-> >> Normal Cacheable (at least for now, we have some patches Ankit but they
-> >> handle the MTE case).
-> >
-> > The other side effect is that it also allows non-tagged cacheable
-> > memory to be given to the MTE-enabled guest, and the guest has no way
-> > to distinguish between what is tagged and what's not.
-> >
-> >>
-> >> > My other concern is that this gives pretty poor consistency to the
-> >> > guest, which cannot know what can be tagged and what cannot, and
-> >> > breaks a guarantee that the guest should be able to rely on.
-> >>
-> >> The guest should not set Normal Tagged on anything other than what it
-> >> gets as standard RAM. We are not changing this here. KVM than needs to
-> >> prevent a broken/malicious guest from setting MTE on other (physical)
-> >> ranges that don't support MTE. Currently it can only do this by forcing
-> >> Device or Normal NC (or disable MTE altogether). Later we'll add
-> >> FEAT_MTE_PERM to permit Stage 2 Cacheable but trap on tag accesses.
-> >>
-> >> The ABI change is just for the VMM, the guest shouldn't be aware as
-> >> long as it sticks to the typical recommendations for MTE - only enable
-> >> on standard RAM.
-> >
-> > See above. You fall into the same trap with standard memory, since you
-> > now allow userspace to mix things at will, and only realise something
-> > has gone wrong on access (and -EFAULT is not very useful).
-> >
-> >>
-> >> Does any VMM rely on the memory slot being rejected on registration if
-> >> it does not support MTE? After this change, we'd get an exit to the VMM
-> >> on guest access with MTE turned on (even if it's not mapped as such at
-> >> Stage 1).
-> >
-> > I really don't know what userspace expects w.r.t. mixing tagged and
-> > non-tagged memory. But I don't expect anything good to come out of it,
-> > given that we provide zero information about the fault context.
-> >
-> > Honestly, if we are going to change this, then let's make sure we give
-> > enough information for userspace to go and fix the mess. Not just "it
-> > all went wrong".
-> >
-> 
-> What if we trigger a memory fault exit with the TAGACCESS flag, allowing
-> the VMM to use the GPA to retrieve additional details and print extra
-> information to aid in analysis? BTW, we will do this on the first fault
-> in cacheable, non-tagged memory even if there is no tagaccess in that
-> region. This can be further improved using the NoTagAccess series I
-> posted earlier, which ensures the memory fault exit occurs only on
-> actual tag access
-> 
-> Something like below?
 
-Something like that, only with:
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-- a capability informing userspace of this behaviour
-
-- a per-VM (or per-VMA) flag as a buy-in for that behaviour
-
-- the relaxation is made conditional on the memslot not being memory
-(i.e. really MMIO-only).
-
-and keep the current behaviour otherwise.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
