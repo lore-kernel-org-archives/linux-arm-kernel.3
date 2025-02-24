@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FEA1C021BB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 16:01:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95626C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 16:07:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ku8fXTaLCNvnuldKooFrJaV0pHFkQTUyRT6hbhujC7k=; b=USffU+3sHU0LKvTcJHGXd3b7ME
-	mLtiBa2sQIpS1oWNiRSRNblxO+Xj5SwFHpsOojjwG0C5cEytuk5Aje4M11jCWQhLAgSN9fb2b7XBX
-	G1b0DxOCV1QpouhjRr8nLVEXQblMDOLHR+TR4OhsGQDPDbpNfpL8RvzXPXGcAsmCr4+fZP0gBMFXV
-	enoBuRIRZe2EjEhxItrZL4OL9Fly/I+JTtNWQKIMQe1il9vaz7O1yid8X7Y6LCv0Ly/UbpO0PAbJS
-	9JGPFMiD86jDAPFOQu23lLEjPgBtQDuc0RCLt8Z49b0El+W2Qtq7yNuTWV0+jBCM38F4pIvJWQvvX
-	FQUQY3nw==;
+	bh=z4liPRUauSk7j3cphN3GxnVBQH70wiNZYYEv+G4e9rg=; b=Ag7nG9rYjRkqqZ1+n3mTdv0FJJ
+	J3H4YCMzO9S8ExT6OiYNawgRMgCRccvHk9szpF8a1upak6a9U38fx8CpYvrV3J8ndgZNCqLXnbYqg
+	J8OaVHXKOOvfiMfs/hP5rURM/0qr9NRredT4jPVP0Dcf8HnvQvMz5X2PRGfzdc1Ilz71c77OH33uF
+	GeHuoYbwWYPPsZPUefG57TK1cUJqKXiDnk11oNZg5INR13x9vB7D74Tw7wtBndonK/sYROEw5lu4i
+	XbbqOYU/cCNjDDv5g3umEeSHTfMPmhdovJtWqPPTOejLE5GQWyBZwmH2RGXlkhFjukg4nq0ieaxyS
+	dpLOREoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmatK-0000000EO0P-41XX;
-	Mon, 24 Feb 2025 16:01:10 +0000
+	id 1tmazT-0000000EPO8-0hrO;
+	Mon, 24 Feb 2025 16:07:31 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmamy-0000000EMRt-0Zhr
+	id 1tmaxs-0000000EP9C-0h6K
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 15:54:38 +0000
+	Mon, 24 Feb 2025 16:05:54 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 642531516;
-	Mon, 24 Feb 2025 07:54:46 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AD0563F6A8;
-	Mon, 24 Feb 2025 07:54:27 -0800 (PST)
-Date: Mon, 24 Feb 2025 15:54:19 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v2 3/7] firmware: arm_scmi: imx: Add i.MX95 LMM protocol
-Message-ID: <Z7yWK3E5inW39jeJ@pluto>
-References: <20250212-imx-lmm-cpu-v2-0-3aee005968c1@nxp.com>
- <20250212-imx-lmm-cpu-v2-3-3aee005968c1@nxp.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 074DE1477;
+	Mon, 24 Feb 2025 08:06:05 -0800 (PST)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D0BE73F6A8;
+	Mon, 24 Feb 2025 08:05:45 -0800 (PST)
+Date: Mon, 24 Feb 2025 16:05:43 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Leo Yan <leo.yan@arm.com>
+Cc: Rob Herring <robh@kernel.org>, Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	James Clark <james.clark@linaro.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
+Subject: Re: [PATCH v20 11/11] perf: arm_pmuv3: Add support for the Branch
+ Record Buffer Extension (BRBE)
+Message-ID: <Z7yY19UtSnND5KTl@J2N7QTR9R3.cambridge.arm.com>
+References: <20250218-arm-brbe-v19-v20-0-4e9922fc2e8e@kernel.org>
+ <20250218-arm-brbe-v19-v20-11-4e9922fc2e8e@kernel.org>
+ <20250224122507.GE8144@e132581.arm.com>
+ <CAL_Jsq+0fZ2uasgAam7qGTdCeDBQxXeyL-J1_suyxy6GE_ERTg@mail.gmail.com>
+ <20250224140317.GF8144@e132581.arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250212-imx-lmm-cpu-v2-3-3aee005968c1@nxp.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250224140317.GF8144@e132581.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_075436_272277_24FF9450 
-X-CRM114-Status: GOOD (  31.75  )
+X-CRM114-CacheID: sfid-20250224_080552_295100_F219BE38 
+X-CRM114-Status: GOOD (  37.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,441 +78,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 03:40:25PM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
+On Mon, Feb 24, 2025 at 02:03:17PM +0000, Leo Yan wrote:
+> On Mon, Feb 24, 2025 at 06:46:35AM -0600, Rob Herring wrote:
+> > On Mon, Feb 24, 2025 at 6:25 AM Leo Yan <leo.yan@arm.com> wrote:
+> > > On Tue, Feb 18, 2025 at 02:40:06PM -0600, Rob Herring (Arm) wrote:
+> > > >
+> > > > From: Anshuman Khandual <anshuman.khandual@arm.com>
+> > >
+> > > [...]
+> > >
+> > > > BRBE records are invalidated whenever events are reconfigured, a new
+> > > > task is scheduled in, or after recording is paused (and the records
+> > > > have been recorded for the event). The architecture allows branch
+> > > > records to be invalidated by the PE under implementation defined
+> > > > conditions. It is expected that these conditions are rare.
+> > >
+> > > [...]
+> > >
+> > > > +static void armv8pmu_sched_task(struct perf_event_pmu_context *pmu_ctx, bool sched_in)
+> > > > +{
+> > > > +       struct arm_pmu *armpmu = *this_cpu_ptr(&cpu_armpmu);
+> > > > +       struct pmu_hw_events *hw_events = this_cpu_ptr(armpmu->hw_events);
+> > > > +
+> > > > +       if (!hw_events->branch_users)
+> > > > +               return;
+> > > > +
+> > > > +       if (sched_in)
+> > > > +               brbe_invalidate();
+> > > > +}
+> > >
+> > > Just a minor concern.  I don't see any handling for task migration.
+> > > E.g., for a task is migrated from one CPU to another CPU, I expect we
+> > > need to save and restore branch records based on BRBE injection.  So
+> > > far, the driver simply invalidates all records.
+> > >
+> > > I think this topic is very likely discussed before.  If this is the
+> > > case, please ignore my comment.  Except this, the code looks good
+> > > to me.
+> > 
+> > Not really discussed on the list, but that was present in v18 (though
+> > not functional because .sched_task() hook wasn't actually enabled) and
+> > Mark removed it. His work is here[1].The only comment was:
+> > 
+> > Note: saving/restoring at context-switch doesn't interact well with
+> > event rotation (e.g. if filters change)
 > 
-> Add Logical Machine Management(LMM) protocol which is intended for boot,
-> shutdown, and reset of other logical machines (LM). It is usually used to
-> allow one LM to manager another used as an offload or accelerator engine.
-> 
+> In the brbe_enable() function, it "Merge the permitted branch filters
+> of all events".  Based on current implementation, all events share the
+> same branch filter.
 
-Hi,
+Critically, the brbe_enable() function merges the filters of all
+*active* events which have been installed into hardware. It does not
+track all events which can be rotated, and the resulting filter is not
+the same -- it can change as a result of rotation.
 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  drivers/firmware/arm_scmi/vendors/imx/Kconfig      |  11 +
->  drivers/firmware/arm_scmi/vendors/imx/Makefile     |   1 +
->  drivers/firmware/arm_scmi/vendors/imx/imx-sm-lmm.c | 270 +++++++++++++++++++++
->  include/linux/scmi_imx_protocol.h                  |  31 +++
->  4 files changed, 313 insertions(+)
-> 
-> diff --git a/drivers/firmware/arm_scmi/vendors/imx/Kconfig b/drivers/firmware/arm_scmi/vendors/imx/Kconfig
-> index a01bf5e47301d2f93c9bfc7eebc77e083ea4ed75..1a936fc87d2350e2a21bccd45dfbeebfa3b90286 100644
-> --- a/drivers/firmware/arm_scmi/vendors/imx/Kconfig
-> +++ b/drivers/firmware/arm_scmi/vendors/imx/Kconfig
-> @@ -12,6 +12,17 @@ config IMX_SCMI_BBM_EXT
->  	  To compile this driver as a module, choose M here: the
->  	  module will be called imx-sm-bbm.
->  
-> +config IMX_SCMI_LMM_EXT
-> +	tristate "i.MX SCMI LMM EXTENSION"
-> +	depends on ARM_SCMI_PROTOCOL || (COMPILE_TEST && OF)
-> +	default y if ARCH_MXC
-> +	help
-> +	  This enables i.MX System Logical Machine Protocol to
-> +	  manage Logical Machines boot, shutdown and etc.
-> +
-> +	  To compile this driver as a module, choose M here: the
-> +	  module will be called imx-sm-lmm.
-> +
->  config IMX_SCMI_MISC_EXT
->  	tristate "i.MX SCMI MISC EXTENSION"
->  	depends on ARM_SCMI_PROTOCOL || (COMPILE_TEST && OF)
-> diff --git a/drivers/firmware/arm_scmi/vendors/imx/Makefile b/drivers/firmware/arm_scmi/vendors/imx/Makefile
-> index d3ee6d5449244a4f5cdf6abcf1845f312c512325..f39a99ccaf9af757475e8b112d224669444d7ddc 100644
-> --- a/drivers/firmware/arm_scmi/vendors/imx/Makefile
-> +++ b/drivers/firmware/arm_scmi/vendors/imx/Makefile
-> @@ -1,3 +1,4 @@
->  # SPDX-License-Identifier: GPL-2.0-only
->  obj-$(CONFIG_IMX_SCMI_BBM_EXT) += imx-sm-bbm.o
-> +obj-$(CONFIG_IMX_SCMI_LMM_EXT) += imx-sm-lmm.o
->  obj-$(CONFIG_IMX_SCMI_MISC_EXT) += imx-sm-misc.o
-> diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-lmm.c b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-lmm.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..4b9211df2329623fae0400039db91cb2b98cded1
-> --- /dev/null
-> +++ b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-lmm.c
-> @@ -0,0 +1,270 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * System control and Management Interface (SCMI) NXP LMM Protocol
-> + *
-> + * Copyright 2025 NXP
-> + */
-> +
-> +#include <linux/bits.h>
-> +#include <linux/io.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/scmi_protocol.h>
-> +#include <linux/scmi_imx_protocol.h>
-> +
-> +#include "../../protocols.h"
-> +#include "../../notify.h"
-> +
-> +#define SCMI_PROTOCOL_SUPPORTED_VERSION		0x10000
-> +
-> +enum scmi_imx_lmm_protocol_cmd {
-> +	SCMI_IMX_LMM_ATTRIBUTES	= 0x3,
-> +	SCMI_IMX_LMM_BOOT = 0x4,
-> +	SCMI_IMX_LMM_RESET = 0x5,
-> +	SCMI_IMX_LMM_SHUTDOWN = 0x6,
-> +	SCMI_IMX_LMM_WAKE = 0x7,
-> +	SCMI_IMX_LMM_SUSPEND = 0x8,
-> +	SCMI_IMX_LMM_NOTIFY = 0x9,
-> +	SCMI_IMX_LMM_RESET_REASON = 0xA,
-> +	SCMI_IMX_LMM_POWER_ON = 0xB,
-> +	SCMI_IMX_LMM_RESET_VECTOR_SET = 0xC,
-> +};
-> +
-> +struct scmi_imx_lmm_priv {
-> +	u32 nr_lmm;
-> +};
-> +
-> +#define	SCMI_IMX_LMM_PROTO_ATTR_NUM_LM(x)	(((x) & 0xFFU))
-> +struct scmi_msg_imx_lmm_protocol_attributes {
-> +	__le32 attributes;
-> +};
-> +
-> +struct scmi_msg_imx_lmm_attributes_out {
-> +	__le32 lmid;
-> +	__le32 attributes;
-> +	__le32 state;
-> +	__le32 errstatus;
-> +	u8 name[LMM_MAX_NAME];
-> +};
-> +
-> +struct scmi_imx_lmm_reset_vector_set_in {
-> +	__le32 lmid;
-> +	__le32 cpuid;
-> +#define SCMI_LMM_VEC_FLAGS_TABLE	BIT(0)
-> +	__le32 flags;
-> +	__le32 resetvectorlow;
-> +	__le32 resetvectorhigh;
-> +};
-> +
-> +struct scmi_imx_lmm_shutdown_in {
-> +	__le32 lmid;
-> +	__le32 flags;
-> +};
-> +
-> +static int scmi_imx_lmm_validate_lmid(const struct scmi_protocol_handle *ph, u32 lmid)
-> +{
-> +	struct scmi_imx_lmm_priv *priv = ph->get_priv(ph);
-> +
-> +	if (lmid >= priv->nr_lmm)
-> +		return -EINVAL;
-> +
-> +	return 0;
-> +}
-> +
-> +static int scmi_imx_lmm_attributes(const struct scmi_protocol_handle *ph,
-> +				   u32 lmid, struct scmi_imx_lmm_info *info)
-> +{
-> +	struct scmi_msg_imx_lmm_attributes_out *out;
-> +	struct scmi_xfer *t;
-> +	int ret;
-> +
-> +	ret = ph->xops->xfer_get_init(ph, SCMI_IMX_LMM_ATTRIBUTES, sizeof(u32), 0, &t);
-> +	if (ret)
-> +		return ret;
-> +
-> +	put_unaligned_le32(lmid, t->tx.buf);
-> +	ret = ph->xops->do_xfer(ph, t);
-> +	if (!ret) {
-> +		out = t->rx.buf;
-> +		info->lmid = le32_to_cpu(out->lmid);
-> +		info->state = le32_to_cpu(out->state);
-> +		info->errstatus = le32_to_cpu(out->errstatus);
-> +		strscpy(info->name, out->name);
-> +		dev_dbg(ph->dev, "i.MX LMM: Logical Machine(%d), name: %s\n",
-> +			info->lmid, out->name);
-> +	} else {
-> +		dev_err(ph->dev, "i.MX LMM: Failed to get info of Logical Machine(%u)\n", lmid);
-> +	}
-> +
-> +	ph->xops->xfer_put(ph, t);
-> +
-> +	return ret;
-> +}
-> +
-> +static int scmi_imx_lmm_boot(const struct scmi_protocol_handle *ph, u32 lmid)
-> +{
-> +	struct scmi_xfer *t;
-> +	int ret;
-> +
-> +	ret = scmi_imx_lmm_validate_lmid(ph, lmid);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = ph->xops->xfer_get_init(ph, SCMI_IMX_LMM_BOOT, sizeof(u32),
-> +				      0, &t);
-> +	if (ret)
-> +		return ret;
-> +
-> +	put_unaligned_le32(lmid, t->tx.buf);
-> +	ret = ph->xops->do_xfer(ph, t);
-> +
-> +	ph->xops->xfer_put(ph, t);
-> +
-> +	return ret;
-> +}
-> +
+> When event rotation happens, if without context switch, in theory we
+> should can directly use the branch record (no invalidation, no injection)
+> for all events.
 
-..this....
+No; that only works in *some* cases, and will produce incorrect results
+in others.
 
-> +static int scmi_imx_lmm_power_on(const struct scmi_protocol_handle *ph, u32 lmid)
-> +{
-> +	struct scmi_xfer *t;
-> +	int ret;
-> +
-> +	ret = scmi_imx_lmm_validate_lmid(ph, lmid);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = ph->xops->xfer_get_init(ph, SCMI_IMX_LMM_POWER_ON, sizeof(u32),
-> +				      0, &t);
-> +	if (ret)
-> +		return ret;
-> +
-> +	put_unaligned_le32(lmid, t->tx.buf);
-> +	ret = ph->xops->do_xfer(ph, t);
-> +
-> +	ph->xops->xfer_put(ph, t);
-> +
-> +	return ret;
-> +}
+For example, consider filtering. Imagine a PMU with a single counter,
+and two events, where event-A filters for calls-and-returns and event-B
+filters for calls-only. When switching from event-A to event-B, it's
+theoretically possible to keep the existing records around, knowing that
+the returns can be filtered out later. When switching from event-B to
+event-A we cannot keep the existing records, since there are gaps
+whenever a return should have been recorded.
 
-...can be refatcored to use one common workhorse fcuntion sued by both
-ops...
+There are a number of cases of that shape given the set of configurable
+filters. In theory it's possible to retain those in some cases, but I
+don't think that the complexity is justified.
 
-> +
-> +static int scmi_imx_lmm_reset_vector_set(const struct scmi_protocol_handle *ph,
-> +					 u32 lmid, u32 cpuid, u32 flags, u64 vector)
-> +{
-> +	struct scmi_imx_lmm_reset_vector_set_in *in;
-> +	struct scmi_xfer *t;
-> +	int ret;
-> +
-> +	ret = ph->xops->xfer_get_init(ph, SCMI_IMX_LMM_RESET_VECTOR_SET, sizeof(*in),
-> +				      0, &t);
-> +	if (ret)
-> +		return ret;
-> +
-> +	in = t->tx.buf;
-> +	in->lmid = cpu_to_le32(lmid);
-> +	in->cpuid = cpu_to_le32(cpuid);
-> +	in->flags = cpu_to_le32(flags);
+Similarly, whenever kernel branches are recorded it's necessary to drop
+the stale branches whenever branch recording is paused, as there's
+necessarily a blackout period and hence a gap in the records.
 
-...bitfields in a flag field must not be enianity converted...only
-eventually subfields representing numbers (liek you did above)...
+Do you think that you have a case where losing branches across rotation
+*really* matters?
 
-..I feel FIELD_PREP should be fine...or even BIT(0) really given what
-these flags represents...
+> For a context-switch case, we need to save and re-inject branch record.
+> BRBE record sticks to a process context, no matter what events have been
+> enabled.
 
-...again check issues with smatch....
+I had originally wanted to keep per-event records around, but it doesn't
+work in all cases. One reason events get discarded at context-switch
+time is that CPU-bound events can sample branches, and would
+mis-attribute stale userspace branches to the wrong context when
+switching tasks. There are explicit comments about this in
+amd_pmu_brs_sched_task() and intel_pmu_lbr_sched_task().
 
-> +	in->resetvectorlow = cpu_to_le32(lower_32_bits(vector));
-> +	in->resetvectorhigh = cpu_to_le32(upper_32_bits(vector));
-> +	ret = ph->xops->do_xfer(ph, t);
-> +
-> +	ph->xops->xfer_put(ph, t);
-> +
-> +	return ret;
-> +}
-> +
-> +static int scmi_imx_lmm_shutdown(const struct scmi_protocol_handle *ph, u32 lmid,
-> +				 u32 flags)
-> +{
-> +	struct scmi_imx_lmm_shutdown_in *in;
-> +	struct scmi_xfer *t;
-> +	int ret;
-> +
-> +	ret = scmi_imx_lmm_validate_lmid(ph, lmid);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = ph->xops->xfer_get_init(ph, SCMI_IMX_LMM_SHUTDOWN, sizeof(*in),
-> +				      0, &t);
-> +	if (ret)
-> +		return ret;
-> +
-> +	in = t->tx.buf;
-> +	in->lmid = cpu_to_le32(lmid);
-> +	in->flags = cpu_to_le32(flags);
+Given we discard records when reprogramming events, we *could* try to
+preserve events in some cases, but I suspect that as with the rotation
+case this'll be a lot of complexity for little gain. Note that as we
+discard events when enabling the PMU, we'd throw some task-bound records
+away anyway, and practically the gain would be limited to cpu-bound
+records.
 
-Same here, smatch would complain if you remove straight away this
-cpu_to_le32(), BUT this is a bitfield and does NOT contain any
-longer-than-2 number value that needs to be endianess manipulated...you
-just have to be able to set the required BIT 0 and 1, whitouth pissing
-off smatch :P
+Do you have a reason why you think we *must* keep events around?
 
-> +	ret = ph->xops->do_xfer(ph, t);
-> +
-> +	ph->xops->xfer_put(ph, t);
-> +
-> +	return ret;
-> +}
-> +
-> +static const struct scmi_imx_lmm_proto_ops scmi_imx_lmm_proto_ops = {
-> +	.lmm_boot = scmi_imx_lmm_boot,
-> +	.lmm_info = scmi_imx_lmm_attributes,
-> +	.lmm_power_on = scmi_imx_lmm_power_on,
-> +	.lmm_reset_vector_set = scmi_imx_lmm_reset_vector_set,
-> +	.lmm_shutdown = scmi_imx_lmm_shutdown,
-> +};
-> +
-> +static int scmi_imx_lmm_protocol_attributes_get(const struct scmi_protocol_handle *ph,
-> +						struct scmi_imx_lmm_priv *priv)
-> +{
-> +	struct scmi_msg_imx_lmm_protocol_attributes *attr;
-> +	struct scmi_xfer *t;
-> +	int ret;
-> +
-> +	ret = ph->xops->xfer_get_init(ph, PROTOCOL_ATTRIBUTES, 0,
-> +				      sizeof(*attr), &t);
-> +	if (ret)
-> +		return ret;
-> +
-> +	attr = t->rx.buf;
-> +
-> +	ret = ph->xops->do_xfer(ph, t);
-> +	if (!ret) {
-> +		priv->nr_lmm = SCMI_IMX_LMM_PROTO_ATTR_NUM_LM(le32_to_cpu(attr->attributes));
-
-This seems wrong to me...you have an 8bit field to extract from an
-attribute field...so I would at first cut the byte out and then convert
-to LE, NOT the other way around like you are doing
-(i.e.: le32_to_cpu((attr->attributes & 0xFF))).
-
-Even BETTER to use:
-
-	le32_get_bits((x), GENMASK(7, 0))
-
-...the thing is, being a single byte you really SHOULD NOT need to address
-any endianity concern (i.e. FIELD_GET(GENMASK(7, 0), (x))), BUT I fear that
-if you dont use some of the le32_ accessors smatch/sparse will complain since
-the message field is, correctly, declared as __le32.
-
-So le32_get_bits is the way to go (bit check with the static analyzer :P)
-
-> +		dev_info(ph->dev, "i.MX LMM: %d Logical Machines\n",
-> +			 priv->nr_lmm);
-> +	}
-> +
-> +	ph->xops->xfer_put(ph, t);
-> +
-> +	return ret;
-> +}
-> +
-> +static int scmi_imx_lmm_protocol_init(const struct scmi_protocol_handle *ph)
-> +{
-> +	struct scmi_imx_lmm_priv *info;
-> +	u32 version;
-> +	int ret;
-> +
-> +	ret = ph->xops->version_get(ph, &version);
-> +	if (ret)
-> +		return ret;
-> +
-> +	dev_info(ph->dev, "NXP SM LMM Version %d.%d\n",
-> +		 PROTOCOL_REV_MAJOR(version), PROTOCOL_REV_MINOR(version));
-> +
-> +	info = devm_kzalloc(ph->dev, sizeof(*info), GFP_KERNEL);
-> +	if (!info)
-> +		return -ENOMEM;
-> +
-> +	ret = scmi_imx_lmm_protocol_attributes_get(ph, info);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return ph->set_priv(ph, info, version);
-> +}
-> +
-> +static const struct scmi_protocol scmi_imx_lmm = {
-> +	.id = SCMI_PROTOCOL_IMX_LMM,
-> +	.owner = THIS_MODULE,
-> +	.instance_init = &scmi_imx_lmm_protocol_init,
-> +	.ops = &scmi_imx_lmm_proto_ops,
-> +	.supported_version = SCMI_PROTOCOL_SUPPORTED_VERSION,
-> +	.vendor_id = SCMI_IMX_VENDOR,
-> +	.sub_vendor_id = SCMI_IMX_SUBVENDOR,
-> +};
-> +module_scmi_protocol(scmi_imx_lmm);
-> +
-
-
-Should this also be added:
-
-MODULE_ALIAS("scmi-protocol-" __stringify(SCMI_PROTOCOL_IMX_LMM) "-" SCMI_IMX_VENDOR);
-
-...after this went in:
-
-commit d4cc8912cbff4990940b33cc61a9b09ddaee9704
-Author: Cristian Marussi <cristian.marussi@arm.com>
-Date:   Mon Dec 9 16:49:56 2024 +0000
-
-    firmware: arm_scmi: Add module aliases to i.MX vendor protocol
-
-...I think is in v6.14-rc already to rebae on...
-
-> +MODULE_DESCRIPTION("i.MX SCMI LMM driver");
-> +MODULE_LICENSE("GPL");
-> diff --git a/include/linux/scmi_imx_protocol.h b/include/linux/scmi_imx_protocol.h
-> index 53b356a26414279f4aaaa8287c32209ed1ad57b4..07779c36ef9a126907e26e304a8feca16fd60ab2 100644
-> --- a/include/linux/scmi_imx_protocol.h
-> +++ b/include/linux/scmi_imx_protocol.h
-> @@ -11,8 +11,10 @@
->  #include <linux/bitfield.h>
->  #include <linux/device.h>
->  #include <linux/notifier.h>
-> +#include <linux/scmi_protocol.h>
->  #include <linux/types.h>
->  
-> +#define SCMI_PROTOCOL_IMX_LMM	0x80
->  #define	SCMI_PROTOCOL_IMX_BBM	0x81
->  #define	SCMI_PROTOCOL_IMX_MISC	0x84
->  
-> @@ -57,4 +59,33 @@ struct scmi_imx_misc_proto_ops {
->  	int (*misc_ctrl_req_notify)(const struct scmi_protocol_handle *ph,
->  				    u32 ctrl_id, u32 evt_id, u32 flags);
->  };
-> +
-> +#define	LMM_ID_DISCOVER	0xFFFFFFFFU
-
-What is this ? Documented anywhere ?
-
-> +#define	LMM_MAX_NAME	16
-> +
-> +enum scmi_imx_lmm_state {
-> +	LMM_STATE_LM_OFF,
-> +	LMM_STATE_LM_ON,
-> +	LMM_STATE_LM_SUSPEND,
-> +	LMM_STATE_LM_POWERED,
-> +};
-> +
-> +struct scmi_imx_lmm_info {
-> +	u32 lmid;
-> +	enum scmi_imx_lmm_state state;
-> +	u32 errstatus;
-> +	u8 name[LMM_MAX_NAME];
-> +};
-> +
-> +struct scmi_imx_lmm_proto_ops {
-> +	int (*lmm_boot)(const struct scmi_protocol_handle *ph, u32 lmid);
-> +	int (*lmm_info)(const struct scmi_protocol_handle *ph, u32 lmid,
-> +			struct scmi_imx_lmm_info *info);
-> +	int (*lmm_power_on)(const struct scmi_protocol_handle *ph, u32 lmid);
-> +	int (*lmm_reset_vector_set)(const struct scmi_protocol_handle *ph,
-> +				    u32 lmid, u32 cpuid, u32 flags, u64 vector);
-> +	int (*lmm_shutdown)(const struct scmi_protocol_handle *ph, u32 lmid,
-> +			    u32 flags);
-> +};
-> +
->  #endif
-> 
-
-Thanks,
-Cristian
+Mark.
 
