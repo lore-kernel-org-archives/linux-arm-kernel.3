@@ -4,102 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3D36C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 05:41:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B39A4C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 05:45:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pki/JYWmmXNym2xztTz0HjhIt5MhQfFEcSVfA7kjWRY=; b=GKGtZwrvVRCDhZAar0hdTKNr6J
-	Dp15rWeOUGRqMwcdRykAKHMruGrOlyXF0Utjol4sfxupY9+ELWSnpDzoQSxKZfjV2dkexCeRaXbb4
-	+4fz1W1NbB1yKVTjIWOpWZ4DCJuD3u9kbdduq2PRy8MuAN67S8afmonYSGF44Vqp+gHF628ldFEF3
-	apOGT0uYIwzqY+VstmgsWPbQr+eVJgOJhetSi0nVlUlZ+Zlk0NAMgcGy53/wDkMpUAdrDhHKyemwa
-	hxHGmWNn5YLvU21ttkni6CgVROaV52XEMXkBbzrCRg2DZL6E2PpKW5qyehbc5w3oqNLSOMnOXEGtq
-	PsPPnqrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sqF2oB0fOJ00qITszHytsg//Jw5NU1rfZI3/hzZUwto=; b=h7X5qXRln6jrtb1Y311Cf2jCUb
+	C2huEXfPn/m4h047d043EQr7LthwBkSYEQ6sB7zG/IbKzKE36zCGWGZp0sMnDfqOBc9n8yGXRHdIm
+	y4Td9WiAU0F66u5s5IUef51VjlpIO0RdMY7SFMAVzvMZ3293PRgujuI+d5XGGgXcJLmVNb/ldWxx9
+	Ii5k92NGH3Yq4LnHo0seLJsXZz/yTmYslAkF/1ZNSFgOycIPCI/sz13PIaKAHuH80cgAgPfsus9EY
+	Baiod8d+wBNqcRAmn0arEMWHk/OTjkgrWM6G5cZEq0qkEfGpipmuUvVYpVHgPeL/IcK2MQzr7YUmI
+	WkpR2JBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmRDs-0000000CNgK-48aJ;
-	Mon, 24 Feb 2025 05:41:44 +0000
-Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
+	id 1tmRHc-0000000CNtS-3OjD;
+	Mon, 24 Feb 2025 05:45:36 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmRCL-0000000CNZE-1AH3
+	id 1tmRG4-0000000CNoF-3DOc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 05:40:10 +0000
-Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-30613802a6bso41356721fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Feb 2025 21:40:08 -0800 (PST)
+	Mon, 24 Feb 2025 05:44:02 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-2fce3b01efcso4769335a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Feb 2025 21:43:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740375607; x=1740980407; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=pki/JYWmmXNym2xztTz0HjhIt5MhQfFEcSVfA7kjWRY=;
-        b=UFL3zr5fDEYH/onUGg/ZBafP4LcJX+bNaDriKljufbMpaoNVCaDBrIJ7w2HhKvaVWc
-         9nmmFolTaDRK3blo96OKiBU55cfEZrb2Lc5XOncYuf77GRRq3bxJN0mjqnQh/U8rNAU5
-         1oKBqi/LoIhaH8meNn9CNGHd5VZVOMmSCKnuO4MVzBAiJBcI0WixyXXJfGY0pi8otwQh
-         XfnAyIj6AKzh6ZsKQ0G5nJkEAivTQa03Oc9Z51IvbLHIZ1dboFxCTxkRUFw1C7wo1d0d
-         VvDelMRxOP2o67Kv1tahvCaJzoSqQ7MixhanumYLvh9gHWCDjcI0P7HGN+QtK4cVRVGR
-         Ve+g==
+        d=linaro.org; s=google; t=1740375839; x=1740980639; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=sqF2oB0fOJ00qITszHytsg//Jw5NU1rfZI3/hzZUwto=;
+        b=apTyROOAUmkoBvayYNbD5xUWBmUqLmVikyV6ybqRvo6NzByzVcyJ2JimVgomXCwjgV
+         AMhYkEfEVodNHnc5/9yqPGNMA6hbBzug4SFsLzlDc42BtFvS9myg8D+jtoHiC+prnRQM
+         iuzKQ6mbYEtQ9kz2x9pbvN71OKB/NdVsp4d/KS10Vhv0DlekbMNk0I9jHWpnZr2W6qyb
+         fWmdMUCa/gfH5YleZTvPHOJrSiVJLFKBkXVH3IzuXVQiFhF9QEFJa1ci0wHJ/5qLgw0G
+         u53eJCcf51SbEjFs1XOTEE3qll3+1DPo/P0peyZXlm9KoOKY7dlqOl9J6voVbiPxZbFq
+         6Mcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740375607; x=1740980407;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20230601; t=1740375839; x=1740980639;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=pki/JYWmmXNym2xztTz0HjhIt5MhQfFEcSVfA7kjWRY=;
-        b=ibN2pGchGguqbo/EYSgvx35+R31qFrSiouGcHZUHkuVdWI3AJ9qaJRnzkdzeMmgAU0
-         1w9SaqFlwCB5Lv3XZ0tZ6hk2fkwpREyUhlZ0WbCJG6BWtrKAbSnz/H0UHD8Fjxi8IBsU
-         Q1F82ruRzhf8w/fWw4UM2FAbIOax/v5NsPYkeIav/jZs9MUm0CCUxcrfnDp9po9flTNI
-         Yd49QfoR/4VJJ1Rw3qSqV57msP9lAWbRIqqGuIQi2SpQW+Pg0Ib/C8xrlISCqo9XljS1
-         LZfmLN+4+kz9znoqvfgMw9DzMJGwRZnXCPvIYUcA5yrOYYAzRhPveyRT8plQ/xaIz8qD
-         d4kQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU8dWqzyJWiR62jPmnthcOp1Vgf1s7gKR0zVYwzG/JUfBYuDkkrjPVZKVRsO6Da+uo4+iNXKq8LwIeLK/hfWfZQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9kDeg610BKNp3Wg6ctSx59EFNwV3LnYqa4uFkD9Be/Rhx4+sp
-	kqlwSMA9WcKyvFel9joRLG2lTlrosi5XljcTFjsKurhewvhHtF0E946fzQ==
-X-Gm-Gg: ASbGnct6hHbAxEGdtsyeiJ/8CKr0Pu0V8inaRnV0fOSGwmRBMPIZZhpeRS/DoR5UUvX
-	Ztuzl6BLJul/LEtbUi34K/LYvdJ5deDiH1QDnTviH977LQzyJo4A+jTcZ5XWmebCnfBzSk191Yo
-	LSsvX1A0n4ZPvyEtl7hWpWWLghCGFVNP3zOeDIHrcuyE96WVrvM/zBPt3EYYZRutnithTVHhNZW
-	AjSvov29dqpb7BnDub5Wob91a+vCHKzo3g7XvPpOw2v4YPFSNglWnHcwPSldESmM9UoakaM06uc
-	fSB9JrObcijp9OWuEfqi5Nd4fQpmse/Xy3QZ9Sne0i2UhLyA6PTV5LMbIZoNVBBdj6Vj9CvBQrq
-	q+rTUnKU=
-X-Google-Smtp-Source: AGHT+IFYZsWHIGkUkgzUKAjiHsIv/QlXdd4k8rwaFgyu16UEoKiHj3ay571mZ+VYAfS3uE3xpBBTaw==
-X-Received: by 2002:a2e:8ed6:0:b0:309:2012:cc59 with SMTP id 38308e7fff4ca-30a599a6943mr41956421fa.26.1740375606698;
-        Sun, 23 Feb 2025 21:40:06 -0800 (PST)
-Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30917da0e64sm34665291fa.88.2025.02.23.21.40.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 23 Feb 2025 21:40:04 -0800 (PST)
-Message-ID: <24609799-636d-4e8f-8406-f83b5db08f90@gmail.com>
-Date: Mon, 24 Feb 2025 07:40:02 +0200
+        bh=sqF2oB0fOJ00qITszHytsg//Jw5NU1rfZI3/hzZUwto=;
+        b=WFilVg8EwMj7G/4qhJpbbAVJ8gjVC/nLLYv2IIPgVqrhEVU9+4lcxf61D4dWg5KtqK
+         lBZBsRuqDrUIKQ++vK8IKkxPVa1k00/OcxCGlfNALNbQC2fE5HRFF6ZDwevrh7wBreln
+         bcxVlB+V7wlrwnyOQ5XBaVaIz9PCoZOakymIAcvBmoBiQRBnIp3rhyUysuQbY1U1TRNj
+         Ghfo7g67Rr3pjNjCTlhZUOsHzV+xlsGnIfXUxsIItz9BPcKQqzm0+sAYNrTGvFlE7IFs
+         KORPQthX0MoEZvf2fDIJceNk1vLjUt9UTyXvVWEbjF4MB/JiFOxf6OHeE6y/JygTneQe
+         C1VQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXA9BqMsZoNtfNgSexcSujfPzHtOYEoAOoW7R+ssBRF+fHfpLbBUFirRBsMOLVftkU9r3tqP3jEnwQ/Czo1XN5p@lists.infradead.org
+X-Gm-Message-State: AOJu0YxR/pmw86Rn2KCPPBoRTLtzwzvAyFTRhvNejoLZ6tLFGduxIpPj
+	iAW9iHSr8gO9e0f/TzPRQL4hMNSJcIPm7+6oHkkmZd0762Xc3BcUsofHiQbpsQ==
+X-Gm-Gg: ASbGncv6r3gKKXspHUAR3HmgMR64SDZdz4CcjhM7zCpdAMOSL3+zQpNQwLsnVENtJ3D
+	DYl2rizzmyhRxLUnOUdsV/AAd26w7MBOq1/qemNyDkhSEm/wVDDmP/FXkuhVXuT3Xe7PArjwnC4
+	UuFv8D1ZKj5uZ+WDIVNTxeBr3s4WA3QjkT13H/JmRdV/Oy4mFhj0KkmVVpiutuhEMqml4W0duX+
+	aQlk9q9wq2gsn1FWPVQcvFm4a752DUzb6BdUyz9iC0S5gC+XGFWUuSTgE1b63u7PUxEaySkyTuy
+	gGchPVF2sUnAPV1xyGNMGifNBHu4bMc+MOs7
+X-Google-Smtp-Source: AGHT+IEiXXDmNWiIoyS4g/sMa+CHtSKXB9iHnryoV5l5+xYp1a39XIVItxTv64eAI9cSRTAKN1SUlg==
+X-Received: by 2002:a05:6a20:6a0b:b0:1e1:ad39:cc5c with SMTP id adf61e73a8af0-1eef3c7718dmr22630530637.14.1740375839448;
+        Sun, 23 Feb 2025 21:43:59 -0800 (PST)
+Received: from thinkpad ([36.255.17.162])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-adf35fb47c4sm11085874a12.31.2025.02.23.21.43.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 23 Feb 2025 21:43:58 -0800 (PST)
+Date: Mon, 24 Feb 2025 11:13:53 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>
+Subject: Re: [PATCH v3 1/2] dt-bindings: PCI: mediatek-gen3: Add
+ mediatek,pbus-csr phandle array property
+Message-ID: <20250224054353.c24rcplzsvskzceq@thinkpad>
+References: <20250222-en7581-pcie-pbus-csr-v3-0-e0cca1f4d394@kernel.org>
+ <20250222-en7581-pcie-pbus-csr-v3-1-e0cca1f4d394@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 6/9] iio: adc: rzg2l_adc: Use adc-helpers
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
- Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Hugo Villeneuve <hvilleneuve@dimonoff.com>, Nuno Sa <nuno.sa@analog.com>,
- David Lechner <dlechner@baylibre.com>,
- Javier Carrasco <javier.carrasco.cruz@gmail.com>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-References: <cover.1739967040.git.mazziesaccount@gmail.com>
- <25c5d22f6f0cbd1355eee2e9d9103c3ee71cebdc.1739967040.git.mazziesaccount@gmail.com>
- <20250223163018.2c0290e8@jic23-huawei>
-Content-Language: en-US, en-AU, en-GB, en-BW
-From: Matti Vaittinen <mazziesaccount@gmail.com>
-In-Reply-To: <20250223163018.2c0290e8@jic23-huawei>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250222-en7581-pcie-pbus-csr-v3-1-e0cca1f4d394@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250223_214009_384608_071BFB12 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20250223_214400_810835_ED187FA8 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,42 +110,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/02/2025 18:30, Jonathan Cameron wrote:
-> On Wed, 19 Feb 2025 14:31:38 +0200
-> Matti Vaittinen <mazziesaccount@gmail.com> wrote:
+On Sat, Feb 22, 2025 at 11:43:44AM +0100, Lorenzo Bianconi wrote:
+> Introduce the mediatek,pbus-csr property for the pbus-csr syscon node
+> available on EN7581 SoC. The airoha pbus-csr block provides a configuration
+> interface for the PBUS controller used to detect if a given address is
+> accessible on PCIe controller.
 > 
->> The new devm_iio_adc_device_alloc_chaninfo() -helper is intended to help
->> drivers avoid open-coding the for_each_node -loop for getting the
->> channel IDs. The helper provides standard way to detect the ADC channel
->> nodes (by the node name), and a standard way to convert the "reg",
->> "diff-channels", "single-channel" and the "common-mode-channel" to
->> channel identification numbers used in the struct iio_chan_spec.
->> Furthermore, the helper checks the ID is in range of 0 ... num-channels.
->>
->> The original driver treated all found child nodes as channel nodes. The
->> new helper requires channel nodes to be named channel[@N]. This should
->> help avoid problems with devices which may contain also other but ADC
->> child nodes. Quick grep from arch/* with the rzg2l_adc's compatible
->> string didn't reveal any in-tree .dts with channel nodes named
->> othervice. Also, same grep shows all the .dts seem to have channel IDs
->> between 0..num of channels.
->>
->> Use the new helper.
->>
->> Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+
+- Mani
+
+> ---
+>  .../devicetree/bindings/pci/mediatek-pcie-gen3.yaml     | 17 +++++++++++++++++
+>  1 file changed, 17 insertions(+)
 > 
-> I should have read on.  Definitely more convincing with these usecases.
-> however drag them to start of series.  Better to add infrastructure
-> so some use and then on to your new driver.
+> diff --git a/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml b/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml
+> index f05aab2b1addcac91d4685d7d94f421814822b92..162406e0691a81044406aa8f9e60605d0d917811 100644
+> --- a/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml
+> +++ b/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml
+> @@ -109,6 +109,17 @@ properties:
+>    power-domains:
+>      maxItems: 1
+>  
+> +  mediatek,pbus-csr:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    items:
+> +      - items:
+> +          - description: phandle to pbus-csr syscon
+> +          - description: offset of pbus-csr base address register
+> +          - description: offset of pbus-csr base address mask register
+> +    description:
+> +      Phandle with two arguments to the syscon node used to detect if
+> +      a given address is accessible on PCIe controller.
+> +
+>    '#interrupt-cells':
+>      const: 1
+>  
+> @@ -168,6 +179,8 @@ allOf:
+>            minItems: 1
+>            maxItems: 2
+>  
+> +        mediatek,pbus-csr: false
+> +
+>    - if:
+>        properties:
+>          compatible:
+> @@ -197,6 +210,8 @@ allOf:
+>            minItems: 1
+>            maxItems: 2
+>  
+> +        mediatek,pbus-csr: false
+> +
+>    - if:
+>        properties:
+>          compatible:
+> @@ -224,6 +239,8 @@ allOf:
+>            minItems: 1
+>            maxItems: 2
+>  
+> +        mediatek,pbus-csr: false
+> +
+>    - if:
+>        properties:
+>          compatible:
+> 
+> -- 
+> 2.48.1
+> 
 
-Ok. I'll reorder the series.
-
-I'll drop the differential channels support in v4 - and thus also the 
-expected property types parameters - which will simplify this and other 
-callers.
-
-Thanks for taking a look at this!
-
-Yours,
-	-- Matti
+-- 
+மணிவண்ணன் சதாசிவம்
 
