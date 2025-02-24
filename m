@@ -4,94 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EF27C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 07:32:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE84BC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 07:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b0duzw3Ywocqb3zPYovQHOlpL11++t/qRORIguG/x8M=; b=0r20NqWIK1TdV00UjmnFUOwvgO
-	wtB3z6Wxy2RB+2EZhtuisGEmF12D8HSGRwN7Wj6OZXbHTVA1YzpiEWWkF72qzj6UVsJd2P0jT0En5
-	1yAyA0KKAzODFCKgwK3kG519oyQNupOUk+dshN5FwM2Kvg1fqTbvJzwN7cCcNgdA/4rOaNyCO1zwx
-	yCiLGSmEJkN2FOWqGksufR6nAnE30hrsEbWzHHUXfAln6KNV4yZOhpXAmzP/WFtBGjtuV+ETWBL2X
-	w9+H2BEXu+QslN1y4H77y4Z1SpqdRaiUEvcsJI22cRxLkdQkCxDyu7ubpP7dwuTFTdWMzoXdL6tEg
-	AP/rSybA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fPWw8exq+68fsFbdh1v0858SyRxzO172yvk7tKbjRyw=; b=CgASkejXT2OhCTw8CjtE6fckAZ
+	xcJvjgYNSquKI6vusS2l8YeQJQARHNTOjIFL5nNTpmphRJWOoS41ew5voETys9iTlmxBTMC2YMvz7
+	03CqeXxiS21gKBPbjhNfJU/tLYLbMapdLv+HoK0Gb83YO3RX1TgAQKQBCPaYQ1jQbx2xiKCKtVoel
+	/jkhDe++prOUFi+bnMS8BAW0tOVCm+BSpq75e/4YYIBCZRKHFX1aObs1otfXnYooDGzy7eaYRpGWC
+	mFXF47WGOJtkzktzAFT15EsxSYXNYxlbA/+MKHnnUebMWo+3Xv8BmIdts4gV9YUQ1fHq8wMutYx1A
+	cFzxBr8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmSx9-0000000CZgt-2Ekr;
-	Mon, 24 Feb 2025 07:32:35 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1tmT5K-0000000CaKX-3Od3;
+	Mon, 24 Feb 2025 07:41:02 +0000
+Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmSvc-0000000CZQK-2SZE;
-	Mon, 24 Feb 2025 07:31:01 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-38f3486062eso3482910f8f.0;
-        Sun, 23 Feb 2025 23:31:00 -0800 (PST)
+	id 1tmT3n-0000000CaAb-1e79
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Feb 2025 07:39:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hGv8O6fj76jIE9p/IOjCSh5161d0A1KI3wP0n0t5LB+zn60Da+osHSgcQxAXGhxLKpOBW/ewdV93QPJt5wvJl3En/vN6XfpKf+8m0TTzAjEW3VA6SpApGef14WAAssEbBWlcXfsmOXLUwRqQ2ilLxk8hM7vA+1lelP0SiXYfqO8556Xlo5eL1dxSJCCPk8RYBY7iXcs7P6kCzQW50MH4pX8KsMmz8436j0wC3bk5PzqGfU4nLgg/AamsHsZlNi/6fzLTXPxxbX0r6aitpt8V5C2pbzQ0XXfTIXiDXz43EYPOSz3WuvqMwfzBIa5uJerklM/rJWv+3fg0CwQKntdJvA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fPWw8exq+68fsFbdh1v0858SyRxzO172yvk7tKbjRyw=;
+ b=s6nCzrC3qL8iutkENLmX5UFZESdnpqhB2IQhlUzHkh/rSlAvGBm6QA5dVhILO4QYrzCw08gadv2bIqoEbBxqfW6hItUGAaX//WyTtz0E8Fh9ZjAKWxJZiDP0Ay7Lu56yXBYDsJ0daYi67BY5DIii8jZwKk+fiucyWq97PGYeFOxK0zZFSexi0bMu3w0Noym+rt8bWO1PCOUgTtW68Y8EjcqXVdyEcxfcaODAq9lu+IrERQj0Irb2D+F3Mxtt/TDdSrRdWid72WLLe3lmHReLebYnJWDhebNMhXoynVhhbF3hYXQRvzZ6mTEDG7GVz+UAnTPI9Fh8Ex5pYHju7YIqoA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=gocontroll.com; dmarc=pass action=none
+ header.from=gocontroll.com; dkim=pass header.d=gocontroll.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740382259; x=1740987059; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=b0duzw3Ywocqb3zPYovQHOlpL11++t/qRORIguG/x8M=;
-        b=l829q5kK9d9ed8PKzoHFL1LUASUfeFHzqI9BnPUloyBCkAXbDNt/rH1fhK5zl0X/4k
-         t2G2D+5YcggLuu4zFtsvCofaNxzyLhkww0mYqRwqTh3+XcIRgunaS6bCdn79u4/b4RgE
-         hORS9LD6rSPvur1JlFDcYa9yQ90WljctgY0aTqhoZXrhY3es8P1RGg1Jgf9oPapjivJs
-         uuklmRcQp28eDQ9+M7Gwchri/OMCYgVealnROeBg2dOzvDqeoww72llEDIFkryqcxq6W
-         T1ZlMz7on1NYu97nUTlNHYo/uOK6ZSXV6V/WMA+o8ZlXYWyAM7ZRKpolFODFdv504jcg
-         zUdQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740382259; x=1740987059;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=b0duzw3Ywocqb3zPYovQHOlpL11++t/qRORIguG/x8M=;
-        b=hi7eCVrBcv9YmLv1sMNp+2t4ck5/8dQl2KQcxiuz5meo5X4495sIymdEfwH1DDhOOJ
-         o2H7xkXS+8Wcj8kDz41w6alcKuKGQD4UsVZLjw8HBZ/GDaRu+SiY0rFRXEUFGNMEe6XN
-         TrHMZWCQbxxQ2SyfzQVCTAazUdotrIunU8lYTI8AQRzKEMVJgext4GBqflvPMJb400Uu
-         zgovm0Yfuscs17dSMdjdCo7++iwU1z3nyN/BSOmbhnZjpABFvj6e6fVorJ7hdpJ1AR8L
-         +D37uUlpgis2igmtJTuZ1wJAFMWkWlv6mQk4QUGGqC9sSA2/JlS+k51D/TsLWsefV/Hn
-         /q1A==
-X-Forwarded-Encrypted: i=1; AJvYcCVU0sOuMOLel/kKHwPzmFJv1ZyP2/KA1XEJ4Da+da6i7QFcryrW44OUu3LbHyeIPFiovIImxB75Z3cR@lists.infradead.org, AJvYcCXfpGVk65Y4hmRAQKzpwr034R56FdCVWJ741Njp3E4zUtpplszlTMg3gMnyY4En0xQVzXBS3+zQN2+0BhJ2FOwA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6J5p0rmTEizC5sRdo83gKwl3KEfQERO4sMYC4C7Hkye2l66bD
-	t8sutDEx/QjdwOzMtpxw3YQrTj/FrcYqxiLtaTw9d82/DKZP0KW6
-X-Gm-Gg: ASbGncvgaSb5wgrJbJbps0RNYM56fFhoach5gjTgkeWL5xCZ7huJYgyb9VuwVbuVzNo
-	XAYOd5z2POUfWTfLO6U8chht4a+p+hwbxW4qp3mkVPFD9XXWK0jFl+6eUfW77QH6KDwUowwadm5
-	Ji7H2jKe+a8Nx1GBjw+ezicuWuiTDxpkf3XB29CjLUdhYJ6LkW+iPDzGVaK7XbvbuCFVdcpr90v
-	ote0GtQphEGPHxZjJ9VxMXxg0t0ai4koSvHfkXq6eoEEyihv/aXpIp7RJ2zi/mkAB2s5uofDpzQ
-	Va2efBZHKfFYGxLeroXbZKwgkumFIvH7M5bl9gbN
-X-Google-Smtp-Source: AGHT+IFR8qOglMl8SOkJiw+ah079XOs4fUxWnUURIZha7TGgX1naigEEn4nk1GDXeUIJqH7dqWjSFw==
-X-Received: by 2002:a5d:5f92:0:b0:38d:e02d:5f4c with SMTP id ffacd0b85a97d-38f6e7578d8mr10115232f8f.10.1740382258857;
-        Sun, 23 Feb 2025 23:30:58 -0800 (PST)
-Received: from [192.168.43.21] ([77.85.230.22])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f69b3ca41sm11133698f8f.27.2025.02.23.23.30.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 23 Feb 2025 23:30:58 -0800 (PST)
-Message-ID: <7426ef0e-c0ae-4a4a-8678-c1a3a4ead250@gmail.com>
-Date: Mon, 24 Feb 2025 09:30:57 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 7/8] phy: phy-snps-eusb2: add support for exynos2200
+ d=gocontrollcom.onmicrosoft.com; s=selector1-gocontrollcom-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fPWw8exq+68fsFbdh1v0858SyRxzO172yvk7tKbjRyw=;
+ b=mgZivzgqhbMBU21OplN9hAGMkpyYPMQ1KCeMTO/AvCI/bpe2pydlv6n7dRs0jkFtyQ0zMPSfCyfm6oI1dE69o3XxvJHBGfbBF73uSy1Papfobczq0Kq12yhQRDbq6peW8IOnLnwhCeo5Q/uc54A6AYYwwfOiInQ93QJdtHEErdFbXfOAn6AtPLPRJB/KJolegPxifqgtaypX50erDq6a62YFfYL0VzexGPZvCHV+ER+U6ymNATUR+M/Uvm5pnbBDLAKZ5l5ws2/AJ6tL3I6f3d+0VP18pTpDxeXBuKeFD4tFGEyl57Aq5IMR13s6LAGkH/jTy11jOhygYe5Baw/X5Q==
+Received: from PA4PR04MB7630.eurprd04.prod.outlook.com (2603:10a6:102:ec::16)
+ by AM7PR04MB6918.eurprd04.prod.outlook.com (2603:10a6:20b:10c::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.20; Mon, 24 Feb
+ 2025 07:39:21 +0000
+Received: from PA4PR04MB7630.eurprd04.prod.outlook.com
+ ([fe80::311b:ad3a:4a62:7b5f]) by PA4PR04MB7630.eurprd04.prod.outlook.com
+ ([fe80::311b:ad3a:4a62:7b5f%4]) with mapi id 15.20.8466.016; Mon, 24 Feb 2025
+ 07:39:20 +0000
+From: Maud Spierings | GOcontroll <maudspierings@gocontroll.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
+ Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 1/2] arm64: dts: imx8mm: Add pinctrl config definitions
+Thread-Topic: [PATCH v2 1/2] arm64: dts: imx8mm: Add pinctrl config
+ definitions
+Thread-Index: AQHbgeCdoXMRnYTeVEyu8OaPwsUhLbNUtzoAgAFhb9g=
+Date: Mon, 24 Feb 2025 07:39:20 +0000
+Message-ID: <PA4PR04MB76309B97A0044049F5841C8AC5C02@PA4PR04MB7630.eurprd04.prod.outlook.com>
+References: <20250218-pinctrl_defines-v2-0-c554cad0e1d2@gocontroll.com>
+ <20250218-pinctrl_defines-v2-1-c554cad0e1d2@gocontroll.com>
+ <20250223-messy-silent-tuatara-68f2e7@krzk-bin>
+In-Reply-To: <20250223-messy-silent-tuatara-68f2e7@krzk-bin>
+Accept-Language: en-US
 Content-Language: en-US
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
- <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Abel Vesa <abel.vesa@linaro.org>,
- linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250223122227.725233-1-ivo.ivanov.ivanov1@gmail.com>
- <20250223122227.725233-8-ivo.ivanov.ivanov1@gmail.com>
- <ac7bq3toicuoppmspqvohiss5wkhgw4v6aozzstd5pr66bfcse@k7tqijab4csq>
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-In-Reply-To: <ac7bq3toicuoppmspqvohiss5wkhgw4v6aozzstd5pr66bfcse@k7tqijab4csq>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=gocontroll.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PA4PR04MB7630:EE_|AM7PR04MB6918:EE_
+x-ms-office365-filtering-correlation-id: 8adb3ed3-3504-4d89-ba93-08dd54a659e5
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|10070799003|366016|38070700018;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?fO30cCSaiAURxW7cRkA1CMDTIMZsmWGmNnbv4CSnX8tdpSWZ0YZIEuT/Cl?=
+ =?iso-8859-1?Q?q3fI/Ws3/WsCClnPgFeQewawOnYoem4fkzMAqSnYx51g2q7jS73R3LslQ9?=
+ =?iso-8859-1?Q?ztI+mSIfhUjQP7Vu82jR/w8TZo54sCHy2wcI0hu9JPP7F8hla/L8IZPmBG?=
+ =?iso-8859-1?Q?8XVUdPsx8QQH27bSDDjMjp0E+H3QXRCg2G2uQ8HqFp2XKdQrs4Znxqa9nW?=
+ =?iso-8859-1?Q?jbhedyE8jHbFjJEvVIaUGzsvtcwFCwUcUXEv+ZFjaiDjmIhVKeM2RKdAAg?=
+ =?iso-8859-1?Q?u3mc82GZl9hgMxbs+qUiYs2qvJn70UsFF7w0+Lnt/SIVVwJoY3mTstfgwN?=
+ =?iso-8859-1?Q?eygHWkrJqOmEQtBplfcZdtu/nbNoN4w30m0VH1ds/s5yeBRoER/nx1OOac?=
+ =?iso-8859-1?Q?N4TtppDr5wDzn4yMqlZxE7WE5ZcOq5o2+RxO8+08njd/o8KSQyCjhxUv/o?=
+ =?iso-8859-1?Q?lKuR1HURdBVDrd1dgvxk3MeldjtpQuMDocDTd/DtIXYUPO6WZsMOBPG1Ql?=
+ =?iso-8859-1?Q?+7yf41duSC6TaTgALbWr+e6OT9ejPRpBygWYuFrrhIARmfZg4jHO/R7tFs?=
+ =?iso-8859-1?Q?/w1YQeqOrCPd38+6D9NpTFMXm9IuKJ5/I37vMNBm8xrBBJOTRXjm6U6DmC?=
+ =?iso-8859-1?Q?3CKzYfJwt/MMC/GufVV0V815XtYWLEbcHWQS9VwXa/CcdAV7UGseggmBG4?=
+ =?iso-8859-1?Q?D3PZjkYTc7ICpX/BuBYqkuWXMXWYHi7t91AT4BfwXVj4tpaQP6lGZ7fxm7?=
+ =?iso-8859-1?Q?HB4cnrLcYPY2BvtIEP6zG2HS5lKnR8vRlKAxZy5lI9Ejsn5u93lkn4+cW2?=
+ =?iso-8859-1?Q?NJZPiLF0P1iCoK8CU37ektBfxglrahE4gpHaEjv+b3gHiIuP0WT9Uy5n5J?=
+ =?iso-8859-1?Q?8t1jg6LLoQXhHiqTk95wcWVNprJu4aAp6n4GX/siFQNvjyGVl6PdIrqAap?=
+ =?iso-8859-1?Q?lUW2RA+lNAfx3gN6rEa/csMFO85gnjDyybXi26ooO8rjlqB/6Kmm04SP8j?=
+ =?iso-8859-1?Q?W0pmq7l6tiUr3dPZSu5ZDk2fxnBjryuN6ucc5vp+nYvBeSzPBYIfwor3F4?=
+ =?iso-8859-1?Q?0N0wiKzIOkC80FFdPw7QTSM0NDJXdV2a7Jiwl1nTzYdgjIiWJExEChQ6VY?=
+ =?iso-8859-1?Q?/E0q/8svz09B3x1K+XCkz5J0ockz0N1+/mKCHxMFRwW3oX9D89qKXe3uma?=
+ =?iso-8859-1?Q?Kz4XNEFXMTBOpwBHXtd8AkYZzy8xU+bm+riPAnebc6VOgEDBsX196nQ1pC?=
+ =?iso-8859-1?Q?96ov6L1zx/lKRTFcFF9wz/LewwmJjL6w5JL68sRAcT6NJ/mlbHnTZx/r5k?=
+ =?iso-8859-1?Q?51xNZHMS601X8JucJZPJRsNuTRw2HuA/X7ShEGOHa9vH37oGmFTTQn+TtV?=
+ =?iso-8859-1?Q?6tLqNhelep6UUXKTfuOdOPeW6BD4sP9zjVDWTJoddPY1Gey60vhYdd56T/?=
+ =?iso-8859-1?Q?GwJqAgXeG5flyJtmiP420DcKYOGmQ19587Drgqo3QytwKRPdR1s1E8hS3w?=
+ =?iso-8859-1?Q?8=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB7630.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(10070799003)(366016)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?BnyOc+T4UMSkEAlIuedQjx8QNu9h/lpxYZE5TsfMVDVHQ8/w5GR+0Zojzq?=
+ =?iso-8859-1?Q?VBkownAx6bxVpQ0k/k7436YtBXl5jlCMYINtfvDuW/rvcqlkXepOZN6C3u?=
+ =?iso-8859-1?Q?dKnQzNgcRXicIEs9yK23xLK7tpC6mVj1ANVNie0W+8WDvaVas0dwiJQLzn?=
+ =?iso-8859-1?Q?XMHpzJb3PZYM1YI7/H0jCsLaKe49eCjzcNUXM/pUxvKgPWcY7H/eVwEB3X?=
+ =?iso-8859-1?Q?cH2x8asYrl+wu/+kSyu7bZJhogErWgFfi9HxA9cRZhKGvIFYQ65jHbmItI?=
+ =?iso-8859-1?Q?oV6a23+EHsfDw9s+PlYaWHMN0/ZKEZmd/LAuxJUntDRKun9kOrbpYlMmMr?=
+ =?iso-8859-1?Q?6ML1u4e1mB3CvArZIhO+Pm9sT3XvyjvrbaALzZQhluj8Av8CA7a5Hum0rZ?=
+ =?iso-8859-1?Q?65D9KLTFNwtX35gbcQCyirhjPwzCQsdoWMjeKIsJeW4LMTmfzPFxmAz8oN?=
+ =?iso-8859-1?Q?mcepuvqRhTlGaSlPj326ogfrDgAS7S0Y6IyXl0yrqF0RCMzYEwGfwNzNVH?=
+ =?iso-8859-1?Q?f3iXdN8TJBiaIkpENBDA/aMiqsBPGQoSTrRUb8zu7Y2O0YmdUBAdW/G7Cp?=
+ =?iso-8859-1?Q?VJkDj5EKgJWLkQJGM1emoDJeJMgBEdcKIIG//HITjeXfWhgh1edypwFcp8?=
+ =?iso-8859-1?Q?IORuzywu5fw9lSfVHdwSBc2X8w/vWLUdksjBdx6FASMBXiaeVd+li3SFOu?=
+ =?iso-8859-1?Q?9U8NV5JF8XpSHCqpLTf3AtQkfmIoBFQGmz4hwLclbMbk6k3SITtsILDuJk?=
+ =?iso-8859-1?Q?+1Mtx//oEA6v0u594uKUeyuUanu6jA8mhT12Kpyjl6bso/CiZbTpbh+GAk?=
+ =?iso-8859-1?Q?P2ZIh8RWb3ZsxCuMIdo5Em8MLRY/Ff/OMeuUAvzZVZqPwxhX9Rh/w1Tdrr?=
+ =?iso-8859-1?Q?1WSxWQc18J1EuFtlxLax0rAWike5XZ9EX4EZsdbnLbGYcdIIiKPJp5oyuS?=
+ =?iso-8859-1?Q?FhWHntwo+qf9qFMWqXXo4CovypISw3XSghFUv+8rNt85s+ZhDn/1kLlzGr?=
+ =?iso-8859-1?Q?4fOTkG3Q2G5rYhRMUpGoWiwOyeFFSaQa3JztSyku4u+YcOmHL70Qaf80wM?=
+ =?iso-8859-1?Q?CwK4pk7kut4dxYiKxyOtvw5TmGINIq9/IiATWqHYXtzVBg8OtJarcDx8hV?=
+ =?iso-8859-1?Q?ilQ9U5r7XYfpMBOUavIa50SU33aHX6C6eXuFTlgiUSKLq04ue0aeShXMq8?=
+ =?iso-8859-1?Q?sNdaYWHmetWcTgAn0Hy/7nFkEVSmh2/2ooTDj18XH1QeMpneB6kWpi/Wk7?=
+ =?iso-8859-1?Q?InnJLTD1sV5rK+TL7o4q7pzvFbRKfw2Bh4HwnXQuCge9sQ6PP89w09DlIG?=
+ =?iso-8859-1?Q?h92crGEjdIr3AkaCrq804QbGRCEGEdKNx+nYmOvxym7HYUWUQkZx6Y065q?=
+ =?iso-8859-1?Q?olYo6xBBmzzEsjJjTflqYA/3vvxgr/0OgGImwI/sVz58zkAgC1HX6AIqcj?=
+ =?iso-8859-1?Q?Xu2cqmCW+uMbt9lLlkoEmxwixFOuo63vni4RbVhi7Kf+27CivVd+GXPu7k?=
+ =?iso-8859-1?Q?IL6pRZ4hPqHDFJBe4Vd1R7zQrY74JGRoQCQ3D2BiBw4aydZa9cmtLMa14f?=
+ =?iso-8859-1?Q?DaRrAC+Iu51ep+R6hQZOLN3xCMU479bqtXDKakBHzoWrT7fyMMTof5vtg1?=
+ =?iso-8859-1?Q?WGoH4lva4tc61fJz7euIl2Ghhsc7gTyHlXEZjUfKgrog34qc6NqxTgn7dm?=
+ =?iso-8859-1?Q?GzosZadx/+gMIDqV/XNpYIsWwV+sLyzs6xzacO65oB2ADEkfstbfXZoDGi?=
+ =?iso-8859-1?Q?Y5kw=3D=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: gocontroll.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB7630.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8adb3ed3-3504-4d89-ba93-08dd54a659e5
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Feb 2025 07:39:20.5960
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 4c8512ff-bac0-4d26-919a-ee6a4cecfc9d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 35wpNJ3iLnnnUYsj+qCgkfnW1W+bhxy4V3aXMtiQHXE1SYUwhK4tOkBH0SslOhJDTQMe1PWSnatXjKoJx2zbxtvUOUwk9mXJ4G78gQReNiI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6918
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250223_233100_630976_ED34A169 
-X-CRM114-Status: GOOD (  19.30  )
+X-CRM114-CacheID: sfid-20250223_233927_443857_91E30FE5 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,129 +174,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/24/25 01:51, Dmitry Baryshkov wrote:
-> On Sun, Feb 23, 2025 at 02:22:26PM +0200, Ivaylo Ivanov wrote:
->> The Exynos2200 SoC reuses the Synopsis eUSB2 PHY IP, alongside an
->> external repeater, for USB 2.0. Add support for it to the existing
->> driver.
->>
->> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
->> ---
->>  drivers/phy/Kconfig          |   2 +-
->>  drivers/phy/phy-snps-eusb2.c | 172 +++++++++++++++++++++++++++++++++++
->>  2 files changed, 173 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
->> index 11c166204..58c911e1b 100644
->> --- a/drivers/phy/Kconfig
->> +++ b/drivers/phy/Kconfig
->> @@ -45,7 +45,7 @@ config PHY_PISTACHIO_USB
->>  
->>  config PHY_SNPS_EUSB2
->>  	tristate "SNPS eUSB2 PHY Driver"
->> -	depends on OF && (ARCH_QCOM || COMPILE_TEST)
->> +	depends on OF && (ARCH_EXYNOS || ARCH_QCOM || COMPILE_TEST)
->>  	select GENERIC_PHY
->>  	help
->>  	  Enable support for the USB high-speed SNPS eUSB2 phy on select
->> diff --git a/drivers/phy/phy-snps-eusb2.c b/drivers/phy/phy-snps-eusb2.c
->> index 7a242fe32..67a19d671 100644
->> --- a/drivers/phy/phy-snps-eusb2.c
->> +++ b/drivers/phy/phy-snps-eusb2.c
->> @@ -13,6 +13,39 @@
->>  #include <linux/regulator/consumer.h>
->>  #include <linux/reset.h>
->>  
->> +#define EXYNOS_USB_PHY_HS_PHY_CTRL_RST	(0x0)
->> +#define USB_PHY_RST_MASK		GENMASK(1, 0)
->> +#define UTMI_PORT_RST_MASK		GENMASK(5, 4)
->> +
->> +#define EXYNOS_USB_PHY_HS_PHY_CTRL_COMMON	(0x4)
->> +#define RPTR_MODE			BIT(10)
->> +#define FSEL_20_MHZ_VAL			(0x1)
->> +#define FSEL_24_MHZ_VAL			(0x2)
->> +#define FSEL_26_MHZ_VAL			(0x3)
->> +#define FSEL_48_MHZ_VAL			(0x2)
->> +
->> +#define EXYNOS_USB_PHY_CFG_PLLCFG0	(0x8)
->> +#define PHY_CFG_PLL_FB_DIV_19_8_MASK	GENMASK(19, 8)
->> +#define DIV_19_8_19_2_MHZ_VAL		(0x170)
->> +#define DIV_19_8_20_MHZ_VAL		(0x160)
->> +#define DIV_19_8_24_MHZ_VAL		(0x120)
->> +#define DIV_19_8_26_MHZ_VAL		(0x107)
->> +#define DIV_19_8_48_MHZ_VAL		(0x120)
->> +
->> +#define EXYNOS_USB_PHY_CFG_PLLCFG1	(0xc)
->> +#define EXYNOS_PHY_CFG_PLL_FB_DIV_11_8_MASK	GENMASK(11, 8)
->> +#define EXYNOS_DIV_11_8_19_2_MHZ_VAL	(0x0)
->> +#define EXYNOS_DIV_11_8_20_MHZ_VAL	(0x0)
->> +#define EXYNOS_DIV_11_8_24_MHZ_VAL	(0x0)
->> +#define EXYNOS_DIV_11_8_26_MHZ_VAL	(0x0)
->> +#define EXYNOS_DIV_11_8_48_MHZ_VAL	(0x1)
->> +
->> +#define EXYNOS_PHY_CFG_TX		(0x14)
->> +#define EXYNOS_PHY_CFG_TX_FSLS_VREF_TUNE_MASK	GENMASK(2, 1)
->> +
->> +#define EXYNOS_USB_PHY_UTMI_TESTSE	(0x20)
->> +#define TEST_IDDQ			BIT(6)
->> +
->>  #define QCOM_USB_PHY_UTMI_CTRL0		(0x3c)
->>  #define SLEEPM				BIT(0)
->>  #define OPMODE_MASK			GENMASK(4, 3)
->> @@ -196,6 +229,93 @@ static void qcom_eusb2_default_parameters(struct snps_eusb2_hsphy *phy)
->>  				    FIELD_PREP(PHY_CFG_TX_HS_XV_TUNE_MASK, 0x0));
->>  }
->>  
->> +static int exynos_eusb2_ref_clk_init(struct snps_eusb2_hsphy *phy)
->> +{
->> +	unsigned long ref_clk_freq = clk_get_rate(phy->ref_clk);
->> +
->> +	switch (ref_clk_freq) {
->> +	case 19200000:
->> +		snps_eusb2_hsphy_write_mask(phy->base, EXYNOS_USB_PHY_HS_PHY_CTRL_COMMON,
->> +					    FSEL_MASK,
->> +					    FIELD_PREP(FSEL_MASK, FSEL_19_2_MHZ_VAL));
->> +
-> Could you please unify the switchcase? assign the values to temp
-> variables, then program them from a single code stream. Or maybe even
-> replace switch-case with a table-based lookup.
->
-> (we probably should implement the similar change for qcom part. Maybe
-> you can refactor it too?)
-
-Alright. I'll do it for the Qualcomm part too in a separate commit.
-
-Thanks for the feedback!
-
-Best regards,
-Ivaylo
-
-> Other than that LGTM.
->
->> +		snps_eusb2_hsphy_write_mask(phy->base, EXYNOS_USB_PHY_CFG_PLLCFG0,
->> +					    PHY_CFG_PLL_FB_DIV_19_8_MASK,
->> +					    FIELD_PREP(PHY_CFG_PLL_FB_DIV_19_8_MASK,
->> +						       DIV_19_8_19_2_MHZ_VAL));
->> +
->> +		snps_eusb2_hsphy_write_mask(phy->base, EXYNOS_USB_PHY_CFG_PLLCFG1,
->> +					    EXYNOS_PHY_CFG_PLL_FB_DIV_11_8_MASK,
->> +					    EXYNOS_DIV_11_8_19_2_MHZ_VAL);
->> +		break;
->> +
->> +	case 20000000:
->> +		snps_eusb2_hsphy_write_mask(phy->base, EXYNOS_USB_PHY_HS_PHY_CTRL_COMMON,
->> +					    FSEL_MASK,
->> +					    FIELD_PREP(FSEL_MASK, FSEL_20_MHZ_VAL));
->> +
->> +		snps_eusb2_hsphy_write_mask(phy->base, EXYNOS_USB_PHY_CFG_PLLCFG0,
->> +					    PHY_CFG_PLL_FB_DIV_19_8_MASK,
->> +					    FIELD_PREP(PHY_CFG_PLL_FB_DIV_19_8_MASK,
->> +						       DIV_19_8_20_MHZ_VAL));
->> +
->> +		snps_eusb2_hsphy_write_mask(phy->base, EXYNOS_USB_PHY_CFG_PLLCFG1,
->> +					    EXYNOS_PHY_CFG_PLL_FB_DIV_11_8_MASK,
->> +					    EXYNOS_DIV_11_8_20_MHZ_VAL);
->> +		break;
->> +
-
+From:=A0Krzysztof Kozlowski <krzk@kernel.org>=0A=
+Sent:=A0Sunday, February 23, 2025 11:27 AM=0A=
+=A0=0A=
+>On Tue, Feb 18, 2025 at 09:39:16AM +0100, Maud Spierings wrote:=0A=
+>> Currently to configure each IOMUXC_SW_PAD_CTL_PAD the raw value of this=
+=0A=
+>> register is written in the dts, these values are not obvious. Add define=
+s=0A=
+>> which describe the fields of this register which can be or-ed together t=
+o=0A=
+>> produce readable settings.=0A=
+>>=0A=
+>> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>=0A=
+>> ---=0A=
+>>=A0 arch/arm64/boot/dts/freescale/imx8mm-pinfunc.h | 27 +++++++++++++++++=
++++++++++=0A=
+>>=A0 1 file changed, 27 insertions(+)=0A=
+>>=0A=
+=0A=
+>Why are you adding defines which have no users? This is just dead code.=0A=
+=0A=
+I will be sending more patches in the near future that will use these bindi=
+ngs, the total stack of patches is starting to grow though so I'm trying to=
+ spread it out in multiple easy to manage bits.=0A=
+It is also a bit of a test if I can continue using these defines as I plan,=
+ or if that will not be accepted and I should instead revert to using raw h=
+ex values.=0A=
+=0A=
+If this is a problem then I will keep it in the larger patchset that is to =
+come.=0A=
+=0A=
+Kind regards,=0A=
+Maud=0A=
 
