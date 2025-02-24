@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3926CC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 14:10:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A537AC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 14:11:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dn8Gwunvx0hcfkbu6iCOWEVj/FyZcRS9qUfMyENqftA=; b=t0AHDrEBeM3c2jNiX3rJT9qGAZ
-	raQhyFOWwdx2mLWPOQkR0EGGhPd00R5zQ2gOZj9lR5dpH0j7RkFUBFAukhjdxgf0++cGAIO9Hj6OH
-	iMYgKJ7qq+lOfOGJXWnzqB171auoZKTAeNXyu7ufCJ3f27G9mdq3UNaHGSfFygbCNIzFBQbWyLcZK
-	dOwOPR+ip8xkEaC3BOw8FDliDmLsPF5sEi0gf9GAb8XoarruY9vez2i73VLeLZSbs1+tvc+XpznTo
-	LMLIrWyHA+5QwfiOU22nCLTIbIVQhDMnaOSgRSShK+YrDu/UGAf8iDxm2wxB7uVj8hAXGvMI7dVxx
-	cUM2UtQQ==;
+	bh=5lHS2U5muP6CVh+3AVqYCA4VkdDHDIvWeOna5PFBWNg=; b=SfpjEBC1vthaXLJB7DG8HSmf0a
+	+FMphx5GOmPkgba659MT0hSfplxtYJLA/OQdAa/dgYlQ46BKElF+SXBPZ3OXfw/8FSq42XbYxgAMi
+	rCECDBIpHVIwh0B0egE3+8Lrjb6aBVoCRkWYbiP9tUD/5vzFciJSow5tM5qh4Fc9cCYfiEPSqtC8m
+	5Bkman4Mv2qQ/ON8/lhcdBzyANOlXIVBzgL0fH4hNOD66k305axctYwBUdNVIPVuVRUg88p86FCDZ
+	N9BqSpXbVZjOsfUejfeYRpfkOwHNL4za0NOTBkdNzEsuw4UkZY3HQM6G2bx5d9UVXWVBMrJZePAs5
+	56nNvcfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmZ9v-0000000E2B0-4Abf;
-	Mon, 24 Feb 2025 14:10:11 +0000
+	id 1tmZBN-0000000E2Sa-2l0F;
+	Mon, 24 Feb 2025 14:11:41 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmYrU-0000000DyDP-32yP
+	id 1tmYrU-0000000DyEn-2Jfj
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 24 Feb 2025 13:51:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1A33E5C6E33;
-	Mon, 24 Feb 2025 13:50:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 255DAC4CEF0;
-	Mon, 24 Feb 2025 13:51:05 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id AA8EE5C6E05;
+	Mon, 24 Feb 2025 13:50:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A68A9C4CEF9;
+	Mon, 24 Feb 2025 13:51:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740405065;
-	bh=e8od42Jcg/mMgud1faVtNikUoHl8D+vvEgmC6ZA+YnY=;
+	s=k20201202; t=1740405064;
+	bh=9rsK2DyiLn0rGQVW5aqBw0QCdbVsaOqhBOHIuUKMsyw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=WEOyq1L4f3II3uuDXxxwBBTznFeQqjAEHBuA0xKQte/s5JMEW05PNe7bMOt99nSlH
-	 emwnIE7LPhEtSk69lBhSLTdZ2bFWfW+JDVfemtLGzOKSJb7OU6jPz5MKAmHJ5A7uJr
-	 +96wrfNecu/7Jq0W/0Y5Slbu3+rioF0ESSiI7iFXXI0GWqcTo5oAWN9Tq/QbiRHmVx
-	 2+2fHb4zSX+1Mhku+RU8lJkbU4iUJM115FHkC3l9ai6gmEX9SNnbVueaX2OYgKIx4D
-	 liwC/b++vG5gvWNXe5N0092aGBbrGt6fszfoRfceu70VP1l8yEUenerTXgZ19Yc6SJ
-	 EQjaZ9oHmSzzQ==
+	b=cwGk/4lFw/RV2zrHR2vk91lDkKP5hvOnqTQdpmGo2xFPdw3nxcVg9FD0E3a5RHR5Y
+	 JamEKWh9/tTYr8GO9eETAoDXd5uJQk1xuRB1/nHviJMWUq6ogD5QbqAIIwcR/oSu1h
+	 Gy+a4iFYyE5iIPNDLc8iy1bDbd8Wil95t9NKUB7wJxita3AiR9pOUd9rq2bTBlCDVH
+	 kyHn+4o3EW3J5L8281qM4nE4m/c66qnhus0e0fAopXmp2RPjpbK4/bLH1j1AiHdgaF
+	 8Z4XqC6BPMleA+iSBu7Bf8LQ8nX5fqJw0qCF16OWfrlk3XCAcq4c976SPGAM0LEYHR
+	 2zamrqgVtKikQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 109D5C021A4;
-	Mon, 24 Feb 2025 13:51:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9B318C021BB;
+	Mon, 24 Feb 2025 13:51:04 +0000 (UTC)
 From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Date: Mon, 24 Feb 2025 14:51:03 +0100
-Subject: [PATCH 13/14] arm64: dts: freescale: Add the BOE av101hdt-a10
- variant of the Moduline Display
+Date: Mon, 24 Feb 2025 14:50:58 +0100
+Subject: [PATCH 08/14] drm/panel: simple: Add BOE AV123Z7M-N17 panel
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250224-initial_display-v1-13-5ccbbf613543@gocontroll.com>
+Message-Id: <20250224-initial_display-v1-8-5ccbbf613543@gocontroll.com>
 References: <20250224-initial_display-v1-0-5ccbbf613543@gocontroll.com>
 In-Reply-To: <20250224-initial_display-v1-0-5ccbbf613543@gocontroll.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>, 
@@ -72,19 +71,19 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, 
  Maud Spierings <maudspierings@gocontroll.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1740405062; l=2488;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1740405062; l=1908;
  i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=YHaW2S/yhPzw1TFrOJXX/c0OSmSvd/p/ljcDcZG2J6w=;
- b=j1dT6B+B4Kl7PuW2SEGrG75BUC1LJT5AQFi79gCGIUvFUeP0ry2CLB4nhOWeebumqEM+T6oWe
- Mwbmb6tp5mrAdRlGRt/vq6T2ym9O0FikwiIg+T8mU7oylBk5vaFJmJN
+ bh=vOVkRssMq+0b54M++/GbRnRh45tiCsN1h3cNEf5At7g=;
+ b=mIAf7wLfiBaXHgCEU4/8qvWOFXgtpexk2cgZKBPGdS9xQHEzRlSLaQGkNSxpz1dAA+cZucueh
+ uDLvxXs5uZfBwENboFcPxubRl6D9NJ9o9TOrax33cAGbmns59TckZj6
 X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
  pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
 X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
  with auth_id=341
 X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_055108_897242_532FC719 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20250224_055108_766536_895D605F 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,89 +101,63 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Maud Spierings <maudspierings@gocontroll.com>
 
-Add the BOE av101hdt-a10 variant of the Moduline Display, this variant
-comes with a 10.1 1280x720 display with a touchscreen (not working in
-mainline).
+Add support for the BOE AV123Z7M-N17 12.3" LVDS panel.
 
 Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
-
 ---
-Currently the backlight driver is not available, this will be upstreamed
-in a future patch series. It is a Maxim max25014atg.
+ drivers/gpu/drm/panel/panel-simple.c | 32 ++++++++++++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
 
-The touchscreen has a Cypress CYAT81658-64AS48 controller which as far as
-I know is not supported upstream, the driver we currently use for this is
-a mess and I doubt we will be able to get it in an upstreamable state.
----
- ...tx8p-ml81-moduline-display-106-av101hdt-a10.dts | 60 ++++++++++++++++++++++
- 1 file changed, 60 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dts b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..ce735b2fabcff2f1f03671e271af08f874276a73
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dts
-@@ -0,0 +1,60 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright 2025 GOcontroll B.V.
-+ * Author: Maud Spierings <maudspierings@gocontroll.com>
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx8mp-tx8p-ml81-moduline-display-106.dtsi"
-+
-+/ {
-+	model = "GOcontroll Moduline Display with BOE av101hdt-a10 display";
-+
-+	panel {
-+		compatible = "boe,av101hdt-a10";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_panel>;
-+		enable-gpios = <&gpio1 7 GPIO_ACTIVE_HIGH>;
-+		reset-gpios = <&gpio1 9 GPIO_ACTIVE_LOW>;
-+		power-supply = <&reg_3v3_per>;
-+
-+		port {
-+			panel_lvds_in: endpoint {
-+				remote-endpoint = <&ldb_lvds_ch0>;
-+			};
-+		};
-+	};
+diff --git a/drivers/gpu/drm/panel/panel-simple.c b/drivers/gpu/drm/panel/panel-simple.c
+index a52977ab73dc2edab0d1954c702fd797d6a5b969..232b03c1a259eb15e423b9d452d28e2ff95c70f8 100644
+--- a/drivers/gpu/drm/panel/panel-simple.c
++++ b/drivers/gpu/drm/panel/panel-simple.c
+@@ -1403,6 +1403,35 @@ static const struct panel_desc boe_av101hdt_a10 = {
+ 	.connector_type = DRM_MODE_CONNECTOR_LVDS,
+ };
+ 
++static const struct display_timing boe_av123z7m_n17_timing = {
++	.pixelclock = { 86600000, 88000000, 90800000, },
++	.hactive = { 1920, 1920, 1920, },
++	.hfront_porch = { 10, 10, 10, },
++	.hback_porch = { 10, 10, 10, },
++	.hsync_len = { 9, 12, 25, },
++	.vactive = { 720, 720, 720, },
++	.vfront_porch = { 7, 10, 13, },
++	.vback_porch = { 7, 10, 13, },
++	.vsync_len = { 7, 11, 14, },
++	.flags = DISPLAY_FLAGS_DE_HIGH | DISPLAY_FLAGS_HSYNC_LOW | DISPLAY_FLAGS_VSYNC_LOW,
 +};
 +
-+&lcdif2 {
-+	status = "okay";
++static const struct panel_desc boe_av123z7m_n17 = {
++	.timings = &boe_av123z7m_n17_timing,
++	.bpc = 8,
++	.num_timings = 1,
++	.size = {
++		.width = 292,
++		.height = 110,
++	},
++	.delay = {
++		.prepare = 50,
++		.disable = 50,
++	},
++	.bus_format = MEDIA_BUS_FMT_RGB888_1X7X4_SPWG,
++	.connector_type = DRM_MODE_CONNECTOR_LVDS,
 +};
 +
-+&lvds_bridge {
-+	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>,
-+	<&clk IMX8MP_VIDEO_PLL1>;
-+	assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
-+	/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_DISP2_PIX * 2 * 7 */
-+	assigned-clock-rates = <0>, <1054620000>;
-+	status = "okay";
-+
-+	ports {
-+		port@1 {
-+			ldb_lvds_ch0: endpoint {
-+				remote-endpoint = <&panel_lvds_in>;
-+			};
-+		};
-+	};
-+};
-+
-+&iomuxc {
-+	pinctrl_panel: panelgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_GPIO1_IO07__GPIO1_IO07 /* COM pin 157 */
-+			MX8MP_DSE_X1
-+			MX8MP_IOMUXC_GPIO1_IO09__GPIO1_IO09 /* COM pin 159 */
-+			MX8MP_DSE_X1
-+		>;
-+	};
-+};
+ static const struct drm_display_mode boe_bp101wx1_100_mode = {
+ 	.clock = 78945,
+ 	.hdisplay = 1280,
+@@ -4845,6 +4874,9 @@ static const struct of_device_id platform_of_match[] = {
+ 	}, {
+ 		.compatible = "boe,av101hdt-a10",
+ 		.data = &boe_av101hdt_a10,
++	}, {
++		.compatible = "boe,av123z7m-n17",
++		.data = &boe_av123z7m_n17,
+ 	}, {
+ 		.compatible = "boe,bp082wx1-100",
+ 		.data = &boe_bp082wx1_100,
 
 -- 
 2.48.1
