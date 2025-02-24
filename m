@@ -4,85 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A82FC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 15:07:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A82E5C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 15:08:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U2kxLp8PGsF6no9olkoxvVLRBxQRM1JnR8fdH/vpckg=; b=orbmnWGzG0+lDoPV3US3zkSopa
-	e2BeDIcE9oOniNkUk/e3isht2Yof9dyJ2VXnEJ1XtQCFeYMJ9jUx7/6tf4f3FvzIkiKCH/mW6y6F/
-	5Fyn75qb9iRqsl+0UEZjWQjT7FPfqUzlv/uhgfvQ0ecDU4ZVbDcIPReioiHSg6CBA4TIkEp7a/Nbm
-	OMqQBFg66fLId0JtyyE2XvzncP7DOzrF9fLIRGuF9ZgZGlkCG+JBmOfOe3Z38RWg4MET7KDZAyp3s
-	GBfnp1ChuubYtchFKQ9Zv5jVH8MmACj8qDkC191yzNBL3OJgWhpSxGPczNyyBfiYiC0DPnoC0aZJv
-	tYBeubQw==;
+	bh=8a181GN7Ao0wUR1dBz6O6OJIemyumNYvfR7LIastGzc=; b=Y00NHGBT9924nmxb/1UEbCStwe
+	/Q6Mpk117WsMrK8vCbFMhIB0RU2zfrXrECpYlu0CImbFgk+dl6sNkCKDHam+RDOU+jpyz6nsNoYDM
+	i/iUjllXUcRPHiNPwO9Vp3FtlWLwiRc5DGE1IwnTLSllEbFozXhANsGHl9UjCVhwLtVVFmmXCUkHD
+	rsTwDGsQ8EMBIuFZmwMBioKqrroYmJnP0NmDBxDuxfAlCNEGjUsyZ9ozR6HG0PwSA85v1sY7L36PM
+	4/Bjq1HFugzPXkGoy/cEv1ELxdUkwDBF57L2D3PxzAKa28ZuIX28M2Af4zRjPXigP3yqK6xAgTRtC
+	RYoYXs0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tma3B-0000000EDkm-34Ux;
-	Mon, 24 Feb 2025 15:07:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmZZs-0000000E7Pt-0ZQZ;
-	Mon, 24 Feb 2025 14:37:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 71174611B9;
-	Mon, 24 Feb 2025 14:36:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C36ADC4CEE6;
-	Mon, 24 Feb 2025 14:36:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740407819;
-	bh=ZPkqFHkfpEEXBvv/JiiAXJD73VY1MQPjnfI68AzNmMg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HMR9ZyF51+gCTr5O6+tVcp768/JhJHldAdQMuQdHABvUY7CdUug/Ab1wT3ObgQGAC
-	 7NzdY7UbKVP+eM8BgNncEZMMwXw3Wso7TJk0q2VyeryHtrjfnrTE2e5UNcbDKvPLhE
-	 5rK+17rtGXNWyA/lMLkVwP2uxrzQbGpoqpM86P+xp+fCHrb56wfT+YG6s+mEWHlMq7
-	 +kkYVhJASr3nwSzp8WJx6sGZ3GtEKDCIWteAIxOWx0XP2wkAbG4nWMVBfM/fSU2Vi1
-	 69Xel5I0sX2/L5q0XRAaPHw5kaC8vo10XnIAcPaeS8jvBssTAmWVUTy3s4cxy0sDjX
-	 NCx7zo+hSuMbw==
-Date: Mon, 24 Feb 2025 16:36:38 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Wei Yang <richard.weiyang@gmail.com>
-Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>,
-	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pratyush Yadav <ptyadav@amazon.de>,
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v4 12/14] x86: Add KHO support
-Message-ID: <Z7yD9g1AgtUUfKr0@kernel.org>
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <20250206132754.2596694-13-rppt@kernel.org>
- <20250224071355.xsl2dbupda4dhfzl@master>
+	id 1tma4e-0000000EE3c-0DYW;
+	Mon, 24 Feb 2025 15:08:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmZcB-0000000E8Aw-2MLm
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Feb 2025 14:39:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 98972152B;
+	Mon, 24 Feb 2025 06:39:37 -0800 (PST)
+Received: from arm.com (unknown [10.1.32.142])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3D2C03F5A1;
+	Mon, 24 Feb 2025 06:39:19 -0800 (PST)
+Date: Mon, 24 Feb 2025 14:39:16 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Peter Collingbourne <pcc@google.com>
+Subject: Re: [PATCH] KVM: arm64: Drop mte_allowed check during memslot
+ creation
+Message-ID: <Z7yElHKrJGn8XuPS@arm.com>
+References: <20250224093938.3934386-1-aneesh.kumar@kernel.org>
+ <Z7xSfVME4z2ComUm@arm.com>
+ <86ldtvr0nl.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250224071355.xsl2dbupda4dhfzl@master>
+In-Reply-To: <86ldtvr0nl.wl-maz@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250224_063923_688834_DA3AEA6B 
+X-CRM114-Status: GOOD (  26.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,57 +71,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 24, 2025 at 07:13:55AM +0000, Wei Yang wrote:
-> On Thu, Feb 06, 2025 at 03:27:52PM +0200, Mike Rapoport wrote:
-> >From: Alexander Graf <graf@amazon.com>
-> [...]
-> >diff --git a/arch/x86/kernel/e820.c b/arch/x86/kernel/e820.c
-> >index 82b96ed9890a..0b81cd70b02a 100644
-> >--- a/arch/x86/kernel/e820.c
-> >+++ b/arch/x86/kernel/e820.c
-> >@@ -1329,6 +1329,24 @@ void __init e820__memblock_setup(void)
-> > 		memblock_add(entry->addr, entry->size);
-> > 	}
+On Mon, Feb 24, 2025 at 12:24:14PM +0000, Marc Zyngier wrote:
+> On Mon, 24 Feb 2025 11:05:33 +0000,
+> Catalin Marinas <catalin.marinas@arm.com> wrote:
+> > On Mon, Feb 24, 2025 at 03:09:38PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> > > This change is needed because, without it, users are not able to use MTE
+> > > with VFIO passthrough (currently the mapping is either Device or
+> > > NonCacheable for which tag access check is not applied.), as shown
+> > > below (kvmtool VMM).
 > > 
-> >+	/*
-> >+	 * At this point with KHO we only allocate from scratch memory.
-> >+	 * At the same time, we configure memblock to only allow
-> >+	 * allocations from memory below ISA_END_ADDRESS which is not
-> >+	 * a natural scratch region, because Linux ignores memory below
-> >+	 * ISA_END_ADDRESS at runtime. Beside very few (if any) early
-> >+	 * allocations, we must allocate real-mode trapoline below
-> >+	 * ISA_END_ADDRESS.
-> >+	 *
-> >+	 * To make sure that we can actually perform allocations during
-> >+	 * this phase, let's mark memory below ISA_END_ADDRESS as scratch
-> >+	 * so we can allocate from there in a scratch-only world.
-> >+	 *
-> >+	 * After real mode trampoline is allocated, we clear scratch
-> >+	 * marking from the memory below ISA_END_ADDRESS
-> >+	 */
-> >+	memblock_mark_kho_scratch(0, ISA_END_ADDRESS);
-> >+
+> > Another nit: "users are not able to user VFIO passthrough when MTE is
+> > enabled". At a first read, the above sounded to me like one wants to
+> > enable MTE for VFIO passthrough mappings.
 > 
-> At the beginning of e820__memblock_setup() we call memblock_allow_resize(),
-> which means during adding memory region it could double the array. And the
-> memory used here is from some region just added.
+> What the commit message doesn't spell out is how MTE and VFIO are
+> interacting here. I also don't understand the reference to Device or
+> NC memory here.
 
-There are large KHO scratch areas that will be used for most allocations.
-Marking the memory below ISA_END_ADDRESS as KHO scratch is required to
-satisfy allocations that explicitly limit the allocation to ISA_END_ADDRESS,
-e.g the real time trampoline.
- 
-> But with KHO, I am afraid it would fail?
-> 
-> > 	/* Throw away partial pages: */
-> > 	memblock_trim_memory(PAGE_SIZE);
-> > 
-> 
-> -- 
-> Wei Yang
-> Help you, Help me
+I guess it's saying that the guest cannot turn MTE on (Normal Tagged)
+for these ranges anyway since Stage 2 is Device or Normal NC. So we
+don't break any use-case specific to VFIO.
+
+> Isn't the issue that DMA doesn't check/update tags, and therefore it
+> makes little sense to prevent non-tagged memory being associated with
+> a memslot?
+
+The issue is that some MMIO memory range that does not support MTE
+(well, all MMIO) could be mapped by the guest as Normal Tagged and we
+have no clue what the hardware does as tag accesses, hence we currently
+prevent it altogether. It's not about DMA.
+
+This patch still prevents such MMIO+MTE mappings but moves the decision
+to user_mem_abort() and it's slightly more relaxed - only rejecting it
+if !VM_MTE_ALLOWED _and_ the Stage 2 is cacheable. The side-effect is
+that it allows device assignment into the guest since Stage 2 is not
+Normal Cacheable (at least for now, we have some patches Ankit but they
+handle the MTE case).
+
+> My other concern is that this gives pretty poor consistency to the
+> guest, which cannot know what can be tagged and what cannot, and
+> breaks a guarantee that the guest should be able to rely on.
+
+The guest should not set Normal Tagged on anything other than what it
+gets as standard RAM. We are not changing this here. KVM than needs to
+prevent a broken/malicious guest from setting MTE on other (physical)
+ranges that don't support MTE. Currently it can only do this by forcing
+Device or Normal NC (or disable MTE altogether). Later we'll add
+FEAT_MTE_PERM to permit Stage 2 Cacheable but trap on tag accesses.
+
+The ABI change is just for the VMM, the guest shouldn't be aware as
+long as it sticks to the typical recommendations for MTE - only enable
+on standard RAM.
+
+Does any VMM rely on the memory slot being rejected on registration if
+it does not support MTE? After this change, we'd get an exit to the VMM
+on guest access with MTE turned on (even if it's not mapped as such at
+Stage 1).
 
 -- 
-Sincerely yours,
-Mike.
+Catalin
 
