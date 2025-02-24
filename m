@@ -4,50 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA23DC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 15:34:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49A6BC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 15:36:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qwlGj6Hchdxakq37kd6CdZyEXv9W6UVVmypf4GHk0yI=; b=4zQYjEP2jlDlfOzML0Y6BkA6cK
-	CP9+RQEVcf/8s7W/uhNQxi07ryLrrYEvkV+gt3dwfpEPAHl1Uv5UBH2ldSC9mfIY4jM1dEuqRmjNp
-	48/vD42sZuA+GReyYD2apUXUpLaZHlndgGjCGe2N0IYYYKe5bYKLkKdFb4PPfsjtASraSDEJrY6OX
-	MrNUxRu0DMKRf5PbOQfGdz29SNv/bhnxnFfEWst/4u6k9YaZqkUWYxz5Jc7UAVackQTiEpq7xHzrC
-	zS871DU4NwByTNlZLQE3M1SLUvfGvnds0uwnT4UkoBsEO96ssWWcjgEYjOv3Y9GFG6ZshJFcZUDbt
-	P4GnlnEg==;
+	bh=F1JDFTUUJTuHrknJtfDybmD2pQSQhM/J7L4REYqLfLo=; b=Xslx3Ff8DwYlXwI4mQRsIPpPKH
+	hKKEKnXg/89DltqtBVQ4kUluh2I4omFdZI4d+zQfMZRYVMlQ7ON1NAZKdicp8PnlOzQSemRP3AQSp
+	4eeyQ6kpl3SiC6vWo/emivQI3a7KuJo1Hzrb1mtCQCmM7fCWKaIydiEwtaaJ3PdJnybnUweg4D8cD
+	w0C0Tggek23JlCD7Y+hdNVafbKD4nJsEt4fdCsbHvTAUurHUEuxdlwpHQcppqgt46kio1GpMpavYP
+	ZWjytlrV1DHa09NVyEMIsWgJoLyFjqo/D4RaKcZPv5CLF34mi4vBpFAJBxeaYXlTzMTR+zNuvNcSt
+	JntxE9cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmaTL-0000000EIPj-49Vg;
-	Mon, 24 Feb 2025 15:34:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmaAe-0000000EFHW-0Dsz
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 24 Feb 2025 15:15:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=qwlGj6Hchdxakq37kd6CdZyEXv9W6UVVmypf4GHk0yI=; b=KqkqOWH9HHTcQ9qxORm3mmVcup
-	5wbLBhONHuLIq25g8K6zv+WiTCvugf1tAQciU/Tiwh58Jy3X0kWsEMGrk/jMyeU6QmHabZmGAOWWZ
-	L7seNoBcPqssfRmmGGJEw1fypEKaPhMadwIforRRPGFyR2v2Xzt6UJxHk0ZIbTQQwP4egAN/YOHjB
-	xuABH/enFF4CWWwxgZWEIHlOmluqVWPdwYoxtVXvUqcmXKHj7t4iVG5TDEb7MvDOr2LC5We0KFVKQ
-	/rlywfygxy4/gjrG5A6Cfoz3m0n9hns977ywLAhWtg6Wu3MOXSyzR2f0aaq7dxSSFU6HzaqkQYBE5
-	69QANUdQ==;
+	id 1tmaUn-0000000EIbu-2e6Z;
+	Mon, 24 Feb 2025 15:35:49 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmaAa-00000003DYI-3sry
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmaAe-0000000EFGc-0zoW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 15:14:58 +0000
+	Mon, 24 Feb 2025 15:15:01 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 142302681;
-	Mon, 24 Feb 2025 07:15:10 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 338A4106F;
+	Mon, 24 Feb 2025 07:15:16 -0800 (PST)
 Received: from e132581.cambridge.arm.com (e132581.arm.com [10.2.76.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A491B3F6A8;
-	Mon, 24 Feb 2025 07:14:51 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BA7153F6A8;
+	Mon, 24 Feb 2025 07:14:57 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Mike Leach <mike.leach@linaro.org>,
@@ -61,17 +46,18 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v1 5/8] coresight: etm: Add an attribute for updating buffer
-Date: Mon, 24 Feb 2025 15:14:20 +0000
-Message-Id: <20250224151423.1630639-6-leo.yan@arm.com>
+Subject: [PATCH v1 8/8] perf cs-etm: Sync kernel coresight-pmu.h header
+Date: Mon, 24 Feb 2025 15:14:23 +0000
+Message-Id: <20250224151423.1630639-9-leo.yan@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250224151423.1630639-1-leo.yan@arm.com>
 References: <20250224151423.1630639-1-leo.yan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_151457_295118_EE0CE135 
-X-CRM114-Status: GOOD (  18.07  )
+X-CRM114-CacheID: sfid-20250224_071500_325774_0D7DA0F4 
+X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,97 +72,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add an attribute for updating buffer when the AUX trace is paused.  And
-populate the value to the 'update_buf_on_pause' flag during the AUX
-setting up.
-
-If the AUX pause operation is attached to a PMU counter, when the
-counter is overflow and if the PMU interrupt in an NMI, then AUX pause
-operation will be triggered in the NMI context.  On the other hand, the
-per CPU sink has its own interrupt handling.  Thus, there will be a race
-condition between the updating buffer in NMI and sink's interrupt
-handler.
-
-To avoid the race condition, this commit disallows updating buffer on
-AUX pause for the per CPU sink.  Currently, this is only applied for
-TRBE.
+Update the header in the tools to align with the kernel header.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- .../hwtracing/coresight/coresight-etm-perf.c  | 20 +++++++++++++++++++
- .../hwtracing/coresight/coresight-etm-perf.h  |  2 ++
- include/linux/coresight-pmu.h                 |  1 +
- 3 files changed, 23 insertions(+)
+ tools/include/linux/coresight-pmu.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
-index 29d52386ffbb..d759663a1f7d 100644
---- a/drivers/hwtracing/coresight/coresight-etm-perf.c
-+++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
-@@ -62,6 +62,8 @@ PMU_FORMAT_ATTR(contextid1,	"config:" __stringify(ETM_OPT_CTXTID));
- PMU_FORMAT_ATTR(contextid2,	"config:" __stringify(ETM_OPT_CTXTID2));
- PMU_FORMAT_ATTR(timestamp,	"config:" __stringify(ETM_OPT_TS));
- PMU_FORMAT_ATTR(retstack,	"config:" __stringify(ETM_OPT_RETSTK));
-+PMU_FORMAT_ATTR(update_buf_on_pause,
-+		"config:" __stringify(ETM_OPT_UPDATE_BUF_ON_PAUSE));
- /* preset - if sink ID is used as a configuration selector */
- PMU_FORMAT_ATTR(preset,		"config:0-3");
- /* Sink ID - same for all ETMs */
-@@ -103,6 +105,7 @@ static struct attribute *etm_config_formats_attr[] = {
- 	&format_attr_configid.attr,
- 	&format_attr_branch_broadcast.attr,
- 	&format_attr_cc_threshold.attr,
-+	&format_attr_update_buf_on_pause.attr,
- 	NULL,
- };
- 
-@@ -434,6 +437,23 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
- 	if (!sink)
- 		goto err;
- 
-+	/* Populate the flag for updating buffer on AUX pause */
-+	event_data->update_buf_on_pause =
-+		!!(event->attr.config & BIT(ETM_OPT_UPDATE_BUF_ON_PAUSE));
-+
-+	if (event_data->update_buf_on_pause) {
-+		/*
-+		 * The per CPU sink has own interrupt handling, it might have
-+		 * race condition with updating buffer on AUX trace pause if
-+		 * it is invoked from NMI.  To avoid the race condition,
-+		 * disallows updating buffer for the per CPU sink case.
-+		 */
-+		if (coresight_is_percpu_sink(sink)) {
-+			dev_err(&sink->dev, "update_buf_on_pause is not permitted.\n");
-+			goto err;
-+		}
-+	}
-+
- 	/* If we don't have any CPUs ready for tracing, abort */
- 	cpu = cpumask_first(mask);
- 	if (cpu >= nr_cpu_ids)
-diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.h b/drivers/hwtracing/coresight/coresight-etm-perf.h
-index 744531158d6b..52b9385f8c11 100644
---- a/drivers/hwtracing/coresight/coresight-etm-perf.h
-+++ b/drivers/hwtracing/coresight/coresight-etm-perf.h
-@@ -51,6 +51,7 @@ struct etm_filters {
-  * @aux_hwid_done:	Whether a CPU has emitted the TraceID packet or not.
-  * @snk_config:		The sink configuration.
-  * @cfg_hash:		The hash id of any coresight config selected.
-+ * @update_buf_on_pause: The flag to indicate updating buffer on AUX pause.
-  * @path:		An array of path, each slot for one CPU.
-  */
- struct etm_event_data {
-@@ -59,6 +60,7 @@ struct etm_event_data {
- 	cpumask_t aux_hwid_done;
- 	void *snk_config;
- 	u32 cfg_hash;
-+	bool update_buf_on_pause;
- 	struct list_head * __percpu *path;
- };
- 
-diff --git a/include/linux/coresight-pmu.h b/include/linux/coresight-pmu.h
+diff --git a/tools/include/linux/coresight-pmu.h b/tools/include/linux/coresight-pmu.h
 index 89b0ac0014b0..04147e30c2f2 100644
---- a/include/linux/coresight-pmu.h
-+++ b/include/linux/coresight-pmu.h
+--- a/tools/include/linux/coresight-pmu.h
++++ b/tools/include/linux/coresight-pmu.h
 @@ -35,6 +35,7 @@
  #define ETM_OPT_CTXTID2		15
  #define ETM_OPT_TS		28
