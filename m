@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18B05C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 03:09:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52B35C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 03:23:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FjeToehox1GOVVgAzNcvzKA8CxY9UGj72X9yocM0jjA=; b=DPlFIOHra61/aNIinxnv7hXcRt
-	rxyMGfQNYpHuUam1CVfGmDM6n0CR2dr4tedp6uVcP4VhA+dz8KfwhkcsVr0LPO+qsZYyhEa1TiFkK
-	rAmgZo3zb++9IgDhgcHWvfcAhYv8Us6eXskZFHteJDRmEIuFZWVzSbqD9Orw4H10FfD13m199/vx8
-	3Bpqzzr7fiXWpQaDMvt6BelTHKMJfriO1sisoGNelGD+eb+3SHPhZZStZLLz7l8yILa8RicEYFxKm
-	TAccEutJGtapM40pLz84pEaFeK9w69rRRAdK352q9VC1l9iafWQ4Q7py6T0hFxeYbxMCkohgi8RCX
-	rntqRJMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SUWTCb0GbfrLEePUqui3jDgm691jrzdjRDy4hq8S9z0=; b=F4JIKZHt42r/X1tNgfqldygElS
+	4auNIpbMSRjMEtDLx29QNl0731BCjZ7mDpWEBxPp+DStRKu2R4+Sg8AGcElMpUiUAykcZk+oHvEpX
+	6nQ3p5+gQfiPSwfGDUe2q2rTQe/xHRomIxcNaTHkD90FDbIKXBt66u5+XAuNl4hPl1XJEQVFmmEaa
+	6Hj93VK3s8blqVJtX8CTbiwOa3rIRADstG9nMrJHx0S4U3l+XR4KqLzepXmjDPR2VvdoGUyqmbFYH
+	YIiZwaIewc1EtMoUAYfINfXqNqjqXHZlPnUWZ/ZA6iJ0a6wWLtQdSvvKUHKd1meFag+FumyaW+McH
+	+tC/2Rag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmOqb-0000000CDJB-1Yt3;
-	Mon, 24 Feb 2025 03:09:33 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tmP3X-0000000CEKZ-3n6G;
+	Mon, 24 Feb 2025 03:22:55 +0000
+Received: from mail-m3291.qiye.163.com ([220.197.32.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmOp2-0000000CDEH-2Lsd
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 03:07:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 654EA5C6BA6;
-	Mon, 24 Feb 2025 03:07:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E53DC4CEDD;
-	Mon, 24 Feb 2025 03:07:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740366475;
-	bh=Ba3wMsdsMZt4q0+MdOQd3tGZpmRW5h3c/acmhZctCSc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TpEcIqG2zo2PySpCB2ecwND0bLf3YDv19Z47qbF4Kb68l5SU0LTrKOmqNUw/GhMeY
-	 Ueeyf3/B/s0+KG+uRb5tPlLt/ddF+0hHBXzb7L0K7YLcc7SE7sh/QQc67RGuDk9dLw
-	 owDmBIAgqVw6FlN8F2+1NFRP12DJBvcdu9qGxMj+rjcFE0SR02HzqLVu+ff9EUiV5g
-	 Y40i1uT9KIVYoVHMZjqF9Ig/e2zjoCiu0IYP34LgSfcEKj7ImNLXtK8iCGtsJ4GVBn
-	 o04oaGim9Osi8DkBzGqUQxDrqBF4HrCnL4A1zAvTNbt+/ooHRU9Lwq9VMw9u0Okh2G
-	 l3XpDnrc8MK3g==
-Date: Mon, 24 Feb 2025 12:07:48 +0900
-From: William Breathitt Gray <wbg@kernel.org>
-To: =?iso-8859-1?B?Q3Pza+Fz?= Bence <csokas.bence@prolan.hu>
-Cc: linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Kamel Bouhara <kamel.bouhara@bootlin.com>, Dharma.B@microchip.com
-Subject: Re: [PATCH v4 0/2] microchip-tcb-capture: Add Capture, Compare,
- Overflow etc. events
-Message-ID: <Z7vihBqOgP3fBUVq@ishi>
-References: <20250211151914.313585-3-csokas.bence@prolan.hu>
- <Z7h0AXV1zlgp9Nw-@ishi>
- <8fb9f188-3065-4fdc-a9f1-152cc5959186@prolan.hu>
+	id 1tmP1w-0000000CE1t-1oXZ;
+	Mon, 24 Feb 2025 03:21:19 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id bf356a8d;
+	Mon, 24 Feb 2025 11:21:02 +0800 (GMT+08:00)
+Message-ID: <731abf8f-b157-47d4-a9e1-9aed6f5b4e37@rock-chips.com>
+Date: Mon, 24 Feb 2025 11:21:02 +0800
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="/Tmqyh1uo1sTZuwD"
-Content-Disposition: inline
-In-Reply-To: <8fb9f188-3065-4fdc-a9f1-152cc5959186@prolan.hu>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 00/14] Add eDP support for RK3588
+To: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: heiko@sntech.de, robh@kernel.org, conor+dt@kernel.org,
+ algea.cao@rock-chips.com, rfoss@kernel.org, devicetree@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ hjc@rock-chips.com, kever.yang@rock-chips.com, dmitry.baryshkov@linaro.org,
+ vkoul@kernel.org, andy.yan@rock-chips.com, krzk+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, l.stach@pengutronix.de
+References: <20250123100747.1841357-1-damon.ding@rock-chips.com>
+ <5044FFCB-B325-40D0-BA82-03AF64EAF029@gmail.com>
+ <tg6eyew4qahuxqakmmejne7xx2rkouj6htp55acun4ajz2irz2@vlmvqv3zc5vc>
+ <C81810F2-6E9B-4DCC-85D1-CCB63CBFBFEA@gmail.com>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <C81810F2-6E9B-4DCC-85D1-CCB63CBFBFEA@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUtLHlYYHkhNH0oeTh5DHkNWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a9535f8f24203a3kunmbf356a8d
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Pi46Djo5AjIXNxwdLSo9TD1L
+	FQMwClZVSlVKTE9LSE1MSU1PS09IVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFITExLNwY+
+DKIM-Signature: a=rsa-sha256;
+	b=TtkboSslEuG3O6Q33PmEvHv28Jvg5WyhYR2LFUqcKFp4BOeB/mohA8ndDgbxGn5eNvpe7Fkf8HB8qjnmn2aLu9BlykbGs6RCVL395hZUmPJW9eyvlAmbaEAF23buy2DkdSvordvN2UaJJ3yxiUObEM3aHwA/1rf/oZ7kgAjYhgE=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=SUWTCb0GbfrLEePUqui3jDgm691jrzdjRDy4hq8S9z0=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250223_190756_734787_C80919EB 
-X-CRM114-Status: GOOD (  62.00  )
+X-CRM114-CacheID: sfid-20250223_192117_037907_2C7B2C4C 
+X-CRM114-Status: GOOD (  22.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,163 +82,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Piotr,
 
---/Tmqyh1uo1sTZuwD
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On 2025/2/14 20:00, Piotr Oniszczuk wrote:
+> 
+> 
+>> Wiadomość napisana przez Sebastian Reichel <sebastian.reichel@collabora.com> w dniu 13 lut 2025, o godz. 18:26:
+>>
+>> Hello Piotr,
+>>
+>>
+>> The RK3588 has two different DP controllers. The one handled in this
+>> series should get the eDP port running, which is routed to the
+>> "eDP Panel" in the block diagram on page 3 of the Rock 5 ITX schematics.
+>> So this series adds support for using "HDMI/eDP TX0" and "HDMI/eDP TX1"
+>> in DP mode.
+>>
+>> The port routed to HDMI0 via RA620 is the other DP controller, which
+>> also exists twice: "TYPEC0/DP0" and "TYPEC1/DP1". This DP controller
+>> is not yet supported upstream and there is no pending patchset. As far
+>> as I know Rockchip plans to work on preparing upstream support for that
+>> soon.
 
-On Fri, Feb 21, 2025 at 03:14:44PM +0100, Cs=F3k=E1s Bence wrote:
-> On 2025. 02. 21. 13:39, William Breathitt Gray wrote:
-> > First, register RC seems to serve only as a threshold value for a
-> > compare operation. So it shouldn't be exposed as "capture2", but rather
-> > as its own dedicated threshold component. I think the 104-quad-8 module
-> > is the only other driver supporting THRESHOLD events; it exposes the
-> > threshold value configuration via the "preset" component, but perhaps we
-> > should introduce a proper "threshold" component instead so counter
-> > drivers have a standard way to expose this functionality. What do you
-> > think?
->=20
-> Possibly. What's the semantics of the `preset` component BTW? If we can
-> re-use that here as well, that could work too.
+Yes, Andy has recently updated the DP controller related patchset:
+https://patchwork.kernel.org/project/linux-rockchip/list/?series=936784
 
-You can find the semantics of each attribute under the sysfs ABI doc
-file located at Documentation/ABI/testing/sysfs-bus-counter. For the
-`preset` component, its essential purpose is to configure a value to
-preset register to reload the Count when some condition is met (e.g.
-when an external INDEX/SYNC trigger line goes high).
+>>
+> 
+> Oh - this is very valuable info and explains a lot.
+> Thx.
+> 
+>> Note, that the two DisplayPort controllers are completely different.
+>> The HDMI/eDP controller is a design from Analogix and the TypeC/DP
+>> controller is a design from Synopsys.
+>>
+>> P.S.: Heiko merged support for HDMI1 (RK3588 SoC level) recently. So you
+>> should be able to get that running by some DT additions to the Rock 5
+>> ITX board DT with the latest linux-next code :)
+>>
+> 
+> And it works perfectly on all my 3588 bards (including audio and my cec addition)
+> But only on boards using both hdmi tx0 and tx1 to hdmi0/hdmi1 ports.
+> 
+> on rock5 itx:
 
-In the 104-quad-8 module,  the `preset` component is used for a number
-of threshold-like purposes; you can see some of the uses by reading the
-description of the /sys/bus/counter/devices/counterX/countY/count_mode
-attribute. Of relevance to the SAMA5D2, the 104-quad-8 has a mode where
-the current Count value is compared against the preset register and an
-interrupt is fired when they match (i.e. our Counter THRESHOLD event).
+According to the schematic of ROCK 5 ITX, I find the display routes are:
+- DP0 -> TYPEC0 Connector
+- DP1 -> RA620 -> HDMI Connector (Andy's patch series will help it work)
+- HDMI/eDP TX0 -> eDP Panel (This patch series will help it work)
+- HDMI/eDP TX1 -> HDMI Connector
 
-I think it'll be fine to use the preset component to expose the RC
-register because the 104-quad-8 already uses the preset component in a
-similar fashion; also I would like to keep things simple in this
-patchset to avoid the complexities of introducing a new `threshold`
-component interface, at least until we get the rest of the capture
-functionality in this driver merged.
+So the HDMI/eDP TX0 should be enabled as eDP in DTS. Maybe it's just a 
+test to enable both HDMI0 and HDMI1 in the ROCK 5 ITX board?
 
-So for now, use COUNTER_COMP_PRESET() to expose the RC register as a
-`preset` component. In the next patchset revision, put this code in its
-own patch after the capture components patch, so that we can review the
-RC register code separately.
+> With both hdmi tx0 and tx1 enabled in dts it looks like kernel detects hdmi tx0 as connected and tries read edid.
+> As nothing is connected to J11 (eDP con) - i’m getting i2c ddc timeouts
+> [   54.188880] dwhdmiqp-rockchip fde80000.hdmi: i2c read timed out
+> [   54.292207] dwhdmiqp-rockchip fde80000.hdmi: i2c read timed out
+> [   54.395554] dwhdmiqp-rockchip fde80000.hdmi: i2c read timed out
+> 
 
-In the same vein, move the uapi header introduction to its own patch.
-That will separate the userspace-exposed changes and make things easier
-for future users when bisecting the linux kernel history when tracking
-down possible bugs.
-=20
-> > Regarding registers RA and RB, these do hold historic captures of count
-> > data so it does seem appropriate to expose these as "capture0" and
-> > "capture1". However, I'm still somewhat confused about why there are two
-> > registers holding the same sampled CV (or do RA and RB hold different
-> > values from each other?). Does a single external line trigger the sample
-> > of CV to both RA and RB, or are there two separate external lines
-> > triggering the samples independently; or is this a situation where it's
-> > a single external line where rising edge triggers a sample to RA while
-> > falling edge triggers a sample to RB?
->=20
-> It is exactly the latter. And you can configure which edge should sample
-> which register; you can also set them to the same edge in which case they
-> would (presumably) hold the same value, but as you said, it wouldn't be
-> practical.
+I think the reason may be that HDMI0 is enabled, and HPD pin of HDMI0 is 
+also configured, but the HPD pin is in an unstable state in the 
+hardware, which is mistakenly detected as connected.
 
-Ah okay, I think I understand now. Thank you for clarifying.
+> 
+> disabling hdmi0 makes kernel talking to hdmi1 but with issues:
+> [    0.540446] dwhdmiqp-rockchip fdea0000.hdmi: registered DesignWare HDMI QP I2C bus driver
+> [    0.541230] rockchip-drm display-subsystem: bound fdea0000.hdmi (ops dw_hdmi_qp_rockchip_ops)
+> [    0.542285] [drm] Initialized rockchip 1.0.0 for display-subsystem on minor 0
+> [    0.542933] rockchip-drm display-subsystem: [drm] Cannot find any crtc or sizes
+> [    0.543605] rockchip-drm display-subsystem: [drm] Cannot find any crtc or sizes
+> 
+> and here i’m a bit puzzled as on other 3588 boards (i.e. rock5b) - when i connected monitor to hdmi1 - all works perfectly
+> (kernel, OS and app nicely skipping hdmi0 and talking to actually connected hdmi1 port. all works)
+> 
+> on rock5 itx this not works.
+> 
+> my observations so far are:
+> -on rock5 itx hdmi0 is falsely detected as connected - even when eDP connector (J11) has nothing connected
+> -on rock5 itx disabling hdmi0 in dts breaks hdmi1
+> -on other 3588 (e.g. rock 5b) disabling hdmi0 in dts NOT breaks hdmi1
+> 
+> strange….
+> 
+> 
 
-> > Next, the driver right now has three separate event channels, but I
-> > believe you only need two. The purpose of counter event channels is to
-> > provide a way for users to differentiate between the same type of event
-> > being issued from different sources. An example might clarify what I
-> > mean.
->=20
-> Yeah true, I could shove the RC compare event to event channel 0. It just
-> made more sense to have event channels 0, 1, 2 correspond to RA, RB and R=
-C.
-> And it's not like we're short on channels, it's a u8, and we have 5 event=
-s;
-> if we wanted to, we could give each a channel and still have plenty left
-> over. I also thought about separating RA capture from channel 0, but I
-> figured it would be fine, as you said, the event type would differentiate
-> among them.
->=20
-> The reason I did not put the RC compare event to channel 0 as well is tha=
-t I
-> only have the SAMA5D2, and I don't know whether other parts are capable of
-> generating other events related to RC, potentially clashing with other
-> channel 0 use, if we later decide to support them. One channel per
-> event-sourcing register seems like a safe bet; having CV and RA on the sa=
-me
-> channel still seems to be an acceptable compromise (but again, I don't kn=
-ow
-> about the other parts' capabilities, so it _might_ still lead to clashes).
+Best regards
+Damon
 
-I can see your rationale, and I don't have too strong of an opinion
-either way, so I'll leave it up to your best judgement. Ultimately, as
-you point out we do have a large enough availability of channels that
-will accommodate future introductions, which can be abstracted to users
-via the uapi header, so we should be fine.
-
-Regarding future additions, I took a look at the Microchip SAMA5D2
-datasheet[^1] (is the right document?) and it looks like this chip has
-three timer counter channels described in section 54. Currently, the
-microchip-tcb-capture module is exposing only one timer counter channel
-(as Count0), correct? Should this driver expose all three channels (as
-Count0, Count1, and Count2)?
-
-> > Suppose a hypothetical counter device has two independent timers. When
-> > either timer overflows, the device fires off a single interrupt. We can
-> > consider this interrupt a counter OVERFLOW event. As users we can watch
-> > for COUNTER_EVENT_OVERFLOW to collect these events. However, a problem
-> > arises: we know an OVERFLOW event occurred, but we don't know which
-> > particular timer is the source of the overflow. The solution is to
-> > dedicate each source to its own event channel so that users can
-> > differentiate between them (e.g. channel 0 are events sourced from the
-> > first timer whereas channel 1 are events sourced from the second timer).
-> >=20
-> > Going back to your driver, there seems to be no ambiguity about the
-> > source of the CHANGE-OF-STATE, THRESHOLD, and OVERFLOW events, so these
-> > events can all coexist in the same event channel. The only possible
-> > ambiguity I see is regarding the CAPTURE events, which could be sourced
-> > by either a sample to RA or RB. Given this, I believe all your events
-> > could go in channel 0, with channel 1 serving to simply differentiate
-> > CAPTURE events that are sourced by samples to RB.
-> >=20
-> > Finally, you mentioned that this device supports a PWM mode that also
-> > makes use of the RA, RB, and RC registers. To prevent globbering the
-> > registers when in the wrong mode, you should verify the device is in the
-> > counter capture mode before handling the capture components (or return
-> > an appropriate "Operation not support" error code when in PWM mode). You
-> > don't need to worry about adding these checks for now because it looks
-> > like this driver does not support PWM mode yet, but it's something to
-> > keep in mind if you do add support for it in the future.
->=20
-> The `mchp_tc_count_function_write()` function already disables PWM mode by
-> clearing the `ATMEL_TC_WAVE` bit from the Channel Mode Register (CMR).
-
-So capture mode is unconditionally set by mchp_tc_count_function_write()
-which means the first time the user sets the Count function then PWM
-mode will be disabled. However, what happens if the user does not set
-the Count function? Should PWM mode be disabled by default in
-mchp_tc_probe(), or does that already happen?
-
-William Breathitt Gray
-
-[^1] https://ww1.microchip.com/downloads/en/DeviceDoc/DS60001476B.pdf
-
---/Tmqyh1uo1sTZuwD
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEARYKAB0WIQSNN83d4NIlKPjon7a1SFbKvhIjKwUCZ7vihAAKCRC1SFbKvhIj
-K0AEAQDJspkJEtu7+1N2PmNO7mzKvaWSEPhzCTQUbAYZILYDYAEAuzh92eO/ENSb
-SaJWYNoXvQdyag5Hw+MTo7vm2P7vdA4=
-=1lMt
------END PGP SIGNATURE-----
-
---/Tmqyh1uo1sTZuwD--
 
