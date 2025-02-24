@@ -4,107 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1EA6C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 10:32:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A82E1C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 10:33:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T/nXp9TCiT3dsQI9a5TjGzmHwmEXUSf/75kIMW7Csbg=; b=wSgM//6fY6BO/mx68gtC/5VOs7
-	jK7gjSDXYFVNotrpSaSGw8Icika7E4PlW8bhsv42zYj1COeEsc2s7vh8oloDeNxdnAEgaxNrzcT2v
-	pUFS6TuoQJev0mAxd/+XyjMkdYBKXt2zCNhVNM0UAbfL6nYzHYasY45c2ROuTBwLsIkFK+KWZi7Fj
-	IXusOj6kww+I53GzALXSKHaePWo+9SkKNy4cJZdjavPOM6UlqWK5fV2pg/+zNlsVX0oDET2OoAqPQ
-	Onl9g1Df2x8hrMvBYw19giDT04DnTPLe2I+zYtsJW1JvY1CDyEGdMSeVTj2MioGhZ33mpdxLamuTV
-	X+y41JhA==;
+	bh=vX7Xf96MKp2+iGQBpvXSSman0x3TMAYFq6IQlzbQmDM=; b=e0mPDuo+IsJDiYbzeBBqUVyCqB
+	3eW3klCaw8sG4xlfvoWb4XP0orS23BoWB/vcGismehxh8H1TwwsTH/a9GrFKJg5/yir/d0xz8un14
+	jo6/Ct8OYK1jINjmdjkJIhvn0jxU/6Fh5DWO9s0LMcjSCJjtZaTg6YXpJ52j/RDefda3g4Y7xxQ+q
+	Qrdjz6z2w0smYjUPhgwQ2aXfaEcs3If9iMjOHYbXPwwh8FgC4kGA64hsIlURXVRs8spGuMZSnMLSE
+	GqHDuEX5sWZ84TGQZZVlZqvrgkn5iETCKb/QTmjWo15Ht73hhmghqBITlYFxkh4iFvRYQUP/RhNyR
+	sUwpC6yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmVl7-0000000D968-2780;
-	Mon, 24 Feb 2025 10:32:21 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmVg2-0000000D7pt-37JY
+	id 1tmVmY-0000000D9R4-0o8U;
+	Mon, 24 Feb 2025 10:33:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmVkr-0000000D91G-0E0j
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 10:27:07 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51O76h1M024439;
-	Mon, 24 Feb 2025 10:26:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	T/nXp9TCiT3dsQI9a5TjGzmHwmEXUSf/75kIMW7Csbg=; b=aIzETiqvPBSSYuRy
-	zzmV/4k4GuPpu/K8AiV4htA+3d58UXQBA3U89HztAmR4RAsNSoCvYTodoCt2hVSq
-	riSG8ocgj1t2tFeL3IXsorx8ljZmSLKva0PlJKJPxyiFqkfdIrZ9591AGa3B2AF5
-	EOo7oY5BEDepruyMhphkrzNCz5jLM5dmCGUmvEWg1NNORFBMObNtfj89lSBaI+72
-	2ZZRSmnwlQ1pUg16laoBj+YopsfEPx6P/pA5bNxlP6xXCPjSgLEuHxBuYI0fQRAI
-	oq7GjYdnk/UAaMhuK2ESgaSnWL2J1+a+0sxqae8/oNR+WXhpp3m4HnS5PytzWnGb
-	lgQ3Dg==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 450m3d8stc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 24 Feb 2025 10:26:55 +0000 (GMT)
-Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51OAQtw9029670
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 24 Feb 2025 10:26:55 GMT
-Received: from [10.133.33.32] (10.80.80.8) by nalasex01c.na.qualcomm.com
- (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 24 Feb
- 2025 02:26:49 -0800
-Message-ID: <debf4d65-0e47-4f13-ac7d-ee43ded55286@quicinc.com>
-Date: Mon, 24 Feb 2025 18:26:46 +0800
+	Mon, 24 Feb 2025 10:32:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 12ECE1E7D;
+	Mon, 24 Feb 2025 02:32:21 -0800 (PST)
+Received: from [10.57.36.38] (unknown [10.57.36.38])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A0AC73F673;
+	Mon, 24 Feb 2025 02:32:02 -0800 (PST)
+Message-ID: <a8ceea52-e34a-4edb-bd54-ca30ec030432@arm.com>
+Date: Mon, 24 Feb 2025 10:32:01 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 6/7] Coresight: Add Coresight TMC Control Unit driver
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        "Alexander
- Shishkin" <alexander.shishkin@linux.intel.com>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-CC: Tingwei Zhang <quic_tingweiz@quicinc.com>,
-        Jinlong Mao
-	<quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>
-References: <20250217093024.1133096-1-quic_jiegan@quicinc.com>
- <20250217093024.1133096-7-quic_jiegan@quicinc.com>
- <35d1a923-4e8e-4fe2-bf4a-0b78b1d511e3@arm.com>
- <a594bdee-7d9e-4d79-a5ee-a34dafa2869f@quicinc.com>
- <c274175a-ed6d-4ce9-be86-d48f56cafe9d@arm.com>
-Content-Language: en-US
-From: Jie Gan <quic_jiegan@quicinc.com>
-In-Reply-To: <c274175a-ed6d-4ce9-be86-d48f56cafe9d@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01c.na.qualcomm.com (10.47.97.35)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: zv_QRQBYUctsoyQeL-rYTV-Bka0uiWwz
-X-Proofpoint-ORIG-GUID: zv_QRQBYUctsoyQeL-rYTV-Bka0uiWwz
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-24_04,2025-02-24_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 suspectscore=0
- bulkscore=0 impostorscore=0 phishscore=0 mlxscore=0 mlxlogscore=999
- clxscore=1015 malwarescore=0 lowpriorityscore=0 adultscore=0
- priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2502100000 definitions=main-2502240076
+Subject: Re: [PATCH] KVM: arm64: Drop mte_allowed check during memslot
+ creation
+Content-Language: en-GB
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Steven Price <steven.price@arm.com>
+References: <20250224093938.3934386-1-aneesh.kumar@kernel.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250224093938.3934386-1-aneesh.kumar@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_022706_795442_8100B3C5 
-X-CRM114-Status: GOOD (  28.71  )
+X-CRM114-CacheID: sfid-20250224_023205_139707_E3710341 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,259 +69,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2/24/2025 6:22 PM, Suzuki K Poulose wrote:
-> On 24/02/2025 03:32, Jie Gan wrote:
->>
->>
->> On 2/21/2025 7:39 PM, Suzuki K Poulose wrote:
->>> On 17/02/2025 09:30, Jie Gan wrote:
->>>> The Coresight TMC Control Unit hosts miscellaneous configuration 
->>>> registers
->>>> which control various features related to TMC ETR sink.
->>>>
->>>> Based on the trace ID, which is programmed in the related CTCU ATID
->>>> register of a specific ETR, trace data with that trace ID gets into
->>>> the ETR buffer, while other trace data gets dropped.
->>>>
->>>> Enabling source device sets one bit of the ATID register based on
->>>> source device's trace ID.
->>>> Disabling source device resets the bit according to the source
->>>> device's trace ID.
->>>>
->>>> Reviewed-by: James Clark <james.clark@linaro.org>
->>>> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
->>>> ---
->>>>   drivers/hwtracing/coresight/Kconfig          |  12 +
->>>>   drivers/hwtracing/coresight/Makefile         |   1 +
->>>>   drivers/hwtracing/coresight/coresight-ctcu.c | 268 +++++++++++++++ 
->>>> ++++
->>>>   drivers/hwtracing/coresight/coresight-ctcu.h |  24 ++
->>>>   include/linux/coresight.h                    |   3 +-
->>>>   5 files changed, 307 insertions(+), 1 deletion(-)
->>>>   create mode 100644 drivers/hwtracing/coresight/coresight-ctcu.c
->>>>   create mode 100644 drivers/hwtracing/coresight/coresight-ctcu.h
->>>>
->>>> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/ 
->>>> hwtracing/ coresight/Kconfig
->>>> index 06f0a7594169..ecd7086a5b83 100644
->>>> --- a/drivers/hwtracing/coresight/Kconfig
->>>> +++ b/drivers/hwtracing/coresight/Kconfig
->>>> @@ -133,6 +133,18 @@ config CORESIGHT_STM
->>>>         To compile this driver as a module, choose M here: the
->>>>         module will be called coresight-stm.
->>>> +config CORESIGHT_CTCU
->>>> +    tristate "CoreSight TMC Control Unit driver"
->>>> +    depends on CORESIGHT_LINK_AND_SINK_TMC
->>>> +    help
->>>> +      This driver provides support for CoreSight TMC Control Unit
->>>> +      that hosts miscellaneous configuration registers. This is
->>>> +      primarily used for controlling the behaviors of the TMC
->>>> +      ETR device.
->>>> +
->>>> +      To compile this driver as a module, choose M here: the
->>>> +      module will be called coresight-ctcu.
->>>> +
->>>>   config CORESIGHT_CPU_DEBUG
->>>>       tristate "CoreSight CPU Debug driver"
->>>>       depends on ARM || ARM64
->>>> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/ 
->>>> hwtracing/ coresight/Makefile
->>>> index 4ba478211b31..1b7869910a12 100644
->>>> --- a/drivers/hwtracing/coresight/Makefile
->>>> +++ b/drivers/hwtracing/coresight/Makefile
->>>> @@ -51,3 +51,4 @@ coresight-cti-y := coresight-cti-core.o coresight- 
->>>> cti-platform.o \
->>>>              coresight-cti-sysfs.o
->>>>   obj-$(CONFIG_ULTRASOC_SMB) += ultrasoc-smb.o
->>>>   obj-$(CONFIG_CORESIGHT_DUMMY) += coresight-dummy.o
->>>> +obj-$(CONFIG_CORESIGHT_CTCU) += coresight-ctcu.o
->>>> diff --git a/drivers/hwtracing/coresight/coresight-ctcu.c b/drivers/ 
->>>> hwtracing/coresight/coresight-ctcu.c
->>>> new file mode 100644
->>>> index 000000000000..e1460a627c4d
->>>> --- /dev/null
->>>> +++ b/drivers/hwtracing/coresight/coresight-ctcu.c
->>>> @@ -0,0 +1,268 @@
->>>> +// SPDX-License-Identifier: GPL-2.0-only
->>>> +/*
->>>> + * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All 
->>>> rights reserved.
->>>> + */
->>>> +
->>>> +#include <linux/clk.h>
->>>> +#include <linux/coresight.h>
->>>> +#include <linux/device.h>
->>>> +#include <linux/err.h>
->>>> +#include <linux/kernel.h>
->>>> +#include <linux/init.h>
->>>> +#include <linux/io.h>
->>>> +#include <linux/module.h>
->>>> +#include <linux/mutex.h>
->>>> +#include <linux/of.h>
->>>> +#include <linux/platform_device.h>
->>>> +#include <linux/slab.h>
->>>> +
->>>> +#include "coresight-ctcu.h"
->>>> +#include "coresight-priv.h"
->>>> +
->>>> +DEFINE_CORESIGHT_DEVLIST(ctcu_devs, "ctcu");
->>>> +
->>>> +#define ctcu_writel(drvdata, val, offset)    __raw_writel((val), 
->>>> drvdata->base + offset)
->>>> +#define ctcu_readl(drvdata, offset)        __raw_readl(drvdata- 
->>>> >base + offset)
->>>> +
->>>> +/*
->>>> + * The TMC Coresight Control Unit uses four ATID registers to 
->>>> control the data
->>>> + * filter function based on the trace ID for each TMC ETR sink. The 
->>>> length of
->>>> + * each ATID register is 32 bits. Therefore, the ETR has a related 
->>>> field in
->>>> + * CTCU that is 128 bits long. Each trace ID is represented by one 
->>>> bit in that
->>>> + * filed.
->>>> + * e.g. ETR0ATID0 layout, set bit 5 for traceid 5
->>>> + *                                           bit5
->>>> + * ------------------------------------------------------
->>>> + * |   |28|   |24|   |20|   |16|   |12|   |8|  1|4|   |0|
->>>> + * ------------------------------------------------------
->>>> + *
->>>> + * e.g. ETR0:
->>>> + * 127                     0 from ATID_offset for ETR0ATID0
->>>> + * -------------------------
->>>> + * |ATID3|ATID2|ATID1|ATID0|
->>>> + */
->>>> +#define CTCU_ATID_REG_OFFSET(traceid, atid_offset) \
->>>> +        ((traceid / 32) * 4 + atid_offset)
->>>> +
->>>> +#define CTCU_ATID_REG_BIT(traceid)    (traceid % 32)
->>>> +#define CTCU_ATID_REG_SIZE        0x10
->>>> +
->>>> +struct ctcu_atid_config {
->>>> +    const u32 atid_offset;
->>>> +    const u32 port_num;
->>>> +};
->>>> +
->>>> +struct ctcu_config {
->>>> +    const struct ctcu_atid_config *atid_config;
->>>> +    int num_atid_config;
->>>> +};
->>>> +
->>>> +static const struct ctcu_atid_config sa8775p_atid_cfgs[] = {
->>>> +    {0xf8,  0},
->>>> +    {0x108, 1},
->>>> +};
->>>> +
->>>> +static const struct ctcu_config sa8775p_cfgs = {
->>>> +    .atid_config        = sa8775p_atid_cfgs,
->>>> +    .num_atid_config    = ARRAY_SIZE(sa8775p_atid_cfgs),
->>>> +};
->>>> +
->>>> +static void ctcu_program_atid_register(struct ctcu_drvdata 
->>>> *drvdata, u32 reg_offset,
->>>> +                       u8 bit, bool enable)
->>>> +{
->>>> +    u32 val;
->>>> +
->>>> +    CS_UNLOCK(drvdata->base);
->>>> +    val = ctcu_readl(drvdata, reg_offset);
->>>> +    val = enable? (val | BIT(bit)) : (val & ~BIT(bit));
->>>
->>> minor nit: If possible do not use the ternary operator like this. It 
->>> is much better readable as:
->>>
->>>      if (enable)
->>>          val |= BIT(bit);
->>>      else
->>>          val &= ~BIT(bit);
->>>
->>
->> Will do this way.
->>
->>>> +    ctcu_writel(drvdata, val, reg_offset);
->>>> +    CS_LOCK(drvdata->base);
->>>> +}
->>>> +
->>>> +/*
->>>> + * __ctcu_set_etr_traceid: Set bit in the ATID register based on 
->>>> trace ID when enable is true.
->>>> + * Reset the bit of the ATID register based on trace ID when enable 
->>>> is false.
->>>> + *
->>>> + * @csdev:    coresight_device struct related to the device
->>>> + * @traceid:    trace ID of the source tracer.
->>>> + * @port_num:    port number from TMC ETR sink.
->>>> + * @enable:    True for set bit and false for reset bit.
->>>> + *
->>>> + * Returns 0 indicates success. Non-zero result means failure.
->>>> + */
->>>> +static int __ctcu_set_etr_traceid(struct coresight_device *csdev, 
->>>> u8 traceid, int port_num,
->>>> +                  bool enable)
->>>> +{
->>>> +    struct ctcu_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
->>>> +    u32 atid_offset, reg_offset;
->>>> +    u8 refcnt, bit;
->>>> +
->>>> +    atid_offset = drvdata->atid_offset[port_num];
->>>> +    if (atid_offset == 0)
->>>> +        return -EINVAL;
->>>> +
->>>> +    bit = CTCU_ATID_REG_BIT(traceid);
->>>> +    reg_offset = CTCU_ATID_REG_OFFSET(traceid, atid_offset);
->>>> +    if (reg_offset - atid_offset > CTCU_ATID_REG_SIZE)
->>>> +        return -EINVAL;
->>>> +
->>>> +    guard(raw_spinlock_irqsave)(&drvdata->spin_lock);
->>>> +    refcnt = drvdata->traceid_refcnt[port_num][traceid];
->>>> +    /* Only program the atid register when the refcnt value is 0 or 
->>>> 1 */
->>>
->>> A normal trace source won't be enabled more than once (e.g., ETM). 
->>> The only odd one out is the STM, which may be driven by multiple agents.
->>> So this refcounting looks necessary.
->>>
->>
->> Besides, for the TPDMs which shared the trace_id of the TPDA also need 
->> the refcnt. Consider we have TPDM1 and TPDM2 connected to the same 
->> TPDA device. Once we disable one of the TPDM without checking the 
->> refcnt, the filter function will be disabled for another TPDM.
->>
->>>> +    if (enable && (++refcnt == 1))
->>>> +        ctcu_program_atid_register(drvdata, reg_offset, bit, enable);
->>>> +    else if (!enable && (--refcnt == 0))
->>>> +        ctcu_program_atid_register(drvdata, reg_offset, bit, enable);
->>>
->>> minor nit:
->>>
->>>      if ((enable && !refcount++) ||
->>>          (!enable && --refcount))
->>>          ctcu_program_atid_register(drvdata, reg_offset, bit, enable);
->>>
->>>
->>
->> I did (enable && (++refcnt == 1)) just because I think we only need 
->> program the register when refcnt is equal to 1. We dont need reprogram 
->> the register with same value when refcnt greater than 1. So I think 
->> it's better for the performance?
+On 24/02/2025 09:39, Aneesh Kumar K.V (Arm) wrote:
+> Before commit d89585fbb308 ("KVM: arm64: unify the tests for VMAs in
+> memslots when MTE is enabled"), kvm_arch_prepare_memory_region() only
+> rejected a memory slot if VM_SHARED was set. This commit unified the
+> checking with user_mem_abort(), with slots being rejected if either
+> VM_MTE_ALLOWED is not set or VM_SHARED set. A subsequent commit
+> c911f0d46879 ("KVM: arm64: permit all VM_MTE_ALLOWED mappings with MTE
+> enabled") dropped the VM_SHARED check, so we ended up with memory slots
+> being rejected if VM_MTE_ALLOWED is not set. This wasn't the case before
+> the commit d89585fbb308. The rejection of the memory slot with VM_SHARED
+> set was done to avoid a race condition with the test/set of the
+> PG_mte_tagged flag. Before Commit d77e59a8fccd ("arm64: mte: Lock a page
+> for MTE tag initialization") the kernel avoided allowing MTE with shared
+> pages, thereby preventing two tasks sharing a page from setting up the
+> PG_mte_tagged flag racily.
 > 
-> The code above is similar to yours. It would "set" only for the first
-> time, when
+> Commit d77e59a8fccd ("arm64: mte: Lock a page for MTE tag
+> initialization") further updated the locking so that the kernel
+> allows VM_SHARED mapping with MTE. With this commit, we can enable
+> memslot creation with VM_SHARED VMA mapping.
 > 
-> enable == 0, refcount == 0 now, but will be incremented to 1.
+> This patch results in a minor tweak to the ABI. We now allow creating
+> memslots that don't have the VM_MTE_ALLOWED flag set. If the guest uses
+> such a memslot with Allocation Tags, the kernel will generate -EFAULT.
+> ie, instead of failing early, we now fail later during KVM_RUN.
 > 
+> This change is needed because, without it, users are not able to use MTE
+> with VFIO passthrough (currently the mapping is either Device or
+> NonCacheable for which tag access check is not applied.), as shown
+> below (kvmtool VMM).
+> 
+> [  617.921030] vfio-pci 0000:01:00.0: resetting
+> [  618.024719] vfio-pci 0000:01:00.0: reset done
+>    Error: 0000:01:00.0: failed to register region with KVM
+>    Warning: [0abc:aced] Error activating emulation for BAR 0
+>    Error: 0000:01:00.0: failed to configure regions
+>    Warning: Failed init: vfio__init
+> 
+>    Fatal: Initialisation failed
+> 
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 
-Hi Suzuki,
-
-Thanks for expalaination, got your point, just missed !refcnt++, plus 1 
-after !refcnt.
-
-Jie
-
-
-
+Tested-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
 
