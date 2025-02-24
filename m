@@ -4,75 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44E2EC021A6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 13:49:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E89C021A6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 13:50:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3n8xmeVnIYK+qUv4a3XKOCWPAYrS0FhZhKI75bd5GAI=; b=yGDwyJs2wfN/JLg9kWFhGRODI9
-	PGTI47iBVyYETMtFyw/d9rWnd9d93xRh9KQlU8fYBIe9NiUSx7zcmuCmcLwpG1btFn0AK1l1crsL2
-	VLCJ7FPQmssuPMggF1oa+DI38TRJUEeFceXuLutwy1f19QxNoKrTg7vaVYx6yyNxss5cqCJeXZRYK
-	u4wjRfkOU7+b7rAhAznKuimjxUOnIUELAyWZ4CTwyuxLwJiC91asy4vbs7zISmc+GLd+URTeybD3+
-	992DfCr1W0f6Jee1yUh0MokCmSzDPmA5uhLwSHHeY1vLh3ymERdMYoemWP88ATxoD8CIzx3cYVOM3
-	ZYo5uz/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pDq4bowWlNtsbGxlMOQr0ORJvI5CIykp22503yzMS2g=; b=Ld3wJk7ezNhGxcVGj8Us/dlM8h
+	HI6bGcVLHT4QPefHmeHhtVQ+BRHPR0etHkOd6MKMxK1Wp11A3O67mE9GyLUwoAqnGWxFPiEBThx3t
+	X8GuNEhGKw4yCmHWSRttlu+LETn9PWS5YF7pTgOoj7FV9rIxobklLGYIYuKslNrLl63Yv/RAjmLDw
+	jtAJoRDJyvPfd+rgSt7givBMi7Fx/R6+17JGiW0YkhhKoG0sja541AZ7YtdM1Q9uUM9jK2auWFg5N
+	6V0woFc02IgCMivSEoyuwOBIbgUkkRtv4XY1J6jkti81wAfZ4ijGWs4Tk42lfNBxVRt9m/O5W+FCQ
+	/P8WLCQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmYpa-0000000DxrW-1Eta;
-	Mon, 24 Feb 2025 13:49:10 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmYma-0000000DxFq-2eip
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 13:46:06 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tmYmO-0007oj-Pq; Mon, 24 Feb 2025 14:45:52 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tmYmO-002bVW-12;
-	Mon, 24 Feb 2025 14:45:52 +0100
-Received: from pengutronix.de (p5b164285.dip0.t-ipconnect.de [91.22.66.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id E8E753CA816;
-	Mon, 24 Feb 2025 13:45:51 +0000 (UTC)
-Date: Mon, 24 Feb 2025 14:45:50 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
-Cc: Chester Lin <chester62515@gmail.com>, 
-	Matthias Brugger <mbrugger@suse.com>, Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
-	NXP S32 Linux <s32@nxp.com>, Enric Balletbo <eballetb@redhat.com>, imx@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Alberto Ruiz <aruizrui@redhat.com>, Christophe Lizzi <clizzi@redhat.com>, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] arm64: dts: s32g: add FlexCAN[0..3] support for s32g2
- and s32g3
-Message-ID: <20250224-quizzical-tasteful-chupacabra-acf14d-mkl@pengutronix.de>
-References: <20250224134016.3921196-1-ciprianmarian.costea@oss.nxp.com>
+	id 1tmYr1-0000000Dy4x-3rJM;
+	Mon, 24 Feb 2025 13:50:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmYoh-0000000DxeN-0Am8;
+	Mon, 24 Feb 2025 13:48:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 990B31515;
+	Mon, 24 Feb 2025 05:48:30 -0800 (PST)
+Received: from [10.163.40.148] (unknown [10.163.40.148])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 716D33F5A1;
+	Mon, 24 Feb 2025 05:48:07 -0800 (PST)
+Message-ID: <acc7eb95-a0d2-4f35-96a8-7a370cc1eff6@arm.com>
+Date: Mon, 24 Feb 2025 19:18:02 +0530
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="vdjp2jj2cgfxv3yv"
-Content-Disposition: inline
-In-Reply-To: <20250224134016.3921196-1-ciprianmarian.costea@oss.nxp.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V2 2/5] arch/powerpc: Drop GENERIC_PTDUMP from
+ mpc885_ads_defconfig
+To: Christophe Leroy <christophe.leroy@csgroup.eu>, linux-mm@kvack.org
+Cc: steven.price@arm.com, Andrew Morton <akpm@linux-foundation.org>,
+ Mark Rutland <mark.rutland@arm.com>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>
+References: <20250217042220.32920-1-anshuman.khandual@arm.com>
+ <20250217042220.32920-3-anshuman.khandual@arm.com>
+ <93e96586-13a2-4800-9dc7-5b35177a328e@csgroup.eu>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <93e96586-13a2-4800-9dc7-5b35177a328e@csgroup.eu>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_054604_668361_931F5C47 
-X-CRM114-Status: GOOD (  12.43  )
+X-CRM114-CacheID: sfid-20250224_054815_120715_6EDA8964 
+X-CRM114-Status: UNSURE (   8.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,46 +73,49 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---vdjp2jj2cgfxv3yv
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] arm64: dts: s32g: add FlexCAN[0..3] support for s32g2
- and s32g3
-MIME-Version: 1.0
 
-On 24.02.2025 15:40:16, Ciprian Costea wrote:
-> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
->=20
-> Add FlexCAN[0..3] for S32G2 and S32G3 SoCs.
+On 2/24/25 17:34, Christophe Leroy wrote:
+> 
+> 
+> Le 17/02/2025 à 05:22, Anshuman Khandual a écrit :
+>> GENERIC_PTDUMP gets selected on powerpc explicitly and hence can be dropped
+>> off from mpc885_ads_defconfig.
+>>
+>> Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
+>> Cc: Michael Ellerman <mpe@ellerman.id.au>
+>> Cc: Nicholas Piggin <npiggin@gmail.com>
+>> Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+>> Cc: linuxppc-dev@lists.ozlabs.org
+>> Cc: linux-kernel@vger.kernel.org
+>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
+>> Just wondering - Should CONFIG_PTDUMP_DEBUGFS be added instead ?
+> 
+> Yes please do that as a fix to commit e084728393a5 ("powerpc/ptdump: Convert powerpc to GENERIC_PTDUMP")
 
-The dt-bindings patch that documents support for the S32G2/S32G3 is in
-net-next/main: 51723790b718 ("dt-bindings: can: fsl,flexcan: add
-S32G2/S32G3 SoC support")
+Sure, does the following updated commit message look okay ?
 
-regards,
-Marc
+arch/powerpc: Drop GENERIC_PTDUMP from mpc885_ads_defconfig
 
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+GENERIC_PTDUMP gets selected on powerpc explicitly and hence can be dropped
+off from mpc885_ads_defconfig. Just add CONFIG_PTDUMP_DEBUGFS instead.
 
---vdjp2jj2cgfxv3yv
-Content-Type: application/pgp-signature; name="signature.asc"
+Fixes: e084728393a5 ("powerpc/ptdump: Convert powerpc to GENERIC_PTDUMP")
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAme8eAsACgkQDHRl3/mQ
-kZzAFwgAkC2NY97unwSJJHjQK4vv1/t6fMnSIY0SgTnQ8Ch+OBenrj0ykSdhSdB4
-spt7Ly83UumxmXfGM/1IWobj4tyx63ryqWEztyV5WojY8I+VpN4BoVLY9q1U58oH
-ia1Ns6+5XSh3cUacaMn4pCOf3gJbjlGZxy0Yomp9QiaSDondf/osnjCVVTA59Zjj
-q7yGEuUT83Q877UM39YCc/h7z1qFnmJV8av6IyrQoZLn8oX3bx8HIILM1PIJ6D5M
-eLhwB7Mr2Oh5G20vDoq+VYNVxn7Uuwzd9lzOcm3g7DoQ5l+iLsaxQG7+aXOAV4o+
-5YZzZNaiLlbyD3ZjL59b3PFtRefIwQ==
-=98NH
------END PGP SIGNATURE-----
-
---vdjp2jj2cgfxv3yv--
+> 
+>>
+>>   arch/powerpc/configs/mpc885_ads_defconfig | 1 -
+>>   1 file changed, 1 deletion(-)
+>>
+>> diff --git a/arch/powerpc/configs/mpc885_ads_defconfig b/arch/powerpc/configs/mpc885_ads_defconfig
+>> index 77306be62e9e..ea6f836407d2 100644
+>> --- a/arch/powerpc/configs/mpc885_ads_defconfig
+>> +++ b/arch/powerpc/configs/mpc885_ads_defconfig
+>> @@ -78,4 +78,3 @@ CONFIG_DEBUG_VM_PGTABLE=y
+>>   CONFIG_DETECT_HUNG_TASK=y
+>>   CONFIG_BDI_SWITCH=y
+>>   CONFIG_PPC_EARLY_DEBUG=y
+>> -CONFIG_GENERIC_PTDUMP=y
+> 
 
