@@ -4,63 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 857FBC021BB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 19:55:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39171C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 19:57:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Xh1+d4+0/2s7r35AQ1iEnqkZSbg7dbv/TfdOk1/Ssg=; b=pEMuG9qdDNKkKnMLogsW9vQgqC
-	9TZExZCSVFsLMa4JYqPF+9H75D2amofZ2SdarsyG8PdSzXu+51jTgYNQCbkY1CwjBjNJpG7bDPXkY
-	YujfSRkTY0klSw6DsQd4n3jhkBkRAPsNEQU2mcW2xIjd+VAOuck/BAKV/F1YORCSsKlbj/yQMGem6
-	dYlfYodpKIATJ5d+Ebxp3+KJt1n2MAlj+PrsLFThBIMhFUbrAA1pKidzrEjgZnTeyBJ5KgH4p4Mqd
-	wuIAYoNkqhajzZvru69KIPwoXFtN1xw7u3wVqVkxYp3DzaCFeIAx6cM7Gji8Dtk72RdPZ4TbFK1Bb
-	cpcuQ8Ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4Mwr7TfmtvtGkeIg/OdtZgFGQqTQ12adcCYV8UQPq8g=; b=QtLP2tp43bZtir6f0mpXEdEbE2
+	T6kx/iepPpQ8uW9E+360xaknrvLnJbtJj3nJ7+l9pPMPMrI0LWXBYvWczsuHpz0jA6xd4VZYCxfmO
+	l0beR0XOijcALQAuMtsLait43ERPxzJZpPRLNstXSYF7MGKc+Tq2BkPwM5IzV+u/KW9EQ9yh9VG0t
+	oglN1MmAFLcNJ6Uze15c0lOUSM39VMWvIklioKtkbjRHW4c+k6XAobEXA14w5tw4O6aAUzIkgNNyA
+	mZtCUUlD4JFTcGQAkvFC677yS23QNvMnEv+2+PDTsyiuXXU4OfduFcTB9zntDP8D9kJYER2sktb4O
+	6ArRnPHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmeXZ-0000000F0dI-0MgN;
-	Mon, 24 Feb 2025 19:54:57 +0000
-Received: from out-172.mta1.migadu.com ([95.215.58.172])
+	id 1tmeZo-0000000F11I-3Jfq;
+	Mon, 24 Feb 2025 19:57:16 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmeVo-0000000F0RU-0eUK
+	id 1tmeYK-0000000F0jA-1CXc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 19:53:09 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1740426782;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7Xh1+d4+0/2s7r35AQ1iEnqkZSbg7dbv/TfdOk1/Ssg=;
-	b=aN0tE1Pd1MEvzE4n+wYxC+wbOBiJbdoTQwM05uEvYofjAXAPxnfokLf1kAfI9sWOuqxmp8
-	hhsHxyhQr/nWZPPkewHxSc9EC8AH5L8F7zz3RIfJnceWkFkmSz3C2J52Frot0hhPBuWoXj
-	cFWZwESFmcvtbDmYJQ662pddCSqOVuo=
-From: Oliver Upton <oliver.upton@linux.dev>
-To: kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	gankulkarni@os.amperecomputing.com
-Subject: Re: (subset) [PATCH v2 00/14] KVM: arm64: NV userspace ABI
-Date: Mon, 24 Feb 2025 11:52:52 -0800
-Message-Id: <174042670061.586392.7441716091084012083.b4-ty@linux.dev>
-In-Reply-To: <20250220134907.554085-1-maz@kernel.org>
-References: <20250220134907.554085-1-maz@kernel.org>
+	Mon, 24 Feb 2025 19:55:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=4Mwr7TfmtvtGkeIg/OdtZgFGQqTQ12adcCYV8UQPq8g=; b=gEjurNuAgfuQye+FsI4vU6rM2N
+	9AdM3VBog3sTJEHcgG5CWFpg+zpj/6SwMt8gJunu66xNDXiiFWXHatKYf0UBgBxgXCeQyW00wvfwj
+	2XvP0FWjv6v3dU7JU2bOk/plj+gYwwbpw3sa4NjKGMOHzbVVrKS08DSdmCSgymDFjxiw=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tmeXv-00HH6h-TM; Mon, 24 Feb 2025 20:55:19 +0100
+Date: Mon, 24 Feb 2025 20:55:19 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Philipp Stanner <phasta@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Yanteng Si <si.yanteng@linux.dev>,
+	Yinggang Gu <guyinggang@loongson.cn>,
+	Feiyang Chen <chenfeiyang@loongson.cn>,
+	Philipp Stanner <pstanner@redhat.com>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Qing Zhang <zhangqing@loongson.cn>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH net-next v3 1/4] stmmac: loongson: Pass correct arg to
+ PCI function
+Message-ID: <46a6a816-eed2-48ce-a483-fc6b31ad7b32@lunn.ch>
+References: <20250224135321.36603-2-phasta@kernel.org>
+ <20250224135321.36603-3-phasta@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250224135321.36603-3-phasta@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_115308_344563_F8E0B0F9 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20250224_115544_323478_2B3D794B 
+X-CRM114-Status: UNSURE (   8.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,50 +84,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 20 Feb 2025 13:48:53 +0000, Marc Zyngier wrote:
-> Since the previous incarnation of the ABI was proved to be subtly
-> wrong, I have reworked it to be more in line with the current way KVM
-> operates.
+On Mon, Feb 24, 2025 at 02:53:19PM +0100, Philipp Stanner wrote:
+> pcim_iomap_regions() should receive the driver's name as its third
+> parameter, not the PCI device's name.
 > 
-> No more late NV-specific adjustment nor writable ID_AA64MMFR0_EL1.VH.
-> The NV configuration is now entirely selected from the vcpu flags.
-> I've preserved the KVM_ARM_VCPU_EL2 flag which enables NV with VHE,
-> and added KVM_ARM_VCPU_EL2_E2H0 which alters the NV behaviour to only
-> allow nVHE guests without recursive NV support.
+> Define the driver name with a macro and use it at the appropriate
+> places, including pcim_iomap_regions().
 > 
-> [...]
+> Cc: stable@vger.kernel.org # v5.14+
+> Fixes: 30bba69d7db4 ("stmmac: pci: Add dwmac support for Loongson")
+> Signed-off-by: Philipp Stanner <phasta@kernel.org>
 
-I fixed up the typos, including the one that breaks bisection. Can
-always back this out if anything is out of place.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Applied to next, thanks!
-
-[01/14] arm64: cpufeature: Handle NV_frac as a synonym of NV2
-        https://git.kernel.org/kvmarm/kvmarm/c/88aea41b9bc5
-[02/14] KVM: arm64: Hide ID_AA64MMFR2_EL1.NV from guest and userspace
-        https://git.kernel.org/kvmarm/kvmarm/c/9d6745572899
-[03/14] KVM: arm64: Mark HCR.EL2.E2H RES0 when ID_AA64MMFR1_EL1.VH is zero
-        https://git.kernel.org/kvmarm/kvmarm/c/d9f943f76506
-[04/14] KVM: arm64: Mark HCR.EL2.{NV*,AT} RES0 when ID_AA64MMFR4_EL1.NV_frac is 0
-        https://git.kernel.org/kvmarm/kvmarm/c/8f8d6084f5b5
-[05/14] KVM: arm64: Advertise NV2 in the boot messages
-        https://git.kernel.org/kvmarm/kvmarm/c/2cd9542a375a
-[06/14] KVM: arm64: Consolidate idreg callbacks
-        https://git.kernel.org/kvmarm/kvmarm/c/57e7de2650c8
-[07/14] KVM: arm64: Make ID_REG_LIMIT_FIELD_ENUM() more widely available
-        https://git.kernel.org/kvmarm/kvmarm/c/179fd7e30f04
-[08/14] KVM: arm64: Enforce NV limits on a per-idregs basis
-        https://git.kernel.org/kvmarm/kvmarm/c/e7ef6ed4583e
-[09/14] KVM: arm64: Move NV-specific capping to idreg sanitisation
-        https://git.kernel.org/kvmarm/kvmarm/c/94f296dcd6d9
-[10/14] KVM: arm64: Allow userspace to limit NV support to nVHE
-        https://git.kernel.org/kvmarm/kvmarm/c/f83c41fb3ddd
-[11/14] KVM: arm64: Make ID_AA64MMFR4_EL1.NV_frac writable
-        https://git.kernel.org/kvmarm/kvmarm/c/642c23ea8b45
-[12/14] KVM: arm64: Advertise FEAT_ECV when possible
-        https://git.kernel.org/kvmarm/kvmarm/c/8b0b98ebf34d
-
---
-Best,
-Oliver
+    Andrew
 
