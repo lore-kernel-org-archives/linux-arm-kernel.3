@@ -4,85 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A7B7C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 15:59:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FEA1C021BB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 16:01:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qGD73/6Hfje+CHtFjpnoM4cVHsKMuplCC1K3yOtX1GM=; b=J6EhjXUxZJXIUGKFt7Sk5teytl
-	JoK0QWdhnW8atmrMU4T538nZQm68P5ZPq5nnwjSkxkkO67Yzl7TkJ+aU5Q2AFW9rQPHlVFq2TUvkD
-	/AYaPAgD3TdLlyu0X355j+4v+mMHdrfkEECwM4/LE0uWJ57NIlOpm+uKh5+ztBFmN7yYyYUBz8ay3
-	yTNhXlJGHmNNlmvP+TjAesa1ncwUbl7NCMkxC2mQjlvKfp/n3E51ooJI5xFZlwznBny62bZ3Z5gTI
-	r+UDG/DYnK19Wr+5UeDSkC2+BD8Je6BGs/GQF1/Z4bJmI7nxvLTqWvO0Sg24fH2rXiia9STo8mhgi
-	z2Zm4/2g==;
+	bh=Ku8fXTaLCNvnuldKooFrJaV0pHFkQTUyRT6hbhujC7k=; b=USffU+3sHU0LKvTcJHGXd3b7ME
+	mLtiBa2sQIpS1oWNiRSRNblxO+Xj5SwFHpsOojjwG0C5cEytuk5Aje4M11jCWQhLAgSN9fb2b7XBX
+	G1b0DxOCV1QpouhjRr8nLVEXQblMDOLHR+TR4OhsGQDPDbpNfpL8RvzXPXGcAsmCr4+fZP0gBMFXV
+	enoBuRIRZe2EjEhxItrZL4OL9Fly/I+JTtNWQKIMQe1il9vaz7O1yid8X7Y6LCv0Ly/UbpO0PAbJS
+	9JGPFMiD86jDAPFOQu23lLEjPgBtQDuc0RCLt8Z49b0El+W2Qtq7yNuTWV0+jBCM38F4pIvJWQvvX
+	FQUQY3nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmarn-0000000ENeX-1ukc;
-	Mon, 24 Feb 2025 15:59:35 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmaa0-0000000EK3m-1mwF
+	id 1tmatK-0000000EO0P-41XX;
+	Mon, 24 Feb 2025 16:01:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmamy-0000000EMRt-0Zhr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 15:41:14 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51OBmmff006971;
-	Mon, 24 Feb 2025 16:41:00 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	qGD73/6Hfje+CHtFjpnoM4cVHsKMuplCC1K3yOtX1GM=; b=zExIzboDG8htA5Ac
-	UTn2MdezQEdiUgh0gZ/dRHHNAM0IidelkQafWQk29jCd7sXXWaFm3M3BW9i+PTwV
-	jP4W70ZeKmcIf/Sg5V+rJ/Jwpw5NmZpMo+HO9d2w76PsKxXWeciNB0wupaMiWlq+
-	3WtRjsMWW/R+rSaPrYDdU72YJnqrrF7xaZzQmV38bqYMLO1N924cwP3O0ZwahDDm
-	uPmo5Xc2WtrdsyEE1sDpkiE66QX2n6+gRti3Y5/dKdar5jSPs9mieZeyO39+xAcg
-	x1oZHn0FnN1xzQlp1aNxb1bmDTU8lpzltKmRt1uPCtG+F8vP7GnZjesxmZwp2KkG
-	jV3Lcw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44ys145ysq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 24 Feb 2025 16:41:00 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id DE1CE40046;
-	Mon, 24 Feb 2025 16:39:35 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E14805248D1;
-	Mon, 24 Feb 2025 16:33:40 +0100 (CET)
-Received: from localhost (10.129.178.212) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 24 Feb
- 2025 16:33:40 +0100
-From: Christian Bruel <christian.bruel@foss.st.com>
-To: <christian.bruel@foss.st.com>, <lpieralisi@kernel.org>, <kw@linux.com>,
-        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
-        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
-        <p.zabel@pengutronix.de>, <johan+linaro@kernel.org>,
-        <cassel@kernel.org>, <quic_schintav@quicinc.com>
-CC: <fabrice.gasnier@foss.st.com>, <linux-pci@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v5 1/9] dt-bindings: PCI: Add STM32MP25 PCIe Root Complex bindings
-Date: Mon, 24 Feb 2025 16:33:05 +0100
-Message-ID: <20250224153313.3416318-2-christian.bruel@foss.st.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250224153313.3416318-1-christian.bruel@foss.st.com>
-References: <20250224153313.3416318-1-christian.bruel@foss.st.com>
+	Mon, 24 Feb 2025 15:54:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 642531516;
+	Mon, 24 Feb 2025 07:54:46 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AD0563F6A8;
+	Mon, 24 Feb 2025 07:54:27 -0800 (PST)
+Date: Mon, 24 Feb 2025 15:54:19 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	devicetree@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v2 3/7] firmware: arm_scmi: imx: Add i.MX95 LMM protocol
+Message-ID: <Z7yWK3E5inW39jeJ@pluto>
+References: <20250212-imx-lmm-cpu-v2-0-3aee005968c1@nxp.com>
+ <20250212-imx-lmm-cpu-v2-3-3aee005968c1@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.129.178.212]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-24_06,2025-02-24_02,2024-11-22_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250212-imx-lmm-cpu-v2-3-3aee005968c1@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_074112_773879_2F6127B1 
-X-CRM114-Status: GOOD (  14.02  )
+X-CRM114-CacheID: sfid-20250224_075436_272277_24FF9450 
+X-CRM114-Status: GOOD (  31.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,183 +73,441 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the bindings for STM32MP25 PCIe Controller configured in
-root complex mode with one root port.
+On Wed, Feb 12, 2025 at 03:40:25PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+> 
+> Add Logical Machine Management(LMM) protocol which is intended for boot,
+> shutdown, and reset of other logical machines (LM). It is usually used to
+> allow one LM to manager another used as an offload or accelerator engine.
+> 
 
-Supports 4 INTx and MSI interrupts from the ARM GICv2m controller.
+Hi,
 
-STM32 PCIe may be in a power domain which is the case for the STM32MP25
-based boards.
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/firmware/arm_scmi/vendors/imx/Kconfig      |  11 +
+>  drivers/firmware/arm_scmi/vendors/imx/Makefile     |   1 +
+>  drivers/firmware/arm_scmi/vendors/imx/imx-sm-lmm.c | 270 +++++++++++++++++++++
+>  include/linux/scmi_imx_protocol.h                  |  31 +++
+>  4 files changed, 313 insertions(+)
+> 
+> diff --git a/drivers/firmware/arm_scmi/vendors/imx/Kconfig b/drivers/firmware/arm_scmi/vendors/imx/Kconfig
+> index a01bf5e47301d2f93c9bfc7eebc77e083ea4ed75..1a936fc87d2350e2a21bccd45dfbeebfa3b90286 100644
+> --- a/drivers/firmware/arm_scmi/vendors/imx/Kconfig
+> +++ b/drivers/firmware/arm_scmi/vendors/imx/Kconfig
+> @@ -12,6 +12,17 @@ config IMX_SCMI_BBM_EXT
+>  	  To compile this driver as a module, choose M here: the
+>  	  module will be called imx-sm-bbm.
+>  
+> +config IMX_SCMI_LMM_EXT
+> +	tristate "i.MX SCMI LMM EXTENSION"
+> +	depends on ARM_SCMI_PROTOCOL || (COMPILE_TEST && OF)
+> +	default y if ARCH_MXC
+> +	help
+> +	  This enables i.MX System Logical Machine Protocol to
+> +	  manage Logical Machines boot, shutdown and etc.
+> +
+> +	  To compile this driver as a module, choose M here: the
+> +	  module will be called imx-sm-lmm.
+> +
+>  config IMX_SCMI_MISC_EXT
+>  	tristate "i.MX SCMI MISC EXTENSION"
+>  	depends on ARM_SCMI_PROTOCOL || (COMPILE_TEST && OF)
+> diff --git a/drivers/firmware/arm_scmi/vendors/imx/Makefile b/drivers/firmware/arm_scmi/vendors/imx/Makefile
+> index d3ee6d5449244a4f5cdf6abcf1845f312c512325..f39a99ccaf9af757475e8b112d224669444d7ddc 100644
+> --- a/drivers/firmware/arm_scmi/vendors/imx/Makefile
+> +++ b/drivers/firmware/arm_scmi/vendors/imx/Makefile
+> @@ -1,3 +1,4 @@
+>  # SPDX-License-Identifier: GPL-2.0-only
+>  obj-$(CONFIG_IMX_SCMI_BBM_EXT) += imx-sm-bbm.o
+> +obj-$(CONFIG_IMX_SCMI_LMM_EXT) += imx-sm-lmm.o
+>  obj-$(CONFIG_IMX_SCMI_MISC_EXT) += imx-sm-misc.o
+> diff --git a/drivers/firmware/arm_scmi/vendors/imx/imx-sm-lmm.c b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-lmm.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..4b9211df2329623fae0400039db91cb2b98cded1
+> --- /dev/null
+> +++ b/drivers/firmware/arm_scmi/vendors/imx/imx-sm-lmm.c
+> @@ -0,0 +1,270 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * System control and Management Interface (SCMI) NXP LMM Protocol
+> + *
+> + * Copyright 2025 NXP
+> + */
+> +
+> +#include <linux/bits.h>
+> +#include <linux/io.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/scmi_protocol.h>
+> +#include <linux/scmi_imx_protocol.h>
+> +
+> +#include "../../protocols.h"
+> +#include "../../notify.h"
+> +
+> +#define SCMI_PROTOCOL_SUPPORTED_VERSION		0x10000
+> +
+> +enum scmi_imx_lmm_protocol_cmd {
+> +	SCMI_IMX_LMM_ATTRIBUTES	= 0x3,
+> +	SCMI_IMX_LMM_BOOT = 0x4,
+> +	SCMI_IMX_LMM_RESET = 0x5,
+> +	SCMI_IMX_LMM_SHUTDOWN = 0x6,
+> +	SCMI_IMX_LMM_WAKE = 0x7,
+> +	SCMI_IMX_LMM_SUSPEND = 0x8,
+> +	SCMI_IMX_LMM_NOTIFY = 0x9,
+> +	SCMI_IMX_LMM_RESET_REASON = 0xA,
+> +	SCMI_IMX_LMM_POWER_ON = 0xB,
+> +	SCMI_IMX_LMM_RESET_VECTOR_SET = 0xC,
+> +};
+> +
+> +struct scmi_imx_lmm_priv {
+> +	u32 nr_lmm;
+> +};
+> +
+> +#define	SCMI_IMX_LMM_PROTO_ATTR_NUM_LM(x)	(((x) & 0xFFU))
+> +struct scmi_msg_imx_lmm_protocol_attributes {
+> +	__le32 attributes;
+> +};
+> +
+> +struct scmi_msg_imx_lmm_attributes_out {
+> +	__le32 lmid;
+> +	__le32 attributes;
+> +	__le32 state;
+> +	__le32 errstatus;
+> +	u8 name[LMM_MAX_NAME];
+> +};
+> +
+> +struct scmi_imx_lmm_reset_vector_set_in {
+> +	__le32 lmid;
+> +	__le32 cpuid;
+> +#define SCMI_LMM_VEC_FLAGS_TABLE	BIT(0)
+> +	__le32 flags;
+> +	__le32 resetvectorlow;
+> +	__le32 resetvectorhigh;
+> +};
+> +
+> +struct scmi_imx_lmm_shutdown_in {
+> +	__le32 lmid;
+> +	__le32 flags;
+> +};
+> +
+> +static int scmi_imx_lmm_validate_lmid(const struct scmi_protocol_handle *ph, u32 lmid)
+> +{
+> +	struct scmi_imx_lmm_priv *priv = ph->get_priv(ph);
+> +
+> +	if (lmid >= priv->nr_lmm)
+> +		return -EINVAL;
+> +
+> +	return 0;
+> +}
+> +
+> +static int scmi_imx_lmm_attributes(const struct scmi_protocol_handle *ph,
+> +				   u32 lmid, struct scmi_imx_lmm_info *info)
+> +{
+> +	struct scmi_msg_imx_lmm_attributes_out *out;
+> +	struct scmi_xfer *t;
+> +	int ret;
+> +
+> +	ret = ph->xops->xfer_get_init(ph, SCMI_IMX_LMM_ATTRIBUTES, sizeof(u32), 0, &t);
+> +	if (ret)
+> +		return ret;
+> +
+> +	put_unaligned_le32(lmid, t->tx.buf);
+> +	ret = ph->xops->do_xfer(ph, t);
+> +	if (!ret) {
+> +		out = t->rx.buf;
+> +		info->lmid = le32_to_cpu(out->lmid);
+> +		info->state = le32_to_cpu(out->state);
+> +		info->errstatus = le32_to_cpu(out->errstatus);
+> +		strscpy(info->name, out->name);
+> +		dev_dbg(ph->dev, "i.MX LMM: Logical Machine(%d), name: %s\n",
+> +			info->lmid, out->name);
+> +	} else {
+> +		dev_err(ph->dev, "i.MX LMM: Failed to get info of Logical Machine(%u)\n", lmid);
+> +	}
+> +
+> +	ph->xops->xfer_put(ph, t);
+> +
+> +	return ret;
+> +}
+> +
+> +static int scmi_imx_lmm_boot(const struct scmi_protocol_handle *ph, u32 lmid)
+> +{
+> +	struct scmi_xfer *t;
+> +	int ret;
+> +
+> +	ret = scmi_imx_lmm_validate_lmid(ph, lmid);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = ph->xops->xfer_get_init(ph, SCMI_IMX_LMM_BOOT, sizeof(u32),
+> +				      0, &t);
+> +	if (ret)
+> +		return ret;
+> +
+> +	put_unaligned_le32(lmid, t->tx.buf);
+> +	ret = ph->xops->do_xfer(ph, t);
+> +
+> +	ph->xops->xfer_put(ph, t);
+> +
+> +	return ret;
+> +}
+> +
 
-Supports WAKE# from wake-gpios
+..this....
 
-Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../bindings/pci/st,stm32-pcie-common.yaml    |  33 ++++++
- .../bindings/pci/st,stm32-pcie-host.yaml      | 112 ++++++++++++++++++
- 2 files changed, 145 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
- create mode 100644 Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
+> +static int scmi_imx_lmm_power_on(const struct scmi_protocol_handle *ph, u32 lmid)
+> +{
+> +	struct scmi_xfer *t;
+> +	int ret;
+> +
+> +	ret = scmi_imx_lmm_validate_lmid(ph, lmid);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = ph->xops->xfer_get_init(ph, SCMI_IMX_LMM_POWER_ON, sizeof(u32),
+> +				      0, &t);
+> +	if (ret)
+> +		return ret;
+> +
+> +	put_unaligned_le32(lmid, t->tx.buf);
+> +	ret = ph->xops->do_xfer(ph, t);
+> +
+> +	ph->xops->xfer_put(ph, t);
+> +
+> +	return ret;
+> +}
 
-diff --git a/Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml b/Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
-new file mode 100644
-index 000000000000..5adbff259204
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pci/st,stm32-pcie-common.yaml
-@@ -0,0 +1,33 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pci/st,stm32-pcie-common.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: STM32MP25 PCIe RC/EP controller
-+
-+maintainers:
-+  - Christian Bruel <christian.bruel@foss.st.com>
-+
-+description:
-+  STM32MP25 PCIe RC/EP common properties
-+
-+properties:
-+  clocks:
-+    maxItems: 1
-+    description: PCIe system clock
-+
-+  resets:
-+    maxItems: 1
-+
-+  power-domains:
-+    maxItems: 1
-+
-+  access-controllers:
-+    maxItems: 1
-+
-+required:
-+  - clocks
-+  - resets
-+
-+additionalProperties: true
-diff --git a/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml b/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
-new file mode 100644
-index 000000000000..26f852e6f5b7
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pci/st,stm32-pcie-host.yaml
-@@ -0,0 +1,112 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pci/st,stm32-pcie-host.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: STMicroelectronics STM32MP25 PCIe Root Complex
-+
-+maintainers:
-+  - Christian Bruel <christian.bruel@foss.st.com>
-+
-+description:
-+  PCIe root complex controller based on the Synopsys DesignWare PCIe core.
-+
-+allOf:
-+  - $ref: /schemas/pci/snps,dw-pcie.yaml#
-+  - $ref: /schemas/pci/st,stm32-pcie-common.yaml#
-+
-+properties:
-+  compatible:
-+    const: st,stm32mp25-pcie-rc
-+
-+  reg:
-+    items:
-+      - description: Data Bus Interface (DBI) registers.
-+      - description: PCIe configuration registers.
-+
-+  reg-names:
-+    items:
-+      - const: dbi
-+      - const: config
-+
-+  msi-parent:
-+    maxItems: 1
-+
-+patternProperties:
-+  '^pcie@[0-2],0$':
-+    type: object
-+    $ref: /schemas/pci/pci-pci-bridge.yaml#
-+
-+    properties:
-+      reg:
-+        maxItems: 1
-+
-+      phys:
-+        maxItems: 1
-+
-+      reset-gpios:
-+        description: GPIO controlled connection to PERST# signal
-+        maxItems: 1
-+
-+      wake-gpios:
-+        description: GPIO used as WAKE# input signal
-+        maxItems: 1
-+
-+    required:
-+      - phys
-+      - ranges
-+
-+    unevaluatedProperties: false
-+
-+required:
-+  - interrupt-map
-+  - interrupt-map-mask
-+  - ranges
-+  - dma-ranges
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
-+    #include <dt-bindings/gpio/gpio.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/phy/phy.h>
-+    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
-+
-+    pcie@48400000 {
-+        compatible = "st,stm32mp25-pcie-rc";
-+        device_type = "pci";
-+        reg = <0x48400000 0x400000>,
-+              <0x10000000 0x10000>;
-+        reg-names = "dbi", "config";
-+        #interrupt-cells = <1>;
-+        interrupt-map-mask = <0 0 0 7>;
-+        interrupt-map = <0 0 0 1 &intc 0 0 GIC_SPI 264 IRQ_TYPE_LEVEL_HIGH>,
-+                        <0 0 0 2 &intc 0 0 GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>,
-+                        <0 0 0 3 &intc 0 0 GIC_SPI 266 IRQ_TYPE_LEVEL_HIGH>,
-+                        <0 0 0 4 &intc 0 0 GIC_SPI 267 IRQ_TYPE_LEVEL_HIGH>;
-+        #address-cells = <3>;
-+        #size-cells = <2>;
-+        ranges = <0x01000000 0x0 0x00000000 0x10010000 0x0 0x10000>,
-+                 <0x02000000 0x0 0x10020000 0x10020000 0x0 0x7fe0000>,
-+                 <0x42000000 0x0 0x18000000 0x18000000 0x0 0x8000000>;
-+        dma-ranges = <0x42000000 0x0 0x80000000 0x80000000 0x0 0x80000000>;
-+        clocks = <&rcc CK_BUS_PCIE>;
-+        resets = <&rcc PCIE_R>;
-+        msi-parent = <&v2m0>;
-+        access-controllers = <&rifsc 68>;
-+        power-domains = <&CLUSTER_PD>;
-+
-+        pcie@0,0 {
-+          device_type = "pci";
-+          reg = <0x0 0x0 0x0 0x0 0x0>;
-+          phys = <&combophy PHY_TYPE_PCIE>;
-+          wake-gpios = <&gpioh 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-+          reset-gpios = <&gpioj 8 GPIO_ACTIVE_LOW>;
-+          #address-cells = <3>;
-+          #size-cells = <2>;
-+          ranges;
-+        };
-+    };
--- 
-2.34.1
+...can be refatcored to use one common workhorse fcuntion sued by both
+ops...
 
+> +
+> +static int scmi_imx_lmm_reset_vector_set(const struct scmi_protocol_handle *ph,
+> +					 u32 lmid, u32 cpuid, u32 flags, u64 vector)
+> +{
+> +	struct scmi_imx_lmm_reset_vector_set_in *in;
+> +	struct scmi_xfer *t;
+> +	int ret;
+> +
+> +	ret = ph->xops->xfer_get_init(ph, SCMI_IMX_LMM_RESET_VECTOR_SET, sizeof(*in),
+> +				      0, &t);
+> +	if (ret)
+> +		return ret;
+> +
+> +	in = t->tx.buf;
+> +	in->lmid = cpu_to_le32(lmid);
+> +	in->cpuid = cpu_to_le32(cpuid);
+> +	in->flags = cpu_to_le32(flags);
+
+...bitfields in a flag field must not be enianity converted...only
+eventually subfields representing numbers (liek you did above)...
+
+..I feel FIELD_PREP should be fine...or even BIT(0) really given what
+these flags represents...
+
+...again check issues with smatch....
+
+> +	in->resetvectorlow = cpu_to_le32(lower_32_bits(vector));
+> +	in->resetvectorhigh = cpu_to_le32(upper_32_bits(vector));
+> +	ret = ph->xops->do_xfer(ph, t);
+> +
+> +	ph->xops->xfer_put(ph, t);
+> +
+> +	return ret;
+> +}
+> +
+> +static int scmi_imx_lmm_shutdown(const struct scmi_protocol_handle *ph, u32 lmid,
+> +				 u32 flags)
+> +{
+> +	struct scmi_imx_lmm_shutdown_in *in;
+> +	struct scmi_xfer *t;
+> +	int ret;
+> +
+> +	ret = scmi_imx_lmm_validate_lmid(ph, lmid);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = ph->xops->xfer_get_init(ph, SCMI_IMX_LMM_SHUTDOWN, sizeof(*in),
+> +				      0, &t);
+> +	if (ret)
+> +		return ret;
+> +
+> +	in = t->tx.buf;
+> +	in->lmid = cpu_to_le32(lmid);
+> +	in->flags = cpu_to_le32(flags);
+
+Same here, smatch would complain if you remove straight away this
+cpu_to_le32(), BUT this is a bitfield and does NOT contain any
+longer-than-2 number value that needs to be endianess manipulated...you
+just have to be able to set the required BIT 0 and 1, whitouth pissing
+off smatch :P
+
+> +	ret = ph->xops->do_xfer(ph, t);
+> +
+> +	ph->xops->xfer_put(ph, t);
+> +
+> +	return ret;
+> +}
+> +
+> +static const struct scmi_imx_lmm_proto_ops scmi_imx_lmm_proto_ops = {
+> +	.lmm_boot = scmi_imx_lmm_boot,
+> +	.lmm_info = scmi_imx_lmm_attributes,
+> +	.lmm_power_on = scmi_imx_lmm_power_on,
+> +	.lmm_reset_vector_set = scmi_imx_lmm_reset_vector_set,
+> +	.lmm_shutdown = scmi_imx_lmm_shutdown,
+> +};
+> +
+> +static int scmi_imx_lmm_protocol_attributes_get(const struct scmi_protocol_handle *ph,
+> +						struct scmi_imx_lmm_priv *priv)
+> +{
+> +	struct scmi_msg_imx_lmm_protocol_attributes *attr;
+> +	struct scmi_xfer *t;
+> +	int ret;
+> +
+> +	ret = ph->xops->xfer_get_init(ph, PROTOCOL_ATTRIBUTES, 0,
+> +				      sizeof(*attr), &t);
+> +	if (ret)
+> +		return ret;
+> +
+> +	attr = t->rx.buf;
+> +
+> +	ret = ph->xops->do_xfer(ph, t);
+> +	if (!ret) {
+> +		priv->nr_lmm = SCMI_IMX_LMM_PROTO_ATTR_NUM_LM(le32_to_cpu(attr->attributes));
+
+This seems wrong to me...you have an 8bit field to extract from an
+attribute field...so I would at first cut the byte out and then convert
+to LE, NOT the other way around like you are doing
+(i.e.: le32_to_cpu((attr->attributes & 0xFF))).
+
+Even BETTER to use:
+
+	le32_get_bits((x), GENMASK(7, 0))
+
+...the thing is, being a single byte you really SHOULD NOT need to address
+any endianity concern (i.e. FIELD_GET(GENMASK(7, 0), (x))), BUT I fear that
+if you dont use some of the le32_ accessors smatch/sparse will complain since
+the message field is, correctly, declared as __le32.
+
+So le32_get_bits is the way to go (bit check with the static analyzer :P)
+
+> +		dev_info(ph->dev, "i.MX LMM: %d Logical Machines\n",
+> +			 priv->nr_lmm);
+> +	}
+> +
+> +	ph->xops->xfer_put(ph, t);
+> +
+> +	return ret;
+> +}
+> +
+> +static int scmi_imx_lmm_protocol_init(const struct scmi_protocol_handle *ph)
+> +{
+> +	struct scmi_imx_lmm_priv *info;
+> +	u32 version;
+> +	int ret;
+> +
+> +	ret = ph->xops->version_get(ph, &version);
+> +	if (ret)
+> +		return ret;
+> +
+> +	dev_info(ph->dev, "NXP SM LMM Version %d.%d\n",
+> +		 PROTOCOL_REV_MAJOR(version), PROTOCOL_REV_MINOR(version));
+> +
+> +	info = devm_kzalloc(ph->dev, sizeof(*info), GFP_KERNEL);
+> +	if (!info)
+> +		return -ENOMEM;
+> +
+> +	ret = scmi_imx_lmm_protocol_attributes_get(ph, info);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return ph->set_priv(ph, info, version);
+> +}
+> +
+> +static const struct scmi_protocol scmi_imx_lmm = {
+> +	.id = SCMI_PROTOCOL_IMX_LMM,
+> +	.owner = THIS_MODULE,
+> +	.instance_init = &scmi_imx_lmm_protocol_init,
+> +	.ops = &scmi_imx_lmm_proto_ops,
+> +	.supported_version = SCMI_PROTOCOL_SUPPORTED_VERSION,
+> +	.vendor_id = SCMI_IMX_VENDOR,
+> +	.sub_vendor_id = SCMI_IMX_SUBVENDOR,
+> +};
+> +module_scmi_protocol(scmi_imx_lmm);
+> +
+
+
+Should this also be added:
+
+MODULE_ALIAS("scmi-protocol-" __stringify(SCMI_PROTOCOL_IMX_LMM) "-" SCMI_IMX_VENDOR);
+
+...after this went in:
+
+commit d4cc8912cbff4990940b33cc61a9b09ddaee9704
+Author: Cristian Marussi <cristian.marussi@arm.com>
+Date:   Mon Dec 9 16:49:56 2024 +0000
+
+    firmware: arm_scmi: Add module aliases to i.MX vendor protocol
+
+...I think is in v6.14-rc already to rebae on...
+
+> +MODULE_DESCRIPTION("i.MX SCMI LMM driver");
+> +MODULE_LICENSE("GPL");
+> diff --git a/include/linux/scmi_imx_protocol.h b/include/linux/scmi_imx_protocol.h
+> index 53b356a26414279f4aaaa8287c32209ed1ad57b4..07779c36ef9a126907e26e304a8feca16fd60ab2 100644
+> --- a/include/linux/scmi_imx_protocol.h
+> +++ b/include/linux/scmi_imx_protocol.h
+> @@ -11,8 +11,10 @@
+>  #include <linux/bitfield.h>
+>  #include <linux/device.h>
+>  #include <linux/notifier.h>
+> +#include <linux/scmi_protocol.h>
+>  #include <linux/types.h>
+>  
+> +#define SCMI_PROTOCOL_IMX_LMM	0x80
+>  #define	SCMI_PROTOCOL_IMX_BBM	0x81
+>  #define	SCMI_PROTOCOL_IMX_MISC	0x84
+>  
+> @@ -57,4 +59,33 @@ struct scmi_imx_misc_proto_ops {
+>  	int (*misc_ctrl_req_notify)(const struct scmi_protocol_handle *ph,
+>  				    u32 ctrl_id, u32 evt_id, u32 flags);
+>  };
+> +
+> +#define	LMM_ID_DISCOVER	0xFFFFFFFFU
+
+What is this ? Documented anywhere ?
+
+> +#define	LMM_MAX_NAME	16
+> +
+> +enum scmi_imx_lmm_state {
+> +	LMM_STATE_LM_OFF,
+> +	LMM_STATE_LM_ON,
+> +	LMM_STATE_LM_SUSPEND,
+> +	LMM_STATE_LM_POWERED,
+> +};
+> +
+> +struct scmi_imx_lmm_info {
+> +	u32 lmid;
+> +	enum scmi_imx_lmm_state state;
+> +	u32 errstatus;
+> +	u8 name[LMM_MAX_NAME];
+> +};
+> +
+> +struct scmi_imx_lmm_proto_ops {
+> +	int (*lmm_boot)(const struct scmi_protocol_handle *ph, u32 lmid);
+> +	int (*lmm_info)(const struct scmi_protocol_handle *ph, u32 lmid,
+> +			struct scmi_imx_lmm_info *info);
+> +	int (*lmm_power_on)(const struct scmi_protocol_handle *ph, u32 lmid);
+> +	int (*lmm_reset_vector_set)(const struct scmi_protocol_handle *ph,
+> +				    u32 lmid, u32 cpuid, u32 flags, u64 vector);
+> +	int (*lmm_shutdown)(const struct scmi_protocol_handle *ph, u32 lmid,
+> +			    u32 flags);
+> +};
+> +
+>  #endif
+> 
+
+Thanks,
+Cristian
 
