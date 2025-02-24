@@ -4,62 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 491F5C021A6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CECADC021B5
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 13:14:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A9UBIUHGF//F8ZhbyuVoaFzS+KKwzgCjJl2VDm1jX60=; b=qyKswL4kgqYyR8X7qPGUl1weEC
-	zs2ZALlrMVBNZX2EJ3YSYYOy3AhARKeQF5nvGi/o75N9dxhENJRg3pUsLfxwuG1wQlIPcwM1x20AA
-	tx3mMqkytZOMo2Otkps0AUC+Yrrz5RWclr4HOlsoFTPC7TF2hBz4SXUc1KA/0k/jpE6clUwMDQ3sn
-	mxV5q98LmUDejn3XfQmYrCgp/XqBa699VhXp2/LKracsum7nJVeOXAt7qPSqubp2nH5/z6A0MqcvP
-	fJNtdlCMCDUAyUbf+Pu8l05CCSEt8OYCp5wJw3gXpNhoV0KOcTNIwTiTLg+f5DGHJzRCYDl/5fwwD
-	cg6uIjUg==;
+	bh=0joRrqWEpDj1lemYPlOfE4IH8xwcBi3RvriTxsVP62g=; b=2mrCq8C+dHjiQkOt9dzkMlKMxM
+	u16eojlXoZVOi+yfm31W74yCWGdx9PZG86efSBnFx77hCSeC1bU482whLFPgKBUPoFuykn62xoH0J
+	H9b9uGHUBAzdXngFQ1gapkcaKs+Uu0LHD2Uih9TDE5ArXTxh7dym6V2flIKlboopgDk2jEWqyWDKr
+	bg+hvhmh1uW1Y8NjM8fizE2a5eNtk0DEKZdv5ERLGe3i4lxoduhfjwVTjlI7vdWvMNLjgx4+nVTR8
+	e+hWYWp14WD1swA+iie5cMMBKA3rlsijesPR8UcqfRpfrSnIotOiNZnewe+Bh5LFVuwuYiJSFuyXG
+	ZpCUgu9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmYHk-0000000Dnj6-3y98;
-	Mon, 24 Feb 2025 13:14:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmXWL-0000000DgOe-327t
+	id 1tmYHj-0000000DngZ-1y3b;
+	Mon, 24 Feb 2025 13:14:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmXVT-0000000DgFk-3l7i
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 12:25:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BE2BC497;
-	Mon, 24 Feb 2025 04:25:29 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.2.76.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A35A43F6A8;
-	Mon, 24 Feb 2025 04:25:12 -0800 (PST)
-Date: Mon, 24 Feb 2025 12:25:07 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Mon, 24 Feb 2025 12:24:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 409415C5D42;
+	Mon, 24 Feb 2025 12:23:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D26EAC4CEE6;
+	Mon, 24 Feb 2025 12:24:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740399858;
+	bh=/4N5BAlR11AdIiOaTPowhjfUjTUrZG9kLoHB5dK9oSQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=GjptI8Jw1to8DKOHJBwodYcm7HAs1WUo7VZKrBC4iaWEDkrqRLLGaffMjxPEh6hVi
+	 APYACGbm2SpKWrynD1Q3KCk0XP7hpuR3UCGkqHKtTlMbby7RCav+eZVdkqTm0eSBU6
+	 iIL0FNumV/1pTEfVjBU/QK8EDnWjwRDp65c2Da0JU7qCGwj+RBxnbNd/FptmZu1VOw
+	 mUTo1nmQ/aXQ6HdlBs9zDtOWl6K8iT3611UP2ZJqieBA+5dBTGkjT/UvfHT2B1si/c
+	 YqhNJJwcLpA+JNnKOd8Msq7pDRaLpMRl8u9qgQxHcUSNp04mKIfnNaC6IeqegvTR43
+	 DchckWgRrB/kw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tmXVP-007K9l-PQ;
+	Mon, 24 Feb 2025 12:24:16 +0000
+Date: Mon, 24 Feb 2025 12:24:14 +0000
+Message-ID: <86ldtvr0nl.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
 	Oliver Upton <oliver.upton@linux.dev>,
 	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
-	James Clark <james.clark@linaro.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH v20 11/11] perf: arm_pmuv3: Add support for the Branch
- Record Buffer Extension (BRBE)
-Message-ID: <20250224122507.GE8144@e132581.arm.com>
-References: <20250218-arm-brbe-v19-v20-0-4e9922fc2e8e@kernel.org>
- <20250218-arm-brbe-v19-v20-11-4e9922fc2e8e@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250218-arm-brbe-v19-v20-11-4e9922fc2e8e@kernel.org>
+	Will Deacon <will@kernel.org>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Peter Collingbourne <pcc@google.com>
+Subject: Re: [PATCH] KVM: arm64: Drop mte_allowed check during memslot creation
+In-Reply-To: <Z7xSfVME4z2ComUm@arm.com>
+References: <20250224093938.3934386-1-aneesh.kumar@kernel.org>
+	<Z7xSfVME4z2ComUm@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: aneesh.kumar@kernel.org, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, oliver.upton@linux.dev, joey.gouly@arm.com, yuzenghui@huawei.com, will@kernel.org, Suzuki.Poulose@arm.com, steven.price@arm.com, pcc@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_042513_803543_05B0D196 
-X-CRM114-Status: GOOD (  14.73  )
+X-CRM114-CacheID: sfid-20250224_042420_044778_6ED217F6 
+X-CRM114-Status: GOOD (  31.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,41 +92,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 18, 2025 at 02:40:06PM -0600, Rob Herring (Arm) wrote:
+On Mon, 24 Feb 2025 11:05:33 +0000,
+Catalin Marinas <catalin.marinas@arm.com> wrote:
 > 
-> From: Anshuman Khandual <anshuman.khandual@arm.com>
+> On Mon, Feb 24, 2025 at 03:09:38PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> > Before commit d89585fbb308 ("KVM: arm64: unify the tests for VMAs in
+> > memslots when MTE is enabled"), kvm_arch_prepare_memory_region() only
+> > rejected a memory slot if VM_SHARED was set. This commit unified the
+> > checking with user_mem_abort(), with slots being rejected if either
+> > VM_MTE_ALLOWED is not set or VM_SHARED set. A subsequent commit
+> > c911f0d46879 ("KVM: arm64: permit all VM_MTE_ALLOWED mappings with MTE
+> > enabled") dropped the VM_SHARED check, so we ended up with memory slots
+> > being rejected if VM_MTE_ALLOWED is not set. This wasn't the case before
+> > the commit d89585fbb308. The rejection of the memory slot with VM_SHARED
+> > set was done to avoid a race condition with the test/set of the
+> > PG_mte_tagged flag. Before Commit d77e59a8fccd ("arm64: mte: Lock a page
+> > for MTE tag initialization") the kernel avoided allowing MTE with shared
+> > pages, thereby preventing two tasks sharing a page from setting up the
+> > PG_mte_tagged flag racily.
+> > 
+> > Commit d77e59a8fccd ("arm64: mte: Lock a page for MTE tag
+> > initialization") further updated the locking so that the kernel
+> > allows VM_SHARED mapping with MTE. With this commit, we can enable
+> > memslot creation with VM_SHARED VMA mapping.
+> > 
+> > This patch results in a minor tweak to the ABI. We now allow creating
+> > memslots that don't have the VM_MTE_ALLOWED flag set.
+> 
+> As I commented here:
+> 
+> https://lore.kernel.org/r/Z4e04P1bQlFBDHo7@arm.com
+> 
+> I'm fine with the change, we basically go back to the original ABI prior
+> to relaxing this for VM_SHARED.
+> 
+> > If the guest uses
+> > such a memslot with Allocation Tags, the kernel will generate -EFAULT.
+> > ie, instead of failing early, we now fail later during KVM_RUN.
+> 
+> Nit: more like the kernel "will return -EFAULT" to the VMM rather than
+> "generate".
+> 
+> > This change is needed because, without it, users are not able to use MTE
+> > with VFIO passthrough (currently the mapping is either Device or
+> > NonCacheable for which tag access check is not applied.), as shown
+> > below (kvmtool VMM).
+> 
+> Another nit: "users are not able to user VFIO passthrough when MTE is
+> enabled". At a first read, the above sounded to me like one wants to
+> enable MTE for VFIO passthrough mappings.
 
-[...]
+What the commit message doesn't spell out is how MTE and VFIO are
+interacting here. I also don't understand the reference to Device or
+NC memory here.
 
-> BRBE records are invalidated whenever events are reconfigured, a new
-> task is scheduled in, or after recording is paused (and the records
-> have been recorded for the event). The architecture allows branch
-> records to be invalidated by the PE under implementation defined
-> conditions. It is expected that these conditions are rare.
+Isn't the issue that DMA doesn't check/update tags, and therefore it
+makes little sense to prevent non-tagged memory being associated with
+a memslot?
 
-[...]
-
-> +static void armv8pmu_sched_task(struct perf_event_pmu_context *pmu_ctx, bool sched_in)
-> +{
-> +       struct arm_pmu *armpmu = *this_cpu_ptr(&cpu_armpmu);
-> +       struct pmu_hw_events *hw_events = this_cpu_ptr(armpmu->hw_events);
-> +
-> +       if (!hw_events->branch_users)
-> +               return;
-> +
-> +       if (sched_in)
-> +               brbe_invalidate();
-> +}
-
-Just a minor concern.  I don't see any handling for task migration.
-E.g., for a task is migrated from one CPU to another CPU, I expect we
-need to save and restore branch records based on BRBE injection.  So
-far, the driver simply invalidates all records.
-
-I think this topic is very likely discussed before.  If this is the
-case, please ignore my comment.  Except this, the code looks good
-to me.
+My other concern is that this gives pretty poor consistency to the
+guest, which cannot know what can be tagged and what cannot, and
+breaks a guarantee that the guest should be able to rely on.
 
 Thanks,
-Leo
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
