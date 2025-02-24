@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C13CBC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 07:44:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B1EFC021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 07:51:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M+ItPRFFyzJNnAUMLpEPWdXEOVhjKvBADwZX/A53ObA=; b=KNgLFK1jX+PbOoRpStut4oDoM+
-	oObQnAIwGX9diEunWR4Zg9Fmd0LKuHczKcqOt9prTBh4gVDLx8d69riFw9M51QW9T4gG9YzAF7Vf7
-	uWUkOXsvvq8KbIVuW4jO01iiRoI9dUA1ZE4Od6Nwo012+LD3f0r+5A5v9mAeW3yil9WMHOnjsAmo8
-	2qllZUiLwKbF7+pnL7pbjgj8Lkc9/HW/t1+DAS/0uY17JbF6jhIYIJjQSRi5GMYqkjKD4P4RdISx9
-	+k+PZda3jhTJ+VQASbnrZ69QckM9KsBNv8XzMn6MGJ+Gn2+6rlhHe3RiO80lQmIzZObdZkWxAexka
-	q/1sJ2Uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gZcFfe/3Ec2Froj8QkKmzTvvnm/edhrxyAVxPgLiWlo=; b=IRW2BK7mDpy5awostcmkoM2h3f
+	jZWNO9OSfDGdWdReYPMJU9Th1uM3jqxRszGSWPvipSc4o4ebYVQYAUBkBa7wX5O6HJ4J7XxrOoxGn
+	ObfZ8kG4cyDmX+hBM27WDtaSNP6zoEIaPYeCyOlLHuF2IfnmGbNPOAsw97EwmFkeMOPC76qiMJlpr
+	p8f/YC1jzSWR/xmaQwRQduE3HNh9561mhBdJs5OcizaF6yomkg9f42By1mel4QIl0qQnNwe0cztix
+	3Q3rGXJy1UofYAnNCr5QnOu3j2HN+Ffj/cdeUL6FzJ+qVBp3RWdo1MkHHZ/MLy59uew4RmX5LkNvU
+	zz40rrvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmT8L-0000000Cai0-14gK;
-	Mon, 24 Feb 2025 07:44:09 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tmTFH-0000000CbKL-3McJ;
+	Mon, 24 Feb 2025 07:51:19 +0000
+Received: from mail-m32108.qiye.163.com ([220.197.32.108])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmT5l-0000000CaNc-2zYG
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 07:41:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5437761178;
-	Mon, 24 Feb 2025 07:41:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EE82C4CED6;
-	Mon, 24 Feb 2025 07:41:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740382888;
-	bh=z0db1DqZHwFj5ZNDEVx51VsoNu+zSAQurtKCoSQL2aM=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=bC9f76XynJZMxxSRIRacLKFFjzO6G7gkKSz+9tKa4ks7eByxWJIV+DSvxVsmdyNd9
-	 g7SpQg6+8/fwhq8MiE1g/Q0/5o8LlGJSfrWZSRjQmecErteiAuVJaN58MktOOKJvgK
-	 UVihfCL3nZsUrW59ZrWf7PmH8gyuaP8hxeFiL91yd44C81QjZzGPLqauwZeUEtED47
-	 n3cOsK9j1z5d43+iL0yEgXzliqmdnw3BuXhcEEQQrYFkca801SOkwzxx8ycMBIBHKQ
-	 qC3RyHhH6t6VymLzE6YKtXglF3sLfTLsknzm1aSBnSxISnjgRB3oyAtla2CdrMX2IM
-	 cb7XG/Ipp4GbA==
-X-Mailer: emacs 30.1 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH 01/14] arm64: cpufeature: Handle NV_frac as a synonym of
- NV2
-In-Reply-To: <20250215173816.3767330-2-maz@kernel.org>
-References: <20250215173816.3767330-1-maz@kernel.org>
- <20250215173816.3767330-2-maz@kernel.org>
-Date: Mon, 24 Feb 2025 13:11:18 +0530
-Message-ID: <yq5a7c5fhjs1.fsf@kernel.org>
+	id 1tmTDj-0000000Cb9D-1J3l;
+	Mon, 24 Feb 2025 07:49:45 +0000
+Received: from localhost.localdomain (unknown [103.29.142.67])
+	by smtp.qiye.163.com (Hmail) with ESMTP id bfc40046;
+	Mon, 24 Feb 2025 15:49:32 +0800 (GMT+08:00)
+From: Kever Yang <kever.yang@rock-chips.com>
+To: heiko@sntech.de
+Cc: linux-rockchip@lists.infradead.org,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Simon Xue <xxm@rock-chips.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	linux-pci@vger.kernel.org,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v6 1/2] dt-bindings: PCI: dw: rockchip: Add rk3576 support
+Date: Mon, 24 Feb 2025 15:49:27 +0800
+Message-Id: <20250224074928.2005744-1-kever.yang@rock-chips.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDHRgaVk9ISB9JGBlOSU0eHVYVFAkWGhdVEwETFh
+	oSFyQUDg9ZV1kYEgtZQVlKS0hVSUJVSk9JVU1MWVdZFhoPEhUdFFlBWU9LSFVKS0lCQ0NMVUpLS1
+	VLWQY+
+X-HM-Tid: 0a9536eec49e03afkunmbfc40046
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6ORQ6MBw*LzIRShMuSEsNDQwY
+	GUgKCjxVSlVKTE9LSENISExPTExNVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlKS0hVSUJVSk9JVU1MWVdZCAFZQU9JS0M3Bg++
+DKIM-Signature: a=rsa-sha256;
+	b=SmWlMBhKcNySNTWiQ22qRydMuZBe3cbNVFwMfg4e5b/Q73gR4I+7UgoAuL/d7SQrYEnkSHIbghyNqRXrRiGcXewg1lvGUBuJggXKKU9GqwzzM823kzCRxuSZK8vmNw2KqlfEHKbyuQ//L4qZj7APZAzRZYk3vh77kimgUxXo2UQ=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=gZcFfe/3Ec2Froj8QkKmzTvvnm/edhrxyAVxPgLiWlo=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250223_234943_862282_6BC35C82 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,19 +83,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Marc Zyngier <maz@kernel.org> writes:
+rk3576 is using DWC PCIe controller, with msi interrupt directly to GIC
+instead of using GIC ITS, so
+- no ITS support is required and the 'msi-map' is not required,
+- a new 'msi' interrupt is needed.
 
-> With ARMv9.5, an implementation supporting Nested Virtualization
-> is allowed to only support NV2, and to avoid supporting the old
-> (and useless) ARMv8.3 variant.
->
-> This is indicated by ID_AA64MMFR2_EL1.NV being 0 (as if NV wasn't
-> implemented) and ID_AA64MMDR4_EL1.NV_frac being 1 (indicating that
-                            ^ F
-The register name is wrong there.
+Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
 
-> NV2 is actually supported).
->
+Changes in v6:
+- Fix make dt_binding_check and make CHECK_DTBS=y
 
--aneesh
+Changes in v5:
+- Add constraints per device for interrupt-names due to the interrupt is
+different from rk3588.
+
+Changes in v4:
+- Fix wrong indentation in dt_binding_check report by Rob
+
+Changes in v3:
+- Fix dtb check broken on rk3588
+- Update commit message
+
+Changes in v2:
+- remove required 'msi-map'
+- add interrupt name 'msi'
+
+ .../bindings/pci/rockchip-dw-pcie-common.yaml | 41 ++++++++++++++++++-
+ .../bindings/pci/rockchip-dw-pcie.yaml        | 19 ++++++---
+ 2 files changed, 52 insertions(+), 8 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/pci/rockchip-dw-pcie-common.yaml b/Documentation/devicetree/bindings/pci/rockchip-dw-pcie-common.yaml
+index cc9adfc7611c..e1ca8e2f35fe 100644
+--- a/Documentation/devicetree/bindings/pci/rockchip-dw-pcie-common.yaml
++++ b/Documentation/devicetree/bindings/pci/rockchip-dw-pcie-common.yaml
+@@ -65,7 +65,11 @@ properties:
+           tx_cpl_timeout, cor_err_sent, nf_err_sent, f_err_sent, cor_err_rx,
+           nf_err_rx, f_err_rx, radm_qoverflow
+       - description:
+-          eDMA write channel 0 interrupt
++          If the matching interrupt name is "msi", then this is the combinded
++          MSI line interrupt, which is to support MSI interrupts output to GIC
++          controller via GIC SPI interrupt instead of GIC its interrupt.
++          If the matching interrupt name is "dma0", then this is the eDMA write
++          channel 0 interrupt.
+       - description:
+           eDMA write channel 1 interrupt
+       - description:
+@@ -81,7 +85,9 @@ properties:
+       - const: msg
+       - const: legacy
+       - const: err
+-      - const: dma0
++      - enum:
++          - msi
++          - dma0
+       - const: dma1
+       - const: dma2
+       - const: dma3
+@@ -123,4 +129,35 @@ required:
+ 
+ additionalProperties: true
+ 
++anyOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: rockchip,rk3576-pcie
++    then:
++      properties:
++        interrupt-names:
++          items:
++            - const: sys
++            - const: pmc
++            - const: msg
++            - const: legacy
++            - const: err
++            - const: msi
++    else:
++      properties:
++        interrupt-names:
++          minItems: 5
++          items:
++            - const: sys
++            - const: pmc
++            - const: msg
++            - const: legacy
++            - const: err
++            - const: dma0
++            - const: dma1
++            - const: dma2
++            - const: dma3
++
+ ...
+diff --git a/Documentation/devicetree/bindings/pci/rockchip-dw-pcie.yaml b/Documentation/devicetree/bindings/pci/rockchip-dw-pcie.yaml
+index 550d8a684af3..d727502ed822 100644
+--- a/Documentation/devicetree/bindings/pci/rockchip-dw-pcie.yaml
++++ b/Documentation/devicetree/bindings/pci/rockchip-dw-pcie.yaml
+@@ -16,16 +16,13 @@ description: |+
+   PCIe IP and thus inherits all the common properties defined in
+   snps,dw-pcie.yaml.
+ 
+-allOf:
+-  - $ref: /schemas/pci/snps,dw-pcie.yaml#
+-  - $ref: /schemas/pci/rockchip-dw-pcie-common.yaml#
+-
+ properties:
+   compatible:
+     oneOf:
+       - const: rockchip,rk3568-pcie
+       - items:
+           - enum:
++              - rockchip,rk3576-pcie
+               - rockchip,rk3588-pcie
+           - const: rockchip,rk3568-pcie
+ 
+@@ -71,8 +68,18 @@ properties:
+ 
+   vpcie3v3-supply: true
+ 
+-required:
+-  - msi-map
++allOf:
++  - $ref: /schemas/pci/snps,dw-pcie.yaml#
++  - $ref: /schemas/pci/rockchip-dw-pcie-common.yaml#
++  - if:
++      not:
++        properties:
++          compatible:
++            contains:
++              const: rockchip,rk3576-pcie
++    then:
++      required:
++        - msi-map
+ 
+ unevaluatedProperties: false
+ 
+-- 
+2.25.1
+
 
