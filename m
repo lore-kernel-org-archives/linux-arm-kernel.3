@@ -4,66 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71E0CC021BB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 18:06:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8CAEC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 18:08:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DSyYQUhgKHOtOTh6nNeMTxe3BJWlNO7JBEj7kiBx1R8=; b=a62N67u+2ED5D12BWbvnuNbvWv
-	TCM2F/GuFj+STg+H8AHSQoE4V7UWJCMqyA7zf1nX/Io0L5e3lyqpK4Tih02SVhfvZJaKaVyTMqvtQ
-	seD542fF5P8oTwGUwuXARzx3FwOMc3uXemKwMJeTLZW3C0DdWjs+kxLKAU5MPX4pEglxg2akpLKqJ
-	TseAW4Vwv8/XeJ/OeSC1z7i+PK16tAW721YuB1QnfjAcY9WIFuI04E0T2GXi+Ufd7bpSO4BpSV8U7
-	4y+vV+QabzgloXeRvmLuJn3Fo9UtDIxMXcyRHdRPxkRGxFPNZAu3AfkVHfFp9bhuUAqrZ6wBeMrFh
-	9Z9RsQNQ==;
+	bh=nXUDp/2MWc9Zgcs/aIwBZ8FKfaDetZqTuesjivcVPQ8=; b=MqwBny6Ivepr7OLiaabYdCU9b1
+	ZPRNlqKW/SvUoBF2faNzeZsTcZkONZZ4WbVxA3p6Cmbp9YZZXXMh6HImJFy1uSoUv1+uDaeyBBUKj
+	9b+TmudNRJs4CSfSF/49Gm3MSVzfSosYdHQu3YRHhWnWYsqBTvLmwSu1Tx16Br11dhc1DVncnnOGn
+	ldG/7KAy+UqWG+TmPPhfslvZDYL6hiR0Eaiu47txMKpK+JqDWEXZ+ClVagQPjsZ+0c+IQ8O+4fwsy
+	/qaJ5s4MWJA6xLjYixFGggc6WZ4mKoWRU9fGfTTU6aDUhqOJiU4hiz1kW81SaXCAorytr1LdtVyTT
+	8CGCOFHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmcqU-0000000Ejbb-1CNf;
-	Mon, 24 Feb 2025 18:06:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmcnM-0000000Eiu4-3DrV
+	id 1tmcry-0000000EjzK-0Asm;
+	Mon, 24 Feb 2025 18:07:54 +0000
+Received: from out-174.mta1.migadu.com ([2001:41d0:203:375::ae])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmco4-0000000Ej5D-2tMM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 18:03:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A498152B;
-	Mon, 24 Feb 2025 10:03:23 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.2.76.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 654EE3F5A1;
-	Mon, 24 Feb 2025 10:03:06 -0800 (PST)
-Date: Mon, 24 Feb 2025 18:03:01 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Rob Herring <robh@kernel.org>, Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	James Clark <james.clark@linaro.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH v20 11/11] perf: arm_pmuv3: Add support for the Branch
- Record Buffer Extension (BRBE)
-Message-ID: <20250224180301.GI8144@e132581.arm.com>
-References: <20250218-arm-brbe-v19-v20-0-4e9922fc2e8e@kernel.org>
- <20250218-arm-brbe-v19-v20-11-4e9922fc2e8e@kernel.org>
- <20250224122507.GE8144@e132581.arm.com>
- <CAL_Jsq+0fZ2uasgAam7qGTdCeDBQxXeyL-J1_suyxy6GE_ERTg@mail.gmail.com>
- <20250224140317.GF8144@e132581.arm.com>
- <Z7yY19UtSnND5KTl@J2N7QTR9R3.cambridge.arm.com>
+	Mon, 24 Feb 2025 18:03:54 +0000
+Date: Mon, 24 Feb 2025 13:03:44 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
+	s=key1; t=1740420229;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nXUDp/2MWc9Zgcs/aIwBZ8FKfaDetZqTuesjivcVPQ8=;
+	b=QHb7XYevWDc6ou8iTHrXYw/+/PbT7u/UCDAqUt4Tn6FKYAMSPA6Y/46u0eX61MreH05wUo
+	uY2BM/JQk9Vh0Bowihp/4zl/aJG125Ng7VSzpI+39GCUFca7PWIsZ0RaeSpneisBBHxcTL
+	mH+OVHdjqQ4BeGy+UQeYTp7kffSBJTqQ76vZ5xxDUWo6eo+U8CrK/eupappRZJ7YtMOGB3
+	1yolobGSZ/PFOdLr51o8d5JmUeM1Hg1QSI289vCAJ0mb/MTEhSav2/xKj1hDmOK9HawGsP
+	iBVZxtfOLHgedn1TDLJ1d1o51bSfunrymeCjqLjol7jVNBgbfznjGUIlAyr0xA==
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+To: sven@svenpeter.dev
+Cc: Janne Grunau <j@jannau.net>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/4] soc: apple: rtkit: Add APPLE_RTKIT_PWR_STATE_INIT
+Message-ID: <Z7y0gJPD5-OQvyog@blossom>
+References: <20250222-apple-soc-misc-v1-0-1a3af494a48a@svenpeter.dev>
+ <20250222-apple-soc-misc-v1-1-1a3af494a48a@svenpeter.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z7yY19UtSnND5KTl@J2N7QTR9R3.cambridge.arm.com>
+In-Reply-To: <20250222-apple-soc-misc-v1-1-1a3af494a48a@svenpeter.dev>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_100308_897256_B5CF1B7C 
-X-CRM114-Status: GOOD (  46.47  )
+X-CRM114-CacheID: sfid-20250224_100353_187445_006F6E9B 
+X-CRM114-Status: UNSURE (   7.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,115 +71,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 24, 2025 at 04:05:43PM +0000, Mark Rutland wrote:
+> -	msg = FIELD_PREP(APPLE_RTKIT_MGMT_PWR_STATE, APPLE_RTKIT_PWR_STATE_ON);
+> +	msg = FIELD_PREP(APPLE_RTKIT_MGMT_PWR_STATE, APPLE_RTKIT_PWR_STATE_INIT);
 
-[...]
-
-> > > > Just a minor concern.  I don't see any handling for task migration.
-> > > > E.g., for a task is migrated from one CPU to another CPU, I expect we
-> > > > need to save and restore branch records based on BRBE injection.  So
-> > > > far, the driver simply invalidates all records.
-> > > >
-> > > > I think this topic is very likely discussed before.  If this is the
-> > > > case, please ignore my comment.  Except this, the code looks good
-> > > > to me.
-> > > 
-> > > Not really discussed on the list, but that was present in v18 (though
-> > > not functional because .sched_task() hook wasn't actually enabled) and
-> > > Mark removed it. His work is here[1].The only comment was:
-> > > 
-> > > Note: saving/restoring at context-switch doesn't interact well with
-> > > event rotation (e.g. if filters change)
-> > 
-> > In the brbe_enable() function, it "Merge the permitted branch filters
-> > of all events".  Based on current implementation, all events share the
-> > same branch filter.
-> 
-> Critically, the brbe_enable() function merges the filters of all
-> *active* events which have been installed into hardware. It does not
-> track all events which can be rotated, and the resulting filter is not
-> the same -- it can change as a result of rotation.
-
-In a perf session has multiple events, and events have different branch
-filters, seems to me, a simple way is to return error for this case.
-
-I would argue BRBE is an IP for recording branches per CPU wise, it does
-not support recording for event wise.  If we can unify branch filter
-within a perf session, would this be much easier for handling?
-
-> > When event rotation happens, if without context switch, in theory we
-> > should can directly use the branch record (no invalidation, no injection)
-> > for all events.
-> 
-> No; that only works in *some* cases, and will produce incorrect results
-> in others.
-> 
-> For example, consider filtering. Imagine a PMU with a single counter,
-> and two events, where event-A filters for calls-and-returns and event-B
-> filters for calls-only. When switching from event-A to event-B, it's
-> theoretically possible to keep the existing records around, knowing that
-> the returns can be filtered out later. When switching from event-B to
-> event-A we cannot keep the existing records, since there are gaps
-> whenever a return should have been recorded.
-
-Seems to me, the problem is not caused by event rotation.  We need to
-calculate a correct filter in the first place - the BRBE driver should
-calculate a superset for all filters of events for a session.  Then,
-generate branch record based event's specific filter.
-
-> There are a number of cases of that shape given the set of configurable
-> filters. In theory it's possible to retain those in some cases, but I
-> don't think that the complexity is justified.
-> 
-> Similarly, whenever kernel branches are recorded it's necessary to drop
-> the stale branches whenever branch recording is paused, as there's
-> necessarily a blackout period and hence a gap in the records.
-
-If we save BRBE record when a process is switched out and then restore
-the record when a process is switched in, should we can keep a decent
-branch record for performance profiling?
-
-I understand it might be many things happen in the middle of a task
-switching or migration, but it is fine for not recording branches during
-the blackout period.  The missed branch records are not very helpful for
-forming a flow for a profiled program itself, especially, if we
-consider we will optimize userspace program in many cases.
-
-> Do you think that you have a case where losing branches across rotation
-> *really* matters?
-
-I agreed that event rotation case might be rare and complex.  Please see
-a comment below.
-
-> > For a context-switch case, we need to save and re-inject branch record.
-> > BRBE record sticks to a process context, no matter what events have been
-> > enabled.
-> 
-> I had originally wanted to keep per-event records around, but it doesn't
-> work in all cases. One reason events get discarded at context-switch
-> time is that CPU-bound events can sample branches, and would
-> mis-attribute stale userspace branches to the wrong context when
-> switching tasks. There are explicit comments about this in
-> amd_pmu_brs_sched_task() and intel_pmu_lbr_sched_task().
-> 
-> Given we discard records when reprogramming events, we *could* try to
-> preserve events in some cases, but I suspect that as with the rotation
-> case this'll be a lot of complexity for little gain. Note that as we
-> discard events when enabling the PMU, we'd throw some task-bound records
-> away anyway, and practically the gain would be limited to cpu-bound
-> records.
-> 
-> Do you have a reason why you think we *must* keep events around?
-
-Here I am really concerned are cases when a process is preempted or
-migrated.  The driver doesn't save and restore branch records for these
-cases, it just invalidates all records when a task is scheduled in.
-
-As a result, if an event overflow is close to context switch, it is
-likely to capture incomplete branch records.  For a userspace-only
-tracing, it is risk to capture empty branch record after preemption
-and migrations.
-
-Thanks,
-Leo
+Commit message doesn't match the code. Just adding the state doesn't
+imply a behaviour change but the patch is one. How about "Use INIT state
+instead of ON" or something to make explicit the behaviour change?
 
