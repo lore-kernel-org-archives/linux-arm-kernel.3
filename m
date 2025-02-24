@@ -4,99 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77DEEC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 10:52:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 947C1C021A6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 10:53:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O+3hc2uspzUuGySeq35PHHzR5JH/rChsfvYHdlzz6CY=; b=REIGWlkcHq6uylZx+epb8+inB1
-	qtqyB6enByK7LxybqSqhbEAt1+UQrL8iKuMOAa8z93AhNI0ikmTbb8OHIvue2DokX+jHbaZtHaqNz
-	VnWrqbr30qHA2I9XW2l6TAwXSzSbEvD/OVHZKXmACo1nYYb322hWfKBHKA44W4+AHX+O8eIhSH3Ho
-	L4lUabWEVC5ExW75NgTMjmVe6gV5rpC0ilxooQh+VRin5q12qxXkHixMmDpAZLC7lb8d73dyDQ68G
-	oDmqGKRHtCE6XxIPPiGaQEAqdinCfQTYDuevIePmg5N0/yTy+d4ckdCsR56Arj1wuwg8hGf17Roel
-	bxurPUug==;
+	bh=33I10h+7nHN9WWkfMc3v+GlsOaYaEyXk/K9NAesnYxA=; b=IeoWiqSsZaBvZn3c4pKnBa4UoS
+	XxIkXdvk6GDR9uEWPZBYWxyA8tPdip5luZR17MWV9PfU9CbGmGPSBN/uUZ49mlBMRafbJ5GBVkZfK
+	hhmpcX2M7jR1VxVQTvP//7/bnW30MRCwYPl1fZLytOZz90rgcMVLnNwjP+yacXm5d1I3wmxrSSkyL
+	5JF5y93QcA2oGEzTmpILL+M1boB59+of5J5SFYnCrRUwsKKPnmSwsO2IGDctElpdTA+aky+sAP6ce
+	wtiTK9H5jMtsUNh0XKF5MaerSvnEvjuxjV5Ry9n5Or0lQ1F+Z7xBDnr3L/v7V0rlYDv29ESAom4oy
+	gl2lzAPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmW43-0000000DDO7-09X9;
-	Mon, 24 Feb 2025 10:51:55 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1tmW5U-0000000DDtu-31Cy;
+	Mon, 24 Feb 2025 10:53:24 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmW1a-0000000DCIP-3foc
+	id 1tmW34-0000000DD27-3sQs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 10:49:24 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5deb956aa5eso5636250a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 02:49:21 -0800 (PST)
+	Mon, 24 Feb 2025 10:50:56 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-307d1ab59c6so47091661fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 02:50:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1740394161; x=1740998961; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1740394253; x=1740999053; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=O+3hc2uspzUuGySeq35PHHzR5JH/rChsfvYHdlzz6CY=;
-        b=t+r6VlbI/9a+edUEVKfoHRq4bYk+TlpZ5NuuxMSl/mpe4l3+Tz5EfgClV0M/c29hkH
-         qIPBqF0hwsOlSy9gmh38xuUhdtbKnYykNL8NtqjIjmZp3r1y09y+HyhXDx8a1/IJpFaK
-         QdDsE0BIU3maTW0/XJjt1UfjLCn9qmZzVSe98VIteqYvYyc+CVauUzrjAN2JJdfELmmi
-         nAnEOIS+W8Lq04C9BBDNgPT3mCotqwXvKHS+MKRoybwQ0fTHL0eqf5DIrkxIHbCknWx+
-         qrqf8mVEd4IYPP1PNo4/NrFqI60wE6x0TnoSx4hntK1YYSsx4yUg7CaKac6hRxOc7/cP
-         Aqmg==
+        bh=33I10h+7nHN9WWkfMc3v+GlsOaYaEyXk/K9NAesnYxA=;
+        b=O9EwDsoRETUTm1ev5ZQ7HQ/Fknky8INDmJJW+qhrFDVMPFBbPJ2OfL4R9Gs1+dvMiU
+         dCAU82kmDEQA1ZHADUa73AmxQ/82BtzkcX/9fCNBzyRhPlOx0Pox799sgS/D2bdFikAp
+         XB3jKEp/xhG3+8ZFhvCB3hKtREkrG2GcUdVPc=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740394161; x=1740998961;
+        d=1e100.net; s=20230601; t=1740394253; x=1740999053;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=O+3hc2uspzUuGySeq35PHHzR5JH/rChsfvYHdlzz6CY=;
-        b=MshEiGdj33cm6G8ByCKJUOuf3DgaUqkTmXTcK+HtNyJEVhHOQtCS4lvr2E7T0Uy3qH
-         LLI9938Tnrh47jyAQpmbn7I7hpoEbxIxO9dIMPuln85MZ97bK0IK6T53hHJI5EDaknls
-         OmFK8SIWxuGASkrsoKgAjVo9lvm77eoS8WbXfw0lXBJdPXwW+WfYeEvLYwBR4QBdM/o/
-         GTxIBzJ9/Aem+DadMpL+gd6JOjIU4PidiQe5DfNHIRIwxKiud8osXrTgGVjHOQbBTZED
-         jmLNYhBJNNLGVl7M+I44hKRHkxUq90Wp376I3k0o/hL5oEDDP0tlWzgOxWq8vO8dccIU
-         8JLg==
-X-Forwarded-Encrypted: i=1; AJvYcCXXSZNB6kwwaVIutq1ElCp32o03LwVYj+M6c1bWpdnqnHI/rhlTsI/S1hWcU0OcQy4YMt2psR0XPM+R7qc2hWyx@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQlWRvYYAA67cmmv0xZY+QsFxFPA0TRYsx9C93jf22QvIxWQKE
-	fONsBH+TKoVoBlFxpZWZ6ACHL8nCZknxT1cfR38Q6HpoMsAxki2nCXYv2n2wk9+pcnM4G7Gwy5v
-	dT1/Cuc61zxWdialzELKIlb/kd941NE/VtkfIHQ==
-X-Gm-Gg: ASbGncv0negrRPODkEs6jBVQZhQDtSbYB6rZ0rhaekFanodFpxv0MeY9FxrIrXA8htR
-	Te1k/tzjWBFc7OWxH/9fC1XJCR62I99jeB+fdCplEHDMBmzqhPEqzoCvRTbj5kblyLPVwdbMldY
-	4RtsnYP3s=
-X-Google-Smtp-Source: AGHT+IHHpKWXIm/v2k+338UkHDIVLeb79WjMIsWoo/8r7lA3uc+V3rq9HglSj1eZuVQogWlVvckU5UsUcnUd6gUjF0M=
-X-Received: by 2002:a05:6402:388c:b0:5e0:7cc4:ec57 with SMTP id
- 4fb4d7f45d1cf-5e0b7266ba5mr26764777a12.31.1740394160578; Mon, 24 Feb 2025
- 02:49:20 -0800 (PST)
+        bh=33I10h+7nHN9WWkfMc3v+GlsOaYaEyXk/K9NAesnYxA=;
+        b=KU9QjswHnkF4Zgm43+N+3N8RD8NVna4tAt+tNPSP+emNJVrYU4uYhwp5QJkVwPnETi
+         o/BiHTc2R+lgytl4UkKk+BT97+ID6BJdstpgVYCDZdDrQxjOtIZlVQy6FjtKBBZUrTEm
+         JzclRT4Igm2S5HaHpDusyEelmJ3StA8+/wH0XHEdkcuHqgkZWyzYJN3Awc5GTyZs+CB/
+         wE7ErP29WGRiNH1cFflW+rf6Px2ORLsJUZNsA1Iq8wu4sBTZgIdE5icNHV27i6e9/LgP
+         D6xenxJs8j1OTQEo5c2K1nCiHZSFw2SMZKhLeZrTM0MCVekVJYRaSDevnwEvm9vWjFc3
+         Gp/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXJE75MqrePAvuEsIcB+F/FZdgWJmmksHPstpbc7GVNAotVmaChTZrEZiYGHBdzmyGbxRZVo+VU1vawMDVLTZkp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzke3Uc49Fh3qxiAiDO2JD11Nnf+KtcmewoOl4/gGgbBFWuYaus
+	DdS82IPlHBz3hzzPpjBqW18wkLpDocjW3iYvRiHbP4/PtAGZp3tMSXhUmCUjSK3rePtyGvhOKg2
+	V4UfuItCnTdugYhbKuo1To1fBwBdCNUkZ+uPh
+X-Gm-Gg: ASbGncsw7aKY8TMsrxstXM/hzYAOy84I7i3wzepDu5QMfQqhSVpqdU63JDLq5tp+Mp7
+	3D2UWrafZ+jJFMrH7NcbG2vLzRi622koFyNen4v/gfciHfKJRNBrOilK9DBDx5TDHYb1wzNhFtA
+	FUpD07cnTWpoY5ILNRsnhuz60vRdLIoiXemMI=
+X-Google-Smtp-Source: AGHT+IHNRMFdVG+U7OWDssiE+FdC7MFPSlPh3k/wUhdWTrMt1I2HXTRNphSxg61+hQ7uwUEjQWDTi1xNW22wWxWU8i0=
+X-Received: by 2002:a2e:8197:0:b0:308:f3f7:49bc with SMTP id
+ 38308e7fff4ca-30a59895e21mr41620201fa.16.1740394253010; Mon, 24 Feb 2025
+ 02:50:53 -0800 (PST)
 MIME-Version: 1.0
-References: <20250217140419.1702389-1-ryan.roberts@arm.com>
- <20250217140419.1702389-2-ryan.roberts@arm.com> <b6341aac-8d5e-435b-b900-5c9d321a7ce6@redhat.com>
-In-Reply-To: <b6341aac-8d5e-435b-b900-5c9d321a7ce6@redhat.com>
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-Date: Mon, 24 Feb 2025 11:49:09 +0100
-X-Gm-Features: AWEUYZlGjIT4eI7eKQbJ3SHrGN78CEaD_5h64M0X3Xtov-A0DdsnodalQc20rYI
-Message-ID: <CAHVXubjy+VmvmV7FLuR8y=bWc4MqKgoWp4R8hqUs8xKBN-DQcQ@mail.gmail.com>
-Subject: Re: [PATCH v2 1/4] mm: hugetlb: Add huge page size param to huge_ptep_get_and_clear()
-To: David Hildenbrand <david@redhat.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	Naveen N Rao <naveen@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
-	"David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Muchun Song <muchun.song@linux.dev>, Andrew Morton <akpm@linux-foundation.org>, 
-	Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Dev Jain <dev.jain@arm.com>, 
-	Kevin Brodsky <kevin.brodsky@arm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20250220110948.45596-1-angelogioacchino.delregno@collabora.com> <20250220110948.45596-2-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250220110948.45596-2-angelogioacchino.delregno@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Mon, 24 Feb 2025 18:50:41 +0800
+X-Gm-Features: AWEUYZm0UHtGw-8b7DN3edPwKb-1ZcVXmj8EE7bXKkQWur4lNuL40yg5sa6u8YU
+Message-ID: <CAGXv+5EBiYwjNeocGh0ZjWi5mzOZr_CfS6H+7au5vgQgeigUfg@mail.gmail.com>
+Subject: Re: [PATCH v1 1/4] arm64: dts: mediatek: mt8188: Add base display
+ controller graph
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-mediatek@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, matthias.bgg@gmail.com, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kernel@collabora.com, pablo.sun@mediatek.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_024923_180784_601464DB 
-X-CRM114-Status: GOOD (  17.02  )
+X-CRM114-CacheID: sfid-20250224_025055_005910_A358152E 
+X-CRM114-Status: GOOD (  16.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,47 +94,266 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
-
-On Thu, Feb 20, 2025 at 10:46=E2=80=AFAM David Hildenbrand <david@redhat.co=
-m> wrote:
+On Thu, Feb 20, 2025 at 7:13=E2=80=AFPM AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
 >
-> On 17.02.25 15:04, Ryan Roberts wrote:
-> > In order to fix a bug, arm64 needs to be told the size of the huge page
-> > for which the huge_pte is being set in huge_ptep_get_and_clear().
+> The display related IPs in MT8188 are flexible and support being
+> interconnected with different instances of DDP IPs and/or with
+> different DDP IPs, forming a full Display Data Path that ends
+> with an actual display output, which is board specific.
 >
-> s/set/cleared/ ?
+> Add a common graph in the main mt8188.dtsi devicetree, which is
+> shared between all of the currently supported boards.
+> All boards featuring any display functionality will extend this
+> common graph to hook the display controller of the SoC to their
+> specific output port(s).
 >
-> > Provide for this by adding an `unsigned long sz` parameter to the
-> > function. This follows the same pattern as huge_pte_clear() and
-> > set_huge_pte_at().
-> >
-> > This commit makes the required interface modifications to the core mm a=
-s
-> > well as all arches that implement this function (arm64, loongarch, mips=
-,
-> > parisc, powerpc, riscv, s390, sparc). The actual arm64 bug will be fixe=
-d
-> > in a separate commit.
-> >
-> > Cc: stable@vger.kernel.org
-> > Fixes: 66b3923a1a0f ("arm64: hugetlb: add support for PTE contiguous bi=
-t")
-> > Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
 
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com> # riscv
+Tested-by: Chen-Yu Tsai <wenst@chromium.org> # On MT8188 Ciri (int. and ext=
+.)
 
-Thanks,
-
-Alex
-
-> > ---
+> ---
+>  arch/arm64/boot/dts/mediatek/mt8188.dtsi | 140 +++++++++++++++++++++++
+>  1 file changed, 140 insertions(+)
 >
-> Acked-by: David Hildenbrand <david@redhat.com>
+> diff --git a/arch/arm64/boot/dts/mediatek/mt8188.dtsi b/arch/arm64/boot/d=
+ts/mediatek/mt8188.dtsi
+> index c226998b7e47..4437b1820f26 100644
+> --- a/arch/arm64/boot/dts/mediatek/mt8188.dtsi
+> +++ b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
+> @@ -2868,6 +2868,23 @@ ovl0: ovl@1c000000 {
+>                         iommus =3D <&vdo_iommu M4U_PORT_L0_DISP_OVL0_RDMA=
+0>;
+>                         power-domains =3D <&spm MT8188_POWER_DOMAIN_VDOSY=
+S0>;
+>                         mediatek,gce-client-reg =3D <&gce0 SUBSYS_1c00XXX=
+X 0x0000 0x1000>;
+> +
+> +                       ports {
+> +                               #address-cells =3D <1>;
+> +                               #size-cells =3D <0>;
+> +
+> +                               port@0 {
+> +                                       reg =3D <0>;
+> +                                       ovl0_in: endpoint { };
+> +                               };
+> +
+> +                               port@1 {
+> +                                       reg =3D <1>;
+> +                                       ovl0_out: endpoint {
+> +                                               remote-endpoint =3D <&rdm=
+a0_in>;
+> +                                       };
+> +                               };
+> +                       };
+>                 };
 >
+>                 rdma0: rdma@1c002000 {
+> @@ -2878,6 +2895,25 @@ rdma0: rdma@1c002000 {
+>                         iommus =3D <&vdo_iommu M4U_PORT_L1_DISP_RDMA0>;
+>                         power-domains =3D <&spm MT8188_POWER_DOMAIN_VDOSY=
+S0>;
+>                         mediatek,gce-client-reg =3D <&gce0 SUBSYS_1c00XXX=
+X 0x2000 0x1000>;
+> +
+> +                       ports {
+> +                               #address-cells =3D <1>;
+> +                               #size-cells =3D <0>;
+> +
+> +                               port@0 {
+> +                                       reg =3D <0>;
+> +                                       rdma0_in: endpoint {
+> +                                               remote-endpoint =3D <&ovl=
+0_out>;
+> +                                       };
+> +                               };
+> +
+> +                               port@1 {
+> +                                       reg =3D <1>;
+> +                                       rdma0_out: endpoint {
+> +                                               remote-endpoint =3D <&col=
+or0_in>;
+> +                                       };
+> +                               };
+> +                       };
+>                 };
+>
+>                 color0: color@1c003000 {
+> @@ -2887,6 +2923,25 @@ color0: color@1c003000 {
+>                         interrupts =3D <GIC_SPI 639 IRQ_TYPE_LEVEL_HIGH 0=
+>;
+>                         power-domains =3D <&spm MT8188_POWER_DOMAIN_VDOSY=
+S0>;
+>                         mediatek,gce-client-reg =3D <&gce0 SUBSYS_1c00XXX=
+X 0x3000 0x1000>;
+> +
+> +                       ports {
+> +                               #address-cells =3D <1>;
+> +                               #size-cells =3D <0>;
+> +
+> +                               port@0 {
+> +                                       reg =3D <0>;
+> +                                       color0_in: endpoint {
+> +                                               remote-endpoint =3D <&rdm=
+a0_out>;
+> +                                       };
+> +                               };
+> +
+> +                               port@1 {
+> +                                       reg =3D <1>;
+> +                                       color0_out: endpoint {
+> +                                               remote-endpoint =3D <&cco=
+rr0_in>;
+> +                                       };
+> +                               };
+> +                       };
+>                 };
+>
+>                 ccorr0: ccorr@1c004000 {
+> @@ -2896,6 +2951,25 @@ ccorr0: ccorr@1c004000 {
+>                         interrupts =3D <GIC_SPI 640 IRQ_TYPE_LEVEL_HIGH 0=
+>;
+>                         power-domains =3D <&spm MT8188_POWER_DOMAIN_VDOSY=
+S0>;
+>                         mediatek,gce-client-reg =3D <&gce0 SUBSYS_1c00XXX=
+X 0x4000 0x1000>;
+> +
+> +                       ports {
+> +                               #address-cells =3D <1>;
+> +                               #size-cells =3D <0>;
+> +
+> +                               port@0 {
+> +                                       reg =3D <0>;
+> +                                       ccorr0_in: endpoint {
+> +                                               remote-endpoint =3D <&col=
+or0_out>;
+> +                                       };
+> +                               };
+> +
+> +                               port@1 {
+> +                                       reg =3D <1>;
+> +                                       ccorr0_out: endpoint {
+> +                                               remote-endpoint =3D <&aal=
+0_in>;
+> +                                       };
+> +                               };
+> +                       };
+>                 };
+>
+>                 aal0: aal@1c005000 {
+> @@ -2905,6 +2979,25 @@ aal0: aal@1c005000 {
+>                         interrupts =3D <GIC_SPI 641 IRQ_TYPE_LEVEL_HIGH 0=
+>;
+>                         power-domains =3D <&spm MT8188_POWER_DOMAIN_VDOSY=
+S0>;
+>                         mediatek,gce-client-reg =3D <&gce0 SUBSYS_1c00XXX=
+X 0x5000 0x1000>;
+> +
+> +                       ports {
+> +                               #address-cells =3D <1>;
+> +                               #size-cells =3D <0>;
+> +
+> +                               port@0 {
+> +                                       reg =3D <0>;
+> +                                       aal0_in: endpoint {
+> +                                               remote-endpoint =3D <&cco=
+rr0_out>;
+> +                                       };
+> +                               };
+> +
+> +                               port@1 {
+> +                                       reg =3D <1>;
+> +                                       aal0_out: endpoint {
+> +                                               remote-endpoint =3D <&gam=
+ma0_in>;
+> +                                       };
+> +                               };
+> +                       };
+>                 };
+>
+>                 gamma0: gamma@1c006000 {
+> @@ -2914,6 +3007,23 @@ gamma0: gamma@1c006000 {
+>                         interrupts =3D <GIC_SPI 642 IRQ_TYPE_LEVEL_HIGH 0=
+>;
+>                         power-domains =3D <&spm MT8188_POWER_DOMAIN_VDOSY=
+S0>;
+>                         mediatek,gce-client-reg =3D <&gce0 SUBSYS_1c00XXX=
+X 0x6000 0x1000>;
+> +
+> +                       ports {
+> +                               #address-cells =3D <1>;
+> +                               #size-cells =3D <0>;
+> +
+> +                               port@0 {
+> +                                       reg =3D <0>;
+> +                                       gamma0_in: endpoint {
+> +                                               remote-endpoint =3D <&aal=
+0_out>;
+> +                                       };
+> +                               };
+> +
+> +                               port@1 {
+> +                                       reg =3D <1>;
+> +                                       gamma0_out: endpoint { };
+> +                               };
+> +                       };
+>                 };
+>
+>                 dither0: dither@1c007000 {
+> @@ -2923,6 +3033,21 @@ dither0: dither@1c007000 {
+>                         interrupts =3D <GIC_SPI 643 IRQ_TYPE_LEVEL_HIGH 0=
+>;
+>                         power-domains =3D <&spm MT8188_POWER_DOMAIN_VDOSY=
+S0>;
+>                         mediatek,gce-client-reg =3D <&gce0 SUBSYS_1c00XXX=
+X 0x7000 0x1000>;
+> +
+> +                       ports {
+> +                               #address-cells =3D <1>;
+> +                               #size-cells =3D <0>;
+> +
+> +                               port@0 {
+> +                                       reg =3D <0>;
+> +                                       dither0_in: endpoint { };
+> +                               };
+> +
+> +                               port@1 {
+> +                                       reg =3D <1>;
+> +                                       dither0_out: endpoint { };
+> +                               };
+> +                       };
+>                 };
+>
+>                 disp_dsi0: dsi@1c008000 {
+> @@ -3005,6 +3130,21 @@ postmask0: postmask@1c01a000 {
+>                         interrupts =3D <GIC_SPI 661 IRQ_TYPE_LEVEL_HIGH 0=
+>;
+>                         power-domains =3D <&spm MT8188_POWER_DOMAIN_VDOSY=
+S0>;
+>                         mediatek,gce-client-reg =3D <&gce0 SUBSYS_1c01XXX=
+X 0xa000 0x1000>;
+> +
+> +                       ports {
+> +                               #address-cells =3D <1>;
+> +                               #size-cells =3D <0>;
+> +
+> +                               port@0 {
+> +                                       reg =3D <0>;
+> +                                       postmask0_in: endpoint { };
+> +                               };
+> +
+> +                               port@1 {
+> +                                       reg =3D <1>;
+> +                                       postmask0_out: endpoint { };
+> +                               };
+> +                       };
+>                 };
+>
+>                 vdosys0: syscon@1c01d000 {
 > --
-> Cheers,
+> 2.48.1
 >
-> David / dhildenb
 >
 
