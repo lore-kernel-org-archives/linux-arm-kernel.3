@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 760CEC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 15:30:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2C72C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 15:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bZ+P2eh126WCPqq5KRjRVV0sZQ1LzK7x3oGWlhU+IAM=; b=yvf4v7wb1ZIORNxJgHofgnChDF
-	1a/3cn7IPxQiZGJgY5jUrs1DCtYyvCeYo8Pa3JifeYdOlte38UeOortaw4TP5jP3kpdvNLIfdG+6U
-	h94qBHYw1kOMR+1juqx6Ngc6r6JXsNB9xYaXnxTFvUWJAX9LcroVnC/EIqTGW2TNCvnsND2QjZryf
-	tId1vtph35gQ41djD6urPYNQk7VIXE3OaS+x7wU/mTN501H1RX7F3Zjc3JtL5BPtV4CPlsJug80Rx
-	USMzztsWLj94bsAD33uPWxgtLBhvzwlf5bTmf5tBz/rncEaWHu/ZmS/6bnlEFd2dLNKtw4zY62xeU
-	z1Xjlmcg==;
+	bh=8ZwLU+r/bpzuuexUx/f17H1dOMQb6Dmb1357PlWuMVI=; b=jtnreyq2pbMo81UAiZCdtznWTh
+	Jv+h4gW/fAs4+CsHDerXF0gAOJKhUmoSFIpvhRZsQzv3uwbv0ErerhIuXoZz7NLuFijCJFKckGVZb
+	Bd+nCpRgn73IWxaDwcHQAALrv0hIdUMstFXit7icHGYNTihQKIgpCZnN5k2fMLNQ/Hj/f8djI3HRI
+	hOj8AjEFruMKC/JM5GRQvpX9XXjCd8rB7hb7OIPfl56wDMLcYHNEycT8InbHI9TDT8nQQtrKT7ELB
+	2pKR9FfjOzjutrBVOvOgVwoZCxQt4XPY2eUXKxo+jodUEEEYCo7KSNV5ELlqu1CP1B0WHtDzBtp3b
+	vmUa+otw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmaOz-0000000EHpK-46Pb;
-	Mon, 24 Feb 2025 15:29:49 +0000
+	id 1tmaQR-0000000EHxm-2c74;
+	Mon, 24 Feb 2025 15:31:19 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmaAY-0000000EFEP-3cL1
+	id 1tmaAc-0000000EFGc-1cCs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 15:14:56 +0000
+	Mon, 24 Feb 2025 15:14:59 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 07B3F1CE0;
-	Mon, 24 Feb 2025 07:15:06 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B87E26AC;
+	Mon, 24 Feb 2025 07:15:12 -0800 (PST)
 Received: from e132581.cambridge.arm.com (e132581.arm.com [10.2.76.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 97CFB3F6A8;
-	Mon, 24 Feb 2025 07:14:47 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id ABBE43F6A8;
+	Mon, 24 Feb 2025 07:14:53 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Mike Leach <mike.leach@linaro.org>,
@@ -46,17 +46,17 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v1 3/8] coresight: etm4x: Hook pause and resume callbacks
-Date: Mon, 24 Feb 2025 15:14:18 +0000
-Message-Id: <20250224151423.1630639-4-leo.yan@arm.com>
+Subject: [PATCH v1 6/8] coresight: perf: Update buffer on AUX pause
+Date: Mon, 24 Feb 2025 15:14:21 +0000
+Message-Id: <20250224151423.1630639-7-leo.yan@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250224151423.1630639-1-leo.yan@arm.com>
 References: <20250224151423.1630639-1-leo.yan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_071454_988397_CB97E596 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20250224_071458_472345_7638F491 
+X-CRM114-Status: GOOD (  15.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,117 +71,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add callbacks for pausing and resuming the tracer.
+Due to sinks like ETR and ETB don't support interrupt handling, the
+hardware trace data might be lost for continuous running tasks.
 
-A "paused" flag in the driver data indicates whether the tracer is
-paused.  If the flag is set, the driver will skip starting the hardware
-trace.  The flag is always set to false for the sysfs mode, meaning the
-tracer will never be paused in the case.
+This commit takes advantage of the AUX pause for updating trace buffer
+to mitigate the trace data losing issue.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- .../coresight/coresight-etm4x-core.c          | 42 ++++++++++++++++++-
- drivers/hwtracing/coresight/coresight-etm4x.h |  2 +
- 2 files changed, 43 insertions(+), 1 deletion(-)
+ .../hwtracing/coresight/coresight-etm-perf.c  | 38 ++++++++++++++++++-
+ 1 file changed, 36 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 71be566bd117..3a97d81b79db 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -608,7 +608,8 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
- 		etm4x_relaxed_write32(csa, trcpdcr | TRCPDCR_PU, TRCPDCR);
- 	}
- 
--	rc = etm4_enable_trace_unit(drvdata);
-+	if (!drvdata->paused)
-+		rc = etm4_enable_trace_unit(drvdata);
- done:
- 	etm4_cs_lock(drvdata, csa);
- 
-@@ -866,6 +867,9 @@ static int etm4_enable_perf(struct coresight_device *csdev,
- 	}
- 	drvdata->trcid = (u8)trace_id;
- 
-+	/* Populate pause state */
-+	drvdata->paused = !!READ_ONCE(event->hw.aux_paused);
-+
- 	/* And enable it */
- 	ret = etm4_enable_hw(drvdata);
- 
-@@ -895,6 +899,9 @@ static int etm4_enable_sysfs(struct coresight_device *csdev)
- 	if (ret < 0)
- 		goto unlock_sysfs_enable;
- 
-+	/* Tracer will never be paused in sysfs mode */
-+	drvdata->paused = false;
-+
- 	/*
- 	 * Executing etm4_enable_hw on the cpu whose ETM is being enabled
- 	 * ensures that register writes occur when cpu is powered.
-@@ -1082,10 +1089,43 @@ static void etm4_disable(struct coresight_device *csdev,
- 		coresight_set_mode(csdev, CS_MODE_DISABLED);
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+index d759663a1f7d..667110429de9 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.c
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+@@ -594,14 +594,48 @@ static void etm_event_start(struct perf_event *event, int flags)
+ 	return;
  }
  
-+static int etm4_resume(struct coresight_device *csdev)
-+{
-+	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-+	struct csdev_access *csa = &csdev->access;
+-static void etm_event_pause(struct coresight_device *csdev,
++static void etm_event_pause(struct perf_event *event,
++			    struct coresight_device *csdev,
+ 			    struct etm_ctxt *ctxt)
+ {
++	int cpu = smp_processor_id();
++	struct coresight_device *sink;
++	struct perf_output_handle *handle = &ctxt->handle;
++	struct list_head *path;
++	unsigned long size;
 +
-+	if (coresight_get_mode(csdev) != CS_MODE_PERF)
-+		return -EINVAL;
+ 	if (!ctxt->event_data)
+ 		return;
+ 
+ 	/* Stop tracer */
+ 	coresight_pause_source(csdev);
 +
-+	etm4_cs_unlock(drvdata, csa);
-+	etm4_enable_trace_unit(drvdata);
-+	etm4_cs_lock(drvdata, csa);
-+
-+	drvdata->paused = false;
-+	return 0;
-+}
-+
-+static void etm4_pause(struct coresight_device *csdev)
-+{
-+	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-+	struct csdev_access *csa = &csdev->access;
-+
-+	if (coresight_get_mode(csdev) != CS_MODE_PERF)
++	/* Bail out if no need update buffer */
++	if (!ctxt->event_data->update_buf_on_pause)
 +		return;
 +
-+	etm4_cs_unlock(drvdata, csa);
-+	etm4_disable_trace_unit(drvdata);
-+	etm4_cs_lock(drvdata, csa);
++	if (WARN_ON_ONCE(handle->event != event))
++		return;
 +
-+	drvdata->paused = true;
-+}
++	path = etm_event_cpu_path(ctxt->event_data, cpu);
++	sink = coresight_get_sink(path);
++	if (WARN_ON_ONCE(!sink))
++		return;
 +
- static const struct coresight_ops_source etm4_source_ops = {
- 	.cpu_id		= etm4_cpu_id,
- 	.enable		= etm4_enable,
- 	.disable	= etm4_disable,
-+	.resume		= etm4_resume,
-+	.pause		= etm4_pause,
- };
++	if (!sink_ops(sink)->update_buffer)
++		return;
++
++	size = sink_ops(sink)->update_buffer(sink, handle,
++					     ctxt->event_data->snk_config);
++	if (READ_ONCE(handle->event)) {
++		if (!size)
++			return;
++
++		perf_aux_output_end(handle, size);
++		perf_aux_output_begin(handle, event);
++	} else {
++		WARN_ON_ONCE(size);
++	}
+ }
  
- static const struct coresight_ops etm4_cs_ops = {
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-index 1119762b5cec..c3389fdb5d67 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x.h
-+++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-@@ -983,6 +983,7 @@ struct etmv4_save_state {
-  * @state_needs_restore: True when there is context to restore after PM exit
-  * @skip_power_up: Indicates if an implementation can skip powering up
-  *		   the trace unit.
-+ * @paused:	Indicates if the trace unit is paused.
-  * @arch_features: Bitmap of arch features of etmv4 devices.
-  */
- struct etmv4_drvdata {
-@@ -1036,6 +1037,7 @@ struct etmv4_drvdata {
- 	struct etmv4_save_state		*save_state;
- 	bool				state_needs_restore;
- 	bool				skip_power_up;
-+	bool				paused;
- 	DECLARE_BITMAP(arch_features, ETM4_IMPDEF_FEATURE_MAX);
- };
+ static void etm_event_stop(struct perf_event *event, int mode)
+@@ -615,7 +649,7 @@ static void etm_event_stop(struct perf_event *event, int mode)
+ 	struct list_head *path;
  
+ 	if (mode & PERF_EF_PAUSE)
+-		return etm_event_pause(csdev, ctxt);
++		return etm_event_pause(event, csdev, ctxt);
+ 
+ 	/*
+ 	 * If we still have access to the event_data via handle,
 -- 
 2.34.1
 
