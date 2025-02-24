@@ -4,76 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49C83C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 15:13:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0A63C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 15:15:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7bkdFPh3F/SxPMUGrcqB5tVaUarkJGs2j9EyjS5IwjQ=; b=J2djummnOILiUKwsTnATYYGUoV
-	+9ccJiyreuC7lGqnhMiP5gprlMNhBX3VlfpUC+DGnofhiKHTJhUaLIPeLvZSLEQaC+Cd0hw4Oz8CZ
-	C9MvLJKBXppZIbsNbEUuA2djN8BNaBK/9MsMZ05mkRFIFNiMqvGPqlFCPU9MRcEQgNGA9pS5YGIDK
-	0bKw2ouNUZCYPGE7vPUoHezSKNSWQziJdf6SWkol9U/MxNiwfu7na584B58tVgypL9nKqPW/jCtWH
-	pBkjV7ox8SzODlbfHAvCt0e8s3oF0sydxR7xFz+VmSNEAS+GJjlzDqJxYJruOADj/uZqcqzwUpkwP
-	u8ko9I2A==;
+	bh=WvnvUxTc5AQaskJINeTmL3gncfKgdBsvPvsCNQOV7qs=; b=Uu9eK5tiim8Hx4Qf5m9ycVdnJ+
+	4enTROORxj5PKKd7nDFKXlxRpkSUh80dcyczJBvzyDL375EYeAlPTHPNti4wTfo+MWo4GPeTEwgH7
+	fXDjqZ8uA2guQtMg0FVqbt4R2gEF+dOOaJbtQHjFMSIHPODjGu18n7eDng2rWHdw8fz27kHk2xM5t
+	ti6d/azfB6R4nagAoCqjq6H6H7K68Uj0l1OZYRvB3Q0RRKPinrwD+Df1ElAchtQ1Q72Mptfns5gVQ
+	fyxaEjjew6bNQPEFr8B0TtwL0r1tX679uuVyRzkGjMtEyA++n++IDlFZ5uTGYGc0bjmtBkmRtII1q
+	VZDaLIgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tma91-0000000EEy8-0ShU;
-	Mon, 24 Feb 2025 15:13:19 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tmaAT-0000000EFBY-3FTU;
+	Mon, 24 Feb 2025 15:14:50 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmZkF-0000000EAJb-0zEA
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 14:47:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=7bkdFPh3F/SxPMUGrcqB5tVaUarkJGs2j9EyjS5IwjQ=; b=L4pIOE0+EY9VmZjKw7eYs64Nce
-	Ecr1xR1rz8Myfd5siPDTFzvdVWkqR0H2vtGYV2N8JLdJovxM2XSp9podWNjSntBn4Zix33neV3e8W
-	YoHZCsZTslaHmf2cX75HPweusGxmMXzdjCEscCdJIa3KTDnwFYEvx7gv+ODyBVcoU4Rrli3hzRnAq
-	0nzD08nnpjIsPmKpsPR65dDmi83/nLCczvE/wqIFCl6HPtqxL25Rwza7WERR6G7a8jmmNgT/gCR/S
-	CNLYIaoMEBaX7L1zwD9vTiTXM4GUGmZWl2nZ9EtobUbh9eMVJBBAIORfV9djGeM+7+3zqTIu1FgNZ
-	YUxEEpRw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42816 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tmZkB-0006fx-0R;
-	Mon, 24 Feb 2025 14:47:39 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tmZjr-004uJP-82; Mon, 24 Feb 2025 14:47:19 +0000
-In-Reply-To: <Z7yGdNuX2mYph8X8@shell.armlinux.org.uk>
-References: <Z7yGdNuX2mYph8X8@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 2/2] net: stmmac: dwc-qos: clean up clock
- initialisation
+	id 1tmZkk-0000000EAPq-1uV1;
+	Mon, 24 Feb 2025 14:48:15 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 8A230442B2;
+	Mon, 24 Feb 2025 14:47:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1740408490;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=WvnvUxTc5AQaskJINeTmL3gncfKgdBsvPvsCNQOV7qs=;
+	b=Q2LORdUD5tDm5eeAOWJ40SHFnvB+Eige1cCbnwZEEki9558eeomxRJKDhDTFOeaBUVoX7q
+	72KS/Bb73OzGmGjmbNncuVdPLlAGBcuRJ3dE+YVS4uJn2S+pln5UG7vglFkRz6jhI0YJ2C
+	3v76jFBTPHUhsXwN65FETkOLdIHNssRXwrXjz5j7VlqbMC/Fm7HGujkZlIK8uuzPRDMNMr
+	Ejuq+fPzupxrnVDS8Cj58QbveUdu/ZlYZbD9N/fzd19pXylBPnhSbJLlxeEOnnkAZc/DaG
+	TbJwWIrf11GPhxzWVYCACykoERN1td9OWy/mDsMo53Muc48il43af/d7NWXEBw==
+Message-ID: <13348e9c-5690-4f5a-9086-5cc5540fa1db@bootlin.com>
+Date: Mon, 24 Feb 2025 15:47:49 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+Subject: Re: [PATCH 2/5] drm/rockchip: stop passing non struct drm_device to
+ drm_err() and friends
+To: Jani Nikula <jani.nikula@intel.com>, dri-devel@lists.freedesktop.org
+Cc: intel-gfx@lists.freedesktop.org, Sandy Huang <hjc@rock-chips.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <cover.1737644530.git.jani.nikula@intel.com>
+ <f42da4c9943a2f2a9de4272b7849e72236d4c3f9.1737644530.git.jani.nikula@intel.com>
+Content-Language: en-US
+Autocrypt: addr=louis.chauvet@bootlin.com; keydata=
+ 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
+In-Reply-To: <f42da4c9943a2f2a9de4272b7849e72236d4c3f9.1737644530.git.jani.nikula@intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tmZjr-004uJP-82@rmk-PC.armlinux.org.uk>
-Date: Mon, 24 Feb 2025 14:47:19 +0000
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdejledtiecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfhffuvfevfhgjtgfgsehtkeertddtvdejnecuhfhrohhmpefnohhuihhsucevhhgruhhvvghtuceolhhouhhishdrtghhrghuvhgvthessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepteffhfdtiefgheffudeuvdekfefgvdduudfgffetteffvdetfffgjeevudfggfffnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvtddtudemkeeiudemgedugedtmegtkeeitdemheguiedumeeifeefleemieeirgeimegvtdejheenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemgedugedtmegtkeeitdemheguiedumeeifeefleemieeirgeimegvtdejhedphhgvlhhopeglkffrggeimedvtddtudemkeeiudemgedugedtmegtkeeitdemheguiedumeeifeefleemieeirgeimegvtdejhegnpdhmrghilhhfrhhomheplhhouhhishdrtghhrghuvhgvthessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepkedprhgtphhtthhopehjrghnihdrnhhikhhulhgrsehinhhtvghlrdgtohhmpdhrtghpthhtohepughrihdquggvvhgvl
+ heslhhishhtshdrfhhrvggvuggvshhkthhophdrohhrghdprhgtphhtthhopehinhhtvghlqdhgfhigsehlihhsthhsrdhfrhgvvgguvghskhhtohhprdhorhhgpdhrtghpthhtohephhhjtgesrhhotghkqdgthhhiphhsrdgtohhmpdhrtghpthhtohephhgvihhkohesshhnthgvtghhrdguvgdprhgtphhtthhopegrnhguhidrhigrnhesrhhotghkqdgthhhiphhsrdgtohhmpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqrhhotghktghhihhpsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
+X-GND-Sasl: louis.chauvet@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_064743_272905_9A60A7BC 
-X-CRM114-Status: GOOD (  14.91  )
+X-CRM114-CacheID: sfid-20250224_064814_784943_206D2B83 
+X-CRM114-Status: GOOD (  17.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,101 +134,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Clean up the clock initialisation by providing a helper to find a
-named clock in the bulk clocks, and provide the name of the stmmac
-clock in match data so we can locate the stmmac clock in generic
-code.
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../stmicro/stmmac/dwmac-dwc-qos-eth.c        | 32 +++++++++++--------
- 1 file changed, 18 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-index acb0a2e1664f..45021dfaa787 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-@@ -35,6 +35,16 @@ struct tegra_eqos {
- 	struct gpio_desc *reset;
- };
- 
-+static struct clk *dwc_eth_find_clk(struct plat_stmmacenet_data *plat_dat,
-+				    const char *name)
-+{
-+	for (int i = 0; i < plat_dat->num_clks; i++)
-+		if (strcmp(plat_dat->clks[i].id, name) == 0)
-+			return plat_dat->clks[i].clk;
-+
-+	return 0;
-+}
-+
- static int dwc_eth_dwmac_config_dt(struct platform_device *pdev,
- 				   struct plat_stmmacenet_data *plat_dat)
- {
-@@ -121,12 +131,7 @@ static int dwc_qos_probe(struct platform_device *pdev,
- 			 struct plat_stmmacenet_data *plat_dat,
- 			 struct stmmac_resources *stmmac_res)
- {
--	for (int i = 0; i < plat_dat->num_clks; i++) {
--		if (strcmp(plat_dat->clks[i].id, "apb_pclk") == 0)
--			plat_dat->stmmac_clk = plat_dat->clks[i].clk;
--		else if (strcmp(plat_dat->clks[i].id, "phy_ref_clk") == 0)
--			plat_dat->pclk = plat_dat->clks[i].clk;
--	}
-+	plat_dat->pclk = dwc_eth_find_clk(plat_dat, "phy_ref_clk");
- 
- 	return 0;
- }
-@@ -237,18 +242,12 @@ static int tegra_eqos_probe(struct platform_device *pdev,
- 
- 	eqos->dev = &pdev->dev;
- 	eqos->regs = res->addr;
-+	eqos->clk_slave = plat_dat->stmmac_clk;
- 
- 	if (!is_of_node(dev->fwnode))
- 		goto bypass_clk_reset_gpio;
- 
--	for (int i = 0; i < plat_dat->num_clks; i++) {
--		if (strcmp(plat_dat->clks[i].id, "slave_bus") == 0) {
--			eqos->clk_slave = plat_dat->clks[i].clk;
--			plat_dat->stmmac_clk = eqos->clk_slave;
--		} else if (strcmp(plat_dat->clks[i].id, "tx") == 0) {
--			eqos->clk_tx = plat_dat->clks[i].clk;
--		}
--	}
-+	eqos->clk_tx = dwc_eth_find_clk(plat_dat, "tx");
- 
- 	eqos->reset = devm_gpiod_get(&pdev->dev, "phy-reset", GPIOD_OUT_HIGH);
- 	if (IS_ERR(eqos->reset)) {
-@@ -312,15 +311,18 @@ struct dwc_eth_dwmac_data {
- 		     struct plat_stmmacenet_data *plat_dat,
- 		     struct stmmac_resources *res);
- 	void (*remove)(struct platform_device *pdev);
-+	const char *stmmac_clk_name;
- };
- 
- static const struct dwc_eth_dwmac_data dwc_qos_data = {
- 	.probe = dwc_qos_probe,
-+	.stmmac_clk_name = "apb_pclk",
- };
- 
- static const struct dwc_eth_dwmac_data tegra_eqos_data = {
- 	.probe = tegra_eqos_probe,
- 	.remove = tegra_eqos_remove,
-+	.stmmac_clk_name = "slave_bus",
- };
- 
- static int dwc_eth_dwmac_probe(struct platform_device *pdev)
-@@ -360,6 +362,8 @@ static int dwc_eth_dwmac_probe(struct platform_device *pdev)
- 	if (ret)
- 		return dev_err_probe(&pdev->dev, ret, "Failed to enable clocks\n");
- 
-+	plat_dat->stmmac_clk = dwc_eth_find_clk(plat_dat, data->stmmac_clk_name);
-+
- 	ret = data->probe(pdev, plat_dat, &stmmac_res);
- 	if (ret < 0) {
- 		dev_err_probe(&pdev->dev, ret, "failed to probe subdriver\n");
+Le 23/01/2025 à 16:09, Jani Nikula a écrit :
+> The expectation is that the struct drm_device based logging helpers get
+> passed an actual struct drm_device pointer rather than some random
+> struct pointer where you can dereference the ->dev member.
+> 
+> Convert drm_err(hdmi, ...) to dev_err(hdmi->dev, ...). This matches
+> current usage, but drops "[drm] *ERROR*" prefix from logging.
+> 
+> Signed-off-by: Jani Nikula <jani.nikula@intel.com>
+
+Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
+
+> ---
+> 
+> Looks like it's possible to hunt down the struct drm_device in most of
+> these cases, if that's desired. This was the simplest change.
+> 
+> Cc: Sandy Huang <hjc@rock-chips.com>
+> Cc: "Heiko Stübner" <heiko@sntech.de>
+> Cc: Andy Yan <andy.yan@rock-chips.com>
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-rockchip@lists.infradead.org
+> ---
+>   drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c    | 16 ++++++++--------
+>   drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 16 ++++++++--------
+>   2 files changed, 16 insertions(+), 16 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+> index e7a6669c46b0..f737e7d46e66 100644
+> --- a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+> +++ b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+> @@ -203,7 +203,7 @@ static int rockchip_hdmi_parse_dt(struct rockchip_hdmi *hdmi)
+>   
+>   	hdmi->regmap = syscon_regmap_lookup_by_phandle(np, "rockchip,grf");
+>   	if (IS_ERR(hdmi->regmap)) {
+> -		drm_err(hdmi, "Unable to get rockchip,grf\n");
+> +		dev_err(hdmi->dev, "Unable to get rockchip,grf\n");
+>   		return PTR_ERR(hdmi->regmap);
+>   	}
+>   
+> @@ -214,7 +214,7 @@ static int rockchip_hdmi_parse_dt(struct rockchip_hdmi *hdmi)
+>   	if (IS_ERR(hdmi->ref_clk)) {
+>   		ret = PTR_ERR(hdmi->ref_clk);
+>   		if (ret != -EPROBE_DEFER)
+> -			drm_err(hdmi, "failed to get reference clock\n");
+> +			dev_err(hdmi->dev, "failed to get reference clock\n");
+>   		return ret;
+>   	}
+>   
+> @@ -222,7 +222,7 @@ static int rockchip_hdmi_parse_dt(struct rockchip_hdmi *hdmi)
+>   	if (IS_ERR(hdmi->grf_clk)) {
+>   		ret = PTR_ERR(hdmi->grf_clk);
+>   		if (ret != -EPROBE_DEFER)
+> -			drm_err(hdmi, "failed to get grf clock\n");
+> +			dev_err(hdmi->dev, "failed to get grf clock\n");
+>   		return ret;
+>   	}
+>   
+> @@ -302,16 +302,16 @@ static void dw_hdmi_rockchip_encoder_enable(struct drm_encoder *encoder)
+>   
+>   	ret = clk_prepare_enable(hdmi->grf_clk);
+>   	if (ret < 0) {
+> -		drm_err(hdmi, "failed to enable grfclk %d\n", ret);
+> +		dev_err(hdmi->dev, "failed to enable grfclk %d\n", ret);
+>   		return;
+>   	}
+>   
+>   	ret = regmap_write(hdmi->regmap, hdmi->chip_data->lcdsel_grf_reg, val);
+>   	if (ret != 0)
+> -		drm_err(hdmi, "Could not write to GRF: %d\n", ret);
+> +		dev_err(hdmi->dev, "Could not write to GRF: %d\n", ret);
+>   
+>   	clk_disable_unprepare(hdmi->grf_clk);
+> -	drm_dbg(hdmi, "vop %s output to hdmi\n", ret ? "LIT" : "BIG");
+> +	dev_dbg(hdmi->dev, "vop %s output to hdmi\n", ret ? "LIT" : "BIG");
+>   }
+>   
+>   static int
+> @@ -574,7 +574,7 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
+>   	ret = rockchip_hdmi_parse_dt(hdmi);
+>   	if (ret) {
+>   		if (ret != -EPROBE_DEFER)
+> -			drm_err(hdmi, "Unable to parse OF data\n");
+> +			dev_err(hdmi->dev, "Unable to parse OF data\n");
+>   		return ret;
+>   	}
+>   
+> @@ -582,7 +582,7 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
+>   	if (IS_ERR(hdmi->phy)) {
+>   		ret = PTR_ERR(hdmi->phy);
+>   		if (ret != -EPROBE_DEFER)
+> -			drm_err(hdmi, "failed to get phy\n");
+> +			dev_err(hdmi->dev, "failed to get phy\n");
+>   		return ret;
+>   	}
+>   
+> diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> index f41151d49fca..3d1dddb34603 100644
+> --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> @@ -242,7 +242,7 @@ static void dw_hdmi_qp_rk3588_hpd_work(struct work_struct *work)
+>   	if (drm) {
+>   		changed = drm_helper_hpd_irq_event(drm);
+>   		if (changed)
+> -			drm_dbg(hdmi, "connector status changed\n");
+> +			dev_dbg(hdmi->dev, "connector status changed\n");
+>   	}
+>   }
+>   
+> @@ -472,7 +472,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+>   		}
+>   	}
+>   	if (hdmi->port_id < 0) {
+> -		drm_err(hdmi, "Failed to match HDMI port ID\n");
+> +		dev_err(hdmi->dev, "Failed to match HDMI port ID\n");
+>   		return hdmi->port_id;
+>   	}
+>   
+> @@ -496,20 +496,20 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+>   	hdmi->regmap = syscon_regmap_lookup_by_phandle(dev->of_node,
+>   						       "rockchip,grf");
+>   	if (IS_ERR(hdmi->regmap)) {
+> -		drm_err(hdmi, "Unable to get rockchip,grf\n");
+> +		dev_err(hdmi->dev, "Unable to get rockchip,grf\n");
+>   		return PTR_ERR(hdmi->regmap);
+>   	}
+>   
+>   	hdmi->vo_regmap = syscon_regmap_lookup_by_phandle(dev->of_node,
+>   							  "rockchip,vo-grf");
+>   	if (IS_ERR(hdmi->vo_regmap)) {
+> -		drm_err(hdmi, "Unable to get rockchip,vo-grf\n");
+> +		dev_err(hdmi->dev, "Unable to get rockchip,vo-grf\n");
+>   		return PTR_ERR(hdmi->vo_regmap);
+>   	}
+>   
+>   	ret = devm_clk_bulk_get_all_enabled(hdmi->dev, &clks);
+>   	if (ret < 0) {
+> -		drm_err(hdmi, "Failed to get clocks: %d\n", ret);
+> +		dev_err(hdmi->dev, "Failed to get clocks: %d\n", ret);
+>   		return ret;
+>   	}
+>   
+> @@ -517,7 +517,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+>   						    GPIOD_OUT_HIGH);
+>   	if (IS_ERR(hdmi->enable_gpio)) {
+>   		ret = PTR_ERR(hdmi->enable_gpio);
+> -		drm_err(hdmi, "Failed to request enable GPIO: %d\n", ret);
+> +		dev_err(hdmi->dev, "Failed to request enable GPIO: %d\n", ret);
+>   		return ret;
+>   	}
+>   
+> @@ -525,7 +525,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+>   	if (IS_ERR(hdmi->phy)) {
+>   		ret = PTR_ERR(hdmi->phy);
+>   		if (ret != -EPROBE_DEFER)
+> -			drm_err(hdmi, "failed to get phy: %d\n", ret);
+> +			dev_err(hdmi->dev, "failed to get phy: %d\n", ret);
+>   		return ret;
+>   	}
+>   
+> @@ -564,7 +564,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+>   	connector = drm_bridge_connector_init(drm, encoder);
+>   	if (IS_ERR(connector)) {
+>   		ret = PTR_ERR(connector);
+> -		drm_err(hdmi, "failed to init bridge connector: %d\n", ret);
+> +		dev_err(hdmi->dev, "failed to init bridge connector: %d\n", ret);
+>   		return ret;
+>   	}
+>   
+
 -- 
-2.30.2
+Louis Chauvet, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
 
 
