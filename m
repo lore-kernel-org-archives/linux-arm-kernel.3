@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C628C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 10:22:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E3FAC021A6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 10:24:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UkuR2aUQ3YGlD8BMUU05CYVfaZCuUHd9VHCQOYO2I4U=; b=KaHepN3TA/Vj6n9hu0Vyd1KD5A
-	oD75qHFQIEE7SuVsSropJBhfdIrcP7+/Xmm8IOE+962OraRXMFBeag21xIhOUuUKWXwRLz0hCJpm5
-	Yt+2vU+xFFsEYLkI0Z9bABlqh8KNT4B9JuGZ35PN/odrv6CguwkaKWGNBsMFxUl1YzaELH/hnfL06
-	hiwymYtyU602eRBJWMN1b6c+okNa9ejOM2rEUAyCC/Enj4AC3DSzCko7m6dzQL6lHjQ2Buwl61ACt
-	AvMfGQyIIiCFrhDqbIyJ66tOZSc3j5dqxx3D02OShRGnbhm+Au9OYcnbajM/PHJpoe+99yNm3fsYG
-	3eSW1m+w==;
+	bh=NP6KwitEnDLK+EJyz6Py7uDR66RPflahZM9CtHgTPDQ=; b=QHDVCfn7U5spJhXO8McpjnQn6m
+	NIh91jSLuqshPeHrpjMxFavR0v3bQVbvkaMXhloA28b1YBU0JIyzdrMx2nk4uJ7wE6TLgc6ZcxseF
+	RelqdXWWvSEXjsbDyxHPfmMzxWDWn2Z0yFM4mLhu2+woEO+CWQbfvxKjXUGr1Prch2livCxsgNfuG
+	T4doieE0a/wJqE5HCHELiKoFnQL7xCJNk0nPbIbELNvMV3QOROwD+HsTvXWxnLYplNLDskl3cAuvg
+	DKr8O8cR4kp84BhztjgVIIuWwa0NKRHhIq0X4XOeJ+Vf+rLv7BSyvJXUjcwIJT4WlR49JPMUeeFun
+	foiGibYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmVbR-0000000D6Ss-3NP1;
-	Mon, 24 Feb 2025 10:22:21 +0000
+	id 1tmVcu-0000000D6sy-0NDa;
+	Mon, 24 Feb 2025 10:23:52 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmVRk-0000000D4L9-48JI
+	id 1tmVUn-0000000D53L-3uhw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 10:12:22 +0000
+	Mon, 24 Feb 2025 10:15:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2579B5C6150;
-	Mon, 24 Feb 2025 10:11:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E632C4CED6;
-	Mon, 24 Feb 2025 10:12:15 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 59A7C5C624C;
+	Mon, 24 Feb 2025 10:14:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98C60C4CEE6;
+	Mon, 24 Feb 2025 10:15:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740391939;
-	bh=PCYrjtUGVCNWA2UVJ7z9lylraitHnr5rIdAHSEZtMNk=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=nuT1086/FaATtLmemWY7kOIECVttghSCc4222D9Ldf9XVKoYAoTvqQy3s/KaSB3IY
-	 81PTkl2QIEWMA6zZM6BI5P6wZfDYoF1AnzNc6SKBdP9JEwYsdeW9BGnfgPeU2TAYMl
-	 mCHCT8linYBKLN8VQ6+l7EsAKaRYomEfkzZXVL2D2/wgVXYHB8r0p5Ba4367zLL3Qb
-	 6gxNP4F/yPnPsjwUjcjOZ4VQsQAWdvLGCJ3nlwEq/DmgRfj8p9zNSWiQbxFq/XnPSF
-	 GYSfBHYuATnubYut9uyyOqywvuJ8UMNofpuPAQMWbh5Vsu1z5174dT8BfsZ4/JmvVq
-	 s0DtFT/+KuHBQ==
-Message-ID: <71cf8012-3b77-43de-b8ac-54c84a97f9d3@kernel.org>
-Date: Mon, 24 Feb 2025 11:12:13 +0100
+	s=k20201202; t=1740392129;
+	bh=nhdDyfK9oxoqYCHrduTPMT827OPl9ykkco5bv7xZgSA=;
+	h=Date:Subject:From:To:References:In-Reply-To:From;
+	b=R6VXbhArAIL0nOd/yzjC2LPNaSBbJVh1MqyuEm2Td41KdiWTRmLdfz5jIaAYerCb9
+	 v/mSewLO0bPVocrhhm1aJmH1OHW2vInZTnvK0O1NOzDmNX85C/6/eYyOi4xiLpq5ZU
+	 02Cc/N9DTkm2xyiN0UbkjPPit3lnwQWk9iVn9O19STk22WRTu8QXh+MrjBHIYBPzCh
+	 GVQgvokZ17V3vLBFo4kAO8A/g0q53cY68Jt40b2nOJkKihS1bWVzRQFYEOPJ1h7BKj
+	 tDY9mWasrp5ghGJp7hELvIJA6s2IXPVtq2TuThQDtheBiVnbP0ZtgUCCl/xS3jrK2A
+	 OPHLUNggY4RQA==
+Message-ID: <d5d90f03-3db8-4f90-baad-0be4f3d3e0ea@kernel.org>
+Date: Mon, 24 Feb 2025 11:15:23 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v9 2/3] reset: aspeed: register AST2700 reset auxiliary
  bus device
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Ryan Chen <ryan_chen@aspeedtech.com>,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
  <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
@@ -58,7 +59,7 @@ To: Ryan Chen <ryan_chen@aspeedtech.com>,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 References: <20250224095506.2047064-1-ryan_chen@aspeedtech.com>
  <20250224095506.2047064-3-ryan_chen@aspeedtech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <71cf8012-3b77-43de-b8ac-54c84a97f9d3@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -103,13 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250224095506.2047064-3-ryan_chen@aspeedtech.com>
+In-Reply-To: <71cf8012-3b77-43de-b8ac-54c84a97f9d3@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_021221_142772_C0B12903 
-X-CRM114-Status: UNSURE (   9.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250224_021530_130887_966A5A1E 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,64 +124,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/02/2025 10:55, Ryan Chen wrote:
-> +
-> +static void aspeed_reset_unregister_adev(void *_adev)
-> +{
-> +	struct auxiliary_device *adev = _adev;
-> +
-> +	auxiliary_device_delete(adev);
-> +	auxiliary_device_uninit(adev);
-> +}
-> +
-> +static void aspeed_reset_adev_release(struct device *dev)
-> +{
-> +	struct auxiliary_device *adev = to_auxiliary_dev(dev);
-> +
-> +	kfree(adev);
-> +}
-> +
+On 24/02/2025 11:12, Krzysztof Kozlowski wrote:
+> On 24/02/2025 10:55, Ryan Chen wrote:
+>> +
+>> +static void aspeed_reset_unregister_adev(void *_adev)
+>> +{
+>> +	struct auxiliary_device *adev = _adev;
+>> +
+>> +	auxiliary_device_delete(adev);
+>> +	auxiliary_device_uninit(adev);
+>> +}
+>> +
+>> +static void aspeed_reset_adev_release(struct device *dev)
+>> +{
+>> +	struct auxiliary_device *adev = to_auxiliary_dev(dev);
+>> +
+>> +	kfree(adev);
+>> +}
+>> +
+> 
+> Every exported function *must* have kerneldoc.
+> 
+>> +int aspeed_reset_controller_register(struct device *clk_dev, void __iomem *base,
+>> +				     const char *adev_name)
+>> +{
+>> +	struct auxiliary_device *adev;
+>> +	int ret;
+>> +
+>> +	adev = kzalloc(sizeof(*adev), GFP_KERNEL);
+>> +	if (!adev)
+>> +		return -ENOMEM;
+>> +
+>> +	adev->name = adev_name;
+>> +	adev->dev.parent = clk_dev;
+>> +	adev->dev.release = aspeed_reset_adev_release;
+>> +	adev->id = 666u;
+>> +
+>> +	ret = auxiliary_device_init(adev);
+>> +	if (ret) {
+>> +		kfree(adev);
+>> +		return ret;
+>> +	}
+>> +
+>> +	ret = auxiliary_device_add(adev);
+>> +	if (ret) {
+>> +		auxiliary_device_uninit(adev);
+>> +		return ret;
+>> +	}
+>> +
+>> +	adev->dev.platform_data = (__force void *)base;
+>> +
+>> +	return devm_add_action_or_reset(clk_dev, aspeed_reset_unregister_adev, adev);
+>> +}
+>> +EXPORT_SYMBOL_GPL(aspeed_reset_controller_register);
+> 
+> No, you cannot export functions without users. There is no single user
+> of this, so this is not justified at all.
+My mistake, I missed patch #3 which uses it.
 
-Every exported function *must* have kerneldoc.
-
-> +int aspeed_reset_controller_register(struct device *clk_dev, void __iomem *base,
-> +				     const char *adev_name)
-> +{
-> +	struct auxiliary_device *adev;
-> +	int ret;
-> +
-> +	adev = kzalloc(sizeof(*adev), GFP_KERNEL);
-> +	if (!adev)
-> +		return -ENOMEM;
-> +
-> +	adev->name = adev_name;
-> +	adev->dev.parent = clk_dev;
-> +	adev->dev.release = aspeed_reset_adev_release;
-> +	adev->id = 666u;
-> +
-> +	ret = auxiliary_device_init(adev);
-> +	if (ret) {
-> +		kfree(adev);
-> +		return ret;
-> +	}
-> +
-> +	ret = auxiliary_device_add(adev);
-> +	if (ret) {
-> +		auxiliary_device_uninit(adev);
-> +		return ret;
-> +	}
-> +
-> +	adev->dev.platform_data = (__force void *)base;
-> +
-> +	return devm_add_action_or_reset(clk_dev, aspeed_reset_unregister_adev, adev);
-> +}
-> +EXPORT_SYMBOL_GPL(aspeed_reset_controller_register);
-
-No, you cannot export functions without users. There is no single user
-of this, so this is not justified at all.
-
-
-
+I don't get why do you need to export this in the first place, instead
+of putting it in the clock driver, as usually expected. Handling child
+creation is logically the task of the device having children, the
+parent. Not the child.
 
 Best regards,
 Krzysztof
