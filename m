@@ -4,74 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 270E6C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 15:37:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED423C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 15:45:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j7xR4SiGV/Zsrl53/7fnJi2BlyWRQB9CJi1ByTsZgto=; b=eJkjymX+wwAyRSvNT+ghaxyBgP
-	m9UXAEsoyf11B7cpYc49Y03Ny4Cm0TCGAbF621qPfoiE1usv94+nDeT5TVHAlguNP4bHdCn4NhDK9
-	G0jME12E6PkfBoL5L2mun4s3VEJshoTovt0AdapDcaL7F8X/Ejzg234fdhly8nSz3M2oSMgLxSGx9
-	XKKN9Jb6S8h2LYbEwpDM3MWD94WPTYQE4LtHgVJv4iQI62c+v9h2sgM30CtH8COs9J/Um4r0wiZiX
-	EjJb2HF5uAUh65V74l8YDsebypnmX8QECY7LK/XehhKp25Z5OHjWQVv2S+eoqorfCG+UeprS/2ows
-	peSj1ttw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Oxqz3gPKLjUeq3RC+gzdPgb15H4SWpt1bnaDWPNbrFk=; b=Zxk+APOiHwVIN85PklNuuCcTAc
+	ALuYqSELN4BB+0kPvaGttnjGk243o3/q7Daz5MXbCignSY8wLURk7bj5wRdIznCJJaNvXFhOpNtC6
+	3upCUsrAnuSxaybUqAwNeT/+EcrEghTESQfFmCA+Ar7EsEok3N+O19BcietJ5CXGRLMqxR0C5n9Bn
+	YqWPN6I8DJyu5ojWAsCRMyyYN35PmlROZDrDciHq4ZsGwUqGiMJxGwSJTUcsC4LGWptVx4UT4qYa4
+	VE6tKyDEexr9dtl76m9oa0a8HCm3DJKMnTuN+jL2C7ONTPam4/E49fGc3kO9XrD0FuG+xcc1fy9IF
+	ysAa8PmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmaWF-0000000EIq8-1C8R;
-	Mon, 24 Feb 2025 15:37:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tmadv-0000000EKhW-1Vpa;
+	Mon, 24 Feb 2025 15:45:15 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmaAh-0000000EFJf-0BE0
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 24 Feb 2025 15:15:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=j7xR4SiGV/Zsrl53/7fnJi2BlyWRQB9CJi1ByTsZgto=; b=aNVWvxTTxn3MuxdYt40BbovXSi
-	CNR6Z44+LAyQgF1gKy5aI1nCspJ0lg5HnZc4od4EfLtv8m5u1xP6jL2Xzi19pkqTf5DV47q7ZVw0o
-	sWRagjeHLlmhnDe1Wtjo4m1w4SAF21uCt3fPAseXveF+asmxrNWgrbTsx3jYqVPVRZPDO+BK01Sbq
-	bgdfYZz58QnaLpdhO+YW6P82ABC9Pst1Vw1q9OSxm2X8bE+J6b10F0l4UHt6SiDZ7jR2WJaIb7f2i
-	g435kTM22gGFSjU9z/hmnom5csgqRJEbX5hw9Pd4aTOY9REuDbXOlUoj0A/zhD1hATKLir1tkXFUc
-	PpQmGEOQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmaAd-00000003DZ9-3pfg
+	id 1tmaa8-0000000EK5o-3qG1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 15:15:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 22BAF26B9;
-	Mon, 24 Feb 2025 07:15:14 -0800 (PST)
-Received: from e132581.cambridge.arm.com (e132581.arm.com [10.2.76.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B2FAA3F6A8;
-	Mon, 24 Feb 2025 07:14:55 -0800 (PST)
-From: Leo Yan <leo.yan@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v1 7/8] Documentation: coresight: Document AUX pause and resume
-Date: Mon, 24 Feb 2025 15:14:22 +0000
-Message-Id: <20250224151423.1630639-8-leo.yan@arm.com>
+	Mon, 24 Feb 2025 15:41:22 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51OEbN9K024048;
+	Mon, 24 Feb 2025 16:41:09 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	Oxqz3gPKLjUeq3RC+gzdPgb15H4SWpt1bnaDWPNbrFk=; b=AXuLvM9NvN0vF00u
+	7VubzQtmXCWHOsUfmf7T3u36wVfJutSO+B5jQdJtEX25CFt0FfwPTigpguZ7+aYt
+	VqPzc/Qo+Cgc8/E2W7Vm8ng0/E96V3WJbNEd/AczmzMN8Di7qaymzdD8gLxMRshU
+	MdUkEgKa8kI4afz5L7DVNs510Z34owrJEhu17+JgchCPo+9OIJktaE4xcSFzVa/z
+	Yl2wuAAPwcb9Gcm5fK/aUMMDb4HGiONS9GI9DDX5ZN8O5PFLpL7RcisO3bnARPb0
+	9pK0SoJkKmeKIrcsTK0mUucpOobrxms8wImdX7TmDREYKj+3KWHJMHF30v60oVNZ
+	yBggYg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44ytdn5q6s-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 24 Feb 2025 16:41:09 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 87B1540045;
+	Mon, 24 Feb 2025 16:39:49 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 2F39D540347;
+	Mon, 24 Feb 2025 16:35:22 +0100 (CET)
+Received: from localhost (10.129.178.212) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 24 Feb
+ 2025 16:35:21 +0100
+From: Christian Bruel <christian.bruel@foss.st.com>
+To: <christian.bruel@foss.st.com>, <lpieralisi@kernel.org>, <kw@linux.com>,
+        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
+        <bhelgaas@google.com>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+        <p.zabel@pengutronix.de>, <johan+linaro@kernel.org>,
+        <cassel@kernel.org>, <quic_schintav@quicinc.com>
+CC: <fabrice.gasnier@foss.st.com>, <linux-pci@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v5 6/9] arm64: dts: st: add PCIe pinctrl entries in stm32mp25-pinctrl.dtsi
+Date: Mon, 24 Feb 2025 16:33:10 +0100
+Message-ID: <20250224153313.3416318-7-christian.bruel@foss.st.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250224151423.1630639-1-leo.yan@arm.com>
-References: <20250224151423.1630639-1-leo.yan@arm.com>
+In-Reply-To: <20250224153313.3416318-1-christian.bruel@foss.st.com>
+References: <20250224153313.3416318-1-christian.bruel@foss.st.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.129.178.212]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-24_06,2025-02-24_02,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_151500_339457_89665BD8 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20250224_074121_244908_0406337B 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,76 +98,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds description for AUX pause and resume.  It gives introduction
-for what's AUX pause and resume and how to use the configuration terms.
-As last, it records several usage examples.
+Add PCIe pinctrl entries in stm32mp25-pinctrl.dtsi
+init: forces GPIO to low while probing so CLKREQ is low for
+phy_init
+default: restore the AFMUX after controller probe
 
-Signed-off-by: Leo Yan <leo.yan@arm.com>
+Add Analog pins of PCIe to perform power cycle
+
+Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
 ---
- .../trace/coresight/coresight-perf.rst        | 50 +++++++++++++++++++
- 1 file changed, 50 insertions(+)
+ arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi | 20 +++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
-diff --git a/Documentation/trace/coresight/coresight-perf.rst b/Documentation/trace/coresight/coresight-perf.rst
-index d087aae7d492..c49aa05c51eb 100644
---- a/Documentation/trace/coresight/coresight-perf.rst
-+++ b/Documentation/trace/coresight/coresight-perf.rst
-@@ -78,6 +78,56 @@ enabled like::
+diff --git a/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi b/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
+index 8fdd5f020425..f0d814bc7c60 100644
+--- a/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
+@@ -82,6 +82,26 @@ pins {
+ 		};
+ 	};
  
- Please refer to the kernel configuration help for more information.
- 
-+Fine-grained tracing with AUX pause and resume
-+----------------------------------------------
++	pcie_pins_a: pcie-0 {
++		pins {
++			pinmux = <STM32_PINMUX('J', 0, AF4)>;
++			bias-disable;
++		};
++	};
 +
-+Arm CoreSight may generate a large amount of hardware trace data, which
-+will lead to overhead in recording and distract users when reviewing
-+profiling result. To mitigate the issue of excessive trace data, Perf
-+provides AUX pause and resume functionality for fine-grained tracing.
++	pcie_init_pins_a: pcie-init-0 {
++		pins {
++			pinmux = <STM32_PINMUX('J', 0, GPIO)>;
++			output-low;
++		};
++	};
 +
-+The AUX pause and resume can be triggered by associated events. These
-+events can be ftrace tracepoints (including static and dynamic
-+tracepoints) or PMU events (e.g. CPU PMU cycle event). To create a perf
-+session with AUX pause / resume, three configuration terms are
-+introduced:
++	pcie_sleep_pins_a: pcie-sleep-0 {
++		pins {
++			pinmux = <STM32_PINMUX('J', 0, ANALOG)>;
++		};
++	};
 +
-+- "aux-action=start-paused": it is specified for the cs_etm PMU event to
-+  launch in a paused state.
-+- "aux-action=pause": an associated event is specified with this term
-+  to pause AUX trace.
-+- "aux-action=resume": an associated event is specified with this term
-+  to resume AUX trace.
-+
-+Some Arm CoreSight sinks (e.g., ETR, ETB) do not support interrupt
-+mechanism. As a result, trace data might be lost if it cannot be copied
-+to the user space tool in a timely manner. To mitigate trace data lose,
-+a configuration term "update_buf_on_pause" can be used for the cs_etm
-+PMU event. As its name suggests, it directs the driver to update the
-+buffer when the AUX trace is paused. By default, this feature is
-+disabled until users explicitly specify "update_buf_on_pause=1".
-+
-+TRBE has interrupt handling.  To avoid the race condition between the
-+AUX pause or resume invoked in NMI and TRBE interrupt handler, the
-+driver reports a failure if users try to use "update_buf_on_pause=1" on
-+TRBE.
-+
-+Example for triggering AUX pause and resume with ftrace tracepoints::
-+
-+  perf record -e cs_etm/aux-action=start-paused/k,syscalls:sys_enter_openat/aux-action=resume/,syscalls:sys_exit_openat/aux-action=pause/ ls
-+
-+Example for triggering AUX pause and resume with PMU event::
-+
-+  perf record -a -e cs_etm/aux-action=start-paused/k \
-+        -e cycles/aux-action=pause,period=10000000/ \
-+        -e cycles/aux-action=resume,period=1050000/ -- sleep 1
-+
-+Example for updating buffer on AUX pause::
-+
-+  perf record -a -e cs_etm/aux-action=start-paused,update_buf_on_pause=1/ \
-+        -e cycles/aux-action=pause,period=10000000/ \
-+        -e cycles/aux-action=resume,period=1050000/ -- sleep 1
-+
- Perf test - Verify kernel and userspace perf CoreSight work
- -----------------------------------------------------------
- 
+ 	sdmmc1_b4_pins_a: sdmmc1-b4-0 {
+ 		pins1 {
+ 			pinmux = <STM32_PINMUX('E', 4, AF10)>, /* SDMMC1_D0 */
 -- 
 2.34.1
 
