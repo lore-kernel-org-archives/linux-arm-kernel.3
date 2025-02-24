@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CBFEC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 11:06:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB52C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 11:07:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LFDDG0bzVeUwVsmz5oZSsU8N6jVfSq3txeScA6ReLW0=; b=yaI4cSBX9k3LW1DUCuxHCQILp8
-	4JEuyI9pg78sXxJTykrZuBTq8gaw/u8Fg8bWAuy+tzZ1xtN+sjiVpjAqcpB8ploK5wfBpZgjaG20Z
-	XI4E0+qQ6ZqTtM9L1Q5LITJQ/7uoVE90KCvBIntSobBVCHSSWqK42kV4ZCfY1JE8YpxKJ8xCl6N3U
-	ZTPCLvrdId7hCpVCCcDd4ZZGPilDT2bKx+AWhyD9Z5byBC6cbHA9yoOT++pDRPO7mdCppv7IRX6B6
-	g6d3k7wF/IEH3R0szLPa9Rz+Ej01SRhk5dMG6PbUfa3gWch7lGh9+DDGq0QghnlYdgTVbf8+Bt0m0
-	1XQ8Kj2w==;
+	bh=fyyQn04qSJgYSD1sA7lC3ArSUrMY9LCBhg2ySpWehL4=; b=uiN/CGQpVVmKZO6KvvQwmLUMKh
+	wn0tSSHrE0wx3Pswv9XXHi9FnTQsgu91f9SIsWw/WxvxpKQXUAUZ7PXJJF7BsgmotKVRHTbqPY9PE
+	2MDQQzBnSidiYI/upWGdrrJWDiH4+N6WgYR/yioRBZNSxKE2jhuOWlxSyZGgKkZbTRZie/ZL5CVwv
+	z8REBZhWYVNQnUSdYxqYxOBTEMk2oYWcwYVn5uO03a5UGqB+elc37/DaQU4rXBQMhQwVDaO1TnOdm
+	g+ibcqxEYmcZgIc027nz5/T9BCqL5USt7TBrzORy/LC3iHXRVyklMj3nClGb3x/uMnclFFCmHm5En
+	zllngLeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmWHV-0000000DH9H-3PZN;
-	Mon, 24 Feb 2025 11:05:49 +0000
+	id 1tmWIy-0000000DHTk-25Bl;
+	Mon, 24 Feb 2025 11:07:20 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmWD8-0000000DGAM-2PrG
+	id 1tmWD8-0000000DGA4-1xJw
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 24 Feb 2025 11:01:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A3CD05C657E;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7175C5C6579;
 	Mon, 24 Feb 2025 11:00:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id F3963C4CEEC;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id DFEA7C4CEE9;
 	Mon, 24 Feb 2025 11:01:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740394877;
-	bh=eERR3miXDmPoZPUvazmB4D07WYuPXpsErlKPDcu9knc=;
+	s=k20201202; t=1740394876;
+	bh=3WCeHKUquon5irHUJD4jzhZkUaSii5krx8N1K9lpJEs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=dKw0tf3qLINbMvfmtT2SgAFBG/9CHYXI8aSTLtzxdk6OX9rbrS6HqewXsRLkB/wat
-	 WkLmpYfnLmcAVwszFyeiL8pV2OKozbCSe1wwRZrsxcOuNiQyK54EvQX0tXdIFwPJLP
-	 sFDyuDxVw5R5bNh+cuMZK7aWaEt0RTGX1tuuu+gUGmr2IZHXAfO7RpSLnkwMXX2Ff0
-	 MRkaNQYHG+qYqJVTOH/6zHnVwv/0ShnWkVwccQe1llQivV6WDa2NUBLJ+ULoOkLygg
-	 sg1INqvgLByHQRUKXtwDhzXJARfXPBAhrLDptu51qpqPJNv4yrbWpYaOT1XPeuUzXB
-	 mCNOgEJcsESKA==
+	b=D4zBdgvRQCmbgxUuwKQex8rzb8YJuhsTOKVn/VBtmQ0FiYagGnLdwxuvVRaF4TeMU
+	 LqJYVrKA41B1v3fFC3EZyt5ZbtLxdiwZOYnBev2IRFYGuxXRaU2CbRTrMDVqyhoyzw
+	 3f13fa4kywyxui0ZkGxqP1C40sr4Hu6rLoi0qz2jytScrs/0Cc6Aro+2RtKgbh8A0c
+	 r44XSQobNnS1i3kTIGTkh0OIqBUoOkQX6Kr7qHUTzic/Wu1bwrZoXLXaiq4ey32cOz
+	 XcEhg2BQGNs/Mb+T5zX5sTG1s+1xiZwZomzLo1QiYugvcKVRCfRtrqB+IE590oDEjL
+	 hbkdq0oapEdBw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EA1C9C021B9;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CE816C021A6;
 	Mon, 24 Feb 2025 11:01:16 +0000 (UTC)
 From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
-Date: Mon, 24 Feb 2025 12:01:11 +0100
-Subject: [PATCH v7 3/4] arm64: dts: apple: Add touchbar digitizer nodes
+Date: Mon, 24 Feb 2025 12:01:09 +0100
+Subject: [PATCH v7 1/4] dt-bindings: input: touchscreen: Add Z2 controller
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250224-z2-v7-3-2746f2bd07d0@gmail.com>
+Message-Id: <20250224-z2-v7-1-2746f2bd07d0@gmail.com>
 References: <20250224-z2-v7-0-2746f2bd07d0@gmail.com>
 In-Reply-To: <20250224-z2-v7-0-2746f2bd07d0@gmail.com>
 To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
@@ -62,21 +62,22 @@ To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Sasha Finkelstein <fnkl.kernel@gmail.com>, 
- Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ Neal Gompa <neal@gompa.dev>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1740394875; l=5236;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1740394875; l=2558;
  i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
- bh=pO6QvHypFPEWULVv91eQJ5BCrneBWG97gpW2e4dJtPE=;
- b=h2RF3AgAFXxAZwxA+62fORZ5pKyui9Mt2YIoWuLN+zx3PvM48P1LgKOChAE1otOdgZlFr3UNR
- 9dO+PqB3/c0BFySjmNOss6I5Aiz93nNTX9+RiXsq9cmJ4WzdKm6GoFe
+ bh=YsJBZIlUWueL847WfE8oTE2SBEqURcyodFewZWJ1ffc=;
+ b=VDrQ81shtQtkLggsNGLzhJX1bELrail/rynND+4lXftYyxvE4uNd/+/B+/KSr6uq3KKS/UnYQ
+ bwtjV32DoGaBsF9lmsCa63oXUTkO83H1cim18EO0Vs0PaE5ECqnViUI
 X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
  pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
  auth_id=283
 X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_030118_731862_2643A119 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20250224_030118_619880_70D2183A 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,164 +95,92 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 
-Adds device tree entries for the touchbar digitizer
+Add bindings for touchscreen controllers attached using the Z2 protocol.
+Those are present in most Apple devices.
 
-Co-developed-by: Janne Grunau <j@jannau.net>
-Signed-off-by: Janne Grunau <j@jannau.net>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Reviewed-by: Neal Gompa <neal@gompa.dev>
-Acked-by: Sven Peter <sven@svenpeter.dev>
 Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
 ---
- arch/arm64/boot/dts/apple/t8103-j293.dts | 27 +++++++++++++++++++++++++++
- arch/arm64/boot/dts/apple/t8103.dtsi     | 19 +++++++++++++++++++
- arch/arm64/boot/dts/apple/t8112-j493.dts | 23 +++++++++++++++++++++++
- arch/arm64/boot/dts/apple/t8112.dtsi     | 14 ++++++++++++++
- 4 files changed, 83 insertions(+)
+ .../input/touchscreen/apple,z2-multitouch.yaml     | 70 ++++++++++++++++++++++
+ 1 file changed, 70 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/apple/t8103-j293.dts b/arch/arm64/boot/dts/apple/t8103-j293.dts
-index 56b0c67bfcda321b60c621de092643017693ff91..0a93d3891c23da8b8c77dce64001caacb69ee140 100644
---- a/arch/arm64/boot/dts/apple/t8103-j293.dts
-+++ b/arch/arm64/boot/dts/apple/t8103-j293.dts
-@@ -17,6 +17,14 @@ / {
- 	compatible = "apple,j293", "apple,t8103", "apple,arm-platform";
- 	model = "Apple MacBook Pro (13-inch, M1, 2020)";
- 
-+	/*
-+	 * All of those are used by the bootloader to pass calibration
-+	 * blobs and other device-specific properties
-+	 */
-+	aliases {
-+		touchbar0 = &touchbar0;
-+	};
+diff --git a/Documentation/devicetree/bindings/input/touchscreen/apple,z2-multitouch.yaml b/Documentation/devicetree/bindings/input/touchscreen/apple,z2-multitouch.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..402ca6bffd3473a1a889ced7890e9836e6a76e45
+--- /dev/null
++++ b/Documentation/devicetree/bindings/input/touchscreen/apple,z2-multitouch.yaml
+@@ -0,0 +1,70 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/input/touchscreen/apple,z2-multitouch.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- 	led-controller {
- 		compatible = "pwm-leds";
- 		led-0 {
-@@ -49,3 +57,22 @@ &i2c4 {
- &fpwm1 {
- 	status = "okay";
- };
++title: Apple touchscreens attached using the Z2 protocol
 +
-+&spi0 {
-+	cs-gpios = <&pinctrl_ap 109 GPIO_ACTIVE_LOW>;
-+	status = "okay";
++maintainers:
++  - Sasha Finkelstein <fnkl.kernel@gmail.com>
 +
-+	touchbar0: touchbar@0 {
-+		compatible = "apple,j293-touchbar";
-+		reg = <0>;
-+		spi-max-frequency = <11500000>;
-+		spi-cs-setup-delay-ns = <2000>;
-+		spi-cs-hold-delay-ns = <2000>;
-+		reset-gpios = <&pinctrl_ap 139 GPIO_ACTIVE_LOW>;
-+		interrupts-extended = <&pinctrl_ap 194 IRQ_TYPE_EDGE_FALLING>;
-+		firmware-name = "apple/dfrmtfw-j293.bin";
-+		touchscreen-size-x = <23045>;
-+		touchscreen-size-y = <640>;
-+		touchscreen-inverted-y;
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/apple/t8103.dtsi b/arch/arm64/boot/dts/apple/t8103.dtsi
-index 9b0dad6b618444ac6b1c9735c50cccfc3965f947..dc72aae3844bf33579f623f0b01abc7de4033af4 100644
---- a/arch/arm64/boot/dts/apple/t8103.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8103.dtsi
-@@ -326,6 +326,13 @@ clkref: clock-ref {
- 		clock-output-names = "clkref";
- 	};
- 
-+	clk_200m: clock-200m {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <200000000>;
-+		clock-output-names = "clk_200m";
-+	};
++description: A series of touschscreen controllers used in Apple products
 +
- 	/*
- 	 * This is a fabulated representation of the input clock
- 	 * to NCO since we don't know the true clock tree.
-@@ -441,6 +448,18 @@ fpwm1: pwm@235044000 {
- 			status = "disabled";
- 		};
- 
-+		spi0: spi@235100000 {
-+			compatible = "apple,t8103-spi", "apple,spi";
-+			reg = <0x2 0x35100000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 614 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk_200m>;
-+			power-domains = <&ps_spi0>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled"; /* only used in J293 */
-+		};
++allOf:
++  - $ref: touchscreen.yaml#
++  - $ref: /schemas/spi/spi-peripheral-props.yaml#
 +
- 		serial0: serial@235200000 {
- 			compatible = "apple,s5l-uart";
- 			reg = <0x2 0x35200000 0x0 0x1000>;
-diff --git a/arch/arm64/boot/dts/apple/t8112-j493.dts b/arch/arm64/boot/dts/apple/t8112-j493.dts
-index 0ad908349f55406783942735a2e9dad54cda00ec..045bd0716cb7d20c1379ebc1e3ff7f4d0dddc179 100644
---- a/arch/arm64/boot/dts/apple/t8112-j493.dts
-+++ b/arch/arm64/boot/dts/apple/t8112-j493.dts
-@@ -17,8 +17,13 @@ / {
- 	compatible = "apple,j493", "apple,t8112", "apple,arm-platform";
- 	model = "Apple MacBook Pro (13-inch, M2, 2022)";
- 
-+	/*
-+	 * All of those are used by the bootloader to pass calibration
-+	 * blobs and other device-specific properties
-+	 */
- 	aliases {
- 		bluetooth0 = &bluetooth0;
-+		touchbar0 = &touchbar0;
- 		wifi0 = &wifi0;
- 	};
- 
-@@ -67,3 +72,21 @@ &i2c4 {
- &fpwm1 {
- 	status = "okay";
- };
++properties:
++  compatible:
++    enum:
++      - apple,j293-touchbar
++      - apple,j493-touchbar
 +
-+&spi3 {
-+	status = "okay";
++  interrupts:
++    maxItems: 1
 +
-+	touchbar0: touchbar@0 {
-+		compatible = "apple,j493-touchbar";
-+		reg = <0>;
-+		spi-max-frequency = <8000000>;
-+		spi-cs-setup-delay-ns = <2000>;
-+		spi-cs-hold-delay-ns = <2000>;
-+		reset-gpios = <&pinctrl_ap 170 GPIO_ACTIVE_LOW>;
-+		interrupts-extended = <&pinctrl_ap 174 IRQ_TYPE_EDGE_FALLING>;
-+		firmware-name = "apple/dfrmtfw-j493.bin";
-+		touchscreen-size-x = <23045>;
-+		touchscreen-size-y = <640>;
-+		touchscreen-inverted-y;
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
-index 1666e6ab250bc0be9b8318e3c8fc903ccd3f3760..bb6c9e769c65330a32a3c7aa2f074c1f63e195fd 100644
---- a/arch/arm64/boot/dts/apple/t8112.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8112.dtsi
-@@ -467,6 +467,20 @@ fpwm1: pwm@235044000 {
- 			status = "disabled";
- 		};
- 
-+		spi3: spi@23510c000 {
-+			compatible = "apple,t8112-spi", "apple,spi";
-+			reg = <0x2 0x3510c000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 751 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clkref>;
-+			pinctrl-0 = <&spi3_pins>;
-+			pinctrl-names = "default";
-+			power-domains = <&ps_spi3>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled"; /* only used in J493 */
-+		};
++  reset-gpios:
++    maxItems: 1
 +
- 		serial0: serial@235200000 {
- 			compatible = "apple,s5l-uart";
- 			reg = <0x2 0x35200000 0x0 0x1000>;
++  firmware-name:
++    maxItems: 1
++
++  apple,z2-cal-blob:
++    $ref: /schemas/types.yaml#/definitions/uint8-array
++    maxItems: 4096
++    description:
++      Calibration blob supplied by the bootloader
++
++required:
++  - compatible
++  - interrupts
++  - reset-gpios
++  - firmware-name
++  - touchscreen-size-x
++  - touchscreen-size-y
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/gpio/gpio.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    spi {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        touchscreen@0 {
++            compatible = "apple,j293-touchbar";
++            reg = <0>;
++            spi-max-frequency = <11500000>;
++            reset-gpios = <&pinctrl_ap 139 GPIO_ACTIVE_LOW>;
++            interrupts-extended = <&pinctrl_ap 194 IRQ_TYPE_EDGE_FALLING>;
++            firmware-name = "apple/dfrmtfw-j293.bin";
++            touchscreen-size-x = <23045>;
++            touchscreen-size-y = <640>;
++        };
++    };
++
++...
 
 -- 
 2.48.1
