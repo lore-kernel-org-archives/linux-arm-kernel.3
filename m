@@ -4,83 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6615FC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 10:13:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66BACC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 10:15:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i3m4melpCnWzZDkoEQyxDqJTJzU6ez2FlTtIyhuPHGY=; b=qoj7qYt7se32org8CVticwYsmo
-	EvSRGo1j2yI5joRCmEUAmp0ci90v+furyt4lJ9ur4OV0zU/8u8xVS58e1UpY65ni4zd50pXwAtFpH
-	4tA4UZ8/TMBx44Sr2bz0ASxRjkvN/RkoNCluHjzJbczpqtsQApdIvKG5Z7WnGgUWzwh+2Mxz8gWfw
-	tAhfZyqMQD8oLH+XYUoLajQW0RzmnTW6U+oxeZAzPv4FitwZ6oVgkBReZGCa5YLjMZmkVDUGtvkFX
-	O77CJEULWmlfJyDJvrPZIYtNFd+z4hwf2me5cgK9CZiLFbmY12AkBSMK/fhDtBltIzcsGoteyD8x2
-	8rpui1Pw==;
+	bh=o+NnDWz7oBI1YtiddzmyQpVn1kltzcu0nc0w6fnctHQ=; b=AEGN/xyG1STjoDLs5MPK9IE/p+
+	alssryykYA8HcZaidJv4DilfBNqofLNJjr+uqM/GpN/7hetrJfKGPdwAAPQ+MukOqgeGn0yYcXrw/
+	kYl0pL3cJrAgktQZUTEfcQ39ZB3ARlKgFy+nZ1TF7CtMOq11tx+5T1PAEkJVvg6OD1yHJ8dze8w0M
+	8LasoNmleCCkPw9mhJ9sno90OCmZRrFUlipBUNZWbSr+ZJvqcCUuLmpHGTZVoMcfXgSnrh6NL3yH1
+	YeLIzLOvvU4OdnsXA9+tDLzdXr/p0CYA3j0nKZzPB+HWsonziG9k+XHS8OksDg/Gjqakxow9hUlL5
+	kgueJnmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmVSm-0000000D4cG-3dal;
-	Mon, 24 Feb 2025 10:13:24 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1tmVUE-0000000D4un-2arW;
+	Mon, 24 Feb 2025 10:14:54 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmVJG-0000000D2Fl-0GZh
+	id 1tmVKr-0000000D2kU-0xFx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 10:03:35 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-548430564d9so1810906e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 02:03:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1740391411; x=1740996211; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=i3m4melpCnWzZDkoEQyxDqJTJzU6ez2FlTtIyhuPHGY=;
-        b=gk+PRdUMRcRk02lSFGltnkqY8SW9FlfCxxl+2a5YGkKffy5v52NSGDSEPvOdCNzHC0
-         L/hA2rgGRhu9eHXGIGnAL0mPWpnuMx49ot//TpPOLR4eMPIGb/Wu/wqt5JDWI6AvJX3d
-         KpwQldNhtBFo5polKNR/FVOuJNTyixkvJaokc=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740391411; x=1740996211;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=i3m4melpCnWzZDkoEQyxDqJTJzU6ez2FlTtIyhuPHGY=;
-        b=IA168sPZSaKtTTzsiWge2SG//OJxyebJlvtZLpqwFgasPbMxDBBDMQkYT44tYJdIQo
-         Nm7Vxg5g7lKHQGEmzxq+BxAQ7eV39IK+xpCLJ4J9kkoPu6z5kMqM//E7VMFdyqFF1dsB
-         0jTwnkBoELdAyT4BUCxT9SDdNjnmmpr06xQL/w6CCgi0xjkYO/RdLbUCY+85PXccpMMI
-         JLp55MROYkaKxHSDIRIjIIiJTHAm8ewTrw2pCuDuiWj9lBJxN8qFnc5ab7njescaGXY+
-         0mhIy6SZT682hUcE1q1C8ky3TMvMUcYfGc/aYy3MSneSY2+9++Fp4Td4DafwLPhR30UJ
-         qQVw==
-X-Forwarded-Encrypted: i=1; AJvYcCXzqAB75VOWBntLg3AV1ofFZGnbPAGwbS1W7nLJ8+XGn7Bf0DF6bfyX8HeKkRRRwpvK0aY1EFsHO9+JyzcUadAs@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpGhzblBcGZxRPvKviloBKrnsDPGGGYVhwPbsfm2qNt79vih95
-	1uy7AGLPCVvCdAJVfxeC9PIT4MMdalRtvOtdMUCCGq1Jbd9B+gt50kmPl43V0A11V4xnCfnbX5S
-	fBOEdqj8I3Hfjuj2pOFO37F40exQY+4gbJ+ic
-X-Gm-Gg: ASbGncvEwlSQjRpdYRp1JmNImBRZH9uZu4cCRJRZAvsI1zFRGUo2zC9HcvhPn0egcpt
-	Sxai098imQAquMTboc7lKhGP5nDbfQSeAYS+4hqwBIxh4rQdqu+vux0hyIZsZZQjw4V0wURr5Bn
-	Tejt+NXZ1Te4Hvvcd80/KxO7PtiQFCAp5waZA=
-X-Google-Smtp-Source: AGHT+IH+opPQW01wmcpoFizx1l90WyOFRxctvcV9XH9wP9MyBr4k33vvvZ5yfnEZS/CIdmIFOBzQKToLr4utqj99bzA=
-X-Received: by 2002:a05:6512:b1f:b0:545:8a1:5377 with SMTP id
- 2adb3069b0e04-54839129b32mr3995806e87.2.1740391411500; Mon, 24 Feb 2025
- 02:03:31 -0800 (PST)
+	Mon, 24 Feb 2025 10:05:14 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51O9SPhl009637;
+	Mon, 24 Feb 2025 10:05:01 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	o+NnDWz7oBI1YtiddzmyQpVn1kltzcu0nc0w6fnctHQ=; b=YsIxDEUgMkxCEgv2
+	XDQMPRnwc+AAJ4sB+0UwF4mm49EypwqI4vDWo+4klt+BG4tNNjJ9vCi9xWIFOd4i
+	VNfJFS1kRkdNv8aEkEJ99ol8F3i7ot/5cHGxcgD/tlzBhRPAjhO6hMmI9PugMe/D
+	FUk+RYfnABc/dNcpqB05KOJEBQbmgXSleg95qsPrT8m25eEmYccNpK0hmh0mWy4d
+	L+aBxVkls4fp+LDwfvKR/dAc6Z2gS/KfkTekd43adsSdozLoi0sqGwOk4jJZxa6X
+	ZkRtKbBBVb3GBoglnApq4ryVBXz5Brc4AkvP6fNThz/wntphwu02a+N11WDxXmOy
+	wNFVMw==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44y5k64qp5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 24 Feb 2025 10:05:00 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51OA4wik012595
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 24 Feb 2025 10:04:58 GMT
+Received: from [10.133.33.32] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 24 Feb
+ 2025 02:04:52 -0800
+Message-ID: <a7b301b5-bd9b-4b50-9299-e44a78fcf5a8@quicinc.com>
+Date: Mon, 24 Feb 2025 18:04:49 +0800
 MIME-Version: 1.0
-References: <20250220105514.43107-1-angelogioacchino.delregno@collabora.com> <20250220105514.43107-3-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20250220105514.43107-3-angelogioacchino.delregno@collabora.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Mon, 24 Feb 2025 18:03:20 +0800
-X-Gm-Features: AWEUYZlFd5lIJJaJ8GXCoFcPly7FtrF4vnwbpBvHnY7fIIWUD-kvOn2uGY2D4Ss
-Message-ID: <CAGXv+5E-mrt2o=b_nxmCdJqX9XbOhWsS+pLzkApS57EKD6kHEA@mail.gmail.com>
-Subject: Re: [PATCH v3 2/3] arm64: dts: mediatek: mt8188: Add MTU3 nodes and
- correctly describe USB
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunfeng.yun@mediatek.com, gregkh@linuxfoundation.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
-	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, kernel@collabora.com, pablo.sun@mediatek.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 6/7] Coresight: Add Coresight TMC Control Unit driver
+To: James Clark <james.clark@linaro.org>,
+        Suzuki K Poulose
+	<suzuki.poulose@arm.com>
+CC: Tingwei Zhang <quic_tingweiz@quicinc.com>,
+        Jinlong Mao
+	<quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+References: <20250217093024.1133096-1-quic_jiegan@quicinc.com>
+ <20250217093024.1133096-7-quic_jiegan@quicinc.com>
+ <35d1a923-4e8e-4fe2-bf4a-0b78b1d511e3@arm.com>
+ <a594bdee-7d9e-4d79-a5ee-a34dafa2869f@quicinc.com>
+ <37cb0da5-fcca-41e0-95d8-280fd95541c9@linaro.org>
+Content-Language: en-US
+From: Jie Gan <quic_jiegan@quicinc.com>
+In-Reply-To: <37cb0da5-fcca-41e0-95d8-280fd95541c9@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: yRCbNNO2dspxjWDc1I3Ku7oab6hn7Lyl
+X-Proofpoint-GUID: yRCbNNO2dspxjWDc1I3Ku7oab6hn7Lyl
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-24_04,2025-02-24_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 adultscore=0
+ bulkscore=0 spamscore=0 phishscore=0 clxscore=1015 impostorscore=0
+ mlxlogscore=999 suspectscore=0 priorityscore=1501 mlxscore=0
+ lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2502100000 definitions=main-2502240073
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_020334_110563_4FBEDAF4 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20250224_020513_396228_D9F15BDA 
+X-CRM114-Status: GOOD (  38.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,343 +120,315 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 20, 2025 at 7:00=E2=80=AFPM AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
->
-> The MT8188 SoC has three USB controllers, and all of them are behind
-> the MTU3 DRD controller.
->
-> Add the missing MTU3 nodes, default disabled, for all USB controllers
-> and move the related XHCI nodes to be children of their MTU3 DRD to
-> correctly describe the SoC.
->
-> In order to retain USB functionality on all of the MT8188 and MT8390
-> boards, also move the vusb33 supply and enable the relevant MTU3 nodes
-> with special attention to the MT8188 Geralt Chromebooks, where it was
-> necessary to set the dr_mode of all MTU3 controllers to host to avoid
-> interfering with the EC performing DRD on its own.
->
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
-abora.com>
 
-Tested-by: Chen-Yu Tsai <wenst@chromium.org> # on MT8188 Ciri
 
-> ---
->  .../boot/dts/mediatek/mt8188-geralt.dtsi      |  18 +++
->  arch/arm64/boot/dts/mediatek/mt8188.dtsi      | 121 ++++++++++++------
->  .../dts/mediatek/mt8390-genio-common.dtsi     |  28 ++++
->  3 files changed, 125 insertions(+), 42 deletions(-)
+On 2/24/2025 5:53 PM, James Clark wrote:
+> 
+> 
+> On 24/02/2025 3:32 am, Jie Gan wrote:
+>>
+>>
+>> On 2/21/2025 7:39 PM, Suzuki K Poulose wrote:
+>>> On 17/02/2025 09:30, Jie Gan wrote:
+>>>> The Coresight TMC Control Unit hosts miscellaneous configuration 
+>>>> registers
+>>>> which control various features related to TMC ETR sink.
+>>>>
+>>>> Based on the trace ID, which is programmed in the related CTCU ATID
+>>>> register of a specific ETR, trace data with that trace ID gets into
+>>>> the ETR buffer, while other trace data gets dropped.
+>>>>
+>>>> Enabling source device sets one bit of the ATID register based on
+>>>> source device's trace ID.
+>>>> Disabling source device resets the bit according to the source
+>>>> device's trace ID.
+>>>>
+>>>> Reviewed-by: James Clark <james.clark@linaro.org>
+>>>> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
+>>>> ---
+>>>>   drivers/hwtracing/coresight/Kconfig          |  12 +
+>>>>   drivers/hwtracing/coresight/Makefile         |   1 +
+>>>>   drivers/hwtracing/coresight/coresight-ctcu.c | 268 +++++++++++++++ 
+>>>> ++++
+>>>>   drivers/hwtracing/coresight/coresight-ctcu.h |  24 ++
+>>>>   include/linux/coresight.h                    |   3 +-
+>>>>   5 files changed, 307 insertions(+), 1 deletion(-)
+>>>>   create mode 100644 drivers/hwtracing/coresight/coresight-ctcu.c
+>>>>   create mode 100644 drivers/hwtracing/coresight/coresight-ctcu.h
+>>>>
+>>>> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/ 
+>>>> hwtracing/ coresight/Kconfig
+>>>> index 06f0a7594169..ecd7086a5b83 100644
+>>>> --- a/drivers/hwtracing/coresight/Kconfig
+>>>> +++ b/drivers/hwtracing/coresight/Kconfig
+>>>> @@ -133,6 +133,18 @@ config CORESIGHT_STM
+>>>>         To compile this driver as a module, choose M here: the
+>>>>         module will be called coresight-stm.
+>>>> +config CORESIGHT_CTCU
+>>>> +    tristate "CoreSight TMC Control Unit driver"
+>>>> +    depends on CORESIGHT_LINK_AND_SINK_TMC
+>>>> +    help
+>>>> +      This driver provides support for CoreSight TMC Control Unit
+>>>> +      that hosts miscellaneous configuration registers. This is
+>>>> +      primarily used for controlling the behaviors of the TMC
+>>>> +      ETR device.
+>>>> +
+>>>> +      To compile this driver as a module, choose M here: the
+>>>> +      module will be called coresight-ctcu.
+>>>> +
+>>>>   config CORESIGHT_CPU_DEBUG
+>>>>       tristate "CoreSight CPU Debug driver"
+>>>>       depends on ARM || ARM64
+>>>> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/ 
+>>>> hwtracing/ coresight/Makefile
+>>>> index 4ba478211b31..1b7869910a12 100644
+>>>> --- a/drivers/hwtracing/coresight/Makefile
+>>>> +++ b/drivers/hwtracing/coresight/Makefile
+>>>> @@ -51,3 +51,4 @@ coresight-cti-y := coresight-cti-core.o coresight- 
+>>>> cti-platform.o \
+>>>>              coresight-cti-sysfs.o
+>>>>   obj-$(CONFIG_ULTRASOC_SMB) += ultrasoc-smb.o
+>>>>   obj-$(CONFIG_CORESIGHT_DUMMY) += coresight-dummy.o
+>>>> +obj-$(CONFIG_CORESIGHT_CTCU) += coresight-ctcu.o
+>>>> diff --git a/drivers/hwtracing/coresight/coresight-ctcu.c b/drivers/ 
+>>>> hwtracing/coresight/coresight-ctcu.c
+>>>> new file mode 100644
+>>>> index 000000000000..e1460a627c4d
+>>>> --- /dev/null
+>>>> +++ b/drivers/hwtracing/coresight/coresight-ctcu.c
+>>>> @@ -0,0 +1,268 @@
+>>>> +// SPDX-License-Identifier: GPL-2.0-only
+>>>> +/*
+>>>> + * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All 
+>>>> rights reserved.
+>>>> + */
+>>>> +
+>>>> +#include <linux/clk.h>
+>>>> +#include <linux/coresight.h>
+>>>> +#include <linux/device.h>
+>>>> +#include <linux/err.h>
+>>>> +#include <linux/kernel.h>
+>>>> +#include <linux/init.h>
+>>>> +#include <linux/io.h>
+>>>> +#include <linux/module.h>
+>>>> +#include <linux/mutex.h>
+>>>> +#include <linux/of.h>
+>>>> +#include <linux/platform_device.h>
+>>>> +#include <linux/slab.h>
+>>>> +
+>>>> +#include "coresight-ctcu.h"
+>>>> +#include "coresight-priv.h"
+>>>> +
+>>>> +DEFINE_CORESIGHT_DEVLIST(ctcu_devs, "ctcu");
+>>>> +
+>>>> +#define ctcu_writel(drvdata, val, offset)    __raw_writel((val), 
+>>>> drvdata->base + offset)
+>>>> +#define ctcu_readl(drvdata, offset)        __raw_readl(drvdata- 
+>>>> >base + offset)
+>>>> +
+>>>> +/*
+>>>> + * The TMC Coresight Control Unit uses four ATID registers to 
+>>>> control the data
+>>>> + * filter function based on the trace ID for each TMC ETR sink. The 
+>>>> length of
+>>>> + * each ATID register is 32 bits. Therefore, the ETR has a related 
+>>>> field in
+>>>> + * CTCU that is 128 bits long. Each trace ID is represented by one 
+>>>> bit in that
+>>>> + * filed.
+>>>> + * e.g. ETR0ATID0 layout, set bit 5 for traceid 5
+>>>> + *                                           bit5
+>>>> + * ------------------------------------------------------
+>>>> + * |   |28|   |24|   |20|   |16|   |12|   |8|  1|4|   |0|
+>>>> + * ------------------------------------------------------
+>>>> + *
+>>>> + * e.g. ETR0:
+>>>> + * 127                     0 from ATID_offset for ETR0ATID0
+>>>> + * -------------------------
+>>>> + * |ATID3|ATID2|ATID1|ATID0|
+>>>> + */
+>>>> +#define CTCU_ATID_REG_OFFSET(traceid, atid_offset) \
+>>>> +        ((traceid / 32) * 4 + atid_offset)
+>>>> +
+>>>> +#define CTCU_ATID_REG_BIT(traceid)    (traceid % 32)
+>>>> +#define CTCU_ATID_REG_SIZE        0x10
+>>>> +
+>>>> +struct ctcu_atid_config {
+>>>> +    const u32 atid_offset;
+>>>> +    const u32 port_num;
+>>>> +};
+>>>> +
+>>>> +struct ctcu_config {
+>>>> +    const struct ctcu_atid_config *atid_config;
+>>>> +    int num_atid_config;
+>>>> +};
+>>>> +
+>>>> +static const struct ctcu_atid_config sa8775p_atid_cfgs[] = {
+>>>> +    {0xf8,  0},
+>>>> +    {0x108, 1},
+>>>> +};
+>>>> +
+>>>> +static const struct ctcu_config sa8775p_cfgs = {
+>>>> +    .atid_config        = sa8775p_atid_cfgs,
+>>>> +    .num_atid_config    = ARRAY_SIZE(sa8775p_atid_cfgs),
+>>>> +};
+>>>> +
+>>>> +static void ctcu_program_atid_register(struct ctcu_drvdata 
+>>>> *drvdata, u32 reg_offset,
+>>>> +                       u8 bit, bool enable)
+>>>> +{
+>>>> +    u32 val;
+>>>> +
+>>>> +    CS_UNLOCK(drvdata->base);
+>>>> +    val = ctcu_readl(drvdata, reg_offset);
+>>>> +    val = enable? (val | BIT(bit)) : (val & ~BIT(bit));
+>>>
+>>> minor nit: If possible do not use the ternary operator like this. It 
+>>> is much better readable as:
+>>>
+>>>      if (enable)
+>>>          val |= BIT(bit);
+>>>      else
+>>>          val &= ~BIT(bit);
+>>>
+>>
+>> Will do this way.
+>>
+>>>> +    ctcu_writel(drvdata, val, reg_offset);
+>>>> +    CS_LOCK(drvdata->base);
+>>>> +}
+>>>> +
+>>>> +/*
+>>>> + * __ctcu_set_etr_traceid: Set bit in the ATID register based on 
+>>>> trace ID when enable is true.
+>>>> + * Reset the bit of the ATID register based on trace ID when enable 
+>>>> is false.
+>>>> + *
+>>>> + * @csdev:    coresight_device struct related to the device
+>>>> + * @traceid:    trace ID of the source tracer.
+>>>> + * @port_num:    port number from TMC ETR sink.
+>>>> + * @enable:    True for set bit and false for reset bit.
+>>>> + *
+>>>> + * Returns 0 indicates success. Non-zero result means failure.
+>>>> + */
+>>>> +static int __ctcu_set_etr_traceid(struct coresight_device *csdev, 
+>>>> u8 traceid, int port_num,
+>>>> +                  bool enable)
+>>>> +{
+>>>> +    struct ctcu_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>>>> +    u32 atid_offset, reg_offset;
+>>>> +    u8 refcnt, bit;
+>>>> +
+>>>> +    atid_offset = drvdata->atid_offset[port_num];
+>>>> +    if (atid_offset == 0)
+>>>> +        return -EINVAL;
+>>>> +
+>>>> +    bit = CTCU_ATID_REG_BIT(traceid);
+>>>> +    reg_offset = CTCU_ATID_REG_OFFSET(traceid, atid_offset);
+>>>> +    if (reg_offset - atid_offset > CTCU_ATID_REG_SIZE)
+>>>> +        return -EINVAL;
+>>>> +
+>>>> +    guard(raw_spinlock_irqsave)(&drvdata->spin_lock);
+>>>> +    refcnt = drvdata->traceid_refcnt[port_num][traceid];
+>>>> +    /* Only program the atid register when the refcnt value is 0 or 
+>>>> 1 */
+>>>
+>>> A normal trace source won't be enabled more than once (e.g., ETM). 
+>>> The only odd one out is the STM, which may be driven by multiple agents.
+>>> So this refcounting looks necessary.
+>>>
+>>
+>> Besides, for the TPDMs which shared the trace_id of the TPDA also need 
+>> the refcnt. Consider we have TPDM1 and TPDM2 connected to the same 
+>> TPDA device. Once we disable one of the TPDM without checking the 
+>> refcnt, the filter function will be disabled for another TPDM.
+>>
+>>>> +    if (enable && (++refcnt == 1))
+>>>> +        ctcu_program_atid_register(drvdata, reg_offset, bit, enable);
+>>>> +    else if (!enable && (--refcnt == 0))
+>>>> +        ctcu_program_atid_register(drvdata, reg_offset, bit, enable);
+>>>
+>>> minor nit:
+>>>
+>>>      if ((enable && !refcount++) ||
+>>>          (!enable && --refcount))
+>>>          ctcu_program_atid_register(drvdata, reg_offset, bit, enable);
+>>>
+>>>
+>>
+>> I did (enable && (++refcnt == 1)) just because I think we only need 
+>> program the register when refcnt is equal to 1. We dont need reprogram 
+>> the register with same value when refcnt greater than 1. So I think 
+>> it's better for the performance?
+>>
+>>> Also, see my comment the bottom for "refcount" being u8 .
+>>
+>> Sure, will check.
+>>
+>>>
+>>>
+>>>> +
+>>>> +    drvdata->traceid_refcnt[port_num][traceid] = refcnt;
+>>>> +
+>>>> +    return 0;
+>>>> +}
+>>>> +
+>>>> +static int ctcu_get_active_port(struct coresight_device *sink, 
+>>>> struct coresight_device *helper)
+>>>> +{
+>>>> +    int i;
+>>>> +
+>>>> +    for (i = 0; i < sink->pdata->nr_outconns; ++i) {
+>>>> +        if (sink->pdata->out_conns[i]->dest_dev)
+>>>> +            return sink->pdata->out_conns[i]->dest_port;
+>>>
+>>> Don't we need to make sure it matches the helper ? What if there are 
+>>> multiple helpers ? e.g, a CATU connected to the ETR and CTCU ?
+>>> Or even try the opposite ? i.e. search the helper and find the port
+>>> matching the sink ?
+> 
+> Good catch, looks like this should be done the opposite way around.
+> 
+>>>
+>>>      struct coresight_platform_data *pdata = helper->pdata;
+>>>
+>>>      for (i = 0; i < pdata->nr_inconns; ++i)
+>>>          if (pdata->in_conns[i]->dest_dev == sink)
+>>>              return pdata->in_conns[i]->src_port;
+>>>
+>>> Not sure if that works with the helper device connection, James ?
+> 
+> Yeah connections are always made in both directions.
+> 
+>> Can we check the subtype of the helper device? We should only have one 
+>> CTCU helper device for each ETR.
+>>
+>> enum coresight_dev_subtype_helper subtype;
+>>
+>> for (i = 0; i < sink->pdata->nr_outconns; ++i) {
+>>      subtype = sink->pdata->out_conns[i]->dest_dev- 
+>> >subtype.helper_subtype;
+>>      if (subtype == CORESIGHT_DEV_SUBTYPE_HELPER_CTCU)
+>>         return sink->pdata->out_conns[i]->dest_port;
+>>
+> 
+> I don't think we need to check the type, just search all the CTCU's 
+> in_conns until you find the sink.
+> 
+> As Suzuki says, by looking at the out_conns of the sink you might find a 
+> different helper device. Checking that it really is connected to the 
+> sink is probably more robust that relying on the type anyway.
 >
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi b/arch/arm64=
-/boot/dts/mediatek/mt8188-geralt.dtsi
-> index b6abecbcfa81..faed5c8bc721 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-> +++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-> @@ -1103,6 +1103,12 @@ &u3phy2 {
->  };
->
->  /* USB detachable base */
-> +&ssusb0 {
-> +       dr_mode =3D "host";
-> +       vusb33-supply =3D <&pp3300_s3>;
-> +       status =3D "okay";
-> +};
-> +
->  &xhci0 {
->         /* controlled by EC */
->         vbus-supply =3D <&pp3300_z1>;
-> @@ -1110,6 +1116,12 @@ &xhci0 {
->  };
->
->  /* USB3 hub */
-> +&ssusb1 {
-> +       dr_mode =3D "host";
-> +       vusb33-supply =3D <&pp3300_s3>;
-> +       status =3D "okay";
-> +};
-> +
->  &xhci1 {
->         vusb33-supply =3D <&pp3300_s3>;
->         vbus-supply =3D <&pp5000_usb_vbus>;
-> @@ -1117,6 +1129,12 @@ &xhci1 {
->  };
->
->  /* USB BT */
-> +&ssusb2 {
-> +       dr_mode =3D "host";
-> +       vusb33-supply =3D <&pp3300_s3>;
-> +       status =3D "okay";
-> +};
-> +
->  &xhci2 {
->         /* no power supply since MT7921's power is controlled by PCIe */
->         /* MT7921's USB BT has issues with USB2 LPM */
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8188.dtsi b/arch/arm64/boot/d=
-ts/mediatek/mt8188.dtsi
-> index d2e1ff7236b1..c226998b7e47 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-> +++ b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-> @@ -1649,6 +1649,38 @@ spi5: spi@11019000 {
->                         status =3D "disabled";
->                 };
->
-> +               ssusb1: usb@11201000 {
-> +                       compatible =3D "mediatek,mt8188-mtu3", "mediatek,=
-mtu3";
-> +                       reg =3D <0 0x11201000 0 0x2dff>, <0 0x11203e00 0 =
-0x0100>;
-> +                       reg-names =3D "mac", "ippc";
-> +                       ranges =3D <0 0 0 0x11200000 0 0x3f00>;
-> +                       #address-cells =3D <2>;
-> +                       #size-cells =3D <2>;
-> +                       interrupts =3D <GIC_SPI 128 IRQ_TYPE_LEVEL_HIGH 0=
->;
-> +                       assigned-clocks =3D <&topckgen CLK_TOP_USB_TOP>;
-> +                       assigned-clock-parents =3D <&topckgen CLK_TOP_UNI=
-VPLL_D5_D4>;
-> +                       clocks =3D <&pericfg_ao CLK_PERI_AO_SSUSB_BUS>,
-> +                                <&topckgen CLK_TOP_SSUSB_TOP_REF>,
-> +                                <&pericfg_ao CLK_PERI_AO_SSUSB_XHCI>;
-> +                       clock-names =3D "sys_ck", "ref_ck", "mcu_ck";
-> +                       phys =3D <&u2port1 PHY_TYPE_USB2>, <&u3port1 PHY_=
-TYPE_USB3>;
-> +                       wakeup-source;
-> +                       mediatek,syscon-wakeup =3D <&pericfg 0x468 2>;
-> +                       status =3D "disabled";
-> +
-> +                       xhci1: usb@0 {
-> +                               compatible =3D "mediatek,mt8188-xhci", "m=
-ediatek,mtk-xhci";
-> +                               reg =3D <0 0 0 0x1000>;
-> +                               reg-names =3D "mac";
-> +                               interrupts =3D <GIC_SPI 129 IRQ_TYPE_LEVE=
-L_HIGH 0>;
-> +                               assigned-clocks =3D <&topckgen CLK_TOP_SS=
-USB_XHCI>;
-> +                               assigned-clock-parents =3D <&topckgen CLK=
-_TOP_UNIVPLL_D5_D4>;
-> +                               clocks =3D <&pericfg_ao CLK_PERI_AO_SSUSB=
-_XHCI>;
-> +                               clock-names =3D "sys_ck";
-> +                               status =3D "disabled";
-> +                       };
-> +               };
-> +
->                 eth: ethernet@11021000 {
->                         compatible =3D "mediatek,mt8188-gmac", "mediatek,=
-mt8195-gmac",
->                                      "snps,dwmac-5.10a";
-> @@ -1746,27 +1778,6 @@ queue3 {
->                         };
->                 };
->
-> -               xhci1: usb@11200000 {
-> -                       compatible =3D "mediatek,mt8188-xhci", "mediatek,=
-mtk-xhci";
-> -                       reg =3D <0 0x11200000 0 0x1000>,
-> -                             <0 0x11203e00 0 0x0100>;
-> -                       reg-names =3D "mac", "ippc";
-> -                       interrupts =3D <GIC_SPI 129 IRQ_TYPE_LEVEL_HIGH 0=
->;
-> -                       phys =3D <&u2port1 PHY_TYPE_USB2>,
-> -                              <&u3port1 PHY_TYPE_USB3>;
-> -                       assigned-clocks =3D <&topckgen CLK_TOP_USB_TOP>,
-> -                                         <&topckgen CLK_TOP_SSUSB_XHCI>;
-> -                       assigned-clock-parents =3D <&topckgen CLK_TOP_UNI=
-VPLL_D5_D4>,
-> -                                                <&topckgen CLK_TOP_UNIVP=
-LL_D5_D4>;
-> -                       clocks =3D <&pericfg_ao CLK_PERI_AO_SSUSB_BUS>,
-> -                                <&topckgen CLK_TOP_SSUSB_TOP_REF>,
-> -                                <&pericfg_ao CLK_PERI_AO_SSUSB_XHCI>;
-> -                       clock-names =3D "sys_ck", "ref_ck", "mcu_ck";
-> -                       mediatek,syscon-wakeup =3D <&pericfg 0x468 2>;
-> -                       wakeup-source;
-> -                       status =3D "disabled";
-> -               };
-> -
->                 mmc0: mmc@11230000 {
->                         compatible =3D "mediatek,mt8188-mmc", "mediatek,m=
-t8183-mmc";
->                         reg =3D <0 0x11230000 0 0x10000>,
-> @@ -1867,42 +1878,68 @@ imp_iic_wrap_c: clock-controller@11283000 {
->                         #clock-cells =3D <1>;
->                 };
->
-> -               xhci2: usb@112a0000 {
-> -                       compatible =3D "mediatek,mt8188-xhci", "mediatek,=
-mtk-xhci";
-> -                       reg =3D <0 0x112a0000 0 0x1000>,
-> -                             <0 0x112a3e00 0 0x0100>;
-> +               ssusb2: usb@112a1000 {
-> +                       compatible =3D "mediatek,mt8188-mtu3", "mediatek,=
-mtu3";
-> +                       reg =3D <0 0x112a1000 0 0x2dff>, <0 0x112a3e00 0 =
-0x0100>;
->                         reg-names =3D "mac", "ippc";
-> -                       interrupts =3D <GIC_SPI 536 IRQ_TYPE_LEVEL_HIGH 0=
->;
-> -                       phys =3D <&u2port2 PHY_TYPE_USB2>;
-> -                       assigned-clocks =3D <&topckgen CLK_TOP_SSUSB_XHCI=
-_3P>,
-> -                                         <&topckgen CLK_TOP_USB_TOP_3P>;
-> -                       assigned-clock-parents =3D <&topckgen CLK_TOP_UNI=
-VPLL_D5_D4>,
-> -                                                <&topckgen CLK_TOP_UNIVP=
-LL_D5_D4>;
-> +                       ranges =3D <0 0 0 0x112a0000 0 0x3f00>;
-> +                       #address-cells =3D <2>;
-> +                       #size-cells =3D <2>;
-> +                       interrupts =3D <GIC_SPI 535 IRQ_TYPE_LEVEL_HIGH 0=
->;
-> +                       assigned-clocks =3D <&topckgen CLK_TOP_USB_TOP_3P=
->;
-> +                       assigned-clock-parents =3D <&topckgen CLK_TOP_UNI=
-VPLL_D5_D4>;
->                         clocks =3D <&pericfg_ao CLK_PERI_AO_SSUSB_3P_BUS>=
-,
->                                  <&topckgen CLK_TOP_SSUSB_TOP_P3_REF>,
->                                  <&pericfg_ao CLK_PERI_AO_SSUSB_3P_XHCI>;
->                         clock-names =3D "sys_ck", "ref_ck", "mcu_ck";
-> +                       phys =3D <&u2port2 PHY_TYPE_USB2>;
-> +                       wakeup-source;
-> +                       mediatek,syscon-wakeup =3D <&pericfg 0x470 2>;
->                         status =3D "disabled";
-> +
-> +                       xhci2: usb@0 {
-> +                               compatible =3D "mediatek,mt8188-xhci", "m=
-ediatek,mtk-xhci";
-> +                               reg =3D <0 0 0 0x1000>;
-> +                               reg-names =3D "mac";
-> +                               interrupts =3D <GIC_SPI 536 IRQ_TYPE_LEVE=
-L_HIGH 0>;
-> +                               assigned-clocks =3D <&topckgen CLK_TOP_SS=
-USB_XHCI_3P>;
-> +                               assigned-clock-parents =3D <&topckgen CLK=
-_TOP_UNIVPLL_D5_D4>;
-> +                               clocks =3D <&pericfg_ao CLK_PERI_AO_SSUSB=
-_3P_XHCI>;
-> +                               clock-names =3D "sys_ck";
-> +                               status =3D "disabled";
-> +                       };
->                 };
->
-> -               xhci0: usb@112b0000 {
-> -                       compatible =3D "mediatek,mt8188-xhci", "mediatek,=
-mtk-xhci";
-> -                       reg =3D <0 0x112b0000 0 0x1000>,
-> -                             <0 0x112b3e00 0 0x0100>;
-> +               ssusb0: usb@112b1000 {
-> +                       compatible =3D "mediatek,mt8188-mtu3", "mediatek,=
-mtu3";
-> +                       reg =3D <0 0x112b1000 0 0x2dff>, <0 0x112b3e00 0 =
-0x0100>;
->                         reg-names =3D "mac", "ippc";
-> -                       interrupts =3D <GIC_SPI 533 IRQ_TYPE_LEVEL_HIGH 0=
->;
-> -                       phys =3D <&u2port0 PHY_TYPE_USB2>;
-> -                       assigned-clocks =3D <&topckgen CLK_TOP_SSUSB_XHCI=
-_2P>,
-> -                                         <&topckgen CLK_TOP_USB_TOP_2P>;
-> -                       assigned-clock-parents =3D <&topckgen CLK_TOP_UNI=
-VPLL_D5_D4>,
-> -                                                <&topckgen CLK_TOP_UNIVP=
-LL_D5_D4>;
-> +                       ranges =3D <0 0 0 0x112b0000 0 0x3f00>;
-> +                       #address-cells =3D <2>;
-> +                       #size-cells =3D <2>;
-> +                       interrupts =3D <GIC_SPI 532 IRQ_TYPE_LEVEL_HIGH 0=
->;
-> +                       assigned-clocks =3D <&topckgen CLK_TOP_SSUSB_XHCI=
-_2P>;
-> +                       assigned-clock-parents =3D <&topckgen CLK_TOP_UNI=
-VPLL_D5_D4>;
->                         clocks =3D <&pericfg_ao CLK_PERI_AO_SSUSB_2P_BUS>=
-,
->                                  <&topckgen CLK_TOP_SSUSB_TOP_P2_REF>,
->                                  <&pericfg_ao CLK_PERI_AO_SSUSB_2P_XHCI>;
->                         clock-names =3D "sys_ck", "ref_ck", "mcu_ck";
-> -                       mediatek,syscon-wakeup =3D <&pericfg 0x460 2>;
-> +                       phys =3D <&u2port0 PHY_TYPE_USB2>;
->                         wakeup-source;
-> +                       mediatek,syscon-wakeup =3D <&pericfg 0x460 2>;
->                         status =3D "disabled";
-> +
-> +                       xhci0: usb@0 {
-> +                               compatible =3D "mediatek,mt8188-xhci", "m=
-ediatek,mtk-xhci";
-> +                               reg =3D <0 0 0 0x1000>;
-> +                               reg-names =3D "mac";
-> +                               interrupts =3D <GIC_SPI 533 IRQ_TYPE_LEVE=
-L_HIGH 0>;
-> +                               assigned-clocks =3D <&topckgen CLK_TOP_US=
-B_TOP_2P>;
-> +                               assigned-clock-parents =3D <&topckgen CLK=
-_TOP_UNIVPLL_D5_D4>;
-> +                               clocks =3D <&pericfg_ao CLK_PERI_AO_SSUSB=
-_2P_XHCI>;
-> +                               clock-names =3D "sys_ck";
-> +                               status =3D "disabled";
-> +                       };
->                 };
->
->                 pcie: pcie@112f0000 {
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi b/arch=
-/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
-> index a37cf102a6e9..fd977daa4185 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
-> +++ b/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
-> @@ -1011,13 +1011,25 @@ &u3phy2 {
->         status =3D "okay";
->  };
->
-> +&ssusb0 {
-> +       dr_mode =3D "host";
-> +       vusb33-supply =3D <&mt6359_vusb_ldo_reg>;
-> +       status =3D "okay";
-> +};
-> +
->  &xhci0 {
->         status =3D "okay";
-> +};
-> +
-> +&ssusb1 {
-> +       dr_mode =3D "host";
->         vusb33-supply =3D <&mt6359_vusb_ldo_reg>;
-> +       status =3D "okay";
->  };
->
->  &xhci1 {
->         status =3D "okay";
-> +       vdd-supply =3D <&usb_hub_fixed_3v3>;
->         vusb33-supply =3D <&mt6359_vusb_ldo_reg>;
->         #address-cells =3D <1>;
->         #size-cells =3D <0>;
-> @@ -1037,6 +1049,22 @@ hub_3_0: hub@2 {
->                 reset-gpios =3D <&pio 7 GPIO_ACTIVE_HIGH>;
->                 vdd-supply =3D <&usb_hub_fixed_3v3>;
->         };
-> +
-> +       port {
-> +               xhci_ss_ep: endpoint {
-> +                       remote-endpoint =3D <&typec_con_ss>;
-> +               };
-> +       };
-> +};
-> +
-> +&ssusb2 {
-> +       interrupts-extended =3D <&gic GIC_SPI 536 IRQ_TYPE_LEVEL_HIGH 0>,
-> +                             <&pio 220 IRQ_TYPE_LEVEL_HIGH>;
-> +       interrupt-names =3D "host", "wakeup";
-> +
-> +       dr_mode =3D "host";
-> +       vusb33-supply =3D <&mt6359_vusb_ldo_reg>;
-> +       status =3D "okay";
->  };
->
->  &xhci2 {
-> --
-> 2.48.1
->
->
+
+Hi James,
+
+Thanks for explaination, will update per Suzuki's suggestion.
+
+Jie
+
+> 
+
+
+
+
 
