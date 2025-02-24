@@ -4,117 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5796FC021B6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 08:42:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9394DC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 08:44:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bn1YH9JHbQVqVcSe/2+rXoP+b7JzDEo76hZfWDYpZlM=; b=wx99kwJkh0Iza4cbWL8l5tPuVp
-	+ExnjhDSuCgnbwxf58/zf6XfmREDIWAeOW5DwvU5Mb9nP7tFARKnZNhhyUWnGsX07sDjh4Jrkljr9
-	TQl3u1L3O+3/0HkVtiQSWxI5FOBr8y8zzY1m8hs5izHBewCEx31dj0bGP2ux/U2h8eVUwCjbA1qsX
-	ZoHV3Ni+N4mjQ1iduXS633ZUDuYzVVMAlPJ1yAVL8NGIsC8bOX3afS3C43cq8JrUq1rYmiQnBDZmm
-	Fltq7UjQEpl6wLlseaEa330M/vLBjWjK8xjuzwWDr25wgBEmgzSNVjXX6s2FHpwGIpRksbqf5Lnif
-	8vTmSjBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i2F3/IzCLsFcujhdIsgsK94aBeCPjXv6h+MkPjGo6dA=; b=NAvN9zAAJ1xKbnBrRrkUBSfw6k
+	GbKWPqW8Qqqdk+tADqUC9NWlvgDMYwPih76+F7DNuGzShlHetDf6lxSgbV0D7JTlROvLWeB+cW4+t
+	F7OkhdiD9IZPFrpRJ7X6rE+hb3xku/3y/3wOdtU2AnMDPnlBTLYxukzr7DurJQojV59jECEckhtLD
+	uMhxvwIyzg7yrH7EkvSYOny7bEL75jEhFwTyqTl1mNnYpo1iggcvz53ykcYdUkTfXA5wVTpEoA6EQ
+	8j98sQwa++Bcwyf6bAL8Sv3Lb0da25sK/uIsxPUG4lep2UUVtchsa+pJslHIoIgMdNVsu0fANNamR
+	L1bpB/+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmU35-0000000CkEY-2HZ5;
-	Mon, 24 Feb 2025 08:42:47 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tmU4Y-0000000CkW8-2c5R;
+	Mon, 24 Feb 2025 08:44:18 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmTnT-0000000Cgkv-4BJI;
-	Mon, 24 Feb 2025 08:26:41 +0000
+	id 1tmTnp-0000000Cgnx-19Hn
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Feb 2025 08:27:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3ABD45C55FD;
-	Mon, 24 Feb 2025 08:26:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC565C4CED6;
-	Mon, 24 Feb 2025 08:26:33 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 509985C55FD;
+	Mon, 24 Feb 2025 08:26:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8E53C4CED6;
+	Mon, 24 Feb 2025 08:26:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740385598;
-	bh=A6eYd0ZNJiH0U96rIxU40Zocx4BmkNKzj1tkXN/ULnU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TMrSs3GZpY9XHemkM67oFcNS/QKTxMttd+UqCcEEVNmMEtrCr8VlYRbwv0VaIvPN5
-	 +5YBXQTgnPjoY3p2XQ28oEiBnNdUdkxm3LWmBkIruKuDWjslTQDs/AlK4ejTXtGz5f
-	 D8/F74VcH3v58qB2X3U/0KeJPr4uZe8uWltiqnOV5UBIKOFtZ2LGkmDZ/9mXCm7q8Y
-	 UwmeXQmhwSKxXhDmR4E21EZOR0MgEjCjku09ShTmN2qfsufPz8/6+SXO5vTnqXEW+l
-	 W+HW6N5BikTllpMAoJ87bHgHv0gaUl9ulKs7GyL9wtBeHNbvNyVatu1i1Qd8zgCn/z
-	 dW9iHbeCIr0dg==
-Message-ID: <79809c37-84d4-42d6-ab93-9a9d29c687bf@kernel.org>
-Date: Mon, 24 Feb 2025 09:26:31 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] dt-bindings: PCI: mediatek-gen3: Add
- mediatek,pbus-csr phandle array property
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Ryder Lee <ryder.lee@mediatek.com>,
- Jianjun Wang <jianjun.wang@mediatek.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>
-References: <20250222-en7581-pcie-pbus-csr-v3-0-e0cca1f4d394@kernel.org>
- <20250222-en7581-pcie-pbus-csr-v3-1-e0cca1f4d394@kernel.org>
- <20250223-hulking-goldfish-of-symmetry-cbfed4@krzk-bin>
- <Z7slEJgCQMqp_I6p@lore-desk>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <Z7slEJgCQMqp_I6p@lore-desk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	s=k20201202; t=1740385619;
+	bh=OuRNqQ6wDDAyRDLxgbM213abZ0DdibCo9ddlkyNF6Kc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=D8Hwe7k5QYtZH5AzNs5PaEsGQqjMB8fLopNbsE1X/fvU/U70GuqfPLn8KepzO/iJG
+	 t+2GzaXpm2xPCcvhAlmYTHZ1d2fmqz6Y9iM43Ms2BpycnE9QK4BS+M2PRs06AjCKfn
+	 +uBR35bNTsLJ+iBMmMUJrayY3laIGpG/2xyszsNBJjhKWITvA3vX79pIHQ6r0BGne6
+	 IaBQSHLmHnGyOqc8VnASkarCxAhPMpwBSS0zjnK0v08R+ExLynmJ2zojUTYlRynDFX
+	 KSikuyH2a5DuT+10Oiyf53P7BjcZhlKdUUmCK7Gmki/0PaGanOR5GbOY11adkqQIOQ
+	 qsAzjQfnQXeNw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tmTnl-007ECC-IK;
+	Mon, 24 Feb 2025 08:26:57 +0000
+Date: Mon, 24 Feb 2025 08:26:57 +0000
+Message-ID: <86o6yrrbn2.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+Cc: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH 01/14] arm64: cpufeature: Handle NV_frac as a synonym of NV2
+In-Reply-To: <yq5a7c5fhjs1.fsf@kernel.org>
+References: <20250215173816.3767330-1-maz@kernel.org>
+	<20250215173816.3767330-2-maz@kernel.org>
+	<yq5a7c5fhjs1.fsf@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: aneesh.kumar@kernel.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, eric.auger@redhat.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_002640_164281_F165E699 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20250224_002701_355867_765B4F19 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,38 +91,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/02/2025 14:39, Lorenzo Bianconi wrote:
->> On Sat, Feb 22, 2025 at 11:43:44AM +0100, Lorenzo Bianconi wrote:
->>> Introduce the mediatek,pbus-csr property for the pbus-csr syscon node
->>> available on EN7581 SoC. The airoha pbus-csr block provides a configuration
->>> interface for the PBUS controller used to detect if a given address is
->>> accessible on PCIe controller.
->>>
->>> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
->>> ---
->>>  .../devicetree/bindings/pci/mediatek-pcie-gen3.yaml     | 17 +++++++++++++++++
->>>  1 file changed, 17 insertions(+)
->>>
->>
->> You got review tag, so if you decided to skip it, this should be
->> mentioned why.
->>
->>
->> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+On Mon, 24 Feb 2025 07:41:18 +0000,
+Aneesh Kumar K.V <aneesh.kumar@kernel.org> wrote:
 > 
-> Since I modified the patch with respect to the previous version, I was thinking
+> Marc Zyngier <maz@kernel.org> writes:
+> 
+> > With ARMv9.5, an implementation supporting Nested Virtualization
+> > is allowed to only support NV2, and to avoid supporting the old
+> > (and useless) ARMv8.3 variant.
+> >
+> > This is indicated by ID_AA64MMFR2_EL1.NV being 0 (as if NV wasn't
+> > implemented) and ID_AA64MMDR4_EL1.NV_frac being 1 (indicating that
+>                             ^ F
+> The register name is wrong there.
 
-I know
+Already reported by Joey on v2 of this series.
 
-> you want to review it again before applying the Reviewed-by tag. Added it now.
-That was not my comment. I commented that you must explicitly say that
-you dropped someone's tag.
+Thanks,
 
-And docs clearly ask for that:
+	M.
 
-"Usually removal of someone's Tested-by or Reviewed-by tags should be
-mentioned in the patch changelog (after the '---' separator)."
-
-Best regards,
-Krzysztof
+-- 
+Without deviation from the norm, progress is not possible.
 
