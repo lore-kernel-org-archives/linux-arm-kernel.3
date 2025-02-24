@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9394DC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 08:44:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EFDDC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 08:45:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i2F3/IzCLsFcujhdIsgsK94aBeCPjXv6h+MkPjGo6dA=; b=NAvN9zAAJ1xKbnBrRrkUBSfw6k
-	GbKWPqW8Qqqdk+tADqUC9NWlvgDMYwPih76+F7DNuGzShlHetDf6lxSgbV0D7JTlROvLWeB+cW4+t
-	F7OkhdiD9IZPFrpRJ7X6rE+hb3xku/3y/3wOdtU2AnMDPnlBTLYxukzr7DurJQojV59jECEckhtLD
-	uMhxvwIyzg7yrH7EkvSYOny7bEL75jEhFwTyqTl1mNnYpo1iggcvz53ykcYdUkTfXA5wVTpEoA6EQ
-	8j98sQwa++Bcwyf6bAL8Sv3Lb0da25sK/uIsxPUG4lep2UUVtchsa+pJslHIoIgMdNVsu0fANNamR
-	L1bpB/+A==;
+	bh=MdXagpB4l/4HWEmPWODWg/UX+SlCVHitTHN3kSMMFM8=; b=NQ2xshz+OFHwW3CYQkIrjec8Zv
+	TKFqYL46fScRpnf8NIIb+h3vqfcXKNZiqD1qSHyk6YFYp0jFKdUMt7S+mjFWs60L4ciQW61x49Vml
+	kDOW10vybp5/VSo1fQNiSpBibN60YNc2hSXdpjbSlz/Z7X1xBfV3APwrLrrikgMYA4ePJca7ruLJg
+	AYX4BlLkbN3QQDgMW5dwcUIzwu871G1KdxtLFLssvPivZyt+Uu/aeDWaWlRdkjAe8R67HvosUIvSQ
+	bCED0xgoPUUJqNO31P2RxwU5++8ndBdrNlGGcZM8+BdffIluDhtikIAaUC9BEloG++isk49qLvop7
+	yM+pbalw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmU4Y-0000000CkW8-2c5R;
-	Mon, 24 Feb 2025 08:44:18 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tmU61-0000000Ckjj-1Nsw;
+	Mon, 24 Feb 2025 08:45:49 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmTnp-0000000Cgnx-19Hn
+	id 1tmTt0-0000000ChtX-1GWk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 08:27:02 +0000
+	Mon, 24 Feb 2025 08:32:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 509985C55FD;
-	Mon, 24 Feb 2025 08:26:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8E53C4CED6;
-	Mon, 24 Feb 2025 08:26:59 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9B0265C578E;
+	Mon, 24 Feb 2025 08:31:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 319F5C4CED6;
+	Mon, 24 Feb 2025 08:32:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740385619;
-	bh=OuRNqQ6wDDAyRDLxgbM213abZ0DdibCo9ddlkyNF6Kc=;
+	s=k20201202; t=1740385941;
+	bh=bSIM8Tbz1K1m9Pb52yVWvSYNTf02AU2E2IBRGGRNYbQ=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=D8Hwe7k5QYtZH5AzNs5PaEsGQqjMB8fLopNbsE1X/fvU/U70GuqfPLn8KepzO/iJG
-	 t+2GzaXpm2xPCcvhAlmYTHZ1d2fmqz6Y9iM43Ms2BpycnE9QK4BS+M2PRs06AjCKfn
-	 +uBR35bNTsLJ+iBMmMUJrayY3laIGpG/2xyszsNBJjhKWITvA3vX79pIHQ6r0BGne6
-	 IaBQSHLmHnGyOqc8VnASkarCxAhPMpwBSS0zjnK0v08R+ExLynmJ2zojUTYlRynDFX
-	 KSikuyH2a5DuT+10Oiyf53P7BjcZhlKdUUmCK7Gmki/0PaGanOR5GbOY11adkqQIOQ
-	 qsAzjQfnQXeNw==
+	b=BcSNtHCnhtceHL5Bwzxat3ETiQjWBIJmf2OLiXb20jM+redompi1shfQ10Xhnn58U
+	 6aLAQn8OA52F/MRt2kOANae3vI+aHsVckMTLLFHQSgpd19rmdzdYvuumhlrDrIQBCJ
+	 7023J9BwcrzgS/e4qCH7TwNUpGNbj6bCPJBuLzfB/w5EOSxjgoBYxYpKA3f8ttpEPh
+	 a9rVogdkW7A9udrRDqJsjigC2mX+uR6GGYgrBRqNYZzuxr9t9mK/DcPWS7fWe11oQl
+	 EfCovrN/LHeCoh7a4ADLfslzo/Opwvxe+r1Y2juwGPVNxZN/risKsrR5TbHPlgdfnU
+	 0DIvHbgQr+cVw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tmTnl-007ECC-IK;
-	Mon, 24 Feb 2025 08:26:57 +0000
-Date: Mon, 24 Feb 2025 08:26:57 +0000
-Message-ID: <86o6yrrbn2.wl-maz@kernel.org>
+	id 1tmTsx-007EJK-6t;
+	Mon, 24 Feb 2025 08:32:19 +0000
+Date: Mon, 24 Feb 2025 08:32:18 +0000
+Message-ID: <86msebrbe5.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
 Cc: kvmarm@lists.linux.dev,
@@ -60,11 +60,11 @@ Cc: kvmarm@lists.linux.dev,
 	Oliver Upton <oliver.upton@linux.dev>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH 01/14] arm64: cpufeature: Handle NV_frac as a synonym of NV2
-In-Reply-To: <yq5a7c5fhjs1.fsf@kernel.org>
+Subject: Re: [PATCH 03/14] KVM: arm64: Mark HCR.EL2.E2H RES0 when ID_AA64MMFR1_EL1.VH is zero
+In-Reply-To: <yq5aa5abhjv1.fsf@kernel.org>
 References: <20250215173816.3767330-1-maz@kernel.org>
-	<20250215173816.3767330-2-maz@kernel.org>
-	<yq5a7c5fhjs1.fsf@kernel.org>
+	<20250215173816.3767330-4-maz@kernel.org>
+	<yq5aa5abhjv1.fsf@kernel.org>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -75,8 +75,8 @@ X-SA-Exim-Rcpt-To: aneesh.kumar@kernel.org, kvmarm@lists.linux.dev, kvm@vger.ker
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_002701_355867_765B4F19 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20250224_003222_453258_38ED20DF 
+X-CRM114-Status: GOOD (  19.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,21 +91,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Feb 2025 07:41:18 +0000,
+On Mon, 24 Feb 2025 07:39:30 +0000,
 Aneesh Kumar K.V <aneesh.kumar@kernel.org> wrote:
 > 
 > Marc Zyngier <maz@kernel.org> writes:
 > 
-> > With ARMv9.5, an implementation supporting Nested Virtualization
-> > is allowed to only support NV2, and to avoid supporting the old
-> > (and useless) ARMv8.3 variant.
+> > Enforce HCR_EL2.E2H being RES0 when VHE is disabled, so that we can
+> > actually rely on that bit never being flipped behind our back.
 > >
-> > This is indicated by ID_AA64MMFR2_EL1.NV being 0 (as if NV wasn't
-> > implemented) and ID_AA64MMDR4_EL1.NV_frac being 1 (indicating that
->                             ^ F
-> The register name is wrong there.
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/kvm/nested.c | 2 ++
+> >  1 file changed, 2 insertions(+)
+> >
+> > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> > index 0c9387d2f5070..ed3add7d32f66 100644
+> > --- a/arch/arm64/kvm/nested.c
+> > +++ b/arch/arm64/kvm/nested.c
+> > @@ -1034,6 +1034,8 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
+> >  		res0 |= (HCR_TEA | HCR_TERR);
+> >  	if (!kvm_has_feat(kvm, ID_AA64MMFR1_EL1, LO, IMP))
+> >  		res0 |= HCR_TLOR;
+> > +	if (!kvm_has_feat(kvm, ID_AA64MMFR1_EL1, VH, IMP))
+> > +		res0 |= HCR_E2H;
+> >  	if (!kvm_has_feat(kvm, ID_AA64MMFR4_EL1, E2H0, IMP))
+> >  		res1 |= HCR_E2H;
+> >
+> 
+> Does it make sense to check for E2H0 if MMFR1_EL1.VH == 0 ?
+> Should the above check be
+> 	if (!kvm_has_feat(kvm, ID_AA64MMFR1_EL1, VH, IMP))
+> 		res0 |= HCR_E2H;
+> 	else if (!kvm_has_feat(kvm, ID_AA64MMFR4_EL1, E2H0, IMP))
+>  		res1 |= HCR_E2H;
 
-Already reported by Joey on v2 of this series.
+What difference does it make? This bit can only have a reserved value,
+and can never be actively modified. If you *really* wanted to optimise
+this for reasons that I really cannot fathom, you could have this:
+
+ 	if (!kvm_has_feat(kvm, ID_AA64MMFR1_EL1, VH, IMP))
+ 		res0 |= HCR_E2H;
+ 	else
+  		res1 |= HCR_E2H;
+
+because that's what we really implement.
+
+Does it matter? I don't think so. If anything, I'd rather we keep the
+code as is and have a run-time warning if a bit is simultaneously RES0
+and RES1, because that'd be indicative of a much bigger problem.
 
 Thanks,
 
