@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFF0DC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 14:51:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2608AC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 14:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=f163cXOml+YO0Ef+W322W1dfG/8cGPnD5lNX0O+cQgg=; b=pljwC4+jN5cx7i+6+a2d7yRCqs
-	JvE8NdnkoCwyiRc8u2631K/vob4JH3MEf07kEKpIAJJWtrDwsZAwI1dtn5kFn6oPAc/qiIo+NZC70
-	9035NiRXbUlAnRFewMYA8qvPUx3wtJFrlKU/l1FhEE48/gD2DEHqKmhBSKgwv6u2Pb5x8y/O4gRjw
-	rA5zwPBroDiIZneguhwbTVgLRjBOzLpp5HMqaDZybukAyMuOvtzPe8uNYmqs6gO9DmV2f25UxaBDG
-	lfeYgro1C98ns5UeY5kqY6uW/m6lCeQkMsI9WE9RJrvVP7DT9jpmdgFuSRv+mrhRyJcVBsUmU5z2+
-	iyiK2cNg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KLDKoEHmBNZru20DMSxS9Pw3dDW9jMuSmbZS8x5oymU=; b=WW8R2hBmjTyhSRxZyT6DD6honO
+	Y9EmevkQBJaIWMrXa+Yx4bZojPnf/GXO8RzDsB8/U8JLhkb77broCQ0EsSoeskyJc5VRuy57sxdt9
+	aYq7qabxw7xXQaVFBJPEJRAujDIFxT/r4TUOw2krnsuEceiX6y3T7EQmBhaLPSbQ4eh6cSezI8wKU
+	oi9pb96hy45eqAszrKzIN9aLWPo1gyMov+0/BfDpuUgkSHocjE7UC3l5lhjzjMY39z2H+SMtBnRPq
+	bu2qafirXKMaX7sjRH5Xea7DeO2ayJcc+4lnwNw4DzDVv0i7lDdk0sbkhEIrO+dGFKOrkJha9GWrE
+	3pOM1rOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmZnE-0000000EAnj-1Nts;
-	Mon, 24 Feb 2025 14:50:48 +0000
+	id 1tmZog-0000000EB21-0xMQ;
+	Mon, 24 Feb 2025 14:52:18 +0000
 Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmZRr-0000000E64v-3OB5
+	id 1tmZRv-0000000E64v-3Xgy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 14:28:45 +0000
+	Mon, 24 Feb 2025 14:28:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1740407323; x=1771943323;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=f163cXOml+YO0Ef+W322W1dfG/8cGPnD5lNX0O+cQgg=;
-  b=lgHjWttDG4WqPBbMBnh9vOVD6hIwTLYKQRUpJz65aIK3QpG1XDaozh2v
-   mE4hB0WIFbzPse7SmWyf7ETb8x+F13ozL8LDljyN9NDGHnnC27aIV8Nlp
-   MZJyj07k/qWv43GyVVl3dXSjdDdvAB67ToA3q9lbMyIglSWI2vZZXuwJC
-   Zp6OMjTXwxB6D0526DCDDFzOtM6nvx0wmYm2v5owe2GGVtg8W2zGQZ52V
-   /M3VugxeNa2SOK47pYAYyMbmsG7foHNpHShBmpEoctDNsr5GL5O/1feAL
-   /KWj97VZed719heiiU1ybTDznvQwyOdfx9xzEzBZjGluzLlUhc0+xfec7
-   Q==;
-X-CSE-ConnectionGUID: Fl10DxnJTpqdmIPt8ZJkOw==
-X-CSE-MsgGUID: FIP9+gYZSO6RU2rvvRug9g==
+  t=1740407327; x=1771943327;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=KLDKoEHmBNZru20DMSxS9Pw3dDW9jMuSmbZS8x5oymU=;
+  b=EEeay6W5MLMC+jnrYu3RGJNsYB96ZqjYwbNIpTYEB8kfKFoS9sgnvyqf
+   l19l/KyZm5Ir5lDpog3ctWYNSEIC2UcTXNkoBHXuDDySmg8jL+Wak/2mC
+   tRxXntsw2kLdlAuNGNsOOC74zhfomajshCz299pGH2jIATWsDuxrx0RJb
+   tqbbQKwoghklmZy+RgCncq3mRO4XoOdBrmKI14cTjrGKfvBCl0wxeSAGa
+   2CscN714uFJlopxDKZqmyP0DNeWt2ZhSnCcdzeL587HQBDR4T7OotVmV7
+   5qFYOtzrJT7HD5KODriqH/TdTEkLa/Sh3ArqdVegE8+unKB10UNWSdf6l
+   A==;
+X-CSE-ConnectionGUID: jNuVcmjMQdu/XzMNYCrMEw==
+X-CSE-MsgGUID: +pIsMXW4QX68UZLFm3DBOw==
 X-IronPort-AV: E=Sophos;i="6.13,309,1732575600"; 
-   d="scan'208";a="42042100"
+   d="scan'208";a="42042104"
 Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 24 Feb 2025 15:28:41 +0100
-X-CheckPoint: {67BC8219-2F-B8541F8F-E50F9B0E}
-X-MAIL-CPID: D7FE984E3EAE872F6989C03514BDF7EE_2
-X-Control-Analysis: str=0001.0A002105.67BC8218.003B,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B250E163EB7;
-	Mon, 24 Feb 2025 15:28:34 +0100 (CET)
+  by mx1.tq-group.com with ESMTP; 24 Feb 2025 15:28:46 +0100
+X-CheckPoint: {67BC821E-1B-F75C4246-F0BD6D90}
+X-MAIL-CPID: 791E6579507C17192F024A34A370D616_3
+X-Control-Analysis: str=0001.0A002103.67BC821D.00DE,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 87012167930;
+	Mon, 24 Feb 2025 15:28:41 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1740407316;
+	s=dkim; t=1740407322;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=f163cXOml+YO0Ef+W322W1dfG/8cGPnD5lNX0O+cQgg=;
-	b=XdPt6QjPC5bfyE59bCT3j/2fQcyS7YcghvcH3qz46Y39oEwWIPfuPnAg0oUMFP07l0ZF73
-	1etv9Ca05+DeOmYO/RLc86RCj+sfx1UaQEmDOSxmo8WojwfdHhLTWfy6Ar/yaXYfZBRyZ0
-	eFblQEocm9yKIYZkwHDlXpANU05KnWRqDzI1K7q8Wzf1CEzy29Eh7dI6HcbcSdVJb/YtvK
-	BShermGzljlCOIFRJ30Pvt6BeVls99HmGLh5klohZciR3mkzI+6q8MRBrIFkAd/PdQ/shn
-	0Zp0GE78xGZ5MPH7QoyhwZuDzw0SESyNIjWeE2H/YnW9pC5yEik6HyaKjVaH+g==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=KLDKoEHmBNZru20DMSxS9Pw3dDW9jMuSmbZS8x5oymU=;
+	b=Bm7iv9QeP09ZvQ0CG8V6YnlSJwXWQ066UmYdvl7P0n29NR06EVQMgL5AIqra9lqP966b/E
+	8zztU7NQzepM/2g4fPceO99tcpZBatawxa0IHjY7RDc2Xp7nMqtJNowt+ZvBj0HUvQD9HS
+	hBOt5irKjh1gMIrcp0jLrxV0sLd6uYEXD81i3wNtvwlGs5R4mPMQGfNgsyTm3azQuUwf9V
+	nL1dfYBhwqjEmtyOZDCyTby6HAv074VfZ5Qa+jrkDY3ipcZ5NHg3lvZDpXDuC1QmR55VGG
+	8toWUwbVCrMrSVdy02l16l6pruNpM98ZSYmWMc5kdNpWWR0cA8z4S+HkHxgpYg==
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -83,16 +84,19 @@ Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
 	linux@ew.tq-group.com,
 	linux-clk@vger.kernel.org,
 	linux-pm@vger.kernel.org
-Subject: [PATCH v2 0/6] TQMa93xx on MBa93xxLA/CA LVDS support
-Date: Mon, 24 Feb 2025 15:28:21 +0100
-Message-ID: <20250224142831.485159-1-alexander.stein@ew.tq-group.com>
+Subject: [PATCH v2 1/6] clk: imx: clk-fracn-gppll: Add 477.4MHz config for video pll
+Date: Mon, 24 Feb 2025 15:28:22 +0100
+Message-ID: <20250224142831.485159-2-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250224142831.485159-1-alexander.stein@ew.tq-group.com>
+References: <20250224142831.485159-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_062844_336098_04F61413 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20250224_062848_175822_7A455EF7 
+X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,67 +111,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Add the 477.4MHz frequency support that will be used by video subsystem
+on imx93.
 
-after a long time (v1 at [1]) this is v2 for the LVDS support on TQMa93xx
-module series.
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+ drivers/clk/imx/clk-fracn-gppll.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-It consists of three parts:
-1. New PLL configuration for 477.4 MHz
-2. LVDS support for imx93
-3. LVDS platform support for tqma9352-mba93xxla & tqma9352-mba93xxca
-
-Patch 1 adds a video PLL configuration for 477.4MHz
-Patch 2 is the imx93 equivalent of commit 1cb0c87d27dc ("dt-bindings:
-  soc: imx8mp-media-blk-ctrl: Add LDB subnode into schema and example")
-Patch 3 is the imx93 equivalent of commit 9cb6d1b39a8f ("soc: imx:
-  imx8m-blk-ctrl: Scan subnodes and bind drivers to them")
-Patch 4 is the imx93 equivalent of commit 94e6197dadc9 ("arm64: dts:
-  imx8mp: Add LCDIF2 & LDB nodes")
-Patch 5 adds LVDS DT overlay for tqma9352-mba93xxla platform
-Patch 6 adds LVDS DT overlay for tqma9352-mba93xxca platform
-
-Changes in v2:
-* Rebased to next-20250221
-* Reordered patches
-* Added 'ranges' to bindings
-* Use subnode constraint styles as suggested by Rob Herring
-* Use IMX93_CLK_SYS_PLL_PFD0 as parent for IMX93_CLK_MEDIA_AXI
-* Use 333MHz for IMX93_CLK_MEDIA_AXI
-* Do not set board compatible in orverlays
-* Add MBa93xxCA platform as well
-
-I skipped the support for dynamic PLL configuration for now. This is a
-separate task, see [2].
-
-Best regards,
-Alexander
-    
-[1] https://lore.kernel.org/all/20231020130019.665853-1-alexander.stein@ew.tq-group.com/
-[2] https://lore.kernel.org/all/20250210160012.783446-1-alexander.stein@ew.tq-group.com/
-
-Alexander Stein (6):
-  clk: imx: clk-fracn-gppll: Add 477.4MHz config for video pll
-  dt-bindings: soc: imx93-media-blk-ctrl: Add LDB subnode into schema
-    and example
-  soc: imx: imx93-blk-ctrl: Scan subnodes and bind drivers to them
-  arm64: dts: imx93: Add LCDIF & LDB nodes
-  arm64: dts: tqma9352-mba93xxla: Add LVDS overlay
-  arm64: dts: tqma9352-mba93xxca: Add LVDS overlay
-
- .../soc/imx/fsl,imx93-media-blk-ctrl.yaml     | 51 ++++++++++++
- arch/arm64/boot/dts/freescale/Makefile        |  5 ++
- ...3-tqma9352-mba93xxca-lvds-tm070jvhg33.dtso | 40 ++++++++++
- .../freescale/imx93-tqma9352-mba93xxca.dts    | 27 +++++++
- ...3-tqma9352-mba93xxla-lvds-tm070jvhg33.dtso | 40 ++++++++++
- .../freescale/imx93-tqma9352-mba93xxla.dts    | 27 +++++++
- arch/arm64/boot/dts/freescale/imx93.dtsi      | 77 +++++++++++++++++++
- drivers/clk/imx/clk-fracn-gppll.c             |  1 +
- drivers/pmdomain/imx/imx93-blk-ctrl.c         |  7 ++
- 9 files changed, 275 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxca-lvds-tm070jvhg33.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-lvds-tm070jvhg33.dtso
-
+diff --git a/drivers/clk/imx/clk-fracn-gppll.c b/drivers/clk/imx/clk-fracn-gppll.c
+index 85771afd4698a..f0c34a02acac3 100644
+--- a/drivers/clk/imx/clk-fracn-gppll.c
++++ b/drivers/clk/imx/clk-fracn-gppll.c
+@@ -85,6 +85,7 @@ static const struct imx_fracn_gppll_rate_table fracn_tbl[] = {
+ 	PLL_FRACN_GP(519750000U, 173, 25, 100, 1, 8),
+ 	PLL_FRACN_GP(498000000U, 166, 0, 1, 0, 8),
+ 	PLL_FRACN_GP(484000000U, 121, 0, 1, 0, 6),
++	PLL_FRACN_GP(477400000U, 119, 35, 100, 0, 6),
+ 	PLL_FRACN_GP(445333333U, 167, 0, 1, 0, 9),
+ 	PLL_FRACN_GP(400000000U, 200, 0, 1, 0, 12),
+ 	PLL_FRACN_GP(393216000U, 163, 84, 100, 0, 10),
 -- 
 2.43.0
 
