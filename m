@@ -4,113 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B50ACC021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 09:36:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DF2CC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 09:37:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aNM4/TmVJxnqlb7EUxRh0Hh4V0whmIZTNWrmXbvIn0Q=; b=WOarl3RKB71zQc3tLONkkzluLg
-	Ul7tDfSIbWFq2xBdK0lpj7kUnwsL0N5XqD3X70F9bVqMQqJGP7cyGa6zoXTThcM1VCVYjY18eHYcw
-	JYZzL2Im6FUWJ6XmXlK8cnrQyZ5XYXK8UBv1YtWYQ99LE3HgeeaSpz9YhCl9KTJGbcptBjtF5Ekng
-	9S5aYPXXXQYOICRlS6Cd3zfTa5mpJrtwldYOYzKPZ1ZCDTb4YfD+ZIb6USMGARPV3ndgzDQIx57qX
-	1TpQpf7jCHDFxKwESdoGCMlzAXq41kQd6Qu+24TyEoEebn1Xubdx+/jsnp4js7TiVnHK5jiNn/nxr
-	3Skh9DgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AjylcePXrVUnF6ZSzcm/lAR7+n7JhJ5A0QnbNiuRMSg=; b=zxZlUtz2jDQNRbB8huICwvwNRo
+	NoYZbmS7R/SBih1kRrtz+muC8NiL8gFEwow9f3WNxmmGWSFQp1AamC3VPI0ZeD6ZQNnq3H6mNmUze
+	5rmWqteQLwVPR2aZ1C9BMuniFjZHGBMMQhfAtfvD743t/D4GuESlUvTEq6T53r55Vx6IiCkfO7Q66
+	y61Fjv8SwvvBB0wVhWMOaWRS+jG0CToGAj8VGpVU1PHVpPvE168euhrhvcJyTkWowToUhHzmyjy9+
+	SVZi6PryJbQRVV7d6aZpGt8Y/ZMFwNcy2KkAVGDor5X6TYEFKjVBlehz2qAsdW/pbS39ku9lsYLy9
+	gyooSFNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmUsh-0000000Cweo-39o7;
-	Mon, 24 Feb 2025 09:36:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tmUu8-0000000Cwsb-1rNZ;
+	Mon, 24 Feb 2025 09:37:36 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmUWK-0000000Cqtw-3y7e
+	id 1tmUWb-0000000Cqyh-013T
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 09:13:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 35EDD5C0170;
-	Mon, 24 Feb 2025 09:12:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5D5CC4CED6;
-	Mon, 24 Feb 2025 09:12:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740388379;
-	bh=nfTjtiHyp8YGDOE8b1GEzYjeYB8+AdaUbbLsHlXE8eo=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=ofGBndUjMXr7JS9BdSm4YcM1dAaIQZc6xxC6EAzaJijdbpp46D/tOjfoPu4kzYyQF
-	 FrwFsCBqhOkr0wt8//5ylpg1cxhyGNAQDnaxY3ARyU0PdbRzM4VeIbhFkLRFdweNvG
-	 bCW4HzXRx4Hk67IzCFUjFbgVHfKNVvje+RkPR+3XY+XPKaTIzCkRO1Ui2DJhgOuWOP
-	 gD61a0hvcyWkv2kICrt0308s/YM4XElfG+H+X6qgOyO7fM9DVLfHZ+0yYzmJno3GuO
-	 a40kvjPKN5UrxcNiLICNqKMzhasx/hbuMymoJTgk3Bs6ZjLLp3zusdYkFg8STC3DkJ
-	 YUOiXClou1RAQ==
-Message-ID: <972b2116-3343-49a6-9304-ed22eb909eaa@kernel.org>
-Date: Mon, 24 Feb 2025 10:12:51 +0100
+	Mon, 24 Feb 2025 09:13:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1740388397; x=1771924397;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=AjylcePXrVUnF6ZSzcm/lAR7+n7JhJ5A0QnbNiuRMSg=;
+  b=aSvUiErfd7QuKKaU5pAbic1DGtqS24z0kvmV7/ws84uNNGvQU+6AcYMS
+   mttEk6Ws2JVROQwCDzWtsM2u1KqiJVCbqru+3WluRf7OFyAfXnu1zOgko
+   i4WkoMaQIRPRhHTu0vdUf0JOG+yZMIrNK/vTkcOBg22pc2E5NDpl5kvxE
+   Yp2rbCnsZGFfWTJV4u4kfUevcivcvaTc/j+rjjK1voqV6WiOtCHZd+qAG
+   sLaYQeoRFeqYCSt/rBAgk4qT75SYIcrVbyqjcymJhKbmKlLFW5husd+H3
+   0fnqJpGtHY2Uqpm1xcYL9eavLrXKA8K0I7Jf83MjRbXTyN1IF5XvlUeVh
+   g==;
+X-CSE-ConnectionGUID: wmngbpdqQX6ZkS3h2ZUSfQ==
+X-CSE-MsgGUID: zx5xB7opSoqf208iCoSzfw==
+X-IronPort-AV: E=Sophos;i="6.13,309,1732575600"; 
+   d="scan'208";a="42032430"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 24 Feb 2025 10:13:11 +0100
+X-CheckPoint: {67BC3827-E-B8541F8F-E50F9B0E}
+X-MAIL-CPID: 01CE408A85210DB28F086B4BC67B11FE_2
+X-Control-Analysis: str=0001.0A002114.67BC3827.0039,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 69C04166011;
+	Mon, 24 Feb 2025 10:13:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1740388387;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AjylcePXrVUnF6ZSzcm/lAR7+n7JhJ5A0QnbNiuRMSg=;
+	b=sY9nQ0VwRxGqUaoFjGRj6FzsosJtQC16bPK16Ap9UL9cM8M8UnE8gZpdRZehylkaXF+Zmj
+	Wi8jm8/SXD2CtEALuHfqxEAXxm2liYsbu92O8vzfEdDvUJQNQ4HMJeWnU/DQTCT/hp5tXu
+	Gfe3/rD+RUur5byTub/NTrriVjI5OKwmMTFI4L0tsmMYiZGzdZ4hJiOqcaum4Su0L0Xvpm
+	YAkQixnZQYO+6F0/iXHzhtpQn34GFHr+GN1KkNOiqlMDLQOy76taIvFT1emdkWMbJDieoE
+	b+hFvSdyGmort3xMhaoAdna3igoWUohVTZXyNJHEthLwrtxA5whI8b2FmiWGAg==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: shawnguo@kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ Fabio Estevam <festevam@denx.de>, Fabio Estevam <festevam@gmail.com>
+Subject: Re: [PATCH] ARM: dts: imx53-mba53: Fix the PCA9554 compatible
+Date: Mon, 24 Feb 2025 10:13:05 +0100
+Message-ID: <12615755.O9o76ZdvQC@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20250220133153.2380248-1-festevam@gmail.com>
+References: <20250220133153.2380248-1-festevam@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v16 1/3] dt-bindings: i2c: aspeed: support for
- AST2600-i2cv2
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: benh@kernel.crashing.org, joel@jms.id.au, andi.shyti@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- andrew@codeconstruct.com.au, p.zabel@pengutronix.de,
- andriy.shevchenko@linux.intel.com, linux-i2c@vger.kernel.org,
- openbmc@lists.ozlabs.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org
-References: <20250224055936.1804279-1-ryan_chen@aspeedtech.com>
- <20250224055936.1804279-2-ryan_chen@aspeedtech.com>
- <20250224-arrogant-adventurous-mackerel-0dc18a@krzk-bin>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250224-arrogant-adventurous-mackerel-0dc18a@krzk-bin>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_011301_077035_72025BE1 
-X-CRM114-Status: UNSURE (   6.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250224_011317_534151_C4B44DDB 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,31 +95,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/02/2025 10:11, Krzysztof Kozlowski wrote:
-> 
-> 
->> +
->>  required:
->>    - reg
->>    - compatible
->>    - clocks
->>    - resets
->>  
->> +allOf:
->> +  - $ref: /schemas/i2c/i2c-controller.yaml#
->> +  - if:
->> +      properties:
->> +        compatible:
->> +          contains:
->> +            const: aspeed,ast2600-i2cv2
-> 
-> NAK, undocumented compatible.
+Am Donnerstag, 20. Februar 2025, 14:31:53 CET schrieb Fabio Estevam:
+> ********************
+> Achtung externe E-Mail: =D6ffnen Sie Anh=E4nge und Links nur, wenn Sie wi=
+ssen, dass diese aus einer sicheren Quelle stammen und sicher sind. Leiten =
+Sie die E-Mail im Zweifelsfall zur Pr=FCfung an den IT-Helpdesk weiter.
+> Attention external email: Open attachments and links only if you know tha=
+t they are from a secure source and are safe. In doubt forward the email to=
+ the IT-Helpdesk to check it.
+> ********************
+>=20
+> From: Fabio Estevam <festevam@denx.de>
+>=20
+> gpio-pca95xx.yaml documents 'nxp,pca9554', so use this compatible
+> to fix the following dt-schema warning:
+>=20
+> failed to match any schema with compatible: ['pca9554']
+>=20
+> Signed-off-by: Fabio Estevam <festevam@denx.de>
 
-Heh, and this was in previous versions as well.
+Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 
-You have never tested your DTS. At v16 still no testing. This is not
-acceptable.
+> ---
+>  arch/arm/boot/dts/nxp/imx/imx53-mba53.dts | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/arch/arm/boot/dts/nxp/imx/imx53-mba53.dts b/arch/arm/boot/dt=
+s/nxp/imx/imx53-mba53.dts
+> index c14eb7280f09..3cdb87ac1d7c 100644
+> --- a/arch/arm/boot/dts/nxp/imx/imx53-mba53.dts
+> +++ b/arch/arm/boot/dts/nxp/imx/imx53-mba53.dts
+> @@ -162,7 +162,7 @@ codec: sgtl5000@a {
+>  	};
+> =20
+>  	expander: pca9554@20 {
+> -		compatible =3D "pca9554";
+> +		compatible =3D "nxp,pca9554";
+>  		reg =3D <0x20>;
+>  		interrupts =3D <109>;
+>  		#gpio-cells =3D <2>;
+>=20
 
-Best regards,
-Krzysztof
+
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
+
 
