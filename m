@@ -4,61 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 786CEC021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 09:52:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 855D2C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 09:54:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HYBL+Jz+yUAoyP1r3AzTGugIrxWn3P0BnRFiCTnX/Ow=; b=pcT/F9I8aEaB125ZLJEyGr9OoC
-	rWIghmhCfxhHWwr89pWdgwmdwFfaucLTKW7dNg+CCitnCiBvSmSG2BS5tx9tG6DoOannGLCFHyMpc
-	4H1qwvtE2OJbeEHpW4zpTpLpGdWAhSec6f0egw4G8iuff3abHbrpalUwL1YlgePhLmo0283fAbMWy
-	L4sg7KhL7afJHl+4Wt3F+JHyIFXvOGht/+udNU3TOQxAYaLECY+w4/K945jkDmeYcyrh7ms3VYx7Y
-	djsYi/LW/l7GIlpHvXUn4kRT/ckc95QgJ4lK/lNKnQPeTuD70Fiz4q1Vf21OIrgGvqoVSU+j9hyF3
-	T21ONHyg==;
+	bh=DpC01PEZM/W9HM/o03BmQmRd6L/6f76/vyKI8m9qCCk=; b=LP+bWHySn7L8D5IwXxesD5b8Kh
+	Ipy2UfD7BRVxaWhilvzlwKU8aN5hP0IQkFJ+WFlfSmzZyvcIkekMkRngmGbTQK7iRtO6nqQHT0JYg
+	Fa4rAJUnJNTUlv12ilZOr3XWdqnKKRsvJahGqGY4zdR4CX0Sh7r+4cquAqOv7rXAUuZplUvNo9tqj
+	SkBNdsHbF3TmDUIDOWCFDMTrEg8PXpaTg/EkERZuyjRGdJJO264hl+D5woCVTqcJUOXkef6QEjBlP
+	OrMuiqq5bCgak0KvaOleI1VS/eFXsyQ/GMXOC47/gL48tWFDjwfA4L7KQ0C0PdcHTxdqdLeRKXUpy
+	LC0iILAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmV8a-0000000CzRy-204D;
-	Mon, 24 Feb 2025 09:52:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tmVA1-0000000Czj5-2Jl2;
+	Mon, 24 Feb 2025 09:54:01 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmUxx-0000000Cxfe-0Iep;
-	Mon, 24 Feb 2025 09:41:34 +0000
+	id 1tmUzR-0000000Cxvz-3Vqs;
+	Mon, 24 Feb 2025 09:43:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 836245C06DE;
-	Mon, 24 Feb 2025 09:40:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1968C4CED6;
-	Mon, 24 Feb 2025 09:41:27 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 421A65C4C2D;
+	Mon, 24 Feb 2025 09:42:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34C0FC4CED6;
+	Mon, 24 Feb 2025 09:43:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740390092;
-	bh=K/BMaw7yksUW7asTY2fGFkaWht/cMbjJx1rTVr0UTP4=;
+	s=k20201202; t=1740390184;
+	bh=GKXPJt6PDAEEN20K7wi1bEHw7PlMz/Omr8DfE7ItQtw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KhmrJpQSqlbJvrog1f0QHlNyHDozd/5pew3gkhjaMJTlYGT1dzBQcpDRw+2p9FIy9
-	 2s4YAtUkyEQJrSerisG7+sH5UJ5wmVt/YtRfMXCeDxnsbIZlxEhJIQstInwuBc4ZTP
-	 v39bYkIaCO5hlX+4DgPv7tai36HwjkdHD6KsIgCNtRYsBCBWlqomWp45rP2SgXrlun
-	 YG93mEu7sejdgpEfeiIyOL2ksJZ5oqdKEAhoF+2GWD5Q4RiQykZ1coUhVJjfYma2B3
-	 NAYFriOCgVbjb3vzDNgGd2Ok0qMWCn6n3pudTyyFypOrY33ewo6We+XzuVMAYtnq9i
-	 Imqk3pdx9QcrA==
-Message-ID: <fa49d52f-0a55-4bce-8742-5b4f018c170c@kernel.org>
-Date: Mon, 24 Feb 2025 10:41:25 +0100
+	b=pEFgTcx9zDAyL+ji5FQCOmJOZBiE0tIDromtpWTzlSl1fZXLLEhGyCOmwUdC0E3/v
+	 ZHVEH6BFfqLLRup1k4yhr4vP2ePrhMdqfxD6gvcGZ84F6PSlNeg96ZQhIHGrbZ+ZCN
+	 VIAtAQBFdB0SLkB2/aaRUuK6weOUovS4Fyp/VlLAkXpFjqd+A9AWqklchoJg4uFyoC
+	 x4cl5vnOfcrmRoIF1uzpjggOmgpF4EWYO/+SeNBj6xOpjzROcS3RHWbyOS/1ZDn9CC
+	 dVkQmdLpFttRiJ/4mpQynIvOGu2aXG5BXbtbHagoy5TOKkmB12PEEeoe24EotA47PN
+	 yKaXRQr1rU72w==
+Message-ID: <ff536bec-36e3-4067-b0a8-764dd6a6c65f@kernel.org>
+Date: Mon, 24 Feb 2025 10:42:59 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] dt-bindings: clock: add rk3562 cru bindings
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Kever Yang <kever.yang@rock-chips.com>
+Subject: Re: [PATCH v6 2/2] arm64: dts: rockchip: Add rk3576 pcie nodes
+To: Kever Yang <kever.yang@rock-chips.com>, heiko@sntech.de
 Cc: linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
- Conor Dooley <conor+dt@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>,
- Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Elaine Zhang <zhangqing@rock-chips.com>, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20241224092310.3814460-1-kever.yang@rock-chips.com>
- <krrqtjllx6akrurefbtuhgxw6bwmkiro5rtvdexoevjyufm2uz@r5biw7kbttyr>
- <23c84fd5-83f4-46b3-a247-56e4a2c06d1d@rock-chips.com>
- <3234236.fEcJ0Lxnt5@diego>
+ Conor Dooley <conor+dt@kernel.org>, Finley Xiao
+ <finley.xiao@rock-chips.com>, Frank Wang <frank.wang@rock-chips.com>,
+ Rob Herring <robh@kernel.org>,
+ Detlev Casanova <detlev.casanova@collabora.com>,
+ linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Elaine Zhang <zhangqing@rock-chips.com>, linux-arm-kernel@lists.infradead.org
+References: <20250224074928.2005744-1-kever.yang@rock-chips.com>
+ <20250224074928.2005744-2-kever.yang@rock-chips.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,12 +101,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <3234236.fEcJ0Lxnt5@diego>
+In-Reply-To: <20250224074928.2005744-2-kever.yang@rock-chips.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_014133_222121_E53C52F4 
-X-CRM114-Status: GOOD (  14.24  )
+X-CRM114-CacheID: sfid-20250224_014305_989999_91EF8C52 
+X-CRM114-Status: GOOD (  12.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,74 +121,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/02/2025 10:05, Heiko Stübner wrote:
-> Am Montag, 24. Februar 2025, 09:52:12 MEZ schrieb Kever Yang:
->> Hi Krzysztof,
->>
->> On 2024/12/27 16:25, Krzysztof Kozlowski wrote:
->>> On Tue, Dec 24, 2024 at 05:23:08PM +0800, Kever Yang wrote:
->>>> Document the device tree bindings of the rockchip rk3562 SoC
->>>> clock and reset unit.
->>>>
->>>> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
->>>> ---
->>> A nit, subject: drop second/last, redundant "bindings". The
->>> "dt-bindings" prefix is already stating that these are bindings.
->>> See also:
->>> https://elixir.bootlin.com/linux/v6.7-rc8/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
->>>
->>>
->>> s/rk3562/Rocchip RK3562/
->>> or whatever your proper name is (and use proper capitalized parts of
->>> products)
->> Will update.
->>>
->>>> +properties:
->>>> +  compatible:
->>>> +    const: rockchip,rk3562-cru
->>>> +
->>>> +  reg:
->>>> +    maxItems: 1
->>>> +
->>>> +  "#clock-cells":
->>>> +    const: 1
->>>> +
->>>> +  "#reset-cells":
->>>> +    const: 1
->>>> +
->>>> +  clocks:
->>>> +    maxItems: 2
->>>
->>> Why clocks are not required?
->> The cru is the clock-controller, which is always on module in SoC,
->> so we don't need to enable "clock" for this clock-controller.
+On 24/02/2025 08:49, Kever Yang wrote:
+> rk3576 has two pcie controllers, both are pcie2x1 work with
+> naneng-combphy.
 > 
-> hmm, shouldn't clocks be
+> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+> ---
 > 
->   clocks:
->     minItems: 1
->     maxItems: 2
+> Changes in v6: None
+> Changes in v5: None
+> Changes in v4: None
+> Changes in v3:
+> - Update the subject
 > 
-> The CRU _needs_ the xin24m because that is the main oscillator
-> supplying everything, but _can_ work work without xin32k .
+> Changes in v2:
+> - Update clock and reset names and sequence to pass DTB check
 > 
-> Sidenote: itseems we're doing this wrong on rk3588
+>  arch/arm64/boot/dts/rockchip/rk3576.dtsi | 109 +++++++++++++++++++++++
+>  1 file changed, 109 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+> index 4dde954043ef..b4f396421686 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+> @@ -1127,6 +1127,115 @@ qos_npu_m1ro: qos@27f22100 {
+>  			reg = <0x0 0x27f22100 0x0 0x20>;
+>  		};
+>  
+> +		pcie0: pcie@2a200000 {
+> +			compatible = "rockchip,rk3576-pcie", "rockchip,rk3568-pcie";
+> +			#address-cells = <3>;
+> +			#size-cells = <2>;
 
 
-Kever responded to a review 2 months ago. None of these emails are in my
-inbox anymore. All context is gone as well.
+Follow DTS coding style.
 
-No, I expect the comments to be applied full in such case. This is a bit
-ridicilous  that now I need to look for that email somwhere to check
-whether implementation follows received response. Response after 2 months!
-
-
-
-> 
-> Heiko
-> 
-> 
-
+In case you respond to above after 2 months, like you do for other
+patches: don't know, follow the DTS coding style.
 
 Best regards,
 Krzysztof
