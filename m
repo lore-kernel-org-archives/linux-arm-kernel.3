@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 169C1C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 20:33:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E497CC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 20:35:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=04q0DmnzmhNNpx9f6JqUjDJPGYAENcek8KIV+aPyp0c=; b=oJe7xi+g6Iqxv7ApQ2aQ1dJTbF
-	XiGMbLLB8Y/8HjC1mUSzly8CwSOM0gTjkH9a+0tyUWW/3A0wKwmRL5kyF9k5wvznvEQKYiT6e9o6z
-	3x7IhThw2mwG2nR5yKwmzXvEN3KVahTsbZYl67EBvdDts5D4b+kONUvnaMkmnhhp1firbm7ClSrsu
-	Hko26dDfPD3mv1tfeiZtBzmttbaijzwmDEqdoJPyNR6NGy4cP1JEMUKpY4fIEqpbx7zTeC2alYGg8
-	c79sIoNedMv+06ej84TKMRFFPOf7SmDKJkKwykAvq10QbO+wnmuGp/YC3gVn5bT5n7/V2pCY9PfNf
-	uTZNdrag==;
+	bh=kOtW7RXVgWq7RbYNDWCug+4gqlzHv4az0EsugvgSdSg=; b=qyAz4asZY9RphDxWZQYeO20Q1t
+	3MdpHDJQd9IofiJzLyToqDOjqBAwS5CbYSmQR93PXLeyWYq5vB/lriXYRcI45GESxUT0wCenePBrp
+	dYg9dItjtzm4LMq+yHjKLYRINBamzUg7sLsKhDzQhOsFshtlPzB6eqG17zzW6N/Hap30tgA/rKiu7
+	ieS3JhE1aRdMQmWV0PR9/oz8zHRLhFFvFiRe9ZTFj7kgkqpxbBYMsyPOzy488E0Wqwd6aVuR6bVuS
+	E2jRjtyIRg29p1c6axYTocFc5U0QLCH1qkWP4INRqJ4DOk6vHFyOxYgpp2Bk9ElPOy68zxVpxFBZY
+	3j6LN5yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmf97-0000000F6af-1tq3;
-	Mon, 24 Feb 2025 20:33:45 +0000
+	id 1tmfAa-0000000F6rl-0FI9;
+	Mon, 24 Feb 2025 20:35:16 +0000
 Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmf7e-0000000F6Ln-1slE
+	id 1tmf7w-0000000F6ON-2Efy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 20:32:14 +0000
+	Mon, 24 Feb 2025 20:32:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BA4E761134;
-	Mon, 24 Feb 2025 20:32:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B2F2C4CEDD;
-	Mon, 24 Feb 2025 20:32:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EB96961207;
+	Mon, 24 Feb 2025 20:32:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E19CC4CEE7;
+	Mon, 24 Feb 2025 20:32:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740429133;
-	bh=LEHxu5uUmeaV7+NU70Sza9810F5pHO55NG+jcIxXdLQ=;
+	s=k20201202; t=1740429151;
+	bh=7Eyqt9Yi27fAwHev0xOEgY0/gsh0CaOyA02i4c7f+q4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VWb+AJ2me2apk+gmPLWDZXowwwAyEGuesvKDYbTkGbZHkofFvMw3X3ejLPs2COr1o
-	 ZgWG/ZCnkVCXoqmgHOlJyw+MFXK10bkkBCq0uU8+r9oj8XVlreLKT9zfngo86iM40E
-	 aPuqms5vxELWLUCfMdDPKextu5DeajD2SxRgSCZ2P3x3+EQAI6+YZY9vNjOxIFmkFJ
-	 EbuLfaAacYExZJfr99LMkww9uW/iEkHAJg3kx8mPaiQhp5p9Ywi4v05Lb9LR3WoPfv
-	 Lg537vsSWQwVwA2rJXRKVGHKoCT5bnYp/D99eniwkRm/sVY4LM1Kl4VrxGEXC7IfKu
-	 m3ysrKMt5H7uw==
-Date: Mon, 24 Feb 2025 14:32:11 -0600
+	b=L2UKt4dp2RNeu+KYdq+fQJdJTheZkYadYmOtIHueFj0GXVQuUlJv4EHvzrmv1Wf10
+	 ehwrZ9x3s5b+7d6WxmzWMMg4j7Mgx9B9gfB/rtJEyp3vt7HH7+VU9jA2JVRSrwaJhf
+	 xxzyDLlq5YZuzNCMthRET42kiJ6+hBHE0RvI+8YbDuoPz9OMTV0Is8E7fEyivjAp1v
+	 U3itUCvauiJdIBnxgRQdJ5NycxTs/JKlte2vxWxIRwy9wZNevC7mrgPrf/9rc6xNPu
+	 R22YZEkaXTAxNvTAEwTXVP2cAiV1pS/dHyR/D4yexI9v7LbZExCZvRQW3haj68/BsV
+	 h8AB6Gc0w+vDA==
+Date: Mon, 24 Feb 2025 14:32:29 -0600
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Maud Spierings <maudspierings@gocontroll.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Jessica Zhang <quic_jesszhan@quicinc.com>,
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
-	David Airlie <airlied@gmail.com>,
 	Thomas Zimmermann <tzimmermann@suse.de>,
-	Liu Ying <victor.liu@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-kernel@vger.kernel.org,
+	Sam Ravnborg <sam@ravnborg.org>,
 	Thierry Reding <thierry.reding@gmail.com>,
-	Sam Ravnborg <sam@ravnborg.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, dri-devel@lists.freedesktop.org,
-	Simona Vetter <simona@ffwll.ch>, Shawn Guo <shawnguo@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Ripard <mripard@kernel.org>
-Subject: Re: [PATCH 01/14] dt-bindings: display: simple: add BOE AV101HDT-A10
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Jessica Zhang <quic_jesszhan@quicinc.com>,
+	devicetree@vger.kernel.org, Simona Vetter <simona@ffwll.ch>,
+	Fabio Estevam <festevam@gmail.com>,
+	Conor Dooley <conor+dt@kernel.org>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	dri-devel@lists.freedesktop.org, Shawn Guo <shawnguo@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>, Liu Ying <victor.liu@nxp.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 02/14] dt-bindings: display: simple: Add BOE AV123Z7M-N17
  panel
-Message-ID: <174042913116.4047506.14844482036971785905.robh@kernel.org>
+Message-ID: <174042914940.4047956.6244302350129117835.robh@kernel.org>
 References: <20250224-initial_display-v1-0-5ccbbf613543@gocontroll.com>
- <20250224-initial_display-v1-1-5ccbbf613543@gocontroll.com>
+ <20250224-initial_display-v1-2-5ccbbf613543@gocontroll.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250224-initial_display-v1-1-5ccbbf613543@gocontroll.com>
+In-Reply-To: <20250224-initial_display-v1-2-5ccbbf613543@gocontroll.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,12 +86,12 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 24 Feb 2025 14:50:51 +0100, Maud Spierings wrote:
-> add a compatible string for the BOE AV101HDT-A10 10.1" LVDS panel
+On Mon, 24 Feb 2025 14:50:52 +0100, Maud Spierings wrote:
+> Add support for the BOE AV123Z7M-N17 12.3" LVDS panel.
 > 
 > Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
 > ---
->  Documentation/devicetree/bindings/display/panel/panel-simple.yaml | 2 ++
+>  .../devicetree/bindings/display/panel/panel-simple-lvds-dual-ports.yaml | 2 ++
 >  1 file changed, 2 insertions(+)
 > 
 
