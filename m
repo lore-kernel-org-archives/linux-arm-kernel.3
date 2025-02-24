@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F865C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 07:30:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EF27C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 07:32:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H/J1eHs/QwfmQDOJAETe758QiGCVwHhph27kBts3wDI=; b=N3DMM4VeXG4Bx8EpJgIhyinw+A
-	ueZXclbw/EU/fmjjk2QUwDkJuLBmHwa2TgNTcPR/KZYmjH0f24wB1Wtjga3CrTFtnmGkKDFh2mgeJ
-	t8r3ZP4ky7bt8xgoCRrpMKetnwIJ/epF36aPw5FnwPVuB1Meb7MPMSRaFaFUot4704psQ2jaKq5+X
-	q25e3kCs4l88N3TiH4qZwoml4v7EiUsy0mxwl/M6Ggoqym5ivySjMDNEQxzNkwBZAfiAa7ieLMsSn
-	FQkhiQ/c+LqCu0RE7ONFsOOXPTDrTKTswv1eJhu3Suz9g+9g0ulpj8a5EuTrEUvoHdfKzfA8lpnD8
-	8RevgCvQ==;
+	bh=b0duzw3Ywocqb3zPYovQHOlpL11++t/qRORIguG/x8M=; b=0r20NqWIK1TdV00UjmnFUOwvgO
+	wtB3z6Wxy2RB+2EZhtuisGEmF12D8HSGRwN7Wj6OZXbHTVA1YzpiEWWkF72qzj6UVsJd2P0jT0En5
+	1yAyA0KKAzODFCKgwK3kG519oyQNupOUk+dshN5FwM2Kvg1fqTbvJzwN7cCcNgdA/4rOaNyCO1zwx
+	yCiLGSmEJkN2FOWqGksufR6nAnE30hrsEbWzHHUXfAln6KNV4yZOhpXAmzP/WFtBGjtuV+ETWBL2X
+	w9+H2BEXu+QslN1y4H77y4Z1SpqdRaiUEvcsJI22cRxLkdQkCxDyu7ubpP7dwuTFTdWMzoXdL6tEg
+	AP/rSybA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmSv2-0000000CZLV-1hMY;
-	Mon, 24 Feb 2025 07:30:24 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1tmSx9-0000000CZgt-2Ekr;
+	Mon, 24 Feb 2025 07:32:35 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmStR-0000000CZ6T-49t3;
-	Mon, 24 Feb 2025 07:28:47 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-38f286b5281so1940551f8f.1;
-        Sun, 23 Feb 2025 23:28:45 -0800 (PST)
+	id 1tmSvc-0000000CZQK-2SZE;
+	Mon, 24 Feb 2025 07:31:01 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-38f3486062eso3482910f8f.0;
+        Sun, 23 Feb 2025 23:31:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740382124; x=1740986924; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1740382259; x=1740987059; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=H/J1eHs/QwfmQDOJAETe758QiGCVwHhph27kBts3wDI=;
-        b=f/CZLywiCEXSaOyoGRQgt00WQS3VQZkckbvzAxICenUTJn0UzMUq8bih1d6lvJlVpv
-         J8gBnxAIxO/Wzp7kmPk6ajJoIsOz92ztYzAm+AI5wAdbPVBaZuZMAbOX2V0dWTmf88r5
-         gFio9fzmq8FePinzS3THYaXExIHon022bgttToXCX67JQhnPpq39IRaoi+52Chn/Sc2e
-         5ax5gmaz6ktZbm2mo1/5nkxdsFi/Eb1ysbKKNEzVEOvBYzpYxTSViM3sFRoKVPVZU4tY
-         7HP8SJ/uGG3oWEhwbBVuaeozIQF8XJkBkqd658PuOO9cVwrp68yHe537tx7X1nJtQzXG
-         4XEw==
+        bh=b0duzw3Ywocqb3zPYovQHOlpL11++t/qRORIguG/x8M=;
+        b=l829q5kK9d9ed8PKzoHFL1LUASUfeFHzqI9BnPUloyBCkAXbDNt/rH1fhK5zl0X/4k
+         t2G2D+5YcggLuu4zFtsvCofaNxzyLhkww0mYqRwqTh3+XcIRgunaS6bCdn79u4/b4RgE
+         hORS9LD6rSPvur1JlFDcYa9yQ90WljctgY0aTqhoZXrhY3es8P1RGg1Jgf9oPapjivJs
+         uuklmRcQp28eDQ9+M7Gwchri/OMCYgVealnROeBg2dOzvDqeoww72llEDIFkryqcxq6W
+         T1ZlMz7on1NYu97nUTlNHYo/uOK6ZSXV6V/WMA+o8ZlXYWyAM7ZRKpolFODFdv504jcg
+         zUdQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740382124; x=1740986924;
+        d=1e100.net; s=20230601; t=1740382259; x=1740987059;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=H/J1eHs/QwfmQDOJAETe758QiGCVwHhph27kBts3wDI=;
-        b=lRq1aILc7WUlzagIb/8naaCKnA737TIsFCJJZQirefUHEARHnGh3EvWqWO5ez0EKlY
-         QbLglps5BuaOUChR3zAV1O6tzx1sM3ED8dCAwnX2TjTUP1ufz/mCNf92x0OLszUFRavP
-         euHsdXMMyu8oqxWSU/fnZTtZ+gUpD63xU8DEMXcn8qbedR2IeAJeLEuL43KhuDvonSXy
-         nGHOLYpF6Z6scbu7bJ7EWxvlt/IxvY5aTGLsgGb37ybWV3vEl66sHJTyBW+un5suYUh4
-         2iAcOyoP1vYgpk1M8fN0AYdSXr/6vJr6JZZIcglyDCH7+BGgTVJXB/WV+UgCBjgsRegi
-         D4zw==
-X-Forwarded-Encrypted: i=1; AJvYcCVPF1Smm4Z7CoIP+gmk9fgrIF81elgoOjWEpCkYFYxG27uZiC8SrGgAt54Pph9Cnwbl+b8FIknBde+Y@lists.infradead.org, AJvYcCXuQ/Ilc607282tKIxdV6nrxdWjl02IB6q/YoQ1da1eKcQLBpYRPsjkyzysU/22K/AG335JmWtwy1P/KOSrU+4Y@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHPhzxDBzc4z2dQvgpNNvsSPGvyi3c6pEcdcmPYdHxkeQV3bP0
-	EB5uTycRxNGGTjIbSnFVba1f6wjLKHUtdEVUcfR6E3O7yf4LtXKO1jh/ag==
-X-Gm-Gg: ASbGnctcqaP0vJJtzzIflDRt0Xpbt1OVP0+4+lv1dkfX2HV5OMyfdkDz0SmxBE4MTVs
-	hA5NT3VyWsIE94YJ/hkToySJxALHXn/6tyOFAN5soWGRrmeKNAGqk0fpOo+/1FGHQ4LzrsiRqQz
-	Kjuimew8Cx3BGYcQBrNzdDm2H9UU3WI5YEno/VLadEocbAdv2rzUh7mnNCtB2OXJR+lQ/e7Tiq6
-	2fnTapiocrmtd16384+tBHjrdNkrOYMfJyS9ZqjMUwCec0ofU6bHBVPCVfMkRykKMBG5Uz8Q7KE
-	FisWPx0jqzd9SRsxVWfuD+TQF4sjA6VCAXGPDLuH
-X-Google-Smtp-Source: AGHT+IE5cw7vshlFbcyfY+g/VDogOlT1fxKWnLlplcjX26Jv+6luh/NyTC1ES3BHLcR0L8M4kDEHug==
-X-Received: by 2002:a5d:47c3:0:b0:38f:4176:7c25 with SMTP id ffacd0b85a97d-38f70772b51mr8659416f8f.2.1740382124196;
-        Sun, 23 Feb 2025 23:28:44 -0800 (PST)
+        bh=b0duzw3Ywocqb3zPYovQHOlpL11++t/qRORIguG/x8M=;
+        b=hi7eCVrBcv9YmLv1sMNp+2t4ck5/8dQl2KQcxiuz5meo5X4495sIymdEfwH1DDhOOJ
+         o2H7xkXS+8Wcj8kDz41w6alcKuKGQD4UsVZLjw8HBZ/GDaRu+SiY0rFRXEUFGNMEe6XN
+         TrHMZWCQbxxQ2SyfzQVCTAazUdotrIunU8lYTI8AQRzKEMVJgext4GBqflvPMJb400Uu
+         zgovm0Yfuscs17dSMdjdCo7++iwU1z3nyN/BSOmbhnZjpABFvj6e6fVorJ7hdpJ1AR8L
+         +D37uUlpgis2igmtJTuZ1wJAFMWkWlv6mQk4QUGGqC9sSA2/JlS+k51D/TsLWsefV/Hn
+         /q1A==
+X-Forwarded-Encrypted: i=1; AJvYcCVU0sOuMOLel/kKHwPzmFJv1ZyP2/KA1XEJ4Da+da6i7QFcryrW44OUu3LbHyeIPFiovIImxB75Z3cR@lists.infradead.org, AJvYcCXfpGVk65Y4hmRAQKzpwr034R56FdCVWJ741Njp3E4zUtpplszlTMg3gMnyY4En0xQVzXBS3+zQN2+0BhJ2FOwA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6J5p0rmTEizC5sRdo83gKwl3KEfQERO4sMYC4C7Hkye2l66bD
+	t8sutDEx/QjdwOzMtpxw3YQrTj/FrcYqxiLtaTw9d82/DKZP0KW6
+X-Gm-Gg: ASbGncvgaSb5wgrJbJbps0RNYM56fFhoach5gjTgkeWL5xCZ7huJYgyb9VuwVbuVzNo
+	XAYOd5z2POUfWTfLO6U8chht4a+p+hwbxW4qp3mkVPFD9XXWK0jFl+6eUfW77QH6KDwUowwadm5
+	Ji7H2jKe+a8Nx1GBjw+ezicuWuiTDxpkf3XB29CjLUdhYJ6LkW+iPDzGVaK7XbvbuCFVdcpr90v
+	ote0GtQphEGPHxZjJ9VxMXxg0t0ai4koSvHfkXq6eoEEyihv/aXpIp7RJ2zi/mkAB2s5uofDpzQ
+	Va2efBZHKfFYGxLeroXbZKwgkumFIvH7M5bl9gbN
+X-Google-Smtp-Source: AGHT+IFR8qOglMl8SOkJiw+ah079XOs4fUxWnUURIZha7TGgX1naigEEn4nk1GDXeUIJqH7dqWjSFw==
+X-Received: by 2002:a5d:5f92:0:b0:38d:e02d:5f4c with SMTP id ffacd0b85a97d-38f6e7578d8mr10115232f8f.10.1740382258857;
+        Sun, 23 Feb 2025 23:30:58 -0800 (PST)
 Received: from [192.168.43.21] ([77.85.230.22])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f259d58f3sm30734172f8f.73.2025.02.23.23.28.42
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f69b3ca41sm11133698f8f.27.2025.02.23.23.30.57
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 23 Feb 2025 23:28:43 -0800 (PST)
-Message-ID: <3616b414-ba57-4625-aa35-20d3dff61cc5@gmail.com>
-Date: Mon, 24 Feb 2025 09:28:42 +0200
+        Sun, 23 Feb 2025 23:30:58 -0800 (PST)
+Message-ID: <7426ef0e-c0ae-4a4a-8678-c1a3a4ead250@gmail.com>
+Date: Mon, 24 Feb 2025 09:30:57 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/8] phy: phy-snps-eusb2: make reset control optional
+Subject: Re: [PATCH v2 7/8] phy: phy-snps-eusb2: add support for exynos2200
 Content-Language: en-US
 To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
@@ -83,15 +83,15 @@ Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
  linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 References: <20250223122227.725233-1-ivo.ivanov.ivanov1@gmail.com>
- <20250223122227.725233-7-ivo.ivanov.ivanov1@gmail.com>
- <rcny5iaxs6gr6vcxmjep6hwtkt2fvtgzhbxlpu3ax6vj7maure@n5bg5y74vwc7>
+ <20250223122227.725233-8-ivo.ivanov.ivanov1@gmail.com>
+ <ac7bq3toicuoppmspqvohiss5wkhgw4v6aozzstd5pr66bfcse@k7tqijab4csq>
 From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-In-Reply-To: <rcny5iaxs6gr6vcxmjep6hwtkt2fvtgzhbxlpu3ax6vj7maure@n5bg5y74vwc7>
+In-Reply-To: <ac7bq3toicuoppmspqvohiss5wkhgw4v6aozzstd5pr66bfcse@k7tqijab4csq>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250223_232846_035961_E82B7968 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20250223_233100_630976_ED34A169 
+X-CRM114-Status: GOOD (  19.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,28 +106,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/24/25 01:48, Dmitry Baryshkov wrote:
-> On Sun, Feb 23, 2025 at 02:22:25PM +0200, Ivaylo Ivanov wrote:
->> Some SoCs don't provide explicit reset lines, so make them optional.
-> Is there an external reset or some other signal?
+On 2/24/25 01:51, Dmitry Baryshkov wrote:
+> On Sun, Feb 23, 2025 at 02:22:26PM +0200, Ivaylo Ivanov wrote:
+>> The Exynos2200 SoC reuses the Synopsis eUSB2 PHY IP, alongside an
+>> external repeater, for USB 2.0. Add support for it to the existing
+>> driver.
+>>
+>> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>> ---
+>>  drivers/phy/Kconfig          |   2 +-
+>>  drivers/phy/phy-snps-eusb2.c | 172 +++++++++++++++++++++++++++++++++++
+>>  2 files changed, 173 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
+>> index 11c166204..58c911e1b 100644
+>> --- a/drivers/phy/Kconfig
+>> +++ b/drivers/phy/Kconfig
+>> @@ -45,7 +45,7 @@ config PHY_PISTACHIO_USB
+>>  
+>>  config PHY_SNPS_EUSB2
+>>  	tristate "SNPS eUSB2 PHY Driver"
+>> -	depends on OF && (ARCH_QCOM || COMPILE_TEST)
+>> +	depends on OF && (ARCH_EXYNOS || ARCH_QCOM || COMPILE_TEST)
+>>  	select GENERIC_PHY
+>>  	help
+>>  	  Enable support for the USB high-speed SNPS eUSB2 phy on select
+>> diff --git a/drivers/phy/phy-snps-eusb2.c b/drivers/phy/phy-snps-eusb2.c
+>> index 7a242fe32..67a19d671 100644
+>> --- a/drivers/phy/phy-snps-eusb2.c
+>> +++ b/drivers/phy/phy-snps-eusb2.c
+>> @@ -13,6 +13,39 @@
+>>  #include <linux/regulator/consumer.h>
+>>  #include <linux/reset.h>
+>>  
+>> +#define EXYNOS_USB_PHY_HS_PHY_CTRL_RST	(0x0)
+>> +#define USB_PHY_RST_MASK		GENMASK(1, 0)
+>> +#define UTMI_PORT_RST_MASK		GENMASK(5, 4)
+>> +
+>> +#define EXYNOS_USB_PHY_HS_PHY_CTRL_COMMON	(0x4)
+>> +#define RPTR_MODE			BIT(10)
+>> +#define FSEL_20_MHZ_VAL			(0x1)
+>> +#define FSEL_24_MHZ_VAL			(0x2)
+>> +#define FSEL_26_MHZ_VAL			(0x3)
+>> +#define FSEL_48_MHZ_VAL			(0x2)
+>> +
+>> +#define EXYNOS_USB_PHY_CFG_PLLCFG0	(0x8)
+>> +#define PHY_CFG_PLL_FB_DIV_19_8_MASK	GENMASK(19, 8)
+>> +#define DIV_19_8_19_2_MHZ_VAL		(0x170)
+>> +#define DIV_19_8_20_MHZ_VAL		(0x160)
+>> +#define DIV_19_8_24_MHZ_VAL		(0x120)
+>> +#define DIV_19_8_26_MHZ_VAL		(0x107)
+>> +#define DIV_19_8_48_MHZ_VAL		(0x120)
+>> +
+>> +#define EXYNOS_USB_PHY_CFG_PLLCFG1	(0xc)
+>> +#define EXYNOS_PHY_CFG_PLL_FB_DIV_11_8_MASK	GENMASK(11, 8)
+>> +#define EXYNOS_DIV_11_8_19_2_MHZ_VAL	(0x0)
+>> +#define EXYNOS_DIV_11_8_20_MHZ_VAL	(0x0)
+>> +#define EXYNOS_DIV_11_8_24_MHZ_VAL	(0x0)
+>> +#define EXYNOS_DIV_11_8_26_MHZ_VAL	(0x0)
+>> +#define EXYNOS_DIV_11_8_48_MHZ_VAL	(0x1)
+>> +
+>> +#define EXYNOS_PHY_CFG_TX		(0x14)
+>> +#define EXYNOS_PHY_CFG_TX_FSLS_VREF_TUNE_MASK	GENMASK(2, 1)
+>> +
+>> +#define EXYNOS_USB_PHY_UTMI_TESTSE	(0x20)
+>> +#define TEST_IDDQ			BIT(6)
+>> +
+>>  #define QCOM_USB_PHY_UTMI_CTRL0		(0x3c)
+>>  #define SLEEPM				BIT(0)
+>>  #define OPMODE_MASK			GENMASK(4, 3)
+>> @@ -196,6 +229,93 @@ static void qcom_eusb2_default_parameters(struct snps_eusb2_hsphy *phy)
+>>  				    FIELD_PREP(PHY_CFG_TX_HS_XV_TUNE_MASK, 0x0));
+>>  }
+>>  
+>> +static int exynos_eusb2_ref_clk_init(struct snps_eusb2_hsphy *phy)
+>> +{
+>> +	unsigned long ref_clk_freq = clk_get_rate(phy->ref_clk);
+>> +
+>> +	switch (ref_clk_freq) {
+>> +	case 19200000:
+>> +		snps_eusb2_hsphy_write_mask(phy->base, EXYNOS_USB_PHY_HS_PHY_CTRL_COMMON,
+>> +					    FSEL_MASK,
+>> +					    FIELD_PREP(FSEL_MASK, FSEL_19_2_MHZ_VAL));
+>> +
+> Could you please unify the switchcase? assign the values to temp
+> variables, then program them from a single code stream. Or maybe even
+> replace switch-case with a table-based lookup.
+>
+> (we probably should implement the similar change for qcom part. Maybe
+> you can refactor it too?)
 
-Well..  There probably are on a hardware level, but there's no interface
-that exposes them to the kernel.. as far as I've seen. Resets are usually
-managed via the blocks' registers. I can't say with certainty because I
-don't have access to TRMs.
+Alright. I'll do it for the Qualcomm part too in a separate commit.
 
-I can reword this commit message to make that clear.
+Thanks for the feedback!
 
 Best regards,
 Ivaylo
 
+> Other than that LGTM.
 >
->> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
->> ---
->>  drivers/phy/phy-snps-eusb2.c | 2 +-
->>  1 file changed, 1 insertion(+), 1 deletion(-)
->>
-> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
->
+>> +		snps_eusb2_hsphy_write_mask(phy->base, EXYNOS_USB_PHY_CFG_PLLCFG0,
+>> +					    PHY_CFG_PLL_FB_DIV_19_8_MASK,
+>> +					    FIELD_PREP(PHY_CFG_PLL_FB_DIV_19_8_MASK,
+>> +						       DIV_19_8_19_2_MHZ_VAL));
+>> +
+>> +		snps_eusb2_hsphy_write_mask(phy->base, EXYNOS_USB_PHY_CFG_PLLCFG1,
+>> +					    EXYNOS_PHY_CFG_PLL_FB_DIV_11_8_MASK,
+>> +					    EXYNOS_DIV_11_8_19_2_MHZ_VAL);
+>> +		break;
+>> +
+>> +	case 20000000:
+>> +		snps_eusb2_hsphy_write_mask(phy->base, EXYNOS_USB_PHY_HS_PHY_CTRL_COMMON,
+>> +					    FSEL_MASK,
+>> +					    FIELD_PREP(FSEL_MASK, FSEL_20_MHZ_VAL));
+>> +
+>> +		snps_eusb2_hsphy_write_mask(phy->base, EXYNOS_USB_PHY_CFG_PLLCFG0,
+>> +					    PHY_CFG_PLL_FB_DIV_19_8_MASK,
+>> +					    FIELD_PREP(PHY_CFG_PLL_FB_DIV_19_8_MASK,
+>> +						       DIV_19_8_20_MHZ_VAL));
+>> +
+>> +		snps_eusb2_hsphy_write_mask(phy->base, EXYNOS_USB_PHY_CFG_PLLCFG1,
+>> +					    EXYNOS_PHY_CFG_PLL_FB_DIV_11_8_MASK,
+>> +					    EXYNOS_DIV_11_8_20_MHZ_VAL);
+>> +		break;
+>> +
 
 
