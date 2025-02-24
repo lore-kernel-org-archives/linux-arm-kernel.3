@@ -4,69 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 776D3C021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 09:40:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6F34C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 09:42:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XWEADniHRGWcnzqbekRTv6/vtyL/MFZqYvazyCcPL/Y=; b=P7k65dJSY/k5yoiH7rH/M5YkEx
-	kPgzjbBzj22XhRlY6NurC8aFxYgFIbcUqXqWiry9jiJpPXc9tDWGxpzTKhieUDmFm6SDRUejIYGQv
-	dW3g3fVcDDwQRi6iKjNnL9Xwj+u5O9OLGbdbGOrM7EKSSzsFTZ7K/NyR0GGHnPDMdGAaBuU/5YiDb
-	PKDrOAj+ml29GRWCdQGzq89supSqWPbm3ZMyCN/Xu/FrXY2Ekw1M4+IORMRkFB35aS+1M1fFn6f8k
-	Fazb2vkCQxAvHbfoS4zhb0rCrucj0hL7LHtsRzfCTGio4zxhhrkE1WNPu6fSTpbIxXVxSV8GwXQjD
-	n0a91+YQ==;
+	bh=IweysX6newFGS35tJYDHCHe5fr7wHaVqFdqp5NyxgvQ=; b=eW8HOY7NAFGjbBKOc84KTWLM1d
+	JJQnshgix3hegbsbuEAKvWI67OYg+5LGug/cShrjrAtfn23vW0NyDyCpdHMZ+m0DO4vWP0E98OFGc
+	N8dycnEZ2HRboNJ9KweH863zXUoAM9/ImxwntInmlvUZ5lJPnjZK/sGFDlVfiUXPbaTNe0JJSg+8X
+	XJOcGHfAVilZU1btYdB6IeK9Qu5/sa6smNe78tUpZKC8a8yTSNhZs4cJLdsm/hRLPCMDWipO1yE/n
+	iAO7gH5IaDujSkunMNAogvBlAJ/priqJRq6K3PCeJuI/LKYUJDyGfkpaOKz8y2tfWOdAPPVS046IL
+	TYonM0lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmUx0-0000000CxQ9-3bmo;
-	Mon, 24 Feb 2025 09:40:34 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tmUyT-0000000CxnV-05Ht;
+	Mon, 24 Feb 2025 09:42:05 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmUXv-0000000CrEm-0GgV;
-	Mon, 24 Feb 2025 09:14:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=XWEADniHRGWcnzqbekRTv6/vtyL/MFZqYvazyCcPL/Y=; b=C2Fa0CsgkZ2/azdEMvlOzuYSf7
-	k3nUPkbtzi80jhqlddLODTZArqrjOaDbkhu6v27OfN1fu15qYrE1R7QEaDmBLvJTpwOZuImxSCdlv
-	PT7OHUIEehio+7EhaWCLkC5l2t1hnzwI3nK3xiD5mN1WzY9Ka+RgqS0uWK29Azt0pT4VxziiuCJYS
-	3+2l23UyPbiwiiGCJJ2j0ecmxMejx0hIixnJwUe4ao8qPsil05p4lQCEFfZyV9tyVszURLYogUaFm
-	F4EZIRXEQXn/DnoDqOooXtpsFYdHDBnzKB+LhJ2uBs5gGKOt+rhPaMwyRhRKK9AWlvUvhOiODeSmY
-	AsSi5PrQ==;
-Received: from i53875a0d.versanet.de ([83.135.90.13] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tmUXo-0006wL-ID; Mon, 24 Feb 2025 10:14:32 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Kever Yang <kever.yang@rock-chips.com>
-Cc: linux-rockchip@lists.infradead.org,
- Finley Xiao <finley.xiao@rock-chips.com>, Liang Chen <cl@rock-chips.com>,
- devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>,
- Stephen Boyd <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 2/3] dt-bindings: clock,
- reset: rockchip: Add support for rk3562
-Date: Mon, 24 Feb 2025 10:14:31 +0100
-Message-ID: <2920539.yaVYbkx8dN@diego>
-In-Reply-To: <28dcac28-9060-4f65-8167-64f6a0e4532d@rock-chips.com>
-References: <20241224092310.3814460-1-kever.yang@rock-chips.com>
- <z7jb32foci6bamqqddkkp34hazi2itp6uclarsoi5pkrgso2go@bxflagkaciq6>
- <28dcac28-9060-4f65-8167-64f6a0e4532d@rock-chips.com>
+	id 1tmUf3-0000000Ct4d-1kOG
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Feb 2025 09:22:02 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 0F42F55A;
+	Mon, 24 Feb 2025 10:20:31 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1740388832;
+	bh=6s6mE6iWL2zLpUlwDFdCQx4XhtHfEW/hJy2iFvXQnHU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aKCFL4+lUe+cwxys5YXBpNb6v6150ygxINtgje7a9KI1N2NgUWCmK2b+uqeP1ih+A
+	 BHtTxQ9tpd/5GI+SVum39bcOPKx4l/+FJN8vtRMQ204Ych1Xe1U8mnT0PEVe42k9yr
+	 Y7T8GDFdHJ6I8+/ngq/6RKYuF7C31YeZypBQg54c=
+Date: Mon, 24 Feb 2025 11:21:40 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Hans Verkuil <hverkuil@xs4all.nl>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
+	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
+Subject: Re: [PATCH next] media: xilinx-tpg: fix double put in xtpg_parse_of()
+Message-ID: <20250224092140.GA29646@pendragon.ideasonboard.com>
+References: <f41dfe97-6e6c-47b4-91bf-199c5938c6d0@stanley.mountain>
+ <20241105165928.GJ14276@pendragon.ideasonboard.com>
+ <71d343e7-ff9f-44e6-abfc-64425640c4f6@xs4all.nl>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <71d343e7-ff9f-44e6-abfc-64425640c4f6@xs4all.nl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_011439_104452_0C9E5152 
-X-CRM114-Status: GOOD (  26.32  )
+X-CRM114-CacheID: sfid-20250224_012201_777417_29146452 
+X-CRM114-Status: GOOD (  26.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,64 +75,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 24. Februar 2025, 09:47:40 MEZ schrieb Kever Yang:
-> Hi Krzysztof,
+Hi Hans,
+
+On Mon, Feb 24, 2025 at 09:49:47AM +0100, Hans Verkuil wrote:
+> On 05/11/2024 17:59, Laurent Pinchart wrote:
+> > Hi Dan,
+> > 
+> > Thank you for the patch.
+> > 
+> > On Mon, Nov 04, 2024 at 08:16:19PM +0300, Dan Carpenter wrote:
+> >> This loop was recently converted to use for_each_of_graph_port() which
+> >> automatically does __cleanup__ on the "port" iterator variable.  Delete
+> >> the calls to of_node_put(port) to avoid a double put bug.
+> >>
+> >> Fixes: 393194cdf11e ("media: xilinx-tpg: use new of_graph functions")
+> >> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+> > 
+> > Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+> > 
+> > The offending commit wasn't merged through the media tree, so we can't
+> > easily merge the fix there either. I'm fine merging this fix through
+> > Rob's tree.
 > 
-> On 2024/12/27 16:28, Krzysztof Kozlowski wrote:
-> > On Tue, Dec 24, 2024 at 05:23:09PM +0800, Kever Yang wrote:
-> >> From: Finley Xiao <finley.xiao@rock-chips.com>
-> >>
-> >> Add the dt-bindings header for the rk3562, that gets shared between
-> >> the clock controller and the clock references in the dts.
-> >> Add softreset ID for rk3562.
-> >>
-> >> Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
-> >> Signed-off-by: Liang Chen <cl@rock-chips.com>
-> >> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+> I don't see this patch merged anywhere. Should I just pick it up? I think
+> it got lost in the noise.
+> 
+> The commit 393194cdf11e is now available in our media tree, so it should
+> be fine, I think, if I pick it up. It needs a CC to stable as well, right?
+> I can add that.
+
+Yes, I'd CC stable. Thank you for handling it.
+
 > >> ---
+> >>  drivers/media/platform/xilinx/xilinx-tpg.c | 2 --
+> >>  1 file changed, 2 deletions(-)
 > >>
-> >> Changes in v2:
-> >> - rename the file to rockchip,rk3562-cru.h
-> >> - remove CLK_NR_CLKS
-> >> - add new file for reset ID
-> >> - update to use dual license
-> >>
-> >>   .../dt-bindings/clock/rockchip,rk3562-cru.h   | 377 ++++++++++++++++++
-> >>   .../dt-bindings/reset/rockchip,rk3562-cru.h   | 360 +++++++++++++++++
-> >
-> > No, that's not a separate patch. Headers *ALWAYS* go with the bindings
-> > patch.
-> Will fix.
-> >>   2 files changed, 737 insertions(+)
-> >>   create mode 100644 include/dt-bindings/clock/rockchip,rk3562-cru.h
-> >>   create mode 100644 include/dt-bindings/reset/rockchip,rk3562-cru.h
-> >>
-> >> diff --git a/include/dt-bindings/clock/rockchip,rk3562-cru.h b/include/dt-bindings/clock/rockchip,rk3562-cru.h
-> >> new file mode 100644
-> >> index 000000000000..ad07ad3a12ad
-> >> --- /dev/null
-> >> +++ b/include/dt-bindings/clock/rockchip,rk3562-cru.h
-> >> @@ -0,0 +1,377 @@
-> >> +/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
-> > Why not using license requested by checkpatch?
-> 
-> The checkpatch does not report error/warning for this license, and this 
-> is the same as many other SoCs.
-> 
-> Which license is recommend in the header file?
+> >> diff --git a/drivers/media/platform/xilinx/xilinx-tpg.c b/drivers/media/platform/xilinx/xilinx-tpg.c
+> >> index cb93711ea3e3..7deec6e37edc 100644
+> >> --- a/drivers/media/platform/xilinx/xilinx-tpg.c
+> >> +++ b/drivers/media/platform/xilinx/xilinx-tpg.c
+> >> @@ -722,7 +722,6 @@ static int xtpg_parse_of(struct xtpg_device *xtpg)
+> >>  		format = xvip_of_get_format(port);
+> >>  		if (IS_ERR(format)) {
+> >>  			dev_err(dev, "invalid format in DT");
+> >> -			of_node_put(port);
+> >>  			return PTR_ERR(format);
+> >>  		}
+> >>  
+> >> @@ -731,7 +730,6 @@ static int xtpg_parse_of(struct xtpg_device *xtpg)
+> >>  			xtpg->vip_format = format;
+> >>  		} else if (xtpg->vip_format != format) {
+> >>  			dev_err(dev, "in/out format mismatch in DT");
+> >> -			of_node_put(port);
+> >>  			return -EINVAL;
+> >>  		}
+> >>  
 
-I suppose
+-- 
+Regards,
 
-/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
-
-According to [0] "GPL-2.0" and "GPL-2.0-only" are equivalent, but I guess
-"GPL-2.0-only" simply makes the "only" part more visible.
-
-
-Heiko
-
-[0] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/LICENSES/preferred/GPL-2.0
-
-
-
+Laurent Pinchart
 
