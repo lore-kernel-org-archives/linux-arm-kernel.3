@@ -4,62 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE82CC021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 07:18:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5164C021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 07:28:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8F627ALJhleDf0joQLUIY5WzrQ4sqzAfgG0V7XR4JzM=; b=nwvXZMeMlru7nsGLSv8H2to7R/
-	Vm1TYrDMbdrBVk3qyAuvD7JQcx0MFgpulL7LD4LqjlQyl7T8PKxz4Ug7b3tusxR1FlijgdR6v6hxo
-	tKiTwG7xyRxGHqu3yg5+mMFup7cq+cE3HLPMOKE/Bzh2jvo3PoC6FjBxM9tNsbF+Gbv6XfHNZwfZu
-	gCisWmc7upAuaE9l1LZ0AL9H9fmhl5oP88AsSoUDb62vtIxZlAZwyBZvUibUMaKrF8j2BVpKCZLF/
-	FxTQtZeDKfYXXrIOiClNowRtKbfTNfkY0dqqML9eRh6tEd1osb2OVz6zpZq8F6dr1VcJFZofx6FFn
-	zDcwDUnw==;
+	bh=7Am1iKsGd3Eqxyqxrhz2XfQ33Q2cL4XiqZ6aCyUVLBw=; b=q6V5TRhed2Gou0m71tcmuxB0la
+	8mtl+bYcofOFjwZJAfY/x7UlBmbq8XIeTouj4/Bpula+nfuU4B7HOZE+csmRJHPuxlkoHxfMRQ6lx
+	7zeo+8kKhQ905YGZ2heQ7FzrVKjt1N0pzxOucV3Wu4W24u2RFNyCQaeffJXccsWlIels8am3XF1H+
+	kdrRiF4pjQjhZExn5iwACyEeZKwyoeI350k5tUn/O6mW/xHlJzUnG0fU2vjVBbJ3pAbPSMfHZIJky
+	OgJ7wyc081IsRwDTs2CrgWv/rR6RmzL0ktDQEoCLRvuJ9hV+CGNt4d+azr3CZTJ3zelt6xshCUmtX
+	za/7fNAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmSjf-0000000CY6a-3iOm;
-	Mon, 24 Feb 2025 07:18:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tmStR-0000000CZ6Y-2lDJ;
+	Mon, 24 Feb 2025 07:28:45 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmShf-0000000CXpH-2cmL
+	id 1tmSru-0000000CYyi-07CQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 07:16:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 41E766117D;
-	Mon, 24 Feb 2025 07:16:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48827C4CED6;
-	Mon, 24 Feb 2025 07:16:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740381394;
-	bh=2pBGmTogQCkZU/xIxkV1ntJSYG2JD2YqKohqWLQmXu4=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=dCsrvMjQLCzpbeyKIBH+s0BVDBGeHCz9RrZkebic83ktfM4vw0gqL8fje2cJ5ce7e
-	 BaDVvtxsrgzSHK+16pwIQsUc5y3vkghLu8MY96zCwSEVhw6Pb2HYEDKE2jfCqmE8TC
-	 Vtdc5FOmfpVaPd4TNIxN73EtlG0TwoJae/v9IRjHuOfHYL/Evaz+dIDXafrvMlZZ/J
-	 x+Y92P5h6+h+F+IN6f9lZ1QOhhC7uTYvI4FhKjz+E3qEX8Gp8GA69GF2iSD31NXE/o
-	 NspuiHPWB2/ZlbdGfFFJssj9Nrdvt5VtS5f0Ym8k/mHGz0Ssto5wY6vU7rc6qO1fmw
-	 YE8PdOQ2jmDNQ==
-Date: Mon, 24 Feb 2025 01:16:32 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Mon, 24 Feb 2025 07:27:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1740382031; x=1771918031;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=fj9ATARjbXR29ISCacUsG5uVWZEBOqKd2CTMA8IFPLM=;
+  b=S1bbtcZXnCr4zKNFpcT9Hn1A9qHg66MiwjTvE/7W5iiiHEzPWCe0P/ZT
+   6+SWFJ9opzTlLxF2hOLKEOFlaMkcp6itGtBcfCQdOnP6y4FuaHTqms8pK
+   N4nRvpoXpaKexhN9izdPUhsRrA7dBoe8b+9K/kP8gJHOq8t5D1aIUdoDe
+   mk3X5KajYUokFgKcu32e8FoxU084/QP4pwYTiowCgzG02IgnSM2sjVMyN
+   FELpmFq6Ic9ud/nvMG+HE5nZ+p6DHWQWDsCl1dPZhp/uEyUKx2mgWrCZ2
+   s04wfstjrqcQECXxhb0hO6+wQZTmDbxRBTSkyDy8Q0IeydGoj9L9tEXFE
+   w==;
+X-CSE-ConnectionGUID: m2OKtz9RQ8GGzkYxdWztiQ==
+X-CSE-MsgGUID: 4T49poF1RKCLNxbUY6QxcQ==
+X-IronPort-AV: E=Sophos;i="6.13,309,1732604400"; 
+   d="scan'208";a="38035487"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 24 Feb 2025 00:27:07 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Mon, 24 Feb 2025 00:26:52 -0700
+Received: from ROB-ULT-M76677.microchip.com (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.35 via Frontend Transport; Mon, 24 Feb 2025 00:26:50 -0700
+From: Andrei Simion <andrei.simion@microchip.com>
+To: <thorsten.blum@linux.dev>
+Subject: Re: [PATCH] ASoC: atmel: atmel-classd: Use str_enabled_disabled() helper
+Date: Mon, 24 Feb 2025 09:26:15 +0200
+Message-ID: <20250224072614.6811-1-andrei.simion@microchip.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250222225925.539840-2-thorsten.blum@linux.dev>
+References: <20250222225925.539840-2-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: benh@kernel.crashing.org, linux-i2c@vger.kernel.org, 
- andrew@codeconstruct.com.au, openbmc@lists.ozlabs.org, 
- p.zabel@pengutronix.de, linux-kernel@vger.kernel.org, andi.shyti@kernel.org, 
- krzk+dt@kernel.org, devicetree@vger.kernel.org, joel@jms.id.au, 
- andriy.shevchenko@linux.intel.com, conor+dt@kernel.org, 
- linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-In-Reply-To: <20250224055936.1804279-2-ryan_chen@aspeedtech.com>
-References: <20250224055936.1804279-1-ryan_chen@aspeedtech.com>
- <20250224055936.1804279-2-ryan_chen@aspeedtech.com>
-Message-Id: <174038139252.1126908.7016492425946254564.robh@kernel.org>
-Subject: Re: [PATCH v16 1/3] dt-bindings: i2c: aspeed: support for
- AST2600-i2cv2
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250223_232710_263116_BFEADE9C 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,50 +79,46 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: alexandre.belloni@bootlin.com, linux-kernel@vger.kernel.org, claudiu.beznea@tuxon.dev, linux-sound@vger.kernel.org, lgirdwood@gmail.com, broonie@kernel.org, andrei.simion@microchip.com, tiwai@suse.com, perex@perex.cz, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-On Mon, 24 Feb 2025 13:59:34 +0800, Ryan Chen wrote:
-> Add ast2600-i2cv2 compatible and aspeed,global-regs, aspeed,enable-dma
-> and description for ast2600-i2cv2.
-> 
-> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+On 23.02.2025 00:59, Thorsten Blum wrote:
+> Remove hard-coded strings by using the str_enabled_disabled() helper
+> function.
+>
+> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+
+Reviewed-by: Andrei Simion <andrei.simion@microchip.com>
+
 > ---
->  .../devicetree/bindings/i2c/aspeed,i2c.yaml   | 58 +++++++++++++++++++
->  1 file changed, 58 insertions(+)
-> 
+>  sound/soc/atmel/atmel-classd.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>
+> diff --git a/sound/soc/atmel/atmel-classd.c b/sound/soc/atmel/atmel-classd.c
+> index ba314b279919..1f8c60d2de82 100644
+> --- a/sound/soc/atmel/atmel-classd.c
+> +++ b/sound/soc/atmel/atmel-classd.c
+> @@ -11,6 +11,7 @@
+>  #include <linux/module.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/regmap.h>
+> +#include <linux/string_choices.h>
+>  #include <sound/core.h>
+>  #include <sound/dmaengine_pcm.h>
+>  #include <sound/pcm_params.h>
+> @@ -275,7 +276,7 @@ static int atmel_classd_component_probe(struct snd_soc_component *component)
+>  	dev_info(component->dev,
+>  		"PWM modulation type is %s, non-overlapping is %s\n",
+>  		pwm_type[pdata->pwm_type],
+> -		pdata->non_overlap_enable?"enabled":"disabled");
+> +		str_enabled_disabled(pdata->non_overlap_enable));
+>
+>  	return 0;
+>  }
 
-My bot found errors running 'make dt_binding_check' on your patch:
-
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml:82:1: [error] duplication of key "allOf" in mapping (key-duplicates)
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml: ignoring, error parsing file
-./Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml:82:1: found duplicate key "allOf" with value "[]" (original value: "[]")
-make[2]: *** Deleting file 'Documentation/devicetree/bindings/i2c/aspeed,i2c.example.dts'
-Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml:82:1: found duplicate key "allOf" with value "[]" (original value: "[]")
-make[2]: *** [Documentation/devicetree/bindings/Makefile:26: Documentation/devicetree/bindings/i2c/aspeed,i2c.example.dts] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1511: dt_binding_check] Error 2
-make: *** [Makefile:251: __sub-make] Error 2
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250224055936.1804279-2-ryan_chen@aspeedtech.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+Best Regards,
+Andrei Simion
 
