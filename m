@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9F66C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 18:00:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E77C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 18:01:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pC6o0YRw4Cq9mwJe3XI9Hc69xoJLRhFW95eup2iayaI=; b=m2zbbavz2t6WIYpui+oMuQ3XDl
-	R/NGwh5DYbj2CPOr4UJu9yKG2KfRa1gmmX7HMKSrAO7brvkz/Qt+Vw5+YfwWysws59aCVhOwV1w6E
-	cP+C0w/LWIlHg+AhAYamVIHQfKa+aH/ISlYnI2DZKfOGqVV6zHSnssPj7EIk1UMuTI0Pbfu7txMRN
-	nMJ32G8UaDGK6tugKU/kwfxe91dkpudZFnixa3jpXikFA4dBy2PggrQyeOdHmH1frfO5dfMM1RRL2
-	ramxEDy3tkkkibaY0A4X8cVvWHFNz/2op7gv0i5e8JRSa3J9OmQ3AjyXtQAthjjrHa2vvCX8ckwno
-	FB5vKkBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9v5D6OdVX0pKgyapyw7j+h+74TccfpzpMjmN75/n62w=; b=qiCtlzNVOitLL9GzP2cKOrH3Be
+	002dGUIOLCkppLCjbRW6jSseRvCaaDKlGtGjbTaoJhLak+qOLZs9/PIS4I6JMvsukniaZxqu+GHnO
+	XMNgXNElzzA6XFnPDczc/tx+kIhsdpQPrgp3FKELrt+GgQldt2mLx2tiUpnQJlp/OHAU2G6FhtXri
+	YpsIxTZYg69GrYSDkeH8S7L2gPQHIE38vXaSSAF8jxHbEOfwEnSOa5N7SJ8JLA3p40ohzTsJjyxC7
+	KRXoV2up+rv/OTv2wp4DL36vwHhSBbWgDCNQId/Qn8HWreJiF9HYgFTBu2LSP2d+K20GCRnl+2KMO
+	RAEQcYvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmcka-0000000EiUH-1kqD;
-	Mon, 24 Feb 2025 18:00:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmchJ-0000000EhwO-371l
+	id 1tmcm3-0000000EifB-0AdA;
+	Mon, 24 Feb 2025 18:01:47 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmckV-0000000EiT4-27Ey
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 17:56:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7991B152B;
-	Mon, 24 Feb 2025 09:57:06 -0800 (PST)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4D9C63F5A1;
-	Mon, 24 Feb 2025 09:56:46 -0800 (PST)
-Date: Mon, 24 Feb 2025 17:56:42 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Ryan Walklin <ryan@testtoast.com>
-Cc: Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
- <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Daniel Vetter
- <daniel@ffwll.ch>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
- Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Michael
- Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Chris
- Morgan <macroalpha82@gmail.com>, Hironori KIKUCHI <kikuchan98@gmail.com>,
- Philippe Simons <simons.philippe@gmail.com>, Dmitry Baryshkov
- <dmitry.baryshkov@linaro.org>, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org, Conor Dooley
- <conor.dooley@microchip.com>
-Subject: Re: [PATCH v7 22/27] dt-bindings: allwinner: add H616 DE33 mixer
- binding
-Message-ID: <20250224175642.170c124e@donnerap.manchester.arm.com>
-In-Reply-To: <20250216183710.8443-23-ryan@testtoast.com>
-References: <20250216183710.8443-3-ryan@testtoast.com>
-	<20250216183710.8443-23-ryan@testtoast.com>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	Mon, 24 Feb 2025 18:00:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D972E5C3885;
+	Mon, 24 Feb 2025 17:59:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C54EC4CED6;
+	Mon, 24 Feb 2025 18:00:08 +0000 (UTC)
+Date: Mon, 24 Feb 2025 18:00:05 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Peter Collingbourne <pcc@google.com>
+Subject: Re: [PATCH] KVM: arm64: Drop mte_allowed check during memslot
+ creation
+Message-ID: <Z7yzpeIKcYiw6q5a@arm.com>
+References: <20250224093938.3934386-1-aneesh.kumar@kernel.org>
+ <Z7xSfVME4z2ComUm@arm.com>
+ <86ldtvr0nl.wl-maz@kernel.org>
+ <Z7yElHKrJGn8XuPS@arm.com>
+ <86jz9fqtbk.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86jz9fqtbk.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_095653_871167_840ACEF6 
-X-CRM114-Status: GOOD (  19.81  )
+X-CRM114-CacheID: sfid-20250224_100011_654312_3EC407EB 
+X-CRM114-Status: GOOD (  22.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,85 +72,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 17 Feb 2025 07:36:22 +1300
-Ryan Walklin <ryan@testtoast.com> wrote:
-
-Hi,
-
-> The Allwinner H616 and variants have a new display engine revision
-> (DE33).
+On Mon, Feb 24, 2025 at 03:02:39PM +0000, Marc Zyngier wrote:
+> On Mon, 24 Feb 2025 14:39:16 +0000,
+> Catalin Marinas <catalin.marinas@arm.com> wrote:
+> > This patch still prevents such MMIO+MTE mappings but moves the decision
+> > to user_mem_abort() and it's slightly more relaxed - only rejecting it
+> > if !VM_MTE_ALLOWED _and_ the Stage 2 is cacheable. The side-effect is
+> > that it allows device assignment into the guest since Stage 2 is not
+> > Normal Cacheable (at least for now, we have some patches Ankit but they
+> > handle the MTE case).
 > 
-> The mixer configuration registers are significantly different to the DE3
-> and DE2 revisions, being split into separate top and display blocks,
-> therefore a fallback for the mixer compatible is not provided.
-> 
-> Add a display engine mixer binding for the DE33.
-> 
-> Signed-off-by: Ryan Walklin <ryan@testtoast.com>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: Chen-Yu Tsai <wens@csie.org>
-> 
-> ---
-> Changelog v2..v3:
-> - Separate content into three patches for three separate subsystems
-> 
-> Changelog v5..v6:
-> - increase reg maxItems to 3 and add conditional for h616-de33
-> ---
->  .../allwinner,sun8i-a83t-de2-mixer.yaml       | 21 ++++++++++++++++++-
->  1 file changed, 20 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml b/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml
-> index b75c1ec686ad2..274f5e6327333 100644
-> --- a/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml
-> +++ b/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml
-> @@ -24,9 +24,11 @@ properties:
->        - allwinner,sun50i-a64-de2-mixer-0
->        - allwinner,sun50i-a64-de2-mixer-1
->        - allwinner,sun50i-h6-de3-mixer-0
-> +      - allwinner,sun50i-h616-de33-mixer-0
->  
->    reg:
-> -    maxItems: 1
-> +    minItems: 1
-> +    maxItems: 3
+> The other side effect is that it also allows non-tagged cacheable
+> memory to be given to the MTE-enabled guest, and the guest has no way
+> to distinguish between what is tagged and what's not.
 
-What are those three regions? I wonder if we should have reg-names here,
-to fix the order, and to document them on the way?
+It can distinguish in the same way as the host does it, e.g. based on
+the firmware tables it gets - only assume the standard RAM can be
+tagged. Any device in its IPA space does not support tagging and, if
+mapped incorrectly, can trigger external aborts etc. But it's the
+responsibility of the VMM to set up the memory slots correctly. If those
+non-MTE slots are only used for device assignment, we'd not get any
+-EFAULT returns.
 
->  
->    clocks:
->      items:
-> @@ -61,6 +63,23 @@ properties:
->      required:
->        - port@1
->  
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          enum:
-> +            - allwinner,sun50i-h616-de33-mixer-0
-> +
-> +    then:
-> +      properties:
-> +        reg:
-> +          maxItems: 3
+Having the requirement that all address ranges assigned to a guest
+support MTE makes MTE and device assignment exclusive. FEAT_MTE_PERM
+doesn't help either, it only allows cacheable MMIO into guests safely
+(from an SError/random accesses perspective).
 
-Should we override minItems here as well? I guess any driver would need
-all three region to work?
+Anyway, I think I get what you mean. For those memory slots potentially
+mapped as cacheable at Stage 2 (e.g. a file mmap()), you'd rather block
+them upfront than confusing a potentially buggy VMM later with the
+-EFAULT (or some other error).
 
-Cheers,
-Andre
+Do we have another way to tell in kvm_arch_prepare_memory_region()
+whether the memory is going to be mapped as Device/NC at Stage 2 or
+whether later we'll have FEAT_MTE_PERM set for it? We don't have any
+physical address at this point. However, we have vma->vm_page_prot but I
+was a big fan of this. Ankit's series for Cacheable VFIO is relying on
+this IIRC.
 
-> +
-> +    else:
-> +      properties:
-> +        reg:
-> +          maxItems: 1
-> +
->  required:
->    - compatible
->    - reg
+For VFIO specifically, we could do something like below. It won't
+trigger any -EFAULT exists. I think it's safe for VM_PFNMAP as well
+since these would not be mapped as Cacheable at Stage 2 AFAICT but we
+could add some additional checks.
 
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 1f55b0c7b11d..c48382567f2f 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -2184,7 +2184,12 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+ 		if (!vma)
+ 			break;
+ 
+-		if (kvm_has_mte(kvm) && !kvm_vma_mte_allowed(vma)) {
++		/*
++		 * VM_ALLOW_ANY_UNCACHED vmas will be mapped as Normal
++		 * NonCacheable at Stage 2 and safe with MTE in guests.
++		 */
++		if (kvm_has_mte(kvm) && !kvm_vma_mte_allowed(vma) &&
++		    !(vma->vm_flags & VM_ALLOW_ANY_UNCACHED)) {
+ 			ret = -EINVAL;
+ 			break;
+ 		}
+
+-- 
+Catalin
 
