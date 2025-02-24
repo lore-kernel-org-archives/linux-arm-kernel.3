@@ -4,100 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B13BCC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 12:01:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 226BCC021A6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 12:02:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mPK2zF8A/QoLIlZ7H4rce8LDxvSgapo6R5EV/XU26lw=; b=ulFeDl6TMUdl+IuqbNFOmmzouW
-	34ebpevUwgOYQW5JNw5EEoi7ega+j/hyuisIIAzXvX6mRe35XxWFh/pHPJogY97lboBAQKLAd6BaE
-	JD2XTOWPdydRZO78tMJMoE1g5oUP/ZrV4JiCJMR3iOu7ia1IGEzPW6mmx7IrJQG91kdHNXH2+Gen7
-	DGs5wmMlr+1BPw/gop7S1nJdxAjbSnoQ0ue/MRcNah5gY54Bh7vqqHm+8DryS20UyaB3CJZgIPLYg
-	9+ogpuLoIp8mvNxEuk05Zpk7DcgnLsmhV2iVfrzti8bGeQI/DhRjjdnrN4sy2TsF5OQa1HVNDGi7o
-	F11CuG5g==;
+	bh=smR/eUa4Gl7DKY3ovjUaLW1zp0s2Y+hsxe3OpZY3a+I=; b=Te1eH1q1ZTUScdLcRLErNQRm6t
+	s3cb2HKVtHKfckib3m01NY4vXH3l8D8RjwDz95Em33ll3Jrqs6uIDy0vBl9FJecGggW+5MoHmVurj
+	vJFJeDhYYW8FxL5cVhTfOw6QlG3mNZqxEf4cxGcR7/Fab6eUIGK/TW/hyjoDrhymbBtV0qTmvaaUH
+	mND48TmM852lCiFaD9FWqadjOX4Tb1NvlBxQNNPBILvlZn7ZhPy7XPghT7Ls9M0BTmPcR80qDJ6so
+	idfJ2uqhmdjzN9SsHAwtJg5MPiraN02XvyOSTdvH0PJjLLfK9nx+gpGWQX4N8f4gA9nURQsVzoWuz
+	fc5ETRGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmX91-0000000Da1l-1U4R;
-	Mon, 24 Feb 2025 12:01:07 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1tmXAT-0000000DaQ4-1p00;
+	Mon, 24 Feb 2025 12:02:37 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmWcI-0000000DNQH-1o4y
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 11:27:19 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5e0573a84fcso5821712a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 03:27:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1740396437; x=1741001237; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mPK2zF8A/QoLIlZ7H4rce8LDxvSgapo6R5EV/XU26lw=;
-        b=ZkgaMLrl2/vt6lZIT6VSYcHdBC2+8T1vT6i4EhrvrDKJqyDy4vIfKzw8OG6XLWkh5+
-         60Mx2/LmZLR05lT5OH9sz29yonkh1c7qRyBrIbvwNNFIKY0iDq+NI9sUYRdtgHoJvOih
-         qVsrTmWvJpmg+BSI2vOGqcfVZhAizuX9uY4StBSPh78YUcGt9CojPCswzPCm08Aey2qb
-         4vo8aLkjB5s7z+EU1BW9SdniF0FyEU06ywU/g0X91TCmPJ/K8LVQt951Cxi15BV0QbQ+
-         P4a+H86jBp4pDN1afP067y+L4g6JABpxK5AVPPogz/74drNMbe2Q1ydcY0cvcDLFw3de
-         TY0w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740396437; x=1741001237;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mPK2zF8A/QoLIlZ7H4rce8LDxvSgapo6R5EV/XU26lw=;
-        b=nU1hzb5MBDHDi1jQGN0HuqIhets8JHpTq6QDAs3c57I3X3yRh7GVGWdioJralwHXC3
-         L1CSWv4gI06GRrFrCJJn7MVv0FgnA9IMqgrokzbNbhUZ7nFIe9owryF0Hdkyk+pb4haV
-         071NvfiHU4eN0tv9IdrHlU3oi1OPJzTalxW8lJu7lmu9pcbDiaN3rHUZQVHYKTrU3vPc
-         pwQ2cWPUYN/gdAVNJ9fsBXELCUpyEROWjZxR8wompPiQ6uYqT3qaF8k+ObYW/xnqKcO4
-         hQEuAq9hQKxiJ9xctQjAdWxlJqhmKK8DQOcGs+YXMJ2ggWBazle3aKZDUPRpTCbQahab
-         7PfA==
-X-Forwarded-Encrypted: i=1; AJvYcCWgNOUequw11KwHHptpHlMXPrp+DO1JJLNdXjLW5y1IXXPgddLwpH2TiGQkCfDlUcnAAkzqqM0TANnaqLd4lRac@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxS9n4y96k6Xybs2jdT5fGtnu1dQM2QLXyxVB3mW67r8Lzxthw
-	VCPjfC/1n5qIWdp8TSkS2JA6igc7iT5AfOA0geB03IfXpT5wW43TO35sOYyPriOkuba09UhpUE3
-	RZ+PmZBu9CWP+Vxg1hDv6V8qiS32IGY6kq/DndQ==
-X-Gm-Gg: ASbGncsYFeAvPtpEe13GTporG+wkiBEQiqfpTRUBg0CEsfl9MzSwTD8FcLbYYSOQqwR
-	Kmi9ry1t/fuCfSCTFpleHvpM6X5apyqKouYBeV7khvcMweUG24b/dCeZou/p5ps4Kq1Rq9IJZlp
-	P8/Pjyfus=
-X-Google-Smtp-Source: AGHT+IFzHPiP7HgEi1iLeAsUfPrgcPiwkLzFkdvMUmpitpPx5I5iW5pGV+bPYBd/LufmeWzu4SPrwChI7bwpkBQUkUA=
-X-Received: by 2002:a05:6402:274b:b0:5dc:db28:6afc with SMTP id
- 4fb4d7f45d1cf-5e0b6fdf732mr13463545a12.0.1740396436756; Mon, 24 Feb 2025
- 03:27:16 -0800 (PST)
+	id 1tmWlG-0000000DRfk-40pn;
+	Mon, 24 Feb 2025 11:36:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1740396992;
+	bh=PSYe6R/xPBasga876FmS8mHT9Zoo5UeLL8SBdjJXyYU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=S2h0bWvGZ/wrr74QxKpyYx3qf9WQ0JxBIUIjM4IGAT16YoVeJKx1K4amOuK76OY8o
+	 0R6eNuYkJ3ceb2AQZObzCrHaxfifC9fX9LBuHqEOQbwJxdks9F9siUe9k0qFloe+C7
+	 uF3KlDYg3LvWBCNuRgxDfHblWLHi5JCe7B095xMkFnO8xz2u7wxjYxpcyX64pCu/fI
+	 OidgFXAVvWuyE2CnaBc9j1s8nwYW1sbhRhZKwvgjmc0ZHNYa8zycnvM2rogw46y9gh
+	 nd4QIhnLaSMccsOwjs7RRqk/keKhQI4h7jiAy7QtCib6a+/Rct5zI1AvmIWlSVDaej
+	 biIXz6p58xOCw==
+Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bbrezillon)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id AD4FD17E019E;
+	Mon, 24 Feb 2025 12:36:31 +0100 (CET)
+Date: Mon, 24 Feb 2025 12:36:28 +0100
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Nicolas Dufresne <nicolas@ndufresne.ca>, Florent Tomasin
+ <florent.tomasin@arm.com>, Vinod Koul <vkoul@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Steven Price <steven.price@arm.com>, Liviu Dudau
+ <liviu.dudau@arm.com>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
+ <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter
+ <simona@ffwll.ch>, Sumit Semwal <sumit.semwal@linaro.org>, Benjamin
+ Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey
+ <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>, "T . J .
+ Mercier" <tjmercier@google.com>, Christian =?UTF-8?B?S8O2bmln?=
+ <christian.koenig@amd.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Yong
+ Wu <yong.wu@mediatek.com>, dmaengine@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-media@vger.kernel.org,
+ linaro-mm-sig@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, nd@arm.com, Akash Goel
+ <akash.goel@arm.com>
+Subject: Re: [RFC PATCH 0/5] drm/panthor: Protected mode support for Mali
+ CSF GPUs
+Message-ID: <20250224123628.52d43b84@collabora.com>
+In-Reply-To: <20250220-strict-cobalt-albatross-6f742e@houat>
+References: <3ykaewmjjwkp3y2f3gf5jvqketicd4p2xqyajqtfnsxci36qlm@twidtyj2kgbw>
+	<1a73c3acee34a86010ecd25d76958bca4f16d164.camel@ndufresne.ca>
+	<ppznh3xnfuqrozhrc7juyi3enxc4v3meu4wadkwwzecj7oxex7@moln2fiibbxo>
+	<9d0e381758c0e83882b57102fb09c5d3a36fbf57.camel@ndufresne.ca>
+	<1f436caa-1c27-4bbd-9b43-a94dad0d89d0@arm.com>
+	<20250205-amorphous-nano-agouti-b5baba@houat>
+	<2085fb785095dc5abdac2352adfb3e1e1c8ae549.camel@ndufresne.ca>
+	<20250207160253.42551fb1@collabora.com>
+	<20250211-robust-lush-skink-0dcc5b@houat>
+	<20250211153223.2fef2316@collabora.com>
+	<20250220-strict-cobalt-albatross-6f742e@houat>
+Organization: Collabora
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-References: <20250217140419.1702389-1-ryan.roberts@arm.com> <20250217140419.1702389-3-ryan.roberts@arm.com>
-In-Reply-To: <20250217140419.1702389-3-ryan.roberts@arm.com>
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-Date: Mon, 24 Feb 2025 12:27:03 +0100
-X-Gm-Features: AWEUYZkGhzPlXZwydhM9MLmyrXrPvhtmhDQdRWEVf0EDYo_eOVstS6UzcJ92dwo
-Message-ID: <CAHVXubiBS-m91bpx-NbKdkcSk3HdStTxY8QLVTKxxozL2Od8Qw@mail.gmail.com>
-Subject: Re: [PATCH v2 2/4] arm64: hugetlb: Fix huge_ptep_get_and_clear() for
- non-present ptes
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	Naveen N Rao <naveen@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
-	"David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Muchun Song <muchun.song@linux.dev>, Andrew Morton <akpm@linux-foundation.org>, 
-	Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>, 
-	David Hildenbrand <david@redhat.com>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>, 
-	Dev Jain <dev.jain@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_032718_482508_141DD121 
-X-CRM114-Status: GOOD (  38.00  )
+X-CRM114-CacheID: sfid-20250224_033635_243103_7210CE10 
+X-CRM114-Status: GOOD (  36.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,128 +102,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
+Hi Maxime,
 
-On Mon, Feb 17, 2025 at 3:04=E2=80=AFPM Ryan Roberts <ryan.roberts@arm.com>=
- wrote:
->
-> arm64 supports multiple huge_pte sizes. Some of the sizes are covered by
-> a single pte entry at a particular level (PMD_SIZE, PUD_SIZE), and some
-> are covered by multiple ptes at a particular level (CONT_PTE_SIZE,
-> CONT_PMD_SIZE). So the function has to figure out the size from the
-> huge_pte pointer. This was previously done by walking the pgtable to
-> determine the level and by using the PTE_CONT bit to determine the
-> number of ptes at the level.
->
-> But the PTE_CONT bit is only valid when the pte is present. For
-> non-present pte values (e.g. markers, migration entries), the previous
-> implementation was therefore erroniously determining the size. There is
-> at least one known caller in core-mm, move_huge_pte(), which may call
-> huge_ptep_get_and_clear() for a non-present pte. So we must be robust to
-> this case. Additionally the "regular" ptep_get_and_clear() is robust to
-> being called for non-present ptes so it makes sense to follow the
-> behaviour.
->
-> Fix this by using the new sz parameter which is now provided to the
-> function. Additionally when clearing each pte in a contig range, don't
-> gather the access and dirty bits if the pte is not present.
->
-> An alternative approach that would not require API changes would be to
-> store the PTE_CONT bit in a spare bit in the swap entry pte for the
-> non-present case. But it felt cleaner to follow other APIs' lead and
-> just pass in the size.
->
-> As an aside, PTE_CONT is bit 52, which corresponds to bit 40 in the swap
-> entry offset field (layout of non-present pte). Since hugetlb is never
-> swapped to disk, this field will only be populated for markers, which
-> always set this bit to 0 and hwpoison swap entries, which set the offset
-> field to a PFN; So it would only ever be 1 for a 52-bit PVA system where
-> memory in that high half was poisoned (I think!). So in practice, this
-> bit would almost always be zero for non-present ptes and we would only
-> clear the first entry if it was actually a contiguous block. That's
-> probably a less severe symptom than if it was always interpretted as 1
-> and cleared out potentially-present neighboring PTEs.
->
-> Cc: stable@vger.kernel.org
-> Fixes: 66b3923a1a0f ("arm64: hugetlb: add support for PTE contiguous bit"=
-)
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> ---
->  arch/arm64/mm/hugetlbpage.c | 40 ++++++++++++++++---------------------
->  1 file changed, 17 insertions(+), 23 deletions(-)
->
-> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-> index 06db4649af91..614b2feddba2 100644
-> --- a/arch/arm64/mm/hugetlbpage.c
-> +++ b/arch/arm64/mm/hugetlbpage.c
-> @@ -163,24 +163,23 @@ static pte_t get_clear_contig(struct mm_struct *mm,
->                              unsigned long pgsize,
->                              unsigned long ncontig)
->  {
-> -       pte_t orig_pte =3D __ptep_get(ptep);
-> -       unsigned long i;
-> -
-> -       for (i =3D 0; i < ncontig; i++, addr +=3D pgsize, ptep++) {
-> -               pte_t pte =3D __ptep_get_and_clear(mm, addr, ptep);
-> -
-> -               /*
-> -                * If HW_AFDBM is enabled, then the HW could turn on
-> -                * the dirty or accessed bit for any page in the set,
-> -                * so check them all.
-> -                */
-> -               if (pte_dirty(pte))
-> -                       orig_pte =3D pte_mkdirty(orig_pte);
-> -
-> -               if (pte_young(pte))
-> -                       orig_pte =3D pte_mkyoung(orig_pte);
-> +       pte_t pte, tmp_pte;
-> +       bool present;
-> +
-> +       pte =3D __ptep_get_and_clear(mm, addr, ptep);
-> +       present =3D pte_present(pte);
-> +       while (--ncontig) {
-> +               ptep++;
-> +               addr +=3D pgsize;
-> +               tmp_pte =3D __ptep_get_and_clear(mm, addr, ptep);
-> +               if (present) {
-> +                       if (pte_dirty(tmp_pte))
-> +                               pte =3D pte_mkdirty(pte);
-> +                       if (pte_young(tmp_pte))
-> +                               pte =3D pte_mkyoung(pte);
-> +               }
->         }
-> -       return orig_pte;
-> +       return pte;
->  }
->
->  static pte_t get_clear_contig_flush(struct mm_struct *mm,
-> @@ -401,13 +400,8 @@ pte_t huge_ptep_get_and_clear(struct mm_struct *mm, =
-unsigned long addr,
->  {
->         int ncontig;
->         size_t pgsize;
-> -       pte_t orig_pte =3D __ptep_get(ptep);
-> -
-> -       if (!pte_cont(orig_pte))
-> -               return __ptep_get_and_clear(mm, addr, ptep);
-> -
-> -       ncontig =3D find_num_contig(mm, addr, ptep, &pgsize);
->
-> +       ncontig =3D num_contig_ptes(sz, &pgsize);
->         return get_clear_contig(mm, addr, ptep, pgsize, ncontig);
->  }
->
-> --
-> 2.43.0
->
+On Thu, 20 Feb 2025 14:32:14 +0100
+Maxime Ripard <mripard@kernel.org> wrote:
 
-Thanks for ccing me on this fix, we have the same issue (in
-huge_pte_clear() too) in riscv. I'll come up with a fix and wait for
-you guys to merge this.
+> > > > This approach has two downsides though:
+> > > > 
+> > > > 1. We have no way of checking that the memory we're passed is actually
+> > > > suitable for FW execution in a protected context. If we're passed
+> > > > random memory, this will likely hang the platform as soon as we enter
+> > > > protected mode.    
+> > > 
+> > > It's a current limitation of dma-buf in general, and you'd have the same
+> > > issue right now if someone imports a buffer, or misconfigure the heap
+> > > for a !protected heap.
+> > > 
+> > > I'd really like to have some way to store some metadata in dma_buf, if
+> > > only to tell that the buffer is protected.  
+> > 
+> > The dma_buf has a pointer to its ops, so it should be relatively easy
+> > to add an is_dma_buf_coming_from_this_heap() helper. Of course this
+> > implies linking the consumer driver to the heap it's supposed to take
+> > protected buffers from, which is basically the thing being discussed
+> > here :-).  
+> 
+> I'm not sure looking at the ops would be enough. Like, you can compare
+> that the buffer you allocated come from the heap you got from the DT,
+> but if that heap doesn't allocate protected buffers, you're screwed and
+> you have no way to tell.
 
-That only comforts my idea to merge both riscv and arm64 implementations :)
+If heap names are unique, the name of the heap should somehow guarantee
+the protected/restricted nature of buffers allocated from this heap
+though. So, from a user perspective, all you have to do is check that
+the buffers you import come from this particular heap you've been
+pointed to. Where we get the heap name from (DT or module param
+passed through a whitelist of protected heap names?) is an
+implementation detail.
 
-Thanks again,
+> 
+> It also falls apart if we have a heap driver with multiple instances,
+> which is pretty likely if we ever merge the carveout heap driver.
 
-Alex
+What I meant here is that checking that a buffer comes from a
+particular heap is something the heap driver itself can easily do. It
+can be a mix of ops+name check (or ops+property check) if there's
+multiple heaps instantiated by a single driver, of course.
+
+I guess the other option would be to have a protected property at the
+dma_buf level so we don't have to go all the way back to the dma_heap
+to figure it out.
+
+> 
+> > > 
+> > > I suspect you'd also need that if you do things like do protected video
+> > > playback through a codec, get a protected frame, and want to import that
+> > > into the GPU. Depending on how you allocate it, either the codec or the
+> > > GPU or both will want to make sure it's protected.  
+> > 
+> > If it's all allocated from a central "protected" heap (even if that
+> > goes through the driver calling the dma_heap_alloc_buffer()), it
+> > shouldn't be an issue.  
+> 
+> Right, assuming we have a way to identify the heap the buffer was
+> allocated from somehow. This kind of assumes that you only ever get one
+> source of protected memory, and you'd never allocate a protected buffer
+> from a different one in the codec driver for example.
+
+Yes, and that's why having the ability to check that a buffer comes
+from a particular heap is key. I mean, we don't necessarily have to
+restrict things to a single heap, it can be a whitelist of heaps we know
+provide protected buffers if we see a value in having multiple
+protected heaps coexisting on a single platform.
+
+Regards,
+
+Boris
 
