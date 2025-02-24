@@ -4,114 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD51C021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 07:15:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5BBFC021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 07:17:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AhJ1T/fwWWXZEiEbcn+HPev6I/zpx52m+r3y5yvwxno=; b=xTg6QY0zKoGERFUM9vde1Z+q0f
-	gUIh7RegT0oGlCBGETAlurgcZ1XQmYhCzF5BUNQj7wB2DiulcOeFsaxmEP8f1nvbo/gdsw6+9CxTk
-	8qEhhDBFGcHbxQB04VF9izywVgqu+zxckrwlKt/8hwsJPb69sfn4lgoK8Sy2lqOL21ljSbhe0wCk6
-	Qjme6Hp7xMCJ/4S0TxLnL/8DXsAVGu7QZPE5/0QuANO9z9Rd3zHTKTaJXFhv0yl46EJgCi1hcs1w9
-	orv4KnVUf7anexh0UH8Sm6+0yOAxh2L8ho3hM/pD1aBMehw+77avk+1yOUUDBvCxJvgAUZiCt1xnS
-	uASg+Qbg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YGDYyJHeIvbN67HiPEdMBYxe4lOwRgtICljAixydSZg=; b=HnOreo/PyVuv3oQv1O9xoB/U4D
+	s8RhhdLuEFcJcuIejo8yq1Rr+7mAlFT9IWE+t+5RMPiZzHMYVi2Bh7aqkPYxFBN4BBhfEObirZwYw
+	lzJ0CmNVlTFoCpuH2RTsTa0j8rIdxv0d3I+qLtIDENUW6yLcVDa/IAFBwqdKpP3PnKYj2TQQEV3LD
+	BEfSZfjudgaFIX0nyyhdIcQ7bTRkZPjeqESPf+toR6PRSfPonI/S/t5fuClN9Uf98rjMn0rH7Ajzc
+	zYY+GOO1yZ059V4wOfmRLdNPxGWEuc8/6hC2UWKgu743SSiz5aoLlAZzG7e5RDRlNLvYACKAxhS/8
+	ZwFlIv3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmSgf-0000000CXc2-38w9;
-	Mon, 24 Feb 2025 07:15:33 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1tmSiB-0000000CXvN-24e2;
+	Mon, 24 Feb 2025 07:17:07 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmSf7-0000000CXEI-3X7I;
-	Mon, 24 Feb 2025 07:13:58 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-abbec6a0bfeso650225766b.2;
-        Sun, 23 Feb 2025 23:13:57 -0800 (PST)
+	id 1tmSfQ-0000000CXPS-3DiV;
+	Mon, 24 Feb 2025 07:14:17 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-38f378498b0so3407876f8f.0;
+        Sun, 23 Feb 2025 23:14:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740381236; x=1740986036; darn=lists.infradead.org;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AhJ1T/fwWWXZEiEbcn+HPev6I/zpx52m+r3y5yvwxno=;
-        b=aVmgzbo8fekZKCBRFlXQhOvpRj5FJ1eM5Onbx486hQjBZOPvgiTTwhsLg1pYoq/MvB
-         k6Nu6nmNmD79Y7G/8YGP+HWMMzx6eWd39gSzWtzw9p3l7kSR/D67gh0DTp9mu460LnCV
-         g2tCichulZBpwFv2Nunku5gmp40SFKbtUogkJmnh7uwrUoK6BM9Acb5R1jfXNDAXASP7
-         4nnLBrulYpo6yRURyfZRTchThsYBL55/8/ugTaRVVkb19y9+on4X2QUwR8PeR+WVXthT
-         Q75hwP7gee1ZEQ47qpEk+akd6jGk5XhJaUk0pa36IXB7ycsA7EpD1ecawQTqFgG9BJ5Y
-         64Uw==
+        d=gmail.com; s=20230601; t=1740381255; x=1740986055; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=YGDYyJHeIvbN67HiPEdMBYxe4lOwRgtICljAixydSZg=;
+        b=AAA8S3R35C4b6nX20fp3aiD3qNUct8KABJvFAr8oviBpmLb4MP8rpjnMhLbTXuUfxq
+         IJvsAgic9vnbpvVh2+Hm2Vkt34nhkjWWTcWoe2jdW6D0yuoA0tnls9myDfLG1GJ08nTM
+         45EvSP0Fcn26Dok2G1A2RcNOo3aoly6dK7zYAf3Ymk+D60pmKV6gXJtJVYoSq55flD77
+         SX8kVjUh9tNOWzDzJxwqImMte4JmyvfLIkYqLkHX3D+w2QPsVqEs68JlNWcz0I3q3aKP
+         Lc8CA/10agYc605KRlAY1ni14eHkULHNoVruJh5c2nD6SYaXfW+VXJ9Hek9er2hjBZiQ
+         phoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740381236; x=1740986036;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :reply-to:message-id:subject:cc:to:from:date:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=AhJ1T/fwWWXZEiEbcn+HPev6I/zpx52m+r3y5yvwxno=;
-        b=RTTHTo9U/epDEPMqx7Cqgt3OgJOXxGoFbYbSs5HQu+ev1fDUX/CITHE3akkfTG7Av4
-         +HTFTWTTVKg/j01AtJHKrpyixLfk0AA+iheeNwd5/5pOpIM0BNnYdZtvL1A9zlO4EIiR
-         p+lsQFpf28XmzbP565FjczM1pXlbRefjdz4O6AOvzgPwJrG8X1KOEzjloo3NNexuSNFG
-         l81gI4NlrlfSZWh5OWMUUw4SXOj+9Gm7YLGxK1YLlVGcXya8YiwPpPU7rD+tkeVhsKFZ
-         uRQ36r8DxEb1uBrBsXFj7NT1gEsF6A6G3mjjTtZkrE07yrNkM6kZRaU0Ukm219O9/OTC
-         Oz7Q==
-X-Forwarded-Encrypted: i=1; AJvYcCU7uJ56gPyxOFv5FKCYtZppscGr7Z2HVNQEL9pfw8A5ATuausIVP8Y/BhEIkOIsPJEek2MB6g==@lists.infradead.org, AJvYcCWLD/XUZpOSQ+fi6gGLLr8K0fz+wlLAxFDmZctjn6bL9TRWeCFjMneEmNbom6Sa9UzmY/Q/OQ+Ruq2tGGXqTBpxgw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyuah2hxBtNXXrLp9S751YRLATr1Ps2/4186v8PQCxAbv7TH/q/
-	88F/x1Xze6/f5sUW35Va/zzzgd6WLr4Cke8GNO5Pp08A4KgAv2+B
-X-Gm-Gg: ASbGnctDBUK5k3CBtFKBbvojxKv+3LTMCQTYaBABwAGwUUStj4bz++GB0RzVeUprUew
-	DS2KAmrr93bWySgThXrDW+41+bu+Zyy+0L6mFm2mJL3SfXQVEGgd9JA6JZNie1hMsORPLqSPDTj
-	a09VQLZzfub5LZIZxJEomnOCoIMSEXfVleKhBd7GmvuNxhGbRcOZOEnKFCz++wB5XgDsukfB3ae
-	3GPkiE8xqCfpPUo9ZFhZkQXblwk0/QvX+Wdu4jPzqJ7qLmDs5pcjScO/B0N1kGgUpa6sIwZ2wO0
-	c4cqZnHKfdSMYoYuu3UrCSZqvA==
-X-Google-Smtp-Source: AGHT+IFTl/OJwiOMCrQwp/6jVuRvgGddWSjPDFK5GMI5evFJFlBu1ePwDd5puvr/8TxFgsTqVzZxSQ==
-X-Received: by 2002:a17:907:7ea0:b0:ab7:d361:11b4 with SMTP id a640c23a62f3a-abc099b7f3fmr1362031766b.7.1740381235930;
-        Sun, 23 Feb 2025 23:13:55 -0800 (PST)
-Received: from localhost ([185.92.221.13])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abbda707e3dsm1034964866b.106.2025.02.23.23.13.55
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Sun, 23 Feb 2025 23:13:55 -0800 (PST)
-Date: Mon, 24 Feb 2025 07:13:55 +0000
-From: Wei Yang <richard.weiyang@gmail.com>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>,
-	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pratyush Yadav <ptyadav@amazon.de>,
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v4 12/14] x86: Add KHO support
-Message-ID: <20250224071355.xsl2dbupda4dhfzl@master>
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <20250206132754.2596694-13-rppt@kernel.org>
+        d=1e100.net; s=20230601; t=1740381255; x=1740986055;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=YGDYyJHeIvbN67HiPEdMBYxe4lOwRgtICljAixydSZg=;
+        b=c6W+OVeuU4x0lvoZmVlbZZbn6Y5555pgav9MLTGHP+j3ZoPgVJtT0ZvSjNElNkJtDi
+         8nrIESIcw0SQP4K/goBNSSX/4ZgNrqtcPh/HNb6bp1q5YksnfTCwaPrSTfZDfQCjWgAs
+         V6IO2ZmCbyHb2LmPa3aVpMDkE5GhAcZkzUIK6aHwlJTL/jRdXIA46DVSJPlo0paPIHha
+         dOB8V+UDBoCyoRme3b5X7W/4XLMMUSd0MJ0MEw4MLPwdyvUDe+qy/7Lsj7Kn14Qp+GAw
+         N/mSzHdFpnhZtk5jJGi0zPmG4kD8EmgrWcPXiBmRdyAxW8pVFCRc4VdBTx6TevFyyz/p
+         ZLXw==
+X-Forwarded-Encrypted: i=1; AJvYcCW1uJhfUOuYvV6Kg1eeA2g+tlFrWQJhWRH06wIsyY3OWNk8PxvJedztEOv68lU26rvnC6fLmao15necpTD3/yEd@lists.infradead.org, AJvYcCXVSMhJjQYosIkb5sGXpWGxWMXdpmIWmP7IrhCICmnIPIiS5K6SuZaxYKHPRBTdCai/M5B/mwwae0HI@lists.infradead.org
+X-Gm-Message-State: AOJu0YwihHZQaFeoWEpZ7Ej05BC/Ddil47wTf0mznzXcyzyxOdgl4P9N
+	pnl3BJDdej5LCjUrfgBoFLTI/nQT+MmBCC5wPzqvxe11XsjLI6JyUSY/GA==
+X-Gm-Gg: ASbGncueboIO+q+VENR5zKmn0SLPsxUlcyZ4v8OuCu63z+OFysTuOsH/+OE3M8cY4Gv
+	lS4vwqe4/W5W+jM1+zQQX/MOe6jLs+63S8VtK3tWzsgTiPcbRXs7BKKxeZF1XSKbH9vWkMIiV8D
+	bWGn4/g+/nowI40zOTjhtEsMm5COA+SUWEfEeOkFJPKFACJz/6EUHfw9kRhC66L+Zf9+uTcGM+Z
+	WF2tKW/iknLlegX6n1OuyuMHdNH3ct5hubk7qB3Z1id2EBxr3oIm769fC9WIqPxdPc+ZnwztRmu
+	hgzW+30vQA+t2Rdrau8S3avu5rK85s0UPmznSsiV
+X-Google-Smtp-Source: AGHT+IGwNUNxA01WRc9bPdVz1GSmsf5EHfuq7knr43OKBQrWqaclxDJN2pEyp9jAXY6JIC3+Wo1lJg==
+X-Received: by 2002:a5d:5885:0:b0:38f:2a32:abbb with SMTP id ffacd0b85a97d-38f7d1ffc25mr4536838f8f.4.1740381254826;
+        Sun, 23 Feb 2025 23:14:14 -0800 (PST)
+Received: from [192.168.43.21] ([77.85.230.22])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4399be79d92sm111533745e9.0.2025.02.23.23.14.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 23 Feb 2025 23:14:13 -0800 (PST)
+Message-ID: <3d23ec54-6e55-4ee4-bc1a-179ca97878ef@gmail.com>
+Date: Mon, 24 Feb 2025 09:14:12 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250206132754.2596694-13-rppt@kernel.org>
-User-Agent: NeoMutt/20170113 (1.7.2)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/8] dt-bindings: phy: snps-eusb2: add exynos2200
+ support
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
+ <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Abel Vesa <abel.vesa@linaro.org>,
+ linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250223122227.725233-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250223122227.725233-3-ivo.ivanov.ivanov1@gmail.com>
+ <4tvpl3pujnuw2qjwu7f7ryrr5dndxow7srkkp2223wmexr23bi@7nmgrpq6znpg>
+Content-Language: en-US
+From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <4tvpl3pujnuw2qjwu7f7ryrr5dndxow7srkkp2223wmexr23bi@7nmgrpq6znpg>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250223_231357_882554_3C38B44F 
-X-CRM114-Status: GOOD (  16.01  )
+X-CRM114-CacheID: sfid-20250223_231416_813242_21CAD901 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,51 +104,123 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Wei Yang <richard.weiyang@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 03:27:52PM +0200, Mike Rapoport wrote:
->From: Alexander Graf <graf@amazon.com>
-[...]
->diff --git a/arch/x86/kernel/e820.c b/arch/x86/kernel/e820.c
->index 82b96ed9890a..0b81cd70b02a 100644
->--- a/arch/x86/kernel/e820.c
->+++ b/arch/x86/kernel/e820.c
->@@ -1329,6 +1329,24 @@ void __init e820__memblock_setup(void)
-> 		memblock_add(entry->addr, entry->size);
-> 	}
-> 
->+	/*
->+	 * At this point with KHO we only allocate from scratch memory.
->+	 * At the same time, we configure memblock to only allow
->+	 * allocations from memory below ISA_END_ADDRESS which is not
->+	 * a natural scratch region, because Linux ignores memory below
->+	 * ISA_END_ADDRESS at runtime. Beside very few (if any) early
->+	 * allocations, we must allocate real-mode trapoline below
->+	 * ISA_END_ADDRESS.
->+	 *
->+	 * To make sure that we can actually perform allocations during
->+	 * this phase, let's mark memory below ISA_END_ADDRESS as scratch
->+	 * so we can allocate from there in a scratch-only world.
->+	 *
->+	 * After real mode trampoline is allocated, we clear scratch
->+	 * marking from the memory below ISA_END_ADDRESS
->+	 */
->+	memblock_mark_kho_scratch(0, ISA_END_ADDRESS);
->+
+On 2/24/25 01:43, Dmitry Baryshkov wrote:
+> On Sun, Feb 23, 2025 at 02:22:21PM +0200, Ivaylo Ivanov wrote:
+>> Exynos 2200 makes use of the Synposys eUSB2 IP, so document it in the
+>> binding. Unlike the currently documented Qualcomm SoCs, it doesn't provide
+>> reset lines for reset control and uses more clocks.
+>>
+>> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov@gmail.com>
+>> ---
+>>  .../bindings/phy/snps,eusb2-phy.yaml          | 64 +++++++++++++++++--
+>>  1 file changed, 57 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/phy/snps,eusb2-phy.yaml b/Documentation/devicetree/bindings/phy/snps,eusb2-phy.yaml
+>> index 22c77968f..f4164db71 100644
+>> --- a/Documentation/devicetree/bindings/phy/snps,eusb2-phy.yaml
+>> +++ b/Documentation/devicetree/bindings/phy/snps,eusb2-phy.yaml
+>> @@ -23,6 +23,7 @@ properties:
+>>                - qcom,x1e80100-snps-eusb2-phy
+>>            - const: qcom,sm8550-snps-eusb2-phy
+>>        - const: qcom,sm8550-snps-eusb2-phy
+>> +      - const: samsung,exynos2200-snps-eusb2-phy
+>>  
+>>    reg:
+>>      maxItems: 1
+>> @@ -31,12 +32,12 @@ properties:
+>>      const: 0
+>>  
+>>    clocks:
+>> -    items:
+>> -      - description: ref
+>> +    minItems: 1
+>> +    maxItems: 3
+>>  
+>>    clock-names:
+>> -    items:
+>> -      - const: ref
+>> +    minItems: 1
+>> +    maxItems: 3
+>>  
+>>    resets:
+>>      maxItems: 1
+>> @@ -58,11 +59,60 @@ required:
+>>    - compatible
+>>    - reg
+>>    - "#phy-cells"
+>> -  - clocks
+>> -  - clock-names
+> Why? Clocks are required in both if clauses.
 
-At the beginning of e820__memblock_setup() we call memblock_allow_resize(),
-which means during adding memory region it could double the array. And the
-memory used here is from some region just added.
+Right. And "ref" is a requirement. I'll fix that in the next revision.
 
-But with KHO, I am afraid it would fail?
+Best regards,
+Ivaylo
 
-> 	/* Throw away partial pages: */
-> 	memblock_trim_memory(PAGE_SIZE);
-> 
+>
+>>    - vdd-supply
+>>    - vdda12-supply
+>> -  - resets
+>> +
+>> +allOf:
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            enum:
+>> +              - qcom,sm8550-snps-eusb2-phy
+>> +
+>> +    then:
+>> +      properties:
+>> +        reg:
+>> +          maxItems: 1
+>> +
+>> +        clocks:
+>> +          items:
+>> +            - description: ref
+>> +
+>> +        clock-names:
+>> +          items:
+>> +            - const: ref
+>> +
+>> +      required:
+>> +        - clocks
+>> +        - clock-names
+>> +        - resets
+>> +
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            enum:
+>> +              - samsung,exynos2200-snps-eusb2-phy
+>> +
+>> +    then:
+>> +      properties:
+>> +
+>> +        clocks:
+>> +          items:
+>> +            - description: Reference clock
+>> +            - description: Bus (APB) clock
+>> +            - description: Control clock
+>> +
+>> +        clock-names:
+>> +          items:
+>> +            - const: ref
+>> +            - const: bus
+>> +            - const: ctrl
+>> +
+>> +      required:
+>> +        - clocks
+>> +        - clock-names
+>>  
+>>  additionalProperties: false
+>>  
+>> -- 
+>> 2.43.0
+>>
 
--- 
-Wei Yang
-Help you, Help me
 
