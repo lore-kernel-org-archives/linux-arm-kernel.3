@@ -4,72 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0EC3C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 11:59:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B13BCC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 12:01:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N4YeF+SwJClRv2q+tq0JAmdGlKf10hdjxuWe2V5dMOk=; b=UOp3cPbddeRqgs226sxNxjaOII
-	1Fo2XUitWcbc9P+mdZC9WXXcAXSDoHJuchHNtnEtnhdNtc0zfsNSxEM+IXVRpd+UCpK+raaRU5kqM
-	2XHmBTDiW3cuwZeOplZfgGVprygif6Kvjh8z41CD46iz/hVH9+gaUo7zUIjdT5pel4hWQekKjELCT
-	hromWw6FMrK0XooqJEFUhMFtiaFB1w3bjP5/yC305D7YTrCkjLIqasfYER4T9j7B9ETgdKy5coPcb
-	yNHWi3xd3bxBgJxa+zkOfOA6mLxugdWvy0YHt5iY2nddCO1aMjQPt8vtb00lNRSZWKH+vpENtAgfR
-	fiHVCACw==;
+	bh=mPK2zF8A/QoLIlZ7H4rce8LDxvSgapo6R5EV/XU26lw=; b=ulFeDl6TMUdl+IuqbNFOmmzouW
+	34ebpevUwgOYQW5JNw5EEoi7ega+j/hyuisIIAzXvX6mRe35XxWFh/pHPJogY97lboBAQKLAd6BaE
+	JD2XTOWPdydRZO78tMJMoE1g5oUP/ZrV4JiCJMR3iOu7ia1IGEzPW6mmx7IrJQG91kdHNXH2+Gen7
+	DGs5wmMlr+1BPw/gop7S1nJdxAjbSnoQ0ue/MRcNah5gY54Bh7vqqHm+8DryS20UyaB3CJZgIPLYg
+	9+ogpuLoIp8mvNxEuk05Zpk7DcgnLsmhV2iVfrzti8bGeQI/DhRjjdnrN4sy2TsF5OQa1HVNDGi7o
+	F11CuG5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmX7Z-0000000DZcA-1M2X;
-	Mon, 24 Feb 2025 11:59:37 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tmX91-0000000Da1l-1U4R;
+	Mon, 24 Feb 2025 12:01:07 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmWbU-0000000DN13-3T5L;
-	Mon, 24 Feb 2025 11:26:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 56EFB5C0FD5;
-	Mon, 24 Feb 2025 11:25:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A11BEC4CED6;
-	Mon, 24 Feb 2025 11:26:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740396388;
-	bh=9Ovgg2hK7O67kf313UGjPJJvkXdwSOKC5ryQAmMCvdc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=VxxYCgAICWvmKMEVvDVXOiaZ9ACB/FwErxemA+3rV/eb5a9KDwLYnz0+o4hl8mW1b
-	 xtCtFS22rSvJNpWsBlNnoShh1hCHYAYc+v8GekCrzbgi6/mTww0Fw2rYJlZ3/xxuC0
-	 iYdUe995nkLFZIb8oa2+Wwy7JHv8/0oSnWE0GPK/l0QG6Yp8u//nyqzUoe9q/0xnl5
-	 4eSVKUH57SSjlqnLHiE9Zp6zPSpA/ZNfQl9+kFxI6GiZLdF+Sfi/2mZZ3GJ3Khfqs7
-	 Aj05v9V6EFzOuv+wpm7Q0yBMop9jKEzX/lXgD+g04nolALEPv2K8sY1JLVr9ZeVsKQ
-	 ctNdENx5nHncQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Mon, 24 Feb 2025 12:25:35 +0100
-Subject: [PATCH net-next v7 15/15] net: airoha: Introduce PPE debugfs
- support
+	id 1tmWcI-0000000DNQH-1o4y
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Feb 2025 11:27:19 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5e0573a84fcso5821712a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 03:27:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1740396437; x=1741001237; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mPK2zF8A/QoLIlZ7H4rce8LDxvSgapo6R5EV/XU26lw=;
+        b=ZkgaMLrl2/vt6lZIT6VSYcHdBC2+8T1vT6i4EhrvrDKJqyDy4vIfKzw8OG6XLWkh5+
+         60Mx2/LmZLR05lT5OH9sz29yonkh1c7qRyBrIbvwNNFIKY0iDq+NI9sUYRdtgHoJvOih
+         qVsrTmWvJpmg+BSI2vOGqcfVZhAizuX9uY4StBSPh78YUcGt9CojPCswzPCm08Aey2qb
+         4vo8aLkjB5s7z+EU1BW9SdniF0FyEU06ywU/g0X91TCmPJ/K8LVQt951Cxi15BV0QbQ+
+         P4a+H86jBp4pDN1afP067y+L4g6JABpxK5AVPPogz/74drNMbe2Q1ydcY0cvcDLFw3de
+         TY0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740396437; x=1741001237;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mPK2zF8A/QoLIlZ7H4rce8LDxvSgapo6R5EV/XU26lw=;
+        b=nU1hzb5MBDHDi1jQGN0HuqIhets8JHpTq6QDAs3c57I3X3yRh7GVGWdioJralwHXC3
+         L1CSWv4gI06GRrFrCJJn7MVv0FgnA9IMqgrokzbNbhUZ7nFIe9owryF0Hdkyk+pb4haV
+         071NvfiHU4eN0tv9IdrHlU3oi1OPJzTalxW8lJu7lmu9pcbDiaN3rHUZQVHYKTrU3vPc
+         pwQ2cWPUYN/gdAVNJ9fsBXELCUpyEROWjZxR8wompPiQ6uYqT3qaF8k+ObYW/xnqKcO4
+         hQEuAq9hQKxiJ9xctQjAdWxlJqhmKK8DQOcGs+YXMJ2ggWBazle3aKZDUPRpTCbQahab
+         7PfA==
+X-Forwarded-Encrypted: i=1; AJvYcCWgNOUequw11KwHHptpHlMXPrp+DO1JJLNdXjLW5y1IXXPgddLwpH2TiGQkCfDlUcnAAkzqqM0TANnaqLd4lRac@lists.infradead.org
+X-Gm-Message-State: AOJu0YzxS9n4y96k6Xybs2jdT5fGtnu1dQM2QLXyxVB3mW67r8Lzxthw
+	VCPjfC/1n5qIWdp8TSkS2JA6igc7iT5AfOA0geB03IfXpT5wW43TO35sOYyPriOkuba09UhpUE3
+	RZ+PmZBu9CWP+Vxg1hDv6V8qiS32IGY6kq/DndQ==
+X-Gm-Gg: ASbGncsYFeAvPtpEe13GTporG+wkiBEQiqfpTRUBg0CEsfl9MzSwTD8FcLbYYSOQqwR
+	Kmi9ry1t/fuCfSCTFpleHvpM6X5apyqKouYBeV7khvcMweUG24b/dCeZou/p5ps4Kq1Rq9IJZlp
+	P8/Pjyfus=
+X-Google-Smtp-Source: AGHT+IFzHPiP7HgEi1iLeAsUfPrgcPiwkLzFkdvMUmpitpPx5I5iW5pGV+bPYBd/LufmeWzu4SPrwChI7bwpkBQUkUA=
+X-Received: by 2002:a05:6402:274b:b0:5dc:db28:6afc with SMTP id
+ 4fb4d7f45d1cf-5e0b6fdf732mr13463545a12.0.1740396436756; Mon, 24 Feb 2025
+ 03:27:16 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250224-airoha-en7581-flowtable-offload-v7-15-b4a22ad8364e@kernel.org>
-References: <20250224-airoha-en7581-flowtable-offload-v7-0-b4a22ad8364e@kernel.org>
-In-Reply-To: <20250224-airoha-en7581-flowtable-offload-v7-0-b4a22ad8364e@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>, 
- "Chester A. Unal" <chester.a.unal@arinc9.com>, 
- Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>, 
- Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
- upstream@airoha.com
-X-Mailer: b4 0.14.2
+References: <20250217140419.1702389-1-ryan.roberts@arm.com> <20250217140419.1702389-3-ryan.roberts@arm.com>
+In-Reply-To: <20250217140419.1702389-3-ryan.roberts@arm.com>
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+Date: Mon, 24 Feb 2025 12:27:03 +0100
+X-Gm-Features: AWEUYZkGhzPlXZwydhM9MLmyrXrPvhtmhDQdRWEVf0EDYo_eOVstS6UzcJ92dwo
+Message-ID: <CAHVXubiBS-m91bpx-NbKdkcSk3HdStTxY8QLVTKxxozL2Od8Qw@mail.gmail.com>
+Subject: Re: [PATCH v2 2/4] arm64: hugetlb: Fix huge_ptep_get_and_clear() for
+ non-present ptes
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	Naveen N Rao <naveen@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
+	"David S. Miller" <davem@davemloft.net>, Andreas Larsson <andreas@gaisler.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Muchun Song <muchun.song@linux.dev>, Andrew Morton <akpm@linux-foundation.org>, 
+	Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>, 
+	David Hildenbrand <david@redhat.com>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>, 
+	Dev Jain <dev.jain@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_032628_970063_02EFD967 
-X-CRM114-Status: GOOD (  21.02  )
+X-CRM114-CacheID: sfid-20250224_032718_482508_141DD121 
+X-CRM114-Status: GOOD (  38.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,301 +112,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Similar to PPE support for Mediatek devices, introduce PPE debugfs
-in order to dump binded and unbinded flows.
+Hi Ryan,
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/Makefile             |   1 +
- drivers/net/ethernet/airoha/airoha_eth.h         |  14 ++
- drivers/net/ethernet/airoha/airoha_ppe.c         |  17 ++-
- drivers/net/ethernet/airoha/airoha_ppe_debugfs.c | 181 +++++++++++++++++++++++
- 4 files changed, 209 insertions(+), 4 deletions(-)
+On Mon, Feb 17, 2025 at 3:04=E2=80=AFPM Ryan Roberts <ryan.roberts@arm.com>=
+ wrote:
+>
+> arm64 supports multiple huge_pte sizes. Some of the sizes are covered by
+> a single pte entry at a particular level (PMD_SIZE, PUD_SIZE), and some
+> are covered by multiple ptes at a particular level (CONT_PTE_SIZE,
+> CONT_PMD_SIZE). So the function has to figure out the size from the
+> huge_pte pointer. This was previously done by walking the pgtable to
+> determine the level and by using the PTE_CONT bit to determine the
+> number of ptes at the level.
+>
+> But the PTE_CONT bit is only valid when the pte is present. For
+> non-present pte values (e.g. markers, migration entries), the previous
+> implementation was therefore erroniously determining the size. There is
+> at least one known caller in core-mm, move_huge_pte(), which may call
+> huge_ptep_get_and_clear() for a non-present pte. So we must be robust to
+> this case. Additionally the "regular" ptep_get_and_clear() is robust to
+> being called for non-present ptes so it makes sense to follow the
+> behaviour.
+>
+> Fix this by using the new sz parameter which is now provided to the
+> function. Additionally when clearing each pte in a contig range, don't
+> gather the access and dirty bits if the pte is not present.
+>
+> An alternative approach that would not require API changes would be to
+> store the PTE_CONT bit in a spare bit in the swap entry pte for the
+> non-present case. But it felt cleaner to follow other APIs' lead and
+> just pass in the size.
+>
+> As an aside, PTE_CONT is bit 52, which corresponds to bit 40 in the swap
+> entry offset field (layout of non-present pte). Since hugetlb is never
+> swapped to disk, this field will only be populated for markers, which
+> always set this bit to 0 and hwpoison swap entries, which set the offset
+> field to a PFN; So it would only ever be 1 for a 52-bit PVA system where
+> memory in that high half was poisoned (I think!). So in practice, this
+> bit would almost always be zero for non-present ptes and we would only
+> clear the first entry if it was actually a contiguous block. That's
+> probably a less severe symptom than if it was always interpretted as 1
+> and cleared out potentially-present neighboring PTEs.
+>
+> Cc: stable@vger.kernel.org
+> Fixes: 66b3923a1a0f ("arm64: hugetlb: add support for PTE contiguous bit"=
+)
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> ---
+>  arch/arm64/mm/hugetlbpage.c | 40 ++++++++++++++++---------------------
+>  1 file changed, 17 insertions(+), 23 deletions(-)
+>
+> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+> index 06db4649af91..614b2feddba2 100644
+> --- a/arch/arm64/mm/hugetlbpage.c
+> +++ b/arch/arm64/mm/hugetlbpage.c
+> @@ -163,24 +163,23 @@ static pte_t get_clear_contig(struct mm_struct *mm,
+>                              unsigned long pgsize,
+>                              unsigned long ncontig)
+>  {
+> -       pte_t orig_pte =3D __ptep_get(ptep);
+> -       unsigned long i;
+> -
+> -       for (i =3D 0; i < ncontig; i++, addr +=3D pgsize, ptep++) {
+> -               pte_t pte =3D __ptep_get_and_clear(mm, addr, ptep);
+> -
+> -               /*
+> -                * If HW_AFDBM is enabled, then the HW could turn on
+> -                * the dirty or accessed bit for any page in the set,
+> -                * so check them all.
+> -                */
+> -               if (pte_dirty(pte))
+> -                       orig_pte =3D pte_mkdirty(orig_pte);
+> -
+> -               if (pte_young(pte))
+> -                       orig_pte =3D pte_mkyoung(orig_pte);
+> +       pte_t pte, tmp_pte;
+> +       bool present;
+> +
+> +       pte =3D __ptep_get_and_clear(mm, addr, ptep);
+> +       present =3D pte_present(pte);
+> +       while (--ncontig) {
+> +               ptep++;
+> +               addr +=3D pgsize;
+> +               tmp_pte =3D __ptep_get_and_clear(mm, addr, ptep);
+> +               if (present) {
+> +                       if (pte_dirty(tmp_pte))
+> +                               pte =3D pte_mkdirty(pte);
+> +                       if (pte_young(tmp_pte))
+> +                               pte =3D pte_mkyoung(pte);
+> +               }
+>         }
+> -       return orig_pte;
+> +       return pte;
+>  }
+>
+>  static pte_t get_clear_contig_flush(struct mm_struct *mm,
+> @@ -401,13 +400,8 @@ pte_t huge_ptep_get_and_clear(struct mm_struct *mm, =
+unsigned long addr,
+>  {
+>         int ncontig;
+>         size_t pgsize;
+> -       pte_t orig_pte =3D __ptep_get(ptep);
+> -
+> -       if (!pte_cont(orig_pte))
+> -               return __ptep_get_and_clear(mm, addr, ptep);
+> -
+> -       ncontig =3D find_num_contig(mm, addr, ptep, &pgsize);
+>
+> +       ncontig =3D num_contig_ptes(sz, &pgsize);
+>         return get_clear_contig(mm, addr, ptep, pgsize, ncontig);
+>  }
+>
+> --
+> 2.43.0
+>
 
-diff --git a/drivers/net/ethernet/airoha/Makefile b/drivers/net/ethernet/airoha/Makefile
-index 6deff2f16229a7638be0737caa06282ba63183a4..94468053e34bef8fd155760e13745a8663592f4a 100644
---- a/drivers/net/ethernet/airoha/Makefile
-+++ b/drivers/net/ethernet/airoha/Makefile
-@@ -5,4 +5,5 @@
- 
- obj-$(CONFIG_NET_AIROHA) += airoha-eth.o
- airoha-eth-y := airoha_eth.o airoha_ppe.o
-+airoha-eth-$(CONFIG_DEBUG_FS) += airoha_ppe_debugfs.o
- obj-$(CONFIG_NET_AIROHA_NPU) += airoha_npu.o
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index 064941348bd91f1115082bf5e7734f34007953f8..18b5fed7ff286b813b260fae121892f44eb1cf8c 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -7,6 +7,7 @@
- #ifndef AIROHA_ETH_H
- #define AIROHA_ETH_H
- 
-+#include <linux/debugfs.h>
- #include <linux/etherdevice.h>
- #include <linux/iopoll.h>
- #include <linux/kernel.h>
-@@ -482,6 +483,8 @@ struct airoha_ppe {
- 
- 	struct hlist_head *foe_flow;
- 	u16 foe_check_time[PPE_NUM_ENTRIES];
-+
-+	struct dentry *debugfs_dir;
- };
- 
- struct airoha_eth {
-@@ -535,5 +538,16 @@ int airoha_ppe_setup_tc_block_cb(enum tc_setup_type type, void *type_data,
- 				 void *cb_priv);
- int airoha_ppe_init(struct airoha_eth *eth);
- void airoha_ppe_deinit(struct airoha_eth *eth);
-+struct airoha_foe_entry *airoha_ppe_foe_get_entry(struct airoha_ppe *ppe,
-+						  u32 hash);
-+
-+#if CONFIG_DEBUG_FS
-+int airoha_ppe_debugfs_init(struct airoha_ppe *ppe);
-+#else
-+static inline int airoha_ppe_debugfs_init(struct airoha_ppe *ppe)
-+{
-+	return 0;
-+}
-+#endif
- 
- #endif /* AIROHA_ETH_H */
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index 846abd2b497141a47171f7a3b7e0f520dc6499ed..3beae83ec56fe6fa35ded53d8a1cf7c13a770ede 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -377,8 +377,8 @@ static u32 airoha_ppe_foe_get_entry_hash(struct airoha_foe_entry *hwe)
- 	return hash;
- }
- 
--static struct airoha_foe_entry *
--airoha_ppe_foe_get_entry(struct airoha_ppe *ppe, u32 hash)
-+struct airoha_foe_entry *airoha_ppe_foe_get_entry(struct airoha_ppe *ppe,
-+						  u32 hash)
- {
- 	if (hash < PPE_SRAM_NUM_ENTRIES) {
- 		u32 *hwe = ppe->foe + hash * sizeof(struct airoha_foe_entry);
-@@ -861,7 +861,7 @@ void airoha_ppe_check_skb(struct airoha_ppe *ppe, u16 hash)
- int airoha_ppe_init(struct airoha_eth *eth)
- {
- 	struct airoha_ppe *ppe;
--	int foe_size;
-+	int foe_size, err;
- 
- 	ppe = devm_kzalloc(eth->dev, sizeof(*ppe), GFP_KERNEL);
- 	if (!ppe)
-@@ -882,7 +882,15 @@ int airoha_ppe_init(struct airoha_eth *eth)
- 	if (!ppe->foe_flow)
- 		return -ENOMEM;
- 
--	return rhashtable_init(&eth->flow_table, &airoha_flow_table_params);
-+	err = rhashtable_init(&eth->flow_table, &airoha_flow_table_params);
-+	if (err)
-+		return err;
-+
-+	err = airoha_ppe_debugfs_init(ppe);
-+	if (err)
-+		rhashtable_destroy(&eth->flow_table);
-+
-+	return err;
- }
- 
- void airoha_ppe_deinit(struct airoha_eth *eth)
-@@ -898,4 +906,5 @@ void airoha_ppe_deinit(struct airoha_eth *eth)
- 	rcu_read_unlock();
- 
- 	rhashtable_destroy(&eth->flow_table);
-+	debugfs_remove(eth->ppe->debugfs_dir);
- }
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe_debugfs.c b/drivers/net/ethernet/airoha/airoha_ppe_debugfs.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..0216d0d5e52b995f9ac956892a3cc105aa896c19
---- /dev/null
-+++ b/drivers/net/ethernet/airoha/airoha_ppe_debugfs.c
-@@ -0,0 +1,181 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2025 AIROHA Inc
-+ * Author: Lorenzo Bianconi <lorenzo@kernel.org>
-+ */
-+
-+#include "airoha_eth.h"
-+
-+static void airoha_debugfs_ppe_print_tuple(struct seq_file *m,
-+					   void *src_addr, void *dest_addr,
-+					   u16 *src_port, u16 *dest_port,
-+					   bool ipv6)
-+{
-+	__be32 n_addr[IPV6_ADDR_WORDS];
-+
-+	if (ipv6) {
-+		ipv6_addr_cpu_to_be32(n_addr, src_addr);
-+		seq_printf(m, "%pI6", n_addr);
-+	} else {
-+		seq_printf(m, "%pI4h", src_addr);
-+	}
-+	if (src_port)
-+		seq_printf(m, ":%d", *src_port);
-+
-+	seq_puts(m, "->");
-+
-+	if (ipv6) {
-+		ipv6_addr_cpu_to_be32(n_addr, dest_addr);
-+		seq_printf(m, "%pI6", n_addr);
-+	} else {
-+		seq_printf(m, "%pI4h", dest_addr);
-+	}
-+	if (dest_port)
-+		seq_printf(m, ":%d", *dest_port);
-+}
-+
-+static int airoha_ppe_debugfs_foe_show(struct seq_file *m, void *private,
-+				       bool bind)
-+{
-+	static const char *const ppe_type_str[] = {
-+		[PPE_PKT_TYPE_IPV4_HNAPT] = "IPv4 5T",
-+		[PPE_PKT_TYPE_IPV4_ROUTE] = "IPv4 3T",
-+		[PPE_PKT_TYPE_BRIDGE] = "L2B",
-+		[PPE_PKT_TYPE_IPV4_DSLITE] = "DS-LITE",
-+		[PPE_PKT_TYPE_IPV6_ROUTE_3T] = "IPv6 3T",
-+		[PPE_PKT_TYPE_IPV6_ROUTE_5T] = "IPv6 5T",
-+		[PPE_PKT_TYPE_IPV6_6RD] = "6RD",
-+	};
-+	static const char *const ppe_state_str[] = {
-+		[AIROHA_FOE_STATE_INVALID] = "INV",
-+		[AIROHA_FOE_STATE_UNBIND] = "UNB",
-+		[AIROHA_FOE_STATE_BIND] = "BND",
-+		[AIROHA_FOE_STATE_FIN] = "FIN",
-+	};
-+	struct airoha_ppe *ppe = m->private;
-+	int i;
-+
-+	for (i = 0; i < PPE_NUM_ENTRIES; i++) {
-+		const char *state_str, *type_str = "UNKNOWN";
-+		void *src_addr = NULL, *dest_addr = NULL;
-+		u16 *src_port = NULL, *dest_port = NULL;
-+		struct airoha_foe_mac_info_common *l2;
-+		unsigned char h_source[ETH_ALEN] = {};
-+		unsigned char h_dest[ETH_ALEN];
-+		struct airoha_foe_entry *hwe;
-+		u32 type, state, ib2, data;
-+		bool ipv6 = false;
-+
-+		hwe = airoha_ppe_foe_get_entry(ppe, i);
-+		if (!hwe)
-+			continue;
-+
-+		state = FIELD_GET(AIROHA_FOE_IB1_STATE, hwe->ib1);
-+		if (!state)
-+			continue;
-+
-+		if (bind && state != AIROHA_FOE_STATE_BIND)
-+			continue;
-+
-+		state_str = ppe_state_str[state % ARRAY_SIZE(ppe_state_str)];
-+		type = FIELD_GET(AIROHA_FOE_IB1_PACKET_TYPE, hwe->ib1);
-+		if (type < ARRAY_SIZE(ppe_type_str) && ppe_type_str[type])
-+			type_str = ppe_type_str[type];
-+
-+		seq_printf(m, "%05x %s %7s", i, state_str, type_str);
-+
-+		switch (type) {
-+		case PPE_PKT_TYPE_IPV4_HNAPT:
-+		case PPE_PKT_TYPE_IPV4_DSLITE:
-+			src_port = &hwe->ipv4.orig_tuple.src_port;
-+			dest_port = &hwe->ipv4.orig_tuple.dest_port;
-+			fallthrough;
-+		case PPE_PKT_TYPE_IPV4_ROUTE:
-+			src_addr = &hwe->ipv4.orig_tuple.src_ip;
-+			dest_addr = &hwe->ipv4.orig_tuple.dest_ip;
-+			break;
-+		case PPE_PKT_TYPE_IPV6_ROUTE_5T:
-+			src_port = &hwe->ipv6.src_port;
-+			dest_port = &hwe->ipv6.dest_port;
-+			fallthrough;
-+		case PPE_PKT_TYPE_IPV6_ROUTE_3T:
-+		case PPE_PKT_TYPE_IPV6_6RD:
-+			src_addr = &hwe->ipv6.src_ip;
-+			dest_addr = &hwe->ipv6.dest_ip;
-+			ipv6 = true;
-+			break;
-+		default:
-+			break;
-+		}
-+
-+		if (src_addr && dest_addr) {
-+			seq_puts(m, " orig=");
-+			airoha_debugfs_ppe_print_tuple(m, src_addr, dest_addr,
-+						       src_port, dest_port, ipv6);
-+		}
-+
-+		switch (type) {
-+		case PPE_PKT_TYPE_IPV4_HNAPT:
-+		case PPE_PKT_TYPE_IPV4_DSLITE:
-+			src_port = &hwe->ipv4.new_tuple.src_port;
-+			dest_port = &hwe->ipv4.new_tuple.dest_port;
-+			fallthrough;
-+		case PPE_PKT_TYPE_IPV4_ROUTE:
-+			src_addr = &hwe->ipv4.new_tuple.src_ip;
-+			dest_addr = &hwe->ipv4.new_tuple.dest_ip;
-+			seq_puts(m, " new=");
-+			airoha_debugfs_ppe_print_tuple(m, src_addr, dest_addr,
-+						       src_port, dest_port,
-+						       ipv6);
-+			break;
-+		default:
-+			break;
-+		}
-+
-+		if (type >= PPE_PKT_TYPE_IPV6_ROUTE_3T) {
-+			data = hwe->ipv6.data;
-+			ib2 = hwe->ipv6.ib2;
-+			l2 = &hwe->ipv6.l2;
-+		} else {
-+			data = hwe->ipv4.data;
-+			ib2 = hwe->ipv4.ib2;
-+			l2 = &hwe->ipv4.l2.common;
-+			*((__be16 *)&h_source[4]) =
-+				cpu_to_be16(hwe->ipv4.l2.src_mac_lo);
-+		}
-+
-+		*((__be32 *)h_dest) = cpu_to_be32(l2->dest_mac_hi);
-+		*((__be16 *)&h_dest[4]) = cpu_to_be16(l2->dest_mac_lo);
-+		*((__be32 *)h_source) = cpu_to_be32(l2->src_mac_hi);
-+
-+		seq_printf(m, " eth=%pM->%pM etype=%04x data=%08x"
-+			      " vlan=%d,%d ib1=%08x ib2=%08x\n",
-+			   h_source, h_dest, l2->etype, data,
-+			   l2->vlan1, l2->vlan2, hwe->ib1, ib2);
-+	}
-+
-+	return 0;
-+}
-+
-+static int airoha_ppe_debugfs_foe_all_show(struct seq_file *m, void *private)
-+{
-+	return airoha_ppe_debugfs_foe_show(m, private, false);
-+}
-+DEFINE_SHOW_ATTRIBUTE(airoha_ppe_debugfs_foe_all);
-+
-+static int airoha_ppe_debugfs_foe_bind_show(struct seq_file *m, void *private)
-+{
-+	return airoha_ppe_debugfs_foe_show(m, private, true);
-+}
-+DEFINE_SHOW_ATTRIBUTE(airoha_ppe_debugfs_foe_bind);
-+
-+int airoha_ppe_debugfs_init(struct airoha_ppe *ppe)
-+{
-+	ppe->debugfs_dir = debugfs_create_dir("ppe", NULL);
-+	debugfs_create_file("entries", 0444, ppe->debugfs_dir, ppe,
-+			    &airoha_ppe_debugfs_foe_all_fops);
-+	debugfs_create_file("bind", 0444, ppe->debugfs_dir, ppe,
-+			    &airoha_ppe_debugfs_foe_bind_fops);
-+
-+	return 0;
-+}
+Thanks for ccing me on this fix, we have the same issue (in
+huge_pte_clear() too) in riscv. I'll come up with a fix and wait for
+you guys to merge this.
 
--- 
-2.48.1
+That only comforts my idea to merge both riscv and arm64 implementations :)
 
+Thanks again,
+
+Alex
 
