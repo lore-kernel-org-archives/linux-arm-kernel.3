@@ -4,62 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64EA8C021A6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 12:12:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC23C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 12:14:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+ryFhl8+XSjDn6mgJa7GSQexAYqewTfKXy0rTXVoLUU=; b=ErbhenBvjBWgaBZziA1QG5R93z
-	D75gIEuF7uAC0Fq9mubjBCGS7+vakt9ZuxgFruD+IrBtR+xsNxZvYxnkmdY42U4HoOcfmzL9KhkmM
-	J0Lg447abUZN3xaxxnznKEDwyJlMgLugZqBQx5kGhDNtB7cmZlCKwBPuDnk19xISmihOOnrle+1Rz
-	/eZ3RBUHULSZ2e7+1xuRdUzC5yiU6RCEiMMI8Otr8jF2czuAbvnqZI3ro2JLHtqmGrIvnf8jR8Yy9
-	5/2gY05JzjTy4CtrbqX8blM/L3Gk0GuFIT8NROt9DB7WlqCvrggGuKyBRYdgdBq7kAxf+XgsjoYf8
-	UhWIpvnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5raQfcZhDMhumdfr8jxuCUsBCb/cAX6lrocettlzYYo=; b=S8pOv61aCLXQFjfsKeAUktIj+Q
+	HMzs2S1urkG9jXyuNggUhtGfolIZ+GCZvA2A69ZLqFNlV5IiWLj4XMQY1HNZQj+V4CXX35euF54+X
+	m2eEmcfi8eMrNH75HEdjilPiqRHZ4MGHm3squMu+MbMykdu86F+8sW68owO6MzMRxtGSqAT2t0CWK
+	9nKBGyvdGbVyKYsWkzDcC4qiv/996+6UZ48QxM3TxmpOk+wO2Hk5PyQcIxTjrgAooWTr3mdlaH+DC
+	ZDbixBDXPavKnpt3S9Jz+TyCxEnM0y77qzVHFHWChw6PeuFdQfgX/jgyuU3fahiJrmaBx5aHdAyjA
+	m6xbqOWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmXKM-0000000DdiW-3wMv;
-	Mon, 24 Feb 2025 12:12:50 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tmXLp-0000000De48-2qhN;
+	Mon, 24 Feb 2025 12:14:21 +0000
+Received: from [198.47.19.245] (helo=fllvem-ot03.ext.ti.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmXB8-0000000Dai0-28Lk
+	id 1tmXBD-0000000DakJ-1x0u
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 12:03:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6CDB15C62FE;
-	Mon, 24 Feb 2025 12:02:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AA39C4CED6;
-	Mon, 24 Feb 2025 12:03:14 +0000 (UTC)
-Date: Mon, 24 Feb 2025 12:03:12 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Will Deacon <will@kernel.org>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	David Hildenbrand <david@redhat.com>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 08/14] mm/vmalloc: Warn on improper use of
- vunmap_range()
-Message-ID: <Z7xgABzq7uLE0gj9@arm.com>
-References: <20250217140809.1702789-1-ryan.roberts@arm.com>
- <20250217140809.1702789-9-ryan.roberts@arm.com>
+	Mon, 24 Feb 2025 12:03:25 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51OC3HQw884652
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 24 Feb 2025 06:03:17 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1740398597;
+	bh=5raQfcZhDMhumdfr8jxuCUsBCb/cAX6lrocettlzYYo=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=s8B48YN6RXbPyYcRP3wjIDrfdeyLzL/aICw32+tMLtDI7d+3xRXAMeeM0d0NcdXRl
+	 YhaRDfeDpYzbsne2U1IOxxWSW3qxm0IEu7HeayWBnEcNA0cPkQ6T41QKBbO2Dp8LOC
+	 U5+BDYi+wNCITyJankazxTQ5wpe0W9Yyqv85X46w=
+Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51OC3HNE006194
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 24 Feb 2025 06:03:17 -0600
+Received: from DFLE100.ent.ti.com (10.64.6.21) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 24
+ Feb 2025 06:03:16 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 24 Feb 2025 06:03:16 -0600
+Received: from [172.24.227.245] (uda0132425.dhcp.ti.com [172.24.227.245])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51OC3BEA070806;
+	Mon, 24 Feb 2025 06:03:12 -0600
+Message-ID: <0d871153-e4dd-42d1-aafa-b6ed1e4e5a10@ti.com>
+Date: Mon, 24 Feb 2025 17:33:11 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250217140809.1702789-9-ryan.roberts@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] arm64: dts: ti: Add k3-am62-pocketbeagle2
+To: Robert Nelson <robertcnelson@gmail.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
+        Andrew Davis
+	<afd@ti.com>, Roger Quadros <rogerq@kernel.org>,
+        Siddharth Vadapalli
+	<s-vadapalli@ti.com>, Judith Mendez <jm@ti.com>,
+        Andrei Aldea
+	<a-aldea@ti.com>,
+        Jason Kridner <jkridner@beagleboard.org>,
+        Deepak Khatri
+	<lorforlinux@beagleboard.org>,
+        Ayush Singh <ayush@beagleboard.org>
+References: <20250211181839.1575497-1-robertcnelson@gmail.com>
+ <20250211181839.1575497-2-robertcnelson@gmail.com>
+From: Vignesh Raghavendra <vigneshr@ti.com>
+Content-Language: en-US
+In-Reply-To: <20250211181839.1575497-2-robertcnelson@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_040318_585733_D2C3C5B6 
-X-CRM114-Status: GOOD (  15.72  )
+X-CRM114-CacheID: sfid-20250224_040323_641062_22542CCF 
+X-CRM114-Status: UNSURE (   8.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,19 +99,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 17, 2025 at 02:08:00PM +0000, Ryan Roberts wrote:
-> A call to vmalloc_huge() may cause memory blocks to be mapped at pmd or
-> pud level. But it is possible to subsequently call vunmap_range() on a
-> sub-range of the mapped memory, which partially overlaps a pmd or pud.
-> In this case, vmalloc unmaps the entire pmd or pud so that the
-> no-overlapping portion is also unmapped. Clearly that would have a bad
-> outcome, but it's not something that any callers do today as far as I
-> can tell. So I guess it's just expected that callers will not do this.
-> 
-> However, it would be useful to know if this happened in future; let's
-> add a warning to cover the eventuality.
-> 
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+Hi
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+On 11/02/25 23:48, Robert Nelson wrote:
+> BeagleBoard.org PocketBeagle 2 is an upgraded version of the popular
+> PocketBeagle.  It is based on Texas Instruments AM6232 SoC. Its dual
+> A53 cores can provide higher performance than classic PocketBeagle.
+> The new design comes with pre-soldered headers, a 3-pin JST-SH 1.00mm
+> UART debug port, a USB-C port, Texas Instruments MSPM0L1105 Cortex-M0+
+> MCU for ADC, 512MB RAM, and a LiPo Battery charger.
+> 
+> https://www.beagleboard.org/boards/pocketbeagle-2
+> https://openbeagle.org/pocketbeagle/pocketbeagle-
+> 
+> Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
+> CC: Rob Herring <robh@kernel.org>
+> CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> CC: Conor Dooley <conor+dt@kernel.org>
+> CC: Vignesh Raghavendra <vigneshr@ti.com>
+> CC: Nishanth Menon <nm@ti.com>
+> CC: Andrew Davis <afd@ti.com>
+> CC: Roger Quadros <rogerq@kernel.org>
+> CC: Siddharth Vadapalli <s-vadapalli@ti.com>
+> CC: Judith Mendez <jm@ti.com>
+> CC: Andrei Aldea <a-aldea@ti.com>
+> CC: Jason Kridner <jkridner@beagleboard.org>
+> CC: Deepak Khatri <lorforlinux@beagleboard.org>
+> CC: Ayush Singh <ayush@beagleboard.org>
+
+
+Please run make dtbs_check and fix the reported issues. Eg.:
+
+
++arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts: /bus@f0000/pinctrl@f4000/main_i2c2-default-pins: Character '_' not recommended in node name
+
+[...]
+
+> ----- 
+Regards
+Vignesh
+https://ti.com/opensource
+
 
