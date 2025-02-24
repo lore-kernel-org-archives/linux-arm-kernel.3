@@ -4,79 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EFDDC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 08:45:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50934C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 08:47:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MdXagpB4l/4HWEmPWODWg/UX+SlCVHitTHN3kSMMFM8=; b=NQ2xshz+OFHwW3CYQkIrjec8Zv
-	TKFqYL46fScRpnf8NIIb+h3vqfcXKNZiqD1qSHyk6YFYp0jFKdUMt7S+mjFWs60L4ciQW61x49Vml
-	kDOW10vybp5/VSo1fQNiSpBibN60YNc2hSXdpjbSlz/Z7X1xBfV3APwrLrrikgMYA4ePJca7ruLJg
-	AYX4BlLkbN3QQDgMW5dwcUIzwu871G1KdxtLFLssvPivZyt+Uu/aeDWaWlRdkjAe8R67HvosUIvSQ
-	bCED0xgoPUUJqNO31P2RxwU5++8ndBdrNlGGcZM8+BdffIluDhtikIAaUC9BEloG++isk49qLvop7
-	yM+pbalw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gUzxlfop69b1dDrCQAZ0orgLMQmh6UkeuP2YTL3zP5E=; b=nIqja42LFTnQIR/lndp6EKxk1k
+	a3iCbHw2OopH0wV7fukwVByHUKYyO0O9iRs4gHbFF6CfvpwsO/yJhyk7WBAn434mcLvaz4OZrzFxo
+	MlmFIf3aXmZsT+8/w2eunFTmSxtykrf4hSEVitUKz4ixB/2bw4glEJBQr0OlhCajkTOwk2bEa8erV
+	EyV01r3OaXr0vFTdj24QSgpM48gNDxNlL3NnCqlfjrB+n2WHg89s4VWlBlH7CvBukVQ+nlhminMUa
+	fOzVce5d6ifjn3zoDCAfnnTfCvzyF0tchtsn220YjvyEFZharCCUH4YJ4dJ8p/LRhNjigCTXxA/5o
+	yAduoi7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmU61-0000000Ckjj-1Nsw;
-	Mon, 24 Feb 2025 08:45:49 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tmU7U-0000000Cl05-0AeW;
+	Mon, 24 Feb 2025 08:47:20 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmTt0-0000000ChtX-1GWk
+	id 1tmTx1-0000000CiTp-32UT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 08:32:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9B0265C578E;
-	Mon, 24 Feb 2025 08:31:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 319F5C4CED6;
-	Mon, 24 Feb 2025 08:32:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740385941;
-	bh=bSIM8Tbz1K1m9Pb52yVWvSYNTf02AU2E2IBRGGRNYbQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=BcSNtHCnhtceHL5Bwzxat3ETiQjWBIJmf2OLiXb20jM+redompi1shfQ10Xhnn58U
-	 6aLAQn8OA52F/MRt2kOANae3vI+aHsVckMTLLFHQSgpd19rmdzdYvuumhlrDrIQBCJ
-	 7023J9BwcrzgS/e4qCH7TwNUpGNbj6bCPJBuLzfB/w5EOSxjgoBYxYpKA3f8ttpEPh
-	 a9rVogdkW7A9udrRDqJsjigC2mX+uR6GGYgrBRqNYZzuxr9t9mK/DcPWS7fWe11oQl
-	 EfCovrN/LHeCoh7a4ADLfslzo/Opwvxe+r1Y2juwGPVNxZN/risKsrR5TbHPlgdfnU
-	 0DIvHbgQr+cVw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tmTsx-007EJK-6t;
-	Mon, 24 Feb 2025 08:32:19 +0000
-Date: Mon, 24 Feb 2025 08:32:18 +0000
-Message-ID: <86msebrbe5.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-Cc: kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
+	Mon, 24 Feb 2025 08:36:33 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 43D0C21180;
+	Mon, 24 Feb 2025 08:36:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1740386190; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=gUzxlfop69b1dDrCQAZ0orgLMQmh6UkeuP2YTL3zP5E=;
+	b=uwFcHTc/LFTskg1mfIT56B9t7NITPFmDdC9KTKprw4CwVsuJho0g+bL5YgD46jhVz5BTnl
+	xouXnK8DEInulO7FpZuIc9mhXlXXNcv8yPD8i6tVPONOL6Mopcq13xYusISC/VQtNMWeRi
+	Rhe4NpKgWnNlda14UYl6YC8On1AevNA=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1740386190;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=gUzxlfop69b1dDrCQAZ0orgLMQmh6UkeuP2YTL3zP5E=;
+	b=w4lkTbXwT+2e2RiYx9OrFOWNW5fTGPBTG4PGphGgHcmGvOq8RzyZPKu31c0C8km0zBxYMW
+	JtqiSHrACf3O/tCw==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1740386190; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=gUzxlfop69b1dDrCQAZ0orgLMQmh6UkeuP2YTL3zP5E=;
+	b=uwFcHTc/LFTskg1mfIT56B9t7NITPFmDdC9KTKprw4CwVsuJho0g+bL5YgD46jhVz5BTnl
+	xouXnK8DEInulO7FpZuIc9mhXlXXNcv8yPD8i6tVPONOL6Mopcq13xYusISC/VQtNMWeRi
+	Rhe4NpKgWnNlda14UYl6YC8On1AevNA=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1740386190;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=gUzxlfop69b1dDrCQAZ0orgLMQmh6UkeuP2YTL3zP5E=;
+	b=w4lkTbXwT+2e2RiYx9OrFOWNW5fTGPBTG4PGphGgHcmGvOq8RzyZPKu31c0C8km0zBxYMW
+	JtqiSHrACf3O/tCw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 13C1A13332;
+	Mon, 24 Feb 2025 08:36:29 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id RvcVAo0vvGeJVAAAD6G6ig
+	(envelope-from <svarbanov@suse.de>); Mon, 24 Feb 2025 08:36:29 +0000
+From: Stanimir Varbanov <svarbanov@suse.de>
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH 03/14] KVM: arm64: Mark HCR.EL2.E2H RES0 when ID_AA64MMFR1_EL1.VH is zero
-In-Reply-To: <yq5aa5abhjv1.fsf@kernel.org>
-References: <20250215173816.3767330-1-maz@kernel.org>
-	<20250215173816.3767330-4-maz@kernel.org>
-	<yq5aa5abhjv1.fsf@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: aneesh.kumar@kernel.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, eric.auger@redhat.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-rpi-kernel@lists.infradead.org,
+	linux-pci@vger.kernel.org,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Jim Quinlan <jim2101024@gmail.com>,
+	Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	kw@linux.com,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Jonathan Bell <jonathan@raspberrypi.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Stanimir Varbanov <svarbanov@suse.de>
+Subject: [PATCH v6 0/7] Add PCIe support for bcm2712
+Date: Mon, 24 Feb 2025 10:35:52 +0200
+Message-ID: <20250224083559.47645-1-svarbanov@suse.de>
+X-Mailer: git-send-email 2.47.0
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-1.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	TAGGED_RCPT(0.00)[dt];
+	RCPT_COUNT_TWELVE(0.00)[22];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[linutronix.de,kernel.org,broadcom.com,gmail.com,google.com,linux.com,pengutronix.de,suse.com,raspberrypi.com,suse.de];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_003222_453258_38ED20DF 
-X-CRM114-Status: GOOD (  19.09  )
+X-CRM114-CacheID: sfid-20250224_003631_909490_8ED5D026 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,59 +147,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Feb 2025 07:39:30 +0000,
-Aneesh Kumar K.V <aneesh.kumar@kernel.org> wrote:
-> 
-> Marc Zyngier <maz@kernel.org> writes:
-> 
-> > Enforce HCR_EL2.E2H being RES0 when VHE is disabled, so that we can
-> > actually rely on that bit never being flipped behind our back.
-> >
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > ---
-> >  arch/arm64/kvm/nested.c | 2 ++
-> >  1 file changed, 2 insertions(+)
-> >
-> > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> > index 0c9387d2f5070..ed3add7d32f66 100644
-> > --- a/arch/arm64/kvm/nested.c
-> > +++ b/arch/arm64/kvm/nested.c
-> > @@ -1034,6 +1034,8 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
-> >  		res0 |= (HCR_TEA | HCR_TERR);
-> >  	if (!kvm_has_feat(kvm, ID_AA64MMFR1_EL1, LO, IMP))
-> >  		res0 |= HCR_TLOR;
-> > +	if (!kvm_has_feat(kvm, ID_AA64MMFR1_EL1, VH, IMP))
-> > +		res0 |= HCR_E2H;
-> >  	if (!kvm_has_feat(kvm, ID_AA64MMFR4_EL1, E2H0, IMP))
-> >  		res1 |= HCR_E2H;
-> >
-> 
-> Does it make sense to check for E2H0 if MMFR1_EL1.VH == 0 ?
-> Should the above check be
-> 	if (!kvm_has_feat(kvm, ID_AA64MMFR1_EL1, VH, IMP))
-> 		res0 |= HCR_E2H;
-> 	else if (!kvm_has_feat(kvm, ID_AA64MMFR4_EL1, E2H0, IMP))
->  		res1 |= HCR_E2H;
+Hello, v6 is re-based version of controller/brcmstb branch of pci tree.
 
-What difference does it make? This bit can only have a reserved value,
-and can never be actively modified. If you *really* wanted to optimise
-this for reasons that I really cannot fathom, you could have this:
+v5 could be found at [1].
 
- 	if (!kvm_has_feat(kvm, ID_AA64MMFR1_EL1, VH, IMP))
- 		res0 |= HCR_E2H;
- 	else
-  		res1 |= HCR_E2H;
+v5 -> v6 changes include:
+ - Fix a build error in 04/11 (Jim).
+ - Address a comment from Bjorn about bisect-ability by squash
+   07/11 in 06/11 (Bjorn).
+ - Move 08/11 right after irqchip patch (Bjorn).
 
-because that's what we really implement.
+Regards,
+~Stan
 
-Does it matter? I don't think so. If anything, I'd rather we keep the
-code as is and have a run-time warning if a bit is simultaneously RES0
-and RES1, because that'd be indicative of a much bigger problem.
+[1] https://lore.kernel.org/lkml/20250120130119.671119-1-svarbanov@suse.de/
 
-Thanks,
+Stanimir Varbanov (7):
+  dt-bindings: interrupt-controller: Add BCM2712 MSI-X DT bindings
+  dt-bindings: PCI: brcmstb: Update bindings for PCIe on BCM2712
+  irqchip: Add Broadcom BCM2712 MSI-X interrupt controller
+  PCI: brcmstb: Adding a softdep to MIP MSI-X driver
+  PCI: brcmstb: Reuse pcie_cfg_data structure
+  PCI: brcmstb: Expand inbound window size up to 64GB
+  PCI: brcmstb: Add BCM2712 support
 
-	M.
+ .../brcm,bcm2712-msix.yaml                    |  60 ++++
+ .../bindings/pci/brcm,stb-pcie.yaml           |   6 +-
+ drivers/irqchip/Kconfig                       |  16 +
+ drivers/irqchip/Makefile                      |   1 +
+ drivers/irqchip/irq-bcm2712-mip.c             | 292 ++++++++++++++++++
+ drivers/pci/controller/pcie-brcmstb.c         | 144 ++++++---
+ 6 files changed, 475 insertions(+), 44 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2712-msix.yaml
+ create mode 100644 drivers/irqchip/irq-bcm2712-mip.c
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.47.0
+
 
