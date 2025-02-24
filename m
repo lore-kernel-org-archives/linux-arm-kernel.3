@@ -4,122 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D66AFC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 18:37:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A648AC021BB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 18:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=faqWqp1PBWz6bkdg4gIZKK3WyZPaPTN702mjk2GZjXI=; b=qQoTLcmeeQ5QAU6qt7b89rhX3j
-	pM4/a9tO9JtlsHVaaUPxJORGX5cadZToRJFQMq5MA36HezRfEHhUy3lxN72eXtQ8RCS+Lfsk/t7eD
-	Du0AXotyCGpaVHI4jwKisSIgvc7Oup5nthaAtyM7k3kAlDSCJ6xzkJRclT27zi/N6ECHc331QAekq
-	3jJPSKBJpQ3tvggHzwJemv5d5HNyefEW+cPpgfbz4gGeeGsrgGNnqk2adOuLm7Cjk+GbhVf0nEQtZ
-	vzyIpiEET/EjlrS++Un10lgua8GGt5XJDHt4YQbHWUotYCCf2Mp8yETy+4Ly3GOfpKFajkbve4P33
-	xInP27Ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jXIG3rwFkUBNHGVcpVvR3tMHmQkVgrY0k20PaQNNWQE=; b=mGyxwaAduQIbkQR7KOeHQ1Fg6y
+	gvUxpzwzupA3Lbs98fgaMc1QA4F6CbRz331sS0kdEKcseGgdZWzkz8eAXm3GomT0OJxdtircSnBnS
+	vHUIVdYC2gKnqsyuoQLBV0Hk+4SEb08mkvo+ziZHzS+Mfzr9gy1VPFbNz1hxqR+PYqK6F7r+s+9Wn
+	1R/kV0k/EdkwQXkdnWrZbqXMN4OyjDu0vxJa4s7v85ho2bbjD1YZE3RL8vukzRxnEvIoWxno3Xmlg
+	LgHUTrZN3WdAWLV9WJ/ASAzXCenzsVvOwqU9hCVDPpdFDJvhCUWO7j7Jp/o5Eqb1ZubFldvV2TVNS
+	jSJ+nvYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmdKB-0000000EqRr-2MdS;
-	Mon, 24 Feb 2025 18:37:03 +0000
-Received: from mail-oo1-xc2a.google.com ([2607:f8b0:4864:20::c2a])
+	id 1tmdLd-0000000EqlB-1OIc;
+	Mon, 24 Feb 2025 18:38:33 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmdBV-0000000Eo55-2V9L
+	id 1tmdFV-0000000Eoh2-1AhD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 18:28:07 +0000
-Received: by mail-oo1-xc2a.google.com with SMTP id 006d021491bc7-5fce5eee2beso2911990eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 10:28:05 -0800 (PST)
+	Mon, 24 Feb 2025 18:32:14 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-5452e6f2999so5084718e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 10:32:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1740421684; x=1741026484; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=faqWqp1PBWz6bkdg4gIZKK3WyZPaPTN702mjk2GZjXI=;
-        b=Irr2cqB8EPyNBS3mtz7X9YUPVdn1kce0YbbjqhmlcHWR3qURMiL31NNghBONvCP7HH
-         NPqUD0d7vVF1ILjsAc+q7UaiiTmBUxqN5X1xWMCcUVEz9Wz2cD6Xhakbh1H8MU92vPDW
-         V/G4Hgm/NyauyNtt7PgoCZ7VGoGBOhZ7mGqyE=
+        d=gmail.com; s=20230601; t=1740421931; x=1741026731; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=jXIG3rwFkUBNHGVcpVvR3tMHmQkVgrY0k20PaQNNWQE=;
+        b=TQIxai75anKuHB4enQL/Qnb8KRdse7HPEpuqdurPIWMgHNy6k2euAwCmOx29KeEOeQ
+         53tB4PnhtyKnacNeYZPg3g8JE8bifhmYlHm7JGSmwwTrXNzk2tfHHOxfPV3NnyqLh9wR
+         vUidh9PlGjCN5/4+VwuCgQbX6b7kzFddrOEhTzi90oVPuiwrmSdNx7vqby1+zhFlnoGx
+         5eMa+wiKvJzbT9M+oFfy2U8xQCYwBUGiQprKC9ZlI33uOnT4j+WuMixJDo0lClh/JQrG
+         H13XNqpHYvIMcsBowy4oZnZCVEV9TweANe2HjDaqw806atA5j3hcw90GABfxDjBgoh/c
+         jSMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740421684; x=1741026484;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=faqWqp1PBWz6bkdg4gIZKK3WyZPaPTN702mjk2GZjXI=;
-        b=lqlnYn4lKV2TBzOvFeuiFsSxQn0IaD8qx7QR2TTzJQnVxgkVvVdAJbDrvGAnU1IXlR
-         q7vxiOKbJmOUrMtRGpZR4oaGgQiKk7p/LVG/tZrR8loBRrYPJU80qhVQxDORRTjh5YBN
-         vz6MyForz60FGNAiynAbv9pI5qr/9sKmg2GUPtSiaNwzulMZ24dbtX9o55cqyT+o49fj
-         UoVG99f2hiFwz3XyPTgftz9Hp4QaV8WWzoOVFvB8nBWwbF4XrcYECzfamdP6Sp0KDiyC
-         889Wt03kHkT0XryhNYsHm3rv/ad1Gg2PwAHAo649GlXNPRaRx6Kf157pZJyfXCxMTRQS
-         bFNA==
-X-Forwarded-Encrypted: i=1; AJvYcCVpbNqJEPw54xNEL0WyfOwnXk3wyJc7kPcg3oD+kCxS95Dz6Q3rDABPtgtoXDsCc5RYCkHYx+zXeUnAbDbREZTM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4HKbcOhIV3ojJpX1hkmSS8+2YWMlWcWeEnzuixsCnp0i1msRu
-	zoRCdLh+2kb+myoyB+BNy8/uoB+04IeW3Zd2UH6FFx32luazQ/iyPAzZR+rIPw==
-X-Gm-Gg: ASbGncu+m2/+bnXoNSsSgx8gobZ/9PxXfd7z/cw5RoYRgcPZkidG/g3kMBSVrVhRKl3
-	JE0vU73fV64o8MT/1c0Goms7eBejm7twzaEr2UnAZ/LiikYG525KC8GtoeRgbKDB0/3ZS2zK4vZ
-	WnD9gJtgFRYv47y11U076afUaWIK7WU//DOHUZR33G5cUd6hdzpTk9hQScr8JBlP13r6FPyYBFH
-	gjxIQJYAuToYJoZIRXxvTMqUViTcc55MVM5+49C3XLB+oEQyzYkhSmwDO64xMowTX7WJabd07aF
-	rVdXGtmTdhygL6W8PNQNBr65vUYNibvjRHjTh4eRxQ+UEbEi39mZ7g==
-X-Google-Smtp-Source: AGHT+IHVs9kBI7BshAjDAVWgrh+i3GPuho/Oqa5W57T3L5uzRkaZm8JCVHHG2193N2YMEmrqfP7G6g==
-X-Received: by 2002:a05:6820:3284:b0:5fc:f02e:a7bf with SMTP id 006d021491bc7-5fd0af6c89amr17901209eaf.3.1740421684520;
-        Mon, 24 Feb 2025 10:28:04 -0800 (PST)
-Received: from [192.168.99.86] ([216.14.52.203])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5fd235ed4fdsm1300638eaf.24.2025.02.24.10.28.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 24 Feb 2025 10:28:03 -0800 (PST)
-Message-ID: <f9ff16f5-9eb2-415b-acaa-706a6ccc8c42@broadcom.com>
-Date: Mon, 24 Feb 2025 10:28:02 -0800
+        d=1e100.net; s=20230601; t=1740421931; x=1741026731;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=jXIG3rwFkUBNHGVcpVvR3tMHmQkVgrY0k20PaQNNWQE=;
+        b=XysuVcPZHiqNIl+3xQSajU3DLi0KRrqlYEv4mA1Fgmu/C6MsJFAhdavxVA+S3lS56p
+         IIZ+yr3o+cQFC2d+YHpIOk5aP5v96fwdtabRCliW7xHAYSBQ/eb8+A5eUecdvLvN+Z2L
+         n2vMcfGZ0DyuYibFw27E/9p4kAtrFHZtmOGqo3KnnSodgv7o+GT25JCIBGnX05fk+ZJj
+         KBm3C1AxVnp+huX9PxERjJNGKyFn/R9Uya9XXpyXUpJwt61kpLjdiOW6+d3iAz27MCnN
+         s4WRCpzia22ZzQqmh14gHgVdIWxu/M9eN89YKa6MzSJkkPe7w65KLlMeuuJtCeX6IiPe
+         z99w==
+X-Forwarded-Encrypted: i=1; AJvYcCUj+k7gXtsVR9g85EQpmQkseHhNKjLgqBmHWNew+mNSInFgHiHL3FKF7yOcTuDovV1r/Xs/bVja5XcZzTREVAdy@lists.infradead.org
+X-Gm-Message-State: AOJu0YzOdfiKOoiPJtawpNhbKIi7SUdxdlVZlbb4kpBWMSkMZPU7Dftl
+	AyaVtje9nZMx3I0KRZoTMzOyVLlBdk86OkXLOGSg4Kzmy9xxEy1k
+X-Gm-Gg: ASbGnctp8yEDI2CuwCCCOEnBLvtLnndLApCnJmWtJRynw1jht7zNxJiRr3RsW7iAH5U
+	FibXfUP8Zch6F8fAR5MCbEpn/++MkKxp24xa9v0x8Yos3a4ugJ4EY56oFDrnPq2xgQAw5HIBHy6
+	rTNrEGoWFmJfyxhG81lXWMJZd4cl5+mnEKMM9TEOBia9+AUod8Gtmy0FLPPlUOdjO8ESxry+zFh
+	9RdOPk5M2/6WxwAUrfDv6M4w5SVXVxRDETFAlEt0GulRvdMeLexRxGLjvCGga8ptAneYnhIxBvd
+	lRR2e2qiE9DOB7ZPdBFeaEX1AJ8zaC63
+X-Google-Smtp-Source: AGHT+IFELQkBGEK3YIrY6vL2x7pgcre/YMocDwlofZQfU5axSRRV9108mGH1oEpDjZ+YLNE5cZW//A==
+X-Received: by 2002:a05:6512:39d0:b0:545:944:aae1 with SMTP id 2adb3069b0e04-548510cf671mr29523e87.12.1740421931035;
+        Mon, 24 Feb 2025 10:32:11 -0800 (PST)
+Received: from mva-rohm ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-545280ec98dsm3214737e87.42.2025.02.24.10.32.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Feb 2025 10:32:10 -0800 (PST)
+Date: Mon, 24 Feb 2025 20:32:03 +0200
+From: Matti Vaittinen <mazziesaccount@gmail.com>
+To: Matti Vaittinen <mazziesaccount@gmail.com>,
+	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Nuno Sa <nuno.sa@analog.com>, David Lechner <dlechner@baylibre.com>,
+	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+	Guillaume Stols <gstols@baylibre.com>,
+	Olivier Moysan <olivier.moysan@foss.st.com>,
+	Dumitru Ceclan <mitrutzceclan@gmail.com>,
+	Trevor Gamblin <tgamblin@baylibre.com>,
+	Matteo Martelli <matteomartelli3@gmail.com>,
+	Alisa-Dariana Roman <alisadariana@gmail.com>,
+	Ramona Alexandra Nechita <ramona.nechita@analog.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	Linus Walleij <linus.walleij@linaro.org>
+Subject: [PATCH v4 00/10] Support ROHM BD79124 ADC
+Message-ID: <cover.1740421248.git.mazziesaccount@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND] dmaengine: bcm2835-dma: fix warning when
- CONFIG_PM=n
-To: Stefan Wahren <wahrenst@gmx.net>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>, Vinod Koul <vkoul@kernel.org>
-Cc: Lukas Wunner <lukas@wunner.de>, Peter Robinson <pbrobinson@gmail.com>,
- "Ivan T . Ivanov" <iivanov@suse.de>, linux-arm-kernel@lists.infradead.org,
- bcm-kernel-feedback-list@broadcom.com, dmaengine@vger.kernel.org,
- kernel test robot <lkp@intel.com>
-References: <20250222095028.48818-1-wahrenst@gmx.net>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250222095028.48818-1-wahrenst@gmx.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="gHB9+0TKqLctmFZy"
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_102805_640468_7AAB91ED 
-X-CRM114-Status: UNSURE (   8.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250224_103213_319920_1960D537 
+X-CRM114-Status: GOOD (  22.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,21 +126,126 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--gHB9+0TKqLctmFZy
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On 2/22/2025 1:50 AM, Stefan Wahren wrote:
-> The old SET_LATE_SYSTEM_SLEEP_PM_OPS macro cause a build warning
-> when CONFIG_PM is disabled:
-> 
-> warning: 'bcm2835_dma_suspend_late' defined but not used [-Wunused-function]
-> 
-> Change this to the modern replacement.
-> 
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202501071533.yrFb156H-lkp@intel.com/
-> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+Support ROHM BD79124 ADC.
 
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
--- 
-Florian
+This series adds also couple of helper functions for parsing the channel
+information from the device tree. There has been some discussion about
+how useful these are, and whether they should support also differential
+and single ended channel configurations. This version drops support for
+those - with the benefit of reduced complexity and easier to use
+API.
 
+A few of the patches are examples of drivers which could utilize
+these added helpers:
+ - 4/9 converts rzg2l_adc to use helpers
+ - 5/9 converts sun20i-gpadc to use helpers
+ - 6,7/9 makes the ti-ads7924 to respect the channel specification give in
+   the device-tree using these helpers.
+
+patch 8/9 is small simplification for the ti-ads7924, and it can be
+taken independently from the rest of the series.
+
+NOTE: Patches 4...7 are untested as I lack of relevant HW. They have
+been compile tested only.
+
+The ROHM BD79124 ADC itself is quite usual stuff. 12-bit, 8-channel ADC
+with threshold monitoring.
+
+Except that:
+ - each ADC input pin can be configured as a general purpose output.
+ - manually starting an ADC conversion and reading the result would
+   require the I2C _master_ to do clock stretching(!) for the duration
+   of the conversion... Let's just say this is not well supported.
+ - IC supports 'autonomous measurement mode' and storing latest results
+   to the result registers. This mode is used by the driver due to the
+   "peculiar" I2C when doing manual reads.
+
+Furthermore, the ADC uses this continuous autonomous measuring,
+and the IC keeps producing new 'out of window' IRQs if measurements are
+out of window - the driver disables the event for 1 seconds when sending
+it to user. This prevents generating storm of events
+
+Revision history:
+v3 =3D> v4:
+ - Drop the ADC helper support for differential channels
+ - Drop the ADC helper for getting only channel IDs by fwnode.
+ - "Promote" the function counting the number of child nodes with a
+   specific name to the property.h (As suggested by Jonathan).
+ - Add ADC helpers to a namespace.
+ - Rebase on v6.14-rc3
+ - More minor changes described in individual patches.
+v2 =3D> v3:
+ - Restrict BD79124 channel numbers as suggested by Conor and add
+   Conor's Reviewed-by tag.
+ - Support differential and single-ended inputs
+ - Convert couple of existing drivers to use the added ADC helpers
+ - Minor fixes based on reviews
+Link to v2:
+https://lore.kernel.org/all/cover.1738761899.git.mazziesaccount@gmail.com/
+
+RFC v1 =3D> v2:
+ - Drop MFD and pinmux.
+ - Automatically re-enable events after 1 second.
+ - Export fwnode parsing helpers for finding the ADC channels.
+
+---
+
+Matti Vaittinen (10):
+  dt-bindings: ROHM BD79124 ADC/GPO
+  property: Add device_get_child_node_count_named()
+  iio: adc: add helpers for parsing ADC nodes
+  iio: adc: rzg2l_adc: Use adc-helpers
+  iio: adc: sun20i-gpadc: Use adc-helpers
+  iio: adc: ti-ads7924 Drop unnecessary function parameters
+  iio: adc: ti-ads7924: Respect device tree config
+  iio: adc: Support ROHM BD79124 ADC
+  MAINTAINERS: Add IIO ADC helpers
+  MAINTAINERS: Add ROHM BD79124 ADC/GPO
+
+ .../bindings/iio/adc/rohm,bd79124.yaml        |  114 ++
+ MAINTAINERS                                   |   12 +
+ drivers/base/property.c                       |   28 +
+ drivers/iio/adc/Kconfig                       |   18 +
+ drivers/iio/adc/Makefile                      |    3 +
+ drivers/iio/adc/industrialio-adc.c            |   89 ++
+ drivers/iio/adc/rohm-bd79124.c                | 1114 +++++++++++++++++
+ drivers/iio/adc/rzg2l_adc.c                   |   38 +-
+ drivers/iio/adc/sun20i-gpadc-iio.c            |   38 +-
+ drivers/iio/adc/ti-ads7924.c                  |   83 +-
+ include/linux/iio/adc-helpers.h               |   22 +
+ include/linux/property.h                      |    2 +
+ 12 files changed, 1470 insertions(+), 91 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/iio/adc/rohm,bd79124.=
+yaml
+ create mode 100644 drivers/iio/adc/industrialio-adc.c
+ create mode 100644 drivers/iio/adc/rohm-bd79124.c
+ create mode 100644 include/linux/iio/adc-helpers.h
+
+
+base-commit: 0ad2507d5d93f39619fc42372c347d6006b64319
+--=20
+2.48.1
+
+
+--gHB9+0TKqLctmFZy
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEEIx+f8wZb28fLKEhTeFA3/03aocUFAme8ux0ACgkQeFA3/03a
+ocVH+Qf+PVSPEXpY6uBYLMku5n+QutsoR3rKRhpzdBZ3Tj+hKJn8+FyCyt+2G/vK
+5/D4Svsjq8DAF4yPWYmDk5HZi5zgofR9KWOmI/VgO6amTBx3bZEScWCoyj2i7VYf
+O0XCQ06tXbm7nmotSiQkY7VDXaGhfZPMU3nj+xUQ84iZTbTPOI8Os8RiPfstISiM
+cnfScD22RKz+5zHt5oqSBmZHB0jrWHzeXGZF+3gZQ6502STKMTfu76PBnpJkc56S
+XbSq9SH9cH0jorWT0kYQyqc+7Bsv0SY9LwHP2ynDDmD7PBIF/sA2FbOy3Mk8P+54
+jdNn0uGJKc5cEqbL6o1tg85PP6ztuA==
+=H7qR
+-----END PGP SIGNATURE-----
+
+--gHB9+0TKqLctmFZy--
 
