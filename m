@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2608AC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 14:52:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB05BC021BB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 14:53:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KLDKoEHmBNZru20DMSxS9Pw3dDW9jMuSmbZS8x5oymU=; b=WW8R2hBmjTyhSRxZyT6DD6honO
-	Y9EmevkQBJaIWMrXa+Yx4bZojPnf/GXO8RzDsB8/U8JLhkb77broCQ0EsSoeskyJc5VRuy57sxdt9
-	aYq7qabxw7xXQaVFBJPEJRAujDIFxT/r4TUOw2krnsuEceiX6y3T7EQmBhaLPSbQ4eh6cSezI8wKU
-	oi9pb96hy45eqAszrKzIN9aLWPo1gyMov+0/BfDpuUgkSHocjE7UC3l5lhjzjMY39z2H+SMtBnRPq
-	bu2qafirXKMaX7sjRH5Xea7DeO2ayJcc+4lnwNw4DzDVv0i7lDdk0sbkhEIrO+dGFKOrkJha9GWrE
-	3pOM1rOA==;
+	bh=sWKqOX5BSiiuBOfVvs+gR33D/sqaIKO5jTjWIObEE8A=; b=ymoCg08QpxUaLMMsJQPVzJsVwC
+	J58nXVSBrTNeieZEr+gxRyBN78WmFFB1pJyDkAlTrG4Wd+wUrg5EFnwvGsQktqzWsFK+IUdW8Htyj
+	YrCEYLUo3iFtlOyYjt1m2OGZsZbTJWH+79dXIabB8Uma7maKciVDYELLfEwS8uVIPrwoDbY4YLeRk
+	2U1naSbkShheegH1zrpzqX0qLrEN0rfclKXsMB99K9TkZZAH+YPPFOJFdgXEPy0HSHjDDOaQRtJsF
+	23h+bH2Oa6WBpHBoEmZmU+2FfnC6Vwu113O6Q6Vv33sC9iqqTFlHrjsAs4h1S1aSkd/2Gl51lkutT
+	sauubPqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmZog-0000000EB21-0xMQ;
-	Mon, 24 Feb 2025 14:52:18 +0000
+	id 1tmZq7-0000000EBEx-3iy7;
+	Mon, 24 Feb 2025 14:53:47 +0000
 Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmZRv-0000000E64v-3Xgy
+	id 1tmZS1-0000000E64v-2NrC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 14:28:49 +0000
+	Mon, 24 Feb 2025 14:28:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1740407327; x=1771943327;
+  t=1740407333; x=1771943333;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=KLDKoEHmBNZru20DMSxS9Pw3dDW9jMuSmbZS8x5oymU=;
-  b=EEeay6W5MLMC+jnrYu3RGJNsYB96ZqjYwbNIpTYEB8kfKFoS9sgnvyqf
-   l19l/KyZm5Ir5lDpog3ctWYNSEIC2UcTXNkoBHXuDDySmg8jL+Wak/2mC
-   tRxXntsw2kLdlAuNGNsOOC74zhfomajshCz299pGH2jIATWsDuxrx0RJb
-   tqbbQKwoghklmZy+RgCncq3mRO4XoOdBrmKI14cTjrGKfvBCl0wxeSAGa
-   2CscN714uFJlopxDKZqmyP0DNeWt2ZhSnCcdzeL587HQBDR4T7OotVmV7
-   5qFYOtzrJT7HD5KODriqH/TdTEkLa/Sh3ArqdVegE8+unKB10UNWSdf6l
-   A==;
-X-CSE-ConnectionGUID: jNuVcmjMQdu/XzMNYCrMEw==
-X-CSE-MsgGUID: +pIsMXW4QX68UZLFm3DBOw==
+  bh=sWKqOX5BSiiuBOfVvs+gR33D/sqaIKO5jTjWIObEE8A=;
+  b=iWE7UCGA0o/OvWKSUWkwLXKWkcSsGYAYh/mECFrfN0uDWNawzPsXmHdv
+   lzqS+e3I+isqMnXs/kcWxg8KXh3hdEOo8Gewqo/aP/NfkblDqvdY1QtcP
+   XEvjFjHkkH6oUHMEtz3MszZuMHbmneuFk8xBR8tU7VGqxDSZiKkm5h7Oh
+   XXsYmKCY/KI3knf9KO8C+jz1YOQLi3FSwmZ187KL/mQ4JEv77j8Kyv9G8
+   Evm2tQE2BoUfj3So/2lRHNnbXOXfXjaPtyHGnXgCca3Xk24io9PIsikrm
+   /jkDByr7nvxzZo9iBIFeJ02yfPHfBWY2OU5CgxDpARv3k/ye2deyN4bg7
+   w==;
+X-CSE-ConnectionGUID: nlRWI6nFT6yE2yzHATWdoA==
+X-CSE-MsgGUID: lPDIY21vTlyNPODEk8h+bA==
 X-IronPort-AV: E=Sophos;i="6.13,309,1732575600"; 
-   d="scan'208";a="42042104"
+   d="scan'208";a="42042107"
 Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 24 Feb 2025 15:28:46 +0100
-X-CheckPoint: {67BC821E-1B-F75C4246-F0BD6D90}
-X-MAIL-CPID: 791E6579507C17192F024A34A370D616_3
-X-Control-Analysis: str=0001.0A002103.67BC821D.00DE,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 87012167930;
-	Mon, 24 Feb 2025 15:28:41 +0100 (CET)
+  by mx1.tq-group.com with ESMTP; 24 Feb 2025 15:28:52 +0100
+X-CheckPoint: {67BC8224-28-6E0A4539-DBC44C3A}
+X-MAIL-CPID: C472B7EE68207FE8A685CB9E4A0C8BC4_1
+X-Control-Analysis: str=0001.0A002103.67BC8223.008B,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 35F021679A1;
+	Mon, 24 Feb 2025 15:28:47 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1740407322;
+	s=dkim; t=1740407328;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=KLDKoEHmBNZru20DMSxS9Pw3dDW9jMuSmbZS8x5oymU=;
-	b=Bm7iv9QeP09ZvQ0CG8V6YnlSJwXWQ066UmYdvl7P0n29NR06EVQMgL5AIqra9lqP966b/E
-	8zztU7NQzepM/2g4fPceO99tcpZBatawxa0IHjY7RDc2Xp7nMqtJNowt+ZvBj0HUvQD9HS
-	hBOt5irKjh1gMIrcp0jLrxV0sLd6uYEXD81i3wNtvwlGs5R4mPMQGfNgsyTm3azQuUwf9V
-	nL1dfYBhwqjEmtyOZDCyTby6HAv074VfZ5Qa+jrkDY3ipcZ5NHg3lvZDpXDuC1QmR55VGG
-	8toWUwbVCrMrSVdy02l16l6pruNpM98ZSYmWMc5kdNpWWR0cA8z4S+HkHxgpYg==
+	bh=sWKqOX5BSiiuBOfVvs+gR33D/sqaIKO5jTjWIObEE8A=;
+	b=JOHuXYZ5msjXIsVC2G/ioyQOMnlvTAobJnlbb00ytJhaFlW4p79i/tfXezswfLiSEpnucL
+	wiPx5EmNMbTMrDspxE4J7CD6Ftu14fzUyhmxc1AeFzYzDix8wUYaDbr2i+nugXZrH1BIiI
+	NzYty9WJQMz2zicYz65xzrbi7/m0AVgrGvrPqmRWDIqCv9FBzRy6+CDEcYoPWq+3pM3ddV
+	PBjpL/Dp5zErebxHVKBQkRrKpEVVH/v3O4hCJ9GAHo+CKs4TGQcBWS6ZDetCBb2Yp5+5NJ
+	ni5NSPcuq0I9ovwZrl46uYrS+BLjaU7DbLkAa2U1K7lheII1Y56DKV5DT8kkDw==
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -84,9 +84,9 @@ Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
 	linux@ew.tq-group.com,
 	linux-clk@vger.kernel.org,
 	linux-pm@vger.kernel.org
-Subject: [PATCH v2 1/6] clk: imx: clk-fracn-gppll: Add 477.4MHz config for video pll
-Date: Mon, 24 Feb 2025 15:28:22 +0100
-Message-ID: <20250224142831.485159-2-alexander.stein@ew.tq-group.com>
+Subject: [PATCH v2 2/6] dt-bindings: soc: imx93-media-blk-ctrl: Add LDB subnode into schema and example
+Date: Mon, 24 Feb 2025 15:28:23 +0100
+Message-ID: <20250224142831.485159-3-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250224142831.485159-1-alexander.stein@ew.tq-group.com>
 References: <20250224142831.485159-1-alexander.stein@ew.tq-group.com>
@@ -94,8 +94,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_062848_175822_7A455EF7 
-X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-CacheID: sfid-20250224_062853_898689_06F43D33 
+X-CRM114-Status: UNSURE (   9.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,26 +111,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the 477.4MHz frequency support that will be used by video subsystem
-on imx93.
+Document the LDB bridge subnode and add the subnode into the example.
+For the subnode to work, the block control must scan its subnodes and
+bind drivers to them, do not misuse either simple-bus or simple-mfd
+here.
 
 Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
- drivers/clk/imx/clk-fracn-gppll.c | 1 +
- 1 file changed, 1 insertion(+)
+ .../soc/imx/fsl,imx93-media-blk-ctrl.yaml     | 51 +++++++++++++++++++
+ 1 file changed, 51 insertions(+)
 
-diff --git a/drivers/clk/imx/clk-fracn-gppll.c b/drivers/clk/imx/clk-fracn-gppll.c
-index 85771afd4698a..f0c34a02acac3 100644
---- a/drivers/clk/imx/clk-fracn-gppll.c
-+++ b/drivers/clk/imx/clk-fracn-gppll.c
-@@ -85,6 +85,7 @@ static const struct imx_fracn_gppll_rate_table fracn_tbl[] = {
- 	PLL_FRACN_GP(519750000U, 173, 25, 100, 1, 8),
- 	PLL_FRACN_GP(498000000U, 166, 0, 1, 0, 8),
- 	PLL_FRACN_GP(484000000U, 121, 0, 1, 0, 6),
-+	PLL_FRACN_GP(477400000U, 119, 35, 100, 0, 6),
- 	PLL_FRACN_GP(445333333U, 167, 0, 1, 0, 9),
- 	PLL_FRACN_GP(400000000U, 200, 0, 1, 0, 12),
- 	PLL_FRACN_GP(393216000U, 163, 84, 100, 0, 10),
+diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
+index b3554e7f9e76d..d914dea6ecbb5 100644
+--- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
++++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
+@@ -24,6 +24,14 @@ properties:
+   reg:
+     maxItems: 1
+ 
++  ranges: true
++
++  '#address-cells':
++    const: 1
++
++  '#size-cells':
++    const: 1
++
+   '#power-domain-cells':
+     const: 1
+ 
+@@ -46,9 +54,20 @@ properties:
+       - const: csi
+       - const: dsi
+ 
++  bridge@20:
++    type: object
++    additionalProperties: true
++    properties:
++      compatible:
++        contains:
++          const: fsl,imx93-ldb
++
+ required:
+   - compatible
+   - reg
++  - ranges
++  - '#address-cells'
++  - '#size-cells'
+   - power-domains
+   - clocks
+   - clock-names
+@@ -77,4 +96,36 @@ examples:
+                clock-names = "apb", "axi", "nic", "disp", "cam",
+                              "pxp", "lcdif", "isi", "csi", "dsi";
+       #power-domain-cells = <1>;
++      #address-cells = <1>;
++      #size-cells = <1>;
++      ranges;
++
++      bridge@20 {
++          compatible = "fsl,imx93-ldb";
++          reg = <0x20 0x4>, <0x24 0x4>;
++          reg-names = "ldb", "lvds";
++          clocks = <&clk IMX93_CLK_LVDS_GATE>;
++          clock-names = "ldb";
++
++          ports {
++              #address-cells = <1>;
++              #size-cells = <0>;
++
++              port@0 {
++                  reg = <0>;
++
++                  ldb_from_lcdif2: endpoint {
++                      remote-endpoint = <&lcdif2_to_ldb>;
++                  };
++              };
++
++              port@1 {
++                  reg = <1>;
++
++                  ldb_lvds: endpoint {
++                      remote-endpoint = <&ldb_to_panel>;
++                  };
++              };
++          };
++        };
+     };
 -- 
 2.43.0
 
