@@ -4,86 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E5BC021BC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 14:37:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16C5EC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 14:38:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PcZ9xPvGi8ims+c2/a8qp2K7FN14062QE/zaFsTfD44=; b=Ee08Rl1a7OyNvMk3JWwb5Onbvl
-	Sy23vfhwxI0bjKzyxY9Yjsai9wdNvPiWB0uf3NdVZp1Z9TiVSLi00LBUVKqaRI/SRV60M+zXcFtq+
-	1M9J5/zZHiYEs3pyth9wg8eEP9zs5FSbUyptkRAUZaGKOkTqJiKQMLnW+x86CAAJ0uFI4GslrAkMi
-	0aYOWJNShke7IRz0zRe/x2usp+l68YHzVpNS+8rxG/2WetIxZA2MMJUW8kFgxmtuhMHBPUof127cH
-	YZJ+3H6FJKa0e5TmtfW2jxyfUhI8I9vcYw+jQGFOJmtE7xtQ4khza5e8yI6SiL8nO3ARkacutHtev
-	0rg4SVGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rusHL1CZcMgYIv2ZpzpzB9UvbxsIM33dgpD0xpcMlbc=; b=nt+gZH0kAPIfScyrjzZWZO383D
+	3Pj47UP6CgO165NyxLgBOlsnk5M8VgqJHXaB+xAqYM/fYnAh1/SIiXNG8mIMC0nglUon0uoqTpoXU
+	mzaDPxBGF96MManLaN5QTgx0tEaphUyJsxjIxQkLneI5rC9t5qC+f8Akw80SrAyYE4L4WS4aUdGyX
+	NSygWnwx4tBn++TOLF1BRrMVWaLlajl5CGFFqGCX4Cd87nQ0dW2RObzWBuxWXBKlnMZDQbcMxCcMg
+	5FvBLvmDU3xWuYs3a4ybQdHYGj+I3CHSyUAfl/AvLm9HtCF8hTbU8H6a+4ZZU+XoWJ8D7omW59xRv
+	0esYwRGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmZa6-0000000E7X4-1nK0;
-	Mon, 24 Feb 2025 14:37:14 +0000
-Received: from haruka.juszkiewicz.com.pl ([185.243.53.191])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmZ6N-0000000E1QJ-0UxB
+	id 1tmZbZ-0000000E820-1fsB;
+	Mon, 24 Feb 2025 14:38:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmZBK-0000000E2Rx-18YM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 14:06:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=juszkiewicz.com.pl;
-	s=mail; t=1740405986;
-	bh=Rrh8Qdukg1Q9sg3ZBF4IlAc2JjQo/OBav10chUu9xTM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jmEONay1YjesVmD43PDrADy6n0HTW47o9x/t2XoS4fWW1zGbhByHn22DUKQK94k3Z
-	 grozc7DqlfBRUrY4nfTMcPJSf3onQTZfmkrSDSIXbIlsxOik88OeM8V5q6R97aTP6/
-	 KM8Jp221QRGMYKWF5nVYzUD2kswWG7qAIEV5hPtz8YwYVQ8jI+Pg82qwnU8Ijf/dUw
-	 I60JUZl/OaHZ+NKK1ms9wy514tv3c0i98UwrRqvUTBzuHCdU1XHpjD/6+VbLokH7ps
-	 xeY8zPvO/7qalHjAVzy1xansu1NrGrP7Panrqoikstya4xlmaVbtnUALhozrpefRid
-	 Sw80RGdW3Q2iA==
-Received: from utena.juszkiewicz.com.pl (utena.juszkiewicz.com.pl [158.101.208.177])
-	by haruka.juszkiewicz.com.pl (Postfix) with ESMTPSA id C9FBB22AA6;
-	Mon, 24 Feb 2025 15:06:26 +0100 (CET)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 87B9442007;
-	Mon, 24 Feb 2025 15:06:20 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=juszkiewicz.com.pl;
-	s=mail; t=1740405985;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PcZ9xPvGi8ims+c2/a8qp2K7FN14062QE/zaFsTfD44=;
-	b=q6yWtIK0uB1F4ZZabwBCXXsjWOOxOlW2t+fe5bRDcn+aEtpmpYzdN9GOra+KUrMNU4m+dj
-	G/2r1WlUJ3bnZTWdKLmuOwEva3zTlbKW94+y102nG4cujngUUMe1DeXF2zSFsh3i9vJHF8
-	Q7IAOd+GezO7T1OhRYFnPbmPaHHYaYCMPuZUpniC6QmIjbYkC/eugwRz3NVsf6jTcijiJ8
-	VCXx9bpSbythjTjNBO7tZ6zLS3CCZ5rqoyX+KXRIZcc5SHmLcNCiKV5aatu7RjoeBMBnH/
-	bod68heInTNHMp57SExUN/MBLBAhxDgesmqCoHBiIUoiY9W8z9hEGcq0pONU0Q==
-Message-ID: <7f673cea-8d85-404a-b380-4282c0e3c0ad@juszkiewicz.com.pl>
-Date: Mon, 24 Feb 2025 15:06:19 +0100
+	Mon, 24 Feb 2025 14:11:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5E2DF1516;
+	Mon, 24 Feb 2025 06:11:54 -0800 (PST)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B19513F5A1;
+	Mon, 24 Feb 2025 06:11:35 -0800 (PST)
+Date: Mon, 24 Feb 2025 14:11:28 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>, Mark Brown <robh@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Eric Auger <eric.auger@redhat.com>, kvmarm@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V2 7/7] arm64/boot: Enable EL2 requirements for
+ FEAT_PMUv3p9
+Message-ID: <Z7x-EDH9QP7g4lC6@J2N7QTR9R3.cambridge.arm.com>
+References: <20250203050828.1049370-1-anshuman.khandual@arm.com>
+ <20250203050828.1049370-8-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/6] arm64: dts: cix: add initial CIX P1(SKY1) dts support
-To: Peter Chen <peter.chen@cixtech.com>
-Cc: "arnd@arndb.de" <arnd@arndb.de>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- cix-kernel-upstream <cix-kernel-upstream@cixtech.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- Fugang Duan <fugang.duan@cixtech.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "robh@kernel.org" <robh@kernel.org>, "will@kernel.org" <will@kernel.org>
-References: <20250220084020.628704-7-peter.chen@cixtech.com>
- <068655e7-2ad7-4497-aca7-4100ad478d99@juszkiewicz.com.pl>
- <Z7xZwGTIKgj9_zNZ@nchen-desktop>
-From: Marcin Juszkiewicz <marcin@juszkiewicz.com.pl>
-Content-Language: pl-PL, en-GB
-In-Reply-To: <Z7xZwGTIKgj9_zNZ@nchen-desktop>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250203050828.1049370-8-anshuman.khandual@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_060631_319498_81AB373E 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250224_061138_396828_C2AF9B9E 
+X-CRM114-Status: GOOD (  26.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,52 +70,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-W dniu 24.02.2025 o 12:36, Peter Chen pisze:
-> On 25-02-23 04:05:10, Marcin Juszkiewicz wrote:
->>
->>> diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
->>> new file mode 100644
->>> index 000000000000..d98735f782e0
->>> --- /dev/null
->>> +++ b/arch/arm64/boot/dts/cix/sky1.dtsi
->>> @@ -0,0 +1,264 @@
->>> +// SPDX-License-Identifier: BSD-3-Clause
->>> +/*
->>> + * Copyright 2025 Cix Technology Group Co., Ltd.
->>> + *
->>> + */
->>> +
->>> +#include <dt-bindings/interrupt-controller/arm-gic.h>
->>
->> [..]
->>
->>> +     arch_timer: timer {
->>> +             compatible = "arm,armv8-timer";
->>> +             interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
->>> +                          <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
->>> +                          <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
->>> +                          <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
->>> +             clock-frequency = <1000000000>;
->>> +             interrupt-parent = <&gic>;
->>> +             arm,no-tick-in-suspend;
->>> +     };
->>
->> This is not Arm v8.0 SoC so where is non-secure EL2 virtual timer?
+On Mon, Feb 03, 2025 at 10:38:28AM +0530, Anshuman Khandual wrote:
+> FEAT_PMUv3p9 registers such as PMICNTR_EL0, PMICFILTR_EL0, and PMUACR_EL1
+> access from EL1 requires appropriate EL2 fine grained trap configuration
+> via FEAT_FGT2 based trap control registers HDFGRTR2_EL2 and HDFGWTR2_EL2.
+> Otherwise such register accesses will result in traps into EL2.
 > 
-> It is the Arm v9 SoC and back compatible with Arm v8.
+> Add a new helper __init_el2_fgt2() which initializes FEAT_FGT2 based fine
+> grained trap control registers HDFGRTR2_EL2 and HDFGWTR2_EL2 (setting the
+> bits nPMICNTR_EL0, nPMICFILTR_EL0 and nPMUACR_EL1) to enable access into
+> PMICNTR_EL0, PMICFILTR_EL0, and PMUACR_EL1 registers.
+> 
+> Also update booting.rst with SCR_EL3.FGTEn2 requirement for all FEAT_FGT2
+> based registers to be accessible in EL2.
+> 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Jonathan Corbet <corbet@lwn.net>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Oliver Upton <oliver.upton@linux.dev>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-doc@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: kvmarm@lists.linux.dev
+> Tested-by: Rob Herring (Arm) <robh@kernel.org>
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+>  Documentation/arch/arm64/booting.rst | 18 ++++++++++++++++++
+>  arch/arm64/include/asm/el2_setup.h   | 25 +++++++++++++++++++++++++
+>  2 files changed, 43 insertions(+)
 
-Arm SoC has several timer interrupts:
+Three things to note here:
 
-PPI 10: Non-secure EL2 physical timer interrupt
-PPI 11: Virtual timer interrupt
-PPI 12: Non-secure EL2 virtual timer
-PPI 13: Secure physical timer interrupt
-PPI 14: Non-secure physical timer interrupt
+(1) I think this is missing some other necessary register configuration.
 
-You mention 10, 11, 13, 14 only like your SoC would be plain old Arm 
-v8.0 one (Cortex-A53/A72).
+    From a quick scan, we also require MDCR_EL3.EnPM2 (bit [7]) to be
+    configured, which is not described in mainline nor here. If that
+    resets to 0, then EL{2,1,0} accesses to a number of registers such
+    as PMUACR_EL1 may trap to EL3.
 
-Sky1 (CP/CA/CS8180) is Arm v9 so should also list PPI 12 which came with 
-VHE (Virtualization host extensions) which is mandatory for each Arm cpu 
-v8.1 or above (and is implemented in A520/A720 cores).
+    AFAICT the boot-wrapper resets that bit to 0, so have we actually
+    tested all of this with the boot-wrapper? Does TF-A set this bit?
+
+    Are we sure we've cpatured *all* requirements for FEAT_PMUv3p9? i.e.
+    is there anything else that we've missed?
+
+(2) This is a fix for !VHE support for PMUACR and ICNTR, where the host
+    may run at EL1 and consequently will be affected by fine grained
+    traps.
+
+    So this probably needs a CC stable and/or fixes tag, and backport.
+
+(3) As there's no KVM changes, this is only safe provided that the
+    registers affected by these fine grained traps are already
+    unconditionally trapped by other traps when running a vCPU.
+
+    It looks like PMICNTR_EL0, PMICFILTR_EL0, and PMUACR_EL1 are all
+    trapped by MDCR_EL2.TPM, so that should work as long as we emulate
+    the PMU. For direct access, FGT2 support will be a prerequisite.
+
+Ideally, we'd have added support for FGT2 before the PMU functionality
+that implicitly depends upon it. We should pay more attention to trap
+controls in future.
+
+Given (1) and (2) I think someone needs to look into this a bit more and
+figure out if this needs a fixup or a respin.
+
+Mark.
+
+> diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
+> index cad6fdc96b98..04d97a1d5ffa 100644
+> --- a/Documentation/arch/arm64/booting.rst
+> +++ b/Documentation/arch/arm64/booting.rst
+> @@ -288,6 +288,12 @@ Before jumping into the kernel, the following conditions must be met:
+>  
+>      - SCR_EL3.FGTEn (bit 27) must be initialised to 0b1.
+>  
+> +  For CPUs with the Fine Grained Traps 2 (FEAT_FGT2) extension present:
+> +
+> +  - If EL3 is present and the kernel is entered at EL2:
+> +
+> +    - SCR_EL3.FGTEn2 (bit 59) must be initialised to 0b1.
+> +
+>    For CPUs with support for HCRX_EL2 (FEAT_HCX) present:
+>  
+>    - If EL3 is present and the kernel is entered at EL2:
+> @@ -382,6 +388,18 @@ Before jumping into the kernel, the following conditions must be met:
+>  
+>      - SMCR_EL2.EZT0 (bit 30) must be initialised to 0b1.
+>  
+> +  For CPUs with the Performance Monitors Extension (FEAT_PMUv3p9):
+> +
+> + - If the kernel is entered at EL1 and EL2 is present:
+> +
+> +    - HDFGRTR2_EL2.nPMICNTR_EL0 (bit 2) must be initialised to 0b1.
+> +    - HDFGRTR2_EL2.nPMICFILTR_EL0 (bit 3) must be initialised to 0b1.
+> +    - HDFGRTR2_EL2.nPMUACR_EL1 (bit 4) must be initialised to 0b1.
+> +
+> +    - HDFGWTR2_EL2.nPMICNTR_EL0 (bit 2) must be initialised to 0b1.
+> +    - HDFGWTR2_EL2.nPMICFILTR_EL0 (bit 3) must be initialised to 0b1.
+> +    - HDFGWTR2_EL2.nPMUACR_EL1 (bit 4) must be initialised to 0b1.
+> +
+>    For CPUs with Memory Copy and Memory Set instructions (FEAT_MOPS):
+>  
+>    - If the kernel is entered at EL1 and EL2 is present:
+> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+> index 25e162651750..1a0071faf57e 100644
+> --- a/arch/arm64/include/asm/el2_setup.h
+> +++ b/arch/arm64/include/asm/el2_setup.h
+> @@ -233,6 +233,30 @@
+>  .Lskip_fgt_\@:
+>  .endm
+>  
+> +.macro __init_el2_fgt2
+> +	mrs	x1, id_aa64mmfr0_el1
+> +	ubfx	x1, x1, #ID_AA64MMFR0_EL1_FGT_SHIFT, #4
+> +	cmp	x1, #ID_AA64MMFR0_EL1_FGT_FGT2
+> +	b.lt	.Lskip_fgt2_\@
+> +
+> +	mov	x0, xzr
+> +	mrs	x1, id_aa64dfr0_el1
+> +	ubfx	x1, x1, #ID_AA64DFR0_EL1_PMUVer_SHIFT, #4
+> +	cmp	x1, #ID_AA64DFR0_EL1_PMUVer_V3P9
+> +	b.lt	.Lskip_pmuv3p9_\@
+> +
+> +	orr	x0, x0, #HDFGRTR2_EL2_nPMICNTR_EL0
+> +	orr	x0, x0, #HDFGRTR2_EL2_nPMICFILTR_EL0
+> +	orr	x0, x0, #HDFGRTR2_EL2_nPMUACR_EL1
+> +.Lskip_pmuv3p9_\@:
+> +	msr_s   SYS_HDFGRTR2_EL2, x0
+> +	msr_s   SYS_HDFGWTR2_EL2, x0
+> +	msr_s   SYS_HFGRTR2_EL2, xzr
+> +	msr_s   SYS_HFGWTR2_EL2, xzr
+> +	msr_s   SYS_HFGITR2_EL2, xzr
+> +.Lskip_fgt2_\@:
+> +.endm
+> +
+>  .macro __init_el2_gcs
+>  	mrs_s	x1, SYS_ID_AA64PFR1_EL1
+>  	ubfx	x1, x1, #ID_AA64PFR1_EL1_GCS_SHIFT, #4
+> @@ -283,6 +307,7 @@
+>  	__init_el2_nvhe_idregs
+>  	__init_el2_cptr
+>  	__init_el2_fgt
+> +	__init_el2_fgt2
+>          __init_el2_gcs
+>  .endm
+>  
+> -- 
+> 2.25.1
+> 
 
