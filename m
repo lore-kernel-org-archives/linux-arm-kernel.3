@@ -4,57 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E53C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 14:01:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03964C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 14:02:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vUpknMqhTztPHEbf0/y4csN+qIPlPvjMN8jUpWjuFVQ=; b=KEdTU+Kg4zRK4HtH4vIKSDlsuF
-	CwDwlHe4RitPdTvjjjG8WlkUAjbl+A7D/Jj0/d4TPdRJvaQeOqt3I1sGwKbfaCBPPpD8UsEcJOLsQ
-	ThUc0nbZSceJB+PUNfYO5n8yto+uMjnvkev4WE1Xt+2p+jC/rtdwf/sBl2bY0cCzILy/TWmq4e+We
-	cf02yGjWM+DN2nzaaeXANEjtS/pXUFuD7CHVTCzEx9h2GKaDSjdcwQmNzc9EU3Np7dKCh/iC/t3og
-	wWup24rMftsICkaGk/QzZV81kdGEUMWkKjo1wvbscXU6RTI66SN2EiF8/IeeEPnybDvRDTwgBhJ/B
-	9gBn+STQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JpsYwX0PSKXYghIHkIW2gxP5cJad12CcWaq/I1+MKes=; b=0V4Zj//26H+uUyIuBNmHlgB05j
+	xJ9yYXsXrWE0HycKMLlAzGL/MtMsi72SPQU53WhF+O7ML0rrqvvZSOBX/Xgm7nybdnTj+zYHMfUI9
+	/FWMNQREtdkfF3WWr+xp8WbfE8VsnrS1QXkkpPDYTplxKNibQ51GyKSPJg34EXEtnBpZ5ClV8ofhc
+	WaFq72O0SV0byi1Bx3eeGafL35zyN+bwe7jMomCRHoT2R7ObnVhFq6tpnle1zjtIe+Gl1JhQEhmea
+	7lHpKbBEXdD2uijTDEtEILwKjsQua8idRZ4Zbqb4iqARsXC7nWIELMhQW6dGQ8Gfxb2HFI7bW6kLh
+	XaQzJxpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmZ1C-0000000E0D2-3WcX;
-	Mon, 24 Feb 2025 14:01:10 +0000
+	id 1tmZ2e-0000000E0Vu-24DS;
+	Mon, 24 Feb 2025 14:02:40 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmYrT-0000000DyDP-1HxP
+	id 1tmYrS-0000000DyC5-1eLp
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 24 Feb 2025 13:51:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 44FB55C6DDF;
-	Mon, 24 Feb 2025 13:50:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 3D657C4CEEA;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 78ABE5C6DB1;
+	Mon, 24 Feb 2025 13:50:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0F3D8C4CED6;
 	Mon, 24 Feb 2025 13:51:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1740405064;
-	bh=wRgNXeJ1Ayqgv2ycTvaPbaECbrRkwjK4JSom4J2mOQk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=NpguweDd/TvRZcKLVI0z04YHV1XH+lfa8VN8A9HJuZKZc0HmLrc7ngHHCDjURRr/r
-	 IjvSl3WYd1LLYqSS5k1LafWR3nu0fWahIB65cKEXzs6Q5jiHnbzhaqZ+0MA9pdp1HG
-	 ce/EScfmF67lYz5awhh8wvoH/lW0eGkYmcUnqMhCFI5jOOKGh0riSVXF5YKBFQ4I+N
-	 F3b+/7ZYqvjBSJv0maORKx0o69hYIdz3bxorngKLmuH8R5WMmdLs3Ze12J3XFQ8+t2
-	 paRlXSUrbgEnDuCev48o1JT1vuB7gGYLjnqpTSCup7aKmt9b2PY7QDJ4QBfqHJYzwP
-	 U5+/jelv2fSoQ==
+	bh=VEEv6nk8vDex2BIMDGcyoeXhYWRBAy36ZB74OSyadLQ=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=q9Yx9dn33NrvPGC7k8HNZ+NZo16C87m+oyDcFCf2eKUUbUrZqGwJzOfEdR2cvjIgP
+	 nNMwy72OFTvgFghGIoJWuVylQjcthKHFPLzunbqRcDwGT4E2MOLTO+5x/ydiPGVF9E
+	 d57jhB99L5IWWLqedGGTI3Pz3qkrgMrNGJGM2Jg5+CUQq+0+xSG1Y2aJzfYF2HAnkN
+	 FMDNUJA+oJeZSarnx8F2JYb3t+IZjuBy8q/t+fyevv5ZnClpaWEkZL1NuoDRz9rpkR
+	 GHqIrCtwuBcc6GbDAgjhMSic3vrPxEq40l5W91O2S4uWDxu42xYbOoc2qY0FPLcnl0
+	 e+Sdyz91dN5Gw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 33353C021A6;
-	Mon, 24 Feb 2025 13:51:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id F2531C021A4;
+	Mon, 24 Feb 2025 13:51:03 +0000 (UTC)
 From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Date: Mon, 24 Feb 2025 14:50:53 +0100
-Subject: [PATCH 03/14] dt-bindings: arm: fsl: Add GOcontroll Moduline
- Display
+Subject: [PATCH 00/14] arm64: dts: freescale: Add support for the
+ GOcontroll Moduline Display
+Date: Mon, 24 Feb 2025 14:50:50 +0100
+Message-Id: <20250224-initial_display-v1-0-5ccbbf613543@gocontroll.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250224-initial_display-v1-3-5ccbbf613543@gocontroll.com>
-References: <20250224-initial_display-v1-0-5ccbbf613543@gocontroll.com>
-In-Reply-To: <20250224-initial_display-v1-0-5ccbbf613543@gocontroll.com>
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADp5vGcC/x3M0QpAMBSH8VdZ59pqTkheRdKyg39p1iaRvLvl8
+ nfxfQ8liZBEnXooyomE3WeUhaJptX4RDZdNbLg2zJWGxwG7jQ4pbPbWs22Zy1ZMIzXlKkSZcf3
+ HfnjfD16CHDdhAAAA
+X-Change-ID: 20250224-initial_display-fa82218e06e5
 To: Neil Armstrong <neil.armstrong@linaro.org>, 
  Jessica Zhang <quic_jesszhan@quicinc.com>, 
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -72,19 +74,19 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, 
  Maud Spierings <maudspierings@gocontroll.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1740405062; l=1177;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1740405062; l=2195;
  i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=scPD+OgNUAYsQVTxMgUj2Bfa1YhpGLs4x0xykI3n24k=;
- b=mYX3R22poxBhjhAZBjz4BDirZm2V7dy8Vnyk1tTLA7TnHBsc6hztIBhrUrX8dCAQ/CvcOVSaP
- rezkBfC/jvxAX36FpuRCqK/iIbM7tWJfZtXqCn1nfTENLh7RD4vW5Dz
+ bh=VEEv6nk8vDex2BIMDGcyoeXhYWRBAy36ZB74OSyadLQ=;
+ b=fKWlALGDjjqxq4Z193T7Ci/ahYXLxryiGGIkZwxtx0yJxz7Sffnh3789/tCcMZcJS7qRSZ0SC
+ OXfDAtd+vzFBxMyTIjw8WpoWUMc911QpWUXsBSVw5lsld0AipyD649U
 X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
  pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
 X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
  with auth_id=341
 X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_055107_430593_654D8215 
-X-CRM114-Status: UNSURE (   8.21  )
+X-CRM114-CacheID: sfid-20250224_055106_521130_643765DB 
+X-CRM114-Status: UNSURE (   8.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,30 +103,48 @@ Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Maud Spierings <maudspierings@gocontroll.com>
-
-Document the compatible strings for the Moduline Display controller.
+Add inital support for 2 variants of the Moduline Display controller.
+This system is powered by the Ka-Ro Electronics tx8p-ml81 COM, which
+features an imx8mp SoC.
 
 Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
 ---
- Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
- 1 file changed, 1 insertion(+)
+Maud Spierings (14):
+      dt-bindings: display: simple: add BOE AV101HDT-A10 panel
+      dt-bindings: display: simple: Add BOE AV123Z7M-N17 panel
+      dt-bindings: arm: fsl: Add GOcontroll Moduline Display
+      dt-bindings: vendor-prefixes: add GOcontroll
+      dt-bindings: trivial-devices: add GOcontroll Moduline IO modules
+      arm64: dts: imx8mp: Add pinctrl config definitions
+      drm/panel: simple: add BOE AV101HDT-A10 panel
+      drm/panel: simple: Add BOE AV123Z7M-N17 panel
+      MAINTAINERS: add maintainer for the Ka-Ro tx8p-ml81 COM module
+      MAINTAINERS: add maintainer for the GOcontroll Moduline controllers
+      arm64: dts: freescale: add Ka-Ro Electronics tx8p-ml81 COM
+      arm64: dts: freescale: Add the GOcontroll Moduline Display baseboard
+      arm64: dts: freescale: Add the BOE av101hdt-a10 variant of the Moduline Display
+      arm64: dts: freescale: Add the BOE av123z7m-n17 variant of the Moduline Display
 
-diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-index db781d31569811ca241b5bd9a32a0896f7d9c3b9..40b2734f0caf3c431f05d33637a6bed8312c9d10 100644
---- a/Documentation/devicetree/bindings/arm/fsl.yaml
-+++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-@@ -1099,6 +1099,7 @@ properties:
-               - gateworks,imx8mp-gw74xx   # i.MX8MP Gateworks Board
-               - gateworks,imx8mp-gw75xx-2x # i.MX8MP Gateworks Board
-               - gateworks,imx8mp-gw82xx-2x # i.MX8MP Gateworks Board
-+              - gocontroll,moduline-display # GOcontroll Moduline Display controller
-               - skov,imx8mp-skov-revb-hdmi # SKOV i.MX8MP climate control without panel
-               - skov,imx8mp-skov-revb-lt6 # SKOV i.MX8MP climate control with 7” panel
-               - skov,imx8mp-skov-revb-mi1010ait-1cp1 # SKOV i.MX8MP climate control with 10.1" panel
+ Documentation/devicetree/bindings/arm/fsl.yaml     |   1 +
+ .../panel/panel-simple-lvds-dual-ports.yaml        |   2 +
+ .../bindings/display/panel/panel-simple.yaml       |   2 +
+ .../devicetree/bindings/trivial-devices.yaml       |   2 +
+ .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+ MAINTAINERS                                        |  12 +
+ arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h     |  27 +
+ ...tx8p-ml81-moduline-display-106-av101hdt-a10.dts |  60 +++
+ ...tx8p-ml81-moduline-display-106-av123z7m-n17.dts | 133 +++++
+ .../imx8mp-tx8p-ml81-moduline-display-106.dtsi     | 530 ++++++++++++++++++++
+ .../arm64/boot/dts/freescale/imx8mp-tx8p-ml81.dtsi | 547 +++++++++++++++++++++
+ drivers/gpu/drm/panel/panel-simple.c               |  64 +++
+ 12 files changed, 1382 insertions(+)
+---
+base-commit: d4b0fd87ff0d4338b259dc79b2b3c6f7e70e8afa
+change-id: 20250224-initial_display-fa82218e06e5
 
+Best regards,
 -- 
-2.48.1
+Maud Spierings <maudspierings@gocontroll.com>
 
 
 
