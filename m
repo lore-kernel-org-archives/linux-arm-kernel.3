@@ -4,77 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFB04C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 14:41:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CE99C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Feb 2025 14:43:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w6ddd5eN9n7fNFqvJfwSzJ+NMubkWkXegBbLwCG/opI=; b=R73ZHbHIC+OmbzE5LpMhjbPWW7
-	UrGiexTJLVL9FQov+p6RiqFXKWU3fgjYthmA7uFN707sWJNDsTUVVr9wUMjGU4xrOivMUs80gpEdq
-	51cyAN2/xG6CSkvia4ajzNnNTvewe2mhHHIaxpz2nJ4/GpFNddzuEea89GewLDwzzsM4PpUfuRBH0
-	cPssbc19Te+TdinGza6bf9InKxo9oxwwywNrE6E8Y0N1VcrYi0pkKCTNW74y1289HfusfTz/jH4mY
-	uwsBH4xrnfTZhuTrWefIJpq9bL8bzarARNTF8uL+BbdHtr2o41yihU8FNVqfAjm+M05G2goyQlcTs
-	8qojA32g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8y7RULCgtA+twMB2yoTCUBB2R8TtZLUOKexPHO9EEnY=; b=kmVpsWS1q5P8xwoGukYqCnY5Mt
+	NADWC50COWUp5kTHc4HgbExl3bNaA/JZtIZQqHrsK9uuU1Y76G4/XbS/hKndi+zw40NQyATl/JTGm
+	kjYPr+t22S6iG44rNZNbY9O5Bq5i4h6yL9qGVivsrxUw24vGN0tstVb3JJlL0tKoa9q84i1ng21X7
+	JuLjtvewRl04xhuz14lGNrOO4q4Vi2+inNy7Um4fBuuf/lHAtMgDaRo3e9k7nNV1qmiv/w18GvgdE
+	YAytBvOMNKvwH2rzxxODC2UIDfSylst2EmTZW84ZK/05VL2kCIKTsWdcemIVBt44YWrcuIvB8KR4C
+	rIKrh6iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmZeT-0000000E8me-3D2X;
-	Mon, 24 Feb 2025 14:41:45 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1tmZfw-0000000E99i-2pdS;
+	Mon, 24 Feb 2025 14:43:16 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmZDF-0000000E2v6-3br1
+	id 1tmZH6-0000000E3uH-2M4r
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Feb 2025 14:13:39 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 3905044280;
-	Mon, 24 Feb 2025 14:13:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1740406413;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=w6ddd5eN9n7fNFqvJfwSzJ+NMubkWkXegBbLwCG/opI=;
-	b=SHxmHNgqUIQfAjO5+M0vS07kR4vJdlM2Q61kzT1i3NSw2SLqTYRO4iSTx39hTusWiDbcfy
-	YwSkMFjxJO9IJNe7x/060jHUw0D+Ye4V1Yzx1cinWqlsJopQeiwC4+BbMkRtLBaNfspYNE
-	8DG8TPBkI8JOAS9jaxL1aE5Qs395CVZj0Yg36ovmBtTPNQBUKomEMtT97a/QSJqL6Eizi2
-	P9JsXsUwhBvLTe0qvZtqkhUFsYgwFa8SCFvUpmne+1j+cN9OKUHmEwfifQZ5wdUksIiPgU
-	SHLfUolVwn0DNEfcHj9M+/1hPprlSO4mgSjExqk434LItWh6v+5K0QaUfO9URg==
-Date: Mon, 24 Feb 2025 15:13:30 +0100
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
- <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Heiner Kallweit <hkallweit1@gmail.com>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>, Herve Codina
- <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>, =?UTF-8?B?S8O2cnk=?= Maincent
- <kory.maincent@bootlin.com>, Oleksij Rempel <o.rempel@pengutronix.de>,
- Simon Horman <horms@kernel.org>, Romain Gantois
- <romain.gantois@bootlin.com>
-Subject: Re: [PATCH net-next 01/13] net: phy: Extract the speed/duplex to
- linkmode conversion from phylink
-Message-ID: <20250224151330.2e0d95e4@fedora>
-In-Reply-To: <Z7x7p3W0ZpkFu44m@shell.armlinux.org.uk>
-References: <20250222142727.894124-1-maxime.chevallier@bootlin.com>
-	<20250222142727.894124-2-maxime.chevallier@bootlin.com>
-	<Z7x7p3W0ZpkFu44m@shell.armlinux.org.uk>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Mon, 24 Feb 2025 14:17:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1740406643; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=jh4G+fge5VpcjAQvBdSnRAzNFmDfBuNbnwANkTlPuMo4R32/1T5hKa5IFixFAXUtxBaITENB/2oVbSbzmXC5sU4qoOmLFi++ReaOhpn2XjVrwOOK0CwlTV4ZNJOdndnrOflbm9y5zo6GPNdBJtT3miYK42lSUkcUQ1ADdDRKWf8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1740406643; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=8y7RULCgtA+twMB2yoTCUBB2R8TtZLUOKexPHO9EEnY=; 
+	b=UM59J+AyUZGyT5ZELv/DWFRQl6CzSlHRC433YB5pMxBv7mHp8AhcCfjNwFaoLtqjstSEQjfj08bjw5iAHb7LQuilMZPt58xJfJ0DgREAqCERZW16dURYG5hALvUFPM4VvwZXfpgRKzrZxM7jcoFtykbimhY/QA5dMwoenaF6SEk=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.fricke@collabora.com;
+	dmarc=pass header.from=<sebastian.fricke@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1740406643;
+	s=zohomail; d=collabora.com; i=sebastian.fricke@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=8y7RULCgtA+twMB2yoTCUBB2R8TtZLUOKexPHO9EEnY=;
+	b=ZmFz/uEhN425WoWrs4s1sezOV6J9789a3rllYJQU+DFg/XxZcrotZsP9G4pyx3HD
+	e4YKJT08UbPcbCPDBBIzj60wK2wH7KVP2u3UJbk93cJnXIf3MmFQrcFoMDk383jYLU8
+	BE/CaejoUqQQZ+TsgotKmNRWAzHlCRuIrHOwixl4=
+Received: by mx.zohomail.com with SMTPS id 1740406641336970.3444548054779;
+	Mon, 24 Feb 2025 06:17:21 -0800 (PST)
+Date: Mon, 24 Feb 2025 15:17:12 +0100
+From: Sebastian Fricke <sebastian.fricke@collabora.com>
+To: Ming Qian <ming.qian@oss.nxp.com>
+Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl, nicolas@ndufresne.ca,
+	shawnguo@kernel.org, robh+dt@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
+	xiahong.bao@nxp.com, eagle.zhou@nxp.com, tao.jiang_2@nxp.com,
+	imx@lists.linux.dev, linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 2/2] media: amphion: Add a frame flush mode for decoder
+Message-ID: <20250224141712.soexl43hrimwf236@basti-XPS-13-9310>
+References: <20250117075720.4018076-1-ming.qian@oss.nxp.com>
+ <20250117075720.4018076-2-ming.qian@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdejkeellecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegveeltddvveeuhefhvefhlefhkeevfedtgfeiudefffeiledttdfgfeeuhfeukeenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghlohepfhgvughorhgrpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudelpdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvn
- hhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20250117075720.4018076-2-ming.qian@oss.nxp.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_061338_038119_4B4F74F8 
-X-CRM114-Status: GOOD (  20.29  )
+X-CRM114-CacheID: sfid-20250224_061736_684999_AD426EE4 
+X-CRM114-Status: GOOD (  18.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,45 +82,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Feb 2025 14:01:11 +0000
-"Russell King (Oracle)" <linux@armlinux.org.uk> wrote:
+Hey Ming,
 
-> On Sat, Feb 22, 2025 at 03:27:13PM +0100, Maxime Chevallier wrote:
-> > Phylink uses MAC capabilities to represent the Pause, AsymPause, Speed
-> > and Duplex capabilities of a given MAC device. These capabilities are
-> > used internally by phylink for link validation and get a coherent set of
-> > linkmodes that we can effectively use on a given interface.
-> > 
-> > The conversion from MAC capabilities to linkmodes is done in a dedicated
-> > function, that associates speed/duplex to linkmodes.
-> > 
-> > As preparation work for phy_port, extract this logic away from phylink
-> > and have it in a dedicated file that will deal with all the conversions
-> > between capabilities, linkmodes and interfaces.  
-> 
-> Fundamental question: why do you want to extract MAC capabilities from
-> phylink?
-> 
-> At the moment, only phylink uses the MAC capabilities (they're a phylink
-> thing.) Why should they be made generic, and what use will they be
-> applied to as something generic?
-> 
-> If there's no answer for that, then I worry that they'll get abused.
-> 
+On 17.01.2025 16:57, Ming Qian wrote:
+>The amphion decoder will pre-parse 3 frames before decoding the first
+>frame. If we append a flush padding data after frame, the decoder
+>will finish parsing and start to decode when the flush data is parsed.
+>It can reduce the decoding latency.
+>In the past, we only enable this mode when the display delay is set to
+>0. But we still can enable this mode without changing the display order,
+>so we add a frame_flush_mode parameter to enable it.
 
-I only have a blurry answer for you, so that probably wont cut it, but
-for phy_port (which I have ready) and stackable PHY support (which I
-have not), I foresee that we may need to specify what can the PHY do on
-its MII serdes port.
+My recommendation:
 
-TBH the only real stuff that will be needed is "Given a set of
-phy_interface_t supported by a PHY downstream port, what linkmodes can
-we get out of these". The phylink code uses the mac_capabilities as an
-intermediate between phylink_get_capabilities and
-phylink_caps_to_linkmodes(). Given that this series introduces very very
-similar enums in the form of the LINK_CAPA_XXX, we might be able to
-keep the MAC_CAPABILITIES a phylink-specific set of values. I can
-include that in V2.
+By default the amphion decoder will pre-parse 3 frames before starting
+to decode the first frame. Alternatively, a block of flush padding data
+can be appended to the frame, which will ensure that the decoder can
+start decoding immediately after parsing the flush padding data, thus
+potentially reducing decoding latency.
+This mode was previously only enabled, when the display delay was set to
+0. Allow the user to manually toggle the use of that mode via a module
+parameter called frame_flush_mode, which enables the mode without
+changing the display order.
 
-Maxime
+
+Which fixes a few grammatical issues and tries to be a bit more clear.
+But please confirm to me that I hit your intended meaning.
+
+More comments below ...
+
+>
+>Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+>---
+> drivers/media/platform/amphion/vpu_malone.c | 5 ++++-
+> 1 file changed, 4 insertions(+), 1 deletion(-)
+>
+>diff --git a/drivers/media/platform/amphion/vpu_malone.c b/drivers/media/platform/amphion/vpu_malone.c
+>index 1d9e10d9bec1..f07660dc3b07 100644
+>--- a/drivers/media/platform/amphion/vpu_malone.c
+>+++ b/drivers/media/platform/amphion/vpu_malone.c
+>@@ -25,6 +25,9 @@
+> #include "vpu_imx8q.h"
+> #include "vpu_malone.h"
+>
+>+static bool frame_flush_mode;
+>+module_param(frame_flush_mode, bool, 0644);
+
+Could you add a comment here that makes clear to the reader briefly what
+the expected behavior of frame_flush_mode = 0 and frame_flush_mode = 1
+is?
+
+>+
+> #define CMD_SIZE			25600
+> #define MSG_SIZE			25600
+> #define CODEC_SIZE			0x1000
+>@@ -1579,7 +1582,7 @@ static int vpu_malone_input_frame_data(struct vpu_malone_str_buffer __iomem *str
+>
+> 	vpu_malone_update_wptr(str_buf, wptr);
+>
+>-	if (disp_imm && !vpu_vb_is_codecconfig(vbuf)) {
+>+	if ((disp_imm || frame_flush_mode) && !vpu_vb_is_codecconfig(vbuf)) {
+
+So you say that the mode was enabled with display delay set to 0,
+meaning (disp_imm = 1) == (display delay = 0), right? E.g. disp_imm
+means display_immediately I guess.
+
+I think this all deserves a lot better documentation, otherwise the code
+becomes quite cryptic. Could you add a comment before this line, which
+explains the entry conditions disp_imm & frame_flush_mode and the
+codeconfig thing and that explains briefly what kind of mode we are
+entering here?
+
+> 		ret = vpu_malone_add_scode(inst->core->iface,
+> 					   inst->id,
+> 					   &inst->stream_buffer,
+>-- 
+>2.43.0-rc1
+>
+>
+
+Regards,
+Sebastian Fricke
 
