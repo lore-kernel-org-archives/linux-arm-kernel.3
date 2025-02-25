@@ -4,167 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3555C021BB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:43:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B7CBC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:43:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7S1CHdgIWVI4VasQrBBev4j4HWGixUfj5iftfk6gxp0=; b=H1FdvYGaX8rAr1ky6HaQBRZdOv
-	qfIp1esqdTqfLkb1FgZr4hOEMkp3zk/dTaM1faCFTUazLdis7eHeJZ9R8VOPLx041t5YZW4Zd9oqN
-	wW049AXDLHxy4EVNxdkN51ZThfimX8dnFfF5rrdh/95bawZoRyHDmeVynf8Eq8tYnBv2YWCYMWPOU
-	Zccj1affCRR07xzuj6z0fHgToF+rKO+XEDxLGz+iSjU5Um0XVWalBHwLilke5LhEWwKQGuLorLgOs
-	LEhvUuqZEDwynOo4Xb9tAo02TwUADdT9hiRGW2/AIjshE6iys19RoW+7NzqEI2iKBck1tfFBq+S7v
-	lpWT8erA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+sM8RqSivE/xijYBrIrwfNgjHaRkEy1XyNdDEacWwgY=; b=Rgb6DNDRSeZVuCgCbL7J+lzNgt
+	nLuGWG+Q4R2fYtxXMELz6IyrpdpXA/iKBty9Y7DSQKJZDa99V0qq9hovuigNjjRsKHfI5chLb6prq
+	p78s+1Tztjgcz827zVM4uSil4tWPd80+PT8426WVVa+5MTjAFsvhF/c9CemyZi9hcLuoF00qmCo6N
+	jTPq0k+dDlDuEkkJMWUnoxk5ywe3Mne4BaJ0sVOhGR4AWV09vXv8VdhsRw0AbNTEHFyPZXadAf0FI
+	9yaIsmTdxaBgIXA88WdhO23IKKTFnfHl+DLz6juKBbP6bWfTEoxMA2n/7iRsK2946KdIApsZWgSU0
+	jPhDBN3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmy1W-00000000MOH-2FIb;
-	Tue, 25 Feb 2025 16:43:10 +0000
-Received: from mail-mw2nam12on20630.outbound.protection.outlook.com ([2a01:111:f403:200a::630] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1tmy1a-00000000MTg-2VlX;
+	Tue, 25 Feb 2025 16:43:14 +0000
+Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmwpP-000000004Fy-1eyk
+	id 1tmwpp-000000004J5-1TQk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 15:26:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TjTJgirqyv/s28RCsvJc5CQw4+k/QPFeU9SWDKBXVMpuGmUUyp2felZ/5OsdQy/hAMlhW2B8UOUL8h6Kk5z5IhvvzRx2Xq+IGKz1LpKewrw5ob84EvMhTtgZtFwVGZba1cDBWPtucgSZ54+x8yGFqFp1mAm4ADHuDCrboS1ln6TMtA7aCywSqqKEqAf4dSMRlcUzMRf9Nuj9AYkv28CoYi2oCYY1w0EQ/LNwtDTJr1/KpLNUXKzmstrO+E+LT705qKMQAheZ2kt7bOKg/WzsvaXS+r+ExPdHFWcZkO3cBWGhV7+vBmAvhlnKjcChNm/522sTR4yDUfOq/hBF1ibe9g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7S1CHdgIWVI4VasQrBBev4j4HWGixUfj5iftfk6gxp0=;
- b=Rd9h44heX9P4u2Ytnl/TbZEDoDLComJmWISrTVYv1oyqvHEto/y6UblqCqkKEzC+OsRRCX2ORjP4qW/n0NGq0+ZKqAkhsLLPkfzpsYhxq26e1OUaZI/qn7ZjojtZE1/XQfhEIREhF9g1X2xbjxjmYeYDi4FqXMrKfhc+ucqnUQoVDaHH9S3zfsAdmAIw/8MOInrj7WjCOJhJVEihvgLnhg9G1s4w9BpgyyMFNJiV/+Wudqhfi414InAbPGB7hhBsOPiBrCuEceNbLl+KK2UXuznPEFDoayChH6PKqYufCiA3Ln48RxbwrgtnBVWiAbV4tg3jVvGCw8dH2ezMN3TVLg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7S1CHdgIWVI4VasQrBBev4j4HWGixUfj5iftfk6gxp0=;
- b=owMVk2wS5q/1X2BY5+LQhDYPmTIudssthLwNG8mDFIHc3RRjZc7DjThMXOx1F+9LKhVlWn1ZBzn0TOovDlvOyuGPrfX1OnvKx/jy1aVdrIPrYaT91ias5yB/SitZOcRx4l6+qBrBsbJADCZOvV1/pUA01onS0bdMgcZLto2jaYU=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from DM4PR12MB5070.namprd12.prod.outlook.com (2603:10b6:5:389::22)
- by IA0PR12MB8975.namprd12.prod.outlook.com (2603:10b6:208:48f::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.19; Tue, 25 Feb
- 2025 15:26:14 +0000
-Received: from DM4PR12MB5070.namprd12.prod.outlook.com
- ([fe80::20a9:919e:fd6b:5a6e]) by DM4PR12MB5070.namprd12.prod.outlook.com
- ([fe80::20a9:919e:fd6b:5a6e%7]) with mapi id 15.20.8466.020; Tue, 25 Feb 2025
- 15:26:14 +0000
-Message-ID: <1de357f1-1f5e-5442-b2b5-ff562ce450ed@amd.com>
-Date: Tue, 25 Feb 2025 09:26:12 -0600
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.15.1
-Subject: Re: [PATCH v2 1/3] dma: Fix encryption bit clearing for dma_to_phys
-Content-Language: en-US
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, will@kernel.org,
- robin.murphy@arm.com, catalin.marinas@arm.com
-Cc: maz@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, gregkh@linuxfoundation.org,
- aneesh.kumar@kernel.org, steven.price@arm.com,
- Jean-Philippe Brucker <jean-philippe@linaro.org>,
- Christoph Hellwig <hch@lst.de>
-References: <20250219220751.1276854-1-suzuki.poulose@arm.com>
- <20250219220751.1276854-2-suzuki.poulose@arm.com>
-From: Tom Lendacky <thomas.lendacky@amd.com>
-In-Reply-To: <20250219220751.1276854-2-suzuki.poulose@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SA0PR11CA0091.namprd11.prod.outlook.com
- (2603:10b6:806:d1::6) To DM4PR12MB5070.namprd12.prod.outlook.com
- (2603:10b6:5:389::22)
+	Tue, 25 Feb 2025 15:27:02 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-30a3092a9ebso65460831fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 07:27:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1740497219; x=1741102019; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+sM8RqSivE/xijYBrIrwfNgjHaRkEy1XyNdDEacWwgY=;
+        b=nRGz471XFhsVliCnSnErdZp0ZYDM7I3sxTFhdGZOyL5KUpajXUDZVVyGJ9JjL4tYFV
+         14aDW8V7m1do0p3chzPtloU5P30dFW94h3jV4WOK8/iAwFu2x3lioghyO16eJGT3PJM7
+         QuVnnCv92ezrfMR920YuTgZ6zrwjCslrBsJx8d5HFH6alnF/IhjXTdhrRBIqDvE3zfhU
+         VqG339KI/DEXezTgGJliXIXm9kb6/2eeeUVMoWHx2hJq6oU0mvF0lite/zV6o+6MLcjC
+         BD3wN0wCugBGzdX6DgDh7RtJqP49AA0V4eBafKsuyN/Ias8cJOLYrAgb2rry8hfQtIiv
+         tMEg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740497219; x=1741102019;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+sM8RqSivE/xijYBrIrwfNgjHaRkEy1XyNdDEacWwgY=;
+        b=YSccTTzZiHJSWhya+ObMC3RTRAhhSeyH2BEHD0lW3epnXQiFssDcHZLLx5OlWxY12Q
+         8ViWKHJ6yK8YXn3EA2xbny8gvUBWYg5dM7GowXpUqyMBQws7MFa1bhu8cmLmaLnbgq60
+         gdPDru5gDRuXBHira1MncNNBgNUjsMKyFCrEh7lJukF1Md5TorOc5zWKtckbajs8kn9t
+         6PgSy+eYTZatX1Hg+RJbT6i1xcUzwI7KR/zU3hS5AAsK0l2PDpiprCkcZPE1+D8agENL
+         SsbTJuWfpIDL9u16zMeR2hVBHSx1tC9pJ60AfdzA9e4O8TvSdryd+/ktLl4yccUBBG/3
+         sXyw==
+X-Forwarded-Encrypted: i=1; AJvYcCXPKm4/FbNGfSrw0PxgzdORJG8x/+ZYPHgKu2YA9SNZUt5mwl7cxCJ/QCKfFvHo2tpnXPXpj4S2jvapD131b7yj@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVKESOEgBob60WFi0wyBAS1EHyd9Q6yE+IIp5rb3EKpMpBdpU/
+	hPhCoPW658iP5M0o/UHhEgawOWSPRlO/bMmR8U8rDtkkwdjORQFoJKwwYDLHg1qNFgSpQe/3hKW
+	CA7hWntWJ+ah9GbtEipVpywX1o2P+YgMT8SS2TA==
+X-Gm-Gg: ASbGnctqyp6ZmQFeOUy+z04jlnAXhs0AlYZSyJhwqi/pfmCXxZj8rRVvsEq3lL5MZUW
+	diubtIyd1Z0P9MWIUq2FVq9aUpZbYyTPq82WTgRDgPtE8Wf4LMy41LM/EI2mFrkrltoxQLHDAkI
+	uc8B75JTk=
+X-Google-Smtp-Source: AGHT+IHg7AciF0bOLP9nYBodRe65E+R68WKpeOCG+glocpt21vjNyZNITKVO4J/tYQr2I8UXgNxYdWfVSbUB/YTUxlo=
+X-Received: by 2002:a05:6512:12c4:b0:546:3136:f03d with SMTP id
+ 2adb3069b0e04-5483925996emr6834200e87.35.1740497219178; Tue, 25 Feb 2025
+ 07:26:59 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR12MB5070:EE_|IA0PR12MB8975:EE_
-X-MS-Office365-Filtering-Correlation-Id: c4a9e5f2-a68c-47db-c210-08dd55b0bdfb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|376014|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dm9GTGJKSXRLa1ZDR2VBbDRGZ2NvY296SzJOT3psMGNtbi85K1pVS3ZlRm1D?=
- =?utf-8?B?YlVQMnUzYS9VSm90dnZEalZRT1ExN2kxeEt4bFV5T0JLeThzeGVuYjN1YUxo?=
- =?utf-8?B?emN5UmZJUC8rV0ZHVXZ3aWFvODVqaW5odnJxWm00RFVnZi9WY3dzWHE0N0JH?=
- =?utf-8?B?VWpBRFl1NWh2eDg3WGMyNW5BWGpZTFlMYUloWG9Xd1NFOGt3N3BmUDRFNnJN?=
- =?utf-8?B?eGw2eVJKSGpZOWRqVkZMa2pmZGxkUWl3OUh2RVhrUmhncDdhRVZwWXVGQUxs?=
- =?utf-8?B?WEVNcnRwcTNRZ0NWRUlWSE5CeEZsaEIzNDIwTzh6Qmk5bUgrNTVvMFVPT0Rz?=
- =?utf-8?B?eW1CSjNmMEloQUkwRzFwcExMaWw2TXRwd2lrOUVQN2ZYbGJHbFFYSXBXeHpB?=
- =?utf-8?B?YTZLMjZnVy9kcnpHdXBtYmpjYllSRVVKTWtDNDJMWjVoL2V4NjVNNkp4ZnN6?=
- =?utf-8?B?LzBCcDlPM3o3NXVxRkd3N3RYRWxGK2xobGJYdEhiRDFZSlZERW9CMTZHNzBv?=
- =?utf-8?B?ZEpsbllBQlRDUVhNWnVCRDF0Yks5UjViL09YeXk0eEhNU0phZUYwUkV1eVZV?=
- =?utf-8?B?TG1ERkF5N0VucVlVMVdHQjFVWWp2L0JCbEJVdGcreGt2QytiUUc0NnNuYnpY?=
- =?utf-8?B?N1Z4NHBnd2FSL3ZlenFiY2RzWGFJaVBJK2tXMlZubDdVTENXeVpzbXFHTTZN?=
- =?utf-8?B?dUFwQ2EvaWlSR242ZDJZcVhzTkRrU3NhSzdKc3c4djBycW1aOGVZVUdhR0py?=
- =?utf-8?B?VDk0eXptakZId0VVYXY3eEROczIvRHM0Wm42S3E2cTYzR29WcGFOdFBmYzlz?=
- =?utf-8?B?TDhJaUd3OW44L21WRnUzenFCRDNNMGtsc2cvQ0xvQlhpbm9HS1FaNWI5Snd0?=
- =?utf-8?B?MXZML2JKZkNwZ21QajFEbk0zMkVXdmxhcjJRZmtYL01FWEJrMkowQmRQaE5Z?=
- =?utf-8?B?VjRteGF6YVlyV01DN0RScjNVRmQ0T1lGOGUxMnpJVXFhTGk1aStGZ3Q0NmNa?=
- =?utf-8?B?SnlwUzl4R2VjK3l2dUVpaFc5MTh0aGszWWpmN2FpNWUrRGF1VUszbDRQUUor?=
- =?utf-8?B?bmdCQXgycnJBK2RVMTFNbjlLVHB0d1JtVk1yY2YvRWxLUzJ2NG9kekNQa3lm?=
- =?utf-8?B?RWdTKzdZZHVyYnUzaW5XQ1E0NGx6NTNCcURVV1RKWS9DbUN0NjRYU1dWelhZ?=
- =?utf-8?B?cXE3RUwvOTMrdDBaR2dTV0YyS3g4Zmd6WlgyZ21ianEraER6c3RQTzN1MzZT?=
- =?utf-8?B?RS9jNjJGUzdPYk01Qm50TmJSWU4xMXlrYXZZWkk4VEs0TGhUcHMzZVJSdkhh?=
- =?utf-8?B?dlRYczZQODFCSWh3UndVdUZRWXdlZ0hPRW9UR21SZXc2eE5FT1FjRVdJNS9w?=
- =?utf-8?B?Vkdwa2dFZzdORTFmTUZvNjhBaXIyYWZyajR2ZVZGakNiQnlQZ0UyMndDTUQ1?=
- =?utf-8?B?NGVLZmJ3MEt0UnFiSFNUTzh0a2dpZlkxVFpkMFRTd0NudjdmbjZCNU5LcUkr?=
- =?utf-8?B?Q2xFZlF6b3JUaFY4UTFRNjd5SzNTUGVKWW0xWjNOZFZidmxaOWJjSFhpdDBM?=
- =?utf-8?B?UEVsVk1SNXBVTnJKYVcvNjNSTkw2ejdVZUNnVzQ2N2xsYmJ6cDhMajh2bmJF?=
- =?utf-8?B?UnZjeGFyQlR1WUE0NEIwemlXbDhUUlBYYklJTHl2MW1qUjNzOExSU0FNVGxy?=
- =?utf-8?B?Yng2MVVYUWNnbjE0RDJDd0JLcmFIcHY2a2EzRjE4QnVhU0JScmJCRUV5K2Fk?=
- =?utf-8?B?alV5NjRRcy9Db2wzL09BMlpTWU9QTFVrbTJmQkhQNVVIdnNld2xYN3Y1U3V2?=
- =?utf-8?B?djg0K3NaQ2o3RmZZeFN4c3RoRUhnSnhpZEZiWHZCamdYWDNib1BXYVhlRGxh?=
- =?utf-8?Q?PZ2fwO1Yv7uRH?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5070.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N1NBZlBsK0FycWZzZHdqdXpIVGc0bEc1b3NHMkRkeEdLdkJ4NkVxMUhJYVVP?=
- =?utf-8?B?NVBXL1RYVms2UW1ibEZGVzBheEpncmIwajB1ZlJudlJtbHdmenlISzdFYzl1?=
- =?utf-8?B?TlZtbTAyNzhOVmtHRDhmSFdXY0Q2VUdmcENvSTFSbnhxUVNsSjRSSlZ2OU5o?=
- =?utf-8?B?SlhETW1YV0xORld5U2gyVVo1K0NrY2YyOEI2NUlQZzgva3BJWG5OblhrR3Jq?=
- =?utf-8?B?Y2YwL3NHYjlkQmNZV2FNM0NnbjdJSFFub1kwVllKMWFYYk83V0N5NmduUkpQ?=
- =?utf-8?B?ejRnZkZBOXl5SGRJeVRVZzl2dEJqczJlL2pidXBOU0gxZ3REaXdBMEtmU1VK?=
- =?utf-8?B?QUYwVU9UcGxobks5SzcxYVd3ZGZoSmdiUThaamIzWkZQRE9IWjNKRVVGTjNl?=
- =?utf-8?B?UVdyODAvcStwS3Z0MmNTdzczRmNnY05EdWJqOHNWc2VNUnJGSjYvbjBSZ3Rw?=
- =?utf-8?B?eWo1Q1F6RkxTUUZJejBxR1dlTjNMQkl6MERTdXQ5V1ZnclM0SnVtdCtScE9V?=
- =?utf-8?B?bmxIRG56eVFZNU5iREpaTERWUlJpVlZxVVZVcGpWdlVnaVZIZUdTT05rcEVi?=
- =?utf-8?B?UEdRbWVCR2Jqb0R0dFZlK3k5WmtGUjB5TUZmcFNPZm9Tckk2Zk5hVWgxTkI3?=
- =?utf-8?B?ak5vcEZROTJpUTFoMlFUb1ErUnFuWjVBWUVXRE1WVFBDNDM1d202MHhzeHdS?=
- =?utf-8?B?ZTZlMUs0ZHk4eEFaRVp0dkxJdFBmSWR1VzhlNmh2MU9GOUF1RkQ1c2MwWjRs?=
- =?utf-8?B?Mm1XTHN5M1pLL1ZSTW9RVFRHODl1SjJXeWR6cVF1akV0aU5JN1BFQmJYdExk?=
- =?utf-8?B?TTA5TmphRDRULzNZODV3ZmUrSnY5NFhNV3NrVVkvYXFZTHc5S3pPTFFwNEY0?=
- =?utf-8?B?MlJPelJkclVBamlSWTlNSHE1cmZiVHF4TTcyaTNHK2JmQzkrSExTNWQxemlK?=
- =?utf-8?B?Z0Z3aE1Oam5HdkJTa0NxVnplc3FCcGJzbE1zTVhYcUxJRXFRTDhNSGtUdlJK?=
- =?utf-8?B?SDl5M1FYSFVKT0RzMERSSnRxMlVRTUlzUUVJbG1HcFZuTXJLU2l4VHY0dmNE?=
- =?utf-8?B?Q0hPY29URitoNjJHODhlbm1Cb2k4RHBrQ1hUcFdBLzZpdHVUM2VzWFFWRkxs?=
- =?utf-8?B?VzF2OG9OUDFNTjVEU3VpTGxUYXpBRWtieEliYXVvZGg5dDdoQkMvYUtTaVA1?=
- =?utf-8?B?a3Juc0p2S2picjI0S05yYnJjQ2pydnlHdDROL05hak9GWkh2WWM1YUFrNndz?=
- =?utf-8?B?Y2w5TzEzUWpDN2t4eHgxYUZOMmV1MWczcDhFOWd5bFFNNjZsdUpTTzNNRFJ1?=
- =?utf-8?B?aENDeGZER1lSWlNSWEpCMVpSUHJsMWVnVzJnRkFadmNpZFEzbHRvZndqelZr?=
- =?utf-8?B?N3g3YnBzWUlPQVVJMVcyc3BQbktaWWVvb1JUYlhWbitGN2pjSDBYZ01mVDVT?=
- =?utf-8?B?N280bEg3Z0pZU3N1M0Y2SW40RXFZYnJLVzgwUzZleVVNa2ZJZDdVVzdFbzBG?=
- =?utf-8?B?T3NiS0o2NldvKzVyOTdsSEZkemRlRm1MZVMyZDhqanhSVmZ2Z0k3bkRGM0N5?=
- =?utf-8?B?MHhXcEZYUDdUemxJVWNTTFc2L3gzdE1wVmtCMkRzdU5jdGhVdHRTQlZKZHRZ?=
- =?utf-8?B?N0FuUEdEZGJXNktTS095aURUdDFTVmNTTzNpYWFQNVp3ckt6WFNvVTlvMnJY?=
- =?utf-8?B?aHNVajh5MVJPUW9QYkc1dWM2ZE9VdlVwOTU4dmdGMjlENnRpNDBrSFpCWStE?=
- =?utf-8?B?cVdCQXhHaXQ4Y1BJZGFmSFdkUnBiL1VLQTVBY1lTM3dFYmduOTh6bm1RM2lR?=
- =?utf-8?B?MlF6MXFxdThHTzB4WWdvWW04UDNiR25GMTdMUEwwS2xQdldueWNtalpiaWlN?=
- =?utf-8?B?ekxJUVZSd25yRlJqUmxCRVYyaEhUQlNSaW5JRi9SYWcwWFIyVHVRbDh4cHVK?=
- =?utf-8?B?cXJhYmI0UE5tWG5yOXF3c29CdCtGeDJTNldqR3RvN1phdVdKaUpuM3QxYjBX?=
- =?utf-8?B?MzJ2NWpkUHhXR2QwRDRJYXBUNnNxQS94N1RKMzlNbXV1OFE2eU1wWW9rRUtO?=
- =?utf-8?B?SysyR3R1dWpFYVdGd0hWbHNvSVQrUGd0RmUxWTlQTEsrM243QWVYZ3drNXBS?=
- =?utf-8?Q?ENte3pIJIUqPb6Xgy1RPFKMde?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c4a9e5f2-a68c-47db-c210-08dd55b0bdfb
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5070.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 15:26:14.8476
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: LuEAk8wXjM4ve4Y7idZdBDswZvpDK1H9cQjSs3JNhGpmjR/Z+xhK+EWDNC7L1tdKukpKv8HNBxxwQ1pw535rOw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8975
+References: <20250220180427.3382482-1-vincenzo.frascino@arm.com> <20250220180427.3382482-3-vincenzo.frascino@arm.com>
+In-Reply-To: <20250220180427.3382482-3-vincenzo.frascino@arm.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 25 Feb 2025 16:26:48 +0100
+X-Gm-Features: AWEUYZn8W5PQymPGlQZ6IJQCW62-Rmi8JGi0gK42ubUEcFMkmTbqO5GmXG6Hy4g
+Message-ID: <CACRpkdZzUpgFvuYRGUwnNxonQ_TM2DOsAh5188qJ=g81v-asiA@mail.gmail.com>
+Subject: Re: [PATCH v6 02/10] dt-bindings: arm: Add Morello compatibility
+To: Vincenzo Frascino <vincenzo.frascino@arm.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Jessica Clarke <jrtc27@jrtc27.com>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_072635_440916_90D0644E 
-X-CRM114-Status: GOOD (  18.75  )
+X-CRM114-CacheID: sfid-20250225_072701_399447_9F242232 
+X-CRM114-Status: GOOD (  11.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,51 +99,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/19/25 16:07, Suzuki K Poulose wrote:
-> phys_to_dma() sets the encryption bit on the translated DMA address. But
-> dma_to_phys() clears the encryption bit after it has been translated back
-> to the physical address, which could fail if the device uses DMA ranges.
-> 
-> Hopefully, AMD SME doesn't use it. Anyways, let us fix it, before cleanup
-> the infrastructure for supporting other architectures.
+On Thu, Feb 20, 2025 at 7:04=E2=80=AFPM Vincenzo Frascino
+<vincenzo.frascino@arm.com> wrote:
 
-I'm not aware of anything using DMA ranges on SME capable hardware. And
-as you stated, this would have failed if there was.
+> Add compatibility to Arm Morello System Development Platform.
+>
+> Note: Morello is at the same time the name of an Architecture [1], an SoC
+> [2] and a Board [2].
+> To distinguish in between Architecture/SoC and Board we refer to the firs=
+t
+> as arm,morello and to the second as arm,morello-sdp.
+>
+> [1] https://developer.arm.com/Architectures/Morello
+> [2] https://www.morello-project.org/
+>
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
 
-Acked-by: Tom Lendacky <thomas.lendacky@amd.com>
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
-> 
-> Reported-by: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-> Link: https://lkml.kernel.org/r/yq5amsen9stc.fsf@kernel.org
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Robin Murphy <robin.murphy@arm.com>
-> Cc: Steven Price <steven.price@arm.com>
-> Cc: Christoph Hellwig <hch@lst.de>
-> Cc: Tom Lendacky <thomas.lendacky@amd.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
->  include/linux/dma-direct.h | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/include/linux/dma-direct.h b/include/linux/dma-direct.h
-> index d7e30d4f7503..d20ecc24cb0f 100644
-> --- a/include/linux/dma-direct.h
-> +++ b/include/linux/dma-direct.h
-> @@ -101,12 +101,13 @@ static inline phys_addr_t dma_to_phys(struct device *dev, dma_addr_t dma_addr)
->  {
->  	phys_addr_t paddr;
->  
-> +	dma_addr = __sme_clr(dma_addr);
->  	if (dev->dma_range_map)
->  		paddr = translate_dma_to_phys(dev, dma_addr);
->  	else
->  		paddr = dma_addr;
->  
-> -	return __sme_clr(paddr);
-> +	return paddr;
->  }
->  #endif /* !CONFIG_ARCH_HAS_PHYS_TO_DMA */
->  
+Yours,
+Linus Walleij
 
