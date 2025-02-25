@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E08C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 02:03:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B252BC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 02:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=24jiysXyB/JxeRxXGrThD+4qS8hUsrobbYzYvxv5lPA=; b=Zj2ao7hzVuVz88IIaOdCd5jzZF
-	bveiKFim0ORL2g7pHoG15A0uoP0r2QpP98dFS7TZe8Y0PGTfXsfDgT0NqDDMzRiioiS4QWpJzXYdS
-	k5mTDkUROCaWnDmLqQoxAdL1ZtFeMTGYSiCGEX0WWkGqZ9YXp2rUpfmJ/2o0GOBiK6k0Ti6xSmTa1
-	yHajeWCLg3HJbtjXytziIIn0WihoTloFukBXUfW93UD1vLbgcx7UIiI0lFjZ6vWryeF4jpsDZVn7A
-	bdVuB8v4AxKyZ0CGtGUBItHqq/pA5THXqFz/tA3samczOAD51CQ4GlclKfNA8XGW7+dldzWF9jyg2
-	ngviIJlQ==;
+	bh=aMg5gXS3WItAEvrzJQGT1U7YJHwteiHRCuOesQlbXDo=; b=UntJqUuV+QrVTMIOrVCTehLKMx
+	8b/0WiEiburQdIBJq59PLaGUCIJak9Fat//vGN0Oorg2MG7nFLEPYdAaVNUmhTA9o4y8wt6qP88O+
+	bw8vSRm7IJMWOBGA4YIMdgx0EQgYvnvtJ4RZVYRI8sgft4E8OrslwSmxPr5pvQ6/VwPN9sME9HdSk
+	ODT3Vbq5X7OX7vZm23UazEVLkWTvygN48UjeeGtkcilkUDzvkuUFyC6ebKRGZHUmU5qMtglCbgH5A
+	8o7WlgdiRpBeT9C5G50KdqiHo57kiHKQDRVebr24SxQsYCsQ/kTEUABOm7CKF69xFtN+FBSgCVgpn
+	XvwHIvyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmkIB-0000000FlGt-24PN;
-	Tue, 25 Feb 2025 02:03:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tmkQX-0000000FmH4-1Gja;
+	Tue, 25 Feb 2025 02:12:05 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmkGg-0000000FlC9-1ju6;
-	Tue, 25 Feb 2025 02:01:54 +0000
+	id 1tmkP1-0000000Fm8R-0pyq
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Feb 2025 02:10:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9C5A1611CA;
-	Tue, 25 Feb 2025 02:01:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10831C4CED6;
-	Tue, 25 Feb 2025 02:01:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740448913;
-	bh=24jiysXyB/JxeRxXGrThD+4qS8hUsrobbYzYvxv5lPA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=m0YNl8hVNoFUnLUYdBUeOSUQqFi/NzUh2IxX88Qn1nBbE8mqcAfiNoOZbZwaLzQtf
-	 l5x0F7/7X7AcH+mJypeRs0RJbWk4GKBbY6AIO6jl0HVx/lGfxwRb30J6dV8DSNTUvL
-	 /dihr4AzMzwMmM7oQm30NB9WTrJB9oexReCzvF7N3e7Un4tS79Mu+aSy7P+/j92cGv
-	 8dJ9bzyXYG9dQZ9gsOmhikj9CAM0VpjeM8U104aFyOe8Ev3Xy0pRGKBGbLE93lTSpY
-	 AzYZISjHKGN3lsKJytI6kyyO3+zdvpZTnws4MYR2waLZtXO1kt2P3TxW5IxtgXXCiD
-	 EYgsGn4O28c3g==
-Date: Mon, 24 Feb 2025 18:01:52 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Heiner Kallweit <hkallweit1@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
- Russell King - ARM Linux <linux@armlinux.org.uk>
-Cc: Paolo Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@google.com>,
- David Miller <davem@davemloft.net>, Daniel Golle <daniel@makrotopia.org>,
- Qingfang Deng <dqfext@gmail.com>, SkyLake Huang
- <SkyLake.Huang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Richard Cochran <richardcochran@gmail.com>, "netdev@vger.kernel.org"
- <netdev@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, linux-mediatek@lists.infradead.org,
- linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH net-next 3/8] net: phy: add getters for public members
- of struct phy_package_shared
-Message-ID: <20250224180152.6e0d3a8b@kernel.org>
-In-Reply-To: <b505ed6a-533d-42ad-82d0-93315ce27e7f@gmail.com>
-References: <c02c50ab-da01-4cfa-af72-4bed109fa8e2@gmail.com>
-	<b505ed6a-533d-42ad-82d0-93315ce27e7f@gmail.com>
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5D43F5C49B9;
+	Tue, 25 Feb 2025 02:09:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 659A4C4CED6;
+	Tue, 25 Feb 2025 02:10:26 +0000 (UTC)
+Date: Mon, 24 Feb 2025 21:11:02 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: "Arnd Bergmann" <arnd@arndb.de>
+Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-kbuild@vger.kernel.org, bpf <bpf@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org, "Masami
+ Hiramatsu" <mhiramat@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>,
+ "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>, "Andrew Morton"
+ <akpm@linux-foundation.org>, "Peter Zijlstra" <peterz@infradead.org>,
+ "Linus Torvalds" <torvalds@linux-foundation.org>, "Masahiro Yamada"
+ <masahiroy@kernel.org>, "Nathan Chancellor" <nathan@kernel.org>, "Nicolas
+ Schier" <nicolas@fjasle.eu>, "Zheng Yejian" <zhengyejian1@huawei.com>,
+ "Martin Kelly" <martin.kelly@crowdstrike.com>, "Christophe Leroy"
+ <christophe.leroy@csgroup.eu>, "Josh Poimboeuf" <jpoimboe@redhat.com>,
+ "Heiko Carstens" <hca@linux.ibm.com>, "Catalin Marinas"
+ <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Vasily Gorbik"
+ <gor@linux.ibm.com>, "Alexander Gordeev" <agordeev@linux.ibm.com>
+Subject: Re: [PATCH v5 2/6] scripts/sorttable: Have mcount rela sort use
+ direct values
+Message-ID: <20250224211102.33e264fc@gandalf.local.home>
+In-Reply-To: <20250224172147.1de3fda5@gandalf.local.home>
+References: <20250218195918.255228630@goodmis.org>
+	<20250218200022.538888594@goodmis.org>
+	<893cd8f1-8585-4d25-bf0f-4197bf872465@app.fastmail.com>
+	<20250224172147.1de3fda5@gandalf.local.home>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250224_181031_297557_A2983E6E 
+X-CRM114-Status: GOOD (  17.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,11 +78,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 19 Feb 2025 22:04:47 +0100 Heiner Kallweit wrote:
-> +struct device_node *phy_package_shared_get_node(struct phy_device *phydev);
-> +void *phy_package_shared_get_priv(struct phy_device *phydev);
+On Mon, 24 Feb 2025 17:21:47 -0500
+Steven Rostedt <rostedt@goodmis.org> wrote:
 
-A bit sad that none of the users can fit in a line with this naming.
-Isn't "shared" implied by "package" here ?
-How would you feel about phy_package_get_priv() ?
+> Hmm, I haven't tried building this with clang.
+> 
+> Can you compile without that commit, run and give me the output from these
+> two programs:
+> 
+>  ./dump_elf_sym vmlinux __start_mcount_loc __stop_mcount_loc
+>  ./dump_elf_rela vmlinux .rela.dyn
+> 
+> If the second one fails, remove the '.rela.dyn' and see what that shows.
+> 
+>  https://rostedt.org/code/dump_elf_sym.c
+>  https://rostedt.org/code/dump_elf_rela.c
+> 
+
+Nevermind, Masami told me all I need to do is add LLVM=1 and clang can
+handle the cross compiling.
+
+I looked, and sure enough clang on arm64 does it the same way x86 does. So
+using the rela items to sort is a gcc thing :-p
+
+Can you try this patch?
+
+-- Steve
+
+
+diff --git a/scripts/sorttable.c b/scripts/sorttable.c
+index 23c7e0e6c024..07ad8116bc8d 100644
+--- a/scripts/sorttable.c
++++ b/scripts/sorttable.c
+@@ -827,9 +827,14 @@ static void *sort_mcount_loc(void *arg)
+ 		pthread_exit(m_err);
+ 	}
+ 
+-	if (sort_reloc)
++	if (sort_reloc) {
+ 		count = fill_relocs(vals, size, ehdr, emloc->start_mcount_loc);
+-	else
++		/* gcc may use relocs to save the addresses, but clang does not. */
++		if (!count) {
++			count = fill_addrs(vals, size, start_loc);
++			sort_reloc = 0;
++		}
++	} else
+ 		count = fill_addrs(vals, size, start_loc);
+ 
+ 	if (count < 0) {
 
