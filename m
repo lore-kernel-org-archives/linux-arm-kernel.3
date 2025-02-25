@@ -4,97 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC2DAC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 21:13:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21632C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 21:14:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LqTyJfrpmh9OoHhGhSLNFtCY+nJglgvLIHJFw60aWtk=; b=2hZBJdVA0UbFeU6SiMIh4pmwFr
-	2nZxKkcZ/+RbMEtMuEDgi1Agb9BMNL70z2zqPl4zXeVLyLzzay1sxAjF4l7jeO3R2pKwrugVHx/y1
-	Tj3tjLB+FuzgvC2eLnGR2kduxfE7ir2lEo/aOpcsj/RYws+7ELn7SM8vUKhf2GeDPvsNNO5NffCGM
-	mvjy+h2uGfby94Ai5p/17IIN9jVKJuBxIfth99r99N4r0jSmcYS+ISkia2n2I+MRTZugQRjof5gq3
-	mcZtl8ynsw3rEUNm8KNwx+y/A1RsRT7Cij94H0PSnpskRDY5qHR72NAKG+DzAExwVSHQ4qLp8+PzO
-	jO6Y8m+g==;
+	bh=WP2slSSn5/vAlil0BRoIszaR28yXM6EA7mHcY7THNAw=; b=aUyIRtbpacGqe6yKHawXoJF+UL
+	oScGkx2pO0emz4CumSVAeWR+Z5QoMSsmTSces3+YWKHz8AYR4B8x68KwKabHRCXybgZ/VEiKu5jH0
+	ZHqDyxPumbjft3fj1d29Oajk18fz9NMWge8D7sk6r4yoUe8ZVp4fqqhZKNqGq3vnO+T4Uel75rZHK
+	3fyapSomDJ7JfP0CNdnLqmAzsroSAYOP8m/AKSbVYeB5P8csLg87x6XQEGUiBaMmlRIoPfc8VhwM9
+	/MGNn2VGhc7+vNEH98WKjAdjINO2edkDP34UZJgDpDZTECpIsijNVVSx93DmDPUHvM5ttCTlOoepP
+	UDIqBxrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn2Eg-00000001VE9-1Ytx;
-	Tue, 25 Feb 2025 21:13:02 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1tn2GB-00000001VP4-28gz;
+	Tue, 25 Feb 2025 21:14:35 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn1ar-00000001NUJ-2Q43
+	id 1tn1bS-00000001NYz-1HKx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 20:31:54 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-abb75200275so964879966b.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 12:31:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740515512; x=1741120312; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=LqTyJfrpmh9OoHhGhSLNFtCY+nJglgvLIHJFw60aWtk=;
-        b=X3ltkKdmSf8pAWRxJ+T6UajFsZIMvfkf0hf01A7pam0C0si24gktL6r4xnzI32TnfH
-         ANq9U0MdJj3PA2NThMK+hlNsge1Bai24SBXD+8hRD72tuG7ro2GOPLr1mxAET3k5sT0U
-         c5vy9qnoDcZesARI5e3ZNRRd8IZR/cm5vKQkG/ZytN3E4oDxoNeae2yS7dq84IsC1oSJ
-         Rck/qVXB4HSNkuLHz0TOC4th8zbQNzb0+8ZTHN9Y/6jw4YgXaV4VbVL2/xuGxjLqHLsj
-         wJM6Ebkqj1PLnAUk1icspvp5Jn9M5nVk2I+3NhjpJwhY0aQ4TcC8SyjBQAcUuDdFBg4b
-         TKRw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740515512; x=1741120312;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LqTyJfrpmh9OoHhGhSLNFtCY+nJglgvLIHJFw60aWtk=;
-        b=VcQp9/qEW592ufuq6AMJDwZ0oae0HmAtxxQ98/vNdsLQ7jLquVVc6C4aWWx+WadFdU
-         kIoUYQCYBB1GEluVheMT7PlzulaVG+7bPO8XZD3de+HS0VYvE9eThwhEGcrr+mwELam1
-         6ET0Dp2oNkkDhok5gaqzTdNinN8FO9qyF5aUHAR2Fd0iQGAIzJomtEhjAigRV/2epUJc
-         i6CJT3xiLPx9wPGYcoJSSUeyBPA1XCsauk0Z8w/MHQg/1gH/TN6cU4TG6Yev6NCH6zVN
-         +CIfRYXadlGghFGnIT8E33hCis6IlY2kPL2GO1OMDd47y8BGi1SAq7Y4F+jwakF10yNw
-         cO7g==
-X-Forwarded-Encrypted: i=1; AJvYcCXoaDuHnu/RguIWLM8/7O2MaRFf7WPEyYlpf2FfzfRvA5etvFwKfK1Ram7c52qHvemrpWIyclM6G7XgpbXqg+42@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzvhRQ0Ssp1Yd4kixXXPPDQDp+hB7quc1PWqBQN9Su0PUYX/s5
-	CSqQRXMxRgJFHabezriwCJKDrpNx4/OCF24XtA3B0zERgxFBNGHi
-X-Gm-Gg: ASbGnct9cYbJrb1G//iO/B8xAetyh8yb+5ZmMlczMAIB7CaOVs0rFfO+0TLpYFRrTeW
-	wjI6Q3Yf36FfdNtjZFvXpShCQVCUAYTgb16adEYLR71gN1BmTrxczKSbjiFYC93QYiTRmDDdhOu
-	KfmUJnFK9xQlYZTqeAbwdLoUZv61srCWMCnSSuzeMatZ4Qu+gmA6DV/gbbZ9FxotWsrw1bBsxpl
-	Hvqles6DWLm4f21Iw1mfEPNbFSpw503b2YgcxefLThVaY8D8ULVpLeaMWJkQkAW9x2+22XcRtHR
-	kRtuiWfbJbhgxrH3sIPl3owWzXviGp4XVjgaelXg75c1GeG7+0wwZt0MmdvhqeraMFsUvjKDiSs
-	pK6yrliyhDuhF
-X-Google-Smtp-Source: AGHT+IEJuXnWIMGDBSBMqOav7bVwcobNvyp7gvPMLJMccBBO8pTepVY+1CQtODf0snXMlUdT+6giVQ==
-X-Received: by 2002:a17:907:72d1:b0:abb:e7de:f2a6 with SMTP id a640c23a62f3a-abc09e35401mr2167544866b.53.1740515511788;
-        Tue, 25 Feb 2025 12:31:51 -0800 (PST)
-Received: from orome (p200300e41f187700f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f18:7700:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abed1cdc46bsm197935666b.20.2025.02.25.12.31.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Feb 2025 12:31:50 -0800 (PST)
-Date: Tue, 25 Feb 2025 21:31:48 +0100
-From: Thierry Reding <thierry.reding@gmail.com>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Emil Renner Berthing <kernel@esmil.dk>, 
-	Eric Dumazet <edumazet@google.com>, Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
-	Inochi Amaoto <inochiama@gmail.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Jan Petrous <jan.petrous@oss.nxp.com>, Jon Hunter <jonathanh@nvidia.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Minda Chen <minda.chen@starfivetech.com>, netdev@vger.kernel.org, 
-	NXP S32 Linux Team <s32@nxp.com>, Paolo Abeni <pabeni@redhat.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Shawn Guo <shawnguo@kernel.org>, Thierry Reding <treding@nvidia.com>
-Subject: Re: [PATCH RFC net-next 5/7] net: stmmac: s32: use generic
- stmmac_set_clk_tx_rate()
-Message-ID: <o5ww56n7e5sfck737uwasx7o4zlhog47abfvfptcegikyheegu@6gapje5hr56b>
-References: <Z7RrnyER5ewy0f3T@shell.armlinux.org.uk>
- <E1tkLZ6-004RZO-0H@rmk-PC.armlinux.org.uk>
+	Tue, 25 Feb 2025 20:32:31 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 16745A30;
+	Tue, 25 Feb 2025 21:31:00 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1740515460;
+	bh=wckgz3tdenQ9ZtBQpHOi8VCnc+yy0A2dSk2aV0Zjeqw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DIzpj0s9msFhLOz+8bA185w8lDAvF6MScXRRMWToJGq11vaWb1/54GtxQCAOvXrqh
+	 RH6/pHRixNuKKM/vbBSymDEELXmkO1a88QHytPB+UlaV4YbeEwZQoZj2FNj2j1mVBb
+	 ZPMjQ1V5Q3I6kuMK4oLbVo7miOEkNBd2u6vXcsaE=
+Date: Tue, 25 Feb 2025 22:32:08 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Jonathan Corbet <corbet@lwn.net>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	soc@lists.linux.dev, workflows@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH 1/2] docs: dt: submitting-patches: Document sending DTS
+ patches
+Message-ID: <20250225203208.GG18866@pendragon.ideasonboard.com>
+References: <20250225184822.213296-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="o3ccr5lq2mt5twat"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <E1tkLZ6-004RZO-0H@rmk-PC.armlinux.org.uk>
+In-Reply-To: <20250225184822.213296-1-krzysztof.kozlowski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_123153_614020_F2C9354C 
-X-CRM114-Status: GOOD (  19.83  )
+X-CRM114-CacheID: sfid-20250225_123230_660352_62935F4F 
+X-CRM114-Status: GOOD (  30.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,87 +71,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Krzysztof,
 
---o3ccr5lq2mt5twat
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH RFC net-next 5/7] net: stmmac: s32: use generic
- stmmac_set_clk_tx_rate()
-MIME-Version: 1.0
+On Tue, Feb 25, 2025 at 07:48:21PM +0100, Krzysztof Kozlowski wrote:
+> Document two rules already widely used and enforced by DT maintainers
+> and SoC platform maintainers:
+> 
+> 1. DTS patches should be placed at the end of driver patchset to
+>    indicate no dependencies of driver code on DTS.
+> 
+> 2. DTS patches should be applied via SoC platform maintainers, because
+>    it is a driver-independent hardware description.  However some
+>    driver maintainers are reluctant to pick up portions of patchsets and
+>    prefer to take entire set at once.  For such cases, the DTS portion
+>    should be split into separate patchset, so it will not end up in the
+>    driver subsystem integration tree.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-On Tue, Feb 18, 2025 at 11:15:00AM +0000, Russell King (Oracle) wrote:
-> Use the generic stmmac_set_clk_tx_rate() to configure the MAC transmit
-> clock.
->=20
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+This matches my understanding of the current (and best) practices, so
+
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+
 > ---
->  .../net/ethernet/stmicro/stmmac/dwmac-s32.c   | 22 +++----------------
->  1 file changed, 3 insertions(+), 19 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c b/drivers/ne=
-t/ethernet/stmicro/stmmac/dwmac-s32.c
-> index 6a498833b8ed..b76bfa41af82 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
-> @@ -100,24 +100,6 @@ static void s32_gmac_exit(struct platform_device *pd=
-ev, void *priv)
->  	clk_disable_unprepare(gmac->rx_clk);
->  }
-> =20
-> -static void s32_fix_mac_speed(void *priv, int speed, unsigned int mode)
-> -{
-> -	struct s32_priv_data *gmac =3D priv;
-> -	long tx_clk_rate;
-> -	int ret;
-> -
-> -	tx_clk_rate =3D rgmii_clock(speed);
-> -	if (tx_clk_rate < 0) {
-> -		dev_err(gmac->dev, "Unsupported/Invalid speed: %d\n", speed);
-> -		return;
-> -	}
-> -
-> -	dev_dbg(gmac->dev, "Set tx clock to %ld Hz\n", tx_clk_rate);
-> -	ret =3D clk_set_rate(gmac->tx_clk, tx_clk_rate);
-> -	if (ret)
-> -		dev_err(gmac->dev, "Can't set tx clock\n");
-> -}
-> -
->  static int s32_dwmac_probe(struct platform_device *pdev)
->  {
->  	struct plat_stmmacenet_data *plat;
-> @@ -172,7 +154,9 @@ static int s32_dwmac_probe(struct platform_device *pd=
-ev)
-> =20
->  	plat->init =3D s32_gmac_init;
->  	plat->exit =3D s32_gmac_exit;
-> -	plat->fix_mac_speed =3D s32_fix_mac_speed;
+>  .../bindings/submitting-patches.rst           | 19 +++++++++++++++++--
+>  1 file changed, 17 insertions(+), 2 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/submitting-patches.rst b/Documentation/devicetree/bindings/submitting-patches.rst
+> index a64f21a5f299..f3e23e69a638 100644
+> --- a/Documentation/devicetree/bindings/submitting-patches.rst
+> +++ b/Documentation/devicetree/bindings/submitting-patches.rst
+> @@ -54,11 +54,22 @@ I. For patch submitters
+>       followed as of commit bff5da4335256513497cc8c79f9a9d1665e09864
+>       ("checkpatch: add DT compatible string documentation checks"). ]
+>  
+> -  7) If a documented compatible string is not yet matched by the
+> +  7) DTS is treated in general as driver-independent hardware description, thus
+> +     any DTS patches, regardless whether using existing or new bindings, should
+> +     be placed at the end of patchset to indicate no dependency of drivers on
+> +     the DTS.  DTS will be anyway applied through separate tree or branch, so
+> +     different order would indicate the serie is non-bisectable.
 > +
-> +	plat->clk_tx_i =3D dmac->tx_clk;
+> +     If a driver subsystem maintainer prefers to apply entire set, instead of
+> +     their relevant portion of patchset, please split the DTS patches into
+> +     separate patchset with a reference in changelog or cover letter to the
+> +     bindings submission on the mailing list.
+> +
+> +  8) If a documented compatible string is not yet matched by the
+>       driver, the documentation should also include a compatible
+>       string that is matched by the driver.
+>  
+> -  8) Bindings are actively used by multiple projects other than the Linux
+> +  9) Bindings are actively used by multiple projects other than the Linux
+>       Kernel, extra care and consideration may need to be taken when making changes
+>       to existing bindings.
+>  
+> @@ -79,6 +90,10 @@ II. For kernel maintainers
+>    3) For a series going though multiple trees, the binding patch should be
+>       kept with the driver using the binding.
+>  
+> +  4) The DTS files should however never be applied via driver subsystem tree,
+> +     but always via platform SoC trees on dedicated branches (see also
+> +     Documentation/process/maintainer-soc.rst).
+> +
+>  III. Notes
+>  ==========
+>  
+> -- 
+> 2.43.0
+> 
+> 
 
-I noticed this while building, the "dmac" above should be "gmac".
+-- 
+Regards,
 
-Thierry
-
---o3ccr5lq2mt5twat
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAme+KLQACgkQ3SOs138+
-s6G2dg//XEAP/SNRmlbm/Whtc1ed1XDDGWzN1eqPHb22h85AkhBzo3dyiGlai3KM
-acTcFFS5ngfi1FO+bSmjLeGRcAiGJimDRpNSomDWy7XFwDaA8oWg4bkWSk29PGom
-kWOv51f5QlkqJYvK5iYCr37vIThe9KQwQXurR7TbcMZjXggL/paw0o8fbU23+I5A
-KF0Y2OLjg4OGfAISzc3SN7B4DKa1uomft05iVkSWcougkQH7N6wmfLTQwfMvXG11
-yfIZYOPVd99SiSYR7CT6HLO4JCFDdVYQdJS58v61VvRgyOZlPEG9hCPNNHT+uTeF
-Ld4SXrtSywR5WuoJC+B5tJwZ28HNAleCf/5iBxCmxj6AMfftiTaA9LR9K1Myhn9P
-4WEXnvBIhw44yyVy6lVbARgSycNXbXey1zdzsCHoOC7vDyxRAsY6eZqcU0Gsaxhp
-ARAEdhyVHL8C22q1FsgLUa7pvqavet9mLUz/tKBhM1s7ryQdeS9qzqx3D7VhEY5o
-kVJ0ivva6sHgzLK5DkXKN/Tr34R4iBclkR2GAIK4KCFJbnJBMPMf3zeMAJA7v3rD
-u8KwPspfNZnP2P1+D26kVX+6oBTXpLFjtKc4vHs3fZcMQ4SrATeeBPD7hOxZOOfL
-n20+ZxoKnMcnqlukoxG157V1kl9eNk4ROaDJ8dljbEctRWfbUJU=
-=QnMs
------END PGP SIGNATURE-----
-
---o3ccr5lq2mt5twat--
+Laurent Pinchart
 
