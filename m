@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B91AC021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 22:53:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F5DCC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 22:53:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jZJeM3PGH5q9K5y1kqAZKJGg+yk0NtFwN0/v9eAYncI=; b=eaPh7cUtPmmByS3N6eZ+4N+o6H
-	lhWsrUOxQqEeHsmJ8sVTse1EoibNqRNBPgGbXl/cYYFZSC5GLJc8I6EvyUxP5hucFH7+bBzCnghrt
-	kd4cqmxOXWkxwTFriC0q9ALVTNrI+/0q6oRVUYnrLd/RjQYnlsY7CVTS1pvf+yOTBe8YPWy4b3ZoI
-	SjkM29MkW5TDXYHFuO598nWi0M5U8V6uJxw0VUw2hywUueZu7pDt1L1ifAmP56oAQARgQyVuoaOkJ
-	VWiAlPYVOxnLsmfpSRVnUBovGCjymD3hBcx6ntHyD8ASpJ/SIHcOQNR/MEl4icwDJRXZYJlN28GNy
-	lzboZtdA==;
+	bh=7UHbtViTh6h+2wDqLWZev0a0lQdcfzlCElZMycFgtXk=; b=mGvW7LtzrBpqfmAUQ9XJfieUqw
+	zJ3asNCmlTYJ5YdlNyF6JngzyhMfsl/JeS8I0qvUceYfpUyWsu1UPkOnfGjXkNrV5/1EaHni1jlCb
+	ihhKCbgDkxF29x5DoK6dbXBr7T4pUaNiMGychpGyHaVrAitT1Ql9XAPIOQrbHR8eaTtI9GpPH46sB
+	6p5ObYXeuOuUsyowHTU/4mzh4vsUgysAyQUqxf/Oq1rUZ9YbRgp+8PMhmdiX3STcJAzXuZ7xH5g5t
+	Z5U2f+9nGX4KhTNdbEnGWJGEC57eb49dq14shelJwGmgmfG3M/0nWdKayjrtsLQKD9ZidApSKs1wO
+	8cC+F/Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn3nP-00000001kzu-3ZqL;
-	Tue, 25 Feb 2025 22:52:59 +0000
+	id 1tn3nQ-00000001kzy-1Ypq;
+	Tue, 25 Feb 2025 22:53:00 +0000
 Received: from mail-dm6nam11on20607.outbound.protection.outlook.com ([2a01:111:f403:2415::607] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn0me-00000001Bzg-1Sht;
-	Tue, 25 Feb 2025 19:40:03 +0000
+	id 1tn0ml-00000001Bzg-3m5J;
+	Tue, 25 Feb 2025 19:40:09 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SQpKfUIh+Jiv7lehA48bx7PqqMNdbVYahEc1+Df2wUcsyNY1llBJA52taGYSLG+a6xCDqdk2FYD2vKcOLW9Q1w5+qO5ve240HZ10C2xLrDNISqr2S+Tl5F0zvHdN29nHPc/r1No8TZSAb/Nuj9XVIYfGc5P8gxGi433uA3v7vlMMfEF+ggF+2dD9RN6L84vrTxRm49JCU7JmsAjaFAnVvw/UMPuSSLqDsYt9rigWxSQ2vsqoejarukUHW8puH6UxQWFV8qjpqBk/qxXXN7rrXukyPMUBpqrVmuB237g0u+LNEbbV110wPGMUaKlbnGbxk1g7YQ+CWCuI7hMmLVRZ5w==
+ b=KRDu2d7TzvjDxnpIGHFotlx2J063Or3zPVNv835b7Ck4bUNF+l4IT0tJDkl8XOJ7KjcYzNbM+wVmeypMl9wu2qG4lMt1HXl9Zs37zkc320F9BjXYZ6zYF/fiWvxJl7OttT0ko01gZakLC7wu0bAIq5FCWs7RaXXbQ/YoHKv/cw6JnYYqcP2a9W/kRjJ0Lb0ouknLEo1oDwsR5G7kVGfgtqNdmTdrXPgFTCIYxUFVHqz9EsRL8mggNAGBn4Tb6AHKcbIWW9xXiipZPcVQQExTazasE/fA1K16Xm6thPFpMT1WjtUOkHZiN+QQpmZ8nGA1xr7BCOOxRzQ2gz5YBmkPcA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jZJeM3PGH5q9K5y1kqAZKJGg+yk0NtFwN0/v9eAYncI=;
- b=cz0RnkuEnx777DakNN+7rJ99bYzqz2bVAKZgTf8Ws8aqIhc4e9ofi04/KfkJXHuj3P1wASUWAgfHZWsEbBD+LWnr63rfvSolvENO8U9lXmX+CcFAtLnQ4K2+TsQWlwZH8EY77RpWO9TJ8g4YlGT5QxG0ktLmoYn2nSe4hepu0P0Zl0x3Saiac7gRRtmzWOl0AtZhinCef4nGIJBrgPx9JQSDxBBpVOTCjt+cMl8NNUF46gdACpIs9S8DiH5olqb5QoggsvFb1ncicAZyDolJ/G39YHWuayi9EZ00mdHps3NTJluElsuHvDwTo0hhkCO3xh9E7w7M6MI4EoebPpfcrA==
+ bh=7UHbtViTh6h+2wDqLWZev0a0lQdcfzlCElZMycFgtXk=;
+ b=nXb9bOc0CFMhlC0hXoWQH/fYG+oCyBQk5PSNZetiw2AzyvGrX6ETh/0UApobNFNEsAEQ80NCW62+1U2m2qvCXRXZijNhqTW/oxU5DRjDzENaIvzUHFQ4RSM1EPR1QIGiFw0aj28hMNOCxaKMGFJyhjszzLv0utP/5AKtDCUV3fWTq10WwCrvdiNSEa360YixUnwAQCcRAsSnEO2bfeLbQSR/1K/r0U5z/q28dxBQ6gHjDGUzbXzYDkCQLcDBJQxfc503qZ7tznsMNbeDp+4MOz6OeN7TsNSsR2WZ9MnCMf2ojRAEckmSfsc/7PWZaQAeJo01FGQj47hzUTp8dJy+aA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jZJeM3PGH5q9K5y1kqAZKJGg+yk0NtFwN0/v9eAYncI=;
- b=E3cGFo0QrMKkiQJ4X017Gw9Dsvn750jc1gSlq3AVzXuZy7mMX0DFg3Y+WaZnT86i4vhPKNjOmGtsx/+OMeI716twJWj4OacVNCgewDaQ50AU+LjsO7hwluOIPaRdfhFoc1QpWToK+twNvLsGyaTDqfQ/ZKvkf2PnfyJczQB/Ua7qNVkpeiIEp70Yt7AsoPIUFepHneOWLa7NkzYatyYrXrIHMFhypkPSmMPhK6r9h7+Lppr9D9JqD48z4qeH9yxyi3nJ/Jo7FDYSnvsLehP6COi19tQv4ZJbVse2CVo2ErNbEkWPqD3QwiPweWlTcn5buKVWMPM2YR8bZHsfD5mw/g==
+ bh=7UHbtViTh6h+2wDqLWZev0a0lQdcfzlCElZMycFgtXk=;
+ b=nKceQraNDkwv7dZ6D0JTWq4Ls8SDFI6g0rFNeg8nWe/21RekvSlV1v7zr1ZT9wV9OIB4WbrYcA1TXJrXrLTCY+OrBoa7D5uD3Uy1Z5UPScjNllAdZ6jzBlyQlYjnS4GQrX8ngL8NmAUdGyiKi8hQcQIQQf7M0XFBKfcQCbebvTbnRjDi+Uf39dOWiMSd/MgUnuqbmrO1fhkLtzxjHDFvrq94XLCc/6DA5TrtBfKnQcn033ewemQEbrEdiOArzA/JENbJLRyKo6hrRPZ4nAFPja8lYWQBDIx2sxoVCQB3QNiLSd+FLBwext4F5wXsOxgUWdg8EI5vBvFZEHah+oemdw==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
  by BL3PR12MB6617.namprd12.prod.outlook.com (2603:10b6:208:38c::22) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.20; Tue, 25 Feb
- 2025 19:39:51 +0000
+ 2025 19:39:55 +0000
 Received: from CH3PR12MB8659.namprd12.prod.outlook.com
  ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
  ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8466.016; Tue, 25 Feb 2025
- 19:39:51 +0000
+ 19:39:54 +0000
 From: Jason Gunthorpe <jgg@nvidia.com>
 To: Alim Akhtar <alim.akhtar@samsung.com>,
 	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
@@ -90,91 +90,91 @@ Cc: Bagas Sanjaya <bagasdotme@gmail.com>,
 	patches@lists.linux.dev,
 	David Rientjes <rientjes@google.com>,
 	Matthew Wilcox <willy@infradead.org>
-Subject: [PATCH v3 05/23] iommu/pages: Remove the order argument to iommu_free_pages()
-Date: Tue, 25 Feb 2025 15:39:22 -0400
-Message-ID: <5-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+Subject: [PATCH v3 23/23] iommu/pages: Remove iommu_alloc_pages_node()
+Date: Tue, 25 Feb 2025 15:39:40 -0400
+Message-ID: <23-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
 In-Reply-To: <0-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
 References: 
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: YQZPR01CA0049.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:88::13) To CH3PR12MB8659.namprd12.prod.outlook.com
+X-ClientProxiedBy: YQZPR01CA0077.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c01:84::14) To CH3PR12MB8659.namprd12.prod.outlook.com
  (2603:10b6:610:17c::13)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|BL3PR12MB6617:EE_
-X-MS-Office365-Filtering-Correlation-Id: add4fb83-1f12-4eb0-a7e8-08dd55d427e9
+X-MS-Office365-Filtering-Correlation-Id: 40b1da6c-becd-4bd8-84d3-08dd55d42926
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xf1HzE4YTEaaYLeNx9p67SKIMKBgmxsdVmdkpX1l121ntQ2/SPOc7ieuxh5X?=
- =?us-ascii?Q?JdDKnlvnbE82VjLHY75Dnyy9DwzN6mml2DR9TUtT7PupSRuQLkH6Dj6cXZdd?=
- =?us-ascii?Q?tgVvLbRw4Mmrpo9CdtwcsqEsbEdy4CJMHjdbSxuLZKHS/mUlhCzTVYbQulh9?=
- =?us-ascii?Q?PU+BMNBET55KdSP/+H2izDNvxjX+QG5xwtdDFksSRg7jEAwkVGYaYtyQFk2Y?=
- =?us-ascii?Q?LOmcgeIWL7SC09t4B166EwSCeqw8uXc8FWxzrIcVxJHOsy85lzuXlH6DBqpd?=
- =?us-ascii?Q?fXp3VUSY59DVb/f5RBbeaMUxhznIcAWUOaIRGojxZnp9MlxZ7XZi+83opAp+?=
- =?us-ascii?Q?8ZBJpgvBmTQsw+aF+4QUgzk79p75tvCa1VaJpLMHOI6HRIkaxvBcaAFNv8va?=
- =?us-ascii?Q?kfuJr0lv8wiqJqDlvFfy+5F6vjMA1yMWPRCIko9avuGLdScL3ZBlo/fdZx9z?=
- =?us-ascii?Q?ZO8z0bmXmV3PaaN3giYT+4PlB+Tkp5OGlH87GsjzcfL+WgKWYd8mMhz5T8am?=
- =?us-ascii?Q?Li184ydd8xDxCpJrMrYBURbaaprAXrroWX2YtYC2s2PpZe0sXcNl4QrxCWNM?=
- =?us-ascii?Q?iLOnXeH8j6rLECF9EqA8On9hr7otV5CO4pBkBgJadJ0PbkMaYvuAialYqfcN?=
- =?us-ascii?Q?trb9+wRzCJV9ukRLX9Pr5aCwGSfYz6QjqHGM0T2zpe5r2JU6tzh0zqyDXIsP?=
- =?us-ascii?Q?sK2NqbLaIiswjxLMA82TAZzRyM3HCngrwoiJsZwuGL5nq4bY2c0uIsRdvbdw?=
- =?us-ascii?Q?rlv4ruDulMZ54lsWdWyfHxMxBwTicaIg4Eg15JSXPGlydPWC1tyhkzN4B5QP?=
- =?us-ascii?Q?j/xlB7lFvEX9y8slaoMI/L3K0FX5LZ4bzdskkwZ1KQ5qC/IK4bhZwRK/CFgm?=
- =?us-ascii?Q?A5poMQIaMTos3N8ILTe2m/x49WmFqGvfGMEci3aqZPsE3GMv5xnsUdtIKgA0?=
- =?us-ascii?Q?ItrV2zYIiFsf3UM2uxx5eFyqhp0LEJkNs8PQBclJa7YI9ZpOM7eIASUuZORo?=
- =?us-ascii?Q?W+eweQlOfez2W0UdI7O8dm+O4JZ4YXmhnwjrjdZFjBx2xi+KuFkUEcwrP5pS?=
- =?us-ascii?Q?AwzvBZHLIvJZCRB24XH5JlqI9whbqMTqPjS7h5sd2YqhLe8AGBz1uJ3WfWHo?=
- =?us-ascii?Q?hjH2A9ciuUy4G3P10qHCfHd4Zw+ReiUBwOW/BdnWzFroLeyl/0sIiSptecJ6?=
- =?us-ascii?Q?uoa8ySoP7uq92oDpyv0nzZtB4rqkCeqy+2mP9XIqkyhZWI0mADISvGon+lfz?=
- =?us-ascii?Q?2PGvNIViqUKtLuiyDcMMxUn25y+Lhhu72+r3ly6bzPnzzd6D6VDVY1DQ72dr?=
- =?us-ascii?Q?GlQbXKZjUTfqtdenyVTTwiv+sJ7HqO7JCITbTRqbBtinr42btc10KQAowEXV?=
- =?us-ascii?Q?j+wKpcpDwc8N/HAhy7DTnMuRnMN0APSmoX5xezD9qA+l+JuHmCacWbpd19Ey?=
- =?us-ascii?Q?y8k6zcnUkeM=3D?=
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?UqpE1DCb88aHo9EL2unkuicHS424J5RK9nQwcCJr9OhWoH6WjQYc8go4MIZi?=
+ =?us-ascii?Q?CzUcQrQjRGcbI5XzBUK2NJ+38bJUDRI9mEfiAIeYRcdHvlhInyB5qXKyIyq9?=
+ =?us-ascii?Q?06wI4EkYhiNSjitc0UakruHF8U1Gve6xVHNfavj6aBXRz3iKZ3pN8NdOLvkP?=
+ =?us-ascii?Q?uLKDEQPmT7eo5qg1fYd7Y6ckrEzAtPOUObvlYeXkX0/tfUKYUUoVO4BJYNk2?=
+ =?us-ascii?Q?IKwk7njXvS5MH7h+yj+Y5Limyun1k/eR2E4BXE0FYSL1AvDDayLc7WW1+Y+8?=
+ =?us-ascii?Q?5vOKiqHtsE0gcbCv69CZ6rmeGemxNbbT49zfuOFaQrd3KLXVRgrZix4D4blW?=
+ =?us-ascii?Q?0p7WnA4fjh7FN96j1PRU9rWD5TSrRHNZGWXJvEsKfmGeVg8Ps/9kY0aqA3w+?=
+ =?us-ascii?Q?HCwKeTayjIaFTxHgtIMBFGDmMwX92W1fYlVyTOMLTAvDMmdlfqqVM7LWdjmP?=
+ =?us-ascii?Q?0/Oe/dMCezeYro4j8m56KTsM8TAHHObqVl6/GY87kbZE5XanXzO1bwoCK7fj?=
+ =?us-ascii?Q?/AhjMubyJCkKVoPeRfAXw9E8kv10tZQHwWAiUie2kQ+nf0Uodzmt8Hm1yMoH?=
+ =?us-ascii?Q?Yii0udj3Ui35s2Nfh1gAO0vvoi1TSvYfpZDb5swADUvTkeGg4u7Daz+cPPbi?=
+ =?us-ascii?Q?6sHKvxoaOpNbPXhllh5at6k3lRkqyVb1swnTv2R2Os5K6ktG1T1RRVjyUuyk?=
+ =?us-ascii?Q?Wges7pAOfq0JgmmkZQRZkHKnK0iUfOPBPlb6gKSxvVykL+UFa/cRSc9mgMNL?=
+ =?us-ascii?Q?6RLwjS6u9GOF4fnYWNE15Nw0y7GJiyya8kKKYNjaF3nbxUhKd42svgCE/vsk?=
+ =?us-ascii?Q?3ZmuBoXa7nHjcajFr2zLOXcnJCW/JrJJCvTgzIWLI7iwNSHY3VD35bbO5yAZ?=
+ =?us-ascii?Q?oTDM0LXAox9xzEnegvDe7zTsdEoKSkxTQcpiqGpCPhkJXzSNR+V50NxZKCbR?=
+ =?us-ascii?Q?Ylmg0xG0sinOORf26H08jeewIi60alzHRRGrz2nJL1/XBrVYF/AWsAe6EHYc?=
+ =?us-ascii?Q?y7CZfL/VMFzaIW0Cy1C1cwncsnmXzIXXOgp1liFBeD87Rd4yFBniks9DQf17?=
+ =?us-ascii?Q?KepJm+j9QaWN6sNshDixer1BguDfU/6yOiMvxw8hYcMP0uTGrS4mNB41io57?=
+ =?us-ascii?Q?bIE/iecoevU+7V4Z1Mlt7q0LUm0iyZQ1tb353MG5IuyB5OwI19mgexQ9MA9A?=
+ =?us-ascii?Q?9/nYKnB4mvNmzBTwLbqbRfntTAIvkbP9B/jCJbkrX9lhPL/qZoxIj45b+rDm?=
+ =?us-ascii?Q?gLJgOEAjWXR/QUIj4rIST2yh4w4SuP64q0mq5+AHJYzXSUa0o1P0lGDk8/X7?=
+ =?us-ascii?Q?JBLpVZGNQZQOtyq1LnV0F7vYAzG00rZ7xJheJK98YmFctLyFzNeDDDgBvlWs?=
+ =?us-ascii?Q?EKA9uXzK+k6RF8TI9DTF5y8exc1y4i9knNDDzY6dWQUET+PYDsF7XqlKBt13?=
+ =?us-ascii?Q?6W6OzkLxd/E=3D?=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?0/AE2fed1ZQesE7FjlG64K9m9HVxO+to1RiXv/6z/durtGEDhxOiqjMCL8Rb?=
- =?us-ascii?Q?kGqMiBXSmXCOSIB4oCB0UoALjz+hnYzr83EHRtFo2hSP/1FUvfv/rlBJajA9?=
- =?us-ascii?Q?u8+bpVq9dqoRIyHmpziL8d64ktMUNEr24w6FxDBfMjB4/iLXEKJ+l4tqROcs?=
- =?us-ascii?Q?cySy5yKMKiIoQDc/Gm/npyzq1UMbt/5gKZtE7znX+uRxnbcwgXsgqtiXggI3?=
- =?us-ascii?Q?EtP6OemaXGTQUQWvII7pChSnSzUNt8W5dL14Crx34i422CmkyxHulBU4YO/u?=
- =?us-ascii?Q?TGP5fs8m3Vyuq+mcUeyb7dxSB7bJ2hHO2XTFn6itIDfFCwNlFSuAeT3adlM9?=
- =?us-ascii?Q?c11GYhxqWfyyDds8CKoDImO/v/GgF+UljPX9YRnqxzMP4+fiyMFYJhJFwmpg?=
- =?us-ascii?Q?iqzd4XAPcDWQqPMNEJP+hzc6Ku0EejoO3U677ux+6X5AoGELversP7KrDCzd?=
- =?us-ascii?Q?cSl+4hBsdn8HGHgfVg8UvoPttUjsGajOZJA5Rl2SxTnqZzpON48R9Trcrq/b?=
- =?us-ascii?Q?LYswZv6/k8xt5ZOfygZnqkEhakt7NWEQEYBKTz44qL76U2ud0byaP9529HKW?=
- =?us-ascii?Q?QZwC5YBuVIcYAF7rB1fCM2nd2Gv7ygkSdFGPTg7p4aQ3kufcHwg8EqUCVmdn?=
- =?us-ascii?Q?gNVqtjeJ/IgVSZyWWc4dSYD3vWuE5y/wxRz4Q3pm3Xr/bk4bEmLtV8ehkYcu?=
- =?us-ascii?Q?07LZTbKVhZqb2dz0MQ6xMqac6IsVwPM7F7gSi6BK+jA1m4gNAshZJVQ5soBT?=
- =?us-ascii?Q?T3rAJs5k0bsbzJzHbKaYjmD/qwGPd4i+zNqPzdWcEXSK3OqpdwA16YEwm7xG?=
- =?us-ascii?Q?FR8Ntpb+a688WibiXIvNBvf/gHCkR3OlmfO5QwnfGyEsHSuYfH8i/hsneSrW?=
- =?us-ascii?Q?0ahWj2piDKktdIge5MbZ7IwPkAXfzdgrrceAmZ10/XFDckdlzZpytyZOlvjy?=
- =?us-ascii?Q?M9j7H2Yx3N9eUOEF7tjVVzQrS7NbbM5dbFUqnt8QihGgqhWw5+jc/PXiqwYh?=
- =?us-ascii?Q?hsHxlxWcf+3pXTn95O0T4JGU7dTVEogkr+1zQ+jMVy1qR8yLhvuzCDlOUdL8?=
- =?us-ascii?Q?3qLzUwbLKu20hLaoV8/zYgCLDdN/5vwRtq9t6ZETNFbo4u/lFn3pkhrdsLBh?=
- =?us-ascii?Q?/qZNfliNr4qHw0CmG/TXwSFUajGoPGW0LTU4X2MHXt+wmjbIZIAxc4QUQB1U?=
- =?us-ascii?Q?36qSeS279QMXOxaqXZ1+FvrtBu6UM4qivy/9haQzJP0yx47h0CyeyxOcmhHb?=
- =?us-ascii?Q?dGr5e6VR7MF4NzF6SM9Bsf6K169tGPPyJtXukXlhwJHi4UrFHqBtMfiTG85A?=
- =?us-ascii?Q?vpgWONSr5fudBIsP9CzoQqgBVCXZj9nTkznmPAjs/tN2x7Jsg0yuuY11ZVQt?=
- =?us-ascii?Q?xmwK1U7OhcIJKTPTEdiknDl7BG3v5hZJOyBFfKeO1WYpfFsfd7qR0pIOuWOO?=
- =?us-ascii?Q?Wy6VQ+MTHtw/uM9ffus+2kocLd2e5gv+hZ3JXM4E+Hm0lcfa7lQSwxYuVk6n?=
- =?us-ascii?Q?FSm+w3llSRVaWq+IrZ6l3ZTiSGSYUvNP56+ZAba236LoW8TzhMx7EYJ6ldRB?=
- =?us-ascii?Q?TP372C4Wts51lYY8+iJcZjPfuQCQw7b+ChSUZkd+?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MYEcbgrOvgVrMrDD+BKgTa+BD/34zpFpSfg+EIKbXUbS1rYy0uY3R2IU4s5m?=
+ =?us-ascii?Q?Tag4YIdqwuMKMhY3afuAnNIVN+YT9vNHCwKgEdy331DBuS9ejTYLO8p6YTyC?=
+ =?us-ascii?Q?GkEVSP7ciYUKG1XboGBuZruXQhzQH0WEOU62+986xdlLsqHhhEZgM6qH/gNU?=
+ =?us-ascii?Q?PRDlyk8VQbaHmcbgeVm79n++V18vlRV2k/QyJ9SdiKGxvT6FDRj08bX8SYPL?=
+ =?us-ascii?Q?wT7Sfe9K+5yagrhdSdkdrhGiQEfUWsmhjsIl16cjw6j9A0tt4CvnNIy7FfMY?=
+ =?us-ascii?Q?yTK4/WUwpYcHqZdmBbPAMHKjOzj0K4x9PHYUUpDGOGmF9lJedFTSaIc4fNYx?=
+ =?us-ascii?Q?usbRjalonB5kDsCnJY6xHHpUcsMHIUX7HZY0DFAckUawBVrXKrVodOH3j+jw?=
+ =?us-ascii?Q?P/24yk3KNJb5OEuknGiMJjEpVztHC9HTNcjaqFrz8CFoDTq8vbydgw4sre7W?=
+ =?us-ascii?Q?OHryLkw/rOmKBcMD0H8hutlP15/My3AJzMd6o8BKBup3tW2gFfgqbic6JOcG?=
+ =?us-ascii?Q?fhXLM191AS2w8V7ol3ULpxhXGg/qQaKij0Xbwzwp/bmNSG9Oj16hsEXuhg10?=
+ =?us-ascii?Q?H9hpnPA65ZPftxzxMPaM139lUMxf6sGJcA8t2b3BtkYm7kpgoHNSKgQ+hO3k?=
+ =?us-ascii?Q?YybjnlWDi5de2YvmnQhTR48ekJmqAzttP+2XXDFN1cWTOx74Ks9bbvhW7MPL?=
+ =?us-ascii?Q?J14Eu4iCWJ3Kd+kPQFOctNLae6CIZXpUVrRX3OyOCVzOFKOKdU0/lvqsyv9r?=
+ =?us-ascii?Q?4FFaW0v8138POesbSNM9c9yG11bAnDjLP7/3NJvix59lezEGh+4tLzBS/RYC?=
+ =?us-ascii?Q?egAbNED5G4+W0MsCvaQxfqEKn2ZpDcEXsfqSJ7vmjbU3tfIho5qEly0A+Oen?=
+ =?us-ascii?Q?T2IuEjqSBmASqPzQUvKnTNEUP5+55g0wPpulrmx4IW8FAq6lQPi6gJIpFe7D?=
+ =?us-ascii?Q?K/fcO3LKOgNlrvl+aEEz8m2/WZ4U4B0Ho1U4snpYhtmaRA4PwThYES9k1dpF?=
+ =?us-ascii?Q?BZF0BxP9vXGklnscukj2YObY5VMNZ1P6UVhXG1gx0f8i3OkJyVSisif8brjX?=
+ =?us-ascii?Q?SsgYV9e/eRKcn1FoqtghDSdRdwQGzib/fUixzIdQPL4HXX8tYFPP+ui/xRvd?=
+ =?us-ascii?Q?ikVhlDwDbAVgGa35FfNfpkahBlgeH3xPO6c7wr5x9OM0KVOWZnyU0wwvWn7s?=
+ =?us-ascii?Q?VBS/82msyl85FRPoSeeV3SsaDjGL6VkLYusVFvMwaupCla0V5U/znySR774a?=
+ =?us-ascii?Q?dgICJBET8KOC3bIKCF4OojzsSbONsVcP2la8VnXtwjoSVfq5bdXmVNSNtJZw?=
+ =?us-ascii?Q?Hfre8d6KnvqwsACyiNM+pnnA0pPrcb1YOeNEKIwzLwLcL6/DHLJOcwWyRMRp?=
+ =?us-ascii?Q?mHR08TSENL0NJYr+Uly5UDSEw6D6IFZIWplFybh0NrPsjq20Lomj4SX8wjtc?=
+ =?us-ascii?Q?wOdKwGmbjQWcMa3xoKWF7sRWTqF+RQeAAW1Dyd9JEZy8SwN4oA4f/gP7pH00?=
+ =?us-ascii?Q?y/0S3+Gw+UO4A/d97/1+dch2nJOzep3S6ty6DW2v5jKesTvicaasEsVdmiHh?=
+ =?us-ascii?Q?aYLigdkg9c84Gsh6Q5S+JOro1hQhimn9qvLtnte0?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: add4fb83-1f12-4eb0-a7e8-08dd55d427e9
+X-MS-Exchange-CrossTenant-Network-Message-Id: 40b1da6c-becd-4bd8-84d3-08dd55d42926
 X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 19:39:45.0707
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 19:39:47.0423
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QHtsKmHm0D1HgUxcUHhOoCR412y3BZED8DxJuwIqiH6FaeLz+sJETCZlxO49FqcC
+X-MS-Exchange-CrossTenant-UserPrincipalName: j2+qEf+Zr55foSrC+FVtt8ldtBlWGgFwJDw2Dh2IZjDtKoTsyJV8m3rpYzItKXLo
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR12MB6617
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_114000_494265_43D42251 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20250225_114007_970309_ED538216 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,386 +189,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that we have a folio under the allocation iommu_free_pages() can know
-the order of the original allocation and do the correct thing to free it.
-
-The next patch will rename iommu_free_page() to iommu_free_pages() so we
-have naming consistency with iommu_alloc_pages_node().
+Intel is the only thing that uses this now, convert to the size versions,
+trying to avoid PAGE_SHIFT.
 
 Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 ---
- drivers/iommu/amd/init.c            | 28 +++++++++++-----------------
- drivers/iommu/amd/ppr.c             |  2 +-
- drivers/iommu/exynos-iommu.c        |  8 ++++----
- drivers/iommu/intel/irq_remapping.c |  4 ++--
- drivers/iommu/intel/pasid.c         |  3 +--
- drivers/iommu/intel/pasid.h         |  1 -
- drivers/iommu/intel/prq.c           |  4 ++--
- drivers/iommu/io-pgtable-arm.c      |  4 ++--
- drivers/iommu/io-pgtable-dart.c     | 10 ++++------
- drivers/iommu/iommu-pages.h         |  9 +++++----
- drivers/iommu/riscv/iommu.c         |  6 ++----
- drivers/iommu/sun50i-iommu.c        |  2 +-
- 12 files changed, 35 insertions(+), 46 deletions(-)
+ drivers/iommu/intel/iommu.h         |  7 +++----
+ drivers/iommu/intel/irq_remapping.c |  8 ++++----
+ drivers/iommu/intel/pasid.c         |  3 ++-
+ drivers/iommu/intel/prq.c           |  3 ++-
+ drivers/iommu/iommu-pages.h         | 16 ----------------
+ 5 files changed, 11 insertions(+), 26 deletions(-)
 
-diff --git a/drivers/iommu/amd/init.c b/drivers/iommu/amd/init.c
-index c5cd92edada061..f47ff0e0c75f4e 100644
---- a/drivers/iommu/amd/init.c
-+++ b/drivers/iommu/amd/init.c
-@@ -653,8 +653,7 @@ static inline int __init alloc_dev_table(struct amd_iommu_pci_seg *pci_seg)
+diff --git a/drivers/iommu/intel/iommu.h b/drivers/iommu/intel/iommu.h
+index dd980808998da9..1036ed0d899472 100644
+--- a/drivers/iommu/intel/iommu.h
++++ b/drivers/iommu/intel/iommu.h
+@@ -493,14 +493,13 @@ struct q_inval {
  
- static inline void free_dev_table(struct amd_iommu_pci_seg *pci_seg)
- {
--	iommu_free_pages(pci_seg->dev_table,
--			 get_order(pci_seg->dev_table_size));
-+	iommu_free_pages(pci_seg->dev_table);
- 	pci_seg->dev_table = NULL;
- }
+ /* Page Request Queue depth */
+ #define PRQ_ORDER	4
+-#define PRQ_RING_MASK	((0x1000 << PRQ_ORDER) - 0x20)
+-#define PRQ_DEPTH	((0x1000 << PRQ_ORDER) >> 5)
++#define PRQ_SIZE	(SZ_4K << PRQ_ORDER)
++#define PRQ_RING_MASK	(PRQ_SIZE - 0x20)
++#define PRQ_DEPTH	(PRQ_SIZE >> 5)
  
-@@ -671,8 +670,7 @@ static inline int __init alloc_rlookup_table(struct amd_iommu_pci_seg *pci_seg)
+ struct dmar_pci_notify_info;
  
- static inline void free_rlookup_table(struct amd_iommu_pci_seg *pci_seg)
- {
--	iommu_free_pages(pci_seg->rlookup_table,
--			 get_order(pci_seg->rlookup_table_size));
-+	iommu_free_pages(pci_seg->rlookup_table);
- 	pci_seg->rlookup_table = NULL;
- }
- 
-@@ -691,8 +689,7 @@ static inline int __init alloc_irq_lookup_table(struct amd_iommu_pci_seg *pci_se
- static inline void free_irq_lookup_table(struct amd_iommu_pci_seg *pci_seg)
- {
- 	kmemleak_free(pci_seg->irq_lookup_table);
--	iommu_free_pages(pci_seg->irq_lookup_table,
--			 get_order(pci_seg->rlookup_table_size));
-+	iommu_free_pages(pci_seg->irq_lookup_table);
- 	pci_seg->irq_lookup_table = NULL;
- }
- 
-@@ -716,8 +713,7 @@ static int __init alloc_alias_table(struct amd_iommu_pci_seg *pci_seg)
- 
- static void __init free_alias_table(struct amd_iommu_pci_seg *pci_seg)
- {
--	iommu_free_pages(pci_seg->alias_table,
--			 get_order(pci_seg->alias_table_size));
-+	iommu_free_pages(pci_seg->alias_table);
- 	pci_seg->alias_table = NULL;
- }
- 
-@@ -826,7 +822,7 @@ static void iommu_disable_command_buffer(struct amd_iommu *iommu)
- 
- static void __init free_command_buffer(struct amd_iommu *iommu)
- {
--	iommu_free_pages(iommu->cmd_buf, get_order(CMD_BUFFER_SIZE));
-+	iommu_free_pages(iommu->cmd_buf);
- }
- 
- void *__init iommu_alloc_4k_pages(struct amd_iommu *iommu, gfp_t gfp,
-@@ -838,7 +834,7 @@ void *__init iommu_alloc_4k_pages(struct amd_iommu *iommu, gfp_t gfp,
- 	if (buf &&
- 	    check_feature(FEATURE_SNP) &&
- 	    set_memory_4k((unsigned long)buf, (1 << order))) {
--		iommu_free_pages(buf, order);
-+		iommu_free_pages(buf);
- 		buf = NULL;
- 	}
- 
-@@ -882,14 +878,14 @@ static void iommu_disable_event_buffer(struct amd_iommu *iommu)
- 
- static void __init free_event_buffer(struct amd_iommu *iommu)
- {
--	iommu_free_pages(iommu->evt_buf, get_order(EVT_BUFFER_SIZE));
-+	iommu_free_pages(iommu->evt_buf);
- }
- 
- static void free_ga_log(struct amd_iommu *iommu)
- {
  #ifdef CONFIG_IRQ_REMAP
--	iommu_free_pages(iommu->ga_log, get_order(GA_LOG_SIZE));
--	iommu_free_pages(iommu->ga_log_tail, get_order(8));
-+	iommu_free_pages(iommu->ga_log);
-+	iommu_free_pages(iommu->ga_log_tail);
- #endif
- }
- 
-@@ -2781,8 +2777,7 @@ static void early_enable_iommus(void)
- 
- 		for_each_pci_segment(pci_seg) {
- 			if (pci_seg->old_dev_tbl_cpy != NULL) {
--				iommu_free_pages(pci_seg->old_dev_tbl_cpy,
--						 get_order(pci_seg->dev_table_size));
-+				iommu_free_pages(pci_seg->old_dev_tbl_cpy);
- 				pci_seg->old_dev_tbl_cpy = NULL;
- 			}
- 		}
-@@ -2795,8 +2790,7 @@ static void early_enable_iommus(void)
- 		pr_info("Copied DEV table from previous kernel.\n");
- 
- 		for_each_pci_segment(pci_seg) {
--			iommu_free_pages(pci_seg->dev_table,
--					 get_order(pci_seg->dev_table_size));
-+			iommu_free_pages(pci_seg->dev_table);
- 			pci_seg->dev_table = pci_seg->old_dev_tbl_cpy;
- 		}
- 
-diff --git a/drivers/iommu/amd/ppr.c b/drivers/iommu/amd/ppr.c
-index 7c67d69f0b8cad..e6767c057d01fa 100644
---- a/drivers/iommu/amd/ppr.c
-+++ b/drivers/iommu/amd/ppr.c
-@@ -48,7 +48,7 @@ void amd_iommu_enable_ppr_log(struct amd_iommu *iommu)
- 
- void __init amd_iommu_free_ppr_log(struct amd_iommu *iommu)
- {
--	iommu_free_pages(iommu->ppr_log, get_order(PPR_LOG_SIZE));
-+	iommu_free_pages(iommu->ppr_log);
- }
- 
- /*
-diff --git a/drivers/iommu/exynos-iommu.c b/drivers/iommu/exynos-iommu.c
-index c666ecab955d21..1019e08b43b71c 100644
---- a/drivers/iommu/exynos-iommu.c
-+++ b/drivers/iommu/exynos-iommu.c
-@@ -932,9 +932,9 @@ static struct iommu_domain *exynos_iommu_domain_alloc_paging(struct device *dev)
- 	return &domain->domain;
- 
- err_lv2ent:
--	iommu_free_pages(domain->lv2entcnt, 1);
-+	iommu_free_pages(domain->lv2entcnt);
- err_counter:
--	iommu_free_pages(domain->pgtable, 2);
-+	iommu_free_pages(domain->pgtable);
- err_pgtable:
- 	kfree(domain);
- 	return NULL;
-@@ -975,8 +975,8 @@ static void exynos_iommu_domain_free(struct iommu_domain *iommu_domain)
- 					phys_to_virt(base));
- 		}
- 
--	iommu_free_pages(domain->pgtable, 2);
--	iommu_free_pages(domain->lv2entcnt, 1);
-+	iommu_free_pages(domain->pgtable);
-+	iommu_free_pages(domain->lv2entcnt);
- 	kfree(domain);
- }
+-/* 1MB - maximum possible interrupt remapping table size */
+-#define INTR_REMAP_PAGE_ORDER	8
+ #define INTR_REMAP_TABLE_REG_SIZE	0xf
+ #define INTR_REMAP_TABLE_REG_SIZE_MASK  0xf
  
 diff --git a/drivers/iommu/intel/irq_remapping.c b/drivers/iommu/intel/irq_remapping.c
-index ad795c772f21b5..d6b796f8f100cd 100644
+index d6b796f8f100cd..fdaa508c17d140 100644
 --- a/drivers/iommu/intel/irq_remapping.c
 +++ b/drivers/iommu/intel/irq_remapping.c
-@@ -620,7 +620,7 @@ static int intel_setup_irq_remapping(struct intel_iommu *iommu)
- out_free_bitmap:
- 	bitmap_free(bitmap);
- out_free_pages:
--	iommu_free_pages(ir_table_base, INTR_REMAP_PAGE_ORDER);
-+	iommu_free_pages(ir_table_base);
- out_free_table:
- 	kfree(ir_table);
+@@ -538,11 +538,11 @@ static int intel_setup_irq_remapping(struct intel_iommu *iommu)
+ 	if (!ir_table)
+ 		return -ENOMEM;
  
-@@ -641,7 +641,7 @@ static void intel_teardown_irq_remapping(struct intel_iommu *iommu)
- 			irq_domain_free_fwnode(fn);
- 			iommu->ir_domain = NULL;
- 		}
--		iommu_free_pages(iommu->ir_table->base, INTR_REMAP_PAGE_ORDER);
-+		iommu_free_pages(iommu->ir_table->base);
- 		bitmap_free(iommu->ir_table->bitmap);
- 		kfree(iommu->ir_table);
- 		iommu->ir_table = NULL;
+-	ir_table_base = iommu_alloc_pages_node(iommu->node, GFP_KERNEL,
+-					       INTR_REMAP_PAGE_ORDER);
++	/* 1MB - maximum possible interrupt remapping table size */
++	ir_table_base =
++		iommu_alloc_pages_node_sz(iommu->node, GFP_KERNEL, SZ_1M);
+ 	if (!ir_table_base) {
+-		pr_err("IR%d: failed to allocate pages of order %d\n",
+-		       iommu->seq_id, INTR_REMAP_PAGE_ORDER);
++		pr_err("IR%d: failed to allocate 1M of pages\n", iommu->seq_id);
+ 		goto out_free_table;
+ 	}
+ 
 diff --git a/drivers/iommu/intel/pasid.c b/drivers/iommu/intel/pasid.c
-index fb59a7d35958f5..00da94b1c4c907 100644
+index 2b6e0706d76d62..3afbad4eb46303 100644
 --- a/drivers/iommu/intel/pasid.c
 +++ b/drivers/iommu/intel/pasid.c
-@@ -67,7 +67,6 @@ int intel_pasid_alloc_table(struct device *dev)
- 	}
+@@ -60,7 +60,8 @@ int intel_pasid_alloc_table(struct device *dev)
  
- 	pasid_table->table = dir;
--	pasid_table->order = order;
- 	pasid_table->max_pasid = 1 << (order + PAGE_SHIFT + 3);
- 	info->pasid_table = pasid_table;
- 
-@@ -100,7 +99,7 @@ void intel_pasid_free_table(struct device *dev)
- 		iommu_free_page(table);
- 	}
- 
--	iommu_free_pages(pasid_table->table, pasid_table->order);
-+	iommu_free_pages(pasid_table->table);
- 	kfree(pasid_table);
- }
- 
-diff --git a/drivers/iommu/intel/pasid.h b/drivers/iommu/intel/pasid.h
-index 668d8ece6b143c..fd0fd1a0df84cc 100644
---- a/drivers/iommu/intel/pasid.h
-+++ b/drivers/iommu/intel/pasid.h
-@@ -47,7 +47,6 @@ struct pasid_entry {
- /* The representative of a PASID table */
- struct pasid_table {
- 	void			*table;		/* pasid table pointer */
--	int			order;		/* page order of pasid table */
- 	u32			max_pasid;	/* max pasid */
- };
- 
+ 	size = max_pasid >> (PASID_PDE_SHIFT - 3);
+ 	order = size ? get_order(size) : 0;
+-	dir = iommu_alloc_pages_node(info->iommu->node, GFP_KERNEL, order);
++	dir = iommu_alloc_pages_node_sz(info->iommu->node, GFP_KERNEL,
++					1 << (order + PAGE_SHIFT));
+ 	if (!dir) {
+ 		kfree(pasid_table);
+ 		return -ENOMEM;
 diff --git a/drivers/iommu/intel/prq.c b/drivers/iommu/intel/prq.c
-index c2d792db52c3e2..01ecafed31453c 100644
+index 01ecafed31453c..0f8c121a8b3f9d 100644
 --- a/drivers/iommu/intel/prq.c
 +++ b/drivers/iommu/intel/prq.c
-@@ -338,7 +338,7 @@ int intel_iommu_enable_prq(struct intel_iommu *iommu)
- 	dmar_free_hwirq(irq);
- 	iommu->pr_irq = 0;
- free_prq:
--	iommu_free_pages(iommu->prq, PRQ_ORDER);
-+	iommu_free_pages(iommu->prq);
- 	iommu->prq = NULL;
+@@ -288,7 +288,8 @@ int intel_iommu_enable_prq(struct intel_iommu *iommu)
+ 	struct iopf_queue *iopfq;
+ 	int irq, ret;
  
- 	return ret;
-@@ -361,7 +361,7 @@ int intel_iommu_finish_prq(struct intel_iommu *iommu)
- 		iommu->iopf_queue = NULL;
- 	}
- 
--	iommu_free_pages(iommu->prq, PRQ_ORDER);
-+	iommu_free_pages(iommu->prq);
- 	iommu->prq = NULL;
- 
- 	return 0;
-diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-index 7632c80edea63a..62df2528d020b2 100644
---- a/drivers/iommu/io-pgtable-arm.c
-+++ b/drivers/iommu/io-pgtable-arm.c
-@@ -300,7 +300,7 @@ static void *__arm_lpae_alloc_pages(size_t size, gfp_t gfp,
- 	if (cfg->free)
- 		cfg->free(cookie, pages, size);
- 	else
--		iommu_free_pages(pages, order);
-+		iommu_free_pages(pages);
- 
- 	return NULL;
- }
-@@ -316,7 +316,7 @@ static void __arm_lpae_free_pages(void *pages, size_t size,
- 	if (cfg->free)
- 		cfg->free(cookie, pages, size);
- 	else
--		iommu_free_pages(pages, get_order(size));
-+		iommu_free_pages(pages);
- }
- 
- static void __arm_lpae_sync_pte(arm_lpae_iopte *ptep, int num_entries,
-diff --git a/drivers/iommu/io-pgtable-dart.c b/drivers/iommu/io-pgtable-dart.c
-index c004640640ee50..7efcaea0bd5c86 100644
---- a/drivers/iommu/io-pgtable-dart.c
-+++ b/drivers/iommu/io-pgtable-dart.c
-@@ -262,7 +262,7 @@ static int dart_map_pages(struct io_pgtable_ops *ops, unsigned long iova,
- 
- 		pte = dart_install_table(cptep, ptep, 0, data);
- 		if (pte)
--			iommu_free_pages(cptep, get_order(tblsz));
-+			iommu_free_pages(cptep);
- 
- 		/* L2 table is present (now) */
- 		pte = READ_ONCE(*ptep);
-@@ -423,8 +423,7 @@ apple_dart_alloc_pgtable(struct io_pgtable_cfg *cfg, void *cookie)
- 
- out_free_data:
- 	while (--i >= 0) {
--		iommu_free_pages(data->pgd[i],
--				 get_order(DART_GRANULE(data)));
-+		iommu_free_pages(data->pgd[i]);
- 	}
- 	kfree(data);
- 	return NULL;
-@@ -433,7 +432,6 @@ apple_dart_alloc_pgtable(struct io_pgtable_cfg *cfg, void *cookie)
- static void apple_dart_free_pgtable(struct io_pgtable *iop)
- {
- 	struct dart_io_pgtable *data = io_pgtable_to_data(iop);
--	int order = get_order(DART_GRANULE(data));
- 	dart_iopte *ptep, *end;
- 	int i;
- 
-@@ -445,9 +443,9 @@ static void apple_dart_free_pgtable(struct io_pgtable *iop)
- 			dart_iopte pte = *ptep++;
- 
- 			if (pte)
--				iommu_free_pages(iopte_deref(pte, data), order);
-+				iommu_free_pages(iopte_deref(pte, data));
- 		}
--		iommu_free_pages(data->pgd[i], order);
-+		iommu_free_pages(data->pgd[i]);
- 	}
- 
- 	kfree(data);
+-	iommu->prq = iommu_alloc_pages_node(iommu->node, GFP_KERNEL, PRQ_ORDER);
++	iommu->prq =
++		iommu_alloc_pages_node_sz(iommu->node, GFP_KERNEL, PRQ_SIZE);
+ 	if (!iommu->prq) {
+ 		pr_warn("IOMMU: %s: Failed to allocate page request queue\n",
+ 			iommu->name);
 diff --git a/drivers/iommu/iommu-pages.h b/drivers/iommu/iommu-pages.h
-index 26b91940bdc146..88587da1782b94 100644
+index 7ece83bb0f54bb..b3af2813ed0ced 100644
 --- a/drivers/iommu/iommu-pages.h
 +++ b/drivers/iommu/iommu-pages.h
-@@ -105,11 +105,12 @@ static inline void *iommu_alloc_page(gfp_t gfp)
+@@ -84,22 +84,6 @@ static inline bool iommu_pages_list_empty(struct iommu_pages_list *list)
+ 	return list_empty(&list->pages);
  }
  
- /**
-- * iommu_free_pages - free page of a given order
-+ * iommu_free_pages - free pages
-  * @virt: virtual address of the page to be freed.
+-/**
+- * iommu_alloc_pages_node - Allocate a zeroed page of a given order from
+- *                          specific NUMA node
+- * @nid: memory NUMA node id
+- * @gfp: buddy allocator flags
 - * @order: page order
-+ *
-+ * The page must have have been allocated by iommu_alloc_pages_node()
-  */
--static inline void iommu_free_pages(void *virt, int order)
-+static inline void iommu_free_pages(void *virt)
- {
- 	struct page *page;
- 
-@@ -127,7 +128,7 @@ static inline void iommu_free_pages(void *virt, int order)
-  */
- static inline void iommu_free_page(void *virt)
- {
--	iommu_free_pages(virt, 0);
-+	iommu_free_pages(virt);
- }
- 
+- *
+- * Returns the virtual address of the allocated page.
+- * Prefer to use iommu_alloc_pages_node_lg2()
+- */
+-static inline void *iommu_alloc_pages_node(int nid, gfp_t gfp,
+-					   unsigned int order)
+-{
+-	return iommu_alloc_pages_node_sz(nid, gfp, 1 << (order + PAGE_SHIFT));
+-}
+-
  /**
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index 8f049d4a0e2cb8..1868468d018a28 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -48,14 +48,13 @@ static DEFINE_IDA(riscv_iommu_pscids);
- /* Device resource-managed allocations */
- struct riscv_iommu_devres {
- 	void *addr;
--	int order;
- };
- 
- static void riscv_iommu_devres_pages_release(struct device *dev, void *res)
- {
- 	struct riscv_iommu_devres *devres = res;
- 
--	iommu_free_pages(devres->addr, devres->order);
-+	iommu_free_pages(devres->addr);
- }
- 
- static int riscv_iommu_devres_pages_match(struct device *dev, void *res, void *p)
-@@ -80,12 +79,11 @@ static void *riscv_iommu_get_pages(struct riscv_iommu_device *iommu, int order)
- 			      sizeof(struct riscv_iommu_devres), GFP_KERNEL);
- 
- 	if (unlikely(!devres)) {
--		iommu_free_pages(addr, order);
-+		iommu_free_pages(addr);
- 		return NULL;
- 	}
- 
- 	devres->addr = addr;
--	devres->order = order;
- 
- 	devres_add(iommu->dev, devres);
- 
-diff --git a/drivers/iommu/sun50i-iommu.c b/drivers/iommu/sun50i-iommu.c
-index 8d8f11854676c0..6385560dbc3fb0 100644
---- a/drivers/iommu/sun50i-iommu.c
-+++ b/drivers/iommu/sun50i-iommu.c
-@@ -713,7 +713,7 @@ static void sun50i_iommu_domain_free(struct iommu_domain *domain)
- {
- 	struct sun50i_iommu_domain *sun50i_domain = to_sun50i_domain(domain);
- 
--	iommu_free_pages(sun50i_domain->dt, get_order(DT_SIZE));
-+	iommu_free_pages(sun50i_domain->dt);
- 	sun50i_domain->dt = NULL;
- 
- 	kfree(sun50i_domain);
+  * iommu_alloc_pages_sz - Allocate a zeroed page of a given size from
+  *                          specific NUMA node
 -- 
 2.43.0
 
