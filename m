@@ -4,90 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12D7EC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 11:12:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0AF9C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 11:13:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lw7LGz5u4+UY3MSVtdaDIcTdVd1t9SjnuxeMySHbeIw=; b=cIAT/Ll5Bvq/NK4nEku9lkOuFC
-	d626beR2F6zzIX0V1psTKnwT88WfRXlpW3KTQAdw7WWlUAebZQI+NgJIGH1uV9jiVO3t8NHyJZtpW
-	MxTy+HegEo7vfIilIizdNxXqbhghHIdM3KO4ZVH7wAJWaD8VzNaKexXA9OP+174YSSm0IF+1d9F/e
-	cX2/S13m0/VBGUNdmZkiyyohSBHcgN+Come12RGerAo1jegFVaxV1I/p0xYxxdfVTb1cfvf0t7psD
-	FQAsEl6A2EScAHQAn9jyxKnjx6cB33i26Jv35ywwiLmwfSekh+c/8pJmRTDH/pd1YvFLeB/b0GjwM
-	UrSo0lZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GequlyylXnIqG4LtGD84B3VsVCx7KNiPZUld/TTZp8E=; b=rZL7Q8AzGcQZfRkk8QxTeELhsk
+	h6IOQKgDsK64Y2dkDxmuevd6NlqWijuyMANS7vy9chtx5mZpEgLn23idfX0Bc9z7xvgPF1Cqu6ImT
+	WaYbfTjUPAb3n2ooGotUTdufQBZHzAgsYxbJJjneC1Wn1GMGDMH7HdjeBFYgufTcx6R0uBmJgi4f4
+	RLtAJzhm1gUoQqPXetOuHqD6u4aW2NKs8Z19OSi6hVRjrMTRCtWcWDUTQ4wtMPq1nf8EBkTD9gl3j
+	UmJhV0CwyASFcvY9jSF+/W0VhZXYtwQBSSgJ2IcznfT5Rdno0+7bX80DvmBBzVZ11uDk3eaEB6TuN
+	pRk5JP9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmsr4-0000000Gyl0-2xvb;
-	Tue, 25 Feb 2025 11:12:02 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1tmssb-0000000Gz4W-32yG;
+	Tue, 25 Feb 2025 11:13:37 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmsBL-0000000GpTZ-0Hh5
+	id 1tmsBu-0000000Gpd8-3Do4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 10:28:57 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-439846bc7eeso33754195e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 02:28:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1740479333; x=1741084133; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=lw7LGz5u4+UY3MSVtdaDIcTdVd1t9SjnuxeMySHbeIw=;
-        b=rBz9MqDJmQUfA3VUZ9QYAE9FAjVGrPAWafNEKmjLNNPNWyDZVm9DBhYN7qHzfNde6F
-         XgkDAIJGGzRN3Oqifdf1eXUfv9P50VF5fE84egq1bzyAh1+CyEWvkuC7m1RGJet7/j+4
-         50PYGUTGq6YpXBp2FmFyNxb5tYTT+yBKKxvol/SqCXKbf8FqYfmEDp8VBbXCfSuf+K66
-         6F3+uPfULfL4iloXqA9dGydL/U804eBqm4c39B9MNArcuFHHkqt/uuQ8eaXHkk6b1CPK
-         hYH5bPpiDF3mVxLkOJlmzd1MCmiCEMwtPD8EaoH8MAnO9McFiSB35ueu62vPoK+7nVSd
-         bD8Q==
+	Tue, 25 Feb 2025 10:29:32 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51P8TUp5020238
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 10:29:30 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	GequlyylXnIqG4LtGD84B3VsVCx7KNiPZUld/TTZp8E=; b=mce3Anb9rvwWfev4
+	HB80HiedQmNlC24nEJXU3b4s6phbsqDnfsk91jfq0SUQMoodrT5lgGqK7OW8tLXN
+	OE7rUHnif0PRQJXyl8ezdU1jzxM6gcFEXffO6GeTbRcGr1+pDeciwjvt1X4OvhRk
+	LcYeyZCJQVbb9VcbSUc1ezMTXwoIaK+bKo+qTZtxxh5KIl2YPa/owByu9YXDYLzF
+	QYKjbG5m6dxM5A9q5uzhXD/s8xaiivbJ8YIoHeqlBOo1JBO2y3bU9OifYVrjbhqJ
+	Bu4WcQGYo4kLyQ7B592uVpcN1H6d3WhUF0U1qomygrnco4dLtNVqq23nrUPgcZf8
+	+YmIiA==
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44y6t2rd4a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 10:29:30 +0000 (GMT)
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-6e66ba99599so10285196d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 02:29:29 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740479333; x=1741084133;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lw7LGz5u4+UY3MSVtdaDIcTdVd1t9SjnuxeMySHbeIw=;
-        b=IHOrLJ6pFYXL6SjhdB3wOtD0AvdPV/uAFckK4IQIXc0VZXebnog+VyjakE6dz1cDi6
-         WxDQJZ9NbRxfVh5ow7rJa0lSzG+DwtfZv7PYUw6oOSy8YNVokaZCbdghUxQ0j/PTzavI
-         8o2BAdBlZNJQ3EiMbFIJTiPZEUhZs7+LOYt5vIWQDiloJfV+n1o/Il8peE0jhrlZSJCp
-         62ktTESud+1NRIYYOjMferNePrZAETTp/ypqBhod/eZLB7ajxz4/fUuUomh57iiLiq61
-         RoGYXBeS3i7s9M8gAOxWVrs/gaN18a/k5dT1/7LP8KCcJshClkrqqlGWbxKm6wyN9JRd
-         UurA==
-X-Forwarded-Encrypted: i=1; AJvYcCV6WiMLFwegqndoUt9SxTGmVaCOFIhyIWIWT7FTp0ujj6J2G1rj+phUShs2gWQK01dirYZOoiVP01kwKbcI/g02@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2nJJy7/zMw5a1qJSDZHQGkpXalhklwlbgGMeOxf81QePMJgcP
-	9NmrMvY5/vdDw+M2TKXjbbfjsPZIM4jKZPs8Ruhu7cHDnjeyjdKLiP0WwO7ZD1nJqmY6scfu93d
-	L
-X-Gm-Gg: ASbGncuCOCPCJ13AeuJ8UAog8iMRCQJBdaoH7BrsLn0kTB/a3D/obYl+5JqnYAa2+DJ
-	qkzPnIjsBoZMmlOEaySddWqm7qzW3jXe9QZW3LIjVZgsidbN9DrJm/jSfpdxu/RFlZHwv1DCEFr
-	WcRTdgCLp7fLCVwME910GNK+xK3017wpP47ZlYzKQGFlGpoXuaIWe18axqU2Bo62TIyh+HL778u
-	5A7gC2O3qOmzRlhHT0o1r+o2/8Bapoh4W/Ug2qQ8ljhinvnqPovrlZRJCG96bxVCzFFH4EpkJ0S
-	4BhjylsIBQs2j1CKBBQjdQ==
-X-Google-Smtp-Source: AGHT+IEIzE6LVOdzTaiF/XQxe5YVoLSwzJB4+evEnTKWGqEM97O2xxmk4cpePWYkQ5BISMx7dPcrxA==
-X-Received: by 2002:adf:ea8f:0:b0:388:da10:ff13 with SMTP id ffacd0b85a97d-38f6e95b41dmr13202225f8f.21.1740479333083;
-        Tue, 25 Feb 2025 02:28:53 -0800 (PST)
-Received: from localhost ([2001:4091:a245:8327:7bba:546d:aa63:621e])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-390cd8e7233sm1802184f8f.66.2025.02.25.02.28.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Feb 2025 02:28:52 -0800 (PST)
-Date: Tue, 25 Feb 2025 11:28:51 +0100
-From: Markus Schneider-Pargmann <msp@baylibre.com>
-To: Judith Mendez <jm@ti.com>
-Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Tero Kristo <kristo@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Hari Nagalla <hnagalla@ti.com>
-Subject: Re: [PATCH 0/3] arm64: dts: ti: k3-am62a/p: Add r5fss nodes
-Message-ID: <qlqxmqluqrw36bkjaa7efcsk6cinyr2rxvznfhz6dopeu67dsf@w4lkuq65uwno>
-References: <20250122-topic-dt-updates-am62-wkup-v6-13-v1-0-f74835b91da9@baylibre.com>
- <c81ccd05-4fb7-4ec0-8cc0-c59ac4dff91e@ti.com>
+        d=1e100.net; s=20230601; t=1740479369; x=1741084169;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=GequlyylXnIqG4LtGD84B3VsVCx7KNiPZUld/TTZp8E=;
+        b=cRtiX3+rWVDMO1HYX5aq49Xz8crlfIgDR2cF26Ycn2yJiR2rbsc0ZXjRxkZlScKSNh
+         vmrlBtmomP96nsCpsq03WtEdQEy6oHJf3E2uvKuUwwHceyBgAtuXxnUSj4q7pnHr8P3V
+         SuIPIxS2N5+ekq3YtFDncVjzU8h0me7HE9U0Exyar6ML6ZeOXtf1EO54U1BoKlWv2V+X
+         WW3FinhMGYkSDLNO05uhFIwLNb24q0cZeqXA6U9wDoobBzIku9jOvPACwUJ8g9mUFEYs
+         hc5WCHWucaocP1q87qXSLu759TPheIwFvXIdxJRIjlQ4kKhY+2h3OiQS62xLvLstuyVR
+         vdCA==
+X-Gm-Message-State: AOJu0YwaBJmJu3265XjSKQJoallH/8K5fV7OwHkG7ZjVPfkPUHcmJAMV
+	DMd2ZGStcK5xs/BneW4Kjht5EbzsUutwU4kotHUz9Kv8LqcL2Q2eSOnf00FzaI+sADcbvu39H+k
+	/iaAs8I+4NjjRyuMSavByyO25vH96eBTCY60bBre52atcx/86mFEN+IfJcrlSLYXLxLAMfBgcYg
+	==
+X-Gm-Gg: ASbGnctk8xCclOID8kgt/8NHdISgTk7FHkG0RZW5OhHyJgE3b1brjqRgfcWg5hmO3Z6
+	uVj8ecvPVX9fU3BpTiFNdDTt+J5q4Xezjt9CIyMYeoPwUOq4ReWMXFTgFDSt3i4HwR55V/GkvLs
+	xt68s36VPy1meD4QlYA5ZfwlaKZKFoKjLrMT2m1W81qoosajqsrEmzkoI//agJ/AwgSCYy9Sn2u
+	jKl6cpCKWOb5OhlurXDfHw7UK+jWteIoGvAkSrABSoQlrFcAePPu7rLReIOVGNOzqxKzvRySUUU
+	imdV2n7mDfsBHmc7zfMrD+jsKtATyC9VTa6dd129Wf1B7HOF/iRD90dNO3R2cKIo+MZijQ==
+X-Received: by 2002:a05:6214:4105:b0:6e6:68df:6052 with SMTP id 6a1803df08f44-6e6ae84f58fmr81439756d6.5.1740479368537;
+        Tue, 25 Feb 2025 02:29:28 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHn3RkTQaD2JXSuUMFzGjX6e1+EnlYdi9qDfqQpXuA2RsXKEk2lOILqYaECeRfVX82dBJcTAg==
+X-Received: by 2002:a05:6214:4105:b0:6e6:68df:6052 with SMTP id 6a1803df08f44-6e6ae84f58fmr81439636d6.5.1740479368132;
+        Tue, 25 Feb 2025 02:29:28 -0800 (PST)
+Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e460d1bcdcsm1009166a12.61.2025.02.25.02.29.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 25 Feb 2025 02:29:26 -0800 (PST)
+Message-ID: <466134a8-439a-4029-af2f-023a8349f048@oss.qualcomm.com>
+Date: Tue, 25 Feb 2025 11:29:25 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="obza7ftg5kvgvlah"
-Content-Disposition: inline
-In-Reply-To: <c81ccd05-4fb7-4ec0-8cc0-c59ac4dff91e@ti.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: defconfig: enable Qualcomm IRIS & VIDEOCC_8550 as
+ module
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org
+References: <20250225-topic-sm8x50-upstream-iris-defconfig-v1-1-8a17e2e193d9@linaro.org>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20250225-topic-sm8x50-upstream-iris-defconfig-v1-1-8a17e2e193d9@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: nTAA8-4-CrdId7GNPu02wLTdbXtrkIOi
+X-Proofpoint-GUID: nTAA8-4-CrdId7GNPu02wLTdbXtrkIOi
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-25_03,2025-02-24_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 suspectscore=0
+ spamscore=0 priorityscore=1501 mlxscore=0 phishscore=0 malwarescore=0
+ adultscore=0 bulkscore=0 lowpriorityscore=0 impostorscore=0
+ mlxlogscore=912 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2502100000 definitions=main-2502250073
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_022855_113542_BE6CFC66 
-X-CRM114-Status: GOOD (  18.75  )
+X-CRM114-CacheID: sfid-20250225_022930_816335_1572C7E3 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,51 +120,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 25.02.2025 10:10 AM, Neil Armstrong wrote:
+> In order to support the Qualcomm IRIS driver on the Qualcomm SM8550
+> platform, enable the IRIS and the VIDEOCC_8550 dependency as modules.
+> 
+> Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
+> ---
 
---obza7ftg5kvgvlah
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 0/3] arm64: dts: ti: k3-am62a/p: Add r5fss nodes
-MIME-Version: 1.0
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-Hi Judith,
-
-On Mon, Feb 24, 2025 at 09:06:56AM -0600, Judith Mendez wrote:
-> Hi Markus,
->=20
-> On 1/22/25 3:54 AM, Markus Schneider-Pargmann wrote:
-> > Hi,
-> >=20
-> > am62p-wakeup already has the r5fss node defined, but it is currently
-> > missing from the am62a-wakeup domain in the devicetree. This is added as
-> > part of the series.
-> >=20
-> > For am62a and am62p starter kit boards the r5fss memory region is added
-> > and referenced for the r5fss core 0 node.
->=20
->=20
-> This has already been sent here:
-> https://lore.kernel.org/linux-devicetree/20250210221530.1234009-1-jm@ti.c=
-om/
-
-yes, I saw that recently. Could you please cc me on the next version?
-
-Thanks!
-
-Best
-Markus
-
---obza7ftg5kvgvlah
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTd8KHufh7XoFiu4kEkjLTi1BWuPwUCZ72bXgAKCRAkjLTi1BWu
-P3ayAQCmje7sVfMPAH4ZyOoLuKscrkF/LVOMHgeJryGd7sabvwD/Z4OE3BQ8OMVR
-Z4ksn1XTyKXHDVVnCnaiIwLS83cpoAU=
-=qRs/
------END PGP SIGNATURE-----
-
---obza7ftg5kvgvlah--
+Konrad
 
