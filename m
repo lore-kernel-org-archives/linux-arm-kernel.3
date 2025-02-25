@@ -4,68 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98DDEC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 09:26:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9765DC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 09:28:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YyvddXJudmim1yoVeF2sZBvah7MinIT5ZBHD+XI91UM=; b=2momcypK8pSKaBQPbmj2DNHWgd
-	JTgCN6w7Yj4LISyiCruhAznVZTlm8iiT4bhFOgV71r3Pg+PXjMsNVNLcIsYYiJVtsHoXs9E2S/9DW
-	wehepZhE4QtNn9gRyXgpKhHy9nEcXSmcOWilbt264yABD62duJZtpujdWpelXJV3PYt2LyPo7pH/z
-	PC/++Ru7X0yb+XEfWFMCOxOstV6PFH5Cqjw4Y4kFajqZXqMc4Rq0qrN2hs1ZfmXA039YjznzAm943
-	nE+9DWFIlvvde3/UJpxzgc7fo+zh6DxezP6Sfblm9BeIm4g8zteWe1V/lrBjDNqM+mvPzTFsTe1kf
-	TYpxVFag==;
+	bh=SABbFY/qxErVZKPMyB1FiC66VI0bD9AFwxwVAuQIfBQ=; b=CR3IOKTaL/9JQz9g7BbVfWtygA
+	TWxsD7CN1UYSE2cv/BhHxoFkfNxvVx7vt3D4wFdUO7A7t5QltjxxUA2APuX7j6zy14EvlS3PonHHy
+	ApdwMTfDMPfmnFhCCpHoWSHcVzPTjoIeBwuGx1CE33iE57pLpw+PAeHNUh1WZUKfyUSbQeqB4U+Kv
+	NqlUyAKn2f8DCAlMWq3+HIhIZqjwP3T/KAszNvNOMvDsNDneL25KYQnpY9W3wlWOWrmdyQyfp8C+N
+	URAS2J4ClC3TFiujgzxGektmBDTQ5SJKT/iq3oi62CVEmc9xS03kv5+ni0JLSr0lQz24wiMhe+3y8
+	4HZKSmXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmrCz-0000000GaM7-0g2a;
-	Tue, 25 Feb 2025 09:26:33 +0000
-Received: from out-180.mta0.migadu.com ([91.218.175.180])
+	id 1tmrEV-0000000Gaah-3TMU;
+	Tue, 25 Feb 2025 09:28:07 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmqo2-0000000GUZe-29m1
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 09:00:48 +0000
-Message-ID: <9cf9c128-9f66-488c-bd43-3f1752ec4eaa@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1740474041;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YyvddXJudmim1yoVeF2sZBvah7MinIT5ZBHD+XI91UM=;
-	b=B6wq9Mq3uylr8OfT/MoCcqJNqcVngx4TPD6UK0+RB4M0sFWDXL91l5ukvrfU6ywvlsS3ml
-	4qvMg0EmJFYFbI40yubALIDts/0glf0WXptuRXkY5cLq9ITuCrPkKo6uc9rNTFW00PilKj
-	b0A+ABQ+npLY2eBgHx6CdEK+gsDCmcw=
-Date: Tue, 25 Feb 2025 17:00:29 +0800
+	id 1tmqpn-0000000GUwC-24AC;
+	Tue, 25 Feb 2025 09:02:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1740474153;
+	bh=N8EaBkB/oPq7vbJ2oYiO1rXY0iEuTlwI6ZV3Cw7DVEs=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=QF3FdlHDy94YWVjPk/9NE/OltIQBeouYkO2vfUTC5NKlTWXRsS2fpVAlOW1aIeD8t
+	 jXD19h7+uauWWYnNm7S5DbAH77kgKfg8fMSz/2aeh3cey2MHkgNV3YEH5KvyiOZWxN
+	 wQnXbAZPTZFDtnICeAE/dUQuUgsAmov6ReQOWLFclwQhcov8pOEMysz0r+4CZiUC5X
+	 iLrUZLYswO6MJA4OIz2pYM28NEGEONkpCiCyBGjn4ikaPeKFHmk7j5CVQ8rYg1A4BJ
+	 zXqnby+lUGwX1gf16AMSB4UnoSsEfrmdZsQISJkWXifKzPoyd3k7yVpIc6uoLaAONb
+	 o/hGgNj5tI4uQ==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4297D17E0CFA;
+	Tue, 25 Feb 2025 10:02:32 +0100 (CET)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org, 
+ Alexandre Mergnat <amergnat@baylibre.com>, 
+ Macpaul Lin <macpaul.lin@mediatek.com>
+Cc: Bear Wang <bear.wang@mediatek.com>, Pablo Sun <pablo.sun@mediatek.com>, 
+ Macpaul Lin <macpaul@gmail.com>, 
+ Project_Global_Chrome_Upstream_Group@mediatek.com, 
+ Chris-qj chen <chris-qj.chen@mediatek.com>
+In-Reply-To: <20250220142230.2530583-1-macpaul.lin@mediatek.com>
+References: <20250220142230.2530583-1-macpaul.lin@mediatek.com>
+Subject: Re: [PATCH] dt-bindings: usb: mtu3: Add ports property
+Message-Id: <174047415218.19243.9815306970624641790.b4-ty@collabora.com>
+Date: Tue, 25 Feb 2025 10:02:32 +0100
 MIME-Version: 1.0
-Subject: Re: [PATCH net-next v3 1/4] stmmac: loongson: Pass correct arg to PCI
- function
-To: Philipp Stanner <phasta@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Huacai Chen <chenhuacai@kernel.org>, Yinggang Gu <guyinggang@loongson.cn>,
- Feiyang Chen <chenfeiyang@loongson.cn>, Philipp Stanner
- <pstanner@redhat.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>,
- Qing Zhang <zhangqing@loongson.cn>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-References: <20250224135321.36603-2-phasta@kernel.org>
- <20250224135321.36603-3-phasta@kernel.org>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Yanteng Si <si.yanteng@linux.dev>
-In-Reply-To: <20250224135321.36603-3-phasta@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_010046_975286_BA9E5446 
-X-CRM114-Status: GOOD (  16.89  )
+X-CRM114-CacheID: sfid-20250225_010235_724412_BA32814C 
+X-CRM114-Status: UNSURE (   5.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,58 +84,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 20 Feb 2025 22:22:30 +0800, Macpaul Lin wrote:
+> Define the ports property in the mediatek,mtu3 device tree binding schema.
+> Include definitions for port@0 and port@1, specifying their roles as
+> High Speed (HS) and Super Speed (SS) data buses, respectively.
+> 
+> 
 
-在 2/24/25 9:53 PM, Philipp Stanner 写道:
-> pcim_iomap_regions() should receive the driver's name as its third
-> parameter, not the PCI device's name.
->
-> Define the driver name with a macro and use it at the appropriate
-> places, including pcim_iomap_regions().
->
-> Cc: stable@vger.kernel.org # v5.14+
-> Fixes: 30bba69d7db4 ("stmmac: pci: Add dwmac support for Loongson")
-> Signed-off-by: Philipp Stanner <phasta@kernel.org>
+Applied to v6.14-next/dts64, thanks!
 
-Reviewed-by: Yanteng Si <si.yanteng@linux.dev>
+[1/1] dt-bindings: usb: mtu3: Add ports property
+      commit: 3aeff53c57c86981f9920e4d5ae7d00b7d62a671
+
+Cheers,
+Angelo
 
 
-Thanks,
-
-Yanteng
-
-> ---
->   drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c | 6 ++++--
->   1 file changed, 4 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-> index bfe6e2d631bd..73a6715a93e6 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-> @@ -11,6 +11,8 @@
->   #include "dwmac_dma.h"
->   #include "dwmac1000.h"
->   
-> +#define DRIVER_NAME "dwmac-loongson-pci"
-> +
->   /* Normal Loongson Tx Summary */
->   #define DMA_INTR_ENA_NIE_TX_LOONGSON	0x00040000
->   /* Normal Loongson Rx Summary */
-> @@ -555,7 +557,7 @@ static int loongson_dwmac_probe(struct pci_dev *pdev, const struct pci_device_id
->   	for (i = 0; i < PCI_STD_NUM_BARS; i++) {
->   		if (pci_resource_len(pdev, i) == 0)
->   			continue;
-> -		ret = pcim_iomap_regions(pdev, BIT(0), pci_name(pdev));
-> +		ret = pcim_iomap_regions(pdev, BIT(0), DRIVER_NAME);
->   		if (ret)
->   			goto err_disable_device;
->   		break;
-> @@ -673,7 +675,7 @@ static const struct pci_device_id loongson_dwmac_id_table[] = {
->   MODULE_DEVICE_TABLE(pci, loongson_dwmac_id_table);
->   
->   static struct pci_driver loongson_dwmac_driver = {
-> -	.name = "dwmac-loongson-pci",
-> +	.name = DRIVER_NAME,
->   	.id_table = loongson_dwmac_id_table,
->   	.probe = loongson_dwmac_probe,
->   	.remove = loongson_dwmac_remove,
 
