@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF6AAC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 09:04:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B105BC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 09:06:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LaAawBxHrP/Zdl9CUAAHINe2LNOs/APWLWxG/IaBMvI=; b=u/smGEkBvu+qclF5z+PkBc/adj
-	n/gXrUhM3lzPlWVfGDvQtsiHcgfRcurgy+R1pvVVcpqvQv4giX0768z3eTpxx8RCUvXDLwe9hBxUx
-	Thv3909byJ+46vhH2JXEpErbaeC5aYCljChHMoo1XhJ7ztLySU2oW0sUwP4vZ18nFhuHYvyGLEy83
-	+QBXHlYX8WmSc4BhfSsyvEv2UQdAxtVWmvEjIlg6MJ1x83tck4WJjeulRkikRso+Ajr/qPi7xu7nT
-	QcKBk8a9bXuS14TievJCKC54i8KoOtKrnro8ZQoSF/disNcRYZISb8UePlsFWhyuSIySuDqdxDHU3
-	YEYJzq2w==;
+	bh=VRqRNwOeALvg2kbH72moYrDWQ+AbRpCu29S/Xa4Dvw0=; b=2Kxy1WjOzyzEgYpsg3yKO+6LlX
+	cUa6IThSM/Re4vc5RNBjtlPmu9aoRrdgdu3tHK1p9jxzoES0TFW633N6CPUYT0hykYFaUg18n7osV
+	T/n3kXFDCHpJ7INHeDWS0xlkBE4pxvKk6fvpjokiODsKAKatpLaW1mH6xsTH38id+eIoMxhcGxp8x
+	TtPI82zqc+0oMM1JN4bSUZOqZtmpFWQQf3pn99aWUiFhdvZC6cdtZd3F8L/MQcKgOlAPbZNAB77+1
+	qBBoQna1wIUhXIu6ZCCJyQgo3X/svCJ37ThRc2YzLMeLajYYmMhzXeiHDTsSZUrWX5xUkiD+Xxe2w
+	nndoEpSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmqrf-0000000GVIi-2IIf;
-	Tue, 25 Feb 2025 09:04:31 +0000
+	id 1tmqtA-0000000GVmN-186y;
+	Tue, 25 Feb 2025 09:06:04 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmqfj-0000000GSwA-0Xab
+	id 1tmqfj-0000000GSw4-2CTV
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 25 Feb 2025 08:52:14 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51P7lqXB000766;
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51P7rwLH022869;
 	Tue, 25 Feb 2025 09:52:01 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	LaAawBxHrP/Zdl9CUAAHINe2LNOs/APWLWxG/IaBMvI=; b=iigsMeMhVW4+XeWU
-	q/U4Khvug/WntIoxjtV5zrIyYKIbHnuML8JdrRkA9jcmSANpIa3P81JPXPAlPsZS
-	XEx0gv5ULsfiKEdDsB9aSXrSi4N1EiEtyyPq7Jwk/Y63aqENmlcHYWGybddCD74G
-	ClylOM7Odv4w6vQo+DeXQ9MIMRbaqMtyz+/6/Ytgyac1EpAFuHSlJC4j7WJP/k/r
-	PqQgg2WdLTB4w8pQqqarWfmwynsCtnT9lBCRm+pQme/R/MWa2Dw09WeNklrOuPNu
-	th6VTVJi460SHAOW8pzQt06U3mU5wdufYPvpKtHa56P5Ias2McagXwY6yMGU1n4H
-	fa+HSQ==
+	VRqRNwOeALvg2kbH72moYrDWQ+AbRpCu29S/Xa4Dvw0=; b=Y3ofEBtvXJtM2lJ5
+	JJwRw2oN4FlQBSvzsUMsqubLlqGxhPX+q4czSUFlJc/YGXoEn0Z9G22Li90NKDoj
+	P2j+oRouTO5CLB8cMmi9HAnZP8oKTPyaPsb8YCuNXUs31IjuPsooaykHAuBzDKns
+	fz/UrlmT0HEWy38wWs1CEPS3DyDTUE4QXkEgXzw88AmFQg1GJPBpI0QKJ8iGnVzj
+	zHSGu5bDTQjK6aFtP5U8YgiJi4h0sl0ef1DGSc4jyOrgG0smxCeh3+D4xro53bGA
+	DzCMm2gZtlcMBFeYIOa1akY7gx2JMb81jTTH3uZCocSfMy6/1dWNAdTTnDLBuI1e
+	LZ8aDQ==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4512sp1t4f-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4512sp1td5-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Tue, 25 Feb 2025 09:52:01 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 5A43C4005C;
-	Tue, 25 Feb 2025 09:50:52 +0100 (CET)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2B2A440044;
+	Tue, 25 Feb 2025 09:50:55 +0100 (CET)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 5B81647A7B3;
-	Tue, 25 Feb 2025 09:48:10 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 853B447B620;
+	Tue, 25 Feb 2025 09:48:12 +0100 (CET)
 Received: from localhost (10.48.86.185) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 25 Feb
- 2025 09:48:10 +0100
+ 2025 09:48:12 +0100
 From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-Date: Tue, 25 Feb 2025 09:48:05 +0100
-Subject: [PATCH 6/9] ARM: dts: stm32: add Hardware debug port (HDP) on
- stm32mp15
+Date: Tue, 25 Feb 2025 09:48:08 +0100
+Subject: [PATCH 9/9] ARM: dts: stm32: add Hardware debug port (HDP) on
+ stm32mp157c-dk2 board
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20250225-hdp-upstream-v1-6-9d049c65330a@foss.st.com>
+Message-ID: <20250225-hdp-upstream-v1-9-9d049c65330a@foss.st.com>
 References: <20250225-hdp-upstream-v1-0-9d049c65330a@foss.st.com>
 In-Reply-To: <20250225-hdp-upstream-v1-0-9d049c65330a@foss.st.com>
 To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
@@ -85,8 +85,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-02-25_03,2025-02-24_02,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_005211_466879_D1E670C9 
-X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-CacheID: sfid-20250225_005211_873476_C02033AB 
+X-CRM114-Status: UNSURE (   9.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,31 +102,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the hdp devicetree node for stm32mp15 SoC family
+On the stm32mp157fc-dk2 board, we can observe the hdp GPOVAL function on
+SoC pin E13 accessible on the pin 5 on the Arduino connector CN13.
+Add the relevant configuration but keep it disabled as it's used for
+debug only.
 
 Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 ---
- arch/arm/boot/dts/st/stm32mp151.dtsi | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/arm/boot/dts/st/stm32mp157c-dk2.dts | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm/boot/dts/st/stm32mp151.dtsi b/arch/arm/boot/dts/st/stm32mp151.dtsi
-index b9a87fbe971d..f16307887488 100644
---- a/arch/arm/boot/dts/st/stm32mp151.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp151.dtsi
-@@ -270,6 +270,13 @@ dts: thermal@50028000 {
- 			status = "disabled";
- 		};
+diff --git a/arch/arm/boot/dts/st/stm32mp157c-dk2.dts b/arch/arm/boot/dts/st/stm32mp157c-dk2.dts
+index 5f9c0160a9c4..b183b51f8f50 100644
+--- a/arch/arm/boot/dts/st/stm32mp157c-dk2.dts
++++ b/arch/arm/boot/dts/st/stm32mp157c-dk2.dts
+@@ -63,6 +63,12 @@ &dsi_out {
+ 	remote-endpoint = <&panel_in>;
+ };
  
-+		hdp: pinctrl@5002a000 {
-+			compatible = "st,stm32mp-hdp";
-+			reg = <0x5002a000 0x400>;
-+			clocks = <&rcc HDP>;
-+			status = "disabled";
-+		};
++&hdp {
++	pinctrl-names = "default", "sleep";
++	pinctrl-0 = <&hdp2_gpo &hdp2_pins_a>;
++	pinctrl-1 = <&hdp2_sleep_pins_a>;
++};
 +
- 		mdma1: dma-controller@58000000 {
- 			compatible = "st,stm32h7-mdma";
- 			reg = <0x58000000 0x1000>;
+ &i2c1 {
+ 	touchscreen@38 {
+ 		compatible = "focaltech,ft6236";
 
 -- 
 2.43.0
