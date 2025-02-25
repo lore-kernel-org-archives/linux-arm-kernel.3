@@ -4,65 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC5AC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:48:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B16A8C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:57:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/wjc6HAO8My2qmZX7jkTzIOr+95GymwnsKmZhebKWgY=; b=l1iVwB7QPJRL9iSMsiA0ANdDkA
-	pMTwtg/FNlGpjwMD6m0B65151HrrpwJQNxHoIW6Koi2uABdvo8tt9XLTOPKjE2k+wSUJu6sX/DoZX
-	5n4LFnstWsOPvWMwr1XsyGo7iCcK230yFC828I049rSZkG9LZeWN5XcuDrvvtNLb1cQWDOknwxwo8
-	t0mP7J+8tF7KXN3G2kRtX6HabTB3MPNx946BEI0I3cEvHWm4SVTmbP8hS33blD09E2nvWjgvhCOq3
-	qVuPARBXvlgH2YcE99Yfw/NwgxuANrAah1ludz20vUV1vJNuHm+mRE97yZn6ECzoeqyY57ktKLrPC
-	WdI2TTyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oQzwjHZLgpxUYciJqtWuSoygM9wjRLKnUx9VAR3mK1Q=; b=vMxiJQEkpDXgEXqkkjyRCE3JBv
+	d6TpLFBKCy2lF2RPHh0YALttQESpcwSPKAzHsWdMTZwLhWzm9SaVjDbHGG7NEQFTPsHARvazhKWt7
+	6gEcOGbfjnYD7H7AKdp3tc1Gzbo0plNm3s0U9ri6E6Yx9hTk2WfLNomVlFMGejkm8ENv8DgDrZA8E
+	OPBYL20ZsS1MN7NwjFN2FpZMF+6+2BswbS0pi8Pqjt+sEoXOxPY2m4IpdSQf8UzhFSUZeDaJ2Qk6m
+	El3TBtfVZOp/dii8uSk3IWW4yN/E1wjMpyQj/lfEmf2y3Jhiu4iqKoV5YA9o2v7BEb89v2yr1PfzY
+	UOEOt7qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmy6u-00000000S5B-0teU;
-	Tue, 25 Feb 2025 16:48:44 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tmyFG-00000000UbP-10CC;
+	Tue, 25 Feb 2025 16:57:22 +0000
+Received: from mail-dm6nam10on20600.outbound.protection.outlook.com ([2a01:111:f403:2413::600] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmxub-00000000Epd-1pNn
+	id 1tmy0L-00000000KXu-2L7y
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 16:36:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E852E5C598F;
-	Tue, 25 Feb 2025 16:35:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67BCDC4CEDD;
-	Tue, 25 Feb 2025 16:35:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740501360;
-	bh=1wLbTyZpyrnh0HaPTC3hRYX/EzNCdBJG7jxtJKU4pcs=;
-	h=From:To:Cc:Subject:Date:From;
-	b=nZcW+nm2jbZiPBblDJ54HjvOIhO0EFCkMKSZanOXkJMza/OcPcMa18XwYX2IQf3IB
-	 dkEaV8rvCk89y9gUdHKH+InPs+gp+EXT082UMXe8MP7dibogBEpVJ+cSk/6oOJGHVz
-	 9QJ2YM4TZLWbuR3w/Nl/iCl1FIAUm/SIqnOzYK/6urdND86Vf2ZHJZ260k1jV4bZMv
-	 jZvf+WqqAgKDCeh5IXIvsypExXR/A/EYOOfpOWIuU618tgxySjIBwd2dBCLtg/MOIW
-	 c5xu+uPPzg6cvfxcZT9QAW5var2YzMSFaAqqPo0Y5VWkrRPpcV8hV3ADEbC88xcOG+
-	 VJAlOP23LQeWg==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Russell King <linux@armlinux.org.uk>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Petr Mladek <pmladek@suse.com>,
-	Lino Sanfilippo <l.sanfilippo@kunbus.com>,
-	linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] tty: serial: pl011: remove incorrect of_match_ptr annotation
-Date: Tue, 25 Feb 2025 17:35:37 +0100
-Message-Id: <20250225163556.4169086-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	Tue, 25 Feb 2025 16:42:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JF3ecVSxWlxQcYBEHebnmViCp0527kL/pJRuHNGU0HI4oiNguXYhZiV6VheNSoOCF22UgZEjUwZfWp9jf8Vla9cIv9ylKrcF9BUc8q7lnH7FlvJowAd3JM4UTyda+CUh5OnqHtwlmk5DH/vr5wODTDL65nrnG0jYS7CPGpWzjUmZ7WVhLACn7Myr+FsSuBIwiWlCAOH6RMQpd6Gmxjclc8HBE1p+fJlwEap+f6vwezWTTh3xwpGAUTYGSEwxlLDCBWZukAeqQJtd+6DGa86c/kQdhY9atAnLqW8bltMDSE2InIHHP4V3PaTacF0Q38RgyJvMZR7OwqM/5/LsuI14FA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oQzwjHZLgpxUYciJqtWuSoygM9wjRLKnUx9VAR3mK1Q=;
+ b=X7Xguuljxx55Su6FXbC3nzG5ZHxwj4w7w+UnlZwd4Ju5yIy1K3V/MZ9gKIFg/1T5XoOnT6zhUZ+/jrciD8ZGGm8T8iWeL/wA4w0gwqHkEIIqvYYEyXh2m0jSXr93JGYCx2//Zo70aTkeYMfwWLxQRT2XGrctQ7l1HRuhzQk+wgn7CPG+HZc6NdE1YIKykum7oJo7ylMYPbPvKHqcVLnwmDOucj6L6dg2Q944jXiyRg2ZtYc0oqc3HBuiplggpcjVzPJLbU+5Je1JO/WDYO/YFHKmJ/Ml5bvpKVMw9iuemTIdKFU8gTtfwEYrk/FH3mM3PvFMf0aGWqhoDXJQruhGUg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oQzwjHZLgpxUYciJqtWuSoygM9wjRLKnUx9VAR3mK1Q=;
+ b=BCRvrTK9WNiPzCG2wZrLYh3KCUoYq5cbfm9yJry5wqB4NfUIpMpHUrPKc2Kv2ivjdidGzq6PPOreGoCJrnhfICgAI44bqBTlRQqm9vZiKhmm3E/bKBqgLl6hBjphVNoA/tJtCEjy85z2+wO/f63lNoY++SoiwN7oL6O41p/0ePe+ET9YI57hTZvC3hqH4/hdddZztJ5JWybVjOG3pGVyoPaazK+XBheCMEJOSPQMG3lNoRcN/rb8uwdvpObLcOpLB4xzPNeiPB2Lcz8W3Y2eINob+x/wteD+QhYzVryLtwDuIQKvpV8L81Cn6ILDIRRV3yc5K6pIx/a3+Ke2lrr4vg==
+Received: from MN2PR12CA0022.namprd12.prod.outlook.com (2603:10b6:208:a8::35)
+ by BL1PR12MB5707.namprd12.prod.outlook.com (2603:10b6:208:386::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.21; Tue, 25 Feb
+ 2025 16:41:48 +0000
+Received: from BL6PEPF0001AB52.namprd02.prod.outlook.com
+ (2603:10b6:208:a8:cafe::c7) by MN2PR12CA0022.outlook.office365.com
+ (2603:10b6:208:a8::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8466.21 via Frontend Transport; Tue,
+ 25 Feb 2025 16:41:48 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BL6PEPF0001AB52.mail.protection.outlook.com (10.167.241.4) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8489.16 via Frontend Transport; Tue, 25 Feb 2025 16:41:48 +0000
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 25 Feb
+ 2025 08:41:30 -0800
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail204.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Tue, 25 Feb
+ 2025 08:41:29 -0800
+Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com (10.129.68.9)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Tue, 25 Feb 2025 08:41:28 -0800
+Date: Tue, 25 Feb 2025 08:41:27 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: Pranjal Shrivastava <praan@google.com>, <kevin.tian@intel.com>,
+	<corbet@lwn.net>, <will@kernel.org>, <joro@8bytes.org>,
+	<suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
+	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <eric.auger@redhat.com>,
+	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
+	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <patches@lists.linux.dev>
+Subject: Re: [PATCH v7 12/14] iommu/arm-smmu-v3: Introduce struct
+ arm_smmu_vmaster
+Message-ID: <Z73yt4r0iDFwbty2@Asurada-Nvidia>
+References: <cover.1740238876.git.nicolinc@nvidia.com>
+ <be799951a817557ac093ac3e18d02a631306aa35.1740238876.git.nicolinc@nvidia.com>
+ <Z7zYLBLZGKim-5UL@google.com>
+ <Z7zlH74/orq9HF7Q@Asurada-Nvidia>
+ <Z7zqdrQn7Q8yXfcn@google.com>
+ <Z7zxsbJsOFp41Dzd@Asurada-Nvidia>
+ <Z70EnQ5CXacc4ysT@Asurada-Nvidia>
+ <20250225160225.GA593877@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250225160225.GA593877@nvidia.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB52:EE_|BL1PR12MB5707:EE_
+X-MS-Office365-Filtering-Correlation-Id: f160a562-86b6-4b43-20f1-08dd55bb4c5b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?rXpPdERVcJpT2AV1PouQTcJUQKzvmGjIfdiuhzoTyUnZyZaQsSZjD0KzvylR?=
+ =?us-ascii?Q?IXb76n4TgsUenOlIqH4C1iiSNPJdh0r2dKWRNWffzZ7LYgEcxw85vTCdXxRB?=
+ =?us-ascii?Q?8K0SOxP8WqrXPViGUK7O4Xt4ZUV1zLBBzGhozvYfxekjRbOEVUa0Vwl6DS2y?=
+ =?us-ascii?Q?1PVEpLwjG03EQIeGwQa6ArVozhzFZ+nf5YROP28mmbF/zCgiRcU0DWF6+X/Z?=
+ =?us-ascii?Q?f0bGbRhzet64XekbzB2i5sC9YPCjRKnO6zSVOp4teMwJ/XU0nWowawPkbIH4?=
+ =?us-ascii?Q?4/7EUSquxm3m5PdC590sDvmrGNw/+aT2EsryApuPkGKzn7VRJh1KzyYxOWQA?=
+ =?us-ascii?Q?ouATWC9DwyfLcv5GEVmOsTDpgnR4RgU35aqN7I4m4LCC5IEHztd9TFgOpbjK?=
+ =?us-ascii?Q?LzcMN1HwnKtVeRPbToN5pHM9QPcR/PAliCO6LBmvrNreeW7z5vxnyfuDLhyS?=
+ =?us-ascii?Q?/VY0DFFLS2NseZ/Ymkh3mjvbjtM/ixsr4pHNXKTeMVt2t0IP+Ovr+T+oawY6?=
+ =?us-ascii?Q?LmuTr75dRPF4GCACNI2HRrdh4DPsEh5EOTHZ0gd0HnsANsR+/h7XkCxqkDqB?=
+ =?us-ascii?Q?ZdULKJkPitU5i9If72fpJTRRpibM3N2x01UNnJU/y0AXXzgmvlkxGj1uQxSc?=
+ =?us-ascii?Q?GJv5PVhkSYe2ptnK2Zg+dpgep8YWOMrffD+OVmk3wVniVIvoKgCBi+4bicFl?=
+ =?us-ascii?Q?5YBomFPf2QsuAn0psUeH3AfwiKeUtm4nRl9plR8gl4BvrRlLArkLh8+Oe04U?=
+ =?us-ascii?Q?ap/GP86eh1WBsdZn6TS96FOaSSV/JDbTiJo3AnXKTiRd1iNqxg/Of/RG1tQV?=
+ =?us-ascii?Q?YF++95XQC7DwQFSQok7b8QjhHx/ZpxWo8IS/C5ZG86324t38Swgyub79NgmB?=
+ =?us-ascii?Q?rZncuv3TdzqLq9HP34frHvjb8jjV/lpdWpx3pagpL2BBC79gsY4otEbnelkX?=
+ =?us-ascii?Q?jpPO6PjKmISmbe1Z8aPaHq8CERPrtRllwE4XXw8/5QZaibtUeJn2GCnk0RkA?=
+ =?us-ascii?Q?Yaf6Usxnh3Gc6KVNMyG5rXJkPEOPvpwxIG5LPISbv9SYXaj28+W1zTwQdXpM?=
+ =?us-ascii?Q?myWecQS+9owGtaA71AqR8YsHg7M5lPw6nkab+LRlTMMNGcOAxBi5HmHOUiN6?=
+ =?us-ascii?Q?Xrufk4rg+Dm4x/mPSuisc3u7K6D4xrO3CQRVm/mVswx62MVwUw5lp4ax1rBx?=
+ =?us-ascii?Q?WQfMrKpJgVyt59etGje5rgC2oPnsSp5/KwILM8zepkK5wUEjHSYcDC+9xq37?=
+ =?us-ascii?Q?lU+XBCDgZE3Xcf4q4AKUqAUPN8b8WL6A0PvjBhTI8BwppQYtXh7YT1UVywX5?=
+ =?us-ascii?Q?v+8zeriaFUhk4OqFH0D+TkaZjKvuCbfyJ/qM84np8p+b4l9V5hzuMMghZ26h?=
+ =?us-ascii?Q?YPYBUygVY9Tt9kzQ4rwMsYB8ZH97CjLwcvEBvj36Uw8hsvTepn+cpbyee0Ck?=
+ =?us-ascii?Q?pCsoi8meoc1WOZ3OXPTLV6kC0NOSwSw28zdFpVRG0HUoeHX2p9jRKsDVOLJw?=
+ =?us-ascii?Q?3K5cbYc+RQONuMI=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 16:41:48.2733
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f160a562-86b6-4b43-20f1-08dd55bb4c5b
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB52.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5707
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_083601_530444_621F8E7A 
-X-CRM114-Status: GOOD (  16.70  )
+X-CRM114-CacheID: sfid-20250225_084158_649013_6562CA0A 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,66 +165,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Tue, Feb 25, 2025 at 12:02:25PM -0400, Jason Gunthorpe wrote:
+> On Mon, Feb 24, 2025 at 03:45:33PM -0800, Nicolin Chen wrote:
+> 
+> > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> > @@ -95,8 +95,6 @@ int arm_smmu_attach_prepare_vmaster(struct arm_smmu_attach_state *state,
+> >  
+> >  	iommu_group_mutex_assert(state->master->dev);
+> >  
+> > -	if (domain->type != IOMMU_DOMAIN_NESTED)
+> > -		return 0;
+> >  	nested_domain = to_smmu_nested_domain(domain);
+> >  
+> >  	/* Skip invalid vSTE */
+> > @@ -122,19 +120,9 @@ void arm_smmu_attach_commit_vmaster(struct arm_smmu_attach_state *state)
+> >  {
+> >  	struct arm_smmu_master *master = state->master;
+> >  
+> > -	mutex_lock(&master->smmu->streams_mutex);
+> > -	if (state->vmaster != master->vmaster) {
+> > -		kfree(master->vmaster);
+> > -		master->vmaster = state->vmaster;
+> > -	}
+> > -	mutex_unlock(&master->smmu->streams_mutex);
+> > -}
+> > -
+> > -void arm_smmu_master_clear_vmaster(struct arm_smmu_master *master)
+> > -{
+> >  	mutex_lock(&master->smmu->streams_mutex);
+> >  	kfree(master->vmaster);
+> > -	master->vmaster = NULL;
+> > +	master->vmaster = state->vmaster;
+> >  	mutex_unlock(&master->smmu->streams_mutex);
+> >  }
+> 
+> I'd leave the clear_vmaster just for clarity. Commit should not be
+> unpaired with prepare in the other functions.
+> 
+> It looks fine with this on top too
+> 
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
-Building with W=1 shows a warning about sbsa_uart_of_match being unused when
-CONFIG_OF is disabled:
+Ack. I added it back and a #ifdef to the vmaster: 
 
-    drivers/tty/serial/amba-pl011.c:2945:34: error: unused variable 'sbsa_uart_of_match' [-Werror,-Wunused-const-variable]
-
-The driver is not actually used on any machines that are built
-with CONFIG_OF disabled, so using of_match_ptr() won't save any
-actual memory, and it can be best removed.
-
-The corresponding ACPI_PTR() annotation does save a few bytes on
-32-bit arm since CONFIG_ACPI is not available, but for consistency
-it seems better to remove both along with the __maybe_unused
-annotation on the ACPI table.
-
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- drivers/tty/serial/amba-pl011.c    | 6 +++---
- drivers/tty/serial/ma35d1_serial.c | 2 +-
- 2 files changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/tty/serial/amba-pl011.c b/drivers/tty/serial/amba-pl011.c
-index 04212c823a91..e3b8590bc880 100644
---- a/drivers/tty/serial/amba-pl011.c
-+++ b/drivers/tty/serial/amba-pl011.c
-@@ -3001,7 +3001,7 @@ static const struct of_device_id sbsa_uart_of_match[] = {
++void arm_smmu_master_clear_vmaster(struct arm_smmu_master *master)
++{
++       struct arm_smmu_attach_state state = { .master = master };
++
++       arm_smmu_attach_commit_vmaster(&state);
++}
+[...]
+@@ -824,6 +829,9 @@ struct arm_smmu_master {
+        struct arm_smmu_device          *smmu;
+        struct device                   *dev;
+        struct arm_smmu_stream          *streams;
++#ifdef CONFIG_ARM_SMMU_V3_IOMMUFD
++       struct arm_smmu_vmaster         *vmaster; /* use smmu->streams_mutex */
++#endif
+        /* Locked by the iommu core using the group mutex */
+        struct arm_smmu_ctx_desc_cfg    cd_table;
+        unsigned int                    num_streams;
+@@ -972,6 +980,9 @@ struct arm_smmu_attach_state {
+        bool disable_ats;
+        ioasid_t ssid;
+        /* Resulting state */
++#ifdef CONFIG_ARM_SMMU_V3_IOMMUFD
++       struct arm_smmu_vmaster *vmaster;
++#endif
+        bool ats_enabled;
  };
- MODULE_DEVICE_TABLE(of, sbsa_uart_of_match);
- 
--static const struct acpi_device_id __maybe_unused sbsa_uart_acpi_match[] = {
-+static const struct acpi_device_id sbsa_uart_acpi_match[] = {
- 	{ "ARMH0011", 0 },
- 	{ "ARMHB000", 0 },
- 	{},
-@@ -3014,8 +3014,8 @@ static struct platform_driver arm_sbsa_uart_platform_driver = {
- 	.driver	= {
- 		.name	= "sbsa-uart",
- 		.pm	= &pl011_dev_pm_ops,
--		.of_match_table = of_match_ptr(sbsa_uart_of_match),
--		.acpi_match_table = ACPI_PTR(sbsa_uart_acpi_match),
-+		.of_match_table = sbsa_uart_of_match,
-+		.acpi_match_table = sbsa_uart_acpi_match,
- 		.suppress_bind_attrs = IS_BUILTIN(CONFIG_SERIAL_AMBA_PL011),
- 	},
- };
-diff --git a/drivers/tty/serial/ma35d1_serial.c b/drivers/tty/serial/ma35d1_serial.c
-index 8dcad52eedfd..285b0fe41a86 100644
---- a/drivers/tty/serial/ma35d1_serial.c
-+++ b/drivers/tty/serial/ma35d1_serial.c
-@@ -799,7 +799,7 @@ static struct platform_driver ma35d1serial_driver = {
- 	.resume     = ma35d1serial_resume,
- 	.driver     = {
- 		.name   = "ma35d1-uart",
--		.of_match_table = of_match_ptr(ma35d1_serial_of_match),
-+		.of_match_table = ma35d1_serial_of_match,
- 	},
- };
- 
--- 
-2.39.5
+
+Thanks
+Nicolin
 
 
