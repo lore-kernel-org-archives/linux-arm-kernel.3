@@ -4,169 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83A4DC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 00:51:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6F6BC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 01:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C8VXk5mjoLekcnKPlsfIGEPwZwP1pED8bcexCI3BNHA=; b=i0WdAOHfPwQyjQ3K2g5CyEr0cU
-	bu7uxJuMDE8mf21RdJXGykkHqxaGRlzhL4bOeDV85xywRcwlHuurQKHVjQs2kpvYq+Va9oifBOYEQ
-	qt5Sa7GToL+rcL84Zpe/GC/rDX7VWRtgYY/7OxLwV6q9vNVApUfUHbhtkZhyv0lKaSIZ2L+lmRghz
-	rtm1evCAJMgsPVVibvuFse6tD1/aqpP2prscyo0LlI3tdmG0SLrfuZWaDVtjzf1ucJG7jOnCLE0GM
-	WHwR0/rpVupWUUjFxrAF/QRAFKp4Z6G3EXultY3CLYfvAq1BybQZtafx071wMHQ0m8jnHYcmTofM0
-	PnpMUGeQ==;
+	bh=Mo37nMWc2E1LwezPKSvhNG/2wTFA2DkyTJqWyZNejzM=; b=Cv4WOxaiZr3vGpJg771qD1EkS/
+	spoMiRjTvN/InWwKXyAd6RdZyhW2yChGwNLUtNh46bFsjoMRwm7c/Q9ESKnmvypIZH9xadHKgCy/D
+	DPeUgkSbEZ+Xmcv1MBckoTUZs01b+1WL2x+x+/lddm3ZSfFiZgPY9HVOF8o2j8IuhTokEfMb2hWxW
+	6ujVez69AqGiJUeyA+02Shwm8YOfiLdcAb98zFhJj9X+SXbxG+KM473NmakragC6OlffK17S6fEWy
+	lwvpjwNfRAxIhPrKIyIeh3PYgpRAhWSAIkCjMfoN4ZDfXB3Fz+xam0N8XJ7oF8AwDKVh/wq9O3uBd
+	Pq/IajsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmjAR-0000000FebI-1o6G;
-	Tue, 25 Feb 2025 00:51:23 +0000
-Received: from mail-db8eur05on2060e.outbound.protection.outlook.com ([2a01:111:f403:2614::60e] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1tmjMj-0000000FfTa-2ITJ;
+	Tue, 25 Feb 2025 01:04:05 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmj8L-0000000FeMi-1SXb
+	id 1tmjLD-0000000FfHX-2kVG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 00:49:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aa5hMBkS6d/2ZgSOdAbzAepZ9m3h6ZC0s5YrVr4upmZ6su1EYrXLNET0XqwKXP6sMkUupZMpAGp19jrcYg66Cv+g3DMvBujCvX9zds7YgBIXKP+6MchGK3K3BTtfH4ZpgV/zwWYAhwoWQIkE/J4w00y7iK7ID6ah0ZEGt6f20QU3XSDSua1FZMYznE7FsCBkiIAe11CX6L5IvvbM9NPKNA6CN8MimJxwHs/rC1JMIzzfAQty8T5dkbhdKZLrj53nv2AThOUHt1/Yf+EYurCfExLc3NAphiNDQQfBNxnK3WLOZhe7F3/Hx7fdoy9NjewueG85IVASEvMmMo473Pgqcw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=C8VXk5mjoLekcnKPlsfIGEPwZwP1pED8bcexCI3BNHA=;
- b=KTASXP/dXJ49QN4fxCT6qqwJ7Y0+SLJBUBe4Llv8ZUg4gRtX+aZloVxFctqwsyvt2rmA9H8bg0aZxbwqmQGROjn3K6nUZatCgNCIS760Mtqhcuvx/vOzxsyEw6wVLBLs18Cjbym03618JUtHQDnM+CND+HI9VLr0hkWupTGVWdms2/IoCVpL4PpGB0TxrXDv0uyvNl4I1BxmOihOX7ayd6SbslDj6bSphnpQlyCFfDMdjoaZBtQsNW3jkYquTZZmHLv01T/QUitLLc6WX0QytBIPaUZlU8bKrSb8hCKOQ2f7L54xzb+XfDP/PsqyLFpugZqkxort7cXKRjG4kgzSWg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=C8VXk5mjoLekcnKPlsfIGEPwZwP1pED8bcexCI3BNHA=;
- b=eDWgLWn/TebDSaRzzdhFyaA4WsUqSi+09C9wjeL9VKNp821BDl1SADDK4/VYXG79aMCY4MernFQk7Za8HEmw/PecQW8W0Iw2IqWoTDzSemtRmfzAnNc4mHB8TRRZWc2WuaTpHpdwF9UnvLK2gJU5q5wMTSMjNakJ71GmifJ7fsdEi19zXbXprVMfh3cJTbgiA4Q9jBwktcyWEeD7Ct+GifRHVPXXGI01EsE2qHIr8TewOUdGK4gogcL1BRHutJAXmMhJqVqShgrcSDWRnvUAJPeREwKb+INrV+ZTEUuMskDDxFd/0xCA6Kk9FIHn0dKZ4r4p/NtdJEts7CtV6cOFTg==
-Received: from AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
- by PA1PR04MB10604.eurprd04.prod.outlook.com (2603:10a6:102:48e::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.19; Tue, 25 Feb
- 2025 00:49:07 +0000
-Received: from AS8PR04MB8676.eurprd04.prod.outlook.com
- ([fe80::28b2:de72:ad25:5d93]) by AS8PR04MB8676.eurprd04.prod.outlook.com
- ([fe80::28b2:de72:ad25:5d93%5]) with mapi id 15.20.8466.016; Tue, 25 Feb 2025
- 00:49:05 +0000
-From: Hongxing Zhu <hongxing.zhu@nxp.com>
-To: Frank Li <frank.li@nxp.com>, "shawnguo2@yeah.net" <shawnguo2@yeah.net>
-CC: "conor+dt@kernel.org" <conor+dt@kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "festevam@gmail.com" <festevam@gmail.com>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>, "kernel@pengutronix.de"
-	<kernel@pengutronix.de>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "robh@kernel.org" <robh@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "shawnguo@kernel.org"
-	<shawnguo@kernel.org>
-Subject: RE: [PATCH 1/1] arm64: dts: imx95: add ref clock for pcie nodes
-Thread-Topic: [PATCH 1/1] arm64: dts: imx95: add ref clock for pcie nodes
-Thread-Index: AQHbht6txsW9YLGHQUOuDc8LgvzrVbNXMClQ
-Date: Tue, 25 Feb 2025 00:49:05 +0000
-Message-ID: <AS8PR04MB8676E28107F0F5E2D4577EF88CC32@AS8PR04MB8676.eurprd04.prod.outlook.com>
-References: <20250224170751.146840-1-Frank.Li@nxp.com>
-In-Reply-To: <20250224170751.146840-1-Frank.Li@nxp.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS8PR04MB8676:EE_|PA1PR04MB10604:EE_
-x-ms-office365-filtering-correlation-id: b38a150e-9f48-4845-d951-08dd55363465
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700018|7053199007;
-x-microsoft-antispam-message-info: =?gb2312?B?R3RRdEdCL0tEY3ZIdzFxa2JOV2hDNUliYXBwQkdNRld6enhpc2ZtWG9mZHMv?=
- =?gb2312?B?OUcxYzNuMjJTYWhKVDJQeXU1YThsWFBGdVk4VVFUbGo1Y09UZytYVlVNbkVZ?=
- =?gb2312?B?dGJBazZZYXkwRlFmYmFwQnZEZGt3RHNXNDM5MDAxeDdBdVVCMlo1eFZtb3lD?=
- =?gb2312?B?Y3AyY2FNcHg2eGJmME5PTUZpOUZuTEFMc3N4R0d5YnRwZUpIOFBkYldMU3Mx?=
- =?gb2312?B?amdPUGI3MWM4VnQrMjBwTzBrQkJiejMyOWd0V0MySUdpRFhqTVF5WnNNaFp3?=
- =?gb2312?B?Nzg0VldFd3ZqdW5DcnJ3eE8wbFZKM1g4VWs0dDFnakk1bHZ3ZEtrVWN1L3lM?=
- =?gb2312?B?Y0pKR0NsZTBuWUNudFpnWDNkWURLVU83NVFxV3dIMjJrMkUwaEg0MytlY0pV?=
- =?gb2312?B?T1J5c1VxdTdCcElpMWVpUGlVY2lmVUZPbGVKNmw0RTMzL3MxMkZoS0J0UDVF?=
- =?gb2312?B?WU9wNUlobGVlN0Voa1MwWUE0L2JDTUZvMDJMVDlNdEFxMUI3dXZ4SGVsTHB2?=
- =?gb2312?B?OEFjNU1rMFgwU1g3cXR0SkRWY2hGeUI4T210bTRDN3cxRllWUWRUQjhkZExi?=
- =?gb2312?B?Y2xFYVZpd2Y3d3ZsTi9raXpQQXJTOFhwdXFrRktCbCtUSVJIRUxPVlRsVWVF?=
- =?gb2312?B?cnFjcjkxY004ZXlIUFp2M1pSWHJlUC9XU3dIajg5aEV6dHVpNWJ4aFlTdlYw?=
- =?gb2312?B?cEYwZExBVS9yWGw3Rmd6TEM2VWt0Vm1HSHYyTDBrZ3VKTUVMT1hLNG9uNVdQ?=
- =?gb2312?B?OHY5bnN6bVYxeHdvOFlwdnBCbVVwUlg4aHUzNmtNaEhQVldOZGk4ak16OG5z?=
- =?gb2312?B?M1U4Wld0QmNOeThEbHJiTHZJcDBydVU3Q1VpNkN2WUNNbFZObHdVWE1WcVlL?=
- =?gb2312?B?UEtseHVDemVSN0ZzV3lYWVlUZG0vb2hvbzVjeDQvRkxmUGZ4eG9OZzcwRWRP?=
- =?gb2312?B?dUx6RW1VQkIzZ2lidXc5K1hiWkYzODVhNDNoQmVkUmFTUm9IR01KUTVkWlli?=
- =?gb2312?B?bWdnWmRPMHhQbHhnbEdYQnk4VTZMQTEwTTB3R3JyZEhwYytPRjZjd0R3V2o2?=
- =?gb2312?B?Zmg2RXpkS3BKeUFMck5pYnFNQ0QvcTMrSzBGSmdKdGVGSnBCb2NyTzFKeENo?=
- =?gb2312?B?Y284bElISHcvQjh6WkFUVnRFcnY1YUxsTFpQRXFwOWRkVGxMZUd4dHBIeGo5?=
- =?gb2312?B?VlU5SS9RMnRacWN3V3djNGpBcVVXcWFIbElsZnJhOEtoOTNwRmRkRjMySm56?=
- =?gb2312?B?MU4wRkVBNHpTRktsTVdyMkxvcVNHa2UrdFdpMHlVbXlIQXBiamYrNmFEMFgx?=
- =?gb2312?B?aENNNWFaTEU3M0NrYlhWTm9TNzRyQzJNZytKWTRFbjVVR2lyWlRBaWJBNm90?=
- =?gb2312?B?S3QycmVJd0hLV0U5em9PZTNyYVNrUjdnZS9WTmtKY2ZDZks5bnJTdjFna25L?=
- =?gb2312?B?YWxRQmpURkd6MGh0MU9oVU5YamNqSkVVT014SmRUWEhuSWxSNFNTa3I1d0d0?=
- =?gb2312?B?ZVg2ZHBCYWlIQzVuaHB1V05xTTFqbDlKZXVJNWE3NkpzM09jdndqZ21pR2RB?=
- =?gb2312?B?Sk9MeWFjQW5QRWVtSGR5ZGs1UkNvck9BdGduclpzV2EvclZoa0tpQnZwUVpy?=
- =?gb2312?B?QjJyL0RJN25PeDVIRlBTVittd2JWejFMeGI4NU1xYXFZWjZPVWJ1SU5lYkZv?=
- =?gb2312?B?OFlEMXU3Q0NpY2gyZG8xVUhzeFBCQmRNd2Ird215WVVTUk93ZHZDODdoajNw?=
- =?gb2312?B?Q2taN0o3cGdUMHhGSXM3WmRlZ3EyTzRkYjY3blc1cmZKRkJ3enM5cEZVeDFy?=
- =?gb2312?B?RGwyN21VRFpHUHVGNy9aWHU1Z0FFNlFQV2RxMS9QMnQ5TFZ0Ymw2SFZhUXJZ?=
- =?gb2312?Q?alODDXHdC8Cpk?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8676.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700018)(7053199007);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?gb2312?B?RmlWbFE3ZG0zYnB2QkMybmltQ2ZqeExGN21GUXBjL0VCL05lR3M5YldMNWh1?=
- =?gb2312?B?a0hVOFlTeFFxaDFGa2V3dzhFc3VoUnFhMmw0ZHpqZVp6UDdrYjVCYWxVdlJE?=
- =?gb2312?B?RlVQZTlMa01lT2F6c2kxelVYNnQyKzlrUkZ5dnZKeU5pQUpKaHkrQkJOUlVG?=
- =?gb2312?B?QlA3Z08wckh0V3p0eG82RTBQbjJkOGRQcktoblZ5NVBmQjlpSHBWSStoWEc4?=
- =?gb2312?B?SGVNNmVBS1F1aG1KSmxVQ2E1akpwQndHTDJ5MWhwQVhDNDJOSldVcnlRcVVT?=
- =?gb2312?B?MGtGaFg1VE1XbGVQWWxwMm5kVThMTGlRTzF5dWo5eXNGMWpUdHpOK0xyNGRL?=
- =?gb2312?B?OG82QnM0RGJ3U21aOFlrSXBHa1F5cEo4MTRWY2ZyZlA3T2RMK3hBV2luckNC?=
- =?gb2312?B?a0thY3NQS1NyUU9CU1pCcWlrRHMycW1ycXVYNjJoRmVRakVPeDFzN1Z5UDBK?=
- =?gb2312?B?SUFFSy9kSDdycXhaWnNWNC9PbXNBTzVWMlRKb3IvZGJYWTZjcFhWOHB1ZjJU?=
- =?gb2312?B?WlRBTlpIeVpYT01yQWU2TU8reTRDWkRWNzVhM2VuRWxRZllQTFMrZVpRaHFB?=
- =?gb2312?B?VmdlWlZCWWdzWWNsWDdMZEtiY0c0NW1CRmd2YjdPRG9VSGNtOERPVWN2YWZE?=
- =?gb2312?B?QlJXTVFHZERvdWIzTC9NVjhLTFRNUEIxa1ZhSklJWThFNkZJb0FxbWFCK2Rn?=
- =?gb2312?B?ckJBYi9TWHd1bjYyLzhlQXZPNnZTSXY5cFg4OGFFM1FHM2c3d0k1aTllYmth?=
- =?gb2312?B?V3FHZUloQ0QrdmRvNVllMlFrSUo2VDh1R3ZlUk44d3crSlJXSkZZbFQyS1lR?=
- =?gb2312?B?UUJpN2RudURyTEptNW41NStPemYwK0lxV0NLcWZWNTZjTWt5ak1zbmVGM01U?=
- =?gb2312?B?cE5IY3p0N1FUWVUraGk2ajZBNlZEMFFpVHUyMlEra2hLUHo3S3gvS0VJNGEr?=
- =?gb2312?B?UjJRN2JWVWk3V2FYUlZ4K2crN0NFTWl3d0E0Slp6Ly9Ra1VJZ0NNSUZWcmM4?=
- =?gb2312?B?MUw2ZjM1UVVPcGxCc2dqRmtubHg4cXdIQ0pudXVXZDJEazFOV1dveUxza1pC?=
- =?gb2312?B?dXE5amJEeVpOL3ZGOCtCbmk4bUxDV2V3SFZWOHU3N3J0MC9KSGZqS0FiOTZO?=
- =?gb2312?B?a3FnRnBVVWI3TE5SRnlmdVRZRzQvL2JKWUNNdHpMeTRMTk4vUExINDZGMGx4?=
- =?gb2312?B?N0xUeUVkN3M5NXhkNG1qQ0ZEYzNMMTBXQVFGblBoU0NTVlpycy9QVHFaM2VO?=
- =?gb2312?B?cGtXVitReUhJLzNCVG9PSEQvRGQrbDBJYVdRcmRINFFuQWh3Mkt4U1RienJC?=
- =?gb2312?B?aFlOSEFVSlJEUEdmRytLQ0xkVnZOQnc2UXNUdU1HengxTUplYjB4Q2RJUWtm?=
- =?gb2312?B?VDVEeEozYjRWdzJ3ZzFUMlpQOERwWjB3SXg2QTkrazRmeVB4dEJySmlUUDRI?=
- =?gb2312?B?YW5zSitDOEdVL28ybWoyZXQ1NHNmMW94KzEzdTJsZ2pLUUR0TUxCT0pzaE5u?=
- =?gb2312?B?UG83b0lsT01IM2ZVNlhhUmhsMHlBVnhTTmZlTGlRY3FXc04xbkNBSEx2RFhk?=
- =?gb2312?B?eVh0VyttYjRJNDlPNzVFMFNvOWtUQ1liRW5XT0thbGM5c2VEL1l5dklKazcx?=
- =?gb2312?B?ZkoxS21YcFc0YUV0UXFHbU5zQlBZRlZ0Vys1aUFPcEZ0WTdZdk5yU2hZSTB6?=
- =?gb2312?B?ajNsYUVXSmxnVDdpZWczblFnRjlWQTlEL2VCWm1sNlg4ZG1QeWg5NTl2T1NQ?=
- =?gb2312?B?VjB6T3FiREM3YWxZRDBxSXR6alpmT0pSNWg5OCtSUFowUm02RWRKM0Q2Yk5U?=
- =?gb2312?B?MHBndDVSVTA1bnR0dU53ellKb0J0WUpxenNxWGlONmFKSUovVDcxWjhZaDhJ?=
- =?gb2312?B?SmdzZkZnNXVLMHdVZEhFc2FDK0dBT2dkOUZ4SWh4Q3draFZYeGZ5RmtmdVNh?=
- =?gb2312?B?cW9pend2dHk1NmEvM2hIWS9GYTRWUVZYaG1NaU5ZdmYrSXdMMjJ1UEx5VXpt?=
- =?gb2312?B?aXdVSWdBaFlWSUdMSFNIU0lTYlBFY1ovd1YvcmpBbGh6YWZ3M3RLTFpVYzYz?=
- =?gb2312?B?ZGF1V0JmQlc4c3JuMHBiTys2cjFJT2VSQW56amdJUVdLYjcvRDh1bXVpSWlV?=
- =?gb2312?Q?dz/H9jvlmPq+3EXh8BATj5dim?=
-Content-Type: text/plain; charset="gb2312"
-Content-Transfer-Encoding: base64
-MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8676.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b38a150e-9f48-4845-d951-08dd55363465
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Feb 2025 00:49:05.1914
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: C4pExDI94tHVr5fjW+thIq/p3gv8Pbq4fMSDG2M6Wi3vZuJo6xleVtSfe4OxiCbhTjqrFtBbIR3vRfyK7k13bA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10604
+	Tue, 25 Feb 2025 01:02:32 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-220cad2206eso109743805ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 17:02:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1740445350; x=1741050150; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Mo37nMWc2E1LwezPKSvhNG/2wTFA2DkyTJqWyZNejzM=;
+        b=gNbHzue6h2hWE4qg7a6kLoa9As+VAMNJEVp0tDjFUSTSt7HLkieKpdWOkad+jlH96Q
+         2g/RB6ta52ib2bxncbRltLlYfwgq+QvZg3Uk/qS2gVc584cl7yOok87wLhzObkEzlwsD
+         Zrpx5/75VFwnuyw67Uh08mZDMc6PaBf/8xSd4TQ193BrVl0gSeo/46+KGs6ol/bZd7yK
+         yatQJ/vtzfA7AkcxYG9ikQCd3iE8iBtc6DW55gYdgPV4db/C3byuGCx9vK+gfkXnJAoe
+         VzQAvTx4eWm7HsMQKkQmFHrcxtQ4am4/mFfCdPAwxyAgssREEoDfcn4gJJMuEsjMKAas
+         R0fA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740445350; x=1741050150;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=Mo37nMWc2E1LwezPKSvhNG/2wTFA2DkyTJqWyZNejzM=;
+        b=qqT0AfgV7RixA5AVOLQ+5vbPcclYyEma2tFFLy+dISryx15us6loUFrwXbZOpjo1r7
+         lHHApRGfzwL1zw9C5DFsQG8dJnImVEM5dyq/lvI8Hu3FMtXbdBEl2pGeno9DNTd8zXT4
+         C1QQIvKiMSWD2w3tzLFoHGoxb8OEJDQDBGlRE5wvhogok1lQOKmfoQhXfO52m7ITYB3o
+         yM0uL29qLZOoO8+SIgSjoqMRWmRmLdAVC9Mi9bH2s64BOCt2y74j75YaPeetaabemb4X
+         +1cYJwD33fI6DmAvQyKp/6f1HuhnT+hH3pzEBtea9P9Lf9Tt3nSu4XaivyYipsTSzPNj
+         BtOw==
+X-Forwarded-Encrypted: i=1; AJvYcCVP6JBmUQ+8fkoKsWpQO/TPrxFxGKiJxNtTjB9mM2BYzmSwqDcPvzhaItjx0o97jHtlN8FsmE9/11kUlr8G5Xgz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3ZqN9L1R8O9QEbV0z3BtGBR89TQn7vQbE/fX7h1Au+NhGKwtd
+	ML2le9PyWEGysidMX8y808mGJNmS1aiMYx25sdSIIxnNCDG1oCPUQRTBb7EgxOXnfP2Amj2rYw=
+	=
+X-Google-Smtp-Source: AGHT+IGtpAtsGCPjB2f5j0E5FgCN/59sQH7uEbks2l54K32niqYIQGBiUJC1+FY38Cpr/+RR4wt4Jz9Ubg==
+X-Received: from pfbit4.prod.google.com ([2002:a05:6a00:4584:b0:732:770f:99fe])
+ (user=wnliu job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:230b:b0:734:9cc:a6e4
+ with SMTP id d2e1a72fcca58-734791ab6bfmr2328539b3a.21.1740445350440; Mon, 24
+ Feb 2025 17:02:30 -0800 (PST)
+Date: Tue, 25 Feb 2025 01:02:24 +0000
+In-Reply-To: <20250210083017.280937-1-wnliu@google.com>
+Mime-Version: 1.0
+References: <20250210083017.280937-1-wnliu@google.com>
+X-Mailer: git-send-email 2.48.1.658.g4767266eb4-goog
+Message-ID: <20250225010228.223482-1-wnliu@google.com>
+Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
+From: Weinan Liu <wnliu@google.com>
+To: wnliu@google.com
+Cc: indu.bhagat@oracle.com, irogers@google.com, joe.lawrence@redhat.com, 
+	jpoimboe@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-toolchains@vger.kernel.org, 
+	live-patching@vger.kernel.org, mark.rutland@arm.com, peterz@infradead.org, 
+	puranjay@kernel.org, roman.gushchin@linux.dev, rostedt@goodmis.org, 
+	will@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_164913_386533_465D6CE4 
-X-CRM114-Status: GOOD (  16.81  )
+X-CRM114-CacheID: sfid-20250224_170231_719298_7B746576 
+X-CRM114-Status: GOOD (  17.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,63 +96,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBGcmFuayBMaSA8ZnJhbmsubGlA
-bnhwLmNvbT4NCj4gU2VudDogMjAyNcTqMtTCMjXI1SAxOjA4DQo+IFRvOiBzaGF3bmd1bzJAeWVh
-aC5uZXQNCj4gQ2M6IEZyYW5rIExpIDxmcmFuay5saUBueHAuY29tPjsgY29ub3IrZHRAa2VybmVs
-Lm9yZzsNCj4gZGV2aWNldHJlZUB2Z2VyLmtlcm5lbC5vcmc7IGZlc3RldmFtQGdtYWlsLmNvbTsg
-SG9uZ3hpbmcgWmh1DQo+IDxob25neGluZy56aHVAbnhwLmNvbT47IGlteEBsaXN0cy5saW51eC5k
-ZXY7IGtlcm5lbEBwZW5ndXRyb25peC5kZTsNCj4ga3J6aytkdEBrZXJuZWwub3JnOyBsaW51eC1h
-cm0ta2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmc7DQo+IGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5l
-bC5vcmc7IHJvYmhAa2VybmVsLm9yZzsgcy5oYXVlckBwZW5ndXRyb25peC5kZTsNCj4gc2hhd25n
-dW9Aa2VybmVsLm9yZw0KPiBTdWJqZWN0OiBbUEFUQ0ggMS8xXSBhcm02NDogZHRzOiBpbXg5NTog
-YWRkIHJlZiBjbG9jayBmb3IgcGNpZSBub2Rlcw0KPiANCj4gQWRkICJyZWYiIGNsb2NrIGZvciBp
-Lk1YOTUncyBwY2llIGFuZCBmaXggYmVsb3cgQ0hFQ0tfRFRCUyB3YXJuaW5nczoNCj4gYXJjaC9h
-cm02NC9ib290L2R0cy9mcmVlc2NhbGUvaW14OTUtMTl4MTktZXZrLmR0YjogcGNpZUA0YzMwMDAw
-MDoNCj4gY2xvY2stbmFtZXM6IFsncGNpZScsICdwY2llX2J1cycsICdwY2llX3BoeScsICdwY2ll
-X2F1eCddIGlzIHRvbyBzaG9ydA0KPiAJZnJvbSBzY2hlbWEgJGlkOiBodHRwOi8vZGV2aWNldHJl
-ZS5vcmcvc2NoZW1hcy9wY2kvZnNsLGlteDZxLXBjaWUueWFtbA0KPiANCj4gU2lnbmVkLW9mZi1i
-eTogRnJhbmsgTGkgPEZyYW5rLkxpQG54cC5jb20+DQo+IC0tLQ0KPiAgYXJjaC9hcm02NC9ib290
-L2R0cy9mcmVlc2NhbGUvaW14OTUuZHRzaSB8IDI1ICsrKysrKysrKysrKysrKysrKysrLS0tLQ0K
-PiAgMSBmaWxlIGNoYW5nZWQsIDIxIGluc2VydGlvbnMoKyksIDQgZGVsZXRpb25zKC0pDQo+IA0K
-PiBkaWZmIC0tZ2l0IGEvYXJjaC9hcm02NC9ib290L2R0cy9mcmVlc2NhbGUvaW14OTUuZHRzaQ0K
-PiBiL2FyY2gvYXJtNjQvYm9vdC9kdHMvZnJlZXNjYWxlL2lteDk1LmR0c2kNCj4gaW5kZXggNTE2
-MjViYzkxNTRlYy4uNTgwMGEzODEwMzZiYyAxMDA2NDQNCj4gLS0tIGEvYXJjaC9hcm02NC9ib290
-L2R0cy9mcmVlc2NhbGUvaW14OTUuZHRzaQ0KPiArKysgYi9hcmNoL2FybTY0L2Jvb3QvZHRzL2Zy
-ZWVzY2FsZS9pbXg5NS5kdHNpDQo+IEBAIC0yOTEsNiArMjkxLDEzIEBAIHNhaTVfbWNsazogY2xv
-Y2stc2FpLW1jbGs1IHsNCj4gIAkJY2xvY2stb3V0cHV0LW5hbWVzID0gInNhaTVfbWNsayI7DQo+
-ICAJfTsNCj4gDQo+ICsJY2xrX3N5czEwMG06IGNsb2NrLXN5czEwMG0gew0KPiArCQljb21wYXRp
-YmxlID0gImZpeGVkLWNsb2NrIjsNCj4gKwkJI2Nsb2NrLWNlbGxzID0gPDA+Ow0KPiArCQljbG9j
-ay1mcmVxdWVuY3kgPSA8MTAwMDAwMD47DQpzLzEwMDAwMDAvMTAwMDAwMDAwDQoNCkJlc3QgUmVn
-YXJkcw0KUmljaGFyZCBaaHUNCj4gKwkJY2xvY2stb3V0cHV0LW5hbWVzID0gImNsa19zeXMxMDBt
-IjsNCj4gKwl9Ow0KPiArDQo+ICAJb3NjXzI0bTogY2xvY2stMjRtIHsNCj4gIAkJY29tcGF0aWJs
-ZSA9ICJmaXhlZC1jbG9jayI7DQo+ICAJCSNjbG9jay1jZWxscyA9IDwwPjsNCj4gQEAgLTE1OTUs
-NiArMTYwMiwxNCBAQCB1c2IzX2R3YzM6IHVzYkA0YzEwMDAwMCB7DQo+ICAJCQl9Ow0KPiAgCQl9
-Ow0KPiANCj4gKwkJaHNpb19ibGtfY3RsOiBzeXNjb25ANGMwMTAwYzAgew0KPiArCQkJY29tcGF0
-aWJsZSA9ICJueHAsaW14OTUtaHNpby1ibGstY3RsIiwgInN5c2NvbiI7DQo+ICsJCQlyZWcgPSA8
-MHgwIDB4NGMwMTAwYzAgMHgwIDB4MT47DQo+ICsJCQkjY2xvY2stY2VsbHMgPSA8MT47DQo+ICsJ
-CQljbG9ja3MgPSA8JmNsa19zeXMxMDBtPjsNCj4gKwkJCXBvd2VyLWRvbWFpbnMgPSA8JnNjbWlf
-ZGV2cGQgSU1YOTVfUERfSFNJT19UT1A+Ow0KPiArCQl9Ow0KPiArDQo+ICAJCXVzYjNfcGh5OiBw
-aHlANGMxZjAwNDAgew0KPiAgCQkJY29tcGF0aWJsZSA9ICJmc2wsaW14OTUtdXNiLXBoeSIsICJm
-c2wsaW14OG1wLXVzYi1waHkiOw0KPiAgCQkJcmVnID0gPDB4MCAweDRjMWYwMDQwIDB4MCAweDQw
-PiwNCj4gQEAgLTE2MzMsOCArMTY0OCw5IEBAIHBjaWUwOiBwY2llQDRjMzAwMDAwIHsNCj4gIAkJ
-CWNsb2NrcyA9IDwmc2NtaV9jbGsgSU1YOTVfQ0xLX0hTSU8+LA0KPiAgCQkJCSA8JnNjbWlfY2xr
-IElNWDk1X0NMS19IU0lPUExMPiwNCj4gIAkJCQkgPCZzY21pX2NsayBJTVg5NV9DTEtfSFNJT1BM
-TF9WQ08+LA0KPiAtCQkJCSA8JnNjbWlfY2xrIElNWDk1X0NMS19IU0lPUENJRUFVWD47DQo+IC0J
-CQljbG9jay1uYW1lcyA9ICJwY2llIiwgInBjaWVfYnVzIiwgInBjaWVfcGh5IiwgInBjaWVfYXV4
-IjsNCj4gKwkJCQkgPCZzY21pX2NsayBJTVg5NV9DTEtfSFNJT1BDSUVBVVg+LA0KPiArCQkJCSA8
-JmhzaW9fYmxrX2N0bCAwPjsNCj4gKwkJCWNsb2NrLW5hbWVzID0gInBjaWUiLCAicGNpZV9idXMi
-LCAicGNpZV9waHkiLCAicGNpZV9hdXgiLCAicmVmIjsNCj4gIAkJCWFzc2lnbmVkLWNsb2NrcyA9
-PCZzY21pX2NsayBJTVg5NV9DTEtfSFNJT1BMTF9WQ08+LA0KPiAgCQkJCQkgPCZzY21pX2NsayBJ
-TVg5NV9DTEtfSFNJT1BMTD4sDQo+ICAJCQkJCSA8JnNjbWlfY2xrIElNWDk1X0NMS19IU0lPUENJ
-RUFVWD47IEBAIC0xNzA2LDgNCj4gKzE3MjIsOSBAQCBwY2llMTogcGNpZUA0YzM4MDAwMCB7DQo+
-ICAJCQljbG9ja3MgPSA8JnNjbWlfY2xrIElNWDk1X0NMS19IU0lPPiwNCj4gIAkJCQkgPCZzY21p
-X2NsayBJTVg5NV9DTEtfSFNJT1BMTD4sDQo+ICAJCQkJIDwmc2NtaV9jbGsgSU1YOTVfQ0xLX0hT
-SU9QTExfVkNPPiwNCj4gLQkJCQkgPCZzY21pX2NsayBJTVg5NV9DTEtfSFNJT1BDSUVBVVg+Ow0K
-PiAtCQkJY2xvY2stbmFtZXMgPSAicGNpZSIsICJwY2llX2J1cyIsICJwY2llX3BoeSIsICJwY2ll
-X2F1eCI7DQo+ICsJCQkJIDwmc2NtaV9jbGsgSU1YOTVfQ0xLX0hTSU9QQ0lFQVVYPiwNCj4gKwkJ
-CQkgPCZoc2lvX2Jsa19jdGwgMD47DQo+ICsJCQljbG9jay1uYW1lcyA9ICJwY2llIiwgInBjaWVf
-YnVzIiwgInBjaWVfcGh5IiwgInBjaWVfYXV4IiwgInJlZiI7DQo+ICAJCQlhc3NpZ25lZC1jbG9j
-a3MgPTwmc2NtaV9jbGsgSU1YOTVfQ0xLX0hTSU9QTExfVkNPPiwNCj4gIAkJCQkJIDwmc2NtaV9j
-bGsgSU1YOTVfQ0xLX0hTSU9QTEw+LA0KPiAgCQkJCQkgPCZzY21pX2NsayBJTVg5NV9DTEtfSFNJ
-T1BDSUVBVVg+Ow0KPiAtLQ0KPiAyLjM0LjENCg0K
+On Mon, Feb 10, 2025 at 12:30=E2=80=AFAM Weinan Liu <wnliu@google.com> wrot=
+e:
+> I already have a WIP patch to add sframe support to the kernel module.
+> However, it is not yet working. I had trouble unwinding frames for the
+> kernel module using the current algorithm.
+>
+> Indu has likely identified the issue and will be addressing it from the
+> toolchain side.
+>
+> https://sourceware.org/bugzilla/show_bug.cgi?id=3D32666
+
+
+I have a working in progress patch that adds sframe support for kernel
+module.
+https://github.com/heuza/linux/tree/sframe_unwinder.rfc
+
+According to the sframe table values I got during runtime testing, looks
+like the offsets are not correct .
+
+When unwind symbols init_module(0xffff80007b155048) from the kernel=20
+module(livepatch-sample.ko), the start_address of the FDE entries in the
+sframe table of the kernel modules appear incorrect.
+For instance, the first FDE's start_addr is reported as -20564. Adding
+this offset to the module's sframe section address (0xffff80007b15a040)
+yields 0xffff80007b154fec, which is not within the livepatch-sample.ko
+memory region(It should be larger than 0xffff80007b155000).
+
+Here are the sframe table values of the livepatch-samples.ko that I print
+by qemu + gdb.
+
+```
+$ /usr/bin/aarch64-linux-gnu-objdump -L --sframe=3D.sframe ./samples/livepa=
+tch/livepatch-sample.ko
+./samples/livepatch/livepatch-sample.ko: =C2=A0 =C2=A0 file format elf64-li=
+ttleaarch64
+
+Contents of the SFrame section .sframe:
+=C2=A0 Header :
+
+=C2=A0 =C2=A0 Version: SFRAME_VERSION_2
+=C2=A0 =C2=A0 Flags: SFRAME_F_FDE_SORTED
+=C2=A0 =C2=A0 Num FDEs: 3
+=C2=A0 =C2=A0 Num FREs: 11
+
+=C2=A0 Function Index :
+
+=C2=A0 =C2=A0 func idx [0]: pc =3D 0x0, size =3D 12 bytes
+=C2=A0 =C2=A0 STARTPC =C2=A0 =C2=A0 =C2=A0 =C2=A0 CFA =C2=A0 =C2=A0 =C2=A0 =
+FP =C2=A0 =C2=A0 =C2=A0 =C2=A0RA
+=C2=A0 =C2=A0 0000000000000000 =C2=A0sp+0 =C2=A0 =C2=A0 =C2=A0u =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 u
+
+=C2=A0 =C2=A0 func idx [1]: pc =3D 0x0, size =3D 44 bytes
+=C2=A0 =C2=A0 STARTPC =C2=A0 =C2=A0 =C2=A0 =C2=A0 CFA =C2=A0 =C2=A0 =C2=A0 =
+FP =C2=A0 =C2=A0 =C2=A0 =C2=A0RA
+=C2=A0 =C2=A0 0000000000000000 =C2=A0sp+0 =C2=A0 =C2=A0 =C2=A0u =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 u
+=C2=A0 =C2=A0 000000000000000c =C2=A0sp+0 =C2=A0 =C2=A0 =C2=A0u =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 u[s]
+=C2=A0 =C2=A0 0000000000000010 =C2=A0sp+16 =C2=A0 =C2=A0 c-16 =C2=A0 =C2=A0=
+ =C2=A0c-8[s]
+=C2=A0 =C2=A0 0000000000000024 =C2=A0sp+0 =C2=A0 =C2=A0 =C2=A0u =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 u[s]
+=C2=A0 =C2=A0 0000000000000028 =C2=A0sp+0 =C2=A0 =C2=A0 =C2=A0u =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 u
+
+=C2=A0 =C2=A0 func idx [2]: pc =3D 0x0, size =3D 56 bytes
+=C2=A0 =C2=A0 STARTPC =C2=A0 =C2=A0 =C2=A0 =C2=A0 CFA =C2=A0 =C2=A0 =C2=A0 =
+FP =C2=A0 =C2=A0 =C2=A0 =C2=A0RA
+=C2=A0 =C2=A0 0000000000000000 =C2=A0sp+0 =C2=A0 =C2=A0 =C2=A0u =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 u
+=C2=A0 =C2=A0 000000000000000c =C2=A0sp+0 =C2=A0 =C2=A0 =C2=A0u =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 u[s]
+=C2=A0 =C2=A0 0000000000000010 =C2=A0sp+16 =C2=A0 =C2=A0 c-16 =C2=A0 =C2=A0=
+ =C2=A0c-8[s]
+=C2=A0 =C2=A0 0000000000000030 =C2=A0sp+0 =C2=A0 =C2=A0 =C2=A0u =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 u[s]
+=C2=A0 =C2=A0 0000000000000034 =C2=A0sp+0 =C2=A0 =C2=A0 =C2=A0u =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 u
+
+
+
+(gdb) bt
+#0 =C2=A0find_fde (tbl=3D0xffff80007b157708, pc=3D18446603338286190664) at =
+kernel/sframe_lookup.c:75
+#1 =C2=A00xffff80008031e260 in sframe_find_pc (pc=3D18446603338286190664, e=
+ntry=3D0xffff800086f83800) at kernel/sframe_lookup.c:175
+#2 =C2=A00xffff800080035a48 in unwind_next_frame_sframe (state=3D0xffff8000=
+86f83828) at arch/arm64/kernel/stacktrace.c:270
+#3 =C2=A0kunwind_next (state=3D0xffff800086f83828) at arch/arm64/kernel/sta=
+cktrace.c:332
+...
+
+(gdb) lx-symbols
+loading vmlinux
+scanning for modules in /home/wnliu/kernel
+loading @0xffff80007b155000: /home/wnliu/kernel/samples/livepatch/livepatch=
+-sample.ko
+loading @0xffff80007b14d000: /home/wnliu/kernel/fs/fat/vfat.ko
+loading @0xffff80007b130000: /home/wnliu/kernel/fs/fat/fat.ko
+
+(gdb) p/x *tbl->sfhdr_p
+$5 =3D {preamble =3D {magic =3D 0xdee2, version =3D 0x2, flags =3D 0x1}, ab=
+i_arch =3D 0x2, cfa_fixed_fp_offset =3D 0x0, cfa_fixed_ra_offset =3D 0x0, a=
+uxhdr_len =3D 0x0, num_fdes =3D 0x3, num_fres =3D 0xb, fre_len =3D 0x25, fd=
+es_off =3D 0x0, fres_off =3D 0x3c}
+
+(gdb) p/x tbl->sfhdr_p
+$6 =3D 0xffff80007b15a040
+
+(gdb) p *tbl->fde_p
+$7 =3D {start_addr =3D -20564, size =3D 12, fres_off =3D 0, fres_num =3D 1,=
+ info =3D 0 '\000', rep_size =3D 0 '\000', padding =3D 0}
+
+(gdb) p *(tbl->fde_p + 1)
+$11 =3D {start_addr =3D -20552, size =3D 44, fres_off =3D 3, fres_num =3D 5=
+, info =3D 0 '\000', rep_size =3D 0 '\000', padding =3D 0}
+
+(gdb) p *(tbl->fde_p + 2)
+$12 =3D {start_addr =3D -20508, size =3D 56, fres_off =3D 20, fres_num =3D =
+5, info =3D 0 '\000', rep_size =3D 0 '\000', padding =3D 0}
+
+/* -20564 + 0xffff80007b15a040 =3D 0xffff80007b154fec */
+(gdb) info symbol 0xffff80007b154fec
+No symbol matches 0xffff80007b154fec
+```
 
