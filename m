@@ -4,175 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84C95C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 21:08:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC3BC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 21:10:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=a/s7YTzT1hhJHfR8eyjjYlD0DXi4YHs1HX3Ke2czWTo=; b=Ib5O0fQ9+w26tnK9+n+0xXfTJf
-	5J/EVXTuoybOeNKEzkPiQUXrehDYa9he8leAjKaJWiTgPbjkA4cQhyyqXfAD1Ke3qdTXADfMtlm7F
-	WrMLwCqkfjyr1rlQBdmVMbKoxTW2/Cw/2f5p6x58DodBWUUfJUPG+7DgXhJpQidJ7TtArFe9enZsD
-	zLFlrXllvCQt3FF3zPxFnFWuKIe86+fut8ueCkAMdOlYRWibj8koZ5n4RULkDmKTtHzV8q/T3KdT2
-	qCw9EouLt1Qui7t3o17P60k3m3DU1uNLMh5c6HkLjm5JYC65UmKQSLVns3z4s3Txon29Itp/HvKJr
-	vo30Pd3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jSyg4m32Z211cyBXnbFEQqvd1CvDN7Q9P47t+0FLggc=; b=1vuFqmopa064VYguOhnR5t9rq0
+	x9LD0IMvDfY4AlFdavkAosSRo8qJxnSCxdGoGOplw85HGTPY6SXOckOIwy7RxAkNZKCuBtcI8XxYS
+	Ap4BXQiYOW7Ymkwu9ONPh1g2PU0NtK05YYJJhP6c6+FZiLzIIhbZDE0RmpbwGqM1KrhuFTlbWHFSg
+	FBnPx88BASG+FFrI7QttlAePpxkfKhM+/qXSGwtt1FstU4IuKzEzfkgVqYA7isJ8D5kMP2aNjRHkF
+	K2VFvh+BRAcJOMNbXWU7c+dGG/rHLK+Sy3JhK9macq6J1f/TXU5OmIS5tTW1U7stO8kOfUtBVM2l6
+	sqUXOdEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn29p-00000001U58-40Ol;
-	Tue, 25 Feb 2025 21:08:01 +0000
-Received: from mail-dm6nam11on20607.outbound.protection.outlook.com ([2a01:111:f403:2415::607] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1tn2Bg-00000001UoI-3Hzf;
+	Tue, 25 Feb 2025 21:09:56 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn0mj-00000001Bzg-3IyR;
-	Tue, 25 Feb 2025 19:40:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=b7ISxJ8WrumIQvu/35naKm+ZCPx+gBrRBzX+BKWaFOOKTGJBrgjBLMf3yZuzQRzoCgzBO+lrQniDLI1TLPQwjjwPwo5FZAoOsQwEMLSqWNYxuT6i+oKKlrr9G42i+e68CdvBpsGBB9bm155WbrdqcftT5+0Al1wFG6wwykoYjI4SsOnJ7OIHRfMlnxjzmEFqVXAI06nXGbmHDPLMRrp+N5y9lPqW2d8qFb++Bq1rAB/3kgcQiWrOUnNo9e642328MWGLKnTI2P17u/I7z6CgDa62jaqH8Fjc5gl/q4YhuuvV4d4pdBBMwp6cgH87bvRaojZe9fgdClX2aZ0LiTWpVQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=a/s7YTzT1hhJHfR8eyjjYlD0DXi4YHs1HX3Ke2czWTo=;
- b=Ya6hD8Iu17IlzDI1tZa7B1j8mthZjpGwDS6/myV1TufnuH3DifR717CHRDafASKUtx6f4xJNbD1ULxcjSNIW8l2eC0XTq4K0eUkxuP/OuFfawJuNuS0vMXTmM/KdZviCqjp182mpLE/Dn54NzqbsHw1pTcTRO37q6UzWsbQpeGvyVG5VR/OvMf2OdGthXqvV9XEKT9IiJCCaJmpXRGSOnuh+sRUe7V5fBb3S5kwQYWWQQoojPLLmuXDFGbjfDRF5Fu64YuXU70nvy4d+MUkSITjZptlPhsXiYr8k47cM/+wPP4VyRJ4FIIXIUdV+/eg4Ui2j3tZ9amRysTGT5clhbw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=a/s7YTzT1hhJHfR8eyjjYlD0DXi4YHs1HX3Ke2czWTo=;
- b=tGSASG/aCWY+Cs0Blu/8pEdA4iSi851n4Kx8O07l67trFuzZGGG1L8v/2IdPMMisP8TcDaxPoVWePbhy60NPphCxUxkW9WgylCl5DIKsGV9Gwyxq6eB8kGjiBB/VR2kqoi09aCT4o9osA9wQAVLhV2ygVBQCnOq4IGVzn+hwTqEdNK4q5JZMGxsA3mpeYmelxqlSbaUgqY73vPulrXwwf5kR1bdD3+bkUXnZ3i8kuhFSeP+ZVP0GgWaReWfa3Nt4RiDkR72qClxECdYIHxi5ShJSHVJin6deR7q9YmLfyGQPJT5lsTV7hdmPgf3e2bCPb3RCJ1XUUoEvYEWApn8g4g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by BL3PR12MB6617.namprd12.prod.outlook.com (2603:10b6:208:38c::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.20; Tue, 25 Feb
- 2025 19:39:53 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8466.016; Tue, 25 Feb 2025
- 19:39:53 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	asahi@lists.linux.dev,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	iommu@lists.linux.dev,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Hector Martin <marcan@marcan.st>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Krishna Reddy <vdumpa@nvidia.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>
-Cc: Bagas Sanjaya <bagasdotme@gmail.com>,
-	Joerg Roedel <jroedel@suse.de>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	patches@lists.linux.dev,
-	David Rientjes <rientjes@google.com>,
-	Matthew Wilcox <willy@infradead.org>
-Subject: [PATCH v3 00/23] iommu: Further abstract iommu-pages
-Date: Tue, 25 Feb 2025 15:39:17 -0400
-Message-ID: <0-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: YQZPR01CA0122.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:87::23) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1tn1YV-00000001Myr-22Xa
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 25 Feb 2025 20:29:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=jSyg4m32Z211cyBXnbFEQqvd1CvDN7Q9P47t+0FLggc=; b=RfwLf+aNt2xLB6YNUgqm5JmHdt
+	IWXGR56acdt87d+C5QqDcN4GKiWCWyjuuiMeZoZNaW0iAjZXqV6aTCGhoZ0dyIvO7AlZlQRyqIUnr
+	jU+qav4a40WBUQeDyFikLOdRjW4Mg1mHa80zHBPlv10ZRFKkEolG86dh3MvQN0+zEuGrG6h6WNNcP
+	D+7K7B2l90HVt9DXlA7ll7mJr5v/zl1zJ1upZ3N4m1s2OQEZmH/JDuuaG1uTh8dhDE9vvt2FJfTwn
+	x5uDNnOxMUiNt+V3Bbf8QVUukO0BumFWh9n+4XqYCfZlzcfmcncV6I1Zq8nyBPXUBn9uVao9xEjp9
+	Mct/BD6A==;
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tn1YS-00000003QRp-1iFG
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Feb 2025 20:29:26 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1tn1YL-0004PK-Uh; Tue, 25 Feb 2025 21:29:17 +0100
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1tn1YL-002pgi-1j;
+	Tue, 25 Feb 2025 21:29:17 +0100
+Received: from pengutronix.de (p5b164285.dip0.t-ipconnect.de [91.22.66.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 1E0533CBC87;
+	Tue, 25 Feb 2025 20:29:17 +0000 (UTC)
+Date: Tue, 25 Feb 2025 21:29:16 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Chester Lin <chester62515@gmail.com>, 
+	Matthias Brugger <mbrugger@suse.com>, Conor Dooley <conor+dt@kernel.org>, imx@lists.linux.dev, 
+	Enric Balletbo <eballetb@redhat.com>, linux-arm-kernel@lists.infradead.org, 
+	Christophe Lizzi <clizzi@redhat.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	linux-kernel@vger.kernel.org, Alberto Ruiz <aruizrui@redhat.com>, NXP S32 Linux <s32@nxp.com>, 
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: s32g: add FlexCAN[0..3] support for s32g2
+ and s32g3
+Message-ID: <20250225-private-savvy-caracal-3e7f47-mkl@pengutronix.de>
+References: <20250224134016.3921196-1-ciprianmarian.costea@oss.nxp.com>
+ <174051414934.2971045.13322665811292325537.robh@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|BL3PR12MB6617:EE_
-X-MS-Office365-Filtering-Correlation-Id: d2a45919-15c7-49bc-75e7-08dd55d42924
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BH2umvZwkj0IdQVksw8MylcNODTTigzvABzcqB/Ug+HQB+k+rRvOQVUDNj9Q?=
- =?us-ascii?Q?7iBphyAjLxpc9SwQo4wttJlMJT8jDKhesAJDVQF12dzSSQbF8uBUxAqX0PGA?=
- =?us-ascii?Q?O9XOjELm4VA6nnOfEP5e9kUA383NUprVe/4tBPXUzFoCcO2HwCV/4kd5tpgV?=
- =?us-ascii?Q?ALFK6c1+TqTSqIX001ontEAs+8ztmGuTY9dwEm4e3EfIkFOZW4U2nXnLT5dQ?=
- =?us-ascii?Q?snAC3RJsJi8phaU5RWdF9m+FvAh10ZC3EFgXM+RzIdd9yoLe2XBVoGXlQACU?=
- =?us-ascii?Q?ehiZhDSG07t2q+D21/OOusv/NqMsP536OvMzBVTEKhBMeiRd8lwHlQj7bQNN?=
- =?us-ascii?Q?bCPqK6fN/BpNxjJONGIG2hDdLVuvZSmww85Rjsc6XpLWkhGvrLtdsq0YzVww?=
- =?us-ascii?Q?b0goOLecOXiM3yoEezWCDPx6NcHqXxgYrlCeiL71rjApNIszJopcw6FqZd2y?=
- =?us-ascii?Q?U8dr0GUJsaoDUmalwRSrekUz17MSZ8upo5eoqVbVQ6at+Cm/3QaiCR2jOFUU?=
- =?us-ascii?Q?Te2dWzm877G9BbJs+7NEFoV3p+Iem4kqkoaLJwliwuVydFZJi19QdCDL6/am?=
- =?us-ascii?Q?Sf6r+SinIkP5dqWjgmRWQG5XfN1ZgyF7k3gyTPIFjQ8reeCrB9OO7Cf62q6D?=
- =?us-ascii?Q?HG5wnNnletWrLdgtbqD5MNzVDnRJpxZ5N+dlMJh31RLHPplg0C3yCsW25+is?=
- =?us-ascii?Q?xJhqrk25iwf5N1CBHs/7jd4cxYkjLQzYQ4t5YZlqdNQeT1rTJRXiykm21Lgx?=
- =?us-ascii?Q?o5nNLT2ERkHbTKiJLITmG1O48SVvv2KcuFqjA7YywAeKXWxHag97Yw3OHmJA?=
- =?us-ascii?Q?jkcVSz74BNpEba8ETRtcmODgoMZt1mTAupEKTD3RgmQ6Bvp8WFpTlX6KBSXi?=
- =?us-ascii?Q?lriZblh0D1qQJo+KpC66Mjsj986We6rGPi8vlQgCvt4ThBOjuDoEqHtud0kE?=
- =?us-ascii?Q?sfi5tJ+aWtK+xqTU2lSCAg6QMRoh1kWiUhWBAgN83pFiPTAyprwJib668s9n?=
- =?us-ascii?Q?WZ1tEXMjzf3+1UxmSbF3iC9QFZ5E0ygjiasCJE39CT6wIhpPslthjcsDoBz3?=
- =?us-ascii?Q?PtBm5OgEtv0Io/0E0pthVvOuJjYZUSX8yj/KmjEAkTpG6CKQyw/k47fOVfw2?=
- =?us-ascii?Q?XsxGAQBgAOokYbFQFO817JTPoRm/WoosAPDIYjcUcUR9RUYnD6EzWcLer2bb?=
- =?us-ascii?Q?ESTTU860HUj1PgO2x34SXOmeZWULJjLQtfCOfkhqF68eEUxgkDiG0WxJVZV1?=
- =?us-ascii?Q?pMPmO3uCYgbaS/I26nfNn6mz9uXWOHfHd6E3RrVk+L5H+UyfAfLMD/uvg1tP?=
- =?us-ascii?Q?BgwOvV5+Q2kz24dnTV4xVmoHV+gPdIGl6rxCByoO0h8CItQtSJbB3zw4EYsJ?=
- =?us-ascii?Q?llGWkktaSj4ffVnH9oDI9qVMrL9YI+TBIjSXXY7feq+5A3PXRC8rmXl8ZAFQ?=
- =?us-ascii?Q?oxBUhlNEUtU=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/CMjx/azLMJS/AdYEtOG4Gzcw18SBRJfWgertc9UyubTeEp65JOUq7GPVo/c?=
- =?us-ascii?Q?jk39ubu3P4ecQASb20rNTUgWq3eSyQqWq4ZnUQXphlaE+M9vEMMJ54Yo1Y5M?=
- =?us-ascii?Q?jAeNj8rQ4yHqW/XM2hHnrUaE9o6n8In9C9W90GywvCbTEB9ZNLiBdmLdqgQJ?=
- =?us-ascii?Q?iXbPBmfMTtDbkpIzKDoBF8zqJpmDANCeHaFQ0mnFeKq9QF73wyAkocLc7y8r?=
- =?us-ascii?Q?t2xsBp/1UITLGiKNT5L7kj7iGcrwWM8uG2XB5v4DoLq0HBcfK/WY1u175SQA?=
- =?us-ascii?Q?i5e4beyAblCU2Oj6TtKjcR7jLUmDYd2c4yrXoc92ECovMxNFlim7Qd8+j4eJ?=
- =?us-ascii?Q?gWnKNMbbiTvv5kxCz7g++so1vkEIXfNW22J4ahFx7GtpHUamhCGogZlqvdsa?=
- =?us-ascii?Q?SUaes4ddLxS9JOHfSavwb+eZwcuHxj5GjAbPmj1hbgZnUmNxrxTIF1YEWjzF?=
- =?us-ascii?Q?OZMiRpSLrzF3PzSmZ5JXWcCQ3ni/jKctdkgjyL3wdSAUcW9zg7aMhOGnSSAg?=
- =?us-ascii?Q?aLn6a4mXqHF0/TYZQovIcQ4O7ewVaHOHtz3TGhAqY/nRYuWwwHHKQKZDv5/E?=
- =?us-ascii?Q?TIh60It6VQSxN0VLznUk1rXz+2lpVQkHci43dc9XEmkiDVIo97iMChCOiMx8?=
- =?us-ascii?Q?VefU5VIKyztt5VZgjkiPIX1AEgPmycdIcI8mZfBPNfwLGjcIrY362ocpIChS?=
- =?us-ascii?Q?VTnukSy9h9Gk977arux+H1IuK8AEXzg0eUzKsbvE/zYjdbXM7hg4e3zR03Ue?=
- =?us-ascii?Q?XyKbqJotnO8yAcwoP+cphtnojPi5t0OlaTFkbdQafKwa9xi3UzVFJ7R1yQXL?=
- =?us-ascii?Q?lWNFiuPUL8Gs719Wtg7tqvmk3WtZoVZfFm1Kz5aB5SiJH+DaSDfTG8TGLQhb?=
- =?us-ascii?Q?E6dITpZiTkC49z9+5J5NnZvJEEqZpvaVo/Um9ZGBQQf+FSdN1Vk2E2RRyumF?=
- =?us-ascii?Q?MgU0oGakzyyLQL91MnMS4qRrQexg6f/DbahS4k0AjLwpG5d4QK4EM/VzTxfO?=
- =?us-ascii?Q?e4hZ9FaP1mXAwgby/EGUVctRgzjlvPEUfgIqshbZDontVfxgY4mdj9gduv46?=
- =?us-ascii?Q?Q6bicpfqvMuEv+sIWcg4m4LGXCeGrh3JeunOqalPJDK0n0W7eoTpvin/BE/S?=
- =?us-ascii?Q?1NZmK/CmQfxVD+zOOCanCZL76IIdZstYKc1TrNftWPyfk4p7neW79OTknhp9?=
- =?us-ascii?Q?O/ziPbRFkgANL/tCKF4dieNGGUtszz606o4ei5aKs0sEBFkYT7wFMQax3oF2?=
- =?us-ascii?Q?8LLI/ghzJ+ccS+GwJh+168gl4YS0NouTh4fjQfU4xjFXrcePy0bn+SYRYt9I?=
- =?us-ascii?Q?W5+XmLgbNkuU1fyxW99d3fpkJxOhBWOGDlJxmtiinJZud2PlJkRnCLxUh6nF?=
- =?us-ascii?Q?45BlCSDJvzrITfJmXTPZksAK4U4tg5J77HYBf0aKtowNUMtd9GX2ySnC+6KT?=
- =?us-ascii?Q?f9fzUOHRuIA4FYJ+E9h7GQKq7eaFW242Mq5eWrgWjbhMXZSfc8I9tmgR5tkt?=
- =?us-ascii?Q?lxXoemCQjEv4JliFswPZGOK6ljWoCCaa4/wJf6N75Pt8bb0e1tGSGvR1oEnt?=
- =?us-ascii?Q?rTDKDiXh1u3Xomgy64+/IC4+ABBy2hh6flHNqjcr?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d2a45919-15c7-49bc-75e7-08dd55d42924
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 19:39:47.0020
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tWtr0Z7h20RYBm+72+bEuEdWsWreumKGD28n9+2eKrDdHb1PkkhgJBqvrthU5MMj
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR12MB6617
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="hyjls6qa3nf4o47i"
+Content-Disposition: inline
+In-Reply-To: <174051414934.2971045.13322665811292325537.robh@kernel.org>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_114005_857102_ED6C1CC3 
-X-CRM114-Status: GOOD (  19.00  )
+X-CRM114-CacheID: sfid-20250225_202924_584756_35E4B0F2 
+X-CRM114-Status: GOOD (  19.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,127 +103,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is part of the consolidated iommu page table work, it brings the
-allocator I previously sketched to all drivers.
 
-iommu-pages is a small abstraction for allocating page table pages that
-iommu drivers use. It has a few properties that distinguish it from the
-other allocators in the kernel:
+--hyjls6qa3nf4o47i
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] arm64: dts: s32g: add FlexCAN[0..3] support for s32g2
+ and s32g3
+MIME-Version: 1.0
 
- - Allocations are always power of two, and always physically aligned to
-   their size
- - Allocations can be threaded on a list, in atomic contexts without
-   memory allocations. The list is only used for freeing batch of pages
-   (ie after IOTLB flush as the mm does)
- - Allocations are accounted for in the secondary page table counters
- - Allocations can sometimes be less than a full CPU page, 1/4 and 1/16 are
-   some common sub page allocation sizes.
- - Allocations can sometimes be multiple CPU pages
- - In future I'd like atomic-safe RCU free of the page lists, as the mm does
+On 25.02.2025 14:12:30, Rob Herring (Arm) wrote:
+>=20
+> On Mon, 24 Feb 2025 15:40:16 +0200, Ciprian Costea wrote:
+> > From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+> >=20
+> > Add FlexCAN[0..3] for S32G2 and S32G3 SoCs.
+> >=20
+> > Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+> > ---
+> >  arch/arm64/boot/dts/freescale/s32g2.dtsi      | 52 ++++++++++++++
+> >  arch/arm64/boot/dts/freescale/s32g3.dtsi      | 56 +++++++++++++++
+> >  .../boot/dts/freescale/s32gxxxa-evb.dtsi      | 72 +++++++++++++++++++
+> >  .../boot/dts/freescale/s32gxxxa-rdb.dtsi      | 48 +++++++++++++
+> >  4 files changed, 228 insertions(+)
+> >=20
+>=20
+>=20
+> My bot found new DTB warnings on the .dts files added or changed in this
+> series.
 
-Make the API tighter and leak fewer internal details to the
-callers. Particularly this series aims to remove all struct page usage
-related to iommu-pages memory from all drivers, this is things such as:
+The dt-bindings patch that documents support for the S32G2/S32G3 is in
+net-next/main: 51723790b718 ("dt-bindings: can: fsl,flexcan: add
+S32G2/S32G3 SoC support")
 
- struct page
- virt_to_page()
- page_to_virt()
- page_to_pfn()
- pfn_to_page()
- dma_map_page()
- page_address()
- page->lru
+> New warnings running 'make CHECK_DTBS=3Dy for arch/arm64/boot/dts/freesca=
+le/' for 20250224134016.3921196-1-ciprianmarian.costea@oss.nxp.com:
+>=20
+> arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@401b4000: fai=
+led to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-f=
+lexcan']
+> arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@401b4000: fai=
+led to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-f=
+lexcan']
+> arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@401be000: fai=
+led to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-f=
+lexcan']
+> arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@401be000: fai=
+led to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-f=
+lexcan']
+> arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@402a8000: fai=
+led to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-f=
+lexcan']
+> arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@402a8000: fai=
+led to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-f=
+lexcan']
+> arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@402b2000: fai=
+led to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-f=
+lexcan']
+> arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@402b2000: fai=
+led to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-f=
+lexcan']
+> arch/arm64/boot/dts/freescale/s32g274a-evb.dtb: /soc@0/can@401b4000: fail=
+ed to match any schema with compatible: ['nxp,s32g2-flexcan']
+> arch/arm64/boot/dts/freescale/s32g274a-evb.dtb: /soc@0/can@401be000: fail=
+ed to match any schema with compatible: ['nxp,s32g2-flexcan']
+> arch/arm64/boot/dts/freescale/s32g274a-evb.dtb: /soc@0/can@402a8000: fail=
+ed to match any schema with compatible: ['nxp,s32g2-flexcan']
+> arch/arm64/boot/dts/freescale/s32g274a-evb.dtb: /soc@0/can@402b2000: fail=
+ed to match any schema with compatible: ['nxp,s32g2-flexcan']
+> arch/arm64/boot/dts/freescale/s32g274a-rdb2.dtb: /soc@0/can@401b4000: fai=
+led to match any schema with compatible: ['nxp,s32g2-flexcan']
+> arch/arm64/boot/dts/freescale/s32g274a-rdb2.dtb: /soc@0/can@401be000: fai=
+led to match any schema with compatible: ['nxp,s32g2-flexcan']
+> arch/arm64/boot/dts/freescale/s32g274a-rdb2.dtb: /soc@0/can@402a8000: fai=
+led to match any schema with compatible: ['nxp,s32g2-flexcan']
+> arch/arm64/boot/dts/freescale/s32g274a-rdb2.dtb: /soc@0/can@402b2000: fai=
+led to match any schema with compatible: ['nxp,s32g2-flexcan']
 
-Once drivers no longer use struct page convert iommu-pages to folios and
-use a private memory descriptor. This should help prepare iommu for
-Matthew's memdesc project and clears the way to using more space in the
-struct page for iommu-pages features in future.
+Marc
 
-Improve the API to work directly on sizes instead of order, the drivers
-generally have HW specs and code paths that already have specific sizes.
-Pass those sizes down into the allocator to remove some boiler plate
-get_order() in drivers. This is cleanup to be ready for a possible sub
-page allocator some day.
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
 
-This is on github: https://github.com/jgunthorpe/linux/commits/iommu_pages
+--hyjls6qa3nf4o47i
+Content-Type: application/pgp-signature; name="signature.asc"
 
-v3:
- - Fix comments
- - Rename __iommu_free_page() to __iommu_free_desc()
- - Retain the max IMR table size comment in vt-d
-v2: https://patch.msgid.link/r/0-v2-545d29711869+a76b5-iommu_pages_jgg@nvidia.com
- - Use struct tegra_pd instead of u32 *
- - Use dma_unmap_single() instead of unmap_page in tegra
- - Fix Tegra SIZE_PT typo
- - Use iommu_free_pages() as the free function name instead of
-   iommu_free_page()
- - Remove numa_node_id() and use the NUMA_NO_NODE path with numa_mem_id()
- - Make all the allocation APIs use size only, fully remove order and lg2
-   versions
- - Round up the riscv queue size, use SZ_4K in riscv not PAGE_SIZE
- - Convert AMD to use kvalloc for CPU memory and fix the device table to
-   round up to 4K
- - Use PAGE_ALIGN instead of get_order in AMD iommu_alloc_4k_pages()
-v1: https://patch.msgid.link/r/0-v1-416f64558c7c+2a5-iommu_pages_jgg@nvidia.com
+-----BEGIN PGP SIGNATURE-----
 
-Jason Gunthorpe (23):
-  iommu/terga: Do not use struct page as the handle for as->pd memory
-  iommu/tegra: Do not use struct page as the handle for pts
-  iommu/pages: Remove __iommu_alloc_pages()/__iommu_free_pages()
-  iommu/pages: Make iommu_put_pages_list() work with high order
-    allocations
-  iommu/pages: Remove the order argument to iommu_free_pages()
-  iommu/pages: Remove iommu_free_page()
-  iommu/pages: De-inline the substantial functions
-  iommu/vtd: Use virt_to_phys()
-  iommu/pages: Formalize the freelist API
-  iommu/riscv: Convert to use struct iommu_pages_list
-  iommu/amd: Convert to use struct iommu_pages_list
-  iommu: Change iommu_iotlb_gather to use iommu_page_list
-  iommu/pages: Remove iommu_put_pages_list_old and the _Generic
-  iommu/pages: Move from struct page to struct ioptdesc and folio
-  iommu/pages: Move the __GFP_HIGHMEM checks into the common code
-  iommu/pages: Allow sub page sizes to be passed into the allocator
-  iommu/amd: Change rlookup, irq_lookup, and alias to use kvalloc()
-  iommu/amd: Use roundup_pow_two() instead of get_order()
-  iommu/riscv: Update to use iommu_alloc_pages_node_lg2()
-  iommu: Update various drivers to pass in lg2sz instead of order to
-    iommu pages
-  iommu/pages: Remove iommu_alloc_page/pages()
-  iommu/pages: Remove iommu_alloc_page_node()
-  iommu/pages: Remove iommu_alloc_pages_node()
+iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAme+KBkACgkQDHRl3/mQ
+kZxdrwf+JXiYSAtNXsvcQpYo6OfO9ld3hbOKggakubUaLFftujJA/9iNVFaUgqHg
+1m1/pAgYThwS+zVAVPn8w7zgfznQj5iF45qigUAugkGANBrPwvcr4YBYqrATQTpq
+WHsWnaz5A8Emg9AC9kmg7nfFDM6uMR7SEWXwlvp3YXUzqC5Ujh2scrKg9nh/NUNj
+BIDoOyWb0YrNyJoPfVd7ooG6GnMxmg6oPqWr7xIRwR+FkJVFwEtcBmPk71Xk9foX
+yXLZlC92qTwQBn/0pgj/q/8XyX8UuGgL28Wfo2bg2q67iPqc/yQdi6QW/C+OMRuG
+qJmoE2guvBD9ho/u4NtPJ307RtGZqQ==
+=dAC0
+-----END PGP SIGNATURE-----
 
- drivers/iommu/Makefile              |   1 +
- drivers/iommu/amd/amd_iommu_types.h |   8 --
- drivers/iommu/amd/init.c            |  91 +++++-------
- drivers/iommu/amd/io_pgtable.c      |  38 +++--
- drivers/iommu/amd/io_pgtable_v2.c   |  12 +-
- drivers/iommu/amd/iommu.c           |   6 +-
- drivers/iommu/amd/ppr.c             |   2 +-
- drivers/iommu/dma-iommu.c           |   9 +-
- drivers/iommu/exynos-iommu.c        |  12 +-
- drivers/iommu/intel/dmar.c          |  10 +-
- drivers/iommu/intel/iommu.c         |  52 +++----
- drivers/iommu/intel/iommu.h         |  26 +---
- drivers/iommu/intel/irq_remapping.c |  12 +-
- drivers/iommu/intel/pasid.c         |  13 +-
- drivers/iommu/intel/pasid.h         |   1 -
- drivers/iommu/intel/prq.c           |   7 +-
- drivers/iommu/io-pgtable-arm.c      |   9 +-
- drivers/iommu/io-pgtable-dart.c     |  23 +--
- drivers/iommu/iommu-pages.c         | 117 +++++++++++++++
- drivers/iommu/iommu-pages.h         | 211 +++++++++-------------------
- drivers/iommu/riscv/iommu.c         |  43 +++---
- drivers/iommu/rockchip-iommu.c      |  14 +-
- drivers/iommu/sun50i-iommu.c        |   6 +-
- drivers/iommu/tegra-smmu.c          | 111 ++++++++-------
- include/linux/iommu.h               |  16 ++-
- 25 files changed, 426 insertions(+), 424 deletions(-)
- create mode 100644 drivers/iommu/iommu-pages.c
-
-
-base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
--- 
-2.43.0
-
+--hyjls6qa3nf4o47i--
 
