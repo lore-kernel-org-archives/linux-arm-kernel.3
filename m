@@ -4,70 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63331C021BB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 11:02:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEC16C021B6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 11:04:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/wGkIil3QoXz7AbdiUATvQCPYUHaF23rXlPjZE2ix3o=; b=I4H5CBadKlHc7gGFjMTUWcUQv6
-	jRusQRQohXMQgZVEVVbG8KPAMTjoBdkXtnRFhxofFWFv3zgw9REwn1AXNfYeHDUr6tj1G3jGRfHnO
-	ZeQOAtxuXBJMCLOUGovU4YjbX7sPvV0M4G5WBxQodDDbMvnwA0GRpFWVJIt1jklkFLZ8LG1/kNpuj
-	TPIjVMozxsbRkpxWOyVKs0CKNyfE7m2izoomSor7sTbyhnpMYrkp/h5Gpll7bEBVdTL2HAXFRnLva
-	owEg7fUMNQDOcV4Vc2Lg4Qc1xljNtMoAP16NtYZh8tAiiSHmoQKuIdrb1SEtKOOzkRqCd5orfGrfK
-	A0JtaPyA==;
+	bh=BypS39ZRkbVYHg9KLMo4KejA7snt9N8vXE+PW59GqWg=; b=V2SCYqcdTQ7CZxzYiR2sfRv2zw
+	MuyOcnl3knoWYQ6bCG/sXfO8QRUCaVdEuhJM39gKnQu5ebQYOzPb0TL7U1aTI04synIXP1tfn+1jh
+	rIfu0kA5ZMZVS2QStgTtXDjswWdhIiorIfSvzGloorYS+3yySidkSTucYhVlgyn6gEAg8AHZwZqNu
+	3FeHQozi4wFMRbeFQ8i7xDHOInCXr44mg2tOz58Ez/nSxZBT9DhiJanfZHbwCYPUm+xx6v+E+BS3I
+	8rM7iQD04f+FPNfRPozks22MU2PIMBJ6dq+KR11iA/b8scXWKu3lGYLPTQRFDr/j6MOyM+fOsicTd
+	S4DMtUXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmshu-0000000GwbF-3JRc;
-	Tue, 25 Feb 2025 11:02:34 +0000
-Received: from mail-m1973181.qiye.163.com ([220.197.31.81])
+	id 1tmsjR-0000000Gwzd-228Z;
+	Tue, 25 Feb 2025 11:04:09 +0000
+Received: from mout.web.de ([217.72.192.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tms8r-0000000GowB-0iUm;
-	Tue, 25 Feb 2025 10:26:22 +0000
-Received: from localhost.localdomain (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id c22892d4;
-	Tue, 25 Feb 2025 18:26:16 +0800 (GMT+08:00)
-From: Kever Yang <kever.yang@rock-chips.com>
-To: heiko@sntech.de
-Cc: linux-rockchip@lists.infradead.org,
-	Kever Yang <kever.yang@rock-chips.com>,
-	devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Finley Xiao <finley.xiao@rock-chips.com>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Rob Herring <robh@kernel.org>,
-	Liang Chen <cl@rock-chips.com>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Yifeng Zhao <yifeng.zhao@rock-chips.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v7 2/2] arm64: dts: rockchip: Add rk3576 pcie nodes
-Date: Tue, 25 Feb 2025 18:26:11 +0800
-Message-Id: <20250225102611.2096462-2-kever.yang@rock-chips.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250225102611.2096462-1-kever.yang@rock-chips.com>
-References: <20250225102611.2096462-1-kever.yang@rock-chips.com>
+	id 1tms9P-0000000Gp2i-1Jeg;
+	Tue, 25 Feb 2025 10:26:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1740479202; x=1741084002; i=markus.elfring@web.de;
+	bh=BypS39ZRkbVYHg9KLMo4KejA7snt9N8vXE+PW59GqWg=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=XY3OmHW4dF/XvVkKqCgeb2gYtnYoryKMu8/sKfnb1hD5CTdSpHVRI99aDxN+J3cM
+	 ICtj+nooEXckiNAp4Ug/guhTOAetM8eBJbqaPDqEx+KL31HG67HuKX90GKd0Y37tP
+	 ER6gqPRoCsa64QNUl9kv+wsJ9d6gzQnwWxE1EGI62/Yj+mnmX95B/asz29UmC3U1a
+	 svAZv3uh65DUdXe8CJt4r8ycCiePKGDU8YQjB+eQej7lyfhxfoCmgN6wH4BBNKQrd
+	 ZlckvpLs3YYpNuTdNU13rH7n51aoxqT7WYFOCP8a6R4aN4kaz9r8fyMm9hHKI6X7t
+	 6x4yflswhs4bXgF37w==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.70.36]) by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1Mav2X-1tBbOD1EDr-00j0g2; Tue, 25
+ Feb 2025 11:26:42 +0100
+Message-ID: <0b18b6c3-1275-4560-a67d-a15382867954@web.de>
+Date: Tue, 25 Feb 2025 11:26:39 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0JIHVZMSkpPTkhIT0gZTkNWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a953ca49f4903afkunmc22892d4
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PBA6Mxw5EDIPFRZMSD85Mw0q
-	SUoKFAlVSlVKTE9LT0xCSkxMQ0NMVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFPQkxMNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=EGy/dRrY80vj82Tvyrn2DPHIFxLxBg4BVpU0q5iGos1VHJS3PjwEh/1jRM8IFKiYudemir50dsHU0kEvDI4evgpAJIPddLdhFKOn/kuD1G2bs6Dlv9guQb2liszvR4a3ahA7x3ewpbHDapeN3OR1BjRR1A64RhEu8LvV5QujXUU=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=/wGkIil3QoXz7AbdiUATvQCPYUHaF23rXlPjZE2ix3o=;
-	h=date:mime-version:subject:message-id:from;
+User-Agent: Mozilla Thunderbird
+To: Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ kernel@collabora.com, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: LKML <linux-kernel@vger.kernel.org>, Fabien Parent
+ <fparent@baylibre.com>, Hsiao Chien Sung <shawn.sung@mediatek.com>,
+ Pablo Sun <pablo.sun@mediatek.com>
+References: <20250212100012.33001-7-angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH 6/8] soc: mediatek: mt8365-mmsys: Fix routing table masks
+ and values
+Content-Language: en-GB
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250212100012.33001-7-angelogioacchino.delregno@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:EzHIUmeGE235QvGYzbi8u2fipYppf2iascydP1d2ZMQGWjfBdEw
+ r/31IQKNePVtvPRbHYzY0DmyveIby3lLsyhlqWdT87gfBTxPTYX5IDvTjqTjLrraKKl2tSp
+ xccWxhMo9iNLO0njR+spW/XBP0ibPx4vhnOxWbAU8pbE+ImLLQc+NBJdkip4SSrusL5OJsg
+ j0BoGGwoSt+CW0RjUVUsg==
+UI-OutboundReport: notjunk:1;M01:P0:IzFamMO3EyQ=;fxzPkjtXifCI9ZLB6gx+AssHT9X
+ yCQqovvJxnJx/kcl/8xnDQVN7YinmABdSvQTx9jvKCyugxduK2xwKbkCKSfjkFCZPi7W7/H48
+ Wjw/48Bm6KUUdN+cUZ8wh+hKGaQRZkheYxjJdoqQQAwf9p5QxGKEu/vlzo8P316EqQyzn6MFZ
+ nliBZ9czsXg8/vOOkuoKCHqAecgmcQ70KT3IJcWzgXizjeXUMNU1+8FN/vmKBhNIgw0seXTIN
+ o60lGfpCU1iqUqntSitw9pDmut92ebiHCVglsK9LHtOFRFE206Q1Kdd3W/S3e13lazowOFC+N
+ b6+X3nX0BaVp7PCcTtY7Zz4aHbmHE3PgWIQuOsp2Us2wUClwSa2Q1XQ0D9w618EKUb5wuE2tY
+ pQJ/yF3JnLCvFAs8tvCAjsubU+H22ZbWE67I19qlrvn2XpUwAyUPZepu2k3IMeOnnJJahaVnq
+ lvUHS5Kg3TyNYSSXds+yMwjgkvoVL7F/8TTXYrqY7v2IHf7fSOpJTEFr6jvZoHFR8vDjM01L8
+ TT2bwfoC94qoYKE7hptP5T53YqkPRm2w+NMKDPp0EX8dHdg+MvwJGL8Wl2DL7dotXENV/22vM
+ 1rYymPwxFl2b7g6BGxTAv6bTGpe4QZxJkh/V2V00E8QlNN7DBTb/2p9wkwtu3ffz3qA1X2MYT
+ FDxxw/jvJFaKrapzD/zBTS9TtOuUPnt5wQVeutRCL8kiyhN8F50X6nepyJ1ZJa2pfHs7t6KlI
+ TGgFICeo9pqJPmA7MpINsejj75dM09210Pks/WkS1f7dzBXotb/l0q1RI8m6PRRs56r8msvQw
+ m4k3qPmBvSsUx9ZGQG50Ohvnagom8NBUHXmYfIDXLiMB5bCSEQt0W8DrQnTC5dWwVRT6PE9sf
+ ZozUbkQpHd4T5U8IFCGAxYE8fJdTNYdAn+UpfnYyhNlKv/j2H/rPKynkRCjwklX/mUOO/xXql
+ sNeVAR+jnJw2XW4XqTz24MM+xD5A2dJWMf3ui59Hqwy4XImbaFuXQ8TFXbSeDdx9VF3mULHAJ
+ K2YTp/bccu/KSjaE+mveR2FpICPWhSHOvdWQAziuirUYcEqR3Bx0CjeWPAfbUNz2/0CKmqH+z
+ 9FgBL0FluozC5B/JhurkIa5oyZvYRBKF5lmT84xPzTcxbcWqKbCQ7dNql7bBmSh6yxXh8EAtb
+ yqlfT1b04Cc/zHEeeWaG7XN9M0VwU5cIz5vdfsBpzRqEwcgDokpThcNRj3Iz2afJ6YIhM/yuM
+ hSbkb18PHYvzSYLpZqZgs5p4xhr17gDaMWHuj6P9VMClPUBe0C4rD7i3WGiXQa8X5xMtBJNrr
+ 7OIFc/nWt6F+1TzDO7jnV3bSlsxmu+bQZCBqqDW0gXO2UW6y4KusWrq3DpN5hvjJy7A2+yd6E
+ 19/OQUiewozC6iM5+9qmeVm/011Rav2yB4YTXeAO3WJ1t2RDFvZ+vK5uSeRtily+sTUisBLtC
+ Kx/2zIH5IVkgwozkYMo5w338kk8g=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_022621_386723_3C3F5581 
-X-CRM114-Status: UNSURE (   8.42  )
+X-CRM114-CacheID: sfid-20250225_022655_647292_F4B11CF2 
+X-CRM114-Status: UNSURE (   5.88  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,147 +106,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-rk3576 has two pcie controllers, both are pcie2x1 work with
-naneng-combphy.
+=E2=80=A6
+> While at it, also change MOUT val definitions to BIT(x), as
+> the MOUT registers are effectively checking for each bit to
+> enable output to the corresponding HW.
+=E2=80=A6
 
-Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
----
+* You may occasionally put more than 59 characters into text lines
+  of such a change description.
 
-Changes in v7:
-- re-order the properties.
+* Is there a need to offer changes in separate update steps?
+  https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/=
+Documentation/process/submitting-patches.rst?h=3Dv6.14-rc4#n81
 
-Changes in v6: None
-Changes in v5: None
-Changes in v4: None
-Changes in v3:
-- Update the subject
 
-Changes in v2:
-- Update clock and reset names and sequence to pass DTB check
-
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 108 +++++++++++++++++++++++
- 1 file changed, 108 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index 4dde954043ef..79e24b2c3c60 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -1127,6 +1127,114 @@ qos_npu_m1ro: qos@27f22100 {
- 			reg = <0x0 0x27f22100 0x0 0x20>;
- 		};
- 
-+		pcie0: pcie@2a200000 {
-+			compatible = "rockchip,rk3576-pcie", "rockchip,rk3568-pcie";
-+			reg = <0x0 0x22000000 0x0 0x00400000>,
-+			      <0x0 0x2a200000 0x0 0x00010000>,
-+			      <0x0 0x20000000 0x0 0x00100000>;
-+			reg-names = "dbi", "apb", "config";
-+			bus-range = <0x0 0xf>;
-+			clocks = <&cru ACLK_PCIE0_MST>, <&cru ACLK_PCIE0_SLV>,
-+				 <&cru ACLK_PCIE0_DBI>, <&cru PCLK_PCIE0>,
-+				 <&cru CLK_PCIE0_AUX>;
-+			clock-names = "aclk_mst", "aclk_slv",
-+				      "aclk_dbi", "pclk",
-+				      "aux";
-+			device_type = "pci";
-+			interrupts = <GIC_SPI 281 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 282 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 279 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 280 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 278 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 283 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "sys", "pmc", "msg", "legacy", "err", "msi";
-+			#interrupt-cells = <1>;
-+			interrupt-map-mask = <0 0 0 7>;
-+			interrupt-map = <0 0 0 1 &pcie0_intc 0>,
-+					<0 0 0 2 &pcie0_intc 1>,
-+					<0 0 0 3 &pcie0_intc 2>,
-+					<0 0 0 4 &pcie0_intc 3>;
-+			linux,pci-domain = <0>;
-+			max-link-speed = <2>;
-+			num-ib-windows = <8>;
-+			num-viewport = <8>;
-+			num-ob-windows = <2>;
-+			num-lanes = <1>;
-+			phys = <&combphy0_ps PHY_TYPE_PCIE>;
-+			phy-names = "pcie-phy";
-+			power-domains = <&power RK3576_PD_PHP>;
-+			ranges = <0x01000000 0x0 0x20100000 0x0 0x20100000 0x0 0x00100000
-+				  0x02000000 0x0 0x20200000 0x0 0x20200000 0x0 0x00e00000
-+				  0x03000000 0x9 0x00000000 0x9 0x00000000 0x0 0x80000000>;
-+			resets = <&cru SRST_PCIE0_POWER_UP>, <&cru SRST_P_PCIE0>;
-+			reset-names = "pwr", "pipe";
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			status = "disabled";
-+
-+			pcie0_intc: legacy-interrupt-controller {
-+				interrupt-controller;
-+				#address-cells = <0>;
-+				#interrupt-cells = <1>;
-+				interrupt-parent = <&gic>;
-+				interrupts = <GIC_SPI 280 IRQ_TYPE_EDGE_RISING>;
-+			};
-+		};
-+
-+		pcie1: pcie@2a210000 {
-+			compatible = "rockchip,rk3576-pcie", "rockchip,rk3568-pcie";
-+			reg = <0x0 0x22400000 0x0 0x00400000>,
-+			      <0x0 0x2a210000 0x0 0x00010000>,
-+			      <0x0 0x21000000 0x0 0x00100000>;
-+			reg-names = "dbi", "apb", "config";
-+			bus-range = <0x20 0x2f>;
-+			clocks = <&cru ACLK_PCIE1_MST>, <&cru ACLK_PCIE1_SLV>,
-+				 <&cru ACLK_PCIE1_DBI>, <&cru PCLK_PCIE1>,
-+				 <&cru CLK_PCIE1_AUX>;
-+			clock-names = "aclk_mst", "aclk_slv",
-+				      "aclk_dbi", "pclk",
-+				      "aux";
-+			device_type = "pci";
-+			interrupts = <GIC_SPI 267 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 268 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 266 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 264 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 269 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "sys", "pmc", "msg", "legacy", "err", "msi";
-+			#interrupt-cells = <1>;
-+			interrupt-map-mask = <0 0 0 7>;
-+			interrupt-map = <0 0 0 1 &pcie1_intc 0>,
-+					<0 0 0 2 &pcie1_intc 1>,
-+					<0 0 0 3 &pcie1_intc 2>,
-+					<0 0 0 4 &pcie1_intc 3>;
-+			linux,pci-domain = <0>;
-+			max-link-speed = <2>;
-+			num-ib-windows = <8>;
-+			num-viewport = <8>;
-+			num-ob-windows = <2>;
-+			num-lanes = <1>;
-+			phys = <&combphy1_psu PHY_TYPE_PCIE>;
-+			phy-names = "pcie-phy";
-+			power-domains = <&power RK3576_PD_SUBPHP>;
-+			ranges = <0x01000000 0x0 0x21100000 0x0 0x21100000 0x0 0x00100000
-+				  0x02000000 0x0 0x21200000 0x0 0x21200000 0x0 0x00e00000
-+				  0x03000000 0x9 0x80000000 0x9 0x80000000 0x0 0x80000000>;
-+			resets = <&cru SRST_PCIE1_POWER_UP>, <&cru SRST_P_PCIE1>;
-+			reset-names = "pwr", "pipe";
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			status = "disabled";
-+
-+			pcie1_intc: legacy-interrupt-controller {
-+				interrupt-controller;
-+				#address-cells = <0>;
-+				#interrupt-cells = <1>;
-+				interrupt-parent = <&gic>;
-+				interrupts = <GIC_SPI 266 IRQ_TYPE_EDGE_RISING>;
-+			};
-+		};
-+
- 		gmac0: ethernet@2a220000 {
- 			compatible = "rockchip,rk3576-gmac", "snps,dwmac-4.20a";
- 			reg = <0x0 0x2a220000 0x0 0x10000>;
--- 
-2.25.1
-
+Regards,
+Markus
 
