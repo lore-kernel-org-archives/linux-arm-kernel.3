@@ -4,161 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A312AC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 11:48:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 556D4C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 11:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UVR96JO5NvYukhDxGfRwTDxI7xuskvSaWDRPk1ZRriA=; b=dhs+2tEV7Ral+WoaF/ScGIKA0R
-	LeIFUbPay61n7V7BTw/U/tk3fw3dYzb+ykSloQ2uOSP9lXXs6wWeQw8eQyR6dGSM6VcLPHcCvdgYd
-	AkPMzOAEaMn/1RkjGfToIWbG96YOKZxb5GeyvHSr2pG+mLq2Kunio6jf2LLDFkgn/NyWSN+cQptzf
-	jNEinbOK0bd+L2aEBVGqwEjhpuvl9PEXxjNJNrDUXog6LqWUyIKXFItp3VJHkPLnv4IbgGxmLTFPX
-	2I9LDdNn5r9nb0ojM98mNfBWxWseFdq/NmCqsZs/e8CuougI3FjvTaRww8a1PZ4pFFulDeiVNrNQO
-	DDdBm4lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aMAiIGxOhs/NRNnqxe1Q5w1Z2sjpATlomzVPp7WhyYE=; b=YAchgBORqkqdlRGSmqykkti1mD
+	3hLLxvj17XXZCjmxOtwEPu4kzWjMQziAqOEJU0rGyjRwzVHxFmsKUWoGl5OyhsAXD/Vgfd99+9hLH
+	XsqgmACr7SEFeXSHSojdxTkRkSyRrr5lZ/TQibcdhgurY4Y5ftMzocKxNsg+UIjWSoDvcBppExkSL
+	ZM6B5Duq/5h0e/iv1R4j+JmDKZ4XFxB5skKzyFVkO7ftReNNhVvpc/SkEPDfqVstJd/PJ6Zuso31l
+	t+k/x9ZZmDVvisVUdUnUOEmgZiMRYghxS8aZVvgv4Yi6fSnIIAAxF3/92xjbWuiAo5V2R4qhDUoMA
+	jW2rFT6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmtQ9-0000000H5b1-1897;
-	Tue, 25 Feb 2025 11:48:17 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1tmtRf-0000000H5ol-0JwC;
+	Tue, 25 Feb 2025 11:49:51 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tms2e-0000000GnYb-2UnP
+	id 1tms3M-0000000Gngp-1CJl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 10:19:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VinizK9bzpHvxFsOVX9QCC0hEqpfaD5357k5TJVLOHabz0ZQdjFsCI86VREsPl5GFw8WFZb27xvdnIMVNfnt/NdygQjpWPEzQ/jaHpfMynAy3mfunEXN/04XcxXgEYfecF9b8A6e2n9hvtNcrtpf8yfP1OU5N0hrKrbCPfQqjgyp1OCIFFGEtILSRtPsKEBuvhvDxR96xi6BE49LQq6sMNAUJVU/3eg7PQiRrtbjmYw+AMB1tHYCuzcOeP7WJfAc2foo2nYitXlf/uDqeCt59+4oDKv6iWO5ZRBsKXeK9dz4AuJgjROLyLblEpHbJEXofZvF7sif7YvUf1IRSlGtFQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UVR96JO5NvYukhDxGfRwTDxI7xuskvSaWDRPk1ZRriA=;
- b=WbCKyeQ2htFpN4XBwGbiOgSJ9x71KcrXNPA/LdPE68q8AkCN0Mp0R/CcpJ+qgGdcyBVuy/CxeeUjnXMWHJ4zEXmGOmELyXOOTauA8M4XeJTMfUHmD+5peFxgjjw80Ykorvvq2z6l/cinsIOyBMwq6N362BQUL+141zBcys0RueEZM2/E4buo40cRJYPcjYoAmOQ/vcrsTRhNsMsKlFuOjFX44lIQ86zVCCAjZeFAIjyZsP0vOQ6zmiJ5cgyyt/GltE2BKXunEQSZvvQT3BVpz5qtubol/3AEnVWzkpu8vL90jZwtNHgpan3z1JLb9aYxghm58dD481YGKhCSKTo7QQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UVR96JO5NvYukhDxGfRwTDxI7xuskvSaWDRPk1ZRriA=;
- b=VSuXJTj76kEPx/cjgJe0V1Fhvzj8eaAonqNqarAKmm1SxekznwMhIVvAiZj7DFj0rd2KNhYUz/KIk1uvoKm8z82dat62/GUORzgukJ8aSWK++NWpxMQKGEBeadhhRTFZ+nqzuVLgoECM5vciGSh1yY+3myXsqFukn+z0g3BunmCFhAO5sGCoD4iGn7zSVPtoyCsWV9GBBbTttBUGllJA5jxfvrY/nPBmehJL7vt0zcUSSQ9rtlieq8ANVOAiwgBLa8wDY6SoTAJ7lNNlIm6LdY/1J9NX1iWKx4QzQjdi19KKeL7RcOVvHsi4AP8VtrOBKg1IQasPg6+m89JbC8NvoA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8247.eurprd04.prod.outlook.com (2603:10a6:20b:3f2::13)
- by DB8PR04MB6971.eurprd04.prod.outlook.com (2603:10a6:10:113::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.20; Tue, 25 Feb
- 2025 10:19:50 +0000
-Received: from AS8PR04MB8247.eurprd04.prod.outlook.com
- ([fe80::84f7:e2c3:ceed:c0a6]) by AS8PR04MB8247.eurprd04.prod.outlook.com
- ([fe80::84f7:e2c3:ceed:c0a6%5]) with mapi id 15.20.8466.016; Tue, 25 Feb 2025
- 10:19:50 +0000
-From: Daniel Baluta <daniel.baluta@nxp.com>
-To: p.zabel@pengutronix.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	shawnguo@kernel.org,
-	mathieu.poirier@linaro.org
-Cc: conor+dt@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	linux-kernel@vger.kernel.org,
+	Tue, 25 Feb 2025 10:20:41 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-ab7c4350826so90371066b.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 02:20:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1740478839; x=1741083639; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=aMAiIGxOhs/NRNnqxe1Q5w1Z2sjpATlomzVPp7WhyYE=;
+        b=O+TJwKwuQLfhV3ffFjxTdEsKR6MDyomwP3MOAcIbU2bMq89i3LDdKF46iQzGNcGB7S
+         z0pPyx6CiIKROnzygVCU4xB85cVVJUpLzFV8Q4hPBdK2SAPBknr0TcRhJAS0F1/WULFC
+         2cH+96cN5/bnsz+l+acG5nW3jem7KAndsRsVPu+5zd3KQ8B1Rnw2IJ1rld7jLEpZshKm
+         y5iBFtBx8dtFnPFJLkoiPXgmBUPr6wVdUjRZjpAU28g7E9mlVCQKybaFjQ3WziUDAmrs
+         b1DauYlhZl7MontWNBInAop7zJgxs73KIWKyOwB6peJvGEuAv8XBGZnTwm47uIWgM1PO
+         Rj8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740478839; x=1741083639;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=aMAiIGxOhs/NRNnqxe1Q5w1Z2sjpATlomzVPp7WhyYE=;
+        b=YUhlfPJaYOzd5WH/vhLhLxgq8gbwkckb61MKpNmVjzSyJGF+1AMbPESE/vHuQp+XZp
+         WfFBCJBYM6Upx20rr9xY5TNI7aByNeg+GZWV2KPXkqBUqMXgHKL6dux/oz1zTX8LmrEM
+         yk+mzBNi7ngSvctd3LP7C0bjWPRihJ0E7QZmy6TPmRdNcTYuzdW8OEJwMNCsWSDjVSfj
+         tXbmX4rOhL8S/HmbEMw5wwgkzjT09qi6V+dQT8Bgy+Mdd61AMOFb7oiBJWwalPcxgX1a
+         0Lo3a3osGJHq7MM+anqhSEjyKcJIz6W//m85c7IloyZ6C5qzRcIPnoP0Lxf8PK0m61CW
+         yaOA==
+X-Forwarded-Encrypted: i=1; AJvYcCUys4/+eWAQRBH2vTGiiY7A9hx1FqR6VmxJHPNPwh2d7KBZaYwT+vWWM7hMnvTH5DWhI7ZBz3dLSddyFMdYK3fB@lists.infradead.org
+X-Gm-Message-State: AOJu0YwsNRTVOZ/MY12wjtBCi9Nw7YeJPoP4qZWdZNVP3lp72OLqiYET
+	pyV9DMIEJUV/ENk+bF48w6JJ3CigFjvszD/K2XEuUKEgsukrd0Um0Nvt3b3i/EU=
+X-Gm-Gg: ASbGncuh4BPERNy/O1IE4P3hVPWa2iJIyIi1+szM5kAyhbtIgzCNBztkBwisKw29G3Y
+	SLNbfpe3Q3hf+bMqGAUcUwTux0A+Bz0csqdXHPNu5W5dfRmdtTSk5TWJXIqab1bYcyBEDRHyjPT
+	c1f2oXuSKQiDzNvU9rK2DjvcFiUyYF63PDstFilNJEXGF/QXl8PlXk/Q3GON6oxcUwYcpzIwmoi
+	pytKN6BoiKoPZKjLoy14iPutADFBCxI9Z8ibxG/WqkHi5o9IP3Zx1CGVTYYMlgNcFOrK8Zfxz/m
+	ZQRxe5gl3sMYvco9IngaGjlSYN8To4qOUr63xt3XVzqiaghNJ8RA2t3aKmHOEUpTClbxQdKxYJw
+	=
+X-Google-Smtp-Source: AGHT+IEZErkXFchQBHcjhpLOcz0ntlnRWjG+dqb6HL0cgbpdGQt3G9rUQQ9bKlCBwVV+K4XlTqA59A==
+X-Received: by 2002:a17:906:fb09:b0:abe:9c69:b71e with SMTP id a640c23a62f3a-abe9c69c1d6mr280644666b.3.1740478838702;
+        Tue, 25 Feb 2025 02:20:38 -0800 (PST)
+Received: from krzk-bin.. (78-11-220-99.static.ip.netia.com.pl. [78.11.220.99])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abed2010decsm116931666b.98.2025.02.25.02.20.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Feb 2025 02:20:38 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
 	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-remoteproc@vger.kernel.org,
-	andersson@kernel.org,
-	Frank.Li@nxp.com,
-	peng.fan@nxp.com,
-	laurentiu.mihalcea@nxp.com,
-	iuliana.prodan@nxp.com,
-	Daniel Baluta <daniel.baluta@nxp.com>
-Subject: [PATCH v3 8/8] imx_dsp_rproc: Use reset controller API to control the DSP
-Date: Tue, 25 Feb 2025 12:20:05 +0200
-Message-ID: <20250225102005.408773-9-daniel.baluta@nxp.com>
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH RFC] arm64: dts: rockchip: Switch to undeprecated qcom,calibration-variant on RK3399
+Date: Tue, 25 Feb 2025 11:20:36 +0100
+Message-ID: <20250225102036.107913-1-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250225102005.408773-1-daniel.baluta@nxp.com>
-References: <20250225102005.408773-1-daniel.baluta@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: WA1P291CA0015.POLP291.PROD.OUTLOOK.COM
- (2603:10a6:1d0:19::13) To AS8PR04MB8247.eurprd04.prod.outlook.com
- (2603:10a6:20b:3f2::13)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8247:EE_|DB8PR04MB6971:EE_
-X-MS-Office365-Filtering-Correlation-Id: f854309a-2722-4520-4890-08dd5585efba
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?L3GEWIqVIgvpeV9kmfjn2vcdXg+vNyEAmncZXIKzljAKFpYjBxpJpo21o67K?=
- =?us-ascii?Q?Fjv/nqIOzme/1waUpOwGknUMKY9iIcCFEVje6Q4nfz3XE9sFZbj3sw4Jv9Ih?=
- =?us-ascii?Q?AO0iOg6jlgwUDRx5Npv1FmhDwfs75wvCz2EZ3o6yQfUvpt8dwezPfpAcHoPx?=
- =?us-ascii?Q?w3GqWXukgD7fFd7dKuYJ3M14OxtwqP94RoDtCsOETRsb/Z41L8gumJNePj1z?=
- =?us-ascii?Q?9GLFeHeEkdvXBcx20NWuo2ag27rY71mboDJRXkq+TVsV/S1Z+ZGTivUJnIdA?=
- =?us-ascii?Q?GdI5/sbeQzPzGDFP6rqQuSD7uQA/gIE0UjXB4lABN0CHpkUP8WBYxikbWiRB?=
- =?us-ascii?Q?srzEEoH4cfDFsFXl/XihiZ6sBqc40OXNk8gOQHjRwgIQ7rcss8MSm3myY6YW?=
- =?us-ascii?Q?ZQuosa90/LoDf87MMYNR7aQEOfJ0WVM2uU097YENcK1FZJjtsdWpbN/xV7UM?=
- =?us-ascii?Q?6E2vzL+6DJ+rJtwxV89GyphBKdWdBhpTWSn44Z0zo/XKqH1eyF9+RDI29NMZ?=
- =?us-ascii?Q?zG4dDHwj5l9MH77uJXJgQumO+j8pCeYHeGFxahIiNfplFZJXUEld1npLYZ9r?=
- =?us-ascii?Q?HvsF1YFSHtAjqvNkTQfKTNhzsnCTR2oiIw8FHRj7vysNQXodlG6NFkb3zYH8?=
- =?us-ascii?Q?C0u96PY9sOe9spk00/PI4cbRHvQhPvPCPNmFWToOpGf+yQ1FPaBvvLlXDXre?=
- =?us-ascii?Q?i0/mdRol1sjlUDc0YE+ZUA5Kt86Kd6dRhFdgQExdFbhY5dqmhIsyZkVlwUXd?=
- =?us-ascii?Q?36WstPa4lAKO7TdL8PtIRaozYLWFYanhA7cDKjpNqm2/CJUTc5r2A+X0Zyiq?=
- =?us-ascii?Q?SntFhhey/qxGprLhXhF/wDgRWi2f2JsryA8zffKryz5Ld3q48Myzu/1HgCew?=
- =?us-ascii?Q?TXRAJzA81PZE/WI9vErciv4P0hi391ZnwtCDRz1YYp6lt1O3JyPMo0/+iANK?=
- =?us-ascii?Q?PhGGk3/PyTzD44xhOVyGXeNlICz946aFsY/jPdXlT8U+kBuBUuDKgRK9nIv/?=
- =?us-ascii?Q?CkUk4XOv/p0B9i4XHh9E4PM2LRWtdr772MBl6631SjuVhz0haZpuUqvAyE5T?=
- =?us-ascii?Q?dZpLRX+jnWYnV9836ue2DNoWfBXTa1Ej8+Y1lA32UWbJ4XIrxmdczV63/Tmi?=
- =?us-ascii?Q?yyFI2MZXZKMY6j7oYnbDlJmZiTuNL8YO9NLU9NPPu6hHhzAOHkNXJki0eqUz?=
- =?us-ascii?Q?YpX7HkI5g4LiTlvejuFJwiQH+FqFlzbStdSXjQel5YUVr9diAh9NMA8mGwgI?=
- =?us-ascii?Q?BjrLj77P2ugT0vUTCu4EEtzYIMQ8QYokVoOCgvaw3zlgisgiiukzSh2nvejK?=
- =?us-ascii?Q?OHTbjA8IQ42ZeAu26QhXWvrucxWnQoX6ADYWskNcOr+A1ZbBYYzrkHhW2nzd?=
- =?us-ascii?Q?n42MCp759znsw2SQJXwCHHuJyprfoEcMFfbEGVenL2I9I1YhqtcYVE77PU5I?=
- =?us-ascii?Q?JbWus2Vv/QI6kNuerxGc/iHe+9D+lXos?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8247.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GCHgKU60Ie7coSlyn2gwh4/i0JjjJYz6Vf8GL1jnZ6vYKOimJyVJb/w0Dvgs?=
- =?us-ascii?Q?Y3yZbyrvKG6HfJek1Rb9CkXlN8a4e2RJJBxm47XYBCM44smWE5aoVAL7w2eF?=
- =?us-ascii?Q?FFM68h3r7aXSoJ4P9tnSgEdIpYy7k8RGVDnQZvx97cib61wFmFPxuz6k5maL?=
- =?us-ascii?Q?1bv6oH9XrGinaqJo+pgFTdfHOCzUcdwIwf4Sj9C9P8nxCw++wfIHZFLU3lrg?=
- =?us-ascii?Q?angsvlc19rMrT7ZvaMOJ6pVyw6YPZIu3iuZ6obGfZmerx/wgUGj2thrlq4kX?=
- =?us-ascii?Q?SQJushzVV2sHhWHiGylhd7YFogMWQkNuYq6+3EnWtniIMsAci0jo6HREamp+?=
- =?us-ascii?Q?j5nmube+DjL/AcsBNihsC7B9MHWXHcFpd4bFOsCV+dA/6/DHfB45X8boIYam?=
- =?us-ascii?Q?A0cH7s17WG8my3HOJKpwCZ+shwbs3ZW8NKoLWFW26LN9aGuiR+EAHSkT6LWS?=
- =?us-ascii?Q?e45u1tLbM7AIIE+jMcoIYUhgIXVAJc9qruunbugmwirH2ddIA3zYn4hEuvH/?=
- =?us-ascii?Q?VJeODFRxufbiCWq4nYjqBPoGceFRe9XUxLNaQuSPkG0dH4Pmm2Hg+Oqo8236?=
- =?us-ascii?Q?D22DKNNsxfmXyPZqaZTl2eMg3MkPe07qWuwquSxZe/GfljerDldIeYsKnbPI?=
- =?us-ascii?Q?Yif8+MNnmNvZEvEiyathnJ8Bct2ycMD5FW/KeVNdcqryyxR6AB8dbX+ndop2?=
- =?us-ascii?Q?U5AYpMrd5Y5EBrRpmDnVxSHqaiYANCnT5NCNBA5Jy5kPWaNlJyHyaZQr9oVk?=
- =?us-ascii?Q?gDqUYu4ONge0hDPwTxSlhjEfIik1u1FtUUMFGoSrR2aO9z27hMduEDJtKKla?=
- =?us-ascii?Q?eDvHs9DLfSsVt0ntBPXTW0gMYZ9BdX7+4DezREUI2auT/XWq+HnPajF6Md3x?=
- =?us-ascii?Q?YgFD8dNSJbSd4SZJi4v8iOgJJHKerww4uX8ZvYhAPbTtMntjryG+jxuidbog?=
- =?us-ascii?Q?UhABwWM5HjNvzs7ej3XErP3MKK++H1S80Zh6s+6Z26WzDJgmcB3eAu/5+WXz?=
- =?us-ascii?Q?72qyBy6P6CAcWCw0UrXvPjMHx4RCT0fH5bCdu+r6k8CzDSsBYWIptxlQ8TOK?=
- =?us-ascii?Q?Rarkr+OpQz8b7MlZJCeeA5MhcDOEthgXE+sXFUGImuXLV835mpbFHWJmzz39?=
- =?us-ascii?Q?QRUeMK2Pxn0UiSTozRc4ggvxd1jwfQ42bSkCsBfbLd5dKqowN/skp+KJXzw4?=
- =?us-ascii?Q?LOWhVBl9Cl+y23LJ12ylpM4rG0pssUnAjuUXwU33enZ+W0Bx+exvbkYNfCU1?=
- =?us-ascii?Q?4NWfXEDFQ0tfU1eMlpAwLg8t+Hq7ZHS2JBAVAXiYB5WhOBZea9PHgnQLthOU?=
- =?us-ascii?Q?sXZPj6Ap52xdMbYD1y5Lh4N/9Ru6XY/JSLIB9nAyf09JIJamFt9YuZvTuK3S?=
- =?us-ascii?Q?sAb3fUct2wMtnY0U8/n3Pbbz++ImCZnNerq7xRXRD3xOWIP7ZZ6JPvhgw7k3?=
- =?us-ascii?Q?9oWfh/TYxQ1WGU1bmYjSsbw0zPdKGLy05KUwWisfjlz4JIv/szr9jf+NLyDv?=
- =?us-ascii?Q?MhPpEMRovaNY031nAJMxq+gMi31sUd8IfLLvZ0wROdC1R+k4vF/ufjWi9LT+?=
- =?us-ascii?Q?Qf3ZSRvDQ53dtBaWlRSnbfxzGRGBmvH9GkKlj4vs?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f854309a-2722-4520-4890-08dd5585efba
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8247.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 10:19:50.6282
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Dn1/h8BKeDgHPnZmt7hDjPVclv5oyQqDLzhNNLDnAsg2hKIiOq/phpv1vwEZlOmUiVwdznXKNDKx2uR8mxDS5g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6971
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_021956_639021_27A26B4C 
-X-CRM114-Status: GOOD (  19.17  )
+X-CRM114-CacheID: sfid-20250225_022040_324737_421CA281 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,121 +101,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DSP on i.MX8MP doesn't have a direct reset line so according to hardware
-design team in order to handle assert/deassert/reset functionality we
-need to use a combination of control bits from two modules. Audio block
-control module for Run/Stall control of the DSP and DAP module in order
-to do software reset.
+The property qcom,ath10k-calibration-variant was deprecated in favor of
+recently introduced generic qcom,calibration-variant, common to all
+Qualcomm Atheros WiFi bindings.
 
-Initial design accessed RunStall bits from audio block control using the
-syscon interface but this got NACKed by community because of abusing the
-syscon interface [1].
+Change will affect out of tree users, like other projects, of this DTS.
 
-So instead we use the reset controller API.
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-[1] https://patchwork.kernel.org/project/imx/patch/20250212085222.107102-6-daniel.baluta@nxp.com/
-
-Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
 ---
- drivers/remoteproc/imx_dsp_rproc.c | 25 +++++++++++++++++--------
- drivers/remoteproc/imx_rproc.h     |  2 ++
- 2 files changed, 19 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
-index ea5024919c2f..e8552d39abe1 100644
---- a/drivers/remoteproc/imx_dsp_rproc.c
-+++ b/drivers/remoteproc/imx_dsp_rproc.c
-@@ -19,6 +19,7 @@
- #include <linux/pm_runtime.h>
- #include <linux/regmap.h>
- #include <linux/remoteproc.h>
-+#include <linux/reset.h>
- #include <linux/slab.h>
- 
- #include "imx_rproc.h"
-@@ -111,6 +112,7 @@ enum imx_dsp_rp_mbox_messages {
-  */
- struct imx_dsp_rproc {
- 	struct regmap				*regmap;
-+	struct reset_control			*run_stall;
- 	struct rproc				*rproc;
- 	const struct imx_dsp_rproc_dcfg		*dsp_dcfg;
- 	struct clk_bulk_data			clks[DSP_RPROC_CLK_MAX];
-@@ -192,9 +194,7 @@ static int imx8mp_dsp_reset(struct imx_dsp_rproc *priv)
- 	/* Keep reset asserted for 10 cycles */
- 	usleep_range(1, 2);
- 
--	regmap_update_bits(priv->regmap, IMX8M_AudioDSP_REG2,
--			   IMX8M_AudioDSP_REG2_RUNSTALL,
--			   IMX8M_AudioDSP_REG2_RUNSTALL);
-+	reset_control_assert(priv->run_stall);
- 
- 	/* Take the DSP out of reset and keep stalled for FW loading */
- 	pwrctl = readl(dap + IMX8M_DAP_PWRCTL);
-@@ -231,13 +231,9 @@ static int imx8ulp_dsp_reset(struct imx_dsp_rproc *priv)
- 
- /* Specific configuration for i.MX8MP */
- static const struct imx_rproc_dcfg dsp_rproc_cfg_imx8mp = {
--	.src_reg	= IMX8M_AudioDSP_REG2,
--	.src_mask	= IMX8M_AudioDSP_REG2_RUNSTALL,
--	.src_start	= 0,
--	.src_stop	= IMX8M_AudioDSP_REG2_RUNSTALL,
- 	.att		= imx_dsp_rproc_att_imx8mp,
- 	.att_size	= ARRAY_SIZE(imx_dsp_rproc_att_imx8mp),
--	.method		= IMX_RPROC_MMIO,
-+	.method		= IMX_RPROC_RESET_CONTROLLER,
+Dependency/RFC!
+
+RFC, because this should be merged release after driver support is
+merged:
+https://lore.kernel.org/linux-devicetree/20250225-b-wifi-qcom-calibration-variant-v1-0-3b2aa3f89c53@linaro.org/T/#t
+---
+ arch/arm64/boot/dts/rockchip/rk3399-gru-scarlet-dumo.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-gru-scarlet-dumo.dts b/arch/arm64/boot/dts/rockchip/rk3399-gru-scarlet-dumo.dts
+index 9e4b12ed62cb..be3ae473e562 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-gru-scarlet-dumo.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3399-gru-scarlet-dumo.dts
+@@ -36,6 +36,6 @@ wifi@0,0 {
+ 		compatible = "qcom,ath10k";
+ 		reg = <0x00000000 0x0 0x00000000 0x0 0x00000000>,
+ 		      <0x03000010 0x0 0x00000000 0x0 0x00200000>;
+-		qcom,ath10k-calibration-variant = "GO_DUMO";
++		qcom,calibration-variant = "GO_DUMO";
+ 	};
  };
- 
- static const struct imx_dsp_rproc_dcfg imx_dsp_rproc_cfg_imx8mp = {
-@@ -329,6 +325,9 @@ static int imx_dsp_rproc_start(struct rproc *rproc)
- 					  true,
- 					  rproc->bootaddr);
- 		break;
-+	case IMX_RPROC_RESET_CONTROLLER:
-+		ret = reset_control_deassert(priv->run_stall);
-+		break;
- 	default:
- 		return -EOPNOTSUPP;
- 	}
-@@ -369,6 +368,9 @@ static int imx_dsp_rproc_stop(struct rproc *rproc)
- 					  false,
- 					  rproc->bootaddr);
- 		break;
-+	case IMX_RPROC_RESET_CONTROLLER:
-+		ret = reset_control_assert(priv->run_stall);
-+		break;
- 	default:
- 		return -EOPNOTSUPP;
- 	}
-@@ -995,6 +997,13 @@ static int imx_dsp_rproc_detect_mode(struct imx_dsp_rproc *priv)
- 
- 		priv->regmap = regmap;
- 		break;
-+	case IMX_RPROC_RESET_CONTROLLER:
-+		priv->run_stall = devm_reset_control_get_exclusive(dev, NULL);
-+		if (IS_ERR(priv->run_stall)) {
-+			dev_err(dev, "Failed to get DSP reset control\n");
-+			return PTR_ERR(priv->run_stall);
-+		}
-+		break;
- 	default:
- 		ret = -EOPNOTSUPP;
- 		break;
-diff --git a/drivers/remoteproc/imx_rproc.h b/drivers/remoteproc/imx_rproc.h
-index 17a7d051c531..cfd38d37e146 100644
---- a/drivers/remoteproc/imx_rproc.h
-+++ b/drivers/remoteproc/imx_rproc.h
-@@ -24,6 +24,8 @@ enum imx_rproc_method {
- 	IMX_RPROC_SMC,
- 	/* Through System Control Unit API */
- 	IMX_RPROC_SCU_API,
-+	/* Through Reset Controller API */
-+	IMX_RPROC_RESET_CONTROLLER,
- };
- 
- /* dcfg flags */
 -- 
 2.43.0
 
