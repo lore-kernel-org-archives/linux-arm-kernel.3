@@ -4,104 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2AD1C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 07:18:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FF23C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 07:27:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Date:Cc:To:From:Subject:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iXXY3hCS9dJ1Ur2pQC/iJ+uAm9WAz2sQ3CodAQOx9jA=; b=yeXm+TEgmCz/C+r99GJ20WVAUL
-	xQHjntkv8Ymtp8jcTsYSegCbf28LyDfSUvqRBWLtzVvU17xlkj2j2FkRsgPP07j5l5RWFfIx+g1m8
-	VFPdB9Wbj+kFR1uiXf6ILrydYrN6f3tUlrD+zpMiwKLI8XSI1deloSxZZYpV3F3TtaiEaff0aLmVL
-	9SRRV9bwptJ7KmWL7tKKTKBPcxFwdMMAbAP2abNnAZxeUADHzKtIuRmSrBYGDDKNp6yphISK/kxA5
-	CuxTs8xddMjCIozS4PWB8O47F5ZfyR1uX1/9vZd3Sv0+g5fSJuWcVeO5BgvOHk7kPPLMDOVoxm5zF
-	QhATX7CQ==;
+	bh=iNyMNq0Sztwv4vKDhGfFbMXIy/g1nHUCGUIykQmuxWc=; b=DuDcYKuAWTzvvvEflJ6d/qQVDy
+	V3xgfbqRSm9S7nZL15LXWQEImSS764MTO7v8oeXKNdvHuMwNTTgtAbf78odS4VLCs+XC255NtGsp0
+	yhs/8D9sVMH/KJZLlw2q2SrgxDMIdQ/VpYKq+JJ/B86fO56vWtF+Ffbxfgl94gRxS4HM7J8J2P6bT
+	kfe+gBkh/p/tr8euvhk9LSRrlGo/+RhZfZdYf6be15rxh+aUsemsD3tkJtHz02Im8fgS4VKLw7bp7
+	N0aX6iGOzzzMTAW7etyaiw6sSirGOVX1R9t/4aNyzZWd/sl14/J7xvSxYX5ooQ8Yyrpk8tA8GOA4b
+	5T+4r2BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmpCn-0000000GBE4-32aE;
-	Tue, 25 Feb 2025 07:18:13 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tmpLI-0000000GC6o-35lo;
+	Tue, 25 Feb 2025 07:27:00 +0000
+Received: from fout-b2-smtp.messagingengine.com ([202.12.124.145])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmpB6-0000000GAwo-1Jzj
+	id 1tmpJl-0000000GBwd-3Vfx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 07:16:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1740467786;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=iXXY3hCS9dJ1Ur2pQC/iJ+uAm9WAz2sQ3CodAQOx9jA=;
-	b=gZRa/MXs3CAazeGzE6Vh85zgxkal3vA+BtgBr2HHYGHooiiYN7W087LCwZZ84kqc9b65+g
-	ru5U0sg7qsZmda6r391oa4fcbVKeLGtUddxAGlk244DSnWE8PKM2S11qAfIcsxjlWvN0lg
-	qSHzVy4G11+ESqbEYgGHJP4NasB1SYY=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-179-LG3kzbSwNRW-FslqIz4CAg-1; Tue, 25 Feb 2025 02:16:22 -0500
-X-MC-Unique: LG3kzbSwNRW-FslqIz4CAg-1
-X-Mimecast-MFC-AGG-ID: LG3kzbSwNRW-FslqIz4CAg_1740467781
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4399c5ba9e4so28848275e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 23:16:22 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740467781; x=1741072581;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=nQ8ganHFrjZwdAsNJKERIzeXH5APWE2/FMGZlEN7QT0=;
-        b=hTAT+gxGLwe6sjBXQRpzLNJtBzjaLYnvZXjJ1j1FMQjSY/F+Qqa7puZsFGJwi4yNcP
-         kKg1vmDZ1Ol6HdMxWEjhfNd6ZmX1y0vYZpbXUhny1NjcSOiPon1X0pOiVIEZMeJq01b8
-         LCLqidfk3ImMfMrGjAbNLGnR1UYyzdV+RPeZF6NMXhD/ecZMt/iLXcqW1q8TpzjC9Nl6
-         sUi68NTXunozzzNh9eUrJzilvUsrq6aCTrdhOPSVxHLEQjFKvBXxAH0WeaCCmff/3AG5
-         vh11i5xibmSI2J0tfU/Ft8Ve27CwnpAvr2bgJ8J36noJq2fekaz2gTEIjgdhjahjH+mI
-         HRZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV9rqIKmngtpBGQAogHrML8BwUepVUF1DrCld8okYv8VihJNEWLzLvRF80hDzcClwcutSjOVP5N8fs5IJ8p0UYF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyk2ZPbEW9QZVj0Gy1MB4pZ3MzGUZPgTDFCPxvkvhPubUa/giGh
-	rAO6kGZ2+xYk/Z3dynQmcTFyXPfgMLWM3LLcPcqwHWzMgRGEoys0OPskH7eHLis+qm7E0hPCoXc
-	/r5Qhbj0P+1S+D6VVrhwPt+IxX7gPcGD3PSNFIUAXIz0tcMmUwACWTHMibFTQfCRqnOc4p2aj
-X-Gm-Gg: ASbGncvxuYeLf8lNvqThcma9+A8rae+eSRs2HH1uQc3UOvjVvbXsONyAPqGsbcXw7Bm
-	2KNufM1fYLu/O1Q+DtJ0crb1LTqKj2Pr3AfIQCMpNr4+/5a0Kwnv7z1UipmkHmM1RSGhfjcEUiQ
-	taRytrgRaHBa0+HhRIJZmdNKPMIerqGM5upUEemk4O+KE8eLpiaforazBvOOeTSOuMDV7sbuDRO
-	03dVnoDTObjzwnDB7kmdJ+H2++Zv5njxez53a6NFXNSrznE1RGJGnN6Fcw+YCjszmfJ3/g74a3p
-	G+ols/0Rbhf0DA4WhivoXMngpKjt34WbkHHnXR5FHQ==
-X-Received: by 2002:a05:600c:4e8b:b0:439:9eba:939a with SMTP id 5b1f17b1804b1-43ab0f8b68bmr15347835e9.26.1740467781033;
-        Mon, 24 Feb 2025 23:16:21 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGKAYIbDeUkxN/sPOdOh9dmDT/KC44JigW8G4nDwTJ+erWGkxMnzLVafhwjP4Cz13s3tIx2WQ==
-X-Received: by 2002:a05:600c:4e8b:b0:439:9eba:939a with SMTP id 5b1f17b1804b1-43ab0f8b68bmr15347625e9.26.1740467780642;
-        Mon, 24 Feb 2025 23:16:20 -0800 (PST)
-Received: from [10.32.64.164] (nat-pool-muc-t.redhat.com. [149.14.88.26])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ab1539da5sm15328505e9.10.2025.02.24.23.16.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Feb 2025 23:16:20 -0800 (PST)
-Message-ID: <f1c3e538e19aca7fd46dd7f10da190d691bace83.camel@redhat.com>
-Subject: Re: [PATCH net-next v3 4/4] stmmac: Replace deprecated PCI functions
-From: Philipp Stanner <pstanner@redhat.com>
-To: Philipp Stanner <phasta@kernel.org>, Andrew Lunn
- <andrew+netdev@lunn.ch>,  "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Huacai Chen
- <chenhuacai@kernel.org>, Yanteng Si <si.yanteng@linux.dev>, Yinggang Gu
- <guyinggang@loongson.cn>, Feiyang Chen <chenfeiyang@loongson.cn>, Jiaxun
- Yang <jiaxun.yang@flygoat.com>, Qing Zhang <zhangqing@loongson.cn>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Tue, 25 Feb 2025 08:16:18 +0100
-In-Reply-To: <20250224135321.36603-6-phasta@kernel.org>
-References: <20250224135321.36603-2-phasta@kernel.org>
-	 <20250224135321.36603-6-phasta@kernel.org>
-User-Agent: Evolution 3.52.4 (3.52.4-2.fc40)
+	Tue, 25 Feb 2025 07:25:28 +0000
+Received: from phl-compute-11.internal (phl-compute-11.phl.internal [10.202.2.51])
+	by mailfout.stl.internal (Postfix) with ESMTP id 72696114016E;
+	Tue, 25 Feb 2025 02:25:23 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-11.internal (MEProxy); Tue, 25 Feb 2025 02:25:24 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1740468323;
+	 x=1740554723; bh=iNyMNq0Sztwv4vKDhGfFbMXIy/g1nHUCGUIykQmuxWc=; b=
+	Crrc19jdVh7/XBZAtR/NMXS4XDxP15gWTLHCfBDvQS676Lg8rynDp3eHsGxkQzOL
+	NA6+6MAjUiLoPQmu2RiInQC2bPTzaEHZhxFhtAxG2nKrgD7yJhCiJ8Mt9IiufWsV
+	fPYYYk3p5Lcd5wsAIlI2JQk1MLZqu4oPDJasJheax161IJ46K91fFfPtJDj5SbM9
+	T0hntAh8i6J0zAFYKwdj1gkrvLFe4deGMjOv2P5WVvP4N4BSrELOBLc708mfUPHI
+	43UjhAa34yyhwVHf7ypmWXQX7TAxCgyOweBC5H7/+C7Gg2vuf7hs7iJekp2//I2n
+	Jvica6vniO0L8eUGctctwg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1740468323; x=
+	1740554723; bh=iNyMNq0Sztwv4vKDhGfFbMXIy/g1nHUCGUIykQmuxWc=; b=w
+	hzV6Y3hj5gWp/iDMqIx98JPoZOcwRLI9d1i8zlOU/RAUy+7IN5uPMPBjab2NCQyd
+	LMkj8W6q1/gHgLHDo98I6REoWQ/IUlycP4gdzmxqrs5rcWd4rE0QTrqe/Qq7ipcR
+	1TukjGbHToX6OBLGcTfynSUtg3pNqUrMJsH86ZMon4tgVd+2U1H1kYo2UhyvUMtK
+	CQVql3lLJY9IZSvDdmpfF/B6UYL6tVYb1VwSb36/JmunHby+rrqYNWFvnfPklsV9
+	W3GQb+SCgqfTcQp6qF5/y02gx4enLl5etsFLUDfQEOKg7vDo/I3wk5qWMiRSnz2E
+	A1qzcH81WGbVu17pqlUyw==
+X-ME-Sender: <xms:YnC9Z5OsvGdCkLa8wabjaJTLcmVWPy5Wdd2Ke6lK7Dgz_iTRXyrtyw>
+    <xme:YnC9Z7-o24c8cmpv9z2zXbEtBtMS6U1bIeklSCOAeb2rH1Aw6X5r2okyM9s4a7b1D
+    i42G82D6MsV7ZDpwpI>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdekuddtlecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthhqredtredt
+    jeenucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusg
+    druggvqeenucggtffrrghtthgvrhhnpedvhfdvkeeuudevfffftefgvdevfedvleehvddv
+    geejvdefhedtgeegveehfeeljeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
+    epmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopeef
+    tddpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepsghpsegrlhhivghnkedruggvpd
+    hrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphht
+    thhopegshhgvlhhgrggrshesghhoohhglhgvrdgtohhmpdhrtghpthhtoheptghonhhorh
+    doughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgv
+    lhdrohhrghdprhgtphhtthhopehlphhivghrrghlihhsiheskhgvrhhnvghlrdhorhhgpd
+    hrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopeifvghirdhl
+    ihhusehkvghrnhgvlhdrohhrghdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorh
+    hg
+X-ME-Proxy: <xmx:YnC9Z4TLllvXzTwlowYa5Jl6FRZHwh6ru6z9sep9rQhEYu4E3BZ9YQ>
+    <xmx:YnC9Z1uroNTLiTE5A1YAFBUh0k6-cPSW_lmVz7j_174A7gOMX1F-pA>
+    <xmx:YnC9Zxd8hAA5ROl-8MVUO9kMTxx065-aCcG2Kcv_6QaygErRfoifPA>
+    <xmx:YnC9Zx0cABgPWS_vwgD1TtiRl_Bgj3jIOVHMSFv_zLyLLtjt_krAXw>
+    <xmx:Y3C9Z3G9Q7Jowr_Z_hgrXH8Sz7iSue9CIWALq-YXJHQQDGYgj76VkLzo>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 16C1B2220072; Tue, 25 Feb 2025 02:25:21 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: iol1jqbxsmsNTYoMiSKVp7yMwX5XRBqa74pbMm9wKI4_1740467781
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
+Date: Tue, 25 Feb 2025 08:24:51 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Roman Kisel" <romank@linux.microsoft.com>
+Cc: benhill@microsoft.com, bperkins@microsoft.com, sunilmut@microsoft.com,
+ bhelgaas@google.com, "Borislav Petkov" <bp@alien8.de>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Conor Dooley" <conor+dt@kernel.org>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>,
+ "Dexuan Cui" <decui@microsoft.com>,
+ "Haiyang Zhang" <haiyangz@microsoft.com>,
+ "H. Peter Anvin" <hpa@zytor.com>, krzk+dt@kernel.org,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ "K. Y. Srinivasan" <kys@microsoft.com>,
+ "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
+ "Manivannan Sadhasivam" <manivannan.sadhasivam@linaro.org>,
+ "Ingo Molnar" <mingo@redhat.com>, "Rob Herring" <robh@kernel.org>,
+ ssengar@linux.microsoft.com, "Thomas Gleixner" <tglx@linutronix.de>,
+ "Wei Liu" <wei.liu@kernel.org>, "Will Deacon" <will@kernel.org>,
+ devicetree@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org
+Message-Id: <55b65ba6-4abe-478c-a173-4622c30ddd7b@app.fastmail.com>
+In-Reply-To: <14a199d8-1cf3-49bc-8e0d-92d9c8407b4f@linux.microsoft.com>
+References: <20250212014321.1108840-1-romank@linux.microsoft.com>
+ <20250212014321.1108840-2-romank@linux.microsoft.com>
+ <1b14e3de-4d3e-420c-819c-31ffb2d448bd@app.fastmail.com>
+ <593c22ca-6544-423d-84ee-7a06c6b8b5b9@linux.microsoft.com>
+ <97887849-faa8-429b-862b-daf6faf89481@app.fastmail.com>
+ <6e4685fe-68e9-43bd-96c5-b871edb1b971@linux.microsoft.com>
+ <14a199d8-1cf3-49bc-8e0d-92d9c8407b4f@linux.microsoft.com>
+Subject: Re: [PATCH hyperv-next v4 1/6] arm64: hyperv: Use SMCCC to detect hypervisor
+ presence
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_231628_425648_CDC9E5CE 
-X-CRM114-Status: GOOD (  17.77  )
+X-CRM114-CacheID: sfid-20250224_232526_785920_30B559A1 
+X-CRM114-Status: GOOD (  22.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,128 +136,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2025-02-24 at 14:53 +0100, Philipp Stanner wrote:
-> From: Philipp Stanner <pstanner@redhat.com>
->=20
-> The PCI functions
-> =C2=A0 - pcim_iomap_regions() and
-> =C2=A0 - pcim_iomap_table()
-> have been deprecated.
->=20
-> Replace them with their successor function, pcim_iomap_region().
->=20
-> Make variable declaration order at closeby places comply with reverse
-> christmas tree order.
->=20
-> Signed-off-by: Philipp Stanner <pstanner@redhat.com>
-> ---
-> =C2=A0.../net/ethernet/stmicro/stmmac/dwmac-loongson.c=C2=A0=C2=A0 | 11 +=
-+++-------
-> =C2=A0drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c=C2=A0=C2=A0 | 14 +=
-+++++------
-> --
-> =C2=A02 files changed, 10 insertions(+), 15 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-> b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-> index f3ea6016be68..25ef7b9c5dce 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-> @@ -521,10 +521,10 @@ static int loongson_dwmac_acpi_config(struct
-> pci_dev *pdev,
-> =C2=A0static int loongson_dwmac_probe(struct pci_dev *pdev, const struct
-> pci_device_id *id)
-> =C2=A0{
-> =C2=A0=09struct plat_stmmacenet_data *plat;
-> +=09struct stmmac_resources res =3D {};
-> =C2=A0=09struct stmmac_pci_info *info;
-> -=09struct stmmac_resources res;
-> =C2=A0=09struct loongson_data *ld;
-> -=09int ret, i;
-> +=09int ret;
-> =C2=A0
-> =C2=A0=09plat =3D devm_kzalloc(&pdev->dev, sizeof(*plat), GFP_KERNEL);
-> =C2=A0=09if (!plat)
-> @@ -554,13 +554,11 @@ static int loongson_dwmac_probe(struct pci_dev
-> *pdev, const struct pci_device_id
-> =C2=A0=09pci_set_master(pdev);
-> =C2=A0
-> =C2=A0=09/* Get the base address of device */
-> -=09ret =3D pcim_iomap_regions(pdev, BIT(0), DRIVER_NAME);
-> +=09res.addr =3D pcim_iomap_region(pdev, 0, DRIVER_NAME);
-> +=09ret =3D PTR_ERR_OR_ZERO(res.addr);
-> =C2=A0=09if (ret)
-> =C2=A0=09=09goto err_disable_device;
-> =C2=A0
-> -=09memset(&res, 0, sizeof(res));
-> -=09res.addr =3D pcim_iomap_table(pdev)[0];
-> -
-> =C2=A0=09plat->bsp_priv =3D ld;
-> =C2=A0=09plat->setup =3D loongson_dwmac_setup;
-> =C2=A0=09ld->dev =3D &pdev->dev;
-> @@ -603,7 +601,6 @@ static void loongson_dwmac_remove(struct pci_dev
-> *pdev)
-> =C2=A0=09struct net_device *ndev =3D dev_get_drvdata(&pdev->dev);
-> =C2=A0=09struct stmmac_priv *priv =3D netdev_priv(ndev);
-> =C2=A0=09struct loongson_data *ld;
-> -=09int i;
+On Tue, Feb 25, 2025, at 00:22, Roman Kisel wrote:
+> Hi Arnd,
+>
+> [...]
+>
+>>> I would suggest moving the UUID values into a variable next
+>>> to the caller like
+>>>
+>>> #define ARM_SMCCC_VENDOR_HYP_UID_KVM \
+>>> =C2=A0=C2=A0=C2=A0=C2=A0 UUID_INIT(0x28b46fb6, 0x2ec5, 0x11e9, 0xa9,=
+ 0xca, 0x4b, 0x56,=20
+>>> 0x4d, 0x00, 0x3a, 0x74)
+>>>
+>>> and then just pass that into arm_smccc_hyp_present(). (please
+>>> double-check the endianess of the definition here, I probably
+>>> got it wrong myself).
+>
+> I worked out a variation [1] of the change that you said looked good.
+>
+> Here, there is a helper macro for creating uuid_t's when checking
+> for the hypervisor running via SMCCC to avoid using the bare UUID_INIT=
+.=20
+> Valiadted with KVM/arm64 and Hyper-V/arm64. Do you think this is a
+> better approach than converting by hand?
+>
+> If that looks too heavy, maybe could leave out converting the expected
+> register values to UUID, and pass the expected register values to
+> arm_smccc_hyp_present directly. That way, instead of
+>
+> bool arm_smccc_hyp_present(const uuid_t *hyp_uuid);
+>
+> we'd have
+>
+> bool arm_smccc_hyp_present(u32 reg0, u32 reg1, u32 reg2, u32 reg2);
+>
+>
+> Please let me know what you think!
 
-Just saw that this is a left-over that actually should be in patch 3.
-Will fix.
+The patch looks correct to me, but I agree it's a little silly
+to convert register values into uuid format on both sides.
 
+>   static bool hyperv_detect_via_smccc(void)
+>   {
+> -	struct arm_smccc_res res =3D {};
+> +	uuid_t hyperv_uuid =3D HYP_UUID_INIT(ARM_SMCCC_VENDOR_HYP_UID_HYPERV=
+_REG_0,
+> +		ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_1,
+> +		ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_2,
+> +		ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_3);
 
-P.
+If you want to declare a uuid here, I think you should remove the
+ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_{0,1,2,3} macros and just
+have UUID in normal UUID_INIT() notation as we do for
+other UUIDs.
 
-> =C2=A0
-> =C2=A0=09ld =3D priv->plat->bsp_priv;
-> =C2=A0=09stmmac_dvr_remove(&pdev->dev);
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c
-> b/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c
-> index 91ff6c15f977..37fc7f55a7e4 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c
-> @@ -155,9 +155,9 @@ static int stmmac_pci_probe(struct pci_dev *pdev,
-> =C2=A0{
-> =C2=A0=09struct stmmac_pci_info *info =3D (struct stmmac_pci_info *)id-
-> >driver_data;
-> =C2=A0=09struct plat_stmmacenet_data *plat;
-> -=09struct stmmac_resources res;
-> -=09int i;
-> +=09struct stmmac_resources res =3D {};
-> =C2=A0=09int ret;
-> +=09int i;
-> =C2=A0
-> =C2=A0=09plat =3D devm_kzalloc(&pdev->dev, sizeof(*plat), GFP_KERNEL);
-> =C2=A0=09if (!plat)
-> @@ -188,13 +188,13 @@ static int stmmac_pci_probe(struct pci_dev
-> *pdev,
-> =C2=A0=09=09return ret;
-> =C2=A0=09}
-> =C2=A0
-> -=09/* Get the base address of device */
-> +=09/* The first BAR > 0 is the base IO addr of our device. */
-> =C2=A0=09for (i =3D 0; i < PCI_STD_NUM_BARS; i++) {
-> =C2=A0=09=09if (pci_resource_len(pdev, i) =3D=3D 0)
-> =C2=A0=09=09=09continue;
-> -=09=09ret =3D pcim_iomap_regions(pdev, BIT(i),
-> pci_name(pdev));
-> -=09=09if (ret)
-> -=09=09=09return ret;
-> +=09=09res.addr =3D pcim_iomap_region(pdev, i,
-> STMMAC_RESOURCE_NAME);
-> +=09=09if (IS_ERR(res.addr))
-> +=09=09=09return PTR_ERR(res.addr);
-> =C2=A0=09=09break;
-> =C2=A0=09}
-> =C2=A0
-> @@ -204,8 +204,6 @@ static int stmmac_pci_probe(struct pci_dev *pdev,
-> =C2=A0=09if (ret)
-> =C2=A0=09=09return ret;
-> =C2=A0
-> -=09memset(&res, 0, sizeof(res));
-> -=09res.addr =3D pcim_iomap_table(pdev)[i];
-> =C2=A0=09res.wol_irq =3D pdev->irq;
-> =C2=A0=09res.irq =3D pdev->irq;
-> =C2=A0
+If you want to keep the four 32-bit values and pass them into
+arm_smccc_hyp_present() directly, I think that is also fine,
+but in that case, I would try to avoid calling it a UUID.
 
+How are the kvm and hyperv values specified originally?
+From the SMCCC document it seems like they are meant to be
+UUIDs, so I would expect them to be in canonical form rather
+than the smccc return values, but I could not find a document
+for them.
+
+     Arnd
 
