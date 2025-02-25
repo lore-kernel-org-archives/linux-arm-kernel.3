@@ -4,60 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D76FC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 07:53:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9165EC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 07:54:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/ncftbb9PfkRY5I1SEo5KWByGpqMh87THSvXX1b1/Ms=; b=uyTJ74HG/XjiGWJ2warxDxnwNz
-	S/B9FOI3Z7iTcnXm7UQmJDbmpRpn2QFueBXCThcn7JiP0oxvqM5PLd2V1Z5SxOEXrDyV4tz22MH42
-	c8MIYUWaYF7QQO792LopJUZsJ6GqUs+pyJ98PgLKJvvxrCf4XdIqESYruTHbnNZncXnC7x6otUuIz
-	i79IU6WwNgayrH6kuEZJeGm5RuJ0/cp6d1maoPrb3HDiEr0NYJ3eeVdrSMkv5pP++BvT8yAFtmtCd
-	9/KNARNUJG4zglSes0PKT7buiTvYk9Tew5WOL4s4CmCPZnZ/i1tgwCKLYTeUk9URYDeWdyIZQO3Nu
-	CNmuG17g==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bF/B1llNfV/1HpfRv/qowiTZodnrgLXJJo2u+j+6fpI=; b=aqlZCgV4v/FWf6QCtzwaLZ9Vo2
+	813cVt5MhQrKjYYuKJXWmKV67I0ZL+s2cPR3M/uTe13hqdqp8a0DceJZ8fFCb4CzKl99fgcd3+0NT
+	VKCvrTBBUbpoUvMh90xXfNe2RZEBAYBKrgya4q1IhsbznEs/AVe7QpkRTASkMha9yhCANrxUYXf/m
+	7KZfIfr4s1BLEzdkefW6NMzb5VL8snT98uROk9pVNVcHDOg+NOpHtgFZTgG338zuF2OXnBftpIXOz
+	teGN3K+NAT+ZOyincikr6vaopoh0ktnDVpeh0Broaa9ytAGgq1oXGheFxuKJn8582ac4NtwEYbcrc
+	Sej+HV2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmpkT-0000000GGxM-13ol;
-	Tue, 25 Feb 2025 07:53:01 +0000
+	id 1tmplv-0000000GHOE-0FVU;
+	Tue, 25 Feb 2025 07:54:31 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmpgW-0000000GG8l-22PS
+	id 1tmpj3-0000000GGZ2-09Lp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 07:48:56 +0000
+	Tue, 25 Feb 2025 07:51:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6D8A861135;
-	Tue, 25 Feb 2025 07:48:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67958C4CEDD;
-	Tue, 25 Feb 2025 07:48:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DF39A61228;
+	Tue, 25 Feb 2025 07:51:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7ED26C4CEE2;
+	Tue, 25 Feb 2025 07:51:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740469735;
-	bh=/ncftbb9PfkRY5I1SEo5KWByGpqMh87THSvXX1b1/Ms=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=R9gyG2n+2ROXnP/X14vbm0q8n+lZHTumKXJ+xYnR3rnd6Kki+WFokVrVDe/VHevZz
-	 524z+obxKDc9qExkVKSXDHccqC6g6NT7TIaJ1dtxwswccxcoRtdqXSwc3WQArKBjrv
-	 vmGvBgOhNjnQsLziIrMi1gtmnKy/rNC1HrnD7HDhy8YMYoEOevt4wGpmZJD0Yae5N+
-	 HREYavAgE4QRHSFMsONHOHl0JCWzx7Iq+25ur3DrmFw5lVb8K+dh6NXYQkMNgEjjMk
-	 e9gN2yAD5xAGNxwhKj4TFhq22nJNoVq5MPx+8Rjk/DzBI3WhXkMXXsCD6+vxoOUwDJ
-	 0sjMYMZgATXsw==
-Message-ID: <f76a3a6c-795e-4fc8-905f-4655115ea99d@kernel.org>
-Date: Tue, 25 Feb 2025 08:48:48 +0100
+	s=k20201202; t=1740469892;
+	bh=e2+1A+StkzfLCCel5frxscI5QVNiBlktYMKxy4nUtRU=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=qsgE7zeTur0CeHUbE6xMYk7Iu8Lv5GVrFDQKqMa94ooZDotUlfeuvEe3QbRv+/M2N
+	 EfjS0bDENCOpOwDF25PKvNY/iHPn9F3Z00i8h6Q/AQ1lbCtx4Jdnq+GhqNYvnC44Cp
+	 1ApDdRUq3ha7+IPfWnPthoT/sCXKMBMuwLgHC2h77kEa5siyEbDHIk2jJihRfViX6X
+	 Iyhx3nDVH/+HL+xetd27f6U2EwK13eNWpUUggPIn/LJb2yrhB+x2K3wjJzSS+dw9U4
+	 pHAedcVXu4W+OoaB/4D2XSPU7OxXM2C65ZbgCqCbpf4IDpAHKZnGE+4XXwb+2f46zz
+	 1GePnrYyq17Dg==
+Message-ID: <58d978fb-fbbd-433f-9c4c-8d9db425ea9c@kernel.org>
+Date: Tue, 25 Feb 2025 08:51:26 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/8] arm64: defconfig: enable STM32 LP timers drivers
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>, lee@kernel.org,
- ukleinek@kernel.org, alexandre.torgue@foss.st.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, wbg@kernel.org, jic23@kernel.org,
- daniel.lezcano@linaro.org, tglx@linutronix.de
-Cc: catalin.marinas@arm.com, will@kernel.org, devicetree@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-iio@vger.kernel.org, linux-pwm@vger.kernel.org,
- olivier.moysan@foss.st.com
-References: <20250224180150.3689638-1-fabrice.gasnier@foss.st.com>
- <20250224180150.3689638-8-fabrice.gasnier@foss.st.com>
+Subject: Re: [PATCH v9 2/3] reset: aspeed: register AST2700 reset auxiliary
+ bus device
+To: Ryan Chen <ryan_chen@aspeedtech.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@aj.id.au>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, "linux-clk@vger.kernel.org"
+ <linux-clk@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20250224095506.2047064-1-ryan_chen@aspeedtech.com>
+ <20250224095506.2047064-3-ryan_chen@aspeedtech.com>
+ <71cf8012-3b77-43de-b8ac-54c84a97f9d3@kernel.org>
+ <d5d90f03-3db8-4f90-baad-0be4f3d3e0ea@kernel.org>
+ <b00aef9582e223a5770cebc714ad65168eab744b.camel@pengutronix.de>
+ <OS8PR06MB7541E77E1EA78D658E5444A6F2C32@OS8PR06MB7541.apcprd06.prod.outlook.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,7 +112,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250224180150.3689638-8-fabrice.gasnier@foss.st.com>
+In-Reply-To: <OS8PR06MB7541E77E1EA78D658E5444A6F2C32@OS8PR06MB7541.apcprd06.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -120,14 +129,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/02/2025 19:01, Fabrice Gasnier wrote:
-> Enable the STM32 timer drivers: MFD, counter, PWM and trigger as modules.
-> Clocksource is a bool, hence set to y. These drivers can be used on
-> STM32MP25.
+On 25/02/2025 03:20, Ryan Chen wrote:
+>>>>> +
+>>>>> +	return devm_add_action_or_reset(clk_dev,
+>>>>> +aspeed_reset_unregister_adev, adev); }
+>>>>> +EXPORT_SYMBOL_GPL(aspeed_reset_controller_register);
+>>>>
+>>>> No, you cannot export functions without users. There is no single
+>>>> user of this, so this is not justified at all.
+>>> My mistake, I missed patch #3 which uses it.
+>>>
+>>> I don't get why do you need to export this in the first place, instead
+>>> of putting it in the clock driver, as usually expected. Handling child
+>>> creation is logically the task of the device having children, the
+>>> parent. Not the child.
+>>
+>> Also, consider basing this on top of:
+>>
+>> https://lore.kernel.org/all/20250218-aux-device-create-helper-v4-0-c3d7dfdea
+>> 2e6@baylibre.com/
+> 
+> Hello, Base on this series, I will use adev = devm_auxiliary_device_create instead addev_alloc, adev_releas.
+> But it still have EXPORT_SYMBOL_GPL(aspeed_reset_controller_register);
+> Am I right?
 
 
-Which upstream board? If you do not have upstream board, the defconfig
-is pointless for us. It's not defconfig for your downstream forks.
+Why? It looks like you skipped entirely my message. It is the same over
+and over - respond to people comments...
+
 
 
 Best regards,
