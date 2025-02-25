@@ -4,94 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 053A7C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 17:31:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F199C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 17:33:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b7ilTU0nfN/VhX4AMlIMGSs7WY/ZNM9E5SfWaQXtVJA=; b=EHXRg7kjJTiVxHYdt8+Oko3QJK
-	Zyf1H9ZQz8ttOfF4lkOGBgPbSvDtLWErB6dS+fV74a2OIOnFXfAYwgjYp6KCuFDo0I9QhXwiIhKRt
-	tsgwTE2uQI6GGH40BzAYODDhFlaTlskVNSZcIrOb2Ujm/9LsjVOQ376qSqH72FgjD3A5+gnzfi8cu
-	1rKNJolxB9nSitEeht486vgUwBQ6s5GQCWYNTd53X/7hBMcQ/8UDrvJN3m4Zy206a8euTvMvf1rWQ
-	LiCy2p+0IHD20est/hyOGuPmxM4kSu/qX4NoF9bWCPpUhGGHSMLr7c6dmDFlfb7yOh/XlcNxd3lII
-	FBZq0jYw==;
+	bh=csFmhxPvcMrRV6kpk1Q1BRYEDgP5q973GkDJ+v5/Na0=; b=ZmrDH42FDtIBx+Wq7ecH4JOdMY
+	KWQOyDUnrtLUUzgeRpmUlo7kUFJmdWfwZWymJlZqnYsJHoFFV7QqZwkVGVBqtGb1hAHZXFJmR4FlY
+	OIbnWZMIRhkvwzK4AYtCeGEQ28eiuSKCgARHQl2emKZAoNOc+zNlkT6jhNTxtj9dsoSaWHJk2cMfJ
+	ajjmFiC7p4AW1Fd8/+REnsQKixnsmu6DKJfiz36J1pICiq1fcbuTPY1MdvzFDarsUyePmPgo5qQOe
+	roasGWvBZ8qBD+rxnfe9o8jCi4JO1QDOpoPLVu/wxsMTke8LEojoTwqNHSxq9fnQBrO0y+NCFOSUy
+	KjLx3YzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmymX-00000000enL-0wu0;
-	Tue, 25 Feb 2025 17:31:45 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmyTu-00000000YkC-0OX0
+	id 1tmyo2-00000000fLU-3zjA;
+	Tue, 25 Feb 2025 17:33:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmyV8-00000000Z9w-3Cwd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 17:12:32 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51PFJbae032256;
-	Tue, 25 Feb 2025 18:12:23 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	b7ilTU0nfN/VhX4AMlIMGSs7WY/ZNM9E5SfWaQXtVJA=; b=Nrq3B2BxNYdXhmuF
-	+jmL73KaSfStcX8QKPExFFoP7RqoSXYGRppAkI6ARlaK53KL1dyVyO4IMN3JVCnu
-	tGYXS6HfgioN2NTwRJczUCCAzE/57xH5+kkV2Cxd+AHYpSo3/5Rp4fedb48NofFU
-	yRjXtSt7zrXgOVoz1WW7amsqH28Yp3rUjJrK+GLhi7HIdO+d3IRP3u2GRmnhln0m
-	wPzqD2UC/k8vmQbeA/rNHAVlwELmzgPuiainGS0hQhjKPcssCNvWe615sk4+RGOy
-	/wQR2a7PFRz4SNwGT2jVCzJbDqAn0mnb30eauFGVK8qKkbI8fMakiei+0nXKNr1q
-	eIqVKw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4512sp4ukf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 25 Feb 2025 18:12:23 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 69B38400E3;
-	Tue, 25 Feb 2025 18:11:14 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 72F044DBF82;
-	Tue, 25 Feb 2025 16:51:36 +0100 (CET)
-Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 25 Feb
- 2025 16:51:35 +0100
-Message-ID: <91f19306-4b31-41fe-8ad2-680b1a339204@foss.st.com>
-Date: Tue, 25 Feb 2025 16:51:35 +0100
+	Tue, 25 Feb 2025 17:13:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F09B1BCB;
+	Tue, 25 Feb 2025 09:14:02 -0800 (PST)
+Received: from [10.1.27.154] (XHFQ2J9959.cambridge.arm.com [10.1.27.154])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9BC123F5A1;
+	Tue, 25 Feb 2025 09:13:44 -0800 (PST)
+Message-ID: <1847fc09-a394-40ad-b66f-1afe1964a061@arm.com>
+Date: Tue, 25 Feb 2025 17:13:43 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/9] dt-bindings: pinctrl: stm32: Introduce HDP
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-        Linus Walleij
-	<linus.walleij@linaro.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime
- Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Bartosz Golaszewski <brgl@bgdev.pl>
-CC: <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250225-hdp-upstream-v1-0-9d049c65330a@foss.st.com>
- <20250225-hdp-upstream-v1-2-9d049c65330a@foss.st.com>
- <6fc80544-6fc3-4450-a0cc-bfc740fe97bb@kernel.org>
-Content-Language: en-US
-From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-In-Reply-To: <6fc80544-6fc3-4450-a0cc-bfc740fe97bb@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Subject: Re: [PATCH v1] arm64/mm: Fix Boot panic on Ampere Altra
+Content-Language: en-GB
+To: Luiz Capitulino <luizcap@redhat.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250225114638.2038006-1-ryan.roberts@arm.com>
+ <f53be9d0-524e-4bae-8994-aa2baa1b36d3@redhat.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <f53be9d0-524e-4bae-8994-aa2baa1b36d3@redhat.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.185]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-25_05,2025-02-25_03,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_091230_430720_7748EB2C 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20250225_091346_892086_60ECA180 
+X-CRM114-Status: GOOD (  26.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,89 +66,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/25/25 14:04, Krzysztof Kozlowski wrote:
-> On 25/02/2025 09:48, Clément Le Goffic wrote:
->> +
->> +maintainers:
->> +  - Clément LE GOFFIC <clement.legoffic@foss.st.com>
->> +
->> +description: |
+On 25/02/2025 16:57, Luiz Capitulino wrote:
+> On 2025-02-25 06:46, Ryan Roberts wrote:
+>> When the range of present physical memory is sufficiently small enough
+>> and the reserved address space for the linear map is sufficiently large
+>> enough, The linear map base address is randomized in
+>> arm64_memblock_init().
+>>
+>> Prior to commit 62cffa496aac ("arm64/mm: Override PARange for !LPA2 and
+>> use it consistently"), we decided if the sizes were suitable with the
+>> help of the raw mmfr0.parange. But the commit changed this to use the
+>> sanitized version instead. But the function runs before the register has
+>> been sanitized so this returns 0, interpreted as a parange of 32 bits.
+>> Some fun wrapping occurs and the logic concludes that there is enough
+>> room to randomize the linear map base address, when really there isn't.
+>> So the top of the linear map ends up outside the reserved address space.
+>>
+>> Fix this by intoducing a helper, cpu_get_parange() which reads the raw
+>> parange value and overrides it with any early override (e.g. due to
+>> arm64.nolva).
+>>
+>> Reported-by: Luiz Capitulino <luizcap@redhat.com>
+>> Closes: https://lore.kernel.org/all/a3d9acbe-07c2-43b6-9ba9-
+>> a7585f770e83@redhat.com/
+>> Fixes: 62cffa496aac ("arm64/mm: Override PARange for !LPA2 and use it
+>> consistently")
+>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+>> ---
+>>
+>> This applies on top of v6.14-rc4. I'm hoping this can be merged for v6.14 since
+>> it's fixing a regression introduced in v6.14-rc1.
+>>
+>> Luiz, are you able to test this to make sure it's definitely fixing your
+>> original issue. The symptom I was seeing was slightly different.
 > 
-> 
-> Do not need '|' unless you need to preserve formatting.
+> Yes, this fixes it for me!
 
-Ok
+Great!
+> 
+> I was able to boot v6.14-rc4 one time without your patch, this is probably
+> what messed up my bisection. 
 
->> +  STMicroelectronics's STM32 MPUs integrate a Hardware Debug Port (HDP).
->> +  It allows to output internal signals on SoC's GPIO.
->> +
->> +properties:
->> +  compatible:
->> +    const: st,stm32mp-hdp
-> 
-> There is a mess in STM SoCs. Sometimes you call SoC stm32, sometimes
-> stm32mp and sometimes stm32mpXX.
-> 
-> Define for all your STM contributions what is the actual SoC. This
-> feedback was already given to ST.
-> 
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  clocks:
->> +    maxItems: 1
->> +
->> +patternProperties:
->> +  '-pins$':
->> +    type: object
->> +    $ref: pinmux-node.yaml#
->> +
->> +    properties:
->> +      function:
->> +        enum: [ "0", "1", "2", "3", "4", "5", "6", "7",
->> +                "8", "9", "10", "11", "12", "13", "14",
->> +                "15" ]
-> 
-> Function which has a number is not really useful. What does it even express?
+Yes the operation is also dependent on the value of the kaslr seed (which is why
+you don't see the issue when kaslr is disabled). So sometimes a random kaslr
+seed will be the right value to mask the issue. Another benefit of running this
+in kvmtool is that I could pass the same seed in every time.
 
-As said in my previous answer, function names are very different from 
-one platform to another. Numbers were used as string to be generic.
-I'll consider it in a V2.
+> But I booted v6.14-rc4 with this patch
+> multiple times without an issue. I agree this needs to be in for
+> v6.14 and huge thanks for jumping in and getting this fixed.
 
-> 
->> +
->> +      pins:
->> +        enum: [ hdp0, hdp1, hdp2, hdp3, hdp4, hdp5, hdp6, hdp7 ]
->> +
->> +    required:
->> +      - function
->> +      - pins
->> +
->> +    additionalProperties: false
->> +
->> +allOf:
->> +  - $ref: pinctrl.yaml#
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - clocks
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/clock/stm32mp1-clks.h>
->> +    #include <dt-bindings/pinctrl/stm32mp15-hdp.h>
->> +    //Example 1
-> 
-> Drop
-
-Ok
+No worries!
 
 > 
-> Best regards,
-> Krzysztof
+> Tested-by: Luiz Capitulino <luizcap@redhat.com>
+
+Thanks!
+
+> 
+>>
+>> I'm going to see if it's possible for read_sanitised_ftr_reg() to warn about use
+>> before initialization. I'll send a follow up patch for that.
+>>
+>> Thanks,
+>> Ryan
+>>
+>>
+>>   arch/arm64/include/asm/cpufeature.h | 9 +++++++++
+>>   arch/arm64/mm/init.c                | 8 +-------
+>>   2 files changed, 10 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/
+>> cpufeature.h
+>> index e0e4478f5fb5..2335f44b9a4d 100644
+>> --- a/arch/arm64/include/asm/cpufeature.h
+>> +++ b/arch/arm64/include/asm/cpufeature.h
+>> @@ -1066,6 +1066,15 @@ static inline bool cpu_has_lpa2(void)
+>>   #endif
+>>   }
+>>
+>> +static inline u64 cpu_get_parange(void)
+>> +{
+>> +    u64 mmfr0 = read_cpuid(ID_AA64MMFR0_EL1);
+>> +
+>> +    return arm64_apply_feature_override(mmfr0,
+>> +                        ID_AA64MMFR0_EL1_PARANGE_SHIFT, 4,
+>> +                        &id_aa64mmfr0_override);
+>> +}
+>> +
+>>   #endif /* __ASSEMBLY__ */
+>>
+>>   #endif
+>> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+>> index 9c0b8d9558fc..1b1a61191b9f 100644
+>> --- a/arch/arm64/mm/init.c
+>> +++ b/arch/arm64/mm/init.c
+>> @@ -280,13 +280,7 @@ void __init arm64_memblock_init(void)
+>>       if (IS_ENABLED(CONFIG_RANDOMIZE_BASE)) {
+>>           extern u16 memstart_offset_seed;
+>>
+>> -        /*
+>> -         * Use the sanitised version of id_aa64mmfr0_el1 so that linear
+>> -         * map randomization can be enabled by shrinking the IPA space.
+>> -         */
+>> -        u64 mmfr0 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR0_EL1);
+>> -        int parange = cpuid_feature_extract_unsigned_field(
+>> -                    mmfr0, ID_AA64MMFR0_EL1_PARANGE_SHIFT);
+>> +        int parange = cpu_get_parange();
+>>           s64 range = linear_region_size -
+>>                   BIT(id_aa64mmfr0_parange_to_phys_shift(parange));
+>>
+>> -- 
+>> 2.43.0
+>>
+> 
 
 
