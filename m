@@ -4,177 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 358C5C021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 20:11:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4053FC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 20:16:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D4NfpPV+rLdyqnsWObgNr7LdA2h9tGUIN7OlGOty9No=; b=deZhUNb86K3Y1sNwaBlzI68Uge
-	qu2DVz05tSG55R5lIOv0OwZbCqTq5nylLEsQlX4qN5jHE/mrh6BjaXzhLP58JN4EnbvAqmeHSXyUK
-	XjeM2G8n8d6XZNiH1rLmQs/UqM2FP3jsR9sA1q76YoZJS9+TJR5dhJv6gkUoVlZ6ZLXyG1/AMgqGz
-	IL52L/kPfHWHrFyvwiSK9fa/3MqZ25I2Y7ZfQ6QdOCRUcv7Fa5BM6r0HBPnuQsu6woEP+vjvHPgmm
-	R44w3+vSABHrui1BIl/oRjpGR7ZatPzcG4UcihaFVwJJs7yQX54Bip9WSSf+4DaAmQh0D8wkSgzFI
-	T4GBv+Yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oqknaXKfYz8VwCMtAEXVYCJ7XxYuwOhBbXj4Vop31ng=; b=KcyXqv0J24QOwq3q4LgtsAeAAs
+	lmxPNX2C3TFgriAOlBnH9vmoMR3Ev3TYXZWQg9s0Tu7D06ErLMzcyCC7kweZZRHW9wiOLDBUBFOI0
+	6eQEIexVpqwCv6FD+BlSUMwZ09ranXQTVYhqMBCZuyPtb0rYpi4UjjKEMil2c8MR8C7b9mU4w4RqI
+	NsF2VNhAs46/EZhxRLNZTNDtkAvIXEVOiVsaCWTSkdaj1gWEycHuzqeNxPyHasbiaBl7hfXgFfMP2
+	Jf7IV2keCRkafHdcgBumYyA0mQkg120lKhRy2tLa9Y5BZLwhQABMUQjIFk3iDkuxjW/SB1zzxhCdE
+	vYFpGbmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn1HD-00000001Jbh-21sK;
-	Tue, 25 Feb 2025 20:11:35 +0000
-Received: from mail-dm6nam12on20624.outbound.protection.outlook.com ([2a01:111:f403:2417::624] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn0rN-00000001D2J-2yQl;
-	Tue, 25 Feb 2025 19:44:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aRzzu2I5oxmGVYG8JLNI+UouW7HfT4CIqtKbWEcfZ6WyRtGkcz5KEZql1em6FC2AgPFKqb02cc0bwKiYm/3T2n1DaWJqpKAfAkqS77NF9WxrRpUagXyehPS5+UMEPyREyAkNVc5z7ccH2r99Uk75zmNEDjSRZN65t9HXEHFkm5odFdH0eoci2dCO1o00ZZpLQvAw9gPZF3hTB58qVGc4awFlwt2MbOYqZqxnvIDEJPD0Rx3C/MkktNA8gFMEzIKbnzY6oVA/otwKypysGjYs5WPAJRmUwPPUUJFFjimhp0L64GndTQT/mpfhNHQMM3BoL703j2vCadbzJI4byZd6EA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=D4NfpPV+rLdyqnsWObgNr7LdA2h9tGUIN7OlGOty9No=;
- b=H0dTZaT2DxLT9nhQmQiA6nNnWE/KBTBdgCNxSj7QuBGHZES89mVN+XcLAxVaD3X7cupwsJ752OLQFRXVDFAKq4kHDUe+CXqZMxWSyLbpj6oDATKtn9SmDes/q7rvyGYttdeV9LNArxj04fRBlFbZ1RzyKxSt48yE4aHwSq/fE8xWGegwQIHFIuLFNACpCN+SJ+YMHnkeUplBJ9e1VN8R89NfvaCdYFPYKyPr6GtbgACLhqot6qYopU1PAYos7RjGhawDnGCc2b2vGpC4BjR7d9nysYQ6PyE3mCrusGhDTxLWkE3FZJVrJdUSWOKeRESqhVrZO/bs+QLA0bP5t6P/pw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=D4NfpPV+rLdyqnsWObgNr7LdA2h9tGUIN7OlGOty9No=;
- b=cSbHjzR9ipXsWlMNt/Y5Z5l/QvTPzl8F8cfo8a2pyOBfgIY1aykBXtf8TZIFmeCISDcLRY5Plwq0s3DblUnMV2Pzb0kgdqw2KrsdUvgUKIp9B8sB4N2gm8+aUVrAA5G9FOpBhuJ+SmxeX+pLRhKvkJ+AfJwlrPkd/YWmP0kt5fdhvlkqGYuJYEEW6wiEHHsldmdkV/+8E5WLgmjhuRFcySiFCqV5HeCk/g4A0kPHZ3CmwG8YkHQGu2GBeRSGaKwei91Id/dHrB637NV4uEcdmWX7c28HPhvyc9CcETivjTlRkMGY7BCIoIAppJNU2SizilPtabGNXud7tPigJIGhqw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by MN2PR12MB4375.namprd12.prod.outlook.com (2603:10b6:208:24f::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.21; Tue, 25 Feb
- 2025 19:44:49 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8466.016; Tue, 25 Feb 2025
- 19:44:49 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	asahi@lists.linux.dev,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	iommu@lists.linux.dev,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
+	id 1tn1Li-00000001KZT-15cv;
+	Tue, 25 Feb 2025 20:16:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tn14S-00000001H0p-471i
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Feb 2025 19:58:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 427E6152B;
+	Tue, 25 Feb 2025 11:58:39 -0800 (PST)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DD9303F6A8;
+	Tue, 25 Feb 2025 11:58:20 -0800 (PST)
+Date: Tue, 25 Feb 2025 19:58:18 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Leo Yan <leo.yan@arm.com>
+Cc: Rob Herring <robh@kernel.org>, Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	James Clark <james.clark@linaro.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Hector Martin <marcan@marcan.st>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Krishna Reddy <vdumpa@nvidia.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>
-Cc: Bagas Sanjaya <bagasdotme@gmail.com>,
-	Joerg Roedel <jroedel@suse.de>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	patches@lists.linux.dev,
-	David Rientjes <rientjes@google.com>,
-	Matthew Wilcox <willy@infradead.org>
-Subject: [PATCH v3 12/23] iommu: Change iommu_iotlb_gather to use iommu_page_list
-Date: Tue, 25 Feb 2025 15:39:29 -0400
-Message-ID: <12-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
-In-Reply-To: <0-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
-References: 
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: YQBPR0101CA0323.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:6c::12) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
+Subject: Re: [PATCH v20 11/11] perf: arm_pmuv3: Add support for the Branch
+ Record Buffer Extension (BRBE)
+Message-ID: <Z74g2vUT9-KtlIvo@J2N7QTR9R3.cambridge.arm.com>
+References: <20250218-arm-brbe-v19-v20-0-4e9922fc2e8e@kernel.org>
+ <20250218-arm-brbe-v19-v20-11-4e9922fc2e8e@kernel.org>
+ <20250224122507.GE8144@e132581.arm.com>
+ <CAL_Jsq+0fZ2uasgAam7qGTdCeDBQxXeyL-J1_suyxy6GE_ERTg@mail.gmail.com>
+ <20250224140317.GF8144@e132581.arm.com>
+ <Z7yY19UtSnND5KTl@J2N7QTR9R3.cambridge.arm.com>
+ <20250224180301.GI8144@e132581.arm.com>
+ <Z72xMLsd37I6X_5-@J2N7QTR9R3>
+ <20250225174803.GB1821331@e132581.arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|MN2PR12MB4375:EE_
-X-MS-Office365-Filtering-Correlation-Id: a7801054-4e3a-43f3-ebca-08dd55d4dd92
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?jkfrK10f8kHiLt06tqDhWIIFTwfE1ElxnUVF/c5AXwIqk8wmlC7Cz8NyPv+E?=
- =?us-ascii?Q?T7VbGTMxfinJ0ES6s/O1+MDp6GWugnXrBHQdMzjGPLSbuWrSGYf4jGmisRqG?=
- =?us-ascii?Q?wFOQuiB2iabKR0gMIqnAkoJg9HFHWylMuf/84/u/cjrKjPOoCMdry1MQAsiP?=
- =?us-ascii?Q?XnDncJ0RuQY2Ok5OlpCCWmaAbhXT2rotl9INlqPNRbsferyy55vng+gTHEhX?=
- =?us-ascii?Q?vDE3KF5kPJI+Jqy782wxLs1Tj7Y1nGF2qh5OM5wuzzSdL8fHULeURxHfCuV3?=
- =?us-ascii?Q?PqkUPJiRAlkdQbZKW7UqvEXGTjNxf2nbKtmZmCK1RE/mO5lTFAeBmPRbKtKL?=
- =?us-ascii?Q?1Xks+3FhPC9lSSQSyDcyljy+M3hsCFtKeZ9131gJnAZdd4DI+/liOuakaUKs?=
- =?us-ascii?Q?FUDR5IAW6LHA55l3pyaY1HeMZdbXifL5V8dyv6wJMS4qeGIfp6NtrmQyx3L7?=
- =?us-ascii?Q?B2SnD4cZwOSoox7xHEcbIOzzqG6cwkBJaNAnv7cAoHybrfvzjnwrupTvOSGM?=
- =?us-ascii?Q?ST710I1rNhjMFh1KnfYdC06whxnlubO241XlpRB3J1bgKHQDAtYaRmkJDTCn?=
- =?us-ascii?Q?bNaDh0hmOfhjk7hQHe28FNwtnwyyMwfiem7Z92VudOaUvapZkLe+8NSAyeuG?=
- =?us-ascii?Q?58093C/QDGAts0ng9RA5OxQc5LztUiICLCtqNSKBun7RCx1LDja0FkEx7Azb?=
- =?us-ascii?Q?M7qWXupZ/alDWe5R2JhbIFoqD2nuHKjK+xujnoBC+9t+aARTY6o0lorwzSac?=
- =?us-ascii?Q?jRGpyioigDOuFKwJxGTQDMP7nGfJHIeEH/fCI5yQLrossonrwFD3i/YSGNk2?=
- =?us-ascii?Q?eIQQo/4fD4DDUdHBjrlvdSsFNpDK/Pa/azA7w128G+DaT8AxhsOiTTZ0o58L?=
- =?us-ascii?Q?QGmq+KupD2OYMP9k/4Bdahoo5Wd1CIu7JIPeP9pGbWpkPRT4MlxL9xO3x+w/?=
- =?us-ascii?Q?S9jmKvExg6ASHaILSVsY8xCiZ+NC0jfPAOk8+7lEGNk58iCzCD7hIjqg5K6/?=
- =?us-ascii?Q?+HlLenOhxAq271iB9YRHARG2oVeH8GTzCykCokJndJw+Gm+ICr9Ti+6hEm0y?=
- =?us-ascii?Q?4C7kSp7UXL2pAA2gyd+Adv2hWDqexW0KT/I6wFitzhBj5tUhvU6LZekq0MYJ?=
- =?us-ascii?Q?CRTbn179rA8nSxmGrSGh6DhudVvSfhfk4CDyoH5LMFAiYp1bv2o0wcddWGfk?=
- =?us-ascii?Q?QavIwT8tgM9bnE03eWG3IYr2JNWe4BrJhkzqFuaR+76kYR6rocN1GCGn+KqJ?=
- =?us-ascii?Q?hpLXDWZrdxcOhzpumy1+HNQF7PBNtfGQiJkzm2X1c/NjI6Nh90aq5HP+UEIr?=
- =?us-ascii?Q?pA8ZNM0NrAUVF0Ogk2m56YiBJfJUbyLPzyXBu44u6wLceeBOId1G23hdSQhB?=
- =?us-ascii?Q?adH1HsTtwINS5e2dTSGj57DKuxyyOt2Tyc9vc0llBtBHrdLbbwBUdw+0zmbA?=
- =?us-ascii?Q?FDDrnOkBDZU=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WP6pNC6OQfANETAK/mNBLbXJqkBXIJ9qxW5f+bQSiyd7EfdwhegJ96IRdX/f?=
- =?us-ascii?Q?NFiCdfOxPwWtHvH2LYOJo+yv9HcvYzjtUl2EnzgN61oFFBCn0RYwpU1ZnzAJ?=
- =?us-ascii?Q?YniSNu12CcM35BrlLeSHoTOOqsYbii7KaaK4L7BAzYqWuCdMZ1GHPlrO91Zo?=
- =?us-ascii?Q?Sij1DOvZzQAK8Gqyg1p4G4UL3jS13uz+18XdOM0HhpTB/Iqjqn2CVGo4WE6H?=
- =?us-ascii?Q?+7TGbDAt+LJdOvNHDpNZh7NYiJSNDLn8Q4TrXpAQ6RTTxDJvduaJssJiKxui?=
- =?us-ascii?Q?Uw5GCKsdxgyeCjLX7H4LvO7AD8P/MZmShVuGZVWaWrReFW+F1FkKAsMKZw17?=
- =?us-ascii?Q?YHtbtQ35M3ts6BqjeKVRi4WtXQxMIIgnEHYA5t+MjKh+rso20js6eJ/wqycY?=
- =?us-ascii?Q?D7JUJSh5WNf/z12qFe1RRCH9VoT3c/KTio/kVIh9XAR4M6txXmmaqZfDWOUP?=
- =?us-ascii?Q?+GzWb7Yk9ai+nXyHPPAf2As2fxiX81ONkNHOEvxAxz4RXmC2DkC3pVAopxTC?=
- =?us-ascii?Q?06xW1Qumlvitt+0umxiOtyKtkAhQPkLnhC5emIYNsSX0KpzIk5PB3lrf/ljB?=
- =?us-ascii?Q?VOmJ4Dm97eRk89tyuZ96p4RSKwAxkx/bjzgC/zNM93+r9VOIIYKeQeoecXI2?=
- =?us-ascii?Q?qLg4Net5sKnEICGQym81ykb+dDhpk7l3PCsL5ab3z2xwBy8WUKVvkCD2sEzr?=
- =?us-ascii?Q?V+Oll7kxx5fENYgllD7+82etLdydcbwvsNQYkn1CjBEsom87aX0bYMJy1rzJ?=
- =?us-ascii?Q?uIr6sOFGyjCyXB+FJjcoCvL2Wqg+ym2k28FDT9BCTTIPkp0yDVTqKPGAC8UF?=
- =?us-ascii?Q?3bLM/jV4+3GnW/NkawgDxc5Gf3fbBGGhTAFwmuhDyJVOwSYTm3ERPMuj5N3J?=
- =?us-ascii?Q?k08NtcbOdIMdtfSSTH4H+tzhlAdn0N+V5sRJQ1jGccuGiXS6FbRJFNJXk01g?=
- =?us-ascii?Q?nI/im4jVZZsHftwixikaGFY5ZZL0tw2PFakt/N0AfdScnRQO5/Ltd73PgvnB?=
- =?us-ascii?Q?dmbs/2LhN/mpqLAQ8WttCqE0Kxz984NqQslGNCjlIOQ33NYx5w9V2mrO2+xb?=
- =?us-ascii?Q?2ONAedc+XjX2tspsbe1vZ3iS2SNKcO/jPNdMZH5nIKEplF9HYY4Pe9M22Q2O?=
- =?us-ascii?Q?Vff6ioql+/QNpn/BHRNZ4DrY/Ol3W5y41KoH6bqZKN+X9s94KHQGbmp/t/+C?=
- =?us-ascii?Q?8it0iBpxPB1KK8Gfgsuee8Thkq+Nvvtd15oNwPLJ4JuUIOuZW4SANlBanC3Y?=
- =?us-ascii?Q?68Sj08LexieqOfrcHx/hSicSjvDzjxe0um/DwifB5AnOoF2lOSbQmDiYC5DD?=
- =?us-ascii?Q?rGgkFjPJg/KoWX6tb+lZ/0rVlhXi0ozcFg4C9hG8Bc43z+OrSsRJFMPi4C2j?=
- =?us-ascii?Q?qlpB8gDDjZXqEk+qGrZrxO16EhoV4fWBzou9hAh3PMaiH2XdlRKJU8rNYhRS?=
- =?us-ascii?Q?+nwm8YqBDfEtZa/yyieRrUDzQDWfjnZWo5G3d8bwdjq9tEeRLxLN08oS0xyJ?=
- =?us-ascii?Q?2C+UZ4nlHePNDYlXn0H2JU9rxGkPVSmVdoAX0UODIlqJhbIZBEfn0/+UQQv4?=
- =?us-ascii?Q?QiRNpVwk7YT3uk+kTPWpLWs8L4HnnyQGp2Vsp9fk?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a7801054-4e3a-43f3-ebca-08dd55d4dd92
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 19:44:49.7512
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: LszUb5XMNP0KpyigMMwtycIL2NDHGxgKPmDa53iJ4f1KWZ9k4kKzzBTPyL24nQKO
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4375
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250225174803.GB1821331@e132581.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_114453_783347_E7386792 
-X-CRM114-Status: GOOD (  17.68  )
+X-CRM114-CacheID: sfid-20250225_115825_106775_1C3E4704 
+X-CRM114-Status: GOOD (  48.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,158 +81,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This converts the remaining places using list of pages to the new API.
+On Tue, Feb 25, 2025 at 05:48:03PM +0000, Leo Yan wrote:
+> On Tue, Feb 25, 2025 at 12:01:52PM +0000, Mark Rutland wrote:
+> 
+> [...]
+> 
+> > > > Critically, the brbe_enable() function merges the filters of all
+> > > > *active* events which have been installed into hardware. It does not
+> > > > track all events which can be rotated, and the resulting filter is not
+> > > > the same -- it can change as a result of rotation.
+> > > 
+> > > In a perf session has multiple events, and events have different branch
+> > > filters, seems to me, a simple way is to return error for this case.
+> > 
+> > FWIW, I'd generally prefer to do that since it avoids a number of
+> > horrible edge-cases and gets rid of the need to do SW filtering, which
+> > falls somewhere between "tricky" and "not entirely possible". However,
+> > that's not what LBR and others do, which is why we went with filter
+> > merging.
+> > 
+> > If folk on the tools side are happy with the kernel rejecting
+> > conflicting events, then I'd be more than happy to do that. What I don't
+> > want is that we start off with that approach and people immediately
+> > start to complain that the BRBE driver rejects events that the LBR
+> > driver accepts.
+> > 
+> > See the last time this came up.
+> 
+> Thanks for the shared links.  Based on the info, let's say we can have two
+> cases:
+> 
+>   Case 1: set different branch filters in a single perf session:
+> 
+>     perf record -e armv8_pmuv3_0/r03,branch_type=any_call/u \
+>                 -e armv8_pmuv3_0/r04,branch_type=any_ret/k ...
+> 
+>   Case 2: set different branch filters in multiple perf sessions:
+> 
+>     perf record -e armv8_pmuv3_0/r03,branch_type=any_call/u ...
+> 
+>     perf record -e armv8_pmuv3_0/r04,branch_type=any_ret/k ...
+> 
+> In my previous reply, I was suggesting that we should reject the case 1.
 
-The Intel free path was shared with its gather path, so it is converted at
-the same time.
+Do you mean that the kernel should reject that, or that userspace should
+reject that.
 
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
----
- drivers/iommu/dma-iommu.c   |  9 +++++----
- drivers/iommu/intel/iommu.c | 24 ++++++++++++------------
- include/linux/iommu.h       |  4 ++--
- 3 files changed, 19 insertions(+), 18 deletions(-)
+As mentioned earlier, I am ok with the idea that we reject *scheduling*
+events with mismatched filters, as we do for other resource conflicts.
+That would necessarily mean rejecting *groups* of events with
+inconsistent filters at open time.
 
-diff --git a/drivers/iommu/dma-iommu.c b/drivers/iommu/dma-iommu.c
-index 2a9fa0c8cc00fe..3d5a2ed2e337be 100644
---- a/drivers/iommu/dma-iommu.c
-+++ b/drivers/iommu/dma-iommu.c
-@@ -114,7 +114,7 @@ early_param("iommu.forcedac", iommu_dma_forcedac_setup);
- struct iova_fq_entry {
- 	unsigned long iova_pfn;
- 	unsigned long pages;
--	struct list_head freelist;
-+	struct iommu_pages_list freelist;
- 	u64 counter; /* Flush counter when this entry was added */
- };
- 
-@@ -201,7 +201,7 @@ static void fq_flush_timeout(struct timer_list *t)
- 
- static void queue_iova(struct iommu_dma_cookie *cookie,
- 		unsigned long pfn, unsigned long pages,
--		struct list_head *freelist)
-+		struct iommu_pages_list *freelist)
- {
- 	struct iova_fq *fq;
- 	unsigned long flags;
-@@ -240,7 +240,7 @@ static void queue_iova(struct iommu_dma_cookie *cookie,
- 	fq->entries[idx].iova_pfn = pfn;
- 	fq->entries[idx].pages    = pages;
- 	fq->entries[idx].counter  = atomic64_read(&cookie->fq_flush_start_cnt);
--	list_splice(freelist, &fq->entries[idx].freelist);
-+	iommu_pages_list_splice(freelist, &fq->entries[idx].freelist);
- 
- 	spin_unlock_irqrestore(&fq->lock, flags);
- 
-@@ -298,7 +298,8 @@ static void iommu_dma_init_one_fq(struct iova_fq *fq, size_t fq_size)
- 	spin_lock_init(&fq->lock);
- 
- 	for (i = 0; i < fq_size; i++)
--		INIT_LIST_HEAD(&fq->entries[i].freelist);
-+		fq->entries[i].freelist =
-+			IOMMU_PAGES_LIST_INIT(fq->entries[i].freelist);
- }
- 
- static int iommu_dma_init_fq_single(struct iommu_dma_cookie *cookie)
-diff --git a/drivers/iommu/intel/iommu.c b/drivers/iommu/intel/iommu.c
-index d864eb180642f2..6df5c202fbeba6 100644
---- a/drivers/iommu/intel/iommu.c
-+++ b/drivers/iommu/intel/iommu.c
-@@ -894,18 +894,16 @@ static void dma_pte_free_pagetable(struct dmar_domain *domain,
-    The 'pte' argument is the *parent* PTE, pointing to the page that is to
-    be freed. */
- static void dma_pte_list_pagetables(struct dmar_domain *domain,
--				    int level, struct dma_pte *pte,
--				    struct list_head *freelist)
-+				    int level, struct dma_pte *parent_pte,
-+				    struct iommu_pages_list *freelist)
- {
--	struct page *pg;
-+	struct dma_pte *pte = phys_to_virt(dma_pte_addr(parent_pte));
- 
--	pg = pfn_to_page(dma_pte_addr(pte) >> PAGE_SHIFT);
--	list_add_tail(&pg->lru, freelist);
-+	iommu_pages_list_add(freelist, pte);
- 
- 	if (level == 1)
- 		return;
- 
--	pte = page_address(pg);
- 	do {
- 		if (dma_pte_present(pte) && !dma_pte_superpage(pte))
- 			dma_pte_list_pagetables(domain, level - 1, pte, freelist);
-@@ -916,7 +914,7 @@ static void dma_pte_list_pagetables(struct dmar_domain *domain,
- static void dma_pte_clear_level(struct dmar_domain *domain, int level,
- 				struct dma_pte *pte, unsigned long pfn,
- 				unsigned long start_pfn, unsigned long last_pfn,
--				struct list_head *freelist)
-+				struct iommu_pages_list *freelist)
- {
- 	struct dma_pte *first_pte = NULL, *last_pte = NULL;
- 
-@@ -961,7 +959,8 @@ static void dma_pte_clear_level(struct dmar_domain *domain, int level,
-    the page tables, and may have cached the intermediate levels. The
-    pages can only be freed after the IOTLB flush has been done. */
- static void domain_unmap(struct dmar_domain *domain, unsigned long start_pfn,
--			 unsigned long last_pfn, struct list_head *freelist)
-+			 unsigned long last_pfn,
-+			 struct iommu_pages_list *freelist)
- {
- 	if (WARN_ON(!domain_pfn_supported(domain, last_pfn)) ||
- 	    WARN_ON(start_pfn > last_pfn))
-@@ -973,8 +972,7 @@ static void domain_unmap(struct dmar_domain *domain, unsigned long start_pfn,
- 
- 	/* free pgd */
- 	if (start_pfn == 0 && last_pfn == DOMAIN_MAX_PFN(domain->gaw)) {
--		struct page *pgd_page = virt_to_page(domain->pgd);
--		list_add_tail(&pgd_page->lru, freelist);
-+		iommu_pages_list_add(freelist, domain->pgd);
- 		domain->pgd = NULL;
- 	}
- }
-@@ -1422,7 +1420,8 @@ void domain_detach_iommu(struct dmar_domain *domain, struct intel_iommu *iommu)
- static void domain_exit(struct dmar_domain *domain)
- {
- 	if (domain->pgd) {
--		LIST_HEAD(freelist);
-+		struct iommu_pages_list freelist =
-+			IOMMU_PAGES_LIST_INIT(freelist);
- 
- 		domain_unmap(domain, 0, DOMAIN_MAX_PFN(domain->gaw), &freelist);
- 		iommu_put_pages_list(&freelist);
-@@ -3558,7 +3557,8 @@ static void intel_iommu_tlb_sync(struct iommu_domain *domain,
- 				 struct iommu_iotlb_gather *gather)
- {
- 	cache_tag_flush_range(to_dmar_domain(domain), gather->start,
--			      gather->end, list_empty(&gather->freelist));
-+			      gather->end,
-+			      iommu_pages_list_empty(&gather->freelist));
- 	iommu_put_pages_list(&gather->freelist);
- }
- 
-diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-index e414951c0af83f..166d8e1bcb100d 100644
---- a/include/linux/iommu.h
-+++ b/include/linux/iommu.h
-@@ -360,7 +360,7 @@ struct iommu_iotlb_gather {
- 	unsigned long		start;
- 	unsigned long		end;
- 	size_t			pgsize;
--	struct list_head	freelist;
-+	struct iommu_pages_list	freelist;
- 	bool			queued;
- };
- 
-@@ -849,7 +849,7 @@ static inline void iommu_iotlb_gather_init(struct iommu_iotlb_gather *gather)
- {
- 	*gather = (struct iommu_iotlb_gather) {
- 		.start	= ULONG_MAX,
--		.freelist = LIST_HEAD_INIT(gather->freelist),
-+		.freelist = IOMMU_PAGES_LIST_INIT(gather->freelist),
- 	};
- }
- 
--- 
-2.43.0
+However, I do not think that we should reject indepenent events which
+happen to have mismatched filters, regardless of whether they're opened
+by the same "session".
 
+> IMO, it is not quite useful to configure different filters for events in
+> the same session, especially if this leads complexity in the driver due
+> to the hardware limitation.
+
+I generally agree, but IIRC userspace does this today.
+
+> For case 2, when create a new session, if the perf tool can read out the
+> current branch filter setting (e.g. via sysfs node) and give suggestion
+> what branch filter is compabile with existed sessions, seems to me, this
+> is a feasible solution.  My understanding this is a rare case, and a
+> clear guidance for users would be sufficient if this happens.  (Maybe
+> we can give recommendation for how to use BRBE in the perf doc).
+
+No. We are not going to expose *dynamic* information about the PMU
+hardware via sysfs. This is not as simple as you make it out to be.
+At any point in time there can be an arbitrary number of events open,
+and some arbitrary subset currently scheduled.
+
+I agree that ideally this should be rare, though, and hence either of
+the two options I have suggested thus far should handle that acceptably.
+
+> To be clear, an important factor is the trace modes with modifier 'u'
+> (user) and 'k' (kernel) should be supported for different events and for
+> different sessions.  In a mixed cases (some events are userspace only
+> and some are kernel only), the BRBE driver needs to filter out branch
+> records for specific mode when taking a sample.
+
+I hate to repeat myself, but the driver has *no concept whatsoever* of a
+"session". It only knows:
+
+* Which events are currently active in hardware.
+
+* Which events have been grouped together.
+
+* Which events have been opened for a given task or CPU context.
+
+... and *NONE* of those correspond directly to a "session" managed by
+the userspace perf tool.
+
+> > > If we can unify branch filter within a perf session, would this be
+> > > much easier for handling?
+> > 
+> > Do you mean if the perf tool ensured that all events in a given session
+> > had the same filter? From the kernel's PoV there's no such thing as a
+> > "perf session", and I'm not sure whether you're suggesting doing that in
+> > userspace or withing the kernel.
+> 
+> My understanding is this would be not difficult to do such kind checking
+> in the tool.  E.g., the perf tool can iterate every event and check the
+> branch filter and detect incompabile issue.
+
+Cool, sounds like we could do that then!
+
+> > Doing that in the perf tool would certianly make a stronger argument for
+> > the kernel taking the "reject conflicting branch filters" option.
+> > 
+> > Doing that within the kernel isn't really possible.
+> 
+> As said above, if the BRBE driver can provide a knob in sysfs to indicate
+> what is the current branch filter in the existed sessions, this would be
+> helpful for the tool to do the checking and remind users.
+
+Sorry, as above, that is not going to happen. It is not practical and
+will cause many other problems.
+
+> I haven't done any experiments for this. If you think this is the way
+> to move forward, I might do a prototype and get back to you to ensure we
+> don't run into any unexpected issues.
+
+What specifically are you proposing to prototype?
+
+Mark.
 
