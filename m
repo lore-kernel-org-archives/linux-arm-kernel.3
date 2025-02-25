@@ -4,92 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80CB0C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:47:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC5AC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:48:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ESHe5tOObnpKqqZ922yCUdfxuhB0YSTVuyOcdcMSVyA=; b=aab5JztdSHRfTQ7JH1Ya47hJWC
-	1g5RXKfrbJlpyjb7dnMDHM7jDSrMPdvXNhFIOvq34CpJnyjiZkjDCwcp7KTTVylO6hxS4jaz+wjA0
-	vUAmOvRVEdCuD4aWPedzHkNbi27HXMijfpyFxg1qpE6Ia6gnKtuAMh2q7YHrnLlekt/iRSSufwHL8
-	EnvVM0qVHN53y+kAZW05I/iVfL/pRS1bxE3gWFYtG50Nvv6AJlg5rUFH7edS/l+5T95sHZNb78pcz
-	8TZcKbILym18w5jNH/uwyoxUCZqjCh9Z0/wwRARkQaFTtA26VA+51EAZ4V7klS3N2BeaaV6fLZeIu
-	CuHRKesw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/wjc6HAO8My2qmZX7jkTzIOr+95GymwnsKmZhebKWgY=; b=l1iVwB7QPJRL9iSMsiA0ANdDkA
+	pMTwtg/FNlGpjwMD6m0B65151HrrpwJQNxHoIW6Koi2uABdvo8tt9XLTOPKjE2k+wSUJu6sX/DoZX
+	5n4LFnstWsOPvWMwr1XsyGo7iCcK230yFC828I049rSZkG9LZeWN5XcuDrvvtNLb1cQWDOknwxwo8
+	t0mP7J+8tF7KXN3G2kRtX6HabTB3MPNx946BEI0I3cEvHWm4SVTmbP8hS33blD09E2nvWjgvhCOq3
+	qVuPARBXvlgH2YcE99Yfw/NwgxuANrAah1ludz20vUV1vJNuHm+mRE97yZn6ECzoeqyY57ktKLrPC
+	WdI2TTyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmy5O-00000000Rh0-3kz5;
-	Tue, 25 Feb 2025 16:47:10 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1tmy6u-00000000S5B-0teU;
+	Tue, 25 Feb 2025 16:48:44 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmxrr-00000000E7W-1Vvw
+	id 1tmxub-00000000Epd-1pNn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 16:33:12 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-439a1e8ba83so55504185e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 08:33:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1740501190; x=1741105990; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ESHe5tOObnpKqqZ922yCUdfxuhB0YSTVuyOcdcMSVyA=;
-        b=H6ndC2Js16KPrd1zUHcjn4XNfv80Td94uc5uFAS+LoJf94leqywz51tZ4yGnTorXSX
-         S7tRuRWEXNxr1sLobjdAmS9izCCDbUwybAzZHp0xvItuzgaIUKQRCRHeIiUlpEc05B1a
-         gMNLKBg1pobZYZJnEMuQTYG1L1q97arxN+aqniUXLAbkojDNVFbvTVGr554t1Tb8rW2P
-         FDQ/+9pzFihDij96iYujlV7Xsr9/vM6tK7odg8lZJ6yu76Fkdgm58ZeNNvfsjLRJGtR8
-         KhbI9oiEDwFzncC1WJE4wcAMXlj54h0rGhIBX9Ks+R97CHwRP88qno6SZwxRPCoL49Z2
-         LBSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740501190; x=1741105990;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ESHe5tOObnpKqqZ922yCUdfxuhB0YSTVuyOcdcMSVyA=;
-        b=tAnp02zYcftnapDSE1GDX6i59TAhsMTiMzqLKYlRziYdG3HNdP24d/dmMeneDBoK7M
-         RlMoLMEo8KL3YS+mXoGZ8JR4+/y/QdFZ/G3eGANgN4L7TfsIpy8fVTrUe+r+ugjQXD99
-         5BvoGZQxnmvLbwdrHyXiJi+mPcZcCUgRNqV5Si1Ve5VbC895juzhxr5WN7SN2GFCwtWc
-         SPHGK3c3jc2eKn0zKdO5tdh1OlZjyJ8hBx8SJ0yfkR+TaHAW5byA+149O9Uia4sau2WE
-         X9BIdinanXKz72PPoMj0E6iurgLOEYkh2rgMjExThgPeucdUxaVwoNzLDeLY5x4fuPPI
-         0bEA==
-X-Forwarded-Encrypted: i=1; AJvYcCXu4iCKQJn137xSAnII7CMAiTvaaUYsTtAGZuR16dHWuCJAqCiMJmCgIq+s165U8rxxSIvv8FviOIpG88Ewqi0t@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxl5fOahlwoJtaTMy2WocD2r3l4cNEsERxMOmZ7i5tD13Ww5dDS
-	q7x/3x/ScPwuskxjMPslumEKhDErhG+D8q/kqFJrpN5qeOFFM+UKKy8dAA7saaA=
-X-Gm-Gg: ASbGnctxenpHAp+aUU5X+IXoZheH8MJALyzzUxDVNKMh4ScVTfPdQXzODkZiVPuC3ZE
-	smQo9tr+vCGU51jidqe2ucbYd82kDzaVQTt7QqZc2S6fXrhYHbaQWpvLUFIpz6WQpVbMuTFalN0
-	nYiGvV9pCugH0pIeS9PYTs3BwJu1QJdr3QzI7Q+0vJvny64e1hEsqBy27rGXXyTC+oo90nFSuue
-	33HsPMHTbUehTJLUorrf/cmoQO4OqD2nQISc1dqR3jfigF/r6hRkXHIY1RBJOHGF16r6YY13BB3
-	vM7i1aRsjLncFdNUgevQo3rYBaCIsWkB+A==
-X-Google-Smtp-Source: AGHT+IH8putBj58H1Qc2/Pc5IYBftrUEfWyIiIH/BzccCEeS7d12VbdeMMF1dKqYrd30iJtTHLg91Q==
-X-Received: by 2002:a05:600c:350a:b0:439:9b82:d6b2 with SMTP id 5b1f17b1804b1-439aeb34f86mr181448335e9.16.1740501189564;
-        Tue, 25 Feb 2025 08:33:09 -0800 (PST)
-Received: from [192.168.50.4] ([82.78.167.25])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ab153a7bcsm31838645e9.13.2025.02.25.08.33.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 25 Feb 2025 08:33:09 -0800 (PST)
-Message-ID: <09eafe54-c262-4db4-b11d-0644a1f90a14@tuxon.dev>
-Date: Tue, 25 Feb 2025 18:33:06 +0200
+	Tue, 25 Feb 2025 16:36:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E852E5C598F;
+	Tue, 25 Feb 2025 16:35:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67BCDC4CEDD;
+	Tue, 25 Feb 2025 16:35:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740501360;
+	bh=1wLbTyZpyrnh0HaPTC3hRYX/EzNCdBJG7jxtJKU4pcs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=nZcW+nm2jbZiPBblDJ54HjvOIhO0EFCkMKSZanOXkJMza/OcPcMa18XwYX2IQf3IB
+	 dkEaV8rvCk89y9gUdHKH+InPs+gp+EXT082UMXe8MP7dibogBEpVJ+cSk/6oOJGHVz
+	 9QJ2YM4TZLWbuR3w/Nl/iCl1FIAUm/SIqnOzYK/6urdND86Vf2ZHJZ260k1jV4bZMv
+	 jZvf+WqqAgKDCeh5IXIvsypExXR/A/EYOOfpOWIuU618tgxySjIBwd2dBCLtg/MOIW
+	 c5xu+uPPzg6cvfxcZT9QAW5var2YzMSFaAqqPo0Y5VWkrRPpcV8hV3ADEbC88xcOG+
+	 VJAlOP23LQeWg==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Russell King <linux@armlinux.org.uk>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Petr Mladek <pmladek@suse.com>,
+	Lino Sanfilippo <l.sanfilippo@kunbus.com>,
+	linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] tty: serial: pl011: remove incorrect of_match_ptr annotation
+Date: Tue, 25 Feb 2025 17:35:37 +0100
+Message-Id: <20250225163556.4169086-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/8] Add System Components for Microchip SAMA7D65 SoC
-To: Ryan.Wanner@microchip.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, nicolas.ferre@microchip.com,
- alexandre.belloni@bootlin.com, vkoul@kernel.org, wim@linux-watchdog.org,
- linux@roeck-us.net
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
- linux-watchdog@vger.kernel.org
-References: <cover.1739555984.git.Ryan.Wanner@microchip.com>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Content-Language: en-US
-In-Reply-To: <cover.1739555984.git.Ryan.Wanner@microchip.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_083311_489756_0D0DC0EE 
-X-CRM114-Status: UNSURE (   7.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250225_083601_530444_621F8E7A 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,21 +77,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Arnd Bergmann <arnd@arndb.de>
 
+Building with W=1 shows a warning about sbsa_uart_of_match being unused when
+CONFIG_OF is disabled:
 
-On 14.02.2025 20:08, Ryan.Wanner@microchip.com wrote:
-> From: Ryan Wanner <Ryan.Wanner@microchip.com>
-> 
-> Ryan Wanner (8):
->   dt-bindings: atmel-sysreg: Add SAMA7D65 Chip ID
->   ARM: at91: Add Support in SoC driver for SAMA7D65
+    drivers/tty/serial/amba-pl011.c:2945:34: error: unused variable 'sbsa_uart_of_match' [-Werror,-Wunused-const-variable]
 
-Applied to at91-soc, thanks!
+The driver is not actually used on any machines that are built
+with CONFIG_OF disabled, so using of_match_ptr() won't save any
+actual memory, and it can be best removed.
 
->   ARM: dts: microchip: sama7d65: Add chipID for sama7d65
->   ARM: dts: microchip: sama7d65: Add DMAs to sama7d65 SoC
->   ARM: dts: microchip: sama7d65: Enable DMAs
+The corresponding ACPI_PTR() annotation does save a few bytes on
+32-bit arm since CONFIG_ACPI is not available, but for consistency
+it seems better to remove both along with the __maybe_unused
+annotation on the ACPI table.
 
-Applied to at91-dt, thanks!
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ drivers/tty/serial/amba-pl011.c    | 6 +++---
+ drivers/tty/serial/ma35d1_serial.c | 2 +-
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/tty/serial/amba-pl011.c b/drivers/tty/serial/amba-pl011.c
+index 04212c823a91..e3b8590bc880 100644
+--- a/drivers/tty/serial/amba-pl011.c
++++ b/drivers/tty/serial/amba-pl011.c
+@@ -3001,7 +3001,7 @@ static const struct of_device_id sbsa_uart_of_match[] = {
+ };
+ MODULE_DEVICE_TABLE(of, sbsa_uart_of_match);
+ 
+-static const struct acpi_device_id __maybe_unused sbsa_uart_acpi_match[] = {
++static const struct acpi_device_id sbsa_uart_acpi_match[] = {
+ 	{ "ARMH0011", 0 },
+ 	{ "ARMHB000", 0 },
+ 	{},
+@@ -3014,8 +3014,8 @@ static struct platform_driver arm_sbsa_uart_platform_driver = {
+ 	.driver	= {
+ 		.name	= "sbsa-uart",
+ 		.pm	= &pl011_dev_pm_ops,
+-		.of_match_table = of_match_ptr(sbsa_uart_of_match),
+-		.acpi_match_table = ACPI_PTR(sbsa_uart_acpi_match),
++		.of_match_table = sbsa_uart_of_match,
++		.acpi_match_table = sbsa_uart_acpi_match,
+ 		.suppress_bind_attrs = IS_BUILTIN(CONFIG_SERIAL_AMBA_PL011),
+ 	},
+ };
+diff --git a/drivers/tty/serial/ma35d1_serial.c b/drivers/tty/serial/ma35d1_serial.c
+index 8dcad52eedfd..285b0fe41a86 100644
+--- a/drivers/tty/serial/ma35d1_serial.c
++++ b/drivers/tty/serial/ma35d1_serial.c
+@@ -799,7 +799,7 @@ static struct platform_driver ma35d1serial_driver = {
+ 	.resume     = ma35d1serial_resume,
+ 	.driver     = {
+ 		.name   = "ma35d1-uart",
+-		.of_match_table = of_match_ptr(ma35d1_serial_of_match),
++		.of_match_table = ma35d1_serial_of_match,
+ 	},
+ };
+ 
+-- 
+2.39.5
 
 
