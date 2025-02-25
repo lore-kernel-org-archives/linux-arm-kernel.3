@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7DF0C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 09:54:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 697B9C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 09:55:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tUQPqHUkoxXQgvCGjRkgQw4Th5QpfxwKkCZfKsruz9s=; b=Jtd3vOOTZoFjPJeF53uxNvP8AL
-	64bBMGXvaTLP8WmBPs8GeWLDkWElRtKypkJivfNFlPhRaY4FTlWhYtyWMvFFA5BcV1HHoD6IFqUMr
-	myA2hnufsuseLDwjScGpZmHahpx/tA0lloaTV5dzgnsgJNepUEL8X5SLNYA40mMBCWy/tTIeztqEk
-	elKfBZIYSEA5PkKfF4Ja3/YnE+FexE8S6wCisZ9Dbcib7TFOVFqgTLQcslDXbJgXX3SIq0Cj1HnF0
-	TzBQrAfCL07mQwvE6nXr25WkowlFQ/g1WxTQpTGx4C1Nmj54NXJXek3X/RW/vGX3+Mh4hOYXciGx8
-	jatF7nHg==;
+	bh=NJ9MgFSULarwNi5dDlhiRBkOq+9uURLlupFAhkLYoIk=; b=oTl+JDZs/76ib9f1I3sHY59K/9
+	TcS4ZReqk1+XQigeZLK36UpGz03BvpAB54hHttPE6sKlWTPrJlR0BGK7GM1BgHKYfxW8q2g/drEB2
+	gYnar12D5xRB5bkaSP3UVYiMvy8c2aRuWJD44yhBoZzWVV6VqbGSGNgvRW7ltFPBOeqPSukeoAwT2
+	zEWinsnYNuBuNJqebs5nF+xoxwnMMhgS//eLQcjqILVKTzn/Gbrf1dvJe8+vOnIbXQq7gY6X1YzMG
+	XwpQ7I+YDATMtPregcbDbb5nAef9jv3HmPi7CjLodg1bhuRH3+NV3x582URHGTnHOglKkwfGuzQli
+	HoRcDHhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmrdc-0000000GhOK-0GOT;
-	Tue, 25 Feb 2025 09:54:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tmrf8-0000000Ghrp-39LY;
+	Tue, 25 Feb 2025 09:55:38 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmrFd-0000000Gaiy-1fUy
+	id 1tmrHR-0000000Gb00-1B3r
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 09:29:17 +0000
+	Tue, 25 Feb 2025 09:31:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D798A61239
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 09:29:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA28BC4AF0C
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 09:29:15 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1660F5C6D08
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 09:30:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 674F3C4CEEE
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 09:31:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740475755;
-	bh=5QI9uHnbKrXRYGECovSmXyJvXB7auSAuhh+3htNO7DE=;
+	s=k20201202; t=1740475867;
+	bh=VhqhUEKJybMC5Ioqu2TlM8kjWfRxkvh6hF8HPB9/5wA=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=nuV7oYqOqcFYUbXxbNP3rUkXVAa8592p3HxdihLdC5kXmWBKKZR3WqKQQendCNaV/
-	 oENz2v5D7A9JKyUOf1uodJmLm1dwCSf8wP9Z8AP/kNQM8sDn99CZQi/ZJHDXpPb4Xb
-	 d3PsLgO8xvfl7+lTWEKmbzenhWL8/jbbFC1E00x79diKhjTnwZcyo/4ktVzkaBvZ/j
-	 OMGrPyQUPqBO+cQUWzk+7fFfEfSclBkWkxYrXRneYbAli5NQXMgr0v5DJ6YHwiQglV
-	 QNPmFR5o+111CjBJYMXitgSeAeKXxONTPS5aQt0+JCNGA5357tdKC38UIqcBMLjBoR
-	 GEGMFWKIGIpXg==
-Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-abec925a135so147614266b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 01:29:15 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXaiZ9kCTDvITMxSEq/wnP3AjJkP7Ebwcvy91DXuNYFcuiCuEvkTt93c9MJcvRHBOayrKN7eWI07A1kx4zSTD62@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoEFNLECi4JPTTBujP21e1pDd3TBhghZb6u0QKGJPV5zM4l8Q3
-	Hr40jtDGdvn6IgTnyh9PFTi3tT44y9eA5olAZZG+++NsUIwf9o0SWZ6J600VB6X9jSaVUIZzUQU
-	4ai8aGvMCPa3d9FnVyRD948+6VuM=
-X-Google-Smtp-Source: AGHT+IEOq0At6zPT+OpiunH+4BSketgcPR98DlixUCXVccfuLEsVE/TVTjLEJE+pZxuYrZTPiI+ADoAS4DNWkmoERiQ=
-X-Received: by 2002:a17:907:9406:b0:aaf:c259:7f6 with SMTP id
- a640c23a62f3a-abc09d35ecfmr1620078166b.45.1740475754321; Tue, 25 Feb 2025
- 01:29:14 -0800 (PST)
+	b=EXfIAagzfTqvwWsRGznCUK3ZkWhLbD7NPhK4kB6yq1P7xsid+Jxuj9M05vjK46gYk
+	 3xEUD5L4kt7jgVgmhutEnYpZy/x04g+8QzkG9TZZOLMuynarF+R4825SDG6/c16yWv
+	 hugaeESVhquFZn7pAzz5jzYhh1gM6Bu4HVuyfgKmSUhPEdwvzHkwfFrW+h+HU5Zb+s
+	 7lXaIemT3IQisCddKoSlWBBoIwSZW/ViiyJKSS7+eTLmA8Jvsp1ZfGzwyn5cq4Gvhq
+	 WQ7cfRa0RC2dTKKnz3yQYWeTrLaQsjneKUhDcP3nEkLI3YI3iCiE/iMat4+B60vNTN
+	 woaslJT0QpaYg==
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-abb7520028bso714996666b.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 01:31:07 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCW/IXYChhyjwz6t7XR5eKLgGTxZdLmU/SgUuuUzrIsYkUFra/uSYOBwGVCEytvlov72EJarzRxZi47papks+l4e@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzp7rywyROQ0Sx2yw18ctLu9jkKV4i2QhysP+XesPR15iZk1QDM
+	GJCM8Y22oFRBlgFCT3eKojmNzjLhZPyFUhW/gYCurv8QUrnqv2M0YEUdQNk0pIkj0VkyG7SDjdy
+	os56Eau82RPfkRXgTqzbufHDLeqE=
+X-Google-Smtp-Source: AGHT+IGLJYv/e1oxPDxFKFsKBaEaUHmq0pFseR1OcvNHLehzMt/+mZLqCUb2pCHMmsax354c1CbJrvmsMW+1OBmxUh8=
+X-Received: by 2002:a17:906:3151:b0:aba:5e50:6984 with SMTP id
+ a640c23a62f3a-abc099ead3amr1554594166b.2.1740475865854; Tue, 25 Feb 2025
+ 01:31:05 -0800 (PST)
 MIME-Version: 1.0
-References: <20250224135321.36603-2-phasta@kernel.org> <20250224135321.36603-4-phasta@kernel.org>
-In-Reply-To: <20250224135321.36603-4-phasta@kernel.org>
+References: <20250224135321.36603-2-phasta@kernel.org> <20250224135321.36603-6-phasta@kernel.org>
+In-Reply-To: <20250224135321.36603-6-phasta@kernel.org>
 From: Huacai Chen <chenhuacai@kernel.org>
-Date: Tue, 25 Feb 2025 17:29:01 +0800
-X-Gmail-Original-Message-ID: <CAAhV-H4Eu3VNO615wMdMT2bbeSurACwyR9uJmSGHErdyVu950Q@mail.gmail.com>
-X-Gm-Features: AQ5f1JpaEC4JuCS1MMY9EZYHmlHgtkdETZGtwE5y_2Q9kz7yTyHXXJLQzlO9aME
-Message-ID: <CAAhV-H4Eu3VNO615wMdMT2bbeSurACwyR9uJmSGHErdyVu950Q@mail.gmail.com>
-Subject: Re: [PATCH net-next v3 2/4] stmmac: loongson: Remove surplus loop
+Date: Tue, 25 Feb 2025 17:30:54 +0800
+X-Gmail-Original-Message-ID: <CAAhV-H5OH7JLUUCjDAP=qfzGUVLt1HfiAYtc6Hr0oHURM0Pa9A@mail.gmail.com>
+X-Gm-Features: AQ5f1Jrr8qZL58Do6GOisELNPoK9P0OBrnmwiGAX3q4INVgQhFafk3UcjXTs7oU
+Message-ID: <CAAhV-H5OH7JLUUCjDAP=qfzGUVLt1HfiAYtc6Hr0oHURM0Pa9A@mail.gmail.com>
+Subject: Re: [PATCH net-next v3 4/4] stmmac: Replace deprecated PCI functions
 To: Philipp Stanner <phasta@kernel.org>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
 	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
@@ -72,6 +72,9 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250225_013109_442103_BB996BE6 
+X-CRM114-Status: GOOD (  22.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,44 +92,118 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Mon, Feb 24, 2025 at 9:53=E2=80=AFPM Philipp Stanner <phasta@kernel.org>=
  wrote:
 >
-> loongson_dwmac_probe() contains a loop which doesn't have an effect,
-> because it tries to call pcim_iomap_regions() with the same parameters
-> several times. The break statement at the loop's end furthermore ensures
-> that the loop only runs once anyways.
+> From: Philipp Stanner <pstanner@redhat.com>
 >
-> Remove the surplus loop.
+> The PCI functions
+>   - pcim_iomap_regions() and
+>   - pcim_iomap_table()
+> have been deprecated.
 >
-> Signed-off-by: Philipp Stanner <phasta@kernel.org>
+> Replace them with their successor function, pcim_iomap_region().
+>
+> Make variable declaration order at closeby places comply with reverse
+> christmas tree order.
+>
+> Signed-off-by: Philipp Stanner <pstanner@redhat.com>
 Reviewed-by: Huacai Chen <chenhuacai@loongson.cn>
 
 > ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c | 11 +++--------
->  1 file changed, 3 insertions(+), 8 deletions(-)
+>  .../net/ethernet/stmicro/stmmac/dwmac-loongson.c   | 11 ++++-------
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c   | 14 ++++++--------
+>  2 files changed, 10 insertions(+), 15 deletions(-)
 >
 > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c b/drive=
 rs/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-> index 73a6715a93e6..e3cacd085b3f 100644
+> index f3ea6016be68..25ef7b9c5dce 100644
 > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
 > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-> @@ -554,14 +554,9 @@ static int loongson_dwmac_probe(struct pci_dev *pdev=
-, const struct pci_device_id
+> @@ -521,10 +521,10 @@ static int loongson_dwmac_acpi_config(struct pci_de=
+v *pdev,
+>  static int loongson_dwmac_probe(struct pci_dev *pdev, const struct pci_d=
+evice_id *id)
+>  {
+>         struct plat_stmmacenet_data *plat;
+> +       struct stmmac_resources res =3D {};
+>         struct stmmac_pci_info *info;
+> -       struct stmmac_resources res;
+>         struct loongson_data *ld;
+> -       int ret, i;
+> +       int ret;
+>
+>         plat =3D devm_kzalloc(&pdev->dev, sizeof(*plat), GFP_KERNEL);
+>         if (!plat)
+> @@ -554,13 +554,11 @@ static int loongson_dwmac_probe(struct pci_dev *pde=
+v, const struct pci_device_id
 >         pci_set_master(pdev);
 >
 >         /* Get the base address of device */
-> -       for (i =3D 0; i < PCI_STD_NUM_BARS; i++) {
-> -               if (pci_resource_len(pdev, i) =3D=3D 0)
-> -                       continue;
-> -               ret =3D pcim_iomap_regions(pdev, BIT(0), DRIVER_NAME);
-> -               if (ret)
-> -                       goto err_disable_device;
-> -               break;
-> -       }
-> +       ret =3D pcim_iomap_regions(pdev, BIT(0), DRIVER_NAME);
-> +       if (ret)
-> +               goto err_disable_device;
+> -       ret =3D pcim_iomap_regions(pdev, BIT(0), DRIVER_NAME);
+> +       res.addr =3D pcim_iomap_region(pdev, 0, DRIVER_NAME);
+> +       ret =3D PTR_ERR_OR_ZERO(res.addr);
+>         if (ret)
+>                 goto err_disable_device;
 >
->         memset(&res, 0, sizeof(res));
->         res.addr =3D pcim_iomap_table(pdev)[0];
+> -       memset(&res, 0, sizeof(res));
+> -       res.addr =3D pcim_iomap_table(pdev)[0];
+> -
+>         plat->bsp_priv =3D ld;
+>         plat->setup =3D loongson_dwmac_setup;
+>         ld->dev =3D &pdev->dev;
+> @@ -603,7 +601,6 @@ static void loongson_dwmac_remove(struct pci_dev *pde=
+v)
+>         struct net_device *ndev =3D dev_get_drvdata(&pdev->dev);
+>         struct stmmac_priv *priv =3D netdev_priv(ndev);
+>         struct loongson_data *ld;
+> -       int i;
+>
+>         ld =3D priv->plat->bsp_priv;
+>         stmmac_dvr_remove(&pdev->dev);
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c b/drivers/n=
+et/ethernet/stmicro/stmmac/stmmac_pci.c
+> index 91ff6c15f977..37fc7f55a7e4 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c
+> @@ -155,9 +155,9 @@ static int stmmac_pci_probe(struct pci_dev *pdev,
+>  {
+>         struct stmmac_pci_info *info =3D (struct stmmac_pci_info *)id->dr=
+iver_data;
+>         struct plat_stmmacenet_data *plat;
+> -       struct stmmac_resources res;
+> -       int i;
+> +       struct stmmac_resources res =3D {};
+>         int ret;
+> +       int i;
+>
+>         plat =3D devm_kzalloc(&pdev->dev, sizeof(*plat), GFP_KERNEL);
+>         if (!plat)
+> @@ -188,13 +188,13 @@ static int stmmac_pci_probe(struct pci_dev *pdev,
+>                 return ret;
+>         }
+>
+> -       /* Get the base address of device */
+> +       /* The first BAR > 0 is the base IO addr of our device. */
+>         for (i =3D 0; i < PCI_STD_NUM_BARS; i++) {
+>                 if (pci_resource_len(pdev, i) =3D=3D 0)
+>                         continue;
+> -               ret =3D pcim_iomap_regions(pdev, BIT(i), pci_name(pdev));
+> -               if (ret)
+> -                       return ret;
+> +               res.addr =3D pcim_iomap_region(pdev, i, STMMAC_RESOURCE_N=
+AME);
+> +               if (IS_ERR(res.addr))
+> +                       return PTR_ERR(res.addr);
+>                 break;
+>         }
+>
+> @@ -204,8 +204,6 @@ static int stmmac_pci_probe(struct pci_dev *pdev,
+>         if (ret)
+>                 return ret;
+>
+> -       memset(&res, 0, sizeof(res));
+> -       res.addr =3D pcim_iomap_table(pdev)[i];
+>         res.wol_irq =3D pdev->irq;
+>         res.irq =3D pdev->irq;
+>
 > --
 > 2.48.1
 >
