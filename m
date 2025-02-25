@@ -4,61 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B879C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 12:16:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3898BC021BB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 12:18:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kHUkNPa1B+MIEFu1iSNcYoT2Fbye/riPwVaoNSeK+O8=; b=KaGqBWBDKQFF/79BaxcrzR2YuS
-	H+MVrqp7vYwIOSZeSnfF5Be/vxAi3lLpt2/GhmOqLgn6lhQ0zZKOErK1fGgwx2UU5tANKEzRrMFiT
-	lazF/iCafnOwQZ592VtbDwhuA7ZXsdXM5nroMKFDIhkopWeYcdN1TLtj4NuBNcKHF+c/ULdhogijr
-	gbCpehtZq5mDsI7RtRYYnGrqSQUvzvSpk2fkbUH1/zgv1Hy8Ld2Vc31KRRQm6bj1Jd37hSGsse+xA
-	veqPi9yJ6ACaGagFwm/ptmDGb8oeAwfMwdkog0Kk1BfNxlWF8MsEbJ75mLY0/G18zQXpyr2US7gxJ
-	hfpQv+OA==;
+	bh=AH6XyKMQKy1L5/1/4qcQ3Dq5+Ibr/w74DoNERr7pYSI=; b=fRoHhAwujkX86ZTJcnoQ61gm4y
+	GkfRUFUTUVuVEiC6eGbkUEfWMUAIkE4xB3DTuGbrLilLVeMdfR6zw1iag74XNT04ernJlN8uPr/TQ
+	3aAtg8lt8kE5BU59TxfpHJCj1sGvCjFqIt0PHKSJuSnrvXNE+LziLwaN7yC7fYOryc0gCOxkqRANW
+	0z5aaA3jO4WTo1hprMtOG6NEpsuaGI+8/oAc8KpyGgTPq5fSBBt+EZJkQfDSijMX/5LfRClCwJ+yP
+	gXQBwfszQz6beiP/w8cBqHnQWLTUmQ5c1b6cVdaYliSberXsYEz90d2o3pm3X+MP1fjz3yzVYm5GF
+	KAmbN4UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmtrd-0000000HBA3-31j0;
-	Tue, 25 Feb 2025 12:16:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmt7I-0000000H2Cy-1GX1
+	id 1tmtt9-0000000HBMN-1b20;
+	Tue, 25 Feb 2025 12:18:15 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmt7M-0000000H2Df-1DgN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 11:28:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A19BD1516;
-	Tue, 25 Feb 2025 03:29:03 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 24A463F673;
-	Tue, 25 Feb 2025 03:28:45 -0800 (PST)
-Date: Tue, 25 Feb 2025 11:28:42 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v2 6/7] firmware: imx: Add i.MX95 SCMI CPU driver
-Message-ID: <Z72paopAu67kQCBC@pluto>
-References: <20250212-imx-lmm-cpu-v2-0-3aee005968c1@nxp.com>
- <20250212-imx-lmm-cpu-v2-6-3aee005968c1@nxp.com>
+	Tue, 25 Feb 2025 11:28:53 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51P8Dmgu009109;
+	Tue, 25 Feb 2025 11:28:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=AH6XyKMQKy1L5/1/4qcQ3Dq5
+	+Ibr/w74DoNERr7pYSI=; b=aDNjx0O6kRUrZmxs1FJNFDwlArHvEk4P1kDlXtSl
+	+TwgnKsIULHWmVIlIBfrmBYQUDcILJ8a2LCogStr90Np0sZgk9Em7NfA1P9jX/li
+	gC3CuPC0+JKmfDAWoEly+Gy5Ga85wX/6mSInUc6XaH7fvLWsaU+5aFj9rdIwPktc
+	BgTvgYPBVAi9gvfL/xEZMnJsn46DCWy0eUTuHAoA5n/zI06TlEXpWEOjTn0noRTP
+	WBmKG7D/o3u3cHVqORlaUf5+NpVcP9lHr8HtS5iKmSat+bOaJV9AaHae4Sf4/rLR
+	gEqsuxsN3jDL170vvn+wdhEAw0kmzEUxiOUoFHRMC8j4ng==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44y6y6rp38-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 25 Feb 2025 11:28:33 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51PBSW8O029297
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 25 Feb 2025 11:28:32 GMT
+Received: from PHILBER.na.qualcomm.com (10.80.80.8) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Tue, 25 Feb 2025 03:28:27 -0800
+Date: Tue, 25 Feb 2025 12:28:24 +0100
+From: Peter Hilber <quic_philber@quicinc.com>
+To: Simon Horman <horms@kernel.org>
+CC: "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowang@redhat.com>,
+        Trilok Soni <quic_tsoni@quicinc.com>,
+        Srivatsa Vaddagiri
+	<quic_svaddagi@quicinc.com>,
+        Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+        Eugenio
+ =?utf-8?B?UMOpcmV6?= <eperezma@redhat.com>,
+        Richard Cochran
+	<richardcochran@gmail.com>,
+        <linux-kernel@vger.kernel.org>, <virtualization@lists.linux.dev>,
+        <netdev@vger.kernel.org>, David Woodhouse
+	<dwmw2@infradead.org>,
+        "Ridoux, Julien" <ridouxj@amazon.com>, Marc Zyngier
+	<maz@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Daniel Lezcano
+	<daniel.lezcano@linaro.org>,
+        Alexandre Belloni
+	<alexandre.belloni@bootlin.com>,
+        Parav Pandit <parav@nvidia.com>,
+        "Matias
+ Ezequiel Vara Larsen" <mvaralar@redhat.com>,
+        Cornelia Huck
+	<cohuck@redhat.com>, <virtio-dev@lists.linux.dev>,
+        <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v5 2/4] virtio_rtc: Add PTP clocks
+Message-ID: <vhlhes7wepjrtfo6qsnw5tmtvw6pdt2tfi4woqdejlit5ruczj@4cs2yvffhx74>
+References: <20250219193306.1045-1-quic_philber@quicinc.com>
+ <20250219193306.1045-3-quic_philber@quicinc.com>
+ <20250224175618.GG1615191@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20250212-imx-lmm-cpu-v2-6-3aee005968c1@nxp.com>
+In-Reply-To: <20250224175618.GG1615191@kernel.org>
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: HaD8-URwhEOYl4JEkmXZIwXbLt2o3JAj
+X-Proofpoint-GUID: HaD8-URwhEOYl4JEkmXZIwXbLt2o3JAj
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-25_04,2025-02-25_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1011 spamscore=0
+ malwarescore=0 phishscore=0 adultscore=0 lowpriorityscore=0
+ mlxlogscore=537 impostorscore=0 priorityscore=1501 bulkscore=0 mlxscore=0
+ suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2502100000 definitions=main-2502250081
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_032848_434459_39124127 
-X-CRM114-Status: GOOD (  27.48  )
+X-CRM114-CacheID: sfid-20250225_032852_440410_B0627D50 
+X-CRM114-Status: GOOD (  17.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,209 +120,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 03:40:28PM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
+On Mon, Feb 24, 2025 at 05:56:18PM +0000, Simon Horman wrote:
+> On Wed, Feb 19, 2025 at 08:32:57PM +0100, Peter Hilber wrote:
 > 
-> The i.MX95 System manager exports SCMI CPU protocol for linux to manage
-> cpu cores. The driver is to use the cpu Protocol interface to
-> start, stop a cpu cores (eg, M7).
+> ...
 > 
-
-Hi,
-
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  drivers/firmware/imx/Kconfig    | 11 +++++
->  drivers/firmware/imx/Makefile   |  1 +
->  drivers/firmware/imx/sm-cpu.c   | 91 +++++++++++++++++++++++++++++++++++++++++
->  include/linux/firmware/imx/sm.h | 29 +++++++++++++
->  4 files changed, 132 insertions(+)
+> > +/**
+> > + * viortc_ptp_gettimex64() - PTP clock gettimex64 op
+> > + *
 > 
-> diff --git a/drivers/firmware/imx/Kconfig b/drivers/firmware/imx/Kconfig
-> index c3e344d6ecc645df1f0e3ee8078934c47f347fd7..91c753921dffbe16ced8c10565d44c15b66b2797 100644
-> --- a/drivers/firmware/imx/Kconfig
-> +++ b/drivers/firmware/imx/Kconfig
-> @@ -23,6 +23,17 @@ config IMX_SCU
->  	  This driver manages the IPC interface between host CPU and the
->  	  SCU firmware running on M4.
->  
-> +config IMX_SCMI_CPU_DRV
-> +	tristate "IMX SCMI CPU Protocol driver"
-> +	depends on IMX_SCMI_CPU_EXT || COMPILE_TEST
-> +	default y if ARCH_MXC
-> +	help
-> +	  The System Controller Management Interface firmware (SCMI FW) is
-> +	  a low-level system function which runs on a dedicated Cortex-M
-> +	  core that could provide cpu management features.
-> +
-> +	  This driver can also be built as a module.
-> +
->  config IMX_SCMI_LMM_DRV
->  	tristate "IMX SCMI LMM Protocol driver"
->  	depends on IMX_SCMI_LMM_EXT || COMPILE_TEST
-> diff --git a/drivers/firmware/imx/Makefile b/drivers/firmware/imx/Makefile
-> index 7762855d2a771169d4f1867d27e0d51be7c9ad03..3bbaffa6e3478112638ed031375602389f18ef09 100644
-> --- a/drivers/firmware/imx/Makefile
-> +++ b/drivers/firmware/imx/Makefile
-> @@ -1,5 +1,6 @@
->  # SPDX-License-Identifier: GPL-2.0
->  obj-$(CONFIG_IMX_DSP)		+= imx-dsp.o
->  obj-$(CONFIG_IMX_SCU)		+= imx-scu.o misc.o imx-scu-irq.o rm.o imx-scu-soc.o
-> +obj-${CONFIG_IMX_SCMI_CPU_DRV}	+= sm-cpu.o
->  obj-${CONFIG_IMX_SCMI_MISC_DRV}	+= sm-misc.o
->  obj-${CONFIG_IMX_SCMI_LMM_DRV}	+= sm-lmm.o
-> diff --git a/drivers/firmware/imx/sm-cpu.c b/drivers/firmware/imx/sm-cpu.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..1ce694a34b22843db5c1697ecb33c0479edb2ed9
-> --- /dev/null
-> +++ b/drivers/firmware/imx/sm-cpu.c
-> @@ -0,0 +1,91 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright 2025 NXP
-> + */
-> +
-> +#include <linux/firmware/imx/sm.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/scmi_protocol.h>
-> +#include <linux/scmi_imx_protocol.h>
-> +
-> +static const struct scmi_imx_cpu_proto_ops *imx_cpu_ops;
-> +static struct scmi_protocol_handle *ph;
-> +
-> +int scmi_imx_cpu_reset_vector_set(u32 cpuid, u64 vector, bool start, bool boot,
-> +				  bool resume)
-> +{
-> +	if (!ph)
-> +		return -EPROBE_DEFER;
-> +
-> +	return imx_cpu_ops->cpu_reset_vector_set(ph, cpuid, vector, start,
-> +						 boot, resume);
-> +}
-> +EXPORT_SYMBOL(scmi_imx_cpu_reset_vector_set);
-> +
-> +int scmi_imx_cpu_start(u32 cpuid)
-> +{
-> +	if (!ph)
-> +		return -EPROBE_DEFER;
-> +
-> +	return imx_cpu_ops->cpu_start(ph, cpuid);
-> +};
-> +EXPORT_SYMBOL(scmi_imx_cpu_start);
-> +
-
-...same as in LMM...this...
-
-> +int scmi_imx_cpu_started(u32 cpuid, bool *started)
-> +{
-> +	if (!ph)
-> +		return -EPROBE_DEFER;
-> +
-> +	if (!started)
-> +		return -EINVAL;
-> +
-> +	return imx_cpu_ops->cpu_started(ph, cpuid, started);
-> +};
-> +EXPORT_SYMBOL(scmi_imx_cpu_started);
-> +
-> +int scmi_imx_cpu_stop(u32 cpuid)
-> +{
-> +	if (!ph)
-> +		return -EPROBE_DEFER;
-> +
-> +	return imx_cpu_ops->cpu_stop(ph, cpuid);
-> +};
-> +EXPORT_SYMBOL(scmi_imx_cpu_stop);
-> +
-
-...and this can be just one with ONLY one symbol exported...
-
-> +static int scmi_imx_cpu_probe(struct scmi_device *sdev)
-> +{
-> +	const struct scmi_handle *handle = sdev->handle;
-> +
-> +	if (!handle)
-> +		return -ENODEV;
-> +
-> +	if (imx_cpu_ops) {
-> +		dev_err(&sdev->dev, "sm cpu already initialized\n");
-> +		return -EEXIST;
-> +	}
-> +
-> +	imx_cpu_ops = handle->devm_protocol_get(sdev, SCMI_PROTOCOL_IMX_CPU, &ph);
-> +	if (IS_ERR(imx_cpu_ops))
-> +		return PTR_ERR(imx_cpu_ops);
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct scmi_device_id scmi_id_table[] = {
-> +	{ SCMI_PROTOCOL_IMX_CPU, "imx-cpu" },
-> +	{ },
-> +};
-> +MODULE_DEVICE_TABLE(scmi, scmi_id_table);
-> +
-> +static struct scmi_driver scmi_imx_cpu_driver = {
-> +	.name = "scmi-imx-cpu",
-> +	.probe = scmi_imx_cpu_probe,
-> +	.id_table = scmi_id_table,
-> +};
-> +module_scmi_driver(scmi_imx_cpu_driver);
-> +
-> +MODULE_AUTHOR("Peng Fan <peng.fan@nxp.com>");
-> +MODULE_DESCRIPTION("IMX SM CPU driver");
-> +MODULE_LICENSE("GPL");
-> diff --git a/include/linux/firmware/imx/sm.h b/include/linux/firmware/imx/sm.h
-> index e02b7b558afb6f430f6fbeeaf3ee1f59feea3c1b..0eff427e5ba2cb3f93c26f7d055c346a1d1433f0 100644
-> --- a/include/linux/firmware/imx/sm.h
-> +++ b/include/linux/firmware/imx/sm.h
-> @@ -21,6 +21,35 @@
->  int scmi_imx_misc_ctrl_get(u32 id, u32 *num, u32 *val);
->  int scmi_imx_misc_ctrl_set(u32 id, u32 val);
->  
-
-Same kind of heads up here too..
-
-> +#if IS_ENABLED(CONFIG_IMX_SCMI_CPU_DRV) || IS_ENABLED(CONFIG_COMPILE_TEST)
-> +int scmi_imx_cpu_start(u32 cpuid);
-> +int scmi_imx_cpu_started(u32 cpuid, bool *started);
-> +int scmi_imx_cpu_stop(u32 cpuid);
-> +int scmi_imx_cpu_reset_vector_set(u32 cpuid, u64 vector, bool start, bool boot,
-> +				  bool resume);
-> +#else
-> +static inline int scmi_imx_cpu_start(u32 cpuid)
-> +{
-> +	return -EOPNOTSUPP;
-> +}
-> +
-> +static inline int scmi_imx_cpu_started(u32 cpuid, bool *started)
-> +{
-> +	return -EOPNOTSUPP;
-> +}
-> +
-> +static inline int scmi_imx_cpu_stop(u32 cpuid)
-> +{
-> +	return -EOPNOTSUPP;
-> +}
-> +
-> +static inline int scmi_imx_cpu_reset_vector_set(u32 cpuid, u64 vector,
-> +						bool start, bool boot, bool resume)
-> +{
-> +	return -EOPNOTSUPP;
-> +}
-> +#endif
-> +
->  #if IS_ENABLED(CONFIG_IMX_SCMI_LMM_DRV) || IS_ENABLED(CONFIG_COMPILE_TEST)
->  int scmi_imx_lmm_boot(u32 lmid);
->  int scmi_imx_lmm_info(u32 lmid, struct scmi_imx_lmm_info *info);
+> Hi Peter,
+> 
+> Tooling recognises this as a kernel doc, and complains
+> that there is no documentation present for the function's
+> parameters: ptp, ts, and sts.
+> 
+> Flagged by W=1 builds.
 > 
 
-Other than this:
+Thanks, I will change the offending documentation to non kernel-doc. I
+was not aware that these warnings are always considered a problem.
 
-Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
+Peter
 
-Thanks,
-Cristian
+> > + * Context: Process context.
+> > + */
+> > +static int viortc_ptp_gettimex64(struct ptp_clock_info *ptp,
+> > +				 struct timespec64 *ts,
+> > +				 struct ptp_system_timestamp *sts)
+> 
+> ...
 
