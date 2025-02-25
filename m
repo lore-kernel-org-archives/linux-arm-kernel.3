@@ -4,86 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09B09C19777
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:42:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8CB6C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:43:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UPm7l3RiX1WuCB7tMXcd8twnqxK37m3RDu2nnogmkfY=; b=fP+8X2hczzbM5l8ZRwN42oFcZn
-	Ws5/qx6eBOAMvsb8W9Tj6KSBZXFBDrTDWGVl9nx3RXwGoUDWggNKCwBX9o46c+0vRilfQARnIcUM0
-	80fyhHktPmjNVjqDL+IMbEDuiAZ1FR3gqtLqLbq0Z/OaPlTuvJL2nLgMtbVcpH0Ix4jYHCvT7xPX+
-	O2Yjv5Z5bHn/mDs8t3r9KfuC8YZst79UkISiOwOsSa77xD9zhB5I4osS88N90FfJCUFdyDn9oJ00O
-	5T9g1RSX+1Rw9PZo0GQ2jBwLAYFmmkdDOlfDfhV96GUIA9ybVykeZSys0tjxa/kvP5s1mkYP4Fc4v
-	36GZfj9A==;
+	bh=8OCdIQ+1x1cdbbT6miIAd2P9zxEWox7eNmbXTr+ysKY=; b=CnSGvgzAjeR1Y10jPAKulJxaus
+	AINVYEUoSzi3cPeUcYIg10Vi3wNRCBFUu92xT8WdJTvfl9cIbWVMOy672hTTnPiJ6xhcdzIvf+B7O
+	W39OgIXSZac85pWr+ycQa/rYZHF8Qz6mQ3Gk7GZyvpbdyBOyD/P2hVvfkO741DJU0I1fFDsWgYddQ
+	GTeTUTBsDbXlc/6bOxNeWWXesisXsb/Lf9lU9GObfHvw56eXUbgDiCDilwMrwlsSlRMaT2PiFCZJa
+	TRB54XQDK9fTNWiPSdi1EoSf4Wudrp4iGTvu+J/DjJezsnu9HaMrwtzF5im2EzUOeALEHcruZc2Cs
+	w9Icv4EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmy0v-00000000LSi-1fWO;
-	Tue, 25 Feb 2025 16:42:33 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tmy1F-00000000LvR-3NnD;
+	Tue, 25 Feb 2025 16:42:53 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmwP1-000000000Rp-1BMH;
-	Tue, 25 Feb 2025 14:59:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1740495509; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=mQbs+nNywvchZFCL9JymH2C8Mfwg6UtxLkIBKFfXH+OgT3Er9z92reIXwwZDlCaXzBFGSqFUCB99RUbDPDI/jH3WgyxTy4695bkfa6stVdnU5tJI0DQqp40daOjUrBm7+EtUQ3nTgFTVt+I2k4fZ4NVcdvFExsYLShEv9OZYZV0=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1740495509; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=UPm7l3RiX1WuCB7tMXcd8twnqxK37m3RDu2nnogmkfY=; 
-	b=Z1XR4CWew3aD4t4Sl2nhyLbmcHwGn6emwSBsGnQO4/8UYJ4FvFwU/i0mQtXSRjC2zqlZvgUcmqM6KxF++fN8GPX/3fB0QueOEHTN8xQy/KcMO9+qDfo/VPaTs6w43L6R8BNnjGZbfA8KpgHrTuH/6H4kZvUtNffCy0svlZDWdkY=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
-	dmarc=pass header.from=<detlev.casanova@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1740495509;
-	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=UPm7l3RiX1WuCB7tMXcd8twnqxK37m3RDu2nnogmkfY=;
-	b=VAtgprLNucRCs34k6jFRYcQYth7SSrgIubTX93w+NZ99KalCH1glGXW/gwR57Tvb
-	0xUz4CDDIKPg8yiKI5lCp8PLmGSnz7UYqMxGjLOaAnvcLRKb6TWugknX5lkX+zvm6K8
-	yMWQOyM3tOBj57i8GNs9LywGwbqDneKv9XS995cQ=
-Received: by mx.zohomail.com with SMTPS id 1740495506960426.84058732469487;
-	Tue, 25 Feb 2025 06:58:26 -0800 (PST)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Cc: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>, linux-kernel@vger.kernel.org,
- Algea Cao <algea.cao@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- dri-devel@lists.freedesktop.org, Niklas Cassel <cassel@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>, kernel@collabora.com,
- David Airlie <airlied@gmail.com>, Dragan Simic <dsimic@manjaro.org>,
- Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>,
- Robert Foss <rfoss@kernel.org>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Sugar Zhang <sugar.zhang@rock-chips.com>, linux-rockchip@lists.infradead.org,
- Chen-Yu Tsai <wens@csie.org>, FUKAUMI Naoki <naoki@radxa.com>,
- devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
- Jonas Karlman <jonas@kwiboo.se>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>,
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- Johan Jonker <jbx6244@gmail.com>, linux-arm-kernel@lists.infradead.org,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Alexey Charkov <alchark@gmail.com>, Thomas Zimmermann <tzimmermann@suse.de>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-Subject: Re: [PATCH v7 0/3] Add HDMI audio on the rk3588 SoC
-Date: Tue, 25 Feb 2025 09:58:23 -0500
-Message-ID: <3337030.aeNJFYEL58@trenzalore>
-In-Reply-To: <8734g2sg4t.wl-kuninori.morimoto.gx@renesas.com>
-References: <20250217215641.372723-1-detlev.casanova@collabora.com>
- <87frk2sumw.wl-kuninori.morimoto.gx@renesas.com>
- <8734g2sg4t.wl-kuninori.morimoto.gx@renesas.com>
+	id 1tmwXt-000000001XS-3f81
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Feb 2025 15:08:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1740496109; x=1772032109;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=8OCdIQ+1x1cdbbT6miIAd2P9zxEWox7eNmbXTr+ysKY=;
+  b=V4ahG3OWP4tjyi4QJq7Hseh/gbyfPQOyK7nSBK6Tq0tqAUWPxdcxaNwW
+   FPEBLhcmPYgc+EbLaH/a0gyVvXR856k6uI8OMFiijbpc2i0RccHrDqy5T
+   TALAMiGbkNgWQxTuyDJfbWSP/6bnhCYl+h/BROdYh8GfuK6vemIYdg3bz
+   XjYmHJfHSz4pQ55rpyQPBk9jgaQJxJbosMsexbh/DnrxUvSiCuqRBjAGO
+   RSeraZRDP0jO41pckio2x7f1w/w9YJzYbF+bzODNxt/7rfL2dExK19A0Q
+   88mgZMdYMIdJu73FCVeWOJRrauwnaQpk4kD5Eby3BXVZTvd7xUp0o22eM
+   A==;
+X-CSE-ConnectionGUID: 1GyThBsLQ4OceJgWl5whpQ==
+X-CSE-MsgGUID: FsBtDC9aQT2FMo0eJhVDew==
+X-IronPort-AV: E=Sophos;i="6.13,314,1732575600"; 
+   d="scan'208";a="42075805"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 25 Feb 2025 16:08:27 +0100
+X-CheckPoint: {67BDDCEB-D-B8541F8F-E50F9B0E}
+X-MAIL-CPID: 05053AFA6C7480CC67EA1FCBF7FF12EF_2
+X-Control-Analysis: str=0001.0A00211E.67BDDCEA.00A2,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 70C09161586;
+	Tue, 25 Feb 2025 16:08:21 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1740496102;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8OCdIQ+1x1cdbbT6miIAd2P9zxEWox7eNmbXTr+ysKY=;
+	b=P9DTov8vYZt7Blks1GbficO9L/ZMl57uv2ZEwzS02Bqr9ZWS8uyxoxYPxvou+t/b2Oh2jX
+	8KAfzObCZac4PfeKKPv4PAwAhjBc1ATBGLXxB3BWUxFZqqYmMBMziJPwk21hd/mN+bG/8v
+	KeE2X+eWeQDHa4U3HmD9W28OwLqXFYQ4reeZYuY2li9KtwwJknfvG+5Hxcab3h9YYD8639
+	QJSQa3uDCO6EGgd0lX06YXAlKb0+udsqaZKdtYlShKomBYFjJ8PjG4zgUAKBsCjxgMqdM8
+	dQ7YHsSmY6qlN+DmfaWD/i+X5kuZ3xrhWyj8lymgD9BwEP3+ua9bmOZazZpAjA==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Abel Vesa <abelvesa@kernel.org>,
+ Peng Fan <peng.fan@nxp.com>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux@ew.tq-group.com, linux-clk@vger.kernel.org, linux-pm@vger.kernel.org
+Subject: Re: [PATCH v2 2/6] dt-bindings: soc: imx93-media-blk-ctrl: Add LDB subnode
+ into schema and example
+Date: Tue, 25 Feb 2025 16:08:20 +0100
+Message-ID: <2215802.irdbgypaU6@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20250225145254.GA2361434-robh@kernel.org>
+References: <20250224142831.485159-1-alexander.stein@ew.tq-group.com>
+ <20250224142831.485159-3-alexander.stein@ew.tq-group.com>
+ <20250225145254.GA2361434-robh@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
-X-ZohoMailClient: External
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_065919_379597_B9703610 
-X-CRM114-Status: GOOD (  20.07  )
+X-CRM114-CacheID: sfid-20250225_070830_399671_E94996FF 
+X-CRM114-Status: GOOD (  18.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,47 +105,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Morimoto-san,
+Am Dienstag, 25. Februar 2025, 15:52:54 CET schrieb Rob Herring:
+> ********************
+> Achtung externe E-Mail: =D6ffnen Sie Anh=E4nge und Links nur, wenn Sie wi=
+ssen, dass diese aus einer sicheren Quelle stammen und sicher sind. Leiten =
+Sie die E-Mail im Zweifelsfall zur Pr=FCfung an den IT-Helpdesk weiter.
+> Attention external email: Open attachments and links only if you know tha=
+t they are from a secure source and are safe. In doubt forward the email to=
+ the IT-Helpdesk to check it.
+> ********************
+>=20
+> On Mon, Feb 24, 2025 at 03:28:23PM +0100, Alexander Stein wrote:
+> > Document the LDB bridge subnode and add the subnode into the example.
+> > For the subnode to work, the block control must scan its subnodes and
+> > bind drivers to them, do not misuse either simple-bus or simple-mfd
+> > here.
+> >=20
+> > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> > ---
+> >  .../soc/imx/fsl,imx93-media-blk-ctrl.yaml     | 51 +++++++++++++++++++
+> >  1 file changed, 51 insertions(+)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-=
+blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-b=
+lk-ctrl.yaml
+> > index b3554e7f9e76d..d914dea6ecbb5 100644
+> > --- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctr=
+l.yaml
+> > +++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctr=
+l.yaml
+> > @@ -24,6 +24,14 @@ properties:
+> >    reg:
+> >      maxItems: 1
+> > =20
+> > +  ranges: true
+> > +
+> > +  '#address-cells':
+> > +    const: 1
+> > +
+> > +  '#size-cells':
+> > +    const: 1
+> > +
+> >    '#power-domain-cells':
+> >      const: 1
+> > =20
+> > @@ -46,9 +54,20 @@ properties:
+> >        - const: csi
+> >        - const: dsi
+> > =20
+> > +  bridge@20:
+> > +    type: object
+> > +    additionalProperties: true
+> > +    properties:
+> > +      compatible:
+> > +        contains:
+> > +          const: fsl,imx93-ldb
+> > +
+> >  required:
+> >    - compatible
+> >    - reg
+> > +  - ranges
+> > +  - '#address-cells'
+> > +  - '#size-cells'
+> >    - power-domains
+> >    - clocks
+> >    - clock-names
+> > @@ -77,4 +96,36 @@ examples:
+> >                 clock-names =3D "apb", "axi", "nic", "disp", "cam",
+> >                               "pxp", "lcdif", "isi", "csi", "dsi";
+> >        #power-domain-cells =3D <1>;
+> > +      #address-cells =3D <1>;
+> > +      #size-cells =3D <1>;
+> > +      ranges;
+>=20
+> Given the address below is 0x20, this looks wrong unless the parent=20
+> address is 0.
 
-On Tuesday, 25 February 2025 01:16:50 EST Kuninori Morimoto wrote:
-> Hi Detlev, again
-> 
-> > > Especially those commits:
-> > >       ASoC: audio-graph-card2: use __free(device_node) for device node
-> > >       ASoC: audio-graph-card: use __free(device_node) for device node
-> > >       ASoC: simple-card: use __free(device_node) for device node
-> > 
-> > I got same report from our test team. I'm now tring to solve it.
-> 
-> Unfortunately, I can't reproduce the issue on my environment,
-> but I guess I found the root cause. Does attached patch can solve
-> your issue ?
+Thanks for pointing out. Because system-controller@4ac10000 is not
+a simple-bus I assume this needs explicit ranges, as you pointed out in
+your comment on Patch 4, no?
 
-From what I see, the error is not present anymore on linux 6.14-rc4. I tried 
-reverting your patch "ASoC: simple-card-utils.c: add missing dlc->of_node" 
-(dabbd325b25edb5cdd99c94391817202dd54b651) and the error reappears.
+Best regards,
+Alexander
 
-On 6.14-rc3, any of your patches (dabbd325b25e, or the one you attached here) 
-will fix the issue and on 6.14-rc4, there is already a patch that fixes the 
-issue.
+> > +
+> > +      bridge@20 {
+> > +          compatible =3D "fsl,imx93-ldb";
+> > +          reg =3D <0x20 0x4>, <0x24 0x4>;
+> > +          reg-names =3D "ldb", "lvds";
+> > +          clocks =3D <&clk IMX93_CLK_LVDS_GATE>;
+> > +          clock-names =3D "ldb";
+> > +
+> > +          ports {
+> > +              #address-cells =3D <1>;
+> > +              #size-cells =3D <0>;
+> > +
+> > +              port@0 {
+> > +                  reg =3D <0>;
+> > +
+> > +                  ldb_from_lcdif2: endpoint {
+> > +                      remote-endpoint =3D <&lcdif2_to_ldb>;
+> > +                  };
+> > +              };
+> > +
+> > +              port@1 {
+> > +                  reg =3D <1>;
+> > +
+> > +                  ldb_lvds: endpoint {
+> > +                      remote-endpoint =3D <&ldb_to_panel>;
+> > +                  };
+> > +              };
+> > +          };
+> > +        };
+> >      };
+>=20
 
-Also, since dabbd325b25e, the node indeed should be kept while the driver is 
-used. So even though the issue reported here is fixed by another patch, both 
-are likely needed.
 
-That being said, I'm not sure I completely understand why that extra line fixes 
-the issue. Is the __free() attribute smart enough to know that the pointer has 
-been copied and not free it at the end of scope ?
-
-> I will officially post the patch to ML, but want to confirm it before it.
-> 
-> Thank you for your help !!
-
-Thank you for looking into this too :)
-
-Detlev.
-
-
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
 
 
 
