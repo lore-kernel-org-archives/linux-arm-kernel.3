@@ -4,80 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A08AC021BB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 22:38:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C6E7C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 22:53:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kW7GoPKxdws4F/zRu0zCMdtqGUMtfGCriJS0d8t8p9s=; b=xElt11/FUOcRIh+yhdCGoeXDOv
-	kc4UgUmEsw+jeKnYzi2bpdBVh4FQc8LuJFovMOefSgoZFxDgrmrZ9vKYAV/bqhsj89E7kHWC6h45M
-	ViIAf4FTNSjmeN2g1UxNeHw56lKwC5Fangkw51HWK0yCsBfnTMQCMXtw/OWFbqBRZJ+r0gtqev6SB
-	pT/EUU5RWb0IPndKJQAC8A+2x1fFx2X1qnopr6SMUs5/HBpXVKdpF6NQaYhWYVjSbTUne1iPhfY5t
-	3uwqBWDnUe+wS5+GWu/ntIhy5qP/0utDia8AhEQZO7/I//9vScDO3pPXDsvqotvPiCAF1J3DB6S6K
-	/ntbu8MQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c0HedO2R5roLvvNgA16NYkrRBnfqBV+soef9P/o1tNc=; b=hwROFEQ8PrzPG7Yy3kBucPobDj
+	+BMueO+vC1EX4PWP9b+rs2gyFcY37QltknY3sojmwEq8V9YFzeu45tCry6Y2GfdSC+rNiq/xdw8JB
+	DMTvVWOGVgTvsnuK2JsQYV/NZE0Ig9BbQJFp7G2BXIdHeRgaXAjbuHNR98TEzzIpZLLTMblG3j/el
+	sN4wIvK8sjktsj3mnax5uAEw5x/16n0mqp3Msn8iUFIyryqElj9EBlkfn8fiJ9j6bDMJs1UT4oL6D
+	/hfZUcMxVvX+M8RUSMgfDeGnGQWd6l02eyWmAA3rJtMY+AFHoKeHoPmumgeKk9gzVLWoZfq1ZWZOs
+	lWeZOcfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn3Yt-00000001jBq-1FCM;
-	Tue, 25 Feb 2025 22:37:59 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tn3nQ-00000001l0H-3gik;
+	Tue, 25 Feb 2025 22:53:00 +0000
+Received: from mail-vi1eur03on20607.outbound.protection.outlook.com ([2a01:111:f403:260c::607] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn2LR-00000001WK0-2bu6
+	id 1tn0nH-00000001CQc-3y02
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 21:20:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9D6185C1628;
-	Tue, 25 Feb 2025 21:19:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 1CB9EC4CEDD;
-	Tue, 25 Feb 2025 21:20:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740518400;
-	bh=ghGqvv7GAFe1nH4x2u9vuYujrKPbpOccmWJvpRRHSB0=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=oEfLsdZidnIj7asGdSYT+SxvKF0L4dS9GdI91lLDxuTpfI9v9DUnVfXSE4Oz5ZPAd
-	 YB29VFmLy4Mz4ASTZqX0gYJ/OV3y7PzfEdXYNA0i9dxgk8P8Qy8/0w7Y0/XMrLY+vI
-	 JR7JiVxPJmGGxMhglc/tDiz1V5dB9Oexp/SvHn6aeRlJC7XvUGlwxcq5+sa/m9Z8Yd
-	 yc0vwG929D7/SIo90G+gOx7Jga1A2G584Tfeek0vUzr4sxXI/jq6L1RsoA6b+eyvTS
-	 YUNOrhAqeXT1DrCJmvCn3t8PWq3WHCo2enUNxP/L5OcnTsGQLFQLi5oYMVeAS5lYn3
-	 6XYT0dwRc0QDA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0D316C021B2;
-	Tue, 25 Feb 2025 21:20:00 +0000 (UTC)
-From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
-Date: Tue, 25 Feb 2025 22:19:54 +0100
-Subject: [PATCH] arm64: dts: apple: Add touchbar digitizer nodes
+	Tue, 25 Feb 2025 19:40:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gz1Qs6uy5E4O5WLZ6ZWz5EP8UHjCh+CEltraUeY5wKNDcuSDROIkMrk1TQhg/10x7IiBIpDHnb+EVtoP/8b+QEujxBXZl5xAuWJgJ9Egu0VXBZ2TUJZl7dWDQ8J/TVEH6sst4te63exkhpgTwkT20RoSLcfRaP4As6Wd24VsvGyqDwoe13ZNQYSlLzZ5M89/PO0PqViRocm2kUENx3EwuZ9NHxJ6GUTHAQvm14EhdhrvBR80km5ik9fX1OnkMhXppi8/THFqNXMURfR13o3Twx3lS+fsh6FPS0xfIX89btgTEh0cesa02CiWtnBNjq7/FNZXPv+Lrfg2P5FQ5CAKAA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=c0HedO2R5roLvvNgA16NYkrRBnfqBV+soef9P/o1tNc=;
+ b=brxC/1i64m+m8DoEGRVqIUYOK1hHUKxvQvGC+a1VksjAOMZ4tNyjeqRl6CAe99OXQ7v43352+mtx538DkGePs/qD8JsB+1Rigbujz74bOvKz/9mtny0JZrNuNw7w734y4J8jg6MikZ+ZDyhOXAblowE1ZlVj/9ARa3kVNWRN0chkmgM578hsBS7MJ/YNuWy11P4c/DqFB0qrNrbr7FBg+OsgvrK7bZTXz3sI0th+eiGhWm88Q7TEjcifa2d/FKrUGCE5M/izudZ0n9O0UfQOuGH8eo5nF9ODjbPp2XzfbNS74kD/Ygw+BudJf/A2Votw8ZpJYWDDiXjaF43DuOapsQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=c0HedO2R5roLvvNgA16NYkrRBnfqBV+soef9P/o1tNc=;
+ b=PcfCCpzJ0ugo9VQHc+SQv5bJVoBB6SuXMNMnRuYtFb3vNMgVR2dm53NcgFtPoorw956dOYecvgY8UpbQRH+//JVJet1wKGL0V76kuWbjgz0SZlmI28PsFGa/Lu9dNToq5aPcWllB/PTNWI2Qc+0CkL1fX+gwqvQBWTKjFCIpyII584QhDjnFAo1tdJaUJaL6nBjfBXViqaoV62jKNqfQ65Y05P6mTimm/a6FddZR1hJD6uCU1igaWxD1NpscB7LEJjdMJ1LNv+0XUfjPtgeX5LcC9LxUQpWFVyPv7zWg6YvWF9W4foX0f9vev6VJFyjiObevcH3UoMAlryYpZmck+A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DB9PR04MB8347.eurprd04.prod.outlook.com (2603:10a6:10:245::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.20; Tue, 25 Feb
+ 2025 19:40:36 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8466.016; Tue, 25 Feb 2025
+ 19:40:36 +0000
+Date: Tue, 25 Feb 2025 14:40:29 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v1 1/1] arm64: dts: imx93: Add the 'fsl,ext-reset-output'
+ property for wdog3
+Message-ID: <Z74crTILjh2LeR3e@lizhi-Precision-Tower-5810>
+References: <20250225192557.2914684-1-Frank.Li@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250225192557.2914684-1-Frank.Li@nxp.com>
+X-ClientProxiedBy: BY1P220CA0015.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:a03:5c3::10) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250225-z2-dts-v1-1-df101a7c17c8@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAPkzvmcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDIyNT3Soj3ZSSYt3URBMjQ+OUVJNEIyMloOKCotS0zAqwQdGxtbUANAL
- YuFgAAAA=
-X-Change-ID: 20250225-z2-dts-ea4213de4a22
-To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
- Sasha Finkelstein <fnkl.kernel@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1740518398; l=3677;
- i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
- bh=SeavfPLsBuaZJzKTxcJ2pMU97oNr50qsmltlLTUZBAI=;
- b=IUfKp0rV+n8SLeaZzuhEz2/BzCOvdP8DpjHRR8/QFLEjh1S/nritzhjqCFiwTm60uKcGoQUhS
- 9UVzH2t39tdApIBmwR7Ffe/bhkqbKOeo/4fAKbwTsfJ3q1LtGrjPK6y
-X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
- pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
-X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
- auth_id=283
-X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB9PR04MB8347:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1ca6c461-0e7c-4de3-367c-08dd55d44694
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|52116014|366016|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BdwF75onKXa8BUdicjSPJxRZ0AWmvFh8Pj5dccLK4WNyZiuCFz1ek4ISuOw5?=
+ =?us-ascii?Q?mFX6IakZc5/mIV59CsuBdobSdySzetGu30Wb5o12YPpXXf7FcJaiJX4G56tm?=
+ =?us-ascii?Q?G1ekicZjKqsoeFYU804086AeU/xJL9Zfz0tg2UmjJJkaxxwAKUI97hsBRrRL?=
+ =?us-ascii?Q?PFPgs+MuY7DAyEeHJV8Btta7RZgHeP+B4iyt7XUirq+ULDeSPiODwLIGVL2m?=
+ =?us-ascii?Q?o00ulQrhqMZ/LfrZFk2FhFGLeybS81GDUS4kTeikmVy2JQgdL4HNbiDWNVSr?=
+ =?us-ascii?Q?AL/mwg+GfhydBJM2OXXrGEI6wbY19UVxcCo7U5XcDB+uBJjsH3ss/g1YIN8y?=
+ =?us-ascii?Q?28zLhKkEoh/aiGghOoEG5VpSnqxSc1atlTRV7cOdxtJO4Lx1pSODTpGdks7M?=
+ =?us-ascii?Q?xPwCf/QH2n8tOOMzI5AKaatj0ap0mzOqNBiGKVcOIGWreiSvXDEyRh9tKXKN?=
+ =?us-ascii?Q?0/pWRDBtS4DFNpJRHTpai/xHOc8MsdvrZahpCHySSYERNxlY0PrHu9kZsqel?=
+ =?us-ascii?Q?4dMQNXfLunOWhUwMKkqP39PdC7z8tSPgif/6bZuHKHD+Cj3ODSshrAVSmDBG?=
+ =?us-ascii?Q?Yfor0fT358FEWfv1xMEXrsB0eJmKcLwApOABfTDRNE7up8q5Xv8BoY9S9MUV?=
+ =?us-ascii?Q?8brN0YC58Q+IUVF7XarrHaZjVklNCA6Q91uWIxjLAgndZ2q8OzL0cum+SyWM?=
+ =?us-ascii?Q?rSMV4jmZxCDqlO1ry7OQRoLU0fc//K4bIEo7SPtOyuVCJ4ylB6Du1IWidZJQ?=
+ =?us-ascii?Q?usgLyiLx07r28ZHYXA3/N1DfYYKLR4sLlgp+bh3JQw3I4/OsvNjj4bZ+ZHvr?=
+ =?us-ascii?Q?XGtQyOHA7ZZxk7gwh+ZQAVUMvvfDW6Cy64lgFNaycIRVLcpnLz9KTxl/pIRm?=
+ =?us-ascii?Q?YNyvol1BnvR6LkWYsqG7OH79GAjlHAT+vhMcaiKDMVrPc15cP4kwSJZbXl+1?=
+ =?us-ascii?Q?/MND1+VAyY3lWii4BgiQuZ5UanYnG1GmJZUWBpd0WBNHPQgtvCLYWPdsFNkM?=
+ =?us-ascii?Q?s8vR+VbmwsTLwx3rnPvUl4hwonvOwrz4dedWhM5HVs61Jbg90N+uEg8f5tIM?=
+ =?us-ascii?Q?VuRNa84ArJYwJbsA6OVb6yuUD36OdTWf5WpHQV89IyPXAZ0KVOEn97se4ykj?=
+ =?us-ascii?Q?lBRO/LnxQFdWp/8vJKHei3qQLYHG5leThaB0EljPD7imuomooUKIxa8EKcyc?=
+ =?us-ascii?Q?TIv1PUpPGQjtoJrWgiuohsluN+jlv3wYWs0PU0ix4g4oJRnfJI6dEFuaKJ8k?=
+ =?us-ascii?Q?pdNCtZCovtM7x965Ns0FJUJ3lc28b/v/DWrRsSsu/SbdQ0HyKX9h7QEr0R6e?=
+ =?us-ascii?Q?ymSY65Kco+K9jhyDjtc6+UiDOzcrSeR2gnFZ4KsRyUbcPOJ2c6+cYUXR7Nf1?=
+ =?us-ascii?Q?pY1nJPUDu8ZYDCbi8ip+lQB5LHBGTuT8NcvBsEMuQJs/jiY3DXOC2TBvBU5n?=
+ =?us-ascii?Q?SZZX4z0l0bSHWvJ8JGSwMd2tBDQkJmyFyIHA+ejbhdsHbRiLaAQE9w=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(52116014)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mDhLUcEht/0bikqiGayor3GI6+K/k7ljbwm3JDf8WGTP1KfmZ6Jeghu2Opag?=
+ =?us-ascii?Q?Mb9RVou1VPFJ3D+x1zUHnt2fraB+aO0m6Z4/t9JyR9rNjSSCRxzx0a+Wufs5?=
+ =?us-ascii?Q?ibprHq5/0ZEAvOV8hUNq/oJAoHekse4omb96PANvcA8QyozbCAZ9iELLelwF?=
+ =?us-ascii?Q?qNeSpfyafOY9rDntKjkXrcpitKh19eTd6Sem4+k3hsaGQ4mgm3S06Z9+tixd?=
+ =?us-ascii?Q?mAYdhgSgnCM0mAuiAdCb9RKS+oZJd6CKOMPqifJCE9Ip4ghQIrnAbU0Uudsa?=
+ =?us-ascii?Q?ByUAX4PPtP+1Hf2AHPYpVTVLMDM1IHRpvrZiADe2tyEkZlOc670igO3PjPzF?=
+ =?us-ascii?Q?BYfpEXNy1oCWgv3j+iYYGzNyponGi+0LDAcJQjvEupDpVfuuM0S6tKVs/tAK?=
+ =?us-ascii?Q?Hstcvglvua8M/NcNRob1OcBCbndHu9uU8oxGjazqxTIl0f6zvrIuzttMAr2G?=
+ =?us-ascii?Q?yZGgDcfs3eX+RqBCXPxfjxVTl7qZaXlwwzGKn+k4FFi9fEGYO89hA9D4AdCa?=
+ =?us-ascii?Q?QgqxbI3DlE7vLfNziSWr5dOKY6g0dM4lh3/YnEGZ787NI2j5W4ol8sQzd1LU?=
+ =?us-ascii?Q?OoPjDbPkIvZv/cO2RhTtNf/uxNI1h+oSVxquH+gT6vnc/Sd4uhGrERLCVwmE?=
+ =?us-ascii?Q?ofQWhbF7JpvyUaxMcigUf960SNY2/yUHwEmEtqC0E8FyWj1NZDZSH8SHbY/7?=
+ =?us-ascii?Q?z9847MXP+hul2axnMV8dldsgd7cJEyJR0V0l/MWXpeuFw5o7Hafl5q8noBm6?=
+ =?us-ascii?Q?NzU1qxslOJOFqEsOj0zsztt25dtw2ybMzowhCw5cK2R7VG9DGgyb1J7AREW2?=
+ =?us-ascii?Q?WvOu/znC6aalwNiwWr99VfchZDAclH/eFzI4LB1ufIvePDf+JfxumxNPm950?=
+ =?us-ascii?Q?ImDll7oKHE0V8hq3kgQrdUsK8Nd7TkhwjttMlt2Tdjj8z0f3LLEHUbkwxUV4?=
+ =?us-ascii?Q?2tEEXsfRa+N/3J5GZwucTc4VUMOSo1BIyVrniToKldD1hxydqBq5WENhHIWe?=
+ =?us-ascii?Q?80dv17L7jzyVM379bSV1U0blKvK9bRz/7xIkQaKnv1+PeDMsWCYrTPLb2ZoC?=
+ =?us-ascii?Q?30kYRgil0PwXzpT947MWCwbDRjrQC4Q/BN/U0VW9f1Vfsi5INs4OIF1yynO3?=
+ =?us-ascii?Q?imeVASwbNHLV217i1EfW1PLS8+BqQplIr6ate5uCtsP94j1hnCv6ySF/pPuL?=
+ =?us-ascii?Q?B68e3S1NTmz8NfUtRZuH+ORtZm9oZufFsu/FlicxmG4YFbGT7qyqyL9BSNPw?=
+ =?us-ascii?Q?QrbNVXJAS2X2hIVy94Vrv9LAUSDm4mADHv04PK4sDpHy3AsiQOzTtQnRkCYA?=
+ =?us-ascii?Q?DwV0z0LAJ/e4dqBHdOae0XVAM3AovrIDoaxfQ5VTK7jpVpcMa+nE7198IhKt?=
+ =?us-ascii?Q?Q5GhVvjMO3dIjgOfXia5Lnw5xaQtn5+pLil9G9Yj5k0kGPTF5euanPiDTgSe?=
+ =?us-ascii?Q?DripSvRpKdjFCG/O/4c2uyjZKBYs6UYD5MrxAsNpZgkvS8WIp+8MtCTTr6lG?=
+ =?us-ascii?Q?GZjlxekpLhVE0y2XCmPWSXwPOEqnbKN8vbPIX2qt29RqzXt9A8V2ezRq3GOW?=
+ =?us-ascii?Q?B6kTx1F9jOQNhNvDU+cc4G8i8qHoj9S30o5RyVYH?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1ca6c461-0e7c-4de3-367c-08dd55d44694
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 19:40:36.2854
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: FxIHC4mXZEdANs+ugZkxvGAcSPAMKi1jrxScPz97ZfRwe/KZRgxHX5Mg9afvWuSJcqrpeJ0WHhD0RHRIwg74Lg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8347
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_132001_787298_C5890F1D 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20250225_114039_987214_03DCF63A 
+X-CRM114-Status: GOOD (  16.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,124 +159,41 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+On Tue, Feb 25, 2025 at 02:25:56PM -0500, Frank Li wrote:
+> From: Jacky Bai <ping.bai@nxp.com>
+>
+> Add 'fsl,ext-reset-output' property for wdog3 to let it to trigger
+> external reset through wdog_any pin.
 
-Adds device tree entries for the touchbar digitizer
+Shawn:
 
-Co-developed-by: Janne Grunau <j@jannau.net>
-Signed-off-by: Janne Grunau <j@jannau.net>
-Reviewed-by: Neal Gompa <neal@gompa.dev>
-Acked-by: Sven Peter <sven@svenpeter.dev>
-Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
----
- arch/arm64/boot/dts/apple/t8103-j293.dts | 27 +++++++++++++++++++++++++++
- arch/arm64/boot/dts/apple/t8112-j493.dts | 23 +++++++++++++++++++++++
- arch/arm64/boot/dts/apple/t8112.dtsi     |  2 +-
- 3 files changed, 51 insertions(+), 1 deletion(-)
+	Please forget this patch. It should be set at board level dts file.
 
-diff --git a/arch/arm64/boot/dts/apple/t8103-j293.dts b/arch/arm64/boot/dts/apple/t8103-j293.dts
-index 56b0c67bfcda321b60c621de092643017693ff91..0a93d3891c23da8b8c77dce64001caacb69ee140 100644
---- a/arch/arm64/boot/dts/apple/t8103-j293.dts
-+++ b/arch/arm64/boot/dts/apple/t8103-j293.dts
-@@ -17,6 +17,14 @@ / {
- 	compatible = "apple,j293", "apple,t8103", "apple,arm-platform";
- 	model = "Apple MacBook Pro (13-inch, M1, 2020)";
- 
-+	/*
-+	 * All of those are used by the bootloader to pass calibration
-+	 * blobs and other device-specific properties
-+	 */
-+	aliases {
-+		touchbar0 = &touchbar0;
-+	};
-+
- 	led-controller {
- 		compatible = "pwm-leds";
- 		led-0 {
-@@ -49,3 +57,22 @@ &i2c4 {
- &fpwm1 {
- 	status = "okay";
- };
-+
-+&spi0 {
-+	cs-gpios = <&pinctrl_ap 109 GPIO_ACTIVE_LOW>;
-+	status = "okay";
-+
-+	touchbar0: touchbar@0 {
-+		compatible = "apple,j293-touchbar";
-+		reg = <0>;
-+		spi-max-frequency = <11500000>;
-+		spi-cs-setup-delay-ns = <2000>;
-+		spi-cs-hold-delay-ns = <2000>;
-+		reset-gpios = <&pinctrl_ap 139 GPIO_ACTIVE_LOW>;
-+		interrupts-extended = <&pinctrl_ap 194 IRQ_TYPE_EDGE_FALLING>;
-+		firmware-name = "apple/dfrmtfw-j293.bin";
-+		touchscreen-size-x = <23045>;
-+		touchscreen-size-y = <640>;
-+		touchscreen-inverted-y;
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/apple/t8112-j493.dts b/arch/arm64/boot/dts/apple/t8112-j493.dts
-index 0ad908349f55406783942735a2e9dad54cda00ec..045bd0716cb7d20c1379ebc1e3ff7f4d0dddc179 100644
---- a/arch/arm64/boot/dts/apple/t8112-j493.dts
-+++ b/arch/arm64/boot/dts/apple/t8112-j493.dts
-@@ -17,8 +17,13 @@ / {
- 	compatible = "apple,j493", "apple,t8112", "apple,arm-platform";
- 	model = "Apple MacBook Pro (13-inch, M2, 2022)";
- 
-+	/*
-+	 * All of those are used by the bootloader to pass calibration
-+	 * blobs and other device-specific properties
-+	 */
- 	aliases {
- 		bluetooth0 = &bluetooth0;
-+		touchbar0 = &touchbar0;
- 		wifi0 = &wifi0;
- 	};
- 
-@@ -67,3 +72,21 @@ &i2c4 {
- &fpwm1 {
- 	status = "okay";
- };
-+
-+&spi3 {
-+	status = "okay";
-+
-+	touchbar0: touchbar@0 {
-+		compatible = "apple,j493-touchbar";
-+		reg = <0>;
-+		spi-max-frequency = <8000000>;
-+		spi-cs-setup-delay-ns = <2000>;
-+		spi-cs-hold-delay-ns = <2000>;
-+		reset-gpios = <&pinctrl_ap 170 GPIO_ACTIVE_LOW>;
-+		interrupts-extended = <&pinctrl_ap 174 IRQ_TYPE_EDGE_FALLING>;
-+		firmware-name = "apple/dfrmtfw-j493.bin";
-+		touchscreen-size-x = <23045>;
-+		touchscreen-size-y = <640>;
-+		touchscreen-inverted-y;
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
-index 58d88f1ef92a32061765bd3b569fdae0255dcd7e..271986a7697f7033e96d11fb4ea6a50a467f0f2f 100644
---- a/arch/arm64/boot/dts/apple/t8112.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8112.dtsi
-@@ -499,7 +499,7 @@ spi3: spi@23510c000 {
- 			power-domains = <&ps_spi3>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
--			status = "disabled";
-+			status = "disabled"; /* only used in J493 */
- 		};
- 
- 		serial0: serial@235200000 {
+Frank
 
----
-base-commit: 3febe9de5ca5267618675650871a626d0901f8cb
-change-id: 20250225-z2-dts-ea4213de4a22
-
-
+>
+> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx93.dtsi | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx93.dtsi b/arch/arm64/boot/dts/freescale/imx93.dtsi
+> index 64cd0776b43d3..ddfd57cedff73 100644
+> --- a/arch/arm64/boot/dts/freescale/imx93.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx93.dtsi
+> @@ -692,6 +692,7 @@ wdog3: watchdog@42490000 {
+>  				interrupts = <GIC_SPI 79 IRQ_TYPE_LEVEL_HIGH>;
+>  				clocks = <&clk IMX93_CLK_WDOG3_GATE>;
+>  				timeout-sec = <40>;
+> +				fsl,ext-reset-output;
+>  				status = "disabled";
+>  			};
+>
+> --
+> 2.34.1
+>
 
