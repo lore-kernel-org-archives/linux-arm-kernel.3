@@ -4,94 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C980CC021BB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0544C19778
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 19:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zet+c1c4ONj7xvmenDNyn9l5ztIYraYudvekwtRFR4g=; b=IfwlG9vE8lL7kek5MYXREVU4on
-	IQsh9UebuW+F5YC+TpFequzsYOtqi3S1VYJiOeFUFus4IcPcGq+BXp5Pyu0pmcvqlPxvB6XITVVGr
-	TGZX6aX1JdHYvnTafHtt8ugiElcKpsoRArkW6vzkIEd9XsohFsjrYdLah2l34wHTqKDWfAm6Dfuz2
-	MzfPgx8ViX/khnGPRI6QQx1gmOAZqEpoUZLmmS9Yn88oZrcUwQBwCv0aFQskOEkorZHGsQlqPyXmp
-	WlkaJIlo6pp2cMf/edGyJcDV3b9r+dcZ9oBmVhdq/bhtjDpfv+NyTgk8ILeHzBaGzyHt+gNiwz+tN
-	ekA01KUA==;
+	bh=/AkQ0PsS6aJD8LrYlatrod8Rv/cZV8YksHO9IjYOj5Q=; b=aq6SONwXHN6OhbDSYwip+VqAQc
+	qNc+9/1TVKNe2WdMTNvyz15jZvaU1LPrF+p0pGpeay3TvON2RX8g61d4tRwspSzH7l95CnYzqEhGs
+	4c7zK+qhvcqBDh/5Dq91FZNVk+QeVLb5kHkZnFDGkI+AMO+hkPIZ1CO18xq++OnvncVm/D9Hd1feT
+	ucx3TqqYiAICxiGnr53j9lC0UkslllBkvWEYYtSU/nPY2l0uLuX7bjUmRBRmhTTWZe1bGlbqPTU9/
+	7E2A3S8/fE/085MBJMEzpnZkU1+X3d8c+ODc0cH+/Vqi72GeEyx8wKR6VH9TsFibzel3dNuO8gCpZ
+	ne2QJ8HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn0eV-0000000199V-28jf;
-	Tue, 25 Feb 2025 19:31:35 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1tn0eX-000000019Bq-3tCQ;
+	Tue, 25 Feb 2025 19:31:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmzDl-00000000nSl-15w8
+	id 1tmzR0-00000000rt7-0df2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 17:59:54 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-220e0575f5bso5885ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 09:59:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740506392; x=1741111192; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zet+c1c4ONj7xvmenDNyn9l5ztIYraYudvekwtRFR4g=;
-        b=ELC9YKjvj0jptgDRBhLDOcBtemDggfAvcYHYawz6ge3iZRkZUoC1xcLkZcHEcgOCcT
-         j7mHVx1EjnSc+vGrpT1aQCRxIsAWrqt8HZ8HsPENvzCxy1yDb8dtXrlzFmi1RRsFMDzK
-         UWtr9DZSYq6YJ+TNehrqIOtEsILYIa3jGXearDyx52UXo1/uxqrz3ldZ0TwuxmJvU6bt
-         FHse0srQnC8M9IV0e/pK92c9lgj9sX6p+91HJwECwsRhlZwKhnPWdFpg5anwfx1m/ZLo
-         Fq/ALHbBnY5iv1VVS2XfYDnW82zjhdbi3P0d37ILxILR13zaQGAoTv4QakKCK1Yo7Jzd
-         VDYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740506392; x=1741111192;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zet+c1c4ONj7xvmenDNyn9l5ztIYraYudvekwtRFR4g=;
-        b=VykVwR4z8DQPFboVP96jdS0aeVZe6uq7hVvZLOTTJsxKuOXnh6eNpnRcS+sEEbX4G0
-         6JnHk+MiKrbVUZV+aD74Sm1+sqSdWlgAzYK4NekaDjTpCjoFng2xsvFSjxdRkvLbYGHV
-         5TiRYXFDb4xVg6xDp5PhtCVDlpJ0ISt6s4oUFP8c8VSY3SWB6RareoTN8OR6WJFx45bw
-         9XXTGRJIPOR/hL7jnTCxywc1Be7710NOcORL2pdSP0T1zNH7BHolyv7n4KRj7t9saP/z
-         PFxfkr8YewPa9mFQcOC3hP3MDPo8iNrsQ80xESIaXj42fk97ShTZT0Z8mhRFeA757noK
-         wJaA==
-X-Forwarded-Encrypted: i=1; AJvYcCUOSMD+F2PqHl8+9eesE0cNBkBbMyxLicHXz0noV1WXbDLHilGe8fOJ5miXab2rjfpYVBzTLAeACiWVFzDD32BK@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFTSgMsVncqzbs8+OtZD1JC2VWL1jxAXvkN8aATVlYLD99HDCX
-	7BzSQqu2Erd3BdezhbUhKQtiUBe2saMpBaWHntS+WJAcxdNEFZI1TL0SdRESGQ==
-X-Gm-Gg: ASbGncuTA9a5qWKMFjjesjW67PJRSR9VU3mL1uplE58BIYgRIUvJaMcwsDMHV/0oAkZ
-	teRyvHdV0CEGQpGrhmiGehh1havYpP8ZLq2FaAS8uz3KEvTa6s+6g0qvkCsvX9Dan7vao2TPtIB
-	1DJ7q7oSbVsDXZn6qpGav2P+iW4GU5dCVM6EaxGYszS6SP1f3zi6a/pFhoi1pNIsmJ4lrMZQP38
-	tXTiDF6TFSC5Kr6r2Weoz06jOY2QHXSqY8rDlKY+VLY2dlpeO0yddNTwj/u6DDy4lt4kTJ8RXFq
-	iz3iwBZLgzFY+AV7+hVU9TyY2Lrl+r/9N7CXXziptmquAdPov/s0ioawNjn+Swk=
-X-Google-Smtp-Source: AGHT+IHt1jR5XD9845sVRfVXJk9oOqx4VZihn8kcHDN1a+U5MuzF3NMe86gHqr8wYv7wnn00ZADsGQ==
-X-Received: by 2002:a17:902:ec85:b0:21f:631c:7fc9 with SMTP id d9443c01a7336-2230798c8c9mr3956505ad.0.1740506392319;
-        Tue, 25 Feb 2025 09:59:52 -0800 (PST)
-Received: from google.com (169.224.198.35.bc.googleusercontent.com. [35.198.224.169])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7347a6f8ec9sm1867028b3a.53.2025.02.25.09.59.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Feb 2025 09:59:51 -0800 (PST)
-Date: Tue, 25 Feb 2025 17:59:41 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
-	joro@8bytes.org, suravee.suthikulpanit@amd.com,
-	robin.murphy@arm.com, dwmw2@infradead.org, baolu.lu@linux.intel.com,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
-	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
-	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
-	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
-	patches@lists.linux.dev
-Subject: Re: [PATCH v8 14/14] iommu/arm-smmu-v3: Set MEV bit in nested STE
- for DoS mitigations
-Message-ID: <Z74FDTtZkjwrjv29@google.com>
-References: <cover.1740504232.git.nicolinc@nvidia.com>
- <f465dd9defdc0fc748c2fa2cfc829e37778a4ced.1740504232.git.nicolinc@nvidia.com>
+	Tue, 25 Feb 2025 18:13:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9EFBA612DE;
+	Tue, 25 Feb 2025 18:13:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8443C4CEDD;
+	Tue, 25 Feb 2025 18:13:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740507213;
+	bh=ZzFdYCh6xQa9i+CIHhfThsw+bZbyS1sHK2XFoBGleJg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kX0gXOLu16KMgEi+jJS/ZVk5T0TCTc6Rug7i7SXZVL9p8e+RKbd7io01p3UTanoup
+	 6gTMvwfuX9icu/76GogUCV7BOm0Cad6toxuwKbXKKJyEyf7bgaatYBaSNrkzi699lA
+	 BIibaMDx6gu5dDqvJw108cajGjlnetzHcjZoPXm+fhMW9xTk+dlk4raOIFUAn31NWf
+	 DrP5BBBXe3EZmV6s9qrup391M4BkXwAoaagKgI1QSqbfubmwI1xs68wQnpb95+cXdB
+	 zGoWCCifjG3VSw6O6rfQV/6lFv9z4nsdEV5TvGWESj/v4rTyujw1sY6X9zH0dGdpNS
+	 e91IDQMjN/vhg==
+Date: Tue, 25 Feb 2025 10:13:31 -0800
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: Weinan Liu <wnliu@google.com>
+Cc: indu.bhagat@oracle.com, irogers@google.com, joe.lawrence@redhat.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org,
+	mark.rutland@arm.com, peterz@infradead.org, puranjay@kernel.org,
+	roman.gushchin@linux.dev, rostedt@goodmis.org, will@kernel.org
+Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
+Message-ID: <20250225181331.frmfumf4b5ctfbsm@jpoimboe>
+References: <20250210083017.280937-1-wnliu@google.com>
+ <20250225010228.223482-1-wnliu@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <f465dd9defdc0fc748c2fa2cfc829e37778a4ced.1740504232.git.nicolinc@nvidia.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_095953_301919_ED6A1A01 
-X-CRM114-Status: GOOD (  17.08  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250225010228.223482-1-wnliu@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,38 +73,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 09:25:42AM -0800, Nicolin Chen wrote:
-> There is a DoS concern on the shared hardware event queue among devices
-> passed through to VMs, that too many translation failures that belong to
-> VMs could overflow the shared hardware event queue if those VMs or their
-> VMMs don't handle/recover the devices properly.
+On Tue, Feb 25, 2025 at 01:02:24AM +0000, Weinan Liu wrote:
+> On Mon, Feb 10, 2025 at 12:30 AM Weinan Liu <wnliu@google.com> wrote:
+> > I already have a WIP patch to add sframe support to the kernel module.
+> > However, it is not yet working. I had trouble unwinding frames for the
+> > kernel module using the current algorithm.
+> >
+> > Indu has likely identified the issue and will be addressing it from the
+> > toolchain side.
+> >
+> > https://sourceware.org/bugzilla/show_bug.cgi?id=32666
 > 
-> The MEV bit in the STE allows to configure the SMMU HW to merge similar
-> event records, though there is no guarantee. Set it in a nested STE for
-> DoS mitigations.
 > 
-> In the future, we might want to enable the MEV for non-nested cases too
-> such as domain->type == IOMMU_DOMAIN_UNMANAGED or even IOMMU_DOMAIN_DMA.
+> I have a working in progress patch that adds sframe support for kernel
+> module.
+> https://github.com/heuza/linux/tree/sframe_unwinder.rfc
 > 
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Reviewed-by: Pranjal Shrivastavat <praan@google.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h         | 1 +
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c | 2 ++
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c         | 4 ++--
->  3 files changed, 5 insertions(+), 2 deletions(-)
+> According to the sframe table values I got during runtime testing, looks
+> like the offsets are not correct .
 > 
-Apologies for my spelling error in [1]. It's supposed to be:
+> When unwind symbols init_module(0xffff80007b155048) from the kernel 
+> module(livepatch-sample.ko), the start_address of the FDE entries in the
+> sframe table of the kernel modules appear incorrect.
+> For instance, the first FDE's start_addr is reported as -20564. Adding
+> this offset to the module's sframe section address (0xffff80007b15a040)
+> yields 0xffff80007b154fec, which is not within the livepatch-sample.ko
+> memory region(It should be larger than 0xffff80007b155000).
 
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
+I assume kpatch create-diff-object needs to copy over a subset of the
+.sframe section.  Similar to what kpatch_regenerate_orc_sections() does.
 
-Correct spelling in [2].
-
-Thanks,
-Praan
-
-[1] https://lore.kernel.org/all/Z73zvIbsXzJMCaNt@google.com/
-[2] https://lore.kernel.org/all/Z730M3XptvDRObBp@google.com/ 
-
+-- 
+Josh
 
