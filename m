@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 416E9C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 18:16:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3582EC021BB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 18:18:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VtMngJOY2Vd46+zgSz43H1lWYmc+1U4CZ4NVaAOk+MI=; b=LEeQFFe9VQSS1bGfhLyjW7S2Qk
-	5SQo5sc0+aCN+DSpx9/AIk+Uq3AfBEXHEIpI8QyQHaiatU+o+5PBH9Spw9A95fVGdgeJ/xk3MdnYw
-	4bHPXMfzW4Yb1JRrNca1QFC1xL3PSrthe5+XhQA6ZzPkvG6/ToS+f2DXY9XkIp0H3r+mklOG8FMkA
-	tEm3qdpnjppUzRsXN/+Anfxy3YY3B1uACF9xCmTyI76LITV8c88G94dYGdMF9Bh1BUCO0SscMV45u
-	55ee658tKKHq4cKUdDlTjQnuE7kD1nhdZGt1eo38EXHA6455rrBlSexi79xBV7EYB8Hu8wmDmTgvO
-	A7Wjdzkw==;
+	bh=kMnZDW0+WjKu5VVmfXnLpwr7ldbiW0HO9GK6bYyQE9Q=; b=nJnOXg5K9EVeaIcRV4+VRmiWIS
+	2qf7y1zSu2st9L1FFEeegZFJtA1+0l8HBF0T/pOnDYHTDK/yZrf9R4I5z7zCyHbcOxfOAv+ER8HsL
+	qHE4nln7rzSQr9dkLRy79eig03SfcwotX+Pfc0N0luQT2mE5+dzLISLKszGd8rcD41nDXVrwrIPXm
+	bWNqA4dcgNO1p1gq6RDPGkoBW6LQtjjpPy/MMPoK3j08PlZPKTbNHCnrC7tpBBmI2BDJNdahnyXeo
+	anypI6j5poJOOgZ384OEXs7LaiJZ99TQ7BIaFPZsPHU5mzubWWI/ShS9UsadMEF6NBVi28D40rubj
+	mmSY6i/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmzU5-00000000sca-2mE7;
-	Tue, 25 Feb 2025 18:16:45 +0000
+	id 1tmzVa-00000000svN-1XKe;
+	Tue, 25 Feb 2025 18:18:18 +0000
 Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmykd-00000000eAh-3zdU
+	id 1tmyke-00000000eA9-06vw
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 25 Feb 2025 17:29:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 708E9612CD;
+	by tor.source.kernel.org (Postfix) with ESMTP id E6AA8612D4;
 	Tue, 25 Feb 2025 17:29:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BA41C4CEDD;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2C0FC4CEDD;
 	Tue, 25 Feb 2025 17:29:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1740504587;
-	bh=e8LpeF2ClqwJ/XkkP8Drhi20EQrQ3/FY1EIo8+fWROY=;
+	bh=72XqEPX1zId4CcUK/Ah9AwDghJvNGnFuzi01nVVJvcw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rAlW4o2raaxriI+YB9CwkVCitPQrYeKwufttCbnCpIrX6/v/lpIrsqobrp3/2LPCP
-	 tZUhTOo7Vmfhgz5+1vMdZ2Qk6+ErQdI5E36M+9FDG67B4w6yhqG3hu25xMldbnMJam
-	 iKzF/DI/Ddvs1HQCD6Ypq7kEw9g8OrPfJXOICum8O9O0bio+Nc5e1k0APt4teUEcn5
-	 g45S5Y6eQ/29qrrqwxdjqStDczxByz5WgRRyB+t4aSlJqp1pI3Uimm9A331cUz6/4S
-	 o5OuQBZ0QHm2nbOGEkmNY/yGReTlalyNEved9vU5uZClDNswXTFvTd2ck8axaqnFWu
-	 5ox7cbA4i2aKA==
+	b=ntbXKJ9w1z40KZ9jRupbXbAbf4l32PXcOXMoZKmzX7KeB5zjbCbm6QJDMVAZvlqRU
+	 3pzA7G1hf/FxUhTZHTOnS+ULrBzUM1OtYpx7S+sLsL2jYYj67eqPpcKWIgkfcKSAid
+	 MvApacq1yf3NBQ4IlkHdf650rlfvjE1l+N2y1/kEc8MFHMiqL1xnDOCGkCgeDXjMJ/
+	 BFhY4fiia9E2xwoyxeEWL1F8/IEfOuuEWLt9wX6P3MLwmiFNDfE+dpKUDfg/a34h+P
+	 UsxiRJ3KvykUX788YHoGfFXLS9ZeMLelfWBtjz06HMdGSzw85aDJ1FpwjqDTUPYQ+Q
+	 z3gWicONPd8tw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tmykb-007rKs-4t;
+	id 1tmykb-007rKs-TU;
 	Tue, 25 Feb 2025 17:29:45 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Andre Przywara <andre.przywara@arm.com>,
 	Eric Auger <eric.auger@redhat.com>
-Subject: [PATCH v4 07/16] KVM: arm64: nv: Sanitise ICH_HCR_EL2 accesses
-Date: Tue, 25 Feb 2025 17:29:21 +0000
-Message-Id: <20250225172930.1850838-8-maz@kernel.org>
+Subject: [PATCH v4 11/16] KVM: arm64: nv: Respect virtual HCR_EL2.TWx setting
+Date: Tue, 25 Feb 2025 17:29:25 +0000
+Message-Id: <20250225172930.1850838-12-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250225172930.1850838-1-maz@kernel.org>
 References: <20250225172930.1850838-1-maz@kernel.org>
@@ -84,37 +84,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As ICH_HCR_EL2 is a VNCR accessor when runnintg NV, add some
-sanitising to what gets written. Crucially, mark TDIR as RES0
-if the HW doesn't support it (unlikely, but hey...), as well
-as anything GICv4 related, since we only expose a GICv3 to the
-uest.
+From: Jintack Lim <jintack.lim@linaro.org>
 
+Forward exceptions due to WFI or WFE instructions to the virtual EL2 if
+they are not coming from the virtual EL2 and virtual HCR_EL2.TWx is set.
+
+Signed-off-by: Jintack Lim <jintack.lim@linaro.org>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/nested.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ arch/arm64/include/asm/kvm_emulate.h | 13 +++++++++++++
+ arch/arm64/kvm/handle_exit.c         |  6 +++++-
+ 2 files changed, 18 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 0c9387d2f5070..7c8f39070a503 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -1290,6 +1290,15 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
- 		res0 |= GENMASK(11, 8);
- 	set_sysreg_masks(kvm, CNTHCTL_EL2, res0, res1);
+diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+index 78ec1ef2cfe82..d4e4212ff5967 100644
+--- a/arch/arm64/include/asm/kvm_emulate.h
++++ b/arch/arm64/include/asm/kvm_emulate.h
+@@ -275,6 +275,19 @@ static __always_inline u64 kvm_vcpu_get_esr(const struct kvm_vcpu *vcpu)
+ 	return vcpu->arch.fault.esr_el2;
+ }
  
-+	/* ICH_HCR_EL2 */
-+	res0 = ICH_HCR_EL2_RES0;
-+	res1 = ICH_HCR_EL2_RES1;
-+	if (!(kvm_vgic_global_state.ich_vtr_el2 & ICH_VTR_EL2_TDS))
-+		res0 |= ICH_HCR_EL2_TDIR;
-+	/* No GICv4 is presented to the guest */
-+	res0 |= ICH_HCR_EL2_DVIM | ICH_HCR_EL2_vSGIEOICount;
-+	set_sysreg_masks(kvm, ICH_HCR_EL2, res0, res1);
++static inline bool guest_hyp_wfx_traps_enabled(const struct kvm_vcpu *vcpu)
++{
++	u64 esr = kvm_vcpu_get_esr(vcpu);
++	bool is_wfe = !!(esr & ESR_ELx_WFx_ISS_WFE);
++	u64 hcr_el2 = __vcpu_sys_reg(vcpu, HCR_EL2);
 +
- out:
- 	for (enum vcpu_sysreg sr = __SANITISED_REG_START__; sr < NR_SYS_REGS; sr++)
- 		(void)__vcpu_sys_reg(vcpu, sr);
++	if (!vcpu_has_nv(vcpu) || vcpu_is_el2(vcpu))
++		return false;
++
++	return ((is_wfe && (hcr_el2 & HCR_TWE)) ||
++		(!is_wfe && (hcr_el2 & HCR_TWI)));
++}
++
+ static __always_inline int kvm_vcpu_get_condition(const struct kvm_vcpu *vcpu)
+ {
+ 	u64 esr = kvm_vcpu_get_esr(vcpu);
+diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
+index 512d152233ff2..b73dc26bc44b4 100644
+--- a/arch/arm64/kvm/handle_exit.c
++++ b/arch/arm64/kvm/handle_exit.c
+@@ -129,8 +129,12 @@ static int kvm_handle_fpasimd(struct kvm_vcpu *vcpu)
+ static int kvm_handle_wfx(struct kvm_vcpu *vcpu)
+ {
+ 	u64 esr = kvm_vcpu_get_esr(vcpu);
++	bool is_wfe = !!(esr & ESR_ELx_WFx_ISS_WFE);
+ 
+-	if (esr & ESR_ELx_WFx_ISS_WFE) {
++	if (guest_hyp_wfx_traps_enabled(vcpu))
++		return kvm_inject_nested_sync(vcpu, kvm_vcpu_get_esr(vcpu));
++
++	if (is_wfe) {
+ 		trace_kvm_wfx_arm64(*vcpu_pc(vcpu), true);
+ 		vcpu->stat.wfe_exit_stat++;
+ 	} else {
 -- 
 2.39.2
 
