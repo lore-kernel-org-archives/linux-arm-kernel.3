@@ -4,89 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 530C6C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 12:21:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A33BC021BB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 12:23:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n1TWnKYSjWgGvb3cyxt3TX5DamTHuovBzjkuSknBSeU=; b=tgJcVHSf5Hptf7YyGnivjy+3vm
-	DrCridhwYIPzAZ/WlXnTk+XoDHEclsYGl3G+UyMpkO+yQ3bZB1eui1+VAEQg5ekpJ0Yqna90N4KnP
-	Ogt4898HCHcQICfIUEymTLaChFNoaiPvaEE6XHN2TDAu9Oljn/j9klH3O/8Vwe4j0rMfdJZw3D2VQ
-	Ih3QzBm8ZttCftFgd2xCVm37gSFfLH4gAiU0viMlrZT/25hVFtrmyxNPX0miBpFv0Dvq2GkzQVKo0
-	12wqe8CmUrJ9Ip9QzYO7TNrZV2BenQ9YonVRbJDonKaPbF1FHGiSIG8FZVHr8MtKiF7Xg+LMek54G
-	5t4tPRZQ==;
+	bh=moWQWEquCBl/slaNCgIiFL+TYhRj5y+dwWzEzAcK1fc=; b=3YqOAndNd6kARdCJsrAvBov7An
+	rp+2AY/mM0KprYGAhA0CyV/9Tp2En88L/U2xF9x2GbHIF1e7o4K9YZpRgqF27goVzhgf4YC1WqUvO
+	UzYjXU8q7t9O/yoY4KTibyDoJV+3AClj6FhGk+mTGwCRS+UnjG+ws1sur99jsJUFpfeBKluDsKvZ3
+	vv4Z8OZbbA7ZukoXqeA/ppu9hA4mrH6MvlCJAC68sRDsxfEsM3LUfztx1Ln3iK6WWINUIPFcT/PxL
+	LCmdGQ8ns6AhCbWBu5iyp75ZU1SxwtVOBPsh9mOIQ1QtzzQnWstI2JIqq116Nj40c9goBiQXCA2Xc
+	LmJoajxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmtwB-0000000HC0D-32SC;
-	Tue, 25 Feb 2025 12:21:23 +0000
-Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
+	id 1tmtxi-0000000HCSo-3cUq;
+	Tue, 25 Feb 2025 12:22:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmtG9-0000000H3e3-3Wp0
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 11:37:59 +0000
-Received: by mail-yb1-xb34.google.com with SMTP id 3f1490d57ef6-e461015fbd4so4028010276.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 03:37:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740483476; x=1741088276; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=n1TWnKYSjWgGvb3cyxt3TX5DamTHuovBzjkuSknBSeU=;
-        b=mibUaqxObFwfb29swpgTuHOS3uIPOvosJncq8fQkSfBwt9zv6MS72q62vjRwkJmFqH
-         zlFkoL5yvaZuBkwiAc+joKeMKJ5yFmv9LMMjxzrdALT42qruEAWtNby8Hu5ox4/lQjBT
-         f/in2lEvIg4OgHRUcEbwRDEKfKZSVPutllkXCOjaYZw6bu+9YMR+e8IVHp1id9H61b1O
-         ePsl3BY2+I+CVv7/D+ODtPOrF0mGD753GltJjcHVpc4JNRyuUxqX3F/7cvuXL3HtScVI
-         1MVUBFNjKzFFxKGq5XoKq53qC654zd1UCAGdkuC2n0KRT29MygOqp8pdkLFK0ogrUirN
-         wEvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740483476; x=1741088276;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=n1TWnKYSjWgGvb3cyxt3TX5DamTHuovBzjkuSknBSeU=;
-        b=AfB+ljQGgin/tHZ3Qftlok/xqdAaWdE5muhJZmVDjcd0V+WBoQaO9Z/sz9hk2okawc
-         fXqMT3YrzviJuXYfCr0GgOxadz18tT8O6h12QdzplppzaF/VHtEUHCEc8AtTgcOffpsj
-         qG/msDkt/K+0tiOqr7tZJzmwdKPXuMAU4uVU8lhvpIR0g78aOV46wMEdRf8zrbtcccVn
-         TV3xaXs4XtZzToyjt8kFOJijHsRzJxnVd1eIFO7LAnRq/BbFCfwOt4neC46KXvsXiqMC
-         Hg1O3Psx8RblYGoTw8YwxlES+VOLdjoFE1vwWGfxvVoFn0NEyHedOPFPOB8qj2Hd12/B
-         5Peg==
-X-Forwarded-Encrypted: i=1; AJvYcCXpoi47HCkXfQ5E9XSThA6QLNcRuEAmXtI4e6Xrw/ewVOTx3ISaGXelfqZSO/vDypRi1RS1sZ5Vo9Ih7eihMbbV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4OP+rs/YkLZQcHEX/tA8JLYmt6g3VE5kjwkTujhJw4DTcVb4s
-	B/phh1mRpedQ2xs/8xohCLy1urj7y9JihzrW66sIwWIliD9iUoVB0HlWcrO1uOeTzOqqplWf155
-	0/Qp+0DvZxk/v42L+MxvK/I5rDpQ22aBhGwObQg==
-X-Gm-Gg: ASbGncsWImZoVOTOccob9tfNI9yj/QAol5PIUxXrWhdS4esK2gtukiKLmWCnW4yT2rg
-	tAA2HAmvT5LwzCEkc9WJpVdJC2WOOFLqtVERNWkbRX80tgJtm1aTpMAhQ7O/8zXrx8qeAs58zjg
-	U42n86sXnfQw8sBnD2dbKklfEn40KNJaq/KZNMKxo=
-X-Google-Smtp-Source: AGHT+IFoRV0tABvVleGcPGFjITHVSAozbUIV7vt/JXOPnNAtmYOOQYQ8LJ70dKpeCX04ppbU+mmusjSHjBwHx6qf6uI=
-X-Received: by 2002:a05:6902:18cd:b0:e5d:fccc:7907 with SMTP id
- 3f1490d57ef6-e607a4e3c9bmr1939202276.14.1740483476663; Tue, 25 Feb 2025
- 03:37:56 -0800 (PST)
+	id 1tmtOQ-0000000H59O-2XJ5;
+	Tue, 25 Feb 2025 11:46:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2EDF561239;
+	Tue, 25 Feb 2025 11:46:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E92D7C4CEDD;
+	Tue, 25 Feb 2025 11:46:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740483989;
+	bh=4IIRoh5wb+/jIFP4g7aKueshVyB+l000sg+l64SSteI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jOiyrIO+unuve0eE7gyGrpzrY1t0WNOSfUpUXflagWiw1Wj+TfYH5+Gf6VghbxTRy
+	 lGVTtdUWHkiBQDmRih8snkWBDO+rI3j1anTpXteFXmxn585+oREVOnPZeh4+k/PsOh
+	 UXLIwJ1f8UJjC/a/FplnZrWb1APIe16KtPG63u+BjhLmgq0V7U/fk58FwQQi/GsnF9
+	 jB4ZuVNweDB+2m4RWjwnDLn2huExQin9znUa3+keWKJ/yDGy1DXLVfN5hks64pP+vx
+	 Ea7TMIJw7sbjyaRvxdu+dHiFRM2QpHznJMW2sxsVySk3R/ehtXDJPMG981GSujsr29
+	 BNFDAW4pKxL9A==
+Date: Tue, 25 Feb 2025 12:46:26 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Abel Vesa <abel.vesa@linaro.org>, linux-arm-msm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/8] dt-bindings: phy: snps-eusb2: add exynos2200
+ support
+Message-ID: <20250225-conscious-spotted-ape-a71edd@krzk-bin>
+References: <20250223122227.725233-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250223122227.725233-3-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
-References: <20250217-adpdrm-v7-0-ca2e44b3c7d8@gmail.com> <174047913824.2131221.6545389561298332217.b4-ty@linaro.org>
-In-Reply-To: <174047913824.2131221.6545389561298332217.b4-ty@linaro.org>
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Date: Tue, 25 Feb 2025 13:37:45 +0200
-X-Gm-Features: AQ5f1Jq_8vz2X92aaDmmCRK3QuSACEM5CmHNBFF9CumkaBecyk4PuPviBAdIWp0
-Message-ID: <CAA8EJpqM8ZQ-ScEtEBXaUF2Nargtp_TBAyMYvbJ49PGbwPWjaQ@mail.gmail.com>
-Subject: Re: (subset) [PATCH v7 0/5] Driver for pre-DCP apple display controller.
-To: Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev, 
-	Janne Grunau <j@jannau.net>, Sasha Finkelstein <fnkl.kernel@gmail.com>, 
-	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Alyssa Ross <hi@alyssa.is>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
-	Neal Gompa <neal@gompa.dev>, Nick Chan <towinchenmi@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_033757_880237_ACD94897 
-X-CRM114-Status: GOOD (  14.09  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250223122227.725233-3-ivo.ivanov.ivanov1@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,25 +74,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Feb 2025 at 12:25, Neil Armstrong <neil.armstrong@linaro.org> wrote:
->
-> Hi,
->
-> On Mon, 17 Feb 2025 12:39:30 +0100, Sasha Finkelstein wrote:
-> > This patch series adds support for a secondary display controller
-> > present on Apple M1/M2 chips and used to drive the display of the
-> > "touchbar" touch panel present on those.
-> >
-> >
->
-> Thanks, Applied to https://gitlab.freedesktop.org/drm/misc/kernel.git (drm-misc-next)
->
-> [3/5] drm: panel: Add a panel driver for the Summit display
->       https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/40115947b59f2ca361a47615304dff0a2b69a2b4
+On Sun, Feb 23, 2025 at 02:22:21PM +0200, Ivaylo Ivanov wrote:
+> Exynos 2200 makes use of the Synposys eUSB2 IP, so document it in the
+> binding. Unlike the currently documented Qualcomm SoCs, it doesn't provide
+> reset lines for reset control and uses more clocks.
+> 
+> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov@gmail.com>
 
-Without the bindings?!
+Mismatched sob. Be sure you run checkpatch before posting.
 
--- 
-With best wishes
-Dmitry
+> ---
+>  .../bindings/phy/snps,eusb2-phy.yaml          | 64 +++++++++++++++++--
+>  1 file changed, 57 insertions(+), 7 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/snps,eusb2-phy.yaml b/Documentation/devicetree/bindings/phy/snps,eusb2-phy.yaml
+> index 22c77968f..f4164db71 100644
+> --- a/Documentation/devicetree/bindings/phy/snps,eusb2-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/snps,eusb2-phy.yaml
+> @@ -23,6 +23,7 @@ properties:
+>                - qcom,x1e80100-snps-eusb2-phy
+>            - const: qcom,sm8550-snps-eusb2-phy
+>        - const: qcom,sm8550-snps-eusb2-phy
+> +      - const: samsung,exynos2200-snps-eusb2-phy
+>  
+>    reg:
+>      maxItems: 1
+> @@ -31,12 +32,12 @@ properties:
+>      const: 0
+>  
+>    clocks:
+> -    items:
+> -      - description: ref
+> +    minItems: 1
+> +    maxItems: 3
+>  
+>    clock-names:
+> -    items:
+> -      - const: ref
+> +    minItems: 1
+> +    maxItems: 3
+>  
+>    resets:
+>      maxItems: 1
+> @@ -58,11 +59,60 @@ required:
+>    - compatible
+>    - reg
+>    - "#phy-cells"
+> -  - clocks
+> -  - clock-names
+>    - vdd-supply
+>    - vdda12-supply
+> -  - resets
+> +
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - qcom,sm8550-snps-eusb2-phy
+> +
+> +    then:
+> +      properties:
+> +        reg:
+> +          maxItems: 1
+
+I don't understand this. What's the top-level value here?
+
+> +
+> +        clocks:
+> +          items:
+> +            - description: ref
+> +
+> +        clock-names:
+> +          items:
+> +            - const: ref
+> +
+> +      required:
+> +        - clocks
+> +        - clock-names
+> +        - resets
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - samsung,exynos2200-snps-eusb2-phy
+> +
+> +    then:
+> +      properties:
+> +
+
+Drop blank line
+
+Best regards,
+Krzysztof
+
 
