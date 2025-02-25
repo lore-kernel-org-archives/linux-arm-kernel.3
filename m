@@ -4,91 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC3BC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 21:10:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B04AC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 21:11:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jSyg4m32Z211cyBXnbFEQqvd1CvDN7Q9P47t+0FLggc=; b=1vuFqmopa064VYguOhnR5t9rq0
-	x9LD0IMvDfY4AlFdavkAosSRo8qJxnSCxdGoGOplw85HGTPY6SXOckOIwy7RxAkNZKCuBtcI8XxYS
-	Ap4BXQiYOW7Ymkwu9ONPh1g2PU0NtK05YYJJhP6c6+FZiLzIIhbZDE0RmpbwGqM1KrhuFTlbWHFSg
-	FBnPx88BASG+FFrI7QttlAePpxkfKhM+/qXSGwtt1FstU4IuKzEzfkgVqYA7isJ8D5kMP2aNjRHkF
-	K2VFvh+BRAcJOMNbXWU7c+dGG/rHLK+Sy3JhK9macq6J1f/TXU5OmIS5tTW1U7stO8kOfUtBVM2l6
-	sqUXOdEg==;
+	bh=YV7wOBCDxZKolRjf9GF1nGz4gKy85D71AXPs47WKJWg=; b=iBK0kGac/M9I1xFXhMrPKrk9FH
+	lXP/O60OzdluwKlBg+NV1wsl46SM8+23sDLKqI6DgMHoYa0/Dc7ICwDArXb0U1hW4gG2ha0mucVyV
+	97iC+Jujb4uecwUgbfZSe8hvHvwTV3t4tDjXqNyvLl9oSjoxEx7CaMPugkxfxLflvIvC7UmHoSlF/
+	ozXwhTVVQQ4dB6VsQgxdn+WFXRNRonyRQ6/NIqQ7AfbRjeVd8lTBJxqCcOCqvS090jHGsiD3N8zTg
+	rsHolompmcx0qb5IzpAGZtjJVwGtlR78R+ouYNGXtN5+Bi4mKJV9+2ekyzWJhOcpsyYOC5U/Zbydi
+	+fQYni9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn2Bg-00000001UoI-3Hzf;
-	Tue, 25 Feb 2025 21:09:56 +0000
+	id 1tn2DC-00000001V6Q-050P;
+	Tue, 25 Feb 2025 21:11:30 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn1YV-00000001Myr-22Xa
+	id 1tn1a3-00000001NGS-1SJ4
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 25 Feb 2025 20:29:27 +0000
+	Tue, 25 Feb 2025 20:31:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=jSyg4m32Z211cyBXnbFEQqvd1CvDN7Q9P47t+0FLggc=; b=RfwLf+aNt2xLB6YNUgqm5JmHdt
-	IWXGR56acdt87d+C5QqDcN4GKiWCWyjuuiMeZoZNaW0iAjZXqV6aTCGhoZ0dyIvO7AlZlQRyqIUnr
-	jU+qav4a40WBUQeDyFikLOdRjW4Mg1mHa80zHBPlv10ZRFKkEolG86dh3MvQN0+zEuGrG6h6WNNcP
-	D+7K7B2l90HVt9DXlA7ll7mJr5v/zl1zJ1upZ3N4m1s2OQEZmH/JDuuaG1uTh8dhDE9vvt2FJfTwn
-	x5uDNnOxMUiNt+V3Bbf8QVUukO0BumFWh9n+4XqYCfZlzcfmcncV6I1Zq8nyBPXUBn9uVao9xEjp9
-	Mct/BD6A==;
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	bh=YV7wOBCDxZKolRjf9GF1nGz4gKy85D71AXPs47WKJWg=; b=SKysm5tbNadNmlUOMmSzdcf1vm
+	8RQim628QAobNIDIg5NFZi7l11+okM2sqNBoUSFiIVqExZ7SpV3XsjDv1D6wbEcCzDR5H6R2FlgSh
+	A96NQUEm442oOOYklDdS0bZMHd/0en/b745QlvFNX+R/JJ9GZk7A+3ot6F3lxe+PaGecdtldkvSE7
+	uplEvsiJXDvpoqNl2d2WWKh3zCwpmQ+Ve38wB22Zs7HOX2CMjH/ukbaOvkkx4cDWC635N7jZ4DPlp
+	paFq1ySX0LpBXEw4T3iFXBt6Z6BS7ak28UOpwqsCVe6KwNRCpoOpmBdKlt6tw6ROxK+/5+UpxzA8A
+	SAR+tHDg==;
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn1YS-00000003QRp-1iFG
+	id 1tn1a0-00000003Qa3-1o7h
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 20:29:26 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tn1YL-0004PK-Uh; Tue, 25 Feb 2025 21:29:17 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tn1YL-002pgi-1j;
-	Tue, 25 Feb 2025 21:29:17 +0100
-Received: from pengutronix.de (p5b164285.dip0.t-ipconnect.de [91.22.66.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 1E0533CBC87;
-	Tue, 25 Feb 2025 20:29:17 +0000 (UTC)
-Date: Tue, 25 Feb 2025 21:29:16 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Chester Lin <chester62515@gmail.com>, 
-	Matthias Brugger <mbrugger@suse.com>, Conor Dooley <conor+dt@kernel.org>, imx@lists.linux.dev, 
-	Enric Balletbo <eballetb@redhat.com>, linux-arm-kernel@lists.infradead.org, 
-	Christophe Lizzi <clizzi@redhat.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	linux-kernel@vger.kernel.org, Alberto Ruiz <aruizrui@redhat.com>, NXP S32 Linux <s32@nxp.com>, 
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: s32g: add FlexCAN[0..3] support for s32g2
- and s32g3
-Message-ID: <20250225-private-savvy-caracal-3e7f47-mkl@pengutronix.de>
-References: <20250224134016.3921196-1-ciprianmarian.costea@oss.nxp.com>
- <174051414934.2971045.13322665811292325537.robh@kernel.org>
+	Tue, 25 Feb 2025 20:31:02 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-439a331d981so52872985e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 12:30:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740515458; x=1741120258; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=YV7wOBCDxZKolRjf9GF1nGz4gKy85D71AXPs47WKJWg=;
+        b=SU8Wq0veCdVKZfr2qVtisEgjxXUsDJ3B9nJ4q/VnzPFcNJKW9rJkLPWLgaaK5ndjdT
+         Mk5XiCailDZebrPjzK4MmEwGqe4SsulejwgkTairApFOLO7lkH4ATQaEiqsfXJK+Zlid
+         6ZA08Rb11enJDmCyH64XidcVEiCCE6spJUy12Tfxr1BGn5GMMSE+T03RRm5+R6xqbzUG
+         dW24UrsPuPDASpx8wuAQ/fAe65CCf0Ozo80TKBSOAhzy8I53eQTdvYhswd+E3PtHX6A4
+         6PD3/gP8Riuzg6Hx51qeMsybTcRE5+XKCIfXnE8lFhWb+MefswkTjJ2b0JoGzQLPQ+iW
+         rZJQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740515458; x=1741120258;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YV7wOBCDxZKolRjf9GF1nGz4gKy85D71AXPs47WKJWg=;
+        b=R57U55w8hPdQdd5WPZBpZ6XTE42hLGQkYKwgCTS0NmAGKckOueZ2wwAQGOn7Ov+pgM
+         w8qnnXRGaos090xfnuH4wbiFb9lS9LgbO+p2/wSIKzZy3NQ4ojJPxu06/cULPacfq0Bv
+         LzBtXWc95lv8yMJwpQwupXBBtTX2a3de5GwXqB60NZ3MgrTVxTgyOPVixPxcN+6eS3hq
+         N76Yf/EJGNxWaFuSXQM7urffmE5bz/9HyDCc7lQG176LKiq+KloYa+5GO3hDjnbaJf6R
+         bcqnaKNMvEBhgFnokb4FgD78e62obrFe0hauutSuHUtvI2eD5pSQUQhbtUWIw3X2a8Zv
+         Wnyw==
+X-Forwarded-Encrypted: i=1; AJvYcCWE/K8pVRwIVVFj1zD6JMNn2t8aJXbEPfIBp/8w4tNHHqlFtg2wGb0oDVTvrJSnmETiy7P+3P1AQNUtmuFUMJFX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxa2eZGR4WPOMl2K9ax1KEdlQsPMbiM8F1qHqkoF2xofLOfehVR
+	mqYO6+e5RJQ1wSIQA2/aWp+QDuBjqnofVHcLqDFFkuTnT5k49Gs3
+X-Gm-Gg: ASbGncv8FFAQHYl+wshdXJWT5HaA3qsTLGP2vWjWIimm0kQ2P42IYtS93+98me1RFSF
+	DCZgcY44XvlM8T7+E4p21XIcjaAf3DCW3RCZgI17JReqrFiv6d8mTRcrPEtLhV4zQYI1G3Z1NhC
+	vKTY+aqzUNHl98vCvdCTpTVtDsas0IRPziKAFej0m9NP41sSYWJreG2riY8kOglnGn9vYiymQsT
+	CgZ3IiSFhQHhgYPx9QOpKXckaYE73lQvVYPt+R2zY6/urSKgACQVYkYtJxWwNa3TmtpjG8ALz6V
+	ciB5XD4ZfmAprJpP0vj1aYYpdLKtzA5f0WV2ZzQPWYNN3cP+BtGkW1lYPt7Q+LH1mKy4FLWr0of
+	lcJkQCifeUkDJ
+X-Google-Smtp-Source: AGHT+IGMx5pU7RRODJDtq0qCQl84I8Udv96NunCF2+SS/JZM7mWzu9hAPxehyg/ka5oYvjP72VnZ3Q==
+X-Received: by 2002:a05:600c:4688:b0:439:63de:3611 with SMTP id 5b1f17b1804b1-43ab901d6b4mr6206895e9.24.1740515457376;
+        Tue, 25 Feb 2025 12:30:57 -0800 (PST)
+Received: from orome (p200300e41f187700f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f18:7700:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ab156a136sm38626675e9.35.2025.02.25.12.30.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Feb 2025 12:30:55 -0800 (PST)
+Date: Tue, 25 Feb 2025 21:30:52 +0100
+From: Thierry Reding <thierry.reding@gmail.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Emil Renner Berthing <kernel@esmil.dk>, 
+	Eric Dumazet <edumazet@google.com>, Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
+	Inochi Amaoto <inochiama@gmail.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Jan Petrous <jan.petrous@oss.nxp.com>, Jon Hunter <jonathanh@nvidia.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Minda Chen <minda.chen@starfivetech.com>, netdev@vger.kernel.org, 
+	NXP S32 Linux Team <s32@nxp.com>, Paolo Abeni <pabeni@redhat.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Shawn Guo <shawnguo@kernel.org>, Thierry Reding <treding@nvidia.com>
+Subject: Re: [PATCH RFC net-next 0/7] net: stmmac: cleanup transmit clock
+ setting
+Message-ID: <deshe54mqty6ozlcbncliwxfxtszubrn44onswjlmo62lltcvx@42piilxcqwba>
+References: <Z7RrnyER5ewy0f3T@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="hyjls6qa3nf4o47i"
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="4erhebjcgk6jk4go"
 Content-Disposition: inline
-In-Reply-To: <174051414934.2971045.13322665811292325537.robh@kernel.org>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+In-Reply-To: <Z7RrnyER5ewy0f3T@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_202924_584756_35E4B0F2 
-X-CRM114-Status: GOOD (  19.87  )
+X-CRM114-CacheID: sfid-20250225_203100_577596_F0F6BA2B 
+X-CRM114-Status: GOOD (  18.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,104 +124,66 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---hyjls6qa3nf4o47i
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
+--4erhebjcgk6jk4go
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] arm64: dts: s32g: add FlexCAN[0..3] support for s32g2
- and s32g3
+Subject: Re: [PATCH RFC net-next 0/7] net: stmmac: cleanup transmit clock
+ setting
 MIME-Version: 1.0
 
-On 25.02.2025 14:12:30, Rob Herring (Arm) wrote:
+On Tue, Feb 18, 2025 at 11:14:39AM +0000, Russell King (Oracle) wrote:
+> Hi,
 >=20
-> On Mon, 24 Feb 2025 15:40:16 +0200, Ciprian Costea wrote:
-> > From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> >=20
-> > Add FlexCAN[0..3] for S32G2 and S32G3 SoCs.
-> >=20
-> > Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> > ---
-> >  arch/arm64/boot/dts/freescale/s32g2.dtsi      | 52 ++++++++++++++
-> >  arch/arm64/boot/dts/freescale/s32g3.dtsi      | 56 +++++++++++++++
-> >  .../boot/dts/freescale/s32gxxxa-evb.dtsi      | 72 +++++++++++++++++++
-> >  .../boot/dts/freescale/s32gxxxa-rdb.dtsi      | 48 +++++++++++++
-> >  4 files changed, 228 insertions(+)
-> >=20
+> A lot of stmmac platform code which sets the transmit clock is very
+> similar - they decode the speed to the clock rate (125, 25 or 2.5 MHz)
+> and then set a clock to that rate.
 >=20
+> The DWMAC core appears to have a clock input for the transmit section
+> called clk_tx_i which requires this rate.
 >=20
-> My bot found new DTB warnings on the .dts files added or changed in this
-> series.
-
-The dt-bindings patch that documents support for the S32G2/S32G3 is in
-net-next/main: 51723790b718 ("dt-bindings: can: fsl,flexcan: add
-S32G2/S32G3 SoC support")
-
-> New warnings running 'make CHECK_DTBS=3Dy for arch/arm64/boot/dts/freesca=
-le/' for 20250224134016.3921196-1-ciprianmarian.costea@oss.nxp.com:
+> This series moves the code which sets this clock into the core stmmac
+> code.
 >=20
-> arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@401b4000: fai=
-led to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-f=
-lexcan']
-> arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@401b4000: fai=
-led to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-f=
-lexcan']
-> arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@401be000: fai=
-led to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-f=
-lexcan']
-> arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@401be000: fai=
-led to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-f=
-lexcan']
-> arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@402a8000: fai=
-led to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-f=
-lexcan']
-> arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@402a8000: fai=
-led to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-f=
-lexcan']
-> arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@402b2000: fai=
-led to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-f=
-lexcan']
-> arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@402b2000: fai=
-led to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-f=
-lexcan']
-> arch/arm64/boot/dts/freescale/s32g274a-evb.dtb: /soc@0/can@401b4000: fail=
-ed to match any schema with compatible: ['nxp,s32g2-flexcan']
-> arch/arm64/boot/dts/freescale/s32g274a-evb.dtb: /soc@0/can@401be000: fail=
-ed to match any schema with compatible: ['nxp,s32g2-flexcan']
-> arch/arm64/boot/dts/freescale/s32g274a-evb.dtb: /soc@0/can@402a8000: fail=
-ed to match any schema with compatible: ['nxp,s32g2-flexcan']
-> arch/arm64/boot/dts/freescale/s32g274a-evb.dtb: /soc@0/can@402b2000: fail=
-ed to match any schema with compatible: ['nxp,s32g2-flexcan']
-> arch/arm64/boot/dts/freescale/s32g274a-rdb2.dtb: /soc@0/can@401b4000: fai=
-led to match any schema with compatible: ['nxp,s32g2-flexcan']
-> arch/arm64/boot/dts/freescale/s32g274a-rdb2.dtb: /soc@0/can@401be000: fai=
-led to match any schema with compatible: ['nxp,s32g2-flexcan']
-> arch/arm64/boot/dts/freescale/s32g274a-rdb2.dtb: /soc@0/can@402a8000: fai=
-led to match any schema with compatible: ['nxp,s32g2-flexcan']
-> arch/arm64/boot/dts/freescale/s32g274a-rdb2.dtb: /soc@0/can@402b2000: fai=
-led to match any schema with compatible: ['nxp,s32g2-flexcan']
+> Patch 1 adds a hook that platforms can use to configure the clock rate.
+> Patch 2 adds a generic implementation.
+> Patches 3 through 7 convert the easy-to-convert platforms to use this
+> new infrastructure.
+>=20
+>  .../ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c    | 10 +----
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c    |  5 ++-
+>  .../net/ethernet/stmicro/stmmac/dwmac-intel-plat.c | 24 ++----------
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c    | 22 ++---------
+>  .../net/ethernet/stmicro/stmmac/dwmac-starfive.c   | 26 ++-----------
+>  drivers/net/ethernet/stmicro/stmmac/stmmac.h       |  2 +
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 43 ++++++++++++++++=
+++++++
+>  include/linux/stmmac.h                             |  4 ++
+>  8 files changed, 65 insertions(+), 71 deletions(-)
 
-Marc
+Seems to work fine on Jetson TX2, so patches 1-3 are:
 
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+Tested-by: Thierry Reding <treding@nvidia.com>
 
---hyjls6qa3nf4o47i
+--4erhebjcgk6jk4go
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAme+KBkACgkQDHRl3/mQ
-kZxdrwf+JXiYSAtNXsvcQpYo6OfO9ld3hbOKggakubUaLFftujJA/9iNVFaUgqHg
-1m1/pAgYThwS+zVAVPn8w7zgfznQj5iF45qigUAugkGANBrPwvcr4YBYqrATQTpq
-WHsWnaz5A8Emg9AC9kmg7nfFDM6uMR7SEWXwlvp3YXUzqC5Ujh2scrKg9nh/NUNj
-BIDoOyWb0YrNyJoPfVd7ooG6GnMxmg6oPqWr7xIRwR+FkJVFwEtcBmPk71Xk9foX
-yXLZlC92qTwQBn/0pgj/q/8XyX8UuGgL28Wfo2bg2q67iPqc/yQdi6QW/C+OMRuG
-qJmoE2guvBD9ho/u4NtPJ307RtGZqQ==
-=dAC0
+iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAme+KHgACgkQ3SOs138+
+s6FT4w/9GoN6QrYW3VP35tGhx3VaNaXACzYRu4GB5krW+p4Ixhq8LfnSKek6/MHu
+SkB1lalSpNyFg9ZHeBHeLUMG0bulJzaqUNj38OnTv2YFI+hGXs4rkoLWKf1L+T9k
+5Ci+UCoA5wGzrt+eKHixzKsu9V9oVexQOq0gp8AW+4dO8SQxqRgkTL5meN+ArqLr
+O1F9jGuCNvJSIOeI4wFQ97s18GRHYTIJeq832LftTqIcJlGGT0dn59tcbLBLm+2f
+2vbEqND6mv4cSADvXn1VbUqvCPFO+8p/U75Edy2D9hkl7ZjEjLv31bNQusqiPLFX
+gq+JtMbP82gkdQEUDM/K1Ld5CVG5tioTgxWkBBLgU6Ly9TJZBLhN8V+FKJwUhswr
+bpBS+gia4bBuu+04aiqgt4Klwb3o4opietJt5ZtJy7r1THx3kGXC/xfl6LVPyLEK
+Rbtfv8c61+QmD75lC4Ydatoam55Gu1wjcct4SeqDWO/OiyJRRduoJWvOfCl7h4AI
+bDjKuBvoOOTaTOMV70s65FghmyDlNLSyuOGpTMGlTqXgSNYMMehxHPsdo46S2N/5
+SYZPImYOXvYaja3UcCYl8mqZn2/yFYPaI0Y8B6v08nof4iYiKdlL+sS7cK1XAkeF
+emLTs/BQbziyTrK2sMmeZsY/Yiyr2y53PIxFvgAfnxNEIyl9+ZQ=
+=A0bt
 -----END PGP SIGNATURE-----
 
---hyjls6qa3nf4o47i--
+--4erhebjcgk6jk4go--
 
