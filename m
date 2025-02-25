@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF51EC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 21:19:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81489C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 21:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yRTAn8EMHBd2hfR7Y/FJYkcHDF1vc5TPWd5vqlVAC6A=; b=017AKN3+N68jSd8+mzFT6HH/vf
-	eyfoXkIleit4SQ/wJEw2/xqYg8OHY+WFAoShAMZFK0Pg1OLCCKUNyV8UdsMS8ttO5ms9vvBW3sWWT
-	NgW/N6q0tj1FAL52FqnfvdcrxlT7DHrgSQTKQ9YgUVkbnfrazkpyWhG09T9BaWXGEHWlJT4QX5Gd/
-	NBfcTkt+LsVOfQ8Q9KDeBVZF6hGTTk7tnaf3k3TuP9xBkGy28XyYBxv4+ELeTJKMlcrQcZXHqj8Vw
-	LsFqTxx2RxmfjQ3bTC8OfQ8r78EPtivZm2yd8Zq5uKXXJ98GsPheWTy2yZbNt6jjPOt1Offmhvh4a
-	1wcDhHJw==;
+	bh=e4QFWKkvK1MfnhL/90Bgctff+RTyO4G/8PgMsyHu6Bc=; b=rzZ3hqtFz007jL/XgP7SNSe5K6
+	8yJYreQyCMDBfHVemlkpTLX2iF8BT68fWC75cKD6phgazqROAf/SjfnH4Jlcshvm6pFBIEaqXJXCC
+	GG/RxVAq+VRZwuiNUXbW0jAQs7JIgvIU7i1pWAvbNHiTcXUlCyxVOEaqMHE053U+TRa+iiL4F78Zz
+	fS+Z7JuwbJ70c2OP52K1zt6iWpj5wl36vAJdJ/bDqC+cqJBa529bic2rttROTOQLaHnOgze1xLGTd
+	PaYyFnffN/r+DUxiEevlSgcptJc7bS1llZIlnjBfzVYguXUGGJDC2Y7fXS8mnKxX7j2FCIxJhTi4T
+	nDaBP0HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn2Kh-00000001WFV-2Oxn;
-	Tue, 25 Feb 2025 21:19:15 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1tn2MC-00000001WPN-21oi;
+	Tue, 25 Feb 2025 21:20:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn1en-00000001OLW-39AO
+	id 1tn1fg-00000001OZf-0168
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 25 Feb 2025 20:36:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=e4QFWKkvK1MfnhL/90Bgctff+RTyO4G/8PgMsyHu6Bc=; b=H+1kt5O2Xn8r+ncIbq/JMewHnH
+	QiCz++BdLCaimdzpOz5G6/EFPreDMicgM7Nigqm35fFDnA2j0E7tV4jYLUcjZ2V0Ps+D4/GoC3CHu
+	ZyIroHJjgBGuUWaZuwk4F/H23Pv7CZlyvcROoSyhX3GzzW2Wm4ug2/C7XlH24LL4H97L3wzLuBdHm
+	KtdI7/CVd4XFgYCQGvSFPz/DG0kTPwGUHR4/+toBzobAb+XgytISjsyew9NzyknLjfAVtRBT81eG1
+	eNr7B81HTvH0LrrP75qEVSoson0I3pqTb950IL9GZaeRhfWXbcF548Ryegm5jL+ex0wLLY+4k5Xzc
+	HR4fyUaw==;
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tn1fc-00000003Qox-3qgQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 20:35:59 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-38f2f391864so3473403f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 12:35:57 -0800 (PST)
+	Tue, 25 Feb 2025 20:36:50 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-abb892fe379so914785266b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 12:36:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740515756; x=1741120556; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1740515806; x=1741120606; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=yRTAn8EMHBd2hfR7Y/FJYkcHDF1vc5TPWd5vqlVAC6A=;
-        b=enP0ozETBMXstDkDok4k9SKcPMJwQXYrSbJngLda4KwNIzmj0ExddsAOswsiAWEfiE
-         +1YKDVBwkP/PZc9dfWVny2DckLsxGBcGTh2YfNmviiPwcW4djSbNvICXW0SlgdhcyFir
-         5A8pyyzacS3AR2n9eKtmjTNU1tePVcjiKZ48r2+POxv0j7cP3tuVbYDWdAc0MB4kBCF4
-         Pss6ty25JGmv81Hqxv7xdG9iUVWat+/1PGC4wal8PQNNs39VIbfOiPJxD6g+jlrV//vS
-         ocboP+3foiA4jgd1OjZ/bI7MHmOLlcwwOy+bmB7LP6I88Mcf3bj8MSHmzGMMBM1ULt78
-         MemQ==
+        bh=e4QFWKkvK1MfnhL/90Bgctff+RTyO4G/8PgMsyHu6Bc=;
+        b=bS7R/ju9gzfd3yQ07rfnEZiAPeEiGauAQTgESEBv4ejsPOhuYVXLUXwsm4kZYB3mCn
+         buoyy+jPoDxqmBrTfLs50hs952c7KF+KzZumcekzxtdChQSKNvGZKyiZfUlbe8A3b1Tq
+         B1p9FvAXj1+uNxaL+lLfhC5KGYcVF3jzD2Dom0UPZfae3Zu6iZuJfq1OBdQeGiU6yUo3
+         p5wGy5vZ6DX/CBUpFBeTecRjqM1TPXOARpNiLhDBH2Uh26ywyRvq5yi6yUTJ3IOKukrl
+         4473eNekSWB9iRsJWk4zMWdtAweNBhJTQ18Tuas0fiGcmZ+TdcacFkmpAebXsAxknFnX
+         ZvUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740515756; x=1741120556;
+        d=1e100.net; s=20230601; t=1740515806; x=1741120606;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=yRTAn8EMHBd2hfR7Y/FJYkcHDF1vc5TPWd5vqlVAC6A=;
-        b=vUZlcZ30Hl3o7H4+ZQN08xFljZA02W5eWL3m9FGrAFwTaXWjRwX29hA8UDKRtCDvT1
-         zVvxfiuoiDAFKTlhZ74FtGnVcynRYLjDgatmxfZk/oDpWtONkdvJxPovop6aZEouoY26
-         b5d7LNUVxl1R/PGPKc3NcU6lvuCTVP2ZnCCN1NJIfFgoan9B0uPQ3sFkK8GQCgmmjDM0
-         /Z1Y1A0VTeF28dbhLp88oVPPIKBXRQPOlC/uGowf09n/aarX/Se05OsIe8gnzmE42HzU
-         rlPu6TnMnGoY8bbQ/3bAf3LYBVkrHkVPvQHNSoiyLunWmpwK5AEzg4ygxKObc6DmY/3F
-         /+dA==
-X-Forwarded-Encrypted: i=1; AJvYcCV5QKbUUBTVO6lC9bnFqjqhAtwmbjRgwjIlrnCC0yIa25f/h99geufrveoCwBA26lZ8ZXQVmpsO+EGVnhzoi+db@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJ3YrYdJykPinkLCyavIT13J3HIWV/67Aom+u7ozyaVAqBnWuV
-	byRKHS/h1wsRA2jIguOxrCeZov2fjNgma9beu30CQ49VCmFbzMLj
-X-Gm-Gg: ASbGnctmS7ueoojTXbKiDG6eIJ7y+BtDRncBSpyz8POaDdsHI1hzxsS4WgophdipgTu
-	dfg+XUCXx9IFORwZZfi9wohnizd21MxEnSvQMmQkFcYSeUCw05E/OQT4S1vW3DnfVCSHI7Drqvx
-	dhWaSdAxmhch97DwI6hYMMoWK4fzFcStqLgHhMNPCCkHO6w9Trwzw/XyFAP2XGKzTtTZFL0xVy2
-	0Pa2MTChTc3YYgLVKY4G6QDntUeD7esyaCm/bVUc0Er8gF+lV2pOx0DmCusrcsnbLotAgdH/CVH
-	1PYNGKH/ep8gw4mzD6UHYZC2na2r7YzhVhOigrgf6nS3n0ib7q05wLfZmmY0ZQyxdq2lmB73Ofp
-	k7LQESV7MN+ab
-X-Google-Smtp-Source: AGHT+IHo6pk8C69B1kkZHL451iXWYmac+j4FDXKYrUt1Xc82AEnjWCz9kj00St6aZ3ajRNdoQCt+Tg==
-X-Received: by 2002:a05:6000:1563:b0:38f:3b41:c952 with SMTP id ffacd0b85a97d-390d4f36811mr510967f8f.4.1740515756017;
-        Tue, 25 Feb 2025 12:35:56 -0800 (PST)
+        bh=e4QFWKkvK1MfnhL/90Bgctff+RTyO4G/8PgMsyHu6Bc=;
+        b=dZOi8Nu/c4Nlm7RYxyeJP+w3dDUIrJqWzTSFlQYARZIsirQD/KmaHVfTp3TyeBTn5w
+         zi+LD2MvXp9/eju5jCzEkWi+Rrw5Agz9comBJvLjW0ohs9PjA8bsMWuLeJ/O3cgbkIpC
+         UZAkOnkr+piUR0Zk1USKbg7oMjlJx2YEnNZ1kpvQz+nf7l7GbjAAcECYBZNAQK1m7m+m
+         3993A02ltzrogbauMMxkoQgio8CXdK/DNEFlTXdr9brLvo4oEclvLp1n6mxm/iiNHnuh
+         MtUaJ+n3NSwC/+edYj1E5CXZq5v3ujiHa19fki2II9KfkXYu3EEe3vPLkKTJNIIGD5q9
+         89zQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWYbytrZDS5Lw1dRmjP+v/JS52l3wjsbArm7TFUi2/U0eEVPXVN5wJqsfRys6xMraz6bonep6GeQrYVNk1RkCRu@lists.infradead.org
+X-Gm-Message-State: AOJu0YxvdGC4NqCvamFu/8hPgkjeEZ7kjNfagWdwyClBXYMIawYWgPhO
+	ObY71fAKBWDjE8Lq+Xavq6aOaHyOMIz5aye9mYPaiHuBkIUfpvSf
+X-Gm-Gg: ASbGncuSemFC7mmlHXjBiSF3XDSLrvisIWuDI8oamK+Q8ZJbiH0Q1s3W9JuGkokkxH+
+	ELugk55t0+Qc8ucK/4DeJYZ9jwZnESKZJlhr9V4nphSodj7oZ6Mjm501W9mLmjKqdZr3sufiUXy
+	EqlnnTjxr47lhWF1KygHkuSaL7JXx9YeZq3AVH1NjazKzz8BaXCbbRWrOKCqjEMrsX5gqcBJbxH
+	oLS0urf/1BwnRBDqYtvOalNdU3DHYgbMTj7yKB/9oTnkRbDzf96G77kT/p7kNQqmojbvHBa34Ww
+	rcilGunKXSBRzivpDrbMe1IJMXlww2NrHPPvXW9C3/WW/+plMMxGBjjPQ63cZrkiCd5eZoPcMc4
+	WQUEvUaWpAAMI
+X-Google-Smtp-Source: AGHT+IFncxJntu78FR7b4qYIZj+yv/K48D2ocZTvPMdxZVQ+iCvW4E3ccfSm9iifNVJPhsHG3qsgrQ==
+X-Received: by 2002:a05:6402:3512:b0:5dc:ea7e:8c56 with SMTP id 4fb4d7f45d1cf-5e44a256cc9mr9383487a12.22.1740515806327;
+        Tue, 25 Feb 2025 12:36:46 -0800 (PST)
 Received: from orome (p200300e41f187700f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f18:7700:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390cd8fcfc6sm3466016f8f.94.2025.02.25.12.35.54
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abed205c7efsm199478066b.149.2025.02.25.12.36.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Feb 2025 12:35:54 -0800 (PST)
-Date: Tue, 25 Feb 2025 21:35:52 +0100
+        Tue, 25 Feb 2025 12:36:45 -0800 (PST)
+Date: Tue, 25 Feb 2025 21:36:42 +0100
 From: Thierry Reding <thierry.reding@gmail.com>
 To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
@@ -82,19 +97,19 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
 	NXP S32 Linux Team <s32@nxp.com>, Paolo Abeni <pabeni@redhat.com>, 
 	Pengutronix Kernel Team <kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>, 
 	Shawn Guo <shawnguo@kernel.org>, Thierry Reding <treding@nvidia.com>
-Subject: Re: [PATCH RFC net-next 3/7] net: stmmac: dwc-qos-eth: use generic
+Subject: Re: [PATCH RFC net-next 4/7] net: stmmac: starfive: use generic
  stmmac_set_clk_tx_rate()
-Message-ID: <qcarhmsd6u33ij4kupaiyxvyr7jxxv2uxvr6jsnhxjd3o3axkt@z4m3zvdpxogb>
+Message-ID: <auqbgnqka3hdrwbxoaa3so6caju6jzzpsbr5yufaqgbqmhjmap@nbawhyq3nz6q>
 References: <Z7RrnyER5ewy0f3T@shell.armlinux.org.uk>
- <E1tkLYv-004RZ7-Ot@rmk-PC.armlinux.org.uk>
+ <E1tkLZ0-004RZH-SL@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="vvcz2h4v3lcdr4gs"
+	protocol="application/pgp-signature"; boundary="npnnru3ejcetrulh"
 Content-Disposition: inline
-In-Reply-To: <E1tkLYv-004RZ7-Ot@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1tkLZ0-004RZH-SL@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_123557_788297_03537014 
-X-CRM114-Status: GOOD (  13.31  )
+X-CRM114-CacheID: sfid-20250225_203649_060770_C1417181 
+X-CRM114-Status: GOOD (  12.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,44 +125,44 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---vvcz2h4v3lcdr4gs
+--npnnru3ejcetrulh
 Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH RFC net-next 3/7] net: stmmac: dwc-qos-eth: use generic
+Subject: Re: [PATCH RFC net-next 4/7] net: stmmac: starfive: use generic
  stmmac_set_clk_tx_rate()
 MIME-Version: 1.0
 
-On Tue, Feb 18, 2025 at 11:14:49AM +0000, Russell King (Oracle) wrote:
+On Tue, Feb 18, 2025 at 11:14:54AM +0000, Russell King (Oracle) wrote:
 > Use the generic stmmac_set_clk_tx_rate() to configure the MAC transmit
 > clock.
 >=20
 > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 > ---
->  .../net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c    | 10 ++--------
->  1 file changed, 2 insertions(+), 8 deletions(-)
+>  .../ethernet/stmicro/stmmac/dwmac-starfive.c  | 26 +++----------------
+>  1 file changed, 4 insertions(+), 22 deletions(-)
 
 Reviewed-by: Thierry Reding <treding@nvidia.com>
 
---vvcz2h4v3lcdr4gs
+--npnnru3ejcetrulh
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAme+KagACgkQ3SOs138+
-s6GtyhAAwRIkaF1uLIs1z5IXu/G9vXd74IqnK4JNtzGrGKi7NS+cgEqC7yfhY27w
-G7nD6STOdAxZbhcGZfvkiSmrRNBmcmrs2nUBr+dM0BVtgpe/vfwOPbFRWd8Xpqt4
-6LYaRSYNIsaY3nAXP4+oa3LXly0Fe4axipwapPJGjl9vCnHE30kMULHJ9MhLlbAu
-VZzMketr5oN/usTXWFs1gsYk1Xw1wTabBQGENezBr0+H6Pq7BLDcuWPeEV5ie46r
-xTlPD/E1rNepOCxmN6uvJSnz/1ei791h7OAK9n/OMZXKSI0XsgkMresehTC2jIFG
-CwG03bepYX+Y64iJejVhCgxU2g8Ji8sv0tmTY7vsCFSa98ngzKWAQK/R6H/V6xMK
-vNL83T8No6JOneia+ylM4i2ESXII8LmguwJGY9mbRqqS9dmP52HZig7eww/80MFB
-g6yx6n6q4Us/vFJuLgnULe8gLcTMCMiCfAtk+MMdJUqb+eQGLPqXwxsIH5106zmF
-ZyRVftW1WAa3Yc8cNF43w7IBR4RDIHm8MBUI9ESyL34P7gobx/5Z0C/DudsmnuV9
-4ZJO+x5JUTs/P2yCg5VfB4ERHwfPUSf8LrYEJaVY5f4M+kchTApRjyf6v8oF9add
-zMdor2E+S+g69+tn77HhPDvuJzTrOnbaIxQsoIwGEIJ1IpnOBUQ=
-=aWdb
+iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAme+KdoACgkQ3SOs138+
+s6E3eA//VXPPJ389lkM7hL4gCsrCvhxDMVKpYPMFI55f6tZgLN36yUUjjp/67nLz
+TWhWj74unoSnThtfJlOzxs/l/n6/XM23PEtj+TVrBk507ao3hEWLWY0KPW7fHU0/
+kb7Jfe85CfqmkzrtLINfqpxvbb7bgSxP5yALfculXlykp61GY0aPIHUAXXWWUn2u
+SdgqTvYdA3oTDBJ2Cc+unBpVTSuH84RpMvnPLvtLu2+0t0ppjAf4MYJG09t3f/jr
+Ku7m1c9zlNWDrv1fSsIJ4kd8YakZsB9aDGxcP4rQhr/73uBetaUFfz92tTvMPAvn
+/vTqP75LzOPXu88BGK7ZV6SvdOBstrxxMOTM2/7/DSyCHv2V1Yt3xvplbP5YCble
+ORxVJNlzH0JweLWggg9xcvDlwas+jagLOYYp5If3cqsae9CFLxJr7zywxu+UaVT1
+DIpGMI0dnVaJcwOc01nlEWCzeOy0oe0lG9UZkUPKWbxoBB9Eit4ZibSmoTCf3l3q
+fjPgZBKRJa1hHMBEecD7gQja1zqMg0ZOcdXowP67ZIF9AkfCQHZNorMqQwicvA69
+w8x2PvFSXgexu6zDEAZ/5SMc7+iLQQ8gTR1SZHpna+9pl5S2X/CiYK4Ihvzs4EPY
+uXWe3lJzBecVr9TdDq5tgbk7cTqduZOS4Yvc1XkGEGgKA/JT4c8=
+=slen
 -----END PGP SIGNATURE-----
 
---vvcz2h4v3lcdr4gs--
+--npnnru3ejcetrulh--
 
