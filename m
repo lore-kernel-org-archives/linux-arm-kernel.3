@@ -4,108 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3898BC021BB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 12:18:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88092C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 12:19:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AH6XyKMQKy1L5/1/4qcQ3Dq5+Ibr/w74DoNERr7pYSI=; b=fRoHhAwujkX86ZTJcnoQ61gm4y
-	GkfRUFUTUVuVEiC6eGbkUEfWMUAIkE4xB3DTuGbrLilLVeMdfR6zw1iag74XNT04ernJlN8uPr/TQ
-	3aAtg8lt8kE5BU59TxfpHJCj1sGvCjFqIt0PHKSJuSnrvXNE+LziLwaN7yC7fYOryc0gCOxkqRANW
-	0z5aaA3jO4WTo1hprMtOG6NEpsuaGI+8/oAc8KpyGgTPq5fSBBt+EZJkQfDSijMX/5LfRClCwJ+yP
-	gXQBwfszQz6beiP/w8cBqHnQWLTUmQ5c1b6cVdaYliSberXsYEz90d2o3pm3X+MP1fjz3yzVYm5GF
-	KAmbN4UA==;
+	bh=Y9QkFEirhw3V2DCfqSN3bdPnI9mAbmGdRw2zT4oXGb4=; b=HDKOvX+1fxPbm0ONVftTy62H8S
+	tk36ACFb3vS2fGiovB1rDW7AymfHcMLyTUmh1QHFAE6hCAbXBkcjTwIz6vvcvRThVrgkPxMTAdwhR
+	zfdPBxsBwEyfzrABKZj0NgVtnGzfPV5ljE62mAtQ5WCFWnLRnPF8N/r7+3Hi+L2b0bt5Ja3kyz1nQ
+	5lJPBUguxUANYSZVgrttotUoR7xsfA06//agEnUcKtyXfKZNiUedu/wEYzwYSCPVboB4dlKnmc2Tj
+	KoQh+Jdzv1Z+y0u1FWb1dmElrIgx8pgLuBr9Ji7ZsFyt79Um0S/hszmbItWsFrcurl3V8ZP/zpjNc
+	goh8SxtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmtt9-0000000HBMN-1b20;
-	Tue, 25 Feb 2025 12:18:15 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tmtuf-0000000HBfa-0Cvl;
+	Tue, 25 Feb 2025 12:19:49 +0000
+Received: from mail-northeuropeazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmt7M-0000000H2Df-1DgN
+	id 1tmtDF-0000000H3Dz-1bva
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 11:28:53 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51P8Dmgu009109;
-	Tue, 25 Feb 2025 11:28:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=AH6XyKMQKy1L5/1/4qcQ3Dq5
-	+Ibr/w74DoNERr7pYSI=; b=aDNjx0O6kRUrZmxs1FJNFDwlArHvEk4P1kDlXtSl
-	+TwgnKsIULHWmVIlIBfrmBYQUDcILJ8a2LCogStr90Np0sZgk9Em7NfA1P9jX/li
-	gC3CuPC0+JKmfDAWoEly+Gy5Ga85wX/6mSInUc6XaH7fvLWsaU+5aFj9rdIwPktc
-	BgTvgYPBVAi9gvfL/xEZMnJsn46DCWy0eUTuHAoA5n/zI06TlEXpWEOjTn0noRTP
-	WBmKG7D/o3u3cHVqORlaUf5+NpVcP9lHr8HtS5iKmSat+bOaJV9AaHae4Sf4/rLR
-	gEqsuxsN3jDL170vvn+wdhEAw0kmzEUxiOUoFHRMC8j4ng==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44y6y6rp38-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 25 Feb 2025 11:28:33 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51PBSW8O029297
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 25 Feb 2025 11:28:32 GMT
-Received: from PHILBER.na.qualcomm.com (10.80.80.8) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 25 Feb 2025 03:28:27 -0800
-Date: Tue, 25 Feb 2025 12:28:24 +0100
-From: Peter Hilber <quic_philber@quicinc.com>
-To: Simon Horman <horms@kernel.org>
-CC: "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowang@redhat.com>,
-        Trilok Soni <quic_tsoni@quicinc.com>,
-        Srivatsa Vaddagiri
-	<quic_svaddagi@quicinc.com>,
-        Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-        Eugenio
- =?utf-8?B?UMOpcmV6?= <eperezma@redhat.com>,
-        Richard Cochran
-	<richardcochran@gmail.com>,
-        <linux-kernel@vger.kernel.org>, <virtualization@lists.linux.dev>,
-        <netdev@vger.kernel.org>, David Woodhouse
-	<dwmw2@infradead.org>,
-        "Ridoux, Julien" <ridouxj@amazon.com>, Marc Zyngier
-	<maz@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Daniel Lezcano
-	<daniel.lezcano@linaro.org>,
-        Alexandre Belloni
-	<alexandre.belloni@bootlin.com>,
-        Parav Pandit <parav@nvidia.com>,
-        "Matias
- Ezequiel Vara Larsen" <mvaralar@redhat.com>,
-        Cornelia Huck
-	<cohuck@redhat.com>, <virtio-dev@lists.linux.dev>,
-        <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v5 2/4] virtio_rtc: Add PTP clocks
-Message-ID: <vhlhes7wepjrtfo6qsnw5tmtvw6pdt2tfi4woqdejlit5ruczj@4cs2yvffhx74>
-References: <20250219193306.1045-1-quic_philber@quicinc.com>
- <20250219193306.1045-3-quic_philber@quicinc.com>
- <20250224175618.GG1615191@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+	Tue, 25 Feb 2025 11:34:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SIV4os2IMw2iJAgtcTNUv/wck/rDI4OmTyQuaSRPD+gtsaJrJLKKPxQspRCcnHQH22Zsqg5BhjW1/3dRY5o341cg6OVYqPNM/Ya2nnGep/PxHLRKlcoBgtOt6dtIVpLngjYjF0dtwVB+Ci6BzQ7eGH3lkVI2/xopFXJ7c46PQE7TjB8fXHxG76uBUdbVpKhFDvFOOpxyGh3aKrQig62mUwBSLWPOH6LvzJBUS+HEctQEVGSbrtNEpA+Inx+yfH355I6gV8U4bCTV5g6WkMrZro4HkJNjaJEsW9wGqM2/V2y4ps+S7a0o01S6E2mN5MWMUO5rHLR2QnRPEj8zGYVErA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Y9QkFEirhw3V2DCfqSN3bdPnI9mAbmGdRw2zT4oXGb4=;
+ b=ptNEBPwbumkKBZFHNwqHbAhvlO9yJys4iW0FJnwK7q37zUnk0t6v9TtIvjOIGUzUeH+nIL118OQ+UIzvYIZTKF9+Q9dP4OjsXyBqJUFjaKsuuGC3MVKPeWj614meFGpsrlCaKvpsO5Ilwb+9bDLpArrRM3xGGq6nT9PkU9D+9wYo9vBV/aTZ1LOAcAGBm2iLvEMXW9i9CnflIQpFh/UaLs6yrGHPo6TgnUzPrcSIa+p93f/p9XzA+iXsjz8ZJ23ljdMVrghf0oOSm2RdDMfMZx/Cqv8Enjy3veJlJ2VvLFHKCY2Nof1h15mi4Jt5EzYk37KjzuykgPlj0AOwzRBM5g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Y9QkFEirhw3V2DCfqSN3bdPnI9mAbmGdRw2zT4oXGb4=;
+ b=S8L5F5IQQOctw6pT49a8JEndFVhv+eZDzpu8WMKIi0/MZHfcbNKWvR5+xMRTSXS5u21Ki7lZG8RSvWVbmJhEvqB9LgqvCuC+DC/sIn2W/8QEsnP7csXtpj73pNixBbHd2CAMTrtqDHfOyYNcGO+4UcD8X58FlPNFdjpKtuGYd8ELbe8t89h6jl0/FczAdrF4xekjXFBv5b5hIweOIh+1CBvft0FowMo/lMIoxZITYM81zlZONPul9iLme2N/Err6Ah87knXCVyvm7rIQQw1pqoxTgVZSmlal7RtaMV7Y/kA7OOL/+Q50Gt+cAO6M55vZPeLPT5C04eBD1zugR1NgBQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by PA4PR04MB7599.eurprd04.prod.outlook.com (2603:10a6:102:ea::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.18; Tue, 25 Feb
+ 2025 11:34:51 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.8466.013; Tue, 25 Feb 2025
+ 11:34:51 +0000
+Date: Tue, 25 Feb 2025 20:42:03 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Peng Fan <peng.fan@nxp.com>, Chuck Cannon <chuck.cannon@nxp.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>
+Subject: Re: [PATCH 3/5] firmware: arm_scmi: imx: Add LMM and CPU
+ documentation
+Message-ID: <20250225124203.GA31590@nxa18884-linux>
+References: <20250121-imx-lmm-cpu-v1-0-0eab7e073e4e@nxp.com>
+ <20250121-imx-lmm-cpu-v1-3-0eab7e073e4e@nxp.com>
+ <Z5DhM1VLv2uCCVwT@bogus>
+ <PAXPR04MB8459D4C2CA3D5AE58B2B509788E02@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <Z72ZxspU3hfGZWez@bogus>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250224175618.GG1615191@kernel.org>
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: HaD8-URwhEOYl4JEkmXZIwXbLt2o3JAj
-X-Proofpoint-GUID: HaD8-URwhEOYl4JEkmXZIwXbLt2o3JAj
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-25_04,2025-02-25_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1011 spamscore=0
- malwarescore=0 phishscore=0 adultscore=0 lowpriorityscore=0
- mlxlogscore=537 impostorscore=0 priorityscore=1501 bulkscore=0 mlxscore=0
- suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2502100000 definitions=main-2502250081
+In-Reply-To: <Z72ZxspU3hfGZWez@bogus>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SI2PR04CA0009.apcprd04.prod.outlook.com
+ (2603:1096:4:197::8) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PA4PR04MB7599:EE_
+X-MS-Office365-Filtering-Correlation-Id: a8e93eac-9d75-45d1-ecf5-08dd55906a92
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?LgrcCPnTkSLeM2jmYQre5QKt1GlSczvIsvzeksZkAOogzaf1aSOdz8lKGSr9?=
+ =?us-ascii?Q?jL+Tsd1N0GR1B2e9Yfwly4j2zPjzwaxVaqzWFgw3W3JvwxCgIlX+yytghx49?=
+ =?us-ascii?Q?dXZp0w9ePg0tfxFpFjeBwGwTo7j7eMouWCIU27neMwc+Onc8Z7egcvMRqoJh?=
+ =?us-ascii?Q?FZrUmvDXDwFqKuePx+xqzxW7xjuYkWS4imw+3Kf09KRlpVYdYt/EQSMXgCbf?=
+ =?us-ascii?Q?6KP2X3/vBxhXWH/gtqNkwA/lbJ/EKJmfiYyC5o09xNIp8EPLCZ7HUiqvrmNY?=
+ =?us-ascii?Q?N95mKZ2mPHhO1J7yDCZAjIOiuUzeAxlVU5e7DGUNpTISimYL/pBgrga8Shwo?=
+ =?us-ascii?Q?1LhzS84ndptzlsJYkb8nxAUsZJO2ljAZm5CXQJWm2hIHy2+uuqqs/IK2wAJb?=
+ =?us-ascii?Q?xvcF8NZMTncYoyDsql0F3V3RnDw7Mf5tndvD6o1xua/yqE+8VXTAvVzqOoK3?=
+ =?us-ascii?Q?/8xQI0bfLn1L2myFwqpfNDMXlvOOl1qnhUzBexeWnLNT+yJjgjvaHvTvdkZA?=
+ =?us-ascii?Q?S+xjOkoOcV6AhBTXywnPl/Fjq3dkp6dJWSRphw9vpJArNJlGXcw1p4TApXcG?=
+ =?us-ascii?Q?wAWZClnqpbJCSS1HfxCvTp4hZURkcVZUN7/dZoU4W2yqQ2PeEeWcN+ygnpv8?=
+ =?us-ascii?Q?xP1kNkkzEB6HxV+/4xLI+o6T65OXQRebf8XsDhleXmQkxer8OAYgJJTQVO3p?=
+ =?us-ascii?Q?RSlpcgCDueFmR7TUMHnN6ds4zFB3JUBtCsYeLsM7o46i65tep+ldKyXxNHa+?=
+ =?us-ascii?Q?PO8y10qcxnANh6XQreLi/kDGhrXxLMS2XLHnlvRtTn6JFGw4QMtTNkYT3z+P?=
+ =?us-ascii?Q?vQeQbXDQAP9fuFvBJbDtVTYDIm6CLMJfY+g9SqgRU83xXWuvQghIiHjQm+zM?=
+ =?us-ascii?Q?1ASaYmzVobcXRHSO8d8FiUjtIp9ZcguEK/8eNSy5l1ilb4uR8oI66aNDj8e/?=
+ =?us-ascii?Q?ngy9FkwAn4YdEaltWGn1nF4DTyFz5yln/FWghmNjPPQX+PeFGFodeCJ7/PrD?=
+ =?us-ascii?Q?ByLCCczHKtmCxQGf9bKIaufNL5xD16pxk0hdngKR3/6kNBJBQYU1aGijDbQA?=
+ =?us-ascii?Q?klG/EHOfZKazFYessTleB3wVSpGRkgkbqxxsur8ycBExW81/TrKqGF+x6ACq?=
+ =?us-ascii?Q?/LPAFMnphjhtWsJuz2XNsmaMYtnCuUVy5SAVaGmhIKynkkPlyHlLNIwITS7r?=
+ =?us-ascii?Q?QLweH+qo4KdWDsmiI0Wi+kUQy/Qpdouad2iNUQo9urfeqPTjD8/zvUTJNgjf?=
+ =?us-ascii?Q?gj3ZbH6pH/4ywGt2rtDk6F2TSHVQWQNZkEypPsAjMXU0G/4CHFAqyUnVFqFE?=
+ =?us-ascii?Q?R46o+aRBNpkPLKzrZEq3vBuNto7pIH4FN1WBTNPBor3YZRox0MmSgSiLuJh+?=
+ =?us-ascii?Q?Km47WS7qSl34mA2L6nBeHEqq7RDM0kOQoLK5Fk+5MRZ4mL8AKDMHQ4HQ3ain?=
+ =?us-ascii?Q?Vz/2S11LROvAV/7lztfI7Pb8ZF4cgJ37?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?xVB2Nz+aLyJTTLL9RFWA5nOQT2KImgKXGLtz7GHGrJEIoiklsx5JaAWfhxvZ?=
+ =?us-ascii?Q?ZZfu2Ib+AGS8oP0FvwUUorxVUY+eXjkx7au9LRxYCT/J+KtNcJuK+YJaOFJW?=
+ =?us-ascii?Q?GU4a2St0eMmeU4/Wis9nqaeQJAEjqCjzeH/T0PaVJmN5AyvLvozys4LL0n3D?=
+ =?us-ascii?Q?aMuS5iOYSH0g9TxS0dZ7RTwqY/kHtbPeVfljahgX2ZLajXEz2Rg7j4S/JeNN?=
+ =?us-ascii?Q?Wy70pQ/qp5tYrkt24R6UDMS/gRqULzmXeZKRCU+h6bUsxVgIKbqoAFcfSLaC?=
+ =?us-ascii?Q?AJwoTPd0BtCi1bjDXatGCc2VK77knAvRctXYQSXkXsPveFhAsBk7H0UuvLQP?=
+ =?us-ascii?Q?6PDTaItFdI+HlhIYmML5gOCXsVOzT00CTEOqUiYAx/ZXKT5ZykDjiF/0PY7L?=
+ =?us-ascii?Q?0aOwo1nSnsAUGWMwvodamYxOElgsnmsP/bBouO5m/q+D0H2qs4ckLIOdO5ov?=
+ =?us-ascii?Q?T2iV1FV4Y/pl5qN/5L63zTvIbMpnYg1rtf9B4O4OjCY4ZQ780LnzK5Jek5uB?=
+ =?us-ascii?Q?Gi1Hyq6qd8GW1HlVxQo6uES+hiiX7xmvZ4MWuD5ejvwF5hKha5mMF88BnW+T?=
+ =?us-ascii?Q?MoJS0MmcAz75elA0DUI++8AcGRDUhGq3wQjj2CH0xjXQorWk+kBhohzgYDeA?=
+ =?us-ascii?Q?s47N7tHAFVC2FlbErNB2ZQX4LcT2zX2PqPZ8uU56O+K9G9Bg5RyKkvhMgm83?=
+ =?us-ascii?Q?KSoG30dld4nho+gm6iVOfR1YE6WXA59CUB8WdiATzjyY/w2T4E9hRAnWHVKt?=
+ =?us-ascii?Q?qbUUldXgRKbczj9jqs8aQawzsuD1y3WQvHKn+Zv4J6gJdrxqwIjtoeiwMp1g?=
+ =?us-ascii?Q?2fcoihzqage8BxCjK2TbKTAR4wuTSEHdj4r2kEuiDsIWT4lDkLyViET+7MYo?=
+ =?us-ascii?Q?qzu+WIEzE0xVUVGTU8ZdIwwDCdPF+d7QIyBI0sc3Yw4iH1ZZ69xECRJ+RSEP?=
+ =?us-ascii?Q?Q/GomZHno7b8ZDN16RrZ26iwpGMUJ3J8ijJt+oQ5VJWVw/oIAsAdFXx8Y/Vf?=
+ =?us-ascii?Q?yGVFvlaS0byGf1UIsE5o38ejA0gSxczhTf7xlkmYP/0pfkFU20HbctWXaeOt?=
+ =?us-ascii?Q?VULWo9XmYvjdnMIbVJDu8U9vepQHMXH08SDQqt0MaLc7z/iuhhBS7u7eliRP?=
+ =?us-ascii?Q?KBVXyzJd+hfBBWRDgxBLsFMrjKDCaThfy2zaitxpSrR0mGJTrtaaUuavJzIn?=
+ =?us-ascii?Q?SF18wE0IC1bOFX0Q41l2ey2BzcGv0ELYF2mMyuwVLutGcZYByPAmZe60pPPn?=
+ =?us-ascii?Q?n15eoVoT93dYGoc5h4rJP8R4piWdsfMUkLtNwL9ifumfi81qrPcXMiJU3r+T?=
+ =?us-ascii?Q?iVia6gKYjFS0QOrKSIYKAJhtq+03ZBj4iil8s3s8+m05NK2HG+NfgMZxT+np?=
+ =?us-ascii?Q?ug4mI7IFu+ZCsHXXdV+gAccWLrN/KSyrETjr+X1KB2HfxKwL9ePAg/4G3MdB?=
+ =?us-ascii?Q?3Rm7kXmGK+i+gTV8Bu8jP8946QljtUXiBgebgEAM76I27/ESHd6K2MqIyMuh?=
+ =?us-ascii?Q?Fn2rtHx2YJgnKl0cezNFhkN3SyP6ex79/KdY1B0tuZd9xWJz/Qwxdi6SkLI1?=
+ =?us-ascii?Q?mKiaCKR3PnEeGjxPtvRkowyxtfLDzKMLZ04cTekW?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a8e93eac-9d75-45d1-ecf5-08dd55906a92
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 11:34:51.0393
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: uFMMW8rKyWVdXf93V88M4HtF6/hq5YDsF3dTEdqkyVWSsk2yloVU19nwvRHd66jUP938NdH57ckNjfwy0Ot9tg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7599
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_032852_440410_B0627D50 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20250225_033457_424535_CBEED921 
+X-CRM114-Status: GOOD (  18.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,34 +172,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 24, 2025 at 05:56:18PM +0000, Simon Horman wrote:
-> On Wed, Feb 19, 2025 at 08:32:57PM +0100, Peter Hilber wrote:
-> 
-> ...
-> 
-> > +/**
-> > + * viortc_ptp_gettimex64() - PTP clock gettimex64 op
-> > + *
-> 
-> Hi Peter,
-> 
-> Tooling recognises this as a kernel doc, and complains
-> that there is no documentation present for the function's
-> parameters: ptp, ts, and sts.
-> 
-> Flagged by W=1 builds.
-> 
+On Tue, Feb 25, 2025 at 10:21:58AM +0000, Sudeep Holla wrote:
+>On Thu, Jan 23, 2025 at 01:30:43AM +0000, Peng Fan wrote:
+>>
+>> This is to manage the M7 core by Linux. I just put more documentation here.
+>> CPU protocol is also used by ATF to manage AP cores.
+>>
+>
+>Good
+>
+>> > Also what other CPUs are we talking here.
+>>
+>> M7 core
+>>
+>
+>Are they referred by any other name in the system ? I reason I ask is using
+>plain "CPU" is too generic and confusing. At the same time using "M7" may be
+>too specific. I am trying to see if there is any middle ground.
 
-Thanks, I will change the offending documentation to non kernel-doc. I
-was not aware that these warnings are always considered a problem.
+"CPU", if you mean the protocol name SCMI_CPU, there is no good choices.
+I could add a note that "CPU indicates the various cores of i.MX SoC,
+one CPU represents one core"
 
-Peter
+The documentation origin from https://github.com/nxp-imx/imx-sm
+hard for me to drive a change to use other name.
 
-> > + * Context: Process context.
-> > + */
-> > +static int viortc_ptp_gettimex64(struct ptp_clock_info *ptp,
-> > +				 struct timespec64 *ts,
-> > +				 struct ptp_system_timestamp *sts)
-> 
-> ...
+Anyway if you have ideas, I could bring to our firmware owner.
+
+>
+>> In general I would like to
+>> > explore the possibility of collapsing this with LM protocol. CPUs within
+>> > LM is LM's responsibility to bring up. And CPU can be seen as an LM for
+>> > sake of this vendor protocol. I am not get into details here yet before I
+>> > can understand what these CPUs are really in the system and why we
+>> > need this.
+>>
+>> Our system supports M7 and A55 in one LM, so A55 use CPU protocol to
+>> manage M7. When M7 and A55 in different LM, use LM protocol to
+>> manage M7 LM.
+>>
+>
+>The LM(assuming Logical Module/Machine) is an abstract construct, it should
+>apply to even subset of components within an LM. Just wondering what are
+>specific reasons do you think applying LM protocol you have on those M7
+>CPUs alone in A55+M7 LM would not fit well.
+
+We have internal mail "NXP-ARM SCMI OEM extension" between NXP-ARM that I
+could not post here. In that mail, LM is explained.
+
+It is the LM protocol design that it only applies to the whole LM.
+If the LM has A55+M7, A55+M7 will both be handled.
+If the LM only has A55, A55 only be handled.
+If the LM only has M7, M7 only be handled.
+
+When M7 + A55 in one LM, using LM protocol to handle M7 will make A55 not
+work properly. The current linux usecase is remoteproc, that means
+stop M7 will make A55 also stop. So need use CPU protocol here.
+
+When M7 and A55 in separate LM, using LM protocol to handle M7 LM works well.
+The usecase is still remoteproc. In separate LM, A55 CPU protocol will be
+blocked to handle M7 CPU per firmware security.
+
+Hope this helps explain.
+
+Regards,
+Peng
+
+>
+>--
+>Regards,
+>Sudeep
 
