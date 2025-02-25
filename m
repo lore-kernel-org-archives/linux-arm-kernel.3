@@ -4,85 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97E6EC021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:40:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E5BC021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:41:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wfjw1HKQVvRq0BsR7wxCvBaXgth/Ba/pzPz08eLvgdM=; b=cu5X9H0IW4hothFtomtBfwyiXu
-	7PfpCo9tE31Yryo63F0zC1dbVKzH6t5Z3rjKETA/61IJW+1pfH/F0uXFKXs+lMoXTz8DCkbQN9F0j
-	p+/2dtPynMvEmu+nQulCZ8IcJSmw8xQrdZRbnidWFVoAVGUgpkpelCEANrpaSq6h+w3CBjcQqCPAU
-	VZa2KBS9d03kWjvDDKrR0sek9DtvwrK6QPsxB11yHaO0eaikzGPolgqTlTWmgdlbqKbp7kqTZwpaq
-	M0JF8GWVypQSLTWFv8Oszgi7AddN6eKEI+tb2xXqy1002eUCDp3QXAhfPKuhUi5vjmMBj7/Er7fLe
-	neshh4Qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qWLlnni9ZV/38ejF8LSw3DF7K5lyDl0Bbk3JQASeHmQ=; b=2UJXtsRdpWqCPDEPr/UqBbp1XX
+	4XsYkrvZ89M14n1+RfdkJOgClJnFiNaf1IwWOrsPovB3tkEBmOv0fvx/z8n/4VPJBQyOmCdM1fpV0
+	bx9MVXFxF5AU21ztvbUMd8qmsUpYEU6bc6e1FRr/2WeNI9V1R7Kj4QhlrmMv/Jjl35ZqyRTVIaMYE
+	Zjxf8I4lxrhhGmI8nCF/WViGjL1llhTtRsoDniWUYIcb26Ata1DRiWLmYn5+u6KFmATRWihwqKVQh
+	GttTOb50JkuLIzvml9ilJcTyqyvoOVYImsnxu2T4SJuEs6gbLlg9wPSoHGMHDuzxZRbyArMP/2IYe
+	ZOCZfsfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmxzC-00000000Iyc-1gsD;
-	Tue, 25 Feb 2025 16:40:46 +0000
-Received: from mail-pl1-f180.google.com ([209.85.214.180])
+	id 1tmxzI-00000000J6s-3KJm;
+	Tue, 25 Feb 2025 16:40:52 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmw00-0000000HXZL-3cqW
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 14:33:29 +0000
-Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-220d601886fso86867365ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 06:33:28 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740494008; x=1741098808;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wfjw1HKQVvRq0BsR7wxCvBaXgth/Ba/pzPz08eLvgdM=;
-        b=H4AA8AYmx3acTJVrxXJRnH2C/PH0SMmFNhVRVKJ7dkdhSXrVGZ+j6BUlC5Bd4MtWVW
-         0rIjpprRBvlXRFPPhc15L+9WgqMf4M2TDostGys0z3FDiZHbzUDNxl9zxTG+dhKdg9aD
-         +lEWf/tjifu8JAwIQdnfiiJ+LhRqgobfKtQetMfgaxbY2dUvDvUKeodvJAwoB0/srPjL
-         P4WApZcAVyzDgnqggrfMoCwpmdZehriPSS2/4eP38o/8lRbZzBdID6kDleM1KxSAyuku
-         73Dq3EyTx6YQmB+Za8nEgdMaKNBaJSfRlNQxGsTsD5C4Q4TO/MTgLpW9XS8CRsw7Vgne
-         YHjw==
-X-Forwarded-Encrypted: i=1; AJvYcCWPVmqITor+uDzJSIezcRAfWTC5YnBsuNN/Nsob2H0wNhPtKTcGK7qUDbSNTkZO8sptFlkFCwGpG7egB/fZkeye@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEoob76n5AM8hEwYjgSS060vBMxi3D1kC6DaDy6901f9HO43jK
-	i2d0XWqAUxSXhnNFQDNpSjB9VsksRhTTV+69N+TH3t/cXbknuq+J
-X-Gm-Gg: ASbGnctaWMFXLDo5khNDG+YHCkRr1NnIQ2Sv4KPkcAWJ+0kobrkb4m79C0Q88wjnz3z
-	5d80n+6xnnHkWmDSkY3dw5EQ+SVWzlD2fk5mdIpmPc8QpWRq2BCtf7eC59qiK0bgZsG7daNaqz/
-	l8x48RHolTYFgYrSPZtd1p8httvz31otOuvjMkA50h1X94sISke97kJEprQ3BI4HGxexzPehw40
-	zycwBbTQ9Yhr4fXh+NpyVp1EF4DWldT8sMG5ddUb+XNDDBdX9Hulo1OV3YYFZu2imsvz79WB9VC
-	oGE2lm2ixBLrB29esu2bBYXFG3mbI0HjPSeTZtwPqMAjVLFzdFdgi1Ubw49x
-X-Google-Smtp-Source: AGHT+IFiIC1p2JsvGz1HBLa46/0n3Ly+kaAqBACASxC9/r77WzUjMbOSLV/Jfp7om7mV9KcQCdz2UQ==
-X-Received: by 2002:a05:6a20:d492:b0:1f1:458:fe80 with SMTP id adf61e73a8af0-1f10458fe98mr2109104637.25.1740494007946;
-        Tue, 25 Feb 2025 06:33:27 -0800 (PST)
-Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with UTF8SMTPSA id 41be03b00d2f7-aeda75a224esm1420946a12.15.2025.02.25.06.33.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Feb 2025 06:33:27 -0800 (PST)
-Date: Tue, 25 Feb 2025 23:33:25 +0900
-From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: Niklas Cassel <cassel@kernel.org>, Shradha Todi <shradha.t@samsung.com>,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, lpieralisi@kernel.org,
-	robh@kernel.org, bhelgaas@google.com, jingoohan1@gmail.com,
-	Jonathan.Cameron@huawei.com, fan.ni@samsung.com,
-	nifan.cxl@gmail.com, a.manzanares@samsung.com,
-	pankaj.dubey@samsung.com, 18255117159@163.com,
-	xueshuai@linux.alibaba.com, renyu.zj@linux.alibaba.com,
-	will@kernel.org, mark.rutland@arm.com
-Subject: Re: [PATCH v7 0/5] Add support for debugfs based RAS DES feature in
- PCIe DW
-Message-ID: <20250225143325.GB1556729@rocinante>
-References: <CGME20250221132011epcas5p4dea1e9ae5c09afaabcd1822f3a7d15c5@epcas5p4.samsung.com>
- <20250221131548.59616-1-shradha.t@samsung.com>
- <Z7yniizCTdBvUBI0@ryzen>
- <20250225082835.dl4yleybs3emyboq@thinkpad>
+	id 1tmw1b-0000000HXit-18ro;
+	Tue, 25 Feb 2025 14:35:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1740494105;
+	bh=VOTlkRaTJUxVymB+VRML2zW6NSmIQJd6XGkId1VraY4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=J8iN9rn7M9ODiSRDL1LE/Bf8VoJqyJSSl8XDO7lkOrw2THUkCmMpfLkLfqFtEjvSz
+	 HekKyWTk0Z1lN/gKHVh9L+NGuv5aMpMeeUkiVYorIqjpaBreR1inM0HqhdhekbcDwy
+	 SegcVs3yAE0OaPzqApBUTdkxJqtzM/5VDTvAjLTrp5lgdYM902VUAgcgE7B3gqJBIm
+	 wvBxsKJK8EsPRxDdoapjfqlDrGJD4hDl1Uw1hpfa0kpO77cMWFX52tkhyEwZhyKoh6
+	 KqpEyE0UEaTrq0C0vr2/iqTfAOCeAs3pypscEvmdQQbQcXFgYl7o5sA+u7ONu3impj
+	 QsewR5a44WNfg==
+Received: from [192.168.0.47] (unknown [IPv6:2804:14c:1a9:53ee::1004])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D16AA17E0DD7;
+	Tue, 25 Feb 2025 15:35:01 +0100 (CET)
+From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Date: Tue, 25 Feb 2025 11:33:47 -0300
+Subject: [PATCH v2 1/8] ASoC: mediatek: mt8188: Add audsys hires clocks
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250225082835.dl4yleybs3emyboq@thinkpad>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250225-genio700-dmic-v2-1-3076f5b50ef7@collabora.com>
+References: <20250225-genio700-dmic-v2-0-3076f5b50ef7@collabora.com>
+In-Reply-To: <20250225-genio700-dmic-v2-0-3076f5b50ef7@collabora.com>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Trevor Wu <trevor.wu@mediatek.com>
+Cc: kernel@collabora.com, linux-sound@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_063328_903189_7DF35D5E 
-X-CRM114-Status: GOOD (  10.36  )
+X-CRM114-CacheID: sfid-20250225_063507_454636_0B78EB3F 
+X-CRM114-Status: UNSURE (   8.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,17 +81,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Describe and register the aud_dmic_hires audsys clocks, which are needed
+when recording the DMIC at a sample rate of 96k.
 
-[...]
-> Yes, it would be appropriate to return -EOPNOTSUPP in that case. But I'd like to
-> merge this series asap. So this patch can come on top of this series.
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+---
+ sound/soc/mediatek/mt8188/mt8188-audsys-clk.c   | 4 ++++
+ sound/soc/mediatek/mt8188/mt8188-audsys-clkid.h | 4 ++++
+ 2 files changed, 8 insertions(+)
 
-I pulled the series so that we can get some mileage out of the 0-day bot,
-so to speak, and also get some testing via the linux-next tree.
+diff --git a/sound/soc/mediatek/mt8188/mt8188-audsys-clk.c b/sound/soc/mediatek/mt8188/mt8188-audsys-clk.c
+index c796ad8b62eeaa929f24c09755f428116b105404..40d2ab0a7677b64985f9fc9eb38f67bca7ecd4f9 100644
+--- a/sound/soc/mediatek/mt8188/mt8188-audsys-clk.c
++++ b/sound/soc/mediatek/mt8188/mt8188-audsys-clk.c
+@@ -84,6 +84,10 @@ static const struct afe_gate aud_clks[CLK_AUD_NR_CLK] = {
+ 	GATE_AUD1(CLK_AUD_AFE_26M_DMIC_TM, "aud_afe_26m_dmic_tm", "top_a1sys_hp", 14),
+ 	GATE_AUD1(CLK_AUD_UL_TML_HIRES, "aud_ul_tml_hires", "top_audio_h", 16),
+ 	GATE_AUD1(CLK_AUD_ADC_HIRES, "aud_adc_hires", "top_audio_h", 17),
++	GATE_AUD1(CLK_AUD_DMIC_HIRES1, "aud_dmic_hires1", "top_audio_h", 20),
++	GATE_AUD1(CLK_AUD_DMIC_HIRES2, "aud_dmic_hires2", "top_audio_h", 21),
++	GATE_AUD1(CLK_AUD_DMIC_HIRES3, "aud_dmic_hires3", "top_audio_h", 22),
++	GATE_AUD1(CLK_AUD_DMIC_HIRES4, "aud_dmic_hires4", "top_audio_h", 23),
+ 
+ 	/* AUD3 */
+ 	GATE_AUD3(CLK_AUD_LINEIN_TUNER, "aud_linein_tuner", "top_apll5", 5),
+diff --git a/sound/soc/mediatek/mt8188/mt8188-audsys-clkid.h b/sound/soc/mediatek/mt8188/mt8188-audsys-clkid.h
+index 6f34ffc760e03beddc3001046e554edd7ea2c478..9cb732863c104383b9859b4bb5b3f5c289ad1864 100644
+--- a/sound/soc/mediatek/mt8188/mt8188-audsys-clkid.h
++++ b/sound/soc/mediatek/mt8188/mt8188-audsys-clkid.h
+@@ -33,6 +33,10 @@ enum{
+ 	CLK_AUD_AFE_26M_DMIC_TM,
+ 	CLK_AUD_UL_TML_HIRES,
+ 	CLK_AUD_ADC_HIRES,
++	CLK_AUD_DMIC_HIRES1,
++	CLK_AUD_DMIC_HIRES2,
++	CLK_AUD_DMIC_HIRES3,
++	CLK_AUD_DMIC_HIRES4,
+ 	CLK_AUD_LINEIN_TUNER,
+ 	CLK_AUD_EARC_TUNER,
+ 	CLK_AUD_I2SIN,
 
-That said, while looking at the code, there have been bits where I wanted
-to get some clarification.  Nothing will be a blocker.
+-- 
+2.48.1
 
-	Krzysztof
 
