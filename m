@@ -4,89 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C34D9C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:41:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02678C021BB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u3OyWMfMyDgx+55Ind0kZ2lpQA8/mHOXTjN2aQVmO4M=; b=J3x72XXohRv7T5FZAgq/BnfAiX
-	t9oyZQHIcbPffTmvVkhFPg943shOzKNdVOvUKzzbz4hk09H3NFLmKnEw3ShWe7ugvzbDeNe5jfnLk
-	XkIX/BQEB16+qqu+nVghWNMFanjEjnEtqxoxuj2km7OagPN360DwrTYW3Y038qkzCPVtODUAwIfzu
-	j0RYpLmUvWFv9jcneoj4/yVQIy2IqzQhQWU04xmv/FHrGTsC2jTRN1RKYH956p232MIoZjkFcLn5K
-	64b75fzlo+nTKOLu28bodf/f/yxDaQJcxUhs0yMT/AKEWlWAhoHo7cD52A99DIQoPw80BVTnO7Iu4
-	UyJ0MKRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l/sg7omSvJw4OhSWVma2ygvtz/i44Mb1jIOoIOn0G+U=; b=BRMx/cBwgi5uk/ADSpDWyMK8xn
+	gYz0Mt0Iqod3A5HFIK9X5pRLw0hQ2X8YCh5Z79q8oV/eSbBJAJdShrUWQ8uKi8kABfR6G9DTciOyZ
+	MRHR3DNz7jtVVR9b/Xk9u0U7xuabHqXY7bE3mN8SoXd8PLgYfzECuuBVLTawK/QmNaUIk0mD2EfFL
+	3TNMXB+hOcJNAQSTrW1+ILYpJdmkEysbN566Nvwse/79/BeCBldvf+ic1xPhvkT0avTS9An1hhpnD
+	9lNzVXL4hFcrPnBKYNaYjOt42oU/1fEOIyMbEaAwVJKV6mmx422qrdTWwHAwhvpRUenZAl1PGVKch
+	qvUnMPtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmxzn-00000000Jok-2aYo;
-	Tue, 25 Feb 2025 16:41:23 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1tmxzq-00000000Jth-3mKr;
+	Tue, 25 Feb 2025 16:41:26 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmw2B-0000000HXro-2qBM
+	id 1tmw3O-0000000HY6Q-48yx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 14:35:45 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2fc0bc05bb5so11866480a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 06:35:42 -0800 (PST)
+	Tue, 25 Feb 2025 14:37:00 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-439846bc7eeso35980435e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 06:36:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740494142; x=1741098942; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=u3OyWMfMyDgx+55Ind0kZ2lpQA8/mHOXTjN2aQVmO4M=;
-        b=S9kfpvdNGpzyzi3j8R6RiHsIS3qNbJzRjEC3VVt6zCOkmyZF8ocM2Av+nhSICpb3T8
-         GT8VeRUR9XyMCKFY9e1k41t2gFscKLJqwpWh6Ap4bdFRuFuk4Ed5DasZGJAUF1hBq/4X
-         OjO0faTNHKHygp5zYjMPFaXoSVHbnLlltWEmaMroYgTuxclxJQ7L6IwjgCWSMjORylOq
-         t5e5bdP2NTAz2/NXzIQqC4U+ADhn44G56vzVuJp3kw1xEm8xMCICDyPuIvb+9ZudaMlD
-         7WBqXC3Pm6WSQwdnrsBe2gbj7Wf/Gw1VuwRjZu5MCvPQeAYKaMQsWGSncmv05xa9FSC3
-         6L+w==
+        d=gmail.com; s=20230601; t=1740494217; x=1741099017; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=l/sg7omSvJw4OhSWVma2ygvtz/i44Mb1jIOoIOn0G+U=;
+        b=cqm6jMRwFck1Q1e+JCenJfVMsuWEZKD5Ej6kAv0ZddsNvAqS9Fksxpn6aruHIEB8r2
+         Q8oaRmRTnySQy43DP5KP0GvIs9+HgtKyCU3lw+S+aQjAYWRT0ja4B3fi6hT5rZhiFwDv
+         ybt7qon3oBfEfxbXYXypvd3o8fdaW2bKmcMJN9yQfh4aXUb3kYhquLX9UmqaKeIyHXBI
+         +3XUhQ3Uu8YbyyANf+wk7dyXmqUNIr7SfRjASgJrwjq1RD/1PTnTugDJKxp5Ek9SE+dF
+         BuAwcT8qfClT4Lrp9Cm1vAuQ+MIPXqLC3gPSpoEPHWg/ymJocPdMUmuwnBsYsyFHEvur
+         Xh6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740494142; x=1741098942;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=u3OyWMfMyDgx+55Ind0kZ2lpQA8/mHOXTjN2aQVmO4M=;
-        b=CzAYQntCnURZwdTE3dfjeLJrdQSgCXeP7Ah1bhbbHjl/ij7eVNfQZxAMtSCOXPOipL
-         z6Ecf36y7Es/symIsPiRHFXCbFNdmcQd17o1H5yywSn540LxjFBG1bwroLsNeEIMt8/b
-         1Luk8dAfbyhTPiAUtpPsTx9msoAb69YkuWGIuzqADHNheJEaWOO6M/ABGYkyvFrfgYqp
-         UJ+ELPQ0G6MJ2RSHmJWtkeX2ydFHWF+rPZ+4u0whtM1Ctc/as31yismHYC8hFSFsEhRr
-         Sfy285WTub8D+7P7GfrvXVXPuTcvmPaiqXFV3rcR0lyAGXNbIcLx0GzISTCmzGUVC56b
-         szPg==
-X-Forwarded-Encrypted: i=1; AJvYcCUH1uAV9N9mcJ5lDUQrRoTPMQMR+XH1FBiQY3FUujf+7Lljz3ZW4t69/vB+PRG6VD+bDoZh8jxeIOhqfGXa13mm@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNEnxNBHxkUp2C22OJ2FAv7s4Do9ygeSFokoLhXlw/Ym+1mBBf
-	W3nOny/h3Jdss+ji1I1eHVhZGrK0JTXbW8YXnRusPzmUJHTEYH847OvqPh9nGBT7SaqSLbLmXoe
-	RLw==
-X-Google-Smtp-Source: AGHT+IFXh/XOoHWCgjyYmqDQFrw6VQ+lwV1XpaGwsHvB9OE+S78BXcvOxN0p4LNeKFLBgsLwKA4Y+N0kitA=
-X-Received: from pjbdj6.prod.google.com ([2002:a17:90a:d2c6:b0:2fa:1fac:269c])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1f8e:b0:2ee:c9b6:c26a
- with SMTP id 98e67ed59e1d1-2fe68ada3bemr5889698a91.11.1740494141828; Tue, 25
- Feb 2025 06:35:41 -0800 (PST)
-Date: Tue, 25 Feb 2025 06:35:40 -0800
-In-Reply-To: <Z71sOEu7/ewnWZU2@yzhao56-desk.sh.intel.com>
-Mime-Version: 1.0
-References: <20250224235542.2562848-1-seanjc@google.com> <20250224235542.2562848-4-seanjc@google.com>
- <Z71sOEu7/ewnWZU2@yzhao56-desk.sh.intel.com>
-Message-ID: <Z73U38mSuk_tOpqT@google.com>
-Subject: Re: [PATCH 3/7] KVM: Assert that a destroyed/freed vCPU is no longer visible
-From: Sean Christopherson <seanjc@google.com>
-To: Yan Zhao <yan.y.zhao@intel.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Aaron Lewis <aaronlewis@google.com>, Jim Mattson <jmattson@google.com>, 
-	Rick P Edgecombe <rick.p.edgecombe@intel.com>, Kai Huang <kai.huang@intel.com>, 
-	Isaku Yamahata <isaku.yamahata@intel.com>
-Content-Type: text/plain; charset="us-ascii"
+        d=1e100.net; s=20230601; t=1740494217; x=1741099017;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=l/sg7omSvJw4OhSWVma2ygvtz/i44Mb1jIOoIOn0G+U=;
+        b=Gbl+TlpspFS3AcQ47X9A9gF6W5HlAkBpl9Fjw3MRhngv3CPwsKc02hXEp5grkIn8it
+         O2+2PfXUp4CzTOFA1UcJZFWeE2q+Q7IIBGTCFYB1wHr5c1IdM+mGNf74okUKOoe97L+0
+         Hk0H5ukhGtJLyZI0iIwIXs9k+HMIh2brl+by3jA5foZsn5C6CX2rQwr0yuX4O+Jk8fJ9
+         B+s0ndOShLfiR7QCuyDfDQ++kX67t8VpyKv/e8d6vQl17TTJVyEo4ljUxEMUNCfHLvTb
+         +Gw9okBTBgEcohGVC//J7W/23OtIy3IiJ3oWpbiqpVbI464cKouMoq5R3iPFYq9/PRy8
+         Tbuw==
+X-Forwarded-Encrypted: i=1; AJvYcCVOdrG0zgd6sKlALR02tGDSGhgYeiAyrhYIHPQdxR1zkV0koHLgeL3gozvhG3XZy8dPBoaOKmqqDMaCnPd9nYgY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7vCz4LYwXXF5hKBPgd1GL1KRNEWTZrsj+1/6T46aO3TVzHytW
+	lkG/vQB2OXZYBq4lxfc9pZwv/x/mp09TD31rAqIqwOK2ATM4n0zD
+X-Gm-Gg: ASbGncsYpGb/9X7+OA/0RgnzapIrjdN7ZlNGax8OhQqKiLh5C+XxEMJ7DKHsKS2P8Ck
+	AuMMsY+QozPIfB02u8ZOn00SqW/+KtPilwEd6n02zfbvWKKpue6Sf3+pp/T8kD+kZ3oTW3xwcuM
+	18T6zcrVcMgGmVy5iKWDxVXz/cmgf45qC+PviUphyPAixbO6vsgwJ/lVy6JAjseQ1OsvOjiRnnx
+	YzOXUlZuC/d8b6Ty+lhuRq3O6TeW+zIwwn8afYyRGFX+pTXKz765znvxcN3wWlvxxZnGXSns+W6
+	6Dgfzt0hIxBi35rNsi2jtj6HG8p2yhAq6VkiwDISXl4KJPaV23uXOP/Xy3ztRUg=
+X-Google-Smtp-Source: AGHT+IFPeiOcFGyA9KgALMCP8R9zH2itjkDt9MTElBJ+IdcbxwJLf0w1wOrioUPVxCe8w88V34Lxxg==
+X-Received: by 2002:a05:600c:3b1e:b0:439:9698:d703 with SMTP id 5b1f17b1804b1-439ae212960mr145877145e9.23.1740494217035;
+        Tue, 25 Feb 2025 06:36:57 -0800 (PST)
+Received: from Junction.dargent.eu (242.76.29.93.rev.sfr.net. [93.29.76.242])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390cd8829cesm2474493f8f.49.2025.02.25.06.36.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Feb 2025 06:36:56 -0800 (PST)
+From: Regis Dargent <regis.dargent@gmail.com>
+To: 
+Cc: Regis Dargent <regis.dargent@gmail.com>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-watchdog@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3] watchdog: sunxi_wdt: Allow watchdog to remain enabled after probe
+Date: Tue, 25 Feb 2025 15:36:38 +0100
+Message-Id: <20250225143638.1989755-2-regis.dargent@gmail.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250225143638.1989755-1-regis.dargent@gmail.com>
+References: <20250225143638.1989755-1-regis.dargent@gmail.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_063543_711343_2401F073 
-X-CRM114-Status: GOOD (  23.92  )
+X-CRM114-CacheID: sfid-20250225_063659_028399_0CDACFAD 
+X-CRM114-Status: GOOD (  17.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,49 +105,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025, Yan Zhao wrote:
-> On Mon, Feb 24, 2025 at 03:55:38PM -0800, Sean Christopherson wrote:
-> > After freeing a vCPU, assert that it is no longer reachable, and that
-> > kvm_get_vcpu() doesn't return garbage or a pointer to some other vCPU.
-> > While KVM obviously shouldn't be attempting to access a freed vCPU, it's
-> > all too easy for KVM to make a VM-wide request, e.g. via KVM_BUG_ON() or
-> > kvm_flush_remote_tlbs().
-> > 
-> > Alternatively, KVM could short-circuit problematic paths if the VM's
-> > refcount has gone to zero, e.g. in kvm_make_all_cpus_request(), or KVM
-> > could try disallow making global requests during teardown.  But given that
-> > deleting the vCPU from the array Just Works, adding logic to the requests
-> > path is unnecessary, and trying to make requests illegal during teardown
-> > would be a fool's errand.
-> > 
-> > Signed-off-by: Sean Christopherson <seanjc@google.com>
-> > ---
-> >  virt/kvm/kvm_main.c | 8 ++++++++
-> >  1 file changed, 8 insertions(+)
-> > 
-> > diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> > index 201c14ff476f..991e8111e88b 100644
-> > --- a/virt/kvm/kvm_main.c
-> > +++ b/virt/kvm/kvm_main.c
-> > @@ -489,6 +489,14 @@ void kvm_destroy_vcpus(struct kvm *kvm)
-> >  	kvm_for_each_vcpu(i, vcpu, kvm) {
-> >  		kvm_vcpu_destroy(vcpu);
-> >  		xa_erase(&kvm->vcpu_array, i);
-> > +
-> > +		/*
-> > +		 * Assert that the vCPU isn't visible in any way, to ensure KVM
-> > +		 * doesn't trigger a use-after-free if destroying vCPUs results
-> > +		 * in VM-wide request, e.g. to flush remote TLBs when tearing
-> > +		 * down MMUs, or to mark the VM dead if a KVM_BUG_ON() fires.
-> > +		 */
-> > +		WARN_ON_ONCE(xa_load(&kvm->vcpu_array, i) || kvm_get_vcpu(kvm, i));
-> As xa_erase() says "After this function returns, loading from @index will return
-> %NULL", is this checking of xa_load() necessary?
+If the watchdog is already running during probe, let it run on, read its
+configured timeout, and set its status so that it is correctly handled by the
+kernel.
 
-None of this is "necessary".  My goal with the assert is to (a) document that KVM
-relies the vCPU to be NULL/unreachable and (b) to help ensure that doesn't change
-in the future.  Checking xa_load() is mostly about (a).
+Signed-off-by: Regis Dargent <regis.dargent@gmail.com>
 
-That said, I agree checking xa_load() is more than a bit gratuitous.  I have no
-objection to checking only kvm_get_vcpu().
+--
+
+Changelog v1..v2:
+- add sunxi_wdt_read_timeout function
+- add signed-off-by tag
+
+Changelog v2..v3:
+- WDIOF_SETTIMEOUT was set twice, and other code cleanup
+---
+ drivers/watchdog/sunxi_wdt.c | 45 ++++++++++++++++++++++++++++++++++--
+ 1 file changed, 43 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/watchdog/sunxi_wdt.c b/drivers/watchdog/sunxi_wdt.c
+index b85354a99582..d509dbcb77ce 100644
+--- a/drivers/watchdog/sunxi_wdt.c
++++ b/drivers/watchdog/sunxi_wdt.c
+@@ -140,6 +140,7 @@ static int sunxi_wdt_set_timeout(struct watchdog_device *wdt_dev,
+ 		timeout++;
+ 
+ 	sunxi_wdt->wdt_dev.timeout = timeout;
++	sunxi_wdt->wdt_dev.max_hw_heartbeat_ms = 0;
+ 
+ 	reg = readl(wdt_base + regs->wdt_mode);
+ 	reg &= ~(WDT_TIMEOUT_MASK << regs->wdt_timeout_shift);
+@@ -152,6 +153,32 @@ static int sunxi_wdt_set_timeout(struct watchdog_device *wdt_dev,
+ 	return 0;
+ }
+ 
++static int sunxi_wdt_read_timeout(struct watchdog_device *wdt_dev)
++{
++	struct sunxi_wdt_dev *sunxi_wdt = watchdog_get_drvdata(wdt_dev);
++	void __iomem *wdt_base = sunxi_wdt->wdt_base;
++	const struct sunxi_wdt_reg *regs = sunxi_wdt->wdt_regs;
++	int i;
++	u32 reg;
++
++	reg = readl(wdt_base + regs->wdt_mode);
++	reg >>= regs->wdt_timeout_shift;
++	reg &= WDT_TIMEOUT_MASK;
++
++	/* Start at 0 which actually means 0.5s */
++	for (i = 0; (i < WDT_MAX_TIMEOUT) && (wdt_timeout_map[i] != reg); i++)
++		;
++	if (i == 0) {
++		wdt_dev->timeout = 1;
++		wdt_dev->max_hw_heartbeat_ms = 500;
++	} else {
++		wdt_dev->timeout = i;
++		wdt_dev->max_hw_heartbeat_ms = 0;
++	}
++
++	return 0;
++}
++
+ static int sunxi_wdt_stop(struct watchdog_device *wdt_dev)
+ {
+ 	struct sunxi_wdt_dev *sunxi_wdt = watchdog_get_drvdata(wdt_dev);
+@@ -192,6 +219,16 @@ static int sunxi_wdt_start(struct watchdog_device *wdt_dev)
+ 	return 0;
+ }
+ 
++static bool sunxi_wdt_enabled(struct sunxi_wdt_dev *wdt)
++{
++	void __iomem *wdt_base = wdt->wdt_base;
++	const struct sunxi_wdt_reg *regs = wdt->wdt_regs;
++	u32 reg;
++
++	reg = readl(wdt_base + regs->wdt_mode);
++	return !!(reg & WDT_MODE_EN);
++}
++
+ static const struct watchdog_info sunxi_wdt_info = {
+ 	.identity	= DRV_NAME,
+ 	.options	= WDIOF_SETTIMEOUT |
+@@ -275,8 +312,12 @@ static int sunxi_wdt_probe(struct platform_device *pdev)
+ 
+ 	watchdog_set_drvdata(&sunxi_wdt->wdt_dev, sunxi_wdt);
+ 
+-	sunxi_wdt_stop(&sunxi_wdt->wdt_dev);
+-
++	if (sunxi_wdt_enabled(sunxi_wdt)) {
++		sunxi_wdt_read_timeout(&sunxi_wdt->wdt_dev);
++		set_bit(WDOG_HW_RUNNING, &sunxi_wdt->wdt_dev.status);
++	} else {
++		sunxi_wdt_stop(&sunxi_wdt->wdt_dev);
++	}
+ 	watchdog_stop_on_reboot(&sunxi_wdt->wdt_dev);
+ 	err = devm_watchdog_register_device(dev, &sunxi_wdt->wdt_dev);
+ 	if (unlikely(err))
+-- 
+2.25.1
+
 
