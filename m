@@ -4,66 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C9F2C021BB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 13:00:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDDF2C021BB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 13:02:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H8pXNgHdOvilbub1Wjunm7F/Fda/A61e8Jt5JOr1F1s=; b=yEVMOBXSWf/4DE5/1IDEhg8RWI
-	1eDGQMWF/qndhKMOZVkxN2RWfIbS2O/fbnIgOV8u6uKBGP4UCXA7s6gf17JbrPtBTkDPI9z8o1y2S
-	UvkZxOv3uu4tvzZQ3Eu8pTq2W+6BnlgD794sq5kzB8bhVFwWllkLtEmAhl6nDa3ma0zu0YmvHHCgO
-	G5Zxn08xIMRrplDNTO12X9knEZgbipeAcaq7VAvZ2nr4gFoh85MncjG+oW5F5P2ms6uKNqtoQbwGQ
-	5Mej5isQzwfG+4TZPs+HgmqGSKH1F/47Hie9xbeNKfMFC1vMV4170YqXD4lzF22lvtkxlhTJICDPh
-	1Y7Kdy5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7hQ9PSnky3hzUHJ3r5I6w65ox232hzZUXn+oYcw3lsM=; b=YeHLP1AqaB37dFoRUfbGAcmzZ4
+	TpGFSU1MZFogg4xmb2J3y/9VEihH0X9XrVa4en6hLMBnUOuiy9d2j3iInyo4rVPh242d30eaq7v86
+	Wsr8z95QG2I5myqZSkqANEuMRHR5nvEiX5Mm8ZZyvEHNSSu5I2Ruw1bb300GlmiMX7+32ai11BGwd
+	B7Twojt1Ncz1KuMCpw6hliA0mIW6wEidrC9a5mszDVlFHXhBQkot0q2B6B54TsUC0lTL1vgi6ve7n
+	f48/i7ZHKhOvg9DTBAcx6huTNH636lI7JVKmaMrGskz/rQ2I4mO4ko1oM8AeZywTjXtBdtJ5py+K3
+	Lf2zhseQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmuYD-0000000HHmG-2OdL;
-	Tue, 25 Feb 2025 13:00:41 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tmuZk-0000000HI4s-2QW4;
+	Tue, 25 Feb 2025 13:02:16 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmu2U-0000000HD7w-28PX;
-	Tue, 25 Feb 2025 12:27:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9F0F85C661C;
-	Tue, 25 Feb 2025 12:27:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3E52C4CEDD;
-	Tue, 25 Feb 2025 12:27:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740486473;
-	bh=2ncFbmwvUgcbSappvhge9nJXN6LJwl6EsNRd1xDptck=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=u6/PcmnM0ttEbTSsdffPDQRNk95br50C45yPJLrv44lgxoyS89N6KrJTnU+hdEVny
-	 Gglujib8J6ld8Esi7AubTzFM2cz/2mTZ2Z4Ye9Et64G+bUBW9iaWl9z1Ms7kNtqEhD
-	 v3i1Oz8Gde7IBiGBcsRm6a9UpaRLs3lYbdbTLAiXFUqbdPQjOoOm/ROHYmLT8UrSKa
-	 oMreYhsCZgbAYQ0z9hWhBQ6v3SvoaW0w97yfwCHutoIa4T0fqQI+2v7CyYaRBac6Zh
-	 axoAN6V4Xa4VSQRn87pHDcHDNA/wk4821aRwXHfr7Rhqj8GZq8ZOfLfqGTZbjyvd0k
-	 DKTkcnrcsrcag==
-Date: Tue, 25 Feb 2025 13:27:48 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Shawn Lin <shawn.lin@rock-chips.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Damien Le Moal <dlemoal@kernel.org>, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 2/2] PCI: dw-rockchip: hide broken ATS capability
-Message-ID: <Z723RNjC2pYYqAHn@ryzen>
-References: <20250221202646.395252-3-cassel@kernel.org>
- <20250221202646.395252-4-cassel@kernel.org>
- <93cdce39-1ae6-4939-a3fc-db10be7564e5@rock-chips.com>
+	id 1tmu6c-0000000HDeB-16OK
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Feb 2025 12:32:11 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2fe77285e12so316695a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 04:32:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740486729; x=1741091529; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7hQ9PSnky3hzUHJ3r5I6w65ox232hzZUXn+oYcw3lsM=;
+        b=ZkJkTmc30k1LYj3BvbBGN5W4Q2bsFK7nrUSZ6ObenL/pM3DtXwyNVOoN32hWfEA72h
+         lxmK1Hs17dXM0SddD1CYwjVsHQdA8FlcLPE6XRY3KPoifFv4zJLT97T2m5QJmGs6mCuM
+         TkSUhfnkxv5Wvtxbi5KbKsSbmIHbapXnUkJEMr3eYkqfSrU8rASE1SBwbJG9sEXiRb6v
+         y/qX+rEDa+ni5W481y6oE7/6JOVCx7JgJ1ssiNlmdvr02P1AcsP0ftRmHwpxsHNqXgjN
+         GwfSZ2hF+QtObAc/a7scFvMBPvZUJQq8bJ9lzhtEGsHGJrkfzkHTvLw9NlwecHGqKeBt
+         5FYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740486729; x=1741091529;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=7hQ9PSnky3hzUHJ3r5I6w65ox232hzZUXn+oYcw3lsM=;
+        b=PdQJHw/cXNZfN87MUWIxEEyJe3exCnqw6HcccaKGtXpnZ2ZXuV7lmt+ZMy/W3WSS22
+         5leRwu+OqCfQFnffZPU6YOc5Yn7itUgzLSZNKrF9zMK25IKxzrcx7YwKiiR6HKLMaYtC
+         W+o4rl9got1ionR7Qrl+NnPkOu0bYdUfh8hLiWkeiNwDgzQx22keTTumQAk6b7+Q1K8+
+         X3gKdl0uTyEjFlPJCZQb2tqhJXOsFY72mTd/EcNUrjPwsOSDt92iSLV7g/Mx9m9krRe+
+         9hUQixh0QOmSEVuko5TrhRL0ElC7TZHB5DBlFG4ItnvLDfVq9oq6d/6KUyYqEHKGGsm8
+         6rAA==
+X-Forwarded-Encrypted: i=1; AJvYcCVHND+PyeLzpcn/v7ZvBKgWAbO4fJ+xiyE6+yXzOWfvocRc4AP1jv6Mo4NQi6uNSjWwMj2a3eJuRoj5ugOjkoMK@lists.infradead.org
+X-Gm-Message-State: AOJu0YzI2fCaXpBeMoVM4h14AIyueEdw0/DquIiadDxHAfES0HC0+TLS
+	B8qiUA/wBk0VIx0wdwUJbh48kMDnvhIiTwBs8w4PqFrulUehwWWFVfAhhX8I20EqHmuTd5Pufpa
+	JQK7BlH4sMjjXxQoeSLzrdQGdQjkBLQ==
+X-Gm-Gg: ASbGncvmNOLfWOskZ/SauLZ6quBCxOIvMiWz4io1aKd9Vsm2LzmEKDwxdVGxH8rhjeM
+	JK8Xoh1zzwvRp0EmsFOnElwGXCUTmuuBgfnqhqp4q3WXzcWdxHLzE5eRAJ0T8UoFnU0DmPlRoNb
+	ysSRQo
+X-Google-Smtp-Source: AGHT+IEhj54F35PZEsJYYrzaWJyBanI+coj2uAU8OTJp3NVm093Jk0fuCJf+AJB+0L8a6Juozj6iHZgPqCZQO9GBPqA=
+X-Received: by 2002:a17:90b:2751:b0:2ee:df70:1ff3 with SMTP id
+ 98e67ed59e1d1-2fe68a312b8mr6037629a91.0.1740486729075; Tue, 25 Feb 2025
+ 04:32:09 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <93cdce39-1ae6-4939-a3fc-db10be7564e5@rock-chips.com>
+References: <20250225120707.2658709-1-m.felsch@pengutronix.de>
+In-Reply-To: <20250225120707.2658709-1-m.felsch@pengutronix.de>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Tue, 25 Feb 2025 14:33:45 +0200
+X-Gm-Features: AWEUYZlyvb2cM0-5vtqGVculafUAJm4OWsTkAKrC0Tw7wQoPYmnk7k-oBG7QuOM
+Message-ID: <CAEnQRZAoPxFN1ce0MEY34KpJO=SS4n33ehABH4auxWTDq8_R8g@mail.gmail.com>
+Subject: Re: [PATCH 1/3] arm64: dts: imx8mn: fix micfil dmas settings
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: "robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, Sascha Hauer" <s.hauer@pengutronix.de>, kernel@pengutronix.de, aford173@gmail.com, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Joy Zou <joy.zou@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_042754_664365_F5C820AD 
-X-CRM114-Status: GOOD (  19.90  )
+X-CRM114-CacheID: sfid-20250225_043210_298677_6C0B6F5C 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,74 +96,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Shawn,
+On Tue, Feb 25, 2025 at 2:12=E2=80=AFPM Marco Felsch <m.felsch@pengutronix.=
+de> wrote:
+>
+> The third dma cell is used for priority information not to encode
+> something else. The NXP downstream kernel use the third cell to encode
+> more information:
+>
+>  - Bit31: sw_done feature enable/disable
+>  - Bit15~Bit8: selector
+>  - Bit7~Bit0: priority level
+>
+> but this was never mainlined. Therefore drop the further information and
+> just specify the priority which is 0.
+>
+> FTR: The sw_done feature was mainlined without making use of the
+> devicetree.
+>
+> Fixes: cca69ef6eba5 ("arm64: dts: imx8mn: Add support for micfil")
+> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
 
-On Tue, Feb 25, 2025 at 09:35:22AM +0800, Shawn Lin wrote:
-> On 2025/2/22 4:26, Niklas Cassel wrote:
-> > When running the rk3588 in endpoint mode, with an Intel host with IOMMU
-> > enabled, the host side prints:
-> > DMAR: VT-d detected Invalidation Time-out Error: SID 0
-> > 
-> > When running the rk3588 in endpoint mode, with an AMD host with IOMMU
-> > enabled, the host side prints:
-> > iommu ivhd0: AMD-Vi: Event logged [IOTLB_INV_TIMEOUT device=63:00.0 address=0x42b5b01a0]
-> > 
-> > Usually, to handle these issues, we add a quirk for the PCI vendor and
-> > device ID in drivers/pci/quirks.c with quirk_no_ats(). That is because
-> > we cannot usually modify the capabilities on the EP side.
-> > 
-> > In this case, we can modify the capabilties on the EP side. Thus, hide the
-> > broken ATS capability on rk3588 when running in EP mode. That way,
-> 
-> Niklas, Thanks for reporting this issue. It's been a while before
-> getting confirmation from the design team. Now I can confirm the ATS support
-> for RK3588 is only available running as RC but I'm still
-> requesting erratum about this issue if possible.
-> 
-> Acked-by: Shawn Lin <shawn.lin@rock-chips.com>
+For all series:
 
-Thank you for confirming!
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 
-Considering that rock5b running in RC mode:
-# lspci -vvvs 0000:00:00.0 | grep Capa
-        Capabilities: [40] Power Management version 3
-        Capabilities: [50] MSI: Enable+ Count=16/32 Maskable+ 64bit+
-        Capabilities: [70] Express (v2) Root Port (Slot-), IntMsgNum 8
-        Capabilities: [b0] MSI-X: Enable- Count=128 Masked-
-        Capabilities: [100 v2] Advanced Error Reporting
-        Capabilities: [148 v1] Secondary PCI Express
-        Capabilities: [190 v1] L1 PM Substates
-        Capabilities: [1d0 v1] Vendor Specific Information: ID=0002 Rev=4 Len=100 <?>
-        Capabilities: [2d0 v1] Vendor Specific Information: ID=0006 Rev=0 Len=018 <?>
-
-and rock5b running in EP mode:
-# lspci -vvvs 0000:01:00.0 | grep Capa
-        Capabilities: [40] Power Management version 3
-        Capabilities: [50] MSI: Enable+ Count=32/32 Maskable+ 64bit+
-        Capabilities: [70] Express (v2) Endpoint, IntMsgNum 8
-        Capabilities: [b0] MSI-X: Enable- Count=2048 Masked-
-        Capabilities: [100 v2] Advanced Error Reporting
-        Capabilities: [148 v1] Secondary PCI Express
-        Capabilities: [178 v1] Page Request Interface (PRI)
-                Page Request Capacity: 00000001, Page Request Allocation: 00000000
-        Capabilities: [188 v1] Latency Tolerance Reporting
-        Capabilities: [190 v1] L1 PM Substates
-        Capabilities: [1a0 v1] Dynamic Power Allocation <?>
-        Capabilities: [1d0 v1] Vendor Specific Information: ID=0002 Rev=4 Len=100 <?>
-        Capabilities: [2d0 v1] Vendor Specific Information: ID=0006 Rev=0 Len=018 <?>
-        Capabilities: [2e8 v1] Physical Resizable BAR
-
-already exposes different Capabilities (depending on the mode the PCIe
-controller is running in), I would say that it slightly confusing that
-Synopsys chose not to hide the ATS Capability when the PCIe controller
-is running in EP mode.
-So, I would guess that there is an errata for this.
-
-But I think that your confirmation is enough.
-Will take a while before I can send out a V2 though, but quite confident
-that we can get something merged in time for 6.15.
-
-
-Kind regards,
-Niklas
+Marco I couldn't find the cover letter for this series so I add my R-b tag =
+here.
 
