@@ -4,100 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D0E9C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 11:10:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12D7EC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 11:12:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7WPlvrF7bTDr6Uv4dt2INKqCTAaWqXTlyvruekoPxeI=; b=zQuKnCH9shZY2Y0Nq+PvuiOO8Z
-	heL2Ht2BjG0i6JXi37BhaYMt2XGbPNSB1HI84kMsm2ZWy1EV3isQY/uHWxIhj9Q/FhPg14/375Uo2
-	s3WYn87VTHygp9IAivq7N51qNuF/+tnBsg1FRP5lIr79PcnRXv9c3Aw34U8Ypth3PS+MrHKRJAopv
-	Yv6FqjyoUm17RDw4yEsTG9LxbmPgKUP3httDR5jCAH5VJKBSd+npZEFjFbGH1jQY75Ns+X6gnoBZH
-	a+HyvDiCj7ylTS7HM4hCGdZ5a07QwYaHQDYSiIamnob0f2mmPlaImTd4zHp6lA1IApROlYSAWQT6q
-	JaKJ236A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lw7LGz5u4+UY3MSVtdaDIcTdVd1t9SjnuxeMySHbeIw=; b=cIAT/Ll5Bvq/NK4nEku9lkOuFC
+	d626beR2F6zzIX0V1psTKnwT88WfRXlpW3KTQAdw7WWlUAebZQI+NgJIGH1uV9jiVO3t8NHyJZtpW
+	MxTy+HegEo7vfIilIizdNxXqbhghHIdM3KO4ZVH7wAJWaD8VzNaKexXA9OP+174YSSm0IF+1d9F/e
+	cX2/S13m0/VBGUNdmZkiyyohSBHcgN+Come12RGerAo1jegFVaxV1I/p0xYxxdfVTb1cfvf0t7psD
+	FQAsEl6A2EScAHQAn9jyxKnjx6cB33i26Jv35ywwiLmwfSekh+c/8pJmRTDH/pd1YvFLeB/b0GjwM
+	UrSo0lZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmspX-0000000GyNj-45HS;
-	Tue, 25 Feb 2025 11:10:27 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1tmsr4-0000000Gyl0-2xvb;
+	Tue, 25 Feb 2025 11:12:02 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmsAR-0000000GpCY-3fBy
+	id 1tmsBL-0000000GpTZ-0Hh5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 10:28:01 +0000
+	Tue, 25 Feb 2025 10:28:57 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-439846bc7eeso33754195e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 02:28:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1740479279; x=1772015279;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=7WPlvrF7bTDr6Uv4dt2INKqCTAaWqXTlyvruekoPxeI=;
-  b=F9GwsIEt9VPMI15OAmZ8W2vLhThpVAeIKSWIgKZHuevv00FZPompu0qU
-   MMPutGsTR6zKjJvZTHaDysz/iClO8PIHnf1w5f8QlhdfcWzqjCpnAscGE
-   srQt2tIEI84tl530yjlJbAjHDc86ElfqUgKzq1WnV0H23AtWpqLvLHm2l
-   5l4PiPgjhIjV2UXNq7NKvTJgK3BR7nvVo7GbT5bMyWQcuXUceSuRJTyok
-   PbRg211c8fSQbi9E4Qv4aFuQ0v0HzTQ1xsOOHSLyioRUBbrY88vlGjfDk
-   YZz4ydzBvLvOCVmHIUTqMIGytekxNpsH4qeNrjcOq9EKSmtY1TiuG3ofz
-   g==;
-X-CSE-ConnectionGUID: /UBrKjp4R1GZK4S6Y90w9w==
-X-CSE-MsgGUID: z0wGLHc1SY2iC7hblTXfkQ==
-X-IronPort-AV: E=Sophos;i="6.13,314,1732575600"; 
-   d="scan'208";a="42067837"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 25 Feb 2025 11:27:58 +0100
-X-CheckPoint: {67BD9B2E-3D-28232521-C0C2250B}
-X-MAIL-CPID: 4232913E294A967EECF1F9D2E5748447_4
-X-Control-Analysis: str=0001.0A00211E.67BD9B2E.0027,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C57B61686C1;
-	Tue, 25 Feb 2025 11:27:53 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1740479274;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7WPlvrF7bTDr6Uv4dt2INKqCTAaWqXTlyvruekoPxeI=;
-	b=Jm6bf+RGwm8llVKo1gknWYQP2i23wSfG1Pk5HFTeRlMw4zzEN7WKb8Sd20LeDWfcziafjc
-	18XZvRlsnLVvl8xtWp0M3XTxCONAC3/nge78ja/5GX/GQzCd/xeAxYm6/YShi5BZ5TCiYl
-	jkX6ZFkmrp7PJIwI7DCSBSN67dDeKRVQjxsV/ELJhbzeAcSszcuFtQZX569LWSG7656udf
-	AiyxJNW/loaqf9yKXmgh92ED8eaBqoI91xLtIHuuO2nVbCc33ZJDa3mNTZC1vePYVEc/+Z
-	ehH9Tp4AlPFrmq92QFHTJ0xDNevhYO+LQnCYHEUOwgqwz3Td4Setqol18ekUEg==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Frank Li <Frank.li@nxp.com>
-Cc: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux@ew.tq-group.com
-Subject: [PATCH 3/3] arm64: dts: mba8xx: Remove invalid propert
-Date: Tue, 25 Feb 2025 11:27:23 +0100
-Message-ID: <20250225102726.654070-4-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250225102726.654070-1-alexander.stein@ew.tq-group.com>
-References: <20250225102726.654070-1-alexander.stein@ew.tq-group.com>
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1740479333; x=1741084133; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=lw7LGz5u4+UY3MSVtdaDIcTdVd1t9SjnuxeMySHbeIw=;
+        b=rBz9MqDJmQUfA3VUZ9QYAE9FAjVGrPAWafNEKmjLNNPNWyDZVm9DBhYN7qHzfNde6F
+         XgkDAIJGGzRN3Oqifdf1eXUfv9P50VF5fE84egq1bzyAh1+CyEWvkuC7m1RGJet7/j+4
+         50PYGUTGq6YpXBp2FmFyNxb5tYTT+yBKKxvol/SqCXKbf8FqYfmEDp8VBbXCfSuf+K66
+         6F3+uPfULfL4iloXqA9dGydL/U804eBqm4c39B9MNArcuFHHkqt/uuQ8eaXHkk6b1CPK
+         hYH5bPpiDF3mVxLkOJlmzd1MCmiCEMwtPD8EaoH8MAnO9McFiSB35ueu62vPoK+7nVSd
+         bD8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740479333; x=1741084133;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lw7LGz5u4+UY3MSVtdaDIcTdVd1t9SjnuxeMySHbeIw=;
+        b=IHOrLJ6pFYXL6SjhdB3wOtD0AvdPV/uAFckK4IQIXc0VZXebnog+VyjakE6dz1cDi6
+         WxDQJZ9NbRxfVh5ow7rJa0lSzG+DwtfZv7PYUw6oOSy8YNVokaZCbdghUxQ0j/PTzavI
+         8o2BAdBlZNJQ3EiMbFIJTiPZEUhZs7+LOYt5vIWQDiloJfV+n1o/Il8peE0jhrlZSJCp
+         62ktTESud+1NRIYYOjMferNePrZAETTp/ypqBhod/eZLB7ajxz4/fUuUomh57iiLiq61
+         RoGYXBeS3i7s9M8gAOxWVrs/gaN18a/k5dT1/7LP8KCcJshClkrqqlGWbxKm6wyN9JRd
+         UurA==
+X-Forwarded-Encrypted: i=1; AJvYcCV6WiMLFwegqndoUt9SxTGmVaCOFIhyIWIWT7FTp0ujj6J2G1rj+phUShs2gWQK01dirYZOoiVP01kwKbcI/g02@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2nJJy7/zMw5a1qJSDZHQGkpXalhklwlbgGMeOxf81QePMJgcP
+	9NmrMvY5/vdDw+M2TKXjbbfjsPZIM4jKZPs8Ruhu7cHDnjeyjdKLiP0WwO7ZD1nJqmY6scfu93d
+	L
+X-Gm-Gg: ASbGncuCOCPCJ13AeuJ8UAog8iMRCQJBdaoH7BrsLn0kTB/a3D/obYl+5JqnYAa2+DJ
+	qkzPnIjsBoZMmlOEaySddWqm7qzW3jXe9QZW3LIjVZgsidbN9DrJm/jSfpdxu/RFlZHwv1DCEFr
+	WcRTdgCLp7fLCVwME910GNK+xK3017wpP47ZlYzKQGFlGpoXuaIWe18axqU2Bo62TIyh+HL778u
+	5A7gC2O3qOmzRlhHT0o1r+o2/8Bapoh4W/Ug2qQ8ljhinvnqPovrlZRJCG96bxVCzFFH4EpkJ0S
+	4BhjylsIBQs2j1CKBBQjdQ==
+X-Google-Smtp-Source: AGHT+IEIzE6LVOdzTaiF/XQxe5YVoLSwzJB4+evEnTKWGqEM97O2xxmk4cpePWYkQ5BISMx7dPcrxA==
+X-Received: by 2002:adf:ea8f:0:b0:388:da10:ff13 with SMTP id ffacd0b85a97d-38f6e95b41dmr13202225f8f.21.1740479333083;
+        Tue, 25 Feb 2025 02:28:53 -0800 (PST)
+Received: from localhost ([2001:4091:a245:8327:7bba:546d:aa63:621e])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-390cd8e7233sm1802184f8f.66.2025.02.25.02.28.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Feb 2025 02:28:52 -0800 (PST)
+Date: Tue, 25 Feb 2025 11:28:51 +0100
+From: Markus Schneider-Pargmann <msp@baylibre.com>
+To: Judith Mendez <jm@ti.com>
+Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Tero Kristo <kristo@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Hari Nagalla <hnagalla@ti.com>
+Subject: Re: [PATCH 0/3] arm64: dts: ti: k3-am62a/p: Add r5fss nodes
+Message-ID: <qlqxmqluqrw36bkjaa7efcsk6cinyr2rxvznfhz6dopeu67dsf@w4lkuq65uwno>
+References: <20250122-topic-dt-updates-am62-wkup-v6-13-v1-0-f74835b91da9@baylibre.com>
+ <c81ccd05-4fb7-4ec0-8cc0-c59ac4dff91e@ti.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="obza7ftg5kvgvlah"
+Content-Disposition: inline
+In-Reply-To: <c81ccd05-4fb7-4ec0-8cc0-c59ac4dff91e@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_022800_208171_2049E605 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250225_022855_113542_BE6CFC66 
+X-CRM114-Status: GOOD (  18.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,28 +102,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-disable-gpio is an (old) downstream kernel property, which slipped into
-DT. Remove it.
 
-Fixes: c01a26b8897a ("arm64: dts: mba8xx: Add PCIe support")
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
- arch/arm64/boot/dts/freescale/mba8xx.dtsi | 1 -
- 1 file changed, 1 deletion(-)
+--obza7ftg5kvgvlah
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 0/3] arm64: dts: ti: k3-am62a/p: Add r5fss nodes
+MIME-Version: 1.0
 
-diff --git a/arch/arm64/boot/dts/freescale/mba8xx.dtsi b/arch/arm64/boot/dts/freescale/mba8xx.dtsi
-index 117f657283191..c4b5663949ade 100644
---- a/arch/arm64/boot/dts/freescale/mba8xx.dtsi
-+++ b/arch/arm64/boot/dts/freescale/mba8xx.dtsi
-@@ -328,7 +328,6 @@ &pcieb {
- 	pinctrl-0 = <&pinctrl_pcieb>;
- 	pinctrl-names = "default";
- 	reset-gpios = <&lsio_gpio4 0 GPIO_ACTIVE_LOW>;
--	disable-gpio = <&expander 7 GPIO_ACTIVE_LOW>;
- 	vpcie-supply = <&reg_pcie_1v5>;
- 	status = "okay";
- };
--- 
-2.43.0
+Hi Judith,
 
+On Mon, Feb 24, 2025 at 09:06:56AM -0600, Judith Mendez wrote:
+> Hi Markus,
+>=20
+> On 1/22/25 3:54 AM, Markus Schneider-Pargmann wrote:
+> > Hi,
+> >=20
+> > am62p-wakeup already has the r5fss node defined, but it is currently
+> > missing from the am62a-wakeup domain in the devicetree. This is added as
+> > part of the series.
+> >=20
+> > For am62a and am62p starter kit boards the r5fss memory region is added
+> > and referenced for the r5fss core 0 node.
+>=20
+>=20
+> This has already been sent here:
+> https://lore.kernel.org/linux-devicetree/20250210221530.1234009-1-jm@ti.c=
+om/
+
+yes, I saw that recently. Could you please cc me on the next version?
+
+Thanks!
+
+Best
+Markus
+
+--obza7ftg5kvgvlah
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTd8KHufh7XoFiu4kEkjLTi1BWuPwUCZ72bXgAKCRAkjLTi1BWu
+P3ayAQCmje7sVfMPAH4ZyOoLuKscrkF/LVOMHgeJryGd7sabvwD/Z4OE3BQ8OMVR
+Z4ksn1XTyKXHDVVnCnaiIwLS83cpoAU=
+=qRs/
+-----END PGP SIGNATURE-----
+
+--obza7ftg5kvgvlah--
 
