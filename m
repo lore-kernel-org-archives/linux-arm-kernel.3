@@ -4,98 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2CFCC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 17:03:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 130DEC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 17:05:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lk6iw51fgW1qWU/03VHRsVVbj/sa5vR8EbwmDP3cjSY=; b=itjJr8sAtQbZmBgNZNGIUlVrTu
-	FHaVEhcR3Xq6N/cLFWvjTtwv2mfNNGX8LyxmKiD7Ke7cPSG7L5JtMcvXjj3G1zgRqFbOfGh2WTZnC
-	W0TSdLr4GsAPfujt7v9l/fDCI4SRCNdMXuyPX1V1gt7mLa3lKZg01Plr8g9fune9LTE+TQGU9KkTD
-	Yp9duHrUEB74h06ASvPBDwDqYm2C7kE3yImD+oN+KIj30ttjyxBRRMa9RPTQ5YW7fCiFXyI89cwBP
-	aLtkXPTYlGXVkCC73h3wNeL4lMDDuQIkuF5HT+h8rGwk/Ss3fqcZCgGW2s0eq6NHwdfdiGqR8+4bh
-	4oYb7b8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QsQ+WiC3O/tHbReBhmMj/V7ymYehocIIWbsM5O+taz4=; b=YCtVs2xfwV8xeOrO+iIQPdDD+D
+	JNvawp1wTLTcQpejeVxKnsPs/jq90ng7z1BL0+bIZ0yhl0scVtwUgFfz82F/0yto4QjaRevS29E1U
+	L/9TM8L6gGjZo5ifO/gkYcYrg3+b23/CwDq3SV1/IRwkYErjjt+4Gjh0tPDCjMT+Fz63hr5aS3LuW
+	ApMvqI+AbXz6rjsKdlrA9+mM2RG/SAGwzlYDvGvmojmPHTVcIS+a2gFyDp3K0q8wh4s1SmWYtJUke
+	ZN46mlzquFsCc+P3mLNGypeYRv/WShGvplziEgYL9TLng5OXldNCafc2ohWNZa3Rl43WA6JxbNcW5
+	wT6EVmJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmyLH-00000000WOQ-2O1p;
-	Tue, 25 Feb 2025 17:03:35 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1tmyMo-00000000XDj-0qNk;
+	Tue, 25 Feb 2025 17:05:10 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmy8y-00000000Sjb-0veY
+	id 1tmxzj-00000000JgE-1sh2
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 25 Feb 2025 16:41:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=QsQ+WiC3O/tHbReBhmMj/V7ymYehocIIWbsM5O+taz4=; b=Xt916aeWYZ0YMaqImIKDiYpKt1
+	UVseBIGzYhS5Cm9qH2oYH7zE02o8tbVtdlAih9ocuiJh38StJL8PZ/RUWIfdqRHxg/SEbazBvcYAp
+	lbtfuMSInVm5oNjgqNChPnb6sll2gzH4MDgoV9BspoPZQYvksA+gas6lnee7BarhBJ4/9VblaoBDd
+	oXJtQfB6NEULedcFNVIVfHNtF24TZbS1vZG42AkM3BrCapmAjlD7uwnWD4yw6kNsCHf7vCazG/aW0
+	vQPcZEC/X3nWv+9dOJlcLRtT80jFz+VaxfgT64XsKCQ/uFoqs0lMSdnvPPkD5H6+Qna61CiJjD/Jt
+	vxPd9Sfg==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmxzg-00000003Mco-0UzB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 16:50:53 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-22117c396baso196005ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 08:50:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740502251; x=1741107051; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=lk6iw51fgW1qWU/03VHRsVVbj/sa5vR8EbwmDP3cjSY=;
-        b=Wg3m73XLpH8washX10RkFgpk2G2X8ESzmtce5YY7RXW/gPpTVykcsc+J3zcl1jVqNj
-         8oeM4dOBNUGxaQgO0HPG9/JWITQvJ08oV6Jp+w14n0P8BjRCoi8EKvWjdAcGS2k59qtl
-         017EXNwFBao3KxTnd0rH1Pk1xRjEq+WrQojg2shsaUQtQ01mwnfs7E62FFQ3Pj/JTjK4
-         aRlt4zd8oZwvkkaaQHCB/QNluw7dOZTDWugxCyuYZ44PgOtJw/HelmB+nxviuqykh3S4
-         egL+YAY6MHTR2wjua4lZI9BNdFiXFBhKg74sNz/Cn6du9Ndi1mxokrR7KFD5DU+wbxKc
-         VU+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740502251; x=1741107051;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lk6iw51fgW1qWU/03VHRsVVbj/sa5vR8EbwmDP3cjSY=;
-        b=ELEpTyv0sBQXkTPCnzyxNHiIwlxEKR8++rqFAvPzDBQSMoc20do5Db9PBaHhL72+xC
-         f1fLhLNSQGMl4gGQE+BuVFzGhlFMmSD8HuRYP28yJjvp8somchueIN6+4vfVR0Zh/yjq
-         YDP4zzlCELmTyf/Y5Ba0FIh2nEiai5ltRYBeHZMroZSvLoHlp40lSUUtsF2WrbWROvVC
-         YFPKg0vf4f+A+Cw31aWpGyZXZh97X+n5T5jHkiBdz7o5doHkQUyhI7hd0abYyp4dJ880
-         1DUd6fIEmML7VnPiZmQQWOVGPEYr0RYIh5j1Dy00cJb93thXG6L2PZptj53gbD+IV357
-         IlZg==
-X-Forwarded-Encrypted: i=1; AJvYcCVm1AeMTcuM/tr3dQf/7wbcB3W3BWiaHj+5jIXhrpXpOIGyU+s1h/um1d7sneqUsMz9FniLZ3LCcerVhCuDjpoV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzbx/hYMoWcDos45UosTzvzxA3uJE0e+mCCL1thi2w1am8Ywqfr
-	bZuU9VM27tHxzjAqRAnuPqxtXw+EuSbrZC1GB+Kf0GIeVPcf2i50oxnq5XZx5w==
-X-Gm-Gg: ASbGncue365Up6ToDj5lZKnBcHFSkabsVELvpl5J86dmDckhyGk0QHMk3CdiZXBPlQi
-	rP0AhJ2mhD/OAF8+xRX0R0hfJIcRp10zLe3rxJa9NsLuolK1QHsnnUxzS+BufkoR3DW7lnjQTgv
-	vE5gLzNRjOGwCVdmh+WXonLIxKJkTYga8ml8QrdaGnuSTFwttUYRBdsIM/6DLrVhs1qLU7Ubd3a
-	pZ2utqbdgBoQM2/9vrGL8OjYMZaJ+QvzSe+n08pTK5qR7FoyMcRLAP0VsI/sn4RJGrmBm7wRHE1
-	oKm+PaawltPtWayGASoWn9YQ9ZWM8iSox8cP6xpoHNYnbuahwJ2lhx+8cQlXQ44=
-X-Google-Smtp-Source: AGHT+IERMuVCVd7U6MTOmNpPqxv55xXM3OvnM1bfuQpjOxFQC3PAJTJoQU8Phr6vdg5p0sFS6cHxBQ==
-X-Received: by 2002:a17:902:fc8f:b0:215:42a3:e844 with SMTP id d9443c01a7336-22307a60a10mr3635965ad.17.1740502251142;
-        Tue, 25 Feb 2025 08:50:51 -0800 (PST)
-Received: from google.com (169.224.198.35.bc.googleusercontent.com. [35.198.224.169])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7347a81eb0dsm1772166b3a.141.2025.02.25.08.50.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Feb 2025 08:50:50 -0800 (PST)
-Date: Tue, 25 Feb 2025 16:50:40 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, kevin.tian@intel.com,
-	corbet@lwn.net, will@kernel.org, joro@8bytes.org,
-	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
-	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
-	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
-	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
-	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
-	patches@lists.linux.dev
-Subject: Re: [PATCH v7 13/14] iommu/arm-smmu-v3: Report events that belong to
- devices attached to vIOMMU
-Message-ID: <Z7304KKv2c1pOhj2@google.com>
-References: <cover.1740238876.git.nicolinc@nvidia.com>
- <b1930038cf828dc13c080e2b46b3003a8c98ef24.1740238876.git.nicolinc@nvidia.com>
- <Z7zmErar4YvQSSxw@google.com>
- <Z7zrHn3tPBD5chv1@Asurada-Nvidia>
- <20250224233505.GF520155@nvidia.com>
+	Tue, 25 Feb 2025 16:41:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 70A6628C7;
+	Tue, 25 Feb 2025 08:41:29 -0800 (PST)
+Received: from [10.1.27.154] (XHFQ2J9959.cambridge.arm.com [10.1.27.154])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1B0BE3F6A8;
+	Tue, 25 Feb 2025 08:41:10 -0800 (PST)
+Message-ID: <baa34c09-48a1-4835-842b-4612e3f632f8@arm.com>
+Date: Tue, 25 Feb 2025 16:41:09 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250224233505.GF520155@nvidia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 07/14] arm64/mm: Avoid barriers for invalid or
+ userspace mappings
+Content-Language: en-GB
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Pasha Tatashin
+ <pasha.tatashin@soleen.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
+ David Hildenbrand <david@redhat.com>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Kevin Brodsky <kevin.brodsky@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org
+References: <20250217140809.1702789-1-ryan.roberts@arm.com>
+ <20250217140809.1702789-8-ryan.roberts@arm.com> <Z7nOe78W4JXFAkMb@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <Z7nOe78W4JXFAkMb@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_085052_254313_932C9F1A 
-X-CRM114-Status: GOOD (  22.09  )
+X-CRM114-CacheID: sfid-20250225_164116_541664_24B0917B 
+X-CRM114-Status: GOOD (  45.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,33 +89,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 24, 2025 at 07:35:05PM -0400, Jason Gunthorpe wrote:
-> On Mon, Feb 24, 2025 at 01:56:46PM -0800, Nicolin Chen wrote:
+On 22/02/2025 13:17, Catalin Marinas wrote:
+> On Mon, Feb 17, 2025 at 02:07:59PM +0000, Ryan Roberts wrote:
+>> __set_pte_complete(), set_pmd(), set_pud(), set_p4d() and set_pgd() are
+>> used to write entries into pgtables. And they issue barriers (currently
+>> dsb and isb) to ensure that the written values are observed by the table
+>> walker prior to any program-order-future memory access to the mapped
+>> location.
+>>
+>> Over the years some of these functions have received optimizations: In
+>> particular, commit 7f0b1bf04511 ("arm64: Fix barriers used for page
+>> table modifications") made it so that the barriers were only emitted for
+>> valid-kernel mappings for set_pte() (now __set_pte_complete()). And
+>> commit 0795edaf3f1f ("arm64: pgtable: Implement p[mu]d_valid() and check
+>> in set_p[mu]d()") made it so that set_pmd()/set_pud() only emitted the
+>> barriers for valid mappings.
 > 
-> > > Just thinking out loud here:
-> > > I understand the goal here is to "emulate" an IOMMU. But I'm just
-> > > wondering if we could report struct events instead of the raw event?
-> > > 
-> > > For example, can't we have something like arm_smmu_event here with the
-> > > sid changed to vsid? 
-> > > 
-> > > Are we taking the raw event since we want to keep the `u64 event_data[]`
-> > > field within `struct iommufd_vevent` generic to all architectures?
-> > 
-> > The ABIs for vSMMU are defined in the HW languange, e.g. cmd, ste.
-> > Thus, here evt in raw too.
-> 
-> Right, the point is that it gives as a safe uABI that is effectively
-> being managed by ARM.
-> 
-> If we make our own thing then we have to take the responsiblity to
-> make it safe and extensible. I don't see a justification to do that..
-> 
-> It is the same discussion we had around the vSTE as input, the raw
-> invalidation command and the IDRs. Since we've already done 'follow
-> the SMMU spec' so many times already now we should keep doing it.
+> The assumption probably was that set_pmd/pud() are called a lot less
+> often than set_pte() as they cover larger address ranges (whether table
+> or leaf).
 
-Ack. Undertsood. Thanks for the explanation :)
+Yes you're probably right. From an optimization perspective I doubt we are
+seeing much improvement from the reduction in barriers for pmd/pud/p4d/pgd
+levels. I made the change more for the benefit of uniformity.
 
--Praan
+> 
+>> set_p4d()/set_pgd() continue to emit the barriers unconditionally.
+> 
+> We probably missed them, should have been the same as set_pmd().
+
+So perhaps the middle ground is for pmd/pud/p4d/pgd to all have the same
+implementation (emit barriers for valid mappings only). And then let pte level
+continue with the additional optimization of only emitting barriers for valid
+*kernel* mappings.
+
+The only problem there is that it gets confusing when you bring set_pmd_at() and
+set_pud_at() into the picture, which today end up calling __set_pte(). So
+pmds/puds set by that route *already* has the same optimizations applied as ptes
+today.
+
+Personally, I'd prefer to have a single pattern for all levels.
+
+> 
+>> This is all very confusing to the casual observer; surely the rules
+>> should be invariant to the level? Let's change this so that every level
+>> consistently emits the barriers only when setting valid, non-user
+>> entries (both table and leaf).
+> 
+> Also see commit d0b7a302d58a ("Revert "arm64: Remove unnecessary ISBs
+> from set_{pte,pmd,pud}"") why we added back the ISBs to the pmd/pud
+> accessors and the last paragraph on why we are ok with the spurious
+> faults for PTEs.
+
+Yes, I was already aware of that behaviour (thanks to MarkR for patiently
+explaining it to me!). But my changes should still be compatible with that
+requirement; we always issue an ISB after updating the page table with a valid,
+kernel mapping.
+
+As an aside, my understanding is that if the system supports FEAT_ETS2, then the
+CPU promises not to store that "faulting" state in the pipeline, and the ISB
+should not be needed; we could patch that out in future with an alternative.
+
+> 
+> For user mappings, the translation fault is routed through the usual
+> path that can handle mapping new entries, so I think we are fine. But
+> it's worth double-checking Will's comment (unless he only referred to
+> kernel table entries).
+> 
+>> It seems obvious that if it is ok to elide barriers all but valid kernel
+>> mappings at pte level, it must also be ok to do this for leaf entries at
+>> other levels: If setting an entry to invalid, a tlb maintenance
+>> operation must surely follow to synchronise the TLB and this contains
+>> the required barriers.
+> 
+> Setting to invalid is fine indeed, handled by the TLB flushing code,
+> hence the pmd_valid() checks.
+> 
+>> If setting a valid user mapping, the previous
+>> mapping must have been invalid and there must have been a TLB
+>> maintenance operation (complete with barriers) to honour
+>> break-before-make.
+> 
+> That's not entirely true for change_protection() for example or the
+> fork() path when we make the entries read-only from writeable without
+
+For fork() we use ptep_set_wrprotect() (or these days, wrprotect_ptes(), right?)
+
+> BBM. We could improve these cases as well, I haven't looked in detail.
+> ptep_modify_prot_commit() via change_pte_range() can defer the barriers
+> to tlb_end_vma(). Something similar on the copy_present_ptes() path.
+
+But yes, I agree my comments are not fully correct for all corner cases. But the
+point is that for all of these corner cases, the higher level causes appropriate
+TLBI operations to be issued, which include the appropriate barriers.
+
+> 
+>> So the worst that can happen is we take an extra
+>> fault (which will imply the DSB + ISB) and conclude that there is
+>> nothing to do. These are the arguments for doing this optimization at
+>> pte level and they also apply to leaf mappings at other levels.
+> 
+> It's worth clarifying Will's comment in the commit I mentioned above.
+
+By my interpretation of Will's comment, it agrees with what I'm trying to say
+here. Perhaps I've missed something?
+
+> 
+>> For table entries, the same arguments hold: If unsetting a table entry,
+>> a TLB is required and this will emit the required barriers. If setting a
+>> table entry, the previous value must have been invalid and the table
+>> walker must already be able to observe that. Additionally the contents
+>> of the pgtable being pointed to in the newly set entry must be visible
+>> before the entry is written and this is enforced via smp_wmb() (dmb) in
+>> the pgtable allocation functions and in __split_huge_pmd_locked(). But
+>> this last part could never have been enforced by the barriers in
+>> set_pXd() because they occur after updating the entry. So ultimately,
+>> the wost that can happen by eliding these barriers for user table
+>> entries is an extra fault.
+>>
+>> I observe roughly the same number of page faults (107M) with and without
+>> this change when compiling the kernel on Apple M2.
+> 
+> That's microarch specific, highly dependent on timing, so you may never
+> see a difference.
+
+Fair. Are you advocating for keeping the higher levels not conditional on user
+vs kernel? If so, then my preference would be to at least simplfy to 2 patterns
+as I describe above.
+
+> 
+>> +static inline bool pmd_valid_not_user(pmd_t pmd)
+>> +{
+>> +	/*
+>> +	 * User-space table entries always have (PXN && !UXN). All other
+>> +	 * combinations indicate it's a table entry for kernel space.
+>> +	 * Valid-not-user leaf entries follow the same rules as
+>> +	 * pte_valid_not_user().
+>> +	 */
+>> +	if (pmd_table(pmd))
+>> +		return !((pmd_val(pmd) & (PMD_TABLE_PXN | PMD_TABLE_UXN)) == PMD_TABLE_PXN);
+>> +	return pte_valid_not_user(pmd_pte(pmd));
+>> +}
+> 
+> With the 128-bit format I think we lost the PXN/UXNTable bits, though we
+> have software bits if we need to. 
+
+Indeed. I've already fed back to Anshuman that in my opinion, those bits need to
+be maintained as SW bits. Otherwise it all gets a bit fragile if a SW agent
+tries to check the value of those bits in D128 mode vs D64 mode.
+
+> I just wonder whether it's worth the
+> hassle of skipping some barriers for user non-leaf entries. Did you see
+> any improvement in practice?
+
+As I said, I doubt there is much of a performance improvement in practice, my
+main motivation was unifying around a single pattern to simplify.
+
+Thanks,
+Ryan
+
+
 
