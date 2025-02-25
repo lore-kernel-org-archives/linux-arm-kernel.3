@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE3DFC18E7C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80F5EC021BB
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 17:18:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
 	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8k7MxGDGXdaouFHEvPH75JVb3S1twpfAXVhSuWav9UE=; b=ncwRGXoud0TykzAgE7j8NV7EQO
-	WWal5MLAwwXtLk/P/89DTBEHuim7IjUOTc5pVd2N72H3EtzgSm4a8efCD7FIHJUVZZ+0AXgrI3leR
-	gzGx7da4Xig041j5xTpOE808MvpmGS3O4dezJ+UmSOmsamjvdDfqx4obA33Xk21j6u2ulddwt0hLP
-	7NLgK6o+6sHoqVbkA+pJ+j5YAuQPUZ6pFdWiL1HyCQRUU+sJiGLHFPT+msIkaGZPYZhMl5KZYKfRI
-	lzRL2+rIvkL1WOiM+JuXRRF5Yqa1WvK9Jmxx+9k6sJX7AFTerIMtAgkCtoXoRP8d4Dq1CDwIwBMmx
-	bi9GDHGA==;
+	bh=5qLymUSn2dGzgnqPjS06ZVlX0k4/enNo8NH8C+zF/ro=; b=p3p9fV50xZx0DmnTY/TizGIG6h
+	8OxVKWD1ZqUe3Lc8xyNU7s8fVVQCRVE/vxxQjlNESeq++jHD+Zna7Rz3iJgYwjAfnDAac0ECo2LBE
+	MzvsOBaNs/IyTxv+CAUKo4jjBanb8wfzO13a7geLeHr/c5Uzl7KVr5jbsvwI0jPuhTMFYAjlBcqJD
+	GTrKvrgs0I5wrCGl9isVPcuVa5PthmbYFVMNgm04KPOh3GW3T4ct9lpvxp8xtXtHnQy/R8Hu/92Uj
+	TRswdpK5I/MG6QGdfO5/hxdO2TCFIt8876iDqN57zIpsOvCf5LuPW8sTPUdREzP3g1Jmp655ExTB8
+	UVlwcR4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmyZO-00000000Zxh-19AM;
+	id 1tmyZO-00000000Zxz-3XZX;
 	Tue, 25 Feb 2025 17:18:10 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmyLT-00000000WYP-2Bw6
+	id 1tmyLX-00000000Wb4-1pK9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 17:03:48 +0000
+	Tue, 25 Feb 2025 17:03:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A24D55C7316;
-	Tue, 25 Feb 2025 17:03:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FBA1C4CEE2;
-	Tue, 25 Feb 2025 17:03:42 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id ED6455C731A;
+	Tue, 25 Feb 2025 17:03:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB2A9C4CEE7;
+	Tue, 25 Feb 2025 17:03:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740503026;
-	bh=QjKx6PnEreTmGevRICTv66dbF9KM4R8MO1GuCfDDlD8=;
+	s=k20201202; t=1740503030;
+	bh=m/Rhl9xk8wb/gA4pl1Wi+ZgfjJHp6A4PuropwF5UbcM=;
 	h=From:To:In-Reply-To:References:Subject:Date:From;
-	b=IrjWj1lqai1dG0x8uiajXo5PpZ/zYHo5eXSqcXl9oLB7JfeQQTLUWEuqnK6I75Y7P
-	 rmAFAOp4o6QtQxuhGuqBozC2ASpOASgneHHO9tUc6FdbckibMhVCb8+QI7qrXpLMdw
-	 zsbQNhcRkwYA5BVYYA+bf6siRUzWL1GlxFQa9cIrwrXfKfML8QgV8vFbGQovPCy35X
-	 rC4qFPjZleOIP3NDvk5XoA5X5lob+AqoQDq4Bg9ojP342e7usFCVJ4m3lUmAZIoS8z
-	 qa8PgXzUR0HGrkpjZvJvDYJQoPSnG/jXkhHECm2b8coLdECTfUDGpV6PQ1Cr7oEUJT
-	 rX0Cz226bssxA==
+	b=EMndOmQmf/64HxjrnZOJV3XEL66bANshmMnGQu6jQUgnrLdh14x8E6YqA4WNj+JCX
+	 UiK16lOpKnn5WZ1CN8qshhMRjYcopfxJl1KZY3okjGR5Z2bS1PT4/+VPqKXaFwB6wx
+	 GaKxUVbP0z+pxmCX3KE/Xeg6qUKLu5RXvTO4Gqvb1EUYR3XHEeCfTY+0q4tUEq8XT5
+	 ojKPuTCLsVIqfZw9Inz4N+s8AM99yQzm16VWWLXGXQPLymOla2qx0tsVlWnwHIaL0F
+	 +fbHN30DytgN3R531Bgva9TbEBaTNp8Y8RIdtziam8mDF0KRgvnCkNXMH44H/9nlvK
+	 Eg0XB4AwC7CBw==
 From: Mark Brown <broonie@kernel.org>
 To: shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, festevam@gmail.com, 
  nicoleotsuka@gmail.com, lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com, 
@@ -51,18 +51,19 @@ To: shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, festevam@gmail.com,
  linux-kernel@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
  conor+dt@kernel.org, devicetree@vger.kernel.org, 
  Shengjiu Wang <shengjiu.wang@nxp.com>
-In-Reply-To: <20250211035737.3886974-1-shengjiu.wang@nxp.com>
-References: <20250211035737.3886974-1-shengjiu.wang@nxp.com>
-Subject: Re: [PATCH 0/2] ASoC: imx-card: support playback or capture only
-Message-Id: <174050302203.104078.14585047916828539805.b4-ty@kernel.org>
-Date: Tue, 25 Feb 2025 17:03:42 +0000
+In-Reply-To: <20250217021715.284951-1-shengjiu.wang@nxp.com>
+References: <20250217021715.284951-1-shengjiu.wang@nxp.com>
+Subject: Re: [PATCH v3 0/2] ASoC: imx-card: support playback or capture
+ only
+Message-Id: <174050302640.104078.14845338578152445669.b4-ty@kernel.org>
+Date: Tue, 25 Feb 2025 17:03:46 +0000
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.15-dev-1b0d6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_090347_634918_2E88EDDB 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20250225_090351_535847_5471190D 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,14 +78,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 11 Feb 2025 11:57:35 +0800, Shengjiu Wang wrote:
-> Be similar to audio graph card, support playback or capture only
-> for imx-audio-card.
+On Mon, 17 Feb 2025 10:17:13 +0800, Shengjiu Wang wrote:
+> Be similar to audio graph card, support playback or capture only for
+> imx-audio-card.
 > 
-> Shengjiu Wang (2):
->   ASoC: dt-bindings: imx-card: Add playback-only and capture-only
->     property
->   ASoC: imx-card: Add playback_only or capture_only support
+> imx-card can't directly refer to audio-graph-port.yaml, because it is
+> not based on 'ports'. Add playback-only and capture-only property
+> directly
 > 
 > [...]
 
