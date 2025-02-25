@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 200E6C021BB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 13:22:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 103B8C021BB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 13:24:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k7eNk5qHMFWPJbC7DgO4/o0LboHoTT+Aabq56bbGgPE=; b=hLkeydTAs5WaUNSx4l7wcaIkIk
-	UvIsJGJGKtiaws9clVrEUz0+IOHwITSaMAPWLa7V1ZBBXzwVtY11jkVvsPPMt3HA4R85KakXLTJkC
-	JIgDxyVbz/XW12cu1TstANXazZYlDQ7TkVcpoN+bIzUdnx1Kif6ZaiSYZfwOt9agHqduuV3c18GAa
-	4zkIG/RKeemtxHUi6zkLQ3vRt95aNLdAZdnKSuoKGQj7vtzkTQlSfPwW+am39Y+EjeKfppgShBlma
-	u8OsuywapQMHrdcIt7tCpoWh0UJ9hjdTGR/EtrEeHxtE+53FeQS33R4rGpAXR9FNE+Ds/X81uegrI
-	rF/ayb0w==;
+	bh=x9lTs8zXN5HalN7kcYVDsFMxl6BV5hMT6pLsKxt4ZeQ=; b=a/y6vuHf06vBcPbElWQ5Agf1kO
+	d5Cv6yK5bdSsr8/rHs2xk0nEVBpSaRgYjvLd3kXz0PDVsgrp4kHpueZ9eJKQflMcW9W0LMizHVo/r
+	t6BrVUiP0nLu4SNud/fDbjROI3X6bS8drBNlAHOOIcC5e+cDP6O7Uay4Y+rRFwlQ5wiY2+WVqloVD
+	HmMbUijqOnpnzGsjI5TMrYseoCHTRFt1Kk+TZUZizUFgq7aggKWJFHxWs21x/iLsus8w57evLhpqs
+	MRVcz8y5MTscd/E4XNQoKvO5Ud+fNLywulo1+cki580XjGRrOKZt4be70ldgUiE8N270QnHz/M0RN
+	WHaEVvgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmutW-0000000HMNA-1X3Q;
-	Tue, 25 Feb 2025 13:22:42 +0000
+	id 1tmuv2-0000000HMbQ-1fQ0;
+	Tue, 25 Feb 2025 13:24:16 +0000
 Received: from sender4-op-o14.zoho.com ([136.143.188.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmuVT-0000000HHNj-3Zep;
-	Tue, 25 Feb 2025 12:57:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1740488258; cv=none; 
+	id 1tmuVU-0000000HHNs-2NGj;
+	Tue, 25 Feb 2025 12:57:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1740488262; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=BG4norq42qX5WVhbnIWZ7fq6l5w/ag8mgkP5WcR57nGd30zfuG8ei6972YvTV2G4+oJPuUNbdQwLakjN7duB0aS+I7ycBkE31kdrFJQe2Vn7pZwJIhPyCVS4qLhQ/gY7aeTkR0FY8VhseY2Xwj3hfm6FTCS/GMjZOuCtyPuiZcw=
+	b=b76d1za7PGuMmTiBSOOcQuKGH0L4l0xPBLPyzFWNJ/HDODeaxW2Pbl8OYyWYl5kfOZxFyVqkKpogH+VLeKkOgZSsSnntSv91d6QTYqj+/jlNHkLj59HihMw3np05SouOCZiD1dD+ArrU7RhhPYDexYv/9ho5Utkpwz0BuQjW+2I=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1740488258; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=k7eNk5qHMFWPJbC7DgO4/o0LboHoTT+Aabq56bbGgPE=; 
-	b=h4jjB7LXCQcMmH2O+UE7cPUNo6bU8dQMn4RtGWoOf2TVXGOY5VglhBNmTsxBbt6UELq2EIsyExJg650Kb0HOCYXdbgJDUBXoMe+pBFd9PugXsYR6y4ss3fhTCkjvUY1xLH3wvM5cbkIZ0Os3lV4rPwC6GI7r08JwTZYMN9pTNg4=
+	t=1740488262; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=x9lTs8zXN5HalN7kcYVDsFMxl6BV5hMT6pLsKxt4ZeQ=; 
+	b=i5MQ/jG0WbjeSlx1+elh82vdKUO6vh4a7/nPWuA6XvR4dJ5Ejt+FHr5caa37D+By5BrRFGt88m8SJWQ2Uplhewvrb5hsfyrqtwODuACQqG7h3/RCkTgrfS8VGc/vxiBebb3fXFUr9NnzvRhwhBD0OTVgkGFY+65VMaxfLa5zoyI=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1740488258;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1740488262;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=k7eNk5qHMFWPJbC7DgO4/o0LboHoTT+Aabq56bbGgPE=;
-	b=goPqZOElyNYrdeEpebC74lPoJlQVYRpKUROR2QYNAc7RyQfZjVYcP4fnc4R6r2BB
-	Qg+uGlpp6QZEn98l01EppOH/yWywtkWBh75qDpPlSgQgJba2qGtK/F/aFvwueu/iIHV
-	98UST+ls+9ckfZ6cbW5Za+EcMdTyFk/PfYM/huyQ=
-Received: by mx.zohomail.com with SMTPS id 1740488256566382.5081815102708;
-	Tue, 25 Feb 2025 04:57:36 -0800 (PST)
+	bh=x9lTs8zXN5HalN7kcYVDsFMxl6BV5hMT6pLsKxt4ZeQ=;
+	b=LDDLBueTingfhbtiiCg7jZavcUthN75wUA6IGG24cjKURtDnz33+LeCmBS1PAKS1
+	f3cR/YHskcmad/8CdvvLrOhaKyO6/6QB9kKHmruCIo/wGiY3BvtPQzJmyiATLgnXKIw
+	Hs9ONg7CAT/WvWVUwkNrVroUNv3WMBZkDEQvyZE4=
+Received: by mx.zohomail.com with SMTPS id 1740488260869522.3234869504469;
+	Tue, 25 Feb 2025 04:57:40 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Tue, 25 Feb 2025 13:56:46 +0100
-Subject: [PATCH v2 3/6] thermal: rockchip: Support RK3576 SoC in the
- thermal driver
+Date: Tue, 25 Feb 2025 13:56:47 +0100
+Subject: [PATCH v2 4/6] dt-bindings: thermal: rockchip: document otp
+ thermal trim
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250225-rk3576-tsadc-upstream-v2-3-6eb7b00de89c@collabora.com>
+Message-Id: <20250225-rk3576-tsadc-upstream-v2-4-6eb7b00de89c@collabora.com>
 References: <20250225-rk3576-tsadc-upstream-v2-0-6eb7b00de89c@collabora.com>
 In-Reply-To: <20250225-rk3576-tsadc-upstream-v2-0-6eb7b00de89c@collabora.com>
 To: "Rafael J. Wysocki" <rafael@kernel.org>, 
@@ -65,12 +65,11 @@ Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
  kernel@collabora.com, linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  linux-kernel@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Ye Zhang <ye.zhang@rock-chips.com>
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_045751_962291_667FA4C6 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20250225_045752_640423_86A77B72 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,85 +84,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ye Zhang <ye.zhang@rock-chips.com>
+Several Rockchip SoCs, such as the RK3576, can store calibration trim
+data for thermal sensors in OTP cells. This capability should be
+documented.
 
-The RK3576 SoC has six TS-ADC channels: TOP, BIG_CORE, LITTLE_CORE,
-DDR, NPU and GPU.
+Such a rockchip thermal sensor may reference cell handles that store
+both a chip-wide trim for all the sensors, as well as cell handles
+for each individual sensor channel pointing to that specific sensor's
+trim value.
 
-Signed-off-by: Ye Zhang <ye.zhang@rock-chips.com>
-[ported to mainline, reworded commit message]
+Additionally, the thermal sensor may optionally reference cells which
+store the base in terms of degrees celsius and decicelsius that the trim
+is relative to.
+
+Each SoC that implements this appears to have a slightly different
+combination of chip-wide trim, base, base fractional part and
+per-channel trim, so which ones do which is documented in the bindings.
+
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/thermal/rockchip_thermal.c | 42 ++++++++++++++++++++++++++++++++++++++
- 1 file changed, 42 insertions(+)
+ .../bindings/thermal/rockchip-thermal.yaml         | 64 ++++++++++++++++++++++
+ 1 file changed, 64 insertions(+)
 
-diff --git a/drivers/thermal/rockchip_thermal.c b/drivers/thermal/rockchip_thermal.c
-index a8ad85feb68fbb7ec8d79602b16c47838ecb3c00..bec1930bebd87859a7e519cfc9f05e10b1c31e87 100644
---- a/drivers/thermal/rockchip_thermal.c
-+++ b/drivers/thermal/rockchip_thermal.c
-@@ -1061,6 +1061,22 @@ static void rk_tsadcv3_tshut_mode(int chn, void __iomem *regs,
- 	writel_relaxed(val_cru, regs + TSADCV3_HSHUT_CRU_INT_EN);
- }
+diff --git a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
+index 49ceed68c92ce5a32ed8d4f39bd88fd052de0e80..eef8d2620b675fe2f871a03aebdaed13278e0884 100644
+--- a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
++++ b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
+@@ -11,6 +11,23 @@ maintainers:
  
-+static void rk_tsadcv4_tshut_mode(int chn, void __iomem *regs,
-+				  enum tshut_mode mode)
-+{
-+	u32 val_gpio, val_cru;
-+
-+	if (mode == TSHUT_MODE_GPIO) {
-+		val_gpio = TSADCV2_INT_SRC_EN(chn) | TSADCV2_INT_SRC_EN_MASK(chn);
-+		val_cru = TSADCV2_INT_SRC_EN_MASK(chn);
-+	} else {
-+		val_cru = TSADCV2_INT_SRC_EN(chn) | TSADCV2_INT_SRC_EN_MASK(chn);
-+		val_gpio = TSADCV2_INT_SRC_EN_MASK(chn);
-+	}
-+	writel_relaxed(val_gpio, regs + TSADCV3_HSHUT_GPIO_INT_EN);
-+	writel_relaxed(val_cru, regs + TSADCV3_HSHUT_CRU_INT_EN);
-+}
-+
- static const struct rockchip_tsadc_chip px30_tsadc_data = {
- 	/* cpu, gpu */
- 	.chn_offset = 0,
-@@ -1284,6 +1300,28 @@ static const struct rockchip_tsadc_chip rk3568_tsadc_data = {
- 	},
- };
+ $ref: thermal-sensor.yaml#
  
-+static const struct rockchip_tsadc_chip rk3576_tsadc_data = {
-+	/* top, big_core, little_core, ddr, npu, gpu */
-+	.chn_offset = 0,
-+	.chn_num = 6, /* six channels for tsadc */
-+	.tshut_mode = TSHUT_MODE_GPIO, /* default TSHUT via GPIO give PMIC */
-+	.tshut_polarity = TSHUT_LOW_ACTIVE, /* default TSHUT LOW ACTIVE */
-+	.tshut_temp = 95000,
-+	.initialize = rk_tsadcv8_initialize,
-+	.irq_ack = rk_tsadcv4_irq_ack,
-+	.control = rk_tsadcv4_control,
-+	.get_temp = rk_tsadcv4_get_temp,
-+	.set_alarm_temp = rk_tsadcv3_alarm_temp,
-+	.set_tshut_temp = rk_tsadcv3_tshut_temp,
-+	.set_tshut_mode = rk_tsadcv4_tshut_mode,
-+	.table = {
-+		.id = rk3588_code_table,
-+		.length = ARRAY_SIZE(rk3588_code_table),
-+		.data_mask = TSADCV4_DATA_MASK,
-+		.mode = ADC_INCREMENT,
-+	},
-+};
++definitions:
++  channel:
++    type: object
++    properties:
++      reg:
++        maxItems: 1
++        description: sensor ID, a.k.a. channel number
++      nvmem-cells:
++        items:
++          - description: handle of cell containing the calibration data
++      nvmem-cell-names:
++        items:
++          - const: trim
++    required:
++      - reg
++    unevaluatedProperties: false
 +
- static const struct rockchip_tsadc_chip rk3588_tsadc_data = {
- 	/* top, big_core0, big_core1, little_core, center, gpu, npu */
- 	.chn_offset = 0,
-@@ -1342,6 +1380,10 @@ static const struct of_device_id of_rockchip_thermal_match[] = {
- 		.compatible = "rockchip,rk3568-tsadc",
- 		.data = (void *)&rk3568_tsadc_data,
- 	},
-+	{
-+		.compatible = "rockchip,rk3576-tsadc",
-+		.data = (void *)&rk3576_tsadc_data,
-+	},
- 	{
- 		.compatible = "rockchip,rk3588-tsadc",
- 		.data = (void *)&rk3588_tsadc_data,
+ properties:
+   compatible:
+     enum:
+@@ -51,6 +68,12 @@ properties:
+       - const: tsadc
+       - const: tsadc-phy
+ 
++  "#address-cells":
++    const: 1
++
++  "#size-cells":
++    const: 0
++
+   "#thermal-sensor-cells":
+     const: 1
+ 
+@@ -80,6 +103,47 @@ required:
+   - clock-names
+   - resets
+ 
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: rockchip,rk3568-tsadc
++    then:
++      properties:
++        nvmem-cells:
++          items:
++            - description: cell handle to where the trim's base temperature is stored
++            - description:
++                cell handle to where the trim's tenths of Celsius base value is stored
++        nvmem-cell-names:
++          items:
++            - const: trim_base
++            - const: trim_base_frac
++        cpu@0:
++          $ref: "#/definitions/channel"
++        gpu@1:
++          $ref: "#/definitions/channel"
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: rockchip,rk3576-tsadc
++    then:
++      properties:
++        soc@0:
++          $ref: "#/definitions/channel"
++        bigcores@1:
++          $ref: "#/definitions/channel"
++        littlecores@2:
++          $ref: "#/definitions/channel"
++        ddr@3:
++          $ref: "#/definitions/channel"
++        npu@4:
++          $ref: "#/definitions/channel"
++        gpu@5:
++          $ref: "#/definitions/channel"
++
+ unevaluatedProperties: false
+ 
+ examples:
 
 -- 
 2.48.1
