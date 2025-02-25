@@ -4,76 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5904CC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 05:59:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41696C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 06:10:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sa7ucSJKWasZ2KGuuAlceNV2b8JCAsYjJZF+dbJsVKo=; b=q6Q+9ztbZA2UVI7I3l4b3lRjCl
-	RY8LuazPj8NBK218jeHXWzaDhRB2iuBQ4jZ6nuVy8tZeg8YF3o1NmQXd6rLkar9F6mXmxek9cy0qV
-	YwlEqbPlo6UUxAvt4ko40cLgAAeXMQFaC0YANW1zWC69JPrvrYAcLR7JunyJe7zbpRxIfauCvwgXZ
-	R4RUmSnwwSqfnyGxzjeEdz88/QWK+16BDGZtcAIeAUDRJjg2KtmfcpLR8TdZpC/KgrSTbxbJ23w2H
-	8g92kPnf0He5TNdGhJ13FWrrokg2rOPON7lq6kVeWlNJ+jqzo/XLTN4ioZm0qEjIuDNKf+3lq+vT3
-	fr4Dpavw==;
+	bh=s3508VUXvao7RjemhYDAO/CTcFT7kcPYoLQummb5BwQ=; b=ENlbowIvNsQWEpQiX8UJG0EesI
+	k/AIgAcBdTEEGSpPNJgi+4N/KwG2LF1mpwYvTTbfEYWfL7QRQjZjHDV4/X1ylrXqOYxl8YkxAbCQ/
+	lNCbyro8m5bBHultn1XoVriLhZSEL4wxeFb4NYIQKT9QQ1XQSmCWSHoT5PM410ld/aARNEg79bElv
+	orNAWbwmqz3+Lo/3L3yU1Du1PKTTtHO0R0YBCwfH9wEIZMdtzZ3tM0ypoxKXOTnA8aWz9phZvYfNE
+	g9yfb6G18UcRAfos1BbpZxiMZTnBwlHCixnRlAUGslCK9ELdqgfmXc3tM5inhmw91Sr4mMZocJ//z
+	FxvjqxAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmnyj-0000000G2sW-1cOZ;
-	Tue, 25 Feb 2025 05:59:37 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1tmo9G-0000000G3hH-2zb2;
+	Tue, 25 Feb 2025 06:10:30 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmnxC-0000000G2mY-3cda
+	id 1tmo7k-0000000G3VA-1rst
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 05:58:04 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51P5vpku1682408
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Mon, 24 Feb 2025 23:57:51 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1740463071;
-	bh=Sa7ucSJKWasZ2KGuuAlceNV2b8JCAsYjJZF+dbJsVKo=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=E6eCWB0J1TLY5hBPfkrtc1a2eK8EFTk/UyJiTby3O9u/0pw/qwRsMItfJ80h2z3uw
-	 +qwXG1ZvE8PrNcO3YTTjFj8sNzEM4UKN+O+XsFh3j2FgLAig7jZYb6v8dMC57zoyex
-	 KcK5ejqvpwXouATTxqPcQcCK2OJSpzLyQ/rO+DBk=
-Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51P5vp7g009513;
-	Mon, 24 Feb 2025 23:57:51 -0600
-Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 24
- Feb 2025 23:57:51 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE102.ent.ti.com
- (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 24 Feb 2025 23:57:51 -0600
-Received: from [172.24.25.83] (lt5cd2489kgj.dhcp.ti.com [172.24.25.83])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51P5vlMG101472;
-	Mon, 24 Feb 2025 23:57:48 -0600
-Message-ID: <1c110279-ed22-4505-8fe2-2664b9880132@ti.com>
-Date: Tue, 25 Feb 2025 11:27:47 +0530
+	Tue, 25 Feb 2025 06:08:58 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.44])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4Z26Xl21DTz21nvV;
+	Tue, 25 Feb 2025 14:05:43 +0800 (CST)
+Received: from dggpemf500002.china.huawei.com (unknown [7.185.36.57])
+	by mail.maildlp.com (Postfix) with ESMTPS id 5F8381402CA;
+	Tue, 25 Feb 2025 14:08:47 +0800 (CST)
+Received: from [10.174.178.247] (10.174.178.247) by
+ dggpemf500002.china.huawei.com (7.185.36.57) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 25 Feb 2025 14:08:46 +0800
+Subject: Re: [PATCH v11 3/4] arm64: topology: Support SMT control on ACPI
+ based system
+To: Yicong Yang <yangyicong@huawei.com>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <sudeep.holla@arm.com>, <tglx@linutronix.de>,
+	<peterz@infradead.org>, <mpe@ellerman.id.au>,
+	<linux-arm-kernel@lists.infradead.org>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <pierre.gondois@arm.com>,
+	<dietmar.eggemann@arm.com>
+CC: <linuxppc-dev@lists.ozlabs.org>, <x86@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <morten.rasmussen@arm.com>,
+	<msuchanek@suse.de>, <gregkh@linuxfoundation.org>, <rafael@kernel.org>,
+	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
+	<linuxarm@huawei.com>, <yangyicong@hisilicon.com>, <xuwei5@huawei.com>,
+	<sshegde@linux.ibm.com>
+References: <20250218141018.18082-1-yangyicong@huawei.com>
+ <20250218141018.18082-4-yangyicong@huawei.com>
+From: Hanjun Guo <guohanjun@huawei.com>
+Message-ID: <92193a09-271e-895e-f77f-d3952bdfdf49@huawei.com>
+Date: Tue, 25 Feb 2025 14:08:45 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: ti: k3-j784s4-j742s2-main-common: Correct
- the GICD size
-To: Keerthy <j-keerthy@ti.com>, <robh+dt@kernel.org>, <nm@ti.com>,
-        <vigneshr@ti.com>, <conor+dt@kernel.org>, <kristo@kernel.org>,
-        <krzk+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>,
-        <u-kumar1@ti.com>
-References: <20250218052248.4734-1-j-keerthy@ti.com>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <20250218052248.4734-1-j-keerthy@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+In-Reply-To: <20250218141018.18082-4-yangyicong@huawei.com>
+Content-Type: text/plain; charset="utf-8"; format=flowed
+Content-Language: en-GB
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-Originating-IP: [10.174.178.247]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ dggpemf500002.china.huawei.com (7.185.36.57)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_215803_112328_9C86E617 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20250224_220856_818690_49721B3A 
+X-CRM114-Status: GOOD (  34.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,42 +83,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 2/18/2025 10:52 AM, Keerthy wrote:
-> Currently we get the warning:
->
-> "GICv3: [Firmware Bug]: GICR region 0x0000000001900000 has
-> overlapping address"
->
-> As per TRM GICD is 64 KB. Fix it by correcting the size of GICD.
->
-> Fixes: 9cc161a4509c ("arm64: dts: ti: Refactor J784s4 SoC files to a common file")
-> Signed-off-by: Keerthy <j-keerthy@ti.com>
-> Cc: stable@vger.kernel.org
+On 2025/2/18 22:10, Yicong Yang wrote:
+> From: Yicong Yang <yangyicong@hisilicon.com>
+> 
+> For ACPI we'll build the topology from PPTT and we cannot directly
+> get the SMT number of each core. Instead using a temporary xarray
+> to record the heterogeneous information (from ACPI_PPTT_ACPI_IDENTICAL)
+> and SMT information of the first core in its heterogeneous CPU cluster
+> when building the topology. Then we can know the largest SMT number
+> in the system. If a homogeneous system's using ACPI 6.2 or later,
+> all the CPUs should be under the root node of PPTT. There'll be
+> only one entry in the xarray and all the CPUs in the system will
+> be assumed identical.
+> 
+> The core's SMT control provides two interface to the users [1]:
+> 1) enable/disable SMT by writing on/off
+> 2) enable/disable SMT by writing thread number 1/max_thread_number
+> 
+> If a system have more than one SMT thread number the 2) may
+> not handle it well, since there're multiple thread numbers in the
+> system and 2) only accept 1/max_thread_number. So issue a warning
+> to notify the users if such system detected.
+> 
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/ABI/testing/sysfs-devices-system-cpu#n542
+> 
+> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 > ---
+>   arch/arm64/kernel/topology.c | 66 ++++++++++++++++++++++++++++++++++++
+>   1 file changed, 66 insertions(+)
+> 
+> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+> index 1a2c72f3e7f8..6eba1ac091ee 100644
+> --- a/arch/arm64/kernel/topology.c
+> +++ b/arch/arm64/kernel/topology.c
+> @@ -15,8 +15,10 @@
+>   #include <linux/arch_topology.h>
+>   #include <linux/cacheinfo.h>
+>   #include <linux/cpufreq.h>
+> +#include <linux/cpu_smt.h>
+>   #include <linux/init.h>
+>   #include <linux/percpu.h>
+> +#include <linux/xarray.h>
+>   
+>   #include <asm/cpu.h>
+>   #include <asm/cputype.h>
+> @@ -37,17 +39,28 @@ static bool __init acpi_cpu_is_threaded(int cpu)
+>   	return !!is_threaded;
+>   }
+>   
+> +struct cpu_smt_info {
+> +	unsigned int thread_num;
+> +	int core_id;
+> +};
+> +
+>   /*
+>    * Propagate the topology information of the processor_topology_node tree to the
+>    * cpu_topology array.
+>    */
+>   int __init parse_acpi_topology(void)
+>   {
+> +	unsigned int max_smt_thread_num = 0;
+> +	struct cpu_smt_info *entry;
+> +	struct xarray hetero_cpu;
+> +	unsigned long hetero_id;
+>   	int cpu, topology_id;
+>   
+>   	if (acpi_disabled)
+>   		return 0;
+>   
+> +	xa_init(&hetero_cpu);
+> +
+>   	for_each_possible_cpu(cpu) {
+>   		topology_id = find_acpi_cpu_topology(cpu, 0);
+>   		if (topology_id < 0)
+> @@ -57,6 +70,34 @@ int __init parse_acpi_topology(void)
+>   			cpu_topology[cpu].thread_id = topology_id;
+>   			topology_id = find_acpi_cpu_topology(cpu, 1);
+>   			cpu_topology[cpu].core_id   = topology_id;
+> +
+> +			/*
+> +			 * In the PPTT, CPUs below a node with the 'identical
+> +			 * implementation' flag have the same number of threads.
+> +			 * Count the number of threads for only one CPU (i.e.
+> +			 * one core_id) among those with the same hetero_id.
+> +			 * See the comment of find_acpi_cpu_topology_hetero_id()
+> +			 * for more details.
+> +			 *
+> +			 * One entry is created for each node having:
+> +			 * - the 'identical implementation' flag
+> +			 * - its parent not having the flag
+> +			 */
+> +			hetero_id = find_acpi_cpu_topology_hetero_id(cpu);
+> +			entry = xa_load(&hetero_cpu, hetero_id);
+> +			if (!entry) {
+> +				entry = kzalloc(sizeof(*entry), GFP_KERNEL);
+> +				WARN_ON_ONCE(!entry);
+> +
+> +				if (entry) {
+> +					entry->core_id = topology_id;
+> +					entry->thread_num = 1;
+> +					xa_store(&hetero_cpu, hetero_id,
+> +						 entry, GFP_KERNEL);
+> +				}
+> +			} else if (entry->core_id == topology_id) {
+> +				entry->thread_num++;
+> +			}
+>   		} else {
+>   			cpu_topology[cpu].thread_id  = -1;
+>   			cpu_topology[cpu].core_id    = topology_id;
+> @@ -67,6 +108,31 @@ int __init parse_acpi_topology(void)
+>   		cpu_topology[cpu].package_id = topology_id;
+>   	}
+>   
+> +	/*
+> +	 * This should be a short loop depending on the number of heterogeneous
+> +	 * CPU clusters. Typically on a homogeneous system there's only one
+> +	 * entry in the XArray.
+> +	 */
+> +	xa_for_each(&hetero_cpu, hetero_id, entry) {
+> +		if (entry->thread_num != max_smt_thread_num && max_smt_thread_num)
+> +			pr_warn_once("Heterogeneous SMT topology is partly supported by SMT control\n");
+> +
+> +		max_smt_thread_num = max(max_smt_thread_num, entry->thread_num);
+> +		xa_erase(&hetero_cpu, hetero_id);
+> +		kfree(entry);
+> +	}
+> +
+> +	/*
+> +	 * Notify the CPU framework of the SMT support. Initialize the
+> +	 * max_smt_thread_num to 1 if no SMT support detected. A thread
+> +	 * number of 1 can be handled by the framework so we don't need
+> +	 * to check max_smt_thread_num to see we support SMT or not.
+> +	 */
+> +	if (!max_smt_thread_num)
+> +		max_smt_thread_num = 1;
+> +
+> +	cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
+> +	xa_destroy(&hetero_cpu);
+>   	return 0;
+>   }
+>   #endif
 
-Acked-by: Udit Kumar <u-kumar1@ti.com>
+Looks good to me,
 
+Reviewed-by: Hanjun Guo <guohanjun@huawei.com>
 
-> Changes in V2:
->
-> 	* Added the fixes tag
-> 	* Cc: stable
->
->   arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-> index 83bbf94b58d1..3b72fca158ad 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-> @@ -193,7 +193,7 @@
->   		ranges;
->   		#interrupt-cells = <3>;
->   		interrupt-controller;
-> -		reg = <0x00 0x01800000 0x00 0x200000>, /* GICD */
-> +		reg = <0x00 0x01800000 0x00 0x10000>, /* GICD */
->   		      <0x00 0x01900000 0x00 0x100000>, /* GICR */
->   		      <0x00 0x6f000000 0x00 0x2000>,   /* GICC */
->   		      <0x00 0x6f010000 0x00 0x1000>,   /* GICH */
+Thanks
+Hanjun
 
