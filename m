@@ -4,69 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D31EEC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 21:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E6F4C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 21:24:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S3ZSQbMXrGRz8ZfxEOxUSi77yriazGREs/X4JZlcd+I=; b=hZC61PXKrAps/EchOsadDtSVaX
-	BnjEWBxdFWUaMjTjxpgLE7ysiaO7MxFPa3BpNcyTetPV06DrPCvLItcI7HeB7JAWt2bapA8xx1+TS
-	x66LZgyvauSg4iTfBe5LQxuXGZLIcN6GqOfTK4SPaMd5Fj8CMSkCIOLMUfj/v1Nn0gnP0K3bQRE72
-	GUAjDeTXYtQCzcAuea/Zl1PwIic2sV4YMK8iV8UuZHT+GdogOHoOsqpLGxCZCAo7Rr16PLapJCJIf
-	5nJkSrEbSSPiBQ8hOTglpdUcCpDZDBZqrOFN8QUbQ9RfoliYr3ZommAOaJGdEhlX+rNncBG90BhrF
-	9STQYI5w==;
+	bh=km6GgyUtBYWlPDyGMWfcUJBELXq839o82rzSdqdT8ck=; b=GAEEv1Uxa9O+AzXygWwulhOsM7
+	HGtppjbUIqpYu50CT0lv32kFaZhUbuPJyYOkkXlbJijO99dxerTHYjN1H62gFqN6FIR4mlc4hq/ZQ
+	O8Mpi8s1/HoBrVJDscP/mdr7DlMkDunThvLjYaITa2mg5KJgy1DoLosuYqjdo9VAdUz8z/9J4ya+v
+	xnmLB7QiNmHyQ5RSqgauPsUNtHDzBfScTJi60jAG75e858J7wF/TeIDNdnadRdD8Vsi8elUcVcL9j
+	E56Pyz1n7XATBY6MRiJwmUNxWneX2c1J6DHGZzx8KM0MB5pXsSnmWX8zn1Ww22WqeKnrz4B7slUp7
+	Q1TAyoOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn2OL-00000001Wkc-35S6;
-	Tue, 25 Feb 2025 21:23:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn0tO-00000001DeN-3aMt
+	id 1tn2PF-00000001XDN-0wIV;
+	Tue, 25 Feb 2025 21:23:57 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tn1mb-00000001Q9A-1nuL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 19:47:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 43906152B;
-	Tue, 25 Feb 2025 11:47:14 -0800 (PST)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E65263F5A1;
-	Tue, 25 Feb 2025 11:46:55 -0800 (PST)
-Date: Tue, 25 Feb 2025 19:46:53 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Leo Yan <leo.yan@arm.com>
-Cc: Rob Herring <robh@kernel.org>, Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	James Clark <james.clark@linaro.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH v20 11/11] perf: arm_pmuv3: Add support for the Branch
- Record Buffer Extension (BRBE)
-Message-ID: <Z74eLRTcVym4sMqh@J2N7QTR9R3.cambridge.arm.com>
-References: <20250218-arm-brbe-v19-v20-0-4e9922fc2e8e@kernel.org>
- <20250218-arm-brbe-v19-v20-11-4e9922fc2e8e@kernel.org>
- <20250224122507.GE8144@e132581.arm.com>
- <CAL_Jsq+0fZ2uasgAam7qGTdCeDBQxXeyL-J1_suyxy6GE_ERTg@mail.gmail.com>
- <20250224140317.GF8144@e132581.arm.com>
- <Z7yY19UtSnND5KTl@J2N7QTR9R3.cambridge.arm.com>
- <20250224180301.GI8144@e132581.arm.com>
- <CAL_JsqKNad6eEBerUOco=SDWxdp6dgRD3FDrSt5OpGQYwwstSg@mail.gmail.com>
- <20250225123813.GA1821331@e132581.arm.com>
+	Tue, 25 Feb 2025 20:44:02 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4394036c0efso38777605e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 12:44:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740516240; x=1741121040; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=km6GgyUtBYWlPDyGMWfcUJBELXq839o82rzSdqdT8ck=;
+        b=k1eiAM+rtHvaD0MOvR5LuW+ZPDkBhbDxWsFStkLLsaILFTb8zZv3Qr3WPDzrRb3pZc
+         VpFpAOwtGYckHoFIIW23uttrmXGEZte8lah433won3zvbG26ikmv4oOBiztw5+hhzYv+
+         ww8IfVtoY7yulECi97mKh2pwgayD9Pr/Z17XKhFrpIOLfeZA6snuTjeYpyL6VjcnSzDC
+         9r+a4w0c0jWSrWsLi5/1vUlEfVa2qQHq4NLT5SAeZn0JwsXrV9XVUtjssYfqYmUb5UEe
+         q1GmHkja0T6P1qvZJGHk+Z0d+q2gi7JcN26RsHqFv1xie/gHZF6w5T51igJLesEAtPfP
+         H0Aw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740516240; x=1741121040;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=km6GgyUtBYWlPDyGMWfcUJBELXq839o82rzSdqdT8ck=;
+        b=UuW1W8H0IoKKQTEya9X9EIYy19scXXyw3hMWMSZGfu8pjvI49kLEdGi87yVooNlOqV
+         GHkMEZtBRaiPTrDpsvc3rsGb7Tw0iqwdvSvCqjZe901R5dNh5ziWqeuu/G1AwZdQ2EsP
+         SUVrbMQS5ty9b5XHN3t+qY3YQ63+RupY7pqKrunYp3xSEfzMf+18KzAJjaR7V4vB3ca0
+         diaxWr9zB2fBiCcOVrSYemZXxz42iWhgyITgpB8xyChanf5T/TanKdrFjUTWvQIMu9Lg
+         pxPbqfBIqguFgDz9aZ3naDGZMaAyCVq7xcKIJJXTjiXwKL4HZyHe4RaXkcwC9xnGkQz5
+         nFBg==
+X-Forwarded-Encrypted: i=1; AJvYcCXEOEGqegetQygiO21XU4kY9Fk0Rfczccgb/IZ+khc9Fycq1+1nJbaSRetTp5K5ob//fNcjCbjY5I+unC7cC/P4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6Pi03KyFvRNjMxvX+VsT/WTTQAZQWnHRrKal3DwYZmQwEZk3u
+	5MfktbAP90rkAb2yNByP1UfcSupXi0uKuyop5cJGfSY9dKu4mlee
+X-Gm-Gg: ASbGnctTaVnaSp9jKEstGUrnlMFh974LZGipaZ9XB/qlujYpXi1i00SGTqka7XUohdz
+	J7z6PMYFw4JxDx38+8wx1HCsZX1MMWocdT/aWXG54uoYFrZMV8maiKClO12qCpqKBGXYDMEE94B
+	RTDuhxokSf848IG85LJ6yU9/0woq1pIdZhJO9S1B2AnNtBEv1WtBR13OGSZnB5TktaIZNqWcm6Y
+	LeWNmvFnSeJ31wYyA4BhAJ1eKGJXPRI+r6gK39F5yChHxhhnqTSqk23ApbjJcZexpvngrZmmm/m
+	qSx0XAvcgP6zFUE1sOct2adQxrwHh+FAB2jONdUY66TKPSV+F+ZtSq5Qzo+WPVNi3LU/Ncx7emI
+	QJ1hy/cxtKlWS
+X-Google-Smtp-Source: AGHT+IFn60vNyjvN8suXWrn3N7MNMCvoYB7tyLvf0VIb/vaa4GNGBrrZf3vgpHtm6zuKbQT61XRnPw==
+X-Received: by 2002:a5d:64e9:0:b0:38b:f4dc:4483 with SMTP id ffacd0b85a97d-390d4f421e7mr518360f8f.29.1740516239496;
+        Tue, 25 Feb 2025 12:43:59 -0800 (PST)
+Received: from orome (p200300e41f187700f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f18:7700:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390cd86ce49sm3473823f8f.36.2025.02.25.12.43.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Feb 2025 12:43:58 -0800 (PST)
+Date: Tue, 25 Feb 2025 21:43:56 +0100
+From: Thierry Reding <thierry.reding@gmail.com>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Emil Renner Berthing <kernel@esmil.dk>, 
+	Eric Dumazet <edumazet@google.com>, Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
+	Inochi Amaoto <inochiama@gmail.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Jan Petrous <jan.petrous@oss.nxp.com>, Jon Hunter <jonathanh@nvidia.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Minda Chen <minda.chen@starfivetech.com>, netdev@vger.kernel.org, 
+	NXP S32 Linux Team <s32@nxp.com>, Paolo Abeni <pabeni@redhat.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Shawn Guo <shawnguo@kernel.org>, Thierry Reding <treding@nvidia.com>
+Subject: Re: [PATCH RFC net-next 5/7] net: stmmac: s32: use generic
+ stmmac_set_clk_tx_rate()
+Message-ID: <x56yik7opvpr3o5vjlxoxzxdicrz2pimsh4lkpxol7c64r6irs@t7dfqy7ybn2a>
+References: <Z7RrnyER5ewy0f3T@shell.armlinux.org.uk>
+ <E1tkLZ6-004RZO-0H@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="ofk7odbwikmdng6s"
 Content-Disposition: inline
-In-Reply-To: <20250225123813.GA1821331@e132581.arm.com>
+In-Reply-To: <E1tkLZ6-004RZO-0H@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_114658_980933_C104D44A 
-X-CRM114-Status: GOOD (  54.00  )
+X-CRM114-CacheID: sfid-20250225_124401_474279_57300A2C 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,150 +109,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 12:38:13PM +0000, Leo Yan wrote:
-> On Mon, Feb 24, 2025 at 07:31:52PM -0600, Rob Herring wrote:
-> 
-> [...]
-> 
-> > > > > When event rotation happens, if without context switch, in theory we
-> > > > > should can directly use the branch record (no invalidation, no injection)
-> > > > > for all events.
-> > > >
-> > > > No; that only works in *some* cases, and will produce incorrect results
-> > > > in others.
-> > > >
-> > > > For example, consider filtering. Imagine a PMU with a single counter,
-> > > > and two events, where event-A filters for calls-and-returns and event-B
-> > > > filters for calls-only. When switching from event-A to event-B, it's
-> > > > theoretically possible to keep the existing records around, knowing that
-> > > > the returns can be filtered out later. When switching from event-B to
-> > > > event-A we cannot keep the existing records, since there are gaps
-> > > > whenever a return should have been recorded.
-> > >
-> > > Seems to me, the problem is not caused by event rotation.  We need to
-> > > calculate a correct filter in the first place - the BRBE driver should
-> > > calculate a superset for all filters of events for a session.  Then,
-> > > generate branch record based event's specific filter.
-> > 
-> > The driver doesn't have enough information. If it is told to schedule
-> > event A, it doesn't know anything about event B. It could in theory
-> > try to remember event B if event B had already been scheduled, but it
-> > never knows when event B is gone.
-> 
-> E.g., I tried below command for enabling 10 events in a perf session:
-> 
->   perf record -e armv9_nevis/r04/ -e armv9_nevis/r05/ \
->               -e armv9_nevis/r06/ -e armv9_nevis/r07/ \
->               -e armv9_nevis/r08/ -e armv9_nevis/r09/ \
->               -e armv9_nevis/r10/ -e armv9_nevis/r11/ \
->               -e armv9_nevis/r12/ -e armv9_nevis/r13/ \
->               -- sleep 1
-> 
-> For Arm PMU, the flow below is invoked for every event on every
-> affinied CPU in initialization phase:
-> 
->   armpmu_event_init() {
->     armv8pmu_set_event_filter();
->   }
-> 
-> Shouldn't we calculate a superset branch filter for all events, store
-> it into a per-CPU data structure and then apply the filter on BRBE?
 
-Should we? No.
+--ofk7odbwikmdng6s
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH RFC net-next 5/7] net: stmmac: s32: use generic
+ stmmac_set_clk_tx_rate()
+MIME-Version: 1.0
 
-*NONE* of the events in your example are CPU-bound, and the call to
-armpmu_event_init() can happen on an arbitrary CPU which the relevant
-event never actually runs on, while other unrelated events may run on
-that CPU.
+On Tue, Feb 18, 2025 at 11:15:00AM +0000, Russell King (Oracle) wrote:
+> Use the generic stmmac_set_clk_tx_rate() to configure the MAC transmit
+> clock.
+>=20
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-It makes no sense for armv8pmu_set_event_filter() to write to a per-cpu
-structure. That's purely there to determine what the filters *should* be
-when *that specific event* is programmed into hardware.
+I wonder if the clk_set_rate() call for gmac->tx_clk could also be
+removed from s32_gmac_init(). Comparing to the other drivers that
+doesn't seem to be relevant since ->set_clk_tx_rate() will be called
+anyway when the interface is brought up.
 
-As Rob and I have pointed out already, the *only* thing that can be
-relevant to deciding the configuration of HW filtering is the set of
-events which are *active* on that CPU.
+But it might be more difficult because somebody would actually have to
+go and test this, whereas this patch here is the equivalent of the
+previous code, so:
 
-> > > > There are a number of cases of that shape given the set of configurable
-> > > > filters. In theory it's possible to retain those in some cases, but I
-> > > > don't think that the complexity is justified.
-> > > >
-> > > > Similarly, whenever kernel branches are recorded it's necessary to drop
-> > > > the stale branches whenever branch recording is paused, as there's
-> > > > necessarily a blackout period and hence a gap in the records.
-> > >
-> > > If we save BRBE record when a process is switched out and then restore
-> > > the record when a process is switched in, should we can keep a decent
-> > > branch record for performance profiling?
-> > 
-> > Keep in mind that there's only 64 branches recorded at most. How many
-> > branches in a context switch plus reconfiguring the PMU? Not a small
-> > percentage of 64 I think. In traces where freeze on overflow was not
-> > working (there's an example in v18), just the interrupt entry until
-> > BRBE was stopped was a significant part of the trace. A context switch
-> > is going to be similar.
-> 
-> That is true for kernel mode enabled tracing.  But we will have no
-> such kind noises for userspace only mode tracing.
+Reviewed-by: Thierry Reding <treding@nvidia.com>
 
-As mentioned elsewhere, it's not a problem for x86, so why is it
-magically a problem for arm64?
+--ofk7odbwikmdng6s
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> > > > Do you have a reason why you think we *must* keep events around?
-> > >
-> > > Here I am really concerned are cases when a process is preempted or
-> > > migrated.  The driver doesn't save and restore branch records for these
-> > > cases, it just invalidates all records when a task is scheduled in.
-> > >
-> > > As a result, if an event overflow is close to context switch, it is
-> > > likely to capture incomplete branch records.  For a userspace-only
-> > > tracing, it is risk to capture empty branch record after preemption
-> > > and migrations.
-> > 
-> > There's the same risk if something else is recording kernel branches
-> > when you are recording userspace only. I think the user has to be
-> > aware if other things like context switches are perturbing their data.
-> 
-> I am confused for the decription above.  Does it refer to branch
-> recording cross different sessions?  It is fine for me that the branch
-> data is interleaved by different sessions (e.g. one is global tracing
-> and another is only per-thread tracing).
+-----BEGIN PGP SIGNATURE-----
 
-Imagine that there's an existing process with some pid ${PID}, and
-concurrently, the following commands are run, either by the same user or
-different users with appropriate permissions:
+iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAme+K4wACgkQ3SOs138+
+s6G4pQ/9HAe8mzGeYLufQVT2wUZVpeDW6XeOv6EOFIvwsgTf+44yqDw3xiulERM5
+tTs3b8w6d4j3xO1PLdXoIlx3vANG5xRtGEcxXY3sB8HjmuSGWWig1zuSTAOJegbs
+we7h3FfZwYlMaSJAfvQNZsX/rDN/auA0R8opcByCxOqFAqRwwJSEH+avYvvVgKEZ
+Mmzov1YSzCyzB0pEEsAkdaB07XMdwl6Ee+ShlKaXzk88WS8KhxZKhYHWNFaAmqLo
+1jyGoa08Vz/Y1WMhLPLCMPrjmWjrMcVjhjCNp9xmCffiJHDAec+eRfV41Cwmp6HC
+wjh85xTUS/4hGh+Md5EWO8bxv9aTGHOkGwI4qVxl6xZVFJRkwZkAgrO4teY2RXy1
+/flh/cJcM9x88N9LAemunvF+RuPBv5mHV8VWgnJW2a91p7hWKZWV2gxcbzEL4L8p
+oKBcQDleR7I9gCunuLnQRiQlwSyw4oKX/96IQ86Dbr8th4/4pKsWtxfDPjHtqzo0
+XzbRtT+vlLIFlTprG9nh5PLO/Lxs9OzJ0kiqhJh24nAwMNxbXS/msQ+m8PRWT3C/
+/okF5ojWT+0ZijDIGhWi5uwBNWxiwav1tElTfJGEHIyz2qOiFZyFhUH7oi5E9iB4
+rin6SAkxYbIF5XDT+zuqAifn/g0BNDr2moVdUvgImYtAMQUCLmo=
+=c/GH
+-----END PGP SIGNATURE-----
 
-	# Trying to record user branches only
-	perf record -j any,u -e cycles -p ${PID}
-
-	# Trying to record kernel branches only
-	perf record -j any,k -e cycles -p ${PID}
-
-Whatever you do, the task trying to record user branches only will lose
-some records:
-
-* If we make the events mutually exclusive, the branches will only be
-  recorded when the user event is installed.
-
-* If we merge the HW filters and later apply a SW filter, it's very
-  likely that kernel branches taken after exception entry have filled
-  all the records, and there are no user branches left to sample.
-
-> We might need to consider an intact branch record for the single perf
-> session case.  E.g. if userspace program calls:
-> 
->     func_a -> func_b -> func_c
-> 
-> In a case for only userspace tracing, we will have no chance to preserve
-> the call sequence of these functions after the program is switched out.
-
-If those functions are small, it's very likely that they'll all be in
-the branch history. If they're so large that they're not executed in one
-scheduling quantum, do you expect them to fall within the same event
-period?
-
-I think that you're making a big deal out of an edge case that doesn't
-matter much in practice.
-
-Mark.
+--ofk7odbwikmdng6s--
 
