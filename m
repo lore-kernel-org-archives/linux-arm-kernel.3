@@ -4,71 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41696C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 06:10:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEA5AC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 06:16:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s3508VUXvao7RjemhYDAO/CTcFT7kcPYoLQummb5BwQ=; b=ENlbowIvNsQWEpQiX8UJG0EesI
-	k/AIgAcBdTEEGSpPNJgi+4N/KwG2LF1mpwYvTTbfEYWfL7QRQjZjHDV4/X1ylrXqOYxl8YkxAbCQ/
-	lNCbyro8m5bBHultn1XoVriLhZSEL4wxeFb4NYIQKT9QQ1XQSmCWSHoT5PM410ld/aARNEg79bElv
-	orNAWbwmqz3+Lo/3L3yU1Du1PKTTtHO0R0YBCwfH9wEIZMdtzZ3tM0ypoxKXOTnA8aWz9phZvYfNE
-	g9yfb6G18UcRAfos1BbpZxiMZTnBwlHCixnRlAUGslCK9ELdqgfmXc3tM5inhmw91Sr4mMZocJ//z
-	FxvjqxAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PAVQolx9KExb7Tb78lU8f9flTHmTgz7gOctqgRk6LUA=; b=DgqJp6wOQsQlT0Ij6aYgjqRLhL
+	IakC6lXerFIIfPd361DDdw/TFaCE3/yv9csAnwcK740mQzD2ecEDX4K5Z9kkHy7mOvQXHQFrpNhEW
+	Jp50IfHUAcdlY2Zz5H6r4nRnY1+UBgVkrV6MmXhJfMlgp+a8jQlZvyjoFWiouCjFmt83tifSNsGOW
+	wzRnxfi0m1GzYJj2DvWT/11VkgPX+G+BuDVxo22m4a/148ImaeeqpEDh1V5JnLlwv9lqF2rsRJbsF
+	fzk4hBlvbMw2vxmpOCaAC6a1pCjA2z68RAl0WMjoHU7yAkXhhYS3hqHxeY/IETu6FFjdpt7g6mlmE
+	NDm5Vqaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmo9G-0000000G3hH-2zb2;
-	Tue, 25 Feb 2025 06:10:30 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1tmoEz-0000000G4L4-0RKJ;
+	Tue, 25 Feb 2025 06:16:25 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmo7k-0000000G3VA-1rst
+	id 1tmoDT-0000000G48j-2wRP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 06:08:58 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.44])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4Z26Xl21DTz21nvV;
-	Tue, 25 Feb 2025 14:05:43 +0800 (CST)
-Received: from dggpemf500002.china.huawei.com (unknown [7.185.36.57])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5F8381402CA;
-	Tue, 25 Feb 2025 14:08:47 +0800 (CST)
-Received: from [10.174.178.247] (10.174.178.247) by
- dggpemf500002.china.huawei.com (7.185.36.57) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 25 Feb 2025 14:08:46 +0800
-Subject: Re: [PATCH v11 3/4] arm64: topology: Support SMT control on ACPI
- based system
-To: Yicong Yang <yangyicong@huawei.com>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <sudeep.holla@arm.com>, <tglx@linutronix.de>,
-	<peterz@infradead.org>, <mpe@ellerman.id.au>,
-	<linux-arm-kernel@lists.infradead.org>, <mingo@redhat.com>, <bp@alien8.de>,
-	<dave.hansen@linux.intel.com>, <pierre.gondois@arm.com>,
-	<dietmar.eggemann@arm.com>
-CC: <linuxppc-dev@lists.ozlabs.org>, <x86@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <morten.rasmussen@arm.com>,
-	<msuchanek@suse.de>, <gregkh@linuxfoundation.org>, <rafael@kernel.org>,
-	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
-	<linuxarm@huawei.com>, <yangyicong@hisilicon.com>, <xuwei5@huawei.com>,
-	<sshegde@linux.ibm.com>
-References: <20250218141018.18082-1-yangyicong@huawei.com>
- <20250218141018.18082-4-yangyicong@huawei.com>
-From: Hanjun Guo <guohanjun@huawei.com>
-Message-ID: <92193a09-271e-895e-f77f-d3952bdfdf49@huawei.com>
-Date: Tue, 25 Feb 2025 14:08:45 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+	Tue, 25 Feb 2025 06:14:52 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-220c4159f87so73230345ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 22:14:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740464091; x=1741068891; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=PAVQolx9KExb7Tb78lU8f9flTHmTgz7gOctqgRk6LUA=;
+        b=Ztmiu13FAcgTSbsUz6mGVAuRw0eLjY7nD/R6oij3bQX/76fVqhvOEiws0FvFh+iqWG
+         k8kyKMPI87RTAtoDC8RL7TWySzVRB6fOONQRo66IHsatb35F8+YGQIiwiUo7YGf+Xeta
+         Jr1P+2u44HjfdL8Jx9kkwOFjgJ4Jb89REb6u1Y1oysZV8+JBTsrkdWDGbg6S6DrGjVAv
+         s74z0/azBOuU6B90tBMRWNhfR/nI5K5NnI3FQd42/YqxPX64aIF+Ky+7nXKNlDgFxnFY
+         6pbOWPvtGnDVzpF55AVwfyhsAYGZgClhLoqUGcNZN/8H8KYm6GxVcdHJW+nbqpgolTbp
+         K4pg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740464091; x=1741068891;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PAVQolx9KExb7Tb78lU8f9flTHmTgz7gOctqgRk6LUA=;
+        b=QDOyiFkscchnN9xKJQnNgGihw7zfPMC2f6x4YxemgzK2dzy/xl7n/j7ziqsKwSx+G0
+         cDeRo5DucbaRmxSaZ/WeWwvzjJWwpSbnQIppbDcx5ug3C5V0Nhfut7Zu1Wak+NHrTE7u
+         6F25Kh7DfOk5R0FLWmdi3aV8m0+8q/ODLHLtNdbUBASZif+JCOn0noC6oBrkeKXrqxiE
+         ty7Q3Tf7x1/peD+MMoIbEbVwqaIuOWxCqhDicpdhfoSwqwZmCSaPKVsZJCC7w1S8RxmW
+         1jRywXjd78kEOOCxpPuyF6EC7BTMDI7tBxOVOo6kzhitw/9/R5rvO4DNIMkHPeY5iRKu
+         USYA==
+X-Forwarded-Encrypted: i=1; AJvYcCWh9SzyA4zzepGYorzcN/HSUbT6Am4771KNxTcOawcACnQ5IDRXBz6SrRiD37Jegkx++gHNySl+r9sxYCmK8cWW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yztc2shEZk3PydmLfn/RyYoPvolvpIYBwEv0/0Vjwq4LxgBRrIW
+	/2vFGzypa40Q5nHoef94kxbGZCNR8CFH4lmCu+FyvBHgUKQcmL46
+X-Gm-Gg: ASbGncu0ouzaXqkoKrew0dmJOud/Qohs0kqwxwwVEdICLZX7bARKjseFRyhHZA37cPx
+	2ghbi6Fh+dudXPbPwB+0FKPFdPuqLwAv9TbWDqdXviGzKIzOa8bJmmYn4T0nEGMv3KK21ns+Xak
+	DpOhx1ikgZWV7I1hc7K2Wy87sS/BNy6W5fIC3+wCicRu00wFNJBxNJ1NPxLagNURTVU8EFaloA/
+	AoahoGq1LDL1zEk3e/eFsUSIKbHhIOeqMxfbMS1dgj7ZFTwEBsIjzqCaI0cFqUKuDVtsYZNGZ7+
+	akUWxbl9yAtmMhxXj2AMZbyR/rc=
+X-Google-Smtp-Source: AGHT+IGwkid3k/avMSIUbwqT5je0rV66CDm1UlnOW0Q6bT9hXylAJGMLD+sehIyy1nTfXR9ACddpGQ==
+X-Received: by 2002:a17:903:22c2:b0:21f:55e:ed71 with SMTP id d9443c01a7336-22307b45598mr38223475ad.5.1740464090521;
+        Mon, 24 Feb 2025 22:14:50 -0800 (PST)
+Received: from google.com ([2620:15c:9d:2:464c:6229:2280:227e])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2230a0927a7sm6292795ad.143.2025.02.24.22.14.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Feb 2025 22:14:50 -0800 (PST)
+Date: Mon, 24 Feb 2025 22:14:47 -0800
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: fnkl.kernel@gmail.com
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Henrik Rydberg <rydberg@bitmath.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Neal Gompa <neal@gompa.dev>, Janne Grunau <j@jannau.net>
+Subject: Re: [PATCH v7 0/4] Driver for Apple Z2 touchscreens.
+Message-ID: <Z71f18TQLEiexUaD@google.com>
+References: <20250224-z2-v7-0-2746f2bd07d0@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20250218141018.18082-4-yangyicong@huawei.com>
-Content-Type: text/plain; charset="utf-8"; format=flowed
-Content-Language: en-GB
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.178.247]
-X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
- dggpemf500002.china.huawei.com (7.185.36.57)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250224-z2-v7-0-2746f2bd07d0@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_220856_818690_49721B3A 
-X-CRM114-Status: GOOD (  34.59  )
+X-CRM114-CacheID: sfid-20250224_221451_739318_AC7684E7 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,152 +104,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/2/18 22:10, Yicong Yang wrote:
-> From: Yicong Yang <yangyicong@hisilicon.com>
+Hi Sasha,
+
+On Mon, Feb 24, 2025 at 12:01:08PM +0100, Sasha Finkelstein via B4 Relay wrote:
+> Hi.
 > 
-> For ACPI we'll build the topology from PPTT and we cannot directly
-> get the SMT number of each core. Instead using a temporary xarray
-> to record the heterogeneous information (from ACPI_PPTT_ACPI_IDENTICAL)
-> and SMT information of the first core in its heterogeneous CPU cluster
-> when building the topology. Then we can know the largest SMT number
-> in the system. If a homogeneous system's using ACPI 6.2 or later,
-> all the CPUs should be under the root node of PPTT. There'll be
-> only one entry in the xarray and all the CPUs in the system will
-> be assumed identical.
+> This series adds support for Apple touchscreens using the Z2 protocol.
+> Those are used as the primary touchscreen on mobile Apple devices, and for the
+> touchbar on laptops using the M-series chips. (T1/T2 laptops have a coprocessor
+> in charge of speaking Z2 to the touchbar).
 > 
-> The core's SMT control provides two interface to the users [1]:
-> 1) enable/disable SMT by writing on/off
-> 2) enable/disable SMT by writing thread number 1/max_thread_number
+> Originally sent as a RFC at https://lore.kernel.org/all/20230223-z2-for-ml-v1-0-028f2b85dc15@gmail.com/
+> The changes since then mostly address the review feedback, but also
+> add another machine that has this specific controller.
 > 
-> If a system have more than one SMT thread number the 2) may
-> not handle it well, since there're multiple thread numbers in the
-> system and 2) only accept 1/max_thread_number. So issue a warning
-> to notify the users if such system detected.
-> 
-> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/ABI/testing/sysfs-devices-system-cpu#n542
-> 
-> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
 > ---
->   arch/arm64/kernel/topology.c | 66 ++++++++++++++++++++++++++++++++++++
->   1 file changed, 66 insertions(+)
-> 
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index 1a2c72f3e7f8..6eba1ac091ee 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -15,8 +15,10 @@
->   #include <linux/arch_topology.h>
->   #include <linux/cacheinfo.h>
->   #include <linux/cpufreq.h>
-> +#include <linux/cpu_smt.h>
->   #include <linux/init.h>
->   #include <linux/percpu.h>
-> +#include <linux/xarray.h>
->   
->   #include <asm/cpu.h>
->   #include <asm/cputype.h>
-> @@ -37,17 +39,28 @@ static bool __init acpi_cpu_is_threaded(int cpu)
->   	return !!is_threaded;
->   }
->   
-> +struct cpu_smt_info {
-> +	unsigned int thread_num;
-> +	int core_id;
-> +};
-> +
->   /*
->    * Propagate the topology information of the processor_topology_node tree to the
->    * cpu_topology array.
->    */
->   int __init parse_acpi_topology(void)
->   {
-> +	unsigned int max_smt_thread_num = 0;
-> +	struct cpu_smt_info *entry;
-> +	struct xarray hetero_cpu;
-> +	unsigned long hetero_id;
->   	int cpu, topology_id;
->   
->   	if (acpi_disabled)
->   		return 0;
->   
-> +	xa_init(&hetero_cpu);
-> +
->   	for_each_possible_cpu(cpu) {
->   		topology_id = find_acpi_cpu_topology(cpu, 0);
->   		if (topology_id < 0)
-> @@ -57,6 +70,34 @@ int __init parse_acpi_topology(void)
->   			cpu_topology[cpu].thread_id = topology_id;
->   			topology_id = find_acpi_cpu_topology(cpu, 1);
->   			cpu_topology[cpu].core_id   = topology_id;
-> +
-> +			/*
-> +			 * In the PPTT, CPUs below a node with the 'identical
-> +			 * implementation' flag have the same number of threads.
-> +			 * Count the number of threads for only one CPU (i.e.
-> +			 * one core_id) among those with the same hetero_id.
-> +			 * See the comment of find_acpi_cpu_topology_hetero_id()
-> +			 * for more details.
-> +			 *
-> +			 * One entry is created for each node having:
-> +			 * - the 'identical implementation' flag
-> +			 * - its parent not having the flag
-> +			 */
-> +			hetero_id = find_acpi_cpu_topology_hetero_id(cpu);
-> +			entry = xa_load(&hetero_cpu, hetero_id);
-> +			if (!entry) {
-> +				entry = kzalloc(sizeof(*entry), GFP_KERNEL);
-> +				WARN_ON_ONCE(!entry);
-> +
-> +				if (entry) {
-> +					entry->core_id = topology_id;
-> +					entry->thread_num = 1;
-> +					xa_store(&hetero_cpu, hetero_id,
-> +						 entry, GFP_KERNEL);
-> +				}
-> +			} else if (entry->core_id == topology_id) {
-> +				entry->thread_num++;
-> +			}
->   		} else {
->   			cpu_topology[cpu].thread_id  = -1;
->   			cpu_topology[cpu].core_id    = topology_id;
-> @@ -67,6 +108,31 @@ int __init parse_acpi_topology(void)
->   		cpu_topology[cpu].package_id = topology_id;
->   	}
->   
-> +	/*
-> +	 * This should be a short loop depending on the number of heterogeneous
-> +	 * CPU clusters. Typically on a homogeneous system there's only one
-> +	 * entry in the XArray.
-> +	 */
-> +	xa_for_each(&hetero_cpu, hetero_id, entry) {
-> +		if (entry->thread_num != max_smt_thread_num && max_smt_thread_num)
-> +			pr_warn_once("Heterogeneous SMT topology is partly supported by SMT control\n");
-> +
-> +		max_smt_thread_num = max(max_smt_thread_num, entry->thread_num);
-> +		xa_erase(&hetero_cpu, hetero_id);
-> +		kfree(entry);
-> +	}
-> +
-> +	/*
-> +	 * Notify the CPU framework of the SMT support. Initialize the
-> +	 * max_smt_thread_num to 1 if no SMT support detected. A thread
-> +	 * number of 1 can be handled by the framework so we don't need
-> +	 * to check max_smt_thread_num to see we support SMT or not.
-> +	 */
-> +	if (!max_smt_thread_num)
-> +		max_smt_thread_num = 1;
-> +
-> +	cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
-> +	xa_destroy(&hetero_cpu);
->   	return 0;
->   }
->   #endif
+> Changes in v7:
+> - Added a dependency on ARCH_APPLE to prevent potential confusion on x86
+> - Link to v6: https://lore.kernel.org/r/20250205-z2-v6-0-cc60cbee1d5b@gmail.com
 
-Looks good to me,
+My apologies, I already applied v6 (patches 1, 2 and 4). Could you
+please resend against linux-next (or my 'next' branch)?
 
-Reviewed-by: Hanjun Guo <guohanjun@huawei.com>
+Patch #3 should go through Sven's tree.
 
-Thanks
-Hanjun
+Thanks.
+
+-- 
+Dmitry
 
