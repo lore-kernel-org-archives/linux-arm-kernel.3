@@ -4,85 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 324F9C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 07:51:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D76FC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 07:53:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a+nNbrVcpzRfg0cVt9oM4NlAg5n7LMGEi6yC9l2ygE4=; b=zrjuZlErSetFWrB/X2yxYZjFWA
-	+wH+GFspW5V6uFzbQQofTX+RO5/1DB1gfkMWEEkbPQYQzsbgJ/L8pghQHJZ1+EUr9pjbtHQ8JVeRT
-	zVQ4ZumuItVEVs+uZ2Sw7BjaCEX9dMoKR3mG9FxVRgtHNaiA9EianH4QfR9XAADuQlSU8Qb7EXckH
-	GcFqfMJwhO1SWKpRI4xsRVoI4xgrx3XfsMvzzdMo6/Hk+5XPTt+Leg9M7mQxFt/svWTJ6djW9klZP
-	QYBWfAQqM8DuGsl15oUCzpSNSY0qcSiqK9sTYeiO6N6JiWb96L/26z3auHDQeS8TjaPIzg3gNjwx3
-	DRdKd8UQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/ncftbb9PfkRY5I1SEo5KWByGpqMh87THSvXX1b1/Ms=; b=uyTJ74HG/XjiGWJ2warxDxnwNz
+	S/B9FOI3Z7iTcnXm7UQmJDbmpRpn2QFueBXCThcn7JiP0oxvqM5PLd2V1Z5SxOEXrDyV4tz22MH42
+	c8MIYUWaYF7QQO792LopJUZsJ6GqUs+pyJ98PgLKJvvxrCf4XdIqESYruTHbnNZncXnC7x6otUuIz
+	i79IU6WwNgayrH6kuEZJeGm5RuJ0/cp6d1maoPrb3HDiEr0NYJ3eeVdrSMkv5pP++BvT8yAFtmtCd
+	9/KNARNUJG4zglSes0PKT7buiTvYk9Tew5WOL4s4CmCPZnZ/i1tgwCKLYTeUk9URYDeWdyIZQO3Nu
+	CNmuG17g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmpiv-0000000GGXB-17FL;
-	Tue, 25 Feb 2025 07:51:25 +0000
+	id 1tmpkT-0000000GGxM-13ol;
+	Tue, 25 Feb 2025 07:53:01 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmpfi-0000000GFsj-0f1E;
-	Tue, 25 Feb 2025 07:48:06 +0000
+	id 1tmpgW-0000000GG8l-22PS
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Feb 2025 07:48:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F0F7C6122F;
-	Tue, 25 Feb 2025 07:47:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7196C4CEDD;
-	Tue, 25 Feb 2025 07:47:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6D8A861135;
+	Tue, 25 Feb 2025 07:48:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67958C4CEDD;
+	Tue, 25 Feb 2025 07:48:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740469685;
-	bh=eClZUkFpGoFoPisFcTGx3FOMVVxAN549qNzYuXDaN6Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MfehpgzAULJOLOZKi9leXW7NoihGeIwZGfgqqDeu5KiV1mGWrDwPVnYfTRgxdvz/x
-	 eUEiMbxM3XxYo/gmkSSg4xx8xTFkRQppUlh3HUxKONPfFFg/CDnfnacUmmTxgJ/Nl0
-	 p03c6jGvE33coM+dHriSIwpAGcEALD6rf9GR0yiK3xOwkPBH/7Aw7fEccJA5pPsujz
-	 ioZNQPMfXKd7AoR2Kqkh+jT67yt7GirH7eFeS9NW11qqcNBhAVIKkRdeHuNLA4FcsI
-	 VWFcsDgf2SamOyzaQaxOBPvKzWILeKBO0pYTSGt//hRXbLnUc8avjE5frZYFP0WbVU
-	 ypiGxCjITbKtg==
-Date: Tue, 25 Feb 2025 09:47:44 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Wei Yang <richard.weiyang@gmail.com>
-Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>,
-	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pratyush Yadav <ptyadav@amazon.de>,
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v4 03/14] memblock: Add support for scratch memory
-Message-ID: <Z711oEMpogAHohs8@kernel.org>
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <20250206132754.2596694-4-rppt@kernel.org>
- <20250224025034.g4htzqgm3r3ja4yy@master>
+	s=k20201202; t=1740469735;
+	bh=/ncftbb9PfkRY5I1SEo5KWByGpqMh87THSvXX1b1/Ms=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=R9gyG2n+2ROXnP/X14vbm0q8n+lZHTumKXJ+xYnR3rnd6Kki+WFokVrVDe/VHevZz
+	 524z+obxKDc9qExkVKSXDHccqC6g6NT7TIaJ1dtxwswccxcoRtdqXSwc3WQArKBjrv
+	 vmGvBgOhNjnQsLziIrMi1gtmnKy/rNC1HrnD7HDhy8YMYoEOevt4wGpmZJD0Yae5N+
+	 HREYavAgE4QRHSFMsONHOHl0JCWzx7Iq+25ur3DrmFw5lVb8K+dh6NXYQkMNgEjjMk
+	 e9gN2yAD5xAGNxwhKj4TFhq22nJNoVq5MPx+8Rjk/DzBI3WhXkMXXsCD6+vxoOUwDJ
+	 0sjMYMZgATXsw==
+Message-ID: <f76a3a6c-795e-4fc8-905f-4655115ea99d@kernel.org>
+Date: Tue, 25 Feb 2025 08:48:48 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250224025034.g4htzqgm3r3ja4yy@master>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 7/8] arm64: defconfig: enable STM32 LP timers drivers
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>, lee@kernel.org,
+ ukleinek@kernel.org, alexandre.torgue@foss.st.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, wbg@kernel.org, jic23@kernel.org,
+ daniel.lezcano@linaro.org, tglx@linutronix.de
+Cc: catalin.marinas@arm.com, will@kernel.org, devicetree@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-iio@vger.kernel.org, linux-pwm@vger.kernel.org,
+ olivier.moysan@foss.st.com
+References: <20250224180150.3689638-1-fabrice.gasnier@foss.st.com>
+ <20250224180150.3689638-8-fabrice.gasnier@foss.st.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250224180150.3689638-8-fabrice.gasnier@foss.st.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,50 +120,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 24, 2025 at 02:50:34AM +0000, Wei Yang wrote:
-> On Thu, Feb 06, 2025 at 03:27:43PM +0200, Mike Rapoport wrote:
-> >From: Alexander Graf <graf@amazon.com>
-> >
-> >With KHO (Kexec HandOver), we need a way to ensure that the new kernel
-> >does not allocate memory on top of any memory regions that the previous
-> >kernel was handing over. But to know where those are, we need to include
-> >them in the memblock.reserved array which may not be big enough to hold
-> >all ranges that need to be persisted across kexec. To resize the array,
-> >we need to allocate memory. That brings us into a catch 22 situation.
-> >
-> >The solution to that is limit memblock allocations to the scratch regions:
-> >safe regions to operate in the case when there is memory that should remain
-> >intact across kexec.
-> >
-> >KHO provides several "scratch regions" as part of its metadata. These
-> >scratch regions are contiguous memory blocks that known not to contain any
-> >memory that should be persisted across kexec. These regions should be large
-> >enough to accommodate all memblock allocations done by the kexeced kernel.
-> >
-> >We introduce a new memblock_set_scratch_only() function that allows KHO to
-> 
-> memblock_set_kho_scratch_only?
-> 
-> >indicate that any memblock allocation must happen from the scratch regions.
-> >
-> >Later, we may want to perform another KHO kexec. For that, we reuse the
-> >same scratch regions. To ensure that no eventually handed over data gets
-> >allocated inside a scratch region, we flip the semantics of the scratch
-> >region with memblock_clear_scratch_only(): After that call, no allocations
-> 
-> memblock_clear_kho_scratch_only?
+On 24/02/2025 19:01, Fabrice Gasnier wrote:
+> Enable the STM32 timer drivers: MFD, counter, PWM and trigger as modules.
+> Clocksource is a bool, hence set to y. These drivers can be used on
+> STM32MP25.
 
-Right, I missed those in the commit message.
- 
-> >may happen from scratch memblock regions. We will lift that restriction
-> >in the next patch.
-> >
-> 
-> -- 
-> Wei Yang
-> Help you, Help me
 
--- 
-Sincerely yours,
-Mike.
+Which upstream board? If you do not have upstream board, the defconfig
+is pointless for us. It's not defconfig for your downstream forks.
+
+
+Best regards,
+Krzysztof
 
