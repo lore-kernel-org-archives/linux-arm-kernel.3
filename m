@@ -4,68 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A58CC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 01:37:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FADDC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 01:42:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1lhfqNwmlYPEmtkhry3f4Q6skAru1oITFPhiAonca38=; b=MjNEZQpxz3jAEBZVyjTWJ6dGba
-	CmsVFpdE1a0Zpo0zkbeeuIAuSG3iPfU7G0zJvzgfBqtbfSgDgA+7r9STur9quZ5JoZ9Ntp4DeO9Vt
-	xm6M8i0D1QBmnyzKxt5KYv8ttPn4XemOCoVgHOQ1FgDBKgqtPoIAhtQrILztCDyWrwhbMade76mK2
-	YZrz38SP5G/FA4rw/j0lPW9CNa+QMvwl7Oj1g9zyUDOJ8tvQCwFKyBEpCq3ZdxNjjuS41anqOrw74
-	3RUEuhNaQYqMCd+hPbT4jBG6CppgcCiQgjvxjBmdTiIOfBR0qDlR+NKALcyIweJN9X7QtFa+b53zw
-	jBF2gjlg==;
+	bh=iiZFDEoMMUeQmVYehoWgRQ2XvY7Zgjn8HI/dvzzcXBQ=; b=WrhqELOIXYuzrDLZ4tIq42+Y8L
+	fnZSCxF77h1iGtfjL3w7zFQUaPp3ISgvx/AAcY5rTL9Yi+EVN/ufjql2kdQD5jNxlH11MIyJiJcQ2
+	0M4KSyz3KRQmQEzCxL6Qfujn9IDU3tSaSVHYnvXq7tCzkL+RC3X20E8vWYw3oRR3x12rcUIuO1yvL
+	d9TIObFqMu0+JFDrwsKhRBVIvP7eZu/F/IfoCY2Pk71X/+tj8YTKP4p/6Y7mtnvAVvZ4oCQfAj6Yv
+	zaPB3ryEJc5CVka5QnOnRWBND1ApgYz0DqM/3FRLCVML1ecwzUN5j9FhXhwGkaLYS1fNpEv4Yiam6
+	feyEj9kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmjsj-0000000FiIM-2Sp3;
-	Tue, 25 Feb 2025 01:37:09 +0000
-Received: from mail-m3270.qiye.163.com ([220.197.32.70])
+	id 1tmjxw-0000000FiwP-0Ku6;
+	Tue, 25 Feb 2025 01:42:32 +0000
+Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmjrC-0000000FiBw-2WBa;
-	Tue, 25 Feb 2025 01:35:36 +0000
-Received: from [172.16.12.45] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id c1077187;
-	Tue, 25 Feb 2025 09:35:22 +0800 (GMT+08:00)
-Message-ID: <93cdce39-1ae6-4939-a3fc-db10be7564e5@rock-chips.com>
-Date: Tue, 25 Feb 2025 09:35:22 +0800
+	id 1tmjwP-0000000FigJ-2Cvx
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Feb 2025 01:40:59 +0000
+Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-307325f2436so49246681fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 17:40:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1740447653; x=1741052453; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=iiZFDEoMMUeQmVYehoWgRQ2XvY7Zgjn8HI/dvzzcXBQ=;
+        b=ZwVJMwDlSyZlIslV1eubc+R+ho7E50rwwSLc7TlP7iGqyUWomQPHvXFDY9KR8RmErd
+         jFbR/G8ftWYTOVC3dKpdUzkRT5GjRqrF0z/WS6r0wiAa0Lsu6AL23TUBBddT+OshTpEI
+         9yWDM8NrcE6xzt1txV80jn2XTOIeWjLE6MP5I=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740447653; x=1741052453;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=iiZFDEoMMUeQmVYehoWgRQ2XvY7Zgjn8HI/dvzzcXBQ=;
+        b=RcWTN+PF7LaPb4+degdxS6Pb9S40xaKztojpABJs5CdXnEpsm7aQhCX4S4afrKqHH4
+         PYKEMJ0/0vIYuoKQJZcVXS2at6BcTm2eOd756Y23v0r2ECkCn7Tqwr3HY6qZcjpDnHMR
+         Rh16odtaJgyGnQrg4xPbfZu9I2/ddZuxtU/k8e3+rzaAcjToIRdSdF7UCaWWgAxUxmc9
+         Dsj40IUHqR3zj9jVsUczzux8oQjhgQDMxc9Lku8BFTd+WaFX5zPgjmm0wu7NfHycqBgE
+         ztH2JRspGyFZ6/5kZ+Pmi+SjNHOkASVWv/ZasgR036SkGtrP2NkX/FRGvc7D1OgqwOGp
+         OkFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVBlwGqo+aJVpbPTKovaDHIFyBb65BofzlLF6w6sfsnj5Xz9hFKcoF0qxRsy+pnvSeGO0AQDPd9fWHbzyBNqN7T@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsKx242nkDdJDbaBAoDmEoOlWmzqifT+0SDzOb9s0MufxOaizN
+	CHhJgq34eYMDZN1ziVsUpVnVH61Pybao3NTMAjBJRhluIl/uhY+zQSpvSvORDu61aGqMdDARiB+
+	lLSky
+X-Gm-Gg: ASbGncvBi0XObejxl9lON6+iG/QpePi4ghU6FmvKCR+1Vv9lA6F458truv6GBLPN3M+
+	xwZDk4BfoBj8WVzGr9I22EPAVjnS5QZq5yyO5DIpbuBdYjzlKEI1J+Jw89p57hgINbdkagTrnBi
+	qJnVl0V86XXfTYQHyPgKSulYJXteZIOUHrHpIfkPj+o72Yomc/QBnY1y34pk9vTaOma0zG6iuGt
+	kxvgHh7/3C9zL/cDxDeBl2LlGYNjo6p+mQlDwyv/IMhLRjTDJhFFDHuyW2mKEWyZRrbfzv3+RAr
+	fjmoMZI4XHppRtbq8Gg9hxjex4yxmI726oytprdT7u9kWRe8f1jLR5POAxGBRm5fGw==
+X-Google-Smtp-Source: AGHT+IHdPnrianv0unYlnnwWiQWjUfarm4ouwFftgSY2ca96Sv6aiaSKuoQC8OFj2GZmwB6vu+6KTw==
+X-Received: by 2002:a2e:9b97:0:b0:308:db61:34cf with SMTP id 38308e7fff4ca-30a59899cafmr46215591fa.14.1740447653301;
+        Mon, 24 Feb 2025 17:40:53 -0800 (PST)
+Received: from mail-lf1-f54.google.com (mail-lf1-f54.google.com. [209.85.167.54])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30a81ae81ebsm807861fa.94.2025.02.24.17.40.52
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 24 Feb 2025 17:40:52 -0800 (PST)
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-54838cd334cso4015284e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 17:40:52 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCX9vgWWmfjkbpGQ/X8DEtBBDyqtCPGD89Lh3gVEGuUtVGc4szjcl0ViZFLM3UJqtYSOWlZw9Px5Ao1lK4V9m/XB@lists.infradead.org
+X-Received: by 2002:a05:6512:1591:b0:545:102f:8788 with SMTP id
+ 2adb3069b0e04-54838ee917cmr5921345e87.19.1740447651791; Mon, 24 Feb 2025
+ 17:40:51 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, Damien Le Moal <dlemoal@kernel.org>,
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 2/2] PCI: dw-rockchip: hide broken ATS capability
-To: Niklas Cassel <cassel@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
- Heiko Stuebner <heiko@sntech.de>
-References: <20250221202646.395252-3-cassel@kernel.org>
- <20250221202646.395252-4-cassel@kernel.org>
-Content-Language: en-GB
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <20250221202646.395252-4-cassel@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGRgfSlZNQ0oaGU0aTh9LGRlWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a953abe91f409cckunmc1077187
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Mwg6Thw5DTIIKxEeQxEWOiEv
-	P0wwCh5VSlVKTE9LT09MSElPSU1KVTMWGhIXVQgTGgwVVRcSFTsJFBgQVhgTEgsIVRgUFkVZV1kS
-	C1lBWU5DVUlJVUxVSkpPWVdZCAFZQU9LS0k3Bg++
-DKIM-Signature: a=rsa-sha256;
-	b=Ce40YqQGRf1rwHhVMFysWNkvy7+RMtWiqnjH8k4P/B4ce9F917tbhazdTdT4/6nYEB5TmqyQO+AjmTVKG6x5xPH3Vi0QYI7M7Tgl8McRTGxqepYnRcvZPEKtXJLzHxquzTNcI05ahbWvmnNDZNPA7bnMn6266N+SwE3HxTPWXZA=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=1lhfqNwmlYPEmtkhry3f4Q6skAru1oITFPhiAonca38=;
-	h=date:mime-version:subject:message-id:from;
+References: <20250224081325.96724-1-damon.ding@rock-chips.com> <20250224081325.96724-4-damon.ding@rock-chips.com>
+In-Reply-To: <20250224081325.96724-4-damon.ding@rock-chips.com>
+From: Doug Anderson <dianders@chromium.org>
+Date: Mon, 24 Feb 2025 17:40:39 -0800
+X-Gmail-Original-Message-ID: <CAD=FV=UJb=-TsXS3bgv-rgiON5-4icGgh81gYEJuA=ieDaBT+Q@mail.gmail.com>
+X-Gm-Features: AWEUYZnEpuNKLIwyvEJM2DgjUifuLCeYu_2BU0vlX35x8eRwRX1_fUCYojEGI6Y
+Message-ID: <CAD=FV=UJb=-TsXS3bgv-rgiON5-4icGgh81gYEJuA=ieDaBT+Q@mail.gmail.com>
+Subject: Re: [PATCH v7 03/15] drm/bridge: analogix_dp: Add irq flag
+ IRQF_NO_AUTOEN instead of calling disable_irq()
+To: Damon Ding <damon.ding@rock-chips.com>
+Cc: heiko@sntech.de, andy.yan@rock-chips.com, hjc@rock-chips.com, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org, 
+	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, 
+	dmitry.baryshkov@linaro.org, sebastian.reichel@collabora.com, 
+	cristian.ciocaltea@collabora.com, boris.brezillon@collabora.com, 
+	l.stach@pengutronix.de, dri-devel@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_173535_141469_ACB41086 
-X-CRM114-Status: GOOD (  29.44  )
+X-CRM114-CacheID: sfid-20250224_174057_595763_1818A9F6 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,101 +112,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/2/22 4:26, Niklas Cassel wrote:
-> When running the rk3588 in endpoint mode, with an Intel host with IOMMU
-> enabled, the host side prints:
-> DMAR: VT-d detected Invalidation Time-out Error: SID 0
-> 
-> When running the rk3588 in endpoint mode, with an AMD host with IOMMU
-> enabled, the host side prints:
-> iommu ivhd0: AMD-Vi: Event logged [IOTLB_INV_TIMEOUT device=63:00.0 address=0x42b5b01a0]
-> 
-> Usually, to handle these issues, we add a quirk for the PCI vendor and
-> device ID in drivers/pci/quirks.c with quirk_no_ats(). That is because
-> we cannot usually modify the capabilities on the EP side.
-> 
-> In this case, we can modify the capabilties on the EP side. Thus, hide the
-> broken ATS capability on rk3588 when running in EP mode. That way,
+Hi,
 
-Niklas, Thanks for reporting this issue. It's been a while before
-getting confirmation from the design team. Now I can confirm the ATS 
-support for RK3588 is only available running as RC but I'm still
-requesting erratum about this issue if possible.
-
-Acked-by: Shawn Lin <shawn.lin@rock-chips.com>
-
-> we don't need any quirk on the host side, and we see no errors on the host
-> side, and we can run pci_endpoint_test successfully, with the IOMMU
-> enabled on the host side.
-> 
-> Signed-off-by: Niklas Cassel <cassel@kernel.org>
+On Mon, Feb 24, 2025 at 12:14=E2=80=AFAM Damon Ding <damon.ding@rock-chips.=
+com> wrote:
+>
+> The IRQF_NO_AUTOEN can be used for the drivers that don't want
+> interrupts to be enabled automatically via devm_request_threaded_irq().
+> Using this flag can provide be more robust compared to the way of
+> calling disable_irq() after devm_request_threaded_irq() without the
+> IRQF_NO_AUTOEN flag.
+>
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 > ---
->   drivers/pci/controller/dwc/pcie-dw-rockchip.c | 46 +++++++++++++++++++
->   1 file changed, 46 insertions(+)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> index 836ea10eafbb..2be005c1a161 100644
-> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -242,6 +242,51 @@ static const struct dw_pcie_host_ops rockchip_pcie_host_ops = {
->   	.init = rockchip_pcie_host_init,
->   };
->   
-> +/*
-> + * ATS does not work on rk3588 when running in EP mode.
-> + * After a host has enabled ATS on the EP side, it will send an IOTLB
-> + * invalidation request to the EP side. The rk3588 will never send a completion
-> + * back and eventually the host will print an IOTLB_INV_TIMEOUT error, and the
-> + * EP will not be operational. If we hide the ATS cap, things work as expected.
-> + */
-> +static void rockchip_pcie_ep_hide_broken_ats_cap_rk3588(struct dw_pcie_ep *ep)
-> +{
-> +	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
-> +	struct device *dev = pci->dev;
-> +	unsigned int spcie_cap_offset, next_cap_offset;
-> +	u32 spcie_cap_header, next_cap_header;
-> +
-> +	/* only hide the ATS cap for rk3588 running in EP mode */
-> +	if (!of_device_is_compatible(dev->of_node, "rockchip,rk3588-pcie-ep"))
-> +		return;
-> +
-> +	spcie_cap_offset = dw_pcie_find_ext_capability(pci, PCI_EXT_CAP_ID_SECPCI);
-> +	if (!spcie_cap_offset)
-> +		return;
-> +
-> +	spcie_cap_header = dw_pcie_readl_dbi(pci, spcie_cap_offset);
-> +	next_cap_offset = PCI_EXT_CAP_NEXT(spcie_cap_header);
-> +
-> +	next_cap_header = dw_pcie_readl_dbi(pci, next_cap_offset);
-> +	if (PCI_EXT_CAP_ID(next_cap_header) != PCI_EXT_CAP_ID_ATS)
-> +		return;
-> +
-> +	/* clear next ptr */
-> +	spcie_cap_header &= ~GENMASK(31, 20);
-> +
-> +	/* set next ptr to next ptr of ATS_CAP */
-> +	spcie_cap_header |= next_cap_header & GENMASK(31, 20);
-> +
-> +	dw_pcie_dbi_ro_wr_en(pci);
-> +	dw_pcie_writel_dbi(pci, spcie_cap_offset, spcie_cap_header);
-> +	dw_pcie_dbi_ro_wr_dis(pci);
-> +}
-> +
-> +static void rockchip_pcie_ep_pre_init(struct dw_pcie_ep *ep)
-> +{
-> +	rockchip_pcie_ep_hide_broken_ats_cap_rk3588(ep);
-> +}
-> +
->   static void rockchip_pcie_ep_init(struct dw_pcie_ep *ep)
->   {
->   	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
-> @@ -314,6 +359,7 @@ rockchip_pcie_get_features(struct dw_pcie_ep *ep)
->   
->   static const struct dw_pcie_ep_ops rockchip_pcie_ep_ops = {
->   	.init = rockchip_pcie_ep_init,
-> +	.pre_init = rockchip_pcie_ep_pre_init,
->   	.raise_irq = rockchip_pcie_raise_irq,
->   	.get_features = rockchip_pcie_get_features,
->   };
+>  drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 5 ++---
+>  1 file changed, 2 insertions(+), 3 deletions(-)
 
+Suggested-by: Douglas Anderson <dianders@chromium.org>
+Reviewed-by: Douglas Anderson <dianders@chromium.org>
 
