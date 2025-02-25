@@ -4,92 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D6D1C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 10:54:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A83E6C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 11:01:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hG0/vjAYb5Ulc6jjnKhm2XeOXEYOwE4Q8HmW4VgPla8=; b=raQjESagpOk7CmqjFmdRTy3EeK
-	e59h34RVwm7jRZeHy+VPVmtCkpNj6BGirstzKe6Kg3OtH+GOD1Wx4wOX5QWZuCXrLS46g+C0i2f92
-	CPcHr+w0nrq4FrLIHwhXiRkVM7ooEzjGAPqFKv55Z/4wfLaDS9loX7aExYzwqXoCGXhfbDo79hm/n
-	SVEj7ZArjEpvyDF2JoARIAjrSHvpne+0kraCaXTosDjHpFCfWe6+2Q9Sb7OG2uoxHFg79WlddC/A7
-	KJgj4+PdBpG4QSiEyIEEVEIR/1slmplQ6YfSt4opP3NJfcro0tnMt5Xsty1rBEnjtL4AIIgc/mF6O
-	0i8FwxRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HxawArc165Ay2TKvOqn7tpKGAFxaS9bJbDWsvB3viO8=; b=uvrlbylfnN876WuWRmIymZyung
+	gg0nJTSnHQFf4MUfgfwBsICATUw9szHEP4EnskVre95NSmJ6mharNZa3Hc9x9gh3ByW48wYNhzAfw
+	ZuF+1mhlWXcId9KXmekOLuBYTv00LRrAdiY7yvnDZdJNGl0s3v9WXsDn7z1d0ikNIQinyJ1Nriq8y
+	FDOfRwX0DvLzL21ZQAqICiVyLZdCQQrsOCoDh0odCN3Zds1ldG8qwx7w75uOIdHgBhUa2MYeR6bDg
+	uPP7+VE/8YoZu9LZw4rEYmfiTCW2UibaX5HU5aEbswcAHF0yRgwPUrfB1xMBf1INxGIYKa2oMv3l1
+	0OvsuTVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmsZY-0000000GuO3-3jWs;
-	Tue, 25 Feb 2025 10:53:56 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1tmsgM-0000000GwA9-3DlW;
+	Tue, 25 Feb 2025 11:00:59 +0000
+Received: from mail-m3277.qiye.163.com ([220.197.32.77])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmrf4-0000000Ghp6-3MxQ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 09:55:36 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-54622940ef7so6100526e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 01:55:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740477333; x=1741082133; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hG0/vjAYb5Ulc6jjnKhm2XeOXEYOwE4Q8HmW4VgPla8=;
-        b=wiXJ4EkMp+BWSZZVKLtx3btip1LvHYN7hbvOnO6tOnDW0bDLgjIIAx6V8Wo64pvvSE
-         N0baEHC8XH6Ddyq0yoWi5nWsitewAjmWJaQAeX9jFbgyPzv8xI6pl3XvHw2//n1ndCfK
-         7v6sZMXx3oPJ6AWzI5OW6PY+3a3eiimzPpSKh4yBn9Ze9UY49bjCFXRf1E11slUOfiTm
-         qBOcMqa2g3w4iVlJ8eipctrBo3mMicv9nB3fT5hLCRCUnYFiFe561IdjIpYvmlsJjFLt
-         dl67GwC0u+KDBGxHXetPUfRr2ZEbR3JNYcRn1xtcs5ymercqPb+YzLPNcVk27Nxdoer0
-         Vbzw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740477333; x=1741082133;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=hG0/vjAYb5Ulc6jjnKhm2XeOXEYOwE4Q8HmW4VgPla8=;
-        b=CSeBOdIFgoljFQGQO0oCFJCXlrBWEX9cA6vJ+BzHb1Gdt/kJvLc9vjbQyAMgCjWIfl
-         Ry+uITzyl+FgKlQMc+nxHFGtpzxyZc1mF0FVnn5+WYc0z9Qhf+FrGQYxR9hNu8tHeWmQ
-         Wzbm9R9TiuauFS1m+xOTJs7h1g7HRXDym8pbpnmO6ALqqXyWz7OJR4M+LzEAYSTtcUBO
-         HQzzYuz6vi8uc0XKWgLEt8L/i5emnlFCo8BI7g1nGT4rsWtSFdUpgpglELSY/ZiWEzTq
-         5d0IQzBpgtNJIHwP3WEgK4daMmVFg5a2n/U5FZ3cdGtKFiLSzKoFIfxiMRlJiUaZ7gN4
-         Srlw==
-X-Gm-Message-State: AOJu0YzKymcpRV0rMcoe4NjetWwc9/JO/B0rJV0jUnriHoRYUCOnR35R
-	+U+hzaD2lvC62/l/Zyb/uLyWIsFQwzlZNfoF2aH0SqmOTzSSRyO7vL7MdQsRVjI=
-X-Gm-Gg: ASbGncuu6/sLAV9asyiRhxSq7VzyFHay6PcBWT1qb0QPDpRUaWOzet8wFnaaZg/O2dp
-	iQOqdyAnwm3Ld/UINlpp4eUgtU/FxGNKJOX3JJVuVHiseELW8UFcThE/XW5XbV9E6yFtEWwKkeQ
-	RN6G81P9+iGRTa+CZOb075P4lTTVKd8+R3AmzwEzPk/tVVQgknf5lKRw4Fxp3FBjBVRYV2fp0bB
-	o156NBG//tN+t0wftFFxB74KbyJ2wsEXBzebWi2XPKkaGhFe9XgJDFoYPeJn356GS+9B0HbugRi
-	CyamHWMFnifE+vyhvQHq0JcOo0T2LkGAG4Z9
-X-Google-Smtp-Source: AGHT+IH5uBgAMA9dHOegGGT93vBd6r8QwClPslh2DXLtCCBanyA3O0/Gp1EuUpD/mB0oY2I3FDeTFQ==
-X-Received: by 2002:a05:6512:104e:b0:546:2ea9:6666 with SMTP id 2adb3069b0e04-54838f4e48emr8380278e87.34.1740477333117;
-        Tue, 25 Feb 2025 01:55:33 -0800 (PST)
-Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-548514b261esm132867e87.24.2025.02.25.01.55.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Feb 2025 01:55:32 -0800 (PST)
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 25 Feb 2025 10:55:16 +0100
-Subject: [PATCH v5 29/31] ARM: entry: Handle dabt, pabt, and und as
- interrupts
+	id 1tms8q-0000000Gow6-2m2w;
+	Tue, 25 Feb 2025 10:26:22 +0000
+Received: from localhost.localdomain (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id c22892ce;
+	Tue, 25 Feb 2025 18:26:14 +0800 (GMT+08:00)
+From: Kever Yang <kever.yang@rock-chips.com>
+To: heiko@sntech.de
+Cc: linux-rockchip@lists.infradead.org,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Simon Xue <xxm@rock-chips.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	linux-pci@vger.kernel.org,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v7 1/2] dt-bindings: PCI: dw: rockchip: Add rk3576 support
+Date: Tue, 25 Feb 2025 18:26:10 +0800
+Message-Id: <20250225102611.2096462-1-kever.yang@rock-chips.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250225-arm-generic-entry-v5-29-2f02313653e5@linaro.org>
-References: <20250225-arm-generic-entry-v5-0-2f02313653e5@linaro.org>
-In-Reply-To: <20250225-arm-generic-entry-v5-0-2f02313653e5@linaro.org>
-To: Dmitry Vyukov <dvyukov@google.com>, Oleg Nesterov <oleg@redhat.com>, 
- Russell King <linux@armlinux.org.uk>, Kees Cook <kees@kernel.org>, 
- Andy Lutomirski <luto@amacapital.net>, Will Drewry <wad@chromium.org>, 
- Frederic Weisbecker <frederic@kernel.org>, 
- "Paul E. McKenney" <paulmck@kernel.org>, 
- Jinjie Ruan <ruanjinjie@huawei.com>, Arnd Bergmann <arnd@arndb.de>, 
- Ard Biesheuvel <ardb@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Linus Walleij <linus.walleij@linaro.org>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkseQ1YfSB0aTEwYGUJJSBlWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a953ca4987e03afkunmc22892ce
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MhA6HBw6GDIPFRYcSDkhMxQM
+	ARcwCwpVSlVKTE9LT0xCSkxNSEhNVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFPSEpCNwY+
+DKIM-Signature: a=rsa-sha256;
+	b=R3BMLr4VE9NCGf8G4KX+2yLPIsbV569yp/uPk999vqXfs7FFoJL7emRzj64MIQndiq3cBm9P2mt1N8kDy1TPipD1VcFQZzfMPXfVONnsMcpgaFBn9rM6nXgG/5lLBqQSanojrWWu6DtbmY4QSiDKSWW/wlwUgo3s3cTNL3PbEcc=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=HxawArc165Ay2TKvOqn7tpKGAFxaS9bJbDWsvB3viO8=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_015535_028478_E94CA270 
-X-CRM114-Status: GOOD (  21.68  )
+X-CRM114-CacheID: sfid-20250225_022621_227009_C111CACD 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,447 +83,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While it isn't entirely intuitive, it appears that any kind
-of exception such as data or prefetch abort ("page faults")
-need to be handled as some kind of "interrupts" when using
-generic entry. At least this is what other platforms are doing.
+rk3576 is using DWC PCIe controller, with msi interrupt directly to GIC
+instead of using GIC ITS, so
+- no ITS support is required and the 'msi-map' is not required,
+- a new 'msi' interrupt is needed.
 
-The same goes for undefined instruction handling, i.e.
-floating point emulation in the kernel (und-exceptions).
-
-This is necessary for the context checking to pass: without
-this patch, a whole slew of warnings start to trigger
-from syscall_exit_to_user_mode_prepare()
-CT_WARN_ON(ct_state() != CT_STATE_KERNEL), i.e. syscalls
-seems to exit from user mode to user mode (not good),
-because the page faults screws up the context tracker.
-
-This patch restores the order.
-
-If this seems like the previous patch introduces a
-regression that is then fixed in this patch, it can simply
-be squashed into the former: having this rewrite separately
-surely makes development and review easier.
-
-Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- arch/arm/include/asm/entry.h |  3 +++
- arch/arm/include/asm/traps.h |  2 +-
- arch/arm/kernel/entry-armv.S |  7 +++----
- arch/arm/kernel/entry.c      | 31 +++++++++++++++++++++++++++++++
- arch/arm/kernel/traps.c      |  2 +-
- arch/arm/mm/abort-ev4.S      |  2 +-
- arch/arm/mm/abort-ev4t.S     |  2 +-
- arch/arm/mm/abort-ev5t.S     |  4 ++--
- arch/arm/mm/abort-ev5tj.S    |  6 +++---
- arch/arm/mm/abort-ev6.S      |  2 +-
- arch/arm/mm/abort-ev7.S      |  2 +-
- arch/arm/mm/abort-lv4t.S     | 36 ++++++++++++++++++------------------
- arch/arm/mm/abort-macro.S    |  2 +-
- arch/arm/mm/abort-nommu.S    |  2 +-
- arch/arm/mm/fault.c          |  4 ++--
- arch/arm/mm/fault.h          |  8 ++++----
- arch/arm/mm/pabort-legacy.S  |  2 +-
- arch/arm/mm/pabort-v6.S      |  2 +-
- arch/arm/mm/pabort-v7.S      |  2 +-
- 19 files changed, 77 insertions(+), 44 deletions(-)
 
-diff --git a/arch/arm/include/asm/entry.h b/arch/arm/include/asm/entry.h
-index df2dd14ab51a586b83b6da6bbf9bd99858c1ddf4..de722084d5309194e02cb87db64ec32b9e6cd627 100644
---- a/arch/arm/include/asm/entry.h
-+++ b/arch/arm/include/asm/entry.h
-@@ -4,6 +4,9 @@
- 
- struct pt_regs;
- 
-+void arm_und_handler(struct pt_regs *regs);
-+void arm_dabt_handler(unsigned long addr, unsigned int fsr, struct pt_regs *regs);
-+void arm_pabt_handler(unsigned long addr, unsigned int ifsr, struct pt_regs *regs);
- void arm_irq_handler(struct pt_regs *regs, int mode);
- void arm_fiq_handler(struct pt_regs *regs);
- void arm_exit_to_user_mode(struct pt_regs *regs);
-diff --git a/arch/arm/include/asm/traps.h b/arch/arm/include/asm/traps.h
-index f8695104c72f2f450092839c7c50920e540e594b..0ca98271e10a210225c1714f5b24668cebab2def 100644
---- a/arch/arm/include/asm/traps.h
-+++ b/arch/arm/include/asm/traps.h
-@@ -37,7 +37,7 @@ extern void ptrace_break(struct pt_regs *regs);
- extern void *vectors_page;
- 
- asmlinkage void dump_backtrace_stm(u32 *stack, u32 instruction, const char *loglvl);
--asmlinkage void do_undefinstr(struct pt_regs *regs);
-+void do_undefinstr(struct pt_regs *regs);
- asmlinkage void bad_mode(struct pt_regs *regs, int reason);
- int arm_syscall(int no, struct pt_regs *regs);
- asmlinkage void baddataabort(int code, unsigned long instr, struct pt_regs *regs);
-diff --git a/arch/arm/kernel/entry-armv.S b/arch/arm/kernel/entry-armv.S
-index 498a22f5fa8a6516d1eab584f0523c3d6c6e4926..ae2f952beea7611f0abc7bd299fc944335a21219 100644
---- a/arch/arm/kernel/entry-armv.S
-+++ b/arch/arm/kernel/entry-armv.S
-@@ -230,7 +230,7 @@ __und_fault:
- 	ldr	r2, [r0, #S_PC]
- 	sub	r2, r2, r1
- 	str	r2, [r0, #S_PC]
--	b	do_undefinstr
-+	b	arm_und_handler
- ENDPROC(__und_fault)
- 
- 	.align	5
-@@ -449,9 +449,8 @@ __pabt_usr:
- ENTRY(ret_from_exception)
-  UNWIND(.fnstart	)
-  UNWIND(.cantunwind	)
--	get_thread_info tsk
--	mov	why, #0
--	b	ret_to_user
-+	disable_irq_notrace
-+	b	ret_to_user_from_irq
-  UNWIND(.fnend		)
- ENDPROC(__pabt_usr)
- ENDPROC(ret_from_exception)
-diff --git a/arch/arm/kernel/entry.c b/arch/arm/kernel/entry.c
-index 08b8680233e5aae6e477f9bf15d7f06d7fd3e5af..01e4339ccdb4951e04a89fb91ad7c6e1991e09af 100644
---- a/arch/arm/kernel/entry.c
-+++ b/arch/arm/kernel/entry.c
-@@ -8,8 +8,39 @@
- #include <linux/percpu.h>
- #include <linux/rseq.h>
- #include <asm/stacktrace.h>
-+#include <asm/traps.h>
- 
- #include "irq.h"
-+#include "../mm/fault.h"
-+
-+noinstr asmlinkage void arm_und_handler(struct pt_regs *regs)
-+{
-+	irqentry_state_t state = irqentry_enter(regs);
-+
-+	do_undefinstr(regs);
-+
-+	irqentry_exit(regs, state);
-+}
-+
-+noinstr asmlinkage void arm_dabt_handler(unsigned long addr, unsigned int fsr,
-+					 struct pt_regs *regs)
-+{
-+	irqentry_state_t state = irqentry_enter(regs);
-+
-+	do_DataAbort(addr, fsr, regs);
-+
-+	irqentry_exit(regs, state);
-+}
-+
-+noinstr asmlinkage void arm_pabt_handler(unsigned long addr, unsigned int ifsr,
-+					 struct pt_regs *regs)
-+{
-+	irqentry_state_t state = irqentry_enter(regs);
-+
-+	do_PrefetchAbort(addr, ifsr, regs);
-+
-+	irqentry_exit(regs, state);
-+}
- 
- static void noinstr handle_arm_irq(void *data)
- {
-diff --git a/arch/arm/kernel/traps.c b/arch/arm/kernel/traps.c
-index 57e74b49c52533babe177a8a2e0160a83c9bde05..d3a689bd05955f1ae46a6341e456bb097e831311 100644
---- a/arch/arm/kernel/traps.c
-+++ b/arch/arm/kernel/traps.c
-@@ -449,7 +449,7 @@ int call_undef_hook(struct pt_regs *regs, unsigned int instr)
- 	return fn ? fn(regs, instr) : 1;
- }
- 
--asmlinkage void do_undefinstr(struct pt_regs *regs)
-+noinstr void do_undefinstr(struct pt_regs *regs)
- {
- 	unsigned int instr;
- 	void __user *pc;
-diff --git a/arch/arm/mm/abort-ev4.S b/arch/arm/mm/abort-ev4.S
-index a10bcb89594dd38ce31ca30bf97d68cf421afc42..68d8ae2f4e9c0955c9f08112b4ff1887867d550a 100644
---- a/arch/arm/mm/abort-ev4.S
-+++ b/arch/arm/mm/abort-ev4.S
-@@ -24,4 +24,4 @@ ENTRY(v4_early_abort)
- 	bic	r1, r1, #1 << 11 | 1 << 10	@ clear bits 11 and 10 of FSR
- 	tst	r3, #1 << 20			@ L = 1 -> write?
- 	orreq	r1, r1, #1 << 11		@ yes.
--	b	do_DataAbort
-+	b	arm_dabt_handler
-diff --git a/arch/arm/mm/abort-ev4t.S b/arch/arm/mm/abort-ev4t.S
-index 14743a2f6997fcae0eeb55f53dec07b7b2ec227c..76c6cfa79e2a32e34b6f35a15c71c1af407956f3 100644
---- a/arch/arm/mm/abort-ev4t.S
-+++ b/arch/arm/mm/abort-ev4t.S
-@@ -25,4 +25,4 @@ ENTRY(v4t_early_abort)
- 	bic	r1, r1, #1 << 11 | 1 << 10	@ clear bits 11 and 10 of FSR
- 	tst	r3, #1 << 20			@ check write
- 	orreq	r1, r1, #1 << 11
--	b	do_DataAbort
-+	b	arm_dabt_handler
-diff --git a/arch/arm/mm/abort-ev5t.S b/arch/arm/mm/abort-ev5t.S
-index 98c523118820798668bf04d065ad86ea05fb6d2c..fda1e54debc44b380fb3f3af95c1f198a9cc008a 100644
---- a/arch/arm/mm/abort-ev5t.S
-+++ b/arch/arm/mm/abort-ev5t.S
-@@ -25,7 +25,7 @@ ENTRY(v5t_early_abort)
- 	uaccess_disable ip			@ disable user access
- 	bic	r1, r1, #1 << 11		@ clear bits 11 of FSR
- 	teq_ldrd tmp=ip, insn=r3		@ insn was LDRD?
--	beq	do_DataAbort			@ yes
-+	beq	arm_dabt_handler			@ yes
- 	tst	r3, #1 << 20			@ check write
- 	orreq	r1, r1, #1 << 11
--	b	do_DataAbort
-+	b	arm_dabt_handler
-diff --git a/arch/arm/mm/abort-ev5tj.S b/arch/arm/mm/abort-ev5tj.S
-index fec72f4fbaf508597d826e58d0dc084ee6e58dd0..a786a7d69e6ae23aa1125ccd41deaaaa743601e1 100644
---- a/arch/arm/mm/abort-ev5tj.S
-+++ b/arch/arm/mm/abort-ev5tj.S
-@@ -22,12 +22,12 @@ ENTRY(v5tj_early_abort)
- 	mrc	p15, 0, r0, c6, c0, 0		@ get FAR
- 	bic	r1, r1, #1 << 11 | 1 << 10	@ clear bits 11 and 10 of FSR
- 	tst	r5, #PSR_J_BIT			@ Java?
--	bne	do_DataAbort
-+	bne	arm_dabt_handler
- 	do_thumb_abort fsr=r1, pc=r4, psr=r5, tmp=r3
- 	ldreq	r3, [r4]			@ read aborted ARM instruction
- 	uaccess_disable ip			@ disable userspace access
- 	teq_ldrd tmp=ip, insn=r3		@ insn was LDRD?
--	beq	do_DataAbort			@ yes
-+	beq	arm_dabt_handler			@ yes
- 	tst	r3, #1 << 20			@ L = 0 -> write
- 	orreq	r1, r1, #1 << 11		@ yes.
--	b	do_DataAbort
-+	b	arm_dabt_handler
-diff --git a/arch/arm/mm/abort-ev6.S b/arch/arm/mm/abort-ev6.S
-index 836dc1299243415faaac1a93dce35ac46ae1a7da..2366236053eb86484cb179ff572f06db6559426b 100644
---- a/arch/arm/mm/abort-ev6.S
-+++ b/arch/arm/mm/abort-ev6.S
-@@ -42,4 +42,4 @@ ENTRY(v6_early_abort)
- 	orreq	r1, r1, #1 << 11		@ yes.
- #endif
- 1:	uaccess_disable ip			@ disable userspace access
--	b	do_DataAbort
-+	b	arm_dabt_handler
-diff --git a/arch/arm/mm/abort-ev7.S b/arch/arm/mm/abort-ev7.S
-index 53fb41c24774db985eddc370904aa7666527f538..72b6eba101555651d7afd749fd5d7715a2964372 100644
---- a/arch/arm/mm/abort-ev7.S
-+++ b/arch/arm/mm/abort-ev7.S
-@@ -18,5 +18,5 @@ ENTRY(v7_early_abort)
- 	mrc	p15, 0, r1, c5, c0, 0		@ get FSR
- 	mrc	p15, 0, r0, c6, c0, 0		@ get FAR
- 	uaccess_disable ip			@ disable userspace access
--	b	do_DataAbort
-+	b	arm_dabt_handler
- ENDPROC(v7_early_abort)
-diff --git a/arch/arm/mm/abort-lv4t.S b/arch/arm/mm/abort-lv4t.S
-index fbd60a120f6684c56c63cea10b00200765473f1d..3fef9c1479c17bb07652e43e0b8b0683e00c4b2f 100644
---- a/arch/arm/mm/abort-lv4t.S
-+++ b/arch/arm/mm/abort-lv4t.S
-@@ -46,8 +46,8 @@ ENTRY(v4t_late_abort)
- /* 9 */	b	.data_arm_ldmstm		@ ldm*b	rn, <rlist>
- /* a */	b	.data_unknown
- /* b */	b	.data_unknown
--/* c */	b	do_DataAbort			@ ldc	rd, [rn], #m	@ Same as ldr	rd, [rn], #m
--/* d */	b	do_DataAbort			@ ldc	rd, [rn, #m]
-+/* c */	b	arm_dabt_handler		@ ldc	rd, [rn], #m	@ Same as ldr	rd, [rn], #m
-+/* d */	b	arm_dabt_handler		@ ldc	rd, [rn, #m]
- /* e */	b	.data_unknown
- /* f */	b	.data_unknown
- 
-@@ -60,7 +60,7 @@ ENTRY(v4t_late_abort)
- 
- .data_arm_ldmstm:
- 	tst	r8, #1 << 21			@ check writeback bit
--	beq	do_DataAbort			@ no writeback -> no fixup
-+	beq	arm_dabt_handler		@ no writeback -> no fixup
- 	str	r9, [sp, #-4]!
- 	mov	r7, #0x11
- 	orr	r7, r7, #0x1100
-@@ -81,11 +81,11 @@ ENTRY(v4t_late_abort)
- 	addeq	r7, r7, r6, lsl #2		@ Undo decrement
- 	str	r7, [r2, r9, lsr #14]		@ Put register 'Rn'
- 	ldr	r9, [sp], #4
--	b	do_DataAbort
-+	b	arm_dabt_handler
- 
- .data_arm_lateldrhpre:
- 	tst	r8, #1 << 21			@ Check writeback bit
--	beq	do_DataAbort			@ No writeback -> no fixup
-+	beq	arm_dabt_handler		@ No writeback -> no fixup
- .data_arm_lateldrhpost:
- 	str	r9, [sp, #-4]!
- 	and	r9, r8, #0x00f			@ get Rm / low nibble of immediate value
-@@ -101,14 +101,14 @@ ENTRY(v4t_late_abort)
- 	addeq	r7, r7, r6			@ Undo decrement
- 	str	r7, [r2, r9, lsr #14]		@ Put register 'Rn'
- 	ldr	r9, [sp], #4
--	b	do_DataAbort
-+	b	arm_dabt_handler
- 
- .data_arm_lateldrpreconst:
- 	tst	r8, #1 << 21			@ check writeback bit
--	beq	do_DataAbort			@ no writeback -> no fixup
-+	beq	arm_dabt_handler		@ no writeback -> no fixup
- .data_arm_lateldrpostconst:
- 	movs	r6, r8, lsl #20			@ Get offset
--	beq	do_DataAbort			@ zero -> no fixup
-+	beq	arm_dabt_handler		@ zero -> no fixup
- 	str	r9, [sp, #-4]!
- 	and	r9, r8, #15 << 16		@ Extract 'n' from instruction
- 	ldr	r7, [r2, r9, lsr #14]		@ Get register 'Rn'
-@@ -117,11 +117,11 @@ ENTRY(v4t_late_abort)
- 	addeq	r7, r7, r6, lsr #20		@ Undo decrement
- 	str	r7, [r2, r9, lsr #14]		@ Put register 'Rn'
- 	ldr	r9, [sp], #4
--	b	do_DataAbort
-+	b	arm_dabt_handler
- 
- .data_arm_lateldrprereg:
- 	tst	r8, #1 << 21			@ check writeback bit
--	beq	do_DataAbort			@ no writeback -> no fixup
-+	beq	arm_dabt_handler		@ no writeback -> no fixup
- .data_arm_lateldrpostreg:
- 	and	r7, r8, #15			@ Extract 'm' from instruction
- 	ldr	r6, [r2, r7, lsl #2]		@ Get register 'Rm'
-@@ -180,10 +180,10 @@ ENTRY(v4t_late_abort)
- /* 3 */	b	.data_unknown
- /* 4 */	b	.data_unknown
- /* 5 */	b	.data_thumb_reg
--/* 6 */	b	do_DataAbort
--/* 7 */	b	do_DataAbort
--/* 8 */	b	do_DataAbort
--/* 9 */	b	do_DataAbort
-+/* 6 */	b	arm_dabt_handler
-+/* 7 */	b	arm_dabt_handler
-+/* 8 */	b	arm_dabt_handler
-+/* 9 */	b	arm_dabt_handler
- /* A */	b	.data_unknown
- /* B */	b	.data_thumb_pushpop
- /* C */	b	.data_thumb_ldmstm
-@@ -193,10 +193,10 @@ ENTRY(v4t_late_abort)
- 
- .data_thumb_reg:
- 	tst	r8, #1 << 9
--	beq	do_DataAbort
-+	beq	arm_dabt_handler
- 	tst	r8, #1 << 10			@ If 'S' (signed) bit is set
- 	movne	r1, #0				@ it must be a load instr
--	b	do_DataAbort
-+	b	arm_dabt_handler
- 
- .data_thumb_pushpop:
- 	tst	r8, #1 << 10
-@@ -217,7 +217,7 @@ ENTRY(v4t_late_abort)
- 	subne	r7, r7, r6, lsl #2		@ decrement SP if POP
- 	str	r7, [r2, #13 << 2]
- 	ldr	r9, [sp], #4
--	b	do_DataAbort
-+	b	arm_dabt_handler
- 
- .data_thumb_ldmstm:
- 	str	r9, [sp, #-4]!
-@@ -234,4 +234,4 @@ ENTRY(v4t_late_abort)
- 	sub	r7, r7, r6, lsl #2		@ always decrement
- 	str	r7, [r2, r9, lsr #6]
- 	ldr	r9, [sp], #4
--	b	do_DataAbort
-+	b	arm_dabt_handler
-diff --git a/arch/arm/mm/abort-macro.S b/arch/arm/mm/abort-macro.S
-index bacf53fd0b70c6307e74ef8601d8dcc7db292700..30bb5e2135862902951b5077b0b860fd12ed8c28 100644
---- a/arch/arm/mm/abort-macro.S
-+++ b/arch/arm/mm/abort-macro.S
-@@ -20,7 +20,7 @@
- 	orreq	\tmp, \tmp, #1 << 11		@ Set L-bit if yes
- 	tst	\tmp, #1 << 11			@ L = 0 -> write
- 	orreq	\fsr, \fsr, #1 << 11		@ yes.
--	b	do_DataAbort
-+	b	arm_dabt_handler
- not_thumb:
- 	.endm
- 
-diff --git a/arch/arm/mm/abort-nommu.S b/arch/arm/mm/abort-nommu.S
-index 6e2366a263219b379f4fdb43cc8e5413fb36e52a..573a09529ac7794f8004680ab350750de7c8e15d 100644
---- a/arch/arm/mm/abort-nommu.S
-+++ b/arch/arm/mm/abort-nommu.S
-@@ -17,5 +17,5 @@
- ENTRY(nommu_early_abort)
- 	mov	r0, #0				@ clear r0, r1 (no FSR/FAR)
- 	mov	r1, #0
--	b	do_DataAbort
-+	b	arm_dabt_handler
- ENDPROC(nommu_early_abort)
-diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
-index ab01b51de5590bff6c2acaf446d01c589a5f7987..78afb701b34a17d8d841762944eb5f8af6843dc4 100644
---- a/arch/arm/mm/fault.c
-+++ b/arch/arm/mm/fault.c
-@@ -588,7 +588,7 @@ hook_fault_code(int nr, int (*fn)(unsigned long, unsigned int, struct pt_regs *)
- /*
-  * Dispatch a data abort to the relevant handler.
-  */
--asmlinkage void
-+void
- do_DataAbort(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
- {
- 	const struct fsr_info *inf = fsr_info + fsr_fs(fsr);
-@@ -618,7 +618,7 @@ hook_ifault_code(int nr, int (*fn)(unsigned long, unsigned int, struct pt_regs *
- 	ifsr_info[nr].name = name;
- }
- 
--asmlinkage void
-+void
- do_PrefetchAbort(unsigned long addr, unsigned int ifsr, struct pt_regs *regs)
- {
- 	const struct fsr_info *inf = ifsr_info + fsr_fs(ifsr);
-diff --git a/arch/arm/mm/fault.h b/arch/arm/mm/fault.h
-index e8f8c190254442a015a6cbc179602589cfddb0ea..36a7e7138c310a8311458207d2b694cb44c63b93 100644
---- a/arch/arm/mm/fault.h
-+++ b/arch/arm/mm/fault.h
-@@ -37,9 +37,9 @@ static inline int fsr_fs(unsigned int fsr)
- 
- void do_bad_area(unsigned long addr, unsigned int fsr, struct pt_regs *regs);
- void early_abt_enable(void);
--asmlinkage void do_DataAbort(unsigned long addr, unsigned int fsr,
--			     struct pt_regs *regs);
--asmlinkage void do_PrefetchAbort(unsigned long addr, unsigned int ifsr,
--				 struct pt_regs *regs);
-+void do_DataAbort(unsigned long addr, unsigned int fsr,
-+		  struct pt_regs *regs);
-+void do_PrefetchAbort(unsigned long addr, unsigned int ifsr,
-+		      struct pt_regs *regs);
- 
- #endif	/* __ARCH_ARM_FAULT_H */
-diff --git a/arch/arm/mm/pabort-legacy.S b/arch/arm/mm/pabort-legacy.S
-index b2ffce4201062e3ec2045364ddc454cf706bab8d..26c62e568638d37133661f4f5b8dec430593f8eb 100644
---- a/arch/arm/mm/pabort-legacy.S
-+++ b/arch/arm/mm/pabort-legacy.S
-@@ -18,5 +18,5 @@
- ENTRY(legacy_pabort)
- 	mov	r0, r4
- 	mov	r1, #5
--	b	do_PrefetchAbort
-+	b	arm_pabt_handler
- ENDPROC(legacy_pabort)
-diff --git a/arch/arm/mm/pabort-v6.S b/arch/arm/mm/pabort-v6.S
-index 8686265dc9418b29381942bfd87a937a3234d46e..25abd11a35253bf464fe9fd7fc14fd11bc564dcd 100644
---- a/arch/arm/mm/pabort-v6.S
-+++ b/arch/arm/mm/pabort-v6.S
-@@ -18,5 +18,5 @@
- ENTRY(v6_pabort)
- 	mov	r0, r4
- 	mrc	p15, 0, r1, c5, c0, 1		@ get IFSR
--	b	do_PrefetchAbort
-+	b	arm_pabt_handler
- ENDPROC(v6_pabort)
-diff --git a/arch/arm/mm/pabort-v7.S b/arch/arm/mm/pabort-v7.S
-index 9c70b1a21dc9204f24524df9905fbc077a82f2dc..e05c7d44d307adeba6759213374b2aa328c693da 100644
---- a/arch/arm/mm/pabort-v7.S
-+++ b/arch/arm/mm/pabort-v7.S
-@@ -18,5 +18,5 @@
- ENTRY(v7_pabort)
- 	mrc	p15, 0, r0, c6, c0, 2		@ get IFAR
- 	mrc	p15, 0, r1, c5, c0, 1		@ get IFSR
--	b	do_PrefetchAbort
-+	b	arm_pabt_handler
- ENDPROC(v7_pabort)
+Changes in v7:
+- Move the rk3576 device specific schema out of common.yaml
 
+Changes in v6:
+- Fix make dt_binding_check and make CHECK_DTBS=y
+
+Changes in v5:
+- Add constraints per device for interrupt-names due to the interrupt is
+different from rk3588.
+
+Changes in v4:
+- Fix wrong indentation in dt_binding_check report by Rob
+
+Changes in v3:
+- Fix dtb check broken on rk3588
+- Update commit message
+
+Changes in v2:
+- remove required 'msi-map'
+- add interrupt name 'msi'
+
+ .../bindings/pci/rockchip-dw-pcie-common.yaml | 10 +++-
+ .../bindings/pci/rockchip-dw-pcie.yaml        | 55 +++++++++++++++++--
+ 2 files changed, 57 insertions(+), 8 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/pci/rockchip-dw-pcie-common.yaml b/Documentation/devicetree/bindings/pci/rockchip-dw-pcie-common.yaml
+index cc9adfc7611c..2150bd8b5fc2 100644
+--- a/Documentation/devicetree/bindings/pci/rockchip-dw-pcie-common.yaml
++++ b/Documentation/devicetree/bindings/pci/rockchip-dw-pcie-common.yaml
+@@ -65,7 +65,11 @@ properties:
+           tx_cpl_timeout, cor_err_sent, nf_err_sent, f_err_sent, cor_err_rx,
+           nf_err_rx, f_err_rx, radm_qoverflow
+       - description:
+-          eDMA write channel 0 interrupt
++          If the matching interrupt name is "msi", then this is the combinded
++          MSI line interrupt, which is to support MSI interrupts output to GIC
++          controller via GIC SPI interrupt instead of GIC its interrupt.
++          If the matching interrupt name is "dma0", then this is the eDMA write
++          channel 0 interrupt.
+       - description:
+           eDMA write channel 1 interrupt
+       - description:
+@@ -81,7 +85,9 @@ properties:
+       - const: msg
+       - const: legacy
+       - const: err
+-      - const: dma0
++      - enum:
++          - msi
++          - dma0
+       - const: dma1
+       - const: dma2
+       - const: dma3
+diff --git a/Documentation/devicetree/bindings/pci/rockchip-dw-pcie.yaml b/Documentation/devicetree/bindings/pci/rockchip-dw-pcie.yaml
+index 550d8a684af3..4764a0173ae4 100644
+--- a/Documentation/devicetree/bindings/pci/rockchip-dw-pcie.yaml
++++ b/Documentation/devicetree/bindings/pci/rockchip-dw-pcie.yaml
+@@ -16,16 +16,13 @@ description: |+
+   PCIe IP and thus inherits all the common properties defined in
+   snps,dw-pcie.yaml.
+ 
+-allOf:
+-  - $ref: /schemas/pci/snps,dw-pcie.yaml#
+-  - $ref: /schemas/pci/rockchip-dw-pcie-common.yaml#
+-
+ properties:
+   compatible:
+     oneOf:
+       - const: rockchip,rk3568-pcie
+       - items:
+           - enum:
++              - rockchip,rk3576-pcie
+               - rockchip,rk3588-pcie
+           - const: rockchip,rk3568-pcie
+ 
+@@ -71,8 +68,54 @@ properties:
+ 
+   vpcie3v3-supply: true
+ 
+-required:
+-  - msi-map
++allOf:
++  - $ref: /schemas/pci/snps,dw-pcie.yaml#
++  - $ref: /schemas/pci/rockchip-dw-pcie-common.yaml#
++  - if:
++      not:
++        properties:
++          compatible:
++            contains:
++              const: rockchip,rk3576-pcie
++    then:
++      required:
++        - msi-map
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: rockchip,rk3576-pcie
++    then:
++      properties:
++        interrupts:
++          minItems: 6
++          maxItems: 6
++        interrupt-names:
++          items:
++            - const: sys
++            - const: pmc
++            - const: msg
++            - const: legacy
++            - const: err
++            - const: msi
++    else:
++      properties:
++        interrupts:
++          minItems: 5
++        interrupt-names:
++          minItems: 5
++          items:
++            - const: sys
++            - const: pmc
++            - const: msg
++            - const: legacy
++            - const: err
++            - const: dma0
++            - const: dma1
++            - const: dma2
++            - const: dma3
++
+ 
+ unevaluatedProperties: false
+ 
 -- 
-2.48.1
+2.25.1
 
 
