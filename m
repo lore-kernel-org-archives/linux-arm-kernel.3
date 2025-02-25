@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB4FBC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 21:17:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF51EC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 21:19:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Ervwt0Iiaz8TlPYAI0hebTCzxJKg0dTs5t3Xq8VOzk=; b=fMTuvMwxyWUm18GdBNcR7WI82S
-	9isu/drs/Y/oib3e/D1B62t+oWEvjpz++2+NZcBaWku5g4dOWQ9tB5RPchgHW9QLfHI8PKfCo/GlG
-	mHhYCEjuTKKOOHjMeKWet0FSeg8/HqrD+4IeY0QNHWg0KkC/y6Hws2c8PJ8MaF5Jo0ZI9EGoox7f4
-	aLW+3Z6kJJryas6iR3+p5HCdTOPoFc5mo9g9p4rU7rxIkyL+DknXg9vr7x2CL96tudJhvetR4IKjd
-	CWmivrmr2CRJVVLkLDT2vb5gwgI+e4rC48oB466wXocz5rIa75wmooqvXINJGtnSZuqEZZKT4igyj
-	vVeQQBvw==;
+	bh=yRTAn8EMHBd2hfR7Y/FJYkcHDF1vc5TPWd5vqlVAC6A=; b=017AKN3+N68jSd8+mzFT6HH/vf
+	eyfoXkIleit4SQ/wJEw2/xqYg8OHY+WFAoShAMZFK0Pg1OLCCKUNyV8UdsMS8ttO5ms9vvBW3sWWT
+	NgW/N6q0tj1FAL52FqnfvdcrxlT7DHrgSQTKQ9YgUVkbnfrazkpyWhG09T9BaWXGEHWlJT4QX5Gd/
+	NBfcTkt+LsVOfQ8Q9KDeBVZF6hGTTk7tnaf3k3TuP9xBkGy28XyYBxv4+ELeTJKMlcrQcZXHqj8Vw
+	LsFqTxx2RxmfjQ3bTC8OfQ8r78EPtivZm2yd8Zq5uKXXJ98GsPheWTy2yZbNt6jjPOt1Offmhvh4a
+	1wcDhHJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn2JB-00000001W13-3iLS;
-	Tue, 25 Feb 2025 21:17:41 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1tn2Kh-00000001WFV-2Oxn;
+	Tue, 25 Feb 2025 21:19:15 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn1dG-00000001Nwd-26fM
+	id 1tn1en-00000001OLW-39AO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 20:34:23 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4399deda38cso37571575e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 12:34:22 -0800 (PST)
+	Tue, 25 Feb 2025 20:35:59 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-38f2f391864so3473403f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 12:35:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740515661; x=1741120461; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1740515756; x=1741120556; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4Ervwt0Iiaz8TlPYAI0hebTCzxJKg0dTs5t3Xq8VOzk=;
-        b=lUUjp00bH6cY9pTGEkr0CLD/FhZep/XdjN57eqWhHcwTcBgRyY9wmbQ3b97EPBSfHF
-         RMkZelWFHdVFUezhbDYXn3hMs2e2WxU1nD1jdfwcDfESUfr2I6fR6fqW+8kjP4ub27cZ
-         D0ltKheaymB+kDyNi2w5SrJP9wpjXguE6a4rR5jjs/ryJ0WMBKIz3ngMZdiX8UAWxaXl
-         3PTnzor8YzeFb2fQ/VKtiZ/gqCeky67bCLpxSiP6r33mJERs6T4pADLzeIie71J6Qfw+
-         F0Ycmoh8d7MzvycZGoEwtgxXE5JkZmy5KScHQQMfOrPp4jziq2gI4pP+BQd1+vKw7ZmO
-         vTjw==
+        bh=yRTAn8EMHBd2hfR7Y/FJYkcHDF1vc5TPWd5vqlVAC6A=;
+        b=enP0ozETBMXstDkDok4k9SKcPMJwQXYrSbJngLda4KwNIzmj0ExddsAOswsiAWEfiE
+         +1YKDVBwkP/PZc9dfWVny2DckLsxGBcGTh2YfNmviiPwcW4djSbNvICXW0SlgdhcyFir
+         5A8pyyzacS3AR2n9eKtmjTNU1tePVcjiKZ48r2+POxv0j7cP3tuVbYDWdAc0MB4kBCF4
+         Pss6ty25JGmv81Hqxv7xdG9iUVWat+/1PGC4wal8PQNNs39VIbfOiPJxD6g+jlrV//vS
+         ocboP+3foiA4jgd1OjZ/bI7MHmOLlcwwOy+bmB7LP6I88Mcf3bj8MSHmzGMMBM1ULt78
+         MemQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740515661; x=1741120461;
+        d=1e100.net; s=20230601; t=1740515756; x=1741120556;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=4Ervwt0Iiaz8TlPYAI0hebTCzxJKg0dTs5t3Xq8VOzk=;
-        b=mJKSvidlV9PxHRrf8rfN7fQmQu+ibk7Hb4CaJFlEUO8ViG3KRCBwlm+grANYdy28r2
-         +XmXSww9DccGd7rI0z0FLsloPVjbwyXOG0WinRy0HUSO0dvZw43EpsQFKwD2pjCSY/hY
-         88CmkfCVvVZaMfopxvQL1pUfnxa3PaUbfXgtMqpv0/r9DT1KmoOTzZWGIU8iGskIUjDS
-         tWVZ23N7xnUxELDQ+VLjiG6miShRAO1TMGtv5mPowlffKVtLyWu30EjAjuCv6m36sbFI
-         d69QpNA+kxp9ndNuUoGWOJOfgNSW6AHRCCP8K+97iw7QHLePSwrKki4EzqXNdhx3IAzI
-         0kSQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWSSczrdaxLJSoyoiG7ZeSLn/CRiqww9Gw3utI9OU/3lcvTytyo2JFy8Hct7wt7ZxeE64VAx/wyDL4/01kKs9l9@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMZT/l0onT1P0cgCFMdI0+sDPVt5VjxPU6/nW++iakqmJUpzx3
-	RuwIcXHTFglRzoCiRDB/b++VA8KZLdt4dT6+aDW814ffb7I1yxXG
-X-Gm-Gg: ASbGncvf0p5d0NAO+YIXqdqMSeR8Vq2Wn6cWFzVe6lHxUW2KVTBbk7dKMAlPsiA0T2G
-	awe12q6r+1CDRRgQdlIIhc7lHtzxyPqFioGF3V2OYjSr21aMo7+Rvm2+Pu0o5dMvxlNR9wAUKP9
-	swI42687wjJ5YdGKDOnpp7cl45jIZg9pcZNakc0XXrHcconZBVi2ASuuRQs/EhM+u2NfPtXzWyj
-	E/z3ut2oje3ZVYqugrbfh56zcAjOJ5nuVjpMO+dT71pCovGO4H80s2MfdFV60Om97eMdF8aRPXG
-	CKrEycwkquvwHxopTIxfOS6kq1pxZKM+2Z1rxJOCQFLCUjWPv9/dqn3nZDPmE7xq6JkJSf7BGy1
-	TAjdtFJBab3qE
-X-Google-Smtp-Source: AGHT+IH4PaS/thx0o4a7besZweYaotUTeodWY36gLy1s0OvXS5nmZXjt97njg+FlwYzzfUDwC/lzFg==
-X-Received: by 2002:a05:600c:468e:b0:439:9828:c44b with SMTP id 5b1f17b1804b1-43ab0f3ccddmr50953145e9.14.1740515660513;
-        Tue, 25 Feb 2025 12:34:20 -0800 (PST)
+        bh=yRTAn8EMHBd2hfR7Y/FJYkcHDF1vc5TPWd5vqlVAC6A=;
+        b=vUZlcZ30Hl3o7H4+ZQN08xFljZA02W5eWL3m9FGrAFwTaXWjRwX29hA8UDKRtCDvT1
+         zVvxfiuoiDAFKTlhZ74FtGnVcynRYLjDgatmxfZk/oDpWtONkdvJxPovop6aZEouoY26
+         b5d7LNUVxl1R/PGPKc3NcU6lvuCTVP2ZnCCN1NJIfFgoan9B0uPQ3sFkK8GQCgmmjDM0
+         /Z1Y1A0VTeF28dbhLp88oVPPIKBXRQPOlC/uGowf09n/aarX/Se05OsIe8gnzmE42HzU
+         rlPu6TnMnGoY8bbQ/3bAf3LYBVkrHkVPvQHNSoiyLunWmpwK5AEzg4ygxKObc6DmY/3F
+         /+dA==
+X-Forwarded-Encrypted: i=1; AJvYcCV5QKbUUBTVO6lC9bnFqjqhAtwmbjRgwjIlrnCC0yIa25f/h99geufrveoCwBA26lZ8ZXQVmpsO+EGVnhzoi+db@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJ3YrYdJykPinkLCyavIT13J3HIWV/67Aom+u7ozyaVAqBnWuV
+	byRKHS/h1wsRA2jIguOxrCeZov2fjNgma9beu30CQ49VCmFbzMLj
+X-Gm-Gg: ASbGnctmS7ueoojTXbKiDG6eIJ7y+BtDRncBSpyz8POaDdsHI1hzxsS4WgophdipgTu
+	dfg+XUCXx9IFORwZZfi9wohnizd21MxEnSvQMmQkFcYSeUCw05E/OQT4S1vW3DnfVCSHI7Drqvx
+	dhWaSdAxmhch97DwI6hYMMoWK4fzFcStqLgHhMNPCCkHO6w9Trwzw/XyFAP2XGKzTtTZFL0xVy2
+	0Pa2MTChTc3YYgLVKY4G6QDntUeD7esyaCm/bVUc0Er8gF+lV2pOx0DmCusrcsnbLotAgdH/CVH
+	1PYNGKH/ep8gw4mzD6UHYZC2na2r7YzhVhOigrgf6nS3n0ib7q05wLfZmmY0ZQyxdq2lmB73Ofp
+	k7LQESV7MN+ab
+X-Google-Smtp-Source: AGHT+IHo6pk8C69B1kkZHL451iXWYmac+j4FDXKYrUt1Xc82AEnjWCz9kj00St6aZ3ajRNdoQCt+Tg==
+X-Received: by 2002:a05:6000:1563:b0:38f:3b41:c952 with SMTP id ffacd0b85a97d-390d4f36811mr510967f8f.4.1740515756017;
+        Tue, 25 Feb 2025 12:35:56 -0800 (PST)
 Received: from orome (p200300e41f187700f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f18:7700:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ab156a10fsm37694025e9.37.2025.02.25.12.34.17
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390cd8fcfc6sm3466016f8f.94.2025.02.25.12.35.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Feb 2025 12:34:19 -0800 (PST)
-Date: Tue, 25 Feb 2025 21:34:16 +0100
+        Tue, 25 Feb 2025 12:35:54 -0800 (PST)
+Date: Tue, 25 Feb 2025 21:35:52 +0100
 From: Thierry Reding <thierry.reding@gmail.com>
 To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
@@ -82,19 +82,19 @@ Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
 	NXP S32 Linux Team <s32@nxp.com>, Paolo Abeni <pabeni@redhat.com>, 
 	Pengutronix Kernel Team <kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>, 
 	Shawn Guo <shawnguo@kernel.org>, Thierry Reding <treding@nvidia.com>
-Subject: Re: [PATCH RFC net-next 2/7] net: stmmac: provide generic
- implementation for set_clk_tx_rate method
-Message-ID: <qnxvliijwsx7p7xht5mklsbpywgsx5kchsv4gagjmiuphwgoqa@tr2gidpfktxp>
+Subject: Re: [PATCH RFC net-next 3/7] net: stmmac: dwc-qos-eth: use generic
+ stmmac_set_clk_tx_rate()
+Message-ID: <qcarhmsd6u33ij4kupaiyxvyr7jxxv2uxvr6jsnhxjd3o3axkt@z4m3zvdpxogb>
 References: <Z7RrnyER5ewy0f3T@shell.armlinux.org.uk>
- <E1tkLYq-004RZ1-Kw@rmk-PC.armlinux.org.uk>
+ <E1tkLYv-004RZ7-Ot@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="ub7wq6jvawxv6zt3"
+	protocol="application/pgp-signature"; boundary="vvcz2h4v3lcdr4gs"
 Content-Disposition: inline
-In-Reply-To: <E1tkLYq-004RZ1-Kw@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1tkLYv-004RZ7-Ot@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_123422_538044_4C077679 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20250225_123557_788297_03537014 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,47 +110,44 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---ub7wq6jvawxv6zt3
+--vvcz2h4v3lcdr4gs
 Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH RFC net-next 2/7] net: stmmac: provide generic
- implementation for set_clk_tx_rate method
+Subject: Re: [PATCH RFC net-next 3/7] net: stmmac: dwc-qos-eth: use generic
+ stmmac_set_clk_tx_rate()
 MIME-Version: 1.0
 
-On Tue, Feb 18, 2025 at 11:14:44AM +0000, Russell King (Oracle) wrote:
-> Provide a generic implementation for the set_clk_tx_rate method
-> introduced by the previous patch, which is capable of configuring the
-> MAC transmit clock for 10M, 100M and 1000M speeds for at least MII,
-> GMII, RGMII and RMII interface modes.
+On Tue, Feb 18, 2025 at 11:14:49AM +0000, Russell King (Oracle) wrote:
+> Use the generic stmmac_set_clk_tx_rate() to configure the MAC transmit
+> clock.
 >=20
 > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 > ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  2 ++
->  .../net/ethernet/stmicro/stmmac/stmmac_main.c | 32 +++++++++++++++++++
->  2 files changed, 34 insertions(+)
+>  .../net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c    | 10 ++--------
+>  1 file changed, 2 insertions(+), 8 deletions(-)
 
 Reviewed-by: Thierry Reding <treding@nvidia.com>
 
---ub7wq6jvawxv6zt3
+--vvcz2h4v3lcdr4gs
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAme+KUgACgkQ3SOs138+
-s6G1TxAAi/NDxcQZKCI10VHrxMsf1JqDQf5d16ugQYy/sfomsGLksVt7u4qo01eJ
-56Nwsp31cLXit8KO6fh7kBhXbkKaozzFKpgvAeTCQyHM7KOmEKrIfrs7oo1fyFdR
-brnyzTSp5r301ED3wgPNAwg1lbSOFDX0JhSHF4lrQwkIu7TB7FC0gMlrNVuX4ll1
-6Jsi4x3YBtz+7zJh5KWFXlYnaGy2LCaYeR1JJsO5RxHtoL1QriSwcn0v8Z4GuaKN
-euINPJQL8ERPhMWzGY9KhUbUyR8CY3q87LBq1+cWzCZ4G5oO7zCKe1nuWuaUMZUR
-6eSfVvvpoa1DYRU7hlkllxD8WFE6adoOv9MR+5KUpMxDUN+fpGB+9kFfInnHJeOH
-QagK5nVlC+2WiXyfdATHT4Kef8m++YGZPuDeEtBgzHnOZ4IK+zvlsyf69cONycCU
-7oOrEmojJxKMK0A3o4/kFNccQNaPB3ZVdoRXJkZvdBjTuRZ2uvpKvYpoRb4bhAmE
-CF0avGa67oZSPuTTSizHZinbOmwpUsl6RhBS6rnqsWBohLzE0gGLAtWHs7lkyI4+
-wyEduelKoxYTYtcniJXK9RPPT59d5AajwDvEoA3uu3PLLfSY6FKP3Yg1eELMZS4u
-0XC+px/bSRP76lDB7td0YPQFcgCAmpRW4bJgB1oK8/OGDNh1V1Q=
-=85N8
+iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAme+KagACgkQ3SOs138+
+s6GtyhAAwRIkaF1uLIs1z5IXu/G9vXd74IqnK4JNtzGrGKi7NS+cgEqC7yfhY27w
+G7nD6STOdAxZbhcGZfvkiSmrRNBmcmrs2nUBr+dM0BVtgpe/vfwOPbFRWd8Xpqt4
+6LYaRSYNIsaY3nAXP4+oa3LXly0Fe4axipwapPJGjl9vCnHE30kMULHJ9MhLlbAu
+VZzMketr5oN/usTXWFs1gsYk1Xw1wTabBQGENezBr0+H6Pq7BLDcuWPeEV5ie46r
+xTlPD/E1rNepOCxmN6uvJSnz/1ei791h7OAK9n/OMZXKSI0XsgkMresehTC2jIFG
+CwG03bepYX+Y64iJejVhCgxU2g8Ji8sv0tmTY7vsCFSa98ngzKWAQK/R6H/V6xMK
+vNL83T8No6JOneia+ylM4i2ESXII8LmguwJGY9mbRqqS9dmP52HZig7eww/80MFB
+g6yx6n6q4Us/vFJuLgnULe8gLcTMCMiCfAtk+MMdJUqb+eQGLPqXwxsIH5106zmF
+ZyRVftW1WAa3Yc8cNF43w7IBR4RDIHm8MBUI9ESyL34P7gobx/5Z0C/DudsmnuV9
+4ZJO+x5JUTs/P2yCg5VfB4ERHwfPUSf8LrYEJaVY5f4M+kchTApRjyf6v8oF9add
+zMdor2E+S+g69+tn77HhPDvuJzTrOnbaIxQsoIwGEIJ1IpnOBUQ=
+=aWdb
 -----END PGP SIGNATURE-----
 
---ub7wq6jvawxv6zt3--
+--vvcz2h4v3lcdr4gs--
 
