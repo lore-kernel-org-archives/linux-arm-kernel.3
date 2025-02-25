@@ -4,73 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5754CC021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:39:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C9D9C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:39:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yFIlhKUzEOuQHbZEQC0lKg9ZMLPMih7Wyfel8ewcFu4=; b=gKiWZZA4Bg1nCDJhrANdnJuaxh
-	Is0TeypZDN6NyjdPCiWkFqmHpJqDDPceYthn52x/+LzJZMUSFCl1BVR86GHqjawys2B0llV3VR1ZZ
-	OqiMFFwf5DTDMNRJ7sepdMnudmy1lmK11xTRyVUwky/w7Q+f5EFCoiCNnIR4P1a4DoZ9m/GIY8/VP
-	bZs0xkc4aVutKWIMYUSzQ/UlWJf93S9TVszH0ymFITup2dbJA4vAYxEt3YJTuZBUqwpGncur9aLmJ
-	CUjkBBtoR3S5DdU+wy4HVGvwFM3dAlm4rg2iFUe70DCSBLZnn+z4Zv5ElImFD1QE5/KhV6DHLS4H8
-	yjKzRPkg==;
+	bh=f93xjg0uLBDBgDN3Feaes9fqpPxtUviVuziWYGC/2Dc=; b=ts2xKtV7qK14yVhMqfwttgEtPj
+	RNWq7YcBJuYKq2I3RUFJOOYcNLraSbvvFbwda5d+ZQ+F6oU1v0XD77pqSTTEqKA5lcOduHrZBEr7H
+	IKL8jduj9Ax2+JiWmMqD01BhzRHiZsuLR/rKrw76a6zHUI2QUn4f20yADI/DxW0I7YH0STRbXl4GR
+	OJcEBmv6vV7hwWYlevNCwzicoi9X1DIWpcojrqfZYoaisRN8ikxLKVkSEcwbW4/7ZawLw4g5XYMGM
+	21FCd/8c01rxKxeuAsBO4SpZSX+dprSkchot3jb8BK7MJ95gVql1b8mCUWI3MMRPOmyR3VSOv7ddR
+	SgWrI36w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmxxb-00000000Gc9-1KQb;
-	Tue, 25 Feb 2025 16:39:07 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tmxxn-00000000Gy4-3jYv;
+	Tue, 25 Feb 2025 16:39:19 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmvP3-0000000HRMo-41Mb
+	id 1tmvTq-0000000HSC4-3wHI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 13:55:19 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tmvP0-0003K8-TI; Tue, 25 Feb 2025 14:55:14 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tmvP0-002mjO-1D;
-	Tue, 25 Feb 2025 14:55:14 +0100
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tmvP0-0009vz-0s;
-	Tue, 25 Feb 2025 14:55:14 +0100
-Message-ID: <460ce86a847cb13e6e51cf0c89a65602e0080e67.camel@pengutronix.de>
-Subject: Re: [PATCH v3 2/8] dt-bindings: dsp: fsl,dsp: Add resets property
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Daniel Baluta <daniel.baluta@gmail.com>
-Cc: Daniel Baluta <daniel.baluta@nxp.com>, robh@kernel.org,
- krzk+dt@kernel.org,  shawnguo@kernel.org, mathieu.poirier@linaro.org,
- conor+dt@kernel.org,  s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com,  linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-remoteproc@vger.kernel.org, 
- andersson@kernel.org, Frank.Li@nxp.com, peng.fan@nxp.com, 
- laurentiu.mihalcea@nxp.com, iuliana.prodan@nxp.com
-Date: Tue, 25 Feb 2025 14:55:14 +0100
-In-Reply-To: <CAEnQRZBL+r2-CRDszK54SD_8E9=1QRKRj3_YDHsM7YetKMcs_w@mail.gmail.com>
-References: <20250225102005.408773-1-daniel.baluta@nxp.com>
-	 <20250225102005.408773-3-daniel.baluta@nxp.com>
-	 <78e60d723c27b7fa0f03bc6a74f6ad37d6508734.camel@pengutronix.de>
-	 <CAEnQRZBL+r2-CRDszK54SD_8E9=1QRKRj3_YDHsM7YetKMcs_w@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Tue, 25 Feb 2025 14:00:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740492015; x=1772028015;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=z0NM4k/FSSDfqS2mjYdariSVt/ETmZ+fP+JtXH7aT5c=;
+  b=OtiI1LmFCgXO3gPFMF9rhMaEYgJj/Hdb3VT8e8iUzg7ON2ogD8KBSqEu
+   gkFz/iAZ+NhiqPAVcRY6F91QqCnIe+IDwN/rWt5m9/bgDNu+n+zkjik+D
+   aQF+SS6vFhIDLGYH5Zw4B8VtAciP348paML1CXpAvN/cjjEbxTND1WLxD
+   CWTJAK+mslbjGdUmo+KqFlEk7nkygrfOofxrovjmP34M5oL0GIGy6alZa
+   aLgldDnZZIxqt73BBwIVh9ZmB2EJO6O8t/Qji9PMyqY2H3tmVZ08YLCrO
+   Kx6kO3zVp+Cirq9umduyX1Pn7W/A4z6feddgcrV1VjdQ0tuCVOT+N96ma
+   Q==;
+X-CSE-ConnectionGUID: eZd3Dxb7SWGyNwg87Rhgyw==
+X-CSE-MsgGUID: bqGHnxpOREyeXC6tcCbY+g==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="41500375"
+X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
+   d="scan'208";a="41500375"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 06:00:09 -0800
+X-CSE-ConnectionGUID: 5wdBO304QIGqIKmBnH0WxA==
+X-CSE-MsgGUID: o2kscnJVSLCiJ/DTQH/+dw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="120502479"
+Received: from smile.fi.intel.com ([10.237.72.58])
+  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 06:00:02 -0800
+Received: from andy by smile.fi.intel.com with local (Exim 4.98)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1tmvTa-0000000F0fX-0FCE;
+	Tue, 25 Feb 2025 15:59:58 +0200
+Date: Tue, 25 Feb 2025 15:59:57 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Matti Vaittinen <mazziesaccount@gmail.com>
+Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Daniel Scally <djrscally@gmail.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Nuno Sa <nuno.sa@analog.com>, David Lechner <dlechner@baylibre.com>,
+	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+	Guillaume Stols <gstols@baylibre.com>,
+	Olivier Moysan <olivier.moysan@foss.st.com>,
+	Dumitru Ceclan <mitrutzceclan@gmail.com>,
+	Trevor Gamblin <tgamblin@baylibre.com>,
+	Matteo Martelli <matteomartelli3@gmail.com>,
+	Alisa-Dariana Roman <alisadariana@gmail.com>,
+	Ramona Alexandra Nechita <ramona.nechita@analog.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v4 02/10] property: Add
+ device_get_child_node_count_named()
+Message-ID: <Z73M3Ua6u1FpgBEK@smile.fi.intel.com>
+References: <cover.1740421248.git.mazziesaccount@gmail.com>
+ <29ec24f1498392cafbecc0e0c0e23e1ce3289565.1740421248.git.mazziesaccount@gmail.com>
+ <Z72QAOA9xXbP16K-@kuha.fi.intel.com>
+ <Z72Zp8tpnvlFGdQ_@smile.fi.intel.com>
+ <ad39b453-7e5b-49bd-a4fd-6a4988636130@gmail.com>
+ <Z72d7TzZ21WITW3f@smile.fi.intel.com>
+ <893a3c45-537e-47ad-afbd-1e5d3b9abe2c@gmail.com>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <893a3c45-537e-47ad-afbd-1e5d3b9abe2c@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_055518_001227_466236AE 
-X-CRM114-Status: GOOD (  26.46  )
+X-CRM114-CacheID: sfid-20250225_060015_037331_807A3200 
+X-CRM114-Status: GOOD (  23.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,66 +123,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
+On Tue, Feb 25, 2025 at 03:29:17PM +0200, Matti Vaittinen wrote:
+> On 25/02/2025 12:39, Andy Shevchenko wrote:
+> > On Tue, Feb 25, 2025 at 12:29:31PM +0200, Matti Vaittinen wrote:
+> > > On 25/02/2025 12:21, Andy Shevchenko wrote:
+> > > > On Tue, Feb 25, 2025 at 11:40:16AM +0200, Heikki Krogerus wrote:
 
-On Di, 2025-02-25 at 15:41 +0200, Daniel Baluta wrote:
-> Hello Philipp,
->=20
-> Thanks for your comments!
->=20
-> > The DAP core reset is mentioned in the commit message. Why is it
-> > missing here? After reading the discussion in [1], I'd expect both the
-> > stall and the (core) reset signal to be documented, something like:
->=20
-> There is no reset controller driver for DAP area yet.
+...
 
-This is about the device tree bindings, not the driver. Even if the
-driver maps DAP address space with a hard-coded address, ...
+> > > > > 
+> > > > > I did not check how many users are you proposing for this, but if
+> > > > > there's only one, then IMO this should not be a global function yet.
+> > > > > It just feels to special case to me. But let's see what the others
+> > > > > think.
+> > > > 
+> > > > The problem is that if somebody hides it, we might potentially see
+> > > > a duplication in the future. So I _slightly_ prefer to publish and
+> > > > then drop that after a few cycles if no users appear.
+> > > 
+> > > After taking a very quick grep I spotted one other existing place where we
+> > > might be able to do direct conversion to use this function.
+> > > 
+> > > drivers/net/ethernet/freescale/gianfar.c
+> > > 
+> > > That'd be 2 users.
+> > 
+> > I haven't checked myself, I believe your judgement,
+> 
+> I took a better look and you obviously shouldn't believe :) The gianfar used
+> of_node instead of the fwnode. So, it'd be a single caller at starters.
 
-> We manipulate the bits directly by remapping the DAP address space
-> inside remoteproc driver.
+...which is the same as dev_of_node(), which means that you can use your
+function there.
 
-... which it should not, the bindings could already correctly describe
-the core reset.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-I'd just like to make sure that there will be no confusion about the
-stall "reset" signal, and adding a reset-names property would be an
-easy way to do it.
 
-> See for example: drivers/remoteproc/imx_dsp_rproc.c
->=20
-> /* Reset function for DSP on i.MX8MP */
-> static int imx8mp_dsp_reset(struct imx_dsp_rproc *priv)
-> {
-> =C2=BB       void __iomem *dap =3D ioremap_wc(IMX8M_DAP_DEBUG,
-> IMX8M_DAP_DEBUG_SIZE);
-> =C2=BB       int pwrctl;
->=20
-> =C2=BB       /* Put DSP into reset and stall */
-> =C2=BB       pwrctl =3D readl(dap + IMX8M_DAP_PWRCTL);
-> =C2=BB       pwrctl |=3D IMX8M_PWRCTL_CORERESET;
-> =C2=BB       writel(pwrctl, dap + IMX8M_DAP_PWRCTL);
->=20
->=20
-> If we agree that this is the right way to go, the next step would be
-> to create a new reset controller driver for DAP area.
->
-> I want to keep this as a follow up patch in order to not compilate
-> this patch series even more.
-
-I have no issues with adding a reset driver for the DAP region and
-hooking it up to the DSP driver in a separate series, but the device
-tree bindings could be correct from the start.
-
-> > Is there nothing else in this range that will have to be controlled by
-> > the DSP driver in the future, such as the IMPWIRE register or the
-> > XOCDMODE[OCDHALTONRESET] bit?
->=20
-> We are internally running SOF for couple of years now and we didn't
-> need any of these bits.
-
-Ok.
-
-regards
-Philipp
 
