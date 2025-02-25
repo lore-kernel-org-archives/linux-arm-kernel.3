@@ -4,59 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B945C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 18:38:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2AECC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 18:40:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TDbhABUS9urbjuK93orrRgVMLJaDNVuhJFFht39PZ4Q=; b=RKYCofRaWtdwlKEdufBYXIZkd4
-	RJA8I5s+a+HRWjda/g5HVbuH0qGokTb5bhtAwdR6hFps5tDGQY23AgR7DoL/2hZFQ3C/xfpSsI2bv
-	8ZwWYtNuoT9sOIjko6/24zdK0wOvjmdhvFIe9QkW2v0rxUzBmtPtcPPSF5fZF6zvUEGNKvmpWZUv8
-	Lml0cvQwafTHP+KJiIdIzlCIbH/Ujlk1op0++3U3Yo0u82Cxpr9xxP8U2SzXeiw/w1vA191Qa6i+E
-	JcJNFmO/Qsnjpiu1my8J8n3CV7xm6zh9bTGvM/plxVHYlDfunDZjSikkyHUcY8B7MFgwCsWdvVldb
-	0OSbstTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P6V5AHCcs6/PjkfWZUhc1hNG9sBgklw9wJ1nl2qB6QM=; b=Kk5B3FKu0nKhQMkVZT9z8mAhFd
+	vCC0a3zfMjMauxhCObBLhgt+yn4Dr5K79duBh/5NJkCRNcgRlqN3RKOKK8Z+z3kHyk0lWHhno7LCi
+	UKa3bmJ91D1OF/ya49vi39ZDbiLF1s7JZkL9AECSDbmg0QdH5d7KoXkiNVsYzK0KyRk7YJw5BcUTh
+	vAy7B1+giYFv0M0dnfxqbgmcsNofFyDMoFILbaQzPCr0ihrMKTLS8tV0Pq0wYe1ii163R8xOyZK+L
+	q8noGhy41y1OKbXjpeT/OzTJ9N+oFRit1gm8SkZH9H/gFFq2u527cYstUsMnO/Y4ndJVhWYrFDm5L
+	kkJ3x7Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmzp3-00000000ynQ-1R8z;
-	Tue, 25 Feb 2025 18:38:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tmzqa-00000000zMh-2LXh;
+	Tue, 25 Feb 2025 18:40:00 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmz6d-00000000lA3-2JHO
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 17:52:31 +0000
+	id 1tmz6r-00000000lG4-1oG8;
+	Tue, 25 Feb 2025 17:52:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D8FB7612B1;
-	Tue, 25 Feb 2025 17:52:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00DDDC4CEDD;
-	Tue, 25 Feb 2025 17:52:27 +0000 (UTC)
-Date: Tue, 25 Feb 2025 17:52:25 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Will Deacon <will@kernel.org>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	David Hildenbrand <david@redhat.com>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 12/14] mm: Generalize arch_sync_kernel_mappings()
-Message-ID: <Z74DWQJ7g-KNpHLY@arm.com>
-References: <20250217140809.1702789-1-ryan.roberts@arm.com>
- <20250217140809.1702789-13-ryan.roberts@arm.com>
- <4fad245f-a8a6-468b-82d5-13f089aa525b@arm.com>
+	by dfw.source.kernel.org (Postfix) with ESMTP id A8C8D5C5475;
+	Tue, 25 Feb 2025 17:52:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44A32C4CEDD;
+	Tue, 25 Feb 2025 17:52:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740505964;
+	bh=w0EkbHkGHBYElQYWfADsG+yNVibDYgCQClR6E5omnNM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=VFzZAOVB1a78DBjHDtOtuMrJTGr8jVuKit5KqKgfyh/fX73Y6Is0do1MFFrz+Jemp
+	 Lbhlg7xS6yHIZaTOWiszvYatZeN/iv+ogT1Za46h/vkopmjCPLm5TwsWwEC80+Kt07
+	 A2YDXuIPr6QRVYzYIUlUVeZADuuoe/qm/7R47h6ErvqrkGpSsmCqggvlOE/uz7f8zz
+	 peh/7+xGpi7QJ/r4uV9nNEC+HJHbHk6OThzJxJrC/S4+QyoUX2cChMnnIOXLrUZe49
+	 1NjBsFrGwjtJxyM4ounylZapEAZfSXeiQ/IIMS6S+yDeBzA19sVB5M3X7cEVJvyy5p
+	 eYbjFj/YbZxNg==
+Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-5e04064af07so9230831a12.0;
+        Tue, 25 Feb 2025 09:52:44 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUpZ7T6AHFVir7RmpXIoW38x9gQJCU2YVovztj7uPcCpTjYm6Hs3oFaQO/0A0mW1Q6GRF57nHuaeWtWHTI8Q2l9@lists.infradead.org, AJvYcCXi87jCsb/NeSULtZEpEqyZdArHevKzDOjEx3tverKiyD56qJ0zO4WWDNMNKD4C9NUgIom7cuBL3ZLCHlYbcgA=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzbUfoXl3mTI1VBm02oCQm5H++cUvpNsHub5PL8MW9Kd8IoQqQv
+	ws7tqcabNnFXFBCTJAq9w1Hse8MNOfdCPTL2OPNrhJZmlpEn3mgpGDjQGR+6pEMDEQKci7X/fKD
+	/9cVK+hpBIfLGOumFR1CUr5vhWA==
+X-Google-Smtp-Source: AGHT+IF6yxHJA3YSV+Mc7KCSIMedD8jUXEbB4xXTDLc0/UNGPOBcZs5+0oQlFOlVb1ificfP0x+i/oVnnr4HgeYGyas=
+X-Received: by 2002:a05:6402:440b:b0:5de:aa54:dc30 with SMTP id
+ 4fb4d7f45d1cf-5e444481387mr4585735a12.5.1740505962886; Tue, 25 Feb 2025
+ 09:52:42 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4fad245f-a8a6-468b-82d5-13f089aa525b@arm.com>
+References: <20241226050205.30241-1-val@packett.cool> <20241226050205.30241-5-val@packett.cool>
+ <173920541986.1887800.1972669785800121190.b4-ty@kernel.org>
+In-Reply-To: <173920541986.1887800.1972669785800121190.b4-ty@kernel.org>
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 25 Feb 2025 11:52:31 -0600
+X-Gmail-Original-Message-ID: <CAL_Jsq+PPYeFxr=utwZLemUVCzk5iabtMckOJmNy1-LO39cqeQ@mail.gmail.com>
+X-Gm-Features: AQ5f1Jq1Iz82X3jYxZcNLZTXQB24STg7TFTfP3ZcCT_Tig0_TFrubDNC8pk8KUg
+Message-ID: <CAL_Jsq+PPYeFxr=utwZLemUVCzk5iabtMckOJmNy1-LO39cqeQ@mail.gmail.com>
+Subject: Re: (subset) [PATCH 4/9] mfd: mt6397: Add support for MT6392 pmic
+To: Lee Jones <lee@kernel.org>
+Cc: Val Packett <val@packett.cool>, Fabien Parent <parent.f@gmail.com>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>, 
+	Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Eddie Huang <eddie.huang@mediatek.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Javier Carrasco <javier.carrasco.cruz@gmail.com>, Yassine Oudjana <y.oudjana@protonmail.com>, 
+	Chen Zhong <chen.zhong@mediatek.com>, linux-input@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-rtc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250225_095245_509266_DEF7FB1F 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,47 +95,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 05:10:10PM +0000, Ryan Roberts wrote:
-> On 17/02/2025 14:08, Ryan Roberts wrote:
-> > arch_sync_kernel_mappings() is an optional hook for arches to allow them
-> > to synchonize certain levels of the kernel pgtables after modification.
-> > But arm64 could benefit from a hook similar to this, paired with a call
-> > prior to starting the batch of modifications.
-> > 
-> > So let's introduce arch_update_kernel_mappings_begin() and
-> > arch_update_kernel_mappings_end(). Both have a default implementation
-> > which can be overridden by the arch code. The default for the former is
-> > a nop, and the default for the latter is to call
-> > arch_sync_kernel_mappings(), so the latter replaces previous
-> > arch_sync_kernel_mappings() callsites. So by default, the resulting
-> > behaviour is unchanged.
-> 
-> Thanks to Kevin Brodsky; after some discussion we realised that while this works
-> on arm64 today, it isn't really robust in general.
-[...]
-> As an alternative, I'm proposing to remove this change (keeping
-> arch_sync_kernel_mappings() as it was), and instead start wrapping the vmap pte
-> table walker functions with
-> arch_enter_lazy_mmu_mode()/arch_exit_lazy_mmu_mode().
+On Mon, Feb 10, 2025 at 10:37=E2=80=AFAM Lee Jones <lee@kernel.org> wrote:
+>
+> On Thu, 26 Dec 2024 01:58:04 -0300, Val Packett wrote:
+> > Update the MT6397 MFD driver to support the MT6392 PMIC.
+> >
+> >
+>
+> Applied, thanks!
+>
+> [4/9] mfd: mt6397: Add support for MT6392 pmic
+>       commit: 896b1eb4ca771b37ea50feb4d90a78dd4e9cb388
 
-I came to the same conclusion why looking at the last three patches. I'm
-also not a fan of relying on a TIF flag for batching.
+This should be dropped. Missing the sender's S-o-b and the rest of the
+series has issues still.
 
-> These have a smaller scope
-> so there is no risk of the nesting (pgtable allocations happen outside the
-> scope). arm64 will then use these lazy mmu hooks for it's purpose of deferring
-> barriers. There might be a small amount of performance loss due to the reduced
-> scope, but I'm guessing most of the performance is in batching the operations of
-> a single pte table.
-> 
-> One wrinkle is that arm64 needs to know if we are operating on kernel or user
-> mappings in lazy mode. The lazy_mmu hooks apply to both kernel and user
-> mappings, unlike my previous method which were kernel only. So I'm proposing to
-> pass mm to arch_enter_lazy_mmu_mode().
 
-Note that we have the efi_mm that uses PAGE_KERNEL prot bits while your
-code only checks for init_mm after patch 13.
-
--- 
-Catalin
+Rob
 
