@@ -4,79 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FD65C021BB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:44:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F876C18E7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:44:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PMSevmP25jDlHbCmAt/SAJg02V/QK2/1dPbCM298kg0=; b=fJe61C5fk5J3j4zRx71SFWvgHV
-	nNX2hYz8N3KxSYaKFcVVB1T765Wv69Y5DgiswM5FOQ16CRAfuz7caaZ85UDnUKMIK7v47JM2rPfTW
-	ANq6L4VAftVEltTRdUk5MLVk+vt+YDROKdGSO7fzKp/40vQNw/vrJXs6kCrbnlZyzDvnU5DVqhcmz
-	rB+hymqreVcJQAPPdJelMaytHAfLSU7v2qk9GIQZlYkoqlSF2ibdb38O0lP0yVi7+iljEeJTmgVw/
-	OoeR/p1EkQnJCgZY+yGdcC0rkoZ2YJgnbYHTS+tcZe2t/KS8BhiMNVHEW+cj68oXVukq7E7XIXht9
-	3P+m1x6w==;
+	bh=By02b8N+3nVeeDw8rOFha/kukv0eknqz8U+GuFCFIG0=; b=VZjnxSkPvDZSQx4y12rpS48ifW
+	AiFxAozpTsPUQHhEO2Rn0dHFXN47SV11368gZL+4hMPoqtOI/ujJMnl03q3BkoAh/Yf2XteWKThpP
+	PsH6yyIu8cB0GxcoPI/nydFJcgvTVsyE/R6+evZgI5aN7397rW2JBvBxFgPNibCuVZekUs23NuFMv
+	vHYXxM0Vc2IfolXFYNKWAHvXW1E1zysWHKi0U6CwszqpGXq6D/VP4m/CqBUMiVOIr3eco54gHN6Ek
+	RpAMC5A7ASW6k0zJ0yyEFoxfgaXhigtq+WCQqMaWebv546gSxbBlKCeQu6GM7YZqC9qmGJr+GdHK7
+	6ZsgfVFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmy2f-00000000OAX-2ubk;
-	Tue, 25 Feb 2025 16:44:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmx5T-000000006Xs-3uEb
+	id 1tmy2j-00000000OHj-1g4c;
+	Tue, 25 Feb 2025 16:44:25 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmx7W-000000006mh-2oIr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 15:43:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A0CD1BCB;
-	Tue, 25 Feb 2025 07:43:27 -0800 (PST)
-Received: from [10.1.27.154] (XHFQ2J9959.cambridge.arm.com [10.1.27.154])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF7D43F5A1;
-	Tue, 25 Feb 2025 07:43:05 -0800 (PST)
-Message-ID: <290f858c-07d4-4690-998c-2aefac664d7b@arm.com>
-Date: Tue, 25 Feb 2025 15:43:04 +0000
+	Tue, 25 Feb 2025 15:45:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 15D0F5C6FFA;
+	Tue, 25 Feb 2025 15:44:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B16DDC4CEDD;
+	Tue, 25 Feb 2025 15:45:14 +0000 (UTC)
+Date: Tue, 25 Feb 2025 10:45:52 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: "Arnd Bergmann" <arnd@arndb.de>
+Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-kbuild@vger.kernel.org, bpf <bpf@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org, "Masami
+ Hiramatsu" <mhiramat@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>,
+ "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>, "Andrew Morton"
+ <akpm@linux-foundation.org>, "Peter Zijlstra" <peterz@infradead.org>,
+ "Linus Torvalds" <torvalds@linux-foundation.org>, "Masahiro Yamada"
+ <masahiroy@kernel.org>, "Nathan Chancellor" <nathan@kernel.org>, "Nicolas
+ Schier" <nicolas@fjasle.eu>, "Zheng Yejian" <zhengyejian1@huawei.com>,
+ "Martin Kelly" <martin.kelly@crowdstrike.com>, "Christophe Leroy"
+ <christophe.leroy@csgroup.eu>, "Josh Poimboeuf" <jpoimboe@redhat.com>,
+ "Heiko Carstens" <hca@linux.ibm.com>, "Catalin Marinas"
+ <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Vasily Gorbik"
+ <gor@linux.ibm.com>, "Alexander Gordeev" <agordeev@linux.ibm.com>
+Subject: Re: [PATCH v5 2/6] scripts/sorttable: Have mcount rela sort use
+ direct values
+Message-ID: <20250225104552.2acc5909@gandalf.local.home>
+In-Reply-To: <91523154-072b-437b-bbdc-0b70e9783fd0@app.fastmail.com>
+References: <20250218195918.255228630@goodmis.org>
+	<20250218200022.538888594@goodmis.org>
+	<893cd8f1-8585-4d25-bf0f-4197bf872465@app.fastmail.com>
+	<20250224172147.1de3fda5@gandalf.local.home>
+	<20250224211102.33e264fc@gandalf.local.home>
+	<91523154-072b-437b-bbdc-0b70e9783fd0@app.fastmail.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] mm: hugetlb: Add huge page size param to
- huge_ptep_get_and_clear()
-Content-Language: en-GB
-To: Alexander Gordeev <agordeev@linux.ibm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Naveen N Rao <naveen@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- "David S. Miller" <davem@davemloft.net>,
- Andreas Larsson <andreas@gaisler.com>, Arnd Bergmann <arnd@arndb.de>,
- Muchun Song <muchun.song@linux.dev>,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- David Hildenbrand <david@redhat.com>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>, Dev Jain <dev.jain@arm.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>,
- linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20250217140419.1702389-1-ryan.roberts@arm.com>
- <20250217140419.1702389-2-ryan.roberts@arm.com>
- <Z73Szw4rSHSyfpoy@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <Z73Szw4rSHSyfpoy@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_074312_067502_4C751433 
-X-CRM114-Status: GOOD (  22.08  )
+X-CRM114-CacheID: sfid-20250225_074518_797559_66BC882C 
+X-CRM114-Status: GOOD (  26.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,123 +80,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/02/2025 14:25, Alexander Gordeev wrote:
-> On Mon, Feb 17, 2025 at 02:04:14PM +0000, Ryan Roberts wrote:
-> 
-> Hi Ryan,
-> 
->> In order to fix a bug, arm64 needs to be told the size of the huge page
->> for which the huge_pte is being set in huge_ptep_get_and_clear().
->> Provide for this by adding an `unsigned long sz` parameter to the
->> function. This follows the same pattern as huge_pte_clear() and
->> set_huge_pte_at().
->>
->> This commit makes the required interface modifications to the core mm as
->> well as all arches that implement this function (arm64, loongarch, mips,
->> parisc, powerpc, riscv, s390, sparc). The actual arm64 bug will be fixed
->> in a separate commit.
->>
->> Cc: stable@vger.kernel.org
->> Fixes: 66b3923a1a0f ("arm64: hugetlb: add support for PTE contiguous bit")
->> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
->> ---
-> ...
->> diff --git a/arch/s390/include/asm/hugetlb.h b/arch/s390/include/asm/hugetlb.h
->> index 7c52acaf9f82..420c74306779 100644
->> --- a/arch/s390/include/asm/hugetlb.h
->> +++ b/arch/s390/include/asm/hugetlb.h
->> @@ -26,7 +26,11 @@ void __set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
->>  pte_t huge_ptep_get(struct mm_struct *mm, unsigned long addr, pte_t *ptep);
->>  
->>  #define __HAVE_ARCH_HUGE_PTEP_GET_AND_CLEAR
->> -pte_t huge_ptep_get_and_clear(struct mm_struct *mm, unsigned long addr, pte_t *ptep);
->> +pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
->> +			      unsigned long addr, pte_t *ptep,
->> +			      unsigned long sz);
-> 
-> Please, format parameters similarily to set_huge_pte_at() few lines above.
+On Tue, 25 Feb 2025 09:45:52 +0100
+"Arnd Bergmann" <arnd@arndb.de> wrote:
 
-Appologies. I've fixed this for the next version.
+> It fixes the build issue for me. I tried booting as well, but ran
+> into a BUG() when I enable ftrace. I assume this is an unrelated
+> issue, but you can find the output for reference in case this is
+> relevant.
 
-> 
->> +pte_t __huge_ptep_get_and_clear(struct mm_struct *mm,
->> +			      unsigned long addr, pte_t *ptep);
-> 
-> The formatting is broken, but please see below.
+Thanks, can you try this patch instead? I'll be breaking it up if this works.
 
-Formatting fixed here too.
+This also removes the kaslr_offset() code.
 
-> 
->>  static inline void arch_clear_hugetlb_flags(struct folio *folio)
->>  {
->> @@ -48,7 +52,7 @@ static inline void huge_pte_clear(struct mm_struct *mm, unsigned long addr,
->>  static inline pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
->>  					  unsigned long address, pte_t *ptep)
->>  {
->> -	return huge_ptep_get_and_clear(vma->vm_mm, address, ptep);
->> +	return __huge_ptep_get_and_clear(vma->vm_mm, address, ptep);
->>  }
->>  
->>  #define  __HAVE_ARCH_HUGE_PTEP_SET_ACCESS_FLAGS
->> @@ -59,7 +63,7 @@ static inline int huge_ptep_set_access_flags(struct vm_area_struct *vma,
->>  	int changed = !pte_same(huge_ptep_get(vma->vm_mm, addr, ptep), pte);
->>  
->>  	if (changed) {
->> -		huge_ptep_get_and_clear(vma->vm_mm, addr, ptep);
->> +		__huge_ptep_get_and_clear(vma->vm_mm, addr, ptep);
->>  		__set_huge_pte_at(vma->vm_mm, addr, ptep, pte);
->>  	}
->>  	return changed;
->> @@ -69,7 +73,7 @@ static inline int huge_ptep_set_access_flags(struct vm_area_struct *vma,
->>  static inline void huge_ptep_set_wrprotect(struct mm_struct *mm,
->>  					   unsigned long addr, pte_t *ptep)
->>  {
->> -	pte_t pte = huge_ptep_get_and_clear(mm, addr, ptep);
->> +	pte_t pte = __huge_ptep_get_and_clear(mm, addr, ptep);
->>  
->>  	__set_huge_pte_at(mm, addr, ptep, pte_wrprotect(pte));
->>  }
->> diff --git a/arch/s390/mm/hugetlbpage.c b/arch/s390/mm/hugetlbpage.c
->> index d9ce199953de..52ee8e854195 100644
->> --- a/arch/s390/mm/hugetlbpage.c
->> +++ b/arch/s390/mm/hugetlbpage.c
->> @@ -188,8 +188,8 @@ pte_t huge_ptep_get(struct mm_struct *mm, unsigned long addr, pte_t *ptep)
->>  	return __rste_to_pte(pte_val(*ptep));
->>  }
->>  
->> -pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
->> -			      unsigned long addr, pte_t *ptep)
->> +pte_t __huge_ptep_get_and_clear(struct mm_struct *mm,
->> +				unsigned long addr, pte_t *ptep)
->>  {
->>  	pte_t pte = huge_ptep_get(mm, addr, ptep);
->>  	pmd_t *pmdp = (pmd_t *) ptep;
->> @@ -202,6 +202,12 @@ pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
->>  	return pte;
->>  }
->>  
->> +pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
->> +			      unsigned long addr, pte_t *ptep, unsigned long sz)
->> +{
->> +	return __huge_ptep_get_and_clear(mm, addr, ptep);
->> +}
-> 
-> Is there a reason why this is not a header inline, as other callers of
-> __huge_ptep_get_and_clear()?
+-- Steve
 
-I was trying to make the change as uninvasive as possible, so didn't want to
-change the linkage in case I accidentally broke something. Happy to make this an
-inline in the header though, if you prefer?
-
-Thanks,
-Ryan
-
-> 
->>  pte_t *huge_pte_alloc(struct mm_struct *mm, struct vm_area_struct *vma,
->>  			unsigned long addr, unsigned long sz)
->>  {
-> ...
-> 
-> Thanks!
-
+diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
+index 27c8def2139d..fdd5ffe268de 100644
+--- a/kernel/trace/ftrace.c
++++ b/kernel/trace/ftrace.c
+@@ -7004,7 +7004,6 @@ static int ftrace_process_locs(struct module *mod,
+ 	unsigned long count;
+ 	unsigned long *p;
+ 	unsigned long addr;
+-	unsigned long kaslr;
+ 	unsigned long flags = 0; /* Shut up gcc */
+ 	unsigned long pages;
+ 	int ret = -ENOMEM;
+@@ -7056,25 +7055,37 @@ static int ftrace_process_locs(struct module *mod,
+ 		ftrace_pages->next = start_pg;
+ 	}
+ 
+-	/* For zeroed locations that were shifted for core kernel */
+-	kaslr = !mod ? kaslr_offset() : 0;
+-
+ 	p = start;
+ 	pg = start_pg;
+ 	while (p < end) {
+ 		unsigned long end_offset;
+-		addr = ftrace_call_adjust(*p++);
++
++		addr = *p++;
++
+ 		/*
+ 		 * Some architecture linkers will pad between
+ 		 * the different mcount_loc sections of different
+ 		 * object files to satisfy alignments.
+ 		 * Skip any NULL pointers.
+ 		 */
+-		if (!addr || addr == kaslr) {
++		if (!addr) {
++			skipped++;
++			continue;
++		}
++
++		/*
++		 * If this is core kernel, make sure the address is in core
++		 * or inittext, as weak functions get zeroed and KASLR can
++		 * move them to something other than zero. It just will not
++		 * move it to an area where kernel text is.
++		 */
++		if (!mod && !(is_kernel_text(addr) || is_kernel_inittext(addr))) {
+ 			skipped++;
+ 			continue;
+ 		}
+ 
++		addr = ftrace_call_adjust(addr);
++
+ 		end_offset = (pg->index+1) * sizeof(pg->records[0]);
+ 		if (end_offset > PAGE_SIZE << pg->order) {
+ 			/* We should have allocated enough */
+diff --git a/scripts/sorttable.c b/scripts/sorttable.c
+index 23c7e0e6c024..10aff2aeb868 100644
+--- a/scripts/sorttable.c
++++ b/scripts/sorttable.c
+@@ -611,13 +611,16 @@ static int add_field(uint64_t addr, uint64_t size)
+ 	return 0;
+ }
+ 
++/* Used for when mcount/fentry is before the function entry */
++static int before_func;
++
+ /* Only return match if the address lies inside the function size */
+ static int cmp_func_addr(const void *K, const void *A)
+ {
+ 	uint64_t key = *(const uint64_t *)K;
+ 	const struct func_info *a = A;
+ 
+-	if (key < a->addr)
++	if (key + before_func < a->addr)
+ 		return -1;
+ 	return key >= a->addr + a->size;
+ }
+@@ -827,9 +830,14 @@ static void *sort_mcount_loc(void *arg)
+ 		pthread_exit(m_err);
+ 	}
+ 
+-	if (sort_reloc)
++	if (sort_reloc) {
+ 		count = fill_relocs(vals, size, ehdr, emloc->start_mcount_loc);
+-	else
++		/* gcc may use relocs to save the addresses, but clang does not. */
++		if (!count) {
++			count = fill_addrs(vals, size, start_loc);
++			sort_reloc = 0;
++		}
++	} else
+ 		count = fill_addrs(vals, size, start_loc);
+ 
+ 	if (count < 0) {
+@@ -1248,6 +1256,8 @@ static int do_file(char const *const fname, void *addr)
+ #ifdef MCOUNT_SORT_ENABLED
+ 		sort_reloc = true;
+ 		rela_type = 0x403;
++		/* arm64 uses patchable function entry placing before function */
++		before_func = 8;
+ #endif
+ 		/* fallthrough */
+ 	case EM_386:
 
