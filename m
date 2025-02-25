@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 251E1C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 22:27:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A08AC021BB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 22:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4snbY5kKjPs+fqnW4bDVzUWCVcYb+NMujdrOx1UsTIo=; b=Mo1GcJHFFOp+zYLql16pGu3+ob
-	j/UG4MSlZQaTWp2rIgVL+f6PrYj3Wa24XrqN6Mh/c4d0yXniI6Oh4FhcPM/1PLIwe27HGe8kPLHra
-	wYiogUhVdPsGzDbR78sHiMkMTFlE4bVfJwz0trz389hMNCOUy7do5pqXTrfsdtA8dyZsqF/eeRZXK
-	cFikHGIcpP291bzs5rG6xWex0j34/zfCRMbQchxVhV8VuisOxaVu1dtqcXNAub2T6wzjmjJNN5DbF
-	PLaVCQd5T4bTnDfLkLsFZMlno+JfP/5RxrB7bs1gApSVT3Q1Lu4B1+IC9/Z7PsoCRzlqe9nlstl/6
-	P9L1LcSA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kW7GoPKxdws4F/zRu0zCMdtqGUMtfGCriJS0d8t8p9s=; b=xElt11/FUOcRIh+yhdCGoeXDOv
+	kc4UgUmEsw+jeKnYzi2bpdBVh4FQc8LuJFovMOefSgoZFxDgrmrZ9vKYAV/bqhsj89E7kHWC6h45M
+	ViIAf4FTNSjmeN2g1UxNeHw56lKwC5Fangkw51HWK0yCsBfnTMQCMXtw/OWFbqBRZJ+r0gtqev6SB
+	pT/EUU5RWb0IPndKJQAC8A+2x1fFx2X1qnopr6SMUs5/HBpXVKdpF6NQaYhWYVjSbTUne1iPhfY5t
+	3uwqBWDnUe+wS5+GWu/ntIhy5qP/0utDia8AhEQZO7/I//9vScDO3pPXDsvqotvPiCAF1J3DB6S6K
+	/ntbu8MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn3OH-00000001hF7-1W89;
-	Tue, 25 Feb 2025 22:27:01 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn3Mk-00000001gt9-0Qez
+	id 1tn3Yt-00000001jBq-1FCM;
+	Tue, 25 Feb 2025 22:37:59 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tn2LR-00000001WK0-2bu6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 22:25:27 +0000
-Received: from [10.137.184.60] (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 1BF1D203CDFE;
-	Tue, 25 Feb 2025 14:25:25 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 1BF1D203CDFE
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1740522325;
-	bh=4snbY5kKjPs+fqnW4bDVzUWCVcYb+NMujdrOx1UsTIo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GmOF2vVuCkJZ1DfUd1ljj8/fusb2yUMbDy2WmYxFrMMfaTTzbAqkWEUBwLUg55zpF
-	 Eal2Uv7psJ6AMd7GHQIuT0F5bT24oqPS+VN9NVDy5j/15vSuizsFBxdX1p+w7B0n5d
-	 f2jfhVcFODVbMweP0SK+AakuXEGuKdQiYOukQldU=
-Message-ID: <a96f9469-a22e-43e7-825d-f67ef550898f@linux.microsoft.com>
-Date: Tue, 25 Feb 2025 14:25:24 -0800
+	Tue, 25 Feb 2025 21:20:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9D6185C1628;
+	Tue, 25 Feb 2025 21:19:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 1CB9EC4CEDD;
+	Tue, 25 Feb 2025 21:20:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740518400;
+	bh=ghGqvv7GAFe1nH4x2u9vuYujrKPbpOccmWJvpRRHSB0=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=oEfLsdZidnIj7asGdSYT+SxvKF0L4dS9GdI91lLDxuTpfI9v9DUnVfXSE4Oz5ZPAd
+	 YB29VFmLy4Mz4ASTZqX0gYJ/OV3y7PzfEdXYNA0i9dxgk8P8Qy8/0w7Y0/XMrLY+vI
+	 JR7JiVxPJmGGxMhglc/tDiz1V5dB9Oexp/SvHn6aeRlJC7XvUGlwxcq5+sa/m9Z8Yd
+	 yc0vwG929D7/SIo90G+gOx7Jga1A2G584Tfeek0vUzr4sxXI/jq6L1RsoA6b+eyvTS
+	 YUNOrhAqeXT1DrCJmvCn3t8PWq3WHCo2enUNxP/L5OcnTsGQLFQLi5oYMVeAS5lYn3
+	 6XYT0dwRc0QDA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0D316C021B2;
+	Tue, 25 Feb 2025 21:20:00 +0000 (UTC)
+From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
+Date: Tue, 25 Feb 2025 22:19:54 +0100
+Subject: [PATCH] arm64: dts: apple: Add touchbar digitizer nodes
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH hyperv-next v4 1/6] arm64: hyperv: Use SMCCC to detect
- hypervisor presence
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: benhill@microsoft.com, bperkins@microsoft.com, sunilmut@microsoft.com,
- bhelgaas@google.com, Borislav Petkov <bp@alien8.de>,
- Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley
- <conor+dt@kernel.org>, Dave Hansen <dave.hansen@linux.intel.com>,
- Dexuan Cui <decui@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>,
- "H. Peter Anvin" <hpa@zytor.com>, krzk+dt@kernel.org,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- "K. Y. Srinivasan" <kys@microsoft.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Ingo Molnar <mingo@redhat.com>, Rob Herring <robh@kernel.org>,
- ssengar@linux.microsoft.com, Thomas Gleixner <tglx@linutronix.de>,
- Wei Liu <wei.liu@kernel.org>, Will Deacon <will@kernel.org>,
- devicetree@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org
-References: <20250212014321.1108840-1-romank@linux.microsoft.com>
- <20250212014321.1108840-2-romank@linux.microsoft.com>
- <1b14e3de-4d3e-420c-819c-31ffb2d448bd@app.fastmail.com>
- <593c22ca-6544-423d-84ee-7a06c6b8b5b9@linux.microsoft.com>
- <97887849-faa8-429b-862b-daf6faf89481@app.fastmail.com>
- <6e4685fe-68e9-43bd-96c5-b871edb1b971@linux.microsoft.com>
- <14a199d8-1cf3-49bc-8e0d-92d9c8407b4f@linux.microsoft.com>
- <55b65ba6-4abe-478c-a173-4622c30ddd7b@app.fastmail.com>
-Content-Language: en-US
-From: Roman Kisel <romank@linux.microsoft.com>
-In-Reply-To: <55b65ba6-4abe-478c-a173-4622c30ddd7b@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250225-z2-dts-v1-1-df101a7c17c8@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAPkzvmcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDIyNT3Soj3ZSSYt3URBMjQ+OUVJNEIyMloOKCotS0zAqwQdGxtbUANAL
+ YuFgAAAA=
+X-Change-ID: 20250225-z2-dts-ea4213de4a22
+To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+ Sasha Finkelstein <fnkl.kernel@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1740518398; l=3677;
+ i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
+ bh=SeavfPLsBuaZJzKTxcJ2pMU97oNr50qsmltlLTUZBAI=;
+ b=IUfKp0rV+n8SLeaZzuhEz2/BzCOvdP8DpjHRR8/QFLEjh1S/nritzhjqCFiwTm60uKcGoQUhS
+ 9UVzH2t39tdApIBmwR7Ffe/bhkqbKOeo/4fAKbwTsfJ3q1LtGrjPK6y
+X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
+ auth_id=283
+X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_142526_197800_4853FD07 
-X-CRM114-Status: GOOD (  26.99  )
+X-CRM114-CacheID: sfid-20250225_132001_787298_C5890F1D 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,84 +89,124 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 
+Adds device tree entries for the touchbar digitizer
 
-On 2/24/2025 11:24 PM, Arnd Bergmann wrote:
-> On Tue, Feb 25, 2025, at 00:22, Roman Kisel wrote:
->> Hi Arnd,
+Co-developed-by: Janne Grunau <j@jannau.net>
+Signed-off-by: Janne Grunau <j@jannau.net>
+Reviewed-by: Neal Gompa <neal@gompa.dev>
+Acked-by: Sven Peter <sven@svenpeter.dev>
+Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+---
+ arch/arm64/boot/dts/apple/t8103-j293.dts | 27 +++++++++++++++++++++++++++
+ arch/arm64/boot/dts/apple/t8112-j493.dts | 23 +++++++++++++++++++++++
+ arch/arm64/boot/dts/apple/t8112.dtsi     |  2 +-
+ 3 files changed, 51 insertions(+), 1 deletion(-)
 
-[...]
+diff --git a/arch/arm64/boot/dts/apple/t8103-j293.dts b/arch/arm64/boot/dts/apple/t8103-j293.dts
+index 56b0c67bfcda321b60c621de092643017693ff91..0a93d3891c23da8b8c77dce64001caacb69ee140 100644
+--- a/arch/arm64/boot/dts/apple/t8103-j293.dts
++++ b/arch/arm64/boot/dts/apple/t8103-j293.dts
+@@ -17,6 +17,14 @@ / {
+ 	compatible = "apple,j293", "apple,t8103", "apple,arm-platform";
+ 	model = "Apple MacBook Pro (13-inch, M1, 2020)";
+ 
++	/*
++	 * All of those are used by the bootloader to pass calibration
++	 * blobs and other device-specific properties
++	 */
++	aliases {
++		touchbar0 = &touchbar0;
++	};
++
+ 	led-controller {
+ 		compatible = "pwm-leds";
+ 		led-0 {
+@@ -49,3 +57,22 @@ &i2c4 {
+ &fpwm1 {
+ 	status = "okay";
+ };
++
++&spi0 {
++	cs-gpios = <&pinctrl_ap 109 GPIO_ACTIVE_LOW>;
++	status = "okay";
++
++	touchbar0: touchbar@0 {
++		compatible = "apple,j293-touchbar";
++		reg = <0>;
++		spi-max-frequency = <11500000>;
++		spi-cs-setup-delay-ns = <2000>;
++		spi-cs-hold-delay-ns = <2000>;
++		reset-gpios = <&pinctrl_ap 139 GPIO_ACTIVE_LOW>;
++		interrupts-extended = <&pinctrl_ap 194 IRQ_TYPE_EDGE_FALLING>;
++		firmware-name = "apple/dfrmtfw-j293.bin";
++		touchscreen-size-x = <23045>;
++		touchscreen-size-y = <640>;
++		touchscreen-inverted-y;
++	};
++};
+diff --git a/arch/arm64/boot/dts/apple/t8112-j493.dts b/arch/arm64/boot/dts/apple/t8112-j493.dts
+index 0ad908349f55406783942735a2e9dad54cda00ec..045bd0716cb7d20c1379ebc1e3ff7f4d0dddc179 100644
+--- a/arch/arm64/boot/dts/apple/t8112-j493.dts
++++ b/arch/arm64/boot/dts/apple/t8112-j493.dts
+@@ -17,8 +17,13 @@ / {
+ 	compatible = "apple,j493", "apple,t8112", "apple,arm-platform";
+ 	model = "Apple MacBook Pro (13-inch, M2, 2022)";
+ 
++	/*
++	 * All of those are used by the bootloader to pass calibration
++	 * blobs and other device-specific properties
++	 */
+ 	aliases {
+ 		bluetooth0 = &bluetooth0;
++		touchbar0 = &touchbar0;
+ 		wifi0 = &wifi0;
+ 	};
+ 
+@@ -67,3 +72,21 @@ &i2c4 {
+ &fpwm1 {
+ 	status = "okay";
+ };
++
++&spi3 {
++	status = "okay";
++
++	touchbar0: touchbar@0 {
++		compatible = "apple,j493-touchbar";
++		reg = <0>;
++		spi-max-frequency = <8000000>;
++		spi-cs-setup-delay-ns = <2000>;
++		spi-cs-hold-delay-ns = <2000>;
++		reset-gpios = <&pinctrl_ap 170 GPIO_ACTIVE_LOW>;
++		interrupts-extended = <&pinctrl_ap 174 IRQ_TYPE_EDGE_FALLING>;
++		firmware-name = "apple/dfrmtfw-j493.bin";
++		touchscreen-size-x = <23045>;
++		touchscreen-size-y = <640>;
++		touchscreen-inverted-y;
++	};
++};
+diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
+index 58d88f1ef92a32061765bd3b569fdae0255dcd7e..271986a7697f7033e96d11fb4ea6a50a467f0f2f 100644
+--- a/arch/arm64/boot/dts/apple/t8112.dtsi
++++ b/arch/arm64/boot/dts/apple/t8112.dtsi
+@@ -499,7 +499,7 @@ spi3: spi@23510c000 {
+ 			power-domains = <&ps_spi3>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+-			status = "disabled";
++			status = "disabled"; /* only used in J493 */
+ 		};
+ 
+ 		serial0: serial@235200000 {
 
-> If you want to declare a uuid here, I think you should remove the
-> ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_{0,1,2,3} macros and just
-> have UUID in normal UUID_INIT() notation as we do for
-> other UUIDs.
+---
+base-commit: 3febe9de5ca5267618675650871a626d0901f8cb
+change-id: 20250225-z2-dts-ea4213de4a22
 
-I'd gladly stick to that provided I have your support of touching
-KVM's code! As the SMCCC document states, there shall be an UUID,
-and in the kernel, there would be
-
-#define ARM_SMCCC_VENDOR_KVM_UID UUID_INIT(.......)
-#define ARM_SMCCC_VENDOR_HYP_UID UUID_INIT(.......)
-
-Hence, the ARM_SMCCC_VENDOR_HYP_UID_*_REG_{0,1,2,3} can be removed as
-you're suggesting.
-
-That looks enticing enough semantically as though we're building layers
-from the SMCCC spec down to the "on-wire format" -- the only part that
-needs "deserializing" the UUID from `struct arm_smccc_res` the
-hypervisor returns.
-
-To add to that, anyone who wishes to implement a hypervisor for arm64
-will have to use some RFC 9562-compliant UUID generating facility. Thus,
-the UUID predates these 4 dwords. Using UUIDs in the kernel code will
-relieve of the chore of figuring out the 4 dwords from the UUID.
-
-Also, for the Gunyah folks will be pretty easy to use this infra:
-define the UUID in the header (1 line), call the new function (1 line),
-done.
-
-> 
-> If you want to keep the four 32-bit values and pass them into
-> arm_smccc_hyp_present() directly, I think that is also fine,
-> but in that case, I would try to avoid calling it a UUID.
-
-IMO, that approach provides a simplicity where anyone can see if the
-code is wrong from a quick glance: just compare 4 dwords. The fact that
-the 4 dwords form an UUID is bypassed though (as it is in the existing
-code). Somehow feels not spec-accurate imo. Also when I remove the UID
-part from the names, I'm going to have a rather weak justification as
-to why this is a benefit.
-
-Likely, there are two levels of improvement here:
-
-1. Just refactor the common parts out and have
-    `bool arm_smccc_hyp_present(u32 reg0, u32 reg1, u32 reg2, u32 reg2);`
-
-2. Introduce the UUID usage throughout and have a spec-accurate
-    prototype of
-    `bool arm_smccc_hyp_present(const uuid_t *hyp_uuid);`
-
-and would be great to go for the second one :)
-
-> 
-> How are the kvm and hyperv values specified originally?
->>From the SMCCC document it seems like they are meant to be
-> UUIDs, so I would expect them to be in canonical form rather
-> than the smccc return values, but I could not find a document
-> for them.
-
-For hyperv case, `uuidgen` produced the UUID and that is used.
-Likely the same for kvm.
-
-> 
->       Arnd
-
--- 
-Thank you,
-Roman
 
 
