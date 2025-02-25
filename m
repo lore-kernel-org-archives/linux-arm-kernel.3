@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5393C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 08:00:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F14CEC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 08:02:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bttKeyS+W49kYKVE/Q0TanEzPtlhvTNN8fcNqxR6WQw=; b=lkxISDjdxLBevnaRzL4RakLxOS
-	YZzHVedGeGGnF5vwWQYVTEs3ZnLvmOdhjdjzkEy650hpTljTU+VMUs8pCcaFDc8JVi/Yw18wa9+XG
-	YeIvBrylTFHkEIylZhfPkCXb6U0le2sKLCBAR+M/NZHnZaZsCcHgiFFC8TUVmrhw5cx8BsI5Rhjp5
-	jWfWBp3rEB4LbExcXgJcGNE4xksn2lTdjzxO+7XD1PCY3zfxgbtnM/Wn243dObmERSPfIgM2OcjpL
-	e9tmC8BVe3fDm+pHvF9BwQ/rjbLV2FlpVPmyONhhF/+IKAkXciXus3tOZ7hLgPxJyfmkHZdTVjQtR
-	y0tUOymw==;
+	bh=ZjST+tDBanh80dU/tgOfgWNh4nJ1bOb18ngSnNilxXE=; b=oofdWAKcw0JDTkllACTIZ/TdLn
+	TsK8qQ5jB6NOW/D4OrKZF2AVlwP9sjem84WXx06rlBvpmoHFMFBaoP6CfRB/A1UXTkNmCiWYwL71X
+	h6rY0yWbNSSLgeVNBsKoW+zI5QJWGoz/hE91RmFBtIA/caW+ohWporOjWFKzC6KuUzkQKurzRdMKh
+	Hw9qAys/J5504XSV3JyUUFrLx52RZiDTkl6W/d2OwI4BIHjM2y9dvCIBAjNO9vKdEfxoTQ5MecGXe
+	Dz/0APBRxnSaOABoaEcMQyW7E4eOBCyWXOqGT78kQv3cl1QNUH2LZP4n9efmgR+1vAp52oNYaxpY9
+	Ncq6Eorw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmprs-0000000GIgA-3itn;
-	Tue, 25 Feb 2025 08:00:40 +0000
-Received: from mail-wm1-f49.google.com ([209.85.128.49])
+	id 1tmptM-0000000GJ2W-3h8P;
+	Tue, 25 Feb 2025 08:02:12 +0000
+Received: from mail-wm1-f47.google.com ([209.85.128.47])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmpnQ-0000000GHcp-2Kfo;
-	Tue, 25 Feb 2025 07:56:05 +0000
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4394a823036so49961515e9.0;
-        Mon, 24 Feb 2025 23:56:04 -0800 (PST)
+	id 1tmpnT-0000000GHf1-2dDG;
+	Tue, 25 Feb 2025 07:56:08 +0000
+Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-43aac0390e8so10174275e9.2;
+        Mon, 24 Feb 2025 23:56:07 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740470163; x=1741074963;
+        d=1e100.net; s=20230601; t=1740470166; x=1741074966;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=bttKeyS+W49kYKVE/Q0TanEzPtlhvTNN8fcNqxR6WQw=;
-        b=u35g6FPHO1EctElQbU+Njl0m+Ih9odPpMMGxdbCM8lHcd6xQR4Q14JydtGjX5YnoLt
-         a0yp0HRydGFlMUcammwFaLj+uaSMxHqIWIaXbjMh2kJTPhuS9Bx3+tb4JT+8bsHQRsgM
-         ik9B91tHvpBUCA0mUSOj+HKNocJn55zptMqLYBZGT1wj0cDre3BK38FWlRkngDiVYLp9
-         xZwWtgFPqmSZRy5rQ+YmRIraO8LTFvZP8wmgvYSCDBHOAapETleA5z88r/nXvAhRA2jl
-         UVEMoitdfIUGP+nnCvBATRx+RsCC7BZt9wemtuh9jini4MPPJDHDZy4V/EJsPrUVq3v7
-         T2sg==
-X-Forwarded-Encrypted: i=1; AJvYcCU0IfbXay6CpMthZ/DiUQoAPtsPOo0LaBC3cjrwyAItIi8Ngq6a3/LjxkW/mZXMT6m8y7i7NbQYuqe9fD1huSU=@lists.infradead.org, AJvYcCWeV7Dg5nppxlXEg0KmIDNrOPG9K4wU5MiusG6r5NSOclCN0Ga7GGaTDLkEjmdF6sRYh709qe/CPXZrTeZGSRFH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3cbXrJrt60rBoOf2YehNVUR6PX9uwqj7owfKNQOd/PSIJ6MBc
-	iNECPwQpU31Qi2j7UNk8KxW7M7SVPM8I9j7NDlXmNJmkWgeTehP0
-X-Gm-Gg: ASbGnctbvAODEm9KZn7psMvlL6K4UZ3mBnN3ITrqn7sIstJJN4Sl/YwJHN9OwdfUzWW
-	daxIUBOttST33mqdhbwQoJxo2sF9YtrjyYw9aJESZLF0GKrMy5NKcVUSwqWjbKHiGp9FnuePoZF
-	Ud9MvHaSWTHqi6cL1issKzMmKIEG7yNtbgtnS/5zObJZObJtuEb0W3fkxpEeo89Lm07G+g1PXnJ
-	wr1FIwG0BTF6W7VKM5X9rTObAYlOExILMek4CZPp+qFLZxNJ9iEmukFtB5LJ9m/a3d2MT3lHP9s
-	AIFQjWe6TN2mpnmc95JNT6RgToqs5gz9Hbk25U1AsoSkcW7X0bQLOBYtJA==
-X-Google-Smtp-Source: AGHT+IGlnf3zeYcKfw6UHFzFMOBrY9gNCtvaCQ4A3tiD1q4/beEfrfwhp2DF03Do2Fta+a8Paidiyg==
-X-Received: by 2002:a05:600c:470a:b0:439:a139:7a19 with SMTP id 5b1f17b1804b1-439aebb3155mr125686995e9.23.1740470162856;
-        Mon, 24 Feb 2025 23:56:02 -0800 (PST)
+        bh=ZjST+tDBanh80dU/tgOfgWNh4nJ1bOb18ngSnNilxXE=;
+        b=SJ1RMdK80950kpmixhOnHCJEEq+U7YzCglOGYf2TWryeDx/UTO54nL9x/W6lOnYyfy
+         gA5XxOiOQQFQjcBI9N3QZJxxMYvLrAThhd4XOI2ikGhXyZZq3zZQ8ocIwF6EGXVZza+i
+         MBIEqOLsVNPVbQBdRB/OHb6sUg8BjuZKbFfR3zGsE0YdNs00IVU5LIUjNJTCD6F/2pBd
+         eFX4dZl4ohbrOt4LgvLZz650+y0LraRMLnb9fp7Ttzhd96Cve1nbPuh454MO62CfWkj/
+         pqGf4B6Jv1ZbWeK3kA7sB4kY+fQcFpFcXYGHuOFO6eyreUD5OBmHP+SMcSdNrkzdoWhd
+         ShwA==
+X-Forwarded-Encrypted: i=1; AJvYcCVzp8ZEdPnnsRV5Hlwjp2ByA09+HT6JtJdBjsPi6bojuyKLHwFCbliXMb4dVaNvU1C1lAtkaKuXpkypcd6Dvf4j@lists.infradead.org, AJvYcCXBRPMjpdPmQubDgSQdSiOZ8AHx9gbXH0MnEf5et/TJ82Twjb4HB5N72C0tjChymGv8VW3ZFwJQYbTJdDu3oNA=@lists.infradead.org
+X-Gm-Message-State: AOJu0YylTn9ig5JSzHaPXt3bDpe0NbCS+vyE82eXqwQSnF6hXtGNCt6t
+	ey789pIKVUqX8jv+RYRHm/x8umYJKTDJuvw1kPAA/H7qzq8K05hy
+X-Gm-Gg: ASbGncv12TKo3/aeeY0lOQ+PtJodMb10VpIea04AKo/KOl/7yaiVk3FRq/hs3YCCQLg
+	IaQLguTEqDS6uvFCVnE/2hfN11gTTH/Pwj5xCLZPlbZVnNwfqh3eQrfnEhXOnkP7ZGPumHQyB4s
+	lZSP6SJCdcbtzJhtzjkrDmPwb+rOJm2dALqvYO21umVqhSBYDH4P6c5YXLxIM9HTcPj79ygD3y1
+	RIzwqtAwIQD8nMyqx+5pqwWsuJ0oReLrD7ROPAiGP5/RRm/3f/gLGVX/kjs7UQeh1vFgDMiBss2
+	JqctXd2qaZzZBak2aQFu3X7J0e1dQHBuVYfP6QPpoVn/A3fe6u44pIGmBA==
+X-Google-Smtp-Source: AGHT+IFBVupjmoCIi4Z8rhYBHew03hpkxD1lkVsBkpbYaL9RCDyWui5OGx8IsblEOSEcCQ6omhnnfg==
+X-Received: by 2002:a05:600c:5493:b0:439:9e8b:228e with SMTP id 5b1f17b1804b1-439ae21cdddmr121462285e9.20.1740470165919;
+        Mon, 24 Feb 2025 23:56:05 -0800 (PST)
 Received: from [10.42.0.1] (cst-prg-37-50.cust.vodafone.cz. [46.135.37.50])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-439b02f2475sm130299475e9.20.2025.02.24.23.56.01
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-439b02f2475sm130299475e9.20.2025.02.24.23.56.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Feb 2025 23:56:02 -0800 (PST)
+        Mon, 24 Feb 2025 23:56:04 -0800 (PST)
 From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Date: Tue, 25 Feb 2025 08:55:48 +0100
-Subject: [PATCH v2 2/7] arm64: dts: rockchip: Add nodes for NPU and its MMU
- to rk3588s
+Date: Tue, 25 Feb 2025 08:55:49 +0100
+Subject: [PATCH v2 3/7] arm64: dts: rockchip: Enable the NPU on quartzpro64
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250225-6-10-rocket-v2-2-d4dbcfafc141@tomeuvizoso.net>
+Message-Id: <20250225-6-10-rocket-v2-3-d4dbcfafc141@tomeuvizoso.net>
 References: <20250225-6-10-rocket-v2-0-d4dbcfafc141@tomeuvizoso.net>
 In-Reply-To: <20250225-6-10-rocket-v2-0-d4dbcfafc141@tomeuvizoso.net>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -82,8 +81,8 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Tomeu Vizoso <tomeu@tomeuvizoso.net>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_235604_601894_7C54E4C2 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20250224_235607_671829_778B30EA 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,116 +97,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-See Chapter 36 "RKNN" from the RK3588 TRM (Part 1).
-
-This is a derivative of NVIDIA's NVDLA, but with its own front-end
-processor.
-
-The IP is divided in three cores, programmed independently. The first
-core though is special, requiring to be powered on before any of the
-others can be used.
-
-The IOMMU of the first core is also special in that it has two subunits
-(read/write?) that need to be programmed in sync.
+Enable the nodes added in a previous commit to the rk3588s device tree.
 
 v2:
-- Have one device for each NPU core (Sebastian Reichel)
-- Have one device for each IOMMU (Sebastian Reichel)
-- Correctly sort nodes (Diederik de Haas)
-- Add rockchip,iommu compatible to IOMMU nodes (Sebastian Reichel)
+- Split nodes (Sebastian Reichel)
+- Sort nodes (Sebastian Reichel)
+- Add board regulators (Sebastian Reichel)
 
 Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
 ---
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 76 +++++++++++++++++++++++++++
- 1 file changed, 76 insertions(+)
+ .../arm64/boot/dts/rockchip/rk3588-quartzpro64.dts | 30 ++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index 8cfa30837ce72581d0b513a8274ab0177eb5ae15..2680ed854e0c2ba5de167740ef18fcee167016fe 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-@@ -1125,6 +1125,82 @@ power-domain@RK3588_PD_SDMMC {
- 		};
- 	};
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dts b/arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dts
+index 088cfade6f6f14b6383ab844fa174c69fa711fc0..5f6b87dc46361eea93ea2a1fa373cb9ecdb7bbce 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dts
+@@ -411,6 +411,36 @@ &pcie3x4 {
+ 	status = "okay";
+ };
  
-+	rknn_core_top: npu-core@fdab0000 {
-+		compatible = "rockchip,rk3588-rknn-core-top", "rockchip,rknn-core-top";
-+		reg = <0x0 0xfdab0000 0x0 0x9000>;
-+		interrupts = <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&scmi_clk SCMI_CLK_NPU>, <&cru PCLK_NPU_ROOT>,
-+			 <&cru ACLK_NPU0>, <&cru HCLK_NPU0>;
-+		clock-names = "aclk", "hclk", "npu", "pclk";
-+		assigned-clocks = <&scmi_clk SCMI_CLK_NPU>;
-+		assigned-clock-rates = <200000000>;
-+		resets = <&cru SRST_A_RKNN0>, <&cru SRST_H_RKNN0>;
-+		reset-names = "srst_a", "srst_h";
-+		power-domains = <&power RK3588_PD_NPUTOP>;
-+		iommus = <&rknn_mmu_top>;
-+		status = "disabled";
-+	};
++&rknn_core_top {
++	npu-supply = <&vdd_npu_s0>;
++	sram-supply = <&vdd_npu_mem_s0>;
++	status = "okay";
++};
 +
-+	rknn_mmu_top: iommu@fdab9000 {
-+		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
-+		reg = <0x0 0xfdab9000 0x0 0x100>,
-+		      <0x0 0xfdaba000 0x0 0x100>;
-+		interrupts = <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru ACLK_NPU0>, <&cru HCLK_NPU0>;
-+		clock-names = "aclk", "iface";
-+		#iommu-cells = <0>;
-+		power-domains = <&power RK3588_PD_NPUTOP>;
-+		status = "disabled";
-+	};
++&rknn_core_1 {
++	npu-supply = <&vdd_npu_s0>;
++	sram-supply = <&vdd_npu_mem_s0>;
++	status = "okay";
++};
 +
-+	rknn_core_1: npu-core@fdac0000 {
-+		compatible = "rockchip,rk3588-rknn-core", "rockchip,rknn-core";
-+		reg = <0x0 0xfdac0000 0x0 0x9000>;
-+		interrupts = <GIC_SPI 111 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru ACLK_NPU1>, <&cru HCLK_NPU1>;
-+		clock-names = "aclk", "hclk";
-+		resets = <&cru SRST_A_RKNN1>, <&cru SRST_H_RKNN1>;
-+		reset-names = "srst_a", "srst_h";
-+		power-domains = <&power RK3588_PD_NPU1>;
-+		iommus = <&rknn_mmu_1>;
-+		status = "disabled";
-+	};
++&rknn_core_2 {
++	npu-supply = <&vdd_npu_s0>;
++	sram-supply = <&vdd_npu_mem_s0>;
++	status = "okay";
++};
 +
-+	rknn_mmu_1: iommu@fdac9000 {
-+		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
-+		reg = <0x0 0xfdaca000 0x0 0x100>;
-+		interrupts = <GIC_SPI 111 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru ACLK_NPU1>, <&cru HCLK_NPU1>;
-+		clock-names = "aclk", "iface";
-+		#iommu-cells = <0>;
-+		power-domains = <&power RK3588_PD_NPU1>;
-+		status = "disabled";
-+	};
++&rknn_mmu_top {
++	status = "okay";
++};
 +
-+	rknn_core_2: npu-core@fdad0000 {
-+		compatible = "rockchip,rk3588-rknn-core", "rockchip,rknn-core";
-+		reg = <0x0 0xfdad0000 0x0 0x9000>;
-+		interrupts = <GIC_SPI 112 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru ACLK_NPU2>, <&cru HCLK_NPU2>;
-+		clock-names = "aclk", "hclk";
-+		resets = <&cru SRST_A_RKNN2>, <&cru SRST_H_RKNN2>;
-+		reset-names = "srst_a", "srst_h";
-+		power-domains = <&power RK3588_PD_NPU2>;
-+		iommus = <&rknn_mmu_2>;
-+		status = "disabled";
-+	};
++&rknn_mmu_1 {
++	status = "okay";
++};
 +
-+	rknn_mmu_2: iommu@fdad9000 {
-+		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
-+		reg = <0x0 0xfdada000 0x0 0x100>;
-+		interrupts = <GIC_SPI 112 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru ACLK_NPU2>, <&cru HCLK_NPU2>;
-+		clock-names = "aclk", "iface";
-+		#iommu-cells = <0>;
-+		power-domains = <&power RK3588_PD_NPU2>;
-+		status = "disabled";
-+	};
++&rknn_mmu_2 {
++	status = "okay";
++};
 +
- 	vpu121: video-codec@fdb50000 {
- 		compatible = "rockchip,rk3588-vpu121", "rockchip,rk3568-vpu";
- 		reg = <0x0 0xfdb50000 0x0 0x800>;
+ &saradc {
+ 	vref-supply = <&vcc_1v8_s0>;
+ 	status = "okay";
 
 -- 
 2.48.1
