@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5629DC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 09:29:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91ACEC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 09:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fg92aa/kHtkMczIbnbIzrAAnHS0WLVBR88K7lPcFosI=; b=v5L9vLIE6BHMFr43q3wUxPaxMM
-	9bl6K2a6HnwI3HS88mU7I2ubI9XhuuiPBmDWp2b6YvQqNS01o0JStiBI7up77qQGZTVoCQ92aTS0d
-	fY+5EWSixpBLtJmSvJZXJ47aRrgY46PzbkP+Fi0gL3mQPuuy2mSCU0Fy5IcqBnpOE8NYM3v4KseG7
-	So3/PZW35kTBXJK+C5d101FbJudEPMA6cYE9unYRT9LbcEZBV5ybRaGjeCNo0PRshPLKD8yeiDJ7L
-	Qs4ByjWD3R6hqZQKmeFyAM/Ag/06VL1kBYmsgRv7qn6QuG3h++h4X0t3nCWtzjJs50levB+Ym1AYK
-	DF7HkBWA==;
+	bh=54H/In3+EhnhMeyApAiqJgb8qBXgzwkWCFPfc494L1I=; b=dRTZAjadU7NaYdD/zp1qFyt+Y9
+	WDPtb/N7DzXD74/OV25ylC0UV10yVjjzAIjSiOsRvlOqIF6JC1Z2S5B3yA1ToA4PO3Q5hhSHDE2TA
+	e71l7DYc58VoOGKxbTTjIKdltgsZSA+3sRQICQLHhdpTXNWHv+83LvtorpVCKGb0V6qnadkh8MLzD
+	oLRzRXLLgD95NrKuydrMrIB4/1IVKCXLMSn6uBKuINFIvb0CvdQMrU9xotZK6LTo3kiyzmkffhWCo
+	iLrh8fR6xT2Ne21GohsfPXcCvnUE0LD6zjHsxyZJmi6CE8vJVu8Bg3OHHzB0Jm91sN62En+aGkv+2
+	tTzvizag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmrG1-0000000Gam0-3MQC;
-	Tue, 25 Feb 2025 09:29:41 +0000
+	id 1tmrHa-0000000Gb1s-3lkS;
+	Tue, 25 Feb 2025 09:31:18 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmqpo-0000000GUwY-1R2B;
-	Tue, 25 Feb 2025 09:02:37 +0000
+	id 1tmqpo-0000000GUwn-41a7;
+	Tue, 25 Feb 2025 09:02:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1740474154;
-	bh=JZ65kyyb42EYs7pE3JmcICyKoed4JwUuRQyyeLuWluo=;
+	s=mail; t=1740474155;
+	bh=GFEfTorG2zuWJ97TPko5rQZtvEKeuqQGPMRIfo2OrTw=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=I9iwetpJ/xmLEUngxZav8VV48HxmV3ZZI/mpK6muc09p+Y1KOfUmNWAcmcddE7MNk
-	 UBw95YeRj19GLoZRZXQatGHCQ04Aq3YQ0QMemn3IP3ajiQY9kZLl8dzfr2TkhkkxFG
-	 Uxg4WV5OlM4LZ/r/NjeSZ4mGTULvyKgZpXArZBU8aV+HeLuoiQRBql+DgMCrdt3xGU
-	 iXjlZoQsFHldHP9ITwaEsKr8V4hpHS3JL+A82BzY4pp0s6wTaFWfYqUsL0E6xmUEnA
-	 it69Q2aT8dVEuPrfN4SAofTtXBrvug/Qw6VcTcViEz2kgqB/1ulQcyCWls6sOye09q
-	 ACrj7LQyRtz3g==
+	b=S/RE2gc5EDyN1SrEb2R9W642N50m8FsfRZ8bRHF3PVg1aUG1WzgVkxIFT6NDriogy
+	 WdnxD5k5YT47acDuj/yQUYBapJvHYIA2nKsriI8rlWRvja3Nq1tjZxsPkYRiLyRC0b
+	 Xv+71o/UZEzvQU6kwD1QM1xsIblLaR7Ff9zxCchBd/ITmzaPbL5jAcRoErtZHdCKk3
+	 ZS2HYEV+Ti/XpOlMdHSKh8LhcU71UEIPdaH9QsbuBZpA9ItcNknmf+oXr19w2OHYzj
+	 7SERwnx3yXbv3++KdygVOM6BvCi0yNR6TVtWjK4tMwK0krpW+R6+2oyX4ce0+sb0/n
+	 8evHq8R3JTM+w==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 74C9417E0DD7;
-	Tue, 25 Feb 2025 10:02:33 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BD42117E0E91;
+	Tue, 25 Feb 2025 10:02:34 +0100 (CET)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: ChiYuan Huang <cy_huang@richtek.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- Alexandre Mergnat <amergnat@baylibre.com>, 
- Macpaul Lin <macpaul.lin@mediatek.com>
-Cc: Bear Wang <bear.wang@mediatek.com>, Pablo Sun <pablo.sun@mediatek.com>, 
- Macpaul Lin <macpaul@gmail.com>, 
- Project_Global_Chrome_Upstream_Group@mediatek.com, 
- linux-usb@vger.kernel.org, Chris-qj chen <chris-qj.chen@mediatek.com>, 
- Fabien Parent <fparent@baylibre.com>, 
- Yow-Shin Liou <yow-shin.liou@mediatek.com>, 
- Simon Sun <simon.sun@yunjingtech.com>
-In-Reply-To: <20250224114934.3583191-1-macpaul.lin@mediatek.com>
-References: <20250224114934.3583191-1-macpaul.lin@mediatek.com>
-Subject: Re: [PATCH v6] arm64: dts: mediatek: mt8395-genio-1200-evk: add
- support for TCPC port
-Message-Id: <174047415339.19243.12568175700223517936.b4-ty@collabora.com>
-Date: Tue, 25 Feb 2025 10:02:33 +0100
+To: chunfeng.yun@mediatek.com, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org, 
+ conor+dt@kernel.org, matthias.bgg@gmail.com, linux-usb@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ kernel@collabora.com, pablo.sun@mediatek.com
+In-Reply-To: <20250220105514.43107-1-angelogioacchino.delregno@collabora.com>
+References: <20250220105514.43107-1-angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v3 0/3] MediaTek MT8188 MTU3 USB and Genio 510/700
+ TypeC
+Message-Id: <174047415469.19243.15192184553085173709.b4-ty@collabora.com>
+Date: Tue, 25 Feb 2025 10:02:34 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_010236_525640_61129203 
-X-CRM114-Status: UNSURE (   6.54  )
+X-CRM114-CacheID: sfid-20250225_010237_152785_B566AF6D 
+X-CRM114-Status: UNSURE (   7.05  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,20 +79,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Feb 2025 19:49:34 +0800, Macpaul Lin wrote:
-> Enable USB Type-C support on MediaTek MT8395 Genio 1200 EVK by adding
-> configuration for TCPC Port, USB-C connector, MUX IT5205 and related
-> settings.
+On Thu, 20 Feb 2025 11:55:11 +0100, AngeloGioacchino Del Regno wrote:
+> This series adds MTU3 nodes to the MT8188 base devicetree, fixes the
+> Geralt Chromebooks to use it, and adds support for all of the USB
+> ports, including TypeC Power Delivery, Alternate Modes, etc, found
+> on the MediaTek Genio 510 and Genio 700 Evaluation Kits.
 > 
-> Configure dual role switch capability, set up PD (Power Delivery) profiles,
-> and establish endpoints for SS (SuperSpeed) and HS (HighSpeed) USB.
+> This also adds the missing SuperSpeed port to the mtk-xhci binding.
 > 
 > [...]
 
 Applied to v6.14-next/dts64, thanks!
 
-[1/1] arm64: dts: mediatek: mt8395-genio-1200-evk: add support for TCPC port
-      commit: b232a43b5c60a0c994cb486792d4f4c80199052f
+[1/3] dt-bindings: usb: mediatek,mtk-xhci: Add port for SuperSpeed EP
+      commit: 454a1e3cd36c113341d7b71e8e691c6e47ab4a8a
+[2/3] arm64: dts: mediatek: mt8188: Add MTU3 nodes and correctly describe USB
+      commit: 598c4ad870d3942ea948d2b99c55239acdde3224
+[3/3] arm64: dts: mediatek: mt8390-genio-700: Add USB, TypeC Controller, MUX
+      commit: 1afaeca17238ef6480b1a76e7fd8b3c33d406ef7
 
 Cheers,
 Angelo
