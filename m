@@ -4,71 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A481BC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 12:29:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDDF2C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 12:31:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hSHb3rOa9k5tsPmaPPeA5bikJl+Av+tcshX5VjzhvP4=; b=g+DL5+zKLYwWKbSBlHlRAcL+yQ
-	mzDxgx/9omvf9s6lFOFJphLucwgf6Kd9UZcTVyvS5CrGNBpu8SHUEiQEmguPz2DLKrNpVGTzWUlMT
-	dr8w43rbTG8r56svDXUtp+9H/qyOGCGVwX67yMO0nFGOjKbZ/EM8TpDX8kzTVxMJwOo3uiTI4T8GD
-	fwZggcdmwfuCTdZZ4ncAWuEN2h9n21+U9WU6xSie7bXga1kW+RQnt90KMY787vLbvpsUGCbHrOPJ3
-	w3U8cnShrRZHH72gtgfPMmrioJ2t0wPyn6A4D8LqxZfXPnxKNm57IUToRffeqbpfuC38OsjeX9ZRc
-	3qW/QzYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YUyvQDg8M0UlugtHHOA+S+E787BGGkCMcEGcq6ZLLcA=; b=Hsq31g1D4ja408ainCFwli+5S/
+	kX0hta9PeeWIEBmdzItcGVQHGgrA2qJo68Z3pzPbAqCNGOND8QDYUrEt7pG6Tto5UlPN+jhwAilJv
+	apK65LuIuNpyNE4h3GzYG4As0IOujYqKmfLuFdW+qV1B4vq+rbFR/m0HZ+jLH08UjCHAaqa3RYYP8
+	nB+J8eCO+1RSeoClXsirWvcQtj8ajtcIM52mCCl3Wed3MaD/qK6MdtHrQC99rcOEIS3RGMrn18UC6
+	GLu4tw+NGseKZUoTRty9SWdsqcRBXyG6aYt1OZa4Rj2NFXUKPM1Ngscxn9sgGG86U2VW97cVm2IvF
+	Ca9f9+0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmu3n-0000000HDFG-1X4z;
-	Tue, 25 Feb 2025 12:29:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tmu5K-0000000HDQi-04vC;
+	Tue, 25 Feb 2025 12:30:50 +0000
+Received: from smtp-42ae.mail.infomaniak.ch ([2001:1600:4:17::42ae])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmtUc-0000000H6Rp-1WV1
+	id 1tmtVY-0000000H6c9-2P28
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 11:52:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CDA0961239;
-	Tue, 25 Feb 2025 11:52:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 803AEC4CEDD;
-	Tue, 25 Feb 2025 11:52:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740484373;
-	bh=hSHb3rOa9k5tsPmaPPeA5bikJl+Av+tcshX5VjzhvP4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=axOr7SQBeGTA3q1VBqZiED6W6FPt3G7EHRdpdlPTJ0aengiP2RL4qJAdZWRpjahev
-	 cDz78xYjfg9QCWpj4+1wn4OPbZxS/oPm5lQvVulupYW2VrnWu9g0+hl1zvPCcEKwPQ
-	 GjQqtL0Wl1GPrV/BonDqWLaNdgTD+pl8eAhReFDmL5VD2aAJSHg4aKnwmao35N6n9h
-	 srvpA/g6CXOqMvbFoVB4cuSwEPPw3JCFxB8A8W23s/NxTasqq/ZWVVGLJddeeDW0iH
-	 2EMxexvwXOQr7cbFohPt+WksCavde2D181k0HtfIMi7HlNJY1s1ia5TziH+sey/x+B
-	 DfF36Ne7eCc5Q==
-Date: Tue, 25 Feb 2025 12:52:50 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Maud Spierings | GOcontroll <maudspierings@gocontroll.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <quic_jesszhan@quicinc.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	Sam Ravnborg <sam@ravnborg.org>, Liu Ying <victor.liu@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, 
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH 05/14] dt-bindings: trivial-devices: add GOcontroll
- Moduline IO modules
-Message-ID: <20250225-smart-industrious-groundhog-41deb2@krzk-bin>
-References: <20250224-initial_display-v1-0-5ccbbf613543@gocontroll.com>
- <20250224-initial_display-v1-5-5ccbbf613543@gocontroll.com>
- <20250224204428.GA4050751-robh@kernel.org>
- <PA4PR04MB763009E88F6406CD84ACBD33C5C32@PA4PR04MB7630.eurprd04.prod.outlook.com>
+	Tue, 25 Feb 2025 11:53:54 +0000
+Received: from smtp-3-0000.mail.infomaniak.ch (unknown [IPv6:2001:1600:4:17::246b])
+	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4Z2GGN5nqqzMnN;
+	Tue, 25 Feb 2025 12:53:48 +0100 (CET)
+Received: from unknown by smtp-3-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4Z2GGN1rLczCw8;
+	Tue, 25 Feb 2025 12:53:48 +0100 (CET)
+From: Quentin Schulz <foss+kernel@0leil.net>
+Date: Tue, 25 Feb 2025 12:53:30 +0100
+Subject: [PATCH v3 2/2] arm64: dts: rockchip: fix pinmux of UART5 for PX30
+ Ringneck on Haikou
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <PA4PR04MB763009E88F6406CD84ACBD33C5C32@PA4PR04MB7630.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250225-ringneck-dtbos-v3-2-853a9a6dd597@cherry.de>
+References: <20250225-ringneck-dtbos-v3-0-853a9a6dd597@cherry.de>
+In-Reply-To: <20250225-ringneck-dtbos-v3-0-853a9a6dd597@cherry.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Quentin Schulz <quentin.schulz@theobroma-systems.com>, 
+ Farouk Bouabid <farouk.bouabid@theobroma-systems.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Quentin Schulz <quentin.schulz@cherry.de>, stable@vger.kernel.org
+X-Mailer: b4 0.14.2
+X-Infomaniak-Routing: alpha
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250225_035352_760061_A19B3EE1 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,81 +69,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 07:39:52AM +0000, Maud Spierings | GOcontroll wrote:
-> From:=C2=A0Rob Herring <robh@kernel.org>
-> Sent:=C2=A0Monday, February 24, 2025 9:44 PM
-> =C2=A0
-> >On Mon, Feb 24, 2025 at 02:50:55PM +0100, Maud Spierings wrote:
-> >> The main point of the Moduline series of embedded controllers is its
-> >> ecosystem of IO modules, these currently are operated through the spid=
-ev
-> >> interface. Ideally there will be a full dedicated driver in the future.
-> >>
-> >> Add the gocontroll moduline-module-slot device to enable the required
-> >> spidev interface.
-> >>
-> >> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
-> >> ---
-> >>=C2=A0 Documentation/devicetree/bindings/trivial-devices.yaml | 2 ++
-> >>=C2=A0 1 file changed, 2 insertions(+)
-> >>
-> >> diff --git a/Documentation/devicetree/bindings/trivial-devices.yaml b/=
-Documentation/devicetree/bindings/trivial-devices.yaml
-> >> index 8255bb590c0cc619d15b27dcbfd3aa85389c0a54..24ba810f91b73efdc615c7=
-fb46f771a300926f05 100644
-> >> --- a/Documentation/devicetree/bindings/trivial-devices.yaml
-> >> +++ b/Documentation/devicetree/bindings/trivial-devices.yaml
-> >> @@ -107,6 +107,8 @@ properties:
-> >>=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - fs=
-l,mpl3115
-> >>=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 # MPR121: Proximity Capacitive Touch Sensor Controller
-> >>=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - fs=
-l,mpr121
-> >> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 # =
-GOcontroll Moduline module slot for spi based IO modules
-> >
-> >I couldn't find anything about SPI for GOcontroll Moduline. Can you
-> >point me to what this hardware looks like. Based on what I did find,
-> >this seems incomplete and not likely a trivial device.
->=20
-> I'll give some more details, if there is a v2 of this patch I will also
-> add more information in the commit message.
->=20
-> The module slots have a number of pins, a lot of them currently unused as
-> they have not found a function yet, this is very much still a developing
-> product. The currently used interfaces to the SoC are:
-> 1. SPI bus as a spidev to ease developing new modules and quickly
-> integrate them. This is the main communication interface for control and
-> firmware updates.
-> 2. A reset pin, this is/was driven with the gpio-led driver but I doubt
-> that would get accepted upstream so I intend to switch to the much better
-> suited libgpio.
+From: Quentin Schulz <quentin.schulz@cherry.de>
 
-reset-gpios is not in trivial devices, so that's already a hint you
-cannot use this binding.
+UART5 uses GPIO0_B5 as UART RTS but muxed in its GPIO function,
+therefore UART5 must request this pin to be muxed in that function, so
+let's do that.
 
-> 3. An interrupt pin, this is currently only used in the firmware update
-> utility [2] to speed up the update process. Other communication is done at
-> a regular interval.
->=20
-> What is unused:
-> 1. A potentially multi-master i2c bus between all the module slots and
-> the SoC
-> 2. An SMBus alert line is shared between the modules, but not the SoC.
-> 3. A shared line designated as a clock line, intended to in the future
-> aid with synchronizing modules to each other for time critical control.
->=20
-> current software that is used to work with the modules can be found at
-> [2] and [3], one of them is a Node-RED module the other is a blockset for
-> Matlab/Simulink generated code.
->=20
-> If you know a better way I could describe this in the devicetree then I
+Fixes: 5963d97aa780 ("arm64: dts: rockchip: add rs485 support on uart5 of px30-ringneck-haikou")
+Cc: stable@vger.kernel.org
+Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+---
+ arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-You need dedicated binding where you describe entire device, entire
-hardware, not what your driver supports in current release.
+diff --git a/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts b/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
+index 9a568f3d0a9916dff22222c59e5e0c94ce226858..0e0d7b755b8733ff03083665f76807cc6954ca3e 100644
+--- a/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
++++ b/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
+@@ -194,6 +194,13 @@ sd_card_led_pin: sd-card-led-pin {
+ 			  <3 RK_PB3 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
+ 	};
++
++	uart {
++		uart5_rts_pin: uart5-rts-pin {
++			rockchip,pins =
++			  <0 RK_PB5 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
+ };
+ 
+ &pwm0 {
+@@ -227,6 +234,8 @@ &uart0 {
+ };
+ 
+ &uart5 {
++	/* Add pinmux for rts-gpios (uart5_rts_pin) */
++	pinctrl-0 = <&uart5_xfer &uart5_rts_pin>;
+ 	rts-gpios = <&gpio0 RK_PB5 GPIO_ACTIVE_HIGH>;
+ 	status = "okay";
+ };
 
-Best regards,
-Krzysztof
+-- 
+2.48.1
 
 
