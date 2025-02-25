@@ -4,107 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E4CCC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 11:53:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECA99C021BB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 11:54:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kh6VEvloO4YquypZUFqR1MccY+ndKasOTSRyJgsJqRw=; b=TS3kMAT/DlmhIVG/FWS8vERrWy
-	Oxr+qvOlG2dgA7bHTdFS8eD9NoP0pCdvS0RjfcfKYvclFChrmw8cgGEg3DY6mbgD8KKShUWFMSvRy
-	1l90Syd+eOITl2YOhujQb1x0WfvDO6jfURA43YVlFJ0OL5VZcXbu7eMSKoCgqF2hyuqYpLWW+mYda
-	OmDBeYFlRdSN/dWQNeIofZYQQxhDb5Xnz6vMJqx01x1R2Mm0uY6NwHTUMFK6TFStOmfTESzu17e4+
-	p4KE+3ZeD+QfQ35IrNUOlcbEsiwB+ZIeQi9glSNgIbfElaSINNhbs65PMAnzOmrh3vRIn8M+D0Y/f
-	HcAD+Ohw==;
+	bh=igunqGICXsKr6OtW++2jbEjn+EWqjuNOIF9KWqLH9Ng=; b=BBnISqX/yyDMy1O0fC6edMINOE
+	BxP9DsSlKhH73Yp8dTIgvEl7LD61QrqODXW549yhW/oHCexHv2dx3KLteJ+3qooM2UPYbLWg+02AX
+	gyZpXYkMCBnzU/PAGWyl3VXMSHvltKpTHW8NPHK3Qw+hjplBdDcMcIrpQooQnIf7yB/oaWrHAQ9Dh
+	WRnFwMnCMuFW2zZJCNSBQc9MtyRnm+54qSI//RXZ9KL52C0mz+BpDCxZAiWNkhfDtIFIUwI6jz3n4
+	pDo69L/a2RFtQBfe5kB+DJjMEE2R3iXVUeKFm0J4pbiDECi+YJl2LDY6hb2K20+HvThmvWKKrSFRh
+	s2yOpnZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmtUi-0000000H6T7-32Eq;
-	Tue, 25 Feb 2025 11:53:00 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tms4N-0000000GnsJ-0GNF
+	id 1tmtWF-0000000H6lX-247a;
+	Tue, 25 Feb 2025 11:54:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tms4j-0000000GnwP-4BUE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 10:21:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740478903; x=1772014903;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=O7XFosUMq18SOY1Uke3gT9fhryi5WO3Dg5KUjBJMkkw=;
-  b=SMKLBp24p9xpXOq7b9JmUrMxQcts8aHgTbADKRo+uH8LVNqVx/O5D944
-   ansC8ABK+ecdBOQXa4YvgjqRA3qQ+6sFazc6CRgfb9ONawLg3gl/+Rfnu
-   inBSuGTn8N1MeYjsjf2Zk2DaBN40IQYm79V3Bn+ogN/WE0H4wo8hcZovP
-   hqUHVqDlzBK/yfVDDp0cwtJLnZQTv4RGxLBbUhtfNqV8lEC5TfjN56xNq
-   HCgGRmClgidWpEPkRu9Tt1IBnGNClVEI7g+UqHABwI6wMhnArWQ2NhltQ
-   pH6rUbF3fB6uEqlFAQDiaYpCjBN+U4xdeAd4pF5TWr0XejbqNw2l30ALT
-   A==;
-X-CSE-ConnectionGUID: AmWIYWqmQ/uDVLuZS+OuIg==
-X-CSE-MsgGUID: t5agoJZJQkiLvNvuYIAtwg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11355"; a="44101713"
-X-IronPort-AV: E=Sophos;i="6.13,314,1732608000"; 
-   d="scan'208";a="44101713"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 02:21:39 -0800
-X-CSE-ConnectionGUID: scDSegHXRMquAd8KbKBguA==
-X-CSE-MsgGUID: Q73F1GJkT++WQOlPBRuFvA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,314,1732608000"; 
-   d="scan'208";a="121321448"
-Received: from smile.fi.intel.com ([10.237.72.58])
-  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 02:21:31 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.98)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1tms47-0000000ExN6-17ps;
-	Tue, 25 Feb 2025 12:21:27 +0200
-Date: Tue, 25 Feb 2025 12:21:27 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-Cc: Matti Vaittinen <mazziesaccount@gmail.com>,
-	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Daniel Scally <djrscally@gmail.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Nuno Sa <nuno.sa@analog.com>, David Lechner <dlechner@baylibre.com>,
-	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
-	Guillaume Stols <gstols@baylibre.com>,
-	Olivier Moysan <olivier.moysan@foss.st.com>,
-	Dumitru Ceclan <mitrutzceclan@gmail.com>,
-	Trevor Gamblin <tgamblin@baylibre.com>,
-	Matteo Martelli <matteomartelli3@gmail.com>,
-	Alisa-Dariana Roman <alisadariana@gmail.com>,
-	Ramona Alexandra Nechita <ramona.nechita@analog.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v4 02/10] property: Add
- device_get_child_node_count_named()
-Message-ID: <Z72Zp8tpnvlFGdQ_@smile.fi.intel.com>
-References: <cover.1740421248.git.mazziesaccount@gmail.com>
- <29ec24f1498392cafbecc0e0c0e23e1ce3289565.1740421248.git.mazziesaccount@gmail.com>
- <Z72QAOA9xXbP16K-@kuha.fi.intel.com>
+	Tue, 25 Feb 2025 10:22:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC2601516;
+	Tue, 25 Feb 2025 02:22:19 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 67E593F6A8;
+	Tue, 25 Feb 2025 02:22:01 -0800 (PST)
+Date: Tue, 25 Feb 2025 10:21:58 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+	Chuck Cannon <chuck.cannon@nxp.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	"Pengutronix Kernel Team" <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>
+Subject: Re: [PATCH 3/5] firmware: arm_scmi: imx: Add LMM and CPU
+ documentation
+Message-ID: <Z72ZxspU3hfGZWez@bogus>
+References: <20250121-imx-lmm-cpu-v1-0-0eab7e073e4e@nxp.com>
+ <20250121-imx-lmm-cpu-v1-3-0eab7e073e4e@nxp.com>
+ <Z5DhM1VLv2uCCVwT@bogus>
+ <PAXPR04MB8459D4C2CA3D5AE58B2B509788E02@PAXPR04MB8459.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z72QAOA9xXbP16K-@kuha.fi.intel.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+In-Reply-To: <PAXPR04MB8459D4C2CA3D5AE58B2B509788E02@PAXPR04MB8459.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_022143_114956_D7168A3A 
-X-CRM114-Status: GOOD (  21.84  )
+X-CRM114-CacheID: sfid-20250225_022206_083895_E683916D 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,55 +76,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 11:40:16AM +0200, Heikki Krogerus wrote:
-> > +/**
-> > + * device_get_child_node_count_named - number of child nodes with given name
-> > + *
-> > + * Scan device's child nodes and find all the nodes with a specific name and
-> > + * return the number of found nodes. Potential '@number' -ending for scanned
-> > + * names is ignored. Eg,
-> > + * device_get_child_node_count(dev, "channel");
-> > + * would match all the nodes:
-> > + * channel { }, channel@0 {}, channel@0xabba {}...
-> > + *
-> > + * @dev: Device to count the child nodes for
+On Thu, Jan 23, 2025 at 01:30:43AM +0000, Peng Fan wrote:
+>
+> This is to manage the M7 core by Linux. I just put more documentation here.
+> CPU protocol is also used by ATF to manage AP cores.
+>
 
-This has an inconsistent kernel doc structure in comparison to the rest in this
-file.
+Good
 
-> > + * Return: the number of child nodes with a matching name for a given device.
-> > + */
-> > +unsigned int device_get_child_node_count_named(const struct device *dev,
-> > +					       const char *name)
-> > +{
-> > +	struct fwnode_handle *child;
-> > +	unsigned int count = 0;
-> > +
-> > +	device_for_each_child_node(dev, child)
-> > +		if (fwnode_name_eq(child, "channel"))
-> 
-> s/"channel"/name/ ?
-> 
-> > +			count++;
-> > +
-> > +	return count;
-> > +}
-> > +EXPORT_SYMBOL_GPL(device_get_child_node_count_named);
-> 
-> I did not check how many users are you proposing for this, but if
-> there's only one, then IMO this should not be a global function yet.
-> It just feels to special case to me. But let's see what the others
-> think.
+> > Also what other CPUs are we talking here.
+>
+> M7 core
+>
 
-The problem is that if somebody hides it, we might potentially see
-a duplication in the future. So I _slightly_ prefer to publish and
-then drop that after a few cycles if no users appear.
+Are they referred by any other name in the system ? I reason I ask is using
+plain "CPU" is too generic and confusing. At the same time using "M7" may be
+too specific. I am trying to see if there is any middle ground.
 
-Also this misses the test cases.
+> In general I would like to
+> > explore the possibility of collapsing this with LM protocol. CPUs within
+> > LM is LM's responsibility to bring up. And CPU can be seen as an LM for
+> > sake of this vendor protocol. I am not get into details here yet before I
+> > can understand what these CPUs are really in the system and why we
+> > need this.
+>
+> Our system supports M7 and A55 in one LM, so A55 use CPU protocol to
+> manage M7. When M7 and A55 in different LM, use LM protocol to
+> manage M7 LM.
+>
 
--- 
-With Best Regards,
-Andy Shevchenko
+The LM(assuming Logical Module/Machine) is an abstract construct, it should
+apply to even subset of components within an LM. Just wondering what are
+specific reasons do you think applying LM protocol you have on those M7
+CPUs alone in A55+M7 LM would not fit well.
 
-
+--
+Regards,
+Sudeep
 
