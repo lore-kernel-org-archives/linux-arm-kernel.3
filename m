@@ -4,53 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68B28C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:42:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3BD2C021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:42:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d3wq+WnthHQkqUieuoVKorC3Mua98jme7LaWQjbwl3I=; b=lyhZi4nJr73mdCucXjB7H8/nGP
-	BswFKzLUlWntKRw59X0VvtmeKIt/G8j+yi+0uvgF2jIQfXC0qudOvdYzWrAdLQzZLINHff74tOGby
-	Gw5ap5UsekP0KqVivEbh7RoT/cpJJNarrlQA9qHHMwKamnYMllvX/yMf1/k+NF8UfCw/aKhCKAIbm
-	DV80FUCui+PdIyFZLSNxdBZRFk3n+fwhExZkY9wAlb0OOun8OEQkdalZDQRmB/+UnpNziqBQmE7Fu
-	XcxdpKzLvcukYiBjDC8SxbrmKPZjPyM/nKE4Q7difNN3JBeOStwYvYbPehco23xbbQplmYlr6Q5Gw
-	GXuymZBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SksBvCkZJsvM7Rmqh0mGEf+0QRJJwMrgdQAdOhKbL9I=; b=wveB5wjJsHOJ6O+SQVPkO1JmK0
+	dp77siMYuFOfRzK4Ormv5CzsH7wfpOJw4AbZvRQ8LfHlGweyOnH4ToR0krLPc/2+uhlAgNGOK0U1G
+	t949mFDItteTK11u9ko1aTOCdulBB+w2JwNX55GA9WHr5qE69PjS4Jrp1PXdefweqe7gULAMHXPO/
+	+RwDCqJYosbH2CENBgT+BJL+MZ+HM6aa/afi+kQtQv43F6ZhSXEjY7+nR8Rk8mZqENS1urOYX1q0C
+	aLMKZtAjpE7WmEZLPFt1sOL/pd9UuIiA3fYdFy7jbfRWZqjs0+stJfl87l0yvYYBpN+UoSfIxzKNO
+	9ObHjSeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmy0r-00000000LMw-3aiI;
-	Tue, 25 Feb 2025 16:42:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmwKV-0000000Haqd-2w1y
+	id 1tmy0x-00000000LW7-1DU8;
+	Tue, 25 Feb 2025 16:42:35 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmwUU-0000000011i-10fe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 14:54:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BC1CB1BCB;
-	Tue, 25 Feb 2025 06:54:54 -0800 (PST)
-Received: from [10.1.27.154] (XHFQ2J9959.cambridge.arm.com [10.1.27.154])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ABFED3F5A1;
-	Tue, 25 Feb 2025 06:54:37 -0800 (PST)
-Message-ID: <5edf6a80-1fbd-4be2-912b-497c044ba0f8@arm.com>
-Date: Tue, 25 Feb 2025 14:54:36 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V3] arm64/hugetlb: Consistently use pud_sect_supported()
-Content-Language: en-GB
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-kernel@vger.kernel.org
-References: <20250220050534.799645-1-anshuman.khandual@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250220050534.799645-1-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Tue, 25 Feb 2025 15:04:59 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2f81a0d0a18so12372907a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 07:04:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1740495897; x=1741100697; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=SksBvCkZJsvM7Rmqh0mGEf+0QRJJwMrgdQAdOhKbL9I=;
+        b=EJuZi/Y9WKcejbG4SNkoKZArhM1GrOZIRmYClA7e55+X/nGOg2r9DdRVtTlwn9Exiq
+         wlBI0tFJOrR4i1s1x+kCkBH8Nw7inHcTvtg2jNGrweMgyTV+4sy/d333kY/00hKu2fG7
+         bjQ3VlZHgjixrm/s84mF9ImBHXVbj16hj4t5gHDraGL0Ri0gIl6cWDKJt/bq8QxoEcRK
+         xZSjjOpaVB9PtWIgLrsW4/8mcKphanUzi9ki/m8lq58rQtdm66PbekemrJmnmOGbGV5T
+         pJWGYdhNLafU3G5V/4JmpmUA7eif0M+aZgFZ36J5ukfCV1j1Co9G5IoCoj9R6djvjEVz
+         4Slg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740495897; x=1741100697;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=SksBvCkZJsvM7Rmqh0mGEf+0QRJJwMrgdQAdOhKbL9I=;
+        b=ZOGMlim60mmyRkejxWqoMDaFonNVUKnyL7s6tybwcEXy4p0sN//GVAKoR2L7mECeHG
+         5yDc+BYlsEMK2GgZbEE+yopiowLUYiQ7ylS3GlAHhO8TrlwSQjZgOTwOuqSlhzwmLpd2
+         SIgZ3dWS6qIUJ/Y1nsDyUyezsgbPMh5yS9xNiTfZfg5SbEea89qyo0Hc7UOpCrgONM6Z
+         ER1pwCdooPK3DYZg9t2U7OmLU6h8JxPKdnNww/dvgmFv+cc4+Zns0A+TdEq7swBzRK/I
+         R0LTfcddhK6fLUsqdJVGLGOTnusquSwFp4DAu79PNIVY4Gp7CpWikLluHmbyUDtwpekR
+         oXjA==
+X-Forwarded-Encrypted: i=1; AJvYcCX22wNj84gi9bUvRSnl7CuKPr2uazyWzqk3Ae5qc3Ok4nYEuqI5+AlNfft0ux2HnbsFMxp9XBeYibUp+D8HBARh@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCOxM8FC0ghVIWcPfy7vT+jYby11D9K7I6jvK9lMGeJwXSPzPG
+	8k6KR3cqAssLVnFOyiiP52lqf54VvzqSmD9dP2E/g/0OYHd9fCfNwxaZHxX+EyTiA7gGgRtmLXv
+	Iiw==
+X-Google-Smtp-Source: AGHT+IGZHL7uZNM7BfQEbB7Kx7BtB5DxGYYXBfSiN251AAOj3wJWNSwzk9hwQvuFf2tqN0hxCASkCwncVrs=
+X-Received: from pgmm27.prod.google.com ([2002:a05:6a02:551b:b0:ad5:4c6b:ab72])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:9d8f:b0:1f0:e430:43f8
+ with SMTP id adf61e73a8af0-1f0fbff6f36mr6428815637.1.1740495896725; Tue, 25
+ Feb 2025 07:04:56 -0800 (PST)
+Date: Tue, 25 Feb 2025 07:04:55 -0800
+In-Reply-To: <Z71072F7FMz5aq/Q@yzhao56-desk.sh.intel.com>
+Mime-Version: 1.0
+References: <20250224235542.2562848-1-seanjc@google.com> <20250224235542.2562848-2-seanjc@google.com>
+ <Z71072F7FMz5aq/Q@yzhao56-desk.sh.intel.com>
+Message-ID: <Z73cF_pWIFMreOf5@google.com>
+Subject: Re: [PATCH 1/7] KVM: x86: Free vCPUs before freeing VM state
+From: Sean Christopherson <seanjc@google.com>
+To: Yan Zhao <yan.y.zhao@intel.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Aaron Lewis <aaronlewis@google.com>, Jim Mattson <jmattson@google.com>, 
+	Rick P Edgecombe <rick.p.edgecombe@intel.com>, Kai Huang <kai.huang@intel.com>, 
+	Isaku Yamahata <isaku.yamahata@intel.com>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_065439_787330_D64EBBC0 
-X-CRM114-Status: GOOD (  15.92  )
+X-CRM114-CacheID: sfid-20250225_070458_283798_65FC8149 
+X-CRM114-Status: GOOD (  18.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,87 +101,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/02/2025 05:05, Anshuman Khandual wrote:
-> Let's be consistent in using pud_sect_supported() for PUD_SIZE sized pages.
-> Hence change hugetlb_mask_last_page() and arch_make_huge_pte() as required.
-> Also re-arranged the switch statement for a common warning message.
+On Tue, Feb 25, 2025, Yan Zhao wrote:
+> > diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+> > index 58b82d6fd77c..045c61cc7e54 100644
+> > --- a/arch/x86/kvm/x86.c
+> > +++ b/arch/x86/kvm/x86.c
+> > @@ -12890,11 +12890,11 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
+> >  		mutex_unlock(&kvm->slots_lock);
+> >  	}
+> >  	kvm_unload_vcpu_mmus(kvm);
+> > +	kvm_destroy_vcpus(kvm);
+> >  	kvm_x86_call(vm_destroy)(kvm);
+> >  	kvm_free_msr_filter(srcu_dereference_check(kvm->arch.msr_filter, &kvm->srcu, 1));
+> >  	kvm_pic_destroy(kvm);
+> >  	kvm_ioapic_destroy(kvm);
+> > -	kvm_destroy_vcpus(kvm);
+> >  	kvfree(rcu_dereference_check(kvm->arch.apic_map, 1));
+> >  	kfree(srcu_dereference_check(kvm->arch.pmu_event_filter, &kvm->srcu, 1));
+> >  	kvm_mmu_uninit_vm(kvm);
+> After this change, now the sequence is that
+> 
+> 1. kvm_arch_pre_destroy_vm()
+> 2. kvm_arch_destroy_vm()
+>    2.1 kvm_destroy_vcpus()
+>    2.2 .vm_destroy hook
+>    2.3 kvm_mmu_uninit_vm() --> mirror root ref is 1 upon here. Zap the mirror
+>                                root and reclaim SETP page table pages.
+>    2.4 .vm_free hook
+> 
+> Since TDX needs to reclaim the TDR page after reclaiming all other pages, we
+> currently added a vm_free hook at 2.4, after 2.3.
+> 
+> Could we move kvm_mmu_uninit_vm() before the .vm_destroy hook and after
+> kvm_destroy_vcpus()?
+> 
+> Or move the .vm_destroy hook after kvm_mmu_uninit_vm(), e.g. after
+> kvm_page_track_cleanup()?
 
-Thanks, Anshuman, this looks much cleaner now, to my eye at least.
+I would go for the first option.  I'll tack on a patch since I need to test all
+of these flows anyways, and I would much prefer to change course sooner rather
+than later if it doesn't work for whatever reason.
 
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Is this comment accurate?
 
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-
-> ---
-> This patch applies on v6.14-rc3
-> 
-> Changes in V3:
-> 
-> - Re-arranged the switch statement for a common warning message per Ryan
-> 
-> Changes in V2:
-> 
-> https://lore.kernel.org/linux-arm-kernel/20250218113639.475947-1-anshuman.khandual@arm.com/
-> 
-> - Added an warning when PUD_SIZE is requested but not supported per Ryan
-> 
-> Changes in V1:
-> 
-> https://lore.kernel.org/linux-arm-kernel/20250217065414.49489-1-anshuman.khandual@arm.com/
-> 
->  arch/arm64/mm/hugetlbpage.c | 20 ++++++++++----------
->  1 file changed, 10 insertions(+), 10 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-> index 98a2a0e64e25..fd7448bb8c80 100644
-> --- a/arch/arm64/mm/hugetlbpage.c
-> +++ b/arch/arm64/mm/hugetlbpage.c
-> @@ -342,7 +342,9 @@ unsigned long hugetlb_mask_last_page(struct hstate *h)
->  	switch (hp_size) {
->  #ifndef __PAGETABLE_PMD_FOLDED
->  	case PUD_SIZE:
-> -		return PGDIR_SIZE - PUD_SIZE;
-> +		if (pud_sect_supported())
-> +			return PGDIR_SIZE - PUD_SIZE;
-> +		break;
->  #endif
->  	case CONT_PMD_SIZE:
->  		return PUD_SIZE - CONT_PMD_SIZE;
-> @@ -364,23 +366,21 @@ pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags)
->  	switch (pagesize) {
->  #ifndef __PAGETABLE_PMD_FOLDED
->  	case PUD_SIZE:
-> -		entry = pud_pte(pud_mkhuge(pte_pud(entry)));
-> +		if (pud_sect_supported())
-> +			return pud_pte(pud_mkhuge(pte_pud(entry)));
->  		break;
->  #endif
->  	case CONT_PMD_SIZE:
-> -		entry = pmd_pte(pmd_mkcont(pte_pmd(entry)));
-> -		fallthrough;
-> +		return pmd_pte(pmd_mkhuge(pmd_mkcont(pte_pmd(entry))));
->  	case PMD_SIZE:
-> -		entry = pmd_pte(pmd_mkhuge(pte_pmd(entry)));
-> -		break;
-> +		return pmd_pte(pmd_mkhuge(pte_pmd(entry)));
->  	case CONT_PTE_SIZE:
-> -		entry = pte_mkcont(entry);
-> -		break;
-> +		return pte_mkcont(entry);
->  	default:
-> -		pr_warn("%s: unrecognized huge page size 0x%lx\n",
-> -			__func__, pagesize);
->  		break;
->  	}
-> +	pr_warn("%s: unrecognized huge page size 0x%lx\n",
-> +		__func__, pagesize);
->  	return entry;
->  }
->  
-
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index 1e5f6f820c0b..f5685f153e08 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -12874,13 +12874,19 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
+                mutex_unlock(&kvm->slots_lock);
+        }
+        kvm_destroy_vcpus(kvm);
++
++       /*
++        * Do final MMU teardown prior to calling into vendor code.  All pages
++        * that were donated to the TDX module, e.g. for S-EPT tables, need to
++        * be reclaimed before the VM metadata page can be freed.
++        */
++       kvm_mmu_uninit_vm(kvm);
+        kvm_x86_call(vm_destroy)(kvm);
+        kvm_free_msr_filter(srcu_dereference_check(kvm->arch.msr_filter, &kvm->srcu, 1));
+        kvm_pic_destroy(kvm);
+        kvm_ioapic_destroy(kvm);
+        kvfree(rcu_dereference_check(kvm->arch.apic_map, 1));
+        kfree(srcu_dereference_check(kvm->arch.pmu_event_filter, &kvm->srcu, 1));
+-       kvm_mmu_uninit_vm(kvm);
+        kvm_page_track_cleanup(kvm);
+        kvm_xen_destroy_vm(kvm);
+        kvm_hv_destroy_vm(kvm);
 
