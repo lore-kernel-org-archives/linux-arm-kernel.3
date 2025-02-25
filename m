@@ -4,191 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F6B6C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 07:48:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B27EBC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 07:50:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	In-Reply-To:Content-Type:References:Message-ID:Subject:CC:To:From:Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F8uvGHQFwAl42JAZyqWrf42O/vVBR0beGiC+qcirj0U=; b=yN1w5V/sNzJp78c76X3G4FJjmd
-	LpWgIYeYa/MmrX12mOlyzUNFxoP8XLO4sUEAPcQPjaC1mbisPiTXP0rKwGBWv2qSKqgALr38p4Fti
-	n0Bg0lFrcA0CdfunPUnM9jSKtJmPG5+zBtyqavV4hQpWhIGh5zyzkpYl22deSTX5wfSqs0O8TUqxs
-	s+l9RTJuRHdetLpjOHC1S43lD61M0BO4MClfFPV64dvKpxm5PtsPWoN5GLSZDYDt6cgDxtbTIDedJ
-	usPOx7suAxGGbysJjw66QuRhzHVedfredANB1RtmNK2MDJ5qOFFUFmUGsSxQIyfho6j5NxGwj4Lua
-	7HTnjK0w==;
+	bh=Uwv0a4dzm+5HpJk54FntQugqsgzOGHWa5a/atNDvfEI=; b=gx/A0fRohEtv2atinbIiyLho6O
+	Klx/mfXNzSmr7wFSv+PRhvi7RcED3tv4wjibCkbrJtP0zG0q7DlTy6W6rBa05rxgJMH8m/iGF0hE7
+	dz/HNkUjniOOSyx9ITzuxxxt77+bVxdipCWyllobPXTiQ8sQcMXVM33adWihYusPEpieUyujwTvWo
+	nistQ8ccV+ZCmZaZbGpzUXK9bNYtvuwhKSpUNbuspt/W19gRbnQyL4F/+kRmHMIW9oUly2H35dVLA
+	ZTDGe6yxyPiKe6TSlFZdD2USNSBFIqRuG+mpIkTJtvA2F3dczePs+0l4D90lkvGrm1rJvYm1+k2Bx
+	TdJ0UTFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmpfv-0000000GFva-2mZj;
-	Tue, 25 Feb 2025 07:48:19 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1tmphQ-0000000GGEE-3e91;
+	Tue, 25 Feb 2025 07:49:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmpeO-0000000GFIs-3Lpw;
-	Tue, 25 Feb 2025 07:46:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740469605; x=1772005605;
-  h=date:from:to:cc:subject:message-id:reply-to:references:
-   in-reply-to:mime-version;
-  bh=qtd1ncmm/2IHoCCRQevpTACxc2gRQhLR+4ZapIaXHiY=;
-  b=ZrWv8dmhoWFNBKrmRxvh60Nt9a35Ggx1QnHKqnUnRjWtFlU/9ATToib2
-   WYqlJ5g7Cii1NDgaOR2JZfvoYl/zq0Ps0HmPrAjpzb3zhx+BHjfuuTa6J
-   kDXIMTjwUweQYaNaucDn0dZ/GWqUJa/M1WjI+JeWuvJaFMtKTb7uB089X
-   j/uEOkJs4fctGOEIvqAKbgbSH+kTEKyNXzqOM7wZE5eWpojUAQvpjmevd
-   0giSlzKIyesPy4vE/ttxRWBPCG4qJXedWBNgDkMdooJbmUlUQSH/J3PxX
-   nYOwMjbsHIryixaOnYKEtmzBrq1xtB2lERqpgIwr/reyfE+ta5TXLtdQL
-   Q==;
-X-CSE-ConnectionGUID: UdKrx/2CQX2djshSEkNSuQ==
-X-CSE-MsgGUID: OM1hshIATkmJBA+tR/siDA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11355"; a="44917659"
-X-IronPort-AV: E=Sophos;i="6.13,313,1732608000"; 
-   d="scan'208";a="44917659"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Feb 2025 23:46:44 -0800
-X-CSE-ConnectionGUID: Wdup/JZOTy+Ycd+K6DRxiA==
-X-CSE-MsgGUID: NqEl6aNUQXqzuJZPzFcfTw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,313,1732608000"; 
-   d="scan'208";a="116511431"
-Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
-  by fmviesa008.fm.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 24 Feb 2025 23:46:43 -0800
-Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
- ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Mon, 24 Feb 2025 23:46:42 -0800
-Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14 via Frontend Transport; Mon, 24 Feb 2025 23:46:42 -0800
-Received: from NAM12-MW2-obe.outbound.protection.outlook.com (104.47.66.45) by
- edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Mon, 24 Feb 2025 23:46:39 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=L1B64Y/DCwWNdYP6K1G6pt+SIuMBlpfBvZX/15JpHIOpVo/BRV+poXdp1emuReN+omGJ2oJ/ORs3F3DRCD01r13flygs7gXHAwwMPYbIsEriuKXaoQBCCc02pR3WMXzkjDsYySXs2UPZJAn8xehDcje0XZpETv9xBbWiosjFZuZm4iR4rg61/jAOA0h88/y7ynDerhc9snBq2VSlBb6cNlDYLky41Jc3fuYFGfaf+F3LSSDA6saIfpOT7GaoFIE6wqPWUTAQXGWh3AWpQY5cTOjECwrkCuvFlL1fBY5nbDZA7EpESFK+tNvCud85qEgEgT6TIUBg5UIUbND0fvW5zw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=F8uvGHQFwAl42JAZyqWrf42O/vVBR0beGiC+qcirj0U=;
- b=YWifOSH/xIlsnrIytlzGvnjfLDDIcwSnSsCKABNNGgy+x8iHjb5o5n3wDYnb3B4ymQJNS6q0zRH6g6YdpwJ0GwBdYPutGW5sncxKEwQ5pNzsZYXrFi9HPLE9KZYfwUkxAC7pnMDPx544STUwPi6c0IvWgQEfw6qNZ2nK3t9eIIvJLBHEX690HsCdxU5k63lJTuePaTv2dwIQguozNcH32jOIzV+XKxuHIax0agiXl7nSpQgCkkCAgqJsPGZZD8JVUZDfMzHc76oD9Kn+DzT8PpldvX1dldOS7NTfUCvWCTyCcqZDKE+ttk6N1dm4kS8p7RFxAV+vYKRCCz0jPpu4tA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS7PR11MB5966.namprd11.prod.outlook.com (2603:10b6:8:71::6) by
- SA0PR11MB4687.namprd11.prod.outlook.com (2603:10b6:806:96::16) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8466.15; Tue, 25 Feb 2025 07:46:10 +0000
-Received: from DS7PR11MB5966.namprd11.prod.outlook.com
- ([fe80::e971:d8f4:66c4:12ca]) by DS7PR11MB5966.namprd11.prod.outlook.com
- ([fe80::e971:d8f4:66c4:12ca%4]) with mapi id 15.20.8466.016; Tue, 25 Feb 2025
- 07:46:10 +0000
-Date: Tue, 25 Feb 2025 15:44:47 +0800
-From: Yan Zhao <yan.y.zhao@intel.com>
-To: Sean Christopherson <seanjc@google.com>
-CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan
-	<maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda
-	<imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<kvm@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
-	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Aaron Lewis <aaronlewis@google.com>, "Jim
- Mattson" <jmattson@google.com>, Rick P Edgecombe
-	<rick.p.edgecombe@intel.com>, Kai Huang <kai.huang@intel.com>, Isaku Yamahata
-	<isaku.yamahata@intel.com>
-Subject: Re: [PATCH 1/7] KVM: x86: Free vCPUs before freeing VM state
-Message-ID: <Z71072F7FMz5aq/Q@yzhao56-desk.sh.intel.com>
-References: <20250224235542.2562848-1-seanjc@google.com>
- <20250224235542.2562848-2-seanjc@google.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250224235542.2562848-2-seanjc@google.com>
-X-ClientProxiedBy: SI2P153CA0010.APCP153.PROD.OUTLOOK.COM
- (2603:1096:4:140::13) To DS7PR11MB5966.namprd11.prod.outlook.com
- (2603:10b6:8:71::6)
+	id 1tmpeV-0000000GFOI-0RBC;
+	Tue, 25 Feb 2025 07:46:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id ECB006123A;
+	Tue, 25 Feb 2025 07:46:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94BF0C4CEDD;
+	Tue, 25 Feb 2025 07:46:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740469609;
+	bh=ufWHWQ1xjvwW0hl8NZb6j0p51Ljh1vhupp5zrhn05g0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mNF5vIXE8AI1M72/t0vxMc2XxKToFenm/PAwm6NZlyzcXaF3GjKp3p8wjKOQxZsS7
+	 U5SdmrZ6BYaIYN/FwLyRn6F6fE1le5OiAG1N1ERsiHU12nBZ0Mpu+uoTJxsNcrzgL5
+	 FecXJjFgXjXiQvXjfk0dv540gXmPw1NfbWIvf34KHRA1eYhDFFirjnTSuwgDS6kEOd
+	 1qDcx0OgryYeV466p9C+RQAkPDKOvmVtK2XQyZFdYwXGOngf8RClrW5TVTs70NL83+
+	 yvakFILGXUbl3fYUBTPeGqmiA4fnXW4OaTfniPVNR1nBcO4RYgvzzBPR4DQ+sz2u+j
+	 fzz+pKVE/XpLg==
+Date: Tue, 25 Feb 2025 09:46:28 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Wei Yang <richard.weiyang@gmail.com>
+Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Anthony Yznaga <anthony.yznaga@oracle.com>,
+	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pratyush Yadav <ptyadav@amazon.de>,
+	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v4 02/14] memblock: add MEMBLOCK_RSRV_KERN flag
+Message-ID: <Z711VP45tjBi0kwx@kernel.org>
+References: <20250206132754.2596694-1-rppt@kernel.org>
+ <20250206132754.2596694-3-rppt@kernel.org>
+ <20250218155004.n53fcuj2lrl5rxll@master>
+ <Z7WHL_Xqgoln9oLg@kernel.org>
+ <20250224013131.fzz552bn7fs64umq@master>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR11MB5966:EE_|SA0PR11MB4687:EE_
-X-MS-Office365-Filtering-Correlation-Id: b8415bbf-6f03-499f-83b7-08dd5570784c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?EDlyXxMtTXMDEtq06WkvAYkLi41NeaUC7Dq4Jb97tepwrcjKgDJut0glpZYx?=
- =?us-ascii?Q?hm65yZLPKT5zaKHfRiztuKnlfCJSGusrpM/5BU496iw1mCIe5+oymadPTj/f?=
- =?us-ascii?Q?nf8u0o5jfVOIReMN45WIYQFp0m7kqhS2YadkKcP77itnjJ6cTc7HAs6AoeRD?=
- =?us-ascii?Q?0c6N/Bq5q3TPObazD/QmgWMLcxplHjIhjbMhgx8KoaFNxNq14j88afC/otfa?=
- =?us-ascii?Q?lUmSUgW7WGYk+tK3LkwHxmUgt9sx6zH+xGXhJF48CrGHk9LKrQjaoir5lYVF?=
- =?us-ascii?Q?mxcrcbomFV87907kFdDf9rjyPz30QLLC2PKKM0NlwWgXXsGgDVyrZaJnxdRW?=
- =?us-ascii?Q?r/lewqVo/XdYdTIvEE1Ejy8he5gozanCAYFb+L2x9laPJolcZPUQB0uazY/W?=
- =?us-ascii?Q?jlXcGlnAD4Zc7njIssCSJYGxgDtM2MrtAM49T10r51wBDTTG8Pq0j3kCuyzs?=
- =?us-ascii?Q?cu/VrR5WarhAAzP3fap0vTusa39W4ZptGmPEXbVpxQkIPk4UF3p9e58wYd6U?=
- =?us-ascii?Q?dr5Se/i2PZxuR+4p/15mmNiv74KO6DPKwGEUXnM/y0S5PbY8mpWMeVi3aXnK?=
- =?us-ascii?Q?+ZFeEOvPxQnZu2ZCkxB9zDety9L53YTTyazRrz2jqAtiA3hN6czBYFMmhTZ6?=
- =?us-ascii?Q?0WpBa0fB8K/WvZ0hi8G6j7Z9oOLQ7hOW4dgAkroCUlYyz3xsJJnv6p8TQOHs?=
- =?us-ascii?Q?Puq7CURJVklhO/dnUlRyvBfMixSWXo526YTvfzVO+U3Db9V5tZj4QUpZpU/t?=
- =?us-ascii?Q?ezEb56P5cYjJnLZKU7/Twpazpp/yxoJQYOpOct87TpfZWDA/yjYuBCDjf692?=
- =?us-ascii?Q?BojK9UqNtMuqYbEC1QEJnx8+SEybWhZVZZL5VNt47goPvxn4t3ADVxQ0X1K3?=
- =?us-ascii?Q?PaMhtYfYIAOF4guwSeWD8OJF9ciNWldg7NhLzYXWuP8p608s4y6XSQ0uASCn?=
- =?us-ascii?Q?vfxWXCL4bYt9PadmTO3IVSyEdPItG202ujEGv2uhXxW2YpTKHPXsI8cxnUq5?=
- =?us-ascii?Q?K9oLYUHFQc0VXuqLmaBKw91ub06bfPC5SehRTEmWvFurgfYaXYZiT1sgUSeq?=
- =?us-ascii?Q?qmUnCqkiP94sZCQvY3mg4c6lbJl3qBaRqf8033tLTkN19ykUVmC2IRo18Qp0?=
- =?us-ascii?Q?Ov/ymgAkPbnGtBGnRIQe3PBfD14U/Pq2oys/RHk7SO4SAUS01hd8CnUEJU9o?=
- =?us-ascii?Q?os5AtLyttwyV+hgBaeMjOSDgS2h4nBW0/hqHivIleY+mHhK+SCMFxO/PiytQ?=
- =?us-ascii?Q?jEBpF5Pi9REdQCc0LBVLSuzL0PvQEL/AtwaJS/aT6dt1Xihe6IdPhoymt9pk?=
- =?us-ascii?Q?vkA4D0z/rqZlV7XsH/kZH+njRAoEguBS7RQp9VCbeKI1li0/eGzWYp7jo5BP?=
- =?us-ascii?Q?uQRRdtYE3iDkOnT1nXdFkY10y2Z7?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR11MB5966.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7E+/0OwAVMT3UBahbTd+fW91YMCe5j4Ip2xmTDfG4NFamNc6YDqaDi4Bab5u?=
- =?us-ascii?Q?CGLC3aVn1RBYwBE0Yf4j1c5PdDpB1bpESkvC5qMvfueHdMPdyxxXr+wlvuzQ?=
- =?us-ascii?Q?LoijffkDU+BMk48JQ13hPEy+ixRYA0h+PFxF5Q0XsJJYXwsYIklw9KYIvBbZ?=
- =?us-ascii?Q?wHPGJiAhZS0PLDQ46yZrnGQJsWz34cvz8Bp/uyQvIEOo8CCOM89PkCJgBOau?=
- =?us-ascii?Q?fIzRu/SoHBXw7kNRrwYnZUWSrSegyqTKx/YgAehGUrwSnyAiAptp2TY76+t3?=
- =?us-ascii?Q?xhnGCvIMFsXXmoVHqThl7Sd6wpWdzr7hPxMPj96FgjrLTILZ0hhLjqGtFvS2?=
- =?us-ascii?Q?NasPijVcuptqTbRzHiW68aIattDxKXBm3CXuQGkYpOE3wRmDZqZHfjdsGl4i?=
- =?us-ascii?Q?lMI4uMeDMVVq7SridReyrNg0OxfmoGCZ7J6Oc+Bm6TZDaTL7+26mcBboQgTo?=
- =?us-ascii?Q?s28o4ygEwxLXig1/1G2UFsZl2a5nGAVUaw/Kcghm6sVp3bLcP88701Nj/Ksy?=
- =?us-ascii?Q?Uk0lcaNdeHJfp9F38XC1l1mFWOFrvMg7b8s4PJnGvp1eAdTIY8uRza9wpsK4?=
- =?us-ascii?Q?bHhBs8eQY/vedgT/Hq6h+GM1BkxnBINn+j5XbwCHAEdUx8YFEh9L785GEmlw?=
- =?us-ascii?Q?KU8OENLYIIJXhwOQUmAVnoJ29+IvGUEo2VdZqlSoHUYc/chBYzcexbUpZW0E?=
- =?us-ascii?Q?szmu9rATaS2STcRLBwhFyynpNxWM5SrxUahhU5bFz1bu5NYuxc4r5/TCAEsA?=
- =?us-ascii?Q?oLM5CH4+0mmE72HrEfLUIoG1+xnJoVHsiFAA5bmUauODO1QxoBJGIoKdt6gD?=
- =?us-ascii?Q?u9XWGzNedJtW6WuqspbQ4ovZwYsbkZcs1pDmVDNDE3nOkj9dHss6/5TQZ9Oq?=
- =?us-ascii?Q?Il3EZ7yyJQm9/RJOOiUSew+BnQyQbSGTZkCp9/O1J65M0dXCnIJPumpPChWH?=
- =?us-ascii?Q?+AY/BA3KOCsILEq8C4mkwKJ8AMpyQtstH2hyL9uInL5L+mIvAR7XeSP9yIZz?=
- =?us-ascii?Q?Scbz5N6oAMOwkFa2BI2nTajHg3V8cCoGenLf2S46u1RuEil8SUTryi2jporg?=
- =?us-ascii?Q?r/ti4N0LehYJtjCHIF39CAEcUCiCkhE1kj1wA030jadjnxdPDGlCfU8OErPW?=
- =?us-ascii?Q?NMqpj5KYZ+mmUnraiFhC9PhZiVFFQJkalh4Zjo3akpLlKpme2q/mo23fWVqo?=
- =?us-ascii?Q?hsTn8fMgHMO/UWgr+ZFNUc1EM86BJK6zNrhzi3EcLU3hSBIL6pkxMwl/OOdy?=
- =?us-ascii?Q?kVL+BUIQqM8zrQi6HhwsysyIffa9Kfje4EmXD2HBSi/kK6rup6EeDpEPtJ/0?=
- =?us-ascii?Q?7ndrq7gYl/Q1GFyVGLlwh9p7IpsFFBoKQnJLdlKGoS5PEJqXSpkY1KqOsUlM?=
- =?us-ascii?Q?fyjf0sCzpRRClLBfZnjmWvxfhyGux27mTTYYMn+/qIZYK33tdA/fvKDSpEwv?=
- =?us-ascii?Q?rp0KnoZhPQR51l6qyfzlPZjgVFJGOt8sDFcZyRUJKHKMfCj1YW4q718NvGqZ?=
- =?us-ascii?Q?z9ZaR+QcMUZxOo2qWKepUNe0ppI7jqXI9RsQZ5xJ1o+K+K/Zt0yLAWdaZX7G?=
- =?us-ascii?Q?O3LVYHAsOSNiPf18tBpY/aSZyiARyRkRTz5WN7lL?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: b8415bbf-6f03-499f-83b7-08dd5570784c
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR11MB5966.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 07:46:10.3282
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7p9gnG7kZP9nJdTOXRbKoOVtjvfPTKRN9iiDqhZhCZuureI6PteGs8EPiaReF/1U4jneVUqAZGKThW/AggR+5g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR11MB4687
-X-OriginatorOrg: intel.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_234644_878496_976644F9 
-X-CRM114-Status: UNSURE (   9.58  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250224013131.fzz552bn7fs64umq@master>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -200,48 +96,109 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Yan Zhao <yan.y.zhao@intel.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-> index 58b82d6fd77c..045c61cc7e54 100644
-> --- a/arch/x86/kvm/x86.c
-> +++ b/arch/x86/kvm/x86.c
-> @@ -12890,11 +12890,11 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
->  		mutex_unlock(&kvm->slots_lock);
->  	}
->  	kvm_unload_vcpu_mmus(kvm);
-> +	kvm_destroy_vcpus(kvm);
->  	kvm_x86_call(vm_destroy)(kvm);
->  	kvm_free_msr_filter(srcu_dereference_check(kvm->arch.msr_filter, &kvm->srcu, 1));
->  	kvm_pic_destroy(kvm);
->  	kvm_ioapic_destroy(kvm);
-> -	kvm_destroy_vcpus(kvm);
->  	kvfree(rcu_dereference_check(kvm->arch.apic_map, 1));
->  	kfree(srcu_dereference_check(kvm->arch.pmu_event_filter, &kvm->srcu, 1));
->  	kvm_mmu_uninit_vm(kvm);
-After this change, now the sequence is that
+On Mon, Feb 24, 2025 at 01:31:31AM +0000, Wei Yang wrote:
+> On Wed, Feb 19, 2025 at 09:24:31AM +0200, Mike Rapoport wrote:
+> >Hi,
+> >
+> >On Tue, Feb 18, 2025 at 03:50:04PM +0000, Wei Yang wrote:
+> >> On Thu, Feb 06, 2025 at 03:27:42PM +0200, Mike Rapoport wrote:
+> >> >From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> >> >
+> >> >to denote areas that were reserved for kernel use either directly with
+> >> >memblock_reserve_kern() or via memblock allocations.
+> >> >
+> >> >Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> >> >---
+> >> > include/linux/memblock.h | 16 +++++++++++++++-
+> >> > mm/memblock.c            | 32 ++++++++++++++++++++++++--------
+> >> > 2 files changed, 39 insertions(+), 9 deletions(-)
+> >> >
+> >> >diff --git a/include/linux/memblock.h b/include/linux/memblock.h
+> >> >index e79eb6ac516f..65e274550f5d 100644
+> >> >--- a/include/linux/memblock.h
+> >> >+++ b/include/linux/memblock.h
+> >> >@@ -50,6 +50,7 @@ enum memblock_flags {
+> >> > 	MEMBLOCK_NOMAP		= 0x4,	/* don't add to kernel direct mapping */
+> >> > 	MEMBLOCK_DRIVER_MANAGED = 0x8,	/* always detected via a driver */
+> >> > 	MEMBLOCK_RSRV_NOINIT	= 0x10,	/* don't initialize struct pages */
+> >> >+	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
+> >> 
+> >> Above memblock_flags, there are comments on explaining those flags.
+> >> 
+> >> Seems we miss it for MEMBLOCK_RSRV_KERN.
+> >
+> >Right, thanks!
+> > 
+> >> > 
+> >> > #ifdef CONFIG_HAVE_MEMBLOCK_PHYS_MAP
+> >> >@@ -1459,14 +1460,14 @@ phys_addr_t __init memblock_alloc_range_nid(phys_addr_t size,
+> >> > again:
+> >> > 	found = memblock_find_in_range_node(size, align, start, end, nid,
+> >> > 					    flags);
+> >> >-	if (found && !memblock_reserve(found, size))
+> >> >+	if (found && !__memblock_reserve(found, size, nid, MEMBLOCK_RSRV_KERN))
+> >> 
+> >> Maybe we could use memblock_reserve_kern() directly. If my understanding is
+> >> correct, the reserved region's nid is not used.
+> >
+> >We use nid of reserved regions in reserve_bootmem_region() (commit
+> >61167ad5fecd ("mm: pass nid to reserve_bootmem_region()")) but KHO needs to
+> >know the distribution of reserved memory among the nodes before
+> >memmap_init_reserved_pages().
+> > 
+> >> BTW, one question here. How we handle concurrent memblock allocation? If two
+> >> threads find the same available range and do the reservation, it seems to be a
+> >> problem to me. Or I missed something?
+> >
+> >memblock allocations end before smp_init(), there is no possible concurrency.
+> > 
+> 
+> Thanks, I still have one question here.
+> 
+> Below is a simplified call flow.
+> 
+>     mm_core_init()
+>         mem_init()
+>             memblock_free_all()
+>                 free_low_memory_core_early()
+>                     memmap_init_reserved_pages()
+>                         memblock_set_node(..., memblock.reserved, )   --- (1)
+>                     __free_memory_core()
+>         kmem_cache_init()
+>             slab_state = UP;                                          --- (2)
+> 
+> And memblock_allloc_range_nid() is not supposed to be called after
+> slab_is_available(). Even someone do dose it, it will get memory from slab
+> instead of reserve region in memblock.
+> 
+> From the above call flow and background, there are three cases when
+> memblock_alloc_range_nid() would be called:
+> 
+>   * If it is called before (1), memblock.reserved's nid would be adjusted correctly.
+>   * If it is called after (2), we don't touch memblock.reserved.
+>   * If it happens between (1) and (2), it looks would break the consistency of
+>     nid information in memblock.reserved. Because when we use
+>     memblock_reserve_kern(), NUMA_NO_NODE would be stored in region.
+> 
+> So my question is if the third case happens, would it introduce a bug? If it
+> won't happen, seems we don't need to specify the nid here?
 
-1. kvm_arch_pre_destroy_vm()
-2. kvm_arch_destroy_vm()
-   2.1 kvm_destroy_vcpus()
-   2.2 .vm_destroy hook
-   2.3 kvm_mmu_uninit_vm() --> mirror root ref is 1 upon here. Zap the mirror
-                               root and reclaim SETP page table pages.
-   2.4 .vm_free hook
+We don't really care about proper assignment of nodes between (1) and (2)
+from one side and the third case does not happen on the other side. Nothing
+should call membloc_alloc() after memblock_free_all(). 
 
-Since TDX needs to reclaim the TDR page after reclaiming all other pages, we
-currently added a vm_free hook at 2.4, after 2.3.
+But it's easy to make the window between (1) and (2) disappear by replacing
+checks for slab_is_available() in memblock with a variable local to
+memblock.
+ 
+> -- 
+> Wei Yang
+> Help you, Help me
 
-Could we move kvm_mmu_uninit_vm() before the .vm_destroy hook and after
-kvm_destroy_vcpus()?
-
-Or move the .vm_destroy hook after kvm_mmu_uninit_vm(), e.g. after
-kvm_page_track_cleanup()?
-
-Otherwise, TDX still needs to introduce the .vm_free hook, which is invoked at
-the end of kvm_arch_destroy_vm().
-
-
+-- 
+Sincerely yours,
+Mike.
 
