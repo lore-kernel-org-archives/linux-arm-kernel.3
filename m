@@ -4,67 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF532C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 10:00:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A53EC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 10:02:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RgJc19BHIb1laW7RRmQKMgjNWHVEciBYtzbK/hOpNzM=; b=xqG/lNmYhnrM5EUhwpakq1lj5u
-	MWia4TI3NlFUKb+8oxnMrRL2MGbHf4VT5LKAQ0PtJO+cMqIYjTJgo2Jug4C7vQ4SPTs8WK0Y1zIpF
-	tayDZlAgtnLOiZaPIj1QcsFeO800JdBdDseAC1E2TmfGIjYJQ/p3MMMEWwMK8WYG7qMBPRTq9/k+B
-	mitvhrFMXdaz3DJZILarq0ssbk1mVjyxpz7TnRu4aeV6RUPcPTbYAFvjmTPZohSb8b+rKVxQ/99U/
-	fcqq28Y4gAuR5W8WsXMpZ/Y3Pjw+0yiDt9Y8zHhj9PvqdRvA0B0lUzaSnKIdvYP3ZfTwXTjCmP8uA
-	GXYk0JbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3DEGWb1kwqI7AX69Qoy4+pgxQwOYg9ApVeMN1RIQsP4=; b=ZcLvC+p5+7qZ9my3+irSIfTA/O
+	lCm7RiX6OQHFh2Xf0QjiDsKSqeVHUriNJZeSndmt6hG2uDkhUmnJxbQ5q6YTRNG0oAyTJE9Df+sZP
+	79JUTKN8WM3ilE7ty5ZewXlVkcaTve1QeFioZZexS7EXJS/QWs9ME2JLtFABjNR63ICHZoJycDZoj
+	g5q6TnwDKemaBtYuck4AE0TiOhaOW5LL7gKUD6LCDfrtangLh21aK/BbKu7QYVwo1CuFWufybY02d
+	Y+xP0lnXPrQ4mhp6e39WGEmr7ZmnzMm9JGKvjQbCjGKFSaNjKG0VE38BE/7aCJZxmBBMEEksxbRwP
+	i3vva+Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmrji-0000000Gj0s-3Tp6;
-	Tue, 25 Feb 2025 10:00:22 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tmrlF-0000000GjJB-20Tz;
+	Tue, 25 Feb 2025 10:01:57 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmqv8-0000000GWDY-1Zyb;
-	Tue, 25 Feb 2025 09:08:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1740474484;
-	bh=G/+50M2fvc66Y6BosMkvmFsG4ouSWiq1zH7ZcGOkJb8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BfWMXTa9I0TI8XsW6I94eEtr8qilAfLD++57kbY1w9ZKR4LDa4bmOsgr4vUnQFVpe
-	 a2SSZiEPVnTLtmq9aV5b2RgfArs87tvJG2Qf8x89aPecaaHY5rEA575jJVsBGQBbDU
-	 SQKIQo2dkuojNJdI2i+WWj5WcMbWEHQSzT8vExkFIcvlt1FJbxJqE8sM0pllZNXZNX
-	 R05meTHsy7Rr1Z8Pypj9vNKNHANyZGXZ9JwP5/SHG9lY/QsZGw+MpZQ9ZU1TtiRxy4
-	 Rczhhb59qMOaVKj9O/o8h9wvB9BSEmaF3QCfKRt7N4Go1KpfRBWJJ2Ky3GD/kW7u3w
-	 FeOKvyaCZFXDg==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5B97317E0866;
-	Tue, 25 Feb 2025 10:08:04 +0100 (CET)
-Message-ID: <e278b16f-565c-43e5-ae15-863c9ef3f8fb@collabora.com>
-Date: Tue, 25 Feb 2025 10:08:04 +0100
+	id 1tmrQT-0000000Ge81-3k7i
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Feb 2025 09:40:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740476429; x=1772012429;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=9MeSK15KTX1GpVUkanLg3jxBL8S+QzQcHgh3wTNK8Oc=;
+  b=SVyf1K/vlmFehsSRwi63p/4kZCS0jZKcGrEaJnPZGuQhrTTtkPbLUohr
+   nyrw0qLZLXJGBXPBSroZXINT4m76p9Dly75J0gvnoDr2mSXzcoW644WPX
+   8Rc0BF+rFdG7H8UPPjToPJ8o5sAOhzwOBhGSpagLnJkwZY2XceZ7NBpNz
+   0PLKJpQc8O5skyzkQ6Xk46AY22BDnRc+rN0fLki7/tnT3WX4yREhl2kR2
+   z48zGtMLBOgRnCe1VC4FfWGe/zqCWzlBpC/xGgGw7RX9Aey2bGd6cxQMC
+   5yb3XbWYHSvGc2WUFVD7RLmqJWXzlMp/l4rY/LZ0hjoXaScYTy4hZiOmk
+   Q==;
+X-CSE-ConnectionGUID: OhXzUAa2SLGz7waHuOHwkQ==
+X-CSE-MsgGUID: kvnMY749QBOsgRp+SZlW0A==
+X-IronPort-AV: E=McAfee;i="6700,10204,11355"; a="40510225"
+X-IronPort-AV: E=Sophos;i="6.13,313,1732608000"; 
+   d="scan'208";a="40510225"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 01:40:27 -0800
+X-CSE-ConnectionGUID: wuPiuA/zQd22MTq7/2Oa3Q==
+X-CSE-MsgGUID: 1/aed8HrRI+DCsOedLJWuQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="117267075"
+Received: from kuha.fi.intel.com ([10.237.72.152])
+  by orviesa008.jf.intel.com with SMTP; 25 Feb 2025 01:40:18 -0800
+Received: by kuha.fi.intel.com (sSMTP sendmail emulation); Tue, 25 Feb 2025 11:40:16 +0200
+Date: Tue, 25 Feb 2025 11:40:16 +0200
+From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+To: Matti Vaittinen <mazziesaccount@gmail.com>
+Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Daniel Scally <djrscally@gmail.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Nuno Sa <nuno.sa@analog.com>, David Lechner <dlechner@baylibre.com>,
+	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+	Guillaume Stols <gstols@baylibre.com>,
+	Olivier Moysan <olivier.moysan@foss.st.com>,
+	Dumitru Ceclan <mitrutzceclan@gmail.com>,
+	Trevor Gamblin <tgamblin@baylibre.com>,
+	Matteo Martelli <matteomartelli3@gmail.com>,
+	Alisa-Dariana Roman <alisadariana@gmail.com>,
+	Ramona Alexandra Nechita <ramona.nechita@analog.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v4 02/10] property: Add
+ device_get_child_node_count_named()
+Message-ID: <Z72QAOA9xXbP16K-@kuha.fi.intel.com>
+References: <cover.1740421248.git.mazziesaccount@gmail.com>
+ <29ec24f1498392cafbecc0e0c0e23e1ce3289565.1740421248.git.mazziesaccount@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] arm64: dts: airoha: en7581: Fix clock-controller
- address
-To: Lorenzo Bianconi <lorenzo@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Christian Marangi <ansuelsmth@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org
-References: <20250221-en7581-dts-spi-pinctrl-v3-0-4719e2d01555@kernel.org>
- <20250221-en7581-dts-spi-pinctrl-v3-2-4719e2d01555@kernel.org>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250221-en7581-dts-spi-pinctrl-v3-2-4719e2d01555@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <29ec24f1498392cafbecc0e0c0e23e1ce3289565.1740421248.git.mazziesaccount@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_010806_562725_918163BE 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20250225_014029_954426_C47B0572 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,34 +114,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 21/02/25 09:01, Lorenzo Bianconi ha scritto:
-> Fix the following warning for clock-controller node:
-> 
-> DTC [C] arch/arm64/boot/dts/airoha/en7581-evb.dtb
-> arch/arm64/boot/dts/airoha/en7581.dtsi:176.37-181.5: Warning (simple_bus_reg): /soc/clock-controller@1fa20000: simple-bus unit address format error, expected "1fb00000"
-> 
-> Fixes: 7693017580e9 ("arm64: dts: airoha: en7581: Add Clock Controller node")
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Hi,
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> +/**
+> + * device_get_child_node_count_named - number of child nodes with given name
+> + *
+> + * Scan device's child nodes and find all the nodes with a specific name and
+> + * return the number of found nodes. Potential '@number' -ending for scanned
+> + * names is ignored. Eg,
+> + * device_get_child_node_count(dev, "channel");
+> + * would match all the nodes:
+> + * channel { }, channel@0 {}, channel@0xabba {}...
+> + *
+> + * @dev: Device to count the child nodes for
+> + *
+> + * Return: the number of child nodes with a matching name for a given device.
+> + */
+> +unsigned int device_get_child_node_count_named(const struct device *dev,
+> +					       const char *name)
+> +{
+> +	struct fwnode_handle *child;
+> +	unsigned int count = 0;
+> +
+> +	device_for_each_child_node(dev, child)
+> +		if (fwnode_name_eq(child, "channel"))
 
-> ---
->   arch/arm64/boot/dts/airoha/en7581.dtsi | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/airoha/en7581.dtsi b/arch/arm64/boot/dts/airoha/en7581.dtsi
-> index 9a419796594d3a99e1187dcca622469bf5a888c3..26b13694091735da7af977e42f8f546d7d5cb078 100644
-> --- a/arch/arm64/boot/dts/airoha/en7581.dtsi
-> +++ b/arch/arm64/boot/dts/airoha/en7581.dtsi
-> @@ -173,7 +173,7 @@ spi_nand: nand@0 {
->   			};
->   		};
->   
-> -		scuclk: clock-controller@1fa20000 {
-> +		scuclk: clock-controller@1fb00000 {
->   			compatible = "airoha,en7581-scu";
->   			reg = <0x0 0x1fb00000 0x0 0x970>;
->   			#clock-cells = <1>;
-> 
+s/"channel"/name/ ?
 
+> +			count++;
+> +
+> +	return count;
+> +}
+> +EXPORT_SYMBOL_GPL(device_get_child_node_count_named);
+
+I did not check how many users are you proposing for this, but if
+there's only one, then IMO this should not be a global function yet.
+It just feels to special case to me. But let's see what the others
+think.
+
+thanks,
+
+-- 
+heikki
 
