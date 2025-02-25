@@ -4,111 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C9D9C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:39:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B02DC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:39:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f93xjg0uLBDBgDN3Feaes9fqpPxtUviVuziWYGC/2Dc=; b=ts2xKtV7qK14yVhMqfwttgEtPj
-	RNWq7YcBJuYKq2I3RUFJOOYcNLraSbvvFbwda5d+ZQ+F6oU1v0XD77pqSTTEqKA5lcOduHrZBEr7H
-	IKL8jduj9Ax2+JiWmMqD01BhzRHiZsuLR/rKrw76a6zHUI2QUn4f20yADI/DxW0I7YH0STRbXl4GR
-	OJcEBmv6vV7hwWYlevNCwzicoi9X1DIWpcojrqfZYoaisRN8ikxLKVkSEcwbW4/7ZawLw4g5XYMGM
-	21FCd/8c01rxKxeuAsBO4SpZSX+dprSkchot3jb8BK7MJ95gVql1b8mCUWI3MMRPOmyR3VSOv7ddR
-	SgWrI36w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mRmGkYw2i3QBqSGNd9jsr75hVO1HJ1J9ighulQhyC1E=; b=S+7movefThFd1siAqdl3KnQMkO
+	+rP1ri2pDyNgz6yYa9F3eKgw/1mSiS3V1K3Qm428Iwk2+Te6+qok7U6YcosjdIBt9ooWsVRIg7VYk
+	dbZg6mrrOeMEUNuaig1q1stD7RHKahAk4Y9FCNFO2Fgf+uBxQp0emVOMkXBy4yf2jBs9D6juP2LjL
+	L0s/YgV7SFkWO6kPDqTU2WXu4s5Of4tGxCi9uUaJ9CXmQiZd3owAKtiWI57VwpVhad9j3bRJKA3LS
+	/+bdSrkVpYEDpvU2TldrWqnkE8FhzJD46RZXZ9OEetD5+3KqU7r8DfC/mC43+feFc1Ciyg9CU6uG9
+	6ZjML7bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmxxn-00000000Gy4-3jYv;
-	Tue, 25 Feb 2025 16:39:19 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmvTq-0000000HSC4-3wHI
+	id 1tmxxo-00000000Gzx-3s9Z;
+	Tue, 25 Feb 2025 16:39:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmvYC-0000000HSlp-3MS1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 14:00:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740492015; x=1772028015;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=z0NM4k/FSSDfqS2mjYdariSVt/ETmZ+fP+JtXH7aT5c=;
-  b=OtiI1LmFCgXO3gPFMF9rhMaEYgJj/Hdb3VT8e8iUzg7ON2ogD8KBSqEu
-   gkFz/iAZ+NhiqPAVcRY6F91QqCnIe+IDwN/rWt5m9/bgDNu+n+zkjik+D
-   aQF+SS6vFhIDLGYH5Zw4B8VtAciP348paML1CXpAvN/cjjEbxTND1WLxD
-   CWTJAK+mslbjGdUmo+KqFlEk7nkygrfOofxrovjmP34M5oL0GIGy6alZa
-   aLgldDnZZIxqt73BBwIVh9ZmB2EJO6O8t/Qji9PMyqY2H3tmVZ08YLCrO
-   Kx6kO3zVp+Cirq9umduyX1Pn7W/A4z6feddgcrV1VjdQ0tuCVOT+N96ma
-   Q==;
-X-CSE-ConnectionGUID: eZd3Dxb7SWGyNwg87Rhgyw==
-X-CSE-MsgGUID: bqGHnxpOREyeXC6tcCbY+g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="41500375"
-X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
-   d="scan'208";a="41500375"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 06:00:09 -0800
-X-CSE-ConnectionGUID: 5wdBO304QIGqIKmBnH0WxA==
-X-CSE-MsgGUID: o2kscnJVSLCiJ/DTQH/+dw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="120502479"
-Received: from smile.fi.intel.com ([10.237.72.58])
-  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 06:00:02 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.98)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1tmvTa-0000000F0fX-0FCE;
-	Tue, 25 Feb 2025 15:59:58 +0200
-Date: Tue, 25 Feb 2025 15:59:57 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Matti Vaittinen <mazziesaccount@gmail.com>
-Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Daniel Scally <djrscally@gmail.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Nuno Sa <nuno.sa@analog.com>, David Lechner <dlechner@baylibre.com>,
-	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
-	Guillaume Stols <gstols@baylibre.com>,
-	Olivier Moysan <olivier.moysan@foss.st.com>,
-	Dumitru Ceclan <mitrutzceclan@gmail.com>,
-	Trevor Gamblin <tgamblin@baylibre.com>,
-	Matteo Martelli <matteomartelli3@gmail.com>,
-	Alisa-Dariana Roman <alisadariana@gmail.com>,
-	Ramona Alexandra Nechita <ramona.nechita@analog.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v4 02/10] property: Add
- device_get_child_node_count_named()
-Message-ID: <Z73M3Ua6u1FpgBEK@smile.fi.intel.com>
-References: <cover.1740421248.git.mazziesaccount@gmail.com>
- <29ec24f1498392cafbecc0e0c0e23e1ce3289565.1740421248.git.mazziesaccount@gmail.com>
- <Z72QAOA9xXbP16K-@kuha.fi.intel.com>
- <Z72Zp8tpnvlFGdQ_@smile.fi.intel.com>
- <ad39b453-7e5b-49bd-a4fd-6a4988636130@gmail.com>
- <Z72d7TzZ21WITW3f@smile.fi.intel.com>
- <893a3c45-537e-47ad-afbd-1e5d3b9abe2c@gmail.com>
+	Tue, 25 Feb 2025 14:04:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 15760152B;
+	Tue, 25 Feb 2025 06:05:00 -0800 (PST)
+Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 49A9A3F6A8;
+	Tue, 25 Feb 2025 06:04:42 -0800 (PST)
+Message-ID: <34a0b098-d9c5-4605-8ce7-abd6fa59d38b@arm.com>
+Date: Tue, 25 Feb 2025 14:04:29 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <893a3c45-537e-47ad-afbd-1e5d3b9abe2c@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] dma: Fix encryption bit clearing for dma_to_phys
+To: Robin Murphy <robin.murphy@arm.com>, will@kernel.org,
+ catalin.marinas@arm.com
+Cc: maz@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, gregkh@linuxfoundation.org,
+ aneesh.kumar@kernel.org, steven.price@arm.com,
+ Jean-Philippe Brucker <jean-philippe@linaro.org>,
+ Christoph Hellwig <hch@lst.de>, Tom Lendacky <thomas.lendacky@amd.com>
+References: <20250219220751.1276854-1-suzuki.poulose@arm.com>
+ <20250219220751.1276854-2-suzuki.poulose@arm.com>
+ <68405608-564c-4e79-9cbc-545626e736f1@arm.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <68405608-564c-4e79-9cbc-545626e736f1@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_060015_037331_807A3200 
-X-CRM114-Status: GOOD (  23.39  )
+X-CRM114-CacheID: sfid-20250225_060444_884207_BA58B6F5 
+X-CRM114-Status: GOOD (  15.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,42 +70,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 03:29:17PM +0200, Matti Vaittinen wrote:
-> On 25/02/2025 12:39, Andy Shevchenko wrote:
-> > On Tue, Feb 25, 2025 at 12:29:31PM +0200, Matti Vaittinen wrote:
-> > > On 25/02/2025 12:21, Andy Shevchenko wrote:
-> > > > On Tue, Feb 25, 2025 at 11:40:16AM +0200, Heikki Krogerus wrote:
-
-...
-
-> > > > > 
-> > > > > I did not check how many users are you proposing for this, but if
-> > > > > there's only one, then IMO this should not be a global function yet.
-> > > > > It just feels to special case to me. But let's see what the others
-> > > > > think.
-> > > > 
-> > > > The problem is that if somebody hides it, we might potentially see
-> > > > a duplication in the future. So I _slightly_ prefer to publish and
-> > > > then drop that after a few cycles if no users appear.
-> > > 
-> > > After taking a very quick grep I spotted one other existing place where we
-> > > might be able to do direct conversion to use this function.
-> > > 
-> > > drivers/net/ethernet/freescale/gianfar.c
-> > > 
-> > > That'd be 2 users.
-> > 
-> > I haven't checked myself, I believe your judgement,
+On 25/02/2025 11:25, Robin Murphy wrote:
+> On 2025-02-19 10:07 pm, Suzuki K Poulose wrote:
+>> phys_to_dma() sets the encryption bit on the translated DMA address. But
+>> dma_to_phys() clears the encryption bit after it has been translated back
+>> to the physical address, which could fail if the device uses DMA ranges.
+>>
+>> Hopefully, AMD SME doesn't use it.
 > 
-> I took a better look and you obviously shouldn't believe :) The gianfar used
-> of_node instead of the fwnode. So, it'd be a single caller at starters.
+> ...by which you mean we don't think any AMD systems are using the ACPI 
+> _DMA method to constrain physical DMA ranges, otherwise SME with dma- 
+> direct would presumably already be broken by this lookup going wrong.
 
-...which is the same as dev_of_node(), which means that you can use your
-function there.
+Yep, that AMD systems aren't using DMA ranges.
 
--- 
-With Best Regards,
-Andy Shevchenko
 
+> 
+>> Anyways, let us fix it, before cleanup
+>> the infrastructure for supporting other architectures.
+> 
+> Reviewed-by: Robin Murphy <robin.murphy@arm.com>
+
+Thanks
+
+Suzuki
+
+> 
+>> Reported-by: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+>> Link: https://lkml.kernel.org/r/yq5amsen9stc.fsf@kernel.org
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Robin Murphy <robin.murphy@arm.com>
+>> Cc: Steven Price <steven.price@arm.com>
+>> Cc: Christoph Hellwig <hch@lst.de>
+>> Cc: Tom Lendacky <thomas.lendacky@amd.com>
+>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> ---
+>>   include/linux/dma-direct.h | 3 ++-
+>>   1 file changed, 2 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/include/linux/dma-direct.h b/include/linux/dma-direct.h
+>> index d7e30d4f7503..d20ecc24cb0f 100644
+>> --- a/include/linux/dma-direct.h
+>> +++ b/include/linux/dma-direct.h
+>> @@ -101,12 +101,13 @@ static inline phys_addr_t dma_to_phys(struct 
+>> device *dev, dma_addr_t dma_addr)
+>>   {
+>>       phys_addr_t paddr;
+>> +    dma_addr = __sme_clr(dma_addr);
+>>       if (dev->dma_range_map)
+>>           paddr = translate_dma_to_phys(dev, dma_addr);
+>>       else
+>>           paddr = dma_addr;
+>> -    return __sme_clr(paddr);
+>> +    return paddr;
+>>   }
+>>   #endif /* !CONFIG_ARCH_HAS_PHYS_TO_DMA */
+> 
 
 
