@@ -4,96 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA307C021BC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 08:30:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF3D4C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 08:31:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SQhuTT3keTFG3C8+wYIEtpMC3dYXL5RKzFQ+SXkD8fQ=; b=IXe7tWYYjP+2+yq419AjNnhiWJ
-	ZWGBGI1wN7114UbkH2NJURexHqlDN/Sl0V6S+uqwGggF74fLi5/v50DI1ldx6ZF2qLVDC/QS96df8
-	LMZGg+Q+0hvipwsTS7sygnh4D0HLnzRUSM8c3SdoAnGNTkMsrpTw1P5Si5nw1X86FUgpzb7kmJ5Bv
-	OIUSyI+94ubTT55pczdYdlZljNyyQb12LTCcyD0LSRJghKeUsclsgoJ+ajJElZkMiD3wvGdmQhmKM
-	iDZRE1WrBaYhKAIA7ENc53Tmk35N2MPqqwkLCGTDFHQGzbcFrBzYVptWxCIAn7lG5Y+p+RhKhbWYM
-	QgRBXg/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7QRWTrxpjekZTUx1eMKMRstQgVYfZ/X4MyjK30teX2M=; b=V9EOZurHpCRSGtZydbOA+fII9g
+	kboBrq6ZZ+mcHI1X0G1iUzys2iCsbakrd2FxpXuSkAHdUCrTHnb6ctD8qa1UGcIsn4XDTB7lUBlbW
+	VI25IO/gHsYxr0VbThOGv7aZPXPk952obBANWdfTZDpE3cdbWb1WQUidcsrvWzyarc2pOnhU/TJRM
+	CE8zorKencPj+ARO0kiw5u8KwTWQZNmLebjCGivksFqVKjuvDcJLrIjTu70kyIJ6CeB70qyRikp72
+	UW6Rt1rrneMx8q2Z8VawlwfsFLtr8v/PSHX2YgSSgtJzJ3S7q0K7vALy+er8sKS7xCXfG57Kagr/i
+	EK4HDaug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmqKX-0000000GNwP-3g3g;
-	Tue, 25 Feb 2025 08:30:17 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1tmqM2-0000000GOQm-2AdN;
+	Tue, 25 Feb 2025 08:31:50 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmqJ1-0000000GNn6-1ZKm
+	id 1tmqJ7-0000000GNoF-2KOm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 08:28:44 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-220e6028214so114838925ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 00:28:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740472122; x=1741076922; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=SQhuTT3keTFG3C8+wYIEtpMC3dYXL5RKzFQ+SXkD8fQ=;
-        b=HYOzIQvyA7QBiqG4n5hNGDo1EZafBWUCnoPs9R53aqXszRLzh9IpormUd8PgnFGV/M
-         SJ0w+cXJPyUmasbVV3XZ+84GpVnDmc8bzWq93Tj+EsjoQz0dfAkfrZL00TdAd6DSxdeO
-         w2VFViOTMxGQCJcCs3hcbqASz12hq1tklGrrcYCXt78tM7FlDgpSlpbG5kfsK5Lhwgb1
-         G/yl1c4UoxZoPYMdxDrme3C8Xv2KRB+BrDFD0toHmiZ2mWcot+Vfm/wxlwNlBc//OI3a
-         o5a/VfTe1hJdBoUQSIRTVzV75jBfADaWf12ZvP1XItD7A1aURXIgJwkiHxCbKTQE128y
-         bWmg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740472122; x=1741076922;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=SQhuTT3keTFG3C8+wYIEtpMC3dYXL5RKzFQ+SXkD8fQ=;
-        b=dxVY9+EnWdmJnd72QBf97gf8HokVwlA5emqOaGrzPuROn5sZqlf6z/Q+boivbVwBTf
-         N5OoCq0fI7KN2URrSADy2E6eBdcpzA82cAAwhL+3eD2A2Y22hmcgdUMgKR2Tx8UQJp4N
-         4tbiuSUTSVqOvJLaqIHna4OofU57fCW6Zm7ovIj9R7JjxN9yvzmUEVNjks8KLJZywV/U
-         NxBpVMrToGT88sVctlgx90PvOICFCnTRlm/4vAcs0m3ZFVw8oK85JZ11b9QRX8u3zOVK
-         piBFpbIyqPr1TAZU1I6VBp4gU71mQCqeLL5RGqGbA4nvU7P5a7or96TNwW04UgBht3r3
-         i7vQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWTU/FA1MZzS6maUbqftBcgqF6f3J4//iHXTcwTFQii3PWa6xkF/fQ6NJWJL/FTUqwrm3wkPKWjrEJBeXXelb3y@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw12y/X+U2sezMYVxkXz2V/70VdfZ+gdtWF4AEavY1ogOq+kbkr
-	JYIyqS7Bf4X+DUsMMZpJXJpTacKiOxXiTeBU7RuTaDETuhvdDfWPpN1iANfJcA==
-X-Gm-Gg: ASbGncuXQ0uWXfWhY2EN7/m/Iox9M5g8Q/urBXg11pt//HYOA1uXWDHigPzESWUNiWS
-	cp+2dg9dIcpT+Fe4easFG1cSyylXc/MEWZBbU7vm2lCJtPVz7SY7k06gE8KUMLaIAYBij3P3C9+
-	FwdieANsuYlmT43p9YS1lHCCDi+UUnC0jqw9Uy3ZMBMAaZsThnzpT2UN0yqCBYFvmmMZquUfcIx
-	l7sek3qV3qVKd1gThqSiK+U0lo+qHZyZXTyIUIiFH8ugh7wns3J1HAde/ZAxaqrYvjCU9qpxbR5
-	+00hSVltiNEoJRRB/muYpT9Qymx6NOLv9Q9u
-X-Google-Smtp-Source: AGHT+IHEpwYAv8u3qb59FV+xDfGctwCas/kzce4Z4IGvei21yGE+B1pj/P69NtHMGX6VmXsFeRHsJg==
-X-Received: by 2002:a17:903:1c1:b0:216:3466:7414 with SMTP id d9443c01a7336-221a0025b25mr313420375ad.44.1740472122399;
-        Tue, 25 Feb 2025 00:28:42 -0800 (PST)
-Received: from thinkpad ([36.255.17.214])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2230a0b7790sm8728625ad.254.2025.02.25.00.28.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Feb 2025 00:28:41 -0800 (PST)
-Date: Tue, 25 Feb 2025 13:58:35 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Shradha Todi <shradha.t@samsung.com>, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, lpieralisi@kernel.org,
-	kw@linux.com, robh@kernel.org, bhelgaas@google.com,
-	jingoohan1@gmail.com, Jonathan.Cameron@huawei.com,
-	fan.ni@samsung.com, nifan.cxl@gmail.com, a.manzanares@samsung.com,
-	pankaj.dubey@samsung.com, 18255117159@163.com,
-	xueshuai@linux.alibaba.com, renyu.zj@linux.alibaba.com,
-	will@kernel.org, mark.rutland@arm.com
-Subject: Re: [PATCH v7 0/5] Add support for debugfs based RAS DES feature in
- PCIe DW
-Message-ID: <20250225082835.dl4yleybs3emyboq@thinkpad>
-References: <CGME20250221132011epcas5p4dea1e9ae5c09afaabcd1822f3a7d15c5@epcas5p4.samsung.com>
- <20250221131548.59616-1-shradha.t@samsung.com>
- <Z7yniizCTdBvUBI0@ryzen>
+	Tue, 25 Feb 2025 08:28:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9A4BB5C690E
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 08:28:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16D54C4CEE7
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 08:28:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740472128;
+	bh=8vPpJ8olOuwN9lQFG5YAxtDVHtl13Hwmn7GTiIrcqhc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=W+3vlCZa9bUAZTxTn/9J71uNJbnotvyK9PmaPGkw4X4oDmLXIMxWqkfsCcSwSLluV
+	 Db0FfEvW+SAZXPOywDNfozz7H/frK0a4sToUc9cyCm5/VAuZ+/uGiuR3lr9A7lfGCY
+	 qyXUeAX0oNyqtPXG6eDHAyyo0jGeM7qolZiMPt04E3KDkWD7fkZnQWcINq2VcNejEh
+	 vxeCel3h2xVc0TK+G5o0zlcuBWI8sDdcnkf5aU0ERlRZAbkwMHPX1cUtjszlMPdL38
+	 S1b6ZxUhfwR3IuBuqzMcFMsOubgserxyc4QJoNuO0ut0gfcaSWRY7T92LX05cN3tEJ
+	 DLJRIviLFdGoQ==
+Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-30738a717ffso41245751fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 00:28:47 -0800 (PST)
+X-Gm-Message-State: AOJu0Yy5a0y5Txsjl6d0+9vQqp21Swby7r5uvyJX3ya7kAoCw3Yrha9s
+	er3fuebS+tm9Jhe1bz2GCdoD4XNp/BGGDXxqryseij+xcr420ptr1ZhVgLVbKEPyo7biWT+lE5H
+	huZ5CukOxKD/RWmT87l4A8wJ75sA=
+X-Google-Smtp-Source: AGHT+IEo2P1y8oZ4sGjozx2IPF/FoxHw0AwPGW5G+13Hqko9jHR6xC99gVXu+gG39GPDa7xUUBqQyzk+N/BNjhsnf4Q=
+X-Received: by 2002:a05:6512:ba6:b0:545:8f0:e1a4 with SMTP id
+ 2adb3069b0e04-54838f5b0c7mr7334086e87.45.1740472126391; Tue, 25 Feb 2025
+ 00:28:46 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z7yniizCTdBvUBI0@ryzen>
+References: <20250224062111.66528-1-kpark3469@gmail.com> <CA+KhAHYujgeC2kAd-vs0N0zwprpeqtD8G-8DpJ0w2RSxzZ5SQw@mail.gmail.com>
+In-Reply-To: <CA+KhAHYujgeC2kAd-vs0N0zwprpeqtD8G-8DpJ0w2RSxzZ5SQw@mail.gmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Tue, 25 Feb 2025 09:28:35 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXH-QmuXGi-5MSEzz7zSpPYWvM2eBPN-NbWF+R=49P2_2g@mail.gmail.com>
+X-Gm-Features: AWEUYZmXdqSofSbFbm1Jzg5QlVhvXfgc9GSCI-mItVYgS6fAb-clLZXGzXceAac
+Message-ID: <CAMj1kXH-QmuXGi-5MSEzz7zSpPYWvM2eBPN-NbWF+R=49P2_2g@mail.gmail.com>
+Subject: Re: [PATCH] arm64: kaslr: consider parange is bigger than linear_region_size
+To: Keun-O Park <kpark3469@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	catalin.marinas@arm.com, will@kernel.org, Keuno Park <keun-o.park@katim.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_002843_423296_9721C912 
-X-CRM114-Status: GOOD (  34.71  )
+X-CRM114-CacheID: sfid-20250225_002849_681587_40C3739A 
+X-CRM114-Status: GOOD (  23.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,84 +82,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 24, 2025 at 06:08:26PM +0100, Niklas Cassel wrote:
-> Hello Shradha,
-> 
-> On Fri, Feb 21, 2025 at 06:45:43PM +0530, Shradha Todi wrote:
-> > DesignWare controller provides a vendor specific extended capability
-> > called RASDES as an IP feature. This extended capability  provides
-> > hardware information like:
-> >  - Debug registers to know the state of the link or controller. 
-> >  - Error injection mechanisms to inject various PCIe errors including
-> >    sequence number, CRC
-> >  - Statistical counters to know how many times a particular event
-> >    occurred
-> > 
-> > However, in Linux we do not have any generic or custom support to be
-> > able to use this feature in an efficient manner. This is the reason we
-> > are proposing this framework. Debug and bring up time of high-speed IPs
-> > are highly dependent on costlier hardware analyzers and this solution
-> > will in some ways help to reduce the HW analyzer usage.
-> > 
-> > The debugfs entries can be used to get information about underlying
-> > hardware and can be shared with user space. Separate debugfs entries has
-> > been created to cater to all the DES hooks provided by the controller.
-> > The debugfs entries interacts with the RASDES registers in the required
-> > sequence and provides the meaningful data to the user. This eases the
-> > effort to understand and use the register information for debugging.
-> > 
-> > This series creates a generic debugfs framework for DesignWare PCIe
-> > controllers where other debug features apart from RASDES can also be
-> > added as and when required.
-> > 
-> > v7:
-> >     - Moved the patches to make finding VSEC IDs common from Mani's patchset [1]
-> >       into this series to remove dependancy as discussed
-> >     - Addressed style related change requests from v6
-> 
-> I tested this series, and one thing that I noticed:
-> 
-> # for f in /sys/kernel/debug/dwc_pcie_a40000000.pcie/rasdes_event_counter/*/counter_enable; do echo 1 > $f; done
-> 
-> # grep "" /sys/kernel/debug/dwc_pcie_a40000000.pcie/rasdes_event_counter/*/* | grep Disabled
-> /sys/kernel/debug/dwc_pcie_a40000000.pcie/rasdes_event_counter/ctl_skp_os_parity_err/counter_enable:Counter Disabled
-> /sys/kernel/debug/dwc_pcie_a40000000.pcie/rasdes_event_counter/deskew_uncompleted_err/counter_enable:Counter Disabled
-> /sys/kernel/debug/dwc_pcie_a40000000.pcie/rasdes_event_counter/framing_err_in_l0/counter_enable:Counter Disabled
-> /sys/kernel/debug/dwc_pcie_a40000000.pcie/rasdes_event_counter/margin_crc_parity_err/counter_enable:Counter Disabled
-> /sys/kernel/debug/dwc_pcie_a40000000.pcie/rasdes_event_counter/retimer_parity_err_1st/counter_enable:Counter Disabled
-> /sys/kernel/debug/dwc_pcie_a40000000.pcie/rasdes_event_counter/retimer_parity_err_2nd/counter_enable:Counter Disabled
-> 
-> that there are some events that cannot be enabled when testing on my platform,
-> rk3588, perhaps this is because my version of the DWC IP does not have these
-> events.
-> 
-> (Because all the other events can be enabled successfully:
-> # grep "" /sys/kernel/debug/dwc_pcie_a40000000.pcie/rasdes_event_counter/*/* | grep Enabled | wc -l
-> 29
-> )
-> 
-> 
-> So the question is, how do we want to handle that?
+On Tue, 25 Feb 2025 at 05:48, Keun-O Park <kpark3469@gmail.com> wrote:
 >
+> On Mon, Feb 24, 2025 at 10:21=E2=80=AFAM Keun-O Park <kpark3469@gmail.com=
+> wrote:
+> >
+> > From: Keuno Park <keun-o.park@katim.com>
+> >
+> > On systems using 4KB pages and having 39 VA_BITS, linear_region_size
+> > gets 256GiB space. It was observed that some SoCs such as Qualcomm
+> > QCM8550 returns 40bits of PA range from MMFR0_EL1. This leads range
+> > value to have minus as the variable range is s64, so that all the
+> > calculations for randomizing linear address space are skpped.
+> > As a result of this, the kernel's linear region is not randomized.
+> > For this case, this patch sets the range by calculating memblock
+> > DRAM range to randomize the linear region of kernel.
+> >
+> > Change-Id: Ib29e45f44928937881d514fb87b4cac828b5a3f5
+> > Fixes: 97d6786e0669 ("arm64: mm: account for hotplug memory when random=
+izing the linear region")
+> > Signed-off-by: Keuno Park <keun-o.park@katim.com>
+> > ---
+> >  arch/arm64/mm/init.c | 5 +++++
+> >  1 file changed, 5 insertions(+)
+> >
+> > diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+> > index 9c0b8d9558fc..2ee657e2d60f 100644
+> > --- a/arch/arm64/mm/init.c
+> > +++ b/arch/arm64/mm/init.c
+> > @@ -290,6 +290,11 @@ void __init arm64_memblock_init(void)
+> >                 s64 range =3D linear_region_size -
+> >                             BIT(id_aa64mmfr0_parange_to_phys_shift(para=
+nge));
+> >
+> > +               if (range < 0) {
+> > +                       range =3D linear_region_size -
+> > +                               (memblock_end_of_DRAM() - memblock_star=
+t_of_DRAM());
+> > +               }
+> > +
+..
+>
+> In most cases, the hotplug memory code will be working the same as before=
+.
 
-This is a really good question.
- 
-> E.g. counter_enable_write() could theoretically read back the
-> dw_pcie_readl_dbi(pci, rinfo->ras_cap_offset + RAS_DES_EVENT_COUNTER_CTRL_REG);
-> register after doing the
-> ww_pcie_writel_dbi(pci, rinfo->ras_cap_offset + RAS_DES_EVENT_COUNTER_CTRL_REG, val);
-> 
-> to actually check if it could enable the event.
-> 
-> If counter_enable_write() could not enable the specific event, should it
-> perhaps return a failure to user space?
-> 
-
-Yes, it would be appropriate to return -EOPNOTSUPP in that case. But I'd like to
-merge this series asap. So this patch can come on top of this series.
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+How so? Such memory will usually appear above memblock_end_of_DRAM(),
+and due to the randomization, there may not be any space left there.
 
