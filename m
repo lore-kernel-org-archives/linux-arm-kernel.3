@@ -4,102 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A53EC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 10:02:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB309C021B6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 10:03:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3DEGWb1kwqI7AX69Qoy4+pgxQwOYg9ApVeMN1RIQsP4=; b=ZcLvC+p5+7qZ9my3+irSIfTA/O
-	lCm7RiX6OQHFh2Xf0QjiDsKSqeVHUriNJZeSndmt6hG2uDkhUmnJxbQ5q6YTRNG0oAyTJE9Df+sZP
-	79JUTKN8WM3ilE7ty5ZewXlVkcaTve1QeFioZZexS7EXJS/QWs9ME2JLtFABjNR63ICHZoJycDZoj
-	g5q6TnwDKemaBtYuck4AE0TiOhaOW5LL7gKUD6LCDfrtangLh21aK/BbKu7QYVwo1CuFWufybY02d
-	Y+xP0lnXPrQ4mhp6e39WGEmr7ZmnzMm9JGKvjQbCjGKFSaNjKG0VE38BE/7aCJZxmBBMEEksxbRwP
-	i3vva+Ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DQOBEpOmo/uOaXGxG+Mjsq1EExMqwVoc7fNvsKF+UVE=; b=y4xgJ+oeaBnkAwqiO3G874yq6L
+	bWIscAcEAy7yYePoqWnozL2BlvupjkX5BC/T0RikraKuUole6SUTAjiAXgvvbTjWHPKgDPlEKzepr
+	iPpetbj6FAR2/ka1AgBKQwGoKABkzxymjAsiM02/VE8gxPZsi8A0i46WaXGM225BmZAnILxUS7BBS
+	z2cmhRL7U2iPYRk+odVNqEIiEWvAnG+m/1Gagyz5lZha3eKH2gdgL+sKp+eczM0xpFeLQKtxH0iWx
+	1AxVWP56OpD8wZhmqN1Wox7kT2kuhbiDLNIfErmN8Is2k+zyeZaBU/3fqrW5ojBuVDZXFm1maERnB
+	1nm+vUSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmrlF-0000000GjJB-20Tz;
-	Tue, 25 Feb 2025 10:01:57 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1tmrmo-0000000Gk22-1osL;
+	Tue, 25 Feb 2025 10:03:34 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmrQT-0000000Ge81-3k7i
+	id 1tmrSc-0000000Gew7-3jH5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 09:40:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740476429; x=1772012429;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=9MeSK15KTX1GpVUkanLg3jxBL8S+QzQcHgh3wTNK8Oc=;
-  b=SVyf1K/vlmFehsSRwi63p/4kZCS0jZKcGrEaJnPZGuQhrTTtkPbLUohr
-   nyrw0qLZLXJGBXPBSroZXINT4m76p9Dly75J0gvnoDr2mSXzcoW644WPX
-   8Rc0BF+rFdG7H8UPPjToPJ8o5sAOhzwOBhGSpagLnJkwZY2XceZ7NBpNz
-   0PLKJpQc8O5skyzkQ6Xk46AY22BDnRc+rN0fLki7/tnT3WX4yREhl2kR2
-   z48zGtMLBOgRnCe1VC4FfWGe/zqCWzlBpC/xGgGw7RX9Aey2bGd6cxQMC
-   5yb3XbWYHSvGc2WUFVD7RLmqJWXzlMp/l4rY/LZ0hjoXaScYTy4hZiOmk
-   Q==;
-X-CSE-ConnectionGUID: OhXzUAa2SLGz7waHuOHwkQ==
-X-CSE-MsgGUID: kvnMY749QBOsgRp+SZlW0A==
-X-IronPort-AV: E=McAfee;i="6700,10204,11355"; a="40510225"
-X-IronPort-AV: E=Sophos;i="6.13,313,1732608000"; 
-   d="scan'208";a="40510225"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 01:40:27 -0800
-X-CSE-ConnectionGUID: wuPiuA/zQd22MTq7/2Oa3Q==
-X-CSE-MsgGUID: 1/aed8HrRI+DCsOedLJWuQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="117267075"
-Received: from kuha.fi.intel.com ([10.237.72.152])
-  by orviesa008.jf.intel.com with SMTP; 25 Feb 2025 01:40:18 -0800
-Received: by kuha.fi.intel.com (sSMTP sendmail emulation); Tue, 25 Feb 2025 11:40:16 +0200
-Date: Tue, 25 Feb 2025 11:40:16 +0200
-From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-To: Matti Vaittinen <mazziesaccount@gmail.com>
-Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Nuno Sa <nuno.sa@analog.com>, David Lechner <dlechner@baylibre.com>,
-	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
-	Guillaume Stols <gstols@baylibre.com>,
-	Olivier Moysan <olivier.moysan@foss.st.com>,
-	Dumitru Ceclan <mitrutzceclan@gmail.com>,
-	Trevor Gamblin <tgamblin@baylibre.com>,
-	Matteo Martelli <matteomartelli3@gmail.com>,
-	Alisa-Dariana Roman <alisadariana@gmail.com>,
-	Ramona Alexandra Nechita <ramona.nechita@analog.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v4 02/10] property: Add
- device_get_child_node_count_named()
-Message-ID: <Z72QAOA9xXbP16K-@kuha.fi.intel.com>
-References: <cover.1740421248.git.mazziesaccount@gmail.com>
- <29ec24f1498392cafbecc0e0c0e23e1ce3289565.1740421248.git.mazziesaccount@gmail.com>
+	Tue, 25 Feb 2025 09:42:45 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51P9gZKL1191019
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 25 Feb 2025 03:42:35 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1740476555;
+	bh=DQOBEpOmo/uOaXGxG+Mjsq1EExMqwVoc7fNvsKF+UVE=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=cQaedq5Urlpaa5FzI3jSwV2H49PpiFpi3LaPuCVh6wmWEqNborRzJwzmA7VVEUPr5
+	 LXxy33DvSVxw2asWsHoxaAxxP2/i6uKtKY7dK6so5SeNIgn/wE7Xy8MKN9QQ8vyliC
+	 ZB/JsJFn2yoSqdSfzzdsyqLWWOLrwvO1y1lvyOnQ=
+Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51P9gZ3r013415
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 25 Feb 2025 03:42:35 -0600
+Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE107.ent.ti.com
+ (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 25
+ Feb 2025 03:42:34 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 25 Feb 2025 03:42:34 -0600
+Received: from [172.24.26.121] (lt9560gk3.dhcp.ti.com [172.24.26.121])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51P9gTA9106909;
+	Tue, 25 Feb 2025 03:42:30 -0600
+Message-ID: <85a366e8-5136-4b0f-914f-95d36658840e@ti.com>
+Date: Tue, 25 Feb 2025 15:12:28 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <29ec24f1498392cafbecc0e0c0e23e1ce3289565.1740421248.git.mazziesaccount@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2 0/2] Fixes for perout configuration in IEP driver
+To: Jakub Kicinski <kuba@kernel.org>
+CC: Jacob Keller <jacob.e.keller@intel.com>, <lokeshvutla@ti.com>,
+        <vigneshr@ti.com>, <javier.carrasco.cruz@gmail.com>,
+        <diogo.ivo@siemens.com>, <horms@kernel.org>, <pabeni@redhat.com>,
+        <edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
+        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        Roger Quadros
+	<rogerq@kernel.org>, <danishanwar@ti.com>
+References: <20250219062701.995955-1-m-malladi@ti.com>
+ <415f755d-18a6-4c81-a1a7-b75d54a5886a@intel.com>
+ <20250220172410.025b96d6@kernel.org>
+Content-Language: en-US
+From: "Malladi, Meghana" <m-malladi@ti.com>
+In-Reply-To: <20250220172410.025b96d6@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_014029_954426_C47B0572 
-X-CRM114-Status: GOOD (  16.20  )
+X-CRM114-CacheID: sfid-20250225_014243_136474_827A24E9 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,46 +93,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-> +/**
-> + * device_get_child_node_count_named - number of child nodes with given name
-> + *
-> + * Scan device's child nodes and find all the nodes with a specific name and
-> + * return the number of found nodes. Potential '@number' -ending for scanned
-> + * names is ignored. Eg,
-> + * device_get_child_node_count(dev, "channel");
-> + * would match all the nodes:
-> + * channel { }, channel@0 {}, channel@0xabba {}...
-> + *
-> + * @dev: Device to count the child nodes for
-> + *
-> + * Return: the number of child nodes with a matching name for a given device.
-> + */
-> +unsigned int device_get_child_node_count_named(const struct device *dev,
-> +					       const char *name)
-> +{
-> +	struct fwnode_handle *child;
-> +	unsigned int count = 0;
-> +
-> +	device_for_each_child_node(dev, child)
-> +		if (fwnode_name_eq(child, "channel"))
 
-s/"channel"/name/ ?
+On 2/21/2025 6:54 AM, Jakub Kicinski wrote:
+> On Wed, 19 Feb 2025 15:37:16 -0800 Jacob Keller wrote:
+>> On 2/18/2025 10:26 PM, Meghana Malladi wrote:
+>>> IEP driver supports both pps and perout signal generation using testptp
+>>> application. Currently the driver is missing to incorporate the perout
+>>> signal configuration. This series introduces fixes in the driver to
+>>> configure perout signal based on the arguments passed by the perout
+>>> request.
+>>>    
+>>
+>> This could be interpreted as a feature implementation rather than a fix.
+>>
+>> Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+> 
+> Agreed, ideally we should get a patch for net which rejects
+> all currently (as in - in Linus's tree) unsupported settings.
+> That would be a fix.
+> 
+> Then once that's merged add support for the new settings in net-next.
+> 
+> Hope that makes sense?
 
-> +			count++;
-> +
-> +	return count;
-> +}
-> +EXPORT_SYMBOL_GPL(device_get_child_node_count_named);
+I do agree that this can be interpreted as a feature implementation (as 
+the bug here is: missing perout driver implementation for which the 
+driver claims it supports). I will post the updated patch series as 
+suggested by Jakub.
 
-I did not check how many users are you proposing for this, but if
-there's only one, then IMO this should not be a global function yet.
-It just feels to special case to me. But let's see what the others
-think.
+Thanks,
+Meghana Malladi.
 
-thanks,
-
--- 
-heikki
 
