@@ -4,70 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7DDEC021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:41:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46FDBC021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:41:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sxDpq1MTc8T7isEWATvD0EHbxutb1rkwsDjYgWdD0HY=; b=0XhReVyk1mrQEx/H9HEo0xJuQ4
-	73C/0XdVVq7Ahd8JPZc593Byygau56UpC6bFU/0HB4dsjDjIgdVn7bZmXjnIgdNtaI97J6k/DCMhj
-	RexY+VzmsYXgxFG4rPIs8J5kv0Jsymrdqj3N0PX3nUImqoJvOHFlP6Ai2cfW4ontZZXd45RQTR/AW
-	+gdSUTmtBYC2qVB5Q1Cah4AfzOc9WSQvwJE4GyK5rkGhrnZWS0SddzZ7q/OTgCQtjhZtZCP1meVkt
-	F/tgqz5oVQjOC9v06aGhsUCf7W46xt0iyiA2eNMpoD9CZvp1t4KeYqSkQ1KX+JGR1iNI4FetC3fCj
-	hYsSkFmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZwiobQ+ov2NGgIChlOLIJyU8mL2VZ/8aCAPBJC6i4xg=; b=X9VS4k5U+t13HIvsfRdMFXjNLI
+	MakBn0vO4CP7OMxN3nMxoVpBhgN71fFu1IMjmMEsFOdzoqO6q4erQLJcea5fpZsmQuMCYtPQLwGVO
+	tXN+rJI4Rqhn9drlI0NBb6kO85RhGmr/Gj39VSRosDOifEQW2aj9RYjhDxMqx1eudb7nfJWceh/VE
+	kRWxV7ayiRKN/FGgOJYznfmSY7epGqtlWLRhx8Pu9vk5k2g8u8bf0lfoW0bpb3N197nmBj6WUiGIA
+	vai7i7jGgjJ6wdcBDo0mXxcTmI49OU4I7jai5mG4g+rgK2AZ+hgGNe1BWgokmH6W947VrZ1264+Fj
+	uTyzV2SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmxzi-00000000JfX-204X;
-	Tue, 25 Feb 2025 16:41:18 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tmxzp-00000000JrZ-2K9V;
+	Tue, 25 Feb 2025 16:41:25 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmw26-0000000HXrJ-1KzB;
-	Tue, 25 Feb 2025 14:35:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1740494136;
-	bh=qVV8kVOhgmF8ivc217Cn73eSTlkBc3CdkndiqKhaMgE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=FhjLbkqddWAwTD4TtQ4cAhWO0rMwRCsgE9B3muy8SXbHEEhqkSiG+9bwExP/7MBCJ
-	 44dvHpYoviV1HjASKa7hm8dSvLG6t4hV3pMyhlFLOFU5vA/L+9sj/diiU7r6v8Hx98
-	 qaRfiJzJj7esvIksUT2kAyIpJXDZWyYEZujAaTeYC5M9W3nehQAwVRGz22x2TrdKVB
-	 AlwWx6xJ4WPvO6an2zvWKoXUFxf6OugCKBPuSwfNO90VfLXfGwL7+F2q2x7YbNNU+a
-	 i9IRZlWuHkKf2CwWlvHKC74vUrBH2fZft5IlSFRSgDo5jOuIKHOQDQFfAnYFfzrnTa
-	 bGccwDUcUBp1g==
-Received: from [192.168.0.47] (unknown [IPv6:2804:14c:1a9:53ee::1004])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id F15BA17E0DD7;
-	Tue, 25 Feb 2025 15:35:32 +0100 (CET)
-From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Date: Tue, 25 Feb 2025 11:33:54 -0300
-Subject: [PATCH v2 8/8] arm64: dts: mediatek: mt8390-genio-common: Add
- delay codec for DMIC
+	id 1tmw3L-0000000HY5t-0vI7
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Feb 2025 14:36:56 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4399deda38cso34964735e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 06:36:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740494213; x=1741099013; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZwiobQ+ov2NGgIChlOLIJyU8mL2VZ/8aCAPBJC6i4xg=;
+        b=c6uTAKqqbPQt6sXtgam2NA7/6H53Y0dIPj63OYwkoCh1D50DZLNd+3DgtxO8O0/oDs
+         bwJ30lTDypS/P7kFavQOEV4b0lHvgIuJpLts/ltw7f6R5ZksPhwaUHXd/jVAqDfQ5A0R
+         tvpKei/A9Wgel5XzMEz+V1U7H7RV7RAZGPoNA70kuY9XI6Dc3jfFvegcthzeMEHY/MCJ
+         dywt+96u62pA/cZhetLB2IFuQ68q65wZQBiep+7PqI7lSRMfGN94/QHjOYp7qxhC2bj0
+         4uYQ8nfEbnRYOS7noDGLoSvjsirNkTCTTB2FnRFfT/sGHptVfqo7q2jkRWKIFsPbJUhW
+         sX1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740494213; x=1741099013;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZwiobQ+ov2NGgIChlOLIJyU8mL2VZ/8aCAPBJC6i4xg=;
+        b=OtRtPqbrAsycMB7KeC7r9f8QkvZ9XZY0DodyCAQ6YP0wJ2Zrzb18KRkLgfq59h0ho/
+         N6GiLSnaI3ke4SiyFd38kOWmYNNePoCsq1TZDyW+IpPsE0ytsE6032j5y4XKQf/uSlIJ
+         juvq9oiXTQsXkbdzUBQ+Lf1Iwq7xJSZ+05QVk3EsIELIBa2LRMHMNFrCUJHsWpdqh+CP
+         5sIzQ4NixiquhvsiMsWnl/Rns1GuSacAkypDyqnjBCkol5Eo0i4yXLcnK0RQBNSYkovN
+         BmPlL9Crwjq8Q4WFIkO2kMDYGZaJlHgB9zjp1BrHuE2Men/iRpmO/u5E8ug8wN0ovp6A
+         TAeg==
+X-Forwarded-Encrypted: i=1; AJvYcCXr1i/zT2C6xemsZbHIdOA6nIzdxgSZ+XgwyLHoq6dGkaraoCV7P6co7J0EkjlyINAbjtoZGLcxlF+im3lM4dca@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3Hp4NS4y8AL4B5hyGBq/eluV2ODT2Ae51t2rNdY6ixINThtqt
+	raymWGdpS/LBMmhweBcam6R3Dtco7onfGskczl2emzXMpMyX1XOm
+X-Gm-Gg: ASbGnctyG2p96nDtWTx/aZXOus/3uVGdBXai32qMQYNKXte77KKj0i2VP77U2lV2NfP
+	LmW+LRTcQCwJKdeZGs56kWn+YQu9hVWKkZYqJ6OM+t1IM9OVmr3ydB4aw6hygLkeKpcmRs/Uz4T
+	N3DndMQFYSIwoQOt5AevRix308+8wV1h3iKyiecCyWkwQXRYS0tZp+lkrwuN9Ljp+ZvXbIGN409
+	Z0zGAiePWmJsAlz0EKRG6wIQMT4C0L+vFTIUmlhuFSLeeePKvxAA1fgay1PWvfL31CZLFWHU4RE
+	7j9b6vLtotEu3j2qinov0Pe1mMAvbi6hPVvslVXbyDCuO1yHVyJvvqljUvFVI5Q=
+X-Google-Smtp-Source: AGHT+IHqYyNIhjlrYWJKlXkPU9c+6qRV/sFcYlFP3Oo19VLSLbGLfo17beLiyZrjDoc/9WsbiQBXqQ==
+X-Received: by 2002:a05:600c:35cb:b0:439:942c:c1cd with SMTP id 5b1f17b1804b1-43ab0f41698mr32827425e9.15.1740494212733;
+        Tue, 25 Feb 2025 06:36:52 -0800 (PST)
+Received: from Junction.dargent.eu (242.76.29.93.rev.sfr.net. [93.29.76.242])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390cd8829cesm2474493f8f.49.2025.02.25.06.36.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Feb 2025 06:36:52 -0800 (PST)
+From: Regis Dargent <regis.dargent@gmail.com>
+To: 
+Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-watchdog@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3] watchdog: sunxi_wdt: Allow watchdog to remain enabled after probe
+Date: Tue, 25 Feb 2025 15:36:37 +0100
+Message-Id: <20250225143638.1989755-1-regis.dargent@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250225-genio700-dmic-v2-8-3076f5b50ef7@collabora.com>
-References: <20250225-genio700-dmic-v2-0-3076f5b50ef7@collabora.com>
-In-Reply-To: <20250225-genio700-dmic-v2-0-3076f5b50ef7@collabora.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Trevor Wu <trevor.wu@mediatek.com>
-Cc: kernel@collabora.com, linux-sound@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
- Zoran Zhan <zoran.zhan@mediatek.com>
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_063538_501180_0953030C 
-X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-CacheID: sfid-20250225_063655_257340_94BA2C9D 
+X-CRM114-Status: UNSURE (   8.71  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,53 +103,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The signal from the dual digital microphones connected to the DMIC_BE
-takes 30ms to settle after being enabled. Add a dmic-codec with
-corresponding wakeup-delay-ms to prevent an initial "pop" sound when
-recording with the microphones.
+Hi,
 
-Co-developed-by: Zoran Zhan <zoran.zhan@mediatek.com>
-Signed-off-by: Zoran Zhan <zoran.zhan@mediatek.com>
-Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
----
- arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+V3 of the patch allowing sunxi watchdog to remain enabled after probe.
+This 3rd version is mainly about code cleanup.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi b/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
-index efdeca88b8c4e58f0c17825156276babf19af145..6aa59acd77c245e5fcf7044859a5985f503daeb3 100644
---- a/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
-@@ -218,6 +218,13 @@ usb_p2_vbus: regulator-9 {
- 		regulator-max-microvolt = <5000000>;
- 		enable-active-high;
- 	};
-+
-+	dmic_codec: dmic-codec {
-+		#sound-dai-cells = <0>;
-+		compatible = "dmic-codec";
-+		num-channels = <2>;
-+		wakeup-delay-ms = <30>;
-+	};
- };
- 
- &adsp {
-@@ -974,6 +981,14 @@ codec {
- 			sound-dai = <&pmic 0>;
- 		};
- 	};
-+
-+	dai-link-1 {
-+		link-name = "DMIC_BE";
-+
-+		codec {
-+			sound-dai = <&dmic_codec>;
-+		};
-+	};
- };
- 
- &spi2 {
+Best regards,
+Regis
 
--- 
-2.48.1
+Jernej Škrabec:
+  I wouldn't add checks on CONFIG_WATCHDOG_HANDLE_BOOT_ENABLED here.
+  My understanding is that this config is already managed in the generic
+  watchdog part, as long as the WDOG_HW_RUNNING bit matches the actual
+  state of the HW watchdog timer.
+  I only saw one reference in a HW driver, stm32_iwdg, where they cannot
+  read the watchdog state, so they start it and set the WDOG_HW_RUNNING
+  bit so that both match.
+
 
 
