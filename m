@@ -4,66 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67ECFC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 22:24:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 251E1C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 22:27:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/7Qfm5r1jq12hZzcqmc0YcQyVun0DCNgd0NuHzqRQtU=; b=aLVUm9/AMSSR2EQ2C5EKzHDMXw
-	9FDDZifjspbtQV14Cs1Q5WHVHvjhZy3VrmrNzQeHkY3gVoy10a1QE1hgC93qFtGGCSBXFCS3RjQZb
-	GnMJDWf+v0XyymqQH81im/LuCvF/q0nc+6ih8pN9G/c1WJg2F3TR4pOJG1u+bAKW6SahKXuECvp9B
-	3II7N+8B/u3kGmMGvXFYY96YIjegXN6pzkQtjUXo4citZCDLCuC7w2pJLTRurh/4vQgTLc+kn0pN/
-	iUNf/O2kIGThbYfcw5krERtbR7YbDohl01BtjRZHrnonaHeEY/SeR2XUfvEBxTQZbqyB6LwZBOJJY
-	tnCseXBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4snbY5kKjPs+fqnW4bDVzUWCVcYb+NMujdrOx1UsTIo=; b=Mo1GcJHFFOp+zYLql16pGu3+ob
+	j/UG4MSlZQaTWp2rIgVL+f6PrYj3Wa24XrqN6Mh/c4d0yXniI6Oh4FhcPM/1PLIwe27HGe8kPLHra
+	wYiogUhVdPsGzDbR78sHiMkMTFlE4bVfJwz0trz389hMNCOUy7do5pqXTrfsdtA8dyZsqF/eeRZXK
+	cFikHGIcpP291bzs5rG6xWex0j34/zfCRMbQchxVhV8VuisOxaVu1dtqcXNAub2T6wzjmjJNN5DbF
+	PLaVCQd5T4bTnDfLkLsFZMlno+JfP/5RxrB7bs1gApSVT3Q1Lu4B1+IC9/Z7PsoCRzlqe9nlstl/6
+	P9L1LcSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn3Lc-00000001gWA-15c0;
-	Tue, 25 Feb 2025 22:24:16 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn3K3-00000001g2P-30VA;
-	Tue, 25 Feb 2025 22:22:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=/7Qfm5r1jq12hZzcqmc0YcQyVun0DCNgd0NuHzqRQtU=; b=dif+GXen+YI/pNv93D8+O4d/sP
-	YhVNcSTPfA1XF6pfaUTw1mbIGNLCHceicWknYH/ZCz1BotOsmJGvPHo1IV+v7rKResE//FAck9HlW
-	+zljZjB0SBtg18MFbSa7+iPosNiL0RbMjX3JOBHc9Sjt/ouXttEIxGXzUjFMBqlD6USUCAgALP9eY
-	cnt97DhfPaXAfGmJLTSTXB8O51MnM2O4+zp9+Nc25s7nlf9It7tga6dG1TWcPen6WGNivDKorJBDP
-	xJkPrEFrZBF7fjZTQxO0nFWXH4ovmroKsfz7dtDfygxPCiaebcK0DZitP01KHB10cRU8E+XgIOdoE
-	vpZOMJNg==;
-Received: from i53875b47.versanet.de ([83.135.91.71] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tn3Jy-0008Ll-D7; Tue, 25 Feb 2025 23:22:34 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: vkoul@kernel.org, kishon@kernel.org,
- Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- quentin.schulz@cherry.de, sebastian.reichel@collabora.com,
- Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: Re: [PATCH 1/2] phy: rockchip: usbdp: move type-orientation-switch further
- down
-Date: Tue, 25 Feb 2025 23:22:33 +0100
-Message-ID: <2868016.XrmoMso0CX@diego>
-In-Reply-To: <7a8e6b9f-2fa2-4794-bb4f-3abdb784fbc3@wanadoo.fr>
-References: <20250225184519.3586926-1-heiko@sntech.de>
- <20250225184519.3586926-2-heiko@sntech.de>
- <7a8e6b9f-2fa2-4794-bb4f-3abdb784fbc3@wanadoo.fr>
+	id 1tn3OH-00000001hF7-1W89;
+	Tue, 25 Feb 2025 22:27:01 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tn3Mk-00000001gt9-0Qez
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Feb 2025 22:25:27 +0000
+Received: from [10.137.184.60] (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 1BF1D203CDFE;
+	Tue, 25 Feb 2025 14:25:25 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 1BF1D203CDFE
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1740522325;
+	bh=4snbY5kKjPs+fqnW4bDVzUWCVcYb+NMujdrOx1UsTIo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GmOF2vVuCkJZ1DfUd1ljj8/fusb2yUMbDy2WmYxFrMMfaTTzbAqkWEUBwLUg55zpF
+	 Eal2Uv7psJ6AMd7GHQIuT0F5bT24oqPS+VN9NVDy5j/15vSuizsFBxdX1p+w7B0n5d
+	 f2jfhVcFODVbMweP0SK+AakuXEGuKdQiYOukQldU=
+Message-ID: <a96f9469-a22e-43e7-825d-f67ef550898f@linux.microsoft.com>
+Date: Tue, 25 Feb 2025 14:25:24 -0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH hyperv-next v4 1/6] arm64: hyperv: Use SMCCC to detect
+ hypervisor presence
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: benhill@microsoft.com, bperkins@microsoft.com, sunilmut@microsoft.com,
+ bhelgaas@google.com, Borislav Petkov <bp@alien8.de>,
+ Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley
+ <conor+dt@kernel.org>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Dexuan Cui <decui@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>,
+ "H. Peter Anvin" <hpa@zytor.com>, krzk+dt@kernel.org,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ "K. Y. Srinivasan" <kys@microsoft.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Ingo Molnar <mingo@redhat.com>, Rob Herring <robh@kernel.org>,
+ ssengar@linux.microsoft.com, Thomas Gleixner <tglx@linutronix.de>,
+ Wei Liu <wei.liu@kernel.org>, Will Deacon <will@kernel.org>,
+ devicetree@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org
+References: <20250212014321.1108840-1-romank@linux.microsoft.com>
+ <20250212014321.1108840-2-romank@linux.microsoft.com>
+ <1b14e3de-4d3e-420c-819c-31ffb2d448bd@app.fastmail.com>
+ <593c22ca-6544-423d-84ee-7a06c6b8b5b9@linux.microsoft.com>
+ <97887849-faa8-429b-862b-daf6faf89481@app.fastmail.com>
+ <6e4685fe-68e9-43bd-96c5-b871edb1b971@linux.microsoft.com>
+ <14a199d8-1cf3-49bc-8e0d-92d9c8407b4f@linux.microsoft.com>
+ <55b65ba6-4abe-478c-a173-4622c30ddd7b@app.fastmail.com>
+Content-Language: en-US
+From: Roman Kisel <romank@linux.microsoft.com>
+In-Reply-To: <55b65ba6-4abe-478c-a173-4622c30ddd7b@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_142239_892800_CAE267AE 
-X-CRM114-Status: GOOD (  23.46  )
+X-CRM114-CacheID: sfid-20250225_142526_197800_4853FD07 
+X-CRM114-Status: GOOD (  26.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,190 +91,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 25. Februar 2025, 23:16:21 MEZ schrieb Christophe JAILLET:
-> Le 25/02/2025 =C3=A0 19:45, Heiko Stuebner a =C3=A9crit :
-> > From: Heiko Stuebner <heiko.stuebner@cherry.de>
-> >=20
-> > Move the typec-orientation-switch functionality further down, next to
-> > the typec-mux code. Not only brings this the typec-related functionality
-> > closer together, but also the following change needs access to other
-> > driver functions, that are below the current position.
-> >=20
-> > No functional change.
-> >=20
-> > Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-> > ---
-> >   drivers/phy/rockchip/phy-rockchip-usbdp.c | 166 +++++++++++-----------
-> >   1 file changed, 83 insertions(+), 83 deletions(-)
-> >=20
-> > diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/ro=
-ckchip/phy-rockchip-usbdp.c
-> > index 5b1e8a3806ed..7b17c82ebcfc 100644
-> > --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
-> > +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-> > @@ -616,89 +616,6 @@ static void rk_udphy_dp_hpd_event_trigger(struct r=
-k_udphy *udphy, bool hpd)
-> >   	rk_udphy_grfreg_write(udphy->vogrf, &cfg->vogrfcfg[udphy->id].hpd_tr=
-igger, hpd);
-> >   }
-> >  =20
-> > -static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
-> > -{
-> > -	if (udphy->flip) {
-> > -		udphy->dp_lane_sel[0] =3D 0;
-> > -		udphy->dp_lane_sel[1] =3D 1;
-> > -		udphy->dp_lane_sel[2] =3D 3;
-> > -		udphy->dp_lane_sel[3] =3D 2;
-> > -		udphy->lane_mux_sel[0] =3D PHY_LANE_MUX_DP;
-> > -		udphy->lane_mux_sel[1] =3D PHY_LANE_MUX_DP;
-> > -		udphy->lane_mux_sel[2] =3D PHY_LANE_MUX_USB;
-> > -		udphy->lane_mux_sel[3] =3D PHY_LANE_MUX_USB;
-> > -		udphy->dp_aux_dout_sel =3D PHY_AUX_DP_DATA_POL_INVERT;
-> > -		udphy->dp_aux_din_sel =3D PHY_AUX_DP_DATA_POL_INVERT;
-> > -		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 1);
-> > -		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 0);
-> > -	} else {
-> > -		udphy->dp_lane_sel[0] =3D 2;
-> > -		udphy->dp_lane_sel[1] =3D 3;
-> > -		udphy->dp_lane_sel[2] =3D 1;
-> > -		udphy->dp_lane_sel[3] =3D 0;
-> > -		udphy->lane_mux_sel[0] =3D PHY_LANE_MUX_USB;
-> > -		udphy->lane_mux_sel[1] =3D PHY_LANE_MUX_USB;
-> > -		udphy->lane_mux_sel[2] =3D PHY_LANE_MUX_DP;
-> > -		udphy->lane_mux_sel[3] =3D PHY_LANE_MUX_DP;
-> > -		udphy->dp_aux_dout_sel =3D PHY_AUX_DP_DATA_POL_NORMAL;
-> > -		udphy->dp_aux_din_sel =3D PHY_AUX_DP_DATA_POL_NORMAL;
-> > -		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 0);
-> > -		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 1);
-> > -	}
-> > -
-> > -	udphy->mode =3D UDPHY_MODE_DP_USB;
-> > -}
-> > -
-> > -static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
-> > -				 enum typec_orientation orien)
-> > -{
-> > -	struct rk_udphy *udphy =3D typec_switch_get_drvdata(sw);
-> > -
-> > -	mutex_lock(&udphy->mutex);
-> > -
-> > -	if (orien =3D=3D TYPEC_ORIENTATION_NONE) {
-> > -		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 0);
-> > -		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 0);
-> > -		/* unattached */
-> > -		rk_udphy_usb_bvalid_enable(udphy, false);
-> > -		goto unlock_ret;
-> > -	}
-> > -
-> > -	udphy->flip =3D (orien =3D=3D TYPEC_ORIENTATION_REVERSE) ? true : fal=
-se;
-> > -	rk_udphy_set_typec_default_mapping(udphy);
-> > -	rk_udphy_usb_bvalid_enable(udphy, true);
-> > -
-> > -unlock_ret:
-> > -	mutex_unlock(&udphy->mutex);
-> > -	return 0;
-> > -}
-> > -
-> > -static void rk_udphy_orien_switch_unregister(void *data)
-> > -{
-> > -	struct rk_udphy *udphy =3D data;
-> > -
-> > -	typec_switch_unregister(udphy->sw);
-> > -}
-> > -
-> > -static int rk_udphy_setup_orien_switch(struct rk_udphy *udphy)
-> > -{
-> > -	struct typec_switch_desc sw_desc =3D { };
-> > -
-> > -	sw_desc.drvdata =3D udphy;
-> > -	sw_desc.fwnode =3D dev_fwnode(udphy->dev);
-> > -	sw_desc.set =3D rk_udphy_orien_sw_set;
-> > -
-> > -	udphy->sw =3D typec_switch_register(udphy->dev, &sw_desc);
-> > -	if (IS_ERR(udphy->sw)) {
-> > -		dev_err(udphy->dev, "Error register typec orientation switch: %ld\n",
-> > -			PTR_ERR(udphy->sw));
-> > -		return PTR_ERR(udphy->sw);
-> > -	}
-> > -
-> > -	return devm_add_action_or_reset(udphy->dev,
-> > -					rk_udphy_orien_switch_unregister, udphy);
-> > -}
-> > -
-> >   static int rk_udphy_refclk_set(struct rk_udphy *udphy)
-> >   {
-> >   	unsigned long rate;
-> > @@ -1323,6 +1240,89 @@ static const struct phy_ops rk_udphy_usb3_phy_op=
-s =3D {
-> >   	.owner		=3D THIS_MODULE,
-> >   };
-> >  =20
-> > +static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
-> > +{
-> > +	if (udphy->flip) {
-> > +		udphy->dp_lane_sel[0] =3D 0;
-> > +		udphy->dp_lane_sel[1] =3D 1;
-> > +		udphy->dp_lane_sel[2] =3D 3;
-> > +		udphy->dp_lane_sel[3] =3D 2;
-> > +		udphy->lane_mux_sel[0] =3D PHY_LANE_MUX_DP;
-> > +		udphy->lane_mux_sel[1] =3D PHY_LANE_MUX_DP;
-> > +		udphy->lane_mux_sel[2] =3D PHY_LANE_MUX_USB;
-> > +		udphy->lane_mux_sel[3] =3D PHY_LANE_MUX_USB;
-> > +		udphy->dp_aux_dout_sel =3D PHY_AUX_DP_DATA_POL_INVERT;
-> > +		udphy->dp_aux_din_sel =3D PHY_AUX_DP_DATA_POL_INVERT;
-> > +		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 1);
-> > +		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 0);
-> > +	} else {
-> > +		udphy->dp_lane_sel[0] =3D 2;
-> > +		udphy->dp_lane_sel[1] =3D 3;
-> > +		udphy->dp_lane_sel[2] =3D 1;
-> > +		udphy->dp_lane_sel[3] =3D 0;
-> > +		udphy->lane_mux_sel[0] =3D PHY_LANE_MUX_USB;
-> > +		udphy->lane_mux_sel[1] =3D PHY_LANE_MUX_USB;
-> > +		udphy->lane_mux_sel[2] =3D PHY_LANE_MUX_DP;
-> > +		udphy->lane_mux_sel[3] =3D PHY_LANE_MUX_DP;
-> > +		udphy->dp_aux_dout_sel =3D PHY_AUX_DP_DATA_POL_NORMAL;
-> > +		udphy->dp_aux_din_sel =3D PHY_AUX_DP_DATA_POL_NORMAL;
-> > +		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 0);
-> > +		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 1);
-> > +	}
-> > +
-> > +	udphy->mode =3D UDPHY_MODE_DP_USB;
-> > +}
-> > +
-> > +static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
-> > +				 enum typec_orientation orien)
-> > +{
-> > +	struct rk_udphy *udphy =3D typec_switch_get_drvdata(sw);
-> > +
-> > +	mutex_lock(&udphy->mutex);
-> > +
-> > +	if (orien =3D=3D TYPEC_ORIENTATION_NONE) {
-> > +		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 0);
-> > +		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 0);
-> > +		/* unattached */
-> > +		rk_udphy_usb_bvalid_enable(udphy, false);
-> > +		goto unlock_ret;
-> > +	}
-> > +
-> > +	udphy->flip =3D (orien =3D=3D TYPEC_ORIENTATION_REVERSE) ? true : fal=
-se;
-> > +	rk_udphy_set_typec_default_mapping(udphy);
-> > +	rk_udphy_usb_bvalid_enable(udphy, true);
-> > +
-> > +unlock_ret:
-> > +	mutex_unlock(&udphy->mutex);
-> > +	return ret;
->=20
-> This will break built.
->=20
-> It was return 0 preivously.
-> This change should be aprt of 2/2 where "int ret;" is introduced.
 
-Thanks for noticing that mishap, will fix that in v2.
 
-Heiko
+On 2/24/2025 11:24 PM, Arnd Bergmann wrote:
+> On Tue, Feb 25, 2025, at 00:22, Roman Kisel wrote:
+>> Hi Arnd,
 
+[...]
+
+> If you want to declare a uuid here, I think you should remove the
+> ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_{0,1,2,3} macros and just
+> have UUID in normal UUID_INIT() notation as we do for
+> other UUIDs.
+
+I'd gladly stick to that provided I have your support of touching
+KVM's code! As the SMCCC document states, there shall be an UUID,
+and in the kernel, there would be
+
+#define ARM_SMCCC_VENDOR_KVM_UID UUID_INIT(.......)
+#define ARM_SMCCC_VENDOR_HYP_UID UUID_INIT(.......)
+
+Hence, the ARM_SMCCC_VENDOR_HYP_UID_*_REG_{0,1,2,3} can be removed as
+you're suggesting.
+
+That looks enticing enough semantically as though we're building layers
+from the SMCCC spec down to the "on-wire format" -- the only part that
+needs "deserializing" the UUID from `struct arm_smccc_res` the
+hypervisor returns.
+
+To add to that, anyone who wishes to implement a hypervisor for arm64
+will have to use some RFC 9562-compliant UUID generating facility. Thus,
+the UUID predates these 4 dwords. Using UUIDs in the kernel code will
+relieve of the chore of figuring out the 4 dwords from the UUID.
+
+Also, for the Gunyah folks will be pretty easy to use this infra:
+define the UUID in the header (1 line), call the new function (1 line),
+done.
+
+> 
+> If you want to keep the four 32-bit values and pass them into
+> arm_smccc_hyp_present() directly, I think that is also fine,
+> but in that case, I would try to avoid calling it a UUID.
+
+IMO, that approach provides a simplicity where anyone can see if the
+code is wrong from a quick glance: just compare 4 dwords. The fact that
+the 4 dwords form an UUID is bypassed though (as it is in the existing
+code). Somehow feels not spec-accurate imo. Also when I remove the UID
+part from the names, I'm going to have a rather weak justification as
+to why this is a benefit.
+
+Likely, there are two levels of improvement here:
+
+1. Just refactor the common parts out and have
+    `bool arm_smccc_hyp_present(u32 reg0, u32 reg1, u32 reg2, u32 reg2);`
+
+2. Introduce the UUID usage throughout and have a spec-accurate
+    prototype of
+    `bool arm_smccc_hyp_present(const uuid_t *hyp_uuid);`
+
+and would be great to go for the second one :)
+
+> 
+> How are the kvm and hyperv values specified originally?
+>>From the SMCCC document it seems like they are meant to be
+> UUIDs, so I would expect them to be in canonical form rather
+> than the smccc return values, but I could not find a document
+> for them.
+
+For hyperv case, `uuidgen` produced the UUID and that is used.
+Likely the same for kvm.
+
+> 
+>       Arnd
+
+-- 
+Thank you,
+Roman
 
 
