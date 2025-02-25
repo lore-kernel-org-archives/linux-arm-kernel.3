@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B97C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 18:10:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C06ACC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 18:12:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kzZPwS+0OSiBGJdEXWvJFNaLRU3jzdcwxGBemC/KgK4=; b=oTlGwVIn2gtowsR3c9Nx6/pyNl
-	CAde19oFYWiX7Z86Irou9FUiYTIOxeAqj+buk1FLSC0poBh1y9/4uA1TZiKsH4yBv0EV13I6mvNiN
-	qS/3ncbWfew5C73Q3mh10aRC84a1X6MoLih0EVHnAaZ5DNKNDzIlfaw9Mb8YbBJtLW4iwGfb9AsIS
-	x2kEe5h8IlWJeg2aiv8R7MmOjmxYKHw43H8UcpD+AS5jf+f9iUi/FMcyAC3Hiyz3tBNGxQABZvUpe
-	iz4LlhzTbpnoUXsYyXXG5DU93tG2A7y9bkvZ56Li2hcdX5efKaGlH0wryczm6ddR+kKPVz513Vku3
-	dPAjvVPQ==;
+	bh=+PgJIk0VYwShwfczSbP/REczLdiMUz6JqC9aciUpCfM=; b=SMtKeAY+HCUA8L/GeVhAWNCnP9
+	cp5AkkdELHvdCtJdL3rYViKuvN5eTKT09smyFGfAMjC4gbOZuLcBABkZA34JZTtd3Te2yJ5bPpTeE
+	zRNyUjW58hvkLxruixF8wBfqDNA0nfoZ5FpRnfh2yrS+gfVK0MLFFnDVy52lOXM0Q7n3m36XfvC6B
+	CTKUfu8tnlFRe5HWYOo3FpIUocJfr4GCjSj5OCelTo1vwiNatTKn+QoDjXFGz1LJbc5QtRu+1QWoG
+	IAKQ6sNheQCdr3TiyGXxxwCfHAAEYuvDZ7IMxzFb7yUV8sGn2O43sOuuEKQKKFI+qKLFTxRtUr0Se
+	ihLOy7jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmzO4-00000000qjk-3kgc;
-	Tue, 25 Feb 2025 18:10:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tmzPa-00000000rK2-2dMf;
+	Tue, 25 Feb 2025 18:12:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmykd-00000000eA7-1WPc
+	id 1tmykd-00000000eA9-1qyu
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 25 Feb 2025 17:29:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D8FFD612BF;
+	by tor.source.kernel.org (Postfix) with ESMTP id E83CB612C5;
 	Tue, 25 Feb 2025 17:29:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7183FC4CEDD;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F384C4CEEB;
 	Tue, 25 Feb 2025 17:29:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1740504586;
-	bh=yuFlDaL+lICxdp2tle8fmEhBUnWIS+5Z4d11toXNzuA=;
+	bh=xRpO2zj0gHFpycFMnNKG7Uh812YDKZ2YV9mcceXqpxY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BkywAXEHE+vXVsJO8cTN+uazJApsc5KRhQlVX7lPa2dFPqVNu2vGKtxcow1GVV5Cg
-	 prluah5FAkTD1Th87m7x9ytzEp2g+xU7svlXR3yL2+8IeZoI7yH6yWkGO2sDFvFP9p
-	 72I+4Qcoana3Svzygo+AvAWM/21DFs/eM9CLvX40uDgRJUAlCKy1IIi13vwieOCyL5
-	 rMd0IetCSibR6N8Wop4r6mcgttuDenMAYreLL2gmmydC6h7vKKW3aXZz986fnVWW4l
-	 raIoL6er8hEJRLf92GxwQBHujlihfgWfjadJpuUKJwfap9bcPjvmRHe8uLDmkwlnCc
-	 6XYISfjL6DQaA==
+	b=BDnRM3IxjEJkeVQOBdCG4E8RMlRe1FBA8A71/YjD77XhbNWeYmpnhEksILDooMi7o
+	 prlzTkZTndR3SXYKZZIiHty2XCUGV12rvNJSCT4WtL8mPK7fhsRXfwj7easx/UKoXG
+	 p0wOx9Z4jdIigb3ACJrIsYX86gnLDltRp9qPwS7M5u+7/wcaHQTwNTg5OOlQ79EgPX
+	 sD/CwrP74cyve3HYKvzSBrd/bT2Q1wts/7PzopMbtbkmrA/fO/AiY/bC/VuMd15Fni
+	 For6uW8jAHc2QT1ZCypsLhT9urRSzGWJ4LEAdHbE8EllsQi0tNdzWvjhMJb+rK+QnF
+	 KmznHTwFMbJKw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tmyka-007rKs-B5;
+	id 1tmyka-007rKs-N5;
 	Tue, 25 Feb 2025 17:29:44 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Andre Przywara <andre.przywara@arm.com>,
 	Eric Auger <eric.auger@redhat.com>
-Subject: [PATCH v4 03/16] arm64: sysreg: Add layout for ICH_MISR_EL2
-Date: Tue, 25 Feb 2025 17:29:17 +0000
-Message-Id: <20250225172930.1850838-4-maz@kernel.org>
+Subject: [PATCH v4 05/16] KVM: arm64: nv: Add ICH_*_EL2 registers to vpcu_sysreg
+Date: Tue, 25 Feb 2025 17:29:19 +0000
+Message-Id: <20250225172930.1850838-6-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250225172930.1850838-1-maz@kernel.org>
 References: <20250225172930.1850838-1-maz@kernel.org>
@@ -84,88 +84,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ICH_MISR_EL2-related macros are missing a number of status
-bits that we are about to handle. Take this opportunity to fully
-describe the layout of that register as part of the automatic
-generation infrastructure.
+FEAT_NV2 comes with a bunch of register-to-memory redirection
+involving the ICH_*_EL2 registers (LRs, APRs, VMCR, HCR).
 
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+Adds them to the vcpu_sysreg enumeration.
+
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/sysreg.h       |  5 -----
- arch/arm64/tools/sysreg               | 12 ++++++++++++
- tools/arch/arm64/include/asm/sysreg.h |  5 -----
- 3 files changed, 12 insertions(+), 10 deletions(-)
+ arch/arm64/include/asm/kvm_host.h | 26 ++++++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
 
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index b59b2c680e977..9511f3faac462 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -562,7 +562,6 @@
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 3a7ec98ef1238..7e0dc6b4cb99e 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -557,7 +557,33 @@ enum vcpu_sysreg {
+ 	VNCR(CNTP_CVAL_EL0),
+ 	VNCR(CNTP_CTL_EL0),
  
- #define SYS_ICH_VSEIR_EL2		sys_reg(3, 4, 12, 9, 4)
- #define SYS_ICC_SRE_EL2			sys_reg(3, 4, 12, 9, 5)
--#define SYS_ICH_MISR_EL2		sys_reg(3, 4, 12, 11, 2)
- #define SYS_ICH_EISR_EL2		sys_reg(3, 4, 12, 11, 3)
- #define SYS_ICH_ELRSR_EL2		sys_reg(3, 4, 12, 11, 5)
- #define SYS_ICH_VMCR_EL2		sys_reg(3, 4, 12, 11, 7)
-@@ -983,10 +982,6 @@
- #define SYS_MPIDR_SAFE_VAL	(BIT(31))
- 
- /* GIC Hypervisor interface registers */
--/* ICH_MISR_EL2 bit definitions */
--#define ICH_MISR_EOI		(1 << 0)
--#define ICH_MISR_U		(1 << 1)
--
- /* ICH_LR*_EL2 bit definitions */
- #define ICH_LR_VIRTUAL_ID_MASK	((1ULL << 32) - 1)
- 
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 3e82a072eb493..2c63662c1a489 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -3071,6 +3071,18 @@ Res0	17:5
- Field	4:0	ListRegs
- EndSysreg
- 
-+Sysreg	ICH_MISR_EL2	3	4	12	11	2
-+Res0	63:8
-+Field	7	VGrp1D
-+Field	6	VGrp1E
-+Field	5	VGrp0D
-+Field	4	VGrp0E
-+Field	3	NP
-+Field	2	LRENP
-+Field	1	U
-+Field	0	EOI
-+EndSysreg
++	VNCR(ICH_LR0_EL2),
++	VNCR(ICH_LR1_EL2),
++	VNCR(ICH_LR2_EL2),
++	VNCR(ICH_LR3_EL2),
++	VNCR(ICH_LR4_EL2),
++	VNCR(ICH_LR5_EL2),
++	VNCR(ICH_LR6_EL2),
++	VNCR(ICH_LR7_EL2),
++	VNCR(ICH_LR8_EL2),
++	VNCR(ICH_LR9_EL2),
++	VNCR(ICH_LR10_EL2),
++	VNCR(ICH_LR11_EL2),
++	VNCR(ICH_LR12_EL2),
++	VNCR(ICH_LR13_EL2),
++	VNCR(ICH_LR14_EL2),
++	VNCR(ICH_LR15_EL2),
 +
- Sysreg	CONTEXTIDR_EL2	3	4	13	0	1
- Fields	CONTEXTIDR_ELx
- EndSysreg
-diff --git a/tools/arch/arm64/include/asm/sysreg.h b/tools/arch/arm64/include/asm/sysreg.h
-index 5d9d7e394b254..b6c5ece4fdee7 100644
---- a/tools/arch/arm64/include/asm/sysreg.h
-+++ b/tools/arch/arm64/include/asm/sysreg.h
-@@ -558,7 +558,6 @@
++	VNCR(ICH_AP0R0_EL2),
++	VNCR(ICH_AP0R1_EL2),
++	VNCR(ICH_AP0R2_EL2),
++	VNCR(ICH_AP0R3_EL2),
++	VNCR(ICH_AP1R0_EL2),
++	VNCR(ICH_AP1R1_EL2),
++	VNCR(ICH_AP1R2_EL2),
++	VNCR(ICH_AP1R3_EL2),
+ 	VNCR(ICH_HCR_EL2),
++	VNCR(ICH_VMCR_EL2),
  
- #define SYS_ICH_VSEIR_EL2		sys_reg(3, 4, 12, 9, 4)
- #define SYS_ICC_SRE_EL2			sys_reg(3, 4, 12, 9, 5)
--#define SYS_ICH_MISR_EL2		sys_reg(3, 4, 12, 11, 2)
- #define SYS_ICH_EISR_EL2		sys_reg(3, 4, 12, 11, 3)
- #define SYS_ICH_ELRSR_EL2		sys_reg(3, 4, 12, 11, 5)
- #define SYS_ICH_VMCR_EL2		sys_reg(3, 4, 12, 11, 7)
-@@ -979,10 +978,6 @@
- #define SYS_MPIDR_SAFE_VAL	(BIT(31))
- 
- /* GIC Hypervisor interface registers */
--/* ICH_MISR_EL2 bit definitions */
--#define ICH_MISR_EOI		(1 << 0)
--#define ICH_MISR_U		(1 << 1)
--
- /* ICH_LR*_EL2 bit definitions */
- #define ICH_LR_VIRTUAL_ID_MASK	((1ULL << 32) - 1)
- 
+ 	NR_SYS_REGS	/* Nothing after this line! */
+ };
 -- 
 2.39.2
 
