@@ -4,169 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBF10C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 01:47:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74210C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 01:49:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nS10oNLp1rAJRzLDn+WW278lTI1qqu3gWgYTfzsq8qU=; b=WKAHO5ImszgChom9QT8PZnaQt6
-	Xp3eFPjJ4c0qVLdopF7skoFzYARjRV5azxZdJn5PYW6KmVm/D5Vwxp8ifNBdlkhWAhsNzQ08Y+Bvn
-	1y36ekkli3ECUwX4BuEkQiKJkizRn5y+dRKddRm2BOeSok7xsDNOiUUJmXMbmvMeirBTpaIvZRRoo
-	I2mScQCTmXNt382DDROqJ6gTJ1Fyi3Za+jllHR9AxdZtR8OgwkFohnoVbz3UsPzr7gliEEFuS3Hoq
-	0T7f+pPAlxYbCQnZ2PFwVSjFtWwBXGn0aB26iOlQ6dt6OLdaTxbQIK/veyztZ3u/mh7O7bdBhCP6I
-	sCjXnTDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5BIxNZpAxXmgtUZVoY5Vf5YilI6JIk11YmgayAzmSTM=; b=BrM2N/uV29gafSrX49M6HNojsU
+	37Uto9z1XK05Vsubz6Osh4CIxGvL/N30ba73RDL3EFnkxgoAgaUigRxiMHpnKQBnPQwk3tA6xE6B0
+	yXHvMoNHC+luH4PD7JuBfV8tDVdp4vAPfWpfDddFmg3S707Pbf9BCKe8UB3tCQ9c76exqUGKcOsle
+	SL8RXqlrP074MLLp46D5Q1lErVD2Riz/vcnQ9Q9HZQfJm+pGyPpxJJf/ZAqbFA9pYUuQDOfmUYXIX
+	WosUQrFZPTbTFs31GjJtMiFAXTRX2ciX8qypCoOp+3QH6sweyTz77JAHhZt3oQZUEAFNjKBln15aC
+	P1WfKKLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmk2O-0000000FjRo-2Yri;
-	Tue, 25 Feb 2025 01:47:08 +0000
-Received: from mail-db8eur05on2061a.outbound.protection.outlook.com ([2a01:111:f403:2614::61a] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1tmk4I-0000000Fjhk-2oUD;
+	Tue, 25 Feb 2025 01:49:06 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmjz8-0000000Fj3J-2FNS
+	id 1tmk2n-0000000FjWU-1lsR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 01:43:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GIEePxfNp3BQs+baHL3ASsYQNOgt57Szl09HYH0y3LgJRwO4rRlcBimd7HWR5HrcBJUu0Z4+8om+lIekPWQLbqeYuIq3ZjipixW4awWCRC4K2BHr7S0afo98vDJP+3+x+fozXur1O4ziCxGjBVmj9qAmzz6c4yXmZUjLfj+4f1rjV5jocb1xGhBEHSlQyMHWDXu5ZOB6AZRmkyjTBpDAN8weFZQsuSMydzKK6SVZqgROuSkg/D4wgFt5yAg62qhQJN6DC2vPX5cYH1yLQv6kS1sTajvHArLP+x/P0bAQgPZRsPFhQWA7v2rjz1Rtu4qRg/VOEZLv/+CBkmMkr/4TxA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nS10oNLp1rAJRzLDn+WW278lTI1qqu3gWgYTfzsq8qU=;
- b=iJ19sBA27wNtpsK0/m1h4HlHFfG7G0IKLVaCS7olIgJl7RvRtiFLnkIlA7oCV5uQ1dhvAZrz3Eoep6EjGrGBXZ+15JlwM3UNLQ0/HUWzENh/ufXDhQpuNdc7EY4YPtnc/bCfweb9gbcVKBCTix5rt1P3W+HeBjQeq0h/30t+SFZXGQf10VCTThRd/G6wxKn1+yfxMpqHdfgK0i2Vj2OIL+60KYbj6EKFhUg3/xBAe4yP86Ul+5v9oS6gwAAUb7AMABkka7oqsmZuQYISf7RAiSChLHoyL/HU3S9lfyUZjNbkPoxsEEvN5udOZsphB9QAvuRjPG+L8w0VX+05ugNb5g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nS10oNLp1rAJRzLDn+WW278lTI1qqu3gWgYTfzsq8qU=;
- b=CNCbUCokkgOXmWOp9A4JqWGa/1NxFDGEB7SJUNLy5Axiq+NGmIV5NfFB82q3cY+B0R1Z5Z5eaHyvMJhKlnlNQfJ4Vx1uTTRwm6tB/9RsLry3TpBuUgQdl5nGnEPtfNEGGpoa2JcXdlbmZMVpKgrIj9wd5WCmHWnp05Din+93qTublA6sG9TqvEJwldY8kQZBO7XnSbUShlbfb0Tvw9N/Xxk7Yu8Uhqc0jQ2sSavqhvR/DCmmbdZxqn3ofW8RUQoermAd/Le+cDZIusN0pEdvFOGtp3Y3g1SMiWgN/csT167qlQU0DGgcFhtYSqlsEsdNFOzXUDCyOe+rl2i1CAHj8g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
- by DB8PR04MB6876.eurprd04.prod.outlook.com (2603:10a6:10:116::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.19; Tue, 25 Feb
- 2025 01:43:37 +0000
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87%6]) with mapi id 15.20.8466.020; Tue, 25 Feb 2025
- 01:43:37 +0000
-Message-ID: <93c5d8b2-2eaa-4f5b-9326-93657cb063da@oss.nxp.com>
-Date: Tue, 25 Feb 2025 09:43:27 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] media: amphion: Add a frame flush mode for decoder
-To: Sebastian Fricke <sebastian.fricke@collabora.com>
-Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl, nicolas@ndufresne.ca,
- shawnguo@kernel.org, robh+dt@kernel.org, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
- xiahong.bao@nxp.com, eagle.zhou@nxp.com, tao.jiang_2@nxp.com,
- imx@lists.linux.dev, linux-media@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20250117075720.4018076-1-ming.qian@oss.nxp.com>
- <20250117075720.4018076-2-ming.qian@oss.nxp.com>
- <20250224141712.soexl43hrimwf236@basti-XPS-13-9310>
-From: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
-In-Reply-To: <20250224141712.soexl43hrimwf236@basti-XPS-13-9310>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SI2PR01CA0005.apcprd01.prod.exchangelabs.com
- (2603:1096:4:191::23) To PAXPR04MB8254.eurprd04.prod.outlook.com
- (2603:10a6:102:1cd::24)
+	Tue, 25 Feb 2025 01:47:34 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-30737db1ab1so39630521fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 17:47:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1740448051; x=1741052851; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5BIxNZpAxXmgtUZVoY5Vf5YilI6JIk11YmgayAzmSTM=;
+        b=arKeGKsURDcSuNzEebDBDjx89ZsCrFMhDar79l65e5lccPFtOCLFlCUHsCg24YZkqg
+         sfv3fzjk59TrIsTbTGBb1IW3DVAMm32JsQ19QdemmpTEcTVaDCiE6zeUmLd+c6sAPz/N
+         FO9pQWylJL+cmeYncNVfDguubKgvfsUxGT2fA=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740448051; x=1741052851;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5BIxNZpAxXmgtUZVoY5Vf5YilI6JIk11YmgayAzmSTM=;
+        b=QMi6qqF1OGWW84ViyGiWicWtgzEZtkMWDo+19eNECd9eyoj48Sj7uxtVe154OV1TjL
+         8qAr841gF3VMD1HyoZ9k/X0E5DIFMYjK0SEwft2ON8YpkWNEnNxBWtu2RUbY51zy91xd
+         9ozdg1bxCWgLdgzSNLFp5xH8+PH7e6wwDidTH9PyuIJCfEqwGaY+3Hnl28GoMDpzIlH4
+         L28KzSv/qJf/F1PAsbZGlKMDGL0aJ5fxJQq2wFlUb4BY/zGf0qDq8FJy2VEj69GvwPNH
+         Mn57DnYqS2mLVj1qV85dMmHt1ddYgEJGvQWIaeqyTag9Ka+NASuIY5f5Da/PTfuyGWgD
+         wILA==
+X-Forwarded-Encrypted: i=1; AJvYcCXmWnlEREX4bB8C+dp6/ApUz5BlY4ak2vb/33c8l9wyTvIPTeN4W8yG81SUllUDTMADPROpckhlwqc10b6WuMgR@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkNMgj3+yMVC0Ar4GLmXnguFSiHcwWiTW/thQABFOH2QD/cTVq
+	Ax33V83ukdYk2zsZnThylAgq7xrzunGWrQgVasXQCzjP9kFGBJ9O5IFU2jWDdrk5+2TPDqYV44F
+	u+que
+X-Gm-Gg: ASbGncv9BY0rAkEYMfZf9lFj9fTgNhxxfh2ZY1wuXn3Nty0VQSIx/uu3nDdmQML8Cpp
+	C9o/ilezBZbs6SOL+guvc69o9ToJBL2q77CXwTRCKBphGYWSDl+IDHXyRF+b0DspqeRwj3LVbRM
+	THc36n8K9og7w2Vxu36IjnlIi1vNxwMi3OidGOdolHlA6SmGu8YsUZneNq3svNbyFmrKzJYg2pF
+	QeCUPLRv8zJEOyXAUuPa94VEJaISvj0spPAhQO6RcWjlxtjKtRVMAbymigg1w2VEGmF5Hyo5O5g
+	6w5LXBEbeOyVN2LHGEHShOX8J8whzrVU/GC4m0URHjPOtbmBHQJ5v2mo/yThkuSqseQSQw==
+X-Google-Smtp-Source: AGHT+IH+VgLG/lvVqoH8Zq6ej7BYWgrgvYAA0Zb8mrY7qzKfTmkmKJ3nEO/H6IN3Dc2N13Q7/P5ypQ==
+X-Received: by 2002:a2e:3a0f:0:b0:300:1dbd:b252 with SMTP id 38308e7fff4ca-30a5b171b21mr43343661fa.7.1740448051307;
+        Mon, 24 Feb 2025 17:47:31 -0800 (PST)
+Received: from mail-lj1-f179.google.com (mail-lj1-f179.google.com. [209.85.208.179])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30a819e0c54sm909861fa.3.2025.02.24.17.47.31
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 24 Feb 2025 17:47:31 -0800 (PST)
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-30737db1ab1so39630461fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 17:47:31 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCV7qjb2YyDp64w4MLlzg0E//fc2KXXfkLiYnA4mFqDpogZA9JQkN2afVR3UiXn0Z/tDbajzk8WAkUAx1jsiOyad@lists.infradead.org
+X-Received: by 2002:a05:6512:10c6:b0:540:1f7d:8bce with SMTP id
+ 2adb3069b0e04-54839268617mr4611865e87.38.1740447670508; Mon, 24 Feb 2025
+ 17:41:10 -0800 (PST)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|DB8PR04MB6876:EE_
-X-MS-Office365-Filtering-Correlation-Id: f707221a-69b1-46f6-daa7-08dd553dd288
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?d0ZrSmpjeFN4TnpWUVlLRjNtVmQ2NzE4TFBqV3NiNnE5TmQ2d1dab2QxdDM1?=
- =?utf-8?B?dVhCU293aXdtNjg2a0ZQWXdkUHVxVFFPUUZRanVIc3VOaWdPdTVyajlTekdL?=
- =?utf-8?B?R0FBa09XUmtDMmtYdGZMeFhwR1NCQUxaM0RQSnZlNG9xTFBLdzlwWCtGWjJZ?=
- =?utf-8?B?TytYVllMYlZwc3Z5WHdWbmNJWXFNbi9xSlVHdlkwZGFDYmwvbGhGOW5xSG9K?=
- =?utf-8?B?OG5FZng5ZDZSbTV5ZStEQm4yRmwzZHZJV3BCR21IZHdTV3N3VHEwVjZnT0dR?=
- =?utf-8?B?SUlPaWVyT3cwUjVLdzhuVEVxTGRaaE1yQ25sbGZlUXIyamdEYzdMSDNlSWZx?=
- =?utf-8?B?cmd6VHN5N2hSVmU3b3hULy92TDhZd0VWQXltakh2YTFQa2Z5ZnBuRlVMTm9R?=
- =?utf-8?B?TnFHRGQyRE5RMTBqN1Y5OVZBelhTRkNsS3hCWFRDZ2JVTjVpSkFkOHdZWFFj?=
- =?utf-8?B?cXBiS1l5eW1ESEZWSFVoMi9jN1pydCsxUmJRcjNmRkI4VzZrL0ZoZnZUcTNC?=
- =?utf-8?B?T0VmcWM1aHJXeHpiTFRoVzlJNDVYbGUxam1melhHbGZKYzlJWFZVZHVFVFNw?=
- =?utf-8?B?S2ZRZi8yQjVLSytkQnJ1ZVAvM01HVEdoSXZsNkZ1WVV0V3Jmb2E5NFloUmVP?=
- =?utf-8?B?YVZZQzlzVGFaM1NNRVh4akZZbkdoVGRVNW9xaWV1Vkd4Z0ZZaDJFVEx5Yi82?=
- =?utf-8?B?Ylo0elN3MWFtcTB3WjhpTGorcGI2TEVicFA4cm94QnB5UG9Wa25Mb1BGa0VT?=
- =?utf-8?B?dko5R1NvbXhHVWQ0OFlNVkFMK0RrUGRUb01xdmF4NHJiRWw0Ni9KTDlVamNX?=
- =?utf-8?B?N25naG1GUitaQzk5N0lhU0dQSGhwUDBSb2FaSnN1QlBjY01JVnZQRDFtWE15?=
- =?utf-8?B?QkVoVCtBZzJKS3d6TUM3aExuaWVuNjd5OHNSRXRaSXF0c0NXK1RTNFlFQjdW?=
- =?utf-8?B?c3NtVG9oWlJZMU9vMTNaTisyL1ROdFo3MGxKNlRjczdDWUgxK0dvcEx4bE1S?=
- =?utf-8?B?QjQ3aG5GVmJKUDJONk55QXdKMVhLVmRYZjNubUVzSFRsakI4QVM1ZmFvRHg1?=
- =?utf-8?B?LzJSb0xtMVF2Qm82c2Zyb245ejFPZ2pBd01NR0o5YnhoZmNBV28yTjgrdFhy?=
- =?utf-8?B?cHBnakplRUVpZEowRzBqbFRGdmt5YVBGeVV0RzJ6TjF3dmZQS0dTeXdkbms3?=
- =?utf-8?B?V24vVit5aEdzVjNiZlpsOTNpRHhrbys1YWkvZ3BVQi9qRUlpV2hHempmN1NL?=
- =?utf-8?B?My9LSU5jUU9DN0lUWlE4YkV4MkZOWDcyQTRjVzRMaDZ0ZHdEblpjMVorbGQ0?=
- =?utf-8?B?WDdCWnVzb2l4c1pWcEdjLzdiY1dBOVVmTUhkN29zTEZPanFlOXNkTlcwZ002?=
- =?utf-8?B?Z21rYjlmQUdFZUF6NnZheWVtcUVoY2ZFWXBweTVvWlQ4eElpRUpYcWhXTnF6?=
- =?utf-8?B?N3d2TmtxTFdEMEdyaU96ZEdIUk1sTkJ5c0NqOTl6ZGJEbThsdzlTNzlWUkYy?=
- =?utf-8?B?TjE4cjlFaTluMVdvazVXV3paRlJ6TFh0dUd5cm9yL080Q3NzUEh2SGJLNE81?=
- =?utf-8?B?L3F5UzM4ai96eHRCMjBBTlBmSVZUenI1SGd2aXY3NDZBdHdScFpNUGNRazlM?=
- =?utf-8?B?blBvZDA2QlBiQkQ0Y1F6bXA4QmJhVDdua2ZBQzlSZHNxMENFWnpIYmVRb3lS?=
- =?utf-8?B?VDdFaHppUWhWdEJCV3JvTXo5K05HaGNPSlBCeXJiMW95bWZVWmYxaDFEY1pM?=
- =?utf-8?B?SmVQNXJZTWpLb2NZeEdhWWJFam1lWVhkNDA0a2RVMGtuK3dpRTArR0pIajdj?=
- =?utf-8?B?enJUQW9laEJGVEJWOENIcUZ1T2lDK2NRTjdiZGlRbXhSRGFWS2ZmTlArWmx4?=
- =?utf-8?Q?HVOFrT0FaUosX?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bWZLL3EyWU9MQ0lhQTRnZ3A4SzBYWndicjBBdEg3YjYzMzNmdm0rbUFOTFhG?=
- =?utf-8?B?aG1EdnZsNDlIOGxBY08vV0RPNGtDalZTVU1sMDFMRU1mMm1WeFNHbWZ3RjRO?=
- =?utf-8?B?OTF0OFhWd0tCbTRUUVhHalFCT2RlcmZGckxMemp6YzFKSEFCRk1FNkl0dE90?=
- =?utf-8?B?ODl5OG5aZ3FlbVRISmVzNkxTTkw0N2FyNEl0NXgxV3J6UFZRclhnODhvMy81?=
- =?utf-8?B?MkZYUG1Ldm5tcHdRbDVaWmNPVTZnUDhveXVMbTRYbmsrTG1KVzZ5dXRzdi9m?=
- =?utf-8?B?R1pzSHBWc2hsVGlBRFd6VWcxV2ZNaXJKVDFDamVxTTczV0hMZm1pMkJsaEdv?=
- =?utf-8?B?L3RvK3MzQVEwMEljdWhvdDJPSDd1NXM2cjB0TXYwOXNtOXJEZFdDY2F4K1Jj?=
- =?utf-8?B?TzNRM1MrMlA4TGJTUGN3bVRUbHJIay9QY0YycWlDdUVnTU5LSTZ3bzdTZE55?=
- =?utf-8?B?R0lCUWsvVDZEYWZncTZUR1ZBYjQrZTFmSTU3NmxSVFdEY2NxSWVBYkJENWlG?=
- =?utf-8?B?UnBzem5PMnBCOGNMV0JyZ0xLaktwSVdpMWxuU0ZraW5QeFJlUnlHZXRobWlS?=
- =?utf-8?B?U3hQM3IvRzc4ZGhGVkMwK1N1V1A5RFphd0JObzZUTGpzUzBuaVlFeHZPeDVa?=
- =?utf-8?B?SFkrbTdVVDhvNElrUGNESDlKUkljSk01MGlpMEdmM3VCS3FYQ281VkhWdDV3?=
- =?utf-8?B?V3VJTmd3K0NxN2F0TWhRTHM0Tk1zcE1GZVlVVDQ4ZTdxVW9XMjJUUmZiamRK?=
- =?utf-8?B?TFJubTN2anA0cVllWUN2YlBnS3EzQmc2SjhsU2psTkdFVXpJNE1vOE13NHQr?=
- =?utf-8?B?bVBrVU5pNVFLZ3FPUythM2haUHYyL045ZXlrdjhwSmFyUGpYeVRxOExNempG?=
- =?utf-8?B?a1pCM1NvMGJybHJWMW93Y3Vmb2tMT1hJTkRTNDVYOEMxaW1CUjhOZllRdXMx?=
- =?utf-8?B?MnRCYkdFcFNJd0xSWmFLK3cwanpYTFJ4NW1JVHpLNUFhZWdSOXRrMmZFaG5w?=
- =?utf-8?B?Sjc4MFp5Z0pnM0JLRUFOcVlxWmpNOFduQm81Q3NhcTJvMFBxTTZqbmJMQWdw?=
- =?utf-8?B?OVJuWmlaMk1KaG40R0wySjlsTHVIdElzVEhBKzNLR0F1WjFXVGQ1b3RGQllN?=
- =?utf-8?B?QklMR09RL1hUN0l3eVV0MjFwakF2ZmIzb2lCUWhBYWVwNEIrTWdabmc5L3Jk?=
- =?utf-8?B?c0Jrd3JlNTE2R1FpbWNPOGFaZUVnWC9tWVd5KzNMc2xHNFhIc3ZVUUlxZUYr?=
- =?utf-8?B?anpsODlwRU1JcnJBL3RLVmNwbnN4dFhNR1BNZkJ0Z05JTnplN2tzckNwUHFh?=
- =?utf-8?B?VE1FeW4wa3JkT3hPaXdOd0w4bHAxVEtld1hncXZRTlJweGZUQUJEaGF2YnVQ?=
- =?utf-8?B?M3BoTWxsOXhBWHFYaWRkNEdnQjN2OFZuazg4YzM3dG5MV3JNZkx3aXZzOS9R?=
- =?utf-8?B?eFBTOXc3aXJOSngvNWs0NE9uUFBabXBHdkt5YXhqMUlJWm5kMGlPV1c4MGZ5?=
- =?utf-8?B?eG41cExOVGxmWVdZSFRCaENVSEVMTk5qWG1MSUhjUk5CZWV6b1ZtVUJmckQ2?=
- =?utf-8?B?NDlObWVRV0Z0d2lmM0lDeGFMRm12eHllaVdJS2Z4SjMrM3lOeFNSbWZOcWdj?=
- =?utf-8?B?MEFENE5iWDA3VFhMcFpkZjZ0aExvKy9nY29ZaWl6R3h3SE82ZmduS0ZmbHA1?=
- =?utf-8?B?cXNLM1Y1RnVuMTdzckJNQWFvTW1PcmlLVWRGNGIrbjVRcWwycitTSEFKSlNo?=
- =?utf-8?B?YWZqSkJaM1dubDcxdFdQRU5TQlVvbDVHMU1hUG93SGJGMXJKSC9saEJLakRT?=
- =?utf-8?B?Wi9CUElyWWQxSFV2ek5ZYWg1OHJpbkVoMW54aldiWHN0N2x1aHJlZytMNGNE?=
- =?utf-8?B?bUVLZ2VDVkloQUNka2c3MGpKaWVLcHV1NzJPQ1BYcHdqNzIxdXFiZlRndGp5?=
- =?utf-8?B?UkNkZjNDTnlUUDIzcys0bXVHRCtnSHVHT1htN2xWc3VQb3A0cVhLTFFYVHNF?=
- =?utf-8?B?WStyOHFTdmlKMHZiVE5ydG9ZR2Y0Ry9mTlQ3Y2hDRXMrc1puVG0rVXkvYXF5?=
- =?utf-8?B?NkZ6cHBYL3BwTU1EL24rbmhpZDB0ZGlIdzFSbGhmNlN0SXBWMHM5UlNWV2o3?=
- =?utf-8?Q?Wq4V5HJw2N5ry3w6z8auTp4EB?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f707221a-69b1-46f6-daa7-08dd553dd288
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 01:43:37.4342
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pLX7KCE9yPtnCv4XjqZvAFs7vkWXk0LBD0JQI99ICqWqm9Tm2p6ExDBLN0IrL/t9OTCSw7OiKQxwq+7uLSlnSg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6876
+References: <20250224081325.96724-1-damon.ding@rock-chips.com> <20250224081325.96724-6-damon.ding@rock-chips.com>
+In-Reply-To: <20250224081325.96724-6-damon.ding@rock-chips.com>
+From: Doug Anderson <dianders@chromium.org>
+Date: Mon, 24 Feb 2025 17:40:58 -0800
+X-Gmail-Original-Message-ID: <CAD=FV=Uu+EvZzuFmCvq5qJ=FeBjmLTtfGT4Aq6QBSoH=Sen8PA@mail.gmail.com>
+X-Gm-Features: AWEUYZkhmeaAQLOMDj5xS_yarIgfu2NVlCE358kcuOa-b55Ak-RhS879p-uOQpk
+Message-ID: <CAD=FV=Uu+EvZzuFmCvq5qJ=FeBjmLTtfGT4Aq6QBSoH=Sen8PA@mail.gmail.com>
+Subject: Re: [PATCH v7 05/15] drm/bridge: analogix_dp: Remove CONFIG_PM
+ related check in analogix_dp_bind()/analogix_dp_unbind()
+To: Damon Ding <damon.ding@rock-chips.com>
+Cc: heiko@sntech.de, andy.yan@rock-chips.com, hjc@rock-chips.com, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org, 
+	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, 
+	dmitry.baryshkov@linaro.org, sebastian.reichel@collabora.com, 
+	cristian.ciocaltea@collabora.com, boris.brezillon@collabora.com, 
+	l.stach@pengutronix.de, dri-devel@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_174346_574615_AFAE5CA2 
-X-CRM114-Status: GOOD (  31.55  )
+X-CRM114-CacheID: sfid-20250224_174733_457331_889D1CD8 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,111 +112,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-Hi sebastian,
+On Mon, Feb 24, 2025 at 12:14=E2=80=AFAM Damon Ding <damon.ding@rock-chips.=
+com> wrote:
+>
+> Remove the check related to CONFIG_PM in order to make the code more
+> concise, as the CONFIG_PM should be a required option for many drivers.
+>
+> In addition, it is preferable to use devm_pm_runtime_enable() instead of
+> manually invoking pm_runtime_enable() followed by pm_runtime_disable().
+>
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+> ---
+>  .../drm/bridge/analogix/analogix_dp_core.c    | 30 ++++---------------
+>  1 file changed, 6 insertions(+), 24 deletions(-)
 
+If someone really has a reason to run this driver without CONFIG_PM
+then happy to hear about it. Until then, I'd say this is fine and
+matches what most drivers assume.
 
-On 2025/2/24 22:17, Sebastian Fricke wrote:
-> [You don't often get email from sebastian.fricke@collabora.com. Learn 
-> why this is important at https://aka.ms/LearnAboutSenderIdentification ]
-> 
-> Hey Ming,
-> 
-> On 17.01.2025 16:57, Ming Qian wrote:
->> The amphion decoder will pre-parse 3 frames before decoding the first
->> frame. If we append a flush padding data after frame, the decoder
->> will finish parsing and start to decode when the flush data is parsed.
->> It can reduce the decoding latency.
->> In the past, we only enable this mode when the display delay is set to
->> 0. But we still can enable this mode without changing the display order,
->> so we add a frame_flush_mode parameter to enable it.
-> 
-> My recommendation:
-> 
-> By default the amphion decoder will pre-parse 3 frames before starting
-> to decode the first frame. Alternatively, a block of flush padding data
-> can be appended to the frame, which will ensure that the decoder can
-> start decoding immediately after parsing the flush padding data, thus
-> potentially reducing decoding latency.
-> This mode was previously only enabled, when the display delay was set to
-> 0. Allow the user to manually toggle the use of that mode via a module
-> parameter called frame_flush_mode, which enables the mode without
-> changing the display order.
-> 
-> 
-> Which fixes a few grammatical issues and tries to be a bit more clear.
-> But please confirm to me that I hit your intended meaning.
-> 
-> More comments below ...
-> 
-
-Yes, you're right, and your description looks better, I will follow it.
-
->>
->> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
->> ---
->> drivers/media/platform/amphion/vpu_malone.c | 5 ++++-
->> 1 file changed, 4 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/media/platform/amphion/vpu_malone.c 
->> b/drivers/media/platform/amphion/vpu_malone.c
->> index 1d9e10d9bec1..f07660dc3b07 100644
->> --- a/drivers/media/platform/amphion/vpu_malone.c
->> +++ b/drivers/media/platform/amphion/vpu_malone.c
->> @@ -25,6 +25,9 @@
->> #include "vpu_imx8q.h"
->> #include "vpu_malone.h"
->>
->> +static bool frame_flush_mode;
->> +module_param(frame_flush_mode, bool, 0644);
-> 
-> Could you add a comment here that makes clear to the reader briefly what
-> the expected behavior of frame_flush_mode = 0 and frame_flush_mode = 1
-> is?
-> 
-
-OK, I'll add a comment to describe this mode.
-
->> +
->> #define CMD_SIZE                      25600
->> #define MSG_SIZE                      25600
->> #define CODEC_SIZE                    0x1000
->> @@ -1579,7 +1582,7 @@ static int vpu_malone_input_frame_data(struct 
->> vpu_malone_str_buffer __iomem *str
->>
->>       vpu_malone_update_wptr(str_buf, wptr);
->>
->> -      if (disp_imm && !vpu_vb_is_codecconfig(vbuf)) {
->> +      if ((disp_imm || frame_flush_mode) && 
->> !vpu_vb_is_codecconfig(vbuf)) {
-> 
-> So you say that the mode was enabled with display delay set to 0,
-> meaning (disp_imm = 1) == (display delay = 0), right? E.g. disp_imm
-> means display_immediately I guess.
-> 
-> I think this all deserves a lot better documentation, otherwise the code
-> becomes quite cryptic. Could you add a comment before this line, which
-> explains the entry conditions disp_imm & frame_flush_mode and the
-> codeconfig thing and that explains briefly what kind of mode we are
-> entering here?
-> 
-
-Sure，I'll add comments to explain the code. I'm sorry fot the confusion.
-
-Thank you very much for your feedback, I will try to fix them in v3 patch.
-
-Thanks,
-Ming
-
-
->>               ret = vpu_malone_add_scode(inst->core->iface,
->>                                          inst->id,
->>                                          &inst->stream_buffer,
->> -- 
->> 2.43.0-rc1
->>
->>
-> 
-> Regards,
-> Sebastian Fricke
+Suggested-by: Douglas Anderson <dianders@chromium.org>
+Reviewed-by: Douglas Anderson <dianders@chromium.org>
 
