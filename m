@@ -4,83 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DC4CC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 20:29:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0766CC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 20:31:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ROlPwAIJGbJfBsO0apPxGhjJGdED1W7jzEjs7V+GPOo=; b=L4o3R0gA2avRjxuP56/Yls/jlc
-	RhCTQxAJuA7op5ZFlLFwSviyYXB2roeFvYotunqXWvGLvRU4dCIkDFTxRfbtxSwoY0r6S80UqEXOb
-	dXhjd4tBoTN+gBsAEtshbHBMvaXq8uBZkqGXfRZYw70enmEi0A/DUHOU8YlAymEdEf8ngoTQwzfS8
-	oa0MKEG0VcMBxQLmSqK2KddX6FHQZtbx8ySdm7OLUUQGmfAWkmMXyVmOH6XJ8Ad5+EZOfgJKfKO6q
-	8RCvKUjAb1DCPZ8Yryfghk+Z2lwsctrVYjLUenxOptHxXUNZGQWHU0fTgHpDuEqiytEyzht5Nbfsy
-	nqd489/Q==;
+	bh=1ErFJtx/TdDMaqHfT/raCDjsoYFvvuToo5iyvrVV/XM=; b=kkBFH8QzmIf59yuEr8AVJHyIpJ
+	OzmHbFZQCi/K8B8C9+nwqI9L/4a7t6uTkxrqRFf+adxLZSU/D7DErRcQ6v0Cp6GZ7ot8mWOXo5Kls
+	3ozXHdyg1XrXhXGZBsyGNFW2I/HlIveP0YtLmhlZVYTtRs25eZUJ5iIcmQ/xQM+Qo8hfygk44vXtt
+	+ksHVFC7G497qXsjV+OBuP58QAxvTowX1T8KUZaaVpYNAh6+1ALyr9s/qXwmDa6B6vsDY62Xs8Yqd
+	B5dAe6XSS6OuQRFfqyUHJzIZuvCPsLxZAnq7UGoplFVE239Sdw/DP5tIQsk+WTLRXL7Bv1ISpNst1
+	DNL0Hn1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn1Ya-00000001MzN-09ak;
-	Tue, 25 Feb 2025 20:29:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tn1a4-00000001NGz-2oAk;
+	Tue, 25 Feb 2025 20:31:04 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn1ID-00000001Jtu-173G
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 25 Feb 2025 20:12:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Subject:Message-Id:References:
-	In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:Content-Type:
-	Date:Sender:Reply-To:Content-ID:Content-Description;
-	bh=ROlPwAIJGbJfBsO0apPxGhjJGdED1W7jzEjs7V+GPOo=; b=rJByqWg3P2oQoheLyNkQY3eVWT
-	+bo/nNXwqOivZXO45uQwEVyTXiKchM3jTd2FRFb1vkHjdY1OZSJBrMvKJ4+tNw9Kw7cyRDylZMRtb
-	JGlggc6q7t1L2xzzOGZ1n4jBCl2J7g5SYzAMvhV+EB7hVYPq5V7F6hyxF2fGyoBWVfXwmM9WS0Jgv
-	y+X5PBcwVWzANoBygxadZq9ICOTiinOfXyX/DEdQ6ghVFpk1lewKXLrwuDXRLLt3GNunZujN3L8Q5
-	MJRR3AdT4TLMywxsdgws0pgOWb08Ev2eJwLytJ1gmo0iKactFeuktQC79l2XtcCBOP4a4gAKr6D8b
-	ZJYkKGMQ==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn1IA-00000003P2L-110F
+	id 1tn1IC-00000001Jtt-3MXl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 20:12:36 +0000
+	Tue, 25 Feb 2025 20:12:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EA8335C4D48;
-	Tue, 25 Feb 2025 20:11:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57E3DC4CEDD;
-	Tue, 25 Feb 2025 20:12:32 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 14A225C7042;
+	Tue, 25 Feb 2025 20:11:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D552C4CEDD;
+	Tue, 25 Feb 2025 20:12:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740514352;
-	bh=jkFZlDqbRxwvpb/csXsZpILkgeKZJ+LCenzb2959lCs=;
+	s=k20201202; t=1740514354;
+	bh=o9Fk+gFtqkDJKzeh44jxcdnyRxWUtu90QSRKPJrniEc=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=S8L2oxFuJZ076tqLRePqBT4wMo9eOqzMOB4Q1TcVSLoS7Zpqwu5YE2GH+sncwuhvC
-	 3c+dyESCbHV1m4UFb/DIEwxeQ8ylalFEmT+DkxmSMG/5B6MdEMpSrrru4Q2wTFks/E
-	 jczAjUFLX13PDqfxERqNb5wvfm1zEEZOusz0OFUJ32sWPyhRhZJwpiMfvLzS6OQBtK
-	 a39dmCkae/21f9WjnAgOTdUj0oBc8aIMx61uvHlb446t9GoNU9KthYPNUccMvmnbkZ
-	 jrdsAwa+mhrizWxrAFZnqsDK4loMbFOe+ZSaS3uK9PtI6f3F4yiwuaQ7z4sDosASsL
-	 xsNva4+vPmXDg==
-Date: Tue, 25 Feb 2025 14:12:30 -0600
+	b=IZe9QkngILC30nEEw6qustbEinAHZUpnbbyBWhBiJ5t9ACmDcyle2GBpv1kQoQKRY
+	 rdfml+O8SwzX1C14iWVjFOHo2PoX38okfy3kcXeHZWRgWpczzm2299orjG0kYWZgJF
+	 A8/XCMTptDdpa6eFYHwcqciZPWmVAY59Gj2D319QrSd8l6W8ZTwI5iaRkSd8MC0dCD
+	 /z4fiHuaMxiqSz1acpXyDAnhod1vDKW636BPDg4fuL9sbxyncESeqghn/FpsN3eEg1
+	 nhJGV9sWh8Szq0lOuRpy09sGL5+JfCHbtdec3zwfGQgVfiAPUydrvzV89y8IWfYgLe
+	 7IMHhKL+mX+8A==
+Date: Tue, 25 Feb 2025 14:12:32 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Chester Lin <chester62515@gmail.com>, 
- Matthias Brugger <mbrugger@suse.com>, Conor Dooley <conor+dt@kernel.org>, 
- imx@lists.linux.dev, Enric Balletbo <eballetb@redhat.com>, 
- linux-arm-kernel@lists.infradead.org, Christophe Lizzi <clizzi@redhat.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- Alberto Ruiz <aruizrui@redhat.com>, NXP S32 Linux <s32@nxp.com>, 
+Cc: s.hauer@pengutronix.de, festevam@gmail.com, shawnguo2@yeah.net, 
+ shawnguo@kernel.org, linux-kernel@vger.kernel.org, kernel@pengutronix.de, 
+ linux-arm-kernel@lists.infradead.org, hongxing.zhu@nxp.com, 
+ conor+dt@kernel.org, krzk+dt@kernel.org, imx@lists.linux.dev, 
  devicetree@vger.kernel.org
-To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
-In-Reply-To: <20250224134016.3921196-1-ciprianmarian.costea@oss.nxp.com>
-References: <20250224134016.3921196-1-ciprianmarian.costea@oss.nxp.com>
-Message-Id: <174051414934.2971045.13322665811292325537.robh@kernel.org>
-Subject: Re: [PATCH] arm64: dts: s32g: add FlexCAN[0..3] support for s32g2
- and s32g3
+To: Frank Li <Frank.Li@nxp.com>
+In-Reply-To: <20250224170751.146840-1-Frank.Li@nxp.com>
+References: <20250224170751.146840-1-Frank.Li@nxp.com>
+Message-Id: <174051415001.2971194.5351687405398277268.robh@kernel.org>
+Subject: Re: [PATCH 1/1] arm64: dts: imx95: add ref clock for pcie nodes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_201234_663739_53A692E7 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20250225_121236_963281_10C02528 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,18 +75,15 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 24 Feb 2025 15:40:16 +0200, Ciprian Costea wrote:
-> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+On Mon, 24 Feb 2025 12:07:51 -0500, Frank Li wrote:
+> Add "ref" clock for i.MX95's pcie and fix below CHECK_DTBS warnings:
+> arch/arm64/boot/dts/freescale/imx95-19x19-evk.dtb: pcie@4c300000: clock-names: ['pcie', 'pcie_bus', 'pcie_phy', 'pcie_aux'] is too short
+> 	from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie.yaml
 > 
-> Add FlexCAN[0..3] for S32G2 and S32G3 SoCs.
-> 
-> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  arch/arm64/boot/dts/freescale/s32g2.dtsi      | 52 ++++++++++++++
->  arch/arm64/boot/dts/freescale/s32g3.dtsi      | 56 +++++++++++++++
->  .../boot/dts/freescale/s32gxxxa-evb.dtsi      | 72 +++++++++++++++++++
->  .../boot/dts/freescale/s32gxxxa-rdb.dtsi      | 48 +++++++++++++
->  4 files changed, 228 insertions(+)
+>  arch/arm64/boot/dts/freescale/imx95.dtsi | 25 ++++++++++++++++++++----
+>  1 file changed, 21 insertions(+), 4 deletions(-)
 > 
 
 
@@ -125,24 +101,24 @@ make sure dt-schema is up to date:
   pip3 install dtschema --upgrade
 
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250224134016.3921196-1-ciprianmarian.costea@oss.nxp.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250224170751.146840-1-Frank.Li@nxp.com:
 
-arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@401b4000: failed to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-flexcan']
-arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@401b4000: failed to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-flexcan']
-arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@401be000: failed to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-flexcan']
-arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@401be000: failed to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-flexcan']
-arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@402a8000: failed to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-flexcan']
-arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@402a8000: failed to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-flexcan']
-arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@402b2000: failed to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-flexcan']
-arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@402b2000: failed to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-flexcan']
-arch/arm64/boot/dts/freescale/s32g274a-evb.dtb: /soc@0/can@401b4000: failed to match any schema with compatible: ['nxp,s32g2-flexcan']
-arch/arm64/boot/dts/freescale/s32g274a-evb.dtb: /soc@0/can@401be000: failed to match any schema with compatible: ['nxp,s32g2-flexcan']
-arch/arm64/boot/dts/freescale/s32g274a-evb.dtb: /soc@0/can@402a8000: failed to match any schema with compatible: ['nxp,s32g2-flexcan']
-arch/arm64/boot/dts/freescale/s32g274a-evb.dtb: /soc@0/can@402b2000: failed to match any schema with compatible: ['nxp,s32g2-flexcan']
-arch/arm64/boot/dts/freescale/s32g274a-rdb2.dtb: /soc@0/can@401b4000: failed to match any schema with compatible: ['nxp,s32g2-flexcan']
-arch/arm64/boot/dts/freescale/s32g274a-rdb2.dtb: /soc@0/can@401be000: failed to match any schema with compatible: ['nxp,s32g2-flexcan']
-arch/arm64/boot/dts/freescale/s32g274a-rdb2.dtb: /soc@0/can@402a8000: failed to match any schema with compatible: ['nxp,s32g2-flexcan']
-arch/arm64/boot/dts/freescale/s32g274a-rdb2.dtb: /soc@0/can@402b2000: failed to match any schema with compatible: ['nxp,s32g2-flexcan']
+arch/arm64/boot/dts/freescale/imx95-19x19-evk.dtb: pcie-ep@4c300000: clocks: [[27, 87], [27, 36], [27, 35], [27, 88], [73, 0]] is too long
+	from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie-ep.yaml#
+arch/arm64/boot/dts/freescale/imx95-19x19-evk.dtb: pcie-ep@4c300000: clock-names: ['pcie', 'pcie_bus', 'pcie_phy', 'pcie_aux', 'ref'] is too long
+	from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie-ep.yaml#
+arch/arm64/boot/dts/freescale/imx95-19x19-evk.dtb: pcie-ep@4c300000: clocks: [[27, 87], [27, 36], [27, 35], [27, 88], [73, 0]] is too long
+	from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie-ep.yaml#
+arch/arm64/boot/dts/freescale/imx95-19x19-evk.dtb: pcie-ep@4c300000: clock-names: ['pcie', 'pcie_bus', 'pcie_phy', 'pcie_aux', 'ref'] is too long
+	from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie-ep.yaml#
+arch/arm64/boot/dts/freescale/imx95-19x19-evk.dtb: pcie-ep@4c380000: clocks: [[27, 87], [27, 36], [27, 35], [27, 88], [73, 0]] is too long
+	from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie-ep.yaml#
+arch/arm64/boot/dts/freescale/imx95-19x19-evk.dtb: pcie-ep@4c380000: clock-names: ['pcie', 'pcie_bus', 'pcie_phy', 'pcie_aux', 'ref'] is too long
+	from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie-ep.yaml#
+arch/arm64/boot/dts/freescale/imx95-19x19-evk.dtb: pcie-ep@4c380000: clocks: [[27, 87], [27, 36], [27, 35], [27, 88], [73, 0]] is too long
+	from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie-ep.yaml#
+arch/arm64/boot/dts/freescale/imx95-19x19-evk.dtb: pcie-ep@4c380000: clock-names: ['pcie', 'pcie_bus', 'pcie_phy', 'pcie_aux', 'ref'] is too long
+	from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie-ep.yaml#
 
 
 
