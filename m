@@ -4,61 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C96C6C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 17:18:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AD98C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 17:25:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HQubO7qJO8mtxAZllvRBNDXcjV0ldAevPY1qvOooHQM=; b=jGwtvyAt8hcZ4elALWa0RUgZio
-	l8YODOjm7So5mzQJhFxv5rG8NlJzvyv3aA55eNRqzulBFmwMAiFVg1sWOZUqWqDoUXD8NmYyEvmzK
-	wkQRt+HVtkLE3K4XctrojLUF4psuHSPTOBF5+6X8L1fLh7FFZbJDeUtasJDPUl9KDjrqNgfHKHk5B
-	7r2cCJAQmDFj/KbxoicVnupDoMYXRKZZkVbERizC0pFO6SpL2G9swRGUdfvfpowfMYK2KjphkJ5SK
-	PoaOrQa2Y7EBXfQmr1nOvOaaONwHB09VTjmKHCDk7EfcGqaUYrb1KQsgGN2kJZH7xux0VqK5iiir5
-	jT1z3/yA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IyRcL0g1jRe+/iFg5sLskj4FCwUkTQfSPSOlEIXo7b8=; b=0mo9DlHal/vl/jBdGAIIFVDbQZ
+	VQb9AJNrF3kjZETeX661FVgLzv45ZeUj0nXTPxRQiAizE5MPicXWAW0V3XqYzfTWLzWUuN6BhhFg1
+	jQWf4i7awpOzaMIrVSKnEcyEKL323YfG8Zfw1hzmlV5SQ/qQlVT6FvmSAVhcLRmVemYoLJ+ho5TkM
+	bbHFsqB63nhpPYwZ7e6VRFjQrzhqamGJC++UBg9x3SNsSY6LzjH7uTKPh8rE9XZQt2uspxT445ltX
+	5AMo7kF6UmkYo8Qumph9xZt/a+N4jPAmopUlH9NMvkA8GcSTQJPfOHHdpVt+RTicCcp9xfQHoZX+I
+	l1yEB4Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmyZM-00000000Zwy-2k7H;
-	Tue, 25 Feb 2025 17:18:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmyFk-00000000UkU-1D2H
+	id 1tmygX-00000000d09-2upS;
+	Tue, 25 Feb 2025 17:25:35 +0000
+Received: from mail-db5eur02on20616.outbound.protection.outlook.com ([2a01:111:f403:2608::616] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmyPu-00000000Xkk-2sr0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 16:57:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DC69C1BCB;
-	Tue, 25 Feb 2025 08:58:07 -0800 (PST)
-Received: from [10.1.27.154] (XHFQ2J9959.cambridge.arm.com [10.1.27.154])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F24403F5A1;
-	Tue, 25 Feb 2025 08:57:48 -0800 (PST)
-Message-ID: <601fa2ab-aa75-4a34-8754-65c1d0b9a8c7@arm.com>
-Date: Tue, 25 Feb 2025 16:57:47 +0000
+	Tue, 25 Feb 2025 17:08:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fM+TTTrPQnXs0oYAcyWLQ7ZEhi4nX9t91dOQ/sFfej+g6ajaLfavNlvkV4T4SITlWJmCF/BJ15U50wqrZjWFodUbwFmsNpHwMJnoObrcBxEX6JKc20AaeNdmbiB/aVgjDF7V6RhUtQkHejlnFQ6UMkAzF0lXTg+tlcCCbOihKQSBFLy0hsfAIISV5XReaGo61Y+pAaZIfwJF4LJ/0ky6cWo5Mm6KCTXbJc+BWibRN5aNquVZrQ7vS8AEO0SYS7TGA0ZM89Q0V26mbN49s0jX2VKWJVrQoHJpfjGdoJx9R6G/vDbfxS0PRoInr+gSISmnwdbFZoZwOuSbU3SXChG6Ng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IyRcL0g1jRe+/iFg5sLskj4FCwUkTQfSPSOlEIXo7b8=;
+ b=xOu7w3Iq1Rb/H+uokg7o1ZYpPATNsY4Ev0klXAhmll9RL/9YabNleID4CoeNVI0U3H4iGDUzwKQ3a1w5v5IMcJLlvX1Gwa4lQDK9369ibj9B0pnDHW4gIx4xFtQA8ArPDIrEbNoLyLPLSVJMpOPmOWq7y5OQajIm5FKZLECPl+QpQUdXbvwO+bSM6eWObMMR+w3hMq+XjHsO+aVlCDsCQk9q7Dlg4aWSXyhhC1W+D/YwHt883uzB7wmQBOeaelB8wkFSOxXz2ewkVM6pHpKbmiywGKSJHb3s2Au9iQG4wN0Y/wvf14dd8hQ6ODhy4RGuk/M7sAnw5sqHQagunmL/dA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IyRcL0g1jRe+/iFg5sLskj4FCwUkTQfSPSOlEIXo7b8=;
+ b=HYGpa7hRBmJXh7PZB9sn1YValQqzgYL4Z+TF6jzbm/13I9DngdE+1ABG1AbzvLK4K1Phzh2nOr5Ro2tH3gR5eKtFiiaua7uloRjgSdl1KmhHrOczYCl1DcuRpXPvnBvYxnkd+BZF8rzgvXb4+kfmV1ddleA6FaOqdva2DFoiW0Fvplgvmg4iroapfteEYwmjoUewvJ2NROf80FPXhYvX16axE7/TMJZ4Az0pWmT0TWFJHpft/Qdd1iq5QPgza0HXMlWdkjJXx5irFRWy9q7JIGOPW62OD+cEiLv0vKzWS/pseM5rFkyX38uwlbQbXF5ghfqHPq+iPSVd4l99HJy5bQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DB9PR04MB9308.eurprd04.prod.outlook.com (2603:10a6:10:36c::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.20; Tue, 25 Feb
+ 2025 17:08:18 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8466.016; Tue, 25 Feb 2025
+ 17:08:18 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH v2 1/1] arm64: dts: imx95: add ref clock for pcie nodes
+Date: Tue, 25 Feb 2025 12:08:02 -0500
+Message-Id: <20250225170802.2671972-1-Frank.Li@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: BYAPR08CA0025.namprd08.prod.outlook.com
+ (2603:10b6:a03:100::38) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 10/14] arm64/mm: Support huge pte-mapped pages in vmap
-Content-Language: en-GB
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, Pasha Tatashin
- <pasha.tatashin@soleen.com>, Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- David Hildenbrand <david@redhat.com>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
-References: <20250217140809.1702789-1-ryan.roberts@arm.com>
- <20250217140809.1702789-11-ryan.roberts@arm.com> <Z7xgKjhMZAY5mOwK@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <Z7xgKjhMZAY5mOwK@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB9PR04MB9308:EE_
+X-MS-Office365-Filtering-Correlation-Id: aba17cdf-3559-4012-fbc1-08dd55beffba
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?x72NuTW8zlcDJRe/h7Rteoq0gTWlbUe1ViWeXtkM+GdlCcf3mIo7ixIqsBqa?=
+ =?us-ascii?Q?zi3Jc42vrq6oa4Nzs2kKZSPvlj7qF96UeJ+4IPX2lk4j8XkRl0Qqpil2ldR0?=
+ =?us-ascii?Q?YfQKO7fjvpF1e+i9tEE0pGhqTiKcgktDDwUB4upzKPjwzMayLFunLnKMw1H9?=
+ =?us-ascii?Q?CoaAylnL7vAw3NQiAWz6Y3egWem+eL5Tbbzq3X1PT6I3XGpaoJU9C27KC3LN?=
+ =?us-ascii?Q?z7eE3CCXNvaQTMSU0NtcpSR9aHkbw3EpJr+ohpwNEq1PSfCBDTdLw3LV90oQ?=
+ =?us-ascii?Q?JD6u1JaZeSMpYCs6aYY2Xk14E5WdfNDwQbI+6K4MSxU8F9Ofke8i44yKClwp?=
+ =?us-ascii?Q?9n3vRZOumM7sc/6/k2XQ/2jxrShq1RqavkERjD7l4W38JsNr/kKUJzXfk434?=
+ =?us-ascii?Q?GZz5XjYQFHoFHSzhlBWkhEAmiucEmbYzyG1CorRdTb7cdyosKXmsdgfIRHIK?=
+ =?us-ascii?Q?cwsZOCHAMVvQELkM2UyeqfEQYwMcmNVhNL5Tx1Wi638XdOXUiR0Pwba3oBzW?=
+ =?us-ascii?Q?CBfE717DYmRfwze450CboT7GqE8Ibm1DDL5TyNVUOVdD2y/FN2FqNeAwRK/8?=
+ =?us-ascii?Q?HPhsSmyeun0cmiT5YwqUjwchLAGEW8meqHgqNwOYlbGyDo3wznWBia7pCISf?=
+ =?us-ascii?Q?4LTdqbiT7XcZBGx9lm4cfycOW+gvlWa1EOO7kHC6juiShh3ub9CQHBzq8Vnt?=
+ =?us-ascii?Q?3UarIrJ/qQy9D8+bYPExx/3N079Y6H2g3pzT34LXcOac3XQQGpVwCRGFW+ZO?=
+ =?us-ascii?Q?uIg2d5pNqNswItfjc2IixmF30blcO77CtxWqfsoWjhVUUVXqitmIw5eYFGYQ?=
+ =?us-ascii?Q?JBBO4svoirNiM+xWULduCABsQgRxyxnn8e+DbLNaP94YVrnsINNgxWf6XdQG?=
+ =?us-ascii?Q?f/pzsS5j6c11dkEYGyU3PEGkMjZm751aXl0JCDjdoniOZSonz5scDCO91FSK?=
+ =?us-ascii?Q?L+epWju7Saf6fFbWHsVXdyq+hcjYGn6LesJrn2rS5vRgeXchnFeVXmIyG/5w?=
+ =?us-ascii?Q?CDbw8rzwoCbOVktOibGHQkZru8te34dJBaz8driOf0XU6/bV1pRkZjWAI1iI?=
+ =?us-ascii?Q?owRm5B5lo0GIHMNXvvo24xu2TrJxjB7iGOKtFQSCIP808d/Q2xcXIIQazSCR?=
+ =?us-ascii?Q?Y2aCtJfjYGJNWsqBE6/UNsWxXJJ6PoM4+ZWFlDMtTA8Oy1S2HgDJj1pKgLPt?=
+ =?us-ascii?Q?PCXJZ5iYz5Gji969uDvDCuI6llancQEgOvkpX83Tk0Xz8dcvFZo9LxgpqUOW?=
+ =?us-ascii?Q?CBhJJeuN5BMICEDIafly0eooGITVxSXkolNJswe6Yfq5GhC8rKyLIKwitrfp?=
+ =?us-ascii?Q?iFhXhTXgsOyNt9UG9asP8vdr9P5NEsy7VUJiq9nTxApFkOl6KsC80Ak3/UAp?=
+ =?us-ascii?Q?9x6WjtYKnlkm+iiHJRlIT/Ev7/BKUp5bfJo7i2cfICjXmcGNRg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?urwJiDWfTbvJ3HgWjgCsr9FcF14wbhleomOIzqs2UzNYRmmX6V0xSvOtaF0r?=
+ =?us-ascii?Q?V7eHGbeJ2xH6XZsCm9O5EYbXYldyYU5beznxp/vHY8SUtkB9ATxjsMKEPZHq?=
+ =?us-ascii?Q?4iHpyf79Y1KaHPa54uM6OzbJ7WeBP0oE0HWzXqAO8zTjWp1nEROQTl5Q84iB?=
+ =?us-ascii?Q?Dzv6nWZlmh9hcuoHfRXO60qgd3+PDmfTAeqlbrn9j+ez4EOvYb7J8LiM72uI?=
+ =?us-ascii?Q?FqvDiJ2/emNRg7xno+0YhPJ4XyT7L16UVHBOOn4CN2zhwmBgWXNG8Rdfx2w4?=
+ =?us-ascii?Q?hmWgqKXi42viPvSCDTFztU4CO2WPSCmkpyOfWu+KFYtfmmzHHQzWHmc+1LLM?=
+ =?us-ascii?Q?iJQSAQL9yxX3BxlXmpu13Kv4ItMcjW9jEbH74Of9b4xQhAPHunPvygNH1S6W?=
+ =?us-ascii?Q?JAVbPfiqqD44z3PTeW1CfssOOcSJ4gT6W+8PvhJGk3sZJaiScd6wrcP+lOFp?=
+ =?us-ascii?Q?seW1yuvuIq/S/jMNiPXvF1kLqFs2rY8111Bgj/0RFU84xARviM/6mlARjEw4?=
+ =?us-ascii?Q?hSU4aDZ/Mkp1zw4sgubg40Ilpq+icY3vAMCLKhYn3lsyE6Re0wrxCbTPDC64?=
+ =?us-ascii?Q?eoexIrLYlFoPJeTwUvWEcENCQYADvezuCROIJt77mpF+ZAAWjqDLV+xuaXAN?=
+ =?us-ascii?Q?//J0IPgEfJ5cFu9+0Abf88/cjGw5XRk3FizRVKqXHb0DU2mi8gGJZw4er32i?=
+ =?us-ascii?Q?CKewNLTUeD7U6klMHn8b2oH8Qlqjk+JV/pRK58VIsq+tmJgKP1roxzpuKrfm?=
+ =?us-ascii?Q?HhFp8FLQcbgkjSV/7JfLtI1VeTxVGzUi0fYJzGsgrGOL7JCgkyiCCUYZDDY2?=
+ =?us-ascii?Q?M1m0fKNwyfWCk8n7W5plniUkEZtrcXQ2gXjDMXexUYVXNu9YElnj89crf4um?=
+ =?us-ascii?Q?zjVOgMEvnwFM3b/dyTHasPLaBkR5ARHVoT3dPzNxIKrFCzpHMFs75VRd06Kd?=
+ =?us-ascii?Q?NUKuaucdyttVBeNiiaXbKxQjjPMlCl/TcANngrpWet4fwTWYdGdNP2vw+Og6?=
+ =?us-ascii?Q?NVC2wvFcMN4kjfssCf40gTR/HrQCQQOPtnvtVmTh5VEmI/3xOm1yNmmV7TrH?=
+ =?us-ascii?Q?0YGXJhr5AqbIPYoVH8rf+yZ5QDhVS+PPkx0Uh4gLqM7OthAfM8cbMk8jirxe?=
+ =?us-ascii?Q?znLZBtauFkEyzywDK3g+GoeNgq2hXZKOPTXhhnkpXVY4ktPpX0zUVKMAv+ab?=
+ =?us-ascii?Q?LncZcEDBMsdblfvNRCPrnjkjz8ektMvuuZOPlAfHg7wl6oh/a3ptFzjWQpTy?=
+ =?us-ascii?Q?ODFInCb+mY7Gq5mXFSjVvVEfbfz+3OKOfcV3tXuXk+o64hL9hCgjlCNMUVT6?=
+ =?us-ascii?Q?NDjdqYKnXqJOM+2Qr9x8epsfsTXHKY9jTf6e4u2CaVNPVAjsJth3r3YYGGCm?=
+ =?us-ascii?Q?tftSWPLFVMZSprvyTu4UdJXlnBk7Tp43yfGe0usrKetAIK8gzT5pjdKInvLu?=
+ =?us-ascii?Q?GWrB5JiDFlnwpLvK7ES7o835cY5uWP4IR9QFGGHYGiH66pwi0h0R5MNStrVH?=
+ =?us-ascii?Q?Ocm3kmG8038LuB1jMUJVa9KUa1fPbEE6kgk/yPTYUfPj29WxIhLXWp6wkh99?=
+ =?us-ascii?Q?N/erwzTEAU/YkRVcTdY=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: aba17cdf-3559-4012-fbc1-08dd55beffba
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 17:08:18.2506
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: yO5mzqMj/LMgh/Vnl/+/vXUv5qWLCyVDWTQapiY0cm11okfyjBFZP2hYRJh3mLTY+8U3VIuTn/kuBeWRlu3ZDA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9308
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_085752_418102_78C29E8B 
-X-CRM114-Status: GOOD (  30.66  )
+X-CRM114-CacheID: sfid-20250225_090822_726248_1F61843E 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,149 +161,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/02/2025 12:03, Catalin Marinas wrote:
-> On Mon, Feb 17, 2025 at 02:08:02PM +0000, Ryan Roberts wrote:
->> Implement the required arch functions to enable use of contpte in the
->> vmap when VM_ALLOW_HUGE_VMAP is specified. This speeds up vmap
->> operations due to only having to issue a DSB and ISB per contpte block
->> instead of per pte.
-> 
-> For non-cont PTEs, do you happen to know how often vmap_pte_range() is
-> called for multiple entries? 
+Add "ref" clock for i.MX95's pcie and fix below CHECK_DTBS warnings:
+arch/arm64/boot/dts/freescale/imx95-19x19-evk.dtb: pcie@4c300000: clock-names: ['pcie', 'pcie_bus', 'pcie_phy', 'pcie_aux'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie.yaml
 
-It's mostly when vmalloc_huge() is called and for remapping io regions I
-believe. I don't have numbers though.
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+change from v2 - v3
+- fix typo 1000000
 
-> It might be worth changing that to use
-> set_ptes() directly and we get some benefit as well.
+change from v1 - v2
+- rebase to dt/dt64
+- add clock 100mhz
+---
+ arch/arm64/boot/dts/freescale/imx95.dtsi | 25 ++++++++++++++++++++----
+ 1 file changed, 21 insertions(+), 4 deletions(-)
 
-I thought about that, but it's a bit of a pain, given the current
-arch_vmap_pte_range_map_size() opt-in for set_huge_pte_at().
-
-Ideally I think we would just set_ptes() the whole lot (or at least in chunks of
-max_page_shift so we honour the "must belong to same folio" requirement). Then
-let contpte decide when to use contiguous mappings. But we currently block
-contpte operations for kernel mappings because of the potential need to
-invalidate, which can cause faults. So that would need work. And we would need
-to rework powerpc somehow.
-
-The alternative would be to keep the arch_vmap_pte_range_map_size() opt-in and
-somehow expose the alignment/size requirements to vmap_pte_range() so it can do
-set_ptes() in the gaps. But that all felt quite messy.
-
-In the end, I decided we would be getting the benefits via arch_make_huge_pte()
-for >=64K folios, and decided not to worry about the <=3K folio cases.
-
-> 
->> But it also means that the TLB pressure reduces due
->> to only needing a single TLB entry for the whole contpte block.
->>
->> Since vmap uses set_huge_pte_at() to set the contpte, that API is now
->> used for kernel mappings for the first time. Although in the vmap case
->> we never expect it to be called to modify a valid mapping so
->> clear_flush() should never be called, it's still wise to make it robust
->> for the kernel case, so amend the tlb flush function if the mm is for
->> kernel space.
->>
->> Tested with vmalloc performance selftests:
->>
->>   # kself/mm/test_vmalloc.sh \
->> 	run_test_mask=1
->> 	test_repeat_count=5
->> 	nr_pages=256
->> 	test_loop_count=100000
->> 	use_huge=1
->>
->> Duration reduced from 1274243 usec to 1083553 usec on Apple M2 for 15%
->> reduction in time taken.
->>
->> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
->> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
->> ---
->>  arch/arm64/include/asm/vmalloc.h | 46 ++++++++++++++++++++++++++++++++
->>  arch/arm64/mm/hugetlbpage.c      |  5 +++-
->>  2 files changed, 50 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
->> index 38fafffe699f..40ebc664190b 100644
->> --- a/arch/arm64/include/asm/vmalloc.h
->> +++ b/arch/arm64/include/asm/vmalloc.h
->> @@ -23,6 +23,52 @@ static inline bool arch_vmap_pmd_supported(pgprot_t prot)
->>  	return !IS_ENABLED(CONFIG_PTDUMP_DEBUGFS);
->>  }
->>  
->> +#define arch_vmap_pte_range_map_size arch_vmap_pte_range_map_size
->> +static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr,
->> +						unsigned long end, u64 pfn,
->> +						unsigned int max_page_shift)
->> +{
->> +	/*
->> +	 * If the block is at least CONT_PTE_SIZE in size, and is naturally
->> +	 * aligned in both virtual and physical space, then we can pte-map the
->> +	 * block using the PTE_CONT bit for more efficient use of the TLB.
->> +	 */
->> +
-> 
-> Nit: unnecessary empty line.
-
-Will fix.
-
-> 
->> +	if (max_page_shift < CONT_PTE_SHIFT)
->> +		return PAGE_SIZE;
->> +
->> +	if (end - addr < CONT_PTE_SIZE)
->> +		return PAGE_SIZE;
->> +
->> +	if (!IS_ALIGNED(addr, CONT_PTE_SIZE))
->> +		return PAGE_SIZE;
->> +
->> +	if (!IS_ALIGNED(PFN_PHYS(pfn), CONT_PTE_SIZE))
->> +		return PAGE_SIZE;
->> +
->> +	return CONT_PTE_SIZE;
->> +}
->> +
->> +#define arch_vmap_pte_range_unmap_size arch_vmap_pte_range_unmap_size
->> +static inline unsigned long arch_vmap_pte_range_unmap_size(unsigned long addr,
->> +							   pte_t *ptep)
->> +{
->> +	/*
->> +	 * The caller handles alignment so it's sufficient just to check
->> +	 * PTE_CONT.
->> +	 */
->> +	return pte_valid_cont(__ptep_get(ptep)) ? CONT_PTE_SIZE : PAGE_SIZE;
->> +}
->> +
->> +#define arch_vmap_pte_supported_shift arch_vmap_pte_supported_shift
->> +static inline int arch_vmap_pte_supported_shift(unsigned long size)
->> +{
->> +	if (size >= CONT_PTE_SIZE)
->> +		return CONT_PTE_SHIFT;
->> +
->> +	return PAGE_SHIFT;
->> +}
->> +
->>  #endif
->>  
->>  #define arch_vmap_pgprot_tagged arch_vmap_pgprot_tagged
->> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
->> index 8ac86cd180b3..a29f347fea54 100644
->> --- a/arch/arm64/mm/hugetlbpage.c
->> +++ b/arch/arm64/mm/hugetlbpage.c
->> @@ -217,7 +217,10 @@ static void clear_flush(struct mm_struct *mm,
->>  	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++)
->>  		ptep_get_and_clear_anysz(mm, ptep, pgsize);
->>  
->> -	__flush_hugetlb_tlb_range(&vma, saddr, addr, pgsize, true);
->> +	if (mm == &init_mm)
->> +		flush_tlb_kernel_range(saddr, addr);
->> +	else
->> +		__flush_hugetlb_tlb_range(&vma, saddr, addr, pgsize, true);
->>  }
->>  
->>  void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
-> 
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+index 51625bc9154ec..9bb26b466a061 100644
+--- a/arch/arm64/boot/dts/freescale/imx95.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+@@ -291,6 +291,13 @@ sai5_mclk: clock-sai-mclk5 {
+ 		clock-output-names = "sai5_mclk";
+ 	};
+ 
++	clk_sys100m: clock-sys100m {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <100000000>;
++		clock-output-names = "clk_sys100m";
++	};
++
+ 	osc_24m: clock-24m {
+ 		compatible = "fixed-clock";
+ 		#clock-cells = <0>;
+@@ -1595,6 +1602,14 @@ usb3_dwc3: usb@4c100000 {
+ 			};
+ 		};
+ 
++		hsio_blk_ctl: syscon@4c0100c0 {
++			compatible = "nxp,imx95-hsio-blk-ctl", "syscon";
++			reg = <0x0 0x4c0100c0 0x0 0x1>;
++			#clock-cells = <1>;
++			clocks = <&clk_sys100m>;
++			power-domains = <&scmi_devpd IMX95_PD_HSIO_TOP>;
++		};
++
+ 		usb3_phy: phy@4c1f0040 {
+ 			compatible = "fsl,imx95-usb-phy", "fsl,imx8mp-usb-phy";
+ 			reg = <0x0 0x4c1f0040 0x0 0x40>,
+@@ -1633,8 +1648,9 @@ pcie0: pcie@4c300000 {
+ 			clocks = <&scmi_clk IMX95_CLK_HSIO>,
+ 				 <&scmi_clk IMX95_CLK_HSIOPLL>,
+ 				 <&scmi_clk IMX95_CLK_HSIOPLL_VCO>,
+-				 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>;
+-			clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux";
++				 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>,
++				 <&hsio_blk_ctl 0>;
++			clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux", "ref";
+ 			assigned-clocks =<&scmi_clk IMX95_CLK_HSIOPLL_VCO>,
+ 					 <&scmi_clk IMX95_CLK_HSIOPLL>,
+ 					 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>;
+@@ -1706,8 +1722,9 @@ pcie1: pcie@4c380000 {
+ 			clocks = <&scmi_clk IMX95_CLK_HSIO>,
+ 				 <&scmi_clk IMX95_CLK_HSIOPLL>,
+ 				 <&scmi_clk IMX95_CLK_HSIOPLL_VCO>,
+-				 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>;
+-			clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux";
++				 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>,
++				 <&hsio_blk_ctl 0>;
++			clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux", "ref";
+ 			assigned-clocks =<&scmi_clk IMX95_CLK_HSIOPLL_VCO>,
+ 					 <&scmi_clk IMX95_CLK_HSIOPLL>,
+ 					 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>;
+-- 
+2.34.1
 
 
