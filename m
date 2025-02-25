@@ -4,58 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25F8EC021B2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC08FC021BB
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:38:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AzOWSXc9VtnTqU/S94Z892aGrI9oIg2jLEN7NsMY0aE=; b=eZrqI5f8rWz5IEzd3PmA60KoBt
-	Nx/FwiClyOs/Lla011MrxkiTQcar6CvaIgkXufdKGY1zw+VU9LPxY+/myfm8my4/nvMNgFGzHuwSt
-	H6zDWFnJejTVezFFhc364MGgxIKTESYYW1M9LLoRd1brpTaHMkVB0kcgFjp3bYj0caK+SHXnhPRmo
-	qdiH5ucn/ugR6QMnwIjmwaVFxcSPBWQRgYYOSAde9qi3WWH/9bEe7ctcqERfC5qhn9kk+/CDQuIHt
-	joyPgmstiH4GP3TL4xtXVU0j2P+y79No7DMykcx6mxZBaWsJfKhJIlavOx65dSDB1cCFd9Kl/itea
-	Vp11Hijw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M3zE8TwrO4+11yKZtBF3E2btmQOgEejie+CjvDtqOFw=; b=ckCdB2IWWajVNs67jrfs0IB6Ai
+	4Yw+YVBlNrKiSINVCqr7WHsICjoCViVot+QmqQkBR98Pr8tgrbpLSYcKG609J/c2rlt9CgMzelEIC
+	QqJrYIrTVrDi+ACTWQZBZVrIQu5SpY8/KJ8szsBBv0BZBqXwFtsP5hJ0PcrV9YWbjNmWlWJCP4hPr
+	x/Gzr+4acD5WMeqYJrbxApeYaAXe59jni9nmkH7l25HK19Fro584pZOFTLnp1sgcBJkShg+/2Mtvy
+	+X+lkPvkSwEMiTPq89XqZ2mdyy0nOgW4oaDIV/32i6Cvht/oRm759fekwEkev7ZCozhWLMllXEznF
+	uj+8NZ6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmxxG-00000000Fx3-0fcN;
-	Tue, 25 Feb 2025 16:38:46 +0000
+	id 1tmxxD-00000000Fsq-3kiJ;
+	Tue, 25 Feb 2025 16:38:43 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmvNK-0000000HR44-3Sdn
+	id 1tmvMI-0000000HQut-197p
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 13:53:31 +0000
+	Tue, 25 Feb 2025 13:52:27 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 820F7152B;
-	Tue, 25 Feb 2025 05:53:44 -0800 (PST)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 759253F6A8;
-	Tue, 25 Feb 2025 05:53:26 -0800 (PST)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: suzuki.poulose@arm.com,
-	mike.leach@linaro.org,
-	james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com,
-	bigeasy@linutronix.de,
-	clrkwllms@kernel.org,
-	rostedt@goodmis.org
-Cc: coresight@lists.linaro.org,
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B235152B;
+	Tue, 25 Feb 2025 05:52:41 -0800 (PST)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EC5003F6A8;
+	Tue, 25 Feb 2025 05:52:23 -0800 (PST)
+Date: Tue, 25 Feb 2025 13:52:18 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v5 0/9] coresight: change some driver' spinlock type to raw_spinlock_t
-Date: Tue, 25 Feb 2025 13:52:51 +0000
-Message-Id: <20250225135300.339976-1-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64/mm: Explicit cast conversions to correct data type
+Message-ID: <Z73LEkHklpjvIlmZ@J2N7QTR9R3.cambridge.arm.com>
+References: <20250219035646.536707-1-anshuman.khandual@arm.com>
+ <Z724Q1ofM1GvKquV@J2N7QTR9R3>
+ <9e1721a1-54a4-4007-a0f5-d651f5f21ae2@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <9e1721a1-54a4-4007-a0f5-d651f5f21ae2@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_055330_904566_A4718D70 
-X-CRM114-Status: UNSURE (   7.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250225_055226_359929_F991E948 
+X-CRM114-Status: GOOD (  21.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,61 +66,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In some coresight drivers, drvdata->spinlock can be held during __schedule()
-by perf_event_task_sched_out()/in().
+On Tue, Feb 25, 2025 at 01:00:40PM +0000, Ryan Roberts wrote:
+> On 25/02/2025 12:32, Mark Rutland wrote:
+> > On Wed, Feb 19, 2025 at 09:26:46AM +0530, Anshuman Khandual wrote:
+> >> From: Ryan Roberts <ryan.roberts@arm.com>
+> >>
+> >> When CONFIG_ARM64_PA_BITS_52 is enabled, page table helpers __pte_to_phys()
+> >> and __phys_to_pte_val() are functions which return phys_addr_t and pteval_t
+> >> respectively as expected. But otherwise without this config being enabled,
+> >> they are defined as macros and their return types are implicit.
+> >>
+> >> Until now this has worked out correctly as both pte_t and phys_addr_t data
+> >> types have been 64 bits. But with the introduction of 128 bit page tables,
+> >> pte_t becomes 128 bits. Hence this ends up with incorrect widths after the
+> >> conversions, which leads to compiler warnings.
+> > 
+> > Does 128-bit page table not imply 52-bit PAs?
+> 
+> Not to my knowledge. For now the prototype code base is explicitly sticking to
+> 48-bit PA and 44-bit VA (for initial simplicitly because that's the limit for 4
+> levels).
 
-Since drvdata->spinlock type is spinlock_t and
-perf_event_task_sched_out()/in() is called after acquiring rq_lock,
-which is raw_spinlock_t (an unsleepable lock),
-this poses an issue in PREEMPT_RT kernel where spinlock_t is sleepable.
+Fair enough; info dump below, but hopefully nothing of consequence.
 
-To address this,change type drvdata->spinlock in some coresight drivers,
-which can be called by perf_event_task_sched_out()/in(),
-from spinlock_t to raw_spinlock_t.
+I assume that you're relying on the VMSAv9-128 PA bits [48:12] being in the
+same place as in the VMSAv8-64 descriptors, and being handled by the same
+PTE_ADDR_LOW mask that we use for CONFIG_ARM64_PA_BITS_52=n.
 
-since v4:
- - Rebase to coresight-next-v6.14
+From a quick scan of ARM DDI 0487 L.a, the VMSAv9-128 translation table
+descriptor format always contains a 56-bit PA (though PARange could be
+smaller than that). Bits [51:49] are packed differently than in
+VMSAv8-64 descriptors, and bits [55:52] are obviously new.
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+> >> Fix the warnings by explicitly casting to the correct type after doing the
+> >> conversion.
+> > 
+> > I think it would be simpler and clearer if we replaced the macros with
+> > functions, such that __pte_to_phys() and __phys_to_pte_val() are
+> > *always* functions.
+> 
+> Yeah, agreed. This was initially just a hack I did to get things working.
 
-Yeoreum Yun (9):
-  coresight: change coresight_device lock type to raw_spinlock_t
-  coresight-etm4x: change etmv4_drvdata spinlock type to raw_spinlock_t
-  coresight: change coresight_trace_id_map's lock type to raw_spinlock_t
-  coresight-cti: change cti_drvdata spinlock's type to raw_spinlock_t
-  coresight-etb10: change etb_drvdata spinlock's type to raw_spinlock_t
-  coresight-funnel: change funnel_drvdata spinlock's type to
-    raw_spinlock_t
-  coresight-replicator: change replicator_drvdata spinlock's type to
-    raw_spinlock_t
-  coresight-tmc: change tmc_drvdata spinlock's type to raw_spinlock_t
-  coresight/ultrasoc: change smb_drv_data spinlock's type to
-    raw_spinlock_t
+Cool; sounds like we're aligned.
 
- .../hwtracing/coresight/coresight-config.c    |   8 +-
- .../hwtracing/coresight/coresight-config.h    |   2 +-
- drivers/hwtracing/coresight/coresight-core.c  |   2 +-
- .../hwtracing/coresight/coresight-cti-core.c  |  44 +--
- .../hwtracing/coresight/coresight-cti-sysfs.c |  76 +++---
- drivers/hwtracing/coresight/coresight-cti.h   |   2 +-
- drivers/hwtracing/coresight/coresight-etb10.c |  26 +-
- .../coresight/coresight-etm4x-core.c          |  18 +-
- .../coresight/coresight-etm4x-sysfs.c         | 250 +++++++++---------
- drivers/hwtracing/coresight/coresight-etm4x.h |   2 +-
- .../hwtracing/coresight/coresight-funnel.c    |  12 +-
- .../coresight/coresight-replicator.c          |  12 +-
- .../hwtracing/coresight/coresight-syscfg.c    |  26 +-
- .../hwtracing/coresight/coresight-tmc-core.c  |   6 +-
- .../hwtracing/coresight/coresight-tmc-etf.c   |  48 ++--
- .../hwtracing/coresight/coresight-tmc-etr.c   |  40 +--
- drivers/hwtracing/coresight/coresight-tmc.h   |   2 +-
- .../hwtracing/coresight/coresight-trace-id.c  |  22 +-
- drivers/hwtracing/coresight/ultrasoc-smb.c    |  12 +-
- drivers/hwtracing/coresight/ultrasoc-smb.h    |   2 +-
- include/linux/coresight.h                     |   4 +-
- 21 files changed, 308 insertions(+), 308 deletions(-)
-
---
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
-
+Mark.
 
