@@ -4,114 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B44E7C021BC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 07:56:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D8EC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 07:57:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BSAID7cNQATBlfBRl5Ti0HdrOXWuCuOwIPKWOIOvz/E=; b=1eTgFzSiNQlMjz+Xq7tpL91pqm
-	PgC17Vk0TtOhiHfU9SZImZoD6dYHYUwIessl96F1Jsce7S2ICs+Cqg6CcIXX6fXjo3mHK1wE4/dKJ
-	BGFVF9EzY/G8wKs3kfH52LVjSqdhDO7kMvs4roWzWwhsYEk15qY67l9ee9k7pJvpzzgt6I+WFiyN3
-	+dg1m4VFZ6w+hXbOSU75BmdD+00qXZ38UCio6y+jpBha6AW0QNZWQa0cgqT3FoNJN7NEgcKkBYab6
-	ioWbEQ5uGwhmF1reSKL21Gr75aVXMj6ES+N3jaP7nip1XSV5qs8tVEP/6qTfKvE0joKSLzMgdfEhh
-	+2Fv3TYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CKWfJnlIU/VwviwhZqgb3CnRb75dZOnMnqdVJJtv9ws=; b=bWASjZlC0kpk/9
+	p656Qi7rFdoxWL6yAtRXzSrQyuEuERIoDl+MrVlxh+ZIRfAOfQq1qTkmUZxk1VIwJzraQfeYDBiPQ
+	QKC1e0BzPoFkQhcztEh/ofPe8fnsItgPrrCPk3+YswKmWraPR+QQGPrideCQqkuTImfm4+DC+RsIA
+	XBgy4VC3RZD+mcRTFJzkhHLj2mH+qHBz2vrM4Ha0zVj5MX8HuSsPcAYd8cb66OHFzUdKXAWfc9lk2
+	5R4Hfh4nTjNaV8mlEAYS6N4L+4qCUEG8q2BUVpWblZBrPhVjtgKSgWb/hbEeTyRv8cNitdqbm6jrT
+	x5rA5krcCrg6kfu+cvAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmpnP-0000000GHco-31Ni;
-	Tue, 25 Feb 2025 07:56:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tmpou-0000000GI9S-1jaW;
+	Tue, 25 Feb 2025 07:57:36 +0000
+Received: from mail-wm1-f46.google.com ([209.85.128.46])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmplr-0000000GHNj-1UNo
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 07:54:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 46DA261230;
-	Tue, 25 Feb 2025 07:54:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E12E1C4CEE2;
-	Tue, 25 Feb 2025 07:54:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740470066;
-	bh=NGk1qE7yXYQeTLoTmP1HbZudPoB9xCFk42t5aOZVRhM=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=CRYofVAHxDFI6ppXko1J4AAfQLmKIj84eSLvfQOyLz6X4scFN+BepQpZtrjFcfCcV
-	 AFdPdeXvyeq30G6UqfHvVBuc5/gV5Iw8fb2697xvsLhnwXQeipusx5HTyLvPxaGREd
-	 MZ8krS8Ba/v8TRhoRR2QSCuyKz0OjYXS3nN1Hlp6bb4MD0sum8F0EyG2gGdvDk0wgk
-	 Ayzg4NBgvJ0j40BA03jTe2eIrgJfSj61mF/7soowqQYcNOk2jB8JrwF3NRTUChyCk1
-	 X4302vrmBPT/JEk9OkamR12eI8E10SkpKOkDgw350XVUHAkVCEAWOEX0zb3Okp8Arg
-	 jz0Z6EMW+0iRQ==
-Message-ID: <2b64a9d7-7048-4842-9cc1-fe23f5abdd00@kernel.org>
-Date: Tue, 25 Feb 2025 08:54:21 +0100
+	id 1tmpnM-0000000GHbo-1HLa;
+	Tue, 25 Feb 2025 07:56:01 +0000
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-439a2780b44so32702435e9.1;
+        Mon, 24 Feb 2025 23:55:59 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740470158; x=1741074958;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CKWfJnlIU/VwviwhZqgb3CnRb75dZOnMnqdVJJtv9ws=;
+        b=c+Hh4fR37+iuWMUoEryLw/oxdORGTlpjD1hyuul5TtKCE6fkfQ+htAWreWewVVI7XP
+         ZRnt0qzwN7jm91pEHmXAhuuicgi7pyW+TeMnI+0KcnFJOgYM5lZ6/UAv8hSx/M7erDOH
+         LGs8Ioa7SBD351kXkqtmk9rTDAeEMU0uAS1qQCQBzQ+0OIINjQaFogKRonLfveMGUfXp
+         WkMyvTnL3ANvbnrhHgbc1DnfbhByqSB2MWhQZx5UisncSbyjUtBWd8nNXM84mvK96weP
+         DZXx6nQ8bgmpJOchO6yac6YymGpqVhvHrHouWjb45ak8mAgLsvTRhcAhDz7Tvn8fQWw6
+         D4sg==
+X-Forwarded-Encrypted: i=1; AJvYcCVA8otVdICb081s7tFgmefvbepgwkVeYxM/abgFZEtIxQYSllCSBHLxMxIxgnAs0EW6IS4ApCPKjM5945QpMEaV@lists.infradead.org, AJvYcCVedVQsYbTmCHaB3Uh1Gw/h1hvAYyKby8Zih0xdD31BOYFzm1bOhR6AIMdKL+8751phwNUI2+Pr4A3qa86aEBo=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyD74XEnNP3Dzh4psbUD+fTYZI+06cLijphG9CqX/urzphL6rdq
+	WqsoBG8iFrhnsMSR1FWZLbt6bMyk2bMqQme8kjf7zZMVtiDIEQSf
+X-Gm-Gg: ASbGncuHuQ379NJ7nnfl7V+BdIt7WlzhKLUy2xZmFbg3kaA27OcULtzi08II0c9OypI
+	zE+NQ1482iGOzOcD/+lHkBhrRXAoHwRyF6O4DNDUgIvEKw9k87hp7SCL73AJkbls3u5SAAYxny2
+	EZ1Gp++CwcV/ISfvt1NjL282KdikFZhEKfD3YW/nVqvvsmCPZMEB/ychSpuN4HZ4cJWPpiasjT9
+	La7UMFtuLROhaNbUBT2Kpews7qvs8dbDyEyGbOwOf4PhxKkWZrBZ+N65qbW1rm8cKCYYg+XE6wi
+	Fo+03mwjUUCk2OEYFueSc3XqYC8N4+p2YvZiofPGMR4D9sN/7jzM8fv9fQ==
+X-Google-Smtp-Source: AGHT+IGyKE9ou1PLve6oe1JIwGuGEar++UthHGMcf8nHUEw8AgRnWz/gHdtZb9HVpd+SBEqA45A1bg==
+X-Received: by 2002:a05:600c:5115:b0:439:7b5e:820a with SMTP id 5b1f17b1804b1-439ae1e670emr149646185e9.11.1740470158037;
+        Mon, 24 Feb 2025 23:55:58 -0800 (PST)
+Received: from [10.42.0.1] (cst-prg-37-50.cust.vodafone.cz. [46.135.37.50])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-439b02f2475sm130299475e9.20.2025.02.24.23.55.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Feb 2025 23:55:56 -0800 (PST)
+From: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+Subject: [PATCH v2 0/7] New DRM accel driver for Rockchip's RKNN NPU
+Date: Tue, 25 Feb 2025 08:55:46 +0100
+Message-Id: <20250225-6-10-rocket-v2-0-d4dbcfafc141@tomeuvizoso.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 1/3] dt-binding: clock: ast2700: modify soc0/1 clock
- define
-To: Ryan Chen <ryan_chen@aspeedtech.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20250224095506.2047064-1-ryan_chen@aspeedtech.com>
- <20250224095506.2047064-2-ryan_chen@aspeedtech.com>
- <f810b8a2-4261-4b68-b59b-4efa0219b5db@kernel.org>
- <OS8PR06MB7541D685A626D300AC730A5BF2C32@OS8PR06MB7541.apcprd06.prod.outlook.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <OS8PR06MB7541D685A626D300AC730A5BF2C32@OS8PR06MB7541.apcprd06.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIJ3vWcC/23Myw7CIBCF4VdpZu2YAREvK9/DdNHQqZ0YSwNI1
+ IZ3F7t2+Z/kfAtEDsIRzs0CgbNE8VMNvWnAjd10Y5S+NmjShqzSaFERBu/unPC0U7bnwSnjDlA
+ fc+BBXqt2bWuPEpMP7xXP6rf+d7JCQrLE5sjc6T1dkn/wM8vHR7+dOEFbSvkC3oBjFawAAAA=
+X-Change-ID: 20240612-6-10-rocket-9316defc14c7
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Sumit Semwal <sumit.semwal@linaro.org>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Jeffrey Hugo <quic_jhugo@quicinc.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+ linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org, 
+ Tomeu Vizoso <tomeu@tomeuvizoso.net>
+X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250224_235600_347292_D3D2D141 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,55 +99,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/02/2025 01:41, Ryan Chen wrote:
->> Subject: Re: [PATCH v9 1/3] dt-binding: clock: ast2700: modify soc0/1 clock
->> define
->>
->> On 24/02/2025 10:55, Ryan Chen wrote:
->>> -remove redundant SOC0_CLK_UART_DIV13:
->>> SOC0_CLK_UART_DIV13 is not use at clk-ast2700.c, the clock source tree
->>> is uart clk src -> uart_div_table -> uart clk.
->>>
->>> -Change SOC0_CLK_HPLL_DIV_AHB to SOC0_CLK_AHBMUX:
->>> modify clock tree implement.
->>> older CLK_AHB use mpll_div_ahb/hpll_div_ahb to be ahb clock source.
->>> mpll->mpll_div_ahb
->>>                   -> clk_ahb
->>> hpll->hpll_div_ahb
->>
->>
->> I can barely understand it and from the pieces I got, it does not explain need
->> for ABI break.
->>
-> 
-> #1. SCU0_CLK_UART_DIV13 is redundant, it does not impact ABI break
+This series adds a new driver for the NPU that Rockchip includes in its
+newer SoCs, developed by them on the NVDLA base.
 
-You did not explain how it does not impact. Clock was exported, there
-was a user and now there is no clock. User stops working. ABI break.
+In its current form, it supports the specific NPU in the RK3588 SoC.
 
-> #2. Change SOC0_CLK_HPLL_DIV_AHB to SOC0_CLK_AHBMUX
-> Older implement where `mpll_div_ahb` and `hpll_div_ahb` were **hardcoded dividers** for AHB.
-> In **the new approach (v8)**, I refactored the clock tree to clock tree.
+The userspace driver is part of Mesa and an initial draft can be found at:
 
-I still cannot parse sentences like "refactoring A to A". It's
-meaningless to me.
+https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/29698
 
-> It should be ABI-safe change
+Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+---
+Changes in v2:
+- Drop patch adding the rk3588 compatible to rockchip-iommu (Sebastian Reichel)
+- Drop patch adding support for multiple power domains to rockchip-iommu (Sebastian Reichel)
+- Link to v1: https://lore.kernel.org/r/20240612-6-10-rocket-v1-0-060e48eea250@tomeuvizoso.net
 
-No, you do not understand the ABI. You removed a clock ID, that's the
-ABI change.
+---
+Tomeu Vizoso (7):
+      dt-bindings: npu: rockchip,rknn: Add bindings
+      arm64: dts: rockchip: Add nodes for NPU and its MMU to rk3588s
+      arm64: dts: rockchip: Enable the NPU on quartzpro64
+      accel/rocket: Add a new driver for Rockchip's NPU
+      accel/rocket: Add IOCTL for BO creation
+      accel/rocket: Add job submission IOCTL
+      accel/rocket: Add IOCTLs for synchronizing memory accesses
 
-Otherwise explain how this is not changing ABI.
-
-
-> 
-> Or you want to keep original SOC0_CLK_HPLL_DIV_AHB define and then add SOC0_CLK_AHBMUX.
-> To be 1st patch, then 2n patch remove redundant SOC0_CLK_HPLL_DIV_AHB?
-
-If you break the ABI you need to clearly explain why. We have long
-conversations and you still did not say why.
-
+ Documentation/accel/index.rst                      |    1 +
+ Documentation/accel/rocket/index.rst               |   19 +
+ .../bindings/npu/rockchip,rknn-core.yaml           |  152 +
+ MAINTAINERS                                        |    8 +
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |   76 +
+ .../arm64/boot/dts/rockchip/rk3588-quartzpro64.dts |   30 +
+ drivers/accel/Kconfig                              |    1 +
+ drivers/accel/Makefile                             |    1 +
+ drivers/accel/rocket/Kconfig                       |   25 +
+ drivers/accel/rocket/Makefile                      |   10 +
+ drivers/accel/rocket/rocket_core.c                 |   77 +
+ drivers/accel/rocket/rocket_core.h                 |   43 +
+ drivers/accel/rocket/rocket_device.c               |   35 +
+ drivers/accel/rocket/rocket_device.h               |   33 +
+ drivers/accel/rocket/rocket_drv.c                  |  295 ++
+ drivers/accel/rocket/rocket_drv.h                  |   17 +
+ drivers/accel/rocket/rocket_gem.c                  |  216 +
+ drivers/accel/rocket/rocket_gem.h                  |   32 +
+ drivers/accel/rocket/rocket_job.c                  |  710 ++++
+ drivers/accel/rocket/rocket_job.h                  |   50 +
+ drivers/accel/rocket/rocket_registers.h            | 4425 ++++++++++++++++++++
+ include/uapi/drm/rocket_accel.h                    |  116 +
+ 22 files changed, 6372 insertions(+)
+---
+base-commit: 585e191534efe95712df88a22eaa8d51228bcb43
+change-id: 20240612-6-10-rocket-9316defc14c7
 
 Best regards,
-Krzysztof
+-- 
+Tomeu Vizoso <tomeu@tomeuvizoso.net>
+
 
