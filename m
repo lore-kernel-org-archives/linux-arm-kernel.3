@@ -4,65 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BC7BC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:40:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2B6FC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:40:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ym8J5YeB/cx8XpyueGVGaKEAT64ttbdOlL9OEe3dmkE=; b=odFCotrpVIkzTwAlg1n3y/0q8R
-	FkRoTP1wK5V60NastjHwKAsAO7nUIpSJ15EeUQcEa1Ux3SpYyvXObyb2m+J6NjLv6FvFp5JKqugYs
-	sZx85U88Gf32MxOM1n5kpVFoUS3R8BC7pvK4KiCW7XwemZbicekasgGSvtg4Gu+V2HA+4QWTvDO92
-	UiWXC+SZM5NF0nXPyeWbGGnbKNII5zHIRqHeKAITgJSnzH8uNIY/8sP04fjpOjBCuchRXne/MX5ck
-	Z7+7Uw51z1pOXMx7AFaGo7412ar/VNJUSyaKEibDbKGK7VG6NqPKxzauK7sMRYB24iDDpUpkP9cRa
-	JIXF5Fyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RYA2CIsgrZt6V4pyp2QiijKavn3b9Wei4RC7spEsSzY=; b=V4A257TTrJC7PRlkY6qEa5Q4RI
+	zzxX9tCpRdOrwymI7j27rW31WkrFNhaZYGN8taD+JOLM+odW1c/3GZc5g7YAqKVYkalig2UtIEXUg
+	+Xs28ep6/QrKGysoJxlPR9mEc+wpTYZMQaBng8BQUjzmgHltDPauYPDxD8duomO3tWbfV19PFN4P4
+	lX7HyG5GDd4B0RDhxKCjsi7lG9KwbTkptxzZBgM/6ESs/rhKw9ymbazhA6AgwcQtC4JYYd31nnXu6
+	JFBzBfB4CyjaIxm8wv2Ax0O777x5X50I/OLN8MoVdd1wtHkT4s84HiLb6mq58tPO5JOYYLK3fVt0s
+	f00W2x2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmxyH-00000000Hi3-2rb2;
-	Tue, 25 Feb 2025 16:39:49 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tmxyO-00000000Hum-1hM6;
+	Tue, 25 Feb 2025 16:39:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmvbM-0000000HTP8-1Wfi;
-	Tue, 25 Feb 2025 14:08:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1740492478;
-	bh=OV9F9KqPwKQyiJmD+vFaweQLR+YT46dDjh77TsIN4zI=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=hMt8TiqyYmncuyjgIQjcxwYxCWnpKDcC+iLbY8xREGK5ksBPnGIm9BBUtn2GPh/h6
-	 0dmf4eY6wieIZR6Hx/0SzGeH7azbu8lD7hL+usIe8VMCY5LiJ809XHyBTENCNLI7Uh
-	 Gv7md7aiNzD7uehvg3K0stqu+uxr7IUTnmVDsPY+0AljivHEh7RyeB970XmngeYHbl
-	 aMRT3w3hT4uIQMQIiZgqAzbApIybx71eU8gBOvCHf+/cqVZUzqq091+64BsYEL6tVl
-	 2Esi2q/LastZwWcoqcL2gxAegAHK+y4W/OhSXPUP/4jkKQzKduse5/nTcs4HoTfKaE
-	 sqSbJasRTvWWg==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 16CF617E087E;
-	Tue, 25 Feb 2025 15:07:58 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: matthias.bgg@gmail.com, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- kernel@collabora.com, pablo.sun@mediatek.com
-In-Reply-To: <20250213112008.56394-1-angelogioacchino.delregno@collabora.com>
-References: <20250213112008.56394-1-angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH v1 0/3] MediaTek MT8195/MT8395 Display Controller Graph
-Message-Id: <174049247800.77227.18410008304398234380.b4-ty@collabora.com>
-Date: Tue, 25 Feb 2025 15:07:58 +0100
+	id 1tmvfz-0000000HU7B-0uXJ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Feb 2025 14:12:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 68ADC5C6B55;
+	Tue, 25 Feb 2025 14:12:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23F6BC4CEDD;
+	Tue, 25 Feb 2025 14:12:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740492766;
+	bh=NvPo81FgstGDBOyxIosqUZAVbYXZ9CECqX5dl0H62K4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YswEwNQXXiAVsklxtmnsq1gmjEwPcFkl54hj3TF2KOeanFvDwzWBvFsewuBjG5+Iu
+	 t3+DMfZErX5AtZpMP2AtiVvJH/8SEmSzubXoaxm6AYfEFE/fwA5N7V9NWA2FLbyYdY
+	 HXmV33AInxprc0f6FMyT1BhyznknK+ToHqXQXzvInVlJz826iSy0KD3igFPWXtFrjk
+	 RXSujMAxqr1i8o6BHYUiMIaeakcaSyQXpJqkf9Lj1aUGFUIkK3GuYXaQBlLMmd63Ts
+	 TTDfniP3euhytiCkv/eOUsHMmyksWyuvGnXp6+i2XQGn7OxXPXM/1X4OPqhXjxi3xS
+	 SfMKyUCqhlQHQ==
+Date: Tue, 25 Feb 2025 14:12:40 +0000
+From: Simon Horman <horms@kernel.org>
+To: Peter Hilber <quic_philber@quicinc.com>
+Cc: "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowang@redhat.com>,
+	Trilok Soni <quic_tsoni@quicinc.com>,
+	Srivatsa Vaddagiri <quic_svaddagi@quicinc.com>,
+	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+	Eugenio =?utf-8?B?UMOpcmV6?= <eperezma@redhat.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	linux-kernel@vger.kernel.org, virtualization@lists.linux.dev,
+	netdev@vger.kernel.org, David Woodhouse <dwmw2@infradead.org>,
+	"Ridoux, Julien" <ridouxj@amazon.com>,
+	Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Parav Pandit <parav@nvidia.com>,
+	Matias Ezequiel Vara Larsen <mvaralar@redhat.com>,
+	Cornelia Huck <cohuck@redhat.com>, virtio-dev@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v5 2/4] virtio_rtc: Add PTP clocks
+Message-ID: <20250225141240.GW1615191@kernel.org>
+References: <20250219193306.1045-1-quic_philber@quicinc.com>
+ <20250219193306.1045-3-quic_philber@quicinc.com>
+ <20250224175618.GG1615191@kernel.org>
+ <vhlhes7wepjrtfo6qsnw5tmtvw6pdt2tfi4woqdejlit5ruczj@4cs2yvffhx74>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <vhlhes7wepjrtfo6qsnw5tmtvw6pdt2tfi4woqdejlit5ruczj@4cs2yvffhx74>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_060800_553651_87A0917A 
-X-CRM114-Status: UNSURE (   8.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250225_061247_310699_B79FAEAB 
+X-CRM114-Status: GOOD (  17.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,27 +88,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Feb 2025 12:20:05 +0100, AngeloGioacchino Del Regno wrote:
-> This series adds a full OF Graph for the Display Controller in the
-> MT8195 dtsi, and configures the MT8195 Cherry devices to use it.
+On Tue, Feb 25, 2025 at 12:28:24PM +0100, Peter Hilber wrote:
+> On Mon, Feb 24, 2025 at 05:56:18PM +0000, Simon Horman wrote:
+> > On Wed, Feb 19, 2025 at 08:32:57PM +0100, Peter Hilber wrote:
+> > 
+> > ...
+> > 
+> > > +/**
+> > > + * viortc_ptp_gettimex64() - PTP clock gettimex64 op
+> > > + *
+> > 
+> > Hi Peter,
+> > 
+> > Tooling recognises this as a kernel doc, and complains
+> > that there is no documentation present for the function's
+> > parameters: ptp, ts, and sts.
+> > 
+> > Flagged by W=1 builds.
+> > 
 > 
-> This was mainly done to allow different display controller paths
-> for the Radxa NIO 12L board (compared to Chromebooks), and this
-> series contains a preconfiguration for the DSI0 pipeline.
-> 
-> [...]
+> Thanks, I will change the offending documentation to non kernel-doc. I
+> was not aware that these warnings are always considered a problem.
 
-Applied to v6.14-next/dts64, thanks!
+Likewise, thanks.
 
-[1/3] arm64: dts: mediatek: mt8195: Add base display controller graph
-      commit: f49708b18c7d5f3720499141eed326697afec3a9
-[2/3] arm64: mediatek: mt8195-cherry: Add graph for eDP and DP displays
-      commit: 44d18b4497b335b0e9044dbebd2a2371363a0d77
-[3/3] arm64: dts: mediatek: mt8395-nio-12l: Preconfigure DSI0 pipeline
-      commit: eb5a199a44f866d5de707f11d579b6517c060185
-
-Cheers,
-Angelo
-
-
+I guess it depends on the subsystem. And perhaps this is fine for virtio.
+But for Networking at large the rule of thumb is not to add new warnings.
 
