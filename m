@@ -4,60 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DF90C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 06:24:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF93BC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 06:25:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JhjTFTaHzK+ZCh7dG9jdwgYeawySKUwz8l28SGzk6J8=; b=dq4rGjZucCu9rS0y3QPlp+PZsT
-	ZvSEEQ+glX54xtyLQjZPsJmCakGZm5MYmuFdx1KhCPazsZ/HxTiRiiZjk26cBm9TmnKgAQ+tUQPKl
-	dOPhIggDD3HEDMReHMqSaBZpt/O+w/l71Fyw6zDkM2JVnbcmE6hrMYpJVbLIzHf1oHDEyAEDtRevV
-	rcYHVrt72VaaDQ2SCpZP4H9KHw+hebBllvhq6Y6/yCPrfCqZKWCWECWbKl2G1ZF2PvyPd+oq5iV4X
-	GcgW6w79YQZtXznoroBEIwLidoLXbiKLRVI5W7z3yHU6SyBSxq/MzG262VQfHqgAOdIYyw1gWOErU
-	Og2bbF4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PAQDT6oY5OcgdSN1C7jHGCMlq8FGau1ZD6szWSbL8XY=; b=DwSXrh6DhfNYe8yE8ZdLmPf4SS
+	A6npU2F6Z/6tKp8e+0mkG4mlCY2NtjCfyHhPKdYthPoWZr8Xpb/pvXzjFyDb3Rly5J/d6ZNZqLiFW
+	iCOdRUCYX99ZJrYmTsU9uxOgz2rZIprTSxan6D/erEOM1lT6JDT1GyGE/do9hZDGtkgiAep+G2EAS
+	FZKeksOEc4ZTp2qnahU4KZ/1TgRChJO32sR0MsfL6+ooMUKGM9syjRcRKV2S6hCh5mlQhUvuJfPfZ
+	RgF4xObFoxkCDjCWG0vYJbOZFc33qD0FLV/XshvMzgp0cw/cnZSNxP6C6KB+FfNiDcwFg929n2i9Z
+	rxkqvInQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmoMQ-0000000G5XC-3XEP;
-	Tue, 25 Feb 2025 06:24:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmoFv-0000000G4YY-35mI
+	id 1tmoNv-0000000G5mM-2ArJ;
+	Tue, 25 Feb 2025 06:25:39 +0000
+Received: from mail-dm3nam02on2060b.outbound.protection.outlook.com ([2a01:111:f403:2405::60b] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmoM6-0000000G5Sl-1mrH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 06:17:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 731C0152B;
-	Mon, 24 Feb 2025 22:17:36 -0800 (PST)
-Received: from [10.162.40.21] (a077893.blr.arm.com [10.162.40.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C42A73F673;
-	Mon, 24 Feb 2025 22:17:15 -0800 (PST)
-Message-ID: <2ca1dc13-cd5a-4597-9733-2343e05f53b3@arm.com>
-Date: Tue, 25 Feb 2025 11:47:12 +0530
+	Tue, 25 Feb 2025 06:23:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=s1yLYXOtg5B4M6A1Lp5qqMIZkEZxe6utMO3hX7MI9rQw4d14hekNyjcNRr/Rz/qSx5biWJEJpHv8/lY4k6qGpG4aeJFY7hczDb4b2dUrzukjeSBzT7yfquTB1W9C5RetR8BWkK3MQsldyLvmq5fferYIlasGIrwGFFlC6PyK3Km3TWD+zGcINfG/pJKwDqLmgYFhf2NCAk2VgXhGg9uBleLQ7kfOdFpMReiaIqAxPqr66jQyhs4LqLqsWWfr2e4ZI2pzyGarVVTm+K09kosH5c6YRWYy7+VRANslAedCkFIe19TC5py9YnSn2NHsQDAlA1dTtsZZ373ryCr6hEnkpw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PAQDT6oY5OcgdSN1C7jHGCMlq8FGau1ZD6szWSbL8XY=;
+ b=WpynXwWUEz9McvmL48J+3VPSvVuRmZ8VRMPLzfGOEtj8n5q9YxCAJ7vueOtyD2y/RLS/lXrAiSRE5VaCsnIgIsGtdsTOQka/MZHFP6SPKaNbzOBtxmqR5pLHiDM6oye8rUc4bxu2RymMVkRQq3978+a4iyAUv3KoSzbYwA6oBM98/NGQM+yoGxi1l3yPT/4W8iQCTwtEB2ck3ZL4YGPYKjNzRJq78zOIq1pTscBuRcswsXXjyhOwtXnHHzC0BfWRgR9rBOD75gTkt6CfX9WK8R34H2tx2VIQ4XnVVJBWzGAL53vG1soCCebi+/pLyU8sR1ea5G/fa9g3FcwWCRKajw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PAQDT6oY5OcgdSN1C7jHGCMlq8FGau1ZD6szWSbL8XY=;
+ b=YGSkukncqxbaaCWA1UlkVkYpVnXJGY2F0ZQEYHeLRwAmFP9h1O6nUuoUvcjifwgRpEhY3QwqbZgBF3hBqz1KKhWYfrlOdDCf1lU41OIMRhBOO+YUqiGJzeqDNHNhp35Ljdi2yOwyu0G+BsSr7/O0a506AjaRjpvZNjhvsfdxd4AK2AXK8UgJwvTrvreFPmttrFFvSNiVJ2keZ8YeC2V8fayFG1rb7DbB8aN4TG3KLvAuEHEvVGD3835mYQbOhUcMlgCvOHsyRVBoEPEHw2G4qjItUKcU1feKFl4RwFn2IBS1NEDe3ronfq8Wp0Hkxt+BrWZuyaMSNWNL6xbEv7y53g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
+ SA0PR12MB7076.namprd12.prod.outlook.com (2603:10b6:806:2d5::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.20; Tue, 25 Feb
+ 2025 06:23:40 +0000
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe]) by DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::953f:2f80:90c5:67fe%7]) with mapi id 15.20.8489.018; Tue, 25 Feb 2025
+ 06:23:40 +0000
+Date: Tue, 25 Feb 2025 17:23:35 +1100
+From: Alistair Popple <apopple@nvidia.com>
+To: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
+Cc: akpm@linux-foundation.org, dan.j.williams@intel.com, 
+	linux-mm@kvack.org, Alison Schofield <alison.schofield@intel.com>, 
+	lina@asahilina.net, zhang.lyra@gmail.com, vishal.l.verma@intel.com, 
+	dave.jiang@intel.com, logang@deltatee.com, bhelgaas@google.com, jack@suse.cz, 
+	jgg@ziepe.ca, catalin.marinas@arm.com, will@kernel.org, mpe@ellerman.id.au, 
+	npiggin@gmail.com, dave.hansen@linux.intel.com, ira.weiny@intel.com, 
+	willy@infradead.org, djwong@kernel.org, tytso@mit.edu, linmiaohe@huawei.com, 
+	david@redhat.com, peterx@redhat.com, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev, linux-cxl@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org, linux-xfs@vger.kernel.org, 
+	jhubbard@nvidia.com, hch@lst.de, david@fromorbit.com, chenhuacai@kernel.org, 
+	kernel@xen0n.name, loongarch@lists.linux.dev, vgoyal@redhat.com, 
+	stefanha@redhat.com
+Subject: Re: [PATCH v8 20/20] device/dax: Properly refcount device dax pages
+ when mapping
+Message-ID: <asvyejblo43qscvoqv5wpbpdhrjyf6o2tmj2qait2dmqpj7jnw@eqihgijwrkf5>
+References: <cover.a782e309b1328f961da88abddbbc48e5b4579021.1739850794.git-series.apopple@nvidia.com>
+ <9d9d33b418dd1aab9323203488305085389f62c1.1739850794.git-series.apopple@nvidia.com>
+ <20250220193334.0f7f4071@thinkpad-T15>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250220193334.0f7f4071@thinkpad-T15>
+X-ClientProxiedBy: SYCPR01CA0011.ausprd01.prod.outlook.com
+ (2603:10c6:10:31::23) To CY8PR12MB7705.namprd12.prod.outlook.com
+ (2603:10b6:930:84::9)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2 7/7] arm64/boot: Enable EL2 requirements for
- FEAT_PMUv3p9
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Mark Brown <robh@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Jonathan Corbet <corbet@lwn.net>, Eric Auger <eric.auger@redhat.com>,
- kvmarm@lists.linux.dev, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250203050828.1049370-1-anshuman.khandual@arm.com>
- <20250203050828.1049370-8-anshuman.khandual@arm.com>
- <Z7x-EDH9QP7g4lC6@J2N7QTR9R3.cambridge.arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <Z7x-EDH9QP7g4lC6@J2N7QTR9R3.cambridge.arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|SA0PR12MB7076:EE_
+X-MS-Office365-Filtering-Correlation-Id: 48137162-3acb-403f-f57b-08dd5564f17a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?kDiscbIc/TMogWEkacpAxOKtdhbNbYxh96mc6yJp19O4KnLokDdHidMTCtnT?=
+ =?us-ascii?Q?w3f+p7hyBvExy1BfviNNWCL+CzaU6AFYWImW/wiVjAvBDW8Bp5ET5jzsU6EA?=
+ =?us-ascii?Q?pYTIFC9AONL8E0YuBROYP4+N4RsWGugbzCXH0ih4Q1dOhC8Mz6Fz0+cHN4mW?=
+ =?us-ascii?Q?B4Vz/KVFO4Ye/9YDykiLQ01YCrBKwHLGQug3GLngTgKTJcVssLuUpHZ05AeE?=
+ =?us-ascii?Q?pXULbQEO68LnEPDaqnyP2uKb6deLvKVpErbMff81wqWmKR6jip2LCXESAiQ0?=
+ =?us-ascii?Q?Uy+pFePe4u+4UEqKFUykeWokvNfpAHI9aJyg+faFnympp4Xy4KN3N6oozcrG?=
+ =?us-ascii?Q?Ku82SjiqqDJVWNzgZ0q8GmmYTuzcI2qsvWiPckfQjLNpIz0NP85iaEOAsDlp?=
+ =?us-ascii?Q?nOabidojdPfvgKZG3VaNptzI3ix+133QYaVlNsFeN5YaLdf+FJfqewCnX94e?=
+ =?us-ascii?Q?CgYM6ups/SClDbXzsGLbYKUGQx6TCnpVBNzYEcgNi9E2i4pIs82LqxhPdmyy?=
+ =?us-ascii?Q?5rTXnNuuVSafoyNsVNeiGU8w/JK+yS/XsvtJrg62DC1VH7xTDFDOanF6iW0/?=
+ =?us-ascii?Q?h6IxN3k6/4NVoivIBkho0eDmKhKIzoVmoqMRyVpOPfchFTshTl48mFwICvOW?=
+ =?us-ascii?Q?l/ahe5mfTUstzFjtwkgiqL9CyCMstSaaIghRgCXCd6ASCLVP8ae+rel1yb+P?=
+ =?us-ascii?Q?pCFT8vSpmdOEgOnO0pRXishocoCBZO6eX1f6eKyQ5OPPY62Txqt+gSN1xExj?=
+ =?us-ascii?Q?tcRm0M2vxvUX62oyKND4axY8RkEMLPZ4fRj9VmWsjR9Ohuw6DlJSwzQrLc98?=
+ =?us-ascii?Q?JBd7CzqW/+Y7DYbGAEHrzktpjBI9FGI+m/JxePjKDUCfh2aWbpUzB7V6Eif8?=
+ =?us-ascii?Q?yDoPdvbYCNCJPYbzALHHeauItW5E1co+kw1ljnzJ4qSoZ/wbB6+rcZTTEiL0?=
+ =?us-ascii?Q?xbcCdi9CmV5h5LxDZbnnj4WC44nT6Vve2iTgJNQkfl9YmNmeX3ovY2KFij57?=
+ =?us-ascii?Q?CIi+OqCczgUJvIQY1I9LQyAj1FYT58DfLTHAai6Chmjf9+8c74jEoKrSnnvl?=
+ =?us-ascii?Q?M7ppF2P/l6hGNS4lErzTAdlPM9RdbHZfcRBcm4w1/sGvb6gXUndTtdREgyLt?=
+ =?us-ascii?Q?KQ0kX77kTfgG1Lu63Pr1fyuItxPW5/Rm4i5iVbLysSEaiBuul2fTlUae1fei?=
+ =?us-ascii?Q?ae0+7aMbibEsSpt6Hqwyw3NBfxG4qj9huDteHiuti6amvmj7zqtFkSC5du49?=
+ =?us-ascii?Q?XZKQbWi/nJqkhASkJpjGYx3sxL22uEyutWtWXhUQoh6XH2n2NEIJ7KTQ53Kz?=
+ =?us-ascii?Q?MdrrlGTqx7RF82N9qL1NuAdNEhX3XNoXJaNyzCmV6dL0ZOfldvhOqnTyYz78?=
+ =?us-ascii?Q?LREjKyhaOv/tcpCRJ9fkWEcprx10?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?K0BHBbo7rHv2DIee0rRFwnef7NRpc+gqFBM57jl9TQ89zJCnPpAvx4fmcMe7?=
+ =?us-ascii?Q?w3QpklRHkdk5UuNemsco0/OQ19W35o4FVN26YycpRoXkrhq62KFIcymEgjfa?=
+ =?us-ascii?Q?cOGEY/5Qi0tBwXkamKABLYPFFDxNBjWfTAr2DySPiLjlml8kK65ukFrR1c92?=
+ =?us-ascii?Q?5YcoqdgUWQO06xnm7j2P2+T5odXDt4Awp7UPm7+xN6yxY2+EIW9N8KhmX0pS?=
+ =?us-ascii?Q?MEULP7gKZ5LvL0DIZegK6ABIccYQZG1vGJCpPvFnASDmzcnWHoVv2RCMJNMJ?=
+ =?us-ascii?Q?t5S7tybhejJFETpnSaCyELqFWCkeAsJP6i2hW/xhXuQEU2vTR/JfaImnJGya?=
+ =?us-ascii?Q?YhSUYArrsvg4VdWEHbY5QMgmnx7NGMz5gG8Aw7ZkL34bjPoCccaLVuO59EzW?=
+ =?us-ascii?Q?d2CmVOgnFH11LzAE7dXH0x+cDafGQl5b9HUruBa6Qf0MWD8vMi3B6onfk04P?=
+ =?us-ascii?Q?3+zCIlHkViklwinjgcMfE7fEyHAzJo1tb3OtBhcs9F19k65m5aSviqyOSfcw?=
+ =?us-ascii?Q?kSI982tQ5Pn80jGCM/Wswe1Jquxe/577+5k7hn5pIhsiTp53/qR3xyimeCnP?=
+ =?us-ascii?Q?OWNvlmLLOY2ZuvhPdUCNSK3fG1NWY48ju3Wrx+PuuZB1VJKTOeKqPwB85znU?=
+ =?us-ascii?Q?CbqdTZ7s4wLc7aJ/VH1hNRbfwhb9Ib558iZ65O/IBkfO8xiwmo/Jc0cLhY05?=
+ =?us-ascii?Q?W6ZJEkyuLqN10zdcKzAkph4EcPWtb3sufX3SkO0zK3ZcPIMTUtTJldxOICVC?=
+ =?us-ascii?Q?UhuIEUJHY9mjyIQsnmnnMncrQ25xMEydBZNDtXyaXW/zQTA/wbb8Ar+1vhIr?=
+ =?us-ascii?Q?BwldMrt/y3GdLiMyx5pOP+qxhvWMnPx3obfurtF3f6sLyiZ4VJuHz/yru1Ey?=
+ =?us-ascii?Q?oWrtlZIpU46KBzjSG6LXDrgvI2feP3T1uhvJM5oYtp3NOo84+9lvxz+DWbhC?=
+ =?us-ascii?Q?9tlH9HjzoqruEWIMv2rSEfEkVRXOoBYn+IQQ7h83wN9Xo1Q5TbEsLLloeSbs?=
+ =?us-ascii?Q?8kLOlMyT5FwVRWdx9Hj3pK3puG2a8ZiratQealwVUZuQtkvsT3dpO7GBVTTw?=
+ =?us-ascii?Q?Jyw7KcUszKm2dz++WnLegKlhl/uxjg21gBAJQG994va7lViCqLa5ZACj7gS9?=
+ =?us-ascii?Q?T3k5HI/0TmSSpGOO/Mxc50hXBGCifh96aYRUsk6E+oANJpAtGo90cUbMs1WW?=
+ =?us-ascii?Q?ZE2uKkyHMKYURjx5kXEkCBWqF4hjR81VLnKzcDLSwOq5I7ar0Kr6VyOlhI9X?=
+ =?us-ascii?Q?INx+mY3EcIR8LTVMdpXufYOZX8Kqmv1mIBJUFlvzqtbIjYi2fEYqpwU6AiYA?=
+ =?us-ascii?Q?rl4xW4RqGFjtZ/cpDNXLGJ0O3w9JpHDOnxlVMEgHtllo754ZOSvkXDwT4WAo?=
+ =?us-ascii?Q?60kkYbxrM6cxwzLV7sKUBt13czLVbECpbQ7Jt2k8eE+/2dw6+Hl0BZ5WXpPl?=
+ =?us-ascii?Q?UsWfWR/6HYQfpzKGFjsjqiO+/NDROEYZSsoVG69DZOkJE2SXEkknvXe2UfV+?=
+ =?us-ascii?Q?F4HSlCvys0StzVVnbDPX1mQvrszaajCLWoJOs1hFW7OW+uex3rKWqivj0HUa?=
+ =?us-ascii?Q?4iTa1iFsx/QBZRwAuOm8bllr990DP9ahSYWNIZow?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 48137162-3acb-403f-f57b-08dd5564f17a
+X-MS-Exchange-CrossTenant-AuthSource: CY8PR12MB7705.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 06:23:39.9737
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /PvPd10RDT7xwb8wqf3VkLsOrCUbeBkIIS0HqmXND10Eu9MB6pPYaQ8vaTHqBQJyVuZClzFdhbVUurl2uMrCZw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB7076
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_221723_882094_6235A26A 
-X-CRM114-Status: GOOD (  36.76  )
+X-CRM114-CacheID: sfid-20250224_222346_514236_10E3737D 
+X-CRM114-Status: GOOD (  40.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,225 +170,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2/24/25 19:41, Mark Rutland wrote:
-> On Mon, Feb 03, 2025 at 10:38:28AM +0530, Anshuman Khandual wrote:
->> FEAT_PMUv3p9 registers such as PMICNTR_EL0, PMICFILTR_EL0, and PMUACR_EL1
->> access from EL1 requires appropriate EL2 fine grained trap configuration
->> via FEAT_FGT2 based trap control registers HDFGRTR2_EL2 and HDFGWTR2_EL2.
->> Otherwise such register accesses will result in traps into EL2.
->>
->> Add a new helper __init_el2_fgt2() which initializes FEAT_FGT2 based fine
->> grained trap control registers HDFGRTR2_EL2 and HDFGWTR2_EL2 (setting the
->> bits nPMICNTR_EL0, nPMICFILTR_EL0 and nPMUACR_EL1) to enable access into
->> PMICNTR_EL0, PMICFILTR_EL0, and PMUACR_EL1 registers.
->>
->> Also update booting.rst with SCR_EL3.FGTEn2 requirement for all FEAT_FGT2
->> based registers to be accessible in EL2.
->>
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: Will Deacon <will@kernel.org>
->> Cc: Mark Rutland <mark.rutland@arm.com>
->> Cc: Rob Herring <robh@kernel.org>
->> Cc: Jonathan Corbet <corbet@lwn.net>
->> Cc: Marc Zyngier <maz@kernel.org>
->> Cc: Oliver Upton <oliver.upton@linux.dev>
->> Cc: linux-arm-kernel@lists.infradead.org
->> Cc: linux-doc@vger.kernel.org
->> Cc: linux-kernel@vger.kernel.org
->> Cc: kvmarm@lists.linux.dev
->> Tested-by: Rob Herring (Arm) <robh@kernel.org>
->> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
->> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
->> ---
->>  Documentation/arch/arm64/booting.rst | 18 ++++++++++++++++++
->>  arch/arm64/include/asm/el2_setup.h   | 25 +++++++++++++++++++++++++
->>  2 files changed, 43 insertions(+)
+On Thu, Feb 20, 2025 at 07:33:34PM +0100, Gerald Schaefer wrote:
+> On Tue, 18 Feb 2025 14:55:36 +1100
+> Alistair Popple <apopple@nvidia.com> wrote:
 > 
-> Three things to note here:
+> [...]
+> > diff --git a/mm/memremap.c b/mm/memremap.c
+> > index 9a8879b..532a52a 100644
+> > --- a/mm/memremap.c
+> > +++ b/mm/memremap.c
+> > @@ -460,11 +460,10 @@ void free_zone_device_folio(struct folio *folio)
+> >  {
+> >  	struct dev_pagemap *pgmap = folio->pgmap;
+> >  
+> > -	if (WARN_ON_ONCE(!pgmap->ops))
+> > -		return;
+> > -
+> > -	if (WARN_ON_ONCE(pgmap->type != MEMORY_DEVICE_FS_DAX &&
+> > -			 !pgmap->ops->page_free))
+> > +	if (WARN_ON_ONCE((!pgmap->ops &&
+> > +			  pgmap->type != MEMORY_DEVICE_GENERIC) ||
+> > +			 (pgmap->ops && !pgmap->ops->page_free &&
+> > +			  pgmap->type != MEMORY_DEVICE_FS_DAX)))
 > 
-> (1) I think this is missing some other necessary register configuration.
+> Playing around with dcssblk, adding devm_memremap_pages() and
+> pgmap.type = MEMORY_DEVICE_FS_DAX, similar to the other two existing
+> FS_DAX drivers drivers/nvdimm/pmem.c and fs/fuse/virtio_fs.c, I hit
+> this warning when executing binaries from DAX-mounted fs.
 > 
->     From a quick scan, we also require MDCR_EL3.EnPM2 (bit [7]) to be
->     configured, which is not described in mainline nor here. If that
+> I do not set up pgmap->ops, similar to fs/fuse/virtio_fs.c, and I don't see
+> why they would be needed here anyway, at least for MEMORY_DEVICE_FS_DAX.
+> drivers/nvdimm/pmem.c does set up pgmap->ops, but only ->memory_failure,
+> which is still good enough to not trigger the warning here, probably just
+> by chance.
 
-Will update the Documentation/arch/arm64/booting.rst.
+Yes, I think so. And you can guess which driver I've done all my testing
+with.
 
->     resets to 0, then EL{2,1,0} accesses to a number of registers such
->     as PMUACR_EL1 may trap to EL3> 
->     AFAICT the boot-wrapper resets that bit to 0, so have we actually
->     tested all of this with the boot-wrapper? Does TF-A set this bit?
+> Now I wonder:
+> 1) What is this check / warning good for, when this function only ever
+>    calls pgmap->ops->page_free(), but not for MEMORY_DEVICE_FS_DAX and
+>    not for MEMORY_DEVICE_GENERIC (the latter only after this patch)?
+> 2) Is the warning also seen for virtio DAX mappings (added Vivek and
+>    Stefan on CC)? No pgmap->ops set up there, so I would guess "yes",
+>    and already before this series, with the old check / warning.
 
-Right, boot wrapper resets the bit to 0. We will need the following changes
-to set that up when PMUv3p9 is available. MDCR_EL3.EnPM2 also needs to be
-set when FEAT_SPMU, FEAT_EBEP, FEAT_PMUv3_SS or FEAT_SPMU2 are implemented.
-Should those features be checked here as well ?
+Right, I simply updated the warning to reflect what should have been
+happening prior to this change. However looking again I don't think
+free_zone_device_folio() is ever called for MEMORY_DEVICE_FS_DAX pages. Instead
+put_devmap_managed_folio_refs() would have returned false and cause most paths
+to skip calling free_zone_device_folio().
 
---- a/arch/aarch64/include/asm/cpu.h
-+++ b/arch/aarch64/include/asm/cpu.h
-@@ -56,6 +56,7 @@
- #define MDCR_EL3_SBRBE_NOTRAP_NOPROHIBIT       (UL(3) << 32)
- #define MDCR_EL3_ENPMSN                                BIT(36)
- #define MDCR_EL3_EBWE                          BIT(43)
-+#define MDCR_EL3_EnPM2                         BIT(7)
- 
- #define SCR_EL3_RES1                   BITS(5, 4)
- #define SCR_EL3_NS                     BIT(0)
-@@ -87,6 +88,7 @@
- #define ID_AA64DFR0_EL1_PMSVER         BITS(35, 32)
- #define ID_AA64DFR0_EL1_TRACEBUFFER    BITS(47, 44)
- #define ID_AA64DFR0_EL1_BRBE           BITS(55, 52)
-+#define ID_AA64DFR0_EL1_PMUVER         BITS(11, 8)
- #define ID_AA64DFR0_EL1_DEBUGVER       BITS(3, 0)
- 
- #define ID_AA64ISAR0_EL1_TME           BITS(27, 24)
-diff --git a/arch/aarch64/init.c b/arch/aarch64/init.c
-index 54e4cc4..fe7ed5f 100644
---- a/arch/aarch64/init.c
-+++ b/arch/aarch64/init.c
-@@ -152,6 +152,9 @@ static void cpu_init_el3(void)
-        if (mrs_field(ID_AA64DFR0_EL1, DEBUGVER) >= 11)
-                mdcr |= MDCR_EL3_EBWE;
- 
-+       if (mrs_field(ID_AA64DFR0_EL1, PMUVER) >= 0b1001)
-+               mdcr |= MDCR_EL3_EnPM2;
-+
-        msr(MDCR_EL3, mdcr);
- 
-        if (mrs_field(ID_AA64PFR0_EL1, SVE)) {
+The only path that doesn't do that appears to be `folio_put()`. That probably
+should also be calling put_devmap_managed_folio_refs(), I'm not sure why it
+doesn't.
 
-MDCR_EL2.EnPM2 does not seem to be set on TFA either, will double check and
-get it enabled.
+> 3) Could this be changed to only check / warn if pgmap->ops (or maybe
+>    rather pgmap->ops->page_free) is not set up, but not for
+>    MEMORY_DEVICE_GENERIC and MEMORY_DEVICE_FS_DAX where this is not
+>    being called?
 
+Oh I think I know what actually happened. Earlier versions of my patch series
+did define a pgmap->ops->page_free() callback for MEMORY_DEVICE_FS_DAX but
+review comments suggested I just do all the was required directly in the switch
+statement. Obviously I forgot to update the check when I removed the need
+for pgmap->ops->page_free and having pgmap->ops->memory_failure defined was
+sufficient to (accidentally) get past the check.
+
+So yeah, the check is wrong. It shouldn't require pgmap->ops to be defined for
+MEMORY_DEVICE_FS_DAX or MEMORY_DEVICE_GENERIC.
+
+> 4) Or is there any reason why pgmap->ops would be required for
+>    MEMORY_DEVICE_FS_DAX?
+
+Nope.
+
+> Apart from the warning, we would also miss out on the
+> wake_up_var(&folio->page) in the MEMORY_DEVICE_FS_DAX case, when no
+> pgmap->ops was set up. IIUC, even before this change / series (i.e.
+> for virtio DAX only, since dcssblk was not using ZONE_DEVICE before,
+> and pmem seems to work by chance because they have ops->memory_failure).
+
+See __put_devmap_managed_folio_refs() - the wake_up_var() was there to intercept
+the 2->1 refcount transition. Now the wake_up_var() needs to happen on 1->0,
+hence why it got moved to free_zone_device_page().
+
+> >  		return;
+> >  
+> >  	mem_cgroup_uncharge(folio);
+> > @@ -494,7 +493,8 @@ void free_zone_device_folio(struct folio *folio)
+> >  	 * zero which indicating the page has been removed from the file
+> >  	 * system mapping.
+> >  	 */
+> > -	if (pgmap->type != MEMORY_DEVICE_FS_DAX)
+> > +	if (pgmap->type != MEMORY_DEVICE_FS_DAX &&
+> > +	    pgmap->type != MEMORY_DEVICE_GENERIC)
+> >  		folio->mapping = NULL;
+> >  
+> >  	switch (pgmap->type) {
+> > @@ -509,7 +509,6 @@ void free_zone_device_folio(struct folio *folio)
+> >  		 * Reset the refcount to 1 to prepare for handing out the page
+> >  		 * again.
+> >  		 */
+> > -		pgmap->ops->page_free(folio_page(folio, 0));
 > 
->     Are we sure we've cpatured *all* requirements for FEAT_PMUv3p9? i.e.
->     is there anything else that we've missed?
-
-
+> Ok, this is probably the reason why you adjusted the check above, since
+> no more pgmap->ops needed for MEMORY_DEVICE_GENERIC.
+> Still, the MEMORY_DEVICE_FS_DAX case also does not seem to need
+> pgmap->ops, and at least the existing virtio DAX should already be
+> affected, and of course future dcssblk DAX.
 > 
-> (2) This is a fix for !VHE support for PMUACR and ICNTR, where the host
->     may run at EL1 and consequently will be affected by fine grained
->     traps.
+> But maybe that should be addressed in a separate patch, since your changes
+> here seem consistent, and not change or worsen anything wrt !pgmap->ops
+> and MEMORY_DEVICE_FS_DAX.
+
+Nah, I think the check is wrong and needs fixing here.
+
+> >  		folio_set_count(folio, 1);
+> >  		break;
+> >  
 > 
->     So this probably needs a CC stable and/or fixes tag, and backport.
+> For reference, this is call trace I see when I hit the warning:
 
-Fixes: 0bbff9ed8165 ("perf/arm_pmuv3: Add PMUv3.9 per counter EL0 access control")
-Fixes: d8226d8cfbaf ("perf: arm_pmuv3: Add support for Armv9.4 PMU instruction counter")
-Cc: stable@vger.kernel.org
+Well thanks for testing this and for posting these results.
 
-But is there a particular stable tree this patch should be addressed ?
-
+> [  283.567945] ------------[ cut here ]------------
+> [  283.567947] WARNING: CPU: 12 PID: 878 at mm/memremap.c:436 free_zone_device_folio+0x6e/0x140
+> [  283.567959] Modules linked in:
+> [  283.567963] CPU: 12 UID: 0 PID: 878 Comm: ls Not tainted 6.14.0-rc3-next-20250220-00012-gd072dabf62e8-dirty #44
+> [  283.567968] Hardware name: IBM 3931 A01 704 (z/VM 7.4.0)
+> [  283.567971] Krnl PSW : 0704d00180000000 000001ec0548b44a (free_zone_device_folio+0x72/0x140)
+> [  283.567978]            R:0 T:1 IO:1 EX:1 Key:0 M:1 W:0 P:0 AS:3 CC:1 PM:0 RI:0 EA:3
+> [  283.567982] Krnl GPRS: 0000000000000038 0000000000000000 0000000000000003 000001ec06cc42e8
+> [  283.567986]            00000004cc38e400 0000000000000000 0000000000000003 0000000093eacd00
+> [  283.567990]            000000009a68413f 0000016614010940 000000009553a640 0000016614010940
+> [  283.567994]            0000000000000000 0000000000000000 000001ec0548b416 0000016c05da3bf8
+> [  283.568004] Krnl Code: 000001ec0548b43e: a70e0003		chi	%r0,3
+>                           000001ec0548b442: a7840006		brc	8,000001ec0548b44e
+>                          #000001ec0548b446: af000000		mc	0,0
+>                          >000001ec0548b44a: a7f4005f		brc	15,000001ec0548b508
+>                           000001ec0548b44e: c00400000008	brcl	0,000001ec0548b45e
+>                           000001ec0548b454: b904002b		lgr	%r2,%r11
+>                           000001ec0548b458: c0e5001dcd84	brasl	%r14,000001ec05844f60
+>                           000001ec0548b45e: 9101b01f		tm	31(%r11),1
+> [  283.568035] Call Trace:
+> [  283.568038]  [<000001ec0548b44a>] free_zone_device_folio+0x72/0x140 
+> [  283.568042] ([<000001ec0548b416>] free_zone_device_folio+0x3e/0x140)
+> [  283.568045]  [<000001ec057a4c1c>] wp_page_copy+0x34c/0x6e0 
+> [  283.568050]  [<000001ec057ac640>] __handle_mm_fault+0x220/0x4d0 
+> [  283.568054]  [<000001ec057ac97e>] handle_mm_fault+0x8e/0x160 
+> [  283.568057]  [<000001ec054ca006>] do_exception+0x1a6/0x450 
+> [  283.568061]  [<000001ec06264992>] __do_pgm_check+0x132/0x1e0 
+> [  283.568065]  [<000001ec0627057e>] pgm_check_handler+0x11e/0x170 
+> [  283.568069] Last Breaking-Event-Address:
+> [  283.568070]  [<000001ec0548b428>] free_zone_device_folio+0x50/0x140
+> [  283.568074] ---[ end trace 0000000000000000 ]---
 > 
-> (3) As there's no KVM changes, this is only safe provided that the
->     registers affected by these fine grained traps are already
->     unconditionally trapped by other traps when running a vCPU.
-> 
->     It looks like PMICNTR_EL0, PMICFILTR_EL0, and PMUACR_EL1 are all
->     trapped by MDCR_EL2.TPM, so that should work as long as we emulate
->     the PMU. For direct access, FGT2 support will be a prerequisite.
-> 
-> Ideally, we'd have added support for FGT2 before the PMU functionality
-> that implicitly depends upon it. We should pay more attention to trap
-> controls in future.
-> 
-> Given (1) and (2) I think someone needs to look into this a bit more and
-> figure out if this needs a fixup or a respin.
-
-To summarize
-
-- Update arm64/booting.rst regarding MDCR_EL3.EnPM2
-- Add above mentioned "Fixes:" tag and "CC: stable"
-- But should respin this patch or send a fix up instead ?
-
-- Boot wrapper patch setting MDCR_EL3.EnPM2
-- TFA patch setting MDCR_EL3.EnPM2
-
-Is there anything else missing ?
-
-> 
-> Mark.
-> 
->> diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
->> index cad6fdc96b98..04d97a1d5ffa 100644
->> --- a/Documentation/arch/arm64/booting.rst
->> +++ b/Documentation/arch/arm64/booting.rst
->> @@ -288,6 +288,12 @@ Before jumping into the kernel, the following conditions must be met:
->>  
->>      - SCR_EL3.FGTEn (bit 27) must be initialised to 0b1.
->>  
->> +  For CPUs with the Fine Grained Traps 2 (FEAT_FGT2) extension present:
->> +
->> +  - If EL3 is present and the kernel is entered at EL2:
->> +
->> +    - SCR_EL3.FGTEn2 (bit 59) must be initialised to 0b1.
->> +
->>    For CPUs with support for HCRX_EL2 (FEAT_HCX) present:
->>  
->>    - If EL3 is present and the kernel is entered at EL2:
->> @@ -382,6 +388,18 @@ Before jumping into the kernel, the following conditions must be met:
->>  
->>      - SMCR_EL2.EZT0 (bit 30) must be initialised to 0b1.
->>  
->> +  For CPUs with the Performance Monitors Extension (FEAT_PMUv3p9):
->> +
->> + - If the kernel is entered at EL1 and EL2 is present:
->> +
->> +    - HDFGRTR2_EL2.nPMICNTR_EL0 (bit 2) must be initialised to 0b1.
->> +    - HDFGRTR2_EL2.nPMICFILTR_EL0 (bit 3) must be initialised to 0b1.
->> +    - HDFGRTR2_EL2.nPMUACR_EL1 (bit 4) must be initialised to 0b1.
->> +
->> +    - HDFGWTR2_EL2.nPMICNTR_EL0 (bit 2) must be initialised to 0b1.
->> +    - HDFGWTR2_EL2.nPMICFILTR_EL0 (bit 3) must be initialised to 0b1.
->> +    - HDFGWTR2_EL2.nPMUACR_EL1 (bit 4) must be initialised to 0b1.
->> +
->>    For CPUs with Memory Copy and Memory Set instructions (FEAT_MOPS):
->>  
->>    - If the kernel is entered at EL1 and EL2 is present:
->> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
->> index 25e162651750..1a0071faf57e 100644
->> --- a/arch/arm64/include/asm/el2_setup.h
->> +++ b/arch/arm64/include/asm/el2_setup.h
->> @@ -233,6 +233,30 @@
->>  .Lskip_fgt_\@:
->>  .endm
->>  
->> +.macro __init_el2_fgt2
->> +	mrs	x1, id_aa64mmfr0_el1
->> +	ubfx	x1, x1, #ID_AA64MMFR0_EL1_FGT_SHIFT, #4
->> +	cmp	x1, #ID_AA64MMFR0_EL1_FGT_FGT2
->> +	b.lt	.Lskip_fgt2_\@
->> +
->> +	mov	x0, xzr
->> +	mrs	x1, id_aa64dfr0_el1
->> +	ubfx	x1, x1, #ID_AA64DFR0_EL1_PMUVer_SHIFT, #4
->> +	cmp	x1, #ID_AA64DFR0_EL1_PMUVer_V3P9
->> +	b.lt	.Lskip_pmuv3p9_\@
->> +
->> +	orr	x0, x0, #HDFGRTR2_EL2_nPMICNTR_EL0
->> +	orr	x0, x0, #HDFGRTR2_EL2_nPMICFILTR_EL0
->> +	orr	x0, x0, #HDFGRTR2_EL2_nPMUACR_EL1
->> +.Lskip_pmuv3p9_\@:
->> +	msr_s   SYS_HDFGRTR2_EL2, x0
->> +	msr_s   SYS_HDFGWTR2_EL2, x0
->> +	msr_s   SYS_HFGRTR2_EL2, xzr
->> +	msr_s   SYS_HFGWTR2_EL2, xzr
->> +	msr_s   SYS_HFGITR2_EL2, xzr
->> +.Lskip_fgt2_\@:
->> +.endm
->> +
->>  .macro __init_el2_gcs
->>  	mrs_s	x1, SYS_ID_AA64PFR1_EL1
->>  	ubfx	x1, x1, #ID_AA64PFR1_EL1_GCS_SHIFT, #4
->> @@ -283,6 +307,7 @@
->>  	__init_el2_nvhe_idregs
->>  	__init_el2_cptr
->>  	__init_el2_fgt
->> +	__init_el2_fgt2
->>          __init_el2_gcs
->>  .endm
->>  
->> -- 
->> 2.25.1
->>
 
