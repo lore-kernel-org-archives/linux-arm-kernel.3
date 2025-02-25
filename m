@@ -4,139 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19D47C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 01:26:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE4EC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 01:33:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aDT1JXp0Z29zsYBXpLuzk6BZ+GcfWCmsfKfH5vH48xk=; b=cLWpx18NNpScaLn3MJOHZ8hdzs
-	3N3X2thIfSaKCIegXiVahZr8LwId/kwQr4Vrry+fgxe+s6TH6CXaANrWrXnPApDlxSsuRsjMp1vwF
-	i0RqGarH8Ky0f2GofnvDGXcVRB0cYYaM/eSMUxRVshN5sxs0tiNe2b2/z91uFX6gz7k4hYwJ5izuS
-	8BNcYy4Yu9UVEXar10k81PItFfxgUr0OHXeSQHojsea1XI9zLtuYLqOCHc+v9PLqtMvLdKtTVbOkO
-	wqHDKMDN4hx4jaKHtjFv7f5CnOzo3aX+oBoizcsauf+6Pcw3izGQjoYx4Fi1O1ubzietcx5BYeUq/
-	ERyHmBKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nl5houdTR6MisLdpFKLKyOE9nnlycsFuyJDKA4ksk7w=; b=nPEUWFDY1n7nfl8cZcnD9BLojM
+	79Mkk64hecZF89jWudP8rMcAqkNIXY2n+4pBtyVTlXkE3lTNMly/dzp+DWTsZ6PunIuvo+1AKTQnE
+	beuNOwK1kx39ziWQ8qgUCAAvHp8eF4tgXQStwU/hgClqc2CuNjcviy00OD2vA503N9mA2oKoaG7F3
+	N+GSpFO7eeg7mlwvPqamqcnX8GEZOzYSZCzjiXtBcGRkX6EIl86t88DO8Wx2dmZtC+jslIsFdf7Yt
+	yTyni/qGCXeDZbSZMNb07/8k+26YJmHPkFM69f66VLL5mD//e8u35ockTCEhG3NIZhALSb6soAkGN
+	oZ5Tk7Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmjiP-0000000Fhal-1YhY;
-	Tue, 25 Feb 2025 01:26:29 +0000
-Received: from mail-tyzapc01on20709.outbound.protection.outlook.com ([2a01:111:f403:2011::709] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
+	id 1tmjpM-0000000FhzQ-1wTK;
+	Tue, 25 Feb 2025 01:33:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmjgt-0000000FhQs-3fwc
+	id 1tmjnr-0000000FhuJ-03Va
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 01:24:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=A4CNy4HlGionv/tAhrEQevKfkg4uSj4MrlnIp6GqSuCZqNMlIKO+mUdISU7EA3MEx3ZXoWTo/MoDJa0K8ElyC755xPCc4k831I4hFNSEd/q90z9tjYVU2bHdOO03PCI/tGZGDB34vwybtfvM3sYG620bMIneH1pROnKznfcf/GDNe4Xian/lQhHy1hDmOroOySXgfalLtYMfcbTq1L9kOvldOgAFAX0/0+YV4L9xVYjQWw8o8BRB0ukVwOBygReUMhK2Oc0LPdqqDUXCEtDvM/pwaFnaNNloieL80Q8FuJo/c/FIyHNEPrBxvuwb8FA6JKo/ax8q2HtW9xtifqm2Nw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aDT1JXp0Z29zsYBXpLuzk6BZ+GcfWCmsfKfH5vH48xk=;
- b=hVcFZe2k+c+qtwrsNzhR5Ow1n/QV2UdKE+sQ/UcPV3UI2dnP8gI6tYxJ5hZESmQSrpUCXVDkF/E2PIfUUayT+ac5Kt51FEak0m1gwu+FvhZwAM0jPwPh9Hj6fIwG4C4P59exzVSalxHJdCS90FdvxiIgwPdBmHMHJE17W0U8+jyFVNw/pgxC6SUgcB9uG9jNKh+00XuCJEzPlH/0j5yV1GtyI2lKNsFXy0EvVb5mv25R31Utk9zS//VYYSyGZfYAkF6I5s+2+jyKWsHGsTeuDRnOFa0723FssUQd6bRnNxKMzgrhVGTrVTvr/ePwcpRySDY8acocsYMgCKeVD1LBCg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cixtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aDT1JXp0Z29zsYBXpLuzk6BZ+GcfWCmsfKfH5vH48xk=;
- b=ptbvklr7DKi2ZYFju5rxflXeMOhfn+E+1LfSnIu8H0ewNio25HVXiQ0IBy8DbORVF1RGY4gMQ37yNTVv/jSmUSBIIFzVJXjfK8Lf/P4o8vmczOfeyUtYu0gwIJAYat9AveZg6GT+9fVSKf8JO3G07Qcy0QsG+dPq0sxjx1hEd/tOzc5zmfVxogNZuWyfk6YAjl/xrGjcDiGlRdrop+trG9thpwFvylCQ/7Ysi8kq7wl0bCtJR5so3yWZqlLcXFKdhK3JYL1VuyKfw5Y0rC8AbVmqGtPeE9xJimjgiuQI8OoAN+H2KjLljQMpO02nRmg0LeJyykwj1ti6n+j2PBHYNw==
-Received: from PS2PR02CA0062.apcprd02.prod.outlook.com (2603:1096:300:5a::26)
- by TY0PR06MB5187.apcprd06.prod.outlook.com (2603:1096:400:21d::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.19; Tue, 25 Feb
- 2025 01:24:47 +0000
-Received: from HK3PEPF00000220.apcprd03.prod.outlook.com
- (2603:1096:300:5a:cafe::6a) by PS2PR02CA0062.outlook.office365.com
- (2603:1096:300:5a::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8466.20 via Frontend Transport; Tue,
- 25 Feb 2025 01:24:47 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- HK3PEPF00000220.mail.protection.outlook.com (10.167.8.42) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8489.16 via Frontend Transport; Tue, 25 Feb 2025 01:24:46 +0000
-Received: from nchen-desktop (unknown [172.16.64.25])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 97FF940A5BFC;
-	Tue, 25 Feb 2025 09:24:45 +0800 (CST)
-Date: Tue, 25 Feb 2025 09:24:39 +0800
-From: Peter Chen <peter.chen@cixtech.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Rob Herring <robh@kernel.org>,
-	krzk+dt@kernel.org, Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	cix-kernel-upstream@cixtech.com,
-	"Fugang . duan" <fugang.duan@cixtech.com>
-Subject: Re: [PATCH 6/6] arm64: dts: cix: add initial CIX P1(SKY1) dts support
-Message-ID: <Z70b1x6ephA1FyEy@nchen-desktop>
-References: <20250220084020.628704-1-peter.chen@cixtech.com>
- <20250220084020.628704-7-peter.chen@cixtech.com>
- <4add2867-8c09-454a-b3e2-b4baaeccfd44@app.fastmail.com>
- <Z7cga0L6UYmPXoFw@nchen-desktop>
- <5f88cdbe-f396-49c6-bb48-f50cbbb21caf@kernel.org>
- <Z7vY5kHfEGzCCuWW@nchen-desktop>
- <0bd5af6c-979b-4403-b1e7-5847979a8780@kernel.org>
- <Z7xMeub9i74a_19g@nchen-desktop>
- <24003082-d1ca-43c6-ae96-3705e0f964f0@kernel.org>
+	Tue, 25 Feb 2025 01:32:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 51B9F611CA
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 01:31:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E213CC4CEE6
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 01:32:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740447124;
+	bh=oNFRiRu3B+1F4rETWzHu87g8+8lxN2QQ/bwEbS8L5/E=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=bbxO/luOYTPR1YgMrZi0dz+o/Ag9v3NdrvsC1/fabzUkPRMuQbWnqBQyw09RuDZLw
+	 n7hqUskxHaGVIDXX491Yk9EVkngF+m116C06SoiPpZ9aCQc/dgdDYxxWjhFHH4WVbZ
+	 c2Tymn9RJVoc7HM9AsJeJL+3tALxsDOOdzwfoyK326E+jLSQszg71owGshnIY7ZTIP
+	 5xy65PXhjBi7MAfFRQE4sE1wYyUDDbJUEaNzwZELEzsKDfCC9Z/JVi0MWjBr/U6cZ+
+	 cd7S3GS8HTcclu0WIwF4/Q+PoJi/OQKqzUlAWtan0BFT9Wo711jV23OdjFCGq/UsLJ
+	 JOXweqkByieTg==
+Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-5e04064af07so7686066a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 17:32:04 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWwtYWW4t/RXRvUc/SIL1pr6kl+k+j54D/y3DlnjZonpu7b1MX4am1ahyJflJLpbkiXUY3JWa4F73TpMV7fV0tI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyb7zaePlp76Il8ifM3MOnJpnRSVUcObd1kryOje0AdtgSOb1vt
+	y5t3TRLQ5FWhpJNFQ7x36E2Y9diULNi7awVSlAJAPidPYiHz5fpwSD+SzB614Dmx5IuwYUdaA4A
+	BVtTIJyYeGMMaLpEFIS1JiX6+yA==
+X-Google-Smtp-Source: AGHT+IF0oZCxiK/ZFsFb1hIDiizkSgWxjFTx6kKn+fuvN2qWJh20NtQly1HcVhyy6wmhgmp9semm1fTOfMZcyER0TDM=
+X-Received: by 2002:a05:6402:440b:b0:5de:aa54:dc30 with SMTP id
+ 4fb4d7f45d1cf-5e444481387mr1053029a12.5.1740447123387; Mon, 24 Feb 2025
+ 17:32:03 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <24003082-d1ca-43c6-ae96-3705e0f964f0@kernel.org>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: HK3PEPF00000220:EE_|TY0PR06MB5187:EE_
-X-MS-Office365-Filtering-Correlation-Id: 887f0baa-042a-41dc-8b05-08dd553b30e0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6+x9tybOXHiQHnAsKQR8x0LvS+7wour/DN4ZiL0j1JcvoG/WlLRBp5p9eoPc?=
- =?us-ascii?Q?wxbWIQimLlyo+ra46MC3i9GYWceNY+8coHhmKyFpLLCbdusSCZXzjxej3fTa?=
- =?us-ascii?Q?bffDF9jVa9123IhztIxB9TM1COU948vIxywCUvSF50LTFLIQWi+oxWFSd4gQ?=
- =?us-ascii?Q?w7T/uKNTZ9ONXTTYd7LpBs2VngOE/3OQksludR0N6mdp6kzlhqE9QAFptkZq?=
- =?us-ascii?Q?fxyWLEGetCjujgyTHag2Sv2aF/Rix6EOSKD2PW2ob0zBKzDpAcaRR5HWTB5V?=
- =?us-ascii?Q?/xmS0Af7bGpurze3+TjKVERVjR6Sr+vEEX2v1vts78QjmThCjFmVaY8f+QhK?=
- =?us-ascii?Q?SAvUWjU6XqftSmd2yIJpS4yx9yqSBB9BRpwTQ2EfvHIClrnNYXwHBuYdBJqr?=
- =?us-ascii?Q?kaK+nMZRykvpfPnjp5nNTYoQMTzdcvXAjpOUPJU6XMFkMMHVqAKzMLyPpKLP?=
- =?us-ascii?Q?7tQ1Ghdyou1Ty8DD3U6WslaRqHj+OlQ5NDZlW6bgDHewIxlMOPwe9DAbr3vP?=
- =?us-ascii?Q?AaXZlKIeYj9YzDI0bwn8uTWGD7dU5gZXDurpPvc9qd1E1h3X+0ko4jJxYZ61?=
- =?us-ascii?Q?LaE/ba9zW9rDyMoswMdlFCdt3/+2OwSYnJvw855iHKNOyBw5Gf2sdToMxemM?=
- =?us-ascii?Q?WwfiQMSRdX3kuBeeTPu4Cqrfj8/vbrJIUZ4sSYY8fCIMFovuLhFWaAIWbWgt?=
- =?us-ascii?Q?KB7grVcBUAA4qqKO2nUbqNnJ61GjQ9TuTiFSgZpCOYEGaRquChmPsx/wo0vA?=
- =?us-ascii?Q?StTjVy55el2Oq4QQ1dWKho8zY00vfPtk0cPDNjSb4WJ2higelnfH1CNV79OD?=
- =?us-ascii?Q?vJgJWzEEHfOOI+cK24w3AYAKur/HbrQi2kJKSGG0NupZhb+026Wrz8GbSj+N?=
- =?us-ascii?Q?Tf3M4xSYCBWPrKSwQoVW/EeVC/Cw++k1yte83ufKy2BDPlx6xHMV7ZOF2ZR5?=
- =?us-ascii?Q?ZVXxhMuuOY9/sP6SL7QpjPk1YfAJmYYOo5OwxxO0JZNnlsloPsRSdvBxuI+y?=
- =?us-ascii?Q?P8TbZ8spg5pfdlpqS0iTH+AN4KRL0qxMZhywPqblCrW2vL2uo4L2z4n49C5b?=
- =?us-ascii?Q?ki/qoOekJkLcvEMYSs2AMLbNt9IgmztGzKiG1lQQ+UKAK7SP+uG51oU2FjZ1?=
- =?us-ascii?Q?tYI/CNcqDwJ3ZlKQt01vq28KuMTss7Yqy2BEpZulMw82Hn0f/WHcZEVknRE0?=
- =?us-ascii?Q?ttUxlxmfriu4B2lYNn+itxbd9rCh8f5RHdHeXL9wl6+7Fvk95rLYkBak+vg+?=
- =?us-ascii?Q?zwDzzXRoSLeBOQz7SciUFbNlw4oqUCAsCAK+ycREqLsWly03B1c4gro+v7f4?=
- =?us-ascii?Q?nEtHKm6ySSv/iqDD05qt0vC24a1BEtY007hrj94elfdC5x2/90pu6gi9lc+R?=
- =?us-ascii?Q?mgnQctQHFem2vBp5NG+AuX3jyJ/S8rIvcihJObxGM7wQcbTLJolthJfwXVcD?=
- =?us-ascii?Q?kogtO9eZRdVL9QeUK7pHT1d28toU9IFGIs7JYyZVo79MA/THuiIujg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(376014);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 01:24:46.5588
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 887f0baa-042a-41dc-8b05-08dd553b30e0
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: HK3PEPF00000220.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB5187
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_172455_929901_DECD34A4 
-X-CRM114-Status: GOOD (  20.74  )
+References: <20250218-arm-brbe-v19-v20-0-4e9922fc2e8e@kernel.org>
+ <20250218-arm-brbe-v19-v20-11-4e9922fc2e8e@kernel.org> <20250224122507.GE8144@e132581.arm.com>
+ <CAL_Jsq+0fZ2uasgAam7qGTdCeDBQxXeyL-J1_suyxy6GE_ERTg@mail.gmail.com>
+ <20250224140317.GF8144@e132581.arm.com> <Z7yY19UtSnND5KTl@J2N7QTR9R3.cambridge.arm.com>
+ <20250224180301.GI8144@e132581.arm.com>
+In-Reply-To: <20250224180301.GI8144@e132581.arm.com>
+From: Rob Herring <robh@kernel.org>
+Date: Mon, 24 Feb 2025 19:31:52 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqKNad6eEBerUOco=SDWxdp6dgRD3FDrSt5OpGQYwwstSg@mail.gmail.com>
+X-Gm-Features: AQ5f1JpZnmkKohlVKFAFaoTDPyBucm92D6dTQtNc_f9Z3M6ImuFJVuDiTExv_eA
+Message-ID: <CAL_JsqKNad6eEBerUOco=SDWxdp6dgRD3FDrSt5OpGQYwwstSg@mail.gmail.com>
+Subject: Re: [PATCH v20 11/11] perf: arm_pmuv3: Add support for the Branch
+ Record Buffer Extension (BRBE)
+To: Leo Yan <leo.yan@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	James Clark <james.clark@linaro.org>, Anshuman Khandual <anshuman.khandual@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	kvmarm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,64 +91,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-02-24 13:07:45, Krzysztof Kozlowski wrote:
-> EXTERNAL EMAIL
-> 
-> On 24/02/2025 11:39, Peter Chen wrote:
-> >>>>>>
-> >>>>>>> +       sky1_fixed_clocks: fixed-clocks {
-> >>>>>>> +               uartclk: uartclk {
-> >>>>>>> +                       compatible = "fixed-clock";
-> >>>>>>> +                       #clock-cells = <0>;
-> >>>>>>> +                       clock-frequency = <100000000>;
-> >>>>>>> +                       clock-output-names = "uartclk";
-> >>>>>>
-> >>>>>>> +               uart_apb_pclk: uart_apb_pclk {
-> >>>>>>> +                       compatible = "fixed-clock";
-> >>>>>>> +                       #clock-cells = <0>;
-> >>>>>>> +                       clock-frequency = <200000000>;
-> >>>>>>> +                       clock-output-names = "apb_pclk";
-> >>>>>>
-> >>>>>>
-> >>>>>> Clock names don't need "clk" in them, and there should
-> >>>>>> be no underscore -- use '-' instead of '_' when separating
-> >>>>>> strings in DT.
-> >>>>>
-> >>>>> Will change to:
-> >>>>> uart_apb: clock-uart-apb {
-> >>>>
-> >>>> No, instead explain why this is part of SoC - or what are you missing
-> >>>> here - and use preferred naming.
-> >>>
-> >>> It is in SoC part, APB clock uses to visit register, and the function
-> >>> amba_get_enable_pclk at file drivers/amba/bus.c needs it during uart
-> >>> device probes. It uses common Arm uart pl011 IP, the binding doc
-> >>> described at: Documentation/devicetree/bindings/serial/pl011.yaml
-> >>
-> >> So you added fake clock? Everything you wrote is not the reason to add
-> >> such clock.
+On Mon, Feb 24, 2025 at 12:03=E2=80=AFPM Leo Yan <leo.yan@arm.com> wrote:
+>
+> On Mon, Feb 24, 2025 at 04:05:43PM +0000, Mark Rutland wrote:
+>
+> [...]
+>
+> > > > > Just a minor concern.  I don't see any handling for task migratio=
+n.
+> > > > > E.g., for a task is migrated from one CPU to another CPU, I expec=
+t we
+> > > > > need to save and restore branch records based on BRBE injection. =
+ So
+> > > > > far, the driver simply invalidates all records.
+> > > > >
+> > > > > I think this topic is very likely discussed before.  If this is t=
+he
+> > > > > case, please ignore my comment.  Except this, the code looks good
+> > > > > to me.
+> > > >
+> > > > Not really discussed on the list, but that was present in v18 (thou=
+gh
+> > > > not functional because .sched_task() hook wasn't actually enabled) =
+and
+> > > > Mark removed it. His work is here[1].The only comment was:
+> > > >
+> > > > Note: saving/restoring at context-switch doesn't interact well with
+> > > > event rotation (e.g. if filters change)
+> > >
+> > > In the brbe_enable() function, it "Merge the permitted branch filters
+> > > of all events".  Based on current implementation, all events share th=
+e
+> > > same branch filter.
 > >
-> > Not a fake clock, it is the real clocks, but depends on firmware open
-> > their parents and configure their rate. It could let others do their
-> 
-> In one place you speak about UART, which is the consumer and not
-> relevant. Here you mention it is real clock. That's all confusing, so to
-> clarify:
-> 
-> We talk about clock which is generated/output by something. Something
-> which controls way it is generated is clock controller. Either you have
-> here crystal or have here clock controller. If first, fixed clock is for
-> that. If second, you need proper clock controller binding. You can add
-> stubs for missing pieces, but this requires explanation and TODO/FIXME
-> comment.
-> 
+> > Critically, the brbe_enable() function merges the filters of all
+> > *active* events which have been installed into hardware. It does not
+> > track all events which can be rotated, and the resulting filter is not
+> > the same -- it can change as a result of rotation.
+>
+> In a perf session has multiple events, and events have different branch
+> filters, seems to me, a simple way is to return error for this case.
+>
+> I would argue BRBE is an IP for recording branches per CPU wise, it does
+> not support recording for event wise.  If we can unify branch filter
+> within a perf session, would this be much easier for handling?
 
-Thanks for clarify, it is the second case, we have clock controller for
-that, but now it is not ready to upstream due to some dependency, like
-mailbox device driver, I will drop UART node at v2 patch set.
+And the PMU is an IP for recording events per CPU, but that is not
+perf (only)...
 
--- 
+>
+> > > When event rotation happens, if without context switch, in theory we
+> > > should can directly use the branch record (no invalidation, no inject=
+ion)
+> > > for all events.
+> >
+> > No; that only works in *some* cases, and will produce incorrect results
+> > in others.
+> >
+> > For example, consider filtering. Imagine a PMU with a single counter,
+> > and two events, where event-A filters for calls-and-returns and event-B
+> > filters for calls-only. When switching from event-A to event-B, it's
+> > theoretically possible to keep the existing records around, knowing tha=
+t
+> > the returns can be filtered out later. When switching from event-B to
+> > event-A we cannot keep the existing records, since there are gaps
+> > whenever a return should have been recorded.
+>
+> Seems to me, the problem is not caused by event rotation.  We need to
+> calculate a correct filter in the first place - the BRBE driver should
+> calculate a superset for all filters of events for a session.  Then,
+> generate branch record based event's specific filter.
 
-Best regards,
-Peter
+The driver doesn't have enough information. If it is told to schedule
+event A, it doesn't know anything about event B. It could in theory
+try to remember event B if event B had already been scheduled, but it
+never knows when event B is gone.
+
+> > There are a number of cases of that shape given the set of configurable
+> > filters. In theory it's possible to retain those in some cases, but I
+> > don't think that the complexity is justified.
+> >
+> > Similarly, whenever kernel branches are recorded it's necessary to drop
+> > the stale branches whenever branch recording is paused, as there's
+> > necessarily a blackout period and hence a gap in the records.
+>
+> If we save BRBE record when a process is switched out and then restore
+> the record when a process is switched in, should we can keep a decent
+> branch record for performance profiling?
+
+Keep in mind that there's only 64 branches recorded at most. How many
+branches in a context switch plus reconfiguring the PMU? Not a small
+percentage of 64 I think. In traces where freeze on overflow was not
+working (there's an example in v18), just the interrupt entry until
+BRBE was stopped was a significant part of the trace. A context switch
+is going to be similar.
+
+> I understand it might be many things happen in the middle of a task
+> switching or migration, but it is fine for not recording branches during
+> the blackout period.  The missed branch records are not very helpful for
+> forming a flow for a profiled program itself, especially, if we
+> consider we will optimize userspace program in many cases.
+
+We can't really not record during a blackout period. The only way we
+can is with freeze on overflow.
+
+> > Do you think that you have a case where losing branches across rotation
+> > *really* matters?
+>
+> I agreed that event rotation case might be rare and complex.  Please see
+> a comment below.
+>
+> > > For a context-switch case, we need to save and re-inject branch recor=
+d.
+> > > BRBE record sticks to a process context, no matter what events have b=
+een
+> > > enabled.
+> >
+> > I had originally wanted to keep per-event records around, but it doesn'=
+t
+> > work in all cases. One reason events get discarded at context-switch
+> > time is that CPU-bound events can sample branches, and would
+> > mis-attribute stale userspace branches to the wrong context when
+> > switching tasks. There are explicit comments about this in
+> > amd_pmu_brs_sched_task() and intel_pmu_lbr_sched_task().
+> >
+> > Given we discard records when reprogramming events, we *could* try to
+> > preserve events in some cases, but I suspect that as with the rotation
+> > case this'll be a lot of complexity for little gain. Note that as we
+> > discard events when enabling the PMU, we'd throw some task-bound record=
+s
+> > away anyway, and practically the gain would be limited to cpu-bound
+> > records.
+> >
+> > Do you have a reason why you think we *must* keep events around?
+>
+> Here I am really concerned are cases when a process is preempted or
+> migrated.  The driver doesn't save and restore branch records for these
+> cases, it just invalidates all records when a task is scheduled in.
+>
+> As a result, if an event overflow is close to context switch, it is
+> likely to capture incomplete branch records.  For a userspace-only
+> tracing, it is risk to capture empty branch record after preemption
+> and migrations.
+
+There's the same risk if something else is recording kernel branches
+when you are recording userspace only. I think the user has to be
+aware if other things like context switches are perturbing their data.
+
+Rob
 
