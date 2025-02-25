@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FADDC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 01:42:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 668B3C021B6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 01:44:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iiZFDEoMMUeQmVYehoWgRQ2XvY7Zgjn8HI/dvzzcXBQ=; b=WrhqELOIXYuzrDLZ4tIq42+Y8L
-	fnZSCxF77h1iGtfjL3w7zFQUaPp3ISgvx/AAcY5rTL9Yi+EVN/ufjql2kdQD5jNxlH11MIyJiJcQ2
-	0M4KSyz3KRQmQEzCxL6Qfujn9IDU3tSaSVHYnvXq7tCzkL+RC3X20E8vWYw3oRR3x12rcUIuO1yvL
-	d9TIObFqMu0+JFDrwsKhRBVIvP7eZu/F/IfoCY2Pk71X/+tj8YTKP4p/6Y7mtnvAVvZ4oCQfAj6Yv
-	zaPB3ryEJc5CVka5QnOnRWBND1ApgYz0DqM/3FRLCVML1ecwzUN5j9FhXhwGkaLYS1fNpEv4Yiam6
-	feyEj9kw==;
+	bh=i4TOCMT9A63jLoOCD33qtnm1uXyI2TNmIj6w6+0Voco=; b=z3Z3Hne4fOT84B09085IW+k5xJ
+	gSmAWkxMx+LnQ+seo2N7R6SLmXEv1kuIyE8j8CqYn7fbEM+Bgq5vPNibqFvQU9nmc1mIFX4NM1d9y
+	S7nFbIWac+pyxhZAKHMyxPsR+8aJW1CdwpVbqGrxbiirtCBujomemt1MJt5GmC7PMXrtFVSH2Ct7J
+	kGfDo4C7rKsUSX1qQmPP3eTYtexlqUrFV0lwjp97NBsSHczrxsk6MHwFGhGB420IkAN01UfhDcpol
+	fRcLV7SMOEyoMC9H5YS0J6SXCkMAPP11L6QdX5apu5igo21UlAiXawckR6Za/uHBzsYUEvorM+9tU
+	6byz+n3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmjxw-0000000FiwP-0Ku6;
-	Tue, 25 Feb 2025 01:42:32 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	id 1tmjzQ-0000000Fj68-0Hoc;
+	Tue, 25 Feb 2025 01:44:04 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmjwP-0000000FigJ-2Cvx
+	id 1tmjwh-0000000Fijz-3cLE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 01:40:59 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-307325f2436so49246681fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 17:40:56 -0800 (PST)
+	Tue, 25 Feb 2025 01:41:16 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-5461a485aa2so4669379e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 17:41:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1740447653; x=1741052453; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1740447670; x=1741052470; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=iiZFDEoMMUeQmVYehoWgRQ2XvY7Zgjn8HI/dvzzcXBQ=;
-        b=ZwVJMwDlSyZlIslV1eubc+R+ho7E50rwwSLc7TlP7iGqyUWomQPHvXFDY9KR8RmErd
-         jFbR/G8ftWYTOVC3dKpdUzkRT5GjRqrF0z/WS6r0wiAa0Lsu6AL23TUBBddT+OshTpEI
-         9yWDM8NrcE6xzt1txV80jn2XTOIeWjLE6MP5I=
+        bh=i4TOCMT9A63jLoOCD33qtnm1uXyI2TNmIj6w6+0Voco=;
+        b=A0nC7tV8FwMSut0sbsHaqENe4kt0WlRvKTdFi2ftMqh9gAUmYD30CY4GVkP0+njmxH
+         5C0UanakxGGE3szYBmmaPUOiwHGIWnz/eRIs8SKZfavz2fmRNH7++lFc4Vp9mJJsL5jr
+         OqbcwZR9PU3m4jUfgo/fVZEByiV/Gh+p8KSgA=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740447653; x=1741052453;
+        d=1e100.net; s=20230601; t=1740447670; x=1741052470;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=iiZFDEoMMUeQmVYehoWgRQ2XvY7Zgjn8HI/dvzzcXBQ=;
-        b=RcWTN+PF7LaPb4+degdxS6Pb9S40xaKztojpABJs5CdXnEpsm7aQhCX4S4afrKqHH4
-         PYKEMJ0/0vIYuoKQJZcVXS2at6BcTm2eOd756Y23v0r2ECkCn7Tqwr3HY6qZcjpDnHMR
-         Rh16odtaJgyGnQrg4xPbfZu9I2/ddZuxtU/k8e3+rzaAcjToIRdSdF7UCaWWgAxUxmc9
-         Dsj40IUHqR3zj9jVsUczzux8oQjhgQDMxc9Lku8BFTd+WaFX5zPgjmm0wu7NfHycqBgE
-         ztH2JRspGyFZ6/5kZ+Pmi+SjNHOkASVWv/ZasgR036SkGtrP2NkX/FRGvc7D1OgqwOGp
-         OkFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVBlwGqo+aJVpbPTKovaDHIFyBb65BofzlLF6w6sfsnj5Xz9hFKcoF0qxRsy+pnvSeGO0AQDPd9fWHbzyBNqN7T@lists.infradead.org
-X-Gm-Message-State: AOJu0YzsKx242nkDdJDbaBAoDmEoOlWmzqifT+0SDzOb9s0MufxOaizN
-	CHhJgq34eYMDZN1ziVsUpVnVH61Pybao3NTMAjBJRhluIl/uhY+zQSpvSvORDu61aGqMdDARiB+
-	lLSky
-X-Gm-Gg: ASbGncvBi0XObejxl9lON6+iG/QpePi4ghU6FmvKCR+1Vv9lA6F458truv6GBLPN3M+
-	xwZDk4BfoBj8WVzGr9I22EPAVjnS5QZq5yyO5DIpbuBdYjzlKEI1J+Jw89p57hgINbdkagTrnBi
-	qJnVl0V86XXfTYQHyPgKSulYJXteZIOUHrHpIfkPj+o72Yomc/QBnY1y34pk9vTaOma0zG6iuGt
-	kxvgHh7/3C9zL/cDxDeBl2LlGYNjo6p+mQlDwyv/IMhLRjTDJhFFDHuyW2mKEWyZRrbfzv3+RAr
-	fjmoMZI4XHppRtbq8Gg9hxjex4yxmI726oytprdT7u9kWRe8f1jLR5POAxGBRm5fGw==
-X-Google-Smtp-Source: AGHT+IHdPnrianv0unYlnnwWiQWjUfarm4ouwFftgSY2ca96Sv6aiaSKuoQC8OFj2GZmwB6vu+6KTw==
-X-Received: by 2002:a2e:9b97:0:b0:308:db61:34cf with SMTP id 38308e7fff4ca-30a59899cafmr46215591fa.14.1740447653301;
-        Mon, 24 Feb 2025 17:40:53 -0800 (PST)
-Received: from mail-lf1-f54.google.com (mail-lf1-f54.google.com. [209.85.167.54])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30a81ae81ebsm807861fa.94.2025.02.24.17.40.52
+        bh=i4TOCMT9A63jLoOCD33qtnm1uXyI2TNmIj6w6+0Voco=;
+        b=TLjkikhN0+UfAKTjVb9cx+9u1Ub+LtdQY/U9Iu6IXSqBg+RPzb/Z/iBw1RBLVa2lcg
+         SeDGwErhh7xSU9z6OUT0FwQE+FiRFBiB1yHrQKzxClYUTipCnZXUjpaN6Xk3HZftJCs7
+         DfXN9P8ZumFIFPSqsA5J9QbO40anagMA9EKLZPNR2N8EKKMAo0P/GwPuKN3qqDQPKFNE
+         TPcyBCf4PiGBkIAmleVJiO5bOL7uZm47tnNP0liXJzT9iXRGzPrwccp4OUuaNQJ1rx4Z
+         p6cVk4+4fjKSHi6mHWYbcNmhJThHckoKtryARvsWs5KwXiZFhVrPebCnUTjOnJGTSdkv
+         2r5A==
+X-Forwarded-Encrypted: i=1; AJvYcCVA6YJU5GSguE0Pfor+lo5Hvc1opN5WvvZ5iq7KsTayco+qyG/5olhmqt6vw+ktCups2qqV+GreiNRvRIlp8pdy@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz15USPDzBpjKCljl1TSuiHPdD6cuT42Ny0jEfzIItF0lL3oqMi
+	gz0GhnxpkyIAW5Y5oGTDPNSdeHi1+k6GwpOc/fZXuZxVLdz3GRywXM08oFCmE6pYcz31Kc3nCo+
+	NBA==
+X-Gm-Gg: ASbGncsAMt9YKxbPeBfXISkD0i+8CeX4TP3XJDgDC21Qbz2d1ZtaDg/ok4sVj6QZHaD
+	z6EWlZmin5rqaobgmv76qETndZ+dmkV/CjZMVDmaMNTiUta6bhWO7l+Z0FM2S2JT7Nia/SU4lBi
+	tnvBhq9iSDK3cmx1mhipWSXWd6Hm8jQQhiJlOZEH/iSCjHeajipPa4zK5O/KOb4+5mTPOc69jnH
+	H4G+e7wp5OnuEh7hamX25x0eejvlBWNKTDSWrmIf54V0CUi4zfyFMbXXjuJC/BEqBm2cYCVZL4z
+	Oess2nCOyT1shZryzIq1dNbEXZeXHBCfVTqPqPihisoZU2Pc5fRPYuwBiikVm5CvkQ==
+X-Google-Smtp-Source: AGHT+IGcXGJ8XXAsU0qjqqD6ks6WHNqnyJNgEKPzMMLkR0ZNCyWKoG/fBUQWe7nnQbyJV3c21sVGYQ==
+X-Received: by 2002:a05:6512:1193:b0:545:22ec:8b6c with SMTP id 2adb3069b0e04-54838f5a59fmr5895821e87.35.1740447669894;
+        Mon, 24 Feb 2025 17:41:09 -0800 (PST)
+Received: from mail-lf1-f42.google.com (mail-lf1-f42.google.com. [209.85.167.42])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-548514b9d36sm51308e87.93.2025.02.24.17.41.02
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 24 Feb 2025 17:40:52 -0800 (PST)
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-54838cd334cso4015284e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 17:40:52 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCX9vgWWmfjkbpGQ/X8DEtBBDyqtCPGD89Lh3gVEGuUtVGc4szjcl0ViZFLM3UJqtYSOWlZw9Px5Ao1lK4V9m/XB@lists.infradead.org
-X-Received: by 2002:a05:6512:1591:b0:545:102f:8788 with SMTP id
- 2adb3069b0e04-54838ee917cmr5921345e87.19.1740447651791; Mon, 24 Feb 2025
- 17:40:51 -0800 (PST)
+        Mon, 24 Feb 2025 17:41:07 -0800 (PST)
+Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5454f00fc8dso4717506e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 17:41:02 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXNKjPhpSfzFjb5h+21VNzRocP/ND7cMgKDZb1Ivh/Bt34v+K+pOhXzYWBPrxHIOWuvi1NEn2MoDf6sS8z8LCl5@lists.infradead.org
+X-Received: by 2002:a05:6512:ac3:b0:545:f69:1d10 with SMTP id
+ 2adb3069b0e04-54838ee1c94mr5432801e87.8.1740447662279; Mon, 24 Feb 2025
+ 17:41:02 -0800 (PST)
 MIME-Version: 1.0
-References: <20250224081325.96724-1-damon.ding@rock-chips.com> <20250224081325.96724-4-damon.ding@rock-chips.com>
-In-Reply-To: <20250224081325.96724-4-damon.ding@rock-chips.com>
+References: <20250224081325.96724-1-damon.ding@rock-chips.com> <20250224081325.96724-5-damon.ding@rock-chips.com>
+In-Reply-To: <20250224081325.96724-5-damon.ding@rock-chips.com>
 From: Doug Anderson <dianders@chromium.org>
-Date: Mon, 24 Feb 2025 17:40:39 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=UJb=-TsXS3bgv-rgiON5-4icGgh81gYEJuA=ieDaBT+Q@mail.gmail.com>
-X-Gm-Features: AWEUYZnEpuNKLIwyvEJM2DgjUifuLCeYu_2BU0vlX35x8eRwRX1_fUCYojEGI6Y
-Message-ID: <CAD=FV=UJb=-TsXS3bgv-rgiON5-4icGgh81gYEJuA=ieDaBT+Q@mail.gmail.com>
-Subject: Re: [PATCH v7 03/15] drm/bridge: analogix_dp: Add irq flag
- IRQF_NO_AUTOEN instead of calling disable_irq()
+Date: Mon, 24 Feb 2025 17:40:49 -0800
+X-Gmail-Original-Message-ID: <CAD=FV=X7iWOyAvdfRDyFA9kdr+utU_aAaJ5F7nAsaHp2fMQgVw@mail.gmail.com>
+X-Gm-Features: AWEUYZlbdiIhJLMaGbE9FR34Ygo4r4AydhTgMaLe8qb8EcM7igmYbqK2w54Qn0U
+Message-ID: <CAD=FV=X7iWOyAvdfRDyFA9kdr+utU_aAaJ5F7nAsaHp2fMQgVw@mail.gmail.com>
+Subject: Re: [PATCH v7 04/15] drm/bridge: analogix_dp: Remove the unnecessary
+ calls to clk_disable_unprepare() during probing
 To: Damon Ding <damon.ding@rock-chips.com>
 Cc: heiko@sntech.de, andy.yan@rock-chips.com, hjc@rock-chips.com, 
 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
@@ -96,8 +96,8 @@ Cc: heiko@sntech.de, andy.yan@rock-chips.com, hjc@rock-chips.com,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_174057_595763_1818A9F6 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20250224_174115_895787_9CD18964 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,16 +117,41 @@ Hi,
 On Mon, Feb 24, 2025 at 12:14=E2=80=AFAM Damon Ding <damon.ding@rock-chips.=
 com> wrote:
 >
-> The IRQF_NO_AUTOEN can be used for the drivers that don't want
-> interrupts to be enabled automatically via devm_request_threaded_irq().
-> Using this flag can provide be more robust compared to the way of
-> calling disable_irq() after devm_request_threaded_irq() without the
-> IRQF_NO_AUTOEN flag.
+> With the commit f37952339cc2 ("drm/bridge: analogix_dp: handle clock via
+> runtime PM"), the PM operations can help enable/disable the clock. The
+> err_disable_clk label and clk_disable_unprepare() operations are no
+> longer necessary because the analogix_dp_resume() will not be called
+> during probing.
 >
+> Fixes: f37952339cc2 ("drm/bridge: analogix_dp: handle clock via runtime P=
+M")
+
+When possible "Fixes" should be pushed to the start of your series so
+it's obvious they have no dependencies when being picked to stable
+kernels. That should be possible here.
+
 > Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 > ---
->  drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 5 ++---
->  1 file changed, 2 insertions(+), 3 deletions(-)
+>  .../gpu/drm/bridge/analogix/analogix_dp_core.c | 18 +++++-------------
+>  1 file changed, 5 insertions(+), 13 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers=
+/gpu/drm/bridge/analogix/analogix_dp_core.c
+> index e23af674d91c..d9dafb038e7a 100644
+> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+> @@ -1608,10 +1608,8 @@ analogix_dp_probe(struct device *dev, struct analo=
+gix_dp_plat_data *plat_data)
+>         res =3D platform_get_resource(pdev, IORESOURCE_MEM, 0);
+>
+>         dp->reg_base =3D devm_ioremap_resource(&pdev->dev, res);
+
+There is a context conflict when I apply to drm-misc-next because of
+commit 43c00fb1a518 ("drm/bridge: analogix_dp: Use
+devm_platform_ioremap_resource()"). You probably should rebase and
+re-apply.
+
+Aside from the context conflict, this looks great to me:
 
 Suggested-by: Douglas Anderson <dianders@chromium.org>
 Reviewed-by: Douglas Anderson <dianders@chromium.org>
