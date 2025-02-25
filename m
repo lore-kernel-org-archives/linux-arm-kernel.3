@@ -4,76 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2B6FC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:40:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3CE3C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:40:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RYA2CIsgrZt6V4pyp2QiijKavn3b9Wei4RC7spEsSzY=; b=V4A257TTrJC7PRlkY6qEa5Q4RI
-	zzxX9tCpRdOrwymI7j27rW31WkrFNhaZYGN8taD+JOLM+odW1c/3GZc5g7YAqKVYkalig2UtIEXUg
-	+Xs28ep6/QrKGysoJxlPR9mEc+wpTYZMQaBng8BQUjzmgHltDPauYPDxD8duomO3tWbfV19PFN4P4
-	lX7HyG5GDd4B0RDhxKCjsi7lG9KwbTkptxzZBgM/6ESs/rhKw9ymbazhA6AgwcQtC4JYYd31nnXu6
-	JFBzBfB4CyjaIxm8wv2Ax0O777x5X50I/OLN8MoVdd1wtHkT4s84HiLb6mq58tPO5JOYYLK3fVt0s
-	f00W2x2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mY5FfQ+FK/SGrOr5TQi4sZrUW2dqPRYoNVeQLnDmxMg=; b=1UJRjl52nbzf1C/Nhd/faX9cwQ
+	Vz1FKpiz6UMqrNdVFPoak+jFbX0T4zPfuQJBHtL/gn4hZEWoH40YyzA475gBzeXFDWBMVx2om21iV
+	YB9Pkw69dSX07hO1juZzPyDOOQTto1jUShYlbCYxjKgBsXzesQC1mV8X8z9l3oOpmGFfjgAG2/9Ku
+	VzLynotN8VBvA9lLGwjmuUXdzKOv6HZ+MA9EpmGIzz6nGsCBBGin+ybZ3dgWHSx8Y71/pSDA+pwMh
+	G/bq/cdOo7oD1uRuP6Ob7gTjLjyxdIupWWaXNvuU6Lhs8UJ2U7FbiAbZ437NfSEDC7MUxrOgX8GIz
+	zKw6XJcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmxyO-00000000Hum-1hM6;
-	Tue, 25 Feb 2025 16:39:56 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tmxyQ-00000000Hxy-15co;
+	Tue, 25 Feb 2025 16:39:58 +0000
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmvfz-0000000HU7B-0uXJ
+	id 1tmvkU-0000000HV3I-3JjV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 14:12:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 68ADC5C6B55;
-	Tue, 25 Feb 2025 14:12:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23F6BC4CEDD;
-	Tue, 25 Feb 2025 14:12:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740492766;
-	bh=NvPo81FgstGDBOyxIosqUZAVbYXZ9CECqX5dl0H62K4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YswEwNQXXiAVsklxtmnsq1gmjEwPcFkl54hj3TF2KOeanFvDwzWBvFsewuBjG5+Iu
-	 t3+DMfZErX5AtZpMP2AtiVvJH/8SEmSzubXoaxm6AYfEFE/fwA5N7V9NWA2FLbyYdY
-	 HXmV33AInxprc0f6FMyT1BhyznknK+ToHqXQXzvInVlJz826iSy0KD3igFPWXtFrjk
-	 RXSujMAxqr1i8o6BHYUiMIaeakcaSyQXpJqkf9Lj1aUGFUIkK3GuYXaQBlLMmd63Ts
-	 TTDfniP3euhytiCkv/eOUsHMmyksWyuvGnXp6+i2XQGn7OxXPXM/1X4OPqhXjxi3xS
-	 SfMKyUCqhlQHQ==
-Date: Tue, 25 Feb 2025 14:12:40 +0000
-From: Simon Horman <horms@kernel.org>
-To: Peter Hilber <quic_philber@quicinc.com>
-Cc: "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowang@redhat.com>,
-	Trilok Soni <quic_tsoni@quicinc.com>,
-	Srivatsa Vaddagiri <quic_svaddagi@quicinc.com>,
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-	Eugenio =?utf-8?B?UMOpcmV6?= <eperezma@redhat.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	linux-kernel@vger.kernel.org, virtualization@lists.linux.dev,
-	netdev@vger.kernel.org, David Woodhouse <dwmw2@infradead.org>,
-	"Ridoux, Julien" <ridouxj@amazon.com>,
-	Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Parav Pandit <parav@nvidia.com>,
-	Matias Ezequiel Vara Larsen <mvaralar@redhat.com>,
-	Cornelia Huck <cohuck@redhat.com>, virtio-dev@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 2/4] virtio_rtc: Add PTP clocks
-Message-ID: <20250225141240.GW1615191@kernel.org>
-References: <20250219193306.1045-1-quic_philber@quicinc.com>
- <20250219193306.1045-3-quic_philber@quicinc.com>
- <20250224175618.GG1615191@kernel.org>
- <vhlhes7wepjrtfo6qsnw5tmtvw6pdt2tfi4woqdejlit5ruczj@4cs2yvffhx74>
+	Tue, 25 Feb 2025 14:17:28 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B6E4043425;
+	Tue, 25 Feb 2025 14:17:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1740493042;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mY5FfQ+FK/SGrOr5TQi4sZrUW2dqPRYoNVeQLnDmxMg=;
+	b=hGy97bFZf5CYDUbjbclD2/EryWItej2SmmkPIpvJcm5/vQRnqwCPoMwpaE3Sc4N0n4ncS9
+	264lUdNYZvNOG1I4IIS55EMlKC5aR7vuW6jpEIIlX2+rS+vN4tszJTsidhgFuDUpbSZAZZ
+	FlPZc8RU1Fwz7Mdw4YyqsaCgTa25u0Pp8zqV2pC/nkpfeUoYxsv6/eFApt2jekCY8FIj0D
+	/zlP+xkMS5jrI0JIr6F4b2QZh8SFabLUItIcMb0JPiNH8qmGETMMbF314nj6cBzM69ZLm0
+	Kn+IQM5qQwr73LZVAm6HZsqwaXSIuNSo7kcqx4c5ZRQQKN94uFLd8/vWLXAfDg==
+Date: Tue, 25 Feb 2025 15:17:20 +0100
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Kory Maincent <kory.maincent@bootlin.com>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, davem@davemloft.net,
+ Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>, Eric
+ Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Heiner
+ Kallweit <hkallweit1@gmail.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
+ linux-arm-kernel@lists.infradead.org, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Vladimir Oltean
+ <vladimir.oltean@nxp.com>, Oleksij Rempel <o.rempel@pengutronix.de>, Simon
+ Horman <horms@kernel.org>, Romain Gantois <romain.gantois@bootlin.com>
+Subject: Re: [PATCH net-next 12/13] net: phy: phylink: Use phy_caps_lookup
+ for fixed-link configuration
+Message-ID: <20250225151720.29911b4b@fedora.home>
+In-Reply-To: <20250224150440.7fe5458d@kmaincent-XPS-13-7390>
+References: <20250222142727.894124-1-maxime.chevallier@bootlin.com>
+	<20250222142727.894124-13-maxime.chevallier@bootlin.com>
+	<20250224144431.2dca9d19@kmaincent-XPS-13-7390>
+	<Z7x52C5dE3eXWomq@shell.armlinux.org.uk>
+	<20250224150440.7fe5458d@kmaincent-XPS-13-7390>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <vhlhes7wepjrtfo6qsnw5tmtvw6pdt2tfi4woqdejlit5ruczj@4cs2yvffhx74>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdekudelvdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegveeltddvveeuhefhvefhlefhkeevfedtgfeiudefffeiledttdfgfeeuhfeukeenucfkphepvdgrtddumegtsgduleemkegugegtmeelfhdttdemtggtfegtmeeglehfgeemfeeiheehmegsheejgeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegtgemlehftddtmegttgeftgemgeelfhegmeefieehheemsgehjeegpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduledprhgtphhtthhopehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmpdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhof
+ hhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomh
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_061247_310699_B79FAEAB 
-X-CRM114-Status: GOOD (  17.50  )
+X-CRM114-CacheID: sfid-20250225_061726_985403_E46E2136 
+X-CRM114-Status: GOOD (  23.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,30 +90,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 12:28:24PM +0100, Peter Hilber wrote:
-> On Mon, Feb 24, 2025 at 05:56:18PM +0000, Simon Horman wrote:
-> > On Wed, Feb 19, 2025 at 08:32:57PM +0100, Peter Hilber wrote:
-> > 
-> > ...
-> > 
-> > > +/**
-> > > + * viortc_ptp_gettimex64() - PTP clock gettimex64 op
-> > > + *
-> > 
-> > Hi Peter,
-> > 
-> > Tooling recognises this as a kernel doc, and complains
-> > that there is no documentation present for the function's
-> > parameters: ptp, ts, and sts.
-> > 
-> > Flagged by W=1 builds.
-> > 
+On Mon, 24 Feb 2025 15:04:40 +0100
+Kory Maincent <kory.maincent@bootlin.com> wrote:
+
+> On Mon, 24 Feb 2025 13:53:28 +0000
+> "Russell King (Oracle)" <linux@armlinux.org.uk> wrote:
 > 
-> Thanks, I will change the offending documentation to non kernel-doc. I
-> was not aware that these warnings are always considered a problem.
+> > On Mon, Feb 24, 2025 at 02:44:31PM +0100, Kory Maincent wrote:  
+> > > On Sat, 22 Feb 2025 15:27:24 +0100
+> > > Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
+> > >     
+> > > > When phylink creates a fixed-link configuration, it finds a matching
+> > > > linkmode to set as the advertised, lp_advertising and supported modes
+> > > > based on the speed and duplex of the fixed link.
+> > > > 
+> > > > Use the newly introduced phy_caps_lookup to get these modes instead of
+> > > > phy_lookup_settings(). This has the side effect that the matched
+> > > > settings and configured linkmodes may now contain several linkmodes (the
+> > > > intersection of supported linkmodes from the phylink settings and the
+> > > > linkmodes that match speed/duplex) instead of the one from
+> > > > phy_lookup_settings().    
+> > > 
+> > > ...
+> > >     
+> > > >  
+> > > >  	linkmode_set_bit(ETHTOOL_LINK_MODE_Pause_BIT, mask);
+> > > >  	linkmode_set_bit(ETHTOOL_LINK_MODE_Asym_Pause_BIT, mask);
+> > > > @@ -588,9 +591,9 @@ static int phylink_parse_fixedlink(struct phylink *pl,
+> > > >  
+> > > >  	phylink_set(pl->supported, MII);
+> > > >  
+> > > > -	if (s) {
+> > > > -		__set_bit(s->bit, pl->supported);
+> > > > -		__set_bit(s->bit, pl->link_config.lp_advertising);
+> > > > +	if (c) {
+> > > > +		linkmode_or(pl->supported, pl->supported, match);
+> > > > +		linkmode_or(pl->link_config.lp_advertising,
+> > > > pl->supported, match);    
+> > > 
+> > > You are doing the OR twice. You should use linkmode_copy() instead.    
+> > 
+> > No, we don't want to copy pl->supported to
+> > pl->link_config.lp_advertising. We just want to set the linkmode bit
+> > that corresponds to the speed/duplex in each mask.
+> > 
+> > That will result in e.g. the pause mode bits will be overwritten despite
+> > being appropriately set in the advertising mask in the code above this.  
+> 
+> Ok, so the right thing should be this:
+> linkmode_or(pl->link_config.lp_advertising, pl->link_config.lp_advertising,
+> 	    match)
 
-Likewise, thanks.
+That looks right indeed, I'll address that for the next iteration.
 
-I guess it depends on the subsystem. And perhaps this is fine for virtio.
-But for Networking at large the rule of thumb is not to add new warnings.
+Thanks for reviewing,
+
+Maxime
 
