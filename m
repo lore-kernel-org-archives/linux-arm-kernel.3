@@ -4,96 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCE61C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 22:20:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A19CC021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 22:23:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zc7ajnGXiA3almaxHMo8OLZGvnOOFig+wycZzMIPAvc=; b=Cihsu1n1t+yAMjnOC5+g2wxWcd
-	7szYe4FGfK69Dd7Q+84PsfMVmVqSbW0194WSk1cNyscnFuqYG4IU5cnY+DKLVOka1vJJr53k9ArIx
-	HvHyB6qcvUEsLe9hgzm32RexC+eSBcCB0pC8j3fWsTkZzn7xiFoNEitMxJr24kAMXswRcO1QuDv/x
-	flDeH0HgZ1StpzzncUHsGQF/ye19vhO/9evkopYrBejXeeyzzR6idjh5RTCuf8IW0ekP0EoopRPIb
-	13AfLhtTdwv/NWOKnQ9dhL3nHfloSa1DE8KVOnMY57QjFTQvZz97UbdMGniykzvtTN36GLLioyEGC
-	cVjX/zaw==;
+	bh=z+Wfp47wFUZwxF8rr0oKUekbERNmPTH7Ydeb1PR1NtM=; b=h0Yg3BY5BXdR2x6vbe9aO+RZ4m
+	AyI3E4WTrAOrXh6LRzY+Ja4ECv3uVWG3bx3hUDLERpUgarkwU7JLneHEPqE8KmZB/Wk8hLCIU6VH4
+	4f2UqCx+N8OeF+TheWc/xDv5yhBGJeW11AgcjnwuAKbba57n98QWB8RPf72IrE/ZBaVkDNkvqt63H
+	q/bEM+8J//Sb/OzFuBv6INttMLBEOKhvz6lcMZkros+i8AqzNWXXJwt1T+wQmv+vch/cby/dMYJWm
+	i0/df2zJmxqVJWSxaDw/WpH9XwBsFv4KocaUZLv8kZjS+NmNopM8hviuy9HsurKqHmEj3idKXUVIG
+	zfiGi//w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn3HU-00000001f8x-24kv;
-	Tue, 25 Feb 2025 22:20:00 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tn3KN-00000001gAf-1qr3;
+	Tue, 25 Feb 2025 22:22:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn3Fw-00000001euA-38Hb
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 22:18:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A4C765C58C9;
-	Tue, 25 Feb 2025 22:17:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C835EC4CEDD;
-	Tue, 25 Feb 2025 22:18:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740521903;
-	bh=viw/irv5FYM22IZHK1n8uTxMVClyAZnRSx0477w/Koc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gCbcoe1FnWAkKkuivz0Ld9lqqBS4AgOIa9ysfvtOoCndfjUBbAIznfzW4O+zRQ53X
-	 7i9jwLmsvP3bPXO3GhN01JEwreGc+tMywVAe75sYEs9e2EedPocFDz+peOGPBXXnbV
-	 TdRuf1qo+Q4tdG4WGlSOOSVn10dyWdYDMPWIizqrIgob/NFWIzpmadvVZ0DhRK+3z2
-	 46QE4El0fvJpbEAohIyW2HetDWLTxPTgirKpKIya72I5N3cHvHQ/tzKaGqT+H5eR+a
-	 slzjYb3AlhpaPXDiqa+UzwCCbelVHxPePg0al6q6kQCAheTaao/TjccKU36K2E0FB7
-	 iu9j+Fj87Pe4w==
-Date: Tue, 25 Feb 2025 22:18:13 +0000
-From: Will Deacon <will@kernel.org>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	Helge Deller <deller@gmx.de>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Naveen N Rao <naveen@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	David Hildenbrand <david@redhat.com>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Dev Jain <dev.jain@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2 2/4] arm64: hugetlb: Fix huge_ptep_get_and_clear() for
- non-present ptes
-Message-ID: <20250225221812.GA23870@willie-the-truck>
-References: <20250217140419.1702389-1-ryan.roberts@arm.com>
- <20250217140419.1702389-3-ryan.roberts@arm.com>
- <20250221153156.GC20567@willie-the-truck>
- <6ebf36f2-2e55-49b2-8764-90fd972d6e66@arm.com>
+	id 1tn1ON-00000001LA8-0MK8;
+	Tue, 25 Feb 2025 20:18:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=z+Wfp47wFUZwxF8rr0oKUekbERNmPTH7Ydeb1PR1NtM=; b=Evt5L5etojQLCySJNqHzxPuUEw
+	A6f6g+z87qTf+3BizTdOLyDbl7lWMAxnh1dXpE7zW71vM3QZFiKsf7DJM4xD7+QQYmP04/jqvudOI
+	veRuBUDTqqs4LQButkj0tnxWUo6WGalNhH3GQWie9A8kOgLMRw9atr9zPFBQq+IsBcFitA0svKDaj
+	qf4hluHuFgainnttMJHEIgIbTMecYmBwRZNa4X4w/uWkhDbQ7LJzG29kTCLYRJ9Jqon/NfyrlrjkF
+	1qWmHmCs2nnVZsz0R2k/J25HMj94dW9WJuASvxr1V5twQw0NX+iIdsbvqpwFObtMuOiW0IibHGKmO
+	RwdNKdkw==;
+Received: from mail-dm6nam11on2061e.outbound.protection.outlook.com ([2a01:111:f403:2415::61e] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tn1OJ-00000003PXr-1o88;
+	Tue, 25 Feb 2025 20:18:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sCvEKhQrXhNa6Uis5T9Yvy9v0IfNrL6QDj2rg0OMeP4vTSQGX3oFREvh5xKYRuXbnpkOvCWDaSA5XyU0cjxxl5EHv7fjxPzJP5p+a+LjeSOYPkMNFZD6EibGoOOQJDodURNQZSC76mZFZtnzURcy4HK0Ai9AkDBwgLGZ7B3BwDszni3OylWwoZuTYHO6PZqkE4aZk/kn9nyUbxYt+CyfBr7qnT8S5WBtNazT1kiTQ/5g/pM34iTX/uhkY1Qfn5WPk0kTgia3ECRn/VyGC4CqfdW6OArp6ad7KdJ51pUzKBZSopakRmU64DZuGSz+eFnR2WWtH6A3DTxH+muqKzzdxQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=z+Wfp47wFUZwxF8rr0oKUekbERNmPTH7Ydeb1PR1NtM=;
+ b=g+tGamm7+aZ0aKe+MQ86VOZXL4dlwMnXZ9TrDw/7X7RW0D688qnXmEvCvAzPWL7tkfd4hI4/jGqO6OkToLH0llkAdhrncA+guxyVNtVO9HluVTfntL3+LNFDwfE01OnplAT+XyvbpG9SKFWl6BBhs2PW+Wj7UHWkgSW4mVA4J1gJb8pKD0YyqrgWB3JYkUj+dUv/t3KQF6leuPf76u7bHRUOdVlAZqGPfC2K6cEl1NTLanaa51aJPH6aBi9YqEpQCB2ABx9WIKw5VepBKIBQl7i/22F78bWuEr9neIQ0Fq49AnJE+0RbpdAIpxvOtMs10kf9cksbB/Qhocc0YvGMKw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=dabbelt.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=z+Wfp47wFUZwxF8rr0oKUekbERNmPTH7Ydeb1PR1NtM=;
+ b=LtJZSq8dzFeqn6E3sZzj+6QzQ+QLUYO6b+8Rnb8fCFJziFuGSoVrbl0nALelVn70LemrhksoFubaBlKWSVs7C7h1v682zv/MZBsxYxmA4rKqCU2x+N4wlTRNTowZMQMVkTgksIGQBErbT7aOt2FGMBKNw5Hs8H1ppxHmXJb5TDAYSvgC/KXrpx1MGofftrqfeVzRnPuEb1ub2xYV1ngrQ+LfLoVvPwZLF6K9ZzaCNWzTgwCMpD3m4nZ0pNQHTJdSLyyNb18FyoxMNS1cDUdcOccIcBJDPkBeRdY/NBRpbax7o1gCWh8cfA85xQufQxg3n43Y0mAd1TrSQdWuJUhlrQ==
+Received: from SN7PR04CA0044.namprd04.prod.outlook.com (2603:10b6:806:120::19)
+ by DM4PR12MB6446.namprd12.prod.outlook.com (2603:10b6:8:be::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8489.18; Tue, 25 Feb 2025 20:18:45 +0000
+Received: from SA2PEPF000015CB.namprd03.prod.outlook.com
+ (2603:10b6:806:120:cafe::39) by SN7PR04CA0044.outlook.office365.com
+ (2603:10b6:806:120::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8466.21 via Frontend Transport; Tue,
+ 25 Feb 2025 20:18:44 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SA2PEPF000015CB.mail.protection.outlook.com (10.167.241.201) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8489.16 via Frontend Transport; Tue, 25 Feb 2025 20:18:44 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 25 Feb
+ 2025 12:18:17 -0800
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Tue, 25 Feb
+ 2025 12:18:17 -0800
+Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com (10.129.68.10)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Tue, 25 Feb 2025 12:18:15 -0800
+Date: Tue, 25 Feb 2025 12:18:13 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: Alim Akhtar <alim.akhtar@samsung.com>, Alyssa Rosenzweig
+	<alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
+	<asahi@lists.linux.dev>, Lu Baolu <baolu.lu@linux.intel.com>, David Woodhouse
+	<dwmw2@infradead.org>, Heiko Stuebner <heiko@sntech.de>,
+	<iommu@lists.linux.dev>, Jernej Skrabec <jernej.skrabec@gmail.com>, "Jonathan
+ Hunter" <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>, "Krzysztof
+ Kozlowski" <krzk@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <linux-rockchip@lists.infradead.org>,
+	<linux-samsung-soc@vger.kernel.org>, <linux-sunxi@lists.linux.dev>,
+	<linux-tegra@vger.kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>,
+	Hector Martin <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>, "Paul
+ Walmsley" <paul.walmsley@sifive.com>, Robin Murphy <robin.murphy@arm.com>,
+	Samuel Holland <samuel@sholland.org>, Suravee Suthikulpanit
+	<suravee.suthikulpanit@amd.com>, Sven Peter <sven@svenpeter.dev>, "Thierry
+ Reding" <thierry.reding@gmail.com>, Tomasz Jeznach <tjeznach@rivosinc.com>,
+	Krishna Reddy <vdumpa@nvidia.com>, Chen-Yu Tsai <wens@csie.org>, Will Deacon
+	<will@kernel.org>, Bagas Sanjaya <bagasdotme@gmail.com>, Joerg Roedel
+	<jroedel@suse.de>, Pasha Tatashin <pasha.tatashin@soleen.com>,
+	<patches@lists.linux.dev>, David Rientjes <rientjes@google.com>, "Matthew
+ Wilcox" <willy@infradead.org>
+Subject: Re: [PATCH v3 00/23] iommu: Further abstract iommu-pages
+Message-ID: <Z74lhX646QAgj+Pf@Asurada-Nvidia>
+References: <0-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <6ebf36f2-2e55-49b2-8764-90fd972d6e66@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <0-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF000015CB:EE_|DM4PR12MB6446:EE_
+X-MS-Office365-Filtering-Correlation-Id: fa378399-1df7-4112-295a-08dd55d99aa9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|7416014|376014|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?j4roXWx5zY3VU4LvfxWFtOAqd6Z/Oeq1JnT/4WUreGed0G7hao8Ocy5xqHSI?=
+ =?us-ascii?Q?QkN3TFcJp1tQMmQeEzmGho495EHZ+zlZGygzLS46JE4/yRjNX6ET6Yo0tjk6?=
+ =?us-ascii?Q?R+BHRsnqRKCsopqwSStq05v+oUPNsn75copRIgo6kJcR7uOZDNHYiV7NRp3g?=
+ =?us-ascii?Q?t+JZS5Sx7zsvEmOwZLeOyIhERBKQIlsAb5URpMI7NU6Q0GxH89RZL271YHSN?=
+ =?us-ascii?Q?58h9P9ZP2bRE21jFgsunFquZb74qpGIXTQKth3eHbd9JK/6WaAsQ4/NOrB+4?=
+ =?us-ascii?Q?e3+GJd808e66wS6cbbmHQbYo/tmUmHejKBo9JcoMLkykHg9XuO9Un5cnTN2X?=
+ =?us-ascii?Q?E+erxPgQD3ZlijY+5dlxsIEkY+mPvlel8M0NiFAO4806VLWzzsM/dM99rFOQ?=
+ =?us-ascii?Q?nQnug+flz5iIuwW0oltZvXHISRtPDTce8yKZ7yfF97Dqsp6cL1aV+77+EBLd?=
+ =?us-ascii?Q?46J8+KSLzxlQ8vrs/Wlw0i1faebufALPF8soaY9Bj8PUqNsO1SLL11BLI0y9?=
+ =?us-ascii?Q?G3sLEd6uDZwmLzBWXK6rOEVfyjv4mK3V98iliWfEIqZSU/VzRv5MUB2hY4l5?=
+ =?us-ascii?Q?UsVUACo5FJANE87Bm/k9yDba81uy/pRMfHiDlhQRBneOnxn040AJL7aK6xeN?=
+ =?us-ascii?Q?9rKVP9Y/S5z4hUo5A6m1dUxQc+AVgTNHZiZSsIW9Df2/rOCWhanfLV2Shevp?=
+ =?us-ascii?Q?SX0rjrNo+uACsKYkpX5bvkGT9YTJZDSNKXYmR8GWlZt9ZuL+5X1DZMd2SzLt?=
+ =?us-ascii?Q?oY88KWLzcnm6EiU/bNxqEDQzFcbroIAAHFcjiPTGh1wI82yjZJlvX8Zb2AyL?=
+ =?us-ascii?Q?VU/yfkdeF4/0BZpXGDipMoZSyVq+UQr/go/XfWmSzPzHvCRF5o9HDTsNR6uj?=
+ =?us-ascii?Q?ZJKJT7KX0nQzXu/50hVzPHmGDUNdAhQo4r/y9wsbQu5Rtn4LtXkuNM6YVhg9?=
+ =?us-ascii?Q?M6UxJuSjoDZb+wQPei2aMKyLu6fzR8xqk0ehlhJ5Jsf7w7R+othUbhT1eB0T?=
+ =?us-ascii?Q?l0X1ADY+Ibr8HjEJleNeb6mCEh7Rnr7sXuZ/Cz4CZdX5egk0G0wLAmStq2YJ?=
+ =?us-ascii?Q?0douXwPLTmC2J/55eJo03qY7hujtv/nodnBsW8wyX7RZe21I4Cl5LgL1u6F6?=
+ =?us-ascii?Q?lTWz9mlvhNrEK4bawE8jN4IWYydDLzg/ukqYyO4MC4G+OQsJjf9ottTq63mP?=
+ =?us-ascii?Q?VYeJoBqW8k5rHlWs/5Rzj0M8MTvWmNuGLhTshj4znUV93P0jPTKtI8fEZEcI?=
+ =?us-ascii?Q?SnQWaql/bYoqZYCjnZiR+TGH2dw73SZ904avonehq6OIq+7oALiFqU8dDMJt?=
+ =?us-ascii?Q?ACucnoqkOk+oRCsEV4WaDwxgXKUUMzgiB2abRxXxOWXr42941LQqd0HUTbHD?=
+ =?us-ascii?Q?h+jtxJzVTjZDlzyf0uv7x26jIQ75rhXi2wqh0dzuqR0dgCz3f+ndtbbGW0dR?=
+ =?us-ascii?Q?Yg8cMe//qyWWfzcTGbkxBiLty9r1ZRR8j8IJqc9VIkQTnDBIQfAcsy6e29+0?=
+ =?us-ascii?Q?yKyBLnkn4g2ZxP0=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(7416014)(376014)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 20:18:44.6270
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: fa378399-1df7-4112-295a-08dd55d99aa9
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF000015CB.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6446
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_141824_897721_A8925A82 
-X-CRM114-Status: GOOD (  20.18  )
+X-CRM114-CacheID: sfid-20250225_201855_653710_206331F3 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,43 +180,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 24, 2025 at 12:11:19PM +0000, Ryan Roberts wrote:
-> On 21/02/2025 15:31, Will Deacon wrote:
-> > On Mon, Feb 17, 2025 at 02:04:15PM +0000, Ryan Roberts wrote:
-> >> +	pte = __ptep_get_and_clear(mm, addr, ptep);
-> >> +	present = pte_present(pte);
-> >> +	while (--ncontig) {
-> >> +		ptep++;
-> >> +		addr += pgsize;
-> >> +		tmp_pte = __ptep_get_and_clear(mm, addr, ptep);
-> >> +		if (present) {
-> >> +			if (pte_dirty(tmp_pte))
-> >> +				pte = pte_mkdirty(pte);
-> >> +			if (pte_young(tmp_pte))
-> >> +				pte = pte_mkyoung(pte);
-> >> +		}
-> >>  	}
-> > 
-> > nit: With the loop now structured like this, we really can't handle
-> > num_contig_ptes() returning 0 if it gets an unknown size. Granted, that
-> > really shouldn't happen, but perhaps it would be better to add a 'default'
-> > case with a WARN() to num_contig_ptes() and then add an early return here?
+On Tue, Feb 25, 2025 at 03:39:17PM -0400, Jason Gunthorpe wrote:
+> This is on github: https://github.com/jgunthorpe/linux/commits/iommu_pages
 > 
-> Looking at other users of num_contig_ptes() it looks like huge_ptep_get()
-> already assumes at least 1 pte (it calls __ptep_get() before calling
-> num_contig_ptes()) and set_huge_pte_at() assumes 1 pte for the "present and
-> non-contig" case. So num_contig_ptes() returning 0 is already not really
-> consumed consistently.
-> 
-> How about we change the default num_contig_ptes() return value to 1 and add a
-> warning if size is invalid:
+> v3:
+>  - Fix comments
+>  - Rename __iommu_free_page() to __iommu_free_desc()
+>  - Retain the max IMR table size comment in vt-d
 
-Fine by me!
+Ran some sanity in baremetal with some DMA/ATS flow on ARM64. Also
+tested the kernel with a stage-2 setup via iommufd running a vSMMU
+enabled VM, the guest kernel doesn't have these changes though.
 
-I assume you'll fold that in and send a new version, along with the typo
-fixes?
-
-Cheers,
-
-Will
+Tested-by: Nicolin Chen <nicolinc@nvidia.com>
 
