@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D9B7C021BE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C88A8C18E7C
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 19:31:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,90 +12,78 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hjDMnEpfyvE0/n/R7fglBpQPZZ2H1kPvQ+lYLuofLIk=; b=Hb/kOLVHc5t7TJWvPEZmXCbIgq
-	PEufPPDzciI1EG/UAIEI30H9Uucyy+ecajQknQKN4HOcLH+XgTfj/BHfrNlyzGjLtr7AWLVUqqFfd
-	gVr7P8SEFM072IyHQ6cQcda4lYmjUwRGl4Gtbe8d8a46KugkBHDiAKcdt79F9N+wkCjTG9OxJb9Jg
-	flDybjPNAEQbFKWwYdZdIu2lFBk+J1DUQcVBA30qlvYl2bh5oRcw590D/YhLmqEREPM8WEuW6kdgF
-	Fevah20uEltV1W1Zh9Sp3eFZjCj8xAB5/i881+ZTwph16Iw0NK02Vsi0mzdFQVcSTsFxMRPzbFUT1
-	CY+M4pJg==;
+	bh=e9USewdvJ7PYqMLaARTkWJYtBQaK26VR+XCGXeZgq7M=; b=LE1rxnXFMbcc8VlJPSnlKKtsvG
+	lc41IYnD6jCt+p8P/Dx5+rDsXUNRKa1TwjuQ8SCTLp0LnnXCuj6UFYnDBoYuPDceMGvCeKad63d3d
+	QtWD4PtM2kyR3gxGtDekp0gGj4RDpVcLib0cL09pr0m93L45Mrg22ZG8Cmsy26AkLluMxxo8YeYyL
+	Yv9nt/On0Rasyo42M8M6rbkJ8YPNxMSrvy5gBrY/DXhVqTv+r8e6NsFfdxojUwA6bRICEOU8VWRUY
+	2R7Bu/pgqk83mDcGy4giOe8BabBmcV6q+e6CBNh6XXGfERT0hO0caUHRZS5S5+5UQMpJ1NuY1m8f6
+	H2mOT5Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn0eV-0000000199N-01Ja;
-	Tue, 25 Feb 2025 19:31:35 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1tn0eT-00000001991-46m1;
+	Tue, 25 Feb 2025 19:31:33 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmzDN-00000000nJT-3cbe
+	id 1tmzB2-00000000mfv-0BA4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 17:59:31 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-439a4dec9d5so57913365e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 09:59:29 -0800 (PST)
+	Tue, 25 Feb 2025 17:57:05 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-38a8b17d7a7so3376624f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 09:57:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740506368; x=1741111168; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1740506222; x=1741111022; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=hjDMnEpfyvE0/n/R7fglBpQPZZ2H1kPvQ+lYLuofLIk=;
-        b=SadbNYFGkqBNz+Oz5M9vJc4n+jYYl4P1B2TWd3v2YvJr0E8c6q48luBiOnS+Ua1n5X
-         2BFAYe+sGORSegnYtgmHY0eP2xgerLK54tBcetNCy5xtsPD+72VWB17Rc2Eo8Rz+PK5m
-         ntOoMkBOmQiX+8rO8SDmdrUU7LIJOewVGQjtkUNpCNz1irjB4BJ4mkMqGRtxLd+SZqst
-         DxoNZ6AbIxQ+iDD60uKU9fq7+gOFzNeOHT8UMfsK8XVhPJyDNRLiz/jRRmOOIEUIQQaz
-         7dPpQDDF/81+JDWs3z1JSaiFz1+pRDkNe3K/EUVjWgbjVa+iFJniorz08+wy7VkHJ8qY
-         beWA==
+        bh=e9USewdvJ7PYqMLaARTkWJYtBQaK26VR+XCGXeZgq7M=;
+        b=ZpjaKu+S7jlk/ctjMNyu5a7Xh3RmDAIFIeP1H5SsjYTvR66SSt5wi0DCY1kBBoMfK6
+         KtOhS8usfAaqmU1M8oWEP/gX3zPPprIRPtFUONS1a/H6vwHsLRIzCmHw/7fOWle9SFHA
+         7DU/WA5VwtqgcWgXAwOdfNRfx7ttTxVsWJqngX3Kku6HtsNyFfTYis7G9So3b1onwsET
+         0hV4oKpqi84KjVv+UddiZr9FH1+5F+WmPvxjXNlSQUK+O2rCoyKGXCpqFmUAQi6zxmGa
+         E8UfLGpnUfqqlJXRGQfNxBH7eViLk0C72+TuneIl8w6TVRgKiFhfkjwDHg3Eo7whiCyJ
+         18UQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740506368; x=1741111168;
+        d=1e100.net; s=20230601; t=1740506222; x=1741111022;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=hjDMnEpfyvE0/n/R7fglBpQPZZ2H1kPvQ+lYLuofLIk=;
-        b=t0PFL10M/P0u0sJ/1f0+C8LlWRayvCwBpNnKwLqGeFuDvCsv1WuTXO/a0SPvLVlhVa
-         0QQ8bJRGWuv0QwxU/A0zpc4c4huCNyfh+ZO/JShtjhOwqtz5pqo+cteOMtgJGKtPPYFO
-         XfcTEKuzG+0qYBsV07iGJHnvHp5T5h5Ct6G/qtER2Lko0rOxaJCVADVDnsx8/PKXpuKd
-         WszzI2w9tOHUvXLTTbjmYt0/7PGHxO1xB4Aquo1UoBmzd5d1K8k7f+lzRxhy9qOQIwFq
-         RinB4VpoqLs5GUpRCHuZxEs4JRCuxLLe4BbJeGHhN0AInKRK+R+Etqh3NdTeAHpdO2V4
-         KsnQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUI6FjxqEZ/6ntHwG8AR/cBG90TVEP8oWIahx5+8gFZBsPO1NA1nRhOSSNnbtt/3mDnX6ivGVgtelC/71uF1npt@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWG+xmJ5TCAm121xMYShVA0HlHLF1k6+mbsnV4fKpZPQC5GE25
-	fRUTbIJC/3pKeJK7/JwkTVS+ORe3+6SNZhzvPpnlwU2/jbaGcqi4aqYJ+Z7MCvo=
-X-Gm-Gg: ASbGncvGyOpI3Kp876B1KFQYLxM/l39XGEYRCO2wwm3yb6c4fyLhPVWnALh8iXBRnBR
-	S/zUxiHdqipzYxlzAgskSO0WCWVQgBxm18oLBkT+5WOn+K1iTLF5exTLmJ0I+V55DfxMlEYx4e3
-	snakqBtePg7pG0W1aI+SRWqF3ZPF/N/R3HIJn/8f3iw5X4gbcJRVvKWZy+KeZZ557lLtVW6i2if
-	GPWGTY/62Y2OlEKVueW6HpoBhX98K7pzquMSGCpM3Hyz0epLGBVPjyZFIgNNGTxZI2yyuRxyUXt
-	jZQ1JVhC6j+PQ1vifA6DW66EWyo4/7E7sCUTz8rmWLrM8OzAfIu/Im34OHMb36u23jIw9UqBrJh
-	JvEo=
-X-Google-Smtp-Source: AGHT+IHtZcIoQJsi5dScv1l8X9lcH5/APbnkiDicrQKXKhdO2SowhVhMLSTlVqGJk0pL3x+gu1om+g==
-X-Received: by 2002:a05:600c:1f90:b0:439:8544:1903 with SMTP id 5b1f17b1804b1-43ab0f64430mr41996155e9.20.1740506368036;
-        Tue, 25 Feb 2025 09:59:28 -0800 (PST)
+        bh=e9USewdvJ7PYqMLaARTkWJYtBQaK26VR+XCGXeZgq7M=;
+        b=jWm9XYV7plQtCLeQXJxOEZFMw/RmlGsWxSOjuGoDmmG9jxK/LhqMAhISp/R0ejn5LF
+         Yi6z0s5MA/JDktQBUNNpLzMmXrf6KcqfkTiz4STcZEhypy3g+hfj4hCcGUIFq7NxNCQ9
+         fJtAy0oSR1cTzxi/BWPEbareixYI0BAs1T6cTtondxj/pYIYUQyGj50yGTylAjAeNiEH
+         yf3RNaHyDjOzKPb0obFSpji3744pfsvrQBliTU2nuES5WrUVgr24c7allSeXXrYAWZGU
+         P/pI5Zb7mTEHybbKekR0ORMjuUuZFjD9MoaXtcDn1/yLS7M97Scp1UgZGKAJfgd9hchR
+         RXTg==
+X-Gm-Message-State: AOJu0YxU6uu9+o8b1y5PN1tRz6E+xgRGYMYCTXW+FVPvL8LsOBD44z0N
+	O2SKGYP9g6b1vkGuyfHhqY6h5CQCpKUEx//SUQIJ/F//16Ig3A2iCyj6N1FHhaI=
+X-Gm-Gg: ASbGnctE2MXGn6BMOA0UOYOwkQmv8OuonmJPWS8/KUbqoVyRIOGrTx1UgJ4mZACVDCh
+	auF+EeWPnRKPlzoROUMhyHfw2oMMCzDK2HNeWwfqX0MXeAg/EB2OxfO2rKsEC3l9PNoCPzF12Ne
+	DbBgnY7VHNwoTgvcTOVmRFlAngMhw17zuuusWmolo0Eh7nANR8xibbtlLAmyJYPlHkPCFaPXyqv
+	bHTt5yapvptTeOrpfhKAC+3SHZ3T73TBD0i9zWr+hCNm84O/Z5dHfqJmm43csbp/W0WS8qHEgJw
+	SE6qcAJpJco100sLMVPL7wOhbNlvt33RoHFklIpW2U31n0DJD6OHNorM6bb2ETEDym5qCa6oAZs
+	sojU=
+X-Google-Smtp-Source: AGHT+IHUAgL2tByhpFFBEFGQOdfrkVcNwwIG2P9l39t0NBi1UKfkNO4hyH6LvwamNSW5TxfMBytNRw==
+X-Received: by 2002:a5d:5f8a:0:b0:38f:260f:b319 with SMTP id ffacd0b85a97d-390d4f84733mr232456f8f.44.1740506222366;
+        Tue, 25 Feb 2025 09:57:02 -0800 (PST)
 Received: from ?IPV6:2a01:e0a:982:cbb0:23a1:f1ec:7a08:3a2b? ([2a01:e0a:982:cbb0:23a1:f1ec:7a08:3a2b])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ab2c50dcfsm21371065e9.0.2025.02.25.09.59.24
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390cd8fc1f9sm3000134f8f.88.2025.02.25.09.57.00
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 25 Feb 2025 09:59:27 -0800 (PST)
-Message-ID: <2d51cb9e-b8c5-4cf1-bd7a-751fb633275c@linaro.org>
-Date: Tue, 25 Feb 2025 18:59:22 +0100
+        Tue, 25 Feb 2025 09:57:02 -0800 (PST)
+Message-ID: <07d7f05b-ed3c-444d-8879-9df99174b7c9@linaro.org>
+Date: Tue, 25 Feb 2025 18:56:59 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: (subset) [PATCH v7 0/5] Driver for pre-DCP apple display
- controller.
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jessica Zhang
- <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev,
- Janne Grunau <j@jannau.net>, Sasha Finkelstein <fnkl.kernel@gmail.com>,
- linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Alyssa Ross <hi@alyssa.is>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Neal Gompa <neal@gompa.dev>, Nick Chan <towinchenmi@gmail.com>
-References: <20250217-adpdrm-v7-0-ca2e44b3c7d8@gmail.com>
- <174047913824.2131221.6545389561298332217.b4-ty@linaro.org>
- <CAA8EJpqM8ZQ-ScEtEBXaUF2Nargtp_TBAyMYvbJ49PGbwPWjaQ@mail.gmail.com>
+Subject: Re: [PATCH] arm64: defconfig: enable Qualcomm IRIS & VIDEOCC_8550 as
+ module
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org
+References: <20250225-topic-sm8x50-upstream-iris-defconfig-v1-1-8a17e2e193d9@linaro.org>
+ <e959c772-9c10-4c87-a22b-e2f91ca05af8@kernel.org>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -122,12 +110,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <CAA8EJpqM8ZQ-ScEtEBXaUF2Nargtp_TBAyMYvbJ49PGbwPWjaQ@mail.gmail.com>
+In-Reply-To: <e959c772-9c10-4c87-a22b-e2f91ca05af8@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_095929_906794_C8E99DA5 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20250225_095704_088004_DF0A4222 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,27 +131,39 @@ Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/02/2025 12:37, Dmitry Baryshkov wrote:
-> On Tue, 25 Feb 2025 at 12:25, Neil Armstrong <neil.armstrong@linaro.org> wrote:
+On 25/02/2025 14:08, Krzysztof Kozlowski wrote:
+> On 25/02/2025 10:10, Neil Armstrong wrote:
+>> In order to support the Qualcomm IRIS driver on the Qualcomm SM8550
+>> platform, enable the IRIS and the VIDEOCC_8550 dependency as modules.
 >>
->> Hi,
+>> Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
+>> ---
+>>   arch/arm64/configs/defconfig | 2 ++
+>>   1 file changed, 2 insertions(+)
 >>
->> On Mon, 17 Feb 2025 12:39:30 +0100, Sasha Finkelstein wrote:
->>> This patch series adds support for a secondary display controller
->>> present on Apple M1/M2 chips and used to drive the display of the
->>> "touchbar" touch panel present on those.
->>>
->>>
->>
->> Thanks, Applied to https://gitlab.freedesktop.org/drm/misc/kernel.git (drm-misc-next)
->>
->> [3/5] drm: panel: Add a panel driver for the Summit display
->>        https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/40115947b59f2ca361a47615304dff0a2b69a2b4
+>> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+>> index a1cc3814b09b31ee659536a64b7db704153d6fe9..710452f75133896af2e3a19ae544f139e1c28a98 100644
+>> --- a/arch/arm64/configs/defconfig
+>> +++ b/arch/arm64/configs/defconfig
+>> @@ -847,6 +847,7 @@ CONFIG_VIDEO_IMX8_ISI_M2M=y
+>>   CONFIG_VIDEO_IMX8_JPEG=m
+>>   CONFIG_VIDEO_QCOM_CAMSS=m
+>>   CONFIG_VIDEO_QCOM_VENUS=m
+>> +CONFIG_VIDEO_QCOM_IRIS=m
 > 
-> Without the bindings?!
+> 
+> Does not look really as Kconfig-ordered. iris is before venus in Kconfig
+> include.
+> 
 > 
 
-Bindings will be funneled with the rest of the ADP driver, the panel driver can be applied individually.
+Surem I'll re-order.
 
+Thanks,
 Neil
+
+> 
+> Best regards,
+> Krzysztof
+
 
