@@ -4,84 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCC20C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 23:03:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 977B0C021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 23:20:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mde08ePw0U7qTCok3XXW6MXXh6mFRApsatbSp7N27VA=; b=AYYLRJcHpvNvVpxQmYqW/QUFG6
-	dnd5PH9T0MA8YYz30TljiF0Jj8jM7IN7OsPtgcCSclYsyH+8QOzlDab+bf6tu6jehtcV0oJIKjULG
-	3X27O5JUtQaAwPEOSeaIAV6CkxSLXVr3K/iS9V7o1DSylouiUBr0W/s+wp7zRWaMwYUVmpZ8wWlkE
-	h6XRm3lPusKfXM3hm2xO3i4ghdlmXDASwPvobDFKISxZ8sjBqH15OFs/Ix/wHvLbsii/lOlF6kcaL
-	PVGJIdYyqDoOdvgDFfd/DIo6ETyFI4BSyulyIWIP84LoakaojiKlkheD6mFAjSTkwFB/6qiMgTvGx
-	8xnR1xkA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=76Jhh4fUvVx9+AeTNo/sVtcgC9p+Mf69ylluqkqvljo=; b=S9eQsMEwtwTqUHMiRNUgjmFogY
+	1wo4aMyWUeLyReBj1+BByjYbjsYZVX7+GY5iOhlPmu50HtLoBLYliJGhXAkXkSXClz9wjv6txc/N5
+	r1cBzi1zgEA6r5n66JidCblkoMBbKr6X5dytLqw7ga0W5yL3A6SjLIdHJTDI1+iM0hlBAao3nKoJP
+	B3uxOy88mHJ6qigdqDDah2K+z8ocTqc0QRpHvI8+ozxUtBxrbKQx9Imoe/xPcQofC4HPiwIDTDYZn
+	x6HLNJU8Qcp2SeZi2D+mYrDOFmSzPoBDIpuOdC6DPXtwQ/ST5HHeGZJeq2MPSBY2Cffk0Jkoj8sqU
+	Tn83UyWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn3xL-00000001m9a-3vI2;
-	Tue, 25 Feb 2025 23:03:15 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1tn4DT-00000001n3N-2rUQ;
+	Tue, 25 Feb 2025 23:19:55 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn3vo-00000001m14-2l0k
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 23:01:41 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2fc5a9f18afso11879524a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 15:01:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740524499; x=1741129299; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=mde08ePw0U7qTCok3XXW6MXXh6mFRApsatbSp7N27VA=;
-        b=tEksUzyDT9ZO+eauNeawNNDz9Nkj3SkeXm+D2RgT0t8vlOto/ZsWSSw12krqftTldL
-         LClKBI4k4F1bEC+Dk0Ctkl6243mPvjdg/4G9KxdXbtw07QLSAzgVOtl689LzUCekUC2+
-         xi1iE8aXXBPXb8jV+VB8EjTfPbA0NlNiKIFQmU+OZygubp60wuEu/+C8anE/AFSmbTjC
-         3Xp3h6grdOWo3Oz1CzBsrFIOuTbS6pJQZbOKJojK2tpHUmVLk+tOaWG2vpGjBWI+tAIH
-         oNjHy76pVNw9+IBbD/5Sdrekporu452w+LGbee6xQ0+EAmbG4tMRk6DF8xZAKPO7+3xy
-         HdkQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740524499; x=1741129299;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=mde08ePw0U7qTCok3XXW6MXXh6mFRApsatbSp7N27VA=;
-        b=Wl5LMTjjaw0LGRq6L4Rw4aQ5wrsxj24icuLuikLJ2LjIJK/f5FzniBewUvFNX9BuTc
-         IHvMS8ccaTRROkBLel48GBOVkMpxEvosjY44/vXOvFbkmCeNZKnMdv5+3IS8RZL3FGdz
-         znwuN15/ShOlSbLUQ5HWfFaghOzpx6Udnkqm2E/K7+Min65ZWyTTEiadB2CgtfWlMb4T
-         OTOBbj/BTsXAeZVYhPBz+RdngJMJZZtQ9zJpW3JpKYp+Kpriubh5KWsACpwoBY4XP7cF
-         deYmjjL2ymAoJC2uo1KmYwdscperOmL2NaLoi9rJasywEZle9Xvj6mTXSwCCbZ8EXDDh
-         pfSw==
-X-Forwarded-Encrypted: i=1; AJvYcCXlWfiVObaKTJviJjQY7dHV4H51ripyXWhuevO1airzty7sMlYQBROaxw0ZgTUHCyx9Xj71QATRWmFbUq3p7+Ma@lists.infradead.org
-X-Gm-Message-State: AOJu0YyoEIunB8vTbIVzSOKCX/6GnRAWeg29U3+0lGSZHxr24U9oSBGk
-	blVd4RsAMz7So5XvQRYgpvgkA5hi1ZdZypPmOdoJvDxiqDw8j6Qo+zRU19kXaZfoDIW7zkCfNA=
-	=
-X-Google-Smtp-Source: AGHT+IHPhKxQsRjLLUmrOJuKKmq+fpePmjEEOBM1vx7AS8VefdM5jfSQyDCFPrR8FFoSvuoQhhkXY0nLEw==
-X-Received: from pjbsd6.prod.google.com ([2002:a17:90b:5146:b0:2f2:ea3f:34c3])
- (user=wnliu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:da87:b0:2f6:539:3cd8
- with SMTP id 98e67ed59e1d1-2fe7e33c7afmr2054308a91.18.1740524499118; Tue, 25
- Feb 2025 15:01:39 -0800 (PST)
-Date: Tue, 25 Feb 2025 23:01:36 +0000
-In-Reply-To: <20250225181331.frmfumf4b5ctfbsm@jpoimboe>
-Mime-Version: 1.0
-References: <20250225181331.frmfumf4b5ctfbsm@jpoimboe>
-X-Mailer: git-send-email 2.48.1.658.g4767266eb4-goog
-Message-ID: <20250225230137.620606-1-wnliu@google.com>
-Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
-From: Weinan Liu <wnliu@google.com>
-To: jpoimboe@kernel.org
-Cc: indu.bhagat@oracle.com, irogers@google.com, joe.lawrence@redhat.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org, 
-	mark.rutland@arm.com, peterz@infradead.org, puranjay@kernel.org, 
-	roman.gushchin@linux.dev, rostedt@goodmis.org, will@kernel.org, 
-	wnliu@google.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	id 1tn4Bw-00000001n0l-0aQH;
+	Tue, 25 Feb 2025 23:18:21 +0000
+Received: from pps.filterd (m0246627.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51PMZ9QH005739;
+	Tue, 25 Feb 2025 23:17:50 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=corp-2023-11-20; bh=76Jhh
+	4fUvVx9+AeTNo/sVtcgC9p+Mf69ylluqkqvljo=; b=BdTVLRx21vS0X4QPrpmQP
+	gxjS/9u6fRZyE4Byg4vfc4YlNFidlfoumJZju1fkuHNLLO1iNYkhNTapIuB3JcVC
+	GZN2FE1YB22Hc23UTdd/dG47rPfuY63dJZCC/MdwcDraA5OJByued2JFhClzIA7X
+	3P3yeS68ikYiu72KvZOPVLT5WJJhbwMhTZbIXCD7FYTlg85nwpyp+1N09tE3w6zU
+	Gz63B0fW+JuC1Dk6yyikq1T5EzOkevrpRXRXA7RJnfN/W+SgwWC1YGNDE42HtdBG
+	Ictnn31S+NQnM/Y+yhjWFsUKT8/cl0DLh2J/jtJERBVvv/2Xsc588act3B6Tkdyc
+	A==
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 451pse81tc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 25 Feb 2025 23:17:50 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 51PLIQm2025216;
+	Tue, 25 Feb 2025 23:17:48 GMT
+Received: from alaljime-e5-test-20240903-1847.osdevelopmeniad.oraclevcn.com (alaljime-e5-test-20240903-1847.allregionaliads.osdevelopmeniad.oraclevcn.com [100.100.250.206])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTP id 44y51gg9ht-1;
+	Tue, 25 Feb 2025 23:17:48 +0000
+From: Alejandro Jimenez <alejandro.j.jimenez@oracle.com>
+To: jgg@nvidia.com
+Cc: alim.akhtar@samsung.com, alyssa@rosenzweig.io, aou@eecs.berkeley.edu,
+        asahi@lists.linux.dev, bagasdotme@gmail.com, baolu.lu@linux.intel.com,
+        dwmw2@infradead.org, heiko@sntech.de, iommu@lists.linux.dev,
+        jernej.skrabec@gmail.com, jonathanh@nvidia.com, joro@8bytes.org,
+        jroedel@suse.de, krzk@kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
+        linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+        linux-tegra@vger.kernel.org, m.szyprowski@samsung.com,
+        marcan@marcan.st, palmer@dabbelt.com, pasha.tatashin@soleen.com,
+        patches@lists.linux.dev, paul.walmsley@sifive.com, rientjes@google.com,
+        robin.murphy@arm.com, samuel@sholland.org,
+        suravee.suthikulpanit@amd.com, sven@svenpeter.dev,
+        thierry.reding@gmail.com, tjeznach@rivosinc.com, vdumpa@nvidia.com,
+        wens@csie.org, will@kernel.org, willy@infradead.org
+Subject: Re: [PATCH v3 00/23] iommu: Further abstract iommu-pages
+Date: Tue, 25 Feb 2025 23:17:47 +0000
+Message-ID: <20250225231747.15277-1-alejandro.j.jimenez@oracle.com>
+X-Mailer: git-send-email 2.43.5
+In-Reply-To: <0-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+References: <0-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-25_08,2025-02-25_03,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0 spamscore=0 mlxlogscore=987
+ phishscore=0 mlxscore=0 suspectscore=0 adultscore=0 malwarescore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2502100000
+ definitions=main-2502250137
+X-Proofpoint-GUID: Xr02HcGTinEg17mYvbDuWPbxj8NLDu8q
+X-Proofpoint-ORIG-GUID: Xr02HcGTinEg17mYvbDuWPbxj8NLDu8q
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_150140_711053_E3078172 
-X-CRM114-Status: GOOD (  22.45  )
+X-CRM114-CacheID: sfid-20250225_151820_179988_F37697B5 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,52 +100,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 10:13=E2=80=AFAM Josh Poimboeuf <jpoimboe@kernel.or=
-g> wrote:
+>Improve the API to work directly on sizes instead of order, the drivers
+> generally have HW specs and code paths that already have specific sizes.
+> Pass those sizes down into the allocator to remove some boiler plate
+> get_order() in drivers. This is cleanup to be ready for a possible sub
+> page allocator some day.
 >
-> On Tue, Feb 25, 2025 at 01:02:24AM +0000, Weinan Liu wrote:
-> > On Mon, Feb 10, 2025 at 12:30=E2=80=AFAM Weinan Liu <wnliu@google.com> =
-wrote:
-> > > I already have a WIP patch to add sframe support to the kernel module=
-.
-> > > However, it is not yet working. I had trouble unwinding frames for th=
-e
-> > > kernel module using the current algorithm.
-> > >
-> > > Indu has likely identified the issue and will be addressing it from t=
-he
-> > > toolchain side.
-> > >
-> > > https://sourceware.org/bugzilla/show_bug.cgi?id=3D32666
-> >
-> >
-> > I have a working in progress patch that adds sframe support for kernel
-> > module.
-> > https://github.com/heuza/linux/tree/sframe_unwinder.rfc
-> >
-> > According to the sframe table values I got during runtime testing, look=
-s
-> > like the offsets are not correct .
-> >
-> > When unwind symbols init_module(0xffff80007b155048) from the kernel
-> > module(livepatch-sample.ko), the start_address of the FDE entries in th=
-e
-> > sframe table of the kernel modules appear incorrect.
-> > For instance, the first FDE's start_addr is reported as -20564. Adding
-> > this offset to the module's sframe section address (0xffff80007b15a040)
-> > yields 0xffff80007b154fec, which is not within the livepatch-sample.ko
-> > memory region(It should be larger than 0xffff80007b155000).
+> This is on github: https://github.com/jgunthorpe/linux/commits/iommu_pages
 >
-> I assume kpatch create-diff-object needs to copy over a subset of the
-> .sframe section. =C2=A0Similar to what kpatch_regenerate_orc_sections() d=
-oes.
+> v3:
 
+Tested v3 on AMD Zen4 bare metal host, using v1/v2 page table formats. Ran host
+kernel with iommu.passthrough=0. Launched KVM guest with large memory (512+ G)
+and 16 VFs. No errors or warnings found.
 
-You're right that we need to process the sframe section like what
-kpatch_regenerate_orc_sections() does when building livepatch by kpatch.
-
-However, livepatch-sample.ko is not generated by kpatch.=C2=A0It is built
-directly from samples/livepatch/livepatch-sample.c by gcc during the kernel
-build
+Tested-by: Alejandro Jimenez <alejandro.j.jimenez@oracle.com>
 
 
