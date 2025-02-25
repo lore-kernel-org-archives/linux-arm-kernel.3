@@ -4,90 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDB1FC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:42:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B9EC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:42:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NffzjCDpuTmdNSnLuEbvoNsdUgp9uFncpWixfvcrqX0=; b=ZzDYiKc2f7KhxyN+SREEfkNVwb
-	INlU5eMRJoFEwxSwNYtzGSSZvDfwVXf4V+AV7YZS+KbT+9ZA6e4oq0o71+UxDu4t5atPMMz8DUYEn
-	mTJe282Qs4UUiQ0WCgZQ2LOcC9qRmsotmmQpuybP3YOzyeXO7SdNxBE+R5bbno3Chv+YmgLFgCurT
-	lkXI5bvoS16zLIc3zGyCVYQR4O/tvDSp3sVhRltM1zJmhwdd3CijN1l9kYnx2F6OpPOJY4sDwOvhe
-	iNGzHCz2pVDOepXjRbh3LKVSCY317KCSKRetAqpOry0L8IJ9Bc3PpXpa21rx3SVhljPfwW2JpqF1R
-	fr+QpZbw==;
+	bh=H9fUAMMSFfpBE9zde4jyNVpOAHmdzHBHI3cebG5cFgg=; b=O0rEncZIJyDfAYXcxT2USzuSXx
+	lbWvJ7j7Z1EwhcTg/9TyMw5+XuzZIz1sTtliaGGQDOPPRs5c2gMRCxEge3DanGvpLYdLgN5JLa4ex
+	Rve3dxFboDiK8zLcmheqg5O9BdFlrly2DpWR0BTH5nDB3RsrjyU8xGYH83Atjqpxw+SxLsAU7Ntt7
+	frQlmRT+9y6g0fbS6AHBxGAWz7jqEaYv3trcFX5rAF/J0j22CFpj+5AJAK8fWj5KVU9OTxtOmvybJ
+	w+ESVOqEruf1hF96LSo+Nkd8rohLn4imvIw/3oBfgIWix+PBTVsqJ66W+rSVUAV9GxXwPmr9pxTtg
+	1yjrPW8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmy0e-00000000Kzi-0IvK;
-	Tue, 25 Feb 2025 16:42:16 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1tmy0i-00000000L7e-08iD;
+	Tue, 25 Feb 2025 16:42:20 +0000
+Received: from mail-pl1-f180.google.com ([209.85.214.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmwBB-0000000HZSM-3dtR
+	id 1tmwE4-0000000HZs7-0ZZo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 14:45:03 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2f816a85facso11764846a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 06:45:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740494700; x=1741099500; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=NffzjCDpuTmdNSnLuEbvoNsdUgp9uFncpWixfvcrqX0=;
-        b=mGclNGHSe414+aYtBhhtyG8IxFgnATbtV3N1JAp9Eo2lLq+kiRKVpPhqopkfIsKnKF
-         bKuC1cPwh1su3SICmMUFav5IvFRlHsSXkdGfv1u22Sv1qnSu9yRiBBUCWfHlXlhf9Ety
-         QBrJucrUCZMoy+FdZLdAKoZtVb0wNM2eVtohxrXG/mYIWiEXWfW8t53hYqx5Ds9cYf2t
-         uJ4B5EX4Lx+pCqkf8HPFP7OntEZvn8VuiGg0tH2HCaGdccNqYx44Am1Q9zU1CvHIEPGY
-         qjdXfma/F9uCHDzO007OEDnIyVI7ZlkoPzAT6ITp8RK0QtRQE8tj98vSapnOqgSMH1bQ
-         wB/g==
+	Tue, 25 Feb 2025 14:48:01 +0000
+Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-22101839807so14652495ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 06:47:59 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740494700; x=1741099500;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=NffzjCDpuTmdNSnLuEbvoNsdUgp9uFncpWixfvcrqX0=;
-        b=EQHWrbN7KVHQyoL7X1B5dkYhl1nO7a+pGPgG+hzsxn1o38HKC2X1WRVzuvzxlDgwA6
-         rRYbaUGqcVXNJHprjAZuvDzUH5DK1UljQEwIj3pGs8+An4+iDQqaaHYp2XJHO6Fc1jNP
-         cXClPKavOqazie108LNIISj4goqFW0dc2QtRK05rZ9rFGCVL6wwWIynu/5j+h38uuzqK
-         fOob/s8XwP3BuJtCOE5+UP5n081ciK8dqVzMdwqeYtz+s/+NCXzTmg6tJI/iaf4w+dGi
-         ikTZeIn7weWKFDPbCLE2QMPKUzZcX0BaAuQSfgGCUkd7ZVYN508tgpPNkMoZ0p84Lj37
-         jsGA==
-X-Forwarded-Encrypted: i=1; AJvYcCU08Hp6iVXBRkLJ7eb+ui5eYW9xdounfTXUzj5BCPY4UhZ7cNjEr17FmRhGJU8uXs7ngaSkDoWBPU/hNQGONW8d@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9Z0CnI1oJCyxqrB5/C13bs4cYPIDqH9HCGB5s6LxmQfGDKMkI
-	RNxml6qgvzfUYfQOkvxGGiN2ObUBPofR97Y/t31gE9cpxk8a59GxGh7XGcIWzpsHvgxQqRwnv7q
-	WFA==
-X-Google-Smtp-Source: AGHT+IG2KruXetDYoI9qbCSWmcITW+yhg6mxBcrrqoCenX7IkOOc3aJKkHxPw+LBj1f6DGaIHr4WklpxusU=
-X-Received: from pjh14.prod.google.com ([2002:a17:90b:3f8e:b0:2ea:29de:af10])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:548f:b0:2ee:d7d3:3008
- with SMTP id 98e67ed59e1d1-2fce86ae5d0mr31991980a91.12.1740494700343; Tue, 25
- Feb 2025 06:45:00 -0800 (PST)
-Date: Tue, 25 Feb 2025 06:44:58 -0800
-In-Reply-To: <Z71tlzQJISk6PFAL@yzhao56-desk.sh.intel.com>
-Mime-Version: 1.0
-References: <20250224235542.2562848-1-seanjc@google.com> <20250224235542.2562848-5-seanjc@google.com>
- <Z71tlzQJISk6PFAL@yzhao56-desk.sh.intel.com>
-Message-ID: <Z73XaiRZMIi_vyvK@google.com>
-Subject: Re: [PATCH 4/7] KVM: x86: Don't load/put vCPU when unloading its MMU
- during teardown
-From: Sean Christopherson <seanjc@google.com>
-To: Yan Zhao <yan.y.zhao@intel.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Aaron Lewis <aaronlewis@google.com>, Jim Mattson <jmattson@google.com>, 
-	Rick P Edgecombe <rick.p.edgecombe@intel.com>, Kai Huang <kai.huang@intel.com>, 
-	Isaku Yamahata <isaku.yamahata@intel.com>
-Content-Type: text/plain; charset="us-ascii"
+        d=1e100.net; s=20230601; t=1740494879; x=1741099679;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=H9fUAMMSFfpBE9zde4jyNVpOAHmdzHBHI3cebG5cFgg=;
+        b=YeBoVNKVkmWSbQq8S/GuKNCh3H142w3KXnn0HSULPBFWJTj43yViOHfgvQona/uSw9
+         PWWi8y6+vLyzn8rKTAbAqifH5o+dONDZpcJLQmm7w3BEQctOQAtizYnTywdAi02RBBWu
+         BIJf60A3gg5Wl+f4ql4FyZzmxGLTDF5TQbqDWEvlNLcEY9hwRWiYJ7pY/UmbMvWJSEpK
+         J+FwoAN36+g7dsCUzL14eta/0/ndgnIdMUY58hivY4kNwCIbh1VDdyPqVrkJxjvI5YvA
+         sUUaq/sX5kZy0l/0jlRHu3x/0HQ+ucPUkip1Hc8ZdP+Uc2figZrfDw2fU3UlAPf2+crb
+         F3sg==
+X-Forwarded-Encrypted: i=1; AJvYcCV4UPFDR7l/zB0rD+XnWe5zxtXwsT6K3PMiB7vIj9okOI4dGG1+OLcfMEXUs7cR9cAdiWYZ8BSMDyLQwKj8W+RD@lists.infradead.org
+X-Gm-Message-State: AOJu0YxX5CZkH+tAdHFi7yeL8wE2DMpEDpxjCq4blWJ3q8vPNey07HQJ
+	/TlsZ8WKLS1v+i/ZqUwew5fcD5+IWO1FcB6Rts5ax5KI+OvXBkI8
+X-Gm-Gg: ASbGncuUthBlRASGcimy19EFKYL/SImDJI5mUtxRGptT1CpFFtFrC9E1+r7gxvR43tv
+	XoP2dJz5i896ytN39SFtr0blIZzj2WNFre4HzUlaaAveWQ/xHocIxA0hOM/1nFVklfZdQcP2AwT
+	yJFiIO3QXO9YkVZIK9IZym2cMNKPkBcQQ7+QNwxsUuW21K9MGKCIrFWfgW3Pl/lnriR9tdVTAO2
+	CKXU8ZArY5OiyQywkiXYcTRA8KuCUR/txkDAAMJlE0Okv19CjphEBsumjJqt7k0aWvYWFvzk5D/
+	HiyfhV7AhgAuq5cJGurprVs7emfon8uvj3R7xvWHyB3VQMwQF/IYSVFPK2D8
+X-Google-Smtp-Source: AGHT+IFJlOv8carYE6+UU235OdYaIvzKkWJV3Kr/Y5yUb/0j804xN8YoKlVnPeDtE+lBocpwiZJ8YA==
+X-Received: by 2002:a05:6a00:c92:b0:732:1840:8382 with SMTP id d2e1a72fcca58-73426ae9b30mr24918884b3a.0.1740494879299;
+        Tue, 25 Feb 2025 06:47:59 -0800 (PST)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with UTF8SMTPSA id 41be03b00d2f7-aeda7f8538fsm1488011a12.31.2025.02.25.06.47.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Feb 2025 06:47:58 -0800 (PST)
+Date: Tue, 25 Feb 2025 23:47:57 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: Shradha Todi <shradha.t@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, manivannan.sadhasivam@linaro.org,
+	lpieralisi@kernel.org, robh@kernel.org, bhelgaas@google.com,
+	jingoohan1@gmail.com, Jonathan.Cameron@huawei.com,
+	fan.ni@samsung.com, nifan.cxl@gmail.com, a.manzanares@samsung.com,
+	pankaj.dubey@samsung.com, cassel@kernel.org, 18255117159@163.com,
+	xueshuai@linux.alibaba.com, renyu.zj@linux.alibaba.com,
+	will@kernel.org, mark.rutland@arm.com
+Subject: Re: [PATCH v7 1/5] perf/dwc_pcie: Move common DWC struct definitions
+ to 'pcie-dwc.h'
+Message-ID: <20250225144757.GA1660448@rocinante>
+References: <20250221131548.59616-1-shradha.t@samsung.com>
+ <CGME20250221132024epcas5p13d6e617805e4ef0c081227b08119871b@epcas5p1.samsung.com>
+ <20250221131548.59616-2-shradha.t@samsung.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250221131548.59616-2-shradha.t@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_064501_909324_9519506C 
-X-CRM114-Status: GOOD (  19.95  )
+X-CRM114-CacheID: sfid-20250225_064800_171738_D227BE7E 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,52 +95,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025, Yan Zhao wrote:
-> On Mon, Feb 24, 2025 at 03:55:39PM -0800, Sean Christopherson wrote:
-> > Don't load (and then put) a vCPU when unloading its MMU during VM
-> > destruction, as nothing in kvm_mmu_unload() accesses vCPU state beyond the
-> > root page/address of each MMU, i.e. can't possible need to run with the
-> > vCPU loaded.
-> > 
-> > Signed-off-by: Sean Christopherson <seanjc@google.com>
-> > ---
-> >  arch/x86/kvm/x86.c | 9 +--------
-> >  1 file changed, 1 insertion(+), 8 deletions(-)
-> > 
-> > diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-> > index 045c61cc7e54..9978ed4c0917 100644
-> > --- a/arch/x86/kvm/x86.c
-> > +++ b/arch/x86/kvm/x86.c
-> > @@ -12767,13 +12767,6 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
-> >  	return ret;
-> >  }
-> >  
-> > -static void kvm_unload_vcpu_mmu(struct kvm_vcpu *vcpu)
-> > -{
-> > -	vcpu_load(vcpu);
-> > -	kvm_mmu_unload(vcpu);
-> > -	vcpu_put(vcpu);
-> > -}
-> > -
-> >  static void kvm_unload_vcpu_mmus(struct kvm *kvm)
-> >  {
-> >  	unsigned long i;
-> > @@ -12781,7 +12774,7 @@ static void kvm_unload_vcpu_mmus(struct kvm *kvm)
-> >  
-> >  	kvm_for_each_vcpu(i, vcpu, kvm) {
-> >  		kvm_clear_async_pf_completion_queue(vcpu);
-> > -		kvm_unload_vcpu_mmu(vcpu);
-> > +		kvm_mmu_unload(vcpu);
-> What about just dropping kvm_unload_vcpu_mmu() here?
-> kvm_mmu_unload() will be invoked again in kvm_mmu_destroy().
+Hello,
+
+> Since these are common to all Desginware PCIe IPs, move them to a new
+> header 'pcie-dwc.h', so that other drivers like debugfs, perf and sysfs
+> could make use of them.
 > 
-> kvm_arch_vcpu_destroy() --> kvm_mmu_destroy() --> kvm_mmu_unload().
+> Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> Signed-off-by: Shradha Todi <shradha.t@samsung.com>
 
-Ugh, I missed that there's yet another call to kvm_mmu_unload().  I definitely
-agree with dropping the first kvm_mmu_load(), but I'll do it in a follow-up patch
-so that all three changes are isolated (not doing the load/put, doing unload as
-part of vCPU destruction, doing unload only once at the end).
+We are still missing feedback from the perf maintainers.
 
-And looking at both calls to kvm_mmu_unload(), I suspect that grabbing kvm->srcu
-around kvm_mmu_destroy() is unnecessary.  I'll try cleaning that up as well.
+Especially, as I would like to take this patch via the PCI tree, if there
+is no objection.
+
+Thank you, Niklas, for pointing this out.  Appreciated.
+
+	Krzysztof
 
