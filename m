@@ -4,168 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A19CC021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 22:23:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67ECFC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 22:24:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z+Wfp47wFUZwxF8rr0oKUekbERNmPTH7Ydeb1PR1NtM=; b=h0Yg3BY5BXdR2x6vbe9aO+RZ4m
-	AyI3E4WTrAOrXh6LRzY+Ja4ECv3uVWG3bx3hUDLERpUgarkwU7JLneHEPqE8KmZB/Wk8hLCIU6VH4
-	4f2UqCx+N8OeF+TheWc/xDv5yhBGJeW11AgcjnwuAKbba57n98QWB8RPf72IrE/ZBaVkDNkvqt63H
-	q/bEM+8J//Sb/OzFuBv6INttMLBEOKhvz6lcMZkros+i8AqzNWXXJwt1T+wQmv+vch/cby/dMYJWm
-	i0/df2zJmxqVJWSxaDw/WpH9XwBsFv4KocaUZLv8kZjS+NmNopM8hviuy9HsurKqHmEj3idKXUVIG
-	zfiGi//w==;
+	bh=/7Qfm5r1jq12hZzcqmc0YcQyVun0DCNgd0NuHzqRQtU=; b=aLVUm9/AMSSR2EQ2C5EKzHDMXw
+	9FDDZifjspbtQV14Cs1Q5WHVHvjhZy3VrmrNzQeHkY3gVoy10a1QE1hgC93qFtGGCSBXFCS3RjQZb
+	GnMJDWf+v0XyymqQH81im/LuCvF/q0nc+6ih8pN9G/c1WJg2F3TR4pOJG1u+bAKW6SahKXuECvp9B
+	3II7N+8B/u3kGmMGvXFYY96YIjegXN6pzkQtjUXo4citZCDLCuC7w2pJLTRurh/4vQgTLc+kn0pN/
+	iUNf/O2kIGThbYfcw5krERtbR7YbDohl01BtjRZHrnonaHeEY/SeR2XUfvEBxTQZbqyB6LwZBOJJY
+	tnCseXBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn3KN-00000001gAf-1qr3;
-	Tue, 25 Feb 2025 22:22:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tn3Lc-00000001gWA-15c0;
+	Tue, 25 Feb 2025 22:24:16 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn1ON-00000001LA8-0MK8;
-	Tue, 25 Feb 2025 20:18:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=z+Wfp47wFUZwxF8rr0oKUekbERNmPTH7Ydeb1PR1NtM=; b=Evt5L5etojQLCySJNqHzxPuUEw
-	A6f6g+z87qTf+3BizTdOLyDbl7lWMAxnh1dXpE7zW71vM3QZFiKsf7DJM4xD7+QQYmP04/jqvudOI
-	veRuBUDTqqs4LQButkj0tnxWUo6WGalNhH3GQWie9A8kOgLMRw9atr9zPFBQq+IsBcFitA0svKDaj
-	qf4hluHuFgainnttMJHEIgIbTMecYmBwRZNa4X4w/uWkhDbQ7LJzG29kTCLYRJ9Jqon/NfyrlrjkF
-	1qWmHmCs2nnVZsz0R2k/J25HMj94dW9WJuASvxr1V5twQw0NX+iIdsbvqpwFObtMuOiW0IibHGKmO
-	RwdNKdkw==;
-Received: from mail-dm6nam11on2061e.outbound.protection.outlook.com ([2a01:111:f403:2415::61e] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn1OJ-00000003PXr-1o88;
-	Tue, 25 Feb 2025 20:18:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sCvEKhQrXhNa6Uis5T9Yvy9v0IfNrL6QDj2rg0OMeP4vTSQGX3oFREvh5xKYRuXbnpkOvCWDaSA5XyU0cjxxl5EHv7fjxPzJP5p+a+LjeSOYPkMNFZD6EibGoOOQJDodURNQZSC76mZFZtnzURcy4HK0Ai9AkDBwgLGZ7B3BwDszni3OylWwoZuTYHO6PZqkE4aZk/kn9nyUbxYt+CyfBr7qnT8S5WBtNazT1kiTQ/5g/pM34iTX/uhkY1Qfn5WPk0kTgia3ECRn/VyGC4CqfdW6OArp6ad7KdJ51pUzKBZSopakRmU64DZuGSz+eFnR2WWtH6A3DTxH+muqKzzdxQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=z+Wfp47wFUZwxF8rr0oKUekbERNmPTH7Ydeb1PR1NtM=;
- b=g+tGamm7+aZ0aKe+MQ86VOZXL4dlwMnXZ9TrDw/7X7RW0D688qnXmEvCvAzPWL7tkfd4hI4/jGqO6OkToLH0llkAdhrncA+guxyVNtVO9HluVTfntL3+LNFDwfE01OnplAT+XyvbpG9SKFWl6BBhs2PW+Wj7UHWkgSW4mVA4J1gJb8pKD0YyqrgWB3JYkUj+dUv/t3KQF6leuPf76u7bHRUOdVlAZqGPfC2K6cEl1NTLanaa51aJPH6aBi9YqEpQCB2ABx9WIKw5VepBKIBQl7i/22F78bWuEr9neIQ0Fq49AnJE+0RbpdAIpxvOtMs10kf9cksbB/Qhocc0YvGMKw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=dabbelt.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=z+Wfp47wFUZwxF8rr0oKUekbERNmPTH7Ydeb1PR1NtM=;
- b=LtJZSq8dzFeqn6E3sZzj+6QzQ+QLUYO6b+8Rnb8fCFJziFuGSoVrbl0nALelVn70LemrhksoFubaBlKWSVs7C7h1v682zv/MZBsxYxmA4rKqCU2x+N4wlTRNTowZMQMVkTgksIGQBErbT7aOt2FGMBKNw5Hs8H1ppxHmXJb5TDAYSvgC/KXrpx1MGofftrqfeVzRnPuEb1ub2xYV1ngrQ+LfLoVvPwZLF6K9ZzaCNWzTgwCMpD3m4nZ0pNQHTJdSLyyNb18FyoxMNS1cDUdcOccIcBJDPkBeRdY/NBRpbax7o1gCWh8cfA85xQufQxg3n43Y0mAd1TrSQdWuJUhlrQ==
-Received: from SN7PR04CA0044.namprd04.prod.outlook.com (2603:10b6:806:120::19)
- by DM4PR12MB6446.namprd12.prod.outlook.com (2603:10b6:8:be::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8489.18; Tue, 25 Feb 2025 20:18:45 +0000
-Received: from SA2PEPF000015CB.namprd03.prod.outlook.com
- (2603:10b6:806:120:cafe::39) by SN7PR04CA0044.outlook.office365.com
- (2603:10b6:806:120::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8466.21 via Frontend Transport; Tue,
- 25 Feb 2025 20:18:44 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- SA2PEPF000015CB.mail.protection.outlook.com (10.167.241.201) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8489.16 via Frontend Transport; Tue, 25 Feb 2025 20:18:44 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 25 Feb
- 2025 12:18:17 -0800
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Tue, 25 Feb
- 2025 12:18:17 -0800
-Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com (10.129.68.10)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Tue, 25 Feb 2025 12:18:15 -0800
-Date: Tue, 25 Feb 2025 12:18:13 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Alim Akhtar <alim.akhtar@samsung.com>, Alyssa Rosenzweig
-	<alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
-	<asahi@lists.linux.dev>, Lu Baolu <baolu.lu@linux.intel.com>, David Woodhouse
-	<dwmw2@infradead.org>, Heiko Stuebner <heiko@sntech.de>,
-	<iommu@lists.linux.dev>, Jernej Skrabec <jernej.skrabec@gmail.com>, "Jonathan
- Hunter" <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>, "Krzysztof
- Kozlowski" <krzk@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>, <linux-rockchip@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <linux-sunxi@lists.linux.dev>,
-	<linux-tegra@vger.kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>,
-	Hector Martin <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>, "Paul
- Walmsley" <paul.walmsley@sifive.com>, Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>, Suravee Suthikulpanit
-	<suravee.suthikulpanit@amd.com>, Sven Peter <sven@svenpeter.dev>, "Thierry
- Reding" <thierry.reding@gmail.com>, Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Krishna Reddy <vdumpa@nvidia.com>, Chen-Yu Tsai <wens@csie.org>, Will Deacon
-	<will@kernel.org>, Bagas Sanjaya <bagasdotme@gmail.com>, Joerg Roedel
-	<jroedel@suse.de>, Pasha Tatashin <pasha.tatashin@soleen.com>,
-	<patches@lists.linux.dev>, David Rientjes <rientjes@google.com>, "Matthew
- Wilcox" <willy@infradead.org>
-Subject: Re: [PATCH v3 00/23] iommu: Further abstract iommu-pages
-Message-ID: <Z74lhX646QAgj+Pf@Asurada-Nvidia>
-References: <0-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+	id 1tn3K3-00000001g2P-30VA;
+	Tue, 25 Feb 2025 22:22:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=/7Qfm5r1jq12hZzcqmc0YcQyVun0DCNgd0NuHzqRQtU=; b=dif+GXen+YI/pNv93D8+O4d/sP
+	YhVNcSTPfA1XF6pfaUTw1mbIGNLCHceicWknYH/ZCz1BotOsmJGvPHo1IV+v7rKResE//FAck9HlW
+	+zljZjB0SBtg18MFbSa7+iPosNiL0RbMjX3JOBHc9Sjt/ouXttEIxGXzUjFMBqlD6USUCAgALP9eY
+	cnt97DhfPaXAfGmJLTSTXB8O51MnM2O4+zp9+Nc25s7nlf9It7tga6dG1TWcPen6WGNivDKorJBDP
+	xJkPrEFrZBF7fjZTQxO0nFWXH4ovmroKsfz7dtDfygxPCiaebcK0DZitP01KHB10cRU8E+XgIOdoE
+	vpZOMJNg==;
+Received: from i53875b47.versanet.de ([83.135.91.71] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tn3Jy-0008Ll-D7; Tue, 25 Feb 2025 23:22:34 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: vkoul@kernel.org, kishon@kernel.org,
+ Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ quentin.schulz@cherry.de, sebastian.reichel@collabora.com,
+ Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: Re: [PATCH 1/2] phy: rockchip: usbdp: move type-orientation-switch further
+ down
+Date: Tue, 25 Feb 2025 23:22:33 +0100
+Message-ID: <2868016.XrmoMso0CX@diego>
+In-Reply-To: <7a8e6b9f-2fa2-4794-bb4f-3abdb784fbc3@wanadoo.fr>
+References: <20250225184519.3586926-1-heiko@sntech.de>
+ <20250225184519.3586926-2-heiko@sntech.de>
+ <7a8e6b9f-2fa2-4794-bb4f-3abdb784fbc3@wanadoo.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <0-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF000015CB:EE_|DM4PR12MB6446:EE_
-X-MS-Office365-Filtering-Correlation-Id: fa378399-1df7-4112-295a-08dd55d99aa9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|7416014|376014|13003099007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?j4roXWx5zY3VU4LvfxWFtOAqd6Z/Oeq1JnT/4WUreGed0G7hao8Ocy5xqHSI?=
- =?us-ascii?Q?QkN3TFcJp1tQMmQeEzmGho495EHZ+zlZGygzLS46JE4/yRjNX6ET6Yo0tjk6?=
- =?us-ascii?Q?R+BHRsnqRKCsopqwSStq05v+oUPNsn75copRIgo6kJcR7uOZDNHYiV7NRp3g?=
- =?us-ascii?Q?t+JZS5Sx7zsvEmOwZLeOyIhERBKQIlsAb5URpMI7NU6Q0GxH89RZL271YHSN?=
- =?us-ascii?Q?58h9P9ZP2bRE21jFgsunFquZb74qpGIXTQKth3eHbd9JK/6WaAsQ4/NOrB+4?=
- =?us-ascii?Q?e3+GJd808e66wS6cbbmHQbYo/tmUmHejKBo9JcoMLkykHg9XuO9Un5cnTN2X?=
- =?us-ascii?Q?E+erxPgQD3ZlijY+5dlxsIEkY+mPvlel8M0NiFAO4806VLWzzsM/dM99rFOQ?=
- =?us-ascii?Q?nQnug+flz5iIuwW0oltZvXHISRtPDTce8yKZ7yfF97Dqsp6cL1aV+77+EBLd?=
- =?us-ascii?Q?46J8+KSLzxlQ8vrs/Wlw0i1faebufALPF8soaY9Bj8PUqNsO1SLL11BLI0y9?=
- =?us-ascii?Q?G3sLEd6uDZwmLzBWXK6rOEVfyjv4mK3V98iliWfEIqZSU/VzRv5MUB2hY4l5?=
- =?us-ascii?Q?UsVUACo5FJANE87Bm/k9yDba81uy/pRMfHiDlhQRBneOnxn040AJL7aK6xeN?=
- =?us-ascii?Q?9rKVP9Y/S5z4hUo5A6m1dUxQc+AVgTNHZiZSsIW9Df2/rOCWhanfLV2Shevp?=
- =?us-ascii?Q?SX0rjrNo+uACsKYkpX5bvkGT9YTJZDSNKXYmR8GWlZt9ZuL+5X1DZMd2SzLt?=
- =?us-ascii?Q?oY88KWLzcnm6EiU/bNxqEDQzFcbroIAAHFcjiPTGh1wI82yjZJlvX8Zb2AyL?=
- =?us-ascii?Q?VU/yfkdeF4/0BZpXGDipMoZSyVq+UQr/go/XfWmSzPzHvCRF5o9HDTsNR6uj?=
- =?us-ascii?Q?ZJKJT7KX0nQzXu/50hVzPHmGDUNdAhQo4r/y9wsbQu5Rtn4LtXkuNM6YVhg9?=
- =?us-ascii?Q?M6UxJuSjoDZb+wQPei2aMKyLu6fzR8xqk0ehlhJ5Jsf7w7R+othUbhT1eB0T?=
- =?us-ascii?Q?l0X1ADY+Ibr8HjEJleNeb6mCEh7Rnr7sXuZ/Cz4CZdX5egk0G0wLAmStq2YJ?=
- =?us-ascii?Q?0douXwPLTmC2J/55eJo03qY7hujtv/nodnBsW8wyX7RZe21I4Cl5LgL1u6F6?=
- =?us-ascii?Q?lTWz9mlvhNrEK4bawE8jN4IWYydDLzg/ukqYyO4MC4G+OQsJjf9ottTq63mP?=
- =?us-ascii?Q?VYeJoBqW8k5rHlWs/5Rzj0M8MTvWmNuGLhTshj4znUV93P0jPTKtI8fEZEcI?=
- =?us-ascii?Q?SnQWaql/bYoqZYCjnZiR+TGH2dw73SZ904avonehq6OIq+7oALiFqU8dDMJt?=
- =?us-ascii?Q?ACucnoqkOk+oRCsEV4WaDwxgXKUUMzgiB2abRxXxOWXr42941LQqd0HUTbHD?=
- =?us-ascii?Q?h+jtxJzVTjZDlzyf0uv7x26jIQ75rhXi2wqh0dzuqR0dgCz3f+ndtbbGW0dR?=
- =?us-ascii?Q?Yg8cMe//qyWWfzcTGbkxBiLty9r1ZRR8j8IJqc9VIkQTnDBIQfAcsy6e29+0?=
- =?us-ascii?Q?yKyBLnkn4g2ZxP0=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(7416014)(376014)(13003099007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 20:18:44.6270
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fa378399-1df7-4112-295a-08dd55d99aa9
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF000015CB.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6446
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_201855_653710_206331F3 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250225_142239_892800_CAE267AE 
+X-CRM114-Status: GOOD (  23.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,17 +78,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 03:39:17PM -0400, Jason Gunthorpe wrote:
-> This is on github: https://github.com/jgunthorpe/linux/commits/iommu_pages
-> 
-> v3:
->  - Fix comments
->  - Rename __iommu_free_page() to __iommu_free_desc()
->  - Retain the max IMR table size comment in vt-d
+Am Dienstag, 25. Februar 2025, 23:16:21 MEZ schrieb Christophe JAILLET:
+> Le 25/02/2025 =C3=A0 19:45, Heiko Stuebner a =C3=A9crit :
+> > From: Heiko Stuebner <heiko.stuebner@cherry.de>
+> >=20
+> > Move the typec-orientation-switch functionality further down, next to
+> > the typec-mux code. Not only brings this the typec-related functionality
+> > closer together, but also the following change needs access to other
+> > driver functions, that are below the current position.
+> >=20
+> > No functional change.
+> >=20
+> > Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+> > ---
+> >   drivers/phy/rockchip/phy-rockchip-usbdp.c | 166 +++++++++++-----------
+> >   1 file changed, 83 insertions(+), 83 deletions(-)
+> >=20
+> > diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/ro=
+ckchip/phy-rockchip-usbdp.c
+> > index 5b1e8a3806ed..7b17c82ebcfc 100644
+> > --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
+> > +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+> > @@ -616,89 +616,6 @@ static void rk_udphy_dp_hpd_event_trigger(struct r=
+k_udphy *udphy, bool hpd)
+> >   	rk_udphy_grfreg_write(udphy->vogrf, &cfg->vogrfcfg[udphy->id].hpd_tr=
+igger, hpd);
+> >   }
+> >  =20
+> > -static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
+> > -{
+> > -	if (udphy->flip) {
+> > -		udphy->dp_lane_sel[0] =3D 0;
+> > -		udphy->dp_lane_sel[1] =3D 1;
+> > -		udphy->dp_lane_sel[2] =3D 3;
+> > -		udphy->dp_lane_sel[3] =3D 2;
+> > -		udphy->lane_mux_sel[0] =3D PHY_LANE_MUX_DP;
+> > -		udphy->lane_mux_sel[1] =3D PHY_LANE_MUX_DP;
+> > -		udphy->lane_mux_sel[2] =3D PHY_LANE_MUX_USB;
+> > -		udphy->lane_mux_sel[3] =3D PHY_LANE_MUX_USB;
+> > -		udphy->dp_aux_dout_sel =3D PHY_AUX_DP_DATA_POL_INVERT;
+> > -		udphy->dp_aux_din_sel =3D PHY_AUX_DP_DATA_POL_INVERT;
+> > -		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 1);
+> > -		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 0);
+> > -	} else {
+> > -		udphy->dp_lane_sel[0] =3D 2;
+> > -		udphy->dp_lane_sel[1] =3D 3;
+> > -		udphy->dp_lane_sel[2] =3D 1;
+> > -		udphy->dp_lane_sel[3] =3D 0;
+> > -		udphy->lane_mux_sel[0] =3D PHY_LANE_MUX_USB;
+> > -		udphy->lane_mux_sel[1] =3D PHY_LANE_MUX_USB;
+> > -		udphy->lane_mux_sel[2] =3D PHY_LANE_MUX_DP;
+> > -		udphy->lane_mux_sel[3] =3D PHY_LANE_MUX_DP;
+> > -		udphy->dp_aux_dout_sel =3D PHY_AUX_DP_DATA_POL_NORMAL;
+> > -		udphy->dp_aux_din_sel =3D PHY_AUX_DP_DATA_POL_NORMAL;
+> > -		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 0);
+> > -		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 1);
+> > -	}
+> > -
+> > -	udphy->mode =3D UDPHY_MODE_DP_USB;
+> > -}
+> > -
+> > -static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
+> > -				 enum typec_orientation orien)
+> > -{
+> > -	struct rk_udphy *udphy =3D typec_switch_get_drvdata(sw);
+> > -
+> > -	mutex_lock(&udphy->mutex);
+> > -
+> > -	if (orien =3D=3D TYPEC_ORIENTATION_NONE) {
+> > -		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 0);
+> > -		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 0);
+> > -		/* unattached */
+> > -		rk_udphy_usb_bvalid_enable(udphy, false);
+> > -		goto unlock_ret;
+> > -	}
+> > -
+> > -	udphy->flip =3D (orien =3D=3D TYPEC_ORIENTATION_REVERSE) ? true : fal=
+se;
+> > -	rk_udphy_set_typec_default_mapping(udphy);
+> > -	rk_udphy_usb_bvalid_enable(udphy, true);
+> > -
+> > -unlock_ret:
+> > -	mutex_unlock(&udphy->mutex);
+> > -	return 0;
+> > -}
+> > -
+> > -static void rk_udphy_orien_switch_unregister(void *data)
+> > -{
+> > -	struct rk_udphy *udphy =3D data;
+> > -
+> > -	typec_switch_unregister(udphy->sw);
+> > -}
+> > -
+> > -static int rk_udphy_setup_orien_switch(struct rk_udphy *udphy)
+> > -{
+> > -	struct typec_switch_desc sw_desc =3D { };
+> > -
+> > -	sw_desc.drvdata =3D udphy;
+> > -	sw_desc.fwnode =3D dev_fwnode(udphy->dev);
+> > -	sw_desc.set =3D rk_udphy_orien_sw_set;
+> > -
+> > -	udphy->sw =3D typec_switch_register(udphy->dev, &sw_desc);
+> > -	if (IS_ERR(udphy->sw)) {
+> > -		dev_err(udphy->dev, "Error register typec orientation switch: %ld\n",
+> > -			PTR_ERR(udphy->sw));
+> > -		return PTR_ERR(udphy->sw);
+> > -	}
+> > -
+> > -	return devm_add_action_or_reset(udphy->dev,
+> > -					rk_udphy_orien_switch_unregister, udphy);
+> > -}
+> > -
+> >   static int rk_udphy_refclk_set(struct rk_udphy *udphy)
+> >   {
+> >   	unsigned long rate;
+> > @@ -1323,6 +1240,89 @@ static const struct phy_ops rk_udphy_usb3_phy_op=
+s =3D {
+> >   	.owner		=3D THIS_MODULE,
+> >   };
+> >  =20
+> > +static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
+> > +{
+> > +	if (udphy->flip) {
+> > +		udphy->dp_lane_sel[0] =3D 0;
+> > +		udphy->dp_lane_sel[1] =3D 1;
+> > +		udphy->dp_lane_sel[2] =3D 3;
+> > +		udphy->dp_lane_sel[3] =3D 2;
+> > +		udphy->lane_mux_sel[0] =3D PHY_LANE_MUX_DP;
+> > +		udphy->lane_mux_sel[1] =3D PHY_LANE_MUX_DP;
+> > +		udphy->lane_mux_sel[2] =3D PHY_LANE_MUX_USB;
+> > +		udphy->lane_mux_sel[3] =3D PHY_LANE_MUX_USB;
+> > +		udphy->dp_aux_dout_sel =3D PHY_AUX_DP_DATA_POL_INVERT;
+> > +		udphy->dp_aux_din_sel =3D PHY_AUX_DP_DATA_POL_INVERT;
+> > +		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 1);
+> > +		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 0);
+> > +	} else {
+> > +		udphy->dp_lane_sel[0] =3D 2;
+> > +		udphy->dp_lane_sel[1] =3D 3;
+> > +		udphy->dp_lane_sel[2] =3D 1;
+> > +		udphy->dp_lane_sel[3] =3D 0;
+> > +		udphy->lane_mux_sel[0] =3D PHY_LANE_MUX_USB;
+> > +		udphy->lane_mux_sel[1] =3D PHY_LANE_MUX_USB;
+> > +		udphy->lane_mux_sel[2] =3D PHY_LANE_MUX_DP;
+> > +		udphy->lane_mux_sel[3] =3D PHY_LANE_MUX_DP;
+> > +		udphy->dp_aux_dout_sel =3D PHY_AUX_DP_DATA_POL_NORMAL;
+> > +		udphy->dp_aux_din_sel =3D PHY_AUX_DP_DATA_POL_NORMAL;
+> > +		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 0);
+> > +		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 1);
+> > +	}
+> > +
+> > +	udphy->mode =3D UDPHY_MODE_DP_USB;
+> > +}
+> > +
+> > +static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
+> > +				 enum typec_orientation orien)
+> > +{
+> > +	struct rk_udphy *udphy =3D typec_switch_get_drvdata(sw);
+> > +
+> > +	mutex_lock(&udphy->mutex);
+> > +
+> > +	if (orien =3D=3D TYPEC_ORIENTATION_NONE) {
+> > +		gpiod_set_value_cansleep(udphy->sbu1_dc_gpio, 0);
+> > +		gpiod_set_value_cansleep(udphy->sbu2_dc_gpio, 0);
+> > +		/* unattached */
+> > +		rk_udphy_usb_bvalid_enable(udphy, false);
+> > +		goto unlock_ret;
+> > +	}
+> > +
+> > +	udphy->flip =3D (orien =3D=3D TYPEC_ORIENTATION_REVERSE) ? true : fal=
+se;
+> > +	rk_udphy_set_typec_default_mapping(udphy);
+> > +	rk_udphy_usb_bvalid_enable(udphy, true);
+> > +
+> > +unlock_ret:
+> > +	mutex_unlock(&udphy->mutex);
+> > +	return ret;
+>=20
+> This will break built.
+>=20
+> It was return 0 preivously.
+> This change should be aprt of 2/2 where "int ret;" is introduced.
 
-Ran some sanity in baremetal with some DMA/ATS flow on ARM64. Also
-tested the kernel with a stage-2 setup via iommufd running a vSMMU
-enabled VM, the guest kernel doesn't have these changes though.
+Thanks for noticing that mishap, will fix that in v2.
 
-Tested-by: Nicolin Chen <nicolinc@nvidia.com>
+Heiko
+
+
 
