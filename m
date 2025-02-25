@@ -4,96 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BAB3C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 00:16:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B254C021B6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 00:35:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sURLs9wtqv4Ma4fwiaciN3XSWn5AusSRiSrh/nmppKs=; b=L4lrTkwvMkMx37FPjvFlQ+kxS7
-	0sS3iQNkppd0SmK5BwK+mbGQ9BlVhGDnUPjhpwT2bPo1j0Yrkr9oXAygqZJ5LEZCeR9mVFVnWMbkT
-	7fG5AbZ8ZbIbLnSTSYfgULfO+nZeliD95687/gPLxJ2f04QRi22oyege2aJAgOqzzq0Sf3XZnmZOt
-	wR7CyoaaNlhoClUjCfohdy9gNLl7aO0Chb0S+tIx0IyuDVvO9IjV+rfiQvmJNS9Y7B2bFDbbVJ0Gb
-	/WFW1hTDM3fDNJNB27uSwahCZmhmfauUyRaOQY4QCw6Z5rtVBXo/4YKHlkkj/uwnkvqoaxObntsho
-	WFB8f4FQ==;
+	bh=9rhjYcVXQZupgyG31N9S6xdQy/eIyTiHVZxCjl50oL0=; b=wd+I1OkWc/InZdsbSi3G28N7tk
+	CN5BpKQBcqzQixwOrHbs2xxCxbm+dbGiiBqV2hadrXdIPM81jDTFISJLO9Ip2au8u7SmNttEgO1yi
+	1zguzgOc5MKXwQ1D8BSEjf4HAdmLkULaohxl9ds2XWAsf0gtivzZVAXRfCRvlALCaz8vrioGJKmCP
+	hYlx+TadVnrrhzU5TXr1jr2x8fNm2SjUxTVfHoPR8SaBtcwTpLyDup83u5BHsDGIRpcf4QC5FHvp/
+	t68twtp7LC1OFYDTEqOZRaSamO2SFrhmbwEqRnet6bXYueOtRidhn57ux9Oyu1sTKtwMUL5gvx/tx
+	1kk2nFog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmic5-0000000FbMq-1gJA;
-	Tue, 25 Feb 2025 00:15:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tmiuo-0000000Fd1o-3QmP;
+	Tue, 25 Feb 2025 00:35:14 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmiaZ-0000000FbHP-2n6a
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 25 Feb 2025 00:14:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=sURLs9wtqv4Ma4fwiaciN3XSWn5AusSRiSrh/nmppKs=; b=oCZnUg6tCYd8HlzX6qkecCDE49
-	Zj4W7vYtd63x2mrUWbriguMUEyvaIJQpCAEvauNveUoOOq8+C2g6+irf9+iq6g8MxcvhD3KPaOVAw
-	vh+4lHYFXcByc3D1JaiRr5YfBEm2hRCZD1HdVNZOhdKyAk/QrFIM5zJIz/Mm3GkhBX91JPyRqc/sR
-	QwsOq3XRg9fr6Ich7B9xJ591ywi6tHfIfD1zOwakvRvV1u4ifKfJCTaVgb1GdGIRGw4wWiAibBqSH
-	S/ZDX4jVqaG6992RUrNN0n89E9r6c6qPtPpT47Wu2ZABihvOXzWD4ODwsnKTyydUf5ms6HzwyYAU/
-	nNQJGMvQ==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmiaW-00000003GHm-16t9
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 00:14:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EE2805C5510
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 00:13:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D35DC4CEEC
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 00:14:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740442450;
-	bh=RrjZywtok7pmqjRXq+52Mw3aIZaqlkmt827OKazuRN8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=JSXg4Hv3hAgWNZiLAcLwodBsvL355TD9HhBuHHgJxH64OhFw6QwjwpJi5/sRd2hnE
-	 bacx8UiqoRurkn5hnZjOe9ZkV3pcMJ1r5E1GbmEO0RuOgK9gKQFFWy8OEA2R/3C/Zz
-	 OsxVw8lNacqv2tIViGLMII/Tr1Pgfmky/feOJfXW3L76HFNGzBUJl5VvF+7tABbW4l
-	 SOkj6z6zrqAIe+S+ZkMZpcZcC1RQ59Ovi9r76EZme/hVAUn60+35VQzQEIKbJTIcVg
-	 tEniDvRB761XJK2VrxWbzz9ZrIH1WnT36lmUUlgsGcjut7uRal2T2dKXPi/CvX5F87
-	 82qwpNiXaZuUw==
-Received: by mail-io1-f50.google.com with SMTP id ca18e2360f4ac-855a5aa9360so372984239f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 16:14:10 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUFuHHoStHq+2wO1aGtReq+eu0hsnSAn7jMvY8TvbmNRFgQuuzRRYhzvWTCwLYcy6T26P2tLSbE+4Pqw7/b7oxX@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfUrKQ5cglwzRT4WtqLc1vsrB+mW5o4K5de9XGImOJTpKIH8Gy
-	CEZyUf0n8c2/lIkrCd+HF/YGrV04HbRUFCR1OZHcTbeyVm0EuiWzZKvT4xJtXpmtAaSRDBpvU5s
-	fbUZr7/Ea3sU+Voc0HYg18JoW3Uc=
-X-Google-Smtp-Source: AGHT+IEGfSMvQhcmxe+D0QwBwqdzpgzsf7C3s6D4Gjai2KF9IRKGDa/39Olkwm6B0VNAodvYcGSMocV0IYhoCmStwQE=
-X-Received: by 2002:a05:6e02:148e:b0:3d2:b7b6:e80d with SMTP id
- e9e14a558f8ab-3d2fc0c54a4mr18692795ab.3.1740442449607; Mon, 24 Feb 2025
- 16:14:09 -0800 (PST)
+	id 1tmitI-0000000FcnR-10H5;
+	Tue, 25 Feb 2025 00:33:41 +0000
+Received: from pps.filterd (m0246630.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51OMK4A2025220;
+	Tue, 25 Feb 2025 00:33:22 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	corp-2023-11-20; bh=9rhjYcVXQZupgyG31N9S6xdQy/eIyTiHVZxCjl50oL0=; b=
+	ahfSHd+ee39+/n2jkR581gq4cakz8SZgHscMySx2Z4p0Vu2Pb7APelbGO+eZdDwb
+	U1EtRmPWDp+AA5AMshLCTHyl2pSnQuK4rL7kVFJrfA6N2eYVPh89A66S4f6O2pXF
+	JwgEq7tBlTEQGsorFAUOokZrBZ2gnrN8bkS7qJibSdk1DYnlcZThKTL51j5JiRDi
+	vhnyD3z33Cv98HhYxHCxRIoQWW5JNby3FH6lWINP8UIDwN1/kIm1yCJdHp5ECsi0
+	HHL2JW4a9JzR6ZVez71NLrINHPPdxfkeLAqL8NriZJBShOJeBbgQ6oHoyibtikY3
+	xf7JKIDNlJuSjdZt9Cy0+w==
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 44y50bkwek-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 25 Feb 2025 00:33:21 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 51P0UE09025437;
+	Tue, 25 Feb 2025 00:33:21 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 44y51f0q94-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 25 Feb 2025 00:33:21 +0000
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 51P0XI1x025171;
+	Tue, 25 Feb 2025 00:33:20 GMT
+Received: from ca-mkp2.ca.oracle.com.com (mpeterse-ol9.allregionaliads.osdevelopmeniad.oraclevcn.com [100.100.251.135])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTP id 44y51f0q87-4;
+	Tue, 25 Feb 2025 00:33:20 +0000
+From: "Martin K. Petersen" <martin.petersen@oracle.com>
+To: quic_cang@quicinc.com, bvanassche@acm.org, mani@kernel.org,
+        beanhuo@micron.com, avri.altman@wdc.com, junwoo80.lee@samsung.com,
+        quic_nguyenb@quicinc.com, quic_nitirawa@quicinc.com,
+        peter.wang@mediatek.com, quic_rampraka@quicinc.com,
+        Ziqi Chen <quic_ziqichen@quicinc.com>
+Cc: "Martin K . Petersen" <martin.petersen@oracle.com>,
+        linux-arm-msm@vger.kernel.org, linux-scsi@vger.kernel.org,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v5 0/8] Support Multi-frequency scale for UFS
+Date: Mon, 24 Feb 2025 19:32:49 -0500
+Message-ID: <174044345145.2973737.15116992944360697674.b4-ty@oracle.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250213080008.2984807-1-quic_ziqichen@quicinc.com>
+References: <20250213080008.2984807-1-quic_ziqichen@quicinc.com>
 MIME-Version: 1.0
-References: <CAPhsuW6dxPtgqZaHrZEVhQXwm2+sETreZnGybZXVKYKfG9H6tg@mail.gmail.com>
- <20250214193400.j4hp45jlufihv5eh@jpoimboe> <CAPhsuW6q+yhn0pGQb0K+RhXHYDkjEgomZ2pu3P_MEeX+xNRe0g@mail.gmail.com>
- <20250214232342.5m3hveygqb2qafpp@jpoimboe> <CAPhsuW48h11yLuU7uHuPgYNCzwaxVKG+TaGOZeT7fR60+brTwA@mail.gmail.com>
- <20250218063702.e2qrpjk4ylhnk5s7@jpoimboe> <CAPhsuW5ZauBrSz11cvVtG5qQBfNmbcwPgMf=BScHtyZfHvK4FQ@mail.gmail.com>
- <20250218184059.iysrvtaoah6e4bu4@jpoimboe> <CAPhsuW4pd8gEiRNj920kO8c4JuEWoXT=MhFK-nWvJZ9QseefaQ@mail.gmail.com>
- <CAPhsuW57xpR1YZqENvDr0vNZGVrq4+LUzPRA-wZipurTTy7MmA@mail.gmail.com>
- <20250220182221.vdmmnoyvc2do5mnn@jpoimboe> <CAPhsuW53DK2vFH-BZeUYN-eythX3NQEbcxrYf6jvBDtDmctRgw@mail.gmail.com>
-In-Reply-To: <CAPhsuW53DK2vFH-BZeUYN-eythX3NQEbcxrYf6jvBDtDmctRgw@mail.gmail.com>
-From: Song Liu <song@kernel.org>
-Date: Mon, 24 Feb 2025 16:13:58 -0800
-X-Gmail-Original-Message-ID: <CAPhsuW5Codoe2NViZJRE4JjM2Qc_v-qPzKZ1vOyr+9Oi0CxpAQ@mail.gmail.com>
-X-Gm-Features: AWEUYZlhFxBXD7xdQSvghIzbkdQB4xbhvgY6aZ3jRtXIkzKgZAdiM9UvB5WldRw
-Message-ID: <CAPhsuW5Codoe2NViZJRE4JjM2Qc_v-qPzKZ1vOyr+9Oi0CxpAQ@mail.gmail.com>
-Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
-To: Josh Poimboeuf <jpoimboe@kernel.org>
-Cc: Puranjay Mohan <puranjay@kernel.org>, Weinan Liu <wnliu@google.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Indu Bhagat <indu.bhagat@oracle.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev, 
-	Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>, linux-toolchains@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, live-patching@vger.kernel.org, 
-	joe.lawrence@redhat.com, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-24_11,2025-02-24_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0 spamscore=0 mlxlogscore=955
+ phishscore=0 mlxscore=0 suspectscore=0 adultscore=0 malwarescore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2502100000
+ definitions=main-2502250001
+X-Proofpoint-ORIG-GUID: 7ty-sRKwHsNKQL1Xn1bsKeyU2f8-As33
+X-Proofpoint-GUID: 7ty-sRKwHsNKQL1Xn1bsKeyU2f8-As33
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_001416_800901_A8F8BBC2 
-X-CRM114-Status: GOOD (  23.45  )
+X-CRM114-CacheID: sfid-20250224_163340_392322_76A8654D 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,97 +104,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 20, 2025 at 10:33=E2=80=AFAM Song Liu <song@kernel.org> wrote:
->
->
-> On Thu, Feb 20, 2025 at 10:22=E2=80=AFAM Josh Poimboeuf <jpoimboe@kernel.=
-org> wrote:
->>
->> On Wed, Feb 19, 2025 at 08:50:09PM -0800, Song Liu wrote:
->> > Indu, is this behavior (symbols with same name are not in
->> > sorted order from readelf -s) expected? Or is this a bug?
->> > I am using this gcc:
->> >
->> > $ gcc --version
->> > gcc (GCC) 14.2.1 20240801 (Red Hat 14.2.1-1)
->> > Copyright (C) 2024 Free Software Foundation, Inc.
->> > This is free software; see the source for copying conditions.  There i=
-s NO
->> > warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PUR=
-POSE.
->>
->> Are you using different binutils versions as well?
->
->
-> I am using binutil 2.41, for both gcc -11 and gcc-14.
->
->>
->> It sounds like a linker "issue" to me.  I'm not sure if it qualifies as
->> a bug, the linker might be free to layout symbols how it wishes.
->
->
-> We can probably handle that in kpatch-build.
+On Thu, 13 Feb 2025 16:00:00 +0800, Ziqi Chen wrote:
 
-OK, something like the following gets the proper sympos for
-gcc-14 built kernel.
+> With OPP V2 enabled, devfreq can scale clocks amongst multiple frequency
+> plans. However, the gear speed is only toggled between min and max during
+> clock scaling. Enable multi-level gear scaling by mapping clock frequencies
+> to gear speeds, so that when devfreq scales clock frequencies we can put
+> the UFS link at the appropraite gear speeds accordingly.
+> 
+> This series has been tested on below platforms -
+> sm8550 mtp + UFS3.1
+> SM8650 MTP + UFS3.1
+> SM8750 MTP + UFS4.0
+> 
+> [...]
 
-Thanks,
-Song
+Applied to 6.15/scsi-queue, thanks!
 
+[1/8] scsi: ufs: core: Pass target_freq to clk_scale_notify() vop
+      https://git.kernel.org/mkp/scsi/c/5e011fcc7d16
+[2/8] scsi: ufs: qcom: Pass target_freq to clk scale pre and post change
+      https://git.kernel.org/mkp/scsi/c/367a0f017c61
+[3/8] scsi: ufs: core: Add a vop to map clock frequency to gear speed
+      https://git.kernel.org/mkp/scsi/c/d7bead60b08e
+[4/8] scsi: ufs: qcom: Implement the freq_to_gear_speed() vop
+      https://git.kernel.org/mkp/scsi/c/c02fe9e222d1
+[5/8] scsi: ufs: core: Enable multi-level gear scaling
+      https://git.kernel.org/mkp/scsi/c/129b44c27c8a
+[6/8] scsi: ufs: core: Check if scaling up is required when disable clkscale
+      https://git.kernel.org/mkp/scsi/c/eff26ad4c34f
+[7/8] scsi: ufs: core: Toggle Write Booster during clock scaling base on gear speed
+      https://git.kernel.org/mkp/scsi/c/2a25cbaa81d2
+[8/8] ABI: sysfs-driver-ufs: Add missing UFS sysfs attributes
+      https://git.kernel.org/mkp/scsi/c/6d7696b4d447
 
-diff --git i/kpatch-build/lookup.c w/kpatch-build/lookup.c
-index bd2b732de910..87ac127184c5 100644
---- i/kpatch-build/lookup.c
-+++ w/kpatch-build/lookup.c
-@@ -479,13 +479,10 @@ static bool lookup_local_symbol(struct
-lookup_table *table,
-        struct object_symbol *sym;
-        unsigned long sympos =3D 0;
-        int i, in_file =3D 0;
-+       bool found =3D false;
-
-        memset(result, 0, sizeof(*result));
-        for_each_obj_symbol(i, sym, table) {
--               if (sym->bind =3D=3D STB_LOCAL && !strcmp(sym->name,
--                                       lookup_sym->name))
--                       sympos++;
--
-                if (lookup_sym->lookup_table_file_sym =3D=3D sym) {
-                        in_file =3D 1;
-                        continue;
-@@ -499,20 +496,29 @@ static bool lookup_local_symbol(struct
-lookup_table *table,
-
-                if (sym->bind =3D=3D STB_LOCAL && !strcmp(sym->name,
-                                        lookup_sym->name)) {
--                       if (result->objname)
-+                       if (found)
-                                ERROR("duplicate local symbol found for %s"=
-,
-                                                lookup_sym->name);
-
-                        result->objname         =3D table->objname;
-                        result->addr            =3D sym->addr;
-                        result->size            =3D sym->size;
--                       result->sympos          =3D sympos;
-                        result->global          =3D false;
-                        result->exported        =3D false;
-+                       found =3D true;
-                }
-        }
-+       if (!found)
-+               return false;
-
--       return !!result->objname;
-+       for_each_obj_symbol(i, sym, table) {
-+               if (sym->bind =3D=3D STB_LOCAL &&
-+                   !strcmp(sym->name, lookup_sym->name) &&
-+                   sym->addr < result->addr)
-+                       sympos++;
-+       }
-+       result->sympos =3D sympos;
-+       return true;
- }
-
- static bool lookup_exported_symbol(struct lookup_table *table, char *name,
+-- 
+Martin K. Petersen	Oracle Linux Engineering
 
