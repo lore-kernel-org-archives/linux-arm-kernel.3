@@ -4,55 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E71C021BC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 13:42:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFEA6C021BB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:38:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gb+VZIQ2vZkydIeoF9kP6uYadgwtqG7rSOFE6hkn4Os=; b=Dyb3AE8nEz95/8245kWNaf7WG7
-	Hzak2GUuHILGgviDBU/WkcijMt6FK4fZFwha9J/2sdmx/fzyjk1Yfi9pU7TUzHUqhChDvRydlBMpM
-	rNZ2jh4mPTpwl5XnnlXbSFlWwnIWoiQebVaXsXZxm3qRqJblJRB+lNTkdTGBNkaUvnYyJB+Vc63Pt
-	8FCMcGHkkNPKQHKz5FpqTWXwbvjf0VPaBr7ZkDdXK9jJQOxyB2NAecmE/dlHxSDTQuezmFKR1Rr5w
-	3CvMu5u3i92gxOKJr52MYePiKukTG/XdruhGfwQdxF2BD/4gq0yKdE1/J1f63Q9b/WYd1rr3wvgto
-	twotdrFQ==;
+	bh=R+FbrRxOgnYTZyaA+lF8b6QjfgGK+98gNFHNL4vg+8M=; b=cJKcyHtrfSjXgPkboCS5QWd4A3
+	ZTyC1NFSBNidHJs24CIlIOI8I6G2n6Aorpf9uaii3KSpOh+i6/70n5XJcdZMuwdIypZTVL0Vlvg6D
+	/IoTliROEtYBC77ZKmx5YibvEyT7C4PSmmd+55bVyN4KU9GxCgyE2kIve5KhIYqx7wQdssIz0mPM7
+	Y0C6OrJHgXYLJab2xcmsqmNm6i+oOUlSaVj6+vAGl7BYLLpjkbZnRXBq+kWbFL+4O9XtddtQz8Wj7
+	NxzhcMQgIg/s6Hini5hYOK8JCkOzmR/P+Wkj5gK+GD6lwgR44vtCPis2UGpnUJvf/L5+Qc4j+cjIZ
+	0TdCvNdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmvCN-0000000HPch-1rdd;
-	Tue, 25 Feb 2025 13:42:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmuYH-0000000HHn2-1d2V
+	id 1tmxx4-00000000FgH-2Uxl;
+	Tue, 25 Feb 2025 16:38:34 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmuzx-0000000HNXN-0CZQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 13:00:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 36F4A152B;
-	Tue, 25 Feb 2025 05:00:59 -0800 (PST)
-Received: from [10.1.27.154] (unknown [10.1.27.154])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 001043F5A1;
-	Tue, 25 Feb 2025 05:00:41 -0800 (PST)
-Message-ID: <9e1721a1-54a4-4007-a0f5-d651f5f21ae2@arm.com>
-Date: Tue, 25 Feb 2025 13:00:40 +0000
+	Tue, 25 Feb 2025 13:29:22 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-546202d633dso5543918e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 05:29:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740490159; x=1741094959; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=R+FbrRxOgnYTZyaA+lF8b6QjfgGK+98gNFHNL4vg+8M=;
+        b=S7MNW3iAwSjfoeSYfHCixICQeixhNkGm6kX6WKJUkR+fALpIGnmIFldiCErreRoXDU
+         3axjQa7436qG+yaSeuSL/M0Vcrx8F+HFxsv0zq47Nq57Bj2R/Am6ykiV+ifyCgF02XZD
+         1afzCUqvw8L6jjxBVdX0ZqumC3xLNBt2y1fkwXhQfK3Xu8XVxAjq6pnJ15Q2tYtnnOqh
+         tPDK+u5/B9VO6Z8uem1uv1B0w0hZh/oHZlEc18cVW4UpoNgoMLH3Di4K84LGolgT/LFa
+         qZ9FICcRK5PBjKn2p00GRYgRPNTVK2DRKjpUi7EtjdbnQqpxeqRsKe0zNCjbb1xAaq6g
+         yMaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740490159; x=1741094959;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=R+FbrRxOgnYTZyaA+lF8b6QjfgGK+98gNFHNL4vg+8M=;
+        b=EJhNv1RS4S4dbdbiVL8QjRUh2ujhPrDVk3+cHyolyIcsoV3mWNH3hnNHp+fGEOsMfA
+         nEbAGp+fqHFfWZbia1aSDcCqmsLHU+a1sk33RQ7JnkcchiWoXl8llM+1hrF4SUH1cVhO
+         rWQF4U/D+KTAOhIutJewlApD9KySacIEf0iHRd9ABWZvQZ/wM2bsKTKNqONLA/Z3517j
+         q0p/K5zec+tI+l/gQqjwQfOEoswchisc0VFMDJ8lRU6t8buAf4kvJfW0Y92/aQxzp43z
+         LJtD//5q9yPTLYD7u5zAMKH8btQP44oEylnpN7JGQviwzVJNANHBombsHs+2jARKy6qi
+         iuiA==
+X-Forwarded-Encrypted: i=1; AJvYcCWjbpFH0g1eEcCS8ZCKQfPGU0c0L5tivU4ueHQQiRjsjKuretN63L876VAiQIyumE13AZX5FlYw81Bnk7IRkfgA@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkSA3dKySCUvCi83t33HIquDlrtVQ1Qu8/7O/xeL2fXQnojcQ8
+	aazeuD8SpA+1Jy6vcKxybe47uffwr7RlMomTvi/OKfn7lLwtrJI3
+X-Gm-Gg: ASbGncsgpsUizSe3dkiPwOp3toLpgdjSZ8bPgQ48fPzFlzE7sGKPzRdg8X605EW3IYZ
+	tIjZ2qX9lviTKLExDnAL9QaPCNYnsCQKopu6wI8NUW7vDa3qObEi6rFuN3D8aKZBzUdOqIN/Rul
+	T7e/R9MNoLQW1PcSAlXpFEeSdZl0qJRlZc1Z9O+W66Di3MaAUEABcxlD3eT0CzSAK0oIzKxS3zk
+	YxVk0x4sHwDR0OV4ue+5myLouMGWybp8KPqMzTu9JCYRuTrcmWgu3poP6KdmnF++eglXspQVBUh
+	eDVbu42Uj9yDuPoxV2OIVf2q5Du0CvAiJ2MxaEY=
+X-Google-Smtp-Source: AGHT+IGjIiZRQoCqQpRaub+un/XzTU053MAFUSi2TNm85/fj9TbmZ/3TfRa1taLP4aGsaQej3mQfPg==
+X-Received: by 2002:a05:6512:224b:b0:545:54b:6a05 with SMTP id 2adb3069b0e04-548510eebcdmr1461663e87.45.1740490158959;
+        Tue, 25 Feb 2025 05:29:18 -0800 (PST)
+Received: from [172.16.183.207] ([213.255.186.46])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-548514b9db3sm181711e87.88.2025.02.25.05.29.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 25 Feb 2025 05:29:18 -0800 (PST)
+Message-ID: <893a3c45-537e-47ad-afbd-1e5d3b9abe2c@gmail.com>
+Date: Tue, 25 Feb 2025 15:29:17 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/mm: Explicit cast conversions to correct data type
-Content-Language: en-GB
-To: Mark Rutland <mark.rutland@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-kernel@vger.kernel.org
-References: <20250219035646.536707-1-anshuman.khandual@arm.com>
- <Z724Q1ofM1GvKquV@J2N7QTR9R3>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <Z724Q1ofM1GvKquV@J2N7QTR9R3>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH v4 02/10] property: Add
+ device_get_child_node_count_named()
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
+ Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Daniel Scally <djrscally@gmail.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Hugo Villeneuve <hvilleneuve@dimonoff.com>, Nuno Sa <nuno.sa@analog.com>,
+ David Lechner <dlechner@baylibre.com>,
+ Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+ Guillaume Stols <gstols@baylibre.com>,
+ Olivier Moysan <olivier.moysan@foss.st.com>,
+ Dumitru Ceclan <mitrutzceclan@gmail.com>,
+ Trevor Gamblin <tgamblin@baylibre.com>,
+ Matteo Martelli <matteomartelli3@gmail.com>,
+ Alisa-Dariana Roman <alisadariana@gmail.com>,
+ Ramona Alexandra Nechita <ramona.nechita@analog.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev
+References: <cover.1740421248.git.mazziesaccount@gmail.com>
+ <29ec24f1498392cafbecc0e0c0e23e1ce3289565.1740421248.git.mazziesaccount@gmail.com>
+ <Z72QAOA9xXbP16K-@kuha.fi.intel.com> <Z72Zp8tpnvlFGdQ_@smile.fi.intel.com>
+ <ad39b453-7e5b-49bd-a4fd-6a4988636130@gmail.com>
+ <Z72d7TzZ21WITW3f@smile.fi.intel.com>
+Content-Language: en-US, en-AU, en-GB, en-BW
+From: Matti Vaittinen <mazziesaccount@gmail.com>
+In-Reply-To: <Z72d7TzZ21WITW3f@smile.fi.intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_050045_480353_E28210B0 
-X-CRM114-Status: GOOD (  21.69  )
+X-CRM114-CacheID: sfid-20250225_052921_091346_B6F5165F 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,77 +128,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/02/2025 12:32, Mark Rutland wrote:
-> On Wed, Feb 19, 2025 at 09:26:46AM +0530, Anshuman Khandual wrote:
->> From: Ryan Roberts <ryan.roberts@arm.com>
->>
->> When CONFIG_ARM64_PA_BITS_52 is enabled, page table helpers __pte_to_phys()
->> and __phys_to_pte_val() are functions which return phys_addr_t and pteval_t
->> respectively as expected. But otherwise without this config being enabled,
->> they are defined as macros and their return types are implicit.
->>
->> Until now this has worked out correctly as both pte_t and phys_addr_t data
->> types have been 64 bits. But with the introduction of 128 bit page tables,
->> pte_t becomes 128 bits. Hence this ends up with incorrect widths after the
->> conversions, which leads to compiler warnings.
-> 
-> Does 128-bit page table not imply 52-bit PAs?
+On 25/02/2025 12:39, Andy Shevchenko wrote:
+> On Tue, Feb 25, 2025 at 12:29:31PM +0200, Matti Vaittinen wrote:
+>> On 25/02/2025 12:21, Andy Shevchenko wrote:
+>>> On Tue, Feb 25, 2025 at 11:40:16AM +0200, Heikki Krogerus wrote:
 
-Not to my knowledge. For now the prototype code base is explicitly sticking to
-48-bit PA and 44-bit VA (for initial simplicitly because that's the limit for 4
-levels).
+...
 
+>>>>
+>>>> I did not check how many users are you proposing for this, but if
+>>>> there's only one, then IMO this should not be a global function yet.
+>>>> It just feels to special case to me. But let's see what the others
+>>>> think.
+>>>
+>>> The problem is that if somebody hides it, we might potentially see
+>>> a duplication in the future. So I _slightly_ prefer to publish and
+>>> then drop that after a few cycles if no users appear.
+>>
+>> After taking a very quick grep I spotted one other existing place where we
+>> might be able to do direct conversion to use this function.
+>>
+>> drivers/net/ethernet/freescale/gianfar.c
+>>
+>> That'd be 2 users.
 > 
->> Fix the warnings by explicitly casting to the correct type after doing the
->> conversion.
-> 
-> I think it would be simpler and clearer if we replaced the macros with
-> functions, such that __pte_to_phys() and __phys_to_pte_val() are
-> *always* functions.
+> I haven't checked myself, I believe your judgement,
 
-Yeah, agreed. This was initially just a hack I did to get things working.
+I took a better look and you obviously shouldn't believe :) The gianfar 
+used of_node instead of the fwnode. So, it'd be a single caller at starters.
 
-> 
-> That way it's easier to compar the CONFIG_ARM64_PA_BITS_52=y and
-> CONFIG_ARM64_PA_BITS_52=n versions, and the types are always explciit
-> for inputs and outputs, so there'd be less room for error and the
-> compiler can warn us of type safety issues in any configuration.
-> 
-> That and we can delete the comment block immediately above at the same
-> time.
-> 
-> Mark.
-> 
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: Will Deacon <will@kernel.org>
->> Cc: linux-arm-kernel@lists.infradead.org
->> Cc: linux-kernel@vger.kernel.org
->> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
->> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
->> ---
->> This patch applies on v6.14-rc3
->>
->>  arch/arm64/include/asm/pgtable.h | 4 ++--
->>  1 file changed, 2 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->> index 0b2a2ad1b9e8..1da2421c9a15 100644
->> --- a/arch/arm64/include/asm/pgtable.h
->> +++ b/arch/arm64/include/asm/pgtable.h
->> @@ -84,8 +84,8 @@ static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
->>  	return (phys | (phys >> PTE_ADDR_HIGH_SHIFT)) & PHYS_TO_PTE_ADDR_MASK;
->>  }
->>  #else
->> -#define __pte_to_phys(pte)	(pte_val(pte) & PTE_ADDR_LOW)
->> -#define __phys_to_pte_val(phys)	(phys)
->> +#define __pte_to_phys(pte)	((phys_addr_t)(pte_val(pte) & PTE_ADDR_LOW))
->> +#define __phys_to_pte_val(phys)	((pteval_t)(phys))
->>  #endif
->>  
->>  #define pte_pfn(pte)		(__pte_to_phys(pte) >> PAGE_SHIFT)
->> -- 
->> 2.25.1
->>
->>
-
+Yours,
+	-- Matti
 
