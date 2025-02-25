@@ -4,115 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFCFEC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 11:24:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83C59C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 11:26:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lAEbqPgmBi60dC78J9e9TaRL3Bq8nEEXaJp+eattnt8=; b=y79kqrhJknKDpqban48Vx1V6jl
-	LHZWCa6I37haLMIDoFVNFw+V4W8LebUTmRMyevDupG+dCpDybn+b5b+D5M/BeHpCeZPdVkjILGPLX
-	efq4j9fUNUaUX61FMzlUERraL28Hgc0CzSMNB373Vxd++x2M3hQJ2ppW5NjR4OY5+G5CCkPgGKmDJ
-	XpkcvLNAxKezx/+3apOCLiSNw2x7INHcZVNbnN4TYRUcj8Pfpjdxd3WJnaEDRijv4WnPgzyJkAnlo
-	KBDAwAdYHbH2pDLaxf1j98FTrh5Ljbt42apX3ZT2hoNp4s4ZbWJI2OoKRRot6d0SQ8DiwNEZPyaqj
-	Nq+Q3rJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=t4C3DL+tGYZMQDFK92O7UUxkgkHHfg0P1fCk8DxIELs=; b=qPzJi6yInipd/B3zAdAP36aKSZ
+	VKUmCnedzoai42QK/cXJnrUwh8xQIrBtoE3FgNV1lnq38eHMVXKELx2BkJMEaKFbkk6Y9qy8/VtyC
+	+dbfZo0J7/7B1V68ZAfNPjFnHEJNr9wAJYRJF4Bv2bNg8IYNqJ3r2c+ixr2pTgbQVInvE4+zcxZlo
+	V8pAPkY+FyO3zqOjWPlK+fgwpXYl/6xuw+eARYHtumMYifTUdNtW9QvQVuWgDBZhcU2UufZQsG63Z
+	DLIcST2R+U1I1qLG0csBmuiRgxowCTYv6DyB/kfDHm5Nmq05KxXDemZuIGeOQMRkXgbUiwFBx4aUB
+	W2CIi1wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmt3K-0000000H1WN-3nE3;
-	Tue, 25 Feb 2025 11:24:42 +0000
-Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
+	id 1tmt4r-0000000H1oV-337k;
+	Tue, 25 Feb 2025 11:26:17 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmrqo-0000000Gkv1-48I4
+	id 1tmrtA-0000000GlT7-1HYF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 10:07:44 +0000
-Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-307bc125e2eso50336721fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 02:07:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740478061; x=1741082861; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=lAEbqPgmBi60dC78J9e9TaRL3Bq8nEEXaJp+eattnt8=;
-        b=U2tmh08uiursckuPRXsPgBsylaBxk37DrjVFOyg3umAd483zJXLBWOdbLiLukG22uQ
-         NZbTd/fSoOh+YaGnhSTj0/Twaqoy5G2pTO5GpokwOHyqMCqNzCh8RNvavnjAnsCotsbF
-         PAkp+v3sMGg8sysyCmakCwMt+ZjncLCgvJnJT5c/LdVBQZGvPHnplxKX2Aiod88LWHhx
-         PDk6ICDJLZRDcWZjOJVFtP9qLPn0yPmaQIjFsbtby0MP7QZiOYKFLalPrao4iHf+MmJB
-         muhGaN3qG0WYIcnkNTFhuZJgHywUYO+Be4JKmfm2zIRAzNoucX/LDyzvQvHBbEH1Cf87
-         niaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740478061; x=1741082861;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=lAEbqPgmBi60dC78J9e9TaRL3Bq8nEEXaJp+eattnt8=;
-        b=mUCir+ccp1zmh2lXpyrILvlcRa/6PVZvyMs/ADaXNsS+3j0SbJ0uOfzl6ozGnDqdTI
-         awkXtZUU1h1h7MqR9gX+3cf5qUNms80w6PqmQaNhDbsWoH3QtI8BhnGBkZfuO9a6uy25
-         wCGTvDE8/tQgcqZzvX2Q8zFHe/g55lRpU3Gmza59iFvnll4NX6fj8cMOkd7/+1Edff8I
-         z/dwUXZY+Px0v83TGEyl+6+ikUz1JaxCdSDkxAOdDcvg2eQMFm7pWn4luemlbcS0ZscK
-         K60cUpwElirrhZ/tD5uGc1xXmQOKgh+1tJKDGc427R7s8pO1ngH6dVOU1UYXDBQNGhhm
-         +vPg==
-X-Forwarded-Encrypted: i=1; AJvYcCXwXhp7mz5YEAqLwLuOANITuvwrk1+V43xsGj9zUJrZYxYpHgpohC+e2kZgGUzT6eVe8tT6CTk0B/YfpgP/5eWa@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRupvbRiCOX79UoDSn+8/vrTmGrtuJbETu4GgUvSpq/I/w9FTf
-	JLArOVo48jGuXwOow31PHS51VJ/gHo49MR2KgF4nScU7mkkCPBuo
-X-Gm-Gg: ASbGnct8oMut+LzrcMHnktuEXIwCiqWrSvc9pMPbkoPYvkAzjAu1/Rz49yPOxnXslhf
-	hycqjoYdIsgji5rQfXFE4nszfWlhSOZ+Um2cHOCHvhhuRzaNplalsISdCaRReswTqJLyVu/amFH
-	ClVAT+H2L54CkfJuyKHqPIVn0EATnRFRlV1HzIEwMS8vQZu/Em8Ry0FO8OF6FXspVlTKaZJ0Czy
-	WtxorBZal9ySRT43okRzt7BK2A68Fu70a6eYRJVWuxUneChjti34J5xP3fR0vkng6Bvz73W4a0R
-	xy754KY349+DPKj+JCI6YCn2/jJog2yphz4fK5Y=
-X-Google-Smtp-Source: AGHT+IE9LtSoTYOkptRbtvW+Pr2kFGMFaZQ0FPl+alwBphqqI58uxcxrb6TXfUP19MarHnVygwrw5w==
-X-Received: by 2002:a05:6512:b8d:b0:545:2950:5360 with SMTP id 2adb3069b0e04-548510d7323mr856574e87.22.1740478060709;
-        Tue, 25 Feb 2025 02:07:40 -0800 (PST)
-Received: from [172.16.183.207] ([213.255.186.46])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-548514f477esm130333e87.187.2025.02.25.02.07.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 25 Feb 2025 02:07:38 -0800 (PST)
-Message-ID: <c3cc7f2a-ea0c-42a0-940c-95735d008989@gmail.com>
-Date: Tue, 25 Feb 2025 12:07:37 +0200
+	Tue, 25 Feb 2025 10:10:09 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51P8GQC0029304;
+	Tue, 25 Feb 2025 10:10:01 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=t4C3DL+tGYZMQDFK92O7UU
+	xkgkHHfg0P1fCk8DxIELs=; b=YYa5YrIhLrbv0Lmas4Usp7tD0rrXwkOu6fxd0N
+	B0AsOkgoffNE5v1nk1IqIy2RL9zjW0l6Mn+xlc07Agonfs9AW/l9Y8BhJmXYywv+
+	C5UdO1kdLPqGDh0SHzuWsgq1mzx43hfrHxD54IHxaG2mNYmOuLInKu/cPchK7jrk
+	KBCsbBDiegcHumf5wedgU/JaKLNpUMtbcA8MySiDo25hnPpbJej0775I2DBB4lRe
+	fthv4xuviiOfwmdixhQIO0bLLc0vTnfcO7si8nAbTyCieeirI0c+vmX/fcvmHY/b
+	Ncm1YXIDJWAyMbYyb+7i0zUbfVGRHW036G6ydYdGPtzE7kZQ==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44y49egmqp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 25 Feb 2025 10:10:01 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51PAA0L0016820
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 25 Feb 2025 10:10:00 GMT
+Received: from hu-dikshita-hyd.qualcomm.com (10.80.80.8) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Tue, 25 Feb 2025 02:09:57 -0800
+From: Dikshita Agarwal <quic_dikshita@quicinc.com>
+Date: Tue, 25 Feb 2025 15:39:40 +0530
+Subject: [PATCH] arm64: defconfig: Enable iris video driver
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 02/10] property: Add
- device_get_child_node_count_named()
-To: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
- Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Daniel Scally <djrscally@gmail.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Hugo Villeneuve <hvilleneuve@dimonoff.com>, Nuno Sa <nuno.sa@analog.com>,
- David Lechner <dlechner@baylibre.com>,
- Javier Carrasco <javier.carrasco.cruz@gmail.com>,
- Guillaume Stols <gstols@baylibre.com>,
- Olivier Moysan <olivier.moysan@foss.st.com>,
- Dumitru Ceclan <mitrutzceclan@gmail.com>,
- Trevor Gamblin <tgamblin@baylibre.com>,
- Matteo Martelli <matteomartelli3@gmail.com>,
- Alisa-Dariana Roman <alisadariana@gmail.com>,
- Ramona Alexandra Nechita <ramona.nechita@analog.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev
-References: <cover.1740421248.git.mazziesaccount@gmail.com>
- <29ec24f1498392cafbecc0e0c0e23e1ce3289565.1740421248.git.mazziesaccount@gmail.com>
- <Z72QAOA9xXbP16K-@kuha.fi.intel.com>
-Content-Language: en-US, en-AU, en-GB, en-BW
-From: Matti Vaittinen <mazziesaccount@gmail.com>
-In-Reply-To: <Z72QAOA9xXbP16K-@kuha.fi.intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-ID: <20250225-enable-iris-defconfig-v1-1-1ed49c8396bb@quicinc.com>
+X-B4-Tracking: v=1; b=H4sIAOOWvWcC/x2MWwqAIBAAryL7nWCLPegq0YeP1RbCQiGC8O5Jn
+ zMw80KhzFRgES9kurnwmRr0nQC3mxRJsm8MqHBQiIOkZOzRbOYiPQV3psBR+tHODoPV46ShtVe
+ mwM//XbdaPw/LgdZnAAAA
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Vikash Garodia <quic_vgarodia@quicinc.com>,
+        Hans Verkuil
+	<hverkuil@xs4all.nl>,
+        Dikshita Agarwal <quic_dikshita@quicinc.com>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1740478197; l=809;
+ i=quic_dikshita@quicinc.com; s=20240917; h=from:subject:message-id;
+ bh=73qkubxYAKv8s4JCwe6ccYSBzZa/m+3Q11RVn1IbDtM=;
+ b=MHys0LpHWsKNIBLb3lH0qKWgAjiuSc0LSS5QEvkWUdYYJELYAz7ZUY+SoSZTtohu5MhJoroUD
+ RZJLO5+Rlu3B+QF0oO7Nu/Vi9veZX1gv/wxsy/oecI6qsc+pWp2yapH
+X-Developer-Key: i=quic_dikshita@quicinc.com; a=ed25519;
+ pk=EEvKY6Ar1OI5SWf44FJ1Ebo1KuQEVbbf5UNPO+UHVhM=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: VANBj5h4EObH-bsSi-3qBEjP6fdnwKET
+X-Proofpoint-GUID: VANBj5h4EObH-bsSi-3qBEjP6fdnwKET
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-25_03,2025-02-24_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 bulkscore=0
+ impostorscore=0 spamscore=0 mlxlogscore=496 lowpriorityscore=0 mlxscore=0
+ adultscore=0 malwarescore=0 clxscore=1011 phishscore=0 priorityscore=1501
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2502100000
+ definitions=main-2502250070
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_020743_031770_5484DC16 
-X-CRM114-Status: GOOD (  18.80  )
+X-CRM114-CacheID: sfid-20250225_021008_353823_17E99A6A 
+X-CRM114-Status: GOOD (  10.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,58 +107,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/02/2025 11:40, Heikki Krogerus wrote:
-> Hi,
-> 
->> +/**
->> + * device_get_child_node_count_named - number of child nodes with given name
->> + *
->> + * Scan device's child nodes and find all the nodes with a specific name and
->> + * return the number of found nodes. Potential '@number' -ending for scanned
->> + * names is ignored. Eg,
->> + * device_get_child_node_count(dev, "channel");
->> + * would match all the nodes:
->> + * channel { }, channel@0 {}, channel@0xabba {}...
->> + *
->> + * @dev: Device to count the child nodes for
->> + *
->> + * Return: the number of child nodes with a matching name for a given device.
->> + */
->> +unsigned int device_get_child_node_count_named(const struct device *dev,
->> +					       const char *name)
->> +{
->> +	struct fwnode_handle *child;
->> +	unsigned int count = 0;
->> +
->> +	device_for_each_child_node(dev, child)
->> +		if (fwnode_name_eq(child, "channel"))
-> 
-> s/"channel"/name/ ?
+Enable the building of the iris video driver by default.
 
-Thanks Heikki for spotting this brainfart! :)
+Signed-off-by: Dikshita Agarwal <quic_dikshita@quicinc.com>
+---
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-> 
->> +			count++;
->> +
->> +	return count;
->> +}
->> +EXPORT_SYMBOL_GPL(device_get_child_node_count_named);
-> 
-> I did not check how many users are you proposing for this, but if
-> there's only one, then IMO this should not be a global function yet.
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index cb7da4415599..9cc06923c280 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -845,6 +845,7 @@ CONFIG_VIDEO_IMX8_ISI=m
+ CONFIG_VIDEO_IMX8_ISI_M2M=y
+ CONFIG_VIDEO_IMX8_JPEG=m
+ CONFIG_VIDEO_QCOM_CAMSS=m
++CONFIG_VIDEO_QCOM_IRIS=m
+ CONFIG_VIDEO_QCOM_VENUS=m
+ CONFIG_VIDEO_RCAR_ISP=m
+ CONFIG_VIDEO_RCAR_CSI2=m
 
-I have no strong opinion on this. It starts with just 1 user (IIO ADC 
-channel stuff), but I've a feeling there are other areas which do 
-look-up nodes by name. I suppose "channels" are looked-up in other areas 
-of IIO as well. Lookups are probably done outside the IIO as well. I 
-haven't audited this, but I wouldn't be surprized if at least LEDs (and 
-perhaps clks/regulators?) could find this useful too.
+---
+base-commit: b2c4bf0c102084e77ed1b12090d77a76469a6814
+change-id: 20250225-enable-iris-defconfig-d6b8c2fb4674
 
-> It just feels to special case to me. But let's see what the others
-> think.
+Best regards,
+-- 
+Dikshita Agarwal <quic_dikshita@quicinc.com>
 
-Yeah :) And thanks for spotting the "channel" -thing :)
-
-Yours,
-	-- Matti
 
