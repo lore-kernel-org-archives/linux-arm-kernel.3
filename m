@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DE8FC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 18:29:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7FA9C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 18:30:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=peufBsqUzeME7VeF21NLhtNCPRlY3WOFf7LudAWksYI=; b=ZqzOAsI3k2PWbQkt8gN4t5MJ0i
-	TxHa6UZDIloumiNIoo7xyfB2gaQxbB6ImEXJkglQy39zgyXIlt23OpsMIhNsxA6gGm2y7jCUwqJa4
-	N2qe1j7F0BHEm0yGcrSREuUPJMfIH3HLSccguR/TyVeOXIs7PJJR5WD8KTxXtovT59BF8e21d+spA
-	yBtzGFKCo7rqrMDyPe0nO9wOLKkBqHGSCa5vr1dRAtFPurt6qtoEw/qXbAAzSiooW+3p5kv5rg1pF
-	8Ccdi/Fzmpl1PYW/0/UHpwdwi/XuzFO6estOnyOobyiPLMWwxa3tGNsZebdMSOdcvLPG2ZMQfDhGb
-	2o6WxXwQ==;
+	bh=bC6+qUPkhowtfU2NgiHXARr9iM9+065XZu7LiNs5Cmw=; b=S3e9NEE442QszLjEPM/F1Zxx0U
+	dxfs5NN/JWaYswHEJPYKqS/gqKHw0B1g3Cr7voQFNQC8+1TlFl7GY4vkqA7QZteqEilkAr3Og+ot2
+	K7tiSH5tcj5UI1bOJpt3qvGz3D2eAgfh7/mI3sVlLZ/o4SE4kU6ZrpMVbBzOFAv593GeBKYhcOvyG
+	3GwwGvdNNQfOlr1VUkq3hDfkVWAnHI9Zi2KQGCyteWASC2oH+DFkwUlDNw1Q33hvXHYmTnyaNPzgV
+	MQtDEz1Zq0N2CiZC+C+4zCr3APzi6WfkkHpMlMllZbS1Igsz4ZBbjsMZxEtytxPHXysAuXXxxzQMq
+	ot3TU99g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmzg3-00000000vwl-40fq;
-	Tue, 25 Feb 2025 18:29:07 +0000
+	id 1tmzhZ-00000000wUQ-2pTh;
+	Tue, 25 Feb 2025 18:30:41 +0000
 Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmyke-00000000eBY-43eT
+	id 1tmykf-00000000eAh-0YQn
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 25 Feb 2025 17:29:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7944D612DB;
-	Tue, 25 Feb 2025 17:29:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3238FC4CEE8;
+	by tor.source.kernel.org (Postfix) with ESMTP id 09A1B612DC;
+	Tue, 25 Feb 2025 17:29:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99ECAC4CEE8;
 	Tue, 25 Feb 2025 17:29:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1740504588;
-	bh=ScLfH9JCdakxFSIYbsxrMFuSUWUanHf/RQHVMVBJ67Y=;
+	bh=EcrOufC+9HluOly/HaFks9e5qYg1mD0Q7YaQCzKYfj8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=L9/vMZGVMRvIX5vSwF20iBu3E/4YII6Nlt3AevDzdXbQTZ3E2qT31LPhj78ipCK8q
-	 J0WKT5E9KxAiz4bFiA9Md5cHS6zXep6hRNTCE+DUlmQE56Eo6cZkryBcZz8kjquQZq
-	 OIwvecw8yXDh1mDEi0EUJw2lcka9VC5lcip6NFDQOQrb25xQksO+zbbpbnEVtoNQhM
-	 u9aMf/EGk2JEAeR/guAwA+lIMWGLpaYV1ijBH2VGaGjPSlfXOq61wLL0CTUfJ3Fw76
-	 3bjI2US53Tzv8FBlH655gW1K15rb3rmiCkoef9kJQpcpPX69PiG0VoiAC8ZonNz9Mf
-	 +pOucL4l+3MdQ==
+	b=s26eJsZ4ZCkUr40JDqjXSQMziL3UsOHOVQ1WIuizgLPCCHPydJaq+ImDk7P25+99M
+	 RmVA4tATAqADohH0lvgld1cpUd9UVhhbkcKo+/tRnzxj6JrSl2C4LvPLcUA6dBvSLB
+	 rpRwDNFFME4tffYzvNENvm4Vnm6y98isqRBY3HHO+ultJHcIqgehxvhv+pEUzkpnKZ
+	 +y0GRXw5YbRdJGv6v6rZEI2GGCJro/gDMfjEBiGwN3SFNi6wWOehbwToC7FgpkVj7k
+	 Fb53GYm6pHdMaH4ipVI4l0E55hYZO1WedMutCe4IjppDq7rsY3UWTz30nSlsgkq8bF
+	 hDj7mZ0BARaLg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tmykc-007rKs-Fj;
+	id 1tmykc-007rKs-TI;
 	Tue, 25 Feb 2025 17:29:46 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Andre Przywara <andre.przywara@arm.com>,
 	Eric Auger <eric.auger@redhat.com>
-Subject: [PATCH v4 14/16] KVM: arm64: nv: Fold GICv3 host trapping requirements into guest setup
-Date: Tue, 25 Feb 2025 17:29:28 +0000
-Message-Id: <20250225172930.1850838-15-maz@kernel.org>
+Subject: [PATCH v4 16/16] KVM: arm64: nv: Fail KVM init if asking for NV without GICv3
+Date: Tue, 25 Feb 2025 17:29:30 +0000
+Message-Id: <20250225172930.1850838-17-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250225172930.1850838-1-maz@kernel.org>
 References: <20250225172930.1850838-1-maz@kernel.org>
@@ -84,76 +84,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Popular HW that is able to use NV also has a broken vgic implementation
-that requires trapping.
+Although there is nothing in NV that is fundamentally incompatible
+with the lack of GICv3, there is no HW implementation without one,
+at least on the virtual side (yes, even fruits have some form of
+vGICv3).
 
-On such HW, propagate the host trap bits into the guest's shadow
-ICH_HCR_EL2 register, making sure we don't allow an L2 guest to bring
-the system down.
-
-This involves a bit of tweaking so that the emulation code correctly
-poicks up the shadow state as needed, and to only partially sync
-ICH_HCR_EL2 back with the guest state to capture EOIcount.
+We therefore make the decision to require GICv3, which will only
+affect models such as QEMU. Booting with a GICv2 or something
+even more exotic while asking for NV will result in KVM being
+disabled.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic-v3-nested.c | 20 +++++++++++++++++---
- 1 file changed, 17 insertions(+), 3 deletions(-)
+ arch/arm64/kvm/arm.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-v3-nested.c b/arch/arm64/kvm/vgic/vgic-v3-nested.c
-index 643bd8a8e0669..5350a4650b7a5 100644
---- a/arch/arm64/kvm/vgic/vgic-v3-nested.c
-+++ b/arch/arm64/kvm/vgic/vgic-v3-nested.c
-@@ -296,9 +296,19 @@ static void vgic_v3_create_shadow_state(struct kvm_vcpu *vcpu,
- 					struct vgic_v3_cpu_if *s_cpu_if)
- {
- 	struct vgic_v3_cpu_if *host_if = &vcpu->arch.vgic_cpu.vgic_v3;
-+	u64 val = 0;
- 	int i;
- 
--	s_cpu_if->vgic_hcr = __vcpu_sys_reg(vcpu, ICH_HCR_EL2);
-+	/*
-+	 * If we're on a system with a broken vgic that requires
-+	 * trapping, propagate the trapping requirements.
-+	 *
-+	 * Ah, the smell of rotten fruits...
-+	 */
-+	if (static_branch_unlikely(&vgic_v3_cpuif_trap))
-+		val = host_if->vgic_hcr & (ICH_HCR_EL2_TALL0 | ICH_HCR_EL2_TALL1 |
-+					   ICH_HCR_EL2_TC | ICH_HCR_EL2_TDIR);
-+	s_cpu_if->vgic_hcr = __vcpu_sys_reg(vcpu, ICH_HCR_EL2) | val;
- 	s_cpu_if->vgic_vmcr = __vcpu_sys_reg(vcpu, ICH_VMCR_EL2);
- 	s_cpu_if->vgic_sre = host_if->vgic_sre;
- 
-@@ -335,6 +345,7 @@ void vgic_v3_put_nested(struct kvm_vcpu *vcpu)
- {
- 	struct shadow_if *shadow_if = get_shadow_if();
- 	struct vgic_v3_cpu_if *s_cpu_if = &shadow_if->cpuif;
-+	u64 val;
- 	int i;
- 
- 	__vgic_v3_save_vmcr_aprs(s_cpu_if);
-@@ -345,7 +356,10 @@ void vgic_v3_put_nested(struct kvm_vcpu *vcpu)
- 	 * Translate the shadow state HW fields back to the virtual ones
- 	 * before copying the shadow struct back to the nested one.
- 	 */
--	__vcpu_sys_reg(vcpu, ICH_HCR_EL2) = s_cpu_if->vgic_hcr;
-+	val = __vcpu_sys_reg(vcpu, ICH_HCR_EL2);
-+	val &= ~ICH_HCR_EL2_EOIcount_MASK;
-+	val |= (s_cpu_if->vgic_hcr & ICH_HCR_EL2_EOIcount_MASK);
-+	__vcpu_sys_reg(vcpu, ICH_HCR_EL2) = val;
- 	__vcpu_sys_reg(vcpu, ICH_VMCR_EL2) = s_cpu_if->vgic_vmcr;
- 
- 	for (i = 0; i < 4; i++) {
-@@ -354,7 +368,7 @@ void vgic_v3_put_nested(struct kvm_vcpu *vcpu)
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index dc27eb66d4e90..cae93fac60703 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -2321,6 +2321,13 @@ static int __init init_subsystems(void)
+ 		goto out;
  	}
  
- 	for_each_set_bit(i, &shadow_if->lr_map, kvm_vgic_global_state.nr_lr) {
--		u64 val = __vcpu_sys_reg(vcpu, ICH_LRN(i));
-+		val = __vcpu_sys_reg(vcpu, ICH_LRN(i));
- 
- 		val &= ~ICH_LR_STATE;
- 		val |= s_cpu_if->vgic_lr[i] & ICH_LR_STATE;
++	if (kvm_mode == KVM_MODE_NV &&
++	   !(vgic_present && kvm_vgic_global_state.type == VGIC_V3)) {
++		kvm_err("NV support requires GICv3, giving up\n");
++		err = -EINVAL;
++		goto out;
++	}
++
+ 	/*
+ 	 * Init HYP architected timer support
+ 	 */
 -- 
 2.39.2
 
