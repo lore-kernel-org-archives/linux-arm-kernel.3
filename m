@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 103B8C021BB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 13:24:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3C62C021BB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 13:25:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x9lTs8zXN5HalN7kcYVDsFMxl6BV5hMT6pLsKxt4ZeQ=; b=a/y6vuHf06vBcPbElWQ5Agf1kO
-	d5Cv6yK5bdSsr8/rHs2xk0nEVBpSaRgYjvLd3kXz0PDVsgrp4kHpueZ9eJKQflMcW9W0LMizHVo/r
-	t6BrVUiP0nLu4SNud/fDbjROI3X6bS8drBNlAHOOIcC5e+cDP6O7Uay4Y+rRFwlQ5wiY2+WVqloVD
-	HmMbUijqOnpnzGsjI5TMrYseoCHTRFt1Kk+TZUZizUFgq7aggKWJFHxWs21x/iLsus8w57evLhpqs
-	MRVcz8y5MTscd/E4XNQoKvO5Ud+fNLywulo1+cki580XjGRrOKZt4be70ldgUiE8N270QnHz/M0RN
-	WHaEVvgA==;
+	bh=rOJZszzif1/HZY52xKVFqAjULL/Hvz7aQBJ2gFzmCG0=; b=yHuR7Jirn0IM+fIBB8ZzLn4rZ3
+	sVf8nowewwdrgRfexGP0IveD8QO2EKtbsVN7tuqZ8i60a0WIEoTraF3PE4mObHsrgZ3+vbCIzYWtv
+	7d1TOAl1BDSNV/vmd6UFhKHlXu9sAA1pk8QZyvsDerMhR+a8XuvSXCH6WhD+8SlGPwveBquUwmFGC
+	nX7p/1/xcqBf/lJ8e3lZBsPDvVySAaaXsZ1ObgQgOlodHvDkjD7StPZGUjlpZqgK7fw9IEG0thgsw
+	ulbQLi60mhmmnl4jdhiRQFzaWeieANs9lXfUWxpf6RvDuFs2zbU9inVyT4A1oXGDYNbObxhCwNItc
+	VnzdvBOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmuv2-0000000HMbQ-1fQ0;
-	Tue, 25 Feb 2025 13:24:16 +0000
+	id 1tmuwY-0000000HMuX-2CJI;
+	Tue, 25 Feb 2025 13:25:50 +0000
 Received: from sender4-op-o14.zoho.com ([136.143.188.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmuVU-0000000HHNs-2NGj;
-	Tue, 25 Feb 2025 12:57:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1740488262; cv=none; 
+	id 1tmuVZ-0000000HHOx-0uGH;
+	Tue, 25 Feb 2025 12:57:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1740488266; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=b76d1za7PGuMmTiBSOOcQuKGH0L4l0xPBLPyzFWNJ/HDODeaxW2Pbl8OYyWYl5kfOZxFyVqkKpogH+VLeKkOgZSsSnntSv91d6QTYqj+/jlNHkLj59HihMw3np05SouOCZiD1dD+ArrU7RhhPYDexYv/9ho5Utkpwz0BuQjW+2I=
+	b=WbVgD9oGy3DepUvX3SqwjQpfam9LRr925GwR5s+TEUuRK/mIazxF3mo72BorkFMJKoLgEZOvQAEgJYj0WHj4/CIPLliCDjThoAE0RQqoVzg6KgtrFHe2cIOAeZk/945lmuYjU6TobM/UGRHlS4qsRyuUzbYpKFntoskGgHWIq/8=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1740488262; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=x9lTs8zXN5HalN7kcYVDsFMxl6BV5hMT6pLsKxt4ZeQ=; 
-	b=i5MQ/jG0WbjeSlx1+elh82vdKUO6vh4a7/nPWuA6XvR4dJ5Ejt+FHr5caa37D+By5BrRFGt88m8SJWQ2Uplhewvrb5hsfyrqtwODuACQqG7h3/RCkTgrfS8VGc/vxiBebb3fXFUr9NnzvRhwhBD0OTVgkGFY+65VMaxfLa5zoyI=
+	t=1740488266; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=rOJZszzif1/HZY52xKVFqAjULL/Hvz7aQBJ2gFzmCG0=; 
+	b=CC7yU/5JQDXEBWBorV1zUVvK5Te7d1Hwb5IpcAwJlTXQB2h41yNept6qipM4Egwttl+vEpSq0VIh5ejgUOwp/XH/AQpqY3nBaLEIco82XGCwJhGiez++p8WIHRmZRtLWJQneAPkXKntVWWy6k3/2rboSwWpP7m2RI+UtVs6yGYU=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1740488262;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1740488266;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=x9lTs8zXN5HalN7kcYVDsFMxl6BV5hMT6pLsKxt4ZeQ=;
-	b=LDDLBueTingfhbtiiCg7jZavcUthN75wUA6IGG24cjKURtDnz33+LeCmBS1PAKS1
-	f3cR/YHskcmad/8CdvvLrOhaKyO6/6QB9kKHmruCIo/wGiY3BvtPQzJmyiATLgnXKIw
-	Hs9ONg7CAT/WvWVUwkNrVroUNv3WMBZkDEQvyZE4=
-Received: by mx.zohomail.com with SMTPS id 1740488260869522.3234869504469;
-	Tue, 25 Feb 2025 04:57:40 -0800 (PST)
+	bh=rOJZszzif1/HZY52xKVFqAjULL/Hvz7aQBJ2gFzmCG0=;
+	b=IHwUmb1tHssbhJOq+zAAfI9IPEnmRnl3BXOORaY2IagPuWIZUtgFvqcrmI4vNFpA
+	NJD8vvOmHrhhYiuJqwvEgjLLmqkggnw2QNwN4/LlercAVH5JaXqIEmfcOH62DF7l5Mk
+	UNe8363eQlqyD6Ny3BxLku83VZ2/X9wHbd6NesO0=
+Received: by mx.zohomail.com with SMTPS id 1740488265286980.3837702290158;
+	Tue, 25 Feb 2025 04:57:45 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Tue, 25 Feb 2025 13:56:47 +0100
-Subject: [PATCH v2 4/6] dt-bindings: thermal: rockchip: document otp
- thermal trim
+Date: Tue, 25 Feb 2025 13:56:48 +0100
+Subject: [PATCH v2 5/6] arm64: dts: rockchip: Add thermal trim OTP and
+ tsadc nodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250225-rk3576-tsadc-upstream-v2-4-6eb7b00de89c@collabora.com>
+Message-Id: <20250225-rk3576-tsadc-upstream-v2-5-6eb7b00de89c@collabora.com>
 References: <20250225-rk3576-tsadc-upstream-v2-0-6eb7b00de89c@collabora.com>
 In-Reply-To: <20250225-rk3576-tsadc-upstream-v2-0-6eb7b00de89c@collabora.com>
 To: "Rafael J. Wysocki" <rafael@kernel.org>, 
@@ -68,8 +68,8 @@ Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_045752_640423_86A77B72 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20250225_045757_322720_A9BFEEC8 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,117 +84,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Several Rockchip SoCs, such as the RK3576, can store calibration trim
-data for thermal sensors in OTP cells. This capability should be
-documented.
+Thanks to Heiko's work getting OTP working on the RK3576, we can specify
+the thermal sensor trim values which are stored there now, and with my
+driver addition to rockchip_thermal, we can make use of these.
 
-Such a rockchip thermal sensor may reference cell handles that store
-both a chip-wide trim for all the sensors, as well as cell handles
-for each individual sensor channel pointing to that specific sensor's
-trim value.
-
-Additionally, the thermal sensor may optionally reference cells which
-store the base in terms of degrees celsius and decicelsius that the trim
-is relative to.
-
-Each SoC that implements this appears to have a slightly different
-combination of chip-wide trim, base, base fractional part and
-per-channel trim, so which ones do which is documented in the bindings.
+Add them to the devicetree for the SoC.
 
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- .../bindings/thermal/rockchip-thermal.yaml         | 64 ++++++++++++++++++++++
- 1 file changed, 64 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 57 ++++++++++++++++++++++++++++++++
+ 1 file changed, 57 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
-index 49ceed68c92ce5a32ed8d4f39bd88fd052de0e80..eef8d2620b675fe2f871a03aebdaed13278e0884 100644
---- a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
-+++ b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
-@@ -11,6 +11,23 @@ maintainers:
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index 6603f442674c09d017a256bc272e33a2fea7cb8d..e7ce707e6339bcdddb2914eb7e0ed8269275c679 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -1465,6 +1465,30 @@ gpu_leakage: gpu-leakage@21 {
+ 			log_leakage: log-leakage@22 {
+ 				reg = <0x22 0x1>;
+ 			};
++			bigcore_tsadc_trim: bigcore-tsadc-trim@24 {
++				reg = <0x24 0x2>;
++				bits = <0 10>;
++			};
++			litcore_tsadc_trim: litcore-tsadc-trim@26 {
++				reg = <0x26 0x2>;
++				bits = <0 10>;
++			};
++			ddr_tsadc_trim: ddr-tsadc-trim@28 {
++				reg = <0x28 0x2>;
++				bits = <0 10>;
++			};
++			npu_tsadc_trim: npu-tsadc-trim@2a {
++				reg = <0x2a 0x2>;
++				bits = <0 10>;
++			};
++			gpu_tsadc_trim: gpu-tsadc-trim@2c {
++				reg = <0x2c 0x2>;
++				bits = <0 10>;
++			};
++			soc_tsadc_trim: soc-tsadc-trim@64 {
++				reg = <0x64 0x2>;
++				bits = <0 10>;
++			};
+ 		};
  
- $ref: thermal-sensor.yaml#
- 
-+definitions:
-+  channel:
-+    type: object
-+    properties:
-+      reg:
-+        maxItems: 1
-+        description: sensor ID, a.k.a. channel number
-+      nvmem-cells:
-+        items:
-+          - description: handle of cell containing the calibration data
-+      nvmem-cell-names:
-+        items:
-+          - const: trim
-+    required:
-+      - reg
-+    unevaluatedProperties: false
+ 		gic: interrupt-controller@2a701000 {
+@@ -1876,6 +1900,39 @@ tsadc: tsadc@2ae70000 {
+ 			rockchip,hw-tshut-temp = <120000>;
+ 			rockchip,hw-tshut-mode = <0>; /* tshut mode 0:CRU 1:GPIO */
+ 			rockchip,hw-tshut-polarity = <0>; /* tshut polarity 0:LOW 1:HIGH */
++			#address-cells = <1>;
++			#size-cells = <0>;
 +
- properties:
-   compatible:
-     enum:
-@@ -51,6 +68,12 @@ properties:
-       - const: tsadc
-       - const: tsadc-phy
++			soc@0 {
++				reg = <0>;
++				nvmem-cells = <&soc_tsadc_trim>;
++				nvmem-cell-names = "trim";
++			};
++			bigcores@1 {
++				reg = <1>;
++				nvmem-cells = <&bigcore_tsadc_trim>;
++				nvmem-cell-names = "trim";
++			};
++			littlecores@2 {
++				reg = <2>;
++				nvmem-cells = <&litcore_tsadc_trim>;
++				nvmem-cell-names = "trim";
++			};
++			ddr@3 {
++				reg = <3>;
++				nvmem-cells = <&ddr_tsadc_trim>;
++				nvmem-cell-names = "trim";
++			};
++			npu@4 {
++				reg = <4>;
++				nvmem-cells = <&npu_tsadc_trim>;
++				nvmem-cell-names = "trim";
++			};
++			gpu@5 {
++				reg = <5>;
++				nvmem-cells = <&gpu_tsadc_trim>;
++				nvmem-cell-names = "trim";
++			};
+ 		};
  
-+  "#address-cells":
-+    const: 1
-+
-+  "#size-cells":
-+    const: 0
-+
-   "#thermal-sensor-cells":
-     const: 1
- 
-@@ -80,6 +103,47 @@ required:
-   - clock-names
-   - resets
- 
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: rockchip,rk3568-tsadc
-+    then:
-+      properties:
-+        nvmem-cells:
-+          items:
-+            - description: cell handle to where the trim's base temperature is stored
-+            - description:
-+                cell handle to where the trim's tenths of Celsius base value is stored
-+        nvmem-cell-names:
-+          items:
-+            - const: trim_base
-+            - const: trim_base_frac
-+        cpu@0:
-+          $ref: "#/definitions/channel"
-+        gpu@1:
-+          $ref: "#/definitions/channel"
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: rockchip,rk3576-tsadc
-+    then:
-+      properties:
-+        soc@0:
-+          $ref: "#/definitions/channel"
-+        bigcores@1:
-+          $ref: "#/definitions/channel"
-+        littlecores@2:
-+          $ref: "#/definitions/channel"
-+        ddr@3:
-+          $ref: "#/definitions/channel"
-+        npu@4:
-+          $ref: "#/definitions/channel"
-+        gpu@5:
-+          $ref: "#/definitions/channel"
-+
- unevaluatedProperties: false
- 
- examples:
+ 		i2c9: i2c@2ae80000 {
 
 -- 
 2.48.1
