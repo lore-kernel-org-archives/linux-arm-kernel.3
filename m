@@ -4,84 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDDF2C021BB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 13:02:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18AFCC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 13:04:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7hQ9PSnky3hzUHJ3r5I6w65ox232hzZUXn+oYcw3lsM=; b=YeHLP1AqaB37dFoRUfbGAcmzZ4
-	TpGFSU1MZFogg4xmb2J3y/9VEihH0X9XrVa4en6hLMBnUOuiy9d2j3iInyo4rVPh242d30eaq7v86
-	Wsr8z95QG2I5myqZSkqANEuMRHR5nvEiX5Mm8ZZyvEHNSSu5I2Ruw1bb300GlmiMX7+32ai11BGwd
-	B7Twojt1Ncz1KuMCpw6hliA0mIW6wEidrC9a5mszDVlFHXhBQkot0q2B6B54TsUC0lTL1vgi6ve7n
-	f48/i7ZHKhOvg9DTBAcx6huTNH636lI7JVKmaMrGskz/rQ2I4mO4ko1oM8AeZywTjXtBdtJ5py+K3
-	Lf2zhseQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PW/zV8hdZwQ5B1gG66+eoSBi9mJalrIDKsEMvtwborY=; b=LulRcelszemvFqscbamhoX7we2
+	iiC2+UGiprsNPz05t939G3j2xsK26kYUzcfQAsNgWj3xHAF/3xJ5EvKKwO0CF/5sJyihBSldG0b2H
+	g6urFQPpM4mjf/qlcoWdvUw5C7dcv+F6JMoJdjyes23MvyyuniHq6WRb8l4lRvWRc1TI8pJOG54MT
+	vC0qxEhpv/xwzibtc3x6Cbc313bugcsK2mWQvapnUP1Ycmi0qx2PEAygY3MkeE0xmja8B0XFX/KqT
+	rG3h9DTKkNwftUOOmM6CpzedGV7+NSa8CDfpf6lsx+2XNIjValep2SHxBCdeOiTEaX8r57LUdY/U8
+	9JFMoISg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmuZk-0000000HI4s-2QW4;
-	Tue, 25 Feb 2025 13:02:16 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmu6c-0000000HDeB-16OK
+	id 1tmubG-0000000HIOs-16G6;
+	Tue, 25 Feb 2025 13:03:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmu6d-0000000HDe9-2UB9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 12:32:11 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2fe77285e12so316695a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 04:32:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740486729; x=1741091529; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7hQ9PSnky3hzUHJ3r5I6w65ox232hzZUXn+oYcw3lsM=;
-        b=ZkJkTmc30k1LYj3BvbBGN5W4Q2bsFK7nrUSZ6ObenL/pM3DtXwyNVOoN32hWfEA72h
-         lxmK1Hs17dXM0SddD1CYwjVsHQdA8FlcLPE6XRY3KPoifFv4zJLT97T2m5QJmGs6mCuM
-         TkSUhfnkxv5Wvtxbi5KbKsSbmIHbapXnUkJEMr3eYkqfSrU8rASE1SBwbJG9sEXiRb6v
-         y/qX+rEDa+ni5W481y6oE7/6JOVCx7JgJ1ssiNlmdvr02P1AcsP0ftRmHwpxsHNqXgjN
-         GwfSZ2hF+QtObAc/a7scFvMBPvZUJQq8bJ9lzhtEGsHGJrkfzkHTvLw9NlwecHGqKeBt
-         5FYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740486729; x=1741091529;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7hQ9PSnky3hzUHJ3r5I6w65ox232hzZUXn+oYcw3lsM=;
-        b=PdQJHw/cXNZfN87MUWIxEEyJe3exCnqw6HcccaKGtXpnZ2ZXuV7lmt+ZMy/W3WSS22
-         5leRwu+OqCfQFnffZPU6YOc5Yn7itUgzLSZNKrF9zMK25IKxzrcx7YwKiiR6HKLMaYtC
-         W+o4rl9got1ionR7Qrl+NnPkOu0bYdUfh8hLiWkeiNwDgzQx22keTTumQAk6b7+Q1K8+
-         X3gKdl0uTyEjFlPJCZQb2tqhJXOsFY72mTd/EcNUrjPwsOSDt92iSLV7g/Mx9m9krRe+
-         9hUQixh0QOmSEVuko5TrhRL0ElC7TZHB5DBlFG4ItnvLDfVq9oq6d/6KUyYqEHKGGsm8
-         6rAA==
-X-Forwarded-Encrypted: i=1; AJvYcCVHND+PyeLzpcn/v7ZvBKgWAbO4fJ+xiyE6+yXzOWfvocRc4AP1jv6Mo4NQi6uNSjWwMj2a3eJuRoj5ugOjkoMK@lists.infradead.org
-X-Gm-Message-State: AOJu0YzI2fCaXpBeMoVM4h14AIyueEdw0/DquIiadDxHAfES0HC0+TLS
-	B8qiUA/wBk0VIx0wdwUJbh48kMDnvhIiTwBs8w4PqFrulUehwWWFVfAhhX8I20EqHmuTd5Pufpa
-	JQK7BlH4sMjjXxQoeSLzrdQGdQjkBLQ==
-X-Gm-Gg: ASbGncvmNOLfWOskZ/SauLZ6quBCxOIvMiWz4io1aKd9Vsm2LzmEKDwxdVGxH8rhjeM
-	JK8Xoh1zzwvRp0EmsFOnElwGXCUTmuuBgfnqhqp4q3WXzcWdxHLzE5eRAJ0T8UoFnU0DmPlRoNb
-	ysSRQo
-X-Google-Smtp-Source: AGHT+IEhj54F35PZEsJYYrzaWJyBanI+coj2uAU8OTJp3NVm093Jk0fuCJf+AJB+0L8a6Juozj6iHZgPqCZQO9GBPqA=
-X-Received: by 2002:a17:90b:2751:b0:2ee:df70:1ff3 with SMTP id
- 98e67ed59e1d1-2fe68a312b8mr6037629a91.0.1740486729075; Tue, 25 Feb 2025
- 04:32:09 -0800 (PST)
+	Tue, 25 Feb 2025 12:32:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DDA16152B;
+	Tue, 25 Feb 2025 04:32:23 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 32AEF3F6A8;
+	Tue, 25 Feb 2025 04:32:06 -0800 (PST)
+Date: Tue, 25 Feb 2025 12:32:03 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64/mm: Explicit cast conversions to correct data type
+Message-ID: <Z724Q1ofM1GvKquV@J2N7QTR9R3>
+References: <20250219035646.536707-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-References: <20250225120707.2658709-1-m.felsch@pengutronix.de>
-In-Reply-To: <20250225120707.2658709-1-m.felsch@pengutronix.de>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Tue, 25 Feb 2025 14:33:45 +0200
-X-Gm-Features: AWEUYZlyvb2cM0-5vtqGVculafUAJm4OWsTkAKrC0Tw7wQoPYmnk7k-oBG7QuOM
-Message-ID: <CAEnQRZAoPxFN1ce0MEY34KpJO=SS4n33ehABH4auxWTDq8_R8g@mail.gmail.com>
-Subject: Re: [PATCH 1/3] arm64: dts: imx8mn: fix micfil dmas settings
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: "robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, Sascha Hauer" <s.hauer@pengutronix.de>, kernel@pengutronix.de, aford173@gmail.com, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Joy Zou <joy.zou@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250219035646.536707-1-anshuman.khandual@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_043210_298677_6C0B6F5C 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20250225_043211_672878_CEA58339 
+X-CRM114-Status: GOOD (  23.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,30 +64,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 2:12=E2=80=AFPM Marco Felsch <m.felsch@pengutronix.=
-de> wrote:
->
-> The third dma cell is used for priority information not to encode
-> something else. The NXP downstream kernel use the third cell to encode
-> more information:
->
->  - Bit31: sw_done feature enable/disable
->  - Bit15~Bit8: selector
->  - Bit7~Bit0: priority level
->
-> but this was never mainlined. Therefore drop the further information and
-> just specify the priority which is 0.
->
-> FTR: The sw_done feature was mainlined without making use of the
-> devicetree.
->
-> Fixes: cca69ef6eba5 ("arm64: dts: imx8mn: Add support for micfil")
-> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+On Wed, Feb 19, 2025 at 09:26:46AM +0530, Anshuman Khandual wrote:
+> From: Ryan Roberts <ryan.roberts@arm.com>
+> 
+> When CONFIG_ARM64_PA_BITS_52 is enabled, page table helpers __pte_to_phys()
+> and __phys_to_pte_val() are functions which return phys_addr_t and pteval_t
+> respectively as expected. But otherwise without this config being enabled,
+> they are defined as macros and their return types are implicit.
+> 
+> Until now this has worked out correctly as both pte_t and phys_addr_t data
+> types have been 64 bits. But with the introduction of 128 bit page tables,
+> pte_t becomes 128 bits. Hence this ends up with incorrect widths after the
+> conversions, which leads to compiler warnings.
 
-For all series:
+Does 128-bit page table not imply 52-bit PAs?
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+> Fix the warnings by explicitly casting to the correct type after doing the
+> conversion.
 
-Marco I couldn't find the cover letter for this series so I add my R-b tag =
-here.
+I think it would be simpler and clearer if we replaced the macros with
+functions, such that __pte_to_phys() and __phys_to_pte_val() are
+*always* functions.
+
+That way it's easier to compar the CONFIG_ARM64_PA_BITS_52=y and
+CONFIG_ARM64_PA_BITS_52=n versions, and the types are always explciit
+for inputs and outputs, so there'd be less room for error and the
+compiler can warn us of type safety issues in any configuration.
+
+That and we can delete the comment block immediately above at the same
+time.
+
+Mark.
+
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+> This patch applies on v6.14-rc3
+> 
+>  arch/arm64/include/asm/pgtable.h | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 0b2a2ad1b9e8..1da2421c9a15 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -84,8 +84,8 @@ static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
+>  	return (phys | (phys >> PTE_ADDR_HIGH_SHIFT)) & PHYS_TO_PTE_ADDR_MASK;
+>  }
+>  #else
+> -#define __pte_to_phys(pte)	(pte_val(pte) & PTE_ADDR_LOW)
+> -#define __phys_to_pte_val(phys)	(phys)
+> +#define __pte_to_phys(pte)	((phys_addr_t)(pte_val(pte) & PTE_ADDR_LOW))
+> +#define __phys_to_pte_val(phys)	((pteval_t)(phys))
+>  #endif
+>  
+>  #define pte_pfn(pte)		(__pte_to_phys(pte) >> PAGE_SHIFT)
+> -- 
+> 2.25.1
+> 
+> 
 
