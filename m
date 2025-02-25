@@ -4,44 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32FDBC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 12:32:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C78D7C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 12:34:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8sRvC9xyRaKFw44KDfxlYmtJ9FimYw0kouBKkM0uu3k=; b=V0P/PS76ppWi1QlHPxhYTgYDJ6
-	6Yq+kVP8GdQMoo+Vpfd8V/N6/2nmdqEaiA4zcAL90umVToXcN24ngDXGuzW3aWH9D5rA3JDNG2FFR
-	seZ2F5lVBfXhCYKeaIwrD/sf+UVdShlndGxcSfhmcS+dPS+lCzY8EFO6jcIdPwchWkj1K5iik0fvd
-	60Gp8872/j6h6A2V7tIfF567rQMAR/3nskIHSQbz/rslLuWMx8DjbQUTVzwCTSbisKewOY8hZjriM
-	LWtjb1rlFOqF/RRJmXCQsvhF31VzN6e14ulI+IOlQ2jmoQa2JVvDjbsJko2d5+v1qRIO25sPivS1R
-	TlBOsn2w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=AwMC6R1I6xD5arwDwwysT9mTp5nvIxrKCaAKe/g0QdQ=; b=aWnq/BoLGfhw7/
+	GeCdqqT+y3xUzHTCr5C7lxEtrbvTgML/wdrP5kbnluX+YDTCxEB03ooaYilsgyWoWbi+Fe1O9QJlK
+	5bA/zjKzmgr7pKN4Dj+i5Ai0Su3l2QS279rLPN0Jjxh/GrWO7W59a0fMqfJs5vwMBdf9mxdBmqGn+
+	TwTFDWvxvdXFIrzqwM/gLx+c20x/wBs74qnpn555QVmYKcr89FAUCMj6D2YzePoCBsrQqNrjMvZmf
+	AklNd2b44ygR/cQMXR82VRN+zH5TS6SrP8kJX1a8FM9uzANFvOnQoaORn7SrelUgDwp7Dh7ysrxup
+	z1jb3jikmW6UjqAchvbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmu6q-0000000HDgV-07R4;
-	Tue, 25 Feb 2025 12:32:24 +0000
-Received: from smtp-bc08.mail.infomaniak.ch ([2001:1600:4:17::bc08])
+	id 1tmu8N-0000000HDz2-1f8g;
+	Tue, 25 Feb 2025 12:33:59 +0000
+Received: from smtp-1908.mail.infomaniak.ch ([2001:1600:4:17::1908])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmtVY-0000000H6c6-2NPa
+	id 1tmtVY-0000000H6c2-2qeH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 11:53:55 +0000
-Received: from smtp-3-0000.mail.infomaniak.ch (unknown [IPv6:2001:1600:4:17::246b])
-	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4Z2GGN1zmGzPp2;
-	Tue, 25 Feb 2025 12:53:48 +0100 (CET)
-Received: from unknown by smtp-3-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4Z2GGM4bc9zCcj;
+	Tue, 25 Feb 2025 11:53:56 +0000
+Received: from smtp-3-0000.mail.infomaniak.ch (smtp-3-0000.mail.infomaniak.ch [10.4.36.107])
+	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4Z2GGM4jjDzRm0;
 	Tue, 25 Feb 2025 12:53:47 +0100 (CET)
+Received: from unknown by smtp-3-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4Z2GGM06hSzC3b;
+	Tue, 25 Feb 2025 12:53:46 +0100 (CET)
 From: Quentin Schulz <foss+kernel@0leil.net>
-Date: Tue, 25 Feb 2025 12:53:29 +0100
-Subject: [PATCH v3 1/2] arm64: dts: rockchip: fix pinmux of UART0 for PX30
- Ringneck on Haikou
+Subject: [PATCH v3 0/2] arm64: dts: rockchip: pinmux fixes for PX30
+ Ringneck
+Date: Tue, 25 Feb 2025 12:53:28 +0100
+Message-Id: <20250225-ringneck-dtbos-v3-0-853a9a6dd597@cherry.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250225-ringneck-dtbos-v3-1-853a9a6dd597@cherry.de>
-References: <20250225-ringneck-dtbos-v3-0-853a9a6dd597@cherry.de>
-In-Reply-To: <20250225-ringneck-dtbos-v3-0-853a9a6dd597@cherry.de>
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADivvWcC/2WNwQ6CMBAFf8X0bE27tdh68j+MBygLNCagW2wkh
+ H+3wEGix3nJzBtZQPIY2Hk3MsLog+/aBGq/Y67J2xq5LxMzEKCFBMPJt3WL7s7LvugCt0ZkR6O
+ s0hpZkh6ElX8vwettZcLnK3X779j40Hc0LKdRzuvaBxC//Si54KCdPVWgjMbs4hokGg4lsjkVY
+ avLPx2SrqRworC5ssJu9WmaPp8lAkcAAQAA
+X-Change-ID: 20250128-ringneck-dtbos-98064839355e
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
  Quentin Schulz <quentin.schulz@theobroma-systems.com>, 
@@ -52,8 +55,8 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 X-Mailer: b4 0.14.2
 X-Infomaniak-Routing: alpha
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_035352_753054_63ECDA4F 
-X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-CacheID: sfid-20250225_035352_863096_A2CB6E89 
+X-CRM114-Status: UNSURE (   8.10  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -69,36 +72,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Quentin Schulz <quentin.schulz@cherry.de>
+This fixes incorrect pinmux on UART0 and UART5 for PX30 Ringneck on
+Haikou.
 
-UART0 pinmux by default configures GPIO0_B5 in its UART RTS function for
-UART0. However, by default on Haikou, it is used as GPIO as UART RTS for
-UART5.
-
-Therefore, let's update UART0 pinmux to not configure the pin in that
-mode, a later commit will make UART5 request the GPIO pinmux.
-
-Fixes: c484cf93f61b ("arm64: dts: rockchip: add PX30-µQ7 (Ringneck) SoM with Haikou baseboard")
-Cc: stable@vger.kernel.org
 Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
 ---
- arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts | 1 +
- 1 file changed, 1 insertion(+)
+Changes in v3:
+- removed already merged patches (Device Tree overlays),
+- rebased on top of master to avoid conflicts,
+- added comment above pinctrl-0 in uart5 to explain we are only adding a
+  pinmux and not modifying anything else,
+- Link to v2: https://lore.kernel.org/r/20250221-ringneck-dtbos-v2-0-310c0b9a3909@cherry.de
 
-diff --git a/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts b/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
-index eb9470a00e549fc107603be216a5f714914e7a2c..9a568f3d0a9916dff22222c59e5e0c94ce226858 100644
---- a/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
-+++ b/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
-@@ -222,6 +222,7 @@ &u2phy_otg {
- };
- 
- &uart0 {
-+	pinctrl-0 = <&uart0_xfer>;
- 	status = "okay";
- };
- 
+Changes in v2:
+- rename uart5_rts_gpio to uart5_rts_pin to stop triggering a false
+  positive of the dtschema checker,
+- remove PU from uart5_rts_pin,
+- Link to v1: https://lore.kernel.org/r/20250220-ringneck-dtbos-v1-0-25c97f2385e6@cherry.de
 
+---
+Quentin Schulz (2):
+      arm64: dts: rockchip: fix pinmux of UART0 for PX30 Ringneck on Haikou
+      arm64: dts: rockchip: fix pinmux of UART5 for PX30 Ringneck on Haikou
+
+ arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+---
+base-commit: d082ecbc71e9e0bf49883ee4afd435a77a5101b6
+change-id: 20250128-ringneck-dtbos-98064839355e
+
+Best regards,
 -- 
-2.48.1
+Quentin Schulz <quentin.schulz@cherry.de>
 
 
