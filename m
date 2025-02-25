@@ -4,124 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FF23C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 07:27:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0C98C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 07:41:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iNyMNq0Sztwv4vKDhGfFbMXIy/g1nHUCGUIykQmuxWc=; b=DuDcYKuAWTzvvvEflJ6d/qQVDy
-	V3xgfbqRSm9S7nZL15LXWQEImSS764MTO7v8oeXKNdvHuMwNTTgtAbf78odS4VLCs+XC255NtGsp0
-	yhs/8D9sVMH/KJZLlw2q2SrgxDMIdQ/VpYKq+JJ/B86fO56vWtF+Ffbxfgl94gRxS4HM7J8J2P6bT
-	kfe+gBkh/p/tr8euvhk9LSRrlGo/+RhZfZdYf6be15rxh+aUsemsD3tkJtHz02Im8fgS4VKLw7bp7
-	N0aX6iGOzzzMTAW7etyaiw6sSirGOVX1R9t/4aNyzZWd/sl14/J7xvSxYX5ooQ8Yyrpk8tA8GOA4b
-	5T+4r2BQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0U6S0BmWR200UU2yPcH2lY/WJhLyKoiDERjSvc6SkI4=; b=oK46qtVsqQKSUJ42ILvAoeC9He
+	wPpt0m8qcpFbQkf/uXvO1+vG/W/2aZLHPlPqPi+Ch7jW2rFMDCTNAmyoCqE1RYSIaBc0sWMUSQRXV
+	HRkN4J1heMzIjCho8MjMrM4+Dz3XUQjxCOKrJHFboqMA/XdhrcOh3SzpQIsoNz4VqxQzVPHoYbVz6
+	L1jrEktGkiuKeD5kesdMt4dh8gBn6zi9a7735SPOkM8wDK+FxEaCgThq1t7CMVzRs4x7nyWLPlToI
+	piSLBSH+bBSrABADW7nnWkk5KgL8sSwdkB374YLFxWwVOoHq3G6RickJGztvJodv3Yu2+Bm0KvNEW
+	+7RJXvwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmpLI-0000000GC6o-35lo;
-	Tue, 25 Feb 2025 07:27:00 +0000
-Received: from fout-b2-smtp.messagingengine.com ([202.12.124.145])
+	id 1tmpZO-0000000GEQK-0VLM;
+	Tue, 25 Feb 2025 07:41:34 +0000
+Received: from mail-vi1eur05on20708.outbound.protection.outlook.com ([2a01:111:f403:2613::708] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmpJl-0000000GBwd-3Vfx
+	id 1tmpXr-0000000GEBo-35EL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 07:25:28 +0000
-Received: from phl-compute-11.internal (phl-compute-11.phl.internal [10.202.2.51])
-	by mailfout.stl.internal (Postfix) with ESMTP id 72696114016E;
-	Tue, 25 Feb 2025 02:25:23 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-11.internal (MEProxy); Tue, 25 Feb 2025 02:25:24 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1740468323;
-	 x=1740554723; bh=iNyMNq0Sztwv4vKDhGfFbMXIy/g1nHUCGUIykQmuxWc=; b=
-	Crrc19jdVh7/XBZAtR/NMXS4XDxP15gWTLHCfBDvQS676Lg8rynDp3eHsGxkQzOL
-	NA6+6MAjUiLoPQmu2RiInQC2bPTzaEHZhxFhtAxG2nKrgD7yJhCiJ8Mt9IiufWsV
-	fPYYYk3p5Lcd5wsAIlI2JQk1MLZqu4oPDJasJheax161IJ46K91fFfPtJDj5SbM9
-	T0hntAh8i6J0zAFYKwdj1gkrvLFe4deGMjOv2P5WVvP4N4BSrELOBLc708mfUPHI
-	43UjhAa34yyhwVHf7ypmWXQX7TAxCgyOweBC5H7/+C7Gg2vuf7hs7iJekp2//I2n
-	Jvica6vniO0L8eUGctctwg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1740468323; x=
-	1740554723; bh=iNyMNq0Sztwv4vKDhGfFbMXIy/g1nHUCGUIykQmuxWc=; b=w
-	hzV6Y3hj5gWp/iDMqIx98JPoZOcwRLI9d1i8zlOU/RAUy+7IN5uPMPBjab2NCQyd
-	LMkj8W6q1/gHgLHDo98I6REoWQ/IUlycP4gdzmxqrs5rcWd4rE0QTrqe/Qq7ipcR
-	1TukjGbHToX6OBLGcTfynSUtg3pNqUrMJsH86ZMon4tgVd+2U1H1kYo2UhyvUMtK
-	CQVql3lLJY9IZSvDdmpfF/B6UYL6tVYb1VwSb36/JmunHby+rrqYNWFvnfPklsV9
-	W3GQb+SCgqfTcQp6qF5/y02gx4enLl5etsFLUDfQEOKg7vDo/I3wk5qWMiRSnz2E
-	A1qzcH81WGbVu17pqlUyw==
-X-ME-Sender: <xms:YnC9Z5OsvGdCkLa8wabjaJTLcmVWPy5Wdd2Ke6lK7Dgz_iTRXyrtyw>
-    <xme:YnC9Z7-o24c8cmpv9z2zXbEtBtMS6U1bIeklSCOAeb2rH1Aw6X5r2okyM9s4a7b1D
-    i42G82D6MsV7ZDpwpI>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdekuddtlecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthhqredtredt
-    jeenucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusg
-    druggvqeenucggtffrrghtthgvrhhnpedvhfdvkeeuudevfffftefgvdevfedvleehvddv
-    geejvdefhedtgeegveehfeeljeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
-    epmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopeef
-    tddpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepsghpsegrlhhivghnkedruggvpd
-    hrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphht
-    thhopegshhgvlhhgrggrshesghhoohhglhgvrdgtohhmpdhrtghpthhtoheptghonhhorh
-    doughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgv
-    lhdrohhrghdprhgtphhtthhopehlphhivghrrghlihhsiheskhgvrhhnvghlrdhorhhgpd
-    hrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopeifvghirdhl
-    ihhusehkvghrnhgvlhdrohhrghdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorh
-    hg
-X-ME-Proxy: <xmx:YnC9Z4TLllvXzTwlowYa5Jl6FRZHwh6ru6z9sep9rQhEYu4E3BZ9YQ>
-    <xmx:YnC9Z1uroNTLiTE5A1YAFBUh0k6-cPSW_lmVz7j_174A7gOMX1F-pA>
-    <xmx:YnC9Zxd8hAA5ROl-8MVUO9kMTxx065-aCcG2Kcv_6QaygErRfoifPA>
-    <xmx:YnC9Zx0cABgPWS_vwgD1TtiRl_Bgj3jIOVHMSFv_zLyLLtjt_krAXw>
-    <xmx:Y3C9Z3G9Q7Jowr_Z_hgrXH8Sz7iSue9CIWALq-YXJHQQDGYgj76VkLzo>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 16C1B2220072; Tue, 25 Feb 2025 02:25:21 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-Date: Tue, 25 Feb 2025 08:24:51 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Roman Kisel" <romank@linux.microsoft.com>
-Cc: benhill@microsoft.com, bperkins@microsoft.com, sunilmut@microsoft.com,
- bhelgaas@google.com, "Borislav Petkov" <bp@alien8.de>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Conor Dooley" <conor+dt@kernel.org>,
- "Dave Hansen" <dave.hansen@linux.intel.com>,
- "Dexuan Cui" <decui@microsoft.com>,
- "Haiyang Zhang" <haiyangz@microsoft.com>,
- "H. Peter Anvin" <hpa@zytor.com>, krzk+dt@kernel.org,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- "K. Y. Srinivasan" <kys@microsoft.com>,
- "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
- "Manivannan Sadhasivam" <manivannan.sadhasivam@linaro.org>,
- "Ingo Molnar" <mingo@redhat.com>, "Rob Herring" <robh@kernel.org>,
- ssengar@linux.microsoft.com, "Thomas Gleixner" <tglx@linutronix.de>,
- "Wei Liu" <wei.liu@kernel.org>, "Will Deacon" <will@kernel.org>,
- devicetree@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org
-Message-Id: <55b65ba6-4abe-478c-a173-4622c30ddd7b@app.fastmail.com>
-In-Reply-To: <14a199d8-1cf3-49bc-8e0d-92d9c8407b4f@linux.microsoft.com>
-References: <20250212014321.1108840-1-romank@linux.microsoft.com>
- <20250212014321.1108840-2-romank@linux.microsoft.com>
- <1b14e3de-4d3e-420c-819c-31ffb2d448bd@app.fastmail.com>
- <593c22ca-6544-423d-84ee-7a06c6b8b5b9@linux.microsoft.com>
- <97887849-faa8-429b-862b-daf6faf89481@app.fastmail.com>
- <6e4685fe-68e9-43bd-96c5-b871edb1b971@linux.microsoft.com>
- <14a199d8-1cf3-49bc-8e0d-92d9c8407b4f@linux.microsoft.com>
-Subject: Re: [PATCH hyperv-next v4 1/6] arm64: hyperv: Use SMCCC to detect hypervisor
- presence
-Content-Type: text/plain; charset=utf-8
+	Tue, 25 Feb 2025 07:40:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cuH0N8jDFOcM18O5wdwRczSdALmzL6h/0oJ7v8FkK8IC36vwYu/Ojzw4abUhRRE1omi7iqmMAUVaw1uAG+wKF7WanFrTyokzYF7YlHimn3quZtp14627PHHhldXVd+giowp55QD8viGITOJ77Hr3GRFhVQC47XVa4fWIb/aYvobmEi+xaroSQfumvvhb5m7NxNUH2DJ/ATTG6GTDPemNnBSpeVaLLELhnkCBxDTa6N4FT9gLHawwGkZeECPCr1ZlGaTLzXNSKTzfynexc1qMamlNR8p+/3L67Sh6icAgdweHwxeeH7/LqATV/GFUoma/1ngr4QZrDv4es4SZjwGIbQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0U6S0BmWR200UU2yPcH2lY/WJhLyKoiDERjSvc6SkI4=;
+ b=GQONysjpWyW7ZMB+bUlMFd3B62SJIAForCrwroxFVJtDwqiBOPUEIZOMZTC/GTSNMPpOGOJhfTW3xaM7TyqDoZ2hyj/nAvr1O6zvsyMNtvHUXhQ/Pdch3m97yyv1zWCCYzZOUX+BX19QWEJGKw2T+kO/aN7dbDjqRpcKEJq/vvl1l/MA8dI6brDg7D1UtrWyv++Cg6s1A4t7aVZhUvfrRMk03jhnJzARKRccF99H20BTCli2ItcTXRSpLg78VHmdmENIcE0LwWOqWjMu1c2JsvgdCl/+qyw0fJU14HM3OmDRFH/du33RhVS8BSJmyubwb+WihBtV8tXI1fKoT3ipDA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=gocontroll.com; dmarc=pass action=none
+ header.from=gocontroll.com; dkim=pass header.d=gocontroll.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=gocontrollcom.onmicrosoft.com; s=selector1-gocontrollcom-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0U6S0BmWR200UU2yPcH2lY/WJhLyKoiDERjSvc6SkI4=;
+ b=cXRic8Omi2vSfUASoMdWZ1o2014bjCbRP6ooCMJQVFI6/ucEc9zJa1TSjw+YtiUsHMOx2bJCgL9/85FJ1yeCvoggOIB9DW0iOw088OxoWNRhtWv0LWqm3iD9Jv6rffNmb2qLubz7QrtDRKD3JDCjFRpIo2I4OyMqqrMRmUBTN0qb0Gw/8uMmmG23j8+k/4r8c9olJVvlkPEZQ8RLS30N8krm3L4/ydl62riwoo2htU5L4FRQkQnxv0G9d42dVR0txmNvb9eyqWzjDMRapiIXZLVQJYJ4I1/4rbIXPz9lEQSwa80Q1NkCN4/lS43ffAB4xOZV8Hz6ZlrGM5WCjtC5kQ==
+Received: from PA4PR04MB7630.eurprd04.prod.outlook.com (2603:10a6:102:ec::16)
+ by AM8PR04MB8004.eurprd04.prod.outlook.com (2603:10a6:20b:248::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.21; Tue, 25 Feb
+ 2025 07:39:52 +0000
+Received: from PA4PR04MB7630.eurprd04.prod.outlook.com
+ ([fe80::311b:ad3a:4a62:7b5f]) by PA4PR04MB7630.eurprd04.prod.outlook.com
+ ([fe80::311b:ad3a:4a62:7b5f%4]) with mapi id 15.20.8466.016; Tue, 25 Feb 2025
+ 07:39:52 +0000
+From: Maud Spierings | GOcontroll <maudspierings@gocontroll.com>
+To: Rob Herring <robh@kernel.org>
+CC: Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang
+	<quic_jesszhan@quicinc.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Thierry Reding
+	<thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>, Liu Ying
+	<victor.liu@nxp.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH 05/14] dt-bindings: trivial-devices: add GOcontroll
+ Moduline IO modules
+Thread-Topic: [PATCH 05/14] dt-bindings: trivial-devices: add GOcontroll
+ Moduline IO modules
+Thread-Index: AQHbhsMosk0/ripJzU6HkH3zRHdpDrNW7EQAgACtnhU=
+Date: Tue, 25 Feb 2025 07:39:52 +0000
+Message-ID: <PA4PR04MB763009E88F6406CD84ACBD33C5C32@PA4PR04MB7630.eurprd04.prod.outlook.com>
+References: <20250224-initial_display-v1-0-5ccbbf613543@gocontroll.com>
+ <20250224-initial_display-v1-5-5ccbbf613543@gocontroll.com>
+ <20250224204428.GA4050751-robh@kernel.org>
+In-Reply-To: <20250224204428.GA4050751-robh@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=gocontroll.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PA4PR04MB7630:EE_|AM8PR04MB8004:EE_
+x-ms-office365-filtering-correlation-id: 45f492a3-de4d-46bd-56fb-08dd556f9749
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|10070799003|376014|1800799024|7416014|38070700018;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?75YVDHyN6dkmGFvPs8MZ2350oHKH7ZWlnQZfDBgCZHJHlIszCvAK2xtPln?=
+ =?iso-8859-1?Q?1GKBJmZNgHXzQhWy1x2qY/oXhRztN4w5ialotC7uR33HCZdvyuyFD73ZAm?=
+ =?iso-8859-1?Q?Lw6yz34ebfZYvwdS4VRjGphdj+yiMEcj1brfDowBsiMgebtFrxFxCijsx2?=
+ =?iso-8859-1?Q?Fdo7AX1Kz2RVKuqd+w9LanZ5+xyCHklUj3CCWrWto+20wMfETUjMZmXHLq?=
+ =?iso-8859-1?Q?U4EVvkgJzMR46weZL4qlt+mKSLkaWnC3Qo6mQiptSWfGLYG4MYO5CUd2fI?=
+ =?iso-8859-1?Q?yRc8DBLr0agcvO1cUMB1S0i4WajVljFpyXiCsKqXKTg8DkAO57OXP4RDGS?=
+ =?iso-8859-1?Q?mgfzCnq3sZVBT3ZOh7Has2D3wEbRHMrMY/PaccFZBbYIuCTUwarYaToujo?=
+ =?iso-8859-1?Q?LWS5Ge9fY8mQYU2aXP8jMNX/kOCqYjI6+SfUYBVKbfwPAaVpEyMoGNNnH6?=
+ =?iso-8859-1?Q?GjzD9XaZAMfpJtmAESnJ1UGq8M+yPXak8YUpnDeHj+LU/ZvNLWVdGQJ87N?=
+ =?iso-8859-1?Q?gXLybJCtQIX6IFCGnWq5SJdknf5JYUAW8GP/a8vwYHmLp4yjIDhHMa16aC?=
+ =?iso-8859-1?Q?yUDQbdHzfW6EPGnZ4uSSmOlLVpFA5kNEYNkcj6vvCmAfXi05I8d1rfcJkW?=
+ =?iso-8859-1?Q?Bse8RgfVdnBQglOPdtt2V96Ly9sUpGDeLp9F3R6ZLKLBY+umbLGf14orvI?=
+ =?iso-8859-1?Q?LkMg3fP+lpVz5p1lrF0Ud7ajBqT7yk1Bv/Zy+MmDzinRLIflFT7uOK77Us?=
+ =?iso-8859-1?Q?gECnOX8201OGZf/U1g+6qmUVEKGtwZ7TNR27YRMmN1IbFrHzk5XJZWMmO6?=
+ =?iso-8859-1?Q?PEL5AJq3QaUbgBlei2aLGIoVZUQgzAiwVn6yWvDEWgdh5utLl0lDI+mT/V?=
+ =?iso-8859-1?Q?woCBfHZHGWSGpLZffPS7IT52SnfoxpGcB+B3sIcq5XrzRW5YUVT8q6Ob0v?=
+ =?iso-8859-1?Q?BlfU08RjjBTgq705T1LoxBzB0yehnRhF8sn03otCqDM6PcRBgwUYab2A7V?=
+ =?iso-8859-1?Q?OYQtIo33BCGkISHgVgVs6dMs1k/WuAjL31937dmcKdIzb/N0hoyto0gFtH?=
+ =?iso-8859-1?Q?FClWqil7fv2WGvVtQn311PWJYPlykME9AJ2BIk5Dpyw6y1uQiGkj7ynmDZ?=
+ =?iso-8859-1?Q?4HMGUbrDlFyaDTOhOiwi7K2OvXDPwstkqPjw542n4/Fx+puKywnionQ5dj?=
+ =?iso-8859-1?Q?juUSFtXIVoOHhQKWYe5zQbl8owGwbh2ft60n0CK2I/Xa7Q7igTh+LxDorb?=
+ =?iso-8859-1?Q?tTYgedcbolG3CJsE89t63jAGN4kKj2ZpfC7L5pvIJAjygxTeyl8v2ptE1W?=
+ =?iso-8859-1?Q?wL6M0mlQnW0PsNrYT1UL/kNRoDEeE7fWmvFpuIoLXDz8bh/JRlgupBZfOD?=
+ =?iso-8859-1?Q?qbcPi66ImVEn5SUppwDqCWMAxOIuSuSvJNCxkMxc3wo/eDGny48ruiWSS/?=
+ =?iso-8859-1?Q?K++om518l+FOwoP5NrUv5HJvCADI9MPunvIgzadMETdHkg/FNJjpcONku+?=
+ =?iso-8859-1?Q?wBbKPlGzqPddNGPJwX4HDV?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB7630.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(10070799003)(376014)(1800799024)(7416014)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?X8IGD84bqM6j+6gAmakOoLHDbMp5bx9ODmev0L5XJztKXJxzoStsDa1F4t?=
+ =?iso-8859-1?Q?L+EClW4B/ZOwC+vNa7brPaO16qdSHJ/8rcNG1cAEJR5LY8WNLo+00GE856?=
+ =?iso-8859-1?Q?4YQFeDuJF/QLZGEnWH6wwlgrZ8H2NOb+a73xe7af8DH7of+GNNFiXUcdxW?=
+ =?iso-8859-1?Q?FiSWV3XovPlLdLB5UoqlCXqpQi40qm7aBYZUOAPWIO6K9x8xNIG20cTySg?=
+ =?iso-8859-1?Q?1QbYb3ysGW5iTBr3aH7LA8DOCX/BlLkg7qEUPE5x0nFZbzsP5WpEMa0kof?=
+ =?iso-8859-1?Q?feJZ42IIKIqa2X3gff7j6yCoXKqZqQE5GAkg5BE8xq1JdA9x3ui9OfYLvi?=
+ =?iso-8859-1?Q?dELO0ppC7AuEW81zZ6lPUzHCXwCcEdxtj46DQUI7JJRucqE+Vnh1w6JoLv?=
+ =?iso-8859-1?Q?BoiNxfqwqxkW/myyEJ33Cd9wrLuQQCLbV9RH5PAaHqmHWqWyFeDoZ2SZBc?=
+ =?iso-8859-1?Q?Nez/vpeYaPDFjVhGx00EoJBI8Hx3p+Xu4NyGhs47bcFs+tDrYyNpqPHivW?=
+ =?iso-8859-1?Q?quQ3k1gMkWHTpQQPxtaDwX/TSOAuOUUjRyoya6dUtmup22tvw0t10UFy/a?=
+ =?iso-8859-1?Q?YBJK18gJ07ODR05fAWut85LqS3Fs3bgB2CeEXgRuFLByXt4uzyx5iEoFPv?=
+ =?iso-8859-1?Q?rxFXuaDTuECi16mvLZayYXJQeNLB6bCWp5gT4oACCcCfb6dL0UG7H+zFtV?=
+ =?iso-8859-1?Q?xf2gTDK7btphThL54lBqvgEQHbnMpYylWVbxTLIppDhUOt6bAx1oc5s9vv?=
+ =?iso-8859-1?Q?CAuSB2SKG7NZHlWFBlVsHlV6XsIZfhpoiyYJIdlPlIsZWsodI4XGeyOnuw?=
+ =?iso-8859-1?Q?0JEuegkEOSb/xTnfhNTMNiLdhG5HCPJrlm2kTqp3gpK6ZKn+wRSJ3KlIRP?=
+ =?iso-8859-1?Q?ak0EPHU8o/N0N6IYswJJ5kY/WSa9OF/f4AqnjQxarsUzM7Dk7q0wIglT3Y?=
+ =?iso-8859-1?Q?75w72lQwUJ2XHeQlLHdRag9UuUlR8O9HPs+rmmXQ+CdLq3hN4Fc+PMezyJ?=
+ =?iso-8859-1?Q?/BGLFYrat/R2zQCNdEk/+SsFgoE2QeVC476u52NAhKDXeZCvFBK4p0CoVQ?=
+ =?iso-8859-1?Q?5lqcX+/glpoNWBf8RSKAi8Esd7sNqSJ1d7R5EoguTEOuMTwjnU0BQCv95t?=
+ =?iso-8859-1?Q?FYTWyOIXvgO9Fz/jb4fCGzKztl7KRv54nVdT9nwGqCbhmYVaTxxmeWJnhS?=
+ =?iso-8859-1?Q?A1EoZYiZ7IkUj3qfP4Ak1WpezX4FqLHJdcOEN4hddNPq8ToHvkZKLPNiEG?=
+ =?iso-8859-1?Q?v/Woay4xz1Se5aaIeSndJyM7RNgnZW7rTSzzPuZJOwCalFKtYqhVvEKGcU?=
+ =?iso-8859-1?Q?XAe6TMZ0OiuMK8TmgZCgnMNaoI2mye8ASMjsGbp69bZnR8AkOlmr55zihe?=
+ =?iso-8859-1?Q?ddxULKmZmJu738jtUhx9EWHE58tMXTSG8l1HJCIsCFohCWLJ7OHT9fMboE?=
+ =?iso-8859-1?Q?6NR0cexpQUN1nR3HxIB18sWKkZ6wIwC0ji/JfVaWqlFmfxz9v5vvuhrm+G?=
+ =?iso-8859-1?Q?2CMhwK794WWHF3ONmv3QcDJ7YwOIMgGWuRMmpFzeHk9BF8pEpat8qDkcb6?=
+ =?iso-8859-1?Q?JWHxqMSQkE33yw8UPdUuJrxjAp0zM5ND27LhFOwAvnMafCz8YCdOkZxHWg?=
+ =?iso-8859-1?Q?5PnYFGJFDoIXOqULmrtXZYe1H4CRWZuDt3TedTFUQexsbyU/1FkDwEtZzb?=
+ =?iso-8859-1?Q?+XEJNtsgFV0VVoHkj1SWPkjInlv5Eyu16EX10UUj5fYME0lzvA1+rhvCxp?=
+ =?iso-8859-1?Q?kCyg=3D=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: gocontroll.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB7630.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 45f492a3-de4d-46bd-56fb-08dd556f9749
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Feb 2025 07:39:52.3921
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 4c8512ff-bac0-4d26-919a-ee6a4cecfc9d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: ECBhS+MbBeEwwPsGskHjFRI9Avw0QUrrKSS5D/KUrg0Lr/NGM5FBh4zoIYkizG3ZyCh/XkdUpDy0XbX8u+AtQyzywIrZbthEFVehj7vXfx8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB8004
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_232526_785920_30B559A1 
-X-CRM114-Status: GOOD (  22.93  )
+X-CRM114-CacheID: sfid-20250224_233959_788091_EF7047D9 
+X-CRM114-Status: GOOD (  21.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,70 +180,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025, at 00:22, Roman Kisel wrote:
-> Hi Arnd,
->
-> [...]
->
->>> I would suggest moving the UUID values into a variable next
->>> to the caller like
->>>
->>> #define ARM_SMCCC_VENDOR_HYP_UID_KVM \
->>> =C2=A0=C2=A0=C2=A0=C2=A0 UUID_INIT(0x28b46fb6, 0x2ec5, 0x11e9, 0xa9,=
- 0xca, 0x4b, 0x56,=20
->>> 0x4d, 0x00, 0x3a, 0x74)
->>>
->>> and then just pass that into arm_smccc_hyp_present(). (please
->>> double-check the endianess of the definition here, I probably
->>> got it wrong myself).
->
-> I worked out a variation [1] of the change that you said looked good.
->
-> Here, there is a helper macro for creating uuid_t's when checking
-> for the hypervisor running via SMCCC to avoid using the bare UUID_INIT=
-.=20
-> Valiadted with KVM/arm64 and Hyper-V/arm64. Do you think this is a
-> better approach than converting by hand?
->
-> If that looks too heavy, maybe could leave out converting the expected
-> register values to UUID, and pass the expected register values to
-> arm_smccc_hyp_present directly. That way, instead of
->
-> bool arm_smccc_hyp_present(const uuid_t *hyp_uuid);
->
-> we'd have
->
-> bool arm_smccc_hyp_present(u32 reg0, u32 reg1, u32 reg2, u32 reg2);
->
->
-> Please let me know what you think!
-
-The patch looks correct to me, but I agree it's a little silly
-to convert register values into uuid format on both sides.
-
->   static bool hyperv_detect_via_smccc(void)
->   {
-> -	struct arm_smccc_res res =3D {};
-> +	uuid_t hyperv_uuid =3D HYP_UUID_INIT(ARM_SMCCC_VENDOR_HYP_UID_HYPERV=
-_REG_0,
-> +		ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_1,
-> +		ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_2,
-> +		ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_3);
-
-If you want to declare a uuid here, I think you should remove the
-ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_{0,1,2,3} macros and just
-have UUID in normal UUID_INIT() notation as we do for
-other UUIDs.
-
-If you want to keep the four 32-bit values and pass them into
-arm_smccc_hyp_present() directly, I think that is also fine,
-but in that case, I would try to avoid calling it a UUID.
-
-How are the kvm and hyperv values specified originally?
-From the SMCCC document it seems like they are meant to be
-UUIDs, so I would expect them to be in canonical form rather
-than the smccc return values, but I could not find a document
-for them.
-
-     Arnd
+From:=A0Rob Herring <robh@kernel.org>=0A=
+Sent:=A0Monday, February 24, 2025 9:44 PM=0A=
+=A0=0A=
+>On Mon, Feb 24, 2025 at 02:50:55PM +0100, Maud Spierings wrote:=0A=
+>> The main point of the Moduline series of embedded controllers is its=0A=
+>> ecosystem of IO modules, these currently are operated through the spidev=
+=0A=
+>> interface. Ideally there will be a full dedicated driver in the future.=
+=0A=
+>>=0A=
+>> Add the gocontroll moduline-module-slot device to enable the required=0A=
+>> spidev interface.=0A=
+>>=0A=
+>> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>=0A=
+>> ---=0A=
+>>=A0 Documentation/devicetree/bindings/trivial-devices.yaml | 2 ++=0A=
+>>=A0 1 file changed, 2 insertions(+)=0A=
+>>=0A=
+>> diff --git a/Documentation/devicetree/bindings/trivial-devices.yaml b/Do=
+cumentation/devicetree/bindings/trivial-devices.yaml=0A=
+>> index 8255bb590c0cc619d15b27dcbfd3aa85389c0a54..24ba810f91b73efdc615c7fb=
+46f771a300926f05 100644=0A=
+>> --- a/Documentation/devicetree/bindings/trivial-devices.yaml=0A=
+>> +++ b/Documentation/devicetree/bindings/trivial-devices.yaml=0A=
+>> @@ -107,6 +107,8 @@ properties:=0A=
+>>=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 - fsl,mpl3115=0A=
+>>=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 # MPR121: Proximity Capacitive To=
+uch Sensor Controller=0A=
+>>=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 - fsl,mpr121=0A=
+>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 # GOcontroll Moduline module slot for=
+ spi based IO modules=0A=
+>=0A=
+>I couldn't find anything about SPI for GOcontroll Moduline. Can you=0A=
+>point me to what this hardware looks like. Based on what I did find,=0A=
+>this seems incomplete and not likely a trivial device.=0A=
+=0A=
+I'll give some more details, if there is a v2 of this patch I will also=0A=
+add more information in the commit message.=0A=
+=0A=
+The module slots have a number of pins, a lot of them currently unused as=
+=0A=
+they have not found a function yet, this is very much still a developing=0A=
+product. The currently used interfaces to the SoC are:=0A=
+1. SPI bus as a spidev to ease developing new modules and quickly=0A=
+integrate them. This is the main communication interface for control and=0A=
+firmware updates.=0A=
+2. A reset pin, this is/was driven with the gpio-led driver but I doubt=0A=
+that would get accepted upstream so I intend to switch to the much better=
+=0A=
+suited libgpio.=0A=
+3. An interrupt pin, this is currently only used in the firmware update=0A=
+utility [2] to speed up the update process. Other communication is done at=
+=0A=
+a regular interval.=0A=
+=0A=
+What is unused:=0A=
+1. A potentially multi-master i2c bus between all the module slots and=0A=
+the SoC=0A=
+2. An SMBus alert line is shared between the modules, but not the SoC.=0A=
+3. A shared line designated as a clock line, intended to in the future=0A=
+aid with synchronizing modules to each other for time critical control.=0A=
+=0A=
+current software that is used to work with the modules can be found at=0A=
+[2] and [3], one of them is a Node-RED module the other is a blockset for=
+=0A=
+Matlab/Simulink generated code.=0A=
+=0A=
+If you know a better way I could describe this in the devicetree then I=0A=
+would love to know, I am always keen on learning more. As I said in the=0A=
+commit message it would be nice to have an in kernel driver that would do=
+=0A=
+all the interrupt handling, firmware updating, probing but that is sadly=0A=
+not in our capabilties right now.=0A=
+=0A=
+We are hoping to eventually make this interface an open standard that=0A=
+other people can integrate into their PCB's to make use of the various IO=
+=0A=
+modules. I have personally made a raspberry pi hat that can take 2 modules=
+=0A=
+for example, which I hope will in the future serve as an open source=0A=
+reference design. It is not open right now though.=0A=
+=0A=
+[1]: https://github.com/GOcontroll/go-modules=0A=
+[2]: https://github.com/GOcontroll/node-red-gocontroll/tree/master/nodes/mo=
+dules=0A=
+[3]: https://github.com/GOcontroll/GOcontroll-Simulink/tree/2023b/blockset/=
+code=0A=
+=0A=
+>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - gocontroll,moduline-module-slot=0A=
+>>=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 # Honeywell Humidicon HIH-6130 hu=
+midity/temperature sensor=0A=
+>>=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 - honeywell,hi6130=0A=
+>>=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 # IBM Common Form Factor Power Su=
+pply Versions (all versions)=0A=
+>>=0A=
+>> --=0A=
+>> 2.48.1=0A=
+>>=0A=
+=0A=
+Kind regards,=0A=
+Maud=
 
