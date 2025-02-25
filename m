@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEA5AC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 06:16:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1874AC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 06:18:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PAVQolx9KExb7Tb78lU8f9flTHmTgz7gOctqgRk6LUA=; b=DgqJp6wOQsQlT0Ij6aYgjqRLhL
-	IakC6lXerFIIfPd361DDdw/TFaCE3/yv9csAnwcK740mQzD2ecEDX4K5Z9kkHy7mOvQXHQFrpNhEW
-	Jp50IfHUAcdlY2Zz5H6r4nRnY1+UBgVkrV6MmXhJfMlgp+a8jQlZvyjoFWiouCjFmt83tifSNsGOW
-	wzRnxfi0m1GzYJj2DvWT/11VkgPX+G+BuDVxo22m4a/148ImaeeqpEDh1V5JnLlwv9lqF2rsRJbsF
-	fzk4hBlvbMw2vxmpOCaAC6a1pCjA2z68RAl0WMjoHU7yAkXhhYS3hqHxeY/IETu6FFjdpt7g6mlmE
-	NDm5Vqaw==;
+	bh=BTJ4YW1E/d8/IwyVSJf2kPq90RY5NP1f2yDnDVRu6go=; b=l5fPeMRuRNsA68RsrapoUlYMIO
+	B9DRZLTlEGioKO0n94KFp1jJDqVvgYBkCpLLwGmy1f1/6dWIKPB93xgGjqqLz5iciOlGIK6UeS29u
+	9bykG1Jzx1E3U/tA9PmiVNAKwx7O2zu2AJOpiZYVMdUEW9Pwk/A5YADx/Cy/V79g6yUb4LyVFTZE6
+	iFdpo/tAfeNiU9i2Y5VSM5caDDuX4JS88zaeXZIYwdhfyIrUr2HI+mi8zA7DO4OMYT7x4F6oSuxkG
+	Nez4k+FeV87fS8W6pfAYYPuu8YX7EJoVzGKf43PMWgxUKc4zz9j0Ns0PVmVfThYXIUyk5fV9Dpjed
+	IMxAIy6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmoEz-0000000G4L4-0RKJ;
-	Tue, 25 Feb 2025 06:16:25 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1tmoGT-0000000G4gS-34Sw;
+	Tue, 25 Feb 2025 06:17:57 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmoDT-0000000G48j-2wRP
+	id 1tmoE9-0000000G4Cu-36MC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 06:14:52 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-220c4159f87so73230345ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 22:14:51 -0800 (PST)
+	Tue, 25 Feb 2025 06:15:34 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2211cd4463cso104548015ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 22:15:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740464091; x=1741068891; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1740464133; x=1741068933; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=PAVQolx9KExb7Tb78lU8f9flTHmTgz7gOctqgRk6LUA=;
-        b=Ztmiu13FAcgTSbsUz6mGVAuRw0eLjY7nD/R6oij3bQX/76fVqhvOEiws0FvFh+iqWG
-         k8kyKMPI87RTAtoDC8RL7TWySzVRB6fOONQRo66IHsatb35F8+YGQIiwiUo7YGf+Xeta
-         Jr1P+2u44HjfdL8Jx9kkwOFjgJ4Jb89REb6u1Y1oysZV8+JBTsrkdWDGbg6S6DrGjVAv
-         s74z0/azBOuU6B90tBMRWNhfR/nI5K5NnI3FQd42/YqxPX64aIF+Ky+7nXKNlDgFxnFY
-         6pbOWPvtGnDVzpF55AVwfyhsAYGZgClhLoqUGcNZN/8H8KYm6GxVcdHJW+nbqpgolTbp
-         K4pg==
+        bh=BTJ4YW1E/d8/IwyVSJf2kPq90RY5NP1f2yDnDVRu6go=;
+        b=OM33/Q3jWq+Cg3gqZj+tstG0H7iREHNyRn/g+Z2ZTIrHYKJz8Mj+lCvvAb4YZJeG4v
+         wG4C8gyo7OyG6BKxe1pBm0naEQGEG/tHJxq35Tg0SrlLGQ5fDA4cTcCUd+3tr1OUw2sK
+         BS83BP6D4TmRLzNUMlhltOp7PEGJNGpQCoQ/CngOA12R7wLBhDqdH+oAn5JLMClDhrBz
+         w1f4kkCUpbpj74bxWaLE3tFbxTP1kWxzmJ+Yb76kSGonSJGq6l7WIWKZ9NXAfJI/Jm7N
+         wSDh31hYuB+Cl5Dxlg6dbFaBjj5NWD6H4CSJi4x2hszI9Yc8e+0qrd9XleD0v+kCs2M8
+         xVqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740464091; x=1741068891;
+        d=1e100.net; s=20230601; t=1740464133; x=1741068933;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=PAVQolx9KExb7Tb78lU8f9flTHmTgz7gOctqgRk6LUA=;
-        b=QDOyiFkscchnN9xKJQnNgGihw7zfPMC2f6x4YxemgzK2dzy/xl7n/j7ziqsKwSx+G0
-         cDeRo5DucbaRmxSaZ/WeWwvzjJWwpSbnQIppbDcx5ug3C5V0Nhfut7Zu1Wak+NHrTE7u
-         6F25Kh7DfOk5R0FLWmdi3aV8m0+8q/ODLHLtNdbUBASZif+JCOn0noC6oBrkeKXrqxiE
-         ty7Q3Tf7x1/peD+MMoIbEbVwqaIuOWxCqhDicpdhfoSwqwZmCSaPKVsZJCC7w1S8RxmW
-         1jRywXjd78kEOOCxpPuyF6EC7BTMDI7tBxOVOo6kzhitw/9/R5rvO4DNIMkHPeY5iRKu
-         USYA==
-X-Forwarded-Encrypted: i=1; AJvYcCWh9SzyA4zzepGYorzcN/HSUbT6Am4771KNxTcOawcACnQ5IDRXBz6SrRiD37Jegkx++gHNySl+r9sxYCmK8cWW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yztc2shEZk3PydmLfn/RyYoPvolvpIYBwEv0/0Vjwq4LxgBRrIW
-	/2vFGzypa40Q5nHoef94kxbGZCNR8CFH4lmCu+FyvBHgUKQcmL46
-X-Gm-Gg: ASbGncu0ouzaXqkoKrew0dmJOud/Qohs0kqwxwwVEdICLZX7bARKjseFRyhHZA37cPx
-	2ghbi6Fh+dudXPbPwB+0FKPFdPuqLwAv9TbWDqdXviGzKIzOa8bJmmYn4T0nEGMv3KK21ns+Xak
-	DpOhx1ikgZWV7I1hc7K2Wy87sS/BNy6W5fIC3+wCicRu00wFNJBxNJ1NPxLagNURTVU8EFaloA/
-	AoahoGq1LDL1zEk3e/eFsUSIKbHhIOeqMxfbMS1dgj7ZFTwEBsIjzqCaI0cFqUKuDVtsYZNGZ7+
-	akUWxbl9yAtmMhxXj2AMZbyR/rc=
-X-Google-Smtp-Source: AGHT+IGwkid3k/avMSIUbwqT5je0rV66CDm1UlnOW0Q6bT9hXylAJGMLD+sehIyy1nTfXR9ACddpGQ==
-X-Received: by 2002:a17:903:22c2:b0:21f:55e:ed71 with SMTP id d9443c01a7336-22307b45598mr38223475ad.5.1740464090521;
-        Mon, 24 Feb 2025 22:14:50 -0800 (PST)
+        bh=BTJ4YW1E/d8/IwyVSJf2kPq90RY5NP1f2yDnDVRu6go=;
+        b=o9ar+3QlPhEhZrUDNcxKtfvYcZynKj2dzUVPwae+J1V0ltDIqjcqekp0c4HnAG/mxx
+         OwPb5r1EzYWG92zHi0xRyBx6G1ClDldcizCeRQt67gB6t3829TapH5optnj6WLnC3VVZ
+         PUsLwct42zsBHSzIePMAgMDmUKYj7ESOhwVCfsjxZ9fHwPf9EiUYNkyNZflBSGxbQbpK
+         vCTr2IVg3vlPj2wR6Fq03Gha0O5c8Pln4fmL3vzbwFdG3JlJYaGZOTNbrUKif9Uaefcy
+         Qg3eQiWpH8pJXzZ092guzfcd4ff+u9YRlwKS69PrzZYFQ5Io9ircUusQ6nI7zVo9kLAr
+         69WQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXeyg+tadSgCRkqoM8SmMFh2gCPjItAhh7DCzTqkQkT19w6kaFE2Pio1qu+Xb5+vVIwNKc2ceSfVlQ59Lya90mH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4eC8P0Ei1AW7bIPnIK1MMWfjxzHVVMjtslE0kPZYPNOy3xWAm
+	SyZ8uRRv5+YasJKZKzTk6ZyA+tDQ3x7u7lFZ3FbCJqTnZWxhKHGG
+X-Gm-Gg: ASbGncsh7gOah2TAVR/oYGgcOO7d6u/Yd+gjvxIq39VjHYxvPGg6u8D0pYWSsS2MxPA
+	0w3+fjdtnVwXHw0pUTfFEC4qoP8LkgqIMXkujyx8ArGFo7DB1KyQn5ci6ICVUMriB1v/C8LkEeP
+	WZEH3WIG+mLy1OCP6BydmXjEuSv0RJAuAcVna5UgagkO1zrHJcMz8m5WKxu2uyNtx1XH1WKz2dw
+	8FgfXK1Omz4j+82t389xz7Z0Ej3Pln351fPDWW+wXdo99bwFOdwtd4LVFolUtmNDVeg6zkQf6K8
+	EQMylE2j2PrxmNB1/FF77yuQFsQ=
+X-Google-Smtp-Source: AGHT+IHDiLECh5yByH1sqMd4J17h9IDxzVERpUbYyDl0rY6eqOShJa0CuOD+3YJm6Gm3L11VgcDmyg==
+X-Received: by 2002:a17:902:ec86:b0:220:f151:b668 with SMTP id d9443c01a7336-22307b4c1f5mr33221655ad.20.1740464132903;
+        Mon, 24 Feb 2025 22:15:32 -0800 (PST)
 Received: from google.com ([2620:15c:9d:2:464c:6229:2280:227e])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2230a0927a7sm6292795ad.143.2025.02.24.22.14.49
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7347a81ea22sm687195b3a.138.2025.02.24.22.15.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Feb 2025 22:14:50 -0800 (PST)
-Date: Mon, 24 Feb 2025 22:14:47 -0800
+        Mon, 24 Feb 2025 22:15:32 -0800 (PST)
+Date: Mon, 24 Feb 2025 22:15:29 -0800
 From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
 To: fnkl.kernel@gmail.com
 Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
@@ -78,18 +78,20 @@ Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
 	Henrik Rydberg <rydberg@bitmath.org>, asahi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org, linux-input@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Neal Gompa <neal@gompa.dev>, Janne Grunau <j@jannau.net>
-Subject: Re: [PATCH v7 0/4] Driver for Apple Z2 touchscreens.
-Message-ID: <Z71f18TQLEiexUaD@google.com>
-References: <20250224-z2-v7-0-2746f2bd07d0@gmail.com>
+	Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>
+Subject: Re: [PATCH RESEND v6 2/4] input: apple_z2: Add a driver for Apple Z2
+ touchscreens
+Message-ID: <Z71gAbRi4XRZ-fTb@google.com>
+References: <20250217-z2-v6-0-c2115d6e5a8f@gmail.com>
+ <20250217-z2-v6-2-c2115d6e5a8f@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250224-z2-v7-0-2746f2bd07d0@gmail.com>
+In-Reply-To: <20250217-z2-v6-2-c2115d6e5a8f@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_221451_739318_AC7684E7 
-X-CRM114-Status: GOOD (  15.44  )
+X-CRM114-CacheID: sfid-20250224_221533_773966_BA2D3F07 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,32 +106,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sasha,
-
-On Mon, Feb 24, 2025 at 12:01:08PM +0100, Sasha Finkelstein via B4 Relay wrote:
-> Hi.
+On Mon, Feb 17, 2025 at 12:38:02PM +0100, Sasha Finkelstein via B4 Relay wrote:
+> From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 > 
-> This series adds support for Apple touchscreens using the Z2 protocol.
-> Those are used as the primary touchscreen on mobile Apple devices, and for the
-> touchbar on laptops using the M-series chips. (T1/T2 laptops have a coprocessor
-> in charge of speaking Z2 to the touchbar).
+> Adds a driver for Apple touchscreens using the Z2 protocol.
 > 
-> Originally sent as a RFC at https://lore.kernel.org/all/20230223-z2-for-ml-v1-0-028f2b85dc15@gmail.com/
-> The changes since then mostly address the review feedback, but also
-> add another machine that has this specific controller.
-> 
+> Signed-off-by: Janne Grunau <j@jannau.net>
+> Reviewed-by: Neal Gompa <neal@gompa.dev>
 > Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
-> ---
-> Changes in v7:
-> - Added a dependency on ARCH_APPLE to prevent potential confusion on x86
-> - Link to v6: https://lore.kernel.org/r/20250205-z2-v6-0-cc60cbee1d5b@gmail.com
 
-My apologies, I already applied v6 (patches 1, 2 and 4). Could you
-please resend against linux-next (or my 'next' branch)?
-
-Patch #3 should go through Sven's tree.
-
-Thanks.
+Applied, thank you.
 
 -- 
 Dmitry
