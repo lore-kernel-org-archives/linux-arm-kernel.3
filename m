@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 740F2C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 09:34:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E9ACC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 09:36:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9WAPuc1vGDQFoHNCJwmaAMdSxrov7MEAcUbenNV8BYY=; b=Ee0vya3ErQLBz0BHWoVChwAxtk
-	jq6cytDr0TkrJ8dA18gH98nv3ZnP0REjlfA2hA+wOXx/PIFzn46QbMggDqUv0Cmm5EGEPmi0oRYyI
-	yexP/s8oeOnoJCcG3ZrFVN63B8FarvcRw1TYXoUK1Vd2OZNRGz9YVZ75axjTLwgFBh8gpSbezG8Dy
-	0PvySqQv7hphNDxMo1PFOn2jHlUYqHmh0EVZRwqOQMmgcRO1wags6FAks35AnWyoWLa5z4g4PsSaP
-	8Lzm1r3t/soC1tF83uBjQBZrcjiqnzc36769QyYaIWqfsDmxAp2t046Lt5+anTwc7KjIj3GIQFqh3
-	0JftzAAQ==;
+	bh=iP74rJJgROBlr/WIZov21PSFdQFbjejuxUI2DRgPxFE=; b=KgVzxKPFI1FYOlY9Y1bCH2AfXK
+	0cUMxaDN4vzm0gJuJD301pQqPcJLb960X10/MFsP77b6M1zqHqemZb+YC2Cywr5fEgtMJEu0Bbogi
+	vR0zJ5k4GGi5RTAgTZzTOJjME5BvFD5LGcRmXzzRs6kIJUtFyEQ8niV3Hwju0nzGFY6d34ziM1cTO
+	AOzE532D0jKF1XBtcEpCtkQ3qV+42SnR/sdC0mo+YKocTwoafrbWei/M846DwMe+u+rRr/E84PFip
+	0ZgzEGH5tlFJkzqZmA3hx2Vy9RYds/FP6G5ppU2vt1Vb/zIS81pL+k/AFcLu35VQ6zB7SatGJQnkL
+	v4LH/d6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmrKe-0000000Gbcd-0bhf;
-	Tue, 25 Feb 2025 09:34:28 +0000
+	id 1tmrMB-0000000Gbwi-0RBK;
+	Tue, 25 Feb 2025 09:36:03 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmqsS-0000000GVWJ-0Unc;
-	Tue, 25 Feb 2025 09:05:21 +0000
+	id 1tmqsS-0000000GVWM-47Xm;
+	Tue, 25 Feb 2025 09:05:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1740474318;
-	bh=lk3BYwntCJ0BLjT+Ae8fo9enQLjePlvLMz51aun1oIU=;
+	s=mail; t=1740474319;
+	bh=fhAvNwf3S/C3P4S0nP2ZiO1M1JWrZ+3nKs2jQvYh0EQ=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=oStsbuEznWGEwvh/4VTuaJefqJvEOLhoa75payzjQos2CcGGHrnoqoah18V2Si9Fc
-	 u5BAfEEjtkp0Ftuhn+E4uzHhmSEe+lxR4RgicBWZ+X5C4NLwE1/z0rDw/jbnqyr6Tw
-	 WhnmD6g4vjFD+dOCu+nTz5jJ4GLihvtMV/cvmmeOfZah5wJanP3pHMZB5gNz9VtPrM
-	 lULALHwDk1jfwh9/bKI8JH5AgDT1qDiT316nPE2IlE5GSnRlOHxXrwX3ttVzcADP3k
-	 VPie5t4RgpiLxhXZzexwXNxkmqNp+MB0qAn2kDCBYtMv3w1P638ErLRSb6uU9F3Tk3
-	 RUAdqOV5HWX2g==
+	b=eyAPlUtCpHNl0RMIgAneO5Y+Jth+DkR1empGojPRixoK/bjWcItLCwv4Y7KT3XtYx
+	 RvNIjzh79Gnfgyj8TwZCT6fBNcWin3+3aEIsq1Ea53aeomgA6t4Af61ApJdoWxsEha
+	 VaOc0xpSIv6E0W1zbcV4/k+H4sjXwQgX92OEAns7O7L/OBOHkeX3Et7uaFrRKxGWTn
+	 IOx8tXxxN+h/9hKHGewICb0I8c/W81ZwMfJiQYDJPdxHMitb9uiVFuvFmUUEggFGRn
+	 mLl7P+p0skSOtQgW5EIYMKsTUOZazgS9P45heSwpi0v4n5+c5fgr5+Tin9YbNu5UzQ
+	 zbyqHA65ZH9GA==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4FF7517E0B13;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E561517E0B63;
 	Tue, 25 Feb 2025 10:05:18 +0100 (CET)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Matthias Brugger <matthias.bgg@gmail.com>, 
- Fei Shao <fshao@chromium.org>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-In-Reply-To: <20250221-mtk-socinfo-fix-print-v1-1-20500f30ef66@collabora.com>
-References: <20250221-mtk-socinfo-fix-print-v1-1-20500f30ef66@collabora.com>
-Subject: Re: [PATCH] soc: mediatek: mtk-socinfo: Avoid using machine
- attribute in SoC detection log
-Message-Id: <174047431824.20024.2432870807445431455.b4-ty@collabora.com>
+To: matthias.bgg@gmail.com, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: shawn.sung@mediatek.com, fparent@baylibre.com, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, pablo.sun@mediatek.com, 
+ kernel@collabora.com
+In-Reply-To: <20250212100012.33001-1-angelogioacchino.delregno@collabora.com>
+References: <20250212100012.33001-1-angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v1 0/8] MediaTek mmsys/mutex fixes and improvements
+Message-Id: <174047431886.20024.8850797193074768931.b4-ty@collabora.com>
 Date: Tue, 25 Feb 2025 10:05:18 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_010520_304298_6D1B202A 
-X-CRM114-Status: UNSURE (   7.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250225_010521_195993_327BE874 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,22 +76,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 21 Feb 2025 12:04:02 +0100, Louis-Alexis Eyraud wrote:
-> The recently introduced SoC attribute info rework avoided modifying the
-> machine attribut but still used it in the log message on successful SoC
-> matching. It leads to print a confusing log about a board-related info
-> (read from devicetree) and not about the matched SoC:
-> ```
-> mtk-socinfo mtk-socinfo.0.auto: MediaTek MediaTek Genio-510 EVK SoC
->   detected
-> ```
+On Wed, 12 Feb 2025 11:00:04 +0100, AngeloGioacchino Del Regno wrote:
+> This series adds the missing DPI1 SOF/EOF to the MT8188 mutex tables,
+> required to support output through DPI1->HDMI Transmitter, and also
+> adds a few fixes and improvements to the mtk-mmsys driver and tables
+> for all SoCs.
+> For MT8188, in MMSYS, this adds the DSC path for the display
+> controller, and fixes the current DPI1 one to actually do something
+> meaningful... and speaking of mmsys....
 > 
 > [...]
 
 Applied to v6.14-next/soc, thanks!
 
-[1/1] soc: mediatek: mtk-socinfo: Avoid using machine attribute in SoC detection log
-      commit: 02b916592319fdb336925df75415d98481dca300
+[1/8] soc: mediatek: mtk-mutex: Add DPI1 SOF/EOF to MT8188 mutex tables
+      commit: ecb051fd99dcda50a9b93fa6e9399094b37488f0
+[2/8] soc: mediatek: mtk-mmsys: Fix MT8188 VDO1 DPI1 output selection
+      commit: 643ec3e1e2d070fba8f94dedc702211f501889da
+[3/8] soc: mediatek: mtk-mmsys: Add compile time check for mmsys routes
+      commit: 650de00b6b9c5690c6c3e8474d431f59a6f89b0b
+[4/8] soc: mediatek: mt8188-mmsys: Migrate to MMSYS_ROUTE() macro
+      commit: ba7877ba5353f0a2e8f15151e8053647eed5ad5c
+[5/8] soc: mediatek: mt8167-mmsys: Fix missing regval in all entries
+      commit: d0202d007a27ecea8c609f55d8757d75b521ea5b
+[6/8] soc: mediatek: mt8365-mmsys: Fix routing table masks and values
+      commit: 773140aa314218ba92ee4d69956f2813f593216e
+[7/8] soc: mediatek: mmsys: Migrate all tables to MMSYS_ROUTE() macro
+      commit: f9435e9c1a0c579db4edeb32f8fb317fb721c659
+[8/8] soc: mediatek: mt8188-mmsys: Add support for DSC on VDO0
+      commit: 89ef9bb1ece1a70bb79715be48a5afece39cae44
 
 Cheers,
 Angelo
