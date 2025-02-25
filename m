@@ -4,89 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBD1CC021BB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 11:51:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E4CCC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 11:53:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FT/bNjpK17AKmWrFmC1oGrmgU/J/4HzWEdIi1M3xvy8=; b=SmoG3NjIWUatkrgg8OXRV1t7dp
-	cneAhVmrZLSOiVqOY9itNfHKCCLTL6Ft4zfOp1rDjv+BUvU7itSFS3DA2OUs2Ejc2fySuoP8JrbUI
-	/kbSR+28bXH03iqlfK6OQ2XhWvgQ4lpA7adQuL1144Z0xu9sClhrAUYR8KKY46tVFrp70cZ4X/mKq
-	WeV0Y/vqkLbeuEXUkgxHIs1S4oJ2XuqaSaMFOBhxBArn9QkXsT1k/LApZ6J7s24Pp09+2Wcey4Veh
-	zx8YYXt7iDLW9OOhcTnjv2diOxkDz5So/f1Qp+qVk8+M8FoDftMW10d4yNlDLnfzYncmMAyS9y/JK
-	f85XxhJA==;
+	bh=kh6VEvloO4YquypZUFqR1MccY+ndKasOTSRyJgsJqRw=; b=TS3kMAT/DlmhIVG/FWS8vERrWy
+	Oxr+qvOlG2dgA7bHTdFS8eD9NoP0pCdvS0RjfcfKYvclFChrmw8cgGEg3DY6mbgD8KKShUWFMSvRy
+	1l90Syd+eOITl2YOhujQb1x0WfvDO6jfURA43YVlFJ0OL5VZcXbu7eMSKoCgqF2hyuqYpLWW+mYda
+	OmDBeYFlRdSN/dWQNeIofZYQQxhDb5Xnz6vMJqx01x1R2Mm0uY6NwHTUMFK6TFStOmfTESzu17e4+
+	p4KE+3ZeD+QfQ35IrNUOlcbEsiwB+ZIeQi9glSNgIbfElaSINNhbs65PMAnzOmrh3vRIn8M+D0Y/f
+	HcAD+Ohw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmtTB-0000000H64u-3RiJ;
-	Tue, 25 Feb 2025 11:51:26 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1tmtUi-0000000H6T7-32Eq;
+	Tue, 25 Feb 2025 11:53:00 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tms3c-0000000Gnjc-3w2n
+	id 1tms4N-0000000GnsJ-0GNF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 10:20:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1740478857; x=1772014857;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=FT/bNjpK17AKmWrFmC1oGrmgU/J/4HzWEdIi1M3xvy8=;
-  b=aNvQ+DypfSIY4vYInglLvsX2qm+eZYaFgH91OgyPKsXAyDS2Z+CqJJdK
-   GAskVHsZ7jRTGnRK4fV9s7ydyfBY2meyUbvogRgJwL0vOCWfJBCQI4EKh
-   kcvzgW4Bzw8WpeAUZ22cswPXvz55gjrolZhE+7aoHkKp07+DQF4NK0Jld
-   CxMGDjRtZ8iS7ONa1uq1+7y8WAhcD+fKWYHnK3kZiEoCjoPdUvitYzlFR
-   qDyqieWtGWRxZ8lTKLukiU7H8Pb72Ww/aSEqGYhNmaqWlGLc9g+Yb1gI7
-   StD+y8Q2O6HlxN7cmcivRj7f3+KHKPGIvKBPqpjoRzbHkvYT9KGn+WIQI
-   w==;
-X-CSE-ConnectionGUID: QsBI+sINSrKWHQjBDBASWA==
-X-CSE-MsgGUID: 8aKwrTwDSxOsoUj5BI/pOA==
-X-IronPort-AV: E=Sophos;i="6.13,314,1732575600"; 
-   d="scan'208";a="42067570"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 25 Feb 2025 11:20:54 +0100
-X-CheckPoint: {67BD9986-1D-C21CC984-D1047F1F}
-X-MAIL-CPID: AD44FBA8F505BC75EA53E4781B804E6C_5
-X-Control-Analysis: str=0001.0A002106.67BD9985.00B4,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id ECCDB167B75;
-	Tue, 25 Feb 2025 11:20:49 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1740478850;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FT/bNjpK17AKmWrFmC1oGrmgU/J/4HzWEdIi1M3xvy8=;
-	b=AK68a+B89Qybuj8NoLI/VDdEZykmlp/1oKL3xVgpWnaPSQLDF/4bfjwx3jOdNiTXNnfTm6
-	rwDsQYJHUL+uRKBs205y7smpffcs0L8WqHok9lJDdp+HASeCDrWkhwb4Xt26CTVtD+nC/T
-	wTvnKkk+sFOD+l3UjlXYkfdwhNoot/GbX8gEBuxc6obYw7BJb0XAaCBJtCCQm8ZAhE1b4z
-	9jDrYinAxaIjYY3a28xXJjbDQDsAM8ufr+NJ5NUlIFWTzjTmxgPQsKMOqtUZFjStTysd9X
-	LPkyOL46ejvCr1E4Yc/IZzCuP6FshuBELfAUEyMRey4AOyBFKEy5CmHGZK/Wtw==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux@ew.tq-group.com
-Subject: Re: [PATCH 1/5] arm64: dts: imx8-ss-hsio: Wire up DMA IRQ for PCIe
-Date: Tue, 25 Feb 2025 11:20:49 +0100
-Message-ID: <4962874.GXAFRqVoOG@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <Z7yxDRO+ICPCu0I2@lizhi-Precision-Tower-5810>
-References: <20250107140110.982215-1-alexander.stein@ew.tq-group.com>
- <Z36o31uhQuI5lcH7@lizhi-Precision-Tower-5810>
- <Z7yxDRO+ICPCu0I2@lizhi-Precision-Tower-5810>
+	Tue, 25 Feb 2025 10:21:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740478903; x=1772014903;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=O7XFosUMq18SOY1Uke3gT9fhryi5WO3Dg5KUjBJMkkw=;
+  b=SMKLBp24p9xpXOq7b9JmUrMxQcts8aHgTbADKRo+uH8LVNqVx/O5D944
+   ansC8ABK+ecdBOQXa4YvgjqRA3qQ+6sFazc6CRgfb9ONawLg3gl/+Rfnu
+   inBSuGTn8N1MeYjsjf2Zk2DaBN40IQYm79V3Bn+ogN/WE0H4wo8hcZovP
+   hqUHVqDlzBK/yfVDDp0cwtJLnZQTv4RGxLBbUhtfNqV8lEC5TfjN56xNq
+   HCgGRmClgidWpEPkRu9Tt1IBnGNClVEI7g+UqHABwI6wMhnArWQ2NhltQ
+   pH6rUbF3fB6uEqlFAQDiaYpCjBN+U4xdeAd4pF5TWr0XejbqNw2l30ALT
+   A==;
+X-CSE-ConnectionGUID: AmWIYWqmQ/uDVLuZS+OuIg==
+X-CSE-MsgGUID: t5agoJZJQkiLvNvuYIAtwg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11355"; a="44101713"
+X-IronPort-AV: E=Sophos;i="6.13,314,1732608000"; 
+   d="scan'208";a="44101713"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 02:21:39 -0800
+X-CSE-ConnectionGUID: scDSegHXRMquAd8KbKBguA==
+X-CSE-MsgGUID: Q73F1GJkT++WQOlPBRuFvA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,314,1732608000"; 
+   d="scan'208";a="121321448"
+Received: from smile.fi.intel.com ([10.237.72.58])
+  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 02:21:31 -0800
+Received: from andy by smile.fi.intel.com with local (Exim 4.98)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1tms47-0000000ExN6-17ps;
+	Tue, 25 Feb 2025 12:21:27 +0200
+Date: Tue, 25 Feb 2025 12:21:27 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Cc: Matti Vaittinen <mazziesaccount@gmail.com>,
+	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Daniel Scally <djrscally@gmail.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Nuno Sa <nuno.sa@analog.com>, David Lechner <dlechner@baylibre.com>,
+	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+	Guillaume Stols <gstols@baylibre.com>,
+	Olivier Moysan <olivier.moysan@foss.st.com>,
+	Dumitru Ceclan <mitrutzceclan@gmail.com>,
+	Trevor Gamblin <tgamblin@baylibre.com>,
+	Matteo Martelli <matteomartelli3@gmail.com>,
+	Alisa-Dariana Roman <alisadariana@gmail.com>,
+	Ramona Alexandra Nechita <ramona.nechita@analog.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v4 02/10] property: Add
+ device_get_child_node_count_named()
+Message-ID: <Z72Zp8tpnvlFGdQ_@smile.fi.intel.com>
+References: <cover.1740421248.git.mazziesaccount@gmail.com>
+ <29ec24f1498392cafbecc0e0c0e23e1ce3289565.1740421248.git.mazziesaccount@gmail.com>
+ <Z72QAOA9xXbP16K-@kuha.fi.intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z72QAOA9xXbP16K-@kuha.fi.intel.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_022057_143085_05514D48 
-X-CRM114-Status: GOOD (  17.14  )
+X-CRM114-CacheID: sfid-20250225_022143_114956_D7168A3A 
+X-CRM114-Status: GOOD (  21.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,71 +119,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+On Tue, Feb 25, 2025 at 11:40:16AM +0200, Heikki Krogerus wrote:
+> > +/**
+> > + * device_get_child_node_count_named - number of child nodes with given name
+> > + *
+> > + * Scan device's child nodes and find all the nodes with a specific name and
+> > + * return the number of found nodes. Potential '@number' -ending for scanned
+> > + * names is ignored. Eg,
+> > + * device_get_child_node_count(dev, "channel");
+> > + * would match all the nodes:
+> > + * channel { }, channel@0 {}, channel@0xabba {}...
+> > + *
+> > + * @dev: Device to count the child nodes for
 
-Am Montag, 24. Februar 2025, 18:49:01 CET schrieb Frank Li:
-> On Wed, Jan 08, 2025 at 11:33:35AM -0500, Frank Li wrote:
-> > On Wed, Jan 08, 2025 at 10:58:18AM +0100, Alexander Stein wrote:
-> > > Hi Frank,
-> > >
-> > > Am Dienstag, 7. Januar 2025, 16:39:25 CET schrieb Frank Li:
-> > > > On Tue, Jan 07, 2025 at 03:01:06PM +0100, Alexander Stein wrote:
-> > > > > IRQ mapping is already present. Add the missing DMA interrupt.
-> > > >
-> > > > PCI host side have not use bridge's DMA yet although hardware suppo=
-rt it.
-> > >
-> > > So this is a driver limitation, right? So IMHO the device description=
- is
-> > > independent from that and still correct, right?
-> >
-> > Yes, but dma register space may missed also. I suggest add later after
-> > EP side support merged, which can verify informaiton is correct.
-> >
-> > Anyway, I don't block this change.
->=20
->=20
-> Did you run DTB_CHECK? I found new warning was added
->=20
-> /home/lizhi/source/linux-upstream-dts/arch/arm64/boot/dts/freescale/imx8d=
-x-colibri-aster.dtb: pcie@5f010000: interrupts: [[0, 102, 4], [0, 104, 4]] =
-is too long
->         from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie=
-=2Eyaml#
-> /home/lizhi/source/linux-upstream-dts/arch/arm64/boot/dts/freescale/imx8d=
-x-colibri-aster.dtb: pcie@5f010000: interrupt-names: ['msi', 'dma'] is too =
-long
->         from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie=
-=2Eyaml#
-> /home/lizhi/source/linux-upstream-dts/arch/arm64/boot/dts/freescale/imx8d=
-x-colibri-eval-v3.dtb: pcie@5f010000: interrupts: [[0, 102, 4], [0, 104, 4]=
-] is too long
->         from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie=
-=2Eyaml#
-> /home/lizhi/source/linux-upstream-dts/arch/arm64/boot/dts/freescale/imx8d=
-x-colibri-eval-v3.dtb: pcie@5f010000: interrupt-names: ['msi', 'dma'] is to=
-o long
->         from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie=
-=2Eyaml#
-> /home/lizhi/source/linux-upstream-dts/arch/arm64/boot/dts/freescale/imx8d=
-x-colibri-iris.dtb: pcie@5f010000: interrupts: [[0, 102, 4], [0, 104, 4]] i=
-s too long
->         from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie=
-=2Eyaml#
-> /home/lizhi/source/linux-upstream-dts/arch/arm64/boot/dts/freescale/imx8d=
-x-colibri-iris.dtb: pcie@5f010000: interrupt-names: ['msi', 'dma'] is too l=
-ong
+This has an inconsistent kernel doc structure in comparison to the rest in this
+file.
 
-I think I did, but I see the same warnings.
-I've prepared a series which addresses schema and imx8qm dtsi.
+> > + * Return: the number of child nodes with a matching name for a given device.
+> > + */
+> > +unsigned int device_get_child_node_count_named(const struct device *dev,
+> > +					       const char *name)
+> > +{
+> > +	struct fwnode_handle *child;
+> > +	unsigned int count = 0;
+> > +
+> > +	device_for_each_child_node(dev, child)
+> > +		if (fwnode_name_eq(child, "channel"))
+> 
+> s/"channel"/name/ ?
+> 
+> > +			count++;
+> > +
+> > +	return count;
+> > +}
+> > +EXPORT_SYMBOL_GPL(device_get_child_node_count_named);
+> 
+> I did not check how many users are you proposing for this, but if
+> there's only one, then IMO this should not be a global function yet.
+> It just feels to special case to me. But let's see what the others
+> think.
 
-Best regards
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+The problem is that if somebody hides it, we might potentially see
+a duplication in the future. So I _slightly_ prefer to publish and
+then drop that after a few cycles if no users appear.
+
+Also this misses the test cases.
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
 
