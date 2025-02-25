@@ -4,160 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88092C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 12:19:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 530C6C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 12:21:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y9QkFEirhw3V2DCfqSN3bdPnI9mAbmGdRw2zT4oXGb4=; b=HDKOvX+1fxPbm0ONVftTy62H8S
-	tk36ACFb3vS2fGiovB1rDW7AymfHcMLyTUmh1QHFAE6hCAbXBkcjTwIz6vvcvRThVrgkPxMTAdwhR
-	zfdPBxsBwEyfzrABKZj0NgVtnGzfPV5ljE62mAtQ5WCFWnLRnPF8N/r7+3Hi+L2b0bt5Ja3kyz1nQ
-	5lJPBUguxUANYSZVgrttotUoR7xsfA06//agEnUcKtyXfKZNiUedu/wEYzwYSCPVboB4dlKnmc2Tj
-	KoQh+Jdzv1Z+y0u1FWb1dmElrIgx8pgLuBr9Ji7ZsFyt79Um0S/hszmbItWsFrcurl3V8ZP/zpjNc
-	goh8SxtQ==;
+	bh=n1TWnKYSjWgGvb3cyxt3TX5DamTHuovBzjkuSknBSeU=; b=tgJcVHSf5Hptf7YyGnivjy+3vm
+	DrCridhwYIPzAZ/WlXnTk+XoDHEclsYGl3G+UyMpkO+yQ3bZB1eui1+VAEQg5ekpJ0Yqna90N4KnP
+	Ogt4898HCHcQICfIUEymTLaChFNoaiPvaEE6XHN2TDAu9Oljn/j9klH3O/8Vwe4j0rMfdJZw3D2VQ
+	Ih3QzBm8ZttCftFgd2xCVm37gSFfLH4gAiU0viMlrZT/25hVFtrmyxNPX0miBpFv0Dvq2GkzQVKo0
+	12wqe8CmUrJ9Ip9QzYO7TNrZV2BenQ9YonVRbJDonKaPbF1FHGiSIG8FZVHr8MtKiF7Xg+LMek54G
+	5t4tPRZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmtuf-0000000HBfa-0Cvl;
-	Tue, 25 Feb 2025 12:19:49 +0000
-Received: from mail-northeuropeazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1tmtwB-0000000HC0D-32SC;
+	Tue, 25 Feb 2025 12:21:23 +0000
+Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmtDF-0000000H3Dz-1bva
+	id 1tmtG9-0000000H3e3-3Wp0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 11:34:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SIV4os2IMw2iJAgtcTNUv/wck/rDI4OmTyQuaSRPD+gtsaJrJLKKPxQspRCcnHQH22Zsqg5BhjW1/3dRY5o341cg6OVYqPNM/Ya2nnGep/PxHLRKlcoBgtOt6dtIVpLngjYjF0dtwVB+Ci6BzQ7eGH3lkVI2/xopFXJ7c46PQE7TjB8fXHxG76uBUdbVpKhFDvFOOpxyGh3aKrQig62mUwBSLWPOH6LvzJBUS+HEctQEVGSbrtNEpA+Inx+yfH355I6gV8U4bCTV5g6WkMrZro4HkJNjaJEsW9wGqM2/V2y4ps+S7a0o01S6E2mN5MWMUO5rHLR2QnRPEj8zGYVErA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Y9QkFEirhw3V2DCfqSN3bdPnI9mAbmGdRw2zT4oXGb4=;
- b=ptNEBPwbumkKBZFHNwqHbAhvlO9yJys4iW0FJnwK7q37zUnk0t6v9TtIvjOIGUzUeH+nIL118OQ+UIzvYIZTKF9+Q9dP4OjsXyBqJUFjaKsuuGC3MVKPeWj614meFGpsrlCaKvpsO5Ilwb+9bDLpArrRM3xGGq6nT9PkU9D+9wYo9vBV/aTZ1LOAcAGBm2iLvEMXW9i9CnflIQpFh/UaLs6yrGHPo6TgnUzPrcSIa+p93f/p9XzA+iXsjz8ZJ23ljdMVrghf0oOSm2RdDMfMZx/Cqv8Enjy3veJlJ2VvLFHKCY2Nof1h15mi4Jt5EzYk37KjzuykgPlj0AOwzRBM5g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Y9QkFEirhw3V2DCfqSN3bdPnI9mAbmGdRw2zT4oXGb4=;
- b=S8L5F5IQQOctw6pT49a8JEndFVhv+eZDzpu8WMKIi0/MZHfcbNKWvR5+xMRTSXS5u21Ki7lZG8RSvWVbmJhEvqB9LgqvCuC+DC/sIn2W/8QEsnP7csXtpj73pNixBbHd2CAMTrtqDHfOyYNcGO+4UcD8X58FlPNFdjpKtuGYd8ELbe8t89h6jl0/FczAdrF4xekjXFBv5b5hIweOIh+1CBvft0FowMo/lMIoxZITYM81zlZONPul9iLme2N/Err6Ah87knXCVyvm7rIQQw1pqoxTgVZSmlal7RtaMV7Y/kA7OOL/+Q50Gt+cAO6M55vZPeLPT5C04eBD1zugR1NgBQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by PA4PR04MB7599.eurprd04.prod.outlook.com (2603:10a6:102:ea::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.18; Tue, 25 Feb
- 2025 11:34:51 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.8466.013; Tue, 25 Feb 2025
- 11:34:51 +0000
-Date: Tue, 25 Feb 2025 20:42:03 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Peng Fan <peng.fan@nxp.com>, Chuck Cannon <chuck.cannon@nxp.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>
-Subject: Re: [PATCH 3/5] firmware: arm_scmi: imx: Add LMM and CPU
- documentation
-Message-ID: <20250225124203.GA31590@nxa18884-linux>
-References: <20250121-imx-lmm-cpu-v1-0-0eab7e073e4e@nxp.com>
- <20250121-imx-lmm-cpu-v1-3-0eab7e073e4e@nxp.com>
- <Z5DhM1VLv2uCCVwT@bogus>
- <PAXPR04MB8459D4C2CA3D5AE58B2B509788E02@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <Z72ZxspU3hfGZWez@bogus>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z72ZxspU3hfGZWez@bogus>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SI2PR04CA0009.apcprd04.prod.outlook.com
- (2603:1096:4:197::8) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Tue, 25 Feb 2025 11:37:59 +0000
+Received: by mail-yb1-xb34.google.com with SMTP id 3f1490d57ef6-e461015fbd4so4028010276.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 03:37:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1740483476; x=1741088276; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=n1TWnKYSjWgGvb3cyxt3TX5DamTHuovBzjkuSknBSeU=;
+        b=mibUaqxObFwfb29swpgTuHOS3uIPOvosJncq8fQkSfBwt9zv6MS72q62vjRwkJmFqH
+         zlFkoL5yvaZuBkwiAc+joKeMKJ5yFmv9LMMjxzrdALT42qruEAWtNby8Hu5ox4/lQjBT
+         f/in2lEvIg4OgHRUcEbwRDEKfKZSVPutllkXCOjaYZw6bu+9YMR+e8IVHp1id9H61b1O
+         ePsl3BY2+I+CVv7/D+ODtPOrF0mGD753GltJjcHVpc4JNRyuUxqX3F/7cvuXL3HtScVI
+         1MVUBFNjKzFFxKGq5XoKq53qC654zd1UCAGdkuC2n0KRT29MygOqp8pdkLFK0ogrUirN
+         wEvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740483476; x=1741088276;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=n1TWnKYSjWgGvb3cyxt3TX5DamTHuovBzjkuSknBSeU=;
+        b=AfB+ljQGgin/tHZ3Qftlok/xqdAaWdE5muhJZmVDjcd0V+WBoQaO9Z/sz9hk2okawc
+         fXqMT3YrzviJuXYfCr0GgOxadz18tT8O6h12QdzplppzaF/VHtEUHCEc8AtTgcOffpsj
+         qG/msDkt/K+0tiOqr7tZJzmwdKPXuMAU4uVU8lhvpIR0g78aOV46wMEdRf8zrbtcccVn
+         TV3xaXs4XtZzToyjt8kFOJijHsRzJxnVd1eIFO7LAnRq/BbFCfwOt4neC46KXvsXiqMC
+         Hg1O3Psx8RblYGoTw8YwxlES+VOLdjoFE1vwWGfxvVoFn0NEyHedOPFPOB8qj2Hd12/B
+         5Peg==
+X-Forwarded-Encrypted: i=1; AJvYcCXpoi47HCkXfQ5E9XSThA6QLNcRuEAmXtI4e6Xrw/ewVOTx3ISaGXelfqZSO/vDypRi1RS1sZ5Vo9Ih7eihMbbV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4OP+rs/YkLZQcHEX/tA8JLYmt6g3VE5kjwkTujhJw4DTcVb4s
+	B/phh1mRpedQ2xs/8xohCLy1urj7y9JihzrW66sIwWIliD9iUoVB0HlWcrO1uOeTzOqqplWf155
+	0/Qp+0DvZxk/v42L+MxvK/I5rDpQ22aBhGwObQg==
+X-Gm-Gg: ASbGncsWImZoVOTOccob9tfNI9yj/QAol5PIUxXrWhdS4esK2gtukiKLmWCnW4yT2rg
+	tAA2HAmvT5LwzCEkc9WJpVdJC2WOOFLqtVERNWkbRX80tgJtm1aTpMAhQ7O/8zXrx8qeAs58zjg
+	U42n86sXnfQw8sBnD2dbKklfEn40KNJaq/KZNMKxo=
+X-Google-Smtp-Source: AGHT+IFoRV0tABvVleGcPGFjITHVSAozbUIV7vt/JXOPnNAtmYOOQYQ8LJ70dKpeCX04ppbU+mmusjSHjBwHx6qf6uI=
+X-Received: by 2002:a05:6902:18cd:b0:e5d:fccc:7907 with SMTP id
+ 3f1490d57ef6-e607a4e3c9bmr1939202276.14.1740483476663; Tue, 25 Feb 2025
+ 03:37:56 -0800 (PST)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PA4PR04MB7599:EE_
-X-MS-Office365-Filtering-Correlation-Id: a8e93eac-9d75-45d1-ecf5-08dd55906a92
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?LgrcCPnTkSLeM2jmYQre5QKt1GlSczvIsvzeksZkAOogzaf1aSOdz8lKGSr9?=
- =?us-ascii?Q?jL+Tsd1N0GR1B2e9Yfwly4j2zPjzwaxVaqzWFgw3W3JvwxCgIlX+yytghx49?=
- =?us-ascii?Q?dXZp0w9ePg0tfxFpFjeBwGwTo7j7eMouWCIU27neMwc+Onc8Z7egcvMRqoJh?=
- =?us-ascii?Q?FZrUmvDXDwFqKuePx+xqzxW7xjuYkWS4imw+3Kf09KRlpVYdYt/EQSMXgCbf?=
- =?us-ascii?Q?6KP2X3/vBxhXWH/gtqNkwA/lbJ/EKJmfiYyC5o09xNIp8EPLCZ7HUiqvrmNY?=
- =?us-ascii?Q?N95mKZ2mPHhO1J7yDCZAjIOiuUzeAxlVU5e7DGUNpTISimYL/pBgrga8Shwo?=
- =?us-ascii?Q?1LhzS84ndptzlsJYkb8nxAUsZJO2ljAZm5CXQJWm2hIHy2+uuqqs/IK2wAJb?=
- =?us-ascii?Q?xvcF8NZMTncYoyDsql0F3V3RnDw7Mf5tndvD6o1xua/yqE+8VXTAvVzqOoK3?=
- =?us-ascii?Q?/8xQI0bfLn1L2myFwqpfNDMXlvOOl1qnhUzBexeWnLNT+yJjgjvaHvTvdkZA?=
- =?us-ascii?Q?S+xjOkoOcV6AhBTXywnPl/Fjq3dkp6dJWSRphw9vpJArNJlGXcw1p4TApXcG?=
- =?us-ascii?Q?wAWZClnqpbJCSS1HfxCvTp4hZURkcVZUN7/dZoU4W2yqQ2PeEeWcN+ygnpv8?=
- =?us-ascii?Q?xP1kNkkzEB6HxV+/4xLI+o6T65OXQRebf8XsDhleXmQkxer8OAYgJJTQVO3p?=
- =?us-ascii?Q?RSlpcgCDueFmR7TUMHnN6ds4zFB3JUBtCsYeLsM7o46i65tep+ldKyXxNHa+?=
- =?us-ascii?Q?PO8y10qcxnANh6XQreLi/kDGhrXxLMS2XLHnlvRtTn6JFGw4QMtTNkYT3z+P?=
- =?us-ascii?Q?vQeQbXDQAP9fuFvBJbDtVTYDIm6CLMJfY+g9SqgRU83xXWuvQghIiHjQm+zM?=
- =?us-ascii?Q?1ASaYmzVobcXRHSO8d8FiUjtIp9ZcguEK/8eNSy5l1ilb4uR8oI66aNDj8e/?=
- =?us-ascii?Q?ngy9FkwAn4YdEaltWGn1nF4DTyFz5yln/FWghmNjPPQX+PeFGFodeCJ7/PrD?=
- =?us-ascii?Q?ByLCCczHKtmCxQGf9bKIaufNL5xD16pxk0hdngKR3/6kNBJBQYU1aGijDbQA?=
- =?us-ascii?Q?klG/EHOfZKazFYessTleB3wVSpGRkgkbqxxsur8ycBExW81/TrKqGF+x6ACq?=
- =?us-ascii?Q?/LPAFMnphjhtWsJuz2XNsmaMYtnCuUVy5SAVaGmhIKynkkPlyHlLNIwITS7r?=
- =?us-ascii?Q?QLweH+qo4KdWDsmiI0Wi+kUQy/Qpdouad2iNUQo9urfeqPTjD8/zvUTJNgjf?=
- =?us-ascii?Q?gj3ZbH6pH/4ywGt2rtDk6F2TSHVQWQNZkEypPsAjMXU0G/4CHFAqyUnVFqFE?=
- =?us-ascii?Q?R46o+aRBNpkPLKzrZEq3vBuNto7pIH4FN1WBTNPBor3YZRox0MmSgSiLuJh+?=
- =?us-ascii?Q?Km47WS7qSl34mA2L6nBeHEqq7RDM0kOQoLK5Fk+5MRZ4mL8AKDMHQ4HQ3ain?=
- =?us-ascii?Q?Vz/2S11LROvAV/7lztfI7Pb8ZF4cgJ37?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?xVB2Nz+aLyJTTLL9RFWA5nOQT2KImgKXGLtz7GHGrJEIoiklsx5JaAWfhxvZ?=
- =?us-ascii?Q?ZZfu2Ib+AGS8oP0FvwUUorxVUY+eXjkx7au9LRxYCT/J+KtNcJuK+YJaOFJW?=
- =?us-ascii?Q?GU4a2St0eMmeU4/Wis9nqaeQJAEjqCjzeH/T0PaVJmN5AyvLvozys4LL0n3D?=
- =?us-ascii?Q?aMuS5iOYSH0g9TxS0dZ7RTwqY/kHtbPeVfljahgX2ZLajXEz2Rg7j4S/JeNN?=
- =?us-ascii?Q?Wy70pQ/qp5tYrkt24R6UDMS/gRqULzmXeZKRCU+h6bUsxVgIKbqoAFcfSLaC?=
- =?us-ascii?Q?AJwoTPd0BtCi1bjDXatGCc2VK77knAvRctXYQSXkXsPveFhAsBk7H0UuvLQP?=
- =?us-ascii?Q?6PDTaItFdI+HlhIYmML5gOCXsVOzT00CTEOqUiYAx/ZXKT5ZykDjiF/0PY7L?=
- =?us-ascii?Q?0aOwo1nSnsAUGWMwvodamYxOElgsnmsP/bBouO5m/q+D0H2qs4ckLIOdO5ov?=
- =?us-ascii?Q?T2iV1FV4Y/pl5qN/5L63zTvIbMpnYg1rtf9B4O4OjCY4ZQ780LnzK5Jek5uB?=
- =?us-ascii?Q?Gi1Hyq6qd8GW1HlVxQo6uES+hiiX7xmvZ4MWuD5ejvwF5hKha5mMF88BnW+T?=
- =?us-ascii?Q?MoJS0MmcAz75elA0DUI++8AcGRDUhGq3wQjj2CH0xjXQorWk+kBhohzgYDeA?=
- =?us-ascii?Q?s47N7tHAFVC2FlbErNB2ZQX4LcT2zX2PqPZ8uU56O+K9G9Bg5RyKkvhMgm83?=
- =?us-ascii?Q?KSoG30dld4nho+gm6iVOfR1YE6WXA59CUB8WdiATzjyY/w2T4E9hRAnWHVKt?=
- =?us-ascii?Q?qbUUldXgRKbczj9jqs8aQawzsuD1y3WQvHKn+Zv4J6gJdrxqwIjtoeiwMp1g?=
- =?us-ascii?Q?2fcoihzqage8BxCjK2TbKTAR4wuTSEHdj4r2kEuiDsIWT4lDkLyViET+7MYo?=
- =?us-ascii?Q?qzu+WIEzE0xVUVGTU8ZdIwwDCdPF+d7QIyBI0sc3Yw4iH1ZZ69xECRJ+RSEP?=
- =?us-ascii?Q?Q/GomZHno7b8ZDN16RrZ26iwpGMUJ3J8ijJt+oQ5VJWVw/oIAsAdFXx8Y/Vf?=
- =?us-ascii?Q?yGVFvlaS0byGf1UIsE5o38ejA0gSxczhTf7xlkmYP/0pfkFU20HbctWXaeOt?=
- =?us-ascii?Q?VULWo9XmYvjdnMIbVJDu8U9vepQHMXH08SDQqt0MaLc7z/iuhhBS7u7eliRP?=
- =?us-ascii?Q?KBVXyzJd+hfBBWRDgxBLsFMrjKDCaThfy2zaitxpSrR0mGJTrtaaUuavJzIn?=
- =?us-ascii?Q?SF18wE0IC1bOFX0Q41l2ey2BzcGv0ELYF2mMyuwVLutGcZYByPAmZe60pPPn?=
- =?us-ascii?Q?n15eoVoT93dYGoc5h4rJP8R4piWdsfMUkLtNwL9ifumfi81qrPcXMiJU3r+T?=
- =?us-ascii?Q?iVia6gKYjFS0QOrKSIYKAJhtq+03ZBj4iil8s3s8+m05NK2HG+NfgMZxT+np?=
- =?us-ascii?Q?ug4mI7IFu+ZCsHXXdV+gAccWLrN/KSyrETjr+X1KB2HfxKwL9ePAg/4G3MdB?=
- =?us-ascii?Q?3Rm7kXmGK+i+gTV8Bu8jP8946QljtUXiBgebgEAM76I27/ESHd6K2MqIyMuh?=
- =?us-ascii?Q?Fn2rtHx2YJgnKl0cezNFhkN3SyP6ex79/KdY1B0tuZd9xWJz/Qwxdi6SkLI1?=
- =?us-ascii?Q?mKiaCKR3PnEeGjxPtvRkowyxtfLDzKMLZ04cTekW?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a8e93eac-9d75-45d1-ecf5-08dd55906a92
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 11:34:51.0393
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uFMMW8rKyWVdXf93V88M4HtF6/hq5YDsF3dTEdqkyVWSsk2yloVU19nwvRHd66jUP938NdH57ckNjfwy0Ot9tg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7599
+References: <20250217-adpdrm-v7-0-ca2e44b3c7d8@gmail.com> <174047913824.2131221.6545389561298332217.b4-ty@linaro.org>
+In-Reply-To: <174047913824.2131221.6545389561298332217.b4-ty@linaro.org>
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Date: Tue, 25 Feb 2025 13:37:45 +0200
+X-Gm-Features: AQ5f1Jq_8vz2X92aaDmmCRK3QuSACEM5CmHNBFF9CumkaBecyk4PuPviBAdIWp0
+Message-ID: <CAA8EJpqM8ZQ-ScEtEBXaUF2Nargtp_TBAyMYvbJ49PGbwPWjaQ@mail.gmail.com>
+Subject: Re: (subset) [PATCH v7 0/5] Driver for pre-DCP apple display controller.
+To: Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev, 
+	Janne Grunau <j@jannau.net>, Sasha Finkelstein <fnkl.kernel@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Alyssa Ross <hi@alyssa.is>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	Neal Gompa <neal@gompa.dev>, Nick Chan <towinchenmi@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_033457_424535_CBEED921 
-X-CRM114-Status: GOOD (  18.21  )
+X-CRM114-CacheID: sfid-20250225_033757_880237_ACD94897 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,74 +101,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 10:21:58AM +0000, Sudeep Holla wrote:
->On Thu, Jan 23, 2025 at 01:30:43AM +0000, Peng Fan wrote:
->>
->> This is to manage the M7 core by Linux. I just put more documentation here.
->> CPU protocol is also used by ATF to manage AP cores.
->>
+On Tue, 25 Feb 2025 at 12:25, Neil Armstrong <neil.armstrong@linaro.org> wrote:
 >
->Good
+> Hi,
 >
->> > Also what other CPUs are we talking here.
->>
->> M7 core
->>
+> On Mon, 17 Feb 2025 12:39:30 +0100, Sasha Finkelstein wrote:
+> > This patch series adds support for a secondary display controller
+> > present on Apple M1/M2 chips and used to drive the display of the
+> > "touchbar" touch panel present on those.
+> >
+> >
 >
->Are they referred by any other name in the system ? I reason I ask is using
->plain "CPU" is too generic and confusing. At the same time using "M7" may be
->too specific. I am trying to see if there is any middle ground.
-
-"CPU", if you mean the protocol name SCMI_CPU, there is no good choices.
-I could add a note that "CPU indicates the various cores of i.MX SoC,
-one CPU represents one core"
-
-The documentation origin from https://github.com/nxp-imx/imx-sm
-hard for me to drive a change to use other name.
-
-Anyway if you have ideas, I could bring to our firmware owner.
-
+> Thanks, Applied to https://gitlab.freedesktop.org/drm/misc/kernel.git (drm-misc-next)
 >
->> In general I would like to
->> > explore the possibility of collapsing this with LM protocol. CPUs within
->> > LM is LM's responsibility to bring up. And CPU can be seen as an LM for
->> > sake of this vendor protocol. I am not get into details here yet before I
->> > can understand what these CPUs are really in the system and why we
->> > need this.
->>
->> Our system supports M7 and A55 in one LM, so A55 use CPU protocol to
->> manage M7. When M7 and A55 in different LM, use LM protocol to
->> manage M7 LM.
->>
->
->The LM(assuming Logical Module/Machine) is an abstract construct, it should
->apply to even subset of components within an LM. Just wondering what are
->specific reasons do you think applying LM protocol you have on those M7
->CPUs alone in A55+M7 LM would not fit well.
+> [3/5] drm: panel: Add a panel driver for the Summit display
+>       https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/40115947b59f2ca361a47615304dff0a2b69a2b4
 
-We have internal mail "NXP-ARM SCMI OEM extension" between NXP-ARM that I
-could not post here. In that mail, LM is explained.
+Without the bindings?!
 
-It is the LM protocol design that it only applies to the whole LM.
-If the LM has A55+M7, A55+M7 will both be handled.
-If the LM only has A55, A55 only be handled.
-If the LM only has M7, M7 only be handled.
-
-When M7 + A55 in one LM, using LM protocol to handle M7 will make A55 not
-work properly. The current linux usecase is remoteproc, that means
-stop M7 will make A55 also stop. So need use CPU protocol here.
-
-When M7 and A55 in separate LM, using LM protocol to handle M7 LM works well.
-The usecase is still remoteproc. In separate LM, A55 CPU protocol will be
-blocked to handle M7 CPU per firmware security.
-
-Hope this helps explain.
-
-Regards,
-Peng
-
->
->--
->Regards,
->Sudeep
+-- 
+With best wishes
+Dmitry
 
