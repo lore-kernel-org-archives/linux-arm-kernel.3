@@ -4,94 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72C65C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 18:37:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B945C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 18:38:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dN8nBA+Qh6D4N+wqpSDyJLyiHWYbmS4OUKXh0N+DSqI=; b=xy8NGZvcSzlQEP8AQzhtmf36mP
-	vpO2px+NDWLmCDK47U6bxe4bz+Lc5hz2L2pEuOibvuyya2lc/E8JANrsdR1EwT8hcRDPw4zJkUl9D
-	IIA/eludiKHjKdL2GjODGzB+iEKPXCLbluyfWZRhe375v8O6WeWYMggyjawNdpUWiK9s6VPZNfDhM
-	i0JlHofDNxkMPRFPOH+G3pN1K0sQLTb0KII3GVMhiE0Op7iT4r92sPM5tUjbAIdLPkW0G5Rfp2MEi
-	hNrwujdSbxvIuRrohkNJhxgAaKPRJ4cnlg3R9wgQw4Yex+ao/SevtOAogkrOxwghzRV7lUHGzNoC/
-	kMp3SoSQ==;
+	bh=TDbhABUS9urbjuK93orrRgVMLJaDNVuhJFFht39PZ4Q=; b=RKYCofRaWtdwlKEdufBYXIZkd4
+	RJA8I5s+a+HRWjda/g5HVbuH0qGokTb5bhtAwdR6hFps5tDGQY23AgR7DoL/2hZFQ3C/xfpSsI2bv
+	8ZwWYtNuoT9sOIjko6/24zdK0wOvjmdhvFIe9QkW2v0rxUzBmtPtcPPSF5fZF6zvUEGNKvmpWZUv8
+	Lml0cvQwafTHP+KJiIdIzlCIbH/Ujlk1op0++3U3Yo0u82Cxpr9xxP8U2SzXeiw/w1vA191Qa6i+E
+	JcJNFmO/Qsnjpiu1my8J8n3CV7xm6zh9bTGvM/plxVHYlDfunDZjSikkyHUcY8B7MFgwCsWdvVldb
+	0OSbstTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmznY-00000000y8T-2ol0;
-	Tue, 25 Feb 2025 18:36:52 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tmzp3-00000000ynQ-1R8z;
+	Tue, 25 Feb 2025 18:38:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmz6a-00000000l7x-1yWb
+	id 1tmz6d-00000000lA3-2JHO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 17:52:30 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-221ac1f849fso1785ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 09:52:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740505948; x=1741110748; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=dN8nBA+Qh6D4N+wqpSDyJLyiHWYbmS4OUKXh0N+DSqI=;
-        b=IdEBfLmjK2zEtO86ttEtlOT2oABttUHMvftkXK1OSUgaid0qIiHY4cub7XbO5Aj+FM
-         j+l2dCkJNeGZIUSZisHHXUYvE1EVuU1bTR7agYXj/BdJSKMB1G+d8WysLT/qzlH2hN/v
-         qECeDGdR/J6L2hZeCVaoP/NGJu3mFr8/GGAByW+TK6cdupoCTpyGkmiTKs68oQ1xCY3B
-         CQNznZ06SJQSBn7FK7HX0WG+TTpQP8uMad1u2BlkHnd3F/r+DxdCtcoMeZV25pUaML3K
-         DCiB8mnuCrlxpbLsKw80uCn0qvIdotMqTrxtAGZS4U6LTg1BhdaPZGyH9Q8dr2UUae5a
-         FCQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740505948; x=1741110748;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dN8nBA+Qh6D4N+wqpSDyJLyiHWYbmS4OUKXh0N+DSqI=;
-        b=BeAH6mKlSxGf2/8XZI6N4BZiWMPwkTZ7prLBPR/GBzTPDfUcr31a6Qiar2CaesV6D0
-         yUe92zYW/yn9eJTxz12+jxaZedhWtSoNN4URzWTNRVJ7z/7TvPW+R6iDDRhJOxjhFWTV
-         bd0zNYWLg7GYuBwCKrWkm7xJhA7NF55aYn4POtbu231d0v1gTzWN8YKdOL+TcrzYKy4M
-         Zzxi4a1UzD5M2wOpfcVs78X4CO9wa3mO0tdmrOlVOfCTpWHNawbIjqt2T2dFE6FZeCqp
-         4FxKIHFWJzVPPbDm726+246n9lw/k+J96desm+7sh1WQh5L/Q1MALHjeiOx3hKYrAbe0
-         nbNA==
-X-Forwarded-Encrypted: i=1; AJvYcCXINhYRRXpKzNcImnJ5Eb7+zrwBvZYd9Wi4b2EbH5ulIUdELN/L4MnEh5GfXs+zzd3Gsq8SlrOhWyYDOauLhLgX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3Z9gJ/9TnPGrbGGw/PcJ8IfiPAgxmKqsgMrArYkje1jTd+QsC
-	BGd5w4a8+p+uy6wOZV667yH4xcQO46CL4J1zdDgbHX5Yg6E6lpAwoEcaqENrNw==
-X-Gm-Gg: ASbGncuoIwPZsGMLZ93/Sy59njRtFQwiUnv5zyaoANNjzcymYXDTwSe+mty9R3R0B92
-	4g1xQlnhDaiFhJCiLS9GUZN5QFBGzOX+1egDrWnfr6nBu5SqDIn5+9Tq6UydgFODwtznNyuuBM+
-	y84LJkoiAdwpaxa9wE7qXTe4xVYj5T1Irx6C7h9WYBL8J+/Hz2xDjzH8ZS6+7ecgJ20+uhc4853
-	ZaqtKAIj+QSCr4lihiYlBe2gYzfTOy+ZuHMj/wt17dyQTzT3ppooqPFmlIWpLqXKBLFSsmwYYh6
-	KOhp5Kp03vfOPSy7KNuL4gWXCQa5dzlWYHYOLajrqFZef489ZWDFK0MoQ/FEOzU=
-X-Google-Smtp-Source: AGHT+IHCwCn1SF2NMONCzfAyHzGrJNS1HAUTJPist+TAdk8bMDyf0wMytHFuTMKOTPJoVoDGnbqb0g==
-X-Received: by 2002:a17:903:244d:b0:216:48d4:b3a8 with SMTP id d9443c01a7336-22307a60187mr3928025ad.16.1740505947317;
-        Tue, 25 Feb 2025 09:52:27 -0800 (PST)
-Received: from google.com (169.224.198.35.bc.googleusercontent.com. [35.198.224.169])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fe6a43ccb3sm1861445a91.39.2025.02.25.09.52.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Feb 2025 09:52:26 -0800 (PST)
-Date: Tue, 25 Feb 2025 17:52:16 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
-	joro@8bytes.org, suravee.suthikulpanit@amd.com,
-	robin.murphy@arm.com, dwmw2@infradead.org, baolu.lu@linux.intel.com,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
-	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
-	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
-	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
-	patches@lists.linux.dev
-Subject: Re: [PATCH v8 12/14] iommu/arm-smmu-v3: Introduce struct
- arm_smmu_vmaster
-Message-ID: <Z74DUPcl9KRZcvpW@google.com>
-References: <cover.1740504232.git.nicolinc@nvidia.com>
- <f205a4e2f5971cd4b1033d7cac41683e10ebabfb.1740504232.git.nicolinc@nvidia.com>
+	Tue, 25 Feb 2025 17:52:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D8FB7612B1;
+	Tue, 25 Feb 2025 17:52:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00DDDC4CEDD;
+	Tue, 25 Feb 2025 17:52:27 +0000 (UTC)
+Date: Tue, 25 Feb 2025 17:52:25 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	David Hildenbrand <david@redhat.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 12/14] mm: Generalize arch_sync_kernel_mappings()
+Message-ID: <Z74DWQJ7g-KNpHLY@arm.com>
+References: <20250217140809.1702789-1-ryan.roberts@arm.com>
+ <20250217140809.1702789-13-ryan.roberts@arm.com>
+ <4fad245f-a8a6-468b-82d5-13f089aa525b@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <f205a4e2f5971cd4b1033d7cac41683e10ebabfb.1740504232.git.nicolinc@nvidia.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_095228_511096_742EBFBA 
-X-CRM114-Status: GOOD (  15.28  )
+In-Reply-To: <4fad245f-a8a6-468b-82d5-13f089aa525b@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,38 +71,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 09:25:40AM -0800, Nicolin Chen wrote:
-> Use it to store all vSMMU-related data. The vsid (Virtual Stream ID) will
-> be the first use case. Since the vsid reader will be the eventq handler
-> that already holds a streams_mutex, reuse that to fenche the vmaster too.
+On Tue, Feb 25, 2025 at 05:10:10PM +0000, Ryan Roberts wrote:
+> On 17/02/2025 14:08, Ryan Roberts wrote:
+> > arch_sync_kernel_mappings() is an optional hook for arches to allow them
+> > to synchonize certain levels of the kernel pgtables after modification.
+> > But arm64 could benefit from a hook similar to this, paired with a call
+> > prior to starting the batch of modifications.
+> > 
+> > So let's introduce arch_update_kernel_mappings_begin() and
+> > arch_update_kernel_mappings_end(). Both have a default implementation
+> > which can be overridden by the arch code. The default for the former is
+> > a nop, and the default for the latter is to call
+> > arch_sync_kernel_mappings(), so the latter replaces previous
+> > arch_sync_kernel_mappings() callsites. So by default, the resulting
+> > behaviour is unchanged.
 > 
-> Also add a pair of arm_smmu_attach_prepare/commit_vmaster helpers to set
-> or unset the master->vmaster point. Put these helpers inside the existing
-> arm_smmu_attach_prepare/commit().
+> Thanks to Kevin Brodsky; after some discussion we realised that while this works
+> on arm64 today, it isn't really robust in general.
+[...]
+> As an alternative, I'm proposing to remove this change (keeping
+> arch_sync_kernel_mappings() as it was), and instead start wrapping the vmap pte
+> table walker functions with
+> arch_enter_lazy_mmu_mode()/arch_exit_lazy_mmu_mode().
+
+I came to the same conclusion why looking at the last three patches. I'm
+also not a fan of relying on a TIF flag for batching.
+
+> These have a smaller scope
+> so there is no risk of the nesting (pgtable allocations happen outside the
+> scope). arm64 will then use these lazy mmu hooks for it's purpose of deferring
+> barriers. There might be a small amount of performance loss due to the reduced
+> scope, but I'm guessing most of the performance is in batching the operations of
+> a single pte table.
 > 
-> For identity/blocked ops that don't call arm_smmu_attach_prepare/commit(),
-> add a simpler arm_smmu_master_clear_vmaster helper to unset the vmaster.
-> 
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Reviewed-by: Pranjal Shrivastavat <praan@google.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   | 28 ++++++++++++
->  .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 45 +++++++++++++++++++
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 18 +++++++-
->  3 files changed, 90 insertions(+), 1 deletion(-)
-> 
+> One wrinkle is that arm64 needs to know if we are operating on kernel or user
+> mappings in lazy mode. The lazy_mmu hooks apply to both kernel and user
+> mappings, unlike my previous method which were kernel only. So I'm proposing to
+> pass mm to arch_enter_lazy_mmu_mode().
 
-Apologies for my spelling error in [1]. It's supposed to be:
+Note that we have the efi_mm that uses PAGE_KERNEL prot bits while your
+code only checks for init_mm after patch 13.
 
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
-
-For all the other patches too. Correct spelling in [2].
-
-Thanks,
-Praan
-
-[1] https://lore.kernel.org/all/Z73zvIbsXzJMCaNt@google.com/
-[2] https://lore.kernel.org/all/Z730M3XptvDRObBp@google.com/ 
-
+-- 
+Catalin
 
