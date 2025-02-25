@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0395CC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:39:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 226F9C021BB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:39:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t8QBsY44aeHsnC8jmAJ8//UtQanr3bN3Vc/JtHR8dwQ=; b=QbTXykyB+vBu8IpAVHSkBhOFeg
-	nNpnkW8olPUS5kOcU2IUVE47KoGIhW3vqnYfo76ABOLEXAhItf+Ry6IZotDDOm4fPrQkj9Oi4o5e+
-	yKGDBM29FaIN3xejExAyx9nffmvDnDUM2MhP4uEKgvrLS61gIvtajv2wHl4N/BLr7/VzM9uRsAicA
-	LInk5konyG7CvOTkXhzV17Eood2lOiDvOj88ZcNroB1/xz+IT1HmEfVmLr5XZA8RLSWqPk55Qm27h
-	36opE8qefcfEv0eiC2iXJ7alTmtr/uPx8uKDi+D53XBlt3a5kwv0H7EBpSRo9Td5ZkSMywpPglJu0
-	wpy6Bn9g==;
+	bh=D5MczDksDZq4YCKde73RveEbrWPRJVuWovx272mx1Q0=; b=5F3wsGALasdUBvYujPPuUZYdG6
+	v/BUNsqVEYsFgLa7HrNyeFcGSCSl4Q99PzgmklEL81PCoB/02OFSezRmQM5Sen+XeJeIV4ZAnBW9V
+	y/xECRjmHqmuFRZbdIuf6bIiToXxUTJxyJkDZWuYyXL2HNKbld2koRYxnNrWqZVJf3ypRZGAOmTAQ
+	wbGMC9tcrYQVSVs0bahuwxZd/AKJbCS4rGnCfqWrGwUZqhpDdIfBmsWJTEVfxfDPgkVaRgqpt0v+x
+	z5v7xJR3blUjS08tK2YZtDx7KNfF7LKN1i/GyQb75Tt/8Fn7V7LRJliFg62mNpdJZoau/iWhWK94J
+	oBAQF47A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmxxa-00000000GZg-0nfh;
-	Tue, 25 Feb 2025 16:39:06 +0000
+	id 1tmxxY-00000000GWw-3PXO;
+	Tue, 25 Feb 2025 16:39:04 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmvNm-0000000HRBj-1ZYs
+	id 1tmvNj-0000000HRAr-3wH0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 13:53:59 +0000
+	Tue, 25 Feb 2025 13:53:57 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EEB641E4D;
-	Tue, 25 Feb 2025 05:54:13 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E919D152B;
+	Tue, 25 Feb 2025 05:54:11 -0800 (PST)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E2ECE3F6A8;
-	Tue, 25 Feb 2025 05:53:55 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BE6C43F6A8;
+	Tue, 25 Feb 2025 05:53:53 -0800 (PST)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: suzuki.poulose@arm.com,
 	mike.leach@linaro.org,
@@ -46,17 +46,17 @@ Cc: coresight@lists.linaro.org,
 	linux-kernel@vger.kernel.org,
 	linux-rt-devel@lists.linux.dev,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v5 9/9] coresight/ultrasoc: change smb_drv_data spinlock's type to raw_spinlock_t
-Date: Tue, 25 Feb 2025 13:53:00 +0000
-Message-Id: <20250225135300.339976-10-yeoreum.yun@arm.com>
+Subject: [PATCH v5 8/9] coresight-tmc: change tmc_drvdata spinlock's type to raw_spinlock_t
+Date: Tue, 25 Feb 2025 13:52:59 +0000
+Message-Id: <20250225135300.339976-9-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250225135300.339976-1-yeoreum.yun@arm.com>
 References: <20250225135300.339976-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_055358_541368_EA212798 
-X-CRM114-Status: GOOD (  13.97  )
+X-CRM114-CacheID: sfid-20250225_055356_063273_F9684ABC 
+X-CRM114-Status: GOOD (  18.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,96 +71,432 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In ultrasoc-smb drivers, smb_drv_data->spinlock can be held
+In coresight-tmc drivers, tmc_drvdata->spinlock can be held
 during __schedule() by perf_event_task_sched_out()/in().
 
-Since smb__drv_data->spinlock type is spinlock_t and
+Since tmc_drvdata->spinlock type is spinlock_t and
 perf_event_task_sched_out()/in() is called after acquiring rq_lock,
 which is raw_spinlock_t (an unsleepable lock),
 this poses an issue in PREEMPT_RT kernel where spinlock_t is sleepable.
 
-To address this, change type smb_drv_data->spinlock in ultrasoc-smb drivers,
+To address this, change type tmc_drvdata->spinlock in coresight-tmc drivers,
 which can be called by perf_event_task_sched_out()/in(),
 from spinlock_t to raw_spinlock_t.
 
 Reviewed-by: James Clark <james.clark@linaro.org>
+Reviewed-by: Mike Leach <mike.leach@linaro.org>
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 ---
- drivers/hwtracing/coresight/ultrasoc-smb.c | 12 ++++++------
- drivers/hwtracing/coresight/ultrasoc-smb.h |  2 +-
- 2 files changed, 7 insertions(+), 7 deletions(-)
+ .../hwtracing/coresight/coresight-tmc-core.c  |  6 +--
+ .../hwtracing/coresight/coresight-tmc-etf.c   | 48 +++++++++----------
+ .../hwtracing/coresight/coresight-tmc-etr.c   | 40 ++++++++--------
+ drivers/hwtracing/coresight/coresight-tmc.h   |  2 +-
+ 4 files changed, 48 insertions(+), 48 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/ultrasoc-smb.c b/drivers/hwtracing/coresight/ultrasoc-smb.c
-index dc3c9504dd7c..26cfc939e5bd 100644
---- a/drivers/hwtracing/coresight/ultrasoc-smb.c
-+++ b/drivers/hwtracing/coresight/ultrasoc-smb.c
-@@ -98,7 +98,7 @@ static int smb_open(struct inode *inode, struct file *file)
- 	struct smb_drv_data *drvdata = container_of(file->private_data,
- 					struct smb_drv_data, miscdev);
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
+index e9876252a789..4e9925300931 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-core.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
+@@ -492,7 +492,7 @@ static int __tmc_probe(struct device *dev, struct resource *res)
+ 	drvdata->base = base;
+ 	desc.access = CSDEV_ACCESS_IOMEM(base);
  
--	guard(spinlock)(&drvdata->spinlock);
-+	guard(raw_spinlock)(&drvdata->spinlock);
- 
- 	if (drvdata->reading)
- 		return -EBUSY;
-@@ -152,7 +152,7 @@ static int smb_release(struct inode *inode, struct file *file)
- 	struct smb_drv_data *drvdata = container_of(file->private_data,
- 					struct smb_drv_data, miscdev);
- 
--	guard(spinlock)(&drvdata->spinlock);
-+	guard(raw_spinlock)(&drvdata->spinlock);
- 	drvdata->reading = false;
- 
- 	return 0;
-@@ -245,7 +245,7 @@ static int smb_enable(struct coresight_device *csdev, enum cs_mode mode,
- 	struct smb_drv_data *drvdata = dev_get_drvdata(csdev->dev.parent);
- 	int ret = 0;
- 
--	guard(spinlock)(&drvdata->spinlock);
-+	guard(raw_spinlock)(&drvdata->spinlock);
- 
- 	/* Do nothing, the trace data is reading by other interface now */
- 	if (drvdata->reading)
-@@ -280,7 +280,7 @@ static int smb_disable(struct coresight_device *csdev)
- {
- 	struct smb_drv_data *drvdata = dev_get_drvdata(csdev->dev.parent);
- 
--	guard(spinlock)(&drvdata->spinlock);
-+	guard(raw_spinlock)(&drvdata->spinlock);
- 
- 	if (drvdata->reading)
- 		return -EBUSY;
-@@ -378,7 +378,7 @@ static unsigned long smb_update_buffer(struct coresight_device *csdev,
- 	if (!buf)
- 		return 0;
- 
--	guard(spinlock)(&drvdata->spinlock);
-+	guard(raw_spinlock)(&drvdata->spinlock);
- 
- 	/* Don't do anything if another tracer is using this sink. */
- 	if (csdev->refcnt != 1)
-@@ -563,7 +563,7 @@ static int smb_probe(struct platform_device *pdev)
- 
- 	smb_reset_buffer(drvdata);
- 	platform_set_drvdata(pdev, drvdata);
 -	spin_lock_init(&drvdata->spinlock);
 +	raw_spin_lock_init(&drvdata->spinlock);
- 	drvdata->pid = -1;
  
- 	ret = smb_register_sink(pdev, drvdata);
-diff --git a/drivers/hwtracing/coresight/ultrasoc-smb.h b/drivers/hwtracing/coresight/ultrasoc-smb.h
-index a91d39cfccb8..c4c111275627 100644
---- a/drivers/hwtracing/coresight/ultrasoc-smb.h
-+++ b/drivers/hwtracing/coresight/ultrasoc-smb.h
-@@ -115,7 +115,7 @@ struct smb_drv_data {
+ 	devid = readl_relaxed(drvdata->base + CORESIGHT_DEVID);
+ 	drvdata->config_type = BMVAL(devid, 6, 7);
+@@ -596,7 +596,7 @@ static void tmc_shutdown(struct amba_device *adev)
+ 	unsigned long flags;
+ 	struct tmc_drvdata *drvdata = amba_get_drvdata(adev);
+ 
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 
+ 	if (coresight_get_mode(drvdata->csdev) == CS_MODE_DISABLED)
+ 		goto out;
+@@ -610,7 +610,7 @@ static void tmc_shutdown(struct amba_device *adev)
+ 	 * the system is going down after this.
+ 	 */
+ out:
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ }
+ 
+ static void __tmc_remove(struct device *dev)
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-etf.c b/drivers/hwtracing/coresight/coresight-tmc-etf.c
+index d4f641cd9de6..fca8e9ffb3cf 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-etf.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-etf.c
+@@ -182,9 +182,9 @@ static int tmc_enable_etf_sink_sysfs(struct coresight_device *csdev)
+ 	 * If we don't have a buffer release the lock and allocate memory.
+ 	 * Otherwise keep the lock and move along.
+ 	 */
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 	if (!drvdata->buf) {
+-		spin_unlock_irqrestore(&drvdata->spinlock, flags);
++		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 		/* Allocating the memory here while outside of the spinlock */
+ 		buf = kzalloc(drvdata->size, GFP_KERNEL);
+@@ -192,7 +192,7 @@ static int tmc_enable_etf_sink_sysfs(struct coresight_device *csdev)
+ 			return -ENOMEM;
+ 
+ 		/* Let's try again */
+-		spin_lock_irqsave(&drvdata->spinlock, flags);
++		raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 	}
+ 
+ 	if (drvdata->reading) {
+@@ -235,7 +235,7 @@ static int tmc_enable_etf_sink_sysfs(struct coresight_device *csdev)
+ 		used = false;
+ 	}
+ out:
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 	/* Free memory outside the spinlock if need be */
+ 	if (!used)
+@@ -253,7 +253,7 @@ static int tmc_enable_etf_sink_perf(struct coresight_device *csdev, void *data)
+ 	struct perf_output_handle *handle = data;
+ 	struct cs_buffers *buf = etm_perf_sink_config(handle);
+ 
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 	do {
+ 		ret = -EINVAL;
+ 		if (drvdata->reading)
+@@ -296,7 +296,7 @@ static int tmc_enable_etf_sink_perf(struct coresight_device *csdev, void *data)
+ 			csdev->refcnt++;
+ 		}
+ 	} while (0);
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 	return ret;
+ }
+@@ -331,16 +331,16 @@ static int tmc_disable_etf_sink(struct coresight_device *csdev)
+ 	unsigned long flags;
+ 	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 
+ 	if (drvdata->reading) {
+-		spin_unlock_irqrestore(&drvdata->spinlock, flags);
++		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 		return -EBUSY;
+ 	}
+ 
+ 	csdev->refcnt--;
+ 	if (csdev->refcnt) {
+-		spin_unlock_irqrestore(&drvdata->spinlock, flags);
++		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 		return -EBUSY;
+ 	}
+ 
+@@ -351,7 +351,7 @@ static int tmc_disable_etf_sink(struct coresight_device *csdev)
+ 	drvdata->pid = -1;
+ 	coresight_set_mode(csdev, CS_MODE_DISABLED);
+ 
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 	dev_dbg(&csdev->dev, "TMC-ETB/ETF disabled\n");
+ 	return 0;
+@@ -366,9 +366,9 @@ static int tmc_enable_etf_link(struct coresight_device *csdev,
+ 	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 	bool first_enable = false;
+ 
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 	if (drvdata->reading) {
+-		spin_unlock_irqrestore(&drvdata->spinlock, flags);
++		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 		return -EBUSY;
+ 	}
+ 
+@@ -381,7 +381,7 @@ static int tmc_enable_etf_link(struct coresight_device *csdev,
+ 	}
+ 	if (!ret)
+ 		csdev->refcnt++;
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 	if (first_enable)
+ 		dev_dbg(&csdev->dev, "TMC-ETF enabled\n");
+@@ -396,9 +396,9 @@ static void tmc_disable_etf_link(struct coresight_device *csdev,
+ 	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 	bool last_disable = false;
+ 
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 	if (drvdata->reading) {
+-		spin_unlock_irqrestore(&drvdata->spinlock, flags);
++		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 		return;
+ 	}
+ 
+@@ -408,7 +408,7 @@ static void tmc_disable_etf_link(struct coresight_device *csdev,
+ 		coresight_set_mode(csdev, CS_MODE_DISABLED);
+ 		last_disable = true;
+ 	}
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 	if (last_disable)
+ 		dev_dbg(&csdev->dev, "TMC-ETF disabled\n");
+@@ -488,7 +488,7 @@ static unsigned long tmc_update_etf_buffer(struct coresight_device *csdev,
+ 	if (WARN_ON_ONCE(coresight_get_mode(csdev) != CS_MODE_PERF))
+ 		return 0;
+ 
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 
+ 	/* Don't do anything if another tracer is using this sink */
+ 	if (csdev->refcnt != 1)
+@@ -585,7 +585,7 @@ static unsigned long tmc_update_etf_buffer(struct coresight_device *csdev,
+ 	 */
+ 	CS_LOCK(drvdata->base);
+ out:
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 	return to_read;
+ }
+@@ -623,7 +623,7 @@ int tmc_read_prepare_etb(struct tmc_drvdata *drvdata)
+ 			 drvdata->config_type != TMC_CONFIG_TYPE_ETF))
+ 		return -EINVAL;
+ 
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 
+ 	if (drvdata->reading) {
+ 		ret = -EBUSY;
+@@ -655,7 +655,7 @@ int tmc_read_prepare_etb(struct tmc_drvdata *drvdata)
+ 
+ 	drvdata->reading = true;
+ out:
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 	return ret;
+ }
+@@ -672,14 +672,14 @@ int tmc_read_unprepare_etb(struct tmc_drvdata *drvdata)
+ 			 drvdata->config_type != TMC_CONFIG_TYPE_ETF))
+ 		return -EINVAL;
+ 
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 
+ 	/* Re-enable the TMC if need be */
+ 	if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS) {
+ 		/* There is no point in reading a TMC in HW FIFO mode */
+ 		mode = readl_relaxed(drvdata->base + TMC_MODE);
+ 		if (mode != TMC_MODE_CIRCULAR_BUFFER) {
+-			spin_unlock_irqrestore(&drvdata->spinlock, flags);
++			raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 			return -EINVAL;
+ 		}
+ 		/*
+@@ -693,7 +693,7 @@ int tmc_read_unprepare_etb(struct tmc_drvdata *drvdata)
+ 		memset(drvdata->buf, 0, drvdata->size);
+ 		rc = __tmc_etb_enable_hw(drvdata);
+ 		if (rc) {
+-			spin_unlock_irqrestore(&drvdata->spinlock, flags);
++			raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 			return rc;
+ 		}
+ 	} else {
+@@ -706,7 +706,7 @@ int tmc_read_unprepare_etb(struct tmc_drvdata *drvdata)
+ 	}
+ 
+ 	drvdata->reading = false;
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 	/*
+ 	 * Free allocated memory outside of the spinlock.  There is no need
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+index a48bb85d0e7f..a0a90ce7333e 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+@@ -1176,10 +1176,10 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
+ 	 * buffer, provided the size matches. Any allocation has to be done
+ 	 * with the lock released.
+ 	 */
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 	sysfs_buf = READ_ONCE(drvdata->sysfs_buf);
+ 	if (!sysfs_buf || (sysfs_buf->size != drvdata->size)) {
+-		spin_unlock_irqrestore(&drvdata->spinlock, flags);
++		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 		/* Allocate memory with the locks released */
+ 		free_buf = new_buf = tmc_etr_setup_sysfs_buf(drvdata);
+@@ -1187,7 +1187,7 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
+ 			return new_buf;
+ 
+ 		/* Let's try again */
+-		spin_lock_irqsave(&drvdata->spinlock, flags);
++		raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 	}
+ 
+ 	if (drvdata->reading || coresight_get_mode(csdev) == CS_MODE_PERF) {
+@@ -1206,7 +1206,7 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
+ 	}
+ 
+ out:
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 	/* Free memory outside the spinlock if need be */
+ 	if (free_buf)
+@@ -1224,7 +1224,7 @@ static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
+ 	if (IS_ERR(sysfs_buf))
+ 		return PTR_ERR(sysfs_buf);
+ 
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 
+ 	/*
+ 	 * In sysFS mode we can have multiple writers per sink.  Since this
+@@ -1243,7 +1243,7 @@ static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
+ 	}
+ 
+ out:
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 	if (!ret)
+ 		dev_dbg(&csdev->dev, "TMC-ETR enabled\n");
+@@ -1562,17 +1562,17 @@ tmc_update_etr_buffer(struct coresight_device *csdev,
+ 	struct etr_perf_buffer *etr_perf = config;
+ 	struct etr_buf *etr_buf = etr_perf->etr_buf;
+ 
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 
+ 	/* Don't do anything if another tracer is using this sink */
+ 	if (csdev->refcnt != 1) {
+-		spin_unlock_irqrestore(&drvdata->spinlock, flags);
++		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 		goto out;
+ 	}
+ 
+ 	if (WARN_ON(drvdata->perf_buf != etr_buf)) {
+ 		lost = true;
+-		spin_unlock_irqrestore(&drvdata->spinlock, flags);
++		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 		goto out;
+ 	}
+ 
+@@ -1582,7 +1582,7 @@ tmc_update_etr_buffer(struct coresight_device *csdev,
+ 	tmc_sync_etr_buf(drvdata);
+ 
+ 	CS_LOCK(drvdata->base);
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 	lost = etr_buf->full;
+ 	offset = etr_buf->offset;
+@@ -1651,7 +1651,7 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
+ 	struct perf_output_handle *handle = data;
+ 	struct etr_perf_buffer *etr_perf = etm_perf_sink_config(handle);
+ 
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 	 /* Don't use this sink if it is already claimed by sysFS */
+ 	if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
+ 		rc = -EBUSY;
+@@ -1691,7 +1691,7 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
+ 	}
+ 
+ unlock_out:
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 	return rc;
+ }
+ 
+@@ -1713,16 +1713,16 @@ static int tmc_disable_etr_sink(struct coresight_device *csdev)
+ 	unsigned long flags;
+ 	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 
+ 	if (drvdata->reading) {
+-		spin_unlock_irqrestore(&drvdata->spinlock, flags);
++		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 		return -EBUSY;
+ 	}
+ 
+ 	csdev->refcnt--;
+ 	if (csdev->refcnt) {
+-		spin_unlock_irqrestore(&drvdata->spinlock, flags);
++		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 		return -EBUSY;
+ 	}
+ 
+@@ -1735,7 +1735,7 @@ static int tmc_disable_etr_sink(struct coresight_device *csdev)
+ 	/* Reset perf specific data */
+ 	drvdata->perf_buf = NULL;
+ 
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 	dev_dbg(&csdev->dev, "TMC-ETR disabled\n");
+ 	return 0;
+@@ -1762,7 +1762,7 @@ int tmc_read_prepare_etr(struct tmc_drvdata *drvdata)
+ 	if (WARN_ON_ONCE(drvdata->config_type != TMC_CONFIG_TYPE_ETR))
+ 		return -EINVAL;
+ 
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 	if (drvdata->reading) {
+ 		ret = -EBUSY;
+ 		goto out;
+@@ -1784,7 +1784,7 @@ int tmc_read_prepare_etr(struct tmc_drvdata *drvdata)
+ 
+ 	drvdata->reading = true;
+ out:
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 	return ret;
+ }
+@@ -1798,7 +1798,7 @@ int tmc_read_unprepare_etr(struct tmc_drvdata *drvdata)
+ 	if (WARN_ON_ONCE(drvdata->config_type != TMC_CONFIG_TYPE_ETR))
+ 		return -EINVAL;
+ 
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 
+ 	/* RE-enable the TMC if need be */
+ 	if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS) {
+@@ -1818,7 +1818,7 @@ int tmc_read_unprepare_etr(struct tmc_drvdata *drvdata)
+ 	}
+ 
+ 	drvdata->reading = false;
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 	/* Free allocated memory out side of the spinlock */
+ 	if (sysfs_buf)
+diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
+index 2671926be62a..60b395025bc4 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc.h
++++ b/drivers/hwtracing/coresight/coresight-tmc.h
+@@ -195,7 +195,7 @@ struct tmc_drvdata {
+ 	void __iomem		*base;
  	struct coresight_device	*csdev;
- 	struct smb_data_buffer sdb;
- 	struct miscdevice miscdev;
--	spinlock_t spinlock;
-+	raw_spinlock_t spinlock;
- 	bool reading;
- 	pid_t pid;
- };
+ 	struct miscdevice	miscdev;
+-	spinlock_t		spinlock;
++	raw_spinlock_t		spinlock;
+ 	pid_t			pid;
+ 	bool			reading;
+ 	union {
 -- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
