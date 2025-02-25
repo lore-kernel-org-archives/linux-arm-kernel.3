@@ -4,107 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63D4EC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 12:56:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42B73C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 12:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+6Xv32fpzPAFxIs8eVTle+ApSi4xdX1GdVExg4VgFds=; b=QZN+7Kj/8KfgVhfWVuPTHlCoej
-	MeK7XzbL+ZQF6bBrS97qO3Pi0OVnQaFC5CzVvBVEN5oyuEZF+QYTIk01aMPI5Q/mvftChuAPg8CL9
-	oAeJVG9yPDTpFC5AOA9RePNxKxQrd6NtQvMUKbqpZqDkS8Gy84nw6vr8ibDkPMil5V+fLY4ZOoSgH
-	ImbzEfkt69kYsFrUipZu4engm0tisEbE3ncZ+qAiWyViAkmvTsQRKH9mn39yQEgjAG2FW3Ocy+aug
-	NJUEaEq/Qg+LBU+iZGUZ90l07Ztas4ZTBbIXrEv7hZUK/38j4Fy0+8AFh9dYizoIFI2NT+xnnPyU0
-	N9+gDWlg==;
+	bh=d7weKjZz+ZHmIw4XnMzEwDLnpTVSDWqySPUaclt6rME=; b=KoDz3g5RTvsN/zm4qD33FRRrFR
+	lIrudkeBJUsXGTvqsOihtS+bn2RKg9Pcl92iCwYalJZosbq2Z7o9iKDEmRTs/2SBG6wb+HmjWl853
+	lqKlYMGi1Lqwg7pEONFvNc15XYWT9i+9g5vTC+Lm5Juiv4/dLF6P4iCQJqcSC9BWSqp9M7WbUvJzw
+	U0zqxrBnnHgxR8bJP4SrrrAYVVOT9XmJGcXR/9ztj2HU8FmMZYud53wTizyzdTKfatlkdWSARYBcP
+	QZ5BUxViTHJUaCGNjEQxrXjt1JeOLHm2+yJe/zJGqd9t2cL2e+JkHMF9tdrPu3fXvv3BwBOlkzKjW
+	b5tvqDfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmuTc-0000000HH85-1pEp;
-	Tue, 25 Feb 2025 12:55:56 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tmuV9-0000000HHKA-0T2O;
+	Tue, 25 Feb 2025 12:57:31 +0000
+Received: from mail-vi1eur02on20700.outbound.protection.outlook.com ([2a01:111:f403:2607::700] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmtu0-0000000HBZS-3YmD
+	id 1tmtz2-0000000HCf5-1VCV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 12:19:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1740485947;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+6Xv32fpzPAFxIs8eVTle+ApSi4xdX1GdVExg4VgFds=;
-	b=EXEe8cEagY9bcmLYvjqVnGiI7R1iHm8mWnHicIWI+x8cStg7C6ksyRPdKpWpo6mrmknv2i
-	GkMGpLcuCOYaAihx9e0gEY5MeZdAzRdhtl0A5ROldLezNaIlUQ8NY8zPuEV7txNNwXCD37
-	cLfaFGtPLLDdXMD7e7BJP1t2eLYLoVA=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-59-59lu0KILOT28yVyqXWTN6A-1; Tue, 25 Feb 2025 07:19:06 -0500
-X-MC-Unique: 59lu0KILOT28yVyqXWTN6A-1
-X-Mimecast-MFC-AGG-ID: 59lu0KILOT28yVyqXWTN6A_1740485945
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4398ed35b10so28495885e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 04:19:05 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740485945; x=1741090745;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+6Xv32fpzPAFxIs8eVTle+ApSi4xdX1GdVExg4VgFds=;
-        b=bIfKkb1Q+uhYgpAr+qhqmOwZVdXDY/uV06haIO+8lADh3JzriverJiEZunBsi+e7r0
-         aKYT+doGJhlPMbgTupbwVK7fLD3FC2OsSALdlj2xlrZ3wqiu2itikaCXh/tIK1h579+A
-         b/AjHZi4whlIFdmbN3BxQFJz444XkzNXmqfVuMb039VHd8blUG3UZgDRInfMkBdobpBv
-         RftrLZ+7ZdG6xe+BclXrvlFhMdbneoQe7JdrbcJo6/ia9SSKB1waAwShp4WXxmsH+f+9
-         fgoTH7gW8q4k0haqgQyt+Ze4aqdVnkOslM+cfq2rav1OL+UmV0DfTJ+7HtaCOC6iwxcz
-         6Xgw==
-X-Forwarded-Encrypted: i=1; AJvYcCWPxy+Xq2gG+8GbWWGwD1JFyovEjHLCMWotgLQbj4gEi/c/scDuF949H12N8JNls4Y2Y1rGGU3mXIqEuQH7rUad@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFHT0sARIl/WR0zphUiui2XM1Z4B70llgycDEQaC4v/KXZom9f
-	bdVZqXQQLb5Nigm6u5fOcL4YWE3PyJ5sKjjEEwF6QmdiWFa8HKuXj/Qg05Myn+d26KT+h/91VVL
-	230hEzJH+cIroUz6GHCC9viNTlwE6Hk6Et0EItMNYj4ohgiJHkdeOVBBlHCYPLSj+a9qce7m6
-X-Gm-Gg: ASbGnctGI6M3QBnjPojR7zjfG1yugvxuesctN96/465SQkmwBxh5OO9cok0QrQ1939V
-	QdIBpXcTSzCCEiVd/OAFuRydxHkoGQNoguiBkrxTFWPiyCwJTMUqCVUs2BV1bdIAMYhZIxFuADJ
-	SR2FrD5+6H3YSh/MbeabBDcfWEEB8g1hvFAvHErV2q5y4h78WXvdFpF8CqNXYwZ5yxubzFXrqTE
-	FYl0f6L/cD9SoxstYLANKsuztiXG2YEznQ0xFa1gIxi4a/C2EV1J91hjFrdqdaehK1bdlWCDsO6
-X-Received: by 2002:a05:600c:3548:b0:439:a138:1d with SMTP id 5b1f17b1804b1-439aebc2408mr119025175e9.22.1740485944812;
-        Tue, 25 Feb 2025 04:19:04 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGJNn+UVhAJ4A3syB6Q9pLkR4WVlbYJdB9JUI17lX408kyI27LeJtVU1nz/Y3zTm7YpggCDJw==
-X-Received: by 2002:a05:600c:3548:b0:439:a138:1d with SMTP id 5b1f17b1804b1-439aebc2408mr119024785e9.22.1740485944250;
-        Tue, 25 Feb 2025 04:19:04 -0800 (PST)
-Received: from redhat.com ([2.52.7.97])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ab1539dc0sm24202915e9.9.2025.02.25.04.19.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Feb 2025 04:19:03 -0800 (PST)
-Date: Tue, 25 Feb 2025 07:18:59 -0500
-From: "Michael S. Tsirkin" <mst@redhat.com>
-To: Peter Hilber <quic_philber@quicinc.com>
-Cc: Jason Wang <jasowang@redhat.com>, Trilok Soni <quic_tsoni@quicinc.com>,
-	Srivatsa Vaddagiri <quic_svaddagi@quicinc.com>,
-	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	virtualization@lists.linux.dev,
-	David Woodhouse <dwmw2@infradead.org>,
-	"Ridoux, Julien" <ridouxj@amazon.com>,
-	Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Parav Pandit <parav@nvidia.com>,
-	Matias Ezequiel Vara Larsen <mvaralar@redhat.com>,
-	Cornelia Huck <cohuck@redhat.com>, virtio-dev@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
-Subject: Re: [PATCH v5 0/4] Add virtio_rtc module
-Message-ID: <20250225071748-mutt-send-email-mst@kernel.org>
-References: <20250219193306.1045-1-quic_philber@quicinc.com>
+	Tue, 25 Feb 2025 12:24:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=zBqUMYwgidIaxsaiBbXS9BWf/Qs/RqiQr9CZ8ktkwqKNVPfAdYILVV9ejOEScu/eClPqhymI2sYLg6TsJ4+wvzobxjMFdRrjRO30VpM+PwhsmqXkyZQI42sqeYdan5x5OY77QnF4eM8QbR0zvT+dMQSxXgQqnSCWY+gaAD8LCYMIjcgHvDE6Vfw3v6buVBJ2C9lfgBLg0BPV5aigsdW9B9Q1LgQMupgtd2xMcvQLe9BX/NGFIkF6H3M1tDy24nWn/PlNW8IIndR7Djv7Lq2a5KlRbNoVgIL4/6b0vErTqX4/3C7mDjC3xJo02g7EBttRGK7qlKTnic+TJwGOB88KwA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=d7weKjZz+ZHmIw4XnMzEwDLnpTVSDWqySPUaclt6rME=;
+ b=VluapiWOF0rCuwsIvf/sHZVsVHyRoaUwIPWw4t/rYolNEyqcqTIrp4OTTPxN4D4OcpoPQ3Istk0Nl8OIGgxEYJj0XkYsgv/t/vjuezTnd1FqC1ayGzF+ppUY0A9p9fx0Nedqb9/VHCHrPjRRnC22J8hA7MHsdiS9w3yjCAJU7t+S3b33WrR4xC1ro5D0/mkGUR+J78Qn0mu4J9E506tIUTw7lA/7Y9860ScZAbjPOyGdHCIHYgz/f6q6QXKDBtKtvFZT6I4+v1bphbgsGkHUBVm4Knb5Ou6yXB8fHpBchb2f4lDPBllX7NGnyf3hsyxelSwEHguNrmyL/oe+rRRD4g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=gocontroll.com; dmarc=pass action=none
+ header.from=gocontroll.com; dkim=pass header.d=gocontroll.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=gocontrollcom.onmicrosoft.com; s=selector1-gocontrollcom-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=d7weKjZz+ZHmIw4XnMzEwDLnpTVSDWqySPUaclt6rME=;
+ b=mLpk/US7Gdnbr3RTP298WWttKFoyuREH3tTxA1AtGPvgG2m6THeTTf2Ak53BQzsEygGs/Bv77fejyhBPe0nQP7yOQxt51TYqrvBqtgjH8duRtksrvIYzOzI1ULIUMZIJ/TkOFJcl84MoLcSOgTAz3YaxbjW+oD5f3zgkTDfFfxTX5pMyAbKWsTWA99bdGEBmxsnBRqkO/D8h2tZ901SwqRRPf1ZpKbXF7afbg5MrVlKGMNdZH631j6yhruPHkKaP4qdM9DuTwIqzfyBXxaQ+s9Gop+n8Fk1A2RFEiMz8GkW6R8UK2xhTiysSltjKFmCSxbEVPI4CbR8cOo5Xh+5Aqg==
+Received: from PA4PR04MB7630.eurprd04.prod.outlook.com (2603:10a6:102:ec::16)
+ by VI0PR04MB10784.eurprd04.prod.outlook.com (2603:10a6:800:266::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.20; Tue, 25 Feb
+ 2025 12:24:09 +0000
+Received: from PA4PR04MB7630.eurprd04.prod.outlook.com
+ ([fe80::311b:ad3a:4a62:7b5f]) by PA4PR04MB7630.eurprd04.prod.outlook.com
+ ([fe80::311b:ad3a:4a62:7b5f%4]) with mapi id 15.20.8466.016; Tue, 25 Feb 2025
+ 12:24:09 +0000
+From: Maud Spierings | GOcontroll <maudspierings@gocontroll.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Rob Herring <robh@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+	Jessica Zhang <quic_jesszhan@quicinc.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Thierry Reding
+	<thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>, Liu Ying
+	<victor.liu@nxp.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH 05/14] dt-bindings: trivial-devices: add GOcontroll
+ Moduline IO modules
+Thread-Topic: [PATCH 05/14] dt-bindings: trivial-devices: add GOcontroll
+ Moduline IO modules
+Thread-Index: AQHbhsMosk0/ripJzU6HkH3zRHdpDrNW7EQAgACtnhWAAFAuAIAABT4Z
+Date: Tue, 25 Feb 2025 12:24:09 +0000
+Message-ID: <PA4PR04MB76306D77C93FF2C51524BD95C5C32@PA4PR04MB7630.eurprd04.prod.outlook.com>
+References: <20250224-initial_display-v1-0-5ccbbf613543@gocontroll.com>
+ <20250224-initial_display-v1-5-5ccbbf613543@gocontroll.com>
+ <20250224204428.GA4050751-robh@kernel.org>
+ <PA4PR04MB763009E88F6406CD84ACBD33C5C32@PA4PR04MB7630.eurprd04.prod.outlook.com>
+ <20250225-smart-industrious-groundhog-41deb2@krzk-bin>
+In-Reply-To: <20250225-smart-industrious-groundhog-41deb2@krzk-bin>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=gocontroll.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PA4PR04MB7630:EE_|VI0PR04MB10784:EE_
+x-ms-office365-filtering-correlation-id: fec05d91-8d6e-4128-3ca3-08dd55974ddb
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|10070799003|38070700018;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?z6JpjhtmQvVZRjCMxgcH2NzT7A0DW9k5PTql1yUoIA01yHHKbXfZpb3UY7?=
+ =?iso-8859-1?Q?+AWc+4bSZZ4OM4fsxdUzBnKPqs0zG+DsySeFVZedllOIH0+lKFynMopSJ2?=
+ =?iso-8859-1?Q?BaBoparlBIyq9KMLGL6jZIMz4hYgxU9ZAjpgMX9W/Sd4K/kbIp6raDNtcI?=
+ =?iso-8859-1?Q?U8THooCNLNrE8+TJwiSzkaDylaiv6t/Uv0brquZvmdSxG+ak0wTbTXGVlp?=
+ =?iso-8859-1?Q?8pUmnlTHzZgbfEEnBwmXEIeR+f4PcrRfpfuCH778nEMxmT5bwONb2zK37B?=
+ =?iso-8859-1?Q?0WrgiH8pyW75QLkWdGYhj8PDVrHtMqcmfM/1k2nnDu7V042orBn1H3Yr/l?=
+ =?iso-8859-1?Q?LJEI0UiiAhufkQSG256g4vr79lF7q58l9UPHSJVxEWpNSmtWF/n5AelevF?=
+ =?iso-8859-1?Q?Jq/KWnEFsnANhFkrM6gAi88/nmQ/YWyrNyY/XLQToT6+d3V4evaMZb3rjU?=
+ =?iso-8859-1?Q?4R5kt6LVDPPbHmkEODk5tiE5eAxhU6i0zRS96Gu62mhX2I64tLLl6rsyjz?=
+ =?iso-8859-1?Q?cvi03c9J692UuPIo0FJGPnMvyl4ocAqS0281mUhkZ+8pZpGgeSq6env2Af?=
+ =?iso-8859-1?Q?cbP/g5Vgsu39HLyAgRkv8GFSa+VEB9Cdn1glOuTe/vjDI41E6GMIJyJjBz?=
+ =?iso-8859-1?Q?pcyX5AzyG72OHQ5C2Jn7xIMfu5wHNsXFenE1AWCJThkCkbkzWYZwSAU1Cj?=
+ =?iso-8859-1?Q?5hxiuaIh5pwyvOMw6acy1O4zlGZW8qhE4ZGtRijndg5ug1p1Y+Gok49LVJ?=
+ =?iso-8859-1?Q?kdZQcXGVLW1yuHsvSSDKgRDj5klIA+u/IziV7hCqw8b+5F7b1Ga3ksPwU3?=
+ =?iso-8859-1?Q?9GyfS/m9jX5vm6R2ty33eXb3GeAwgqjF3YwODyefBquAbU1i8y71CSUe1u?=
+ =?iso-8859-1?Q?8qPREyOC9ZelOil/b1nOKAv/mU6wpJU4J0JyjI7gtt/kuAM7XbJKTQPbFK?=
+ =?iso-8859-1?Q?M3SwRQxpDSoOvtbLVFV97r3t9KCyrINh4bgXce2KudU7X7XWD02g0n4mKx?=
+ =?iso-8859-1?Q?gzTnRt+8pGcoOGnVKOHWEYCOBtqZRjbQoQTX/9czPq9NYxKE/soKGbsy0y?=
+ =?iso-8859-1?Q?l1kLc4lFgJ64OAUIxWNwliUs3I1+k5HPsaxsdNDb0iYY3yg9FwIx01KsqT?=
+ =?iso-8859-1?Q?11oUYXNgeDaDYVCAvpnCQPvhABd2MWV6/6A/pAKbnN2s1PsVRd0V9MtsYo?=
+ =?iso-8859-1?Q?ZDLpHdQ8761s+RNUiNC39sw7vKvWdVn6tJntzAGHeg/t7s0AuyHnmjUky3?=
+ =?iso-8859-1?Q?KRWymHQ2e13sEg93i3MFzdBKzB1wtCrZ9SXTLJINKH6erFrvCpl5tQ8PXA?=
+ =?iso-8859-1?Q?rbL9VoRsT2zWTsJCgCUaME1IjcprpnV4UPsdL7gIdxjj9lgzjnReS5hmWA?=
+ =?iso-8859-1?Q?YLWaOs1Uv1BZHs2ffTVjK4+QUqTdLgq22kb+ViBStWsCi11v3kk1MdbEh/?=
+ =?iso-8859-1?Q?q3PpcwwhZ9KMgwz0zOfhgWQFMoHG7H2ZLM1ZTD2nBK3qer5PGCfZTBSW7q?=
+ =?iso-8859-1?Q?TolcvNI5nc1A6CrfudpSDy?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB7630.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(10070799003)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?JWhKC3yf/S9xKaWKgySku0xjjqXa3fK8l09pYa++5YvYzBMYzZIwnE8/vK?=
+ =?iso-8859-1?Q?S64vvtT1Hn3crK2NibkPdhbQYlPs30SZnWmAjwKnW+Lxd5E7tFBYTKk2tA?=
+ =?iso-8859-1?Q?JEm/phBMvxhcH79IvoFEfpA325BfxQ8yG4Kdo+GQdKxxGbGMLGvZIClpNj?=
+ =?iso-8859-1?Q?/EYPBoY9mD6l1Ms71BjsO+QWZu8YiNcASJjlqSmPw05emXMFNr0IIj+1ud?=
+ =?iso-8859-1?Q?kqTQPspGjgmB4sgVQjOepj6lE4szdh9kSPcCmiha+/qk6MuNo0EnJMpXZT?=
+ =?iso-8859-1?Q?oRbtMN8Thlvx8zWtDmoOk63Epns8dlml/UZnwf585nmvdUAe4nNREMVh5w?=
+ =?iso-8859-1?Q?mLt9bsJ/oBoPs6DvRAsUQds0yslmnLYEeIOgvW2KR+zKBAYnOZpq0ttHJl?=
+ =?iso-8859-1?Q?6ITj1G3S5vD+DfnScknENAQZAUQa7Tvigr68Z6MgfChPBv8/2Ded/CQXyK?=
+ =?iso-8859-1?Q?RhwVGFHCIEUW426fMqKKZj8NJwByxtokXsFnxkTLAqoAptVVi17CEXDpjy?=
+ =?iso-8859-1?Q?b7Pxr5ay9RO+7WbOOxnxF5ROtPB5UIVZEjFGkY7V+PScvwC9C2XHmtXgHS?=
+ =?iso-8859-1?Q?CjNCaAxNwsTpnl6HCpD5Qt7eLkS/ushwVdJzryc3+iASGI1uq2P/eAhaAi?=
+ =?iso-8859-1?Q?WeQ26crD53cRbg7tr3sIDacjWNuQB+xdLWYpj81bwh3Bxmg8pq79vTMC7K?=
+ =?iso-8859-1?Q?BTIo3FuKISRHeeHqMrtRrSruG7lLWTBXkNTt01LUzXfmCZ0OTmIX0qHv3N?=
+ =?iso-8859-1?Q?9yTj2Cw1c56ZFQDZzDJWEzEbrhXqxaPwIEQf9h456GXcj8FUBcA9sMorRc?=
+ =?iso-8859-1?Q?Iw4EuxWMQCs8GQ7c3yfDSUOA+wytqD8H+JjvPQwfSI855wX1ueFyDQatDg?=
+ =?iso-8859-1?Q?PbMF01ZOJp1BR+jEgJa4MoYAjygZGaa3RFIrDQ8ZuDN0meYpy2ARKm2f7R?=
+ =?iso-8859-1?Q?TVyHYlofK/P5KtO4t2ZFcShQp1SqGqbHc8Pno+vQCDHYP+irBcTqg5/04u?=
+ =?iso-8859-1?Q?dqAALuUsTvjLHgJbALO7/36nATeRXSsxTVk21uzUJHCcasW0V2wvtEil1H?=
+ =?iso-8859-1?Q?+pwBaZ8RkZQPbwnr/vcMB6BOCJmQY0eXWwzl3JEWkb/qI295Wu3jNs6o0K?=
+ =?iso-8859-1?Q?tcZCnqfnuM3GIvjsQM1jLKRqa6EIb2VRV9JW74VD/h7gPVe5XdfiiWttJW?=
+ =?iso-8859-1?Q?e/tYQQ/Q2CbvPE1knXrJr2fPzsd0xkBtGPtcfi0sr/dyOQkGy1M6MGN2YF?=
+ =?iso-8859-1?Q?CwZ048+z7HDbhK0dhO6/Uz8Q80cou9crS+Xple/RjPDzRDD2BrpO0jPkZg?=
+ =?iso-8859-1?Q?CHHv01hhoCPQ58D88ObxY1DCbXfAVIZyTni4tiiU5/cS1KwW0iWP6ZkTzB?=
+ =?iso-8859-1?Q?U6ij5+wmm4kv0Y/UZGoCyYVeBy55G3GRY5k1e03jDmsmhjVqBKmiUhj4ev?=
+ =?iso-8859-1?Q?hkTWmNUjMAXkPJI1Ku3FAHXqv1tPnucRJz55hxFpzi+eaj+IaOtfNaQpqV?=
+ =?iso-8859-1?Q?CQV33NJTpWMa6CM1lbbgbTB9DfNVJ/AfO9FkZQNu8FgWhjhy6O2dBuzWl7?=
+ =?iso-8859-1?Q?IgQqNOxkmaw/E8/7fyAOXxZ7DmXhlNbHf6SYAcxjywyTZldE63mlSQN9za?=
+ =?iso-8859-1?Q?8FIzs868C0IpZ0UUSl/9yc/CpiJShodMFTwwexSvlbeK8D+EPYjgUcxl+o?=
+ =?iso-8859-1?Q?FdyWyhFFqrPMRsFk0QdqOC/X956f8eNNaUQo6wIvAaBa3p8errYdpUlXMg?=
+ =?iso-8859-1?Q?zMwQ=3D=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-In-Reply-To: <20250219193306.1045-1-quic_philber@quicinc.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: MdxfnzIlqbjjDD2RTInEjeUqsuKfEZXo_6SLYbhcTQs_1740485945
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+X-OriginatorOrg: gocontroll.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB7630.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fec05d91-8d6e-4128-3ca3-08dd55974ddb
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Feb 2025 12:24:09.0995
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 4c8512ff-bac0-4d26-919a-ee6a4cecfc9d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: mtmDnLrkqNqTXZiEyYhjqVi/G5RKv2F3oCTmOG2EGENM6b1qXGPWiWlbKc08C/adfYQYpfL+BaBz5Y7ccWlxZDtsZ2G4+Ks6qto0Ab69ekU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10784
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_041909_036317_47F2C289 
-X-CRM114-Status: GOOD (  38.51  )
+X-CRM114-CacheID: sfid-20250225_042420_409368_C5272CA6 
+X-CRM114-Status: GOOD (  23.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,244 +182,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 19, 2025 at 08:32:55PM +0100, Peter Hilber wrote:
-> This series implements a driver for a virtio-rtc device conforming to spec
-> proposal v7 [1]. It includes a PTP clock driver and an RTC class driver
-> with alarm.
-> 
-> v5 updates
-> ==========
-> 
-> Important changes compared to the previous driver series [3] are:
-> 
-> - Update to spec proposal v7 [1].
-> 
-> - Fix multiple initialization related bugs.
-> 
-> - Drop the RFC tag, since no major outstanding issues are apparent.
-> 
-> Overview
-> ========
-> 
-> This patch series adds the virtio_rtc module, and related bugfixes. The
-> virtio_rtc module implements a driver compatible with the proposed Virtio
-> RTC device specification [1]. The Virtio RTC (Real Time Clock) device
-> provides information about current time. The device can provide different
-> clocks, e.g. for the UTC or TAI time standards, or for physical time
-> elapsed since some past epoch. The driver can read the clocks with simple
-> or more accurate methods. Optionally, the driver can set an alarm.
-> 
-> For the Virtio RTC device, there is currently a proprietary implementation,
-> which has been used for testing.
-> 
-> PTP clock interface
-> ===================
-> 
-> virtio_rtc exposes clocks as PTP clocks to userspace, similar to ptp_kvm.
-> If both the Virtio RTC device and this driver have special support for the
-> current clocksource, time synchronization programs can use
-> cross-timestamping using ioctl PTP_SYS_OFFSET_PRECISE2 aka
-> PTP_SYS_OFFSET_PRECISE. Similar to ptp_kvm, system time synchronization
-> with single-digit ns precision is possible with a quiescent reference clock
-> (from the Virtio RTC device). This works even when the Virtio device
-> response is slow compared to ptp_kvm hypercalls.
-> 
-> The following illustrates a test using PTP_SYS_OFFSET_PRECISE, with
-> interspersed strace log and chrony [2] refclocks log, on arm64. In the
-> example, chrony tracks a virtio_rtc PTP clock ("PHCV", /dev/ptp0). The raw
-> offset between the virtio_rtc clock and CLOCK_REALTIME is 0 to 1 ns. At the
-> device side, the Virtio RTC device artificially delays both the clock read
-> request, and the response, by 50 ms. Cross-timestamp interpolation still
-> works with this delay. chrony also monitors a ptp_kvm clock ("PHCK",
-> /dev/ptp3) for comparison, which yields a similar offset.
-> 
-> 	ioctl(5</dev/ptp3>, PTP_SYS_OFFSET_PRECISE, 0xffffe86691c8) = 0 <0.000329>
-> 	===============================================================================
-> 	   Date (UTC) Time         Refid  DP L P  Raw offset   Cooked offset      Disp.
-> 	===============================================================================
-> 	2023-06-29 18:49:55.595742 PHCK    0 N 0  1.000000e-09  8.717931e-10  5.500e-08
-> 	2023-06-29 18:49:55.595742 PHCK    - N -       -        8.717931e-10  5.500e-08
-> 	ioctl(6</dev/ptp0>, PTP_SYS_OFFSET_PRECISE, 0xffffe86691c8) = 0 <0.101545>
-> 	2023-06-29 18:49:56.147766 PHCV    0 N 0  1.000000e-09  8.801870e-10  5.500e-08
-> 	2023-06-29 18:49:56.147766 PHCV    - N -       -        8.801870e-10  5.500e-08
-> 	ioctl(5</dev/ptp3>, PTP_SYS_OFFSET_PRECISE, 0xffffe86691c8) = 0 <0.000195>
-> 	2023-06-29 18:49:56.202446 PHCK    0 N 0  1.000000e-09  7.364180e-10  5.500e-08
-> 	2023-06-29 18:49:56.202446 PHCK    - N -       -        7.364180e-10  5.500e-08
-> 	ioctl(6</dev/ptp0>, PTP_SYS_OFFSET_PRECISE, 0xffffe86691c8) = 0 <0.101484>
-> 	2023-06-29 18:49:56.754641 PHCV    0 N 0  0.000000e+00 -2.617368e-10  5.500e-08
-> 	2023-06-29 18:49:56.754641 PHCV    - N -       -       -2.617368e-10  5.500e-08
-> 	ioctl(5</dev/ptp3>, PTP_SYS_OFFSET_PRECISE, 0xffffe86691c8) = 0 <0.000270>
-> 	2023-06-29 18:49:56.809282 PHCK    0 N 0  1.000000e-09  7.779321e-10  5.500e-08
-> 	2023-06-29 18:49:56.809282 PHCK    - N -       -        7.779321e-10  5.500e-08
-> 	ioctl(6</dev/ptp0>, PTP_SYS_OFFSET_PRECISE, 0xffffe86691c8) = 0 <0.101510>
-> 	2023-06-29 18:49:57.361376 PHCV    0 N 0  0.000000e+00 -2.198794e-10  5.500e-08
-> 	2023-06-29 18:49:57.361376 PHCV    - N -       -       -2.198794e-10  5.500e-08
-> 
-> This patch series only adds special support for the Arm Generic Timer
-> clocksource. At the driver side, it should be easy to support more
-> clocksources.
-> 
-> Fallback PTP clock interface
-> ----------------------------
-> 
-> Without special support for the current clocksource, time synchronization
-> programs can still use ioctl PTP_SYS_OFFSET_EXTENDED2 aka
-> PTP_SYS_OFFSET_EXTENDED. In this case, precision will generally be worse
-> and will depend on the Virtio device response characteristics.
-> 
-> The following illustrates a test using PTP_SYS_OFFSET_EXTENDED, with
-> interspersed strace log and chrony refclocks log, on x86-64 (with `ts'
-> values omitted):
-> 
-> 	ioctl(5, PTP_SYS_OFFSET_EXTENDED, {n_samples=10, ts=OMITTED}) = 0
-> 	===============================================================================
-> 	   Date (UTC) Time         Refid  DP L P  Raw offset   Cooked offset      Disp.
-> 	===============================================================================
-> 	2023-06-28 14:11:26.697782 PHCV    0 N 0  3.318200e-05  3.450891e-05  4.611e-06
-> 	2023-06-28 14:11:26.697782 PHCV    - N -       -        3.450891e-05  4.611e-06
-> 	ioctl(5, PTP_SYS_OFFSET_EXTENDED, {n_samples=10, ts=OMITTED}) = 0
-> 	2023-06-28 14:11:27.208763 PHCV    0 N 0 -3.792800e-05 -4.023965e-05  4.611e-06
-> 	2023-06-28 14:11:27.208763 PHCV    - N -       -       -4.023965e-05  4.611e-06
-> 	ioctl(5, PTP_SYS_OFFSET_EXTENDED, {n_samples=10, ts=OMITTED}) = 0
-> 	2023-06-28 14:11:27.722818 PHCV    0 N 0 -3.328600e-05 -3.134404e-05  4.611e-06
-> 	2023-06-28 14:11:27.722818 PHCV    - N -       -       -3.134404e-05  4.611e-06
-> 	ioctl(5, PTP_SYS_OFFSET_EXTENDED, {n_samples=10, ts=OMITTED}) = 0
-> 	2023-06-28 14:11:28.233572 PHCV    0 N 0 -4.966900e-05 -4.584331e-05  4.611e-06
-> 	2023-06-28 14:11:28.233572 PHCV    - N -       -       -4.584331e-05  4.611e-06
-> 	ioctl(5, PTP_SYS_OFFSET_EXTENDED, {n_samples=10, ts=OMITTED}) = 0
-> 	2023-06-28 14:11:28.742737 PHCV    0 N 0  4.902700e-05  5.361388e-05  4.611e-06
-> 	2023-06-28 14:11:28.742737 PHCV    - N -       -        5.361388e-05  4.611e-06
-> 
-> PTP clock setup
-> ---------------
-> 
-> The following udev rule can be used to get a symlink /dev/ptp_virtio to the
-> UTC clock:
-> 
-> 	SUBSYSTEM=="ptp", ATTR{clock_name}=="Virtio PTP type 0, variant 0", SYMLINK += "ptp_virtio"
-> 
-> The following chrony configuration directive can then be added in
-> /etc/chrony/chrony.conf to synchronize to the Virtio UTC clock:
-> 
-> 	refclock PHC /dev/ptp_virtio refid PHCV poll -1 dpoll -1
-> 
-> RTC interface
-> =============
-> 
-> This patch series adds virtio_rtc as a generic Virtio driver, including
-> both a PTP clock driver and an RTC class driver.
-> 
-> Feedback is greatly appreciated.
-> 
-> [1] https://lore.kernel.org/virtio-comment/20250123101616.664-1-quic_philber@quicinc.com/
-> [2] https://chrony.tuxfamily.org/
-> [3] https://lore.kernel.org/lkml/20241219201118.2233-1-quic_philber@quicinc.com/
-> 
-> Changelog
-> =========
-> 
-> v5:
-> 
-> - Update to virtio-rtc spec v7, essentially removing definitions.
-> 
-> - Fix multiple bugs after readying device during probe and restore.
-> 
-> - Actually initialize Virtio clock id for RTC class device.
-> 
-> - Add freeze/restore ops already in first patch.
-> 
-> - Minor changes:
-> 
->   - Use new APIs devm_device_init_wakeup(), secs_to_jiffies().
-> 
->   - Fix style issues.
-> 
->   - Improve logging types and clarity.
-> 
->   - Drop unnecessary memory barrier pair.
-> 
->   - Return error status from device, whenever available.
-> 
-> v4:
-> 
-> - Update Virtio interface to spec v6.
-> 
-> - Distinguish UTC-like clocks by handling of leap seconds (spec v6).
-> 
-> - Do not create RTC class device for clocks which may step on leap seconds
->   (Alexandre Belloni).
-> 
-> - Clear RTC class feature bit instead of defining reduced ops
->   (Alexandre Belloni).
-> 
-> - For PTP clock name, always use numeric clock type, and numeric variant.
-> 
-> - Use macros for 64-bit divisions.
-> 
-> - Remove unnecessary memory barriers.
-> 
-> - Cosmetic improvements.
-> 
-> - Drop upstreamed timekeeping bugfixes from series.
-> 
-> v3:
-> 
-> - Update to conform to virtio spec RFC v3 (no significant behavioral
->   changes).
-> 
-> - Add RTC class driver with alarm according to virtio spec RFC v3.
-> 
-> - For cross-timestamp corner case fix, switch back to v1 style closed
->   interval test (Thomas Gleixner).
-> 
-> v2:
-> 
-> - Depend on patch series "treewide: Use clocksource id for
->   get_device_system_crosststamp()" to avoid requiring a clocksource pointer
->   with get_device_system_crosststamp().
-> 
-> - Assume Arm Generic Timer will use CP15 virtual counter. Drop
->   arm_arch_timer helper functions (Marc Zyngier).
-> 
-> - Improve cross-timestamp fixes problem description and implementation
->   (John Stultz).
-> 
-> 
-> Peter Hilber (4):
->   virtio_rtc: Add module and driver core
->   virtio_rtc: Add PTP clocks
->   virtio_rtc: Add Arm Generic Timer cross-timestamping
->   virtio_rtc: Add RTC class driver
-> 
->  MAINTAINERS                          |    7 +
->  drivers/virtio/Kconfig               |   64 ++
->  drivers/virtio/Makefile              |    5 +
->  drivers/virtio/virtio_rtc_arm.c      |   23 +
->  drivers/virtio/virtio_rtc_class.c    |  262 +++++
->  drivers/virtio/virtio_rtc_driver.c   | 1404 ++++++++++++++++++++++++++
->  drivers/virtio/virtio_rtc_internal.h |  122 +++
->  drivers/virtio/virtio_rtc_ptp.c      |  347 +++++++
->  include/uapi/linux/virtio_rtc.h      |  237 +++++
-
-
-Also, should this driver live under
-./drivers/rtc/virtio/
-
-?
-
-
-
->  9 files changed, 2471 insertions(+)
->  create mode 100644 drivers/virtio/virtio_rtc_arm.c
->  create mode 100644 drivers/virtio/virtio_rtc_class.c
->  create mode 100644 drivers/virtio/virtio_rtc_driver.c
->  create mode 100644 drivers/virtio/virtio_rtc_internal.h
->  create mode 100644 drivers/virtio/virtio_rtc_ptp.c
->  create mode 100644 include/uapi/linux/virtio_rtc.h
-> 
-> 
-> base-commit: 8936cec5cb6e27649b86fabf383d7ce4113bba49
-> -- 
-> 2.43.0
-
+From:=A0Krzysztof Kozlowski <krzk@kernel.org>=0A=
+Sent:=A0Tuesday, February 25, 2025 12:52 PM=0A=
+=A0=0A=
+>On Tue, Feb 25, 2025 at 07:39:52AM +0000, Maud Spierings | GOcontroll wrot=
+e:=0A=
+>> From:=A0Rob Herring <robh@kernel.org>=0A=
+>> Sent:=A0Monday, February 24, 2025 9:44 PM=0A=
+>> =A0=0A=
+>> >On Mon, Feb 24, 2025 at 02:50:55PM +0100, Maud Spierings wrote:=0A=
+>> >> The main point of the Moduline series of embedded controllers is its=
+=0A=
+>> >> ecosystem of IO modules, these currently are operated through the spi=
+dev=0A=
+>> >> interface. Ideally there will be a full dedicated driver in the futur=
+e.=0A=
+>> >>=0A=
+>> >> Add the gocontroll moduline-module-slot device to enable the required=
+=0A=
+>> >> spidev interface.=0A=
+>> >>=0A=
+>> >> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>=0A=
+>> >> ---=0A=
+>> >>=A0 Documentation/devicetree/bindings/trivial-devices.yaml | 2 ++=0A=
+>> >>=A0 1 file changed, 2 insertions(+)=0A=
+>> >>=0A=
+>> >> diff --git a/Documentation/devicetree/bindings/trivial-devices.yaml b=
+/Documentation/devicetree/bindings/trivial-devices.yaml=0A=
+>> >> index 8255bb590c0cc619d15b27dcbfd3aa85389c0a54..24ba810f91b73efdc615c=
+7fb46f771a300926f05 100644=0A=
+>> >> --- a/Documentation/devicetree/bindings/trivial-devices.yaml=0A=
+>> >> +++ b/Documentation/devicetree/bindings/trivial-devices.yaml=0A=
+>> >> @@ -107,6 +107,8 @@ properties:=0A=
+>> >>=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 - fsl,mpl3115=0A=
+>> >>=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 # MPR121: Proximity Capacitive=
+ Touch Sensor Controller=0A=
+>> >>=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 - fsl,mpr121=0A=
+>> >> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 # GOcontroll Moduline module slot =
+for spi based IO modules=0A=
+>> >=0A=
+>> >I couldn't find anything about SPI for GOcontroll Moduline. Can you=0A=
+>> >point me to what this hardware looks like. Based on what I did find,=0A=
+>> >this seems incomplete and not likely a trivial device.=0A=
+>>=0A=
+>> I'll give some more details, if there is a v2 of this patch I will also=
+=0A=
+>> add more information in the commit message.=0A=
+>>=0A=
+>> The module slots have a number of pins, a lot of them currently unused a=
+s=0A=
+>> they have not found a function yet, this is very much still a developing=
+=0A=
+>> product. The currently used interfaces to the SoC are:=0A=
+>> 1. SPI bus as a spidev to ease developing new modules and quickly=0A=
+>> integrate them. This is the main communication interface for control and=
+=0A=
+>> firmware updates.=0A=
+>> 2. A reset pin, this is/was driven with the gpio-led driver but I doubt=
+=0A=
+>> that would get accepted upstream so I intend to switch to the much bette=
+r=0A=
+>> suited libgpio.=0A=
+>=0A=
+>reset-gpios is not in trivial devices, so that's already a hint you=0A=
+>cannot use this binding.=0A=
+>=0A=
+>> 3. An interrupt pin, this is currently only used in the firmware update=
+=0A=
+>> utility [2] to speed up the update process. Other communication is done =
+at=0A=
+>> a regular interval.=0A=
+>>=0A=
+>> What is unused:=0A=
+>> 1. A potentially multi-master i2c bus between all the module slots and=
+=0A=
+>> the SoC=0A=
+>> 2. An SMBus alert line is shared between the modules, but not the SoC.=
+=0A=
+>> 3. A shared line designated as a clock line, intended to in the future=
+=0A=
+>> aid with synchronizing modules to each other for time critical control.=
+=0A=
+>>=0A=
+>> current software that is used to work with the modules can be found at=
+=0A=
+>> [2] and [3], one of them is a Node-RED module the other is a blockset fo=
+r=0A=
+>> Matlab/Simulink generated code.=0A=
+>>=0A=
+>> If you know a better way I could describe this in the devicetree then I=
+=0A=
+>=0A=
+>You need dedicated binding where you describe entire device, entire=0A=
+>hardware, not what your driver supports in current release.=0A=
+=0A=
+I see now that I also forgot the patch that adds this compatible to the=0A=
+spidev driver. Didn't check for the spidevs in testing I guess.=0A=
+=0A=
+Could I write bindings for this device, and then add the compatible to the=
+=0A=
+spidev driver for now? So it probes that driver, and then later when there=
+=0A=
+is a driver remove the compatible there and keep it only in the purpose=0A=
+built driver?=0A=
+=0A=
+So I'll write gocontroll,moduline-module-slot.yaml, don't quite know where=
+=0A=
+that would go. Define all these attributes in there and then add the =0A=
+compatible to drivers/spi/spidev.c=0A=
+=0A=
+Is that okay?=0A=
+=0A=
+Kind regards,=0A=
+Maud=0A=
 
