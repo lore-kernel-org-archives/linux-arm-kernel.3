@@ -4,75 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76EA9C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 21:39:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 049AEC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 21:41:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9CXSgSobSN6MAkSctVfHz4AtsXi3OTiuQS0F8D/auXY=; b=C0r9TJoN1iYzFPTsbCKe77H5Mh
-	xrT5Fc+dCilIzL+NOk3VKjZTfuoSTS1uHEw2PHKQY9ITrgoO89B92clc3RbHPdaBAmCvohevGtT55
-	lyUshfrr4ZPZcayMKRaGlYwnrJ7cwU/ahoRt+8GQbGsW3bXgJkUj5XPXf0dQnFgdPbRmChmGBiCWc
-	oeor+/MYUfxzmORIOHEZT0oguYKvB56xJFdCZKtCX/PZ7TbSN29mNqhkUhxwmeeC8rnRl/895J5ix
-	g3GeJArj1bWpZm7Rf5r4BU0QH8trSWDaJMAss42Sx5siNk6xFT7ERQB+d1FT0lTHN9mvpmm4NIy3r
-	ul/mec5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Raa+xM6sthb3/7PRCr5ZwQZWNe15UoSvPC3VoY1zs3A=; b=4ruT/OQMBayZEyKGcf0FGMvJGg
+	gODyqiWDBY+e2Dyk2Q1y+czEhFNzNVIlfRl+pzK5CQEAY3oiTcTeV3SgfC129NfYL+/Q/6O76OdML
+	Y+MUvgpqaRVyzf6606I4GTRrqQBsauSvUxvw8h8TvWKi/Lqz7lZ4oLS8yGftjUKmyHKj235yL1XgX
+	z30nGFQMkVFgK2hjsEfRzE/+6DgnIGMAByWkgSoa4fgRtQ8h+ZoUZhE9BdVP1JDGiN/AFS8oDLxz/
+	RJucjvgA7kSonaPMnLbKjYG1aae0b6UNT4+uxGoG1TtZBrndlL/732g+gPD5AoevGG68G7pBcB5ue
+	9lqazGCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn2eZ-00000001aNF-30wH;
-	Tue, 25 Feb 2025 21:39:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tn2g5-00000001afX-1nuZ;
+	Tue, 25 Feb 2025 21:41:21 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn2Ys-00000001ZYp-0KQm
+	id 1tn2ad-00000001ZnI-1kH7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 21:33:54 +0000
+	Tue, 25 Feb 2025 21:35:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 718D7611FD;
-	Tue, 25 Feb 2025 21:33:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60A96C4CEDD;
-	Tue, 25 Feb 2025 21:33:49 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 06F2E5C5471;
+	Tue, 25 Feb 2025 21:35:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A33E7C4CEDD;
+	Tue, 25 Feb 2025 21:35:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740519233;
-	bh=tkbCqHo/M713wubuDMEEG8+yMclhPNrm1rcQ6FSts+o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TUVwHF4idDLldp3ni+zD6Po2mDLxrhVLakNSqszU3zbQtr5e9xIGitGwChQE8DPty
-	 Yz5Z37+uCs+Ag6oqZaPNV16ZccNfN5Q0NGjkBbjLSJxGUWhLG8dunPdnf9aDZAVFDN
-	 A5ppwCURBwrA67y0QNq46iqUHnKNlS11WU9CS4WWrXccACpiwlVjkMplEN0ODd+rSG
-	 xU2XqCOFIf7BkBuk9hMdGE3pZrB4Ib5RNgWAkCry50jaInzT1QvI5AnzbpWx681fOl
-	 HWkmPI2rPNkN6tN+yOuiTpX11ZVDTedYmiMJHHye4PL5SuRN6osuO4UC9Pvo0C3cF4
-	 8x/2FoVjESVYg==
-Date: Tue, 25 Feb 2025 21:33:46 +0000
-From: Will Deacon <will@kernel.org>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Harald Freudenberger <freude@linux.ibm.com>,
-	Holger Dengler <dengler@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Eric Biggers <ebiggers@google.com>,
-	James Bottomley <James.Bottomley@HansenPartnership.com>,
-	Jarkko Sakkinen <jarkko@kernel.org>, linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org, linux-s390@vger.kernel.org
-Subject: Re: [PATCH] crypto: lib/Kconfig - fix chacha/poly1305 dependencies
- more more
-Message-ID: <20250225213344.GA23792@willie-the-truck>
-References: <20250225164216.4807-1-arnd@kernel.org>
+	s=k20201202; t=1740519342;
+	bh=XJj6XvkQZvZnU7KV6XAood8YWkTdHu5c0H1A7ovBxzA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=W4QWIyo+ORQaPhjAKpxtAyBeafgO/6U/xTq6EytlUr0Uz8heSzfshCaIyL7vU+tJR
+	 WQtV1sSGREk12FhQJOIxuU4gW2pzest2Qzjgd74VM7dUbAbHL/oCN7GrzVq8RN3MXW
+	 pPfKHUdTym7mzGyeRVIoChmJ3uu+xmW7o24EaPzgIDie2n9GHzouLYoQAAkBIPHJuL
+	 rS9FL4fB6jgthJtfTSPJDs7Hx/fJcHfj1YSFtOBxoPy9cri7yCNJk1aBhBK2whcPqq
+	 kN6q2tVKUXUDtvAbBEiwnG1hEp6wL8wrjo+OZZe9F+9mJ7onV46DrisiMzc0rKOvVE
+	 DjsTZXG/0KZ8g==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Russell King <linux@armlinux.org.uk>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ARM: fixmap: make __end_of_early_ioremap_region an enum value
+Date: Tue, 25 Feb 2025 22:35:34 +0100
+Message-Id: <20250225213539.3236070-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250225164216.4807-1-arnd@kernel.org>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250225_133543_498972_27AC7E30 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,27 +70,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 05:42:07PM +0100, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> A recent change tries to fix Kconfig dependencies, but introduced
-> two problems in the process:
-> 
->  - only arm, powerpc and x86 are changed, while mips, arm64 and s390
->    are now broken
-> 
->  - there are now configurations where the architecture enables its
->    own helper functions as loadable modules, but they remain silently
->    unused because CRYPTO_LIB_* falls back to the generic helpers
-> 
-> Address both by changing the logic again: the architecture functions
-> select CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA, which may be a loadable
-> module or built-in, and this controls whether the library is
-> also built-in.
-> 
-> Fixes: 04f9ccc955c7 ("crypto: lib/Kconfig - Fix lib built-in failure when arch is modular")
+From: Arnd Bergmann <arnd@arndb.de>
 
-Which tree contains this change? I can't seem to resolve the SHA locally.
+Building with W=1 shows warnings for the __end_of_fixed_addresses
+definition:
 
-Will
+    In file included from mm/early_ioremap.c:18:
+    arch/arm/include/asm/fixmap.h:39:35: error: '__end_of_fixed_addresses' defined but not used [-Werror=unused-const-variable=]
+
+Move the calculation slightly up in the file into the enum that
+contains __end_of_fixmap_region and __end_of_early_ioremap_region.
+
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ arch/arm/include/asm/fixmap.h | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+
+diff --git a/arch/arm/include/asm/fixmap.h b/arch/arm/include/asm/fixmap.h
+index 707068f852c2..90e0bd79b180 100644
+--- a/arch/arm/include/asm/fixmap.h
++++ b/arch/arm/include/asm/fixmap.h
+@@ -33,12 +33,11 @@ enum fixed_addresses {
+ 
+ 	FIX_BTMAP_END = __end_of_permanent_fixed_addresses,
+ 	FIX_BTMAP_BEGIN = FIX_BTMAP_END + TOTAL_FIX_BTMAPS - 1,
+-	__end_of_early_ioremap_region
+-};
++	__end_of_early_ioremap_region,
+ 
+-static const enum fixed_addresses __end_of_fixed_addresses =
+-	__end_of_fixmap_region > __end_of_early_ioremap_region ?
+-	__end_of_fixmap_region : __end_of_early_ioremap_region;
++	__end_of_fixed_addresses = __end_of_fixmap_region > __end_of_early_ioremap_region ?
++				   __end_of_fixmap_region : __end_of_early_ioremap_region,
++};
+ 
+ #define FIXMAP_PAGE_COMMON	(L_PTE_YOUNG | L_PTE_PRESENT | L_PTE_XN | L_PTE_DIRTY)
+ 
+-- 
+2.39.5
+
 
