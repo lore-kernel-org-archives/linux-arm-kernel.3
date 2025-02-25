@@ -4,116 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFFE6C021BB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 11:18:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C863C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 11:20:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oh6sf/0cKXadcZmQR4PGzWs7fubxPpGtogL6k9WOu9g=; b=zmOUw605uG8zHFI1FssDSV50ov
-	ylRpVwyi7Gm7c9dRb6XBN2IBE1GFB96mh+MRORNqfUAEXAv6Zq5czIJLEl8AQYy1xPt7IkyRUA48H
-	szZjJ2mooKBh9YIkM98W3uetjog3YE1v2buJUsUm0mr2yDlZwbsGfxGw01qgnhzDfy6UpOAsmdCFU
-	jhYfJXO7dJtNFGNwG/r5TKGp1kcsg0bPU60aCiM+JNoDys2/YMTnEF+nxnRtMYOikR76m2D/7mcpP
-	qx3iglXMkt0e1xRuVCN5TYjoUYgzapmLBzbU+FV9W0cpavgMT6xb9h3ZudSkyF/BuIDP5O7/X6pHm
-	XzciPGZw==;
+	bh=BLyynCt450Utx2Z4sB12bYa6WPePLKZjdTj9AHDawWQ=; b=ViS0GgBIqeH/acTAjxxtmQTiKF
+	H1Mw20VqFh7oYSjcFamY0wXgx2LRmLoL9Wm2+jySW0ODunOGFbpmxkyON5dRiQu2FtLfEboQVb1dE
+	trqjWlfzq/QOCekKWaiA/dhhOJdWwbibfjruAKrJZcunKpp5uFF9+Qg15Xw6FGFGSCf5bhbkWPdmb
+	zt37nULr0v46bsWMWaAL9pYdpUwkX2+f6qvjlRviCUWTcmvIDpGPFi/NpyxP1T/5Nr+7B/We926/a
+	eWvoh26S1UvWHjLH/JQHrWAQzjt1qq93BRjqW2CpiXzokt40fAZ6Os7t8TfcGJfxZIpJw8kNj2Ksa
+	adBMsaTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmsxD-0000000H0OH-05r5;
-	Tue, 25 Feb 2025 11:18:23 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1tmsyi-0000000H0fF-3Ioh;
+	Tue, 25 Feb 2025 11:19:56 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmsXs-0000000GuC3-2lkX
+	id 1tmrf5-0000000Ghpa-3zds
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 10:52:14 +0000
-Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-30a317e4c27so46890261fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 02:52:12 -0800 (PST)
+	Tue, 25 Feb 2025 09:55:37 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5461cb12e39so5193852e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 01:55:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740480731; x=1741085531; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Oh6sf/0cKXadcZmQR4PGzWs7fubxPpGtogL6k9WOu9g=;
-        b=YdFbdsTwRMW4rmi1dsRXXIXZ4+6uhKucM1f8suBf6UMHVkdevv8q70/8FaNqleNRIE
-         4txrlMubd80ZnKES0oE6kI5qDknTZwAXGE0hODiHzeKQ1TkS0cNngsE6VfStF/5OC9ml
-         M0yIEPt+dVKiwzTESRIOu/dcOcECXc5y4xHGYts2t6NbPGV7v9Q/YsIRrFGSBxfzEMRl
-         R151Y7eaegj0xQZVt4W9uUm3i58m2ANtlhkwFjTmt7RijL0PyDn9samnr/qdImOvz8NL
-         EOXSrWI3ubiv7lmO97kdDQajUBPUSlBeecp8d3PsTho9ssi3kKzMYQGlIuD/Cn6uVdGl
-         HFPw==
+        d=linaro.org; s=google; t=1740477334; x=1741082134; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=BLyynCt450Utx2Z4sB12bYa6WPePLKZjdTj9AHDawWQ=;
+        b=Mjsa+PHbFrIbqDYCVgaumbeIsLUnQqk0Uw+7PNmpTq7d/H6Y08PrZRrwmXS3+Q2/jT
+         l22aJA66gWAH58+2qOHhlsM2+vVRBgQtcZv2Vf4DLINJJPWWQ4R9bHqUayi/vrr+mCFO
+         B1puBek4Y390+oeeIiJ8Az08XP90xeH5vViJ6/5xIrP5eIa8X3NIl7c3Jr6IPBYaJdO+
+         gFZcR+vHpYTn7AJf22h4DiNZhPVFZDv4N3EyA9+//RqmtOxWdbT/JRkthr2BDUgRuvr7
+         1IcygF14UGl0SVAAaWxIHM7tCi0C179EqzzwHenOH/GL1W1GtbUFOlVrCmb+/TgnlU8w
+         uH/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740480731; x=1741085531;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Oh6sf/0cKXadcZmQR4PGzWs7fubxPpGtogL6k9WOu9g=;
-        b=SjBQChAaMqX7CHZDiwJasRX9rU/3Plj+GSPid6Ay2CYKvjd3o9sUQcPBYME4bDd04z
-         NLoYnlW07JprGciEPRquKatWAHn/jUcxCOJNnMsELmgYzUC2kSN3dUbvx3e/kelVRUi+
-         VlK6wFoO6xJHVNAmuwSyCk24oph+HifrNL8DEQj5sRU8opGuoGTO52tAhnvtDxMj9LzR
-         /udQvKXj07DuMSOJwAcXtUR2TG2Dz22xVwemVQFP2i0QTsOKVIy7X4Yf/LzMtFl9JubT
-         LDIakWc3kFAnUDNks3tlZaG007q2czlPAquFfBHwd5pEel7W7EfcSGk29YbMAZ8tap6v
-         18Pg==
-X-Forwarded-Encrypted: i=1; AJvYcCWefGdyP4Rhqgi1hSTb1PJgof2xc5zUmCt7s/zr4U1gCYmBuZBbPfBsWOXbXktSzTBtjNG+G3guSOkV+b9UDfQe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyf9idMr3d0pUOAZ7U1LB+tzyosT0qOG44AUBDJneYCCKxckZ3K
-	0TchYyyBSOu50Y8TSsuI8XqrBqtnzmxZCbaGA3GfMh02/W5uhl4j
-X-Gm-Gg: ASbGncud6KChGvKlKK7ED3TC1WBmfvvITQzUfXBLsBul4aRsp7l44mIX0tjp5vvg1gh
-	R0OgtMIygimz2Wf5N53MmD5BsZx5xahrAQGJ6qgISbaEkGNlNrrDrjFs3yedMbNdT8D3uMHVgiM
-	u9ybeLq31K6QJqM+ZScQzvtoGIA+yEzoVM2KUrPHj9aUnh1lIj39blTSjXSZ2EbgbIKIE6C0MUY
-	O9XCho6RsNIxd8Ov7PWGx5g9E0apd0ky/AhB5i1Qb1ei06CmBuiArBGWst06zaKdYWc6w6DVmIc
-	edqY2HLqpftHVKk5nqPlBVG3GehGIz3k5GnnChg=
-X-Google-Smtp-Source: AGHT+IHos/L3fbLnhOLot3czcjTdpc0kSS3ue5NjEpFQm5GfsKczAy1WAOw0rIcb+pgC1rLfhfv55g==
-X-Received: by 2002:a2e:98da:0:b0:300:de99:fcc7 with SMTP id 38308e7fff4ca-30a80cb8079mr9573441fa.36.1740480730280;
-        Tue, 25 Feb 2025 02:52:10 -0800 (PST)
-Received: from [172.16.183.207] ([213.255.186.46])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30a81ac3190sm1936591fa.80.2025.02.25.02.52.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 25 Feb 2025 02:52:09 -0800 (PST)
-Message-ID: <f92724d5-e9b9-4cdd-8443-4866946d4568@gmail.com>
-Date: Tue, 25 Feb 2025 12:52:08 +0200
+        d=1e100.net; s=20230601; t=1740477334; x=1741082134;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BLyynCt450Utx2Z4sB12bYa6WPePLKZjdTj9AHDawWQ=;
+        b=Y0DTgQv9MQtBaO2hoea0MGTOcpFohxDFQrufubnx0+6+TidhE60DY4uVvveCZY3Vte
+         LFEK8tWQcxd80bP0eS2jJty4lX8gnh7uTY7/da2r/HsDedgGQwFB08OWLq11XTXGu3iM
+         xvgclWkTsVyb4YSoNw35qJGySeZrIa24uSgXANcOpnNMVY8FthhL8xjH/cWJQyaNwZ64
+         6SLF5mQm83xCxuAyzga7VvRTR0iJuxobNRL608kCo4P16tjZ9C/kXIguChLURQJnsXGo
+         +GRx5F2ooXpoMop15/4uVWHRkK8kYR0YY72GQdCDTlNPa6aV4vUpDFEo0dmTXn8tWqnk
+         KjYg==
+X-Gm-Message-State: AOJu0YzPd+uc62lg2dASx1xCHV8cNvVHNauFssSTmPMDZgZig2YAIE2Q
+	yCzx7Wr0F8Upqv3kiO3K9d3Pfh2urxwTCcD+Fpab/xbLspnbGmW94CLai+NmFiY=
+X-Gm-Gg: ASbGnculDi6WzcJDtCvvMPzipOnza9R7vAFMoLXVMT5mzC2vP3M5YK8lmfsyBFUJl90
+	jngFZcsuDeuct1uzGh0GsFrbqKrgnxMaE0n5yFfHaRBR7Er7G9vSX8ZtWZMObjW6maFL5n5qZ1i
+	0Lpy5aNG5pHDLaKcAHkpKRAjbGQXFoSXC3X5vHIHRTuWxgcqvlDtJO2k5Cc4BSp7XyXmY1SZI7r
+	FkTu0rJoYDWFAqLcX1/sW8Drq1gdAQO+mP3Lwgy/43J+LM/9jetLlkah7BpZxMItHkTpiuJD8YK
+	VZYRlqb/Og+5KarU5Oa1hNmYYm6DUMVqgk2E
+X-Google-Smtp-Source: AGHT+IHp3UDsNY1OdXjOXmJRnD8oRCpL6CgaUimOK/pVgJHgRaGWijdZG0cBnNzC1r8eEV5WV+PGEA==
+X-Received: by 2002:a05:6512:68b:b0:545:cd5:84d9 with SMTP id 2adb3069b0e04-54838ee7b55mr6011950e87.12.1740477334328;
+        Tue, 25 Feb 2025 01:55:34 -0800 (PST)
+Received: from [192.168.1.140] ([85.235.12.238])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-548514b261esm132867e87.24.2025.02.25.01.55.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Feb 2025 01:55:33 -0800 (PST)
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 25 Feb 2025 10:55:17 +0100
+Subject: [PATCH v5 30/31] ARM: entry: Block IRQs in early IRQ context
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 02/10] property: Add
- device_get_child_node_count_named()
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
- Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Daniel Scally <djrscally@gmail.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Hugo Villeneuve <hvilleneuve@dimonoff.com>, Nuno Sa <nuno.sa@analog.com>,
- David Lechner <dlechner@baylibre.com>,
- Javier Carrasco <javier.carrasco.cruz@gmail.com>,
- Guillaume Stols <gstols@baylibre.com>,
- Olivier Moysan <olivier.moysan@foss.st.com>,
- Dumitru Ceclan <mitrutzceclan@gmail.com>,
- Trevor Gamblin <tgamblin@baylibre.com>,
- Matteo Martelli <matteomartelli3@gmail.com>,
- Alisa-Dariana Roman <alisadariana@gmail.com>,
- Ramona Alexandra Nechita <ramona.nechita@analog.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev
-References: <cover.1740421248.git.mazziesaccount@gmail.com>
- <29ec24f1498392cafbecc0e0c0e23e1ce3289565.1740421248.git.mazziesaccount@gmail.com>
- <Z72QAOA9xXbP16K-@kuha.fi.intel.com> <Z72Zp8tpnvlFGdQ_@smile.fi.intel.com>
- <ad39b453-7e5b-49bd-a4fd-6a4988636130@gmail.com>
- <Z72d7TzZ21WITW3f@smile.fi.intel.com>
-Content-Language: en-US, en-AU, en-GB, en-BW
-From: Matti Vaittinen <mazziesaccount@gmail.com>
-In-Reply-To: <Z72d7TzZ21WITW3f@smile.fi.intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250225-arm-generic-entry-v5-30-2f02313653e5@linaro.org>
+References: <20250225-arm-generic-entry-v5-0-2f02313653e5@linaro.org>
+In-Reply-To: <20250225-arm-generic-entry-v5-0-2f02313653e5@linaro.org>
+To: Dmitry Vyukov <dvyukov@google.com>, Oleg Nesterov <oleg@redhat.com>, 
+ Russell King <linux@armlinux.org.uk>, Kees Cook <kees@kernel.org>, 
+ Andy Lutomirski <luto@amacapital.net>, Will Drewry <wad@chromium.org>, 
+ Frederic Weisbecker <frederic@kernel.org>, 
+ "Paul E. McKenney" <paulmck@kernel.org>, 
+ Jinjie Ruan <ruanjinjie@huawei.com>, Arnd Bergmann <arnd@arndb.de>, 
+ Ard Biesheuvel <ardb@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Linus Walleij <linus.walleij@linaro.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_025212_703236_A632B9FA 
-X-CRM114-Status: GOOD (  19.68  )
+X-CRM114-CacheID: sfid-20250225_015536_007833_F91B8BF1 
+X-CRM114-Status: GOOD (  19.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,47 +103,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/02/2025 12:39, Andy Shevchenko wrote:
-> On Tue, Feb 25, 2025 at 12:29:31PM +0200, Matti Vaittinen wrote:
->> On 25/02/2025 12:21, Andy Shevchenko wrote:
->>> On Tue, Feb 25, 2025 at 11:40:16AM +0200, Heikki Krogerus wrote:
->>>>> +/**
->>>>> + * device_get_child_node_count_named - number of child nodes with given name
->>>>> + *
->>>>> + * Scan device's child nodes and find all the nodes with a specific name and
->>>>> + * return the number of found nodes. Potential '@number' -ending for scanned
->>>>> + * names is ignored. Eg,
->>>>> + * device_get_child_node_count(dev, "channel");
->>>>> + * would match all the nodes:
->>>>> + * channel { }, channel@0 {}, channel@0xabba {}...
->>>>> + *
->>>>> + * @dev: Device to count the child nodes for
+When dabt, pabt or und exceptions occur on ARM, ordinary
+interrupts (IRQs) can still happen. This isn't nice for the
+kernels context tracker, which expect (when using generic
+entry at least) that any nested IRQs happens
+between irqentry_enter() and irqentry_exit(), else it
+thinks something is fishy.
 
-...
+This change blocks interrupts in the pabt, dabt, und and
+abt exception paths (all of them really) by unconditionally
+setting PSR_I_BIT in the early exception handler, until
+after context has been established with irqentry_enter()
+and before it is exited with irqentry_exit(). Inside the
+context-tracked exception handler we enable IRQs again,
+and once we leave it we disable them while exiting the
+exception.
 
->>>> I did not check how many users are you proposing for this, but if
->>>> there's only one, then IMO this should not be a global function yet.
->>>> It just feels to special case to me. But let's see what the others
->>>> think.
->>>
->>> The problem is that if somebody hides it, we might potentially see
->>> a duplication in the future. So I _slightly_ prefer to publish and
->>> then drop that after a few cycles if no users appear.
->>
->> After taking a very quick grep I spotted one other existing place where we
->> might be able to do direct conversion to use this function.
->>
->> drivers/net/ethernet/freescale/gianfar.c
->>
->> That'd be 2 users.
-> 
-> I haven't checked myself, I believe your judgement, but can you add a (rfc?)
-> patch at the end of this series to show that? With the luckily event of acking
-> by the network people we may have it already done.
+The local_irq_disable() in bad_mode() can be dropped
+since we are now disabling IRQs in the early assembly
+exception handler for all exceptions.
 
-Sure. I can add a patch to gianfar when sending the v5 - if this new 
-function is not completely NACK'd before that :)
+This seems like not perfect: it seems an interrupt
+could still occur right before CPSR is set, or right after
+the userspace registers are restored in ret_from_exception.
+I would like to know if there is some
+way to set up these exceptions to inherently block IRQs
+when handled, until we explicitly allow them between
+irqentry_enter() and irqentry_exit() or if this is simply
+the best we can do on ARM for these exceptions to make the
+context tracker happy.
 
-Yours,
-	-- Matti
+Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+---
+ arch/arm/kernel/entry-armv.S |  6 +-----
+ arch/arm/kernel/entry.c      | 18 ++++++++++++++++++
+ arch/arm/kernel/traps.c      |  1 -
+ 3 files changed, 19 insertions(+), 6 deletions(-)
+
+diff --git a/arch/arm/kernel/entry-armv.S b/arch/arm/kernel/entry-armv.S
+index ae2f952beea7611f0abc7bd299fc944335a21219..3dae35b0bb3f440ecaf157a45687bf4690fb8f88 100644
+--- a/arch/arm/kernel/entry-armv.S
++++ b/arch/arm/kernel/entry-armv.S
+@@ -416,11 +416,6 @@ ENDPROC(__irq_usr)
+ __und_usr:
+ 	usr_entry uaccess=0
+ 
+-	@ IRQs must be enabled before attempting to read the instruction from
+-	@ user space since that could cause a page/translation fault if the
+-	@ page table was modified by another CPU.
+-	enable_irq
+-
+ 	tst	r5, #PSR_T_BIT			@ Thumb mode?
+ 	mov	r1, #2				@ set insn size to 2 for Thumb
+ 	bne	0f				@ handle as Thumb undef exception
+@@ -847,6 +842,7 @@ vector_\name:
+ 	@
+ 	mrs	r0, cpsr
+ 	eor	r0, r0, #(\mode ^ SVC_MODE | PSR_ISETSTATE)
++	orr	r0, r0, #PSR_I_BIT
+ 	msr	spsr_cxsf, r0
+ 
+ 	@
+diff --git a/arch/arm/kernel/entry.c b/arch/arm/kernel/entry.c
+index 01e4339ccdb4951e04a89fb91ad7c6e1991e09af..3881670e0987ee40be6fff32f412edcf4f3ec80a 100644
+--- a/arch/arm/kernel/entry.c
++++ b/arch/arm/kernel/entry.c
+@@ -17,8 +17,18 @@ noinstr asmlinkage void arm_und_handler(struct pt_regs *regs)
+ {
+ 	irqentry_state_t state = irqentry_enter(regs);
+ 
++	/*
++	 * IRQs must be enabled before attempting to read the instruction from
++	 * user space since that could cause a page/translation fault if the
++	 * page table was modified by another CPU.
++	 */
++
++	local_irq_enable();
++
+ 	do_undefinstr(regs);
+ 
++	local_irq_disable();
++
+ 	irqentry_exit(regs, state);
+ }
+ 
+@@ -27,8 +37,12 @@ noinstr asmlinkage void arm_dabt_handler(unsigned long addr, unsigned int fsr,
+ {
+ 	irqentry_state_t state = irqentry_enter(regs);
+ 
++	local_irq_enable();
++
+ 	do_DataAbort(addr, fsr, regs);
+ 
++	local_irq_disable();
++
+ 	irqentry_exit(regs, state);
+ }
+ 
+@@ -37,8 +51,12 @@ noinstr asmlinkage void arm_pabt_handler(unsigned long addr, unsigned int ifsr,
+ {
+ 	irqentry_state_t state = irqentry_enter(regs);
+ 
++	local_irq_enable();
++
+ 	do_PrefetchAbort(addr, ifsr, regs);
+ 
++	local_irq_disable();
++
+ 	irqentry_exit(regs, state);
+ }
+ 
+diff --git a/arch/arm/kernel/traps.c b/arch/arm/kernel/traps.c
+index d3a689bd05955f1ae46a6341e456bb097e831311..b2eaab9cc4977c448f77faa4e6bc22a0749d1f9c 100644
+--- a/arch/arm/kernel/traps.c
++++ b/arch/arm/kernel/traps.c
+@@ -515,7 +515,6 @@ asmlinkage void bad_mode(struct pt_regs *regs, int reason)
+ 	pr_crit("Bad mode in %s handler detected\n", handler[reason]);
+ 
+ 	die("Oops - bad mode", regs, 0);
+-	local_irq_disable();
+ 	panic("bad mode");
+ }
+ 
+
+-- 
+2.48.1
+
 
