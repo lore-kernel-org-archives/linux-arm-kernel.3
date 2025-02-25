@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEDC1C021B8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3B6CC021BE
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:46:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,35 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dAYh9qtQLjcFhfF5o9FKtT+LGmhp6I1NlDsPIKbYwUY=; b=yiVRcOqkUeLvK0oU4PlX8qVXH0
-	NkpyQ0rrRkd4ja1S1MeIbKZbraUst5ymv8xsk8QHcJ/qmTcIQMMNFnmICLe0HtXl0KYwMA2O6jj2L
-	JmdtK8sU2ljjMRGBiGrkov91FmanCmkFWPOGI0xHlBf2FgBuvodInCYjNgiEK3thLQbkex+RUP9JQ
-	+GisRUG6o3gvnEhx0ODLEUaZo9O+V97GkJzmmLmLiTvvtKKKHv4CFm1M5dOg09jDMfcCibYB8FfdR
-	5G+Xi/hj9sh/JuClyu/n9+J2ua5MQ7VuIvDU/pFDePTOWsLDemgiSEqYXFnxYlcabIIEOiY8Xwg0v
-	OUI7OWyQ==;
+	bh=0e2jnnOEGPy/vfUkFbT48vxlfAwh6z62bRoVArUKL1Q=; b=KGL2HDwY6lqofsyx9bBp9q8fVX
+	s/p/Yp83yh24MClKTQpBx3fu/pWtWzQu6/wJ6gIyP45abUmjNilIjhavraQEBMYKVGBFQW/R1E0eR
+	bMbVv+SdvNnerXLMoyx2odvQB/h3nsntjsKVMWLpbbolGu72++NLPNMT5SLiGJuilmVoWf7QQEUJJ
+	Jlja+kl1XJDn23DS/p37VTp6FvCjA4hMZ3QE2GS2O/OvyCKIu7uSRCzDqpb1SLBHdLxoC6g0jxy7z
+	dE9GP932YOlBb06nhJtKJxXy4BRjbciTdDEamtvn54S/8YGUVtvBoKEDAzvdRvBhu4c8JmDiJLwpH
+	bX/HtIUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmy48-00000000QUm-18GL;
-	Tue, 25 Feb 2025 16:45:52 +0000
+	id 1tmy4A-00000000QYC-0eng;
+	Tue, 25 Feb 2025 16:45:54 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmxp0-00000000Dfu-1lha
+	id 1tmxpx-00000000Dqp-2Mqi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 16:30:15 +0000
+	Tue, 25 Feb 2025 16:31:14 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BC5EF1063;
-	Tue, 25 Feb 2025 08:30:29 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 186951BCB;
+	Tue, 25 Feb 2025 08:31:29 -0800 (PST)
 Received: from [192.168.4.165] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 074173F6A8;
-	Tue, 25 Feb 2025 08:30:11 -0800 (PST)
-Message-ID: <5c74673c-4ad7-4da0-84d9-71357246977f@arm.com>
-Date: Tue, 25 Feb 2025 16:30:11 +0000
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 414483F6A8;
+	Tue, 25 Feb 2025 08:31:11 -0800 (PST)
+Message-ID: <5a135acb-b94d-47f5-9436-2d558cf78268@arm.com>
+Date: Tue, 25 Feb 2025 16:31:10 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] dma: Introduce generic dma_decrypted/dma_encrypted
- helpers
+Subject: Re: [PATCH v2 3/3] arm64: realm: Use aliased addresses for device DMA
+ to shared buffers
 Content-Language: en-GB
-To: Robin Murphy <robin.murphy@arm.com>, will@kernel.org,
+To: Gavin Shan <gshan@redhat.com>, will@kernel.org, robin.murphy@arm.com,
  catalin.marinas@arm.com
 Cc: maz@kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, gregkh@linuxfoundation.org,
@@ -48,15 +48,16 @@ Cc: maz@kernel.org, linux-arm-kernel@lists.infradead.org,
  Jean-Philippe Brucker <jean-philippe@linaro.org>,
  Christoph Hellwig <hch@lst.de>, Tom Lendacky <thomas.lendacky@amd.com>
 References: <20250219220751.1276854-1-suzuki.poulose@arm.com>
- <20250219220751.1276854-3-suzuki.poulose@arm.com>
- <cdecd882-64ed-426c-98e1-9e8815f1c6ad@arm.com>
+ <20250219220751.1276854-4-suzuki.poulose@arm.com>
+ <c710a9d6-bd1b-4867-bdc9-b3a79e577d0e@redhat.com>
+ <308f8a08-a6f8-403e-a130-18c7d3db2e23@redhat.com>
 From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <cdecd882-64ed-426c-98e1-9e8815f1c6ad@arm.com>
+In-Reply-To: <308f8a08-a6f8-403e-a130-18c7d3db2e23@redhat.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_083014_549678_425F5BAA 
-X-CRM114-Status: GOOD (  28.68  )
+X-CRM114-CacheID: sfid-20250225_083113_694324_21C65A6B 
+X-CRM114-Status: GOOD (  19.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,188 +72,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Robin
+Hi Gavin
 
-Thanks for your comments, response below.
+Thanks for the review.
 
-On 25/02/2025 12:49, Robin Murphy wrote:
-> On 2025-02-19 10:07 pm, Suzuki K Poulose wrote:
->> AMD SME added __sme_set/__sme_clr primitives to modify the DMA address 
->> for
->> encrypted/decrypted traffic. However this doesn't fit in with other 
->> models,
->> e.g., Arm CCA where the meanings are the opposite. i.e., "decrypted" 
->> traffic
->> has a bit set and "encrypted" traffic has the top bit cleared.
+On 25/02/2025 05:28, Gavin Shan wrote:
+> On 2/25/25 3:24 PM, Gavin Shan wrote:
+>> On 2/20/25 8:07 AM, Suzuki K Poulose wrote:
+>>> When a device performs DMA to a shared buffer using physical addresses,
+>>> (without Stage1 translation), the device must use the "{I}PA address" 
+>>> with the
+>>> top bit set in Realm. This is to make sure that a trusted device will 
+>>> be able
+>>> to write to shared buffers as well as the protected buffers. Thus, a 
+>>> Realm must
+>>> always program the full address including the "protection" bit, like 
+>>> AMD SME
+>>> encryption bits.
+>>>
+>>> Enable this by providing arm64 specific 
+>>> dma_{encrypted,decrypted,clear_encryption}
+>>> helpers for Realms. Please note that the VMM needs to similarly make 
+>>> sure that
+>>> the SMMU Stage2 in the Non-secure world is setup accordingly to map 
+>>> IPA at the
+>>> unprotected alias.
+>>>
+>>> Cc: Will Deacon <will@kernel.org>
+>>> Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>
+>>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>>> Cc: Robin Murphy <robin.murphy@arm.com>
+>>> Cc: Steven Price <steven.price@arm.com>
+>>> Cc: Christoph Hellwig <hch@lst.de>
+>>> Cc: Tom Lendacky <thomas.lendacky@amd.com>
+>>> Cc: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+>>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>>> ---
+>>>   arch/arm64/include/asm/mem_encrypt.h | 22 ++++++++++++++++++++++
+>>>   1 file changed, 22 insertions(+)
+>>>
+>>> diff --git a/arch/arm64/include/asm/mem_encrypt.h b/arch/arm64/ 
+>>> include/asm/mem_encrypt.h
+>>> index f8f78f622dd2..aeda3bba255e 100644
+>>> --- a/arch/arm64/include/asm/mem_encrypt.h
+>>> +++ b/arch/arm64/include/asm/mem_encrypt.h
+>>> @@ -21,4 +21,26 @@ static inline bool force_dma_unencrypted(struct 
+>>> device *dev)
+>>>       return is_realm_world();
+>>>   }
+>>> +static inline dma_addr_t dma_decrypted(dma_addr_t daddr)
+>>> +{
+>>> +    if (is_realm_world())
+>>> +        daddr |= prot_ns_shared;
+>>> +    return daddr;
+>>> +}
+>>> +#define dma_decrypted dma_decrypted
+>>> +
 >>
->> In preparation for adding the support for Arm CCA DMA conversions, 
->> convert the
->> existing primitives to more generic ones that can be provided by the 
->> backends.
->> i.e., add helpers to
->>   1. dma_encrypted - Convert a DMA address to "encrypted" [ == 
->> __sme_set() ]
->>   2. dma_decrypted - Convert a DMA address to "decrypted" [ None 
->> exists today ]
->>   3. dma_clear_encryption - Clear any "encryption"/"decryption" bits 
->> from DMA
->>      address [ SME uses __sme_clr() ]
+>> There is an existing macro (PROT_NS_SHARED), which is preferred to return
+>> prot_ns_shared or 0 depending on the availability of the realm 
+>> capability.
+>> However, that macro needs to be improved a bit so that it can be used 
+>> here.
+>> We need to return 0UL to match with the type of prot_ns_shared 
+>> (unsigned long)
+>>
+>> -#define PROT_NS_SHARED         (is_realm_world() ? prot_ns_shared : 0)
+>> +#define PROT_NS_SHARED         (is_realm_world() ? prot_ns_shared : 0UL)
+>>
+>> After that, the chunk of code can be as below.
+>>
+>>      return daddr | PROT_NS_SHARED;
+>>
+>>> +static inline dma_addr_t dma_encrypted(dma_addr_t daddr)
+>>> +{
+>>> +    if (is_realm_world())
+>>> +        daddr &= prot_ns_shared - 1;
+>>> +    return daddr;
+>>> +}
+>>> +#define dma_encrypted dma_encrypted
+>>> +
+>>
+>> With PROT_NS_SHARED, it can become something like below. 
+>> (PROT_NS_SHARED - 1)
+>> is equivalent to -1UL, 'daddr & -1UL' should be fine since it does 
+>> nothing.
+>>
 > 
-> Nit: I'd still prefer to have as much distinction as possible between 
-> manipulation of the address representation itself, and any other aspects 
-> such as the manipulation of underlying pagetable attributes also implied 
-> by force_dma_unencrypted() on x86. So how about:
-> 
-> dma_addr_encrypted
-> dma_addr_unencrypted
-> dma_addr_clear_encryption
-> 
-> ?
+> I meant (PROT_NS_SHARED - 1) is equivalent to -1UL when no realm capability
+> is around :)
 
-Sure, sounds better. I am still not convinced about the 
-dma_addr_clear_encryption() as it really applies to "clear" decryption
-too.
+I didn't want this to be there ;-). But with Robin's comment, I think we
+can revert back to PROT_NS_SHARED.
 
-The options we have are :
-
-dma_addr_canonical(), dma_addr_normal() or any others.
-
-> 
-> Note that we intentionally avoided "decrypted" in the existing APIs to 
-> minimise confusion, the only time any actual decryption is involved is 
-> for an "encrypted" address.
-
-Agreed.
-
-> 
-> (Stuff like that being why I personally would prefer to generalise away 
-> from encryption as an implementation detail at all, but since everyone 
-> else seems to be accustomed to the existing terminology and not 
-> complaining, I'm prepared to compromise that far!)
-> 
-> Otherwise, the overall shape looks good to me.
-
-I will respin this, with the changes.
-
+Cheers
 Suzuki
 
 > 
-> Thanks,
-> Robin.
+>>      return daddr & (PROT_NS_SHARED - 1);
+>>
+>>> +static inline dma_addr_t dma_clear_encryption(dma_addr_t daddr)
+>>> +{
+>>> +    return dma_encrypted(daddr);
+>>> +}
+>>> +#define dma_clear_encryption dma_clear_encryption
+>>> +
+>>>   #endif    /* __ASM_MEM_ENCRYPT_H */
 > 
->> Since the original __sme_xxx helpers come from linux/mem_encrypt.h, 
->> use that
->> as the home for the new definitions and provide dummy ones when none 
->> is provided
->> by the architectures.
->>
->> With the above, phys_to_dma_unencrypted() uses the newly added 
->> dma_decrypted()
->> helper and to make it a bit more easier to read and avoid double 
->> conversion,
->> provide __phys_to_dma().
->>
->> No functional changes intended. Compile tested on x86 defconfig with
->> CONFIG_AMD_MEM_ENCRYPT.
->>
->> Suggested-by: Robin Murphy <robin.murphy@arm.com>
->> Cc: Will Deacon <will@kernel.org>
->> Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: Robin Murphy <robin.murphy@arm.com>
->> Cc: Steven Price <steven.price@arm.com>
->> Cc: Christoph Hellwig <hch@lst.de>
->> Cc: Tom Lendacky <thomas.lendacky@amd.com>
->> Cc: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
->> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> ---
->>   include/linux/dma-direct.h  | 12 ++++++++----
->>   include/linux/mem_encrypt.h | 23 +++++++++++++++++++++++
->>   2 files changed, 31 insertions(+), 4 deletions(-)
->>
->> diff --git a/include/linux/dma-direct.h b/include/linux/dma-direct.h
->> index d20ecc24cb0f..9b5cc0ee86d5 100644
->> --- a/include/linux/dma-direct.h
->> +++ b/include/linux/dma-direct.h
->> @@ -78,14 +78,18 @@ static inline dma_addr_t dma_range_map_max(const 
->> struct bus_dma_region *map)
->>   #define phys_to_dma_unencrypted        phys_to_dma
->>   #endif
->>   #else
->> -static inline dma_addr_t phys_to_dma_unencrypted(struct device *dev,
->> -        phys_addr_t paddr)
->> +static inline dma_addr_t __phys_to_dma(struct device *dev, 
->> phys_addr_t paddr)
->>   {
->>       if (dev->dma_range_map)
->>           return translate_phys_to_dma(dev, paddr);
->>       return paddr;
->>   }
->> +static inline dma_addr_t phys_to_dma_unencrypted(struct device *dev,
->> +                        phys_addr_t paddr)
->> +{
->> +    return dma_decrypted(__phys_to_dma(dev, paddr));
->> +}
->>   /*
->>    * If memory encryption is supported, phys_to_dma will set the 
->> memory encryption
->>    * bit in the DMA address, and dma_to_phys will clear it.
->> @@ -94,14 +98,14 @@ static inline dma_addr_t 
->> phys_to_dma_unencrypted(struct device *dev,
->>    */
->>   static inline dma_addr_t phys_to_dma(struct device *dev, phys_addr_t 
->> paddr)
->>   {
->> -    return __sme_set(phys_to_dma_unencrypted(dev, paddr));
->> +    return dma_encrypted(__phys_to_dma(dev, paddr));
->>   }
->>   static inline phys_addr_t dma_to_phys(struct device *dev, dma_addr_t 
->> dma_addr)
->>   {
->>       phys_addr_t paddr;
->> -    dma_addr = __sme_clr(dma_addr);
->> +    dma_addr = dma_clear_encryption(dma_addr);
->>       if (dev->dma_range_map)
->>           paddr = translate_dma_to_phys(dev, dma_addr);
->>       else
->> diff --git a/include/linux/mem_encrypt.h b/include/linux/mem_encrypt.h
->> index ae4526389261..c8dcc1be695a 100644
->> --- a/include/linux/mem_encrypt.h
->> +++ b/include/linux/mem_encrypt.h
->> @@ -26,11 +26,34 @@
->>    */
->>   #define __sme_set(x)        ((x) | sme_me_mask)
->>   #define __sme_clr(x)        ((x) & ~sme_me_mask)
->> +
->> +#define dma_encrypted(x)    __sme_set(x)
->> +#define dma_clear_encryption(x)    __sme_clr(x)
->> +
->>   #else
->>   #define __sme_set(x)        (x)
->>   #define __sme_clr(x)        (x)
->>   #endif
->> +/*
->> + * dma_encrypted() and dma_decrypted() are for converting a given DMA
->> + * address to the respective type of addressing.
->> + *
->> + * dma_clear_encryption() is used to reverse the conversion back to 
->> "normal"
->> + * DMA address.
->> + */
->> +#ifndef dma_encrypted
->> +#define dma_encrypted(x)    (x)
->> +#endif
->> +
->> +#ifndef dma_decrypted
->> +#define dma_decrypted(x)    (x)
->> +#endif
->> +
->> +#ifndef dma_clear_encryption
->> +#define dma_clear_encryption(x)    (x)
->> +#endif
->> +
->>   #endif    /* __ASSEMBLY__ */
->>   #endif    /* __MEM_ENCRYPT_H__ */
+> Thanks,
+> Gavin
 > 
 
 
