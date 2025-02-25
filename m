@@ -4,153 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 173AFC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:45:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49DF2C021BB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:45:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wuUySwQp74eFsWRsJ+c1UTXHBnOCkKfksU9BQQAUb60=; b=ONo8VjGDFpFy1WD9LC6aN1DW7H
-	Zq2NhwQOVEp/KM2SmJdxoCFd7/MjkxQJyYL6RiLAd5yGOaE+wDpaIl19LE7SVO6H7Y/Ip8UIHTuhi
-	G/QY9w/2Y+bC2X1/MgzojvpcZ8L5H3PO+Ijcao0tzzEcpwUrQnmhn2n3nCIx5yRRN+dqIAcaLP5k9
-	PLy47ub4H9UEHydA29oWBXKrqQT9etC0017H4Uiiv5vTg7eulP5AIAL3R/XEk49+lAHKipnWUUK4z
-	ElC0ygstexFB6DTVUc/rPA07QLqKdQa8URhYRLfqqCDGNk5TFnd1ULS47NZ3lKUmjPSchl5zusbW6
-	SQxX1t/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wqgFWeoQivzhLETwW+Q6wbE8s0MXA+Zaes1DQ9N8L94=; b=wS2lhfRNnPlEBwZ/t6H+LZxrbj
+	mC3aUiM2QEQJj2izqcV0Nx6Nj9t0AlGRAO2Y+B+6njtX2dDfftAPooi+hQc/WnLUtNTvVft8CFrkv
+	hb2Yz4M8kgVOa49Inq7Ss5U2LiH4e78WSlnz1JnweR3CDctaAnFhPAKBGveY46oo9/F+gm8I+JSGZ
+	zu9QupxXKkKwiSNcOIIBN/rFk8Ke8KYBaHZxiq8e1FSSz1Ia3Z7Zzb9gj/ki8O36GPYAttlZehXhS
+	ai3cglJid+gAKfZPWWbFnKMTyqLMLXCaOMCWxDAawD/ZxnkDqoYbyWDZtTbYk8/sPt2oLui6dWDvs
+	pbR1Bd1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmy3p-00000000Q0F-3AqH;
-	Tue, 25 Feb 2025 16:45:33 +0000
-Received: from mail-am6eur05on20612.outbound.protection.outlook.com ([2a01:111:f403:2612::612] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1tmy41-00000000QK2-3pOV;
+	Tue, 25 Feb 2025 16:45:45 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmxbq-00000000BCN-3mb6
+	id 1tmxiL-00000000CSp-33XU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 16:16:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gCTk76ApnPhYbtYtQTt22IF83SbOA+dQCfAcC69Cu5yPHtWl1oVmQycUVmdj5sgVAhvF8cGyetG3RLl7GDNBFV5RuaTmbNtnJacLOq47p6u0w1UVTw4VlR+TFK5CDW898OOx1pLPAMZuNU3Zbtxqpi0W3NB4qzA217HLDNVW5agLU/4zEF8s1yRK62hLWQIEDU2RSJasbTKFMbitWTn4oQCsRkz2hvZ2ZiFfdSRvaTUZRV2f5EeMyXnpR2x06BcqE3kD8waRUoNriu28aYdwqH8GuqU4UYwiXl1IRfDiL4oc7Qm41thA89TW8hjGA9tjVgzxi8Zd8LaQuEdkExavOQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wuUySwQp74eFsWRsJ+c1UTXHBnOCkKfksU9BQQAUb60=;
- b=u6scy3Dl3nxMIxORWKvTsGcSyzAHHwVT198viUB+zkEXL3kh3yM8sFdztg7kXdOBXJ0DfhTcWMR8SxjwnemDtC1dk0McOdg2s9h4UyN6rYR7jNMkVux1RBay7h2LRMPB++EmFeOUjDBPV2ohjVg5FhNMSSG/SOC8yQjibSh6+jpMaT9UuAV37IaGvedcMFF4KKMqiZeFgjAbJURXZYGxpCarDeMqAP8BH0garjB9vEsI38qV0ztIKmuSplLRVLURngRVCjmPpDxSvOATAkB5FepuC2S+OvcsCQESpLzQ3NCOUQ/LDFbJZfUpuCNtKkdje/cytbV+68m0qCZtWgPHuQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wuUySwQp74eFsWRsJ+c1UTXHBnOCkKfksU9BQQAUb60=;
- b=Y5ffm5Te5nwl4Z89zNPLF5o/VuvSrUrK9Ft5oakr4Y6hDwneQ8ItcOEmBTEpxjrKzd+ObyoWw7x/79W/yWWulIytkLloGyTrW7ITOL7zARKXI4cZaJXnl5AnqtaaGBPDdMD1/HnBPECOYmDMhvyLoKtOpcoU7lWPS6n9D3r8t57Cgk7coVj7HqeQ748+WyaZKAijzBBNqNMCRScXL4F/Ca8Fv0Nf4RD3KHq1YL0c3yczb5b4hhOSPEDRrQOOUl1mogCM5KECf2Dbue2ct3cT8JHE6P284CmC1KsAwUF1xJX3ehVl3CimLcZ4Ngg451l1YDV2E3qIBqajYrfB3tEUcw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AS4PR04MB9550.eurprd04.prod.outlook.com (2603:10a6:20b:4f9::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.19; Tue, 25 Feb
- 2025 16:16:35 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8466.016; Tue, 25 Feb 2025
- 16:16:35 +0000
-Date: Tue, 25 Feb 2025 11:16:27 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Mihalcea Laurentiu <laurentiumihalcea111@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/5] arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
-Message-ID: <Z73s2/ZgyaXnAqnn@lizhi-Precision-Tower-5810>
-References: <20250221191909.31874-1-laurentiumihalcea111@gmail.com>
- <20250221191909.31874-5-laurentiumihalcea111@gmail.com>
- <Z7jahtO3bxjkMfnc@lizhi-Precision-Tower-5810>
- <cd6a84cd-ff17-45df-becc-9bfc74522f73@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cd6a84cd-ff17-45df-becc-9bfc74522f73@gmail.com>
-X-ClientProxiedBy: SJ0PR05CA0120.namprd05.prod.outlook.com
- (2603:10b6:a03:334::35) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Tue, 25 Feb 2025 16:23:23 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51PEsxG7025684;
+	Tue, 25 Feb 2025 17:23:07 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	wqgFWeoQivzhLETwW+Q6wbE8s0MXA+Zaes1DQ9N8L94=; b=OgoS/t3Lbxp32NRq
+	naIljPbKwZjr091WEhth+xRTbwEvzSk/tLAsR8GGUbCX4EJcw45zSGkWEMsSAPA+
+	0jtddvtuWP5j4x+EM/+zRbQ5H3tuh2T0m2tBFY5/xzcINPAj6K98NzjPP5CLF8Iz
+	hjkTAM9heRqObmD4CLkTJUjb742v4ghuIoHFn5Dzl4p/lwrYH+dSK75Z4Jmd8rK6
+	nSezAbmEvZT0YC6zTRBimbtDnvxlkax1p6AYWGCvDJhptSoGf+dsmLpHUrml1+Ca
+	/K9GKj0gTA/WfKroXfTL3MjXE3YVlagShG2IX+/6axek79yU12tzinLvjxW6W80b
+	zJImDA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4512spvjyq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 25 Feb 2025 17:23:07 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2819E4006C;
+	Tue, 25 Feb 2025 17:21:53 +0100 (CET)
+Received: from Webmail-eu.st.com (eqndag1node5.st.com [10.75.129.134])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 3142E52CB63;
+	Tue, 25 Feb 2025 15:58:26 +0100 (CET)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE5.st.com
+ (10.75.129.134) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 25 Feb
+ 2025 15:58:26 +0100
+Received: from [10.48.86.222] (10.48.86.222) by SAFDAG1NODE1.st.com
+ (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 25 Feb
+ 2025 15:58:25 +0100
+Message-ID: <e309c016-4dcb-49e3-945e-54ddadfbddb8@foss.st.com>
+Date: Tue, 25 Feb 2025 15:58:24 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS4PR04MB9550:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5faa93de-26ec-4e7e-5f53-08dd55b7c67d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BEOJojSKMxMqUmwwpwRiUQJmQpg11V16QRI2WWB4hSofAib9HO7ri6wOt/Cw?=
- =?us-ascii?Q?hVocFYH167JLxPc/Y1XnwZF6MutydyODhY7altZBTeEBY63K81WZDmf+2qWD?=
- =?us-ascii?Q?LiChyiKg+2nLx6GzZJ8SV7JdQbQHJG5R7ggccTkn6wXdmvJNQ3XjAjmMadNL?=
- =?us-ascii?Q?Clsa2KM1JyutZ+A90Rs4uY62UO2ww+6ZybWRYnIdnwZIryAJuU2sf+OhQPdY?=
- =?us-ascii?Q?+RsMMwie05G1VMGL9Ait1ZLir6NNjCb3wdoh/NeQm6GjXvuJbuhIe6T03pzD?=
- =?us-ascii?Q?wetn27KT/JEro5RDPeq5PZwL0obosu0sIBYv6NrdM9daxpK8MdXsvCRkmyhK?=
- =?us-ascii?Q?OhjfJnXpGdVHWJjz+Tt1deYyVZ/GWLFdSKDne7J7MN9miVd5Lsrr4pq32CDI?=
- =?us-ascii?Q?wXYR4Ke2bGQH1gaPGj59B3Ni5JVQAkmPki8yCh3PvitVlrpOi1Xp1U8G8tmr?=
- =?us-ascii?Q?9GI5FwOpAXkdaCCPu59Iv3T8uJ7/qVXMDHzoYO5J85Ih+5t/+7EaruK1H+8J?=
- =?us-ascii?Q?eGxfU+ILYlDILsjEEhRfd3OaU4v9UkbI3QmMNJb6BMLYO6hWZTtX90pYcdRj?=
- =?us-ascii?Q?vdErcETElklLUentkQrjxROcc5QeMYAgoXf+cBAf0x8YcD4bHaaVfhmCJbm5?=
- =?us-ascii?Q?JrY+ah8c3NbFuZNo8RG5n+jdhHIHNZnghJfP0jDXOHK6bFXK3iOHko4eSmHG?=
- =?us-ascii?Q?8QWDVz5xn3ODDujw3F4PprGieKE/mZmHgeRhuXI7FwyBQTJ+aiucfxO5IHc+?=
- =?us-ascii?Q?U0ktCVFRyOwOb/+i6/FJS2sJxzQCEurmLTSZazlNsQsack4X9f2KaP+drsHt?=
- =?us-ascii?Q?WT61BpxLIuiZnJD9dnQI4xOCrqFlyctjeNI7G4MXYyvF/oRcutmTrcCimqf8?=
- =?us-ascii?Q?1wx1yxfj0KjX0XcDowRMY8mtZ5K+7leIAsPUEisNEsgqWQp/0gwXi2qJ75J2?=
- =?us-ascii?Q?dZ6sstoccdoTPBCdXGLdud2BwkB8mz3AyD2f7LKGJo7pLkH59eqz08X6YidX?=
- =?us-ascii?Q?V67fFvrqGbQbPSvPJ4VtGFLzb9xgyNjui8ZKYvQbT3qxeTsCgzD72vLZF3jp?=
- =?us-ascii?Q?Ye8Oc39U5ugOdexGZIXu0l9X5Cu319E665ubNu9CUCCyJ+L7R7tdka8dEIqh?=
- =?us-ascii?Q?JZ+FxiDjrJFGTlUjJxIS8KngCq89X78R5mRt94MXeuZVkrCpGvtX7CiFVlov?=
- =?us-ascii?Q?Rdup9bBmR62ipQjK8rwYsj0pWxJ0m7sLn48Nl6yUXDH1X/NxAaFFlKULX+wn?=
- =?us-ascii?Q?gNaRKKa43CCZps1ISMx2iL4EovE0ZR7LP5RvgfFPc1Us+UA1X0Xf+Te8Ker3?=
- =?us-ascii?Q?ur8EKpt0G6/VVGR3RHQR9nqZM2Zng86EaXJrm7fIPHA3YSEeUhUPNbxarGMc?=
- =?us-ascii?Q?oQTjv26KiAVjG9FRmNZiYgAKVTIKm4BHZ1cxUvpX9FJcmU5h/G+sYp4JMCr3?=
- =?us-ascii?Q?Vuhs09xhv9lt7HukUZMAmPwyxxGjwaak?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?W1tyOJs6tw26Ut+f2rpRQeXfxfsoR7kGD6uW2ExRQTCoaNw6fwI0aq9htjAQ?=
- =?us-ascii?Q?yWZROSz2vflj1zdtccxzjTKJUKxv8CbYxv+xelh4mB5VTFiBDQcuSmKD0I8l?=
- =?us-ascii?Q?3+ee4nSLp5P8+XtKRWspMhrZAzCYqczYKIz6QB2st/WT1BdMyRR6HhMvvfHy?=
- =?us-ascii?Q?sepDitn5Pfc6XMqIPx1+Rn4fgYVv+JpzQsQn6txLWoDNlVS81KerwBQN+Mtp?=
- =?us-ascii?Q?kdtzz1nl8jlYIeD4gs1pxrn56vvDVFNIuql0peNvP+RvcokaouhkAfThDVaA?=
- =?us-ascii?Q?NhJUwKMqMZO91ZBJd1GmCtsM3FMpOFvD8cjrgidPKg80DP1A5bQoeJz9jhrN?=
- =?us-ascii?Q?peQLroIIySrHMt5P5uGrPSrBK3T/Wk1HsstjhUeR7jQPth1/3S2VgUmMYMgB?=
- =?us-ascii?Q?z2/AGMfRRGUDBYw83Cviz6xwmnyRr3uMu+dFOPsLCt/Kb2sMFEQx0u6vRf4k?=
- =?us-ascii?Q?+Vwu9NBhRLdOFwgHglc1sypUFtuyaHqEx505QTuMRf1AMXYtB7N8HZtNboDJ?=
- =?us-ascii?Q?d/H1kEnQn7SjGi6UA/7lr0+qcIXvgkcYM8VxR881KD7sOdvP0jcCFTWL82Um?=
- =?us-ascii?Q?UO49Uf1A4vX9XrVNiCg4CY6IDmhRJPbuwkzfQW1Th6b0/7pmI2N+7vJ1JVqA?=
- =?us-ascii?Q?9N2+vE+64n4BxUkAOV9DKTbZggibr4h1KZuMGy8S1ummn4q/yn9oDV4p6ncv?=
- =?us-ascii?Q?e/9jOLCLFpNgm+NGDDpuI21Mm2/+m4bjcFYd/Kj9YxqBrtdi1PbPktI5i988?=
- =?us-ascii?Q?ONW0KQPvclDQNebtiQVCMJ0JY9eEIMPxrF+s2TozQ6mSBCDH8jL2BZIpLF6J?=
- =?us-ascii?Q?29DDFQIJQd9TJsxWsRFW1unThliGQ3f/SGQyKwIDVt/Pion80jIetp0zYm0M?=
- =?us-ascii?Q?y00Jdx1VMTErBBpfepOYIm7Wb2Dmr7cSK8ER4UyprEqOoUqeIb0fVmJPYJut?=
- =?us-ascii?Q?8bWJVHPH48pMrOC1oIdW2qyahH8Au08clGGkeURzyCBF4jIOe/NiVkGWS/h3?=
- =?us-ascii?Q?O2kLoqLE/RYzj12cfK/4V192ckbbDdB9gbHsfbYtUbeClP/tmERXoi78O95T?=
- =?us-ascii?Q?3b6/OwkF2jm8QzaQVLHQ+JCH8ex8KpwLPliTVx7Ge/Ost0m4fpdUp7Q7LrX1?=
- =?us-ascii?Q?xFyDvCLJ/ez+iG5K5dR9uNlMFsF3mXee3ZCCDbpQnUtcgU9IK0av7uQIaJRw?=
- =?us-ascii?Q?RX5WBZ5Xi8vQdsqRVZFES1hV2GT6fs+ydGlfSpDv4IvHGtZ8EQR0mNcpIe5q?=
- =?us-ascii?Q?YFC3aTH81bs9TqPfO79TJApJiNHNirLDzfyqp8RGRGDJed3jTvCboyzw3gg3?=
- =?us-ascii?Q?FWJpPK9kt7snqr1dDUkmCfkAcN6cbfqlMVacEVfU9ZyqEqBAFrd1ZeHiOQyl?=
- =?us-ascii?Q?aNGMTMeC/7xZggXW3i+CXXPFcS3UAD71i4y5Ryye2ReQSkB+Qp8PYZP0LEGU?=
- =?us-ascii?Q?ZQGw9uaXSO294L2KEJvGMUmqFoywZjl3HLUJ2/u9OGqWzcZuo//4tEeZQLhQ?=
- =?us-ascii?Q?fEmrvl9+j5/py3A1pN87/LusytuWLDE/yz/tXGNmeW+XAMn7V2JMBMHkoxOp?=
- =?us-ascii?Q?jTnMX5w7F5l36ShNgkJuvrWZ3Yn5UctFfULMI9Tf?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5faa93de-26ec-4e7e-5f53-08dd55b7c67d
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 16:16:35.5186
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Zpu2hTExgR+zF7FPk1Kd13dSsJuksxRQOTe4FjVILWhmiU/dRhnlHSGr3WaS0ek3hr1ojPtR9YaJ6MLvujhtCw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9550
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/8] pwm: stm32-lp: add support for stm32mp25
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: <lee@kernel.org>, <ukleinek@kernel.org>, <alexandre.torgue@foss.st.com>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <wbg@kernel.org>, <jic23@kernel.org>, <daniel.lezcano@linaro.org>,
+        <tglx@linutronix.de>, <catalin.marinas@arm.com>, <will@kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
+        <olivier.moysan@foss.st.com>
+References: <20250224180150.3689638-1-fabrice.gasnier@foss.st.com>
+ <20250224180150.3689638-6-fabrice.gasnier@foss.st.com>
+ <20250225-psychedelic-iguana-of-education-d5fff7@krzk-bin>
+Content-Language: en-US
+From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+In-Reply-To: <20250225-psychedelic-iguana-of-education-d5fff7@krzk-bin>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.222]
+X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-25_05,2025-02-25_03,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_081638_939976_77FBC7CF 
-X-CRM114-Status: GOOD (  31.70  )
+X-CRM114-CacheID: sfid-20250225_082322_067673_4D3DC1A5 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,82 +104,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 04:14:34PM +0200, Mihalcea Laurentiu wrote:
->
-> On 21.02.2025 21:56, Frank Li wrote:
-> > On Fri, Feb 21, 2025 at 02:19:08PM -0500, Laurentiu Mihalcea wrote:
-> >> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> >>
-> >> AIPS5 is actually AIPSTZ5 as it offers some security-related
-> >> configurations. Since these configurations need to be applied before
-> >> accessing any of the peripherals on the bus, it's better to make AIPSTZ5
-> >> be their parent instead of keeping AIPS5 and adding a child node for
-> >> AIPSTZ5. Also, because of the security configurations, the address space
-> >> of the bus has to be changed to that of the configuration registers.
-> > The orginal 0x30c0_0000..0x31200000 include 0x30df0000, why not map only
-> > config address part in your drivers.
-> >
-> > Frank
->
->
-> Any concerns/anything wrong with current approach?
->
->
-> I find it a bit awkward to have the whole bus address space
->
-> in the DT given that we're only interested in using the access
->
-> controller register space.
->
->
-> I'm fine with the approach you suggested but I don't see a
->
-> reason for using it?
 
-After second through, reg should indicate only used space. The current
-method is good enough. Just need figure out KK's comment about 'simple-bus'
 
-Frank
+On 2/25/25 13:04, Krzysztof Kozlowski wrote:
+> On Mon, Feb 24, 2025 at 07:01:47PM +0100, Fabrice Gasnier wrote:
+>>  	}
+>>  
+>>  	return pinctrl_pm_select_sleep_state(dev);
+>> @@ -246,6 +413,7 @@ static DEFINE_SIMPLE_DEV_PM_OPS(stm32_pwm_lp_pm_ops, stm32_pwm_lp_suspend,
+>>  
+>>  static const struct of_device_id stm32_pwm_lp_of_match[] = {
+>>  	{ .compatible = "st,stm32-pwm-lp", },
+>> +	{ .compatible = "st,stm32mp25-pwm-lp", },
+> 
+> No driver data suggests device is backwards compatible. Commit msg
+> suggests not, so that's confusing.
 
->
->
-> >
-> >> Finally, since AIPSTZ5 belongs to the AUDIOMIX power domain, add the
-> >> missing 'power-domains' property. The domain needs to be powered on before
-> >> attempting to configure the security-related registers.
-> >>
-> >> The DT node name is not changed to avoid potential issues with DTs in
-> >> which this node is referenced.
-> >>
-> >> Co-developed-by: Daniel Baluta <daniel.baluta@nxp.com>
-> >> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
-> >> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> >> ---
-> >>  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 8 +++++---
-> >>  1 file changed, 5 insertions(+), 3 deletions(-)
-> >>
-> >> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> >> index e0d3b8cba221..a1d9b834d2da 100644
-> >> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> >> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> >> @@ -1399,11 +1399,13 @@ eqos: ethernet@30bf0000 {
-> >>  			};
-> >>  		};
-> >>
-> >> -		aips5: bus@30c00000 {
-> >> -			compatible = "fsl,aips-bus", "simple-bus";
-> >> -			reg = <0x30c00000 0x400000>;
-> >> +		aips5: bus@30df0000 {
-> >> +			compatible = "fsl,imx8mp-aipstz", "simple-bus";
-> >> +			reg = <0x30df0000 0x10000>;
-> >> +			power-domains = <&pgc_audio>;
-> >>  			#address-cells = <1>;
-> >>  			#size-cells = <1>;
-> >> +			#access-controller-cells = <0>;
-> >>  			ranges;
-> >>
-> >>  			spba-bus@30c00000 {
-> >> --
-> >> 2.34.1
-> >>
+
+The LPTimer PWM driver takes benefit of the MFD parent driver to feed in
+data, e.g. 'num_cc_chans'. Number of channels is now variable, on
+STM32MP25 (e.g. not a single channel). But it can't be hard-coded as
+compatible data. (there's only 1 channel on earlier LP Timer hardware
+revision).
+
+The hardware controller is a bit different, hence the new compatible.
+
+Best regards,
+Fabrice
+
+> 
+> Best regards,
+> Krzysztof
+> 
 
