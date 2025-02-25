@@ -4,112 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 259CEC021BB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:40:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A06D3C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:40:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SFFVttm850UqVz1pmb+AlnJQK6y1OGWuLBvoqE/ivD0=; b=f8eiPD7JCNK5Clpaq+qXR5gVTn
-	/6ozPERRaJW8jxAzKoYrRUvySQ9T9xCJBQBTarApHLSo9fS+dWgyGNXOaM8tNI1QLlriNiT4TGOSZ
-	O7dl+NSmHhTPznFlnaEA8jgleYRGIl51ToBYvG6XHAVJYvr3mOg288lALjcCf/DRFEKK4rTA4AfE1
-	Ks3cICBc6pt9nBEgCoyE59P8xcSouqcL0fVeMGplWqIrCXGYOr9HRqvZ6jHtQE8A8prSLtUeLi/sA
-	n2pvYWERfzNwxV1+X07XEIa57SjgUEAsG/fUp33gFeXeZ6iWcEwzKd8v+akA8K/6oehxGlw9II+Qp
-	y2o1keGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WyyxfZ8er5WqZOvIZ6mxo74JK7+5Nk5jVOc6g/QyEzY=; b=kZOgsgICd20x2QwtO+SlvFCv2Q
+	4mceJ/0I+HlQUwBrmBW8BNHl4xUmOl1qHlYu6iOBqhsVpT7VdpxwEvboznYidVnIayhi4JT7TkIZO
+	U8Jeb93gHYkZpHDjONtzG6l2lFEuXkMp7le4bIgmMfkShsYfc60evbUKAvn1SZJD1QMcSWOOYVEPT
+	q3tqUYbKEe0b2g1ENV7e5ijRp69bhgCd+9ORJ65+zfPYMXRcfWhPco1SWw8uC5ToUVK3dy9IdPns1
+	u7RqPVwbdnMUP5eUsQ8p6zTIcP0gvwUwSF3lJWdBl5Ms38lGYZDB3aLW7V4AbWZWdW/UvtVBhZMQ4
+	eEPXv5IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmxya-00000000IH9-3s0q;
-	Tue, 25 Feb 2025 16:40:08 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tmxyh-00000000IOj-2oQz;
+	Tue, 25 Feb 2025 16:40:15 +0000
+Received: from mail.manjaro.org ([116.203.91.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmvoU-0000000HVu9-2OH3
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 14:21:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1740493293;
+	id 1tmvsj-0000000HWVp-3qVx;
+	Tue, 25 Feb 2025 14:25:59 +0000
+MIME-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1740493553;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=SFFVttm850UqVz1pmb+AlnJQK6y1OGWuLBvoqE/ivD0=;
-	b=dV+gF3aBJG2ObjJtIOteRp5o4ZeAAdcEKWswESee9ZMQmGHBUaahzzAvaGbeDOp5nEvgMS
-	yxigvz2BdKIrv3feZK9uw/ziY+BM2BRNPAMbzrRQzSoNbao8v6JweV1l/2DhQ6xb2pjIi7
-	JzGOCritUGnPMlHVwgTaJeMHu1uAWP4=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-508-NoBz_ALUN8e4I_ke8oBYSg-1; Tue, 25 Feb 2025 09:21:31 -0500
-X-MC-Unique: NoBz_ALUN8e4I_ke8oBYSg-1
-X-Mimecast-MFC-AGG-ID: NoBz_ALUN8e4I_ke8oBYSg_1740493290
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-38f29b4d4adso2317848f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 06:21:31 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740493290; x=1741098090;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SFFVttm850UqVz1pmb+AlnJQK6y1OGWuLBvoqE/ivD0=;
-        b=Cvpy7yOyoC+4HQEpPYQey6I6JvUqzlHF4fRgehq2Q7opN/2ANFtw3OY1sKg3AByIbS
-         2bZgbnY5x3ZVulD5jC7Bwt0zpfIWbjvbeQbXF920sDgkhtgyXYf84gPph9aEx7xIycOE
-         zCyA++DCjgWTQUOu0L0GDHTv/GYscctHgIxPWx7Vvj4lzBV5qCqre1iSlCk9luDiWsTf
-         /uYH1RUh1rlCD0woqhtg/ROFcdU/VV266T3Ya9jHUdUV48zWca4oDyKnV8/Uub3SeMoW
-         NLZWmXLDTXRfaqkC4nMG5x8HnbILRcSbA69ovRmize+zbEOmNgz/yw+nX4JhdN2/PZ+y
-         vKEw==
-X-Forwarded-Encrypted: i=1; AJvYcCWDu1JvrjNyLZSEvZ9jNXRezAMVHPvceP9edJhCvQObkc6kn2v3gq5aauis/4+07BAy8AapNslgbXroCsjyh6D5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2Stpm8mJoEMKkxiGp8kRTOTYUdkaJ8yKMT/THfnHnmWVRQUd+
-	rjukE5+ek/kxhGNgKcO79nCVMjszd3ZkGcj9zyYaNUnVauzbKzdV2WkdeC1JRnnwaCzk18tw/tX
-	oA8y9jao5yHzZT0JbpZpFdsCjTnlKeE5m/QbMNwIDPfRRdd9LYx9ul1C77AZ6Mt8Ql0zDwMkA
-X-Gm-Gg: ASbGncubYhqbF/uYzW4lVP1gqhfQXZT5PI1rv9k3N36B5WC7YdsGcNQc811C9dkeS/N
-	ukss1zdDcNqdEOF5jTzcI+HgU/I57DM4f2FTEnOETv8vcteQITwFlBcrePnMQItDtXu49O4KHh5
-	V8eYjnLbU++2T3D4Wd9eT6E8BhFrmXAX7BrteuHsiAxnNiBZwJgnO24/6dGR+H4tMG3CXmn0M1o
-	I0+lwac2PsjwgitIwWX0SJ4gKlSeU9e9FLVdn9AzkOjZgfHuuQEscGNW50JoKMRlrxrpylhxj/4
-X-Received: by 2002:a05:6000:401e:b0:38f:210b:693f with SMTP id ffacd0b85a97d-38f6f0ae79cmr12378085f8f.52.1740493290281;
-        Tue, 25 Feb 2025 06:21:30 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFPzWsgH9v1k2HVPYkFXNJ3hhFz69OOLf5Yi+p9svSln8YhJs1OVyxaR00ASzjgQujycgWCZQ==
-X-Received: by 2002:a05:6000:401e:b0:38f:210b:693f with SMTP id ffacd0b85a97d-38f6f0ae79cmr12378040f8f.52.1740493289721;
-        Tue, 25 Feb 2025 06:21:29 -0800 (PST)
-Received: from redhat.com ([2.52.7.97])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390cd86cb08sm2423039f8f.29.2025.02.25.06.21.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Feb 2025 06:21:29 -0800 (PST)
-Date: Tue, 25 Feb 2025 09:21:24 -0500
-From: "Michael S. Tsirkin" <mst@redhat.com>
-To: Simon Horman <horms@kernel.org>
-Cc: Peter Hilber <quic_philber@quicinc.com>,
-	Jason Wang <jasowang@redhat.com>,
-	Trilok Soni <quic_tsoni@quicinc.com>,
-	Srivatsa Vaddagiri <quic_svaddagi@quicinc.com>,
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	linux-kernel@vger.kernel.org, virtualization@lists.linux.dev,
-	netdev@vger.kernel.org, David Woodhouse <dwmw2@infradead.org>,
-	"Ridoux, Julien" <ridouxj@amazon.com>,
-	Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Parav Pandit <parav@nvidia.com>,
-	Matias Ezequiel Vara Larsen <mvaralar@redhat.com>,
-	Cornelia Huck <cohuck@redhat.com>, virtio-dev@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 2/4] virtio_rtc: Add PTP clocks
-Message-ID: <20250225092115-mutt-send-email-mst@kernel.org>
-References: <20250219193306.1045-1-quic_philber@quicinc.com>
- <20250219193306.1045-3-quic_philber@quicinc.com>
- <20250224175618.GG1615191@kernel.org>
- <vhlhes7wepjrtfo6qsnw5tmtvw6pdt2tfi4woqdejlit5ruczj@4cs2yvffhx74>
- <20250225141240.GW1615191@kernel.org>
-MIME-Version: 1.0
-In-Reply-To: <20250225141240.GW1615191@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 4PYfCotPUXUMASczhtSAZugbEabJuS-QspOZAdBmnVs_1740493290
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+	bh=WyyxfZ8er5WqZOvIZ6mxo74JK7+5Nk5jVOc6g/QyEzY=;
+	b=Z1X26bi7ygLBS3+YP89D2JR7/QWR7eXXN3q1RGtCQ3+EEEyHxoYQpXbp52wPDrgNXaWacW
+	Ounh1eXsGBBwxBLd/7Di5n93VbT9HhQvf9jl6Vim2qNKGD88nD/ML295fQfTRkhorE6Uh1
+	y9/DreYBRT9Ekl/916EWFharGXpsOWZAg8lKC7+bIk95ZpLm9A2QquEqUmFbsIvtuqNN1C
+	4ZcGeWx8hn/TuKWiLzmG9cjzglaqrwc+FI0Mp947mgR3+gwUWye4wIzhBT3xLoaC/9pm3l
+	jLiZSSPJRpbr5cs+7oCYYjNE6rHgNRvYE+JeSFarEusZ3TABB7gKfJhq1GWuSg==
+Date: Tue, 25 Feb 2025 15:25:52 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: Justin Klaassen <justin@tidylabs.net>
+Cc: Tianling Shen <cnsztl@gmail.com>, Kever Yang
+ <kever.yang@rock-chips.com>, Johan Jonker <jbx6244@gmail.com>, Heiko
+ Stuebner <heiko@sntech.de>, Conor Dooley <conor+dt@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: rockchip: fix u2phy1_host status for NanoPi
+ R4S
+In-Reply-To: <20250224170925.39126-1-justin@tidylabs.net>
+References: <20250224170925.39126-1-justin@tidylabs.net>
+Message-ID: <48c705e65cc8e8d4716b41a4a87170e3@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_062134_681130_C4750856 
-X-CRM114-Status: GOOD (  21.31  )
+X-CRM114-CacheID: sfid-20250225_062558_109142_A48429DA 
+X-CRM114-Status: GOOD (  17.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,34 +76,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 02:12:40PM +0000, Simon Horman wrote:
-> On Tue, Feb 25, 2025 at 12:28:24PM +0100, Peter Hilber wrote:
-> > On Mon, Feb 24, 2025 at 05:56:18PM +0000, Simon Horman wrote:
-> > > On Wed, Feb 19, 2025 at 08:32:57PM +0100, Peter Hilber wrote:
-> > > 
-> > > ...
-> > > 
-> > > > +/**
-> > > > + * viortc_ptp_gettimex64() - PTP clock gettimex64 op
-> > > > + *
-> > > 
-> > > Hi Peter,
-> > > 
-> > > Tooling recognises this as a kernel doc, and complains
-> > > that there is no documentation present for the function's
-> > > parameters: ptp, ts, and sts.
-> > > 
-> > > Flagged by W=1 builds.
-> > > 
-> > 
-> > Thanks, I will change the offending documentation to non kernel-doc. I
-> > was not aware that these warnings are always considered a problem.
-> 
-> Likewise, thanks.
-> 
-> I guess it depends on the subsystem. And perhaps this is fine for virtio.
-> But for Networking at large the rule of thumb is not to add new warnings.
+Hello Justin,
 
-Nope.
+Thanks for the patch!  Please, see a few comments below.
 
+On 2025-02-24 18:09, Justin Klaassen wrote:
+> The u2phy1_host should always have the same status as usb_host1_ehci,
+> otherwise the ehci driver may be initialized for a disabled usb port.
+> 
+> Signed-off-by: Justin Klaassen <justin@tidylabs.net>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3399-nanopi-r4s.dtsi | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-nanopi-r4s.dtsi
+> b/arch/arm64/boot/dts/rockchip/rk3399-nanopi-r4s.dtsi
+> index b1c9bd0e63ef..8d94d9f91a5c 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3399-nanopi-r4s.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3399-nanopi-r4s.dtsi
+> @@ -115,7 +115,7 @@ &u2phy0_host {
+>  };
+> 
+>  &u2phy1_host {
+> -	status = "disabled";
+> +	phy-supply = <&vdd_5v>;
+>  };
+> 
+>  &uart0 {
+
+Indeed, the rk3399-nanopi4.dtsi file, which rk3399-nanopi-r4s.dtsi
+extends, enables u2phy1_host, usb_host1_ehci and usb_host1_ohci,
+so disabling u2phy1_host in rk3399-nanopi-r4s.dtsi makes no sense.
+
+After checking the NanoPi R4S schematic, I can confirm that the
+phy-supply references the right regulator.  There are some strange
+things in the schematic, but they're unrelated to this patch.
+
+However, there should be a v2 of this patch with the proper Fixes
+and CC: stable tags, so this bugfix also gets propagated into the
+long-term kernels.  Please, feel free to also include
+
+Reviewed-by: Dragan Simic <dsimic@manjaro.org>
 
