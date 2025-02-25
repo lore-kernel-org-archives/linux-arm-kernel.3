@@ -4,64 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E848C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 13:36:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F88AC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 13:37:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZHQM5nbhbJNlP1js89/REC9STfmQ5XsLFUJcFanIvMs=; b=NiaioaxZcp8gg/kUwOCeOpNtFl
-	PeqVy70MACJrIuKiX0th0GChVDvaqFfZjJErlBoUKd3KC9miWnk0nlNeeFJDl5lTWZtbj8huOkklu
-	vbCIza+hqd4d43EM+lsi1Pwoys8S68PL/YKJT6cG4SGj1JZ6EBxoXBcvEQhagXNhP9Cdey/Zhbfw8
-	rabaFPLU9PEVayTK8xIggxXb4FU8OYC2TiEXkZ+jBgMUfrOkX3PLD/daJfKnpe7UfXzcpUX8g3Bta
-	IJ2HLaFDzaQYMmBDZ8JT+0A+e8EOqU/+gKQIy1/jFkmy/09xh8HCxxFuAs50DdxqwD/ARj/iq+ljb
-	P3BLb0sA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8VDVFsbOyCt1kJNBtRRJGvWFpItT1OX7NKbrvBf4atM=; b=wITwunYzWq3dCpDe5dJKbcBT0X
+	RGV5j9pHZKm2ywdK7X27gOPTDZaWmw2Iz8he1yE1rOxqeI/6xboG46h93sopN++5jTBftFAzPulmb
+	pc5oCc0A193yPRq8swPHf8J5Hv19FwViUvdgOja/t3VhhrYdVPklz57Md5TfCYKNgBqU81gK8CDjM
+	hrm9N17TKi26vYwoDMm5hZT8rcpi7pVPdkkcBvHzfx+uDqEpJcMjpCMCwYr9Hbjq5tCh69pTZ6Tse
+	AMJrx5/0Ec3jmDAPsLQv74i7eRybazuj2T8wJmwasSR2rgpa1y7UbfRIPJS3V8sTB2k57zcErPVqj
+	Mnj+maIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmv6J-0000000HOV4-16YG;
-	Tue, 25 Feb 2025 13:35:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tmv7p-0000000HOkW-1HUo;
+	Tue, 25 Feb 2025 13:37:29 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmueP-0000000HJ1l-3TYU;
-	Tue, 25 Feb 2025 13:07:05 +0000
+	id 1tmugC-0000000HJNN-0I6p
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Feb 2025 13:08:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7856B61248;
-	Tue, 25 Feb 2025 13:06:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C95AC4CEDD;
-	Tue, 25 Feb 2025 13:07:04 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 775D95C7004;
+	Tue, 25 Feb 2025 13:08:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A08F7C4CEDD;
+	Tue, 25 Feb 2025 13:08:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740488824;
-	bh=NmQ9nWH8XrnjebLyNSQHDNt1Aovq1Uzq7YSBPo1HXwI=;
-	h=From:Date:Subject:To:Cc:From;
-	b=coLausKWPcqpdqi5p+N8gT30FJzaSSwnHbZYR4g9yuD6kv/R9KzzYPnhEAywIeOEx
-	 OVwj3sYc3G2tJqz+M91M1WPUlbQ5C8XnIYuDStxULNZUqoddEoD7DW2J7Ag49oMDZe
-	 mzz6ugjplEw2VFiF08Q5Ll5mh44uhOkmFnlhBm0hjaiqxUd9rTi6dO3jXGWywo6OSn
-	 FwVlcTTxLop9BqYI7ir+ajgVOUN/KA5XaS5mzuLHlVgVz0DDumiXjkB53DgBVpPLjy
-	 0n1bI1hbwShguvYrt0uyXXSpOCgvyNQTuw6rFDcwhSo869HrX2lnK5bvqovZSg5X2N
-	 q3PGJ31F7ajmQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 25 Feb 2025 14:07:02 +0100
-Subject: [PATCH v2] arm64: dts: airoha: en7581: Enable spi nand controller
- for EN7581 EVB
+	s=k20201202; t=1740488935;
+	bh=lpwT38cksPLhgDNp/anLedApIncSZLWOnUwPr4KlFlY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qq+xIrWrE25gUYN5jMGYYdqJInn0Larueyuu7gx4PUQLZDHJZtjOnmaH8TuUbVSik
+	 PEqMqTNENHsb7QUtvKnkjDhGMltrrbhqsArB4nPRdNYscT1HtkOO2im69KNaqaDxRg
+	 Nln35oEiTlwi30EbZMWGNFL/ndpmmjBDL7s7og8Ymnobb0624Eiv5lh47Znnfx4HJN
+	 2F5jscG71hDxk/J7eXJ21H/pxzHS0A2XYITTSvysZnfw7r9eRsO60mUaRxeBLd6nx6
+	 OZFfvymlQu68Zl/I4WRBmViyci4KCknm04941uEHnsQKUGbeh/mqFfYoJxE8hBzcZH
+	 XuLvKwI9oyv5Q==
+Message-ID: <e959c772-9c10-4c87-a22b-e2f91ca05af8@kernel.org>
+Date: Tue, 25 Feb 2025 14:08:51 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: defconfig: enable Qualcomm IRIS & VIDEOCC_8550 as
+ module
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org
+References: <20250225-topic-sm8x50-upstream-iris-defconfig-v1-1-8a17e2e193d9@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250225-topic-sm8x50-upstream-iris-defconfig-v1-1-8a17e2e193d9@linaro.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250225-en7581-snfi-probe-fix-v2-1-92e35add701b@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAHXAvWcC/4WNQQ6CMBBFr0K6dgyt1Aor72FYCP3ARNOSqSEaw
- t2tXMDle8l/f1UJwkiqKVYlWDhxDBnMoVD9dA8jiH1mZUpjS2MsITh70ZTCwDRL7EADv6k/Gdv
- Be/gaKm9nQdZ799Zmnji9onz2m0X/7L/iokmTc6jcubauQnV9QAKexyijardt+wLJ1yKGuwAAA
- A==
-X-Change-ID: 20250225-en7581-snfi-probe-fix-c325bedded9e
-To: Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250225_050856_222055_3E64F699 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,55 +119,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable spi controller used for snand memory device for EN7581 evaluation
-board.
+On 25/02/2025 10:10, Neil Armstrong wrote:
+> In order to support the Qualcomm IRIS driver on the Qualcomm SM8550
+> platform, enable the IRIS and the VIDEOCC_8550 dependency as modules.
+> 
+> Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
+> ---
+>  arch/arm64/configs/defconfig | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> index a1cc3814b09b31ee659536a64b7db704153d6fe9..710452f75133896af2e3a19ae544f139e1c28a98 100644
+> --- a/arch/arm64/configs/defconfig
+> +++ b/arch/arm64/configs/defconfig
+> @@ -847,6 +847,7 @@ CONFIG_VIDEO_IMX8_ISI_M2M=y
+>  CONFIG_VIDEO_IMX8_JPEG=m
+>  CONFIG_VIDEO_QCOM_CAMSS=m
+>  CONFIG_VIDEO_QCOM_VENUS=m
+> +CONFIG_VIDEO_QCOM_IRIS=m
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
-Changes in v2:
-- Clarify the commit title
-- Link to v1: https://lore.kernel.org/r/20250225-en7581-snfi-probe-fix-v1-1-77e4769574e4@kernel.org
----
- arch/arm64/boot/dts/airoha/en7581-evb.dts | 4 ++++
- arch/arm64/boot/dts/airoha/en7581.dtsi    | 2 +-
- 2 files changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/airoha/en7581-evb.dts b/arch/arm64/boot/dts/airoha/en7581-evb.dts
-index d53b72d18242e3cee8b37c7b1b719d662fd6db8d..cc69f698c27b804953b1bb671e128d4401744bf5 100644
---- a/arch/arm64/boot/dts/airoha/en7581-evb.dts
-+++ b/arch/arm64/boot/dts/airoha/en7581-evb.dts
-@@ -25,6 +25,10 @@ memory@80000000 {
- 	};
- };
- 
-+&snfi {
-+	status = "okay";
-+};
-+
- &spi_nand {
- 	partitions {
- 		compatible = "fixed-partitions";
-diff --git a/arch/arm64/boot/dts/airoha/en7581.dtsi b/arch/arm64/boot/dts/airoha/en7581.dtsi
-index 26b13694091735da7af977e42f8f546d7d5cb078..49c061d38d7860b3b416610723791a7a91edcb69 100644
---- a/arch/arm64/boot/dts/airoha/en7581.dtsi
-+++ b/arch/arm64/boot/dts/airoha/en7581.dtsi
-@@ -150,7 +150,7 @@ gic: interrupt-controller@9000000 {
- 			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_LOW>;
- 		};
- 
--		spi@1fa10000 {
-+		snfi: spi@1fa10000 {
- 			compatible = "airoha,en7581-snand";
- 			reg = <0x0 0x1fa10000 0x0 0x140>,
- 			      <0x0 0x1fa11000 0x0 0x160>;
+Does not look really as Kconfig-ordered. iris is before venus in Kconfig
+include.
 
----
-base-commit: 0092294492fafe79a537915e486576a3d69c9a7c
-change-id: 20250225-en7581-snfi-probe-fix-c325bedded9e
+
 
 Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
-
+Krzysztof
 
