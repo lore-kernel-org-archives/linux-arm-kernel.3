@@ -4,80 +4,208 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4566C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 19:36:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E604C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 19:40:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dRrgpS00xeUywlxVgpPwc24kauJL/r4chFWYJ/kG1Y0=; b=SBlyhJoZk+b0RNfAgi7Zobpe06
-	E4jTKROKGuPRa6g3hhlxUekFGFdrKKgnkTZHdE3mIOgKlkZHhg8DUpC4+tA1GeXLEOoft4gr9SrAq
-	rP3e/S16gX9K8UQIX49cqwI3WolyFh78SfFxcPejLT9uwxYxYg8dOn28wp3gk9q8Q8CT9Yi0qpuZI
-	VlvEuBWRvE0deTxh7oYLabKqS0m3XAO1ohnIwFwq3tutHZoyii4FNAbYY0eDN2SS1+h8Y88QFBR24
-	EVvAtZUIaIFnGOWbhOR5esjXSUSVKa48ydojSnHO/6URmXxAcxCPxdawjWk4mCop3iEHw31+DX8m7
-	C4k8nNeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fMmeLm0df8qMuozLxLA5Sb8aOdicU1v4GjmyFZRsju0=; b=G8SkV7LLFD7rLXnetZXNp8u9VM
+	Up8RVku43DrTU9Y2oJBdtQmt5gQsn++D8Q9SwZQJR7J1Uoh0k7SvfubWwaETVy0Gp4wYlS6XrxTdl
+	0o9mXdAMAgSNnxzfIixa8q13h9l+tElZipaOhiQ/KCYeQGaBi9mqK5HFzFjErCWMQGJrUJIYIs16m
+	RG5/l0LiwWy1QVPWPxjY+lMppx678BvnTLUXMkXHy4fidC+YzslUPRfUDjof2cCOIjQI2Gt7PYjTW
+	9Y+cdk/WDmH3EY1CgQ0huOH8ZQTp3wgwIZcFNQKCwwHAbhQKUlWKdgB7Srq2Huwq4NyTadNXkWLn0
+	loWTFN6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn0jR-00000001B7i-1bV0;
-	Tue, 25 Feb 2025 19:36:41 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1tn0n6-00000001CNr-3Ni4;
+	Tue, 25 Feb 2025 19:40:28 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn0hu-00000001Auc-0yXJ;
-	Tue, 25 Feb 2025 19:35:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740512106; x=1772048106;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version:content-transfer-encoding;
-  bh=Y0dgq02rrgg6GhOsq8ZPtCl2ibf+lqJ5X0BUAPIsTbA=;
-  b=lWmlG+t9fdtlkAOpfDuy4z4+RroUJ/XOeZg6oTUT8NTJaMXn4oZfvOx8
-   9zNJkqB4jCNnNidFudhuxLIe3bGJ90yPqxGS1pQno6R0K5+VNiU7iy5I0
-   y/lwDAaFsOPZq78MNmZYpKCTF5rgVsYZthMMtcEeBvjV9D4Yw8ah8+XYT
-   ezf6aVBhvFDGA201mpjw2WF4o7la+XDjiC/SZzofOcYuDOMAUTtvmgBu5
-   9HhILWIA0hxVuVmQTaY9GS8TxJNHsSMkCFo+iFm0AuTdPJLIOSZHKWxUr
-   vQSOmk1uerSqGl3F4+2S+BrSMnYoGWJmWTj0SXXzK/ae1Cse01OABhted
-   g==;
-X-CSE-ConnectionGUID: 8K2J5sagSgGnCHocpj1TQg==
-X-CSE-MsgGUID: AIuYiKbJTSy5sQ5YwMOQ0w==
-X-IronPort-AV: E=McAfee;i="6700,10204,11356"; a="41465288"
-X-IronPort-AV: E=Sophos;i="6.13,314,1732608000"; 
-   d="scan'208";a="41465288"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 11:35:05 -0800
-X-CSE-ConnectionGUID: qrC/vWxRRZ2hkAfLY3GMYA==
-X-CSE-MsgGUID: rpKIiapzTxKqUpXFTcgExw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,314,1732608000"; 
-   d="scan'208";a="116263364"
-Received: from monicael-mobl3 (HELO localhost) ([10.245.246.246])
-  by orviesa009-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 11:35:02 -0800
-From: Jani Nikula <jani.nikula@intel.com>
-To: Andy Yan <andyshrk@163.com>
-Cc: dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org, Sandy
- Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan
- <andy.yan@rock-chips.com>, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, sam@ravnborg.org, Cristian Ciocaltea
- <cristian.ciocaltea@collabora.com>
-Subject: Re:Re:[PATCH 2/5] drm/rockchip: stop passing non struct drm_device
- to drm_err() and friends
-In-Reply-To: <730ee1d4.f63.1949b97fc99.Coremail.andyshrk@163.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-References: <cover.1737644530.git.jani.nikula@intel.com>
- <f42da4c9943a2f2a9de4272b7849e72236d4c3f9.1737644530.git.jani.nikula@intel.com>
- <2c0a76c3.618c.19497bb4329.Coremail.andyshrk@163.com>
- <87plkcbfp0.fsf@intel.com>
- <730ee1d4.f63.1949b97fc99.Coremail.andyshrk@163.com>
-Date: Tue, 25 Feb 2025 21:34:58 +0200
-Message-ID: <87wmdd4y3h.fsf@intel.com>
+	id 1tn0lX-00000001Bbj-49LX
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Feb 2025 19:38:53 +0000
+Received: from pps.filterd (m0246629.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51PIXf3e007501;
+	Tue, 25 Feb 2025 19:38:32 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	corp-2023-11-20; bh=fMmeLm0df8qMuozLxLA5Sb8aOdicU1v4GjmyFZRsju0=; b=
+	IGz+MjpGOD1g4qWC1g4lB0B6zosqHXcG+nkWzUeqqfrTrlhvVJMXtw99/Q/+SDxH
+	ZwgsdGdA3WNUuXF+zK5GkCYKVOPiqor8wL7INrH2Cxsa9JSBt25dtgqkW4M+JDcB
+	7ciXNjzbdF1fCSmE49rKy0DFXwTvXnLJOo/ohmdAulUnWDu8v8pUP6MqyGERY5OC
+	GkwHr1Z4RK5W45c91GTsedS1jQIn8yqZH3jBW4bycil+nmXrpBJxYcTP4pf4ZaKZ
+	QwHEFxz+8uUUfKe0XRBMqjUw2ncvZOlaDl3aHCoG50lVMqaWfMbWmA3PyRXF21zc
+	nKyCfiYd1pO2FfsvGQ+bWQ==
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 44y6f9e2bg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 25 Feb 2025 19:38:32 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 51PHvCvG025641;
+	Tue, 25 Feb 2025 19:38:30 GMT
+Received: from nam10-bn7-obe.outbound.protection.outlook.com (mail-bn7nam10lp2045.outbound.protection.outlook.com [104.47.70.45])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 44y51g8ueh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 25 Feb 2025 19:38:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PIJgUTGA7TVJvySzxJ/MWDDASe2WKWFPGKoaQD6R25eEKHmDSQGWtl6rIsLrDHhfCqq487c7mk1REaRaJm9kkKkNgJ/Ya7oUSeNjPE+Ey2Decyd4s4r05rseJ3MK360ZfZ3X/s2Bzwn5pbgKFWz1Hs3urayJXSKq11gv0Ss48a+yZvPxWBHPEC5m3GOj/HdNjYhdptQdovtP637xqL37XDsnQRwAZox3tFwVumrDhNs4O1T4r3pz5rVpRCqZ2YDrb02b51YLWAG3hLnoJ5oTRMtImy3dD2ye+tjrxCXq7T5Gu9KjWk9xDDQaeZVyY3paiBVNZd2zp9UG5z/qH0JwSw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fMmeLm0df8qMuozLxLA5Sb8aOdicU1v4GjmyFZRsju0=;
+ b=BF2RtHENPvjjEg3qHFUgfBud2pb485uQTLoAvkEyojMtzvCNwIAhH/+rsdxh9+3Knp+L+PrulP1CGusuNQe2mr/Kg+XeySax62SFIpJ6BaMIrlrpeVcK/mpKwb+RVyDnqoPyMpPKngGcyjM1BZzingeI7eoyjHZlCJRobyKGw/G4c6SGK6BE8mj+SE5ifdLyZ7Yw3kbWyukGQy7ueHnkCNhtFFEWDhF4v5WIHrlJKGL0YW6X+TrQ8EBUxzQ0Rdz9qMSMepf3PSxOQb0hL/ci8irOYx+OuoVSKzfZLfm5BWC64fcjQxI+RjEQv5cdehfIX+rC9aYT+SI4iSJsCuXUGw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fMmeLm0df8qMuozLxLA5Sb8aOdicU1v4GjmyFZRsju0=;
+ b=sa2OZDRivq//Fgq6/JxjSrUg+Tnyr1EVOCVNi2iv4BoHT6jL1qtcrT94XRQrkuhR71DOLGliTCct3yfJL1YYxYMoE5YN/foIpC6g1jPssSZ5Zth5UbPwha8vmFQ1ZuFHs/xJHP1p9D3/jpkZ9Vi6WnZS12t+x49XWcFZrTXumIk=
+Received: from SA1PR10MB6365.namprd10.prod.outlook.com (2603:10b6:806:255::12)
+ by PH0PR10MB4535.namprd10.prod.outlook.com (2603:10b6:510:31::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.20; Tue, 25 Feb
+ 2025 19:38:28 +0000
+Received: from SA1PR10MB6365.namprd10.prod.outlook.com
+ ([fe80::81bb:1fc4:37c7:a515]) by SA1PR10MB6365.namprd10.prod.outlook.com
+ ([fe80::81bb:1fc4:37c7:a515%5]) with mapi id 15.20.8466.015; Tue, 25 Feb 2025
+ 19:38:27 +0000
+Message-ID: <4356c17a-8dba-4da0-86dd-f65afb8145e2@oracle.com>
+Date: Tue, 25 Feb 2025 11:38:21 -0800
+User-Agent: Mozilla Thunderbird
+From: Indu Bhagat <indu.bhagat@oracle.com>
+Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
+To: Weinan Liu <wnliu@google.com>
+Cc: "irogers@google.com" <irogers@google.com>,
+        "joe.lawrence@redhat.com" <joe.lawrence@redhat.com>,
+        "jpoimboe@kernel.org" <jpoimboe@kernel.org>,
+        "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "linux-toolchains@vger.kernel.org" <linux-toolchains@vger.kernel.org>,
+        "live-patching@vger.kernel.org" <live-patching@vger.kernel.org>,
+        "mark.rutland@arm.com" <mark.rutland@arm.com>,
+        "peterz@infradead.org" <peterz@infradead.org>,
+        "puranjay@kernel.org" <puranjay@kernel.org>,
+        "roman.gushchin@linux.dev" <roman.gushchin@linux.dev>,
+        "rostedt@goodmis.org" <rostedt@goodmis.org>,
+        "will@kernel.org" <will@kernel.org>
+References: <20250210083017.280937-1-wnliu@google.com>
+ <20250225010228.223482-1-wnliu@google.com>
+Content-Language: en-US
+In-Reply-To: <20250225010228.223482-1-wnliu@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MW4PR04CA0262.namprd04.prod.outlook.com
+ (2603:10b6:303:88::27) To SA1PR10MB6365.namprd10.prod.outlook.com
+ (2603:10b6:806:255::12)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA1PR10MB6365:EE_|PH0PR10MB4535:EE_
+X-MS-Office365-Filtering-Correlation-Id: 585afb8e-9d87-49a6-256d-08dd55d3f9f6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|10070799003|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?OWxPTWdtYWV3Tm9zY0VzUUJiOTVtWm9BVGlzbnYwNjhEY25jVmo0QXEwc05C?=
+ =?utf-8?B?ZmY5NVQ5emkxT090SWllWm9GV000Y09ycGhDbDZMUHBycjdRbnRHVWZnR3Fp?=
+ =?utf-8?B?T1NWQmtwSWxGbzFFcHlvTWF0QnY0cStWMnhaZWZCblMwMWdJV2xoVkhESDk2?=
+ =?utf-8?B?RjN4SGFCRk1td0h1Vi9SenRZR0JUU1ZWVmZPcWNGcDJYa0VBbjRJM3B1TnF1?=
+ =?utf-8?B?ajI0RTJZUzNnT1pUVStuQlZTT2FjRDduZVIyNkEzY2RnK08xSmFrZnV1SUpy?=
+ =?utf-8?B?NEw1MVVkdURqb2w3c3BWdG1XMU9lY0FUZjNxTjVFOGhtSUhiM3UwbXk4S0hB?=
+ =?utf-8?B?T0kzVDBVQm1JY3kzbU00aHZUd3dyUmRBMFFzaTd6S3RnV2kyVmFaN3hzQW9U?=
+ =?utf-8?B?WEtnY3ViZHArTHUwSWlFTUNZcEkxYmpjbnRacE9mUzAzTVNhZ2ZuMHVJT293?=
+ =?utf-8?B?ZG1zMFo1QXNhZlFLMEZuUzN6bHdLelF5cTVYM2RiRUV3b2s3UmtWMXdwY3J1?=
+ =?utf-8?B?S0EvN0JOQ0FuOUZFdWZQUWh1aDl0UDJCTUtoclltRXFjNlVUdk81WjlaZ25x?=
+ =?utf-8?B?aytuVXRlRTlWZGsyTVh4L3M1Q3J6bzdIbEZiZ2hQNU83alcyeVNEbklMZEVr?=
+ =?utf-8?B?ZEs3bC95aGIvcXVQSkxDbzMwT1N0VXRnWUZEa2JWekM4MCt5SmhNOXZXaCtt?=
+ =?utf-8?B?K1ZQTlpNZXpxQzZJaGgxc0ZPRDJ3K0lzWXJrRXdsQmFwbkcybkRKVGNBYlR3?=
+ =?utf-8?B?WmNaaTcwYUROVjk0QlVEekFuYk1EWHVxUDRzTlFQZ1pNcHpZMEpTMWhMT1or?=
+ =?utf-8?B?dEt1S2p6MzF0Q1hCV0Vkd0dFM0U5bEhkMHlnTnBTd2oyRjNQcURldG9kQTJ2?=
+ =?utf-8?B?aWVUenJtNUt0Rlc5Q2N4RTJiQUdwdnd6MXB5SEh3dmpkS2E1ZWFvNC9NN1Ro?=
+ =?utf-8?B?eXUwbDFOM0R1bVRPdWx3VFNtZ3NJVnozbDZIa0o3RDI0aGJEdDlEcEQ0TVA3?=
+ =?utf-8?B?ZURDYXNTdGVrZHVNSHhGd0xkeE9aNXBSdnl3WFRaYTk3QVdYNmFUOHZIQmtX?=
+ =?utf-8?B?VWRiZHV2ZWJjV1ZUSDYxNzRwc01lN3NPOTNTQ2Y3WmNrMCsvZUZaSmREQm90?=
+ =?utf-8?B?bDlLL0FybFNrOU1QWkJROU5oRW9Cb0R6UnlrV3dPSmNkN1E4c0VjZ1dsWG56?=
+ =?utf-8?B?NzZWUUxKb3ZrRDdjTm5oaHUwVkhEVFk4bWtXcFN5QmcvcDA0SXBzWkxZc0I5?=
+ =?utf-8?B?NFpuQ3ZqWGZNTHBya04yNjhudExYYjRZWWdBVUNEUEhBQmRjTHJLT0pPZHFC?=
+ =?utf-8?B?VzFBK1B5MzZyYXo1ODBLQ3hyZ1VYVjl6aXR3a3pUWDBuenlpajF4UWJPdFJX?=
+ =?utf-8?B?TGo4TXVjSE1vRTk5QjFuNWhCKzBvL3lWeHRlMXJKcnU0elRXTU9MMDNiRnZy?=
+ =?utf-8?B?aktrY2M0VEpsTENKVTlxYmVGejh5REMvZGNQUmR6MmhobUhFQ0k1SmtDWXND?=
+ =?utf-8?B?VG1iYUhDZE9Rd3gxQlpGcHAwOU9FUjVsZmViKzJwR1Z1NkNoSzNoZjhGd3g0?=
+ =?utf-8?B?OXRYb2dZbERLVkluS3VIQVlEUGhqMENpT09JSG5HalR5VkxKYmF0WlN3emdX?=
+ =?utf-8?B?WENNV3prOU1wOFIyS21wRXU2SXA5MXF0bkFoSGxMRDBZNVlMVVR5YnZQcmh1?=
+ =?utf-8?B?R0FHYXlVZ29JOEtNSFZaT2l4UmR3QnIwdGVKNlZkenB2K2RZRG9wVlpKUDNQ?=
+ =?utf-8?B?b1BhWTZoWkkvNGJyZXRzSVBFUXY2OXdTQkk5cUVha0RMY1B1TytzYkpPWWZX?=
+ =?utf-8?B?ZG4wbmdwTUhnbWV1dkFHdz09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR10MB6365.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(10070799003)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?STlPY3JSMTNCL3RCeGpvY2hON1c2NCtGQ2pGajZRYWljakxTbkRFVGFNMmQx?=
+ =?utf-8?B?S1MvWWtIbk1ocFdkWGRNZ1FKalZWalhFQWMxZ1orTU1jUWk5RlFBSVFvQk9s?=
+ =?utf-8?B?KzE4VlVPT0hNWU9DSjJKYUFZMDBsWlJ5VUF1NG9kZHIzVHFBUlNNTGRZZ1R5?=
+ =?utf-8?B?V3ptWVc4Q29LSnZJaFJSYjhyYUs3T1pZL0dEcjNmeFlLUk95SDE3R3ROU0s5?=
+ =?utf-8?B?aHgrZTNtK1VMaEMwR0NkZHdVb0p2bmhRbnJJQ0pHaVQ3czhtWXgvU09GREVM?=
+ =?utf-8?B?VjBCdGZjblIvSVdOOUpJTGZieU02QkNzRnh3SW5IRU52L0pxYmxpb1F2M1BQ?=
+ =?utf-8?B?d1R5SUVtU0xSZVFXaThIWlNRaUdWdE50TTZubW1KME5nSE00Uzc2YzJPVkc3?=
+ =?utf-8?B?b2NVaGVIOFpvdUZRS3ZHTEd3MTI1WlZta21md0gydnRNSk95cDFHV0ZsME9E?=
+ =?utf-8?B?Y0MrQ3h2V09tMjBFeUgyQUJuTmZyckZHbVZaZERUbm1CRHIxc3EyZUpEUllH?=
+ =?utf-8?B?ZHRBN0tKcU9EYTlOeUI3Z2tuVnlIN3NLa2xYa3JWY2o3cWFiUDVWckE1YkRu?=
+ =?utf-8?B?ZHhYam13MCsvUzRwRWhFeW1hMHBsSFkzM1B2bDRzWFVqS3BoNWZVZy9pWnFT?=
+ =?utf-8?B?TmpJTGt4UkZEaDhERVJza1JzUThKeldtQ1Rkc0F6ZFRQYWVuQjJEQ0ZDT3dS?=
+ =?utf-8?B?YVdjTUM2bFU0TnBLMkt5Ri9qSEFPVzRibENIOFB3dHdSRzEva0dLdTI5bExX?=
+ =?utf-8?B?cFRvRnRjb2R4RDVDMGFXMEY3T2FoSVZqSm4vcGdQTGRndWx3M0x0dmpFbXBu?=
+ =?utf-8?B?U3RBTVR3M0NFMk52TGhlUnJVZktPVWs2OGh6ZjRXNnpyRGJGYnhvUlpHbk92?=
+ =?utf-8?B?ZGVtVHdVZUV5eDF3cXRRSy9YKzZ1MXJjelZvckFNT0hPV3hVb01tUDlUVVBE?=
+ =?utf-8?B?cDhySVc3Zk9JZXhwdHRGRDh0bUFOdXRpZTNlNjgxRDRFYkU5WFE4RmZ6WmU2?=
+ =?utf-8?B?YlBzMFRHdC8xaFlwL3VIN2N3YVlJT3FpV1JSdU53cVFwUDlUOU5ZTTkvUFFx?=
+ =?utf-8?B?Q0cwbEN0WXA0Z2ZPTGZhZmpWNldjMkRoWWpmSFU0b1Y3WFBKSmg2Y21Dc1Nt?=
+ =?utf-8?B?Z0JRZ2RzRGdrNUZZQnpjSTIzTmlmSkxKZmFQVnZMNDZrU3hiL0JwYjR0NnN1?=
+ =?utf-8?B?N2tOR0MvRzgyM3ZDbzRLTkxRV1pHS1RSNW1CaDd0cmJBb0pLemtWOEtVL1Ry?=
+ =?utf-8?B?d3pCeWpHMUx2bTNWQktpWDVoT1UwMmxucWdzeVdQc1lqb0FqTG9nbmlVRWor?=
+ =?utf-8?B?dmxjbFJobUcrR2t3emZtTzhOd20vTFZKUTRZVXI1eFRvRDB3Z3FPYXFER0JI?=
+ =?utf-8?B?VjhFNEFhbElITnVBVzhlT2ZSWktFZ042ODJRaUtNTSswZXdZTDR3Wm9Ga3lS?=
+ =?utf-8?B?eEs4V0RqRWU2SGdUcFFraEJuUmlKd2RRWlpiUEJDOVg1UG5QNzA1dkZtQ0pI?=
+ =?utf-8?B?Sy95WENMYTE0V1pwU0oxcTZQdGs4cFJINjVyWTZSVWdDU25ib3czRzVUczEy?=
+ =?utf-8?B?akxpakNmZlMrWTR0S1lVdWZMckt5cWpQTGRrMUtMbk5Xbzk0WEo3UFhMYVl4?=
+ =?utf-8?B?WUJzUHNzOVFWNXFObVBydmtwYm1vZWozb0MrbWRpcjU4WGlJSUxNVjAyZ1FF?=
+ =?utf-8?B?TTllKzhnVmFtVE1qUG8xcThKcjYxT1NvT2kyQWptNktHWXF2azlsMklsZUZk?=
+ =?utf-8?B?Y2pydzZHY05qK3R0UHg5N2FWY1ZDNnhsT0kzUGEzZjV5V1lENTR3QXlLUlVh?=
+ =?utf-8?B?QmovWFozbXVpN1J2M3k0RHJzc3VlQ0hsc3Y0QzR6eXA0bWVzZ0NEN0k2bGdu?=
+ =?utf-8?B?eFlOaHdFM0l4OGNkRGRmdnpQM3JXc3lhaEU2REZ6UGZCSmlxd0tJYkpiUDFU?=
+ =?utf-8?B?dnljTWZJc1hNbmdXSmE1OTNEMlpFN3ZPVjVIWXZSRC9hRmZYeGhna0dhSUF6?=
+ =?utf-8?B?cTdaRC9vZWlrbFNUTWxaQmsreHNNWXNsaHBMYlZvN01JOVNOU2lNREpveE1Z?=
+ =?utf-8?B?L1c4dHBnNlYrZCtxeTVOWXEzaTdyTDZpUjYwNTg1b3dRWXpMNm5MRzdpVmhT?=
+ =?utf-8?B?VjdNRnB1akFXU2ZLM3FtZ1lzWFVqcGlkeHJVM2pPTWRWTTc1d2xnWDdjd2Nz?=
+ =?utf-8?Q?YZgQGpGsJZG87hzGyKAW8w4=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: FC0vd63oDWUkJb2N0O7+mp3RHd4Tlpl0kSQ/dmwSmGV80Inyr7AvCd73i/BI6VFC87ilvsUGCW22V/OMK3loYwP+rUU23lJsxAlKnHFLwne3n7DkqyBmTdynbGYMeKA57sYW7aKSAHxsqbzLfdMahpgkfZVxUHkEDUUe48VxqZnloqy9rm6O/a5eCZ4IHDQUwB6LCbsmZMS4mLg86e1wYQuAey/1fa1pmavL3j9fLDfxCX1VAZOI30IcRVctUxhH6iFU9gebPfH3i3miE7zb2TnbdPKFUl+rMBtcMKKCI7S4n9YoQgK6QEjEWqN2CCyduSp6LyxnY9LmQtnqtAfrRj0fONtL+cEenUlZMOONUh2rS1kQ4ULUoRRrOWU2h+HOVIZ0UveNA4/yr7c3Kg+11XNz8hGQVDxN4hOoqAFJFTSDu/IORDYUdCv7EpNEtxUOGr9GTLf9E2x9vKZ3iItx6vwBp8BlUmeOdbPxeOOC0IXivmt/764qsoFvkCIxZrMY+G50hqjHLO3StkHDnU1S8dMW2dSD7ihL5o+rfoJFlGamkVkObY4e8GUNblUCv8zkD/OeUQNNdXrn6z2DleduoOpYvzRYHEIk4RJJQmzs6Mw=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 585afb8e-9d87-49a6-256d-08dd55d3f9f6
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR10MB6365.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 19:38:27.8866
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CsQXKpPKeGDpJe/GBRndKqomtC7ubHDS+qTrNUeBCyUGy2vF2ujDI0T1M3RW+I3d0SesKGGvS5twBeKmuVvZqA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR10MB4535
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-25_06,2025-02-25_03,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0 spamscore=0 mlxlogscore=999
+ phishscore=0 mlxscore=0 suspectscore=0 adultscore=0 malwarescore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2502100000
+ definitions=main-2502250120
+X-Proofpoint-GUID: G5XvcfosplJo-ktON56L17Pzr1LpsRpW
+X-Proofpoint-ORIG-GUID: G5XvcfosplJo-ktON56L17Pzr1LpsRpW
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_113506_370753_74C50F83 
-X-CRM114-Status: GOOD (  17.17  )
+X-CRM114-CacheID: sfid-20250225_113852_029060_23CFA538 
+X-CRM114-Status: GOOD (  22.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,259 +220,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 25 Jan 2025, "Andy Yan" <andyshrk@163.com> wrote:
-> =E5=9C=A8 2025-01-24 19:43:07=EF=BC=8C"Jani Nikula" <jani.nikula@intel.co=
-m> =E5=86=99=E9=81=93=EF=BC=9A
->>On Fri, 24 Jan 2025, "Andy Yan" <andyshrk@163.com> wrote:
->>> Hi=EF=BC=8C
->>>
->>> At 2025-01-23 23:09:09, "Jani Nikula" <jani.nikula@intel.com> wrote:
->>>>The expectation is that the struct drm_device based logging helpers get
->>>>passed an actual struct drm_device pointer rather than some random
->>>>struct pointer where you can dereference the ->dev member.
->>>>
->>>>Convert drm_err(hdmi, ...) to dev_err(hdmi->dev, ...). This matches
->>>>current usage, but drops "[drm] *ERROR*" prefix from logging.
->>>
->>> Frankly, I prefer the original version of the log.
->>> It is a platform driver, so it should use its own device.
->>> It is a driver that works in drm subsystem, so it's better to use "[drm=
-] *ERROR*" prefix when logging
+On Mon, Feb 10, 2025 at 12:30 AM Weinan Liu <wnliu@google.com> wrote:
+>> I already have a WIP patch to add sframe support to the kernel module.
+>> However, it is not yet working. I had trouble unwinding frames for the
+>> kernel module using the current algorithm.
 >>
->>If you need to do struct device based logging that is not the same
->>device as the struct drm_device dev member, you need to use dev_err()
->>and friends. You can't and must not use drm_err() and friends.
+>> Indu has likely identified the issue and will be addressing it from the
+>> toolchain side.
 >>
->>It's as simple as that.
->>
->>The current drm_err(hdmi, ...) usage is simply abuse of the macros, and
->>must stop.
->
-> Perhaps when you initially designed this macros, you intended it to accep=
-t only drm_device,=20
-> but your code implementation didn't enforce this restriction at the begin=
-ning.
-> If that's truly what you intended, I suggest just reverting this commit t=
-hat converting to use these macros[0],=20
-> as neither drm_err nor dev_err can maintain consistency with the original=
- log of this driver.
-> Alternatively, as suggested by Sam  in the initial submission of your pat=
-ch 5 years ago,=20
-> there should also be a macro similar to drm_dev_info(device *, ..).[1]
+>> https://sourceware.org/bugzilla/show_bug.cgi?id=32666
+> 
+> I have a working in progress patch that adds sframe support for kernel
+> module.
+> https://github.com/heuza/linux/tree/sframe_unwinder.rfc
+> 
+> According to the sframe table values I got during runtime testing, looks
+> like the offsets are not correct .
+> 
 
-Commit 1b8f576c6958 ("drm/rockchip: dw_hdmi: Use modern drm_device based
-logging") does not revert cleanly, and even if it did, DRM_DEV_ERROR()
-is deprecated in favour of drm_err() or dev_err(). I'm using the latter.
+I hope to sanitize the fix for 32666 and post upstream soon (I had to 
+address other related issues).  Unless fixed, relocating .sframe 
+sections using the .rela.sframe is expected to generate incorrect output.
 
-Ack for applying the patch at hand as-is?
+> When unwind symbols init_module(0xffff80007b155048) from the kernel
+> module(livepatch-sample.ko), the start_address of the FDE entries in the
+> sframe table of the kernel modules appear incorrect.
 
-BR,
-Jani.
+init_module will apply the relocations on the .sframe section, isnt it ?
 
+> For instance, the first FDE's start_addr is reported as -20564. Adding
+> this offset to the module's sframe section address (0xffff80007b15a040)
+> yields 0xffff80007b154fec, which is not within the livepatch-sample.ko
+> memory region(It should be larger than 0xffff80007b155000).
+> 
 
+Hmm..something seems off here.  Having tested a potential fix for 32666 
+locally, I do not expect the first FDE to show this symptom.
 
-
->
->
-> [0]https://lore.kernel.org/linux-rockchip/20240813-dw-hdmi-rockchip-clean=
-up-v1-1-b3e73b5f4fd6@collabora.com/
-> [1]https://lore.kernel.org/dri-devel/20191212215303.GA11520@ravnborg.org/
->
->>
->>
->>BR,
->>Jani.
->>
->>
->>>
->>>>
->>>>Signed-off-by: Jani Nikula <jani.nikula@intel.com>
->>>>
->>>>---
->>>>
->>>>Looks like it's possible to hunt down the struct drm_device in most of
->>>>these cases, if that's desired. This was the simplest change.
->>>>
->>>>Cc: Sandy Huang <hjc@rock-chips.com>
->>>>Cc: "Heiko St=C3=BCbner" <heiko@sntech.de>
->>>>Cc: Andy Yan <andy.yan@rock-chips.com>
->>>>Cc: dri-devel@lists.freedesktop.org
->>>>Cc: linux-arm-kernel@lists.infradead.org
->>>>Cc: linux-rockchip@lists.infradead.org
->>>>---
->>>> drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c    | 16 ++++++++--------
->>>> drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 16 ++++++++--------
->>>> 2 files changed, 16 insertions(+), 16 deletions(-)
->>>>
->>>>diff --git a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c b/drivers/gpu/=
-drm/rockchip/dw_hdmi-rockchip.c
->>>>index e7a6669c46b0..f737e7d46e66 100644
->>>>--- a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
->>>>+++ b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
->>>>@@ -203,7 +203,7 @@ static int rockchip_hdmi_parse_dt(struct rockchip_h=
-dmi *hdmi)
->>>>=20
->>>> 	hdmi->regmap =3D syscon_regmap_lookup_by_phandle(np, "rockchip,grf");
->>>> 	if (IS_ERR(hdmi->regmap)) {
->>>>-		drm_err(hdmi, "Unable to get rockchip,grf\n");
->>>>+		dev_err(hdmi->dev, "Unable to get rockchip,grf\n");
->>>> 		return PTR_ERR(hdmi->regmap);
->>>> 	}
->>>>=20
->>>>@@ -214,7 +214,7 @@ static int rockchip_hdmi_parse_dt(struct rockchip_h=
-dmi *hdmi)
->>>> 	if (IS_ERR(hdmi->ref_clk)) {
->>>> 		ret =3D PTR_ERR(hdmi->ref_clk);
->>>> 		if (ret !=3D -EPROBE_DEFER)
->>>>-			drm_err(hdmi, "failed to get reference clock\n");
->>>>+			dev_err(hdmi->dev, "failed to get reference clock\n");
->>>> 		return ret;
->>>> 	}
->>>>=20
->>>>@@ -222,7 +222,7 @@ static int rockchip_hdmi_parse_dt(struct rockchip_h=
-dmi *hdmi)
->>>> 	if (IS_ERR(hdmi->grf_clk)) {
->>>> 		ret =3D PTR_ERR(hdmi->grf_clk);
->>>> 		if (ret !=3D -EPROBE_DEFER)
->>>>-			drm_err(hdmi, "failed to get grf clock\n");
->>>>+			dev_err(hdmi->dev, "failed to get grf clock\n");
->>>> 		return ret;
->>>> 	}
->>>>=20
->>>>@@ -302,16 +302,16 @@ static void dw_hdmi_rockchip_encoder_enable(struc=
-t drm_encoder *encoder)
->>>>=20
->>>> 	ret =3D clk_prepare_enable(hdmi->grf_clk);
->>>> 	if (ret < 0) {
->>>>-		drm_err(hdmi, "failed to enable grfclk %d\n", ret);
->>>>+		dev_err(hdmi->dev, "failed to enable grfclk %d\n", ret);
->>>> 		return;
->>>> 	}
->>>>=20
->>>> 	ret =3D regmap_write(hdmi->regmap, hdmi->chip_data->lcdsel_grf_reg, v=
-al);
->>>> 	if (ret !=3D 0)
->>>>-		drm_err(hdmi, "Could not write to GRF: %d\n", ret);
->>>>+		dev_err(hdmi->dev, "Could not write to GRF: %d\n", ret);
->>>>=20
->>>> 	clk_disable_unprepare(hdmi->grf_clk);
->>>>-	drm_dbg(hdmi, "vop %s output to hdmi\n", ret ? "LIT" : "BIG");
->>>>+	dev_dbg(hdmi->dev, "vop %s output to hdmi\n", ret ? "LIT" : "BIG");
->>>> }
->>>>=20
->>>> static int
->>>>@@ -574,7 +574,7 @@ static int dw_hdmi_rockchip_bind(struct device *dev=
-, struct device *master,
->>>> 	ret =3D rockchip_hdmi_parse_dt(hdmi);
->>>> 	if (ret) {
->>>> 		if (ret !=3D -EPROBE_DEFER)
->>>>-			drm_err(hdmi, "Unable to parse OF data\n");
->>>>+			dev_err(hdmi->dev, "Unable to parse OF data\n");
->>>> 		return ret;
->>>> 	}
->>>>=20
->>>>@@ -582,7 +582,7 @@ static int dw_hdmi_rockchip_bind(struct device *dev=
-, struct device *master,
->>>> 	if (IS_ERR(hdmi->phy)) {
->>>> 		ret =3D PTR_ERR(hdmi->phy);
->>>> 		if (ret !=3D -EPROBE_DEFER)
->>>>-			drm_err(hdmi, "failed to get phy\n");
->>>>+			dev_err(hdmi->dev, "failed to get phy\n");
->>>> 		return ret;
->>>> 	}
->>>>=20
->>>>diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/g=
-pu/drm/rockchip/dw_hdmi_qp-rockchip.c
->>>>index f41151d49fca..3d1dddb34603 100644
->>>>--- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
->>>>+++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
->>>>@@ -242,7 +242,7 @@ static void dw_hdmi_qp_rk3588_hpd_work(struct work_=
-struct *work)
->>>> 	if (drm) {
->>>> 		changed =3D drm_helper_hpd_irq_event(drm);
->>>> 		if (changed)
->>>>-			drm_dbg(hdmi, "connector status changed\n");
->>>>+			dev_dbg(hdmi->dev, "connector status changed\n");
->>>> 	}
->>>> }
->>>>=20
->>>>@@ -472,7 +472,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *=
-dev, struct device *master,
->>>> 		}
->>>> 	}
->>>> 	if (hdmi->port_id < 0) {
->>>>-		drm_err(hdmi, "Failed to match HDMI port ID\n");
->>>>+		dev_err(hdmi->dev, "Failed to match HDMI port ID\n");
->>>> 		return hdmi->port_id;
->>>> 	}
->>>>=20
->>>>@@ -496,20 +496,20 @@ static int dw_hdmi_qp_rockchip_bind(struct device=
- *dev, struct device *master,
->>>> 	hdmi->regmap =3D syscon_regmap_lookup_by_phandle(dev->of_node,
->>>> 						       "rockchip,grf");
->>>> 	if (IS_ERR(hdmi->regmap)) {
->>>>-		drm_err(hdmi, "Unable to get rockchip,grf\n");
->>>>+		dev_err(hdmi->dev, "Unable to get rockchip,grf\n");
->>>> 		return PTR_ERR(hdmi->regmap);
->>>> 	}
->>>>=20
->>>> 	hdmi->vo_regmap =3D syscon_regmap_lookup_by_phandle(dev->of_node,
->>>> 							  "rockchip,vo-grf");
->>>> 	if (IS_ERR(hdmi->vo_regmap)) {
->>>>-		drm_err(hdmi, "Unable to get rockchip,vo-grf\n");
->>>>+		dev_err(hdmi->dev, "Unable to get rockchip,vo-grf\n");
->>>> 		return PTR_ERR(hdmi->vo_regmap);
->>>> 	}
->>>>=20
->>>> 	ret =3D devm_clk_bulk_get_all_enabled(hdmi->dev, &clks);
->>>> 	if (ret < 0) {
->>>>-		drm_err(hdmi, "Failed to get clocks: %d\n", ret);
->>>>+		dev_err(hdmi->dev, "Failed to get clocks: %d\n", ret);
->>>> 		return ret;
->>>> 	}
->>>>=20
->>>>@@ -517,7 +517,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *=
-dev, struct device *master,
->>>> 						    GPIOD_OUT_HIGH);
->>>> 	if (IS_ERR(hdmi->enable_gpio)) {
->>>> 		ret =3D PTR_ERR(hdmi->enable_gpio);
->>>>-		drm_err(hdmi, "Failed to request enable GPIO: %d\n", ret);
->>>>+		dev_err(hdmi->dev, "Failed to request enable GPIO: %d\n", ret);
->>>> 		return ret;
->>>> 	}
->>>>=20
->>>>@@ -525,7 +525,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *=
-dev, struct device *master,
->>>> 	if (IS_ERR(hdmi->phy)) {
->>>> 		ret =3D PTR_ERR(hdmi->phy);
->>>> 		if (ret !=3D -EPROBE_DEFER)
->>>>-			drm_err(hdmi, "failed to get phy: %d\n", ret);
->>>>+			dev_err(hdmi->dev, "failed to get phy: %d\n", ret);
->>>> 		return ret;
->>>> 	}
->>>>=20
->>>>@@ -564,7 +564,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *=
-dev, struct device *master,
->>>> 	connector =3D drm_bridge_connector_init(drm, encoder);
->>>> 	if (IS_ERR(connector)) {
->>>> 		ret =3D PTR_ERR(connector);
->>>>-		drm_err(hdmi, "failed to init bridge connector: %d\n", ret);
->>>>+		dev_err(hdmi->dev, "failed to init bridge connector: %d\n", ret);
->>>> 		return ret;
->>>> 	}
->>>>=20
->>>>--=20
->>>>2.39.5
->>>>
->>>>
->>>>_______________________________________________
->>>>Linux-rockchip mailing list
->>>>Linux-rockchip@lists.infradead.org
->>>>http://lists.infradead.org/mailman/listinfo/linux-rockchip
->>
->>--=20
->>Jani Nikula, Intel
-
---=20
-Jani Nikula, Intel
+> Here are the sframe table values of the livepatch-samples.ko that I print
+> by qemu + gdb.
+> 
+> ```
+> $ /usr/bin/aarch64-linux-gnu-objdump -L --sframe=.sframe ./samples/livepatch/livepatch-sample.ko
+> ./samples/livepatch/livepatch-sample.ko:     file format elf64-littleaarch64
+> 
+> Contents of the SFrame section .sframe:
+>   Header :
+> 
+>     Version: SFRAME_VERSION_2
+>     Flags: SFRAME_F_FDE_SORTED
+>     Num FDEs: 3
+>     Num FREs: 11
+> 
+>   Function Index :
+> 
+>     func idx [0]: pc = 0x0, size = 12 bytes
+>     STARTPC         CFA       FP        RA
+>     0000000000000000  sp+0      u         u
+> 
+>     func idx [1]: pc = 0x0, size = 44 bytes
+>     STARTPC         CFA       FP        RA
+>     0000000000000000  sp+0      u         u
+>     000000000000000c  sp+0      u         u[s]
+>     0000000000000010  sp+16     c-16      c-8[s]
+>     0000000000000024  sp+0      u         u[s]
+>     0000000000000028  sp+0      u         u
+> 
+>     func idx [2]: pc = 0x0, size = 56 bytes
+>     STARTPC         CFA       FP        RA
+>     0000000000000000  sp+0      u         u
+>     000000000000000c  sp+0      u         u[s]
+>     0000000000000010  sp+16     c-16      c-8[s]
+>     0000000000000030  sp+0      u         u[s]
+>     0000000000000034  sp+0      u         u
+> 
+> 
+> 
+> (gdb) bt
+> #0  find_fde (tbl=0xffff80007b157708, pc=18446603338286190664) at kernel/sframe_lookup.c:75
+> #1  0xffff80008031e260 in sframe_find_pc (pc=18446603338286190664, entry=0xffff800086f83800) at kernel/sframe_lookup.c:175
+> #2  0xffff800080035a48 in unwind_next_frame_sframe (state=0xffff800086f83828) at arch/arm64/kernel/stacktrace.c:270
+> #3  kunwind_next (state=0xffff800086f83828) at arch/arm64/kernel/stacktrace.c:332
+> ...
+> 
+> (gdb) lx-symbols
+> loading vmlinux
+> scanning for modules in /home/wnliu/kernel
+> loading @0xffff80007b155000: /home/wnliu/kernel/samples/livepatch/livepatch-sample.ko
+> loading @0xffff80007b14d000: /home/wnliu/kernel/fs/fat/vfat.ko
+> loading @0xffff80007b130000: /home/wnliu/kernel/fs/fat/fat.ko
+> 
+> (gdb) p/x *tbl->sfhdr_p
+> $5 = {preamble = {magic = 0xdee2, version = 0x2, flags = 0x1}, abi_arch = 0x2, cfa_fixed_fp_offset = 0x0, cfa_fixed_ra_offset = 0x0, auxhdr_len = 0x0, num_fdes = 0x3, num_fres = 0xb, fre_len = 0x25, fdes_off = 0x0, fres_off = 0x3c}
+> 
+> (gdb) p/x tbl->sfhdr_p
+> $6 = 0xffff80007b15a040
+> 
+> (gdb) p *tbl->fde_p
+> $7 = {start_addr = -20564, size = 12, fres_off = 0, fres_num = 1, info = 0 '\000', rep_size = 0 '\000', padding = 0}
+> 
+> (gdb) p *(tbl->fde_p + 1)
+> $11 = {start_addr = -20552, size = 44, fres_off = 3, fres_num = 5, info = 0 '\000', rep_size = 0 '\000', padding = 0}
+> 
+> (gdb) p *(tbl->fde_p + 2)
+> $12 = {start_addr = -20508, size = 56, fres_off = 20, fres_num = 5, info = 0 '\000', rep_size = 0 '\000', padding = 0}
+> 
+> /* -20564 + 0xffff80007b15a040 = 0xffff80007b154fec */
+> (gdb) info symbol 0xffff80007b154fec
+> No symbol matches 0xffff80007b154fec
+> ```
 
