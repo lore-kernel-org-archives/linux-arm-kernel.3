@@ -4,57 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F358BC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 12:52:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20D4EC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 12:54:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YZFp+4mX/xLepMshbn1qluOh6HrQWjdEFpUwqel3Ws8=; b=j02Ekt1Vm2xE5MXK660IoK9Fih
-	aWJHlPnP62c+2GXCFTpyibtIHOxBRAZGyepN3Ox6kBObdX28vOXjbC8VEncrzn0WHi/kxJlwnohtI
-	QiiQquEylegW9t6evV4lMUHzLmqzUIzMtCyyXN0p0j2/0+BGJCgorEV1hcOzqmbFYPfnndKvrorMH
-	ayZVcu8Zh+E/sQcynyS7haDkxbh9sz+conggSZc4USd07mOSNZUsOlO/h7Es/K18JH4f1Q3N5Lp63
-	nmgK1biCPol8vuYQdc/HMYs8679S/dnrypKODPQF0zNe94d/DRx/aXQ2HzAKorIrb8zlZHjccnbzl
-	w1nygJuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LbQbuM44J9RM7u4vPDqQfR5xiMPHChU+di9URZ1y9zk=; b=A41aUF5tWYKYo6JtPtOoit8xqw
+	bNE4ubzef6AIf8zVb+tdfBO0NOW+agQq6HEk72VeyhkV7y1/bmU6ynDoEhZRwUAZgh7M8lvsM31Ic
+	xJRabieqP0u4qdrjXtQCrxKotzSU1Y0T7j994brUAhlWPyz2lfH7A3njH2r2417wP0ANz/iOT+hJy
+	h7plsmamnI37pCv975fcswreWkv+vVfjUCcR52vWhOGjAqEH519eetc7u7NgfrlACzBeVoDqkYWRs
+	2Urvhbq28JOv+ZiXyLfb3Vx9ytDTftM6YkECfrAQ/E/nJE4pg4gnzoWpAQ4ksptdgArrcUAhAMSs2
+	kywIjXQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmuQa-0000000HGeP-2Y17;
-	Tue, 25 Feb 2025 12:52:48 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmtit-0000000H9X6-0GOh
+	id 1tmuS6-0000000HGo6-3Ley;
+	Tue, 25 Feb 2025 12:54:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmtpd-0000000HAsu-1d6p
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 12:07:40 +0000
-Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <m.felsch@pengutronix.de>)
-	id 1tmtig-00055V-2R; Tue, 25 Feb 2025 13:07:26 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: "robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, Sascha Hauer" <s.hauer@pengutronix.de>
-Cc: kernel@pengutronix.de,
-	krzk@kernel.org,
-	aford173@gmail.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	Tue, 25 Feb 2025 12:14:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 06CB7152B;
+	Tue, 25 Feb 2025 04:14:53 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F1B463F6A8;
+	Tue, 25 Feb 2025 04:14:33 -0800 (PST)
+Date: Tue, 25 Feb 2025 12:14:31 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/3] arm64: dts: imx8mm: fix micfil dmas settings
-Date: Tue, 25 Feb 2025 13:07:06 +0100
-Message-Id: <20250225120707.2658709-3-m.felsch@pengutronix.de>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250225120707.2658709-1-m.felsch@pengutronix.de>
-References: <20250225120707.2658709-1-m.felsch@pengutronix.de>
+	Linus Walleij <linus.walleij@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
+	Jessica Clarke <jrtc27@jrtc27.com>
+Subject: Re: [PATCH v7 00/10] arm64: dts: Add Arm Morello support
+Message-ID: <Z720J5kXEnj5sZn0@J2N7QTR9R3>
+References: <20250221180349.1413089-1-vincenzo.frascino@arm.com>
+ <Z7jL5wBUJNjOlg4r@J2N7QTR9R3.cambridge.arm.com>
+ <58ee2a8d-d3c1-4bc2-92dd-6568f645b01f@arm.com>
+ <Z72ydHCLxd-WGsJu@bogus>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::28
-X-SA-Exim-Mail-From: m.felsch@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z72ydHCLxd-WGsJu@bogus>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_040739_127230_2E364490 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20250225_041437_467076_5CEF4B10 
+X-CRM114-Status: GOOD (  27.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,40 +74,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The third dma cell is used for priority information not to encode
-something else. The NXP downstream kernel use the third cell to encode
-more information:
+Hi Sudeep,
 
- - Bit31: sw_done feature enable/disable
- - Bit15~Bit8: selector
- - Bit7~Bit0: priority level
+On Tue, Feb 25, 2025 at 12:07:16PM +0000, Sudeep Holla wrote:
+> On Mon, Feb 24, 2025 at 10:08:18AM +0000, Vincenzo Frascino wrote:
+> > On 21/02/2025 18:54, Mark Rutland wrote:
+> > > On Fri, Feb 21, 2025 at 06:03:39PM +0000, Vincenzo Frascino wrote:
+> > >> This series adds dts support for the Arm Morello System Development
+> > >> Platform.
+> > >
+> > > Do we actually need the dts for this board?
+> > >
+> > > I have one on my desk; it boots vanilla Debian 12 via UEFI + ACPI just
+> > > fine, with the Debian 6.1.0-13-arm64 kernel.
+> > >
+> > > Is there something that we can only do with the DT? i.e. some
+> > > functionality that isn't exposed via ACPI?
+> > >
+> > > How do you expect this DT to be used?
+> >
+> > There are functionalities that are not exposed via ACPI, e.g. gpu, dpu, i2c for
+> > the phy, etc. My aim to have upstream support for all the hardware exposed by
+> > the platform.
+> 
+> Does this address some of your concerns ? I do understand some of these
+> are not well addressed in ACPI and hence people use DT as an alternative.
 
-but this was never mainlined. Therefore drop the further information and
-just specify the priority which is 0.
+Yep; I'm happy with this so long as there's an actual functional reason
+to have the DT, which it seems there is.
 
-FTR: The sw_done feature was mainlined without making use of the
-devicetree.
+It would have been nice for that to be spelled out a bit clearer in the
+cover / commit messages, but that's not important and doesn't need a
+respin.
 
-Fixes: 3bd0788c43d9 ("arm64: dts: imx8mm: Add support for micfil")
-Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
----
- arch/arm64/boot/dts/freescale/imx8mm.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> I was thinking of queuing this in -next if all the bindings are acked.
+> Let me know if you still have concerns and would like to avoid getting
+> these merged. I will hold off then.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm.dtsi b/arch/arm64/boot/dts/freescale/imx8mm.dtsi
-index 4de3bf22902b..88e6a75e6c86 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm.dtsi
-@@ -397,7 +397,7 @@ micfil: audio-controller@30080000 {
- 						 <&clk IMX8MM_CLK_EXT3>;
- 					clock-names = "ipg_clk", "ipg_clk_app",
- 						      "pll8k", "pll11k", "clkext3";
--					dmas = <&sdma2 24 25 0x80000000>;
-+					dmas = <&sdma2 24 25 0>;
- 					dma-names = "rx";
- 					#sound-dai-cells = <0>;
- 					status = "disabled";
--- 
-2.39.5
+No need to hold off.
 
+Sorry for the confusion; I should have been clearer with my questions.
+
+Mark.
 
