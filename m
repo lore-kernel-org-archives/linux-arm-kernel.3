@@ -4,73 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3949FC19777
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:44:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DDBEC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:45:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=On/gFSg7k76HEUPuaVK5T0sZsTKnMX0TAbfYa3fHnv4=; b=1HPBAYDDkRqo00vALVjEsm6fV2
-	1Xul4Re7fFQvSw5su+D7YKtpYh86XttqOo95GzvpVYW3FuZCMmhskJmcAC6IZ4pe12O080QqqBc1N
-	FBUlx2SYnNcCd2aJ31BfuHscHWvamnvhtARIYtJb7N/S0FrUZgTrwSLO9oMOXNXa224pnF8VGI398
-	1nA3ZpU5REBP2MYOatG1HkCr1ME94hRG77vjRrcanjNGVVx/qr9HqBwrKdn1r70WJUYCYt5E5qEVF
-	lRF31atYdlDFh6HarwWRp8O08eSIuvcAAqiNaBqbMNO+U30/da5h7tKErzRMSxsnKTdMpzn8BtHYC
-	1s7gS2jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HAJZSDB7xuKscLHDG+yRyNMB2g3SgALZv2+HI4HLlBw=; b=qv1BcHl0oILmfkYF7EFEKhK0Eg
+	GS7CdwuGGJl+zSCv8jiO3X5vsZ2X/Bip1Brp5hMjW49LI7CQMImePE3Huumaapy+ZHCwWPxNLNKGW
+	cOb/No6B77OGqj3McP/Fb7J6yXsIsni1YLRUTZdYz3tfwBGAmc6KbgfO4AEFit32Rgl3JkmiiclHZ
+	RzLY8nS/I5l1AKnVb8TD3tgyKUZKNrVfAPb1BqjUFSZbDq+3SA4KvcXp4jzNtR/q6idMUOD2l0F0G
+	+x1a+I/E50oyx603OrkThw1CUf2RYpCe+py0PMYg+YCMIJ/BN+I3mR9j2jFIR57I4x/6/jhAklDb9
+	YDK+ZreQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmy35-00000000OpV-1jQK;
-	Tue, 25 Feb 2025 16:44:47 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tmy3L-00000000PEI-2M3o;
+	Tue, 25 Feb 2025 16:45:03 +0000
+Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmxOW-0000000098p-2xIn;
-	Tue, 25 Feb 2025 16:02:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 21FF65C7228;
-	Tue, 25 Feb 2025 16:02:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 263E1C4CEDD;
-	Tue, 25 Feb 2025 16:02:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740499371;
-	bh=NKncxX/f4OhZjM586JgqScppgEm06MohF+FhDmQBvJA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aayJ+tLxA6sG7cTVHHP4hUNez7LShHiaUnSSJzHetMr0TTsIqSW1PvC+ZUJ9IylE7
-	 XlWq5aGz/7ZLsFiIKCGQ+pWmDERxvEmBdfgcQNT73hLMRjK/aWv1nxDQ9Be+WUtb/9
-	 IxLLTAq02Rm+/M6N3AyMn3uwkw/UY1hMjCSoMBjMSIaePE/L+Qt01+v17wK+HsdLta
-	 yuvJmFvmc3hkC+asYqMSqPc7TAUKOm/snWXAHGGLreTeuo2+hfnTYI6e9APTZJVd+T
-	 8oKTWtP4n5A+GLUUHGhO38M0u90xZ/OY0/wrimn3qWuhSur6TavIPSH36oLHQA9CbG
-	 WLKmVFAGQ+l4A==
-Date: Tue, 25 Feb 2025 10:02:48 -0600
-From: Rob Herring <robh@kernel.org>
-To: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Oded Gabbay <ogabbay@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Jeffrey Hugo <quic_jhugo@quicinc.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
-	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org
-Subject: Re: [PATCH v2 1/7] dt-bindings: npu: rockchip,rknn: Add bindings
-Message-ID: <20250225160248.GA2563229-robh@kernel.org>
-References: <20250225-6-10-rocket-v2-0-d4dbcfafc141@tomeuvizoso.net>
- <20250225-6-10-rocket-v2-1-d4dbcfafc141@tomeuvizoso.net>
+	id 1tmxPd-000000009Mj-09bJ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Feb 2025 16:04:02 +0000
+Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-30761be8fa7so53888321fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 08:04:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1740499439; x=1741104239; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HAJZSDB7xuKscLHDG+yRyNMB2g3SgALZv2+HI4HLlBw=;
+        b=FfjJCFLRDSSNtdW1gl25f3TTfk+3vT5B8ttmaB2dhuN1uYQggMr5VVH5/IRbPnDCxi
+         3Tuyxxm35hlP09PwnsYTg+cziEmEDuCb8OXF5OuPSvjsXWFn+vZaIvuSRNb5dp6R/ugd
+         RxgJ+D2vDxlmY/HDphOBO526Evk3iooEm2Dupj89Ogasjw1BvLBFVPselXg7olm3I12D
+         gVl4ZSnfpjKjqkSNsLDZvEjP5v0r6TshiJS3Jot3NcY+vPYmiQVIgo52d5U8u4Cwts2a
+         5fWdnqNKY3GvH9GTOykmh3Dgu2Z760mLAyvESYXwUJL3EmnhL9Nj1KvbKHlS8QaGBynX
+         IZ/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740499439; x=1741104239;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=HAJZSDB7xuKscLHDG+yRyNMB2g3SgALZv2+HI4HLlBw=;
+        b=fI5pgkRyqhZjIKH4S/HV7Z730pAEm73XvSI6Ohnykz29rKADuGJ0+VbqL7dggsVyo3
+         RRj/F+T6NzvqfuZk6Jbh1CbHH6s1+6p8zZ9s3xvWWMNAVUxofaVlewk+bpnfQWvQsvrI
+         2GmR4cl/eaD21r+uJGUlhgImuNhnOkHw1LgwQQGJ8PEGKgykJxrZQ5a8pd/c2xJo2bIa
+         cCu5FncSs0zlXAYwvuDzh6TA3LWC64/mUwit51J7cDNio53+Bi+Bzp6AbsV41G//Y6Kr
+         s4b7q0TYOe82T0ww6oF7hAzGbD6z24nf22D8aF83cl0FTXIFd5EbKupbCKPvubPiL02N
+         gTpQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWGOayVW/Lx63CcItvIs1oiO0OAVC+oNd8tp6H8izvewZNu4W1V+x466TpiWP87eMDX6hAMCW+hiBWZF3LHmX4e@lists.infradead.org
+X-Gm-Message-State: AOJu0YyI9EBt9/n2cgr7dURFiQhx5SkD2Uu7SZs0fupy0XjuHoSL+9uE
+	CRQkOQ/sS/BQCsKvzHBZWH+8t/+GDRrMAmD5/bvB4rKzE+UzD3EbMItDHJG08faJsHWXAf/y0UP
+	aBfjieAshxN6EvEDx4GRlrlqHQsvqcFPXr0SDoQ==
+X-Gm-Gg: ASbGncv6WUb0WltC6QLjzlqBp3gmVGtRnPVKKzRkLrIKeMyvGYMQVSqM7tJFBz9cUTg
+	FWrCE7xdrDFJdZF7uwdGBiiq3j/2FcPPQ30fcKpSANX1N7XCjGHXSStIVbpbBMsz6lSmAcn2Fry
+	6d0RK/E8E=
+X-Google-Smtp-Source: AGHT+IFwIPTPAN8ZcBc15otKiSGh1Sts3zHIN5YyF4wUrmvTE+Iv+8sCecZDdml+angRjq277rXIbRl6UYAnxPy6Zeo=
+X-Received: by 2002:a2e:904e:0:b0:308:e8d3:7564 with SMTP id
+ 38308e7fff4ca-30b7915f5ccmr985601fa.10.1740499439306; Tue, 25 Feb 2025
+ 08:03:59 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250225-6-10-rocket-v2-1-d4dbcfafc141@tomeuvizoso.net>
+References: <20250221180349.1413089-1-vincenzo.frascino@arm.com> <20250221180349.1413089-9-vincenzo.frascino@arm.com>
+In-Reply-To: <20250221180349.1413089-9-vincenzo.frascino@arm.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 25 Feb 2025 17:03:48 +0100
+X-Gm-Features: AWEUYZn4d45FVOQcQnBxxxqs1Gqo7DdaaspoAnfO8hGKbCHJZAxez0cdfVz437M
+Message-ID: <CACRpkdaH_Ajz=604PeYctvUbTOo76YOSvWvrovPF9m=O-VES1A@mail.gmail.com>
+Subject: Re: [PATCH v7 08/10] arm64: dts: morello: Add support for soc dts
+To: Vincenzo Frascino <vincenzo.frascino@arm.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Jessica Clarke <jrtc27@jrtc27.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_080252_827515_3733D65A 
-X-CRM114-Status: GOOD (  21.23  )
+X-CRM114-CacheID: sfid-20250225_080401_073077_98B8CF94 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,199 +99,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 08:55:47AM +0100, Tomeu Vizoso wrote:
-> Add the bindings for the Neural Processing Unit IP from Rockchip.
-> 
-> v2:
-> - Adapt to new node structure (one node per core, each with its own
->   IOMMU)
-> - Several misc. fixes from Sebastian Reichel
-> 
-> Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> ---
->  .../bindings/npu/rockchip,rknn-core.yaml           | 152 +++++++++++++++++++++
->  1 file changed, 152 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/npu/rockchip,rknn-core.yaml b/Documentation/devicetree/bindings/npu/rockchip,rknn-core.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..e8d0afe4a7d1c4f166cf13a9f4aa7c1901362a3f
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/npu/rockchip,rknn-core.yaml
-> @@ -0,0 +1,152 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/npu/rockchip,rknn-core.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Neural Processing Unit IP from Rockchip
-> +
-> +maintainers:
-> +  - Tomeu Vizoso <tomeu@tomeuvizoso.net>
-> +
-> +description:
-> +  Rockchip IP for accelerating inference of neural networks, based on NVIDIA's
-> +  open source NVDLA IP.
-> +
-> +properties:
-> +  $nodename:
-> +    pattern: '^npu-core@[a-f0-9]+$'
-> +
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - rockchip,rk3588-rknn-core-top
-> +          - const: rockchip,rknn-core-top
+On Fri, Feb 21, 2025 at 7:04=E2=80=AFPM Vincenzo Frascino
+<vincenzo.frascino@arm.com> wrote:
 
-Drop the fallbacks unless you have some evidence that the IP is the 
-same across a lot of SoCs. If you don't, then 
-rockchip,rk3588-rknn-core-top can be the fallback whenever there are 
-more compatible SoCs.
+> The Morello architecture is an experimental extension to Armv8.2-A,
+> which extends the AArch64 state with the principles proposed in
+> version 7 of the Capability Hardware Enhanced RISC Instructions
+> (CHERI) ISA.
+>
+> Introduce Morello SoC dts.
+>
+> Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
 
-Or if there's version/feature registers that otherwise make it 
-discoverable, then a common compatible is fine.
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
-> +      - items:
-> +          - enum:
-> +              - rockchip,rk3588-rknn-core
-> +          - const: rockchip,rknn-core
-
-I don't understand the difference between core and core-top. That needs 
-to be explained in the top-level description.
-
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    minItems: 2
-> +    maxItems: 4
-> +
-> +  clock-names:
-> +    items:
-> +      - const: aclk
-> +      - const: hclk
-> +      - const: npu
-> +      - const: pclk
-> +    minItems: 2
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  iommus:
-> +    maxItems: 1
-> +
-> +  npu-supply: true
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  resets:
-> +    maxItems: 2
-> +
-> +  reset-names:
-> +    items:
-> +      - const: srst_a
-> +      - const: srst_h
-> +
-> +  sram-supply: true
-
-Group supply properties together
-
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - interrupts
-> +  - iommus
-> +  - npu-supply
-> +  - power-domains
-> +  - resets
-> +  - reset-names
-> +  - sram-supply
-> +
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - rockchip,rknn-core-top
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 4
-> +
-> +        clock-names:
-> +          minItems: 4
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - rockchip,rknn-core
-> +    then:
-> +      properties:
-> +        clocks:
-> +          maxItems: 2
-> +        clock-names:
-> +          maxItems: 2
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/power/rk3588-power.h>
-> +    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
-> +
-> +    bus {
-> +      #address-cells = <2>;
-> +      #size-cells = <2>;
-> +
-> +      rknn_core_top: npu-core@fdab0000 {
-
-npu@...
-
-> +        compatible = "rockchip,rk3588-rknn-core-top", "rockchip,rknn-core-top";
-> +        reg = <0x0 0xfdab0000 0x0 0x9000>;
-> +        assigned-clocks = <&scmi_clk SCMI_CLK_NPU>;
-> +        assigned-clock-rates = <200000000>;
-> +        clocks = <&cru ACLK_NPU0>, <&cru HCLK_NPU0>,
-> +                 <&scmi_clk SCMI_CLK_NPU>, <&cru PCLK_NPU_ROOT>;
-> +        clock-names = "aclk", "hclk", "npu", "pclk";
-> +        interrupts = <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH 0>;
-> +        iommus = <&rknn_mmu_top>;
-> +        npu-supply = <&vdd_npu_s0>;
-> +        power-domains = <&power RK3588_PD_NPUTOP>;
-> +        resets = <&cru SRST_A_RKNN0>, <&cru SRST_H_RKNN0>;
-> +        reset-names = "srst_a", "srst_h";
-> +        sram-supply = <&vdd_npu_mem_s0>;
-> +      };
-> +
-> +      rknn_core_1: npu-core@fdac0000 {
-> +        compatible = "rockchip,rk3588-rknn-core", "rockchip,rknn-core";
-> +        reg = <0x0 0xfdac0000 0x0 0x9000>;
-> +        clocks = <&cru ACLK_NPU1>, <&cru HCLK_NPU1>;
-> +        clock-names = "aclk", "hclk";
-> +        interrupts = <GIC_SPI 111 IRQ_TYPE_LEVEL_HIGH 0>;
-> +        iommus = <&rknn_mmu_1>;
-> +        npu-supply = <&vdd_npu_s0>;
-> +        power-domains = <&power RK3588_PD_NPU1>;
-> +        resets = <&cru SRST_A_RKNN1>, <&cru SRST_H_RKNN1>;
-> +        reset-names = "srst_a", "srst_h";
-> +        sram-supply = <&vdd_npu_mem_s0>;
-> +      };
-> +    };
-> +...
-> 
-> -- 
-> 2.48.1
-> 
+Yours,
+Linus Walleij
 
