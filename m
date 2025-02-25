@@ -4,92 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6AB2C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 08:49:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87602C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 08:53:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yHiS+n00ibzlP5REtMR+ddXLiK9OUJ+uzaby4EVh4iM=; b=WEp0WOERjlnl7TLY4JxjJntBxv
-	ilpzxeRS1VYRNEqAp5bAlC7KrifUS2Luzh54nnT1CfAq4HosUWkVptGOd8PRkvil/kJ/MqeP0VCZl
-	8G3G1y819L3QjZCbywgsm56djfB9AmXYNKMfX1CyPWMIoK8XYPqax7S2P/GMd9itq0+vNmpHR1wQQ
-	Zz3HzNqo7gsBfIUMkpazsTYTGwtjIgBJlkLqytnRiF2itcNc8TNkfgNK3etsR2kFgfqpd6I+MwaW4
-	hMzzWHGz2W3IqsP/0aw6jgYmd4UyYWNa94vsm2rOq2x9Ha+Rh2Gj/9KzoTj9iOIUClHlbtuiqeYhl
-	wi/3mF0g==;
+	bh=qshWsQ62zn+WBqylxlNNYzQrO9nvJuXPz/RW+NlbInI=; b=yQyoFa7nNO86D7vKk30ZIyt8Pl
+	nfCkBE0H6Jea+fvQ0fnMtFaatZo4NCvpU4nHe81iSHZsy4fH8zqlSQFJfnS0l93NDHewCb+an7ojg
+	sTSR2B0Yn4TCBp1Dw/1narZ5+7Ip2IdwUhL5SMwWkrMa2yrk82FAzKD5u4xcK79aa7QgxYMsafcR9
+	EWhvi+EXanGnhuWUGDSMXT9vmyWSwezxZOjSSON2gpekEnXPsPMd7wZfDqnP+GSzfHM8hGgmDM66a
+	2Tym/J9lxRnCyVt1ta+WoICknOtqDKb9LAG60ukNu7MJ5PuDNQHawYcA8LmPa1umMbFJIKfRCtxOE
+	EOj7IqMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmqd3-0000000GSCv-3tXX;
-	Tue, 25 Feb 2025 08:49:25 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tmqhE-0000000GTFI-3fIf;
+	Tue, 25 Feb 2025 08:53:44 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmqbK-0000000GRsk-0rrP
+	id 1tmqfi-0000000GSvy-1in6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 08:47:39 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51P7LgQ0003966;
-	Tue, 25 Feb 2025 09:47:27 +0100
+	Tue, 25 Feb 2025 08:52:11 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51P7sKDe025535;
+	Tue, 25 Feb 2025 09:52:02 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	yHiS+n00ibzlP5REtMR+ddXLiK9OUJ+uzaby4EVh4iM=; b=CodEsv4eyIfFhzYg
-	ppgKu4xEWudziYqyzc6o4+V04zZ9hb2GoY5E3k8+YGSgW1XJh4FYciD1d8ZTfiB1
-	HWrAGQMacZjm+JsMIxqVuGatBAr2dcKZh+XQD16NZ3RPJRG6Qin5KHOOZaqZc1y7
-	cd0zu6WUaGwEWMk+odatGnvR8FpWKwz6Oj2/vqJeDGwNBnkVGW9MKjSIFwqfzxt/
-	Uo9uXsTDYMxnokHSXiSJiJC2NAaTWEejQ80wuuH9aNdb+RA+1+BXe7qyATYn9TnU
-	Wa/4Eyy8BsE0EaqNfsPMErBymX6znxmfg1a7MonpedGO+L73X9L0y5RHG5cQLVo3
-	Z6P34A==
+	qshWsQ62zn+WBqylxlNNYzQrO9nvJuXPz/RW+NlbInI=; b=OobzFqHwO918AGM1
+	cBTd87yWWmntg6r2Wv0VD04NrPthmT7TVY/qtxFxsCGOhuEHe5d9PCr2S5UK2JsI
+	OK5GYxPxCePUV6K5lkYspI7CW0a9AZWLo5unIfnUvnmPzjaXT8kzEiZV9Yzb0zAk
+	0aehEflp28CWSh/2y3YS89Ek04/K8nbkrBYqkubU6JZwPyrDkReyPlDwLBJao0t0
+	uy5nwJOvRebLukuz7/DsdXI3TC6aIE27tExhHFFzUTHJckNAatYbnIpzN1sz5V5l
+	kwi94Jm1IuUJs8wUibReOAwRildp1ZZeO3ZG8maKilqs35BPOY66EIyXsj6QTZ8f
+	OLTgDw==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4512sphr2p-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4512spstfr-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 25 Feb 2025 09:47:26 +0100 (CET)
+	Tue, 25 Feb 2025 09:52:01 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 380F040044;
-	Tue, 25 Feb 2025 09:46:16 +0100 (CET)
-Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8B9C9430105;
-	Tue, 25 Feb 2025 09:44:00 +0100 (CET)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
- (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id BDBD64005E;
+	Tue, 25 Feb 2025 09:50:52 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id CCCBD47A7D4;
+	Tue, 25 Feb 2025 09:48:11 +0100 (CET)
+Received: from localhost (10.48.86.185) by SHFDAG1NODE2.st.com (10.75.129.70)
+ with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 25 Feb
- 2025 09:44:00 +0100
-Received: from [10.48.86.222] (10.48.86.222) by SAFDAG1NODE1.st.com
- (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 25 Feb
- 2025 09:43:59 +0100
-Message-ID: <696ac9eb-f223-4993-b288-b6c3e07f4ed7@foss.st.com>
-Date: Tue, 25 Feb 2025 09:43:58 +0100
+ 2025 09:48:11 +0100
+From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+Date: Tue, 25 Feb 2025 09:48:07 +0100
+Subject: [PATCH 8/9] ARM: dts: stm32: add alternate pinmux for HDP pin and
+ add HDP pinctrl node
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/8] arm64: defconfig: enable STM32 LP timers drivers
-To: Krzysztof Kozlowski <krzk@kernel.org>, <lee@kernel.org>,
-        <ukleinek@kernel.org>, <alexandre.torgue@foss.st.com>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <wbg@kernel.org>, <jic23@kernel.org>, <daniel.lezcano@linaro.org>,
-        <tglx@linutronix.de>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <devicetree@vger.kernel.org>,
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-ID: <20250225-hdp-upstream-v1-8-9d049c65330a@foss.st.com>
+References: <20250225-hdp-upstream-v1-0-9d049c65330a@foss.st.com>
+In-Reply-To: <20250225-hdp-upstream-v1-0-9d049c65330a@foss.st.com>
+To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Bartosz Golaszewski <brgl@bgdev.pl>
+CC: <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
-        <olivier.moysan@foss.st.com>
-References: <20250224180150.3689638-1-fabrice.gasnier@foss.st.com>
- <20250224180150.3689638-8-fabrice.gasnier@foss.st.com>
- <f76a3a6c-795e-4fc8-905f-4655115ea99d@kernel.org>
-Content-Language: en-US
-From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-In-Reply-To: <f76a3a6c-795e-4fc8-905f-4655115ea99d@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.222]
-X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SAFDAG1NODE1.st.com
- (10.75.90.17)
+        <linux-arm-kernel@lists.infradead.org>,
+        =?utf-8?q?Cl=C3=A9ment_Le_Goffic?=
+	<clement.legoffic@foss.st.com>
+X-Mailer: b4 0.15-dev-42535
+X-Originating-IP: [10.48.86.185]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-02-25_03,2025-02-24_02,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_004738_694774_25EDBA6C 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20250225_005210_744532_C534F299 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,26 +101,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/25/25 08:48, Krzysztof Kozlowski wrote:
-> On 24/02/2025 19:01, Fabrice Gasnier wrote:
->> Enable the STM32 timer drivers: MFD, counter, PWM and trigger as modules.
->> Clocksource is a bool, hence set to y. These drivers can be used on
->> STM32MP25.
-> 
-> 
-> Which upstream board? If you do not have upstream board, the defconfig
-> is pointless for us. It's not defconfig for your downstream forks.
+Introduce hdp node to output a user defined value on port hdp2.
+Add pinctrl nodes to be able to output this signal on one SoC pin.
 
-Hi Krzysztof,
+Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+---
+ arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi | 26 ++++++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
 
-It's going to be used on stm32mp257f-dk and stm32mp257f-ev1 boards.
-I can add the relevant DT for the(se) board(s) in next revision.
+diff --git a/arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi b/arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi
+index 95fafc51a1c8..76ff0d6634b4 100644
+--- a/arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi
++++ b/arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi
+@@ -4,6 +4,15 @@
+  * Author: Ludovic Barre <ludovic.barre@st.com> for STMicroelectronics.
+  */
+ #include <dt-bindings/pinctrl/stm32-pinfunc.h>
++#include <dt-bindings/pinctrl/stm32mp15-hdp.h>
++
++&hdp {
++	/omit-if-no-ref/
++	hdp2_gpo: hdp2-pins {
++		function = HDP2_GPOVAL_2;
++		pins = "hdp2";
++	};
++};
+ 
+ &pinctrl {
+ 	/omit-if-no-ref/
+@@ -687,6 +696,23 @@ pins {
+ 		};
+ 	};
+ 
++	/omit-if-no-ref/
++	hdp2_pins_a: hdp2-0 {
++		pins {
++			pinmux = <STM32_PINMUX('E', 13, AF0)>; /* HDP2 */
++			bias-disable;
++			drive-push-pull;
++			slew-rate = <2>;
++		};
++	};
++
++	/omit-if-no-ref/
++	hdp2_sleep_pins_a: hdp2-sleep-0 {
++		pins {
++			pinmux = <STM32_PINMUX('E', 13, ANALOG)>; /* HDP2 */
++		};
++	};
++
+ 	/omit-if-no-ref/
+ 	i2c1_pins_a: i2c1-0 {
+ 		pins {
 
-Best regards,
-Fabrice
+-- 
+2.43.0
 
-> 
-> 
-> Best regards,
-> Krzysztof
 
