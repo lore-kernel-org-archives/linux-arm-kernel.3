@@ -4,88 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9726AC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 12:46:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 945CDC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 12:48:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VbSdsrlco9kPHPvl08rzt5ZK2jcK4prMcWAVhoadcmw=; b=ikHTXVxu33HhNG+udi5X5RmZP1
-	avAulNBaa7aMxuUsBhlKMrSM4Da1UjzKFdr1a11imRktBG/tJI8umrPytfw/auaKYj62qF+KssO6l
-	MCpQ80CNklq3EhmO2JNQnDmruucS7QOqXjcPGxL8C1WX3IF/G3/oronuqEryDNYRtk0aKtEzCtb1M
-	mN/+zf+K+3o9LdmFtBC9KibvyK5FcCNIb3hJIiDKFrNz9b2c5DldYKOxQjwR1yIIalJEeVSo6nRgD
-	kfnAFKAJJaMmNkQQsWlpH6OgxMSFwjpTosfj0jI9HBOYypuuf5CAwhZoP4GpGEwOh2/d8KvoWYczB
-	g7pbZ4lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BZgdWO7k4+OKLqpthfS5rJrQuQPttt/GmTiWB7L+cFI=; b=ogxOGDFxzQKzrM6VaRMqVYv5oO
+	co9lNs37Ni2VwmaVXhdAvuIxSO4UecBbRxj5u93tvo/1RTea5E/Nn5+hqD8D273MX9DlBHo97Mrrd
+	QH+iDtGFVdPEmA+6dPU1kxbNMKWEuOBMAX7f5a8bI2mmqImrRik6eXLsnyP8RacixXcMEad+I6mXN
+	VfL28c2qL1/5voadQb/zoB0YCnWRnsQk63i/M1NU5kTA29tJKVmq9qjXVLhylgPvDOqiTe4iULcIC
+	rV5lDV9DLWf55FIXapS5x7fclZkTIEtqensDURk+D5mgp7aw/fHu+Vf1TLyNXmH3vM8R1Ky8/5YMV
+	I3KlxwaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmuKV-0000000HFdO-3Gm6;
-	Tue, 25 Feb 2025 12:46:31 +0000
-Received: from mail.loongson.cn ([114.242.206.163])
+	id 1tmuM1-0000000HFnN-2cJK;
+	Tue, 25 Feb 2025 12:48:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmthL-0000000H9EN-3JKM;
-	Tue, 25 Feb 2025 12:06:05 +0000
-Received: from loongson.cn (unknown [10.20.42.62])
-	by gateway (Coremail) with SMTP id _____8Bxnmshsr1ntBeCAA--.26866S3;
-	Tue, 25 Feb 2025 20:05:53 +0800 (CST)
-Received: from [10.20.42.62] (unknown [10.20.42.62])
-	by front1 (Coremail) with SMTP id qMiowMBxXsUdsr1nweUnAA--.16387S3;
-	Tue, 25 Feb 2025 20:05:51 +0800 (CST)
-Subject: Re: [PATCH 7/7] KVM: Drop kvm_arch_sync_events() now that all
- implementations are nops
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao
- <zhaotianrui@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Aaron Lewis <aaronlewis@google.com>, Jim Mattson <jmattson@google.com>,
- Yan Zhao <yan.y.zhao@intel.com>,
- Rick P Edgecombe <rick.p.edgecombe@intel.com>,
- Kai Huang <kai.huang@intel.com>, Isaku Yamahata <isaku.yamahata@intel.com>
-References: <20250224235542.2562848-1-seanjc@google.com>
- <20250224235542.2562848-8-seanjc@google.com>
-From: bibo mao <maobibo@loongson.cn>
-Message-ID: <49df2315-4c79-e0c0-6163-4f53b80afa55@loongson.cn>
-Date: Tue, 25 Feb 2025 20:05:14 +0800
-User-Agent: Mozilla/5.0 (X11; Linux loongarch64; rv:68.0) Gecko/20100101
- Thunderbird/68.7.0
+	id 1tmtib-0000000H9SR-46Ee
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Feb 2025 12:07:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D8753152B;
+	Tue, 25 Feb 2025 04:07:37 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 135943F6A8;
+	Tue, 25 Feb 2025 04:07:18 -0800 (PST)
+Date: Tue, 25 Feb 2025 12:07:16 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Vincenzo Frascino <vincenzo.frascino@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Sudeep Holla <sudeep.holla@arm.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
+	Jessica Clarke <jrtc27@jrtc27.com>
+Subject: Re: [PATCH v7 00/10] arm64: dts: Add Arm Morello support
+Message-ID: <Z72ydHCLxd-WGsJu@bogus>
+References: <20250221180349.1413089-1-vincenzo.frascino@arm.com>
+ <Z7jL5wBUJNjOlg4r@J2N7QTR9R3.cambridge.arm.com>
+ <58ee2a8d-d3c1-4bc2-92dd-6568f645b01f@arm.com>
 MIME-Version: 1.0
-In-Reply-To: <20250224235542.2562848-8-seanjc@google.com>
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Language: en-US
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qMiowMBxXsUdsr1nweUnAA--.16387S3
-X-CM-SenderInfo: xpdruxter6z05rqj20fqof0/
-X-Coremail-Antispam: 1Uk129KBj93XoWxtF47XrykXrWUKw17WFW7trc_yoWxJryxpa
-	sxAF4kGw4fKry8Ka47Jr4q934fXws5Gw1ak342grW5JFnxtr1DJFWkCr1DJFn8J3y093WS
-	kFW3KF1rWF4qvwcCm3ZEXasCq-sJn29KB7ZKAUJUUUUD529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUPYb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
-	GcCE3s1ln4kS14v26r126r1DM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2
-	x26I8E6xACxx1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1q6rW5
-	McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7
-	I2V7IY0VAS07AlzVAYIcxG8wCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCF
-	x2IqxVCFs4IE7xkEbVWUJVW8JwCFI7km07C267AKxVWUAVWUtwC20s026c02F40E14v26r
-	1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij
-	64vIr41lIxAIcVC0I7IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr
-	0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF
-	0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07jBjgcUUUUU=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <58ee2a8d-d3c1-4bc2-92dd-6568f645b01f@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_040604_192079_B43820CE 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20250225_040722_059506_B35205A6 
+X-CRM114-Status: GOOD (  30.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,141 +72,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reviewed-by: Bibo Mao <maobibo@loongson.cn>
+Hi Mark,
 
-On 2025/2/25 上午7:55, Sean Christopherson wrote:
-> Remove kvm_arch_sync_events() now that x86 no longer uses it (no other
-> arch has ever used it).
-> 
-> No functional change intended.
-> 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->   arch/arm64/include/asm/kvm_host.h     | 2 --
->   arch/loongarch/include/asm/kvm_host.h | 1 -
->   arch/mips/include/asm/kvm_host.h      | 1 -
->   arch/powerpc/include/asm/kvm_host.h   | 1 -
->   arch/riscv/include/asm/kvm_host.h     | 2 --
->   arch/s390/include/asm/kvm_host.h      | 1 -
->   arch/x86/kvm/x86.c                    | 5 -----
->   include/linux/kvm_host.h              | 1 -
->   virt/kvm/kvm_main.c                   | 1 -
->   9 files changed, 15 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 7cfa024de4e3..40897bd2b4a3 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -1346,8 +1346,6 @@ static inline bool kvm_system_needs_idmapped_vectors(void)
->   	return cpus_have_final_cap(ARM64_SPECTRE_V3A);
->   }
->   
-> -static inline void kvm_arch_sync_events(struct kvm *kvm) {}
-> -
->   void kvm_init_host_debug_data(void);
->   void kvm_vcpu_load_debug(struct kvm_vcpu *vcpu);
->   void kvm_vcpu_put_debug(struct kvm_vcpu *vcpu);
-> diff --git a/arch/loongarch/include/asm/kvm_host.h b/arch/loongarch/include/asm/kvm_host.h
-> index 590982cd986e..ab5b7001e2ff 100644
-> --- a/arch/loongarch/include/asm/kvm_host.h
-> +++ b/arch/loongarch/include/asm/kvm_host.h
-> @@ -320,7 +320,6 @@ static inline bool kvm_is_ifetch_fault(struct kvm_vcpu_arch *arch)
->   
->   /* Misc */
->   static inline void kvm_arch_hardware_unsetup(void) {}
-> -static inline void kvm_arch_sync_events(struct kvm *kvm) {}
->   static inline void kvm_arch_memslots_updated(struct kvm *kvm, u64 gen) {}
->   static inline void kvm_arch_vcpu_blocking(struct kvm_vcpu *vcpu) {}
->   static inline void kvm_arch_vcpu_unblocking(struct kvm_vcpu *vcpu) {}
-> diff --git a/arch/mips/include/asm/kvm_host.h b/arch/mips/include/asm/kvm_host.h
-> index f7222eb594ea..c14b10821817 100644
-> --- a/arch/mips/include/asm/kvm_host.h
-> +++ b/arch/mips/include/asm/kvm_host.h
-> @@ -886,7 +886,6 @@ extern unsigned long kvm_mips_get_ramsize(struct kvm *kvm);
->   extern int kvm_vcpu_ioctl_interrupt(struct kvm_vcpu *vcpu,
->   			     struct kvm_mips_interrupt *irq);
->   
-> -static inline void kvm_arch_sync_events(struct kvm *kvm) {}
->   static inline void kvm_arch_free_memslot(struct kvm *kvm,
->   					 struct kvm_memory_slot *slot) {}
->   static inline void kvm_arch_memslots_updated(struct kvm *kvm, u64 gen) {}
-> diff --git a/arch/powerpc/include/asm/kvm_host.h b/arch/powerpc/include/asm/kvm_host.h
-> index 6e1108f8fce6..2d139c807577 100644
-> --- a/arch/powerpc/include/asm/kvm_host.h
-> +++ b/arch/powerpc/include/asm/kvm_host.h
-> @@ -902,7 +902,6 @@ struct kvm_vcpu_arch {
->   #define __KVM_HAVE_ARCH_WQP
->   #define __KVM_HAVE_CREATE_DEVICE
->   
-> -static inline void kvm_arch_sync_events(struct kvm *kvm) {}
->   static inline void kvm_arch_memslots_updated(struct kvm *kvm, u64 gen) {}
->   static inline void kvm_arch_flush_shadow_all(struct kvm *kvm) {}
->   static inline void kvm_arch_vcpu_blocking(struct kvm_vcpu *vcpu) {}
-> diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-> index cc33e35cd628..0e9c2fab6378 100644
-> --- a/arch/riscv/include/asm/kvm_host.h
-> +++ b/arch/riscv/include/asm/kvm_host.h
-> @@ -301,8 +301,6 @@ static inline bool kvm_arch_pmi_in_guest(struct kvm_vcpu *vcpu)
->   	return IS_ENABLED(CONFIG_GUEST_PERF_EVENTS) && !!vcpu;
->   }
->   
-> -static inline void kvm_arch_sync_events(struct kvm *kvm) {}
-> -
->   #define KVM_RISCV_GSTAGE_TLB_MIN_ORDER		12
->   
->   void kvm_riscv_local_hfence_gvma_vmid_gpa(unsigned long vmid,
-> diff --git a/arch/s390/include/asm/kvm_host.h b/arch/s390/include/asm/kvm_host.h
-> index 9a367866cab0..424f899d8163 100644
-> --- a/arch/s390/include/asm/kvm_host.h
-> +++ b/arch/s390/include/asm/kvm_host.h
-> @@ -1056,7 +1056,6 @@ bool kvm_s390_pv_cpu_is_protected(struct kvm_vcpu *vcpu);
->   extern int kvm_s390_gisc_register(struct kvm *kvm, u32 gisc);
->   extern int kvm_s390_gisc_unregister(struct kvm *kvm, u32 gisc);
->   
-> -static inline void kvm_arch_sync_events(struct kvm *kvm) {}
->   static inline void kvm_arch_free_memslot(struct kvm *kvm,
->   					 struct kvm_memory_slot *slot) {}
->   static inline void kvm_arch_memslots_updated(struct kvm *kvm, u64 gen) {}
-> diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-> index ea445e6579f1..454fd6b8f3db 100644
-> --- a/arch/x86/kvm/x86.c
-> +++ b/arch/x86/kvm/x86.c
-> @@ -12770,11 +12770,6 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
->   	return ret;
->   }
->   
-> -void kvm_arch_sync_events(struct kvm *kvm)
-> -{
-> -
-> -}
-> -
->   /**
->    * __x86_set_memory_region: Setup KVM internal memory slot
->    *
-> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-> index c28a6aa1f2ed..5438a1b446a6 100644
-> --- a/include/linux/kvm_host.h
-> +++ b/include/linux/kvm_host.h
-> @@ -1747,7 +1747,6 @@ static inline void kvm_unregister_perf_callbacks(void) {}
->   
->   int kvm_arch_init_vm(struct kvm *kvm, unsigned long type);
->   void kvm_arch_destroy_vm(struct kvm *kvm);
-> -void kvm_arch_sync_events(struct kvm *kvm);
->   
->   int kvm_cpu_has_pending_timer(struct kvm_vcpu *vcpu);
->   
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index 991e8111e88b..55153494ac70 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -1271,7 +1271,6 @@ static void kvm_destroy_vm(struct kvm *kvm)
->   	kvm_destroy_pm_notifier(kvm);
->   	kvm_uevent_notify_change(KVM_EVENT_DESTROY_VM, kvm);
->   	kvm_destroy_vm_debugfs(kvm);
-> -	kvm_arch_sync_events(kvm);
->   	mutex_lock(&kvm_lock);
->   	list_del(&kvm->vm_list);
->   	mutex_unlock(&kvm_lock);
-> 
+Thanks for raising valid points/concerns.
 
+On Mon, Feb 24, 2025 at 10:08:18AM +0000, Vincenzo Frascino wrote:
+> Hello Mark,
+>
+> On 21/02/2025 18:54, Mark Rutland wrote:
+> > Hi Vincenzo,
+> >
+> > On Fri, Feb 21, 2025 at 06:03:39PM +0000, Vincenzo Frascino wrote:
+> >> The Morello architecture is an experimental extension to Armv8.2-A,
+> >> which extends the AArch64 state with the principles proposed in
+> >> version 7 of the Capability Hardware Enhanced RISC Instructions
+> >> (CHERI) ISA [1].
+> >
+> > None of the CHERI stuff is supported upstream, so from upstream's PoV
+> > this is a low-volume dev-board/SoC with an experimental ARMv8.2-A CPU.
+> >
+
+I understand and agree with your concerns.
+
+>
+> Agreed, I have no plans to upstream Morello support beyond the device tree.
+>
+> >> This series adds dts support for the Arm Morello System Development
+> >> Platform.
+> >
+> > Do we actually need the dts for this board?
+> >
+> > I have one on my desk; it boots vanilla Debian 12 via UEFI + ACPI just
+> > fine, with the Debian 6.1.0-13-arm64 kernel.
+> >
+> > Is there something that we can only do with the DT? i.e. some
+> > functionality that isn't exposed via ACPI?
+> >
+> > How do you expect this DT to be used?
+> >
+>
+> There are functionalities that are not exposed via ACPI, e.g. gpu, dpu, i2c for
+> the phy, etc. My aim to have upstream support for all the hardware exposed by
+> the platform.
+>
+
+Does this address some of your concerns ? I do understand some of these
+are not well addressed in ACPI and hence people use DT as an alternative.
+
+> Note: This series contains only the basic infrastructure, the plan is add
+> progressively more features in the future.
+>
+
+I was thinking of queuing this in -next if all the bindings are acked.
+Let me know if you still have concerns and would like to avoid getting
+these merged. I will hold off then.
+
+--
+Regards,
+Sudeep
 
