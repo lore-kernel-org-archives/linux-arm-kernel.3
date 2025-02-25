@@ -4,118 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C88A8C18E7C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 19:31:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53839C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 19:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e9USewdvJ7PYqMLaARTkWJYtBQaK26VR+XCGXeZgq7M=; b=LE1rxnXFMbcc8VlJPSnlKKtsvG
-	lc41IYnD6jCt+p8P/Dx5+rDsXUNRKa1TwjuQ8SCTLp0LnnXCuj6UFYnDBoYuPDceMGvCeKad63d3d
-	QtWD4PtM2kyR3gxGtDekp0gGj4RDpVcLib0cL09pr0m93L45Mrg22ZG8Cmsy26AkLluMxxo8YeYyL
-	Yv9nt/On0Rasyo42M8M6rbkJ8YPNxMSrvy5gBrY/DXhVqTv+r8e6NsFfdxojUwA6bRICEOU8VWRUY
-	2R7Bu/pgqk83mDcGy4giOe8BabBmcV6q+e6CBNh6XXGfERT0hO0caUHRZS5S5+5UQMpJ1NuY1m8f6
-	H2mOT5Zg==;
+	bh=zHaAT6T+XlWe+89P2zugxKrlYk7TledH0w0ahGQr4YM=; b=nNxLv2CvAZuMqMoB+GYBFQecr+
+	IBYwdcNSbnVfGvg6ASRSliTqogwEYmG/9QzVPJePB9u0XMyz6L7RkNAFfbp6Zpza2dWmZDlydM+yn
+	ZGZjg5M+zTVTZRljjpQSgXNuLltpEbslRTS+BNQxVu3Nt8uytC/RL5UMUQJSsXwYw8HgejiM86HZs
+	51VZ7Vire6X5VopHBo7maO1XBjKc5cifHdnYtcETxjYggtJCl0SvLC63oazA0Jt32yn4QCExJFuXV
+	kndCu0iPI+GlIZS33JbF6I8PXPN3Zo0WwT4S1BX7VBqM6L3t8q6JDt9fGrxHCI7GOpJVlvM9WUW9E
+	AQ/csK1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn0eT-00000001991-46m1;
-	Tue, 25 Feb 2025 19:31:33 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1tn0eU-0000000199F-23ZM;
+	Tue, 25 Feb 2025 19:31:34 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmzB2-00000000mfv-0BA4
+	id 1tmzBI-00000000mnu-3lMj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 17:57:05 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-38a8b17d7a7so3376624f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 09:57:03 -0800 (PST)
+	Tue, 25 Feb 2025 17:57:22 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-221ac1f849fso2935ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 09:57:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740506222; x=1741111022; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=e9USewdvJ7PYqMLaARTkWJYtBQaK26VR+XCGXeZgq7M=;
-        b=ZpjaKu+S7jlk/ctjMNyu5a7Xh3RmDAIFIeP1H5SsjYTvR66SSt5wi0DCY1kBBoMfK6
-         KtOhS8usfAaqmU1M8oWEP/gX3zPPprIRPtFUONS1a/H6vwHsLRIzCmHw/7fOWle9SFHA
-         7DU/WA5VwtqgcWgXAwOdfNRfx7ttTxVsWJqngX3Kku6HtsNyFfTYis7G9So3b1onwsET
-         0hV4oKpqi84KjVv+UddiZr9FH1+5F+WmPvxjXNlSQUK+O2rCoyKGXCpqFmUAQi6zxmGa
-         E8UfLGpnUfqqlJXRGQfNxBH7eViLk0C72+TuneIl8w6TVRgKiFhfkjwDHg3Eo7whiCyJ
-         18UQ==
+        d=google.com; s=20230601; t=1740506240; x=1741111040; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=zHaAT6T+XlWe+89P2zugxKrlYk7TledH0w0ahGQr4YM=;
+        b=WBpDS+8tn06KXVHjeU1aEbc/0qX2pfjfN3oJy0oDC8KStNZ8eJBiMj31EHr8gQILGE
+         H3DhMdqkdEN3nPB0feVVyYwPhxj8eLd1U4kzFMEeNh7V15o0uv2lcO8/KMSErR/jzGQj
+         suGOvLz8O1igh2Pn3AIOfP1Pt4XUSr06Rq12VQh6AvDOf+XhFjjqAs/3/U4/DdT/z0Kh
+         SDGSzlFB8sDuPFGY8LR9H+Bw/0NVoaNChOwyhXT7u07UoqGtFisd6ssyG/Uud0/zElMF
+         T+aEmoCeqk3PIqByp1W5rjJMqpDldhrgqxN8s1faHAC+7deuw4DnkaxnSxGRSYuUVN+j
+         UL3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740506222; x=1741111022;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=e9USewdvJ7PYqMLaARTkWJYtBQaK26VR+XCGXeZgq7M=;
-        b=jWm9XYV7plQtCLeQXJxOEZFMw/RmlGsWxSOjuGoDmmG9jxK/LhqMAhISp/R0ejn5LF
-         Yi6z0s5MA/JDktQBUNNpLzMmXrf6KcqfkTiz4STcZEhypy3g+hfj4hCcGUIFq7NxNCQ9
-         fJtAy0oSR1cTzxi/BWPEbareixYI0BAs1T6cTtondxj/pYIYUQyGj50yGTylAjAeNiEH
-         yf3RNaHyDjOzKPb0obFSpji3744pfsvrQBliTU2nuES5WrUVgr24c7allSeXXrYAWZGU
-         P/pI5Zb7mTEHybbKekR0ORMjuUuZFjD9MoaXtcDn1/yLS7M97Scp1UgZGKAJfgd9hchR
-         RXTg==
-X-Gm-Message-State: AOJu0YxU6uu9+o8b1y5PN1tRz6E+xgRGYMYCTXW+FVPvL8LsOBD44z0N
-	O2SKGYP9g6b1vkGuyfHhqY6h5CQCpKUEx//SUQIJ/F//16Ig3A2iCyj6N1FHhaI=
-X-Gm-Gg: ASbGnctE2MXGn6BMOA0UOYOwkQmv8OuonmJPWS8/KUbqoVyRIOGrTx1UgJ4mZACVDCh
-	auF+EeWPnRKPlzoROUMhyHfw2oMMCzDK2HNeWwfqX0MXeAg/EB2OxfO2rKsEC3l9PNoCPzF12Ne
-	DbBgnY7VHNwoTgvcTOVmRFlAngMhw17zuuusWmolo0Eh7nANR8xibbtlLAmyJYPlHkPCFaPXyqv
-	bHTt5yapvptTeOrpfhKAC+3SHZ3T73TBD0i9zWr+hCNm84O/Z5dHfqJmm43csbp/W0WS8qHEgJw
-	SE6qcAJpJco100sLMVPL7wOhbNlvt33RoHFklIpW2U31n0DJD6OHNorM6bb2ETEDym5qCa6oAZs
-	sojU=
-X-Google-Smtp-Source: AGHT+IHUAgL2tByhpFFBEFGQOdfrkVcNwwIG2P9l39t0NBi1UKfkNO4hyH6LvwamNSW5TxfMBytNRw==
-X-Received: by 2002:a5d:5f8a:0:b0:38f:260f:b319 with SMTP id ffacd0b85a97d-390d4f84733mr232456f8f.44.1740506222366;
-        Tue, 25 Feb 2025 09:57:02 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:982:cbb0:23a1:f1ec:7a08:3a2b? ([2a01:e0a:982:cbb0:23a1:f1ec:7a08:3a2b])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390cd8fc1f9sm3000134f8f.88.2025.02.25.09.57.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 25 Feb 2025 09:57:02 -0800 (PST)
-Message-ID: <07d7f05b-ed3c-444d-8879-9df99174b7c9@linaro.org>
-Date: Tue, 25 Feb 2025 18:56:59 +0100
+        d=1e100.net; s=20230601; t=1740506240; x=1741111040;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zHaAT6T+XlWe+89P2zugxKrlYk7TledH0w0ahGQr4YM=;
+        b=Q3CD0LEpU1Ft3wHSoSgs50xSu2+q9APGUDMoOnFGyAWlWTf50YhoEzXdD7eFViekjT
+         PaM35Rkvbgoe7MnrleNSBjdZ/JZaK0/v0TpAvpWyGVCkM5uS3yAm8njSJAn4+g+KkAhW
+         JL2fGq8zGNhwdybT3aN5ERlwLNDvR5GFbr05rxEwzmZD2atwaoiSm6UW1SnOxZ8sspJ0
+         ljEs3yymiXZZkxMH296TJG0a8G6g8x/DamgUSOu5Ezkey7IezeG9++d/NeKkSCMvrJ3y
+         7zpShZ7l2LNVdT+RQBcv6KMMcIMa4FZzZDiclYpsMb45PC8IQmUtdsdXFaBZrz9eb90n
+         G8PA==
+X-Forwarded-Encrypted: i=1; AJvYcCWj4OHo9fkkJ9AwtYLkQNBqtFWDXRFcF33I1HoFfcQ1wY4/xRzr8N5cHZahsq+3ppWmyGGLnusGWlql1pBT5hkD@lists.infradead.org
+X-Gm-Message-State: AOJu0YzewA2SdHnCSuYA+LxYaBTcT7T2RkCtqKOXLK8nyRZl/SzumxP7
+	P8j9RkT3aLNnwtn2SM9AdilYZ7+ysBp0JYRyqQf7ZP5idrFGsSyn6wfChp+73g==
+X-Gm-Gg: ASbGncsBDkxhwTE3i5NJ9UKYk4dvXTmwUmMUSR5x/xQ38XfP3eMA907nt95+EZ22rrv
+	dTi+yYd4uZ0sTW/9vRFwZjwPEpQM34Q0OCgVLMFbJEHinIwvjb2ClBxNaGL/A3CJPVqz7cjUeBd
+	t8r1TYIqz/rrPE8VUE8BnE+LXkdLR9JKKJhpnxpu7wa+jiZG8bYOHwBFdsmYd0fUatOK2xUcTwq
+	LflR2m3hiLPKxLwykcicRbzu18Ej0owXU8q1A7xhXmNcpJ+1lxqtdoRigwueFOieDoXqSBBKwe2
+	yeqie6+B7azPJ2tRyXKP/6rGzP78roCDgMHkUDdP6rWlzR7qO7fkeKCElFb7X7g=
+X-Google-Smtp-Source: AGHT+IG02bNp0tkxmXxczB6ZSntt4wfTEWTePiQeT76QafmUXS7ThOKjH22xno2GMa6y5FkJX+V2yA==
+X-Received: by 2002:a17:902:c40d:b0:220:c905:68a2 with SMTP id d9443c01a7336-22307a2c777mr3852445ad.5.1740506240014;
+        Tue, 25 Feb 2025 09:57:20 -0800 (PST)
+Received: from google.com (169.224.198.35.bc.googleusercontent.com. [35.198.224.169])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2230a0a61fcsm17251405ad.191.2025.02.25.09.57.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Feb 2025 09:57:19 -0800 (PST)
+Date: Tue, 25 Feb 2025 17:57:09 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
+	joro@8bytes.org, suravee.suthikulpanit@amd.com,
+	robin.murphy@arm.com, dwmw2@infradead.org, baolu.lu@linux.intel.com,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
+	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
+	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
+	patches@lists.linux.dev
+Subject: Re: [PATCH v8 13/14] iommu/arm-smmu-v3: Report events that belong to
+ devices attached to vIOMMU
+Message-ID: <Z74EdXC5YzvmJokk@google.com>
+References: <cover.1740504232.git.nicolinc@nvidia.com>
+ <7f6813dc2b62f5f396ac3172dc2a7d9bf3b47536.1740504232.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH] arm64: defconfig: enable Qualcomm IRIS & VIDEOCC_8550 as
- module
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org
-References: <20250225-topic-sm8x50-upstream-iris-defconfig-v1-1-8a17e2e193d9@linaro.org>
- <e959c772-9c10-4c87-a22b-e2f91ca05af8@kernel.org>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <e959c772-9c10-4c87-a22b-e2f91ca05af8@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <7f6813dc2b62f5f396ac3172dc2a7d9bf3b47536.1740504232.git.nicolinc@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_095704_088004_DF0A4222 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20250225_095721_040260_C2332BF9 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,43 +103,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/02/2025 14:08, Krzysztof Kozlowski wrote:
-> On 25/02/2025 10:10, Neil Armstrong wrote:
->> In order to support the Qualcomm IRIS driver on the Qualcomm SM8550
->> platform, enable the IRIS and the VIDEOCC_8550 dependency as modules.
->>
->> Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
->> ---
->>   arch/arm64/configs/defconfig | 2 ++
->>   1 file changed, 2 insertions(+)
->>
->> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
->> index a1cc3814b09b31ee659536a64b7db704153d6fe9..710452f75133896af2e3a19ae544f139e1c28a98 100644
->> --- a/arch/arm64/configs/defconfig
->> +++ b/arch/arm64/configs/defconfig
->> @@ -847,6 +847,7 @@ CONFIG_VIDEO_IMX8_ISI_M2M=y
->>   CONFIG_VIDEO_IMX8_JPEG=m
->>   CONFIG_VIDEO_QCOM_CAMSS=m
->>   CONFIG_VIDEO_QCOM_VENUS=m
->> +CONFIG_VIDEO_QCOM_IRIS=m
+On Tue, Feb 25, 2025 at 09:25:41AM -0800, Nicolin Chen wrote:
+> Aside from the IOPF framework, iommufd provides an additional pathway to
+> report hardware events, via the vEVENTQ of vIOMMU infrastructure.
 > 
+> Define an iommu_vevent_arm_smmuv3 uAPI structure, and report stage-1 events
+> in the threaded IRQ handler. Also, add another four event record types that
+> can be forwarded to a VM.
 > 
-> Does not look really as Kconfig-ordered. iris is before venus in Kconfig
-> include.
-> 
+> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Reviewed-by: Pranjal Shrivastavat <praan@google.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  7 +++
+>  include/uapi/linux/iommufd.h                  | 23 +++++++
+>  .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 17 ++++++
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 60 +++++++++++--------
+>  4 files changed, 82 insertions(+), 25 deletions(-)
 > 
 
-Surem I'll re-order.
+Apologies for my spelling error in [1]. It's supposed to be:
+
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
+
+Correct spelling in [2].
 
 Thanks,
-Neil
+Praan
 
-> 
-> Best regards,
-> Krzysztof
+[1] https://lore.kernel.org/all/Z73zvIbsXzJMCaNt@google.com/
+[2] https://lore.kernel.org/all/Z730M3XptvDRObBp@google.com/ 
 
 
