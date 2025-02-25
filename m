@@ -4,126 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09587C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 11:31:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98A41C021B6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 11:32:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UIEVpBfqzlAIj3t3+p9Xkb4HBEKJwXzTRtthqqzde8o=; b=PAvmggOu7KWCi5B8JfgxzF6plw
-	4U+HkqischDqBle04Sm/VdgPGNkAyLjrO7w+mR+dgFNtXwz4f0OJm1kmVf9EAqw1HVDwsoYYva/31
-	lZgSolJbkLgezd4FxDzjhM+pRxWeaS/9Vrq/OqOGrDlVgR9Zn0mzr5SX2cyZpmu+8zVwaA5h/9ZH/
-	iHegEoDOyQjRRFxdVbB1otKqm5UIV3bQlPrxq2N29Wv38j+9zM9/Ceff+jcm9bl91lM3OUObkto92
-	h5dYqCLp/K0zsxjlljKddCI27WVdKKCVcxOSXUgj3B/K3vrFKh/7lPvBjgVaEqvyVW9GH0l7qIQzZ
-	ea1cU7Nw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=of1Aj+b2AygxrQL0A6JMIgE22awWJ2bmoSsFSdWAD6k=; b=e/cEoa2P4Ade0Q1schl0x68Y/4
+	NEokLF1ldmolAwJLs6wtSIOGZYNbfbiNMAdUMU1IeYny32+al0hcmmyLf5dzgQLbn7k24RL6JZfQ9
+	OCKB7UnF2PbX8hEZMDnUb+CZsAe5OcFMrF0lFzC9TJreS/eUOZ+iC4ICNyI/zoiXqps8WvYNNElZ9
+	BH+jrfPY38SkS50lKcp+4XfthOrbWE/fUFezgOsJDseNPl6QZqGVNT9g9ri35LEqYw3XBY8rFIcCH
+	5lcK0jep95kjvVyy+gGd5+IRuJvg9h5RaBISDmgOGyY02o9q67bUHWp5s/8Z/R/8mfh8aK7TQxlqv
+	R4XVKktw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmt9P-0000000H2WH-3RfA;
-	Tue, 25 Feb 2025 11:30:59 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1tmtAw-0000000H2nO-3N9Z;
+	Tue, 25 Feb 2025 11:32:34 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmrwD-0000000Gm7T-14RY
+	id 1tms1K-0000000GnF9-3M0b
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 10:13:18 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43984e9cc90so37107765e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 02:13:16 -0800 (PST)
+	Tue, 25 Feb 2025 10:18:36 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-abb9fac29d8so82113266b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 02:18:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740478395; x=1741083195; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UIEVpBfqzlAIj3t3+p9Xkb4HBEKJwXzTRtthqqzde8o=;
-        b=C1Vr8FNZg8hoOqiyriocihNbRzMyhz5xIsU1P4yss6fBw92kjCWsQ8+pQGb8Loo/Mv
-         ybD0pRntKx7e5JUvAXjtBHCKVLUE7hYa5G7jd/LEnj46IzUcpLk6JJWg8wd3/uqBiiF8
-         yqkY0xsXESJolkkac5ycSxon53juim//3kHuNoMjrX+QTLUc/Td+Eh5MYxhH2BYiGHBi
-         8V5QQT5iRveKIeUqhatLB5iQygRyK9SWDMfkChW5SGNtb3u8iP3FtnRhjG0IoqtFIVFE
-         1+r+XKpBabi+HAQHl6mE87E0zPsA4hfD952f4ZotiN3ZC5seWO3MnfvTZCrT/bJtIpqt
-         oMbA==
+        d=linaro.org; s=google; t=1740478713; x=1741083513; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=of1Aj+b2AygxrQL0A6JMIgE22awWJ2bmoSsFSdWAD6k=;
+        b=yTngpXFaGAWUNT5c7Fx0/GBU60NBz5Q1d0Qy0I+UTAeJLmoHsa/EXYJDKTDFvsKAWA
+         sTwsb6XGGoy5lk4UNltBaLtBgucFXozw+Iuerig2cr19pdXWIgmiOKpD5leIpBFzx2RV
+         eII28kkqgxuxjz3GkrTuFOh9IEXqtFlf/gP7tQ8ROOADn7K974MOesnNqQguPd81zNY0
+         gQuhAHszYOQZwyD/rcDhc0Cj5woXR1H44I0cBqOrGcodOm2sFCjHAPY3TWe8lpMUOr8w
+         LNpIslHiJjJth7fpsMAw+3kpZfQJH0lx9ykm32zRqhi4ZqExkUoMl2Dr9tZ6j1+CPP2H
+         LHqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740478395; x=1741083195;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=UIEVpBfqzlAIj3t3+p9Xkb4HBEKJwXzTRtthqqzde8o=;
-        b=KM0eGlnfjyqvDUQ/rhn779uIz5zOuYIEuwuLvs5iTrLsVeWwOFh4mplVfIWO6UDJ7w
-         E6TMenBG7+K+be2S57KzX82J8fNOdq9ynlbLK6eFW703ExCLZTFOaRH0Lm0Y5lXmRatk
-         yFMoWNG7PGFZz28328MoCAHbKtU8Gd2itWg4nE3ycNz+crCkh9F5hInlYes1NKI2x/jI
-         lTO5Cz6OEGdJ/gnqfjNsrubKNiDBDHMrmWToP3Gcu+w3ZPS0g1gxSp7gfZ1oXCyFzFO+
-         QmKeR80aL23FWsHRWO9x0hDFK45pF+D5kkWVd57FBvHJrTH8gj7g8/FVHzWU4K2l37hs
-         y4vg==
-X-Forwarded-Encrypted: i=1; AJvYcCVbBoFnSkllRAaIjLdVApXQa45XfSyxJ4XIBBbCiRkZEDaSMBpFNJdNI4HUQ9cyGuJM+b0f1R003clPlCH9DuYw@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWD4SuZNLobFa2YyBlv/dAQLebVbHU7nh0A3St8qqOsj9wlECp
-	h2kuuiDmbXDGGQiDgrEf1dNLvDkhbrnsL5zdqqRjbrnq0kis3utuO4SGejn2A0A=
-X-Gm-Gg: ASbGncsVW8hlTLCU8bTB1AwelgA+QQprEhci3LMuvJFmBFzz0omi/OdeiWtfJNgvbap
-	sgW37R+1c16pS7WQh1q3K6r5uz02HSlkotqPpLAB+B0TYOSG+9YihtP1V6st8aznb0Hnepi/3sZ
-	coSoqFLjW/tcSJa1Dvlqv+UtBd+T9Ks4RON4xbWf3D8UsR8J5wMvSn5bwGB/gkZ3waEtp8lqu+J
-	f53W6WD8VQkjtvLLR62Tl5N0x+q7w4mqx7HNmnQcEiUBZePkaViiugqqExVSz55CjIzOadWz+VV
-	LTU274C2WIBpFA2K3WAGCRItZRgnSc5w6emB
-X-Google-Smtp-Source: AGHT+IHuxrFve4RrQxTJm/qq5KQxrxMVsYCL+f8dws0ADcO/Z7yzKKpEwdKKdpFUHyiamvR4ZVYVPw==
-X-Received: by 2002:a05:600c:46ca:b0:439:4b23:9e8e with SMTP id 5b1f17b1804b1-439ae2d1f3fmr129669155e9.3.1740478395441;
-        Tue, 25 Feb 2025 02:13:15 -0800 (PST)
-Received: from [192.168.1.100] ([37.167.173.6])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-439b02ce615sm135803455e9.5.2025.02.25.02.13.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 25 Feb 2025 02:13:15 -0800 (PST)
-Message-ID: <d4903cb5-f876-4229-b89c-c1fafd77fc3c@linaro.org>
-Date: Tue, 25 Feb 2025 11:13:12 +0100
+        d=1e100.net; s=20230601; t=1740478713; x=1741083513;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=of1Aj+b2AygxrQL0A6JMIgE22awWJ2bmoSsFSdWAD6k=;
+        b=GQR/BZHRfbXgwdSa5jtSOgD6q3cwmN5DFbNb21HOYtt2rezH1ZAcrY45eUQhSOMdBV
+         MwGg2HanNA4diIKS1LYoO3BMCDlMR+S/JSsCAilWL2i/25Uby1px/G0gVWSxttielkw2
+         uuNqjQLXbfTkN3k4bJz2OF11qtl6bDvEczxVNVXSpuini3I5xLMV8GH/QZLzepAGGTJf
+         KXiFol965owbvJVEhj05w2wJSls2hfCKBqb3G5Bgi9WeljOMYxZnCDYal5xp+UtzzlEt
+         bU4vPPGydw7EbutbO1XYqxqHJ9T1i4+fp1ImsafF2Kc+9j1LkDzmLE+i3tx9HjQR+t7S
+         DYYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVKhNt0i4OXLlCBLc4eQ4UgPN0qK1JCWIZvlok+uYCKnG1PoK5adtmJ9t3HRiLDN0Su/Eku+LQ/ohaqoeYScASE@lists.infradead.org
+X-Gm-Message-State: AOJu0YzugDsgRcNAYm0RfxOKlNjgh0DrOffw5OSUm9oL7zo8wOmlREfC
+	RT8LO3G1K/VCmlwiKprhoI/KQbO10HYJ3yrVJ1UDxqmU9O4q3QG9ci+ELR+YZ+o=
+X-Gm-Gg: ASbGncsQTxiuTywEDM+eoJTi1YCzjx6Kt+eNtTvRBJTD7Rsej2MYcW5dmMM2JmYmskK
+	BAgf/PSxWbBOHNzxkwoNuck4Vgq+qv2M+j5IsjXmBXcldo4RzOuQfg0xV2wg91ygKFG6dxHgSIO
+	BarpPaFEXqKw/JwW9lBvcLDPFM428lBL1Z25DLrFhHLy0K6NDUf+r1hTwF141Z4qnFz9IzYJZu5
+	Bor9858989fr0AZbCkMbJA3B6AGLaW3ODDiQmpFlgjjzD/ASNgbijo2WdzM/HQ3/OlLkO/OALfb
+	VPYN07dW8mQdqVaRjM/RfJA7QN81NewQSOlrWcTMsPVBb1IJppn4ORjXDW5BODS1GIdTSEYwhe0
+	=
+X-Google-Smtp-Source: AGHT+IF/O2qgzDlpSiG1lR7ObLbGjnnjV2zONrsTr1vx1NDwvqVNso6CnH5NNmLxDNPJVXo6dnHsfQ==
+X-Received: by 2002:a17:907:9713:b0:ab7:5fcd:d4be with SMTP id a640c23a62f3a-abc099c6a2dmr707107666b.1.1740478713100;
+        Tue, 25 Feb 2025 02:18:33 -0800 (PST)
+Received: from krzk-bin.. (78-11-220-99.static.ip.netia.com.pl. [78.11.220.99])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abed2016014sm113954566b.112.2025.02.25.02.18.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Feb 2025 02:18:32 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH RFC] arm64: dts: mediatek: mt8183: Switch to undeprecated qcom,calibration-variant
+Date: Tue, 25 Feb 2025 11:18:28 +0100
+Message-ID: <20250225101828.107509-1-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH 08/14] drm/panel: simple: Add BOE AV123Z7M-N17 panel
-To: maudspierings@gocontroll.com, Jessica Zhang <quic_jesszhan@quicinc.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Thierry Reding
- <thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>,
- Liu Ying <victor.liu@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20250224-initial_display-v1-0-5ccbbf613543@gocontroll.com>
- <20250224-initial_display-v1-8-5ccbbf613543@gocontroll.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20250224-initial_display-v1-8-5ccbbf613543@gocontroll.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_021317_302278_C14E40BD 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20250225_021834_843064_CE9957BF 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,71 +99,238 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/02/2025 14:50, Maud Spierings via B4 Relay wrote:
-> From: Maud Spierings <maudspierings@gocontroll.com>
-> 
-> Add support for the BOE AV123Z7M-N17 12.3" LVDS panel.
-> 
-> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
-> ---
->   drivers/gpu/drm/panel/panel-simple.c | 32 ++++++++++++++++++++++++++++++++
->   1 file changed, 32 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/panel/panel-simple.c b/drivers/gpu/drm/panel/panel-simple.c
-> index a52977ab73dc2edab0d1954c702fd797d6a5b969..232b03c1a259eb15e423b9d452d28e2ff95c70f8 100644
-> --- a/drivers/gpu/drm/panel/panel-simple.c
-> +++ b/drivers/gpu/drm/panel/panel-simple.c
-> @@ -1403,6 +1403,35 @@ static const struct panel_desc boe_av101hdt_a10 = {
->   	.connector_type = DRM_MODE_CONNECTOR_LVDS,
->   };
->   
-> +static const struct display_timing boe_av123z7m_n17_timing = {
-> +	.pixelclock = { 86600000, 88000000, 90800000, },
-> +	.hactive = { 1920, 1920, 1920, },
-> +	.hfront_porch = { 10, 10, 10, },
-> +	.hback_porch = { 10, 10, 10, },
-> +	.hsync_len = { 9, 12, 25, },
-> +	.vactive = { 720, 720, 720, },
-> +	.vfront_porch = { 7, 10, 13, },
-> +	.vback_porch = { 7, 10, 13, },
-> +	.vsync_len = { 7, 11, 14, },
-> +	.flags = DISPLAY_FLAGS_DE_HIGH | DISPLAY_FLAGS_HSYNC_LOW | DISPLAY_FLAGS_VSYNC_LOW,
-> +};
-> +
-> +static const struct panel_desc boe_av123z7m_n17 = {
-> +	.timings = &boe_av123z7m_n17_timing,
-> +	.bpc = 8,
-> +	.num_timings = 1,
-> +	.size = {
-> +		.width = 292,
-> +		.height = 110,
-> +	},
-> +	.delay = {
-> +		.prepare = 50,
-> +		.disable = 50,
-> +	},
-> +	.bus_format = MEDIA_BUS_FMT_RGB888_1X7X4_SPWG,
-> +	.connector_type = DRM_MODE_CONNECTOR_LVDS,
-> +};
-> +
->   static const struct drm_display_mode boe_bp101wx1_100_mode = {
->   	.clock = 78945,
->   	.hdisplay = 1280,
-> @@ -4845,6 +4874,9 @@ static const struct of_device_id platform_of_match[] = {
->   	}, {
->   		.compatible = "boe,av101hdt-a10",
->   		.data = &boe_av101hdt_a10,
-> +	}, {
-> +		.compatible = "boe,av123z7m-n17",
-> +		.data = &boe_av123z7m_n17,
->   	}, {
->   		.compatible = "boe,bp082wx1-100",
->   		.data = &boe_bp082wx1_100,
-> 
+The property qcom,ath10k-calibration-variant was deprecated in favor of
+recently introduced generic qcom,calibration-variant, common to all
+Qualcomm Atheros WiFi bindings.
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Change will affect out of tree users, like other projects, of this DTS.
+
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+---
+
+Dependency/RFC!
+
+RFC, because this should be merged release after driver support is
+merged:
+https://lore.kernel.org/linux-devicetree/20250225-b-wifi-qcom-calibration-variant-v1-0-3b2aa3f89c53@linaro.org/T/#t
+---
+ arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-cozmo.dts     | 2 +-
+ arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts      | 2 +-
+ .../boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku1.dts      | 2 +-
+ .../boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku6.dts      | 2 +-
+ .../boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku7.dts      | 2 +-
+ .../boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel14-sku2.dts    | 2 +-
+ arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel14.dts  | 2 +-
+ arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-juniper.dtsi  | 2 +-
+ .../boot/dts/mediatek/mt8183-kukui-jacuzzi-makomo-sku0.dts      | 2 +-
+ .../boot/dts/mediatek/mt8183-kukui-jacuzzi-makomo-sku1.dts      | 2 +-
+ arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-willow.dtsi   | 2 +-
+ arch/arm64/boot/dts/mediatek/mt8183-kukui-kakadu.dtsi           | 2 +-
+ arch/arm64/boot/dts/mediatek/mt8183-kukui-katsu-sku32.dts       | 2 +-
+ arch/arm64/boot/dts/mediatek/mt8183-kukui-katsu-sku38.dts       | 2 +-
+ arch/arm64/boot/dts/mediatek/mt8183-kukui-kodama.dtsi           | 2 +-
+ arch/arm64/boot/dts/mediatek/mt8183-kukui-krane.dtsi            | 2 +-
+ 16 files changed, 16 insertions(+), 16 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-cozmo.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-cozmo.dts
+index 83bbcfe62083..f2303d9f125f 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-cozmo.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-cozmo.dts
+@@ -35,5 +35,5 @@ trackpad@2c {
+ };
+ 
+ &qca_wifi {
+-	qcom,ath10k-calibration-variant = "GO_COZMO";
++	qcom,calibration-variant = "GO_COZMO";
+ };
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
+index 3935d83a047e..13ec15fa284f 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts
+@@ -31,7 +31,7 @@ &mt6358codec {
+ };
+ 
+ &qca_wifi {
+-	qcom,ath10k-calibration-variant = "GO_DAMU";
++	qcom,calibration-variant = "GO_DAMU";
+ };
+ 
+ &i2c2 {
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku1.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku1.dts
+index 72852b760038..b576b974cf23 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku1.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku1.dts
+@@ -40,6 +40,6 @@ &touchscreen {
+ };
+ 
+ &qca_wifi {
+-	qcom,ath10k-calibration-variant = "GO_FENNEL";
++	qcom,calibration-variant = "GO_FENNEL";
+ };
+ 
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku6.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku6.dts
+index 757d0afd14fb..d64581f35d2c 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku6.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku6.dts
+@@ -28,6 +28,6 @@ &touchscreen {
+ 
+ 
+ &qca_wifi {
+-	qcom,ath10k-calibration-variant = "GO_FENNEL";
++	qcom,calibration-variant = "GO_FENNEL";
+ };
+ 
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku7.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku7.dts
+index 6641b087e7c5..d0c98d0aba95 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku7.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku7.dts
+@@ -28,6 +28,6 @@ &touchscreen {
+ 
+ 
+ &qca_wifi {
+-	qcom,ath10k-calibration-variant = "GO_FENNEL";
++	qcom,calibration-variant = "GO_FENNEL";
+ };
+ 
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel14-sku2.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel14-sku2.dts
+index 877256eab262..3a81786084da 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel14-sku2.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel14-sku2.dts
+@@ -14,5 +14,5 @@ / {
+ };
+ 
+ &qca_wifi {
+-	qcom,ath10k-calibration-variant = "GO_FENNEL14";
++	qcom,calibration-variant = "GO_FENNEL14";
+ };
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel14.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel14.dts
+index b981dd31a430..959c4d3d9707 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel14.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel14.dts
+@@ -14,5 +14,5 @@ / {
+ };
+ 
+ &qca_wifi {
+-	qcom,ath10k-calibration-variant = "GO_FENNEL14";
++	qcom,calibration-variant = "GO_FENNEL14";
+ };
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-juniper.dtsi b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-juniper.dtsi
+index 078bc765646f..4788edaeab87 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-juniper.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-juniper.dtsi
+@@ -22,6 +22,6 @@ trackpad@2c {
+ };
+ 
+ &qca_wifi {
+-	qcom,ath10k-calibration-variant = "GO_JUNIPER";
++	qcom,calibration-variant = "GO_JUNIPER";
+ };
+ 
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-makomo-sku0.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-makomo-sku0.dts
+index ddb993521bbf..01cd59993a7c 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-makomo-sku0.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-makomo-sku0.dts
+@@ -14,7 +14,7 @@ / {
+ };
+ 
+ &qca_wifi {
+-	qcom,ath10k-calibration-variant = "GO_FENNEL14";
++	qcom,calibration-variant = "GO_FENNEL14";
+ };
+ 
+ &mmc1_pins_uhs {
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-makomo-sku1.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-makomo-sku1.dts
+index 10c4f920a7d8..c939ef3965ec 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-makomo-sku1.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-makomo-sku1.dts
+@@ -14,7 +14,7 @@ / {
+ };
+ 
+ &qca_wifi {
+-	qcom,ath10k-calibration-variant = "GO_FENNEL14";
++	qcom,calibration-variant = "GO_FENNEL14";
+ };
+ 
+ &mmc1_pins_uhs {
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-willow.dtsi b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-willow.dtsi
+index c942e461a177..14d03419b92c 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-willow.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-willow.dtsi
+@@ -37,5 +37,5 @@ trackpad@2c {
+ };
+ 
+ &qca_wifi {
+-	qcom,ath10k-calibration-variant = "GO_JUNIPER";
++	qcom,calibration-variant = "GO_JUNIPER";
+ };
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-kakadu.dtsi b/arch/arm64/boot/dts/mediatek/mt8183-kukui-kakadu.dtsi
+index ff02f63bac29..c4c08c0f715e 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-kakadu.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-kakadu.dtsi
+@@ -370,7 +370,7 @@ keyboard-controller {
+ };
+ 
+ &qca_wifi {
+-	qcom,ath10k-calibration-variant = "GO_KAKADU";
++	qcom,calibration-variant = "GO_KAKADU";
+ };
+ 
+ &panel {
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-katsu-sku32.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-katsu-sku32.dts
+index 2b5a8d1f900e..7428efec95a0 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-katsu-sku32.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-katsu-sku32.dts
+@@ -32,5 +32,5 @@ &panel {
+ };
+ 
+ &qca_wifi {
+-	qcom,ath10k-calibration-variant = "GO_KATSU";
++	qcom,calibration-variant = "GO_KATSU";
+ };
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-katsu-sku38.dts b/arch/arm64/boot/dts/mediatek/mt8183-kukui-katsu-sku38.dts
+index 75fadf2c7059..a36b6ddb71f6 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-katsu-sku38.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-katsu-sku38.dts
+@@ -32,7 +32,7 @@ &panel {
+ };
+ 
+ &qca_wifi {
+-	qcom,ath10k-calibration-variant = "GO_KATSU";
++	qcom,calibration-variant = "GO_KATSU";
+ };
+ 
+ &sound {
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-kodama.dtsi b/arch/arm64/boot/dts/mediatek/mt8183-kukui-kodama.dtsi
+index da6e767b4cee..2b283a55f653 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-kodama.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-kodama.dtsi
+@@ -349,7 +349,7 @@ keyboard-controller {
+ };
+ 
+ &qca_wifi {
+-	qcom,ath10k-calibration-variant = "GO_KODAMA";
++	qcom,calibration-variant = "GO_KODAMA";
+ };
+ 
+ &i2c_tunnel {
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183-kukui-krane.dtsi b/arch/arm64/boot/dts/mediatek/mt8183-kukui-krane.dtsi
+index 8b56b8564ed7..00da50a41574 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183-kukui-krane.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8183-kukui-krane.dtsi
+@@ -353,7 +353,7 @@ keyboard-controller {
+ };
+ 
+ &qca_wifi {
+-	qcom,ath10k-calibration-variant = "LE_Krane";
++	qcom,calibration-variant = "LE_Krane";
+ };
+ 
+ &sound {
+-- 
+2.43.0
+
 
