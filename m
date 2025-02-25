@@ -4,179 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C900C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 10:06:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CC5BC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 10:08:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pw1rKAtvjCj1C3NE99f0WO/YOM+Ixy8qHZ2neY9l2Dg=; b=YlHez3+297N0XQGqpc4fy0HQbw
-	yQ9X+RkwDfRd4V9VIpikHfzJQaivDxi+5oRKo/wQ4ji/Sfy2ZU0QZ+q4n5Y5zFDfwId26ViBy9eCl
-	DSmSikp6uHiZW0EkmWpUOcPkzj3M5Lx8mE60D0kmsWmMG80OrNk/Npte/ELKzNvl/24FAqheUuI09
-	C6q9KHMOR386vMCJiAquxgM9r/+58EgAJ5Hy9wcP3J84eB4HSnyZ9sVd7ZnB+dtpBF+ZDOtsOMHKN
-	AbuNjwpQKdqHrrMzjhR11jBEBIAXawMx6vQDpmm0N5EmmDCS8o+hNOkiDhrx8ib36Vf4k3tZXOTQC
-	B7ynTzZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=k1b/SjlUrBiwlpdBltEgRRZu4gwMrGWqne2jsJj45xA=; b=Urr9oWM4jUp6xP
+	TksjnLVFnpLguyGXevvJXob0dSJ3NtLjPsxP5N/9/r4P20LPEXDMTHTTdVUL1oK90k8Jrm3qhdM8b
+	0rq6aAzONS9Ah4L5aJL+GlQPUB6Fp2dCXvtp+8MJU5vyIOEPLPPY3CmGk5ShfSrB4EFHstoD9LpXK
+	baUb/yCIVnRd3LQz/5XQ7n3ZboasE9kTc4Vi0dFFqT+zz4eSnYF+XYsa608+rIWmkctcKmc/FhDgE
+	FiDYPnZS54nwK+tQzMAGsYnN+9kkpOkgA3ATzgmRaPxhYg1KbKB62reJ2tgSwa+4iodheM9mXWruf
+	mkcCnaG7pd7x4ofMgIpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmrps-0000000Gkg6-3cuY;
-	Tue, 25 Feb 2025 10:06:44 +0000
-Received: from mail-tyzapc01on20710.outbound.protection.outlook.com ([2a01:111:f403:2011::710] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
+	id 1tmrrQ-0000000Gl40-0t7T;
+	Tue, 25 Feb 2025 10:08:20 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmrZA-0000000GgPo-1OQX
+	id 1tmreX-0000000GhZd-3tKq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 09:49:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Dvrg+x9FA72u4Bd8jKrpzr1iS/48cF484yRYlp1xtgfeLq9QHTSpePjQW1aQlaWqzJx8xwcH94bCMB/hztoxxO5gdI5ZkqA9TbYjBZtlAILEcGa5LtvPE5dXFF40Zflpl8zQ8Ae3kQLoc0pkoac/m3g2Mfyf9bfZq0j7LqywU3UFl1Y7y2nfoxGlH12sRysegJpba6NYt+hGGtQxuox2YYcnLmtOxuuaoJNoBxlWQOp/OD26eGRxCXj4ExTr5vMHGCQSi9mcyvYapJ1BU4l1Bgd4p0Nrj8oE4oYXPBd7Opx11IiLDhQsjreSUGglZs+Vva/JDaUEjLrcvQpEq9UaLQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Pw1rKAtvjCj1C3NE99f0WO/YOM+Ixy8qHZ2neY9l2Dg=;
- b=f7xAPTbWrjKpL3MYOEjMjjkUZz0hHZ6cvdqMN+iDMwnIUkUsfNMn+AcbAOPTscQSxy8KOcnX9psdjeyCTIQeBpNmYmBxjExxNPxGFyn1vFw0FcFZ7RmPz4MTqhBiDSLvRdH4kMJni6rz/ciZ7/2byDlrq3UfJbKe68/2oowdNOfXUYxfdVEnX1f6oOL+r2TWQRhp94iUhDTFt/9oHOig6UXixfQ05rAUAazE+46RhBe5k387+cgmyMe9m/SbPf3KoU/Ahri+L6jatQVd62HztfzWwVgUQC9kuAMu1ZlQvDFkYIEvRFi9JCMAeKoJtUSNOWnUanC1DUnXaOcGxImQIA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Pw1rKAtvjCj1C3NE99f0WO/YOM+Ixy8qHZ2neY9l2Dg=;
- b=gWITsOtLD7+nK3Dp95Z/7a7fYPbrtJ81yUV7wv77+9P/NP7yq1e6DZ2K5qQwa6sgYd2wMOnSjJh5PUtxdQu0BlgWhh5wv8T5SEW2gDqZKEIMAHxQVBepO9D51pW2I0S4ztOVfSVul3RBHBh3Kciu30gzdVtBPGSTDycLwFEpIMwhibsWk6SVBiy8sJOakDDBV9iShN6YZ3KvSx1j5aWl/mvUhsyZYkbx61PdTGGyEadXuE6GylA6niH57BWmg9SqSp1RCB80N69BU6LejPPrlqzl3IQtpl31ZUpU629qsEbtKOjjo8OH1OSQgHxr6rhH8cjWzgBWP7ijuIvnSi+JMA==
-Received: from OS8PR06MB7541.apcprd06.prod.outlook.com (2603:1096:604:2b1::11)
- by TYZPR06MB6996.apcprd06.prod.outlook.com (2603:1096:405:3e::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.16; Tue, 25 Feb
- 2025 09:49:18 +0000
-Received: from OS8PR06MB7541.apcprd06.prod.outlook.com
- ([fe80::9f51:f68d:b2db:da11]) by OS8PR06MB7541.apcprd06.prod.outlook.com
- ([fe80::9f51:f68d:b2db:da11%7]) with mapi id 15.20.8466.016; Tue, 25 Feb 2025
- 09:49:18 +0000
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Michael Turquette
-	<mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
-	<andrew@aj.id.au>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v9 1/3] dt-binding: clock: ast2700: modify soc0/1 clock
- define
-Thread-Topic: [PATCH v9 1/3] dt-binding: clock: ast2700: modify soc0/1 clock
- define
-Thread-Index: AQHbhqIygZnvzo4Bt0Wa/Nj5P77JfbNWO12AgADwbfCAAHvmgIAAHaSg
-Date: Tue, 25 Feb 2025 09:49:18 +0000
-Message-ID: <OS8PR06MB75411AE082C9630314966F2AF2C32@OS8PR06MB7541.apcprd06.prod.outlook.com>
-References: <20250224095506.2047064-1-ryan_chen@aspeedtech.com>
- <20250224095506.2047064-2-ryan_chen@aspeedtech.com>
- <f810b8a2-4261-4b68-b59b-4efa0219b5db@kernel.org>
- <OS8PR06MB7541D685A626D300AC730A5BF2C32@OS8PR06MB7541.apcprd06.prod.outlook.com>
- <2b64a9d7-7048-4842-9cc1-fe23f5abdd00@kernel.org>
-In-Reply-To: <2b64a9d7-7048-4842-9cc1-fe23f5abdd00@kernel.org>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: OS8PR06MB7541:EE_|TYZPR06MB6996:EE_
-x-ms-office365-filtering-correlation-id: 67aa8074-9700-4c88-e8e9-08dd5581abfd
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|366016|376014|921020|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?V3FqQ09mWWp6SWh0c2dDdXRLeHpKN2szQVBRaVZ4eWtrMUgwbFloSFdFak5q?=
- =?utf-8?B?THBFbUQ3c09OZHF4ZmxFemRWZDN1VXRYcW9HaWVnOFZUVlh5dlE0L3Yrb1pi?=
- =?utf-8?B?TVIvOGdiRmZ6eGhxblQveU1LZTFJMUlDZk9XR2c4Snd4MzF4eDBla2piQmpW?=
- =?utf-8?B?eVg0WGxINEN2dW5oZ2JBLzNzM3FrU0RwUGdJanNPbyt5Nk9qTTJIdXNnYWtr?=
- =?utf-8?B?OWxEdFhtNE42Rk5lVVIvTnZsS0QrblJCK3JkSzc5SzhnZThWK0tORHVVY21N?=
- =?utf-8?B?dXpxbUh4dEhFOUU4UFBDUFFhT09vbjVlOFR5QzR6bFhHTC96SWFUQ1pBMUlj?=
- =?utf-8?B?ZHZvNXNic011bEZGalp4OUQrRzNkQmlLYTJuQjJiZjZGd1F2RC9Ib1VKUk5I?=
- =?utf-8?B?dGphdDZlM29TaEc1bWs1M1VwYklxTkJzMXdpNlNsN2RqMGtNRUdUK1lnc3hJ?=
- =?utf-8?B?dGJZSUtlWGtjUjNXUHVxSDM1a1RUbE9XcVBSNkZnTi9PcVFDYyt0UklCemhF?=
- =?utf-8?B?MjNGbHVTVy9STUNsbTRrTEdNWDUwKzFkNTEwRy82SlJhQnZNdUNPcGYxU2c3?=
- =?utf-8?B?NFRHczZNSERSUVFhcHRoNEhlL3F3TVk1TndXdlBjazFVZ050ZkFra2Y5R0ow?=
- =?utf-8?B?WXQ4OEowZlgramNBUEdlQTExQ21JRWoyWWJud3F4emV1RFpLc3JoTHM5OHZr?=
- =?utf-8?B?MlQ2Q2Jwc2h6UWRvNVB2Z202VWpDMnNkNm9NbnF6czk5UlU5RXIxNjF4OXBV?=
- =?utf-8?B?aGFZbWN0RkRTWTNXSlh1aG1pMi90b2E1b3lxRENSeUJVSGJhU0U1ZGNOVEdO?=
- =?utf-8?B?L3RVbHdPeTFvUkRYbXZQdEFidEEyQ2tnVjRIcFR3aFJGRVNMVnpyUXQyams0?=
- =?utf-8?B?ekNpMzJsWEFJVE9JN0U1TUMyNlVYS3ZoSncvT3kwMGRJMm1JRStNM2NCUlJ4?=
- =?utf-8?B?QmI3dC9ZMEI4ajlRRk96NlVhWjFhTXdXQTliemVaWHFpZ0Z3K2ZHUnNTUk53?=
- =?utf-8?B?dlZEVHFCYzhsdlZ6M29CeUdDOVI2dlo2dWxGc3ZybFp6clpxSjJYTHBsbmd0?=
- =?utf-8?B?c1M4SmthbEowK2xDODliNWFKZlJDOHVEQitiTFVTdEVad2lTUXdDUmRJS1pL?=
- =?utf-8?B?cWlHSXpxbFVDczRRL3ZleE9mL1dJTjBvZ1FRY1RmREc0QTVnMGZydjdJeFV5?=
- =?utf-8?B?WVlyeU1hVmUzRVlRMThWcVFTZzNLUVFUUkdDTGZtVHdiQ3oxM29WSUYwZmx1?=
- =?utf-8?B?WGpZQmhJYU9JK05XQzhwcEVKeWY3bXYxVmNNK0NmYU1pcEVkSVQvTncvUmpR?=
- =?utf-8?B?eUJnVVZ5VFZpMVpHOTFaZUJEWlZMOUdjcGl0dmlxdFhEazBpcEMzblZZZHpT?=
- =?utf-8?B?YkJIVVRHRXFueDVtT2swK1VLQXJZVy90NDhkMEdPNzdpa3pjS0p1V1hpY04x?=
- =?utf-8?B?K28yWFJJUVhsQnVjYUlEWFdiYTdBdklKSlZzclBIQ3lEOWhrVWRyWXovaWpU?=
- =?utf-8?B?YTJGYlMxTlZGRjJDNTVwNGRiaTJnbmFuSmExaC80RG84LzRpTkE5QlRJb2NM?=
- =?utf-8?B?anV6QnNkQmhjQUc0bG0zWWpPd2xBN2hWRUpJTEs5WjFKeWVEUmtwRWd4Rmhw?=
- =?utf-8?B?Qng3dWZvalVWL1NHYjFib2cwcU5jdnhXMlJaeS8xTkRDNUVrY3NFZkoxOUZl?=
- =?utf-8?B?dFdGWmtXczBZcXErK1cweDBYQnY4Zk1tRC9ZeENuV0p5VVZBeWJHaXYvY2p1?=
- =?utf-8?B?eFlUell4cjgrWlkwWXJrbHp0bmt3MEpZK3MxdmdFaGR6a29yRXZLNXlRZ3VU?=
- =?utf-8?B?aytQZnZtSmxqMGhwUkpvRXJ5VkY1UzNKRDNXL0I1dUYzWnlHYTFNL0NvMWZT?=
- =?utf-8?B?YWMvUThhbzYzUVJjdVpIMzdWdkkrQWNsK0hqRHlTVHo0eFJQMlJuby84OElr?=
- =?utf-8?B?WW5NZHEwdlROYlV2RldvOUlPS2lSNlp6c01yMFFjdElTNHNKRVM1ZVMrMUls?=
- =?utf-8?B?QkdFNmxoOThRPT0=?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OS8PR06MB7541.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(366016)(376014)(921020)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?VUxYUG5SNlJJMUg3TWp2UEN4Vk1GRldGM0JoUS91ekhkNjdDY0MzaVU3dDhC?=
- =?utf-8?B?QmIvUVdrY28yL3doRDZVdFV4WnpZZGtPMCt4V3h5b2Y1d1YveUFaVTdFTExH?=
- =?utf-8?B?ZEFqQS8xRldldkFMMlZ3ckY5L3k2L2JWU0luNjMvQmh2eHBVOURIUHhrUjhl?=
- =?utf-8?B?dGJrMXNySkNlV0tRaTQ5ejkyZ1g5K3VDN01TVWdOMXJsZ2ZodXJkM3RzOWt1?=
- =?utf-8?B?NyswODd2L29GRWZYanpEdEtYRXNOc3BNbXFvZlJQNXRtK3FCYzhjL29Meno0?=
- =?utf-8?B?MCtWU2tYU1hXQmV0c0Z0eHFROUdWT2MxVk9obDQwekNRN3BDYnhhak1yZTFI?=
- =?utf-8?B?WVZ5V3hxQTFadzVvd3YrdE5uNmlZU2duaEtrb1l3K0tpYTBCY2ZVZkdrNDlL?=
- =?utf-8?B?MFlwMUUzYy9Vb0M3RXNPNXVaekFVWVo2VVAwQnpSU0tzQy9BT09aRWkySVF3?=
- =?utf-8?B?UkR1ejF1MzZuZ3RCdTNFOXhrS3BCMnZKK25tRm5yVWxIY3RZTGh4NExMa1do?=
- =?utf-8?B?RGtpOCtld2p6UXMvWDFuVExDdzFueFFZWFMzamxjbXpHTDJsMjR6KzIza0hi?=
- =?utf-8?B?YXdPWTBmZlNkZHMxRTdzUmlPeUdCSlZoVzIxMDVQT1kwNEtGZVpPbjBXVmUy?=
- =?utf-8?B?bUdqYnRmYzVTT2Y1TjdWOG9PY0s2ZHR2NW5WYUcxUHpCb3krbytwQXZ4V0hD?=
- =?utf-8?B?RGRUMVVWT2d2UlFQazl4MFg1NjJEMkxhN09wTE1BMXJCdk12eTZVZ0pXWGY1?=
- =?utf-8?B?czdxOE94OVFSV1ZCTUV0QkxQK0hPTFhBT2tSbVlJMnBXTjdHOGpoWGFxTEpz?=
- =?utf-8?B?TGVZQ3RvdzFvMDE0RWNzdDlmckpuOElOYXQ3ZU8yc3lqNkp0NlFySzNGeEow?=
- =?utf-8?B?US9Eeng0T1BHL2hoVGYyRHlBTGJaaGJtajI3UWNBSGZ6V3N0V2FlSEpCVUhz?=
- =?utf-8?B?QnRjVlFGc1p6Yld2WnhUeXJuV0llWCswc1dqQTlNdDVBS2tVM0I4MFQ3MXgy?=
- =?utf-8?B?Wjc3SlhSd3I0OFFPRko3ajMvVGgzcjJHOEo0Wmk2MDUyR0FOMDQxQmt6bGxy?=
- =?utf-8?B?YlJ4OHlqS1dXTndMN2tqRWxxZjlXQk5XUjh4Qy9UeXNlWVQrRFJUb3Z6OXJa?=
- =?utf-8?B?V2ZJTXdZNFlSNnRjWEl5Rm53RkpUdEZ0UHdVMHRsOTlNSG43THE3dElHSGVS?=
- =?utf-8?B?MVlQQzNDMkkrSW1MaUU0UWpaNHp2NlBaYkp6NUpJYUV4REpCK0NrSCtQRkJD?=
- =?utf-8?B?V1VSZFBzMlQ3bklnMUFHUlhocWViUjBEVEFnbTRVREN5Y2VrRS9qa3VKaktM?=
- =?utf-8?B?d1pwcHZWbVBEaXY0aCtnK0ZEL2cwNzBQcU0rcW1vZU9LT1ZITnAwejMySHF3?=
- =?utf-8?B?TlRYQkV0WWw0QnliT3hURllxU2p1TU1xeVViNWV5MlUvVEpxclhtaDRqYXFk?=
- =?utf-8?B?cHROUyswaHkwU2JGQ3NmZWplbTRYWThyREdBcllON2dNNHo4ZE55anFMK2Fu?=
- =?utf-8?B?Y3YvVldydERDeHpHMlQ0Vm1XNTBMTU5NZDE3RllNYk9wZzM5cEZaT0luUkRG?=
- =?utf-8?B?VGFRVlhwOWVmTEV2b3RhQXVGTm9qS3U4RHhlOE84SHAzN043MXRoZEIxeEx6?=
- =?utf-8?B?RDR5QmhDdUpQSDlBVDgwdGJwYzZtQjlGbmhZZ0d2OHJCWTNKOGhNOEtZL2pQ?=
- =?utf-8?B?bnFxUC9UZTd4VWNUNDMwR2hUbTZiSnQ0MXloTWdxekh6ZjRtbVpUNXpFQmYr?=
- =?utf-8?B?TTBveTJSbjRqMEI0RlZUbVBUbkZTbm9WN1VvU3daMkVnb3dhaUx2T05XeVB4?=
- =?utf-8?B?VzVmb0ZpWVFmaW1ZVUhMVUR0di9lU2dHd0J4dUNOVnhJODBJTUJobW5zNTBZ?=
- =?utf-8?B?c0lKSnRGbk5uTEhxVnp5djdhYTRSS2tGaHR2bkx2eHJDT1RiMXVqc3R0dDE3?=
- =?utf-8?B?QVZRdTI1elFNRXBQeXhKdXFBVHFiYXBNMURZOFhyNndhdThocnFuWFc4ckxr?=
- =?utf-8?B?YlBnSHhYeWdFVTlML1A4VHYybkRuaGxDaHdmbnBXK01SL2M0RGIrNkxSU2hI?=
- =?utf-8?B?bnZmeG9OQ214VFQ2OGxMM3VmUDFXYUtsdUcvcmJ0MFlvV3doT0M4V0YyZVdh?=
- =?utf-8?Q?wmyib4iIVWUkFCbpoMTAXrhT8?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Tue, 25 Feb 2025 09:55:03 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-54622e97753so4948416e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 01:55:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1740477299; x=1741082099; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=k1b/SjlUrBiwlpdBltEgRRZu4gwMrGWqne2jsJj45xA=;
+        b=TJpBj97zFeYt8cSTvVtTzz3FdJNsjeBqW4WeUP+bLbbUPJ5Z8/yELcyFUXR4U4D6Kv
+         WhXsKjSI4ZHIOTHOIK5CF+Km0fCQaBcBv35iSMfCxWuKZmLWymbvBMLsTi6UmHfCrDuk
+         WYaR4Xf9Zc+3bXRfvq9EWWI9cnu2ZXILtHkzsCAqyBgHRBSkgoBEQUucxVjyKTIA8U5p
+         bWdQFhu4M6XXSqlWnpDJNaAFEH9XBGvS0eQpE3R8vlPuP/Zjht2h5zScKUPAmEARVNma
+         MOsGbKDwt7SBZ6NOW3iWDUEYpwqpNlYRzEq6qB8SU/83ZnFGl8ngmBaz8miEiHqo9QnN
+         Rxlw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740477299; x=1741082099;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=k1b/SjlUrBiwlpdBltEgRRZu4gwMrGWqne2jsJj45xA=;
+        b=LpQvPWZkEMqeMUeYQHVZ8IHTRABlQgLy4hUYAkIOSip5gmm4iw7OkxFJSArAPj7ium
+         0Dzut/UyDXzta0Z3EHGxfxJ3OZBfFpakc3hzHBYC0qdd0lVXqg0aBFx7cW7ElBXdWjHe
+         Y8eH7hRiZPR+nInyFX2T9j4vu9Z+v07R9ORjGujMfdlHgsHd4T/g+KBAsXJFHNn02VHb
+         BXafsIeus0j6M0qonRGhhS6p/vfEcTE/S7q00QG3uW5Sy4WRt8gE/UuuVCwY3EyodGlS
+         /XEoCuI6SXeQQCqb976/0KSvK9XA/tuuvq1omgqYXWYcGW/IOszCHpnncbOE3F5Te9LW
+         x1ZQ==
+X-Gm-Message-State: AOJu0YzsrdTxSU+W5cCZnZrQNajhhFdWzP5GRZAzMHc2gHF1GIjZVFTS
+	AdyGWlIQUzKpqRft/bzyeydFQka92kNROanwYPL7+JAsjNvA2kSzFY709DUGL5c=
+X-Gm-Gg: ASbGncsovRbOzfhy0zoO6O+jalr3elEUhhzex61pdbdXawpnthO4K/0oyQAfFgPaoYE
+	tTmdgl0JjbB8oqyQTdEnNZtNw5eV3b+rXrX/HhHLXXUmRGRVRiZS8xUad2OIESxAs9BEfbp0Gqq
+	HMGkiCDQTfZF+3iPkMraZAGotn+tabup1b14CZnW8TN8Bg7uSskI0MgaRDfPOTllPEP366Br54D
+	xqdxer8g5KHBVj5JYwRS2fMqJKuQhxy2RuYGYxhiRJbhP3c0T0iAb86HFhxoyr5u2FdnXOTORmJ
+	zs0uI30ZLCHZugOB1A1i334z59a8D3AzxfFW
+X-Google-Smtp-Source: AGHT+IFjVQdNVlNztbhb0smgUJy6TbBsJtMWQwTKEIv0dNyr+RTtwx+laNU5QftfX73TCxWRyfGmMQ==
+X-Received: by 2002:a05:6512:3b86:b0:545:4ca:d395 with SMTP id 2adb3069b0e04-54838c56efdmr5685365e87.2.1740477299456;
+        Tue, 25 Feb 2025 01:54:59 -0800 (PST)
+Received: from [192.168.1.140] ([85.235.12.238])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-548514b261esm132867e87.24.2025.02.25.01.54.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Feb 2025 01:54:58 -0800 (PST)
+From: Linus Walleij <linus.walleij@linaro.org>
+Subject: [PATCH v5 00/31] ARM: Switch to generic entry
+Date: Tue, 25 Feb 2025 10:54:47 +0100
+Message-Id: <20250225-arm-generic-entry-v5-0-2f02313653e5@linaro.org>
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: OS8PR06MB7541.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 67aa8074-9700-4c88-e8e9-08dd5581abfd
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Feb 2025 09:49:18.0984
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: xU2CalzfpeGJjbdZJAkQ8UlishmtOLZWt6ZdAFcqbsQ94wqatDw7ipAu3AfYjFzvOwITDLGyKtGYv6P/fPZgOFpiqcJmAyrHsZdDcjrh4Vg=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB6996
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGeTvWcC/23OQWrDMBAF0KsErauikTSR3VXvEbKQrJEjSOUgG
+ 5MQfPdMDKUN8fIP/PfnLkaqmUbxtbuLSnMe81A44MdOdCdfepI5chZaaataZaSvP7Knwq1OUpn
+ qTfrowaJxTQgkuHeplPJ1NQ9Hzqc8TkO9rRMzPK+rBgrUhjaDVDK0NlmEqBoXvs+5+Dp8DrUXT
+ 27W/wjdbhGaCXQGofWBkmneCPNLID/htgjDhCVMpgOMQcc3wv4RGvQWYZnwFl1Kyu8h7l+IZVk
+ eXnBEG3wBAAA=
+X-Change-ID: 20240903-arm-generic-entry-ada145378bbe
+To: Dmitry Vyukov <dvyukov@google.com>, Oleg Nesterov <oleg@redhat.com>, 
+ Russell King <linux@armlinux.org.uk>, Kees Cook <kees@kernel.org>, 
+ Andy Lutomirski <luto@amacapital.net>, Will Drewry <wad@chromium.org>, 
+ Frederic Weisbecker <frederic@kernel.org>, 
+ "Paul E. McKenney" <paulmck@kernel.org>, 
+ Jinjie Ruan <ruanjinjie@huawei.com>, Arnd Bergmann <arnd@arndb.de>, 
+ Ard Biesheuvel <ardb@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Linus Walleij <linus.walleij@linaro.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_014929_494940_788373AB 
-X-CRM114-Status: GOOD (  24.08  )
+X-CRM114-CacheID: sfid-20250225_015501_985436_B7707613 
+X-CRM114-Status: GOOD (  46.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,45 +106,285 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiA+PiBTdWJqZWN0OiBSZTogW1BBVENIIHY5IDEvM10gZHQtYmluZGluZzogY2xvY2s6IGFzdDI3
-MDA6IG1vZGlmeSBzb2MwLzENCj4gPj4gY2xvY2sgZGVmaW5lDQo+ID4+DQo+ID4+IE9uIDI0LzAy
-LzIwMjUgMTA6NTUsIFJ5YW4gQ2hlbiB3cm90ZToNCj4gPj4+IC1yZW1vdmUgcmVkdW5kYW50IFNP
-QzBfQ0xLX1VBUlRfRElWMTM6DQo+ID4+PiBTT0MwX0NMS19VQVJUX0RJVjEzIGlzIG5vdCB1c2Ug
-YXQgY2xrLWFzdDI3MDAuYywgdGhlIGNsb2NrIHNvdXJjZQ0KPiA+Pj4gdHJlZSBpcyB1YXJ0IGNs
-ayBzcmMgLT4gdWFydF9kaXZfdGFibGUgLT4gdWFydCBjbGsuDQo+ID4+Pg0KPiA+Pj4gLUNoYW5n
-ZSBTT0MwX0NMS19IUExMX0RJVl9BSEIgdG8gU09DMF9DTEtfQUhCTVVYOg0KPiA+Pj4gbW9kaWZ5
-IGNsb2NrIHRyZWUgaW1wbGVtZW50Lg0KPiA+Pj4gb2xkZXIgQ0xLX0FIQiB1c2UgbXBsbF9kaXZf
-YWhiL2hwbGxfZGl2X2FoYiB0byBiZSBhaGIgY2xvY2sgc291cmNlLg0KPiA+Pj4gbXBsbC0+bXBs
-bF9kaXZfYWhiDQo+ID4+PiAgICAgICAgICAgICAgICAgICAtPiBjbGtfYWhiDQo+ID4+PiBocGxs
-LT5ocGxsX2Rpdl9haGINCj4gPj4NCj4gPj4NCj4gPj4gSSBjYW4gYmFyZWx5IHVuZGVyc3RhbmQg
-aXQgYW5kIGZyb20gdGhlIHBpZWNlcyBJIGdvdCwgaXQgZG9lcyBub3QNCj4gPj4gZXhwbGFpbiBu
-ZWVkIGZvciBBQkkgYnJlYWsuDQo+ID4+DQo+ID4NCj4gPiAjMS4gU0NVMF9DTEtfVUFSVF9ESVYx
-MyBpcyByZWR1bmRhbnQsIGl0IGRvZXMgbm90IGltcGFjdCBBQkkgYnJlYWsNCj4gDQo+IFlvdSBk
-aWQgbm90IGV4cGxhaW4gaG93IGl0IGRvZXMgbm90IGltcGFjdC4gQ2xvY2sgd2FzIGV4cG9ydGVk
-LCB0aGVyZSB3YXMgYQ0KPiB1c2VyIGFuZCBub3cgdGhlcmUgaXMgbm8gY2xvY2suIFVzZXIgc3Rv
-cHMgd29ya2luZy4gQUJJIGJyZWFrLg0KPiANCg0KU29ycnksIFNDVTBfQ0xLX1VBUlRfRElWMTMg
-d2FzIGRlZmluZWQsIGJ1dCB3YXMgbmV2ZXIgcmVmZXJlbmNlZCBpbiBhbnkgdXBzdHJlYW0gZGV2
-aWNlIHRyZWVzLg0KU2luY2UgdGhlcmUgaXMgbm8gaW4tdHJlZSB1c2FnZSBvZiBgU0NVMF9DTEtf
-VUFSVF9ESVYxM2AsIGl0cyByZW1vdmFsIGRvZXMgbm90IGNhdXNlIGFuIEFCSSBicmVhay4NCg0K
-PiA+ICMyLiBDaGFuZ2UgU09DMF9DTEtfSFBMTF9ESVZfQUhCIHRvIFNPQzBfQ0xLX0FIQk1VWCBP
-bGRlcg0KPiBpbXBsZW1lbnQNCj4gPiB3aGVyZSBgbXBsbF9kaXZfYWhiYCBhbmQgYGhwbGxfZGl2
-X2FoYmAgd2VyZSAqKmhhcmRjb2RlZCBkaXZpZGVycyoqIGZvcg0KPiBBSEIuDQo+ID4gSW4gKip0
-aGUgbmV3IGFwcHJvYWNoICh2OCkqKiwgSSByZWZhY3RvcmVkIHRoZSBjbG9jayB0cmVlIHRvIGNs
-b2NrIHRyZWUuDQo+IA0KPiBJIHN0aWxsIGNhbm5vdCBwYXJzZSBzZW50ZW5jZXMgbGlrZSAicmVm
-YWN0b3JpbmcgQSB0byBBIi4gSXQncyBtZWFuaW5nbGVzcyB0byBtZS4NCj4gDQo+ID4gSXQgc2hv
-dWxkIGJlIEFCSS1zYWZlIGNoYW5nZQ0KPiANCj4gTm8sIHlvdSBkbyBub3QgdW5kZXJzdGFuZCB0
-aGUgQUJJLiBZb3UgcmVtb3ZlZCBhIGNsb2NrIElELCB0aGF0J3MgdGhlIEFCSQ0KPiBjaGFuZ2Uu
-DQo+IA0KPiBPdGhlcndpc2UgZXhwbGFpbiBob3cgdGhpcyBpcyBub3QgY2hhbmdpbmcgQUJJLg0K
-PiANCj4gDQo+ID4NCj4gPiBPciB5b3Ugd2FudCB0byBrZWVwIG9yaWdpbmFsIFNPQzBfQ0xLX0hQ
-TExfRElWX0FIQiBkZWZpbmUgYW5kIHRoZW4gYWRkDQo+IFNPQzBfQ0xLX0FIQk1VWC4NCj4gPiBU
-byBiZSAxc3QgcGF0Y2gsIHRoZW4gMm4gcGF0Y2ggcmVtb3ZlIHJlZHVuZGFudA0KPiBTT0MwX0NM
-S19IUExMX0RJVl9BSEI/DQo+IA0KPiBJZiB5b3UgYnJlYWsgdGhlIEFCSSB5b3UgbmVlZCB0byBj
-bGVhcmx5IGV4cGxhaW4gd2h5LiBXZSBoYXZlIGxvbmcNCj4gY29udmVyc2F0aW9ucyBhbmQgeW91
-IHN0aWxsIGRpZCBub3Qgc2F5IHdoeS4NCj4gDQpTb3JyeSwgbXkgcG9pbnQgd2lsbCBiZSBmb2xs
-b3dpbmcgc3RlcHMgdG8gYXZvaWQgcG90ZW50aWFsIEFCSSBpc3N1ZXMsIA0KSSBjYW4gbW9kaWZ5
-IHRoZSBwYXRjaCBzZXJpZXMgYXMgZm9sbG93czoNCjEuICoqUGF0Y2ggMToqKiBBZGQgYFNPQzBf
-Q0xLX0FIQk1VWGAgd2l0aG91dCByZW1vdmluZyBgU09DMF9DTEtfSFBMTF9ESVZfQUhCYC4NCjIu
-ICoqUGF0Y2ggMjoqKiBGaW5hbGx5IHJlbW92ZSBgU09DMF9DTEtfSFBMTF9ESVZfQUhCYC4NCg0K
-TGV0IG1lIGtub3cgaWYgeW91IHByZWZlciB0aGlzIGFwcHJvYWNoLg0KDQoNCj4gDQo+IEJlc3Qg
-cmVnYXJkcywNCj4gS3J6eXN6dG9mDQo=
+This patch series converts a slew of ARM assembly into the
+corresponding C code, step by step moving the codebase
+closer to the expectations of the generic entry code,
+then switches ARM over to the generic entry code.
+
+This was inspired by Jinjie Ruans similar work for ARM64.
+
+The low-level assembly calls into arch/arm/kernel/syscall.c
+to invoke syscalls from userspace, and to the functions listed
+in arch/arm/kernel/entry.c for any other transitions to
+and from userspace. Looking at these functions and the
+call sites in the assembly on the final result should give
+a pretty good idea about how this works, and what the
+generic entry expects from an architecture.
+
+This was successfully booted on ARMv7m as well: the v7m
+avoids the interrupt path in the generic entry, because it
+never called the context tracker to begin with. It uses
+the common path for syscalls however and this works just
+fine. Adding proper context tracking to the ARMv7m IRQs is
+probably a good idea but a separate issue altogether.
+
+There is a git branch you can pull in and test (v6.14-rc1
+based):
+https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-integrator.git/log/?h=b4/arm-generic-entry-v6.14-rc1
+
+Upsides:
+
+- Same code paths as x86, S390, RISCV, Loongarch and probably
+  soon ARM64 is used for the ARM systems. This includes some
+  instrumentation stubs helping out with things we haven't
+  even started to look at such as kmsan and live patching (!).
+
+- By introducing the new callbacks to C, we can move away
+  from the deprecated (and I think partly unmaintained) context
+  tracking mechanism for RCU (user_exit_callable(),
+  user_enter_callable()) in favor of what everyone else
+  is using, i.e. calling rcu_irq_enter_check_tick() on
+  IRQ entry. If we do not go with this patch set we can
+  perhaps look into a separate patch just switching ARM32
+  to the new context tracking, as tests show the performance
+  impact appears negligible for this.
+
+- I think also lockdep is now behaving more according to
+  expectations (the lockdep calls in ARM64 and generic entry
+  seems different and more fine-granular from the ARM32 code)
+  and the three warnings I see on Vexpress boots with mainline
+  goes away after this patch set, but I am no expert in lockdep
+  so I cannot really tell if this is a real improvement.
+  The patches does make ARM lockdep clean.
+
+Downsides:
+
+- The "superfast return to userspace" using just very
+  small assembly snippets to get back to userspace on
+  e.g. IRQs if and only if no instrumentation was compiled
+  in, is no longer possible, since we unconditionally
+  call into code written in C. I *think* this accounts
+  for the majority of the ~6% performance impact (see
+  measurements below).
+
+This more or less an unavoidable side effect if we just
+want to use the non-deprecated context tracking,
+as that involves calling into C from every exception,
+without exceptions.
+
+Testing:
+
+- Booted into Versatile Express QEMU (ARMv7), Ux500 full
+  graphic UI (PostmarketOS Phosh, ARMv7 on hardware,
+  Gemini ARMv4 on hardware. No special issues.
+
+- Tested some ptrace/strace obviously, such as issuing
+  several instances of "ptrace find /" and let this scroll
+  by in the terminal over some 10 minutes or so. Then
+  I ran the strace test suite and the results are the same
+  before and after the patch set.
+
+- Ran the strace test suite (and that was a good thing
+  because it found regressions).
+
+- Turned on RCU torture tests and ran for a while. Seems
+  stable and the test outputs look normal.
+
+- Ran stress-ng, works fine.
+
+- Booted with "lockdep" (CONFIG_PROVE_LOCKING). The ARM32
+  mainline produce 3 warnings at boot and those go away
+  after these patches. I haven't looked closer at what
+  it was that I inadvertedly fixed here, but I suspect the
+  current context tracking has issues with interrupts being
+  interrupted by paging exceptions, and these are solved
+  in this patch series.
+
+Performance impact:
+
+The changes were tested using the standard syscall overhead
+testing oneliner:
+
+  perf bench syscall all
+
+This executes 10,000,000 getppid() in sequence and measures
+the time taken for this to complete. The numbers vary a bit
+but they are consistent.
+
+In QEMU I tested with Vexpress and two CPU cores (-M vexpress-a15
+-m 2G -smp cpus=2). DRM graphics and framebuffer was activated to
+give a bit of background IRQ activity (vsync interrupts).
+
+I ran the perf command three times on each configuration, and
+picked the one iteration where the original code performed the
+best, and the one where the patches kernel performed the worst, to
+get a worst-case comparison.
+
+v6.14-rc1 vexpress_defconfig, best invocation:
+
+     Total time: 146.546 [sec]
+      14.654698 usecs/op
+         68,237 ops/sec
+
+v6.14-rc1 vexpress_defconfig, and this patch set, worst invocation:
+
+     Total time: 156.263 [sec]
+      15.626398 usecs/op
+         63,994 ops/sec
+
+Here we see a performance degradation of around 6-7% operations/sec
+for a vexpress dualcore defconfig in the best vs worst case. (This
+isn't statistically correct, the effect is likely smaller.)
+
+Debians stock kernel was noticably faster, so I investigated what
+causes this. It turns out that the big performance hog for syscalls
+is actually PAN which cause an order of magnitude syscall performance
+decrease, and I think Debian armhf simply turns this off. Consistent
+tests with PAN disabled also see around 6-7% on that performance
+figure.
+
+To conclude if any of this was due to the new context tracking,
+at one point I tested to patch back the old context tracking on top
+of generic entry. This is hardly something that can be recommended,
+and anyway showed no noticeable overhead difference.
+
+Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+---
+Changes in v5:
+- Reimplement local syscall restart after the strace test
+  suite showed me that this is strictly required. The strace
+  test suite results are now the same before and after the
+  patch set.
+- Tested on an OABI rootfs (Footbridge RedHat!) it works
+  fine after dropping the last patch, which was just an
+  optimization anyway. That can wait for later.
+- Link to v4: https://lore.kernel.org/r/20250212-arm-generic-entry-v4-0-a457ff0a61d6@linaro.org
+
+Changes in v4:
+- Rebased on v6.14-rc1, marked non-RFC.
+- Tested on ARMv7m, it works.
+- Fixed a bug where I missed to handle syscall "-1" which
+  when tracing means "skip syscall". This took some time to
+  find, taking up much of my debug time despite being so
+  obvious :/
+- Added stubs for PTRACE_SYSEMU and PTRACE_SYSEMU_SINGLESTEP.
+- No feedback on the "fast syscall restart" so I conclude
+  that this is some ARM oddity, if it is needed for
+  performance (i.e. a workload constantly restarting syscalls)
+  we should look at recreating it inside the generic entry
+  code.
+- After discussing with Ard about the IRQ stacks, altered
+  the irqstack handling to just assume IRQ stack or overflow
+  stack is in use if we are not on the main thread stack.
+- Unmark the patch to block IRQs in early IRQ context as
+  "RFC": when doing proper context tracking this is likely
+  plain necessary. Block IRQs in the early assembly entry
+  directly in CPSR instead of later in the exception handler.
+- New cleanup patch in the tail of the patch series.
+- Link to v3: https://lore.kernel.org/r/20250107-arm-generic-entry-v3-0-4e5f3c15db2d@linaro.org
+
+Changes in v3:
+- Rewrote the code in entry.c so the IRQ handler saves pt_regs
+  calls IRQ handler (including switching to IRQ stack!) and
+  restores pt_regs in one function instead of one entry and
+  one exit function. This is what every other arch using
+  generic entry is doing, and we should do it too.
+- The rewrite solved the caveat warnings from the previous patch
+  set which was blatantly not SMP safe :/
+- Rewrite the data abort and prefetch abort handlers in a
+  separate patch which we may squash in the end, but this makes
+  the patch set easier to review.
+- Drop a pointless patch rewriting the NMI handlers in C, it's
+  better to just patch into the end result in the last patch,
+  as we're replacing handle_fiq_as_nmi().
+- Syscall C invocations have to be tagged __ADDRESSABLE() in order
+  not to upset KCFI: the file is only referenced in both ends by
+  assembly so we need to point this out to the compiler.
+- Link to v2: https://lore.kernel.org/r/20241029-arm-generic-entry-v2-0-573519abef38@linaro.org
+
+Changes in v2:
+- Performance impact measurements have been provided.
+- Link to v1: https://lore.kernel.org/r/20241010-arm-generic-entry-v1-0-b94f451d087b@linaro.org
+
+---
+Linus Walleij (31):
+      ARM: Prepare includes for generic entry
+      ARM: ptrace: Split report_syscall()
+      ARM: entry: Skip ret_slow_syscall label
+      ARM: process: Rewrite ret_from_fork i C
+      ARM: process: Remove local restart
+      ARM: entry: Invoke syscalls using C
+      ARM: entry: Rewrite two asm calls in C
+      ARM: entry: Move trace entry to C function
+      ARM: entry: save the syscall sp in thread_info
+      ARM: entry: move all tracing invocation to C
+      ARM: entry: Merge the common and trace entry code
+      ARM: entry: Rename syscall invocation
+      ARM: entry: Create user_mode_enter/exit
+      ARM: entry: Drop trace argument from usr_entry macro
+      ARM: entry: Separate call path for syscall SWI entry
+      ARM: entry: Drop argument to asm_irqentry macros
+      ARM: entry: Implement syscall_exit_to_user_mode()
+      ARM: entry: Drop the superfast ret_fast_syscall
+      ARM: entry: Remove fast and offset register restore
+      ARM: entry: Untangle ret_fast_syscall/to_user
+      ARM: entry: Do not double-call exit functions
+      ARM: entry: Move work processing to C
+      ARM: entry: Stop exiting syscalls like IRQs
+      ARM: entry: Complete syscall and IRQ transition to C
+      ARM: entry: Create irqentry calls from kernel mode
+      ARM: entry: Move in-kernel hardirq tracing to C
+      ARM: irq: Add irqstack helper
+      ARM: entry: Convert to generic entry
+      ARM: entry: Handle dabt, pabt, and und as interrupts
+      ARM: entry: Block IRQs in early IRQ context
+      ARM: entry: Reimplement local restart in C
+
+ arch/arm/Kconfig                    |   1 +
+ arch/arm/include/asm/entry-common.h |  66 ++++++++++++
+ arch/arm/include/asm/entry.h        |  14 +++
+ arch/arm/include/asm/ptrace.h       |   8 +-
+ arch/arm/include/asm/signal.h       |   4 -
+ arch/arm/include/asm/stacktrace.h   |   2 +-
+ arch/arm/include/asm/switch_to.h    |   4 +
+ arch/arm/include/asm/syscall.h      |   7 ++
+ arch/arm/include/asm/thread_info.h  |  22 ++--
+ arch/arm/include/asm/traps.h        |   5 +-
+ arch/arm/include/uapi/asm/ptrace.h  |   2 +
+ arch/arm/kernel/Makefile            |   5 +-
+ arch/arm/kernel/asm-offsets.c       |   1 +
+ arch/arm/kernel/entry-armv.S        |  82 ++++-----------
+ arch/arm/kernel/entry-common.S      | 198 +++++++++++++-----------------------
+ arch/arm/kernel/entry-header.S      | 100 ++----------------
+ arch/arm/kernel/entry.c             | 120 ++++++++++++++++++++++
+ arch/arm/kernel/irq.c               |   6 ++
+ arch/arm/kernel/irq.h               |   2 +
+ arch/arm/kernel/process.c           |  25 ++++-
+ arch/arm/kernel/ptrace.c            |  81 +--------------
+ arch/arm/kernel/signal.c            |  68 +++----------
+ arch/arm/kernel/syscall.c           |  59 +++++++++++
+ arch/arm/kernel/traps.c             |  30 +-----
+ arch/arm/mm/abort-ev4.S             |   2 +-
+ arch/arm/mm/abort-ev4t.S            |   2 +-
+ arch/arm/mm/abort-ev5t.S            |   4 +-
+ arch/arm/mm/abort-ev5tj.S           |   6 +-
+ arch/arm/mm/abort-ev6.S             |   2 +-
+ arch/arm/mm/abort-ev7.S             |   2 +-
+ arch/arm/mm/abort-lv4t.S            |  36 +++----
+ arch/arm/mm/abort-macro.S           |   2 +-
+ arch/arm/mm/abort-nommu.S           |   2 +-
+ arch/arm/mm/fault.c                 |   4 +-
+ arch/arm/mm/fault.h                 |   8 +-
+ arch/arm/mm/pabort-legacy.S         |   2 +-
+ arch/arm/mm/pabort-v6.S             |   2 +-
+ arch/arm/mm/pabort-v7.S             |   2 +-
+ 38 files changed, 484 insertions(+), 504 deletions(-)
+---
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+change-id: 20240903-arm-generic-entry-ada145378bbe
+
+Best regards,
+-- 
+Linus Walleij <linus.walleij@linaro.org>
+
 
