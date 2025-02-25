@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE5A8C021BB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 10:49:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBDBAC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 10:50:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8L1+xbNej+7+BbJW1uipXHwDEUpYT2HP3XoeW+FBwgo=; b=w1r91g/2uyH+MAKVJIq1dv7Y0U
-	ssT7d8saqX0IJZ6SbP9tf7tL524AzpsEPR2Q8nDjmd7MXqlK4Q3l1d4mcV4IMlxIjcAhvuR7IzwBM
-	yucze+zOCTUCpE+8fVNnx1RdX7/qS0lgtgQc5u04F0tuJIeGeFOJ1TOfSgrswrRcSjcfJkodBmhXw
-	9a4U5KKO7sjIIYHBxdTMd+VWjuqO8AV9dD1vOlCPx7Bo18ATOsOc62kGJv+6a7eycXzaC1Kd5bgzh
-	tXNmCVEOPfY+vgMn9oaV51ydmQCiXX/bpk4TDWWDqCrqDQfgvKgR24bSGuaeveCvXm6QcHfdid3qS
-	9R31u3yw==;
+	bh=PgPYwUz2C3jq2K678fDOOKopXFthUCF1z0KBZvQ8kgo=; b=RkFwSyMPBhFTeCuf/O0Ic3e9jx
+	t7a0iHQKrDfODEh0sHzbvHndLiYcxRiQoIV5B3gIkYslUCWmkwFivjSsXWkHEodzzSpMSuTOkXKMl
+	3U5eWcKMgh3NRBxguNNw+dL2EOMCzZI6yYuBEYt9N/EyqhkdfaVV295mVmQELyc26xwZkxczjGn+r
+	RNHFTCzswLwuw9JNCkBGFg88g67FrRAo8UwizXqA+cGfKW/Mt0usgWvWHB2BCEOoEKQAhG53JrTPn
+	IXql2Y+w2qNLfBEi/oyGKTxwu2BTVG8ewHsTqHnT3rHY44LOtMrfsBU4fh3yGEAzybwNQIXsHw7P6
+	yL4Efz8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmsUz-0000000Gte8-2yA1;
-	Tue, 25 Feb 2025 10:49:13 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1tmsWW-0000000GtvG-29rE;
+	Tue, 25 Feb 2025 10:50:48 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmrf1-0000000GhnS-0d1h
+	id 1tmrf2-0000000GhoB-27QT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 09:55:32 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-5462a2b9dedso6456200e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 01:55:31 -0800 (PST)
+	Tue, 25 Feb 2025 09:55:33 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-5452efeb87aso5417847e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 01:55:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740477330; x=1741082130; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1740477331; x=1741082131; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=8L1+xbNej+7+BbJW1uipXHwDEUpYT2HP3XoeW+FBwgo=;
-        b=Wv2nNif+G2HlXR3ZELkDFFclGr2a4y14S0BLMa0O/O+sM0MzT2BMB+f8uAD/OUeQ98
-         deYfY8rMWczD1ZgXRsMceHqvXknLANzJ0/Bkl2DmvJQ4mVvcgSAiJGKU1ZAldLjxGzGh
-         vejBWwBLpwGRUj9uvnE42A1lfwx7aQKO/kJT2oWdzvKVM20JX12xDdoPATfx9uToYUUp
-         R8EskTvb3eYE2b1xqv7dLJb5De7DdndkwULBlnNcrF4ozGYCfBf7EYnt0O2yyqG/mrCW
-         nO9Xy6TlOjnQgkVK4PdiplLAgUBXizVQ1V1n13J/sIcgGcJ/gyj6luVrzn0Mwcde79qS
-         VoEQ==
+        bh=PgPYwUz2C3jq2K678fDOOKopXFthUCF1z0KBZvQ8kgo=;
+        b=pb95KdxV7x+jLXqjtKdGQlmH/NQuQtT6zkWTGFJUJ/IshDg5IZ5cuN1GLuvFyxX6KF
+         Ca9r9xboVIfnw2E4kWUiQ7vvVAt+Fhi4unuzwjDTuCYFofRjygvL+X7rIx/dHbrWURea
+         KSX2T3u6bB1cpfdXAe8gQ0peTNaVCUw6vwTacvmNr/A+cqqRgoAPRMK93cthoiAIrwJT
+         n2EDqwlgyaS+KYmtwek20mFH7BQdBZ1VPvg8iqEqR2EMd+0hQImPvhLUqLQGbUF4XBQ0
+         fNML/K2n4otme/hGlbxut3t0jwfeV9dfyNQ6p9QiEeZ6YxMyC8Mf2xYswjnGX9U5YeAp
+         YyPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740477330; x=1741082130;
+        d=1e100.net; s=20230601; t=1740477331; x=1741082131;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=8L1+xbNej+7+BbJW1uipXHwDEUpYT2HP3XoeW+FBwgo=;
-        b=LGJx7tD55sQJm3ixVuUsDZdt1edeQ7TNCkLgyiMB4PecKaPYtjGea31KJYQXzDAiGP
-         PdXLpcWf+X85v/dhqB8B86jixpacE48ZHK8w0zteFlHdUMUG96OCEnT3pL+8/HaZqshR
-         l4reC1ir/5l/GSlOmR1V9SWlgYzOoCiCA/jhSSJpmIZoAZyG1GuENdxT9vGnVBGNyq25
-         hnGXYpi9O9ViZoqVxQdGSNgwoFAbv1hTTSKzdxnvasV88S3xj6oOHqpyLE7NjK0or7Hw
-         HkAVrpkv2idfyY65wHk4Ch8mJ5Zr6wgAJRGImRt2tT6c9MKh0Pwr+tBZ8JBPyzYMP+30
-         vzWw==
-X-Gm-Message-State: AOJu0YyTitRnQRCeuJH9k+w/eBw2beeX/+Jd4OSxDzW9rIQD6F0WkNP1
-	ObG1Ub3cTj/+sGa3/Skzf/QrXIBu9qsfnIfwLCrNydN8JncrvP0q99QEt5SsnsY=
-X-Gm-Gg: ASbGnct1HjGezbPCvivrlkCqXKZM9iPxl4VGQMbwjvPNkY3ToQy/bxcV0AsinTkcVzY
-	BtvFL49Lmf/X5Af8L++eX9L8xVqSslUZPWVnLOt1nEIMTJ/KJgc2xdH+2MLXVa05jaYj8S72x2M
-	KVwJJ69JsWLrOHoi2Lm5yZfmol0OLS5svcPRq0dNqgrXyI67uX/2cSNO6wdllsxElWQIP/Up9+E
-	RTIEOnFxPID2rlICkApfTsUPuUDCuCivhvRpJAthxlH+VzqUCZc6CMmso1yt0LVEArW+RK+1zNx
-	ttSflt3AUnVmVM9uu1Ou+nZCGu2KMywTU5C1
-X-Google-Smtp-Source: AGHT+IF7xfl9B7/xJ8k+iPG9dONRxwPTx8ewhI6YDPJcZwPMf++LnRv+shbC0/r1nL1MG22ob6N9GA==
-X-Received: by 2002:a05:6512:3d8a:b0:545:ea9:1a11 with SMTP id 2adb3069b0e04-54839129bc3mr6152301e87.5.1740477329613;
-        Tue, 25 Feb 2025 01:55:29 -0800 (PST)
+        bh=PgPYwUz2C3jq2K678fDOOKopXFthUCF1z0KBZvQ8kgo=;
+        b=dnYUM4639z8jvPELtAoMX7UtwDogM6sjk6cBIPGzWRYamsjW4odkSZFm8xIu+KEryv
+         iNfKV3XhHrIlTVw1PyAyNjOQv8Fg4VSYWOX4NeEwzi250EPJPyE/2pnHc1G2OfxD2kBF
+         qrpvvBtVFDeJC9C49Wl3b8SHgmIu4wl1R7KeypnKeFYL0VEeVrNhO5K0hkp69iaEzSuv
+         zzB671UxFVtRBgl+nSuKVmomxrYKiddaw5mcqZ0nqsEBwP5AZe0tjgM8AMrUcBXC9qZp
+         BEMvnw2j9DGlAp6IdJAcsy0QzC0pbeNQzW0IBPVhjZygJ0Ddg7O51fJicxglby9R6oNd
+         mQ5w==
+X-Gm-Message-State: AOJu0YxL2ApCjs5VTIxiKg27SXwYabfYL541tX7KiDv8FleY8DHAGidv
+	Er+QImqWHV29yVbRF1F6t7guRboZuE189lGtSNV6l8iqQoscZn2PKOpnjHEfJjA=
+X-Gm-Gg: ASbGncsHaonazKzlRYgJIZOBVGO0nAn6zGT4r2jeC0NQrzAZSGTyZnNdgFnjj/gUFFW
+	1hcU/BjubN7aCz55gWZQ/zy/I7mrIFlRSQmzdIoymhwgw+pDk9dw6Pv63EB/shZSIMVdGOfGpkf
+	8MSxM82r2B9Bgq+M23C4kxx/hVHoVqXoDSjt/qUNR9zCIC0vTmfj8iwXF+70SIklnVdE6zdxJbe
+	q79RY5NHMT6uZP2O0QYlh3QAkqn00uSBnUiEbQxV5GIZ1dDYS6zznSuNb8p8MjMnvdDDLIQRaA8
+	maD8BFhWWpeSzif/FD+rZDhG/UF8Sxz3k5XR
+X-Google-Smtp-Source: AGHT+IHrYBKEgwrOsqtabCf77riVA6wTLLPZltwvy4MPKuhYyJsmmbuvXTyEaXfB9oGzNDCBGFjJZw==
+X-Received: by 2002:a05:6512:3093:b0:545:2f9b:7589 with SMTP id 2adb3069b0e04-54838f79d15mr5814906e87.50.1740477330711;
+        Tue, 25 Feb 2025 01:55:30 -0800 (PST)
 Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-548514b261esm132867e87.24.2025.02.25.01.55.28
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-548514b261esm132867e87.24.2025.02.25.01.55.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Feb 2025 01:55:29 -0800 (PST)
+        Tue, 25 Feb 2025 01:55:30 -0800 (PST)
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 25 Feb 2025 10:55:13 +0100
-Subject: [PATCH v5 26/31] ARM: entry: Move in-kernel hardirq tracing to C
+Date: Tue, 25 Feb 2025 10:55:14 +0100
+Subject: [PATCH v5 27/31] ARM: irq: Add irqstack helper
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250225-arm-generic-entry-v5-26-2f02313653e5@linaro.org>
+Message-Id: <20250225-arm-generic-entry-v5-27-2f02313653e5@linaro.org>
 References: <20250225-arm-generic-entry-v5-0-2f02313653e5@linaro.org>
 In-Reply-To: <20250225-arm-generic-entry-v5-0-2f02313653e5@linaro.org>
 To: Dmitry Vyukov <dvyukov@google.com>, Oleg Nesterov <oleg@redhat.com>, 
@@ -87,8 +87,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_015531_201572_8217EC37 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20250225_015532_549178_046978DD 
+X-CRM114-Status: GOOD (  14.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,127 +103,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the code tracing hardirqs on/off into the C callbacks
-for irqentry_enter_from_kernel_mode() and
-irqentry_exit_to_kernel_mode().
+Add a helper to dispatch IRQ execution to the IRQ stack:
+call_on_irq_stack() so we can explicitly issue handle_irq()
+on the IRQ stack from a C program.
 
-The semantic difference occurred is that we alsways check
-the PSR_I_BIT to determine if (hard) interrupts were enabled
-or not. The assembly has a tweak to avoid this if we are
-exiting an IRQ since it is obvious that IRQs must have been
-enabled to get there, but for simplicity we just check it
-for all exceptions.
-
+Cc: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm/kernel/entry-armv.S   | 13 ++++---------
- arch/arm/kernel/entry-header.S | 19 ++-----------------
- arch/arm/kernel/entry.c        |  5 +++++
- 3 files changed, 11 insertions(+), 26 deletions(-)
+ arch/arm/kernel/irq.c | 6 ++++++
+ arch/arm/kernel/irq.h | 2 ++
+ 2 files changed, 8 insertions(+)
 
-diff --git a/arch/arm/kernel/entry-armv.S b/arch/arm/kernel/entry-armv.S
-index f64c4cc8beda6bcd469e6ff1a1f337d52dbbaf9c..2a789c8834b93475c32dcb6ba5854e24ddd8d6e9 100644
---- a/arch/arm/kernel/entry-armv.S
-+++ b/arch/arm/kernel/entry-armv.S
-@@ -158,7 +158,7 @@ ENDPROC(__und_invalid)
- #define SPFIX(code...)
- #endif
+diff --git a/arch/arm/kernel/irq.c b/arch/arm/kernel/irq.c
+index e1993e28a9ecfd80b55b2677253ac582467e6c14..f99d6b24d8ff56f901e4a817c61a1e57b7e532cc 100644
+--- a/arch/arm/kernel/irq.c
++++ b/arch/arm/kernel/irq.c
+@@ -43,6 +43,7 @@
+ #include <asm/mach/irq.h>
+ #include <asm/mach/time.h>
  
--	.macro	svc_entry, stack_hole=0, trace=1, uaccess=1, overflow_check=1
-+	.macro	svc_entry, stack_hole=0 uaccess=1, overflow_check=1
-  UNWIND(.fnstart		)
- 	sub	sp, sp, #(SVC_REGS_SIZE + \stack_hole)
-  THUMB(	add	sp, r1		)	@ get SP in a GPR without
-@@ -208,11 +208,6 @@ ENDPROC(__und_invalid)
- 	mov	r0, sp				@ 'regs'
- 	bl	irqentry_enter_from_kernel_mode
++#include "irq.h"
+ #include "reboot.h"
  
--	.if \trace
--#ifdef CONFIG_TRACE_IRQFLAGS
--	bl	trace_hardirqs_off
--#endif
--	.endif
- 	.endm
+ unsigned long irq_err_count;
+@@ -71,6 +72,11 @@ static void __init init_irq_stacks(void)
+ 	}
+ }
  
- 	.align	5
-@@ -239,7 +234,7 @@ __irq_svc:
- 	blne	svc_preempt
- #endif
- 
--	svc_exit r5, irq = 1			@ return from exception
-+	svc_exit r5				@ return from exception
-  UNWIND(.fnend		)
- ENDPROC(__irq_svc)
- 
-@@ -303,7 +298,7 @@ ENDPROC(__pabt_svc)
- 
- 	.align	5
- __fiq_svc:
--	svc_entry trace=0
-+	svc_entry
- 	mov	r0, sp				@ struct pt_regs *regs
- 	bl	handle_fiq_as_nmi
- 	svc_exit_via_fiq
-@@ -321,7 +316,7 @@ ENDPROC(__fiq_svc)
- @
- 	.align 5
- __fiq_abt:
--	svc_entry trace=0
-+	svc_entry
- 
-  ARM(	msr	cpsr_c, #ABT_MODE | PSR_I_BIT | PSR_F_BIT )
-  THUMB( mov	r0, #ABT_MODE | PSR_I_BIT | PSR_F_BIT )
-diff --git a/arch/arm/kernel/entry-header.S b/arch/arm/kernel/entry-header.S
-index 49a9c5cf6fd5fbb917f2ada6c0d6cc400b7d3fb3..cfaf14d71378ba14bbb2a42cd36d48a23838eee1 100644
---- a/arch/arm/kernel/entry-header.S
-+++ b/arch/arm/kernel/entry-header.S
-@@ -199,26 +199,11 @@
- 	.endm
- 
- 
--	.macro	svc_exit, rpsr, irq = 0
--	.if	\irq != 0
--	@ IRQs already off
--#ifdef CONFIG_TRACE_IRQFLAGS
--	@ The parent context IRQs must have been enabled to get here in
--	@ the first place, so there's no point checking the PSR I bit.
--	bl	trace_hardirqs_on
--#endif
--	.else
-+	.macro	svc_exit, rpsr
++void call_on_irq_stack(void (*fn)(void *), void *arg)
++{
++	call_with_stack(fn, arg, __this_cpu_read(irq_stack_ptr));
++}
 +
- 	@ IRQs off again before pulling preserved data off the stack
- 	disable_irq_notrace
- 
--#ifdef CONFIG_TRACE_IRQFLAGS
--	tst	\rpsr, #PSR_I_BIT
--	bleq	trace_hardirqs_on
--	tst	\rpsr, #PSR_I_BIT
--	blne	trace_hardirqs_off
--#endif
--	.endif
--
- 	mov	r0, sp				@ 'regs'
- 	bl	irqentry_exit_to_kernel_mode
- 
-diff --git a/arch/arm/kernel/entry.c b/arch/arm/kernel/entry.c
-index 674b5adcec0001b7d075d6936bfb4e318cb7ce74..1e1284cc4caed6e602ce36e812d535e6fe324f34 100644
---- a/arch/arm/kernel/entry.c
-+++ b/arch/arm/kernel/entry.c
-@@ -59,8 +59,13 @@ noinstr void irqentry_exit_to_user_mode(struct pt_regs *regs)
- 
- noinstr void irqentry_enter_from_kernel_mode(struct pt_regs *regs)
+ #ifdef CONFIG_SOFTIRQ_ON_OWN_STACK
+ static void ____do_softirq(void *arg)
  {
-+	trace_hardirqs_off();
- }
- 
- noinstr void irqentry_exit_to_kernel_mode(struct pt_regs *regs)
- {
-+	if (interrupts_enabled(regs))
-+		trace_hardirqs_on();
-+	else
-+		trace_hardirqs_off();
- }
+diff --git a/arch/arm/kernel/irq.h b/arch/arm/kernel/irq.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..80dd5bfe6403d68fc62fab30666d5645748d329f
+--- /dev/null
++++ b/arch/arm/kernel/irq.h
+@@ -0,0 +1,2 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++void call_on_irq_stack(void (*fn)(void *), void *arg);
 
 -- 
 2.48.1
