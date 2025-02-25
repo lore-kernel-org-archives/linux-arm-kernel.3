@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB388C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:43:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAED2C021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:43:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ymU4Q4V4l8CtxCLaS6y7/QU30Qeo8lyZjvxMHRi+AeI=; b=MvfAEXYCEZK57TOzF6MjwynNzY
-	cEufVT1p7EgvVP4dbbUv37HXnfcv26YXgV5hh+TvcZfaWxllQGFawc/TWmp2J2mnP1GtxtYtBxuOZ
-	sNfaKDxcquOvXf30N1QnNedoo0sz2e1KKknwLg9IZJkv7mTHNR7ibj/rMyvARpE/mG1L8jS+blMsx
-	S8ovSAgfYjfwqXuJtX47x35rLCTZ0vPphaUIfNRTxs+iuKMfr7FRlMDE0NPYNaCY9r7as+cfVeSTi
-	C1UmY/WqP1yTTejaFaPJps5YpKG1oLgys2Z/StAedr/7kOriw9lVhPMvWkZZSQnJblspiaBF2T2Oy
-	S6N5MU1Q==;
+	bh=wWdKSLMGtVhehTwaDiWa/QdGdTyZRwxOUPS5ZjyNBak=; b=XX6Ima8AUsWJW0qzOQ/o+Wizyj
+	NomGm+O67V0eKpEyZjyaxZXAlrxSJ4QdFJKnzpxW2kPuWZ42Al9ZGXZ88rjmke/hUOizIsOQYNA2D
+	tRH113Zicw21tvMQz9tS7Ryx1tkZXdZwUObQvHcTGqEubPGIKSqZquguCLxomYcZBFNPfX9cuT7eu
+	XIcy2j4uUD0MOjZax3CCy6yJD7scdUfu4PsiCFBhwIftkdxiXpjzfbrtqrzf/dCNYQyKpN+70iAUJ
+	lu12leufdwErkPvaS6ByCmkgIow3fXR6vmvOLZD1GeCwzuJM70GOwkHQoiLr2YiPQuLxdbrJP+BVE
+	Ya44mPHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmy1l-00000000Mm2-3gFf;
-	Tue, 25 Feb 2025 16:43:25 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1tmy1n-00000000Mop-0TBm;
+	Tue, 25 Feb 2025 16:43:27 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmwrg-000000004Yx-3yjf
+	id 1tmwsZ-000000004i7-3GiY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 15:28:58 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-5461cb12e39so5540765e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 07:28:56 -0800 (PST)
+	Tue, 25 Feb 2025 15:29:52 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-5452c29bacfso6224537e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 07:29:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740497335; x=1741102135; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1740497390; x=1741102190; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ymU4Q4V4l8CtxCLaS6y7/QU30Qeo8lyZjvxMHRi+AeI=;
-        b=CC2hXI6Y3hLGWqK4lWOirp4sLN9PkNXWU3Jtheu1auFAt7e97kkRxVEGgdbZy7hON0
-         +xVYYLqwJUsBNjoJIhCC8okNNbFls3ZoFN+aHzUVO9FroM+fNAQejUCoQ5lvIUlXm1a7
-         ywaBxLkB69UdecPpTVjVyXyPSztLfWCNS2TiykxVb873cHPP/e2dDVvtzxMAasUmV1rY
-         NQYSlSlr/cOCO9J74A8gonkaGWI1eCE+CPOU4yN1ZqkbqA+bZC6cTGVKv5Jlc1POTedy
-         ur+a3qVS7LHIOZOG4WhH6PGDerHAPLGyGIZE8GWuPcZUVeSdXBCg2EiHw6tTi7PTK2X0
-         O3vw==
+        bh=wWdKSLMGtVhehTwaDiWa/QdGdTyZRwxOUPS5ZjyNBak=;
+        b=MXx4lixaC+qwYbiv5jas6xGPRCLlLA9jblVPvbGCWgVNHlvcgdouamiDEuYrdI7iMW
+         a2Xc85MOKLIIsh8cSahP+sT/AMMxR3YxxZKKSOsUWy//OK9htwjruW0cZAWjyostpvcU
+         LvAOl8LuzJDXdDTIbO+F/uuYCyVxijws5R8ods9o4m8lJMI/+JaLCe1WVeqzVbmH+Oot
+         DaKOdQE+bYUjbPx5zAwJt4kAKnanPiM8szNFGqAmltGx+lGrcQR3drDK5aw28Q+hrIZQ
+         rwH94gU17Qo3k3/BK74tFxU150pAU/8BUJta2z7h7k1/gOQtE0eE2gX0X3lsnUe9kXAI
+         tquA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740497335; x=1741102135;
+        d=1e100.net; s=20230601; t=1740497390; x=1741102190;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ymU4Q4V4l8CtxCLaS6y7/QU30Qeo8lyZjvxMHRi+AeI=;
-        b=iCAOm+S3SOAg6UiZS8/RbvKtJObJMue+Qkso6P1wrwgkkRfRCHZDap9QeqZZQmq5Kq
-         BaM3/ZMLOUMFLQPxnBd3hSAAsy5BLa9yI1Uv75sBjUHSJu7DB6D/nTdfuPMolTSE6AR2
-         wzrAgt0evmm5sJ0NmZgSoJJ1SJ0cGxKB44rpYk01LI8KUX0SdxdJ14M6wivNHqgvExyK
-         VHtmXYAl6uyGn/p3yvjKPRV5h2wtu3pkyN/mLigFlSywQO+Q5WOaqnLq/kkozi5GLjzd
-         eVdorPaJ6Kdqq3QcDh/rMK64rWX7j0o0lk/0yiUWwtJ00t48EdBnleyVTVGmS2cVcAKW
-         OBzw==
-X-Forwarded-Encrypted: i=1; AJvYcCU/ng0Ki/TEUzlw1G4X5mBs9x9CxPTDP2YSoZO8PZh0JlRl+wTF5cv0xdl0sET9oHyog6m1UDJLi1rprL/D554k@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTv+DtEt86lLlBqy+uRRtl/XdXULz7OE5AxqNtcnwQXNEHLjxu
-	BS31GJpH00gBfB4Sfo9bUE0LiSC07rMzw9WAN4BV3BIA0DVCqNtiMTplK0dRhJsOTK6iolF7cUG
-	V4Ei9OlBG9fGAsw8B94DoJ+w0O3bSgJiNvtdmaA==
-X-Gm-Gg: ASbGncsP1IfW0IpoWMRKN8H+pE58NukXkdEFpT5RKRI4jQ+Rt/KEDHLGic+ueM0Sq3O
-	Zh3zwwwl7RzaJLiokoN8cX7FOB+Qlnv8JtmIUmydV91rjs6RBrz21XPqw1fOhIdAcIp/YmhTGbl
-	waeXyKhTg=
-X-Google-Smtp-Source: AGHT+IGvQGYbThJryHx4S9X0G/hQwdXky4NGM+IG412kF+Oob4gqd5qSVYxirN603Nc55xdy612DJLqmzEaxlENgSHw=
-X-Received: by 2002:a05:6512:3e0d:b0:545:25c6:d6f5 with SMTP id
- 2adb3069b0e04-54838f5c9ebmr6533494e87.53.1740497335376; Tue, 25 Feb 2025
- 07:28:55 -0800 (PST)
+        bh=wWdKSLMGtVhehTwaDiWa/QdGdTyZRwxOUPS5ZjyNBak=;
+        b=PZsjc3QNLkIHDxcdo66ShcohCZkDXcsTtlKaofOz1TioLuMsVJjiqIXC2AjmlByW67
+         Ucjv3EgJ8ZqgnLUB5bd5jeKH1h2BsWmCeC3z48uyyaPRxARs4UNUMqJiDZpHxUxzNGX2
+         ZeC9i56Ak+sOrl0k9XWjclJWURY4YOuA/k1g1u9Aj6TcJtfCqTaBs3jjBzjRFZNdgp+G
+         ong0TyidPbouiNy7FTscWBA3F3jAfORJl5qR0REnzh0fELQQQszfgUxhCMzjBee1hniU
+         Qf/XyugdQRZbMLaZLl82l7l/0kNnhk4voael7DjnWjDLiGVrsACzjfzpPZYz5urDnb+8
+         4nXw==
+X-Forwarded-Encrypted: i=1; AJvYcCU46K7KcTMubqg9iV1KVnOkBf/UkFR+vwAskC6XxHAz8DLjwjOsmx89xgDfMEiaFpbus7MR6I8fWmBDfePVSrcD@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVyvAmuIzWtLS5HE0uFqzcNwDVGeYodLbnvBfc5wmgASO6JZJb
+	kKT9sAGrVBwp/+AaacYSZHgYZZt0IiA7AtE2ZuJxPzcVm/a6HxhMbqQhe/vzflgHOBf0i0mLWSG
+	WOFwVkaLiZuBIXcuvhTze7Pe9Di3dlCD+XycfXw==
+X-Gm-Gg: ASbGncvg+MuGuqNzfrthriDI+4x4cZlBcNknwep+TMLkVUqry0eizE6YZIGlwLoqBcI
+	2t+QJ9u3zzKih+7bazpZC+7UNsVd7UYP9NTDVg9WF1Wl0xVT9lUwl4VuwrGhYwo9xcVgI/mCJ2q
+	8rcLEbdic=
+X-Google-Smtp-Source: AGHT+IHvpjreeVdSU9R9yS1LahY6jIM253YORDAz6aGw1c4d6Ig0oMzawVusMy/Ox5z7NzVK8VH5Bf9FnhT6749AFpc=
+X-Received: by 2002:a05:6512:2204:b0:545:2300:924d with SMTP id
+ 2adb3069b0e04-5483913b648mr6916367e87.22.1740497389960; Tue, 25 Feb 2025
+ 07:29:49 -0800 (PST)
 MIME-Version: 1.0
-References: <20250220180427.3382482-1-vincenzo.frascino@arm.com> <20250220180427.3382482-7-vincenzo.frascino@arm.com>
-In-Reply-To: <20250220180427.3382482-7-vincenzo.frascino@arm.com>
+References: <20250220180427.3382482-1-vincenzo.frascino@arm.com> <20250220180427.3382482-8-vincenzo.frascino@arm.com>
+In-Reply-To: <20250220180427.3382482-8-vincenzo.frascino@arm.com>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 25 Feb 2025 16:28:44 +0100
-X-Gm-Features: AWEUYZmYCPdOL-kTocm-qdrcGGN2FaHnyCLLC1DBvOuBsbs6HM0zSb7Of9lav7c
-Message-ID: <CACRpkdZorvRd26+BPXpz0U26b0AUD4Z0PQ4RyoPi0OPyR1KWGQ@mail.gmail.com>
-Subject: Re: [PATCH v6 06/10] perf: arm_pmuv3: Add support for ARM Rainier PMU
+Date: Tue, 25 Feb 2025 16:29:39 +0100
+X-Gm-Features: AWEUYZkxyqLZJ8PShNH5_rYAenOAI2e1xZONqXj_RF2KAU6bd0KxT-okASSmRCo
+Message-ID: <CACRpkdagr5EhOL1K=SYHxpT3KV7J2WypynOEpTmExK16Nx1ezw@mail.gmail.com>
+Subject: Re: [PATCH v6 07/10] arm64: dts: morello: Add support for common functionalities
 To: Vincenzo Frascino <vincenzo.frascino@arm.com>
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, 
@@ -83,9 +83,8 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_072856_995688_916EE4D2 
-X-CRM114-Status: UNSURE (   9.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250225_072951_814443_35945BF3 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,10 +102,22 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Thu, Feb 20, 2025 at 7:04=E2=80=AFPM Vincenzo Frascino
 <vincenzo.frascino@arm.com> wrote:
 
-> Add support for the ARM Rainier CPU core PMU.
+> The Morello architecture is an experimental extension to Armv8.2-A,
+> which extends the AArch64 state with the principles proposed in
+> version 7 of the Capability Hardware Enhanced RISC Instructions
+> (CHERI) ISA.
+>
+> The Morello Platform (soc) and the Fixed Virtual Platfom (fvp) share
+> some functionalities that have conveniently been included in
+> morello.dtsi to avoid duplication.
+>
+> Introduce morello.dtsi.
+>
+> Note: Morello fvp will be introduced with a future patch series.
 >
 > Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
 
+This looks like a good base to me!
 Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
 Yours,
