@@ -4,177 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E0D6C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 20:22:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DC4CC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 20:29:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+akwFg18r3NdimMyy2y7q62VGXPwuDsWVi+yie6UZWg=; b=Z5iPvbxgYkfhbzK/61j4jDMWAZ
-	SXiMfkNWXTksFknZREgjyOBHwoiSoaYBlMv2GYdP5+GXqxY5cGjRqeqgAjbkXiriV+1+WnkDyI9lj
-	76W9G3sqcBR/YpzSHRpa91KHqM8KRE0EDpjxoK1qAnLwAiReuen7hB55Mo4Rt4Rc56uAWICAP9nMF
-	w+cDPKZF0N3ZErzFnmlVxfvlOfUROw91UHnPAlLeZz6bSmPs6lNLXiyUYe1g2LywkSB124YZqmhus
-	42VOmpOQYaeESjvEmKUVq5b1wMbEAylUZ3PK2mEzJZKq+QvxfkcpAzAOWdaiVu7ckuCvAbA38MzB5
-	3cchDPUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ROlPwAIJGbJfBsO0apPxGhjJGdED1W7jzEjs7V+GPOo=; b=L4o3R0gA2avRjxuP56/Yls/jlc
+	RhCTQxAJuA7op5ZFlLFwSviyYXB2roeFvYotunqXWvGLvRU4dCIkDFTxRfbtxSwoY0r6S80UqEXOb
+	dXhjd4tBoTN+gBsAEtshbHBMvaXq8uBZkqGXfRZYw70enmEi0A/DUHOU8YlAymEdEf8ngoTQwzfS8
+	oa0MKEG0VcMBxQLmSqK2KddX6FHQZtbx8ySdm7OLUUQGmfAWkmMXyVmOH6XJ8Ad5+EZOfgJKfKO6q
+	8RCvKUjAb1DCPZ8Yryfghk+Z2lwsctrVYjLUenxOptHxXUNZGQWHU0fTgHpDuEqiytEyzht5Nbfsy
+	nqd489/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn1Ri-00000001Lfs-2xkn;
-	Tue, 25 Feb 2025 20:22:26 +0000
-Received: from mail-bn8nam12on20619.outbound.protection.outlook.com ([2a01:111:f403:2418::619] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1tn1Ya-00000001MzN-09ak;
+	Tue, 25 Feb 2025 20:29:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn0mc-00000001By1-1aPZ;
-	Tue, 25 Feb 2025 19:39:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=K9mttZm3uEXJyQnR8DPOa6i/u/iWguCB7cAhPS3z2wYtvS4Y6pHMgMGdooPzXfkSUPkoGb1gGxfRUX7i00NdIZpS7JT4QgN1PnDybdliICoYfjjQq8+8QD/bhmqbcioQv+PZ4YH8NhOk57PtNvk4jT0rLR1GKGOyPCmace5Jmqb1bvlLDeI1GoQQJBXRklHmcnrOWL3iQCDJSpC244sjavBNfarBtv1Yfn7aQb2OE7gdy04W/JJn15HjfxWb01T/3VEthQvrWF4m1XwE+gYdwPV8jR8bC6TYpnokeYt0eVlFrGZjTLa7hyJg2Kgc8JnFml2o54Q/H0JkE+bU6GDPOQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+akwFg18r3NdimMyy2y7q62VGXPwuDsWVi+yie6UZWg=;
- b=hu6qt0bh9G2iju4YP5B0EhYCqQNkwBzFfbIJ6m1r4f5HkCPXpmLte56nwZobzLMERXMQNXDjDYZKeeHvRXdIE/sayjk/QF42waLy0PvmgtAP8EiMmSx6XnKq6WjIe+qbCLsCTKFPDMveh5ftsaLDwPxeeCKfuj15CNs5WG2Jv1Io18jHdiEylvdzNqThcYcw62gzR4m374yx2TUdMkUr1lx8z3bQRCxkIT5baQ7nkqp+LawM667EzyqA4d1DIGkv/Xz6+pmNY01ivPnzurqYVYVDYNI6QJYDft5LN8dcwI7jQvFwTThrx/4r6Te4eiSes63zfEA2f5Pstnlj7X1V2A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+akwFg18r3NdimMyy2y7q62VGXPwuDsWVi+yie6UZWg=;
- b=suPKKKdmGxjM5XTT+E7CtbJkEUX1vB5uKZWXISQRIhQ3Li7iPn1RZ0zfTHwd+sHgWByOGNHsJnuNhUJ1mxVzB7ZupgMN1x5UTKVlHDEgkSx0kLvh7+Ot23+VJdOembD2VC73nHpkMjDSKKOlmy/IgqnTQAHGOsMU8YuPln9knN8xpYRS/2KoMVf+bZtK6jqTn7+fNki3o0g8useD9cJtJZXLQf9RdVtXDe0u/z89uOfqwc+le1yhThdUL5fOV+IKoK/6bomA2WN3336vncvDHE+Ni1Yj8G1gSk4ZBdjPRnJXjQZCJzCOqliJ+QHdgKyzvlnox2AbtMp+MVZ9Si3gxg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by SA1PR12MB5616.namprd12.prod.outlook.com (2603:10b6:806:22a::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.18; Tue, 25 Feb
- 2025 19:39:45 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8466.016; Tue, 25 Feb 2025
- 19:39:45 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	asahi@lists.linux.dev,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	iommu@lists.linux.dev,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Hector Martin <marcan@marcan.st>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Krishna Reddy <vdumpa@nvidia.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>
-Cc: Bagas Sanjaya <bagasdotme@gmail.com>,
-	Joerg Roedel <jroedel@suse.de>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	patches@lists.linux.dev,
-	David Rientjes <rientjes@google.com>,
-	Matthew Wilcox <willy@infradead.org>
-Subject: [PATCH v3 10/23] iommu/riscv: Convert to use struct iommu_pages_list
-Date: Tue, 25 Feb 2025 15:39:27 -0400
-Message-ID: <10-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
-In-Reply-To: <0-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
-References: 
+	id 1tn1ID-00000001Jtu-173G
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 25 Feb 2025 20:12:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Subject:Message-Id:References:
+	In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:Content-Type:
+	Date:Sender:Reply-To:Content-ID:Content-Description;
+	bh=ROlPwAIJGbJfBsO0apPxGhjJGdED1W7jzEjs7V+GPOo=; b=rJByqWg3P2oQoheLyNkQY3eVWT
+	+bo/nNXwqOivZXO45uQwEVyTXiKchM3jTd2FRFb1vkHjdY1OZSJBrMvKJ4+tNw9Kw7cyRDylZMRtb
+	JGlggc6q7t1L2xzzOGZ1n4jBCl2J7g5SYzAMvhV+EB7hVYPq5V7F6hyxF2fGyoBWVfXwmM9WS0Jgv
+	y+X5PBcwVWzANoBygxadZq9ICOTiinOfXyX/DEdQ6ghVFpk1lewKXLrwuDXRLLt3GNunZujN3L8Q5
+	MJRR3AdT4TLMywxsdgws0pgOWb08Ev2eJwLytJ1gmo0iKactFeuktQC79l2XtcCBOP4a4gAKr6D8b
+	ZJYkKGMQ==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tn1IA-00000003P2L-110F
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Feb 2025 20:12:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id EA8335C4D48;
+	Tue, 25 Feb 2025 20:11:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57E3DC4CEDD;
+	Tue, 25 Feb 2025 20:12:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740514352;
+	bh=jkFZlDqbRxwvpb/csXsZpILkgeKZJ+LCenzb2959lCs=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=S8L2oxFuJZ076tqLRePqBT4wMo9eOqzMOB4Q1TcVSLoS7Zpqwu5YE2GH+sncwuhvC
+	 3c+dyESCbHV1m4UFb/DIEwxeQ8ylalFEmT+DkxmSMG/5B6MdEMpSrrru4Q2wTFks/E
+	 jczAjUFLX13PDqfxERqNb5wvfm1zEEZOusz0OFUJ32sWPyhRhZJwpiMfvLzS6OQBtK
+	 a39dmCkae/21f9WjnAgOTdUj0oBc8aIMx61uvHlb446t9GoNU9KthYPNUccMvmnbkZ
+	 jrdsAwa+mhrizWxrAFZnqsDK4loMbFOe+ZSaS3uK9PtI6f3F4yiwuaQ7z4sDosASsL
+	 xsNva4+vPmXDg==
+Date: Tue, 25 Feb 2025 14:12:30 -0600
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: YQZPR01CA0065.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:88::20) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SA1PR12MB5616:EE_
-X-MS-Office365-Filtering-Correlation-Id: d276cceb-f46a-4bd3-91b5-08dd55d426ee
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?R8/DtGiom39FXKWpwroKCyu+PAvcv6kdQ8uIP3GwCVXwSEaVm/dEsObTalrN?=
- =?us-ascii?Q?BYLA8tFPpvV1dW9uj5tGKBbFnYMc09/hVoq6LawDsDXsmocDecq/YDoS57rg?=
- =?us-ascii?Q?DylHr+CJH/88Pj1NyvGXW7BY+7Jjeb5IAmeHWwZ45/RME4NR06SG21T6wIDS?=
- =?us-ascii?Q?TkjH53VZGysRSQ6tNYgo3ttFszlAYDqMjpnvxBOedyqdUnIXeStS+zLRESYO?=
- =?us-ascii?Q?7MibZa3y5v/s0far7JMQRcvqI0sygEkcOT+Jf+9YQKxhq6GNdo7A3is1Utso?=
- =?us-ascii?Q?bgngeKCuxE3wAe+bIzYVUIs53uU9n41mL+29kzWsrQti2I+UiW2+h2b5MSe7?=
- =?us-ascii?Q?XOgUgIvddAA7qrmeuKfdg8Fz6fcsb7CGyZRVZn5mpPedLVtmAH4KuB0co79n?=
- =?us-ascii?Q?JId8WWZHO9nnwyRtv3Bu7CFtgGPkW3KK1yDlZnHjMqV997RlqKfUw7OZja8F?=
- =?us-ascii?Q?eR5i8KLB1ZL0GvT6U4v6YV7eSsGwxW07j0Xgex4h/qEuuq3+YV0K5/kUFHGm?=
- =?us-ascii?Q?6CekpxkBsTfKJgJ6PWJu6mUStL6BPNMVDpDPPln8xoHuBXmlDmo8U4rRIDFA?=
- =?us-ascii?Q?rnjQSP29dD5CV/4aaiUDmeesNljHLLzPLw6FPgz4LolsHshXi6m8t7LfMfvN?=
- =?us-ascii?Q?LsHLRIe6jndJn1LZLIU21ppfqu5Y25u2Rva3boKURLELUMzrPsimVbcL3WUz?=
- =?us-ascii?Q?2gFWPskFkgBYRcfBPtwWnxmEMyvvb7MgYr7v4sx9pjMvpqdZM0aX2kwhJrAD?=
- =?us-ascii?Q?WmcEsMgckI3BgtSS+ZHO2yRaf7/hDQa+PE4LZ5K42BrAtIS+p3KqdaW9DYBf?=
- =?us-ascii?Q?sY5eEqiBi38Hhid2agnDKx3zG4YEdwO5AHHhARtqGY9Vo/hBcklRlGaJxa3z?=
- =?us-ascii?Q?bpuGy6xkGaO6ZHH0XoVRe0Z5rGpeln6HgXhEVOEO7q5pYYONJNXmRSaDcsYc?=
- =?us-ascii?Q?TaeI9mcP0XMXF8FjclGXfyXcTZI3N2xKRXMHG8ATKHszwcpuJf6JiLRPhRLo?=
- =?us-ascii?Q?V8uaEClg2AzdH5NEtVub2TgeSF1yzpUWEatnR9Yyv0ZdEjlS+BMaci1iwq05?=
- =?us-ascii?Q?Kpg0EUdkneC2vYq44xK7LFwmHhwkq1ReLM/wdn67Hav+VpOItkrnFTkKjxGn?=
- =?us-ascii?Q?XKH4ar1cV70FpFZZe8tmI6zRYyuKuoObLS8w0mxtqJMUs3wIFjkVYLjP/qiN?=
- =?us-ascii?Q?lZ+DJVKO0qgDJqj6bazKLxHq9nj8pA/v0j+Vk1XxAonZXsV3QX7vivBKvrws?=
- =?us-ascii?Q?8yXwsAUmhjcfiW/WaxItf++V2a450NuoH1qjW8drwPkKzPaSliZJtzMHK9hQ?=
- =?us-ascii?Q?3amLee1ixAdcxjVd8T9EtJqdOHJbHbrc16Azv7c7PWX3843PDEWjHLJ+X8p5?=
- =?us-ascii?Q?6nYQmD5Iwbtq8DNBaBsDxQISi//0nKD+Ye4vMX/F78mq001GxmhBCsYy20oT?=
- =?us-ascii?Q?4Ez7To0hfGM=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WNuSzNxJNNBoIu6ubr5TPddDln0supgbzJzFn+9qmgngfN445UJSrhJ1YFqN?=
- =?us-ascii?Q?IZp14CdY2iJvJwLY5OcTfspw0M/lEaUZjIT0Ccq+atwWRn+O079QaCUYGJvD?=
- =?us-ascii?Q?xXPTzx7f0KcffRK+tJEAM8i0DpXXEpzuJlY8Dh5dcm4oh+IKt1XguzixNNV7?=
- =?us-ascii?Q?qaskW4+CFzJTPa40FwZzHELGZ44f6CfRoKVeiV5DlFYAL5CXNpOdxuoDC6qB?=
- =?us-ascii?Q?eAi9FjZJ3OYXlRLdBej6rqEb8cHSTIez1efokoUTp5FKjp3wH/47KsKgzgM3?=
- =?us-ascii?Q?Cl8T9NgyYCImv3UxkgEiADSK7LU4KAf2QvzCvl8MVhdVmC0aIgL1wOf62xSu?=
- =?us-ascii?Q?74vloKByXu8bB8n1NL1HM28z1jfsxULRgYucpxN3RBWp8+7+pbtgL+N7iKwk?=
- =?us-ascii?Q?tcTZN0dV/UsFBkgTAj6+o+lq7QmtYsJ65ojBLTA3MJBoLrTwa1EakL2cgBGz?=
- =?us-ascii?Q?FBkRpglQEZ5pnoV84g2tU9WZjWJJwqurfyyOvjsmhasFRqtVYIiixL5vA85k?=
- =?us-ascii?Q?Vlnpl9p8rxl7poizxVZyqnru73NTZyErLe1qA+VB/YjKaLV6LV146oq12lCk?=
- =?us-ascii?Q?DoD8QZ9srIQb6gupZe969gVgTGxy1MYsmpgtn76VjcM0MC9Yoz2yi7xHOEyS?=
- =?us-ascii?Q?m5IPe4wYWB0DWLFvzYsTmknNC1QdGtgsQf1NKgsRu26KQdi+WB6LMHkk30C3?=
- =?us-ascii?Q?1yGP+S9t8qNnCYi6NurYaR41aXU00hKYEflBj6CXl9CAT2Bht5fqBAwZaKe5?=
- =?us-ascii?Q?WntDDutFNHNf7F+8cRnY6iV4crW5Rkc5oDN+ZkbxLk32Rz1pMGab78W4iVrt?=
- =?us-ascii?Q?dqdXhWBtYWntEuM0QoZZvkDu8wO8383z4+CAO1bw5VFy9QkHpESmBsFZrP4H?=
- =?us-ascii?Q?VTQqfzslvZskz/QFHCqTC7anTkGF06T8I+vk0pCvMK0jwJxHYLLDvZsOEpC/?=
- =?us-ascii?Q?Fwi11WILHeJB2bbG20/pD2sc87cAaZIa2MqZSt/pjQsKyca9+81VM1YVugnb?=
- =?us-ascii?Q?1a8zCuS+1NVjvcpd35s8OeB/+dHcGvHj+2ZoksAbhQ6PQ+PTznJkXsJQ7CzV?=
- =?us-ascii?Q?s7tZYxMHqp5X5Yyi/I+/v6YWerwkvzaZDcg0cD1RHJiD5Dh9VZeiDuRTnGW0?=
- =?us-ascii?Q?smvHpkYT2bPfFtTb7zaglHFGsb8jKGkCZNFSxZ3GBXUdwbGzsE84JW7NAaP4?=
- =?us-ascii?Q?camzImpyjAcFN498VvT29DCQ5GsMwzn/wz7Ym5nFwUDeQcPLlq4FgZzgOTS0?=
- =?us-ascii?Q?mVWkptg9enpJi/OhtEzw7HKBoFyXcNpLNwKsX3lTIYDXtBAOhAq7JeLW9VN5?=
- =?us-ascii?Q?+ktEYXNkh3LGabbBYDuH0I+NA7Yw27xNKv3XlFGYTuRPeLzepzPCLFARLT9D?=
- =?us-ascii?Q?rxfdMdxpnefQlwnFbAgvAWcE7ZUhB4mmAUNg1N2zPH7/bdMFcoIF9TtI90kL?=
- =?us-ascii?Q?GBccaEX4KOlj1+defoJ3/XTiH/0sW5m7szY6NntA0KeB+qq1jyGBtgAYtFaH?=
- =?us-ascii?Q?ucAdodfLxoEb/Lcw5saAlAvRYO+gs+pd1Kc2MOp6BiouC6BdAF5Y6RkiasUd?=
- =?us-ascii?Q?x5HaRLPXvKwlHKXPboo4XdKrZKpgZpKAzbE1Xdvk?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d276cceb-f46a-4bd3-91b5-08dd55d426ee
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 19:39:43.3613
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HbzJkM36rU0zcDZnCLU5fjHEYonLa4UWVncqR0ftoivldQxpAVDqg7mrpFa9VdIe
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB5616
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Chester Lin <chester62515@gmail.com>, 
+ Matthias Brugger <mbrugger@suse.com>, Conor Dooley <conor+dt@kernel.org>, 
+ imx@lists.linux.dev, Enric Balletbo <eballetb@redhat.com>, 
+ linux-arm-kernel@lists.infradead.org, Christophe Lizzi <clizzi@redhat.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ Alberto Ruiz <aruizrui@redhat.com>, NXP S32 Linux <s32@nxp.com>, 
+ devicetree@vger.kernel.org
+To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
+In-Reply-To: <20250224134016.3921196-1-ciprianmarian.costea@oss.nxp.com>
+References: <20250224134016.3921196-1-ciprianmarian.costea@oss.nxp.com>
+Message-Id: <174051414934.2971045.13322665811292325537.robh@kernel.org>
+Subject: Re: [PATCH] arm64: dts: s32g: add FlexCAN[0..3] support for s32g2
+ and s32g3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_113958_448050_24FAA85E 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20250225_201234_663739_53A692E7 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,59 +95,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Change the internal freelist to use struct iommu_pages_list.
 
-riscv uses this page list to free page table levels that are replaced
-with leaf ptes.
+On Mon, 24 Feb 2025 15:40:16 +0200, Ciprian Costea wrote:
+> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+> 
+> Add FlexCAN[0..3] for S32G2 and S32G3 SoCs.
+> 
+> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/s32g2.dtsi      | 52 ++++++++++++++
+>  arch/arm64/boot/dts/freescale/s32g3.dtsi      | 56 +++++++++++++++
+>  .../boot/dts/freescale/s32gxxxa-evb.dtsi      | 72 +++++++++++++++++++
+>  .../boot/dts/freescale/s32gxxxa-rdb.dtsi      | 48 +++++++++++++
+>  4 files changed, 228 insertions(+)
+> 
 
-Reviewed-by: Tomasz Jeznach <tjeznach@rivosinc.com>
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
----
- drivers/iommu/riscv/iommu.c | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index 4fe07343d84e61..2750f2e6e01a2b 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -1085,7 +1085,8 @@ static void riscv_iommu_iotlb_sync(struct iommu_domain *iommu_domain,
- #define _io_pte_entry(pn, prot)	((_PAGE_PFN_MASK & ((pn) << _PAGE_PFN_SHIFT)) | (prot))
- 
- static void riscv_iommu_pte_free(struct riscv_iommu_domain *domain,
--				 unsigned long pte, struct list_head *freelist)
-+				 unsigned long pte,
-+				 struct iommu_pages_list *freelist)
- {
- 	unsigned long *ptr;
- 	int i;
-@@ -1103,7 +1104,7 @@ static void riscv_iommu_pte_free(struct riscv_iommu_domain *domain,
- 	}
- 
- 	if (freelist)
--		list_add_tail(&virt_to_page(ptr)->lru, freelist);
-+		iommu_pages_list_add(freelist, ptr);
- 	else
- 		iommu_free_pages(ptr);
- }
-@@ -1192,7 +1193,7 @@ static int riscv_iommu_map_pages(struct iommu_domain *iommu_domain,
- 	unsigned long *ptr;
- 	unsigned long pte, old, pte_prot;
- 	int rc = 0;
--	LIST_HEAD(freelist);
-+	struct iommu_pages_list freelist = IOMMU_PAGES_LIST_INIT(freelist);
- 
- 	if (!(prot & IOMMU_WRITE))
- 		pte_prot = _PAGE_BASE | _PAGE_READ;
-@@ -1223,7 +1224,7 @@ static int riscv_iommu_map_pages(struct iommu_domain *iommu_domain,
- 
- 	*mapped = size;
- 
--	if (!list_empty(&freelist)) {
-+	if (!iommu_pages_list_empty(&freelist)) {
- 		/*
- 		 * In 1.0 spec version, the smallest scope we can use to
- 		 * invalidate all levels of page table (i.e. leaf and non-leaf)
--- 
-2.43.0
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250224134016.3921196-1-ciprianmarian.costea@oss.nxp.com:
+
+arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@401b4000: failed to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-flexcan']
+arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@401b4000: failed to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-flexcan']
+arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@401be000: failed to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-flexcan']
+arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@401be000: failed to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-flexcan']
+arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@402a8000: failed to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-flexcan']
+arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@402a8000: failed to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-flexcan']
+arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@402b2000: failed to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-flexcan']
+arch/arm64/boot/dts/freescale/s32g399a-rdb3.dtb: /soc@0/can@402b2000: failed to match any schema with compatible: ['nxp,s32g3-flexcan', 'nxp,s32g2-flexcan']
+arch/arm64/boot/dts/freescale/s32g274a-evb.dtb: /soc@0/can@401b4000: failed to match any schema with compatible: ['nxp,s32g2-flexcan']
+arch/arm64/boot/dts/freescale/s32g274a-evb.dtb: /soc@0/can@401be000: failed to match any schema with compatible: ['nxp,s32g2-flexcan']
+arch/arm64/boot/dts/freescale/s32g274a-evb.dtb: /soc@0/can@402a8000: failed to match any schema with compatible: ['nxp,s32g2-flexcan']
+arch/arm64/boot/dts/freescale/s32g274a-evb.dtb: /soc@0/can@402b2000: failed to match any schema with compatible: ['nxp,s32g2-flexcan']
+arch/arm64/boot/dts/freescale/s32g274a-rdb2.dtb: /soc@0/can@401b4000: failed to match any schema with compatible: ['nxp,s32g2-flexcan']
+arch/arm64/boot/dts/freescale/s32g274a-rdb2.dtb: /soc@0/can@401be000: failed to match any schema with compatible: ['nxp,s32g2-flexcan']
+arch/arm64/boot/dts/freescale/s32g274a-rdb2.dtb: /soc@0/can@402a8000: failed to match any schema with compatible: ['nxp,s32g2-flexcan']
+arch/arm64/boot/dts/freescale/s32g274a-rdb2.dtb: /soc@0/can@402b2000: failed to match any schema with compatible: ['nxp,s32g2-flexcan']
+
+
+
+
 
 
