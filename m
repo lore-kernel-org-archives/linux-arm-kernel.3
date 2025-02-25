@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC07EC021BC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 13:07:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 270D8C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 13:08:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YZCbAdrDQh2S6MBRiDqnM57x21pWTeWUxnp4/JQJeR0=; b=zr0bjWuLYgktOFCjgU9DWffBmV
-	O83giUdTXRZSjoTemkB7GUf2vILpWNYPu5UgWZISnJlt6RXhfDn4luEhSOQApwURa/u43IYO5cYbV
-	O2n+BwNWRbD+3pm81YQ8ei10zlqwn4H8lPtfPX6iUg6ZoT9wKfXm75/avIvbtjmGRyIQg3s9kgMxO
-	diG1Aww2qFoi2rZf1iAyo6sCD0difWB4FbKWEJVRMZQy6jX40XAnogh++Yng/6LtDsn91ZfGkH9on
-	RkgXIyJDd5kqcAum0whuo5AWOM6otBNdK1EZH8WMbZqytscrFSIg/8/QfN+A09oWQ5yUjsTVXkqtW
-	AIdX8aSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NgIFyD7BBdxExUJwAlUnupBEZ91on8PnKok7i7wsxkQ=; b=zz+rbWfNxmJdrHhZ8sOrSqumEg
+	rYIfS8xiz3+zeNh/0EoSR5JTe2j+acyDnXtHCLJ7SM0qFMxcqCIuyk7xCA0uDVjeBUfOmCfraHoCN
+	3+fWoJEuJpKMyrj20m7bGRPZ/bTWrprgKISNmfZR6ABecZzJaLgvTc58CW5CbvOspsK8Au8VaO485
+	rms4lVV5S0f7870icQYyyi5hpO54xnlykrytinIvffYKSNA9vEbfj0PK+yXxUOkMbpxJjPxpA11+V
+	/GJGMnkemOTHSXkh5CnaH9ExXeq6RuBj3tnjEDIItT/mMSjMC/yLK4DGjFOrOBNf+zQ+t3GdA5c9K
+	VfiTPW4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmueI-0000000HIyL-33yV;
-	Tue, 25 Feb 2025 13:06:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmuCc-0000000HEYX-2vql
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 12:38:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3FAB3152B;
-	Tue, 25 Feb 2025 04:38:35 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.2.76.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 813053F6A8;
-	Tue, 25 Feb 2025 04:38:18 -0800 (PST)
-Date: Tue, 25 Feb 2025 12:38:13 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Rob Herring <robh@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	James Clark <james.clark@linaro.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH v20 11/11] perf: arm_pmuv3: Add support for the Branch
- Record Buffer Extension (BRBE)
-Message-ID: <20250225123813.GA1821331@e132581.arm.com>
-References: <20250218-arm-brbe-v19-v20-0-4e9922fc2e8e@kernel.org>
- <20250218-arm-brbe-v19-v20-11-4e9922fc2e8e@kernel.org>
- <20250224122507.GE8144@e132581.arm.com>
- <CAL_Jsq+0fZ2uasgAam7qGTdCeDBQxXeyL-J1_suyxy6GE_ERTg@mail.gmail.com>
- <20250224140317.GF8144@e132581.arm.com>
- <Z7yY19UtSnND5KTl@J2N7QTR9R3.cambridge.arm.com>
- <20250224180301.GI8144@e132581.arm.com>
- <CAL_JsqKNad6eEBerUOco=SDWxdp6dgRD3FDrSt5OpGQYwwstSg@mail.gmail.com>
+	id 1tmufp-0000000HJFU-1VWc;
+	Tue, 25 Feb 2025 13:08:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmuLb-0000000HFmV-0ibV;
+	Tue, 25 Feb 2025 12:47:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CD99961253;
+	Tue, 25 Feb 2025 12:47:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D040BC4CEDD;
+	Tue, 25 Feb 2025 12:47:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740487658;
+	bh=hnEGBgMiJircNCvnzwAqAxPPcC0ueWOeICOFe+xro64=;
+	h=From:Date:Subject:To:Cc:From;
+	b=Mv07zunhJd2gjkpAIVUYhM6hGGtxyxFwa73+hcl//2z8K+56pwMAx8GTMEMX3iNUK
+	 +0DxuvL0kTSIFOQqIwsNYE6mXteYAtA6M9uYwGJ2q7RkuH8AQEDIlYj8BWU0ftGiYK
+	 3I4s52E1a6/lz6ZYTDC8F8/1PIAUbXtBTAYE0ZGk4Z8/FSPJv9E42esmSfFkW+aQeH
+	 uvdDMUX79M1hjjl24qZ8Y4ngtn8khXTE+Z/vcyfkjx7QAIGf/gKiKmjBPFmvpcFViQ
+	 matqmhQ+7sKl+EPhbcNABxpewkSu3efY/vMGKjGW3k8jGL0lkoVvD8DIw9t8xHjawJ
+	 KjsB9cdTkdbdQ==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Tue, 25 Feb 2025 13:47:26 +0100
+Subject: [PATCH] arm64: dts: airoha: en7581: Enable spi controller for
+ EN7581 evaluation board
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAL_JsqKNad6eEBerUOco=SDWxdp6dgRD3FDrSt5OpGQYwwstSg@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_043822_831211_A4578610 
-X-CRM114-Status: GOOD (  41.10  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250225-en7581-snfi-probe-fix-v1-1-77e4769574e4@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAN27vWcC/x2MSwqAMBDFriKzdsCOFD9XERe2fepsqrQggnh3i
+ 8sEkocykiLTWD2UcGnWIxYwdUV+X+IG1lCYpBHbiFhG7GxvOMdV+UyHA696s2/FOoSAMIBKeyY
+ U/X+n+X0/G6bfrmcAAAA=
+X-Change-ID: 20250225-en7581-snfi-probe-fix-c325bedded9e
+To: Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,106 +75,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 24, 2025 at 07:31:52PM -0600, Rob Herring wrote:
+Enable spi controller used for snand memory device for EN7581 SoC
+evaluation board.
 
-[...]
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ arch/arm64/boot/dts/airoha/en7581-evb.dts | 4 ++++
+ arch/arm64/boot/dts/airoha/en7581.dtsi    | 2 +-
+ 2 files changed, 5 insertions(+), 1 deletion(-)
 
-> > > > When event rotation happens, if without context switch, in theory we
-> > > > should can directly use the branch record (no invalidation, no injection)
-> > > > for all events.
-> > >
-> > > No; that only works in *some* cases, and will produce incorrect results
-> > > in others.
-> > >
-> > > For example, consider filtering. Imagine a PMU with a single counter,
-> > > and two events, where event-A filters for calls-and-returns and event-B
-> > > filters for calls-only. When switching from event-A to event-B, it's
-> > > theoretically possible to keep the existing records around, knowing that
-> > > the returns can be filtered out later. When switching from event-B to
-> > > event-A we cannot keep the existing records, since there are gaps
-> > > whenever a return should have been recorded.
-> >
-> > Seems to me, the problem is not caused by event rotation.  We need to
-> > calculate a correct filter in the first place - the BRBE driver should
-> > calculate a superset for all filters of events for a session.  Then,
-> > generate branch record based event's specific filter.
-> 
-> The driver doesn't have enough information. If it is told to schedule
-> event A, it doesn't know anything about event B. It could in theory
-> try to remember event B if event B had already been scheduled, but it
-> never knows when event B is gone.
+diff --git a/arch/arm64/boot/dts/airoha/en7581-evb.dts b/arch/arm64/boot/dts/airoha/en7581-evb.dts
+index d53b72d18242e3cee8b37c7b1b719d662fd6db8d..cc69f698c27b804953b1bb671e128d4401744bf5 100644
+--- a/arch/arm64/boot/dts/airoha/en7581-evb.dts
++++ b/arch/arm64/boot/dts/airoha/en7581-evb.dts
+@@ -25,6 +25,10 @@ memory@80000000 {
+ 	};
+ };
+ 
++&snfi {
++	status = "okay";
++};
++
+ &spi_nand {
+ 	partitions {
+ 		compatible = "fixed-partitions";
+diff --git a/arch/arm64/boot/dts/airoha/en7581.dtsi b/arch/arm64/boot/dts/airoha/en7581.dtsi
+index 26b13694091735da7af977e42f8f546d7d5cb078..49c061d38d7860b3b416610723791a7a91edcb69 100644
+--- a/arch/arm64/boot/dts/airoha/en7581.dtsi
++++ b/arch/arm64/boot/dts/airoha/en7581.dtsi
+@@ -150,7 +150,7 @@ gic: interrupt-controller@9000000 {
+ 			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_LOW>;
+ 		};
+ 
+-		spi@1fa10000 {
++		snfi: spi@1fa10000 {
+ 			compatible = "airoha,en7581-snand";
+ 			reg = <0x0 0x1fa10000 0x0 0x140>,
+ 			      <0x0 0x1fa11000 0x0 0x160>;
 
-E.g., I tried below command for enabling 10 events in a perf session:
+---
+base-commit: 0092294492fafe79a537915e486576a3d69c9a7c
+change-id: 20250225-en7581-snfi-probe-fix-c325bedded9e
 
-  perf record -e armv9_nevis/r04/ -e armv9_nevis/r05/ \
-              -e armv9_nevis/r06/ -e armv9_nevis/r07/ \
-              -e armv9_nevis/r08/ -e armv9_nevis/r09/ \
-              -e armv9_nevis/r10/ -e armv9_nevis/r11/ \
-              -e armv9_nevis/r12/ -e armv9_nevis/r13/ \
-              -- sleep 1
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
-For Arm PMU, the flow below is invoked for every event on every
-affinied CPU in initialization phase:
-
-  armpmu_event_init() {
-    armv8pmu_set_event_filter();
-  }
-
-Shouldn't we calculate a superset branch filter for all events, store
-it into a per-CPU data structure and then apply the filter on BRBE?
-
-> > > There are a number of cases of that shape given the set of configurable
-> > > filters. In theory it's possible to retain those in some cases, but I
-> > > don't think that the complexity is justified.
-> > >
-> > > Similarly, whenever kernel branches are recorded it's necessary to drop
-> > > the stale branches whenever branch recording is paused, as there's
-> > > necessarily a blackout period and hence a gap in the records.
-> >
-> > If we save BRBE record when a process is switched out and then restore
-> > the record when a process is switched in, should we can keep a decent
-> > branch record for performance profiling?
-> 
-> Keep in mind that there's only 64 branches recorded at most. How many
-> branches in a context switch plus reconfiguring the PMU? Not a small
-> percentage of 64 I think. In traces where freeze on overflow was not
-> working (there's an example in v18), just the interrupt entry until
-> BRBE was stopped was a significant part of the trace. A context switch
-> is going to be similar.
-
-That is true for kernel mode enabled tracing.  But we will have no
-such kind noises for userspace only mode tracing.
-
-[...]
-
-> > > Do you have a reason why you think we *must* keep events around?
-> >
-> > Here I am really concerned are cases when a process is preempted or
-> > migrated.  The driver doesn't save and restore branch records for these
-> > cases, it just invalidates all records when a task is scheduled in.
-> >
-> > As a result, if an event overflow is close to context switch, it is
-> > likely to capture incomplete branch records.  For a userspace-only
-> > tracing, it is risk to capture empty branch record after preemption
-> > and migrations.
-> 
-> There's the same risk if something else is recording kernel branches
-> when you are recording userspace only. I think the user has to be
-> aware if other things like context switches are perturbing their data.
-
-I am confused for the decription above.  Does it refer to branch
-recording cross different sessions?  It is fine for me that the branch
-data is interleaved by different sessions (e.g. one is global tracing
-and another is only per-thread tracing).
-
-We might need to consider an intact branch record for the single perf
-session case.  E.g. if userspace program calls:
-
-    func_a -> func_b -> func_c
-
-In a case for only userspace tracing, we will have no chance to preserve
-the call sequence of these functions after the program is switched out.
-
-Thanks,
-Leo
 
