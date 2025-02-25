@@ -4,96 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A2F3C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 04:24:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57B07C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 04:29:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0dnfDX8F9dAojLshWRzaoAh4tjNLeQ4DMe8LUFT9cv4=; b=ItUh1N0un6TUYAqQmtqS/qko0c
-	GQJBAl9z5w/E5ImBYom7SCxndIK02xOKf6T4Y9VXZvGHXi8dFbzIqDHMhi0NsnUdmx8q32eqBhX2P
-	X6Ygr/YzPkQfVLOR4mMa0pD70maexZnm81Lhbrt+lPasyr7nqJZSDxs2LCB1jy7YOTvlq2BlZjyBn
-	X1Nrqd943vzFGYeBMcFBtoAXqHiX0IPImeIuU1Y1ijE2sF00pYCdg9q/ZqF2CYH6RGa3/e+/1btDK
-	vLyQh+5lP3TIyb4wC/Cjaa7u6py0KzQxTrO8ISRKEnHScSELRbPH7h1HviVFa8YueL2BVrfYNnaLO
-	9Y1FXV1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tBq+uED9VcLqvQWo73iw5X2/Rdc3ERYOyoMS/2j02eE=; b=JTG7N2meqhfnAtPKf1ubDfYTbA
+	zVUqjZCQBxNtalMpv9JdARKMY6O5uTfvHXHXQQZORSfUSjF3rdl/c39X9HgsVhZr+5l6qMGlG2C6Q
+	E3eKcL7xLzOi8DJkOY/M97rkMlGx7rxIhr8Hxl75rsDrFECO92fq5HO6BBEvIv74OxUCBluEoC95Z
+	13sWvVyiD12ajFLXdU2Vme4sJXqX/J7Cd8rIrcQRWvmqy9IsrdmIauoZDaOz1fkaHqOcFvPgoz3Ha
+	lywsr2sL9g5VMKDjW6lObsINBKxxWXWppDJAWrScRmAcQ+AH7zNGyRqUj5J66N1+u+bdPCyEGvNC2
+	/Ne7640Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmmUo-0000000FwD2-0b2N;
-	Tue, 25 Feb 2025 04:24:38 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1tmmZI-0000000Fwjn-2cO8;
+	Tue, 25 Feb 2025 04:29:16 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmmTG-0000000Fw8A-2d2P
+	id 1tmmXl-0000000FwXr-1Q85
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 04:23:04 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-220e0575f5bso98195ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 20:23:02 -0800 (PST)
+	Tue, 25 Feb 2025 04:27:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740457382; x=1741062182; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0dnfDX8F9dAojLshWRzaoAh4tjNLeQ4DMe8LUFT9cv4=;
-        b=4uU/g8g87vAvuO83eu4i0xEcLKY1JyCxRg0/RQM1iPKYuP6LcHjAGpA4Pw0qGTmPj3
-         iDasP2S7JHM5xqqB36rnZHSS4fKcVdsvhi29sgGqjGTKFVvNS1R3U93P2U8R7FQELSqu
-         VUKZhQuUDdpawlCl5p0Xf9p0e8xMLkFluzlEuXSszw07xpywmwEoM8WVdztWEUVdQCES
-         ttJEFBuwCWWOugxwIVNYjcp6HrNiyg6nQ0EKNlUU4e/WMb/UvsW7+MTxhNuF6v+MSEfs
-         +Fg2+G5v0uBBvNemjligUU8j1LRQFsW13VaLL2+lqjWTdlrwZgsPqkcV8xixIK1MXlHN
-         AVFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740457382; x=1741062182;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0dnfDX8F9dAojLshWRzaoAh4tjNLeQ4DMe8LUFT9cv4=;
-        b=rvEBUzY1HuP5O5AvbT3ozFm28l8Vv0Gks5kfgxGmB5BVKZjmYCXnMyWqPXo26TCoYi
-         u/zH2pLXMZilFb4nfR5IHv0LSz0FX0vNF0oCMQKVMKrW8ECH4pAl9oEpaE/5xAejRT2e
-         4Ku4XrzTRfrI3aB8/+Z+uk3y+lMsqUOecEu36FdPR03g0+O6yp6YBsNtA5VpCjZTff5W
-         In8v/TofGsqH/J6mUZafozay+o9gxnKlYUV1BqzWPAyzYmpBMKNe3T6selBY8vmRigru
-         gtTuGOz5TxJ0u5bRf0P/UPvGIrKnSRyusIN8gS/h76D/o4TLtzGgRK16QyZ8+zmMaGuk
-         qBLA==
-X-Forwarded-Encrypted: i=1; AJvYcCXh1L7bpHzWmPevsepLrsrYEiVZNLexL00P8AdogxubCgoW1H/Zz9py3es75bohS2zWHP6GLKoFj0hc7CENrZg8@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNjJ81/lIpAMwb2J2VCkfOYEIS06Z0CV3MpkVsi+ETRkseYz28
-	y0mwFKySxUuSvt+Jp64PsdsPXH9ap04kpsqQLj7kGAxD/p794a5hPErujKIO0GCymL9AdIJNiHF
-	IinuHwCDfr+AM26rUo9o7y5EF6RZCmuKT09z1
-X-Gm-Gg: ASbGncvZRZddUtlA7UA2JoVIVoo1Fwsh7bnTNmrzzxWpM+PJHvhOjILqsgVBxn/uC5w
-	IMbHQnbRGz51iBTGRl7CwO/z9vSUTSoiUDSBbigcy4cUV/l8+QFqwZQOSaIxw3e6hYyynkr5SNB
-	kjEuLISqyw
-X-Google-Smtp-Source: AGHT+IGUMbhMl6/Gef1QJ3tKC8kP3/Phfar/m5jTSCYGPTt5wQk8z6TdzhgYsgrIeWo9sJfXlqvs8z66UVyg6GElTN4=
-X-Received: by 2002:a17:902:db11:b0:216:4d90:47af with SMTP id
- d9443c01a7336-22307aad240mr1981295ad.29.1740457381632; Mon, 24 Feb 2025
- 20:23:01 -0800 (PST)
-MIME-Version: 1.0
-References: <20250219185657.280286-1-irogers@google.com> <Z702_CQ7nMx9fZQn@google.com>
-In-Reply-To: <Z702_CQ7nMx9fZQn@google.com>
-From: Ian Rogers <irogers@google.com>
-Date: Mon, 24 Feb 2025 20:22:50 -0800
-X-Gm-Features: AWEUYZlRSCuMXpRnG9e51tFeDQNCY7-ORGGSWmNrzSa339fgNrVuz98Z_FTpe8s
-Message-ID: <CAP-5=fWYiQP84BMjm69xud4vYaRrutRG-RASKbxQaGSisRm7jA@mail.gmail.com>
-Subject: Re: [PATCH v3 0/8] perf: Support multiple system call tables in the build
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
-	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
-	Leo Yan <leo.yan@linux.dev>, guoren <guoren@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Charlie Jenkins <charlie@rivosinc.com>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>, linux-riscv@lists.infradead.org, 
-	linux-mips@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>
+	d=codeconstruct.com.au; s=2022a; t=1740457652;
+	bh=tBq+uED9VcLqvQWo73iw5X2/Rdc3ERYOyoMS/2j02eE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=hMwkPLVtLK1ZvJmQYYIrH7ps60fu/iAzOkiB+OHVTznrOoYho7yywweETK0X0NaWm
+	 VAH9Vw8zS4N79Anp6DLvAZkOvP5EGe0vjl2prTuESNbvsoN6ElpXzFhjmmO7UajEeU
+	 1yFOi6oZH3LsRLC6Krils2x/d1nxkfxnYDhuPTU8DgBlfnQ4Bq+eHkde7I0VIHxBTw
+	 Vdqli5J76dtZmqgFj/LIfvZhGM97a6ltsYJ+JiIOmhIf+D0UhM0+bWgnSRn3z2pw2b
+	 oJ4iVtEVLv9k54HnzOrlqRJxs7ymdnH6PCq8kMYC0HDdmwmyFoTYzhgeczEvTxencD
+	 YTsIsVvw3hegg==
+Received: from [IPv6:2405:6e00:2421:8fa3:333c:2fc8:332d:ddb4] (unknown [120.20.122.15])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 4021170B52;
+	Tue, 25 Feb 2025 12:27:27 +0800 (AWST)
+Message-ID: <f7369d6205e05c7aac3f3de7cbd08c3b08960d75.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v1 3/3] soc: aspeed: lpc-pcc: Add PCC controller support
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Kevin Chen <kevin_chen@aspeedtech.com>, "joel@jms.id.au"
+ <joel@jms.id.au>,  Z-ChiaWei Wang <chiawei_wang@aspeedtech.com>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>, 
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, Mo Elbadry <elbadrym@google.com>
+Cc: "tomer.maimon" <tomer.maimon@nuvoton.com>, Krzysztof Kozlowski
+	 <krzk@kernel.org>, "lee@kernel.org" <lee@kernel.org>, "robh@kernel.org"
+	 <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
+	"conor+dt@kernel.org"
+	 <conor+dt@kernel.org>, Jenmin Yuan <jenmin_yuan@aspeedtech.com>, BMC-SW
+	 <BMC-SW@aspeedtech.com>
+Date: Tue, 25 Feb 2025 14:57:25 +1030
+In-Reply-To: <PSAPR06MB494947E21AB39369ADFA8C9489C72@PSAPR06MB4949.apcprd06.prod.outlook.com>
+References: <20250217114831.3225970-1-kevin_chen@aspeedtech.com>
+	 <20250217114831.3225970-4-kevin_chen@aspeedtech.com>
+	 <e43b5f8f-37e4-4468-b3ca-5059a5e6f3c3@kernel.org>
+	 <6fd7cd57261ddf9831f57dc4c637b24e9f8982d9.camel@codeconstruct.com.au>
+	 <PSAPR06MB4949C65DF5C034BD6B40C9B589FA2@PSAPR06MB4949.apcprd06.prod.outlook.com>
+	 <d4945482509cad0bf3e8cd93c1fb21bac2e0c7f2.camel@codeconstruct.com.au>
+	 <TY0PR06MB4960EA7255DF0BDF235F0D9689C52@TY0PR06MB4960.apcprd06.prod.outlook.com>
+	 <ba2757fd02b3e7c8f9c862c76f2cfcd2b6bfb41b.camel@codeconstruct.com.au>
+	 <PSAPR06MB494947E21AB39369ADFA8C9489C72@PSAPR06MB4949.apcprd06.prod.outlook.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_202302_691495_8037EE4F 
-X-CRM114-Status: GOOD (  39.27  )
+X-CRM114-CacheID: sfid-20250224_202741_614706_BF2A00FB 
+X-CRM114-Status: GOOD (  45.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,207 +87,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 24, 2025 at 7:20=E2=80=AFPM Namhyung Kim <namhyung@kernel.org> =
-wrote:
->
-> On Wed, Feb 19, 2025 at 10:56:49AM -0800, Ian Rogers wrote:
-> > This work builds on the clean up of system call tables and removal of
-> > libaudit by Charlie Jenkins <charlie@rivosinc.com>.
-> >
-> > The system call table in perf trace is used to map system call numbers
-> > to names and vice versa. Prior to these changes, a single table
-> > matching the perf binary's build was present. The table would be
-> > incorrect if tracing say a 32-bit binary from a 64-bit version of
-> > perf, the names and numbers wouldn't match.
-> >
-> > Change the build so that a single system call file is built and the
-> > potentially multiple tables are identifiable from the ELF machine type
-> > of the process being examined. To determine the ELF machine type, the
-> > executable's header is read from /proc/pid/exe with fallbacks to using
-> > the perf's binary type when unknown.
->
-> Hmm.. then this is limited to live mode and potentially detect wrong
-> machine type if it reads an old data, right?
->
-> Also IIUC fallback to the perf binary means it cannot use cross-machine
-> table.  For example, it cannot process data from ARM64 on x86, no?  It
-> seems it should use perf_env.arch.
-
-The perf env arch is kind of horrid. On x86 it has the value x86 and
-then there is an extra 64bit flag, who knows how x32 should be encoded
-- but we barely support x32 as-is. I'd rather we added a new feature
-for the e_machine/e_flags of the executable and worked with those, but
-it is kind of weird with doing system wide mode. I didn't want to drag
-that into this patch series anyway as there is already enough here.
-
-> One more concern is BPF.  The BPF should know about the ABI of the
-> current process so that it can augment the syscall arguments correctly.
-> Currently it only checks the syscall number but it can be different on
-> 32-bit and 64-bit.
-
-That's right. This change is trying to clean up
-tools/perf/util/syscalltbl.c and the perf trace usage. I didn't go as
-far as making BPF programs pair system call number with e_machine and
-e_flags, there is enough here and the behavior after these patches
-matches the behavior before - that is to assume the system call ABI
-matches that of the perf binary.
-
-Thanks,
-Ian
-
-> Thanks,
-> Namhyung
->
->
-> >
-> > Remove some runtime types used by the system call tables and make
-> > equivalents generated at build time.
-> >
-> > v3: Add Charlie's reviewed-by tags. Incorporate feedback from Arnd
-> >     Bergmann <arnd@arndb.de> on additional optional column and MIPS
-> >     system call numbering. Rebase past Namhyung's global system call
-> >     statistics and add comments that they don't yet support an
-> >     e_machine other than EM_HOST.
-> >
-> > v2: Change the 1 element cache for the last table as suggested by
-> >     Howard Chu, add Howard's reviewed-by tags.
-> >     Add a comment and apology to Charlie for not doing better in
-> >     guiding:
-> >     https://lore.kernel.org/all/20250114-perf_syscall_arch_runtime-v1-1=
--5b304e408e11@rivosinc.com/
-> >     After discussion on v1 and he agreed this patch series would be
-> >     the better direction.
-> >
-> > Ian Rogers (8):
-> >   perf syscalltble: Remove syscall_table.h
-> >   perf trace: Reorganize syscalls
-> >   perf syscalltbl: Remove struct syscalltbl
-> >   perf thread: Add support for reading the e_machine type for a thread
-> >   perf trace beauty: Add syscalltbl.sh generating all system call table=
+On Fri, 2025-02-21 at 00:51 +0000, Kevin Chen wrote:
+> > On Wed, 2025-02-19 at 11:59 +0000, Kevin Chen wrote:
+> > > > On Tue, 2025-02-18 at 11:11 +0000, Kevin Chen wrote:
+> > > > > > On Mon, 2025-02-17 at 13:00 +0100, Krzysztof Kozlowski wrote:
+> > > > > > > On 17/02/2025 12:48, Kevin Chen wrote:
+> > > > > > > > +
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pcc->mdev.parent=
+ =3D dev;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pcc->mdev.minor =
+=3D MISC_DYNAMIC_MINOR;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pcc->mdev.name =
+=3D devm_kasprintf(dev, GFP_KERNEL,
+> > > > > > > > "%s%d",
+> > > > > > > > DEVICE_NAME,
+> > > > > > > >=20
+> > > > > >=20
+> > > >=20
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0pcc->mdev_id);
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pcc->mdev.fops =
+=3D &pcc_fops;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0rc =3D misc_regi=
+ster(&pcc->mdev);
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0if (rc) {
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0dev_err(dev, "Couldn't register misc
+> > > > > > > > device\n");
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0goto err_free_kfifo;
+> > > > > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0}
+> > > > > > >=20
+> > > > > > > You cannot expose user-space interfaces from SoC drivers. Use
+> > > > > > > appropriate subsystem for this with proper ABI documentation.
+> > > > > > >=20
+> > > > > > > See:
+> > > > > > > https://lore.kernel.org/all/bc5118f2-8982-46ff-bc75-d0c71475e=
+9
+> > > > > > > 09@a
+> > > > > > > pp.f
+> > > > > > > astmail.com/
+> > > > > > > and more discussions on LKML
+> > > > > >=20
+> > > > > > Further, drivers/misc/aspeed-lpc-snoop.c already exists:
+> > > > > >=20
+> > > > > > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.=
+g
+> > > > > > it/c
+> > > > > > ommit/?id=3D
+> > > > > > 9f4f9ae81d0affc182f54dd00285ddb90e0b3ae1
+> > > > > >=20
+> > > > > > Kevin: Did you consider reworking it?
+> > > > > Andrew: No, I do not rework it but add the post code capture
+> > > > > driver using the SNOOP registers. As a result, I add some code in
+> > > > > aspeed_a2600_15 to check the SNOOP enable bit. PCC driver probe
+> > > > > abort if snoop is enabled.
+> > > >=20
+> > > > Hmm, I think OpenBMC's history regarding POST code support caused
+> > > > some confusion on my part. For whatever reason, the snoop device wa=
 s
-> >   perf syscalltbl: Use lookup table containing multiple architectures
-> >   perf build: Remove Makefile.syscalls
-> >   perf syscalltbl: Mask off ABI type for MIPS system calls
-> >
-> >  tools/perf/Makefile.perf                      |  10 +-
-> >  tools/perf/arch/alpha/entry/syscalls/Kbuild   |   2 -
-> >  .../alpha/entry/syscalls/Makefile.syscalls    |   5 -
-> >  tools/perf/arch/alpha/include/syscall_table.h |   2 -
-> >  tools/perf/arch/arc/entry/syscalls/Kbuild     |   2 -
-> >  .../arch/arc/entry/syscalls/Makefile.syscalls |   3 -
-> >  tools/perf/arch/arc/include/syscall_table.h   |   2 -
-> >  tools/perf/arch/arm/entry/syscalls/Kbuild     |   4 -
-> >  .../arch/arm/entry/syscalls/Makefile.syscalls |   2 -
-> >  tools/perf/arch/arm/include/syscall_table.h   |   2 -
-> >  tools/perf/arch/arm64/entry/syscalls/Kbuild   |   3 -
-> >  .../arm64/entry/syscalls/Makefile.syscalls    |   6 -
-> >  tools/perf/arch/arm64/include/syscall_table.h |   8 -
-> >  tools/perf/arch/csky/entry/syscalls/Kbuild    |   2 -
-> >  .../csky/entry/syscalls/Makefile.syscalls     |   3 -
-> >  tools/perf/arch/csky/include/syscall_table.h  |   2 -
-> >  .../perf/arch/loongarch/entry/syscalls/Kbuild |   2 -
-> >  .../entry/syscalls/Makefile.syscalls          |   3 -
-> >  .../arch/loongarch/include/syscall_table.h    |   2 -
-> >  tools/perf/arch/mips/entry/syscalls/Kbuild    |   2 -
-> >  .../mips/entry/syscalls/Makefile.syscalls     |   5 -
-> >  tools/perf/arch/mips/include/syscall_table.h  |   2 -
-> >  tools/perf/arch/parisc/entry/syscalls/Kbuild  |   3 -
-> >  .../parisc/entry/syscalls/Makefile.syscalls   |   6 -
-> >  .../perf/arch/parisc/include/syscall_table.h  |   8 -
-> >  tools/perf/arch/powerpc/entry/syscalls/Kbuild |   3 -
-> >  .../powerpc/entry/syscalls/Makefile.syscalls  |   6 -
-> >  .../perf/arch/powerpc/include/syscall_table.h |   8 -
-> >  tools/perf/arch/riscv/entry/syscalls/Kbuild   |   2 -
-> >  .../riscv/entry/syscalls/Makefile.syscalls    |   4 -
-> >  tools/perf/arch/riscv/include/syscall_table.h |   8 -
-> >  tools/perf/arch/s390/entry/syscalls/Kbuild    |   2 -
-> >  .../s390/entry/syscalls/Makefile.syscalls     |   5 -
-> >  tools/perf/arch/s390/include/syscall_table.h  |   2 -
-> >  tools/perf/arch/sh/entry/syscalls/Kbuild      |   2 -
-> >  .../arch/sh/entry/syscalls/Makefile.syscalls  |   4 -
-> >  tools/perf/arch/sh/include/syscall_table.h    |   2 -
-> >  tools/perf/arch/sparc/entry/syscalls/Kbuild   |   3 -
-> >  .../sparc/entry/syscalls/Makefile.syscalls    |   5 -
-> >  tools/perf/arch/sparc/include/syscall_table.h |   8 -
-> >  tools/perf/arch/x86/entry/syscalls/Kbuild     |   3 -
-> >  .../arch/x86/entry/syscalls/Makefile.syscalls |   6 -
-> >  tools/perf/arch/x86/include/syscall_table.h   |   8 -
-> >  tools/perf/arch/xtensa/entry/syscalls/Kbuild  |   2 -
-> >  .../xtensa/entry/syscalls/Makefile.syscalls   |   4 -
-> >  .../perf/arch/xtensa/include/syscall_table.h  |   2 -
-> >  tools/perf/builtin-trace.c                    | 290 +++++++++++-------
-> >  tools/perf/scripts/Makefile.syscalls          |  61 ----
-> >  tools/perf/scripts/syscalltbl.sh              |  86 ------
-> >  tools/perf/trace/beauty/syscalltbl.sh         | 274 +++++++++++++++++
-> >  tools/perf/util/syscalltbl.c                  | 148 ++++-----
-> >  tools/perf/util/syscalltbl.h                  |  22 +-
-> >  tools/perf/util/thread.c                      |  50 +++
-> >  tools/perf/util/thread.h                      |  14 +-
-> >  54 files changed, 616 insertions(+), 509 deletions(-)
-> >  delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Kbuild
-> >  delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Makefile.sysca=
-lls
-> >  delete mode 100644 tools/perf/arch/alpha/include/syscall_table.h
-> >  delete mode 100644 tools/perf/arch/arc/entry/syscalls/Kbuild
-> >  delete mode 100644 tools/perf/arch/arc/entry/syscalls/Makefile.syscall=
-s
-> >  delete mode 100644 tools/perf/arch/arc/include/syscall_table.h
-> >  delete mode 100644 tools/perf/arch/arm/entry/syscalls/Kbuild
-> >  delete mode 100644 tools/perf/arch/arm/entry/syscalls/Makefile.syscall=
-s
-> >  delete mode 100644 tools/perf/arch/arm/include/syscall_table.h
-> >  delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Kbuild
-> >  delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Makefile.sysca=
-lls
-> >  delete mode 100644 tools/perf/arch/arm64/include/syscall_table.h
-> >  delete mode 100644 tools/perf/arch/csky/entry/syscalls/Kbuild
-> >  delete mode 100644 tools/perf/arch/csky/entry/syscalls/Makefile.syscal=
-ls
-> >  delete mode 100644 tools/perf/arch/csky/include/syscall_table.h
-> >  delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Kbuild
-> >  delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Makefile.s=
-yscalls
-> >  delete mode 100644 tools/perf/arch/loongarch/include/syscall_table.h
-> >  delete mode 100644 tools/perf/arch/mips/entry/syscalls/Kbuild
-> >  delete mode 100644 tools/perf/arch/mips/entry/syscalls/Makefile.syscal=
-ls
-> >  delete mode 100644 tools/perf/arch/mips/include/syscall_table.h
-> >  delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Kbuild
-> >  delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Makefile.sysc=
-alls
-> >  delete mode 100644 tools/perf/arch/parisc/include/syscall_table.h
-> >  delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Kbuild
-> >  delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Makefile.sys=
-calls
-> >  delete mode 100644 tools/perf/arch/powerpc/include/syscall_table.h
-> >  delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Kbuild
-> >  delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Makefile.sysca=
-lls
-> >  delete mode 100644 tools/perf/arch/riscv/include/syscall_table.h
-> >  delete mode 100644 tools/perf/arch/s390/entry/syscalls/Kbuild
-> >  delete mode 100644 tools/perf/arch/s390/entry/syscalls/Makefile.syscal=
-ls
-> >  delete mode 100644 tools/perf/arch/s390/include/syscall_table.h
-> >  delete mode 100644 tools/perf/arch/sh/entry/syscalls/Kbuild
-> >  delete mode 100644 tools/perf/arch/sh/entry/syscalls/Makefile.syscalls
-> >  delete mode 100644 tools/perf/arch/sh/include/syscall_table.h
-> >  delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Kbuild
-> >  delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Makefile.sysca=
-lls
-> >  delete mode 100644 tools/perf/arch/sparc/include/syscall_table.h
-> >  delete mode 100644 tools/perf/arch/x86/entry/syscalls/Kbuild
-> >  delete mode 100644 tools/perf/arch/x86/entry/syscalls/Makefile.syscall=
-s
-> >  delete mode 100644 tools/perf/arch/x86/include/syscall_table.h
-> >  delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Kbuild
-> >  delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Makefile.sysc=
-alls
-> >  delete mode 100644 tools/perf/arch/xtensa/include/syscall_table.h
-> >  delete mode 100644 tools/perf/scripts/Makefile.syscalls
-> >  delete mode 100755 tools/perf/scripts/syscalltbl.sh
-> >  create mode 100755 tools/perf/trace/beauty/syscalltbl.sh
-> >
-> > --
-> > 2.48.1.601.g30ceb7b040-goog
-> >
+> > > > used as a source of POST codes despite the existence of the
+> > > > dedicated POST code hardware since at least the AST2400, but...
+> > > What I know about the dedicated POST code hardware in ASPEED should b=
+e
+> > > the same one in LPC module.
+> > >=20
+> > > >=20
+> > > > > PCC is used for port I/O byte snooping over eSPI.
+> > > >=20
+> > > > ... it seems that they're largely interchangeable, just with
+> > > > different hardware features (PCC has DMA)? My impression is that th=
+e
+> > > > snoop device could also be used over eSPI?
+> > > Yes, PCC has DMA to capture the POST code.
+> > > And snoop device also can be used over eSPI.
+> > >=20
+> > > These two devices of PCC and snoop use the same port I/O of 80h and
+> > > 81h.
+> > > But, in current usage of PCC, it can support a continuous, 4-bytes
+> > > maximum region from port I/O 80h to 83h.
+> > > What I know about PCC or snoop usage, depends on INTEL platform or AM=
+D
+> > > platform.
+> > >=20
+> > > For ASPEED, we want to upstream the PCC driver for the PCC usage.
+> >=20
+> > Yeah, that's fine, but I think some work needs to be done to provide co=
+herence
+> > in the devicetree binding and userspace APIs across both the ASPEED sno=
+op
+> > and PCC bits, as well as the Nuvoton BPC. Bespoke designs create pain.
+> https://lore.kernel.org/linux-kernel//7661de74-f68c-6617-6a4e-3b0eb76a2a2=
+e@linaro.org/T/
+> Andrew, I find the "NPCM BPC driver" to get the link. Are these patches m=
+atch what you mentioned?
+
+That looks about right.
+
+Note Rob's response there about disparate bindings:
+
+https://lore.kernel.org/linux-kernel//20221130193014.GA2645083-robh@kernel.=
+org/
+
+>=20
+> >=20
+> > The PCC driver above reads the data out of the DMA ring-buffer straight=
+ into
+> > the kfifo hooked up the the miscdev read callback. The datasheet
+> > notes: "the data structure of the FIFO is mode dependent" in the descri=
+ption of
+> > PCCR3, but no in-band or out-of-band mechanism (sysfs,
+> > ioctl) is provided for userspace to query whether it's 1B, 2B, 4B or "f=
+ull" mode.
+> For the data structure in PCCR3, I checked with designer. We only need 2B=
+ mode to get the information about data and related addresses.
+> For example, from espi master send the port 80h~83h with first data 0x112=
+23344 and second data 0x55667788. The PCC kfifo would be written in the fol=
+lowing output from hexdump.
+> # hexdump=C2=A0 /dev/aspeed-lpc-pcc0
+> 0000000 4044 4133 4222 4311 4088 4177 4266 4355
+
+Right, but that's different to how the Aspeed snoop chardev behaves.
+Both the snoop and PCC features can be used to present the same data
+(POST codes) to userspace. There should be a unified chardev behaviour
+for POST codes so we don't end up with a mess in userspace to deal with
+the differences in hardware capabilities.
+
+If we've got a chardev it would feel idiomatic to me to have ioctls to
+configure the hardware to the required capture mode for the platform.
+
+> >=20
+> > The situation with the snoop driver is similar (1 or 2 1B channels mult=
+iplexed
+> > into the one data stream). It also looks a bit quirky with multiple cha=
+nnels
+> > enabled, as what userspace reads will depend on the host access pattern=
+s, but
+> > no metadata is provided to userspace about what it's reading.
+> Yes, for the snoop driver and PCC driver, some mechanism is the same. But=
+ snoop only supports 2 bytes data from the 2 1B channels multiplexed.
+> So, we need to add PCC driver to upstream for customer's 4 Bytes POST cod=
+e capture usage even the PCC driver needs to check the snoop enabled or not=
+.
+
+I understand.
+
+> Or, could you please give us come comments about how I can upstream the P=
+CC driver.
+
+Essentially I don't think it's okay that each driver implement a
+bespoke chardev, or that the devices don't share a common devicetree
+binding. I think what's needed is a small abstraction that provides
+common chardev semantics to userspace (e.g. /dev/postcodeN) that can be
+connected to the different backends provided by the hardware (Aspeed
+snoop and PCC, Nuvoton BPC) and act on the needs of userspace (1, 2, 4-
+byte POST codes, configured using ioctls).
+
+Andrew
 
