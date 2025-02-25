@@ -4,61 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98158C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 13:32:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C964CC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 13:34:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dhnOaHypcJlHbZRdra6p29hhGd1vYoukXHvE7lNxQHo=; b=PD0jBDyVIBZkU5uv4mKfDBg7JQ
-	k07vswNuuus6D5+E9/XwTEtuXg3eb9cescFfuCFAXCvRgiHs1CNyN/x3JywJZ5RSt3Tjr9F0GJqiw
-	uKHs4reetFeyCgYtIl0zS9sN89WX0CU49L/1XNfTCyauo/OMhYkphaw1Ov+LBjzIMwfUfkcYG7Clq
-	AoyIRD6+RczIMMcqyo69Gqevzcxwu9Gw4bnVEwHNU7iDvhUdcKj6QDs+Zi5FsPOi6ohPVpWtUY9IP
-	JQsNfWVOvusVb3AFe+rZGNKMnrv2rAguoQ67TZtgIezxR+MDk34pYzSIG7+erXJDFavC0JE7JM5it
-	uk95VsDw==;
+	bh=HGxpJnDx9gWoDIeHrVycioE7JbtGoUw2jn2z8E1lQOM=; b=S/Vs/SJ2z5Yqgt44YkQLEUqDli
+	HGvG2v1vD7h5+V/6dv+j5T1mQVQT74eO8wJfngmTuV9XrTHz1AJg27D4h5pQ9kBiz2NDfaeHOZdOw
+	JVNXe8Q75FVUqmtpezTiSuOcQLLEB3F1fnCRsPvIgaKuqVSpyU9VCvdCGlzK5UeQph4ndqXzbMofI
+	qEL331km3O3biCB/862iTrmt2mHO1iH9kOUXD3FdK4OL29vIIM1Yy3f4sD0Ky1cMnk12ngzllYZ1W
+	Z0FDr/ZmEOR7R8XuQNLUC1mnFYF4dYhg8wfx5qJk4wWCbP9mgUTnJua/WLl9Wd62JTDhj7J3B3UOh
+	oTiUjA+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmv3F-0000000HO49-3p8t;
-	Tue, 25 Feb 2025 13:32:45 +0000
+	id 1tmv4m-0000000HOGg-2JmE;
+	Tue, 25 Feb 2025 13:34:20 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmud6-0000000HImW-0rsk
+	id 1tmueJ-0000000HIya-1FFi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 13:05:45 +0000
+	Tue, 25 Feb 2025 13:07:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8E7DE5C6766;
-	Tue, 25 Feb 2025 13:05:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40889C4CEE6;
-	Tue, 25 Feb 2025 13:05:38 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B31485C71A3;
+	Tue, 25 Feb 2025 13:06:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D6A4C4CEDD;
+	Tue, 25 Feb 2025 13:06:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740488743;
-	bh=ivp+WgXR409RKAJtAj+T6GJEnC9EUUj+NsyJEKYzZeA=;
+	s=k20201202; t=1740488818;
+	bh=HGxpJnDx9gWoDIeHrVycioE7JbtGoUw2jn2z8E1lQOM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=O/DJZYIXlOyU/29abrOwdvyJYSfSHkW61ayW8puE+Z9p81l4X5OUFJ11Kbuqg/lE3
-	 OBPGPyabW4PlW5jwHbPxpRxvxUEUrIxSwkAgJ+nCXwMWVwfYzHpP8wfw0AMY0rQl5e
-	 nEMlp4AoAI7QHDJDCXOUyE/aE7oHYoOGinNptDElthL58x4fiZ+z6lJBJSKT62HW7A
-	 C5dtyKHcT116G8vsGQKAoxvGjtBqTK8rH1LwvXz+pk5Dk6DyCbowUvHokH/7qX9Odq
-	 tyY+bV1X21AYzC12szZiclO8HgpIP/FfUvBxMtUHp1dxBZlk3m/BynzlvPMkHdcgGK
-	 V3Mc9I94rrSxQ==
-Message-ID: <418a80a9-8c08-4dd1-bf49-1bd7378321aa@kernel.org>
-Date: Tue, 25 Feb 2025 14:05:37 +0100
+	b=d47K0QFRSLdcdX0nD+KtNaCOGDpTlgBNw6lPZNCHDEZ3FeCgagpIeOzVPJyynOuk+
+	 yzsP4pae492Uxp7xgvd/WjiVUHP5RThb7MOBoWNKvCCkq34wn8xDTJcd+kJeqihudE
+	 RTkZFsz1m8VmYbl0EsBSNQkfgwJBvTxGMdB5SHMzh6cYq5zPfLkIxTxq6URVHv+nB2
+	 6ontFnxE/QKey+ubACx4EHJRTprNfrhkvGHyGUVahLvEaQd5zlTZ3W82d4MIyA2oT5
+	 sfScxaoA2pZsdL3AKg2HhAnr5nUUOTk5KQuid0kNJfC4kJBOXGd1rKpzK0mK9nhzT1
+	 JdiPHGm+nrdeQ==
+Message-ID: <2bfb37fe-6e6a-4f9a-82be-5776935563cc@kernel.org>
+Date: Tue, 25 Feb 2025 14:06:54 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/9] ARM: dts: stm32: add Hardware debug port (HDP) on
- stm32mp25
-To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>,
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250225-hdp-upstream-v1-0-9d049c65330a@foss.st.com>
- <20250225-hdp-upstream-v1-7-9d049c65330a@foss.st.com>
+Subject: Re: [PATCH] arm64: defconfig: Enable iris video driver
+To: Dikshita Agarwal <quic_dikshita@quicinc.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Vikash Garodia <quic_vgarodia@quicinc.com>, Hans Verkuil <hverkuil@xs4all.nl>
+References: <20250225-enable-iris-defconfig-v1-1-1ed49c8396bb@quicinc.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,12 +97,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250225-hdp-upstream-v1-7-9d049c65330a@foss.st.com>
+In-Reply-To: <20250225-enable-iris-defconfig-v1-1-1ed49c8396bb@quicinc.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_050544_360668_166D2BE9 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20250225_050659_452836_A296AD01 
+X-CRM114-Status: UNSURE (   6.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,30 +118,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/02/2025 09:48, Clément Le Goffic wrote:
-> Add the hdp devicetree node for stm32mp25 SoC family
-> 
-> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-> ---
->  arch/arm64/boot/dts/st/stm32mp251.dtsi | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-> index f3c6cdfd7008..43aaed4fcf10 100644
-> --- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
-> +++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-> @@ -918,6 +918,13 @@ package_otp@1e8 {
->  			};
->  		};
->  
-> +		hdp: pinctrl@44090000 {
-> +			compatible = "st,stm32mp-hdp";
+On 25/02/2025 11:09, Dikshita Agarwal wrote:
+> Enable the building of the iris video driver by default.
 
-So here again - you have stm32mp251 SoC, but use entirely different
-compatible.
 
-Same feedback as with previous patchsets from ST. Please take it inside,
-digest internally and do not repeat same issues.
+1. Why?
+
+2. This was already sent by Neil...
 
 Best regards,
 Krzysztof
