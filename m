@@ -4,58 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B02DC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:39:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3527CC021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:39:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mRmGkYw2i3QBqSGNd9jsr75hVO1HJ1J9ighulQhyC1E=; b=S+7movefThFd1siAqdl3KnQMkO
-	+rP1ri2pDyNgz6yYa9F3eKgw/1mSiS3V1K3Qm428Iwk2+Te6+qok7U6YcosjdIBt9ooWsVRIg7VYk
-	dbZg6mrrOeMEUNuaig1q1stD7RHKahAk4Y9FCNFO2Fgf+uBxQp0emVOMkXBy4yf2jBs9D6juP2LjL
-	L0s/YgV7SFkWO6kPDqTU2WXu4s5Of4tGxCi9uUaJ9CXmQiZd3owAKtiWI57VwpVhad9j3bRJKA3LS
-	/+bdSrkVpYEDpvU2TldrWqnkE8FhzJD46RZXZ9OEetD5+3KqU7r8DfC/mC43+feFc1Ciyg9CU6uG9
-	6ZjML7bg==;
+	bh=tPd/d1lS+e5D1SoZ8oB+qy8yBKc1e4tlJLwqgs9YB9g=; b=ARIGJkGADsPogz3hLSZ+v48soH
+	MXJA1osh6NfwjSfqXFObVTU17KWLVlmogceDJoviSIfsP85t7FJLlE5tI8UulqxQVT5AI7q+uashf
+	MkvSYOJlCBCDCclEi/gVBdQCP88QYWjwemOh/SAfKg8SGhBjal6LcwOi9JahoJX6oM4mFamgEXNbv
+	4HGzn6IsrBQrqoi0Mv7vksZiNZBl0kmskX190g7G+LprqGGL3/2VDGpFUXAMc660NwyG++1x7u5gw
+	K8fV88crILjPR0Sjeu/O6lvk6egjgGEi1VJ9pOMmwzx4TZAepWbJbOkfw3Aedacfy/LKIzN3OFnlK
+	TB/8Gp3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmxxo-00000000Gzx-3s9Z;
-	Tue, 25 Feb 2025 16:39:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmvYC-0000000HSlp-3MS1
+	id 1tmxxq-00000000H30-2ZqQ;
+	Tue, 25 Feb 2025 16:39:22 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmvZ8-0000000HT0G-2Jq2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 14:04:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 15760152B;
-	Tue, 25 Feb 2025 06:05:00 -0800 (PST)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 49A9A3F6A8;
-	Tue, 25 Feb 2025 06:04:42 -0800 (PST)
-Message-ID: <34a0b098-d9c5-4605-8ce7-abd6fa59d38b@arm.com>
-Date: Tue, 25 Feb 2025 14:04:29 +0000
+	Tue, 25 Feb 2025 14:05:43 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5e04861e7a6so10576209a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 06:05:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740492340; x=1741097140; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=tPd/d1lS+e5D1SoZ8oB+qy8yBKc1e4tlJLwqgs9YB9g=;
+        b=dDqfKW68Kp0zOIPPZVsRqwSb2QwvZMD8uJouBeGqxxOl2/E3QpJ4ZVtFLhKHwgW5qq
+         MkAslGVUgkia0rzZcpMN/PoJ34Nkmr0FgcyxLtndIRzaWHFwEmEx3zpFiwyuVPuqVwUK
+         FzRmhpQx0WJqBO+p4i7o5ndsGK5ek91nTo4lhbXw3S2b8qYqIsobTfsbWDxjz+q3h8PV
+         1DzaZFO31gn5ysmrz8I7tyK3f4w7rw9cdnRl0Ttdmqxdtn7qDqKfw2I/RI2zKN35g5QL
+         ga3D9F/lI6HwvEv3r1NEylTLFn7uiqGT4mB0tYymlBwcjktKbFnZsyRW1XIilah33uMu
+         S/7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740492340; x=1741097140;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=tPd/d1lS+e5D1SoZ8oB+qy8yBKc1e4tlJLwqgs9YB9g=;
+        b=AcIlr9N8GLKYpGbd2XlfIXdCSDFKr4OoFSoAyyDypaJIzZkpelRRkcby8tvqsuH78w
+         PqvYHexQtMnIsUSt0zhlrMhJSOx203o4eM+qLOFEAIxLnQWxnV9YUAXdomBqZMrz6D08
+         /o2M/y7NuA3z1+AGyCRj0APWRqFuuE/oqlHnmb6zVERS3dt8g1+W8Npkn3J5TG9IQgO8
+         mA/W6jWpWbrMEgNi6ZJAUuzfhjKhdsohM3A7Ky1UvXKga12OZINOTnBo31wDcp9aPuo0
+         YPoZ8lNpwcRUS+wgEj4Ife3JIHsTC01QiGlJNwzSZFiwle3wYYzGFiRUkqnTb4X+63Yn
+         Ygpw==
+X-Forwarded-Encrypted: i=1; AJvYcCUxTKNoUNagfHqwwAtccOBz/c1wpDiX+oJp2i6BSmJdehTxS5wqtac5uODwE677s1a/ApxO0mRlft5senyStllp@lists.infradead.org
+X-Gm-Message-State: AOJu0YyusFBxMj/Hf5KNdMcBwlEsudFWjLWfALfyxAktWDaqBCeU7RUD
+	Iu4TiI6Awk4qCM/iG+m4Y7kdLozIvVj8IgaNtu2Az2KKyFWQB4Wa
+X-Gm-Gg: ASbGncugZU+yhsiBJX28CLyyoutc+IawkKnicSUK6VCXU5bR0EJ5jp971xVpODZEVho
+	3Xe1nYpcSoEzvoiFb0NWreR46wWzkjHVUe+jSMAaW+t/vtsyRJc8CBkeOjEJ4leKLeZ3MoB5jEO
+	4BMtxCoj0nSemtSmRg65dpg4U6h2oN2gNmWZyQkBXNJjCghTXm6M3UjiPe9LrinF6ME9WcS3P9m
+	P8PxLcXu7g9R1IV1FBYDRjHGRa9pKWgyc1Hy3+CJY9Y4P/j3e/Pb8M3bndK00bRSL0Z6gxC77XA
+	4jUnlHJp/qSW0zn3cuSW4QgRYVH61fD0VS0CezZ400yCiMjfJUA=
+X-Google-Smtp-Source: AGHT+IEduCdNbL7IFjCYL/sa3Uw1eSpI/ch7S+DMg3yhWwQhhBhMD+Xp89Ze8+kev4lk/55fC5U9WQ==
+X-Received: by 2002:a05:6402:1e8c:b0:5de:3478:269b with SMTP id 4fb4d7f45d1cf-5e44ba3ff2emr3170354a12.32.1740492339723;
+        Tue, 25 Feb 2025 06:05:39 -0800 (PST)
+Received: from [192.168.6.238] ([92.120.5.7])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e45b716aadsm1258001a12.36.2025.02.25.06.05.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 25 Feb 2025 06:05:39 -0800 (PST)
+Message-ID: <cd6a84cd-ff17-45df-becc-9bfc74522f73@gmail.com>
+Date: Tue, 25 Feb 2025 16:14:34 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] dma: Fix encryption bit clearing for dma_to_phys
-To: Robin Murphy <robin.murphy@arm.com>, will@kernel.org,
- catalin.marinas@arm.com
-Cc: maz@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, gregkh@linuxfoundation.org,
- aneesh.kumar@kernel.org, steven.price@arm.com,
- Jean-Philippe Brucker <jean-philippe@linaro.org>,
- Christoph Hellwig <hch@lst.de>, Tom Lendacky <thomas.lendacky@amd.com>
-References: <20250219220751.1276854-1-suzuki.poulose@arm.com>
- <20250219220751.1276854-2-suzuki.poulose@arm.com>
- <68405608-564c-4e79-9cbc-545626e736f1@arm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <68405608-564c-4e79-9cbc-545626e736f1@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH 4/5] arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
+Content-Language: en-GB
+To: Frank Li <Frank.li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Daniel Baluta <daniel.baluta@nxp.com>, Shengjiu Wang
+ <shengjiu.wang@nxp.com>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250221191909.31874-1-laurentiumihalcea111@gmail.com>
+ <20250221191909.31874-5-laurentiumihalcea111@gmail.com>
+ <Z7jahtO3bxjkMfnc@lizhi-Precision-Tower-5810>
+From: Mihalcea Laurentiu <laurentiumihalcea111@gmail.com>
+In-Reply-To: <Z7jahtO3bxjkMfnc@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_060444_884207_BA58B6F5 
-X-CRM114-Status: GOOD (  15.39  )
+X-CRM114-CacheID: sfid-20250225_060542_596408_B0B8E807 
+X-CRM114-Status: GOOD (  23.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,63 +106,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/02/2025 11:25, Robin Murphy wrote:
-> On 2025-02-19 10:07 pm, Suzuki K Poulose wrote:
->> phys_to_dma() sets the encryption bit on the translated DMA address. But
->> dma_to_phys() clears the encryption bit after it has been translated back
->> to the physical address, which could fail if the device uses DMA ranges.
+
+On 21.02.2025 21:56, Frank Li wrote:
+> On Fri, Feb 21, 2025 at 02:19:08PM -0500, Laurentiu Mihalcea wrote:
+>> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 >>
->> Hopefully, AMD SME doesn't use it.
-> 
-> ...by which you mean we don't think any AMD systems are using the ACPI 
-> _DMA method to constrain physical DMA ranges, otherwise SME with dma- 
-> direct would presumably already be broken by this lookup going wrong.
+>> AIPS5 is actually AIPSTZ5 as it offers some security-related
+>> configurations. Since these configurations need to be applied before
+>> accessing any of the peripherals on the bus, it's better to make AIPSTZ5
+>> be their parent instead of keeping AIPS5 and adding a child node for
+>> AIPSTZ5. Also, because of the security configurations, the address space
+>> of the bus has to be changed to that of the configuration registers.
+> The orginal 0x30c0_0000..0x31200000 include 0x30df0000, why not map only
+> config address part in your drivers.
+>
+> Frank
 
-Yep, that AMD systems aren't using DMA ranges.
+
+Any concerns/anything wrong with current approach?
 
 
-> 
->> Anyways, let us fix it, before cleanup
->> the infrastructure for supporting other architectures.
-> 
-> Reviewed-by: Robin Murphy <robin.murphy@arm.com>
+I find it a bit awkward to have the whole bus address space
 
-Thanks
+in the DT given that we're only interested in using the access
 
-Suzuki
+controller register space.
 
-> 
->> Reported-by: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
->> Link: https://lkml.kernel.org/r/yq5amsen9stc.fsf@kernel.org
->> Cc: Will Deacon <will@kernel.org>
->> Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: Robin Murphy <robin.murphy@arm.com>
->> Cc: Steven Price <steven.price@arm.com>
->> Cc: Christoph Hellwig <hch@lst.de>
->> Cc: Tom Lendacky <thomas.lendacky@amd.com>
->> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+
+I'm fine with the approach you suggested but I don't see a
+
+reason for using it?
+
+
+>
+>> Finally, since AIPSTZ5 belongs to the AUDIOMIX power domain, add the
+>> missing 'power-domains' property. The domain needs to be powered on before
+>> attempting to configure the security-related registers.
+>>
+>> The DT node name is not changed to avoid potential issues with DTs in
+>> which this node is referenced.
+>>
+>> Co-developed-by: Daniel Baluta <daniel.baluta@nxp.com>
+>> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
+>> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 >> ---
->>   include/linux/dma-direct.h | 3 ++-
->>   1 file changed, 2 insertions(+), 1 deletion(-)
+>>  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 8 +++++---
+>>  1 file changed, 5 insertions(+), 3 deletions(-)
 >>
->> diff --git a/include/linux/dma-direct.h b/include/linux/dma-direct.h
->> index d7e30d4f7503..d20ecc24cb0f 100644
->> --- a/include/linux/dma-direct.h
->> +++ b/include/linux/dma-direct.h
->> @@ -101,12 +101,13 @@ static inline phys_addr_t dma_to_phys(struct 
->> device *dev, dma_addr_t dma_addr)
->>   {
->>       phys_addr_t paddr;
->> +    dma_addr = __sme_clr(dma_addr);
->>       if (dev->dma_range_map)
->>           paddr = translate_dma_to_phys(dev, dma_addr);
->>       else
->>           paddr = dma_addr;
->> -    return __sme_clr(paddr);
->> +    return paddr;
->>   }
->>   #endif /* !CONFIG_ARCH_HAS_PHYS_TO_DMA */
-> 
-
+>> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+>> index e0d3b8cba221..a1d9b834d2da 100644
+>> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+>> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+>> @@ -1399,11 +1399,13 @@ eqos: ethernet@30bf0000 {
+>>  			};
+>>  		};
+>>
+>> -		aips5: bus@30c00000 {
+>> -			compatible = "fsl,aips-bus", "simple-bus";
+>> -			reg = <0x30c00000 0x400000>;
+>> +		aips5: bus@30df0000 {
+>> +			compatible = "fsl,imx8mp-aipstz", "simple-bus";
+>> +			reg = <0x30df0000 0x10000>;
+>> +			power-domains = <&pgc_audio>;
+>>  			#address-cells = <1>;
+>>  			#size-cells = <1>;
+>> +			#access-controller-cells = <0>;
+>>  			ranges;
+>>
+>>  			spba-bus@30c00000 {
+>> --
+>> 2.34.1
+>>
 
