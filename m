@@ -4,93 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02678C021BB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D83BAC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:41:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l/sg7omSvJw4OhSWVma2ygvtz/i44Mb1jIOoIOn0G+U=; b=BRMx/cBwgi5uk/ADSpDWyMK8xn
-	gYz0Mt0Iqod3A5HFIK9X5pRLw0hQ2X8YCh5Z79q8oV/eSbBJAJdShrUWQ8uKi8kABfR6G9DTciOyZ
-	MRHR3DNz7jtVVR9b/Xk9u0U7xuabHqXY7bE3mN8SoXd8PLgYfzECuuBVLTawK/QmNaUIk0mD2EfFL
-	3TNMXB+hOcJNAQSTrW1+ILYpJdmkEysbN566Nvwse/79/BeCBldvf+ic1xPhvkT0avTS9An1hhpnD
-	9lNzVXL4hFcrPnBKYNaYjOt42oU/1fEOIyMbEaAwVJKV6mmx422qrdTWwHAwhvpRUenZAl1PGVKch
-	qvUnMPtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QTUxDrNQv+XTym9eeqeL2q0sswEM6ZCeFbI/+IB53FY=; b=MHilKlUKRe5C402P52ojxQi+n3
+	2l+JEdIWtn00Pcx6byrmYw7wQVPCe3ZA70gJS3zHsN5Ks+JAaPmz7QE86ia2COOqlYTmaAInwmE4f
+	Xy3SpUh8o0Rvd1yfLpNVHa0fDMX8kiZq+NoQrd6r3Wpez3oBu1N6D+ncrG4Cv0Ppu/9XKn23COTFN
+	EEE8RLMOs+YnN2Jetmi46e7x2UN5HuRUByTCsjQl3+EfjTLZyubnPkG5X+WcsjHisoQm2UoXUFCeK
+	fBNbG7Rvwnk6yPv5UoADBNFv4kE77QVkU8KzX4eFp9ILMp+zf62ByxIEnVOlLMB9ZblMi81mlZIeP
+	unNbk4cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmxzq-00000000Jth-3mKr;
-	Tue, 25 Feb 2025 16:41:26 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1tmxzt-00000000JxX-01Tn;
+	Tue, 25 Feb 2025 16:41:29 +0000
+Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmw3O-0000000HY6Q-48yx
+	id 1tmw5l-0000000HYW3-1hTr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 14:37:00 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-439846bc7eeso35980435e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 06:36:58 -0800 (PST)
+	Tue, 25 Feb 2025 14:39:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=I5r/SgZsiozoTDsPbyEI3uAdUL6ZmLEJMQG9WDfPj6zvklSWXVA7puNXseYRByxU28rZKVvVK3LbvniONaada5QMGZ1NsMJ/lkuTX6UwxsZYcyYL7tlTZx2s3E1a8OpXYd0luYEOoqG9JiSFA5Q4cZ9XwI1+WwVLd2Q8CIA8zg2uQ1Raf3WR2XMkI4aogVNx0HEv53niW2aqMCadCwN7A5RzQ5084uqIRhJeKJJ5byndMHe99YfOhErIrsPl1pzYcCtUJyRDzZ+V4z0OJZ/8C7dpU7cELoR2EGox25IuNu1vS0f4KZRCPOCh2kba+XRLrdoY/Td1NRhp62L7XtNCkQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QTUxDrNQv+XTym9eeqeL2q0sswEM6ZCeFbI/+IB53FY=;
+ b=KRCgl7IZ8LZv5Agmcvln+0NOVK1ri7d5IBItLV8eQ3pbLInM4weIZE/QC1kq7KJ4SobgEK2Bsy7HPQQy5Ktc/9WZ+7Qy7wFVIBy+nmuqtYm8E939OXntF+Oa8a+E/G2LZYxCsSlzU6j15wd0xKOu1VMT6HmC0iz+XzVr+O23VIpaJmsIG98Izh/v3al5FZevCDHiY2t3czgIsgW5EV/FXrmjTfmhJ3tku4+I02YjPKrAvOz9LfLTahzMfZhAfjwcqgaJ3nQ8uCohL8PGiePJl8rot9y9l4d+7uA20VsnilQChCLdPg2qDn/vxoijNJcTfXpqNjG46p72i/aK5P2E3A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=gocontroll.com; dmarc=pass action=none
+ header.from=gocontroll.com; dkim=pass header.d=gocontroll.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740494217; x=1741099017; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=l/sg7omSvJw4OhSWVma2ygvtz/i44Mb1jIOoIOn0G+U=;
-        b=cqm6jMRwFck1Q1e+JCenJfVMsuWEZKD5Ej6kAv0ZddsNvAqS9Fksxpn6aruHIEB8r2
-         Q8oaRmRTnySQy43DP5KP0GvIs9+HgtKyCU3lw+S+aQjAYWRT0ja4B3fi6hT5rZhiFwDv
-         ybt7qon3oBfEfxbXYXypvd3o8fdaW2bKmcMJN9yQfh4aXUb3kYhquLX9UmqaKeIyHXBI
-         +3XUhQ3Uu8YbyyANf+wk7dyXmqUNIr7SfRjASgJrwjq1RD/1PTnTugDJKxp5Ek9SE+dF
-         BuAwcT8qfClT4Lrp9Cm1vAuQ+MIPXqLC3gPSpoEPHWg/ymJocPdMUmuwnBsYsyFHEvur
-         Xh6A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740494217; x=1741099017;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=l/sg7omSvJw4OhSWVma2ygvtz/i44Mb1jIOoIOn0G+U=;
-        b=Gbl+TlpspFS3AcQ47X9A9gF6W5HlAkBpl9Fjw3MRhngv3CPwsKc02hXEp5grkIn8it
-         O2+2PfXUp4CzTOFA1UcJZFWeE2q+Q7IIBGTCFYB1wHr5c1IdM+mGNf74okUKOoe97L+0
-         Hk0H5ukhGtJLyZI0iIwIXs9k+HMIh2brl+by3jA5foZsn5C6CX2rQwr0yuX4O+Jk8fJ9
-         B+s0ndOShLfiR7QCuyDfDQ++kX67t8VpyKv/e8d6vQl17TTJVyEo4ljUxEMUNCfHLvTb
-         +Gw9okBTBgEcohGVC//J7W/23OtIy3IiJ3oWpbiqpVbI464cKouMoq5R3iPFYq9/PRy8
-         Tbuw==
-X-Forwarded-Encrypted: i=1; AJvYcCVOdrG0zgd6sKlALR02tGDSGhgYeiAyrhYIHPQdxR1zkV0koHLgeL3gozvhG3XZy8dPBoaOKmqqDMaCnPd9nYgY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7vCz4LYwXXF5hKBPgd1GL1KRNEWTZrsj+1/6T46aO3TVzHytW
-	lkG/vQB2OXZYBq4lxfc9pZwv/x/mp09TD31rAqIqwOK2ATM4n0zD
-X-Gm-Gg: ASbGncsYpGb/9X7+OA/0RgnzapIrjdN7ZlNGax8OhQqKiLh5C+XxEMJ7DKHsKS2P8Ck
-	AuMMsY+QozPIfB02u8ZOn00SqW/+KtPilwEd6n02zfbvWKKpue6Sf3+pp/T8kD+kZ3oTW3xwcuM
-	18T6zcrVcMgGmVy5iKWDxVXz/cmgf45qC+PviUphyPAixbO6vsgwJ/lVy6JAjseQ1OsvOjiRnnx
-	YzOXUlZuC/d8b6Ty+lhuRq3O6TeW+zIwwn8afYyRGFX+pTXKz765znvxcN3wWlvxxZnGXSns+W6
-	6Dgfzt0hIxBi35rNsi2jtj6HG8p2yhAq6VkiwDISXl4KJPaV23uXOP/Xy3ztRUg=
-X-Google-Smtp-Source: AGHT+IFPeiOcFGyA9KgALMCP8R9zH2itjkDt9MTElBJ+IdcbxwJLf0w1wOrioUPVxCe8w88V34Lxxg==
-X-Received: by 2002:a05:600c:3b1e:b0:439:9698:d703 with SMTP id 5b1f17b1804b1-439ae212960mr145877145e9.23.1740494217035;
-        Tue, 25 Feb 2025 06:36:57 -0800 (PST)
-Received: from Junction.dargent.eu (242.76.29.93.rev.sfr.net. [93.29.76.242])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390cd8829cesm2474493f8f.49.2025.02.25.06.36.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Feb 2025 06:36:56 -0800 (PST)
-From: Regis Dargent <regis.dargent@gmail.com>
-To: 
-Cc: Regis Dargent <regis.dargent@gmail.com>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	linux-watchdog@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3] watchdog: sunxi_wdt: Allow watchdog to remain enabled after probe
-Date: Tue, 25 Feb 2025 15:36:38 +0100
-Message-Id: <20250225143638.1989755-2-regis.dargent@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250225143638.1989755-1-regis.dargent@gmail.com>
-References: <20250225143638.1989755-1-regis.dargent@gmail.com>
+ d=gocontrollcom.onmicrosoft.com; s=selector1-gocontrollcom-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QTUxDrNQv+XTym9eeqeL2q0sswEM6ZCeFbI/+IB53FY=;
+ b=AXGzZrhCRkpXeGLYJef6Fin5AqACRhRf8iCXimdCmWHh4IdYbo717J4RpCaNFB/WOfJFfvM5ISqnsMeUPNNpM1ahdQI4IL0/GwWiHmuiyik/XvJABWY1DPLgrGXzIkp9aW/3+LygAVa5x4mdJU3hXDmzRDL9aIXF7Y03AIhJ9OS0KxKxzfgGhG3LYJhDebalhZrHs+fuS6n4LncuivQKZ0aiQW2+dxOivAkGgz1IunuVJfE7WARtnFuwSe2Nj6oFBiD7aP5ErMCwite+g5uVcBAI2Ko89gBIoZPLaoDVWsPP2WkhDRcuBMJIuSHebQy3qXWd8ljTxiDzF5N7AqAMOg==
+Received: from PA4PR04MB7630.eurprd04.prod.outlook.com (2603:10a6:102:ec::16)
+ by PA4PR04MB9269.eurprd04.prod.outlook.com (2603:10a6:102:2a4::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.20; Tue, 25 Feb
+ 2025 14:39:16 +0000
+Received: from PA4PR04MB7630.eurprd04.prod.outlook.com
+ ([fe80::311b:ad3a:4a62:7b5f]) by PA4PR04MB7630.eurprd04.prod.outlook.com
+ ([fe80::311b:ad3a:4a62:7b5f%4]) with mapi id 15.20.8466.016; Tue, 25 Feb 2025
+ 14:39:16 +0000
+From: Maud Spierings | GOcontroll <maudspierings@gocontroll.com>
+To: Rob Herring <robh@kernel.org>
+CC: Krzysztof Kozlowski <krzk@kernel.org>, Neil Armstrong
+	<neil.armstrong@linaro.org>, Jessica Zhang <quic_jesszhan@quicinc.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Thierry Reding
+	<thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>, Liu Ying
+	<victor.liu@nxp.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH 05/14] dt-bindings: trivial-devices: add GOcontroll
+ Moduline IO modules
+Thread-Topic: [PATCH 05/14] dt-bindings: trivial-devices: add GOcontroll
+ Moduline IO modules
+Thread-Index: AQHbhsMosk0/ripJzU6HkH3zRHdpDrNW7EQAgACtnhWAAFAuAIAABT4ZgAAkE4CAAAFNQQ==
+Date: Tue, 25 Feb 2025 14:39:16 +0000
+Message-ID: <PA4PR04MB76303307674B66B4118CC3B1C5C32@PA4PR04MB7630.eurprd04.prod.outlook.com>
+References: <20250224-initial_display-v1-0-5ccbbf613543@gocontroll.com>
+ <20250224-initial_display-v1-5-5ccbbf613543@gocontroll.com>
+ <20250224204428.GA4050751-robh@kernel.org>
+ <PA4PR04MB763009E88F6406CD84ACBD33C5C32@PA4PR04MB7630.eurprd04.prod.outlook.com>
+ <20250225-smart-industrious-groundhog-41deb2@krzk-bin>
+ <PA4PR04MB76306D77C93FF2C51524BD95C5C32@PA4PR04MB7630.eurprd04.prod.outlook.com>
+ <20250225142043.GA2173114-robh@kernel.org>
+In-Reply-To: <20250225142043.GA2173114-robh@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=gocontroll.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PA4PR04MB7630:EE_|PA4PR04MB9269:EE_
+x-ms-office365-filtering-correlation-id: 2502bd7c-4a28-40b4-d748-08dd55aa2e52
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|10070799003|376014|1800799024|7416014|38070700018;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?yqxn6geKtpJ78H9R3TyicCVa3DBzpi7EH8yvRW8UYBORvsyYU2JhNZ4o/K?=
+ =?iso-8859-1?Q?+jBXIt5mSNGOKKF7fG6pS5S5t1PGlafIuS4WclWYtsXCkFPbcjKsEJlq3P?=
+ =?iso-8859-1?Q?NZLzkrjhgiI13oX9V/tYCDLsZgLM8bNk1PmvB6pEbeSSjnHtBw8qvfJEjf?=
+ =?iso-8859-1?Q?8VbZcgOjXcPK8+IBG7NCgOeRBSDOz+o5Kb29h/lfvDw6xMiTTcetSUpFmj?=
+ =?iso-8859-1?Q?UWNAjsM/gR9wMlKrBMc4Ip/rAm7UIhhjmylnkgEGUQucswoN+gpgWi2sQd?=
+ =?iso-8859-1?Q?Wc3M640tfDBhz2eEzXpyzNLvIGKb1NneqUCcwLCrOZV2A8cRVs2WqkA6BM?=
+ =?iso-8859-1?Q?McMp4dzTPPpC5MuTVu0LOLHjI0Fx7O0OPafYxpi8WwaJvKeXCJUWzgcSzy?=
+ =?iso-8859-1?Q?x1H8v0/Y4o6OICPIGc4m1qW+YEfiXNOBSdVFjhx5gKZlXm2mqQTtiWWb5d?=
+ =?iso-8859-1?Q?b3rIT+702zvNME9VLqNFt84a3dGELUtS6jJc1AA78e82CpvZKW3dy8civL?=
+ =?iso-8859-1?Q?rQCx9YBEQ6gk9eQNRtYpRQ5muogpj/dc3hF53FdwUF4jLyMRZ+LedbU5Nu?=
+ =?iso-8859-1?Q?c3sMeHx2I2k0MATlonuL8DMeK45sPZpLHfhCeDWIVFq66qdYkm40j0JUAu?=
+ =?iso-8859-1?Q?T/DJ+I6J2RhR7EKZukYfuw14iEn4cSVbxHfzVf+40vof589f7zoUT6Ejqa?=
+ =?iso-8859-1?Q?iifoXDXAjhdmh2BXZF74v5aFNuthvTEW16nfnaGXvr73QG8zyTYRjqVmn+?=
+ =?iso-8859-1?Q?zyQTawZ1nmtQ3yShi1VhRlPv5dwgQXyM0uxdjS5kQSY27mddUoGcZdeOeN?=
+ =?iso-8859-1?Q?Iu485EHDhAe58X9BykvktLrtDrtxRmE5+Or/LMILhkhOJpD9Zn/2ZXN7Pg?=
+ =?iso-8859-1?Q?M68PV4x+ffAplYxQ4jCy1A+zjCCs51FPYg0YwXgSA6fPoUSv+SoHUKsNOo?=
+ =?iso-8859-1?Q?PmUp8RdOygNoRsOzEs9PGxzCAeU+xnirmJGZIFrPQOPnq+WCiva06fccsh?=
+ =?iso-8859-1?Q?Al0sPunekt1iW0MNEEXLw0JTvjPS2xImvDDDQeBDA3KfVXaHuEV+EjkcuS?=
+ =?iso-8859-1?Q?yGdwat+T9sbydBEMyif8ph0t4AgaqQZpygy2pGgS4+diJJ+QfwmmZi7qzi?=
+ =?iso-8859-1?Q?lywyHa23Isg/oh4mFY9fT1bfIeuqCUpXwtkp8ZzD4fTYJzEdno6LfGz42Z?=
+ =?iso-8859-1?Q?6FmMC/6XJhQIXGa54EeLg1MV9hRJMuN8AS4mt69y3B3hKSsJW8+J+7v0Bk?=
+ =?iso-8859-1?Q?Nlsvgk5edrYUpeX4Kl9jwatzmSPv6GrtbLtu2tT3fUi+o/aXLoIr8NSfKq?=
+ =?iso-8859-1?Q?SCAoI4Cd39qVTIixREzHgEvZbr+ULDJAzyD1dh6FNUf/IQGg6NWbCDeSw1?=
+ =?iso-8859-1?Q?I1WC9hqTA/7zgy8JNUFv5GzTERywCXfs1Ld0mcepNBfSLsy2fwLpjzoQ5z?=
+ =?iso-8859-1?Q?ZSJcj0R92OUJTqHR/fSxl+o50ViORthhM5f7f4zC/rhv+jm98uFPiWBpkc?=
+ =?iso-8859-1?Q?TXAzmg46kan/usK63E/961?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB7630.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(10070799003)(376014)(1800799024)(7416014)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?P140BimaGm8enNYiTcrD/v5JtTL/uCCEehdVOM3VnIUjBwv5XgrNBLxeHZ?=
+ =?iso-8859-1?Q?qSPasWsmQa1af1dLhSS6Z2x3qDFDTqHEz8+kbAKA20/pwB3tkdWBoBuUX8?=
+ =?iso-8859-1?Q?KT2DahbqlLxz6XY0iBy6rHOGTlO5pjffQsI1gTli+AuGIPk7h7Y+aPsoPG?=
+ =?iso-8859-1?Q?2GRlpS9V5c+qQQZiir/02lBoUtVzDmpWYOktIZfAg1RByQhkbRIHX16A8D?=
+ =?iso-8859-1?Q?ramu7Sd+PXY2c9B0xoTpgwiUTNGypKjQ+tPmyd4r+zH7N4BhobubK+qqqj?=
+ =?iso-8859-1?Q?wlUy0MNv/PqEXWqglxkpqmTBCdWyZO/cm+ouvPnDvRO9CVL28SBCpVmOBL?=
+ =?iso-8859-1?Q?QPt8+UFS1w4qmn2MzCOB63YIiY/hv7ZyIWMbL2uvbYWxNcRWgjBirvZHmJ?=
+ =?iso-8859-1?Q?xAYxLW7QHjJxoBuVH2BWhvXNNmLe3Emei7j5S/LEOpN8x5bhKFXQivDRD9?=
+ =?iso-8859-1?Q?wojyAMU38ebTubapkrstdR5J2heDGlgD+wka2iPkIcy1c7iIkd/Co1Cn9T?=
+ =?iso-8859-1?Q?WaBJqZurZgPZAdX+O7gQuamPGZjuOYZ7YA8pR028mVlnsqfXFyj9Fn6niy?=
+ =?iso-8859-1?Q?AbabRbHvJiI1zunIdDTKm1+SuEpp4hlBim00BoYG5WSwSj/MmQvE9bZyzx?=
+ =?iso-8859-1?Q?QGgUvi+WMHA1nd4bhY7StYg7vWtnBwhfq0EU0+OXizoJwr3Eyz+ZeAJy1u?=
+ =?iso-8859-1?Q?05aUMPa5DMp7W1lyj43v4lGZCMy97gNGkWAl2ABuD2vxRYgdvB3JYcYUY3?=
+ =?iso-8859-1?Q?09PRBUe5dFhjNeWIgzLSgFnu2M8Arc6v5H2Vefw5E1IimuGDgrjDxdbxHF?=
+ =?iso-8859-1?Q?Cy+Xvu+znqyKgPy87xJhPcc/RZHC4ATADZwrxOg59ff6Y9RozRaIzGIQtR?=
+ =?iso-8859-1?Q?JsXIIBINHOqatKX3LauxP79j+dYQdKB2jYi0FX127K5Wt7g4QoUrCHn+zZ?=
+ =?iso-8859-1?Q?IeldHMS/A+WRNQ8PCFSbq6U8nZ7li0ltXTGOTLSbRz6TafaYZ3NHAa4Waf?=
+ =?iso-8859-1?Q?g46/6ghudYmVx/egpGtWQlu5KHBIKZdO1+fUaYeBxC34mWXapBcaJR2UQD?=
+ =?iso-8859-1?Q?S0Xhyt2NhE0Nn2p2FVnELimqbuLFSZqUlRa08bm4AUhr4O8q3x5mJsV956?=
+ =?iso-8859-1?Q?CVZ9SGi8ECneMAzQhxIegm5uo5+e6RIuyfTf9xSXrxXPsgLRQJ5R+qYGIB?=
+ =?iso-8859-1?Q?aI2UhZlx2ScepBo1ha4SR6MVlKyHgyAU84oW5VOLc71bsZrV8DVyDHk+D/?=
+ =?iso-8859-1?Q?rwLiHu6HODy881KAzcN0rHytDz02iRBcYgGEYPNPWh4fLIyxYAOWHb0CX4?=
+ =?iso-8859-1?Q?VAmWDPxf3ggXd9d88r8x6gRWA1HRMgl8sD2N7rtuD7A4dFUWWg0iMX6LG+?=
+ =?iso-8859-1?Q?joZuZ6/vprbJbpD8X/DwQiOZfQu5PtwiTu40N6P37bFZnHYK+6I2nkkOV7?=
+ =?iso-8859-1?Q?ebXNlCGYFpVPuU2uFM0B8hJPHpmdQqrQyoI5/atik9rAmLUJQ2/Ebs1CFL?=
+ =?iso-8859-1?Q?lnf+0q03mBjWoOfl8mR3NoKbj/kDfRNIU++P2xW2Ryrck8lRaFREEG0Ddu?=
+ =?iso-8859-1?Q?2NbAvuf7302sH/ncjLh83AGde15VTwkIyDuEIyOJFf32SGopqgIPwYa5Wr?=
+ =?iso-8859-1?Q?o64vCp311U3aB0Pv1SsFYKKV7VCsvTCTNrY+gP1L/PV5W5QfuI2yoVlOeE?=
+ =?iso-8859-1?Q?xTITbIz9/M+XdQ4zjfVGQGDMhONkdoNl0S2DfEgsu3oaljvqvcjVgDQIrJ?=
+ =?iso-8859-1?Q?XZmQ=3D=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: gocontroll.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB7630.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2502bd7c-4a28-40b4-d748-08dd55aa2e52
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Feb 2025 14:39:16.6213
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 4c8512ff-bac0-4d26-919a-ee6a4cecfc9d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 4LXZL0fssP0F0IetxvDVX3E/F8Dy8e29J3XiNRZKd1ZFzXOwj5vps4gpPg7AutkbwM1MwrGBHIPYEQ9fzDpb+W146D/6NJkH5XQUqPipjTo=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9269
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_063659_028399_0CDACFAD 
-X-CRM114-Status: GOOD (  17.58  )
+X-CRM114-CacheID: sfid-20250225_063925_614960_94768723 
+X-CRM114-Status: GOOD (  26.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,102 +184,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If the watchdog is already running during probe, let it run on, read its
-configured timeout, and set its status so that it is correctly handled by the
-kernel.
-
-Signed-off-by: Regis Dargent <regis.dargent@gmail.com>
-
---
-
-Changelog v1..v2:
-- add sunxi_wdt_read_timeout function
-- add signed-off-by tag
-
-Changelog v2..v3:
-- WDIOF_SETTIMEOUT was set twice, and other code cleanup
----
- drivers/watchdog/sunxi_wdt.c | 45 ++++++++++++++++++++++++++++++++++--
- 1 file changed, 43 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/watchdog/sunxi_wdt.c b/drivers/watchdog/sunxi_wdt.c
-index b85354a99582..d509dbcb77ce 100644
---- a/drivers/watchdog/sunxi_wdt.c
-+++ b/drivers/watchdog/sunxi_wdt.c
-@@ -140,6 +140,7 @@ static int sunxi_wdt_set_timeout(struct watchdog_device *wdt_dev,
- 		timeout++;
- 
- 	sunxi_wdt->wdt_dev.timeout = timeout;
-+	sunxi_wdt->wdt_dev.max_hw_heartbeat_ms = 0;
- 
- 	reg = readl(wdt_base + regs->wdt_mode);
- 	reg &= ~(WDT_TIMEOUT_MASK << regs->wdt_timeout_shift);
-@@ -152,6 +153,32 @@ static int sunxi_wdt_set_timeout(struct watchdog_device *wdt_dev,
- 	return 0;
- }
- 
-+static int sunxi_wdt_read_timeout(struct watchdog_device *wdt_dev)
-+{
-+	struct sunxi_wdt_dev *sunxi_wdt = watchdog_get_drvdata(wdt_dev);
-+	void __iomem *wdt_base = sunxi_wdt->wdt_base;
-+	const struct sunxi_wdt_reg *regs = sunxi_wdt->wdt_regs;
-+	int i;
-+	u32 reg;
-+
-+	reg = readl(wdt_base + regs->wdt_mode);
-+	reg >>= regs->wdt_timeout_shift;
-+	reg &= WDT_TIMEOUT_MASK;
-+
-+	/* Start at 0 which actually means 0.5s */
-+	for (i = 0; (i < WDT_MAX_TIMEOUT) && (wdt_timeout_map[i] != reg); i++)
-+		;
-+	if (i == 0) {
-+		wdt_dev->timeout = 1;
-+		wdt_dev->max_hw_heartbeat_ms = 500;
-+	} else {
-+		wdt_dev->timeout = i;
-+		wdt_dev->max_hw_heartbeat_ms = 0;
-+	}
-+
-+	return 0;
-+}
-+
- static int sunxi_wdt_stop(struct watchdog_device *wdt_dev)
- {
- 	struct sunxi_wdt_dev *sunxi_wdt = watchdog_get_drvdata(wdt_dev);
-@@ -192,6 +219,16 @@ static int sunxi_wdt_start(struct watchdog_device *wdt_dev)
- 	return 0;
- }
- 
-+static bool sunxi_wdt_enabled(struct sunxi_wdt_dev *wdt)
-+{
-+	void __iomem *wdt_base = wdt->wdt_base;
-+	const struct sunxi_wdt_reg *regs = wdt->wdt_regs;
-+	u32 reg;
-+
-+	reg = readl(wdt_base + regs->wdt_mode);
-+	return !!(reg & WDT_MODE_EN);
-+}
-+
- static const struct watchdog_info sunxi_wdt_info = {
- 	.identity	= DRV_NAME,
- 	.options	= WDIOF_SETTIMEOUT |
-@@ -275,8 +312,12 @@ static int sunxi_wdt_probe(struct platform_device *pdev)
- 
- 	watchdog_set_drvdata(&sunxi_wdt->wdt_dev, sunxi_wdt);
- 
--	sunxi_wdt_stop(&sunxi_wdt->wdt_dev);
--
-+	if (sunxi_wdt_enabled(sunxi_wdt)) {
-+		sunxi_wdt_read_timeout(&sunxi_wdt->wdt_dev);
-+		set_bit(WDOG_HW_RUNNING, &sunxi_wdt->wdt_dev.status);
-+	} else {
-+		sunxi_wdt_stop(&sunxi_wdt->wdt_dev);
-+	}
- 	watchdog_stop_on_reboot(&sunxi_wdt->wdt_dev);
- 	err = devm_watchdog_register_device(dev, &sunxi_wdt->wdt_dev);
- 	if (unlikely(err))
--- 
-2.25.1
-
+From:=A0Rob Herring <robh@kernel.org>=0A=
+Sent:=A0Tuesday, February 25, 2025 3:20 PM=0A=
+=A0=0A=
+>On Tue, Feb 25, 2025 at 12:24:09PM +0000, Maud Spierings | GOcontroll wrot=
+e:=0A=
+>> From:=A0Krzysztof Kozlowski <krzk@kernel.org>=0A=
+>> Sent:=A0Tuesday, February 25, 2025 12:52 PM=0A=
+>> =A0=0A=
+>> >On Tue, Feb 25, 2025 at 07:39:52AM +0000, Maud Spierings | GOcontroll w=
+rote:=0A=
+>> >> From:=A0Rob Herring <robh@kernel.org>=0A=
+>> >> Sent:=A0Monday, February 24, 2025 9:44 PM=0A=
+>> >> =A0=0A=
+>> >> >On Mon, Feb 24, 2025 at 02:50:55PM +0100, Maud Spierings wrote:=0A=
+>> >> >> The main point of the Moduline series of embedded controllers is i=
+ts=0A=
+>> >> >> ecosystem of IO modules, these currently are operated through the =
+spidev=0A=
+>> >> >> interface. Ideally there will be a full dedicated driver in the fu=
+ture.=0A=
+>> >> >>=0A=
+>> >> >> Add the gocontroll moduline-module-slot device to enable the requi=
+red=0A=
+>> >> >> spidev interface.=0A=
+>> >> >>=0A=
+>> >> >> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>=0A=
+>> >> >> ---=0A=
+>> >> >>=A0 Documentation/devicetree/bindings/trivial-devices.yaml | 2 ++=
+=0A=
+>> >> >>=A0 1 file changed, 2 insertions(+)=0A=
+>> >> >>=0A=
+>> >> >> diff --git a/Documentation/devicetree/bindings/trivial-devices.yam=
+l b/Documentation/devicetree/bindings/trivial-devices.yaml=0A=
+>> >> >> index 8255bb590c0cc619d15b27dcbfd3aa85389c0a54..24ba810f91b73efdc6=
+15c7fb46f771a300926f05 100644=0A=
+>> >> >> --- a/Documentation/devicetree/bindings/trivial-devices.yaml=0A=
+>> >> >> +++ b/Documentation/devicetree/bindings/trivial-devices.yaml=0A=
+>> >> >> @@ -107,6 +107,8 @@ properties:=0A=
+>> >> >>=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 - fsl,mpl3115=0A=
+>> >> >>=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 # MPR121: Proximity Capacit=
+ive Touch Sensor Controller=0A=
+>> >> >>=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 - fsl,mpr121=0A=
+>> >> >> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 # GOcontroll Moduline module sl=
+ot for spi based IO modules=0A=
+>> >> >=0A=
+>> >> >I couldn't find anything about SPI for GOcontroll Moduline. Can you=
+=0A=
+>> >> >point me to what this hardware looks like. Based on what I did find,=
+=0A=
+>> >> >this seems incomplete and not likely a trivial device.=0A=
+>> >>=0A=
+>> >> I'll give some more details, if there is a v2 of this patch I will al=
+so=0A=
+>> >> add more information in the commit message.=0A=
+>> >>=0A=
+>> >> The module slots have a number of pins, a lot of them currently unuse=
+d as=0A=
+>> >> they have not found a function yet, this is very much still a develop=
+ing=0A=
+>> >> product. The currently used interfaces to the SoC are:=0A=
+>> >> 1. SPI bus as a spidev to ease developing new modules and quickly=0A=
+>> >> integrate them. This is the main communication interface for control =
+and=0A=
+>> >> firmware updates.=0A=
+>> >> 2. A reset pin, this is/was driven with the gpio-led driver but I dou=
+bt=0A=
+>> >> that would get accepted upstream so I intend to switch to the much be=
+tter=0A=
+>> >> suited libgpio.=0A=
+>> >=0A=
+>> >reset-gpios is not in trivial devices, so that's already a hint you=0A=
+>> >cannot use this binding.=0A=
+>> >=0A=
+>> >> 3. An interrupt pin, this is currently only used in the firmware upda=
+te=0A=
+>> >> utility [2] to speed up the update process. Other communication is do=
+ne at=0A=
+>> >> a regular interval.=0A=
+>> >>=0A=
+>> >> What is unused:=0A=
+>> >> 1. A potentially multi-master i2c bus between all the module slots an=
+d=0A=
+>> >> the SoC=0A=
+>> >> 2. An SMBus alert line is shared between the modules, but not the SoC=
+.=0A=
+>> >> 3. A shared line designated as a clock line, intended to in the futur=
+e=0A=
+>> >> aid with synchronizing modules to each other for time critical contro=
+l.=0A=
+>> >>=0A=
+>> >> current software that is used to work with the modules can be found a=
+t=0A=
+>> >> [2] and [3], one of them is a Node-RED module the other is a blockset=
+ for=0A=
+>> >> Matlab/Simulink generated code.=0A=
+>> >>=0A=
+>> >> If you know a better way I could describe this in the devicetree then=
+ I=0A=
+>> >=0A=
+>> >You need dedicated binding where you describe entire device, entire=0A=
+>> >hardware, not what your driver supports in current release.=0A=
+>>=0A=
+>> I see now that I also forgot the patch that adds this compatible to the=
+=0A=
+>> spidev driver. Didn't check for the spidevs in testing I guess.=0A=
+>>=0A=
+>> Could I write bindings for this device, and then add the compatible to t=
+he=0A=
+>> spidev driver for now? So it probes that driver, and then later when the=
+re=0A=
+>> is a driver remove the compatible there and keep it only in the purpose=
+=0A=
+>> built driver?=0A=
+>>=0A=
+>> So I'll write gocontroll,moduline-module-slot.yaml, don't quite know whe=
+re=0A=
+>> that would go. Define all these attributes in there and then add the=0A=
+>> compatible to drivers/spi/spidev.c=0A=
+>>=0A=
+>> Is that okay?=0A=
+>=0A=
+>Yes. Bindings are forever, but drivers change.=0A=
+=0A=
+Okay that is great to hear, I was afraid I was going to have to drop=0A=
+support for the foreseeable future. I'll get to work on those for v2.=0A=
+=0A=
+>Perhaps put it in connector/ as this looks a bit like a connector. Do=0A=
+>you envision DT overlays for the IO modules? Or modules don't have=0A=
+>sub-devices you need to describe? There's some effort to on connector=0A=
+>bindings (for mikrobus in particular) in order to de-couple host=0A=
+>buses/signals from the modules (i.e. so a DT overlay can be applied to=0A=
+>any DT defining the connector).=0A=
+=0A=
+I don't envision overlays coming in to play here, everything should be=0A=
+probed by the driver. Just needs the socket definition. The IO module=0A=
+bootloader will communicate what type of module it is and what firmware=0A=
+version it is running. Modules can be swapped very easily between boot=0A=
+cycles if the lid is off, it would be very annoying to then have to mess=0A=
+with the devicetrees. For most of our customers that might be too=0A=
+complicated. I am still thinking on how to keep the ecosystem open for=0A=
+others to develop their own IO modules, but I'll figure that out when we=0A=
+get there.=0A=
+=0A=
+Kind regards,=0A=
+Maud=
 
