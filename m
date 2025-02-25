@@ -4,74 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A15D4C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:38:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6348EC021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:38:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e3VmXvqmgpmlkacg4yCqG6k/DWw/7LO2D1NyxSJiktc=; b=IYVu/rIIhDXpzLhCHdgYoxI3nu
-	mwt1CXo9mccZtlSUzuR94rxIMCT61MY05jFR9iQJ6J1bnFgl/c4M+3VMl1YUUkVTQWV4Qh+Tap/yK
-	Mu5QDi8Yon/BS1Wxtwg86EyJfio4W34oVE7HSj8/PUve2gTAyKmg96viFBpk+oGP3AT6sVDMIEs5e
-	BHCOeEu5+9oYNijilp7z4pN/UucaG9c1YBHZrlD2RH6qPCSHCrdsGZO3AhYpO3p/+dueuT7sE2r/8
-	ONA5lcIThAomfZYHF0O9Jimljp7ezxyZyPvXlOQ4UQBHu34EqA3j6tB//gFgXYqcI+39f9Oc94AsR
-	U9i8Qx3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V/WLfZftXwn0QMm+i+gVWV0wjiBcMBdZ4HcKuIyxHls=; b=odOgDfsDTmG2HTg93pBlk9wtHU
+	cVzAL1RvPhzDTbyYbDbAZ2OFNqGOLNQxIdWTPq+mxtKCe91Yhs6j7XjXs5Ekda9D9wwMhYuM/dmrt
+	ixfciGZL7CZXlKkXw1j542ZaOws5NYLYvT7ixtT8XSwkrWi20vPFuGTvT+k6NZeNMwaFl4sRpFWeW
+	5Mib63rvWkjOvgQycyZI3EP97pkcYCWx3WblJdclguL2yhn5yebncr+z51a62c2ceGm/FOX8wpAjL
+	VRRxN4ginsMq+zLTxVwYXlJ5oBxLw3VnqBC2VjltPauzsT2OTVBthNHdmManpWnkZFCb+F141qupU
+	0g7Frowg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmxxC-00000000FqO-1Yc9;
-	Tue, 25 Feb 2025 16:38:42 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tmxwz-00000000FdV-3n0P;
+	Tue, 25 Feb 2025 16:38:29 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmvL8-0000000HQi0-0rSr;
-	Tue, 25 Feb 2025 13:51:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=e3VmXvqmgpmlkacg4yCqG6k/DWw/7LO2D1NyxSJiktc=; b=UP4byKOgV4ukVo21U5njdpdZC0
-	G4UYijU2274eCrrlkKTfbuZSamLwWkZdjJYtqnNdcNL8pIQoMObhFrr6qyHdQig4KiT6Wdj18Yzhx
-	yy/ckGOZzVfYTDYy1YR18vgMtRIB9TN5Uees+9P8PejyiR+5lwuHi2M5UswRsCsj1DPo=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tmvKu-00HWpb-CB; Tue, 25 Feb 2025 14:51:00 +0100
-Date: Tue, 25 Feb 2025 14:51:00 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: SkyLake Huang =?utf-8?B?KOm7g+WVn+a+pCk=?= <SkyLake.Huang@mediatek.com>
-Cc: "daniel@makrotopia.org" <daniel@makrotopia.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"linux@armlinux.org.uk" <linux@armlinux.org.uk>,
-	"hkallweit1@gmail.com" <hkallweit1@gmail.com>,
-	Steven Liu =?utf-8?B?KOWKieS6uuixqik=?= <steven.liu@mediatek.com>,
-	"davem@davemloft.net" <davem@davemloft.net>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"pabeni@redhat.com" <pabeni@redhat.com>,
-	"kuba@kernel.org" <kuba@kernel.org>,
-	"dqfext@gmail.com" <dqfext@gmail.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"horms@kernel.org" <horms@kernel.org>,
-	"edumazet@google.com" <edumazet@google.com>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>
-Subject: Re: [PATCH net-next v2 1/3] net: phy: mediatek: Add 2.5Gphy firmware
- dt-bindings and dts node
-Message-ID: <176f8fe1-f4cf-4bbd-9aea-5f407cef8ac5@lunn.ch>
-References: <20250219083910.2255981-1-SkyLake.Huang@mediatek.com>
- <20250219083910.2255981-2-SkyLake.Huang@mediatek.com>
- <a15cfd5d-7c1a-45b2-af14-aa4e8761111f@lunn.ch>
- <Z7X5Dta3oUgmhnmk@makrotopia.org>
- <ff96f5d38e089fdd76294265f33d7230c573ba69.camel@mediatek.com>
+	id 1tmul1-0000000HKNc-2Jrn
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Feb 2025 13:13:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 28A0A5C718F;
+	Tue, 25 Feb 2025 13:13:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DE82C4CEDD;
+	Tue, 25 Feb 2025 13:13:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740489234;
+	bh=DGNBCAm2Bb+g82225Nn5nxVsAmT5j6wYmXnlyqkoNZk=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=PL071skNzUMHIjpJ4IgSnCe6G1rGpbFGvVtBnLiV8bUuMOHEAVafTbHGUy9/1YsD4
+	 jc3990mUZnfv0Be5thjANFysWpneqy7gM2SEDYNRuMvw0beBOxRosL6YDKhk9d8Tna
+	 KEudHQln+jDL82X6QqnUV+dlNwf/JmYfXwb4BSEeKvdXAvJbAQz8wsLGUsohlw20hg
+	 u3+DWJB5T2/HHoyD5+Gxt5vyzwKpJMT0pQxqoESiLPzXeK2DpBBTo0yCI2cOdtzmPO
+	 uAH6EdHW2fig+x2JmoiVnCAoh+ZMj+Q4zUl6V/cUACoYEmvo/bWxmoi2FUqH5xNbGq
+	 wn68QzeOHC+gg==
+Message-ID: <c4727195-757a-4624-8580-78e5c32e9290@kernel.org>
+Date: Tue, 25 Feb 2025 14:13:48 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ff96f5d38e089fdd76294265f33d7230c573ba69.camel@mediatek.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 1/3] dt-binding: clock: ast2700: modify soc0/1 clock
+ define
+To: Ryan Chen <ryan_chen@aspeedtech.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20250224095506.2047064-1-ryan_chen@aspeedtech.com>
+ <20250224095506.2047064-2-ryan_chen@aspeedtech.com>
+ <f810b8a2-4261-4b68-b59b-4efa0219b5db@kernel.org>
+ <OS8PR06MB7541D685A626D300AC730A5BF2C32@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <2b64a9d7-7048-4842-9cc1-fe23f5abdd00@kernel.org>
+ <OS8PR06MB75411AE082C9630314966F2AF2C32@OS8PR06MB7541.apcprd06.prod.outlook.com>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <OS8PR06MB75411AE082C9630314966F2AF2C32@OS8PR06MB7541.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_055114_243300_BC4A2D5B 
-X-CRM114-Status: UNSURE (   8.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250225_051355_685899_2ED1FCA9 
+X-CRM114-Status: GOOD (  16.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,19 +131,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > Would using a 'reserved-memory' region be an option maybe?
-> Or maybe just leave those mapped registers' addresses in driver code
-> (mtk-2p5ge.c)? Like:
-> #define MT7988_2P5GE_PMB_BASE (0x0f100000)
-> #define MT7988_2P5GE_PMB_LEN  (0x20000)
+On 25/02/2025 10:49, Ryan Chen wrote:
+>>>> Subject: Re: [PATCH v9 1/3] dt-binding: clock: ast2700: modify soc0/1
+>>>> clock define
+>>>>
+>>>> On 24/02/2025 10:55, Ryan Chen wrote:
+>>>>> -remove redundant SOC0_CLK_UART_DIV13:
+>>>>> SOC0_CLK_UART_DIV13 is not use at clk-ast2700.c, the clock source
+>>>>> tree is uart clk src -> uart_div_table -> uart clk.
+>>>>>
+>>>>> -Change SOC0_CLK_HPLL_DIV_AHB to SOC0_CLK_AHBMUX:
+>>>>> modify clock tree implement.
+>>>>> older CLK_AHB use mpll_div_ahb/hpll_div_ahb to be ahb clock source.
+>>>>> mpll->mpll_div_ahb
+>>>>>                   -> clk_ahb
+>>>>> hpll->hpll_div_ahb
+>>>>
+>>>>
+>>>> I can barely understand it and from the pieces I got, it does not
+>>>> explain need for ABI break.
+>>>>
+>>>
+>>> #1. SCU0_CLK_UART_DIV13 is redundant, it does not impact ABI break
+>>
+>> You did not explain how it does not impact. Clock was exported, there was a
+>> user and now there is no clock. User stops working. ABI break.
+>>
+> 
+> Sorry, SCU0_CLK_UART_DIV13 was defined, but was never referenced in any upstream device trees.
 
-The problem with hard coding them is you need some way to know which
-set of hard coded values to use, because the hardware engineers will
-not guarantee to never move them, or change the bit layout for the
-next generation of devices.
 
-PHYs don't use compatibles because they have an ID in register 2 and
-3. Is this ID specific to the MT7988?
+That's incomplete definition of ABI
 
-	Andrew
+> Since there is no in-tree usage of `SCU0_CLK_UART_DIV13`, its removal does not cause an ABI break.
+
+
+You ignored out of tree users. Please read carefully ABI docs.
+
+
+> 
+>>> #2. Change SOC0_CLK_HPLL_DIV_AHB to SOC0_CLK_AHBMUX Older
+>> implement
+>>> where `mpll_div_ahb` and `hpll_div_ahb` were **hardcoded dividers** for
+>> AHB.
+>>> In **the new approach (v8)**, I refactored the clock tree to clock tree.
+>>
+>> I still cannot parse sentences like "refactoring A to A". It's meaningless to me.
+>>
+>>> It should be ABI-safe change
+>>
+>> No, you do not understand the ABI. You removed a clock ID, that's the ABI
+>> change.
+>>
+>> Otherwise explain how this is not changing ABI.
+>>
+>>
+>>>
+>>> Or you want to keep original SOC0_CLK_HPLL_DIV_AHB define and then add
+>> SOC0_CLK_AHBMUX.
+>>> To be 1st patch, then 2n patch remove redundant
+>> SOC0_CLK_HPLL_DIV_AHB?
+>>
+>> If you break the ABI you need to clearly explain why. We have long
+>> conversations and you still did not say why.
+>>
+> Sorry, my point will be following steps to avoid potential ABI issues, 
+> I can modify the patch series as follows:
+> 1. **Patch 1:** Add `SOC0_CLK_AHBMUX` without removing `SOC0_CLK_HPLL_DIV_AHB`.
+> 2. **Patch 2:** Finally remove `SOC0_CLK_HPLL_DIV_AHB`.
+
+
+I do not understand what changed here. You remove exported clock which
+is ABI, so how is this answering my question.
+
+You keep dodging my questions. Here I asked "why". I do not see any
+answer why.
+
+Best regards,
+Krzysztof
 
