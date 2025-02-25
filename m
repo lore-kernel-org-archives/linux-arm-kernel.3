@@ -4,71 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2295C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 08:40:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E0B9C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 08:44:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ltPMBWdpitIAr/1lqIvGJ/KYikU2UivViANg4djpIMI=; b=QF8/NmZctpaWlgZF5+zGSe8L6n
-	W2EGBavBnRswg3K4q/UdCfkgm8JF0oOvQ/FjvJOp1y8G/wHeYQMDR3ayU5w+eQQJwmrS+AVy+UTAq
-	+U6F7Ih4ryuyRumTMDOgLxKsPszsIGW6KaAS5M5Fdyj4ryeUHX36CMNQh7PPEv+VTyWGy4z17Jdca
-	ElLG1223oxF2qPs4Rg7NUHv1+u5+4IGypQYct1Qu2EHwWVx014iFfiPeG8l8MD//vPZu7uwkdgWs7
-	1+E9Lqig2Z2eg/ytFmbLoGLXh7qgeEedYpudPhDSqeewyiPprWqN6+jxKHlHtasT/7c/O1IU/s0i9
-	XlVgq01A==;
+	bh=iLaVJHW1FB8QSCg6DGpspwQe7pvh18mzJZmm4DNkJ/I=; b=WmUvG1tWKTM9TagtPwxxYKO691
+	wtgxUTyu0MHQ04LWHf96fR7ms2HmiN63G/x8/lomD7BX3s+pXOWDG2TpOiFjD2C73rZz93caoZovP
+	0ZfDq9Cjq0O2mu4iwVBUBEEDf4T0N7MsKpAAlp6rnhPJMngkQlWpsOvfgBCTrE95O9JReRkU+A12m
+	+GhIIJ856W2APQM0nNhUJ+WUtgzG7jE6G6I8ppq2Bet/YG7Pc4EgmN60IgwnR7enBwKrTh+zt4Rw0
+	OoiBhgjrXbnwDfFL/v96XML3qSNGRqUct9255USqF+4j9hCIF/blh/84qwb6WIUDv3TZsYQTDa/v9
+	OTBNGIhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmqUZ-0000000GQNA-3zY3;
-	Tue, 25 Feb 2025 08:40:39 +0000
-Received: from mail-m15574.qiye.163.com ([101.71.155.74])
+	id 1tmqYH-0000000GRGp-3FKV;
+	Tue, 25 Feb 2025 08:44:29 +0000
+Received: from relay2.mymailcheap.com ([217.182.113.132])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmqT2-0000000GPsS-21Ic;
-	Tue, 25 Feb 2025 08:39:06 +0000
-Received: from [172.16.12.67] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id c1f11c0c;
-	Tue, 25 Feb 2025 16:38:54 +0800 (GMT+08:00)
-Message-ID: <478b8972-07b9-483b-a3ef-bdea10c4e4cc@rock-chips.com>
-Date: Tue, 25 Feb 2025 16:38:54 +0800
+	id 1tmqWk-0000000GQno-1qjj
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Feb 2025 08:42:55 +0000
+Received: from nf1.mymailcheap.com (nf1.mymailcheap.com [51.75.14.91])
+	by relay2.mymailcheap.com (Postfix) with ESMTPS id 5C7473E8A5;
+	Tue, 25 Feb 2025 08:42:49 +0000 (UTC)
+Received: from mail20.mymailcheap.com (mail20.mymailcheap.com [51.83.111.147])
+	by nf1.mymailcheap.com (Postfix) with ESMTPSA id 069F24023E;
+	Tue, 25 Feb 2025 08:42:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=aosc.io; s=default;
+	t=1740472968; bh=SvTIxBmHI5DMIMShUe39OEwtK1e9wQc7BfeYlCDczcg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=awJjbPIc/rkyrlun2vipC5Sk2sl9Qfm18DpZMffn1Ja9t1lZMgGlo5thyI8KQtaCk
+	 2ZH1oG80paVWzwbcPELQbWVSn5+qL7hfA4L7YxyCeiO6Ql5MFtPHwR3V53JhOuDiGo
+	 619uleMYufnJE5Vu1ACeTul7J5BjSYoiACP9t/Rc=
+Received: from [50.50.1.183] (unknown [58.246.137.130])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail20.mymailcheap.com (Postfix) with ESMTPSA id A5ADF40284;
+	Tue, 25 Feb 2025 08:42:41 +0000 (UTC)
+Message-ID: <4881179a-aab1-4d10-8917-665fffa66721@aosc.io>
+Date: Tue, 25 Feb 2025 16:42:37 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 1/2] dt-bindings: PCI: dw: rockchip: Add rk3576 support
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: heiko@sntech.de, linux-rockchip@lists.infradead.org,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Simon Xue <xxm@rock-chips.com>, Conor Dooley <conor+dt@kernel.org>,
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
- linux-pci@vger.kernel.org, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?=
- <kw@linux.com>, linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Shawn Lin <shawn.lin@rock-chips.com>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- linux-arm-kernel@lists.infradead.org
-References: <20250224074928.2005744-1-kever.yang@rock-chips.com>
- <20250224-gifted-piculet-of-amplitude-a91ecd@krzk-bin>
+Subject: Re: [PATCH net-next v3 0/4] stmmac: Several PCI-related improvements
+To: Philipp Stanner <phasta@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Huacai Chen <chenhuacai@kernel.org>, Yanteng Si <si.yanteng@linux.dev>,
+ Yinggang Gu <guyinggang@loongson.cn>, Feiyang Chen
+ <chenfeiyang@loongson.cn>, Philipp Stanner <pstanner@redhat.com>,
+ Jiaxun Yang <jiaxun.yang@flygoat.com>, Qing Zhang <zhangqing@loongson.cn>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Kexy Biscuit <kexybiscuit@aosc.io>, Mingcong Bai <jeffbai@aosc.io>
+References: <20250224135321.36603-2-phasta@kernel.org>
 Content-Language: en-US
-From: Kever Yang <kever.yang@rock-chips.com>
-In-Reply-To: <20250224-gifted-piculet-of-amplitude-a91ecd@krzk-bin>
+From: Henry Chen <chenx97@aosc.io>
+In-Reply-To: <20250224135321.36603-2-phasta@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQx0ZTVYZH0NJHRoYHR1ISkNWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a953c4253a003afkunmc1f11c0c
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6OTI6ERw5EDIOHRYjHB9MLRUU
-	EB8aCRlVSlVKTE9LT0xJTEhNQ0pOVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFIT0xPNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=WwmsGDczbRBij3SrocnQVsTJaDABZZZ39b0m72Yb797JBiACL+JGw6Mh3E8ANIgWQy+mGdZx1HvDwxj7H+dVw9Oxh3vYiqupcihCxfuvIPmmjPRctB0IS4h3HQCttRJXe8NCQF9KVRQCS4Hotu39VTGVMsIUYNwyZoGzqFwsO40=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=ltPMBWdpitIAr/1lqIvGJ/KYikU2UivViANg4djpIMI=;
-	h=date:mime-version:subject:message-id:from;
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Server: nf1.mymailcheap.com
+X-Rspamd-Queue-Id: 069F24023E
+X-Rspamd-Action: no action
+X-Spamd-Result: default: False [1.40 / 10.00];
+	SUSPICIOUS_RECIPS(1.50)[];
+	MIME_GOOD(-0.10)[text/plain];
+	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_ONE(0.00)[1];
+	ASN(0.00)[asn:16276, ipnet:51.83.0.0/16, country:FR];
+	MIME_TRACE(0.00)[0:+];
+	TAGGED_RCPT(0.00)[netdev];
+	FREEMAIL_TO(0.00)[kernel.org,lunn.ch,davemloft.net,google.com,redhat.com,gmail.com,foss.st.com,linux.dev,loongson.cn,flygoat.com];
+	MID_RHS_MATCH_FROM(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[21];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	SPFBL_URIBL_EMAIL_FAIL(0.00)[chenx97.aosc.io:server fail];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	TO_DN_SOME(0.00)[]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_003905_057074_C5B0577C 
-X-CRM114-Status: GOOD (  18.84  )
+X-CRM114-CacheID: sfid-20250225_004254_634653_7110270C 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,111 +108,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On 2/24/25 21:53, Philipp Stanner wrote:
+> Changes in v3:
+>    - Several formatting nits (Paolo)
+>    - Split up patch into a patch series (Yanteng)
+> 
+> Philipp Stanner (4):
+>    stmmac: loongson: Pass correct arg to PCI function
+>    stmmac: loongson: Remove surplus loop
+>    stmmac: Remove pcim_* functions for driver detach
+>    stmmac: Replace deprecated PCI functions
+> 
+>   .../ethernet/stmicro/stmmac/dwmac-loongson.c  | 31 ++++++-------------
+>   .../net/ethernet/stmicro/stmmac/stmmac_pci.c  | 24 ++++----------
+>   2 files changed, 15 insertions(+), 40 deletions(-)
+> 
 
-     Thanks for your review.
+I have tested This patch series on my Loongson-3A5000-HV-7A2000-1w-V0.1-
+EVB. The onboard STMMAC ethernet works as expected.
 
-On 2025/2/24 17:28, Krzysztof Kozlowski wrote:
-> On Mon, Feb 24, 2025 at 03:49:27PM +0800, Kever Yang wrote:
->> rk3576 is using DWC PCIe controller, with msi interrupt directly to GIC
->> instead of using GIC ITS, so
->> - no ITS support is required and the 'msi-map' is not required,
->> - a new 'msi' interrupt is needed.
->>
->> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
->> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
->> ---
->>
->> Changes in v6:
->> - Fix make dt_binding_check and make CHECK_DTBS=y
->>
->> Changes in v5:
->> - Add constraints per device for interrupt-names due to the interrupt is
->> different from rk3588.
->>
->> Changes in v4:
->> - Fix wrong indentation in dt_binding_check report by Rob
->>
->> Changes in v3:
->> - Fix dtb check broken on rk3588
->> - Update commit message
->>
->> Changes in v2:
->> - remove required 'msi-map'
->> - add interrupt name 'msi'
->>
->>   .../bindings/pci/rockchip-dw-pcie-common.yaml | 41 ++++++++++++++++++-
->>   .../bindings/pci/rockchip-dw-pcie.yaml        | 19 ++++++---
->>   2 files changed, 52 insertions(+), 8 deletions(-)
->>
->> diff --git a/Documentation/devicetree/bindings/pci/rockchip-dw-pcie-common.yaml b/Documentation/devicetree/bindings/pci/rockchip-dw-pcie-common.yaml
->> index cc9adfc7611c..e1ca8e2f35fe 100644
->> --- a/Documentation/devicetree/bindings/pci/rockchip-dw-pcie-common.yaml
->> +++ b/Documentation/devicetree/bindings/pci/rockchip-dw-pcie-common.yaml
->> @@ -65,7 +65,11 @@ properties:
->>             tx_cpl_timeout, cor_err_sent, nf_err_sent, f_err_sent, cor_err_rx,
->>             nf_err_rx, f_err_rx, radm_qoverflow
->>         - description:
->> -          eDMA write channel 0 interrupt
->> +          If the matching interrupt name is "msi", then this is the combinded
->> +          MSI line interrupt, which is to support MSI interrupts output to GIC
->> +          controller via GIC SPI interrupt instead of GIC its interrupt.
->> +          If the matching interrupt name is "dma0", then this is the eDMA write
->> +          channel 0 interrupt.
->>         - description:
->>             eDMA write channel 1 interrupt
->>         - description:
->> @@ -81,7 +85,9 @@ properties:
->>         - const: msg
->>         - const: legacy
->>         - const: err
->> -      - const: dma0
->> +      - enum:
->> +          - msi
->> +          - dma0
->>         - const: dma1
->>         - const: dma2
->>         - const: dma3
->> @@ -123,4 +129,35 @@ required:
->>   
->>   additionalProperties: true
->>   
->> +anyOf:
-> There is never syntax like that. Where did you find it (so we can fix
-> it)?
->
->> +  - if:
->> +      properties:
->> +        compatible:
->> +          contains:
->> +            const: rockchip,rk3576-pcie
-> This does not belong to common schema, but to device specific. I don't
-> see this compatible in this common schema at all.
+Tested-by: Henry Chen <chenx97@aosc.io>
 
-The common schema covers rockchip-dw-pcie.yaml and rockchip-dw-pcie-ep.yaml,
+     Henry
 
-so I though I should add the if condition here.
-
-
->
->> +    then:
->> +      properties:
-> interrupts:
->    minItems: 6
->    maxItems: 6
-Will add this back.
-
-Thanks,
-- Kever
->> +        interrupt-names:
->> +          items:
->> +            - const: sys
->> +            - const: pmc
->> +            - const: msg
->> +            - const: legacy
->> +            - const: err
-> Best regards,
-> Krzysztof
->
->
 
