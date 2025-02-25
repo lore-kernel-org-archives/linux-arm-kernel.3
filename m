@@ -4,177 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F5DCC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 22:53:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCC20C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 23:03:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7UHbtViTh6h+2wDqLWZev0a0lQdcfzlCElZMycFgtXk=; b=mGvW7LtzrBpqfmAUQ9XJfieUqw
-	zJ3asNCmlTYJ5YdlNyF6JngzyhMfsl/JeS8I0qvUceYfpUyWsu1UPkOnfGjXkNrV5/1EaHni1jlCb
-	ihhKCbgDkxF29x5DoK6dbXBr7T4pUaNiMGychpGyHaVrAitT1Ql9XAPIOQrbHR8eaTtI9GpPH46sB
-	6p5ObYXeuOuUsyowHTU/4mzh4vsUgysAyQUqxf/Oq1rUZ9YbRgp+8PMhmdiX3STcJAzXuZ7xH5g5t
-	Z5U2f+9nGX4KhTNdbEnGWJGEC57eb49dq14shelJwGmgmfG3M/0nWdKayjrtsLQKD9ZidApSKs1wO
-	8cC+F/Ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mde08ePw0U7qTCok3XXW6MXXh6mFRApsatbSp7N27VA=; b=AYYLRJcHpvNvVpxQmYqW/QUFG6
+	dnd5PH9T0MA8YYz30TljiF0Jj8jM7IN7OsPtgcCSclYsyH+8QOzlDab+bf6tu6jehtcV0oJIKjULG
+	3X27O5JUtQaAwPEOSeaIAV6CkxSLXVr3K/iS9V7o1DSylouiUBr0W/s+wp7zRWaMwYUVmpZ8wWlkE
+	h6XRm3lPusKfXM3hm2xO3i4ghdlmXDASwPvobDFKISxZ8sjBqH15OFs/Ix/wHvLbsii/lOlF6kcaL
+	PVGJIdYyqDoOdvgDFfd/DIo6ETyFI4BSyulyIWIP84LoakaojiKlkheD6mFAjSTkwFB/6qiMgTvGx
+	8xnR1xkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn3nQ-00000001kzy-1Ypq;
-	Tue, 25 Feb 2025 22:53:00 +0000
-Received: from mail-dm6nam11on20607.outbound.protection.outlook.com ([2a01:111:f403:2415::607] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1tn3xL-00000001m9a-3vI2;
+	Tue, 25 Feb 2025 23:03:15 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn0ml-00000001Bzg-3m5J;
-	Tue, 25 Feb 2025 19:40:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KRDu2d7TzvjDxnpIGHFotlx2J063Or3zPVNv835b7Ck4bUNF+l4IT0tJDkl8XOJ7KjcYzNbM+wVmeypMl9wu2qG4lMt1HXl9Zs37zkc320F9BjXYZ6zYF/fiWvxJl7OttT0ko01gZakLC7wu0bAIq5FCWs7RaXXbQ/YoHKv/cw6JnYYqcP2a9W/kRjJ0Lb0ouknLEo1oDwsR5G7kVGfgtqNdmTdrXPgFTCIYxUFVHqz9EsRL8mggNAGBn4Tb6AHKcbIWW9xXiipZPcVQQExTazasE/fA1K16Xm6thPFpMT1WjtUOkHZiN+QQpmZ8nGA1xr7BCOOxRzQ2gz5YBmkPcA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7UHbtViTh6h+2wDqLWZev0a0lQdcfzlCElZMycFgtXk=;
- b=nXb9bOc0CFMhlC0hXoWQH/fYG+oCyBQk5PSNZetiw2AzyvGrX6ETh/0UApobNFNEsAEQ80NCW62+1U2m2qvCXRXZijNhqTW/oxU5DRjDzENaIvzUHFQ4RSM1EPR1QIGiFw0aj28hMNOCxaKMGFJyhjszzLv0utP/5AKtDCUV3fWTq10WwCrvdiNSEa360YixUnwAQCcRAsSnEO2bfeLbQSR/1K/r0U5z/q28dxBQ6gHjDGUzbXzYDkCQLcDBJQxfc503qZ7tznsMNbeDp+4MOz6OeN7TsNSsR2WZ9MnCMf2ojRAEckmSfsc/7PWZaQAeJo01FGQj47hzUTp8dJy+aA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7UHbtViTh6h+2wDqLWZev0a0lQdcfzlCElZMycFgtXk=;
- b=nKceQraNDkwv7dZ6D0JTWq4Ls8SDFI6g0rFNeg8nWe/21RekvSlV1v7zr1ZT9wV9OIB4WbrYcA1TXJrXrLTCY+OrBoa7D5uD3Uy1Z5UPScjNllAdZ6jzBlyQlYjnS4GQrX8ngL8NmAUdGyiKi8hQcQIQQf7M0XFBKfcQCbebvTbnRjDi+Uf39dOWiMSd/MgUnuqbmrO1fhkLtzxjHDFvrq94XLCc/6DA5TrtBfKnQcn033ewemQEbrEdiOArzA/JENbJLRyKo6hrRPZ4nAFPja8lYWQBDIx2sxoVCQB3QNiLSd+FLBwext4F5wXsOxgUWdg8EI5vBvFZEHah+oemdw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by BL3PR12MB6617.namprd12.prod.outlook.com (2603:10b6:208:38c::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.20; Tue, 25 Feb
- 2025 19:39:55 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8466.016; Tue, 25 Feb 2025
- 19:39:54 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	asahi@lists.linux.dev,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	iommu@lists.linux.dev,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Hector Martin <marcan@marcan.st>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Krishna Reddy <vdumpa@nvidia.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>
-Cc: Bagas Sanjaya <bagasdotme@gmail.com>,
-	Joerg Roedel <jroedel@suse.de>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	patches@lists.linux.dev,
-	David Rientjes <rientjes@google.com>,
-	Matthew Wilcox <willy@infradead.org>
-Subject: [PATCH v3 23/23] iommu/pages: Remove iommu_alloc_pages_node()
-Date: Tue, 25 Feb 2025 15:39:40 -0400
-Message-ID: <23-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
-In-Reply-To: <0-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
-References: 
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: YQZPR01CA0077.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:84::14) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|BL3PR12MB6617:EE_
-X-MS-Office365-Filtering-Correlation-Id: 40b1da6c-becd-4bd8-84d3-08dd55d42926
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?UqpE1DCb88aHo9EL2unkuicHS424J5RK9nQwcCJr9OhWoH6WjQYc8go4MIZi?=
- =?us-ascii?Q?CzUcQrQjRGcbI5XzBUK2NJ+38bJUDRI9mEfiAIeYRcdHvlhInyB5qXKyIyq9?=
- =?us-ascii?Q?06wI4EkYhiNSjitc0UakruHF8U1Gve6xVHNfavj6aBXRz3iKZ3pN8NdOLvkP?=
- =?us-ascii?Q?uLKDEQPmT7eo5qg1fYd7Y6ckrEzAtPOUObvlYeXkX0/tfUKYUUoVO4BJYNk2?=
- =?us-ascii?Q?IKwk7njXvS5MH7h+yj+Y5Limyun1k/eR2E4BXE0FYSL1AvDDayLc7WW1+Y+8?=
- =?us-ascii?Q?5vOKiqHtsE0gcbCv69CZ6rmeGemxNbbT49zfuOFaQrd3KLXVRgrZix4D4blW?=
- =?us-ascii?Q?0p7WnA4fjh7FN96j1PRU9rWD5TSrRHNZGWXJvEsKfmGeVg8Ps/9kY0aqA3w+?=
- =?us-ascii?Q?HCwKeTayjIaFTxHgtIMBFGDmMwX92W1fYlVyTOMLTAvDMmdlfqqVM7LWdjmP?=
- =?us-ascii?Q?0/Oe/dMCezeYro4j8m56KTsM8TAHHObqVl6/GY87kbZE5XanXzO1bwoCK7fj?=
- =?us-ascii?Q?/AhjMubyJCkKVoPeRfAXw9E8kv10tZQHwWAiUie2kQ+nf0Uodzmt8Hm1yMoH?=
- =?us-ascii?Q?Yii0udj3Ui35s2Nfh1gAO0vvoi1TSvYfpZDb5swADUvTkeGg4u7Daz+cPPbi?=
- =?us-ascii?Q?6sHKvxoaOpNbPXhllh5at6k3lRkqyVb1swnTv2R2Os5K6ktG1T1RRVjyUuyk?=
- =?us-ascii?Q?Wges7pAOfq0JgmmkZQRZkHKnK0iUfOPBPlb6gKSxvVykL+UFa/cRSc9mgMNL?=
- =?us-ascii?Q?6RLwjS6u9GOF4fnYWNE15Nw0y7GJiyya8kKKYNjaF3nbxUhKd42svgCE/vsk?=
- =?us-ascii?Q?3ZmuBoXa7nHjcajFr2zLOXcnJCW/JrJJCvTgzIWLI7iwNSHY3VD35bbO5yAZ?=
- =?us-ascii?Q?oTDM0LXAox9xzEnegvDe7zTsdEoKSkxTQcpiqGpCPhkJXzSNR+V50NxZKCbR?=
- =?us-ascii?Q?Ylmg0xG0sinOORf26H08jeewIi60alzHRRGrz2nJL1/XBrVYF/AWsAe6EHYc?=
- =?us-ascii?Q?y7CZfL/VMFzaIW0Cy1C1cwncsnmXzIXXOgp1liFBeD87Rd4yFBniks9DQf17?=
- =?us-ascii?Q?KepJm+j9QaWN6sNshDixer1BguDfU/6yOiMvxw8hYcMP0uTGrS4mNB41io57?=
- =?us-ascii?Q?bIE/iecoevU+7V4Z1Mlt7q0LUm0iyZQ1tb353MG5IuyB5OwI19mgexQ9MA9A?=
- =?us-ascii?Q?9/nYKnB4mvNmzBTwLbqbRfntTAIvkbP9B/jCJbkrX9lhPL/qZoxIj45b+rDm?=
- =?us-ascii?Q?gLJgOEAjWXR/QUIj4rIST2yh4w4SuP64q0mq5+AHJYzXSUa0o1P0lGDk8/X7?=
- =?us-ascii?Q?JBLpVZGNQZQOtyq1LnV0F7vYAzG00rZ7xJheJK98YmFctLyFzNeDDDgBvlWs?=
- =?us-ascii?Q?EKA9uXzK+k6RF8TI9DTF5y8exc1y4i9knNDDzY6dWQUET+PYDsF7XqlKBt13?=
- =?us-ascii?Q?6W6OzkLxd/E=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MYEcbgrOvgVrMrDD+BKgTa+BD/34zpFpSfg+EIKbXUbS1rYy0uY3R2IU4s5m?=
- =?us-ascii?Q?Tag4YIdqwuMKMhY3afuAnNIVN+YT9vNHCwKgEdy331DBuS9ejTYLO8p6YTyC?=
- =?us-ascii?Q?GkEVSP7ciYUKG1XboGBuZruXQhzQH0WEOU62+986xdlLsqHhhEZgM6qH/gNU?=
- =?us-ascii?Q?PRDlyk8VQbaHmcbgeVm79n++V18vlRV2k/QyJ9SdiKGxvT6FDRj08bX8SYPL?=
- =?us-ascii?Q?wT7Sfe9K+5yagrhdSdkdrhGiQEfUWsmhjsIl16cjw6j9A0tt4CvnNIy7FfMY?=
- =?us-ascii?Q?yTK4/WUwpYcHqZdmBbPAMHKjOzj0K4x9PHYUUpDGOGmF9lJedFTSaIc4fNYx?=
- =?us-ascii?Q?usbRjalonB5kDsCnJY6xHHpUcsMHIUX7HZY0DFAckUawBVrXKrVodOH3j+jw?=
- =?us-ascii?Q?P/24yk3KNJb5OEuknGiMJjEpVztHC9HTNcjaqFrz8CFoDTq8vbydgw4sre7W?=
- =?us-ascii?Q?OHryLkw/rOmKBcMD0H8hutlP15/My3AJzMd6o8BKBup3tW2gFfgqbic6JOcG?=
- =?us-ascii?Q?fhXLM191AS2w8V7ol3ULpxhXGg/qQaKij0Xbwzwp/bmNSG9Oj16hsEXuhg10?=
- =?us-ascii?Q?H9hpnPA65ZPftxzxMPaM139lUMxf6sGJcA8t2b3BtkYm7kpgoHNSKgQ+hO3k?=
- =?us-ascii?Q?YybjnlWDi5de2YvmnQhTR48ekJmqAzttP+2XXDFN1cWTOx74Ks9bbvhW7MPL?=
- =?us-ascii?Q?J14Eu4iCWJ3Kd+kPQFOctNLae6CIZXpUVrRX3OyOCVzOFKOKdU0/lvqsyv9r?=
- =?us-ascii?Q?4FFaW0v8138POesbSNM9c9yG11bAnDjLP7/3NJvix59lezEGh+4tLzBS/RYC?=
- =?us-ascii?Q?egAbNED5G4+W0MsCvaQxfqEKn2ZpDcEXsfqSJ7vmjbU3tfIho5qEly0A+Oen?=
- =?us-ascii?Q?T2IuEjqSBmASqPzQUvKnTNEUP5+55g0wPpulrmx4IW8FAq6lQPi6gJIpFe7D?=
- =?us-ascii?Q?K/fcO3LKOgNlrvl+aEEz8m2/WZ4U4B0Ho1U4snpYhtmaRA4PwThYES9k1dpF?=
- =?us-ascii?Q?BZF0BxP9vXGklnscukj2YObY5VMNZ1P6UVhXG1gx0f8i3OkJyVSisif8brjX?=
- =?us-ascii?Q?SsgYV9e/eRKcn1FoqtghDSdRdwQGzib/fUixzIdQPL4HXX8tYFPP+ui/xRvd?=
- =?us-ascii?Q?ikVhlDwDbAVgGa35FfNfpkahBlgeH3xPO6c7wr5x9OM0KVOWZnyU0wwvWn7s?=
- =?us-ascii?Q?VBS/82msyl85FRPoSeeV3SsaDjGL6VkLYusVFvMwaupCla0V5U/znySR774a?=
- =?us-ascii?Q?dgICJBET8KOC3bIKCF4OojzsSbONsVcP2la8VnXtwjoSVfq5bdXmVNSNtJZw?=
- =?us-ascii?Q?Hfre8d6KnvqwsACyiNM+pnnA0pPrcb1YOeNEKIwzLwLcL6/DHLJOcwWyRMRp?=
- =?us-ascii?Q?mHR08TSENL0NJYr+Uly5UDSEw6D6IFZIWplFybh0NrPsjq20Lomj4SX8wjtc?=
- =?us-ascii?Q?wOdKwGmbjQWcMa3xoKWF7sRWTqF+RQeAAW1Dyd9JEZy8SwN4oA4f/gP7pH00?=
- =?us-ascii?Q?y/0S3+Gw+UO4A/d97/1+dch2nJOzep3S6ty6DW2v5jKesTvicaasEsVdmiHh?=
- =?us-ascii?Q?aYLigdkg9c84Gsh6Q5S+JOro1hQhimn9qvLtnte0?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 40b1da6c-becd-4bd8-84d3-08dd55d42926
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 19:39:47.0423
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: j2+qEf+Zr55foSrC+FVtt8ldtBlWGgFwJDw2Dh2IZjDtKoTsyJV8m3rpYzItKXLo
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR12MB6617
+	id 1tn3vo-00000001m14-2l0k
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Feb 2025 23:01:41 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2fc5a9f18afso11879524a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 15:01:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1740524499; x=1741129299; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mde08ePw0U7qTCok3XXW6MXXh6mFRApsatbSp7N27VA=;
+        b=tEksUzyDT9ZO+eauNeawNNDz9Nkj3SkeXm+D2RgT0t8vlOto/ZsWSSw12krqftTldL
+         LClKBI4k4F1bEC+Dk0Ctkl6243mPvjdg/4G9KxdXbtw07QLSAzgVOtl689LzUCekUC2+
+         xi1iE8aXXBPXb8jV+VB8EjTfPbA0NlNiKIFQmU+OZygubp60wuEu/+C8anE/AFSmbTjC
+         3Xp3h6grdOWo3Oz1CzBsrFIOuTbS6pJQZbOKJojK2tpHUmVLk+tOaWG2vpGjBWI+tAIH
+         oNjHy76pVNw9+IBbD/5Sdrekporu452w+LGbee6xQ0+EAmbG4tMRk6DF8xZAKPO7+3xy
+         HdkQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740524499; x=1741129299;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=mde08ePw0U7qTCok3XXW6MXXh6mFRApsatbSp7N27VA=;
+        b=Wl5LMTjjaw0LGRq6L4Rw4aQ5wrsxj24icuLuikLJ2LjIJK/f5FzniBewUvFNX9BuTc
+         IHvMS8ccaTRROkBLel48GBOVkMpxEvosjY44/vXOvFbkmCeNZKnMdv5+3IS8RZL3FGdz
+         znwuN15/ShOlSbLUQ5HWfFaghOzpx6Udnkqm2E/K7+Min65ZWyTTEiadB2CgtfWlMb4T
+         OTOBbj/BTsXAeZVYhPBz+RdngJMJZZtQ9zJpW3JpKYp+Kpriubh5KWsACpwoBY4XP7cF
+         deYmjjL2ymAoJC2uo1KmYwdscperOmL2NaLoi9rJasywEZle9Xvj6mTXSwCCbZ8EXDDh
+         pfSw==
+X-Forwarded-Encrypted: i=1; AJvYcCXlWfiVObaKTJviJjQY7dHV4H51ripyXWhuevO1airzty7sMlYQBROaxw0ZgTUHCyx9Xj71QATRWmFbUq3p7+Ma@lists.infradead.org
+X-Gm-Message-State: AOJu0YyoEIunB8vTbIVzSOKCX/6GnRAWeg29U3+0lGSZHxr24U9oSBGk
+	blVd4RsAMz7So5XvQRYgpvgkA5hi1ZdZypPmOdoJvDxiqDw8j6Qo+zRU19kXaZfoDIW7zkCfNA=
+	=
+X-Google-Smtp-Source: AGHT+IHPhKxQsRjLLUmrOJuKKmq+fpePmjEEOBM1vx7AS8VefdM5jfSQyDCFPrR8FFoSvuoQhhkXY0nLEw==
+X-Received: from pjbsd6.prod.google.com ([2002:a17:90b:5146:b0:2f2:ea3f:34c3])
+ (user=wnliu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:da87:b0:2f6:539:3cd8
+ with SMTP id 98e67ed59e1d1-2fe7e33c7afmr2054308a91.18.1740524499118; Tue, 25
+ Feb 2025 15:01:39 -0800 (PST)
+Date: Tue, 25 Feb 2025 23:01:36 +0000
+In-Reply-To: <20250225181331.frmfumf4b5ctfbsm@jpoimboe>
+Mime-Version: 1.0
+References: <20250225181331.frmfumf4b5ctfbsm@jpoimboe>
+X-Mailer: git-send-email 2.48.1.658.g4767266eb4-goog
+Message-ID: <20250225230137.620606-1-wnliu@google.com>
+Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
+From: Weinan Liu <wnliu@google.com>
+To: jpoimboe@kernel.org
+Cc: indu.bhagat@oracle.com, irogers@google.com, joe.lawrence@redhat.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org, 
+	mark.rutland@arm.com, peterz@infradead.org, puranjay@kernel.org, 
+	roman.gushchin@linux.dev, rostedt@goodmis.org, will@kernel.org, 
+	wnliu@google.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_114007_970309_ED538216 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20250225_150140_711053_E3078172 
+X-CRM114-Status: GOOD (  22.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,116 +96,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Intel is the only thing that uses this now, convert to the size versions,
-trying to avoid PAGE_SHIFT.
+On Tue, Feb 25, 2025 at 10:13=E2=80=AFAM Josh Poimboeuf <jpoimboe@kernel.or=
+g> wrote:
+>
+> On Tue, Feb 25, 2025 at 01:02:24AM +0000, Weinan Liu wrote:
+> > On Mon, Feb 10, 2025 at 12:30=E2=80=AFAM Weinan Liu <wnliu@google.com> =
+wrote:
+> > > I already have a WIP patch to add sframe support to the kernel module=
+.
+> > > However, it is not yet working. I had trouble unwinding frames for th=
+e
+> > > kernel module using the current algorithm.
+> > >
+> > > Indu has likely identified the issue and will be addressing it from t=
+he
+> > > toolchain side.
+> > >
+> > > https://sourceware.org/bugzilla/show_bug.cgi?id=3D32666
+> >
+> >
+> > I have a working in progress patch that adds sframe support for kernel
+> > module.
+> > https://github.com/heuza/linux/tree/sframe_unwinder.rfc
+> >
+> > According to the sframe table values I got during runtime testing, look=
+s
+> > like the offsets are not correct .
+> >
+> > When unwind symbols init_module(0xffff80007b155048) from the kernel
+> > module(livepatch-sample.ko), the start_address of the FDE entries in th=
+e
+> > sframe table of the kernel modules appear incorrect.
+> > For instance, the first FDE's start_addr is reported as -20564. Adding
+> > this offset to the module's sframe section address (0xffff80007b15a040)
+> > yields 0xffff80007b154fec, which is not within the livepatch-sample.ko
+> > memory region(It should be larger than 0xffff80007b155000).
+>
+> I assume kpatch create-diff-object needs to copy over a subset of the
+> .sframe section. =C2=A0Similar to what kpatch_regenerate_orc_sections() d=
+oes.
 
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
----
- drivers/iommu/intel/iommu.h         |  7 +++----
- drivers/iommu/intel/irq_remapping.c |  8 ++++----
- drivers/iommu/intel/pasid.c         |  3 ++-
- drivers/iommu/intel/prq.c           |  3 ++-
- drivers/iommu/iommu-pages.h         | 16 ----------------
- 5 files changed, 11 insertions(+), 26 deletions(-)
 
-diff --git a/drivers/iommu/intel/iommu.h b/drivers/iommu/intel/iommu.h
-index dd980808998da9..1036ed0d899472 100644
---- a/drivers/iommu/intel/iommu.h
-+++ b/drivers/iommu/intel/iommu.h
-@@ -493,14 +493,13 @@ struct q_inval {
- 
- /* Page Request Queue depth */
- #define PRQ_ORDER	4
--#define PRQ_RING_MASK	((0x1000 << PRQ_ORDER) - 0x20)
--#define PRQ_DEPTH	((0x1000 << PRQ_ORDER) >> 5)
-+#define PRQ_SIZE	(SZ_4K << PRQ_ORDER)
-+#define PRQ_RING_MASK	(PRQ_SIZE - 0x20)
-+#define PRQ_DEPTH	(PRQ_SIZE >> 5)
- 
- struct dmar_pci_notify_info;
- 
- #ifdef CONFIG_IRQ_REMAP
--/* 1MB - maximum possible interrupt remapping table size */
--#define INTR_REMAP_PAGE_ORDER	8
- #define INTR_REMAP_TABLE_REG_SIZE	0xf
- #define INTR_REMAP_TABLE_REG_SIZE_MASK  0xf
- 
-diff --git a/drivers/iommu/intel/irq_remapping.c b/drivers/iommu/intel/irq_remapping.c
-index d6b796f8f100cd..fdaa508c17d140 100644
---- a/drivers/iommu/intel/irq_remapping.c
-+++ b/drivers/iommu/intel/irq_remapping.c
-@@ -538,11 +538,11 @@ static int intel_setup_irq_remapping(struct intel_iommu *iommu)
- 	if (!ir_table)
- 		return -ENOMEM;
- 
--	ir_table_base = iommu_alloc_pages_node(iommu->node, GFP_KERNEL,
--					       INTR_REMAP_PAGE_ORDER);
-+	/* 1MB - maximum possible interrupt remapping table size */
-+	ir_table_base =
-+		iommu_alloc_pages_node_sz(iommu->node, GFP_KERNEL, SZ_1M);
- 	if (!ir_table_base) {
--		pr_err("IR%d: failed to allocate pages of order %d\n",
--		       iommu->seq_id, INTR_REMAP_PAGE_ORDER);
-+		pr_err("IR%d: failed to allocate 1M of pages\n", iommu->seq_id);
- 		goto out_free_table;
- 	}
- 
-diff --git a/drivers/iommu/intel/pasid.c b/drivers/iommu/intel/pasid.c
-index 2b6e0706d76d62..3afbad4eb46303 100644
---- a/drivers/iommu/intel/pasid.c
-+++ b/drivers/iommu/intel/pasid.c
-@@ -60,7 +60,8 @@ int intel_pasid_alloc_table(struct device *dev)
- 
- 	size = max_pasid >> (PASID_PDE_SHIFT - 3);
- 	order = size ? get_order(size) : 0;
--	dir = iommu_alloc_pages_node(info->iommu->node, GFP_KERNEL, order);
-+	dir = iommu_alloc_pages_node_sz(info->iommu->node, GFP_KERNEL,
-+					1 << (order + PAGE_SHIFT));
- 	if (!dir) {
- 		kfree(pasid_table);
- 		return -ENOMEM;
-diff --git a/drivers/iommu/intel/prq.c b/drivers/iommu/intel/prq.c
-index 01ecafed31453c..0f8c121a8b3f9d 100644
---- a/drivers/iommu/intel/prq.c
-+++ b/drivers/iommu/intel/prq.c
-@@ -288,7 +288,8 @@ int intel_iommu_enable_prq(struct intel_iommu *iommu)
- 	struct iopf_queue *iopfq;
- 	int irq, ret;
- 
--	iommu->prq = iommu_alloc_pages_node(iommu->node, GFP_KERNEL, PRQ_ORDER);
-+	iommu->prq =
-+		iommu_alloc_pages_node_sz(iommu->node, GFP_KERNEL, PRQ_SIZE);
- 	if (!iommu->prq) {
- 		pr_warn("IOMMU: %s: Failed to allocate page request queue\n",
- 			iommu->name);
-diff --git a/drivers/iommu/iommu-pages.h b/drivers/iommu/iommu-pages.h
-index 7ece83bb0f54bb..b3af2813ed0ced 100644
---- a/drivers/iommu/iommu-pages.h
-+++ b/drivers/iommu/iommu-pages.h
-@@ -84,22 +84,6 @@ static inline bool iommu_pages_list_empty(struct iommu_pages_list *list)
- 	return list_empty(&list->pages);
- }
- 
--/**
-- * iommu_alloc_pages_node - Allocate a zeroed page of a given order from
-- *                          specific NUMA node
-- * @nid: memory NUMA node id
-- * @gfp: buddy allocator flags
-- * @order: page order
-- *
-- * Returns the virtual address of the allocated page.
-- * Prefer to use iommu_alloc_pages_node_lg2()
-- */
--static inline void *iommu_alloc_pages_node(int nid, gfp_t gfp,
--					   unsigned int order)
--{
--	return iommu_alloc_pages_node_sz(nid, gfp, 1 << (order + PAGE_SHIFT));
--}
--
- /**
-  * iommu_alloc_pages_sz - Allocate a zeroed page of a given size from
-  *                          specific NUMA node
--- 
-2.43.0
+You're right that we need to process the sframe section like what
+kpatch_regenerate_orc_sections() does when building livepatch by kpatch.
+
+However, livepatch-sample.ko is not generated by kpatch.=C2=A0It is built
+directly from samples/livepatch/livepatch-sample.c by gcc during the kernel
+build
 
 
