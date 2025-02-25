@@ -4,68 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2A8CC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 18:35:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72C65C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 18:37:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uHjVeXjJwyUrFIk37tJHbiniKlVeJBPEfYh81Yi7Yes=; b=A5BSzef/6RjCkSH3C27iF0dzeB
-	XnVrnOGRbXbmTNxzJpEyDkP517L7YryOyqI6l8u2o1swp01NbIrV7i/QlQUHderan6t6XLekU4PF6
-	tejANdMCTq4ANAeqBG/fJ9q7Afbdch5fSbs3NkLu3Dr27rMxs0bEdaRPuNdhhiiFQVSYtDEyhxmL4
-	cw33w3pMF9vLyA6KM3/EpuvrHDka/JcUqTfBTsZv/e7kEGktdDwtzdKvND4yYL69qwTc6PZ+e0jHU
-	h9TuRBNJwOUl7U2UHHJTOuaRCUBU+RK9XlIQhJJ0YoH5p/yp9XaSAhQE7ZAWugs6N8lwT6PrevQvy
-	7PnjoSgQ==;
+	bh=dN8nBA+Qh6D4N+wqpSDyJLyiHWYbmS4OUKXh0N+DSqI=; b=xy8NGZvcSzlQEP8AQzhtmf36mP
+	vpO2px+NDWLmCDK47U6bxe4bz+Lc5hz2L2pEuOibvuyya2lc/E8JANrsdR1EwT8hcRDPw4zJkUl9D
+	IIA/eludiKHjKdL2GjODGzB+iEKPXCLbluyfWZRhe375v8O6WeWYMggyjawNdpUWiK9s6VPZNfDhM
+	i0JlHofDNxkMPRFPOH+G3pN1K0sQLTb0KII3GVMhiE0Op7iT4r92sPM5tUjbAIdLPkW0G5Rfp2MEi
+	hNrwujdSbxvIuRrohkNJhxgAaKPRJ4cnlg3R9wgQw4Yex+ao/SevtOAogkrOxwghzRV7lUHGzNoC/
+	kMp3SoSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmzm3-00000000xkA-1rWr;
-	Tue, 25 Feb 2025 18:35:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmz2O-00000000jmp-3wpy
+	id 1tmznY-00000000y8T-2ol0;
+	Tue, 25 Feb 2025 18:36:52 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tmz6a-00000000l7x-1yWb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 17:48:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 806481BCB;
-	Tue, 25 Feb 2025 09:48:24 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.2.76.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D48783F5A1;
-	Tue, 25 Feb 2025 09:48:07 -0800 (PST)
-Date: Tue, 25 Feb 2025 17:48:03 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Rob Herring <robh@kernel.org>, Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	James Clark <james.clark@linaro.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Tue, 25 Feb 2025 17:52:30 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-221ac1f849fso1785ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 09:52:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1740505948; x=1741110748; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=dN8nBA+Qh6D4N+wqpSDyJLyiHWYbmS4OUKXh0N+DSqI=;
+        b=IdEBfLmjK2zEtO86ttEtlOT2oABttUHMvftkXK1OSUgaid0qIiHY4cub7XbO5Aj+FM
+         j+l2dCkJNeGZIUSZisHHXUYvE1EVuU1bTR7agYXj/BdJSKMB1G+d8WysLT/qzlH2hN/v
+         qECeDGdR/J6L2hZeCVaoP/NGJu3mFr8/GGAByW+TK6cdupoCTpyGkmiTKs68oQ1xCY3B
+         CQNznZ06SJQSBn7FK7HX0WG+TTpQP8uMad1u2BlkHnd3F/r+DxdCtcoMeZV25pUaML3K
+         DCiB8mnuCrlxpbLsKw80uCn0qvIdotMqTrxtAGZS4U6LTg1BhdaPZGyH9Q8dr2UUae5a
+         FCQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740505948; x=1741110748;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dN8nBA+Qh6D4N+wqpSDyJLyiHWYbmS4OUKXh0N+DSqI=;
+        b=BeAH6mKlSxGf2/8XZI6N4BZiWMPwkTZ7prLBPR/GBzTPDfUcr31a6Qiar2CaesV6D0
+         yUe92zYW/yn9eJTxz12+jxaZedhWtSoNN4URzWTNRVJ7z/7TvPW+R6iDDRhJOxjhFWTV
+         bd0zNYWLg7GYuBwCKrWkm7xJhA7NF55aYn4POtbu231d0v1gTzWN8YKdOL+TcrzYKy4M
+         Zzxi4a1UzD5M2wOpfcVs78X4CO9wa3mO0tdmrOlVOfCTpWHNawbIjqt2T2dFE6FZeCqp
+         4FxKIHFWJzVPPbDm726+246n9lw/k+J96desm+7sh1WQh5L/Q1MALHjeiOx3hKYrAbe0
+         nbNA==
+X-Forwarded-Encrypted: i=1; AJvYcCXINhYRRXpKzNcImnJ5Eb7+zrwBvZYd9Wi4b2EbH5ulIUdELN/L4MnEh5GfXs+zzd3Gsq8SlrOhWyYDOauLhLgX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3Z9gJ/9TnPGrbGGw/PcJ8IfiPAgxmKqsgMrArYkje1jTd+QsC
+	BGd5w4a8+p+uy6wOZV667yH4xcQO46CL4J1zdDgbHX5Yg6E6lpAwoEcaqENrNw==
+X-Gm-Gg: ASbGncuoIwPZsGMLZ93/Sy59njRtFQwiUnv5zyaoANNjzcymYXDTwSe+mty9R3R0B92
+	4g1xQlnhDaiFhJCiLS9GUZN5QFBGzOX+1egDrWnfr6nBu5SqDIn5+9Tq6UydgFODwtznNyuuBM+
+	y84LJkoiAdwpaxa9wE7qXTe4xVYj5T1Irx6C7h9WYBL8J+/Hz2xDjzH8ZS6+7ecgJ20+uhc4853
+	ZaqtKAIj+QSCr4lihiYlBe2gYzfTOy+ZuHMj/wt17dyQTzT3ppooqPFmlIWpLqXKBLFSsmwYYh6
+	KOhp5Kp03vfOPSy7KNuL4gWXCQa5dzlWYHYOLajrqFZef489ZWDFK0MoQ/FEOzU=
+X-Google-Smtp-Source: AGHT+IHCwCn1SF2NMONCzfAyHzGrJNS1HAUTJPist+TAdk8bMDyf0wMytHFuTMKOTPJoVoDGnbqb0g==
+X-Received: by 2002:a17:903:244d:b0:216:48d4:b3a8 with SMTP id d9443c01a7336-22307a60187mr3928025ad.16.1740505947317;
+        Tue, 25 Feb 2025 09:52:27 -0800 (PST)
+Received: from google.com (169.224.198.35.bc.googleusercontent.com. [35.198.224.169])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fe6a43ccb3sm1861445a91.39.2025.02.25.09.52.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Feb 2025 09:52:26 -0800 (PST)
+Date: Tue, 25 Feb 2025 17:52:16 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
+	joro@8bytes.org, suravee.suthikulpanit@amd.com,
+	robin.murphy@arm.com, dwmw2@infradead.org, baolu.lu@linux.intel.com,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH v20 11/11] perf: arm_pmuv3: Add support for the Branch
- Record Buffer Extension (BRBE)
-Message-ID: <20250225174803.GB1821331@e132581.arm.com>
-References: <20250218-arm-brbe-v19-v20-0-4e9922fc2e8e@kernel.org>
- <20250218-arm-brbe-v19-v20-11-4e9922fc2e8e@kernel.org>
- <20250224122507.GE8144@e132581.arm.com>
- <CAL_Jsq+0fZ2uasgAam7qGTdCeDBQxXeyL-J1_suyxy6GE_ERTg@mail.gmail.com>
- <20250224140317.GF8144@e132581.arm.com>
- <Z7yY19UtSnND5KTl@J2N7QTR9R3.cambridge.arm.com>
- <20250224180301.GI8144@e132581.arm.com>
- <Z72xMLsd37I6X_5-@J2N7QTR9R3>
+	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
+	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
+	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
+	patches@lists.linux.dev
+Subject: Re: [PATCH v8 12/14] iommu/arm-smmu-v3: Introduce struct
+ arm_smmu_vmaster
+Message-ID: <Z74DUPcl9KRZcvpW@google.com>
+References: <cover.1740504232.git.nicolinc@nvidia.com>
+ <f205a4e2f5971cd4b1033d7cac41683e10ebabfb.1740504232.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z72xMLsd37I6X_5-@J2N7QTR9R3>
+In-Reply-To: <f205a4e2f5971cd4b1033d7cac41683e10ebabfb.1740504232.git.nicolinc@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_094809_079558_5DBBE8C7 
-X-CRM114-Status: GOOD (  37.52  )
+X-CRM114-CacheID: sfid-20250225_095228_511096_742EBFBA 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,94 +106,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 12:01:52PM +0000, Mark Rutland wrote:
-
-[...]
-
-> > > Critically, the brbe_enable() function merges the filters of all
-> > > *active* events which have been installed into hardware. It does not
-> > > track all events which can be rotated, and the resulting filter is not
-> > > the same -- it can change as a result of rotation.
-> > 
-> > In a perf session has multiple events, and events have different branch
-> > filters, seems to me, a simple way is to return error for this case.
+On Tue, Feb 25, 2025 at 09:25:40AM -0800, Nicolin Chen wrote:
+> Use it to store all vSMMU-related data. The vsid (Virtual Stream ID) will
+> be the first use case. Since the vsid reader will be the eventq handler
+> that already holds a streams_mutex, reuse that to fenche the vmaster too.
 > 
-> FWIW, I'd generally prefer to do that since it avoids a number of
-> horrible edge-cases and gets rid of the need to do SW filtering, which
-> falls somewhere between "tricky" and "not entirely possible". However,
-> that's not what LBR and others do, which is why we went with filter
-> merging.
+> Also add a pair of arm_smmu_attach_prepare/commit_vmaster helpers to set
+> or unset the master->vmaster point. Put these helpers inside the existing
+> arm_smmu_attach_prepare/commit().
 > 
-> If folk on the tools side are happy with the kernel rejecting
-> conflicting events, then I'd be more than happy to do that. What I don't
-> want is that we start off with that approach and people immediately
-> start to complain that the BRBE driver rejects events that the LBR
-> driver accepts.
+> For identity/blocked ops that don't call arm_smmu_attach_prepare/commit(),
+> add a simpler arm_smmu_master_clear_vmaster helper to unset the vmaster.
 > 
-> See the last time this came up.
-
-Thanks for the shared links.  Based on the info, let's say we can have two
-cases:
-
-  Case 1: set different branch filters in a single perf session:
-
-    perf record -e armv8_pmuv3_0/r03,branch_type=any_call/u \
-                -e armv8_pmuv3_0/r04,branch_type=any_ret/k ...
-
-  Case 2: set different branch filters in multiple perf sessions:
-
-    perf record -e armv8_pmuv3_0/r03,branch_type=any_call/u ...
-
-    perf record -e armv8_pmuv3_0/r04,branch_type=any_ret/k ...
-
-In my previous reply, I was suggesting that we should reject the case 1.
-IMO, it is not quite useful to configure different filters for events in
-the same session, especially if this leads complexity in the driver due
-to the hardware limitation.
-
-For case 2, when create a new session, if the perf tool can read out the
-current branch filter setting (e.g. via sysfs node) and give suggestion
-what branch filter is compabile with existed sessions, seems to me, this
-is a feasible solution.  My understanding this is a rare case, and a
-clear guidance for users would be sufficient if this happens.  (Maybe
-we can give recommendation for how to use BRBE in the perf doc).
-
-To be clear, an important factor is the trace modes with modifier 'u'
-(user) and 'k' (kernel) should be supported for different events and for
-different sessions.  In a mixed cases (some events are userspace only
-and some are kernel only), the BRBE driver needs to filter out branch
-records for specific mode when taking a sample.
-
-> > If we can unify branch filter within a perf session, would this be
-> > much easier for handling?
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Reviewed-by: Pranjal Shrivastavat <praan@google.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   | 28 ++++++++++++
+>  .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 45 +++++++++++++++++++
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 18 +++++++-
+>  3 files changed, 90 insertions(+), 1 deletion(-)
 > 
-> Do you mean if the perf tool ensured that all events in a given session
-> had the same filter? From the kernel's PoV there's no such thing as a
-> "perf session", and I'm not sure whether you're suggesting doing that in
-> userspace or withing the kernel.
 
-My understanding is this would be not difficult to do such kind checking
-in the tool.  E.g., the perf tool can iterate every event and check the
-branch filter and detect incompabile issue.
+Apologies for my spelling error in [1]. It's supposed to be:
 
-> Doing that in the perf tool would certianly make a stronger argument for
-> the kernel taking the "reject conflicting branch filters" option.
-> 
-> Doing that within the kernel isn't really possible.
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
 
-As said above, if the BRBE driver can provide a knob in sysfs to indicate
-what is the current branch filter in the existed sessions, this would be
-helpful for the tool to do the checking and remind users.
-
-I haven't done any experiments for this. If you think this is the way
-to move forward, I might do a prototype and get back to you to ensure we
-don't run into any unexpected issues.
-
-[...]
-
-To make the discussion easier, I would like reply separately regarding
-the branch record save and restore issue.
+For all the other patches too. Correct spelling in [2].
 
 Thanks,
-Leo
+Praan
+
+[1] https://lore.kernel.org/all/Z73zvIbsXzJMCaNt@google.com/
+[2] https://lore.kernel.org/all/Z730M3XptvDRObBp@google.com/ 
+
 
