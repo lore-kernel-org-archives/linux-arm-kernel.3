@@ -4,77 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75476C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:59:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3132BC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 17:00:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=n1k+naLSzAKhDKJd+jEwqzr10qThbn6gZF8/aVc+SdY=; b=SzvudwZBYJRgGtwE2+s/y2MbRI
-	/SfmkGUOAcnW37XYOPPMn/Q4qyy5CHHA1qqeHIjtmmkyw2SW7vcmhLlJXk7RHPkxltbkat1b2DyvB
-	LdvWznrEtqyP5t46alvvvRXdssvT9SUn8gTS79EXH2RYQtN9NoDDXZdKNvnQSOafL+NUmEi3fcqD0
-	juXCJWRO/liH2XqRPt7XLRVTRlJDAL6OowB44Li4syM3VSQpAbgtvkfdtgbBl9b0iCW+iBTNGT6Q3
-	LKtHMGhSDyhM7eZEZmARWRlBfE3jcf4uBrA4nTFz1BYXvTYNzLKJj6w005cafeYduvV4KlKxyr0j2
-	NNs87fSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DvJy2eU2NKOX06+H5Vs2S45nqKcJ32b1n8dkLQorqiw=; b=ABE/2gBwVlZYz/IwtredPmWG6P
+	vuSvmCCsoUorFgROizs4MOTpMp7GgYowV86RkhJjQ6L5vvl0YFL+gL84KIV0uOe84SDWu5NTXYizr
+	wcj9xQa3MI+qsJ35kyMdDunv/sDoPFXPy4wPC3qmDgphYMFnqOMb45uj08H2on6tz+KyDjHiA5SYG
+	0tesGX6RMV9B2ONF332RqQ0R3Uj67+EWgndQw/f8+TIIBdwhg4eB0miQ2mszElfzA/H0oKAy3KDf1
+	muR+GXANW8fVJVUxdHmJmCw6TqzjQCQQJ2s1yJr4sW2KVqTHK3PmQesoK79W/WgiJwkSrR/QTr+D1
+	vN0I+VEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmyGl-00000000V1q-3e5Z;
-	Tue, 25 Feb 2025 16:58:55 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tmyIH-00000000VMU-0CXy;
+	Tue, 25 Feb 2025 17:00:29 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmy0m-00000000LDu-0wQs
+	id 1tmy4I-00000000Qk2-1iAn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 16:42:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6C4E05C721B;
-	Tue, 25 Feb 2025 16:41:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D075BC4CEE6;
-	Tue, 25 Feb 2025 16:42:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740501743;
-	bh=E1I+A2ijUQsaJXZ97m6qRzEkqsAgeCC2zPqldsjqxWo=;
-	h=From:To:Cc:Subject:Date:From;
-	b=gMVjLfi8RUbNJ1VSvtuyy71POodgGy0/kNnREyvDNg64smohUM2ALzQWrZi8w3f9I
-	 4LVmOLgrARJol4lLYOoUiobbX7Y3aQFL3sOxabO6oTV7550ZjxQ2xUAMdZ3szOUVhj
-	 CUPx79Br1nHmlgNXnJu7UF5b1ZfWSFhb6beB0/4BpMk6aGhwJT296Nyz+zHxGSZc1o
-	 ZGDGCza9K9x6n7zMHowk721uOxmBPdUDnEEby16e1qkZLrvjqigseSzNQa6PhG7Len
-	 hbONMGfxrM3RqDXrhZO0vN+dvny2/0bRrL91EkMBKKZR9FqYZPeEStSR4wYc9ujzIi
-	 5EtkuYflCfmHA==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Harald Freudenberger <freude@linux.ibm.com>,
-	Holger Dengler <dengler@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Eric Biggers <ebiggers@google.com>,
-	James Bottomley <James.Bottomley@HansenPartnership.com>,
-	Jarkko Sakkinen <jarkko@kernel.org>,
-	linux-crypto@vger.kernel.org,
+	Tue, 25 Feb 2025 16:46:05 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2212222d4cdso172575ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 08:46:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1740501960; x=1741106760; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=DvJy2eU2NKOX06+H5Vs2S45nqKcJ32b1n8dkLQorqiw=;
+        b=N52CL4Jnw5ivHsMqwXfb/A4uLpp76e0TRjjigrKiyOOXoqncJCqS5y4ciFYiLMxxmq
+         qhUPHaJBzClmXwJGRPIfHv5sLJIrYgqj38Bi9FF9u56iSo1own939lhTLeBtFi7tHViR
+         0YGLqkbvAgWOeTm4mXWVu7wVrxrxheRUBXU0plTEzm8hxuSvG9hOV9ai519hurEHG3Ei
+         29ZlvHKs+ID8qWMjLPGAflOe66wu03WFn7WRygZSa4XCSxSpv3DalnQWuh9INtprWKGB
+         GRJSXioLqQ3ODbdoHJsjBM4ZSdLYLL0HMX6BTzn90diOjHguMwcyqpPR4bP3IPbwFkl5
+         DlTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740501960; x=1741106760;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DvJy2eU2NKOX06+H5Vs2S45nqKcJ32b1n8dkLQorqiw=;
+        b=dyw+iIs8YutUlSbIZD0g5Jrt6PMKHXrlR6j6i7ZVGNa6c3r1u1xuaePZh1eJNbkNir
+         YLjImq1vdVKclEO1Fp0xLjVLU/K/8OAksRJegOu0obFi2plHwFixtclsRM7z1tSK5HVS
+         ZBqHnmnC34f++pja7Zqw65M+PQoNlWu0gpHOtY574AtozjsC4nBiHwZHMFlCastRP3Wf
+         dXUHsVukA1givk0yFJs8H6eyy170AUR03UZuNB5LTfU37zBoB5Z+hdPVGL76Vh1skPu2
+         zYqdilWKJBE3w7LJlAGKcrrjQTjQALJettUjb/89ZQzJuA3zQu2/t8YfqUsq8EgVh7s2
+         IRtg==
+X-Forwarded-Encrypted: i=1; AJvYcCVTrH1JhBAvbl4lfGvJG4dDsC76oIIgchkB38jg8hitG43VijKdzqUYSiwCbRsppvrb/5CXeFfc9pY2a9ziyNzV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmVBpgyQNFz9torfMiyd89dA5+1Y7tv0InVx2bRHLTNCdszxd7
+	7hDjnNNCkWbWkpw4HkLpvSbKd+PShHOYawcifbYFQqMYjhFMijDxk/xsERInFg==
+X-Gm-Gg: ASbGncv3TK5C5OXH4lrqDwc5Me8EIoOV744mvSAqgA2UvaZ3vFKY4z1+NOx55ReeSmd
+	AG3sd3U7EaNAYaVl2fUakKALqqzCNIGWXnPJ8cCsXqJvLiVfiBTqeqi99SMfSsq1GY4Kel56mSU
+	/pVE3GvgdzPcQfbfJZ73wRai4CFOaiAl4eDedv/hVDPU1ZVltzJoI9+pP51+3nrljVIf9eQ/f/j
+	6G4oLaqx4S0cWUbkgGNL0njbsl2sMzeKxqpbVghUuLX0qpWhpWr9mFeIBDZ8dH9fSsVuxaVk7q+
+	RGJDpfoIia1l7ppgojdQRQ55rcYO7l0DP/BEwXoK5vySGfVW+WUczSZAzJyg2JU=
+X-Google-Smtp-Source: AGHT+IEN5DYqq3Kc3cWdCDht37pR+ox7Pyn1fNUO9eOSCsjsyhHHqegeAVtSYgiTkCHpwG2cFWbA4w==
+X-Received: by 2002:a17:903:2445:b0:215:9ab0:402 with SMTP id d9443c01a7336-22307a98a03mr3458305ad.18.1740501959581;
+        Tue, 25 Feb 2025 08:45:59 -0800 (PST)
+Received: from google.com (169.224.198.35.bc.googleusercontent.com. [35.198.224.169])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7347a6fa230sm1709220b3a.70.2025.02.25.08.45.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Feb 2025 08:45:58 -0800 (PST)
+Date: Tue, 25 Feb 2025 16:45:48 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, kevin.tian@intel.com,
+	corbet@lwn.net, will@kernel.org, joro@8bytes.org,
+	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
+	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-s390@vger.kernel.org
-Subject: [PATCH] crypto: lib/Kconfig - fix chacha/poly1305 dependencies more more
-Date: Tue, 25 Feb 2025 17:42:07 +0100
-Message-Id: <20250225164216.4807-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
+	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
+	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
+	patches@lists.linux.dev
+Subject: Re: [PATCH v7 12/14] iommu/arm-smmu-v3: Introduce struct
+ arm_smmu_vmaster
+Message-ID: <Z73zvIbsXzJMCaNt@google.com>
+References: <cover.1740238876.git.nicolinc@nvidia.com>
+ <be799951a817557ac093ac3e18d02a631306aa35.1740238876.git.nicolinc@nvidia.com>
+ <Z7zYLBLZGKim-5UL@google.com>
+ <Z7zlH74/orq9HF7Q@Asurada-Nvidia>
+ <Z7zqdrQn7Q8yXfcn@google.com>
+ <Z7zxsbJsOFp41Dzd@Asurada-Nvidia>
+ <Z70EnQ5CXacc4ysT@Asurada-Nvidia>
+ <20250225160225.GA593877@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250225160225.GA593877@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_084224_415667_687DF122 
-X-CRM114-Status: GOOD (  13.64  )
+X-CRM114-CacheID: sfid-20250225_084602_511453_3ECBB1B4 
+X-CRM114-Status: GOOD (  16.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,169 +113,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Tue, Feb 25, 2025 at 12:02:25PM -0400, Jason Gunthorpe wrote:
+> On Mon, Feb 24, 2025 at 03:45:33PM -0800, Nicolin Chen wrote:
+> 
+> > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> > @@ -95,8 +95,6 @@ int arm_smmu_attach_prepare_vmaster(struct arm_smmu_attach_state *state,
+> >  
+> >  	iommu_group_mutex_assert(state->master->dev);
+> >  
+> > -	if (domain->type != IOMMU_DOMAIN_NESTED)
+> > -		return 0;
+> >  	nested_domain = to_smmu_nested_domain(domain);
+> >  
+> >  	/* Skip invalid vSTE */
+> > @@ -122,19 +120,9 @@ void arm_smmu_attach_commit_vmaster(struct arm_smmu_attach_state *state)
+> >  {
+> >  	struct arm_smmu_master *master = state->master;
+> >  
+> > -	mutex_lock(&master->smmu->streams_mutex);
+> > -	if (state->vmaster != master->vmaster) {
+> > -		kfree(master->vmaster);
+> > -		master->vmaster = state->vmaster;
+> > -	}
+> > -	mutex_unlock(&master->smmu->streams_mutex);
+> > -}
+> > -
+> > -void arm_smmu_master_clear_vmaster(struct arm_smmu_master *master)
+> > -{
+> >  	mutex_lock(&master->smmu->streams_mutex);
+> >  	kfree(master->vmaster);
+> > -	master->vmaster = NULL;
+> > +	master->vmaster = state->vmaster;
+> >  	mutex_unlock(&master->smmu->streams_mutex);
+> >  }
+> 
+> I'd leave the clear_vmaster just for clarity. Commit should not be
+> unpaired with prepare in the other functions.
+> 
 
-A recent change tries to fix Kconfig dependencies, but introduced
-two problems in the process:
+Ack. I'd like to pair prepare and commit as well. I'm just confused
+about the check if (state->vmaster != master->vmaster). Maybe a helpful
+comment about what are we checking for would make things cleaner.
 
- - only arm, powerpc and x86 are changed, while mips, arm64 and s390
-   are now broken
+With this nit:
 
- - there are now configurations where the architecture enables its
-   own helper functions as loadable modules, but they remain silently
-   unused because CRYPTO_LIB_* falls back to the generic helpers
+Reviewed-by: Pranjal Shrivastavat <praan@google.com>
 
-Address both by changing the logic again: the architecture functions
-select CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA, which may be a loadable
-module or built-in, and this controls whether the library is
-also built-in.
-
-Fixes: 04f9ccc955c7 ("crypto: lib/Kconfig - Fix lib built-in failure when arch is modular")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
-I did not quite understand what problem the 04f9ccc955c7 patch
-actually tried to solve, so there is a chance that my version
-undoes it. I tested this on randconfig builds across, arm,
-arm64 and x86 and found no other dependency problems with these
-libraries.
----
- arch/arm64/crypto/Kconfig |  4 ++--
- arch/mips/crypto/Kconfig  |  4 ++--
- arch/s390/crypto/Kconfig  |  2 +-
- lib/crypto/Kconfig        | 20 +++++++++++---------
- 4 files changed, 16 insertions(+), 14 deletions(-)
-
-diff --git a/arch/arm64/crypto/Kconfig b/arch/arm64/crypto/Kconfig
-index 5636ab83f22a..3d90efdcf5a5 100644
---- a/arch/arm64/crypto/Kconfig
-+++ b/arch/arm64/crypto/Kconfig
-@@ -29,7 +29,7 @@ config CRYPTO_POLY1305_NEON
- 	tristate "Hash functions: Poly1305 (NEON)"
- 	depends on KERNEL_MODE_NEON
- 	select CRYPTO_HASH
--	select CRYPTO_ARCH_HAVE_LIB_POLY1305
-+	select CRYPTO_ARCH_MAY_HAVE_LIB_POLY1305
- 	help
- 	  Poly1305 authenticator algorithm (RFC7539)
- 
-@@ -190,7 +190,7 @@ config CRYPTO_CHACHA20_NEON
- 	depends on KERNEL_MODE_NEON
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_LIB_CHACHA_GENERIC
--	select CRYPTO_ARCH_HAVE_LIB_CHACHA
-+	select CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA
- 	help
- 	  Length-preserving ciphers: ChaCha20, XChaCha20, and XChaCha12
- 	  stream cipher algorithms
-diff --git a/arch/mips/crypto/Kconfig b/arch/mips/crypto/Kconfig
-index 7decd40c4e20..cbeb2f62eb79 100644
---- a/arch/mips/crypto/Kconfig
-+++ b/arch/mips/crypto/Kconfig
-@@ -5,7 +5,7 @@ menu "Accelerated Cryptographic Algorithms for CPU (mips)"
- config CRYPTO_POLY1305_MIPS
- 	tristate "Hash functions: Poly1305"
- 	depends on MIPS
--	select CRYPTO_ARCH_HAVE_LIB_POLY1305
-+	select CRYPTO_ARCH_MAY_HAVE_LIB_POLY1305
- 	help
- 	  Poly1305 authenticator algorithm (RFC7539)
- 
-@@ -55,7 +55,7 @@ config CRYPTO_CHACHA_MIPS
- 	tristate "Ciphers: ChaCha20, XChaCha20, XChaCha12 (MIPS32r2)"
- 	depends on CPU_MIPS32_R2
- 	select CRYPTO_SKCIPHER
--	select CRYPTO_ARCH_HAVE_LIB_CHACHA
-+	select CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA
- 	help
- 	  Length-preserving ciphers: ChaCha20, XChaCha20, and XChaCha12
- 	  stream cipher algorithms
-diff --git a/arch/s390/crypto/Kconfig b/arch/s390/crypto/Kconfig
-index b760232537f1..6f7495264943 100644
---- a/arch/s390/crypto/Kconfig
-+++ b/arch/s390/crypto/Kconfig
-@@ -112,7 +112,7 @@ config CRYPTO_CHACHA_S390
- 	depends on S390
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_LIB_CHACHA_GENERIC
--	select CRYPTO_ARCH_HAVE_LIB_CHACHA
-+	select CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA
- 	help
- 	  Length-preserving cipher: ChaCha20 stream cipher (RFC 7539)
- 
-diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index c542ef1d64d0..6b45bd634cd9 100644
---- a/lib/crypto/Kconfig
-+++ b/lib/crypto/Kconfig
-@@ -50,8 +50,6 @@ config CRYPTO_ARCH_HAVE_LIB_CHACHA
- 
- config CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA
- 	tristate
--	select CRYPTO_ARCH_HAVE_LIB_CHACHA if CRYPTO_LIB_CHACHA=m
--	select CRYPTO_ARCH_HAVE_LIB_CHACHA if CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA=y
- 
- config CRYPTO_LIB_CHACHA_GENERIC
- 	tristate
-@@ -65,7 +63,9 @@ config CRYPTO_LIB_CHACHA_GENERIC
- 
- config CRYPTO_LIB_CHACHA
- 	tristate "ChaCha library interface"
--	select CRYPTO_LIB_CHACHA_GENERIC if CRYPTO_ARCH_HAVE_LIB_CHACHA=n
-+	select CRYPTO_LIB_CHACHA_GENERIC if CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA=n
-+	select CRYPTO_ARCH_HAVE_LIB_CHACHA if CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA!=n
-+	depends on CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA || !CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA
- 	help
- 	  Enable the ChaCha library interface. This interface may be fulfilled
- 	  by either the generic implementation or an arch-specific one, if one
-@@ -80,8 +80,6 @@ config CRYPTO_ARCH_HAVE_LIB_CURVE25519
- 
- config CRYPTO_ARCH_MAY_HAVE_LIB_CURVE25519
- 	tristate
--	select CRYPTO_ARCH_HAVE_LIB_CURVE25519 if CRYPTO_LIB_CURVE25519=m
--	select CRYPTO_ARCH_HAVE_LIB_CURVE25519 if CRYPTO_ARCH_MAY_HAVE_LIB_CURVE25519=y
- 
- config CRYPTO_LIB_CURVE25519_GENERIC
- 	tristate
-@@ -94,7 +92,9 @@ config CRYPTO_LIB_CURVE25519_GENERIC
- 
- config CRYPTO_LIB_CURVE25519
- 	tristate "Curve25519 scalar multiplication library"
--	select CRYPTO_LIB_CURVE25519_GENERIC if CRYPTO_ARCH_HAVE_LIB_CURVE25519=n
-+	select CRYPTO_LIB_CURVE25519_GENERIC if CRYPTO_ARCH_MAY_HAVE_LIB_CURVE25519=n
-+	select CRYPTO_ARCH_HAVE_LIB_CURVE25519 if CRYPTO_ARCH_MAY_HAVE_LIB_CURVE25519!=n
-+	depends on CRYPTO_ARCH_MAY_HAVE_LIB_CURVE25519 || !CRYPTO_ARCH_MAY_HAVE_LIB_CURVE25519
- 	select CRYPTO_LIB_UTILS
- 	help
- 	  Enable the Curve25519 library interface. This interface may be
-@@ -120,8 +120,6 @@ config CRYPTO_ARCH_HAVE_LIB_POLY1305
- 
- config CRYPTO_ARCH_MAY_HAVE_LIB_POLY1305
- 	tristate
--	select CRYPTO_ARCH_HAVE_LIB_POLY1305 if CRYPTO_LIB_POLY1305=m
--	select CRYPTO_ARCH_HAVE_LIB_POLY1305 if CRYPTO_ARCH_MAY_HAVE_LIB_POLY1305=y
- 
- config CRYPTO_LIB_POLY1305_GENERIC
- 	tristate
-@@ -134,7 +132,9 @@ config CRYPTO_LIB_POLY1305_GENERIC
- 
- config CRYPTO_LIB_POLY1305
- 	tristate "Poly1305 library interface"
--	select CRYPTO_LIB_POLY1305_GENERIC if CRYPTO_ARCH_HAVE_LIB_POLY1305=n
-+	select CRYPTO_LIB_POLY1305_GENERIC if CRYPTO_ARCH_MAY_HAVE_LIB_POLY1305=n
-+	select CRYPTO_ARCH_HAVE_LIB_POLY1305 if CRYPTO_ARCH_MAY_HAVE_LIB_POLY1305!=n
-+	depends on CRYPTO_ARCH_MAY_HAVE_LIB_POLY1305 || !CRYPTO_ARCH_MAY_HAVE_LIB_POLY1305
- 	help
- 	  Enable the Poly1305 library interface. This interface may be fulfilled
- 	  by either the generic implementation or an arch-specific one, if one
-@@ -143,6 +143,8 @@ config CRYPTO_LIB_POLY1305
- config CRYPTO_LIB_CHACHA20POLY1305
- 	tristate "ChaCha20-Poly1305 AEAD support (8-byte nonce library version)"
- 	depends on CRYPTO
-+	depends on CRYPTO_ARCH_MAY_HAVE_LIB_POLY1305 || !CRYPTO_ARCH_MAY_HAVE_LIB_POLY1305
-+	depends on CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA || !CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA
- 	select CRYPTO_LIB_CHACHA
- 	select CRYPTO_LIB_POLY1305
- 	select CRYPTO_ALGAPI
--- 
-2.39.5
+Thanks,
+Praan
 
 
