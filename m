@@ -4,88 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AD30C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 09:07:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51D3DC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 09:09:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cVklkX4ls4DmGaHeHtD1Mqmy/EB9lIthesFAI0y01ZA=; b=AN0/5Edwfmtg+VnYoAWsmRGh4r
-	VaUTAvEzMqkZYKksG72+2xApRmVj2st4yQNtBGDpnzEdYpDHu0cCx3yp9K6hoJEn94gdosWEqt2SK
-	ccu4pPula1wigete2hBCOrpSyBcumXXUetlRideUe1HwgIkmgEvnRwUV6xJR5dob0gB5jf0zxN+L9
-	L42KNR115lrBhOpRPDFNjHL69lpp+kMqlwyRicmeW7pHqJk6voP/I4NzGoiv0cB4XN7CNyJcXNch0
-	ldKbpicQHTTBfcDfC99piRR0rPydlNfoYRSCNhkPUzkFmjCqkR/1iUALnyj5OfohwX4S3avI64OUK
-	T60YJUTw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=oofpzS28s5ufquqWyj4LIDDS9CpvobWf/hARVzzFx0s=; b=iwVOt96T8xZdma
+	umEVdEAa4WV6FnohaO96lZ5irbFHeg9pXWD3nF7Pp5Cizd5RY+mNZqEeAOBsKIA1gv0HmueqwjRjb
+	7pGKmB4L/fyPw0PmYGj2N3KZciT3JRfUBP2TJ6LcP+GQ6dlcw4h045EFaKcMs+fMsL9T3YfQl1DM/
+	fYup+prRfDJKShbjyPgDyprJpaWAQi+8m8O/E/cQXkhXecT0au7ctP4QUiU4Q7GAG0z8kouKRo9Tx
+	ywxmw1olOpiZz5Ia7LAym6iT8pvk9x6Srhmz+XddLME0gPaAYOBuiXSsHR93t08Uug/APmzySnhTK
+	14tY7eTFMjmfvTIGFPgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmque-0000000GW4Y-3pZZ;
-	Tue, 25 Feb 2025 09:07:36 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1tmqw9-0000000GWQ5-0c9E;
+	Tue, 25 Feb 2025 09:09:09 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmqfj-0000000GSwC-2VVI
+	id 1tmqkh-0000000GU60-04Xw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 08:52:14 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51P7lqXC000766;
-	Tue, 25 Feb 2025 09:52:01 +0100
+	Tue, 25 Feb 2025 08:57:20 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51P7jke2002965;
+	Tue, 25 Feb 2025 09:57:08 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	cVklkX4ls4DmGaHeHtD1Mqmy/EB9lIthesFAI0y01ZA=; b=acZoLLaf3zttcjr0
-	qrbM4xCG8yDoqlOAsqNWCOlRHtcfHrQbt+1iTbkZ+gkMjyszYCw5kjQa3b7Mq7Hx
-	XJ6QPp7ZEncO9iSFiucnbl+8oH1pZkxkUgyb1DLLhjY5l0SL3yvG0dlX0XtjYMpP
-	P6Xwap0C0oC7Z3cxL72Lnp+Gs4OICJ0ZhPL7U8phx1OMm4wReUQUb1jcKcIy1M6+
-	4NdONW+GSTKHEKdLC+iSvOeAOFA7TcSQEruRgoKQybUDWO5BOb/CxcaPw5K1PGxB
-	x5Ji++mQ3z1LxREJf14dLBYwRRT6tASqqaGPmQJIw84xg1OKi/SIhzKUfhFfK8+h
-	yZUF+Q==
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=oofpzS28s5ufquqWyj4LID
+	DS9CpvobWf/hARVzzFx0s=; b=zYOca+G592xWg2ybO3oaJi/GuYWP/st7ZyNGEc
+	HlRwYPhS51hKzgVjYFUDPEachDYjuX6AecHig0IYyYgjjvHaF/Bt8jraPyWP+i8+
+	HhZlsYw9yQzPBNNaij42iE0xdwvg2AjvvMI4Ke9+l33dOrlIf3ntn3m6ERWMmKp3
+	ewzAXLZhIBahLW51tw9l+pUynHe1dB7Ap3YuT2U0DeahN2WeHgsqsbxJfaQT85Ta
+	duaaY+mh91xx+9asgbFHhcf+jE8CGSW5nPmPXxDv8PO1TlkVQY4dwzawtBuxERjh
+	qvCdP+eyyVRrM1sei7lmKMUVTu3JRpnkVBSUAM6z8ijQ/EIQ==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4512sp1t4d-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4512sp9shj-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 25 Feb 2025 09:52:01 +0100 (CET)
+	Tue, 25 Feb 2025 09:57:07 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 1B9CA40055;
-	Tue, 25 Feb 2025 09:50:51 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 386AF47A7A8;
-	Tue, 25 Feb 2025 09:48:08 +0100 (CET)
-Received: from localhost (10.48.86.185) by SHFDAG1NODE2.st.com (10.75.129.70)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B0BE44006C;
+	Tue, 25 Feb 2025 09:55:48 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 99069425496;
+	Tue, 25 Feb 2025 09:54:29 +0100 (CET)
+Received: from localhost (10.48.87.120) by SHFDAG1NODE3.st.com (10.75.129.71)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 25 Feb
- 2025 09:48:07 +0100
-From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-Date: Tue, 25 Feb 2025 09:48:02 +0100
-Subject: [PATCH 3/9] pinctrl: stm32: Introduce HDP driver
+ 2025 09:54:29 +0100
+From: Amelie Delaunay <amelie.delaunay@foss.st.com>
+Subject: [PATCH v2 00/10] Expand STM32MP2 family with new SoC and boards
+Date: Tue, 25 Feb 2025 09:54:03 +0100
+Message-ID: <20250225-b4-stm32mp2_new_dts-v2-0-1a628c1580c7@foss.st.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-ID: <20250225-hdp-upstream-v1-3-9d049c65330a@foss.st.com>
-References: <20250225-hdp-upstream-v1-0-9d049c65330a@foss.st.com>
-In-Reply-To: <20250225-hdp-upstream-v1-0-9d049c65330a@foss.st.com>
-To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACuFvWcC/32NQQ6CMBBFr0JmbUk7CKmuvIchBOlUuoCSTlM1p
+ He3cgCX7yX//R2YgiOGa7VDoOTY+bUAniqY5nF9knCmMKDEVqKS4nEWHJcGlw2HlV6DiSy0NcY
+ 0+qJbOUJZboGsex/Ve194dhx9+BwnSf3s/15SQgrSZBV1XTe1dLOeueZYT36BPuf8BU5J5Gu4A
+ AAA
+X-Change-ID: 20250210-b4-stm32mp2_new_dts-8fddd389850a
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
         Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Bartosz Golaszewski <brgl@bgdev.pl>
-CC: <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        =?utf-8?q?Cl=C3=A9ment_Le_Goffic?=
-	<clement.legoffic@foss.st.com>
-X-Mailer: b4 0.15-dev-42535
-X-Originating-IP: [10.48.86.185]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Richard Cochran <richardcochran@gmail.com>,
+        Christophe Roullier
+	<christophe.roullier@foss.st.com>
+CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <netdev@vger.kernel.org>,
+        Amelie Delaunay <amelie.delaunay@foss.st.com>,
+        Conor Dooley <conor.dooley@microchip.com>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [10.48.87.120]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-02-25_03,2025-02-24_02,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_005211_960750_64A54FFC 
-X-CRM114-Status: GOOD (  19.53  )
+X-CRM114-CacheID: sfid-20250225_005719_353245_2E8DEA78 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,359 +106,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch introduce the driver for the Hardware Debug Port available on
-STM32MP platforms. The HDP allows the observation of internal SoC
-signals by using multiplexers. Each HDP port can provide up to 16
-internal signals (one of them can be software controlled as a GPO)
+Add STM32MP25 Discovery Kit board [1] STM32MP257F-DK. It is based on a
+different package of STM32MP257 SoC than STM32MP257F-EV1, and has 4GB of
+LPDDR4 instead of DDR4.
+Introduce two new SoC families [2] with Arm Cortex-A35 and Cortex-M33,
+in development:
+- STM32MP23x SoCs family, with STM32MP231 (single Arm Cortex-A35),
+STM32MP233 and STM32MP235 (dual Arm Cortex-A35) [3]. Add STM32MP235F-DK
+board to demonstrate the differences with STM32MP257F-DK board;
+- STM32MP21x SoCs family, based on Cortex-A35 single-core, with
+STM32MP211, STM32MP213 and STM32MP215. Add STM32MP215F-DK board based on
+STM32MP215 SoC, with 2GB of LPDDR4.
 
-Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+[1] https://www.st.com/en/evaluation-tools/stm32mp257f-dk.html
+[2] https://www.st.com/en/microcontrollers-microprocessors/stm32-arm-cortex-mpus.html
+[3] https://www.st.com/en/microcontrollers-microprocessors/stm32mp235.html
+
+Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
 ---
- drivers/pinctrl/stm32/Kconfig             |  14 ++
- drivers/pinctrl/stm32/Makefile            |   1 +
- drivers/pinctrl/stm32/pinctrl-stm32-hdp.c | 301 ++++++++++++++++++++++++++++++
- 3 files changed, 316 insertions(+)
+Changes in v2:
+- Address Krzysztof's comments:
+  - squash arm64 Kconfig updates for STM32MP21 and STM32MP23
+  - add new compatibles st,stm32mp21-syscfg and st,stm32mp23-syscfg
+  - comply with DTS coding style
+  - move interrupt controller node under soc
+  - remove status property from button nodes
+- Link to v1: https://lore.kernel.org/r/20250210-b4-stm32mp2_new_dts-v1-0-e8ef1e666c5e@foss.st.com
 
-diff --git a/drivers/pinctrl/stm32/Kconfig b/drivers/pinctrl/stm32/Kconfig
-index 2656d3d3ae40..4b474cfd1f2c 100644
---- a/drivers/pinctrl/stm32/Kconfig
-+++ b/drivers/pinctrl/stm32/Kconfig
-@@ -57,4 +57,18 @@ config PINCTRL_STM32MP257
- 	depends on OF && HAS_IOMEM
- 	default MACH_STM32MP25
- 	select PINCTRL_STM32
-+
-+config PINCTRL_STM32_HDP
-+	tristate "STMicroelectronics STM32 Hardware Debug Port (HDP) pin control"
-+	depends on OF && HAS_IOMEM
-+	default ARM64 || (ARM && CPU_V7)
-+	select PINMUX
-+	select GENERIC_PINCONF
-+	select GPIOLIB
-+	help
-+	  The Hardware Debug Port allows the observation of internal signals.
-+	  It uses configurable multiplexer to route signals in a dedicated observation register.
-+	  This driver also permits the observation of signals on external SoC pins.
-+	  It permits the observation of up to 16 signals per HDP line.
-+
- endif
-diff --git a/drivers/pinctrl/stm32/Makefile b/drivers/pinctrl/stm32/Makefile
-index 7b17464d8de1..98a1bbc7e16c 100644
---- a/drivers/pinctrl/stm32/Makefile
-+++ b/drivers/pinctrl/stm32/Makefile
-@@ -11,3 +11,4 @@ obj-$(CONFIG_PINCTRL_STM32H743)	+= pinctrl-stm32h743.o
- obj-$(CONFIG_PINCTRL_STM32MP135) += pinctrl-stm32mp135.o
- obj-$(CONFIG_PINCTRL_STM32MP157) += pinctrl-stm32mp157.o
- obj-$(CONFIG_PINCTRL_STM32MP257) += pinctrl-stm32mp257.o
-+obj-$(CONFIG_PINCTRL_STM32_HDP) += pinctrl-stm32-hdp.o
-diff --git a/drivers/pinctrl/stm32/pinctrl-stm32-hdp.c b/drivers/pinctrl/stm32/pinctrl-stm32-hdp.c
-new file mode 100644
-index 000000000000..e937d9b9f77a
---- /dev/null
-+++ b/drivers/pinctrl/stm32/pinctrl-stm32-hdp.c
-@@ -0,0 +1,301 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) STMicroelectronics 2025 - All Rights Reserved
-+ * Author: Clément Le Goffic <clement.legoffic@foss.st.com> for STMicroelectronics.
-+ */
-+#include <linux/bits.h>
-+#include <linux/clk.h>
-+#include <linux/gpio/driver.h>
-+#include <linux/io.h>
-+#include <linux/of.h>
-+#include <linux/of_device.h>
-+#include <linux/pinctrl/consumer.h>
-+#include <linux/pinctrl/pinconf-generic.h>
-+#include <linux/pinctrl/pinctrl.h>
-+#include <linux/pinctrl/pinmux.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm.h>
-+
-+#include "../core.h"
-+
-+#define DRIVER_NAME		"stm32_hdp"
-+#define HDP_CTRL_ENABLE		1
-+#define HDP_CTRL_DISABLE	0
-+#define NB_FUNCTIONS		16
-+
-+#define HDP_CTRL		0x000
-+#define HDP_MUX			0x004
-+#define HDP_VAL			0x010
-+#define HDP_GPOSET		0x014
-+#define HDP_GPOCLR		0x018
-+#define HDP_GPOVAL		0x01c
-+#define HDP_VERR		0x3f4
-+#define HDP_IPIDR		0x3f8
-+#define HDP_SIDR		0x3fc
-+
-+#define HDP_MUX_SHIFT(n)	((n) * 4)
-+#define HDP_MUX_MASK(n)		(GENMASK(3, 0) << HDP_MUX_SHIFT(n))
-+#define HDP_MUX_GPOVAL(n)	(0xf << HDP_MUX_SHIFT(n))
-+
-+struct stm32_hdp {
-+	struct device *dev;
-+	void __iomem *base;
-+	struct clk *clk;
-+	struct pinctrl_dev *pctl_dev;
-+	struct gpio_chip gpio_chip;
-+	u32 mux_conf;
-+	u32 gposet_conf;
-+};
-+
-+static const struct pinctrl_pin_desc stm32_hdp_pins[] = {
-+	PINCTRL_PIN(0, "hdp0"),
-+	PINCTRL_PIN(1, "hdp1"),
-+	PINCTRL_PIN(2, "hdp2"),
-+	PINCTRL_PIN(3, "hdp3"),
-+	PINCTRL_PIN(4, "hdp4"),
-+	PINCTRL_PIN(5, "hdp5"),
-+	PINCTRL_PIN(6, "hdp6"),
-+	PINCTRL_PIN(7, "hdp7"),
-+};
-+
-+static const char * const func_name[] = {
-+	"0", "1", "2", "3",
-+	"4", "5", "6", "7",
-+	"8", "9", "10", "11",
-+	"12", "13", "14", "15",
-+};
-+
-+static const char * const stm32_hdp_pins_group[] = {
-+	"hdp0",
-+	"hdp1",
-+	"hdp2",
-+	"hdp3",
-+	"hdp4",
-+	"hdp5",
-+	"hdp6",
-+	"hdp7"
-+};
-+
-+static int stm32_hdp_gpio_get_direction(struct gpio_chip *gc, unsigned int offset)
-+{
-+	return GPIO_LINE_DIRECTION_OUT;
-+}
-+
-+static int stm32_hdp_gpio_get(struct gpio_chip *gc, unsigned int offset)
-+{
-+	struct stm32_hdp *hdp = gpiochip_get_data(gc);
-+
-+	if (((hdp->mux_conf & HDP_MUX_MASK(offset))) == HDP_MUX_GPOVAL(offset))
-+		return !!(readl_relaxed(hdp->base + HDP_GPOVAL) & BIT(offset));
-+	else
-+		return !!(readl_relaxed(hdp->base + HDP_VAL) & BIT(offset));
-+}
-+
-+static void stm32_hdp_gpio_set(struct gpio_chip *gc, unsigned int offset, int value)
-+{
-+	struct stm32_hdp *hdp = gpiochip_get_data(gc);
-+
-+	if (value)
-+		writel_relaxed(BIT(offset), hdp->base + HDP_GPOSET);
-+	else
-+		writel_relaxed(BIT(offset), hdp->base + HDP_GPOCLR);
-+}
-+
-+static int stm32_hdp_pinctrl_get_groups_count(struct pinctrl_dev *pctldev)
-+{
-+	return ARRAY_SIZE(stm32_hdp_pins);
-+}
-+
-+static const char *stm32_hdp_pinctrl_get_group_name(struct pinctrl_dev *pctldev,
-+						    unsigned int selector)
-+{
-+	return stm32_hdp_pins[selector].name;
-+}
-+
-+static int stm32_hdp_pinctrl_get_group_pins(struct pinctrl_dev *pctldev, unsigned int selector,
-+					    const unsigned int **pins, unsigned int *num_pins)
-+{
-+	*pins = &stm32_hdp_pins[selector].number;
-+	*num_pins = 1;
-+
-+	return 0;
-+}
-+
-+static const struct pinctrl_ops stm32_hdp_pinctrl_ops = {
-+	.get_groups_count = stm32_hdp_pinctrl_get_groups_count,
-+	.get_group_name	  = stm32_hdp_pinctrl_get_group_name,
-+	.get_group_pins	  = stm32_hdp_pinctrl_get_group_pins,
-+	.dt_node_to_map	  = pinconf_generic_dt_node_to_map_all,
-+	.dt_free_map	  = pinconf_generic_dt_free_map,
-+};
-+
-+static int stm32_hdp_pinmux_get_functions_count(struct pinctrl_dev *pctldev)
-+{
-+	return NB_FUNCTIONS;
-+}
-+
-+static const char *stm32_hdp_pinmux_get_function_name(struct pinctrl_dev *pctldev,
-+						      unsigned int selector)
-+{
-+	return func_name[selector];
-+}
-+
-+static int stm32_hdp_pinmux_get_function_groups(struct pinctrl_dev *pctldev, unsigned int selector,
-+						const char *const **groups,
-+						unsigned int *num_groups)
-+{
-+	*groups = stm32_hdp_pins_group;
-+	*num_groups = ARRAY_SIZE(stm32_hdp_pins_group);
-+
-+	return 0;
-+}
-+
-+static int stm32_hdp_pinmux_set_mux(struct pinctrl_dev *pctldev, unsigned int func_selector,
-+				    unsigned int group_selector)
-+{
-+	struct stm32_hdp *hdp = pinctrl_dev_get_drvdata(pctldev);
-+	unsigned int pin = stm32_hdp_pins[group_selector].number;
-+	u32 mux;
-+
-+	mux = readl_relaxed(hdp->base + HDP_MUX);
-+	mux &= ~HDP_MUX_MASK(pin);
-+	mux |= func_selector << HDP_MUX_SHIFT(pin);
-+
-+	writel_relaxed(mux, hdp->base + HDP_MUX);
-+	hdp->mux_conf = mux;
-+
-+	return 0;
-+}
-+
-+static const struct pinmux_ops stm32_hdp_pinmux_ops = {
-+	.get_functions_count = stm32_hdp_pinmux_get_functions_count,
-+	.get_function_name   = stm32_hdp_pinmux_get_function_name,
-+	.get_function_groups = stm32_hdp_pinmux_get_function_groups,
-+	.set_mux	     = stm32_hdp_pinmux_set_mux,
-+	.gpio_set_direction  = NULL,
-+};
-+
-+static struct pinctrl_desc stm32_hdp_pdesc = {
-+	.name	 = DRIVER_NAME,
-+	.pins	 = stm32_hdp_pins,
-+	.npins	 = ARRAY_SIZE(stm32_hdp_pins),
-+	.pctlops = &stm32_hdp_pinctrl_ops,
-+	.pmxops	 = &stm32_hdp_pinmux_ops,
-+	.owner	 = THIS_MODULE,
-+};
-+
-+static const struct of_device_id stm32_hdp_of_match[] = {
-+	{
-+		.compatible = "st,stm32mp-hdp"
-+	},
-+	{}
-+};
-+
-+static int stm32_hdp_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct stm32_hdp *hdp;
-+	u8 version;
-+	int err;
-+
-+	hdp = devm_kzalloc(dev, sizeof(*hdp), GFP_KERNEL);
-+	if (!hdp)
-+		return -ENOMEM;
-+	hdp->dev = dev;
-+
-+	platform_set_drvdata(pdev, hdp);
-+
-+	hdp->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(hdp->base))
-+		return PTR_ERR(hdp->base);
-+
-+	hdp->clk = devm_clk_get_enabled(dev, NULL);
-+	if (IS_ERR(hdp->clk))
-+		return dev_err_probe(dev, PTR_ERR(hdp->clk), "No HDP clock provided\n");
-+
-+	err = devm_pinctrl_register_and_init(dev, &stm32_hdp_pdesc, hdp, &hdp->pctl_dev);
-+	if (err)
-+		return dev_err_probe(dev, err, "Failed to register pinctrl\n");
-+
-+	err = pinctrl_enable(hdp->pctl_dev);
-+	if (err)
-+		return dev_err_probe(dev, err, "Failed to enable pinctrl\n");
-+
-+	hdp->gpio_chip.label	     = "stm32-hdp";
-+	hdp->gpio_chip.parent	     = dev;
-+	hdp->gpio_chip.get_direction = stm32_hdp_gpio_get_direction;
-+	hdp->gpio_chip.get	     = stm32_hdp_gpio_get;
-+	hdp->gpio_chip.set	     = stm32_hdp_gpio_set;
-+	hdp->gpio_chip.base	     = -1;
-+	hdp->gpio_chip.ngpio	     = ARRAY_SIZE(stm32_hdp_pins);
-+	hdp->gpio_chip.can_sleep     = true;
-+	hdp->gpio_chip.names	     = stm32_hdp_pins_group;
-+
-+	err = devm_gpiochip_add_data(dev, &hdp->gpio_chip, hdp);
-+	if (err)
-+		return dev_err_probe(dev, err, "Failed to add gpiochip\n");
-+
-+	writel_relaxed(HDP_CTRL_ENABLE, hdp->base + HDP_CTRL);
-+
-+	version = readl_relaxed(hdp->base + HDP_VERR);
-+	dev_dbg(dev, "STM32 HDP version %u.%u initialized\n", version >> 4, version & 0x0f);
-+
-+	return 0;
-+}
-+
-+static void stm32_hdp_remove(struct platform_device *pdev)
-+{
-+	struct stm32_hdp *hdp = platform_get_drvdata(pdev);
-+
-+	writel_relaxed(HDP_CTRL_DISABLE, hdp->base + HDP_CTRL);
-+}
-+
-+static int stm32_hdp_suspend(struct device *dev)
-+{
-+	struct stm32_hdp *hdp = dev_get_drvdata(dev);
-+
-+	hdp->gposet_conf = readl_relaxed(hdp->base + HDP_GPOSET);
-+
-+	pinctrl_pm_select_sleep_state(dev);
-+
-+	clk_disable_unprepare(hdp->clk);
-+
-+	return 0;
-+}
-+
-+static int stm32_hdp_resume(struct device *dev)
-+{
-+	struct stm32_hdp *hdp = dev_get_drvdata(dev);
-+	int err;
-+
-+	err = clk_prepare_enable(hdp->clk);
-+	if (err)
-+		return dev_err_probe(hdp->dev, err, "Failed to prepare_enable clk");
-+
-+	writel_relaxed(HDP_CTRL_ENABLE, hdp->base + HDP_CTRL);
-+	writel_relaxed(hdp->gposet_conf, hdp->base + HDP_GPOSET);
-+	writel_relaxed(hdp->mux_conf, hdp->base + HDP_MUX);
-+
-+	pinctrl_pm_select_default_state(dev);
-+
-+	return 0;
-+}
-+
-+DEFINE_SIMPLE_DEV_PM_OPS(stm32_hdp_pm_ops, stm32_hdp_suspend, stm32_hdp_resume);
-+
-+static struct platform_driver stm32_hdp_driver = {
-+	.probe = stm32_hdp_probe,
-+	.remove = stm32_hdp_remove,
-+	.driver = {
-+		.name = DRIVER_NAME,
-+		.pm = pm_sleep_ptr(&stm32_hdp_pm_ops),
-+		.of_match_table = stm32_hdp_of_match,
-+	}
-+};
-+
-+module_platform_driver(stm32_hdp_driver);
-+
-+MODULE_ALIAS("platform:" DRIVER_NAME);
-+MODULE_AUTHOR("Clément Le Goffic");
-+MODULE_DESCRIPTION("STMicroelectronics STM32 Hardware Debug Port driver");
-+MODULE_LICENSE("GPL");
+---
+Alexandre Torgue (3):
+      arm64: dts: st: add stm32mp257f-dk board support
+      arm64: dts: st: introduce stm32mp23 SoCs family
+      arm64: dts: st: introduce stm32mp21 SoCs family
 
+Amelie Delaunay (7):
+      dt-bindings: stm32: document stm32mp257f-dk board
+      arm64: Kconfig: expand STM32 Armv8 SoC with STM32MP21/STM32MP23 SoCs family
+      dt-bindings: stm32: add STM32MP21 and STM32MP23 compatibles for syscon
+      dt-bindings: stm32: document stm32mp235f-dk board
+      arm64: dts: st: add stm32mp235f-dk board support
+      dt-bindings: stm32: document stm32mp215f-dk board
+      arm64: dts: st: add stm32mp215f-dk board support
+
+ .../bindings/arm/stm32/st,stm32-syscon.yaml        |    2 +
+ .../devicetree/bindings/arm/stm32/stm32.yaml       |   13 +
+ arch/arm64/Kconfig.platforms                       |    4 +
+ arch/arm64/boot/dts/st/Makefile                    |    6 +-
+ arch/arm64/boot/dts/st/stm32mp211.dtsi             |  128 +++
+ arch/arm64/boot/dts/st/stm32mp213.dtsi             |    9 +
+ arch/arm64/boot/dts/st/stm32mp215.dtsi             |    9 +
+ arch/arm64/boot/dts/st/stm32mp215f-dk.dts          |   49 +
+ arch/arm64/boot/dts/st/stm32mp21xc.dtsi            |    8 +
+ arch/arm64/boot/dts/st/stm32mp21xf.dtsi            |    8 +
+ arch/arm64/boot/dts/st/stm32mp231.dtsi             | 1214 ++++++++++++++++++++
+ arch/arm64/boot/dts/st/stm32mp233.dtsi             |   94 ++
+ arch/arm64/boot/dts/st/stm32mp235.dtsi             |   16 +
+ arch/arm64/boot/dts/st/stm32mp235f-dk.dts          |  113 ++
+ arch/arm64/boot/dts/st/stm32mp23xc.dtsi            |    8 +
+ arch/arm64/boot/dts/st/stm32mp23xf.dtsi            |    8 +
+ arch/arm64/boot/dts/st/stm32mp257f-dk.dts          |  113 ++
+ 17 files changed, 1801 insertions(+), 1 deletion(-)
+---
+base-commit: 8c6d469f524960a0f97ec74f1d9ac737a39c3f1e
+change-id: 20250210-b4-stm32mp2_new_dts-8fddd389850a
+
+Best regards,
 -- 
-2.43.0
+Amelie Delaunay <amelie.delaunay@foss.st.com>
 
 
