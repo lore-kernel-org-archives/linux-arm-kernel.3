@@ -4,53 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15962C021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:41:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F6C3C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 16:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AWRWRMZEMSQfcLMYtLYdaShOnc/DckJ8Wo2cAw6Q2nQ=; b=Ie4dK8hNwCATksc/WGdExKz4nQ
-	5YM6iFNmqVHFt0lPOeY0KcJgNSVyCdPBwYClHWKTN2Y79VpipkY/Zh341ovG0uKwnzOW64O9nZrJk
-	WXn6Q9HGaUTKIt3wUdMMp9Fxp14LMwN8ykTKkTjzf8uot5s0zUg/PubDlsSAOCxagUnmCJB5mGh/z
-	vgt/yuM/2DliHVTd8dqlrs42TVtJ8nzR2tJvJun13ViX6BFfwPGU4K766pyAoOpd99B3M9y8X/KL/
-	IEPfnbZpQuO6Pv2YXtzCRm7YCCWVOwWpxtiPphR6cHStWUkDFN/CjT7MO4s2yMim3BRuAteZ98U3a
-	y73Kdeuw==;
+	bh=NslOiz4FmeC1gAXIzBWWbeE7YocXiJZ2UeY5oJ9dNYw=; b=ziWCQ+TI+TzVC+uV3ExJBitUGp
+	59YNH1oA86vDf2k5vIEI638ov4DGw7qYqTrSPFzgN/pZ8KrPLB0g5z3eLrjfwVjAeuRDz9gDQ6zhj
+	qjSzsPcN0mZTN4Fp76UQsvwBWRWugqikSwaOXeizpJHHIadxKl3GgmOYZFlJFe2+WERovTJgiBTji
+	M9KMQ2Qh95DnviOoFwNOAWvJUHQ/uprPQMN10sU4nZWNRswY15Pi7FqyR+xJEVmapmXgPIfaqNif3
+	1gliuAyiiwVeOwdeEt0+JgDT7wQzpYphUtTKuonHI5KduN0D8EFXGYJQ/G83b3neyLVmvRrDuKEhR
+	9u91Rlrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmxzM-00000000JCQ-3ISG;
-	Tue, 25 Feb 2025 16:40:56 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tmxzU-00000000JO3-3aT0;
+	Tue, 25 Feb 2025 16:41:04 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmw1j-0000000HXkM-3qT2;
-	Tue, 25 Feb 2025 14:35:17 +0000
+	id 1tmw1t-0000000HXmx-09Ej;
+	Tue, 25 Feb 2025 14:35:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1740494114;
-	bh=75CPx/W8hj86reRTn/xz1CjoIDFFQn6l8ybKVRcg3Og=;
+	s=mail; t=1740494123;
+	bh=JCE4p346p31jQgHf80qzDsHOhPDN++XJ848duY7iYv4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=kviw7DnX2ELsWI9A1nNID19qHwdc0ciFFQAwgHraUjm47PUm3QxozPxTJkQdEeI+F
-	 iGjxWIe3zFUX7eUpbJmULEkgtRgDOxPB53A6hmHREBSiOoyxTkmL3c10IoMH0mZh5Y
-	 85H4Aal9N1yNqVLb7KcNpu8ncEexJt7yAlkT8lfBPcCHOg3OvDFRAUv2At5gWtR1r8
-	 irTBYrtPpO+Lx/a0GfRrGSsvGo2iSblOMX6QCPrEJxJkDpfvHcJmJ8KHqYMD/mOis5
-	 wOTBy1MxlgjK9Ghhhvbm63dHmtyhgbboIMsu2Pqy95e/p/HE/CORyJuVDqdD0sw9ib
-	 IV4XPaDjhx8zA==
+	b=PlZtZ/LPxsveMjhUJGmt6WtyjcEWKkMBP15eJr0sN541bg+HaP6TqLCj7HE/dgloZ
+	 osv0IrO9iqEnFsQcQIJ+rBZ2RbWNvmK18NRR76v1VbpFNzDC4hQJHmpRaSa9sakms7
+	 yPPf6gLSVsakrM7Q3qfG21+PDyEESfq+jytvr1hxnG2dApPugTU7V6DFuCySc+7Ama
+	 uXuvFCrWS7f4UfMalNFhL6G+18MhcMXHYTkki9Y3b12UpbNsZkfkdCKDYkHi6tac4R
+	 /wBxTCWSi1WTGK0S8hq+/9ZhWWQkm1eeNQv0y2qxUcUXJjsj9P3uVKVaVQnl6LOyC9
+	 EuW/Xo0iUN2KQ==
 Received: from [192.168.0.47] (unknown [IPv6:2804:14c:1a9:53ee::1004])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7147517E0DD7;
-	Tue, 25 Feb 2025 15:35:10 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A4A4417E0DD7;
+	Tue, 25 Feb 2025 15:35:19 +0100 (CET)
 From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Date: Tue, 25 Feb 2025 11:33:49 -0300
-Subject: [PATCH v2 3/8] ASoC: mediatek: mt8188: Treat DMIC_GAINx_CUR as
- non-volatile
+Date: Tue, 25 Feb 2025 11:33:51 -0300
+Subject: [PATCH v2 5/8] ASoC: mediatek: mt8188-mt6359: Add DMIC support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250225-genio700-dmic-v2-3-3076f5b50ef7@collabora.com>
+Message-Id: <20250225-genio700-dmic-v2-5-3076f5b50ef7@collabora.com>
 References: <20250225-genio700-dmic-v2-0-3076f5b50ef7@collabora.com>
 In-Reply-To: <20250225-genio700-dmic-v2-0-3076f5b50ef7@collabora.com>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
@@ -62,11 +61,13 @@ To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
 Cc: kernel@collabora.com, linux-sound@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
+ parkeryang <Parker.Yang@mediatek.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_063516_104541_21F37D66 
-X-CRM114-Status: GOOD (  13.21  )
+X-CRM114-CacheID: sfid-20250225_063525_226488_3E87E978 
+X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,42 +82,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DMIC_GAINx_CUR registers contain the current (as in present) gain of
-each DMIC. During capture, this gain will ramp up until a target value
-is reached, and therefore the register is volatile since it is updated
-automatically by hardware.
+Add the DMIC backend, which connects to the DMIC DAI in the platform
+driver, as well as a "AP DMIC" mic widget. On the Genio 700 EVK board
+the dual DMIC on-board are wired through that DMIC DAI.
 
-However, after capture the register's value returns to the value that
-was written to it. So reading these registers returns the current gain,
-and writing configures the initial gain for every capture.
-
-From an audio configuration perspective, reading the instantaneous gain
-is not really useful. Instead, reading back the initial gain that was
-configured is the desired behavior. For that reason, consider the
-DMIC_GAINx_CUR registers as non-volatile, so the regmap's cache can be
-used to retrieve the values, rather than requiring pm runtime resuming
-the device.
-
+Co-developed-by: parkeryang <Parker.Yang@mediatek.com>
+Signed-off-by: parkeryang <Parker.Yang@mediatek.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 ---
- sound/soc/mediatek/mt8188/mt8188-afe-pcm.c | 4 ----
- 1 file changed, 4 deletions(-)
+ sound/soc/mediatek/mt8188/mt8188-mt6359.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-diff --git a/sound/soc/mediatek/mt8188/mt8188-afe-pcm.c b/sound/soc/mediatek/mt8188/mt8188-afe-pcm.c
-index 73e5c63aeec8783905d656af225c42cd95069049..d36520c6272dd8c8302bc3f59da33f82f273f366 100644
---- a/sound/soc/mediatek/mt8188/mt8188-afe-pcm.c
-+++ b/sound/soc/mediatek/mt8188/mt8188-afe-pcm.c
-@@ -2855,10 +2855,6 @@ static bool mt8188_is_volatile_reg(struct device *dev, unsigned int reg)
- 	case AFE_DMIC3_SRC_DEBUG_MON0:
- 	case AFE_DMIC3_UL_SRC_MON0:
- 	case AFE_DMIC3_UL_SRC_MON1:
--	case DMIC_GAIN1_CUR:
--	case DMIC_GAIN2_CUR:
--	case DMIC_GAIN3_CUR:
--	case DMIC_GAIN4_CUR:
- 	case ETDM_IN1_MONITOR:
- 	case ETDM_IN2_MONITOR:
- 	case ETDM_OUT1_MONITOR:
+diff --git a/sound/soc/mediatek/mt8188/mt8188-mt6359.c b/sound/soc/mediatek/mt8188/mt8188-mt6359.c
+index 2d0d04e0232da07ba43a030b14853322427d55e7..420b1427b71dc1424a52f7ab6140c14659036733 100644
+--- a/sound/soc/mediatek/mt8188/mt8188-mt6359.c
++++ b/sound/soc/mediatek/mt8188/mt8188-mt6359.c
+@@ -150,6 +150,11 @@ SND_SOC_DAILINK_DEFS(dl_src,
+ 						   "mt6359-snd-codec-aif1")),
+ 		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
+ 
++SND_SOC_DAILINK_DEFS(DMIC_BE,
++		     DAILINK_COMP_ARRAY(COMP_CPU("DMIC")),
++		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
++		     DAILINK_COMP_ARRAY(COMP_EMPTY()));
++
+ SND_SOC_DAILINK_DEFS(dptx,
+ 		     DAILINK_COMP_ARRAY(COMP_CPU("DPTX")),
+ 		     DAILINK_COMP_ARRAY(COMP_DUMMY()),
+@@ -297,6 +302,7 @@ static const struct snd_soc_dapm_widget mt8188_rear_spk_widgets[] = {
+ static const struct snd_soc_dapm_widget mt8188_mt6359_widgets[] = {
+ 	SND_SOC_DAPM_HP("Headphone", NULL),
+ 	SND_SOC_DAPM_MIC("Headset Mic", NULL),
++	SND_SOC_DAPM_MIC("AP DMIC", NULL),
+ 	SND_SOC_DAPM_SINK("HDMI"),
+ 	SND_SOC_DAPM_SINK("DP"),
+ 	SND_SOC_DAPM_MIXER(SOF_DMA_DL2, SND_SOC_NOPM, 0, 0, NULL, 0),
+@@ -533,6 +539,7 @@ enum {
+ 	DAI_LINK_UL9_FE,
+ 	DAI_LINK_UL10_FE,
+ 	DAI_LINK_DL_SRC_BE,
++	DAI_LINK_DMIC_BE,
+ 	DAI_LINK_DPTX_BE,
+ 	DAI_LINK_ETDM1_IN_BE,
+ 	DAI_LINK_ETDM2_IN_BE,
+@@ -1120,6 +1127,13 @@ static struct snd_soc_dai_link mt8188_mt6359_dai_links[] = {
+ 		.playback_only = 1,
+ 		SND_SOC_DAILINK_REG(dl_src),
+ 	},
++	[DAI_LINK_DMIC_BE] = {
++		.name = "DMIC_BE",
++		.no_pcm = 1,
++		.capture_only = 1,
++		.ignore_suspend = 1,
++		SND_SOC_DAILINK_REG(DMIC_BE),
++	},
+ 	[DAI_LINK_DPTX_BE] = {
+ 		.name = "DPTX_BE",
+ 		.ops = &mt8188_dptx_ops,
 
 -- 
 2.48.1
