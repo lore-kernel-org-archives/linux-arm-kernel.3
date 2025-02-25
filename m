@@ -4,66 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4224AC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 19:34:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4566C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 19:36:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eYIm2uAEnfHsOOQ0khul4dRoej6P3tmk5lJuSGlKObs=; b=o8SYnuu7M4+KfhTcvGMHT8+7DR
-	0fV/HkkfBrB+hNnkbhRMO9vSKK9tFfGmcpqZ4zwoPiFxsd6iGQYVc2gbGS3umJWyNqxM07dFQsDRe
-	HztJXRxBXw/lgmme4x7lfQaRF40Io6akzCRHzCjouh74xkGQ/ghaNeSlxs7v7NIFmFq/+42rLExy/
-	hrihxmLC0Z/Eg3UXcTeIFjE+b9mx2CzRdn5+gFUg2+6RtSFG/wTzPZjUkPBkF6+OoQGdkHshHdFMy
-	DQU3IjBqiPrw2xiDD6rQpI0xq8ZukYoo40gi2N1bvZ03OjQErReXQ6rc1tkXTzzy0rD+1CKw0lxoD
-	drAMzu4A==;
+	bh=dRrgpS00xeUywlxVgpPwc24kauJL/r4chFWYJ/kG1Y0=; b=SBlyhJoZk+b0RNfAgi7Zobpe06
+	E4jTKROKGuPRa6g3hhlxUekFGFdrKKgnkTZHdE3mIOgKlkZHhg8DUpC4+tA1GeXLEOoft4gr9SrAq
+	rP3e/S16gX9K8UQIX49cqwI3WolyFh78SfFxcPejLT9uwxYxYg8dOn28wp3gk9q8Q8CT9Yi0qpuZI
+	VlvEuBWRvE0deTxh7oYLabKqS0m3XAO1ohnIwFwq3tutHZoyii4FNAbYY0eDN2SS1+h8Y88QFBR24
+	EVvAtZUIaIFnGOWbhOR5esjXSUSVKa48ydojSnHO/6URmXxAcxCPxdawjWk4mCop3iEHw31+DX8m7
+	C4k8nNeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn0hC-00000001Amj-1JzM;
-	Tue, 25 Feb 2025 19:34:22 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tn0jR-00000001B7i-1bV0;
+	Tue, 25 Feb 2025 19:36:41 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn0fe-00000001AZz-2zl5;
-	Tue, 25 Feb 2025 19:32:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D7D095C4982;
-	Tue, 25 Feb 2025 19:32:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52DDDC4CEE2;
-	Tue, 25 Feb 2025 19:32:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740511965;
-	bh=EJ0p7kJP7tcBXTVtX2EQW5Eqt9I/PZY1PRXbITilg4Y=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=mTrZE4WuJLivocdDlOAyUC2sQPoGHxDaCYT9NHKSq28BUTlAulfb4fehDp0FsRufS
-	 wN2GyPsPi6OmFzTc6Ee2sTqgm3ETtXKtEe6iEdhwM7NDGtfgbvQFp4cOJ8WNAcZfBT
-	 BFiGFR6ejC//8RQRWhkzVwv1JEOxWPjZq/K8aBcaurTcLTt+xmYzVyl5eL1Yx7gEG/
-	 d5hPZA2+vFU/+Mx2BzCzyS6yUNx0qvgMlmexsoD8ynAY+8glKvJmR/lCTKClqV9Lc+
-	 CyfjXuELUxxY24pzKEo5rik8bu9FfV+No86fQNUU58QoDTwOBhtCTXtmOZwL8WPsSy
-	 V5yFbpl2Z+/Iw==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Trevor Wu <trevor.wu@mediatek.com>, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Cc: kernel@collabora.com, linux-sound@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
- parkeryang <Parker.Yang@mediatek.com>, Zoran Zhan <zoran.zhan@mediatek.com>
-In-Reply-To: <20250225-genio700-dmic-v2-0-3076f5b50ef7@collabora.com>
-References: <20250225-genio700-dmic-v2-0-3076f5b50ef7@collabora.com>
-Subject: Re: (subset) [PATCH v2 0/8] Enable DMIC for Genio 700/510 EVK
-Message-Id: <174051196206.229034.7513749709146445847.b4-ty@kernel.org>
-Date: Tue, 25 Feb 2025 19:32:42 +0000
+	id 1tn0hu-00000001Auc-0yXJ;
+	Tue, 25 Feb 2025 19:35:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740512106; x=1772048106;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version:content-transfer-encoding;
+  bh=Y0dgq02rrgg6GhOsq8ZPtCl2ibf+lqJ5X0BUAPIsTbA=;
+  b=lWmlG+t9fdtlkAOpfDuy4z4+RroUJ/XOeZg6oTUT8NTJaMXn4oZfvOx8
+   9zNJkqB4jCNnNidFudhuxLIe3bGJ90yPqxGS1pQno6R0K5+VNiU7iy5I0
+   y/lwDAaFsOPZq78MNmZYpKCTF5rgVsYZthMMtcEeBvjV9D4Yw8ah8+XYT
+   ezf6aVBhvFDGA201mpjw2WF4o7la+XDjiC/SZzofOcYuDOMAUTtvmgBu5
+   9HhILWIA0hxVuVmQTaY9GS8TxJNHsSMkCFo+iFm0AuTdPJLIOSZHKWxUr
+   vQSOmk1uerSqGl3F4+2S+BrSMnYoGWJmWTj0SXXzK/ae1Cse01OABhted
+   g==;
+X-CSE-ConnectionGUID: 8K2J5sagSgGnCHocpj1TQg==
+X-CSE-MsgGUID: AIuYiKbJTSy5sQ5YwMOQ0w==
+X-IronPort-AV: E=McAfee;i="6700,10204,11356"; a="41465288"
+X-IronPort-AV: E=Sophos;i="6.13,314,1732608000"; 
+   d="scan'208";a="41465288"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 11:35:05 -0800
+X-CSE-ConnectionGUID: qrC/vWxRRZ2hkAfLY3GMYA==
+X-CSE-MsgGUID: rpKIiapzTxKqUpXFTcgExw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,314,1732608000"; 
+   d="scan'208";a="116263364"
+Received: from monicael-mobl3 (HELO localhost) ([10.245.246.246])
+  by orviesa009-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 11:35:02 -0800
+From: Jani Nikula <jani.nikula@intel.com>
+To: Andy Yan <andyshrk@163.com>
+Cc: dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org, Sandy
+ Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan
+ <andy.yan@rock-chips.com>, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, sam@ravnborg.org, Cristian Ciocaltea
+ <cristian.ciocaltea@collabora.com>
+Subject: Re:Re:[PATCH 2/5] drm/rockchip: stop passing non struct drm_device
+ to drm_err() and friends
+In-Reply-To: <730ee1d4.f63.1949b97fc99.Coremail.andyshrk@163.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+References: <cover.1737644530.git.jani.nikula@intel.com>
+ <f42da4c9943a2f2a9de4272b7849e72236d4c3f9.1737644530.git.jani.nikula@intel.com>
+ <2c0a76c3.618c.19497bb4329.Coremail.andyshrk@163.com>
+ <87plkcbfp0.fsf@intel.com>
+ <730ee1d4.f63.1949b97fc99.Coremail.andyshrk@163.com>
+Date: Tue, 25 Feb 2025 21:34:58 +0200
+Message-ID: <87wmdd4y3h.fsf@intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.15-dev-1b0d6
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_113246_838192_E1ACF8EC 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20250225_113506_370753_74C50F83 
+X-CRM114-Status: GOOD (  17.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,56 +92,259 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Feb 2025 11:33:46 -0300, Nícolas F. R. A. Prado wrote:
-> This series enables the dual digital microphones present on the Genio
-> 700 and 510 EVK boards.
-> 
-> Patches 1 and 2 add some required clocks, patch 3 changes volatility
-> handling of some registers to prevent issues, patch 3 adds the DMIC DAI
-> driver for MT8188 and updates the AFE with its routes, patch 4 adds the
-> DMIC backend and widget to the mt8188-6359 machine sound driver, patch 5
-> adds the audio routes for the DMIC to the Devicetree, patch 6 adds
-> DMIC_BE in the dt-binding and patch 6 assigns a wakeup-delay-ms to the
-> DMIC DAI.
-> 
-> [...]
+On Sat, 25 Jan 2025, "Andy Yan" <andyshrk@163.com> wrote:
+> =E5=9C=A8 2025-01-24 19:43:07=EF=BC=8C"Jani Nikula" <jani.nikula@intel.co=
+m> =E5=86=99=E9=81=93=EF=BC=9A
+>>On Fri, 24 Jan 2025, "Andy Yan" <andyshrk@163.com> wrote:
+>>> Hi=EF=BC=8C
+>>>
+>>> At 2025-01-23 23:09:09, "Jani Nikula" <jani.nikula@intel.com> wrote:
+>>>>The expectation is that the struct drm_device based logging helpers get
+>>>>passed an actual struct drm_device pointer rather than some random
+>>>>struct pointer where you can dereference the ->dev member.
+>>>>
+>>>>Convert drm_err(hdmi, ...) to dev_err(hdmi->dev, ...). This matches
+>>>>current usage, but drops "[drm] *ERROR*" prefix from logging.
+>>>
+>>> Frankly, I prefer the original version of the log.
+>>> It is a platform driver, so it should use its own device.
+>>> It is a driver that works in drm subsystem, so it's better to use "[drm=
+] *ERROR*" prefix when logging
+>>
+>>If you need to do struct device based logging that is not the same
+>>device as the struct drm_device dev member, you need to use dev_err()
+>>and friends. You can't and must not use drm_err() and friends.
+>>
+>>It's as simple as that.
+>>
+>>The current drm_err(hdmi, ...) usage is simply abuse of the macros, and
+>>must stop.
+>
+> Perhaps when you initially designed this macros, you intended it to accep=
+t only drm_device,=20
+> but your code implementation didn't enforce this restriction at the begin=
+ning.
+> If that's truly what you intended, I suggest just reverting this commit t=
+hat converting to use these macros[0],=20
+> as neither drm_err nor dev_err can maintain consistency with the original=
+ log of this driver.
+> Alternatively, as suggested by Sam  in the initial submission of your pat=
+ch 5 years ago,=20
+> there should also be a macro similar to drm_dev_info(device *, ..).[1]
 
-Applied to
+Commit 1b8f576c6958 ("drm/rockchip: dw_hdmi: Use modern drm_device based
+logging") does not revert cleanly, and even if it did, DRM_DEV_ERROR()
+is deprecated in favour of drm_err() or dev_err(). I'm using the latter.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+Ack for applying the patch at hand as-is?
 
-Thanks!
+BR,
+Jani.
 
-[1/8] ASoC: mediatek: mt8188: Add audsys hires clocks
-      commit: ef6a24c79d5047c029577113af43eddd1d0f1bd2
-[2/8] ASoC: mediatek: mt8188: Add reference for dmic clocks
-      commit: bf1800073f4d55f08191b034c86b95881e99b6fd
-[3/8] ASoC: mediatek: mt8188: Treat DMIC_GAINx_CUR as non-volatile
-      commit: 7d87bde21c73731ddaf15e572020f80999c38ee3
-[4/8] ASoC: mediatek: mt8188: Add support for DMIC
-      commit: c1e42ec04197ac013d049dde40d9c72cf543b5f6
-[5/8] ASoC: mediatek: mt8188-mt6359: Add DMIC support
-      commit: 390ebb24b3c3a95e109c28e14c2ec9fe3f0f8aaa
-[7/8] ASoC: dt-bindings: mediatek,mt8188-mt6359: Add DMIC backend to dai-link
-      commit: f00b3056843d14754ac1bab2106cf5599680f115
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+>
+>
+> [0]https://lore.kernel.org/linux-rockchip/20240813-dw-hdmi-rockchip-clean=
+up-v1-1-b3e73b5f4fd6@collabora.com/
+> [1]https://lore.kernel.org/dri-devel/20191212215303.GA11520@ravnborg.org/
+>
+>>
+>>
+>>BR,
+>>Jani.
+>>
+>>
+>>>
+>>>>
+>>>>Signed-off-by: Jani Nikula <jani.nikula@intel.com>
+>>>>
+>>>>---
+>>>>
+>>>>Looks like it's possible to hunt down the struct drm_device in most of
+>>>>these cases, if that's desired. This was the simplest change.
+>>>>
+>>>>Cc: Sandy Huang <hjc@rock-chips.com>
+>>>>Cc: "Heiko St=C3=BCbner" <heiko@sntech.de>
+>>>>Cc: Andy Yan <andy.yan@rock-chips.com>
+>>>>Cc: dri-devel@lists.freedesktop.org
+>>>>Cc: linux-arm-kernel@lists.infradead.org
+>>>>Cc: linux-rockchip@lists.infradead.org
+>>>>---
+>>>> drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c    | 16 ++++++++--------
+>>>> drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 16 ++++++++--------
+>>>> 2 files changed, 16 insertions(+), 16 deletions(-)
+>>>>
+>>>>diff --git a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c b/drivers/gpu/=
+drm/rockchip/dw_hdmi-rockchip.c
+>>>>index e7a6669c46b0..f737e7d46e66 100644
+>>>>--- a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+>>>>+++ b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+>>>>@@ -203,7 +203,7 @@ static int rockchip_hdmi_parse_dt(struct rockchip_h=
+dmi *hdmi)
+>>>>=20
+>>>> 	hdmi->regmap =3D syscon_regmap_lookup_by_phandle(np, "rockchip,grf");
+>>>> 	if (IS_ERR(hdmi->regmap)) {
+>>>>-		drm_err(hdmi, "Unable to get rockchip,grf\n");
+>>>>+		dev_err(hdmi->dev, "Unable to get rockchip,grf\n");
+>>>> 		return PTR_ERR(hdmi->regmap);
+>>>> 	}
+>>>>=20
+>>>>@@ -214,7 +214,7 @@ static int rockchip_hdmi_parse_dt(struct rockchip_h=
+dmi *hdmi)
+>>>> 	if (IS_ERR(hdmi->ref_clk)) {
+>>>> 		ret =3D PTR_ERR(hdmi->ref_clk);
+>>>> 		if (ret !=3D -EPROBE_DEFER)
+>>>>-			drm_err(hdmi, "failed to get reference clock\n");
+>>>>+			dev_err(hdmi->dev, "failed to get reference clock\n");
+>>>> 		return ret;
+>>>> 	}
+>>>>=20
+>>>>@@ -222,7 +222,7 @@ static int rockchip_hdmi_parse_dt(struct rockchip_h=
+dmi *hdmi)
+>>>> 	if (IS_ERR(hdmi->grf_clk)) {
+>>>> 		ret =3D PTR_ERR(hdmi->grf_clk);
+>>>> 		if (ret !=3D -EPROBE_DEFER)
+>>>>-			drm_err(hdmi, "failed to get grf clock\n");
+>>>>+			dev_err(hdmi->dev, "failed to get grf clock\n");
+>>>> 		return ret;
+>>>> 	}
+>>>>=20
+>>>>@@ -302,16 +302,16 @@ static void dw_hdmi_rockchip_encoder_enable(struc=
+t drm_encoder *encoder)
+>>>>=20
+>>>> 	ret =3D clk_prepare_enable(hdmi->grf_clk);
+>>>> 	if (ret < 0) {
+>>>>-		drm_err(hdmi, "failed to enable grfclk %d\n", ret);
+>>>>+		dev_err(hdmi->dev, "failed to enable grfclk %d\n", ret);
+>>>> 		return;
+>>>> 	}
+>>>>=20
+>>>> 	ret =3D regmap_write(hdmi->regmap, hdmi->chip_data->lcdsel_grf_reg, v=
+al);
+>>>> 	if (ret !=3D 0)
+>>>>-		drm_err(hdmi, "Could not write to GRF: %d\n", ret);
+>>>>+		dev_err(hdmi->dev, "Could not write to GRF: %d\n", ret);
+>>>>=20
+>>>> 	clk_disable_unprepare(hdmi->grf_clk);
+>>>>-	drm_dbg(hdmi, "vop %s output to hdmi\n", ret ? "LIT" : "BIG");
+>>>>+	dev_dbg(hdmi->dev, "vop %s output to hdmi\n", ret ? "LIT" : "BIG");
+>>>> }
+>>>>=20
+>>>> static int
+>>>>@@ -574,7 +574,7 @@ static int dw_hdmi_rockchip_bind(struct device *dev=
+, struct device *master,
+>>>> 	ret =3D rockchip_hdmi_parse_dt(hdmi);
+>>>> 	if (ret) {
+>>>> 		if (ret !=3D -EPROBE_DEFER)
+>>>>-			drm_err(hdmi, "Unable to parse OF data\n");
+>>>>+			dev_err(hdmi->dev, "Unable to parse OF data\n");
+>>>> 		return ret;
+>>>> 	}
+>>>>=20
+>>>>@@ -582,7 +582,7 @@ static int dw_hdmi_rockchip_bind(struct device *dev=
+, struct device *master,
+>>>> 	if (IS_ERR(hdmi->phy)) {
+>>>> 		ret =3D PTR_ERR(hdmi->phy);
+>>>> 		if (ret !=3D -EPROBE_DEFER)
+>>>>-			drm_err(hdmi, "failed to get phy\n");
+>>>>+			dev_err(hdmi->dev, "failed to get phy\n");
+>>>> 		return ret;
+>>>> 	}
+>>>>=20
+>>>>diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/g=
+pu/drm/rockchip/dw_hdmi_qp-rockchip.c
+>>>>index f41151d49fca..3d1dddb34603 100644
+>>>>--- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+>>>>+++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+>>>>@@ -242,7 +242,7 @@ static void dw_hdmi_qp_rk3588_hpd_work(struct work_=
+struct *work)
+>>>> 	if (drm) {
+>>>> 		changed =3D drm_helper_hpd_irq_event(drm);
+>>>> 		if (changed)
+>>>>-			drm_dbg(hdmi, "connector status changed\n");
+>>>>+			dev_dbg(hdmi->dev, "connector status changed\n");
+>>>> 	}
+>>>> }
+>>>>=20
+>>>>@@ -472,7 +472,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *=
+dev, struct device *master,
+>>>> 		}
+>>>> 	}
+>>>> 	if (hdmi->port_id < 0) {
+>>>>-		drm_err(hdmi, "Failed to match HDMI port ID\n");
+>>>>+		dev_err(hdmi->dev, "Failed to match HDMI port ID\n");
+>>>> 		return hdmi->port_id;
+>>>> 	}
+>>>>=20
+>>>>@@ -496,20 +496,20 @@ static int dw_hdmi_qp_rockchip_bind(struct device=
+ *dev, struct device *master,
+>>>> 	hdmi->regmap =3D syscon_regmap_lookup_by_phandle(dev->of_node,
+>>>> 						       "rockchip,grf");
+>>>> 	if (IS_ERR(hdmi->regmap)) {
+>>>>-		drm_err(hdmi, "Unable to get rockchip,grf\n");
+>>>>+		dev_err(hdmi->dev, "Unable to get rockchip,grf\n");
+>>>> 		return PTR_ERR(hdmi->regmap);
+>>>> 	}
+>>>>=20
+>>>> 	hdmi->vo_regmap =3D syscon_regmap_lookup_by_phandle(dev->of_node,
+>>>> 							  "rockchip,vo-grf");
+>>>> 	if (IS_ERR(hdmi->vo_regmap)) {
+>>>>-		drm_err(hdmi, "Unable to get rockchip,vo-grf\n");
+>>>>+		dev_err(hdmi->dev, "Unable to get rockchip,vo-grf\n");
+>>>> 		return PTR_ERR(hdmi->vo_regmap);
+>>>> 	}
+>>>>=20
+>>>> 	ret =3D devm_clk_bulk_get_all_enabled(hdmi->dev, &clks);
+>>>> 	if (ret < 0) {
+>>>>-		drm_err(hdmi, "Failed to get clocks: %d\n", ret);
+>>>>+		dev_err(hdmi->dev, "Failed to get clocks: %d\n", ret);
+>>>> 		return ret;
+>>>> 	}
+>>>>=20
+>>>>@@ -517,7 +517,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *=
+dev, struct device *master,
+>>>> 						    GPIOD_OUT_HIGH);
+>>>> 	if (IS_ERR(hdmi->enable_gpio)) {
+>>>> 		ret =3D PTR_ERR(hdmi->enable_gpio);
+>>>>-		drm_err(hdmi, "Failed to request enable GPIO: %d\n", ret);
+>>>>+		dev_err(hdmi->dev, "Failed to request enable GPIO: %d\n", ret);
+>>>> 		return ret;
+>>>> 	}
+>>>>=20
+>>>>@@ -525,7 +525,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *=
+dev, struct device *master,
+>>>> 	if (IS_ERR(hdmi->phy)) {
+>>>> 		ret =3D PTR_ERR(hdmi->phy);
+>>>> 		if (ret !=3D -EPROBE_DEFER)
+>>>>-			drm_err(hdmi, "failed to get phy: %d\n", ret);
+>>>>+			dev_err(hdmi->dev, "failed to get phy: %d\n", ret);
+>>>> 		return ret;
+>>>> 	}
+>>>>=20
+>>>>@@ -564,7 +564,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *=
+dev, struct device *master,
+>>>> 	connector =3D drm_bridge_connector_init(drm, encoder);
+>>>> 	if (IS_ERR(connector)) {
+>>>> 		ret =3D PTR_ERR(connector);
+>>>>-		drm_err(hdmi, "failed to init bridge connector: %d\n", ret);
+>>>>+		dev_err(hdmi->dev, "failed to init bridge connector: %d\n", ret);
+>>>> 		return ret;
+>>>> 	}
+>>>>=20
+>>>>--=20
+>>>>2.39.5
+>>>>
+>>>>
+>>>>_______________________________________________
+>>>>Linux-rockchip mailing list
+>>>>Linux-rockchip@lists.infradead.org
+>>>>http://lists.infradead.org/mailman/listinfo/linux-rockchip
+>>
+>>--=20
+>>Jani Nikula, Intel
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+--=20
+Jani Nikula, Intel
 
