@@ -4,139 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90775C021B6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 03:24:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A2F3C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 04:24:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BGtmMY0jjQNHZyAaO2osi5hoTz8dK2klDnC/0ymGdaM=; b=vQMLfgsz5iWQ9tn5MEBQJOs2UF
-	m0uZtgXX2k6sGtxrhuzAkrwZ2RZTFV/lwXa21GX63ZW5GCL7QfE+RxlyOxaJ3eNT3YkkgyoSgWM62
-	lN8iRWKgefIAAPGSqfMFQQ+b3xW/Lg9PJlQGFWn/s9oho/rUKrS8HBZoS6sltX5T7zTF/Segz1vuH
-	5rFLosTPV3arH6h0qGUZfQxtBJxxLSy+w76N++EdL0feCfkdw7q+1XbfItX9eK1RT6UlFI0tXZfj7
-	mF+okP8IWQeJ7PdynoHECAtMZS+dyXBnCQRpMxGtLM16YnqU3Fmss0yrth3H0Fy5RcZSzoKIWSRwf
-	QXBQfwYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0dnfDX8F9dAojLshWRzaoAh4tjNLeQ4DMe8LUFT9cv4=; b=ItUh1N0un6TUYAqQmtqS/qko0c
+	GQJBAl9z5w/E5ImBYom7SCxndIK02xOKf6T4Y9VXZvGHXi8dFbzIqDHMhi0NsnUdmx8q32eqBhX2P
+	X6Ygr/YzPkQfVLOR4mMa0pD70maexZnm81Lhbrt+lPasyr7nqJZSDxs2LCB1jy7YOTvlq2BlZjyBn
+	X1Nrqd943vzFGYeBMcFBtoAXqHiX0IPImeIuU1Y1ijE2sF00pYCdg9q/ZqF2CYH6RGa3/e+/1btDK
+	vLyQh+5lP3TIyb4wC/Cjaa7u6py0KzQxTrO8ISRKEnHScSELRbPH7h1HviVFa8YueL2BVrfYNnaLO
+	9Y1FXV1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmlY0-0000000FruF-0D7N;
-	Tue, 25 Feb 2025 03:23:52 +0000
-Received: from mail-psaapc01on20718.outbound.protection.outlook.com ([2a01:111:f403:200e::718] helo=APC01-PSA-obe.outbound.protection.outlook.com)
+	id 1tmmUo-0000000FwD2-0b2N;
+	Tue, 25 Feb 2025 04:24:38 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmlWT-0000000FriL-0lAW
+	id 1tmmTG-0000000Fw8A-2d2P
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 03:22:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nSIBMEBI+IePIU0ZffX4Ch3KSfMjh0i7mUCQHyXYduBrrz/iW6GxN58nDUdbnoAsF0wKdcqHG+7ehZSOPL8giw5Rp6+eOlqKivzhE7XxF/p4zLSfFTTCm9H3Ug4KNF0OTHVWjKj3PzaEypyNO1eEySMvbqYS4RMlbEcZOmcAKTkV2+8ZW3ezthCiC316pPH3ARMii/qwEh75uU0R2WmAsvbB6+xtmxa5nxgewjmUmdd0kzgAqf25+mR4vs36do7gzH4XwmLogVeKYEUb0gdCNinAClbXmbhudCxbu8fvku4RgXTfb2MNGKT2OR8Cq9DUBJHnXPS5UrMZZYpCt/9++A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BGtmMY0jjQNHZyAaO2osi5hoTz8dK2klDnC/0ymGdaM=;
- b=YKth8touLUYvFWF8fiZnkagksV3WMzztQiwooLwloOt910hKeFB71uVhcG2Yis0SGJ0MlbkkYInlJJgVr7BBR9NZTgbD2g8dpPA/P/6xTrdRrnT8cH6pU4B9lGk5j/JgEqxrJRjUIv0kRT2XGK5q/xmK5Le/uGtUPDd18aK8bo0jPly43DaebJRCfROC4Nw/kUQwAaq1fQocx91EeAqAXZt0pW3oJ2EIVMmJ6I3JgxNpC9QEZBp85ChXooljfx1m7I3dOEFzIjXe4FYT+tsQivOHw39eLKbknrE3mJsc0s+wkb7BO2zp26DmH5t/5n3Vda+vBtj0hBhWh2o9aJl6+A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cixtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BGtmMY0jjQNHZyAaO2osi5hoTz8dK2klDnC/0ymGdaM=;
- b=sVX4dsJ3M8m5Sll2RqvzVOS7d4mAGBjJDhYwZe5em3dqHTLHD3OhgXXRWEUIscM69Kd6R063AkTnQuOZBhcm5V31dRfllM+ecg+rYh4gZHAVEDgECHwuwRNuoUVLF1bbG0vRNZd7pESjljJakLGges/eVG++fBan3TIPS1GQKxh0DxRK5+IaPkdxeQGWr+j4BBeIBBaYQokYNuhuO960HrJ4685iCSNpx8T0n3WvNNj9s3Z2ekYfJfNaLY1DfCtAq+EORs3/oQEBK3dFnPbrHkVHe3kGdHw4Fsh8oazGGlQqtpAsL7L2eJjqoIFHXx3bvs4yj1pW82fT4Z3t9dFf1A==
-Received: from SE2P216CA0041.KORP216.PROD.OUTLOOK.COM (2603:1096:101:116::20)
- by KL1PR06MB6867.apcprd06.prod.outlook.com (2603:1096:820:113::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.21; Tue, 25 Feb
- 2025 03:21:59 +0000
-Received: from HK3PEPF00000220.apcprd03.prod.outlook.com
- (2603:1096:101:116:cafe::d) by SE2P216CA0041.outlook.office365.com
- (2603:1096:101:116::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8466.21 via Frontend Transport; Tue,
- 25 Feb 2025 03:21:58 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- HK3PEPF00000220.mail.protection.outlook.com (10.167.8.42) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8489.16 via Frontend Transport; Tue, 25 Feb 2025 03:21:57 +0000
-Received: from nchen-desktop (unknown [172.16.64.25])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 043C94160CA0;
-	Tue, 25 Feb 2025 11:21:56 +0800 (CST)
-Date: Tue, 25 Feb 2025 11:21:51 +0800
-From: Peter Chen <peter.chen@cixtech.com>
-To: Marcin Juszkiewicz <marcin@juszkiewicz.com.pl>
-Cc: "arnd@arndb.de" <arnd@arndb.de>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	cix-kernel-upstream <cix-kernel-upstream@cixtech.com>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	Fugang Duan <fugang.duan@cixtech.com>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"will@kernel.org" <will@kernel.org>
-Subject: Re: [PATCH 6/6] arm64: dts: cix: add initial CIX P1(SKY1) dts support
-Message-ID: <Z703T0F7I8TmCeew@nchen-desktop>
-References: <20250220084020.628704-7-peter.chen@cixtech.com>
- <068655e7-2ad7-4497-aca7-4100ad478d99@juszkiewicz.com.pl>
- <Z7xZwGTIKgj9_zNZ@nchen-desktop>
- <7f673cea-8d85-404a-b380-4282c0e3c0ad@juszkiewicz.com.pl>
+	Tue, 25 Feb 2025 04:23:04 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-220e0575f5bso98195ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Feb 2025 20:23:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1740457382; x=1741062182; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0dnfDX8F9dAojLshWRzaoAh4tjNLeQ4DMe8LUFT9cv4=;
+        b=4uU/g8g87vAvuO83eu4i0xEcLKY1JyCxRg0/RQM1iPKYuP6LcHjAGpA4Pw0qGTmPj3
+         iDasP2S7JHM5xqqB36rnZHSS4fKcVdsvhi29sgGqjGTKFVvNS1R3U93P2U8R7FQELSqu
+         VUKZhQuUDdpawlCl5p0Xf9p0e8xMLkFluzlEuXSszw07xpywmwEoM8WVdztWEUVdQCES
+         ttJEFBuwCWWOugxwIVNYjcp6HrNiyg6nQ0EKNlUU4e/WMb/UvsW7+MTxhNuF6v+MSEfs
+         +Fg2+G5v0uBBvNemjligUU8j1LRQFsW13VaLL2+lqjWTdlrwZgsPqkcV8xixIK1MXlHN
+         AVFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740457382; x=1741062182;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0dnfDX8F9dAojLshWRzaoAh4tjNLeQ4DMe8LUFT9cv4=;
+        b=rvEBUzY1HuP5O5AvbT3ozFm28l8Vv0Gks5kfgxGmB5BVKZjmYCXnMyWqPXo26TCoYi
+         u/zH2pLXMZilFb4nfR5IHv0LSz0FX0vNF0oCMQKVMKrW8ECH4pAl9oEpaE/5xAejRT2e
+         4Ku4XrzTRfrI3aB8/+Z+uk3y+lMsqUOecEu36FdPR03g0+O6yp6YBsNtA5VpCjZTff5W
+         In8v/TofGsqH/J6mUZafozay+o9gxnKlYUV1BqzWPAyzYmpBMKNe3T6selBY8vmRigru
+         gtTuGOz5TxJ0u5bRf0P/UPvGIrKnSRyusIN8gS/h76D/o4TLtzGgRK16QyZ8+zmMaGuk
+         qBLA==
+X-Forwarded-Encrypted: i=1; AJvYcCXh1L7bpHzWmPevsepLrsrYEiVZNLexL00P8AdogxubCgoW1H/Zz9py3es75bohS2zWHP6GLKoFj0hc7CENrZg8@lists.infradead.org
+X-Gm-Message-State: AOJu0YxNjJ81/lIpAMwb2J2VCkfOYEIS06Z0CV3MpkVsi+ETRkseYz28
+	y0mwFKySxUuSvt+Jp64PsdsPXH9ap04kpsqQLj7kGAxD/p794a5hPErujKIO0GCymL9AdIJNiHF
+	IinuHwCDfr+AM26rUo9o7y5EF6RZCmuKT09z1
+X-Gm-Gg: ASbGncvZRZddUtlA7UA2JoVIVoo1Fwsh7bnTNmrzzxWpM+PJHvhOjILqsgVBxn/uC5w
+	IMbHQnbRGz51iBTGRl7CwO/z9vSUTSoiUDSBbigcy4cUV/l8+QFqwZQOSaIxw3e6hYyynkr5SNB
+	kjEuLISqyw
+X-Google-Smtp-Source: AGHT+IGUMbhMl6/Gef1QJ3tKC8kP3/Phfar/m5jTSCYGPTt5wQk8z6TdzhgYsgrIeWo9sJfXlqvs8z66UVyg6GElTN4=
+X-Received: by 2002:a17:902:db11:b0:216:4d90:47af with SMTP id
+ d9443c01a7336-22307aad240mr1981295ad.29.1740457381632; Mon, 24 Feb 2025
+ 20:23:01 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <7f673cea-8d85-404a-b380-4282c0e3c0ad@juszkiewicz.com.pl>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: HK3PEPF00000220:EE_|KL1PR06MB6867:EE_
-X-MS-Office365-Filtering-Correlation-Id: a9470625-7cce-4206-74f1-08dd554b8fea
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BMVgJY0xs0MoERedW59QtN1BzWyc1OLIy57cH2kK0/uGIwVWl6f9Ynh/yoL3?=
- =?us-ascii?Q?/uaQg2KWtVoN5euiUaCof7SR2XcSRITmJOWC+w4RJg8cN/drZtpbHQ2s9YtW?=
- =?us-ascii?Q?t4SqSc2LcPvffOzHjuVuK3KXK/ed5tR5wQU0NGp+4SCukjaS4zLVIJbjBS3A?=
- =?us-ascii?Q?ZRw5uzPDeWlI0705A/n9b2IaVtEv5/OFQtkg56fqInii29Kju3+pp7hLXv+G?=
- =?us-ascii?Q?65o5iCPk61G6rdZQzJESerGJVbm8WNVHmcafGBrd8CQ0ObtrRDtY5hSfZ3Xp?=
- =?us-ascii?Q?ROjEHI2thGkEArukWa81xCngzQhIJjaIMFvoA2Q3M5erZ1th/QGl9O5d+K2H?=
- =?us-ascii?Q?KHil+U1WLKJMN+608IjBb/uM+rHrddphEVaaM8HS2b6zihX5kPuBucGFoN8a?=
- =?us-ascii?Q?oJQJ3kFjczmvfKbMhz5+P1J6pjPhwyVAIXHEZmuVgcQyFEaeN+tsFsjyQXMj?=
- =?us-ascii?Q?wHK0y+d/uGk4emwvLRtWTc6dtZsI+Gg2PJXyHUVK8vZSC3yCo0oSPR5XHohk?=
- =?us-ascii?Q?zPO1vHbSBwD8BFCHU6wf3PJonKHCOP4XdkbUukCZDSyxRMpDkx/wmGpGZrgc?=
- =?us-ascii?Q?WGpBscHZPvzpMK0SOAvVV24kX6m2uzpQDaHi4eo+OLAMMsVIN54R+H/oSz9w?=
- =?us-ascii?Q?wnyB/TTK6ymMH5YC+T6smlXHocw9bPnmFEdmz629xsYw9iWTzIeHlXx5RxuK?=
- =?us-ascii?Q?/iti/zDL5ExEP3gOJUGRPbvl52wyNBMC9DciGDb2fMxJSdsTHhpphnTl2VPA?=
- =?us-ascii?Q?fnVx/fImLGhqew9pYToNdDLNBrbLXS9qbkJtwUYvHcskFcjaGHgmOCrkvoeI?=
- =?us-ascii?Q?I9n1vWu19y8YOdMPslCgwlt63B+DfIXWpK7krmTto27uR4yMBDjf0pd+ONH0?=
- =?us-ascii?Q?3qyDynX8xSPOhgF+VZPIfqPPYgqz+N1fCiWoPc5fWu6eAwBb2AV4Z86Tse/o?=
- =?us-ascii?Q?6km8K/f1tTGq9RUSjTmHqNuJaKJ8qVc2hFiXw6SQD3anZsKY6jrucnwnKGs0?=
- =?us-ascii?Q?XZqCog01ilSZC17lOFAEWPuFnVgm+tC3NsauW6P3MYkuicwC2DAvq2e6KDNc?=
- =?us-ascii?Q?EblytQwKViR1Q19lpZdnYAVqEsZcAdXmehZ3xFVnUOPvvW0LE2TT5ND3vhur?=
- =?us-ascii?Q?XXZyQp2qGA29G1U6euiDwfkTp1mBU7BJHM8Z4yuCD9KUBA9ZbXaYVjAmiK+T?=
- =?us-ascii?Q?3TiLTAHPOTtKvYnqPfYylEy2I+subT0EEt4iI6gBx2tJw2W3cT1EG4Lw+ZKY?=
- =?us-ascii?Q?zS7Nhgf7TLHY/mFZtICor5o+sQhwDfYsZAq5M8qh12vMohim64kUlyqWiG82?=
- =?us-ascii?Q?RZUsEE8ZibFY+EJx08z3Aq7Y14vRNjZj4uDuMWHTLwD7TXgiVuwZjUST/ymk?=
- =?us-ascii?Q?Tw9V5RFZuwa5b7xDbbjh/pxoW1vA3VmWuwp8pHHbdPO9pviiw7xu0gBdGmWW?=
- =?us-ascii?Q?oId8iLg42HuUr7yCzBoeODczepYQvjrr0GDMG3KY50gvA7fgFYbDVODD4SFV?=
- =?us-ascii?Q?cdebNxWdPUvUpZs=3D?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(1800799024)(82310400026);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Feb 2025 03:21:57.9393
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a9470625-7cce-4206-74f1-08dd554b8fea
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: HK3PEPF00000220.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR06MB6867
+References: <20250219185657.280286-1-irogers@google.com> <Z702_CQ7nMx9fZQn@google.com>
+In-Reply-To: <Z702_CQ7nMx9fZQn@google.com>
+From: Ian Rogers <irogers@google.com>
+Date: Mon, 24 Feb 2025 20:22:50 -0800
+X-Gm-Features: AWEUYZlRSCuMXpRnG9e51tFeDQNCY7-ORGGSWmNrzSa339fgNrVuz98Z_FTpe8s
+Message-ID: <CAP-5=fWYiQP84BMjm69xud4vYaRrutRG-RASKbxQaGSisRm7jA@mail.gmail.com>
+Subject: Re: [PATCH v3 0/8] perf: Support multiple system call tables in the build
+To: Namhyung Kim <namhyung@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
+	Leo Yan <leo.yan@linux.dev>, guoren <guoren@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Charlie Jenkins <charlie@rivosinc.com>, 
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
+	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
+	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>, linux-riscv@lists.infradead.org, 
+	linux-mips@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250224_192217_220476_C35625EE 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20250224_202302_691495_8037EE4F 
+X-CRM114-Status: GOOD (  39.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,57 +108,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-02-24 15:06:19, Marcin Juszkiewicz wrote:
-> > > > diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
-> > > > new file mode 100644
-> > > > index 000000000000..d98735f782e0
-> > > > --- /dev/null
-> > > > +++ b/arch/arm64/boot/dts/cix/sky1.dtsi
-> > > > @@ -0,0 +1,264 @@
-> > > > +// SPDX-License-Identifier: BSD-3-Clause
-> > > > +/*
-> > > > + * Copyright 2025 Cix Technology Group Co., Ltd.
-> > > > + *
-> > > > + */
-> > > > +
-> > > > +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> > > 
-> > > [..]
-> > > 
-> > > > +     arch_timer: timer {
-> > > > +             compatible = "arm,armv8-timer";
-> > > > +             interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
-> > > > +                          <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
-> > > > +                          <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-> > > > +                          <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
-> > > > +             clock-frequency = <1000000000>;
-> > > > +             interrupt-parent = <&gic>;
-> > > > +             arm,no-tick-in-suspend;
-> > > > +     };
-> > > 
-> > > This is not Arm v8.0 SoC so where is non-secure EL2 virtual timer?
-> > 
-> > It is the Arm v9 SoC and back compatible with Arm v8.
-> 
-> Arm SoC has several timer interrupts:
-> 
-> PPI 10: Non-secure EL2 physical timer interrupt
-> PPI 11: Virtual timer interrupt
-> PPI 12: Non-secure EL2 virtual timer
-> PPI 13: Secure physical timer interrupt
-> PPI 14: Non-secure physical timer interrupt
-> 
-> You mention 10, 11, 13, 14 only like your SoC would be plain old Arm
-> v8.0 one (Cortex-A53/A72).
-> 
-> Sky1 (CP/CA/CS8180) is Arm v9 so should also list PPI 12 which came with
-> VHE (Virtualization host extensions) which is mandatory for each Arm cpu
-> v8.1 or above (and is implemented in A520/A720 cores).
+On Mon, Feb 24, 2025 at 7:20=E2=80=AFPM Namhyung Kim <namhyung@kernel.org> =
+wrote:
+>
+> On Wed, Feb 19, 2025 at 10:56:49AM -0800, Ian Rogers wrote:
+> > This work builds on the clean up of system call tables and removal of
+> > libaudit by Charlie Jenkins <charlie@rivosinc.com>.
+> >
+> > The system call table in perf trace is used to map system call numbers
+> > to names and vice versa. Prior to these changes, a single table
+> > matching the perf binary's build was present. The table would be
+> > incorrect if tracing say a 32-bit binary from a 64-bit version of
+> > perf, the names and numbers wouldn't match.
+> >
+> > Change the build so that a single system call file is built and the
+> > potentially multiple tables are identifiable from the ELF machine type
+> > of the process being examined. To determine the ELF machine type, the
+> > executable's header is read from /proc/pid/exe with fallbacks to using
+> > the perf's binary type when unknown.
+>
+> Hmm.. then this is limited to live mode and potentially detect wrong
+> machine type if it reads an old data, right?
+>
+> Also IIUC fallback to the perf binary means it cannot use cross-machine
+> table.  For example, it cannot process data from ARM64 on x86, no?  It
+> seems it should use perf_env.arch.
 
-Thanks for mentioning it. I will add PPI 12 for v2 patch set.
+The perf env arch is kind of horrid. On x86 it has the value x86 and
+then there is an extra 64bit flag, who knows how x32 should be encoded
+- but we barely support x32 as-is. I'd rather we added a new feature
+for the e_machine/e_flags of the executable and worked with those, but
+it is kind of weird with doing system wide mode. I didn't want to drag
+that into this patch series anyway as there is already enough here.
 
--- 
+> One more concern is BPF.  The BPF should know about the ABI of the
+> current process so that it can augment the syscall arguments correctly.
+> Currently it only checks the syscall number but it can be different on
+> 32-bit and 64-bit.
 
-Best regards,
-Peter
+That's right. This change is trying to clean up
+tools/perf/util/syscalltbl.c and the perf trace usage. I didn't go as
+far as making BPF programs pair system call number with e_machine and
+e_flags, there is enough here and the behavior after these patches
+matches the behavior before - that is to assume the system call ABI
+matches that of the perf binary.
+
+Thanks,
+Ian
+
+> Thanks,
+> Namhyung
+>
+>
+> >
+> > Remove some runtime types used by the system call tables and make
+> > equivalents generated at build time.
+> >
+> > v3: Add Charlie's reviewed-by tags. Incorporate feedback from Arnd
+> >     Bergmann <arnd@arndb.de> on additional optional column and MIPS
+> >     system call numbering. Rebase past Namhyung's global system call
+> >     statistics and add comments that they don't yet support an
+> >     e_machine other than EM_HOST.
+> >
+> > v2: Change the 1 element cache for the last table as suggested by
+> >     Howard Chu, add Howard's reviewed-by tags.
+> >     Add a comment and apology to Charlie for not doing better in
+> >     guiding:
+> >     https://lore.kernel.org/all/20250114-perf_syscall_arch_runtime-v1-1=
+-5b304e408e11@rivosinc.com/
+> >     After discussion on v1 and he agreed this patch series would be
+> >     the better direction.
+> >
+> > Ian Rogers (8):
+> >   perf syscalltble: Remove syscall_table.h
+> >   perf trace: Reorganize syscalls
+> >   perf syscalltbl: Remove struct syscalltbl
+> >   perf thread: Add support for reading the e_machine type for a thread
+> >   perf trace beauty: Add syscalltbl.sh generating all system call table=
+s
+> >   perf syscalltbl: Use lookup table containing multiple architectures
+> >   perf build: Remove Makefile.syscalls
+> >   perf syscalltbl: Mask off ABI type for MIPS system calls
+> >
+> >  tools/perf/Makefile.perf                      |  10 +-
+> >  tools/perf/arch/alpha/entry/syscalls/Kbuild   |   2 -
+> >  .../alpha/entry/syscalls/Makefile.syscalls    |   5 -
+> >  tools/perf/arch/alpha/include/syscall_table.h |   2 -
+> >  tools/perf/arch/arc/entry/syscalls/Kbuild     |   2 -
+> >  .../arch/arc/entry/syscalls/Makefile.syscalls |   3 -
+> >  tools/perf/arch/arc/include/syscall_table.h   |   2 -
+> >  tools/perf/arch/arm/entry/syscalls/Kbuild     |   4 -
+> >  .../arch/arm/entry/syscalls/Makefile.syscalls |   2 -
+> >  tools/perf/arch/arm/include/syscall_table.h   |   2 -
+> >  tools/perf/arch/arm64/entry/syscalls/Kbuild   |   3 -
+> >  .../arm64/entry/syscalls/Makefile.syscalls    |   6 -
+> >  tools/perf/arch/arm64/include/syscall_table.h |   8 -
+> >  tools/perf/arch/csky/entry/syscalls/Kbuild    |   2 -
+> >  .../csky/entry/syscalls/Makefile.syscalls     |   3 -
+> >  tools/perf/arch/csky/include/syscall_table.h  |   2 -
+> >  .../perf/arch/loongarch/entry/syscalls/Kbuild |   2 -
+> >  .../entry/syscalls/Makefile.syscalls          |   3 -
+> >  .../arch/loongarch/include/syscall_table.h    |   2 -
+> >  tools/perf/arch/mips/entry/syscalls/Kbuild    |   2 -
+> >  .../mips/entry/syscalls/Makefile.syscalls     |   5 -
+> >  tools/perf/arch/mips/include/syscall_table.h  |   2 -
+> >  tools/perf/arch/parisc/entry/syscalls/Kbuild  |   3 -
+> >  .../parisc/entry/syscalls/Makefile.syscalls   |   6 -
+> >  .../perf/arch/parisc/include/syscall_table.h  |   8 -
+> >  tools/perf/arch/powerpc/entry/syscalls/Kbuild |   3 -
+> >  .../powerpc/entry/syscalls/Makefile.syscalls  |   6 -
+> >  .../perf/arch/powerpc/include/syscall_table.h |   8 -
+> >  tools/perf/arch/riscv/entry/syscalls/Kbuild   |   2 -
+> >  .../riscv/entry/syscalls/Makefile.syscalls    |   4 -
+> >  tools/perf/arch/riscv/include/syscall_table.h |   8 -
+> >  tools/perf/arch/s390/entry/syscalls/Kbuild    |   2 -
+> >  .../s390/entry/syscalls/Makefile.syscalls     |   5 -
+> >  tools/perf/arch/s390/include/syscall_table.h  |   2 -
+> >  tools/perf/arch/sh/entry/syscalls/Kbuild      |   2 -
+> >  .../arch/sh/entry/syscalls/Makefile.syscalls  |   4 -
+> >  tools/perf/arch/sh/include/syscall_table.h    |   2 -
+> >  tools/perf/arch/sparc/entry/syscalls/Kbuild   |   3 -
+> >  .../sparc/entry/syscalls/Makefile.syscalls    |   5 -
+> >  tools/perf/arch/sparc/include/syscall_table.h |   8 -
+> >  tools/perf/arch/x86/entry/syscalls/Kbuild     |   3 -
+> >  .../arch/x86/entry/syscalls/Makefile.syscalls |   6 -
+> >  tools/perf/arch/x86/include/syscall_table.h   |   8 -
+> >  tools/perf/arch/xtensa/entry/syscalls/Kbuild  |   2 -
+> >  .../xtensa/entry/syscalls/Makefile.syscalls   |   4 -
+> >  .../perf/arch/xtensa/include/syscall_table.h  |   2 -
+> >  tools/perf/builtin-trace.c                    | 290 +++++++++++-------
+> >  tools/perf/scripts/Makefile.syscalls          |  61 ----
+> >  tools/perf/scripts/syscalltbl.sh              |  86 ------
+> >  tools/perf/trace/beauty/syscalltbl.sh         | 274 +++++++++++++++++
+> >  tools/perf/util/syscalltbl.c                  | 148 ++++-----
+> >  tools/perf/util/syscalltbl.h                  |  22 +-
+> >  tools/perf/util/thread.c                      |  50 +++
+> >  tools/perf/util/thread.h                      |  14 +-
+> >  54 files changed, 616 insertions(+), 509 deletions(-)
+> >  delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Kbuild
+> >  delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Makefile.sysca=
+lls
+> >  delete mode 100644 tools/perf/arch/alpha/include/syscall_table.h
+> >  delete mode 100644 tools/perf/arch/arc/entry/syscalls/Kbuild
+> >  delete mode 100644 tools/perf/arch/arc/entry/syscalls/Makefile.syscall=
+s
+> >  delete mode 100644 tools/perf/arch/arc/include/syscall_table.h
+> >  delete mode 100644 tools/perf/arch/arm/entry/syscalls/Kbuild
+> >  delete mode 100644 tools/perf/arch/arm/entry/syscalls/Makefile.syscall=
+s
+> >  delete mode 100644 tools/perf/arch/arm/include/syscall_table.h
+> >  delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Kbuild
+> >  delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Makefile.sysca=
+lls
+> >  delete mode 100644 tools/perf/arch/arm64/include/syscall_table.h
+> >  delete mode 100644 tools/perf/arch/csky/entry/syscalls/Kbuild
+> >  delete mode 100644 tools/perf/arch/csky/entry/syscalls/Makefile.syscal=
+ls
+> >  delete mode 100644 tools/perf/arch/csky/include/syscall_table.h
+> >  delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Kbuild
+> >  delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Makefile.s=
+yscalls
+> >  delete mode 100644 tools/perf/arch/loongarch/include/syscall_table.h
+> >  delete mode 100644 tools/perf/arch/mips/entry/syscalls/Kbuild
+> >  delete mode 100644 tools/perf/arch/mips/entry/syscalls/Makefile.syscal=
+ls
+> >  delete mode 100644 tools/perf/arch/mips/include/syscall_table.h
+> >  delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Kbuild
+> >  delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Makefile.sysc=
+alls
+> >  delete mode 100644 tools/perf/arch/parisc/include/syscall_table.h
+> >  delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Kbuild
+> >  delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Makefile.sys=
+calls
+> >  delete mode 100644 tools/perf/arch/powerpc/include/syscall_table.h
+> >  delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Kbuild
+> >  delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Makefile.sysca=
+lls
+> >  delete mode 100644 tools/perf/arch/riscv/include/syscall_table.h
+> >  delete mode 100644 tools/perf/arch/s390/entry/syscalls/Kbuild
+> >  delete mode 100644 tools/perf/arch/s390/entry/syscalls/Makefile.syscal=
+ls
+> >  delete mode 100644 tools/perf/arch/s390/include/syscall_table.h
+> >  delete mode 100644 tools/perf/arch/sh/entry/syscalls/Kbuild
+> >  delete mode 100644 tools/perf/arch/sh/entry/syscalls/Makefile.syscalls
+> >  delete mode 100644 tools/perf/arch/sh/include/syscall_table.h
+> >  delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Kbuild
+> >  delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Makefile.sysca=
+lls
+> >  delete mode 100644 tools/perf/arch/sparc/include/syscall_table.h
+> >  delete mode 100644 tools/perf/arch/x86/entry/syscalls/Kbuild
+> >  delete mode 100644 tools/perf/arch/x86/entry/syscalls/Makefile.syscall=
+s
+> >  delete mode 100644 tools/perf/arch/x86/include/syscall_table.h
+> >  delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Kbuild
+> >  delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Makefile.sysc=
+alls
+> >  delete mode 100644 tools/perf/arch/xtensa/include/syscall_table.h
+> >  delete mode 100644 tools/perf/scripts/Makefile.syscalls
+> >  delete mode 100755 tools/perf/scripts/syscalltbl.sh
+> >  create mode 100755 tools/perf/trace/beauty/syscalltbl.sh
+> >
+> > --
+> > 2.48.1.601.g30ceb7b040-goog
+> >
 
