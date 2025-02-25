@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A21D2C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 18:45:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBBB4C18E7C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Feb 2025 18:47:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=tu77UTwp3wqR8RYxZC1EZe2tgjkQypdRGOMbtG4FoiU=; b=ctiE6n07HEeaXu
-	Wi6jNQutmWZLj84cN1DrpMytbNSQjEWbT4OMF3JFsQaBUWBj7FtwQATTQfJLTCdMqOPDxtBmthBrI
-	TJT/IZXhPuhEKm3IUpZmZQaMYRdZCtDztSlDNOYfrymZk/pBOaEulh7FD7jLbfeQQBHi0WYw+hPyo
-	mnhQfJGjwrU6ZLGlNcIC1YIMsFzOr000RnzIFybQ+fk6jZ3dxyFWM9vdl4RSFmb6mBDgQsqcmXL94
-	4ywjxppsIPTgOpjfBWV0hvos4lQyINavfaHkyFl5/dW2cPh+YJyc1HqttNy8F+f39n6srptLmmzVE
-	JmSzsSeP1ZaZnACAp2jA==;
+	List-Owner; bh=4jdGR9Vx8QPRVGqwlLlBEd4cYi3UZKCQVi1ikVCuoZ4=; b=j9bj+2T3nUAofw
+	QQo4552j92TohSPaIcyZySAUSXjsH/XJVx+NKrB2PHaR/EIVBpgtfqIH43mYowlPpDGYSgs914ee4
+	qqpVk7pSzx7HtundD099S8wRun+97tkb5BMs9Fze3ycI56c91Qm41hqjEd0V4I7LlpUURRuN1pskW
+	XcwG33F9b9htc6BdaLEygcYUXriQSQqlzSFSD8+Ah+LzzrsIIQFf/p8aVIGtjnmOKgqxzstZZGNdj
+	2hJ0J3z+ikmFIwrjMI4QuFPcBjE+5GiNTsSBgG4H6uSjpeK19UDXqrmmAdeXVJlgx0I0JlBsD87wJ
+	RJkQuSc2eAYIdgyFAVtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmzvz-000000010qx-1poK;
-	Tue, 25 Feb 2025 18:45:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tmzxU-0000000116n-17aQ;
+	Tue, 25 Feb 2025 18:47:08 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tmzXU-00000000tUI-3iVg
+	id 1tmzXV-00000000tUP-0N4K
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Feb 2025 18:20:16 +0000
+	Tue, 25 Feb 2025 18:20:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5CFC761302;
-	Tue, 25 Feb 2025 18:20:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8A1EC4CEF2;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 834F15C66F4;
+	Tue, 25 Feb 2025 18:19:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFFD2C4CEF1;
 	Tue, 25 Feb 2025 18:20:15 +0000 (UTC)
 Received: from rostedt by gandalf with local (Exim 4.98)
 	(envelope-from <rostedt@goodmis.org>)
-	id 1tmzY6-000000095ZO-41vx;
+	id 1tmzY6-000000095Yu-3KXv;
 	Tue, 25 Feb 2025 13:20:54 -0500
-Message-ID: <20250225182054.815536219@goodmis.org>
+Message-ID: <20250225182054.648398403@goodmis.org>
 User-Agent: quilt/0.68
-Date: Tue, 25 Feb 2025 13:20:08 -0500
+Date: Tue, 25 Feb 2025 13:20:07 -0500
 From: Steven Rostedt <rostedt@goodmis.org>
 To: linux-kernel@vger.kernel.org,
  linux-trace-kernel@vger.kernel.org,
@@ -53,10 +53,14 @@ Cc: Masami Hiramatsu <mhiramat@kernel.org>,
  Nathan Chancellor <nathan@kernel.org>,
  "Arnd Bergmann" <arnd@arndb.de>,
  Mark Brown <broonie@kernel.org>
-Subject: [PATCH 4/4] scripts/sorttable: Allow matches to functions before function entry
+Subject: [PATCH 3/4] scripts/sorttable: Use normal sort if theres no relocs in the mcount
+ section
 References: <20250225182004.473875894@goodmis.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250225_102017_187985_A04D01C6 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,53 +77,48 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Steven Rostedt <rostedt@goodmis.org>
 
-ARM 64 uses -fpatchable-function-entry=4,2 which adds padding before the
-function and the addresses in the mcount_loc point there instead of the
-function entry that is returned by nm. In order to find a function from nm
-to make sure it's not an unused weak function, the entries in the
-mcount_loc section needs to match the entries from nm. Since it can be an
-instruction before the entry, add a before_func variable that ARM 64 can
-set to 8, and if the mcount_loc entry is within 8 bytes of the nm function
-entry, then it will be considered a match.
+When ARM 64 is compiled with gcc, the mcount_loc section will be filled
+with zeros and the addresses will be located in the Elf_Rela sections. To
+sort the mcount_loc section, the addresses from the Elf_Rela need to be
+placed into an array and that is sorted.
 
-Fixes: ef378c3b82338 ("scripts/sorttable: Zero out weak functions in mcount_loc table")
+But when ARM 64 is compiled with clang, it does it the same way as other
+architectures and leaves the addresses as is in the mcount_loc section.
+
+To handle both cases, ARM 64 will first try to sort the Elf_Rela section,
+and if it doesn't find any functions, it will then fall back to the
+sorting of the addresses in the mcount_loc section itself.
+
+Fixes: b3d09d06e052 ("arm64: scripts/sorttable: Implement sorting mcount_loc at boot for arm64")
+Reported-by: "Arnd Bergmann" <arnd@arndb.de>
 Tested-by: Nathan Chancellor <nathan@kernel.org>
+Closes: https://lore.kernel.org/all/893cd8f1-8585-4d25-bf0f-4197bf872465@app.fastmail.com/
 Signed-off-by: Steven Rostedt (Google) <rostedt@goodmis.org>
 ---
- scripts/sorttable.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ scripts/sorttable.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
 diff --git a/scripts/sorttable.c b/scripts/sorttable.c
-index 07ad8116bc8d..7b4b3714b1af 100644
+index 23c7e0e6c024..07ad8116bc8d 100644
 --- a/scripts/sorttable.c
 +++ b/scripts/sorttable.c
-@@ -611,13 +611,16 @@ static int add_field(uint64_t addr, uint64_t size)
- 	return 0;
- }
+@@ -827,9 +827,14 @@ static void *sort_mcount_loc(void *arg)
+ 		pthread_exit(m_err);
+ 	}
  
-+/* Used for when mcount/fentry is before the function entry */
-+static int before_func;
-+
- /* Only return match if the address lies inside the function size */
- static int cmp_func_addr(const void *K, const void *A)
- {
- 	uint64_t key = *(const uint64_t *)K;
- 	const struct func_info *a = A;
+-	if (sort_reloc)
++	if (sort_reloc) {
+ 		count = fill_relocs(vals, size, ehdr, emloc->start_mcount_loc);
+-	else
++		/* gcc may use relocs to save the addresses, but clang does not. */
++		if (!count) {
++			count = fill_addrs(vals, size, start_loc);
++			sort_reloc = 0;
++		}
++	} else
+ 		count = fill_addrs(vals, size, start_loc);
  
--	if (key < a->addr)
-+	if (key + before_func < a->addr)
- 		return -1;
- 	return key >= a->addr + a->size;
- }
-@@ -1253,6 +1256,8 @@ static int do_file(char const *const fname, void *addr)
- #ifdef MCOUNT_SORT_ENABLED
- 		sort_reloc = true;
- 		rela_type = 0x403;
-+		/* arm64 uses patchable function entry placing before function */
-+		before_func = 8;
- #endif
- 		/* fallthrough */
- 	case EM_386:
+ 	if (count < 0) {
 -- 
 2.47.2
 
