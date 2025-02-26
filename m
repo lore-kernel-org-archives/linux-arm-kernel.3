@@ -4,72 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F08ECC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 23:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17599C19776
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 23:37:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UEoVyBpUX3lFNfnp2cCHlhOnrwe2QxwgEqIvC2X/3iA=; b=i6SWDK2VwCy4kTRG8PEP8iufpi
-	6DvbXrMUtBguTrTUnpTMS+1X2D0EekCDFFAIqyLGN9k/u1XpYUV1oJyK96clTb/oiF9jGGlepRGfo
-	Fmn+YfUlOaDhQARk/A8LqZ6nf5y1cvyJ94fQSR44H4ozIDtmlGWbcHiDr+ZoR3bNRSAGudYP+a6p3
-	lO7a0GpuaHY5PoPhaYU2Cg6ENnjfPHaWkVTlcvWqBA//55v9Bei8uayTJi22r4RS6Qgv4aLEVcHTW
-	0f1VWhQi2H+2r+xkBzHqmEvKX8+SGMYOvNMd5jcbKM9UTpOUElRtr8sF/nTVH8zp2z/PKJwddu2FT
-	xkRCPrNA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=TAJhZpOKAGiuoaxok/xAaYksYfuS09MvyjeZD/de2No=; b=gBiowZDfGLf9e0
+	OLHwxEablS+t1yLsFr+yjXfLl+YF247yqkTDH6nf/EC0XgDnWp7Ja9fZPh8E99AyqBGrEd6O/49Ke
+	0ribYgbpvZ3jyCjDJOGG04t/+unpGTMIOzmdG8zT54RV0qrwiD0ywEUQuy0Xxz5IcqbJquomK18rO
+	5QnFm2bJuoQHuVBHprb2N67mYaysURyMjO7zVIsIqxkDGR6uTJicafcLTPdULwhUIxkygQiJqtcOv
+	KZT5OpfyIKtnN0X7PvqV9X/w2Up2OOOqRGGju2+Fm+e68HDl11PWdJNqHau2mvDLBWObnPox6O2TW
+	G9I8lgdDihuJkt36h9HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnQwH-00000005iQm-07c0;
-	Wed, 26 Feb 2025 23:35:41 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnQtV-00000005i8P-0eiD
+	id 1tnQxm-00000005iWV-2wMj;
+	Wed, 26 Feb 2025 23:37:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnQuN-00000005iGT-36UG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 23:32:50 +0000
-Received: from skinsburskii. (unknown [20.236.11.29])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 223BD210EACA;
-	Wed, 26 Feb 2025 15:32:47 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 223BD210EACA
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1740612768;
-	bh=UEoVyBpUX3lFNfnp2cCHlhOnrwe2QxwgEqIvC2X/3iA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=d8bNHDOiYxdhtkrKYYPEHNFQaugrm+RMCXnNNSdB2RRQ/3V5aZ3xAM0koem6RCFog
-	 XFnYZAwbK6QiyU9Vz7GUQsFS6+VK8cfImWj+EAswlp23akzSKX+WKDelQ3BKFQAL1F
-	 aBaVrx3PzGTFxsRWJxIicYnnv4RjcyTmGvoHGjrw=
-Date: Wed, 26 Feb 2025 15:32:45 -0800
-From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-Cc: linux-hyperv@vger.kernel.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org,
-	kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
-	mhklinux@outlook.com, decui@microsoft.com, catalin.marinas@arm.com,
-	will@kernel.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, hpa@zytor.com,
-	daniel.lezcano@linaro.org, joro@8bytes.org, robin.murphy@arm.com,
-	arnd@arndb.de, jinankjain@linux.microsoft.com,
-	muminulrussell@gmail.com, mrathor@linux.microsoft.com,
-	ssengar@linux.microsoft.com, apais@linux.microsoft.com,
-	Tianyu.Lan@microsoft.com, stanislav.kinsburskiy@gmail.com,
-	gregkh@linuxfoundation.org, vkuznets@redhat.com,
-	prapal@linux.microsoft.com, muislam@microsoft.com,
-	anrayabh@linux.microsoft.com, rafael@kernel.org, lenb@kernel.org,
-	corbet@lwn.net
-Subject: Re: [PATCH v5 06/10] Drivers/hv: Export some functions for use by
- root partition module
-Message-ID: <Z7-knarBxqxRIqVE@skinsburskii.>
-References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740611284-27506-7-git-send-email-nunodasneves@linux.microsoft.com>
+	Wed, 26 Feb 2025 23:33:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CA6A3612C7;
+	Wed, 26 Feb 2025 23:33:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FD53C4CED6;
+	Wed, 26 Feb 2025 23:33:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740612822;
+	bh=JU2kjfLvtCKvCAcKZzE2OOPkpTNFwZNgTF7Ciu+cRA4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=mph1cYH0/GtxEnkYNjCOOhVVx56YpsQjSOk1NStNxEAjASxrD7HdP89Eu4QiFsjQp
+	 FaY8Xks0fxxWsXbG0tGc1hVg1E8MwdMRqFTK8X7jjvATAcXjECwZqgiyPCvT3dHxUt
+	 qW1qWzKdtvNXzRAGOsnQSV66plI7HGitg8nnLwYby1irqcym0luHmdV+wN76k2JwOm
+	 iR34vJbsDmq6bIXion0gGlpstWi49EKe12WKUXlHfzk0KtCantRd19Hb9ATkeh73Qx
+	 sOq2e+gAUnuYFRHoKt4gCCqbzhMUX33KGRP89sfavZuSOlnmEtXD32v2ULnB/BGLti
+	 +yYugUjDQL0qQ==
+Date: Wed, 26 Feb 2025 17:33:39 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	Niklas Cassel <cassel@kernel.org>
+Subject: Re: [PATCH v9 4/7] PCI: dwc: Use devicetree 'ranges' property to get
+ rid of cpu_addr_fixup() callback
+Message-ID: <20250226233339.GA562682@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <1740611284-27506-7-git-send-email-nunodasneves@linux.microsoft.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_153249_216646_A39C281F 
-X-CRM114-Status: UNSURE (   6.04  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20250128-pci_fixup_addr-v9-4-3c4bb506f665@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,11 +81,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 26, 2025 at 03:08:00PM -0800, Nuno Das Neves wrote:
-> get_hypervisor_version, hv_call_deposit_pages, hv_call_create_vp,
-> hv_call_deposit_pages, and hv_call_create_vp are all needed in module
-> with CONFIG_MSHV_ROOT=m.
-> 
+On Tue, Jan 28, 2025 at 05:07:37PM -0500, Frank Li wrote:
+> parent_bus_offset in resource_entry can indicate address information just
+> ahead of PCIe controller. Most system's bus fabric use 1:1 map between
+> input and output address. but some hardware like i.MX8QXP doesn't use 1:1
+> map. See below diagram:
+> ...
 
-Reviewed-by: Stanislav Kinsburskii <skinsburskii@microsoft.linux.com>
+> @@ -448,6 +451,26 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
+>  	if (IS_ERR(pp->va_cfg0_base))
+>  		return PTR_ERR(pp->va_cfg0_base);
+>  
+> +	if (pci->use_parent_dt_ranges) {
+> +		if (pci->ops->cpu_addr_fixup) {
+> +			dev_err(dev, "Use parent bus DT ranges, cpu_addr_fixup() must be removed\n");
+> +			return -EINVAL;
+> +		}
+> +
+> +		index = of_property_match_string(np, "reg-names", "config");
+> +		if (index < 0)
+> +			return -EINVAL;
+> +
+> +		 /*
+> +		  * Retrieve the parent bus address of PCI config space.
+> +		  * If the parent bus ranges in the device tree provide
+> +		  * the correct address conversion information, set
+> +		  * 'use_parent_dt_ranges' to true, The
+> +		  * 'cpu_addr_fixup()' can be eliminated.
+> +		  */
+> +		of_property_read_reg(np, index, &pp->cfg0_base, NULL);
+> +	}
+
+I think all this code dealing with the "config" resource could go in a
+helper function.  It's kind of a lot of clutter in
+dw_pcie_host_init().
+
+It would be nice to assign pp->cfg0_base once, not assign res->start
+to it and then possibly overwrite it later.
+
+> @@ -841,6 +841,15 @@ void dw_pcie_iatu_detect(struct dw_pcie *pci)
+>  	pci->region_align = 1 << fls(min);
+>  	pci->region_limit = (max << 32) | (SZ_4G - 1);
+>  
+> +	if (pci->ops && pci->ops->cpu_addr_fixup) {
+> +		/*
+> +		 * If the parent 'ranges' property in DT correctly describes
+> +		 * the address translation, cpu_addr_fixup() callback is not
+> +		 * needed.
+> +		 */
+> +		dev_warn_once(pci->dev, "cpu_addr_fixup() usage detected. Please fix DT!\n");
+> +	}
+
+Can you split the warnings out to a separate patch?  I think we should
+warn once in every initialization path where .cpu_addr_fixup() could
+be used, i.e.,
+
+  dw_pcie_host_init()
+  dw_pcie_ep_init()
+  cdns_pcie_host_setup()
+  cdns_pcie_ep_setup()
+
+IMO these should warn if .cpu_addr_fixup() is implemented, regardless
+of use_parent_dt_ranges.
+
+I'm still puzzling over some of the rest of this, so no need to post a
+revised series yet.
+
+Bjorn
 
