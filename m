@@ -4,80 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADF4CC19F2E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 16:35:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E441C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 16:48:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/KHeoNLpbwWVmI8VTFHd3vA+lQd9P18on6Ecq2tweso=; b=JubS0AuKuKTUhjqK1Sgn9u4jC+
-	hBbSx9Szqgg4zKw6MDP8YhXdrYajkdE6nbissc/a8orlJZSODzfHogu6aUhYlONhaf/kvT8sQh1ZZ
-	sICL0OzanINYDN34woFi03SRiQRPU+BIoKssIXNasBowoekzmE7QP7Cqz8lsvbzI2oojwXoBr2Hc8
-	WEK6aoDXxVRQvA4qE+y3ieTnI9vRylihzSNLZPqtgQr4L5gm0ZvfmW5GnDeFp1kIbfyv3US2LF4e4
-	NSSDhmDUD/mWVzsLLpe0Pof1xdQqR/8KEgtgq6qdcoK604mlTGkD6eLmNJs/yv5kGJfXJhOIlKfG4
-	DU1F2bPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gn1jVpYNtqABB36v1CD74BC8OtMIG7ZKsW6uUkVb878=; b=F9ZQjSAjiGJ5fhz2d/jb3P7cYb
+	eEG5FjJNKOG+OgEudX4plJEUrW0UXRiaSRxLTnPIJsIXJFM7fFXVndbgGmhzEO9efkdSLE+7cz/TQ
+	1/v31xDcCWroY5zkPug+Fw5e1Tx2X9EmicJ7bwlowYQ4I0KZ+nGs/+sy+mqRn2VdsXKjW+an/gLBJ
+	FNYCbTAk12hGgYcTemJbnS6/Nw/9eTmV4dKCUNFOulekKDdj31J7SPWW2WHbJuIqy8LclmSxoJPmI
+	46OPSTTA0vETXc76ytFNjPSkqUdNjpZViiKfobWnoo0TxF0DvCJv7PFqzkO16MnJnfu8IHPASb2D2
+	BU4Y9tnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnKN5-00000004YCU-1R6z;
-	Wed, 26 Feb 2025 16:34:55 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tnKZy-00000004a3n-0u0w;
+	Wed, 26 Feb 2025 16:48:14 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnKKp-00000004XUu-24Ub
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 26 Feb 2025 16:32:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=/KHeoNLpbwWVmI8VTFHd3vA+lQd9P18on6Ecq2tweso=; b=W+yVu8uIK6fvbLLsrKHeDfdz6T
-	1yjeglXkKytyJUFs8sNXMQDrZeyOkjLveW2c+2/bv8Z1lohwR+md3bgbxs7hMGzl2Qb9WfiB4NW1Y
-	E4a24LKGs3Yaa2TTq2wEIsdkvMJMosQ+hZGLdC5CelIHERU/O9gxlxhgBqlyjS0/EJUZICLbjGC3y
-	Vyj0BD6ItauFMTeqUDEZ4uh84OUFFhFPz/+IbrUmKBKWxdTBS04NzDFtlmhsZZMfCoXBXRuqe6GuF
-	JE3pHNSxRHpVBK/Zu4YQy8NIaag8xPdJJI5FyiykYMc3k9hwxgP4suiwG9BO3BwqimcIWvC/sugZM
-	XYD5oHFA==;
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnKKm-00000003edI-0djX
+	id 1tnKYP-00000004Zon-2SKj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 16:32:33 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tnKKd-0005Fo-3P; Wed, 26 Feb 2025 17:32:23 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tnKKc-002yqg-2M;
-	Wed, 26 Feb 2025 17:32:22 +0100
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tnKKc-000CSv-27;
-	Wed, 26 Feb 2025 17:32:22 +0100
-Message-ID: <5cc5cd05e0a481773212fff0bce574dcfea3f74d.camel@pengutronix.de>
-Subject: Re: [PATCH v3] reset: mchp: sparx5: Fix for lan966x
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Horatiu Vultur <horatiu.vultur@microchip.com>, 
-	Steen.Hegelund@microchip.com, daniel.machon@microchip.com, 
-	UNGLinuxDriver@microchip.com, herve.codina@bootlin.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Wed, 26 Feb 2025 17:32:22 +0100
-In-Reply-To: <20250226144645.1950451-1-horatiu.vultur@microchip.com>
-References: <20250226144645.1950451-1-horatiu.vultur@microchip.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Wed, 26 Feb 2025 16:46:38 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-438a39e659cso168155e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 08:46:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740588396; x=1741193196; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=gn1jVpYNtqABB36v1CD74BC8OtMIG7ZKsW6uUkVb878=;
+        b=dlYpvmUR1dtFTPRJRrG1/NrkPyqRBOCBbkWDvUIIz2QPhCmxaG2eeSDzeN2szxoEdi
+         Aj43McXA8q1q5KEc1aUFQWIi4lkEPpIGOq111wuXWwyV3vZc4WuBNBuC+0KhugjJtvsf
+         WioRbQN5Iyxeh3oTVEj05gTizD+4oJ0l8qUdcQiW5GvsF2mjvYLKboEgcVCFRkcMjrF3
+         vVbmGtx9uQxtxrsFifrebXny5C+O7tbPWExzeAsds34jvFo1OFFF+F1IezqszHgBUCXn
+         eNN8/oYULOzb2/Mn6zr1ML6tBdLxHzOo8GAox0/Pw2dhxXe9q6ER5nWhAhjQIGjZ8Pgs
+         E2+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740588396; x=1741193196;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gn1jVpYNtqABB36v1CD74BC8OtMIG7ZKsW6uUkVb878=;
+        b=c/f21EuPSezMeBPq3o1Ks0M5r2xDnUgSHUBfoVA9dJHVOE6/XmIXgFLfh55POa2kPm
+         LHjb6l67vAkfgTfLM3Bi2s6zvI8ZAvJTU0LkmBJwsovWU4XeYWFk7oDtqzHi15cTTlky
+         XYGWNJ+Br7wEupLrgccEcTDpp7xuUQMws4Y3cgQyPd+ZLcaehrtmlW8ml4BY70w8L9Rb
+         q5kyx6R9wT8td+0zBu6MWxxCP0v3ErFisPutnHg2CAdWUjCPUte9s0QF2XvgpXZm1v4C
+         2ka3FyRM9hhGqy4OUzhqsJKyi8KoehbqbLrdeAoVGOUjXYvypG4qJvAMtBPQahRnfOiq
+         1dhA==
+X-Forwarded-Encrypted: i=1; AJvYcCUvmnbDKfN2sVcvQRh8ZnLJ3Gh8ra9e56a8iM0TWVoPIdzGRBJkrM3sIIHIviq6N0+F/UAeRuLvn6mhI4nSyDnQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwH2y5nBFDiGwev9CbsiBlQD3JUBn1C/vT6Ja9ItgKxYKvNsI8i
+	Ey0Ssb3do7tihWse9HTTcZrmFCrr7ezS+ynZNPTe7+QmJUYoemeS
+X-Gm-Gg: ASbGnctf9SMreSMMH7/RJYqZdxGkDeBjgB2274LiFPQttbBEjlYyPkGg8M3UOeL7e6p
+	SHxwCcC/F+ZbI+ClNpr6FRROJUpDLxg1NIbToumymSQJBpBQGFAxOZzqu7Q4Qiu/ovMrCDbIGkx
+	wer/xl8FyjN/dxY9INTv+GaIiaiHoDv243cJhjvX4PMc5Z0u687TJaB1Bcb6PrxjM2Yv0cr1rNS
+	VjZzSWGTBKD7sFTGQKE8bNpeVB3yk6SMcci9aet8M8wT19mrl+de7wuZYNkiuGhfZE3JK4aJWS5
+	lPZmUFNlBXCxl4mi7fXehXj3U1NeA2mXLmgJYEBKJo8Y6tBwFGPAV/I9F0R8Nbhm
+X-Google-Smtp-Source: AGHT+IHASu5EZyCMob3n+ZWyMrlOQTMJxxFYG7U17xiFzsRsj31Q08c/ZUItm4yM1mcyej2N52nKxg==
+X-Received: by 2002:a05:600c:4689:b0:439:9f97:7d67 with SMTP id 5b1f17b1804b1-439aeb2c755mr223185145e9.16.1740588395267;
+        Wed, 26 Feb 2025 08:46:35 -0800 (PST)
+Received: from playground.localdomain ([188.25.208.27])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390cd8e7165sm6200215f8f.73.2025.02.26.08.46.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 26 Feb 2025 08:46:34 -0800 (PST)
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+To: Abel Vesa <abelvesa@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Marek Vasut <marex@denx.de>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Adam Ford <aford173@gmail.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-clk@vger.kernel.org,
+	imx@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/4] clk: imx8mp: fix parents of AUDIOMIX DSP/OCRAM_A
+Date: Wed, 26 Feb 2025 11:45:09 -0500
+Message-Id: <20250226164513.33822-1-laurentiumihalcea111@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_163232_298979_74EA23AD 
-X-CRM114-Status: GOOD (  25.45  )
+X-CRM114-CacheID: sfid-20250226_084637_624776_FA7E1328 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,73 +106,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mi, 2025-02-26 at 15:46 +0100, Horatiu Vultur wrote:
-> With the blamed commit it seems that lan966x doesn't seem to boot
-> anymore when the internal CPU is used.
-> The reason seems to be the usage of the devm_of_iomap, if we replace
-> this with of_iomap, this seems to fix the issue as we use the same
-            ^^^^^^^^
-The is not accurate anymore.
+From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-> region also for other devices.
->=20
-> Fixes: 0426a920d6269c ("reset: mchp: sparx5: Map cpu-syscon locally in ca=
-se of LAN966x")
-> Reviewed-by: Herve Codina <herve.codina@bootlin.com>
-> Tested-by: Herve Codina <herve.codina@bootlin.com>
+Correct the parent of the AUDIOMIX DSP and OCRAM_A clock gates by setting
+it to AUDIO_AXI_CLK_ROOT, instead of AUDIO_AHB_CLK_ROOT. Additionally, set
+the frequency of AUDIO_AXI_CLK_ROOT to 800MHz instead of the current
+400MHz.
 
-Is this still correct?
+---
+Changes in v3:
+* add missing Fixes tag for binding patch
+* improve the commit message of the binding patch
+* link to v2: https://lore.kernel.org/imx/20250221190929.31469-1-laurentiumihalcea111@gmail.com/
 
-> Signed-off-by: Horatiu Vultur <horatiu.vultur@microchip.com>
-> ---
-> v2->v3:
-> - forward error from of_address_to_resource
-> - use devm_ioremap instead of_iomap
-> v1->v2:
-> - make sure to use iounmap when driver is removed
-> ---
->  drivers/reset/reset-microchip-sparx5.c | 16 +++++++++++-----
->  1 file changed, 11 insertions(+), 5 deletions(-)
->=20
-> diff --git a/drivers/reset/reset-microchip-sparx5.c b/drivers/reset/reset=
--microchip-sparx5.c
-> index aa5464be7053b..176b3f46e9243 100644
-> --- a/drivers/reset/reset-microchip-sparx5.c
-> +++ b/drivers/reset/reset-microchip-sparx5.c
-> @@ -8,6 +8,7 @@
->   */
->  #include <linux/mfd/syscon.h>
->  #include <linux/of.h>
-> +#include <linux/of_address.h>
->  #include <linux/module.h>
->  #include <linux/platform_device.h>
->  #include <linux/property.h>
-> @@ -72,14 +73,19 @@ static struct regmap *mchp_lan966x_syscon_to_regmap(s=
-truct device *dev,
->  						    struct device_node *syscon_np)
->  {
->  	struct regmap_config regmap_config =3D mchp_lan966x_syscon_regmap_confi=
-g;
-> -	resource_size_t size;
-> +	struct resource res;
->  	void __iomem *base;
-> +	int err;
-> +
-> +	err =3D of_address_to_resource(syscon_np, 0, &res);
-> +	if (err)
-> +		return ERR_PTR(err);
-> =20
-> -	base =3D devm_of_iomap(dev, syscon_np, 0, &size);
-> -	if (IS_ERR(base))
-> -		return ERR_CAST(base);
+Changes in v2:
+* add Fixes tags
+* add Iulia's R-b
+* link to v1: https://lore.kernel.org/imx/20250217165718.74619-1-laurentiumihalcea111@gmail.com/
+---
 
-It would be nice to add a comment here that devm_of_iomap() can't be
-used because the resource is shared with other devices. Do you know
-which ones?
+Laurentiu Mihalcea (4):
+  dt-bindings: clock: imx8mp: add axi clock
+  clk: clk-imx8mp-audiomix: fix dsp/ocram_a clock parents
+  arm64: dts: imx8mp: add AUDIO_AXI_CLK_ROOT to AUDIOMIX block
+  arm64: dts: imx8mp: change AUDIO_AXI_CLK_ROOT freq. to 800MHz
 
-Otherwise, this looks good to me.
+ .../devicetree/bindings/clock/imx8mp-audiomix.yaml     | 10 ++++++----
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi              |  7 ++++---
+ drivers/clk/imx/clk-imx8mp-audiomix.c                  |  6 +++---
+ 3 files changed, 13 insertions(+), 10 deletions(-)
 
+-- 
+2.34.1
 
-regards
-Philipp
 
