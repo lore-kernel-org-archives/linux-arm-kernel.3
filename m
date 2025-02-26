@@ -4,66 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9E23C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 11:58:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54AF2C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:25:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+UGCoWBioAMtXtHm8CAvoMnBqRSxIPHa7kTP4Y78/Mo=; b=HbFfdKiq1l8VWva2U19NL5f7zP
-	k7c7Rm7V6tBE8gD/5jFYQGqIQFlwYnhhQ7rEqvNOY1HN0rpfpTW/K2ERFG0RbYelVc8IqFw3kLhyC
-	gHk+MaYhBvrEHaFH4gQR4Na93yDr8l0wJSsLJ7jAANX7CReL0NzR4qu5ici2+zQvmXXx9wWVO7WUs
-	YlC9fwrXcNdpOkv18s9p8ayxFQ3elZeLmRXxwwVi2SbEpwNz+1tcAY+SQ1b6rVAFAGgfNHuY4OGcg
-	b9L9aul2q7Mx23S0eot32VQs/sIvRQ0Po2yNc7AbJJwe5rQJ4sUqI/lWx4fx97tTGHJqTpeDP1VDm
-	OTlPeUUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DxjsSkS45nJozA5YXF2A7BnW09G45yQREDI/PetKHZY=; b=OF+syuONQ492AwzR8kW5NCNDWp
+	Gayc11+4Rd5MeCiUCLnqB0BTIA+1ksCNztwx1Y74ncUjU6fGl30Jxs/4rMFVZ7mIk8uP8E9hzDRK/
+	2E0lEWBuffsD62v2BUgOyUXH9hNLuA8RNIBprFzHJkE86YegSDXR82muMwj5DmDRRoCB4T/2a/rlG
+	aymnjjJZipMx8ckkhR1vxzO3y23JgwyI/HEdzhIPCDL6wnb6csehXrGqBrnyHIW+2k02YR9o2qHx/
+	jUXJQIAOJ04dHukXK5JMQDYCNhC0pCwzcxDvTasH78i04ti7n3qsnWnjyAvNIXOOGa4zvhu5UFj23
+	kTN87koA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnG32-00000003ZQa-3ku9;
-	Wed, 26 Feb 2025 11:57:57 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tnHP9-00000003pZE-471h;
+	Wed, 26 Feb 2025 13:24:51 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnEo3-00000003KM5-3ptU;
-	Wed, 26 Feb 2025 10:38:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
-	Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=+UGCoWBioAMtXtHm8CAvoMnBqRSxIPHa7kTP4Y78/Mo=; b=IrpValUloRiJKw2SB7N7epThrt
-	NFi6BJUBdQ3Hz94ktQ/QHyU68jQGRFTdFYwxj+2PYDd/yk0OAqlAdi9LIZuXI8qxgCUlLnUv4CHWL
-	MDxra/vNufGVI3auC0oWJL1B0s+XyEqkVtZAXW6araCSdRkI3OCmHg0ryH6a5Bpo45XIQpDmiXFOR
-	60UTsCGPRb5lBUd3uDM9U4kas0T2a+00RZjpFxC7QeT5FGaGCH6nnl8OBWbwpU1n9Cotaw9oUHc5v
-	h85IiB31Q4A/aKXm23WdlS8yanUqPg0dxJhf4Y//fNbdi46/WKWKVwhEZHs/PdZXetjhOLMyXo39/
-	b51fq44g==;
-Received: from i53875b47.versanet.de ([83.135.91.71] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tnEo2-0006aJ-GC; Wed, 26 Feb 2025 11:38:22 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: vkoul@kernel.org,
-	kishon@kernel.org
-Cc: heiko@sntech.de,
-	linux-phy@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	quentin.schulz@cherry.de,
-	sebastian.reichel@collabora.com,
-	christophe.jaillet@wanadoo.fr
-Subject: [PATCH v2 0/2] phy: rockchip: usbdp: improve typec orientation handling
-Date: Wed, 26 Feb 2025 11:38:08 +0100
-Message-ID: <20250226103810.3746018-1-heiko@sntech.de>
-X-Mailer: git-send-email 2.47.2
+	id 1tnFFT-00000003QE7-056x
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Feb 2025 11:06:44 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51Q9RBhZ011791;
+	Wed, 26 Feb 2025 11:06:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	DxjsSkS45nJozA5YXF2A7BnW09G45yQREDI/PetKHZY=; b=p2TKSMSeNm1hctfO
+	GNulH28SNTJpbRTbCEwsG0s8ZhfiXrVcswE14dJ/zbeR6LotSVyikR//DtnjoE+7
+	xHMNAz3WuMndAZduzIOY7p+aZy9a6lFYV7Ou+XegOjORhuOHWoohQ3tEwhSvbWr5
+	PGdPJ8O64YCOn8ibULaMiTduwrJ4I1ea8QOB106QUjiaCRBK/FsitbhLzYSNk1+q
+	UF/bZK6874+rtkxMrNXmLeigQvYdwwKsO2olIcgTDd4IEk5siInDyRrL4+d+PjeK
+	KY08nzPx+0HsmfUNIQnTfWerL3RlB0/bZVJI8bL2Vy6rYRtVFwOnWX8/KV23gAL0
+	MXfdKQ==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 451prk9qjj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 26 Feb 2025 11:06:36 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51QB6YZe015448
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 26 Feb 2025 11:06:34 GMT
+Received: from yuanfang4-gv.ap.qualcomm.com (10.80.80.8) by
+ nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Wed, 26 Feb 2025 03:06:27 -0800
+From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Date: Wed, 26 Feb 2025 19:05:53 +0800
+Subject: [PATCH v2 4/5] coresight-tnoc: add node to configure flag type
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Message-ID: <20250226-trace-noc-driver-v2-4-8afc6584afc5@quicinc.com>
+References: <20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com>
+In-Reply-To: <20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>
+CC: <kernel@quicinc.com>, <linux-kernel@vger.kernel.org>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <kernel@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        Yuanfang Zhang <quic_yuanfang@quicinc.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1740567972; l=2045;
+ i=quic_yuanfang@quicinc.com; s=20241209; h=from:subject:message-id;
+ bh=woWx7BCA3qM8Qe0dZBdeROv3XUQ44gsKewoaDs/FE28=;
+ b=iZgVmN3emcQ/GX8GWBc33AHMUQd5SGlKVQPfOR8UCKD0sNhLToiufV1VH7vsL5F/HCnQ8XndP
+ 0NCxfQQcFDmBwK8Ti0y0UYQoKr8eS4CI+gTBRLNQiu+orvCO+jCLBs9
+X-Developer-Key: i=quic_yuanfang@quicinc.com; a=ed25519;
+ pk=ZrIjRVq9LN8/zCQGbDEwrZK/sfnVjwQ2elyEZAOaV1Q=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: evzXqg4Nun5xQgMVqd4otFcn-IidgYrN
+X-Proofpoint-ORIG-GUID: evzXqg4Nun5xQgMVqd4otFcn-IidgYrN
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-26_02,2025-02-26_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 mlxscore=0
+ bulkscore=0 lowpriorityscore=0 phishscore=0 clxscore=1015 malwarescore=0
+ impostorscore=0 adultscore=0 priorityscore=1501 spamscore=0
+ mlxlogscore=952 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2502100000 definitions=main-2502260088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_023824_032255_FE3311C5 
-X-CRM114-Status: UNSURE (   9.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250226_030643_181886_3F16C9E7 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,23 +117,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reinit the phy if it's already running when a type-orientation
-event happens.
+flag_type：used to set the type of issued ATB FLAG packets.
+0: 'FLAG' packets; 1: 'FLAG_TS' packets.
 
-changes in v2:
-- fix an error I made when splitting into code-move + re-init
-  function should still return 0 after first patch
-- use rk_udphy_init() instead of disable + setup combo
-  We don't need to disable + reenable clocks
+Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+---
+ drivers/hwtracing/coresight/coresight-tnoc.c | 42 +++++++++++++++++++++++++++-
+ 1 file changed, 41 insertions(+), 1 deletion(-)
 
-Heiko Stuebner (2):
-  phy: rockchip: usbdp: move type-orientation-switch further down
-  phy: rockchip: usbdp: re-init the phy on orientation-change
-
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 171 +++++++++++-----------
- 1 file changed, 88 insertions(+), 83 deletions(-)
+diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
+index 20231f28ddcb6a60d9b3c1ca3e0ca4d731dac39c..ad973749250644760adc4dfd855240026d0a744c 100644
+--- a/drivers/hwtracing/coresight/coresight-tnoc.c
++++ b/drivers/hwtracing/coresight/coresight-tnoc.c
+@@ -26,7 +26,7 @@ static ssize_t flush_req_store(struct device *dev,
+ 	unsigned long val;
+ 	u32 reg;
+ 
+-	if (kstrtoul(buf, 10, &val))
++	if (kstrtoul(buf, 0, &val))
+ 		return -EINVAL;
+ 
+ 	if (val != 1)
+@@ -73,9 +73,49 @@ static ssize_t flush_status_show(struct device *dev,
+ }
+ static DEVICE_ATTR_RO(flush_status);
+ 
++/*
++ * Sets the type of issued ATB FLAG packets:
++ * 0: 'FLAG' packets;
++ * 1: 'FLAG_TS' packets.
++ */
++static ssize_t flag_type_store(struct device *dev,
++			       struct device_attribute *attr,
++			       const char *buf,
++			       size_t size)
++{
++	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
++	unsigned long val;
++
++	if (kstrtoul(buf, 10, &val))
++		return -EINVAL;
++
++	if (val != 1 && val != 0)
++		return -EINVAL;
++
++	spin_lock(&drvdata->spinlock);
++	if (val)
++		drvdata->flag_type = FLAG_TS;
++	else
++		drvdata->flag_type = FLAG;
++	spin_unlock(&drvdata->spinlock);
++
++	return size;
++}
++
++static ssize_t flag_type_show(struct device *dev,
++			      struct device_attribute *attr,
++			      char *buf)
++{
++	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
++
++	return sysfs_emit(buf, "%u\n", drvdata->flag_type);
++}
++static DEVICE_ATTR_RW(flag_type);
++
+ static struct attribute *trace_noc_attrs[] = {
+ 	&dev_attr_flush_req.attr,
+ 	&dev_attr_flush_status.attr,
++	&dev_attr_flag_type.attr,
+ 	NULL,
+ };
+ 
 
 -- 
-2.47.2
+2.34.1
 
 
