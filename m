@@ -4,130 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85FABC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 08:26:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66B60C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 08:27:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U7nfxIdf8M/5IC9KVZlOZ+U6lRsZC040/sXFOP/9g+E=; b=uYbhjrGYjCM7/oaMeSt/147B/C
-	qSfl0SCuIUtwhwJx6cBTMQljiLquByqCh9RHSypsqkfzuIGT5pgOgxth9nwOm86ecgyCgsW4f0njf
-	hSu0F7uwxswB4y+24M/plQcFLLoIkENA7f35vZpFoMA45rX5pmt5Gi6ydR+L/e8eYLoI+58zCGloH
-	0i7ckRtelOqphOKM1FFDFROnnklu13wgr6llI64kHCLTeeP40aL74bpbzMWll43qgeCKBenSc205B
-	IB/jOSEBkQ7f7EbnuBjg7wR5nPtt0XZli0Q36U9lYMcRFIiaaG8uKlckAs3SgG4dlFbYtOjPEEuqM
-	qqrXEomQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A+fqdQWLrg7ifJX9iUDj6h0MM8pxgyoJDsCoHitt3FY=; b=aixzF5xyJ72NCpvHEM3EK53j1c
+	IZFtYp0/P1JZJuLd2ShvX8lICA7lBmijC6NgtlxvODpr3EHa4Yeh+WjNkGKXJ5x4GZyk6KaiUXs5l
+	bj7ePv6Qpcqy210/UB2VUYlxtWg9A1fJdWttlLPG/szArgj4Xox5lNnpgJKPtKBQ0vq5BRgDq45SW
+	FFmxe3Jy4InS+sWfEV7iNTG1PmPaAw1zftsUgJiitz+NilzpszbjjhQgsRDWW4wPdcrQSFYk+KdiC
+	MGOZJnl3wJEDQXmMMSxB5W3p/jiIA0yYPEpZ/SS9cyxNmuYOhqxHXzD5Z5H48BUoLw96e1k7i9GGg
+	JfTFAz2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnCjl-00000002rxi-0EiL;
-	Wed, 26 Feb 2025 08:25:49 +0000
-Received: from mail-psaapc01on2071e.outbound.protection.outlook.com ([2a01:111:f403:200e::71e] helo=APC01-PSA-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnCU3-00000002p02-0APC
+	id 1tnClG-00000002sDD-0FTn;
+	Wed, 26 Feb 2025 08:27:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnCU7-00000002p26-1JAt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 08:09:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UHsRMDKSSF9NSvCNDMuBxEiqM8cX/3/2EflptBGRt98pFFXFSg+QZu8sN27b+oiXLQHZpk4Vml4hsHpwSxh0NOgdZr7H2i4nl0EZS3V2rvKUSy/P8RGU7OAalBQ2IqkCVvEv+fCMHj6t78ewv/XFw8KjitoGWQtISEVm9ofK0sp80vNUFqvfJtkZgopxtOQbxaoI+yx7GZ6qt7YVlmJHa6gqUYNUvxRPBQAKz164HxuF4XIrCHlHfwM/HBRKxhlCKyrHB0YC1XgR8Glrohb+fZsH6atLni8yRzjuwGDkwgu6d1WUsCmagqa0DZkn+DYlNp6pheeF6kdsBIutujbong==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=U7nfxIdf8M/5IC9KVZlOZ+U6lRsZC040/sXFOP/9g+E=;
- b=G4oNkiRlXlN6YEG/Qdg8KMxfECntKIpyj3bxovs5DXGzfgQ1xSATWR0rtRzXvyjDL/0yywaPdS3tCsofCaL53DIpDh6onieDrI8apY2Le5Obxic/uk1okXRs75R52g0vpyQ7QuzOiQ3uPNLwjV82qveqQhY1MD7+OktIQAEdpVQk8ZYq8vowCBC4LGjdlpkPqb0GR8I0o70HjrKh0iNesmtD0P3c3lnoxU/BITQOyNouzK94tSQjzxDbCLp0eoeTuSjpk1j2ZEME473oovNoeVoByJgw02d1IAZ4s5tr7NzI4xumVM763dISi1sUO+2p8FjYhKXtX+NCCksTihtAqg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cixtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=U7nfxIdf8M/5IC9KVZlOZ+U6lRsZC040/sXFOP/9g+E=;
- b=VoFYNTJjAT1w7KpuvCeNCGRfYf3RlX5R6VI1vYco/sRYeuXidw3bopJavCc37Hf3awltO0qPSSZ6oqLh96aZOW5NTWH/f14KjYZ/B790aDxIDrzPLi7gHmQWT9wH9QNqTtwqIPcjuggji2ZB2SN1Ftm76yltjSkbwnxuuMFhPAXDZtHSws9Bsaw1lU+pFqHY60KGEdiNG6q8bDNqHRSqWn/Wdp7tCBetfR+HsEF1YFsg1BK/fv+gGk4tecRYN7lQFyH7AIV2urwCVWCTKRrz59FwbzYKDlG1oZW4X7w40wPFg/1GnKbTi2ZxuRfQl8hN0UIVt79w3ff88Dcj4UOIHg==
-Received: from SG2PR02CA0104.apcprd02.prod.outlook.com (2603:1096:4:92::20) by
- PUZPR06MB5556.apcprd06.prod.outlook.com (2603:1096:301:e9::10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8489.19; Wed, 26 Feb 2025 08:09:08 +0000
-Received: from HK2PEPF00006FB4.apcprd02.prod.outlook.com
- (2603:1096:4:92:cafe::2a) by SG2PR02CA0104.outlook.office365.com
- (2603:1096:4:92::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8466.21 via Frontend Transport; Wed,
- 26 Feb 2025 08:09:08 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- HK2PEPF00006FB4.mail.protection.outlook.com (10.167.8.10) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8489.16 via Frontend Transport; Wed, 26 Feb 2025 08:09:07 +0000
-Received: from nchen-desktop (unknown [172.16.64.25])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 3B7C24160CA0;
-	Wed, 26 Feb 2025 16:09:06 +0800 (CST)
-Date: Wed, 26 Feb 2025 16:09:00 +0800
-From: Peter Chen <peter.chen@cixtech.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
-	marcin@juszkiewicz.com.pl, Fugang Duan <fugang.duan@cixtech.com>
-Subject: Re: [PATCH v2 2/6] dt-bindings: arm: add CIX P1 (SKY1) SoC
-Message-ID: <Z77MHGhUF6pPwLww@nchen-desktop>
-References: <20250226012136.854614-1-peter.chen@cixtech.com>
- <20250226012136.854614-3-peter.chen@cixtech.com>
- <f89817fe-22af-460e-9f5c-a3347eba1892@kernel.org>
+	Wed, 26 Feb 2025 08:09:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7A0441516;
+	Wed, 26 Feb 2025 00:09:54 -0800 (PST)
+Received: from [10.57.84.229] (unknown [10.57.84.229])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C9B03F673;
+	Wed, 26 Feb 2025 00:09:32 -0800 (PST)
+Message-ID: <bc5af769-6d3a-4003-81c2-f5fe5cf8550c@arm.com>
+Date: Wed, 26 Feb 2025 08:09:32 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <f89817fe-22af-460e-9f5c-a3347eba1892@kernel.org>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: HK2PEPF00006FB4:EE_|PUZPR06MB5556:EE_
-X-MS-Office365-Filtering-Correlation-Id: a6e4e211-2e8a-4dd9-9de3-08dd563cd7dd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|376014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?rmhARDMwuanQ9Qeju5EaWqjhCQQ6CfFFkMD2C7uEVDJsEroo3fMteOeZSkss?=
- =?us-ascii?Q?HQIP1kFmgFwxSCyRry9/0OKIeaZSX1kz5WFQpkXZkNVlSiLE4aEVN/m6kegl?=
- =?us-ascii?Q?AR8xs5aIzH2IB0Q1wJ7r9NKfI2MnkGK0c5SNt8Vyf320g5X5Lk75eiIbKskc?=
- =?us-ascii?Q?bzNeiEqGp+vw014j/ZTOoyZYTWkpVKiP/GPnbPv9qK8/yvJ5eTGB5/WV78/t?=
- =?us-ascii?Q?xG3nJL52UamUOAqDlcij00gBy8rAhKDBcCVstrpQTTWU2rfh9kLHnEFIfptd?=
- =?us-ascii?Q?muZfPgzCq2uJ5+3puvHHjAUV2VpAf+HTX64cIMdNtKAZa1490jPvG6piYofL?=
- =?us-ascii?Q?ZDOPM6BXclmtNyyPBtv5TRDhXTqzvHkZ3Es5NPVM9Q9L4yOlU/XGCGIrxomm?=
- =?us-ascii?Q?wgH7llMshwC2XuLfdljn9lo307CiCKr8SUwwRQjbLwSxkZTQGE+nJGnEpygj?=
- =?us-ascii?Q?+53/fZmNSE+THKvzv2AKbw1spfS1C9fd+R/9lyB6OpqlCS5voj/eIUv0UZWN?=
- =?us-ascii?Q?1ac8fkFCtlmQeyC3rbIaLlAQCMZzAb/7WmVAQOZmFCB7WMNPkPK/lLc6Xu3z?=
- =?us-ascii?Q?OljbvnzZ4LZX/hvZK/IrwjtvMyNCXBgTsLNvrPhumXmUF+X7+3nYUsvibktI?=
- =?us-ascii?Q?i1B3sFG3QavLmlTT6Z9CoDo3GWlsR4WmM2B6uZwt7pDPeiOXzRcBNvQ3FXd8?=
- =?us-ascii?Q?QIa6NkdYYnsOuYOmhdjjSH6gCQQXPLobdqBdJGzlNNF1fZH8U5wfm9eLCcuE?=
- =?us-ascii?Q?Y+XhPtrW5jOr0GODs1evBNspFnhbQBeO93LeWdZLeck+WiR1EW00TLfME/uo?=
- =?us-ascii?Q?tgI8TkP9fdGnEp3U3mP1oKVXMVQOc0Tp/zrbd4/QACJ16eFYAq532IfSGKal?=
- =?us-ascii?Q?d8/Cb9h/gKsCNvfxLwbUH4b+luCTgml68kREkFUunQ+PldtQ7gpt6sdR9ryG?=
- =?us-ascii?Q?7ZMCQeARfPDH+50q7GFuojWg+cZqMqGABXJ49gBcOfOvzrsq8CnaFi7LBwPd?=
- =?us-ascii?Q?cH9Hqar09wuDf+bNOlkg1QNdIDK+Q95pVWNfwRMip66iO+gC8aZRLLa2M5I5?=
- =?us-ascii?Q?k5FDH7eYUNE34o9V2vm8dFXiOAReV5l5xAWTpLSl06Ym1IAZLubF+qOpqAw8?=
- =?us-ascii?Q?Ih8u6sLwses0KzaOcp6HmlDoeiyV37V5bjaW5MZs9S/gxh5Pogvur9m6d60R?=
- =?us-ascii?Q?u4WcDsEQyOAGAvf2Q/ctMnXyd2m149iWuHUDSbv8kI1Wop0qXfnOF0zg2l6T?=
- =?us-ascii?Q?lWlt358lbVZl4dwpxGaiygLIeWR+wN2eczK2nlPk01Q6iMyy37x/XtA9TGiW?=
- =?us-ascii?Q?FYtZdtswo0pmkZFVLUHwBrqPE06vG9qUTzpfhkIvxtaltnKOxp8FSQsntaZp?=
- =?us-ascii?Q?UWvxB4AJT3yB69bIXYuncY+Q/O44T/ZVcDtPBTufzgV/8GU5ObPiBYpUOIxh?=
- =?us-ascii?Q?k+KlNFkQ5Jk=3D?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(376014)(82310400026);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2025 08:09:07.3786
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a6e4e211-2e8a-4dd9-9de3-08dd563cd7dd
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: HK2PEPF00006FB4.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR06MB5556
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/4] arm64: hugetlb: Fix huge_ptep_get_and_clear() for
+ non-present ptes
+Content-Language: en-GB
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Naveen N Rao <naveen@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ Andreas Larsson <andreas@gaisler.com>, Arnd Bergmann <arnd@arndb.de>,
+ Muchun Song <muchun.song@linux.dev>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
+ David Hildenbrand <david@redhat.com>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>, Dev Jain <dev.jain@arm.com>,
+ Kevin Brodsky <kevin.brodsky@arm.com>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20250217140419.1702389-1-ryan.roberts@arm.com>
+ <20250217140419.1702389-3-ryan.roberts@arm.com>
+ <20250221153156.GC20567@willie-the-truck>
+ <6ebf36f2-2e55-49b2-8764-90fd972d6e66@arm.com>
+ <20250225221812.GA23870@willie-the-truck>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250225221812.GA23870@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_000935_080312_BDE88251 
-X-CRM114-Status: GOOD (  20.04  )
+X-CRM114-CacheID: sfid-20250226_000939_443373_F2FCAC72 
+X-CRM114-Status: GOOD (  14.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,46 +94,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-02-26 08:02:12, Krzysztof Kozlowski wrote:
-> EXTERNAL EMAIL
+On 25/02/2025 22:18, Will Deacon wrote:
+> On Mon, Feb 24, 2025 at 12:11:19PM +0000, Ryan Roberts wrote:
+>> On 21/02/2025 15:31, Will Deacon wrote:
+>>> On Mon, Feb 17, 2025 at 02:04:15PM +0000, Ryan Roberts wrote:
+>>>> +	pte = __ptep_get_and_clear(mm, addr, ptep);
+>>>> +	present = pte_present(pte);
+>>>> +	while (--ncontig) {
+>>>> +		ptep++;
+>>>> +		addr += pgsize;
+>>>> +		tmp_pte = __ptep_get_and_clear(mm, addr, ptep);
+>>>> +		if (present) {
+>>>> +			if (pte_dirty(tmp_pte))
+>>>> +				pte = pte_mkdirty(pte);
+>>>> +			if (pte_young(tmp_pte))
+>>>> +				pte = pte_mkyoung(pte);
+>>>> +		}
+>>>>  	}
+>>>
+>>> nit: With the loop now structured like this, we really can't handle
+>>> num_contig_ptes() returning 0 if it gets an unknown size. Granted, that
+>>> really shouldn't happen, but perhaps it would be better to add a 'default'
+>>> case with a WARN() to num_contig_ptes() and then add an early return here?
+>>
+>> Looking at other users of num_contig_ptes() it looks like huge_ptep_get()
+>> already assumes at least 1 pte (it calls __ptep_get() before calling
+>> num_contig_ptes()) and set_huge_pte_at() assumes 1 pte for the "present and
+>> non-contig" case. So num_contig_ptes() returning 0 is already not really
+>> consumed consistently.
+>>
+>> How about we change the default num_contig_ptes() return value to 1 and add a
+>> warning if size is invalid:
 > 
-> On 26/02/2025 02:21, Peter Chen wrote:
-> > Add device tree bindings for CIX P1 (Internal name sky1) Arm SoC,
-> > it consists several SoC models like CP8180, CD8180, etc.
-> >
-> > Acked-by: Fugang Duan <fugang.duan@cixtech.com>
-> > Signed-off-by: Peter Chen <peter.chen@cixtech.com>
-> > ---
+> Fine by me!
 > 
-> <form letter>
-> This is a friendly reminder during the review process.
-> 
-> It looks like you received a tag and forgot to add it.
-> 
-> If you do not know the process, here is a short explanation:
-> Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
-> of patchset, under or above your Signed-off-by tag, unless patch changed
-> significantly (e.g. new properties added to the DT bindings). Tag is
-> "received", when provided in a message replied to you on the mailing
-> list. Tools like b4 can help here. However, there's no need to repost
-> patches *only* to add the tags. The upstream maintainer will do that for
-> tags received on the version they apply.
-> 
-> Please read:
-> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
-> 
-> If a tag was not added on purpose, please state why and what changed.
-> </form letter>
-> 
+> I assume you'll fold that in and send a new version, along with the typo
+> fixes?
 
-I have checked the review-process again at:
-https://patchwork.kernel.org/project/linux-arm-kernel/list/?series=935897
-It seems no one gives any Reviewed-by or Acked-by Tag.
+Yep, I'll aim to post this today. I have a few review comments for s390 to add
+in too.
 
-If I am missing something, please correct me.
+> 
+> Cheers,
+> 
+> Will
 
--- 
-
-Best regards,
-Peter
 
