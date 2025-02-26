@@ -4,88 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E7FBC18E7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:52:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ED7CC19F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:53:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VbW2t9EwpIS5Ha4EesUhK91rBFjcgNiBhbAE8z1q18s=; b=dt/GqUhaWpqhQ1kquZRogKTFIO
-	u5xT4qyY5wcHnfOcRa5em+Nre7KiKY5RrBtr5mjscUMJo2cKuid1b2vk6eESGDTOcw9UgqvXmeMlT
-	sdE18wwRvpJkuqTdvyn6gXJ9TJGwo7j2J928D+TGhMUQ5uIibdU3vQlbzx3YsnHZcYxcw17U0UxgT
-	z+xPM2cFLZZy2n7SYD4Mk9GXDxmEWajpvXT5nKVYZXIk5bRhL71k1p4eZtu8cH/CwRj927VyKt/w2
-	CA7hc9punosMSfXNvPMhuZ09WunYSjijc9oL8zaM9TA4IQmNs72bgHhSDVOAs3Vr7KmObY1qZ2JrV
-	aaMJT6qQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FnZ58QpNpvBwycojF2nbwIbKbRZbutG5CaI6EccsGVE=; b=QWonJDf6c7oPtU40LvOetssP7T
+	kjIb4HNp8T9mX/YYVenGKf/NON2x++51WGlPpqIP8wAyl14jwHvAR/ewUxCV2/fX/Yf9NinK8v1rW
+	+vHRpAxM9pTBYNsSQj3amQQEg4tEbh8QbFF7lTjcyX3ps7i6qHHUOYe8iW7nsmBboOAL/uUwqMn+e
+	Y4g3K6Cms0pYzy8qPrsUcmCsp6oVjrSYopBrIQOR1+gCQajSKz+SJfg5+Cc99ZkxpNpiitvpu8BPD
+	JV4Oh71Njl3gXqvrf5nn8XX4la4jObhJHVuUfmNlldNvEb5Yty0q7TiQqDdsjy9+hHw7aMm3rkTNu
+	j03MNYmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJhS-00000004P7V-0KA9;
-	Wed, 26 Feb 2025 15:51:54 +0000
-Received: from [198.47.23.235] (helo=lelvem-ot02.ext.ti.com)
+	id 1tnJid-00000004PRp-0Ggn;
+	Wed, 26 Feb 2025 15:53:07 +0000
+Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJfh-00000004Ojy-3lGO
+	id 1tnGn1-00000003jnG-1Ciz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 15:50:08 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51QFnxne2112906
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Wed, 26 Feb 2025 09:49:59 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1740584999;
-	bh=VbW2t9EwpIS5Ha4EesUhK91rBFjcgNiBhbAE8z1q18s=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=q6xDfecG+mHPY30GFFkDvARlLSpp6aqSqsceAuiSoMHVfMkYUg8pKycQqI31gduNB
-	 anlVKTRgzBcKzolvqiitcmk3z1sZ7HB8Znb8IvJ0O4TNiikUhtmF4CjFtPgv1iUbAS
-	 w5HSbAM1OF+Vbzi1r/3nhEJEVwiV1KlDeZBt5Oac=
-Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51QFnxjj035621;
-	Wed, 26 Feb 2025 09:49:59 -0600
-Received: from DLEE113.ent.ti.com (157.170.170.24) by DLEE106.ent.ti.com
- (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 26
- Feb 2025 09:49:58 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 26 Feb 2025 09:49:58 -0600
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51QFnvkZ052803;
-	Wed, 26 Feb 2025 09:49:57 -0600
-Message-ID: <74b85562-15c2-42fc-8ee0-990f5718dcb0@ti.com>
-Date: Wed, 26 Feb 2025 09:49:57 -0600
+	Wed, 26 Feb 2025 12:45:28 +0000
+Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-471fbfe8b89so325841cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 04:45:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1740573926; x=1741178726; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=FnZ58QpNpvBwycojF2nbwIbKbRZbutG5CaI6EccsGVE=;
+        b=38lDx86uJJrwt1Zc8b6jb96Y8LVwSOkLXXN91c2uWNxy4f9H2AiaBs3h4dmHdmvEZJ
+         B+sc89cgWP6xm9TwaFg9wUe2Td/0r+NMUEqReMp2zGVGZryqaMB+ANVOmsYTt7sxOIQx
+         7Emqm7IJyQnZ5kYdzACDWZPk65JyCpOje8ywItP8GidcdW5dLajtsg5M9HI+DkF1fqeS
+         anlHx5B8QdRh36iORISTvGrc6AiWqPlIaN/wh3ej2h83KgFOA55JAACHWkduTQWET+QH
+         heQ9c5AKKzsFIGVd9fknuGRBFvkFupJCcoclJTTu0s76xUlNEyerHQNCwoZA7dgMLaWi
+         7JyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740573926; x=1741178726;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FnZ58QpNpvBwycojF2nbwIbKbRZbutG5CaI6EccsGVE=;
+        b=f5YFSxjJpt5lBIUV55LfdXs7h3Qucqw6YNDXrF9bit13uCExyyHQXr/U+1bctMvB10
+         xjFoQu0QTyr3eVgPd8gg49NfbTRofRAvTbePo13z/RBlmcEmgO2Z6p1AJV+dv4psF6S6
+         zLbHGLUzxFjYAuZlxaGqDmrrqD/qaR7N8Ftw3cMty75QKUOc756oU8ikbtPMzJhKOevX
+         tDr2bFfRhOnwPmLPcs1oJxOv3cNbMy9pzlUI2r3yOUvRfy+fN3nTjXgRtIyQems7+DhJ
+         jMln0E0UMHEJeIBYIaEDJk+dguPjVt1Y5fCXP50IpA6lPpVjG/VALyOZJebRZLmFkoR+
+         1b2w==
+X-Forwarded-Encrypted: i=1; AJvYcCU7B+Xep0jor4KHX6GWK57heZ4WlQIwbtB4OGaKU6lOTewgGGsw3/Nkq0C1JjIvElI54ftFspW0N48GIL4rBlc8@lists.infradead.org
+X-Gm-Message-State: AOJu0YzylLrl863mweQ5b5+SMtXdHMcqeV/JmuHTG3lfmg0Un4H6dDWJ
+	45HjVx85z19r1E1m4byskdqY/Ca+ZKhm/FES+WrW+e71xeIlH4UeMp1Rz81coUtPwhxcfNGL7Oz
+	XesQ7+g23kwOXOMS/zD2SXF7K+tfYwdqO2knu
+X-Gm-Gg: ASbGnctDScp2lx41Dlanx5XZwnI8lZJhOybk12g1CgkusnKpPW5brBd0R7p+Ryb2G2E
+	Jfn4KlZqQFonKf9K2cmp2Ux/55MBg+STXuvjBDa8yxP0znZZk6ptQK9OLtDXDNUQ9aQZKZ34wPG
+	rgigw=
+X-Google-Smtp-Source: AGHT+IFPsfyVxDmOk5bhhOwAYkW0RuBl+C5BgE8AvC3sWrJRgsvEpg0IbCAel4g627Ak8eyzVdEUrJ5bLuAAKop36/c=
+X-Received: by 2002:a05:622a:4a:b0:466:8f39:fc93 with SMTP id
+ d75a77b69052e-47376e5e3aamr8364681cf.3.1740573925849; Wed, 26 Feb 2025
+ 04:45:25 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: ti: Add k3-am62-pocketbeagle2
-To: Dhruva Gole <d-gole@ti.com>, Robert Nelson <robertcnelson@gmail.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Vignesh
- Raghavendra" <vigneshr@ti.com>, Nishanth Menon <nm@ti.com>,
-        Roger Quadros
-	<rogerq@kernel.org>,
-        Siddharth Vadapalli <s-vadapalli@ti.com>, Judith Mendez
-	<jm@ti.com>,
-        Andrei Aldea <a-aldea@ti.com>,
-        Jason Kridner
-	<jkridner@beagleboard.org>,
-        Deepak Khatri <lorforlinux@beagleboard.org>,
-        Ayush Singh <ayush@beagleboard.org>
-References: <20250211181839.1575497-1-robertcnelson@gmail.com>
- <20250211181839.1575497-2-robertcnelson@gmail.com>
- <20250224111318.3wlbhpm7pggsbqdb@lcpd911>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20250224111318.3wlbhpm7pggsbqdb@lcpd911>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20250214150258.464798-1-tabba@google.com> <20250214150258.464798-2-tabba@google.com>
+ <Z77n_Gv0X0bolONW@linux.dev> <86a5a9q90z.wl-maz@kernel.org>
+In-Reply-To: <86a5a9q90z.wl-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Wed, 26 Feb 2025 04:44:49 -0800
+X-Gm-Features: AQ5f1JpXLWze3ZsKcg1F1ITEjoOVRMUPQeTV9gjFFgka2SqDslZdnyDLB_yzXd8
+Message-ID: <CA+EHjTwRNj6z_TTCXR8UNiB0ty=85_VKWDVsFOLke31UGnBE7A@mail.gmail.com>
+Subject: Re: [PATCH v1 1/3] KVM: arm64: Initialize HCRX_EL2 traps in pKVM
+To: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com, will@kernel.org, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com, 
+	vdonnefort@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_075006_055085_0B6D3D6F 
-X-CRM114-Status: GOOD (  29.78  )
+X-CRM114-CacheID: sfid-20250226_044527_322882_888452CD 
+X-CRM114-Status: GOOD (  30.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,311 +96,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/24/25 5:13 AM, Dhruva Gole wrote:
-> On Feb 11, 2025 at 12:18:39 -0600, Robert Nelson wrote:
->> BeagleBoard.org PocketBeagle 2 is an upgraded version of the popular
->> PocketBeagle.  It is based on Texas Instruments AM6232 SoC. Its dual
->> A53 cores can provide higher performance than classic PocketBeagle.
-> 
-> You can say that classic PB was based on AM335 just for more context,
-> else it's not clear what the upgrade is w.r.t..
-> 
->> The new design comes with pre-soldered headers, a 3-pin JST-SH 1.00mm
->> UART debug port, a USB-C port, Texas Instruments MSPM0L1105 Cortex-M0+
->> MCU for ADC, 512MB RAM, and a LiPo Battery charger.
->>
->> https://www.beagleboard.org/boards/pocketbeagle-2
->> https://openbeagle.org/pocketbeagle/pocketbeagle-
->>
->> Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
->> CC: Rob Herring <robh@kernel.org>
->> CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
->> CC: Conor Dooley <conor+dt@kernel.org>
->> CC: Vignesh Raghavendra <vigneshr@ti.com>
->> CC: Nishanth Menon <nm@ti.com>
->> CC: Andrew Davis <afd@ti.com>
->> CC: Roger Quadros <rogerq@kernel.org>
->> CC: Siddharth Vadapalli <s-vadapalli@ti.com>
->> CC: Judith Mendez <jm@ti.com>
->> CC: Andrei Aldea <a-aldea@ti.com>
->> CC: Jason Kridner <jkridner@beagleboard.org>
->> CC: Deepak Khatri <lorforlinux@beagleboard.org>
->> CC: Ayush Singh <ayush@beagleboard.org>
->> ---
->>   arch/arm64/boot/dts/ti/Makefile               |   1 +
->>   .../boot/dts/ti/k3-am62-pocketbeagle2.dts     | 520 ++++++++++++++++++
->>   2 files changed, 521 insertions(+)
->>   create mode 100644 arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
->>
->> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
->> index 8a4bdf87e2d4..46b9a667bda4 100644
->> --- a/arch/arm64/boot/dts/ti/Makefile
->> +++ b/arch/arm64/boot/dts/ti/Makefile
->> @@ -27,6 +27,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-wifi-yavia.dtb
->>   dtb-$(CONFIG_ARCH_K3) += k3-am62x-phyboard-lyra-gpio-fan.dtbo
->>   dtb-$(CONFIG_ARCH_K3) += k3-am62-lp-sk.dtb
->>   dtb-$(CONFIG_ARCH_K3) += k3-am62-lp-sk-nand.dtbo
->> +dtb-$(CONFIG_ARCH_K3) += k3-am62-pocketbeagle2.dtb
->>   
->>   # Boards with AM62Ax SoC
->>   dtb-$(CONFIG_ARCH_K3) += k3-am62a7-sk.dtb
->> diff --git a/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts b/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
->> new file mode 100644
->> index 000000000000..ef79bd0bf238
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
->> @@ -0,0 +1,520 @@
->> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
->> +/*
->> + * https://www.beagleboard.org/boards/pocketbeagle-2
->> + *
->> + * Copyright (C) 2024 Texas Instruments Incorporated - https://www.ti.com/
->> + * Copyright (C) 2024 Robert Nelson, BeagleBoard.org Foundation
-> 
-> Nit: Please update copyrights.
-> 
->> + */
->> +
->> +/dts-v1/;
->> +
->> +#include <dt-bindings/leds/common.h>
->> +#include <dt-bindings/gpio/gpio.h>
->> +#include <dt-bindings/input/input.h>
->> +#include "k3-am625.dtsi"
-> 
-> Any particular reason we can't inherit from k3-am62x-sk-common.dtsi like
-> the SK and LP-SK DTS do?
-> 
+Hi Marc,
 
-Because PocketBeagle 2 is not based on our TI SK boards.. Some
-things are common (PMIC, some carveouts), but not nearly enough
-to make this a good idea.
+On Wed, 26 Feb 2025 at 02:45, Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Wed, 26 Feb 2025 10:07:56 +0000,
+> Oliver Upton <oliver.upton@linux.dev> wrote:
+> >
+> > Hi Fuad,
+> >
+> > Series LGTM overall, one comment:
+> >
+> > On Fri, Feb 14, 2025 at 03:02:56PM +0000, Fuad Tabba wrote:
+> > > Initialize and set the traps controlled by the HCRX_EL2 in pKVM
+> > > when the register is supported by the system.
+> > >
+> > > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > > ---
+> > >  arch/arm64/kvm/hyp/nvhe/pkvm.c | 46 ++++++++++++++++++++++++++++++++++
+> > >  1 file changed, 46 insertions(+)
+> > >
+> > > diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > > index 3927fe52a3dd..668ebec27f1b 100644
+> > > --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > > +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > > @@ -58,6 +58,30 @@ static void pkvm_vcpu_reset_hcr(struct kvm_vcpu *vcpu)
+> > >             vcpu->arch.hcr_el2 |= HCR_ATA;
+> > >  }
+> > >
+> > > +static void pkvm_vcpu_reset_hcrx(struct pkvm_hyp_vcpu *hyp_vcpu)
+> > > +{
+> > > +   struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
+> > > +   struct kvm_vcpu *vcpu = &hyp_vcpu->vcpu;
+> > > +
+> > > +   if (!cpus_have_final_cap(ARM64_HAS_HCX))
+> > > +           return;
+> > > +
+> > > +   /*
+> > > +    * In general, all HCRX_EL2 bits are gated by a feature.
+> > > +    * The only reason we can set SMPME without checking any
+> > > +    * feature is that its effects are not directly observable
+> > > +    * from the guest.
+> > > +    */
+> > > +   vcpu->arch.hcrx_el2 = HCRX_EL2_SMPME;
+> > > +
+> >
+> > The comment isn't wrong, but we don't support SME at all in KVM at this
+> > point.
+>
+> This is a copy/paste of what we have in kvm_calculate_traps(), and the
+> result of the removal of the dreaded HCRX_GUEST_FLAGS.
+>
+> > Any objection to dropping this bit? I can fix it when applying the
+> > series, no need to respin.
+>
+> Whatever we do, I think we should keep the two side of the trap
+> configuration in sync, as this is otherwise a cause of bugs.
 
-Any changes to the SK board DT would have to be checked against
-this DTB, which will break things at some point as the DT becomes
-more complete.
+I could take the initialization of hcrx part from
+kvm_calculate_traps() and place it in an inline function in
+kvm_emulate.h. This then would be called by kvm_calculate_traps() and
+pkvm_vcpu_init_traps().
 
-Andrew
+What do you think?
 
-> Also, you're calling out in the commit message that this is based on
-> AM6232 - which has only 2 cores right? Do we not want to delete the
-> additional 2 cores from the AM625 DT which has 4 cores?
-> 
->> +
->> +/ {
->> +	compatible = "beagle,am62-pocketbeagle2", "ti,am625";
->> +	model = "BeagleBoard.org PocketBeagle2";
->> +
->> +	aliases {
->> +		serial0 = &wkup_uart0;
->> +		serial1 = &main_uart1;
->> +		serial2 = &main_uart6;
->> +		serial3 = &main_uart3;
->> +		serial4 = &main_uart4;
->> +		serial5 = &main_uart5;
->> +		serial6 = &main_uart2;
->> +		serial7 = &main_uart0;
->> +		mmc0 = &sdhci0;
->> +		mmc1 = &sdhci1;
->> +		usb0 = &usb0;
->> +		usb1 = &usb1;
->> +		i2c0 = &main_i2c0;
->> +		i2c1 = &wkup_i2c0;
->> +		i2c2 = &main_i2c2;
->> +	};
->> +
->> +	chosen {
->> +		stdout-path = &main_uart6;
->> +	};
->> +
->> +	memory@80000000 {
->> +		/* 512MB RAM */
->> +		reg = <0x00000000 0x80000000 0x00000000 0x20000000>;
->> +		device_type = "memory";
->> +		bootph-pre-ram;
->> +	};
->> +
->> +	reserved_memory: reserved-memory {
->> +		#address-cells = <2>;
->> +		#size-cells = <2>;
->> +		ranges;
-> 
-> Let's try to follow [1] here and elsewhere
-> [1] https://docs.kernel.org/devicetree/bindings/dts-coding-style.html
-> 
->> +
->> +		secure_tfa_ddr: tfa@9e780000 {
->> +			reg = <0x00 0x9e780000 0x00 0x80000>;
->> +			no-map;
->> +		};
->> +
->> +		secure_ddr: optee@9e800000 {
->> +			reg = <0x00 0x9e800000 0x00 0x01800000>;
->> +			no-map;
->> +		};
->> +
->> +		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9db00000 {
->> +			compatible = "shared-dma-pool";
->> +			reg = <0x00 0x9db00000 0x00 0xc00000>;
->> +			no-map;
->> +		};
-> 
-> Nothing for OPTEE/ M4/ etc...?
-> CMA?
-> Just trying to compare against sk-common... I understand the DDR is
-> smaller but we can't just ignore OPTEE / shared DMA pool right?
-> 
->> +	};
->> +
->> +	vsys_5v0: regulator-1 {
->> +		compatible = "regulator-fixed";
->> +		regulator-name = "vsys_5v0";
->> +		regulator-min-microvolt = <5000000>;
->> +		regulator-max-microvolt = <5000000>;
->> +		regulator-always-on;
->> +		regulator-boot-on;
->> +		bootph-all;
->> +	};
->> +
->> +	vdd_3v3: regulator-2 {
->> +		compatible = "regulator-fixed";
->> +		regulator-name = "vdd_3v3";
->> +		regulator-min-microvolt = <3300000>;
->> +		regulator-max-microvolt = <3300000>;
->> +		vin-supply = <&vsys_5v0>;
->> +		regulator-always-on;
->> +		regulator-boot-on;
->> +		bootph-all;
->> +	};
->> +
->> +	vdd_mmc1: regulator-3 {
->> +		compatible = "regulator-fixed";
->> +		regulator-name = "vdd_mmc1";
->> +		pinctrl-names = "default";
->> +		pinctrl-0 = <&vdd_3v3_sd_pins_default>;
->> +		regulator-min-microvolt = <3300000>;
->> +		regulator-max-microvolt = <3300000>;
->> +		regulator-boot-on;
->> +		enable-active-high;
->> +		regulator-always-on;
->> +		vin-supply = <&vdd_3v3>;
->> +		gpio = <&main_gpio0 0 GPIO_ACTIVE_HIGH>;
->> +		bootph-all;
->> +	};
->> +
->> +	vdd_sd_dv: regulator-4 {
->> +		compatible = "regulator-gpio";
->> +		regulator-name = "sd_hs200_switch";
->> +		pinctrl-names = "default";
->> +		pinctrl-0 = <&vdd_sd_dv_pins_default>;
->> +		regulator-min-microvolt = <1800000>;
->> +		regulator-max-microvolt = <3300000>;
->> +		regulator-boot-on;
->> +		vin-supply = <&vdd_3v3>;
->> +		gpios = <&main_gpio1 49 GPIO_ACTIVE_HIGH>;
->> +		states = <1800000 0x0>,
->> +			 <3300000 0x1>;
->> +		bootph-all;
->> +	};
->> +
->> +	adc_vref: regulator-5 {
->> +		compatible = "regulator-fixed";
->> +		regulator-name = "default";
->> +		regulator-min-microvolt = <3300000>;
->> +		regulator-max-microvolt = <3300000>;
->> +		regulator-boot-on;
->> +	};
->> +
->> +	leds {
->> +		bootph-all;
-> 
-> Is this needed? child nodes seem to have bootph-all already right?
-> 
->> +		compatible = "gpio-leds";
->> +		pinctrl-names = "default";
->> +		pinctrl-0 = <&led_pins_default>;
->> +
->> +		led-1 {
->> +			bootph-all;
->> +			gpios = <&main_gpio0 6 GPIO_ACTIVE_HIGH>;
->> +			color = <LED_COLOR_ID_GREEN>;
->> +			linux,default-trigger = "heartbeat";
->> +			function = LED_FUNCTION_HEARTBEAT;
->> +			default-state = "on";
->> +		};
->> +
->> +		led-2 {
->> +			bootph-all;
->> +			gpios = <&main_gpio0 5 GPIO_ACTIVE_HIGH>;
->> +			color = <LED_COLOR_ID_GREEN>;
->> +			function = LED_FUNCTION_DISK_ACTIVITY;
->> +			linux,default-trigger = "mmc1";
->> +		};
->> +
->> +		led-3 {
->> +			bootph-all;
->> +			gpios = <&main_gpio0 4 GPIO_ACTIVE_HIGH>;
->> +			color = <LED_COLOR_ID_GREEN>;
->> +		};
->> +
->> +		led-4 {
->> +			bootph-all;
->> +			gpios = <&main_gpio0 3 GPIO_ACTIVE_HIGH>;
->> +			color = <LED_COLOR_ID_GREEN>;
->> +			function = LED_FUNCTION_INDICATOR;
->> +			default-state = "off";
->> +		};
->> +	};
->> +};
-> [....]
->> +
->> +&wkup_uart0 {
->> +	/* WKUP UART0 is used by Device Manager firmware */
->> +	pinctrl-names = "default";
->> +	pinctrl-0 = <&wkup_uart0_pins_default>;
->> +	bootph-all;
->> +	status = "reserved";
->> +};
-> 
-> See things like these you get for free from k3-am62x-sk-common.dtsi ;)
-> 
->> +
->> +&wkup_i2c0 {
->> +	pinctrl-names = "default";
->> +	pinctrl-0 = <&wkup_i2c0_pins_default>;
->> +	clock-frequency = <100000>;
->> +	bootph-all;
-> 
-> Child nodes have bootph, no need for their parents to repeat it unless
-> you've a good cause.
-> 
->> +	status = "okay";
->> +
->> +	tps65219: pmic@30 {
->> +		compatible = "ti,tps65219";
->> +		reg = <0x30>;
->> +		buck1-supply = <&vsys_5v0>;
->> +		buck2-supply = <&vsys_5v0>;
->> +		buck3-supply = <&vsys_5v0>;
->> +		ldo1-supply = <&vdd_3v3>;
->> +		ldo2-supply = <&buck2_reg>;
->> +		ldo3-supply = <&vdd_3v3>;
->> +		ldo4-supply = <&vdd_3v3>;
->> +
->> +		pinctrl-names = "default";
->> +		pinctrl-0 = <&pmic_irq_pins_default>;
->> +		interrupt-parent = <&gic500>;
->> +		interrupts = <GIC_SPI 224 IRQ_TYPE_LEVEL_HIGH>;
->> +		interrupt-controller;
->> +		#interrupt-cells = <1>;
->> +
->> +		bootph-all;
->> +		system-power-controller;
->> +		ti,power-button;
-> [...]
-> 
-> Overall I think the DT needs a bit of revisiting of which nodes to reuse
-> from common-DT and what all to delete/ trim. Revisit all the bootph
-> properties and remove the redundant one's...
-> 
+Thanks,
+/fuad
+
+> Thanks,
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
+>
 
