@@ -4,60 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E528C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 09:47:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 268AEC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 09:48:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:Cc:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jj66UypcsvM+vY/I82pnPn1cYjMYFSAeFtKoiRrpI4U=; b=GdfDE0KMfA0j9dJpriRMYwEPxz
-	pNM+xUKAeR3/2QuXQz+QMKZ0NGigdgEkrWrz/vEFkLMqKAZRtaqLtnhFnG5UAO3rFdjv1bjYNkIa0
-	SrQ90PNA3vgCBxkzd92T612rzgF/U1X2j7yU1nM41FJVueKT0u0wy7Ql4kOYG6bCn0A9xt3MfNLAb
-	isRr04RnX/Mty9DBsqINSr42Ufo8i/1kpk4oH4nHf9WVE8J0QG1WLan9TR2DcMXxpAo3qK5SwA/4Q
-	vXu/z/uHEJnTbw/dL4hw/R0fr8ReU6VbNOLv03ERPyxQ/ONlvlCcqPwD3XZl3EuMaLu4jCm9Cxs2z
-	7d4gLokw==;
+	bh=COdPtwS8QwqUzQLrq2HiLnQlQGjwzK2ydg7fmTJeyKg=; b=CcEfwlTJsRs7g1dKD8RxQdZiy8
+	gEjfQJpbPd2WIoOKSc8nBgldHzatHl5SCDPG7J2YSIbuqltodi/v52Qy3SDx7XSHMwWs/JgH3qXFp
+	oiVIAa+W6s2e91986973KNo5mSTy9TKBDBzn4B6IlZlHWFcIYUJHKntjkSPKUS3sa27Xkib7MhF+i
+	VXQaEwfbUp2kseEAju0xO+Vs1EH658FaTBqs1XW2D9Z43OpEoXi9U2fKVtPiAclBnm+F6K09Rio2G
+	ALXmElN3YullxQkkGLNWB9Q7c2HGEBaxswGjmxPh900g2CK4wRDIvI2K4ODh5ftjQtYX2tJrNCiBh
+	cKRBhCSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnE0Y-000000039GC-19eI;
-	Wed, 26 Feb 2025 09:47:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnDyz-000000038zg-36ev
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 09:45:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AAC9E150C;
-	Wed, 26 Feb 2025 01:45:52 -0800 (PST)
-Received: from [10.57.84.229] (unknown [10.57.84.229])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 849503F6A8;
-	Wed, 26 Feb 2025 01:45:35 -0800 (PST)
-Message-ID: <2c465bdf-8028-4b05-8e18-3154735ce906@arm.com>
-Date: Wed, 26 Feb 2025 09:45:33 +0000
+	id 1tnE22-000000039RB-44hA;
+	Wed, 26 Feb 2025 09:48:46 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnDzR-0000000392R-0zfo;
+	Wed, 26 Feb 2025 09:46:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1740563163;
+	bh=4JZL08t7KG0UOC6HcBU5zxjetitwgkZ1Di1DC2VPPN8=;
+	h=Date:Subject:To:References:From:Cc:In-Reply-To:From;
+	b=k5n6OxUv508uzhg0BzGhZ+WDRVvHmEiNyP6gg4N460Q909yqbnMxMDKv3F76dybTx
+	 91fj04sQwP4hcEIEibt5qS2aAPyEAM9kHjsRocnfL2uKAtzMN2SN/7jQgFK2CQpzXO
+	 zu6B7X7CLTJ4f/6vIJPpwAypYz+ARL15ci/Kzk0bb7Wpf8X/XToW+CAWqEdEVwWDJQ
+	 2Z9pvusDBUfiUx7KwJasmBwOTJ0pW59Hl+2hqFt4KJjBC7DNlsmqRz7CxJPeUl8Q8Z
+	 wwzPx2ni5VhdrsiBYY55gCK2kaqVHkqtPfvtv8A5UrKeFn2W/ql1YJfmSLlhkEab/y
+	 iMIhdoGRy44Tg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0C6A217E0663;
+	Wed, 26 Feb 2025 10:46:03 +0100 (CET)
+Message-ID: <618b3cdb-0fef-4194-aeb0-4111c011904d@collabora.com>
+Date: Wed, 26 Feb 2025 10:46:02 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] arm64/mm: Fix Boot panic on Ampere Altra
-Content-Language: en-GB
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, Luiz Capitulino <luizcap@redhat.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250225114638.2038006-1-ryan.roberts@arm.com>
- <CAMj1kXHNO+iB4vNFz-4tR_9CPzv96hn+RW=eqyZXMGy_AySDpw@mail.gmail.com>
- <20250226001047.GA24197@willie-the-truck>
- <CAMj1kXH=tPuM+irCsKgycUTbts8h9vD4m3tEtw51YFzWafdSUA@mail.gmail.com>
- <b0578d21-95cd-4d8a-add1-87299f36b491@arm.com>
- <CAMj1kXHJGC9aYCwwb2XTWfhAjH6GDKQptNdLwO+hfv6hazivHQ@mail.gmail.com>
- <b6b999c9-79cd-4945-9d7a-c5ee8158b7dc@arm.com>
- <CAMj1kXHesY77QhnW_U19UURGUqiBuQrNcL-kWQs7niaMa4nAng@mail.gmail.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <CAMj1kXHesY77QhnW_U19UURGUqiBuQrNcL-kWQs7niaMa4nAng@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [RESEND][PATCH] arm64: dts: mediatek: mt7986: fix pwn fan
+ settings for sinovoip bpi-r3 board
+To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Frank Wunderlich <frank-w@public-files.de>,
+ Daniel Golle <daniel@makrotopia.org>
+References: <20250226050132.547353-1-mikhail.kshevetskiy@iopsys.eu>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ devicetree@vger.kernel.org
+In-Reply-To: <20250226050132.547353-1-mikhail.kshevetskiy@iopsys.eu>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_014538_057476_80F920FA 
-X-CRM114-Status: GOOD (  28.89  )
+X-CRM114-CacheID: sfid-20250226_014605_491193_94514CFE 
+X-CRM114-Status: GOOD (  31.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,83 +80,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/02/2025 09:04, Ard Biesheuvel wrote:
-> On Wed, 26 Feb 2025 at 09:55, Ryan Roberts <ryan.roberts@arm.com> wrote:
->>
->> On 26/02/2025 08:33, Ard Biesheuvel wrote:
->>> On Wed, 26 Feb 2025 at 09:07, Ryan Roberts <ryan.roberts@arm.com> wrote:
->>>>
->>>> On 26/02/2025 06:59, Ard Biesheuvel wrote:
->>>>> On Wed, 26 Feb 2025 at 01:10, Will Deacon <will@kernel.org> wrote:
->>>>>>
->>>>>> On Tue, Feb 25, 2025 at 07:05:35PM +0100, Ard Biesheuvel wrote:
->>>>>>> Apologies for the breakage, and thanks for the fix.
->>>>>>>
->>>>>>> I have to admit that I was a bit overzealous here: there is no point
->>>>>>> yet in using the sanitised value, given that we don't actually
->>>>>>> override the PA range in the first place.
->>>>
->>>> But unless I've misunderstood something, parange is overridden; Commit
->>>> 62cffa496aac (the same one we are fixing) adds an override to force parange to
->>>> 48 bits when arm64.nolva is specified for LPA2 systems (see mmfr2_varange_filter()).
->>>>
->>>> I thought it would be preferable to honour that override, hence my use of
->>>> arm64_apply_feature_override() in the fix. Are you saying we don't need to worry
->>>> about that case?
->>>>
->>>
->>> I wouldn't think so (but I'm glad you brought it up because this
->>> didn't occur to me at all tbh)
->>>
->>> With arm64.nolva, both the VA and PA ranges will be reduced, and so
->>> the range of the linear map will be 47 bits. So if the PA range is
->>> being reduced from 52 to 48, it will still exceed the size of the
->>> linear map, and so it should make no difference in this particular
->>> case.
->>
->> OK, so I think you're saying it'll happen to work correctly even if we ignore
->> that override? That sounds a bit fragile to me. Surely we should be consistent
->> and either always honour the override or remove the override in the first place?
->>
+Il 26/02/25 06:01, Mikhail Kshevetskiy ha scritto:
+
+Please reformat the title...
+
+arm64: dts: mediatek: mt7986-bpi-r3: Change fan PWM value for mid speed
+
+> Popular bpi-r3 pwm fans like this one
 > 
-> I'm trying to walk a fine line here between consistent use of the
-> override, and fixing something that I broke in a nasty way all the way
-> back to 6.12.
+>    https://www.amazon.com/youyeetoo-Barebone-Fan-BPI-R3-Integrated/dp/B0CCCTY8PS
+
+Such links to products do expire over time, so this commit will eventually have
+missing info in the future.
+
+"Popular cheap PWM fans for this machine, like the ones coming in heatsink+fan
+combos will not work properly at the currently defined medium speed"
+
 > 
-> So yes, I agree that it would be better to use the override
-> consistently, and this is what we should do going forward. But the
-> purpose of the original patch was mainly to ensure that we
-> consistently program the MMU either in LPA2 or in non-LPA2 mode, and
-> not in a mix of the two. The linear mapping randomization change was
-> kind of secondary.
+> will not work properly. Trying different pwm setting using a command
 > 
-> So perhaps this should be two patches:
-> - backing out the use of the sanitised register, as proposed by Will,
-> with cc:stable
-> - a follow up based on your proposal, which can be backported later if
-> needed, but without tagging it for stable.
+>    echo $value > /sys/devices/platform/pwm-fan/hwmon/hwmon1/pwm1
+> 
+> I found:
+> 
+>    pwm1 value     fan rotation speed   cpu temperature     notes
+>    -----------------------------------------------------------------
+>      0            maximal              31.5 Celsius        too noisy
+>     40            optimal              35.2 Celsius        no noise hearable
+>     95            minimal
+>     above 95      does not rotate      55.5 Celsius
+>    -----------------------------------------------------------------
+> 
+> At the moment we have following cooling levels defined:
+> 
+>    cooling-levels = <255 96 0>;
 
-I suspect I'm misunderstanding something crucial about the way the linear map
-randomization works (TBH the details of the signed comparisons went a little
-over my head).
+Yes, we can see that in the actual DT, not necessary to repeat in the description.
 
-But my rough understanding is that there are 2 values you want to compare; the
-size of the linear map and the PA range. If the PA range is significantly bigger
-than the linear map size then we conclude we have enough room to randomize. (I
-think this assumes that VA size is always GTE PA size). But if linear map size
-is based on an overridden VA and overridden PA size (which I assume it must be,
-given the pgtables will be limitted to the overridden VA size) and PA size is
-not overridden, isn't it possible to wrongly conclude that there is enough room
-to randomize when there really is not?
+"The current cooling levels define a PWM value of 96 for the cpu-active-medium
+step..."
 
-By that logic, you must include any PA override in this decision and so Will's
-patch does not fix this case. Mine does.
+> 
+> for cpu-active-low, cpu-active-medium and cpu-active-high modes
+> correspondingly. Thus only cpu-active-high and cpu-active-low are usable.
+> I think this is wrong.
+> 
+> This patch fixes cpu-active-medium settings for bpi-r3 board.
+> 
+> PS: I know, the patch is not ideal as it can break pwm fan for some users.
+>      There are some peoples that use handmade cooling solutions, but:
+>        * discussed cooler is the only 'official' pwm cooler for bpi-r3
+>          available on the market.
+>        * most peoples will use passive cooling available on the market or
+>          the discussed cooler.
+>        * the pwm-fan dts section was added before the official cooler
+>          appears on the market.
+>      Thus it should not be a lot of harm from this fix.
 
-But as I say, I'm not confident I understand this logic properly. If my
-understanding is incorrect, let's go with your proposal.
+I get that the cheapest fans you can get are not working correctly with the current
+mid pwm setting, but you can't break things.
+
+This devicetree should, at this point, hold default values that would generally
+make the vast majority of fans to actually spin, because it's impossible to have
+something perfectly (or vaguely, sometimes) optimized for each fan on the market.
+
+Of course this means that you need to properly configure your fans in userspace
+if you want to reach the sweet spot.
+
+I added Frank and Daniel to this thread, as they are the ones who originally did
+upstream this device.
+
+Frank, Daniel, any suggestion regarding the PWM values here?
+
+P.S.: Remember that the fan will still spin to HIGH when temperature gets high,
+so the SoC is still thermally protected until users start tuning their fan speed
+in userspace.
+
+> 
+> This patch may not be enough. Users may wants to tweak their thermal_zone0
+> trip points, thus tuning fan rotation speed depending on cpu temperature.
+> That can be done on the base of the folloving example:
+
+P.P.S.: Fix typos please.
 
 Thanks,
-Ryan
+Angelo
+
+
+> 
+>    === example =========
+>    # cpu temterature below 25 Celsius degrees, no rotation
+>    echo 25000 > /sys/class/thermal/thermal_zone0/trip_point_4_temp
+>    # cpu temperature in [25..32] Celsius degrees, normal rotation speed
+>    echo 32000 > /sys/class/thermal/thermal_zone0/trip_point_3_temp
+>    # cpu temperature above 50 Celsius degrees, max rotation speed
+>    echo 50000 > /sys/class/thermal/thermal_zone0/trip_point_2_temp
+>    =====================
+> 
+> Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+> ---
+>   arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
+> index ed79ad1ae871..b0cc0cbdff0f 100644
+> --- a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
+> +++ b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
+> @@ -42,7 +42,7 @@ fan: pwm-fan {
+>   		compatible = "pwm-fan";
+>   		#cooling-cells = <2>;
+>   		/* cooling level (0, 1, 2) - pwm inverted */
+> -		cooling-levels = <255 96 0>;
+> +		cooling-levels = <255 40 0>;
+>   		pwms = <&pwm 0 10000>;
+>   		status = "okay";
+>   	};
 
 
 
