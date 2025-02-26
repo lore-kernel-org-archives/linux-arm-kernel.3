@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45266C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 10:40:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B886AC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 10:41:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qfvgS9tEAMi52nvE0NgvVNF+9FBtJJd2wpkLZq0FcEs=; b=yoigBLtC/wB5TC8qseWkT94GJb
-	htfUuBiZ8fB8UziIxCk0d72pj+7ycqnP2/5qT1Pp2UlNzBSft+7DRVJdtC1SokQi9lznbDSaRG2Bf
-	cvw9fC1fnusEH7y1831IQKFzyrBS8EOYEBkjh4dm3ad/uLGcN5JC7wS7k2k9Lg7VXnyKMbMFBDz2x
-	tFSPT8X5FBhP8jwmIq21V+2lsqHVWNVikzbrJ5uxPPPaU/bGtedbkJGeF6TXUnrkmnrF2q7urDvio
-	ZV31P9OhKozIInTngorTlJl2+yvuKGLF4H4XlH7Ek7cBAXllT9abQfnIBGrGiSWEU65NrkY1Y1Agj
-	V8XnVa8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iwgg7Sa/hYFUPfapeDs/PKCErbJNAXvFMQwYU2jvLh8=; b=TqRc+IY9SnMOo/bQtMMCF1jjMO
+	1hLqtNIaSzrwQ4sjuH2Zx9+3OcC4mBET2x6DAOCWLj4tUrE0uu7y6dijK6ogF25q1KAP1SUGF/f3O
+	yVosgJ+vleH44yx3nDuwJWHgQq1E0xECOeoJoIHp2lEkDBIOehI40tMiw6cyfkkYkAIAbiWPmi6io
+	zAGhNwLLSOGphqUAbB//WHjMM3hUp5OEzsFYM9g3KT3VlHCaafbMUVlDYAP5XgS4ifPZEBrwX+W5v
+	aUz44BH5E1cbW9XLccApLgdBgttxy2LCGyC2VKU0UpMHf7TVuLaOw0J893C26pJxdm48OkJdeG12P
+	81w4XtZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnEpg-00000003Kgd-0i8C;
-	Wed, 26 Feb 2025 10:40:04 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tnErB-00000003Ktj-07Do;
+	Wed, 26 Feb 2025 10:41:37 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnEZo-00000003HOz-482s
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 10:23:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 405D05C69B6;
-	Wed, 26 Feb 2025 10:23:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E03AC4CED6;
-	Wed, 26 Feb 2025 10:23:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740565419;
-	bh=JUYF30zXLkCS1lAA8rBTYOxggTmbkwCo5KuReiWez2o=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=TNLGq8b80js9FyHVPJjRXtMKtsdmapm9jAuzG5Hu8ao0CiQpzZkK0U1QubINKmTVx
-	 AcSAxsKGHycnY+Wacg1SZRuMsEcn1L/wiKM0Jtazx8N9rk56mqqidAYIwHOfVbO104
-	 7PPfufh538BcG64ZMbEYc+KviyAlj3E48I140tiVcn8b0R/khClmclunV6HdhBezTg
-	 JbQWHV7Y8GSzv//TPYb5RN2TnTdkh0VLpw3Qi10jpTX5BmjN++bNC4aEiTV1nj8vnF
-	 bzkH/yf4XagpI5UX/0L+pZmbfhiAHr7nkezIVAGOmOKcfN2b4HP0IzIAonw3MoDHuE
-	 zg11Pvxb405qA==
-From: Puranjay Mohan <puranjay@kernel.org>
-To: Indu Bhagat <indu.bhagat@oracle.com>, Weinan Liu <wnliu@google.com>
-Cc: irogers@google.com, joe.lawrence@redhat.com, jpoimboe@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org,
- mark.rutland@arm.com, peterz@infradead.org, roman.gushchin@linux.dev,
- rostedt@goodmis.org, will@kernel.org
-Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
-In-Reply-To: <da6aad99-3461-47fd-b9d8-65f8bb446ae1@oracle.com>
-References: <4356c17a-8dba-4da0-86dd-f65afb8145e2@oracle.com>
- <20250225235455.655634-1-wnliu@google.com>
- <da6aad99-3461-47fd-b9d8-65f8bb446ae1@oracle.com>
-Date: Wed, 26 Feb 2025 10:23:21 +0000
-Message-ID: <mb61ph64h9f8m.fsf@kernel.org>
+	id 1tnEbQ-00000003HiD-3KCp;
+	Wed, 26 Feb 2025 10:25:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=iwgg7Sa/hYFUPfapeDs/PKCErbJNAXvFMQwYU2jvLh8=; b=FImBJ3bmcH/yFRK7MwpJuYKlci
+	uQTgM2zmZUSGc2WqHVlNUBp8dYwD5Mic3VXFWnu/o3Z6FmxYDr2+yuZLf+r0KRvlyAOz4PTZdcbaY
+	m9Xd5kV4RawJmneQ93qIxokesaK0m6n0j6+Q67MJwV58nD/mWrf29iFuakHmDCAVvMBX+AXvEh9Ez
+	UrKf9HPkqbFKAg8stEuSXyWqDFNMi/ARhIFhi9oblr5zdlhXCzduAtu9aB5IJGONFqcjZksdWtAUI
+	8yzqfZQTIxKNOrmN0DQKCAMAsqTLchrVrY/lp5TZQv7N2koCFzpw4h1hOkC87TKq9PoOHBaM5DXYT
+	YwFxVhzQ==;
+Received: from i53875b47.versanet.de ([83.135.91.71] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tnEbO-0006Ro-8f; Wed, 26 Feb 2025 11:25:18 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: quentin.schulz@cherry.de,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	lukasz.czechowski@thaumatec.com,
+	Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: [PATCH v3] arm64: dts: rockchip: add usb typec host support to rk3588-jaguar
+Date: Wed, 26 Feb 2025 11:25:07 +0100
+Message-ID: <20250226102507.3743437-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="=-=-=";
-	micalg=pgp-sha512; protocol="application/pgp-signature"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_022341_108366_685A69D5 
-X-CRM114-Status: GOOD (  19.24  )
+X-CRM114-CacheID: sfid-20250226_022520_992419_464E98FC 
+X-CRM114-Status: GOOD (  14.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,117 +74,298 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---=-=-=
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+From: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-Indu Bhagat <indu.bhagat@oracle.com> writes:
+Jaguar has two type-c ports connected to fusb302 controllers that can
+work both in host and device mode and can also run in display-port
+altmode.
 
-> On 2/25/25 3:54 PM, Weinan Liu wrote:
->> On Tue, Feb 25, 2025 at 11:38=E2=80=AFAM Indu Bhagat <indu.bhagat@oracle=
-.com> wrote:
->>>
->>> On Mon, Feb 10, 2025 at 12:30=E2=80=AFAM Weinan Liu <wnliu@google.com> =
-wrote:
->>>>> I already have a WIP patch to add sframe support to the kernel module.
->>>>> However, it is not yet working. I had trouble unwinding frames for the
->>>>> kernel module using the current algorithm.
->>>>>
->>>>> Indu has likely identified the issue and will be addressing it from t=
-he
->>>>> toolchain side.
->>>>>
->>>>> https://sourceware.org/bugzilla/show_bug.cgi?id=3D32666
->>>>
->>>> I have a working in progress patch that adds sframe support for kernel
->>>> module.
->>>> https://github.com/heuza/linux/tree/sframe_unwinder.rfc
->>>>
->>>> According to the sframe table values I got during runtime testing, loo=
-ks
->>>> like the offsets are not correct .
->>>>
->>>
->>> I hope to sanitize the fix for 32666 and post upstream soon (I had to
->>> address other related issues). =C2=A0Unless fixed, relocating .sframe
->>> sections using the .rela.sframe is expected to generate incorrect outpu=
-t.
->>>
->>>> When unwind symbols init_module(0xffff80007b155048) from the kernel
->>>> module(livepatch-sample.ko), the start_address of the FDE entries in t=
-he
->>>> sframe table of the kernel modules appear incorrect.
->>>
->>> init_module will apply the relocations on the .sframe section, isnt it ?
->>>
->>>> For instance, the first FDE's start_addr is reported as -20564. Adding
->>>> this offset to the module's sframe section address (0xffff80007b15a040)
->>>> yields 0xffff80007b154fec, which is not within the livepatch-sample.ko
->>>> memory region(It should be larger than 0xffff80007b155000).
->>>>
->>>
->>> Hmm..something seems off here. =C2=A0Having tested a potential fix for =
-32666
->>> locally, I do not expect the first FDE to show this symptom.
->>>
->>=20
+While these ports can work in dual-role data mode, they do not support
+powering the device itself as power-sink. This causes issues because
+the current infrastructure does not cope well with dual-role data
+without dual-role power.
 
-Hi,
+So add the necessary nodes for the type-c controllers as well
+as enable the relevant core usb nodes, but limit the mode to host-mode
+for now until we figure out device mode.
 
-Sorry for not responding in the past few days.  I was on PTO and was
-trying to improve my snowboarding technique, I am back now!!
+Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+---
+changes in v3:
+- more review comments from Quentin
+  (sbu-pin pinctrl, comments)
+changes in v2:
+- address review comments from Quentin
+  (comments, pinctrl, sbu-gpios and much more)
 
-I think what we are seeing is expected behaviour:
+ .../arm64/boot/dts/rockchip/rk3588-jaguar.dts | 218 ++++++++++++++++++
+ 1 file changed, 218 insertions(+)
 
- | For instance, the first FDE's start_addr is reported as -20564. Adding
- | this offset to the module's sframe section address (0xffff80007b15a040)
- | yields 0xffff80007b154fec, which is not within the livepatch-sample.ko
- | memory region(It should be larger than 0xffff80007b155000).
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts b/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
+index 20b566d4168f..5dbcdf67f0a5 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
+@@ -333,6 +333,56 @@ rtc_twi: rtc@6f {
+ 		};
+ 	};
+ 
++	typec-portc@22 {
++		compatible = "fcs,fusb302";
++		reg = <0x22>;
++		interrupt-parent = <&gpio4>;
++		interrupts = <RK_PA3 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&cc_int1>;
++		vbus-supply = <&vcc_5v0_usb_c1>;
++
++		connector {
++			compatible = "usb-c-connector";
++			data-role = "dual";
++			label = "USBC-1 P11";
++			power-role = "source";
++			self-powered;
++			source-pdos =
++				<PDO_FIXED(5000, 1500, PDO_FIXED_DATA_SWAP | PDO_FIXED_USB_COMM)>;
++			vbus-supply = <&vcc_5v0_usb_c1>;
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					reg = <0>;
++
++					usbc0_hs: endpoint {
++						remote-endpoint = <&usb_host0_xhci_drd_sw>;
++					};
++				};
++
++				port@1 {
++					reg = <1>;
++
++					usbc0_ss: endpoint {
++						remote-endpoint = <&usbdp_phy0_typec_ss>;
++					};
++				};
++
++				port@2 {
++					reg = <2>;
++
++					usbc0_sbu: endpoint {
++						remote-endpoint = <&usbdp_phy0_typec_sbu>;
++					};
++				};
++			};
++		};
++	};
++
+ 	vdd_npu_s0: regulator@42 {
+ 		compatible = "rockchip,rk8602";
+ 		reg = <0x42>;
+@@ -394,6 +444,56 @@ &i2c8 {
+ 	pinctrl-0 = <&i2c8m2_xfer>;
+ 	status = "okay";
+ 
++	typec-portc@22 {
++		compatible = "fcs,fusb302";
++		reg = <0x22>;
++		interrupt-parent = <&gpio4>;
++		interrupts = <RK_PA4 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&cc_int2>;
++		vbus-supply = <&vcc_5v0_usb_c2>;
++
++		connector {
++			compatible = "usb-c-connector";
++			data-role = "dual";
++			label = "USBC-2 P12";
++			power-role = "source";
++			self-powered;
++			source-pdos =
++				<PDO_FIXED(5000, 1500, PDO_FIXED_DATA_SWAP | PDO_FIXED_USB_COMM)>;
++			vbus-supply = <&vcc_5v0_usb_c2>;
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					reg = <0>;
++
++					usbc1_hs: endpoint {
++						remote-endpoint = <&usb_host1_xhci_drd_sw>;
++					};
++				};
++
++				port@1 {
++					reg = <1>;
++
++					usbc1_ss: endpoint {
++						remote-endpoint = <&usbdp_phy1_typec_ss>;
++					};
++				};
++
++				port@2 {
++					reg = <2>;
++
++					usbc1_sbu: endpoint {
++						remote-endpoint = <&usbdp_phy1_typec_sbu>;
++					};
++				};
++			};
++		};
++	};
++
+ 	vdd_cpu_big0_s0: regulator@42 {
+ 		compatible = "rockchip,rk8602";
+ 		reg = <0x42>;
+@@ -483,6 +583,26 @@ pcie30x4_waken_m0: pcie30x4-waken-m0 {
+ 			rockchip,pins = <0 RK_PC7 12 &pcfg_pull_none>;
+ 		};
+ 	};
++
++	usb3 {
++		cc_int1: cc-int1 {
++			rockchip,pins = <4 RK_PA3 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		cc_int2: cc-int2 {
++			rockchip,pins = <4 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		typec0_sbu_pins: typec0-sbu-pins {
++			rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>,
++					<1 RK_PC3 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		typec1_sbu_pins: typec1-sbu-pins {
++			rockchip,pins = <0 RK_PD4 RK_FUNC_GPIO &pcfg_pull_none>,
++					<1 RK_PB5 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
+ };
+ 
+ &saradc {
+@@ -850,6 +970,24 @@ &tsadc {
+ 	status = "okay";
+ };
+ 
++/* USB-C P11 connector */
++&u2phy0 {
++	status = "okay";
++};
++
++&u2phy0_otg {
++	status = "okay";
++};
++
++/* USB-C P12 connector */
++&u2phy1 {
++	status = "okay";
++};
++
++&u2phy1_otg {
++	status = "okay";
++};
++
+ &u2phy2 {
+ 	status = "okay";
+ };
+@@ -892,6 +1030,56 @@ &uart7 {
+ 	status = "okay";
+ };
+ 
++/* Type-C on P11 */
++&usbdp_phy0 {
++	orientation-switch;
++	pinctrl-names = "default";
++	pinctrl-0 = <&typec0_sbu_pins>;
++	sbu1-dc-gpios = <&gpio4 RK_PB0 GPIO_ACTIVE_HIGH>; /* Q7_USB_C0_SBU1_DC */
++	sbu2-dc-gpios = <&gpio1 RK_PC3 GPIO_ACTIVE_HIGH>; /* Q7_USB_C0_SBU2_DC */
++	status = "okay";
++
++	port {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		usbdp_phy0_typec_ss: endpoint@0 {
++			reg = <0>;
++			remote-endpoint = <&usbc0_ss>;
++		};
++
++		usbdp_phy0_typec_sbu: endpoint@1 {
++			reg = <1>;
++			remote-endpoint = <&usbc0_sbu>;
++		};
++	};
++};
++
++/* Type-C on P12 */
++&usbdp_phy1 {
++	orientation-switch;
++	pinctrl-names = "default";
++	pinctrl-0 = <&typec1_sbu_pins>;
++	sbu1-dc-gpios = <&gpio0 RK_PD4 GPIO_ACTIVE_HIGH>; /* Q7_USB_C1_SBU1_DC */
++	sbu2-dc-gpios = <&gpio1 RK_PB5 GPIO_ACTIVE_HIGH>; /* Q7_USB_C1_SBU2_DC */
++	status = "okay";
++
++	port {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		usbdp_phy1_typec_ss: endpoint@0 {
++			reg = <0>;
++			remote-endpoint = <&usbc1_ss>;
++		};
++
++		usbdp_phy1_typec_sbu: endpoint@1 {
++			reg = <1>;
++			remote-endpoint = <&usbc1_sbu>;
++		};
++	};
++};
++
+ /* host0 on P10 USB-A */
+ &usb_host0_ehci {
+ 	status = "okay";
+@@ -902,6 +1090,36 @@ &usb_host0_ohci {
+ 	status = "okay";
+ };
+ 
++/* host0 on P11 USB-C */
++&usb_host0_xhci {
++	usb-role-switch;
++	status = "okay";
++
++	port {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		usb_host0_xhci_drd_sw: endpoint {
++			remote-endpoint = <&usbc0_hs>;
++		};
++	};
++};
++
++/* host1 on P12 USB-C */
++&usb_host1_xhci {
++	usb-role-switch;
++	status = "okay";
++
++	port {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		usb_host1_xhci_drd_sw: endpoint {
++			remote-endpoint = <&usbc1_hs>;
++		};
++	};
++};
++
+ /* host1 on M.2 E-key */
+ &usb_host1_ehci {
+ 	status = "okay";
+-- 
+2.47.2
 
-
-Let me explain using a __dummy__ example.
-
-Assume Memory layout before relocation:
-
- | Address | Element                                 | Relocation
- |  ....   | ....                                    |
- |   60    | init_module (start address)             |
- |   72    | init_module (end address)               |
- |  ....   | .....                                   |
- |   100   | Sframe section header start address     |
- |   128   | First FDE's start address               | RELOC_OP_PREL -> Put=
- init_module address (60) - current address (128)
-
-So, after relocation First FDE's start address has value 60 - 128 =3D -68
-
-Now, while doing unwinding we Try to add this value to the sframe
-section header's start address which is in this example 100,
-
-so 100 + (-68) =3D 32
-
-So, 32 is not within [60, 72], i.e. within init_module.
-
-You can see that it is possible for this value to be less than the start
-address of the module's memory region when this function's address is
-very close to the start of the memory region.
-
-The crux is that the offset in the FDE's start address is calculated
-based on the address of the FDE's start_address and not based on the
-address of the sframe section.
-
-
-Thanks,
-Puranjay
-
---=-=-=
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iIoEARYKADIWIQQ3wHGvVs/5bdl78BKwwPkjG3B2nQUCZ77rmxQccHVyYW5qYXlA
-a2VybmVsLm9yZwAKCRCwwPkjG3B2ncczAP9XQv1qvG5QCEfqUBX3HHJF4cyv8eWB
-B49aFu+bqtdZ/wEArbSbRVLmpy9+45qoLpOywsiqw6sK+Dtw6vwAGxJX7ws=
-=hyPk
------END PGP SIGNATURE-----
---=-=-=--
 
