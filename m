@@ -4,71 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85DF5C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 07:57:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D225C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 07:59:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=l5GQ0VB+U0qlLd8tcKJSdmALth7M2O7ILI6p1J26Zgo=; b=qDXs1SkARs7lOUrQCN7n8UQ7oE
-	oHsbPR48YFy6+PM7mk9LSkUXiNAXcuCQvehctG8lmYNdxrkA68+YwciV+aXzpZiRflbYWfZIKX0uV
-	b7VaEny6IRl5fYN+YHHdMHJfXP64CZmMOjVE9urguOcM3szaPEazw3deo3lJTvJ26e7bREr4rWS9P
-	khNUD3MT8bxfQ8OATlHZM3CoF36nMNOfUBznyFmvTTWimjlsRvj1HmaQ2iW+TMdZTHEqpmO+xdEKU
-	c+zBrh1veYbZzdQVvL2a/pJ0qb1XWzIdzUpLwJcQzobMjqX9l1gdq9Oc1acdaWNI/lAO82eAxP66k
-	CIeM3wuQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6T5eJDWcvcr4mu3nb3RgtFwwJuHqGyqn+bnNz1F7lso=; b=tyjnZCad+RaR+fDHbQw0ultYpu
+	UzFKIro6JigWsugKssokyDP+y1zMr20m/hzeGsd+I35GHYbPANkdNgBbnveXKsIK/7YLrtJkMnCUj
+	dEHoA1qktUUMnD7dhzd875JazNRHC12KPPggs2K3FMN5Dpdx/o8lfRncX1A/js67CklZd8Wqm2b4A
+	M6FwvVNJKHNQBAEQuf7rl/Wf5cnsQ09zPMBuzxn8NDkCGF4lwPxE/ho+z6mFYlMxf4iz3vx5AqgW1
+	/axy259ft5bBEPLbAlZiP4UpNOzNyLZ0DuML6a4JBy3kuwZmBeYKPzJX1ROQruSib9f3kwiPsGwpP
+	h/zpB8kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnCIS-00000002m59-43Wz;
-	Wed, 26 Feb 2025 07:57:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnCBL-00000002jzd-1JDU
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 26 Feb 2025 07:50:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=l5GQ0VB+U0qlLd8tcKJSdmALth7M2O7ILI6p1J26Zgo=; b=IFffgAApoQ4bDgqmtZ7nkVpQPa
-	M8oTLnoGDaKNsIlPmCbzWdR5NMUr0K73DgglMr4lD8eyWs4j5F9MUr0wAj9N1LsUR8/WrSb5bjoCr
-	eHA+EtOw8HK7Mjj+oUZK/mAVprQi+vfVOH0OExe8ys6854Px+qDEYuzmVjpQaAOLANwbY64uOqMTN
-	7bGuvyyvlnUSZCHEFNJ+XHS5xfg0qL1G9Ue4mqbhVcml/ztEn74DNkQMfbP0ASkz2Ht0I3V6daG+A
-	zzHcVC/ruo7mFv/riuQv1cLfc7ZbSlzd7LiQPszYJTe4FGXPbizPnvfE74I6cpLt5GrQ/Agy0l8MO
-	8KnOD7Rw==;
+	id 1tnCJy-00000002mNr-37Hd;
+	Wed, 26 Feb 2025 07:59:10 +0000
 Received: from mgamail.intel.com ([192.198.163.12])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnCBH-00000003Y2E-22WF
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnCBQ-00000002k0m-4AUC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 07:50:13 +0000
+	Wed, 26 Feb 2025 07:50:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740556211; x=1772092211;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=8EIhzlM2gLlOBarT9qw4PuIMvUldVxztIuTe/SPq5U0=;
-  b=mkGIzRybTdy6rpyvbUzRqp6mvjFbVp6OoNqveBrbjKV1zcLu+3BX1fie
-   I7CGZYln7txUhozGG86CZHGmPCGMzMwb45wFuokNfU4Ec4pBDyDA9ev/F
-   RGHCUg8bBHljp5jn//odtGxKvS0g2rTeUfhims2hu8OIC0LPWSZYxffqI
-   VrQ9GUaSMnlXYLByMN77OKbvjPaOBRl60iJiSGfGTxVbiRwuSweOcuICo
-   7eZWoA9BALw/pVtht7seLr6r4BGlPXqKnhEznAqNiQNhLeTWS8PXRxqpB
-   x/i3dAF+gdEvvEYaoxxJtPdXvD7KFl8mkYDcaDaJzJ1p67M3EOpJsI2Mh
-   A==;
-X-CSE-ConnectionGUID: 5/OVk3MRQhGQhj+6ebnFiQ==
-X-CSE-MsgGUID: yshtGfTQRT6rdfSuPxSbXA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11356"; a="45304965"
+  t=1740556221; x=1772092221;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=J2WrRdXsHM4g/4BW0LGzBua9ax0dXvOez2jZneAIugs=;
+  b=IQ91khIBx34v1ds5m9b5PyC+yLjtZ877gBLNx5OIL5YHK/caoLpf2Iip
+   TENcQkYAKueNz7VDmpDIthNZGFymaTM8j3/iOmDY6zIl9bCiALp0FkU8a
+   pqFoQMsR0ZnWBbmdgM56ZHTBGl2790ovcCQlDsNFQEsClfYAwiIf8jrnd
+   qJGAUwifOg/Rv6W/BifKZXENzkjI/sMsWPFVvYhYixODaMLnOt1zh7oEA
+   jP+zn2NS3e/vz94dzJ808Q261hTzM9uJCPQef4x9WDnWp7l+CDyjrskz0
+   6zBogcI/qolvx2EcZSNiiur8vD+kh/YJj1JWfc1C5d4BPTIRZdZsbOtzb
+   g==;
+X-CSE-ConnectionGUID: jeatypUQSLiBoheaao3+2g==
+X-CSE-MsgGUID: 1QOrlg16TbCvXRg0jCdiMQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11356"; a="45305131"
 X-IronPort-AV: E=Sophos;i="6.13,316,1732608000"; 
-   d="scan'208";a="45304965"
+   d="scan'208";a="45305131"
 Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 23:49:55 -0800
-X-CSE-ConnectionGUID: YViQm8QORYaoX5S3GrZdIw==
-X-CSE-MsgGUID: NzyRZrwHQuSYgVocsSPURQ==
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 23:50:20 -0800
+X-CSE-ConnectionGUID: QfjVcDevS3id+luAHduEVg==
+X-CSE-MsgGUID: k29dyh/ITGCV0Y+PbmRcEg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="120742932"
+   d="scan'208";a="120743019"
 Received: from yongliang-ubuntu20-ilbpg12.png.intel.com ([10.88.227.39])
-  by fmviesa003.fm.intel.com with ESMTP; 25 Feb 2025 23:49:48 -0800
+  by fmviesa003.fm.intel.com with ESMTP; 25 Feb 2025 23:50:13 -0800
 From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
 To: Simon Horman <horms@kernel.org>,
 	Jose Abreu <joabreu@synopsys.com>,
@@ -102,15 +87,17 @@ Cc: x86@kernel.org,
 	platform-driver-x86@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH net-next v8 0/6] Enable SGMII and 2500BASEX interface mode switching for Intel platforms
-Date: Wed, 26 Feb 2025 15:48:31 +0800
-Message-Id: <20250226074837.1679988-1-yong.liang.choong@linux.intel.com>
+Subject: [PATCH net-next v8 3/6] arch: x86: add IPC mailbox accessor function and add SoC register access
+Date: Wed, 26 Feb 2025 15:48:34 +0800
+Message-Id: <20250226074837.1679988-4-yong.liang.choong@linux.intel.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250226074837.1679988-1-yong.liang.choong@linux.intel.com>
+References: <20250226074837.1679988-1-yong.liang.choong@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_075012_092280_B4D20442 
-X-CRM114-Status: GOOD (  17.60  )
+X-CRM114-CacheID: sfid-20250225_235021_062854_F80D8C10 
+X-CRM114-Status: GOOD (  18.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,120 +112,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During the interface mode change, the 'phylink_major_config' function will
-be triggered in phylink. The modification of the following functions will
-support the switching between SGMII and 2500BASE-X interface modes for
-the Intel platform:
+From: "David E. Box" <david.e.box@linux.intel.com>
 
-- xpcs_switch_interface_mode: Re-initiates clause 37 auto-negotiation for
-  the SGMII interface mode to perform auto-negotiation.
-- mac_finish: Configures the SerDes according to the interface mode.
+- Exports intel_pmc_ipc() for host access to the PMC IPC mailbox
+- Enables the host to access specific SoC registers through the PMC
+firmware using IPC commands. This access method is necessary for
+registers that are not available through direct Memory-Mapped I/O (MMIO),
+which is used for other accessible parts of the PMC.
 
-With the above changes, the code will work as follows during the interface
-mode change. The PCS will reconfigure according to the pcs_neg_mode and the
-selected interface mode. Then, the MAC driver will perform SerDes
-configuration in 'mac_finish' based on the selected interface mode. During
-the SerDes configuration, the selected interface mode will identify TSN
-lane registers from FIA and then send IPC commands to the Power Management
-Controller (PMC) through the PMC driver/API. The PMC will act as a proxy to
-program the PLL registers.
-
-Change log:
-v1 -> v2: 
- - Add static to pmc_lpm_modes declaration
- - Add cur_link_an_mode to the kernel doc
- - Combine 2 commits i.e. "stmmac: intel: Separate driver_data of ADL-N
- from TGL" and "net: stmmac: Add 1G/2.5G auto-negotiation
- support for ADL-N" into 1 commit.
-
-v2 -> v3:
- - Create `pmc_ipc.c` file for `intel_pmc_ipc()` function and 
- allocate the file in `arch/x86/platform/intel/` directory.
- - Update phylink's AN mode during phy interface change and 
- not exposing phylink's AN mode into phylib.
- 
- v3 -> v4:
- - Introduce `allow_switch_interface` flag to have all ethtool 
- link modes that are supported and advertised will be published.
- - Introduce `mac_get_pcs_neg_mode` function that selects the PCS 
- negotiation mode according to the interface mode.
- - Remove pcs-xpcs.c changes and handle pcs during `mac_select_pcs`
- function
- - Configure SerDes base on the interface on `mac_finish` function.
- 
- v4 -> v5:
- - remove 'allow_switch_interface' related patches.
- - remove 'mac_select_pcs' related patches.
- - add a soft reset according to XPCS datasheet for re-initiate Clause 37
- auto-negotiation when switching to SGMII interface mode.
-
-v5 -> v6:
-- Remove 'mac_get_pcs_neg_mode' related patches. 
-  The pcs_neg_mode is properly handled by the
-  'net: add negotiation of in-band capabilities' patch series:
-  https://patchwork.kernel.org/project/netdevbpf/cover/Z08kCwxdkU4n2V6x@shell.armlinux.org.uk/
-- Using act_link_an_mode to determine PHY, as cfg_link_an_mode was not
-  updated for the 2500BASE-X interface mode, caused a failure to link up.
-- Clean up and standardize the interface mode switch for xpcs.
-
-v6 -> v7:
-- Remove the "net: phylink: use act_link_an_mode to determine PHY" patch.
-- Use pl->link_interface in phylink_expects_phy().
-- Remove priv->plat->serdes_powerup in intel_tsn_lane_is_available() as it is
-  always true.
-- Refactor the code in intel_config_serdes().
-- Rename intel_config_serdes() to intel_mac_finish() with an AN mode parameter.
-- Define the magic number as "max_fia_regs".
-- Store the pointer and the number of elements in the platform info structure.
-- Move the arrays to the C file.
-
-v7 -> v8:
-- Move xpcs_switch_interface_mode() into xpcs_pre_config().
-- Move the "stmmac: intel: interface switching support for EHL platform" commit
-  into "stmmac: intel: configure SerDes according to the interface mode" to
-  resolve the "defined but not used" error.
-- Changes for the "arch: x86: add IPC mailbox accessor function and add SoC register access" commit:
-    - Rephrase the second bullet in the patch description.
-    - Remove 'config INTEL_PMC_IPC' from Kconfig, as discussed.
-    - Remove the authors from intel_pmc_ipc.h.
-    - Define VALID_IPC_RESPONSE for package.count.
-    - Update the copyright year to 2025.
-    - Create struct pmc_ipc_rbuf.
-    - Update the function description for intel_pmc_ipc().
-
-
-v1: https://patchwork.kernel.org/project/netdevbpf/cover/20230622041905.629430-1-yong.liang.choong@linux.intel.com/
-v2: https://patchwork.kernel.org/project/netdevbpf/cover/20230804084527.2082302-1-yong.liang.choong@linux.intel.com/
-v3: https://patchwork.kernel.org/project/netdevbpf/cover/20230921121946.3025771-1-yong.liang.choong@linux.intel.com/
-v4: https://patchwork.kernel.org/project/netdevbpf/cover/20240129130253.1400707-1-yong.liang.choong@linux.intel.com/
-v5: https://patchwork.kernel.org/project/netdevbpf/cover/20240215030500.3067426-1-yong.liang.choong@linux.intel.com/
-v6: https://patchwork.kernel.org/project/netdevbpf/cover/20250204061020.1199124-1-yong.liang.choong@linux.intel.com/
-v7: https://patchwork.kernel.org/project/netdevbpf/cover/20250206131859.2960543-1-yong.liang.choong@linux.intel.com/
-
-Choong Yong Liang (5):
-  net: phylink: use pl->link_interface in phylink_expects_phy()
-  net: pcs: xpcs: re-initiate clause 37 Auto-negotiation
-  stmmac: intel: configure SerDes according to the interface mode
-  net: stmmac: configure SerDes on mac_finish
-  stmmac: intel: interface switching support for ADL-N platform
-
-David E. Box (1):
-  arch: x86: add IPC mailbox accessor function and add SoC register
-    access
-
- MAINTAINERS                                   |   1 +
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |   1 +
- .../net/ethernet/stmicro/stmmac/dwmac-intel.c | 231 +++++++++++++++++-
- .../net/ethernet/stmicro/stmmac/dwmac-intel.h |  29 +++
- .../net/ethernet/stmicro/stmmac/stmmac_main.c |  13 +
- drivers/net/pcs/pcs-xpcs-wx.c                 |   4 +-
- drivers/net/pcs/pcs-xpcs.c                    |  29 ++-
- drivers/net/phy/phylink.c                     |   2 +-
- .../linux/platform_data/x86/intel_pmc_ipc.h   |  94 +++++++
- include/linux/stmmac.h                        |   4 +
- 10 files changed, 394 insertions(+), 14 deletions(-)
+Signed-off-by: David E. Box <david.e.box@linux.intel.com>
+Signed-off-by: Chao Qin <chao.qin@intel.com>
+Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+---
+ MAINTAINERS                                   |  1 +
+ .../linux/platform_data/x86/intel_pmc_ipc.h   | 94 +++++++++++++++++++
+ 2 files changed, 95 insertions(+)
  create mode 100644 include/linux/platform_data/x86/intel_pmc_ipc.h
 
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 8019d5a97546..aff084824b89 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -11864,6 +11864,7 @@ L:	platform-driver-x86@vger.kernel.org
+ S:	Maintained
+ F:	Documentation/ABI/testing/sysfs-platform-intel-pmc
+ F:	drivers/platform/x86/intel/pmc/
++F:	linux/platform_data/x86/intel_pmc_ipc.h
+ 
+ INTEL PMIC GPIO DRIVERS
+ M:	Andy Shevchenko <andy@kernel.org>
+diff --git a/include/linux/platform_data/x86/intel_pmc_ipc.h b/include/linux/platform_data/x86/intel_pmc_ipc.h
+new file mode 100644
+index 000000000000..6e603a8c075f
+--- /dev/null
++++ b/include/linux/platform_data/x86/intel_pmc_ipc.h
+@@ -0,0 +1,94 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Intel Core SoC Power Management Controller Header File
++ *
++ * Copyright (c) 2025, Intel Corporation.
++ * All Rights Reserved.
++ *
++ */
++#ifndef INTEL_PMC_IPC_H
++#define INTEL_PMC_IPC_H
++#include <linux/acpi.h>
++
++#define IPC_SOC_REGISTER_ACCESS			0xAA
++#define IPC_SOC_SUB_CMD_READ			0x00
++#define IPC_SOC_SUB_CMD_WRITE			0x01
++#define PMC_IPCS_PARAM_COUNT			7
++#define VALID_IPC_RESPONSE			5
++
++struct pmc_ipc_cmd {
++	u32 cmd;
++	u32 sub_cmd;
++	u32 size;
++	u32 wbuf[4];
++};
++
++struct pmc_ipc_rbuf {
++	u32 buf[4];
++};
++
++/**
++ * intel_pmc_ipc() - PMC IPC Mailbox accessor
++ * @ipc_cmd:  Prepared input command to send
++ * @rbuf:     Allocated array for returned IPC data
++ *
++ * Return: 0 on success. Non-zero on mailbox error
++ */
++static inline int intel_pmc_ipc(struct pmc_ipc_cmd *ipc_cmd, struct pmc_ipc_rbuf *rbuf)
++{
++	struct acpi_buffer buffer = { ACPI_ALLOCATE_BUFFER, NULL };
++	union acpi_object params[PMC_IPCS_PARAM_COUNT] = {
++		{.type = ACPI_TYPE_INTEGER,},
++		{.type = ACPI_TYPE_INTEGER,},
++		{.type = ACPI_TYPE_INTEGER,},
++		{.type = ACPI_TYPE_INTEGER,},
++		{.type = ACPI_TYPE_INTEGER,},
++		{.type = ACPI_TYPE_INTEGER,},
++		{.type = ACPI_TYPE_INTEGER,},
++	};
++	struct acpi_object_list arg_list = { PMC_IPCS_PARAM_COUNT, params };
++	union acpi_object *obj;
++	int status;
++
++	if (!ipc_cmd || !rbuf)
++		return -EINVAL;
++
++	/*
++	 * 0: IPC Command
++	 * 1: IPC Sub Command
++	 * 2: Size
++	 * 3-6: Write Buffer for offset
++	 */
++	params[0].integer.value = ipc_cmd->cmd;
++	params[1].integer.value = ipc_cmd->sub_cmd;
++	params[2].integer.value = ipc_cmd->size;
++	params[3].integer.value = ipc_cmd->wbuf[0];
++	params[4].integer.value = ipc_cmd->wbuf[1];
++	params[5].integer.value = ipc_cmd->wbuf[2];
++	params[6].integer.value = ipc_cmd->wbuf[3];
++
++	status = acpi_evaluate_object(NULL, "\\IPCS", &arg_list, &buffer);
++	if (ACPI_FAILURE(status))
++		return -ENODEV;
++
++	obj = buffer.pointer;
++
++	if (obj && obj->type == ACPI_TYPE_PACKAGE &&
++	    obj->package.count == VALID_IPC_RESPONSE) {
++		const union acpi_object *objs = obj->package.elements;
++
++		if ((u8)objs[0].integer.value != 0)
++			return -EINVAL;
++
++		rbuf->buf[0] = objs[1].integer.value;
++		rbuf->buf[1] = objs[2].integer.value;
++		rbuf->buf[2] = objs[3].integer.value;
++		rbuf->buf[3] = objs[4].integer.value;
++	} else {
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
++#endif /* INTEL_PMC_IPC_H */
 -- 
 2.34.1
 
