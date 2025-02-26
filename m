@@ -4,56 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15489C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 09:23:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AA55C19778
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 09:23:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qfb35/5UiLgwlMFtawueyYugBdWMmL6ETxU27vQRyQg=; b=o2pRgrLqI2C4qb
-	O9FnL6gnGQ5gE3EOrPa9nYVqfxjjIOvbjBB9K02zrUoPlr2lrp7jzhtCzHv+z63xUq6yLtQDQmPQI
-	Lk8wyUNOpS0tyvFoO+7QU5Y+9NCp28cyC3B7P8BR//KjZfg4vLhVxK5+KAqyd6vSDC6XpjF+Ldtq/
-	JjP5jgqwiN5w4sBk4qag+ib0mym1UW+a5AsQQdrCZCQbpvsFziiB2EBZ5GYd34HXT4GIhP24Afx3F
-	0c0zo3/ptCnZNmLRCLDVNOOpZV30zdw1ZvI7ArnRuwdMrLwLyPsrY8/xgYBfWC7Uz3xcS1a8z4xZt
-	uey9GI/3sXHNLJ27QkRA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wFqjJ5s+Z0xnd9r2pX3ADIi2my/okJGh5BKAReVcsKc=; b=yEhFiMCksHm+VEzZJ+ObGqcmDA
+	K65p6u5tb7RatuTdV86V1CxfQv25s1Yx26LflM5jY2/KVEnyNFssw9nHWcN7JdIG6r9bv7ItiSohf
+	Nt3yvAHUOQGM6uZJRmbm9L8XDie6d3GuRkpRKOTmEtvquLQCB+zMxAfh2eTultx4n5WW80mB0DWXM
+	4kV92Qg+x7CFEpQO66MK58W0sAPC/Xc0w5FtfSZ2/pdGWNl632L7XuCvk8+PkwFhv2Vx5cXW+EjDE
+	0MPZFnf/gzdbsNQ9GBnEypSwq07PHYrE90ZzvPhNLYrUVOEm6o/Xzba/ProO/V2Y+MT7qQc6BroZb
+	vaXnFQNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnDd0-000000033pF-1B4Q;
-	Wed, 26 Feb 2025 09:22:54 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1tnDd9-000000033xO-1GIg;
+	Wed, 26 Feb 2025 09:23:03 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnD7M-00000002xX5-19sD
+	id 1tnDMt-000000030nQ-2BxJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 08:50:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=from:to:cc:subject:date:message-id
-	:in-reply-to:references:mime-version:content-transfer-encoding;
-	 s=k1; bh=Qfb35/5UiLgwlMFtawueyYugBdWMmL6ETxU27vQRyQg=; b=gBLkDC
-	ywxw1NlOXpIfHjJTU9YBQiD7Ip67jJ7qVIwGTPenaOmtW6dRbqGhAAG0loD4WUmO
-	ihsgNgOwJedWocRRXArbwSZvvesMJU9tYF+kYwj0v1iUtd8ais+47NsD7CB6zjFQ
-	a6vyCyPpjry0g+0hN39luUVe1aJGqyddLEdUzvGgrY6hzLXr+eBSH/ITCpKV6MDJ
-	aIsUDGJ26qJHq35wV4AAVm3k4RTdHBvMS0vcfjq5HxGQ5I/ZiFuOecE/VoM0EcPk
-	I6mqPx6sX05vzFNi0HVnIUkUO5V/tRNZ8/coLrm9kAX9/CWR+FSFEtTy37ox0VFT
-	Pcz9cVLPGhLALTBA==
-Received: (qmail 500520 invoked from network); 26 Feb 2025 09:50:09 +0100
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 26 Feb 2025 09:50:09 +0100
-X-UD-Smtp-Session: l3s3148p1@XBAoqQcvfq4gAwDPXxaLANR24ZQNPy5l
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 4/4] ARM: dts: at91: fix faulty ohci/ehci node names
-Date: Wed, 26 Feb 2025 09:49:39 +0100
-Message-ID: <20250226084938.3436-10-wsa+renesas@sang-engineering.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250226084938.3436-6-wsa+renesas@sang-engineering.com>
-References: <20250226084938.3436-6-wsa+renesas@sang-engineering.com>
+	Wed, 26 Feb 2025 09:06:16 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-439a4fc2d65so63123805e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 01:06:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1740560773; x=1741165573; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=wFqjJ5s+Z0xnd9r2pX3ADIi2my/okJGh5BKAReVcsKc=;
+        b=It5Dss+LPIeym0pKtQ2wkygeLN4FWeaBNxtr2R3dHWm6DyVAmUuv8Ub4lCQdeImSIz
+         LO3rJXMOrSGi5Bzmdo30T0B9fZr9ist/Sal0q0S2pbjJ7AuKtpAG3wmrN7ngYZVAyVCX
+         FFh9NR2c6wz11oMVF3K+sJ0xQ0145Gw1tUU+/pesAeQeLLJffcI2NNYdVoClKt1Fo1Nz
+         MdMTi+Xqm3+HUx4VfoDvOQ3EdJZXa3uA7MY3TEjikeq90ZdHpHE4qa2YUa4bbQuDxdzw
+         82HtQZF6+3P0rvzZsqRRRpuinmAJVewVGhYb3QEuAjPBa/3ludBFZSmOyg4UgWcy2+FF
+         98UQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740560773; x=1741165573;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=wFqjJ5s+Z0xnd9r2pX3ADIi2my/okJGh5BKAReVcsKc=;
+        b=Qlz66EEqCRORjG7iQZUOt94Pte3jEzESguEr4m2DZgy7QR9X/wjnpKWnOTs7sIafhD
+         G/SqHpbkayALvqwZhgW79dT2J1fkLCS1V76TdVpxYGoFxsxX/7NT2SttFPv8ZUwoYSn7
+         6Eup2S2ykTLHgdPs+Py040Mtjp8J+a+eBx7cims8CgrGG/Wl0rESTdvGFTpi+SzVEuW9
+         MCBTICMwykAeCCK8S68SIFuLQGbOGfKXVdbxRUrcqYxbmR70Ya52vc2xfqwF5bOXZarS
+         VuILYlhVy1g7bl2p1UMexSPbFT5Zq76/qg4byLQ8Ic/UULP+PEwbtrufUW6w4bAvLrki
+         YMuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW2FnOWKNRS4C3FMJHU/nDoSjGxXIaK5IjH8CiUktgoX6F2624QdxBPFpSVk2Aqb0MPnd3uMRH2RIEW5OmILSAL@lists.infradead.org
+X-Gm-Message-State: AOJu0YzY495sYdnQT9m8yYA+E4LohWKUDgi31enUFjRVxynKyzVRQSdl
+	DmsIgK8epiOZvA+Zm2uVhI9m0UgAza90HWCWK2tiR7b10OX8mhCBmqV5fRV+49TBTa2lTinoH9w
+	odM8=
+X-Gm-Gg: ASbGncsG6ceWoMNchdp+7wmsj6EsCYXcxNnRB6zHummdIxTsVgr1Ux98CQgnzXa90iX
+	fnCpDpbmDuNobNyqFw9jgZZdTvrDGeB36Ppd4Dreh7vyNlzm5g8yWHoMxnMT4QW02lozL20myII
+	ByjAW41K9/Z37HCNtNkDpXVsSOnzwvIQ9d18yj1ZhrpYRUXD7JBPA83ZO2cJouWxdvAPWXMOghY
+	XhVf9kbVWyS42xFHT7tKvhBcBAXEMRAMWWqnioApZHT5XSHMpVfn69aalAU4B/+gIwvrCZNL2Ob
+	gAOQ4wHacxtaWCO93aDuABZrque9WlpPmA==
+X-Google-Smtp-Source: AGHT+IF2jL/6HEshRKQgvDuJGZdSFLJT33KiaiMqikmoObJ0F4VSY/h7X0zQKfIsnmcQGTgCryyo3w==
+X-Received: by 2002:a05:600c:190c:b0:439:3d5c:8c19 with SMTP id 5b1f17b1804b1-43ab0f6440emr52386245e9.24.1740560773326;
+        Wed, 26 Feb 2025 01:06:13 -0800 (PST)
+Received: from [192.168.50.4] ([82.78.167.25])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43aba52b7ecsm13869615e9.3.2025.02.26.01.06.11
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 26 Feb 2025 01:06:12 -0800 (PST)
+Message-ID: <7dd5a0a2-4f56-48b4-8861-c7d75754faab@tuxon.dev>
+Date: Wed, 26 Feb 2025 11:06:10 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] AT91 Clock Adjustments
+To: Ryan.Wanner@microchip.com, mturquette@baylibre.com, sboyd@kernel.org,
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com
+Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, mripard@kernel.org
+References: <cover.1738864727.git.Ryan.Wanner@microchip.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Content-Language: en-US
+In-Reply-To: <cover.1738864727.git.Ryan.Wanner@microchip.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_005012_594782_C0508515 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250226_010615_787940_E9C1B61A 
+X-CRM114-Status: GOOD (  21.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,698 +98,230 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, devicetree@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Wolfram Sang <wsa+renesas@sang-engineering.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-They should be named "usb@".
 
-Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
----
- arch/arm/boot/dts/microchip/aks-cdu.dts               | 2 +-
- arch/arm/boot/dts/microchip/animeo_ip.dts             | 2 +-
- arch/arm/boot/dts/microchip/at91-foxg20.dts           | 2 +-
- arch/arm/boot/dts/microchip/at91-qil_a9260.dts        | 2 +-
- arch/arm/boot/dts/microchip/at91-sam9_l9260.dts       | 2 +-
- arch/arm/boot/dts/microchip/at91-sama5d27_som1_ek.dts | 4 ++--
- arch/arm/boot/dts/microchip/at91-sama5d2_ptc_ek.dts   | 4 ++--
- arch/arm/boot/dts/microchip/at91-sama5d2_xplained.dts | 4 ++--
- arch/arm/boot/dts/microchip/at91-sama5d3_xplained.dts | 4 ++--
- arch/arm/boot/dts/microchip/at91-sama5d4_ma5d4evk.dts | 4 ++--
- arch/arm/boot/dts/microchip/at91-sama5d4_xplained.dts | 4 ++--
- arch/arm/boot/dts/microchip/at91-sama5d4ek.dts        | 4 ++--
- arch/arm/boot/dts/microchip/at91-vinco.dts            | 4 ++--
- arch/arm/boot/dts/microchip/at91rm9200.dtsi           | 2 +-
- arch/arm/boot/dts/microchip/at91rm9200ek.dts          | 2 +-
- arch/arm/boot/dts/microchip/at91sam9260.dtsi          | 2 +-
- arch/arm/boot/dts/microchip/at91sam9260ek.dts         | 2 +-
- arch/arm/boot/dts/microchip/at91sam9261.dtsi          | 2 +-
- arch/arm/boot/dts/microchip/at91sam9261ek.dts         | 2 +-
- arch/arm/boot/dts/microchip/at91sam9263.dtsi          | 2 +-
- arch/arm/boot/dts/microchip/at91sam9263ek.dts         | 2 +-
- arch/arm/boot/dts/microchip/at91sam9g20ek_common.dtsi | 2 +-
- arch/arm/boot/dts/microchip/at91sam9g45.dtsi          | 4 ++--
- arch/arm/boot/dts/microchip/at91sam9m10g45ek.dts      | 4 ++--
- arch/arm/boot/dts/microchip/at91sam9n12.dtsi          | 2 +-
- arch/arm/boot/dts/microchip/at91sam9n12ek.dts         | 2 +-
- arch/arm/boot/dts/microchip/at91sam9x5.dtsi           | 4 ++--
- arch/arm/boot/dts/microchip/ethernut5.dts             | 2 +-
- arch/arm/boot/dts/microchip/evk-pro3.dts              | 2 +-
- arch/arm/boot/dts/microchip/mpa1600.dts               | 2 +-
- arch/arm/boot/dts/microchip/pm9g45.dts                | 4 ++--
- arch/arm/boot/dts/microchip/sam9x60.dtsi              | 4 ++--
- arch/arm/boot/dts/microchip/sama5d2.dtsi              | 4 ++--
- arch/arm/boot/dts/microchip/sama5d3.dtsi              | 4 ++--
- arch/arm/boot/dts/microchip/sama5d3xmb.dtsi           | 4 ++--
- arch/arm/boot/dts/microchip/sama5d4.dtsi              | 4 ++--
- arch/arm/boot/dts/microchip/usb_a9260_common.dtsi     | 2 +-
- arch/arm/boot/dts/microchip/usb_a9263.dts             | 2 +-
- 38 files changed, 55 insertions(+), 55 deletions(-)
 
-diff --git a/arch/arm/boot/dts/microchip/aks-cdu.dts b/arch/arm/boot/dts/microchip/aks-cdu.dts
-index b65f80e1ef05..302cb872efa1 100644
---- a/arch/arm/boot/dts/microchip/aks-cdu.dts
-+++ b/arch/arm/boot/dts/microchip/aks-cdu.dts
-@@ -56,7 +56,7 @@ usb1: gadget@fffa4000 {
- 			};
- 		};
- 
--		usb0: ohci@500000 {
-+		usb0: usb@500000 {
- 			num-ports = <2>;
- 			status = "okay";
- 		};
-diff --git a/arch/arm/boot/dts/microchip/animeo_ip.dts b/arch/arm/boot/dts/microchip/animeo_ip.dts
-index 7f527622d3f2..c11f4f7dac94 100644
---- a/arch/arm/boot/dts/microchip/animeo_ip.dts
-+++ b/arch/arm/boot/dts/microchip/animeo_ip.dts
-@@ -136,7 +136,7 @@ ubi@60000 {
- 			};
- 		};
- 
--		usb0: ohci@500000 {
-+		usb0: usb@500000 {
- 			num-ports = <2>;
- 			atmel,vbus-gpio = <&pioB 15 GPIO_ACTIVE_LOW>;
- 			status = "okay";
-diff --git a/arch/arm/boot/dts/microchip/at91-foxg20.dts b/arch/arm/boot/dts/microchip/at91-foxg20.dts
-index 9dfd5de808d1..8e9e87665045 100644
---- a/arch/arm/boot/dts/microchip/at91-foxg20.dts
-+++ b/arch/arm/boot/dts/microchip/at91-foxg20.dts
-@@ -131,7 +131,7 @@ watchdog@fffffd40 {
- 			};
- 		};
- 
--		usb0: ohci@500000 {
-+		usb0: usb@500000 {
- 			num-ports = <2>;
- 			status = "okay";
- 		};
-diff --git a/arch/arm/boot/dts/microchip/at91-qil_a9260.dts b/arch/arm/boot/dts/microchip/at91-qil_a9260.dts
-index 5ccb3c139592..892dbd8dbbed 100644
---- a/arch/arm/boot/dts/microchip/at91-qil_a9260.dts
-+++ b/arch/arm/boot/dts/microchip/at91-qil_a9260.dts
-@@ -114,7 +114,7 @@ shdwc: poweroff@fffffd10 {
- 			};
- 		};
- 
--		usb0: ohci@500000 {
-+		usb0: usb@500000 {
- 			num-ports = <2>;
- 			status = "okay";
- 		};
-diff --git a/arch/arm/boot/dts/microchip/at91-sam9_l9260.dts b/arch/arm/boot/dts/microchip/at91-sam9_l9260.dts
-index 2fb51b9aca2a..49dc1a4ccb36 100644
---- a/arch/arm/boot/dts/microchip/at91-sam9_l9260.dts
-+++ b/arch/arm/boot/dts/microchip/at91-sam9_l9260.dts
-@@ -105,7 +105,7 @@ nand0: nand@40000000 {
- 			status = "okay";
- 		};
- 
--		usb0: ohci@500000 {
-+		usb0: usb@500000 {
- 			status = "okay";
- 		};
- 
-diff --git a/arch/arm/boot/dts/microchip/at91-sama5d27_som1_ek.dts b/arch/arm/boot/dts/microchip/at91-sama5d27_som1_ek.dts
-index f3ffb8f01d8a..45edf6214cf7 100644
---- a/arch/arm/boot/dts/microchip/at91-sama5d27_som1_ek.dts
-+++ b/arch/arm/boot/dts/microchip/at91-sama5d27_som1_ek.dts
-@@ -37,7 +37,7 @@ usb0: gadget@300000 {
- 			status = "okay";
- 		};
- 
--		usb1: ohci@400000 {
-+		usb1: usb@400000 {
- 			num-ports = <3>;
- 			atmel,vbus-gpio = <0 /* &pioA PIN_PD20 GPIO_ACTIVE_HIGH */
- 					   &pioA PIN_PA27 GPIO_ACTIVE_HIGH
-@@ -48,7 +48,7 @@ &pioA PIN_PA27 GPIO_ACTIVE_HIGH
- 			status = "okay";
- 		};
- 
--		usb2: ehci@500000 {
-+		usb2: usb@500000 {
- 			status = "okay";
- 		};
- 
-diff --git a/arch/arm/boot/dts/microchip/at91-sama5d2_ptc_ek.dts b/arch/arm/boot/dts/microchip/at91-sama5d2_ptc_ek.dts
-index e4ae60ef5f8a..10d69f6957cf 100644
---- a/arch/arm/boot/dts/microchip/at91-sama5d2_ptc_ek.dts
-+++ b/arch/arm/boot/dts/microchip/at91-sama5d2_ptc_ek.dts
-@@ -47,7 +47,7 @@ usb0: gadget@300000 {
- 			status = "okay";
- 		};
- 
--		usb1: ohci@400000 {
-+		usb1: usb@400000 {
- 			num-ports = <3>;
- 			atmel,vbus-gpio = <0
- 					   &pioA PIN_PB12 GPIO_ACTIVE_HIGH
-@@ -58,7 +58,7 @@ &pioA PIN_PB12 GPIO_ACTIVE_HIGH
- 			status = "okay";
- 		};
- 
--		usb2: ehci@500000 {
-+		usb2: usb@500000 {
- 			status = "okay";
- 		};
- 
-diff --git a/arch/arm/boot/dts/microchip/at91-sama5d2_xplained.dts b/arch/arm/boot/dts/microchip/at91-sama5d2_xplained.dts
-index 4bab3f25b855..7e77a55ed41d 100644
---- a/arch/arm/boot/dts/microchip/at91-sama5d2_xplained.dts
-+++ b/arch/arm/boot/dts/microchip/at91-sama5d2_xplained.dts
-@@ -46,7 +46,7 @@ usb0: gadget@300000 {
- 			status = "okay";
- 		};
- 
--		usb1: ohci@400000 {
-+		usb1: usb@400000 {
- 			num-ports = <3>;
- 			atmel,vbus-gpio = <0 /* &pioA PIN_PB9 GPIO_ACTIVE_HIGH */
- 					   &pioA PIN_PB10 GPIO_ACTIVE_HIGH
-@@ -57,7 +57,7 @@ &pioA PIN_PB10 GPIO_ACTIVE_HIGH
- 			status = "okay";
- 		};
- 
--		usb2: ehci@500000 {
-+		usb2: usb@500000 {
- 			status = "okay";
- 		};
- 
-diff --git a/arch/arm/boot/dts/microchip/at91-sama5d3_xplained.dts b/arch/arm/boot/dts/microchip/at91-sama5d3_xplained.dts
-index 5662992cf213..d2c43957497d 100644
---- a/arch/arm/boot/dts/microchip/at91-sama5d3_xplained.dts
-+++ b/arch/arm/boot/dts/microchip/at91-sama5d3_xplained.dts
-@@ -283,7 +283,7 @@ usb0: gadget@500000 {
- 			status = "okay";
- 		};
- 
--		usb1: ohci@600000 {
-+		usb1: usb@600000 {
- 			num-ports = <3>;
- 			atmel,vbus-gpio = <0
- 					   &pioE 3 GPIO_ACTIVE_LOW
-@@ -294,7 +294,7 @@ &pioE 4 GPIO_ACTIVE_LOW
- 			status = "okay";
- 		};
- 
--		usb2: ehci@700000 {
-+		usb2: usb@700000 {
- 			status = "okay";
- 		};
- 
-diff --git a/arch/arm/boot/dts/microchip/at91-sama5d4_ma5d4evk.dts b/arch/arm/boot/dts/microchip/at91-sama5d4_ma5d4evk.dts
-index 8adf567f2f0f..b9725e400501 100644
---- a/arch/arm/boot/dts/microchip/at91-sama5d4_ma5d4evk.dts
-+++ b/arch/arm/boot/dts/microchip/at91-sama5d4_ma5d4evk.dts
-@@ -22,7 +22,7 @@ usb0: gadget@400000 {
- 			status = "okay";
- 		};
- 
--		usb1: ohci@500000 {
-+		usb1: usb@500000 {
- 			num-ports = <3>;
- 			atmel,vbus-gpio = <0
- 					   &pioE 11 GPIO_ACTIVE_LOW
-@@ -31,7 +31,7 @@ &pioE 14 GPIO_ACTIVE_LOW
- 			status = "okay";
- 		};
- 
--		usb2: ehci@600000 {
-+		usb2: usb@600000 {
- 			status = "okay";
- 		};
- 
-diff --git a/arch/arm/boot/dts/microchip/at91-sama5d4_xplained.dts b/arch/arm/boot/dts/microchip/at91-sama5d4_xplained.dts
-index 95d701d13fef..0ecccb9a809d 100644
---- a/arch/arm/boot/dts/microchip/at91-sama5d4_xplained.dts
-+++ b/arch/arm/boot/dts/microchip/at91-sama5d4_xplained.dts
-@@ -164,7 +164,7 @@ usb0: gadget@400000 {
- 			status = "okay";
- 		};
- 
--		usb1: ohci@500000 {
-+		usb1: usb@500000 {
- 			num-ports = <3>;
- 			atmel,vbus-gpio = <0
- 					   &pioE 11 GPIO_ACTIVE_HIGH
-@@ -175,7 +175,7 @@ &pioE 14 GPIO_ACTIVE_HIGH
- 			status = "okay";
- 		};
- 
--		usb2: ehci@600000 {
-+		usb2: usb@600000 {
- 			status = "okay";
- 		};
- 
-diff --git a/arch/arm/boot/dts/microchip/at91-sama5d4ek.dts b/arch/arm/boot/dts/microchip/at91-sama5d4ek.dts
-index 20ac775059ca..69107d6cd26c 100644
---- a/arch/arm/boot/dts/microchip/at91-sama5d4ek.dts
-+++ b/arch/arm/boot/dts/microchip/at91-sama5d4ek.dts
-@@ -198,7 +198,7 @@ usb0: gadget@400000 {
- 			status = "okay";
- 		};
- 
--		usb1: ohci@500000 {
-+		usb1: usb@500000 {
- 			num-ports = <3>;
- 			atmel,vbus-gpio = <0 /* &pioE 10 GPIO_ACTIVE_LOW */
- 					   &pioE 11 GPIO_ACTIVE_LOW
-@@ -207,7 +207,7 @@ &pioE 12 GPIO_ACTIVE_LOW
- 			status = "okay";
- 		};
- 
--		usb2: ehci@600000 {
-+		usb2: usb@600000 {
- 			status = "okay";
- 		};
- 
-diff --git a/arch/arm/boot/dts/microchip/at91-vinco.dts b/arch/arm/boot/dts/microchip/at91-vinco.dts
-index ecbdacf48708..c5fc51667066 100644
---- a/arch/arm/boot/dts/microchip/at91-vinco.dts
-+++ b/arch/arm/boot/dts/microchip/at91-vinco.dts
-@@ -162,7 +162,7 @@ usb0: gadget@400000 {
- 			status = "disabled";
- 		};
- 
--		usb1: ohci@500000 {
-+		usb1: usb@500000 {
- 			num-ports = <3>;
- 			atmel,vbus-gpio = <0
- 					   &pioE 11 GPIO_ACTIVE_LOW
-@@ -171,7 +171,7 @@ &pioE 12 GPIO_ACTIVE_LOW
- 			status = "disabled";
- 		};
- 
--		usb2: ehci@600000 {
-+		usb2: usb@600000 {
- 			/* 4G Modem */
- 			status = "okay";
- 		};
-diff --git a/arch/arm/boot/dts/microchip/at91rm9200.dtsi b/arch/arm/boot/dts/microchip/at91rm9200.dtsi
-index 02a838541dc3..2a4c83d88733 100644
---- a/arch/arm/boot/dts/microchip/at91rm9200.dtsi
-+++ b/arch/arm/boot/dts/microchip/at91rm9200.dtsi
-@@ -702,7 +702,7 @@ &pioB 1 GPIO_ACTIVE_HIGH
- 			status = "disabled";
- 		};
- 
--		usb0: ohci@300000 {
-+		usb0: usb@300000 {
- 			compatible = "atmel,at91rm9200-ohci", "usb-ohci";
- 			reg = <0x00300000 0x100000>;
- 			interrupts = <23 IRQ_TYPE_LEVEL_HIGH 2>;
-diff --git a/arch/arm/boot/dts/microchip/at91rm9200ek.dts b/arch/arm/boot/dts/microchip/at91rm9200ek.dts
-index 0bf472b157a5..ce691c4692b9 100644
---- a/arch/arm/boot/dts/microchip/at91rm9200ek.dts
-+++ b/arch/arm/boot/dts/microchip/at91rm9200ek.dts
-@@ -89,7 +89,7 @@ rtc: rtc@fffffe00 {
- 			};
- 		};
- 
--		usb0: ohci@300000 {
-+		usb0: usb@300000 {
- 			num-ports = <2>;
- 			status = "okay";
- 		};
-diff --git a/arch/arm/boot/dts/microchip/at91sam9260.dtsi b/arch/arm/boot/dts/microchip/at91sam9260.dtsi
-index 0038183e9a53..ec973f07a961 100644
---- a/arch/arm/boot/dts/microchip/at91sam9260.dtsi
-+++ b/arch/arm/boot/dts/microchip/at91sam9260.dtsi
-@@ -742,7 +742,7 @@ gpbr: syscon@fffffd50 {
- 			};
- 		};
- 
--		usb0: ohci@500000 {
-+		usb0: usb@500000 {
- 			compatible = "atmel,at91rm9200-ohci", "usb-ohci";
- 			reg = <0x00500000 0x100000>;
- 			interrupts = <20 IRQ_TYPE_LEVEL_HIGH 2>;
-diff --git a/arch/arm/boot/dts/microchip/at91sam9260ek.dts b/arch/arm/boot/dts/microchip/at91sam9260ek.dts
-index e8e65e60564d..8522a210b484 100644
---- a/arch/arm/boot/dts/microchip/at91sam9260ek.dts
-+++ b/arch/arm/boot/dts/microchip/at91sam9260ek.dts
-@@ -131,7 +131,7 @@ gpbr: syscon@fffffd50 {
- 			};
- 		};
- 
--		usb0: ohci@500000 {
-+		usb0: usb@500000 {
- 			num-ports = <2>;
- 			status = "okay";
- 		};
-diff --git a/arch/arm/boot/dts/microchip/at91sam9261.dtsi b/arch/arm/boot/dts/microchip/at91sam9261.dtsi
-index b57a7fd67197..0b556c234557 100644
---- a/arch/arm/boot/dts/microchip/at91sam9261.dtsi
-+++ b/arch/arm/boot/dts/microchip/at91sam9261.dtsi
-@@ -77,7 +77,7 @@ ahb {
- 		#size-cells = <1>;
- 		ranges;
- 
--		usb0: ohci@500000 {
-+		usb0: usb@500000 {
- 			compatible = "atmel,at91rm9200-ohci", "usb-ohci";
- 			reg = <0x00500000 0x100000>;
- 			interrupts = <20 IRQ_TYPE_LEVEL_HIGH 2>;
-diff --git a/arch/arm/boot/dts/microchip/at91sam9261ek.dts b/arch/arm/boot/dts/microchip/at91sam9261ek.dts
-index a8f523131cd6..313bc2797fde 100644
---- a/arch/arm/boot/dts/microchip/at91sam9261ek.dts
-+++ b/arch/arm/boot/dts/microchip/at91sam9261ek.dts
-@@ -31,7 +31,7 @@ main_xtal {
- 	};
- 
- 	ahb {
--		usb0: ohci@500000 {
-+		usb0: usb@500000 {
- 			status = "okay";
- 		};
- 
-diff --git a/arch/arm/boot/dts/microchip/at91sam9263.dtsi b/arch/arm/boot/dts/microchip/at91sam9263.dtsi
-index b95d4016ae9f..3e9e5ce7c6c8 100644
---- a/arch/arm/boot/dts/microchip/at91sam9263.dtsi
-+++ b/arch/arm/boot/dts/microchip/at91sam9263.dtsi
-@@ -768,7 +768,7 @@ fb0: fb@700000 {
- 			status = "disabled";
- 		};
- 
--		usb0: ohci@a00000 {
-+		usb0: usb@a00000 {
- 			compatible = "atmel,at91rm9200-ohci", "usb-ohci";
- 			reg = <0x00a00000 0x100000>;
- 			interrupts = <29 IRQ_TYPE_LEVEL_HIGH 2>;
-diff --git a/arch/arm/boot/dts/microchip/at91sam9263ek.dts b/arch/arm/boot/dts/microchip/at91sam9263ek.dts
-index f25692543d71..471ea25296aa 100644
---- a/arch/arm/boot/dts/microchip/at91sam9263ek.dts
-+++ b/arch/arm/boot/dts/microchip/at91sam9263ek.dts
-@@ -207,7 +207,7 @@ data@7ca0000 {
- 			};
- 		};
- 
--		usb0: ohci@a00000 {
-+		usb0: usb@a00000 {
- 			num-ports = <2>;
- 			status = "okay";
- 			atmel,vbus-gpio = <&pioA 24 GPIO_ACTIVE_HIGH
-diff --git a/arch/arm/boot/dts/microchip/at91sam9g20ek_common.dtsi b/arch/arm/boot/dts/microchip/at91sam9g20ek_common.dtsi
-index 4e7cfbbd4241..84a7287107f8 100644
---- a/arch/arm/boot/dts/microchip/at91sam9g20ek_common.dtsi
-+++ b/arch/arm/boot/dts/microchip/at91sam9g20ek_common.dtsi
-@@ -211,7 +211,7 @@ data@7ca0000 {
- 			};
- 		};
- 
--		usb0: ohci@500000 {
-+		usb0: usb@500000 {
- 			num-ports = <2>;
- 			status = "okay";
- 		};
-diff --git a/arch/arm/boot/dts/microchip/at91sam9g45.dtsi b/arch/arm/boot/dts/microchip/at91sam9g45.dtsi
-index 157d306ef5c9..535e26e05e99 100644
---- a/arch/arm/boot/dts/microchip/at91sam9g45.dtsi
-+++ b/arch/arm/boot/dts/microchip/at91sam9g45.dtsi
-@@ -964,7 +964,7 @@ fb0: fb@500000 {
- 			status = "disabled";
- 		};
- 
--		usb0: ohci@700000 {
-+		usb0: usb@700000 {
- 			compatible = "atmel,at91rm9200-ohci", "usb-ohci";
- 			reg = <0x00700000 0x100000>;
- 			interrupts = <22 IRQ_TYPE_LEVEL_HIGH 2>;
-@@ -973,7 +973,7 @@ usb0: ohci@700000 {
- 			status = "disabled";
- 		};
- 
--		usb1: ehci@800000 {
-+		usb1: usb@800000 {
- 			compatible = "atmel,at91sam9g45-ehci", "usb-ehci";
- 			reg = <0x00800000 0x100000>;
- 			interrupts = <22 IRQ_TYPE_LEVEL_HIGH 2>;
-diff --git a/arch/arm/boot/dts/microchip/at91sam9m10g45ek.dts b/arch/arm/boot/dts/microchip/at91sam9m10g45ek.dts
-index 071db4f16313..2a31b2f14893 100644
---- a/arch/arm/boot/dts/microchip/at91sam9m10g45ek.dts
-+++ b/arch/arm/boot/dts/microchip/at91sam9m10g45ek.dts
-@@ -303,14 +303,14 @@ data@4000000 {
- 			};
- 		};
- 
--		usb0: ohci@700000 {
-+		usb0: usb@700000 {
- 			status = "okay";
- 			num-ports = <2>;
- 			atmel,vbus-gpio = <&pioD 1 GPIO_ACTIVE_LOW
- 					   &pioD 3 GPIO_ACTIVE_LOW>;
- 		};
- 
--		usb1: ehci@800000 {
-+		usb1: usb@800000 {
- 			status = "okay";
- 		};
- 	};
-diff --git a/arch/arm/boot/dts/microchip/at91sam9n12.dtsi b/arch/arm/boot/dts/microchip/at91sam9n12.dtsi
-index 844bd50943fc..2f930c39ce4d 100644
---- a/arch/arm/boot/dts/microchip/at91sam9n12.dtsi
-+++ b/arch/arm/boot/dts/microchip/at91sam9n12.dtsi
-@@ -748,7 +748,7 @@ usb1: gadget@f803c000 {
- 			};
- 		};
- 
--		usb0: ohci@500000 {
-+		usb0: usb@500000 {
- 			compatible = "atmel,at91rm9200-ohci", "usb-ohci";
- 			reg = <0x00500000 0x00100000>;
- 			interrupts = <22 IRQ_TYPE_LEVEL_HIGH 2>;
-diff --git a/arch/arm/boot/dts/microchip/at91sam9n12ek.dts b/arch/arm/boot/dts/microchip/at91sam9n12ek.dts
-index 643c3b2ab97e..b06a54e8e237 100644
---- a/arch/arm/boot/dts/microchip/at91sam9n12ek.dts
-+++ b/arch/arm/boot/dts/microchip/at91sam9n12ek.dts
-@@ -180,7 +180,7 @@ nand@3 {
- 			};
- 		};
- 
--		usb0: ohci@500000 {
-+		usb0: usb@500000 {
- 			num-ports = <1>;
- 			atmel,vbus-gpio = <&pioB 7 GPIO_ACTIVE_LOW>;
- 			status = "okay";
-diff --git a/arch/arm/boot/dts/microchip/at91sam9x5.dtsi b/arch/arm/boot/dts/microchip/at91sam9x5.dtsi
-index 27c1f2861cc3..17bdf1e4db01 100644
---- a/arch/arm/boot/dts/microchip/at91sam9x5.dtsi
-+++ b/arch/arm/boot/dts/microchip/at91sam9x5.dtsi
-@@ -886,7 +886,7 @@ pwm0: pwm@f8034000 {
- 			};
- 		};
- 
--		usb0: ohci@600000 {
-+		usb0: usb@600000 {
- 			compatible = "atmel,at91rm9200-ohci", "usb-ohci";
- 			reg = <0x00600000 0x100000>;
- 			interrupts = <22 IRQ_TYPE_LEVEL_HIGH 2>;
-@@ -895,7 +895,7 @@ usb0: ohci@600000 {
- 			status = "disabled";
- 		};
- 
--		usb1: ehci@700000 {
-+		usb1: usb@700000 {
- 			compatible = "atmel,at91sam9g45-ehci", "usb-ehci";
- 			reg = <0x00700000 0x100000>;
- 			interrupts = <22 IRQ_TYPE_LEVEL_HIGH 2>;
-diff --git a/arch/arm/boot/dts/microchip/ethernut5.dts b/arch/arm/boot/dts/microchip/ethernut5.dts
-index ad7a0850252a..52ccef31b391 100644
---- a/arch/arm/boot/dts/microchip/ethernut5.dts
-+++ b/arch/arm/boot/dts/microchip/ethernut5.dts
-@@ -101,7 +101,7 @@ data@20000 {
- 			};
- 		};
- 
--		usb0: ohci@500000 {
-+		usb0: usb@500000 {
- 			num-ports = <2>;
- 			status = "okay";
- 		};
-diff --git a/arch/arm/boot/dts/microchip/evk-pro3.dts b/arch/arm/boot/dts/microchip/evk-pro3.dts
-index 6d519d02d190..40c5111c2f0a 100644
---- a/arch/arm/boot/dts/microchip/evk-pro3.dts
-+++ b/arch/arm/boot/dts/microchip/evk-pro3.dts
-@@ -45,7 +45,7 @@ watchdog@fffffd40 {
- 			};
- 		};
- 
--		usb0: ohci@500000 {
-+		usb0: usb@500000 {
- 			num-ports = <2>;
- 			status = "okay";
- 		};
-diff --git a/arch/arm/boot/dts/microchip/mpa1600.dts b/arch/arm/boot/dts/microchip/mpa1600.dts
-index 005c2758e229..2a97e2c0b894 100644
---- a/arch/arm/boot/dts/microchip/mpa1600.dts
-+++ b/arch/arm/boot/dts/microchip/mpa1600.dts
-@@ -57,7 +57,7 @@ ssc1: ssc@fffd4000 {
- 			};
- 		};
- 
--		usb0: ohci@300000 {
-+		usb0: usb@300000 {
- 			num-ports = <1>;
- 			status = "okay";
- 		};
-diff --git a/arch/arm/boot/dts/microchip/pm9g45.dts b/arch/arm/boot/dts/microchip/pm9g45.dts
-index c349fd3758a6..2258e62f5864 100644
---- a/arch/arm/boot/dts/microchip/pm9g45.dts
-+++ b/arch/arm/boot/dts/microchip/pm9g45.dts
-@@ -139,12 +139,12 @@ data@900000 {
- 			};
- 		};
- 
--		usb0: ohci@700000 {
-+		usb0: usb@700000 {
- 			status = "okay";
- 			num-ports = <2>;
- 		};
- 
--		usb1: ehci@800000 {
-+		usb1: usb@800000 {
- 			status = "okay";
- 		};
- 	};
-diff --git a/arch/arm/boot/dts/microchip/sam9x60.dtsi b/arch/arm/boot/dts/microchip/sam9x60.dtsi
-index b8b2c1ddf3f1..b075865e6a76 100644
---- a/arch/arm/boot/dts/microchip/sam9x60.dtsi
-+++ b/arch/arm/boot/dts/microchip/sam9x60.dtsi
-@@ -88,7 +88,7 @@ usb0: gadget@500000 {
- 			status = "disabled";
- 		};
- 
--		usb1: ohci@600000 {
-+		usb1: usb@600000 {
- 			compatible = "atmel,at91rm9200-ohci", "usb-ohci";
- 			reg = <0x00600000 0x100000>;
- 			interrupts = <22 IRQ_TYPE_LEVEL_HIGH 2>;
-@@ -97,7 +97,7 @@ usb1: ohci@600000 {
- 			status = "disabled";
- 		};
- 
--		usb2: ehci@700000 {
-+		usb2: usb@700000 {
- 			compatible = "atmel,at91sam9g45-ehci", "usb-ehci";
- 			reg = <0x00700000 0x100000>;
- 			interrupts = <22 IRQ_TYPE_LEVEL_HIGH 2>;
-diff --git a/arch/arm/boot/dts/microchip/sama5d2.dtsi b/arch/arm/boot/dts/microchip/sama5d2.dtsi
-index 3f99451aef83..dc22fb679333 100644
---- a/arch/arm/boot/dts/microchip/sama5d2.dtsi
-+++ b/arch/arm/boot/dts/microchip/sama5d2.dtsi
-@@ -136,7 +136,7 @@ usb0: gadget@300000 {
- 			status = "disabled";
- 		};
- 
--		usb1: ohci@400000 {
-+		usb1: usb@400000 {
- 			compatible = "atmel,at91rm9200-ohci", "usb-ohci";
- 			reg = <0x00400000 0x100000>;
- 			interrupts = <41 IRQ_TYPE_LEVEL_HIGH 2>;
-@@ -145,7 +145,7 @@ usb1: ohci@400000 {
- 			status = "disabled";
- 		};
- 
--		usb2: ehci@500000 {
-+		usb2: usb@500000 {
- 			compatible = "atmel,at91sam9g45-ehci", "usb-ehci";
- 			reg = <0x00500000 0x100000>;
- 			interrupts = <41 IRQ_TYPE_LEVEL_HIGH 2>;
-diff --git a/arch/arm/boot/dts/microchip/sama5d3.dtsi b/arch/arm/boot/dts/microchip/sama5d3.dtsi
-index 70f380c399ce..e95799c17fdb 100644
---- a/arch/arm/boot/dts/microchip/sama5d3.dtsi
-+++ b/arch/arm/boot/dts/microchip/sama5d3.dtsi
-@@ -1074,7 +1074,7 @@ usb0: gadget@500000 {
- 			status = "disabled";
- 		};
- 
--		usb1: ohci@600000 {
-+		usb1: usb@600000 {
- 			compatible = "atmel,at91rm9200-ohci", "usb-ohci";
- 			reg = <0x00600000 0x100000>;
- 			interrupts = <32 IRQ_TYPE_LEVEL_HIGH 2>;
-@@ -1083,7 +1083,7 @@ usb1: ohci@600000 {
- 			status = "disabled";
- 		};
- 
--		usb2: ehci@700000 {
-+		usb2: usb@700000 {
- 			compatible = "atmel,at91sam9g45-ehci", "usb-ehci";
- 			reg = <0x00700000 0x100000>;
- 			interrupts = <32 IRQ_TYPE_LEVEL_HIGH 2>;
-diff --git a/arch/arm/boot/dts/microchip/sama5d3xmb.dtsi b/arch/arm/boot/dts/microchip/sama5d3xmb.dtsi
-index 3652c9e24124..90da04b84b39 100644
---- a/arch/arm/boot/dts/microchip/sama5d3xmb.dtsi
-+++ b/arch/arm/boot/dts/microchip/sama5d3xmb.dtsi
-@@ -172,7 +172,7 @@ usb0: gadget@500000 {
- 			status = "okay";
- 		};
- 
--		usb1: ohci@600000 {
-+		usb1: usb@600000 {
- 			num-ports = <3>;
- 			atmel,vbus-gpio = <&pioD 25 GPIO_ACTIVE_HIGH
- 					   &pioD 26 GPIO_ACTIVE_LOW
-@@ -181,7 +181,7 @@ &pioD 27 GPIO_ACTIVE_LOW
- 			status = "okay";
- 		};
- 
--		usb2: ehci@700000 {
-+		usb2: usb@700000 {
- 			status = "okay";
- 		};
- 	};
-diff --git a/arch/arm/boot/dts/microchip/sama5d4.dtsi b/arch/arm/boot/dts/microchip/sama5d4.dtsi
-index 355132628604..59a7d557c7cb 100644
---- a/arch/arm/boot/dts/microchip/sama5d4.dtsi
-+++ b/arch/arm/boot/dts/microchip/sama5d4.dtsi
-@@ -119,7 +119,7 @@ usb0: gadget@400000 {
- 			status = "disabled";
- 		};
- 
--		usb1: ohci@500000 {
-+		usb1: usb@500000 {
- 			compatible = "atmel,at91rm9200-ohci", "usb-ohci";
- 			reg = <0x00500000 0x100000>;
- 			interrupts = <46 IRQ_TYPE_LEVEL_HIGH 2>;
-@@ -128,7 +128,7 @@ usb1: ohci@500000 {
- 			status = "disabled";
- 		};
- 
--		usb2: ehci@600000 {
-+		usb2: usb@600000 {
- 			compatible = "atmel,at91sam9g45-ehci", "usb-ehci";
- 			reg = <0x00600000 0x100000>;
- 			interrupts = <46 IRQ_TYPE_LEVEL_HIGH 2>;
-diff --git a/arch/arm/boot/dts/microchip/usb_a9260_common.dtsi b/arch/arm/boot/dts/microchip/usb_a9260_common.dtsi
-index ae369ff04267..8c3530638c6d 100644
---- a/arch/arm/boot/dts/microchip/usb_a9260_common.dtsi
-+++ b/arch/arm/boot/dts/microchip/usb_a9260_common.dtsi
-@@ -111,7 +111,7 @@ data@7ca0000 {
- 			};
- 		};
- 
--		usb0: ohci@500000 {
-+		usb0: usb@500000 {
- 			num-ports = <2>;
- 			status = "okay";
- 		};
-diff --git a/arch/arm/boot/dts/microchip/usb_a9263.dts b/arch/arm/boot/dts/microchip/usb_a9263.dts
-index bc85d8aaf378..60d7936dc562 100644
---- a/arch/arm/boot/dts/microchip/usb_a9263.dts
-+++ b/arch/arm/boot/dts/microchip/usb_a9263.dts
-@@ -139,7 +139,7 @@ data@7ca0000 {
- 			};
- 		};
- 
--		usb0: ohci@a00000 {
-+		usb0: usb@a00000 {
- 			num-ports = <2>;
- 			status = "okay";
- 		};
--- 
-2.45.2
+On 06.02.2025 20:14, Ryan.Wanner@microchip.com wrote:
+> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+> 
+> This set has clock system adjustments for the AT91 clock system.
+> 
+> The first is to adjust the slow clock driver to account for the updated
+> DT node-naming for clocks and xtals and ensuring the driver is still
+> backwards compatible.
+> 
+> The second is a adding a missing clk_hw struct that is not added into
+> parent_data struct causing a incorrect parent for main_osc.
+> 
+> Ryan Wanner (2):
+>   clk: at91: sckc: Fix parent_data struct for slow osc
+>   clk: at91: sama7d65: Add missing clk_hw to parent_data
+> 
+>  drivers/clk/at91/sama7d65.c |  1 +
+>  drivers/clk/at91/sckc.c     | 12 ++++++------
+>  2 files changed, 7 insertions(+), 6 deletions(-)
+> 
+
+There are boot failures on sama7g5 with this series on top of at91-next and
+the following diff on sama7g5 dts to mimic the sama7d65 use case:
+
+diff --git a/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts
+b/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts
+index 0f5e6ad438dd..1bce9f999431 100644
+--- a/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts
++++ b/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts
+@@ -35,16 +35,6 @@ aliases {
+                i2c2 = &i2c9;
+        };
+
+-       clocks {
+-               slow_xtal {
+-                       clock-frequency = <32768>;
+-               };
+-
+-               main_xtal {
+-                       clock-frequency = <24000000>;
+-               };
+-       };
+-
+        gpio-keys {
+                compatible = "gpio-keys";
+
+@@ -132,6 +122,15 @@ spdif_out: spdif-out {
+        };
+ };
+
++&slow_xtal {
++       clock-frequency = <32768>;
++};
++
++&main_xtal {
++       clock-frequency = <24000000>;
++};
++
++
+ &adc {
+        vddana-supply = <&vddout25>;
+        vref-supply = <&vddout25>;
+diff --git a/arch/arm/boot/dts/microchip/sama7g5.dtsi
+b/arch/arm/boot/dts/microchip/sama7g5.dtsi
+index 17bcdcf0cf4a..3158c2f0b4c0 100644
+--- a/arch/arm/boot/dts/microchip/sama7g5.dtsi
++++ b/arch/arm/boot/dts/microchip/sama7g5.dtsi
+@@ -117,12 +117,12 @@ map1 {
+        };
+
+        clocks {
+-               slow_xtal: slow_xtal {
++               slow_xtal: clk-slowxtal {
+                        compatible = "fixed-clock";
+                        #clock-cells = <0>;
+                };
+
+-               main_xtal: main_xtal {
++               main_xtal: clk-mainxtal {
+                        compatible = "fixed-clock";
+                        #clock-cells = <0>;
+                };
+
+I've identified the following:
+
+
+cpu cpu0: _opp_config_clk_single: failed to set clock rate: -22
+cpufreq: __target_index: Failed to change cpu frequency: -22
+------------[ cut here ]------------
+kernel BUG at drivers/cpufreq/cpufreq.c:1523!
+Internal error: Oops - BUG: 0 [#1] ARM
+Modules linked in:
+CPU: 0 UID: 0 PID: 1 Comm: swapper Not tainted 6.14.0-rc1+ #11
+Hardware name: Microchip SAMA7
+PC is at cpufreq_online+0x8d8/0xa30
+LR is at __wake_up+0x20/0x30
+pc : [<c063cca0>]    lr : [<c0151254>]    psr: a0000013
+sp : e0821d30  ip : 00000000  fp : c0e50508
+r10: c434830c  r9 : c4348204  r8 : c0e97230
+r7 : c4348264  r6 : 00000000  r5 : 000ca511  r4 : c4348200
+r3 : 047e0d67  r2 : 047e0d67  r1 : 00000003  r0 : ffffffea
+Flags: NzCv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment none
+Control: 10c53c7d  Table: 60004059  DAC: 00000051
+Register r0 information: non-paged memory
+Register r1 information: non-paged memory
+Register r2 information: non-paged memory
+Register r3 information: non-paged memory
+Register r4 information: slab kmalloc-512 start c4348200 pointer offset 0
+size 512
+Register r5 information: non-paged memory
+Register r6 information: NULL pointer
+Register r7 information: slab kmalloc-512 start c4348200 pointer offset 100
+size 512
+Register r8 information: non-slab/vmalloc memory
+Register r9 information: slab kmalloc-512 start c4348200 pointer offset 4
+size 512
+Register r10 information: slab kmalloc-512 start c4348200 pointer offset
+268 size 512
+Register r11 information: non-slab/vmalloc memory
+Register r12 information: NULL pointer
+Process swapper (pid: 1, stack limit = 0x08d7ca6b)
+Stack: (0xe0821d30 to 0xe0822000)
+1d20:                                     00000000 e0821d98 c4348208 c0c00250
+1d40: 00000001 00000000 e0821d98 c0e50508 c4048000 00000000 c406f480 c4048000
+1d60: c4341ec0 c0e50508 c4341ec8 c063ce8c c0e593a8 c4048000 c406f4bc c406f480
+1d80: c4048000 c04c8bb0 c406f4cc c40704b0 00000000 047e0d67 3b9aca03 c0e5986c
+1da0: c0e5931c c0e97230 00000000 c063a618 00000000 c4048000 c0e59858 c40d0a10
+1dc0: c0e597f0 c063f80c c0d31830 00000000 00000000 00000000 00000000 00000000
+1de0: 00000000 00000000 e0821df4 00000000 00000000 c0ba32fc 00000000 047e0d67
+1e00: c40d75d8 00000000 c40d0a10 c0e59804 00000000 00000000 c0d31830 c0c2b5a0
+1e20: c0c776b0 c04cc8dc c40d0a10 00000000 c0e59804 c04ca1f4 c40d0a10 c0e59804
+1e40: c40d0a10 00000000 00000000 c04ca47c 00000000 c0be8598 c0e94b28 c0e59804
+1e60: c40d0a10 00000000 00000000 c04ca658 c40d0a10 c0e59804 c40d0a54 c4048000
+1e80: 00000000 c04ca8c4 c0e59804 c04ca834 c406f3c0 c04c8494 c4048000 c406f40c
+1ea0: c4070d30 047e0d67 c0e59804 c4341e00 00000000 c406f3c0 c4341e34 c04c959c
+1ec0: c0c00c14 c0e6c000 c0e59804 c0d2113c c4070800 00000000 c0e6c000 c04cb598
+1ee0: c4048000 c0d2113c c4070800 c010d21c 000003c0 00000000 c407084e c4070800
+1f00: c407084d c013e9e0 c0bee764 000000c0 00000000 00000000 c0d004d0 c4048000
+1f20: 00000006 00000006 373126cc c407086a 00000000 047e0d67 00000012 047e0d67
+1f40: 00000007 c0d42bd8 00000007 c4070800 000000c0 c0d31850 c0d31830 c0d011f4
+1f60: 00000006 00000006 00000000 c0d004d0 e0821f6c c0d004d0 00000000 c0e03380
+1f80: c0905828 00000000 00000000 00000000 00000000 00000000 00000000 c0905844
+1fa0: 00000000 c0905828 00000000 c010014c 00000000 00000000 00000000 00000000
+1fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+1fe0: 00000000 00000000 00000000 00000000 00000013 00000000 00000000 00000000
+Call trace:
+ cpufreq_online from cpufreq_add_dev+0x84/0x94
+ cpufreq_add_dev from subsys_interface_register+0xf0/0x108
+ subsys_interface_register from cpufreq_register_driver+0x13c/0x2e4
+ cpufreq_register_driver from dt_cpufreq_probe+0xb4/0x380
+ dt_cpufreq_probe from platform_probe+0x5c/0xb8
+ platform_probe from really_probe+0xc8/0x2c8
+ really_probe from __driver_probe_device+0x88/0x19c
+ __driver_probe_device from driver_probe_device+0x30/0x104
+ driver_probe_device from __driver_attach+0x90/0x178
+ __driver_attach from bus_for_each_dev+0x6c/0xb4
+ bus_for_each_dev from bus_add_driver+0xcc/0x1ec
+ bus_add_driver from driver_register+0x7c/0x114
+ driver_register from do_one_initcall+0x40/0x21c
+ do_one_initcall from kernel_init_freeable+0x194/0x1f8
+ kernel_init_freeable from kernel_init+0x1c/0x128
+ kernel_init from ret_from_fork+0x14/0x28
+Exception stack(0xe0821fb0 to 0xe0821ff8)
+1fa0:                                     00000000 00000000 00000000 00000000
+1fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+1fe0: 00000000 00000000 00000000 00000000 00000013 00000000
+Code: e3a02000 ebfff87e e3500000 0a000043 (e7f001f2)
+---[ end trace 0000000000000000 ]---
+note: swapper[1] exited with irqs disabled
+Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+---[ end Kernel panic - not syncing: Attempted to kill init!
+exitcode=0x0000000b ]---
+
+
+And this one:
+
+Starting kernel ...
+
+Booting Linux on physical CPU 0x0
+Linux version 6.14.0-rc1+ (claudiu@claudiu-X670E-Pro-RS)
+(arm-none-linux-gnueabihf-gcc (GNU Toolchain for the A-profile Architecture
+10.3-2021.07 (arm-10.29)) 10.3.1 20210621, GNU ld (GNU Toolchain for the
+A-profile Architecture 10.3-2021.07 (arm-10.29)) 2.36.1.20210621) #11 Wed
+Feb 26 11:01:10 EET 2025
+CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=10c53c7d
+CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+OF: fdt: Machine model: Microchip SAMA7G5-EK
+printk: legacy bootconsole [earlycon0] enabled
+Memory policy: Data cache writeback
+cma: Reserved 192 MiB at 0x70000000 on node -1
+Zone ranges:
+  Normal   [mem 0x0000000060000000-0x000000007fffffff]
+Movable zone start for each node
+Early memory node ranges
+  node   0: [mem 0x0000000060000000-0x000000007fffffff]
+Initmem setup node 0 [mem 0x0000000060000000-0x000000007fffffff]
+OF: reserved mem: Reserved memory: No reserved-memory node in the DT
+CPU: All CPU(s) started in SVC mode.
+Kernel command line: console=ttyS0,115200 root=/dev/mmcblk1p2
+rootfstype=ext4 rw rootwait cma=192m atmel.pm_modes=standby,ulp0 earlyprintk
+printk: log buffer data + meta data: 65536 + 204800 = 270336 bytes
+Dentry cache hash table entries: 65536 (order: 6, 262144 bytes, linear)
+Inode-cache hash table entries: 32768 (order: 5, 131072 bytes, linear)
+Built 1 zonelists, mobility grouping on.  Total pages: 131072
+mem auto-init: stack:off, heap alloc:off, heap free:off
+SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+Main crystal frequency not set, using approximate value
+timer_probe: no matching timers found
+Console: colour dummy device 80x30
+sched_clock: 32 bits at 100 Hz, resolution 10000000ns, wraps every
+21474836475000000ns
+
+
+I suspect parent_data in sama7g5_pmc_setup() need to be initialized with zero.
+
+Thank you,
+Claudiu
+
+
 
 
