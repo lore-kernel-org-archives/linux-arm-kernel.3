@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73FE7C19776
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 23:40:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07C66C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 23:45:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q+HFT7bov+RaxIItYhtEfkOy6FPJyEYGXdPDsHKSe8c=; b=cKp0X2RXD/QM+u9eoLaVeqgYrn
-	jEnL1kZRhXk34qkttKpjALh8KBLgZumk36SZa+Qvl4AeAsGjKlpzUOODNT3YZWoVVWo0qIzjgRueF
-	/2Qm7iUlg8karHYgxHnan8jWJoEItUiQBF4O7fpsz15YhArWZ2Aq7mXVvn2OjcKGvNHCckX3ksvVq
-	DmsUl78zei6eYGk4YcHcqsq44cw/4r1uSvX5kVUgYkRlskblgxV6c6TkNi7+wDB2svAs4nA2T1dCh
-	h6dsfDeEDoDqiwmKkdfXT7Um0Nub3IcsBV34ez4ebpWnXr+wqXZAtRfuijQc1BBSQhtv63GW3DvHZ
-	L5OSimxg==;
+	bh=jzMXL280br0vhbgA72KzbwPRmGz6jiYxkQdz6bCZM2k=; b=0eMklJ4tkwI0d3fc4sYjlNDk7y
+	7ejj7dVeAlWyb0sB+/8cEXMkSYNGqe1qu5SBWJhZPEtRYc0N0haUtXCxaah+SIj7BAldz8AFrLA0A
+	G7rNnhkdGsfFL54LfgJ9P33dr0+tibDuEOTu8mQTQqynGWeBqctt+kLurtyZhvlNsfMgsrj2sRqJR
+	FRJae3CC0pBvfqhHq9JB2NHomvdug1ceYc3aDnk4JvJ/hOBcwlm5tG4cVUOf00WUVhgGs8hjbwQx7
+	GBqNyrVR8Wju/g7K6O0nIzQSDfmT3UuwfvbElENdY9oGjjHaRefwvaKnlDlLMfEDuMQTSW8lAJPGW
+	eYqNSnoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnR1C-00000005imv-2Sje;
-	Wed, 26 Feb 2025 23:40:46 +0000
+	id 1tnR59-00000005jgZ-1aGN;
+	Wed, 26 Feb 2025 23:44:51 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnQzg-00000005iek-11c3
+	id 1tnR3a-00000005j55-30xK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 23:39:13 +0000
-Received: from skinsburskii. (unknown [20.236.10.120])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 2DF42210EAC0;
-	Wed, 26 Feb 2025 15:39:09 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 2DF42210EAC0
+	Wed, 26 Feb 2025 23:43:15 +0000
+Received: from skinsburskii. (unknown [20.236.11.29])
+	by linux.microsoft.com (Postfix) with ESMTPSA id A393E210EACA;
+	Wed, 26 Feb 2025 15:43:11 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com A393E210EACA
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1740613150;
-	bh=Q+HFT7bov+RaxIItYhtEfkOy6FPJyEYGXdPDsHKSe8c=;
+	s=default; t=1740613392;
+	bh=jzMXL280br0vhbgA72KzbwPRmGz6jiYxkQdz6bCZM2k=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JJJRcjPE/QIMIWzQnEoRiW6U1WnIINrXiVvJWQ6SHe0J6Saw4V1bdRSbUnD4lmaE3
-	 d6c7uPQ45dx0pqG+9B6BE9SrlLpyhUGtOqtctbhnWQWH2n1fnDbKqauHNqamkMGQNK
-	 aWNXEuKaqfgxLl6RqOOpp/XMUGVS6vSKorL8G/Xo=
-Date: Wed, 26 Feb 2025 15:39:07 -0800
+	b=ar/9C9wjmLoKfaSfU4jE6OWNYEhLvO08kHxOvO1dxpVy28cVQhh0RP96Db9T5SWwU
+	 j3V/uYXFAQY97/T/kAINpXql5Jj4zG/wIuxKyi2pjR1LPPnaXEGObKUM8vLqnHf2Mc
+	 0EGXqC4phb3oOqEXIQmWqSTjHb1SfUFSUFK8Er3o=
+Date: Wed, 26 Feb 2025 15:43:09 -0800
 From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
 To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
 Cc: linux-hyperv@vger.kernel.org, x86@kernel.org,
@@ -57,17 +57,18 @@ Cc: linux-hyperv@vger.kernel.org, x86@kernel.org,
 	prapal@linux.microsoft.com, muislam@microsoft.com,
 	anrayabh@linux.microsoft.com, rafael@kernel.org, lenb@kernel.org,
 	corbet@lwn.net
-Subject: Re: [PATCH v5 07/10] Drivers: hv: Introduce per-cpu event ring tail
-Message-ID: <Z7-mG7X-cyZAKa7V@skinsburskii.>
+Subject: Re: [PATCH v5 08/10] x86: hyperv: Add mshv_handler irq handler and
+ setup function
+Message-ID: <Z7-nDUe41XHyZ8RJ@skinsburskii.>
 References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740611284-27506-8-git-send-email-nunodasneves@linux.microsoft.com>
+ <1740611284-27506-9-git-send-email-nunodasneves@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <1740611284-27506-8-git-send-email-nunodasneves@linux.microsoft.com>
+In-Reply-To: <1740611284-27506-9-git-send-email-nunodasneves@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_153912_331576_0E55EAC7 
-X-CRM114-Status: GOOD (  20.15  )
+X-CRM114-CacheID: sfid-20250226_154314_814379_526979C2 
+X-CRM114-Status: GOOD (  17.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,65 +83,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 26, 2025 at 03:08:01PM -0800, Nuno Das Neves wrote:
-> Add a pointer hv_synic_eventring_tail to track the tail pointer for the
-> SynIC event ring buffer for each SINT.
-> 
-> This will be used by the mshv driver, but must be tracked independently
-> since the driver module could be removed and re-inserted.
+On Wed, Feb 26, 2025 at 03:08:02PM -0800, Nuno Das Neves wrote:
+> This will handle SYNIC interrupts such as intercepts, doorbells, and
+> scheduling messages intended for the mshv driver.
 > 
 > Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
 > Reviewed-by: Wei Liu <wei.liu@kernel.org>
+> Reviewed-by: Tianyu Lan <tiala@microsoft.com>
 > ---
->  drivers/hv/hv_common.c | 34 ++++++++++++++++++++++++++++++++--
->  1 file changed, 32 insertions(+), 2 deletions(-)
+>  arch/x86/kernel/cpu/mshyperv.c | 9 +++++++++
+>  drivers/hv/hv_common.c         | 5 +++++
+>  include/asm-generic/mshyperv.h | 1 +
+>  3 files changed, 15 insertions(+)
 > 
-> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
-> index 252fd66ad4db..2763cb6d3678 100644
-> --- a/drivers/hv/hv_common.c
-> +++ b/drivers/hv/hv_common.c
-> @@ -460,6 +478,7 @@ void __init ms_hyperv_late_init(void)
->  int hv_common_cpu_init(unsigned int cpu)
->  {
->  	void **inputarg, **outputarg;
-> +	u8 **synic_eventring_tail;
->  	u64 msr_vp_index;
->  	gfp_t flags;
->  	const int pgcount = hv_output_page_exists() ? 2 : 1;
-> @@ -472,8 +491,8 @@ int hv_common_cpu_init(unsigned int cpu)
->  	inputarg = (void **)this_cpu_ptr(hyperv_pcpu_input_arg);
+> diff --git a/arch/x86/kernel/cpu/mshyperv.c b/arch/x86/kernel/cpu/mshyperv.c
+> index 0116d0e96ef9..616e9a5d77b4 100644
+> --- a/arch/x86/kernel/cpu/mshyperv.c
+> +++ b/arch/x86/kernel/cpu/mshyperv.c
+> @@ -107,6 +107,7 @@ void hv_set_msr(unsigned int reg, u64 value)
+>  }
+>  EXPORT_SYMBOL_GPL(hv_set_msr);
 >  
->  	/*
-> -	 * hyperv_pcpu_input_arg and hyperv_pcpu_output_arg memory is already
-> -	 * allocated if this CPU was previously online and then taken offline
-> +	 * The per-cpu memory is already allocated if this CPU was previously
-> +	 * online and then taken offline
->  	 */
->  	if (!*inputarg) {
->  		mem = kmalloc(pgcount * HV_HYP_PAGE_SIZE, flags);
-> @@ -485,6 +504,17 @@ int hv_common_cpu_init(unsigned int cpu)
->  			*outputarg = (char *)mem + HV_HYP_PAGE_SIZE;
->  		}
+> +static void (*mshv_handler)(void);
+>  static void (*vmbus_handler)(void);
+>  static void (*hv_stimer0_handler)(void);
+>  static void (*hv_kexec_handler)(void);
+> @@ -117,6 +118,9 @@ DEFINE_IDTENTRY_SYSVEC(sysvec_hyperv_callback)
+>  	struct pt_regs *old_regs = set_irq_regs(regs);
 >  
-> +		if (hv_root_partition()) {
-> +			synic_eventring_tail = (u8 **)this_cpu_ptr(hv_synic_eventring_tail);
-> +			*synic_eventring_tail = kcalloc(HV_SYNIC_SINT_COUNT,
-> +							sizeof(u8), flags);
-> +
+>  	inc_irq_stat(irq_hv_callback_count);
+> +	if (mshv_handler)
+> +		mshv_handler();
 
-Redundant empty line ^^^
-> +			if (unlikely(!*synic_eventring_tail)) {
-> +				kfree(mem);
-> +				return -ENOMEM;
-> +			}
-> +		}
-> +
->  		if (!ms_hyperv.paravisor_present &&
->  		    (hv_isolation_type_snp() || hv_isolation_type_tdx())) {
->  			ret = set_memory_decrypted((unsigned long)mem, pgcount);
+Can mshv_handler be defined as a weak symbol doing nothing instead
+of defining it a null pointer?
+This should allow to simplify this code and get rid of
+hv_setup_mshv_handler, which looks redundant.
 
 Reviewed-by: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
 
+> +
+>  	if (vmbus_handler)
+>  		vmbus_handler();
+>  
+> @@ -126,6 +130,11 @@ DEFINE_IDTENTRY_SYSVEC(sysvec_hyperv_callback)
+>  	set_irq_regs(old_regs);
+>  }
+>  
+> +void hv_setup_mshv_handler(void (*handler)(void))
+> +{
+> +	mshv_handler = handler;
+> +}
+> +
+>  void hv_setup_vmbus_handler(void (*handler)(void))
+>  {
+>  	vmbus_handler = handler;
+> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
+> index 2763cb6d3678..f5a07fd9a03b 100644
+> --- a/drivers/hv/hv_common.c
+> +++ b/drivers/hv/hv_common.c
+> @@ -677,6 +677,11 @@ void __weak hv_remove_vmbus_handler(void)
+>  }
+>  EXPORT_SYMBOL_GPL(hv_remove_vmbus_handler);
+>  
+> +void __weak hv_setup_mshv_handler(void (*handler)(void))
+> +{
+> +}
+> +EXPORT_SYMBOL_GPL(hv_setup_mshv_handler);
+> +
+>  void __weak hv_setup_kexec_handler(void (*handler)(void))
+>  {
+>  }
+> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+> index 1f46d19a16aa..a05f12e63ccd 100644
+> --- a/include/asm-generic/mshyperv.h
+> +++ b/include/asm-generic/mshyperv.h
+> @@ -208,6 +208,7 @@ void hv_setup_kexec_handler(void (*handler)(void));
+>  void hv_remove_kexec_handler(void);
+>  void hv_setup_crash_handler(void (*handler)(struct pt_regs *regs));
+>  void hv_remove_crash_handler(void);
+> +void hv_setup_mshv_handler(void (*handler)(void));
+>  
+>  extern int vmbus_interrupt;
+>  extern int vmbus_irq;
 > -- 
 > 2.34.1
 > 
