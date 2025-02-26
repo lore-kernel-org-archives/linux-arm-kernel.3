@@ -4,113 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C8BEC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 00:28:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85BFAC021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 00:30:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TtkdEm0DhE9kMHrzm4v1hwSlsrJYtgXqAtJA7aT6OdM=; b=SrnRzq1Y5m+cxD1VOaIJCSzceh
-	0ubD0IKOzAsSVsROpk1M8psja5HvKCjmRmEnI9SUyQUd6Qf3jFwRYjca+ZkBOJNRzASrzqFBo2Amq
-	0Svjy/lt5C4Z80XV7aNPU6LL3JKKjuboPeGuUemjIFGX0JGeDb/0gPy7u0AYkPuCnneQAE+0QOkQb
-	YVkvl6gDJ42bk7gXgSc6gDeF/dgMraEL7y6rQ73ePFcmeSCoooD23CB9OER6m4fhHEdeo+PWa+P7n
-	/MhdtGKmbq6/3FuXPI21UPG39ZDU24Akj7x8ykW0sImLhSGuFv6mIKyqFEQCAMI8QPi/8w0SNkKzc
-	tOMTBVew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HAdIv23vtdyhU1Wievr5YncZEjjI/nIoxYj3wcoEoAc=; b=kegYy00vqRiK4ibzKTyC1b7YtM
+	hZ2Ap8klZ7oeLDYJ7gRqG95Q53k2FhimjJ5dDRK9gLYwBOm/bI0z8GF4dwbL94eznHFJYVUVPEIan
+	P4hB0Aa3QbumxNj8+lGRk7qUgwy1IRyftnNDjFK39mzPlojI/89tBtaZsmax/rcGzJ7fAoYi17dLf
+	jHifAJrM2zeMkM3xAtcmqmA79PYiQItNKtyfj4vCs2UUN2QcjVql45Pg+neY9TjRAlmSJUYqBxYVD
+	kGzbiKY6pKnwKdEYP2L2x3WIMdSg8gEzpCo+iJK+bhNb3pKd9D7v70joENErVCTYPTjkr0nRcoqkX
+	7jqXRbnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn5Hh-00000001sEx-10D6;
-	Wed, 26 Feb 2025 00:28:21 +0000
-Received: from mail-oi1-x22d.google.com ([2607:f8b0:4864:20::22d])
+	id 1tn5JB-00000001sMm-3zOH;
+	Wed, 26 Feb 2025 00:29:54 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn5G9-00000001s1b-2te8
+	id 1tn5Gw-00000001s6j-2Dl9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 00:26:47 +0000
-Received: by mail-oi1-x22d.google.com with SMTP id 5614622812f47-3f408052bdcso2194436b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 16:26:45 -0800 (PST)
+	Wed, 26 Feb 2025 00:27:35 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2fc2b258e82so13296464a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 16:27:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1740529604; x=1741134404; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=TtkdEm0DhE9kMHrzm4v1hwSlsrJYtgXqAtJA7aT6OdM=;
-        b=QF0xHGMP8Royj7T02I3Uhmkf6L5iXn0ubhIM/Egb93yQKuq+cvihXBF2f4bxkHI0Fy
-         qwkcsO3wYUeQa8IIzDTNcgM4BGIBWXmZWDqCjLNQ8M+oPF5Fv/Ii/w0xZWr9CIP4enYA
-         NzP+BqIygmoNuppO1o/45DG9m3LMVo//DlzW9R6U5re0cgABcKWfsdemTJQf9Ykv8mkz
-         e0ESNOL5jUOzWxoVpyY7bZOSPWQT5V4BXmTq0j6yovGE2xl/KQ+OZKZN9+cv9k/GVdJ3
-         Qa9MnW8DV0t05wV8GH8YbYYKS3yPvTCgyLydODUSFYt4rTXuAGmTHYIcYMgXnMmoFCS/
-         1/gg==
+        d=google.com; s=20230601; t=1740529653; x=1741134453; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=HAdIv23vtdyhU1Wievr5YncZEjjI/nIoxYj3wcoEoAc=;
+        b=3LCxbC10dJsNohIs3LlPVFrPr2jfywPlyutOOka1T05aUuN8ZYf8u+I0lDx2qW316T
+         ONtKtcE2PQ/kfHglRJDKBsLD35SgHsLX1Hdgw08xoQLmXKddxfIcwHafwDGUCSQrhiAb
+         ptq2BNcsdSeufldokbS0I2siNqb/3iQeDPsifkAM+JSh+sBLaNgjVBD2FMNJo/QLRZxY
+         DFgdipMsX4H3SUyjvK72Z+kd+81jq2WPqaSsL1F2wj0gbbNMMk+h0cIhTz3O6ekMBEpI
+         PnI5EBlhErfC13TLKBQB/Ugj31pbnKCtNhGv3v14LqLWCkSYHK9RbFtVWYhrvIZcxQJ1
+         9dFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740529604; x=1741134404;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=TtkdEm0DhE9kMHrzm4v1hwSlsrJYtgXqAtJA7aT6OdM=;
-        b=D2GOjPNTKwoQCPnUEBrLTbATwN0UVbz/CST4kd98mxclGtFpuTlOlg/wv7s9bXo8eF
-         AiUeVZkAWkX4Ro6IrJDtME8bYhsAShoihrXOsrBGqgcVqLuXf13PZoR/+koBEGn2OiAs
-         gf04we0+ePAVF8d9oggrAFCN9uGL1OjWdJmfSc5ecrXlOFiKfsc8Vd5j4WYpr6bd7yBW
-         ZRuv7a1/Kaf+sDkA0kwhknYoCD2ZiH+hPbnt2rBppxevTcLjDE3/tfi5Kz41CkeW1yts
-         jmOj2IZzO6Myw/42XLtPhVP/KacIy8etHWjLmszMelS7+ykNqzAoPsuCp2gXpSS2YWhp
-         B8og==
-X-Forwarded-Encrypted: i=1; AJvYcCWibAbOKnjEyRjRt5SHzQE0kvH/xZ6wGw8+F2uMKs7YOWu279+nuMeD5HzD6nUWYnuZon9/6oYVE8S7qbikZZzI@lists.infradead.org
-X-Gm-Message-State: AOJu0YwURSWQJslAQQh7LueEmbn472+1aA1jrGP7rvk09MWqU+Ih7aSv
-	V6pTIE/9Plcg3zyZ3FiKAAqQBkK/FiwYuvoyGlvmg4LCMhIno8Tkv9mHzVR8F8Y=
-X-Gm-Gg: ASbGnctSCQ8FrD2g9dWBVd7A+xn/Pjj4UGSNwGNzJN3uekmUg2lpPi+i+px9PME3EVH
-	DkvIpTd2c3cbTFGVQBcMBS2ioYsoyowuzIeCArI0Y/KB2GW0Kf76NBqsYPUuRrTFT73L/X0kfmw
-	C8DrSYWzEPEQSmFzG4lUDJ4EyyGu1VZlmhxxQ00MwioTEZr68hj98RGQgQOq4/R/+yO95Z1AK2V
-	pkYCIC8XZ3UJw0nSoDDZd2Fv7khn3wPyiLtN1pgSqbAZRpWal/Y9b9CftJUWWvg4WuQHPlRbdPH
-	/dOyy6Ktc/Y3sBS0HDt3j4unkhCw1fDRHpelMgZXcCtAW5CgCnnEwu685gSdcbc=
-X-Google-Smtp-Source: AGHT+IHrEzlhOgkq+zDuK43ZJTHn/TAq6eat4Ph04G840iIXAUXagf0yq5sPkcY8nyRgOxiDTjBreA==
-X-Received: by 2002:aca:1a0e:0:b0:3f4:ad6:5190 with SMTP id 5614622812f47-3f547de878fmr763766b6e.2.1740529604637;
-        Tue, 25 Feb 2025 16:26:44 -0800 (PST)
-Received: from [192.168.0.142] (ip98-183-112-25.ok.ok.cox.net. [98.183.112.25])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-3f541c5bce1sm510105b6e.46.2025.02.25.16.26.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 25 Feb 2025 16:26:43 -0800 (PST)
-Message-ID: <0de7b0ac-eca5-49ba-b1b3-f249655f3646@baylibre.com>
-Date: Tue, 25 Feb 2025 18:26:40 -0600
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 03/10] iio: adc: add helpers for parsing ADC nodes
-To: Matti Vaittinen <mazziesaccount@gmail.com>,
- Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen
- <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Daniel Scally <djrscally@gmail.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Hugo Villeneuve <hvilleneuve@dimonoff.com>, Nuno Sa <nuno.sa@analog.com>,
- Javier Carrasco <javier.carrasco.cruz@gmail.com>,
- Guillaume Stols <gstols@baylibre.com>,
- Olivier Moysan <olivier.moysan@foss.st.com>,
- Dumitru Ceclan <mitrutzceclan@gmail.com>,
- Trevor Gamblin <tgamblin@baylibre.com>,
- Matteo Martelli <matteomartelli3@gmail.com>,
- Alisa-Dariana Roman <alisadariana@gmail.com>,
- Ramona Alexandra Nechita <ramona.nechita@analog.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev
-References: <cover.1740421248.git.mazziesaccount@gmail.com>
- <23f5ee3e3bf7179930d66c720d5c4c33cdbe8366.1740421248.git.mazziesaccount@gmail.com>
-Content-Language: en-US
-From: David Lechner <dlechner@baylibre.com>
-In-Reply-To: <23f5ee3e3bf7179930d66c720d5c4c33cdbe8366.1740421248.git.mazziesaccount@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+        d=1e100.net; s=20230601; t=1740529653; x=1741134453;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=HAdIv23vtdyhU1Wievr5YncZEjjI/nIoxYj3wcoEoAc=;
+        b=sRK0ZwhBoxmlShLzBcxQ3Qt6mMs9H0lrmnk7T9hhYQjm5bxvKQwqL2Ha7VNmIkLGLi
+         Giwj8q2ZaS6Hfwjvs9xxUl5rpUQz25iyIUcnipUmK6jPSnNbkb0/7TB6oCzfssbEyLM3
+         2/RGZ/WYsSR5A0Om8kZ262YnU7p3+PMY1Gy/RveFkpUz74HnwgU7coZ2okGdJ+X/uueI
+         6CTspmtErtC0NwlqcJohBryCaZWKGRUCfmbg6HlN8P5BPLfWBvriz9DyfDAlvAcOjAPP
+         GG9UJcyC7/b4cojoA2oX/N4JLBnZGcjYcJER3apLLcsGjU7BqXZl9rvNAHv1V6QE/omL
+         gpwQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVCAN+NVmYnOwPPqsfezb+DODt8dn/bE+E3lAQ93q50ZviPazABM/plwragAq/iZLs10HpL/sC00u3dyzaOTQoe@lists.infradead.org
+X-Gm-Message-State: AOJu0YzomTY+xiOsZV+1gjQsp5UxcwDpZ7u1HljDhIs3owuY1ubKMIjZ
+	k9I4jKODyy9f2+rUFySWyiGZSQUbk1aUn6OerEg9VYjpOpKKZInQLUI0LebYlkOGh2S4kTqBH5n
+	SLQ==
+X-Google-Smtp-Source: AGHT+IHOUZMQJO44VDHKi6ofhJ07QZ2dZ6izn0Wyr9X1ZaSMCJ5d0/qSAVcldTsRp+dWt1bBYLTGrWWvHEg=
+X-Received: from pjbsb8.prod.google.com ([2002:a17:90b:50c8:b0:2d8:8340:8e46])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:5483:b0:2ee:f076:20f1
+ with SMTP id 98e67ed59e1d1-2fe7e218ab9mr2765842a91.0.1740529653271; Tue, 25
+ Feb 2025 16:27:33 -0800 (PST)
+Date: Tue, 25 Feb 2025 16:27:32 -0800
+In-Reply-To: <6475f9c7-304a-4e0b-8000-3dc5c8e718e9@redhat.com>
+Mime-Version: 1.0
+References: <20250224235542.2562848-1-seanjc@google.com> <20250224235542.2562848-2-seanjc@google.com>
+ <6475f9c7-304a-4e0b-8000-3dc5c8e718e9@redhat.com>
+Message-ID: <Z75f9GuA9NfKo37c@google.com>
+Subject: Re: [PATCH 1/7] KVM: x86: Free vCPUs before freeing VM state
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Aaron Lewis <aaronlewis@google.com>, 
+	Jim Mattson <jmattson@google.com>, Yan Zhao <yan.y.zhao@intel.com>, 
+	Rick P Edgecombe <rick.p.edgecombe@intel.com>, Kai Huang <kai.huang@intel.com>, 
+	Isaku Yamahata <isaku.yamahata@intel.com>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_162645_735430_C45074AC 
-X-CRM114-Status: GOOD (  21.31  )
+X-CRM114-CacheID: sfid-20250225_162734_588522_09847413 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,44 +101,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/24/25 12:33 PM, Matti Vaittinen wrote:
-> There are ADC ICs which may have some of the AIN pins usable for other
-> functions. These ICs may have some of the AIN pins wired so that they
-> should not be used for ADC.
+On Wed, Feb 26, 2025, Paolo Bonzini wrote:
+> On 2/25/25 00:55, Sean Christopherson wrote:
+> > Free vCPUs before freeing any VM state, as both SVM and VMX may access
+> > VM state when "freeing" a vCPU that is currently "in" L2, i.e. that needs
+> > to be kicked out of nested guest mode.
+> > 
+> > Commit 6fcee03df6a1 ("KVM: x86: avoid loading a vCPU after .vm_destroy was
+> > called") partially fixed the issue, but for unknown reasons only moved the
+> > MMU unloading before VM destruction.  Complete the change, and free all
+> > vCPU state prior to destroying VM state, as nVMX accesses even more state
+> > than nSVM.
 > 
-> (Preferred?) way for marking pins which can be used as ADC inputs is to
-> add corresponding channels@N nodes in the device tree as described in
-> the ADC binding yaml.
+> I applied this to kvm-coco-queue, I will place it in kvm/master too unless
+> you shout.
 
-I think "preferred?" is the key question here. Currently, it is assumed
-that basically all IIO bindings have channels implicitly even if the
-binding doesn't call them out. It just means that there is nothing
-special about the channel that needs to be documented, but the channel
-is still there.
+Depends on what "this" is :-)
 
-Similarly, on several drivers we added recently that make use of adc.yaml
-(adi,ad7380, adi,ad4695) we wrote the bindings with the intention that
-if a channel was wired in the default configuration, then you would just
-omit the channel node for that input pin. Therefore, this helper couldn't
-be used by these drivers since we always have a fixed number of channels
-used in the driver regardless of if there are explicit channel nodes in
-the devicetree or not.
-
-In my experience, the only time we don't populate all available channels
-on an ADC, even if not used, is in cases like differential chips where
-any two inputs can be mixed and matched to form a channel. Some of these,
-like adi,ad7173-8 would have 100s or 1000s of channels if we tried to
-include all possible channels. In those cases, we make an exception and
-use a dynamic number of channels based on the devicetree. But for chips
-that have less than 20 total possible channels or so we've always
-provided all possible channels to userspace. It makes writing userspace
-software for a specific chip easier if we can always assume that chip
-has the same number of channels.
-
-> 
-> Add couple of helper functions which can be used to retrieve the channel
-> information from the device node.
-> 
-> Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
-> 
+My plan/hope is to land patches 1 and 2 in 6.14, i.e. in kvm/master, but the
+rest are firmly 6.15 IMO.  And based on Yan's feedback, I'm planning on adding a
+few more cleanups (though I think they're fully additive, i.e. can go on top).
 
