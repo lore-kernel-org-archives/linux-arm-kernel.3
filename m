@@ -4,68 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A467C19777
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 11:58:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C581C19778
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 11:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mRmd87Bt4r/gRs/8A2tyjVoJarc357y7FoApmSgOrbg=; b=t+PJDy9UMBBimc5HKhNqMdsdwI
-	qhWff+RYKEc5T939mz6OjOCN7F5m9Yi9rW1EmgyM8K9Ymon98IF7VBXO9dYE9AlA7b6pwowCuLlGB
-	lh/XCmL8acCCNMFFgZF/7vG6g/CCR7R483s+2qopkp2RXzqfY/8y95tctK2hxDOINw4SkkA1ru2+6
-	8zf7u41K11UuzNpO4vkZDEQL1tlRgyHzjVRUGYC5HuywuNY27DP1jiBim4xH7R1Eo+1qwYR9nqYOK
-	u1smfD0ZQrBITGNA6xYQczDPwEYu3pDY4jy/wsDxjTLRFyvAW5CuKkewow9Zof3JNVSf29K0gXAe0
-	J6tacipQ==;
+	bh=DUztjXD5+5m/s1FCP530wFC3zgs4wmP0Xguy/Fjus5A=; b=cde2Khunkn94yzH7yoiELkuC10
+	bn5mCoH4E0kqnQlrojlcr5sodhFGRdohkL+gmOsJie3MjkafEzEC0L+dfEaOKgYEb/dqFmabT81ev
+	TP1PYAmvZgQAYrKSgc20u3Bk4ViYG9Q1E/Qph6IATagWAulmWXOGwuCOmDy7TkP50yQl1C8ffscFl
+	fpyYqyHU+6ZZOz9e2eQdLwv6SvJka4akQ9JpWARQ5YdV14aHRqvIsDuLcXfPQURa0pPyo7JjEEJ2u
+	zyIuUnDXvTZDlDe9a2kN17TNPs0VHrwkBVgJT6DsQy9hz7NuysrjAzW5QBGzvflIEmR+COINb/x7L
+	fKeJhpHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnG34-00000003ZR3-1DOh;
-	Wed, 26 Feb 2025 11:57:58 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tnG36-00000003ZRd-0D29;
+	Wed, 26 Feb 2025 11:58:00 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnEo4-00000003KMJ-3I7N;
-	Wed, 26 Feb 2025 10:38:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=mRmd87Bt4r/gRs/8A2tyjVoJarc357y7FoApmSgOrbg=; b=jQC9vgkx1+0En9VesSDoKW11QF
-	BmNxkXGLOF8S0n62Y3KY7U7t3vdTq+yN6cRLw61ZoG/U6DLQiSBxemp0n+xUBkAEBFNhYqZ3ADFMh
-	ChXOQe9ujdrerGH8jiLvisoMfcR+rYYx/2gHsSvAnTulNvyJlQo2vUvpwolh6GIsn0gBEOMb3udSz
-	D+VmoOwmU9EMnDDXRYC22pJAm6u2WaSjq84Aucra6/hHtJrviNhxT5UFz/1CAzW8GjCzoBxnVB3uK
-	Q8f2p5lKQURAgUJZe7gbGqafZRNG4yTGclhAwSy0zoL8wullQu4u42sE3utdawakSmkMFEVCLP8cs
-	uUwjyURQ==;
-Received: from i53875b47.versanet.de ([83.135.91.71] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tnEo3-0006aJ-Fw; Wed, 26 Feb 2025 11:38:23 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: vkoul@kernel.org,
-	kishon@kernel.org
-Cc: heiko@sntech.de,
-	linux-phy@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	quentin.schulz@cherry.de,
-	sebastian.reichel@collabora.com,
-	christophe.jaillet@wanadoo.fr,
-	Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: [PATCH v2 2/2] phy: rockchip: usbdp: re-init the phy on orientation-change
-Date: Wed, 26 Feb 2025 11:38:10 +0100
-Message-ID: <20250226103810.3746018-3-heiko@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250226103810.3746018-1-heiko@sntech.de>
-References: <20250226103810.3746018-1-heiko@sntech.de>
+	id 1tnF1h-00000003N1z-3dhz
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Feb 2025 10:52:31 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51Q9upG4012966;
+	Wed, 26 Feb 2025 10:52:22 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	DUztjXD5+5m/s1FCP530wFC3zgs4wmP0Xguy/Fjus5A=; b=SLdBizUeOh2hJlsX
+	4xcu8JMy7R3N22UZFTiJDqpHWQI9NfHGPHY2QFtYYDktpaLpJoF8NINnSFnmq/lk
+	MlDP2CDgHKJnxMp95ExzB5v5M18+o9GXoztucfPhYs4Dk/2XDCW8L8GKTLEyhpkI
+	c//qYwuqfyuOpqdr8l5nQYGf1rrEMeMGjCq7nNJI3ePaMha0RGqSRRN7ti4a/9W5
+	E4bb1B8P1dK1qYE4H9Wk4BX0l+AToupG7OklMwp2h7NVX0JH70W4PDUtzWQTTG1X
+	xTA/XVj42wM+TlxNMJI//NHAEyNoU3pONyjZ34crdHuGVPgx3P4FLGyr7LaDCWje
+	XMmCdg==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 451prk1pb6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 26 Feb 2025 10:52:22 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51QAqLJ4022893
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 26 Feb 2025 10:52:21 GMT
+Received: from [10.239.133.114] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 26 Feb
+ 2025 02:52:14 -0800
+Message-ID: <593e1777-a033-4922-93c4-c056e6b9bf4c@quicinc.com>
+Date: Wed, 26 Feb 2025 18:52:11 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/5] dt-bindings: arm: Add Coresight device Trace NOC
+ definition
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+        Suzuki K Poulose
+	<suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark
+	<james.clark@linaro.org>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+CC: <kernel@quicinc.com>, <linux-kernel@vger.kernel.org>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <kernel@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>
+References: <20250221-trace-noc-driver-v1-0-0a23fc643217@quicinc.com>
+ <20250221-trace-noc-driver-v1-1-0a23fc643217@quicinc.com>
+ <edfd6c6a-65d2-42f1-8225-0808359dd375@kernel.org>
+Content-Language: en-US
+From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+In-Reply-To: <edfd6c6a-65d2-42f1-8225-0808359dd375@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: hQCCYVakcTyKxFSaQTAjeLYp6z8GsEc8
+X-Proofpoint-ORIG-GUID: hQCCYVakcTyKxFSaQTAjeLYp6z8GsEc8
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-26_02,2025-02-26_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0
+ lowpriorityscore=0 priorityscore=1501 suspectscore=0 impostorscore=0
+ phishscore=0 spamscore=0 mlxscore=0 mlxlogscore=973 malwarescore=0
+ adultscore=0 clxscore=1015 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2502100000 definitions=main-2502260086
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_023824_825074_74A34770 
-X-CRM114-Status: GOOD (  20.68  )
+X-CRM114-CacheID: sfid-20250226_025230_026833_DCA18367 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,63 +113,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-Until now the usbdp in the orientation-handler set the new lane setup in
-its internal state variables and adapted the sbu gpios as needed.
-It never actually updated the phy itself though, but relied on the
-controlling usb-controller to disable and re-enable the phy.
 
-And while on the vendor-kernel, I could see that on every unplug the dwc3
-did go to its suspend and woke up on the next device plug-in event,
-thus toggling the phy as needed, this does not happen in all cases and we
-should not rely on that behaviour.
+On 2/22/2025 6:47 PM, Krzysztof Kozlowski wrote:
+> On 21/02/2025 08:40, Yuanfang Zhang wrote:
+>> Adds new coresight-tnoc.yaml file describing the bindings required
+>> to define Trace NOC in the device trees.
+>>
+>> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+> 
+> 
+> So you just sent the same v1, ignoring previous review. That's not how
+> it works.
+> 
+sorry for this incorrect process. because i just update --to-cc list and no other
+change, i forced the version to V1, hoped it would work like resend,
+but the result was not as expected.
 
-This results in the usb2 always working, as it's not affected by the
-orientation, but usb3 only working in one direction right now.
-
-So similar to how the update works in the power-on callback, just re-init
-the phy if it's already running when the orientation-event happens.
-
-Both the power-on/-off functions as well as the orientation-set callback
-work with the usbdp-mutex held, so can't conflict.
-
-The behaviour is similar to how the qcom qmp phys handle the orientaton
-re-init - by re-initting the phy.
-
-Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
----
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 960cad5b01a9..c07b79da5b6b 100644
---- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
-+++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -1277,6 +1277,7 @@ static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
- 				 enum typec_orientation orien)
- {
- 	struct rk_udphy *udphy = typec_switch_get_drvdata(sw);
-+	int ret = 0;
- 
- 	mutex_lock(&udphy->mutex);
- 
-@@ -1292,9 +1293,13 @@ static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
- 	rk_udphy_set_typec_default_mapping(udphy);
- 	rk_udphy_usb_bvalid_enable(udphy, true);
- 
-+	/* re-init the phy if already on */
-+	if (udphy->status != UDPHY_MODE_NONE)
-+		ret = rk_udphy_init(udphy);
-+
- unlock_ret:
- 	mutex_unlock(&udphy->mutex);
--	return 0;
-+	return ret;
- }
- 
- static void rk_udphy_orien_switch_unregister(void *data)
--- 
-2.47.2
+> Provide proper changelog, implement ENTIRE feedback and do no ask
+> maintainers do point the same issues TWICE.
+> 
+> NAK
+> 
+> <form letter>
+> It seems my or other reviewer's previous comments were not fully
+> addressed. Maybe the feedback got lost between the quotes, maybe you
+> just forgot to apply it. Please go back to the previous discussion and
+> either implement all requested changes or keep discussing them.
+> 
+> Thank you.
+> </form letter>
+> 
+> Best regards,
+> Krzysztof
+> 
 
 
