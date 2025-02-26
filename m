@@ -4,54 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84BB0C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 17:23:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EB3AC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 17:26:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iGdWGd+u9Zw8XuMYIbWjrQD+w6VWtvu/cVGoEvur0E0=; b=L08YEVZkojmwQyVd5fMa1f/gVG
-	dGKc79IZEXxdJu++bZKuYxFTjjehsjCoetAGvLGpxzlwi5GFidyGg/Fok08w5CuU2tpeGOPuid7du
-	nDnWZCahwswN5/Lo2RqyhwRMxwU8lR2JJSz2uWrgTqvMqh+TsrvDxRfTFVyocTmUWEaG35kClLkKb
-	phkOVTegbieuoUlJYfIXRdaBKHtP80qWo0m4Cs4jEROqq5JV0Vr0gcHQ1FBALWVzZ3j8RXidc21RG
-	DjKR46JAez4v9yZ6urs9UHbl2m0HRHP2qYDwX9G9J3sPbq9pzJsPNUiFbr3EBSMgK1qMDJUufG6NQ
-	pRgf+B8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZjI2DTiQMlxYIRwQH9QR/Cwawyd3pO3A4ovumf0p0Ys=; b=oIqBWqdk5EICyHo2KVNpOdyj6b
+	Vp6RFV6MEm1L1+pN3pCxq4/gyDoMuemdNiRN+WwLN5rYagDtrZgIN+9tb9QhxVcLwN1pK1gjopDZu
+	fZidUAHbS34i/IbSt6OWu3OuXTo8SJJm6aBsaUO3ZtxOiy1J5HMShaJGnDDnjfOYYzvLZQyuPqHwt
+	tJLOTTQGDx++SgFjQSbQkdwGf9s8anZkIa8x9Np7zE9r2X1jlsXNOtiLp+pNlgYx0te2HQnb+RzmX
+	WWhQ3r02UaJhg78WUvTCo9IG2HsJ8/VHfjFVZ3OcbvR0zLZJ45aJDCB8hD8vbelsWrJsYJID8m3Dd
+	6xoHNang==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnL7w-00000004iPR-2rE5;
-	Wed, 26 Feb 2025 17:23:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnL4h-00000004hWl-2S70
+	id 1tnLAy-00000004irn-2Zku;
+	Wed, 26 Feb 2025 17:26:28 +0000
+Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnL9R-00000004iiX-1Qhu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 17:20:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 312EA1516;
-	Wed, 26 Feb 2025 09:20:14 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4536D3F673;
-	Wed, 26 Feb 2025 09:19:56 -0800 (PST)
-Date: Wed, 26 Feb 2025 17:19:53 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Rob Herring <robh@kernel.org>
-Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, cristian.marussi@arm.com,
-	Sudeep Holla <sudeep.holla@arm.com>, saravanak@google.com,
-	krzk+dt@kernel.org, conor+dt@kernel.org, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [RFC] dt-bindings: firmware: scmi: Introduce compatible string
-Message-ID: <Z79NOeyWzfRio8qs@bogus>
-References: <20250226094456.2351571-1-peng.fan@oss.nxp.com>
- <20250226160945.GA2505223-robh@kernel.org>
+	Wed, 26 Feb 2025 17:24:54 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 35543443FD;
+	Wed, 26 Feb 2025 17:24:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1740590690;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZjI2DTiQMlxYIRwQH9QR/Cwawyd3pO3A4ovumf0p0Ys=;
+	b=SwhdyW2b5K5TWoop/kt3UewfglCdpJoJpl5wr3C5G3TDZD9QFVAvfOsKUPYGlddnhyUbe2
+	KpOa9ApSOwxH9BQZnXGKeizn2nXiLjjR0++5eFAOZfesDIejdTMlJcYH6OtDqSCDs0oZWn
+	AQfISdyJeUvfTkp4ndXf47y7Mbm6RsNUsbvI9DP1nJLCmj+E3hbuidMhcf/u9K1yflxx2A
+	HzhXb+SLCvKa1y9V+1d2owClg409Jj4h7feXSfuvDd5mnhfpeiLldvXoYM654c5P9R4b4Y
+	b0t2Ud4P9B6jAGggC3SgR9muV5LE5wGFVNz7heNSF/rGKSQRpTF4GP6QGwIFKA==
+Date: Wed, 26 Feb 2025 18:24:49 +0100
+From: Herve Codina <herve.codina@bootlin.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>, Horatiu Vultur
+ <horatiu.vultur@microchip.com>
+Cc: Steen.Hegelund@microchip.com, daniel.machon@microchip.com,
+ UNGLinuxDriver@microchip.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] reset: mchp: sparx5: Fix for lan966x
+Message-ID: <20250226182449.61a126ea@bootlin.com>
+In-Reply-To: <5cc5cd05e0a481773212fff0bce574dcfea3f74d.camel@pengutronix.de>
+References: <20250226144645.1950451-1-horatiu.vultur@microchip.com>
+	<5cc5cd05e0a481773212fff0bce574dcfea3f74d.camel@pengutronix.de>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250226160945.GA2505223-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdekhedujecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthekredtredtjeenucfhrhhomhepjfgvrhhvvgcuvehoughinhgruceohhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeviefffeegiedtleelieeghfejleeuueevkeevteegffehledtkeegudeigffgvdenucfkphepvdgrtddumegvtdgrmedvgeeimeejjeeltdemvdeitgegmegvvddvmeeitdefugemheekrgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemvgdtrgemvdegieemjeejledtmedviegtgeemvgdvvdemiedtfegumeehkegrpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepjedprhgtphhtthhopehprdiirggsvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehhohhrrghtihhurdhvuhhlthhurhesmhhitghrohgthhhiphdrtghomhdprhgtphhtthhopefuthgvvghnrdfjvghgvghluhhnugesmhhitghrohgthhhiphdrtghomhdprhgtphhtthhop
+ egurghnihgvlhdrmhgrtghhohhnsehmihgtrhhotghhihhprdgtohhmpdhrtghpthhtohepfgfpiffnihhnuhigffhrihhvvghrsehmihgtrhhotghhihhprdgtohhmpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_091959_669746_0859B63C 
-X-CRM114-Status: GOOD (  22.27  )
+X-CRM114-CacheID: sfid-20250226_092453_508500_C834A758 
+X-CRM114-Status: UNSURE (   7.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,40 +81,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 26, 2025 at 10:09:45AM -0600, Rob Herring wrote:
-> On Wed, Feb 26, 2025 at 05:44:56PM +0800, Peng Fan (OSS) wrote:
-> > Quote Sudeep's reply"
-> > I am not blocking you. What I mentioned is I don't agree that DT can be used
-> > to resolve this issue, but I don't have time or alternate solution ATM. So
-> > if you propose DT based solution and the maintainers agree for the proposed
-> > bindings I will take a look and help you to make that work. But I will raise
-> > any objections I may have if the proposal has issues mainly around the
-> > compatibility and ease of maintenance.
-> > "
->
-> This all looks to me like SCMI has failed to provide common interfaces.
->
+Hi Philipp, Horatiu,
 
-We can look into this if having such common interface can solve this problem.
+On Wed, 26 Feb 2025 17:32:22 +0100
+Philipp Zabel <p.zabel@pengutronix.de> wrote:
 
-> I'm indifferent. If everyone involved thinks adding compatibles will
-> solve whatever the issues are, then it's going to be fine with me
-> (other than the issue above). It doesn't seem like you have that, so I
-> don't know that I'd keep going down this path.
+...
 
-Sorry if I was ambiguous with my stance as quoted above. For me, 2 devices
-pointing to the same node seems implementation issue rather than fixing/
-working around by extending DT bindings like this $subject patch is
-attempting.
+> > Fixes: 0426a920d6269c ("reset: mchp: sparx5: Map cpu-syscon locally in case of LAN966x")
+> > Reviewed-by: Herve Codina <herve.codina@bootlin.com>
+> > Tested-by: Herve Codina <herve.codina@bootlin.com>  
+> 
+> Is this still correct?
 
-If you disagree with that and think 2 devices in the kernel shouldn't
-point to the same device tree node, then yes I see this is right approach
-to take. ATM I don't know which is correct and what are other developer's
-include DT maintainer opinion on this. I just didn't like the way Peng
-was trying to solve it with some block/allow list which wouldn't have
-fixed the issue or just created new ones.
+Yes, it is correct.
 
---
-Regards,
-Sudeep
+Reviewed this v3, saw Philipp's comments and I have nothing more to add.
+
+Also tested this v3 and no regression were detected.
+
+Best regards,
+Hervé
 
