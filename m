@@ -4,74 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1043BC021B8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E48C19F2E
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:22:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LWoHU8hu46dRejoYbRwPdVFyOWD54ZJ4E158Xpmj8u8=; b=5BvTYVU0QheNrA7kqsVhJ7eM/r
-	KyFIWBWEz2wlfrdGag5ZsoCD+ztzoAHyfecik05SDsmc+57BpRP2xyIB7oi03oLWVWBoDcB/38mXl
-	JwYxAHzUIFNhzUUh9hHQo6XCRpdaGg4UxVNORdTbjvF2mk9i7MT3/zrwJfSdiZh4RxiPzWd9uAXR0
-	cwg3iIbAgVCarygHQJ5my2yBpQYKmohfpRXVkN7xr2j/y54MyvJ3+2Dx1jcS/3CmgQLux64vwKD9a
-	Zr++jyrlfctT05SSJANjA7T8pfH+3syz+37KvXsGQ431IVj1iSOL/+uXJ65PV6WIUB7ZMSAjyaTkU
-	qJr7dMNA==;
+	bh=CQUiUOp4KHECH8yKudw1C5wiww3Njc9SPtpPl3W8k10=; b=GIzaJjZWZNpRp5IkK3cR6U7VLF
+	N0/2MkJncxLAy0YmzLvn/+6ikADMrfOBzvN7SCTrWRIkDLpFzPAopeKJLWEasepkzyUh0HNnavJuy
+	vWDmdQQ9mpod8EJ8twSAuxANdjQn9XY4cma/+1ixbogYvClWiiOvi5kr5WhpK2h+AVHowfLDfT9Gq
+	QT2dsCg7OP4Tdb1bDNOd5pBUh/g2te/ud2VRpscIlSXdrDt9FTmJn4n1i8DFy9kmqw2fZymbhdJmK
+	LgP+m77lU0pQ5SXhev3kqJtihbsuiP8Oqv+jyQnrMYki/DH8Pch2IH82HOUdHNJsQGDeNo4MtMWxi
+	K2P/2TRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJF0-00000004FbF-0B2n;
-	Wed, 26 Feb 2025 15:22:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tnJF1-00000004Fe5-3NY7;
+	Wed, 26 Feb 2025 15:22:31 +0000
+Received: from mail-vi1eur05on2061b.outbound.protection.outlook.com ([2a01:111:f403:2613::61b] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnIPD-000000045Mt-0pa8
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 14:28:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C523661226;
-	Wed, 26 Feb 2025 14:28:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91DACC4CED6;
-	Wed, 26 Feb 2025 14:28:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740580138;
-	bh=imG2eoF7EhULeRCWxlkU478DrsG7zuM8IA1zXttiVIg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jOoWo6I4axjc7/g3HzbBnRFc+bA68ZZR3cVJiGZ4m/qgqjPAatfRVKgjcDg9ZZGQt
-	 PimKjt9TdT6ogmZnuyKrvpZckMidtvJ0PxOJNFPI2CiW1DBM8t6hhYYrlJj3hZrW4+
-	 Y0+M+8c0TVPmzP2HAt5KWoP8LXTK9ytXg9B4f1HeUg+bVlZE4JgD4lUn4RNcYHQm76
-	 qL8irsILkPnFzN4ukaj5mwEQl2ItHgXji0xyV+1/nrltYul0p1dHIc1cu0zIZLD7OI
-	 N2smNVVERmR8m7QXregyeB9z/xbQRf55L5mB+mim13MpOSJHcys2hX/gcPdvmgNcGY
-	 4q11+sAs4NzaQ==
-Date: Wed, 26 Feb 2025 15:28:47 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Elliot Berman <quic_eberman@quicinc.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, cros-qcom-dts-watchers@chromium.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>,
-	Melody Olvera <quic_molvera@quicinc.com>,
-	Shivendra Pratap <quic_spratap@quicinc.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Stephen Boyd <swboyd@chromium.org>, linux-pm@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v8 3/6] firmware: psci: Read and use vendor reset types
-Message-ID: <Z78lH/XErc7G8bL9@lpieralisi>
-References: <20241107-arm-psci-system_reset2-vendor-reboots-v8-0-e8715fa65cb5@quicinc.com>
- <20241107-arm-psci-system_reset2-vendor-reboots-v8-3-e8715fa65cb5@quicinc.com>
+	id 1tnIQk-000000045ip-3IW9;
+	Wed, 26 Feb 2025 14:30:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rzWjQgItlbSm+ErQ0PQ/DdoA024A5vlIQNdeoVDuNjqkld9UYbW+uOUCExUbXmjP7h+SjlUrYIapn1Tt87qw6+NqiAlm0lduztNI+PCTRyHpGWizGBbJLwke0ZNh4sQlYFFEkqVcbqvY44T0yO4f9jsDOz4jp9VJtqxi9n80JU3+dIIHtxGmJAsZWTkbmKnPKD1Dkfy4pRb+uiSodmFnmnF5AumNGLnjNBSoh3aZYP0LZ6MoalFgHWUlzpDS80ZQDkcsD48B59PadgalllRvZlvdKeqGBaaODGdy7INO5Xa0f93Aw4fJPMlKMXeasDW4cqZ/zMCs0YLNiCr5dGBBZw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CQUiUOp4KHECH8yKudw1C5wiww3Njc9SPtpPl3W8k10=;
+ b=uJbdwydNLsBcXzZgc0bO2Cu88AcuVEqiS7uiYthvNMjQNJd/v1gKWllV1+13nY8uo19v2qWNwswugzbHoV9bN7PFl32bHsjlqswA1lG/l024mr8Pzb5valbszgq3IzdtUy2czPQUdTp42eZIzZNiCZ2D8lW/7fm6cV1T4E02IrTB5wPcCxNmnUHJgiz0rUrRhXbKq1QV9BcyOWzXGNOq8OasMpX3UxKyoUY2VrV5DhRAE0LPe/R0OT7uHEJJTMb2PuypXA5fo1GHQq6tIr20yCVOl6KkZ/OvdSK8eur5Kd55d+EfQonk1msexC6CKbjnom9lmlG26kcrmpIZ12veRQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CQUiUOp4KHECH8yKudw1C5wiww3Njc9SPtpPl3W8k10=;
+ b=E1bKTT32DG+VKESbQJjv/HVQYMzSYONLMdwz/yfxnh0VmDzuAO2tQFAIRoHOBmrbUdJXyHQXBQwGNvSBE777TiuQBDOFDlGBdWvdPQaBtBue60NFFqq4HWRpD1AePpQd/StiOgb/KMQbdAFlu2NKkuzbcmf9X4e2Hf4hQjkBNQw=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
+ by AM0PR04MB6914.eurprd04.prod.outlook.com (2603:10a6:208:189::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.20; Wed, 26 Feb
+ 2025 14:30:27 +0000
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a%6]) with mapi id 15.20.8489.018; Wed, 26 Feb 2025
+ 14:30:27 +0000
+Message-ID: <b793928e-8310-4bba-a9d1-50d30f898c17@cherry.de>
+Date: Wed, 26 Feb 2025 15:30:26 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] arm64: dts: rockchip: add usb typec host support to
+ rk3588-jaguar
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, lukasz.czechowski@thaumatec.com,
+ Heiko Stuebner <heiko.stuebner@cherry.de>
+References: <20250226102507.3743437-1-heiko@sntech.de>
+ <28a16ca5-42f7-4aa1-9bc7-fc6b72364556@cherry.de> <3119048.xgJ6IN8ObU@diego>
+Content-Language: en-US
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <3119048.xgJ6IN8ObU@diego>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR0P281CA0148.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:96::9) To AS8PR04MB8897.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::20)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20241107-arm-psci-system_reset2-vendor-reboots-v8-3-e8715fa65cb5@quicinc.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|AM0PR04MB6914:EE_
+X-MS-Office365-Filtering-Correlation-Id: 65b4d8a1-693d-4e38-186b-08dd56721d22
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UXhWcXUrOWVOSjZUSXY4blFhMVR2OXdhaW5McnNMWkdrRHV4Wk81emRmM1hh?=
+ =?utf-8?B?djh3M3VXVnl5WE9tcDNyYUk1SGI4cnorWWI2WkVKY2tEYk9sRkNRTC9XNFJr?=
+ =?utf-8?B?TkZxdk9OenA2a3BFU1JxTm9WQktXbnQ4dWM4RVF0ZGVzUTQyaVFQdjEwVjI1?=
+ =?utf-8?B?S1JqcmJ5ZGdaU0FhY2F2RkZNU2h3RStEYVZpZ0NjcUVZY2Vjc0piTjFMdlYr?=
+ =?utf-8?B?TVNOQVF4ak9wMDUzNWthNDROaU1pNjZEYUJ4d1RSQ2gwaFpWVFZxdUhNUitL?=
+ =?utf-8?B?RWlmSkd6MzRMckxMTXFSNDRlbmZjVzdsK0tRa2svRDdwUkpqb2I3alRGRzRr?=
+ =?utf-8?B?bzJRaFZEWldpQld6YVJIeXFURStDUnM0V0grVU1YTUpubnFPdXl5dDBjemtB?=
+ =?utf-8?B?NWt6aGdINVJlTmJGN2pzejJJTVlJb1dzWXROeG1leEJoVnZJV1BJcS9CRm90?=
+ =?utf-8?B?Y3BNK1VCNTVkaGg3UThOeXZEb1dJZE5jOXNTajZIdU05SWRsY2ovZXZDRlE5?=
+ =?utf-8?B?QlR0TVY3ZmljSnBiQzNmTFg3K1hsTE45R3Yvb1p4K0trOEExZ1ZLcnJUanZa?=
+ =?utf-8?B?blRFeTRrdEVBOUMrRHpraWlhR2tMWXVMOWh6bFJjL01pY2tmL3NPMGsrRGV6?=
+ =?utf-8?B?eWEvSnJOQzFQVjhpejJhanpWdnRpUCtkYUkwdjV2eFlhdXh4cndYT0QzN3Rm?=
+ =?utf-8?B?eXQzNzVXMVRsQkdtTnBqRXVNN281QWE4TkVEcGtESVdNTEorcGFETDV6MW9r?=
+ =?utf-8?B?Wm5UODg1ZDhkQml5L1VscXJzMVJsYWNIUysrQmtCZEhLV3Jza3NUV3RTNXVY?=
+ =?utf-8?B?V1R1ek0veW1MOENxL2hxREVaTUFLdHpxaTZnS0FRWmdta2VVM0NBYTV2QlJX?=
+ =?utf-8?B?d3BXN3pBcGRjSDVJYytqUFFXeURBVWxsWnVCcTVXUzE0YmdETFpBVUY3ZXFu?=
+ =?utf-8?B?YUY3blBMMVJpL3hOZitZbUVNekFtcVQ4UGZXNXpRUFJicEJUWmFWYk9LRU1N?=
+ =?utf-8?B?VVdpa1hobk15ZE00VEVwangyMk1vU2RBSmJoWXlKY2RtOFJ1Qis3bkRxVG54?=
+ =?utf-8?B?amg4OFdGTjVLdlZWRElSYWhWVWJ4MGNQOVRXYzFIdzJJaXNBcXkzeHkydkZP?=
+ =?utf-8?B?NXBmR21oZlpJWndHc2ZoRUsrSmlrL3dOZ2g4dG1nNXlVazhPVUFWSkNUaEFJ?=
+ =?utf-8?B?Y0hzNTBtWWZTaUJ5b2VGSm5hbE5QeEJwUEtKVWJuNyt2b3hWR1J5czZnNHYy?=
+ =?utf-8?B?MXhFb1VLU0owMzhOZ0tCMmRMd3dLbVBnbEh5SlZ3cFBvKzI5R2hrdFljTFlY?=
+ =?utf-8?B?dTBEbCsxeTVkbG9rZmoyUmZFK3BBSVk1cnpDZEFVVWQ2c0xDcWc5SW41YlRT?=
+ =?utf-8?B?OG1NdDlxdEpGWXJSMHdQRDV1T1N4NWIzUXJUWndPREI4MWpNNkI5eitQTk4x?=
+ =?utf-8?B?VzRMUmhFRURvdGN0bW8ycWIwRlE0WGwwaWtQUEJ5R09ua21wVjRDay9FTmNm?=
+ =?utf-8?B?d0wwb0hzOU5Vcm1kbWplTHVSTUVaeHY5UVo2dm44STUxdTBXMzdSZFh4eTI1?=
+ =?utf-8?B?eCttb3czbUhZRnBTZi9LSXNtaWk4aDZpT2lrY0xzN3NGQzFlbThEVkc3SURw?=
+ =?utf-8?B?LytaRFNZeDBkZlA0d29jS2ZEODcyZGVmaXFDbFNtazNHc2NPRkE3TncrcUQz?=
+ =?utf-8?B?WmxTRGhtekF4OWkrUTE3NmliSVhlc2VoWng2U1hWZVQ0TXZSV0tOd0gzSVZE?=
+ =?utf-8?B?M0ZIWnVROG5TNlI2OEFOZVFBSzZISWs0QXZYeDdLUGxRTStGZ3Z1ZG9jY0Nw?=
+ =?utf-8?B?T0Z5R2cySGFUeCt5UzkvUT09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SGdQbW9IdVRRb1RwZTdFWDRtYzVqcTR3Z3dzbWJ2bHJJbmZFaHd4d1g3T0VC?=
+ =?utf-8?B?MTFiRkhtRUdLVUhyb2JaQzVYUE5iYTJIZWFaTmhVMXlMOGwrSWNxQ0F3S3FT?=
+ =?utf-8?B?UXVNaGpud3BvVUVqajFpQzdQbXNNYmhHWVd5bXc5L3ozb2JOMURYbDB5dVFh?=
+ =?utf-8?B?dGsxMzFERnZMSHc4d3QyQlBwQWhNM1dEWVFUWG9VcStWZmphcytlV2U4UnhE?=
+ =?utf-8?B?ZDFwTDZyMUJLUTRraGczSGorSk15SzBJSzZyVUhwRzdzZE1UZFNmRUljMTVN?=
+ =?utf-8?B?MGxRRlAyc296cUM3YjJlYkpYck40MDhVUnkwOXVCK1ZtQklZV2l3WHR0b0FN?=
+ =?utf-8?B?aVc5SUorb3MwcHJqZmxMWGlqQUxkaythK2JwaVhPMjk1TkFaMHRzaVNxRXJy?=
+ =?utf-8?B?MmlWUCt4M1dQaUpTZ2NaMWJMTG1KMWlsN0VRTnVmNXJnNXNuTVFtZTF1ak1q?=
+ =?utf-8?B?aFUvM1RXM1BpaiswRXdBRVpmWEVvS0djWEJiOUoxMHR0cUd4dHc0czVvWGRZ?=
+ =?utf-8?B?VXVORlBRcjJtY3NzYVFlTFFXNG5HQUcxRlRLMkYwQmpWVEVHdWVNbnU0SzFR?=
+ =?utf-8?B?dE1oVUpoRGRVUWpzUU95YmZCTnBFVzRDSFNFdDAvaDlZbUVwNUxqc1FjTWQw?=
+ =?utf-8?B?M0Rzd3V5ZXBDai9jbXNXdHRQSnIvMGpuSVJNVGlzWHFpaUhIQk5xQktqbUVi?=
+ =?utf-8?B?ZjdZZnB6dnQ1UUhObXV5MkM1STg5WlJsM3AwZXFjaXBlOU44ODBLNE93NXRu?=
+ =?utf-8?B?aHhkbStHWVhjZXU2aGQ5UERRWEF5dG9JVmszZkFjaGNlcmpNVk9HdzVaUEVp?=
+ =?utf-8?B?ZTUyM3NQYkRLNmhvdTU3NXlXSmdjc29NNkZRWVY4Qk8wZC9XN0tYbTRQOVpZ?=
+ =?utf-8?B?bzE4YlFPNUd2MVM5a1ZCVDFMMU9WL1dRd0lEOXFUVDVVWmpibjl0L1hVM3Bv?=
+ =?utf-8?B?VWJFazEyS0kvU3VRRkloQWpqR0RnTjJxK1RhaUVMRkVzMlc3eVUwaTZiWmpj?=
+ =?utf-8?B?QnowMlNSU3RxQVY4MHRqN09jNnVIaFJPajAwbWRHQmRQcWw5N0ZQSHB0RDZj?=
+ =?utf-8?B?YUd4QTl1bWNaSWxpK2lTZGs2VDdjdEdDR0lFMXB2dS9scHJXcVI4VHRSbFFN?=
+ =?utf-8?B?OE9YWEhuK29SVDZaWFJVOHVlRXV3bXhwRTNLRGlramJDN1RrSTk0OHdtM09O?=
+ =?utf-8?B?Q2VOZlpOaE9IanpXUkNQUkxnaHVrbVN3RTRLMmNtVnhGTXZkTkJRclk4eldD?=
+ =?utf-8?B?VFc3MTlpd2xqYlRUaUdBUzNMdDdMMEllVFRRTWFndHVseEU5eUgxQyt2amlI?=
+ =?utf-8?B?dGpZVDh1aEIzUnZpRzRFODAwcVNFMmFRNEhuNTcvM0U0MDZaNHB0R05DNTJH?=
+ =?utf-8?B?dmlNY0xqdVpXSU8xUGFpNm53REtHOVpMQWtRcmxXb1VidHBrendaTkZjaEVW?=
+ =?utf-8?B?dFIvMHAyQlNPdkpuOEdabEEyMWFJWS9vNDBTR1BHamtrczlPbDIrV0RDVThM?=
+ =?utf-8?B?cFdjQWhzU0p1TFB1SlhaR3lYNFBHU1BaMkVBc1pWKzdVQkkwSGtRQnlrYzlm?=
+ =?utf-8?B?ZXUybWNUZm9FazBEWlRUd2ZMeUwyQVFoenBoa1J4c2RBc0MyRTBmQWpQZVhT?=
+ =?utf-8?B?WitUS2JVVFRUUFJVSnZpbHBRc0toQkEwdVhmcEMvQVpGYzFxV2FIZFpoU2pl?=
+ =?utf-8?B?UmIrcVVLRktoU0dHcktDYTNLa01Jbkl3TEcvdnZUL240bVVOd0xwanR6b3dl?=
+ =?utf-8?B?SUhlY1RHZWVLN3RDZWN3MHllR001SmtJMTl6dE9PZ2lWWmhVelZtY1ljbkZT?=
+ =?utf-8?B?NXhrdTg4VVcxSzVkWm9sK0VNYkt4YTNIZXhqMTZ1RjdFUUMrSWFjaXhHS0ll?=
+ =?utf-8?B?QWhKQ1JYd2w3UVB0V3poWDFJaS9YQWVNVEZGYUxCakw0bkJDQUhQZFF0Vy9m?=
+ =?utf-8?B?TlMvL01NeFV6NGo3a3MvYTcvUHVTcjdaWG5mV0RMUDhiTGtTNEhkMVB6TTdt?=
+ =?utf-8?B?cG9DaC9ZSG9SSUNKK3l0MkMzb0UyaFJBV3RabEtsZVRsWFJXTFJSWUgvb0Jr?=
+ =?utf-8?B?TFJDVFJkbFB2S2RRQmtGSDZzMWFRcjQ2a1NmOXlKMzAvdXVId3pRa1ZSZGZo?=
+ =?utf-8?B?cFBES1ZxQ2J5Ukd0MWluVENiNE1UaFBFRGlBVEtnbGRqR3UxYVpKbFNxMVJU?=
+ =?utf-8?B?YVE9PQ==?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 65b4d8a1-693d-4e38-186b-08dd56721d22
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2025 14:30:27.2839
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fPnhnfse73J5KItDhpWNMtUz+5zEPf1I0kFiN+++yoKPRNp5RUOPWk3PxOGBu0ritHcO3sSZgSWu+6DY96pEwyopkHm35t07o7eAdZWeoJk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6914
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250226_063034_834622_E52222F2 
+X-CRM114-Status: GOOD (  31.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,196 +176,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 07, 2024 at 03:38:27PM -0800, Elliot Berman wrote:
-> SoC vendors have different types of resets and are controlled through
-> various registers. For instance, Qualcomm chipsets can reboot to a
-> "download mode" that allows a RAM dump to be collected. Another example
-> is they also support writing a cookie that can be read by bootloader
-> during next boot. PSCI offers a mechanism, SYSTEM_RESET2, for these
-> vendor reset types to be implemented without requiring drivers for every
-> register/cookie.
-> 
-> Add support in PSCI to statically map reboot mode commands from
-> userspace to a vendor reset and cookie value using the device tree.
-> 
-> A separate initcall is needed to parse the devicetree, instead of using
-> psci_dt_init because mm isn't sufficiently set up to allocate memory.
-> 
-> Reboot mode framework is close but doesn't quite fit with the
-> design and requirements for PSCI SYSTEM_RESET2. Some of these issues can
-> be solved but doesn't seem reasonable in sum:
->  1. reboot mode registers against the reboot_notifier_list, which is too
->     early to call SYSTEM_RESET2. PSCI would need to remember the reset
->     type from the reboot-mode framework callback and use it
->     psci_sys_reset.
->  2. reboot mode assumes only one cookie/parameter is described in the
->     device tree. SYSTEM_RESET2 uses 2: one for the type and one for
->     cookie.
->  3. psci cpuidle driver already registers a driver against the
->     arm,psci-1.0 compatible. Refactoring would be needed to have both a
->     cpuidle and reboot-mode driver.
-> 
-> Tested-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> Signed-off-by: Elliot Berman <quic_eberman@quicinc.com>
-> ---
->  drivers/firmware/psci/psci.c | 104 +++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 104 insertions(+)
-> 
-> diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
-> index 2328ca58bba61fdb677ac20a1a7447882cd0cf22..e60e3f8749c5a6732c51d23a2c1f453361132d9a 100644
-> --- a/drivers/firmware/psci/psci.c
-> +++ b/drivers/firmware/psci/psci.c
-> @@ -79,6 +79,14 @@ struct psci_0_1_function_ids get_psci_0_1_function_ids(void)
->  static u32 psci_cpu_suspend_feature;
->  static bool psci_system_reset2_supported;
->  
-> +struct psci_reset_param {
-> +	const char *mode;
-> +	u32 reset_type;
-> +	u32 cookie;
-> +};
-> +static struct psci_reset_param *psci_reset_params __ro_after_init;
-> +static size_t num_psci_reset_params __ro_after_init;
-> +
->  static inline bool psci_has_ext_power_state(void)
->  {
->  	return psci_cpu_suspend_feature &
-> @@ -305,9 +313,38 @@ static int get_set_conduit_method(const struct device_node *np)
->  	return 0;
->  }
->  
-> +static void psci_vendor_system_reset2(const char *cmd)
-> +{
-> +	unsigned long ret;
-> +	size_t i;
-> +
-> +	for (i = 0; i < num_psci_reset_params; i++) {
-> +		if (!strcmp(psci_reset_params[i].mode, cmd)) {
-> +			ret = invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2),
-> +					     psci_reset_params[i].reset_type,
-> +					     psci_reset_params[i].cookie, 0);
-> +			/*
-> +			 * if vendor reset fails, log it and fall back to
-> +			 * architecture reset types
-> +			 */
-> +			pr_err("failed to perform reset \"%s\": %ld\n", cmd,
-> +			       (long)ret);
-> +			return;
-> +		}
-> +	}
-> +}
-> +
->  static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
->  			  void *data)
->  {
-> +	/*
-> +	 * try to do the vendor system_reset2
-> +	 * If the reset fails or there wasn't a match on the command,
-> +	 * fall back to architectural resets
-> +	 */
-> +	if (data && num_psci_reset_params)
-> +		psci_vendor_system_reset2(data);
+Hi Heiko,
 
-Mulling over this. If a command (data) was provided and a PSCI vendor
-reset parsed at boot, if the vendor reset fails, isn't it correct to
-just fail reboot instead of falling back to architectural resets ?
-
-What's missing is defining the "contract" between the
-LINUX_REBOOT_CMD_RESTART2 arg parameter and the kernel reboot
-type that is executed.
-
-I do wonder whether this is an opportunity to deprecate reboot_mode
-altogether on arm64 (I think that the relationship between REBOOT_WARM
-and REBOOT_SOFT with PSCI arch warm reset is already loose - let alone
-falling back to cold reset if reboot_mode == REBOOT_GPIO - which does
-not make any sense at all simply because REBOOT_GPIO is ill-defined to
-say the least).
-
-Thoughts ?
-
-Thanks,
-Lorenzo
-
-> +
->  	if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
->  	    psci_system_reset2_supported) {
->  		/*
-> @@ -750,6 +787,73 @@ static const struct of_device_id psci_of_match[] __initconst = {
->  	{},
->  };
->  
-> +#define REBOOT_PREFIX "mode-"
-> +
-> +static int __init psci_init_system_reset2_modes(void)
-> +{
-> +	const size_t len = strlen(REBOOT_PREFIX);
-> +	struct psci_reset_param *param;
-> +	struct device_node *psci_np __free(device_node) = NULL;
-> +	struct device_node *np __free(device_node) = NULL;
-> +	struct property *prop;
-> +	size_t count = 0;
-> +	u32 magic[2];
-> +	int num;
-> +
-> +	if (!psci_system_reset2_supported)
-> +		return 0;
-> +
-> +	psci_np = of_find_matching_node(NULL, psci_of_match);
-> +	if (!psci_np)
-> +		return 0;
-> +
-> +	np = of_find_node_by_name(psci_np, "reset-types");
-> +	if (!np)
-> +		return 0;
-> +
-> +	for_each_property_of_node(np, prop) {
-> +		if (strncmp(prop->name, REBOOT_PREFIX, len))
-> +			continue;
-> +		num = of_property_count_u32_elems(np, prop->name);
-> +		if (num != 1 && num != 2)
-> +			continue;
-> +
-> +		count++;
-> +	}
-> +
-> +	param = psci_reset_params =
-> +		kcalloc(count, sizeof(*psci_reset_params), GFP_KERNEL);
-> +	if (!psci_reset_params)
-> +		return -ENOMEM;
-> +
-> +	for_each_property_of_node(np, prop) {
-> +		if (strncmp(prop->name, REBOOT_PREFIX, len))
-> +			continue;
-> +
-> +		param->mode = kstrdup_const(prop->name + len, GFP_KERNEL);
-> +		if (!param->mode)
-> +			continue;
-> +
-> +		num = of_property_read_variable_u32_array(np, prop->name, magic,
-> +							  1, ARRAY_SIZE(magic));
-> +		if (num < 0) {
-> +			pr_warn("Failed to parse vendor reboot mode %s\n",
-> +				param->mode);
-> +			kfree_const(param->mode);
-> +			continue;
-> +		}
-> +
-> +		/* Force reset type to be in vendor space */
-> +		param->reset_type = PSCI_1_1_RESET_TYPE_VENDOR_START | magic[0];
-> +		param->cookie = num > 1 ? magic[1] : 0;
-> +		param++;
-> +		num_psci_reset_params++;
-> +	}
-> +
-> +	return 0;
-> +}
-> +arch_initcall(psci_init_system_reset2_modes);
-> +
->  int __init psci_dt_init(void)
->  {
->  	struct device_node *np;
+On 2/26/25 2:27 PM, Heiko Stübner wrote:
+> Am Mittwoch, 26. Februar 2025, 14:17:37 MEZ schrieb Quentin Schulz:
+>> Hi Heiko,
+>>
+>> On 2/26/25 11:25 AM, Heiko Stuebner wrote:
+>>> From: Heiko Stuebner <heiko.stuebner@cherry.de>
+>>>
+>>> Jaguar has two type-c ports connected to fusb302 controllers that can
+>>> work both in host and device mode and can also run in display-port
+>>> altmode.
+>>>
+>>> While these ports can work in dual-role data mode, they do not support
+>>> powering the device itself as power-sink. This causes issues because
+>>> the current infrastructure does not cope well with dual-role data
+>>> without dual-role power.
+>>>
+>>> So add the necessary nodes for the type-c controllers as well
+>>> as enable the relevant core usb nodes, but limit the mode to host-mode
+>>> for now until we figure out device mode.
+>>>
+>>
+>> We're not limiting the mode to host-mode anymore in v3.
+>>
+>> I tested and indeed peripheral mode doesn't work. While my ACM gadget
+>> device is created, I cannot communicate with it.
+>>
+>> Maybe reword in the commit log that only host mode is supported even
+>> though we don't enforce it?
+>>
+>> The USB2-only issue I experienced in v2 has been fixed with:
+>> https://lore.kernel.org/linux-rockchip/20250226103810.3746018-1-heiko@sntech.de/T/#t
+>>
+>> Tested-by: Quentin Schulz <quentin.schulz@cherry.de>
+>>
+>> See below for further comments.
+>>
+>>> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+>>> ---
+>>> changes in v3:
+>>> - more review comments from Quentin
+>>>     (sbu-pin pinctrl, comments)
+>>> changes in v2:
+>>> - address review comments from Quentin
+>>>     (comments, pinctrl, sbu-gpios and much more)
+>>>
+>>>    .../arm64/boot/dts/rockchip/rk3588-jaguar.dts | 218 ++++++++++++++++++
+>>>    1 file changed, 218 insertions(+)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts b/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
+>>> index 20b566d4168f..5dbcdf67f0a5 100644
+>>> --- a/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
+>>> +++ b/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
+>> [...]
+>>> @@ -483,6 +583,26 @@ pcie30x4_waken_m0: pcie30x4-waken-m0 {
+>>>    			rockchip,pins = <0 RK_PC7 12 &pcfg_pull_none>;
+>>>    		};
+>>>    	};
+>>> +
+>>> +	usb3 {
+>>> +		cc_int1: cc-int1 {
+>>> +			rockchip,pins = <4 RK_PA3 RK_FUNC_GPIO &pcfg_pull_none>;
+>>> +		};
+>>> +
+>>> +		cc_int2: cc-int2 {
+>>> +			rockchip,pins = <4 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
+>>> +		};
+>>> +
+>>> +		typec0_sbu_pins: typec0-sbu-pins {
+>>
+>> Please rename to typec<x>_sbu_dc_pins as they aren't SBU pins, they are
+>> pins for DC coupling of SBU as far as I could tell from the DT binding.
+>>
+>>> +			rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>,
+>>> +					<1 RK_PC3 RK_FUNC_GPIO &pcfg_pull_none>;
+>>> +		};
+>>> +
+>>> +		typec1_sbu_pins: typec1-sbu-pins {
+>>> +			rockchip,pins = <0 RK_PD4 RK_FUNC_GPIO &pcfg_pull_none>,
+>>> +					<1 RK_PB5 RK_FUNC_GPIO &pcfg_pull_none>;
+>>> +		};
+>>
+>> We're the first ones to declare a pinmux/pinconf for the SBU-DC pins and
+>> I'm not too sure if we should let them "float" or not. The default
+>> pinconf for those pins is PD, so maybe we should keep that PD. (For C1
+>> they are PU).
+>>
+>> Rock 5 ITX routes the SBU-DC pins to GPIOs whose pinconf defaults to PU.
+>> CM3588 from FriendlyElec, Orange Pi 5, Orange Pi 5 Plus and NanoPC-T6
+>> use GPIOs whose pinconf defaults to PD.
+>>
+>> I don't see external HW PU/PD in our or their designs so I would
+>> recommend to respect the default pinconf and put PD for the sbu-dc pins
+>> for USB-C0 and PU for USB-C1?
 > 
-> -- 
-> 2.34.1
+> But if you're worried about behaviour wrt. floating, having them pulled in
+> different direction for typec0 and typec1 also wouldn't result in differing
+> behaviour?
 > 
+
+That's fair. I just really don't know what they are supposed to be when 
+not driven :)
+
+> Also the pins are output-only, so the phy will always set them in some way?
+> 
+
+That's true, there would only be a small time frame between the pinctrl 
+setting the pinconf and the USBDP PHY driver deactivating them (logical 
+low) since that's done as part of the probe of the device. I assume it 
+really doesn't matter which state they are before being driven because 
+nothing from the USB/DP stack is being run at that point?
+
+> But now you made me looks things up ;-)
+> 
+> For the TS3USBCA4 USB Type-C SBU Multiplexer [0], the sbu pins on it are
+> described as "This pin has an internal nominally 1.6-MΩ pull-down resistor."
+> 
+> In the block-diagram of the NX20P0407 Protection IC [1], it also looks like
+> a pull down is the config of choice.
+> 
+
+Yeah but we have neither of those on our design, the SBU are directly 
+connected to the USB-C jack without any IC in-between. So I wouldn't 
+trust what one IC defines as internal resistor?
+
+So I guess, fine for the no-PU/PD pinconf, but I would really appreciate 
+the renaming of the pinmux to include _dc in it and specify in the 
+commit log that peripheral mode doesn't work yet.
+
+With that,
+
+Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+
+Thanks!
+Quentin
 
