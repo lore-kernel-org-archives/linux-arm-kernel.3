@@ -4,80 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABA52C021BF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 14:06:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BFFDC021BF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 14:07:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tiK61WpmT0ctKIwY75HnpThFd8ZzC9ffICVu+PpUZ3c=; b=yrL6nJZdCkqKGssW3bkGuSyDk7
-	YfIK2qlgRP/jH2xG6k3FnKyLdzp99gsZU9DXsUHor7swwC5uJpdxlOhNLRdScJJtVS6osXZ9VIqAd
-	TKf0n6jzgQMZ7RhUcToeP7MVHxjhCxsKIUACcii06sh5gsZ0oVV5Gq1VpmE3nZ88JLhXuIsA4Hmla
-	J/aVyOaoTUfzvz9NXY31NjPIRyDSCDrIXCe4QWcEwjI0InLVKi5kkcIG6K1RVfNfYwC4l6K+I8P4k
-	ZSPTiwG6Cjasli5aCHxTPrR9Q5b0KyrPuR6ztJPAiuwRHExiBeMFNF1XXqOAxrH0mpyFNUZ1UIMA5
-	7dEDmTQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iklNm2KayquShiYIwOiveLvoWuecEHw4Y693C3rLQds=; b=QDXZZxBd5re/fBJH10N5bPhGMq
+	UCQFIs9YKNjHCD9PQ5oVGZPsN4NDivFSjpNJE5y1yZH59wx5IbqpVR/SLdW9SXhx2YMkm4i0Sy0sO
+	H13YLcND9RRjRYAwVBsz8lFbW2JZsNijvX+Q7MX5KtnTnilXXB1prYTCec5gyY4UJ8JJ6P6wvgfho
+	ENqEv8Yi2zvUYndPFFpKz8a1KlM3Ku2hK4wYhRJtXtOhGwr5JF/ejHz/Mk1MK4chDvqpW49WQBI1o
+	/Gvn0f7NmtxCO2SwTSUsaWxYigcqC/O0k/WHQpsURHccua5M38afYbgGtUXE45AgXNMdTnYXt0OEl
+	WBWnfoKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnI2z-000000040i6-2kCo;
-	Wed, 26 Feb 2025 14:06:01 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tnI4U-000000040pw-1JGf;
+	Wed, 26 Feb 2025 14:07:34 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnI0Y-000000040ME-099X
+	id 1tnI1A-000000040QR-2KW8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 14:03:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=tiK61WpmT0ctKIwY75HnpThFd8ZzC9ffICVu+PpUZ3c=; b=v4V1VDYngPydaUXfGptlcFt9Ck
-	Cj2Ecb1U3T5RkWNpXSkx9uWXFyNA7S1bXKT7QCgUHJYLQRJpeOqcVVB8gdFP7f4NU+xNTHf+c/DgK
-	ItFKUrCIcOXV1ZK6/n+otAwHVyctwbDJ9farlSRaz7t3gfVsKG7/EdDmZ66z8iapFASxsRQrJT+EV
-	DjgsggTsqmH8ID0bZmUczQz6mFEJlmcWP9s+HeHYyVujr9YGxEBnFKvDrYPFCzARVYTkpLq/+1Z8i
-	kHIrpg1v6a5Q1r2CatE76keKbiTxdEsVAWoqK6hv7lyd64FIBhJBPw5dIbGuRO0rfbdA5AL79H7tr
-	+sQ57tyw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:41768)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tnI0R-0004Q7-0o;
-	Wed, 26 Feb 2025 14:03:23 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tnI0O-000790-2L;
-	Wed, 26 Feb 2025 14:03:20 +0000
-Date: Wed, 26 Feb 2025 14:03:20 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Simon Horman <horms@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>
-Subject: Re: [PATCH net-next v2 11/13] net: phy: phylink: Add a mapping
- between MAC_CAPS and LINK_CAPS
-Message-ID: <Z78fKCZl4-77NjeK@shell.armlinux.org.uk>
-References: <20250226100929.1646454-1-maxime.chevallier@bootlin.com>
- <20250226100929.1646454-12-maxime.chevallier@bootlin.com>
+	Wed, 26 Feb 2025 14:04:09 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-547bcef2f96so7011367e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 06:04:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740578646; x=1741183446; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=iklNm2KayquShiYIwOiveLvoWuecEHw4Y693C3rLQds=;
+        b=MhHE6e+0JHq4tKck1JOVEzHZXHSxuNPiCSuee3WLSN8cnQjxOLaaT4h6dzFAiCDE4q
+         TBvzaTkqc1ddkHsS6GSYZJslUUTvygP/Y4BZNg0Qc6NpKKAigcMj/jZNzYiUN1KYqMsO
+         PX2WjdancowzD1yxrB0XSSElH1QQou1yLmbksEYhjpBy4/YMJOENuJTCGz68Qe8mh5M9
+         l+5PygujWxKsvPkZgix0/xiIwVCfC2EXAS7hugOIhQnyGYkH5ZrH8nPLuFBbYtIibWZH
+         qlDX+X2ID7YMSfOk8eenXy4Wi+9qzOrIcPghTASvzowoQvSf6seT1cL1B2tQ2I2FZLT1
+         aCNQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740578646; x=1741183446;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=iklNm2KayquShiYIwOiveLvoWuecEHw4Y693C3rLQds=;
+        b=wxhylm0A+HuWEjXAiw/nl2Y7z8oYa2YOF0lgfp0oOmUvpBN/CG9oh9UkbuVJj3PFiY
+         hHzH3WSoKy17XMkh9zCdmJKJJ0tI2dRnbJYdzhyldQS62xTggbRpXv8CTb10PVUDcHQ0
+         EXInJgAeVkKgmxJrN8U0Xy0xHO+DV1PvpWlTpsI/aTtk8BToTIGCKiR09sbrOEze5KJ8
+         H5xfe56FOBu0Eveeyr0AbUOozO7stb9nAe5eXbP6/WijOrUz6nYpj88q4/bqUlTrSckz
+         xpIVi1JEcUsM9PYbocXcahEdBBHkKvNyk7b62FboKzQ/16QwyN1Oi87KgMecnLzGXNCu
+         rCrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVIjSSrzqZn+Xbd+pk04QAnv2ifNm2VyFxjijOf/iMSLFXtdHw0r6nwxDoLSQIb8Jh7LgTsdbWUKW1PF0S43udy@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOuFwScijMMds4G5x4BSNhP1SJp3yAsegEIQC9UdDqdiyk6nky
+	SE8nmKclIPZ3RNNHkAHRolj0/URtfyzl4O9d5VC6AFTNFp823qK0
+X-Gm-Gg: ASbGncuJpEOFmrOPSgd4EP1hAS+zc3dICkalJlJJh6DQ8CDXZnAevcbhjZRLBf4VXZR
+	IUS0o4s/pbJKBN0EUTrVjAeHaJMK4zmC7LYOxKYalolGI5D9CX3fNxiDx4JjT5D0epCOAbn0mYB
+	EiovZvxJjvHQjyYD0jmOvPu6p4YwKB1IleEdA4UnagQN2+9C3lwGROKpQZUdKkzI613nKmP36DN
+	v4Bd7NCQUHYFZjTDacFKqMNZI5qsk79NI1c/sZnVS79PnV1RA/dSWV7P7PDldj1dOghDYUnScUj
+	QoisJY1DV7UyH/Q+aMYfNOONCSh1Gl3aZFTrJf/m7IeKlXBIIm7up1hdbKHuSug65OYSNsYHk8W
+	/cjcwpLw=
+X-Google-Smtp-Source: AGHT+IEpGk7dlruxQZybiX5fxanW29Ro9PxXVGS1JEbV3E8cZgaWlz6jdZJLrmU850dRn2ngJkTU1g==
+X-Received: by 2002:a05:6512:39c7:b0:545:f4b:ed58 with SMTP id 2adb3069b0e04-54838ee8b18mr11567732e87.18.1740578645999;
+        Wed, 26 Feb 2025 06:04:05 -0800 (PST)
+Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-548514b72bbsm462711e87.56.2025.02.26.06.04.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 26 Feb 2025 06:04:04 -0800 (PST)
+Message-ID: <720f9c69-ca1f-45cb-9f6e-c8e4703c9aad@gmail.com>
+Date: Wed, 26 Feb 2025 16:04:02 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250226100929.1646454-12-maxime.chevallier@bootlin.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 02/10] property: Add
+ device_get_child_node_count_named()
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
+ Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Daniel Scally <djrscally@gmail.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Hugo Villeneuve <hvilleneuve@dimonoff.com>, Nuno Sa <nuno.sa@analog.com>,
+ David Lechner <dlechner@baylibre.com>,
+ Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+ Guillaume Stols <gstols@baylibre.com>,
+ Olivier Moysan <olivier.moysan@foss.st.com>,
+ Dumitru Ceclan <mitrutzceclan@gmail.com>,
+ Trevor Gamblin <tgamblin@baylibre.com>,
+ Matteo Martelli <matteomartelli3@gmail.com>,
+ Alisa-Dariana Roman <alisadariana@gmail.com>,
+ Ramona Alexandra Nechita <ramona.nechita@analog.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev
+References: <cover.1740421248.git.mazziesaccount@gmail.com>
+ <29ec24f1498392cafbecc0e0c0e23e1ce3289565.1740421248.git.mazziesaccount@gmail.com>
+ <Z72QAOA9xXbP16K-@kuha.fi.intel.com> <Z72Zp8tpnvlFGdQ_@smile.fi.intel.com>
+ <ad39b453-7e5b-49bd-a4fd-6a4988636130@gmail.com>
+ <Z72d7TzZ21WITW3f@smile.fi.intel.com>
+ <893a3c45-537e-47ad-afbd-1e5d3b9abe2c@gmail.com>
+ <Z73M3Ua6u1FpgBEK@smile.fi.intel.com>
+Content-Language: en-US, en-AU, en-GB, en-BW
+From: Matti Vaittinen <mazziesaccount@gmail.com>
+In-Reply-To: <Z73M3Ua6u1FpgBEK@smile.fi.intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_060330_074934_7CCF66A2 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20250226_060408_598338_E2FCFEBA 
+X-CRM114-Status: GOOD (  19.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,23 +131,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 26, 2025 at 11:09:26AM +0100, Maxime Chevallier wrote:
-> phylink allows MAC drivers to report the capabilities in terms of speed,
-> duplex and pause support. This is done through a dedicated set of enum
-> values in the form of the MAC_ capabilities. They are very close to what
-> the LINK_CAPA_xxx can express, with the difference that LINK_CAPA don't
-> have any information about Pause/Asym Pause support.
+On 25/02/2025 15:59, Andy Shevchenko wrote:
+> On Tue, Feb 25, 2025 at 03:29:17PM +0200, Matti Vaittinen wrote:
+>> On 25/02/2025 12:39, Andy Shevchenko wrote:
+>>> On Tue, Feb 25, 2025 at 12:29:31PM +0200, Matti Vaittinen wrote:
+>>>> On 25/02/2025 12:21, Andy Shevchenko wrote:
+>>>>> On Tue, Feb 25, 2025 at 11:40:16AM +0200, Heikki Krogerus wrote:
 > 
-> To prepare converting phylink to using the phy_caps, add the mapping
-> between MAC capabilities and phy_caps. While doing so, we move the
-> phylink_caps_params array up a bit to simplify future commits.
+> ...
+> 
+>>>>>>
+>>>>>> I did not check how many users are you proposing for this, but if
+>>>>>> there's only one, then IMO this should not be a global function yet.
+>>>>>> It just feels to special case to me. But let's see what the others
+>>>>>> think.
+>>>>>
+>>>>> The problem is that if somebody hides it, we might potentially see
+>>>>> a duplication in the future. So I _slightly_ prefer to publish and
+>>>>> then drop that after a few cycles if no users appear.
+>>>>
+>>>> After taking a very quick grep I spotted one other existing place where we
+>>>> might be able to do direct conversion to use this function.
+>>>>
+>>>> drivers/net/ethernet/freescale/gianfar.c
+>>>>
+>>>> That'd be 2 users.
+>>>
+>>> I haven't checked myself, I believe your judgement,
+>>
+>> I took a better look and you obviously shouldn't believe :) The gianfar used
+>> of_node instead of the fwnode. So, it'd be a single caller at starters.
+> 
+> ...which is the same as dev_of_node(), which means that you can use your
+> function there.
 
-I still want to know why we need to do this type of thing -
-unfortunately I don't have time to review all your patches at the
-moment. I haven't reviewed all your patches since you've started
-posting them. Sorry.
+I'm unsure what you mean. The proposed function 
+device_get_child_node_count_named() takes device pointer. I don't see 
+how dev_of_node() helps converting node to device?
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+I think I could actually kill the whole gfar_of_group_count() function 
+and replace it with a direct call to the 
+device_get_child_node_count_named() - but I am not at all convinced 
+that'd be worth including the property.h to a file which is currently 
+using only of_* -stuff. Well, I suppose it can be asked from netdev 
+peeps but I am not convinced they see it as a great idea.
+
+If I misunderstood your meaning - please elaborate.
+
+Yours,
+	-- Matti
 
