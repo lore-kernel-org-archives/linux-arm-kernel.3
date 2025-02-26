@@ -4,76 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F984C19776
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 10:09:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D6F5C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 10:11:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AyAHIQeVxV7KJDnqLXHbeSFECRBR40Nsmn5QJdOcsts=; b=lCkQpwjx2LB7qy0ZiuY1Haq28g
-	D3Ij4zOqod8pNvfpTzBSFT14KQ3APOZA1qiRo/s6yWrKX1hFm1qiRFmRWvAYhMyHRMnSfW5sAAYo+
-	o7Yatcg+QbxF2mI6T8LGm/P52lDT4OVrNTzh51GU2x313+sDpMLvI33XYjuWDL2tuNtMF3+aeRMYb
-	WE3JZ1Rllnn0lJmZeYuXKQa0z8V24DYooVhB6cDDd3SlWNUGW+T6C47ElKgSR+HEJdd0ScXh9Mn4Q
-	YgQgCFKUeudx+/RzAwR1ifXqyFQMbsxVcaRbOoIM3IAnUFrFlNNR0Uiuhen4RPHs0x+mdfCBrBgqr
-	M99lNIfw==;
+	bh=5i64C+XznY5VpwulJeuZ+fGDTRMIkf91taLlh/OqCYg=; b=xU9O0jZiSK0I2c56uLUTVyeGyu
+	8FtSF2swwvRGzq0+Gl5fO/ffBb5nunKIZNIowDT+SQjfPPujdwbZLf1B5hk/GKazuSJQVaLv/qGE8
+	irB3427k/lb24VVx+Pkm+JiyO/Mu10/fEOygbfTt7eFWLJ0itgTYIXKYSCEY+F0X1f1SUPQxSJ/9s
+	zSI/QiXOV6bd12XP2BQS+ASeL2NYYf288R9AxH9fNzDgcDoYov6nnuDcLSURGBAoXtkdL6WP9EJq3
+	PI2TtLBVnJG33rT6eWaGuo8N+1IiF3JJWLSqdaQhWGb9n0LvtpCWfJwfxztEURoW0elQINK2LUMjx
+	oi8lvUZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnELz-00000003EC5-0H3a;
-	Wed, 26 Feb 2025 10:09:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tnENU-00000003Edi-3Lyj;
+	Wed, 26 Feb 2025 10:10:56 +0000
+Received: from out-186.mta1.migadu.com ([2001:41d0:203:375::ba])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnEKF-00000003Dy0-1Acu
+	id 1tnEKm-00000003E64-14Tu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 10:07:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5ACD75C660A
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 10:06:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0D01C4CED6
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 10:07:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740564452;
-	bh=AyAHIQeVxV7KJDnqLXHbeSFECRBR40Nsmn5QJdOcsts=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=LgVsLb6ae+6LZxYgCVoI/D5XVgpm6Cz/p1SVdgYH18ndzrPdcLpBd+x3IDZU8Go8i
-	 gGsnx3pAaSA8BxbaCutK6L5h9gBJkAwR7r38p/ljcw1QNlBMAVOhCjwkXg3KFr9lHi
-	 Ul2GZK+GzGGoiuQYETJDEcBLGN3Z+m8s5dDA2AbmI1lDST3qmHUQHAEnNS28xYlYGX
-	 Fmrv/oTt00u+8w/a8YOqJsUDnfXvXhxcchOxz+kZj1dvVJyq1AofUSoouMf7NhXs2x
-	 X1q8NGBNLy+b1ojpKIQ4N9tH79OIMMsbRCsRT6go97QHSd9PL1iT3Ii8UqEsEkG/Yi
-	 TNLsxJK37cyRQ==
-Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-30761be8fa7so61728671fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 02:07:32 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXvrLjXDzuhvbGFSoKw9yLBFG61jaVQjq/cE9XJp65PBlPh7YDGTrHHKvTyzMzqGpwZsE/iKubT72SEyjIf8c5n@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy74KME8ZlkkU89Zm9eXIpwKiZ8o7zduMd9mY8RzyFzRc+mOVYh
-	SrgYEEB+NRnHCIQPpQD33BUWfsyWpnAQ0xHfpijvTkw6/0PJ5HizLuhti+EXLoTqNyCuxi0I0Cq
-	FGgQG83hiwbrO22Uz+dRlydXqHX0=
-X-Google-Smtp-Source: AGHT+IH77s07/831v/UsWRW9X8Qt2tEO6lngODAKoum/ihUKwQXpXxPbkOfYTJKPMisMdLAWL73xuBPJxdwhVpBZ4kk=
-X-Received: by 2002:a05:6512:234e:b0:543:e406:6363 with SMTP id
- 2adb3069b0e04-5493c570ed1mr2417228e87.3.1740564451208; Wed, 26 Feb 2025
- 02:07:31 -0800 (PST)
+	Wed, 26 Feb 2025 10:08:09 +0000
+Date: Wed, 26 Feb 2025 02:07:56 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1740564485;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5i64C+XznY5VpwulJeuZ+fGDTRMIkf91taLlh/OqCYg=;
+	b=v3oArvu02FM6YGN1u5zf71hgLXwsJiDLOoixvpr0JJxGDToNzSws1vy6oss7NnNd8QLMuf
+	jXOClnDeec7Zloq5DQ06f6pJ3TgqLvLP5eJvRdYELi7pYpaQVAMLQhW4x/74A5DLZUYbf6
+	buE2h0UDSplp4UTtyq26wCWwcbHcCmM=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	maz@kernel.org, mark.rutland@arm.com, will@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com,
+	vdonnefort@google.com
+Subject: Re: [PATCH v1 1/3] KVM: arm64: Initialize HCRX_EL2 traps in pKVM
+Message-ID: <Z77n_Gv0X0bolONW@linux.dev>
+References: <20250214150258.464798-1-tabba@google.com>
+ <20250214150258.464798-2-tabba@google.com>
 MIME-Version: 1.0
-References: <20250225114638.2038006-1-ryan.roberts@arm.com>
- <CAMj1kXHNO+iB4vNFz-4tR_9CPzv96hn+RW=eqyZXMGy_AySDpw@mail.gmail.com>
- <20250226001047.GA24197@willie-the-truck> <CAMj1kXH=tPuM+irCsKgycUTbts8h9vD4m3tEtw51YFzWafdSUA@mail.gmail.com>
- <b0578d21-95cd-4d8a-add1-87299f36b491@arm.com> <CAMj1kXHJGC9aYCwwb2XTWfhAjH6GDKQptNdLwO+hfv6hazivHQ@mail.gmail.com>
- <b6b999c9-79cd-4945-9d7a-c5ee8158b7dc@arm.com> <CAMj1kXHesY77QhnW_U19UURGUqiBuQrNcL-kWQs7niaMa4nAng@mail.gmail.com>
- <2c465bdf-8028-4b05-8e18-3154735ce906@arm.com>
-In-Reply-To: <2c465bdf-8028-4b05-8e18-3154735ce906@arm.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Wed, 26 Feb 2025 11:07:19 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXGQSFh9A_uK6-i1-sd59i+yKg3vZxD+cYQ_vyz-HZJZKg@mail.gmail.com>
-X-Gm-Features: AQ5f1JqAlass0uE8mVVRnhELpOjzjIKuYqX8xCtGGpSz6emoBSwU3fQmwrmDzrg
-Message-ID: <CAMj1kXGQSFh9A_uK6-i1-sd59i+yKg3vZxD+cYQ_vyz-HZJZKg@mail.gmail.com>
-Subject: Re: [PATCH v1] arm64/mm: Fix Boot panic on Ampere Altra
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Luiz Capitulino <luizcap@redhat.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250214150258.464798-2-tabba@google.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_020735_424992_710DB5DD 
-X-CRM114-Status: GOOD (  43.12  )
+X-CRM114-CacheID: sfid-20250226_020808_702787_6BB1471D 
+X-CRM114-Status: GOOD (  18.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,100 +71,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 26 Feb 2025 at 10:45, Ryan Roberts <ryan.roberts@arm.com> wrote:
->
-> On 26/02/2025 09:04, Ard Biesheuvel wrote:
-> > On Wed, 26 Feb 2025 at 09:55, Ryan Roberts <ryan.roberts@arm.com> wrote:
-> >>
-> >> On 26/02/2025 08:33, Ard Biesheuvel wrote:
-> >>> On Wed, 26 Feb 2025 at 09:07, Ryan Roberts <ryan.roberts@arm.com> wrote:
-> >>>>
-> >>>> On 26/02/2025 06:59, Ard Biesheuvel wrote:
-> >>>>> On Wed, 26 Feb 2025 at 01:10, Will Deacon <will@kernel.org> wrote:
-> >>>>>>
-> >>>>>> On Tue, Feb 25, 2025 at 07:05:35PM +0100, Ard Biesheuvel wrote:
-> >>>>>>> Apologies for the breakage, and thanks for the fix.
-> >>>>>>>
-> >>>>>>> I have to admit that I was a bit overzealous here: there is no point
-> >>>>>>> yet in using the sanitised value, given that we don't actually
-> >>>>>>> override the PA range in the first place.
-> >>>>
-> >>>> But unless I've misunderstood something, parange is overridden; Commit
-> >>>> 62cffa496aac (the same one we are fixing) adds an override to force parange to
-> >>>> 48 bits when arm64.nolva is specified for LPA2 systems (see mmfr2_varange_filter()).
-> >>>>
-> >>>> I thought it would be preferable to honour that override, hence my use of
-> >>>> arm64_apply_feature_override() in the fix. Are you saying we don't need to worry
-> >>>> about that case?
-> >>>>
-> >>>
-> >>> I wouldn't think so (but I'm glad you brought it up because this
-> >>> didn't occur to me at all tbh)
-> >>>
-> >>> With arm64.nolva, both the VA and PA ranges will be reduced, and so
-> >>> the range of the linear map will be 47 bits. So if the PA range is
-> >>> being reduced from 52 to 48, it will still exceed the size of the
-> >>> linear map, and so it should make no difference in this particular
-> >>> case.
-> >>
-> >> OK, so I think you're saying it'll happen to work correctly even if we ignore
-> >> that override? That sounds a bit fragile to me. Surely we should be consistent
-> >> and either always honour the override or remove the override in the first place?
-> >>
-> >
-> > I'm trying to walk a fine line here between consistent use of the
-> > override, and fixing something that I broke in a nasty way all the way
-> > back to 6.12.
-> >
-> > So yes, I agree that it would be better to use the override
-> > consistently, and this is what we should do going forward. But the
-> > purpose of the original patch was mainly to ensure that we
-> > consistently program the MMU either in LPA2 or in non-LPA2 mode, and
-> > not in a mix of the two. The linear mapping randomization change was
-> > kind of secondary.
-> >
-> > So perhaps this should be two patches:
-> > - backing out the use of the sanitised register, as proposed by Will,
-> > with cc:stable
-> > - a follow up based on your proposal, which can be backported later if
-> > needed, but without tagging it for stable.
->
-> I suspect I'm misunderstanding something crucial about the way the linear map
-> randomization works (TBH the details of the signed comparisons went a little
-> over my head).
->
-> But my rough understanding is that there are 2 values you want to compare; the
-> size of the linear map and the PA range. If the PA range is significantly bigger
-> than the linear map size then we conclude we have enough room to randomize.
+Hi Fuad,
 
-It is the other way around: the linear map should be able to cover all
-system RAM that may appear anywhere in the PA space, and so if the PA
-space is very large (and memory hotplug is enabled), no randomization
-is possible, as it may end up mapping RAM that appears later past the
-top of the VA space. Note that the same is fundamentally true for
-running a 39-bit VA kernel on hardware that has a PA range that
-exceeds that.
+Series LGTM overall, one comment:
 
-As for the signed arithmetic: the randomization works by substracting
-from memstart_addr (aka PHYS_OFFSET). Normally, if system RAM starts
-at 1G, memstart_addr will be 1G, and the linear map will associate
-PAGE_OFFSET with PA 1G.
+On Fri, Feb 14, 2025 at 03:02:56PM +0000, Fuad Tabba wrote:
+> Initialize and set the traps controlled by the HCRX_EL2 in pKVM
+> when the register is supported by the system.
+> 
+> Signed-off-by: Fuad Tabba <tabba@google.com>
+> ---
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c | 46 ++++++++++++++++++++++++++++++++++
+>  1 file changed, 46 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> index 3927fe52a3dd..668ebec27f1b 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> @@ -58,6 +58,30 @@ static void pkvm_vcpu_reset_hcr(struct kvm_vcpu *vcpu)
+>  		vcpu->arch.hcr_el2 |= HCR_ATA;
+>  }
+>  
+> +static void pkvm_vcpu_reset_hcrx(struct pkvm_hyp_vcpu *hyp_vcpu)
+> +{
+> +	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
+> +	struct kvm_vcpu *vcpu = &hyp_vcpu->vcpu;
+> +
+> +	if (!cpus_have_final_cap(ARM64_HAS_HCX))
+> +		return;
+> +
+> +	/*
+> +	 * In general, all HCRX_EL2 bits are gated by a feature.
+> +	 * The only reason we can set SMPME without checking any
+> +	 * feature is that its effects are not directly observable
+> +	 * from the guest.
+> +	 */
+> +	vcpu->arch.hcrx_el2 = HCRX_EL2_SMPME;
+> +
 
-To randomize the linear mapping, the system RAM has to be moved up in
-the linear map (as this is the only direction it can be moved), and so
-PAGE_OFFSET needs to map to a lower value, and so memstart_addr may
-wrap around and become negative.
+The comment isn't wrong, but we don't support SME at all in KVM at this
+point.
 
-> (I
-> think this assumes that VA size is always GTE PA size). But if linear map size
-> is based on an overridden VA and overridden PA size (which I assume it must be,
-> given the pgtables will be limitted to the overridden VA size) and PA size is
-> not overridden, isn't it possible to wrongly conclude that there is enough room
-> to randomize when there really is not?
->
+Any objection to dropping this bit? I can fix it when applying the
+series, no need to respin.
 
-No, if the linear map is only 47 bits, and the PA space is either 52
-or 48 bits, no randomization is possible. We might even run out of
-space without randomization, but this is an existing problem for
-non-LPA2 too.
+Thanks,
+Oliver
 
