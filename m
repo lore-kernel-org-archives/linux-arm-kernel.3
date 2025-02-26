@@ -4,112 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45C46C18E7C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED026C19778
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:25:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QIfI2Pnrq5fTtNbjcstohTjp8ECPAov5fJL/L91Kv70=; b=qQFewLryrJe5mxXnXtZH3XVMN8
-	a+Vck5lCiD/iu56ncFuuTrWEc1QVVDKnZ0+tmVjWU/Y4oOQS6kE969mZn2kWUIbP+9g5vUBpaCGJe
-	gBotsnJXUaQmVMktD3eCUvu4aUv8xLeY1iZlDN6h+Ue76mj64u9aNosGJmcUrEiBltsYeTrQDIOTO
-	OTUC0jEf3rDIibwVviE4xEAjKA6ttmGuFDxNTBMRiPggZ4lSb0AMdvs/IARNKC3JGEdU2OGCFM2nU
-	l47N6qVzq1wzzWu050tRzxWrFMtZPaaphXx7QqMsUOVkNXrR/4bRmiAKqqbRtqpdX1YBX9j3o8AyT
-	9YLQKvfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xJZnqQXY5O5v6zi7H11qd1gWFqaUevNQ86tIerK1ilM=; b=zWXJEvbJ0NXEBwRPSlgRs/aw4e
+	NoODNpTLymTITQAp41CP4T3iksxTvbM96/4H6uNCV3uzrEuyoN9ffUU4IVeguMtzcCHBWr4cVeFjA
+	fZ+x6XHMpdzUKjJjcDn8qmvkbd6+8EszYCnrdZaM2Bdxcw7KIFp35SeHjlVjhx+iT1UUAQJ0yS6CQ
+	23cSY8T0iPEH/lKZf46gpwZOzJomnxegSvnAI02eVO/qa8cMoN0+cdFKCyhRE+6wnN/FhZSwOiWdr
+	4fUZVhhZmt8GUh472uAy1m9mVfVfKYVK/UWgy96vH96SftI1eWgSraSTUAch72uBT5R/PZ2MSOcmc
+	gQsH1OzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnHPE-00000003pcx-3N97;
-	Wed, 26 Feb 2025 13:24:56 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tnHPD-00000003pcA-3pd9;
+	Wed, 26 Feb 2025 13:24:55 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnFKw-00000003RVO-0CC3
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 11:12:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A94B55C694B;
-	Wed, 26 Feb 2025 11:11:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FDEEC4CED6;
-	Wed, 26 Feb 2025 11:12:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740568341;
-	bh=jZw9UiUOrosfMM/sq64CfD9dAVrPX0T09356az2lcn8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=U4UZjGRVj/GAe6cQw0SBXKABZXheweZqqsnuaK4R7FEnAhhYuB8935c1pxzUuKy23
-	 iKjuW4Gyk85euPwoTSQRQZXO3d5OS/TLNhoYgQAOdHbBsHV7Xo2oLkm3xSXxMdV9Lc
-	 R0AQM+OizId6HH0sYEAvA0CGTxafjlOnDoPQMAWbfdDFf/r//XF22TUUvNUWqx1810
-	 ZQhPRTOagkhWDk8B9E/QspEnB24zRmoHkblV1OSbhEx26tV7D3NGJu8fa+snYKJKoH
-	 6jllMkSzApR7AHf3oNSAJRZM0SvgnJujN9hKmFDFVb8L+fipgtmQVaBEmobtFW0jfn
-	 /5ZnapxjCVNow==
-Message-ID: <6f01269a-bd64-46e7-800f-d8d59c4bf72e@kernel.org>
-Date: Wed, 26 Feb 2025 12:12:15 +0100
+	id 1tnFJu-00000003RBa-027s;
+	Wed, 26 Feb 2025 11:11:19 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.163])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4Z2sB217hyz1ltb1;
+	Wed, 26 Feb 2025 19:07:06 +0800 (CST)
+Received: from dggpemf200006.china.huawei.com (unknown [7.185.36.61])
+	by mail.maildlp.com (Postfix) with ESMTPS id B3B3118001B;
+	Wed, 26 Feb 2025 19:11:09 +0800 (CST)
+Received: from localhost.localdomain (10.90.30.45) by
+ dggpemf200006.china.huawei.com (7.185.36.61) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 26 Feb 2025 19:11:09 +0800
+From: Yunsheng Lin <linyunsheng@huawei.com>
+To: <davem@davemloft.net>, <kuba@kernel.org>, <pabeni@redhat.com>
+CC: <zhangkun09@huawei.com>, <liuyonglong@huawei.com>,
+	<fanghaiqing@huawei.com>, Yunsheng Lin <linyunsheng@huawei.com>, Wei Fang
+	<wei.fang@nxp.com>, Shenwei Wang <shenwei.wang@nxp.com>, Clark Wang
+	<xiaoning.wang@nxp.com>, Andrew Lunn <andrew+netdev@lunn.ch>, Eric Dumazet
+	<edumazet@google.com>, Jeroen de Borst <jeroendb@google.com>, Harshitha
+ Ramamurthy <hramamurthy@google.com>, Tony Nguyen
+	<anthony.l.nguyen@intel.com>, Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>, Alexei Starovoitov
+	<ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard
+ Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, Saeed
+ Mahameed <saeedm@nvidia.com>, Leon Romanovsky <leon@kernel.org>, Tariq Toukan
+	<tariqt@nvidia.com>, Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi
+	<lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen
+	<shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, Johannes Berg
+	<johannes@sipsolutions.net>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Simon
+ Horman <horms@kernel.org>, Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	<imx@lists.linux.dev>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <intel-wired-lan@lists.osuosl.org>,
+	<bpf@vger.kernel.org>, <linux-rdma@vger.kernel.org>,
+	<linux-wireless@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+Subject: [PATCH net-next v10 1/4] page_pool: introduce page_pool_get_pp() API
+Date: Wed, 26 Feb 2025 19:03:36 +0800
+Message-ID: <20250226110340.2671366-2-linyunsheng@huawei.com>
+X-Mailer: git-send-email 2.30.0
+In-Reply-To: <20250226110340.2671366-1-linyunsheng@huawei.com>
+References: <20250226110340.2671366-1-linyunsheng@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/5] coresight-tnoc: add nodes to configure freq packet
-To: Yuanfang Zhang <quic_yuanfang@quicinc.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: kernel@quicinc.com, linux-kernel@vger.kernel.org,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- kernel@oss.qualcomm.com, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com>
- <20250226-trace-noc-driver-v2-5-8afc6584afc5@quicinc.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250226-trace-noc-driver-v2-5-8afc6584afc5@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.30.45]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ dggpemf200006.china.huawei.com (7.185.36.61)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_031222_173449_5DBDA370 
-X-CRM114-Status: GOOD (  15.99  )
+X-CRM114-CacheID: sfid-20250226_031118_449784_2CE5D55F 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,55 +89,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/02/2025 12:05, Yuanfang Zhang wrote:
-> Three nodes for freq packet config are added here:
-> 
-> 1. freq_type: used to set the type of issued ATB FREQ packets.
-> 0: 'FREQ' packets; 1: 'FREQ_TS' packets.
-> 
-> 2. freq_req_val: used to set frequency values carried by 'FREQ'
-> and 'FREQ_TS' packets.
-> 
-> 3. freq_ts_req: writing '1' to issue a 'FREQ' or 'FREQ_TS' packet.
-> 
-> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-> ---
->  drivers/hwtracing/coresight/coresight-tnoc.c | 97 ++++++++++++++++++++++++++++
->  1 file changed, 97 insertions(+)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
-> index ad973749250644760adc4dfd855240026d0a744c..24b1add4c921866b944d756e563d50b4172d583a 100644
-> --- a/drivers/hwtracing/coresight/coresight-tnoc.c
-> +++ b/drivers/hwtracing/coresight/coresight-tnoc.c
-> @@ -112,10 +112,107 @@ static ssize_t flag_type_show(struct device *dev,
->  }
->  static DEVICE_ATTR_RW(flag_type);
->  
-> +static ssize_t freq_type_show(struct device *dev,
-> +			      struct device_attribute *attr,
-> +			      char *buf)
-> +{
-> +	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +
-> +	return sysfs_emit(buf, "%u\n", drvdata->freq_type);
-> +}
-> +
-> +static ssize_t freq_type_store(struct device *dev,
-> +			       struct device_attribute *attr,
-> +			       const char *buf,
-> +			       size_t size)
+Introduce page_pool_get_pp() API to avoid caller accessing
+page->pp directly, in order to make the following patch more
+reviewable as the following patch will change page->pp to
+page->pp_item to fix the DMA API misuse problem.
 
-No improvements. You got here comments and you got also later my
-complain that yo missed comments already.
+Signed-off-by: Yunsheng Lin <linyunsheng@huawei.com>
+---
+ drivers/net/ethernet/freescale/fec_main.c          |  8 +++++---
+ .../net/ethernet/google/gve/gve_buffer_mgmt_dqo.c  |  2 +-
+ drivers/net/ethernet/intel/iavf/iavf_txrx.c        |  6 ++++--
+ drivers/net/ethernet/intel/idpf/idpf_txrx.c        | 14 +++++++++-----
+ drivers/net/ethernet/intel/libeth/rx.c             |  2 +-
+ drivers/net/ethernet/mellanox/mlx5/core/en/xdp.c   |  3 ++-
+ drivers/net/netdevsim/netdev.c                     |  6 ++++--
+ drivers/net/wireless/mediatek/mt76/mt76.h          |  2 +-
+ include/net/libeth/rx.h                            |  3 ++-
+ include/net/page_pool/helpers.h                    |  5 +++++
+ 10 files changed, 34 insertions(+), 17 deletions(-)
 
-You keep ignoring received feedback and that's a no go for me.
+diff --git a/drivers/net/ethernet/freescale/fec_main.c b/drivers/net/ethernet/freescale/fec_main.c
+index a86cfebedaa8..4ade1553557a 100644
+--- a/drivers/net/ethernet/freescale/fec_main.c
++++ b/drivers/net/ethernet/freescale/fec_main.c
+@@ -1038,7 +1038,8 @@ static void fec_enet_bd_init(struct net_device *dev)
+ 				struct page *page = txq->tx_buf[i].buf_p;
+ 
+ 				if (page)
+-					page_pool_put_page(page->pp, page, 0, false);
++					page_pool_put_page(page_pool_get_pp(page),
++							   page, 0, false);
+ 			}
+ 
+ 			txq->tx_buf[i].buf_p = NULL;
+@@ -1576,7 +1577,7 @@ fec_enet_tx_queue(struct net_device *ndev, u16 queue_id, int budget)
+ 			xdp_return_frame_rx_napi(xdpf);
+ 		} else { /* recycle pages of XDP_TX frames */
+ 			/* The dma_sync_size = 0 as XDP_TX has already synced DMA for_device */
+-			page_pool_put_page(page->pp, page, 0, true);
++			page_pool_put_page(page_pool_get_pp(page), page, 0, true);
+ 		}
+ 
+ 		txq->tx_buf[index].buf_p = NULL;
+@@ -3343,7 +3344,8 @@ static void fec_enet_free_buffers(struct net_device *ndev)
+ 			} else {
+ 				struct page *page = txq->tx_buf[i].buf_p;
+ 
+-				page_pool_put_page(page->pp, page, 0, false);
++				page_pool_put_page(page_pool_get_pp(page),
++						   page, 0, false);
+ 			}
+ 
+ 			txq->tx_buf[i].buf_p = NULL;
+diff --git a/drivers/net/ethernet/google/gve/gve_buffer_mgmt_dqo.c b/drivers/net/ethernet/google/gve/gve_buffer_mgmt_dqo.c
+index 403f0f335ba6..87422b8828ff 100644
+--- a/drivers/net/ethernet/google/gve/gve_buffer_mgmt_dqo.c
++++ b/drivers/net/ethernet/google/gve/gve_buffer_mgmt_dqo.c
+@@ -210,7 +210,7 @@ void gve_free_to_page_pool(struct gve_rx_ring *rx,
+ 	if (!page)
+ 		return;
+ 
+-	page_pool_put_full_page(page->pp, page, allow_direct);
++	page_pool_put_full_page(page_pool_get_pp(page), page, allow_direct);
+ 	buf_state->page_info.page = NULL;
+ }
+ 
+diff --git a/drivers/net/ethernet/intel/iavf/iavf_txrx.c b/drivers/net/ethernet/intel/iavf/iavf_txrx.c
+index 422312b8b54a..72f17eaac277 100644
+--- a/drivers/net/ethernet/intel/iavf/iavf_txrx.c
++++ b/drivers/net/ethernet/intel/iavf/iavf_txrx.c
+@@ -1197,7 +1197,8 @@ static void iavf_add_rx_frag(struct sk_buff *skb,
+ 			     const struct libeth_fqe *rx_buffer,
+ 			     unsigned int size)
+ {
+-	u32 hr = rx_buffer->page->pp->p.offset;
++	struct page_pool *pool = page_pool_get_pp(rx_buffer->page);
++	u32 hr = pool->p.offset;
+ 
+ 	skb_add_rx_frag(skb, skb_shinfo(skb)->nr_frags, rx_buffer->page,
+ 			rx_buffer->offset + hr, size, rx_buffer->truesize);
+@@ -1214,7 +1215,8 @@ static void iavf_add_rx_frag(struct sk_buff *skb,
+ static struct sk_buff *iavf_build_skb(const struct libeth_fqe *rx_buffer,
+ 				      unsigned int size)
+ {
+-	u32 hr = rx_buffer->page->pp->p.offset;
++	struct page_pool *pool = page_pool_get_pp(rx_buffer->page);
++	u32 hr = pool->p.offset;
+ 	struct sk_buff *skb;
+ 	void *va;
+ 
+diff --git a/drivers/net/ethernet/intel/idpf/idpf_txrx.c b/drivers/net/ethernet/intel/idpf/idpf_txrx.c
+index 2747dc69999a..248495f587d0 100644
+--- a/drivers/net/ethernet/intel/idpf/idpf_txrx.c
++++ b/drivers/net/ethernet/intel/idpf/idpf_txrx.c
+@@ -385,7 +385,8 @@ static void idpf_rx_page_rel(struct libeth_fqe *rx_buf)
+ 	if (unlikely(!rx_buf->page))
+ 		return;
+ 
+-	page_pool_put_full_page(rx_buf->page->pp, rx_buf->page, false);
++	page_pool_put_full_page(page_pool_get_pp(rx_buf->page), rx_buf->page,
++				false);
+ 
+ 	rx_buf->page = NULL;
+ 	rx_buf->offset = 0;
+@@ -3095,7 +3096,8 @@ idpf_rx_process_skb_fields(struct idpf_rx_queue *rxq, struct sk_buff *skb,
+ void idpf_rx_add_frag(struct idpf_rx_buf *rx_buf, struct sk_buff *skb,
+ 		      unsigned int size)
+ {
+-	u32 hr = rx_buf->page->pp->p.offset;
++	struct page_pool *pool = page_pool_get_pp(rx_buf->page);
++	u32 hr = pool->p.offset;
+ 
+ 	skb_add_rx_frag(skb, skb_shinfo(skb)->nr_frags, rx_buf->page,
+ 			rx_buf->offset + hr, size, rx_buf->truesize);
+@@ -3127,8 +3129,10 @@ static u32 idpf_rx_hsplit_wa(const struct libeth_fqe *hdr,
+ 	if (!libeth_rx_sync_for_cpu(buf, copy))
+ 		return 0;
+ 
+-	dst = page_address(hdr->page) + hdr->offset + hdr->page->pp->p.offset;
+-	src = page_address(buf->page) + buf->offset + buf->page->pp->p.offset;
++	dst = page_address(hdr->page) + hdr->offset +
++		page_pool_get_pp(hdr->page)->p.offset;
++	src = page_address(buf->page) + buf->offset +
++		page_pool_get_pp(buf->page)->p.offset;
+ 	memcpy(dst, src, LARGEST_ALIGN(copy));
+ 
+ 	buf->offset += copy;
+@@ -3146,7 +3150,7 @@ static u32 idpf_rx_hsplit_wa(const struct libeth_fqe *hdr,
+  */
+ struct sk_buff *idpf_rx_build_skb(const struct libeth_fqe *buf, u32 size)
+ {
+-	u32 hr = buf->page->pp->p.offset;
++	u32 hr = page_pool_get_pp(buf->page)->p.offset;
+ 	struct sk_buff *skb;
+ 	void *va;
+ 
+diff --git a/drivers/net/ethernet/intel/libeth/rx.c b/drivers/net/ethernet/intel/libeth/rx.c
+index 66d1d23b8ad2..8de0c3a3b146 100644
+--- a/drivers/net/ethernet/intel/libeth/rx.c
++++ b/drivers/net/ethernet/intel/libeth/rx.c
+@@ -207,7 +207,7 @@ EXPORT_SYMBOL_NS_GPL(libeth_rx_fq_destroy, "LIBETH");
+  */
+ void libeth_rx_recycle_slow(struct page *page)
+ {
+-	page_pool_recycle_direct(page->pp, page);
++	page_pool_recycle_direct(page_pool_get_pp(page), page);
+ }
+ EXPORT_SYMBOL_NS_GPL(libeth_rx_recycle_slow, "LIBETH");
+ 
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/xdp.c b/drivers/net/ethernet/mellanox/mlx5/core/en/xdp.c
+index 6f3094a479e1..b6bee95db994 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en/xdp.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en/xdp.c
+@@ -709,7 +709,8 @@ static void mlx5e_free_xdpsq_desc(struct mlx5e_xdpsq *sq,
+ 				/* No need to check ((page->pp_magic & ~0x3UL) == PP_SIGNATURE)
+ 				 * as we know this is a page_pool page.
+ 				 */
+-				page_pool_recycle_direct(page->pp, page);
++				page_pool_recycle_direct(page_pool_get_pp(page),
++							 page);
+ 			} while (++n < num);
+ 
+ 			break;
+diff --git a/drivers/net/netdevsim/netdev.c b/drivers/net/netdevsim/netdev.c
+index a41dc79e9c2e..ffb7bcc67eba 100644
+--- a/drivers/net/netdevsim/netdev.c
++++ b/drivers/net/netdevsim/netdev.c
+@@ -836,7 +836,8 @@ nsim_pp_hold_write(struct file *file, const char __user *data,
+ 		if (!ns->page)
+ 			ret = -ENOMEM;
+ 	} else {
+-		page_pool_put_full_page(ns->page->pp, ns->page, false);
++		page_pool_put_full_page(page_pool_get_pp(ns->page), ns->page,
++					false);
+ 		ns->page = NULL;
+ 	}
+ 
+@@ -1048,7 +1049,8 @@ void nsim_destroy(struct netdevsim *ns)
+ 
+ 	/* Put this intentionally late to exercise the orphaning path */
+ 	if (ns->page) {
+-		page_pool_put_full_page(ns->page->pp, ns->page, false);
++		page_pool_put_full_page(page_pool_get_pp(ns->page), ns->page,
++					false);
+ 		ns->page = NULL;
+ 	}
+ 
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wireless/mediatek/mt76/mt76.h
+index 132148f7b107..11a88ecf8533 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76.h
++++ b/drivers/net/wireless/mediatek/mt76/mt76.h
+@@ -1777,7 +1777,7 @@ static inline void mt76_put_page_pool_buf(void *buf, bool allow_direct)
+ {
+ 	struct page *page = virt_to_head_page(buf);
+ 
+-	page_pool_put_full_page(page->pp, page, allow_direct);
++	page_pool_put_full_page(page_pool_get_pp(page), page, allow_direct);
+ }
+ 
+ static inline void *
+diff --git a/include/net/libeth/rx.h b/include/net/libeth/rx.h
+index ab05024be518..2a3991d5b7c0 100644
+--- a/include/net/libeth/rx.h
++++ b/include/net/libeth/rx.h
+@@ -137,7 +137,8 @@ static inline bool libeth_rx_sync_for_cpu(const struct libeth_fqe *fqe,
+ 		return false;
+ 	}
+ 
+-	page_pool_dma_sync_for_cpu(page->pp, page, fqe->offset, len);
++	page_pool_dma_sync_for_cpu(page_pool_get_pp(page), page, fqe->offset,
++				   len);
+ 
+ 	return true;
+ }
+diff --git a/include/net/page_pool/helpers.h b/include/net/page_pool/helpers.h
+index 582a3d00cbe2..ab91911af215 100644
+--- a/include/net/page_pool/helpers.h
++++ b/include/net/page_pool/helpers.h
+@@ -83,6 +83,11 @@ static inline u64 *page_pool_ethtool_stats_get(u64 *data, const void *stats)
+ }
+ #endif
+ 
++static inline struct page_pool *page_pool_get_pp(struct page *page)
++{
++	return page->pp;
++}
++
+ /**
+  * page_pool_dev_alloc_pages() - allocate a page.
+  * @pool:	pool from which to allocate
+-- 
+2.33.0
 
-Maybe process needs to be improved, so reach to your colleagues and
-learn how to interact with upstream. There is very comprehensive
-internal guideline in Qualcomm, so follow it carefully.
-
-I expect still to respond to my original comment or implement it fully.
-
-Best regards,
-Krzysztof
 
