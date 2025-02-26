@@ -4,88 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D3BBC021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 02:54:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85A37C18E7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 02:56:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4qje131Rr/amQVhvj70xbXZpmuSbemZIWtBdEryaf1k=; b=S4DVNPT0UUpVFNt3kayR3k0vIu
-	YThaj5fZUhaVLxr5ZfzxA/Sda1XhrS4QRR0YgG13WWd9IlDx8Klyxre9Wxkv2n2LaZu9uiuVrLbO4
-	+64uysn1z7wVhRc7UA3TCF+ZSFFmFIqedlFg0sEGRyKLgX3/wa5G6oSbH5aXxoR9PBAtBDaW0VQ6U
-	P15D6232HSRPnrFi7DLjE0gje1IDS+IGZpKLBsJsYGEiXNZ2nQpmA9QrC1wm2eXoB3QqLrdm29EZd
-	WBsUQfgQidhVAbDfTKPawWhDaXaF2h2fznfQh0Li+iSmyukaosGhUBVJqX1g07XtsdgwDHyOEoXGJ
-	erX700Gg==;
+	bh=8VbGh7PDuhiz6ITk0qrJ7mh9i2e0MKemWMGvyv5rIM8=; b=ok0COZrw84hqB2ziV/xrkL8Q6g
+	LXRtcdI8ld2Zy5/3yczLuYY6M/PPwT2oQ1DhBpAY45sjbINdFXqMUqTue2rksV0RcVUXCbAGR7mE3
+	P0owavX9eS1X7uSXw10NQ/RlWzTeAw3aTXmlAhv6Qb7DRcnuAcGG+PByia5UXlwObZRQNYxlUhzfx
+	HRys+YOHbXcFYJ9z4XxqbkWyQPfj/x37Ln8GZhZKAlj0uYkFd+fipdF2J4gNGIg+Czm+s0lbziJ69
+	dDWmLkXZmlibyJl7wvE7nyz987GDWyDWDYPKXCQ7YqZVAhqMSFakDlboPsoZ2huGicedJFTPQtuYR
+	REdtj0qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn7ZC-00000002E1C-2g71;
-	Wed, 26 Feb 2025 02:54:34 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tn7ah-00000002EAy-1LuC;
+	Wed, 26 Feb 2025 02:56:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn7PA-00000002Cb3-3Lrj
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 02:44:14 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51PMYC7m013332;
-	Wed, 26 Feb 2025 02:44:06 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	4qje131Rr/amQVhvj70xbXZpmuSbemZIWtBdEryaf1k=; b=iB0/40cLtS2jMtoE
-	2xqPyfrplp8K4/2tvuRqOZhsydJnUT3lcGgE0cyUuvOJYShdAiomQ0XQVX7uF1F1
-	6zfxYdiPyHtIg2hMVEqM3eqEv1JhXAPc2sGDMsIesJ290kVuGv4KAkbHHKHOKbAX
-	hSqb69g01H0l9h2/Wh+1asAEqFm988s0XOKl+9x6ELvtfYjWpWlUEztRtM2LeSBx
-	r/iwHLacVaovpH1Sbbqxxc+OwPsu94OkEC4AGkioK5rgVhncEr5Cmp0B7lJBc688
-	8O95B6OwH229qBQdIyA0L+98qfs8jTzmbIS/p8JyFs1MH1qR/iGk8UGQ3x7TXXje
-	K9AUcA==
-Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 451prk8g39-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 26 Feb 2025 02:44:05 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51Q2i4qX020810
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 26 Feb 2025 02:44:04 GMT
-Received: from hu-sibis-blr.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 25 Feb 2025 18:44:00 -0800
-From: Sibi Sankar <quic_sibis@quicinc.com>
-To: <sudeep.holla@arm.com>, <cristian.marussi@arm.com>, <johan@kernel.org>,
-        <dmitry.baryshkov@linaro.org>, <maz@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <arm-scmi@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-arm-msm@vger.kernel.org>, <quic_sibis@quicinc.com>,
-        <konradybcio@kernel.org>
-Subject: [RFC V6 2/2] firmware: arm_scmi: Add quirk to bypass SCP fw bug
-Date: Wed, 26 Feb 2025 08:13:38 +0530
-Message-ID: <20250226024338.3994701-3-quic_sibis@quicinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250226024338.3994701-1-quic_sibis@quicinc.com>
-References: <20250226024338.3994701-1-quic_sibis@quicinc.com>
+	id 1tn7Ss-00000002DKC-06nk;
+	Wed, 26 Feb 2025 02:48:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 114E961210;
+	Wed, 26 Feb 2025 02:47:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E317EC4CEDD;
+	Wed, 26 Feb 2025 02:47:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740538081;
+	bh=J4YodrPtFGJQTypoQfeFjZBSXm+MIeUL45ni49ZCBe8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VtjEi/fRBnNN60i/JT7T7+OH3W/Ki+1FgriQzHu/E6Yj9MU5bf3r21DRa3//dVsjZ
+	 XbfpRCuevtGA34+CSsFbgfoslWujRat6+vCgdqv6lfa/kKqhxAKnM6iXK+Blofm3W5
+	 6agLJp03xZE4Qj872VAjAOXRJKkIzFUz0RpniqmVSSQsgMXTCLvRigRKnoNGzUuvO/
+	 DvXvGgrcOUARtUhSKq7Rx66iLCxmXlp67jAF5qmIBmgIuypRvQf5DrFF4G1q3JUrmM
+	 jNmFuPSL9iCE9ef2aDk87uEVCiDEZXGQ7CTfLzc42hGiepHQqCMXHFMHYq8OFWwZ+c
+	 Vz57haOSZaNKA==
+Date: Tue, 25 Feb 2025 18:47:58 -0800
+From: Namhyung Kim <namhyung@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	guoren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
+	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+	linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH v3 0/8] perf: Support multiple system call tables in the
+ build
+Message-ID: <Z76A3sU46Jxpc2s5@google.com>
+References: <20250219185657.280286-1-irogers@google.com>
+ <Z70zejQJvppH8Sfh@google.com>
+ <CAP-5=fU8Xw-aeCGUOFo8Zph=xagHv43jo+BkXY5vUai5tUsmDA@mail.gmail.com>
+ <Z71X5wXm1bQ7RM4m@google.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: Las44SGPqOcA59WC_rZmPZqYiM8Ve5Nh
-X-Proofpoint-ORIG-GUID: Las44SGPqOcA59WC_rZmPZqYiM8Ve5Nh
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-25_08,2025-02-25_03,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 mlxscore=0
- bulkscore=0 lowpriorityscore=0 phishscore=0 clxscore=1015 malwarescore=0
- impostorscore=0 adultscore=0 priorityscore=1501 spamscore=0
- mlxlogscore=999 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2502100000 definitions=main-2502260019
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_184412_956078_B8B1BCF4 
-X-CRM114-Status: GOOD (  19.85  )
+In-Reply-To: <Z71X5wXm1bQ7RM4m@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,193 +95,258 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The addition of per message-id fastchannel support check exposed
-a SCP firmware bug which leads to a device crash on X1E platforms.
-The X1E firmware supports fastchannel on LEVEL_GET but fails to
-have this set in the protocol message attributes and the fallback
-to regular messaging leads to a device crash since that implementation
-has a bug for all the X1E devices in the wild. Fix this by introducing
-a quirk that selectively skips the per message-id fastchannel check only
-for the LEVEL_GET message on X1E platforms.
+On Mon, Feb 24, 2025 at 09:40:55PM -0800, Namhyung Kim wrote:
+> On Mon, Feb 24, 2025 at 08:37:01PM -0800, Ian Rogers wrote:
+> > On Mon, Feb 24, 2025 at 7:05 PM Namhyung Kim <namhyung@kernel.org> wrote:
+> > >
+> > > On Wed, Feb 19, 2025 at 10:56:49AM -0800, Ian Rogers wrote:
+> > > > This work builds on the clean up of system call tables and removal of
+> > > > libaudit by Charlie Jenkins <charlie@rivosinc.com>.
+> > > >
+> > > > The system call table in perf trace is used to map system call numbers
+> > > > to names and vice versa. Prior to these changes, a single table
+> > > > matching the perf binary's build was present. The table would be
+> > > > incorrect if tracing say a 32-bit binary from a 64-bit version of
+> > > > perf, the names and numbers wouldn't match.
+> > > >
+> > > > Change the build so that a single system call file is built and the
+> > > > potentially multiple tables are identifiable from the ELF machine type
+> > > > of the process being examined. To determine the ELF machine type, the
+> > > > executable's header is read from /proc/pid/exe with fallbacks to using
+> > > > the perf's binary type when unknown.
+> > > >
+> > > > Remove some runtime types used by the system call tables and make
+> > > > equivalents generated at build time.
+> > >
+> > > So I tested this with a test program.
+> > >
+> > >   $ cat a.c
+> > >   #include <stdio.h>
+> > >   int main(void)
+> > >   {
+> > >         char buf[4096];
+> > >         FILE *fp = fopen("a.c", "r");
+> > >         size_t len;
+> > >
+> > >         len = fread(buf, sizeof(buf), 1, fp);
+> > >         fwrite(buf, 1, len, stdout);
+> > >         fflush(stdout);
+> > >         fclose(fp);
+> > >         return 0;
+> > >   }
+> > >
+> > >   $ gcc -o a64.out a.c
+> > >   $ gcc -o a32.out -m32 a.c
+> > >
+> > >   $ ./perf version
+> > >   perf version 6.14.rc1.ge002a64f6188
+> > >
+> > >   $ git show
+> > >   commit e002a64f61882626992dd6513c0db3711c06fea7 (HEAD -> perf-check)
+> > >   Author: Ian Rogers <irogers@google.com>
+> > >   Date:   Wed Feb 19 10:56:57 2025 -0800
+> > >
+> > >       perf syscalltbl: Mask off ABI type for MIPS system calls
+> > >
+> > >       Arnd Bergmann described that MIPS system calls don't necessarily start
+> > >       from 0 as an ABI prefix is applied:
+> > >       https://lore.kernel.org/lkml/8ed7dfb2-1e4d-4aa4-a04b-0397a89365d1@app.fastmail.com/
+> > >       When decoding the "id" (aka system call number) for MIPS ignore values
+> > >       greater-than 1000.
+> > >
+> > >       Signed-off-by: Ian Rogers <irogers@google.com>
+> > >
+> > > It works well with 64bit.
+> > >
+> > >   $ sudo ./perf trace ./a64.out |& tail
+> > >        0.266 ( 0.007 ms): a64.out/858681 munmap(addr: 0x7f392723a000, len: 109058)                             = 0
+> > >        0.286 ( 0.002 ms): a64.out/858681 getrandom(ubuf: 0x7f3927232178, len: 8, flags: NONBLOCK)              = 8
+> > >        0.289 ( 0.001 ms): a64.out/858681 brk()                                                                 = 0x56419ecf7000
+> > >        0.291 ( 0.002 ms): a64.out/858681 brk(brk: 0x56419ed18000)                                              = 0x56419ed18000
+> > >        0.299 ( 0.009 ms): a64.out/858681 openat(dfd: CWD, filename: "a.c")                                     = 3
+> > >        0.312 ( 0.001 ms): a64.out/858681 fstat(fd: 3, statbuf: 0x7ffdfadf1eb0)                                 = 0
+> > >        0.315 ( 0.002 ms): a64.out/858681 read(fd: 3, buf: 0x7ffdfadf2030, count: 4096)                         = 211
+> > >        0.318 ( 0.009 ms): a64.out/858681 read(fd: 3, buf: 0x56419ecf7480, count: 4096)                         = 0
+> > >        0.330 ( 0.001 ms): a64.out/858681 close(fd: 3)                                                          = 0
+> > >        0.338 (         ): a64.out/858681 exit_group()                                                          = ?
+> > >
+> > > But 32bit is still broken and use 64bit syscall table wrongly.
+> > >
+> > >   $ file a32.out
+> > >   a32.out: ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2,
+> > >   BuildID[sha1]=6eea873c939012e6c715e8f030261642bf61cb4e, for GNU/Linux 3.2.0, not stripped
+> > >
+> > >   $ sudo ./perf trace ./a32.out |& tail
+> > >        0.296 ( 0.001 ms): a32.out/858699 getxattr(pathname: "", name: "������", value: 0xf7f6ce14, size: 1)  = 0
+> > >        0.305 ( 0.007 ms): a32.out/858699 fchmod(fd: -134774784, mode: IFLNK|ISUID|ISVTX|IWOTH|0x10000)         = 0
+> > >        0.333 ( 0.001 ms): a32.out/858699 recvfrom(size: 4160146964, flags: RST|0x20000, addr: 0xf7f6ce14, addr_len: 0xf7f71278) = 1481879552
+> > >        0.335 ( 0.004 ms): a32.out/858699 recvfrom(fd: 1482014720, ubuf: 0xf7f71278, size: 4160146964, flags: NOSIGNAL|MORE|WAITFORONE|BATCH|SPLICE_PAGES|CMSG_CLOEXEC|0x10500000, addr: 0xf7f6ce14, addr_len: 0xf7f71278) = 1482014720
+> > >        0.355 ( 0.002 ms): a32.out/858699 recvfrom(fd: 1482018816, ubuf: 0x5855d000, size: 4160146964, flags: RST|NOSIGNAL|MORE|WAITFORONE|BATCH|SPLICE_PAGES|CMSG_CLOEXEC|0x10500000, addr: 0xf7f6ce14, addr_len: 0xf7f71278) = 1482018816
+> > >        0.362 ( 0.010 ms): a32.out/858699 preadv(fd: 4294967196, vec: (struct iovec){.iov_base = (void *)0x1b01000000632e62,.iov_len = (__kernel_size_t)1125899909479171,}, pos_h: 4160146964) = 3
+> > >        0.385 ( 0.002 ms): a32.out/858699 close(fd: 3)                                                          = 211
+> > >        0.388 ( 0.001 ms): a32.out/858699 close(fd: 3)                                                          = 0
+> > >        0.393 ( 0.002 ms): a32.out/858699 lstat(filename: "")                                                   = 0
+> > >        0.396 ( 0.004 ms): a32.out/858699 recvfrom(fd: 1482014720, size: 4160146964, flags: NOSIGNAL|MORE|WAITFORONE|BATCH|SPLICE_PAGES|CMSG_CLOEXEC|0x10500000, addr: 0xf7f6ce14, addr_len: 0xf7f71278) = 1482014720
+> > >
+> > > The last 5 should be openat, read, read, close and brk(?).
+> > 
+> > That's strange as nearly the same test works for me:
+> > ```
+> > $ git show
+> > commit 7920020237af8138f7be1a21be9a2918a71ddc5e (HEAD -> ptn-syscalltbl)
+> > Author: Ian Rogers <irogers@google.com>
+> > Date:   Fri Jan 31 21:34:07 2025 -0800
+> > 
+> >    perf syscalltbl: Mask off ABI type for MIPS system calls
+> > 
+> >    Arnd Bergmann described that MIPS system calls don't necessarily start
+> >    from 0 as an ABI prefix is applied:
+> >    https://lore.kernel.org/lkml/8ed7dfb2-1e4d-4aa4-a04b-0397a89365d1@app.fastmail.com/
+> >    When decoding the "id" (aka system call number) for MIPS ignore values
+> >    greater-than 1000.
+> > 
+> >    Signed-off-by: Ian Rogers <irogers@google.com>
+> > ..
+> > $ file a.out
+> > a.out: ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV),
+> > dynamically linked, interpreter /lib/ld-linux.so.2,
+> > BuildID[sha1]=3fcd28f85a27a3108941661a91dbc675c06868f9, for GNU/Linux
+> > 3.2.0, not stripped
+> > $ sudo /tmp/perf/perf trace ./a.out
+> > ...
+> >          ? (         ): a.out/218604  ... [continued]: execve())
+> >                                     = 0
+> >      0.067 ( 0.003 ms): a.out/218604 brk()
+> >                                     = 0x5749e000
+> >      0.154 ( 0.007 ms): a.out/218604 access(filename: 0xf7fc7f28,
+> > mode: R)                                 = -1 ENOENT (No such file or
+> > directory)
+> >      0.168 ( 0.023 ms): a.out/218604 openat(dfd: CWD, filename:
+> > 0xf7fc44c3, flags: RDONLY|CLOEXEC|LARGEFILE) = 3
+> >      0.193 ( 0.006 ms): a.out/218604 statx(dfd:
+> > 3</proc/218604/status>, filename: 0xf7fc510a, flags:
+> > NO_AUTOMOUNT|EMPTY_PATH, mask:
+> > TYPE|MODE|NLINK|UID|GID|ATIME|MTIME|CTIME|INO|SIZE|BLOCKS, buffer:
+> > 0xffaa6b88) = 0
+> >      0.212 ( 0.002 ms): a.out/218604 close(fd: 3</proc/218604/status>)
+> >                                     = 0
+> >      0.233 ( 0.019 ms): a.out/218604 openat(dfd: CWD, filename:
+> > 0xf7f973e0, flags: RDONLY|CLOEXEC|LARGEFILE) = 3
+> >      0.255 ( 0.004 ms): a.out/218604 read(fd: 3</proc/218604/status>,
+> > buf: 0xffaa6df0, count: 512)         = 512
+> >      0.262 ( 0.003 ms): a.out/218604 statx(dfd:
+> > 3</proc/218604/status>, filename: 0xf7fc510a, flags:
+> > NO_AUTOMOUNT|EMPTY_PATH, mask:
+> > TYPE|MODE|NLINK|UID|GID|ATIME|MTIME|CTIME|INO|SIZE|BLOCKS, buffer:
+> > 0xffaa6b38) = 0
+> >      0.347 ( 0.002 ms): a.out/218604 close(fd: 3</proc/218604/status>)
+> >                                     = 0
+> >      0.372 ( 0.002 ms): a.out/218604 set_tid_address(tidptr:
+> > 0xf7f98528)                                   = 218604 (a.out)
+> >      0.376 ( 0.002 ms): a.out/218604 set_robust_list(head: 0xf7f9852c,
+> > len: 12)                            =
+> >      0.381 ( 0.002 ms): a.out/218604 rseq(rseq: 0xf7f98960, rseq_len:
+> > 32, sig: 1392848979)                 =
+> >      0.469 ( 0.010 ms): a.out/218604 mprotect(start: 0xf7f6e000, len:
+> > 8192, prot: READ)                    = 0
+> >      0.489 ( 0.007 ms): a.out/218604 mprotect(start: 0x5661a000, len:
+> > 4096, prot: READ)                    = 0
+> >      0.503 ( 0.007 ms): a.out/218604 mprotect(start: 0xf7fd0000, len:
+> > 8192, prot: READ)                    = 0
+> >      0.550 ( 0.015 ms): a.out/218604 munmap(addr: 0xf7f7b000, len:
+> > 111198)                                 = 0
+> >      0.589 ( 0.035 ms): a.out/218604 openat(dfd: CWD, filename:
+> > 0x56619008)                                = 3
+> >      0.627 ( 0.024 ms): a.out/218604 read(fd: 3</proc/218604/status>,
+> > buf: 0xffaa68fc, count: 4096)        = 1437
+> >      0.654 ( 0.090 ms): a.out/218604 write(fd: 1</dev/pts/3>, buf: ,
+> > count: 1437)                          = 1437
+> >      0.766 (1000.164 ms): a.out/218604 clock_nanosleep(rqtp:
+> > 0xffaa6824, rmtp: 0xffaa681c)                   = 0
+> >   1000.942 (         ): a.out/218604 exit_group()
+> > $ file /tmp/perf/perf
+> > /tmp/perf/perf: ELF 64-bit LSB pie executable, x86-64, version 1
+> > (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2,
+> > BuildID[sha1]=60b07f65d2559a7193b2d1d36cfa00054dfbd076, for GNU/Linux
+> > 3.2.0, with debug_info, not stripped
+> > ```
+> > Perhaps your a.out binary was built as an x32 one?
+> > Looking under the covers with gdb:
+> > ```
+> > $ sudo gdb --args /tmp/perf/perf trace ./a.out
+> > GNU gdb (Debian 15.1-1) 15.1
+> > ...
+> > Reading symbols from /tmp/perf/perf...
+> > (gdb) b syscalltbl__name
+> > Breakpoint 1 at 0x23a51b: file util/syscalltbl.c, line 47.
+> > (gdb) r
+> > ...
+> > [Detaching after vfork from child process 218826]
+> > 
+> > Breakpoint 1, syscalltbl__name (e_machine=3, id=11) at util/syscalltbl.c:47
+> > 47              const struct syscalltbl *table = find_table(e_machine);
+> > ```
+> > So the e_machine is 3 which corresponds to EM_386.
+> > 
+> > I've not fixed every use of syscalltbl but I believe this one is working.
+> 
+> Strange.  I'm seeing 62 (x86_64).
+> 
+>   $ sudo gdb -q --args ./perf trace ./a32.out
+>   Reading symbols from ./perf...
+>   (gdb) b syscalltbl__name
+>   Breakpoint 1 at 0x27998b: file util/syscalltbl.c, line 46.
+>   (gdb) r
+>   Starting program: /home/namhyung/tmp/perf trace ./a32.out
+>   [Thread debugging using libthread_db enabled]
+>   Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+>   [Detaching after fork from child process 886888]
+>   
+>   Breakpoint 1, syscalltbl__name (e_machine=62, id=156) at util/syscalltbl.c:46
+>   46	{
+> 
+> But the binary is i386.
+> 
+>   $ file a32.out
+>   a32.out: ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2,
+>   BuildID[sha1]=6eea873c939012e6c715e8f030261642bf61cb4e, for GNU/Linux 3.2.0, not stripped
+>   
+>   $ readelf -h a32.out
+>   ELF Header:
+>     Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+>     Class:                             ELF32
+>     Data:                              2's complement, little endian
+>     Version:                           1 (current)
+>     OS/ABI:                            UNIX - System V
+>     ABI Version:                       0
+>     Type:                              DYN (Position-Independent Executable file)
+>     Machine:                           Intel 80386
+>     Version:                           0x1
+>     Entry point address:               0x10a0
+>     Start of program headers:          52 (bytes into file)
+>     Start of section headers:          13932 (bytes into file)
+>     Flags:                             0x0
+>     Size of this header:               52 (bytes)
+>     Size of program headers:           32 (bytes)
+>     Number of program headers:         11
+>     Size of section headers:           40 (bytes)
+>     Number of section headers:         30
+>     Section header string table index: 29
+> 
+>   $ hexdump -C -n 32 a32.out
+>   00000000  7f 45 4c 46 01 01 01 00  00 00 00 00 00 00 00 00  |.ELF............|
+>   00000010  03 00 03 00 01 00 00 00  a0 10 00 00 34 00 00 00  |............4...|
+>   00000020  ----- -----
+>               ^     ^
+> 	      |     |
+> 	   ET_DYN   |
+> 	          EM_386
+> 
 
-Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
----
- drivers/firmware/arm_scmi/driver.c    |  5 +++--
- drivers/firmware/arm_scmi/perf.c      | 30 +++++++++++++++++++++------
- drivers/firmware/arm_scmi/powercap.c  |  8 +++----
- drivers/firmware/arm_scmi/protocols.h |  2 +-
- 4 files changed, 32 insertions(+), 13 deletions(-)
+I found it failed to open /proc/PID/exe for some reason.  It failed with
+ENOENT but I've confirmed there's /proc/PID directory.  Strange...
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 9313b9020fc1..b182fa8e8ccb 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -1903,7 +1903,8 @@ static void
- scmi_common_fastchannel_init(const struct scmi_protocol_handle *ph,
- 			     u8 describe_id, u32 message_id, u32 valid_size,
- 			     u32 domain, void __iomem **p_addr,
--			     struct scmi_fc_db_info **p_db, u32 *rate_limit)
-+			     struct scmi_fc_db_info **p_db, u32 *rate_limit,
-+			     bool skip_check)
- {
- 	int ret;
- 	u32 flags;
-@@ -1919,7 +1920,7 @@ scmi_common_fastchannel_init(const struct scmi_protocol_handle *ph,
- 
- 	/* Check if the MSG_ID supports fastchannel */
- 	ret = scmi_protocol_msg_check(ph, message_id, &attributes);
--	if (!ret && !MSG_SUPPORTS_FASTCHANNEL(attributes))
-+	if (!ret && !MSG_SUPPORTS_FASTCHANNEL(attributes) && !skip_check)
- 		return;
- 
- 	if (!p_addr) {
-diff --git a/drivers/firmware/arm_scmi/perf.c b/drivers/firmware/arm_scmi/perf.c
-index c7e5a34b254b..5b4559d0b054 100644
---- a/drivers/firmware/arm_scmi/perf.c
-+++ b/drivers/firmware/arm_scmi/perf.c
-@@ -48,6 +48,10 @@ enum {
- 	PERF_FC_MAX,
- };
- 
-+enum {
-+	PERF_QUIRK_SKIP_FASTCHANNEL_LEVEL_GET,
-+};
-+
- struct scmi_opp {
- 	u32 perf;
- 	u32 power;
-@@ -183,6 +187,7 @@ struct scmi_perf_info {
- 	enum scmi_power_scale power_scale;
- 	u64 stats_addr;
- 	u32 stats_size;
-+	u32 quirks;
- 	bool notify_lvl_cmd;
- 	bool notify_lim_cmd;
- 	struct perf_dom_info *dom_info;
-@@ -838,9 +843,10 @@ static int scmi_perf_level_limits_notify(const struct scmi_protocol_handle *ph,
- }
- 
- static void scmi_perf_domain_init_fc(const struct scmi_protocol_handle *ph,
--				     struct perf_dom_info *dom)
-+				     struct perf_dom_info *dom, u32 quirks)
- {
- 	struct scmi_fc_info *fc;
-+	bool quirk_level_get = !!(quirks & BIT(PERF_QUIRK_SKIP_FASTCHANNEL_LEVEL_GET));
- 
- 	fc = devm_kcalloc(ph->dev, PERF_FC_MAX, sizeof(*fc), GFP_KERNEL);
- 	if (!fc)
-@@ -849,26 +855,26 @@ static void scmi_perf_domain_init_fc(const struct scmi_protocol_handle *ph,
- 	ph->hops->fastchannel_init(ph, PERF_DESCRIBE_FASTCHANNEL,
- 				   PERF_LEVEL_GET, 4, dom->id,
- 				   &fc[PERF_FC_LEVEL].get_addr, NULL,
--				   &fc[PERF_FC_LEVEL].rate_limit);
-+				   &fc[PERF_FC_LEVEL].rate_limit, quirk_level_get);
- 
- 	ph->hops->fastchannel_init(ph, PERF_DESCRIBE_FASTCHANNEL,
- 				   PERF_LIMITS_GET, 8, dom->id,
- 				   &fc[PERF_FC_LIMIT].get_addr, NULL,
--				   &fc[PERF_FC_LIMIT].rate_limit);
-+				   &fc[PERF_FC_LIMIT].rate_limit, false);
- 
- 	if (dom->info.set_perf)
- 		ph->hops->fastchannel_init(ph, PERF_DESCRIBE_FASTCHANNEL,
- 					   PERF_LEVEL_SET, 4, dom->id,
- 					   &fc[PERF_FC_LEVEL].set_addr,
- 					   &fc[PERF_FC_LEVEL].set_db,
--					   &fc[PERF_FC_LEVEL].rate_limit);
-+					   &fc[PERF_FC_LEVEL].rate_limit, false);
- 
- 	if (dom->set_limits)
- 		ph->hops->fastchannel_init(ph, PERF_DESCRIBE_FASTCHANNEL,
- 					   PERF_LIMITS_SET, 8, dom->id,
- 					   &fc[PERF_FC_LIMIT].set_addr,
- 					   &fc[PERF_FC_LIMIT].set_db,
--					   &fc[PERF_FC_LIMIT].rate_limit);
-+					   &fc[PERF_FC_LIMIT].rate_limit, false);
- 
- 	dom->fc_info = fc;
- }
-@@ -1282,6 +1288,7 @@ static int scmi_perf_protocol_init(const struct scmi_protocol_handle *ph)
- {
- 	int domain, ret;
- 	u32 version;
-+	struct device_node *np;
- 	struct scmi_perf_info *pinfo;
- 
- 	ret = ph->xops->version_get(ph, &version);
-@@ -1297,6 +1304,17 @@ static int scmi_perf_protocol_init(const struct scmi_protocol_handle *ph)
- 
- 	pinfo->version = version;
- 
-+	/*
-+	 * Some X1E devices support fastchannel for LEVEL_GET but erroneously
-+	 * says otherwise in the protocol message attributes. Add a quirk to
-+	 * force fastchannel on LEVEL_GET to prevent crashes on such devices.
-+	 */
-+	np = of_find_compatible_node(NULL, NULL, "qcom,x1e80100");
-+	if (np) {
-+		pinfo->quirks = BIT(PERF_QUIRK_SKIP_FASTCHANNEL_LEVEL_GET);
-+		of_node_put(np);
-+	}
-+
- 	ret = scmi_perf_attributes_get(ph, pinfo);
- 	if (ret)
- 		return ret;
-@@ -1315,7 +1333,7 @@ static int scmi_perf_protocol_init(const struct scmi_protocol_handle *ph)
- 		scmi_perf_describe_levels_get(ph, dom, version);
- 
- 		if (dom->perf_fastchannels)
--			scmi_perf_domain_init_fc(ph, dom);
-+			scmi_perf_domain_init_fc(ph, dom, pinfo->quirks);
- 	}
- 
- 	ret = devm_add_action_or_reset(ph->dev, scmi_perf_xa_destroy, pinfo);
-diff --git a/drivers/firmware/arm_scmi/powercap.c b/drivers/firmware/arm_scmi/powercap.c
-index 1fa79bba492e..90e92fc432e3 100644
---- a/drivers/firmware/arm_scmi/powercap.c
-+++ b/drivers/firmware/arm_scmi/powercap.c
-@@ -720,23 +720,23 @@ static void scmi_powercap_domain_init_fc(const struct scmi_protocol_handle *ph,
- 				   POWERCAP_CAP_SET, 4, domain,
- 				   &fc[POWERCAP_FC_CAP].set_addr,
- 				   &fc[POWERCAP_FC_CAP].set_db,
--				   &fc[POWERCAP_FC_CAP].rate_limit);
-+				   &fc[POWERCAP_FC_CAP].rate_limit, false);
- 
- 	ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
- 				   POWERCAP_CAP_GET, 4, domain,
- 				   &fc[POWERCAP_FC_CAP].get_addr, NULL,
--				   &fc[POWERCAP_FC_CAP].rate_limit);
-+				   &fc[POWERCAP_FC_CAP].rate_limit, false);
- 
- 	ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
- 				   POWERCAP_PAI_SET, 4, domain,
- 				   &fc[POWERCAP_FC_PAI].set_addr,
- 				   &fc[POWERCAP_FC_PAI].set_db,
--				   &fc[POWERCAP_FC_PAI].rate_limit);
-+				   &fc[POWERCAP_FC_PAI].rate_limit, false);
- 
- 	ph->hops->fastchannel_init(ph, POWERCAP_DESCRIBE_FASTCHANNEL,
- 				   POWERCAP_PAI_GET, 4, domain,
- 				   &fc[POWERCAP_FC_PAI].get_addr, NULL,
--				   &fc[POWERCAP_FC_PAI].rate_limit);
-+				   &fc[POWERCAP_FC_PAI].rate_limit, false);
- 
- 	*p_fc = fc;
- }
-diff --git a/drivers/firmware/arm_scmi/protocols.h b/drivers/firmware/arm_scmi/protocols.h
-index d62c4469d1fd..fe4c724caba3 100644
---- a/drivers/firmware/arm_scmi/protocols.h
-+++ b/drivers/firmware/arm_scmi/protocols.h
-@@ -280,7 +280,7 @@ struct scmi_proto_helpers_ops {
- 				 u32 valid_size, u32 domain,
- 				 void __iomem **p_addr,
- 				 struct scmi_fc_db_info **p_db,
--				 u32 *rate_limit);
-+				 u32 *rate_limit, bool skip_check);
- 	void (*fastchannel_db_ring)(struct scmi_fc_db_info *db);
- 	int (*get_max_msg_size)(const struct scmi_protocol_handle *ph);
- };
--- 
-2.34.1
+Thanks,
+Namhyung
 
 
