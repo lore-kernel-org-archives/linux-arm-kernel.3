@@ -4,82 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B3E3C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 708F9C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:31:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mR1bRWMoTjUHEoKAJEhE88XmtMveAZ45TWALqSC25IM=; b=ELb2a3SVdEjPFZECB1zCG/MAYu
-	DnQ5K5U/AthSjyiqrljbboQ/5QIiFDfiHQDr/jAaOFAqt2Uo00Sp6nHYdjjVG9VnN8wRK1WOu+C4W
-	SzP8nUKki8Gsm9P6zXXHjJbHOlcYOWLFBt0uJJwrcDpFbnzhGbFKmMxa87PL5b1NiTx2q7u84IvjT
-	KWXA4ihFVJBVYm9c3iSzt68sfmizNw8iRMADn/sokmnJxbQYRIZiDJVCfl1l5LqePnTM5MS70Z7DC
-	TuiFaVzwp2nCMTtMWZDvsLt0iFJlnUfwObCSLDuFr5iSAxt03io5eipGe6tRw+/GztdlFD6D3XOn3
-	m0eZwtkg==;
+	bh=W5jPDSot6GIyZa0pxLSy/mfsciQ3sKfW+p/ZIWAknIg=; b=kXEvTb9Mhy1tXO/5+/UQh+BkgO
+	AmYNR5mVs2z+j/a0heG4rQrn2xPWVtcahl33/8zDYirNJ/AWoUXgLlC2lxNtg+MS2qu1My3hZH8dW
+	pRjDQThFAwddvvAJT0mpUSt1BB/eG9+PHcWyz+KVfkkxZDGW2SAsilfxh0joPK6h5qko4IMtJhtGg
+	pz0XcNculV3MjXnTv8vzmHvYUfxTY/d56fOzdsPuNMNkDhQEP/fYb97MQRpbLvW0Nlk+bbGrtNWzJ
+	F3rMXgO8x1bwNYRPCa8kx1DbIA1qQPxD35Hisd094595rnCMQT53na6RXvElaJs+eel5q6zoINhhi
+	MilISw3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJMG-00000004JYh-3xlF;
-	Wed, 26 Feb 2025 15:30:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tnJNm-00000004Jtm-2Tyz;
+	Wed, 26 Feb 2025 15:31:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJKk-00000004JL9-0V8e
+	id 1tnJLV-00000004JQl-1fdQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 15:28:26 +0000
+	Wed, 26 Feb 2025 15:29:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ABFB9612D9;
-	Wed, 26 Feb 2025 15:28:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C061C4CED6;
-	Wed, 26 Feb 2025 15:28:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E6822612E3;
+	Wed, 26 Feb 2025 15:29:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C4E2C4CEE4;
+	Wed, 26 Feb 2025 15:29:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740583705;
-	bh=H6QFppNoLPP0F59QyjvNjPfY7kEdjEWciYi4Y+OHehU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=CUQdjENW6BawMLA8c76zIkAuNtcvFwO59BgSRaDAyva992mruC23nndQepgLsBolk
-	 tqEkxZZuYF97EAjz1uicGcWI4DTUfqQwsEa0Bjma0j1wyh95uSvX7fSBTt80vcUZha
-	 o+vSK1uQIsgzTrqk5CUK0ju9Oj84lh42PU9DcmejpcEVHiPRFem7yvJqXA7m6kJC7v
-	 9ybNckZdP4qGB17Wu8u3W7dn6SopSGAB/LBIbLCoF2HGNkVQUof4tyqOxeMDLrQP8s
-	 iIYk1RXObnDbJXSqXLWkLjUlS/KewBqR6qY0g9ABknQknTiQ9vgnka0NNnjtskyd1Y
-	 nbk59oL3GYyzg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tnJKh-008EWj-Aj;
-	Wed, 26 Feb 2025 15:28:23 +0000
-Date: Wed, 26 Feb 2025 15:28:22 +0000
-Message-ID: <865xkwrai1.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	mark.rutland@arm.com,
-	will@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	broonie@kernel.org,
-	qperret@google.com,
-	vdonnefort@google.com
-Subject: Re: [PATCH v1 1/3] KVM: arm64: Initialize HCRX_EL2 traps in pKVM
-In-Reply-To: <CA+EHjTwRNj6z_TTCXR8UNiB0ty=85_VKWDVsFOLke31UGnBE7A@mail.gmail.com>
-References: <20250214150258.464798-1-tabba@google.com>
-	<20250214150258.464798-2-tabba@google.com>
-	<Z77n_Gv0X0bolONW@linux.dev>
-	<86a5a9q90z.wl-maz@kernel.org>
-	<CA+EHjTwRNj6z_TTCXR8UNiB0ty=85_VKWDVsFOLke31UGnBE7A@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tabba@google.com, oliver.upton@linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com, vdonnefort@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1740583752;
+	bh=sKRVeYhyukm96bknDTD2EmlHYAe8l6aWTLbHIvrVzXo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CirGU35GPeHlxtFxKVWIE3cm0UoYzCuquO3h/VDCvPTp+BHhGC8GVW3Pgox2M42uc
+	 pJ/XDGdkxEYY/xbjHsQxYn5WLK22RIpxH2+qFUYBfpJnkAj9HnFowM02iZs2oMXUPi
+	 Becd8q3gjyMj8cOkzkSRnNMMIpAWedAvG8KBV0/K2Lf64Lh+TLEE3tr+knjcYFkIEb
+	 nV0kR2ir+IKcpDBcw4WzDZdqFg6O6Adoa74d1Ul7U77SZ0GgB3NsZWYsLVPb5n9PXy
+	 4Tt89qPuxThM6u2Aqk61Sn+WSqu9ErO+3MDEQ39+kL5kNalF2YYKuh88MqJvwBh9GX
+	 ZQGfDH6zN4bNw==
+Date: Wed, 26 Feb 2025 09:29:10 -0600
+From: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Jonathan Corbet <corbet@lwn.net>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	soc@lists.linux.dev, workflows@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH 2/2] docs: process: maintainer-soc-clean-dts: linux-next
+ is decisive
+Message-ID: <20250226152910.GA2447540-robh@kernel.org>
+References: <20250225184822.213296-1-krzysztof.kozlowski@linaro.org>
+ <20250225184822.213296-2-krzysztof.kozlowski@linaro.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250225184822.213296-2-krzysztof.kozlowski@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,79 +74,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 26 Feb 2025 12:44:49 +0000,
-Fuad Tabba <tabba@google.com> wrote:
+On Tue, Feb 25, 2025 at 07:48:22PM +0100, Krzysztof Kozlowski wrote:
+> Devicetree bindings patches go usually via driver subsystem tree, so
+> obviously testing only SoC branches would result in new dtbs_check
+> warnings.  Mention that linux-next branch is decisice for zero-warnings
+> rule.
 > 
-> Hi Marc,
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+>  Documentation/process/maintainer-soc-clean-dts.rst | 5 +++--
+>  1 file changed, 3 insertions(+), 2 deletions(-)
 > 
-> On Wed, 26 Feb 2025 at 02:45, Marc Zyngier <maz@kernel.org> wrote:
-> >
-> > On Wed, 26 Feb 2025 10:07:56 +0000,
-> > Oliver Upton <oliver.upton@linux.dev> wrote:
-> > >
-> > > Hi Fuad,
-> > >
-> > > Series LGTM overall, one comment:
-> > >
-> > > On Fri, Feb 14, 2025 at 03:02:56PM +0000, Fuad Tabba wrote:
-> > > > Initialize and set the traps controlled by the HCRX_EL2 in pKVM
-> > > > when the register is supported by the system.
-> > > >
-> > > > Signed-off-by: Fuad Tabba <tabba@google.com>
-> > > > ---
-> > > >  arch/arm64/kvm/hyp/nvhe/pkvm.c | 46 ++++++++++++++++++++++++++++++++++
-> > > >  1 file changed, 46 insertions(+)
-> > > >
-> > > > diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> > > > index 3927fe52a3dd..668ebec27f1b 100644
-> > > > --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> > > > +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> > > > @@ -58,6 +58,30 @@ static void pkvm_vcpu_reset_hcr(struct kvm_vcpu *vcpu)
-> > > >             vcpu->arch.hcr_el2 |= HCR_ATA;
-> > > >  }
-> > > >
-> > > > +static void pkvm_vcpu_reset_hcrx(struct pkvm_hyp_vcpu *hyp_vcpu)
-> > > > +{
-> > > > +   struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
-> > > > +   struct kvm_vcpu *vcpu = &hyp_vcpu->vcpu;
-> > > > +
-> > > > +   if (!cpus_have_final_cap(ARM64_HAS_HCX))
-> > > > +           return;
-> > > > +
-> > > > +   /*
-> > > > +    * In general, all HCRX_EL2 bits are gated by a feature.
-> > > > +    * The only reason we can set SMPME without checking any
-> > > > +    * feature is that its effects are not directly observable
-> > > > +    * from the guest.
-> > > > +    */
-> > > > +   vcpu->arch.hcrx_el2 = HCRX_EL2_SMPME;
-> > > > +
-> > >
-> > > The comment isn't wrong, but we don't support SME at all in KVM at this
-> > > point.
-> >
-> > This is a copy/paste of what we have in kvm_calculate_traps(), and the
-> > result of the removal of the dreaded HCRX_GUEST_FLAGS.
-> >
-> > > Any objection to dropping this bit? I can fix it when applying the
-> > > series, no need to respin.
-> >
-> > Whatever we do, I think we should keep the two side of the trap
-> > configuration in sync, as this is otherwise a cause of bugs.
-> 
-> I could take the initialization of hcrx part from
-> kvm_calculate_traps() and place it in an inline function in
-> kvm_emulate.h. This then would be called by kvm_calculate_traps() and
-> pkvm_vcpu_init_traps().
-> 
-> What do you think?
+> diff --git a/Documentation/process/maintainer-soc-clean-dts.rst b/Documentation/process/maintainer-soc-clean-dts.rst
+> index 1b32430d0cfc..5423fb7d6047 100644
+> --- a/Documentation/process/maintainer-soc-clean-dts.rst
+> +++ b/Documentation/process/maintainer-soc-clean-dts.rst
+> @@ -17,8 +17,9 @@ Strict DTS DT Schema and dtc Compliance
+>  No changes to the SoC platform Devicetree sources (DTS files) should introduce
+>  new ``make dtbs_check W=1`` warnings.  Warnings in a new board DTS, which are
+>  results of issues in an included DTSI file, are considered existing, not new
+> -warnings.  The platform maintainers have automation in place which should point
+> -out any new warnings.
+> +warnings.  For series split between different trees (DT bindings go via driver
+> +subsystem tree), warnings on linux-next are decisive.  The platform maintainers
+> +have automation in place which should point out any new warnings.
 
-That could be a good option indeed, irrespective of the fate of SMPME.
+I see a lot of warnings due to dependencies (both bindings and other dts 
+changes) not be applied yet (or applied but not in linux-next). I've 
+been filtering those out, but maybe they're useful? Some are things like 
+missing labels, so dtc fails. I think that gets run enough a failure 
+report on it isn't too useful.
 
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Rob
 
