@@ -4,64 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F9AC19777
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:26:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6CC1C021BF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:26:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c9KTK3PCk9zQr5Q5V1XRkMx8DFn3Wt0N9AQJQGiMT+Y=; b=HivG/elLnEsUCjWx+qgrfi+ArF
-	kuxdwoOEJ61YRGKFDRHHgKRcjNHBVH9JsRa7+FpuVTda5Z9YHpOO8nAnnjNHmVVTAt9bsobSKG5qd
-	/oL3ibQ0N3hWfMos8eZ1mgRkwTlglNJsPeUEop2JYuxoGPsQTphLIbe5eKGIGFzXC4mqdY4aT9D7v
-	8kAIXsYLGuBO241OPPIUYM1WtvFf0qOfnOqSWfVd8jrgTyi57QA9E8pz4AsSV/m+SBsQ2fzdzUhhH
-	uUuvqiDGWtr1E7WwZqycxnuqOkHqbE5msNxcjikUXRtGId0TWuNLtI73pnXL3CM4UfXUGRSwqWS24
-	XNB7pfuA==;
+	bh=aLCG74LOhJQiX3HM0JiZUURKZFlNy9nvIZeBF7qaR40=; b=YL1ffbl+AcXAalJiNjbWDRIsl3
+	+COpbpYSya5bsEIFg6b56/Yu3dxHtgjqVunv3hNyw1b6qwnj+RiQQMv9ucB56ixJaOSnekaRwK9+p
+	6CS1/6Wp407t2Acq+PB9rIDju+VOeEEYfte99gSm3ECRjjFADd0Un9738+B/so6U1+BOnbNoAUrKt
+	LaGMVBlyQnaG92oAZcGT4NSc4mj5ZlWBkKsKS3WxnNfsRmWPTGcPkqxX00hGEEVa3mQbTL0e/UjLm
+	dMrutsyzgjB63Sc+tFL7Bno6BWjptSB63rY2+9lJfM+XUwDE4PJ7XkZHJwucy1fuo032z5Yc+8YXu
+	+HgCcxPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnHQK-00000003rKC-1er2;
-	Wed, 26 Feb 2025 13:26:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnFvp-00000003Xk5-2OLm
+	id 1tnHQM-00000003rN6-1bzB;
+	Wed, 26 Feb 2025 13:26:06 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnFzh-00000003YeT-45En
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 11:50:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DB8D81516;
-	Wed, 26 Feb 2025 03:50:44 -0800 (PST)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1B3A43F6A8;
-	Wed, 26 Feb 2025 03:50:27 -0800 (PST)
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Mao Jinlong <quic_jinlmao@quicinc.com>,
-	Tao Zhang <quic_taozha@quicinc.com>,
-	linux-arm-msm@vger.kernel.org,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: coresight: qcom,coresight-tpda: Fix too many 'reg'
-Date: Wed, 26 Feb 2025 11:50:18 +0000
-Message-ID: <174057060414.1607370.3307069350698832445.b4-ty@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250226112914.94361-1-krzysztof.kozlowski@linaro.org>
-References: <20250226112914.94361-1-krzysztof.kozlowski@linaro.org>
+	Wed, 26 Feb 2025 11:54:31 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51QBsKws2071608
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Wed, 26 Feb 2025 05:54:20 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1740570860;
+	bh=aLCG74LOhJQiX3HM0JiZUURKZFlNy9nvIZeBF7qaR40=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=k8RTRBU1v9VJO8Ld2qJAQak4jAsE52QApdA93KCknRKu349aHgduUBXs59kL48uoj
+	 YUjdVrqxgJLIcbDU17BvzC42NTyvNvahd8eT6ZtMKWdcHizpdMo/ENkknMcKE00HU3
+	 kZZq4oj6EiWLFcteIWElmof3m5zuGBIE/ytK0jP4=
+Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51QBsKW0025757;
+	Wed, 26 Feb 2025 05:54:20 -0600
+Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE107.ent.ti.com
+ (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 26
+ Feb 2025 05:54:19 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE110.ent.ti.com
+ (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 26 Feb 2025 05:54:19 -0600
+Received: from [172.24.18.117] (lt9560gk3.dhcp.ti.com [172.24.18.117])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51QBsGrn129011;
+	Wed, 26 Feb 2025 05:54:17 -0600
+Message-ID: <1982291f-4a02-4ed2-b4bf-778a2fe0ad9e@ti.com>
+Date: Wed, 26 Feb 2025 17:24:16 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [EXTERNAL] Re: [PATCH] arm64: defconfig: Enable HSR driver
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+        Arnd Bergmann
+	<arnd@arndb.de>
+CC: <quic_bjorande@quicinc.com>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <srk@ti.com>,
+        "Anwar, Md Danish"
+	<danishanwar@ti.com>, <catalin.marinas@arm.com>,
+        <will@kernel.org>
+References: <20240419060013.14909-1-r-gunasekaran@ti.com>
+ <686f583d-6bf4-4486-b9e4-20c1e268eda6@ti.com>
+ <d4954e5e-e51f-41c0-bca5-6e14b4640022@linaro.org>
+ <0d33dea6-c021-4f2a-bb3f-92efd6eebd18@ti.com>
+ <6081917c-9c20-48fc-baaf-7ac9a9679a72@linaro.org>
+Content-Language: en-US
+From: "Malladi, Meghana" <m-malladi@ti.com>
+In-Reply-To: <6081917c-9c20-48fc-baaf-7ac9a9679a72@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_035029_659231_A95CF154 
-X-CRM114-Status: UNSURE (   6.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250226_035430_143684_196E5DC6 
+X-CRM114-Status: GOOD (  20.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,23 +93,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Krzysztof,
 
-On Wed, 26 Feb 2025 12:29:13 +0100, Krzysztof Kozlowski wrote:
-> Binding listed variable number of IO addresses without defining them,
-> however example DTS code, all in-tree DTS and Linux kernel driver
-> mention only one address space, so drop the second to make binding
-> precise and correctly describe the hardware.
+On 2/26/2025 4:18 PM, Krzysztof Kozlowski wrote:
+> On 26/02/2025 11: 44, Malladi, Meghana wrote: > > > On 2/26/2025 1: 35 
+> PM, Krzysztof Kozlowski wrote: >> On 26/02/2025 07: 18, Malladi, Meghana 
+> wrote: > Hi all, > > Apologies in >> case you are receiving this email
+> ZjQcmQRYFpfptBannerStart
+> This message was sent from outside of Texas Instruments.
+> Do not click links or open attachments unless you recognize the source 
+> of this email and know the content is safe.
+> Report Suspicious
+> <https://us-phishalarm-ewt.proofpoint.com/EWT/v1/G3vK! 
+> updq3RaPV007wGXFFrPD30z5a3GGYjpJweyhUcIfUTTaUs-8q0QpC4Yk9azBiFp7cBAf2Knk6fnVs4Fs-zRjTMEn8kmpiGo$>
+> ZjQcmQRYFpfptBannerEnd
+> 
+> On 26/02/2025 11:44, Malladi, Meghana wrote:
+>> 
+>> 
+>> On 2/26/2025 1:35 PM, Krzysztof Kozlowski wrote:
+>>> On 26/02/2025 07: 18, Malladi, Meghana wrote: > Hi all, > > Apologies in 
+>>> case you are receiving this email for the second time. > Any reason why 
+>>> this patch hasn't been merged yet. Other than re-basing > this to the 
+>>> tip, anything
+>>> ZjQcmQRYFpfptBannerStart
+>>> This message was sent from outside of Texas Instruments.
+>>> Do not click links or open attachments unless you recognize the source 
+>>> of this email and know the content is safe.
+>>> Report Suspicious
+>>> <https://us-phishalarm-ewt.proofpoint.com/EWT/v1/G3vK! 
+>>> updgnZav1ue7gKXOnHOpH5hg8gLmw9Osqsqh- 
+>>> KTLRTnBEurV_VetrG7mzU898vB_5xFrYgbRkkuuFMBobM-uhFAmUgccRSk$>
+>>> ZjQcmQRYFpfptBannerEnd
+>>>
+>>> On 26/02/2025 07:18, Malladi, Meghana wrote:
+>>>> Hi all,
+>>>>
+>>>> Apologies in case you are receiving this email for the second time.
+> 
+> BTW, Arnd when responded with Ack described the process.
+> 
+
+Yes, I wanted to re-confirm before posting it again (just in case).
+
+>>>> Any reason why this patch hasn't been merged yet. Other than re-basing 
+>>>> this to the tip, anything else which needs to be addressed to get this 
+>>>> merged?
+>>>
+>>> I don't think you sent it to your platform maintainers, so no one would
+>>> apply it. Usually people ignore emails they did not receive, although I
+>>> am here an exception tracking missing-DT-patchwork things... :)
+>>>
+>>> Best regards,
+>>> Krzysztof
+>>>
+>> 
+>> Hello Arnd/Krzysztof,
+>> 
+>> Thank you for the replies :)
+>> Was having ambiguity since this is not TI specific change. Wanted to 
+>> confirm before re-posting. Will post v2 patch including TI platform 
+>> maintainers.
+> 
+> It is not TI specific? Then which upstream boards benefit from this if
+> not TI?
+> 
+
+This change enables generic HSR protocol support in the kernel which is 
+required for HSR driver support in TI boards. When I said "not TI 
+specific" - I meant this change is not internal to TI driver. Hope this 
+clarifies the miscommunication from my earlier mail.
+
+Best Regards,
+Meghana
+
 > 
 > 
+> Best regards,
+> Krzysztof
+> 
 
-Applied, thanks!
-
-[1/2] dt-bindings: coresight: qcom,coresight-tpda: Fix too many 'reg'
-      https://git.kernel.org/coresight/c/d72deaf0
-[2/2] dt-bindings: coresight: qcom,coresight-tpdm: Fix too many 'reg'
-      https://git.kernel.org/coresight/c/1e4e4542
-
-Best regards,
--- 
-Suzuki K Poulose <suzuki.poulose@arm.com>
 
