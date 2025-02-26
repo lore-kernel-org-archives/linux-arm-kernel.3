@@ -4,70 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1122CC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 09:50:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3E27C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 09:52:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r/92kSJvY1+rN7R1Wa41yTcFlIjE+7u8+6SYiP5XVx4=; b=wrQVhSay0pUmKMn8maHHQD0aK9
-	3zCkm0tBoXcqzdq0fp6NtTeR6UX6cjGqrguwY3oXe0LmJCFCsjMzUfhAgMmmAxFNLSwCW5Q/9LQV3
-	26olKzYU0Idw27j8b/Y/zFwKnp6gKyfnr8BELFlT5CycKbft3QNy7zzSBIlyA2jSBKvRMsMHQKJ1S
-	QKWr4JFrfk3v6HpE/xPIwiN+Q16hcbrsTSDVz+/q/0i2nbi3g4eL59MNe8mBZ0Yhd11bM+WXMVG8R
-	F38kTQGm9D9Mud1jvtCZCjcXleqCMBzX2B/pN71Ues+pEQMl6l9XwZBH4t2HyBA/xsdpc2O0q3JUU
-	Z4GgMysw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8H4VHW6UFL77KSWyX2k+qjleFYDpmIc6P92vODmfqL0=; b=3byDuebaKSZFkQN0gSXO2DO340
+	qFpX/+GEigrRuLgAHVfzfQBBW8vZTRv21h+lpWOzz4JEpUZjj5OVcNXR4/iHRXncyYP58Spg6FnCz
+	HA5DCWjbtqsX5U7kaAzfpiXi7TWxzqAtIVQaZZV3uu+8BaSZJf0fw/cG1UqCo0idllGsjWJwVxBe7
+	mg6289/B2ILwK+sOH/+0h2JhUI5N52fTaVAPOMbAdtOwwNw6R5sHOS/2rWMUs/hNZNLnccAx2VlQg
+	omMjNE5epnRY2jMEA2NO4rYdQmzEOzmAw6XIEssRuHyfU6wR/q8oU7wFg+2M9g3//uI2pQ9bJWE07
+	AJUY4rDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnE3Y-000000039ic-0XUI;
-	Wed, 26 Feb 2025 09:50:20 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1tnE53-00000003A5Y-3ngC;
+	Wed, 26 Feb 2025 09:51:53 +0000
+Received: from mail-northeuropeazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnDzW-00000003933-1OZ9
+	id 1tnDzX-0000000392q-3ToL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 09:46:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1740563155; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=m31gMZ7PHeDL/F4qCXEU4O3yLVCHcOVX/5y1QMYRaSweufzdT1jXwNp1dMeRmvKshBycs8FeSuzrYIv2uUQ9MVw2ubaAWczoK7ZhMBFrsgtUgkXYAKFAVsYeRXFXt69HgzrdADDKyBG/sd+18VK+VvWaVAuFap3SVHjb3koAp+c=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1740563155; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=r/92kSJvY1+rN7R1Wa41yTcFlIjE+7u8+6SYiP5XVx4=; 
-	b=POFs53U5pyE0qysaazZesJqL2f+JCSyzetbBgz3V4E/Q27aLKJvW+vZqCco8CNCW1ImJt2ns0PEO5IFdLrftN0IdQR3mIAsTdtB9Mpf3NMcAzj7iy6Dl4RK14ZRrtatTtATXl6WvI3lzqKsM6rM1F1JbNiDCTvaSJqUkJgivTRU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.fricke@collabora.com;
-	dmarc=pass header.from=<sebastian.fricke@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1740563155;
-	s=zohomail; d=collabora.com; i=sebastian.fricke@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=r/92kSJvY1+rN7R1Wa41yTcFlIjE+7u8+6SYiP5XVx4=;
-	b=I8IyydGQEZwn7/WYgA/DfF4oMMeiC2EYo5lrBwXlRSS0/MlQq8IhONdNXcGKl+fQ
-	pl53yxiw7eWzMe4n25/m5E+ic5ghVSAylF3uFIKq4Rj9ATlGXx62JZI6jKeu0B/B8B8
-	pYCvZ1e+WdVC5PvHkjdsIImyy5EsPHAc2wIN2ang=
-Received: by mx.zohomail.com with SMTPS id 1740563153661642.0756053378082;
-	Wed, 26 Feb 2025 01:45:53 -0800 (PST)
-Date: Wed, 26 Feb 2025 10:45:45 +0100
-From: Sebastian Fricke <sebastian.fricke@collabora.com>
-To: Ming Qian <ming.qian@oss.nxp.com>
-Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl, nicolas@ndufresne.ca,
-	shawnguo@kernel.org, robh+dt@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
-	xiahong.bao@nxp.com, eagle.zhou@nxp.com, tao.jiang_2@nxp.com,
-	imx@lists.linux.dev, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/2] media: amphion: Reduce decoding latency for HEVC
- decoder
-Message-ID: <20250226094545.byr2b3p26w5vit63@basti-XPS-13-9310>
-References: <20250117075720.4018076-1-ming.qian@oss.nxp.com>
+	Wed, 26 Feb 2025 09:46:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Zir0+jJwzmJt51zjprs18BrenP+dlpd1BjErH6y9hpBZy0RwJ/HwoEnHibxP9yDyyoX2MiMDy7mZblsTiHzhagRCIFILJuSOeeC2+hrUOrfgdQFSHVY72XIu4ddRcjgBsyeveHKPRYAd3zG5sCf5Z7biHgSAP8y2hF7GF4Jt0PZaQVdDi0kpaNyhEZe6erarKE88uyyyyq18AIFfhd1WTHqXTnn6Fq5VI8siId5w0/hmS/xSR3ucVC0kk1jjBed0lZ4KVIylFK/WVl7w1vwDswpz3t7cHJKzxnMebuGTzDBrBQURRCYKftyW7O+OM/+vmo8nzLQRY4DKUNmjWKFyeg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8H4VHW6UFL77KSWyX2k+qjleFYDpmIc6P92vODmfqL0=;
+ b=R9rDtpUBogtqHBqKtfEZZ5R/KpubehAixD15diMyaot+fqLQcmaJR5y6UOKtxNM56O++cCZz0cmL8XpUb8SBsItE4E8yCi0Om76GHtEncmatvbDmgGZ36evSoGkuO8QztxJOwYPRYq21G8UOmRm3dW2kVTpjurUyuDFtLoAp36pbZUqDlUNxQgZrY45q5ZKN7dMLAy7LINaN8/a8b70qIC09OHCI2hLh0PEU5rFCH8RzCMLaYKraHSGKVjfrbUHOIYKhF6ZsOrygkxOYEYfTtuG1nKhucFXvUAkfGT26vnX4G8MDQz81hpvyJrkGmrQX9qUkttp6YzaBnMDyAotRSw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8H4VHW6UFL77KSWyX2k+qjleFYDpmIc6P92vODmfqL0=;
+ b=u8yZyF2CRNUhB59tPWocbHCvxIOvd9O8M8EUumQiq1l+W2hWzzJ1ppFE7avaAxkkx1Wrbtw4UgGOG2EkmTXICV47xovlg2aJPWb5eMLPf9kaN2C/mZxTxFl1DuxE9MVK/yOBzg1fwT8unnFefJQZo1CytKJQxjpubNYtIunETFnW6c+gn+74lYey87393hQbsnozvupMZ1SAcvshlcW0exVfeHjfWPM9Af1sdDyBnq4Ua7/Vc2hnpgXu8u2q1JfS5/arxE+sptFABZnkYBu59aFBf6AIGfF/ZXnGF327HzhAsCJPPz5EkhWdOK7QiYBsESVlkL6KhE5RVhb3M6NXoA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by VI2PR04MB10192.eurprd04.prod.outlook.com (2603:10a6:800:229::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.19; Wed, 26 Feb
+ 2025 09:46:05 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.8466.013; Wed, 26 Feb 2025
+ 09:46:05 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+To: sudeep.holla@arm.com,
+	cristian.marussi@arm.com,
+	saravanak@google.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: [RFC] dt-bindings: firmware: scmi: Introduce compatible string
+Date: Wed, 26 Feb 2025 17:44:56 +0800
+Message-Id: <20250226094456.2351571-1-peng.fan@oss.nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI1PR02CA0002.apcprd02.prod.outlook.com
+ (2603:1096:4:1f7::16) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Disposition: inline
-In-Reply-To: <20250117075720.4018076-1-ming.qian@oss.nxp.com>
-X-ZohoMailClient: External
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI2PR04MB10192:EE_
+X-MS-Office365-Filtering-Correlation-Id: 14990d85-5240-4d13-cb29-08dd564a6353
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?uSggz+9HOs6mMmLhPBQwcNUE4DGEbep/P9Uh8ReXhp/aaSZhVs8njLUWDYKs?=
+ =?us-ascii?Q?Ls8oc0mwXwEFw8CAAHgDyXM/Yhzft5aPzURueAfv++Efzcka6FrsBzNOeK5D?=
+ =?us-ascii?Q?gpBtu1G8TloKxEq3tK3UVBZx/kiUvT1q9Lw6f3vEeyj/wGAakSJ6yCA5uQWp?=
+ =?us-ascii?Q?8tlLHMA5Je1uBCrxrFJ6XpKUQf6mr4s1U5RpVOcIMhkopCdmPATFUqR0lZA1?=
+ =?us-ascii?Q?5ilMU9giLiY2tBpGxcK7jzZhsgeWYykbR0bXBVpSdxUcnxygUjcxRQLZ5izB?=
+ =?us-ascii?Q?2bwJHvTIdjYSOAGvbaJyDn5dvIeuAY51X4VUmd1XAKyuJpW85EfGpubkC0/x?=
+ =?us-ascii?Q?tm0hYORNQEPXWJ20IQ8pp5FJfoYtRsjkDDjzJwPXLa66CRJ9Jh0oU7penrTJ?=
+ =?us-ascii?Q?mo+5fzl182uQdQ30WWJiMtZwTycmkiB96s6/Iz6BTDTffXvTXJPmKEIHOpfl?=
+ =?us-ascii?Q?cH+YQTxuOBWyA4jvkIyc5dUsJW+Sb9Cdqdg3bB6KZwaEyLhHR5t8uVuH7jkp?=
+ =?us-ascii?Q?9dqTbxgdRwtbHbvAi35HpA0dhlmHZ7m0qlgkWHkb2dvGyi01vzpwojGYQOV8?=
+ =?us-ascii?Q?pGschVbufeIUpV0kc+/3ItzNhKI9Gx+RhP2JNpeDWV7CjJJmKNrrUdR0MV2Z?=
+ =?us-ascii?Q?6MQYCzxMjndrZGpQV0CE37EB+Dwqt5cy9+11FhqljT0+Uc9pDzaj162ux5HL?=
+ =?us-ascii?Q?x4nj6pnHo9yBxzQrvoQoyB7xYNJSdym3Kt7P92rLyQDyFQNB5nE4g1DOMD8R?=
+ =?us-ascii?Q?fcatYVAIK19mKbrQ/L5xYmvz4Ej5t8jmTYXjxrgdcPwkRif8qyagoKylSxBO?=
+ =?us-ascii?Q?aGOI0+JL5ii/WN3i+PWn4n/rpOCUNSUocpE2G3Upbg2xanWyUPTZbGwaiSfh?=
+ =?us-ascii?Q?ea8sj6hf6gSuEWBUtHu9Ue1k+qOZStSc4/Axdn0yv5JoknjHkAYNzewM2WtD?=
+ =?us-ascii?Q?mz86FQ66dmwXHA7GYXxbMAncWUQhMkDW+QsueM0qEnErznqA9MhxC+8J1KhB?=
+ =?us-ascii?Q?O2pqWo8Yiws0cxo/2FXYFA2YgGDxG5UNCXcfAo3m57sBBCD+9klJ8a0EO+Zy?=
+ =?us-ascii?Q?1pGQ61mcFzJnQibtUhIneq8A6vXmD4zYB5sXIs0U94c/VMxefDEbaBZLbD/H?=
+ =?us-ascii?Q?XRwh5nxmnUdjfNyVp4Huhlm6EC6pUROfJcNPG0mzT5y3p75Y7fqhHL7tHtao?=
+ =?us-ascii?Q?f0Dh7CXscjDePOja5onzls3sZfJz2O9K3tsixEOHP+4Bk5BInLDx6kuOpp+i?=
+ =?us-ascii?Q?cLsZ22JJ4i2b310v6P1ZgOGOOC5OtRblz+A1xBeS44LHS3qbTxm50vnyGEdU?=
+ =?us-ascii?Q?eASnHbN0xpp7vXQqgguBGZDxRelPVy0wHahXau2pspJZrW4/iWZRm9x4j70u?=
+ =?us-ascii?Q?r/yND5gPRuXH3dU0M8pkMlqNei3Kypnip7W+Gi0H3OVN6UHhGA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?anepy5lRf7iKf9HRMGpv2+Zm1wtuktMHFesz1bDwkYNyPB7rpWOCF/N1AZdx?=
+ =?us-ascii?Q?hWlRMgepLRtwoBviV5SlLJei7/DlmbnhElnBwoDlZF38fpjuPWcfLvTe6UXn?=
+ =?us-ascii?Q?gX95+s8NX4eSnjG5P6C86If3TjD7BYzdS2zEvKyDszALv8Csi2lc8KjRyUC7?=
+ =?us-ascii?Q?92Wbeh3Gczl+ArFnTvJqeiqr79jlCqlALEC8kXCsczuzz2uNlWw1GibAshKp?=
+ =?us-ascii?Q?E4xCULyhfViYjeH6klllgYd/83M/U/P/akmCoFDKqnczwLFH/7uPMKHjzLNF?=
+ =?us-ascii?Q?IL1BnSmQYnCXyj2kWaao0o4PgPHeWA8sjl3itj7M53jRumBqWtszWUisj383?=
+ =?us-ascii?Q?JRSL07yzDvJi7Aj0Pwlxsq/xT1hshi099X993oASrbHVlCCg/YiiFoBaWOXX?=
+ =?us-ascii?Q?TL+d59L8NulHYADx27pnkIeGSTAVXVRG5wvnKc6DFL/T63Aa3kq6u94Aw6jq?=
+ =?us-ascii?Q?TGmbiJWxacNGux0xkwxJXQP6jKX3dgiCbJAS6/PkHnJBSuItldwUiM1WEOD+?=
+ =?us-ascii?Q?RMDps5UL+dr5MFPKpg7YpZyvOLwyE179lEGqjEEH5CdEJ0t1ePYMmOrab9tl?=
+ =?us-ascii?Q?p1p3TDtPUae4TiQWF1iILpiyaRDZzMznaE+qCDc8CbVlCyR9bSZ17oMWR65O?=
+ =?us-ascii?Q?41KfoHeB7T6Pi1wiGfnNsjGFCKChWx9gTjwhnuCtMDlwpBeM/2EymBZNFkze?=
+ =?us-ascii?Q?vk+kldieXMj4NPMPUE0WiUZxxXRqjgmK7CgNaDqVK42HQ1xo7VGaU2ndSORI?=
+ =?us-ascii?Q?r6KMIgoCaVBnvWOe/UVVFarRf7RfNwTsPyAGoyOFRyOseOtbUQGcPstR6EPD?=
+ =?us-ascii?Q?rxLB/My/dKRWm6du6OLVTmL6UWEscY2nIqeD1zn5x5V2XWfNZJZDzpIUYbwB?=
+ =?us-ascii?Q?E42hl84pvZ6K7kg1SFx8sJ41eXyotAcJQPRn7y//rxjx2otvKiHiXsIbZW9V?=
+ =?us-ascii?Q?ge2q3s6plTH84Xh121FT1vBxeQOLMlQluYf+BdncxdHEnUk71MGskcKpO7Yl?=
+ =?us-ascii?Q?mSt5P0vrrCm1NTTruFIAV1I1W2fP8dQ16GNDLWiPkWskU7ohADRpGs66QWA5?=
+ =?us-ascii?Q?E7NX45CRkLlQAq9QudgQ9Bx/zwhGwo7VjSHR1cCQzgKjf4GuSTcr5orYMiKN?=
+ =?us-ascii?Q?cXs+cIr3gJPIm79AHYpLB+yhlruH+hU200BGezseTsiUXflQQ8YgINPVi8ka?=
+ =?us-ascii?Q?A4ECSSwAAFr5vfOTSEm2iiW1cRWsUJdOnErYpyFyoiHbFgZKGj7YUY+jGvAP?=
+ =?us-ascii?Q?tn4oKSS1yksKYPsR/gCX0k2sRmTvKOU4tsnUQvDNqp4xsTNhzu5B2g9hH+VF?=
+ =?us-ascii?Q?oR7CtzD9Qvsk1YiKvkXaj3cRu25ul4g5Th/m3vs/Bey3WW/fZ9HYmZp4iUMT?=
+ =?us-ascii?Q?ppUah+Yf3PqU2sRDLnaBBQ/7VcRyfkNHr9zfzjuSoEohCA8iBoaprzHm/Icg?=
+ =?us-ascii?Q?0644Y9fyQNELNyloszdHNPCM5aaxEhc1Z1tDJvfW6Gwk5hr2U/9FjkVA1bwJ?=
+ =?us-ascii?Q?VG4XLqu7X0+3Rfmc22DAQZfsQiWxn+RwmICaptk20/JrQiNN7Hz505Hk3uDO?=
+ =?us-ascii?Q?yM/nad/ltUywKBe3FDzDn9yElZXpg6eIjHabJsOL?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 14990d85-5240-4d13-cb29-08dd564a6353
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2025 09:46:05.6664
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cQyiPDNlO6GDtMmvqSiWaOnK2qiE8rA4ydDxeSE8S/C3EdTz4DnR/GsfFWea/NWP6eWVVL9d8gl/+XhlYWX1BQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10192
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_014610_573619_FDEA2DD6 
-X-CRM114-Status: GOOD (  17.56  )
+X-CRM114-CacheID: sfid-20250226_014612_036428_49CBA200 
+X-CRM114-Status: GOOD (  17.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,104 +164,480 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Ming,
+From: Peng Fan <peng.fan@nxp.com>
 
-thank you for the patch!
+Add compatible string for the protocols by adding new nodes
+The current nodename pattern is "protocol@[0-9a-f]+$", the new node
+name will be "scmi-[a-z\-]+$".
+With compatible string and new nodename, cpufreq and devfreq could be
+separated into two nodes. And fwdevlink could correctly link suppliers
+and consumers.
+With compatible string, and driver updated.
+- Differnet vendor drivers with same SCMI protocol ID could be built in
+  without concerning vendor A's driver got probed when using vendor B's
+  SoC
+- NXP scmi pinctrl and ARM scmi pinctrl could be both built in, without
+  concerning arm scmi platform takes nxp scmi pinctrl node as supplier.
 
-On 17.01.2025 16:57, Ming Qian wrote:
->The amphion decoder firmware supports low latency flush mode for
->HEVC format since v1.9.0, it can help reduce the decoding latency by
->appending some padding data after every frame, then driver can enable
->this feature when the display delay 0 is enabled.
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
 
-I see that you already changed the commit message for this version, but
-I still have a few recommendations for the description:
+RFC:
+ This may sounds like that adding compatible to resovle linux driver issue.
+ Yes indeed. current scmi framework limitation makes it not work well with
+ fwdevlink, wrong suppliers maybe linked to consumers.
+ I have tried various's method to not introduce compatible, but rejected by
+ fwdevlink maintainer or scmi maintainer
+ There was a long discussion in [1][2][3].
+ [1] https://lore.kernel.org/arm-scmi/20240729070325.2065286-1-peng.fan@oss.nxp.com/
+ [2] https://lore.kernel.org/arm-scmi/20241225-scmi-fwdevlink-v1-0-e9a3a5341362@nxp.com/T/#mdd17c4b9b11af9fae0d5b6ec2e13756c2c6f977d
+ [3] https://lore.kernel.org/arm-scmi/20250120-scmi-fwdevlink-v2-0-3af2fa37dbac@nxp.com/
 
-     The amphion decoder firmware supports a low latency flush mode for
-     the HEVC format since v1.9.0. This feature, which is enabled when
-     the display delay is set to 0, can help to reduce the decoding
-     latency by appending some padding data to every frame.
+ The binding changes are posted out to see whether DT maintainer's view on
+ whether introduce compatible string is welcomed or not.
+ I not include driver changes, because this is just to see whether people
+ are happy with this or not.
 
-The rest looks good to me.
+Quote Sudeep's reply"
+I am not blocking you. What I mentioned is I don't agree that DT can be used
+to resolve this issue, but I don't have time or alternate solution ATM. So
+if you propose DT based solution and the maintainers agree for the proposed
+bindings I will take a look and help you to make that work. But I will raise
+any objections I may have if the proposal has issues mainly around the
+compatibility and ease of maintenance.
+"
 
-Regards,
-Sebastian
+ So If compatible string is agreed, I could continue
+ update driver part in next version or SCMI maintainer could help.
 
->
->Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
->---
->v2
->- Improve commit message
->- Add firmware version check
->
-> drivers/media/platform/amphion/vpu_malone.c | 22 ++++++++++++++++++---
-> 1 file changed, 19 insertions(+), 3 deletions(-)
->
->diff --git a/drivers/media/platform/amphion/vpu_malone.c b/drivers/media/platform/amphion/vpu_malone.c
->index 5c6b2a841b6f..1d9e10d9bec1 100644
->--- a/drivers/media/platform/amphion/vpu_malone.c
->+++ b/drivers/media/platform/amphion/vpu_malone.c
->@@ -68,6 +68,9 @@
->
-> #define MALONE_DEC_FMT_RV_MASK			BIT(21)
->
->+#define MALONE_VERSION_MASK			0xFFFFF
->+#define MALONE_MIN_VERSION_HEVC_BUFFLUSH	(((1 << 16) | (9 << 8) | 0) & MALONE_VERSION_MASK)
->+
-> enum vpu_malone_stream_input_mode {
-> 	INVALID_MODE = 0,
-> 	FRAME_LVL,
->@@ -332,6 +335,8 @@ struct vpu_dec_ctrl {
-> 	u32 buf_addr[VID_API_NUM_STREAMS];
-> };
->
->+static const struct malone_padding_scode *get_padding_scode(u32 type, u32 fmt);
->+
-> u32 vpu_malone_get_data_size(void)
-> {
-> 	return sizeof(struct vpu_dec_ctrl);
->@@ -654,9 +659,16 @@ static int vpu_malone_set_params(struct vpu_shared_addr *shared,
-> 		hc->jpg[instance].jpg_mjpeg_interlaced = 0;
-> 	}
->
->-	hc->codec_param[instance].disp_imm = params->display_delay_enable ? 1 : 0;
->-	if (malone_format != MALONE_FMT_AVC)
->+	if (params->display_delay_enable &&
->+	    get_padding_scode(SCODE_PADDING_BUFFLUSH, params->codec_format))
->+		hc->codec_param[instance].disp_imm = 1;
->+	else
-> 		hc->codec_param[instance].disp_imm = 0;
->+
->+	if (params->codec_format == V4L2_PIX_FMT_HEVC &&
->+	    (iface->fw_version & MALONE_VERSION_MASK) < MALONE_MIN_VERSION_HEVC_BUFFLUSH)
->+		hc->codec_param[instance].disp_imm = 0;
->+
-> 	hc->codec_param[instance].dbglog_enable = 0;
-> 	iface->dbglog_desc.level = 0;
->
->@@ -1024,6 +1036,7 @@ static const struct malone_padding_scode padding_scodes[] = {
-> 	{SCODE_PADDING_EOS,      V4L2_PIX_FMT_JPEG,        {0x0, 0x0}},
-> 	{SCODE_PADDING_BUFFLUSH, V4L2_PIX_FMT_H264,        {0x15010000, 0x0}},
-> 	{SCODE_PADDING_BUFFLUSH, V4L2_PIX_FMT_H264_MVC,    {0x15010000, 0x0}},
->+	{SCODE_PADDING_BUFFLUSH, V4L2_PIX_FMT_HEVC,        {0x3e010000, 0x20}},
-> };
->
-> static const struct malone_padding_scode padding_scode_dft = {0x0, 0x0};
->@@ -1058,8 +1071,11 @@ static int vpu_malone_add_padding_scode(struct vpu_buffer *stream_buffer,
-> 	int ret;
->
-> 	ps = get_padding_scode(scode_type, pixelformat);
->-	if (!ps)
->+	if (!ps) {
->+		if (scode_type == SCODE_PADDING_BUFFLUSH)
->+			return 0;
-> 		return -EINVAL;
->+	}
->
-> 	wptr = readl(&str_buf->wptr);
-> 	if (wptr < stream_buffer->phys || wptr > stream_buffer->phys + stream_buffer->length)
->-- 
->2.43.0-rc1
->
->
+ .../bindings/firmware/arm,scmi.yaml           | 300 ++++++++++++++++--
+ .../firmware/nxp,imx95-scmi-pinctrl.yaml      |   4 +
+ .../bindings/firmware/nxp,imx95-scmi.yaml     |   6 +
+ 3 files changed, 275 insertions(+), 35 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+index abbd62f1fed0..3c6ac8ab762d 100644
+--- a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
++++ b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+@@ -156,6 +156,207 @@ properties:
+     description:
+       Channel specifier required when using OP-TEE transport.
+ 
++  scmi-clock:
++    $ref: '#/$defs/protocol-node'
++    unevaluatedProperties: false
++
++    properties:
++      compatible:
++        const: arm,scmi-clock
++
++      '#clock-cells':
++        const: 1
++
++    required:
++      - '#clock-cells'
++      - compatible
++
++  scmi-cpufreq:
++    $ref: '#/$defs/protocol-node'
++    unevaluatedProperties: false
++
++    properties:
++      compatible:
++        const: arm,scmi-cpufreq
++
++      '#clock-cells':
++        const: 1
++
++      '#power-domain-cells':
++        const: 1
++
++    oneOf:
++      - required:
++          - '#clock-cells'
++          - compatible
++
++      - required:
++          - '#power-domain-cells'
++          - compatible
++
++  scmi-hwmon:
++    $ref: '#/$defs/protocol-node'
++    unevaluatedProperties: false
++
++    properties:
++      compatible:
++        const: arm,scmi-hwmon
++
++      '#thermal-sensor-cells':
++        const: 1
++
++    required:
++      - '#thermal-sensor-cells'
++      - compatible
++
++  scmi-iiodev:
++    $ref: '#/$defs/protocol-node'
++    unevaluatedProperties: false
++
++    properties:
++      compatible:
++        const: arm,scmi-iiodev
++
++    required:
++      - compatible
++
++  scmi-pinctrl:
++    type: object
++    allOf:
++      - $ref: '#/$defs/protocol-node'
++      - anyOf:
++          - $ref: /schemas/pinctrl/pinctrl.yaml
++          - $ref: /schemas/firmware/nxp,imx95-scmi-pinctrl.yaml
++
++    unevaluatedProperties: false
++
++    properties:
++      compatible:
++        const: arm,scmi-pinctrl
++
++    patternProperties:
++      '-pins$':
++        type: object
++        allOf:
++          - $ref: /schemas/pinctrl/pincfg-node.yaml#
++          - $ref: /schemas/pinctrl/pinmux-node.yaml#
++        unevaluatedProperties: false
++
++        description:
++          A pin multiplexing sub-node describes how to configure a
++          set of pins in some desired function.
++          A single sub-node may define several pin configurations.
++          This sub-node is using the default pinctrl bindings to configure
++          pin multiplexing and using SCMI protocol to apply a specified
++          configuration.
++
++    required:
++      - reg
++
++  scmi-power-domain:
++    $ref: '#/$defs/protocol-node'
++    unevaluatedProperties: false
++
++    properties:
++      compatible:
++        const: arm,scmi-power-domain
++
++      '#power-domain-cells':
++        const: 1
++
++    required:
++      - compatible
++      - '#power-domain-cells'
++
++  scmi-perf:
++    $ref: '#/$defs/protocol-node'
++    unevaluatedProperties: false
++
++    properties:
++      compatible:
++        const: arm,scmi-perf
++
++      '#power-domain-cells':
++        const: 1
++
++    required:
++      - '#power-domain-cells'
++      - compatible
++
++  scmi-powercap:
++    $ref: '#/$defs/protocol-node'
++    unevaluatedProperties: false
++
++    properties:
++      compatible:
++        const: arm,scmi-powercap
++
++    required:
++      - compatible
++
++  scmi-regulator:
++    $ref: '#/$defs/protocol-node'
++    unevaluatedProperties: false
++
++    properties:
++      compatible:
++        const: arm,scmi-regulator
++
++      regulators:
++        type: object
++        additionalProperties: false
++        description:
++          The list of all regulators provided by this SCMI controller.
++
++        properties:
++          '#address-cells':
++            const: 1
++
++          '#size-cells':
++            const: 0
++
++        patternProperties:
++          '^regulator@[0-9a-f]+$':
++            type: object
++            $ref: /schemas/regulator/regulator.yaml#
++            unevaluatedProperties: false
++
++            properties:
++              reg:
++                maxItems: 1
++                description: Identifier for the voltage regulator.
++
++            required:
++              - reg
++    required:
++      - compatible
++
++  scmi-reset:
++    $ref: '#/$defs/protocol-node'
++    unevaluatedProperties: false
++
++    properties:
++      compatible:
++        const: arm,scmi-reset
++
++      '#reset-cells':
++        const: 1
++
++    required:
++      - '#reset-cells'
++      - compatible
++
++  scmi-syspower:
++    $ref: '#/$defs/protocol-node'
++    unevaluatedProperties: false
++
++    properties:
++      compatible:
++        const: arm,scmi-syspower
++
++    required:
++      - compatible
++
+   protocol@11:
+     $ref: '#/$defs/protocol-node'
+     unevaluatedProperties: false
+@@ -169,6 +370,7 @@ properties:
+ 
+     required:
+       - '#power-domain-cells'
++      - reg
+ 
+   protocol@12:
+     $ref: '#/$defs/protocol-node'
+@@ -178,6 +380,9 @@ properties:
+       reg:
+         const: 0x12
+ 
++    required:
++      - reg
++
+   protocol@13:
+     $ref: '#/$defs/protocol-node'
+     unevaluatedProperties: false
+@@ -195,9 +400,11 @@ properties:
+     oneOf:
+       - required:
+           - '#clock-cells'
++          - reg
+ 
+       - required:
+           - '#power-domain-cells'
++          - reg
+ 
+   protocol@14:
+     $ref: '#/$defs/protocol-node'
+@@ -212,6 +419,7 @@ properties:
+ 
+     required:
+       - '#clock-cells'
++      - reg
+ 
+   protocol@15:
+     $ref: '#/$defs/protocol-node'
+@@ -226,6 +434,7 @@ properties:
+ 
+     required:
+       - '#thermal-sensor-cells'
++      - reg
+ 
+   protocol@16:
+     $ref: '#/$defs/protocol-node'
+@@ -240,6 +449,7 @@ properties:
+ 
+     required:
+       - '#reset-cells'
++      - reg
+ 
+   protocol@17:
+     $ref: '#/$defs/protocol-node'
+@@ -275,6 +485,8 @@ properties:
+ 
+             required:
+               - reg
++    required:
++      - reg
+ 
+   protocol@18:
+     $ref: '#/$defs/protocol-node'
+@@ -284,6 +496,9 @@ properties:
+       reg:
+         const: 0x18
+ 
++    required:
++      - reg
++
+   protocol@19:
+     type: object
+     allOf:
+@@ -358,49 +573,64 @@ $defs:
+           Channel specifier required when using OP-TEE transport and
+           protocol has a dedicated communication channel.
+ 
+-    required:
+-      - reg
+-
+ required:
+   - compatible
+ 
+-if:
+-  properties:
+-    compatible:
+-      contains:
+-        const: arm,scmi
+-then:
+-  properties:
+-    interrupts: false
+-    interrupt-names: false
+-
+-  required:
+-    - mboxes
+-    - shmem
+-
+-else:
+-  if:
+-    properties:
+-      compatible:
+-        contains:
+-          enum:
+-            - arm,scmi-smc
+-            - arm,scmi-smc-param
+-            - qcom,scmi-smc
+-  then:
+-    required:
+-      - arm,smc-id
+-      - shmem
+-
+-  else:
+-    if:
++allOf:
++  - if:
+       properties:
+         compatible:
+           contains:
+-            const: linaro,scmi-optee
++            const: arm,scmi
+     then:
++      properties:
++        interrupts: false
++        interrupt-names: false
++
+       required:
+-        - linaro,optee-channel-id
++        - mboxes
++        - shmem
++
++    else:
++      if:
++        properties:
++          compatible:
++            contains:
++              enum:
++                - arm,scmi-smc
++                - arm,scmi-smc-param
++                - qcom,scmi-smc
++      then:
++        required:
++          - arm,smc-id
++          - shmem
++
++      else:
++        if:
++          properties:
++            compatible:
++              contains:
++                const: linaro,scmi-optee
++        then:
++          required:
++            - linaro,optee-channel-id
++
++  - if:
++      anyOf:
++        - required: [ scmi-clock ]
++        - required: [ scmi-cpufreq ]
++        - required: [ scmi-hwmon ]
++        - required: [ scmi-iiodev ]
++        - required: [ scmi-regulator ]
++        - required: [ scmi-perf ]
++        - required: [ scmi-powercap ]
++        - required: [ scmi-power-domain ]
++        - required: [ scmi-pinctrl ]
++        - required: [ scmi-reset ]
++        - required: [ scmi-syspower]
++    then:
++      patternProperties:
++        protocol@[0-9a-f]+$: false
+ 
+ examples:
+   - |
+diff --git a/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi-pinctrl.yaml b/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi-pinctrl.yaml
+index a96fc6cce502..e9c08f1577da 100644
+--- a/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi-pinctrl.yaml
++++ b/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi-pinctrl.yaml
+@@ -13,6 +13,10 @@ maintainers:
+ allOf:
+   - $ref: /schemas/pinctrl/pinctrl.yaml
+ 
++properties:
++  compatible:
++    const: nxp,imx95-scmi-pinctrl
++
+ patternProperties:
+   'grp$':
+     type: object
+diff --git a/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi.yaml b/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi.yaml
+index 1a95010a546b..048db78c9887 100644
+--- a/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi.yaml
++++ b/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi.yaml
+@@ -19,6 +19,9 @@ properties:
+       reg:
+         const: 0x81
+ 
++    required:
++      - reg
++
+   protocol@84:
+     $ref: '/schemas/firmware/arm,scmi.yaml#/$defs/protocol-node'
+     unevaluatedProperties: false
+@@ -40,4 +43,7 @@ properties:
+         maxItems: 16
+         $ref: /schemas/types.yaml#/definitions/uint32-matrix
+ 
++    required:
++      - reg
++
+ additionalProperties: true
+-- 
+2.37.1
+
 
