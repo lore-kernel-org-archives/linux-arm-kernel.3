@@ -4,109 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82F7BC19F38
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 235FCC18E7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:22:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UMzZpPSVJ0yKFvYNdBQzldB1iScSj7UYf24q0Fg9WjQ=; b=LwZWTenV+DsQ1bCWSeIElzDbUI
-	5AgAaaMt/6CcRrJ9goNeACXd07+xNpd0ysauQgtLvpKYqQRI/ZPd2E/zuC11oDn272DJmB2Zy+xUx
-	ZlMrp9xvVybCQ/23lYfQqzOIso9Dfk5Dh1NpAw7pnBMf54UY+0cw3MYLd0Ot1N+3iqfpjGsMEfyrR
-	bL26FMhhVUJePoBNGMy2OoFmzAPkDXx9colyyPWMdXXZWRT4vJ3oAnIZf5MQCyOHWZn1tbIsMTCPY
-	RDfpT9DqErOfBUu3MtF/98CODfWam+NuqTRkzvGQbwke6AIeBoSI8f0U8vHKZ6i4mebidddhiLoI8
-	ExY0Oq4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NEI/svMg2nTSrhHIZlsHvXjrxEFvqQhF23A6DVgGT+A=; b=UDCtxR69djjk2sc820GRnRdixb
+	r0uos+CZvZuj+oFnEjotSZK6TNP6UCn8MJTxlht9iSfhPR4jbAqqjxiyrBtzb0oB3eZLnaXdIX7x9
+	k8io8oHl3R+0OvPzbFBEGZqSzM/cMwfQduAGSrvoq37XVJDrrm6t8ChZAiwPYS9fGI+vOsIaYT/c3
+	mBOvqcDKbrfRW9pyCYWP23EUC6acdrhRmIfIXei1PO4Hil+21tvGLoB/DNOz40po5G0GzOTe6RaDX
+	+NVzmYnCp681B9BM+vh8cE3si79LY+ef2BPPOlvnPJJl1Dgv3oG/4JZg5qouM+70r9B1+EDu8iIzY
+	5BQDGVKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJEw-00000004FUk-3N9m;
-	Wed, 26 Feb 2025 15:22:26 +0000
+	id 1tnJEv-00000004FRf-0Qar;
+	Wed, 26 Feb 2025 15:22:25 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnIIq-000000043od-2dLp
+	id 1tnIHd-000000043Ri-0E3G
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 14:22:25 +0000
+	Wed, 26 Feb 2025 14:21:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 481BA5C5721;
-	Wed, 26 Feb 2025 14:21:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E552BC4CED6;
-	Wed, 26 Feb 2025 14:22:21 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id AA1E85C43FA;
+	Wed, 26 Feb 2025 14:20:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35F51C4CEE4;
+	Wed, 26 Feb 2025 14:21:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740579743;
-	bh=Dx2YL59vcH3avejDv320ymxqHG4J7PJa3Jre2dO4+dU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BQOwlOOYO8ozGaBpP8z44bRTDKdh6gCPsOaVmx+D6RTLwtbhF05j77W25PQrv8P7u
-	 h6H5LNrP3npc6/i4mwEWj+QALOWUuoAzJgwemX2B0ePhrObeMGQ81byF2aqdRbil2H
-	 8xG9oNgpu/dtaBzwEQFRs3KBT+zoCITMA382kuI8pdeeUAHOuyr86smp9cAIyeaIaF
-	 SevZgpxA36PwOa8yf0iZqSlBazgCDIJk5Mlbh21JjvcTNSksILICt2wbiNCSyeW2YF
-	 LhfbGbWeTpDihOQtXSeC4c+qw9JcmzBgA7AybKlynCWoReOY7bFM+CfHNHu08Tq5Ly
-	 JzOPa4XFCIyLw==
-Message-ID: <fe4ccf6d-bdf0-41eb-bffe-83d459319689@kernel.org>
-Date: Wed, 26 Feb 2025 15:22:19 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 13/13] arm64: defconfig: Enable Renesas RZ/T2H SoC
- option
-To: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>,
- thierry.bultel@linatsea.fr
-Cc: linux-renesas-soc@vger.kernel.org, geert@linux-m68k.org,
- paul.barker.ct@bp.renesas.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250226130935.3029927-1-thierry.bultel.yh@bp.renesas.com>
- <20250226130935.3029927-14-thierry.bultel.yh@bp.renesas.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250226130935.3029927-14-thierry.bultel.yh@bp.renesas.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	s=k20201202; t=1740579668;
+	bh=5ZVxX96Jefja2LWob2Q747PzTY5XxGREUDxPIe+lZtU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=j6d0dXSn4+z/SBJM3vxhQu5qFzM6uDRQhTM7Q5gcbl08suWuDLdZCtHDVlOl2Yr/4
+	 LHQABUMx6qu11rdrb1XTgAb0pq4CljQS+UTTfrERupSGuGppZ0hpcOUFW9ySUS3tlk
+	 nDUVwwmB8h3rNl/evx/6pjLFu3GvSIdYAOdhdU51HzU60nm9kxEvW3VAv7ixlXdYBT
+	 ZHMfvD15XLkZPjHsVsSP6IeTDN2yXDfta/T5QWOFYaz4I0IlEuVj5q2nL2R5TKIdLv
+	 aDqMM6UyQ8OxQwRrIK4I/plLa9rOsaH+TeVdf508OHuqqfp2iO9Ao1baOYm5zzJd7D
+	 XAeLdUwG5hqaA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tnIHZ-008D3e-Bx;
+	Wed, 26 Feb 2025 14:21:05 +0000
+Date: Wed, 26 Feb 2025 14:21:04 +0000
+Message-ID: <868qpsrdm7.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Quentin Perret <qperret@google.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/4] KVM: arm64: Don't WARN from __pkvm_host_share_guest()
+In-Reply-To: <Z74e17vBiJAgViHQ@google.com>
+References: <20250225015327.3708420-1-qperret@google.com>
+	<20250225015327.3708420-3-qperret@google.com>
+	<87jz9d299h.wl-maz@kernel.org>
+	<Z74e17vBiJAgViHQ@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: qperret@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_062224_754665_5D3CEEC2 
-X-CRM114-Status: UNSURE (   7.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250226_062109_134014_F341BB3F 
+X-CRM114-Status: GOOD (  20.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,20 +93,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/02/2025 14:09, Thierry Bultel wrote:
-> Selects support for RZ/T2H (aka r9a09g077), and
-> SCI (serial) specific code for it.
+On Tue, 25 Feb 2025 19:49:43 +0000,
+Quentin Perret <qperret@google.com> wrote:
 > 
-> Signed-off-by: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>
-> Reviewed-by: Paul Barker <paul.barker.ct@bp.renesas.com>
-> ---
+> On Tuesday 25 Feb 2025 at 18:02:02 (+0000), Marc Zyngier wrote:
+> > On Tue, 25 Feb 2025 01:53:25 +0000,
+> > Quentin Perret <qperret@google.com> wrote:
+> > > 
+> > > We currently WARN() if the host attempts to share a page that is not in
+> > > an acceptable state with a guest. This isn't strictly necessary and
+> > > makes testing much harder, so drop the WARN and fix the error code.
+> > 
+> > Are you really fixing the error code? You still seem to return a
+> > -EPERM. I guess this was never reachable thanks to WARN() being a
+> > panic with pKVM?
+> 
+> Exactly, this is really poor wording in the commit message. 'Fix the
+> error code' in this case was intended to mean 'make sure to return the
+> error code properly instead outright crashing the device'.
+> 
+> Happy to send out a v3 with a better commit message.
 
-You never responded to my comments at v1. So I asked at v2. Still no answer.
+Nah, that's probably something Oliver can fixup when picking up the
+patch.
 
-That's v3 and still silence from your side.
+Thanks,
 
-NAK
+	M.
 
-Best regards,
-Krzysztof
+-- 
+Without deviation from the norm, progress is not possible.
 
