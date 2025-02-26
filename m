@@ -4,87 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31142C021BF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:26:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E051C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:26:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y9BAqSnFFNaw8imer/kwMAPgxvAbHzc55cjQboyE68c=; b=bXqTtT/K6Kjh0sVWJEV6pAuu6A
-	1gUA4mV0FJaDgw2ODGIZBt1O5iUNmfdVsHrkqgkxZ1tMHNL+zsGo39XxqxvzH7fY4rsmrzc/A634b
-	IQX5RRRYTYj0WuyLMdxncf8pSwE4yF7iD4coMojmujos/BgxRqWOaLaxeNR8mnCGY3cK2bWltnNjp
-	jpg8sndhu7iASYPbqV49S/keRRvzPhaNlf3WvsHqo1tb0ufwNL00h4ZlHXInh+r4F3OiB6Y8nibgG
-	iA/UTWI5mimkshObozc9ZhIllCPSMorcY8cYlRAcYznlQEGatYy989XIvI7DCeDDTIFY7LfUMUmox
-	Kpd2uuKQ==;
+	bh=ARlc+xcri0AhBumXNBXSoRsvaYTls3eVdJeFZXsDum4=; b=hmydea4e3uycq6V6pm05FnFC/q
+	lqIoh1Kc4Tr8aJ4uYmPMvl6q3uepbWI4pUKg82HT/a+oyzGWiZdg4qvEVJkiadKT8Y36bLXtTZ5vS
+	N2wmYQT2WA/gz2ISGrB+zD5LmO29EUltJM+xJUG0wZMZ1gwknR/7CHodS0h6VKuiJTZCJzkXWAXAO
+	1qzTBsv/qtvVkJmRN96+VEtmXxlg1Ep+X9mCmsaOpblyTto8get1Q8AtyhbG+m2/9XODCxI4YsvYd
+	VslmjOuxt9IGBLgOlcHFwzJhlHFfx2yyNnGy7gjUqLnO5CP20YtzdXFUmPRDZUu/C1xK9ltdvYFsp
+	NY8nE9vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnHQ7-00000003r1l-0ZmF;
-	Wed, 26 Feb 2025 13:25:51 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tnHQ9-00000003r5E-0KnS;
+	Wed, 26 Feb 2025 13:25:53 +0000
+Received: from mail-northeuropeazlp170130004.outbound.protection.outlook.com ([2a01:111:f403:c200::4] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnFjz-00000003V8T-2KdL
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 11:38:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=y9BAqSnFFNaw8imer/kwMAPgxvAbHzc55cjQboyE68c=; b=D1SpJUTlsB6X390df0Z143pp1m
-	N4oNs6gz9iuF/Ff/JFJvTgpa0RWUOjFTKJD1ClCHelSSvsi1BoG0rr/FuAfjG2Vhra1TdP88nmhj0
-	JI3RC7uOPNGJHKp9mpZheKAe7V9xczdeNqdpcEu5Kfb/h15ixpMWWbyH6i46iPo+i85+hq5PbrUuj
-	dfi4P49Smxd4FXvbsvPl9H1ygrhLEyL3hF/SnqiO1qJzyhtAoDU3HQnc5rJ/H1hEPYdNLkXW6VUnM
-	NnEUh55FDtXESogMy7zcOXjUYXSNNdQV6rTv5h2M4DjsHshAtXzYsXDKvxlkZOoZd2ssH1c7Pn4mf
-	eLE6cs1Q==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:36448)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tnFjo-00046K-2J;
-	Wed, 26 Feb 2025 11:38:04 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tnFjj-00071h-28;
-	Wed, 26 Feb 2025 11:37:59 +0000
-Date: Wed, 26 Feb 2025 11:37:59 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Jon Hunter <jonathanh@nvidia.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Bryan Whitehead <bryan.whitehead@microchip.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, UNGLinuxDriver@microchip.com,
-	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH net-next 9/9] net: stmmac: convert to phylink managed EEE
- support
-Message-ID: <Z779FzlWTwbbKW1s@shell.armlinux.org.uk>
-References: <Z68nSJqVxcnCc1YB@shell.armlinux.org.uk>
- <86fae995-1700-420b-8d84-33ab1e1f6353@nvidia.com>
- <Z7X6Z8yLMsQ1wa2D@shell.armlinux.org.uk>
- <203871c2-c673-4a98-a0a3-299d1cf71cf0@nvidia.com>
- <Z7YtWmkVl0rWFvQO@shell.armlinux.org.uk>
- <fd4af708-0c92-4295-9801-bf53db3a16cc@nvidia.com>
- <Z7ZF0dA4-jwU7O2E@shell.armlinux.org.uk>
- <31731125-ab8f-48d9-bd6f-431d49431957@nvidia.com>
- <Z77myuNCoe_la7e4@shell.armlinux.org.uk>
- <dd1f65bf-8579-4d32-9c9c-9815d25cc116@nvidia.com>
+	id 1tnFpO-00000003WHH-1nl6;
+	Wed, 26 Feb 2025 11:43:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KaK6DN87anPx+lz6MwABnSi9UJMqD/w0rcy/wno5aFUrXPhs9OXP2Y2QV70DWbTKXdmhMPTDwfZ4X2qz3Qf9AlmYdG4hUL34KJdNLJ1UoLS6pvoaI/9NOWVG6pYAV7CCuTUw1VfpfaIjPBtmblp403BH7AZ2DhrfiokkMEthHwPtIgf/69iiL+Z3kSLRrfMu8RLvt7GrxoJozzT2QQx4aTe6xLvk8fG6hddIjNwMdDNwGnAKSejsF33fNHEPZEXN+uqHngmhDm0uanNDSsNVa9W1WrZ9pllNPQV7SxPa1S+dgmD2QZMNC6i3fPaVpbH3DctLmWCqJIWj03UYsS4QOQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ARlc+xcri0AhBumXNBXSoRsvaYTls3eVdJeFZXsDum4=;
+ b=bz311Kx2rRCnheIgepASD8UxXKdN17Q2+Ov5kzu6l7h/lBji2Ih8F8HYgTucs6Qb8u/VD3bSVqIeP8hLya1P3varbOepf1chAct//zbN4KuxTyeorP0WK7KQ10kfdXnAUsQfjE9nn0e3zDgZ8FwGDsbeCXLdn5y27CPw7jrXuBQR2m6jopyBxpyB5Ueheq6nqt6RnsDe6C3IVJqDO76msLalbDWGmUcseIv7DhxdJC2Akk4txc+sfowwQT2GKi3K96nUCcTzMhxExy1FKi0Zw5lc8/9yabK3Z+KhbXZnrpEh4LUaC4vSTDb/fjimK2tZnzbyU0dWf+MxUt1/Pyxsew==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ARlc+xcri0AhBumXNBXSoRsvaYTls3eVdJeFZXsDum4=;
+ b=gHldOx0q0+0YIhA50USfm+OUmObD34eCWm4G6E394No5AId0lwawe1wc9xRMSNONj2gVKi5lRoyJRILDgecEanKNQIfj3TknONY2DbbGOTqv1s4023hDuFgbLjS1vDq4o5MDHSJcHWE+3u0DPXWoamvO20eqSsOFaXr9oFJ8l1I=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
+ by DB8PR04MB6860.eurprd04.prod.outlook.com (2603:10a6:10:112::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.20; Wed, 26 Feb
+ 2025 11:43:40 +0000
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a%6]) with mapi id 15.20.8489.018; Wed, 26 Feb 2025
+ 11:43:40 +0000
+Message-ID: <05f16054-13f1-4826-a2a7-2533e2a5943e@cherry.de>
+Date: Wed, 26 Feb 2025 12:43:39 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] phy: rockchip: usbdp: move type-orientation-switch
+ further down
+To: Heiko Stuebner <heiko@sntech.de>, vkoul@kernel.org, kishon@kernel.org
+Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ sebastian.reichel@collabora.com, christophe.jaillet@wanadoo.fr,
+ Heiko Stuebner <heiko.stuebner@cherry.de>
+References: <20250226103810.3746018-1-heiko@sntech.de>
+ <20250226103810.3746018-2-heiko@sntech.de>
+Content-Language: en-US
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <20250226103810.3746018-2-heiko@sntech.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR4P281CA0361.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:f8::17) To AS8PR04MB8897.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::20)
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="6YZS2zdWWQ7tS9pq"
-Content-Disposition: inline
-In-Reply-To: <dd1f65bf-8579-4d32-9c9c-9815d25cc116@nvidia.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|DB8PR04MB6860:EE_
+X-MS-Office365-Filtering-Correlation-Id: e3007c19-4260-4479-59bc-08dd565ad097
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Tm1Ba2d0YkNGTThHbkR2aDRHQnVlSmNNS2EwWWVUNitBMHVUSTNraDNubmlK?=
+ =?utf-8?B?S3Z4QVRFT2IzZlB6d3MyT2FreHJlU2RNa0lMWUkvL0pEdDlQN2JYbTJ2QXBq?=
+ =?utf-8?B?T1hMcWxLckdUN1dVVURGZzdMMG0rNTRyTlhkb0M2c211Ry9yZTF5L1ZiNGVu?=
+ =?utf-8?B?NU9zZm90YWJscjVNOXRNU3g3bUU0aTk2Q2dSVnBHYndKNUEwODVsYnBJS3RD?=
+ =?utf-8?B?M2g5bnpvRVRtZkFOampXeWRRdCtDYURPUzJTWWxHVUQ5YWhzZEZTczlHbEFi?=
+ =?utf-8?B?WmtadzBGTzJsK1gvMUVUM0ExSDVkZEl3STE1TTBJK0s5NEp1UEV3bURqVmho?=
+ =?utf-8?B?ajAvSUdQZUxQR25CWHp2cS9qdGwyMXFML1l3QzRvb0RvYkVGUSs5WklnbzR5?=
+ =?utf-8?B?Mm5RQXdwdUxYNUZuRndZZXB0d3dDb2pob2MvcDU0cjJWT2NPc2dmWHlCdDVT?=
+ =?utf-8?B?T1pZT2thTGRTYUxtWUoyZUpLUk5QTUlXYjRjK09pdTlNWDNIdzRwU0oySkd6?=
+ =?utf-8?B?Qjc0SjJDcEpHN0MvbGVrcThDM0kvaDlTZmMwUkVibnZLVWQ5MDhxWnFsWU5a?=
+ =?utf-8?B?QkxBNWhOcloyZG0wbHZqakZNclI2YmtTampoSlkxMnJySzlkNk9ObDN0Vmwy?=
+ =?utf-8?B?cmJyOEhOUm5XRHJBSHorZ0JhM2dRUjhOb0h6MTd6Wk90TG5iTExOcGc2TVpM?=
+ =?utf-8?B?UTdXTmJjck1iWDNCeGJwWGo5TGt6OFhtS1Z1TmljUDJTRGR1dENGcDFLR0Fl?=
+ =?utf-8?B?M1p1MVY4OWZ4MXZsRTNrRWZMSU9ZVlR5U2x5allaV0x4bmpkcWJpaUltOWZX?=
+ =?utf-8?B?S05YSzRpQVRTUkc4MmI5bGJPZVZKaWtkZktpVHlCeHlhYW1jTGcwTnNwbUdw?=
+ =?utf-8?B?c1V0MzI1MjVpWi9PanVaak1nR0hnWlZqUkE0OXN5TTQ0M2hJSzZRa3puaVRk?=
+ =?utf-8?B?d3FPd1ZrNHlFek5hdCs4NjE5YjcxK0VhM2lHb3B2OTV0SW1KWDdzY0VkVmRS?=
+ =?utf-8?B?c090bTZBdTN0ajFRWmMzZzJVcFRBeWNCTTNHVmc4UzFqcy9VbG15L2tTUHJl?=
+ =?utf-8?B?QW9rUXhZRVRlMk1zL3lsTi8xa3N2bVhZbU1IK2VzenNuK3M3bVUxYXVWWXoy?=
+ =?utf-8?B?R1BFcUJGZzlvMmpSbzRuYXBBMVFXQ3I2NzVrYTZRUldJeDZUWTBtWlhPQWhN?=
+ =?utf-8?B?c3ZqbU9RYU9IUWNMS0xFWTFQeGh2TFRBYjlOMHFWOG1tV0xzZTNHVkIwOXgx?=
+ =?utf-8?B?WkpINGtvZ1FnVEhXcWxlbEpqYk5keTRRVkhINVhKZngxYXlCeUt2anphSGlJ?=
+ =?utf-8?B?am41L1Vtd0Z6eEpNWGpOMnhBQ2IzTkd1NXVPdTE1UEo3QlpITklGemJxTWdQ?=
+ =?utf-8?B?dEplTlZSS0p5d20zcktndmtCTUJsNDhvM2RiMWswYXVBVkNjNjhBblphUFFq?=
+ =?utf-8?B?c0Vua0lrVWpiT3ZXVHVqN3hTODRlVmttbE84c3Zsa1lGQmxhUnFWRFkzalEr?=
+ =?utf-8?B?Y3p3dG5FdzNYZUlRd0lacFdWYXhQQmpHc0J3RXBiNklHQjRNcXpaaVRLN3hj?=
+ =?utf-8?B?cEhTUmJvZEdsVlNGS0tNNG1oNlZBNmI3S2t3SG5TYmFyMk5ycTg2Q092UGJJ?=
+ =?utf-8?B?T3FtdzJ4ZUxvWmdoSkF0RDdUYUQ4QlRkNDNmQXM2eWQwYjRVVExFSVNRNjh4?=
+ =?utf-8?B?M2N5ajJLRkFHSjQybEJlRENtTUxPcEsvcURvelRsbWt5TmhHeCtGODd1b2RX?=
+ =?utf-8?B?MDdzcTdQanVyb1Jhd2tUUG4xS09kL0tRWGRhTHNZZWlOMnNtcVJqU1ZxYk9I?=
+ =?utf-8?B?UTJWTndGNmZWbW9rVTBpVVJtWHgybGRmbFJyRGZ6eUZFYnVQUEVUcUphREQ5?=
+ =?utf-8?Q?gxx5EUr08s79x?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NDNRVVRIQ21HVTR1MzZlWTNGdTMwMkE5OURpazZWZ0l5N2ZCYjdZK3lVL2ho?=
+ =?utf-8?B?REpIQzN3ejVadkw2eDBzR0NFV0xLRXQrOWdOdHREODUvc2hnUFRNdXdoU1Z4?=
+ =?utf-8?B?ZXdrMmdaaktscXF0RW03RzdDb3hvNWtKcTdnL3BXV3NCZU1qMVdPQit0U0lT?=
+ =?utf-8?B?QmwrdkJ1bjMvblBFclZZZWp1WXJybmVrMXIreTBNRzlHOTJkMWdJYlVLVlUx?=
+ =?utf-8?B?UW95ZlJxanhnNnZ6cms5VWIrVEcwUDR1eldQNEtPT1JIRDZjc0tGNHBVeWZI?=
+ =?utf-8?B?N3hmUEtCK0xCZTMyM256WkJNTWJXQm9Tb2JwdDBhY1MwZXNsdnRiQ3NXeDlP?=
+ =?utf-8?B?dFJjZ1IyZy8yMnp4czhiZzc0L0tuZDdCNG4vdFZpZXdlc1JkcmpWMlBRRUI0?=
+ =?utf-8?B?MjdTV3JOaXNGS1RYTElmSThpRHA3Zmd1VTJMdkducFp1N0Zaa0ZRUzNkWDZC?=
+ =?utf-8?B?ckdNdHd6Z3JtMklYN3J3M3ZyT3IwMzIxWWdiQlhjYmpwNXBqQkxyMWdyT3hQ?=
+ =?utf-8?B?L1V6d2t5Nm5oUUhCRU9pUTNKVkk2VEZZU2ozYzBuZ0FxZmJTVmQycXhFUHJC?=
+ =?utf-8?B?ZEV5QWdVREcraE40bERNNFdmTXhUODBWeDFNTmVVUzlxZStXOWVNa0tVMURP?=
+ =?utf-8?B?bVhtSWtoM3pjV2NITmo4SFVnOWJwWnJpU1ZIZ0RkM2cwaEc2cjZFK3E5dEh5?=
+ =?utf-8?B?cDQrQ0dPQVg0MzlQQktXYjV6N0ZvVHZUdlc3UHlHWXhEQzlEZ1BFTlJmTGhq?=
+ =?utf-8?B?b3pGdjg1bVVEQzIvUDlZWE5acHNKUjV2MjBQN3VRZ01nVDcrdDR0dG9sbVBE?=
+ =?utf-8?B?bjk4dEFHanYwT0xxNTFkb20rd05Vd1RvaWVZZ3ZtOXVzQmY4ZG1iNWJ4eVdY?=
+ =?utf-8?B?TGowOC80cC9NMW84SkNmL0w2Y2FTTWxvelBIbWQva1VTczFaT0xnRHJZQmRu?=
+ =?utf-8?B?U3BhcmJLVFpiOTZabjB0akNJVndLMXhMdGQxY3RmbW5LU29jRTFoQkxhSGVw?=
+ =?utf-8?B?S21BZGhwKzBKVXdNVTBxTTJkeWNjK2dOY1dGcDgwdmx3aHZhWjQvLzVNYWJo?=
+ =?utf-8?B?WnQ0UEU3ZmJzR2k3RFozckREZDNvY3B0b21FSWlGY2NIb1RadjBrYVRBcDlN?=
+ =?utf-8?B?K3N6OG41VS9palRKSytNalM4RHRuVC9TTXVJbmNsK1JURExVaThYZnlEN3Zv?=
+ =?utf-8?B?RkVrc2VFbkc1Y3NLQ0dzTGdjWDRHc0I2UmQrL3RDejZQM1MwNWYrVzR3b29k?=
+ =?utf-8?B?OHp6VlhJaHVxeDRkUTdjSWkvcDZqeDdhckhvQ3NJVG5RK3hFa2ZvOUFrbXl2?=
+ =?utf-8?B?SkRXYllZSDQrQ2g3Z2x6YXlIc1JaM0lGcU9UdEJldW5YZFcreGxZdmZDc0xW?=
+ =?utf-8?B?UUovaUk1bEFQN1lsczFuOXlsT1AyT1pwamhOZmVHMWZBRWdFNWZRVVlEQWlS?=
+ =?utf-8?B?Z2pIdXlJbTgwcC9keEtyeTIxQUdLZHdpKzJWWWNYRlN1OWo2aitPWWh2KzI2?=
+ =?utf-8?B?aFlzSnErbkVXOGowTm1TS1pvd011RGFuamNqTXdpVU1HdklvcU95cC82ZGdz?=
+ =?utf-8?B?aytNUCtUU1VJSTkwNUk2ZXpIKzlMU1k3UnBnbjI3b0dVRXIyeDhrL20zajh3?=
+ =?utf-8?B?K3RXaHJhS2xuWWFsRW96ODZXdkhlMUF6ejhGejlFajlJcE9YRWgrTFA4SHBi?=
+ =?utf-8?B?TjVhME9Ka2J4cCtxSDY3bnBtcklSZUVTcmpGV1MwNGlRa1Mwc2Y5alZjWTNV?=
+ =?utf-8?B?b01wTzNna083UHNLdGJhcWE2TTEvY0x2YkZGTWtaa0xkeDVETk9mbytBd3hE?=
+ =?utf-8?B?NHJVWENoQ3FNQ3M0RDRUU2ttcnVBeUlBYXpzWXRyN3kxMEliV1ZjdStWbEZj?=
+ =?utf-8?B?aW1tZGdkd2NkR3VGNFdWbW80MlVPUkRocmoxSU9wRFhQR1FUVTd1dWpnSnlk?=
+ =?utf-8?B?dDFhQ0VCY240Q2RBWS9NbUViNThUa3d1ZThsTWtBWFAvemZvTGdPMm1wMnV4?=
+ =?utf-8?B?M0dVK2FWUGdOMDRZekhoYVlrQzFnY2tRTWg2RFBPR053dGZJWWdJdUZaTEhk?=
+ =?utf-8?B?bFhZVGFMcnJqRjZpeHIxbTJqbnlJZnY4N2lyMnpkTDhWdEtVTk5DWHF2QjBE?=
+ =?utf-8?B?WkhwdmRnbVp0aFhHbWlwcWtaZEtRVmlCR0FxbGNSSElpazNhQ3BscWR1MFl4?=
+ =?utf-8?B?V0E9PQ==?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: e3007c19-4260-4479-59bc-08dd565ad097
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2025 11:43:40.4666
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YmS4T2u+kZRutd+eQ9HhZ9EcReaVtVPj0WTSJll8JmEAptzdIET6MGzROefy1Ag6xs3TpJeKIJ6tSilBpGtZJhvJdq3lLqPsfqWa50CgZJ0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6860
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_033815_823108_B43EE073 
-X-CRM114-Status: GOOD (  51.22  )
+X-CRM114-CacheID: sfid-20250226_034350_475874_BF75FB6A 
+X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,375 +179,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Heiko,
 
---6YZS2zdWWQ7tS9pq
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Wed, Feb 26, 2025 at 10:11:58AM +0000, Jon Hunter wrote:
-> On 26/02/2025 10:02, Russell King (Oracle) wrote:
-> > The patch above was something of a hack, bypassing the layering, so I
-> > would like to consider how this should be done properly.
-> > 
-> > I'm still wondering whether the early call to phylink_resume() is
-> > symptomatic of this same issue, or whether there is a PHY that needs
-> > phy_start() to be called to output its clock even with link down that
-> > we don't know about.
-> > 
-> > The phylink_resume() call is relevant to this because I'd like to put:
-> > 
-> > 	phy_eee_rx_clock_stop(priv->dev->phydev,
-> > 			      priv->phylink_config.eee_rx_clk_stop_enable);
-> > 
-> > in there to ensure that the PHY is correctly configured for clock-stop,
-> > but given stmmac's placement that wouldn't work.
-> > 
-> > I'm then thinking of phylink_pre_resume() to disable the EEE clock-stop
-> > at the PHY.
-> > 
-> > I think the only thing we could do is try solving this problem as per
-> > above and see what the fall-out from it is. I don't get the impression
-> > that stmmac users are particularly active at testing patches though, so
-> > it may take months to get breakage reports.
+On 2/26/25 11:38 AM, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
 > 
+> Move the typec-orientation-switch functionality further down, next to
+> the typec-mux code. Not only brings this the typec-related functionality
+> closer together, but also the following change needs access to other
+> driver functions, that are below the current position.
 > 
-> We can ask Furong to test as he seems to active and making changes, but
-> otherwise I am not sure how well it is being tested across various devices.
-> On the other hand, it feels like there are still lingering issues like this
-> with the driver and so I would hope this is moving in the right direction.
+> No functional change.
 > 
-> Let me know if you have a patch you want me to test and I will run in on our
-> Tegra186, Tegra194 and Tegra234 devices that all use this.
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-The attached patches shows what I'm thinking of - it's just been roughed
-out, and only been build tested.
+Checked with `meld`, the - and + diff are identical.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
 
---6YZS2zdWWQ7tS9pq
-Content-Type: text/x-diff; charset=us-ascii
-Content-Disposition: attachment;
-	filename="0001-net-phylink-add-config-of-PHY-receive-clock-stop-in-.patch"
-
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Bcc: linux@mail.armlinux.org.uk
-Subject: [PATCH net-next 1/5] net: phylink: add config of PHY receive
- clock-stop in phylink_resume()
-MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/phy/phylink.c | 16 +++++++++++++++-
- 1 file changed, 15 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-index a3b186ab3854..0aae0bb2a254 100644
---- a/drivers/net/phy/phylink.c
-+++ b/drivers/net/phy/phylink.c
-@@ -2264,7 +2264,7 @@ static int phylink_bringup_phy(struct phylink *pl, struct phy_device *phy,
- 	pl->mac_tx_clk_stop = phy_eee_tx_clock_stop_capable(phy) > 0;
- 
- 	if (pl->mac_supports_eee_ops) {
--		/* Explicitly configure whether the PHY is allowed to stop it's
-+		/* Explicitly configure whether the PHY is allowed to stop its
- 		 * receive clock.
- 		 */
- 		ret = phy_eee_rx_clock_stop(phy,
-@@ -2645,8 +2645,22 @@ EXPORT_SYMBOL_GPL(phylink_suspend);
-  */
- void phylink_resume(struct phylink *pl)
- {
-+	int ret;
-+
- 	ASSERT_RTNL();
- 
-+	if (pl->mac_supports_eee_ops && pl->phydev) {
-+		/* Explicitly configure whether the PHY is allowed to stop its
-+		 * receive clock on resume to ensure that it is correctly
-+		 * configured.
-+		 */
-+		ret = phy_eee_rx_clock_stop(pl->phydev,
-+					    pl->config->eee_rx_clk_stop_enable);
-+		if (ret == -EOPNOTSUPP)
-+			phylink_warn(pl, "failed to set rx clock stop: %pe\n",
-+				     ERR_PTR(ret));
-+	}
-+
- 	if (test_bit(PHYLINK_DISABLE_MAC_WOL, &pl->phylink_disable_state)) {
- 		/* Wake-on-Lan enabled, MAC handling */
- 
--- 
-2.30.2
-
-
---6YZS2zdWWQ7tS9pq
-Content-Type: text/x-diff; charset=us-ascii
-Content-Disposition: attachment;
-	filename="0002-net-phylink-add-phylink_prepare_resume.patch"
-
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Bcc: linux@mail.armlinux.org.uk
-Subject: [PATCH net-next 2/5] net: phylink: add phylink_prepare_resume()
-MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-
-Add a resume preparation function, which will ensure that the receive
-clock from the PHY is appropriately configured while resuming.
-
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/phy/phylink.c | 24 ++++++++++++++++++++++++
- include/linux/phylink.h   |  1 +
- 2 files changed, 25 insertions(+)
-
-diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-index 0aae0bb2a254..976e569feb70 100644
---- a/drivers/net/phy/phylink.c
-+++ b/drivers/net/phy/phylink.c
-@@ -2636,6 +2636,30 @@ void phylink_suspend(struct phylink *pl, bool mac_wol)
- }
- EXPORT_SYMBOL_GPL(phylink_suspend);
- 
-+/**
-+ * phylink_prepare_resume() - prepare to resume a network device
-+ * @pl: a pointer to a &struct phylink returned from phylink_create()
-+ *
-+ * Optional, thus must be called prior to phylink_resume().
-+ *
-+ * Prepare to resume a network device, preparing the PHY as necessary.
-+ */
-+void phylink_prepare_resume(struct phylink *pl)
-+{
-+	ASSERT_RTNL();
-+
-+	/* If the MAC requires the receive clock, but receive clock
-+	 * stop was enabled at the PHY, we need to ensure that the
-+	 * receive clock is running. Disable receive clock stop.
-+	 * phylink_resume() will re-enable it if necessary.
-+	 */
-+	if (pl->mac_supports_eee_ops && pl->phydev &&
-+	    pl->config->mac_requires_rxc &&
-+	    pl->config->eee_rx_clk_stop_enable)
-+		phy_eee_rx_clock_stop(pl->phydev, false);
-+}
-+EXPORT_SYMBOL_GPL(phylink_prepare_resume);
-+
- /**
-  * phylink_resume() - handle a network device resume event
-  * @pl: a pointer to a &struct phylink returned from phylink_create()
-diff --git a/include/linux/phylink.h b/include/linux/phylink.h
-index 08df65f6867a..071ed4683c8c 100644
---- a/include/linux/phylink.h
-+++ b/include/linux/phylink.h
-@@ -699,6 +699,7 @@ void phylink_start(struct phylink *);
- void phylink_stop(struct phylink *);
- 
- void phylink_suspend(struct phylink *pl, bool mac_wol);
-+void phylink_prepare_resume(struct phylink *pl);
- void phylink_resume(struct phylink *pl);
- 
- void phylink_ethtool_get_wol(struct phylink *, struct ethtool_wolinfo *);
--- 
-2.30.2
-
-
---6YZS2zdWWQ7tS9pq
-Content-Type: text/x-diff; charset=us-ascii
-Content-Disposition: attachment;
-	filename="0003-net-stmmac-move-phylink_resume-after-resume-setup-is.patch"
-
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Bcc: linux@mail.armlinux.org.uk
-Subject: [PATCH net-next 3/5] net: stmmac: move phylink_resume() after resume
- setup is complete
-MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-
-Move phylink_resume() to be after the setup in stmmac_resume() has
-completed, as phylink_resume() may result in an immediate call to the
-.mac_link_up method, which will enable the transmitter and receiver,
-and enable the transmit queues.
-
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 19 +++++++++----------
- 1 file changed, 9 insertions(+), 10 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index d552e64eaa90..b9f651d77c4f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -7926,16 +7926,6 @@ int stmmac_resume(struct device *dev)
- 			return ret;
- 	}
- 
--	rtnl_lock();
--	if (device_may_wakeup(priv->device) && priv->plat->pmt) {
--		phylink_resume(priv->phylink);
--	} else {
--		phylink_resume(priv->phylink);
--		if (device_may_wakeup(priv->device))
--			phylink_speed_up(priv->phylink);
--	}
--	rtnl_unlock();
--
- 	rtnl_lock();
- 	mutex_lock(&priv->lock);
- 
-@@ -7954,6 +7944,15 @@ int stmmac_resume(struct device *dev)
- 	stmmac_enable_all_dma_irq(priv);
- 
- 	mutex_unlock(&priv->lock);
-+
-+	if (device_may_wakeup(priv->device) && priv->plat->pmt) {
-+		phylink_resume(priv->phylink);
-+	} else {
-+		phylink_resume(priv->phylink);
-+		if (device_may_wakeup(priv->device))
-+			phylink_speed_up(priv->phylink);
-+	}
-+
- 	rtnl_unlock();
- 
- 	netif_device_attach(ndev);
--- 
-2.30.2
-
-
---6YZS2zdWWQ7tS9pq
-Content-Type: text/x-diff; charset=us-ascii
-Content-Disposition: attachment;
-	filename="0004-net-stmmac-simplify-calls-to-phylink_suspend-and-phy.patch"
-
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Bcc: linux@mail.armlinux.org.uk
-Subject: [PATCH net-next 4/5] net: stmmac: simplify calls to phylink_suspend()
- and phylink_resume()
-MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-
-Currently, the calls to phylink's suspend and resume functions are
-inside overly complex tests, and boil down to:
-
-	if (device_may_wakeup(priv->device) && priv->plat->pmt) {
-		call phylink
-	} else {
-		call phylink and
-		if (device_may_wakeup(priv->device))
-			do something else
-	}
-
-This results in phylink always being called, possibly with differing
-arguments for phylink_suspend().
-
-Simplify this code, noting that each site is slightly different due to
-the order in which phylink is called and the "something else".
-
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 22 +++++++------------
- 1 file changed, 8 insertions(+), 14 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index b9f651d77c4f..262718e5c4f3 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -7831,13 +7831,11 @@ int stmmac_suspend(struct device *dev)
- 	mutex_unlock(&priv->lock);
- 
- 	rtnl_lock();
--	if (device_may_wakeup(priv->device) && priv->plat->pmt) {
--		phylink_suspend(priv->phylink, true);
--	} else {
--		if (device_may_wakeup(priv->device))
--			phylink_speed_down(priv->phylink, false);
--		phylink_suspend(priv->phylink, false);
--	}
-+	if (device_may_wakeup(priv->device) && !priv->plat->pmt)
-+		phylink_speed_down(priv->phylink, false);
-+
-+	phylink_suspend(priv->phylink,
-+			device_may_wakeup(priv->device) && priv->plat->pmt);
- 	rtnl_unlock();
- 
- 	if (stmmac_fpe_supported(priv))
-@@ -7945,13 +7943,9 @@ int stmmac_resume(struct device *dev)
- 
- 	mutex_unlock(&priv->lock);
- 
--	if (device_may_wakeup(priv->device) && priv->plat->pmt) {
--		phylink_resume(priv->phylink);
--	} else {
--		phylink_resume(priv->phylink);
--		if (device_may_wakeup(priv->device))
--			phylink_speed_up(priv->phylink);
--	}
-+	phylink_resume(priv->phylink);
-+	if (device_may_wakeup(priv->device) && !priv->plat->pmt)
-+		phylink_speed_up(priv->phylink);
- 
- 	rtnl_unlock();
- 
--- 
-2.30.2
-
-
---6YZS2zdWWQ7tS9pq
-Content-Type: text/x-diff; charset=us-ascii
-Content-Disposition: attachment;
-	filename="0005-net-stmmac-call-phylink_prepare_resume.patch"
-
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Bcc: linux@mail.armlinux.org.uk
-Subject: [PATCH net-next 5/5] net: stmmac: call phylink_prepare_resume()
-MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-
-The stmmac core needs the receive clock to be running in order to
-complete its software triggered reset. However, the media link may
-be in EEE low-power mode, and as the driver allows the PHY receive
-clock to be disabled, the receive clock may not be present while
-resuming. This has been observed with Tegra 186.
-
-Fix this by using the newly provided phylink_prepare_resume() to
-temporarily disable receive clock stop while resuming. phylink_resume()
-will restore the receive clock stop setting according to the
-configuration passed from the netdev driver.
-
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 262718e5c4f3..31ec1818211d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -7925,6 +7925,8 @@ int stmmac_resume(struct device *dev)
- 	}
- 
- 	rtnl_lock();
-+	phylink_prepare_resume(priv->phylink);
-+
- 	mutex_lock(&priv->lock);
- 
- 	stmmac_reset_queues_param(priv);
--- 
-2.30.2
-
-
---6YZS2zdWWQ7tS9pq--
+Thanks!
+Quentin
 
