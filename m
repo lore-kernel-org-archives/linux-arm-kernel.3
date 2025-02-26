@@ -4,85 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9B3EC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 10:47:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45F27C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 10:50:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jd6d/YrQJp7u3Y35vAF2ccKmJq+B0QJtfHp4EK5whA8=; b=ZLGwNL4SucmLcM2+1LHCnAnGIJ
-	WYUuq05I96LpDTZndm/paWflwi09S+/fgLXqstTAMhwj/H7T6VzU/E1zgR/v7rFL6oS7/sXRXTTPV
-	ffKiPGt0j/aUYeUXHlTKAc/YVfXthm9fjStISqm9ssSrWBKa8qKKeAydFs60tKthGWZN5nfcRDBDL
-	DlRcx9x1LlnjkMDbzocrEdf5qDMc+JUT9/tA9hEXCmajWVKfQVQDnPMGckxCS/MvSit1CyjfzY15n
-	pmIzzXbTKji8Pz0qAcmcYwEl0ICdkyq1qAhYx3z1pxwv6qJmA3NM2O/9aPjAliOhnYTrGXskP20jb
-	CNlBvdIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5Zbay1ioC0/+bEjvO9SEyQuR/lN3aixi3K7fAqyxee0=; b=euFe7zTGw+Z9BBIc34zE1J91uF
+	R6lvnu0k9vQQ5Xpbh4Wnxef+Acjd8FO2b73wzVdT5mYGlwTOQnGjfmkMsU3XxSgyy4FRuOtTn9vhn
+	nJJePXmub6uWffvS9UGJ2BmAjTqlajm3gKfRgdcsbI/1EIvAhv5WoUUP2nHhhsZSZGN/4yfSikA1p
+	Ea14grkd0LkhCg3V74vs+SS8UBd682eiSHrZs7gcaUwVke2eHJsZXv/N2aAvWfA0EUKWGzAodRhmx
+	YQcyyovryphkkfcIID81RPaADNgbDc5JQhFMQ2GDMN0V0408wfPuN1rLkjBaqTXbcbudKecnsEFYd
+	GlVrsx8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnExC-00000003M7J-0Kut;
-	Wed, 26 Feb 2025 10:47:50 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1tnEzR-00000003Mc4-2dEI;
+	Wed, 26 Feb 2025 10:50:09 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnEf4-00000003INK-1mNX
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 10:29:07 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-30a28bf1baaso58377521fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 02:29:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1740565744; x=1741170544; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jd6d/YrQJp7u3Y35vAF2ccKmJq+B0QJtfHp4EK5whA8=;
-        b=j/N0WPrmrsk+Bi8NM1Sm4XJWa01q0CVH2rWBS4pMmphtf0t1SGJd2JsNn8l4FiU+sa
-         +W+KubSn8os6ulMj6xDTcbH555PDcLCqa/XOq6uQpGAzawCuPrJiLvULmO3dpjxRec5n
-         xPbX1gAYeikz42mXGSj7iKWjNdlbrEPfUCDLaLPftMv2j9Pzng4l57eGBE9HzC4e+X/A
-         NH0A+MwUejV0JrM+tMJ3pWJfRn5VlpPFrYnhHzdf3zf9rAzcViIJnA6qu6mwLpGAvhMz
-         xFig3nahQjQAIRRUSiiRgJuES4CKIKZsGFhuykQxg5q90cx/BQ+RSrBsnvgqwH697El9
-         nxAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740565744; x=1741170544;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jd6d/YrQJp7u3Y35vAF2ccKmJq+B0QJtfHp4EK5whA8=;
-        b=itUAqsgaPmaNlJMuycXOBBmZspT4fCb4TNasr9U+iB8HFXydmOXKscIguSTtnzobDB
-         pA9JbHb896Ly+id+rTlQvx5BjSt/gbmE48kLZtbZxzh4Zq7HFlye1vzC+fL3OSRfacqZ
-         NJc8o1ykYnwfEqASbhFaCXZq9SrO7aJm3jcWTiZBEI2dPEPInkH24EkOGAwcgoZ1bgdl
-         ZoZlNmESkO2jXSMpBI1cTccZlKXT7SkZowAGudeJ8JGqz8LA1JsykF8qLKsASn+JFxEK
-         AsfnwxL7Ota0ze44/hFE5w0v4OZtpGV+1mDee1kZs3WoZtLpQedJLa4h5jh45PtaKzx3
-         Q4Vw==
-X-Forwarded-Encrypted: i=1; AJvYcCWBf8Qw1H2u1iNQrgHdcToLyfYVX75Hv/h3BtSb9Y4c9dlyIhjRHusdFR33Js9IOOy89IWDHoBW2TTyBMyjtzqE@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfI4GTy/BxoYse4natzNXhHLS2WA1rreFC3YHxnFMaR0/I2g7i
-	Mu3VyAteTQIuuVKq00u9NNj3ygYCqlP0IEccryLdOOmtNeW/dHt2fd9DHgAYoTwC9N6yH7ousx2
-	dqGTiJP9JoD1ZASCzh+uLgKDfCz7SM/antgtt7Q==
-X-Gm-Gg: ASbGncsPlpVhBP6Q31ikL4E1xw98/wsntxUEMRtzSIUr/zf46G8q/9MgO/CGimaH8ac
-	ucB9W78huO6ZslFx6iKeF+nJDzLdDdVAcovzBmiSlAEmcpjUDBgawxc008Po96rU6mzWAUpmND1
-	4JPz1RNdJUGibytqKeV2z6KOqHSS1mFN7YXBJ1
-X-Google-Smtp-Source: AGHT+IHHpGE08k0eF3GlP5E4RiiF0DoICSftFLqWpeYwYEYJllw2uhxtszoAU4mx0vs+6OEdCixULAjPR4Rd+B9jS3o=
-X-Received: by 2002:a2e:98cb:0:b0:308:e803:118e with SMTP id
- 38308e7fff4ca-30a5af477d0mr82028861fa.0.1740565744057; Wed, 26 Feb 2025
- 02:29:04 -0800 (PST)
+	id 1tnEm9-00000003Jw2-0ntr;
+	Wed, 26 Feb 2025 10:36:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=5Zbay1ioC0/+bEjvO9SEyQuR/lN3aixi3K7fAqyxee0=; b=OQKc7ps1ZWMV5p+31eWYDGJv8j
+	TW+v2NagR7K0IUOrHV4xQOW1iUTViKiNJWn2LSwOeNFOZmwInBrLQAiEnIz6OWo8M4pDPFctLlqrX
+	MP5Bg1lR7M3D65eegQ3R4tCwUDEbjAcKdew/CuVGrjm6zMLimAxVvY4LBRjHRFZlByqoeebYlJeQR
+	jZo3B67UgreeHoUDXrBUXxzicaUYk0y+4mFyuRKpWs906G1pFKRHTUX+gJcDU8uGq74dV7fB6eBSV
+	HzlE7HHiTctdqFUIeG7dPRGMjXr166GMcDaPgthAH2pGs+wFLrtjCBX3tO9HZ/IzazMOAd9y9aD7H
+	Y2Pm34Bw==;
+Received: from i53875b47.versanet.de ([83.135.91.71] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tnElu-0006Y7-6p; Wed, 26 Feb 2025 11:36:10 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Kever Yang <kever.yang@rock-chips.com>
+Cc: linux-rockchip@lists.infradead.org,
+ Kever Yang <kever.yang@rock-chips.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Rob Herring <robh@kernel.org>, Simon Xue <xxm@rock-chips.com>,
+ Conor Dooley <conor+dt@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ linux-pci@vger.kernel.org,
+ Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?= <kw@linux.com>,
+ linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ devicetree@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Shawn Lin <shawn.lin@rock-chips.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v8 1/2] dt-bindings: PCI: dw: rockchip: Add rk3576 support
+Date: Wed, 26 Feb 2025 11:36:09 +0100
+Message-ID: <14510034.lVVuGzaMjS@diego>
+In-Reply-To: <20250226095414.2173410-1-kever.yang@rock-chips.com>
+References: <20250226095414.2173410-1-kever.yang@rock-chips.com>
 MIME-Version: 1.0
-References: <20250223121931.579031-1-salah.triki@gmail.com>
-In-Reply-To: <20250223121931.579031-1-salah.triki@gmail.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 26 Feb 2025 11:28:52 +0100
-X-Gm-Features: AQ5f1Jo2WoZUN5CqFOCb6NBQfPETkTmOZejfsXHK-3TG35mQ7MQv0u6erKTTILU
-Message-ID: <CAMRc=Mdn1NNKz+2-aA6qCcu=TMDvD8KcbWYgryhi6XDk72Zd1g@mail.gmail.com>
-Subject: Re: [PATCH] gpio: gpio-stmpe: Use str_hi_lo() helper in stmpe_dbg_show_one()
-To: Salah Triki <salah.triki@gmail.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-gpio@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_022906_463956_E26BEC23 
-X-CRM114-Status: UNSURE (   7.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250226_023625_356468_79AF929F 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,16 +82,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Feb 23, 2025 at 1:35=E2=80=AFPM Salah Triki <salah.triki@gmail.com>=
- wrote:
->
-> Remove hard-coded strings by using str_hi_lo() helper function.
->
-> Signed-off-by: Salah Triki <salah.triki@gmail.com>
-> ---
+Am Mittwoch, 26. Februar 2025, 10:54:13 MEZ schrieb Kever Yang:
+> rk3576 is using DWC PCIe controller, with msi interrupt directly to GIC
+> instead of using GIC ITS, so
+> - no ITS support is required and the 'msi-map' is not required,
+> - a new 'msi' interrupt is needed.
+> 
+> Co-developed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-This no longer applies, can you resend it rebased on top of current
-gpio/for-next?
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
 
-Bart
+
+
+
 
