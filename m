@@ -4,91 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D1ECC18E7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:27:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44318C19777
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:27:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JE96QLeRhE4GJrS9byuaNXqVlFOhjB3CVgTCBn9RZh8=; b=l5tAkkwdh7AnPL6cYWsf7uiJ3w
-	ybrlBCe7NYDJV4VKjZpQB1b3dzsCa2sejsFnAadWquTQF5DXKckzJX+pOVB1wki5FId6/3CnNomY4
-	hdwH4TStUbOVfpWTGmKSiZqetvY4xKrLuZThkyjqAJAaSTV5hgdt543RjlK4ofj4sdwxo6V7xfp9T
-	LC/tk9fOZP0x5yrHx19YDp5Rb8uAgbbx7mFmik91e3NLgY/ajAXMxLoWoD8wxxPlPBW/x4bItYqk9
-	wJDWHVkAq4yNKXmddcCrxpZEQIjXT2CXWC/UCEGZt0QrSEZ0b1esP7FSFY0/cAe8n1EJHEHHaFT7Y
-	+Lp0KwOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=emOQzapFrQT5vVxsL8UHzprrVS/y5Fj4+zQUs5X4tHE=; b=tMEw6+urbZhlKGOa5vT72jko8F
+	rBBoCv/7mxCTEB5a3j3FetkNFgefxdenWbEc5pXy7slKbssifdeAPVitiykPe6VKZT2BFxUAlMirl
+	3Tc09c8hQ2N5DQC/ZbWgs7yxH7mh7DjXiqBfgvpg21Br+6J+LQNF/qgThivUPqAuuiSRbXYKEIDTK
+	PtpTXxfnxahSmMxsLPPMMJiXc+jd8/QyZ/MoauRcbyhcD892WnAf2CJBInhfc8LpykRmB5zYEVI1G
+	QmGUQZqNECY/DHvmg5z2MOvYLls8FnjRU5fyEYytJIRPEcncKDh3zug63vFh7iq3vT+eahpLzRsEL
+	tEbL4BGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnHRZ-00000003sub-2ZEg;
-	Wed, 26 Feb 2025 13:27:21 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1tnHRd-00000003t0t-00Za;
+	Wed, 26 Feb 2025 13:27:25 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnGSS-00000003fPv-0yb5;
-	Wed, 26 Feb 2025 12:24:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740572652; x=1772108652;
-  h=message-id:date:mime-version:cc:subject:to:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=P9888PT4GlbGGm/Br9DmxmDaQSRLXoZLVYOYGsAgjmY=;
-  b=HTNcSLuuCnkjr12kdolK7FvPQ4a6nMG/x28YDZCQYlVv3YWpj55aOEhS
-   sJBpaT2AbUk+gn1bKPB8VCa5psW0bQfBrX4ClVT2O7BHRdZI8U/P13AXO
-   lmM0FVJ0i+Dngt+kySa8yd1IwFCtpAapStyTWEnuvblHyBUtLABsU78RC
-   bujUzrMCkDqC6EnmK79wM7UeO3kvrcbfRwzap5IqJtJmNNe5RUxMXPL3m
-   q2vaWXpJoP80O2TqSMFhR1hhG2epFX1mhwr5ki2tBL4/P/qqWfwesqSyc
-   G34f20iSWM7caqj7rRgwzG++ZfGZjkTowDRaG+4vkOE4s+vWfM/ILf3L/
-   g==;
-X-CSE-ConnectionGUID: nAVSCxvIQaqjQKDS3QujMg==
-X-CSE-MsgGUID: npN/RhPiRd60onzNTlooEQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11357"; a="41541432"
-X-IronPort-AV: E=Sophos;i="6.13,317,1732608000"; 
-   d="scan'208";a="41541432"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Feb 2025 04:24:11 -0800
-X-CSE-ConnectionGUID: wzzbivYHT0KOHQkWAqrFjQ==
-X-CSE-MsgGUID: mecjk28SRGKVrI7hEWbiJw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,317,1732608000"; 
-   d="scan'208";a="139907373"
-Received: from blu2-mobl.ccr.corp.intel.com (HELO [10.124.240.105]) ([10.124.240.105])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Feb 2025 04:24:03 -0800
-Message-ID: <e50cf21d-49b1-4c9c-8e85-41d70e6fdb5b@linux.intel.com>
-Date: Wed, 26 Feb 2025 20:24:01 +0800
+	id 1tnGSd-00000003fTT-3v4c
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Feb 2025 12:24:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=emOQzapFrQT5vVxsL8UHzprrVS/y5Fj4+zQUs5X4tHE=; b=N+imwegbzOoqUjYGfsuVGY8h1/
+	UTPAQv5dwe/+Om4CMF/zSIMQ9vqmslf+3Ayv8tpsS9JP9gtvjdjN6HDFB0uBduYrpb/oiIYctKuUU
+	yXPBzbaZDpnaLob4tBw338prJhgmbNg0eihxO4SJJXcPFYne4B7k+VzViKgmK0RULvkohOcU5IdGQ
+	4XEG+2G+wbIzDigQl06K6kQMt18qejm82FahjXyLULVH+XglcvAvg/bimsdDx/cFpuK95yOPMdBp4
+	eNP0//PJIwXFeOkHGYiZ5HbUJiVDzM5iKY2Mmw+wlh6fbhzQhByx++P0HqQm9gg77CEf932RoFTpf
+	KYd9CVDA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47836)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tnGSV-0004Cg-0N;
+	Wed, 26 Feb 2025 12:24:15 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tnGSS-00074i-2i;
+	Wed, 26 Feb 2025 12:24:12 +0000
+Date: Wed, 26 Feb 2025 12:24:12 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Eric Dumazet <edumazet@google.com>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jan Petrous <jan.petrous@oss.nxp.com>,
+	Jon Hunter <jonathanh@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Minda Chen <minda.chen@starfivetech.com>, netdev@vger.kernel.org,
+	NXP S32 Linux Team <s32@nxp.com>, Paolo Abeni <pabeni@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Thierry Reding <treding@nvidia.com>
+Subject: Re: [PATCH RFC net-next 5/7] net: stmmac: s32: use generic
+ stmmac_set_clk_tx_rate()
+Message-ID: <Z78H7F7oBsC-cCB-@shell.armlinux.org.uk>
+References: <Z7RrnyER5ewy0f3T@shell.armlinux.org.uk>
+ <E1tkLZ6-004RZO-0H@rmk-PC.armlinux.org.uk>
+ <x56yik7opvpr3o5vjlxoxzxdicrz2pimsh4lkpxol7c64r6irs@t7dfqy7ybn2a>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: baolu.lu@linux.intel.com, Bagas Sanjaya <bagasdotme@gmail.com>,
- Joerg Roedel <jroedel@suse.de>, Pasha Tatashin <pasha.tatashin@soleen.com>,
- patches@lists.linux.dev, David Rientjes <rientjes@google.com>,
- Matthew Wilcox <willy@infradead.org>
-Subject: Re: [PATCH v3 20/23] iommu: Update various drivers to pass in lg2sz
- instead of order to iommu pages
-To: Jason Gunthorpe <jgg@nvidia.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
- asahi@lists.linux.dev, David Woodhouse <dwmw2@infradead.org>,
- Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
- linux-tegra@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>,
- Hector Martin <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Robin Murphy
- <robin.murphy@arm.com>, Samuel Holland <samuel@sholland.org>,
- Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
- Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
- Tomasz Jeznach <tjeznach@rivosinc.com>, Krishna Reddy <vdumpa@nvidia.com>,
- Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>
-References: <20-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <20-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <x56yik7opvpr3o5vjlxoxzxdicrz2pimsh4lkpxol7c64r6irs@t7dfqy7ybn2a>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_042412_301079_FD2BA50D 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20250226_042423_971632_063754AB 
+X-CRM114-Status: GOOD (  17.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,22 +99,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/2/26 3:39, Jason Gunthorpe wrote:
-> Convert most of the places calling get_order() as an argument to the
-> iommu-pages allocator into order_base_2() or the _sz flavour
-> instead. These places already have an exact size, there is no particular
-> reason to use order here.
+On Tue, Feb 25, 2025 at 09:43:56PM +0100, Thierry Reding wrote:
+> On Tue, Feb 18, 2025 at 11:15:00AM +0000, Russell King (Oracle) wrote:
+> > Use the generic stmmac_set_clk_tx_rate() to configure the MAC transmit
+> > clock.
+> > 
+> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 > 
-> Signed-off-by: Jason Gunthorpe<jgg@nvidia.com>
-> ---
->   drivers/iommu/amd/init.c        | 29 +++++++++++++++--------------
->   drivers/iommu/intel/dmar.c      |  6 +++---
->   drivers/iommu/io-pgtable-arm.c  |  3 +--
->   drivers/iommu/io-pgtable-dart.c | 12 +++---------
->   drivers/iommu/sun50i-iommu.c    |  4 ++--
->   5 files changed, 24 insertions(+), 30 deletions(-)
+> I wonder if the clk_set_rate() call for gmac->tx_clk could also be
+> removed from s32_gmac_init(). Comparing to the other drivers that
+> doesn't seem to be relevant since ->set_clk_tx_rate() will be called
+> anyway when the interface is brought up.
+> 
+> But it might be more difficult because somebody would actually have to
+> go and test this, whereas this patch here is the equivalent of the
+> previous code, so:
+> 
+> Reviewed-by: Thierry Reding <treding@nvidia.com>
 
-For changes in intel iommu driver,
+I'd prefer not to change the code behaviour in this patch series. It's
+entirely possible that's somehow necessary to ensure a correct clock
+is supplied before attempting to reset the MAC core on this hardware.
 
-Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+It could be something to be cleaned up in the future.
+
+Thanks!
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
