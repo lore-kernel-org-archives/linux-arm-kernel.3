@@ -4,90 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCABAC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 18:13:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8120C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 18:40:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V/V8Jj9rYZChtFzsP4NciMXPlW80o7eEp6Sp5AawXIs=; b=FxySMp4i5EvP8xIFlbZKOnGmEu
-	tRj8/qGYKE0r5v2cAY975C85dqiR5fXeYHeFpJvftClkoK6+82PdSBzgOksYncm8UiRQ+iplnG1fM
-	CSO2nnIIrm6QFmorQ2CK5MDJXJheBbW9uIxWAZEkitIU8NavUtFPBvmtvIhVj5NC4/JpI2wnSDsum
-	v0siEWJCkmuE+gme7Zo0S0Zx41/LzkT503RhRFiU3KDEeED5Wleb6O4uwKs4qNfkMxul8+I+AK6GG
-	efsDG4l8OTjn05fH+uqGnhsX3invlOuUWT9+jyHmUKhPM6eSPHD6mMqMXJ0DQHHxKW8pIxgrs9v+2
-	JYbLWk0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Po4dipnmwfGs5ho6Uar/3eIBvd8Wea1v5VEnmsiU7UA=; b=0tWjD8LMgw0qE5A14q4q4N34qn
+	auMzSSqAxpGZAXfVjYsUaKcdgNPhRS5CTRCQtLpEAW7uA7C6HzBId7xHWQYxCdlpcM5lPugWKUAGC
+	Su4Uk2CR5EgVOPwCy/ySGOHk9K8jmY8Yowub17jWHQRsyJDm0No6kMSD022a4pVVr4BAJVKFdwR+x
+	yBScz5MjzTiNJoqH5b/j/gOLJTeVFhclBRbdURwJtcKzw5MEHLjkbFsPiuyhX0cXRgQJZyaR4g7yj
+	AFHJfUFvvwSvGWnkylzdnExRY/Ec90R/IuK3TgZNzGkgLLR5wb9w6CJ6cz1qGj1PmYM6WEbOAFQhJ
+	a0mHWKAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnLuk-00000004stD-2QXl;
-	Wed, 26 Feb 2025 18:13:46 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1tnMKI-00000004zCw-3ZpS;
+	Wed, 26 Feb 2025 18:40:10 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnLrx-00000004rJL-3DNB
+	id 1tnMIk-00000004yu8-0N4k
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 18:10:58 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5e0373c7f55so7958a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 10:10:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740593452; x=1741198252; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=V/V8Jj9rYZChtFzsP4NciMXPlW80o7eEp6Sp5AawXIs=;
-        b=RoyMvI/0ry4WnjpdZEt72BNhHi699maajjasqYrZPo42+X2hFfeslsMjfTfHbSy6nH
-         aexeDhhBxInL/TLF7dpO6O0HazhPtRsaGw47LI3fxrVXQK8n+GlguOLiRUgbgJJV5/Z/
-         fvp1lr4/sH6g2WegIM6hhs1EnwX2U4+pnSjMF5oL4aEJV26nptdOBmy59TG6uQYgbbrZ
-         PUhHo/+nwgZSQDKGwvp/paiJ//mblfJdJ71B/Sr6cczQY5N7VWIFFF8t4D+Paqnd2mZb
-         IuCp6J7h56+Q7qdpob62yqcQeHp1unmpO6UcFaz53afMNXCAcDhzMGNL+3IXCuGA4r33
-         KedQ==
+	Wed, 26 Feb 2025 18:38:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1740595113;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=Po4dipnmwfGs5ho6Uar/3eIBvd8Wea1v5VEnmsiU7UA=;
+	b=GosU4Ei3WXlSDR8RMr8yh+LUCsf9Ur77lNAwH3tp1ksChhTahazwmUy4HYa/r9wXjZSpCM
+	+XWGkFxjGw8vlb4F6dymDJdkc5AkP0UaJ1PZpxmOg2X2g4TZNoIG9xWuURQy5RNtFGYVMI
+	sAzLKE2F7FJKtm2hGr0gTD92DtRWATw=
+Received: from mail-ej1-f69.google.com (mail-ej1-f69.google.com
+ [209.85.218.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-479-Zb_Fo3NuNvWBlEeECxqpsg-1; Wed, 26 Feb 2025 13:38:31 -0500
+X-MC-Unique: Zb_Fo3NuNvWBlEeECxqpsg-1
+X-Mimecast-MFC-AGG-ID: Zb_Fo3NuNvWBlEeECxqpsg_1740595110
+Received: by mail-ej1-f69.google.com with SMTP id a640c23a62f3a-abb9d1c8113so7345666b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 10:38:30 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740593452; x=1741198252;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=V/V8Jj9rYZChtFzsP4NciMXPlW80o7eEp6Sp5AawXIs=;
-        b=QGO4gAXaKZpYTJikwXI+e7zqwv/3Pj53BKM/e8JnBzmoW/la2ze6rEumWK0S7nvS84
-         wRs6l74u7+lvWuunSLdjrILNYCeVDbJPY17qISxg/5lMXGgzeBZxow0r3tqSUdehOPBo
-         LiSSzzvH+2exJfOSx8/tUQgei30uOTyNLL0xLMNeWG3FRgC29nvcc5cLxGtlgV8Ppo/I
-         54Boi1IAXojnREJmeV0AcCle3irBI3YHgKVBvOLWkvWzpZnmoUyHZLiM4s51pGmPyEGu
-         537vQYRKKJdhVSccX+i1DADWaaY3EnswCN44wuhN8V0DowvbdEtFyBImKbo6RojJtlnB
-         aiZw==
-X-Forwarded-Encrypted: i=1; AJvYcCV3t9tbBfe4o39QOLyEBLQUVBLg1u9HI5MHsnTMfENFMqz23wxY7DzB7EdZMCYa/nIHCYE9Exz+tZJ82wIe0oYr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxB1n9j+H3X6aYjjU0/15oV7jaP2zM7kI3UjSPCJ6GBA8vNWmlQ
-	x8VDPHNYHE65DMc5aoDFxeKM5RwgkhOE5AtPRIWphjHEOtzOtlV2nRSokRfdkg==
-X-Gm-Gg: ASbGncviK7HSmLcF9VRgByiSPwgs8wg591tu3CZUTyagRtxSII4dCEOllOBgLkfdX+7
-	ZqKQI8N6r2Z1CSrtOL4MqXcFT0NdwA3EFf79aJ5OHcl1KDquuOBeTlVKKU17F2B7a4VjJ683eMx
-	THkl+bq+8MzGc5ykXkNRQer0o5G9aKLmWlmuXTH0ieuMBoLBkX0Q4gmJHpJyT7hayxfjQy++4gh
-	MMpbkT20qXO62dpI3RJCJlQ3CDtdNqcnMzD9XRbuW+1xyC/YN4BHqVPu2ZpaqCwgYssNE6JrA3+
-	Ym2+eILQB7qL1nRYYGkGR3uDVMjpJ6Z3oFnijotIMNlu/xZkGk0XxnjKV6n9ec0=
-X-Google-Smtp-Source: AGHT+IFSemQuFVxhcR1OJIBHEWyJQf2Hjrc2hP3J/LbxvQX6+WX1I3uywZ6yJMAv4hfkJ2aaAYgxNQ==
-X-Received: by 2002:a05:6402:501a:b0:5de:a6a8:5ecc with SMTP id 4fb4d7f45d1cf-5e4a0d490aamr5970613a12.5.1740593451852;
-        Wed, 26 Feb 2025 10:10:51 -0800 (PST)
-Received: from google.com (229.112.91.34.bc.googleusercontent.com. [34.91.112.229])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e45a8b8c4esm3155601a12.26.2025.02.26.10.10.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Feb 2025 10:10:50 -0800 (PST)
-Date: Wed, 26 Feb 2025 18:10:45 +0000
-From: Quentin Perret <qperret@google.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/4] KVM: arm64: Selftest for pKVM transitions
-Message-ID: <Z79ZJVOHtNu6YsVt@google.com>
-References: <20250225015327.3708420-1-qperret@google.com>
- <20250225015327.3708420-4-qperret@google.com>
- <867c5crd2j.wl-maz@kernel.org>
+        d=1e100.net; s=20230601; t=1740595109; x=1741199909;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Po4dipnmwfGs5ho6Uar/3eIBvd8Wea1v5VEnmsiU7UA=;
+        b=gknYcyTs9B2DI5S/n6qDnETyrZhyUG1xGYf1u8ft4SRtqAdpUrSHH01znDYrSFTilX
+         g/0oo+L3kwmsfSi1dtYmlMHjRFU/O7Kh2W3Q8U4ljDEpnb7rX7nhyUj7eWaGNGkT/eAU
+         Vx/qDdRTf/BBLpgJHuzigXhSbafWQP5Vfgdz3QN6K+jB0/C4YOaYJxWVMXhfV5NQt4rk
+         hUb82FgJe/FONW/a7sk6lObYI+5pnQ0p+NRwQHXmV1lVGr9cadjWWpMOfEVZrOkp8VVA
+         amqb9zy0kmHW2zhPKHzWapAgf90s/niqd/r+7kjXz8eALOspdMaicX5WhbNz2g9oUFT4
+         ZvyA==
+X-Gm-Message-State: AOJu0YzzS7RSkf0oElzRzaZx0lfShuoKFX5Fu+D5E1f0w9b1/GAhUhqb
+	VPkjGCnBqXOyHdxgF0Pyb3E/0mrUKTikPk9ZLxbU01WW748DdudmeacBc6CM76xQVqh/eUTA6ab
+	SQnQyN2Z9ApzmYfxZnoDeI8rYXLwx+3TsCis5Jxon5WLyfeI8V0wi8M4VbHzRMujPW9v2S7vW
+X-Gm-Gg: ASbGnctKN4K5HaQFbxDtLnfuqCCnx9HgUU6KQ8FOcKXoVWMzPrO02FHjX3tDaSsyTiJ
+	s0XztXLnNhnNVdK3/acv7UyqSAwduqPlnqp+pYgCJ55JAqT00ufAGf1saVJaaSFEDn6CTPx3YDU
+	BlKSJMxf4qROIGX+oUx4GYpiXV0xl9TE3dCSXjGo/UJjrRShY0841RjR6XkYbYCGJM/bv3QjZA1
+	F7l83HrFKPqno/233tQfro3wBpxo/yVnSYAWQjd+hKWQe4n8QRfshNBP5J+w1HMrfDWyuxGdJTm
+	bOpSvjvy1kHgl2SG0cLD
+X-Received: by 2002:a17:906:6185:b0:ab7:c1d5:14f9 with SMTP id a640c23a62f3a-abeeecf6f63mr518735466b.10.1740595109600;
+        Wed, 26 Feb 2025 10:38:29 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGCDnvlNLlcOiBeBNB6S3TtqOxMTUK/PR46JW7lLq0KgREP2FusBvOHa60dTZ6MWayPAjFhrw==
+X-Received: by 2002:a17:906:6185:b0:ab7:c1d5:14f9 with SMTP id a640c23a62f3a-abeeecf6f63mr518730666b.10.1740595109199;
+        Wed, 26 Feb 2025 10:38:29 -0800 (PST)
+Received: from [192.168.10.81] ([176.206.102.52])
+        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-abed20ac11bsm364226166b.163.2025.02.26.10.38.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 26 Feb 2025 10:38:28 -0800 (PST)
+Message-ID: <be33873f-ae4e-4db9-bca4-e83e8d4b39c3@redhat.com>
+Date: Wed, 26 Feb 2025 19:38:21 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <867c5crd2j.wl-maz@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/7] KVM: x86: nVMX IRQ fix and VM teardown cleanups
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao
+ <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Aaron Lewis <aaronlewis@google.com>, Jim Mattson <jmattson@google.com>,
+ Yan Zhao <yan.y.zhao@intel.com>,
+ Rick P Edgecombe <rick.p.edgecombe@intel.com>,
+ Kai Huang <kai.huang@intel.com>, Isaku Yamahata <isaku.yamahata@intel.com>
+References: <20250224235542.2562848-1-seanjc@google.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Autocrypt: addr=pbonzini@redhat.com; keydata=
+ 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
+In-Reply-To: <20250224235542.2562848-1-seanjc@google.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: dyrllkNwU0QAce6kkmUsGE1p3WIrG4pCklLpBiI73co_1740595110
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_101053_844779_E4DCD211 
-X-CRM114-Status: GOOD (  24.46  )
+X-CRM114-CacheID: sfid-20250226_103834_193359_BE78DAB8 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,46 +159,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wednesday 26 Feb 2025 at 14:32:52 (+0000), Marc Zyngier wrote:
-> On Tue, 25 Feb 2025 01:53:26 +0000,
-> Quentin Perret <qperret@google.com> wrote:
-> > 
-> > We have recently found a bug [1] in the pKVM memory ownership
-> > transitions by code inspection, but it could have been caught with a
-> > test.
-> > 
-> > Introduce a boot-time selftest exercising all the known pKVM memory
-> > transitions and importantly checks the rejection of illegal transitions.
-> > 
-> > The new test is hidden behind a new Kconfig option separate from
-> > CONFIG_EL2_NVHE_DEBUG on purpose as that has side effects on the
-> > transition checks ([1] doesn't reproduce with EL2 debug enabled).
+On 2/25/25 00:55, Sean Christopherson wrote:
+> This was _supposed_ to be a tiny one-off patch to fix a nVMX bug where KVM
+> fails to detect that, after nested VM-Exit, L1 has a pending IRQ (or NMI).
+> But because x86's nested teardown flows are garbage (KVM simply forces a
+> nested VM-Exit to put the vCPU back into L1), that simple fix snowballed.
 > 
-> That's a bit annoying, isn't it? Without EL2_DEBUG selected, you won't
-> get any stacktrace, and the WARN_ON()s are a guaranteed panic. Yes,
-> this is better than nothing, but I'm a bit worried this is going to be
-> hard to use.
+> The immediate issue is that checking for a pending interrupt accesses the
+> legacy PIC, and x86's kvm_arch_destroy_vm() currently frees the PIC before
+> destroying vCPUs, i.e. checking for IRQs during the forced nested VM-Exit
+> results in a NULL pointer deref (or use-after-free if KVM didn't nullify
+> the PIC pointer).  That's patch 1.
+> 
+> Patch 2 is the original nVMX fix.
+> 
+> The remaining patches attempt to bring a bit of sanity to x86's VM
+> teardown code, which has accumulated a lot of cruft over the years.  E.g.
+> KVM currently unloads each vCPU's MMUs in a separate operation from
+> destroying vCPUs, all because when guest SMP support was added, KVM had a
+> kludgy MMU teardown flow that broken when a VM had more than one 1 vCPU.
+> And that oddity lived on, for 18 years...
 
-Right, so you _can_ enable EL2_DEBUG on top of the selftest stuff, and
-if you're not hitting one of those hard-to-find bugs described in the
-commit message above, then you're golden. In practice I suspect that if
-enabling the selftest alone leads to a panic, the next logical step is
-to enable EL2_DEBUG and see what you get. If enabling EL2_DEBUG makes
-the issue go away, then that'll require digging a bit deeper, but that
-should be pretty rare I presume.
+Queued patches 1 and 2 to kvm/master, and everything to kvm/queue 
+(pending a little more testing and the related TDX change).
 
-> Is there a way to reduce the impact the EL2 debug has on the rest of
-> the code? It feels like it is more invasive than it should be...
+Paolo
 
-Turns out I have a WiP series that moves the hypervisor ownership state
-to the hyp_vmemmap, similar to what we did for the host ownership. A
-nice property of that is that hyp state lookups become really cheap, no
-page-table walks required. So we could probably afford to drop the
-EL2_DEBUG ifdefery in host_share_hyp() and friends, and just
-unconditionally cross-check the hyp state on all transitions where it is
-involved. And with that we should probably just fold the pkvm selftest
-under EL2_DEBUG and call it a day. Would that work?
-
-Thanks,
-Quentin
 
