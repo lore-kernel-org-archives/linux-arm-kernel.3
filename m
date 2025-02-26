@@ -4,87 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E542C021B8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6927EC19F32
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 14:38:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jY/bwN9A5xa9iSopLwyTQOxIV4QgdsLsdC4BTyAYt0s=; b=CpEcceBupmp5wPv+JHmoHHzhjm
-	5WvZyVceqiP3Qv9h35gaPk8alNyP9R9C+rVFCyBhKvHAhFqQGi9b0M5wdE3gy3QZheQ4mNNbNzS7C
-	Uk9VXDB1fyuGONU1cN7SJ7lkNoqtaeibSgQ+fQynE0bTi7ly0HLKVHbSe86uS5M4KZZmDBkvtSrCA
-	53Yz4yIKBKwZhDL494SgHPGxKJ8ITOtYtwsaNIRfTaOZkv5HnPAGuBxb/AyQRvV8Lwc3VzkrdiqhO
-	uIGg0J9WIzZHj04fVdlK9lJz0e8SthYFYNFXnJ6i9Ef6yFtt+Ai9Rh/qcrEnvqXPrgKarxLZJ5g1F
-	OfuiPtgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SqkoWXbsWJ3TtBafR8Tia4GlzkSHB+ZScgAIY2UWgSU=; b=usuIcstsDnxoOkF6q33FbPLXYv
+	5Qnx6coN2m5Ab+8GuB6fyyvnxPoJWtd9dfo1T2ru1ZNVxPd4yRBXIIiV9Ext6VV+kxnaJuwubdjI/
+	zdIKvfXuPQ6GFUoiRUIRMi99Wf0F1TGDWwj6VFH2S77DtHHhE+hFBZlMtZr70nAcaupR7HOI79+nx
+	ToMpycQsHtz4tGjQacteGaHvA3fGyUan+c3ii9EttXKU/vR+4wzXUQDiKG4rWCN9mSmk1QIeWzlQ5
+	AzWuZrmzHdpxs/nyFgTyjdn2iJuLLq0aRdtrI8Ks2Cyg5rwQXCj3umSyG8Lthxb+p5T+n0xuBbsoZ
+	6GcXf8KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnIY6-000000047lp-08Zu;
-	Wed, 26 Feb 2025 14:38:10 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tnIYF-0000000480i-1LG8;
+	Wed, 26 Feb 2025 14:38:19 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnGiJ-00000003ixW-47oE
+	id 1tnGzy-00000003l6z-3dwn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 12:40:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=jY/bwN9A5xa9iSopLwyTQOxIV4QgdsLsdC4BTyAYt0s=; b=qeMkGQ3y0EikusQ5iHd4bfTahQ
-	VIXzKqFJ8IuD3zi7Bds5zQxg6xqFWF1UTAxmGM5ZFoaZpFhfGgwlOywV9EthV0Aw1BXHUkvLrNKAV
-	rmcVXqxqtO4SQUrZ2YNITE4q9QJqb2A+zRm77pMqU3169CUNZCcoFYmCGRod2yFDfu8ydaJ+NHk6a
-	jQVGp+KrPPtvH8pDfAlr5i1MHou26K+PWMKnf+fbN40ZHh1D6KN9GJhwEUQ0jmwijbhhKS9UAj/h4
-	+kZw30OqsrDFWVsqH1MK6fFHR/ZAS5ERJK8l/v+NOP86YirCEDQ51wEXwnGxoIjp/dfaT3PbslIWO
-	IdQ4fMHQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:32848)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tnGi8-0004Ez-2J;
-	Wed, 26 Feb 2025 12:40:24 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tnGi5-000766-0H;
-	Wed, 26 Feb 2025 12:40:21 +0000
-Date: Wed, 26 Feb 2025 12:40:20 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jan Petrous <jan.petrous@oss.nxp.com>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Minda Chen <minda.chen@starfivetech.com>, netdev@vger.kernel.org,
-	NXP S32 Linux Team <s32@nxp.com>, Paolo Abeni <pabeni@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Thierry Reding <treding@nvidia.com>
-Subject: Re: [PATCH RFC net-next 6/7] net: stmmac: intel: use generic
- stmmac_set_clk_tx_rate()
-Message-ID: <Z78LtBo2lfTGG-9o@shell.armlinux.org.uk>
-References: <Z7RrnyER5ewy0f3T@shell.armlinux.org.uk>
- <E1tkLZB-004RZU-4A@rmk-PC.armlinux.org.uk>
- <n67c4bq7n7ejakmqmglve3os6vqvm57umysjjzexxkygvusnoo@ndee4gfnmsst>
+	Wed, 26 Feb 2025 12:58:52 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id EFEB7A06EC;
+	Wed, 26 Feb 2025 13:58:38 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=SqkoWXbsWJ3TtBafR8Ti
+	a4GlzkSHB+ZScgAIY2UWgSU=; b=DO4flGv8ww+GtffaBTTW4fHhgOjCoxRaLfvj
+	k/Ki7UOty6fXtLvzOR/huL8ROrxkP334Z+QoVaQ0UtvrPGBTV1vN7/nIC+rnpF3J
+	o7TN6+n9qfuaXDwZZnadSRnk4o+H3qYF3/C78ZjNcaNLg44T+t4ErH/VCuQF4LvT
+	IZxrXMhn+Rw/IBdx18p12TT/Nfh53sxW6Qq1IYbtd7Mwktr/caI9G/YbQmvrzRVV
+	n96nuTVt4kwezKeDnJ8OvRgLqGR+neeQimsQN6w2lulj03LKY53o5phJt9wv9yqH
+	6sjEPrR1kC0P9DuCM6/vUqVQKnPlyDNe05xxVMudMBRrA89H1+aT7Y2RYBO4MOda
+	s5pTHMTT2CgswubeFuQVm31+B5IFLzsBBnoNfPklLHUb+OJbjM+AFlj3CrzJrHP0
+	YTqU8467fg+WoaJPqplmEYej56ofoZFXELhl8zBiwaWD1+3BbgTxbKlhxsBlTe+2
+	LMoyjJZqvDjx9kEVkt8BrZoPjkeILeKN03HilYYM+Dfpk4QyOmsAFoqycuA1xbRm
+	Sdq6WwUC2MYTQfCks4tmmHL/AgBPIaVk102/jgiGw5p5NyjEYMRS6EbHby/gXiXW
+	VxYeyJaUWGyd6ufbE+f4PruDPLPQPeoBcC3aHkFr8LXc0lkDs9D8wyYQYRTJR8mN
+	Q46VajQ=
+Message-ID: <bfa70e78-3cc3-4295-820b-3925c26135cb@prolan.hu>
+Date: Wed, 26 Feb 2025 13:58:37 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <n67c4bq7n7ejakmqmglve3os6vqvm57umysjjzexxkygvusnoo@ndee4gfnmsst>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/2] microchip-tcb-capture: Add Capture, Compare,
+ Overflow etc. events
+To: William Breathitt Gray <wbg@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-iio@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Kamel Bouhara <kamel.bouhara@bootlin.com>,
+	<Dharma.B@microchip.com>
+References: <20250211151914.313585-3-csokas.bence@prolan.hu>
+ <Z7h0AXV1zlgp9Nw-@ishi> <8fb9f188-3065-4fdc-a9f1-152cc5959186@prolan.hu>
+ <Z7vihBqOgP3fBUVq@ishi>
+Content-Language: en-US, hu-HU
+From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
+In-Reply-To: <Z7vihBqOgP3fBUVq@ishi>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.254.7.14]
+X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
+ ATLAS.intranet.prolan.hu (10.254.0.229)
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D9485263756A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_044036_020915_7A49D34E 
-X-CRM114-Status: GOOD (  22.70  )
+X-CRM114-CacheID: sfid-20250226_045851_370473_E8AE857B 
+X-CRM114-Status: GOOD (  26.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,107 +86,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 09:46:56PM +0100, Thierry Reding wrote:
-> On Tue, Feb 18, 2025 at 11:15:05AM +0000, Russell King (Oracle) wrote:
-> > Use the generic stmmac_set_clk_tx_rate() to configure the MAC transmit
-> > clock.
-> > 
-> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> > ---
-> >  .../stmicro/stmmac/dwmac-intel-plat.c         | 24 +++----------------
-> >  1 file changed, 3 insertions(+), 21 deletions(-)
+Hi,
+
+On 2025. 02. 24. 4:07, William Breathitt Gray wrote:
+> On Fri, Feb 21, 2025 at 03:14:44PM +0100, Csókás Bence wrote:
+>> On 2025. 02. 21. 13:39, William Breathitt Gray wrote:
+>>> First, register RC seems to serve only as a threshold value for a
+>>> compare operation. So it shouldn't be exposed as "capture2", but rather
+>>> as its own dedicated threshold component. I think the 104-quad-8 module
+>>> is the only other driver supporting THRESHOLD events; it exposes the
+>>> threshold value configuration via the "preset" component, but perhaps we
+>>> should introduce a proper "threshold" component instead so counter
+>>> drivers have a standard way to expose this functionality. What do you
+>>> think?
+>>
+>> Possibly. What's the semantics of the `preset` component BTW? If we can
+>> re-use that here as well, that could work too.
 > 
-> This isn't quite the same code, but the result should be the same since
-> clk_set_rate() will be ignored if the clock is NULL, which would be the
-> case for !dwmac->data->tx_clk_en.
+> You can find the semantics of each attribute under the sysfs ABI doc
+> file located at Documentation/ABI/testing/sysfs-bus-counter. For the
+> `preset` component, its essential purpose is to configure a value to
+> preset register to reload the Count when some condition is met (e.g.
+> when an external INDEX/SYNC trigger line goes high).
 
-You're right, thanks for spotting! I'll move it out of the if()
-statement so the code has the exact same behaviour. Replacement patch
-below.
+Hmm, that doesn't really match this use case. All right, then, for now, 
+I'll skip the RC part, and then we can add it in a later patch when the 
+"threshold" component is in place and used by the 104-quad-8 module.
 
-> Reviewed-by: Thierry Reding <treding@nvidia.com>
+> In the same vein, move the uapi header introduction to its own patch.
+> That will separate the userspace-exposed changes and make things easier
+> for future users when bisecting the linux kernel history when tracking
+> down possible bugs.
 
-Thanks for the review.
+Isn't it better to keep API header changes in the same commit as the 
+implementation using them? That way if someone bisects/blames the API 
+header, they get the respective implementation as well.
 
-8<====
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Subject: [PATCH net-next] net: stmmac: intel: use generic
- stmmac_set_clk_tx_rate()
+> Regarding future additions, I took a look at the Microchip SAMA5D2
+> datasheet[^1] (is the right document?)
 
-Use the generic stmmac_set_clk_tx_rate() to configure the MAC transmit
-clock.
+There are many versions, but yes, it is one of them, and is usable.
 
-Note that given the current unpatched driver structure,
-plat_dat->fix_mac_speed will always be populated with
-kmb_eth_fix_mac_speed(), even when no clock is present. We preserve
-this behaviour in this patch by always initialising plat_dat->clk_tx_i
-and plat_dat->set_clk_tx_rate.
+> and it looks like this chip has
+> three timer counter channels described in section 54. Currently, the
+> microchip-tcb-capture module is exposing only one timer counter channel
+> (as Count0), correct? Should this driver expose all three channels (as
+> Count0, Count1, and Count2)?
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../stmicro/stmmac/dwmac-intel-plat.c         | 24 +++----------------
- 1 file changed, 3 insertions(+), 21 deletions(-)
+No, as this device is actually instantiated per-channel, i.e. in the DT, 
+there are two TCB nodes (as the SoC has two peripherals, each with 3 
+channels), and then the counter is a sub-node with `reg = <0/1/2>`, 
+specifying which timer channel to use. Or, in quadrature decode mode, 
+you'd have two elements in `reg`, i.e. `reg = <0>, <1>`.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel-plat.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel-plat.c
-index 0591756a2100..599def7b3a64 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel-plat.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel-plat.c
-@@ -22,31 +22,12 @@ struct intel_dwmac {
- };
- 
- struct intel_dwmac_data {
--	void (*fix_mac_speed)(void *priv, int speed, unsigned int mode);
- 	unsigned long ptp_ref_clk_rate;
- 	unsigned long tx_clk_rate;
- 	bool tx_clk_en;
- };
- 
--static void kmb_eth_fix_mac_speed(void *priv, int speed, unsigned int mode)
--{
--	struct intel_dwmac *dwmac = priv;
--	long rate;
--	int ret;
--
--	rate = rgmii_clock(speed);
--	if (rate < 0) {
--		dev_err(dwmac->dev, "Invalid speed\n");
--		return;
--	}
--
--	ret = clk_set_rate(dwmac->tx_clk, rate);
--	if (ret)
--		dev_err(dwmac->dev, "Failed to configure tx clock rate\n");
--}
--
- static const struct intel_dwmac_data kmb_data = {
--	.fix_mac_speed = kmb_eth_fix_mac_speed,
- 	.ptp_ref_clk_rate = 200000000,
- 	.tx_clk_rate = 125000000,
- 	.tx_clk_en = true,
-@@ -89,8 +70,6 @@ static int intel_eth_plat_probe(struct platform_device *pdev)
- 	 * platform_match().
- 	 */
- 	dwmac->data = device_get_match_data(&pdev->dev);
--	if (dwmac->data->fix_mac_speed)
--		plat_dat->fix_mac_speed = dwmac->data->fix_mac_speed;
- 
- 	/* Enable TX clock */
- 	if (dwmac->data->tx_clk_en) {
-@@ -132,6 +111,9 @@ static int intel_eth_plat_probe(struct platform_device *pdev)
- 		}
- 	}
- 
-+	plat_dat->clk_tx_i = dwmac->tx_clk;
-+	plat_dat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
-+
- 	plat_dat->bsp_priv = dwmac;
- 	plat_dat->eee_usecs_rate = plat_dat->clk_ptp_rate;
- 
--- 
-2.30.2
+>> The `mchp_tc_count_function_write()` function already disables PWM mode by
+>> clearing the `ATMEL_TC_WAVE` bit from the Channel Mode Register (CMR).
+> 
+> So capture mode is unconditionally set by mchp_tc_count_function_write()
+> which means the first time the user sets the Count function then PWM
+> mode will be disabled. However, what happens if the user does not set
+> the Count function? Should PWM mode be disabled by default in
+> mchp_tc_probe(), or does that already happen?
 
+You're right, and it is a problem I encounter regularly: almost all HW 
+initialization happens in `mchp_tc_count_function_write()`, the probe() 
+function mostly just allocates stuff. Meaning, if you want to do 
+anything with the counter, you have to set the "increase" function first 
+(even though, if you `cat function`, it will seem like it's already in 
+"increase" mode). I don't know if it was deliberate, or what, but again, 
+that would be a separate bugfix patch.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Bence
+
 
