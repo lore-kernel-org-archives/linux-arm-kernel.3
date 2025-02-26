@@ -4,53 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBB81C021BC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 08:56:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B12B5C021BC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 09:23:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=AQq1tfNVC3PLTkluezaUKOxK1ntdb4Rwze8vX7bXHRc=; b=qYmIRwzs1TS8fU
-	kvqqx9Y43xd08goPUNydKpUtO95dAAK1e4I7jZfYTFEXhVCTkK+TAY4/0qAT8frAV6UUw3xATQVVL
-	0pNl3YP6WBQMkarhVbYgZq5JC9OPb/n9p1qIUicoN/CnskhluhZf527h3mvPTzRYO8XZdENfVSR2t
-	IigKim19rMA0XRLA2qm6WL3/7Usoy8paBrk/RdE3OfLuFqV08POD6K3Z40Xtc9Y71g2WhGn1TdYRU
-	AMK33rkKlYN2hAqnV/LdgzfS3XPPZW+aqZxuIr4S0vPqwgreobdEn5tf9Jvq/x5N16pAMCA6nOFAq
-	9cX1MMd73OB0/HscUr0A==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cI6/VqAKS6bNAbXHyOHCcczT5Asj3Fz4fGJcj+TDuCY=; b=DuyHQno2qoy4mGzpdBNTu4ozdq
+	9+5/DkDddjAMJ/X40MwTZGsRj/mHPymavixy5d3/pFSOFToYrQxfqIawoDgvvvxcOqjvu6Myyga/B
+	p6d6D01CIzdSwJMjI4EkvzTTv7EtzIojj+kksjX3vTqh2AKfQ4Gf6r50rIekUow1DEtJ/v5aD5oec
+	MbynPWYtjZPzslt+UkUlgmbPyB/QEmp5avOfmgAiuS18fX27c4x2keV0F6Rn0zIPym6mjsvC4ogF9
+	mZwkl++7jat4aY/WQbCnWtnRr+XoqZdOFGpK0g14ghj91bZgOsAZOO/tUHT2/Uqmx/lq/60qKyvXE
+	tfeQI9NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnDDO-00000002yt5-0y8X;
-	Wed, 26 Feb 2025 08:56:26 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1tnDd3-000000033qF-0Pu2;
+	Wed, 26 Feb 2025 09:22:57 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnD7I-00000002xUj-3Tay
+	id 1tnD9V-00000002y09-07Zh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 08:50:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=from:to:cc:subject:date:message-id
-	:mime-version:content-transfer-encoding; s=k1; bh=AQq1tfNVC3PLTk
-	luezaUKOxK1ntdb4Rwze8vX7bXHRc=; b=b4cY+8dxDKoGjTrMa1Ve+FLtVhfWlp
-	QjLoAZxrw0Bux0IQxH/ywcB5WlXVew7oALVAEXm/qSKhSrJPdkTfejKUPQogIUGX
-	7sPJdhk195COtnfVzhn3GZS6IGwEuPUcDbgbW61hZ++7KAqSoh6ex/ybPGvG2m4D
-	P49BgoQmwXNYd+ch258B/kVJjEQOb06YkIJ4EaREJ7zl1xD7VWIpYWAYRglJpa5k
-	Sc0JuZoT4nhrkbEcimkqdxeWhQqAMtp07+44ADrz4CNzoHObBXapSc4yh4aELoCD
-	27P9jBBc9XYo+dTS2ODJaC0nngaMYH1bXTecj3iCWdBN3w7CY+S1Xjig==
-Received: (qmail 500321 invoked from network); 26 Feb 2025 09:50:03 +0100
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 26 Feb 2025 09:50:03 +0100
-X-UD-Smtp-Session: l3s3148p1@iBzBqAcv2pIgAwDPXxaLANR24ZQNPy5l
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 0/4] ARM: dts: at91: calao_usb: improve support
-Date: Wed, 26 Feb 2025 09:49:35 +0100
-Message-ID: <20250226084938.3436-6-wsa+renesas@sang-engineering.com>
-X-Mailer: git-send-email 2.45.2
+	Wed, 26 Feb 2025 08:52:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A82395C2771;
+	Wed, 26 Feb 2025 08:51:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B5C4C4CEF6;
+	Wed, 26 Feb 2025 08:52:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740559944;
+	bh=XHzsxcNRyzu969GVfBaBMQi0w2xQRXFs1QAQkqGdpgg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=DfmwfQyPXr938AnGXS1WVjh5l+UFUW3/P9KbawLcNl53rjOUXP1pt9QvuBO2557L2
+	 /jDlIi8gf+cziocJi9ts3Ea7UibMNuQlUyRZD7b+GZrFXtncAZe30aiEVmqdcjaO4b
+	 MtH23sHIcpA4qHgbmLS3ncl18WmCQAtxv3OZLqjToXkWQl0BPruKeMRHv0O97lyhQq
+	 TvoEf884VG7bZTPY0gGrRi4YxNl4n+6sgwz0zsx8emGm2DOchMcCFi9gXe8ki+lqVG
+	 tbdMSdghJjXOS2p1KybYeUIsvOD3zxYdn/zmAEZtVmu7P//kJKUEBIYZpNE7h48gEv
+	 Bg3g9g6x5291A==
+From: Philipp Stanner <phasta@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Yanteng Si <si.yanteng@linux.dev>,
+	Yinggang Gu <guyinggang@loongson.cn>,
+	Feiyang Chen <chenfeiyang@loongson.cn>,
+	Philipp Stanner <pstanner@redhat.com>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Qing Zhang <zhangqing@loongson.cn>
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Philipp Stanner <phasta@kernel.org>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Huacai Chen <chenhuacai@loongson.cn>,
+	Henry Chen <chenx97@aosc.io>
+Subject: [PATCH net-next v4 2/4] stmmac: loongson: Remove surplus loop
+Date: Wed, 26 Feb 2025 09:52:06 +0100
+Message-ID: <20250226085208.97891-3-phasta@kernel.org>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250226085208.97891-1-phasta@kernel.org>
+References: <20250226085208.97891-1-phasta@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_005009_786661_B35C9854 
-X-CRM114-Status: UNSURE (   8.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250226_005225_171425_5873CCAD 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,68 +87,57 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Wolfram Sang <wsa+renesas@sang-engineering.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series improves Calao USB devicetrees and fixes other at91-wide DT
-issues on the way. The Calao boards are added to the at91 binding
-description, the Olimex board is separated first. Also, the wrong
-usb-node name is fixed for the whole directory
+loongson_dwmac_probe() contains a loop which doesn't have an effect,
+because it tries to call pcim_iomap_regions() with the same parameters
+several times. The break statement at the loop's end furthermore ensures
+that the loop only runs once anyways.
 
-Changes since v1:
-* add patches 1-2 to this series to meet dependencies of patch 3
-* patch 4 is new
-* rebased on at91-next
+Remove the surplus loop.
 
-Wolfram Sang (4):
-  dt-bindings: ARM: at91: make separate entry for Olimex board
-  dt-bindings: ARM: at91: add Calao USB boards
-  ARM: dts: at91: usb_a9263: fix wrong vendor
-  ARM: dts: at91: fix faulty ohci/ehci node names
+Signed-off-by: Philipp Stanner <phasta@kernel.org>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Reviewed-by: Yanteng Si <si.yanteng@linux.dev>
+Reviewed-by: Huacai Chen <chenhuacai@loongson.cn>
+Tested-by: Henry Chen <chenx97@aosc.io>
+---
+ .../net/ethernet/stmicro/stmmac/dwmac-loongson.c    | 13 ++++---------
+ 1 file changed, 4 insertions(+), 9 deletions(-)
 
- .../devicetree/bindings/arm/atmel-at91.yaml   | 33 +++++++++++++++++--
- arch/arm/boot/dts/microchip/aks-cdu.dts       |  2 +-
- arch/arm/boot/dts/microchip/animeo_ip.dts     |  2 +-
- arch/arm/boot/dts/microchip/at91-foxg20.dts   |  2 +-
- .../arm/boot/dts/microchip/at91-qil_a9260.dts |  2 +-
- .../boot/dts/microchip/at91-sam9_l9260.dts    |  2 +-
- .../dts/microchip/at91-sama5d27_som1_ek.dts   |  4 +--
- .../dts/microchip/at91-sama5d2_ptc_ek.dts     |  4 +--
- .../dts/microchip/at91-sama5d2_xplained.dts   |  4 +--
- .../dts/microchip/at91-sama5d3_xplained.dts   |  4 +--
- .../dts/microchip/at91-sama5d4_ma5d4evk.dts   |  4 +--
- .../dts/microchip/at91-sama5d4_xplained.dts   |  4 +--
- .../arm/boot/dts/microchip/at91-sama5d4ek.dts |  4 +--
- arch/arm/boot/dts/microchip/at91-vinco.dts    |  4 +--
- arch/arm/boot/dts/microchip/at91rm9200.dtsi   |  2 +-
- arch/arm/boot/dts/microchip/at91rm9200ek.dts  |  2 +-
- arch/arm/boot/dts/microchip/at91sam9260.dtsi  |  2 +-
- arch/arm/boot/dts/microchip/at91sam9260ek.dts |  2 +-
- arch/arm/boot/dts/microchip/at91sam9261.dtsi  |  2 +-
- arch/arm/boot/dts/microchip/at91sam9261ek.dts |  2 +-
- arch/arm/boot/dts/microchip/at91sam9263.dtsi  |  2 +-
- arch/arm/boot/dts/microchip/at91sam9263ek.dts |  2 +-
- .../dts/microchip/at91sam9g20ek_common.dtsi   |  2 +-
- arch/arm/boot/dts/microchip/at91sam9g45.dtsi  |  4 +--
- .../boot/dts/microchip/at91sam9m10g45ek.dts   |  4 +--
- arch/arm/boot/dts/microchip/at91sam9n12.dtsi  |  2 +-
- arch/arm/boot/dts/microchip/at91sam9n12ek.dts |  2 +-
- arch/arm/boot/dts/microchip/at91sam9x5.dtsi   |  4 +--
- arch/arm/boot/dts/microchip/ethernut5.dts     |  2 +-
- arch/arm/boot/dts/microchip/evk-pro3.dts      |  2 +-
- arch/arm/boot/dts/microchip/mpa1600.dts       |  2 +-
- arch/arm/boot/dts/microchip/pm9g45.dts        |  4 +--
- arch/arm/boot/dts/microchip/sam9x60.dtsi      |  4 +--
- arch/arm/boot/dts/microchip/sama5d2.dtsi      |  4 +--
- arch/arm/boot/dts/microchip/sama5d3.dtsi      |  4 +--
- arch/arm/boot/dts/microchip/sama5d3xmb.dtsi   |  4 +--
- arch/arm/boot/dts/microchip/sama5d4.dtsi      |  4 +--
- .../boot/dts/microchip/usb_a9260_common.dtsi  |  2 +-
- arch/arm/boot/dts/microchip/usb_a9263.dts     |  4 +--
- 39 files changed, 87 insertions(+), 58 deletions(-)
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
+index 73a6715a93e6..e2959ac5c1ca 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
+@@ -524,7 +524,7 @@ static int loongson_dwmac_probe(struct pci_dev *pdev, const struct pci_device_id
+ 	struct stmmac_pci_info *info;
+ 	struct stmmac_resources res;
+ 	struct loongson_data *ld;
+-	int ret, i;
++	int ret;
+ 
+ 	plat = devm_kzalloc(&pdev->dev, sizeof(*plat), GFP_KERNEL);
+ 	if (!plat)
+@@ -554,14 +554,9 @@ static int loongson_dwmac_probe(struct pci_dev *pdev, const struct pci_device_id
+ 	pci_set_master(pdev);
+ 
+ 	/* Get the base address of device */
+-	for (i = 0; i < PCI_STD_NUM_BARS; i++) {
+-		if (pci_resource_len(pdev, i) == 0)
+-			continue;
+-		ret = pcim_iomap_regions(pdev, BIT(0), DRIVER_NAME);
+-		if (ret)
+-			goto err_disable_device;
+-		break;
+-	}
++	ret = pcim_iomap_regions(pdev, BIT(0), DRIVER_NAME);
++	if (ret)
++		goto err_disable_device;
+ 
+ 	memset(&res, 0, sizeof(res));
+ 	res.addr = pcim_iomap_table(pdev)[0];
 -- 
-2.45.2
+2.48.1
 
 
