@@ -4,55 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EA82C18E7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 14:34:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20CA1C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 14:35:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BxQsrMugLGGvmmAzyAq0mqX895UJp8wu14mw/2/2g1M=; b=G7pN20/Y9cxoftUE1PR8+OnPUk
-	9kgC99MNc36+/qO7NqpTdmAznpaTszDRXyr+6oQyrxtCKza3hEj13xlUyi5rGdP5GgkndRaB/JT4u
-	NqcX1OitnldustzvoQmhBVlIHGQHwhFIcIJVlBrW5xAnM1Sg5mHT9b/oGlbUjEwEkqHZi6/BusyU/
-	0fF+uSnz/t1fWHmOXu9n9bq6Crl+vPK3siHLk12AeJmtAkft0ItNvKCoiHAtXVdMbd9JoIxhieXfV
-	M0lYRSuMDmFJKX6fo1IH03GhnFyJj4JUV79BTgd1YBLRFXVQY4fokkcABuzCd2tVa0dv6BRfa5WBa
-	7fQK5iTw==;
+	bh=/v1UAwVFC7mS/QirMYrHfPNDSkcpoGhMMfEhSCgpqXo=; b=AyZjUWmqtW2gQEUxBw1F03zUMn
+	ckr5e3T+oWMH1zq2Y1tO/7DbYkLihk24485vieq8GftkXLW2A2Qz2o9NfjIqGik4F+NEDYFyvojjL
+	SbXctinPS/8CTMKwQAkf3KLRhcOIpZm9SiTypqgVoDLew3iFJC6bUUuyhMHd+tOhEghqvBguvfmK+
+	KoEHi+PbtF8IPOHTVAJB1j4oGw2laA4kBPA87NX4XXfqUrvzJcoVsIDPZKzCLK2UoHI5Zmo5eRgLq
+	lwXJAtaJcM6I3lFzOb2V/cLlJHRU7EXByCkkNEs+WiHwGvS1VNet6BmejxEyKZstq5FsIGB834Qj2
+	0nB38UOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnITv-000000046SM-2vrx;
-	Wed, 26 Feb 2025 14:33:51 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tnIVR-000000046oK-1PI6;
+	Wed, 26 Feb 2025 14:35:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnIFw-00000004303-08tm
-	for linux-arm-kernel@lists.infradead.org;
+	id 1tnIFx-00000004328-1pDw
+	for linux-arm-kernel@bombadil.infradead.org;
 	Wed, 26 Feb 2025 14:19:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Content-ID:Content-Description;
+	bh=/v1UAwVFC7mS/QirMYrHfPNDSkcpoGhMMfEhSCgpqXo=; b=J2h56W//aDPZaFOZ9dh0tYcylZ
+	09qPuCZeg+0eas5CuWeVcYMw1qPtU2OoBGs+lZ/KdTF71XYjPXfPWlXtkGyvdYjQFX/dP0RSw6JjA
+	iZS7i6B9/ZGtbgYC75FrG/Mwz1inMLd9TMW8xx1AKEtgDWFrjKHYsjiMGn9Bf9WoPpd1TQDihwT9w
+	JCNaoNV39GHdaN4c65W6i3UOhskDHu+OHrQPypGL9DQwfLJo9T5Btd13i1mSF975q/GLoNYxqpq+W
+	vb2BUfwUbi8DBvzoJJs718mxXdjFRshtaPlXKBEHB3ROy6+AI8StxRjHLoA684mqGzYdZBBE8OYh+
+	R3K6wa/w==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnIFu-00000003cXg-0xzr
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Feb 2025 14:19:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 914F15C554B;
-	Wed, 26 Feb 2025 14:18:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id AA9F0C4AF5F;
-	Wed, 26 Feb 2025 14:19:19 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 515845C45F9;
+	Wed, 26 Feb 2025 14:18:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 9C803C4CEE4;
+	Wed, 26 Feb 2025 14:19:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740579559;
-	bh=FJ54yO04PKk7jacqo+ONYP3+FlHuQ9rLC64gl6G9Bxw=;
+	s=k20201202; t=1740579558;
+	bh=w48Gtlgi8iO22JGBkIhg/tszWTob5ViJlyp87dlVGys=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Bx0SER4Oj9bgCKXX5eDGYro0by2MXI/0h1OQoxG71hJmnyv2kqLF5ubWBZoYX5U1V
-	 nvlaMkW2Hj54oCNUXCob9A7K+3fLax2r2Fxxvzgzwuy9hd2Hs59YyfUl27FE9TBw2/
-	 tJ9887jkP01azx9n+bS80ub2PkBMPIllNIzkTK1W65CtVz/4vdcAlP+ppsgvY6wIQD
-	 TMkw4gTiWhya7MGPaaxYO1E//2glbJtWb2Ts32MEQZPZHOL2bney7q7IUcTPLHJ1Cv
-	 kbi2gQzIGuA6Ek/eiVeFY2JvjlSC/yXtRqhvKd0Hr+qe8Y0SfknpnNt1LT1+flDBRJ
-	 5vqPllpsY9Shg==
+	b=RTGfSV0vs4M1Te2F/O08Wv/YqQGAFXPFSIbgYnGw/8Vf2v3R4VWg3DqQmnXYj8Rt3
+	 RChA4exN/zziV9DzVi4fyt2fUC+WYgDZVLDTDXD52zTlsqTE8YYvpCPGbXzI1Uebkz
+	 WMwTF/kqD346tx2pG0c2Z/pkfngbr+vrZvllM2mIa3Bkd4UaPzyAyKVEExQyIOSH11
+	 OsyaOgKQgZsaZwZVFsu6j31K8SUsBt5vr6ONSD3xGg7kL4BVnJ/Qygd3a1LQCj8Gtd
+	 LcXsQgAwBvthSPO701JFmpTbdH36TcBfOFIIkZ+ddIsk7cZkpjczpmV9rZQhnQHuwo
+	 ko/J1RKUKvWxQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 986ABC19F2E;
-	Wed, 26 Feb 2025 14:19:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8DFCDC18E7C;
+	Wed, 26 Feb 2025 14:19:18 +0000 (UTC)
 From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Date: Wed, 26 Feb 2025 15:19:22 +0100
-Subject: [PATCH v2 11/12] arm64: dts: freescale: Add the BOE av123z7m-n17
- variant of the Moduline Display
+Date: Wed, 26 Feb 2025 15:19:13 +0100
+Subject: [PATCH v2 02/12] dt-bindings: vendor-prefixes: add GOcontroll
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250226-initial_display-v2-11-23fafa130817@gocontroll.com>
+Message-Id: <20250226-initial_display-v2-2-23fafa130817@gocontroll.com>
 References: <20250226-initial_display-v2-0-23fafa130817@gocontroll.com>
 In-Reply-To: <20250226-initial_display-v2-0-23fafa130817@gocontroll.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>, 
@@ -72,19 +86,20 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org, 
  Maud Spierings <maudspierings@gocontroll.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1740579556; l=3566;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1740579556; l=1019;
  i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=oTP9B5+eckemcAq7BoHH8WLYSzQY53IU8NlYcoi8TI4=;
- b=gtKh5ZnGCMRzyf8rS5Cyu6XQpZBunDrsBYyz/LTIEp8TzUQcvNWw07RlZWPuoSDk29EIxwmAg
- zsqb0P/UmzrB9oB+hZ0cMK6CRUcRPD7sYQqAqHr1Vwu1+gs9t0J1vQf
+ bh=QrUKw+1GlBeS4gjTwGekEGjOZJwzhcXs7wKcC4kZ2dY=;
+ b=Rn9xYMCCPZAaFDU37lBWjcHyXDsbSfUSWIegppwKcclLyui8/SxtoImAHTHbKS1g516Fkg9Fe
+ pSjSTd2jSfoCoR+We3nCjQ4Pw1Axj3of6sWd8Me6cRf4vgMvff8mnHC
 X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
  pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
 X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
  with auth_id=341
 X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_061924_170404_5AD4F5FE 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20250226_141922_772761_056BBFE8 
+X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,157 +117,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Maud Spierings <maudspierings@gocontroll.com>
 
-Add the BOE av123z7m-n17 variant of the Moduline Display, this variant
-comes with a 12.3" 1920x720 display.
+GOcontroll produces embedded linux systems and IO modules to use in
+these systems, add its prefix.
 
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
-
 ---
-Currently the backlight driver is not available, this will be upstreamed
-in a future patch series. It is a Maxim max25014atg.
----
- ...tx8p-ml81-moduline-display-106-av123z7m-n17.dts | 133 +++++++++++++++++++++
- 1 file changed, 133 insertions(+)
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av123z7m-n17.dts b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av123z7m-n17.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..129c69598f38566460efb271628c1d1e10eb2a85
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av123z7m-n17.dts
-@@ -0,0 +1,133 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright 2025 GOcontroll B.V.
-+ * Author: Maud Spierings <maudspierings@gocontroll.com>
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx8mp-tx8p-ml81-moduline-display-106.dtsi"
-+
-+/ {
-+	model = "GOcontroll Moduline Display with BOE av123z7m-n17 display";
-+
-+	panel {
-+		compatible = "boe,av123z7m-n17";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_panel>;
-+		enable-gpios = <&gpio1 7 GPIO_ACTIVE_HIGH>;
-+		reset-gpios = <&gpio1 9 GPIO_ACTIVE_LOW>;
-+		power-supply = <&reg_3v3_per>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+				dual-lvds-odd-pixels;
-+
-+				panel_in0: endpoint {
-+					remote-endpoint = <&lvds1_out>;
-+				};
-+			};
-+
-+			port@1 {
-+				reg = <1>;
-+				dual-lvds-even-pixels;
-+
-+				panel_in1: endpoint {
-+					remote-endpoint = <&lvds0_out>;
-+				};
-+			};
-+		};
-+	};
-+};
-+
-+&i2c4 {
-+	bridge@2d { /* sn65dsi85 */
-+		compatible = "ti,sn65dsi84";
-+		reg = <0x2d>;
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_lvds_bridge>;
-+		enable-gpios = <&gpio4 14 GPIO_ACTIVE_HIGH>;
-+		vcc-supply = <&reg_1v8_per>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+
-+				dsi_lvds_bridge_in: endpoint {
-+					remote-endpoint = <&mipi_dsi_out>;
-+					data-lanes = <1 2 3 4>;
-+				};
-+			};
-+
-+			port@2 {
-+				reg = <2>;
-+
-+				lvds0_out: endpoint {
-+					remote-endpoint = <&panel_in1>;
-+				};
-+			};
-+
-+			port@3 {
-+				reg = <3>;
-+
-+				lvds1_out: endpoint {
-+					remote-endpoint = <&panel_in0>;
-+				};
-+			};
-+		};
-+	};
-+
-+	/* max25014 @ 0x6f */
-+};
-+
-+&lcdif1 {
-+	status = "okay";
-+};
-+
-+&mipi_dsi {
-+	samsung,esc-clock-frequency = <12000000>;
-+	/*
-+	 * burst has to be at least 2x dsi clock that the sn65dsi85 expects
-+	 * display pixelclock * bpp / lanes / 2 = dsi clock
-+	 * 88.000.000 * 24 / 4 / 2 = 264.000.000
-+	 * range gets rounded up to 265.000.000 - 270.000.000
-+	 * 267.500.000 * 2 = 535.000.000
-+	 */
-+	samsung,burst-clock-frequency = <535000000>;
-+	status = "okay";
-+
-+	ports {
-+		port@1 {
-+			mipi_dsi_out: endpoint {
-+				remote-endpoint = < &dsi_lvds_bridge_in>;
-+				data-lanes = <1 2 3 4>;
-+			};
-+		};
-+	};
-+};
-+
-+&iomuxc {
-+	pinctrl_lvds_bridge: lvdsbridgegrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SAI1_TXD2__GPIO4_IO14 /* COM pin 113 */
-+			MX8MP_DSE_X1
-+		>;
-+	};
-+
-+	pinctrl_panel: panelgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_GPIO1_IO07__GPIO1_IO07 /* COM pin 157 */
-+			MX8MP_DSE_X1
-+			MX8MP_IOMUXC_GPIO1_IO09__GPIO1_IO09 /* COM pin 159 */
-+			MX8MP_DSE_X1
-+		>;
-+	};
-+};
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index dac80c62b742fec14cd7652d9d690acc4b4b1ee6..5dc61a05de0ce907caeb60bb92018569df0d19e3 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -597,6 +597,8 @@ patternProperties:
+     description: GlobalTop Technology, Inc.
+   "^gmt,.*":
+     description: Global Mixed-mode Technology, Inc.
++  "^gocontroll,.*":
++    description: GOcontroll Modular Embedded Electronics B.V.
+   "^goldelico,.*":
+     description: Golden Delicious Computers GmbH & Co. KG
+   "^goodix,.*":
 
 -- 
 2.48.1
