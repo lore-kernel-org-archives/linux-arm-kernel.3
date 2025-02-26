@@ -4,83 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85A37C18E7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 02:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 872A7C021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 02:59:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8VbGh7PDuhiz6ITk0qrJ7mh9i2e0MKemWMGvyv5rIM8=; b=ok0COZrw84hqB2ziV/xrkL8Q6g
-	LXRtcdI8ld2Zy5/3yczLuYY6M/PPwT2oQ1DhBpAY45sjbINdFXqMUqTue2rksV0RcVUXCbAGR7mE3
-	P0owavX9eS1X7uSXw10NQ/RlWzTeAw3aTXmlAhv6Qb7DRcnuAcGG+PByia5UXlwObZRQNYxlUhzfx
-	HRys+YOHbXcFYJ9z4XxqbkWyQPfj/x37Ln8GZhZKAlj0uYkFd+fipdF2J4gNGIg+Czm+s0lbziJ69
-	dDWmLkXZmlibyJl7wvE7nyz987GDWyDWDYPKXCQ7YqZVAhqMSFakDlboPsoZ2huGicedJFTPQtuYR
-	REdtj0qA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9LxuWSt7ZW3qZr5l7lXRsUtPO8082o42lNaEY45vK8U=; b=nf5cVopFe1xO2xYxyszh7xYmQ0
+	o0Zdr1Zb3xSawz6s8KRMJhxGhTBflgWXyg7iFp5bvGroLsUKEq79tP/w71kWcJ8SRj0g6TPIvj3tZ
+	wxxdf3lZ04iimu/3sx/SErK6+QYSvd4IQygVMQwpdSalueGgb1cyGPJbPhq/KXndpeRhLPWDkSYzz
+	pyzIAECuiTcKF2JUIuUG2ulzy+kNq+e4HtZs4EayyGLcLbDn5ljJS9YH8+ETUNj/MWbV+65mgOCUo
+	D3aaIh0hM2AAAf4WN15yTfd05sQj/oxr4Rlnnewj0WwwqKUebJcwsuizUHt/lvaaV9Dbjvl7UR5be
+	zApgLDKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn7ah-00000002EAy-1LuC;
-	Wed, 26 Feb 2025 02:56:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tn7e8-00000002Eg3-424h;
+	Wed, 26 Feb 2025 02:59:40 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn7Ss-00000002DKC-06nk;
-	Wed, 26 Feb 2025 02:48:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 114E961210;
-	Wed, 26 Feb 2025 02:47:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E317EC4CEDD;
-	Wed, 26 Feb 2025 02:47:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740538081;
-	bh=J4YodrPtFGJQTypoQfeFjZBSXm+MIeUL45ni49ZCBe8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VtjEi/fRBnNN60i/JT7T7+OH3W/Ki+1FgriQzHu/E6Yj9MU5bf3r21DRa3//dVsjZ
-	 XbfpRCuevtGA34+CSsFbgfoslWujRat6+vCgdqv6lfa/kKqhxAKnM6iXK+Blofm3W5
-	 6agLJp03xZE4Qj872VAjAOXRJKkIzFUz0RpniqmVSSQsgMXTCLvRigRKnoNGzUuvO/
-	 DvXvGgrcOUARtUhSKq7Rx66iLCxmXlp67jAF5qmIBmgIuypRvQf5DrFF4G1q3JUrmM
-	 jNmFuPSL9iCE9ef2aDk87uEVCiDEZXGQ7CTfLzc42hGiepHQqCMXHFMHYq8OFWwZ+c
-	 Vz57haOSZaNKA==
-Date: Tue, 25 Feb 2025 18:47:58 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	guoren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
-	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
+	id 1tn7cb-00000002EXQ-0n8P
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Feb 2025 02:58:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WPQbQBQ7VJZyEJo5nq/fK5W7GIuuyZrqiA32gdOIVklCkDV8n04x6Gqyi+H+nBffcpmPklVyIRmdkKRbkj7S9Tg2n4zb6YSzIz9kM42hmEO6fEMrPfW3p6DM6/xQp72626/fNbNs3BcfL7fEur3HruUxp+GHpeYVwbMwZ6YyqpJc7TDqpxcAj0zUG7ycCAYxCq23gVBNM77REyxK+luOVjcbCG4Wz+wwWi1YvX4RlJjPb1MZs/Nk9GFYGRJkGLLD+7SY5WlSYuAqMeQjHi3oq0AAA2FYmMF3llJDldPhQzuInxxKR6uZnFhWqQDokGpwEnqGyqlAF00tUoGSNrDZNA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9LxuWSt7ZW3qZr5l7lXRsUtPO8082o42lNaEY45vK8U=;
+ b=GvOrFC/oorwTGMtvK+fgym9qOI2tM6Xu0oL0F9+v56gJjDWdcUR/4iNADbtsNeGfAqVRgqwZ0W0JLk2sZSK0kZ5bl7kjEfv0G/j4gv3hKHu6Nrz3W6Dtnc/oIx6FCguzBpN6Ikd+kb3L+2lk0DgZQ8cMSaIb2MJL298LekdWYyBZVL4DwuxgwTkA994hlgMbjjjUgjnPz736ZDsxrF3EmT4Zx0lIE6lggGdFSp6p683Wwg6+xSSTtAn1iq5S+MhqaY8aw7l/7pGTxO6xcB2iGS8ZjiEq8hI0CrCh7aZOIIy0XHAeJmZ8GI2VSRnvJpk+8ZS65qwY0HVrZVgNfBAoXw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9LxuWSt7ZW3qZr5l7lXRsUtPO8082o42lNaEY45vK8U=;
+ b=Uf8mlNArfpIE5GeludQjDTq26VU44oEp36s94ff6c5+BJLvpSoxfMcPVnc9F7QGJ5jbQ9XQ8cZRU+TEhZDPQ8tMiaLB5j1jBVbMYH1vgARBk1mrfhtNy88Lb9qJhoWjgRC5oNrErKrkNbM1s7acSdRZrkXsdi0xBelsXoYgh+sUL3xF+kprftNm9dvgV9G74PrlxbrzPUi2SL9kGyDS+eqkEDfFzctNFQz7pgbat7jqsW9UBXljXJndvXBRoyjVzlYSfdQGig/rKUCKUJFtVIUHFrFiIM8Ar69aExM6/4rEY3mxi/00NrCgzJRajke/voKhtHDgwxYxsr7vQuWqfQw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
+ by GV1PR04MB10893.eurprd04.prod.outlook.com (2603:10a6:150:209::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.20; Wed, 26 Feb
+ 2025 02:57:58 +0000
+Received: from AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93]) by AS8PR04MB8676.eurprd04.prod.outlook.com
+ ([fe80::28b2:de72:ad25:5d93%5]) with mapi id 15.20.8489.018; Wed, 26 Feb 2025
+ 02:57:58 +0000
+From: Richard Zhu <hongxing.zhu@nxp.com>
+To: manivannan.sadhasivam@linaro.org,
+	robh@kernel.org,
+	lpieralisi@kernel.org,
+	l.stach@pengutronix.de,
+	shawnguo@kernel.org,
+	kw@linux.com,
+	bhelgaas@google.com,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
+	imx@nxp.com,
 	linux-arm-kernel@lists.infradead.org,
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
-	linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH v3 0/8] perf: Support multiple system call tables in the
- build
-Message-ID: <Z76A3sU46Jxpc2s5@google.com>
-References: <20250219185657.280286-1-irogers@google.com>
- <Z70zejQJvppH8Sfh@google.com>
- <CAP-5=fU8Xw-aeCGUOFo8Zph=xagHv43jo+BkXY5vUai5tUsmDA@mail.gmail.com>
- <Z71X5wXm1bQ7RM4m@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+	linux-kernel@vger.kernel.org,
+	kernel@pengutronix.de,
+	Richard Zhu <hongxing.zhu@nxp.com>
+Subject: [PATCH v1] PCI: imx6: Use devm_clk_bulk_get_all to fetch clocks
+Date: Wed, 26 Feb 2025 10:56:28 +0800
+Message-Id: <20250226025628.1681206-1-hongxing.zhu@nxp.com>
+X-Mailer: git-send-email 2.37.1
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z71X5wXm1bQ7RM4m@google.com>
+Content-Type: text/plain
+X-ClientProxiedBy: SGBP274CA0017.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b0::29)
+ To AS8PR04MB8676.eurprd04.prod.outlook.com (2603:10a6:20b:42b::10)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8676:EE_|GV1PR04MB10893:EE_
+X-MS-Office365-Filtering-Correlation-Id: 925ff4e2-a8ae-4804-85dc-08dd56115fef
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?gvWEXN0Eqykn79JJXZin5dTj2SrMMY+48/fdpjD3EC/Wz8K4RnH2wsPWIYjT?=
+ =?us-ascii?Q?Yoe0kgDaNOC2ph43BEEMsRXqrZ5Vpi3NoW1NvhYc+BB3kJpo3l4CJ7bWfa7m?=
+ =?us-ascii?Q?AcgqUwLysmpOcm/PVed5B39g0GdHwxg6G4n118HkMCpuY1KM1l4YLfTErJiy?=
+ =?us-ascii?Q?I0E5E3QAozT1ZNIj3GLDONEf90qgBW5w4V8T3jx7uX1jugqr1AJ8dSjG75lz?=
+ =?us-ascii?Q?q5k7O4obuq8OIqvtlOfQeTc3R2ILU///iu8+7u7WyrK6bTFLVq3B1K+OuRIa?=
+ =?us-ascii?Q?sG6e1Ui+s+Vda+IfbUdKpDvTNTcV7iXLrVN+27BcWSyGuiO/VUnQJ0EkDgbZ?=
+ =?us-ascii?Q?q8pLtz22GGaxnx6Eia3W2nrJBjWpl6b2csDzhyr9od0Om9AFRzjlFXL55BCK?=
+ =?us-ascii?Q?qSNOLKLWGa33M6vp7b69vDhHfDE5lmvBtFY6Ffpc0a0N980bMooFafC7LPKZ?=
+ =?us-ascii?Q?KCHDORoGXKeJmybKHYANslrphMPBHgdxuWWb4aSV5YUq1DsIiI7jnGt3imWe?=
+ =?us-ascii?Q?MqwOu3MAXYIOazc9tu74gQByK5zmfBbq3upHWEsZPblARrd/MO+VsZCQRXEw?=
+ =?us-ascii?Q?Pizx2XtLW9SAK+kN294xsmZK2bV4/aGw4D6b4Uj7ERBc2uBbM+dHKhOXSvV+?=
+ =?us-ascii?Q?5g0jkN1QcBU6D1rY/qO/4oweiTt7CBWg+SRPEcDz/ERfsiiBTIncafbGcZ+j?=
+ =?us-ascii?Q?bX1sRHdRXjgTjXSNGWOgCUXqAD3v2i4HOOYWFdBJDXc4Zex92a4GpVl30fLL?=
+ =?us-ascii?Q?ldtH0eYkqHMwbOjwJMD0WB/EMq+l1UeJQc/9wk+q9/eZRXCbiCVQKIB6+O7f?=
+ =?us-ascii?Q?xRD5K/cIwPHh+pz6K4wp11+2ONy0ytUODxdexhFsqYpFNIhKk6jd378tLRYT?=
+ =?us-ascii?Q?NUJosscLM3FwEqqLzjxE6S53xp8fNF0l/jhJ36uOysp+TqHBUwCO5TvNJZNC?=
+ =?us-ascii?Q?UZ/sCw6qMqssgqLwQeUICQCgPJCTKKEzmcQyd+ze3euiHHk9XokldK4hpbM1?=
+ =?us-ascii?Q?xEr9+HGffvS+13Q/6PZcwhNp5ePZg5e1arATwnJzVp6qH1OMczYSUwTD7frj?=
+ =?us-ascii?Q?3X4Nxvv2YUZ681gKOYKTVhbA622FX7P2Mrpx+QgkqOBmvS7uQyr/NtX7XA4K?=
+ =?us-ascii?Q?HA225KLMkZrCGMJ4cqXizJonXS5DiDm6jcLWCJ3WLwJ0CdtRf47dwDo1YBxU?=
+ =?us-ascii?Q?Z+TVAbj44oL1scmuKb04sXEFc5tD+iNHvjLmMrIoeteEYKZqdnrBlBULuT3E?=
+ =?us-ascii?Q?pMY9+uaBrqmwiFbOTpNAaaCLYVtzVotUYRe9+0LfEc7jaLh1iI2wxVS9Rgqu?=
+ =?us-ascii?Q?JyWHfpTl17nzS8O8Je2zSBRTxP/WSrdjDBdLeXqL3xDQ6cJaFQ/mOYlFX78I?=
+ =?us-ascii?Q?x/Mt0KAShPMyE9ZRzBz6SYnnXyFoN3GFFo1DocNBi6uDFg+tjN3g3kNiqnYs?=
+ =?us-ascii?Q?BCZjWNoFZyQ1g69wEddxPw1q8lBIVdjb?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8676.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DJ8iFglHB9N5SQLtgMOYFsbLfSrH54I+QM9aKTpCKjhGKHqveb6DdoBJOZG9?=
+ =?us-ascii?Q?pGDpphuJwxGF4UIJ1EmnQf7E5PfdieV1BaWc97aggjonNHS28yqOrGSGmMHE?=
+ =?us-ascii?Q?DkaC/ZphwEc3OCrpSrKy0usddVud9RvqjdsG7v2xlYPcMJdKf1er+evSw9vw?=
+ =?us-ascii?Q?Ne2PM7zzbPGLj03DA2rW34PccBhTGEKHbJjn2YhGYvZw1gW5PhQitX2eBWbI?=
+ =?us-ascii?Q?PScOX/gkR4m1lCDvJzG0x3Sn8DPG62JdkaHIej40g07uNPBGnnlzGbQwZxEq?=
+ =?us-ascii?Q?occixBFbjeL6duiJv2K/ze8NotLQLxY58/Md0AzFyWiKoo9WekQaDBfUXv2H?=
+ =?us-ascii?Q?hQH/xvfTWMFYxBgEyK16zqD0+Wg+pHSSyxt1gATw9qAj4jZl4XKzyqQgGU2W?=
+ =?us-ascii?Q?z7t8iHj/VB1++SjwsCWwFPSPKPLGLDV8Wpvtjem26lf9AJxQ3V4vZJTqtIRb?=
+ =?us-ascii?Q?1TGlhhEg29OozvJ1GYMUUTJznEqZz7BhVcbHBA8zprLc01l1KotzfqbfIgzK?=
+ =?us-ascii?Q?DwcqCB2RqnOehCsJ1oKPse25/ZnduiPmrYGFmWeAjQoJDWX4ZbxTXRVyVneA?=
+ =?us-ascii?Q?Sm3GacU28qzYPXSAAgVAGyxiRrGrxEBkjkqrYDzWdzqWWOH9vnJJFqt0BGDH?=
+ =?us-ascii?Q?v1WPKkilMB/IJ403v6lIOPPH0xZIrA4zaVgL4gTCBurgAyGwPzNjg96KTlfC?=
+ =?us-ascii?Q?rS58Hkm3IW3EdiFb9PNk/AaRKXE38Z1ILacmG+w6fqbFNezSWrDnh/oCRjRo?=
+ =?us-ascii?Q?dF/HaZrBybJB7NJi/rmEb7wRit+yYxoFXMkAQA28Xr2/rJyyE7qNAX1iDoKk?=
+ =?us-ascii?Q?ZF8hmPpcgMHt4Wp1/5VJF1ibIWlBbYh0rwnxk4RGfoN3lkcM6Nf2fLMsSE+8?=
+ =?us-ascii?Q?4fRk8G7U7n+E6lxeWlSaU7OIM1Xga+GJ8mLTD/jgKAWmOLFXkhCDjEqBDiZh?=
+ =?us-ascii?Q?DfsBmo2SoMR3VNBiLqHfBaf0fYTfw0uztMHlfkiPOxPNNDZGPXdFAH01Z1oR?=
+ =?us-ascii?Q?IYbIDFyHtq7FQf9fza2+bAOrxnqLyf8lBq9sRH8WIUF18B1D2YwBAYADSv6i?=
+ =?us-ascii?Q?R86lU56sSa+6IO8v13FfT+xQ44poc9d1YPg/0G7rEV9HOHhq41nqIb/kAIS6?=
+ =?us-ascii?Q?/VjoJRTXIhwWk/kZ+GFxuJyHM5SZ7qhdWSO5TbctRpabe3FZP1ou3Uwd3T5i?=
+ =?us-ascii?Q?i89uPHya9ChxVuWuiw4SO/B0D0c0Y/gJZxil6j1/kMV1q0EOoWparglruSLt?=
+ =?us-ascii?Q?zJc0BYIWDW6d+nOLWkJr1VljKxWq6f5sOEoU4bYV10b94TEU2S2UNttirvul?=
+ =?us-ascii?Q?BlZcu0NJ0WVPaCT7uKfrxuzh7g40L06KBFGlp5+KX5ced60bg2PQX5qb4Zuw?=
+ =?us-ascii?Q?rreBNCbzttvbTTsAt+rmjbGHA7WvO4xCAnebqQiT55hj5OzOUkrSHy76sMBs?=
+ =?us-ascii?Q?fSv6sdLodFYH7GNIZg/iEXb+sQshUXaFf+1jbLaHugpEX5xrhqV54DF8oqQk?=
+ =?us-ascii?Q?TkVI/BwFmuM8NxOpJoePTCmwRr+/XxTcAaF6GtllDy18ONYYdUdhbMbR+vHA?=
+ =?us-ascii?Q?o4/XpEYH9Smx1CoC2xZ+mAR5hTeXQvcHUXux7FJ6?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 925ff4e2-a8ae-4804-85dc-08dd56115fef
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8676.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2025 02:57:58.3081
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tirAMgVcWiE7wvMiEdXeevy+CjU6l8Ym4uiolb3jJ2SGEJi0/N25kImVs3olg42DeMoFmpq9O+GVN/hYtlCJ1Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10893
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250225_185805_390627_2589C821 
+X-CRM114-Status: GOOD (  17.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,258 +165,265 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 24, 2025 at 09:40:55PM -0800, Namhyung Kim wrote:
-> On Mon, Feb 24, 2025 at 08:37:01PM -0800, Ian Rogers wrote:
-> > On Mon, Feb 24, 2025 at 7:05 PM Namhyung Kim <namhyung@kernel.org> wrote:
-> > >
-> > > On Wed, Feb 19, 2025 at 10:56:49AM -0800, Ian Rogers wrote:
-> > > > This work builds on the clean up of system call tables and removal of
-> > > > libaudit by Charlie Jenkins <charlie@rivosinc.com>.
-> > > >
-> > > > The system call table in perf trace is used to map system call numbers
-> > > > to names and vice versa. Prior to these changes, a single table
-> > > > matching the perf binary's build was present. The table would be
-> > > > incorrect if tracing say a 32-bit binary from a 64-bit version of
-> > > > perf, the names and numbers wouldn't match.
-> > > >
-> > > > Change the build so that a single system call file is built and the
-> > > > potentially multiple tables are identifiable from the ELF machine type
-> > > > of the process being examined. To determine the ELF machine type, the
-> > > > executable's header is read from /proc/pid/exe with fallbacks to using
-> > > > the perf's binary type when unknown.
-> > > >
-> > > > Remove some runtime types used by the system call tables and make
-> > > > equivalents generated at build time.
-> > >
-> > > So I tested this with a test program.
-> > >
-> > >   $ cat a.c
-> > >   #include <stdio.h>
-> > >   int main(void)
-> > >   {
-> > >         char buf[4096];
-> > >         FILE *fp = fopen("a.c", "r");
-> > >         size_t len;
-> > >
-> > >         len = fread(buf, sizeof(buf), 1, fp);
-> > >         fwrite(buf, 1, len, stdout);
-> > >         fflush(stdout);
-> > >         fclose(fp);
-> > >         return 0;
-> > >   }
-> > >
-> > >   $ gcc -o a64.out a.c
-> > >   $ gcc -o a32.out -m32 a.c
-> > >
-> > >   $ ./perf version
-> > >   perf version 6.14.rc1.ge002a64f6188
-> > >
-> > >   $ git show
-> > >   commit e002a64f61882626992dd6513c0db3711c06fea7 (HEAD -> perf-check)
-> > >   Author: Ian Rogers <irogers@google.com>
-> > >   Date:   Wed Feb 19 10:56:57 2025 -0800
-> > >
-> > >       perf syscalltbl: Mask off ABI type for MIPS system calls
-> > >
-> > >       Arnd Bergmann described that MIPS system calls don't necessarily start
-> > >       from 0 as an ABI prefix is applied:
-> > >       https://lore.kernel.org/lkml/8ed7dfb2-1e4d-4aa4-a04b-0397a89365d1@app.fastmail.com/
-> > >       When decoding the "id" (aka system call number) for MIPS ignore values
-> > >       greater-than 1000.
-> > >
-> > >       Signed-off-by: Ian Rogers <irogers@google.com>
-> > >
-> > > It works well with 64bit.
-> > >
-> > >   $ sudo ./perf trace ./a64.out |& tail
-> > >        0.266 ( 0.007 ms): a64.out/858681 munmap(addr: 0x7f392723a000, len: 109058)                             = 0
-> > >        0.286 ( 0.002 ms): a64.out/858681 getrandom(ubuf: 0x7f3927232178, len: 8, flags: NONBLOCK)              = 8
-> > >        0.289 ( 0.001 ms): a64.out/858681 brk()                                                                 = 0x56419ecf7000
-> > >        0.291 ( 0.002 ms): a64.out/858681 brk(brk: 0x56419ed18000)                                              = 0x56419ed18000
-> > >        0.299 ( 0.009 ms): a64.out/858681 openat(dfd: CWD, filename: "a.c")                                     = 3
-> > >        0.312 ( 0.001 ms): a64.out/858681 fstat(fd: 3, statbuf: 0x7ffdfadf1eb0)                                 = 0
-> > >        0.315 ( 0.002 ms): a64.out/858681 read(fd: 3, buf: 0x7ffdfadf2030, count: 4096)                         = 211
-> > >        0.318 ( 0.009 ms): a64.out/858681 read(fd: 3, buf: 0x56419ecf7480, count: 4096)                         = 0
-> > >        0.330 ( 0.001 ms): a64.out/858681 close(fd: 3)                                                          = 0
-> > >        0.338 (         ): a64.out/858681 exit_group()                                                          = ?
-> > >
-> > > But 32bit is still broken and use 64bit syscall table wrongly.
-> > >
-> > >   $ file a32.out
-> > >   a32.out: ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2,
-> > >   BuildID[sha1]=6eea873c939012e6c715e8f030261642bf61cb4e, for GNU/Linux 3.2.0, not stripped
-> > >
-> > >   $ sudo ./perf trace ./a32.out |& tail
-> > >        0.296 ( 0.001 ms): a32.out/858699 getxattr(pathname: "", name: "������", value: 0xf7f6ce14, size: 1)  = 0
-> > >        0.305 ( 0.007 ms): a32.out/858699 fchmod(fd: -134774784, mode: IFLNK|ISUID|ISVTX|IWOTH|0x10000)         = 0
-> > >        0.333 ( 0.001 ms): a32.out/858699 recvfrom(size: 4160146964, flags: RST|0x20000, addr: 0xf7f6ce14, addr_len: 0xf7f71278) = 1481879552
-> > >        0.335 ( 0.004 ms): a32.out/858699 recvfrom(fd: 1482014720, ubuf: 0xf7f71278, size: 4160146964, flags: NOSIGNAL|MORE|WAITFORONE|BATCH|SPLICE_PAGES|CMSG_CLOEXEC|0x10500000, addr: 0xf7f6ce14, addr_len: 0xf7f71278) = 1482014720
-> > >        0.355 ( 0.002 ms): a32.out/858699 recvfrom(fd: 1482018816, ubuf: 0x5855d000, size: 4160146964, flags: RST|NOSIGNAL|MORE|WAITFORONE|BATCH|SPLICE_PAGES|CMSG_CLOEXEC|0x10500000, addr: 0xf7f6ce14, addr_len: 0xf7f71278) = 1482018816
-> > >        0.362 ( 0.010 ms): a32.out/858699 preadv(fd: 4294967196, vec: (struct iovec){.iov_base = (void *)0x1b01000000632e62,.iov_len = (__kernel_size_t)1125899909479171,}, pos_h: 4160146964) = 3
-> > >        0.385 ( 0.002 ms): a32.out/858699 close(fd: 3)                                                          = 211
-> > >        0.388 ( 0.001 ms): a32.out/858699 close(fd: 3)                                                          = 0
-> > >        0.393 ( 0.002 ms): a32.out/858699 lstat(filename: "")                                                   = 0
-> > >        0.396 ( 0.004 ms): a32.out/858699 recvfrom(fd: 1482014720, size: 4160146964, flags: NOSIGNAL|MORE|WAITFORONE|BATCH|SPLICE_PAGES|CMSG_CLOEXEC|0x10500000, addr: 0xf7f6ce14, addr_len: 0xf7f71278) = 1482014720
-> > >
-> > > The last 5 should be openat, read, read, close and brk(?).
-> > 
-> > That's strange as nearly the same test works for me:
-> > ```
-> > $ git show
-> > commit 7920020237af8138f7be1a21be9a2918a71ddc5e (HEAD -> ptn-syscalltbl)
-> > Author: Ian Rogers <irogers@google.com>
-> > Date:   Fri Jan 31 21:34:07 2025 -0800
-> > 
-> >    perf syscalltbl: Mask off ABI type for MIPS system calls
-> > 
-> >    Arnd Bergmann described that MIPS system calls don't necessarily start
-> >    from 0 as an ABI prefix is applied:
-> >    https://lore.kernel.org/lkml/8ed7dfb2-1e4d-4aa4-a04b-0397a89365d1@app.fastmail.com/
-> >    When decoding the "id" (aka system call number) for MIPS ignore values
-> >    greater-than 1000.
-> > 
-> >    Signed-off-by: Ian Rogers <irogers@google.com>
-> > ..
-> > $ file a.out
-> > a.out: ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV),
-> > dynamically linked, interpreter /lib/ld-linux.so.2,
-> > BuildID[sha1]=3fcd28f85a27a3108941661a91dbc675c06868f9, for GNU/Linux
-> > 3.2.0, not stripped
-> > $ sudo /tmp/perf/perf trace ./a.out
-> > ...
-> >          ? (         ): a.out/218604  ... [continued]: execve())
-> >                                     = 0
-> >      0.067 ( 0.003 ms): a.out/218604 brk()
-> >                                     = 0x5749e000
-> >      0.154 ( 0.007 ms): a.out/218604 access(filename: 0xf7fc7f28,
-> > mode: R)                                 = -1 ENOENT (No such file or
-> > directory)
-> >      0.168 ( 0.023 ms): a.out/218604 openat(dfd: CWD, filename:
-> > 0xf7fc44c3, flags: RDONLY|CLOEXEC|LARGEFILE) = 3
-> >      0.193 ( 0.006 ms): a.out/218604 statx(dfd:
-> > 3</proc/218604/status>, filename: 0xf7fc510a, flags:
-> > NO_AUTOMOUNT|EMPTY_PATH, mask:
-> > TYPE|MODE|NLINK|UID|GID|ATIME|MTIME|CTIME|INO|SIZE|BLOCKS, buffer:
-> > 0xffaa6b88) = 0
-> >      0.212 ( 0.002 ms): a.out/218604 close(fd: 3</proc/218604/status>)
-> >                                     = 0
-> >      0.233 ( 0.019 ms): a.out/218604 openat(dfd: CWD, filename:
-> > 0xf7f973e0, flags: RDONLY|CLOEXEC|LARGEFILE) = 3
-> >      0.255 ( 0.004 ms): a.out/218604 read(fd: 3</proc/218604/status>,
-> > buf: 0xffaa6df0, count: 512)         = 512
-> >      0.262 ( 0.003 ms): a.out/218604 statx(dfd:
-> > 3</proc/218604/status>, filename: 0xf7fc510a, flags:
-> > NO_AUTOMOUNT|EMPTY_PATH, mask:
-> > TYPE|MODE|NLINK|UID|GID|ATIME|MTIME|CTIME|INO|SIZE|BLOCKS, buffer:
-> > 0xffaa6b38) = 0
-> >      0.347 ( 0.002 ms): a.out/218604 close(fd: 3</proc/218604/status>)
-> >                                     = 0
-> >      0.372 ( 0.002 ms): a.out/218604 set_tid_address(tidptr:
-> > 0xf7f98528)                                   = 218604 (a.out)
-> >      0.376 ( 0.002 ms): a.out/218604 set_robust_list(head: 0xf7f9852c,
-> > len: 12)                            =
-> >      0.381 ( 0.002 ms): a.out/218604 rseq(rseq: 0xf7f98960, rseq_len:
-> > 32, sig: 1392848979)                 =
-> >      0.469 ( 0.010 ms): a.out/218604 mprotect(start: 0xf7f6e000, len:
-> > 8192, prot: READ)                    = 0
-> >      0.489 ( 0.007 ms): a.out/218604 mprotect(start: 0x5661a000, len:
-> > 4096, prot: READ)                    = 0
-> >      0.503 ( 0.007 ms): a.out/218604 mprotect(start: 0xf7fd0000, len:
-> > 8192, prot: READ)                    = 0
-> >      0.550 ( 0.015 ms): a.out/218604 munmap(addr: 0xf7f7b000, len:
-> > 111198)                                 = 0
-> >      0.589 ( 0.035 ms): a.out/218604 openat(dfd: CWD, filename:
-> > 0x56619008)                                = 3
-> >      0.627 ( 0.024 ms): a.out/218604 read(fd: 3</proc/218604/status>,
-> > buf: 0xffaa68fc, count: 4096)        = 1437
-> >      0.654 ( 0.090 ms): a.out/218604 write(fd: 1</dev/pts/3>, buf: ,
-> > count: 1437)                          = 1437
-> >      0.766 (1000.164 ms): a.out/218604 clock_nanosleep(rqtp:
-> > 0xffaa6824, rmtp: 0xffaa681c)                   = 0
-> >   1000.942 (         ): a.out/218604 exit_group()
-> > $ file /tmp/perf/perf
-> > /tmp/perf/perf: ELF 64-bit LSB pie executable, x86-64, version 1
-> > (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2,
-> > BuildID[sha1]=60b07f65d2559a7193b2d1d36cfa00054dfbd076, for GNU/Linux
-> > 3.2.0, with debug_info, not stripped
-> > ```
-> > Perhaps your a.out binary was built as an x32 one?
-> > Looking under the covers with gdb:
-> > ```
-> > $ sudo gdb --args /tmp/perf/perf trace ./a.out
-> > GNU gdb (Debian 15.1-1) 15.1
-> > ...
-> > Reading symbols from /tmp/perf/perf...
-> > (gdb) b syscalltbl__name
-> > Breakpoint 1 at 0x23a51b: file util/syscalltbl.c, line 47.
-> > (gdb) r
-> > ...
-> > [Detaching after vfork from child process 218826]
-> > 
-> > Breakpoint 1, syscalltbl__name (e_machine=3, id=11) at util/syscalltbl.c:47
-> > 47              const struct syscalltbl *table = find_table(e_machine);
-> > ```
-> > So the e_machine is 3 which corresponds to EM_386.
-> > 
-> > I've not fixed every use of syscalltbl but I believe this one is working.
-> 
-> Strange.  I'm seeing 62 (x86_64).
-> 
->   $ sudo gdb -q --args ./perf trace ./a32.out
->   Reading symbols from ./perf...
->   (gdb) b syscalltbl__name
->   Breakpoint 1 at 0x27998b: file util/syscalltbl.c, line 46.
->   (gdb) r
->   Starting program: /home/namhyung/tmp/perf trace ./a32.out
->   [Thread debugging using libthread_db enabled]
->   Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
->   [Detaching after fork from child process 886888]
->   
->   Breakpoint 1, syscalltbl__name (e_machine=62, id=156) at util/syscalltbl.c:46
->   46	{
-> 
-> But the binary is i386.
-> 
->   $ file a32.out
->   a32.out: ELF 32-bit LSB pie executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2,
->   BuildID[sha1]=6eea873c939012e6c715e8f030261642bf61cb4e, for GNU/Linux 3.2.0, not stripped
->   
->   $ readelf -h a32.out
->   ELF Header:
->     Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
->     Class:                             ELF32
->     Data:                              2's complement, little endian
->     Version:                           1 (current)
->     OS/ABI:                            UNIX - System V
->     ABI Version:                       0
->     Type:                              DYN (Position-Independent Executable file)
->     Machine:                           Intel 80386
->     Version:                           0x1
->     Entry point address:               0x10a0
->     Start of program headers:          52 (bytes into file)
->     Start of section headers:          13932 (bytes into file)
->     Flags:                             0x0
->     Size of this header:               52 (bytes)
->     Size of program headers:           32 (bytes)
->     Number of program headers:         11
->     Size of section headers:           40 (bytes)
->     Number of section headers:         30
->     Section header string table index: 29
-> 
->   $ hexdump -C -n 32 a32.out
->   00000000  7f 45 4c 46 01 01 01 00  00 00 00 00 00 00 00 00  |.ELF............|
->   00000010  03 00 03 00 01 00 00 00  a0 10 00 00 34 00 00 00  |............4...|
->   00000020  ----- -----
->               ^     ^
-> 	      |     |
-> 	   ET_DYN   |
-> 	          EM_386
-> 
+Use devm_clk_bulk_get_all() to simple clock handle codes. No function
+changes.
 
-I found it failed to open /proc/PID/exe for some reason.  It failed with
-ENOENT but I've confirmed there's /proc/PID directory.  Strange...
+Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+---
+ drivers/pci/controller/dwc/pci-imx6.c | 76 ++++++---------------------
+ 1 file changed, 15 insertions(+), 61 deletions(-)
 
-Thanks,
-Namhyung
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index 90ace941090f..35bfd46225c9 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -109,7 +109,6 @@ enum imx_pcie_variants {
+ 
+ #define imx_check_flag(pci, val)	(pci->drvdata->flags & val)
+ 
+-#define IMX_PCIE_MAX_CLKS	6
+ #define IMX_PCIE_MAX_INSTANCES	2
+ 
+ struct imx_pcie;
+@@ -120,9 +119,6 @@ struct imx_pcie_drvdata {
+ 	u32 flags;
+ 	int dbi_length;
+ 	const char *gpr;
+-	const char * const *clk_names;
+-	const u32 clks_cnt;
+-	const u32 clks_optional_cnt;
+ 	const u32 ltssm_off;
+ 	const u32 ltssm_mask;
+ 	const u32 mode_off[IMX_PCIE_MAX_INSTANCES];
+@@ -137,7 +133,8 @@ struct imx_pcie_drvdata {
+ struct imx_pcie {
+ 	struct dw_pcie		*pci;
+ 	struct gpio_desc	*reset_gpiod;
+-	struct clk_bulk_data	clks[IMX_PCIE_MAX_CLKS];
++	struct clk_bulk_data	*clks;
++	int			num_clks;
+ 	struct regmap		*iomuxc_gpr;
+ 	u16			msi_ctrl;
+ 	u32			controller_id;
+@@ -470,13 +467,14 @@ static int imx_setup_phy_mpll(struct imx_pcie *imx_pcie)
+ 	int mult, div;
+ 	u16 val;
+ 	int i;
++	struct clk_bulk_data *clks = imx_pcie->clks;
+ 
+ 	if (!(imx_pcie->drvdata->flags & IMX_PCIE_FLAG_IMX_PHY))
+ 		return 0;
+ 
+-	for (i = 0; i < imx_pcie->drvdata->clks_cnt; i++)
+-		if (strncmp(imx_pcie->clks[i].id, "pcie_phy", 8) == 0)
+-			phy_rate = clk_get_rate(imx_pcie->clks[i].clk);
++	for (i = 0; i < imx_pcie->num_clks; i++)
++		if (strncmp(clks[i].id, "pcie_phy", 8) == 0)
++			phy_rate = clk_get_rate(clks[i].clk);
+ 
+ 	switch (phy_rate) {
+ 	case 125000000:
+@@ -668,7 +666,7 @@ static int imx_pcie_clk_enable(struct imx_pcie *imx_pcie)
+ 	struct device *dev = pci->dev;
+ 	int ret;
+ 
+-	ret = clk_bulk_prepare_enable(imx_pcie->drvdata->clks_cnt, imx_pcie->clks);
++	ret = clk_bulk_prepare_enable(imx_pcie->num_clks, imx_pcie->clks);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -685,7 +683,7 @@ static int imx_pcie_clk_enable(struct imx_pcie *imx_pcie)
+ 	return 0;
+ 
+ err_ref_clk:
+-	clk_bulk_disable_unprepare(imx_pcie->drvdata->clks_cnt, imx_pcie->clks);
++	clk_bulk_disable_unprepare(imx_pcie->num_clks, imx_pcie->clks);
+ 
+ 	return ret;
+ }
+@@ -694,7 +692,7 @@ static void imx_pcie_clk_disable(struct imx_pcie *imx_pcie)
+ {
+ 	if (imx_pcie->drvdata->enable_ref_clk)
+ 		imx_pcie->drvdata->enable_ref_clk(imx_pcie, false);
+-	clk_bulk_disable_unprepare(imx_pcie->drvdata->clks_cnt, imx_pcie->clks);
++	clk_bulk_disable_unprepare(imx_pcie->num_clks, imx_pcie->clks);
+ }
+ 
+ static int imx6sx_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert)
+@@ -1476,7 +1474,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
+ 	struct device_node *np;
+ 	struct resource *dbi_base;
+ 	struct device_node *node = dev->of_node;
+-	int i, ret, req_cnt;
++	int ret;
+ 	u16 val;
+ 
+ 	imx_pcie = devm_kzalloc(dev, sizeof(*imx_pcie), GFP_KERNEL);
+@@ -1526,20 +1524,12 @@ static int imx_pcie_probe(struct platform_device *pdev)
+ 				     "unable to get reset gpio\n");
+ 	gpiod_set_consumer_name(imx_pcie->reset_gpiod, "PCIe reset");
+ 
+-	if (imx_pcie->drvdata->clks_cnt >= IMX_PCIE_MAX_CLKS)
+-		return dev_err_probe(dev, -ENOMEM, "clks_cnt is too big\n");
+-
+-	for (i = 0; i < imx_pcie->drvdata->clks_cnt; i++)
+-		imx_pcie->clks[i].id = imx_pcie->drvdata->clk_names[i];
+-
+ 	/* Fetch clocks */
+-	req_cnt = imx_pcie->drvdata->clks_cnt - imx_pcie->drvdata->clks_optional_cnt;
+-	ret = devm_clk_bulk_get(dev, req_cnt, imx_pcie->clks);
+-	if (ret)
+-		return ret;
+-	imx_pcie->clks[req_cnt].clk = devm_clk_get_optional(dev, "ref");
+-	if (IS_ERR(imx_pcie->clks[req_cnt].clk))
+-		return PTR_ERR(imx_pcie->clks[req_cnt].clk);
++	imx_pcie->num_clks = devm_clk_bulk_get_all(dev, &imx_pcie->clks);
++	if (imx_pcie->num_clks < 0) {
++		dev_err(dev, "failed to get clocks\n");
++		return imx_pcie->num_clks;
++	}
+ 
+ 	if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_HAS_PHYDRV)) {
+ 		imx_pcie->phy = devm_phy_get(dev, "pcie-phy");
+@@ -1675,13 +1665,6 @@ static void imx_pcie_shutdown(struct platform_device *pdev)
+ 	imx_pcie_assert_core_reset(imx_pcie);
+ }
+ 
+-static const char * const imx6q_clks[] = {"pcie_bus", "pcie", "pcie_phy"};
+-static const char * const imx8mm_clks[] = {"pcie_bus", "pcie", "pcie_aux"};
+-static const char * const imx8mq_clks[] = {"pcie_bus", "pcie", "pcie_phy", "pcie_aux"};
+-static const char * const imx6sx_clks[] = {"pcie_bus", "pcie", "pcie_phy", "pcie_inbound_axi"};
+-static const char * const imx8q_clks[] = {"mstr", "slv", "dbi"};
+-static const char * const imx95_clks[] = {"pcie_bus", "pcie", "pcie_phy", "pcie_aux", "ref"};
+-
+ static const struct imx_pcie_drvdata drvdata[] = {
+ 	[IMX6Q] = {
+ 		.variant = IMX6Q,
+@@ -1691,8 +1674,6 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
+ 		.dbi_length = 0x200,
+ 		.gpr = "fsl,imx6q-iomuxc-gpr",
+-		.clk_names = imx6q_clks,
+-		.clks_cnt = ARRAY_SIZE(imx6q_clks),
+ 		.ltssm_off = IOMUXC_GPR12,
+ 		.ltssm_mask = IMX6Q_GPR12_PCIE_CTL_2,
+ 		.mode_off[0] = IOMUXC_GPR12,
+@@ -1707,8 +1688,6 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 			 IMX_PCIE_FLAG_IMX_SPEED_CHANGE |
+ 			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
+ 		.gpr = "fsl,imx6q-iomuxc-gpr",
+-		.clk_names = imx6sx_clks,
+-		.clks_cnt = ARRAY_SIZE(imx6sx_clks),
+ 		.ltssm_off = IOMUXC_GPR12,
+ 		.ltssm_mask = IMX6Q_GPR12_PCIE_CTL_2,
+ 		.mode_off[0] = IOMUXC_GPR12,
+@@ -1725,8 +1704,6 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
+ 		.dbi_length = 0x200,
+ 		.gpr = "fsl,imx6q-iomuxc-gpr",
+-		.clk_names = imx6q_clks,
+-		.clks_cnt = ARRAY_SIZE(imx6q_clks),
+ 		.ltssm_off = IOMUXC_GPR12,
+ 		.ltssm_mask = IMX6Q_GPR12_PCIE_CTL_2,
+ 		.mode_off[0] = IOMUXC_GPR12,
+@@ -1742,8 +1719,6 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 			 IMX_PCIE_FLAG_HAS_APP_RESET |
+ 			 IMX_PCIE_FLAG_HAS_PHY_RESET,
+ 		.gpr = "fsl,imx7d-iomuxc-gpr",
+-		.clk_names = imx6q_clks,
+-		.clks_cnt = ARRAY_SIZE(imx6q_clks),
+ 		.mode_off[0] = IOMUXC_GPR12,
+ 		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
+ 		.enable_ref_clk = imx7d_pcie_enable_ref_clk,
+@@ -1755,8 +1730,6 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 			 IMX_PCIE_FLAG_HAS_PHY_RESET |
+ 			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
+ 		.gpr = "fsl,imx8mq-iomuxc-gpr",
+-		.clk_names = imx8mq_clks,
+-		.clks_cnt = ARRAY_SIZE(imx8mq_clks),
+ 		.mode_off[0] = IOMUXC_GPR12,
+ 		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
+ 		.mode_off[1] = IOMUXC_GPR12,
+@@ -1770,8 +1743,6 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 			 IMX_PCIE_FLAG_HAS_PHYDRV |
+ 			 IMX_PCIE_FLAG_HAS_APP_RESET,
+ 		.gpr = "fsl,imx8mm-iomuxc-gpr",
+-		.clk_names = imx8mm_clks,
+-		.clks_cnt = ARRAY_SIZE(imx8mm_clks),
+ 		.mode_off[0] = IOMUXC_GPR12,
+ 		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
+ 		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
+@@ -1782,8 +1753,6 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 			 IMX_PCIE_FLAG_HAS_PHYDRV |
+ 			 IMX_PCIE_FLAG_HAS_APP_RESET,
+ 		.gpr = "fsl,imx8mp-iomuxc-gpr",
+-		.clk_names = imx8mm_clks,
+-		.clks_cnt = ARRAY_SIZE(imx8mm_clks),
+ 		.mode_off[0] = IOMUXC_GPR12,
+ 		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
+ 		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
+@@ -1793,17 +1762,12 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 		.flags = IMX_PCIE_FLAG_HAS_PHYDRV |
+ 			 IMX_PCIE_FLAG_CPU_ADDR_FIXUP |
+ 			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
+-		.clk_names = imx8q_clks,
+-		.clks_cnt = ARRAY_SIZE(imx8q_clks),
+ 	},
+ 	[IMX95] = {
+ 		.variant = IMX95,
+ 		.flags = IMX_PCIE_FLAG_HAS_SERDES |
+ 			 IMX_PCIE_FLAG_HAS_LUT |
+ 			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
+-		.clk_names = imx95_clks,
+-		.clks_cnt = ARRAY_SIZE(imx95_clks),
+-		.clks_optional_cnt = 1,
+ 		.ltssm_off = IMX95_PE0_GEN_CTRL_3,
+ 		.ltssm_mask = IMX95_PCIE_LTSSM_EN,
+ 		.mode_off[0]  = IMX95_PE0_GEN_CTRL_1,
+@@ -1816,8 +1780,6 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 			 IMX_PCIE_FLAG_HAS_PHY_RESET,
+ 		.mode = DW_PCIE_EP_TYPE,
+ 		.gpr = "fsl,imx8mq-iomuxc-gpr",
+-		.clk_names = imx8mq_clks,
+-		.clks_cnt = ARRAY_SIZE(imx8mq_clks),
+ 		.mode_off[0] = IOMUXC_GPR12,
+ 		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
+ 		.mode_off[1] = IOMUXC_GPR12,
+@@ -1832,8 +1794,6 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 			 IMX_PCIE_FLAG_HAS_PHYDRV,
+ 		.mode = DW_PCIE_EP_TYPE,
+ 		.gpr = "fsl,imx8mm-iomuxc-gpr",
+-		.clk_names = imx8mm_clks,
+-		.clks_cnt = ARRAY_SIZE(imx8mm_clks),
+ 		.mode_off[0] = IOMUXC_GPR12,
+ 		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
+ 		.epc_features = &imx8m_pcie_epc_features,
+@@ -1845,8 +1805,6 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 			 IMX_PCIE_FLAG_HAS_PHYDRV,
+ 		.mode = DW_PCIE_EP_TYPE,
+ 		.gpr = "fsl,imx8mp-iomuxc-gpr",
+-		.clk_names = imx8mm_clks,
+-		.clks_cnt = ARRAY_SIZE(imx8mm_clks),
+ 		.mode_off[0] = IOMUXC_GPR12,
+ 		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
+ 		.epc_features = &imx8m_pcie_epc_features,
+@@ -1857,15 +1815,11 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 		.flags = IMX_PCIE_FLAG_HAS_PHYDRV,
+ 		.mode = DW_PCIE_EP_TYPE,
+ 		.epc_features = &imx8q_pcie_epc_features,
+-		.clk_names = imx8q_clks,
+-		.clks_cnt = ARRAY_SIZE(imx8q_clks),
+ 	},
+ 	[IMX95_EP] = {
+ 		.variant = IMX95_EP,
+ 		.flags = IMX_PCIE_FLAG_HAS_SERDES |
+ 			 IMX_PCIE_FLAG_SUPPORT_64BIT,
+-		.clk_names = imx8mq_clks,
+-		.clks_cnt = ARRAY_SIZE(imx8mq_clks),
+ 		.ltssm_off = IMX95_PE0_GEN_CTRL_3,
+ 		.ltssm_mask = IMX95_PCIE_LTSSM_EN,
+ 		.mode_off[0]  = IMX95_PE0_GEN_CTRL_1,
+-- 
+2.37.1
 
 
