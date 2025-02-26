@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E552BC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 18:52:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1ADBC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 18:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eegVb8hV5ADxrMFsqlhDaUuB2PFLABHCzNpeRnUf3FQ=; b=oFh5qmnROz+nJX1bSQXXOuedP5
-	vgAW0IK48V6+F/c1FXCC19Pn1dkgOhiuhcQTsmbH3KUXRrI6C4FtVMflAuRbfDi9sgezCbQO2rZx/
-	UUorlrGl7JC8aTvsX0mPJhU+h3zy5F41PoaMhaTD6XxsIIU784/8LuryGeb5dzAg146ZILo1n/ZZF
-	rZTO9YGBa0BhpBWv7i2WbJu75NrgfgUVWIjlxvvNcDLFrs95SgyplMYgh4pLQzWwNkYNMlloOY6Be
-	xcnlXg/WW+aFGO3IcAH9xKxtwraP+UWqU8z4DgDAdxMtsGNoA/wWs91SzBoItkJf4VvMrL8z/6j6l
-	VpWmXFRw==;
+	bh=KKMuNxLA1fCsNlSUJGtUjABr3K5qCbQd6sWHC+XeUAs=; b=s4ouPuGMCXoEGDvaj7DWYJ4b7h
+	iJIdm1zsU/mvWzhmP3vhyV1/+0l93qwCFOZ0vd2FnVmnpbmGp9Xf/be+TAvEJhR6Ms3d9O9lcrexS
+	ZiwOgl27tVvyyXaKY0A6NWdwZ+KxY2okOHKgqoo0CG3HBMeC+RQw11o81IdWDu4Ru9/zC3TLXaGN+
+	8vBTSk4ptIEm78uCTYgGYhzKQ5WYYfBTbHRvnZc0+NQlYmML622nFAP8geiYxnmHg0zIKd33/InFc
+	R6FMSnlunscvzMI/38TBFDUEwRUKTm+Qb4gw8218RzaTdD41rck4VVTCZrcXXDz1VShrCmYej9wKi
+	Tfah0sTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnMWI-000000052sO-1kdE;
-	Wed, 26 Feb 2025 18:52:34 +0000
+	id 1tnMXo-00000005349-0cVt;
+	Wed, 26 Feb 2025 18:54:08 +0000
 Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnMTM-000000052Df-1ZZ4
+	id 1tnMTb-000000052IN-2mLr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 18:49:33 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51QInHoh2145653
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 26 Feb 2025 12:49:18 -0600
+	Wed, 26 Feb 2025 18:49:49 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51QIniZ02145700
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Wed, 26 Feb 2025 12:49:44 -0600
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1740595758;
-	bh=eegVb8hV5ADxrMFsqlhDaUuB2PFLABHCzNpeRnUf3FQ=;
+	s=ti-com-17Q1; t=1740595784;
+	bh=KKMuNxLA1fCsNlSUJGtUjABr3K5qCbQd6sWHC+XeUAs=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=oligV4bn87+Ij3VgJo1rAnTptMBm0yVQZ9hH3HOvM7yrRURnhakEq0ORLWt3k23eE
-	 CbmXMhwgolZBBzyU6NC5A1LlryxUlMgLWAVXIBbWZHr2IOxrF/gIKo+zsNQ9wNfrNF
-	 bi8CX6vBjTnQEH1a+Z0x35BomiuokT2/A+38oMYg=
-Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51QInHwU032091
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 26 Feb 2025 12:49:17 -0600
-Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
+	b=mgT8sKALO3eo5hAd5mPcKvaD3pPe2BRES9DfXL/TFfkiOdTSBZ3u+GAkQSFjkxweE
+	 NC1TN/eu33Ca0F6Lh/v2wWczgKCWTc62aqtH+leDktpf2BqkB4yYqoDxLFKZnwPcvd
+	 LuUc9Lr/zTFYsZcxrpELG69ZmyQc8Z6V28awvOOQ=
+Received: from DFLE102.ent.ti.com (dfle102.ent.ti.com [10.64.6.23])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51QIni2f010452;
+	Wed, 26 Feb 2025 12:49:44 -0600
+Received: from DFLE110.ent.ti.com (10.64.6.31) by DFLE102.ent.ti.com
+ (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 26
- Feb 2025 12:49:17 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE101.ent.ti.com
- (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
+ Feb 2025 12:49:44 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 26 Feb 2025 12:49:17 -0600
+ Frontend Transport; Wed, 26 Feb 2025 12:49:44 -0600
 Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51QInHZR126373;
-	Wed, 26 Feb 2025 12:49:17 -0600
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51QIniA6082237;
+	Wed, 26 Feb 2025 12:49:44 -0600
 From: Nishanth Menon <nm@ti.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-        <d-gole@ti.com>, <lorforlinux@beagleboard.org>,
-        <jkridner@beagleboard.org>, <robertcnelson@beagleboard.org>,
-        Ayush Singh <ayush@beagleboard.org>
+To: Vignesh Raghavendra <vigneshr@ti.com>,
+        Santosh Shilimkar
+	<ssantosh@kernel.org>, Andrew Davis <afd@ti.com>
 CC: Nishanth Menon <nm@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v3] arm64: defconfig: Enable gb_beagleplay
-Date: Wed, 26 Feb 2025 12:49:15 -0600
-Message-ID: <174059567626.2601256.10455663850759431952.b4-ty@ti.com>
+        <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] soc: ti: k3-socinfo: Do not use syscon helper to build regmap
+Date: Wed, 26 Feb 2025 12:49:42 -0600
+Message-ID: <174059577037.2603518.10904968408240864617.b4-ty@ti.com>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250131-defconfig-beagleplay-v3-1-f556b851ff96@beagleboard.org>
-References: <20250131-defconfig-beagleplay-v3-1-f556b851ff96@beagleboard.org>
+In-Reply-To: <20250123181726.597144-1-afd@ti.com>
+References: <20250123181726.597144-1-afd@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_104932_507225_25F53D59 
-X-CRM114-Status: GOOD (  12.88  )
+X-CRM114-CacheID: sfid-20250226_104947_803979_88DF0D16 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,23 +85,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ayush Singh,
+Hi Andrew Davis,
 
-On Fri, 31 Jan 2025 15:41:33 +0530, Ayush Singh wrote:
-> Enable greybus driver used by TI K3 AM625 BeaglePlay.
-> 
-> The driver communicates with TI CC1352P7 co-processor which acts as
-> Greybus SVC. Additionally, it also provides firmware upload API support
-> for TI CC1352P7 over UART.
-> 
+On Thu, 23 Jan 2025 12:17:26 -0600, Andrew Davis wrote:
+> The syscon helper device_node_to_regmap() is used to fetch a regmap
+> registered to a device node. It also currently creates this regmap
+> if the node did not already have a regmap associated with it. This
+> should only be used on "syscon" nodes. This driver is not such a
+> device and instead uses device_node_to_regmap() on its own node as
+> a hacky way to create a regmap for itself.
 > 
 > [...]
 
-I have applied the following to branch ti-k3-config-next on [1].
+I have applied the following to branch ti-drivers-soc-next on [1].
 Thank you!
 
-[1/1] arm64: defconfig: Enable gb_beagleplay
-      commit: 8c96eb23f203da025f07d7ca5387e1a42382b50c
+[1/1] soc: ti: k3-socinfo: Do not use syscon helper to build regmap
+      commit: a5caf03188e44388e8c618dcbe5fffad1a249385
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
