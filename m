@@ -4,104 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49449C021BC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 17:34:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36040C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 17:38:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nUjbFqo2QU1rdCqx9p0fWtYPlF+MFrQBYwjU1X0A1aU=; b=ljqVuRu1FZhObzGOvPZera6CHK
-	qWBWD9KPYt+TW4tPJrOo9CoiuEzlhalhCOVrCstTUZS+sjwdb/kn4VHeMG687MeGGWyRNmlMlE0Nj
-	S+7URPXxd5+F1ukiQ/5PpeIaPv4wxZFt1dEjNgYyQ34yHRq+44EAZ4l2NS441aCZUp6lKrdI+p3vW
-	wDKEDPz+bpHxNoMLYAto4Z/1D+yvziheyZX0JwvhpmZcCqaqSo1VDg4qb0VP3oCrzUejWCPOOZURM
-	cZHS+K4j8fpv6ljj8PTTLsdhtFv0vqwMC6eyZ+oUK0sJC6q+H1C+X2uyMEIvgErAi0LU9JXjFs63+
-	43ReWAyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/dJhByED9KmeAfa8cQOEyTQUL3lqj2ilupRNu5JsX0o=; b=MVyN0OkBWiPz4ZjRtA8WocATJ4
+	82dRmRQJqVjW2K/+w/+q6vGnNzHIRNQr4jH3+/BB3txNBCusFSnOqwz4/zX3Wm8XAlETbmolZeJMg
+	qrU7DN4eU7OxJjcQI8HEeAqrXyhAw9xKnu9n+LSrRHrTxbRP9u11d18IHVNM/pPPW5QxWDgq6TjlY
+	sh7nrDW2hpixZortBYdNvo/l58Hxa90erfSieKA9rAdi+qAIbNnw49Djj6Tw6PR6ySjSjHndGaWeE
+	VmkJ1tpgA41B0Mhu4TSpR5qBwcWaZgRccenqvwbsZdfmXmDHh79NW5pyXV/YfzNm21h4HpNl1WIrs
+	hTmlOrdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnLIq-00000004jzW-3COe;
-	Wed, 26 Feb 2025 17:34:36 +0000
-Received: from fout-a4-smtp.messagingengine.com ([103.168.172.147])
+	id 1tnLM2-00000004kWm-0MDd;
+	Wed, 26 Feb 2025 17:37:54 +0000
+Received: from mail-bn8nam12on2061c.outbound.protection.outlook.com ([2a01:111:f403:2418::61c] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnLFv-00000004jbp-3Bfo
+	id 1tnLKU-00000004kF6-0hD4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 17:31:37 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfout.phl.internal (Postfix) with ESMTP id 43EF31380090;
-	Wed, 26 Feb 2025 12:31:34 -0500 (EST)
-Received: from phl-imap-07 ([10.202.2.97])
-  by phl-compute-10.internal (MEProxy); Wed, 26 Feb 2025 12:31:34 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm2;
-	 t=1740591094; x=1740677494; bh=nUjbFqo2QU1rdCqx9p0fWtYPlF+MFrQB
-	YwjU1X0A1aU=; b=WM/0LC1UY6lCx1XQ3RQMgiC5qkWp3PQoHg/zMjPgz+8Gq8S0
-	FBenfcrQLGGoc5UF6zmDUP3l5ax0oHuMvWn4NraU7YrxngGwp2oOcZv2UOTxL6mb
-	O9wNmTpGS2PzhF32+3LKfli/5XAP3geTi4ZH6stjuRQMc5qeLCg/wuQuMwV2x8c3
-	aH4CsQa6Itghgtt93uX13spUhBejo1ZsVVsZZLdNhHOXy3TU2Y0wTmdYgXQ+bqZ2
-	JBefG1dr9UPz4Ig3DJGYFgKq4xqjcoCZz1vWwuyr62UyK58tMZMU8NMDyBw4JeS5
-	B7Eq9/dkO8h2qiWkNdUvPwaO47g38WHRdaJy/w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1740591094; x=
-	1740677494; bh=nUjbFqo2QU1rdCqx9p0fWtYPlF+MFrQBYwjU1X0A1aU=; b=t
-	V02rHzgC1pl8ZK+rDnzopS1aXDVwAw3HXJ313o9+R1x6Pz+0dcp6aEzlpRPWYBTD
-	EWyp5iG2UcTRJdF+C00/FzCdJx2+tc6Q9HwgB6SoIRylZqyuVf8LvdGJuERd20WB
-	9fpgaji04rE3N7+xwDAUKQpePeaLrJs2csHEt9/UCw0XPgQ+FORYeKGoi9ByLOdt
-	mCBuskbLWPeSWDzeNegT8kPp6itF+c46gZpz0aemAFuQWeBtqV1rSBiKWq3nbifd
-	LmCFC7FSwtMs8tw/Hl41SXgpt/hcC8pgDx0ZVzHqLPH6WeIXiyuVhJw96/tTOUZU
-	+JUTXr8s5v/L0GUmSDwCQ==
-X-ME-Sender: <xms:9U-_Z55QMmbaue7jPjXhTOPc2yJOxWxGcVdJtDRShFRS1JaB_8pNiw>
-    <xme:9U-_Z25jeFUVG2jM6psDfQiMtLOJbP-HhX1KBmJTmfIaPw-mbaxz7JZVTM67ccVtn
-    uKKftEi6v8ccc7LeGw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdekhedulecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredt
-    tdenucfhrhhomhepfdfuvhgvnhcurfgvthgvrhdfuceoshhvvghnsehsvhgvnhhpvghtvg
-    hrrdguvghvqeenucggtffrrghtthgvrhhnpeelfeetueegudduueduuefhfeehgeevkeeu
-    feffvdffkedtffffleevffdvvdeuffenucevlhhushhtvghrufhiiigvpedtnecurfgrrh
-    grmhepmhgrihhlfhhrohhmpehsvhgvnhesshhvvghnphgvthgvrhdruggvvhdpnhgspghr
-    tghpthhtohepiedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepjhesjhgrnhhnrg
-    hurdhnvghtpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhs
-    rdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheprghsrghhiheslhhishhtshdrlh
-    hinhhugidruggvvhdprhgtphhtthhopehmrghrtggrnhesmhgrrhgtrghnrdhsthdprhgt
-    phhtthhopegrlhihshhsrgesrhhoshgvnhiifigvihhgrdhiohdprhgtphhtthhopehlih
-    hnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:9U-_ZweCX5KzNvhd_NpFBh_R4tdc8bGHGWS51T9n5Ct4tKBpTQiqMg>
-    <xmx:9U-_ZyIT1FZTvA0dG08CxtLhYmTRejfkzuVcFFTmUlnnCY-fbDA3yg>
-    <xmx:9U-_Z9J1GN3EYlpS2kbuxwhhEiIxLmsQ5z9DeMih4_F-cAgjffjR9g>
-    <xmx:9U-_Z7xyw1f3v0lL-nXRwO76DDO9t1sWzdQeD7tvALwEXH2AT_S8xA>
-    <xmx:9k-_Z7i6Koc12ngnRQwYUsJfAY3Ds7vuT0_vRi3o4B_Q3IEoHlXC_q6b>
-Feedback-ID: i51094778:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id A5F55BA006F; Wed, 26 Feb 2025 12:31:33 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 26 Feb 2025 17:36:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EtGB9PIi1ZmxNUDPp0yrAceIwSmUuc+1IA+H5vSwYVBxH6LBc25ia8PwuJpRZe2d+zFtE9SqbfMWtF1b4Uy8TEVETkLNUP1LNocET3Vk0U7YUSc8s0scD4Lw6M0ZfRRGwqBJmpZ+UGWJpxV6W2YW0X1rhHDnvfiLRPvJ0A2gQhWwXJsCV47sp8n+tIDRwTv+IfYcUZuvafTTdI/ObmDK0+6mOskzpFn8zaqurGa/MrEtlpc3WfPaS+erk56sst4303MY6M/CbKJRhdu8E2lSsXDG6jquEk3yZmcpminBMLPEVt5jtuNiqb1jNCZ67PT7NbFZbdXM4m6KKowzuzZa4g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/dJhByED9KmeAfa8cQOEyTQUL3lqj2ilupRNu5JsX0o=;
+ b=VPjfJngKalgVyIyJE/+m0AvCMl3kugehCko81jihMlboOHpr8UbLetIgXZQp6+vK3c9U8xKDKWQGbGxWmyIhsT4R5QmWo5DazrN83vj3HYv3GLuIu84Q5JaMlQ1991yb4a0TGwAk6KBPpB84IZkIwu6tMIjTU0cRRkG+oLxjq2AZcI44tdfXFyG3EaG80izcqHE0rxAr5IrlLok4PgYyevTmPJfR7VqQHAIxlcv3Yy8yFNdykZvYGQvYSdp6R+GxSuD2BBEoLc1MuIg3ctMb29rDzUxZTd7TpiKJ+gm8pOKuaHDEHNybb1LBFuyUilMZRgCKk20qDw/CXr8oCpa+9Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/dJhByED9KmeAfa8cQOEyTQUL3lqj2ilupRNu5JsX0o=;
+ b=shkujR8w3L/6/VU673vWwODCBnZ0TKO0oxE0ljGM90Gx4GGV3j/7iyqxUTvTv9YJjrUWSBi0EFbqpS9ficiJTw7Rwgv5RmNRbpGvFultLFAleHMHuUi/pzLjqRgNCT5yACNXMUj47qWdus3tkHAKc7/32WBfZqBpM+EMLh/Ic3wnwQtG9SQjN3RjWBHiosrC8MAuF932OsG3SeEXB87wrTcuNtHbqSsywq+OEopRdk3vEMX6d+rTNMD11A+rLvcN0Mjuq9WUg/vNOBK9ujr4wzxKfv3ongKb9dce9QdEb8Ygzfq8BrI8u5/rMCC3hqiSi6T21wjoS7DrIqwm2huGNA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by MN0PR12MB5762.namprd12.prod.outlook.com (2603:10b6:208:375::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.21; Wed, 26 Feb
+ 2025 17:36:13 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8466.016; Wed, 26 Feb 2025
+ 17:36:12 +0000
+Date: Wed, 26 Feb 2025 13:36:10 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: kevin.tian@intel.com, tglx@linutronix.de, maz@kernel.org,
+	joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
+	shuah@kernel.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, eric.auger@redhat.com,
+	baolu.lu@linux.intel.com, yi.l.liu@intel.com, yury.norov@gmail.com,
+	jacob.pan@linux.microsoft.com, patches@lists.linux.dev
+Subject: Re: [PATCH v2 7/7] iommu: Turn iova_cookie to dma-iommu private
+ pointer
+Message-ID: <20250226173610.GE28425@nvidia.com>
+References: <cover.1740014950.git.nicolinc@nvidia.com>
+ <949e28875e01646feac5c4951b63723579d29b36.1740014950.git.nicolinc@nvidia.com>
+ <20250221143959.GA272220@nvidia.com>
+ <Z757lz6ucDE6Otix@Asurada-Nvidia>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z757lz6ucDE6Otix@Asurada-Nvidia>
+X-ClientProxiedBy: BN9PR03CA0139.namprd03.prod.outlook.com
+ (2603:10b6:408:fe::24) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Date: Wed, 26 Feb 2025 18:29:17 +0100
-From: "Sven Peter" <sven@svenpeter.dev>
-To: "Alyssa Rosenzweig" <alyssa@rosenzweig.io>
-Cc: "Janne Grunau" <j@jannau.net>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- "Hector Martin" <marcan@marcan.st>
-Message-Id: <dfef22a5-1f36-403b-99c4-2d910a38f9ea@app.fastmail.com>
-In-Reply-To: <Z79JyhOQUI_LV4oV@blossom>
-References: <20250222-apple-soc-misc-v1-0-1a3af494a48a@svenpeter.dev>
- <20250222-apple-soc-misc-v1-2-1a3af494a48a@svenpeter.dev>
- <Z7y14Q3ifu7U1tHI@blossom>
- <63c5cbfe-4751-4409-9be7-2fda21b09503@app.fastmail.com>
- <Z79JyhOQUI_LV4oV@blossom>
-Subject: Re: [PATCH 2/4] soc: apple: rtkit: Implement OSLog buffers properly
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|MN0PR12MB5762:EE_
+X-MS-Office365-Filtering-Correlation-Id: d6644acf-5a15-4a5b-724f-08dd568c0fea
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?tclUH77wq0JGtuqxdLshUyUZ60AwL/avN0TDUMK1zhA8fPWbwkIcYsGhlNTW?=
+ =?us-ascii?Q?esLKx4Sy2Fva9bBvevBam1AH75zOSccYJSPRXT5QtDkT9h4vPnyEAg4HDk+q?=
+ =?us-ascii?Q?Q9V8QPiEcQdqe2r7NHq+CS6B1GsD2Mq2fn95prSeYGrZjzrZioSx7X3r7BF+?=
+ =?us-ascii?Q?M+SYZ0N8v2kr698k88q6GX/UfTRYFjt+KkSP+sBqBqpHxoDpSkOXbRlKT9VQ?=
+ =?us-ascii?Q?248ykMzyDRe3Q561A9FO+NhbfwxTwzmF+phpR7kXd4jCXabImvtncKVIKdYH?=
+ =?us-ascii?Q?zjZDqjEWJFyFwVCGbrVyoNI69uYm5LGOmZtHF7BkeeM2tzEI49NlH/jgWZl7?=
+ =?us-ascii?Q?QpI9gAJZr1Ut1E4UMyBA6SF1Flz8Jwk8ZEw4KdC6uNcBcyZ1cwb0O2ZTENoj?=
+ =?us-ascii?Q?DLEed9j15x8jDWLF0Mfk6VWD8TCIMNecpGdux1rs6+dq9SQ/VSx+UUaw3jdl?=
+ =?us-ascii?Q?Nd1yxRIF1qY6uDaqEjyreTXiaMC45K7QS+kWyaw8HL/58pcwpIfc6zWg8Ow1?=
+ =?us-ascii?Q?UjIEHd2eY82NfM9jOUhq09m8T5R+E0KEAXoO7Cv5NSs7KI6JXSLF4MNzPorm?=
+ =?us-ascii?Q?EsDu75DERPsGMsWHBvd1wi+/2EV9fgoiYPwQ8ZW/VZNeolrTIbN8vg8mxu19?=
+ =?us-ascii?Q?GlcauzRFQn2VyrNvk9YuTnjg4tu3tmmvaESeyrC0GFbyQxwAGBPZfmP0sxqR?=
+ =?us-ascii?Q?exmr+Rm8lqQDWCUKDSrHdR879tYugOHQuGIxJx3Xzohv/pP37BLAZ+y8E0Jf?=
+ =?us-ascii?Q?Ku/r/M12ZMfoXJuyacuji8r8VQqLq3x3aLcFOKN0JZQWW7U/MTu5dPpE6qy/?=
+ =?us-ascii?Q?5rpj7Hw7+PLarQ5gmRHgkJKVL7rtbXtcAsBjx44L4Wyxp8bMU0qAPfQJUpUI?=
+ =?us-ascii?Q?nsidBZsRpnmQA0y9AvwVM+cseCIgX0ly/CPZDt2AqRlUcXyhLwJ0AAm98amu?=
+ =?us-ascii?Q?qbOjwd2zL67ZIIuj4Fj4kdhNPEHfN4jVPVTbN/T19yIgS5yJkbZ7cCIdentW?=
+ =?us-ascii?Q?jee7aPx8VG6y4AAkPpKUqOJmcor7UgkN19oi4KmQQ2cl55QQLhTONgG+42Cu?=
+ =?us-ascii?Q?sH/l6fVEKWk27k15RQ4p2xbLYz8xdhHFlxp23dISIUESk0CCA4aiQ0rJ67an?=
+ =?us-ascii?Q?KC5egv3+C86LK+ID/GcW6jFzHX4IsYhneRf6Dqegps+o5Pp5L/6R6SqpEVAb?=
+ =?us-ascii?Q?Ea5wF7xrkIbMV8iPIlVYI8Oy/YZt0/qnTQfoKk9uCid74QYA5I2n6gIUENzc?=
+ =?us-ascii?Q?yPsUDmWZgj7LpHpjrsi6s/lzgVyFrKeXVgVAShknmOPj8kGZOa2BlEje8WLZ?=
+ =?us-ascii?Q?QQRjyx5ipjtld+wStvluc06u8Iqq3wDyxgICx9ud6RgOzJOoXigdeveQGbTe?=
+ =?us-ascii?Q?/RqJfEmzmGPwPKRDvZGeRGRPuUIX?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?51ACzUF4Bn1uPX4jrcm0ia37PMoIngLep6DKn1cD8flEQblP0CXENR5s4ABX?=
+ =?us-ascii?Q?MviL3BH/9OMSmPh6Wf3lFFvqT6Qrtms+SaT+q64F4FxrKfJepv1934VsiZSC?=
+ =?us-ascii?Q?n11wxeccUU2vYbizq/UGUz7GMR7tcUrkQptWO0qV6x6MKhETq1rEGwcu/9iS?=
+ =?us-ascii?Q?aQruYuWXqZ7S0U2pJBVg83UDDbXUCl+rVFnjhyAniBwObN8NdSXsm0lOAkKk?=
+ =?us-ascii?Q?fCX44vk2BA/pBRUI82QrZ4Eqsb6ZW24q7MjwK/ihjGHhttoE9k6gCmynZ+HJ?=
+ =?us-ascii?Q?TQoxrNSaJntoaZKUweLbqYkc4AoTzkqPUPvheAx66DEFFxZahr7DENt8SR48?=
+ =?us-ascii?Q?9wKefPBKDAim0/eICQwG7XYgfkUnp1SpctA9tQV09Xl8eAWgt3MjsPYNq2MI?=
+ =?us-ascii?Q?Okx7VQjIo+JJGWQzCHY58oW/U3HGGW3nQ2Q0xffh/qGeB7JF2iSKOr2FQIKi?=
+ =?us-ascii?Q?qdhIiZ9FvOQtLaVWJKt9lC1h39U6UsVLmtWYObT8GBX/UytbuV+uFJbTFEYj?=
+ =?us-ascii?Q?gQxsVl+fPlZa7V6hbZIRIxZCJ11unszY64skKs1Jhrly/b5N5sezlbh8Fpdj?=
+ =?us-ascii?Q?gQ3yYfHvgHry1JDwDVPkSejdKqZipIeIAeccJPoHtBDkApYWv1dH3Dqg6ssl?=
+ =?us-ascii?Q?23d9YJAUmn3F3Lk4u3RHAlgMuLcH0g1wA7C5qs/mfh8whPPRxjBE2uykRK9c?=
+ =?us-ascii?Q?FSuTiIHJ+AW+Dt0asbkbj/5WKurHJ3FoY/Wd6X/IBtEgZXun47Zur8DG5bkM?=
+ =?us-ascii?Q?FoBNlzE0MSJcbBu2naXLAu3szXMAjFbyEl1GOIh4RM2EMwvzW/hxvo2Qfmh+?=
+ =?us-ascii?Q?2QMbZCK//11CfUuoDALU3S7Sauljf4YDLhyOS8swm0H4RlkkzgAuQ+Ud4JTi?=
+ =?us-ascii?Q?b6PMzd1xOsJQFCHL/tMupusRr1oCYFtEFRNdPd429yjbWI7v9u/jWfdJrfNR?=
+ =?us-ascii?Q?xrq+Hcpnn2x3dIsth0RHt/QJXS75jX2LhMSsapcZaGHyQesHpadUwoEhHYaA?=
+ =?us-ascii?Q?yDud6D22teZAqp8wm0zVB79X8JUCp/zr/WTNX+qT1AXN5Nweto5JY90K08o6?=
+ =?us-ascii?Q?HpKPSilPqaA2CemIYtenTF0yihZSUCuF7tDMemPO4le7FLb1qd2g2yktQtfs?=
+ =?us-ascii?Q?XnyP06yStV6gYGWLlHryAGcvzLLHdnrR4Rhhox0k7rX8JuAW49Ue0yAWSPz8?=
+ =?us-ascii?Q?yHaCPa60XSld1TC77wO8JyA3oE1wcRqgGUFB2vYSl7BWNOptmyQGMsoAdOAU?=
+ =?us-ascii?Q?wWL1rlsRnJ+c1JHvHa5h3uFLhN+aIBLQQZ12QmcH+GNiIK/N0QGtkt9FNWoj?=
+ =?us-ascii?Q?AGmp27/VxGDi9DLHBPX+F5g8WSF0C9h7CcAQUGKQBsk6ZoCY4+ZShrcwcpiT?=
+ =?us-ascii?Q?PbAXoQx67DPj6fD1+QBrd+m7u5DfnXvpEMDYp+2uuXQS66bNgDrFs4d6K84P?=
+ =?us-ascii?Q?ekFlhZoQlKUzqn92hjUCEt56Wu3Ow9jplp1Yl4yePFN+CcxlcOJ+bbvvw6Zq?=
+ =?us-ascii?Q?+sFSAwxP9YwMTRk9uZ6Y28aLKwolG5XrEb4+rez0fU4oXbGv4NDDWtk0TDJB?=
+ =?us-ascii?Q?IIyxKJtIDvlqjuOTXjrgMk9Qb2jFxvrMIOUIECwz?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d6644acf-5a15-4a5b-724f-08dd568c0fea
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2025 17:36:12.0949
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZlaaHI8f/4WltJsliUTuAiHjM/mz0UliRglQ2hESHWvDvS17axBV6uRtBQlp3Ux+
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5762
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_093135_955326_6DC81484 
-X-CRM114-Status: GOOD (  23.88  )
+X-CRM114-CacheID: sfid-20250226_093618_208479_203F9E06 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,66 +164,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Feb 25, 2025 at 06:25:27PM -0800, Nicolin Chen wrote:
+> On Fri, Feb 21, 2025 at 10:39:59AM -0400, Jason Gunthorpe wrote:
+> > diff --git a/include/linux/iommu.h b/include/linux/iommu.h
+> > index 99dd72998cb7f7..082274e8ba6a3d 100644
+> > --- a/include/linux/iommu.h
+> > +++ b/include/linux/iommu.h
+> > @@ -1534,12 +1534,16 @@ void iommu_debugfs_setup(void);
+> >  static inline void iommu_debugfs_setup(void) {}
+> >  #endif
+> >  
+> > -#ifdef CONFIG_IOMMU_DMA
+> > +#if defined(CONFIG_IOMMU_DMA) && IS_ENABLED(CONFIG_IRQ_MSI_IOMMU)
+> >  int iommu_get_msi_cookie(struct iommu_domain *domain, dma_addr_t base);
+> > +void iommu_put_msi_cookie(struct iommu_domain *domain);
+> >  #else /* CONFIG_IOMMU_DMA */
+> >  static inline int iommu_get_msi_cookie(struct iommu_domain *domain, dma_addr_t base)
+> >  {
+> > -	return -ENODEV;
+> > +	return 0;
+> 
+> Should we keep the -ENODEV here for !CONFIG_IOMMU_DMA?
 
+My feeling was if the system doesn't have an IRQ driver that needs
+MSI_IOMMU but does have a IOMMU driver that reports SW_MSI reserved
+regions then iommufd/vfio should not fail.
 
-On Wed, Feb 26, 2025, at 18:05, Alyssa Rosenzweig wrote:
->> >> +	if (ep == APPLE_RTKIT_EP_OSLOG) {
->> >> +		buffer->size = FIELD_GET(APPLE_RTKIT_OSLOG_SIZE, msg);
->> >> +		buffer->iova = FIELD_GET(APPLE_RTKIT_OSLOG_IOVA, msg) << 12;
->> >> +	} else {
->> >> +		buffer->size = FIELD_GET(APPLE_RTKIT_BUFFER_REQUEST_SIZE, msg) << 12;
->> >> +		buffer->iova = FIELD_GET(APPLE_RTKIT_BUFFER_REQUEST_IOVA, msg);
->> >> +	}
->> >
->> > The shifts are suspiciously asymmetric. Are we really sure this is
->> > correct? My guess is that both size & iova for both oslog & buffer need
->> > to be page-aligned, so all 4 lines should be shifted, and the bit
->> > offsets should be adjusted in turn, and the lower 12-bits in oslog_size
->> > and buffer_iova are reserved. But that's just a guess.
->> >
->> > Anyway if this logic is really what we want it deserves a comment
->> > because it looks like a typo.
->> 
->> That guess can't be true for syslog since there's no change in behavior here
->> and the syslog endpoint has been working fine so far. This common code is
->> also used for other endpoints that request buffers and there haven't been
->> any issues there either. The size is just passed in "number of 4k chunks"
->> and the IOVA needs no additional fixups.
->> 
->> 
->> The entire reason for this commit is because this common logic just didn't
->> work for oslog. Our u-boot fork uses the same logic as used here [1]. We're stealing
->> a chunk of MTP's SRAM to make hand-off to Linux easier there. If either size or
->> IOVA was off by a factor 0x4000 this would've never worked in the first
->> place.
->
-> I'm not suggesting things are off by a factor of 4k. Rather I'm
-> questioning what the behaviour is when we're not 4k aligned. (I.e.
-> the syslog or oslog buffer does not both start and end at 4k
-> boundaries.)
->
-> If we're aligned, all our bottom bits are 0, and hypothetically we're
-> putting 0 into "reserved-must be zero" bits.
->
-> I guess it's inconsequential if everything is 4k aligned in practice.
-> But .. is it? I don't know.
+I don't think it is realistic that we'd ever hit this return.
 
-
-For the common buffers at least we sometimes _get_ the address from the
-co-processor when it e.g. points to its internal SRAM. We could access any
-buffer aligned to a 4 byte boundary in that case because it's just MMIO
-access then and I'm not even sure how strongly the buffer passed to us will be aligned.
-I'd rather not zero out bits there because we just cannot be sure those really
-are reserved.
-If the co-processor only asks for a buffer we'll grab it using dma_alloc_coherent
-and it's going to be aligned anyway then.
-
-
-For oslog there aren't even any "reserved lower bits" in the message. It really
-expects the down-shifted address on the wire starting at bit 0.
-
-
-
-Sven
-
+Jason
 
