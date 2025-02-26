@@ -4,152 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3E27C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 09:52:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1007BC021BC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 09:54:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8H4VHW6UFL77KSWyX2k+qjleFYDpmIc6P92vODmfqL0=; b=3byDuebaKSZFkQN0gSXO2DO340
-	qFpX/+GEigrRuLgAHVfzfQBBW8vZTRv21h+lpWOzz4JEpUZjj5OVcNXR4/iHRXncyYP58Spg6FnCz
-	HA5DCWjbtqsX5U7kaAzfpiXi7TWxzqAtIVQaZZV3uu+8BaSZJf0fw/cG1UqCo0idllGsjWJwVxBe7
-	mg6289/B2ILwK+sOH/+0h2JhUI5N52fTaVAPOMbAdtOwwNw6R5sHOS/2rWMUs/hNZNLnccAx2VlQg
-	omMjNE5epnRY2jMEA2NO4rYdQmzEOzmAw6XIEssRuHyfU6wR/q8oU7wFg+2M9g3//uI2pQ9bJWE07
-	AJUY4rDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BNifuMMg8kN1dRr0AxSBEfQHprYr4kWwAWl5KaUxLSc=; b=nTqHSY6XbQul0/d45EHaZ7CQlI
+	c7DZ3hjQBqVWMUhuMvYO/EKZHyU37dWm7ml3WvaPklVLbhd9mYUJUNJPZyodCZsfKaKW7OD68rYo/
+	yKF8nyIbfKao/elzJLxf/ywJ35Wp0WF8DBCDL8Voz8eKdcKlCvvsPTpDV7WfFDjGBnTQtFqYXSpSU
+	mkOVqQ330c+SWwlzFevrFMVxcJP9kSnW/Zyuatx1Shyfyy450K/4Pln2kYmrKc5iKwRbMHubP2FEK
+	P7GqPFxWWTL1usY8aBOVSRs6tsW+DfP1LzRR4pQZbYHGkBdjlOPoRdmRVMQ+xFvU4h++hreXepC84
+	JKtGxjYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnE53-00000003A5Y-3ngC;
-	Wed, 26 Feb 2025 09:51:53 +0000
-Received: from mail-northeuropeazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1tnE6w-00000003AdO-1Qjd;
+	Wed, 26 Feb 2025 09:53:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnDzX-0000000392q-3ToL
+	id 1tnE5P-00000003AHY-1sBd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 09:46:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Zir0+jJwzmJt51zjprs18BrenP+dlpd1BjErH6y9hpBZy0RwJ/HwoEnHibxP9yDyyoX2MiMDy7mZblsTiHzhagRCIFILJuSOeeC2+hrUOrfgdQFSHVY72XIu4ddRcjgBsyeveHKPRYAd3zG5sCf5Z7biHgSAP8y2hF7GF4Jt0PZaQVdDi0kpaNyhEZe6erarKE88uyyyyq18AIFfhd1WTHqXTnn6Fq5VI8siId5w0/hmS/xSR3ucVC0kk1jjBed0lZ4KVIylFK/WVl7w1vwDswpz3t7cHJKzxnMebuGTzDBrBQURRCYKftyW7O+OM/+vmo8nzLQRY4DKUNmjWKFyeg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8H4VHW6UFL77KSWyX2k+qjleFYDpmIc6P92vODmfqL0=;
- b=R9rDtpUBogtqHBqKtfEZZ5R/KpubehAixD15diMyaot+fqLQcmaJR5y6UOKtxNM56O++cCZz0cmL8XpUb8SBsItE4E8yCi0Om76GHtEncmatvbDmgGZ36evSoGkuO8QztxJOwYPRYq21G8UOmRm3dW2kVTpjurUyuDFtLoAp36pbZUqDlUNxQgZrY45q5ZKN7dMLAy7LINaN8/a8b70qIC09OHCI2hLh0PEU5rFCH8RzCMLaYKraHSGKVjfrbUHOIYKhF6ZsOrygkxOYEYfTtuG1nKhucFXvUAkfGT26vnX4G8MDQz81hpvyJrkGmrQX9qUkttp6YzaBnMDyAotRSw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8H4VHW6UFL77KSWyX2k+qjleFYDpmIc6P92vODmfqL0=;
- b=u8yZyF2CRNUhB59tPWocbHCvxIOvd9O8M8EUumQiq1l+W2hWzzJ1ppFE7avaAxkkx1Wrbtw4UgGOG2EkmTXICV47xovlg2aJPWb5eMLPf9kaN2C/mZxTxFl1DuxE9MVK/yOBzg1fwT8unnFefJQZo1CytKJQxjpubNYtIunETFnW6c+gn+74lYey87393hQbsnozvupMZ1SAcvshlcW0exVfeHjfWPM9Af1sdDyBnq4Ua7/Vc2hnpgXu8u2q1JfS5/arxE+sptFABZnkYBu59aFBf6AIGfF/ZXnGF327HzhAsCJPPz5EkhWdOK7QiYBsESVlkL6KhE5RVhb3M6NXoA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by VI2PR04MB10192.eurprd04.prod.outlook.com (2603:10a6:800:229::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.19; Wed, 26 Feb
- 2025 09:46:05 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.8466.013; Wed, 26 Feb 2025
- 09:46:05 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-To: sudeep.holla@arm.com,
-	cristian.marussi@arm.com,
-	saravanak@google.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: [RFC] dt-bindings: firmware: scmi: Introduce compatible string
-Date: Wed, 26 Feb 2025 17:44:56 +0800
-Message-Id: <20250226094456.2351571-1-peng.fan@oss.nxp.com>
-X-Mailer: git-send-email 2.37.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0002.apcprd02.prod.outlook.com
- (2603:1096:4:1f7::16) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Wed, 26 Feb 2025 09:52:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 42E7661137;
+	Wed, 26 Feb 2025 09:52:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66F6AC4CEE2;
+	Wed, 26 Feb 2025 09:52:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740563534;
+	bh=5T09s0qVcBTtGUjTDTgqWOKvvI0OpaBOAa+991mZ0V4=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=JN3KXRqN2TW/Zc8xmUpno3ptEuwvCWcb2uAJR8DhiQ8xt/qNFdT0uPnxWz6Vb9UkP
+	 VmJerQeeldcqglmsec0+F424FbTFaKRW7ZBlQMH1Y4Qv3BP7KEbajnRwF79oM66odv
+	 3Z1D5TrNIfpyHhYlxpWZsHe6mDQwmqZjnKMclY7dgCwuO/OprW/yS+GktN160Hum1v
+	 bNbnl+kp07MzuK3D38hRFGmlS1hKMaAJh46WOwlrHJit8i8GlPk++pzDM92NKoBSVo
+	 fnf0+MsU8WPh+N+8Wbr4AX1FdLjQzn30n0KSVe6HgnNfSRsW9/HNYlLDCd7pRIwkY+
+	 HhSxAZOEzh93w==
+Message-ID: <1175a8d2-65ac-439e-94b8-cf7af8db37b3@kernel.org>
+Date: Wed, 26 Feb 2025 10:52:08 +0100
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI2PR04MB10192:EE_
-X-MS-Office365-Filtering-Correlation-Id: 14990d85-5240-4d13-cb29-08dd564a6353
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?uSggz+9HOs6mMmLhPBQwcNUE4DGEbep/P9Uh8ReXhp/aaSZhVs8njLUWDYKs?=
- =?us-ascii?Q?Ls8oc0mwXwEFw8CAAHgDyXM/Yhzft5aPzURueAfv++Efzcka6FrsBzNOeK5D?=
- =?us-ascii?Q?gpBtu1G8TloKxEq3tK3UVBZx/kiUvT1q9Lw6f3vEeyj/wGAakSJ6yCA5uQWp?=
- =?us-ascii?Q?8tlLHMA5Je1uBCrxrFJ6XpKUQf6mr4s1U5RpVOcIMhkopCdmPATFUqR0lZA1?=
- =?us-ascii?Q?5ilMU9giLiY2tBpGxcK7jzZhsgeWYykbR0bXBVpSdxUcnxygUjcxRQLZ5izB?=
- =?us-ascii?Q?2bwJHvTIdjYSOAGvbaJyDn5dvIeuAY51X4VUmd1XAKyuJpW85EfGpubkC0/x?=
- =?us-ascii?Q?tm0hYORNQEPXWJ20IQ8pp5FJfoYtRsjkDDjzJwPXLa66CRJ9Jh0oU7penrTJ?=
- =?us-ascii?Q?mo+5fzl182uQdQ30WWJiMtZwTycmkiB96s6/Iz6BTDTffXvTXJPmKEIHOpfl?=
- =?us-ascii?Q?cH+YQTxuOBWyA4jvkIyc5dUsJW+Sb9Cdqdg3bB6KZwaEyLhHR5t8uVuH7jkp?=
- =?us-ascii?Q?9dqTbxgdRwtbHbvAi35HpA0dhlmHZ7m0qlgkWHkb2dvGyi01vzpwojGYQOV8?=
- =?us-ascii?Q?pGschVbufeIUpV0kc+/3ItzNhKI9Gx+RhP2JNpeDWV7CjJJmKNrrUdR0MV2Z?=
- =?us-ascii?Q?6MQYCzxMjndrZGpQV0CE37EB+Dwqt5cy9+11FhqljT0+Uc9pDzaj162ux5HL?=
- =?us-ascii?Q?x4nj6pnHo9yBxzQrvoQoyB7xYNJSdym3Kt7P92rLyQDyFQNB5nE4g1DOMD8R?=
- =?us-ascii?Q?fcatYVAIK19mKbrQ/L5xYmvz4Ej5t8jmTYXjxrgdcPwkRif8qyagoKylSxBO?=
- =?us-ascii?Q?aGOI0+JL5ii/WN3i+PWn4n/rpOCUNSUocpE2G3Upbg2xanWyUPTZbGwaiSfh?=
- =?us-ascii?Q?ea8sj6hf6gSuEWBUtHu9Ue1k+qOZStSc4/Axdn0yv5JoknjHkAYNzewM2WtD?=
- =?us-ascii?Q?mz86FQ66dmwXHA7GYXxbMAncWUQhMkDW+QsueM0qEnErznqA9MhxC+8J1KhB?=
- =?us-ascii?Q?O2pqWo8Yiws0cxo/2FXYFA2YgGDxG5UNCXcfAo3m57sBBCD+9klJ8a0EO+Zy?=
- =?us-ascii?Q?1pGQ61mcFzJnQibtUhIneq8A6vXmD4zYB5sXIs0U94c/VMxefDEbaBZLbD/H?=
- =?us-ascii?Q?XRwh5nxmnUdjfNyVp4Huhlm6EC6pUROfJcNPG0mzT5y3p75Y7fqhHL7tHtao?=
- =?us-ascii?Q?f0Dh7CXscjDePOja5onzls3sZfJz2O9K3tsixEOHP+4Bk5BInLDx6kuOpp+i?=
- =?us-ascii?Q?cLsZ22JJ4i2b310v6P1ZgOGOOC5OtRblz+A1xBeS44LHS3qbTxm50vnyGEdU?=
- =?us-ascii?Q?eASnHbN0xpp7vXQqgguBGZDxRelPVy0wHahXau2pspJZrW4/iWZRm9x4j70u?=
- =?us-ascii?Q?r/yND5gPRuXH3dU0M8pkMlqNei3Kypnip7W+Gi0H3OVN6UHhGA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?anepy5lRf7iKf9HRMGpv2+Zm1wtuktMHFesz1bDwkYNyPB7rpWOCF/N1AZdx?=
- =?us-ascii?Q?hWlRMgepLRtwoBviV5SlLJei7/DlmbnhElnBwoDlZF38fpjuPWcfLvTe6UXn?=
- =?us-ascii?Q?gX95+s8NX4eSnjG5P6C86If3TjD7BYzdS2zEvKyDszALv8Csi2lc8KjRyUC7?=
- =?us-ascii?Q?92Wbeh3Gczl+ArFnTvJqeiqr79jlCqlALEC8kXCsczuzz2uNlWw1GibAshKp?=
- =?us-ascii?Q?E4xCULyhfViYjeH6klllgYd/83M/U/P/akmCoFDKqnczwLFH/7uPMKHjzLNF?=
- =?us-ascii?Q?IL1BnSmQYnCXyj2kWaao0o4PgPHeWA8sjl3itj7M53jRumBqWtszWUisj383?=
- =?us-ascii?Q?JRSL07yzDvJi7Aj0Pwlxsq/xT1hshi099X993oASrbHVlCCg/YiiFoBaWOXX?=
- =?us-ascii?Q?TL+d59L8NulHYADx27pnkIeGSTAVXVRG5wvnKc6DFL/T63Aa3kq6u94Aw6jq?=
- =?us-ascii?Q?TGmbiJWxacNGux0xkwxJXQP6jKX3dgiCbJAS6/PkHnJBSuItldwUiM1WEOD+?=
- =?us-ascii?Q?RMDps5UL+dr5MFPKpg7YpZyvOLwyE179lEGqjEEH5CdEJ0t1ePYMmOrab9tl?=
- =?us-ascii?Q?p1p3TDtPUae4TiQWF1iILpiyaRDZzMznaE+qCDc8CbVlCyR9bSZ17oMWR65O?=
- =?us-ascii?Q?41KfoHeB7T6Pi1wiGfnNsjGFCKChWx9gTjwhnuCtMDlwpBeM/2EymBZNFkze?=
- =?us-ascii?Q?vk+kldieXMj4NPMPUE0WiUZxxXRqjgmK7CgNaDqVK42HQ1xo7VGaU2ndSORI?=
- =?us-ascii?Q?r6KMIgoCaVBnvWOe/UVVFarRf7RfNwTsPyAGoyOFRyOseOtbUQGcPstR6EPD?=
- =?us-ascii?Q?rxLB/My/dKRWm6du6OLVTmL6UWEscY2nIqeD1zn5x5V2XWfNZJZDzpIUYbwB?=
- =?us-ascii?Q?E42hl84pvZ6K7kg1SFx8sJ41eXyotAcJQPRn7y//rxjx2otvKiHiXsIbZW9V?=
- =?us-ascii?Q?ge2q3s6plTH84Xh121FT1vBxeQOLMlQluYf+BdncxdHEnUk71MGskcKpO7Yl?=
- =?us-ascii?Q?mSt5P0vrrCm1NTTruFIAV1I1W2fP8dQ16GNDLWiPkWskU7ohADRpGs66QWA5?=
- =?us-ascii?Q?E7NX45CRkLlQAq9QudgQ9Bx/zwhGwo7VjSHR1cCQzgKjf4GuSTcr5orYMiKN?=
- =?us-ascii?Q?cXs+cIr3gJPIm79AHYpLB+yhlruH+hU200BGezseTsiUXflQQ8YgINPVi8ka?=
- =?us-ascii?Q?A4ECSSwAAFr5vfOTSEm2iiW1cRWsUJdOnErYpyFyoiHbFgZKGj7YUY+jGvAP?=
- =?us-ascii?Q?tn4oKSS1yksKYPsR/gCX0k2sRmTvKOU4tsnUQvDNqp4xsTNhzu5B2g9hH+VF?=
- =?us-ascii?Q?oR7CtzD9Qvsk1YiKvkXaj3cRu25ul4g5Th/m3vs/Bey3WW/fZ9HYmZp4iUMT?=
- =?us-ascii?Q?ppUah+Yf3PqU2sRDLnaBBQ/7VcRyfkNHr9zfzjuSoEohCA8iBoaprzHm/Icg?=
- =?us-ascii?Q?0644Y9fyQNELNyloszdHNPCM5aaxEhc1Z1tDJvfW6Gwk5hr2U/9FjkVA1bwJ?=
- =?us-ascii?Q?VG4XLqu7X0+3Rfmc22DAQZfsQiWxn+RwmICaptk20/JrQiNN7Hz505Hk3uDO?=
- =?us-ascii?Q?yM/nad/ltUywKBe3FDzDn9yElZXpg6eIjHabJsOL?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 14990d85-5240-4d13-cb29-08dd564a6353
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2025 09:46:05.6664
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cQyiPDNlO6GDtMmvqSiWaOnK2qiE8rA4ydDxeSE8S/C3EdTz4DnR/GsfFWea/NWP6eWVVL9d8gl/+XhlYWX1BQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10192
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_014612_036428_49CBA200 
-X-CRM114-Status: GOOD (  17.03  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 1/3] dt-binding: clock: ast2700: modify soc0/1 clock
+ define
+To: Ryan Chen <ryan_chen@aspeedtech.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20250224095506.2047064-1-ryan_chen@aspeedtech.com>
+ <20250224095506.2047064-2-ryan_chen@aspeedtech.com>
+ <f810b8a2-4261-4b68-b59b-4efa0219b5db@kernel.org>
+ <OS8PR06MB7541D685A626D300AC730A5BF2C32@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <2b64a9d7-7048-4842-9cc1-fe23f5abdd00@kernel.org>
+ <OS8PR06MB75411AE082C9630314966F2AF2C32@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <c4727195-757a-4624-8580-78e5c32e9290@kernel.org>
+ <OS8PR06MB7541615D536BC1D44FF6D18DF2C22@OS8PR06MB7541.apcprd06.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <OS8PR06MB7541615D536BC1D44FF6D18DF2C22@OS8PR06MB7541.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,480 +130,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+On 26/02/2025 06:10, Ryan Chen wrote:
+>> Subject: Re: [PATCH v9 1/3] dt-binding: clock: ast2700: modify soc0/1 clock
+>> define
+>>
+>> On 25/02/2025 10:49, Ryan Chen wrote:
+>>>>>> Subject: Re: [PATCH v9 1/3] dt-binding: clock: ast2700: modify
+>>>>>> soc0/1 clock define
+>>>>>>
+>>>>>> On 24/02/2025 10:55, Ryan Chen wrote:
+>>>>>>> -remove redundant SOC0_CLK_UART_DIV13:
+>>>>>>> SOC0_CLK_UART_DIV13 is not use at clk-ast2700.c, the clock source
+>>>>>>> tree is uart clk src -> uart_div_table -> uart clk.
+>>>>>>>
+>>>>>>> -Change SOC0_CLK_HPLL_DIV_AHB to SOC0_CLK_AHBMUX:
+>>>>>>> modify clock tree implement.
+>>>>>>> older CLK_AHB use mpll_div_ahb/hpll_div_ahb to be ahb clock source.
+>>>>>>> mpll->mpll_div_ahb
+>>>>>>>                   -> clk_ahb
+>>>>>>> hpll->hpll_div_ahb
+>>>>>>
+>>>>>>
+>>>>>> I can barely understand it and from the pieces I got, it does not
+>>>>>> explain need for ABI break.
+>>>>>>
+>>>>>
+>>>>> #1. SCU0_CLK_UART_DIV13 is redundant, it does not impact ABI break
+>>>>
+>>>> You did not explain how it does not impact. Clock was exported, there
+>>>> was a user and now there is no clock. User stops working. ABI break.
+>>>>
+>>>
+>>> Sorry, SCU0_CLK_UART_DIV13 was defined, but was never referenced in any
+>> upstream device trees.
+>>
+>>
+>> That's incomplete definition of ABI
+>>
+>>> Since there is no in-tree usage of `SCU0_CLK_UART_DIV13`, its removal does
+>> not cause an ABI break.
+>>
+>>
+>> You ignored out of tree users. Please read carefully ABI docs.
+>>
+>>
+>>>
+>>>>> #2. Change SOC0_CLK_HPLL_DIV_AHB to SOC0_CLK_AHBMUX Older
+>>>> implement
+>>>>> where `mpll_div_ahb` and `hpll_div_ahb` were **hardcoded dividers**
+>>>>> for
+>>>> AHB.
+>>>>> In **the new approach (v8)**, I refactored the clock tree to clock tree.
+>>>>
+>>>> I still cannot parse sentences like "refactoring A to A". It's meaningless to
+>> me.
+>>>>
+>>>>> It should be ABI-safe change
+>>>>
+>>>> No, you do not understand the ABI. You removed a clock ID, that's the
+>>>> ABI change.
+>>>>
+>>>> Otherwise explain how this is not changing ABI.
+>>>>
+>>>>
+>>>>>
+>>>>> Or you want to keep original SOC0_CLK_HPLL_DIV_AHB define and then
+>>>>> add
+>>>> SOC0_CLK_AHBMUX.
+>>>>> To be 1st patch, then 2n patch remove redundant
+>>>> SOC0_CLK_HPLL_DIV_AHB?
+>>>>
+>>>> If you break the ABI you need to clearly explain why. We have long
+>>>> conversations and you still did not say why.
+>>>>
+>>> Sorry, my point will be following steps to avoid potential ABI issues,
+>>> I can modify the patch series as follows:
+>>> 1. **Patch 1:** Add `SOC0_CLK_AHBMUX` without removing
+>> `SOC0_CLK_HPLL_DIV_AHB`.
+>>> 2. **Patch 2:** Finally remove `SOC0_CLK_HPLL_DIV_AHB`.
+>>
+>>
+>> I do not understand what changed here. You remove exported clock which is
+>> ABI, so how is this answering my question.
+>>
+>> You keep dodging my questions. Here I asked "why". I do not see any answer
+>> why.
+> 
+> Apology, I can't catch your point. But I still need your guideline.
+> 
+> **Regarding `SCU0_CLK_UART_DIV13`:**
+>    - This clock ID was originally defined but was never used in any in-tree device trees. (i2c-ast2700.c v1 ~ v9)
+>    - So there should not have ABI-break am I correct?
 
-Add compatible string for the protocols by adding new nodes
-The current nodename pattern is "protocol@[0-9a-f]+$", the new node
-name will be "scmi-[a-z\-]+$".
-With compatible string and new nodename, cpufreq and devfreq could be
-separated into two nodes. And fwdevlink could correctly link suppliers
-and consumers.
-With compatible string, and driver updated.
-- Differnet vendor drivers with same SCMI protocol ID could be built in
-  without concerning vendor A's driver got probed when using vendor B's
-  SoC
-- NXP scmi pinctrl and ARM scmi pinctrl could be both built in, without
-  concerning arm scmi platform takes nxp scmi pinctrl node as supplier.
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
+No, because there are other users of bindings. All forks, out of tree
+DTS, other projects etc. You defined ABI for them.
 
-RFC:
- This may sounds like that adding compatible to resovle linux driver issue.
- Yes indeed. current scmi framework limitation makes it not work well with
- fwdevlink, wrong suppliers maybe linked to consumers.
- I have tried various's method to not introduce compatible, but rejected by
- fwdevlink maintainer or scmi maintainer
- There was a long discussion in [1][2][3].
- [1] https://lore.kernel.org/arm-scmi/20240729070325.2065286-1-peng.fan@oss.nxp.com/
- [2] https://lore.kernel.org/arm-scmi/20241225-scmi-fwdevlink-v1-0-e9a3a5341362@nxp.com/T/#mdd17c4b9b11af9fae0d5b6ec2e13756c2c6f977d
- [3] https://lore.kernel.org/arm-scmi/20250120-scmi-fwdevlink-v2-0-3af2fa37dbac@nxp.com/
+> 
+> **Regarding `SOC0_CLK_HPLL_DIV_AHB` → `SOC0_CLK_AHBMUX`:**
+>    - The previous implementation used dividers (`mpll_div_ahb`, `hpll_div_ahb`) for AHB clock selection. (i2c-ast2700.c v1 ~ v8)
+> mpll->mpll_div_ahb
+>                   -> clk_ahb
+> hpll->hpll_div_ahb
+>    - The new approach use `SOC0_CLK_AHBMUX`, which AHB clock sources via a mux. (i2c-ast2700.c v9)
+> mpll->
+>       ahb_mux -> div_table -> clk_ahb
+> hpll->
 
- The binding changes are posted out to see whether DT maintainer's view on
- whether introduce compatible string is welcomed or not.
- I not include driver changes, because this is just to see whether people
- are happy with this or not.
+Your formatting is one of the problems I have troubles understanding it.
+Above is not wrapped or wrapped oddly. You keep using bold * but double
+**, which is not a standard markup. Please switch to standard mailing
+list formatting - proper wrapping, only text mode and use client which
+actually can parse and create that.
 
-Quote Sudeep's reply"
-I am not blocking you. What I mentioned is I don't agree that DT can be used
-to resolve this issue, but I don't have time or alternate solution ATM. So
-if you propose DT based solution and the maintainers agree for the proposed
-bindings I will take a look and help you to make that work. But I will raise
-any objections I may have if the proposal has issues mainly around the
-compatibility and ease of maintenance.
-"
+What I don't understand is how clocks could change in hardware. You
+described implementation, but the clock IDS do not describe
+implementation but the the mapping to real hardware clocks. So how
+SOC0_CLK_HPLL_DIV_AHB clock disappeared from hardware?
 
- So If compatible string is agreed, I could continue
- update driver part in next version or SCMI maintainer could help.
 
- .../bindings/firmware/arm,scmi.yaml           | 300 ++++++++++++++++--
- .../firmware/nxp,imx95-scmi-pinctrl.yaml      |   4 +
- .../bindings/firmware/nxp,imx95-scmi.yaml     |   6 +
- 3 files changed, 275 insertions(+), 35 deletions(-)
+>    - And since i2c-ast2700.c (v8) is not applied, so there should also no one use this ABI. Am I correct?
 
-diff --git a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-index abbd62f1fed0..3c6ac8ab762d 100644
---- a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-+++ b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-@@ -156,6 +156,207 @@ properties:
-     description:
-       Channel specifier required when using OP-TEE transport.
- 
-+  scmi-clock:
-+    $ref: '#/$defs/protocol-node'
-+    unevaluatedProperties: false
-+
-+    properties:
-+      compatible:
-+        const: arm,scmi-clock
-+
-+      '#clock-cells':
-+        const: 1
-+
-+    required:
-+      - '#clock-cells'
-+      - compatible
-+
-+  scmi-cpufreq:
-+    $ref: '#/$defs/protocol-node'
-+    unevaluatedProperties: false
-+
-+    properties:
-+      compatible:
-+        const: arm,scmi-cpufreq
-+
-+      '#clock-cells':
-+        const: 1
-+
-+      '#power-domain-cells':
-+        const: 1
-+
-+    oneOf:
-+      - required:
-+          - '#clock-cells'
-+          - compatible
-+
-+      - required:
-+          - '#power-domain-cells'
-+          - compatible
-+
-+  scmi-hwmon:
-+    $ref: '#/$defs/protocol-node'
-+    unevaluatedProperties: false
-+
-+    properties:
-+      compatible:
-+        const: arm,scmi-hwmon
-+
-+      '#thermal-sensor-cells':
-+        const: 1
-+
-+    required:
-+      - '#thermal-sensor-cells'
-+      - compatible
-+
-+  scmi-iiodev:
-+    $ref: '#/$defs/protocol-node'
-+    unevaluatedProperties: false
-+
-+    properties:
-+      compatible:
-+        const: arm,scmi-iiodev
-+
-+    required:
-+      - compatible
-+
-+  scmi-pinctrl:
-+    type: object
-+    allOf:
-+      - $ref: '#/$defs/protocol-node'
-+      - anyOf:
-+          - $ref: /schemas/pinctrl/pinctrl.yaml
-+          - $ref: /schemas/firmware/nxp,imx95-scmi-pinctrl.yaml
-+
-+    unevaluatedProperties: false
-+
-+    properties:
-+      compatible:
-+        const: arm,scmi-pinctrl
-+
-+    patternProperties:
-+      '-pins$':
-+        type: object
-+        allOf:
-+          - $ref: /schemas/pinctrl/pincfg-node.yaml#
-+          - $ref: /schemas/pinctrl/pinmux-node.yaml#
-+        unevaluatedProperties: false
-+
-+        description:
-+          A pin multiplexing sub-node describes how to configure a
-+          set of pins in some desired function.
-+          A single sub-node may define several pin configurations.
-+          This sub-node is using the default pinctrl bindings to configure
-+          pin multiplexing and using SCMI protocol to apply a specified
-+          configuration.
-+
-+    required:
-+      - reg
-+
-+  scmi-power-domain:
-+    $ref: '#/$defs/protocol-node'
-+    unevaluatedProperties: false
-+
-+    properties:
-+      compatible:
-+        const: arm,scmi-power-domain
-+
-+      '#power-domain-cells':
-+        const: 1
-+
-+    required:
-+      - compatible
-+      - '#power-domain-cells'
-+
-+  scmi-perf:
-+    $ref: '#/$defs/protocol-node'
-+    unevaluatedProperties: false
-+
-+    properties:
-+      compatible:
-+        const: arm,scmi-perf
-+
-+      '#power-domain-cells':
-+        const: 1
-+
-+    required:
-+      - '#power-domain-cells'
-+      - compatible
-+
-+  scmi-powercap:
-+    $ref: '#/$defs/protocol-node'
-+    unevaluatedProperties: false
-+
-+    properties:
-+      compatible:
-+        const: arm,scmi-powercap
-+
-+    required:
-+      - compatible
-+
-+  scmi-regulator:
-+    $ref: '#/$defs/protocol-node'
-+    unevaluatedProperties: false
-+
-+    properties:
-+      compatible:
-+        const: arm,scmi-regulator
-+
-+      regulators:
-+        type: object
-+        additionalProperties: false
-+        description:
-+          The list of all regulators provided by this SCMI controller.
-+
-+        properties:
-+          '#address-cells':
-+            const: 1
-+
-+          '#size-cells':
-+            const: 0
-+
-+        patternProperties:
-+          '^regulator@[0-9a-f]+$':
-+            type: object
-+            $ref: /schemas/regulator/regulator.yaml#
-+            unevaluatedProperties: false
-+
-+            properties:
-+              reg:
-+                maxItems: 1
-+                description: Identifier for the voltage regulator.
-+
-+            required:
-+              - reg
-+    required:
-+      - compatible
-+
-+  scmi-reset:
-+    $ref: '#/$defs/protocol-node'
-+    unevaluatedProperties: false
-+
-+    properties:
-+      compatible:
-+        const: arm,scmi-reset
-+
-+      '#reset-cells':
-+        const: 1
-+
-+    required:
-+      - '#reset-cells'
-+      - compatible
-+
-+  scmi-syspower:
-+    $ref: '#/$defs/protocol-node'
-+    unevaluatedProperties: false
-+
-+    properties:
-+      compatible:
-+        const: arm,scmi-syspower
-+
-+    required:
-+      - compatible
-+
-   protocol@11:
-     $ref: '#/$defs/protocol-node'
-     unevaluatedProperties: false
-@@ -169,6 +370,7 @@ properties:
- 
-     required:
-       - '#power-domain-cells'
-+      - reg
- 
-   protocol@12:
-     $ref: '#/$defs/protocol-node'
-@@ -178,6 +380,9 @@ properties:
-       reg:
-         const: 0x12
- 
-+    required:
-+      - reg
-+
-   protocol@13:
-     $ref: '#/$defs/protocol-node'
-     unevaluatedProperties: false
-@@ -195,9 +400,11 @@ properties:
-     oneOf:
-       - required:
-           - '#clock-cells'
-+          - reg
- 
-       - required:
-           - '#power-domain-cells'
-+          - reg
- 
-   protocol@14:
-     $ref: '#/$defs/protocol-node'
-@@ -212,6 +419,7 @@ properties:
- 
-     required:
-       - '#clock-cells'
-+      - reg
- 
-   protocol@15:
-     $ref: '#/$defs/protocol-node'
-@@ -226,6 +434,7 @@ properties:
- 
-     required:
-       - '#thermal-sensor-cells'
-+      - reg
- 
-   protocol@16:
-     $ref: '#/$defs/protocol-node'
-@@ -240,6 +449,7 @@ properties:
- 
-     required:
-       - '#reset-cells'
-+      - reg
- 
-   protocol@17:
-     $ref: '#/$defs/protocol-node'
-@@ -275,6 +485,8 @@ properties:
- 
-             required:
-               - reg
-+    required:
-+      - reg
- 
-   protocol@18:
-     $ref: '#/$defs/protocol-node'
-@@ -284,6 +496,9 @@ properties:
-       reg:
-         const: 0x18
- 
-+    required:
-+      - reg
-+
-   protocol@19:
-     type: object
-     allOf:
-@@ -358,49 +573,64 @@ $defs:
-           Channel specifier required when using OP-TEE transport and
-           protocol has a dedicated communication channel.
- 
--    required:
--      - reg
--
- required:
-   - compatible
- 
--if:
--  properties:
--    compatible:
--      contains:
--        const: arm,scmi
--then:
--  properties:
--    interrupts: false
--    interrupt-names: false
--
--  required:
--    - mboxes
--    - shmem
--
--else:
--  if:
--    properties:
--      compatible:
--        contains:
--          enum:
--            - arm,scmi-smc
--            - arm,scmi-smc-param
--            - qcom,scmi-smc
--  then:
--    required:
--      - arm,smc-id
--      - shmem
--
--  else:
--    if:
-+allOf:
-+  - if:
-       properties:
-         compatible:
-           contains:
--            const: linaro,scmi-optee
-+            const: arm,scmi
-     then:
-+      properties:
-+        interrupts: false
-+        interrupt-names: false
-+
-       required:
--        - linaro,optee-channel-id
-+        - mboxes
-+        - shmem
-+
-+    else:
-+      if:
-+        properties:
-+          compatible:
-+            contains:
-+              enum:
-+                - arm,scmi-smc
-+                - arm,scmi-smc-param
-+                - qcom,scmi-smc
-+      then:
-+        required:
-+          - arm,smc-id
-+          - shmem
-+
-+      else:
-+        if:
-+          properties:
-+            compatible:
-+              contains:
-+                const: linaro,scmi-optee
-+        then:
-+          required:
-+            - linaro,optee-channel-id
-+
-+  - if:
-+      anyOf:
-+        - required: [ scmi-clock ]
-+        - required: [ scmi-cpufreq ]
-+        - required: [ scmi-hwmon ]
-+        - required: [ scmi-iiodev ]
-+        - required: [ scmi-regulator ]
-+        - required: [ scmi-perf ]
-+        - required: [ scmi-powercap ]
-+        - required: [ scmi-power-domain ]
-+        - required: [ scmi-pinctrl ]
-+        - required: [ scmi-reset ]
-+        - required: [ scmi-syspower]
-+    then:
-+      patternProperties:
-+        protocol@[0-9a-f]+$: false
- 
- examples:
-   - |
-diff --git a/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi-pinctrl.yaml b/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi-pinctrl.yaml
-index a96fc6cce502..e9c08f1577da 100644
---- a/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi-pinctrl.yaml
-+++ b/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi-pinctrl.yaml
-@@ -13,6 +13,10 @@ maintainers:
- allOf:
-   - $ref: /schemas/pinctrl/pinctrl.yaml
- 
-+properties:
-+  compatible:
-+    const: nxp,imx95-scmi-pinctrl
-+
- patternProperties:
-   'grp$':
-     type: object
-diff --git a/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi.yaml b/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi.yaml
-index 1a95010a546b..048db78c9887 100644
---- a/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi.yaml
-+++ b/Documentation/devicetree/bindings/firmware/nxp,imx95-scmi.yaml
-@@ -19,6 +19,9 @@ properties:
-       reg:
-         const: 0x81
- 
-+    required:
-+      - reg
-+
-   protocol@84:
-     $ref: '/schemas/firmware/arm,scmi.yaml#/$defs/protocol-node'
-     unevaluatedProperties: false
-@@ -40,4 +43,7 @@ properties:
-         maxItems: 16
-         $ref: /schemas/types.yaml#/definitions/uint32-matrix
- 
-+    required:
-+      - reg
-+
- additionalProperties: true
--- 
-2.37.1
+If binding was not applied, then what are you changing here?
 
+Does it mean header described clock which was in the hardware but its
+handling was not yet implemented in the driver?
+
+
+> 
+> If this is not acceptable, my next patch will keep SCU0_CLK_UART_DIV13/SCU0_CLK_HPLL_DIV_AHB define.
+
+Maybe my last message was not clear, so: you need to explain why you are
+breaking ABI and/or explain the ABI impact in the commit msg.
+
+> But add new SCU0_CLK_AHBMUX define for avoid your point ABI break. Is this acceptable?  
+
+
+Best regards,
+Krzysztof
 
