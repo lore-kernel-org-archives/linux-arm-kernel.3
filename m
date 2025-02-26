@@ -4,111 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D95B2C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 07:27:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FC2CC021BC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 07:28:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fqnE/QkzAAK9rlU+DcFAl1QV6iJgmowgfVe+CuOWQdE=; b=RriF/fc/VoqwAeMqgzLrzlFd6q
-	O36Clb05VGYh4y1299WVDTgx8CPLiZ87alwIUEeBCBkNfO+RFdFQNt6snH5sLrKnH78199dZkW/SS
-	5X6xdARm0ZtLUD8AlwSSvTZMqDWk2c2FHs02Yb7nF2msdBQ5F9nXb0eCINpMIV/NdzUM01EKrHFUg
-	JMPcFfMAmYA3VonEjylQSf6CaBOq7QRbsnYN7mK+q6+7ufN7P4y/xZ7WQc+dKJgqCsCG8HuKkLBek
-	HC6Wvaqyt+Oy/f1yaTTZfYi3jcpVrpHOZ7rT22yrvO8HnLfQnaZ0utPJK/csIFQG0kFmSC+lTIrjU
-	GtAt8SvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=qbsRW+rPGG7sOyzmINLAUZ6n+49WHNhTA0JmCyA9gd0=; b=XajKBhRQD46uV2xbrHPv7Nv97r
+	ZP/DzoKpHyRET3yVdeEOjhNDXzsnteu4IZWqWdPV/RtCjhC4zViK+WPa+I090TM+TIkgjAHH8CNTW
+	MOxQdmfEC/2BHM96cPGKQh7Muzksfw8hF1oeRpSWBhbx4f53Q5ZEfxVU50ck6OxKF5kTzyh+GUxHu
+	EuRj2TbuGv9VPrax21pTjopEeIPNz3mo3GwzphVesSpMevNptMmns2vx2cKexZDDkX46Cp9zP6xGP
+	9FE/Yi2pHkuHzF815OV9iEkiW44dogLv6rmozFNCXjiZPE1hnMdnz8gqKWOpuavXNcOd2jYCdaIiK
+	gcq5YDCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnBp5-00000002geT-20rG;
-	Wed, 26 Feb 2025 07:27:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tnBqa-00000002gtU-18nO;
+	Wed, 26 Feb 2025 07:28:48 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnBlf-00000002gGn-2F0v
+	id 1tnBnb-00000002gSd-2kvp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 07:23:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 635456113A;
-	Wed, 26 Feb 2025 07:23:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5E0CC4CED6;
-	Wed, 26 Feb 2025 07:23:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740554622;
-	bh=Q64DmIbjnhSAJoyXLUs8wPCadWvD3Btqmi/ZGNhV9EU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BLua4mmOguzXo7StKiFtMbPs7fffOFcemIKuolz8jNQQkZybna8A73uDvbgeUh0bk
-	 zVAtRHACQxnDHR2UfGU8KH3Xra1X6aF6nhPhTzfT1SNYoBNKFy5FEjs/MUI7uPCwoC
-	 IzduqHbH0zWiHAVbG4v7oWi7B2TjthIM2gUWIh3OJxuWihk5rY0IK1577yrUlC7jIS
-	 2d3czeVxIlhBPxqtM0uExFMxxXP/EgZj5VRuHAPjcY2P69OL+b7jpzU6CFW1zH69yH
-	 uO/ftH00J0Wv9c/hjLn8HqBQBhQhHN7bSpKa7xx02TyOkjSzP9zDzV+eFni5GeRnmz
-	 ZWEL4r1CjKKbg==
-Message-ID: <b57e3c9e-244e-435b-8a7b-cf90f3a973b3@kernel.org>
-Date: Wed, 26 Feb 2025 08:23:36 +0100
+	Wed, 26 Feb 2025 07:25:45 +0000
+Received: from epcas2p3.samsung.com (unknown [182.195.41.55])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250226072537epoutp02c39aaddffae95844026c92afe744e5a0~nsU_8aHTn1389613896epoutp02k
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 07:25:37 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250226072537epoutp02c39aaddffae95844026c92afe744e5a0~nsU_8aHTn1389613896epoutp02k
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1740554737;
+	bh=qbsRW+rPGG7sOyzmINLAUZ6n+49WHNhTA0JmCyA9gd0=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=U/3BJIwQ+2m+T2HIVBrcrunOt9lphQVsGs2nOz766KfjqZCFxfWG918HbuwIadqd1
+	 1GhgbFLer4MCuHvV3/P7p3OP1VE/yMPLDdhfDyV8PM+6oI184AW49LCMEHuzn12z1C
+	 C1ABwpz11qSlcSxmVyWP9v8cA19lSbX7vHUIuEVg=
+Received: from epsnrtp1.localdomain (unknown [182.195.42.162]) by
+	epcas2p2.samsung.com (KnoxPortal) with ESMTP id
+	20250226072536epcas2p2669e3682cad6e97d545cc6f2542a446d~nsU_jZinE1172911729epcas2p2y;
+	Wed, 26 Feb 2025 07:25:36 +0000 (GMT)
+Received: from epsmges2p3.samsung.com (unknown [182.195.36.88]) by
+	epsnrtp1.localdomain (Postfix) with ESMTP id 4Z2mGR6hkbz4x9Pp; Wed, 26 Feb
+	2025 07:25:35 +0000 (GMT)
+Received: from epcas2p3.samsung.com ( [182.195.41.55]) by
+	epsmges2p3.samsung.com (Symantec Messaging Gateway) with SMTP id
+	20.75.22105.FE1CEB76; Wed, 26 Feb 2025 16:25:35 +0900 (KST)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250226072535epcas2p46d41cb5cdd7ece18c898657c3c66a219~nsU9VGKON1585315853epcas2p4N;
+	Wed, 26 Feb 2025 07:25:35 +0000 (GMT)
+Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250226072535epsmtrp2cae8b068735d2728e3d8fac672b2d743~nsU9TwQsh2895528955epsmtrp2L;
+	Wed, 26 Feb 2025 07:25:35 +0000 (GMT)
+X-AuditID: b6c32a47-f91c170000005659-ac-67bec1ef5bfe
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	A4.89.18949.FE1CEB76; Wed, 26 Feb 2025 16:25:35 +0900 (KST)
+Received: from localhost.localdomain (unknown [10.229.9.126]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250226072535epsmtip29c454e0beda8b5dc9cf893abaa8f1a2c~nsU9Im_nx2560225602epsmtip26;
+	Wed, 26 Feb 2025 07:25:35 +0000 (GMT)
+From: Sangwook Shin <sw617.shin@samsung.com>
+To: krzk@kernel.org, alim.akhtar@samsung.com, wim@linux-watchdog.org,
+	linux@roeck-us.net
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org, Kyunghwan Seo
+	<khwan.seo@samsung.com>, Sangwook Shin <sw617.shin@samsung.com>
+Subject: [PATCH V1 RESEND] watchdog: s3c2410_wdt: Fix PMU register bits for
+ ExynosAutoV920 SoC
+Date: Wed, 26 Feb 2025 16:21:51 +0900
+Message-Id: <20250226072151.2123990-1-sw617.shin@samsung.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/9] ARM: dts: stm32: add Hardware debug port (HDP) on
- stm32mp25
-To: Clement LE GOFFIC <clement.legoffic@foss.st.com>,
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250225-hdp-upstream-v1-0-9d049c65330a@foss.st.com>
- <20250225-hdp-upstream-v1-7-9d049c65330a@foss.st.com>
- <418a80a9-8c08-4dd1-bf49-1bd7378321aa@kernel.org>
- <b257aa79-6ca9-4f57-988a-ec00225992ab@foss.st.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <b257aa79-6ca9-4f57-988a-ec00225992ab@foss.st.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFupnk+LIzCtJLcpLzFFi42LZdljTXPf9wX3pBu8/mFo8mLeNzWJ++yVG
+	i/PnN7BbbHp8jdXi8q45bBYzzu9jsrixbh+7xZOFZ5gsZiw+yWbx+OU/Zgcuj02rOtk8Vq5Z
+	w+qxeUm9x87vDewefVtWMXp83iQXwBaVbZORmpiSWqSQmpecn5KZl26r5B0c7xxvamZgqGto
+	aWGupJCXmJtqq+TiE6DrlpkDdJmSQlliTilQKCCxuFhJ386mKL+0JFUhI7+4xFYptSAlp8C8
+	QK84Mbe4NC9dLy+1xMrQwMDIFKgwITvj/pYutoI9ghUPGwwaGO/zdTFycEgImEg8W+HTxcjF
+	ISSwg1Hi+MbnjBDOJ0aJhq6NbBDON0aJr9NfMXcxcoJ13G78wQKR2Mso8eUyTBVQy8bzsxhB
+	qtgEdCSm/7vNAmKLCERJHNyxjB2kiFngDqPEvv8vwEYJCyRILJ0+gQnkEBYBVYnzF0VAwrwC
+	thJ7lk9lgdgmLzHz0nd2iLigxMmZT8DizEDx5q2zmUFmSgi8ZZeY1/SGEaLBRWLO4WdQtrDE
+	q+Nb2CFsKYnP7/ayQTydL3HqiTBEbwOjxLvm92wQNfYSi878ZAepYRbQlFi/Sx+iXFniyC2o
+	tXwSHYf/skOEeSU62oQgGlUkOn5uZoVZdPTMA6gSD4ltu3RAwkICsRIL+6YyT2CUn4Xkl1lI
+	fpmFsHYBI/MqRrHUguLc9NRiowJjeIwm5+duYgSnTC33HYwz3n7QO8TIxMF4iFGCg1lJhJcz
+	c0+6EG9KYmVValF+fFFpTmrxIUZTYOBOZJYSTc4HJu28knhDE0sDEzMzQ3MjUwNzJXHe6h0t
+	6UIC6YklqdmpqQWpRTB9TBycUg1MDcc/HDj/0t2nb8Fet4txHX8EX3IeK26udvnv17aN9eDH
+	YrfFE10lbebt8GOv9548LZ45+SCP7/Pzf49r341ZcafQWWP39Rmpb+t2u0yTX82wUUL7pMmV
+	jLm8Wy7vPhTqK7VwbZhrcMGifV4zPtvEPryYvkPKiz9pX0lZhRfjgXsVF9YkcE63VFls+F3c
+	+OhaK7ErInP1nEVMbNZbOLodNvp/VWNZplrM4aN7GeOZYp+6hHJs4N201YHN8VDcnhMSpw/q
+	75r4pPvTpXefguUz3fYsPfVmd41O71/27EOsherHDz3RW8jgnidXk2IxwfXlwgmLNxqvFF6/
+	afqcOZOXcX37d6ZpRu6tHKfq/VL85kosxRmJhlrMRcWJAKVLhBkiBAAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrPLMWRmVeSWpSXmKPExsWy7bCSvO77g/vSDS728Fg8mLeNzWJ++yVG
+	i/PnN7BbbHp8jdXi8q45bBYzzu9jsrixbh+7xZOFZ5gsZiw+yWbx+OU/Zgcuj02rOtk8Vq5Z
+	w+qxeUm9x87vDewefVtWMXp83iQXwBbFZZOSmpNZllqkb5fAlXF/SxdbwR7BiocNBg2M9/m6
+	GDk5JARMJG43/mABsYUEdjNKfJpv3MXIARSXknj3zBKiRFjifssR1i5GLqCSD4wSR9f9YARJ
+	sAnoSEz/dxusV0QgTuJY+2ZmkCJmgUeMEmdvTGIGSQgDJdoerGYEGcoioCpx/qIISJhXwFZi
+	z/KpLBAL5CVmXvrODhEXlDg58wlYnBko3rx1NvMERr5ZSFKzkKQWMDKtYpRMLSjOTc8tNiww
+	ykst1ytOzC0uzUvXS87P3cQIDmMtrR2Me1Z90DvEyMTBeIhRgoNZSYSXM3NPuhBvSmJlVWpR
+	fnxRaU5q8SFGaQ4WJXHeb697U4QE0hNLUrNTUwtSi2CyTBycUg1MnpuOdUjP/D2FhVNyS+dz
+	2Wa39/8tdn8sv/180c6vS6ZMnSu9VPNb8srEMwvKn4dqaffVCjb9qbgu9snmTcHuk8wrDq34
+	lbR+/XTljfJrfKJVJj98tKdxHmNsYsTLpWacM3jcPn/nX/llntxDl0MbvXKPpk5o22esk/cj
+	u/jXlXCnZrf4k5732vgtlk5Q3ur4fPWrTNVo6U8ePx1/xShsClmTGPJIL8dAo4Dj22/btt3a
+	dgsk+Jm5zNiWSpyzcarJcOf0vRngpOfaP7G0vyA1ZkXekidXJ8zzjsi/v81A4TuD9rXy7eoy
+	l1cd9b776DBHunxdzycV+/Nlmv8P8hUcvWZYWZDv96Pq3IWt/yYlKbEUZyQaajEXFScCABcQ
+	jCrSAgAA
+X-CMS-MailID: 20250226072535epcas2p46d41cb5cdd7ece18c898657c3c66a219
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250226072535epcas2p46d41cb5cdd7ece18c898657c3c66a219
+References: <CGME20250226072535epcas2p46d41cb5cdd7ece18c898657c3c66a219@epcas2p4.samsung.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250225_232544_327422_640ECF9F 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,42 +135,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/02/2025 17:09, Clement LE GOFFIC wrote:
-> On 2/25/25 14:05, Krzysztof Kozlowski wrote:
->> On 25/02/2025 09:48, Clément Le Goffic wrote:
->>> Add the hdp devicetree node for stm32mp25 SoC family
->>>
->>> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
->>> ---
->>>   arch/arm64/boot/dts/st/stm32mp251.dtsi | 7 +++++++
->>>   1 file changed, 7 insertions(+)
->>>
->>> diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
->>> index f3c6cdfd7008..43aaed4fcf10 100644
->>> --- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
->>> +++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
->>> @@ -918,6 +918,13 @@ package_otp@1e8 {
->>>   			};
->>>   		};
->>>   
->>> +		hdp: pinctrl@44090000 {
->>> +			compatible = "st,stm32mp-hdp";
->>
->> So here again - you have stm32mp251 SoC, but use entirely different
->> compatible.
-> 
-> Ok so I will use "st,stm32mp15-hdp"
+From: Kyunghwan Seo <khwan.seo@samsung.com>
 
+Fix the PMU register bits for the ExynosAutoV920 SoC.
+This SoC has different bit information compared to its previous
+version, ExynosAutoV9, and we have made the necessary adjustments.
 
-This means this is stm32mp15 SoC. I do not see such SoC on list of your
-SoCs in bindings. What's more, there are no bindings for other SoC
-components for stm32mp15!
+rst_stat_bit:
+    - ExynosAutoV920 cl0 : 0
+    - ExynosAutoV920 cl1 : 1
 
-Something is here not matching - this change, this DTSI, top level
-bindings or all of your SoC device/blocks bindings.
+cnt_en_bit:
+    - ExynosAutoV920 cl0 : 8
+    - ExynosAutoV920 cl1 : 8
 
+Signed-off-by: Kyunghwan Seo <khwan.seo@samsung.com>
+Signed-off-by: Sangwook Shin <sw617.shin@samsung.com>
+---
+ drivers/watchdog/s3c2410_wdt.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
 
+diff --git a/drivers/watchdog/s3c2410_wdt.c b/drivers/watchdog/s3c2410_wdt.c
+index 30450e99e5e9..bdd81d8074b2 100644
+--- a/drivers/watchdog/s3c2410_wdt.c
++++ b/drivers/watchdog/s3c2410_wdt.c
+@@ -72,6 +72,8 @@
+ #define EXYNOS850_CLUSTER1_WDTRESET_BIT		23
+ #define EXYNOSAUTOV9_CLUSTER0_WDTRESET_BIT	25
+ #define EXYNOSAUTOV9_CLUSTER1_WDTRESET_BIT	24
++#define EXYNOSAUTOV920_CLUSTER0_WDTRESET_BIT	0
++#define EXYNOSAUTOV920_CLUSTER1_WDTRESET_BIT	1
+ 
+ #define GS_CLUSTER0_NONCPU_OUT			0x1220
+ #define GS_CLUSTER1_NONCPU_OUT			0x1420
+@@ -312,9 +314,9 @@ static const struct s3c2410_wdt_variant drv_data_exynosautov920_cl0 = {
+ 	.mask_bit = 2,
+ 	.mask_reset_inv = true,
+ 	.rst_stat_reg = EXYNOS5_RST_STAT_REG_OFFSET,
+-	.rst_stat_bit = EXYNOSAUTOV9_CLUSTER0_WDTRESET_BIT,
++	.rst_stat_bit = EXYNOSAUTOV920_CLUSTER0_WDTRESET_BIT,
+ 	.cnt_en_reg = EXYNOSAUTOV920_CLUSTER0_NONCPU_OUT,
+-	.cnt_en_bit = 7,
++	.cnt_en_bit = 8,
+ 	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_MASK_RESET |
+ 		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN |
+ 		  QUIRK_HAS_DBGACK_BIT,
+@@ -325,9 +327,9 @@ static const struct s3c2410_wdt_variant drv_data_exynosautov920_cl1 = {
+ 	.mask_bit = 2,
+ 	.mask_reset_inv = true,
+ 	.rst_stat_reg = EXYNOS5_RST_STAT_REG_OFFSET,
+-	.rst_stat_bit = EXYNOSAUTOV9_CLUSTER1_WDTRESET_BIT,
++	.rst_stat_bit = EXYNOSAUTOV920_CLUSTER1_WDTRESET_BIT,
+ 	.cnt_en_reg = EXYNOSAUTOV920_CLUSTER1_NONCPU_OUT,
+-	.cnt_en_bit = 7,
++	.cnt_en_bit = 8,
+ 	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_MASK_RESET |
+ 		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN |
+ 		  QUIRK_HAS_DBGACK_BIT,
+-- 
+2.40.1
 
-Best regards,
-Krzysztof
 
