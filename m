@@ -4,117 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A01C021BC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 17:56:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E9FC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 18:04:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k1UOTAeEYAiBnkyZpz44d78r5B7uBb0CODxrcfWD1kk=; b=Ds1MxAgmAXI8xE5IIlm5aIvsQQ
-	OZSk2y3Kcz2EFggGYoBOrawL+QEQ08dMtsPSJI0y0oNP5m6lZRIQZsDvy+CTNcN1IN7FuWB4FIfV6
-	tE3DW65eOmychVdmet5dycJ1MwbnJHSvsvqH3Om8bumd90XIUYvJIxm/siiSqLUAm2zbsxqvqhN4a
-	JZ4hNE+YCsW3eHyilckR1scPMUXIaLp7K51pcCzHTVR9MXThU0h4oMydkn0Ez7fzSGdw11DKJqAZ1
-	nDodlQvlN6rOVOoHZkiTUeb53SxncQS5RsP93CQq/A+juqIvSCGjC6q165LSj+p4VfLyZYA6ubgfR
-	aaAVcjPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QsoOvXTNs2gMsXNpTfkr8tMJFZEFcK9VxkFjIl3bySY=; b=wiMZcGuf8DVvg+HIRt5FAUg5Lb
+	MkCXqRkfYdJdv+0PP4L5G5roYcqTKh4wa2eaXmH87SzMQyYVbVQ5wHMgvtiO5n+6l5lGSlFZYS6Fs
+	d/zfEvJu53+2FwuX1N6mH5t5HLTjfjyKB/+zavpdqpjFV1poC/5eOR73eaVQkNJdZ80GgRqLGiBit
+	LEnHv+9R/6n+cUi4IW5VMn5Hu1GJHapmRVI1E7Z29h733ZY5tr2/SElHE3aQBG5jYAM4GHnqe8e8M
+	bvopyHnqpqdO4fbzpPTlHy8gYT9kYXGp3yHQ57jP6Unu0d24p8uNLWOuqlzmdmZZ+KhHP0mUubm6Z
+	umFWMSLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnLdW-00000004nce-3xNs;
-	Wed, 26 Feb 2025 17:55:58 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tnLlY-00000004pJx-1JZD;
+	Wed, 26 Feb 2025 18:04:16 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnLby-00000004nRR-33Vv
+	id 1tnLk0-00000004p4S-3xWR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 17:54:24 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51Q9VfIK017857
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 17:54:21 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	k1UOTAeEYAiBnkyZpz44d78r5B7uBb0CODxrcfWD1kk=; b=l8V5yw0ILAnulhx6
-	Udo4ZbASizJpDYsHqtpefcgGGV54J1PtaIwrnE/BaIuM4cwhH14lPz+98KiHeV3f
-	4GgWcRUDnHJKtTHFPFcqz84Hve19eaxPrkmyMWQ0CAhtEkJm1C9j44V5HuGYwZzA
-	ZG8wJQqYMnfpkHN+EkAoNaGnlE98wB/xnqzWpQwoM6npvGS8E9Vd7pFetyXtTl11
-	/Nr9MzXO0klRoFdEDBMgwMzgbcgMF5MQiAv/offMvUwhzsSq+x1tLRm/HLMT9bxV
-	WCZcekBdaiMKCZpQwwFPFFmE9zXBFNEt1EaF5ejGKAu/0wNF8HL/467F+X6Ict6W
-	FT5nCg==
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 451prn2urd-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 17:54:21 +0000 (GMT)
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-6e19bfc2025so308456d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 09:54:21 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740592460; x=1741197260;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=k1UOTAeEYAiBnkyZpz44d78r5B7uBb0CODxrcfWD1kk=;
-        b=t6SFKxkWxhdHqmfijXTrn597QsJxW5zKUJuRswF09zH+v67KK9Je4dOVYTdBgcP6GG
-         4B21tubwvaVHA9pqdLu2mRVVtsQ3fsIvKz2+yovwINLu20bCvyTKb0TGxWORdx4Nygov
-         Y/VnpcfOgdvKc6Ix5m7SIsxfgGMX8BXyn1B51lx/mhAD82bueIgcZSicQ2yXV5bAhpyE
-         hzcyzZgcCJSYIPQ06V1oSCbtLsT7wd9wP5qn5FwY39yHgxBK0WuC3axK8DpMsuybblwq
-         HhD/JCgMgpHycnF7T9onOtpn7JoabVfI2LbN4ZAWRSjoxxgK9fH2TxxuSKhSHzoTmKv6
-         T9mg==
-X-Forwarded-Encrypted: i=1; AJvYcCW63XV8pte3gk7SraTiInJSnfTp8K4p7mN/OW0xVUV1vAXZuPItKopUGbNZCmdPj5lmR3neVp7s6D2OVMVOChbD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6mXdhUzMDZKwfZWjeASBY6TekOICP04UPMlk07+WEKudaeYMb
-	jjn5AN20WEORp9jEDaoN0lTCl8yUCemtmLzrU5bFCOdUXClbZK8aylqCijYI9qCSgXBcMnaFTFk
-	yfIvBfAQjJEk+snqgj/DSwbrykY8YxozHw8zHvfS3Xi8KLzodGNsJfqIwVFnPhioJ/ukoqwknRQ
-	==
-X-Gm-Gg: ASbGncv/GRHHEekH8f8PMCpEjvSliyT2HAT08gsZvb+Xi2TuoX+MhI2Oze3CM/w72rY
-	W93KhDjBEnEaU++C5Y9h3QpNFosDyL5mQ+Tm7j461cwJJREQ60wq3CTYKtLVwGak5/3WyxBxpmu
-	yTjnli2oHLo2X3TaP/TsGxuG38YcpG93f3nhBVbplEnVGWLQ7fM5dmA+TTZd9unUw4otspuqrLd
-	D9YCDSQ6UGbbOW1/4qf0zsEugVjWNt1ChrV2FiwfWhyjmdRzubdtZEiFAV98tyizZh0WzpP8nYT
-	JDY5QAHTsNEXpC1AiPcj7wVmfOepuzCIa8Yd7Zg6cvJPknu3BdFFQJz+jH9gXLp01l3yXQ==
-X-Received: by 2002:a05:6214:21ac:b0:6e6:9c39:ae44 with SMTP id 6a1803df08f44-6e6ae9e22a8mr111525346d6.10.1740592460293;
-        Wed, 26 Feb 2025 09:54:20 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IH7syWcS42OEo1xDcdvQ08ZhO/oF+3o+Ak0wcAu1DA2U5JLIbwlLDHrfoMof7nVe568CRcIPA==
-X-Received: by 2002:a05:6214:21ac:b0:6e6:9c39:ae44 with SMTP id 6a1803df08f44-6e6ae9e22a8mr111524966d6.10.1740592459862;
-        Wed, 26 Feb 2025 09:54:19 -0800 (PST)
-Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abed20121dcsm370471266b.100.2025.02.26.09.54.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 26 Feb 2025 09:54:19 -0800 (PST)
-Message-ID: <e3b2678a-9e4c-4f56-a5ea-5ae46acd5e4b@oss.qualcomm.com>
-Date: Wed, 26 Feb 2025 18:54:15 +0100
+	Wed, 26 Feb 2025 18:02:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5C3A65C7428;
+	Wed, 26 Feb 2025 18:02:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D889FC4CEE7;
+	Wed, 26 Feb 2025 18:02:37 +0000 (UTC)
+Date: Wed, 26 Feb 2025 18:02:35 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Peter Collingbourne <pcc@google.com>
+Subject: Re: [PATCH] KVM: arm64: Drop mte_allowed check during memslot
+ creation
+Message-ID: <Z79XOyjWOSvVGIfM@arm.com>
+References: <20250224093938.3934386-1-aneesh.kumar@kernel.org>
+ <Z7xSfVME4z2ComUm@arm.com>
+ <86ldtvr0nl.wl-maz@kernel.org>
+ <Z7yElHKrJGn8XuPS@arm.com>
+ <86jz9fqtbk.wl-maz@kernel.org>
+ <yq5aseo3gund.fsf@kernel.org>
+ <86ikozqmsl.wl-maz@kernel.org>
+ <yq5a8qptauyl.fsf@kernel.org>
+ <Z786ODqxlYNpj40l@arm.com>
+ <yq5a1pvkbqju.fsf@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 5/6] arm64: dts: qcom: ipq9574: Add nsscc node
-To: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>, andersson@kernel.org,
-        mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
-        krzk+dt@kernel.org, conor+dt@kernel.org, konradybcio@kernel.org,
-        catalin.marinas@arm.com, will@kernel.org, p.zabel@pengutronix.de,
-        richardcochran@gmail.com, geert+renesas@glider.be,
-        dmitry.baryshkov@linaro.org, arnd@arndb.de, nfraprado@collabora.com,
-        quic_tdas@quicinc.com, biju.das.jz@bp.renesas.com, ebiggers@google.com,
-        ross.burton@arm.com, elinor.montmasson@savoirfairelinux.com,
-        quic_anusha@quicinc.com, linux-arm-msm@vger.kernel.org,
-        linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        netdev@vger.kernel.org
-Cc: quic_srichara@quicinc.com, quic_varada@quicinc.com
-References: <20250226075449.136544-1-quic_mmanikan@quicinc.com>
- <20250226075449.136544-6-quic_mmanikan@quicinc.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20250226075449.136544-6-quic_mmanikan@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: IkIcOsSWkAK4qBBslYakvmxxcQNrPaoy
-X-Proofpoint-GUID: IkIcOsSWkAK4qBBslYakvmxxcQNrPaoy
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-26_04,2025-02-26_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- spamscore=0 clxscore=1015 mlxscore=0 adultscore=0 mlxlogscore=672
- suspectscore=0 phishscore=0 bulkscore=0 malwarescore=0 lowpriorityscore=0
- impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2502100000 definitions=main-2502260141
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <yq5a1pvkbqju.fsf@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_095422_887553_F7377C65 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20250226_100241_092960_9508C29E 
+X-CRM114-Status: GOOD (  33.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,16 +78,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26.02.2025 8:54 AM, Manikanta Mylavarapu wrote:
-> From: Devi Priya <quic_devipriy@quicinc.com>
+On Wed, Feb 26, 2025 at 10:18:21PM +0530, Aneesh Kumar K.V wrote:
+> Catalin Marinas <catalin.marinas@arm.com> writes:
+> > On Wed, Feb 26, 2025 at 03:28:26PM +0530, Aneesh Kumar K.V wrote:
+> >> Marc Zyngier <maz@kernel.org> writes:
+> >> > On Mon, 24 Feb 2025 16:44:06 +0000,
+> >> > Aneesh Kumar K.V <aneesh.kumar@kernel.org> wrote:
+> >> >> >> On Mon, Feb 24, 2025 at 12:24:14PM +0000, Marc Zyngier wrote:
+> >> >> >> > > On Mon, Feb 24, 2025 at 03:09:38PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> >> >> >> > > > This change is needed because, without it, users are not able to use MTE
+> >> >> >> > > > with VFIO passthrough (currently the mapping is either Device or
+> >> >> >> > > > NonCacheable for which tag access check is not applied.), as shown
+> >> >> >> > > > below (kvmtool VMM).
+> > [...]
+> >> >> >> > My other concern is that this gives pretty poor consistency to the
+> >> >> >> > guest, which cannot know what can be tagged and what cannot, and
+> >> >> >> > breaks a guarantee that the guest should be able to rely on.
+> > [...]
+> >> >> What if we trigger a memory fault exit with the TAGACCESS flag, allowing
+> >> >> the VMM to use the GPA to retrieve additional details and print extra
+> >> >> information to aid in analysis? BTW, we will do this on the first fault
+> >> >> in cacheable, non-tagged memory even if there is no tagaccess in that
+> >> >> region. This can be further improved using the NoTagAccess series I
+> >> >> posted earlier, which ensures the memory fault exit occurs only on
+> >> >> actual tag access
+> >> >> 
+> >> >> Something like below?
+> >> >
+> >> > Something like that, only with:
+> >> >
+> >> > - a capability informing userspace of this behaviour
+> >> >
+> >> > - a per-VM (or per-VMA) flag as a buy-in for that behaviour
+> >> 
+> >> If we’re looking for a capability based control, could we tie that up to
+> >> FEAT_MTE_PERM? That’s what I did here:
+> >> 
+> >> https://lore.kernel.org/all/20250110110023.2963795-1-aneesh.kumar@kernel.org
+> >> 
+> >> That patch set also addresses the issue mentioned here. Let me know if
+> >> you think this is a better approach
+> >
+> > From the patch linked above:
+> >
+> > | @@ -2152,7 +2162,8 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+> > |  		if (!vma)
+> > |  			break;
+> > | 
+> > | -		if (kvm_has_mte(kvm) && !kvm_vma_mte_allowed(vma)) {
+> > | +		if (kvm_has_mte(kvm) &&
+> > | +		    !kvm_has_mte_perm(kvm) && !kvm_vma_mte_allowed(vma)) {
+> > |  			ret = -EINVAL;
+> > |  			break;
+> > |  		}
+> >
+> > we also have the same ABI change every time FEAT_MTE_PERM is present.
+> > TBH, I'd rather have it from the start as per the patch in this thread,
+> > irrespective of FEAT_MTE_PERM. I'm fine, however, with better exit to
+> > VMM information though.
 > 
-> Add a node for the nss clock controller found on ipq9574 based devices.
+> The patch also does:
 > 
-> Signed-off-by: Devi Priya <quic_devipriy@quicinc.com>
-> Signed-off-by: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>
-> ---
+> #define kvm_has_mte_perm(kvm)					\
+> 	(system_supports_notagaccess() &&				\
+> 	 test_bit(KVM_ARCH_FLAG_MTE_PERM_ENABLED, &(kvm)->arch.flags))
+> 
+> That is it depends on userspace to drive the behavior and also relies on the
+> FEAT_MTE_PERM hardware feature.
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Ah, ok, so the VMM needs to explicitly opt in to FEAT_MTE_PERM and the
+slight ABI change.
 
-Konrad
+> I was considering whether, if we're
+> introducing this capability, should we also include FEAT_MTE_PERM? since
+> adding FEAT_MTE_PERM would also require a capability to handle VM
+> migration
+
+Fine by me to tie this to FEAT_MTE_PERM. However, ignoring VM migration,
+we really only need FEAT_MTE_PERM if we have a cacheable device memory
+assigned into the guest.
+
+-- 
+Catalin
 
