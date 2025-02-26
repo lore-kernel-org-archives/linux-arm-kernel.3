@@ -4,102 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60D96C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:22:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82F7BC19F38
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:22:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ce6x67+50Bef9tmhGQVDzM7nH7frv+tpKK8bAQ2hIrY=; b=D94o4IjKWY40d5Ve6SnJ3SkbR8
-	GFoNB2NpT3g8+OMZVg748C+XIVBhLOcNkqtUKRd8q4Ba4kMyZ3PQF8y3BvhC2ck4/Xca0IOfd6B/W
-	yo0tK4v3D7u/L7SPPkKevD0R/mFluGG151FfZzCoEm1kQFgDMAjt0hYMQm4XSze872oLxVxeXqGA6
-	6DW6HQoT+ZcnBCUmxBosCzXxpapXQIFl264zow+53b4/ZZS0OmzufDxFbfCGNZ8caNUnHsDNl61Fx
-	oPPyzA17/KZaVnT/d5v/oX/VqwMPckxlinV+Ig+sjnPVaGxWiSgR66I1aDfFGbFawrhzdY9EHZcII
-	edjsVU2g==;
+	bh=UMzZpPSVJ0yKFvYNdBQzldB1iScSj7UYf24q0Fg9WjQ=; b=LwZWTenV+DsQ1bCWSeIElzDbUI
+	5AgAaaMt/6CcRrJ9goNeACXd07+xNpd0ysauQgtLvpKYqQRI/ZPd2E/zuC11oDn272DJmB2Zy+xUx
+	ZlMrp9xvVybCQ/23lYfQqzOIso9Dfk5Dh1NpAw7pnBMf54UY+0cw3MYLd0Ot1N+3iqfpjGsMEfyrR
+	bL26FMhhVUJePoBNGMy2OoFmzAPkDXx9colyyPWMdXXZWRT4vJ3oAnIZf5MQCyOHWZn1tbIsMTCPY
+	RDfpT9DqErOfBUu3MtF/98CODfWam+NuqTRkzvGQbwke6AIeBoSI8f0U8vHKZ6i4mebidddhiLoI8
+	ExY0Oq4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJEt-00000004FPM-2jqd;
-	Wed, 26 Feb 2025 15:22:23 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tnJEw-00000004FUk-3N9m;
+	Wed, 26 Feb 2025 15:22:26 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnIFz-0000000432c-1Am1
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 26 Feb 2025 14:19:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Content-ID:Content-Description;
-	bh=Ce6x67+50Bef9tmhGQVDzM7nH7frv+tpKK8bAQ2hIrY=; b=efpLL6/2otLS+9mBQm9VtzMV/e
-	JXA6fwFAfFWUC/l7isBgvVgDEBtUnLtDBgYQy2fEFQMW/XDWj5wpGuaJ4G3GblaAyXcrbktFj8CGi
-	6VghnmLFrKZKCMz3UEkQws8tXKLVQOio7LIn5dwlEQE3qvzzrNnEJxfeSHV/4OYAisrA/jJ3WaP2N
-	meokEfmOIwyq3YYX9bwsOO9t+nJ2KE7ZVXs5b5CI/p6i+TvdVwV/x2jjOm/NLB/mwLbdIzW8Td7L2
-	AoriucYOfxPoOcWkMaMCu+KzSZDbsp898kWsJNf+IL6Fqf7iF1cMFfEsdE/nBbKXjmR3Cbb977jux
-	h62E46pA==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnIFu-00000003cXj-38JU
+	id 1tnIIq-000000043od-2dLp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 14:19:26 +0000
+	Wed, 26 Feb 2025 14:22:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9D0125C4C0B;
-	Wed, 26 Feb 2025 14:18:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id CF53BC4CEEE;
-	Wed, 26 Feb 2025 14:19:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 481BA5C5721;
+	Wed, 26 Feb 2025 14:21:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E552BC4CED6;
+	Wed, 26 Feb 2025 14:22:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740579558;
-	bh=SchnR9hnFXGj/YLyVCpLfn02LkwW5RwN2WZU6kxfxAo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=lJHcBBX458qq+LOOFGrnu3rTmK7if3L9DdoP0BNwzspnM7+aD7Q95Ck9FVmH+V20D
-	 NnOjalvhRggpm/oTZPGoXBQaHH7vqDN424ZseBgHkBBKHrtsi2oQeIJECvAKuPHdkw
-	 ouGDcbcPlrTnyi07T585WHexh5l8guCdYljGsm63QJSkIcSHLIdD/MmZKzpIsc12no
-	 MclhkWHopqUlzB1klrJpga7uz75MEEEEnIDstP0JZ+BTgIQ78iW0HTY9Uk65fH4AW2
-	 1FDty1Akbra4GwOGeyq3liXLustMqPunNEHtyq7so+5aVZP3UlLFwsVmyJOGJCdJLU
-	 zg8ik1I+d9irA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C4290C18E7C;
-	Wed, 26 Feb 2025 14:19:18 +0000 (UTC)
-From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Date: Wed, 26 Feb 2025 15:19:15 +0100
-Subject: [PATCH v2 04/12] arm64: dts: imx8mp: Add pinctrl config
- definitions
+	s=k20201202; t=1740579743;
+	bh=Dx2YL59vcH3avejDv320ymxqHG4J7PJa3Jre2dO4+dU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BQOwlOOYO8ozGaBpP8z44bRTDKdh6gCPsOaVmx+D6RTLwtbhF05j77W25PQrv8P7u
+	 h6H5LNrP3npc6/i4mwEWj+QALOWUuoAzJgwemX2B0ePhrObeMGQ81byF2aqdRbil2H
+	 8xG9oNgpu/dtaBzwEQFRs3KBT+zoCITMA382kuI8pdeeUAHOuyr86smp9cAIyeaIaF
+	 SevZgpxA36PwOa8yf0iZqSlBazgCDIJk5Mlbh21JjvcTNSksILICt2wbiNCSyeW2YF
+	 LhfbGbWeTpDihOQtXSeC4c+qw9JcmzBgA7AybKlynCWoReOY7bFM+CfHNHu08Tq5Ly
+	 JzOPa4XFCIyLw==
+Message-ID: <fe4ccf6d-bdf0-41eb-bffe-83d459319689@kernel.org>
+Date: Wed, 26 Feb 2025 15:22:19 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 13/13] arm64: defconfig: Enable Renesas RZ/T2H SoC
+ option
+To: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>,
+ thierry.bultel@linatsea.fr
+Cc: linux-renesas-soc@vger.kernel.org, geert@linux-m68k.org,
+ paul.barker.ct@bp.renesas.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250226130935.3029927-1-thierry.bultel.yh@bp.renesas.com>
+ <20250226130935.3029927-14-thierry.bultel.yh@bp.renesas.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250226130935.3029927-14-thierry.bultel.yh@bp.renesas.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250226-initial_display-v2-4-23fafa130817@gocontroll.com>
-References: <20250226-initial_display-v2-0-23fafa130817@gocontroll.com>
-In-Reply-To: <20250226-initial_display-v2-0-23fafa130817@gocontroll.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Jessica Zhang <quic_jesszhan@quicinc.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Thierry Reding <thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>, 
- Liu Ying <victor.liu@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Mark Brown <broonie@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org, 
- Maud Spierings <maudspierings@gocontroll.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1740579556; l=1835;
- i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=lDaJ9PpD3LTiVueZZ5aFZexkMQcpo4jEuPMfz3jSIN8=;
- b=O0vJiBfO9wnWdxZzbjsNPzJfiq/cawRLlZdr0PevfBIIVUWb10oC5W6SbqkOP+lg1C+tnTKrf
- g3NPe82lQ0aA8F2OhoShu6cXbA/VsFy4ObhSR9jMr91wblOTZ60jZn7
-X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
- pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
-X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
- with auth_id=341
-X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_141923_138645_1276C1FB 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20250226_062224_754665_5D3CEEC2 
+X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,70 +118,23 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Maud Spierings <maudspierings@gocontroll.com>
+On 26/02/2025 14:09, Thierry Bultel wrote:
+> Selects support for RZ/T2H (aka r9a09g077), and
+> SCI (serial) specific code for it.
+> 
+> Signed-off-by: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>
+> Reviewed-by: Paul Barker <paul.barker.ct@bp.renesas.com>
+> ---
 
-Currently to configure each IOMUXC_SW_PAD_CTL_PAD the raw value of this
-register is written in the dts, these values are not obvious. Add defines
-which describe the fields of this register which can be or-ed together to
-produce readable settings.
+You never responded to my comments at v1. So I asked at v2. Still no answer.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
----
-This patch has already been sent in a different group of patches: [1]
-It was requested there to submit it along with a user, this series also
-includes some users for it.
+That's v3 and still silence from your side.
 
-[1]: https://lore.kernel.org/all/20250218-pinctrl_defines-v2-2-c554cad0e1d2@gocontroll.com/
----
- arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h | 27 ++++++++++++++++++++++++++
- 1 file changed, 27 insertions(+)
+NAK
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h b/arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h
-index 0fef066471ba607be02d0ab15da5a048a8a213a7..0927ed11ec687d5b273c4a4a6455e8d81468f676 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h
-@@ -6,6 +6,33 @@
- #ifndef __DTS_IMX8MP_PINFUNC_H
- #define __DTS_IMX8MP_PINFUNC_H
- 
-+//Drive Strength
-+#define MX8MP_DSE_X1 0x0
-+#define MX8MP_DSE_X2 0x4
-+#define MX8MP_DSE_X4 0x2
-+#define MX8MP_DSE_X6 0x6
-+
-+//Slew Rate
-+#define MX8MP_FSEL_FAST 0x10
-+#define MX8MP_FSEL_SLOW 0x0
-+
-+//Open Drain
-+#define MX8MP_ODE_ENABLE 0x20
-+#define MX8MP_ODE_DISABLE 0x0
-+
-+#define MX8MP_PULL_DOWN 0x0
-+#define MX8MP_PULL_UP 0x40
-+
-+//Hysteresis
-+#define MX8MP_HYS_CMOS 0x0
-+#define MX8MP_HYS_SCHMITT 0x80
-+
-+#define MX8MP_PULL_ENABLE 0x100
-+#define MX8MP_PULL_DISABLE 0x0
-+
-+//SION force input mode
-+#define MX8MP_SION 0x40000000
-+
- /*
-  * The pin function ID is a tuple of
-  * <mux_reg conf_reg input_reg mux_mode input_val>
-
--- 
-2.48.1
-
-
+Best regards,
+Krzysztof
 
