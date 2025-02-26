@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE586C19776
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 06:09:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7711BC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 06:16:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X3P+kR5e/IyP7N9s93UkKUPZZyDLn4Xj9sQvCcTjm6U=; b=mtOCmvhf4PIn07RwarES0zUUFC
-	zlA0n6LbZP1CowahTZ38LXfgzh1UhfyTOs3vJmvJUUNLaXGNnUhfo7y5p2nADFR4ZkwPCk+b1aR1u
-	mSXuwMdwiULQ+H9Ie7xBpEmYdiIn1Fzzn9YJfSPwtzM86uOumUbmg/+ohumN6Jv/0KQIiir/SWpHG
-	OcB4kMGroyvQ2DicOEqeukJr153bYOWgZIQYXvjbuyEv4P2vJyr87PM009DL14oO/eSRbGABludWn
-	oJhEHyTM8O9/HrW1tMiTho+caofk6ZQ/YmZXkrF0xIkyTal/Qi83TY99nnQG2BA+IjiwQkjP50ESF
-	sLYFqWlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4GvDwBZD4roAF/SEeFoR3akJsASSfyq/Z0vYBe+bC/I=; b=gI9YCxHtrz2sDi7m+l3YJKdDz0
+	Ma9Z6baEIcP5OmIhTGncVMz5YSMoF1wbe+kj3IrKvWXr4aVqTogZUYoKeWzuWgQFTuqfD/9BsVoti
+	Et9TOvS0zQJlkYHwoh9mWX/EikZDvBu2pY24hTDShv8KChEbqPWCDEa2cGBFyX0AUEYEJlYnIAXRf
+	IUuq/fRNb2cwTeyz0JcOJZ77kOl1s8sZZYcSSXGBSR7CI/BmuR/5gWgJWn+vZeu8ylYSOdEovCJaP
+	lgB2Q5QoDe+2kfwq7rE5ZaAa1EsA/BAQz0PPm1U8U1sJUpi808AYasxHri0cZg91z/eQOTE0S/m50
+	bTlcjM+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnAbP-00000002UmQ-2FuB;
-	Wed, 26 Feb 2025 06:09:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tnAiW-00000002VSo-2cqs;
+	Wed, 26 Feb 2025 06:16:24 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnAZu-00000002Uaj-1jSf
+	id 1tnAgz-00000002VI2-3A9p
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 06:07:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F410F6112A;
-	Wed, 26 Feb 2025 06:07:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53CA6C4CED6;
-	Wed, 26 Feb 2025 06:07:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740550048;
-	bh=ZyHSW2CFJY0phCrOV3ftPgjBH4sON/3HnsEMzS5mjrs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dIZ9LpwAcREXQgfuNg0zyNw0M++bvgoKOyYmGBHqKBWJWIkoYcu+Sm1wJ8tWOUEZh
-	 EnRA0v7pJNyg+h1sZYC8QkXrwzrlQH24Zzku0cZm99ayVIxijNVEBS0K/LruEWa8dT
-	 /hKigNIP8L0xmkTai29HFfvIkz/ayat6ka7Vel+0SD+hwTpopXHvo0TtdnZ/3xwKzQ
-	 x2ilMqyS7yU8GnKatLUixjjy4COKOFtxw6qAmfTxiliNM5KapWNaR6v44zxjFGKNrQ
-	 3Ep/Rd4/juKbj150cjM6pJHukAy107hyro8VaICi4NEhenpUukLcRfhaxEVth95Gzo
-	 mP2bYYkBWGW9w==
-Date: Tue, 25 Feb 2025 22:07:25 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Herbert Xu <herbert@gondor.apana.org.au>
-Cc: Arnd Bergmann <arnd@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Will Deacon <will@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Harald Freudenberger <freude@linux.ibm.com>,
-	Holger Dengler <dengler@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Jarkko Sakkinen <jarkko@kernel.org>, linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org, linux-s390@vger.kernel.org
-Subject: Re: [PATCH] crypto: lib/Kconfig - Select and hide arch options
-Message-ID: <20250226060725.GA41090@sol.localdomain>
-References: <20250225164216.4807-1-arnd@kernel.org>
- <20250225213344.GA23792@willie-the-truck>
- <f7c298b8-7989-49e7-90a2-5356029a6283@app.fastmail.com>
- <c4896a12-8abe-4fe6-b381-86b23d32b332@app.fastmail.com>
- <Z75xKexTUNm_FnSK@gondor.apana.org.au>
- <Z76aUfPIbhPAsHbv@gondor.apana.org.au>
+	Wed, 26 Feb 2025 06:14:51 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51Q6EbMA1988892
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 26 Feb 2025 00:14:37 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1740550477;
+	bh=4GvDwBZD4roAF/SEeFoR3akJsASSfyq/Z0vYBe+bC/I=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=oxUBhg5jlOUavE2PfQvYffDco9krGEJnYdAr8LdVoxqjbTpitIryBF473WMgGQVdZ
+	 izS7JiPwER2NDErhH/mFzE1x/jVwMkfcsFbASWj2Qz3xUTzjXEl5VHabaXV5YRrkpt
+	 J4AufRIpCdpPRVgYKi6Y0X7BfbNC5HwSucW5yXKo=
+Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51Q6Eb11056311
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 26 Feb 2025 00:14:37 -0600
+Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 26
+ Feb 2025 00:14:37 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 26 Feb 2025 00:14:37 -0600
+Received: from [172.24.18.117] (lt9560gk3.dhcp.ti.com [172.24.18.117])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51Q6EYfG062836;
+	Wed, 26 Feb 2025 00:14:34 -0600
+Message-ID: <503fcc32-8062-4b17-bb5d-1a2254afcf58@ti.com>
+Date: Wed, 26 Feb 2025 11:44:33 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z76aUfPIbhPAsHbv@gondor.apana.org.au>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: defconfig: Enable HSR driver
+To: Ravi Gunasekaran <r-gunasekaran@ti.com>, <catalin.marinas@arm.com>,
+        <will@kernel.org>
+CC: <quic_bjorande@quicinc.com>, <krzysztof.kozlowski@linaro.org>,
+        <arnd@arndb.de>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <srk@ti.com>
+References: <20240419060013.14909-1-r-gunasekaran@ti.com>
+Content-Language: en-US
+From: "Malladi, Meghana" <m-malladi@ti.com>
+In-Reply-To: <20240419060013.14909-1-r-gunasekaran@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250225_221449_903255_E297EB7F 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,59 +87,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 26, 2025 at 12:36:33PM +0800, Herbert Xu wrote:
-> The ARCH_MAY_HAVE patch missed arm64, mips and s390.  But it may
-> also lead to arch options being enabled but ineffective because
-> of modular/built-in conflicts.
+Hi all,
+
+Any reason why this patch hasn't been merged yet. Other than re-basing 
+this to the tip, anything else which needs to be addressed to get this 
+merged?
+
+Thanks & Regards,
+Meghana Malladi.
+
+On 4/19/2024 11:30 AM, Ravi Gunasekaran wrote:
+> HSR is a redundancy protocol that can be realized with any
+> two port ethernet controller.
 > 
-> As the primary user of all these options wireguard is selecting
-> the arch options anyway, make the same selections at the lib/crypto
-> option level and hide the arch options from the user.
+> Many of TI's K3 SoCs support multi port ethernet controller.
+> So enable HSR driver inorder to support this protocol on
+> such SoCs.
 > 
-> Fixes: 1047e21aecdf ("crypto: lib/Kconfig - Fix lib built-in failure when arch is modular")
-> Reported-by: kernel test robot <lkp@intel.com>
-> Reported-by: Arnd Bergmann <arnd@kernel.org>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202502232152.JC84YDLp-lkp@intel.com/
-> Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
+> Signed-off-by: Ravi Gunasekaran <r-gunasekaran@ti.com>
+> ---
+>   arch/arm64/configs/defconfig | 1 +
+>   1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> index 11fa4aa40094..750343564f41 100644
+> --- a/arch/arm64/configs/defconfig
+> +++ b/arch/arm64/configs/defconfig
+> @@ -176,6 +176,7 @@ CONFIG_NET_CLS_FLOWER=m
+>   CONFIG_NET_CLS_ACT=y
+>   CONFIG_NET_ACT_GACT=m
+>   CONFIG_NET_ACT_MIRRED=m
+> +CONFIG_HSR=m
+>   CONFIG_NET_ACT_GATE=m
+>   CONFIG_QRTR_SMD=m
+>   CONFIG_QRTR_TUN=m
 
-As I said earlier, fixing the arch-optimized code to be enabled automatically is
-the right way to do it.  There are still some issues with this patch, though:
-
->  config CRYPTO_LIB_CHACHA
->  	tristate "ChaCha library interface"
-> +	select CRYPTO
->  	select CRYPTO_LIB_CHACHA_GENERIC if CRYPTO_ARCH_HAVE_LIB_CHACHA=n
-> +	select CRYPTO_CHACHA20_X86_64 if X86 && 64BIT
-> +	select CRYPTO_CHACHA20_NEON if ARM || (ARM64 && KERNEL_MODE_NEON)
-> +	select CRYPTO_CHACHA_MIPS if CPU_MIPS32_R2
-> +	select CRYPTO_CHACHA_S390 if S390
-> +	select CRYPTO_CHACHA20_P10 if PPC64 && CPU_LITTLE_ENDIAN && VSX
-
-There's no need to have a select for every architecture, with the dependencies
-redundantly listed.  Instead just 'default' each of the arch-optimized options
-to CRYPTO_LIB_CHACHA.
-
-> config CRYPTO_CHACHA20_X86_64
->	tristate
->	depends on X86 && 64BIT
->	default CRYPTO_CHACHA20
->	select CRYPTO_ARCH_HAVE_LIB_CHACHA
-[...]
->
-> config CRYPTO_CHACHA20
-> 	tristate "ChaCha"
-> 	select CRYPTO_LIB_CHACHA_GENERIC
-> 	select CRYPTO_SKCIPHER
-
-This introduces a problem where to enable optimized ChaCha in the crypto API
-users will now need to enable CRYPTO_LIB_CHACHA, instead of
-CRYPTO_CHACHA20_X86_64 etc. as was needed before.  LIB symbols should never be
-user-selectable, so that makes no sense.
-
-The way it should work is that CRYPTO_CHACHA20 should just select
-CRYPTO_LIB_CHACHA (and thus also the optimized code).
-
-And similarly for the other algorithms, which should be in their patches.
-
-- Eric
 
