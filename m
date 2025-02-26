@@ -4,114 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 232CAC19F2E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:25:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7E43C19778
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:25:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v89iAwFyeqPHsdE/yiVGiniloe1eRnc0ZkN7Jaae0aY=; b=awQsDOoXiW3ahhO0leTQgbjf9m
-	pryHPmQd2QZFkVg4K3le3IWmnB3O1Jeg6bInG0RI+b5PMPrQkwJny6SM09MtITI8Q2L91WpmVb0hT
-	fFO48XNcEK4+8KtW7YVtOnrfoo4eQN8zIbca2EhE5X3n8slGELotSIPWI1PL3gsoCwklu9Bzfcbok
-	+QVzt3v9UomVdd0VBpAq3ecWPSsuYSX6MywfYS/nGp66M4t4ZdhKiRh5VnTbhPifu+ibtNcD0qXri
-	dt6ArkzPbNw+/uraTsnH8BKZNpKIO6eIXHbBoK7Ta36EGkMGyz0aMbjsrqT5TzIANLYWJJ7VcAPiE
-	7Fb6qO5A==;
+	bh=yPZfaLoaDBeJ/1iE3r6S9VZ8m7Tyn0Rz3khqWZ08eYc=; b=jhWeWWtNg+JI9ZsR2lITX3Tird
+	BCaBqMS3UuDxFap2qlGkRWv4XitTfTsfqpoSbXWV6eYn6UJw7j0WLveiD6fnSw7ydE0yRIts/bn7X
+	6r84ZLkOaRyPKIVS+bxZd4Cny3zdSPV5ueUc3nRRejStSYtSYvSZQV1S5210XhG7UQiyEjp9gRmgy
+	N7D9DX5JpRgFoZ3SNN7lUuWReTbP4E8IKCBQxoD/2VhgrxG/54iws5PUwP28SjHS4zsNF6wNvDOXw
+	ZY+cVXH1Kzu4GwKfAUMEzb9OR21fGw2/QiHEU9Sgrd6uYiyGZ16VBuIcFNjlPBrPYVRJu1armiDzE
+	sp+WiGmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnHPB-00000003paL-2vrb;
-	Wed, 26 Feb 2025 13:24:53 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tnHPA-00000003pZf-2NVg;
+	Wed, 26 Feb 2025 13:24:52 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnFIE-00000003Qqy-0R1i
+	id 1tnFFZ-00000003QGs-2SW2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 11:09:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6A1C75C5F35;
-	Wed, 26 Feb 2025 11:08:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07E4FC4CED6;
-	Wed, 26 Feb 2025 11:09:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740568173;
-	bh=MHm2io10GdTyBbgyWfXeVlZ2/mG8TgvsSf8dQBDFNsY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=K4PkizeAb0CwJrJrpZrO3qosJ9eAZth7PQoIJztZuGBBYEV62zHKJ/cW5ANB4n9Kl
-	 0BUz/oWgFSt+GSFN++Y2Yh5KGhum7dorKlNJmAnO4lxGcsaYJtP7C1SgegmZSJcHhd
-	 eoRrJMfeuhLfGhGv5PN+YLOOqqP+4asiP74LZkibMNjxYQqdEB40Nf55JAzqJjWx7J
-	 +mrv9QGPivd1EvtcvgcpzHTWMD3cc/AbcvwqxQE/MrKv4bm819yccQeczL6h+ZfPzy
-	 1DZ2g148h2DRbPhC61gL8ZsrkzaF6ioTN/b9xfRKTkSCMnC9Gc2WIy3LqXsAYkvkr9
-	 Ec8XgbOZN6bTQ==
-Message-ID: <d1c945bd-a738-4f01-8b93-c2a03b190c34@kernel.org>
-Date: Wed, 26 Feb 2025 12:09:27 +0100
+	Wed, 26 Feb 2025 11:06:50 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51Q9rKp7025767;
+	Wed, 26 Feb 2025 11:06:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	yPZfaLoaDBeJ/1iE3r6S9VZ8m7Tyn0Rz3khqWZ08eYc=; b=MsWjkChbyXJCGIex
+	Ure3D9mFKSz//XRo0Tz5WUvXbOa50BgTEOofC8SWIrqnqQ43S2dXxosqYMrBlOs+
+	EOHREOsyg5AEkkQTJPowo97qM27WiwBbx1KP7mkKaxiNZqLGzOhW+86/n0rCxBf6
+	SGjXgcs9LySjrtHO6dp1RTEhgHeCsAfuRw1YQVHXtP868O8LyqomlRnDSVA37K+w
+	Vjg1Ev2xNW06tt87cXO3wP86SJQg3BfRhCIUdgMF7jmV5bdxbAe9kMOj7dGARWDo
+	IuHBkT/HvVe2qfm+V8xCFViHnll9tB/C/6UcBk/e/Yj0JzDLg5fVtgWKJgUuo36/
+	YBaqZg==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 451prmhqrp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 26 Feb 2025 11:06:42 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51QB6bcX013117
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 26 Feb 2025 11:06:37 GMT
+Received: from yuanfang4-gv.ap.qualcomm.com (10.80.80.8) by
+ nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Wed, 26 Feb 2025 03:06:31 -0800
+From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Date: Wed, 26 Feb 2025 19:05:54 +0800
+Subject: [PATCH v2 5/5] coresight-tnoc: add nodes to configure freq packet
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/5] dt-bindings: arm: Add Coresight device Trace NOC
- definition
-To: Yuanfang Zhang <quic_yuanfang@quicinc.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: kernel@quicinc.com, linux-kernel@vger.kernel.org,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- kernel@oss.qualcomm.com, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com>
- <20250226-trace-noc-driver-v2-1-8afc6584afc5@quicinc.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250226-trace-noc-driver-v2-1-8afc6584afc5@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-ID: <20250226-trace-noc-driver-v2-5-8afc6584afc5@quicinc.com>
+References: <20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com>
+In-Reply-To: <20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>
+CC: <kernel@quicinc.com>, <linux-kernel@vger.kernel.org>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <kernel@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        Yuanfang Zhang <quic_yuanfang@quicinc.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1740567972; l=3505;
+ i=quic_yuanfang@quicinc.com; s=20241209; h=from:subject:message-id;
+ bh=eMP4dVcf6TBARmAN2VHv8KKSRKhmUUMlpK2P04AEDf8=;
+ b=KajF8tNVEbsS6z2G5qwonkX+NmN940K1wN8uf+f4ZPRs++UQcx1oy0NzT9d6ot9Cd1BxXCY0J
+ SGuuSJag4MUC0jydKl63M4z35nAs9angFkCSuEY0vfhHYkGsprFWgVn
+X-Developer-Key: i=quic_yuanfang@quicinc.com; a=ed25519;
+ pk=ZrIjRVq9LN8/zCQGbDEwrZK/sfnVjwQ2elyEZAOaV1Q=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: qoXj96ZHDZLGuxOtsz3RLrNhIWPn7gDi
+X-Proofpoint-ORIG-GUID: qoXj96ZHDZLGuxOtsz3RLrNhIWPn7gDi
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-26_02,2025-02-26_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
+ impostorscore=0 phishscore=0 bulkscore=0 malwarescore=0 mlxscore=0
+ priorityscore=1501 adultscore=0 spamscore=0 mlxlogscore=999
+ lowpriorityscore=0 clxscore=1015 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.19.0-2502100000 definitions=main-2502260088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_030934_259668_F14020A2 
-X-CRM114-Status: UNSURE (   6.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250226_030649_773322_878F4125 
+X-CRM114-Status: GOOD (  15.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,21 +117,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/02/2025 12:05, Yuanfang Zhang wrote:
-> +
-> +  compatible:
-> +    items:
-> +      - const: qcom,coresight-tnoc
-> +      - const: arm,primecell
-> +
-> +  reg:
-> +    minItems: 1
-> +    maxItems: 2
-> +    description:
-> +      Physical address space of the device.
-Not much improved - still items are not listed. Which binding did you
-choose as an example as I asked to? (so I can fix it)
+Three nodes for freq packet config are added here:
 
-Best regards,
-Krzysztof
+1. freq_type: used to set the type of issued ATB FREQ packets.
+0: 'FREQ' packets; 1: 'FREQ_TS' packets.
+
+2. freq_req_val: used to set frequency values carried by 'FREQ'
+and 'FREQ_TS' packets.
+
+3. freq_ts_req: writing '1' to issue a 'FREQ' or 'FREQ_TS' packet.
+
+Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+---
+ drivers/hwtracing/coresight/coresight-tnoc.c | 97 ++++++++++++++++++++++++++++
+ 1 file changed, 97 insertions(+)
+
+diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
+index ad973749250644760adc4dfd855240026d0a744c..24b1add4c921866b944d756e563d50b4172d583a 100644
+--- a/drivers/hwtracing/coresight/coresight-tnoc.c
++++ b/drivers/hwtracing/coresight/coresight-tnoc.c
+@@ -112,10 +112,107 @@ static ssize_t flag_type_show(struct device *dev,
+ }
+ static DEVICE_ATTR_RW(flag_type);
+ 
++static ssize_t freq_type_show(struct device *dev,
++			      struct device_attribute *attr,
++			      char *buf)
++{
++	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
++
++	return sysfs_emit(buf, "%u\n", drvdata->freq_type);
++}
++
++static ssize_t freq_type_store(struct device *dev,
++			       struct device_attribute *attr,
++			       const char *buf,
++			       size_t size)
++{
++	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
++	unsigned long val;
++
++	if (kstrtoul(buf, 0, &val))
++		return -EINVAL;
++
++	if (val != 1 && val != 0)
++		return -EINVAL;
++
++	spin_lock(&drvdata->spinlock);
++	if (val)
++		drvdata->freq_type = FREQ_TS;
++	else
++		drvdata->freq_type = FREQ;
++	spin_unlock(&drvdata->spinlock);
++
++	return size;
++}
++static DEVICE_ATTR_RW(freq_type);
++
++static ssize_t freq_req_val_show(struct device *dev,
++				 struct device_attribute *attr,
++				char *buf)
++{
++	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
++
++	return sysfs_emit(buf, "%u\n", drvdata->freq_req_val);
++}
++
++static ssize_t freq_req_val_store(struct device *dev,
++				  struct device_attribute *attr,
++				  const char *buf,
++				  size_t size)
++{
++	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
++	unsigned long val;
++
++	if (kstrtoul(buf, 0, &val))
++		return -EINVAL;
++
++	if (val) {
++		spin_lock(&drvdata->spinlock);
++		drvdata->freq_req_val = val;
++		spin_unlock(&drvdata->spinlock);
++	}
++
++	return size;
++}
++static DEVICE_ATTR_RW(freq_req_val);
++
++static ssize_t freq_ts_req_store(struct device *dev,
++				 struct device_attribute *attr,
++				 const char *buf,
++				 size_t size)
++{
++	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
++	struct coresight_device	*csdev = drvdata->csdev;
++	unsigned long val;
++	u32 reg;
++
++	if (kstrtoul(buf, 0, &val))
++		return -EINVAL;
++
++	spin_lock(&drvdata->spinlock);
++	if (csdev->refcnt == 0) {
++		spin_unlock(&drvdata->spinlock);
++		return -EPERM;
++	}
++
++	if (val) {
++		reg = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
++		reg = reg | TRACE_NOC_CTRL_FREQTSREQ;
++		writel_relaxed(reg, drvdata->base + TRACE_NOC_CTRL);
++	}
++	spin_unlock(&drvdata->spinlock);
++
++	return size;
++}
++static DEVICE_ATTR_WO(freq_ts_req);
++
+ static struct attribute *trace_noc_attrs[] = {
+ 	&dev_attr_flush_req.attr,
+ 	&dev_attr_flush_status.attr,
+ 	&dev_attr_flag_type.attr,
++	&dev_attr_freq_type.attr,
++	&dev_attr_freq_req_val.attr,
++	&dev_attr_freq_ts_req.attr,
+ 	NULL,
+ };
+ 
+
+-- 
+2.34.1
+
 
