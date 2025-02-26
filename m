@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0E54C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 19:08:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EB3AC19776
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 19:09:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VzAqOZsGB06Od+tZizvR/NiVyp5CJBZl2Wknj7QZr1Y=; b=dh6IrxwuqKIauNxt0hhxYjQ0HX
-	aXHFI992A7WV7b95FHFUJ2jrE4LtkjoWVLDnIgcSH1PEySZ/ECIbOD8WnEvf6tH8DvF5eZ5K65CZY
-	mVTRQ5EkS/JFodqZ2WL7uGCkHsM/VSzTAMWIEtHooraJ1MyINAsslxgBxq5xFJUAE/PQVTM150D3V
-	tLT4EJ5BfDyedEREVVglIzIulGL57M6y744/UhT51+cFQLZ0VNiQKaHWY8ciFN8xTzSxbSCczvj9a
-	QvvVQcab1jHCsGaBLbtSfNZpxWV/eZOF3ImxbPNM490c6a2IOW84O1PbqiaL32U5tbYkGkXfnQYer
-	kD2tp0QQ==;
+	bh=jY3uCIlzRPcqsdFsVDSRckZdY857FgnbST2KmHH/YWw=; b=pgQRbuGbbtEGRYt7Tut9CCpP8i
+	GUIsvDbZL5mXFIkrOi4DLMXuaGCI2YuqWvcI8YTHGYaev9/bsbrtjaeiaGcy7yDevL0WfTXFi77ii
+	QIKlme5JdYyGvP0+RygeIArNk7xImnJbwwMI2NwrSBX2WkIlI++sm8tyBaLfTSsZ2KCVcDQG+Z8QL
+	8qADAvM/iyh/Z0JHQHan8VDtovfRkQphnRQcCv7H2aL6LFo6lcJihFiHmJC5GRh+QMUV/x7BTCXg6
+	U6sGNS7rs1EzSioi7q04ItMq/r0ubwwpmoB4i/0NVMlaZ+NGWrh7gB6sztfmCAcWdh33m27Bj4LQN
+	rnDc+YNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnMlP-0000000565A-2NYd;
-	Wed, 26 Feb 2025 19:08:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tnMmv-000000056J9-1a21;
+	Wed, 26 Feb 2025 19:09:45 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnMdl-000000054cD-3hpk
+	id 1tnMdm-000000054cA-0gpa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 19:00:17 +0000
+	Wed, 26 Feb 2025 19:00:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 52F8A6152A;
-	Wed, 26 Feb 2025 19:00:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id DAA9BC4CEEA;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 341D15C7354;
+	Wed, 26 Feb 2025 18:59:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B9121C4CEE8;
 	Wed, 26 Feb 2025 19:00:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1740596416;
-	bh=+42kuksOlhzcBQPYk3PSr8n66m0DZ2Ays+BbNMN38cY=;
+	bh=VHk6+dPKZF78pRrNidDKIzcA8Vd8WnrEysNDQjAv7p4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=U0Xm6pVmkP2OlUb3J4Cv/yIEuucen0nc8VsYSW5vwJonhMr68Uiwqjo7mB+7ZHvQ9
-	 JrI8zTh8Spu3oNow/c9bIlP51XGoUHzmFv8d47gjq0+QR0U2tf90GmZOP7qFRFA5ch
-	 L7bPUaCYHr/6V5NV/pyMcP3cauMbIzwvzsaMOkBjlEqui0/pMHdd1A5QaUF83tgg9C
-	 iXGIW+fqc9ifLkGpHQ12yKobijT/oAxatH4sB9gEvJuuSgmKRKendZN6kB5JTKLIwo
-	 xo4WVnoNRKl64Uk85ALl9wWkoPjFW9HoeV+oPybyUyCEtLlV1ZOAxGkHD5a+rtQfla
-	 77CH70JYioL+g==
+	b=lmI9ua6Ci+qh1KVirQDshLct2N6hauoIY8BAPYgX4hXNgKUiUAE0ZZcFt8yta7sj7
+	 nZLIhACUs7o9JPplNDjdhxxAOUmYM488AHK70BDi6/bfH5Ma4SDxU0NPsamQHU2FN5
+	 o6SQ20c6Nz0s8HpZ8WgeXDkPyrRqT8+AhnoN8ixAaf7+EmP8oUSH0WZj53H+1rVDU+
+	 5feQBxYGwkGRtgsF/j+fmcp3Aw8pZlI3k0/52cQpNRrUDzr3by+ive0FZD1sGhYU7W
+	 q0eAqBAK3RuohHoc3U61r26G4izkkjvxVuazNrkmcC1yFQzv0voPeht9yRQbaIE/Nv
+	 T9geiyNzFauYA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D329BC021B8;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A80F4C19776;
 	Wed, 26 Feb 2025 19:00:16 +0000 (UTC)
 From: Sven Peter via B4 Relay <devnull+sven.svenpeter.dev@kernel.org>
-Date: Wed, 26 Feb 2025 19:00:06 +0000
-Subject: [PATCH v2 4/4] soc: apple: rtkit: Cut syslog messages after the
- first '\0'
+Date: Wed, 26 Feb 2025 19:00:03 +0000
+Subject: [PATCH v2 1/4] soc: apple: rtkit: Add and use PWR_STATE_INIT
+ instead of _ON
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250226-apple-soc-misc-v2-4-c3ec37f9021b@svenpeter.dev>
+Message-Id: <20250226-apple-soc-misc-v2-1-c3ec37f9021b@svenpeter.dev>
 References: <20250226-apple-soc-misc-v2-0-c3ec37f9021b@svenpeter.dev>
 In-Reply-To: <20250226-apple-soc-misc-v2-0-c3ec37f9021b@svenpeter.dev>
 To: Alyssa Rosenzweig <alyssa@rosenzweig.io>, Janne Grunau <j@jannau.net>, 
@@ -60,18 +60,21 @@ To: Alyssa Rosenzweig <alyssa@rosenzweig.io>, Janne Grunau <j@jannau.net>,
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1047; i=sven@svenpeter.dev;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1269; i=sven@svenpeter.dev;
  h=from:subject:message-id;
- bh=J8uNhQd4K8sLsyiwKJwYYfLSFRN53J4ELGphw4z4HHQ=;
- b=owGbwMvMwCHmIlirolUq95LxtFoSQ/r+lH1uAVs+eKaVxVdt0rz+94SbXkKDzbIZyQ1mUcv+a
- JxaF+DVUcrCIMbBICumyLJ9v73pk4dvBJduuvQeZg4rE8gQBi5OAZiIcR7D//TfGe0xl/Wt21bf
- Zdi9Lv2qgW5tVm7mim5lq2Lvki4PTkaG6W3nfsh4rJnOdmP2FS2WiU2Ha5LXhUpPLNM+Ntuoy1O
- FGwA=
+ bh=7cIMb5W1B1VA4bj9uxkLGyPS9AbrGxHzx345cZFtAjE=;
+ b=owGbwMvMwCHmIlirolUq95LxtFoSQ/r+lD1Bh8qjJmd9L3nt8Wfjzf+VE6cxljdMYp51V4h1z
+ vIHkkldHaUsDGIcDLJiiizb99ubPnn4RnDppkvvYeawMoEMYeDiFICJ2P5kZLgmfEC234zvaQHL
+ m+Umc17u7+aRLZvYOX3X/zuc2WEseraMDC8UpRU3M5w+m8wbFMrmMJk5MVT9T/cVw9a5b4/G77j
+ qwgkA
 X-Developer-Key: i=sven@svenpeter.dev; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@svenpeter.dev/default with
  auth_id=167
 X-Original-From: Sven Peter <sven@svenpeter.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250226_110018_267155_A4C741E2 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,31 +92,36 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Janne Grunau <j@jannau.net>
 
-Certain messages from DCP contain NUL bytes in the random data after the
-NUL terminated syslog message. Since the syslog message ends with '\n'
-this results in a dev_info() message terminated with two newlines and an
-empty printed line in the kernel log.
+This state is needed to wake the dcp IOP after m1n1 shut it down
+and works for all other co-processors as well.
 
 Signed-off-by: Janne Grunau <j@jannau.net>
-Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 Signed-off-by: Sven Peter <sven@svenpeter.dev>
 ---
- drivers/soc/apple/rtkit.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/soc/apple/rtkit.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/soc/apple/rtkit.c b/drivers/soc/apple/rtkit.c
-index 4b78463dd5a1..5fffd0f003dc 100644
+index 2f5f878bf899..be0d08861168 100644
 --- a/drivers/soc/apple/rtkit.c
 +++ b/drivers/soc/apple/rtkit.c
-@@ -477,7 +477,7 @@ static void apple_rtkit_syslog_rx_log(struct apple_rtkit *rtk, u64 msg)
+@@ -12,6 +12,7 @@ enum {
+ 	APPLE_RTKIT_PWR_STATE_IDLE = 0x201, /* sleeping, retain state */
+ 	APPLE_RTKIT_PWR_STATE_QUIESCED = 0x10, /* running but no communication */
+ 	APPLE_RTKIT_PWR_STATE_ON = 0x20, /* normal operating state */
++	APPLE_RTKIT_PWR_STATE_INIT = 0x220, /* init after starting the coproc */
+ };
  
- 	log_context[sizeof(log_context) - 1] = 0;
- 
--	msglen = rtk->syslog_msg_size - 1;
-+	msglen = strnlen(rtk->syslog_msg_buffer, rtk->syslog_msg_size - 1);
- 	while (msglen > 0 &&
- 		   should_crop_syslog_char(rtk->syslog_msg_buffer[msglen - 1]))
- 		msglen--;
+ enum {
+@@ -898,7 +899,7 @@ int apple_rtkit_wake(struct apple_rtkit *rtk)
+ 	 * Use open-coded apple_rtkit_set_iop_power_state since apple_rtkit_boot
+ 	 * will wait for the completion anyway.
+ 	 */
+-	msg = FIELD_PREP(APPLE_RTKIT_MGMT_PWR_STATE, APPLE_RTKIT_PWR_STATE_ON);
++	msg = FIELD_PREP(APPLE_RTKIT_MGMT_PWR_STATE, APPLE_RTKIT_PWR_STATE_INIT);
+ 	ret = apple_rtkit_management_send(rtk, APPLE_RTKIT_MGMT_SET_IOP_PWR_STATE,
+ 					  msg);
+ 	if (ret)
 
 -- 
 2.34.1
