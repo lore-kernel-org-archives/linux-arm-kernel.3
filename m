@@ -4,91 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88B59C021BC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 08:36:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C07DAC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 08:37:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QTp1DwcDw762KDomIRK2976/YjMdtiSjqpoN9MvDBnw=; b=ZfgU15ZGAXfHNYiqefc5e6cLal
-	3TERwr8FugddZ/+8r6aSRRf9MY5hwBIGiTR3/RhuJ4JN8Tr2TgzTssBMrFqxJOruiKHpYJbh0JbnL
-	oZpEc424Gx0Y243X1Wc5sJDhwWb3+yaMC9ACi9hoQsFA42G5QjPzApTwGGNoHmDfRM+iyKF2A3Y10
-	Cj0ZaE/IHhbMm7pPH16ruo0GYXS9Fwu+loiEsmxY5ARCapwfdCVx6PugztN5/jBSAWxd/Prt7QCCn
-	Ewk27okO7mBGJKAqKYxdofMMyjssnLIOwRYF+cPZjXhK+rw9uqcY7V6DED2fFv0mvAZYeOVohs1FM
-	DK3+bzYA==;
+	bh=WG/BZB8dw3KJbqJYA4MeEP90bt5qmYBoQ2VtcFkN6bQ=; b=L6OtF9DMg0yDR9O1cbD6NR7NI2
+	H9026fNRvvt/2J0hUzSrKvc9/pmI6BPo0yGCa6t0Qu9K5a6VnM6nMZu/ntzrrpxC0y8Dej2YqcHQw
+	WPmx309r94XxoqhCjAk4O6vyIKanJC4Thrf4m4biL1mtdtYxpP4tp5kIloiw6QkqVG3DUJ/0Az9Q6
+	3qadrDZ+bKZKRwrDiFG9K/wTPUQp4NS+JZXw89KA/0+/1SVHcyZ3ntCe04iBidNtTVsAiT9DYLvyi
+	fmBeYx/D2eACbVRuGGcRqE+QI+SldqC1euP48+21/shqCs1A5QPSUvJy/nsxusxgcFTnnbJdYArXG
+	olXz1BLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnCtX-00000002um4-0uyB;
-	Wed, 26 Feb 2025 08:35:55 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1tnCv3-00000002v1d-0MQi;
+	Wed, 26 Feb 2025 08:37:29 +0000
+Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnCo0-00000002t23-27Hf
+	id 1tnCpl-00000002tZR-29S1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 08:30:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1740558612; x=1772094612;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=QTp1DwcDw762KDomIRK2976/YjMdtiSjqpoN9MvDBnw=;
-  b=a2KIG2mZ9KXzk2kUjzokfDYPEcofv0tvvzkZIlFf8GWhMkkFJduWquV7
-   N0GsFcinzvfO0iMBaWlN0f2OIeN9bOm4RFKqrdx6i++vaXbVU5kfzNFuE
-   /oH57WjkhmeuNBme9cj7WC2zhOv2NiPWH7xtgFm3gKGc1MHpSxWVaf1C5
-   GZrS8bWJeW/ZKFzqGSXODRrwwGOVieTAop0v11BwS/MfcMdiW3i9VdWqA
-   W1AHU1x5w0hXqv+OkrqwGGqriqWUIGIMIfmHxjDvgHxTwA2NLUJsNbok5
-   I5JybMfhJg1RPUdgxrF/zX5wdswWvx/Q+Q3GFx57KP48n4z/TZzpZKPpZ
-   w==;
-X-CSE-ConnectionGUID: mnH/OuQLRu6ZleMIQlem2g==
-X-CSE-MsgGUID: 7jd0BkKsS/eVEg8don57xg==
-X-IronPort-AV: E=Sophos;i="6.13,316,1732575600"; 
-   d="scan'208";a="42100428"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 26 Feb 2025 09:30:09 +0100
-X-CheckPoint: {67BED111-35-28232521-C0C2250B}
-X-MAIL-CPID: 7BEE2FE34E5CA2663E70FFD0064A9E7F_4
-X-Control-Analysis: str=0001.0A002114.67BED111.0049,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6E89C168E0D;
-	Wed, 26 Feb 2025 09:30:02 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1740558605;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QTp1DwcDw762KDomIRK2976/YjMdtiSjqpoN9MvDBnw=;
-	b=k4b8csBFyeNFO8pULNoZ5iEdQxDjDA8ObrojCjEeglCFxvD0zH8hinWyCXxU2aUkTBk2k2
-	JRLqwoDkA052+wne1RXCwY8xO8EEyt8PeM2vyA0Z6RLBHAewoGdmO8sSkM2JigdSZ3pecq
-	3X4HQUsYs8SvtX1qVdWZ7nvDDD/m4aAgCk50bii/dy8tq9WQ39e3uxkdTgNbiUI3J2mFlm
-	jOBdWcAUPGTg/4Rhd8voBj0RXnFeJj7Nsfq23lacJNjlKrsxwYTrz0tN2Gd1/jxQqKRQVk
-	Bd0EOloWzEMKJ9IDH5b3VkfkRIlEX/38U0czCNgYGFtN7ICm0L2pwOFTwFXVSg==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
- "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-Cc: Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v2 1/1] arm64: dts: imx95: add ref clock for pcie nodes
-Date: Wed, 26 Feb 2025 09:30:01 +0100
-Message-ID: <2979558.e9J7NaK4W3@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20250225170802.2671972-1-Frank.Li@nxp.com>
-References: <20250225170802.2671972-1-Frank.Li@nxp.com>
+	Wed, 26 Feb 2025 08:32:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=WG/BZB8dw3KJbqJYA4MeEP90bt5qmYBoQ2VtcFkN6bQ=; b=hRaTwBlonDtEs5WWJDXcbJm7MU
+	d4V9ZU6gHuJhkoi+hhZkS5kWAh65aYIBJTcW3+buIGJCXhqkaXgQ9PDIyPPhzH3nHEL5s0BMo74Ay
+	ZQ1g0YhnFjKc7xk8lbHvBTR1rIBGK96J+TfAXWfTK4R7NRj8VBy/UjHmYuTO/b84eyf6qdI6Wfr+Y
+	+baf0BP/9ndb6/emmAdd/YEU8pr6wLK4fIYy3EYMBtbaCqZ/jyeKA6m/D8Y1Nxa/jz+FksG6aR4IB
+	/e3yhBCDN1MtgDD5i2uJvxQjkjgJPUPoFkAMvzVh58O+wk5F75j/yVAw4ngML9BIE98ykuLrredB9
+	wHmg+PfA==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1tnCpM-001sM7-0Y;
+	Wed, 26 Feb 2025 16:31:37 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Wed, 26 Feb 2025 16:31:36 +0800
+Date: Wed, 26 Feb 2025 16:31:36 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Arnd Bergmann <arnd@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Will Deacon <will@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Harald Freudenberger <freude@linux.ibm.com>,
+	Holger Dengler <dengler@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Jarkko Sakkinen <jarkko@kernel.org>, linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mips@vger.kernel.org, linux-s390@vger.kernel.org
+Subject: Re: [PATCH] crypto: lib/Kconfig - Select and hide arch options
+Message-ID: <Z77RaBFMc7u4EEIc@gondor.apana.org.au>
+References: <20250225164216.4807-1-arnd@kernel.org>
+ <20250225213344.GA23792@willie-the-truck>
+ <f7c298b8-7989-49e7-90a2-5356029a6283@app.fastmail.com>
+ <c4896a12-8abe-4fe6-b381-86b23d32b332@app.fastmail.com>
+ <Z75xKexTUNm_FnSK@gondor.apana.org.au>
+ <Z76aUfPIbhPAsHbv@gondor.apana.org.au>
+ <20250226060725.GA41090@sol.localdomain>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250226060725.GA41090@sol.localdomain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_003013_037616_12A12735 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20250226_003201_555890_FD9A510D 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,98 +95,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+On Tue, Feb 25, 2025 at 10:07:25PM -0800, Eric Biggers wrote:
+>
+> There's no need to have a select for every architecture, with the dependencies
+> redundantly listed.  Instead just 'default' each of the arch-optimized options
+> to CRYPTO_LIB_CHACHA.
 
-Am Dienstag, 25. Februar 2025, 18:08:02 CET schrieb Frank Li:
-> Add "ref" clock for i.MX95's pcie and fix below CHECK_DTBS warnings:
-> arch/arm64/boot/dts/freescale/imx95-19x19-evk.dtb: pcie@4c300000: clock-n=
-ames: ['pcie', 'pcie_bus', 'pcie_phy', 'pcie_aux'] is too short
-> 	from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie.yaml
->=20
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
-> change from v2 - v3
-> - fix typo 1000000
->=20
-> change from v1 - v2
-> - rebase to dt/dt64
-> - add clock 100mhz
-> ---
->  arch/arm64/boot/dts/freescale/imx95.dtsi | 25 ++++++++++++++++++++----
->  1 file changed, 21 insertions(+), 4 deletions(-)
->=20
-> diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/d=
-ts/freescale/imx95.dtsi
-> index 51625bc9154ec..9bb26b466a061 100644
-> --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-> @@ -291,6 +291,13 @@ sai5_mclk: clock-sai-mclk5 {
->  		clock-output-names =3D "sai5_mclk";
->  	};
-> =20
-> +	clk_sys100m: clock-sys100m {
-> +		compatible =3D "fixed-clock";
-> +		#clock-cells =3D <0>;
-> +		clock-frequency =3D <100000000>;
-> +		clock-output-names =3D "clk_sys100m";
-> +	};
-> +
+Good point.
 
-Where does this clock come from? Does this origin on board-level?
+> The way it should work is that CRYPTO_CHACHA20 should just select
+> CRYPTO_LIB_CHACHA (and thus also the optimized code).
 
-Best regards,
-Alexander
+Good catch.  I'll add them.
 
->  	osc_24m: clock-24m {
->  		compatible =3D "fixed-clock";
->  		#clock-cells =3D <0>;
-> @@ -1595,6 +1602,14 @@ usb3_dwc3: usb@4c100000 {
->  			};
->  		};
-> =20
-> +		hsio_blk_ctl: syscon@4c0100c0 {
-> +			compatible =3D "nxp,imx95-hsio-blk-ctl", "syscon";
-> +			reg =3D <0x0 0x4c0100c0 0x0 0x1>;
-> +			#clock-cells =3D <1>;
-> +			clocks =3D <&clk_sys100m>;
-> +			power-domains =3D <&scmi_devpd IMX95_PD_HSIO_TOP>;
-> +		};
-> +
->  		usb3_phy: phy@4c1f0040 {
->  			compatible =3D "fsl,imx95-usb-phy", "fsl,imx8mp-usb-phy";
->  			reg =3D <0x0 0x4c1f0040 0x0 0x40>,
-> @@ -1633,8 +1648,9 @@ pcie0: pcie@4c300000 {
->  			clocks =3D <&scmi_clk IMX95_CLK_HSIO>,
->  				 <&scmi_clk IMX95_CLK_HSIOPLL>,
->  				 <&scmi_clk IMX95_CLK_HSIOPLL_VCO>,
-> -				 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>;
-> -			clock-names =3D "pcie", "pcie_bus", "pcie_phy", "pcie_aux";
-> +				 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>,
-> +				 <&hsio_blk_ctl 0>;
-> +			clock-names =3D "pcie", "pcie_bus", "pcie_phy", "pcie_aux", "ref";
->  			assigned-clocks =3D<&scmi_clk IMX95_CLK_HSIOPLL_VCO>,
->  					 <&scmi_clk IMX95_CLK_HSIOPLL>,
->  					 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>;
-> @@ -1706,8 +1722,9 @@ pcie1: pcie@4c380000 {
->  			clocks =3D <&scmi_clk IMX95_CLK_HSIO>,
->  				 <&scmi_clk IMX95_CLK_HSIOPLL>,
->  				 <&scmi_clk IMX95_CLK_HSIOPLL_VCO>,
-> -				 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>;
-> -			clock-names =3D "pcie", "pcie_bus", "pcie_phy", "pcie_aux";
-> +				 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>,
-> +				 <&hsio_blk_ctl 0>;
-> +			clock-names =3D "pcie", "pcie_bus", "pcie_phy", "pcie_aux", "ref";
->  			assigned-clocks =3D<&scmi_clk IMX95_CLK_HSIOPLL_VCO>,
->  					 <&scmi_clk IMX95_CLK_HSIOPLL>,
->  					 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>;
->=20
+> And similarly for the other algorithms, which should be in their patches.
 
+It's best to keep everything together as if done separately they
+may introduce bisection issues between the patches.
 
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
-
+Thanks,
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
