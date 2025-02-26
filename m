@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A910BC021BF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 14:04:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABA52C021BF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 14:06:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y5HzTLv7sfh35EQ2e6vDNCEEGGk0nP1LY8agEPskJ2I=; b=Bu2/nP1ZthEc98qvM9Fn9dz5US
-	IAH05xX8Knn4xz4DgFnrcOUqDcVVnH8+/2fhPDh/qPs+A0N5eTxjhbbOkecX56lWJSp3JiLSqAxTI
-	aGceV2UKkANA2P+C2TOaNlAvKTQBuUkm6a24MCQ9jq11eTpkpwp5gGH9N4zD497j8m1vpEz/uisxv
-	MuqKlvrSoypp4zVlO4chnYD06+sSarfzo6JlzmmtamsExUWmS89OJSRvTLqYDE/V0gVarRuavwamn
-	w+CgfWvqEWWJcyRlKzQFDe85ks4TRC5kHN1jVPGhzaDEmWLtbC9BdQhjbf01fAwhxfXzTSFHKtfBx
-	dBt0K12w==;
+	bh=tiK61WpmT0ctKIwY75HnpThFd8ZzC9ffICVu+PpUZ3c=; b=yrL6nJZdCkqKGssW3bkGuSyDk7
+	YfIK2qlgRP/jH2xG6k3FnKyLdzp99gsZU9DXsUHor7swwC5uJpdxlOhNLRdScJJtVS6osXZ9VIqAd
+	TKf0n6jzgQMZ7RhUcToeP7MVHxjhCxsKIUACcii06sh5gsZ0oVV5Gq1VpmE3nZ88JLhXuIsA4Hmla
+	J/aVyOaoTUfzvz9NXY31NjPIRyDSCDrIXCe4QWcEwjI0InLVKi5kkcIG6K1RVfNfYwC4l6K+I8P4k
+	ZSPTiwG6Cjasli5aCHxTPrR9Q5b0KyrPuR6ztJPAiuwRHExiBeMFNF1XXqOAxrH0mpyFNUZ1UIMA5
+	7dEDmTQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnI1T-000000040TS-3vDX;
-	Wed, 26 Feb 2025 14:04:27 +0000
+	id 1tnI2z-000000040i6-2kCo;
+	Wed, 26 Feb 2025 14:06:01 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnHzG-0000000408M-2rq3
+	id 1tnI0Y-000000040ME-099X
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 14:02:13 +0000
+	Wed, 26 Feb 2025 14:03:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
 	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=y5HzTLv7sfh35EQ2e6vDNCEEGGk0nP1LY8agEPskJ2I=; b=eDzRA9aG3dT4rI9lZkaMzOrjmZ
-	rv+C9d15o3IJ3+YtPHUnTHtWlK8hAESaVfGfspCo975JDCmV933K8L7yqpkpuIQGH2gWjQG9ewtPV
-	YwtyJzU3OShw94RtyU2yApCNZ8C/kCh0AcduQYQP0CNK74cLRzN1uW2ebUwfOTChvcA102kfx7AkV
-	zH64ql/uIcsoXQDW5Xs9n1hDWlUmHrnGSivSXOOMIsFQ8wDIcooZvfUgY3MlVMeq2m/XgchSRV8a1
-	u2N5xutn/cXHlqVmuQkojsEy8VVnPTrkuSy7U8uE3eSRGSZi3c3GvwSts6+EDiRi/DIdtdbQmc87h
-	4//QnB4A==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58138)
+	bh=tiK61WpmT0ctKIwY75HnpThFd8ZzC9ffICVu+PpUZ3c=; b=v4V1VDYngPydaUXfGptlcFt9Ck
+	Cj2Ecb1U3T5RkWNpXSkx9uWXFyNA7S1bXKT7QCgUHJYLQRJpeOqcVVB8gdFP7f4NU+xNTHf+c/DgK
+	ItFKUrCIcOXV1ZK6/n+otAwHVyctwbDJ9farlSRaz7t3gfVsKG7/EdDmZ66z8iapFASxsRQrJT+EV
+	DjgsggTsqmH8ID0bZmUczQz6mFEJlmcWP9s+HeHYyVujr9YGxEBnFKvDrYPFCzARVYTkpLq/+1Z8i
+	kHIrpg1v6a5Q1r2CatE76keKbiTxdEsVAWoqK6hv7lyd64FIBhJBPw5dIbGuRO0rfbdA5AL79H7tr
+	+sQ57tyw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:41768)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <linux@armlinux.org.uk>)
-	id 1tnHz6-0004Pb-13;
-	Wed, 26 Feb 2025 14:02:00 +0000
+	id 1tnI0R-0004Q7-0o;
+	Wed, 26 Feb 2025 14:03:23 +0000
 Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
 	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tnHz3-00078s-0d;
-	Wed, 26 Feb 2025 14:01:57 +0000
-Date: Wed, 26 Feb 2025 14:01:57 +0000
+	id 1tnI0O-000790-2L;
+	Wed, 26 Feb 2025 14:03:20 +0000
+Date: Wed, 26 Feb 2025 14:03:20 +0000
 From: "Russell King (Oracle)" <linux@armlinux.org.uk>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>,
@@ -66,18 +66,18 @@ Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>,
 	Oleksij Rempel <o.rempel@pengutronix.de>,
 	Simon Horman <horms@kernel.org>,
 	Romain Gantois <romain.gantois@bootlin.com>
-Subject: Re: [PATCH net-next v2 09/13] net: phy: phylink: Use phy_caps_lookup
- for fixed-link configuration
-Message-ID: <Z78e1dmEuQzMER5L@shell.armlinux.org.uk>
+Subject: Re: [PATCH net-next v2 11/13] net: phy: phylink: Add a mapping
+ between MAC_CAPS and LINK_CAPS
+Message-ID: <Z78fKCZl4-77NjeK@shell.armlinux.org.uk>
 References: <20250226100929.1646454-1-maxime.chevallier@bootlin.com>
- <20250226100929.1646454-10-maxime.chevallier@bootlin.com>
+ <20250226100929.1646454-12-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250226100929.1646454-10-maxime.chevallier@bootlin.com>
+In-Reply-To: <20250226100929.1646454-12-maxime.chevallier@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_060210_724074_6F808F5F 
-X-CRM114-Status: GOOD (  24.87  )
+X-CRM114-CacheID: sfid-20250226_060330_074934_7CCF66A2 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,106 +92,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Please use a subject line of "net: phylink: " for phylink patches, not
-"net: phy: " which is for phylib.
-
-On Wed, Feb 26, 2025 at 11:09:24AM +0100, Maxime Chevallier wrote:
-> When phylink creates a fixed-link configuration, it finds a matching
-> linkmode to set as the advertised, lp_advertising and supported modes
-> based on the speed and duplex of the fixed link.
+On Wed, Feb 26, 2025 at 11:09:26AM +0100, Maxime Chevallier wrote:
+> phylink allows MAC drivers to report the capabilities in terms of speed,
+> duplex and pause support. This is done through a dedicated set of enum
+> values in the form of the MAC_ capabilities. They are very close to what
+> the LINK_CAPA_xxx can express, with the difference that LINK_CAPA don't
+> have any information about Pause/Asym Pause support.
 > 
-> Use the newly introduced phy_caps_lookup to get these modes instead of
-> phy_lookup_settings(). This has the side effect that the matched
-> settings and configured linkmodes may now contain several linkmodes (the
-> intersection of supported linkmodes from the phylink settings and the
-> linkmodes that match speed/duplex) instead of the one from
-> phy_lookup_settings().
-> 
-> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> ---
-> V1 -> V2: - fixed pl->link_config.lp_advertising setting
-> 
->  drivers/net/phy/phylink.c | 26 +++++++++++++++-----------
->  1 file changed, 15 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-> index 6c67d5c9b787..63fbf3d8708a 100644
-> --- a/drivers/net/phy/phylink.c
-> +++ b/drivers/net/phy/phylink.c
-> @@ -805,9 +805,10 @@ static int phylink_validate(struct phylink *pl, unsigned long *supported,
->  static int phylink_parse_fixedlink(struct phylink *pl,
->  				   const struct fwnode_handle *fwnode)
->  {
-> +	__ETHTOOL_DECLARE_LINK_MODE_MASK(match) = { 0, };
->  	__ETHTOOL_DECLARE_LINK_MODE_MASK(mask) = { 0, };
-> +	const struct link_capabilities *c;
->  	struct fwnode_handle *fixed_node;
-> -	const struct phy_setting *s;
->  	struct gpio_desc *desc;
->  	u32 speed;
->  	int ret;
-> @@ -879,8 +880,10 @@ static int phylink_parse_fixedlink(struct phylink *pl,
->  	linkmode_copy(pl->link_config.advertising, pl->supported);
->  	phylink_validate(pl, pl->supported, &pl->link_config);
->  
-> -	s = phy_lookup_setting(pl->link_config.speed, pl->link_config.duplex,
-> -			       pl->supported, true);
-> +	c = phy_caps_lookup(pl->link_config.speed, pl->link_config.duplex,
-> +			    pl->supported, true);
-> +	if (c)
-> +		linkmode_and(match, pl->supported, c->linkmodes);
+> To prepare converting phylink to using the phy_caps, add the mapping
+> between MAC capabilities and phy_caps. While doing so, we move the
+> phylink_caps_params array up a bit to simplify future commits.
 
-What's this for? Surely phy_caps_lookup() should not return a link mode
-that wasn't in phy_caps_lookup()'s 3rd argument.
-
-Otherwise...
-
->  	linkmode_set_bit(ETHTOOL_LINK_MODE_Pause_BIT, mask);
->  	linkmode_set_bit(ETHTOOL_LINK_MODE_Asym_Pause_BIT, mask);
-> @@ -889,9 +892,10 @@ static int phylink_parse_fixedlink(struct phylink *pl,
->  
->  	phylink_set(pl->supported, MII);
->  
-> -	if (s) {
-> -		__set_bit(s->bit, pl->supported);
-> -		__set_bit(s->bit, pl->link_config.lp_advertising);
-> +	if (c) {
-> +		linkmode_or(pl->supported, pl->supported, match);
-> +		linkmode_or(pl->link_config.lp_advertising,
-> +			    pl->link_config.lp_advertising, match);
->  	} else {
->  		phylink_warn(pl, "fixed link %s duplex %dMbps not recognised\n",
->  			     pl->link_config.duplex == DUPLEX_FULL ? "full" : "half",
-> @@ -1879,21 +1883,21 @@ static int phylink_register_sfp(struct phylink *pl,
->  int phylink_set_fixed_link(struct phylink *pl,
->  			   const struct phylink_link_state *state)
->  {
-> -	const struct phy_setting *s;
-> +	const struct link_capabilities *c;
->  	unsigned long *adv;
->  
->  	if (pl->cfg_link_an_mode != MLO_AN_PHY || !state ||
->  	    !test_bit(PHYLINK_DISABLE_STOPPED, &pl->phylink_disable_state))
->  		return -EINVAL;
->  
-> -	s = phy_lookup_setting(state->speed, state->duplex,
-> -			       pl->supported, true);
-> -	if (!s)
-> +	c = phy_caps_lookup(state->speed, state->duplex,
-> +			    pl->supported, true);
-> +	if (!c)
->  		return -EINVAL;
->  
->  	adv = pl->link_config.advertising;
->  	linkmode_zero(adv);
-> -	linkmode_set_bit(s->bit, adv);
-> +	linkmode_and(adv, pl->supported, c->linkmodes);
-
-... this is wrong since this is basically doing the same as the above
-parsing.
-
-I'm not sure why you're generating different code for what is
-essentially the same thing.
+I still want to know why we need to do this type of thing -
+unfortunately I don't have time to review all your patches at the
+moment. I haven't reviewed all your patches since you've started
+posting them. Sorry.
 
 -- 
 RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
