@@ -4,72 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17839C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 07:04:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED99FC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 07:05:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jmXWalbpprqBCVzO3Bmp8d+Bc7VgYMPM6QfTNbKsvvk=; b=ACjWxtCfk1L4gCAcSQwWi3wFY3
-	TOnsbpznPgw31zwOTAZGRnXuhlFR4hTDFoZ9esSnJELUDCg2HnZJPfOm2vIw/7noH8/ESULF0EXr/
-	5Pij4kns3HMO+RweQ2rOfucuyYra6n0WC3s22NkM/+U44Md3vBXCRHLhrwT/dyTcxK51CSkM+myyQ
-	nUfHJZu2Ve/EKqQCFXAcdkJ/5hbQE2NO6rR3AD4brR6kvx1UUDefhXNHZ5rf14XGLNvQLLVT2tQDz
-	F94DxZJUI5AuiTtISytqKtS2Ha2nASLjDRHmF6riXPS/ejzxLdajBvuDYb5F6P1tRTpJgB39hInlO
-	JnAM5yxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cshg6WNO8dNyeiZbpWzhAb3pkA8xV8ESjXnvdsEBetE=; b=HeFL3wl9nJwuTaa2wQ1qw8FUSG
+	8wxMRlb4bfE/p1UFMz7SvMCE6N75cXdTopY09yGM5x0XL4+RkNWwlwWdqNlE0at1qHZsqSje3g1xY
+	uKtYUGvTxus0CkUX8YhuBCsv3dCFGsrp2B6f8Rp0wnXstzOrXg7NYzz4+tWdpZJeljsS9w3WoBxvA
+	j+zF/Hv1CDm69ifQPeubsrmPrtym8WmmtpKgbc6YOvESkMtBtJ6JT/1WWfLk9kqROhyAYkWFsOHQE
+	84XNWqhB40I4YWSGIAN6/Dp1t4s68JYZr2X2dfipQST1bQAUcw+VC068CTQuCZliB8u+xRahTin+V
+	gdvyBCmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnBSU-00000002dBE-1RX5;
-	Wed, 26 Feb 2025 07:03:54 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tnBU0-00000002dXx-0dio;
+	Wed, 26 Feb 2025 07:05:28 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnBO3-00000002cGD-0ti8
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 06:59:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 972165C5E67
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 06:58:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33575C4CEE9
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 06:59:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740553158;
-	bh=i9Fh231eCe1o+vaJqKd1MErsCQbbRl1mPJHwK4j7QBY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=AXK4vy1LwYhBChoXfW23LDo4vF6/2ffz0uzQ/kP5L2sRLeULr7HSQqOHtA8zg3icH
-	 ftlH3piK+uW5c20avYuc5dv7ETk6FhvEf2Xr9mA0uc4BdWAJmwJKpI92nn0Jd6/S0u
-	 P2IOYyy/rT+yxbkrmnggjaTodMqGsDO4qstIb9pJNnE0d4lQ/nzUHCtikqp9UYduJk
-	 xYepJ/49nOZf0VwbZY9t2WMxWH/Lj+qEX77xGGRifP57trg7p/PnyvVmxP/Zo0E/aa
-	 f+JXYZRcSpElJe/Kcj8PPtUGLh09OxNJ5Ip/ja4jJbIHdhTJGUuZ2G33fSQAh6JJic
-	 kykcDlHRfiqGQ==
-Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-30737db1ab1so52863061fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 22:59:18 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUed0P8M+IRrQ8k7jTIy1cqpgjyrDpxyknbaItodD2qKw1fnkx8RX7+hs9JE6dxlDPRvyUr5YHmSJtakxN2YH2S@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYKdN6gx9IGTFUs4DT2dd3uGl7nXvMuc8J//FX/iTPXjfhNMWY
-	c4KlZEzPJ5FSnZHrqFn9FXfLTqvmz1JX2OV8jIe7c2jmBZO1Uz7EArWerE83WW+1LgLXIik/O/S
-	/E8E/DfRcKTklkrzeKBmSbl/fB5Y=
-X-Google-Smtp-Source: AGHT+IGJUHQ0oCfCacezzvAX7nE8+L56RS5OfdIe8o1rSXaBLume4oTSoD0StSwo7SIgHIipD4oFTbz/3EcuVlFmdaw=
-X-Received: by 2002:a2e:9ac6:0:b0:308:e9ae:b5a1 with SMTP id
- 38308e7fff4ca-30a5b171680mr71421791fa.2.1740553156558; Tue, 25 Feb 2025
- 22:59:16 -0800 (PST)
+	id 1tnBOa-00000002cNC-0AI7;
+	Wed, 26 Feb 2025 06:59:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740553192; x=1772089192;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=qpSxoD9rlSgkQH/htkteQeAZ4TqZJLdpOv+rX9TDkNo=;
+  b=eKrBksxETGmj1EewkXS89AmkxqkegYLPwOPxZLOazAsfjFolAvbxyqGQ
+   S/+kcjbRK1U+qIwacgNfKP+rlG3PitcOQpG1jCXF5F2ClNEfS5cNKDC2v
+   6CyDh25dL5h8cykjvJmOQY49h9Yx/V4mJcPqXleX+3ZEQidaQBN69MIFg
+   pRYNYsDdqRt9HpgigblRIYajaGS/K8FKzLgYCLCYTwp417QMSTe8sm3cO
+   fL2iAOAOAofvUFzcbEcZCtP45pl4ZPXJPPVo+UDvis4LhwiozW7aqEzUs
+   eQ9zhmOUKezMpK0FUKxkJ3u4eS0BHZD1BiVFpZ8D4r+R4NGm1K5qLkrCx
+   A==;
+X-CSE-ConnectionGUID: ftEe/tgKQh6NFVWSL88F6w==
+X-CSE-MsgGUID: huzg653cSRyL8c/GXZFLcw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11356"; a="51596081"
+X-IronPort-AV: E=Sophos;i="6.13,316,1732608000"; 
+   d="scan'208";a="51596081"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 22:59:52 -0800
+X-CSE-ConnectionGUID: gU9ME5xMS/Sg/5K4xpwzVw==
+X-CSE-MsgGUID: pqpzR+GkRgCwrPW8n3kWtw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,316,1732608000"; 
+   d="scan'208";a="116621933"
+Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
+  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 22:59:43 -0800
+Message-ID: <6d9ceeb5-581e-48e8-a5cc-100a9699a9e8@linux.intel.com>
+Date: Wed, 26 Feb 2025 14:56:29 +0800
 MIME-Version: 1.0
-References: <20250225114638.2038006-1-ryan.roberts@arm.com>
- <CAMj1kXHNO+iB4vNFz-4tR_9CPzv96hn+RW=eqyZXMGy_AySDpw@mail.gmail.com> <20250226001047.GA24197@willie-the-truck>
-In-Reply-To: <20250226001047.GA24197@willie-the-truck>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Wed, 26 Feb 2025 07:59:04 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXH=tPuM+irCsKgycUTbts8h9vD4m3tEtw51YFzWafdSUA@mail.gmail.com>
-X-Gm-Features: AWEUYZl2QSSVv7QzbSm03vo1Ancy8Ooa7VLWsuo79PHpgXlIEoyJxiWGc6pBfF4
-Message-ID: <CAMj1kXH=tPuM+irCsKgycUTbts8h9vD4m3tEtw51YFzWafdSUA@mail.gmail.com>
-Subject: Re: [PATCH v1] arm64/mm: Fix Boot panic on Ampere Altra
-To: Will Deacon <will@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Luiz Capitulino <luizcap@redhat.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 09/23] iommu/pages: Formalize the freelist API
+To: Jason Gunthorpe <jgg@nvidia.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
+ asahi@lists.linux.dev, David Woodhouse <dwmw2@infradead.org>,
+ Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-tegra@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Hector Martin <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Robin Murphy
+ <robin.murphy@arm.com>, Samuel Holland <samuel@sholland.org>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
+ Tomasz Jeznach <tjeznach@rivosinc.com>, Krishna Reddy <vdumpa@nvidia.com>,
+ Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>
+Cc: Bagas Sanjaya <bagasdotme@gmail.com>, Joerg Roedel <jroedel@suse.de>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+ David Rientjes <rientjes@google.com>, Matthew Wilcox <willy@infradead.org>
+References: <9-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <9-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_225919_439481_721D8F05 
-X-CRM114-Status: GOOD (  39.22  )
+X-CRM114-CacheID: sfid-20250225_225952_124753_8408FA8D 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,89 +101,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 26 Feb 2025 at 01:10, Will Deacon <will@kernel.org> wrote:
->
-> On Tue, Feb 25, 2025 at 07:05:35PM +0100, Ard Biesheuvel wrote:
-> > Apologies for the breakage, and thanks for the fix.
-> >
-> > I have to admit that I was a bit overzealous here: there is no point
-> > yet in using the sanitised value, given that we don't actually
-> > override the PA range in the first place. This is something I've
-> > prototyped for Android use, so that linear map randomization can be
-> > force enabled on CPUs with a wide PArange, but right now, mainline
-> > does not have that capability, and so I'd be inclined to just revert
-> > the hunk that introduces the call to read_sanitised_ftr_reg() into
-> > arm64_memblock_init(), especially given the fact that commit
-> > 62cffa496aac was tagged for stable, and was already pulled into 6.13
-> > and 6.12
-> >
-> > In any case, it would be good if we could get a fix into Linus's tree asap
->
-> Makes sense. So the patch below?
->
+On 2/26/25 03:39, Jason Gunthorpe wrote:
+> diff --git a/include/linux/iommu.h b/include/linux/iommu.h
+> index 38c65e92ecd091..e414951c0af83f 100644
+> --- a/include/linux/iommu.h
+> +++ b/include/linux/iommu.h
+> @@ -326,6 +326,18 @@ typedef unsigned int ioasid_t;
+>   /* Read but do not clear any dirty bits */
+>   #define IOMMU_DIRTY_NO_CLEAR (1 << 0)
+>   
+> +/*
+> + * Pages allocated through iommu_alloc_pages_node() can be placed on this list
+> + * using iommu_pages_list_add(). Note: ONLY pages from iommu_alloc_pages_node()
+> + * can be used this way!
+> + */
+> +struct iommu_pages_list {
+> +	struct list_head pages;
+> +};
+> +
+> +#define IOMMU_PAGES_LIST_INIT(name) \
+> +	((struct iommu_pages_list){ .pages = LIST_HEAD_INIT(name.pages) })
+> +
+>   #ifdef CONFIG_IOMMU_API
 
-Yes, but please don't forget the cc:stable
+Any reason why the above cannot be placed in the iommu-pages.h header
+file? My understanding is that iommu-pages is only for the iommu drivers
+and should not be accessible for external subsystems.
 
-To the patch below,
-
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
-
-
-> --->8
->
-> From b76ddd40dd6fe350727a4b2ec50709fd919d8408 Mon Sep 17 00:00:00 2001
-> From: Ryan Roberts <ryan.roberts@arm.com>
-> Date: Tue, 25 Feb 2025 11:46:36 +0000
-> Subject: [PATCH] arm64/mm: Fix Boot panic on Ampere Altra
->
-> When the range of present physical memory is sufficiently small enough
-> and the reserved address space for the linear map is sufficiently large
-> enough, The linear map base address is randomized in
-> arm64_memblock_init().
->
-> Prior to commit 62cffa496aac ("arm64/mm: Override PARange for !LPA2 and
-> use it consistently"), we decided if the sizes were suitable with the
-> help of the raw mmfr0.parange. But the commit changed this to use the
-> sanitized version instead. But the function runs before the register has
-> been sanitized so this returns 0, interpreted as a parange of 32 bits.
-> Some fun wrapping occurs and the logic concludes that there is enough
-> room to randomize the linear map base address, when really there isn't.
-> So the top of the linear map ends up outside the reserved address space.
->
-> Since the PA range cannot be overridden in the first place, restore the
-> mmfr0 reading logic to its state prior to 62cffa496aac, where the raw
-> register value is used.
->
-> Reported-by: Luiz Capitulino <luizcap@redhat.com>
-> Suggested-by: Ard Biesheuvel <ardb@kernel.org>
-> Closes: https://lore.kernel.org/all/a3d9acbe-07c2-43b6-9ba9-a7585f770e83@redhat.com/
-> Fixes: 62cffa496aac ("arm64/mm: Override PARange for !LPA2 and use it consistently")
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> Link: https://lore.kernel.org/r/20250225114638.2038006-1-ryan.roberts@arm.com
-> Signed-off-by: Will Deacon <will@kernel.org>
-> ---
->  arch/arm64/mm/init.c | 7 +------
->  1 file changed, 1 insertion(+), 6 deletions(-)
->
-> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> index 9c0b8d9558fc..ccdef53872a0 100644
-> --- a/arch/arm64/mm/init.c
-> +++ b/arch/arm64/mm/init.c
-> @@ -279,12 +279,7 @@ void __init arm64_memblock_init(void)
->
->         if (IS_ENABLED(CONFIG_RANDOMIZE_BASE)) {
->                 extern u16 memstart_offset_seed;
-> -
-> -               /*
-> -                * Use the sanitised version of id_aa64mmfr0_el1 so that linear
-> -                * map randomization can be enabled by shrinking the IPA space.
-> -                */
-> -               u64 mmfr0 = read_sanitised_ftr_reg(SYS_ID_AA64MMFR0_EL1);
-> +               u64 mmfr0 = read_cpuid(ID_AA64MMFR0_EL1);
->                 int parange = cpuid_feature_extract_unsigned_field(
->                                         mmfr0, ID_AA64MMFR0_EL1_PARANGE_SHIFT);
->                 s64 range = linear_region_size -
-> --
-> 2.48.1.658.g4767266eb4-goog
->
+Thanks,
+baolu
 
