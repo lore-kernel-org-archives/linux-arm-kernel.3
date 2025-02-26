@@ -4,105 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FD06C021BF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:25:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0FBEC19F2F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:25:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SN1Q76Uw352PAd6KxuwKwqyTCpdw4v3WAoogBTyD7gs=; b=PZvunrSS2L1QQU4e4Kc8RgEllI
-	omh466QRG+68D0LdxGUtNpwVH42uBnS8jU5MDFzN9TM3qt3eocsgB3NRYiyceeQig8y4KORKZo8mh
-	0m7brq3bjPmQgDMX55nAPE0f9jxg/ONAT7Mhk/w3XnJFB3ZElr3XTFqn/AHurlGTJUsG6o/Nb5y8n
-	Fe4ZtNv85pM5yZ6nQhFMluDpA7UAjihMmY8j2c456FepK1DSSZEMa82ewjNsTb1xWluJRZTzbMxiW
-	xjVBd8VeY7AfOzh3RV60l5hPesSeci2K3xCbuJtLcarr1ZbXbqSQKRsV9eY3eouGQick1jJq94zph
-	8cvuDI5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GAGhHyGJLN+JCuK2Mu2hR5pw8IVNGvGU8jKyiUjY0Us=; b=d0tX6+gvu3IV0/orr9vgL6L6f4
+	FyIvUTQU5bt/PGafS4pQUq6ft6VhgctIgMCyP/aNkh+6CYKv0aErKABKblNwq5/bItjsCtor/RA8p
+	tUJ0VADeYPmYHmNNx0Q1TkZnERr0e2PL19TyPK5RI3AA4/2z41cJY3JJUOmNOno0ZjNE7sF8f7yI2
+	VO6KBGIiVj2SDvKarOEspfGsmHHg/BvULx/VdDHZ0cmOnpM5yVjW4zBaupylx7gw1FFu+k/9p3dg6
+	HzoYNka2tVa39/r5bFJvLjfxO1FwZcwy3jFGhH2qvvhtYh8yTVFTbVWm4IAlLzmTIvMW4d5WlIU+N
+	BAzdfujw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnHP9-00000003pYB-1lwl;
-	Wed, 26 Feb 2025 13:24:51 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tnHPC-00000003pbF-44X4;
+	Wed, 26 Feb 2025 13:24:54 +0000
+Received: from szxga07-in.huawei.com ([45.249.212.35])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnFFR-00000003QDM-02pL
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 11:06:42 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51Q9EvU1015904;
-	Wed, 26 Feb 2025 11:06:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	SN1Q76Uw352PAd6KxuwKwqyTCpdw4v3WAoogBTyD7gs=; b=f0fYu+wA0ERbg8yx
-	GxU5rovIXrBMdcwM14pQLBO3136L1zFofFCuM+VgUjBUN1fky3rQgxx46skOCkVk
-	wXcUh4qOEXoJG8LjCNThVMi55P0tMysbNQCC9DvZVd9+Fbgg1puhmz1aD9vXPpPI
-	mV2/3KbUeOBV6SB9/mzsHUj2QfPwvkWbY9p+lQhEKcasKlRlBkMmnqAVmOfkK+Zq
-	pf+Jjr15GD0BF1OAn50XIelQdx1OXbMNHrp0yQYg6bQmMuFXw5HkRRujf1ElzC/X
-	+HpM05M+0PewaSsP5lBCJY0I6S/adh4ag4+Ks6WCcNVbdgY18qcIrWnvzemkAvi2
-	AdJnyA==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 451prnhq98-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 26 Feb 2025 11:06:32 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51QB6UiU021244
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 26 Feb 2025 11:06:30 GMT
-Received: from yuanfang4-gv.ap.qualcomm.com (10.80.80.8) by
- nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+	id 1tnFJs-00000003RAd-2Y2l;
+	Wed, 26 Feb 2025 11:11:18 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.163])
+	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4Z2s9y354mzJ1Fl;
+	Wed, 26 Feb 2025 19:07:02 +0800 (CST)
+Received: from dggpemf200006.china.huawei.com (unknown [7.185.36.61])
+	by mail.maildlp.com (Postfix) with ESMTPS id BEBBB18001B;
+	Wed, 26 Feb 2025 19:11:06 +0800 (CST)
+Received: from localhost.localdomain (10.90.30.45) by
+ dggpemf200006.china.huawei.com (7.185.36.61) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Wed, 26 Feb 2025 03:06:24 -0800
-From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Date: Wed, 26 Feb 2025 19:05:52 +0800
-Subject: [PATCH v2 3/5] coresight-tnoc: add nodes to configure flush
+ 15.2.1544.11; Wed, 26 Feb 2025 19:11:06 +0800
+From: Yunsheng Lin <linyunsheng@huawei.com>
+To: <davem@davemloft.net>, <kuba@kernel.org>, <pabeni@redhat.com>
+CC: <zhangkun09@huawei.com>, <liuyonglong@huawei.com>,
+	<fanghaiqing@huawei.com>, Yunsheng Lin <linyunsheng@huawei.com>, Alexander
+ Lobakin <aleksander.lobakin@intel.com>, Robin Murphy <robin.murphy@arm.com>,
+	Alexander Duyck <alexander.duyck@gmail.com>, Andrew Morton
+	<akpm@linux-foundation.org>, Gaurav Batra <gbatra@linux.ibm.com>, Matthew
+ Rosato <mjrosato@linux.ibm.com>, IOMMU <iommu@lists.linux.dev>, MM
+	<linux-mm@kvack.org>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
+	<daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>, John
+ Fastabend <john.fastabend@gmail.com>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, <netdev@vger.kernel.org>,
+	<intel-wired-lan@lists.osuosl.org>, <bpf@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+Subject: [PATCH net-next v10 0/4] fix the DMA API misuse problem for page_pool
+Date: Wed, 26 Feb 2025 19:03:35 +0800
+Message-ID: <20250226110340.2671366-1-linyunsheng@huawei.com>
+X-Mailer: git-send-email 2.30.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250226-trace-noc-driver-v2-3-8afc6584afc5@quicinc.com>
-References: <20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com>
-In-Reply-To: <20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        "Alexander
- Shishkin" <alexander.shishkin@linux.intel.com>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>
-CC: <kernel@quicinc.com>, <linux-kernel@vger.kernel.org>,
-        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <kernel@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        Yuanfang Zhang <quic_yuanfang@quicinc.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1740567972; l=3879;
- i=quic_yuanfang@quicinc.com; s=20241209; h=from:subject:message-id;
- bh=BnF68B1pGiK7oAE8qulUM6632NSyt7v2mKd3U1BERVM=;
- b=MTDc4zGOzJltpus9WgV58RyWwa5ssYiEjsKi1DxkET8CqWFjXsFLpaVQaNCASHOjvmodak9p3
- AfTnHVNV7+5B0cpLN3Er5W5Vptp4abnY36sj3+W9AhfbFVSzjupSLlu
-X-Developer-Key: i=quic_yuanfang@quicinc.com; a=ed25519;
- pk=ZrIjRVq9LN8/zCQGbDEwrZK/sfnVjwQ2elyEZAOaV1Q=
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: 8_gb5trJPzCBP8-Fx9UY9U5oEY_jBZVD
-X-Proofpoint-ORIG-GUID: 8_gb5trJPzCBP8-Fx9UY9U5oEY_jBZVD
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-26_02,2025-02-26_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 spamscore=0
- mlxscore=0 mlxlogscore=999 bulkscore=0 adultscore=0 phishscore=0
- priorityscore=1501 lowpriorityscore=0 malwarescore=0 clxscore=1015
- impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2502100000 definitions=main-2502260088
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.30.45]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ dggpemf200006.china.huawei.com (7.185.36.61)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_030641_191486_ED55466C 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20250226_031117_023024_7425F0DD 
+X-CRM114-Status: GOOD (  25.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,126 +79,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Two nodes for configure flush are added here:
-1. flush_req: write 1 to initiates a flush sequence.
+This patchset fix the dma API misuse problem as below:
+Networking driver with page_pool support may hand over page
+still with dma mapping to network stack and try to reuse that
+page after network stack is done with it and passes it back
+to page_pool to avoid the penalty of dma mapping/unmapping.
+With all the caching in the network stack, some pages may be
+held in the network stack without returning to the page_pool
+soon enough, and with VF disable causing the driver unbound,
+the page_pool does not stop the driver from doing it's
+unbounding work, instead page_pool uses workqueue to check
+if there is some pages coming back from the network stack
+periodically, if there is any, it will do the dma unmmapping
+related cleanup work.
 
-2. flush_state: read this node to get flush status. 0: sequence in
-progress; 1: sequence has been completed.
+As mentioned in [1], attempting DMA unmaps after the driver
+has already unbound may leak resources or at worst corrupt
+memory. Fundamentally, the page pool code cannot allow DMA
+mappings to outlive the driver they belong to.
 
-Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
----
- drivers/hwtracing/coresight/coresight-tnoc.c | 73 ++++++++++++++++++++++++++++
- drivers/hwtracing/coresight/coresight-tnoc.h |  4 ++
- 2 files changed, 77 insertions(+)
+By using the 'struct page_pool_item' referenced by page->pp_item,
+page_pool is not only able to keep track of the inflight page to
+do dma unmmaping if some pages are still handled in networking
+stack when page_pool_destroy() is called, and networking stack is
+also able to find the page_pool owning the page when returning
+pages back into page_pool:
+1. When a page is added to the page_pool, an item is deleted from
+   pool->hold_items and set the 'pp_netmem' pointing to that page
+   and set item->state and item->pp_netmem accordingly in order to
+   keep track of that page, refill from pool->release_items when
+   pool->hold_items is empty or use the item from pool->slow_items
+   when fast items run out.
+2. When a page is released from the page_pool, it is able to tell
+   which page_pool this page belongs to by masking off the lower
+   bits of the pointer to page_pool_item *item, as the 'struct
+   page_pool_item_block' is stored in the top of a struct page.
+   And after clearing the pp_item->state', the item for the
+   released page is added back to pool->release_items so that it
+   can be reused for new pages or just free it when it is from the
+   pool->slow_items.
+3. When page_pool_destroy() is called, item->state is used to tell
+   if a specific item is being used/dma mapped or not by scanning
+   all the item blocks in pool->item_blocks, then item->netmem can
+   be used to do the dma unmmaping if the corresponding inflight
+   page is dma mapped.
 
-diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
-index fad8e61f05ef25989aba1be342c547f835e8953a..20231f28ddcb6a60d9b3c1ca3e0ca4d731dac39c 100644
---- a/drivers/hwtracing/coresight/coresight-tnoc.c
-+++ b/drivers/hwtracing/coresight/coresight-tnoc.c
-@@ -16,6 +16,78 @@
- #include "coresight-tnoc.h"
- #include "coresight-trace-id.h"
- 
-+static ssize_t flush_req_store(struct device *dev,
-+			       struct device_attribute *attr,
-+			       const char *buf,
-+			       size_t size)
-+{
-+	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	struct coresight_device	*csdev = drvdata->csdev;
-+	unsigned long val;
-+	u32 reg;
-+
-+	if (kstrtoul(buf, 10, &val))
-+		return -EINVAL;
-+
-+	if (val != 1)
-+		return -EINVAL;
-+
-+	spin_lock(&drvdata->spinlock);
-+	if (csdev->refcnt == 0) {
-+		spin_unlock(&drvdata->spinlock);
-+		return -EPERM;
-+	}
-+
-+	reg = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
-+	reg = reg | TRACE_NOC_CTRL_FLUSHREQ;
-+	writel_relaxed(reg, drvdata->base + TRACE_NOC_CTRL);
-+
-+	spin_unlock(&drvdata->spinlock);
-+
-+	return size;
-+}
-+static DEVICE_ATTR_WO(flush_req);
-+
-+/*
-+ * flush-sequence status:
-+ * value 0: sequence in progress;
-+ * value 1: sequence has been completed.
-+ */
-+static ssize_t flush_status_show(struct device *dev,
-+				 struct device_attribute *attr,
-+				 char *buf)
-+{
-+	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	struct coresight_device	*csdev = drvdata->csdev;
-+	u32 val;
-+
-+	spin_lock(&drvdata->spinlock);
-+	if (csdev->refcnt == 0) {
-+		spin_unlock(&drvdata->spinlock);
-+		return -EPERM;
-+	}
-+
-+	val = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
-+	spin_unlock(&drvdata->spinlock);
-+	return sysfs_emit(buf, "%lu\n", BMVAL(val, 2, 2));
-+}
-+static DEVICE_ATTR_RO(flush_status);
-+
-+static struct attribute *trace_noc_attrs[] = {
-+	&dev_attr_flush_req.attr,
-+	&dev_attr_flush_status.attr,
-+	NULL,
-+};
-+
-+static struct attribute_group trace_noc_attr_grp = {
-+	.attrs = trace_noc_attrs,
-+};
-+
-+static const struct attribute_group *trace_noc_attr_grps[] = {
-+	&trace_noc_attr_grp,
-+	NULL,
-+};
-+
- static void trace_noc_enable_hw(struct trace_noc_drvdata *drvdata)
- {
- 	u32 val;
-@@ -142,6 +214,7 @@ static int trace_noc_probe(struct amba_device *adev, const struct amba_id *id)
- 		return ret;
- 
- 	desc.ops = &trace_noc_cs_ops;
-+	desc.groups = trace_noc_attr_grps;
- 	desc.type = CORESIGHT_DEV_TYPE_LINK;
- 	desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_MERG;
- 	desc.pdata = adev->dev.platform_data;
-diff --git a/drivers/hwtracing/coresight/coresight-tnoc.h b/drivers/hwtracing/coresight/coresight-tnoc.h
-index b6bd1ef659897d8e0994c5e8514e8cbdd16eebd8..d0fe8f52709ff4147d66dbf90987595012cfaa4e 100644
---- a/drivers/hwtracing/coresight/coresight-tnoc.h
-+++ b/drivers/hwtracing/coresight/coresight-tnoc.h
-@@ -10,6 +10,10 @@
- 
- /* Enable generation of output ATB traffic.*/
- #define TRACE_NOC_CTRL_PORTEN	BIT(0)
-+/* Writing 1 to initiate a flush sequence.*/
-+#define TRACE_NOC_CTRL_FLUSHREQ	BIT(1)
-+/* 0: sequence in progress; 1: sequence has been completed.*/
-+#define TRACE_NOC_CTRL_FLUSHSTATUS	BIT(2)
- /* Writing 1 to issue a FREQ or FREQ_TS packet*/
- #define TRACE_NOC_CTRL_FREQTSREQ	BIT(5)
- /* Sets the type of issued ATB FLAG packets. 0: 'FLAG' packets; 1: 'FLAG_TS' packets.*/
+From the below performance data, the overhead is not so obvious
+due to performance variations in arm64 server and less than 1
+ns in x86 server for time_bench_page_pool01_fast_path() and
+time_bench_page_pool02_ptr_ring, and there is about 10~20ns
+overhead for time_bench_page_pool03_slow(), see more detail in
+[2].
+
+arm64 server:
+Before this patchset:
+              fast_path              ptr_ring            slow
+1.         31.171 ns               60.980 ns          164.917 ns
+2.         28.824 ns               60.891 ns          170.241 ns
+3.         14.236 ns               60.583 ns          164.355 ns
+
+With patchset:
+6.         26.163 ns               53.781 ns          189.450 ns
+7.         26.189 ns               53.798 ns          189.466 ns
+
+X86 server:
+| Test name  |Cycles |   1-5 |    | Nanosec |    1-5 |        |      % |
+| (tasklet_*)|Before | After |diff|  Before |  After |   diff | change |
+|------------+-------+-------+----+---------+--------+--------+--------|
+| fast_path  |    19 |    19 |   0|   5.399 |  5.492 |  0.093 |    1.7 |
+| ptr_ring   |    54 |    57 |   3|  15.090 | 15.849 |  0.759 |    5.0 |
+| slow       |   238 |   284 |  46|  66.134 | 78.909 | 12.775 |   19.3 |
+
+And about 16 bytes of memory is also needed for each page_pool owned
+page to fix the dma API misuse problem
+
+1. https://lore.kernel.org/lkml/8067f204-1380-4d37-8ffd-007fc6f26738@kernel.org/T/
+2. https://lore.kernel.org/all/f558df7a-d983-4fc5-8358-faf251994d23@kernel.org/
+
+CC: Alexander Lobakin <aleksander.lobakin@intel.com>
+CC: Robin Murphy <robin.murphy@arm.com>
+CC: Alexander Duyck <alexander.duyck@gmail.com>
+CC: Andrew Morton <akpm@linux-foundation.org>
+CC: Gaurav Batra <gbatra@linux.ibm.com>
+CC: Matthew Rosato <mjrosato@linux.ibm.com>
+CC: IOMMU <iommu@lists.linux.dev>
+CC: MM <linux-mm@kvack.org>
+
+Change log:
+V10:
+  1. Add nl API to dump item memory usage.
+  2. Use __acquires() and __releases() to avoid 'context imbalance'
+     warning.
+
+V9.
+  1. Drop the fix of a possible time window problem for NPAI recycling.
+  2. Add design description for the fix in patch 2.
+
+V8:
+  1. Drop last 3 patch as it causes observable performance degradation
+     for x86 system.
+  2. Remove rcu read lock in page_pool_napi_local().
+  3. Renaming item function more consistently.
+
+V7:
+  1. Fix a used-after-free bug reported by KASAN as mentioned by Jakub.
+  2. Fix the 'netmem' variable not setting up correctly bug as mentioned
+     by Simon.
+
+V6:
+  1. Repost based on latest net-next.
+  2. Rename page_pool_to_pp() to page_pool_get_pp().
+
+V5:
+  1. Support unlimit inflight pages.
+  2. Add some optimization to avoid the overhead of fixing bug.
+
+V4:
+  1. use scanning to do the unmapping
+  2. spilt dma sync skipping into separate patch
+
+V3:
+  1. Target net-next tree instead of net tree.
+  2. Narrow the rcu lock as the discussion in v2.
+  3. Check the ummapping cnt against the inflight cnt.
+
+V2:
+  1. Add a item_full stat.
+  2. Use container_of() for page_pool_to_pp().
+
+Yunsheng Lin (4):
+  page_pool: introduce page_pool_get_pp() API
+  page_pool: fix IOMMU crash when driver has already unbound
+  page_pool: support unlimited number of inflight pages
+  page_pool: skip dma sync operation for inflight pages
+
+ Documentation/netlink/specs/netdev.yaml       |  16 +
+ drivers/net/ethernet/freescale/fec_main.c     |   8 +-
+ .../ethernet/google/gve/gve_buffer_mgmt_dqo.c |   2 +-
+ drivers/net/ethernet/intel/iavf/iavf_txrx.c   |   6 +-
+ drivers/net/ethernet/intel/idpf/idpf_txrx.c   |  14 +-
+ drivers/net/ethernet/intel/libeth/rx.c        |   2 +-
+ .../net/ethernet/mellanox/mlx5/core/en/xdp.c  |   3 +-
+ drivers/net/netdevsim/netdev.c                |   6 +-
+ drivers/net/wireless/mediatek/mt76/mt76.h     |   2 +-
+ include/linux/mm_types.h                      |   2 +-
+ include/linux/skbuff.h                        |   1 +
+ include/net/libeth/rx.h                       |   3 +-
+ include/net/netmem.h                          |  31 +-
+ include/net/page_pool/helpers.h               |  15 +
+ include/net/page_pool/memory_provider.h       |   2 +-
+ include/net/page_pool/types.h                 |  46 +-
+ include/uapi/linux/netdev.h                   |   2 +
+ net/core/devmem.c                             |   6 +-
+ net/core/netmem_priv.h                        |   5 +-
+ net/core/page_pool.c                          | 423 ++++++++++++++++--
+ net/core/page_pool_priv.h                     |  12 +-
+ net/core/page_pool_user.c                     |  39 +-
+ tools/net/ynl/samples/page-pool.c             |  11 +
+ 23 files changed, 570 insertions(+), 87 deletions(-)
 
 -- 
-2.34.1
+2.33.0
 
 
