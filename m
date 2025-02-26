@@ -4,81 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A928EC18E7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:22:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1043BC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:22:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AXCtVMVLtHFloM7MmQTKaoaBtuJFJltHQU9JiAMmMWk=; b=32dh+jreBbSMoMRdXd1gcRX8yo
-	yHccuBiYGQTtnYUghMSiJAwySSs8e/w5+64/w7KX27Iy0XzL/Oywu5h0giNuRSBFfROWUEiV2cbqf
-	EcT9eQn1cX/S/hhG4lVXk8K7vZdi9KNoF2uphRo2eSveOhXNZDXLO3vxR+UbNRXfbsNLRTzjPNZZ5
-	QQVrlUCuteh+FZW8doE14ptpsCbLfBi8iYmpkaBZusIRCMCcoMNIhnHwfMORxDKHu13qBSO0sc7ro
-	mDwQNTKjEmlJOvWma3WPvqkYUAKf2Xp9+8s/xxC9npJ5mP+PeQjO7f7JdxKuBZQWNBl5rF/w2pw0I
-	ptKWclww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LWoHU8hu46dRejoYbRwPdVFyOWD54ZJ4E158Xpmj8u8=; b=5BvTYVU0QheNrA7kqsVhJ7eM/r
+	KyFIWBWEz2wlfrdGag5ZsoCD+ztzoAHyfecik05SDsmc+57BpRP2xyIB7oi03oLWVWBoDcB/38mXl
+	JwYxAHzUIFNhzUUh9hHQo6XCRpdaGg4UxVNORdTbjvF2mk9i7MT3/zrwJfSdiZh4RxiPzWd9uAXR0
+	cwg3iIbAgVCarygHQJ5my2yBpQYKmohfpRXVkN7xr2j/y54MyvJ3+2Dx1jcS/3CmgQLux64vwKD9a
+	Zr++jyrlfctT05SSJANjA7T8pfH+3syz+37KvXsGQ431IVj1iSOL/+uXJ65PV6WIUB7ZMSAjyaTkU
+	qJr7dMNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJEx-00000004FWR-2oPw;
-	Wed, 26 Feb 2025 15:22:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tnJF0-00000004FbF-0B2n;
+	Wed, 26 Feb 2025 15:22:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnIN7-000000044oP-40WU
+	id 1tnIPD-000000045Mt-0pa8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 14:26:50 +0000
+	Wed, 26 Feb 2025 14:28:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7ED16612B5
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 14:26:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3643C4CEEB
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 14:26:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C523661226;
+	Wed, 26 Feb 2025 14:28:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91DACC4CED6;
+	Wed, 26 Feb 2025 14:28:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740580009;
-	bh=y3IqYf4h8z56HMq1u4QOXDpo2lerEGe/MyAJAgUvtE4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Y3BTg4ZnHmreh6smT8aoN1Ni2N5swrAc0/YGSMNKgGe3uR9C9/Kg57fTWg5A/C8Ot
-	 c40AMaY4kSp+dPc5HK84o9hzSsphiium6fn0eiDJfeSJ70cA2P4O4m6q0s6mrj/U7K
-	 t4vYS30jst6MmScs3jONjUU85/h5Ey66vntYUGxuV9HEP7WAS5AH4Aw8e5MhizhYzt
-	 Oekiz5dxVZjrnvxz3p0mN5ELlto1beh+OS5m2sKOw1Zlod6jqNKO7BzHl/q2fDlY0T
-	 Z9QJiofDQtTJxJ0ORJ3OaKBFBht4I5ych1ur+pt9pJs9NEBv0S5SGDppyVfK4R8Ehz
-	 K8fwMeL2Jphog==
-Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-5deb1266031so12449212a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 06:26:48 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWervllDvXwQK65vTWyyclpyGBnjfD3h4EYI0VY8CHrqzgo0I0V9jNttmlAZjR5V5/i7fY1UqCtyqrOuGIoHYGE@lists.infradead.org
-X-Gm-Message-State: AOJu0YwumWIdAr1BN5qCRhwMlMJKqyFWE2aNlEmeuEkKdMwepXrpaX/r
-	QbOYAG3CilHh169EAOU3SOmSCWWIZtMLrB6MhqGJ2hVuxKyRrGJcafnVnpoe2ermWirpeExwd5f
-	h++6JFd37Eb3DTA9WvB02WkT8cw==
-X-Google-Smtp-Source: AGHT+IFEgOvjT9GpNU3OvYcUgyXe7iQDfeTtmoajh3myllmUAgDUnbQ1OhXtxtPL0zlFSh5JV1Fe7myngUVyVm9/Sos=
-X-Received: by 2002:a05:6402:280d:b0:5e4:a88a:64e with SMTP id
- 4fb4d7f45d1cf-5e4a88a0790mr2752017a12.5.1740580007445; Wed, 26 Feb 2025
- 06:26:47 -0800 (PST)
+	s=k20201202; t=1740580138;
+	bh=imG2eoF7EhULeRCWxlkU478DrsG7zuM8IA1zXttiVIg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jOoWo6I4axjc7/g3HzbBnRFc+bA68ZZR3cVJiGZ4m/qgqjPAatfRVKgjcDg9ZZGQt
+	 PimKjt9TdT6ogmZnuyKrvpZckMidtvJ0PxOJNFPI2CiW1DBM8t6hhYYrlJj3hZrW4+
+	 Y0+M+8c0TVPmzP2HAt5KWoP8LXTK9ytXg9B4f1HeUg+bVlZE4JgD4lUn4RNcYHQm76
+	 qL8irsILkPnFzN4ukaj5mwEQl2ItHgXji0xyV+1/nrltYul0p1dHIc1cu0zIZLD7OI
+	 N2smNVVERmR8m7QXregyeB9z/xbQRf55L5mB+mim13MpOSJHcys2hX/gcPdvmgNcGY
+	 4q11+sAs4NzaQ==
+Date: Wed, 26 Feb 2025 15:28:47 +0100
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Elliot Berman <quic_eberman@quicinc.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, cros-qcom-dts-watchers@chromium.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>,
+	Melody Olvera <quic_molvera@quicinc.com>,
+	Shivendra Pratap <quic_spratap@quicinc.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Stephen Boyd <swboyd@chromium.org>, linux-pm@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH v8 3/6] firmware: psci: Read and use vendor reset types
+Message-ID: <Z78lH/XErc7G8bL9@lpieralisi>
+References: <20241107-arm-psci-system_reset2-vendor-reboots-v8-0-e8715fa65cb5@quicinc.com>
+ <20241107-arm-psci-system_reset2-vendor-reboots-v8-3-e8715fa65cb5@quicinc.com>
 MIME-Version: 1.0
-References: <20250218-arm-brbe-v19-v20-0-4e9922fc2e8e@kernel.org>
- <20250218-arm-brbe-v19-v20-11-4e9922fc2e8e@kernel.org> <20250224122507.GE8144@e132581.arm.com>
- <CAL_Jsq+0fZ2uasgAam7qGTdCeDBQxXeyL-J1_suyxy6GE_ERTg@mail.gmail.com>
- <20250224140317.GF8144@e132581.arm.com> <Z7yY19UtSnND5KTl@J2N7QTR9R3.cambridge.arm.com>
- <20250224180301.GI8144@e132581.arm.com> <Z72xMLsd37I6X_5-@J2N7QTR9R3>
- <20250225174803.GB1821331@e132581.arm.com> <Z74g2vUT9-KtlIvo@J2N7QTR9R3.cambridge.arm.com>
- <20250226134813.GC1821331@e132581.arm.com>
-In-Reply-To: <20250226134813.GC1821331@e132581.arm.com>
-From: Rob Herring <robh@kernel.org>
-Date: Wed, 26 Feb 2025 08:26:35 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqJL_oqL2XwEiqMCz1KjYX8SwN3N+GkUBpVxKPc9GExh7A@mail.gmail.com>
-X-Gm-Features: AQ5f1JqVAYg5qWj8-HHEGM0Q9ABD1QuYj5lJjYU40vjoEH_p54d6zfRA82nKqok
-Message-ID: <CAL_JsqJL_oqL2XwEiqMCz1KjYX8SwN3N+GkUBpVxKPc9GExh7A@mail.gmail.com>
-Subject: Re: [PATCH v20 11/11] perf: arm_pmuv3: Add support for the Branch
- Record Buffer Extension (BRBE)
-To: Leo Yan <leo.yan@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	James Clark <james.clark@linaro.org>, Anshuman Khandual <anshuman.khandual@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
-	kvmarm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241107-arm-psci-system_reset2-vendor-reboots-v8-3-e8715fa65cb5@quicinc.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,187 +86,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 26, 2025 at 7:48=E2=80=AFAM Leo Yan <leo.yan@arm.com> wrote:
->
-> On Tue, Feb 25, 2025 at 07:58:18PM +0000, Mark Rutland wrote:
-> > On Tue, Feb 25, 2025 at 05:48:03PM +0000, Leo Yan wrote:
-> > > On Tue, Feb 25, 2025 at 12:01:52PM +0000, Mark Rutland wrote:
-> > >
-> > > [...]
-> > >
-> > > > > > Critically, the brbe_enable() function merges the filters of al=
-l
-> > > > > > *active* events which have been installed into hardware. It doe=
-s not
-> > > > > > track all events which can be rotated, and the resulting filter=
- is not
-> > > > > > the same -- it can change as a result of rotation.
-> > > > >
-> > > > > In a perf session has multiple events, and events have different =
-branch
-> > > > > filters, seems to me, a simple way is to return error for this ca=
-se.
-> > > >
-> > > > FWIW, I'd generally prefer to do that since it avoids a number of
-> > > > horrible edge-cases and gets rid of the need to do SW filtering, wh=
-ich
-> > > > falls somewhere between "tricky" and "not entirely possible". Howev=
-er,
-> > > > that's not what LBR and others do, which is why we went with filter
-> > > > merging.
-> > > >
-> > > > If folk on the tools side are happy with the kernel rejecting
-> > > > conflicting events, then I'd be more than happy to do that. What I =
-don't
-> > > > want is that we start off with that approach and people immediately
-> > > > start to complain that the BRBE driver rejects events that the LBR
-> > > > driver accepts.
-> > > >
-> > > > See the last time this came up.
-> > >
-> > > Thanks for the shared links.  Based on the info, let's say we can hav=
-e two
-> > > cases:
-> > >
-> > >   Case 1: set different branch filters in a single perf session:
-> > >
-> > >     perf record -e armv8_pmuv3_0/r03,branch_type=3Dany_call/u \
-> > >                 -e armv8_pmuv3_0/r04,branch_type=3Dany_ret/k ...
-> > >
-> > >   Case 2: set different branch filters in multiple perf sessions:
-> > >
-> > >     perf record -e armv8_pmuv3_0/r03,branch_type=3Dany_call/u ...
-> > >
-> > >     perf record -e armv8_pmuv3_0/r04,branch_type=3Dany_ret/k ...
-> > >
-> > > In my previous reply, I was suggesting that we should reject the case=
- 1.
-> >
-> > Do you mean that the kernel should reject that, or that userspace shoul=
-d
-> > reject that.
->
-> For the case 1, the userspace can reject it as it has sufficient info to
-> detect mismatched filters by iterating event list.
->
-> > As mentioned earlier, I am ok with the idea that we reject *scheduling*
-> > events with mismatched filters, as we do for other resource conflicts.
-> > That would necessarily mean rejecting *groups* of events with
-> > inconsistent filters at open time.
->
-> This rejects the case 2 in the PMU driver.
->
-> > However, I do not think that we should reject indepenent events which
-> > happen to have mismatched filters, regardless of whether they're opened
-> > by the same "session".
->
-> Can I understand "independent events" are events that are not in a event
-> group?
+On Thu, Nov 07, 2024 at 03:38:27PM -0800, Elliot Berman wrote:
+> SoC vendors have different types of resets and are controlled through
+> various registers. For instance, Qualcomm chipsets can reboot to a
+> "download mode" that allows a RAM dump to be collected. Another example
+> is they also support writing a cookie that can be read by bootloader
+> during next boot. PSCI offers a mechanism, SYSTEM_RESET2, for these
+> vendor reset types to be implemented without requiring drivers for every
+> register/cookie.
+> 
+> Add support in PSCI to statically map reboot mode commands from
+> userspace to a vendor reset and cookie value using the device tree.
+> 
+> A separate initcall is needed to parse the devicetree, instead of using
+> psci_dt_init because mm isn't sufficiently set up to allocate memory.
+> 
+> Reboot mode framework is close but doesn't quite fit with the
+> design and requirements for PSCI SYSTEM_RESET2. Some of these issues can
+> be solved but doesn't seem reasonable in sum:
+>  1. reboot mode registers against the reboot_notifier_list, which is too
+>     early to call SYSTEM_RESET2. PSCI would need to remember the reset
+>     type from the reboot-mode framework callback and use it
+>     psci_sys_reset.
+>  2. reboot mode assumes only one cookie/parameter is described in the
+>     device tree. SYSTEM_RESET2 uses 2: one for the type and one for
+>     cookie.
+>  3. psci cpuidle driver already registers a driver against the
+>     arm,psci-1.0 compatible. Refactoring would be needed to have both a
+>     cpuidle and reboot-mode driver.
+> 
+> Tested-by: Florian Fainelli <florian.fainelli@broadcom.com>
+> Signed-off-by: Elliot Berman <quic_eberman@quicinc.com>
+> ---
+>  drivers/firmware/psci/psci.c | 104 +++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 104 insertions(+)
+> 
+> diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
+> index 2328ca58bba61fdb677ac20a1a7447882cd0cf22..e60e3f8749c5a6732c51d23a2c1f453361132d9a 100644
+> --- a/drivers/firmware/psci/psci.c
+> +++ b/drivers/firmware/psci/psci.c
+> @@ -79,6 +79,14 @@ struct psci_0_1_function_ids get_psci_0_1_function_ids(void)
+>  static u32 psci_cpu_suspend_feature;
+>  static bool psci_system_reset2_supported;
+>  
+> +struct psci_reset_param {
+> +	const char *mode;
+> +	u32 reset_type;
+> +	u32 cookie;
+> +};
+> +static struct psci_reset_param *psci_reset_params __ro_after_init;
+> +static size_t num_psci_reset_params __ro_after_init;
+> +
+>  static inline bool psci_has_ext_power_state(void)
+>  {
+>  	return psci_cpu_suspend_feature &
+> @@ -305,9 +313,38 @@ static int get_set_conduit_method(const struct device_node *np)
+>  	return 0;
+>  }
+>  
+> +static void psci_vendor_system_reset2(const char *cmd)
+> +{
+> +	unsigned long ret;
+> +	size_t i;
+> +
+> +	for (i = 0; i < num_psci_reset_params; i++) {
+> +		if (!strcmp(psci_reset_params[i].mode, cmd)) {
+> +			ret = invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2),
+> +					     psci_reset_params[i].reset_type,
+> +					     psci_reset_params[i].cookie, 0);
+> +			/*
+> +			 * if vendor reset fails, log it and fall back to
+> +			 * architecture reset types
+> +			 */
+> +			pr_err("failed to perform reset \"%s\": %ld\n", cmd,
+> +			       (long)ret);
+> +			return;
+> +		}
+> +	}
+> +}
+> +
+>  static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
+>  			  void *data)
+>  {
+> +	/*
+> +	 * try to do the vendor system_reset2
+> +	 * If the reset fails or there wasn't a match on the command,
+> +	 * fall back to architectural resets
+> +	 */
+> +	if (data && num_psci_reset_params)
+> +		psci_vendor_system_reset2(data);
 
-Yes. The BRBE code has no concept of groups either.
+Mulling over this. If a command (data) was provided and a PSCI vendor
+reset parsed at boot, if the vendor reset fails, isn't it correct to
+just fail reboot instead of falling back to architectural resets ?
 
-> If independent events can have mismatched filters, the PMU driver can
-> activate them simultaneously, this means the BRBE driver needs to merge
-> the branch filters.  If so, I still see the complexity caused by this
-> case.
+What's missing is defining the "contract" between the
+LINUX_REBOOT_CMD_RESTART2 arg parameter and the kernel reboot
+type that is executed.
 
-That's exactly what the driver does. It's not even that complex. We
-have the BRBFCR and BRBCR register values for each event and just have
-to OR them together for the enabled events. For filtering we just
-compare each branch record to a mask of the enabled branch types for
-the event.
+I do wonder whether this is an opportunity to deprecate reboot_mode
+altogether on arm64 (I think that the relationship between REBOOT_WARM
+and REBOOT_SOFT with PSCI arch warm reset is already loose - let alone
+falling back to cold reset if reboot_mode == REBOOT_GPIO - which does
+not make any sense at all simply because REBOOT_GPIO is ill-defined to
+say the least).
 
-> > > IMO, it is not quite useful to configure different filters for events=
- in
-> > > the same session, especially if this leads complexity in the driver d=
-ue
-> > > to the hardware limitation.
-> >
-> > I generally agree, but IIRC userspace does this today.
-> >
-> > > For case 2, when create a new session, if the perf tool can read out =
-the
-> > > current branch filter setting (e.g. via sysfs node) and give suggesti=
-on
-> > > what branch filter is compabile with existed sessions, seems to me, t=
-his
-> > > is a feasible solution.  My understanding this is a rare case, and a
-> > > clear guidance for users would be sufficient if this happens.  (Maybe
-> > > we can give recommendation for how to use BRBE in the perf doc).
-> >
-> > No. We are not going to expose *dynamic* information about the PMU
-> > hardware via sysfs. This is not as simple as you make it out to be.
-> > At any point in time there can be an arbitrary number of events open,
-> > and some arbitrary subset currently scheduled.
->
-> If so, the perf tool will miss info for checking the existed branch
-> filter and defer to handle the mismatched filter error until the
-> kernel reports the issue.
->
-> > I agree that ideally this should be rare, though, and hence either of
-> > the two options I have suggested thus far should handle that acceptably=
-.
-> >
-> > > To be clear, an important factor is the trace modes with modifier 'u'
-> > > (user) and 'k' (kernel) should be supported for different events and =
-for
-> > > different sessions.  In a mixed cases (some events are userspace only
-> > > and some are kernel only), the BRBE driver needs to filter out branch
-> > > records for specific mode when taking a sample.
-> >
-> > I hate to repeat myself, but the driver has *no concept whatsoever* of =
-a
-> > "session". It only knows:
-> >
-> > * Which events are currently active in hardware.
-> >
-> > * Which events have been grouped together.
-> >
-> > * Which events have been opened for a given task or CPU context.
-> >
-> > ... and *NONE* of those correspond directly to a "session" managed by
-> > the userspace perf tool.
->
-> Sorry for that.  After your reminder, I understood that the PMU driver
-> has no knowledge for perf session.
->
-> The description above does not refer to perf session.  As you said, the
-> PMU driver has its own context to track active events, and it is
-> possible that some active events might trace only user mode while others
-> trace only kernel mode.  In this case, BRBE needs to be enabled for both
-> user and kernel modes.  When capturing samples, the BRBE driver needs to
-> filter out branch records based on a specific event for its
-> corresponding mode.
+Thoughts ?
 
-That's exactly what the driver does.
+Thanks,
+Lorenzo
 
-> For better understanding, though we don't allow mismatched filters, I
-> still think we should set both E0BRE and ExBRE bits if there are
-> multiple active events with different modes.
-
-That's exactly what the driver does.
-
-> [...]
->
-> > > I haven't done any experiments for this. If you think this is the way
-> > > to move forward, I might do a prototype and get back to you to ensure=
- we
-> > > don't run into any unexpected issues.
-> >
-> > What specifically are you proposing to prototype?
->
-> I mean, in Linux perf, we can add code to check branch filters for
-> opened events when creating a session and report an error for
-> mismatching filters.  I would suggest we implement it specifically
-> for Arm64 to avoid dispute with other archs.
-
-There's not really any such thing as mismatching filters. There's no
-mutually exclusive filters. The only effect having multiple events
-enabling branch stack is you might run out of branch records sooner. A
-CPU with a minimal number of branch records is going to have a similar
-problem as will just enabling all branches on a single event. There's
-not any way to fix that other than increasing the number of records or
-adding a mechanism to the architecture to avoid dropping records.
-
-Rob
+> +
+>  	if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
+>  	    psci_system_reset2_supported) {
+>  		/*
+> @@ -750,6 +787,73 @@ static const struct of_device_id psci_of_match[] __initconst = {
+>  	{},
+>  };
+>  
+> +#define REBOOT_PREFIX "mode-"
+> +
+> +static int __init psci_init_system_reset2_modes(void)
+> +{
+> +	const size_t len = strlen(REBOOT_PREFIX);
+> +	struct psci_reset_param *param;
+> +	struct device_node *psci_np __free(device_node) = NULL;
+> +	struct device_node *np __free(device_node) = NULL;
+> +	struct property *prop;
+> +	size_t count = 0;
+> +	u32 magic[2];
+> +	int num;
+> +
+> +	if (!psci_system_reset2_supported)
+> +		return 0;
+> +
+> +	psci_np = of_find_matching_node(NULL, psci_of_match);
+> +	if (!psci_np)
+> +		return 0;
+> +
+> +	np = of_find_node_by_name(psci_np, "reset-types");
+> +	if (!np)
+> +		return 0;
+> +
+> +	for_each_property_of_node(np, prop) {
+> +		if (strncmp(prop->name, REBOOT_PREFIX, len))
+> +			continue;
+> +		num = of_property_count_u32_elems(np, prop->name);
+> +		if (num != 1 && num != 2)
+> +			continue;
+> +
+> +		count++;
+> +	}
+> +
+> +	param = psci_reset_params =
+> +		kcalloc(count, sizeof(*psci_reset_params), GFP_KERNEL);
+> +	if (!psci_reset_params)
+> +		return -ENOMEM;
+> +
+> +	for_each_property_of_node(np, prop) {
+> +		if (strncmp(prop->name, REBOOT_PREFIX, len))
+> +			continue;
+> +
+> +		param->mode = kstrdup_const(prop->name + len, GFP_KERNEL);
+> +		if (!param->mode)
+> +			continue;
+> +
+> +		num = of_property_read_variable_u32_array(np, prop->name, magic,
+> +							  1, ARRAY_SIZE(magic));
+> +		if (num < 0) {
+> +			pr_warn("Failed to parse vendor reboot mode %s\n",
+> +				param->mode);
+> +			kfree_const(param->mode);
+> +			continue;
+> +		}
+> +
+> +		/* Force reset type to be in vendor space */
+> +		param->reset_type = PSCI_1_1_RESET_TYPE_VENDOR_START | magic[0];
+> +		param->cookie = num > 1 ? magic[1] : 0;
+> +		param++;
+> +		num_psci_reset_params++;
+> +	}
+> +
+> +	return 0;
+> +}
+> +arch_initcall(psci_init_system_reset2_modes);
+> +
+>  int __init psci_dt_init(void)
+>  {
+>  	struct device_node *np;
+> 
+> -- 
+> 2.34.1
+> 
 
