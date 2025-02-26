@@ -4,87 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D162C19F2E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 09:23:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26446C19F30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 09:23:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=khCThNJfiB4uU8Whibyw5n21yqaVaGc+0OhAI0EoB2s=; b=aQ9DSEoEkjnKN2dl9FiPUxtH5I
-	VPjT63Eyaq2OctOx1bQwaGeWmmLfOL62mdgUjj+a8rulKAr1MAt52VJUh27UaG7rqk8f1J5yZJMlb
-	mCG+1B1QLngISowQOKhCX8IB5R5ee7f9v0+9XYhw+NMO4vsVsZHBFFoGk8J4J/EnowhQZKnTPWpcQ
-	Qdz/G/5OJuDjbKRX5PZ9KkOZdkKzRl96tNvYY8ZnQLM+MYrkOh2XlWAjTTpjoKdvwDinzvgg+Qf5T
-	62X/nbiKVtecytssK/3juAmeHM1rqZ+t6/DB9cu6QhYeftNNsQCscBlYKV6AonUkD4VSHAyZufUAE
-	piGeSlyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ru3WUeEe8wKZUNQqs4sYz8QjMtxdS5poj9PYJGdyA1s=; b=PaaquwA78DJTkJEI5wWhWbPrTB
+	nUz17hPMtViWTCKU4Z5yB0v1hze+MrVs4IclryheXezhgTu7Ns2XpEwY2x07t/AlreWXQPU6PzvTW
+	36AZ3BgeLSZD85Xjagrb0kHSQto8fZLjHQTQZ14ayIz61WQIHVNddmC2fP5doNVsBCrwwhr1I1w3z
+	rM6ai2isUnqjAXln02XZkbUk0v0MptN8nUI1Dk6TZPybGZjcxiNJV/BRaGyjVVVxTL8SS3lkUKCpZ
+	DCrva0GYs6Pel37zjxuAlR+u4JBKqZxyVIVQYMeYZOng13cx6pF3LvPKUSLHYXdBl07+0MJs8T57X
+	XFs01fcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnDd5-000000033rt-0Xfz;
-	Wed, 26 Feb 2025 09:22:59 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnDA3-00000002y6s-0bSD
+	id 1tnDd6-000000033tb-1XRw;
+	Wed, 26 Feb 2025 09:23:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnDCW-00000002yjE-13fp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 08:53:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740559979; x=1772095979;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=sWyxuVp5GIn2PyGiKOrfhffWXLzuRAsQpL6ER1bVxKA=;
-  b=PfV5GWY+rI39VgK05ePqRE4ZQ2x51MHWnacB8jSOVAbHZWBgzD6R30JI
-   h3EYF4r77dHRdpXIl1ZfsKifUqVnvpJoBYqNI6br023nrxo63MEnecn98
-   lFZrcEjb4fD2GLsp8a7ZUPOAnPXYTGho13utptxZO18r8PC/osHD15elb
-   p9Io9nbGnFRz7yIIO/yqyFqr8fr24h33v1oB33JluGabg+5dYa6Cp0v29
-   HNWJLMOSF4BWo62NpcplfqJw/GJHv7igDYg+JnVB7iDtO7QSV1xmYaKod
-   fsM3bYw2sKtd11q4fnBj+YatQ1KQF07W0FVT9H8VrzsJZEn/WL+0F04uS
-   g==;
-X-CSE-ConnectionGUID: lcrsyrciQPWQFs1w1uQ2Ew==
-X-CSE-MsgGUID: GK0fowKdSxG0MUdp7zcXEA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11356"; a="52389685"
-X-IronPort-AV: E=Sophos;i="6.13,316,1732608000"; 
-   d="scan'208";a="52389685"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Feb 2025 00:52:55 -0800
-X-CSE-ConnectionGUID: Ij3kjip9SWyZdE5qJLB6Tw==
-X-CSE-MsgGUID: Pr4CVODQQOSIt8dTwipeBQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,316,1732608000"; 
-   d="scan'208";a="117128677"
-Received: from turnipsi.fi.intel.com (HELO kekkonen.fi.intel.com) ([10.237.72.44])
-  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Feb 2025 00:52:52 -0800
-Received: from kekkonen.localdomain (localhost [127.0.0.1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id AF9D911F944;
-	Wed, 26 Feb 2025 10:52:49 +0200 (EET)
-Date: Wed, 26 Feb 2025 08:52:49 +0000
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Cosmin Tanislav <demonsingur@gmail.com>
-Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 5/6] media: i2c: imx219: Report streams using frame
- descriptors
-Message-ID: <Z77WYcoV1MhWrpV3@kekkonen.localdomain>
-References: <20250220230818.275262-1-demonsingur@gmail.com>
- <20250220230818.275262-6-demonsingur@gmail.com>
+	Wed, 26 Feb 2025 08:55:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 777091063;
+	Wed, 26 Feb 2025 00:55:47 -0800 (PST)
+Received: from [10.57.84.229] (unknown [10.57.84.229])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 523C43F6A8;
+	Wed, 26 Feb 2025 00:55:30 -0800 (PST)
+Message-ID: <b6b999c9-79cd-4945-9d7a-c5ee8158b7dc@arm.com>
+Date: Wed, 26 Feb 2025 08:55:28 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250220230818.275262-6-demonsingur@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] arm64/mm: Fix Boot panic on Ampere Altra
+Content-Language: en-GB
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Luiz Capitulino <luizcap@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250225114638.2038006-1-ryan.roberts@arm.com>
+ <CAMj1kXHNO+iB4vNFz-4tR_9CPzv96hn+RW=eqyZXMGy_AySDpw@mail.gmail.com>
+ <20250226001047.GA24197@willie-the-truck>
+ <CAMj1kXH=tPuM+irCsKgycUTbts8h9vD4m3tEtw51YFzWafdSUA@mail.gmail.com>
+ <b0578d21-95cd-4d8a-add1-87299f36b491@arm.com>
+ <CAMj1kXHJGC9aYCwwb2XTWfhAjH6GDKQptNdLwO+hfv6hazivHQ@mail.gmail.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <CAMj1kXHJGC9aYCwwb2XTWfhAjH6GDKQptNdLwO+hfv6hazivHQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_005259_229298_20B02BF3 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20250226_005532_349131_75CC7DF0 
+X-CRM114-Status: GOOD (  23.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,25 +70,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cosmin,
-
-On Fri, Feb 21, 2025 at 01:08:13AM +0200, Cosmin Tanislav wrote:
-> From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+On 26/02/2025 08:33, Ard Biesheuvel wrote:
+> On Wed, 26 Feb 2025 at 09:07, Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>
+>> On 26/02/2025 06:59, Ard Biesheuvel wrote:
+>>> On Wed, 26 Feb 2025 at 01:10, Will Deacon <will@kernel.org> wrote:
+>>>>
+>>>> On Tue, Feb 25, 2025 at 07:05:35PM +0100, Ard Biesheuvel wrote:
+>>>>> Apologies for the breakage, and thanks for the fix.
+>>>>>
+>>>>> I have to admit that I was a bit overzealous here: there is no point
+>>>>> yet in using the sanitised value, given that we don't actually
+>>>>> override the PA range in the first place.
+>>
+>> But unless I've misunderstood something, parange is overridden; Commit
+>> 62cffa496aac (the same one we are fixing) adds an override to force parange to
+>> 48 bits when arm64.nolva is specified for LPA2 systems (see mmfr2_varange_filter()).
+>>
+>> I thought it would be preferable to honour that override, hence my use of
+>> arm64_apply_feature_override() in the fix. Are you saying we don't need to worry
+>> about that case?
+>>
 > 
-> Implement the .get_frame_desc() subdev operation to report information
-> about streams to the connected CSI-2 receiver. This is required to let
-> the CSI-2 receiver driver know about virtual channels and data types for
-> each stream.
+> I wouldn't think so (but I'm glad you brought it up because this
+> didn't occur to me at all tbh)
 > 
-> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> With arm64.nolva, both the VA and PA ranges will be reduced, and so
+> the range of the linear map will be 47 bits. So if the PA range is
+> being reduced from 52 to 48, it will still exceed the size of the
+> linear map, and so it should make no difference in this particular
+> case.
 
-In addition to this, the idea has been that the set_frame_desc() could be
-used to set aspects of the frame descriptor. My thinking has been that you
-could modify the entries, up to the degree supported by the driver, but not
-add or remove them. This should be properly documented in v4l2-subdev.h.
+OK, so I think you're saying it'll happen to work correctly even if we ignore
+that override? That sounds a bit fragile to me. Surely we should be consistent
+and either always honour the override or remove the override in the first place?
 
--- 
-Regards,
+> 
+> The use case I had in mind was to allow the PA range to be reduced to
+> a value that is substantially less than the range of the linear map,
+> e.g, 40 bits on a 48-bit VA kernel. On the Android side, the issue of
+> the missing linear map randomization has come up a couple of times,
+> but there is no clear direction at this point, so adding this feature
+> here was premature (mea culpa)
 
-Sakari Ailus
 
