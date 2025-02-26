@@ -4,55 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 171BAC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:26:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84B44C021BF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rj7LAk1+jqXQpwUIouuCRIB1wfAX0ry+9wJPbCAUvz0=; b=bpmknxNWgJxtqeJjZmeeX6guw2
-	asNzlF+nah9gupABEV2MrswdCChIYBu09e2WJjTHW6oq15leoLRhSUKlcUjljRXxsDokbIbO293vB
-	HWxbxJz95GQst1dpAkLCTDOW1Po6icX1FlSZksKhPBHEWUoSPPk8ogbho3nehWuUYqhcYnnhc8+C6
-	AYhpx0ceI+OdYcR6vG0OG4CxNxEUfEIi74thSdCUjErEHdke8H35rEo/VvuqnKiSRwUdyPeI1dJHh
-	ld1GaaitOVlF4hVNuYaFWXrSQK3Mya1o5H+rqW38wx2C2ujYMkTYpfVvRd6rZGyxZ1O20cZXvtoa8
-	a7uOMpQg==;
+	bh=29L7mZshvCvcvFGKuaKQCCAvetgF+qutA7SaHdSw6xU=; b=hMJPS7uvYYyewzNbZc2f9qmzsx
+	PrbUqrBCaiCmWtHAm6kuthgVA8JezFRmEq9Igi/O9BsohV4fRkNZdzpmEXj8TcFujyCISUcESw9fC
+	Z5CirXyc06Zm5NWhW1JWOvVKvyemOwbR5VoT+qMuJMGuRdHYF97xTvGSEuqx7BrPDd4+vw5dIcmTm
+	5FXoQ8dtZ4bBVXIMZwjZz7F94oJv1gjcHoamsfpvt5TJY2vY3Vaks8YdEUZ542O/94EFrBc5g+VFR
+	z6s1oy8SwBBB503udO8IvtE4woAdiY8g/k7KYq7Qkr6gqDImLkqmIe+U4qgdKz3YlgVIpLXo5KNU7
+	SO1xW7bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnHQE-00000003rBf-2Fbs;
-	Wed, 26 Feb 2025 13:25:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnFr0-00000003WXa-3CZJ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 11:45:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4BA681516;
-	Wed, 26 Feb 2025 03:45:43 -0800 (PST)
-Received: from [10.163.40.69] (unknown [10.163.40.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 744B83F673;
-	Wed, 26 Feb 2025 03:45:25 -0800 (PST)
-Message-ID: <fc357e47-a727-4ba3-9019-877ce8bc443f@arm.com>
-Date: Wed, 26 Feb 2025 17:15:23 +0530
+	id 1tnHQH-00000003rGP-1hd4;
+	Wed, 26 Feb 2025 13:26:01 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnFrN-00000003Wic-2Ir8;
+	Wed, 26 Feb 2025 11:45:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1740570351;
+	bh=zuDQtknTvVdF2ZgtKWCQkBEadEohQseRtbIm+TZ42II=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=c6IURImbp3KCNPOXFqy/b6TUhD6r6DZYgxKIeCAGg7D8+LlPKf7XzU2cGsy+oKS9Z
+	 8GT8GVmWOkCPxrTBLFR3F+TfZJgI6Xwko6eiu6Bz2d/BDAatb5HIZ3hGOZ0NSYpcIN
+	 DEWkzB2FF6Vf+hwAURRZhY6pPQByQtkVwj/vtHFnXls+kkCP3jAjrBfc3tZnGiZOpE
+	 WsRwsZcFKKMVnjizZA6i8Gn/IFm41fWyeeceJL+EE+sHY3cAFIqcBTCg/E5DX6SPCA
+	 OiYFmkguld2n2q6v67dYHd4hYE+oaSRaeZ0+vRQOPqNIv7bQZrFMKDZECDO751geVT
+	 CJCxipnCBdbvw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E0BF317E001E;
+	Wed, 26 Feb 2025 12:45:49 +0100 (CET)
+Message-ID: <c2154240-efa1-4c73-aabe-74e938a75af1@collabora.com>
+Date: Wed, 26 Feb 2025 12:45:49 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/mm: Explicit cast conversions to correct data type
-To: Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-kernel@vger.kernel.org
-References: <20250219035646.536707-1-anshuman.khandual@arm.com>
- <Z724Q1ofM1GvKquV@J2N7QTR9R3> <9e1721a1-54a4-4007-a0f5-d651f5f21ae2@arm.com>
- <Z73LEkHklpjvIlmZ@J2N7QTR9R3.cambridge.arm.com>
+Subject: Re: [PATCH v7 2/6] drm/mediatek: dsi: Improves the DSI lane setup
+ robustness
+To: Alexandre Mergnat <amergnat@baylibre.com>,
+ =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
+Cc: "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+ "mripard@kernel.org" <mripard@kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
+ "simona.vetter@ffwll.ch" <simona.vetter@ffwll.ch>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "airlied@gmail.com" <airlied@gmail.com>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "will@kernel.org" <will@kernel.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "tzimmermann@suse.de" <tzimmermann@suse.de>,
+ "simona@ffwll.ch" <simona@ffwll.ch>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ =?UTF-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?= <jitao.shi@mediatek.com>,
+ "robh@kernel.org" <robh@kernel.org>
+References: <20231023-display-support-v7-0-6703f3e26831@baylibre.com>
+ <20231023-display-support-v7-2-6703f3e26831@baylibre.com>
+ <ab3bd050c873bb6cecc00b615b938eabc157cb49.camel@mediatek.com>
+ <79477810-00a9-47f1-8282-f8077ea082bb@baylibre.com>
+ <3310b6f9-df7a-4769-a221-4a93cc3ec035@collabora.com>
+ <0863ee2e-25ed-43b7-a896-e380de828d58@baylibre.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <Z73LEkHklpjvIlmZ@J2N7QTR9R3.cambridge.arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <0863ee2e-25ed-43b7-a896-e380de828d58@baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_034530_893467_8D8B53CF 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20250226_034553_940524_680A86D4 
+X-CRM114-Status: GOOD (  25.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,89 +100,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2/25/25 19:22, Mark Rutland wrote:
-> On Tue, Feb 25, 2025 at 01:00:40PM +0000, Ryan Roberts wrote:
->> On 25/02/2025 12:32, Mark Rutland wrote:
->>> On Wed, Feb 19, 2025 at 09:26:46AM +0530, Anshuman Khandual wrote:
->>>> From: Ryan Roberts <ryan.roberts@arm.com>
->>>>
->>>> When CONFIG_ARM64_PA_BITS_52 is enabled, page table helpers __pte_to_phys()
->>>> and __phys_to_pte_val() are functions which return phys_addr_t and pteval_t
->>>> respectively as expected. But otherwise without this config being enabled,
->>>> they are defined as macros and their return types are implicit.
->>>>
->>>> Until now this has worked out correctly as both pte_t and phys_addr_t data
->>>> types have been 64 bits. But with the introduction of 128 bit page tables,
->>>> pte_t becomes 128 bits. Hence this ends up with incorrect widths after the
->>>> conversions, which leads to compiler warnings.
+Il 26/02/25 12:35, Alexandre Mergnat ha scritto:
+> 
+> 
+> On 18/02/2025 09:52, AngeloGioacchino Del Regno wrote:
+>> Il 17/02/25 16:03, Alexandre Mergnat ha scritto:
+>>> Hi CK.
 >>>
->>> Does 128-bit page table not imply 52-bit PAs?
->>
->> Not to my knowledge. For now the prototype code base is explicitly sticking to
->> 48-bit PA and 44-bit VA (for initial simplicitly because that's the limit for 4
->> levels).
-> 
-> Fair enough; info dump below, but hopefully nothing of consequence.
-> 
-> I assume that you're relying on the VMSAv9-128 PA bits [48:12] being in the
-> same place as in the VMSAv8-64 descriptors, and being handled by the same
-> PTE_ADDR_LOW mask that we use for CONFIG_ARM64_PA_BITS_52=n.
-> 
->>From a quick scan of ARM DDI 0487 L.a, the VMSAv9-128 translation table
-> descriptor format always contains a 56-bit PA (though PARange could be
-> smaller than that). Bits [51:49] are packed differently than in
-> VMSAv8-64 descriptors, and bits [55:52] are obviously new.
-> 
->>>> Fix the warnings by explicitly casting to the correct type after doing the
->>>> conversion.
+>>> On 17/02/2025 08:56, CK Hu (胡俊光) wrote:
+>>>> On Fri, 2025-01-10 at 14:31 +0100, Alexandre Mergnat wrote:
+>>>>> External email : Please do not click links or open attachments until you have 
+>>>>> verified the sender or the content.
+>>>>>
+>>>>>
+>>>>> Currently, mtk_dsi_lane_ready (which setup the DSI lane) is triggered
+>>>>> before mtk_dsi_poweron. lanes_ready flag toggle to true during
+>>>>> mtk_dsi_lane_ready function, and the DSI module is set up during
+>>>>> mtk_dsi_poweron.
+>>>>>
+>>>>> Later, during panel driver init, mtk_dsi_lane_ready is triggered but does
+>>>>> nothing because lanes are considered ready. Unfortunately, when the panel
+>>>>> driver try to communicate, the DSI returns a timeout.
+>>>>>
+>>>>> The solution found here is to put lanes_ready flag to false after the DSI
+>>>>> module setup into mtk_dsi_poweron to init the DSI lanes after the power /
+>>>>> setup of the DSI module.
+>>>>
+>>>> I'm not clear about what happen.
+>>>> I think this DSI flow has worked for a long time.
+>>>> So only some panel has problem?
 >>>
->>> I think it would be simpler and clearer if we replaced the macros with
->>> functions, such that __pte_to_phys() and __phys_to_pte_val() are
->>> *always* functions.
+>>> I don't know if it's related to a specific panel or not.
+>>>
+>>>>
+>>>> And another question.
+>>>> Do you mean mtk_dsi_lane_ready() do some setting to hardware, but lane is not 
+>>>> actually ready?
+>>>
+>>> The workflow should be:
+>>> ... | dsi->lanes_ready = false | Power-on | setup dsi lanes | dsi->lanes_ready = 
+>>> true (to avoid re-do dsi lanes setup) | ...
+>>>
+>>> I observe (print function name called + dsi->lanes_ready value):
 >>
->> Yeah, agreed. This was initially just a hack I did to get things working.
+>> Alex, the first poweron is called by mtk_dsi_ddp_start() - and the start callback
+>> is internal to the mediatek-drm driver.
+>>
+>> That callback is called by mtk_crtc during setup and during bridge enable(), and
+>> there we go with suboptimal code design backfiring - instead of using what the
+>> DRM APIs provide, this driver uses something custom *and* the DRM APIs, giving
+>> this issue.
+>>
+>> Part of what mtk_crtc does is duplicated with what the DRM APIs want to do, so
+>> there you go, that's your problem here :-)
+>>
+>> Should I go on with describing the next step(s), or is that obvious for everyone?
+>>
+>> :-)
+>>
+>> Cheers,
 > 
-> Cool; sounds like we're aligned.
+> Ok thanks Angelo.
+> Can you let me know if you agree with this change please ? This should be better:
+> 
 
-Planning for the following respin instead.
+No, no, I'm saying that we should do the exact opposite of what you're doing here!
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 0b2a2ad1b9e8..4ebfa60ea5c6 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -68,10 +68,6 @@ extern unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)];
- #define pte_ERROR(e)	\
- 	pr_err("%s:%d: bad pte %016llx.\n", __FILE__, __LINE__, pte_val(e))
- 
--/*
-- * Macros to convert between a physical address and its placement in a
-- * page table entry, taking care of 52-bit addresses.
-- */
- #ifdef CONFIG_ARM64_PA_BITS_52
- static inline phys_addr_t __pte_to_phys(pte_t pte)
- {
-@@ -84,8 +80,15 @@ static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
- 	return (phys | (phys >> PTE_ADDR_HIGH_SHIFT)) & PHYS_TO_PTE_ADDR_MASK;
- }
- #else
--#define __pte_to_phys(pte)	(pte_val(pte) & PTE_ADDR_LOW)
--#define __phys_to_pte_val(phys)	(phys)
-+static inline phys_addr_t __pte_to_phys(pte_t pte)
-+{
-+	return pte_val(pte) & PTE_ADDR_LOW;
-+}
-+
-+static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
-+{
-+	return phys;
-+}
- #endif
- 
- #define pte_pfn(pte)		(__pte_to_phys(pte) >> PAGE_SHIFT)
--- 
-2.30.2
+We should drop the MediaTek custom stuff that duplicates the DRM APIs behavior(s),
+and conform to what the DRM APIs provide and want us to do.
+
+To be really really clear - I'm saying to delete and avoid using:
+- mtk_dsi_ddp_start()
+- mtk_dsi_ddp_stop()
+
+The spirit here should be to use kernel provided APIs, and to make custom stuff
+to disappear as much as possible (again, that mtk_crtc .start/.stop).
+
+I'm not saying that literally all of the start/stop callbacks for all of the
+MTK DRM drivers should disappear *all at once* but... gradually, one by one,
+these should get lost (where/if possible).
+
+Just one more mention: that custom handling also backfired on me while writing
+the hdmiv2/dpi drivers... and now backfires on dsi, and in the future it will
+backfire again on something else. It's there only to give problems in the end,
+not to solve them :-)
+
+Cheers,
+Angelo
+
+> @@ -843,25 +843,6 @@ static void mtk_dsi_bridge_atomic_enable(struct drm_bridge 
+> *bridge,
+>       mtk_output_dsi_enable(dsi);
+>   }
+> 
+> -static void mtk_dsi_bridge_atomic_pre_enable(struct drm_bridge *bridge,
+> -                         struct drm_bridge_state *old_bridge_state)
+> -{
+> -    struct mtk_dsi *dsi = bridge_to_dsi(bridge);
+> -    int ret;
+> -
+> -    ret = mtk_dsi_poweron(dsi);
+> -    if (ret < 0)
+> -        DRM_ERROR("failed to power on dsi\n");
+> -}
+> -
+> -static void mtk_dsi_bridge_atomic_post_disable(struct drm_bridge *bridge,
+> -                           struct drm_bridge_state *old_bridge_state)
+> -{
+> -    struct mtk_dsi *dsi = bridge_to_dsi(bridge);
+> -
+> -    mtk_dsi_poweroff(dsi);
+> -}
+> -
+>   static enum drm_mode_status
+>   mtk_dsi_bridge_mode_valid(struct drm_bridge *bridge,
+>                 const struct drm_display_info *info,
+> @@ -886,8 +867,6 @@ static const struct drm_bridge_funcs mtk_dsi_bridge_funcs = {
+>       .atomic_disable = mtk_dsi_bridge_atomic_disable,
+>       .atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
+>       .atomic_enable = mtk_dsi_bridge_atomic_enable,
+> -    .atomic_pre_enable = mtk_dsi_bridge_atomic_pre_enable,
+> -    .atomic_post_disable = mtk_dsi_bridge_atomic_post_disable,
+>       .atomic_reset = drm_atomic_helper_bridge_reset,
+>       .mode_valid = mtk_dsi_bridge_mode_valid,
+>       .mode_set = mtk_dsi_bridge_mode_set,
+> 
+> 
 
 
 
