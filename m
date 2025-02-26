@@ -4,43 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9383C021BC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 10:12:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CEB2C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 10:14:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LzNBdKuFi8Do9kBnujj8KHZD3Z1XOY/pDKnjHb7bSE8=; b=DF92XBLkiMZ+Eq5Ni0qUdflr6w
-	PaEJfDWHkixuwye4pK4C6jiOchQgI8gdTTNracZLrtWp3bn1H50IkMRiMcHV4kQKnqlOVV5cfyIaM
-	pfGNqgE30I8SGoys7sc1RXPmswQT4NaiTWdjeVwKaNDaD1f5oUvXEuOf9vyXwA/wc4O21Gxb0twkZ
-	CapLfSapYYy5g2Q4EgurO0BkkxAA9n9LLRaoK1Flshl2Afy7WgkbZL5VsLt83//A93SK8AoA9HYsa
-	QLTqqFubPRp6GwpPCMz69P8bPSApvQPH/ilOtolHUjpNY+77UAyynJd55n9qJxfBi5rmELwRFSqVm
-	IzKJJhAg==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=irmKjgy54eKsa/wYtjIJ+UJ+LZLLIAEkq3oBzyxkhvQ=; b=i3hMjjAp9iS/IWZvdLjyJoWIgz
+	urc+oid8zx/mNoAAWTIR2E+Af1trceVA0FvcVk5T9AOlf6GJaPzZFkDAEWUIrt4VMuftLq9vrzmfq
+	x3oBO/cpOMBA8RKHnftXQTeKKS6vsolOcVm2+otBbLzqnT13oGenmAfL77WV4jFXyxZAYaPofoECO
+	8juiArQcpV/PPqPe/jQW33lwVAG6YxV/tHl97tDzBIWp6wK8DQRU2LaWXBW/lZMqHs+ISs6qGieiJ
+	Z0zZRzqkjvvjLBUVXA06yzyTaZauee4ySy0dS1mBoej7oXSIPFQZOJulMKlf/8ngNZ4w4/pHJO8UJ
+	8VhYQ8Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnEP0-00000003F98-2EVU;
-	Wed, 26 Feb 2025 10:12:30 +0000
+	id 1tnEQV-00000003Fb9-0xkT;
+	Wed, 26 Feb 2025 10:14:03 +0000
 Received: from relay7-d.mail.gandi.net ([217.70.183.200])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnEMC-00000003EEO-3T2s
+	id 1tnEMC-00000003EDv-39tD
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 26 Feb 2025 10:09:38 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 496FA431F3;
-	Wed, 26 Feb 2025 10:09:34 +0000 (UTC)
+Received: by mail.gandi.net (Postfix) with ESMTPSA id D54794321C;
+	Wed, 26 Feb 2025 10:09:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1740564575;
+	t=1740564574;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LzNBdKuFi8Do9kBnujj8KHZD3Z1XOY/pDKnjHb7bSE8=;
-	b=KCc3BfM6qiXcIeP6oxm7dcTtc6uikeTEYireTaTa7AzgNIQHgyb76Bo8/OQCFhkQV+J8V8
-	g3YaEMk8s5q2+t0YcyQIHCV42yMQG+5v90y3NWf2CtMNeOkB+FhD1a3OAClfAEpZC0q7Tj
-	mt6Un6/xevxnL3LUDFP58e34YyWip4MblGr5VEV18YMc6l7DgYG8p/UFt+XpykVdtXoKpD
-	8fEdglMxbn6k7AQkDj5WD0pV6533VWkNm5YP+VcPtbW3k70J8z8PDczuYHm99JVOl0+QND
-	ursYnH5mRsOGSddt8OcHxqKfD5gmC0+oSUTP7hNovdV+v4vjCUJyn0ZqtDBwdQ==
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=irmKjgy54eKsa/wYtjIJ+UJ+LZLLIAEkq3oBzyxkhvQ=;
+	b=Vl+8t0fTI17niDSomkviT3W3Uv0NHyEusjarB94jIOFEoe9bH8kOD5pLoe3Pfpvq+Umu3w
+	q/qtZHOak0oadHxBr1MVv5XNWCuH/TmwxUp3iYMgschl0SppTMlUi+7i7MP1I94VI58uAG
+	AdIJcjKykD0m0+r3RrZk0rXoiW6aNv0efiS/061mBOMiVdrsd5kiUSN2spMOxfNo1RzkiE
+	nY+sJyvCIxcFzQh3niQ+asDSLDVSgZ54dB3Vsb9QxD6U4CM+swOO3djbI1S2OyM6gFHGue
+	u59B9UgHi6peebLLx14fqIJjI2znfbL07RSypbelzyBU13y3UUdCSIMx+gubGQ==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net,
 	Andrew Lunn <andrew@lunn.ch>,
@@ -62,22 +61,21 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Oleksij Rempel <o.rempel@pengutronix.de>,
 	Simon Horman <horms@kernel.org>,
 	Romain Gantois <romain.gantois@bootlin.com>
-Subject: [PATCH net-next v2 01/13] net: ethtool: Export the link_mode_params definitions
-Date: Wed, 26 Feb 2025 11:09:16 +0100
-Message-ID: <20250226100929.1646454-2-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v2 00/13] net: phy: Rework linkmodes handling in a dedicated file
+Date: Wed, 26 Feb 2025 11:09:15 +0100
+Message-ID: <20250226100929.1646454-1-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250226100929.1646454-1-maxime.chevallier@bootlin.com>
-References: <20250226100929.1646454-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdekgeeftdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeevgedtffelffelveeuleelgfejfeevvdejhfehgeefgfffvdefteegvedutefftdenucfkphepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvtddprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegvughumhgri
- igvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomh
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdekgeeftdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofggtgfgsehtkeertdertdejnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepieevffefgfevgeehveeftdeiheektddvheegtdevtdeivedtgffgvdejffefleffnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvtddprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvl
+ hdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomh
 X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_020937_237466_176E779C 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20250226_020937_240001_855F2E63 
+X-CRM114-Status: GOOD (  24.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,78 +90,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-link_mode_params contains a lookup table of all 802.3 link modes that
-are currently supported with structured data about each mode's speed,
-duplex, number of lanes and mediums.
+Hello everyone,
 
-As a preparation for a port representation, export that table for the
-rest of the net stack to use.
+This is the V2 of the phy_caps series. This series aims at reworking the way
+we do conversions between speed/duplex, linkmodes and interfaces. There's two
+goals here :
+ - Make that conversion easier to maintain and somewhat more efficient, by
+   avoiding the re-definitions of capabilities to linkmodes to interfaces that
+   exist in phylib and phylink
+ - create an internal API for these conversions, in preparation for the phy_port
+   work.
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
-V1 -> V2: Moved that patch at the beginning of the series
+This V2 reworks the way we deal with the phy_interface_t <-> caps <-> linkmodes,
+leaving the MAC_*** capabilities a phylink-only set of values.
 
- include/linux/ethtool.h | 8 ++++++++
- net/ethtool/common.c    | 1 +
- net/ethtool/common.h    | 7 -------
- 3 files changed, 9 insertions(+), 7 deletions(-)
+This V2 also addresses the comments from Köry as well as a kdoc warning.
 
-diff --git a/include/linux/ethtool.h b/include/linux/ethtool.h
-index 7f222dccc7d1..8210ece94fa6 100644
---- a/include/linux/ethtool.h
-+++ b/include/linux/ethtool.h
-@@ -210,6 +210,14 @@ static inline u8 *ethtool_rxfh_context_key(struct ethtool_rxfh_context *ctx)
- 
- void ethtool_rxfh_context_lost(struct net_device *dev, u32 context_id);
- 
-+struct link_mode_info {
-+	int                             speed;
-+	u8                              lanes;
-+	u8                              duplex;
-+};
-+
-+extern const struct link_mode_info link_mode_params[];
-+
- /* declare a link mode bitmap */
- #define __ETHTOOL_DECLARE_LINK_MODE_MASK(name)		\
- 	DECLARE_BITMAP(name, __ETHTOOL_LINK_MODE_MASK_NBITS)
-diff --git a/net/ethtool/common.c b/net/ethtool/common.c
-index 7149d07e90c6..6b0178c09d72 100644
---- a/net/ethtool/common.c
-+++ b/net/ethtool/common.c
-@@ -422,6 +422,7 @@ const struct link_mode_info link_mode_params[] = {
- 	__DEFINE_LINK_MODE_PARAMS(800000, VR4, Full),
- };
- static_assert(ARRAY_SIZE(link_mode_params) == __ETHTOOL_LINK_MODE_MASK_NBITS);
-+EXPORT_SYMBOL_GPL(link_mode_params);
- 
- const char netif_msg_class_names[][ETH_GSTRING_LEN] = {
- 	[NETIF_MSG_DRV_BIT]		= "drv",
-diff --git a/net/ethtool/common.h b/net/ethtool/common.h
-index 58e9e7db06f9..b9f99fb1d8e1 100644
---- a/net/ethtool/common.h
-+++ b/net/ethtool/common.h
-@@ -15,12 +15,6 @@
- #define __SOF_TIMESTAMPING_CNT (const_ilog2(SOF_TIMESTAMPING_LAST) + 1)
- #define __HWTSTAMP_FLAG_CNT (const_ilog2(HWTSTAMP_FLAG_LAST) + 1)
- 
--struct link_mode_info {
--	int				speed;
--	u8				lanes;
--	u8				duplex;
--};
--
- struct genl_info;
- struct hwtstamp_provider_desc;
- 
-@@ -33,7 +27,6 @@ tunable_strings[__ETHTOOL_TUNABLE_COUNT][ETH_GSTRING_LEN];
- extern const char
- phy_tunable_strings[__ETHTOOL_PHY_TUNABLE_COUNT][ETH_GSTRING_LEN];
- extern const char link_mode_names[][ETH_GSTRING_LEN];
--extern const struct link_mode_info link_mode_params[];
- extern const char netif_msg_class_names[][ETH_GSTRING_LEN];
- extern const char wol_mode_names[][ETH_GSTRING_LEN];
- extern const char sof_timestamping_names[][ETH_GSTRING_LEN];
+V1 : https://lore.kernel.org/netdev/20250222142727.894124-1-maxime.chevallier@bootlin.com/
+
+For context, The text below is an extract from the V1 cover :
+
+Following the V4 of the phy_port series [1] we've discussed about attempting
+to extract some of the linkmode <-> capabilities (speed/duplex) <-> interface
+logic into a dedicated file, so that we can re-use that logic out of
+phylink.
+
+While trying to do that, I might have gotten a bit carried-away, and I'm
+therefore submitting this series to rework the way we are currently
+managing the linkmodes <-> capabilities handling.
+
+We are currently defining all the possible Ethernet linkmodes in an
+enum ethtool_link_mode_bit_indices value defined in uapi/linux/ethtool.h :
+
+	ETHTOOL_LINK_MODE_10baseT_Half_BIT	= 0,
+	ETHTOOL_LINK_MODE_10baseT_Full_BIT	= 1,
+	...
+
+Each of these modes represents a media-side link definition, and runs at
+a given speed and duplex.
+
+Specific attributes for each modes are stored in net/ethtool/common.c, as
+an array of struct link_mode_info :
+
+	struct link_mode_info {
+		int				speed;
+		u8				lanes;
+		u8				duplex;
+	}
+
+The link_mode_params[] array is the canonical definition for these modes,
+as (1) there are build-time checks to make sure any new linkmode
+definition is also defined in this array and (2) this array is always
+compiled-in, as it's part of the net stack (i.e. it is not phylib-specific).
+
+This array is however not optimized for lookups, as it is not ordered in
+any particular fashion (new modes go at the end, regardless of their speed
+and duplex).
+
+Phylib also includes a similar array, in the form of the phy_settings
+array in drivers/net/phy/phy-core.c :
+
+	struct phy_setting {
+		u32 speed;
+		u8 duplex;
+		u8 bit; // The enum index for the linkmode
+	};
+
+The phy_settings array however is ordered by descending speeds. A variety
+of helpers in phylib rely on that ordering to perform lookups, usually
+to get one or any linkmode corresponding to a requested speed and duplex.
+
+Finally, we have some helpers in phylink (phylink_caps_to_linkmodes) that
+allows getting the list of linkmodes that match a set of speed and duplex
+value, all at once.
+
+While the phylink and phylib helpers allows for efficient lookups, they
+have some drawbacks as well :
+
+	(1) : It's easy to forget updating of all of these helpers and structures
+		  when adding a new linkmode. New linkmodes are actually added fairly
+		  often, lately either for slow BaseT1 flavours, or for crazy-fast
+		  modes (800Gbps modes, but I guess people won't stop there)
+		  
+	(2) : Even though the phylink and phylib modes use carefull sorting
+		  to speed-up the lookup process, the phylib lookups are usually
+		  done in descending speed order and will therefore get slower
+		  as people add even faster link speeds.
+		  
+This series introduces a new "link_capabilities" structure that is used
+to build an array of link_caps :
+
+	struct link_capabilities {
+		int speed;                           
+		unsigned int duplex;
+		__ETHTOOL_DECLARE_LINK_MODE_MASK(linkmodes);
+	};
+
+We group these in an array, indexed with LINK_CAPA enums that are basically
+identical to the phylink MAC_CAPS :
+
+...
+LINK_CAPA_1000HD,             
+LINK_CAPA_1000FD,
+LINK_CAPA_2500FD,
+LINK_CAPA_5000FD,
+...
+
+We now have an associative array of <speed,duplex> <-> All compatible linkmodes
+
+This array is initialized at phylib-init time based on the content of
+the link_mode_params[] array from net/ethtool/common.c, that way it is
+always up-to-date with new modes, and always properly ordered.
+
+Patches 3 to 8 then convert all lookups from the phy_settings array into
+lookups from this link_caps array, hopefully speeding-up lookups in the
+meantime (we iterate over possible speeds instead of individual linkmodes)
+
+This series is not meant to introduce changes in behaviour, however patches
+9 and 10 do introduce functionnal changes. When configuring the advert
+for speeds >= 1G in PHY devices, as well as when constructing the link
+parameters for fixed links in phylink, we used to rely on phy_settings
+lookups returning one, and only one, compatible linkmode. This series will
+make so that the lookups will result on all matching linkmodes being
+returned, and MAY cause advert/fixed-link configuring more linkmodes.
+
+Patches 12 and 13 extract the conversion logic for interface <-> caps from
+phylink.
+
+There are cons as well for this, as this is a bit more init time for phylib,
+but maybe more importantly, we lose in the precision for the lookups in
+phy_settings. However, given all the uses for phy_settings (most are just
+to get speed/duplex), I think this is actually ok, but any comment would
+be very welcome.
+
+This series was tested with :
+ - 10/100/1000M links
+ - 2,5, 5, 10G BaseT links
+ - 1G Fixed link
+
+I also made sure that this compiles with the following options :
+
+CONFIG_PHYLIB=n
+
+CNFIG_PHYLINK=m
+CONFIG_PHYLIB=m
+
+CNFIG_PHYLINK=m
+CONFIG_PHYLIB=y
+
+CNFIG_PHYLINK=y
+CONFIG_PHYLIB=y
+
+All the new helpers that were introduced (in drivers/net/phy/phy-caps.h)
+are for internal use only (only users should be core stuff, such as phylib and
+phylink, and in the future, phy_port).
+
+Thanks,
+
+Maxime
+
+[1]: https://lore.kernel.org/netdev/20250213101606.1154014-1-maxime.chevallier@bootlin.com/
+
+
+
+Maxime Chevallier (13):
+  net: ethtool: Export the link_mode_params definitions
+  net: phy: Use an internal, searchable storage for the linkmodes
+  net: phy: phy_caps: Move phy_speeds to phy_caps
+  net: phy: phy_caps: Move __set_linkmode_max_speed to phy_caps
+  net: phy: phy_caps: Introduce phy_caps_valid
+  net: phy: phy_caps: Implement link_capabilities lookup by linkmode
+  net: phy: phy_caps: Allow looking-up link caps based on speed and
+    duplex
+  net: phy: phy_device: Use link_capabilities lookup for PHY aneg config
+  net: phy: phylink: Use phy_caps_lookup for fixed-link configuration
+  net: phy: drop phy_settings and the associated lookup helpers
+  net: phy: phylink: Add a mapping between MAC_CAPS and LINK_CAPS
+  net: phy: phylink: Convert capabilities to linkmodes using phy_caps
+  net: phy: phy_caps: Allow getting an phy_interface's capabilities
+
+ drivers/net/phy/Makefile     |   2 +-
+ drivers/net/phy/phy-caps.h   |  62 +++++++
+ drivers/net/phy/phy-core.c   | 253 ++------------------------
+ drivers/net/phy/phy.c        |  37 ++--
+ drivers/net/phy/phy_caps.c   | 340 +++++++++++++++++++++++++++++++++++
+ drivers/net/phy/phy_device.c |  13 +-
+ drivers/net/phy/phylink.c    | 337 +++++++++-------------------------
+ include/linux/ethtool.h      |   8 +
+ include/linux/phy.h          |  15 --
+ net/ethtool/common.c         |   1 +
+ net/ethtool/common.h         |   7 -
+ 11 files changed, 532 insertions(+), 543 deletions(-)
+ create mode 100644 drivers/net/phy/phy-caps.h
+ create mode 100644 drivers/net/phy/phy_caps.c
+
 -- 
 2.48.1
 
