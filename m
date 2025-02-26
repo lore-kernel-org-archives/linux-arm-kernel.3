@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8709DC021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 02:46:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F31B7C021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 02:48:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lxbrvWqdSdg0QKIuWS/73qE193+doTJ8U/0htqu4vUw=; b=WXKrOjxFpltyw8o0yMOafAqLcG
-	4XFhOdgxCh3wFPbM5TbrNB4LIW7hx6TSqmcs7wE0u9mQipUJFyTG4xC1my7Wlxoh90hRYE9hDnlEJ
-	vqdOmd6H9dE+Rf+w/4iyoqzyEoChVBFgDMq9jYtVm8Ld++x0k0SieXHjlBdcMxOImlpCIL161iEpp
-	VywMKj7kpRv3sEsCX/mTN7Ycl2ANMbC4VG3MVuGZDGbv6EGNFrt1GmWdkSIg8a3S0QV+ohWMJo3ND
-	qa7h7QCJrhxwv5UnrLe1kHyUGO6DOvGFdnjs4aTyk/wlrPRfGJ4o31OveLNxJQY5XKJHMetCSqABW
-	CnPnPCdQ==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2wIKriGBX+sHrIHzlsy0OEKo8NO62mQnjA/3UsYUr/c=; b=edoTqoekt+nCKq2soabWAQT4Re
+	txtwSxezAB57hO3r8uKbzL73B0zaEOwGiS+U2NZt94KB2euHKT5RHtYtQuHRWGvGx3Iszmdxcmnos
+	uVEuc50QL9WsA9QxVSE1oBaElyP3QSsvRzbFM4ydxX+s230a+e/DrIWsm8Udc1VN8zod2t8fM2qLz
+	NX9nGpBVpB1Tl9Ytm4CxE4kBEKMotSn8438aQF/r9ZKvl1+Q1DPbjyTncT4CXuUw1jAZjJX3rUNLV
+	u+3rjptKiARWR0g0nEHGmiIFrhWZwBfhTA0lQ3FVmC/+MBh8sdJatWAn2U693CxUOVS4PzJ69zGXl
+	ZQnXzUkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn7Ri-00000002D1m-139u;
-	Wed, 26 Feb 2025 02:46:50 +0000
+	id 1tn7TC-00000002DMN-3nzW;
+	Wed, 26 Feb 2025 02:48:22 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn7P3-00000002CZ9-193t
+	id 1tn7P5-00000002CZq-1xd1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 02:44:06 +0000
+	Wed, 26 Feb 2025 02:44:08 +0000
 Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51PMXWlk025583;
-	Wed, 26 Feb 2025 02:43:58 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51PMWrmg023829;
+	Wed, 26 Feb 2025 02:44:02 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=lxbrvWqdSdg0QKIuWS/73q
-	E193+doTJ8U/0htqu4vUw=; b=mGFogO3Dd/wHg1kJYNPvC70YLiT0gQd/h/jzak
-	MuCm6M+aROhVLnU1+NMiHznzlJh83KphbWezOcTb1zsB/a5GFKUm2d3XT1dwYkxt
-	oLc6blyxwynbaP6qenAt7x2ZcLjKJRmPez6QubTu+OlP6PkMkkkyTHW0hUkYN93G
-	IBbU00w0cRTBI/BnpIv5XYEobva+VKBmLJ5VSEW7hTlcvXEGVI09cubj7fYHXi1s
-	u7MXnCJRDoz25RAt1de7W5oAGsonEdUcL4VRKy6jwYMfeWle84+ro/zwkGDXNgmF
-	EPuW5Rz5eULAhFOyJShAsQEHbxcB8GQ8wduJZVzYLn2hJ/eQ==
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	2wIKriGBX+sHrIHzlsy0OEKo8NO62mQnjA/3UsYUr/c=; b=POyxGPPrmwwYDPg7
+	7HWaXHyQlEO/A8601pP8ue8kjCQIca/v6tH6u1xyHPpGppO6RCsL4Uy91mVOna3M
+	ZDejeXG0YKJv6j1iBHJYqM1c94sz3rOmF2EnPQnGGF+t0LNhkaCGFRE/UoztzdF1
+	6XFbZCxHbmvUnyyP+qDetQUKJRvk2AmaRZqNU3zcaRU1EekeoUAE30vZ2WcvCYtE
+	NQyGr2E1GaTQA+AkfEwcCwkBdw3wfIJScY/h7jN/u8XENX4J1QTeCu5aWPoM40K4
+	W0dY9gvqFiSrx7X1J3qEM8Rcz6WAOGjSGDvpWo2FGbC8EvyVF9pfSorKLkugymv4
+	6Ib+oA==
 Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 451prmgfqr-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 451prmgfqu-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 26 Feb 2025 02:43:57 +0000 (GMT)
+	Wed, 26 Feb 2025 02:44:01 +0000 (GMT)
 Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51Q2huK7021541
+	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51Q2i0re021618
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 26 Feb 2025 02:43:56 GMT
+	Wed, 26 Feb 2025 02:44:00 GMT
 Received: from hu-sibis-blr.qualcomm.com (10.80.80.8) by
  nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 25 Feb 2025 18:43:52 -0800
+ 15.2.1544.9; Tue, 25 Feb 2025 18:43:56 -0800
 From: Sibi Sankar <quic_sibis@quicinc.com>
 To: <sudeep.holla@arm.com>, <cristian.marussi@arm.com>, <johan@kernel.org>,
         <dmitry.baryshkov@linaro.org>, <maz@kernel.org>
 CC: <linux-kernel@vger.kernel.org>, <arm-scmi@vger.kernel.org>,
         <linux-arm-kernel@lists.infradead.org>,
         <linux-arm-msm@vger.kernel.org>, <quic_sibis@quicinc.com>,
-        <konradybcio@kernel.org>
-Subject: [RFC V6 0/2] firmware: arm_scmi: Misc Fixes
-Date: Wed, 26 Feb 2025 08:13:36 +0530
-Message-ID: <20250226024338.3994701-1-quic_sibis@quicinc.com>
+        <konradybcio@kernel.org>, <stable@vger.kernel.org>,
+        Johan Hovold <johan+linaro@kernel.org>
+Subject: [RFC V6 1/2] firmware: arm_scmi: Ensure that the message-id supports fastchannel
+Date: Wed, 26 Feb 2025 08:13:37 +0530
+Message-ID: <20250226024338.3994701-2-quic_sibis@quicinc.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250226024338.3994701-1-quic_sibis@quicinc.com>
+References: <20250226024338.3994701-1-quic_sibis@quicinc.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -70,8 +74,8 @@ X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
  nasanex01b.na.qualcomm.com (10.46.141.250)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: 7QsxKzOob-IwZtMBRjVQxkDAwdRUNRXI
-X-Proofpoint-ORIG-GUID: 7QsxKzOob-IwZtMBRjVQxkDAwdRUNRXI
+X-Proofpoint-GUID: qikTurWgaXKSJzl33b3hRrqwBVvlvdRy
+X-Proofpoint-ORIG-GUID: qikTurWgaXKSJzl33b3hRrqwBVvlvdRy
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-02-25_08,2025-02-25_03,2024-11-22_01
@@ -81,8 +85,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspect
  lowpriorityscore=0 clxscore=1011 classifier=spam adjust=0 reason=mlx
  scancount=1 engine=8.19.0-2502100000 definitions=main-2502260019
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_184405_425606_78032189 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20250225_184407_626400_2E27FAC9 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,63 +101,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The series addresses the kernel warnings reported by Johan at [1] and are
-are required to X1E cpufreq device tree changes to land. It also proposes
-addition of quirks to bypass a fw bug on X1E devices.
+Currently the perf and powercap protocol relies on the protocol domain
+attributes, which just ensures that one fastchannel per domain, before
+instantiating fastchannels for all possible message-ids. Fix this by
+ensuring that each message-id supports fastchannel before initialization.
 
-[1] - https://lore.kernel.org/lkml/ZoQjAWse2YxwyRJv@hovoldconsulting.com/
+Logs:
+scmi: Failed to get FC for protocol 13 [MSG_ID:6 / RES_ID:0] - ret:-95. Using regular messaging.
+scmi: Failed to get FC for protocol 13 [MSG_ID:6 / RES_ID:1] - ret:-95. Using regular messaging.
+scmi: Failed to get FC for protocol 13 [MSG_ID:6 / RES_ID:2] - ret:-95. Using regular messaging.
 
-Duplicate levels:
-arm-scmi arm-scmi.0.auto: Level 2976000 Power 218062 Latency 30us Ifreq 2976000 Index 10
-arm-scmi arm-scmi.0.auto: Level 3206400 Power 264356 Latency 30us Ifreq 3206400 Index 11
-arm-scmi arm-scmi.0.auto: Level 3417600 Power 314966 Latency 30us Ifreq 3417600 Index 12
-arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
-arm-scmi arm-scmi.0.auto: Failed to add opps_by_lvl at 3417600 for NCC - ret:-16
-arm-scmi arm-scmi.0.auto: Level 4012800 Power 528848 Latency 30us Ifreq 4012800 Index 15
+CC: stable@vger.kernel.org
+Reported-by: Johan Hovold <johan+linaro@kernel.org>
+Closes: https://lore.kernel.org/lkml/ZoQjAWse2YxwyRJv@hovoldconsulting.com/
+Fixes: 6f9ea4dabd2d ("firmware: arm_scmi: Generalize the fast channel support")
+Signed-off-by: Sibi Sankar <quic_sibis@quicinc.com>
+Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+Tested-by: Johan Hovold <johan+linaro@kernel.org>
+---
+ drivers/firmware/arm_scmi/driver.c    | 72 +++++++++++++++------------
+ drivers/firmware/arm_scmi/protocols.h |  2 +
+ 2 files changed, 41 insertions(+), 33 deletions(-)
 
-^^ exist because SCP reports duplicate values for the highest sustainable
-freq for perf domains 1 and 2. These are the only freqs that appear as
-duplicates and will be fixed with a firmware update. FWIW the warnings
-that we are addressing in this series will also get fixed by a firmware
-update but they still have to land for devices already out in the wild.
-
-V5:
-* Drop all the patches that have already landed upstream and mark the
-  series as RFC to get feedback on adding quirk support for the perf
-  protocol.
-
-V4:
-* Rework debugfs node creation patch [Ulf/Dmitry]
-* Reduce report level to dev_info and tag it with FW_BUG [Johan/Dmitry]
-* Add cc stable and err logs to patch 1 commit message [Johan]
-
-V3:
-* Pick up R-b, T-b from the list.
-* Pick up the updated patch from Cristian for skipping opps.
-* Update device names only when a name collision occurs [Dmitry/Ulf]
-* Drop Johan's T-b from "fix debugfs node creation failure"
-* Move scmi_protocol_msg_check to the top [Sudeep]
-
-V2:
-* Include the fix for do_xfer timeout
-* Include the fix debugfs node creation failure
-* Include Cristian's fix for skipping opp duplication
-
-V1:
-* add missing MSG_SUPPORTS_FASTCHANNEL definition.
-
-base: next-20250225
-
-Sibi Sankar (2):
-  firmware: arm_scmi: Ensure that the message-id supports fastchannel
-  firmware: arm_scmi: Add quirk to bypass SCP fw bug
-
- drivers/firmware/arm_scmi/driver.c    | 75 +++++++++++++++------------
- drivers/firmware/arm_scmi/perf.c      | 30 ++++++++---
- drivers/firmware/arm_scmi/powercap.c  |  8 +--
- drivers/firmware/arm_scmi/protocols.h |  4 +-
- 4 files changed, 72 insertions(+), 45 deletions(-)
-
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 60050da54bf2..9313b9020fc1 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -1734,6 +1734,39 @@ static int scmi_common_get_max_msg_size(const struct scmi_protocol_handle *ph)
+ 	return info->desc->max_msg_size;
+ }
+ 
++/**
++ * scmi_protocol_msg_check  - Check protocol message attributes
++ *
++ * @ph: A reference to the protocol handle.
++ * @message_id: The ID of the message to check.
++ * @attributes: A parameter to optionally return the retrieved message
++ *		attributes, in case of Success.
++ *
++ * An helper to check protocol message attributes for a specific protocol
++ * and message pair.
++ *
++ * Return: 0 on SUCCESS
++ */
++static int scmi_protocol_msg_check(const struct scmi_protocol_handle *ph,
++				   u32 message_id, u32 *attributes)
++{
++	int ret;
++	struct scmi_xfer *t;
++
++	ret = xfer_get_init(ph, PROTOCOL_MESSAGE_ATTRIBUTES,
++			    sizeof(__le32), 0, &t);
++	if (ret)
++		return ret;
++
++	put_unaligned_le32(message_id, t->tx.buf);
++	ret = do_xfer(ph, t);
++	if (!ret && attributes)
++		*attributes = get_unaligned_le32(t->rx.buf);
++	xfer_put(ph, t);
++
++	return ret;
++}
++
+ /**
+  * struct scmi_iterator  - Iterator descriptor
+  * @msg: A reference to the message TX buffer; filled by @prepare_message with
+@@ -1875,6 +1908,7 @@ scmi_common_fastchannel_init(const struct scmi_protocol_handle *ph,
+ 	int ret;
+ 	u32 flags;
+ 	u64 phys_addr;
++	u32 attributes;
+ 	u8 size;
+ 	void __iomem *addr;
+ 	struct scmi_xfer *t;
+@@ -1883,6 +1917,11 @@ scmi_common_fastchannel_init(const struct scmi_protocol_handle *ph,
+ 	struct scmi_msg_resp_desc_fc *resp;
+ 	const struct scmi_protocol_instance *pi = ph_to_pi(ph);
+ 
++	/* Check if the MSG_ID supports fastchannel */
++	ret = scmi_protocol_msg_check(ph, message_id, &attributes);
++	if (!ret && !MSG_SUPPORTS_FASTCHANNEL(attributes))
++		return;
++
+ 	if (!p_addr) {
+ 		ret = -EINVAL;
+ 		goto err_out;
+@@ -2010,39 +2049,6 @@ static void scmi_common_fastchannel_db_ring(struct scmi_fc_db_info *db)
+ #endif
+ }
+ 
+-/**
+- * scmi_protocol_msg_check  - Check protocol message attributes
+- *
+- * @ph: A reference to the protocol handle.
+- * @message_id: The ID of the message to check.
+- * @attributes: A parameter to optionally return the retrieved message
+- *		attributes, in case of Success.
+- *
+- * An helper to check protocol message attributes for a specific protocol
+- * and message pair.
+- *
+- * Return: 0 on SUCCESS
+- */
+-static int scmi_protocol_msg_check(const struct scmi_protocol_handle *ph,
+-				   u32 message_id, u32 *attributes)
+-{
+-	int ret;
+-	struct scmi_xfer *t;
+-
+-	ret = xfer_get_init(ph, PROTOCOL_MESSAGE_ATTRIBUTES,
+-			    sizeof(__le32), 0, &t);
+-	if (ret)
+-		return ret;
+-
+-	put_unaligned_le32(message_id, t->tx.buf);
+-	ret = do_xfer(ph, t);
+-	if (!ret && attributes)
+-		*attributes = get_unaligned_le32(t->rx.buf);
+-	xfer_put(ph, t);
+-
+-	return ret;
+-}
+-
+ static const struct scmi_proto_helpers_ops helpers_ops = {
+ 	.extended_name_get = scmi_common_extended_name_get,
+ 	.get_max_msg_size = scmi_common_get_max_msg_size,
+diff --git a/drivers/firmware/arm_scmi/protocols.h b/drivers/firmware/arm_scmi/protocols.h
+index aaee57cdcd55..d62c4469d1fd 100644
+--- a/drivers/firmware/arm_scmi/protocols.h
++++ b/drivers/firmware/arm_scmi/protocols.h
+@@ -31,6 +31,8 @@
+ 
+ #define SCMI_PROTOCOL_VENDOR_BASE	0x80
+ 
++#define MSG_SUPPORTS_FASTCHANNEL(x)	((x) & BIT(0))
++
+ enum scmi_common_cmd {
+ 	PROTOCOL_VERSION = 0x0,
+ 	PROTOCOL_ATTRIBUTES = 0x1,
 -- 
 2.34.1
 
