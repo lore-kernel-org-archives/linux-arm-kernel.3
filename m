@@ -4,59 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D6F5C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 10:11:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9383C021BC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 10:12:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5i64C+XznY5VpwulJeuZ+fGDTRMIkf91taLlh/OqCYg=; b=xU9O0jZiSK0I2c56uLUTVyeGyu
-	8FtSF2swwvRGzq0+Gl5fO/ffBb5nunKIZNIowDT+SQjfPPujdwbZLf1B5hk/GKazuSJQVaLv/qGE8
-	irB3427k/lb24VVx+Pkm+JiyO/Mu10/fEOygbfTt7eFWLJ0itgTYIXKYSCEY+F0X1f1SUPQxSJ/9s
-	zSI/QiXOV6bd12XP2BQS+ASeL2NYYf288R9AxH9fNzDgcDoYov6nnuDcLSURGBAoXtkdL6WP9EJq3
-	PI2TtLBVnJG33rT6eWaGuo8N+1IiF3JJWLSqdaQhWGb9n0LvtpCWfJwfxztEURoW0elQINK2LUMjx
-	oi8lvUZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LzNBdKuFi8Do9kBnujj8KHZD3Z1XOY/pDKnjHb7bSE8=; b=DF92XBLkiMZ+Eq5Ni0qUdflr6w
+	PaEJfDWHkixuwye4pK4C6jiOchQgI8gdTTNracZLrtWp3bn1H50IkMRiMcHV4kQKnqlOVV5cfyIaM
+	pfGNqgE30I8SGoys7sc1RXPmswQT4NaiTWdjeVwKaNDaD1f5oUvXEuOf9vyXwA/wc4O21Gxb0twkZ
+	CapLfSapYYy5g2Q4EgurO0BkkxAA9n9LLRaoK1Flshl2Afy7WgkbZL5VsLt83//A93SK8AoA9HYsa
+	QLTqqFubPRp6GwpPCMz69P8bPSApvQPH/ilOtolHUjpNY+77UAyynJd55n9qJxfBi5rmELwRFSqVm
+	IzKJJhAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnENU-00000003Edi-3Lyj;
-	Wed, 26 Feb 2025 10:10:56 +0000
-Received: from out-186.mta1.migadu.com ([2001:41d0:203:375::ba])
+	id 1tnEP0-00000003F98-2EVU;
+	Wed, 26 Feb 2025 10:12:30 +0000
+Received: from relay7-d.mail.gandi.net ([217.70.183.200])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnEKm-00000003E64-14Tu
+	id 1tnEMC-00000003EEO-3T2s
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 10:08:09 +0000
-Date: Wed, 26 Feb 2025 02:07:56 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1740564485;
+	Wed, 26 Feb 2025 10:09:38 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 496FA431F3;
+	Wed, 26 Feb 2025 10:09:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1740564575;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=5i64C+XznY5VpwulJeuZ+fGDTRMIkf91taLlh/OqCYg=;
-	b=v3oArvu02FM6YGN1u5zf71hgLXwsJiDLOoixvpr0JJxGDToNzSws1vy6oss7NnNd8QLMuf
-	jXOClnDeec7Zloq5DQ06f6pJ3TgqLvLP5eJvRdYELi7pYpaQVAMLQhW4x/74A5DLZUYbf6
-	buE2h0UDSplp4UTtyq26wCWwcbHcCmM=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	maz@kernel.org, mark.rutland@arm.com, will@kernel.org,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com,
-	vdonnefort@google.com
-Subject: Re: [PATCH v1 1/3] KVM: arm64: Initialize HCRX_EL2 traps in pKVM
-Message-ID: <Z77n_Gv0X0bolONW@linux.dev>
-References: <20250214150258.464798-1-tabba@google.com>
- <20250214150258.464798-2-tabba@google.com>
+	bh=LzNBdKuFi8Do9kBnujj8KHZD3Z1XOY/pDKnjHb7bSE8=;
+	b=KCc3BfM6qiXcIeP6oxm7dcTtc6uikeTEYireTaTa7AzgNIQHgyb76Bo8/OQCFhkQV+J8V8
+	g3YaEMk8s5q2+t0YcyQIHCV42yMQG+5v90y3NWf2CtMNeOkB+FhD1a3OAClfAEpZC0q7Tj
+	mt6Un6/xevxnL3LUDFP58e34YyWip4MblGr5VEV18YMc6l7DgYG8p/UFt+XpykVdtXoKpD
+	8fEdglMxbn6k7AQkDj5WD0pV6533VWkNm5YP+VcPtbW3k70J8z8PDczuYHm99JVOl0+QND
+	ursYnH5mRsOGSddt8OcHxqKfD5gmC0+oSUTP7hNovdV+v4vjCUJyn0ZqtDBwdQ==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: davem@davemloft.net,
+	Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	thomas.petazzoni@bootlin.com,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Simon Horman <horms@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>
+Subject: [PATCH net-next v2 01/13] net: ethtool: Export the link_mode_params definitions
+Date: Wed, 26 Feb 2025 11:09:16 +0100
+Message-ID: <20250226100929.1646454-2-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250226100929.1646454-1-maxime.chevallier@bootlin.com>
+References: <20250226100929.1646454-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250214150258.464798-2-tabba@google.com>
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdekgeeftdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeevgedtffelffelveeuleelgfejfeevvdejhfehgeefgfffvdefteegvedutefftdenucfkphepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvtddprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegvughumhgri
+ igvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomh
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_020808_702787_6BB1471D 
-X-CRM114-Status: GOOD (  18.68  )
+X-CRM114-CacheID: sfid-20250226_020937_237466_176E779C 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,50 +92,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fuad,
+link_mode_params contains a lookup table of all 802.3 link modes that
+are currently supported with structured data about each mode's speed,
+duplex, number of lanes and mediums.
 
-Series LGTM overall, one comment:
+As a preparation for a port representation, export that table for the
+rest of the net stack to use.
 
-On Fri, Feb 14, 2025 at 03:02:56PM +0000, Fuad Tabba wrote:
-> Initialize and set the traps controlled by the HCRX_EL2 in pKVM
-> when the register is supported by the system.
-> 
-> Signed-off-by: Fuad Tabba <tabba@google.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/pkvm.c | 46 ++++++++++++++++++++++++++++++++++
->  1 file changed, 46 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> index 3927fe52a3dd..668ebec27f1b 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> @@ -58,6 +58,30 @@ static void pkvm_vcpu_reset_hcr(struct kvm_vcpu *vcpu)
->  		vcpu->arch.hcr_el2 |= HCR_ATA;
->  }
->  
-> +static void pkvm_vcpu_reset_hcrx(struct pkvm_hyp_vcpu *hyp_vcpu)
-> +{
-> +	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
-> +	struct kvm_vcpu *vcpu = &hyp_vcpu->vcpu;
-> +
-> +	if (!cpus_have_final_cap(ARM64_HAS_HCX))
-> +		return;
-> +
-> +	/*
-> +	 * In general, all HCRX_EL2 bits are gated by a feature.
-> +	 * The only reason we can set SMPME without checking any
-> +	 * feature is that its effects are not directly observable
-> +	 * from the guest.
-> +	 */
-> +	vcpu->arch.hcrx_el2 = HCRX_EL2_SMPME;
-> +
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
+V1 -> V2: Moved that patch at the beginning of the series
 
-The comment isn't wrong, but we don't support SME at all in KVM at this
-point.
+ include/linux/ethtool.h | 8 ++++++++
+ net/ethtool/common.c    | 1 +
+ net/ethtool/common.h    | 7 -------
+ 3 files changed, 9 insertions(+), 7 deletions(-)
 
-Any objection to dropping this bit? I can fix it when applying the
-series, no need to respin.
+diff --git a/include/linux/ethtool.h b/include/linux/ethtool.h
+index 7f222dccc7d1..8210ece94fa6 100644
+--- a/include/linux/ethtool.h
++++ b/include/linux/ethtool.h
+@@ -210,6 +210,14 @@ static inline u8 *ethtool_rxfh_context_key(struct ethtool_rxfh_context *ctx)
+ 
+ void ethtool_rxfh_context_lost(struct net_device *dev, u32 context_id);
+ 
++struct link_mode_info {
++	int                             speed;
++	u8                              lanes;
++	u8                              duplex;
++};
++
++extern const struct link_mode_info link_mode_params[];
++
+ /* declare a link mode bitmap */
+ #define __ETHTOOL_DECLARE_LINK_MODE_MASK(name)		\
+ 	DECLARE_BITMAP(name, __ETHTOOL_LINK_MODE_MASK_NBITS)
+diff --git a/net/ethtool/common.c b/net/ethtool/common.c
+index 7149d07e90c6..6b0178c09d72 100644
+--- a/net/ethtool/common.c
++++ b/net/ethtool/common.c
+@@ -422,6 +422,7 @@ const struct link_mode_info link_mode_params[] = {
+ 	__DEFINE_LINK_MODE_PARAMS(800000, VR4, Full),
+ };
+ static_assert(ARRAY_SIZE(link_mode_params) == __ETHTOOL_LINK_MODE_MASK_NBITS);
++EXPORT_SYMBOL_GPL(link_mode_params);
+ 
+ const char netif_msg_class_names[][ETH_GSTRING_LEN] = {
+ 	[NETIF_MSG_DRV_BIT]		= "drv",
+diff --git a/net/ethtool/common.h b/net/ethtool/common.h
+index 58e9e7db06f9..b9f99fb1d8e1 100644
+--- a/net/ethtool/common.h
++++ b/net/ethtool/common.h
+@@ -15,12 +15,6 @@
+ #define __SOF_TIMESTAMPING_CNT (const_ilog2(SOF_TIMESTAMPING_LAST) + 1)
+ #define __HWTSTAMP_FLAG_CNT (const_ilog2(HWTSTAMP_FLAG_LAST) + 1)
+ 
+-struct link_mode_info {
+-	int				speed;
+-	u8				lanes;
+-	u8				duplex;
+-};
+-
+ struct genl_info;
+ struct hwtstamp_provider_desc;
+ 
+@@ -33,7 +27,6 @@ tunable_strings[__ETHTOOL_TUNABLE_COUNT][ETH_GSTRING_LEN];
+ extern const char
+ phy_tunable_strings[__ETHTOOL_PHY_TUNABLE_COUNT][ETH_GSTRING_LEN];
+ extern const char link_mode_names[][ETH_GSTRING_LEN];
+-extern const struct link_mode_info link_mode_params[];
+ extern const char netif_msg_class_names[][ETH_GSTRING_LEN];
+ extern const char wol_mode_names[][ETH_GSTRING_LEN];
+ extern const char sof_timestamping_names[][ETH_GSTRING_LEN];
+-- 
+2.48.1
 
-Thanks,
-Oliver
 
