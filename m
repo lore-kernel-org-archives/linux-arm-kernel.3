@@ -4,145 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D21CC021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 02:27:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12BC6C021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 02:45:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EDqJ1fA5a5mP/9+4Npmc7qDJwFIdVVri27VpbcmjQng=; b=CKXWWfGHvYdJUAh8CdjBNvHZ/m
-	oRg+rDq0uM+QUPgnIfp9A/iKcgEM1oc0qiz87RH6bWzPsLUSZ+1s8rEdZM7Nrt7wsMNnbBJbwOM0K
-	ttAM1xrzzz8J7cclPA1wUd9doPcF27QXiUMo+U844x+lRHq4+YLpwcNnq0KZJ8X8NtZSjOFi921vn
-	WPJAKiO3ukU+wX4KoiQawpouFq3pszRQRfUdgVKqi6CIJQSCcHn/w0TOsFA4ZFmJxa5OSf8a4bWze
-	VdFsgrw0pSN1u6ewv06KqZYk+pGyAQ+/P/NB8/UGXY5MfSIGDkG/kHDfAPvTilziss64S/BW1RvBx
-	XCluTnDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=09wSZxKgriakTOPJO9UMgX94JkvJeeXEmpJoFk0WInU=; b=PrQRI9iwXyQxGrW0OJ8Bmo9qz7
+	ObRaE5Iqdwn6PcI+RuPPQfGddPkczL2Nwl/ieP0DbXS0Ezr5t8jkRccpiBck2Fitmfi/osYajLH2x
+	CGN67hbNnvBfpyLB6DJiwYklQi+cQJvqXBmW3+HczK1RYDxBz7ejTSAbytjNkT1JGe8WOlFlM/gZ1
+	KLQtWXnNEusCFOXxCYD0NcVgAD9SQ2SlyZD+Lhm6VCEid3JL9XALmd06sylXC8p87wqNYZ8TuqQCp
+	+fI0NeasrrNzW/Tgxphk52vere9scPYiBQs5DftVPd+wW6xZfrOURWNTCsVeYeJzIXaIbR6IEUQ0Z
+	t5fjTgAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn78v-00000002Azz-2BM8;
-	Wed, 26 Feb 2025 02:27:25 +0000
-Received: from mail-mw2nam12on2062b.outbound.protection.outlook.com ([2a01:111:f403:200a::62b] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1tn7QC-00000002CmU-2DqI;
+	Wed, 26 Feb 2025 02:45:16 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn77O-00000002Are-3W9P
+	id 1tn7Of-00000002CVi-3SMR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 02:25:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fpWhlsuyvEdqnsqoI8C8BaU3+nsPBRkoEY2et5bthb87Rihzf8XrrTYg+oZAdOH8Mvk4X03McbsTiZNLKf3xSYU0AehrFSLdjw8Wzb/ZMkZJenQcvgNd6WrZwncqE5GfMSdU0RMD0SSUw9MARonLoT1DUIzMubKFwB46HBCjX43Adb9AIqcdQouiAdTpQcSRJh+9222lgulnt1LJWaX/smXgwwBP7jno6jOXNnU6XhIhyUo2umkANejeth66JBeYfWYCrWVcz1tkXLllmY3kViBseKhwuGjisw8v1Y+SQgYktNmAkX7tjFkGeOcsCvFQv5YeOe8xxp3nFkecR/r9Ag==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EDqJ1fA5a5mP/9+4Npmc7qDJwFIdVVri27VpbcmjQng=;
- b=A7sEzmJz7KRecr+y6Sfm2TaWuC+dRwkahvrnfLutWFu1sRHJtrqvITNyUG7YDJQAHDC4YqucFqllJZdMn4R8AuBHGdD3G/Bp5EF2T3yGoL02AL4VHi+I2Wo8hAuJJ642gZkQfGQ2XTZEHtpPDUaqyz0eYCmm7yueJdysyVpQqjHke6hRWszYLWom6txRNJSZK9N/QljzAND8QoXJyGc0z9s7THig8f9GI+Gq33dVWxm5MZVSknTTIY5vbrq24Zu7feANpiqqY+9gCTyA/6UDvPszr8oMTBZpEstzL++SggsqTy5H3DaIQyL/yXcJ9649tsIGLgKADLnstYHCBqhfyA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=gmail.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EDqJ1fA5a5mP/9+4Npmc7qDJwFIdVVri27VpbcmjQng=;
- b=pppI9/JtfArEl8LHhhf6Pp+SpJ2RB9dD4+fN9YTgKlgM7J++Yph/gNWr9QQm82EY1CjOM55ovjdcxaUFesBtITXpttwUuDNs1ZLrXtzgTce3o1RZ0Qi761gMm9A9rdYNEiTPQJl1N01kzUQjSX9LEIPWJhGY8l/EZbEbLFtkeSsEaSHP5N5Ew/Xdj9Zz3iRdb4jp+Et9N1XHA9wBi2M2WUBbWer7+4XHZK9KPguWggYqfr+/6cmCyj4Gwm6CSDJ7ZbkhFtYU0tCnMY/peKhDU84ZLKWiWkcRaQM8cgUQw/C/41Xv3F9owA3oOuFCHDiqeklHSRrNy6KxHu0xu0pxgw==
-Received: from CH2PR17CA0015.namprd17.prod.outlook.com (2603:10b6:610:53::25)
- by DS0PR12MB7680.namprd12.prod.outlook.com (2603:10b6:8:11c::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.19; Wed, 26 Feb
- 2025 02:25:46 +0000
-Received: from DS3PEPF000099DB.namprd04.prod.outlook.com
- (2603:10b6:610:53:cafe::20) by CH2PR17CA0015.outlook.office365.com
- (2603:10b6:610:53::25) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8489.18 via Frontend Transport; Wed,
- 26 Feb 2025 02:25:46 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- DS3PEPF000099DB.mail.protection.outlook.com (10.167.17.197) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8489.16 via Frontend Transport; Wed, 26 Feb 2025 02:25:45 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 25 Feb
- 2025 18:25:30 -0800
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Tue, 25 Feb
- 2025 18:25:29 -0800
-Received: from Asurada-Nvidia (10.127.8.11) by mail.nvidia.com (10.129.68.9)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Tue, 25 Feb 2025 18:25:28 -0800
-Date: Tue, 25 Feb 2025 18:25:27 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <kevin.tian@intel.com>, <tglx@linutronix.de>, <maz@kernel.org>,
-	<joro@8bytes.org>, <will@kernel.org>, <robin.murphy@arm.com>,
-	<shuah@kernel.org>, <iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<eric.auger@redhat.com>, <baolu.lu@linux.intel.com>, <yi.l.liu@intel.com>,
-	<yury.norov@gmail.com>, <jacob.pan@linux.microsoft.com>,
-	<patches@lists.linux.dev>
-Subject: Re: [PATCH v2 7/7] iommu: Turn iova_cookie to dma-iommu private
- pointer
-Message-ID: <Z757lz6ucDE6Otix@Asurada-Nvidia>
-References: <cover.1740014950.git.nicolinc@nvidia.com>
- <949e28875e01646feac5c4951b63723579d29b36.1740014950.git.nicolinc@nvidia.com>
- <20250221143959.GA272220@nvidia.com>
+	Wed, 26 Feb 2025 02:43:43 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-2fe82414cf7so427291a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 18:43:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740537820; x=1741142620; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=09wSZxKgriakTOPJO9UMgX94JkvJeeXEmpJoFk0WInU=;
+        b=Id8C2di6KTYmst5AeAJYSvWDETCDuDMuy+1bNrmVhOacL4uF66OFfC1boTEfdXu4AI
+         daHZkvJhkJQg/99I6fwrJZmWu2AzyYrZ88fk+vO1mKuXs+NTYMvzz3BDmBZSUtlktUdw
+         tFYGTKGxRLdmgJi6nXcCgErPZQ04gtR5B75WyvEvttxxBXvcXX/nLF4i1iFokWYVCZ+9
+         colUvxiE0ly+deHvEFOBQVTEVF7eIFIvVOQtxItuLs1NcyRhBbE+XNl7DblgTSK6zmq5
+         k/vZNNlkR09H1U2xG3fEB9xmzhOvDKSOUX87nF0jngVQjXr0wFOKl9R1O0DQGssHuLmq
+         djUQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740537820; x=1741142620;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=09wSZxKgriakTOPJO9UMgX94JkvJeeXEmpJoFk0WInU=;
+        b=ACGqxrv5xIKPD1aVNPUPIz+LQCosUy/GPLbAGqC6P8Dh0ualb8uRsRdFPivHyVN0lq
+         iDPssJ8UVn9LYo7450chd9NF3zLbOLiBXKPYC1cQo9SlkbGCY24HelIa+7fasuIMHeXB
+         uFT/M/EdXD9t73P/m6+45SfbjKaoIMWiuhwxcaixXqAs1qimopPS9f75OJac5gj22Gvs
+         mP5xv8u37+bxv4IJaObBwx3GjiUSWLH0AC53D40XTAeX8+1VvHueb4IJRYPHHag1Cypq
+         F2xoTh1V8/BeOUiuGcQ9j645tZpvBAoSn0mFCs1xSgnLXynxjtuY68dpSiJNZ1/Q9QAh
+         NXjg==
+X-Forwarded-Encrypted: i=1; AJvYcCXdk+f8dcEWY+OcB2bVIG5+FE95kT0Ffs93gkynrmazuXyUNscqVEiryGyRww6Hg7oLDN7fZ4A++psg1HuLrsYb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxf8t5P7not+7xOr8cXswue8C/3/bxc5hkK5+6ao8p6U166zlYj
+	zyInG5y6RT0nbcpQHXz5mdac64uEAMwTUGSiRBtgRnYzHoWEIm3F
+X-Gm-Gg: ASbGncu6+GTkC/tjEOlElBkydYVZTizZxhUWPxwIIYnx5nxasU5FBfqoyNRPHAm1uEU
+	F+zafzyM5P+SyvXo6H3DJ+eOBgafH0VLWkWc6XiEItxElGp5OkQJt5amrLDA/A9qWMclOXjgT2h
+	KgzVaNcHAzmjnZe8PR6G2ayfKy0FoBuA3dZkoVSrolB+nzItiPoUCTcHxfpkoxvThNCJUS4dA/Y
+	1h1zhQCsKFnjCv//OTk2y0m4wQNksASOddX9u1wy/P3KgMM/I3cH/T4qzH84UcW1xHN29cis5lt
+	/kSizy0lx+2mnazbS+QWiVU=
+X-Google-Smtp-Source: AGHT+IHqWiTmKahLoNDEtQkn8Ysj7aO7VlP6FoYVWXaVQHY/r9/BHTTRDx4CPzCNopfHUXBmu0dRbg==
+X-Received: by 2002:a17:90b:53c3:b0:2ee:f687:6acb with SMTP id 98e67ed59e1d1-2fe68adedc1mr8899627a91.13.1740537820375;
+        Tue, 25 Feb 2025 18:43:40 -0800 (PST)
+Received: from localhost ([129.146.253.192])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fe825d2b85sm326939a91.26.2025.02.25.18.43.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Feb 2025 18:43:40 -0800 (PST)
+Date: Wed, 26 Feb 2025 10:43:26 +0800
+From: Furong Xu <0x1207@gmail.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Emil
+ Renner Berthing <kernel@esmil.dk>, Eric Dumazet <edumazet@google.com>,
+ Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, Inochi Amaoto
+ <inochiama@gmail.com>, Jakub Kicinski <kuba@kernel.org>, Jan Petrous
+ <jan.petrous@oss.nxp.com>, Jon Hunter <jonathanh@nvidia.com>,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Minda Chen <minda.chen@starfivetech.com>,
+ netdev@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, Paolo Abeni
+ <pabeni@redhat.com>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
+ Thierry Reding <treding@nvidia.com>, hailong.fan@siengine.com,
+ 2694439648@qq.com
+Subject: Re: net: stmmac: weirdness in stmmac_hw_setup()
+Message-ID: <20250226104326.0000766e@gmail.com>
+In-Reply-To: <Z7dVp7_InAHe0q_y@shell.armlinux.org.uk>
+References: <Z7dVp7_InAHe0q_y@shell.armlinux.org.uk>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250221143959.GA272220@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS3PEPF000099DB:EE_|DS0PR12MB7680:EE_
-X-MS-Office365-Filtering-Correlation-Id: fcd18569-a9a0-49e3-f5b2-08dd560ce06d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|36860700013|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5UVfllaPRPtMhKNJroY4eszeeB2fkMXaK5URiTb9NqqK8nNM1DoUZfPiAqdN?=
- =?us-ascii?Q?SslHAEkwRi58ZB+N9gPha3rRCtYgbaxPEIxlUkHHdVIAryxxAKRdFq6E1TLh?=
- =?us-ascii?Q?skZtz/4KiPBogiJwNXiEY7KK2m9E8QhR6ach1FNC2acPvKRCytkgV6/hbvoN?=
- =?us-ascii?Q?yc4UnZDxjrvrNkgtfBsi/BcnLNvO0qmRtQVI88v8ZFzpejOeFBLXQEJxHQfc?=
- =?us-ascii?Q?IH140l2andnHampIoGSFp88Yhnu62WIVyUbwxsSkd1zk74pV9yHtTb1YOB7r?=
- =?us-ascii?Q?jbJgyWNsikS/QM59vczrX7cEZJLEYVzi+1XuGHNmAaHOUelo1MjQ9F9kfDgz?=
- =?us-ascii?Q?S0ibSRB9dyvm7F8E+Ng3A3UDlHnbPp15rXZ/ELQ0/8A3kBEWPBX7IRllmHwP?=
- =?us-ascii?Q?FMEJLyikoXv7IvPjqjqm3kRQAg9FLqX5rfaKyCLdcURHUbkbfUM80mjx4iQT?=
- =?us-ascii?Q?6LwMNfDoKEdpdmP0X7o699iQgPL211XMFY6h/uiymRzA4whhuH29i72srPF9?=
- =?us-ascii?Q?oOq98RUzOQZvZvIf1e/tTCGQ2VWrRFD4y1vtz2GkYuON/71+Zkpjavodvod6?=
- =?us-ascii?Q?28DI9VkUjmkPi0VZ29yJPTyPrlzMhDCNnJd1TkdZHzv2TxLJl6WWTsG2YMaF?=
- =?us-ascii?Q?Ad7QM3ekYlj8iTXaqc5JHBolkY3Lk5aeg71mSAnMoYljGcIq9HBJ+EYR5c50?=
- =?us-ascii?Q?aKvaXkYuLw0buJOVNjFbV46EEOjzqX/esBSm1WXGtdQMLHCovck6ZjcY9tBD?=
- =?us-ascii?Q?nTpaw9Cj39nx5qnlNyEcUznKxhpQqawa75dHm+EtPVq3vQ3kb/fzery33igU?=
- =?us-ascii?Q?C1XpsS92D1ir81OQUpFzl8S8YfC6+GSVzv/Scp1P7EWUxPiMcUvRnlpWvWQo?=
- =?us-ascii?Q?KS2EOPt7vnUw/jvtaHCF2ow+iE4Pm2O9r2SH3MAFhb7dX7f7UESpEnUXixJx?=
- =?us-ascii?Q?3zKrC3ShPVPWDhLsjv5J/CEnoFNzsnld7zxh3Gi+ao65OL10/PX1xo6Ntgiq?=
- =?us-ascii?Q?tbxURNFCoGUyQQrjY4vAItLn9qRHbPQW7D7fdIPRSfnkGnpF/+EFZqOx2C34?=
- =?us-ascii?Q?sZq2OXGkSe2ptEcBFkVC/bR7KaYhBEYYpTh1Wcjv60PAwvjiCZWK5aUJHQ+R?=
- =?us-ascii?Q?FTjQXxuew+DrkPa9qijq07jsyoPjj5DoCz1l2+SqbEefOPJKULZCKxG44Z8P?=
- =?us-ascii?Q?Yx2YQBchwSzxCVy+9z4HqwQivTRYlHm+xjdb+d+MasK6xekQVieDFpjiN+m6?=
- =?us-ascii?Q?L/kRNCJvecE/mR/kkiNlx08LiS3AMC8G9htPDOLi1wbsKmb3kioMe8qpMlW+?=
- =?us-ascii?Q?hltQuq5u89GFVhfCNrM/ZLEqnfo4Hm0LCa15wOeU52Cd3w+d6dfh8/9L/Gzt?=
- =?us-ascii?Q?VDqsoJMvfxagdEVNM4n8QK1tZTSPpzz0SIaiJMqTMLuywys68GTgwh5k9r7i?=
- =?us-ascii?Q?sc0JH+CrzgehXJzw8b2lykLoKHTu8OgVoViagie6ZE9CxKpgQUm5OL9ZePyP?=
- =?us-ascii?Q?tX4TYA9F7kUKg/4=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(82310400026)(36860700013)(7416014)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2025 02:25:45.9971
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fcd18569-a9a0-49e3-f5b2-08dd560ce06d
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF000099DB.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7680
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_182550_889044_726DCEE7 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20250225_184341_866514_E390E696 
+X-CRM114-Status: GOOD (  21.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,26 +111,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 21, 2025 at 10:39:59AM -0400, Jason Gunthorpe wrote:
-> diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-> index 99dd72998cb7f7..082274e8ba6a3d 100644
-> --- a/include/linux/iommu.h
-> +++ b/include/linux/iommu.h
-> @@ -1534,12 +1534,16 @@ void iommu_debugfs_setup(void);
->  static inline void iommu_debugfs_setup(void) {}
->  #endif
+On Thu, 20 Feb 2025 16:17:43 +0000, "Russell King (Oracle)" wrote:
+
+> While looking through the stmmac driver, I've come across some
+> weirdness in stmmac_hw_setup() which looks completely barmy to me.
+> 
+> It seems that it follows the initialisation suggested by Synopsys
+> (as best I can determine from the iMX8MP documentation), even going
+> as far as to *enable* transmit and receive *before* the network
+> device has been administratively brought up. stmmac_hw_setup() does
+> this:
+> 
+>         /* Enable the MAC Rx/Tx */
+>         stmmac_mac_set(priv, priv->ioaddr, true);
+> 
+> which sets the TE and RE bits in the MAC configuration register.
+> 
+> This means that if the network link is active, packets will start
+> to be received and will be placed into the receive descriptors.
+> 
+> We won't transmit anything because we won't be placing packets in
+> the transmit descriptors to be transmitted.
+> 
+> However, this in stmmac_hw_setup() is just wrong. Can it be deleted
+> as per the below?
+> Tested-by: Thierry Reding <treding@nvidia.com>
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index c2913f003fe6..d6e492f523f5 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -3493,9 +3493,6 @@ static int stmmac_hw_setup(struct net_device *dev, bool ptp_register)
+>  		priv->hw->rx_csum = 0;
+>  	}
 >  
-> -#ifdef CONFIG_IOMMU_DMA
-> +#if defined(CONFIG_IOMMU_DMA) && IS_ENABLED(CONFIG_IRQ_MSI_IOMMU)
->  int iommu_get_msi_cookie(struct iommu_domain *domain, dma_addr_t base);
-> +void iommu_put_msi_cookie(struct iommu_domain *domain);
->  #else /* CONFIG_IOMMU_DMA */
->  static inline int iommu_get_msi_cookie(struct iommu_domain *domain, dma_addr_t base)
->  {
-> -	return -ENODEV;
-> +	return 0;
+> -	/* Enable the MAC Rx/Tx */
+> -	stmmac_mac_set(priv, priv->ioaddr, true);
+> -
+>  	/* Set the HW DMA mode and the COE */
+>  	stmmac_dma_operation_mode(priv);
+>  
 
-Should we keep the -ENODEV here for !CONFIG_IOMMU_DMA?
+A better fix here:
+https://lore.kernel.org/all/tencent_CCC29C4F562F2DEFE48289DB52F4D91BDE05@qq.com/
 
-Nicolin
+I can reproduce and confirm that patch works well.
+I was going to leave a Tested-by: tag on that patch if everything looks good enough,
+but the author (now copied) never come back.
 
