@@ -4,107 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E04C7C021BC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 08:42:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A7DC021BC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 08:52:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2n0SyBskTlQqySFKw03y012R8BLnOILHzRtG1rgE2Hs=; b=bBHVbwDpvOU0uhG7Niudtx6EnE
-	Jb2tezUELodbMALtrWLpNlxZmT5O3pjsRdzpthRw+uinouxP9GqKblYD1ZB7iUW40mObJURntY9r/
-	+5B0BKDbYsTYOGFwpNEflk2oih7ZbfmpKjgIPIKFwIE0Ew9YZ882JXXq2wTaDROfP2otQh0G1/uXb
-	qRuetgpLhIniMIRTBURVuI/e9YZ+giEJ/O0JUY+YNiP+T4E5iKpHjA4xiD3eACoS+pczmct1skWmz
-	g6EpPMpmy0jhBszQkgZ06GfQNPA/u9eg6JNCklvYB+JqjIk/JMza8EMdaQAD8blgF/Y7+XXYw7z0o
-	XM3jBdwA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QoRHycwAmBYUri9rlyFHlZy3NwlBvIOEmEFqOGFEsa0=; b=w5xmOsK9xVfzJe
+	/yac48TWLFGVqnrqtKh5oK0KlSnPXKeRtJFrqP3OUgt+pwYhsfmwjWYsW8Gro4m7RtqlbUIVOJJQh
+	PrNFOuLMHnpEmTRvBgr8GDGO1DXsZDAw7UFd898JDNPJOlLTABMFc3c3SkJwJw1+Xo5iArUsoBkv5
+	lyhvRLLRjd2niHJEeYVe80aLfu9DZWmU5k2JqUjhtRPuPWuk4rce0HikPSDELU3x4CsAsihgcugWm
+	bZTzxeEge+b7wPBI4zEaQesZs12ae0EXdRr0H8Vc99VSDY3f/ug7tku0GvzujUVBlwFFVI6NtRh/m
+	vapYv+b0kJQx+FKcE3Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnCzY-00000002w8C-3eFA;
-	Wed, 26 Feb 2025 08:42:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tnD8t-00000002xpo-04e2;
+	Wed, 26 Feb 2025 08:51:47 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnCxh-00000002vgr-1pYR
+	id 1tnD7I-00000002xUk-3Scz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 08:40:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 385496127F;
-	Wed, 26 Feb 2025 08:40:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC53BC4CEE2;
-	Wed, 26 Feb 2025 08:40:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740559212;
-	bh=S+u82oGXKHKqK6UVbq7Xud0c+o6+TCL3UqFRIOajgSQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JNZVLf/JuTwbwct/+vjWBhu1FR28Tl441ySbnnr6d31aFnvR1Q8YM2MoWvbnOYGX4
-	 kYkvjkCvcOzyJ/LJoeTUmglttOfczXiVLvb5AJGRiD4fkPzteuKd5mmOVFpLBRgrmy
-	 NUVLxSwp/H0Po7HoOk6mZkdwyisCgoSRunvw92WI5g+8J4ql/5Mo5nGJnAbHBc/Csb
-	 gHI70MY3BeRTaL7lhAJSPaTk7KGACztPoPCLe5+8Y80+3wder3xzTNpNmJk2COzMjg
-	 DnQFo9B8Nmw5WS7snpUFiCv5QQWmXGaC3ejjB9ZtbWQgBchmhmIp6X3JWtWob8fKgl
-	 e3JccHtzajxZQ==
-Message-ID: <d9556611-cfe7-44fa-8965-bc2b0f870845@kernel.org>
-Date: Wed, 26 Feb 2025 09:40:06 +0100
+	Wed, 26 Feb 2025 08:50:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=from:to:cc:subject:date:message-id
+	:in-reply-to:references:mime-version:content-transfer-encoding;
+	 s=k1; bh=QoRHycwAmBYUri9rlyFHlZy3NwlBvIOEmEFqOGFEsa0=; b=BRdEAf
+	WiAlxaoqYaD6f3f5QItwDgDyWd5kZ7L1MGs5AcGUzz0uLGCssb/jfLKHrRccc2sy
+	1Wl81g/INbQ5p5RwMaFRtwwfW5Bvv3AQTq9exX0yLHN4APReElmGDUOaqu5vGOJy
+	9qHZ9LEqHEqDIK4+uy4P3yJqOKqa7eELp9Ve30J5YfFbDDy4teXdnVaCphvep91N
+	vGP/JfEi/iINwqZLsPPhd7kzE8E2lgdyKJ5cKBdbTC7fkjr1s2rCJnVEN6L6nf+7
+	El8oL+yfBvxDDAtDiSsnicGc/4VGATbzcPJ0hKbwKBuj0vfVJXPBB29JDdtQPqAt
+	zz/8CI5cGM3x6sTA==
+Received: (qmail 500365 invoked from network); 26 Feb 2025 09:50:03 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 26 Feb 2025 09:50:03 +0100
+X-UD-Smtp-Session: l3s3148p1@u8jNqAcvZq4gAwDPXxaLANR24ZQNPy5l
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 1/4] dt-bindings: ARM: at91: make separate entry for Olimex board
+Date: Wed, 26 Feb 2025 09:49:36 +0100
+Message-ID: <20250226084938.3436-7-wsa+renesas@sang-engineering.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250226084938.3436-6-wsa+renesas@sang-engineering.com>
+References: <20250226084938.3436-6-wsa+renesas@sang-engineering.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/6] dt-bindings: arm: add CIX P1 (SKY1) SoC
-To: Peter Chen <peter.chen@cixtech.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
- marcin@juszkiewicz.com.pl, Fugang Duan <fugang.duan@cixtech.com>
-References: <20250226012136.854614-1-peter.chen@cixtech.com>
- <20250226012136.854614-3-peter.chen@cixtech.com>
- <f89817fe-22af-460e-9f5c-a3347eba1892@kernel.org>
- <Z77MHGhUF6pPwLww@nchen-desktop>
-Content-Language: en-US
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <Z77MHGhUF6pPwLww@nchen-desktop>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250226_005009_785434_774119AE 
+X-CRM114-Status: UNSURE (   8.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,59 +65,45 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, devicetree@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Wolfram Sang <wsa+renesas@sang-engineering.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/02/2025 09:09, Peter Chen wrote:
-> On 25-02-26 08:02:12, Krzysztof Kozlowski wrote:
->> EXTERNAL EMAIL
->>
->> On 26/02/2025 02:21, Peter Chen wrote:
->>> Add device tree bindings for CIX P1 (Internal name sky1) Arm SoC,
->>> it consists several SoC models like CP8180, CD8180, etc.
->>>
->>> Acked-by: Fugang Duan <fugang.duan@cixtech.com>
->>> Signed-off-by: Peter Chen <peter.chen@cixtech.com>
->>> ---
->>
->> <form letter>
->> This is a friendly reminder during the review process.
->>
->> It looks like you received a tag and forgot to add it.
->>
->> If you do not know the process, here is a short explanation:
->> Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
->> of patchset, under or above your Signed-off-by tag, unless patch changed
->> significantly (e.g. new properties added to the DT bindings). Tag is
->> "received", when provided in a message replied to you on the mailing
->> list. Tools like b4 can help here. However, there's no need to repost
->> patches *only* to add the tags. The upstream maintainer will do that for
->> tags received on the version they apply.
->>
->> Please read:
->> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
->>
->> If a tag was not added on purpose, please state why and what changed.
->> </form letter>
->>
-> 
-> I have checked the review-process again at:
-> https://patchwork.kernel.org/project/linux-arm-kernel/list/?series=935897
+The Olimex board exists with only one SoC option. Change the bindings to
+reflect that.
 
-This does not matter - that's not a patchwork anyone uses...
+Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+---
+ Documentation/devicetree/bindings/arm/atmel-at91.yaml | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-> It seems no one gives any Reviewed-by or Acked-by Tag.
+diff --git a/Documentation/devicetree/bindings/arm/atmel-at91.yaml b/Documentation/devicetree/bindings/arm/atmel-at91.yaml
+index 0ec29366e6c2..02a8f6aad541 100644
+--- a/Documentation/devicetree/bindings/arm/atmel-at91.yaml
++++ b/Documentation/devicetree/bindings/arm/atmel-at91.yaml
+@@ -22,8 +22,6 @@ properties:
+       - items:
+           - const: atmel,at91rm9200
+       - items:
+-          - enum:
+-              - olimex,sam9-l9260
+           - enum:
+               - atmel,at91sam9260
+               - atmel,at91sam9261
+@@ -36,6 +34,12 @@ properties:
+               - atmel,at91sam9x60
+           - const: atmel,at91sam9
+ 
++      - description: Olimex SAM9-L9260
++        items:
++          - const: olimex,sam9-l9260
++          - const: atmel,at91sam9260
++          - const: atmel,at91sam9
++
+       - items:
+           - enum:
+               - overkiz,kizboxmini-base # Overkiz kizbox Mini Base Board
+-- 
+2.45.2
 
-You were directly addressed! So you got email and what did you do with it?
-
-And lists received it:
-https://lore.kernel.org/all/ac6c4a8b-a6bd-44a9-993b-3b743a172dcc@kernel.org/
-
-> 
-> If I am missing something, please correct me.
-> 
-
-
-Best regards,
-Krzysztof
 
