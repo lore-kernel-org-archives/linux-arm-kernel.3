@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A8B8C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:22:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09734C18E7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:22:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fU4mwSXqstlI/Vzh2VWlK6EDGlOHTVznyvQcSwhu4To=; b=O9dT57vm9shWxzS6JOdIqBUdh0
-	t9+aQnn96/baxxPMirz5eRFyBYiZCoW5wOmtD1/OwkcGfWIcgpp9v31bbkMN7o1R8yp9fLIzO497C
-	/MeypqDBk9aApvMro0kysTLbL1/z/IOLi8gvyxlzd/KBViJPqhEythVtDH28gAXHzkA1TG19L+WKR
-	OT3GJv1Fg8m18aNX5szsGZN9mIPbLAbhkk7J6TPgRAl/8yrzCsat3Rrvt4qVTE1yDqZGNzotmOZRQ
-	joaf8fI/D4odRCWTMqztdYMwNYBjH1s8n5x/hhcrhKoNWfAn8U8lf0TucAhSGMjez61VbY0FtJSgC
-	i5kW+voA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=57yd6XbIpVqci1GHfDC7jyDmUXWvLlCDBBFGmPHarQ0=; b=DqoYvgcjlyDIwGJbf4cgisiM+X
+	TBddrQb0lI0cCBMWL7Jdgw6jD6ZCeqUTESU7LLYSXrqDVUg9tJc6TPsM4JmHwgu9q+MsX3AssNy0E
+	dfRw5miAI1I4QM8FMxpTu596680aBySjk5BEl21rmm+5gU/Z2Y5zUlkMn1JEyWsl6zp+DrIxKkw8T
+	3Y/1mCLoHEGlhFykRNp9Iwj321xp9BdcBZQmCLFhTEPTsPROFodIUernj3BP8K1ZgxDpkVPBs+0b/
+	Li26Cwal0sqQZky6AIVQbppc7QPyANpJvh4EbkSt2X0iO2C16yffOYVOZz97jw3ezskaBjMsoEzKk
+	g7kE9L2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJF4-00000004Fl1-3mlD;
-	Wed, 26 Feb 2025 15:22:35 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1tnJF9-00000004Fuh-1aKg;
+	Wed, 26 Feb 2025 15:22:39 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnIUo-000000046fj-0FGs
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 14:34:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1740580485; x=1772116485;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=fsVj2Aus3xQzzjk0qAqr0Apz0tN8gWLbCfqS98wb8y8=;
-  b=2aHke8Rls2i1j9/sAJznruWpM5hkm/dQ/szMaWDq56gGRUu+Fqh3kbkl
-   aXN7XPDWF1+71c1AFzLcMkNpZ6d+PxzmnaGdXG+xWpj9VnNrJe6+PVH1f
-   aAGPQLwwsvO30YqxrJTvKkF7rusVxFdkdSh/43P51A44B7GKq2R5wU4oZ
-   FmwNL5Pe4RKxH6JKFRqbs48HLaFtzvuouFyiHCYLiopK6mjGsrqiNnrca
-   /N2MQCOjD2L+wmLY8xQCbgBbnOuiz4ZF/JCeAWobRx9lnKSRHuVQMC24w
-   r85NGdIeDnOxdmw0kbJI6wOm0XZhLFhQ6LyWOTY+O3Av1Pu09q53x+55J
-   Q==;
-X-CSE-ConnectionGUID: ZF1JjHn6RqyhKjwOKIMcxA==
-X-CSE-MsgGUID: A9pe4hv+SyiQoyQRgDR0Yg==
-X-IronPort-AV: E=Sophos;i="6.13,317,1732604400"; 
-   d="scan'208";a="37753840"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 26 Feb 2025 07:34:42 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Wed, 26 Feb 2025 07:34:06 -0700
-Received: from localhost (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
- Transport; Wed, 26 Feb 2025 07:34:05 -0700
-Date: Wed, 26 Feb 2025 15:32:12 +0100
-From: Horatiu Vultur <horatiu.vultur@microchip.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>
-CC: <Steen.Hegelund@microchip.com>, <daniel.machon@microchip.com>,
-	<UNGLinuxDriver@microchip.com>, <herve.codina@bootlin.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] reset: mchp: sparx5: Fix for lan966x
-Message-ID: <20250226143212.h2rtfxbbspdnmybq@DEN-DL-M31836.microchip.com>
-References: <20250225105329.3037853-1-horatiu.vultur@microchip.com>
- <b31fa21c7bd352fe77d50da82c4d2c333b8566d8.camel@pengutronix.de>
+	id 1tnIVu-000000046tT-2a86;
+	Wed, 26 Feb 2025 14:35:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1740580552;
+	bh=h68gsh2XEk8LO4IEBYVLcCuerDrPBhtD2D2GRTB8yzM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=SvrskYHZYjMsocmKfAxUKmqMkvx05rKHkcpXkK4y1Hb0BSIomRFS9wcKjLK/FfDzW
+	 SRJGnKnMNSd3vnCySTQ74kp0ZhLKJQpX/4j8fh5fmEScfcVicULdLqGy1Ri9YtQ34G
+	 3pBEVQmaHakN8XAZ3gq1CFCAuGlnQ/U0ZdRDeeWGdU76wwHaPfnS64S/2EmtaFytAi
+	 kT56/ixj77tgiWqDjG8VQSeoMAkd2BS2PPGRp35qcOiCsBzEJpQcJ1PW0HqJ/KkNNj
+	 65KUxpSWJOePnVIsT+vcJ41/jgMF5V1Sm+mle9V336TAM8r9PEUTXIPzXxz8BtOnXH
+	 98xZh49YNX3qw==
+Received: from apertis-1.home (2a01cb088CcA73006086F5F072c6a07a.ipv6.abo.wanadoo.fr [IPv6:2a01:cb08:8cca:7300:6086:f5f0:72c6:a07a])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: jmassot)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BA22017E066F;
+	Wed, 26 Feb 2025 15:35:51 +0100 (CET)
+From: Julien Massot <julien.massot@collabora.com>
+Date: Wed, 26 Feb 2025 15:35:28 +0100
+Subject: [PATCH 2/2] arm64: dts: mediatek: mt8395-radxa-nio-12l: Add Radxa
+ 8 HD panel
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
-In-Reply-To: <b31fa21c7bd352fe77d50da82c4d2c333b8566d8.camel@pengutronix.de>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250226-radxa-panel-overlay-v1-2-9e8938dfbead@collabora.com>
+References: <20250226-radxa-panel-overlay-v1-0-9e8938dfbead@collabora.com>
+In-Reply-To: <20250226-radxa-panel-overlay-v1-0-9e8938dfbead@collabora.com>
+To: kernel@collabora.com, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ kernel@collabora.com, Julien Massot <julien.massot@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_063446_377446_A25D98E4 
-X-CRM114-Status: GOOD (  16.45  )
+X-CRM114-CacheID: sfid-20250226_063554_805119_6D03D575 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,29 +79,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 02/26/2025 11:27, Philipp Zabel wrote:
-> 
-> On Di, 2025-02-25 at 11:53 +0100, Horatiu Vultur wrote:
-> > With the blamed commit it seems that lan966x doesn't seem to boot
-> > anymore when the internal CPU is used.
-> > The reason seems to be the usage of the devm_of_iomap, if we replace
-> > this with of_iomap, this seems to fix the issue as we use the same
-> > region also for other devices.
-> 
-> So the issue is the devm_request_mem_region() called by
-> devm_ioremap_resource()?
+The Radxa 8 HD touchscreen can be used with various Radxa board
+and is sold appart from the Radxa NIO 12L development kit.
 
-That is correct.
+Add a DTS overlay for this panel.
 
-> 
-> Wouldn't it be easier to switch to devm_ioremap() instead?
+Signed-off-by: Julien Massot <julien.massot@collabora.com>
+---
+ arch/arm64/boot/dts/mediatek/Makefile              |  2 +
+ .../mediatek/mt8395-radxa-nio-12l-8-hd-panel.dtso  | 64 ++++++++++++++++++++++
+ 2 files changed, 66 insertions(+)
 
-That would be easier and the change set will be also smaller.
-
-> 
-> regards
-> Philipp
+diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
+index ae1147eca9a915f117487101e2ad4acead97adfe..58484e8300632edbdef24bbda33ccf00db9df937 100644
+--- a/arch/arm64/boot/dts/mediatek/Makefile
++++ b/arch/arm64/boot/dts/mediatek/Makefile
+@@ -100,9 +100,11 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-genio-1200-evk.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8390-genio-700-evk.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-kontron-3-5-sbc-i1200.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l.dtb
++dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l-8-hd-panel.dtbo
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8516-pumpkin.dtb
+ 
+ # Device tree overlays support
+ DTC_FLAGS_mt7986a-bananapi-bpi-r3 := -@
+ DTC_FLAGS_mt7986a-bananapi-bpi-r3-mini := -@
+ DTC_FLAGS_mt7988a-bananapi-bpi-r4 := -@
++DTC_FLAGS_mt8395-radxa-nio-12l := -@
+diff --git a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l-8-hd-panel.dtso b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l-8-hd-panel.dtso
+new file mode 100644
+index 0000000000000000000000000000000000000000..5d633f61a62c3175fbfa133f3ea5b1a6a0b0fec5
+--- /dev/null
++++ b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l-8-hd-panel.dtso
+@@ -0,0 +1,64 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Radxa Display 8 HD touchscreen module
++ * Copyright (C) 2025 Collabora Ltd.
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++
++&dsi0 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++	status = "okay";
++
++	panel@0 {
++		compatible = "radxa,display-8hd-ad002", "jadard,jd9365da-h3";
++		reg = <0>;
++		backlight = <&backlight>;
++		vdd-supply = <&mt6359_vcn33_2_bt_ldo_reg>;
++		vccio-supply = <&mt6360_ldo2>;
++		reset-gpios = <&pio 108 GPIO_ACTIVE_LOW>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&panel_default_pins>;
++
++		port {
++			dsi_panel_in: endpoint {
++				remote-endpoint = <&dsi0_out>;
++			};
++		};
++	};
++};
++
++&disp_pwm0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pwm0_default_pins>;
++	status = "okay";
++};
++
++&dsi0_out {
++	remote-endpoint = <&dsi_panel_in>;
++};
++
++&mipi_tx0 {
++	status = "okay";
++};
++
++&i2c4 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	touchscreen@14 {
++		compatible = "goodix,gt911";
++		reg = <0x14>;
++		interrupts-extended = <&pio 132 IRQ_TYPE_EDGE_RISING>;
++		irq-gpios = <&pio 132 GPIO_ACTIVE_HIGH>;
++		reset-gpios = <&pio 133 GPIO_ACTIVE_HIGH>;
++		VDDIO-supply = <&mt6359_vcn33_2_bt_ldo_reg>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&touch_pins>;
++	};
++};
 
 -- 
-/Horatiu
+2.48.1
+
 
