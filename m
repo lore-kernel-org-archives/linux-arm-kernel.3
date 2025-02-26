@@ -4,64 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD8DAC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 16:02:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D407C19F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 16:03:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lE/Xbmf2Ixrc28FsjZgb8nI+zXNn9Xk4Te6a4EkWyLs=; b=1qbxLSPlcejqGxxhLJJlIYLPa/
-	5h3VaZDqHZEtbBtVq3qtBcvEz6dQxju9PIj/8ptQOZjZlB5aHwtIgM2UvmHcDHWiQYm1POb7wtY44
-	yGl9u6IYGXQpWNKQ34ZQ1ymkYSLcd3iaw3Km3y9tob2useDw0bFmTi9Xy19OfIUTRlW9JeUohLRGk
-	TJt94UTiP+rkyLGgjlCm8NwUpPcX18Fq3zPzWpn9Me8Lw37CfR2ea/NuIrwqsR++x03+8tV7lVHsi
-	motqWCKtBmePC18bOey52bNnEC/P/tsvwFLqoGl6lmUX5QS2G5G8T6N2lMqmc4kN2ifDolKdU5lJ1
-	JZThEphg==;
+	bh=Wv2MNWteJjWH++eqTDYglGmucmNcmvUK/WykTj90mq4=; b=frSspdHJArDa1f/p/JH/OPGrBQ
+	2kk1qPEWd11EAMBxyYa1KxiBvLYCxbYEbjj2rTSXzgVzy5dTcYOl1m603gx1+JQq6pm2BMiIX6FHB
+	tDWSft2292yfPx2Q0qkvJZ+HyNBrcZq/qIQlNP7f5faDjFfaN49QgIasPf4FAe7o/F21SrbWmDM4v
+	+PeUv/QXzbEq4P7cE3RFM86/Wm8v5zmvsw1k3KUZhslPY6NwDKhHwDPn1CLtskW6AcXRCSVd0Pk5c
+	gZFjSTujBNC51OMVUtRkBpNhMnRO+62a5M2sqvHRix3YCKHGk775WPrkU4l7BRBpxgJRiYXSMAuHu
+	aag+Fhbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJrT-00000004S5Z-3gH1;
-	Wed, 26 Feb 2025 16:02:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tnJsy-00000004SMf-36JL;
+	Wed, 26 Feb 2025 16:03:48 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJoE-00000004R4L-1pTg
+	id 1tnJph-00000004RNp-2B8N
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 15:58:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8D2885C71DE;
-	Wed, 26 Feb 2025 15:58:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22248C4CED6;
-	Wed, 26 Feb 2025 15:58:50 +0000 (UTC)
-Date: Wed, 26 Feb 2025 15:58:48 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Peter Collingbourne <pcc@google.com>
-Subject: Re: [PATCH] KVM: arm64: Drop mte_allowed check during memslot
- creation
-Message-ID: <Z786ODqxlYNpj40l@arm.com>
-References: <20250224093938.3934386-1-aneesh.kumar@kernel.org>
- <Z7xSfVME4z2ComUm@arm.com>
- <86ldtvr0nl.wl-maz@kernel.org>
- <Z7yElHKrJGn8XuPS@arm.com>
- <86jz9fqtbk.wl-maz@kernel.org>
- <yq5aseo3gund.fsf@kernel.org>
- <86ikozqmsl.wl-maz@kernel.org>
- <yq5a8qptauyl.fsf@kernel.org>
+	Wed, 26 Feb 2025 16:00:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Wv2MNWteJjWH++eqTDYglGmucmNcmvUK/WykTj90mq4=; b=gw9Cx2gxTh8JE8x7FgYq6KRnd2
+	E783qDZfUv+7jdS7hxAd3iSmFIshKjx47m//zeX8U36PAB33wdRVsbmHAv2CkXkrGQsmGgcToXMZq
+	dEHjYZwVJyXTWv0cGG1NbryTaQZtBlqlQIeQgx9VBbae6iv0Q8PkLaNXdUorA7eUzQEaMQvBo24sI
+	6HlTYO8nu0/QVsoHsiFe4IYHuBsz+dOm634VVKaURqIp2zVrupv2OlTApbslISltaYzw2liVVWwWD
+	z9EFpa6MyxhYnl6Z3Yf+27mN4tHMnxWs7Wv/5i0xlOum+zP7tjJTowrb5qtpMUojKid8DI9BMSlwW
+	LEQ2Cm0A==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:39794)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tnJpX-0004o8-1x;
+	Wed, 26 Feb 2025 16:00:15 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tnJpV-0007Dw-07;
+	Wed, 26 Feb 2025 16:00:13 +0000
+Date: Wed, 26 Feb 2025 16:00:12 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jon Hunter <jonathanh@nvidia.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Bryan Whitehead <bryan.whitehead@microchip.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, UNGLinuxDriver@microchip.com,
+	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+Subject: Re: [PATCH net-next 9/9] net: stmmac: convert to phylink managed EEE
+ support
+Message-ID: <Z786jCGYDewTH7bN@shell.armlinux.org.uk>
+References: <Z7X6Z8yLMsQ1wa2D@shell.armlinux.org.uk>
+ <203871c2-c673-4a98-a0a3-299d1cf71cf0@nvidia.com>
+ <Z7YtWmkVl0rWFvQO@shell.armlinux.org.uk>
+ <fd4af708-0c92-4295-9801-bf53db3a16cc@nvidia.com>
+ <Z7ZF0dA4-jwU7O2E@shell.armlinux.org.uk>
+ <31731125-ab8f-48d9-bd6f-431d49431957@nvidia.com>
+ <Z77myuNCoe_la7e4@shell.armlinux.org.uk>
+ <dd1f65bf-8579-4d32-9c9c-9815d25cc116@nvidia.com>
+ <Z770LRrhPOjOsdrd@shell.armlinux.org.uk>
+ <63f9d470-e4e4-4e06-a057-1e1ab0aca9d0@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <yq5a8qptauyl.fsf@kernel.org>
+In-Reply-To: <63f9d470-e4e4-4e06-a057-1e1ab0aca9d0@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_075854_585984_240C1006 
-X-CRM114-Status: GOOD (  27.65  )
+X-CRM114-CacheID: sfid-20250226_080025_698527_387CF3F6 
+X-CRM114-Status: GOOD (  59.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,69 +99,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 26, 2025 at 03:28:26PM +0530, Aneesh Kumar K.V wrote:
-> Marc Zyngier <maz@kernel.org> writes:
-> > On Mon, 24 Feb 2025 16:44:06 +0000,
-> > Aneesh Kumar K.V <aneesh.kumar@kernel.org> wrote:
-> >> >> On Mon, Feb 24, 2025 at 12:24:14PM +0000, Marc Zyngier wrote:
-> >> >> > > On Mon, Feb 24, 2025 at 03:09:38PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> >> >> > > > This change is needed because, without it, users are not able to use MTE
-> >> >> > > > with VFIO passthrough (currently the mapping is either Device or
-> >> >> > > > NonCacheable for which tag access check is not applied.), as shown
-> >> >> > > > below (kvmtool VMM).
-[...]
-> >> >> > My other concern is that this gives pretty poor consistency to the
-> >> >> > guest, which cannot know what can be tagged and what cannot, and
-> >> >> > breaks a guarantee that the guest should be able to rely on.
-[...]
-> >> What if we trigger a memory fault exit with the TAGACCESS flag, allowing
-> >> the VMM to use the GPA to retrieve additional details and print extra
-> >> information to aid in analysis? BTW, we will do this on the first fault
-> >> in cacheable, non-tagged memory even if there is no tagaccess in that
-> >> region. This can be further improved using the NoTagAccess series I
-> >> posted earlier, which ensures the memory fault exit occurs only on
-> >> actual tag access
-> >> 
-> >> Something like below?
-> >
-> > Something like that, only with:
-> >
-> > - a capability informing userspace of this behaviour
-> >
-> > - a per-VM (or per-VMA) flag as a buy-in for that behaviour
+On Wed, Feb 26, 2025 at 03:55:47PM +0000, Jon Hunter wrote:
 > 
-> If we’re looking for a capability based control, could we tie that up to
-> FEAT_MTE_PERM? That’s what I did here:
+> On 26/02/2025 10:59, Russell King (Oracle) wrote:
+> > On Wed, Feb 26, 2025 at 10:11:58AM +0000, Jon Hunter wrote:
+> > > 
+> > > On 26/02/2025 10:02, Russell King (Oracle) wrote:
+> > > > On Tue, Feb 25, 2025 at 02:21:01PM +0000, Jon Hunter wrote:
+> > > > > Hi Russell,
+> > > > > 
+> > > > > On 19/02/2025 20:57, Russell King (Oracle) wrote:
+> > > > > > So, let's try something (I haven't tested this, and its likely you
+> > > > > > will need to work it in to your other change.)
+> > > > > > 
+> > > > > > Essentially, this disables the receive clock stop around the reset,
+> > > > > > something the stmmac driver has never done in the past.
+> > > > > > 
+> > > > > > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > > > > > index 1cbea627b216..8e975863a2e3 100644
+> > > > > > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > > > > > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > > > > > @@ -7926,6 +7926,8 @@ int stmmac_resume(struct device *dev)
+> > > > > >     	rtnl_lock();
+> > > > > >     	mutex_lock(&priv->lock);
+> > > > > > +	phy_eee_rx_clock_stop(priv->dev->phydev, false);
+> > > > > > +
+> > > > > >     	stmmac_reset_queues_param(priv);
+> > > > > >     	stmmac_free_tx_skbufs(priv);
+> > > > > > @@ -7937,6 +7939,9 @@ int stmmac_resume(struct device *dev)
+> > > > > >     	stmmac_restore_hw_vlan_rx_fltr(priv, ndev, priv->hw);
+> > > > > > +	phy_eee_rx_clock_stop(priv->dev->phydev,
+> > > > > > +			      priv->phylink_config.eee_rx_clk_stop_enable);
+> > > > > > +
+> > > > > >     	stmmac_enable_all_queues(priv);
+> > > > > >     	stmmac_enable_all_dma_irq(priv);
+> > > > > 
+> > > > > 
+> > > > > Sorry for the delay, I have been testing various issues recently and needed
+> > > > > a bit more time to test this.
+> > > > > 
+> > > > > It turns out that what I had proposed last week does not work. I believe
+> > > > > that with all the various debug/instrumentation I had added, I was again
+> > > > > getting lucky. So when I tested again this week on top of vanilla v6.14-rc2,
+> > > > > it did not work :-(
+> > > > > 
+> > > > > However, what you are suggesting above, all by itself, is working. I have
+> > > > > tested this on top of vanilla v6.14-rc2 and v6.14-rc4 and it is working
+> > > > > reliably. I have also tested on some other boards that use the same stmmac
+> > > > > driver (but use the Aquantia PHY) and I have not seen any issues. So this
+> > > > > does fix the issue I am seeing.
+> > > > > 
+> > > > > I know we are getting quite late in the rc for v6.14, but not sure if we
+> > > > > could add this as a fix?
+> > > > 
+> > > > The patch above was something of a hack, bypassing the layering, so I
+> > > > would like to consider how this should be done properly.
+> > > > 
+> > > > I'm still wondering whether the early call to phylink_resume() is
+> > > > symptomatic of this same issue, or whether there is a PHY that needs
+> > > > phy_start() to be called to output its clock even with link down that
+> > > > we don't know about.
+> > > > 
+> > > > The phylink_resume() call is relevant to this because I'd like to put:
+> > > > 
+> > > > 	phy_eee_rx_clock_stop(priv->dev->phydev,
+> > > > 			      priv->phylink_config.eee_rx_clk_stop_enable);
+> > > > 
+> > > > in there to ensure that the PHY is correctly configured for clock-stop,
+> > > > but given stmmac's placement that wouldn't work.
+> > > > 
+> > > > I'm then thinking of phylink_pre_resume() to disable the EEE clock-stop
+> > > > at the PHY.
+> > > > 
+> > > > I think the only thing we could do is try solving this problem as per
+> > > > above and see what the fall-out from it is. I don't get the impression
+> > > > that stmmac users are particularly active at testing patches though, so
+> > > > it may take months to get breakage reports.
+> > > 
+> > > 
+> > > We can ask Furong to test as he seems to active and making changes, but
+> > > otherwise I am not sure how well it is being tested across various devices.
+> > > On the other hand, it feels like there are still lingering issues like this
+> > > with the driver and so I would hope this is moving in the right direction.
+> > > 
+> > > Let me know if you have a patch you want me to test and I will run in on our
+> > > Tegra186, Tegra194 and Tegra234 devices that all use this.
+> > 
+> > Do we think this needs to be a patch for the net tree or the net-next
+> > tree? I think we've established that it's been a long-standing bug,
+> > so maybe if we target net-next to give it more time to be tested?
+> > 
 > 
-> https://lore.kernel.org/all/20250110110023.2963795-1-aneesh.kumar@kernel.org
-> 
-> That patch set also addresses the issue mentioned here. Let me know if
-> you think this is a better approach
+> Yes I agree there is a long-standing issue here. What is unfortunate for
+> Linux v6.14 is that failure rate is much higher. However, I don't see what I
+> can really do about that. I can mark suspend as broken for Linux v6.14 for
+> this device and then hopefully we will get this resolved properly.
 
-From the patch linked above:
+If we put the patches in net-next, it can have longer to be tested - it
+won't go straight into 6.14, but will wait until after net-next gets
+merged, and it'll then be backported to 6.14 stable trees.
 
-| @@ -2152,7 +2162,8 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
-|  		if (!vma)
-|  			break;
-| 
-| -		if (kvm_has_mte(kvm) && !kvm_vma_mte_allowed(vma)) {
-| +		if (kvm_has_mte(kvm) &&
-| +		    !kvm_has_mte_perm(kvm) && !kvm_vma_mte_allowed(vma)) {
-|  			ret = -EINVAL;
-|  			break;
-|  		}
-
-we also have the same ABI change every time FEAT_MTE_PERM is present.
-TBH, I'd rather have it from the start as per the patch in this thread,
-irrespective of FEAT_MTE_PERM. I'm fine, however, with better exit to
-VMM information though.
-
-If we don't want to confuse the VMMs, we could skip the
-kvm_vma_mte_allowed() check only for VM_ALLOW_ANY_UNCACHED and
-VM_PFNMAP vmas, maybe the latter only with FEAT_MTE_PERM. I don't think
-the VMM would get it wrong here since a VFIO mmap() would not support
-MTE anyway.
+I think the fix that I've outlined is too big and too risky to go
+straight into 6.14, but the smaller fix may be better, but would then
+need to be rewritten into the larger fix.
 
 -- 
-Catalin
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
