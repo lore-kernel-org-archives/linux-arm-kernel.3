@@ -4,86 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44336C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 09:44:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E528C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 09:47:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=83zqbI+x0U8gPtjXear3SquLiO46uugWTwSYAMtbREo=; b=dFkUr4KyiPMrVDFWa289UWscsn
-	Kn1PRyEIb+zAIx3JFfEMXCIEpnqWDBfXzCC0V3f/crHq50SfdIbcGU81R5mhkKzx8ZhVXDi16tAqi
-	WEK5HFKPIkeviwrZhQM0CdCMbAGU2pul3kSj5Xc74mNebeLk0W3s+YeAhkZ/1w27HzqIPcY88STJ0
-	98e61pqgM9DJbxHZmCWKsFQdFBmrLxhK01Gkpbj4xasNH/i1xi6tpGLD74UO9I0Jaut7XZPcw5+bE
-	jiVbaPc99Cpdiy1+kzb42wZMUeYNPanPV5geA9ZqbPH+uNpuaalfjBU3MED8jidftvkyu9KlTrTUh
-	NI/Sz4bA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Jj66UypcsvM+vY/I82pnPn1cYjMYFSAeFtKoiRrpI4U=; b=GdfDE0KMfA0j9dJpriRMYwEPxz
+	pNM+xUKAeR3/2QuXQz+QMKZ0NGigdgEkrWrz/vEFkLMqKAZRtaqLtnhFnG5UAO3rFdjv1bjYNkIa0
+	SrQ90PNA3vgCBxkzd92T612rzgF/U1X2j7yU1nM41FJVueKT0u0wy7Ql4kOYG6bCn0A9xt3MfNLAb
+	isRr04RnX/Mty9DBsqINSr42Ufo8i/1kpk4oH4nHf9WVE8J0QG1WLan9TR2DcMXxpAo3qK5SwA/4Q
+	vXu/z/uHEJnTbw/dL4hw/R0fr8ReU6VbNOLv03ERPyxQ/ONlvlCcqPwD3XZl3EuMaLu4jCm9Cxs2z
+	7d4gLokw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnDxE-000000038ic-30f2;
-	Wed, 26 Feb 2025 09:43:48 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnDvh-000000038E7-0ieo
+	id 1tnE0Y-000000039GC-19eI;
+	Wed, 26 Feb 2025 09:47:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnDyz-000000038zg-36ev
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 09:42:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=83zqbI+x0U8gPtjXear3SquLiO46uugWTwSYAMtbREo=; b=UqutqlGJIvxUsGizH3OmMYEY79
-	1gUkhNTP6dnsG+xmSD9xemC1LTrj5vJtrHPQFCOEf8uykUCEgktMB9PRlBrgw8V9Plwa/r1N1Yhkn
-	tjB0bufEAycPO1r/FWfGxiEYGaWv8s0UhFkIlcCnfKsx7N08rKykXCsy0XjPqmxabduh/ypagv8JV
-	OJIuldAhllwqQGTb9TEsS/afmerYWy8+wPNqeO41sSu35L7UDEkVI8aawV/LmZftEmEtNxAm78bn5
-	olE6xbjjH8MHE2Vd1QBQp0bBVc/zGk2/FIviY8wWn6fzq90d4x5BM/Aq02WkJWFN87+xpfIhfuf21
-	dL2zjjyw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:45812)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tnDtL-0003mS-2I;
-	Wed, 26 Feb 2025 09:39:49 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tnDt8-0006xF-1k;
-	Wed, 26 Feb 2025 09:39:34 +0000
-Date: Wed, 26 Feb 2025 09:39:34 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Furong Xu <0x1207@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jan Petrous <jan.petrous@oss.nxp.com>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Minda Chen <minda.chen@starfivetech.com>, netdev@vger.kernel.org,
-	NXP S32 Linux Team <s32@nxp.com>, Paolo Abeni <pabeni@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Thierry Reding <treding@nvidia.com>, hailong.fan@siengine.com,
-	2694439648@qq.com
-Subject: Re: net: stmmac: weirdness in stmmac_hw_setup()
-Message-ID: <Z77hVrC5Lcbxrlx8@shell.armlinux.org.uk>
-References: <Z7dVp7_InAHe0q_y@shell.armlinux.org.uk>
- <20250226104326.0000766e@gmail.com>
+	Wed, 26 Feb 2025 09:45:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AAC9E150C;
+	Wed, 26 Feb 2025 01:45:52 -0800 (PST)
+Received: from [10.57.84.229] (unknown [10.57.84.229])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 849503F6A8;
+	Wed, 26 Feb 2025 01:45:35 -0800 (PST)
+Message-ID: <2c465bdf-8028-4b05-8e18-3154735ce906@arm.com>
+Date: Wed, 26 Feb 2025 09:45:33 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250226104326.0000766e@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] arm64/mm: Fix Boot panic on Ampere Altra
+Content-Language: en-GB
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Luiz Capitulino <luizcap@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250225114638.2038006-1-ryan.roberts@arm.com>
+ <CAMj1kXHNO+iB4vNFz-4tR_9CPzv96hn+RW=eqyZXMGy_AySDpw@mail.gmail.com>
+ <20250226001047.GA24197@willie-the-truck>
+ <CAMj1kXH=tPuM+irCsKgycUTbts8h9vD4m3tEtw51YFzWafdSUA@mail.gmail.com>
+ <b0578d21-95cd-4d8a-add1-87299f36b491@arm.com>
+ <CAMj1kXHJGC9aYCwwb2XTWfhAjH6GDKQptNdLwO+hfv6hazivHQ@mail.gmail.com>
+ <b6b999c9-79cd-4945-9d7a-c5ee8158b7dc@arm.com>
+ <CAMj1kXHesY77QhnW_U19UURGUqiBuQrNcL-kWQs7niaMa4nAng@mail.gmail.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <CAMj1kXHesY77QhnW_U19UURGUqiBuQrNcL-kWQs7niaMa4nAng@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_014213_212090_C91600EF 
-X-CRM114-Status: GOOD (  32.24  )
+X-CRM114-CacheID: sfid-20250226_014538_057476_80F920FA 
+X-CRM114-Status: GOOD (  28.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,123 +72,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 26, 2025 at 10:43:26AM +0800, Furong Xu wrote:
-> On Thu, 20 Feb 2025 16:17:43 +0000, "Russell King (Oracle)" wrote:
+On 26/02/2025 09:04, Ard Biesheuvel wrote:
+> On Wed, 26 Feb 2025 at 09:55, Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>
+>> On 26/02/2025 08:33, Ard Biesheuvel wrote:
+>>> On Wed, 26 Feb 2025 at 09:07, Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>>>
+>>>> On 26/02/2025 06:59, Ard Biesheuvel wrote:
+>>>>> On Wed, 26 Feb 2025 at 01:10, Will Deacon <will@kernel.org> wrote:
+>>>>>>
+>>>>>> On Tue, Feb 25, 2025 at 07:05:35PM +0100, Ard Biesheuvel wrote:
+>>>>>>> Apologies for the breakage, and thanks for the fix.
+>>>>>>>
+>>>>>>> I have to admit that I was a bit overzealous here: there is no point
+>>>>>>> yet in using the sanitised value, given that we don't actually
+>>>>>>> override the PA range in the first place.
+>>>>
+>>>> But unless I've misunderstood something, parange is overridden; Commit
+>>>> 62cffa496aac (the same one we are fixing) adds an override to force parange to
+>>>> 48 bits when arm64.nolva is specified for LPA2 systems (see mmfr2_varange_filter()).
+>>>>
+>>>> I thought it would be preferable to honour that override, hence my use of
+>>>> arm64_apply_feature_override() in the fix. Are you saying we don't need to worry
+>>>> about that case?
+>>>>
+>>>
+>>> I wouldn't think so (but I'm glad you brought it up because this
+>>> didn't occur to me at all tbh)
+>>>
+>>> With arm64.nolva, both the VA and PA ranges will be reduced, and so
+>>> the range of the linear map will be 47 bits. So if the PA range is
+>>> being reduced from 52 to 48, it will still exceed the size of the
+>>> linear map, and so it should make no difference in this particular
+>>> case.
+>>
+>> OK, so I think you're saying it'll happen to work correctly even if we ignore
+>> that override? That sounds a bit fragile to me. Surely we should be consistent
+>> and either always honour the override or remove the override in the first place?
+>>
 > 
-> > While looking through the stmmac driver, I've come across some
-> > weirdness in stmmac_hw_setup() which looks completely barmy to me.
-> > 
-> > It seems that it follows the initialisation suggested by Synopsys
-> > (as best I can determine from the iMX8MP documentation), even going
-> > as far as to *enable* transmit and receive *before* the network
-> > device has been administratively brought up. stmmac_hw_setup() does
-> > this:
-> > 
-> >         /* Enable the MAC Rx/Tx */
-> >         stmmac_mac_set(priv, priv->ioaddr, true);
-> > 
-> > which sets the TE and RE bits in the MAC configuration register.
-> > 
-> > This means that if the network link is active, packets will start
-> > to be received and will be placed into the receive descriptors.
-> > 
-> > We won't transmit anything because we won't be placing packets in
-> > the transmit descriptors to be transmitted.
-> > 
-> > However, this in stmmac_hw_setup() is just wrong. Can it be deleted
-> > as per the below?
-> > Tested-by: Thierry Reding <treding@nvidia.com>
-> > 
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > index c2913f003fe6..d6e492f523f5 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > @@ -3493,9 +3493,6 @@ static int stmmac_hw_setup(struct net_device *dev, bool ptp_register)
-> >  		priv->hw->rx_csum = 0;
-> >  	}
-> >  
-> > -	/* Enable the MAC Rx/Tx */
-> > -	stmmac_mac_set(priv, priv->ioaddr, true);
-> > -
-> >  	/* Set the HW DMA mode and the COE */
-> >  	stmmac_dma_operation_mode(priv);
-> >  
+> I'm trying to walk a fine line here between consistent use of the
+> override, and fixing something that I broke in a nasty way all the way
+> back to 6.12.
 > 
-> A better fix here:
-> https://lore.kernel.org/all/tencent_CCC29C4F562F2DEFE48289DB52F4D91BDE05@qq.com/
+> So yes, I agree that it would be better to use the override
+> consistently, and this is what we should do going forward. But the
+> purpose of the original patch was mainly to ensure that we
+> consistently program the MMU either in LPA2 or in non-LPA2 mode, and
+> not in a mix of the two. The linear mapping randomization change was
+> kind of secondary.
+> 
+> So perhaps this should be two patches:
+> - backing out the use of the sanitised register, as proposed by Will,
+> with cc:stable
+> - a follow up based on your proposal, which can be backported later if
+> needed, but without tagging it for stable.
 
-I don't think that addresses the issue I highlighted above, since it's
-still calling stmmac_mac_set(, true) in stmmac_hw_setup(), which I
-believe to be wrong (as per my explanation above.)
+I suspect I'm misunderstanding something crucial about the way the linear map
+randomization works (TBH the details of the signed comparisons went a little
+over my head).
 
-However, the removal of setting GMAC_CONFIG_TE in the start_tx method
-looks correct to me, because:
+But my rough understanding is that there are 2 values you want to compare; the
+size of the linear map and the PA range. If the PA range is significantly bigger
+than the linear map size then we conclude we have enough room to randomize. (I
+think this assumes that VA size is always GTE PA size). But if linear map size
+is based on an overridden VA and overridden PA size (which I assume it must be,
+given the pgtables will be limitted to the overridden VA size) and PA size is
+not overridden, isn't it possible to wrongly conclude that there is enough room
+to randomize when there really is not?
 
-- the start_tx method is called via stmmac_start_tx(), which is only
-  called from stmmac_start_tx_dma().
+By that logic, you must include any PA override in this decision and so Will's
+patch does not fix this case. Mine does.
 
-- stmmac_start_tx_dma() is called from:
-  * stmmac_start_all_dma()
-  * stmmac_tx_err()
-  * stmmac_enable_tx_queue()
+But as I say, I'm not confident I understand this logic properly. If my
+understanding is incorrect, let's go with your proposal.
 
-* stmmac_start_all_dma() is called from the end of stmmac_hw_setup(),
-  but we've already called stmmac_mac_set(, true) both before and
-  after the patch in the above URL, so is redundant.
-
-  Incidentally, this brings the same set of questions I've stated in
-  my initial email, and to me this is wrong.
-
-* stmmac_tx_err() can only happen when we are already active (so
-  transmission was already enabled).
-
-* stmmac_enable_tx_queue() is called from stmmac_xdp_enable_pool(),
-  which will only call this if netif_running() returns true,
-  implying that the netdev is already adminstratively brought up
-  and thus stmmac_hw_setup() will have been called.
-
-  Again, this brings the same set of questions I've stated in my
-  initial email, and to me this is wrong.
+Thanks,
+Ryan
 
 
-While looking at Simon's comment, he talks about stmmac_xdp_open(), so
-I just looked at that, and found:
-
-        netif_carrier_on(dev);
-
-Then there's:
-
-        netif_carrier_off(dev);
-
-in stmmac_xdp_release().
-
-These were introduced in commit ac746c8520d9 ("net: stmmac: enhance XDP
-ZC driver level switching performance"), well after stmmac had been
-converted to phylink. Phylink documents this:
-
-16. Verify that the driver does not call::
-
-        netif_carrier_on()
-        netif_carrier_off()
-
-    as these will interfere with phylink's tracking of the link state,
-    and cause phylink to omit calls via the :c:func:`mac_link_up` and
-    :c:func:`mac_link_down` methods.
-
-So, the presence of these calls will mess up phylink, resulting in
-mac_link_up() and/or mac_link_down() *NOT* being called at appropriate
-times.
-
-However, stmmac_xdp_(open|release)() doesn't seem to do anything to
-bring the PHY or PCS up/down. This makes me wonder whether XDP support
-in the stmmac driver is basically broken, or maybe the netdev needs to
-already be administratively up (ip li set dev ... up). I don't know
-XDP as I've never used it. If that is the case, then those
-netif_carrier_*() calls need removing. Or - I say again - stmmac needs
-to *stop* using phylink. It's one or the other. A network driver
-either needs to use phylink properly or not use phylink *at* *all*.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
