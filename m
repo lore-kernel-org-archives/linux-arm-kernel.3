@@ -4,102 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B63B3C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:50:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E7FBC18E7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:52:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q6Vh6ok9v7vS3mdkra6rnIMarTJ4HEbpvw5ta2XHGVU=; b=mh6R2Zc6cHmV/MJK8IJNw2dd+Y
-	1HLwkQLwKz5f5GeS172MRRQGYJAJjCSl+cCslMcmTLEfjyj83PYNeNrvoa3AfNEVv+Xh8CCQt0tcB
-	Mqil50k/BwBGytd3OBhiJfBGAe+IFQHeMzkcBrBdRYIKhWE1xbkBk9VVBll+fFowkw7jMJkH4PqZA
-	HtIiav8t35mtNgvAK+jsfv3t8yL5VZIQWD4Eqfc52tzLQKa05zdmlt5A01ZIvSs2qWuy0jFZKWrqJ
-	b/HEQvWj46Mv07gXiyUAC/IqOQhEJXz2sRaxJsdMf81EsPHXO9duIoO1rQjz7thTDtBFPA4xlm613
-	kBLN1sYw==;
+	bh=VbW2t9EwpIS5Ha4EesUhK91rBFjcgNiBhbAE8z1q18s=; b=dt/GqUhaWpqhQ1kquZRogKTFIO
+	u5xT4qyY5wcHnfOcRa5em+Nre7KiKY5RrBtr5mjscUMJo2cKuid1b2vk6eESGDTOcw9UgqvXmeMlT
+	sdE18wwRvpJkuqTdvyn6gXJ9TJGwo7j2J928D+TGhMUQ5uIibdU3vQlbzx3YsnHZcYxcw17U0UxgT
+	z+xPM2cFLZZy2n7SYD4Mk9GXDxmEWajpvXT5nKVYZXIk5bRhL71k1p4eZtu8cH/CwRj927VyKt/w2
+	CA7hc9punosMSfXNvPMhuZ09WunYSjijc9oL8zaM9TA4IQmNs72bgHhSDVOAs3Vr7KmObY1qZ2JrV
+	aaMJT6qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJfw-00000004OoT-1K9C;
-	Wed, 26 Feb 2025 15:50:20 +0000
-Received: from fout-a3-smtp.messagingengine.com ([103.168.172.146])
+	id 1tnJhS-00000004P7V-0KA9;
+	Wed, 26 Feb 2025 15:51:54 +0000
+Received: from [198.47.23.235] (helo=lelvem-ot02.ext.ti.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJdT-00000004O6G-37Xw
+	id 1tnJfh-00000004Ojy-3lGO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 15:47:48 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfout.phl.internal (Postfix) with ESMTP id DAA39138025C;
-	Wed, 26 Feb 2025 10:47:46 -0500 (EST)
-Received: from phl-imap-07 ([10.202.2.97])
-  by phl-compute-10.internal (MEProxy); Wed, 26 Feb 2025 10:47:46 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm2;
-	 t=1740584866; x=1740671266; bh=Q6Vh6ok9v7vS3mdkra6rnIMarTJ4HEbp
-	vw5ta2XHGVU=; b=PYAy++DDH/OcqFRBTwfBJaauqSElCUNFYbjLAxHjluCeF3fB
-	gM5SmcDe0ZvUTRq2mrWajgxXJ1EJ+Q6+Nx/UN/GLSHDCxjHNogFyx/DJCE5B1NyF
-	aFk/RBOc1vv2Ody0SJcwB0mB7JHSclL5O/RfmKkicO5jVgaLfNd2na2kJKAYau/p
-	x2w0f2doOP2vj30XLJNvewDGU2pWf0/fW77GS9hxZddFqN5HCM0PJ5MN968ftjHW
-	5LdedPtsSdM4s0u9ANGD/B+IOWRb4dGw2hS/S9ah64RE7aXHE/OwpeWvARAeHbEI
-	FnooeccnRbLV7nYAR0gpI8SKBxp1R9e0lJjwvw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1740584866; x=
-	1740671266; bh=Q6Vh6ok9v7vS3mdkra6rnIMarTJ4HEbpvw5ta2XHGVU=; b=L
-	itOKgpYd7s4W2vIpYDz5XFpeZbTH0OczmdjA+bii/mCOFgOQSyF0evE2WP3sNv+T
-	DyYUp9688OZtfJJFCdrIjcmn+4FNMptq1wOTPqqfSVYZNlnzW9ntN3o6XILOh2mb
-	NsHTiBqd3G4TRL9Kl3/u9CwX/nW03m9E+kHXJzAV7j5DMaaQAJWrdMRlZj1WEka0
-	+oKkgXEe+XGhBJQqUa140AX9soLztiQHoR7rWNfmMQAIngpJBGAkztxDqEKELAfn
-	4wEcNWfpahzxkjhZRxBcXiOyV4n1dHT8jar72QoiKpG30JRxgVQ9WEejdkIVOE7X
-	ivFwC9Ern6Is2pTm6YKRg==
-X-ME-Sender: <xms:oje_Z9QZMhxLpTqrf8Ncchj8O95vC2-yjJQpRdPWvO8D6lyhqvQ9fg>
-    <xme:oje_Z2yT7_NoFzKGyeR_VZjAdsw_zys1m7cNV4c4M4YITZfq1sKSqnBUe0bKH3aVP
-    ot5T7z5Ah602yvPcTM>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdekgeelkecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredt
-    tdenucfhrhhomhepfdfuvhgvnhcurfgvthgvrhdfuceoshhvvghnsehsvhgvnhhpvghtvg
-    hrrdguvghvqeenucggtffrrghtthgvrhhnpeelfeetueegudduueduuefhfeehgeevkeeu
-    feffvdffkedtffffleevffdvvdeuffenucevlhhushhtvghrufhiiigvpedtnecurfgrrh
-    grmhepmhgrihhlfhhrohhmpehsvhgvnhesshhvvghnphgvthgvrhdruggvvhdpnhgspghr
-    tghpthhtohephedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepjhesjhgrnhhnrg
-    hurdhnvghtpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhs
-    rdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheprghsrghhiheslhhishhtshdrlh
-    hinhhugidruggvvhdprhgtphhtthhopegrlhihshhsrgesrhhoshgvnhiifigvihhgrdhi
-    ohdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdroh
-    hrgh
-X-ME-Proxy: <xmx:oje_Zy0lZaJVcsY8STYPuH9UqVc5UgiOXZQzVlprgaOWborWOhO6YQ>
-    <xmx:oje_Z1Cu1pSVK0HQwvSLnSj0bK1H-nTFN9-FpOKL6QLeUjG2Mp4k0Q>
-    <xmx:oje_Z2jcB4508kLkXV49iNS2PLbpIBff48T0Aq4FNSVNCi3hEELIUg>
-    <xmx:oje_Z5rkJGpO8WPvpdqxyoYcFox_D0k3PMM-7XH76f0p3ATq7z10XA>
-    <xmx:oje_Z-ccaxV6X53VNPqdlCJDNyFpbjGUnrDajBiBG_EAcEQT3IQYdZiJ>
-Feedback-ID: i51094778:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 90C69BA006F; Wed, 26 Feb 2025 10:47:46 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 26 Feb 2025 15:50:08 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51QFnxne2112906
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Wed, 26 Feb 2025 09:49:59 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1740584999;
+	bh=VbW2t9EwpIS5Ha4EesUhK91rBFjcgNiBhbAE8z1q18s=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=q6xDfecG+mHPY30GFFkDvARlLSpp6aqSqsceAuiSoMHVfMkYUg8pKycQqI31gduNB
+	 anlVKTRgzBcKzolvqiitcmk3z1sZ7HB8Znb8IvJ0O4TNiikUhtmF4CjFtPgv1iUbAS
+	 w5HSbAM1OF+Vbzi1r/3nhEJEVwiV1KlDeZBt5Oac=
+Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51QFnxjj035621;
+	Wed, 26 Feb 2025 09:49:59 -0600
+Received: from DLEE113.ent.ti.com (157.170.170.24) by DLEE106.ent.ti.com
+ (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 26
+ Feb 2025 09:49:58 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 26 Feb 2025 09:49:58 -0600
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51QFnvkZ052803;
+	Wed, 26 Feb 2025 09:49:57 -0600
+Message-ID: <74b85562-15c2-42fc-8ee0-990f5718dcb0@ti.com>
+Date: Wed, 26 Feb 2025 09:49:57 -0600
 MIME-Version: 1.0
-Date: Wed, 26 Feb 2025 16:47:25 +0100
-From: "Sven Peter" <sven@svenpeter.dev>
-To: "Alyssa Rosenzweig" <alyssa@rosenzweig.io>
-Cc: "Janne Grunau" <j@jannau.net>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Message-Id: <0b3db5a1-a57f-4ccb-9f7c-6df16d4319a5@app.fastmail.com>
-In-Reply-To: <Z7y0gJPD5-OQvyog@blossom>
-References: <20250222-apple-soc-misc-v1-0-1a3af494a48a@svenpeter.dev>
- <20250222-apple-soc-misc-v1-1-1a3af494a48a@svenpeter.dev>
- <Z7y0gJPD5-OQvyog@blossom>
-Subject: Re: [PATCH 1/4] soc: apple: rtkit: Add APPLE_RTKIT_PWR_STATE_INIT
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] arm64: dts: ti: Add k3-am62-pocketbeagle2
+To: Dhruva Gole <d-gole@ti.com>, Robert Nelson <robertcnelson@gmail.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        "Vignesh
+ Raghavendra" <vigneshr@ti.com>, Nishanth Menon <nm@ti.com>,
+        Roger Quadros
+	<rogerq@kernel.org>,
+        Siddharth Vadapalli <s-vadapalli@ti.com>, Judith Mendez
+	<jm@ti.com>,
+        Andrei Aldea <a-aldea@ti.com>,
+        Jason Kridner
+	<jkridner@beagleboard.org>,
+        Deepak Khatri <lorforlinux@beagleboard.org>,
+        Ayush Singh <ayush@beagleboard.org>
+References: <20250211181839.1575497-1-robertcnelson@gmail.com>
+ <20250211181839.1575497-2-robertcnelson@gmail.com>
+ <20250224111318.3wlbhpm7pggsbqdb@lcpd911>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20250224111318.3wlbhpm7pggsbqdb@lcpd911>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_074747_852549_06F4F4CF 
-X-CRM114-Status: UNSURE (   9.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250226_075006_055085_0B6D3D6F 
+X-CRM114-Status: GOOD (  29.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,27 +100,311 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 2/24/25 5:13 AM, Dhruva Gole wrote:
+> On Feb 11, 2025 at 12:18:39 -0600, Robert Nelson wrote:
+>> BeagleBoard.org PocketBeagle 2 is an upgraded version of the popular
+>> PocketBeagle.  It is based on Texas Instruments AM6232 SoC. Its dual
+>> A53 cores can provide higher performance than classic PocketBeagle.
+> 
+> You can say that classic PB was based on AM335 just for more context,
+> else it's not clear what the upgrade is w.r.t..
+> 
+>> The new design comes with pre-soldered headers, a 3-pin JST-SH 1.00mm
+>> UART debug port, a USB-C port, Texas Instruments MSPM0L1105 Cortex-M0+
+>> MCU for ADC, 512MB RAM, and a LiPo Battery charger.
+>>
+>> https://www.beagleboard.org/boards/pocketbeagle-2
+>> https://openbeagle.org/pocketbeagle/pocketbeagle-
+>>
+>> Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
+>> CC: Rob Herring <robh@kernel.org>
+>> CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+>> CC: Conor Dooley <conor+dt@kernel.org>
+>> CC: Vignesh Raghavendra <vigneshr@ti.com>
+>> CC: Nishanth Menon <nm@ti.com>
+>> CC: Andrew Davis <afd@ti.com>
+>> CC: Roger Quadros <rogerq@kernel.org>
+>> CC: Siddharth Vadapalli <s-vadapalli@ti.com>
+>> CC: Judith Mendez <jm@ti.com>
+>> CC: Andrei Aldea <a-aldea@ti.com>
+>> CC: Jason Kridner <jkridner@beagleboard.org>
+>> CC: Deepak Khatri <lorforlinux@beagleboard.org>
+>> CC: Ayush Singh <ayush@beagleboard.org>
+>> ---
+>>   arch/arm64/boot/dts/ti/Makefile               |   1 +
+>>   .../boot/dts/ti/k3-am62-pocketbeagle2.dts     | 520 ++++++++++++++++++
+>>   2 files changed, 521 insertions(+)
+>>   create mode 100644 arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
+>>
+>> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+>> index 8a4bdf87e2d4..46b9a667bda4 100644
+>> --- a/arch/arm64/boot/dts/ti/Makefile
+>> +++ b/arch/arm64/boot/dts/ti/Makefile
+>> @@ -27,6 +27,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-wifi-yavia.dtb
+>>   dtb-$(CONFIG_ARCH_K3) += k3-am62x-phyboard-lyra-gpio-fan.dtbo
+>>   dtb-$(CONFIG_ARCH_K3) += k3-am62-lp-sk.dtb
+>>   dtb-$(CONFIG_ARCH_K3) += k3-am62-lp-sk-nand.dtbo
+>> +dtb-$(CONFIG_ARCH_K3) += k3-am62-pocketbeagle2.dtb
+>>   
+>>   # Boards with AM62Ax SoC
+>>   dtb-$(CONFIG_ARCH_K3) += k3-am62a7-sk.dtb
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts b/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
+>> new file mode 100644
+>> index 000000000000..ef79bd0bf238
+>> --- /dev/null
+>> +++ b/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
+>> @@ -0,0 +1,520 @@
+>> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
+>> +/*
+>> + * https://www.beagleboard.org/boards/pocketbeagle-2
+>> + *
+>> + * Copyright (C) 2024 Texas Instruments Incorporated - https://www.ti.com/
+>> + * Copyright (C) 2024 Robert Nelson, BeagleBoard.org Foundation
+> 
+> Nit: Please update copyrights.
+> 
+>> + */
+>> +
+>> +/dts-v1/;
+>> +
+>> +#include <dt-bindings/leds/common.h>
+>> +#include <dt-bindings/gpio/gpio.h>
+>> +#include <dt-bindings/input/input.h>
+>> +#include "k3-am625.dtsi"
+> 
+> Any particular reason we can't inherit from k3-am62x-sk-common.dtsi like
+> the SK and LP-SK DTS do?
+> 
 
+Because PocketBeagle 2 is not based on our TI SK boards.. Some
+things are common (PMIC, some carveouts), but not nearly enough
+to make this a good idea.
 
-On Mon, Feb 24, 2025, at 19:03, Alyssa Rosenzweig wrote:
->> -	msg = FIELD_PREP(APPLE_RTKIT_MGMT_PWR_STATE, APPLE_RTKIT_PWR_STATE_ON);
->> +	msg = FIELD_PREP(APPLE_RTKIT_MGMT_PWR_STATE, APPLE_RTKIT_PWR_STATE_INIT);
->
-> Commit message doesn't match the code. Just adding the state doesn't
-> imply a behaviour change but the patch is one. How about "Use INIT state
-> instead of ON" or something to make explicit the behaviour change?
+Any changes to the SK board DT would have to be checked against
+this DTB, which will break things at some point as the DT becomes
+more complete.
 
-Good point, will change the commit message to something like this for v2:
+Andrew
 
-    soc: apple: rtkit: Add and use PWR_STATE_INIT instead of _ON
-
-    This state is needed to wake the dcp IOP after m1n1 shut it down
-    and works for all other co-processors as well.
-
-
-
-Thanks,
-
-
-Sven
+> Also, you're calling out in the commit message that this is based on
+> AM6232 - which has only 2 cores right? Do we not want to delete the
+> additional 2 cores from the AM625 DT which has 4 cores?
+> 
+>> +
+>> +/ {
+>> +	compatible = "beagle,am62-pocketbeagle2", "ti,am625";
+>> +	model = "BeagleBoard.org PocketBeagle2";
+>> +
+>> +	aliases {
+>> +		serial0 = &wkup_uart0;
+>> +		serial1 = &main_uart1;
+>> +		serial2 = &main_uart6;
+>> +		serial3 = &main_uart3;
+>> +		serial4 = &main_uart4;
+>> +		serial5 = &main_uart5;
+>> +		serial6 = &main_uart2;
+>> +		serial7 = &main_uart0;
+>> +		mmc0 = &sdhci0;
+>> +		mmc1 = &sdhci1;
+>> +		usb0 = &usb0;
+>> +		usb1 = &usb1;
+>> +		i2c0 = &main_i2c0;
+>> +		i2c1 = &wkup_i2c0;
+>> +		i2c2 = &main_i2c2;
+>> +	};
+>> +
+>> +	chosen {
+>> +		stdout-path = &main_uart6;
+>> +	};
+>> +
+>> +	memory@80000000 {
+>> +		/* 512MB RAM */
+>> +		reg = <0x00000000 0x80000000 0x00000000 0x20000000>;
+>> +		device_type = "memory";
+>> +		bootph-pre-ram;
+>> +	};
+>> +
+>> +	reserved_memory: reserved-memory {
+>> +		#address-cells = <2>;
+>> +		#size-cells = <2>;
+>> +		ranges;
+> 
+> Let's try to follow [1] here and elsewhere
+> [1] https://docs.kernel.org/devicetree/bindings/dts-coding-style.html
+> 
+>> +
+>> +		secure_tfa_ddr: tfa@9e780000 {
+>> +			reg = <0x00 0x9e780000 0x00 0x80000>;
+>> +			no-map;
+>> +		};
+>> +
+>> +		secure_ddr: optee@9e800000 {
+>> +			reg = <0x00 0x9e800000 0x00 0x01800000>;
+>> +			no-map;
+>> +		};
+>> +
+>> +		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9db00000 {
+>> +			compatible = "shared-dma-pool";
+>> +			reg = <0x00 0x9db00000 0x00 0xc00000>;
+>> +			no-map;
+>> +		};
+> 
+> Nothing for OPTEE/ M4/ etc...?
+> CMA?
+> Just trying to compare against sk-common... I understand the DDR is
+> smaller but we can't just ignore OPTEE / shared DMA pool right?
+> 
+>> +	};
+>> +
+>> +	vsys_5v0: regulator-1 {
+>> +		compatible = "regulator-fixed";
+>> +		regulator-name = "vsys_5v0";
+>> +		regulator-min-microvolt = <5000000>;
+>> +		regulator-max-microvolt = <5000000>;
+>> +		regulator-always-on;
+>> +		regulator-boot-on;
+>> +		bootph-all;
+>> +	};
+>> +
+>> +	vdd_3v3: regulator-2 {
+>> +		compatible = "regulator-fixed";
+>> +		regulator-name = "vdd_3v3";
+>> +		regulator-min-microvolt = <3300000>;
+>> +		regulator-max-microvolt = <3300000>;
+>> +		vin-supply = <&vsys_5v0>;
+>> +		regulator-always-on;
+>> +		regulator-boot-on;
+>> +		bootph-all;
+>> +	};
+>> +
+>> +	vdd_mmc1: regulator-3 {
+>> +		compatible = "regulator-fixed";
+>> +		regulator-name = "vdd_mmc1";
+>> +		pinctrl-names = "default";
+>> +		pinctrl-0 = <&vdd_3v3_sd_pins_default>;
+>> +		regulator-min-microvolt = <3300000>;
+>> +		regulator-max-microvolt = <3300000>;
+>> +		regulator-boot-on;
+>> +		enable-active-high;
+>> +		regulator-always-on;
+>> +		vin-supply = <&vdd_3v3>;
+>> +		gpio = <&main_gpio0 0 GPIO_ACTIVE_HIGH>;
+>> +		bootph-all;
+>> +	};
+>> +
+>> +	vdd_sd_dv: regulator-4 {
+>> +		compatible = "regulator-gpio";
+>> +		regulator-name = "sd_hs200_switch";
+>> +		pinctrl-names = "default";
+>> +		pinctrl-0 = <&vdd_sd_dv_pins_default>;
+>> +		regulator-min-microvolt = <1800000>;
+>> +		regulator-max-microvolt = <3300000>;
+>> +		regulator-boot-on;
+>> +		vin-supply = <&vdd_3v3>;
+>> +		gpios = <&main_gpio1 49 GPIO_ACTIVE_HIGH>;
+>> +		states = <1800000 0x0>,
+>> +			 <3300000 0x1>;
+>> +		bootph-all;
+>> +	};
+>> +
+>> +	adc_vref: regulator-5 {
+>> +		compatible = "regulator-fixed";
+>> +		regulator-name = "default";
+>> +		regulator-min-microvolt = <3300000>;
+>> +		regulator-max-microvolt = <3300000>;
+>> +		regulator-boot-on;
+>> +	};
+>> +
+>> +	leds {
+>> +		bootph-all;
+> 
+> Is this needed? child nodes seem to have bootph-all already right?
+> 
+>> +		compatible = "gpio-leds";
+>> +		pinctrl-names = "default";
+>> +		pinctrl-0 = <&led_pins_default>;
+>> +
+>> +		led-1 {
+>> +			bootph-all;
+>> +			gpios = <&main_gpio0 6 GPIO_ACTIVE_HIGH>;
+>> +			color = <LED_COLOR_ID_GREEN>;
+>> +			linux,default-trigger = "heartbeat";
+>> +			function = LED_FUNCTION_HEARTBEAT;
+>> +			default-state = "on";
+>> +		};
+>> +
+>> +		led-2 {
+>> +			bootph-all;
+>> +			gpios = <&main_gpio0 5 GPIO_ACTIVE_HIGH>;
+>> +			color = <LED_COLOR_ID_GREEN>;
+>> +			function = LED_FUNCTION_DISK_ACTIVITY;
+>> +			linux,default-trigger = "mmc1";
+>> +		};
+>> +
+>> +		led-3 {
+>> +			bootph-all;
+>> +			gpios = <&main_gpio0 4 GPIO_ACTIVE_HIGH>;
+>> +			color = <LED_COLOR_ID_GREEN>;
+>> +		};
+>> +
+>> +		led-4 {
+>> +			bootph-all;
+>> +			gpios = <&main_gpio0 3 GPIO_ACTIVE_HIGH>;
+>> +			color = <LED_COLOR_ID_GREEN>;
+>> +			function = LED_FUNCTION_INDICATOR;
+>> +			default-state = "off";
+>> +		};
+>> +	};
+>> +};
+> [....]
+>> +
+>> +&wkup_uart0 {
+>> +	/* WKUP UART0 is used by Device Manager firmware */
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&wkup_uart0_pins_default>;
+>> +	bootph-all;
+>> +	status = "reserved";
+>> +};
+> 
+> See things like these you get for free from k3-am62x-sk-common.dtsi ;)
+> 
+>> +
+>> +&wkup_i2c0 {
+>> +	pinctrl-names = "default";
+>> +	pinctrl-0 = <&wkup_i2c0_pins_default>;
+>> +	clock-frequency = <100000>;
+>> +	bootph-all;
+> 
+> Child nodes have bootph, no need for their parents to repeat it unless
+> you've a good cause.
+> 
+>> +	status = "okay";
+>> +
+>> +	tps65219: pmic@30 {
+>> +		compatible = "ti,tps65219";
+>> +		reg = <0x30>;
+>> +		buck1-supply = <&vsys_5v0>;
+>> +		buck2-supply = <&vsys_5v0>;
+>> +		buck3-supply = <&vsys_5v0>;
+>> +		ldo1-supply = <&vdd_3v3>;
+>> +		ldo2-supply = <&buck2_reg>;
+>> +		ldo3-supply = <&vdd_3v3>;
+>> +		ldo4-supply = <&vdd_3v3>;
+>> +
+>> +		pinctrl-names = "default";
+>> +		pinctrl-0 = <&pmic_irq_pins_default>;
+>> +		interrupt-parent = <&gic500>;
+>> +		interrupts = <GIC_SPI 224 IRQ_TYPE_LEVEL_HIGH>;
+>> +		interrupt-controller;
+>> +		#interrupt-cells = <1>;
+>> +
+>> +		bootph-all;
+>> +		system-power-controller;
+>> +		ti,power-button;
+> [...]
+> 
+> Overall I think the DT needs a bit of revisiting of which nodes to reuse
+> from common-DT and what all to delete/ trim. Revisit all the bootph
+> properties and remove the redundant one's...
+> 
 
