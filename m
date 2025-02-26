@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BA2AC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:23:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0ADDC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:23:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qr8ZzAHwUGa1pa18g5lB7LpvO3T+N6fqzFerpRdWrhw=; b=J181VzPP4WXokNqCsZlwsUqNg1
-	wSi6TXLgNMtzL2T/aKDK8UVoMWBdYiPnF0gOb+6y97M9M8qT1DW5av1PSvsY0P+NiqLBr7gQnpCG0
-	57N+oXMYMk/znGp0XwPFxfQ7VWoz9Iw6dc7RcCxgmqpM8ulAcRX064ir4/hu4IkgAzisQyzshaZQ9
-	vDsOfi4O3isohpTto1KUR0OPLfMrCDB6s4D+kZHC2VfXt2zrLONVNBIsW7oAp8ErQpBSsp4m9GpeL
-	RVC9CDzK6j6QOc5Dgu4XugDQy4NLwfjO97FMW1r9A0GOionZFMnnWZCn41O7S8UhgVrBjDuFbqnKa
-	BTV7SXCA==;
+	bh=sJaZnLfOjI4LHuqpMppLemf30WiM8BMZnVVa5Y1FR+4=; b=zu4mM71/1PAR8RNh60COIgYOQh
+	ebAPM3fP0APHs0eFnUn7xAI6porikATOU/I9ibUXGnSbSzIGtn20NgDLBLlSzlCJ8vMl2F9y3q/bq
+	niRE/9HDhpF47a/p/J7KQJx99i0gakZ/+5EdDedm5ikJf5sV9Z77WQ+IA4OqikCt876Uf9LUrF5tH
+	RwLbcingBHQVYZQASuLV0bXDcSwAZajr0y86rxY6Kt6s9ecIu26Ny5Bt6aIT592qzfU71dSId89mm
+	hVYzTE6mg6ji2YfW+ftMOtZpQeOlQyhCp4QSOzb6TSZZdaZkp11gG1s6YuI5JZ2NvsNNNupIQM0Ib
+	gbGVqLRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJFg-00000004H4w-3O1M;
-	Wed, 26 Feb 2025 15:23:12 +0000
-Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
+	id 1tnJFm-00000004HGr-2XdK;
+	Wed, 26 Feb 2025 15:23:18 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJ2h-00000004DTD-0oyB
+	id 1tnJ9P-00000004EYa-2Vsz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 15:09:48 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 57D6044262;
-	Wed, 26 Feb 2025 15:09:39 +0000 (UTC)
+	Wed, 26 Feb 2025 15:16:45 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 6CF6E4433C;
+	Wed, 26 Feb 2025 15:16:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1740582581;
+	t=1740583000;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=qr8ZzAHwUGa1pa18g5lB7LpvO3T+N6fqzFerpRdWrhw=;
-	b=iKDOgaJ5wJ04L921BEqnnpQzVMZYbO+FPuNCfmaOfFvJBXvFXqSRGdmxiiyzN5wYUKGpTe
-	ksC8H3kElU61IV8Rgvtmtey+NZpSMOrM0I6A2CjP2BzPZZm/kzgTFcmqafGH1cndkgwIrA
-	gjzMkWft0EEuLzTYcjzr1+AqPdSpKUMStQB+KKVbnI0SNgp95ofpXrtoFHLWe5pabEGZWT
-	VZeOdtBO3EP0aXdvQ/kqXOAcpP5tLmJUdzvT8cIfUk3q4vayLkTlnZAHBR23IVzBGj9ob4
-	ZZRu/JA1Fp5OnabcH56WOTsUII9MNzAB2DK/3izzPlsaNB2PD1/wmndXu56vFQ==
-Date: Wed, 26 Feb 2025 16:09:38 +0100
+	bh=sJaZnLfOjI4LHuqpMppLemf30WiM8BMZnVVa5Y1FR+4=;
+	b=oQYj+R7WOnYA+MwRlTQIzmLyjq+90/o3hskqoEiVmNBKzmv/6rvFw3UgwaZHhz6jMc2OyI
+	9y0kuwsHY6qlDLb5e0z1Xm/6QmttvRq5lOpiQE/Lu02zCkUyYHSKcgXbY2AtU4M67KN3pW
+	W1n1ocgqqeVvlDNaw81c1/Ae47EhCR/djL9MNHB9nj9DjDod0rT0/YfSPMduXOTsPLpMuA
+	KhN8xZRXSf+BFuaABamiBdWznDI3hE+6RfJDVarHq/ZAhjEByQ8onXeBje9yMdSkltML50
+	dliR5gV7ykHjenp5GXJJwgJy/VlRqg7ecWeiutKp2d7ZFHfedKZy9zX+GyV2/g==
+Date: Wed, 26 Feb 2025 16:16:37 +0100
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: "Russell King (Oracle)" <linux@armlinux.org.uk>
 Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
@@ -55,13 +55,13 @@ Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
  <kory.maincent@bootlin.com>, Oleksij Rempel <o.rempel@pengutronix.de>,
  Simon Horman <horms@kernel.org>, Romain Gantois
  <romain.gantois@bootlin.com>
-Subject: Re: [PATCH net-next v2 11/13] net: phy: phylink: Add a mapping
- between MAC_CAPS and LINK_CAPS
-Message-ID: <20250226160938.101be22d@fedora.home>
-In-Reply-To: <Z78fKCZl4-77NjeK@shell.armlinux.org.uk>
+Subject: Re: [PATCH net-next v2 09/13] net: phy: phylink: Use
+ phy_caps_lookup for fixed-link configuration
+Message-ID: <20250226161637.58597e28@fedora.home>
+In-Reply-To: <Z78e1dmEuQzMER5L@shell.armlinux.org.uk>
 References: <20250226100929.1646454-1-maxime.chevallier@bootlin.com>
-	<20250226100929.1646454-12-maxime.chevallier@bootlin.com>
-	<Z78fKCZl4-77NjeK@shell.armlinux.org.uk>
+	<20250226100929.1646454-10-maxime.chevallier@bootlin.com>
+	<Z78e1dmEuQzMER5L@shell.armlinux.org.uk>
 Organization: Bootlin
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
@@ -69,12 +69,12 @@ Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdekgeeltdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpedugfelledvtdffvdekudeijeduueevvdevffehudehvdeuudetheekheeigfetheenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgdphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudelpdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepr
- ghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdekgeelvdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegveeltddvveeuhefhvefhlefhkeevfedtgfeiudefffeiledttdfgfeeuhfeukeenucfkphepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduledprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtt
+ hhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepvgguuhhmrgiivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
 X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_070947_743111_8E7CBF98 
-X-CRM114-Status: GOOD (  21.76  )
+X-CRM114-CacheID: sfid-20250226_071643_775355_8FF9AC0B 
+X-CRM114-Status: GOOD (  20.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,52 +89,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Russell,
+Hi Russell,
 
-On Wed, 26 Feb 2025 14:03:20 +0000
+On Wed, 26 Feb 2025 14:01:57 +0000
 "Russell King (Oracle)" <linux@armlinux.org.uk> wrote:
 
-> On Wed, Feb 26, 2025 at 11:09:26AM +0100, Maxime Chevallier wrote:
-> > phylink allows MAC drivers to report the capabilities in terms of speed,
-> > duplex and pause support. This is done through a dedicated set of enum
-> > values in the form of the MAC_ capabilities. They are very close to what
-> > the LINK_CAPA_xxx can express, with the difference that LINK_CAPA don't
-> > have any information about Pause/Asym Pause support.
+> Please use a subject line of "net: phylink: " for phylink patches, not
+> "net: phy: " which is for phylib.
+
+Sure thing, I wasn't sure about the subject line for this one.
+
+> On Wed, Feb 26, 2025 at 11:09:24AM +0100, Maxime Chevallier wrote:
+> > When phylink creates a fixed-link configuration, it finds a matching
+> > linkmode to set as the advertised, lp_advertising and supported modes
+> > based on the speed and duplex of the fixed link.
 > > 
-> > To prepare converting phylink to using the phy_caps, add the mapping
-> > between MAC capabilities and phy_caps. While doing so, we move the
-> > phylink_caps_params array up a bit to simplify future commits.  
+> > Use the newly introduced phy_caps_lookup to get these modes instead of
+> > phy_lookup_settings(). This has the side effect that the matched
+> > settings and configured linkmodes may now contain several linkmodes (the
+> > intersection of supported linkmodes from the phylink settings and the
+> > linkmodes that match speed/duplex) instead of the one from
+> > phy_lookup_settings().
+> > 
+> > Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+
+[...]
+
+> > @@ -879,8 +880,10 @@ static int phylink_parse_fixedlink(struct phylink *pl,
+> >  	linkmode_copy(pl->link_config.advertising, pl->supported);
+> >  	phylink_validate(pl, pl->supported, &pl->link_config);
+> >  
+> > -	s = phy_lookup_setting(pl->link_config.speed, pl->link_config.duplex,
+> > -			       pl->supported, true);
+> > +	c = phy_caps_lookup(pl->link_config.speed, pl->link_config.duplex,
+> > +			    pl->supported, true);
+> > +	if (c)
+> > +		linkmode_and(match, pl->supported, c->linkmodes);  
 > 
-> I still want to know why we need to do this type of thing -
+> What's this for? Surely phy_caps_lookup() should not return a link mode
+> that wasn't in phy_caps_lookup()'s 3rd argument.
 
-Sorry not to have included more details on the why. The main reason is
-for the phy_port work. In the previous phy_port series [1] I included an
-attempt at making a first step forward with PHY-driven SFP, so that
-phylib itself provides the sfp_upstream_ops and not individual PHY
-drivers. That's to get a better handling for multi-port PHYs, which is
-one of the end-goals.
+The new lookup may return a linkmode that wasn't in the 3rd argument,
+as it will return ALL linkmodes that matched speed and duplex, provided
+that at least one of said linkmodes matched the 3rd parameter.
 
-[1]: https://lore.kernel.org/netdev/20250213101606.1154014-1-maxime.chevallier@bootlin.com/
+Say you pass SPEED_1000, DUPLEX_FULL and a bitset containing only
+1000BaseTFull, you'll get :
 
-As part of that PHY-sfp work, I find it very useful for PHY drivers to
-be able to tell what phy_interface_t they can expose on their serdes
-interfaces, and from then build a list of linkmodes to get an idea of
-what we can support on that port. That's why I'm extracting that out of
-phylink.
+ - 1000BaseTFull, 1000BaseKX, 1000BaseT1, etc. in c->linkmodes.
 
-I did see that you suggested having phylink involved for PHY sfp maybe,
-but TBH I don't even know where to start, so I took a safer approach
-with phylib-driven SFPs.
+That's the reason for re-andf'ing the modes afterwards.
 
-> unfortunately I don't have time to review all your patches at the
-> moment. I haven't reviewed all your patches since you've started
-> posting them. Sorry.
-
-No worries, I understand that that whole work is quite the mouthful and
-implies some involved reviews. But even discussing higher level stuff,
-like we do now, helps me steer that work in the right direction and
-hopefully make it easier for you and the other PHY maintainers to
-review that in the future.
+If that API is too convoluted or error-prone, I can come up with an API
+returning only what matched.
 
 Maxime
 
