@@ -4,141 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69EDFC19F30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 09:23:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E8A5C19F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 09:23:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jfJCJyoMIpaltaIU+7lWbslcg8FIPqfxsGd8Aa/3U4g=; b=Orq82oKTtwvp1E8N3JqTDaN7nN
-	XtSYeKi/bk8JbAkpSaUCaEtWQkS5owTr99/nu2tdUFaWte9u/aBbOFsqBscm0wrcubPfLAwJ+EeOK
-	KAk8egaZ/BKWKiltFIBejNtjLZu6J9a+yfNwVGsLM9MJD8mWQn18fHjTTx0xZb+8K5F2EXU9aYrqJ
-	X4chvkQ+phoyAPRO5gJwZnT2e5U/aqo/ANxK3jeF+uk3FEOKutLptTK/oxhswbjKk3fLn+1SgUFsv
-	s2/E5frsXLBDIgM2e9xAMfEhkkJ8tWctLQNpB2gtb2r58hBN8STX++z2OJEEdzhrJ6FjNnmhYRaau
-	9+bAf32g==;
+	bh=JnVQL+oGYE/yquJC0x3nJUckBQQoVnrR8qx6ncktlCE=; b=u3QLWL1hvvshSdjDCw/wLV9GrA
+	d1AzbZT78Vy4FWQenZSRfLXGn9zNHAd2k3Frl/xW7Q7wNKz1LrzQtOkaEHnqKElbvuS2FibbTsmaw
+	usQ1nRxvWqsKdBA+EU2vYPySDNEjl5dF6Q0qo0GEu1NO2zpW06ml9VNh/2VrIcr/yBbdBHMfPaNjO
+	EEgbY2c6LQwJC1vFK1mYdlb3BZMnIljwYgehPPBujnLuhOsNEeK/7KCibc7xyyypieLvURQpS0Edr
+	LQjhY6QY5sCt787szgeMlL5C0nD2kOf9JghUxuso47lxSpVo/QTI+PEHYG3WuHL9pejEUGOXY3RCg
+	2bQAzcxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnDdA-000000033ze-3PJ8;
-	Wed, 26 Feb 2025 09:23:05 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1tnDd7-000000033v9-42Z6;
+	Wed, 26 Feb 2025 09:23:01 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnDWM-000000032yU-40P3;
-	Wed, 26 Feb 2025 09:16:08 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250226091557euoutp0161733e589313a5d360143bf659ed2ac4~nt1UUMSFJ0235702357euoutp018;
-	Wed, 26 Feb 2025 09:15:57 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250226091557euoutp0161733e589313a5d360143bf659ed2ac4~nt1UUMSFJ0235702357euoutp018
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1740561357;
-	bh=jfJCJyoMIpaltaIU+7lWbslcg8FIPqfxsGd8Aa/3U4g=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=pd0qKB6SEv3qSWA5608B8oO2iGWR7WjfUjY2eZgAJKutotBUbf09dxzRJ6HokEIfl
-	 SENoGO7kGj+s5+5W9pcnL1jlx+tZjJeceP8qzzOTwn25j197LEY2e5ro61VeUURHeg
-	 tpP39Yc9WB7YuWNRDkkxYYqX3jPJHhQLSkY8WSSc=
-Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
-	20250226091556eucas1p29db20e03f1f9ea1782103d1167564e1b~nt1T3fxAv0815308153eucas1p2U;
-	Wed, 26 Feb 2025 09:15:56 +0000 (GMT)
-Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
-	eusmges3new.samsung.com (EUCPMTA) with SMTP id B1.88.20397.CCBDEB76; Wed, 26
-	Feb 2025 09:15:56 +0000 (GMT)
-Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250226091555eucas1p1320cf0ed08b514c5259710476a930e60~nt1TNvpGD1197611976eucas1p1P;
-	Wed, 26 Feb 2025 09:15:55 +0000 (GMT)
-Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
-	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250226091555eusmtrp1d211ba6163f39cbff93c4ff3e854775d~nt1TMYUVW3155431554eusmtrp1P;
-	Wed, 26 Feb 2025 09:15:55 +0000 (GMT)
-X-AuditID: cbfec7f5-e59c770000004fad-b0-67bedbccae7f
-Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
-	eusmgms1.samsung.com (EUCPMTA) with SMTP id 40.E0.19920.BCBDEB76; Wed, 26
-	Feb 2025 09:15:55 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250226091552eusmtip1c4c7761f98c6c76160fa00aed2a5042b~nt1QGGXF83166531665eusmtip1L;
-	Wed, 26 Feb 2025 09:15:52 +0000 (GMT)
-Message-ID: <1a6f693d-5ebe-46f5-be89-5edc0e77e316@samsung.com>
-Date: Wed, 26 Feb 2025 10:15:51 +0100
+	id 1tnDJv-000000030H9-1Sv6
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Feb 2025 09:03:12 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4394036c0efso41443085e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 01:03:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1740560589; x=1741165389; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=JnVQL+oGYE/yquJC0x3nJUckBQQoVnrR8qx6ncktlCE=;
+        b=WZo8WMSnw3QPFRVcmBXjIrbC/mhxVNpKRpe8W+WgoiJm/asb21v5CG6lhyZbZxJq/B
+         5h5EMyOfSdsw4+OD/TjWTBNsH7mFNRMjJtQFOcY5m0VjVFTpq48W08WrsuB+eBNa5xGq
+         Lm5RYvubpsG44tiiLYv9EykuYu4sbAjQ3WLJ1wzJaZMkhHpkX1pI3cxicIW1yWmWPJbT
+         OgSTy9xHDCoUKvVlUuBV/Srxzw/A1ieCqhgBIGUQqwerb/w/zhqREpYay47smHaFG2F5
+         7ELvLB9q17A7LrsLiNZSIPkxU8BT3Q06rW9p6ewrv50w/cEFome2nD+RchJfay9W4sGk
+         Mi1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740560589; x=1741165389;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=JnVQL+oGYE/yquJC0x3nJUckBQQoVnrR8qx6ncktlCE=;
+        b=MYUp/bbxiH6SVD1a+DbORr8OZUQKhQPKZIAcwsIaX7gV3T2s/wHzrm/WU3DQeRlTup
+         RlnEHoKxQmSG0Szm4ExeJFWhZljoPdX85qVDTZVewbN8vix/tqW/95KGchFpQBDF1RqN
+         EzwQDm8X6dAZsY+saoARfQ0WdbBBq76zET0srVJ/mzbUZT8eb0/YRY81Fvqul63LTlat
+         Joza2Vk1l2lwHwxcT321G7JXKPdyRJoXKtrvt3VWeA6FQRXZas2w0XYu94e175m/Dz/O
+         6BlDoRAkWAp488pN/5Zb1Nz/XQZrmhWo2xxMVS9bG8RA2yb4dbArYd62OvDOJueqdNW1
+         bpCg==
+X-Forwarded-Encrypted: i=1; AJvYcCXrUC/1PSK3JLdOLV+NAI7t673DU2d3jp3QblOUgVjmnznr5eleUqpXonCmCE7IOE6qIiA674oRmpi86jxjiZol@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQiB3AwjOycCNjSSZeWH+BVoNdVLrU+j3f+krfvI0xu1Vfsa2e
+	j82K2+4xcE7DgaELN16cmn0kFpvetkDoeX5W9mk/kdhhgWYf/1GQ1Z/ibvVDxOs=
+X-Gm-Gg: ASbGncuSBlYLcMbQ3LdaoKU5w6HzjPwRXLxlN8QCMn8y0Qi1jZcc9z4EooWvb9uh2TO
+	lBT9OhnHEiOPGUB6mVDS7YSicwuZbvFH2CjYdk5mg+dXxFjEOrzL1ddfd9KRxgFoqIg7AvZM7fN
+	crUHMAtnGSqJJN+h5kfDKcY6GC0K4CywQMD+KThnrnAtW0GDsF5DmpjgR2URKNa7Pxn9/4Ssc7v
+	MYrLVIBxXztgXM6eHZuad4PxAg5q+PIJggmupjjrBHOhzMopWrS8b8oNk7H309JVlhmHkb9IEhn
+	exV7R1PRlg4C+HGqKoG3PGPh5hVUJBUWzg==
+X-Google-Smtp-Source: AGHT+IEekDVoFKRzdCEBX1ap/zei/0aIH/Zy556MgAtLsIVJrpJvSHL/Ac8LxWjacR7hlg4AP+b/1A==
+X-Received: by 2002:a05:600c:444e:b0:439:31e0:d9a5 with SMTP id 5b1f17b1804b1-43ab9016a21mr17679685e9.22.1740560589385;
+        Wed, 26 Feb 2025 01:03:09 -0800 (PST)
+Received: from [192.168.1.247] ([145.224.66.72])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390cd8fc1cbsm4844675f8f.92.2025.02.26.01.03.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 26 Feb 2025 01:03:08 -0800 (PST)
+Message-ID: <b22731f7-3750-4bbb-b3ac-5e1cc27239e7@linaro.org>
+Date: Wed, 26 Feb 2025 09:03:07 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 21/23] iommu/pages: Remove iommu_alloc_page/pages()
-To: Jason Gunthorpe <jgg@nvidia.com>, Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
-	asahi@lists.linux.dev, Lu Baolu <baolu.lu@linux.intel.com>, David Woodhouse
-	<dwmw2@infradead.org>, Heiko Stuebner <heiko@sntech.de>,
-	iommu@lists.linux.dev, Jernej Skrabec <jernej.skrabec@gmail.com>, Jonathan
-	Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>, Krzysztof
-	Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org, Hector Martin <marcan@marcan.st>, Palmer
-	Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Robin Murphy <robin.murphy@arm.com>, Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>, Sven Peter
-	<sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>, Tomasz
-	Jeznach <tjeznach@rivosinc.com>, Krishna Reddy <vdumpa@nvidia.com>, Chen-Yu
-	Tsai <wens@csie.org>, Will Deacon <will@kernel.org>
-Cc: Bagas Sanjaya <bagasdotme@gmail.com>, Joerg Roedel <jroedel@suse.de>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev, David
-	Rientjes <rientjes@google.com>, Matthew Wilcox <willy@infradead.org>
+Subject: Re: [PATCH v14 00/10] Coresight: Add Coresight TMC Control Unit
+ driver
+To: Jie Gan <quic_jiegan@quicinc.com>
+Cc: Tingwei Zhang <quic_tingweiz@quicinc.com>,
+ Jinlong Mao <quic_jinlmao@quicinc.com>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+References: <20250226041342.53933-1-quic_jiegan@quicinc.com>
+ <627fdd72-4383-4172-9a51-c77ea32b7c60@quicinc.com>
 Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <21-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
-Content-Transfer-Encoding: 7bit
-X-Brightmail-Tracker: H4sIAAAAAAAAA02TfVBUVRjGO/fevbsws3BlKY5Wg22YxQRCinMaya9JvUMzGs1kTM0oK1wX
-	AlbbZROKmdD4WlAEwYKLLjvm8CEbrCxugYTthrBAgkAZ8hFfWwQIhECwLLKxXCz++z3v+5zz
-	vO+ZOQLcbYjcJIiUxTJymSRaTDoThgZrq8/PPXVSv3N5G9GA2kCiqpZMgG7ZWD6y/uqCLp8F
-	SJ99i0TZpTk4sg+N89DiLEIjheUA/bJcC1ASe41AqgIdH+U0X8VQW9sKVQ4/4CHDTBKJHg/Y
-	cZTXVoeh3LoaEqlmWRK1PNDw0WjneRw1WxNQp7kDoBTWFaVcv4kh498WHhoZUq3kLWgAWuqx
-	Y8haoybQbFEqQJk/vIespjYMJfUGINvCFXLvFtpiVGN0cscTktaqtYDWDZXx6EejowT9U9os
-	n65m+/i0plJJ60u86cobKpJWNwXT+utf0H/p8wH9TVE1SV/4cpKku9iQdzd+6BwYzkRHfsrI
-	t+0OdY4wTzwEp9u3xjWNDfISQfLmdOAkgNQOqG9IxNOBs8CNKgGwbzIHcGIWwLQ7lXxOzACo
-	q1nkPT1iaDWuuYoBNKdp18Q0gAU1D/kOl5DaDTPU7atMUFugyngb5+obYFO+hXDws5Qn7O/O
-	W/WIqCCoKrBjjovcKZsADo2WrzZwqg/AcZU3xx6w21KIOZik/GH6RDrpYCdqPzSXZGKcxxN+
-	N3FldSNILTjD5OoLODf327CvW7fGIjjWWMXn+AXYknOe4A6kAqix9WOcyAIwcaQbcK5dsLd1
-	cSVOsBLxGqyo2caV98Hi0mrMUYaUC+ya2MAN4QIvGb7GubIQpqW4ce5XINtY/l+s8X4HngXE
-	7Lp3Ydetya5bh/0/VwOIG8CDUSpipIxiu4w546uQxCiUMqlv2KmYSrDyDVqWG+e+ByVj074m
-	gAmACUABLnYXOkXWSt2E4ZL4zxj5qeNyZTSjMIHnBYTYQ3jtTrLUjZJKYpkohjnNyJ92MYHT
-	pkRMlHD74uay6SP5J94kXpW9tEBdMvZOZsyFNptkP0Lvk4qLuQcihkVhHTfvBum3nhz+pP+P
-	R74fHTv3VsjH/kvyg/mHXvynwbCdbfxgyis8v6Ki+J7yeNbv0aHio7Ga4GH7y/cfl9aH7Aya
-	yhApc+Ldz8abeDqZX2B7SsBcqDbsOXNQXPAOs6g06mjC8J9qS175VOoemesRUS6e0aWNzD4s
-	sN39bXDc6/CMPevqt4EZFwP2uN7r8fCMTjzIjyt8Y2R/lnC+VqeNaqvau9PPph4QaZrGijo/
-	T0ga/KrlgNd81644TeSJqqVn6oURRv93fLqMGt/3LcfOzE+yh163Lvvsq39SNiAVE4oIib83
-	LldI/gU/varkdQQAAA==
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrMKsWRmVeSWpSXmKPExsVy+t/xu7qnb+9LNzi3StfiwbxtbBZbTvcx
-	Wmz9PYvd4udVPoupjYwWmyduZbOYuHIys8X/R69ZLX59sbB4Pn8do8WVf3sYLVpmLWKx6Jy9
-	gd1i8qm5TBbnzwNZmx5fY7XY9rmFzeLTg//MFjPO72OymLJvF5tF55dZbBanry1gt3h5uYfZ
-	4tTPGovLJy4xWrTN4rdoW7KRyeLghyesFs8fdQLt+7GA0eLP7f9MFj93zWOx+LKsndGib2+Q
-	xc9D55ksWu6YWvz+MYfNQdXjycF5TB6tl/6yeayZt4bRY8Oj1aweb16+ZPE43PGF3WPnrLvs
-	Hgs2lXpsXqHlsWlVJ5vHvJOBHpuX1Hu82DyT0WPxsp1sHr3N79g8bsyKCJCM0rMpyi8tSVXI
-	yC8usVWKNrQw0jO0tNAzMrHUMzQ2j7UyMlXSt7NJSc3JLEst0rdL0Ms48fYmY8FF9YqTrx6y
-	NjC2KnQxcnJICJhIbDt3kLGLkYtDSGApo0T/l8vsEAkZiZPTGlghbGGJP9e62CCK3jNKLLw8
-	nQUkwStgJ9E97yJYA4uAqkTnwd3MEHFBiZMzn4DViArIS9y/NQOsRljAS6Jz9n8mEFtE4C+H
-	xMR+b5ChzAJ3GSUOLV7PBpIQEpjKKHFslQ+IzSwgLnHryXywBjYBQ4mut11gNZwCThInVvQx
-	QdSYSXRt7WKEsOUltr+dwzyBUWgWkjtmIRk1C0nLLCQtCxhZVjGKpJYW56bnFhvqFSfmFpfm
-	pesl5+duYgSmvm3Hfm7ewTjv1Ue9Q4xMHIyHGCU4mJVEeDkz96QL8aYkVlalFuXHF5XmpBYf
-	YjQFBsZEZinR5Hxg8s0riTc0MzA1NDGzNDC1NDNWEud1u3w+TUggPbEkNTs1tSC1CKaPiYNT
-	qoFpXur+pXc6TXhT/bYZpk0InGB9IsTsWvpbcd5APuNKY8XdpYqxy5mNlbWz12b3d7e+k19p
-	122ov7wzeJZ7k5jY0+vafy7qLDWZrPbX2VNdL2X9dt/WZ+/aP2Y5GNXynNZmaF5UUaMT717x
-	x+1sn6iJl987u/dO8QzW0Q/chWOyVv5rdziy5/jmKtmTd86xBtwN1rG8slGg40SSzZsbS2d/
-	S7jv5fn8WCFv08TYphK3SYaC3IvfddqdmSN2VrdNONatdf/9n8s/KU7SOh65djPjDTWuGT7C
-	Da1igRmrC5b/9me7vDX/7Skdmx3pZQZbZPz2nNXaHrJ7donPvNAYafP3J0vXRH8+t/yUsMIi
-	ayWW4oxEQy3mouJEAGWS78wGBAAA
-X-CMS-MailID: 20250226091555eucas1p1320cf0ed08b514c5259710476a930e60
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20250225194054eucas1p14df0adad570f01d8a8f93a0042555a51
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20250225194054eucas1p14df0adad570f01d8a8f93a0042555a51
-References: <CGME20250225194054eucas1p14df0adad570f01d8a8f93a0042555a51@eucas1p1.samsung.com>
-	<21-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <627fdd72-4383-4172-9a51-c77ea32b7c60@quicinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_011604_378538_B5283CDF 
-X-CRM114-Status: GOOD (  22.10  )
+X-CRM114-CacheID: sfid-20250226_010311_404706_257C63B7 
+X-CRM114-Status: GOOD (  34.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,135 +112,268 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25.02.2025 20:39, Jason Gunthorpe wrote:
-> A few small changes to the remaining drivers using these will allow
-> them to be removed:
->
-> - Exynos wants to allocate fixed 16K/8K allocations
-> - Rockchip already has a define SPAGE_SIZE which is used by the
->    dma_map immediately following, using SPAGE_ORDER which is a lg2size
-> - tegra has size constants already for its two allocations
->
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-For exynos-iommu:
-Acked-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> ---
->   drivers/iommu/exynos-iommu.c   |  4 ++--
->   drivers/iommu/iommu-pages.h    | 26 --------------------------
->   drivers/iommu/rockchip-iommu.c |  6 ++++--
->   drivers/iommu/tegra-smmu.c     |  4 ++--
->   4 files changed, 8 insertions(+), 32 deletions(-)
->
-> diff --git a/drivers/iommu/exynos-iommu.c b/drivers/iommu/exynos-iommu.c
-> index 1019e08b43b71c..74337081278551 100644
-> --- a/drivers/iommu/exynos-iommu.c
-> +++ b/drivers/iommu/exynos-iommu.c
-> @@ -902,11 +902,11 @@ static struct iommu_domain *exynos_iommu_domain_alloc_paging(struct device *dev)
->   	if (!domain)
->   		return NULL;
->   
-> -	domain->pgtable = iommu_alloc_pages(GFP_KERNEL, 2);
-> +	domain->pgtable = iommu_alloc_pages_sz(GFP_KERNEL, SZ_16K);
->   	if (!domain->pgtable)
->   		goto err_pgtable;
->   
-> -	domain->lv2entcnt = iommu_alloc_pages(GFP_KERNEL, 1);
-> +	domain->lv2entcnt = iommu_alloc_pages_sz(GFP_KERNEL, SZ_8K);
->   	if (!domain->lv2entcnt)
->   		goto err_counter;
->   
-> diff --git a/drivers/iommu/iommu-pages.h b/drivers/iommu/iommu-pages.h
-> index 3c4575d637da6d..4513fbc76260cd 100644
-> --- a/drivers/iommu/iommu-pages.h
-> +++ b/drivers/iommu/iommu-pages.h
-> @@ -100,20 +100,6 @@ static inline void *iommu_alloc_pages_node(int nid, gfp_t gfp,
->   	return iommu_alloc_pages_node_sz(nid, gfp, 1 << (order + PAGE_SHIFT));
->   }
->   
-> -/**
-> - * iommu_alloc_pages - allocate a zeroed page of a given order
-> - * @gfp: buddy allocator flags
-> - * @order: page order
-> - *
-> - * returns the virtual address of the allocated page
-> - * Prefer to use iommu_alloc_pages_lg2()
-> - */
-> -static inline void *iommu_alloc_pages(gfp_t gfp, int order)
-> -{
-> -	return iommu_alloc_pages_node_sz(NUMA_NO_NODE, gfp,
-> -					 1 << (order + PAGE_SHIFT));
-> -}
-> -
->   /**
->    * iommu_alloc_pages_sz - Allocate a zeroed page of a given size from
->    *                          specific NUMA node
-> @@ -141,16 +127,4 @@ static inline void *iommu_alloc_page_node(int nid, gfp_t gfp)
->   	return iommu_alloc_pages_node_sz(nid, gfp, PAGE_SIZE);
->   }
->   
-> -/**
-> - * iommu_alloc_page - allocate a zeroed page
-> - * @gfp: buddy allocator flags
-> - *
-> - * returns the virtual address of the allocated page
-> - * Prefer to use iommu_alloc_pages_lg2()
-> - */
-> -static inline void *iommu_alloc_page(gfp_t gfp)
-> -{
-> -	return iommu_alloc_pages_node_sz(NUMA_NO_NODE, gfp, PAGE_SIZE);
-> -}
-> -
->   #endif	/* __IOMMU_PAGES_H */
-> diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
-> index 798e85bd994d56..5af82072b03a17 100644
-> --- a/drivers/iommu/rockchip-iommu.c
-> +++ b/drivers/iommu/rockchip-iommu.c
-> @@ -730,7 +730,8 @@ static u32 *rk_dte_get_page_table(struct rk_iommu_domain *rk_domain,
->   	if (rk_dte_is_pt_valid(dte))
->   		goto done;
->   
-> -	page_table = iommu_alloc_page(GFP_ATOMIC | rk_ops->gfp_flags);
-> +	page_table = iommu_alloc_pages_sz(GFP_ATOMIC | rk_ops->gfp_flags,
-> +					  SPAGE_SIZE);
->   	if (!page_table)
->   		return ERR_PTR(-ENOMEM);
->   
-> @@ -1064,7 +1065,8 @@ static struct iommu_domain *rk_iommu_domain_alloc_paging(struct device *dev)
->   	 * Each level1 (dt) and level2 (pt) table has 1024 4-byte entries.
->   	 * Allocate one 4 KiB page for each table.
->   	 */
-> -	rk_domain->dt = iommu_alloc_page(GFP_KERNEL | rk_ops->gfp_flags);
-> +	rk_domain->dt = iommu_alloc_pages_sz(GFP_KERNEL | rk_ops->gfp_flags,
-> +					     SPAGE_SIZE);
->   	if (!rk_domain->dt)
->   		goto err_free_domain;
->   
-> diff --git a/drivers/iommu/tegra-smmu.c b/drivers/iommu/tegra-smmu.c
-> index 844682a41afa66..a9c35efde56969 100644
-> --- a/drivers/iommu/tegra-smmu.c
-> +++ b/drivers/iommu/tegra-smmu.c
-> @@ -295,7 +295,7 @@ static struct iommu_domain *tegra_smmu_domain_alloc_paging(struct device *dev)
->   
->   	as->attr = SMMU_PD_READABLE | SMMU_PD_WRITABLE | SMMU_PD_NONSECURE;
->   
-> -	as->pd = iommu_alloc_page(GFP_KERNEL | __GFP_DMA);
-> +	as->pd = iommu_alloc_pages_sz(GFP_KERNEL | __GFP_DMA, SMMU_SIZE_PD);
->   	if (!as->pd) {
->   		kfree(as);
->   		return NULL;
-> @@ -695,7 +695,7 @@ static struct tegra_pt *as_get_pde_page(struct tegra_smmu_as *as,
->   	if (gfpflags_allow_blocking(gfp))
->   		spin_unlock_irqrestore(&as->lock, *flags);
->   
-> -	pt = iommu_alloc_page(gfp | __GFP_DMA);
-> +	pt = iommu_alloc_pages_sz(gfp | __GFP_DMA, SMMU_SIZE_PT);
->   
->   	if (gfpflags_allow_blocking(gfp))
->   		spin_lock_irqsave(&as->lock, *flags);
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+
+On 26/02/2025 7:05 am, Jie Gan wrote:
+> 
+> 
+> On 2/26/2025 12:13 PM, Jie Gan wrote:
+>> The Coresight TMC Control Unit(CTCU) device hosts miscellaneous 
+>> configuration
+>> registers to control various features related to TMC ETR device.
+>>
+> 
+> [...]
+> Hi, James
+> 
+> Sorry for the mistake, I just found I forget to add the co-developed-by 
+> tag to patch(5/10), patch(6/10) after the division.
+> 
+> Do I need resend the patch series?
+> 
+> Jie
+> 
+
+No, no worries. If you end up sending another version you can fix it 
+otherwise it's not worth it.
+
+>>
+>> Sincere thanks to James Clark for providing an excellent idea to handle
+>> the trace_id of the path.
+>>
+>> ---
+>> Changes in V14:
+>> 1. Drop the reviewed-by tag for previous patch: Coresight-Introduce-a- 
+>> new-struct-coresight_path
+>>     due to a massive modification.
+>> 2. Split the patch, Coresight-Introduce-a-new-struct-coresight_path, into
+>>     four patches.
+>>     - Coresight-Introduce-a-new-struct-coresight_path
+>>     - Coresight-Allocate-trace-ID-after-building-the-path
+>>     - Coresight-Change-to-read-the-trace-ID-from-coresight_path
+>>     - Coresight-Change-functions-to-accept-the-coresight_path
+>> 3. Change the type of the coresight_path_assign_trace_id function to 
+>> void.
+>> 4. Change the type of the path_list from struct list_head * to struct 
+>> list_head to avoid
+>>     extra memory allocate/free.
+>> 5. Rename the file coresight-ctcu.c to coresight-ctcu-core.c to 
+>> improve scalibility.
+>> 6. Add pm_ops for CTCU driver.
+>> 7. Rename the struct ctcu_atid_config to ctcu_etr_config to improve 
+>> scalibility.
+>> 8. Optimize following functions of the CTCU driver to improve 
+>> readability.
+>>     - ctcu_program_atid_register
+>>     - __ctcu_set_etr_traceid
+>> 9. Change the way to get the port number. The new solution is searching
+>>     the sink device from CTCU's view.
+>> 10. Add desc.access for CTCU driver.
+>> Link to V13 - https://lore.kernel.org/linux-arm- 
+>> msm/20250221060543.2898845-1-quic_jiegan@quicinc.com/
+>> ---
+>>
+>> ---
+>> Changes in V13:
+>> 1. Move the trace_id callback to coresight_ops to simplify the code.
+>> Link to V12 - https://lore.kernel.org/linux-arm- 
+>> msm/20250217093024.1133096-1-quic_jiegan@quicinc.com/
+>> ---
+>>
+>> ---
+>> Changes in V12:
+>> 1. Update the method for allocating trace_id for perf mode.
+>> Link to V11 - https://lore.kernel.org/linux-arm- 
+>> msm/20250214024021.249655-1-quic_jiegan@quicinc.com/
+>> ---
+>>
+>> ---
+>> Changes in V11:
+>> 1. Add reviewed-by tag to patch(2/7), (4/7), (6/7). Patch(3/7) is
+>>     contributed by James, so didnot add reviewed-by tag of James.
+>> 2. Fix warning reported by kernel bot and verified with build(W=1).
+>> 3. Restore to the original logic that responsible for allocate trace_id
+>>     of ETM device in perf mode according to James' comment.
+>> Link to V10 - https://lore.kernel.org/linux-arm- 
+>> msm/20250207064213.2314482-1-quic_jiegan@quicinc.com/
+>> ---
+>>
+>> ---
+>> Changes in V10:
+>> 1. Introduce a new API to allocate and read trace_id after path is built.
+>> 2. Introduce a new API to allocate and read trace_id of ETM device.
+>> 3. Add a new patch: [PATCH v10 3/7] Coresight: Use 
+>> coresight_etm_get_trace_id() in traceid_show()
+>> 4. Remove perf handle from coresight_path.
+>> 5. Use u8 instead of atomic_t for traceid_refcnt.
+>> 6. Optimize the part of code in CTCU drvier that is responsible for 
+>> program atid register.
+>> Link to V9 - https://lore.kernel.org/all/20250124072537.1801030-1- 
+>> quic_jiegan@quicinc.com/
+>>
+>> Changes in V9:
+>> 1. Rebased on tag next-20250113.
+>> 2. Separate the previous trace_id patch (patch 2/5 Coresight: Add 
+>> trace_id function to
+>>     retrieving the trace ID) into two patches.
+>> 3. Introduce a new struct coresight_path instead of cs_sink_data which 
+>> was
+>>     created in previous version. The coresight_path will be initialized
+>>     and constructed in coresight_build_path function and released by
+>>     coresight_release_path function.
+>>     Detail of the struct coresight_path is shown below:
+>> /**
+>>   * struct coresight_path - data needed by enable/disable path
+>>   * @path:               path from source to sink.
+>>   * @trace_id:           trace_id of the whole path.
+>>   */
+>> struct coresight_path {
+>>          struct list_head                *path;
+>>          u8                              trace_id;
+>> };
+>>
+>> 4. Introduce an array of atomic in CTCU driver to represent the refcnt 
+>> or each
+>>     enabled trace_id for each sink. The reason is there is a scenario 
+>> that more
+>>     than one TPDM device physically connected to the same TPDA device has
+>>     been enabled. The CTCU driver must verify the refcnt before 
+>> resetting the
+>>     bit of the atid register according to the trace_id of the TPDA 
+>> device.
+>> 5. Remove redundant codes in CTCU driver.
+>> 6. Add reviewed-by tag to the commit message for APB clock path(patch
+>>     1/5).
+>> Link to V8 - https://lore.kernel.org/all/20241226011022.1477160-1- 
+>> quic_jiegan@quicinc.com/
+>>
+>> Changes in V8:
+>> 1. Rebased on tag next-20241220.
+>> 2. Use raw_spinlock_t instead of spinlock_t.
+>> 3. Remove redundant codes in CTCU driver:
+>>     - Eliminate unnecessary parameter validations.
+>>     - Correct log level when an error occurs.
+>>     - Optimize codes.
+>> 4. Correct the subject prefix for DT patch.
+>> 5. Collected reviewed-by tag from Konrad Dybcib for DT patch.
+>> Link to V7 - https://lore.kernel.org/all/20241210031545.3468561-1- 
+>> quic_jiegan@quicinc.com/
+>>
+>> Changes in V7:
+>> 1. Rebased on tag next-20241204.
+>> 2. Fix format issue for dts patch.
+>>     - Padding the address part to 8 digits
+>> Link to V6 - https://lore.kernel.org/linux-arm- 
+>> msm/20241009112503.1851585-1-quic_jiegan@quicinc.com/
+>>
+>> Changes in V6:
+>> 1. Collected reviewed-by tag from Rob for dt-binding patch.
+>> 2. Rebased on tag next-20241008.
+>> 3. Dropped all depends-on tags.
+>> Link to V5 - https://lore.kernel.org/linux-arm- 
+>> msm/20240909033458.3118238-1-quic_jiegan@quicinc.com/
+>>
+>> Changes in V5:
+>> 1. Fix the format issue for description paragrah in dt binding file.
+>> 2. Previous discussion for why use "in-ports" property instead of 
+>> "ports".
+>> Link to V4 - https://lore.kernel.org/linux-arm- 
+>> msm/20240828012706.543605-1-quic_jiegan@quicinc.com/
+>>
+>> Changes in V4:
+>> 1. Add TMC description in binding file.
+>> 2. Restrict the number of ports for the CTCU device to a range of 0 to 
+>> 1 in the binding file,
+>>     because the maximum number of CTCU devices is 2 for existing 
+>> projects.
+>> Link to V3 - https://lore.kernel.org/linux-arm- 
+>> kernel/20240812024141.2867655-1-quic_jiegan@quicinc.com/
+>>
+>> Changes in V3:
+>> 1. Rename the device to Coresight TMC Control Unit(CTCU).
+>> 2. Introduce a new way to define the platform related configs. The new
+>>     structure, qcom_ctcu_config, is used to store configurations specific
+>>     to a platform. Each platform should have its own qcom_ctcu_config 
+>> structure.
+>> 3. In perf mode, the ETM devices allocate their trace IDs using the
+>>     perf_sink_id_map. In sysfs mode, the ETM devices allocate their trace
+>>     IDs using the id_map_default.
+>> 4. Considering the scenario where both ETR devices might be enabled 
+>> simultaneously
+>>     with multiple sources, retrieving and using trace IDs instead of 
+>> id_map is more effective
+>>     for the CTCU device in sysfs mode. For example, We can configure 
+>> one ETR as sink for high
+>>     throughput trace data like ETM and another ETR for low throughput 
+>> trace data like STM.
+>>     In this case, STM data won’t be flushed out by ETM data quickly. 
+>> However, if we use id_map to
+>>     manage the trace IDs, we need to create a separate id_map for each 
+>> ETR device. Addtionally, We
+>>     would need to iterate through the entire id_map for each 
+>> configuration.
+>> 5. Add support for apb's clock name "apb". If the function fails to 
+>> obtain the clock with
+>>     the name "apb_pclk", it will attempt to acquire the clock with the 
+>> name "apb".
+>> Link to V2 - https://lore.kernel.org/linux-arm- 
+>> msm/20240705090049.1656986-1-quic_jiegan@quicinc.com/T/#t
+>>
+>> Changes in V2:
+>> 1. Rename the device to Coresight Control Unit.
+>> 2. Introduce the trace_id function pointer to address the challeng how to
+>>     properly collect the trace ID of the device.
+>> 3. Introduce a new way to define the qcom,ccu-atid-offset property in
+>> device tree.
+>> 4. Disabling the filter function blocked on acquiring the ATID-offset,
+>>     which will be addressed in a separate patch once it’s ready.
+>> Link to V1 - https://lore.kernel.org/lkml/20240618072726.3767974-1- 
+>> quic_jiegan@quicinc.com/T/#t
+>> ---
+>>
+>> James Clark (1):
+>>    Coresight: Use coresight_etm_get_trace_id() in traceid_show()
+>>
+>> Jie Gan (9):
+>>    Coresight: Add support for new APB clock name
+>>    Coresight: Add trace_id function to retrieving the trace ID
+>>    Coresight: Introduce a new struct coresight_path
+>>    Coresight: Move trace_id to coresight_path and allocate it after
+>>      building the path
+>>    Coresight: Change to read the trace ID from coresight_path
+>>    Coresight: Change functions to accept the coresight_path
+>>    dt-bindings: arm: Add Coresight TMC Control Unit hardware
+>>    Coresight: Add Coresight TMC Control Unit driver
+>>    arm64: dts: qcom: sa8775p: Add CTCU and ETR nodes
+>>
+>>   .../bindings/arm/qcom,coresight-ctcu.yaml     |  84 +++++
+>>   arch/arm64/boot/dts/qcom/sa8775p.dtsi         | 153 ++++++++
+>>   drivers/hwtracing/coresight/Kconfig           |  12 +
+>>   drivers/hwtracing/coresight/Makefile          |   2 +
+>>   drivers/hwtracing/coresight/coresight-core.c  | 122 +++++--
+>>   .../hwtracing/coresight/coresight-ctcu-core.c | 326 ++++++++++++++++++
+>>   drivers/hwtracing/coresight/coresight-ctcu.h  |  39 +++
+>>   drivers/hwtracing/coresight/coresight-dummy.c |  15 +-
+>>   .../hwtracing/coresight/coresight-etm-perf.c  |  27 +-
+>>   .../hwtracing/coresight/coresight-etm-perf.h  |   2 +-
+>>   drivers/hwtracing/coresight/coresight-etm.h   |   1 -
+>>   .../coresight/coresight-etm3x-core.c          |  55 +--
+>>   .../coresight/coresight-etm3x-sysfs.c         |   3 +-
+>>   .../coresight/coresight-etm4x-core.c          |  55 +--
+>>   .../coresight/coresight-etm4x-sysfs.c         |   4 +-
+>>   drivers/hwtracing/coresight/coresight-etm4x.h |   1 -
+>>   drivers/hwtracing/coresight/coresight-priv.h  |  14 +-
+>>   drivers/hwtracing/coresight/coresight-stm.c   |  13 +-
+>>   drivers/hwtracing/coresight/coresight-sysfs.c |  17 +-
+>>   drivers/hwtracing/coresight/coresight-tpda.c  |  11 +
+>>   drivers/hwtracing/coresight/coresight-tpdm.c  |   2 +-
+>>   include/linux/coresight.h                     |  27 +-
+>>   22 files changed, 824 insertions(+), 161 deletions(-)
+>>   create mode 100644 Documentation/devicetree/bindings/arm/ 
+>> qcom,coresight-ctcu.yaml
+>>   create mode 100644 drivers/hwtracing/coresight/coresight-ctcu-core.c
+>>   create mode 100644 drivers/hwtracing/coresight/coresight-ctcu.h
+>>
+> 
 
 
