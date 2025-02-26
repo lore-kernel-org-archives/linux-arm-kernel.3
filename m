@@ -4,63 +4,189 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BE57C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 17:13:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E85BC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 17:14:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PzaaRmAJU2uQKN+mo6+0+YOe5ndmWTJU4UD1b8fgt30=; b=a6FpLeRfwjEshUhYnbrujAhzqt
-	eHsb2WXQlnFgRZUo6rJ0vQm243EkrDLFBMG2flPErPxVbB9FEVu+Tek9DVSv1D5UKwILMeAbSTWWa
-	OnKQDYyDJGbGh/pmFpgEmm2fURP2+KqJbfT8BCzDDuURrHjl3nbynJrVuwB0vwYO2okvDcXibTEd4
-	LWkQtSG7tCvnjZPK05RmVbrgumjCrNATIpnBpPPK0kRBTpHJHdIvN2tQNq7M5sOyxRhG4jF1bTRc2
-	dMxVlkGdFLxVVTYpYNm0TF0QcnzpFVkMhcyaTHDw0Qrq5vjDTn8ZJDpAwoBhMDsdKlm5Yncxt+G4s
-	sKVcXqAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	References:To:From:Subject:Cc:Message-Id:Date:Content-Type:
+	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SErncZ/T6DzGWPoTn19XFzlzqNSovqmkyIeo7fJ98CU=; b=plJ7qSh0WFLFYtFaDkvf83UiJR
+	kcD6g2rjD1GF7JSXR936kfO6zwyMg28n9FBirgfhnyWAN8+QqXvNsihbYf+b0fYXg5gzOrJgdHD0k
+	CVruuHvCKBP292iOl6KhnDcTHMqRnleUZaOrET3TVgMQyuB3Abn0Utitx6jnS929KBUpgGvvYuf+U
+	OzExtT87Wkzbuq2DNzcAT90nCS02luzJiDkTWzmrhC1g3saXBgKKvmVynbpb5agE+kpVZ2YrQ1Ojf
+	MfaICRWdyjaWl+7WqFHHICw0Aiy7U6UAimpWiGbUcgaG/Y8m/g/Hz314rsPwIXH9iE07vtg/WRlQG
+	U6/uv4hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnKyA-00000004fZG-2IpI;
-	Wed, 26 Feb 2025 17:13:14 +0000
-Received: from vps.xff.cz ([195.181.215.36])
+	id 1tnKzg-00000004g9Q-0ZHN;
+	Wed, 26 Feb 2025 17:14:48 +0000
+Received: from mail-mw2nam04on20720.outbound.protection.outlook.com ([2a01:111:f403:240a::720] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnKoz-00000004d8N-2VfC;
-	Wed, 26 Feb 2025 17:03:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xff.cz; s=mail;
-	t=1740589423; bh=lRgrbi89RAPj6wGopHjUn9XlnG+mldWaZKc9kQI81BM=;
-	h=Date:From:To:Cc:Subject:X-My-GPG-KeyId:References:From;
-	b=gQHXn0znSp/8ZBlIxfHyCNCgpKK4cR5SioN6O6ISpdQq2+jwSLvwqhHHv0NfKjhtb
-	 rU2LJzexQAyi1Q5GmcWGeBqqB+QQglxxprhsuHyKPhDwnjwI4LH5bz+i3T/+LJTPoF
-	 d+Wb5Qh68dK5uQ9KHQoi/LbGct10+71omlWOVBj8=
-Date: Wed, 26 Feb 2025 18:03:42 +0100
-From: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>
-To: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>
-Cc: vkoul@kernel.org, kishon@kernel.org, linux-phy@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	quentin.schulz@cherry.de, sebastian.reichel@collabora.com, 
-	Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: Re: [PATCH 2/2] phy: rockchip: usbdp: re-init the phy on
- orientation-change
-Message-ID: <h57ok2hw6os7bcafqkrqknfvm7hnu25m2oe54qmrsuzdwqlos3@m4och2fcdm7s>
-Mail-Followup-To: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, vkoul@kernel.org, kishon@kernel.org, 
-	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, quentin.schulz@cherry.de, 
-	sebastian.reichel@collabora.com, Heiko Stuebner <heiko.stuebner@cherry.de>
-X-My-GPG-KeyId: EBFBDDE11FB918D44D1F56C1F9F0A873BE9777ED
- <https://xff.cz/key.txt>
-References: <20250225184519.3586926-1-heiko@sntech.de>
- <20250225184519.3586926-3-heiko@sntech.de>
- <7q5yn466xd7emebhjze4ixkswgyxjjjt5rwvyww2hwbts6bamd@i5vwvegy2os6>
- <1878927.BzM5BlMlMQ@diego>
+	id 1tnKqO-00000004dRE-0jWb
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Feb 2025 17:05:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iRcv5apkYqVYrTV6LqaDdLeqmdiv9RD5+LYOk8VLzROVFHlt4V6XKC6hteXcjF6rXEbQ222ZN2hgNBt6uwW4jpArCZnXdrgghys2YwcC6m3YdxglNT/33T1mqOo3yFLxurOZ6Q7koQj04nAPww14fg7/URaBR4oqbkxehrhIZI/FNhB0s3CmktZLhPcDquKShL1MzL901VfKudmYmpJpDbGH1roS3LuFWcogdiMkypAk/digQcQEUmxDUsIIx4P8OvaWXRSq07J4Ujb2mnBbtxR+XKvjURgh50LXbLN9L+LINlD7BLelL7q70SgxeKMKLW+tzKfCTSKq6GecJUftmg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SErncZ/T6DzGWPoTn19XFzlzqNSovqmkyIeo7fJ98CU=;
+ b=geTBT1gHCFXdAHIqD42jzbNY6foBOWm6eJZjxFjAYESPmN4A39/WFPKO9O2qQnIOrpKD+eyXrqkqYC6T3cvwLOwHZaD0M71z5vmW9hKqmP2GNTNNDhL4fAZOjR66jmV9kyK4nAphBvVri0apTUQvrZRR8QREqtmVtgcgHAFx5Hn322QlTrZ7EfVIxAApo9QdAsHssyePpM8oJd0X37iB5jOFdx5kglVyP0E1GLa6jDcndPcCZFr86SRsUoCFwH0N9XCs4K/TVkZYTUSJpPKdyyAaeNIOL1mmdtdcbbi3Mn2XIipoaGgo5aU3n1OA7UN/9yyq1TNT9p4t92sNx7dRew==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=d3embedded.com; dmarc=pass action=none
+ header.from=d3embedded.com; dkim=pass header.d=d3embedded.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=d3engineering.onmicrosoft.com; s=selector2-d3engineering-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SErncZ/T6DzGWPoTn19XFzlzqNSovqmkyIeo7fJ98CU=;
+ b=RoUgJWPiPBIZuzDoTXxXoelnENbz3nghrWOOwhzYfeOjY5fYDeHTWtc9OhBm59I7QOqlKW0W1Q4xllmk5R/IWcAG+GWt93Y3CNXBdxN+Ld5vkOWLsUyHnjwmIiBo3zFoeRZTEEv9lyD6Xflu1JwAcNf5aOl4zSL9BkcQ8hPwUx4=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=d3embedded.com;
+Received: from MN2PR14MB4207.namprd14.prod.outlook.com (2603:10b6:208:1d6::13)
+ by IA1PR14MB5707.namprd14.prod.outlook.com (2603:10b6:208:3a1::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.18; Wed, 26 Feb
+ 2025 17:05:06 +0000
+Received: from MN2PR14MB4207.namprd14.prod.outlook.com
+ ([fe80::1232:fdf5:3cae:d9d7]) by MN2PR14MB4207.namprd14.prod.outlook.com
+ ([fe80::1232:fdf5:3cae:d9d7%3]) with mapi id 15.20.8466.020; Wed, 26 Feb 2025
+ 17:05:06 +0000
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 26 Feb 2025 12:05:03 -0500
+Message-Id: <D82JHF158VJA.3Q1T2ZHM2XNEN@d3embedded.com>
+Cc: =?utf-8?b?TsOtY29sYXMgRi5SLkEuUHJhZG8=?= <nfraprado@collabora.com>,
+ "Abel Vesa" <abel.vesa@linaro.org>, "Achath Vaishnav" <vaishnav.a@ti.com>,
+ "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>,
+ "Ard Biesheuvel" <ardb@kernel.org>, "Benjamin Mugnier"
+ <benjamin.mugnier@foss.st.com>, "Biju Das" <biju.das.jz@bp.renesas.com>,
+ "Bjorn Andersson" <quic_bjorande@quicinc.com>, "Catalin Marinas"
+ <catalin.marinas@arm.com>, "Conor Dooley" <conor+dt@kernel.org>, "Dmitry
+ Baryshkov" <dmitry.baryshkov@linaro.org>, "Elinor Montmasson"
+ <elinor.montmasson@savoirfairelinux.com>, "Fabio Estevam"
+ <festevam@gmail.com>, "Geert Uytterhoeven" <geert+renesas@glider.be>, "Hans
+ Verkuil" <hverkuil@xs4all.nl>, "Javier Carrasco"
+ <javier.carrasco@wolfvision.net>, "Jianzhong Xu" <xuj@ti.com>, "Julien
+ Massot" <julien.massot@collabora.com>, "Kory Maincent"
+ <kory.maincent@bootlin.com>, "Krzysztof Kozlowski"
+ <krzysztof.kozlowski@linaro.org>, "Laurent Pinchart"
+ <laurent.pinchart@ideasonboard.com>, "Mauro Carvalho Chehab"
+ <mchehab@kernel.org>, "Mikhail Rudenko" <mike.rudenko@gmail.com>, "Nishanth
+ Menon" <nm@ti.com>, "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Rob
+ Herring" <robh@kernel.org>, "Sakari Ailus" <sakari.ailus@linux.intel.com>,
+ "Sascha Hauer" <s.hauer@pengutronix.de>, "Shawn Guo" <shawnguo@kernel.org>,
+ "Stuart Burtner" <sburtner@d3embedded.com>, "Tero Kristo"
+ <kristo@kernel.org>, "Thakkar Devarsh" <devarsht@ti.com>, "Tomi Valkeinen"
+ <tomi.valkeinen@ideasonboard.com>, "Umang Jain"
+ <umang.jain@ideasonboard.com>, "Vignesh Raghavendra" <vigneshr@ti.com>,
+ "Will Deacon" <will@kernel.org>, "Zhi Mao" <zhi.mao@mediatek.com>
+Subject: Re: [PATCH 0/4] media: i2c: Add driver for Sony IMX728
+From: "Sebastian LaVine" <slavine@d3embedded.com>
+To: "Kieran Bingham" <kieran.bingham@ideasonboard.com>,
+ <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <linux-media@vger.kernel.org>
+X-Mailer: aerc 0.20.1
+References: <20250212195656.69528-1-slavine@d3embedded.com>
+ <173944323591.1238111.8582110055649651187@ping.linuxembedded.co.uk>
+In-Reply-To: <173944323591.1238111.8582110055649651187@ping.linuxembedded.co.uk>
+X-ClientProxiedBy: CH0PR03CA0019.namprd03.prod.outlook.com
+ (2603:10b6:610:b0::24) To MN2PR14MB4207.namprd14.prod.outlook.com
+ (2603:10b6:208:1d6::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <1878927.BzM5BlMlMQ@diego>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN2PR14MB4207:EE_|IA1PR14MB5707:EE_
+X-MS-Office365-Filtering-Correlation-Id: 237ef6d4-1131-4860-7e91-08dd5687b7f8
+X-LD-Processed: b7153db5-3376-478b-b601-92ce9bc0d3bc,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?NE4rbERrcW5QQ3ZKVkU4bDBweEJxQzR3SzhseXBTeG12RCtRRm9XUHB0T3pS?=
+ =?utf-8?B?bjAzUmtnSlpVT2pxcEx5M0t3ZmZnd3FRVUg5aEdvTEthallrY2EwOE91ZGE2?=
+ =?utf-8?B?blVJdnBoU016WW1KcHhrYWIxdldNRlFKZEdFRE5kRXVMY0E5YlBHWW5oQ05l?=
+ =?utf-8?B?Q0dlQVl4b0RWUDd4bGJSWU1DblNnNzFzbFhJcEpNYVA5Skh0K0NDVEkzZUdk?=
+ =?utf-8?B?aSs3U0gxY1lnSmJKU2E3aVBCMzJ6eVFyWnNZYzNRZXBwNkdqRStBNS8rRlZ2?=
+ =?utf-8?B?TVJJNll3d3dxei9aRUxTcEFYT2hvWmJxeVhLSUdSWS96VDRFUlgwbm44ZEVC?=
+ =?utf-8?B?ZnMrWkxMM0Q0YlB3SUlDOE4yajd3NmpvMy9SU0NIbTNhQjZaem9DSHJSS1ZQ?=
+ =?utf-8?B?WXd1SXdWblJxYk1CZ2dhYTJTSHluRFJpMXRyMGZ4TVFMTW5uVi80K1dyN3dK?=
+ =?utf-8?B?RFQ0Z0N5YmFBMDBtMFV6djR4U0IwYVZxalBjTW5rMXhocHM0S3ZCNXFUVldh?=
+ =?utf-8?B?MmtITGlqN0M0YlRBYkVRY2tEZG5BVmhMQ1BwZFQ4VmYxUEJidk5DL2h3bUF6?=
+ =?utf-8?B?UlN1WHBqOVFhWU9mclRQeFdvMWRoVnQzOWhNaUYrZDJabk5wNVBaRzludG5D?=
+ =?utf-8?B?NXI1NkZkcGdCVmFvTnRGWE5RNmNlNzBUckFIajhldnNUaFd5eGRSUTZkek5X?=
+ =?utf-8?B?d0NsR05tV3I0UHVPdURlSkplRWdKRms2cS9tUHpWZk85M1RTaURnNXdPYmtU?=
+ =?utf-8?B?NUZZMFFSdnZVWVZKRVVNUHFid0kwSnZYRW9QQ3MyVHY5RFBTc1pGVm40QW9x?=
+ =?utf-8?B?UEhBVXVMd2dCQk1xbWFhWWZYYmhUWXZ6S2oxYTZzcjJyR3dEZ3BML2pNS0Mx?=
+ =?utf-8?B?OUdlYUhJYlp2T3JSL0RBOVRWeEJVZkJlR1RLNjEvSnl6OGg0c3FXM20xc3FK?=
+ =?utf-8?B?VW1MODhISnBZcGtKTy9IbE04M0pSdndQU2FmcWFvbjRrTHllMkVsT1ZFbUdS?=
+ =?utf-8?B?QXhSeXQrS1puaHRhVHhscU1rbFd0MlY3Q0lvVk96L1duRW5KdmtKdG51UXAw?=
+ =?utf-8?B?TWRkaGt5MEptNnpUNklZK3FCNVlXMXgxbitMbHBOZHdoNVFDMG1UWEF6ZjEr?=
+ =?utf-8?B?aXU2aDY0T1o2UXBnTVJtYk51UHpVVkF5QXpOclc2ekthV3cvUGFkUjk2TzBD?=
+ =?utf-8?B?NWRTZmJXRTNjeHhXd2ZDaDd6TW5iNHU4ZWFQdUFSQ3VKcjhsb2pNeGc4R21Q?=
+ =?utf-8?B?WEdZVHE3Sm1Gd3diZGZsbldleUZXMXZpcVhYYTRTQVlHWFNiRWZlc3JlQ1Fl?=
+ =?utf-8?B?YWpCUjZDVFRFeXM2b1NTb2hCNjlWMk5GbGQzR2M1YXJpVDFsK25WVnI5L0Vx?=
+ =?utf-8?B?OW9VZWk1SHBIdzRjYWZpNFFoWVlYVXUrcHFPT2p1RVpoUW9IalBRMmlXWHky?=
+ =?utf-8?B?d2VubFhETWpOOStzT2ZtRVp3dGNqdzBQbUxncnllWTdzMlRKYit3WFpDcVF6?=
+ =?utf-8?B?b0RtSWdOcDRKZFhaakR1cHpSRG9wSWVOSHk1NWdnT2NQY1dTZDBsYnVnVjk5?=
+ =?utf-8?B?RFRuU25CTWdyc1VMVktYOUFFUmNjN0NLVmFDc2srUUNlUzAvUi9jdDJXUlZV?=
+ =?utf-8?B?bW5kZUZaN08rdW1qamxVdFhXWk5vanFNRVB6ZFBlNWpWZ3FRQkttbk5YQk5o?=
+ =?utf-8?B?TXlGSDRmN2RnSVJHVG5sWG9NRCt0ZFRuYTBBMlYvbE5VRXFjeU5OakdaTk1D?=
+ =?utf-8?B?MG9ILzUxQ1g0Q25LaFVjVWI1c2pSUnd6eEJJSitMTyt2aWs0RDZyemQ5cVI0?=
+ =?utf-8?B?UEVrRWkvdnNUbW5pOVlkY0lpM3FEWEFCODFoamV6V1JGb1lUT2pMMHZOZmtS?=
+ =?utf-8?Q?Zq8MIrc4NNrRE?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR14MB4207.namprd14.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TndWU0IxTGVLVzdBcUNXOHJ4R1lmU2trcGVNOUZQamtEbDJQNGMwQ2VlL3lU?=
+ =?utf-8?B?YU5Md0RpRGhuU2JJSVBxYzRQL1dWTmplYmRkaUNwa2JHZXFuclFjcXBKVjhy?=
+ =?utf-8?B?YnA2dk9XU2hPNCtlSlM1OXFWQWkvbE9rR2t2SEZBNldWTFRLUW5uYXZZL280?=
+ =?utf-8?B?VlZWTFBEUlppRzJVT05xR1dQQmxZSFpNL3hFRWNhbmJMRmsxaDdRV3p3WDY1?=
+ =?utf-8?B?TE4wemhVMUNoTngyMHo5M3VuTkE1VU9EYUlDS2pBTGsyOFBqbjJHdUdFblhT?=
+ =?utf-8?B?akYzUG1KY2tEM0o4TEVzN1FlaWhxenJBaVdIQWVYS2JwbEhZV05YN2VBMFhw?=
+ =?utf-8?B?TDNvdTV1UWo4MXVVUWJ4MGxSUjFaWFRJcjZMM2pOVmFTUElWWmJzY280M1Bx?=
+ =?utf-8?B?U0Q3OXNlUjluSGFVRXZud1cvNndwelZ4cUZiaXJjbGF2VVRuSVhEa29WR2pu?=
+ =?utf-8?B?eUQwcDRtbkpNcHhPOUNYY1luT0FkZmZUcUswNFdjS085Y2ZkdXR2c2haUUFG?=
+ =?utf-8?B?NmpieGZnUVBOV3E1Yk85NE1hcFJiWDRFRkNIYmlsOS94ZC9FMk0zRVNsVWpR?=
+ =?utf-8?B?RHpaK1ptd0FPcjM4b2dZQkM2c0Rjb0U0N2hrT085NGVaZUwrcTBYL1FYaDI3?=
+ =?utf-8?B?b0N2RDcyYkUwbVdDUW85eS9kbm9na3F1MjVOQmRtQXZDSHFIb0pKYlJaTUpQ?=
+ =?utf-8?B?bVdyc3ZweG95bE9RU0ZFYVdjVWtPMTNBSmtGQnI5RG5uRHlVM0NsNUhUN2pz?=
+ =?utf-8?B?VzBMS21mamNKd3BtcHpVVzFRdXg1dUlpcyszZHo4cG5SbnBBTzlNa3FEOU9p?=
+ =?utf-8?B?NmdmUldacCtLZ0k4b1BZL1Q3aXJBcVdLbkxUMWhEMm42cGFtWU5ycEpPUlNl?=
+ =?utf-8?B?eGhIWE1pZ2NMUGM4dVgwb0dlZ3M3WXgyUHhvNFVuSkswbkxQVHluK2d0MmRH?=
+ =?utf-8?B?VjNtQWFES0MrMlV3ZFk4d3NIaUx2Yjl4ZTQ4S05KeEQ0SU4rRUdlbkpkekxp?=
+ =?utf-8?B?aTRGME5WME9jRkNOeU5CeXVLZ3NPbWlMQ1Vya1ZiWXM0OGVTK2p0eTlLdHFV?=
+ =?utf-8?B?TkZ3QTNLcGJ2dEJHN096UTJzL09OQThISWErRFFhdldPVXMyY1B3ZnltYzNZ?=
+ =?utf-8?B?UkoreE4xeTFIcnNMcnJHSkVQWnRqZE1mM3d5eWtEZUpQRStZMGFtdkRjclFS?=
+ =?utf-8?B?TzFYcnVORnVEaFpDU3lRMTRXc0dmNzJiUTkwQXUvSlhLSFJReklQb3pFSUwr?=
+ =?utf-8?B?cEtsZnRRSnJneERkcllPVjVPZERheTRWZk55V3lWYWJQNGRVRkhqbHl6NUNV?=
+ =?utf-8?B?bDIvbGRNMnBCTGlNOXNNME9oTVRCMlZHRWdqRXFSNlMxRWM5VGdDMWhXZHBl?=
+ =?utf-8?B?RVdneTlRU1gzWHYwOHFFM3gxL1BncTBXWDl2SmFhdFpXV1E4QmxUOVJIbGhu?=
+ =?utf-8?B?M1RpZjVXaTA2ckxjbDVEaThpWHNRRGlQbW1yUHk1L1R5dTJzZ1FoT2dsUnpk?=
+ =?utf-8?B?VkRzZXBuVTdubXJlY1F4aEl1b0VXRDYwaXdYQmh4OWtNdkhmOGwxRVByRnNn?=
+ =?utf-8?B?bytDd0tsaElLZVNuczIxUlkxWkJzWXBybEtJZHRPM1pReXh4ZGFRSXU2Z2hh?=
+ =?utf-8?B?L1laRGlJODhBT3VpOGlEdG0vRk8rRkhScTlZTGVpa0Z1c0dSNWR6TWNjRVRh?=
+ =?utf-8?B?ZXFicGErbkdKaFpmRFVLYWlwM1U3VS95M2N3aWU4MklaMjRpT3JZSHQ3ejRz?=
+ =?utf-8?B?WGZnd1QyWUJ1WmRXT05yWk5HUWhhazFsSmE5UVJqM3h3c3RGWCszZkpmMnZ0?=
+ =?utf-8?B?R1o0eHR6WGtnajcwZFBGSlQ2OThGTnhFcFdnNjhlMVUyd3RkSTZ3UmJwaFZs?=
+ =?utf-8?B?MW9WWXdrOHRJaVhxcExBQ1N6RTF2dXJiTTk0YTN6N3QzbXdiR0FoNThFNmF0?=
+ =?utf-8?B?WFl2ZlhLdUNmM1RPN3E4SWlzKzBuM2taNlVETVdYRXdzeWthR0tneUFacEpq?=
+ =?utf-8?B?c0ZuUlRlelhXdjFyOGZhbk9ld1RUNXA4VkhoUE4zY3NhSzF3VTQxWW1oUDlv?=
+ =?utf-8?B?aTdxRlBaYk1DMlBqM25nc0czQ1UxN3Q5d1RsVEx6TmVBaVp1dUdadWxBUmJC?=
+ =?utf-8?Q?XQTLzUmpsqrj5EvRlMJt48Fm6?=
+X-OriginatorOrg: d3embedded.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 237ef6d4-1131-4860-7e91-08dd5687b7f8
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR14MB4207.namprd14.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2025 17:05:06.5002
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: b7153db5-3376-478b-b601-92ce9bc0d3bc
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: e/yBQaWmvffZ/lXONwQfjiBaw+gs6exw+hXuOuLHQQA/k7yW3R9HMHUDAdbqeZrbldgGwFm3oexfi7ZWX/OzxA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR14MB5707
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_090346_239980_04A638DF 
-X-CRM114-Status: GOOD (  44.24  )
+X-CRM114-CacheID: sfid-20250226_090512_215191_BD98785A 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,109 +201,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+Hello Kieran,
 
-On Wed, Feb 26, 2025 at 04:53:45PM +0100, Heiko Stübner wrote:
-> Hey Ondřej,
-> 
-> Am Mittwoch, 26. Februar 2025, 15:46:11 MEZ schrieb Ondřej Jirman:
-> > On Tue, Feb 25, 2025 at 07:45:19PM +0100, Heiko Stuebner wrote:
-> > > From: Heiko Stuebner <heiko.stuebner@cherry.de>
-> > > 
-> > > Until now the usbdp in the orientation-handler set the new lane setup in
-> > > its internal state variables and adapted the sbu gpios as needed.
-> > > It never actually updated the phy itself though, but relied on the
-> > > controlling usb-controller to disable and re-enable the phy.
-> > > 
-> > > And while on the vendor-kernel, I could see that on every unplug the dwc3
-> > > did go to its suspend and woke up on the next device plug-in event,
-> > > thus toggling the phy as needed, this does not happen in all cases and we
-> > > should not rely on that behaviour.
-> > 
-> > On RK3399 there's a similar issue with the equivalent type-c PHY driver.
-> > The TRM (part 2) states that:
-> > 
-> > 4.6.1 Some Special Settings before Initialization
-> > 
-> > - Set USB3.0 OTG controller AXI master setting.
-> > - Clear USB2.0 only mode setting (bit 3 of register GRF_USB3PHY0/1_CON0 in Chapter GRF)
-> > - USB3.0 OTG controller should be hold in reset during the initialization of the corresponding
-> >   TypeC PHY until TypeC PHY is ready for USB operation.
-> > - Set PHYIF to 1 to use 16-bit UTMI+ interface (see register GUSB2PHYCFG0)
-> > - Clear ENBLSLPM to 0 to disable sleep and l1 suspend (see register GUSB2PHYCFG0)
-> >   ...
-> > 
-> > The PHY for Superspeed signals is expected to be set up while the USB
-> > controller is held in reset, which makes sense HW wise, and it's what downstream
-> > kernel efectivelly does, via its RPM based hack.
-> > 
-> > RK3588 TRM doesn't have very detailed notes on this, but I expect it will be
-> > similar.
-> > 
-> > So reconfiguring the phy here, while it's actively linked to the USB controller
-> > without the controller driver driving the process so it reliably happens while
-> > it's in reset, or at least so that USB controller reset happens afterwards, may
-> > not be correct way to approach this.
-> 
-> the function here, is using infrastructure from the type-c framework.
-> 
-> The function in question tcpm_mux_set(), which then ends up in the
-> usbdp_phy only gets called from tcpm_reset_port() .
+On Thu Feb 13, 2025 at 5:40 AM EST, Kieran Bingham wrote:
+> Hi Sebastian,
 >
-> Which I think will do the right already - judging by its name ;-) .
+> Quoting Sebastian LaVine (2025-02-12 19:56:52)
+> <snip>
+>>
+>> Total for device /dev/v4l-subdev4: 44, Succeeded: 44, Failed: 0, Warning=
+s: 0
+>>
+>>
+>> This is a v3 of a series that was originally sent last summer[0].
+>>
+>> [0]: https://lore.kernel.org/r/linux-media/20240628-imx728-driver-v2-0-8=
+0efa6774286@d3engineering.com/
+>
+> This version of the driver was authored by "Spencer Hill
+> <shill@d3engineering.com>" who seems to no longer be credited. Is this
+> intentional?
+>
+> Does his original Signed-off-by: tag need to be kept at least ? Or
+> perhaps Co-Authored-by: ?
+>
 
-No. This function has nothing to do with USB controller reset. And while  dwc3
-driver consumes usb_role_switch interface, calling set_role on that interface
-just translates to calling dwc3_set_mode(), which will do nothing if the mode
-did not change from what it was previously. (and it stays the same if you just
-re-plug the same device in same mode but just in different cable orientation)
+Yes, the original patch series was authored by Spencer -- I removed his
+name as he is no longer with our company and therefore his email address
+is no longer a valid way to contact him. I am not sure what the
+convention is for this. I would be happy to re-add his name and former
+email address to the Git trailers if this is desired.
 
-Only time DWC3 reset seems to happen currently is sometimes in dwc3_set_mode()
-depending on driver state, and then in dwc3_init()/exit() which is called only
-at driver probe/remove time and in suspend/resume.
+Thank you,
 
-So if PHY driver reconfigures/"power-cycles" the PHY on its own, DWC3 driver
-will not issue any reset to the controller HW, at least not based on the
-set_role signal from usb_role_switch alone most of the time.
+--
+Sebastian
 
-Also tcpm_orientation interface you use for PHY reset is called from many places
-in TCPM driver, based on many events, mainly from tcpm_set_roles(), so you'll
-be resetting the PHY quite a bit in uncoordinated manner with the dwc3 MAC
-interface it's connected to in HW.
-
-> [and also by the fact that the referenced qcom phy behaves similarly
->  when talking to the type-c framework]
-> 
-> 
-> For the rk3399 I would think converting the old typec-phy-driver over to
-> use the actual kernel type-c framework, might just magically solve the
-> issue you have on it.
-
-It will not. The problem is not getting the information about roles between the
-drivers. extcon works fine for that. Problem is that your proposed solution
-doesn't coordinate the PHY reset with USB controller to ensure proper ordering,
-or even ensuring that any USB controller reset happens, or the controller knows
-about the PHY reset.
-
-Resulting issues may happen only occasionally, dunno. I guess it depends on
-whether SS MAC will happen to be accessing USBDP PHY at the time when you're
-turning off the PHY, and if this messes up the internal state of the MAC pipe
-interface, so after PHY comes back up from reset state, whether that locks up
-the MAC interface logic or not will depend on luck. :)
-
-You can ask Rockchip what they think about uncoordinated PHY reset, while DWC3
-is up and ready. Maybe it's ok on RK3588, but they're not doing it in their
-vendor driver this way, and they forbid it on RK3399, so perhaps it's not? From
-HW point of view it looks sketchy.
-
-Kind regards,
-	o.
-
-> Rockchip actually has converted the rk3399 typec-phy to use the type-c
-> framework in their vendor kernel.
-> 
-> 
-> Heiko
-> 
-> 
+Please be aware that this email includes email addresses outside of the org=
+anization.
 
