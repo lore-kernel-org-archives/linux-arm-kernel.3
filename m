@@ -4,123 +4,193 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FC2CC021BC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 07:28:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04CD9C021BC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 07:37:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=qbsRW+rPGG7sOyzmINLAUZ6n+49WHNhTA0JmCyA9gd0=; b=XajKBhRQD46uV2xbrHPv7Nv97r
-	ZP/DzoKpHyRET3yVdeEOjhNDXzsnteu4IZWqWdPV/RtCjhC4zViK+WPa+I090TM+TIkgjAHH8CNTW
-	MOxQdmfEC/2BHM96cPGKQh7Muzksfw8hF1oeRpSWBhbx4f53Q5ZEfxVU50ck6OxKF5kTzyh+GUxHu
-	EuRj2TbuGv9VPrax21pTjopEeIPNz3mo3GwzphVesSpMevNptMmns2vx2cKexZDDkX46Cp9zP6xGP
-	9FE/Yi2pHkuHzF815OV9iEkiW44dogLv6rmozFNCXjiZPE1hnMdnz8gqKWOpuavXNcOd2jYCdaIiK
-	gcq5YDCg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	In-Reply-To:Content-Type:References:Message-ID:Subject:CC:To:From:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WuVq9O38il4WGaNgiZFYv8Essq33abnJgGdthZT5DPM=; b=y3g6/Csv+KcPSZM+Wlh75ouqPb
+	t2Qf4u2BOUEcIeeatSA/FXhLxboe2PNwuMTc3lteeMEuVw0TYXUg9T1GCNfLLYakhGCX9Wyv8GYXq
+	f7e4g9qoVZRmgY/8/7myW6mMTXnlzvuW8w3ufnsKf2ONXTFHl9AVLcRM6cWsNyQ9QXWQkGhXEbnoT
+	jllt4m1DD7AwRmhEM0nGMC9Efvo75OWOcl34T4P4b+urqap/B0gadVcCKdH1tL/DkwgiX2ybMds8v
+	CZ2i2uZMm0Ho6ob8qeUSTfVcZsrcEmEOYkYg72Dl12xPBvS5A//Ta1eUiehMINDarhBtAopsqMlwE
+	jbj6+E8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnBqa-00000002gtU-18nO;
-	Wed, 26 Feb 2025 07:28:48 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1tnBzG-00000002i6R-1054;
+	Wed, 26 Feb 2025 07:37:46 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnBnb-00000002gSd-2kvp
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 07:25:45 +0000
-Received: from epcas2p3.samsung.com (unknown [182.195.41.55])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250226072537epoutp02c39aaddffae95844026c92afe744e5a0~nsU_8aHTn1389613896epoutp02k
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 07:25:37 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250226072537epoutp02c39aaddffae95844026c92afe744e5a0~nsU_8aHTn1389613896epoutp02k
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1740554737;
-	bh=qbsRW+rPGG7sOyzmINLAUZ6n+49WHNhTA0JmCyA9gd0=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=U/3BJIwQ+2m+T2HIVBrcrunOt9lphQVsGs2nOz766KfjqZCFxfWG918HbuwIadqd1
-	 1GhgbFLer4MCuHvV3/P7p3OP1VE/yMPLDdhfDyV8PM+6oI184AW49LCMEHuzn12z1C
-	 C1ABwpz11qSlcSxmVyWP9v8cA19lSbX7vHUIuEVg=
-Received: from epsnrtp1.localdomain (unknown [182.195.42.162]) by
-	epcas2p2.samsung.com (KnoxPortal) with ESMTP id
-	20250226072536epcas2p2669e3682cad6e97d545cc6f2542a446d~nsU_jZinE1172911729epcas2p2y;
-	Wed, 26 Feb 2025 07:25:36 +0000 (GMT)
-Received: from epsmges2p3.samsung.com (unknown [182.195.36.88]) by
-	epsnrtp1.localdomain (Postfix) with ESMTP id 4Z2mGR6hkbz4x9Pp; Wed, 26 Feb
-	2025 07:25:35 +0000 (GMT)
-Received: from epcas2p3.samsung.com ( [182.195.41.55]) by
-	epsmges2p3.samsung.com (Symantec Messaging Gateway) with SMTP id
-	20.75.22105.FE1CEB76; Wed, 26 Feb 2025 16:25:35 +0900 (KST)
-Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
-	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250226072535epcas2p46d41cb5cdd7ece18c898657c3c66a219~nsU9VGKON1585315853epcas2p4N;
-	Wed, 26 Feb 2025 07:25:35 +0000 (GMT)
-Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
-	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250226072535epsmtrp2cae8b068735d2728e3d8fac672b2d743~nsU9TwQsh2895528955epsmtrp2L;
-	Wed, 26 Feb 2025 07:25:35 +0000 (GMT)
-X-AuditID: b6c32a47-f91c170000005659-ac-67bec1ef5bfe
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	A4.89.18949.FE1CEB76; Wed, 26 Feb 2025 16:25:35 +0900 (KST)
-Received: from localhost.localdomain (unknown [10.229.9.126]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250226072535epsmtip29c454e0beda8b5dc9cf893abaa8f1a2c~nsU9Im_nx2560225602epsmtip26;
-	Wed, 26 Feb 2025 07:25:35 +0000 (GMT)
-From: Sangwook Shin <sw617.shin@samsung.com>
-To: krzk@kernel.org, alim.akhtar@samsung.com, wim@linux-watchdog.org,
-	linux@roeck-us.net
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
-	linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org, Kyunghwan Seo
-	<khwan.seo@samsung.com>, Sangwook Shin <sw617.shin@samsung.com>
-Subject: [PATCH V1 RESEND] watchdog: s3c2410_wdt: Fix PMU register bits for
- ExynosAutoV920 SoC
-Date: Wed, 26 Feb 2025 16:21:51 +0900
-Message-Id: <20250226072151.2123990-1-sw617.shin@samsung.com>
-X-Mailer: git-send-email 2.25.1
+	id 1tnBxh-00000002hlQ-07He;
+	Wed, 26 Feb 2025 07:36:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740555369; x=1772091369;
+  h=date:from:to:cc:subject:message-id:reply-to:references:
+   in-reply-to:mime-version;
+  bh=eNcjQeXUi6BFyHyhtdiO/tZMFeg6ATDS6DOg9ttr3HY=;
+  b=HiqUE49+9OlmwQbJd7DuBzt2WKyYHtV+G7h2/SkV4mCBoEu6UyWDWoHK
+   M2c3vDn7+/eSNcEj8a1MhuJXcFu/PryYRgozQfBAhSnwWflhDD9oJqLzV
+   jJYnu0imL0NavdUc12VT5UvTFG+C0wqZaxLD8DfpZgoXrD5SaRreDRnZ9
+   LUnkY80ZgbRdI6XYaOpeP3/wUfOhDasK75dCpNlydy6PYCi+SUrnKFKUM
+   R3Lu8Py8oc1ePuDUcxxSkuFbq0MzbHgz9BIOrPH3vMwmKnOVzyi2nV0hq
+   TjV/pfC004TqRMCIlIWlG5dnLSOqmr1+gyAV2aDtELNk1hHQDcTWJ7pYJ
+   w==;
+X-CSE-ConnectionGUID: 0w2wGF/3TIuYi3dXB1dN0A==
+X-CSE-MsgGUID: ofTuswCXQFGY26I6P1EPng==
+X-IronPort-AV: E=McAfee;i="6700,10204,11356"; a="51598551"
+X-IronPort-AV: E=Sophos;i="6.13,316,1732608000"; 
+   d="scan'208";a="51598551"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 23:36:06 -0800
+X-CSE-ConnectionGUID: +7jsecTASuO2ejdn8IkO+w==
+X-CSE-MsgGUID: q7eoz8sRSi2zrFLC7wtRtw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,316,1732608000"; 
+   d="scan'208";a="121559256"
+Received: from orsmsx603.amr.corp.intel.com ([10.22.229.16])
+  by orviesa003.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 25 Feb 2025 23:36:06 -0800
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Tue, 25 Feb 2025 23:36:05 -0800
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14 via Frontend Transport; Tue, 25 Feb 2025 23:36:05 -0800
+Received: from NAM10-BN7-obe.outbound.protection.outlook.com (104.47.70.47) by
+ edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Tue, 25 Feb 2025 23:36:05 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dQ9sMERtcU2aLKRyb5GQWgfOrQT7yXHcrocfCRKf0oZJZg7wK4/FWyKBo/wThIBvq4VSAC0yHaWHISxF4NCGl1LJGZ45HyKLSFmUgBGDux8CWG2JwlpDpevaJ9CWDkwSxJwlqAV5S7Z+P/p1o7GP4YBhxDG3wKdLjVZTW48WtR4otjR0Hl/J979yAZtXjzzDNuXJtgSiy8NU+LCja9ENsMZpbKAmpb8qtJV53ZGhkxqVnpxC3J0G9UkfBJMHl033JdAhrpy2Hmtn6Np6kwciITn5NyagBDV6k7mkagqqCT5aeDOtdxY9W/D2qwf8FcFqBEjCROhNfCyMJkDT5975+g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WuVq9O38il4WGaNgiZFYv8Essq33abnJgGdthZT5DPM=;
+ b=abWPCYeI/cNB7cHMkIJHt//FCqvEFMlr4NwCkWBYzZ02tr27L3TvZvEAjfXRNDxkm/gEF7aBJ5rmDyhkrGGT+znS1jAWNHZDCm/A5oQJAn7qsslVw8RC4CFzqg1adO7UJPzTrQqt5xh1dad1nPi+erb3oqGLcOriLZDjcr9/4ylaHnlKjxazLXO7fiBU8OrIMeGdVIabUnI5wQkw1HDWxyUJnoqRuvSN7rUt2GPI5E7EG7x6ujt+a3kLtfrWIQCiL5Tdw9ijNI0q8tLD3WV/X1QojiP8Cs8KcWfT+9YNWuaPySPNTeFQfVpZk7ep+44uN2vny841sxcuhtNUtYwKUw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DS7PR11MB5966.namprd11.prod.outlook.com (2603:10b6:8:71::6) by
+ SA1PR11MB8543.namprd11.prod.outlook.com (2603:10b6:806:3ac::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.19; Wed, 26 Feb
+ 2025 07:36:03 +0000
+Received: from DS7PR11MB5966.namprd11.prod.outlook.com
+ ([fe80::e971:d8f4:66c4:12ca]) by DS7PR11MB5966.namprd11.prod.outlook.com
+ ([fe80::e971:d8f4:66c4:12ca%4]) with mapi id 15.20.8466.016; Wed, 26 Feb 2025
+ 07:36:03 +0000
+Date: Wed, 26 Feb 2025 15:34:40 +0800
+From: Yan Zhao <yan.y.zhao@intel.com>
+To: Sean Christopherson <seanjc@google.com>
+CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan
+	<maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda
+	<imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<kvm@vger.kernel.org>, <loongarch@lists.linux.dev>,
+	<linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Aaron Lewis <aaronlewis@google.com>, "Jim
+ Mattson" <jmattson@google.com>, Rick P Edgecombe
+	<rick.p.edgecombe@intel.com>, Kai Huang <kai.huang@intel.com>, Isaku Yamahata
+	<isaku.yamahata@intel.com>
+Subject: Re: [PATCH 1/7] KVM: x86: Free vCPUs before freeing VM state
+Message-ID: <Z77EEGnHnyWsEt+h@yzhao56-desk.sh.intel.com>
+References: <20250224235542.2562848-1-seanjc@google.com>
+ <20250224235542.2562848-2-seanjc@google.com>
+ <Z71072F7FMz5aq/Q@yzhao56-desk.sh.intel.com>
+ <Z73cF_pWIFMreOf5@google.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <Z73cF_pWIFMreOf5@google.com>
+X-ClientProxiedBy: SI1PR02CA0056.apcprd02.prod.outlook.com
+ (2603:1096:4:1f5::7) To DS7PR11MB5966.namprd11.prod.outlook.com
+ (2603:10b6:8:71::6)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFupnk+LIzCtJLcpLzFFi42LZdljTXPf9wX3pBu8/mFo8mLeNzWJ++yVG
-	i/PnN7BbbHp8jdXi8q45bBYzzu9jsrixbh+7xZOFZ5gsZiw+yWbx+OU/Zgcuj02rOtk8Vq5Z
-	w+qxeUm9x87vDewefVtWMXp83iQXwBaVbZORmpiSWqSQmpecn5KZl26r5B0c7xxvamZgqGto
-	aWGupJCXmJtqq+TiE6DrlpkDdJmSQlliTilQKCCxuFhJ386mKL+0JFUhI7+4xFYptSAlp8C8
-	QK84Mbe4NC9dLy+1xMrQwMDIFKgwITvj/pYutoI9ghUPGwwaGO/zdTFycEgImEg8W+HTxcjF
-	ISSwg1Hi+MbnjBDOJ0aJhq6NbBDON0aJr9NfMXcxcoJ13G78wQKR2Mso8eUyTBVQy8bzsxhB
-	qtgEdCSm/7vNAmKLCERJHNyxjB2kiFngDqPEvv8vwEYJCyRILJ0+gQnkEBYBVYnzF0VAwrwC
-	thJ7lk9lgdgmLzHz0nd2iLigxMmZT8DizEDx5q2zmUFmSgi8ZZeY1/SGEaLBRWLO4WdQtrDE
-	q+Nb2CFsKYnP7/ayQTydL3HqiTBEbwOjxLvm92wQNfYSi878ZAepYRbQlFi/Sx+iXFniyC2o
-	tXwSHYf/skOEeSU62oQgGlUkOn5uZoVZdPTMA6gSD4ltu3RAwkICsRIL+6YyT2CUn4Xkl1lI
-	fpmFsHYBI/MqRrHUguLc9NRiowJjeIwm5+duYgSnTC33HYwz3n7QO8TIxMF4iFGCg1lJhJcz
-	c0+6EG9KYmVValF+fFFpTmrxIUZTYOBOZJYSTc4HJu28knhDE0sDEzMzQ3MjUwNzJXHe6h0t
-	6UIC6YklqdmpqQWpRTB9TBycUg1MDcc/HDj/0t2nb8Fet4txHX8EX3IeK26udvnv17aN9eDH
-	YrfFE10lbebt8GOv9548LZ45+SCP7/Pzf49r341ZcafQWWP39Rmpb+t2u0yTX82wUUL7pMmV
-	jLm8Wy7vPhTqK7VwbZhrcMGifV4zPtvEPryYvkPKiz9pX0lZhRfjgXsVF9YkcE63VFls+F3c
-	+OhaK7ErInP1nEVMbNZbOLodNvp/VWNZplrM4aN7GeOZYp+6hHJs4N201YHN8VDcnhMSpw/q
-	75r4pPvTpXefguUz3fYsPfVmd41O71/27EOsherHDz3RW8jgnidXk2IxwfXlwgmLNxqvFF6/
-	afqcOZOXcX37d6ZpRu6tHKfq/VL85kosxRmJhlrMRcWJAKVLhBkiBAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrPLMWRmVeSWpSXmKPExsWy7bCSvO77g/vSDS728Fg8mLeNzWJ++yVG
-	i/PnN7BbbHp8jdXi8q45bBYzzu9jsrixbh+7xZOFZ5gsZiw+yWbx+OU/Zgcuj02rOtk8Vq5Z
-	w+qxeUm9x87vDewefVtWMXp83iQXwBbFZZOSmpNZllqkb5fAlXF/SxdbwR7BiocNBg2M9/m6
-	GDk5JARMJG43/mABsYUEdjNKfJpv3MXIARSXknj3zBKiRFjifssR1i5GLqCSD4wSR9f9YARJ
-	sAnoSEz/dxusV0QgTuJY+2ZmkCJmgUeMEmdvTGIGSQgDJdoerGYEGcoioCpx/qIISJhXwFZi
-	z/KpLBAL5CVmXvrODhEXlDg58wlYnBko3rx1NvMERr5ZSFKzkKQWMDKtYpRMLSjOTc8tNiww
-	ykst1ytOzC0uzUvXS87P3cQIDmMtrR2Me1Z90DvEyMTBeIhRgoNZSYSXM3NPuhBvSmJlVWpR
-	fnxRaU5q8SFGaQ4WJXHeb697U4QE0hNLUrNTUwtSi2CyTBycUg1MnpuOdUjP/D2FhVNyS+dz
-	2Wa39/8tdn8sv/180c6vS6ZMnSu9VPNb8srEMwvKn4dqaffVCjb9qbgu9snmTcHuk8wrDq34
-	lbR+/XTljfJrfKJVJj98tKdxHmNsYsTLpWacM3jcPn/nX/llntxDl0MbvXKPpk5o22esk/cj
-	u/jXlXCnZrf4k5732vgtlk5Q3ur4fPWrTNVo6U8ePx1/xShsClmTGPJIL8dAo4Dj22/btt3a
-	dgsk+Jm5zNiWSpyzcarJcOf0vRngpOfaP7G0vyA1ZkXekidXJ8zzjsi/v81A4TuD9rXy7eoy
-	l1cd9b776DBHunxdzycV+/Nlmv8P8hUcvWZYWZDv96Pq3IWt/yYlKbEUZyQaajEXFScCABcQ
-	jCrSAgAA
-X-CMS-MailID: 20250226072535epcas2p46d41cb5cdd7ece18c898657c3c66a219
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250226072535epcas2p46d41cb5cdd7ece18c898657c3c66a219
-References: <CGME20250226072535epcas2p46d41cb5cdd7ece18c898657c3c66a219@epcas2p4.samsung.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR11MB5966:EE_|SA1PR11MB8543:EE_
+X-MS-Office365-Filtering-Correlation-Id: 07668b60-b402-4820-8b51-08dd5638391b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vDdx3pa8LkNE6mVcdlBG3bAlbB/k+MIqflV1vuZpMaWmvt59d7NgnUvNvWzi?=
+ =?us-ascii?Q?MML2b5RLT/PNPjQdDJaVwqV/nG5C4wSnyJhOTC8r4jZrxYzVkTMRztm+ylDN?=
+ =?us-ascii?Q?YtUhPA7DCZ4ZLHTSAmI3eUj9LPHhXpXnuscgcNdoddURAtsm1RyOPcacVTAQ?=
+ =?us-ascii?Q?dDXpuKv4+8ARaT4meNbMtnLB/0sR1Wd8/X3gzt5128b2zaKPSJre9m2JlNEb?=
+ =?us-ascii?Q?ddYXn7DQCa8p0nF1I/k1F8ql3JbPtqf4uJvyfh2qA3tQpeVbKFKblF2gABqZ?=
+ =?us-ascii?Q?pX6J0M8Pg0rLuJmOlTNEs/xAun4TPeqFAyhzIV4Wv5sXqU3n6a5REp3Gm+X5?=
+ =?us-ascii?Q?GMskO6VbQZyfyXzLbAKprq9Sf8FN5kQL3zZ/Oulwri/xr8OO8AGrlqjSHKcm?=
+ =?us-ascii?Q?I4olzJGH/1lU/Iq2X07niaiUDlJlYJmlhnmgtokuJ3Q1j2FtCm5wnGAirTG7?=
+ =?us-ascii?Q?2xP11nPLULczBjbL3MO6MdzkGhHhJMUeW3mm77/oKk0xuDkXr394uocULBSu?=
+ =?us-ascii?Q?tnyZjd+iBt2+tddTQ399wNWBQ3V8lSAEuGsCrr9I+ngkfNGo8bN8BptlpA9x?=
+ =?us-ascii?Q?WskmtRx6w0NEXhB247iW/h7OIlbiVlHV6cHKAJXthb1Wsj6X3+G1Y0S4Xx5t?=
+ =?us-ascii?Q?FpXnsUwVL21Wxhf5alQADq8aiOEWp6L3T0iIrdQjk000xVWqJ0wkiTjZIR+W?=
+ =?us-ascii?Q?2i5103cuNwb5Ye94jgOplEdRq2Jjc8xfO18MOlxIqQcUXgDTNTbfB4Bn4hEb?=
+ =?us-ascii?Q?JVBBWlCmp/zInXCNmhbUkWK2qqMZzoPlGRDd5lfK6gJFIpXD7QbqRgiUtbwS?=
+ =?us-ascii?Q?+GokfiE536c2n5lZtpDXv/sLNV6+4hCBiIWELwOYVrdh9NGY0PpstGblBcza?=
+ =?us-ascii?Q?I45ah2aIu6tFpt736QM/MaemR9HhUaAGjBWhZbDa3Rnt67bQb8e426kK+JwE?=
+ =?us-ascii?Q?GuCWXMAORB33mYyvaCABwOGOxNMqxbSzb3TB5OY2M21MG/6Uzt+cHhzkAyHi?=
+ =?us-ascii?Q?2xfx0Zd815HmVh9KMNBM7WzrJ8OJily3y+nUXjdRECw0/lPds1U36xF7Wjw/?=
+ =?us-ascii?Q?6TpHJQI7dyqGFO/hGVjvmTOMFoVKmOuFrHQyNG5Mvr2EMPwb0Gm1Sbrqm9kA?=
+ =?us-ascii?Q?mTv6zydYN1EeKizadAXicTwpuu06Lmyj2Vi/T0D/ZsAr6CIOa4Mp+o2cIsin?=
+ =?us-ascii?Q?DHYBYt1vmzAvKhtQtR/xClsUoDLkF+djHIuR26iVmf9xOgE63kl4c8SVydlr?=
+ =?us-ascii?Q?ghbmcCdFi9XJk5fd3g15D9RMoICqHb71oeE9MqKpENNt+5sL0lKHMVKROtE7?=
+ =?us-ascii?Q?oAodBVTwjKCF1EkLknTlK4kIIH8BUgcTjBmoPXTxJum1HWWDv90i5E7DCuCB?=
+ =?us-ascii?Q?7P0DMxKZIhnHTGAHoNTYARLCv/9m?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR11MB5966.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Q3bcHFqkJk7L1qKA6MdbntO/o8DXKkT7PrSZ8MAZ4T1iwj6cXtPI6X9Qn9PZ?=
+ =?us-ascii?Q?+RZnNx9GcMngNhn2ww+hEdBWKxp7TDIEGo8plfDnIyXdepzHoNjJLD/go2YT?=
+ =?us-ascii?Q?GBux0nHGqH7txRKi1yBlFqM5IAdHt+hGRc3A0/bR9Q5pycOaplC54cTC+j4U?=
+ =?us-ascii?Q?yxdsuxK+ELNBjKMudVBdDHtKjDIvHS8RCIVVxe7ThD3pPoLdhTDXpqKClH9g?=
+ =?us-ascii?Q?Nsk3ATSvH70Ss/zG1q4Z7ff4AZ3eE0HIvDVxHpv0mOnH/7JQknqBjI2VxWIt?=
+ =?us-ascii?Q?BURcm2Jrj+jZo/EuaW5lr4vgPnj5xLudgkYU2+ohFrOX5XtDCqjJDKcjsM3Q?=
+ =?us-ascii?Q?FIk6C/kk1TWv0/MRBd40r9vpm27o43pmsq17wOeyGP95OPAFIFqvUtkClAsV?=
+ =?us-ascii?Q?TNtGXh0Hje+L5rbdlKq3FV1ssQuL2A7ZYcLlOrhsTbYD9nvySssyCeMkFZuF?=
+ =?us-ascii?Q?VApdUJQ8cbz0S5EeA2EVtLh+izHVTZrUAxEPEU9cqeUrOuguXQ9OF0ztQ+6u?=
+ =?us-ascii?Q?k0lo8xJk9/BNzYe1atqgHvDYL9gcz9mc9072/GYhSv4MycY2Lb3R60rKNoTr?=
+ =?us-ascii?Q?LRMQcjrxuC3qdpmYCKynSEvpmWOXUcVd4HVYFhDVHVMAsjk9VBzimn67wbec?=
+ =?us-ascii?Q?VmYezt4NH6kgHfdZcYpdQYv+j6KvpkxPa7E1eiEWnbGHr9ZL22mZBdVLTjmI?=
+ =?us-ascii?Q?JQuxWSG98NB2dbh7NUXOfEbiktCfKLwVS2bXuHeXDrJQWUKpZAeVVd3dXW/o?=
+ =?us-ascii?Q?CygxbwdgpUx76eWJFCzhAOJRyVy6EUzUdRYgT9u0IsEChKmu3xvK5OzZ+MkU?=
+ =?us-ascii?Q?I1ueIbwcqPlNODT/NME/IJJ4e3OKcqv8VXu7hdDnahIlCRQul366VMVPQ5IM?=
+ =?us-ascii?Q?U14Ht/lrvmY+lTdZqdogdgGvb8q+qWGwKnMKvWNyjrWGKmCchgn2PerIVBrW?=
+ =?us-ascii?Q?xjJtmsUREK1lRquK1mcTgE81X5wuuGkiWlPXNWTtizUc67150QHKBAOxySfc?=
+ =?us-ascii?Q?E4hiMW4PV3DCWr35TYvzLUgOjT2cdAqemKThn9R2PkvaT5TMSIt4eGcb4YGv?=
+ =?us-ascii?Q?JlOAKc/9Sj2eLvqITpYwUcvqacDXiHrS2iQVTsCdhNK/cXanxM6OkrD4mdW2?=
+ =?us-ascii?Q?OZsdeFRMYvAS8Q9S67dekJQTxPtjMU/atMNAd1t4ehpGZA5gc8aw2clCNwd8?=
+ =?us-ascii?Q?RWlEEnrI1sxAHYpR0ovCth9wUZyi9yhaV+ed2Rp0likbqNkYp/Cu/IAzeYPD?=
+ =?us-ascii?Q?X4vVyhn2qUWT9Re4dycZ5uJi+IWiE1JwMK1V03fDND3p8UaEUNAuiP3jAf8W?=
+ =?us-ascii?Q?lhEEUMHGHXHP7yTjA+PuPhd3bePl6GTEibLCnsIxLsCDS06l7KpN0nOJRU4u?=
+ =?us-ascii?Q?iybgsWvX6cWyHyC3aYUKMtNxhEId3e+bLCn3cjBCflfwfL9NlU+YW5wgPfuk?=
+ =?us-ascii?Q?49JHwLLzbHVxDtPkxbdemb4KyRXjdsdAhDxOqFb8CLJ1L50Nsos2pgi2VWEg?=
+ =?us-ascii?Q?unGNqQs7vlAyKD/l4WspYyFOq2k8i8GYdsWGcVUTPIqDn2WNFj6RJsgQXtLl?=
+ =?us-ascii?Q?vqcj/Wh+tsIIHKqWwKM55LbTDprWun4mfhopQp8I?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 07668b60-b402-4820-8b51-08dd5638391b
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR11MB5966.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2025 07:36:03.4553
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: v45b1ml3A7cRCXECiKHjlxEFU6h01hWc1WUV/pG7QGwDRfnhCg/ra8nRrzxuvPif3Nst6uKcZMcrRku2xRQPPQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR11MB8543
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_232544_327422_640ECF9F 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20250225_233609_204565_9B3EA652 
+X-CRM114-Status: GOOD (  23.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,67 +202,109 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Yan Zhao <yan.y.zhao@intel.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Kyunghwan Seo <khwan.seo@samsung.com>
+On Tue, Feb 25, 2025 at 07:04:55AM -0800, Sean Christopherson wrote:
+> On Tue, Feb 25, 2025, Yan Zhao wrote:
+> > > diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+> > > index 58b82d6fd77c..045c61cc7e54 100644
+> > > --- a/arch/x86/kvm/x86.c
+> > > +++ b/arch/x86/kvm/x86.c
+> > > @@ -12890,11 +12890,11 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
+> > >  		mutex_unlock(&kvm->slots_lock);
+> > >  	}
+> > >  	kvm_unload_vcpu_mmus(kvm);
+> > > +	kvm_destroy_vcpus(kvm);
+> > >  	kvm_x86_call(vm_destroy)(kvm);
+> > >  	kvm_free_msr_filter(srcu_dereference_check(kvm->arch.msr_filter, &kvm->srcu, 1));
+> > >  	kvm_pic_destroy(kvm);
+> > >  	kvm_ioapic_destroy(kvm);
+> > > -	kvm_destroy_vcpus(kvm);
+> > >  	kvfree(rcu_dereference_check(kvm->arch.apic_map, 1));
+> > >  	kfree(srcu_dereference_check(kvm->arch.pmu_event_filter, &kvm->srcu, 1));
+> > >  	kvm_mmu_uninit_vm(kvm);
+> > After this change, now the sequence is that
+> > 
+> > 1. kvm_arch_pre_destroy_vm()
+> > 2. kvm_arch_destroy_vm()
+> >    2.1 kvm_destroy_vcpus()
+> >    2.2 .vm_destroy hook
+> >    2.3 kvm_mmu_uninit_vm() --> mirror root ref is 1 upon here. Zap the mirror
+> >                                root and reclaim SETP page table pages.
+> >    2.4 .vm_free hook
+> > 
+> > Since TDX needs to reclaim the TDR page after reclaiming all other pages, we
+> > currently added a vm_free hook at 2.4, after 2.3.
+> > 
+> > Could we move kvm_mmu_uninit_vm() before the .vm_destroy hook and after
+> > kvm_destroy_vcpus()?
+> > 
+> > Or move the .vm_destroy hook after kvm_mmu_uninit_vm(), e.g. after
+> > kvm_page_track_cleanup()?
+> 
+> I would go for the first option.  I'll tack on a patch since I need to test all
+> of these flows anyways, and I would much prefer to change course sooner rather
+> than later if it doesn't work for whatever reason.
+> 
+> Is this comment accurate?
+Yes.
 
-Fix the PMU register bits for the ExynosAutoV920 SoC.
-This SoC has different bit information compared to its previous
-version, ExynosAutoV9, and we have made the necessary adjustments.
+And since tdx_mmu_release_hkid() is called before kvm_unload_vcpu_mmus(),
+patch 4 in this series is required by TDX. Otherwise, the list_add in
+tdx_vcpu_load will cause corruption during tearing down, since
+tdx_mmu_release_hkid() has already invoked tdx_disassociate_vp() on all
+vcpus.
 
-rst_stat_bit:
-    - ExynosAutoV920 cl0 : 0
-    - ExynosAutoV920 cl1 : 1
+kvm_unload_vcpu_mmu
+  vcpu_load
+    tdx_vcpu_load
+      list_add(&tdx->cpu_list, &per_cpu(associated_tdvcpus, cpu))
 
-cnt_en_bit:
-    - ExynosAutoV920 cl0 : 8
-    - ExynosAutoV920 cl1 : 8
 
-Signed-off-by: Kyunghwan Seo <khwan.seo@samsung.com>
-Signed-off-by: Sangwook Shin <sw617.shin@samsung.com>
----
- drivers/watchdog/s3c2410_wdt.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+So, maybe a change as below is also required by TDX in case vcpu_load() is
+accidentally invoked after .vm_pre_destroy.
 
-diff --git a/drivers/watchdog/s3c2410_wdt.c b/drivers/watchdog/s3c2410_wdt.c
-index 30450e99e5e9..bdd81d8074b2 100644
---- a/drivers/watchdog/s3c2410_wdt.c
-+++ b/drivers/watchdog/s3c2410_wdt.c
-@@ -72,6 +72,8 @@
- #define EXYNOS850_CLUSTER1_WDTRESET_BIT		23
- #define EXYNOSAUTOV9_CLUSTER0_WDTRESET_BIT	25
- #define EXYNOSAUTOV9_CLUSTER1_WDTRESET_BIT	24
-+#define EXYNOSAUTOV920_CLUSTER0_WDTRESET_BIT	0
-+#define EXYNOSAUTOV920_CLUSTER1_WDTRESET_BIT	1
- 
- #define GS_CLUSTER0_NONCPU_OUT			0x1220
- #define GS_CLUSTER1_NONCPU_OUT			0x1420
-@@ -312,9 +314,9 @@ static const struct s3c2410_wdt_variant drv_data_exynosautov920_cl0 = {
- 	.mask_bit = 2,
- 	.mask_reset_inv = true,
- 	.rst_stat_reg = EXYNOS5_RST_STAT_REG_OFFSET,
--	.rst_stat_bit = EXYNOSAUTOV9_CLUSTER0_WDTRESET_BIT,
-+	.rst_stat_bit = EXYNOSAUTOV920_CLUSTER0_WDTRESET_BIT,
- 	.cnt_en_reg = EXYNOSAUTOV920_CLUSTER0_NONCPU_OUT,
--	.cnt_en_bit = 7,
-+	.cnt_en_bit = 8,
- 	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_MASK_RESET |
- 		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN |
- 		  QUIRK_HAS_DBGACK_BIT,
-@@ -325,9 +327,9 @@ static const struct s3c2410_wdt_variant drv_data_exynosautov920_cl1 = {
- 	.mask_bit = 2,
- 	.mask_reset_inv = true,
- 	.rst_stat_reg = EXYNOS5_RST_STAT_REG_OFFSET,
--	.rst_stat_bit = EXYNOSAUTOV9_CLUSTER1_WDTRESET_BIT,
-+	.rst_stat_bit = EXYNOSAUTOV920_CLUSTER1_WDTRESET_BIT,
- 	.cnt_en_reg = EXYNOSAUTOV920_CLUSTER1_NONCPU_OUT,
--	.cnt_en_bit = 7,
-+	.cnt_en_bit = 8,
- 	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_MASK_RESET |
- 		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN |
- 		  QUIRK_HAS_DBGACK_BIT,
--- 
-2.40.1
+diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
+index b67df0af64f3..183192706ced 100644
+--- a/arch/x86/kvm/vmx/tdx.c
++++ b/arch/x86/kvm/vmx/tdx.c
+@@ -703,7 +704,7 @@ void tdx_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+        struct vcpu_tdx *tdx = to_tdx(vcpu);
 
+        vmx_vcpu_pi_load(vcpu, cpu);
+-       if (vcpu->cpu == cpu)
++       if (vcpu->cpu == cpu || !is_hkid_assigned(to_kvm_tdx(vcpu->kvm)))
+                return;
+
+        tdx_flush_vp_on_cpu(vcpu);
+
+
+
+> diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+> index 1e5f6f820c0b..f5685f153e08 100644
+> --- a/arch/x86/kvm/x86.c
+> +++ b/arch/x86/kvm/x86.c
+> @@ -12874,13 +12874,19 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
+>                 mutex_unlock(&kvm->slots_lock);
+>         }
+>         kvm_destroy_vcpus(kvm);
+> +
+> +       /*
+> +        * Do final MMU teardown prior to calling into vendor code.  All pages
+> +        * that were donated to the TDX module, e.g. for S-EPT tables, need to
+> +        * be reclaimed before the VM metadata page can be freed.
+> +        */
+> +       kvm_mmu_uninit_vm(kvm);
+>         kvm_x86_call(vm_destroy)(kvm);
+>         kvm_free_msr_filter(srcu_dereference_check(kvm->arch.msr_filter, &kvm->srcu, 1));
+>         kvm_pic_destroy(kvm);
+>         kvm_ioapic_destroy(kvm);
+>         kvfree(rcu_dereference_check(kvm->arch.apic_map, 1));
+>         kfree(srcu_dereference_check(kvm->arch.pmu_event_filter, &kvm->srcu, 1));
+> -       kvm_mmu_uninit_vm(kvm);
+>         kvm_page_track_cleanup(kvm);
+>         kvm_xen_destroy_vm(kvm);
+>         kvm_hv_destroy_vm(kvm);
 
