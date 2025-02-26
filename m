@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18509C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:27:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B5B3C021BF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:27:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LszQRn/ay/FhXAzTM7WwW7Q1riyQTVUsLgvVZqo3HzU=; b=B2Lf61EnbOb9I3Pj5L3NIwZjyb
-	xJn0Grq5amE+UpK4FoRML/+jI4HafkISLOfjGXrcvebt4PAjcYENvH63/JizJwyJM3Tu+aNdXc6B6
-	SkphPgG5rmGGC+pBGxB4dJNzFE4R5TvxTelrl9lPGBuiKUr708U+UAI86cCSPO09l6bcQWSvZdcTt
-	IA+jmxo5hI+Y/DuzNRpEkbG8gP36naj0A+uORh/DxzAUuhNfAo63IOIlBgNsM4tB2t0PkJBYKiICk
-	KmrUbEYoJUhlvOFrAzKzBepqV99p3q28ooP7h/LLc6Stpp+l5AYYQ9IpmrNQRA8hv/HxN7cpuOQyA
-	kT/KxQCA==;
+	bh=wdN/1FsWeKzUdqV7u49kAczFb768U+bA9rFPVfmIYR8=; b=Bz9S2CwCEFhcF6gWF+PJi+deS9
+	gQqPgbH6jYc1pDvIF8G5xKarmQbyRGCDmY+ZkLHFn9E3J6yYcw1JnLB6/LYS/8Jh3xPv5C9ZgHHnt
+	xGGm4z8iuFDasn2Q1HlB7ozWBjN5RR9ELnpwjjuMd6yFdhOMP/dAGYGeP7TKLDY9xRrFEjqICNVfO
+	FKWM3l3Nh5DtGbcrfCgTDKAGn02VgVkT9uDIwHwgE+NiX2/Nn11tgNV9qxejmFSnON4WLM1CzyXMu
+	uC1sbReAH9n5zovnnUK4cjC+HT5bdJYA401XabQzbaNMZZ/eem/SIno6V8Bann3CPacq0FQLDW1Zc
+	zCwsUSDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnHRM-00000003sdx-2Gfu;
-	Wed, 26 Feb 2025 13:27:08 +0000
+	id 1tnHRP-00000003sho-3sYi;
+	Wed, 26 Feb 2025 13:27:11 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnGOR-00000003eVz-0v7z
+	id 1tnGOR-00000003eW0-1cL6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 12:20:04 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51Q9Ur01025442;
-	Wed, 26 Feb 2025 12:19:56 GMT
+	Wed, 26 Feb 2025 12:20:05 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51QAG5iZ012250;
+	Wed, 26 Feb 2025 12:19:57 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	LszQRn/ay/FhXAzTM7WwW7Q1riyQTVUsLgvVZqo3HzU=; b=bAm2bLKqeMRvtMze
-	pPil7rojJA22zyfpcFiljF2p0bKNa39gt3vW5v24xSjbWuC01vthPF8bS7z8sL+y
-	CSrqmhE+OJlBa/jj3GHheA4j3Evfx1xFIxbX9l9AO6dVYmdHSpVvC5Gn8F958Gbp
-	gG06DrHq7GFz4lNWEBrvbaUcueOEkIoOjK9g0W6XzySSoYy/YOReG1XYyXJ7mNmu
-	Uy+mAufptVdExjsKoxBwojpt//iy0xzU8qiDg4Eby9romxkMPkkhx2Sfo8M+GZux
-	zI8ONThKOA0Fkhobg9QbMY+3qMjq8Xt/+KrZEp/tooqq1berRrtQBKQZSDe5tX0C
-	+zvSXA==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 451prmhxcs-1
+	wdN/1FsWeKzUdqV7u49kAczFb768U+bA9rFPVfmIYR8=; b=V+D34LwtoaYEUhr1
+	xQb+uKBoCszxz+hjJYRT7qFX6MVWCR9NPplIJ3Jhyy7KLtLLwGoZAiuqR7O4bmLx
+	+wUk1f4Ft+KH6FLX8lr1zeikiuHAZXOGsaWYXjcTMBCphrglBSAJy3vHXr1I5zn2
+	/2YH0rlxq72BcY9+6dy/V9ewaCvhIqjU8NsDuT+DjmazamUmjaYqNWNA5KSRB7ti
+	dz3WyOf1/yBEfRAilTjOYkTSek65QCrC6DxLIA9pGSsc5y0xgBSF9c1sdSbA7DIG
+	PT0INidiafj6sS5UG3wMohhF30aPxRLZXBWj+Y3ravZjWE9dDJ6Il3Cn4mtEMtoK
+	mgBYWQ==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 451prk1x3y-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Wed, 26 Feb 2025 12:19:56 +0000 (GMT)
 Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51QCJt6P017408
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51QCJtJm005923
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Wed, 26 Feb 2025 12:19:55 GMT
 Received: from hu-jinlmao-lv.qualcomm.com (10.49.16.6) by
@@ -67,12 +67,10 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
         Konrad Dybcio <konradybcio@kernel.org>
 CC: Mao Jinlong <quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
         <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        "Krzysztof
- Kozlowski" <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v7 1/2] dt-bindings: arm: Add label in the coresight  components
-Date: Wed, 26 Feb 2025 04:19:25 -0800
-Message-ID: <20250226121926.2687497-2-quic_jinlmao@quicinc.com>
+        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>
+Subject: [PATCH v7 2/2] coresight: Add label sysfs node support
+Date: Wed, 26 Feb 2025 04:19:26 -0800
+Message-ID: <20250226121926.2687497-3-quic_jinlmao@quicinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250226121926.2687497-1-quic_jinlmao@quicinc.com>
 References: <20250226121926.2687497-1-quic_jinlmao@quicinc.com>
@@ -84,19 +82,19 @@ X-ClientProxiedBy: nalasex01b.na.qualcomm.com (10.47.209.197) To
  nalasex01a.na.qualcomm.com (10.47.209.196)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: OYkSxgb0VYPnny7XURLPDzEsOmzvEhFY
-X-Proofpoint-ORIG-GUID: OYkSxgb0VYPnny7XURLPDzEsOmzvEhFY
+X-Proofpoint-GUID: Llgtmf3cW_HXoXOECvImX9ecxVPbCj5x
+X-Proofpoint-ORIG-GUID: Llgtmf3cW_HXoXOECvImX9ecxVPbCj5x
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-02-26_02,2025-02-26_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
- impostorscore=0 phishscore=0 bulkscore=0 malwarescore=0 mlxscore=0
- priorityscore=1501 adultscore=0 spamscore=0 mlxlogscore=999
- lowpriorityscore=0 clxscore=1011 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2502100000 definitions=main-2502260098
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0
+ lowpriorityscore=0 priorityscore=1501 suspectscore=0 impostorscore=0
+ phishscore=0 spamscore=0 mlxscore=0 mlxlogscore=999 malwarescore=0
+ adultscore=0 clxscore=1015 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2502100000 definitions=main-2502260098
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_042003_397601_07973AFB 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20250226_042003_540162_F062873D 
+X-CRM114-Status: GOOD (  17.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,206 +109,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Current name of coresight component's folder consists of prefix of
-the device and the id in the device list. When run 'ls' command,
-we can get the register address of the device. Take CTI for example,
-if we want to set the config for modem CTI, but we can't know which
-CTI is modem CTI from all current information.
-
-cti_sys0 -> ../../../devices/platform/soc@0/138f0000.cti/cti_sys0
-cti_sys1 -> ../../../devices/platform/soc@0/13900000.cti/cti_sys1
-
-Add label to show hardware context information of each coresight
-device. There will be a sysfs node label in each device folder.
-
-cat /sys/bus/coresight/devices/cti_sys0/label
+For some coresight components like CTI and TPDM, there could be
+numerous of them. From the node name, we can only get the type and
+register address of the component. We can't identify the HW or the
+system the component belongs to. Add label sysfs node support for
+showing the intuitive name of the device.
 
 Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Reviewed-by: Mike Leach <mike.leach@linaro.org>
 ---
- .../devicetree/bindings/arm/arm,coresight-cti.yaml          | 6 ++++++
- .../devicetree/bindings/arm/arm,coresight-dummy-sink.yaml   | 6 ++++++
- .../devicetree/bindings/arm/arm,coresight-dummy-source.yaml | 6 ++++++
- .../bindings/arm/arm,coresight-dynamic-funnel.yaml          | 6 ++++++
- .../bindings/arm/arm,coresight-dynamic-replicator.yaml      | 6 ++++++
- .../bindings/arm/arm,coresight-static-funnel.yaml           | 6 ++++++
- .../bindings/arm/arm,coresight-static-replicator.yaml       | 6 ++++++
- .../devicetree/bindings/arm/arm,coresight-tmc.yaml          | 6 ++++++
- .../devicetree/bindings/arm/qcom,coresight-tpda.yaml        | 6 ++++++
- .../devicetree/bindings/arm/qcom,coresight-tpdm.yaml        | 6 ++++++
- 10 files changed, 60 insertions(+)
+ .../testing/sysfs-bus-coresight-devices-cti   |  6 ++++
+ .../sysfs-bus-coresight-devices-funnel        |  6 ++++
+ .../testing/sysfs-bus-coresight-devices-tpdm  |  6 ++++
+ drivers/hwtracing/coresight/coresight-sysfs.c | 32 +++++++++++++++++++
+ 4 files changed, 50 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
-index 2d5545a2b49c..5ca6d3d313a3 100644
---- a/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
-+++ b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
-@@ -98,6 +98,12 @@ properties:
-   power-domains:
-     maxItems: 1
- 
-+  label:
-+    $ref: /schemas/types.yaml#/definitions/string
-+    description:
-+      Define the label which can describe what kind of HW or system the
-+      coresight device belongs to.
+diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
+index bf2869c413e7..e6c879ceac18 100644
+--- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
+@@ -239,3 +239,9 @@ Date:		March 2020
+ KernelVersion	5.7
+ Contact:	Mike Leach or Mathieu Poirier
+ Description:	(Write) Clear all channel / trigger programming.
 +
-   arm,cti-ctm-id:
-     $ref: /schemas/types.yaml#/definitions/uint32
-     description:
-diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-dummy-sink.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-dummy-sink.yaml
-index 08b89b62c505..bc82cd1f3595 100644
---- a/Documentation/devicetree/bindings/arm/arm,coresight-dummy-sink.yaml
-+++ b/Documentation/devicetree/bindings/arm/arm,coresight-dummy-sink.yaml
-@@ -39,6 +39,12 @@ properties:
-     enum:
-       - arm,coresight-dummy-sink
- 
-+  label:
-+    $ref: /schemas/types.yaml#/definitions/string
-+    description:
-+      Define the label which can describe what kind of HW or system the
-+      coresight device belongs to.
++What:           /sys/bus/coresight/devices/<cti-name>/label
++Date:           Feb 2025
++KernelVersion   6.15
++Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
++Description:    (Read) Show hardware context information of device.
+diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel b/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
+index d75acda5e1b3..d9780489aa12 100644
+--- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
+@@ -10,3 +10,9 @@ Date:		November 2014
+ KernelVersion:	3.19
+ Contact:	Mathieu Poirier <mathieu.poirier@linaro.org>
+ Description:	(RW) Defines input port priority order.
 +
-   in-ports:
-     $ref: /schemas/graph.yaml#/properties/ports
- 
-diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-dummy-source.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-dummy-source.yaml
-index 742dc4e25d3b..3010055d5ad6 100644
---- a/Documentation/devicetree/bindings/arm/arm,coresight-dummy-source.yaml
-+++ b/Documentation/devicetree/bindings/arm/arm,coresight-dummy-source.yaml
-@@ -38,6 +38,12 @@ properties:
-     enum:
-       - arm,coresight-dummy-source
- 
-+  label:
-+    $ref: /schemas/types.yaml#/definitions/string
-+    description:
-+      Define the label which can describe what kind of HW or system the
-+      coresight device belongs to.
++What:           /sys/bus/coresight/devices/<memory_map>.funnel/label
++Date:           Feb 2025
++KernelVersion   6.15
++Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
++Description:    (Read) Show hardware context information of device.
+diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
+index bf710ea6e0ef..31c6de92434a 100644
+--- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
+@@ -257,3 +257,9 @@ Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_t
+ Description:
+ 		(RW) Set/Get the MSR(mux select register) for the CMB subunit
+ 		TPDM.
 +
-   arm,static-trace-id:
-     description: If dummy source needs static id support, use this to set trace id.
-     $ref: /schemas/types.yaml#/definitions/uint32
-diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-dynamic-funnel.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-dynamic-funnel.yaml
-index 44a1041cb0fc..30776610d4b4 100644
---- a/Documentation/devicetree/bindings/arm/arm,coresight-dynamic-funnel.yaml
-+++ b/Documentation/devicetree/bindings/arm/arm,coresight-dynamic-funnel.yaml
-@@ -57,6 +57,12 @@ properties:
-   power-domains:
-     maxItems: 1
++What:           /sys/bus/coresight/devices/<tpdm-name>/label
++Date:           Feb 2025
++KernelVersion   6.15
++Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
++Description:    (Read) Show hardware context information of device.
+diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
+index a01c9e54e2ed..4af40cd7d75a 100644
+--- a/drivers/hwtracing/coresight/coresight-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-sysfs.c
+@@ -7,6 +7,7 @@
+ #include <linux/device.h>
+ #include <linux/idr.h>
+ #include <linux/kernel.h>
++#include <linux/property.h>
  
-+  label:
-+    $ref: /schemas/types.yaml#/definitions/string
-+    description:
-+      Define the label which can describe what kind of HW or system the
-+      coresight device belongs to.
+ #include "coresight-priv.h"
+ #include "coresight-trace-id.h"
+@@ -366,18 +367,47 @@ static ssize_t enable_source_store(struct device *dev,
+ }
+ static DEVICE_ATTR_RW(enable_source);
+ 
++static ssize_t label_show(struct device *dev,
++		struct device_attribute *attr, char *buf)
++{
 +
-   in-ports:
-     $ref: /schemas/graph.yaml#/properties/ports
- 
-diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-dynamic-replicator.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-dynamic-replicator.yaml
-index 03792e9bd97a..178a3861ee29 100644
---- a/Documentation/devicetree/bindings/arm/arm,coresight-dynamic-replicator.yaml
-+++ b/Documentation/devicetree/bindings/arm/arm,coresight-dynamic-replicator.yaml
-@@ -54,6 +54,12 @@ properties:
-       - const: apb_pclk
-       - const: atclk
- 
-+  label:
-+    $ref: /schemas/types.yaml#/definitions/string
-+    description:
-+      Define the label which can describe what kind of HW or system the
-+      coresight device belongs to.
++	const char *str;
++	int ret = 0;
 +
-   power-domains:
-     maxItems: 1
- 
-diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-static-funnel.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-static-funnel.yaml
-index cc8c3baa79b4..39b291909cc4 100644
---- a/Documentation/devicetree/bindings/arm/arm,coresight-static-funnel.yaml
-+++ b/Documentation/devicetree/bindings/arm/arm,coresight-static-funnel.yaml
-@@ -30,6 +30,12 @@ properties:
-   power-domains:
-     maxItems: 1
- 
-+  label:
-+    $ref: /schemas/types.yaml#/definitions/string
-+    description:
-+      Define the label which can describe what kind of HW or system the
-+      coresight device belongs to.
++	ret = fwnode_property_read_string(dev_fwnode(dev), "label", &str);
++	if (ret == 0)
++		return scnprintf(buf, PAGE_SIZE, "%s\n", str);
++	else
++		return ret;
++}
++static DEVICE_ATTR_RO(label);
 +
-   in-ports:
-     $ref: /schemas/graph.yaml#/properties/ports
+ static struct attribute *coresight_sink_attrs[] = {
+ 	&dev_attr_enable_sink.attr,
++	&dev_attr_label.attr,
+ 	NULL,
+ };
+ ATTRIBUTE_GROUPS(coresight_sink);
  
-diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml
-index a6f793ea03b6..022a1097af3c 100644
---- a/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml
-+++ b/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml
-@@ -30,6 +30,12 @@ properties:
-   power-domains:
-     maxItems: 1
+ static struct attribute *coresight_source_attrs[] = {
+ 	&dev_attr_enable_source.attr,
++	&dev_attr_label.attr,
+ 	NULL,
+ };
+ ATTRIBUTE_GROUPS(coresight_source);
  
-+  label:
-+    $ref: /schemas/types.yaml#/definitions/string
-+    description:
-+      Define the label which can describe what kind of HW or system the
-+      coresight device belongs to.
++static struct attribute *coresight_link_attrs[] = {
++	&dev_attr_label.attr,
++	NULL,
++};
++ATTRIBUTE_GROUPS(coresight_link);
 +
-   in-ports:
-     $ref: /schemas/graph.yaml#/properties/ports
-     additionalProperties: false
-diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-tmc.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-tmc.yaml
-index 4787d7c6bac2..6a37ebaf474b 100644
---- a/Documentation/devicetree/bindings/arm/arm,coresight-tmc.yaml
-+++ b/Documentation/devicetree/bindings/arm/arm,coresight-tmc.yaml
-@@ -55,6 +55,12 @@ properties:
-       - const: apb_pclk
-       - const: atclk
- 
-+  label:
-+    $ref: /schemas/types.yaml#/definitions/string
-+    description:
-+      Define the label which can describe what kind of HW or system the
-+      coresight device belongs to.
++static struct attribute *coresight_helper_attrs[] = {
++	&dev_attr_label.attr,
++	NULL,
++};
++ATTRIBUTE_GROUPS(coresight_helper);
 +
-   iommus:
-     maxItems: 1
- 
-diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-tpda.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-tpda.yaml
-index 76163abed655..986b9b4f360d 100644
---- a/Documentation/devicetree/bindings/arm/qcom,coresight-tpda.yaml
-+++ b/Documentation/devicetree/bindings/arm/qcom,coresight-tpda.yaml
-@@ -65,6 +65,12 @@ properties:
-     items:
-       - const: apb_pclk
- 
-+  label:
-+    $ref: /schemas/types.yaml#/definitions/string
-+    description:
-+      Define the label which can describe what kind of HW or system the
-+      coresight device belongs to.
-+
-   in-ports:
-     description: |
-       Input connections from TPDM to TPDA
-diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-tpdm.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-tpdm.yaml
-index 8eec07d9d454..59e533720bdd 100644
---- a/Documentation/devicetree/bindings/arm/qcom,coresight-tpdm.yaml
-+++ b/Documentation/devicetree/bindings/arm/qcom,coresight-tpdm.yaml
-@@ -77,6 +77,12 @@ properties:
-     minimum: 0
-     maximum: 32
- 
-+  label:
-+    $ref: /schemas/types.yaml#/definitions/string
-+    description:
-+      Define the label which can describe what kind of HW or system the
-+      coresight device belongs to.
-+
-   clocks:
-     maxItems: 1
- 
+ const struct device_type coresight_dev_type[] = {
+ 	[CORESIGHT_DEV_TYPE_SINK] = {
+ 		.name = "sink",
+@@ -385,6 +415,7 @@ const struct device_type coresight_dev_type[] = {
+ 	},
+ 	[CORESIGHT_DEV_TYPE_LINK] = {
+ 		.name = "link",
++		.groups = coresight_link_groups,
+ 	},
+ 	[CORESIGHT_DEV_TYPE_LINKSINK] = {
+ 		.name = "linksink",
+@@ -396,6 +427,7 @@ const struct device_type coresight_dev_type[] = {
+ 	},
+ 	[CORESIGHT_DEV_TYPE_HELPER] = {
+ 		.name = "helper",
++		.groups = coresight_helper_groups,
+ 	}
+ };
+ /* Ensure the enum matches the names and groups */
 -- 
 2.25.1
 
