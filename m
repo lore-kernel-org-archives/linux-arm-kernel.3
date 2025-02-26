@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08714C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 23:10:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2FA0C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 23:12:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tIVrfttD91JAtEfLmtb1QJhK1PICItl6xsHcfajlSko=; b=twtAcy/uV+2Q7WJ06QRem9exqo
-	ICzQ0yRynPORSiGUE+IQoBnfJHoAiWWwBJfRh4y9x77NBmGHnvBSdz4Pt8jBB0fEztFUaqdapMmhn
-	St+xBpYvRx/bU/06NtW+0Syx7B1OayrzRtq/MTeIM242PPxx65ApcmMkjpOQZ/e3p+LmnY6wN8TaY
-	jVc+1CxDTzlIPuycxyB3x8dCgYnu6b6TurrUk9eMTD+37CHYwxGJvQLul1lCNM5P5o5wPi/lFF/H5
-	mu4/zMJVXWBzQwO5/K3HuxIVJBR3LZhWU8W50qIxs+Taeiv4XITlOhTiE4GK+LQ5FdZ0FJUlKagfB
-	aVKx70MQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lWL9w60RgCFJvxxxcjzNA366fYz5ZKlmrqBqiOc+Q/g=; b=wn9JXTjskrnHLdeDFJzIlmwQXS
+	ddbiaIzl/cQZwOCRGqX+AFHos96EPTpO5QdVlduR6cUXtchW3eor/h7TZe7B3kCm5yhUOzmiAM6DA
+	j6Ezpekoz7EiL2HHUPSncN4PYKzxWbuCUM9eNartZ/Fi67RuCylaMEML3I7W1lxWtchCrrl3MZHlw
+	obJpdTtEIaBKC3aA3d7bXNaj8TEwiH9kLUhGLg5EvwpLUu258LB7731K4tMnpg0q7zCHWw9oZ8Rhz
+	0A8EbWkUGSCk8BzSzLCYmMv/2zR7YuphtkIAnwotqj/jufTiOZgGkUfQVzi+MKQmyXNj1NZ0aQ5uJ
+	ic8pyYZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnQY1-00000005fLh-0450;
-	Wed, 26 Feb 2025 23:10:37 +0000
+	id 1tnQZV-00000005fbr-2oHY;
+	Wed, 26 Feb 2025 23:12:09 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnQWS-00000005evO-2q2I
+	id 1tnQWS-00000005evH-2tCQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 23:09:01 +0000
+	Wed, 26 Feb 2025 23:09:02 +0000
 Received: from linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net (linux.microsoft.com [13.77.154.182])
-	by linux.microsoft.com (Postfix) with ESMTPSA id EAD3C210EAC9;
+	by linux.microsoft.com (Postfix) with ESMTPSA id 7463B210EAC2;
 	Wed, 26 Feb 2025 15:08:58 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com EAD3C210EAC9
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 7463B210EAC2
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1740611339;
-	bh=tIVrfttD91JAtEfLmtb1QJhK1PICItl6xsHcfajlSko=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EJpPKERW1PefhigZxbH27ZOLBfjmlucD5ZZQ3SSUVqQFAALsU1H/JFCFyJIFfxmV5
-	 MVhhw3mXtZo8VuzmBtNQAAeUM20G0Ns727Cij61STDqXueDS6YhSqlSAlaZpqXJ8Tc
-	 yJGkiKBE1Lhxpy4BprrtKjjdgsM0brWc1Y2pHXzQ=
+	s=default; t=1740611338;
+	bh=lWL9w60RgCFJvxxxcjzNA366fYz5ZKlmrqBqiOc+Q/g=;
+	h=From:To:Cc:Subject:Date:From;
+	b=UKMSUvEv3THtmb9g5aJiCCDyMciP7ngSYzLOlZsEfYIlPXKPGvB2TRsNtJmqddGYU
+	 tH11c73Be9Yhta0hqTigHkzGT2UnIsvlEVX3bbhRoIlC/pLu04nIm977y8hCo9IvUo
+	 Tw6a0qyunjQu8u67QPyY/bCTHgaRgpP2difIJaac=
 From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
 To: linux-hyperv@vger.kernel.org,
 	x86@kernel.org,
@@ -77,15 +77,13 @@ Cc: kys@microsoft.com,
 	rafael@kernel.org,
 	lenb@kernel.org,
 	corbet@lwn.net
-Subject: [PATCH v5 04/10] hyperv: Introduce hv_recommend_using_aeoi()
-Date: Wed, 26 Feb 2025 15:07:58 -0800
-Message-Id: <1740611284-27506-5-git-send-email-nunodasneves@linux.microsoft.com>
+Subject: [PATCH v5 00/10] Introduce /dev/mshv root partition driver
+Date: Wed, 26 Feb 2025 15:07:54 -0800
+Message-Id: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
 X-Mailer: git-send-email 1.8.3.1
-In-Reply-To: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
-References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_150900_768790_E4632BFB 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20250226_150900_771903_239EF26A 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,62 +98,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Factor out the check for enabling auto eoi, to be reused in root
-partition code.
+This series introduces support for creating and running guest virtual
+machines while running on the Microsoft Hypervisor[0] as root partition.
+This is done via an IOCTL interface accessed through /dev/mshv, similar to
+/dev/kvm. Another series introducing this support was previously posted in
+2021[1], and v4 of this series was last posted in 2023[2].
 
-Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
----
- drivers/hv/hv.c                | 12 +-----------
- include/asm-generic/mshyperv.h | 13 +++++++++++++
- 2 files changed, 14 insertions(+), 11 deletions(-)
+Patches 1-4 are small refactors and additions to Hyper-V code.
+Patches 5-6 just export some definitions needed by /dev/mshv.
+Patches 7-9 introduce some functionality and definitions in common code, that
+is needed by the driver.
+Patch 10 contains the driver code.
 
-diff --git a/drivers/hv/hv.c b/drivers/hv/hv.c
-index a38f84548bc2..308c8f279df8 100644
---- a/drivers/hv/hv.c
-+++ b/drivers/hv/hv.c
-@@ -313,17 +313,7 @@ void hv_synic_enable_regs(unsigned int cpu)
- 
- 	shared_sint.vector = vmbus_interrupt;
- 	shared_sint.masked = false;
--
--	/*
--	 * On architectures where Hyper-V doesn't support AEOI (e.g., ARM64),
--	 * it doesn't provide a recommendation flag and AEOI must be disabled.
--	 */
--#ifdef HV_DEPRECATING_AEOI_RECOMMENDED
--	shared_sint.auto_eoi =
--			!(ms_hyperv.hints & HV_DEPRECATING_AEOI_RECOMMENDED);
--#else
--	shared_sint.auto_eoi = 0;
--#endif
-+	shared_sint.auto_eoi = hv_recommend_using_aeoi();
- 	hv_set_msr(HV_MSR_SINT0 + VMBUS_MESSAGE_SINT, shared_sint.as_uint64);
- 
- 	/* Enable the global synic bit */
-diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
-index 258034dfd829..1f46d19a16aa 100644
---- a/include/asm-generic/mshyperv.h
-+++ b/include/asm-generic/mshyperv.h
-@@ -77,6 +77,19 @@ extern u64 hv_do_fast_hypercall16(u16 control, u64 input1, u64 input2);
- bool hv_isolation_type_snp(void);
- bool hv_isolation_type_tdx(void);
- 
-+/*
-+ * On architectures where Hyper-V doesn't support AEOI (e.g., ARM64),
-+ * it doesn't provide a recommendation flag and AEOI must be disabled.
-+ */
-+static inline bool hv_recommend_using_aeoi(void)
-+{
-+#ifdef HV_DEPRECATING_AEOI_RECOMMENDED
-+	return !(ms_hyperv.hints & HV_DEPRECATING_AEOI_RECOMMENDED);
-+#else
-+	return false;
-+#endif
-+}
-+
- static inline struct hv_proximity_domain_info hv_numa_node_to_pxm_info(int node)
- {
- 	struct hv_proximity_domain_info pxm_info = {};
+-----------------
+[0] "Hyper-V" is more well-known, but it really refers to the whole stack
+    including the hypervisor and other components that run in Windows
+    kernel and userspace.
+[1] Previous /dev/mshv patch series (2021) and discussion:
+https://lore.kernel.org/linux-hyperv/1632853875-20261-1-git-send-email-nunodasneves@linux.microsoft.com/
+[2] v4 (2023):
+https://lore.kernel.org/linux-hyperv/1696010501-24584-1-git-send-email-nunodasneves@linux.microsoft.com/
+
+-----------------
+Changes since v4:
+* Slim down the IOCTL interface significantly, via several means:
+  1. Use generic "passthrough" call MSHV_ROOT_HVCALL to replace many ioctls.
+  2. Use MSHV_* versions of some of the HV_* definitions.
+  3. Move hv headers out of uapi altogether, into include/hyperv/, see:
+https://lore.kernel.org/linux-hyperv/1732577084-2122-1-git-send-email-nunodasneves@linux.microsoft.com/
+* Remove mshv_vtl module altogther, it will be posted in followup series
+  * Also remove the parent "mshv" module which didn't serve much purpose
+* Update and refactor parts of the driver code for clarity, extensibility
+
+Changes since v3 (summarized):
+* Clean up the error and debug logging:
+  1. Add a set of macros vp_*() and partition_*() which call the equivalent
+     dev_*(), passing the device from the partition struct
+     * The new macros also print the partition and vp ids to aid debugging
+	   and reduce repeated code
+  2. Use dev_*() (mostly via the new macros) instead of pr_*() *almost*
+  everywhere - in interrupt context we can't always get the device struct
+  3. Remove pr_*() logging from hv_call.c and mshv_root_hv_call.c
+
+Changes since v2 (summarized):
+* Fix many checkpatch.pl --strict style issues
+* Initialize status in get/set registers hypercall helpers
+* Add missing return on error in get_vp_signaled_count
+
+Changes since v1 (summarized):
+* Clean up formatting, commit messages
+
+Nuno Das Neves (9):
+  hyperv: Convert Hyper-V status codes to strings
+  arm64/hyperv: Add some missing functions to arm64
+  hyperv: Introduce hv_recommend_using_aeoi()
+  acpi: numa: Export node_to_pxm()
+  Drivers/hv: Export some functions for use by root partition module
+  Drivers: hv: Introduce per-cpu event ring tail
+  x86: hyperv: Add mshv_handler irq handler and setup function
+  hyperv: Add definitions for root partition driver to hv headers
+  Drivers: hv: Introduce mshv_root module to expose /dev/mshv to VMMs
+
+Stanislav Kinsburskii (1):
+  x86/mshyperv: Add support for extended Hyper-V features
+
+ .../userspace-api/ioctl/ioctl-number.rst      |    2 +
+ arch/arm64/hyperv/hv_core.c                   |   17 +
+ arch/arm64/hyperv/mshyperv.c                  |    1 +
+ arch/arm64/include/asm/mshyperv.h             |   12 +
+ arch/x86/kernel/cpu/mshyperv.c                |   16 +-
+ drivers/acpi/numa/srat.c                      |    1 +
+ drivers/hv/Makefile                           |    5 +-
+ drivers/hv/hv.c                               |   12 +-
+ drivers/hv/hv_common.c                        |  105 +-
+ drivers/hv/hv_proc.c                          |   16 +-
+ drivers/hv/mshv.h                             |   30 +
+ drivers/hv/mshv_common.c                      |  161 ++
+ drivers/hv/mshv_eventfd.c                     |  833 ++++++
+ drivers/hv/mshv_eventfd.h                     |   71 +
+ drivers/hv/mshv_irq.c                         |  128 +
+ drivers/hv/mshv_portid_table.c                |   84 +
+ drivers/hv/mshv_root.h                        |  321 +++
+ drivers/hv/mshv_root_hv_call.c                |  876 +++++++
+ drivers/hv/mshv_root_main.c                   | 2329 +++++++++++++++++
+ drivers/hv/mshv_synic.c                       |  665 +++++
+ include/asm-generic/mshyperv.h                |   18 +
+ include/hyperv/hvgdk_mini.h                   |   64 +-
+ include/hyperv/hvhdk.h                        |  132 +-
+ include/hyperv/hvhdk_mini.h                   |   91 +
+ include/uapi/linux/mshv.h                     |  287 ++
+ 25 files changed, 6248 insertions(+), 29 deletions(-)
+ create mode 100644 drivers/hv/mshv.h
+ create mode 100644 drivers/hv/mshv_common.c
+ create mode 100644 drivers/hv/mshv_eventfd.c
+ create mode 100644 drivers/hv/mshv_eventfd.h
+ create mode 100644 drivers/hv/mshv_irq.c
+ create mode 100644 drivers/hv/mshv_portid_table.c
+ create mode 100644 drivers/hv/mshv_root.h
+ create mode 100644 drivers/hv/mshv_root_hv_call.c
+ create mode 100644 drivers/hv/mshv_root_main.c
+ create mode 100644 drivers/hv/mshv_synic.c
+ create mode 100644 include/uapi/linux/mshv.h
+
 -- 
 2.34.1
 
