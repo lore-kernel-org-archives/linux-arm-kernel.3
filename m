@@ -4,105 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FDD3C18E7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 14:37:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAC12C18E7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 14:38:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AAI++sx2S3RJZTy8ln+4wl1FDEIkh8pRsIqLMpUtMfY=; b=iXDAblmrGYBbdOyd+V7p0lGm2D
-	f4mm+F0j30yZVh2puUncLKqWv162ASdIlMuk0htChYH9JND4G3i9qmKCIZqNhVMeGdcnzLwu564r0
-	dRhyeS8wUi1T7rC4DZ0wUlyRskfNRiPj2wzygRJ3EeAVz3kRSsX9rknxRalxvZTKSrM/3yddjydVo
-	f9vfLOJKAIuWuNdcdj9omUbvphC9SAH63WZ9eK0BceMVXbCVCQyWOq13t/wFAE490SdY3U8cgpLvJ
-	wtm+jjAEDz5rw2j383VtDGF0/9J4L1aG3XKL40Tdm/hS6aey1soC5gX7pVV4ZGkM1rLJdoPCeXPTX
-	UPzEhQag==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SZp9dPc1jeykb22QbqsQXbIMwc7uQL0Ohu9JSDscCI4=; b=Njq3Rx9UFdd+yKF066xIa3g+4P
+	gcd/fdb7TCgGTOdFNXUEEYXfUtsolGHyz4xek4IW5RVrAlMzkQ174ucjkXkMFcmMUiWjf0G5zwToZ
+	xwQdOXyoCsoMemqqEngkf6wDcDfSHXWi/zx8eD13QIr9eBp1GFXdVouBGUFEdICYbt4N3i6A+11w1
+	tE68CYsVvgh4DgZKzgXfeML8KRNqi8PNP4PrSgK7qxX/enRl/vKUvlcCbZIlYNYieDEBgoa9K5ALs
+	klIW+HOZQ/8eDuvS1driXeWh95u1xRkmRd5bMoSowKi/la76Av0iUA2ZdwidJLXTPSFTRtnPmrMKO
+	vces3x6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnIWx-000000047Sf-09w0;
-	Wed, 26 Feb 2025 14:36:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tnIY8-000000047pQ-2wmd;
+	Wed, 26 Feb 2025 14:38:12 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnIFx-0000000432A-2U0Y
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 26 Feb 2025 14:19:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Sender:Content-ID:Content-Description:In-Reply-To:References;
-	bh=AAI++sx2S3RJZTy8ln+4wl1FDEIkh8pRsIqLMpUtMfY=; b=jPlA2MExTDTdkf8MHmOyGqnFRJ
-	CBS2fPaL7xZI7+mvd/v+OnTwMQmCRFTYM9MflisnLk5WGpM4Q3Xxivc/jWwJbKhs2rnOyEfS1d2j5
-	TkqhVvteArlFB4Xb/yJLnixkxW6IJBZFm+Xs5CR7Q0sOnbPNOiwbbxm89mfvgdTjc2WaSxaRGhrWG
-	fd9OnAdzeghMVLlGVAMtjtcw0THxumqTItuWVz387gMVZJ++wSQi01g6qg+4ThOO9drEByQiAAcSl
-	ZXuPYN7RUFBzGWm3VTNEky7t0CmdvdikfHpNOPn+Eii1qcI83NbHdHDiudTSUtfwiCqhnhgOp4ni1
-	tgyWKxTQ==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnIFu-00000003cXe-0u23
+	id 1tnGke-00000003jQ9-3ggI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 14:19:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E98B65C0416;
-	Wed, 26 Feb 2025 14:18:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 725D1C4CED6;
-	Wed, 26 Feb 2025 14:19:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740579558;
-	bh=qPNp8kJ1SPfm9hzzYuFUJ6PYED9G/nfRjZrkm1H8psw=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=bL+z4glLMLjtif7nD9V/K+zaxSZc5JKr1f6vzndjetO9s6CLSiE3EieO271ZapLua
-	 w4DbabGONJtBQ1cSvWyZdKcxYMYuri+cVoFNBGE9GL1l1neZnpGDVJvmQtX9cbgpPE
-	 lOeGOExJzZRd4A1YOpI4/eq7TyJG7GOzboFnZCM1G/dPHWZaCUpgLMlrgeo2yMFdxw
-	 qAfj7yCnENDpX1iu52Jf2jWpMSjN4jENNcJdsPHbZWxG5v9Tt9l3KjlifPE+GzecVZ
-	 h1zoPYVbK32Yj86q11vI5Wr3oKSXojO2e2y6cAFgLNR11Sm7bsA2W6tVdTGNa7fjDd
-	 slxQu3SaHJwFg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 64F8CC021B8;
-	Wed, 26 Feb 2025 14:19:18 +0000 (UTC)
-From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Subject: [PATCH v2 00/12] arm64: dts: freescale: Add support for the
- GOcontroll Moduline Display
-Date: Wed, 26 Feb 2025 15:19:11 +0100
-Message-Id: <20250226-initial_display-v2-0-23fafa130817@gocontroll.com>
+	Wed, 26 Feb 2025 12:43:02 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51QCgvsT2078702
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 26 Feb 2025 06:42:57 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1740573777;
+	bh=SZp9dPc1jeykb22QbqsQXbIMwc7uQL0Ohu9JSDscCI4=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=XEVSi1R5I0ijZQM4JfykonOmJsgLU/aUCJUq5RPAqTnSa9Yl6UbVCJ+RDvEC1jInW
+	 of9koGOLt0UKAas9DPT1HwPN+lMx6wkwSZvZe6lQrrwxRp/n/b5dQZsjDHK/6IVc+0
+	 GDL1Tjzqh5rJ3p1ch5zrSkj+r2oyVnGvaiBC+Ovc=
+Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51QCgvH8090082
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 26 Feb 2025 06:42:57 -0600
+Received: from DFLE114.ent.ti.com (10.64.6.35) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 26
+ Feb 2025 06:42:56 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 26 Feb 2025 06:42:56 -0600
+Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.113])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51QCgkI2094589;
+	Wed, 26 Feb 2025 06:42:53 -0600
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        <s-vadapalli@ti.com>
+Subject: [PATCH v2 2/3] arm64: dts: ti: k3-j784s4-j742s2-evm: Add overlay for PCIe NTB
+Date: Wed, 26 Feb 2025 18:12:44 +0530
+Message-ID: <20250226124245.9856-3-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250226124245.9856-1-s-vadapalli@ti.com>
+References: <20250226124245.9856-1-s-vadapalli@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAN8iv2cC/3WNQQqDMBBFryKzbkoyGpGueg+REuOoA2kiiUhFv
- HtT912+B//9AxJFpgSP4oBIGycOPgPeCrCz8RMJHjIDStQSsRLseWXjXgOnxZldjKZBVA3JmjT
- k1RJp5M9VbLvMM6c1xP062NTP/m9tSkihre37sValrsrnFGzwawzO3W14Q3ee5xejftpzswAAA
- A==
-X-Change-ID: 20250224-initial_display-fa82218e06e5
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Jessica Zhang <quic_jesszhan@quicinc.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Thierry Reding <thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>, 
- Liu Ying <victor.liu@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Mark Brown <broonie@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org, 
- Maud Spierings <maudspierings@gocontroll.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1740579556; l=2470;
- i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=qPNp8kJ1SPfm9hzzYuFUJ6PYED9G/nfRjZrkm1H8psw=;
- b=RO2wdKrxZIYN3bZWZRvWLLnJ4q4OJ3zzHkzPM4aFfF+XjDIXbjVCFjRpeOidaQRPXZt2qJz7l
- zFN4KACCPHFDLlu/B1Tc95xI78GkFMvm5PPtjNbTX4mec1Lj8g+V8Sc
-X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
- pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
-X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
- with auth_id=341
-X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_141922_841108_BB677525 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20250226_044301_008525_C66E8978 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,59 +83,165 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add inital support for 2 variants of the Moduline Display controller.
-This system is powered by the Ka-Ro Electronics tx8p-ml81 COM, which
-features an imx8mp SoC.
+PCIe NTB (Non-Transparent-Bridge) allows connecting the memory of
+multiple PCIe Hosts (Root-Complex). The number of such hosts is
+determined by the number of PCIe instances configured for NTB operation
+on the device which intends to enable NTB functionality. Add a device-tree
+overlay to configure PCIE0 and PCIE1 instances of PCIe on either J784S4 EVM
+or J742S2 EVM for NTB operation. This shall allow connecting the memory of
+two PCIe Hosts via PCIE0 and PCIE1 on J784S4 EVM or J742S2 EVM
+respectively.
 
-Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
 ---
-Changes in v2:
-- Dropped the trivial-devices patch
-- Added a patch with bindings for the gocontroll,moduline-module-slot
-- Added a patch to spidev.c to enable the spidev driver for the module
-  slot
-- Added a missing usb-c connector in the av101hdt-a10 variant dts
-- Switched to the new bindings for the module slots in the base dts
-- Fixed some commit typos
-- Link to v1: https://lore.kernel.org/r/20250224-initial_display-v1-0-5ccbbf613543@gocontroll.com
 
----
-Maud Spierings (12):
-      dt-bindings: arm: fsl: Add GOcontroll Moduline Display
-      dt-bindings: vendor-prefixes: add GOcontroll
-      dt-bindings: connector: Add the GOcontroll Moduline module slot bindings
-      arm64: dts: imx8mp: Add pinctrl config definitions
-      MAINTAINERS: add maintainer for the Ka-Ro tx8p-ml81 COM module
-      MAINTAINERS: add maintainer for the GOcontroll Moduline module slot
-      MAINTAINERS: add maintainer for the GOcontroll Moduline controllers
-      arm64: dts: freescale: add Ka-Ro Electronics tx8p-ml81 COM
-      arm64: dts: freescale: Add the GOcontroll Moduline Display baseboard
-      arm64: dts: freescale: Add the BOE av101hdt-a10 variant of the Moduline Display
-      arm64: dts: freescale: Add the BOE av123z7m-n17 variant of the Moduline Display
-      spi: spidev: Add an entry for the gocontroll moduline module slot
+v1:
+https://patchwork.kernel.org/project/linux-arm-kernel/patch/20250202093636.2699064-3-s-vadapalli@ti.com/
+Changes since v1:
+- s/epf_bus/epf-bus since node names shouldn't contain underscores.
 
- Documentation/devicetree/bindings/arm/fsl.yaml     |   1 +
- .../connector/gocontroll,moduline-module-slot.yaml |  88 ++++
- .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
- MAINTAINERS                                        |  17 +
- arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h     |  27 +
- ...tx8p-ml81-moduline-display-106-av101hdt-a10.dts | 100 ++++
- ...tx8p-ml81-moduline-display-106-av123z7m-n17.dts | 133 +++++
- .../imx8mp-tx8p-ml81-moduline-display-106.dtsi     | 535 ++++++++++++++++++++
- .../arm64/boot/dts/freescale/imx8mp-tx8p-ml81.dtsi | 547 +++++++++++++++++++++
- drivers/spi/spidev.c                               |   2 +
- 10 files changed, 1452 insertions(+)
----
-base-commit: 2bc63dbeabecce860eb8b261bf67b97552fe7747
-change-id: 20250224-initial_display-fa82218e06e5
+Regards,
+Siddharth.
 
-Best regards,
+ arch/arm64/boot/dts/ti/Makefile               |  7 ++
+ .../dts/ti/k3-j784s4-j742s2-evm-pcie-ntb.dtso | 92 +++++++++++++++++++
+ 2 files changed, 99 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-pcie-ntb.dtso
+
+diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+index 1097ab30f5a9..dbeb5d7401f7 100644
+--- a/arch/arm64/boot/dts/ti/Makefile
++++ b/arch/arm64/boot/dts/ti/Makefile
+@@ -128,6 +128,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-j784s4-evm.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-j784s4-evm-pcie0-pcie1-ep.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-j784s4-evm-quad-port-eth-exp1.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-j784s4-evm-usxgmii-exp1-exp2.dtbo
++dtb-$(CONFIG_ARCH_K3) += k3-j784s4-j742s2-evm-pcie-ntb.dtbo
+ 
+ # Boards with J742S2 SoC
+ dtb-$(CONFIG_ARCH_K3) += k3-j742s2-evm.dtb
+@@ -212,6 +213,10 @@ k3-j721e-sk-csi2-dual-imx219-dtbs := k3-j721e-sk.dtb \
+ 	k3-j721e-sk-csi2-dual-imx219.dtbo
+ k3-j721s2-evm-pcie1-ep-dtbs := k3-j721s2-common-proc-board.dtb \
+ 	k3-j721s2-evm-pcie1-ep.dtbo
++k3-j742s2-evm-pcie-ntb-dtbs := k3-j742s2-evm.dtb \
++	k3-j784s4-j742s2-evm-pcie-ntb.dtbo
++k3-j784s4-evm-pcie-ntb-dtbs := k3-j784s4-evm.dtb \
++	k3-j784s4-j742s2-evm-pcie-ntb.dtbo
+ k3-j784s4-evm-pcie0-pcie1-ep-dtbs := k3-j784s4-evm.dtb \
+ 	k3-j784s4-evm-pcie0-pcie1-ep.dtbo
+ k3-j784s4-evm-quad-port-eth-exp1-dtbs := k3-j784s4-evm.dtb \
+@@ -247,6 +252,8 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+ 	k3-j721e-evm-pcie1-ep.dtb \
+ 	k3-j721e-sk-csi2-dual-imx219.dtb \
+ 	k3-j721s2-evm-pcie1-ep.dtb \
++	k3-j742s2-evm-pcie-ntb.dtb \
++	k3-j784s4-evm-pcie-ntb.dtb \
+ 	k3-j784s4-evm-pcie0-pcie1-ep.dtb \
+ 	k3-j784s4-evm-quad-port-eth-exp1.dtb \
+ 	k3-j784s4-evm-usxgmii-exp1-exp2.dtb
+diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-pcie-ntb.dtso b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-pcie-ntb.dtso
+new file mode 100644
+index 000000000000..46cbddcf612e
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-pcie-ntb.dtso
+@@ -0,0 +1,92 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/**
++ * DT Overlay for enabling NTB functionality using PCIE0 and PCIE1 instances of
++ * PCIe on the J784S4 EVM and the J742S2 EVM.
++ *
++ * J784S4 EVM Product Link: https://www.ti.com/tool/J784S4XEVM
++ * J742S2 EVM Product Link: https://www.ti.com/tool/J742S2XH01EVM
++ *
++ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++#include <dt-bindings/soc/ti,sci_pm_domain.h>
++
++#include "k3-pinctrl.h"
++
++&{/} {
++	epf-bus {
++		compatible = "pci-epf-bus";
++
++		ntb {
++			compatible = "pci-epf-ntb";
++			epcs = <&pcie0_ep>, <&pcie1_ep>;
++			epc-names = "primary", "secondary";
++			vendor-id = /bits/ 16 <0x104c>;
++			device-id = /bits/ 16 <0xb012>;
++			num-mws = <4>;
++			mws-size = <0x100000>, <0x100000>, <0x100000>, <0x100000>;
++		};
++	};
++};
++
++&pcie0_rc {
++	status = "disabled";
++};
++
++&pcie1_rc {
++	status = "disabled";
++};
++
++&cbass_main {
++	#address-cells = <2>;
++	#size-cells = <2>;
++	interrupt-parent = <&gic500>;
++
++	pcie0_ep: pcie-ep@2900000 {
++		compatible = "ti,j784s4-pcie-ep";
++		reg = <0x00 0x02900000 0x00 0x1000>,
++		      <0x00 0x02907000 0x00 0x400>,
++		      <0x00 0x0d000000 0x00 0x00800000>,
++		      <0x00 0x10000000 0x00 0x08000000>;
++		reg-names = "intd_cfg", "user_cfg", "reg", "mem";
++		interrupt-names = "link_state";
++		interrupts = <GIC_SPI 318 IRQ_TYPE_EDGE_RISING>;
++		max-link-speed = <3>;
++		num-lanes = <4>;
++		power-domains = <&k3_pds 332 TI_SCI_PD_EXCLUSIVE>;
++		clocks = <&k3_clks 332 0>;
++		clock-names = "fck";
++		max-functions = /bits/ 8 <6>;
++		max-virtual-functions = /bits/ 8 <4 4 4 4 0 0>;
++		dma-coherent;
++		phys = <&serdes1_pcie0_link>;
++		phy-names = "pcie-phy";
++		ti,syscon-pcie-ctrl = <&pcie0_ctrl 0x0>;
++	};
++
++	pcie1_ep: pcie-ep@2910000 {
++		compatible = "ti,j784s4-pcie-ep";
++		reg = <0x00 0x02910000 0x00 0x1000>,
++		      <0x00 0x02917000 0x00 0x400>,
++		      <0x00 0x0d800000 0x00 0x00800000>,
++		      <0x00 0x18000000 0x00 0x08000000>;
++		reg-names = "intd_cfg", "user_cfg", "reg", "mem";
++		interrupt-names = "link_state";
++		interrupts = <GIC_SPI 330 IRQ_TYPE_EDGE_RISING>;
++		max-link-speed = <3>;
++		num-lanes = <2>;
++		power-domains = <&k3_pds 333 TI_SCI_PD_EXCLUSIVE>;
++		clocks = <&k3_clks 333 0>;
++		clock-names = "fck";
++		max-functions = /bits/ 8 <6>;
++		max-virtual-functions = /bits/ 8 <4 4 4 4 0 0>;
++		dma-coherent;
++		phys = <&serdes0_pcie1_link>;
++		phy-names = "pcie-phy";
++		ti,syscon-pcie-ctrl = <&pcie1_ctrl 0x0>;
++	};
++};
 -- 
-Maud Spierings <maudspierings@gocontroll.com>
-
+2.34.1
 
 
