@@ -4,99 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 086D3C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 18:12:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCABAC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 18:13:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rG1C6cXlzhh7ZHVodv74JTH3XP7VRDVgNV9VI18sWQA=; b=B959ApAY6c7Q9Ko9iN1VqxT3us
-	rOgYMvYLopYHVRFx+9n2GajclJiYdjkAijeNVpGbo376EX/MljruK3+fWVrQbI4QmvR3y4f3mHeeF
-	JYS4eXYGXqRf3iSU55+xRXLL/Ia1b2U0p78G/dgOz3L4nLh0miIdRVcRCxEeiFYYoYVXQwjTYjooj
-	W4C529juwGCp+2N9xuW63rP0ANzSgewnVM58SFJ+3xWOMxX/0CtHmSRnTmMQSVSiZXYjXCL0xCn5q
-	359AtTpZ4NSbJPWZbQ97mFc3pOKpsZe+riMzbxiONqb/WSJB5fn1z5m+fwRvqMxW3hTqy4b5tgm2V
-	H3x+MVUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V/V8Jj9rYZChtFzsP4NciMXPlW80o7eEp6Sp5AawXIs=; b=FxySMp4i5EvP8xIFlbZKOnGmEu
+	tRj8/qGYKE0r5v2cAY975C85dqiR5fXeYHeFpJvftClkoK6+82PdSBzgOksYncm8UiRQ+iplnG1fM
+	CSO2nnIIrm6QFmorQ2CK5MDJXJheBbW9uIxWAZEkitIU8NavUtFPBvmtvIhVj5NC4/JpI2wnSDsum
+	v0siEWJCkmuE+gme7Zo0S0Zx41/LzkT503RhRFiU3KDEeED5Wleb6O4uwKs4qNfkMxul8+I+AK6GG
+	efsDG4l8OTjn05fH+uqGnhsX3invlOuUWT9+jyHmUKhPM6eSPHD6mMqMXJ0DQHHxKW8pIxgrs9v+2
+	JYbLWk0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnLtC-00000004s84-1nsF;
-	Wed, 26 Feb 2025 18:12:10 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1tnLuk-00000004stD-2QXl;
+	Wed, 26 Feb 2025 18:13:46 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnLrV-00000004qpm-3E6P
+	id 1tnLrx-00000004rJL-3DNB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 18:10:27 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51QFHewT022188;
-	Wed, 26 Feb 2025 19:10:15 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	rG1C6cXlzhh7ZHVodv74JTH3XP7VRDVgNV9VI18sWQA=; b=3yKEGCAk+JFFurwh
-	A/VoQvxQfCKgGyaGnzIscwH3s+avLqtQF9jyGAM7Q8HJo1+YCqdsXZAMdn8BP6u/
-	CeXYiF+QLc6DLfZWZr0z2+xXkt5/4va74qko67jNOQgFE6cDu8BFXGe+0EmG7kSY
-	cTEDQGf4LYCbfka9Mb/BNB7kEMSiZon8GDaI0vs3xl8EZtCv4EiqcP1gjNirbfk2
-	qWlBZj0kXIRiWf8ZTnl0oKuRrc/VFvJ4rDL7FbLciaLu+5Xcv16F26YZY2+P5bAe
-	6zbx1fpBdjFOxQQruEsjc5SyOeM+AMyApBDu9C1ch9uB4RUvlydBagM5dlqsKkat
-	06y4xA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 451psrea92-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 26 Feb 2025 19:10:14 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 86625400C8;
-	Wed, 26 Feb 2025 19:09:05 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 10BB54FF132;
-	Wed, 26 Feb 2025 17:54:13 +0100 (CET)
-Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 26 Feb
- 2025 17:54:12 +0100
-Message-ID: <248f63ff-b6ec-4f58-8a96-7aee2fcd6038@foss.st.com>
-Date: Wed, 26 Feb 2025 17:54:11 +0100
+	Wed, 26 Feb 2025 18:10:58 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5e0373c7f55so7958a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 10:10:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1740593452; x=1741198252; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=V/V8Jj9rYZChtFzsP4NciMXPlW80o7eEp6Sp5AawXIs=;
+        b=RoyMvI/0ry4WnjpdZEt72BNhHi699maajjasqYrZPo42+X2hFfeslsMjfTfHbSy6nH
+         aexeDhhBxInL/TLF7dpO6O0HazhPtRsaGw47LI3fxrVXQK8n+GlguOLiRUgbgJJV5/Z/
+         fvp1lr4/sH6g2WegIM6hhs1EnwX2U4+pnSjMF5oL4aEJV26nptdOBmy59TG6uQYgbbrZ
+         PUhHo/+nwgZSQDKGwvp/paiJ//mblfJdJ71B/Sr6cczQY5N7VWIFFF8t4D+Paqnd2mZb
+         IuCp6J7h56+Q7qdpob62yqcQeHp1unmpO6UcFaz53afMNXCAcDhzMGNL+3IXCuGA4r33
+         KedQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740593452; x=1741198252;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=V/V8Jj9rYZChtFzsP4NciMXPlW80o7eEp6Sp5AawXIs=;
+        b=QGO4gAXaKZpYTJikwXI+e7zqwv/3Pj53BKM/e8JnBzmoW/la2ze6rEumWK0S7nvS84
+         wRs6l74u7+lvWuunSLdjrILNYCeVDbJPY17qISxg/5lMXGgzeBZxow0r3tqSUdehOPBo
+         LiSSzzvH+2exJfOSx8/tUQgei30uOTyNLL0xLMNeWG3FRgC29nvcc5cLxGtlgV8Ppo/I
+         54Boi1IAXojnREJmeV0AcCle3irBI3YHgKVBvOLWkvWzpZnmoUyHZLiM4s51pGmPyEGu
+         537vQYRKKJdhVSccX+i1DADWaaY3EnswCN44wuhN8V0DowvbdEtFyBImKbo6RojJtlnB
+         aiZw==
+X-Forwarded-Encrypted: i=1; AJvYcCV3t9tbBfe4o39QOLyEBLQUVBLg1u9HI5MHsnTMfENFMqz23wxY7DzB7EdZMCYa/nIHCYE9Exz+tZJ82wIe0oYr@lists.infradead.org
+X-Gm-Message-State: AOJu0YxB1n9j+H3X6aYjjU0/15oV7jaP2zM7kI3UjSPCJ6GBA8vNWmlQ
+	x8VDPHNYHE65DMc5aoDFxeKM5RwgkhOE5AtPRIWphjHEOtzOtlV2nRSokRfdkg==
+X-Gm-Gg: ASbGncviK7HSmLcF9VRgByiSPwgs8wg591tu3CZUTyagRtxSII4dCEOllOBgLkfdX+7
+	ZqKQI8N6r2Z1CSrtOL4MqXcFT0NdwA3EFf79aJ5OHcl1KDquuOBeTlVKKU17F2B7a4VjJ683eMx
+	THkl+bq+8MzGc5ykXkNRQer0o5G9aKLmWlmuXTH0ieuMBoLBkX0Q4gmJHpJyT7hayxfjQy++4gh
+	MMpbkT20qXO62dpI3RJCJlQ3CDtdNqcnMzD9XRbuW+1xyC/YN4BHqVPu2ZpaqCwgYssNE6JrA3+
+	Ym2+eILQB7qL1nRYYGkGR3uDVMjpJ6Z3oFnijotIMNlu/xZkGk0XxnjKV6n9ec0=
+X-Google-Smtp-Source: AGHT+IFSemQuFVxhcR1OJIBHEWyJQf2Hjrc2hP3J/LbxvQX6+WX1I3uywZ6yJMAv4hfkJ2aaAYgxNQ==
+X-Received: by 2002:a05:6402:501a:b0:5de:a6a8:5ecc with SMTP id 4fb4d7f45d1cf-5e4a0d490aamr5970613a12.5.1740593451852;
+        Wed, 26 Feb 2025 10:10:51 -0800 (PST)
+Received: from google.com (229.112.91.34.bc.googleusercontent.com. [34.91.112.229])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e45a8b8c4esm3155601a12.26.2025.02.26.10.10.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 26 Feb 2025 10:10:50 -0800 (PST)
+Date: Wed, 26 Feb 2025 18:10:45 +0000
+From: Quentin Perret <qperret@google.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/4] KVM: arm64: Selftest for pKVM transitions
+Message-ID: <Z79ZJVOHtNu6YsVt@google.com>
+References: <20250225015327.3708420-1-qperret@google.com>
+ <20250225015327.3708420-4-qperret@google.com>
+ <867c5crd2j.wl-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/9] ARM: dts: stm32: add Hardware debug port (HDP) on
- stm32mp25
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-        Clement LE GOFFIC
-	<clement.legoffic@foss.st.com>,
-        Linus Walleij <linus.walleij@linaro.org>,
-        Rob
- Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor
- Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Bartosz Golaszewski <brgl@bgdev.pl>
-CC: <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250225-hdp-upstream-v1-0-9d049c65330a@foss.st.com>
- <20250225-hdp-upstream-v1-7-9d049c65330a@foss.st.com>
- <418a80a9-8c08-4dd1-bf49-1bd7378321aa@kernel.org>
- <b257aa79-6ca9-4f57-988a-ec00225992ab@foss.st.com>
- <b57e3c9e-244e-435b-8a7b-cf90f3a973b3@kernel.org>
- <988667a4-4bc0-4594-8dfd-a7b652b149b2@foss.st.com>
- <55beb3e7-65ac-4145-adae-fb064378c78d@kernel.org>
- <8cdc7e52-f9e2-4fc9-be68-0dd72a25ee1b@foss.st.com>
-Content-Language: en-US
-In-Reply-To: <8cdc7e52-f9e2-4fc9-be68-0dd72a25ee1b@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-26_04,2025-02-26_01,2024-11-22_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <867c5crd2j.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_101026_400462_23DD774F 
-X-CRM114-Status: GOOD (  17.48  )
+X-CRM114-CacheID: sfid-20250226_101053_844779_E4DCD211 
+X-CRM114-Status: GOOD (  24.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,66 +102,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2/26/25 16:30, Alexandre TORGUE wrote:
+On Wednesday 26 Feb 2025 at 14:32:52 (+0000), Marc Zyngier wrote:
+> On Tue, 25 Feb 2025 01:53:26 +0000,
+> Quentin Perret <qperret@google.com> wrote:
+> > 
+> > We have recently found a bug [1] in the pKVM memory ownership
+> > transitions by code inspection, but it could have been caught with a
+> > test.
+> > 
+> > Introduce a boot-time selftest exercising all the known pKVM memory
+> > transitions and importantly checks the rejection of illegal transitions.
+> > 
+> > The new test is hidden behind a new Kconfig option separate from
+> > CONFIG_EL2_NVHE_DEBUG on purpose as that has side effects on the
+> > transition checks ([1] doesn't reproduce with EL2 debug enabled).
 > 
-> 
-> On 2/26/25 16:08, Krzysztof Kozlowski wrote:
->> On 26/02/2025 10:33, Alexandre TORGUE wrote:
->>>>>>> +        hdp: pinctrl@44090000 {
->>>>>>> +            compatible = "st,stm32mp-hdp";
->>>>>>
->>>>>> So here again - you have stm32mp251 SoC, but use entirely different
->>>>>> compatible.
->>>>>
->>>>> Ok so I will use "st,stm32mp15-hdp"
->>>>
->>>>
->>>> This means this is stm32mp15 SoC. I do not see such SoC on list of your
->>>> SoCs in bindings. What's more, there are no bindings for other SoC
->>>> components for stm32mp15!
->>>
->>> Yes stm32mp15 is not a "real SoC". I agree that at the beginning of the
->>> STM32 story we didn't have a clear rule/view to correctly naming our
->>> compatible. We tried to improve the situation to avoid compatible like
->>> "st,stm32", "st,stm32mp" or "st,stm32mp1". So we introduced
->>> "st,stm32mp13", "st,stm32mp15" or "st,stm32mp25" for new drivers. So yes
->>> it represents a SoC family and not a real SoC. We haven't had much
->>> negative feedback it.
->>>
->>> But, if it's not clean to do it in this way, lets define SoC compatible
->>> for any new driver.
->>
->> Compatibles are for hardware.
->>
->>> For the HDP case it is: "st,stm32mp157" and used for STM32MP13,
->>> STM32MP15 end STM32MP25 SoC families (if driver is the same for all
->>> those SoCs).
->>
->> No, it's three compatibles, because you have three SoCs. BTW, writing
->> bindings (and online resources and previous reviews and my talks) are
->> saying that, so we do not ask for anything new here, anything different.
->> At least not new when looking at last 5 years, because 10 years ago many
->> rules were relaxed...
-> 
-> So adding 3 times the same IP in 3 different SoCs implies to have 3 
-> different compatibles. So each time we use this same IP in a new SoC, we 
-> have to add a new compatible. My (wrong) understanding was: as we have 
-> the same IP (same hardware) in each SoC we have the same compatible (and 
-> IP integration differences (clocks, interrupts) are handled by DT 
-> properties.
+> That's a bit annoying, isn't it? Without EL2_DEBUG selected, you won't
+> get any stacktrace, and the WARN_ON()s are a guaranteed panic. Yes,
+> this is better than nothing, but I'm a bit worried this is going to be
+> hard to use.
 
-Just to complete, reading the Linux kernel doc, as device are same we 
-will use fallbacks like this:
+Right, so you _can_ enable EL2_DEBUG on top of the selftest stuff, and
+if you're not hitting one of those hard-to-find bugs described in the
+commit message above, then you're golden. In practice I suspect that if
+enabling the selftest alone leads to a panic, the next logical step is
+to enable EL2_DEBUG and see what you get. If enabling EL2_DEBUG makes
+the issue go away, then that'll require digging a bit deeper, but that
+should be pretty rare I presume.
 
-MP15: compatible = "st,stm32mp151-hdp";
-MP13: compatible = "st,stm32mp131-hdp", "st,stm32mp151-hdp";
-MP25: compatible = "st,stm32mp251-hdp", "st,stm32mp151-hdp";
+> Is there a way to reduce the impact the EL2 debug has on the rest of
+> the code? It feels like it is more invasive than it should be...
 
-> 
->>
->>
->> Best regards,
->> Krzysztof
+Turns out I have a WiP series that moves the hypervisor ownership state
+to the hyp_vmemmap, similar to what we did for the host ownership. A
+nice property of that is that hyp state lookups become really cheap, no
+page-table walks required. So we could probably afford to drop the
+EL2_DEBUG ifdefery in host_share_hyp() and friends, and just
+unconditionally cross-check the hyp state on all transitions where it is
+involved. And with that we should probably just fold the pkvm selftest
+under EL2_DEBUG and call it a day. Would that work?
+
+Thanks,
+Quentin
 
