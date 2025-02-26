@@ -4,72 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D584C282C1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:22:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A928EC18E7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:22:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=G1DsQ8xw/CbJlnE26e47lsHv8AyG3/Yu1byV8dq/fhY=; b=dU3ISe8IVmrMOYSU6imI2qG6yE
-	5tyAnIFa0ElWK/kR8aBaQeN4/8/VAB6yHUwiae0wJecPOo8oEkci8D0b1D4hvhn2jmcg0HyWc+0xH
-	YoH//GL7uFfu+fBMnCSPp6hW55SclPz8V/8WoXOrbtWhn10WI/8Y3djjCPk/9T1uo2nqymS8Yk2G6
-	Y+vUVwat3HlXim1gHUXkRIPnnKy3r3qpPTPxSpB3CRtDRwJixyhX4H+trAhN+KsB9quvrHhPLmtpz
-	nWxOeQIiP3pDv94JGEiMohZYbYbukTUAdF2kRSVU40c76ZMXiutPZxHxV3IV0KbQ73OXzvlOH1rLJ
-	XP4QgPSg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AXCtVMVLtHFloM7MmQTKaoaBtuJFJltHQU9JiAMmMWk=; b=32dh+jreBbSMoMRdXd1gcRX8yo
+	yHccuBiYGQTtnYUghMSiJAwySSs8e/w5+64/w7KX27Iy0XzL/Oywu5h0giNuRSBFfROWUEiV2cbqf
+	EcT9eQn1cX/S/hhG4lVXk8K7vZdi9KNoF2uphRo2eSveOhXNZDXLO3vxR+UbNRXfbsNLRTzjPNZZ5
+	QQVrlUCuteh+FZW8doE14ptpsCbLfBi8iYmpkaBZusIRCMCcoMNIhnHwfMORxDKHu13qBSO0sc7ro
+	mDwQNTKjEmlJOvWma3WPvqkYUAKf2Xp9+8s/xxC9npJ5mP+PeQjO7f7JdxKuBZQWNBl5rF/w2pw0I
+	ptKWclww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJEv-00000004FSo-3Geg;
-	Wed, 26 Feb 2025 15:22:26 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnIIH-000000043fE-2Ig0
+	id 1tnJEx-00000004FWR-2oPw;
+	Wed, 26 Feb 2025 15:22:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnIN7-000000044oP-40WU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 14:21:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=G1DsQ
-	8xw/CbJlnE26e47lsHv8AyG3/Yu1byV8dq/fhY=; b=b9R/2bqED/xY7w5nVSLAw
-	9l9GF6Uf30+u9FHRoc8pgM2NYUsEG0LzNIBRoGu2ODaHN0ede47vEvmVdNsQ7SpV
-	tGVVbPLlPPIQVDpyKl2dA2M5qNINFRP9BemySV0mRBHnUHlOAi/fY5vxzNiOpEJe
-	4DcWLN2bot18n+BJP1vP3U=
-Received: from icess-ProLiant-DL380-Gen10.. (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wAHpyRoI79nVfm6Ow--.12430S4;
-	Wed, 26 Feb 2025 22:21:30 +0800 (CST)
-From: Haoxiang Li <haoxiang_li2024@163.com>
-To: slongerbeam@gmail.com,
-	p.zabel@pengutronix.de,
-	mchehab@kernel.org,
-	gregkh@linuxfoundation.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	hverkuil@xs4all.nl
-Cc: linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Haoxiang Li <haoxiang_li2024@163.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] media: imx: fix a potential memory leak in imx_media_csc_scaler_device_init()
-Date: Wed, 26 Feb 2025 22:21:26 +0800
-Message-Id: <20250226142126.3620482-1-haoxiang_li2024@163.com>
-X-Mailer: git-send-email 2.25.1
+	Wed, 26 Feb 2025 14:26:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7ED16612B5
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 14:26:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3643C4CEEB
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 14:26:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740580009;
+	bh=y3IqYf4h8z56HMq1u4QOXDpo2lerEGe/MyAJAgUvtE4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Y3BTg4ZnHmreh6smT8aoN1Ni2N5swrAc0/YGSMNKgGe3uR9C9/Kg57fTWg5A/C8Ot
+	 c40AMaY4kSp+dPc5HK84o9hzSsphiium6fn0eiDJfeSJ70cA2P4O4m6q0s6mrj/U7K
+	 t4vYS30jst6MmScs3jONjUU85/h5Ey66vntYUGxuV9HEP7WAS5AH4Aw8e5MhizhYzt
+	 Oekiz5dxVZjrnvxz3p0mN5ELlto1beh+OS5m2sKOw1Zlod6jqNKO7BzHl/q2fDlY0T
+	 Z9QJiofDQtTJxJ0ORJ3OaKBFBht4I5ych1ur+pt9pJs9NEBv0S5SGDppyVfK4R8Ehz
+	 K8fwMeL2Jphog==
+Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-5deb1266031so12449212a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 06:26:48 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWervllDvXwQK65vTWyyclpyGBnjfD3h4EYI0VY8CHrqzgo0I0V9jNttmlAZjR5V5/i7fY1UqCtyqrOuGIoHYGE@lists.infradead.org
+X-Gm-Message-State: AOJu0YwumWIdAr1BN5qCRhwMlMJKqyFWE2aNlEmeuEkKdMwepXrpaX/r
+	QbOYAG3CilHh169EAOU3SOmSCWWIZtMLrB6MhqGJ2hVuxKyRrGJcafnVnpoe2ermWirpeExwd5f
+	h++6JFd37Eb3DTA9WvB02WkT8cw==
+X-Google-Smtp-Source: AGHT+IFEgOvjT9GpNU3OvYcUgyXe7iQDfeTtmoajh3myllmUAgDUnbQ1OhXtxtPL0zlFSh5JV1Fe7myngUVyVm9/Sos=
+X-Received: by 2002:a05:6402:280d:b0:5e4:a88a:64e with SMTP id
+ 4fb4d7f45d1cf-5e4a88a0790mr2752017a12.5.1740580007445; Wed, 26 Feb 2025
+ 06:26:47 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wAHpyRoI79nVfm6Ow--.12430S4
-X-Coremail-Antispam: 1Uf129KBjvdXoWrtF17Wr1rWw15ZrWDWFy3urg_yoWfZFX_CF
-	4vgryxXrWjk393t3WYyF18Z34Sqrs29rWFq3Z0va95WFWjya4avr4qvwsYq3yjgrWS9F9x
-	Ar1rJr13Kr92kjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sRuBTYDUUUUU==
-X-Originating-IP: [183.174.60.14]
-X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/1tbiqB4Abme-HD3S3gAAst
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_062149_947268_BF7963A0 
-X-CRM114-Status: UNSURE (   6.88  )
-X-CRM114-Notice: Please train this message.
+References: <20250218-arm-brbe-v19-v20-0-4e9922fc2e8e@kernel.org>
+ <20250218-arm-brbe-v19-v20-11-4e9922fc2e8e@kernel.org> <20250224122507.GE8144@e132581.arm.com>
+ <CAL_Jsq+0fZ2uasgAam7qGTdCeDBQxXeyL-J1_suyxy6GE_ERTg@mail.gmail.com>
+ <20250224140317.GF8144@e132581.arm.com> <Z7yY19UtSnND5KTl@J2N7QTR9R3.cambridge.arm.com>
+ <20250224180301.GI8144@e132581.arm.com> <Z72xMLsd37I6X_5-@J2N7QTR9R3>
+ <20250225174803.GB1821331@e132581.arm.com> <Z74g2vUT9-KtlIvo@J2N7QTR9R3.cambridge.arm.com>
+ <20250226134813.GC1821331@e132581.arm.com>
+In-Reply-To: <20250226134813.GC1821331@e132581.arm.com>
+From: Rob Herring <robh@kernel.org>
+Date: Wed, 26 Feb 2025 08:26:35 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqJL_oqL2XwEiqMCz1KjYX8SwN3N+GkUBpVxKPc9GExh7A@mail.gmail.com>
+X-Gm-Features: AQ5f1JqVAYg5qWj8-HHEGM0Q9ABD1QuYj5lJjYU40vjoEH_p54d6zfRA82nKqok
+Message-ID: <CAL_JsqJL_oqL2XwEiqMCz1KjYX8SwN3N+GkUBpVxKPc9GExh7A@mail.gmail.com>
+Subject: Re: [PATCH v20 11/11] perf: arm_pmuv3: Add support for the Branch
+ Record Buffer Extension (BRBE)
+To: Leo Yan <leo.yan@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	James Clark <james.clark@linaro.org>, Anshuman Khandual <anshuman.khandual@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	kvmarm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,29 +93,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add video_device_release() in label 'err_m2m' to release the memory
-allocated by video_device_alloc() and prevent potential memory leaks.
+On Wed, Feb 26, 2025 at 7:48=E2=80=AFAM Leo Yan <leo.yan@arm.com> wrote:
+>
+> On Tue, Feb 25, 2025 at 07:58:18PM +0000, Mark Rutland wrote:
+> > On Tue, Feb 25, 2025 at 05:48:03PM +0000, Leo Yan wrote:
+> > > On Tue, Feb 25, 2025 at 12:01:52PM +0000, Mark Rutland wrote:
+> > >
+> > > [...]
+> > >
+> > > > > > Critically, the brbe_enable() function merges the filters of al=
+l
+> > > > > > *active* events which have been installed into hardware. It doe=
+s not
+> > > > > > track all events which can be rotated, and the resulting filter=
+ is not
+> > > > > > the same -- it can change as a result of rotation.
+> > > > >
+> > > > > In a perf session has multiple events, and events have different =
+branch
+> > > > > filters, seems to me, a simple way is to return error for this ca=
+se.
+> > > >
+> > > > FWIW, I'd generally prefer to do that since it avoids a number of
+> > > > horrible edge-cases and gets rid of the need to do SW filtering, wh=
+ich
+> > > > falls somewhere between "tricky" and "not entirely possible". Howev=
+er,
+> > > > that's not what LBR and others do, which is why we went with filter
+> > > > merging.
+> > > >
+> > > > If folk on the tools side are happy with the kernel rejecting
+> > > > conflicting events, then I'd be more than happy to do that. What I =
+don't
+> > > > want is that we start off with that approach and people immediately
+> > > > start to complain that the BRBE driver rejects events that the LBR
+> > > > driver accepts.
+> > > >
+> > > > See the last time this came up.
+> > >
+> > > Thanks for the shared links.  Based on the info, let's say we can hav=
+e two
+> > > cases:
+> > >
+> > >   Case 1: set different branch filters in a single perf session:
+> > >
+> > >     perf record -e armv8_pmuv3_0/r03,branch_type=3Dany_call/u \
+> > >                 -e armv8_pmuv3_0/r04,branch_type=3Dany_ret/k ...
+> > >
+> > >   Case 2: set different branch filters in multiple perf sessions:
+> > >
+> > >     perf record -e armv8_pmuv3_0/r03,branch_type=3Dany_call/u ...
+> > >
+> > >     perf record -e armv8_pmuv3_0/r04,branch_type=3Dany_ret/k ...
+> > >
+> > > In my previous reply, I was suggesting that we should reject the case=
+ 1.
+> >
+> > Do you mean that the kernel should reject that, or that userspace shoul=
+d
+> > reject that.
+>
+> For the case 1, the userspace can reject it as it has sufficient info to
+> detect mismatched filters by iterating event list.
+>
+> > As mentioned earlier, I am ok with the idea that we reject *scheduling*
+> > events with mismatched filters, as we do for other resource conflicts.
+> > That would necessarily mean rejecting *groups* of events with
+> > inconsistent filters at open time.
+>
+> This rejects the case 2 in the PMU driver.
+>
+> > However, I do not think that we should reject indepenent events which
+> > happen to have mismatched filters, regardless of whether they're opened
+> > by the same "session".
+>
+> Can I understand "independent events" are events that are not in a event
+> group?
 
-Fixes: a8ef0488cc59 ("media: imx: add csc/scaler mem2mem device")
-Cc: stable@vger.kernel.org
-Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
----
- drivers/staging/media/imx/imx-media-csc-scaler.c | 1 +
- 1 file changed, 1 insertion(+)
+Yes. The BRBE code has no concept of groups either.
 
-diff --git a/drivers/staging/media/imx/imx-media-csc-scaler.c b/drivers/staging/media/imx/imx-media-csc-scaler.c
-index e5e08c6f79f2..f99c88e87a94 100644
---- a/drivers/staging/media/imx/imx-media-csc-scaler.c
-+++ b/drivers/staging/media/imx/imx-media-csc-scaler.c
-@@ -913,6 +913,7 @@ imx_media_csc_scaler_device_init(struct imx_media_dev *md)
- 
- err_m2m:
- 	video_set_drvdata(vfd, NULL);
-+	video_device_release(vfd);
- err_vfd:
- 	kfree(priv);
- 	return ERR_PTR(ret);
--- 
-2.25.1
+> If independent events can have mismatched filters, the PMU driver can
+> activate them simultaneously, this means the BRBE driver needs to merge
+> the branch filters.  If so, I still see the complexity caused by this
+> case.
 
+That's exactly what the driver does. It's not even that complex. We
+have the BRBFCR and BRBCR register values for each event and just have
+to OR them together for the enabled events. For filtering we just
+compare each branch record to a mask of the enabled branch types for
+the event.
+
+> > > IMO, it is not quite useful to configure different filters for events=
+ in
+> > > the same session, especially if this leads complexity in the driver d=
+ue
+> > > to the hardware limitation.
+> >
+> > I generally agree, but IIRC userspace does this today.
+> >
+> > > For case 2, when create a new session, if the perf tool can read out =
+the
+> > > current branch filter setting (e.g. via sysfs node) and give suggesti=
+on
+> > > what branch filter is compabile with existed sessions, seems to me, t=
+his
+> > > is a feasible solution.  My understanding this is a rare case, and a
+> > > clear guidance for users would be sufficient if this happens.  (Maybe
+> > > we can give recommendation for how to use BRBE in the perf doc).
+> >
+> > No. We are not going to expose *dynamic* information about the PMU
+> > hardware via sysfs. This is not as simple as you make it out to be.
+> > At any point in time there can be an arbitrary number of events open,
+> > and some arbitrary subset currently scheduled.
+>
+> If so, the perf tool will miss info for checking the existed branch
+> filter and defer to handle the mismatched filter error until the
+> kernel reports the issue.
+>
+> > I agree that ideally this should be rare, though, and hence either of
+> > the two options I have suggested thus far should handle that acceptably=
+.
+> >
+> > > To be clear, an important factor is the trace modes with modifier 'u'
+> > > (user) and 'k' (kernel) should be supported for different events and =
+for
+> > > different sessions.  In a mixed cases (some events are userspace only
+> > > and some are kernel only), the BRBE driver needs to filter out branch
+> > > records for specific mode when taking a sample.
+> >
+> > I hate to repeat myself, but the driver has *no concept whatsoever* of =
+a
+> > "session". It only knows:
+> >
+> > * Which events are currently active in hardware.
+> >
+> > * Which events have been grouped together.
+> >
+> > * Which events have been opened for a given task or CPU context.
+> >
+> > ... and *NONE* of those correspond directly to a "session" managed by
+> > the userspace perf tool.
+>
+> Sorry for that.  After your reminder, I understood that the PMU driver
+> has no knowledge for perf session.
+>
+> The description above does not refer to perf session.  As you said, the
+> PMU driver has its own context to track active events, and it is
+> possible that some active events might trace only user mode while others
+> trace only kernel mode.  In this case, BRBE needs to be enabled for both
+> user and kernel modes.  When capturing samples, the BRBE driver needs to
+> filter out branch records based on a specific event for its
+> corresponding mode.
+
+That's exactly what the driver does.
+
+> For better understanding, though we don't allow mismatched filters, I
+> still think we should set both E0BRE and ExBRE bits if there are
+> multiple active events with different modes.
+
+That's exactly what the driver does.
+
+> [...]
+>
+> > > I haven't done any experiments for this. If you think this is the way
+> > > to move forward, I might do a prototype and get back to you to ensure=
+ we
+> > > don't run into any unexpected issues.
+> >
+> > What specifically are you proposing to prototype?
+>
+> I mean, in Linux perf, we can add code to check branch filters for
+> opened events when creating a session and report an error for
+> mismatching filters.  I would suggest we implement it specifically
+> for Arm64 to avoid dispute with other archs.
+
+There's not really any such thing as mismatching filters. There's no
+mutually exclusive filters. The only effect having multiple events
+enabling branch stack is you might run out of branch records sooner. A
+CPU with a minimal number of branch records is going to have a similar
+problem as will just enabling all branches on a single event. There's
+not any way to fix that other than increasing the number of records or
+adding a mechanism to the architecture to avoid dropping records.
+
+Rob
 
