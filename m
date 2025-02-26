@@ -4,170 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48645C19776
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 17:33:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49449C021BC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 17:34:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jH1gbJqdnymjOjrMZc2TwOxvlhempEA0Xp3dfPhfhv4=; b=K8pdjQIqFSPWHBdWu0DnTojIQT
-	bFswhoR03FXSIRRpb4yz/Fg1NnA2IKQp3k/XkHfHyrY8spCdDl2yUyELNL6Sya27HA+m64BuhZF0b
-	TurZI1AP9XU+6h/IfvcMU93nRhDba7P6kHqmKFLY9dhNenzrI4P7QNdzLpeTzB0hgLojOrsFwXKYw
-	X+VkXQU67wgOUYbfy/mLPYZG5X8X1n9RkTaLVGsZWtC1Y8PLjXk4jtmdeNGTARPHHAa6Azlqel8ZF
-	sdetSXvvOgg3/Sy6FKNUPjS7zBRIjjV4COmMKOOWd6P+1/nrU3f990nrEU4fZrsrAx+hnLswNwNwb
-	RwcWPFfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nUjbFqo2QU1rdCqx9p0fWtYPlF+MFrQBYwjU1X0A1aU=; b=ljqVuRu1FZhObzGOvPZera6CHK
+	qWBWD9KPYt+TW4tPJrOo9CoiuEzlhalhCOVrCstTUZS+sjwdb/kn4VHeMG687MeGGWyRNmlMlE0Nj
+	S+7URPXxd5+F1ukiQ/5PpeIaPv4wxZFt1dEjNgYyQ34yHRq+44EAZ4l2NS441aCZUp6lKrdI+p3vW
+	wDKEDPz+bpHxNoMLYAto4Z/1D+yvziheyZX0JwvhpmZcCqaqSo1VDg4qb0VP3oCrzUejWCPOOZURM
+	cZHS+K4j8fpv6ljj8PTTLsdhtFv0vqwMC6eyZ+oUK0sJC6q+H1C+X2uyMEIvgErAi0LU9JXjFs63+
+	43ReWAyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnLHM-00000004jjY-0vYf;
-	Wed, 26 Feb 2025 17:33:04 +0000
-Received: from mail-mw2nam12on20624.outbound.protection.outlook.com ([2a01:111:f403:200a::624] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1tnLIq-00000004jzW-3COe;
+	Wed, 26 Feb 2025 17:34:36 +0000
+Received: from fout-a4-smtp.messagingengine.com ([103.168.172.147])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnLFo-00000004jaZ-1lsu;
-	Wed, 26 Feb 2025 17:31:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BdRpkyTAxt8cy9294cNCDXczftj8owXylu3PdCuccf73FRo0A5zxuyCgbY0W7ur4zEnnm+ojQ4gLY7kRlTmA2e10mTtzEbauwiU5xnVxpHcQ4EInB6rZEjKk//TWdaxKHph0gquMDNExfF1e7AhjZBx5Mo0BcmH7iXS3tCefWVPWIJRxT1YaQ/RoXDM0IiAmgVRvlJfzKv7zv5fuD0ApFnoy1UbOYfSTtw4i+mLMPmEIox1VawXJmGmzPsTT2M/yEEeu77apAtY7K3UksPUBMVGirGIOywAJNSE6uRLNk/yzqXU5YCeN/KuFmDzWeuRaNl3vesODkTPYHlJjy0pFBg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jH1gbJqdnymjOjrMZc2TwOxvlhempEA0Xp3dfPhfhv4=;
- b=S13NBL71mFkpys/ZN4NpKPcN5LfnAGzYhw+iOoTmAfTi4NbggpjrESwZY3vn4BqHIXIMy05k7OkAWdw+REmYiB+KwWHLwRh3PA2EpWWFBfTiTGkD0O5OFPZF8S8DqKc8paYAWWViRx7HwkXAFTiAJAxkG8jXG6DXCzpKFTTPq92XIKFfHlYvKWCS6xMVRNFmVOXqoChxUmKFRCP1s7xAyjjnIr/wkScjbi43pCduKZ/CT9E06vL41nP7bqV6qGaEuVs0KLhgBsUB90fZBvDr27iIkglAiYiNlSNl0GZfxQ/S1+LG56rnJxmnqkW9lFyeB0TEUnPlf1wXX/5JEm0i3A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jH1gbJqdnymjOjrMZc2TwOxvlhempEA0Xp3dfPhfhv4=;
- b=uCI2GgceAF65vZ2DaZBlzP+u9gwHNhc88gJ0PnhD14fYu6jRNEDZV0uacWbt4WgHgAr7J1gyH0Xo3oXGcAbqW5/un88kA4bRomkUa72nlWdA8WV+qirq1a+dNxUUofaxpBBdxIvP4fVfcaJwVSvWk97T5cps9NFSbCgdibrIDVxRRGVjOpb/7wPwswmYwlp4GmilfqBrPOxQHmRjlvlVC/YXRn2u/c01elfIaqh6oelmG2WDooeW1zyxgcDIyFfPSSb8wcRErcqaMqx1qPE5CShe7TNPa6CojZzgQ3MFkbLVdnQq42CVw2eMMXjZ4iCOmFY/bYJU3fV8zJHw8J6qPQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by MN0PR12MB5762.namprd12.prod.outlook.com (2603:10b6:208:375::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.21; Wed, 26 Feb
- 2025 17:31:22 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8466.016; Wed, 26 Feb 2025
- 17:31:21 +0000
-Date: Wed, 26 Feb 2025 13:31:20 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Baolu Lu <baolu.lu@linux.intel.com>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
-	David Woodhouse <dwmw2@infradead.org>,
-	Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Hector Martin <marcan@marcan.st>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Krishna Reddy <vdumpa@nvidia.com>, Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>, Bagas Sanjaya <bagasdotme@gmail.com>,
-	Joerg Roedel <jroedel@suse.de>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	David Rientjes <rientjes@google.com>,
-	Matthew Wilcox <willy@infradead.org>
-Subject: Re: [PATCH v3 09/23] iommu/pages: Formalize the freelist API
-Message-ID: <20250226173120.GA37280@nvidia.com>
-References: <9-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
- <6d9ceeb5-581e-48e8-a5cc-100a9699a9e8@linux.intel.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6d9ceeb5-581e-48e8-a5cc-100a9699a9e8@linux.intel.com>
-X-ClientProxiedBy: BL1PR13CA0159.namprd13.prod.outlook.com
- (2603:10b6:208:2bd::14) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1tnLFv-00000004jbp-3Bfo
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Feb 2025 17:31:37 +0000
+Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
+	by mailfout.phl.internal (Postfix) with ESMTP id 43EF31380090;
+	Wed, 26 Feb 2025 12:31:34 -0500 (EST)
+Received: from phl-imap-07 ([10.202.2.97])
+  by phl-compute-10.internal (MEProxy); Wed, 26 Feb 2025 12:31:34 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=fm2;
+	 t=1740591094; x=1740677494; bh=nUjbFqo2QU1rdCqx9p0fWtYPlF+MFrQB
+	YwjU1X0A1aU=; b=WM/0LC1UY6lCx1XQ3RQMgiC5qkWp3PQoHg/zMjPgz+8Gq8S0
+	FBenfcrQLGGoc5UF6zmDUP3l5ax0oHuMvWn4NraU7YrxngGwp2oOcZv2UOTxL6mb
+	O9wNmTpGS2PzhF32+3LKfli/5XAP3geTi4ZH6stjuRQMc5qeLCg/wuQuMwV2x8c3
+	aH4CsQa6Itghgtt93uX13spUhBejo1ZsVVsZZLdNhHOXy3TU2Y0wTmdYgXQ+bqZ2
+	JBefG1dr9UPz4Ig3DJGYFgKq4xqjcoCZz1vWwuyr62UyK58tMZMU8NMDyBw4JeS5
+	B7Eq9/dkO8h2qiWkNdUvPwaO47g38WHRdaJy/w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1740591094; x=
+	1740677494; bh=nUjbFqo2QU1rdCqx9p0fWtYPlF+MFrQBYwjU1X0A1aU=; b=t
+	V02rHzgC1pl8ZK+rDnzopS1aXDVwAw3HXJ313o9+R1x6Pz+0dcp6aEzlpRPWYBTD
+	EWyp5iG2UcTRJdF+C00/FzCdJx2+tc6Q9HwgB6SoIRylZqyuVf8LvdGJuERd20WB
+	9fpgaji04rE3N7+xwDAUKQpePeaLrJs2csHEt9/UCw0XPgQ+FORYeKGoi9ByLOdt
+	mCBuskbLWPeSWDzeNegT8kPp6itF+c46gZpz0aemAFuQWeBtqV1rSBiKWq3nbifd
+	LmCFC7FSwtMs8tw/Hl41SXgpt/hcC8pgDx0ZVzHqLPH6WeIXiyuVhJw96/tTOUZU
+	+JUTXr8s5v/L0GUmSDwCQ==
+X-ME-Sender: <xms:9U-_Z55QMmbaue7jPjXhTOPc2yJOxWxGcVdJtDRShFRS1JaB_8pNiw>
+    <xme:9U-_Z25jeFUVG2jM6psDfQiMtLOJbP-HhX1KBmJTmfIaPw-mbaxz7JZVTM67ccVtn
+    uKKftEi6v8ccc7LeGw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdekhedulecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredt
+    tdenucfhrhhomhepfdfuvhgvnhcurfgvthgvrhdfuceoshhvvghnsehsvhgvnhhpvghtvg
+    hrrdguvghvqeenucggtffrrghtthgvrhhnpeelfeetueegudduueduuefhfeehgeevkeeu
+    feffvdffkedtffffleevffdvvdeuffenucevlhhushhtvghrufhiiigvpedtnecurfgrrh
+    grmhepmhgrihhlfhhrohhmpehsvhgvnhesshhvvghnphgvthgvrhdruggvvhdpnhgspghr
+    tghpthhtohepiedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepjhesjhgrnhhnrg
+    hurdhnvghtpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhs
+    rdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheprghsrghhiheslhhishhtshdrlh
+    hinhhugidruggvvhdprhgtphhtthhopehmrghrtggrnhesmhgrrhgtrghnrdhsthdprhgt
+    phhtthhopegrlhihshhsrgesrhhoshgvnhiifigvihhgrdhiohdprhgtphhtthhopehlih
+    hnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:9U-_ZweCX5KzNvhd_NpFBh_R4tdc8bGHGWS51T9n5Ct4tKBpTQiqMg>
+    <xmx:9U-_ZyIT1FZTvA0dG08CxtLhYmTRejfkzuVcFFTmUlnnCY-fbDA3yg>
+    <xmx:9U-_Z9J1GN3EYlpS2kbuxwhhEiIxLmsQ5z9DeMih4_F-cAgjffjR9g>
+    <xmx:9U-_Z7xyw1f3v0lL-nXRwO76DDO9t1sWzdQeD7tvALwEXH2AT_S8xA>
+    <xmx:9k-_Z7i6Koc12ngnRQwYUsJfAY3Ds7vuT0_vRi3o4B_Q3IEoHlXC_q6b>
+Feedback-ID: i51094778:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id A5F55BA006F; Wed, 26 Feb 2025 12:31:33 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|MN0PR12MB5762:EE_
-X-MS-Office365-Filtering-Correlation-Id: 43d944ab-c2da-48a0-2007-08dd568b62e1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?NXHHgZiJbrp1gMHqoEBXavAIUOF1eQl9ydqmE34+bsL/W2ny5ynsi7qllCeA?=
- =?us-ascii?Q?GtWjbjYp9R6LVeuvO1e2VQZ+JkOIQhp/YxJgb3ZMAjh2QPfpqKUphFKxvXes?=
- =?us-ascii?Q?71SwQ1apZQTydisMk/4Zm075F42Jckg2zgj52QkpHRMV1Lx+Tewq4wSTnRpo?=
- =?us-ascii?Q?tHmzCzqP72Olueh+5lqIJ24MWgdcbVReBWGidWr//e46XGCgXY6eMlaid2MW?=
- =?us-ascii?Q?0y8CCOjGwzVcGHfbLR8jNVeInKk9aRzDpSYE0GHyOFVSNWYcdpyaefuPOBsI?=
- =?us-ascii?Q?1Puj2JVq3Te8y50g6BqLSa0+WWZ5sK+BPUt+fLEwD1KqP2RwUSo6gdolLw7L?=
- =?us-ascii?Q?WhwRzr/cGPJRM0PybIRwWIBIUHz7qQnoUVFQgloIwif2Jdww9EdEUMdo4rK7?=
- =?us-ascii?Q?M2S6/I2LTu/KbDpG+Wys8PZ9gRzF1hNM9JcTI1VcRSyUU8nP5FjhleH8+AIR?=
- =?us-ascii?Q?zAmSCBYmvFAnIGPfCnFxRWDz3L5BYuAq+ZuW7IVm9O2P7kiTGLhLxrt8m/jW?=
- =?us-ascii?Q?tZkuAjhkviC/6JZrhU4JVkEH4uCCeU39iz/VT+qhwCU2rGSq7GGdNeutSkwA?=
- =?us-ascii?Q?pkIubFaBeJ/2ZjJBbK4Qy+j4GXC061aRIe/g1gsHpqMbx2/qkwC3YtXAAOCJ?=
- =?us-ascii?Q?L74pBSLI98HZOdafJUh7VEUSGaJa79DiBdFBfpYoAn+bBYbC+hC5PZaQo3+c?=
- =?us-ascii?Q?qhi+IX2doWDDa6+aZhn1x136x0LQVpaN1UmwzT4JvrHABvqdlyMyD+E7o2bG?=
- =?us-ascii?Q?t2Zq0bkkNxrGLmYUPhG0SOcXkGlWh2Hcues06UTTPIiYtvzkldKGx6Tot85d?=
- =?us-ascii?Q?386Pyo7LzkH4vB9OLqtQXYMGWVSVMPiS4QcnyURipykoEj/dJzgEXQoI14XE?=
- =?us-ascii?Q?/YVISMBriD1HQUEwxW1ctLTxYvQRD6KQQPqg4NMQx/G6X7Arc7LEeev1fmsx?=
- =?us-ascii?Q?n7mZAUGSeFxdsCQcC6IeSNHkzhQuE43GlLDvFZFcl4Nb7xGDtNVEk/nXMVz9?=
- =?us-ascii?Q?C41hizLedaE6Ga5GF9R+HdQW+GvpVanREV+xvzHlo8CA0f1MGjDQDK9O/FgR?=
- =?us-ascii?Q?K4of376yZgd3TV90No7L5e/Gh+x7P8zVas1DKRF9XuAQ/blij06HBjH6IJd5?=
- =?us-ascii?Q?rCWX7k8nuCvsi9A8orS2uNCW7DYzhyjEg6E3N3JlkMsx9oErqqH2zVc0+93a?=
- =?us-ascii?Q?1bMBc8oIYxb3wDLg6sOvz88YH15fcM5OlDF+CDtg68D8prmVIMVpNR6U5oRN?=
- =?us-ascii?Q?5L8n8qd3rqrV4PYuO7dMCrPrcamztmMAW+dEgpLewhHE5i0/ZSmbBECj7dMC?=
- =?us-ascii?Q?4c26OIH/IveHZ992TKYOUDubaLCvGLSVxKnAZCSLt31sHqN47OZinEv1LpOC?=
- =?us-ascii?Q?lU4xVSfJlJbW3LEDWZ8VqqLQaUZ8?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aN0ougez7Ze2RQ2ThsiCBuQw5RdF9ZFQ9g30OaznUov4X/frKUSPlGFZ7wYd?=
- =?us-ascii?Q?tR/5P+cIle34ejYphsimlFSXPFi4/M9WQYou9v0fuHIfcf+l+QRdCz7qrMSF?=
- =?us-ascii?Q?QcbTRC+M24nItlKBGUuLtvwCwswPmDGOVImVyyzF/Qyp149BUtlsN5mTHfY5?=
- =?us-ascii?Q?DN7YjmnPTdCCrAUUeJWf02U/ZBOLzRklY1YzXZVFLXEjks9GV1Mz3EJNdJRg?=
- =?us-ascii?Q?JczfjJdqAagBxQrynOZGcHFGt4Lwz6SOg2u+5jzkElFqbOiLXblvVB8P9Oxy?=
- =?us-ascii?Q?6sz5WlJm9rVCyJzBdD6ydwO68XozDqEIL9kZgNHyLxI5gLzciI8Y1VOzN80e?=
- =?us-ascii?Q?zCB3AeMS6S8Qwbd37XodEgfU03I4QcipvAFs18g8zLu5G3M3Aup2PNZzNGWu?=
- =?us-ascii?Q?UEGAOv80Kt1epZoJlWg7ujOr1wfX4He2eHRcuRUwA4cmnfh7tfV3fMUszM+a?=
- =?us-ascii?Q?S6XGOYMvpc8N656Xkp5gO9QqUX6QepDTuZvT4jFVb+trN+/K2NZHk9vcFAFf?=
- =?us-ascii?Q?fV845FWBb+bHHqFrUpe7mjS5NdoqVZjHD8t7VbaSKOi6LPGASBzVaEEEWOxA?=
- =?us-ascii?Q?lAA9z4Lthz97SCmfXUrufSQondt2+YDcCajXdgHIgKrAQyNab9ajzuRiGQ1Y?=
- =?us-ascii?Q?LezjoKivaNa5aVeNSSymptidXrNbYaLLXCmPS2nyWc1BYg4pALKyKboPjrEu?=
- =?us-ascii?Q?ZRaSIEkKRZB+4fA0kOcX4en3K4HbMfqj58QUEfZWPpzWE4wf0OOOGAFVQfFH?=
- =?us-ascii?Q?HCVsfOIIJJI3larWOy8tJz/fTR8o4tJ45mXd5pls/v1G8B0iiF5TBoc+OEZX?=
- =?us-ascii?Q?WC9d5MEhViCaoOb1swBYapNUvIeYV1CO29s7hfoZC1nZLyzotYtCCW+TwCHu?=
- =?us-ascii?Q?BHllmdkcMDeqyH8WO/jrgbfkr9J+nO7Bial8YUZr3ahNauBCq6CqTMX5wPnl?=
- =?us-ascii?Q?cDlIDj3Z3Q5WSQDmunhma0h6uyQ2NFNWh3XU5otu3KlQFVkbZ6SpJmmag5gF?=
- =?us-ascii?Q?G3rvLcGemUzJuljncg/U4cgL/YraQwvdnYYaa1GsXcGBz2JmPkzZpq8qruk+?=
- =?us-ascii?Q?q5f6H5kxb1AqXuJQciDcIMXC/t3fpZ9NLje/Y4jNhDwfAAlu3rJNOss3aGbj?=
- =?us-ascii?Q?zSY5yrRQf2LSLUrEnfH6cdCahMA4n/hwejKUxQBnQZMXSDVm4WUoB2Ekawwd?=
- =?us-ascii?Q?V59anBYa58F4CkZJVbu3begvnSYNDWH5dUDQrCulr0VQLvFG3H/d/BXEmihw?=
- =?us-ascii?Q?x9fk18/l2jz3Dehz8NdPIgbyfda+LUBsuWDhQ9pFViA7XY6qAaVc1M6TSTRs?=
- =?us-ascii?Q?TxoZQ447poPgjT0Tvl9DwHy0zqIdJfKiSVBXWQaSxWLYq70TaIEXuvuA4Dai?=
- =?us-ascii?Q?YGuHDqr8n7tPx6VE993tzZG9d77ws5hEm/4q3sUHlIJslVFtejWVKGDPD1fC?=
- =?us-ascii?Q?T+EOipP8I5lQY3jJvU+n4lLlrJrGIL1596IjzgHdL3UHgvT7KlHSZl4Xx/ul?=
- =?us-ascii?Q?uekdZ9tCoi4onQCVU+5xHSt68pYwVUeOjeld0b7PRhmWtz1bqPk+LC2Yfo/w?=
- =?us-ascii?Q?KKFkGZpBb05q7JtYA9oGXLqEGs99g7POH2VInV4S?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 43d944ab-c2da-48a0-2007-08dd568b62e1
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2025 17:31:21.8251
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BwtldxbYbGJuzpMfqCYLz2rsybrv5Ayk1HZYrB8m6PRQI9h1ZIJPG1+rOQqDlNMq
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5762
+Date: Wed, 26 Feb 2025 18:29:17 +0100
+From: "Sven Peter" <sven@svenpeter.dev>
+To: "Alyssa Rosenzweig" <alyssa@rosenzweig.io>
+Cc: "Janne Grunau" <j@jannau.net>, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ "Hector Martin" <marcan@marcan.st>
+Message-Id: <dfef22a5-1f36-403b-99c4-2d910a38f9ea@app.fastmail.com>
+In-Reply-To: <Z79JyhOQUI_LV4oV@blossom>
+References: <20250222-apple-soc-misc-v1-0-1a3af494a48a@svenpeter.dev>
+ <20250222-apple-soc-misc-v1-2-1a3af494a48a@svenpeter.dev>
+ <Z7y14Q3ifu7U1tHI@blossom>
+ <63c5cbfe-4751-4409-9be7-2fda21b09503@app.fastmail.com>
+ <Z79JyhOQUI_LV4oV@blossom>
+Subject: Re: [PATCH 2/4] soc: apple: rtkit: Implement OSLog buffers properly
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_093128_463172_EA6CBE23 
-X-CRM114-Status: GOOD (  19.34  )
+X-CRM114-CacheID: sfid-20250226_093135_955326_6DC81484 
+X-CRM114-Status: GOOD (  23.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,49 +116,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 26, 2025 at 02:56:29PM +0800, Baolu Lu wrote:
-> On 2/26/25 03:39, Jason Gunthorpe wrote:
-> > diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-> > index 38c65e92ecd091..e414951c0af83f 100644
-> > --- a/include/linux/iommu.h
-> > +++ b/include/linux/iommu.h
-> > @@ -326,6 +326,18 @@ typedef unsigned int ioasid_t;
-> >   /* Read but do not clear any dirty bits */
-> >   #define IOMMU_DIRTY_NO_CLEAR (1 << 0)
-> > +/*
-> > + * Pages allocated through iommu_alloc_pages_node() can be placed on this list
-> > + * using iommu_pages_list_add(). Note: ONLY pages from iommu_alloc_pages_node()
-> > + * can be used this way!
-> > + */
-> > +struct iommu_pages_list {
-> > +	struct list_head pages;
-> > +};
-> > +
-> > +#define IOMMU_PAGES_LIST_INIT(name) \
-> > +	((struct iommu_pages_list){ .pages = LIST_HEAD_INIT(name.pages) })
-> > +
-> >   #ifdef CONFIG_IOMMU_API
-> 
-> Any reason why the above cannot be placed in the iommu-pages.h header
-> file? My understanding is that iommu-pages is only for the iommu drivers
-> and should not be accessible for external subsystems.
 
-I wanted to do that, but the issue is the gather:
 
-struct iommu_iotlb_gather {
-	unsigned long		start;
-	unsigned long		end;
-	size_t			pgsize;
-	struct iommu_pages_list	freelist;
+On Wed, Feb 26, 2025, at 18:05, Alyssa Rosenzweig wrote:
+>> >> +	if (ep == APPLE_RTKIT_EP_OSLOG) {
+>> >> +		buffer->size = FIELD_GET(APPLE_RTKIT_OSLOG_SIZE, msg);
+>> >> +		buffer->iova = FIELD_GET(APPLE_RTKIT_OSLOG_IOVA, msg) << 12;
+>> >> +	} else {
+>> >> +		buffer->size = FIELD_GET(APPLE_RTKIT_BUFFER_REQUEST_SIZE, msg) << 12;
+>> >> +		buffer->iova = FIELD_GET(APPLE_RTKIT_BUFFER_REQUEST_IOVA, msg);
+>> >> +	}
+>> >
+>> > The shifts are suspiciously asymmetric. Are we really sure this is
+>> > correct? My guess is that both size & iova for both oslog & buffer need
+>> > to be page-aligned, so all 4 lines should be shifted, and the bit
+>> > offsets should be adjusted in turn, and the lower 12-bits in oslog_size
+>> > and buffer_iova are reserved. But that's just a guess.
+>> >
+>> > Anyway if this logic is really what we want it deserves a comment
+>> > because it looks like a typo.
+>> 
+>> That guess can't be true for syslog since there's no change in behavior here
+>> and the syslog endpoint has been working fine so far. This common code is
+>> also used for other endpoints that request buffers and there haven't been
+>> any issues there either. The size is just passed in "number of 4k chunks"
+>> and the IOVA needs no additional fixups.
+>> 
+>> 
+>> The entire reason for this commit is because this common logic just didn't
+>> work for oslog. Our u-boot fork uses the same logic as used here [1]. We're stealing
+>> a chunk of MTP's SRAM to make hand-off to Linux easier there. If either size or
+>> IOVA was off by a factor 0x4000 this would've never worked in the first
+>> place.
+>
+> I'm not suggesting things are off by a factor of 4k. Rather I'm
+> questioning what the behaviour is when we're not 4k aligned. (I.e.
+> the syslog or oslog buffer does not both start and end at 4k
+> boundaries.)
+>
+> If we're aligned, all our bottom bits are 0, and hypothetically we're
+> putting 0 into "reserved-must be zero" bits.
+>
+> I guess it's inconsequential if everything is 4k aligned in practice.
+> But .. is it? I don't know.
 
-The struct is inlined so it must be declared. I do not want to include
-iommu-pages.h in this header.
 
-Once the struct itself is there it made sense to include the INIT too.
+For the common buffers at least we sometimes _get_ the address from the
+co-processor when it e.g. points to its internal SRAM. We could access any
+buffer aligned to a 4 byte boundary in that case because it's just MMIO
+access then and I'm not even sure how strongly the buffer passed to us will be aligned.
+I'd rather not zero out bits there because we just cannot be sure those really
+are reserved.
+If the co-processor only asks for a buffer we'll grab it using dma_alloc_coherent
+and it's going to be aligned anyway then.
 
-FWIW I have a longstanding desire to split iommu.h into
-internal-driver-facing and external-user-facing files..
 
-Thanks,
-Jason
+For oslog there aren't even any "reserved lower bits" in the message. It really
+expects the down-shifted address on the wire starting at bit 0.
+
+
+
+Sven
+
 
