@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1079C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 19:13:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B93FC19776
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 19:14:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qaSCtLwB02gaMWwhhPJc48F8mHtFuOzBifryg25kIJg=; b=BEuZdSG6NjDODa01JJfkIWpx+z
-	8paoHcHyEi06l/ALj5EsJMWOE/BZ5Pr/rBkVV1cie+fiwFqD8wLHgEb1OtWXHTi4u65CboMqKdrih
-	zwpRmmZTKoDJybbAGv5EZPZNIuGznlOQDyuk1jFnE8jg/1wJi5kOplhxdI1yfJ8jO6YAg2ah34wNX
-	+5oeCrSJAAHCkYI3xpDTTkIU5kHp4348Y8X3g18iflXX/MGJG8WeylTsQKZS9glp7wqv5pTeylE6I
-	QaVOdtxaKP3GCgD5KxZRt0f7GEnD3nRIn8KxLGPbvsZceaFSj/kkkszjvo/BM5hZUCPwwG/JKK5sd
-	Ascv6jRQ==;
+	bh=tw42xid+WUwsyTXO3dfqODQosn1SYPoGt8Yoqu9g61Y=; b=j2tNKs204owZXlneu6xOWM5NGW
+	WCfIfH04pbDIySTJ7dOq0RSSCa4jsCuZFmzNXvNXGarfoU4y7AzYQiwyEq8TN0eR0xiXxt4ErUa5O
+	fOnMV6Ll63Qbwb2+iLCJyA0IpTuFsAjMqiU9LcnTU7G1LNb9YPoHRegtO4vU9mZsoOqIuLezISGFc
+	YDuwwgxbn+1nR0RAY7kXmlnGhs+FI+2zwkVtAalonFyqikpvmW5A+UzbBPe+wBtJZ9zu3PLEqEKam
+	xzskBPxY+E3n95Ukd7ag3//xc4FDiL4qxdVK/n1eKOf9rS57KeXMGr10GovN3+2podKBJgzNLX6dV
+	QN9JOuDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnMpw-000000056na-12Gw;
-	Wed, 26 Feb 2025 19:12:52 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tnMrT-000000057Bu-0hZA;
+	Wed, 26 Feb 2025 19:14:27 +0000
+Received: from out-179.mta1.migadu.com ([2001:41d0:203:375::b3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnMgW-000000055Gw-2Kuw
+	id 1tnMk7-000000055oB-21Y9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 19:03:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 177AB5C74BD;
-	Wed, 26 Feb 2025 19:02:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D290C4CED6;
-	Wed, 26 Feb 2025 19:03:04 +0000 (UTC)
-Date: Wed, 26 Feb 2025 19:03:01 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Steven Price <steven.price@arm.com>
-Cc: "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org
-Subject: Re: [PATCH v7 09/11] arm64: Enable memory encrypt for Realms
-Message-ID: <Z79lZdYqWINaHfrp@arm.com>
-References: <20241017131434.40935-1-steven.price@arm.com>
- <20241017131434.40935-10-steven.price@arm.com>
- <5aeb6f47-12be-40d5-be6f-847bb8ddc605@arm.com>
+	Wed, 26 Feb 2025 19:06:53 +0000
+Date: Wed, 26 Feb 2025 14:06:42 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
+	s=key1; t=1740596808;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tw42xid+WUwsyTXO3dfqODQosn1SYPoGt8Yoqu9g61Y=;
+	b=qVx7MQzdPH944+qyXMOoDK5ZWsYeILr/Ab+IeBjUCMmdn7V8E82fLSi3f2zKvfsAMqW9a2
+	vmJZ8yINouV+QYKzS/5a7UoTY8xh3E2Lce6JiN0RyKEZ5wPQGkNxcbAnK/pso4QmeKIXKP
+	OOUdPOBznVg19MBbxRYhe7pPY7BFjSMZfpIguTK9LE3g/Q1gHYtul+9wN42VIF33nGzC/W
+	XZ6tg2jLzRQZO8nz32FC49Yl8EWv4DBp9C/YH0euIaGEi+NWDheeQcAyCWARRaVhQkr0A+
+	8PTQxj4z4mubk/OHsoj3zw9qCFq56k4rCvrs3UivpsffJU4zksmqGIKkvVBc/g==
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+To: sven@svenpeter.dev
+Cc: Janne Grunau <j@jannau.net>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/4] soc: apple: rtkit: Add and use PWR_STATE_INIT
+ instead of _ON
+Message-ID: <Z79mQqfYQH_rituh@blossom>
+References: <20250226-apple-soc-misc-v2-0-c3ec37f9021b@svenpeter.dev>
+ <20250226-apple-soc-misc-v2-1-c3ec37f9021b@svenpeter.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <5aeb6f47-12be-40d5-be6f-847bb8ddc605@arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250226-apple-soc-misc-v2-1-c3ec37f9021b@svenpeter.dev>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_110308_683709_4B05CE27 
-X-CRM114-Status: GOOD (  30.90  )
+X-CRM114-CacheID: sfid-20250226_110651_985942_049422D9 
+X-CRM114-Status: GOOD (  17.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,97 +73,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 19, 2025 at 02:30:28PM +0000, Steven Price wrote:
-> On 17/10/2024 14:14, Steven Price wrote:
-> > From: Suzuki K Poulose <suzuki.poulose@arm.com>
-> > 
-> > Use the memory encryption APIs to trigger a RSI call to request a
-> > transition between protected memory and shared memory (or vice versa)
-> > and updating the kernel's linear map of modified pages to flip the top
-> > bit of the IPA. This requires that block mappings are not used in the
-> > direct map for realm guests.
-> > 
-> > Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-> > Reviewed-by: Gavin Shan <gshan@redhat.com>
-> > Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> > Co-developed-by: Steven Price <steven.price@arm.com>
-> > Signed-off-by: Steven Price <steven.price@arm.com>
-> > ---
-> [...]
-> > diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-> > index 547a9e0b46c2..6ae6ae806454 100644
-> > --- a/arch/arm64/mm/pageattr.c
-> > +++ b/arch/arm64/mm/pageattr.c
-> > @@ -5,10 +5,12 @@
-> >  #include <linux/kernel.h>
-> >  #include <linux/mm.h>
-> >  #include <linux/module.h>
-> > +#include <linux/mem_encrypt.h>
-> >  #include <linux/sched.h>
-> >  #include <linux/vmalloc.h>
-> >  
-> >  #include <asm/cacheflush.h>
-> > +#include <asm/pgtable-prot.h>
-> >  #include <asm/set_memory.h>
-> >  #include <asm/tlbflush.h>
-> >  #include <asm/kfence.h>
-> > @@ -23,14 +25,16 @@ bool rodata_full __ro_after_init = IS_ENABLED(CONFIG_RODATA_FULL_DEFAULT_ENABLED
-> >  bool can_set_direct_map(void)
-> >  {
-> >  	/*
-> > -	 * rodata_full and DEBUG_PAGEALLOC require linear map to be
-> > -	 * mapped at page granularity, so that it is possible to
-> > +	 * rodata_full, DEBUG_PAGEALLOC and a Realm guest all require linear
-> > +	 * map to be mapped at page granularity, so that it is possible to
-> >  	 * protect/unprotect single pages.
-> >  	 *
-> >  	 * KFENCE pool requires page-granular mapping if initialized late.
-> > +	 *
-> > +	 * Realms need to make pages shared/protected at page granularity.
-> >  	 */
-> >  	return rodata_full || debug_pagealloc_enabled() ||
-> > -	       arm64_kfence_can_set_direct_map();
-> > +		arm64_kfence_can_set_direct_map() || is_realm_world();
-> >  }
-> 
-> Aneesh pointed out that this call to is_realm_world() is now too early 
-> since the decision to delay the RSI detection. The upshot is that a 
-> realm guest which doesn't have page granularity forced for other reasons 
-> will fail to share pages with the host.
-> 
-> At the moment I can think of a couple of options:
-> 
-> (1) Make rodata_full a requirement for realm guests. 
->     CONFIG_RODATA_FULL_DEFAULT_ENABLED is already "default y" so this 
->     isn't a big ask.
-> 
-> (2) Revisit the idea of detecting when running as a realm guest early. 
->     This has the advantage of also "fixing" earlycon (no need to 
->     manually specify the shared-alias of an unprotected UART).
-> 
-> I'm currently leaning towards (1) because it's the default anyway. But 
-> if we're going to need to fix earlycon (or indeed find other similar 
-> issues) then (2) would obviously make sense.
+Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 
-I'd go with (1) since the end result is the same even if we implemented
-(2) - i.e. we still avoid block mappings in realms.
-
-> diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
-> index ce4778141ec7..48a6ef0f401c 100644
-> --- a/arch/arm64/kernel/rsi.c
-> +++ b/arch/arm64/kernel/rsi.c
-> @@ -126,6 +126,10 @@ void __init arm64_rsi_init(void)
->  		return;
->  	if (!rsi_version_matches())
->  		return;
-> +	if (!can_set_direct_map()) {
-> +		pr_err("rodata_full disabled, unable to run as a realm guest. Please enable CONFIG_RODATA_FULL_DEFAULT_ENABLED\n");
-
-It's a bit strange to complain about rodata since, in principle, it
-doesn't have anything to do with realms. Its only side-effect is that we
-avoid block kernel mappings. Maybe "cannot set the kernel direct map,
-consider rodata=full" or something like that.
-
--- 
-Catalin
+Le Wed , Feb 26, 2025 at 07:00:03PM +0000, Sven Peter via B4 Relay a écrit :
+> From: Janne Grunau <j@jannau.net>
+> 
+> This state is needed to wake the dcp IOP after m1n1 shut it down
+> and works for all other co-processors as well.
+> 
+> Signed-off-by: Janne Grunau <j@jannau.net>
+> Signed-off-by: Sven Peter <sven@svenpeter.dev>
+> ---
+>  drivers/soc/apple/rtkit.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/soc/apple/rtkit.c b/drivers/soc/apple/rtkit.c
+> index 2f5f878bf899..be0d08861168 100644
+> --- a/drivers/soc/apple/rtkit.c
+> +++ b/drivers/soc/apple/rtkit.c
+> @@ -12,6 +12,7 @@ enum {
+>  	APPLE_RTKIT_PWR_STATE_IDLE = 0x201, /* sleeping, retain state */
+>  	APPLE_RTKIT_PWR_STATE_QUIESCED = 0x10, /* running but no communication */
+>  	APPLE_RTKIT_PWR_STATE_ON = 0x20, /* normal operating state */
+> +	APPLE_RTKIT_PWR_STATE_INIT = 0x220, /* init after starting the coproc */
+>  };
+>  
+>  enum {
+> @@ -898,7 +899,7 @@ int apple_rtkit_wake(struct apple_rtkit *rtk)
+>  	 * Use open-coded apple_rtkit_set_iop_power_state since apple_rtkit_boot
+>  	 * will wait for the completion anyway.
+>  	 */
+> -	msg = FIELD_PREP(APPLE_RTKIT_MGMT_PWR_STATE, APPLE_RTKIT_PWR_STATE_ON);
+> +	msg = FIELD_PREP(APPLE_RTKIT_MGMT_PWR_STATE, APPLE_RTKIT_PWR_STATE_INIT);
+>  	ret = apple_rtkit_management_send(rtk, APPLE_RTKIT_MGMT_SET_IOP_PWR_STATE,
+>  					  msg);
+>  	if (ret)
+> 
+> -- 
+> 2.34.1
+> 
+> 
 
