@@ -4,113 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC5A5C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:23:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BA2AC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:23:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ScTuGCeNd8+TE4FMMDQIIb/6OnDoaFkIHgnHPLXJkBc=; b=AUE76oa8p/C3TXrDS07gmBPu7A
-	kW13y7btJ4/sxqueVR+Ax6gG9UdPeez8pSCdtR/xEVJohT73cY1Gxfddu/YI1y2+stcBK7vcISjAl
-	2B4IN1PobcOyI5XjJTNKoOnXyfFW4epCDBlY8pbZjOjTrrv8ZswH/FPVhpBJi9763xd74vMcRhyXu
-	KP4mnYvFlQs5tsN5ISFefbZCin+JXo+bxx8SiCEgBwgzUfU9v8Kk49hFZm54uKX9GJYln2OvAFbY0
-	cUMs3VenM1UJtGl23RFdycDWAD5h5trQFVGpNS5AUvGZze4Mlsi/bKJbXNIewtrl3csNhLiakfYTW
-	fnNlYgxg==;
+	bh=qr8ZzAHwUGa1pa18g5lB7LpvO3T+N6fqzFerpRdWrhw=; b=J181VzPP4WXokNqCsZlwsUqNg1
+	wSi6TXLgNMtzL2T/aKDK8UVoMWBdYiPnF0gOb+6y97M9M8qT1DW5av1PSvsY0P+NiqLBr7gQnpCG0
+	57N+oXMYMk/znGp0XwPFxfQ7VWoz9Iw6dc7RcCxgmqpM8ulAcRX064ir4/hu4IkgAzisQyzshaZQ9
+	vDsOfi4O3isohpTto1KUR0OPLfMrCDB6s4D+kZHC2VfXt2zrLONVNBIsW7oAp8ErQpBSsp4m9GpeL
+	RVC9CDzK6j6QOc5Dgu4XugDQy4NLwfjO97FMW1r9A0GOionZFMnnWZCn41O7S8UhgVrBjDuFbqnKa
+	BTV7SXCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJFf-00000004H0F-02yi;
-	Wed, 26 Feb 2025 15:23:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tnJFg-00000004H4w-3O1M;
+	Wed, 26 Feb 2025 15:23:12 +0000
+Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJ16-00000004DEF-3gio
+	id 1tnJ2h-00000004DTD-0oyB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 15:08:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 72BF561171;
-	Wed, 26 Feb 2025 15:08:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B509FC4CEE8;
-	Wed, 26 Feb 2025 15:08:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740582488;
-	bh=0rPdT/Eug1q9+BytDIeKO5UaT3azhJ0eQ11NkLFoPDw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UdoQywKtDOHZzWhnKn/7ndX+HgtAWdIRdEWLrZ9yZO11GontNCf8nsUVT5deqYzWs
-	 yFENoLpHCZ164ETg99rfHCCvr28D17/TqX6zia9bacjRSaP1ZN99mOyCDuWexpybom
-	 KTqqIahWCiprwxgl3fhs2I/VqBc3rDEUuHcuIsjReFK4pA+cRfJcxed/hmLGrC8N66
-	 8KvQNgFXiNvmWWuSZgMDWl7Ahx1WdZwaZ0+IV2gqP9BRWMGGpUNXJXoeGhl25ZkTnK
-	 eqGXZme3fU+xqXszyf+YwVpazrhkjc0hzBmeAWAHX/5P7Mbm4m5W/UXYK0vGIlYwbA
-	 v388qiii722vw==
-Message-ID: <55beb3e7-65ac-4145-adae-fb064378c78d@kernel.org>
-Date: Wed, 26 Feb 2025 16:08:02 +0100
+	Wed, 26 Feb 2025 15:09:48 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 57D6044262;
+	Wed, 26 Feb 2025 15:09:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1740582581;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=qr8ZzAHwUGa1pa18g5lB7LpvO3T+N6fqzFerpRdWrhw=;
+	b=iKDOgaJ5wJ04L921BEqnnpQzVMZYbO+FPuNCfmaOfFvJBXvFXqSRGdmxiiyzN5wYUKGpTe
+	ksC8H3kElU61IV8Rgvtmtey+NZpSMOrM0I6A2CjP2BzPZZm/kzgTFcmqafGH1cndkgwIrA
+	gjzMkWft0EEuLzTYcjzr1+AqPdSpKUMStQB+KKVbnI0SNgp95ofpXrtoFHLWe5pabEGZWT
+	VZeOdtBO3EP0aXdvQ/kqXOAcpP5tLmJUdzvT8cIfUk3q4vayLkTlnZAHBR23IVzBGj9ob4
+	ZZRu/JA1Fp5OnabcH56WOTsUII9MNzAB2DK/3izzPlsaNB2PD1/wmndXu56vFQ==
+Date: Wed, 26 Feb 2025 16:09:38 +0100
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
+ <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Heiner Kallweit <hkallweit1@gmail.com>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <christophe.leroy@csgroup.eu>, Herve Codina
+ <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>, =?UTF-8?B?S8O2cnk=?= Maincent
+ <kory.maincent@bootlin.com>, Oleksij Rempel <o.rempel@pengutronix.de>,
+ Simon Horman <horms@kernel.org>, Romain Gantois
+ <romain.gantois@bootlin.com>
+Subject: Re: [PATCH net-next v2 11/13] net: phy: phylink: Add a mapping
+ between MAC_CAPS and LINK_CAPS
+Message-ID: <20250226160938.101be22d@fedora.home>
+In-Reply-To: <Z78fKCZl4-77NjeK@shell.armlinux.org.uk>
+References: <20250226100929.1646454-1-maxime.chevallier@bootlin.com>
+	<20250226100929.1646454-12-maxime.chevallier@bootlin.com>
+	<Z78fKCZl4-77NjeK@shell.armlinux.org.uk>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/9] ARM: dts: stm32: add Hardware debug port (HDP) on
- stm32mp25
-To: Alexandre TORGUE <alexandre.torgue@foss.st.com>,
- Clement LE GOFFIC <clement.legoffic@foss.st.com>,
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250225-hdp-upstream-v1-0-9d049c65330a@foss.st.com>
- <20250225-hdp-upstream-v1-7-9d049c65330a@foss.st.com>
- <418a80a9-8c08-4dd1-bf49-1bd7378321aa@kernel.org>
- <b257aa79-6ca9-4f57-988a-ec00225992ab@foss.st.com>
- <b57e3c9e-244e-435b-8a7b-cf90f3a973b3@kernel.org>
- <988667a4-4bc0-4594-8dfd-a7b652b149b2@foss.st.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <988667a4-4bc0-4594-8dfd-a7b652b149b2@foss.st.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdekgeeltdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpedugfelledvtdffvdekudeijeduueevvdevffehudehvdeuudetheekheeigfetheenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgdphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudelpdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepr
+ ghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-GND-Sasl: maxime.chevallier@bootlin.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250226_070947_743111_8E7CBF98 
+X-CRM114-Status: GOOD (  21.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,45 +89,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/02/2025 10:33, Alexandre TORGUE wrote:
->>>>> +		hdp: pinctrl@44090000 {
->>>>> +			compatible = "st,stm32mp-hdp";
->>>>
->>>> So here again - you have stm32mp251 SoC, but use entirely different
->>>> compatible.
->>>
->>> Ok so I will use "st,stm32mp15-hdp"
->>
->>
->> This means this is stm32mp15 SoC. I do not see such SoC on list of your
->> SoCs in bindings. What's more, there are no bindings for other SoC
->> components for stm32mp15!
+Hello Russell,
+
+On Wed, 26 Feb 2025 14:03:20 +0000
+"Russell King (Oracle)" <linux@armlinux.org.uk> wrote:
+
+> On Wed, Feb 26, 2025 at 11:09:26AM +0100, Maxime Chevallier wrote:
+> > phylink allows MAC drivers to report the capabilities in terms of speed,
+> > duplex and pause support. This is done through a dedicated set of enum
+> > values in the form of the MAC_ capabilities. They are very close to what
+> > the LINK_CAPA_xxx can express, with the difference that LINK_CAPA don't
+> > have any information about Pause/Asym Pause support.
+> > 
+> > To prepare converting phylink to using the phy_caps, add the mapping
+> > between MAC capabilities and phy_caps. While doing so, we move the
+> > phylink_caps_params array up a bit to simplify future commits.  
 > 
-> Yes stm32mp15 is not a "real SoC". I agree that at the beginning of the 
-> STM32 story we didn't have a clear rule/view to correctly naming our 
-> compatible. We tried to improve the situation to avoid compatible like 
-> "st,stm32", "st,stm32mp" or "st,stm32mp1". So we introduced 
-> "st,stm32mp13", "st,stm32mp15" or "st,stm32mp25" for new drivers. So yes 
-> it represents a SoC family and not a real SoC. We haven't had much 
-> negative feedback it.
-> 
-> But, if it's not clean to do it in this way, lets define SoC compatible 
-> for any new driver.
+> I still want to know why we need to do this type of thing -
 
-Compatibles are for hardware.
+Sorry not to have included more details on the why. The main reason is
+for the phy_port work. In the previous phy_port series [1] I included an
+attempt at making a first step forward with PHY-driven SFP, so that
+phylib itself provides the sfp_upstream_ops and not individual PHY
+drivers. That's to get a better handling for multi-port PHYs, which is
+one of the end-goals.
 
-> For the HDP case it is: "st,stm32mp157" and used for STM32MP13, 
-> STM32MP15 end STM32MP25 SoC families (if driver is the same for all 
-> those SoCs).
+[1]: https://lore.kernel.org/netdev/20250213101606.1154014-1-maxime.chevallier@bootlin.com/
 
-No, it's three compatibles, because you have three SoCs. BTW, writing
-bindings (and online resources and previous reviews and my talks) are
-saying that, so we do not ask for anything new here, anything different.
-At least not new when looking at last 5 years, because 10 years ago many
-rules were relaxed...
+As part of that PHY-sfp work, I find it very useful for PHY drivers to
+be able to tell what phy_interface_t they can expose on their serdes
+interfaces, and from then build a list of linkmodes to get an idea of
+what we can support on that port. That's why I'm extracting that out of
+phylink.
 
+I did see that you suggested having phylink involved for PHY sfp maybe,
+but TBH I don't even know where to start, so I took a safer approach
+with phylib-driven SFPs.
 
+> unfortunately I don't have time to review all your patches at the
+> moment. I haven't reviewed all your patches since you've started
+> posting them. Sorry.
 
-Best regards,
-Krzysztof
+No worries, I understand that that whole work is quite the mouthful and
+implies some involved reviews. But even discussing higher level stuff,
+like we do now, helps me steer that work in the right direction and
+hopefully make it easier for you and the other PHY maintainers to
+review that in the future.
+
+Maxime
 
