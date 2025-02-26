@@ -4,93 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 448E3C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 10:56:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2755C19776
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 10:58:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K9DD0fnDN/AtUagifRVVvBok4ZTdBpDaDU4p8Mda5rU=; b=3zdr4k+orme8+1z50ZOFdZRsAT
-	NBq1HJoZoOhWxGmolaLPBjWf+IwmIPCkSH+CliEfWF7iqHyO8HgMuLao811/pcfItSO0KapfUqWpD
-	ABs8dUeqPoEuCAmV/9WIoZfwxIFNdIZlQZvFWHOehFJOpB/x+wDW2euvtoPcFDZJxK9LR1DE893MO
-	T3lNExjfQf9PzR4tQ81t4tdUtrjJnZ/uKb/NRDDkhTAxy2LCHBYJFYBsJnt5CdCJDqAVdK8EJiSAS
-	0G1ZLC77Gt39t4MTUYIuPUqUE52ZZQs5urrfmGa1bCThUy+8WCbe8S4ldeF+ZhCmFO+TNuePC8lht
-	8w5JyeyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zhbnzRqIjVotQu0rksiwkrW5TRAYh4TJyrUYZDFOmfo=; b=Q6+V7ASQtOGRaFrdzVTTx6OGa4
+	9GJnfqTUGXKLxqC8YjkhlF0/kLRTzHpGkkrN4Lh8rNIeDvUwF4o6sk5RJvvW1Lh0cUPBc/dZTuYa1
+	miI5Ei3FWELfiY8wPtEML84xD/1wkfsTwabeBeey0yqaoKjKpI9lyTMQVEcpbzxpufIKezujNkDnF
+	gbPFvJnVEvjgVlyrFoQY/v78IMQaOZdU3lT2wldNrBRXCwhaMAX8kHIyFoSZXXUV6lzq/29JDwHm/
+	yuWOeb+WFbZtN7qAMB3YAVOCFWv+v+827LNGuhbB0roof4alLoIibd8yCcOzWs4ClRg4k+1vEPQxl
+	4WrpRTKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnF5a-00000003O3X-45kp;
-	Wed, 26 Feb 2025 10:56:31 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1tnF77-00000003OSl-3O5e;
+	Wed, 26 Feb 2025 10:58:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnEfz-00000003IZq-1Ekx
+	id 1tnEgf-00000003Ije-1Jz2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 10:30:04 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-ab744d5e567so128359366b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 02:30:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740565801; x=1741170601; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=K9DD0fnDN/AtUagifRVVvBok4ZTdBpDaDU4p8Mda5rU=;
-        b=NPSnu7DCrdlvFykKFjYZ8t/uko+UIYTr3CRC9S40/cPDb1coSCUIgB946BDObDhhqY
-         +v9bgY/VjJRw+xjgLxI0Y8jgn+u+fKnE5wQ7ScPlrsJ/nL/Ey7P1EGfLZdLhqW0ZHD6m
-         JzzTdiDhobfB0Xlx7+6QYIywszmScjuuNno9734dMHMHM3Bfh99uzyEDVDk/Jy0fpvP2
-         7E7Cx9QqQshUIuZPIGDRVKYohiD+yktTvGViPcoxgEiaEl/XAmL5AsH6ts2Br8D0YhrJ
-         rpAknfGnWoVU9gT9LJA6oEfRNoOpHjEHKovOx3u5ofafnRnt7hc/EKdx5ZLcZf5K1fV2
-         bSFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740565801; x=1741170601;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=K9DD0fnDN/AtUagifRVVvBok4ZTdBpDaDU4p8Mda5rU=;
-        b=gynU2rD4xCVhW/5Xd0ZRcRCI9J+MDQvFYloM5JjKgZ3bQA6udNxrNqlihBcAmSdQDp
-         0QKTqrWBeTv9Kvym0bMjh/askconMc2DP93SiC3VwyiXCyEjQOy+fOR9Cz04wxx69p+r
-         QEd9wFojjo6gdDa0JnaaYbBdoWdSRxIVW6a0aL9OVSkCModXioC6raISvmrAYVRJ+sfe
-         6azDUfxhHe3TtFOVPokmr7HbvB7sn7Awzevuns1birTT8AC4oSfmJimLnw2A2j158DLZ
-         7XojVpF9j/v8H/u0kpztMH5gKoVm7i9B1cDuACXLWRna6lXOt3BFhXELX96EWh07yDPL
-         Yn4A==
-X-Forwarded-Encrypted: i=1; AJvYcCV9VNC7hv2+BLeLXPgAAD7d6CF7xHfkDaAdh7bHN9WaOufXbpAkaLTWk7puM9IMPti4UKG4mxB6tL6PPggMBfo8@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVpQbXdZhhEteHwDxOdKSBkSFuEe0sD3Vms1Wp3cixQ9nXSDRA
-	RRSyfrOyIFL8kdECs3AIsJEUjfmmySZSLhqIbZeGtR9NIpsLHv3DlG9ml+nIdBY=
-X-Gm-Gg: ASbGncsoKjIFMx/L6YzJh+eBNcUhX9Op5AgZ8qDtSo2uwIQv/XAC5BX6f+pTNsoP4bo
-	1yD60M+fk7sghGVYpOSmGPGbMtze0vYAJdyaSPMmwOt9NcrceGUDuhYonxik2hKDQB41syqZ3s8
-	9kymfjJzYvsL2efRUaPnE3phJKgvxWTHHfJ+j67ce5viPCk6KQrjovEnIiXOwJXnVOcrVpqDjF6
-	XVYjRx2j/rXxU0kQpnRdLgNJslUQgrJqUI+GfM7hQg+3yTBi9M5ZNV4aTlkMxbwTbm6X6EGvhuy
-	hd5moHaI+g4EqFKAvHp8Tgm9E4yaYHs=
-X-Google-Smtp-Source: AGHT+IHr4uQ5R5/KWmLNlHHoe7q5Yn5WHDFYUfnRdWeKc0hVpBSxYaUpHUfPTVtbh9gcGuAG6MEifA==
-X-Received: by 2002:a17:907:784f:b0:abb:b24d:c63e with SMTP id a640c23a62f3a-abc0ae910famr1773453866b.16.1740565801539;
-        Wed, 26 Feb 2025 02:30:01 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-abed1d54a0dsm305559066b.50.2025.02.26.02.30.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Feb 2025 02:30:00 -0800 (PST)
-Date: Wed, 26 Feb 2025 13:29:57 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Meghana Malladi <m-malladi@ti.com>
-Cc: rogerq@kernel.org, danishanwar@ti.com, pabeni@redhat.com,
-	kuba@kernel.org, edumazet@google.com, davem@davemloft.net,
-	andrew+netdev@lunn.ch, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, u.kleine-koenig@baylibre.com,
-	matthias.schiffer@ew.tq-group.com, schnelle@linux.ibm.com,
-	diogo.ivo@siemens.com, glaroque@baylibre.com, macro@orcam.me.uk,
-	john.fastabend@gmail.com, hawk@kernel.org, daniel@iogearbox.net,
-	ast@kernel.org, srk@ti.com, Vignesh Raghavendra <vigneshr@ti.com>
-Subject: Re: [PATCH net-next v3 2/3] net: ti: icssg-prueth: introduce and use
- prueth_swdata struct for SWDATA
-Message-ID: <41fbeb70-bf49-4751-b4ba-6b122a45233d@stanley.mountain>
-References: <20250224110102.1528552-1-m-malladi@ti.com>
- <20250224110102.1528552-3-m-malladi@ti.com>
+	Wed, 26 Feb 2025 10:30:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 02B366115B;
+	Wed, 26 Feb 2025 10:30:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87CC6C4CED6;
+	Wed, 26 Feb 2025 10:30:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740565844;
+	bh=12xjjcbr8wkE+v+6ct+nnGb1YzfZrIoiphJhPdLep14=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=MRN+CDHpwO2M7lvH3rhzw21FdnD7DuEQkTv16oMjzRm34SSeksf4wAXixCkvEBqeZ
+	 IhourRNnR4/58me31Ao02UiTaE9kWstfdh78ZS8v7UNiH/dRS5OJPflL8+R/2PakIY
+	 zc02Dbr9lHAyHSZQXxZSZmMRMcHAn+JjnYh+IZERM7jL2eSki1W1UaKIFc9AAWI4cQ
+	 ssoTbKAOIbAm/nD/JGsxXSaNbkthgHjZqx/uy8Ug88vXPZlsJs3m0IQT7ABl5b1xnG
+	 wwYlqFMHejz4t1juJju0SAcmTJnkhxYNjwnQBVuA5fJuibWS2mCk3jkTiDdOYIovs1
+	 2/TrHMJdqY4vw==
+Message-ID: <816a3601-4ce1-47ef-8ef9-befc39c479c5@kernel.org>
+Date: Wed, 26 Feb 2025 11:30:38 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250224110102.1528552-3-m-malladi@ti.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_023003_340321_12EE9AB9 
-X-CRM114-Status: GOOD (  26.72  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/6] dt-bindings: arm: add CIX P1 (SKY1) SoC
+To: Peter Chen <peter.chen@cixtech.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
+ marcin@juszkiewicz.com.pl, Fugang Duan <fugang.duan@cixtech.com>
+References: <20250226012136.854614-1-peter.chen@cixtech.com>
+ <20250226012136.854614-3-peter.chen@cixtech.com>
+ <f89817fe-22af-460e-9f5c-a3347eba1892@kernel.org>
+ <Z77MHGhUF6pPwLww@nchen-desktop>
+ <d9556611-cfe7-44fa-8965-bc2b0f870845@kernel.org>
+ <Z77sSg_3YC30oYoP@nchen-desktop>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <Z77sSg_3YC30oYoP@nchen-desktop>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,86 +121,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 24, 2025 at 04:31:01PM +0530, Meghana Malladi wrote:
-> From: Roger Quadros <rogerq@kernel.org>
+On 26/02/2025 11:26, Peter Chen wrote:
+> On 25-02-26 09:40:06, Krzysztof Kozlowski wrote:
+>>>>
+>>>> On 26/02/2025 02:21, Peter Chen wrote:
+>>>>> Add device tree bindings for CIX P1 (Internal name sky1) Arm SoC,
+>>>>> it consists several SoC models like CP8180, CD8180, etc.
+>>>>>
+>>>>> Acked-by: Fugang Duan <fugang.duan@cixtech.com>
+>>>>> Signed-off-by: Peter Chen <peter.chen@cixtech.com>
+>>>>> ---
+>>>>
+>>>> <form letter>
+>>>> This is a friendly reminder during the review process.
+>>>>
+>>>> It looks like you received a tag and forgot to add it.
+>>>>
+>>>> If you do not know the process, here is a short explanation:
+>>>> Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
+>>>> of patchset, under or above your Signed-off-by tag, unless patch changed
+>>>> significantly (e.g. new properties added to the DT bindings). Tag is
+>>>> "received", when provided in a message replied to you on the mailing
+>>>> list. Tools like b4 can help here. However, there's no need to repost
+>>>> patches *only* to add the tags. The upstream maintainer will do that for
+>>>> tags received on the version they apply.
+>>>>
+>>>> Please read:
+>>>> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
+>>>>
+>>>> If a tag was not added on purpose, please state why and what changed.
+>>>> </form letter>
+>>>>
+>>>
+>>> I have checked the review-process again at:
+>>> https://patchwork.kernel.org/project/linux-arm-kernel/list/?series=935897
+>>
+>> This does not matter - that's not a patchwork anyone uses...
+>>
+>>> It seems no one gives any Reviewed-by or Acked-by Tag.
+>>
+>> You were directly addressed! So you got email and what did you do with it?
+>>
+>> And lists received it:
+>> https://lore.kernel.org/all/ac6c4a8b-a6bd-44a9-993b-3b743a172dcc@kernel.org/
+>>
 > 
-> We have different cases for SWDATA (skb, page, cmd, etc)
-> so it is better to have a dedicated data structure for that.
-> We can embed the type field inside the struct and use it
-> to interpret the data in completion handlers.
+> I am sorry about that. I checked this email with our IT engineers at
+> office365 administration page, it was not received by Microsoft office365
+> server, we don't know what's the reason.
+
+
+That's the only email which did not reach you, I think. 4 or 5 others
+did, so this could mean your system will spam/reject silently anything
+with review tag (or email address).
+
+If so, your corporate mail system is not suitable for upstream work
+(Microsoft outlook is known of poor quality in that matter and that's
+not the first case people have trouble with Outlook servers) and maybe
+you should switch to b4-relay and other mail boxes.
+
 > 
-> Increase SWDATA size to 48 so we have some room to add
-> more data if required.
+> I will put your Reviewed-by tag when sending v3 patch, may I get your
+> Ack for the 1st patch:
+> https://lore.kernel.org/linux-arm-kernel/330a01b7-7285-47fe-abb1-8d5fa71dd240@kernel.org/T/#u
 
-What is the "SWDATA size"?  Where is that specified?  Is
-that a variable or a define or the size of a struct or
-what?
 
-> 
-> Signed-off-by: Roger Quadros <rogerq@kernel.org>
-> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
-> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
-> ---
-> Changes since v2 (v3-v2):
-> - Fix leaking tx descriptor in emac_tx_complete_packets()
-> - Free rx descriptor if swdata type is not page in emac_rx_packet()
-> - Revert back the size of PRUETH_NAV_SW_DATA_SIZE
-> - Use build time check for prueth_swdata size
-> - re-write prueth_swdata to have enum type as first member in the struct
-> and prueth_data union embedded in the struct
-> 
-> All the above changes have been suggested by Roger Quadros <rogerq@kernel.org>
-> 
->  drivers/net/ethernet/ti/icssg/icssg_common.c  | 52 +++++++++++++------
->  drivers/net/ethernet/ti/icssg/icssg_prueth.c  |  3 ++
->  drivers/net/ethernet/ti/icssg/icssg_prueth.h  | 16 ++++++
->  .../net/ethernet/ti/icssg/icssg_prueth_sr1.c  |  4 +-
->  4 files changed, 57 insertions(+), 18 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
-> index acbb79ad8b0c..01eeabe83eff 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_common.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
-> @@ -136,12 +136,12 @@ int emac_tx_complete_packets(struct prueth_emac *emac, int chn,
->  	struct net_device *ndev = emac->ndev;
->  	struct cppi5_host_desc_t *desc_tx;
->  	struct netdev_queue *netif_txq;
-> +	struct prueth_swdata *swdata;
->  	struct prueth_tx_chn *tx_chn;
->  	unsigned int total_bytes = 0;
->  	struct sk_buff *skb;
->  	dma_addr_t desc_dma;
->  	int res, num_tx = 0;
-> -	void **swdata;
->  
->  	tx_chn = &emac->tx_chns[chn];
->  
-> @@ -163,12 +163,19 @@ int emac_tx_complete_packets(struct prueth_emac *emac, int chn,
->  		swdata = cppi5_hdesc_get_swdata(desc_tx);
->  
->  		/* was this command's TX complete? */
-> -		if (emac->is_sr1 && *(swdata) == emac->cmd_data) {
-> +		if (emac->is_sr1 && (void *)(swdata) == emac->cmd_data) {
+I'll send it, but I still have doubts Microsoft won't put me in spam :/
 
-I don't think this conversion is correct.  You still need to say:
 
-		if (emac->is_sr1 && swdata->data.something == emac->cmd_data) {
-
-Where something is probably "page".
-
-regards,
-dan carpenter
-
->  			prueth_xmit_free(tx_chn, desc_tx);
->  			continue;
->  		}
->  
-> -		skb = *(swdata);
-> +		if (swdata->type != PRUETH_SWDATA_SKB) {
-> +			netdev_err(ndev, "tx_complete: invalid swdata type %d\n", swdata->type);
-> +			prueth_xmit_free(tx_chn, desc_tx);
-> +			budget++;
-> +			continue;
-> +		}
-
+Best regards,
+Krzysztof
 
