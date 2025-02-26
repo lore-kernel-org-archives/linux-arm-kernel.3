@@ -4,61 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9607CC19F2E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 19:31:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 054BAC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 19:41:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ve0L2KMTf8VYmxPzzz0cRHh9fEHMH/Ae92c9dfad8QM=; b=KipQ5Ps0rvFJG+kFJW2OBuJWbP
-	2AUcuJqfXj9YjBXC6QbkLOnFd9IWR64ppSBLPjBXspt+8SEFEULZLv1wFywVAIz7z4xDrC1u2oP+M
-	XtolZ30QN2WGozOI1+lyhpRXVsvIymTfMA8L/uqE6PI+Bh7FrT06kGxGFlYHI7bAQIPr9Sjw+tcwh
-	ablUk/hNxlfSxQnNGlYoMcbelLFlDZEGFYDckB2v+eCrtWcM3/j4zu1IkQxo//T1e51En/+xv9fdp
-	dmM+bD/PRXGO+VN33p3xJ0ebFFcnYAxGr2xn0JxGj+W2n7XvoYJy7fEw/Ij+wXpri2CXhnwEupymd
-	jlxdbKIg==;
+	bh=zH8iv34AbyqAaxKoCQuGOxbqeiGftA8PAFOKItXXOUU=; b=EfuaCdESyJ/gk5/RhsBtFZIO1C
+	bVBtWy94yL6OfSpe1NPs0lU9cVGVGCVaZQsQK+8CMQw4pinIUf8hncMxNqA42fwZxZHsunHWZggWB
+	/uWM1Kxe405KCLmPLzHhe1qHuoE6b2lQIwyUsYYXL5PORtP/LsFS7JzGjH81LtT8XIUVX+JwK7/J7
+	pt/AShph6MD9zlHZymRX14XmoBT2a2jvaqjxeGc/VQhnWz5djx1QZu3elK0ae0Q/DPzegLsPgOPwl
+	cgXr8K9aY5TWGWrsZz/dlNAHrFFT/30z9yVBvubrvqH1LRK6ih/GLfhRGN0OPtFILtY367rLSj1Rz
+	ejd24pCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnN7L-00000005A4x-0Pgv;
-	Wed, 26 Feb 2025 19:30:51 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tnNH2-00000005BgI-3apQ;
+	Wed, 26 Feb 2025 19:40:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnN4d-000000059N2-2CvW;
-	Wed, 26 Feb 2025 19:28:04 +0000
+	id 1tnNFW-00000005BS1-369X
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Feb 2025 19:39:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0C94A5C6167;
-	Wed, 26 Feb 2025 19:27:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8977AC4CED6;
-	Wed, 26 Feb 2025 19:27:57 +0000 (UTC)
-Date: Wed, 26 Feb 2025 19:27:55 +0000
+	by tor.source.kernel.org (Postfix) with ESMTP id 15BC861129;
+	Wed, 26 Feb 2025 19:39:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01BE8C4CEE7;
+	Wed, 26 Feb 2025 19:39:14 +0000 (UTC)
+Date: Wed, 26 Feb 2025 19:39:12 +0000
 From: Catalin Marinas <catalin.marinas@arm.com>
-To: FUJITA Tomonori <fujita.tomonori@gmail.com>
-Cc: linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org,
-	x86@kernel.org, linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, peterz@infradead.org, hpa@zytor.com,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	will@kernel.org, chenhuacai@kernel.org, kernel@xen0n.name,
-	tangyouling@loongson.cn, hejinyang@loongson.cn,
-	yangtiezhu@loongson.cn, ojeda@kernel.org, alex.gaynor@gmail.com,
-	boqun.feng@gmail.com, gary@garyguo.net, bjorn3_gh@protonmail.com,
-	benno.lossin@proton.me, a.hindborg@kernel.org, aliceryhl@google.com,
-	tmgross@umich.edu
-Subject: Re: [PATCH v3 3/5] arm64/bug: Add ARCH_WARN_ASM macro for BUG/WARN
- asm code sharing with Rust
-Message-ID: <Z79rO-wRZtN5S8f9@arm.com>
-References: <20250213135759.190006-1-fujita.tomonori@gmail.com>
- <20250213135759.190006-4-fujita.tomonori@gmail.com>
+To: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+Cc: kvmarm@lists.linux.dev, maz@kernel.org, oliver.upton@linux.dev,
+	will@kernel.org, mark.rutland@arm.com, cohuck@redhat.com,
+	eric.auger@redhat.com, sebott@redhat.com, yuzenghui@huawei.com,
+	wangzhou1@hisilicon.com, jiangkunkun@huawei.com,
+	jonathan.cameron@huawei.com, anthony.jebson@huawei.com,
+	linux-arm-kernel@lists.infradead.org, linuxarm@huawei.com
+Subject: Re: [PATCH v8 1/6] arm64: Modify _midr_range() functions to read
+ MIDR/REVIDR internally
+Message-ID: <Z79t4EEC4I5CKHAX@arm.com>
+References: <20250221140229.12588-1-shameerali.kolothum.thodi@huawei.com>
+ <20250221140229.12588-2-shameerali.kolothum.thodi@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250213135759.190006-4-fujita.tomonori@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_112803_603252_E02EC6B6 
-X-CRM114-Status: UNSURE (   6.66  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20250221140229.12588-2-shameerali.kolothum.thodi@huawei.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,13 +64,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 13, 2025 at 10:57:57PM +0900, FUJITA Tomonori wrote:
-> Add new ARCH_WARN_ASM macro for BUG/WARN assembly code sharing with
-> Rust to avoid the duplication.
+On Fri, Feb 21, 2025 at 02:02:24PM +0000, Shameer Kolothum wrote:
+> These changes lay the groundwork for adding support for guest kernels,
+> allowing them to leverage target CPU implementations provided by the
+> VMM.
 > 
-> No functional changes.
+> No functional changes intended.
 > 
-> Signed-off-by: FUJITA Tomonori <fujita.tomonori@gmail.com>
+> Suggested-by: Oliver Upton <oliver.upton@linux.dev>
+> Reviewed-by: Sebastian Ott <sebott@redhat.com>
+> Reviewed-by: Cornelia Huck <cohuck@redhat.com>
+> Signed-off-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
 
 Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 
