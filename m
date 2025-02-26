@@ -4,70 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 721CEC19F2E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 21:24:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1001AC19F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 21:28:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U9x0SsBTG97m/aMrnNs3+hwttNW5WG7Q12RR+rw5dq0=; b=KZxAKsqg7mvxtSbB0zrq3PWWh3
-	Jn2Vnbgd2+2IoYs9sfVhYWlumBBftlQiFiBGsU4+SqQRSPfd1VRmjsEv+m8iI5VG73Ykutrg4Gi4k
-	e/gfVTkQcaNVtD9KCnXtt8gOscv0t6+DBkELTxUdtKJuZ3Ly6/dU+IymGvxion5CQmu5fuDK1Sd70
-	5XLBxLmYFlPoFLSWgpLAk+juPKpm8XUhsAnFkXxxZRIqZN+EXzUaCHyuJBF2GyYUpaksKGnBoQmz4
-	+D4y0dxFinlF2tx55QtusruNdDm0YKJtbYtnI/SIWQbQ4tOoLkJgWiJWI/OttiRrJCtUZ7DdBX7YX
-	wc12afgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=49Ge8L85TJXIK5yjjp51+Qi+gYzg1ja4uf9iWO4Q9VE=; b=07wdoJv0zJA12EGTPbBMbqjSn9
+	NyEEkZKTEijuWC60XLapAKq+e5ccrhw6RbRiCDFhqnrN5r/pZR5yDkZeqphcRSsg7qx7lNkh2QMYl
+	jwWpRwosgeyVhHdQgg+jGtUvBipXEAnPSPj0ysvmuH8C1vWKjDETmTspeEc4I1M3gnXoi4dVn4Nc+
+	/YNhqJSLkVT8AGeUl4VrABDZS96e6rpt9wSwre+3K6PJXRymhhAUmDgNPP/wElMkEEoEJ7FkS11+3
+	PJMvXUYWrPi1tP7mu5QZmFoZtefWlqVVprSrweA2gPLuZutdg5KKTdi3N4Q2XKuAob2Skv5SxBQNG
+	axaL6thg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnOt2-00000005SPI-2fl6;
-	Wed, 26 Feb 2025 21:24:12 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tnOx7-00000005Swl-07GO;
+	Wed, 26 Feb 2025 21:28:25 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnOrT-00000005SJr-45t7
+	id 1tnOva-00000005SnY-18J4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 21:22:37 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tnOrD-00085X-L1; Wed, 26 Feb 2025 22:22:19 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tnOrD-0030wc-0f;
-	Wed, 26 Feb 2025 22:22:19 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tnOrD-001fiU-0G;
-	Wed, 26 Feb 2025 22:22:19 +0100
-Date: Wed, 26 Feb 2025 22:22:19 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>, Frank Li <Frank.li@nxp.com>,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/5] imx8mp: add support for the IMX AIPSTZ bridge
-Message-ID: <20250226212219.lthoofw7nrs3gtg6@pengutronix.de>
-References: <20250226165314.34205-1-laurentiumihalcea111@gmail.com>
+	Wed, 26 Feb 2025 21:26:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CAC8D5C6076;
+	Wed, 26 Feb 2025 21:26:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08592C4CED6;
+	Wed, 26 Feb 2025 21:26:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740605209;
+	bh=N0p6giHID6vuUMte39YzG4bLLkWWTqAf5RxVREU0uHs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NMfD/eQQrqHV9pTdIckatEZl4BeD6NYAHsAUl5qBh4MVZcdnA3aEIwj40FR8CBStq
+	 4OsXX5vfQHb/YJAcgsShtWEAO7ptB7eQ8p4R6MRaF6ZzD5o2TFtsBYx8YYuRalTGgp
+	 jHxbv0JAcrjYH5E0IjK5+CJSRKCS1y0UyjZFoj+Nc22yyGH9zbFDLSo9ePtEiXE0Ik
+	 GxXuV1Fzm6uIN43JbNgroBjkPuQmRjOy3s9T6DCYgcQ9pNSeu/8pibvKJJfupavdcz
+	 VQrBKZhoOx08Gp6LfKT+zxDWfGLJpc5RzZtLAsYAr0oPrkPrjSk2NdgXLqE1m0UyuO
+	 OmcHsaqWS4dNw==
+Message-ID: <48cc626a-d632-444f-8563-07a9ea0ecc71@kernel.org>
+Date: Wed, 26 Feb 2025 22:26:42 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250226165314.34205-1-laurentiumihalcea111@gmail.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 7/9] ARM: dts: stm32: add Hardware debug port (HDP) on
+ stm32mp25
+To: Alexandre TORGUE <alexandre.torgue@foss.st.com>,
+ Clement LE GOFFIC <clement.legoffic@foss.st.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20250225-hdp-upstream-v1-0-9d049c65330a@foss.st.com>
+ <20250225-hdp-upstream-v1-7-9d049c65330a@foss.st.com>
+ <418a80a9-8c08-4dd1-bf49-1bd7378321aa@kernel.org>
+ <b257aa79-6ca9-4f57-988a-ec00225992ab@foss.st.com>
+ <b57e3c9e-244e-435b-8a7b-cf90f3a973b3@kernel.org>
+ <988667a4-4bc0-4594-8dfd-a7b652b149b2@foss.st.com>
+ <55beb3e7-65ac-4145-adae-fb064378c78d@kernel.org>
+ <8cdc7e52-f9e2-4fc9-be68-0dd72a25ee1b@foss.st.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <8cdc7e52-f9e2-4fc9-be68-0dd72a25ee1b@foss.st.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_132236_012661_04B67EE1 
-X-CRM114-Status: GOOD (  26.56  )
+X-CRM114-CacheID: sfid-20250226_132650_397235_6EA52602 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,74 +130,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 26/02/2025 16:30, Alexandre TORGUE wrote:
+> 
+> 
+> On 2/26/25 16:08, Krzysztof Kozlowski wrote:
+>> On 26/02/2025 10:33, Alexandre TORGUE wrote:
+>>>>>>> +		hdp: pinctrl@44090000 {
+>>>>>>> +			compatible = "st,stm32mp-hdp";
+>>>>>>
+>>>>>> So here again - you have stm32mp251 SoC, but use entirely different
+>>>>>> compatible.
+>>>>>
+>>>>> Ok so I will use "st,stm32mp15-hdp"
+>>>>
+>>>>
+>>>> This means this is stm32mp15 SoC. I do not see such SoC on list of your
+>>>> SoCs in bindings. What's more, there are no bindings for other SoC
+>>>> components for stm32mp15!
+>>>
+>>> Yes stm32mp15 is not a "real SoC". I agree that at the beginning of the
+>>> STM32 story we didn't have a clear rule/view to correctly naming our
+>>> compatible. We tried to improve the situation to avoid compatible like
+>>> "st,stm32", "st,stm32mp" or "st,stm32mp1". So we introduced
+>>> "st,stm32mp13", "st,stm32mp15" or "st,stm32mp25" for new drivers. So yes
+>>> it represents a SoC family and not a real SoC. We haven't had much
+>>> negative feedback it.
+>>>
+>>> But, if it's not clean to do it in this way, lets define SoC compatible
+>>> for any new driver.
+>>
+>> Compatibles are for hardware.
+>>
+>>> For the HDP case it is: "st,stm32mp157" and used for STM32MP13,
+>>> STM32MP15 end STM32MP25 SoC families (if driver is the same for all
+>>> those SoCs).
+>>
+>> No, it's three compatibles, because you have three SoCs. BTW, writing
+>> bindings (and online resources and previous reviews and my talks) are
+>> saying that, so we do not ask for anything new here, anything different.
+>> At least not new when looking at last 5 years, because 10 years ago many
+>> rules were relaxed...
+> 
+> So adding 3 times the same IP in 3 different SoCs implies to have 3 
 
-On 25-02-26, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> 
-> The AIPSTZ bridge offers some security-related configurations which can
-> be used to restrict master access to certain peripherals on the bridge.
-> 
-> Normally, this could be done from a secure environment such as ATF before
-> Linux boots but the configuration of AIPSTZ5 is lost each time the power
-> domain is powered off and then powered on. Because of this, it has to be
-> configured each time the power domain is turned on and before any master
-> tries to access the peripherals (e.g: AP, CM7, DSP, on i.MX8MP).
+Yes. Always, as requested by writing bindings.
 
-My question still stands:
+> different compatibles. So each time we use this same IP in a new SoC, we 
+> have to add a new compatible. My (wrong) understanding was: as we have 
 
-Setting these bits requires very often that the core is running at EL3
-(e.g. secure-monitor) which is not the case for Linux. Can you please
-provide more information how Linux can set these bits?
+Yes, as requested by writing bindings and followed up by all recent
+platforms having decent/active upstream support. See qcom, nxp, renesas
+for example.
 
-Regards,
-  Marco
+> the same IP (same hardware) in each SoC we have the same compatible (and 
 
-> The child-parent relationship between the bridge and its peripherals
-> should guarantee that the bridge is configured before the AP attempts
-> to access the IPs.
-> 
-> Other masters should use the 'access-controllers' property to enforce
-> a dependency between their device and the bridge device (see the DSP,
-> for example).
-> 
-> At the moment, we only want to apply a default, more relaxed
-> configuration, which is why the number of access controller cells
-> is 0.
-> 
-> The initial version of the series can be found at [1]. The new version
-> should provide better management of the device dependencies.
-> 
-> [1]: https://lore.kernel.org/linux-arm-kernel/20241119130726.2761726-1-daniel.baluta@nxp.com/
-> 
-> ---
-> Changes in v2:
-> * adress Frank Li's comments
-> * pick up some A-b/R-b's
-> * don't use "simple-bus" as the second compatible. As per Krzysztof's
-> comment, AIPSTZ is not a "simple-bus".
-> ---
-> 
-> Laurentiu Mihalcea (5):
->   dt-bindings: bus: add documentation for the IMX AIPSTZ bridge
->   dt-bindings: dsp: fsl,dsp: document 'access-controllers' property
->   bus: add driver for IMX AIPSTZ bridge
->   arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
->   arm64: dts: imx8mp: make 'dsp' node depend on 'aips5'
-> 
->  .../bindings/bus/fsl,imx8mp-aipstz.yaml       | 86 +++++++++++++++++
->  .../devicetree/bindings/dsp/fsl,dsp.yaml      |  3 +
->  arch/arm64/boot/dts/freescale/imx8mp.dtsi     |  9 +-
->  drivers/bus/Kconfig                           |  6 ++
->  drivers/bus/Makefile                          |  1 +
->  drivers/bus/imx-aipstz.c                      | 92 +++++++++++++++++++
->  6 files changed, 194 insertions(+), 3 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/bus/fsl,imx8mp-aipstz.yaml
->  create mode 100644 drivers/bus/imx-aipstz.c
-> 
-> -- 
-> 2.34.1
-> 
-> 
-> 
+You do not have same hardware. You have same IP, or almost same because
+they are almost never same, implemented in different hardware.
+
+> IP integration differences (clocks, interrupts) are handled by DT 
+> properties.
+
+Which binding doc/guide suggested such way? Countless reviews from DT
+maintainers were saying opposite.
+
+Best regards,
+Krzysztof
 
