@@ -4,53 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EDB4C19776
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 02:26:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F35AC197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 03:39:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NaVJPU5y7lqSzMNw28F6sdzyzS5CHpENnBBa/1pv/7Y=; b=46fzvibJCGa1gUlr+xviCfpPqU
-	9UUxClrXob1vQujL+2n1NbzM/7bim3UqMpwPVi4rsFMrwOLsdI/LXmbWAfRBywLH/LK6yHN0pNH/h
-	4q/vuJ3MdN6BfdCVFUshL2m0Pty8p3jqKZ85abXm/MjYcIeu4j/Wuk49AdpPP93soq4gzommyvXDl
-	3Xeh7vut3yg4tHmjuVm5HQDlMbrEOup9s2uB0J3u4E2XsehSB6E5RDOR84Mi7HWeoTz/I+rR2mz71
-	v5w1VzjQJ3NBK00jMa3yoRTvqdFchz73IGq9BGQBaYQ2oOxWcLj5iKY/e6o9ByssxM2ebS8KkLXll
-	/iTMBh3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I3ZgVkA5DYmIFkip7Km0C0StY+XyY8deGJTuyG5SuBM=; b=QbdIoy66qPvFHpk83Uem8ubjcW
+	TXhYcYqFF77C0YGq/S9cdAQ9awJkptAAcnM9Fgkm/++HJZkgO4WFKuse66IsOQa3AitfCJr+Cj80x
+	sizab+fg0aKb1yIHwtgG42w1jaPWH/anhaK+mkAtaok/Bf0fIXIc/z4H/uEiPqFEQLZe9l6flKhzE
+	ANXvKrhLZiD+PzgIRdhrBq8effpJFf4dItdLu7PhV0jyX/GD7mqfJa1i5MAcLGh9TGu/w4EtMgTfZ
+	l8SPXQfNzKhNp1UW7tfz5RdgqH8dXwDHzKvITIznygod7opr0Xiyhr6NEPXNLzwB5NyQRUk2xvF0u
+	Y0c5y69A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnTb6-000000066Au-0IKN;
-	Thu, 27 Feb 2025 02:26:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnTZX-000000065mD-2euJ
+	id 1tnUjX-00000006D3U-0wqc;
+	Thu, 27 Feb 2025 03:38:47 +0000
+Received: from [203.254.224.24] (helo=mailout1.samsung.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnUhy-00000006Crp-1vg9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 02:24:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DC0EB1515;
-	Wed, 26 Feb 2025 18:24:36 -0800 (PST)
-Received: from a077893.blr.arm.com (a077893.blr.arm.com [10.162.40.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6504A3F673;
-	Wed, 26 Feb 2025 18:24:18 -0800 (PST)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: mark.rutland@arm.com,
-	ryan.roberts@arm.com,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH V2] arm64/mm: Convert __pte_to_phys() and __phys_to_pte_val() as functions
-Date: Thu, 27 Feb 2025 07:54:12 +0530
-Message-Id: <20250227022412.2015835-1-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.25.1
+	Thu, 27 Feb 2025 03:37:13 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250227033704epoutp0163c5a2b300e631722865e3c8d65544cb~n82uonCVB1069710697epoutp01f
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 03:37:04 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250227033704epoutp0163c5a2b300e631722865e3c8d65544cb~n82uonCVB1069710697epoutp01f
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1740627424;
+	bh=I3ZgVkA5DYmIFkip7Km0C0StY+XyY8deGJTuyG5SuBM=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=dI4VlG6pbERgNN8rYsIjcM0YMsunf3tkbPnyAvBQcV18zjhDXlJlhdRodcGL5/9Ll
+	 FiyFW7H2UL6ihcs52J0Z6qARB0gXfYaTvV3U1ZKMTZKqQu+dTjMuMprXjxXmDv6+JJ
+	 2I3xMpf6yxXP+HwSBUxVcqgkAORGJHFMFwyfRaWg=
+Received: from epsnrtp3.localdomain (unknown [182.195.42.164]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTP id
+	20250227033704epcas5p21be907277e8e783de4d71ab72ac09509~n82uTAVaw2530425304epcas5p2K;
+	Thu, 27 Feb 2025 03:37:04 +0000 (GMT)
+Received: from epsmges5p3new.samsung.com (unknown [182.195.38.175]) by
+	epsnrtp3.localdomain (Postfix) with ESMTP id 4Z3H8G11p2z4x9Pp; Thu, 27 Feb
+	2025 03:37:02 +0000 (GMT)
+Received: from epcas5p3.samsung.com ( [182.195.41.41]) by
+	epsmges5p3new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	56.DC.19956.DDDDFB76; Thu, 27 Feb 2025 12:37:02 +0900 (KST)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250226102519epcas5p37f883e6750a956c3c930f3a3f4dfd964~nux5UNxCl2824828248epcas5p3M;
+	Wed, 26 Feb 2025 10:25:19 +0000 (GMT)
+Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250226102519epsmtrp2c66b9f64f5934e1a6ae72b767094a34f~nux5Tf8gE0438904389epsmtrp2R;
+	Wed, 26 Feb 2025 10:25:19 +0000 (GMT)
+X-AuditID: b6c32a4b-fd1f170000004df4-89-67bfdddd926c
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
+	61.CD.33707.F0CEEB76; Wed, 26 Feb 2025 19:25:19 +0900 (KST)
+Received: from FDSFTE308 (unknown [107.122.81.79]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250226102517epsmtip22df3154c9a7435a38c00c7717ef845b0~nux3e6RJc0450904509epsmtip2Q;
+	Wed, 26 Feb 2025 10:25:17 +0000 (GMT)
+From: "Aakarsh Jain/Aakarsh Jain" <aakarsh.jain@samsung.com>
+To: "'Hans Verkuil'" <hverkuil-cisco@xs4all.nl>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-media@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+Cc: <m.szyprowski@samsung.com>, <andrzej.hajda@intel.com>,
+	<mchehab@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
+	<linux-samsung-soc@vger.kernel.org>, <gost.dev@samsung.com>,
+	<aswani.reddy@samsung.com>, <pankaj.dubey@samsung.com>
+In-Reply-To: <c09e7819-a7d9-432f-baab-732e81b3f489@xs4all.nl>
+Subject: RE: [PATCH] media: s5p-mfc: Corrected NV12M/NV21M plane-sizes
+Date: Wed, 26 Feb 2025 15:55:16 +0530
+Message-ID: <000001db8838$bc466e00$34d34a00$@samsung.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQE+FHJLEG7bRbSgl/2Ewycw4h6AZQMC8PEqAzhsSKO0Ym04sA==
+Content-Language: en-in
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrLJsWRmVeSWpSXmKPExsWy7bCmpu69u/vTDTrrLO4v/sxicWjzVnaL
+	mwd2MllcnHmXxaLvxUNmi02Pr7FaXN41h82iZ8NWVosZ5/cxWaw9cpfdYtmmP0wWi7Z+YXfg
+	8Vi85yWTx6ZVnWwed67tYfPYvKTeo2/LKkaPz5vkPE59/cwewB6VbZORmpiSWqSQmpecn5KZ
+	l26r5B0c7xxvamZgqGtoaWGupJCXmJtqq+TiE6DrlpkDdKeSQlliTilQKCCxuFhJ386mKL+0
+	JFUhI7+4xFYptSAlp8CkQK84Mbe4NC9dLy+1xMrQwMDIFKgwITvj8etr7AV75Su+fz7F1MB4
+	UKqLkZNDQsBE4nDTWpYuRi4OIYHdjBJPO54wQTifGCUebVyH4Dz9184G03Lz1jJWiMRORokZ
+	J+9A9T9nlLj6cQYTSBWbgI3EtT8HmEESIgKzGCWO7F7DDuIwC7xnlDg76QcjSBWngK3ExvkX
+	mUFsYQE3iQWXFgDN5eBgEVCV6NqtBxLmFbCU+P/kLSuELShxcuYTFhCbWUBbYtnC18wQJylI
+	/Hy6DKxGRMBJYtWls2wQNeISR3/2QNUc4ZD4vUkVwnaROPHgIguELSzx6vgWdghbSuLzu71Q
+	byZLPF70Eqo3R2L9nilQ9fYSB67MYQE5k1lAU2L9Ln2IsKzE1FPrmCDW8kn0/n7CBBHnldgx
+	D8ZWk5hz5wcrhC0jcXj1UsYJjEqzkHw2C8lns5B8MAth2wJGllWMkqkFxbnpqcWmBcZ5qeXw
+	GE/Oz93ECE7HWt47GB89+KB3iJGJg/EQowQHs5IIL2fmnnQh3pTEyqrUovz4otKc1OJDjKbA
+	0J7ILCWanA/MCHkl8YYmlgYmZmZmJpbGZoZK4rzNO1vShQTSE0tSs1NTC1KLYPqYODilGpga
+	io/s+BnCuIFloe+Ost69/9Q9NNdtXyz6pJ5/Wclx86rLtbxejySP1qlEHmq88z5O7f9lvmTZ
+	wjXKrD7fnvz/GfO+R6coN6U1xNRC4vtU/6mnuIPkrUqaFgqxn+hJ+jS548XVGxJ39VqfXvSV
+	lP4mtNanM0DG0W1hp8jP7vKo/4XvfEqePDu+6nnua0mvv3anHs47lD+t0jJh+RSD+dMm1u73
+	Vdr4YP6USa9N0g9eXiqWcY7r/P7K8r+3eltFQp/GnehrCNohYT1fnO3VzpM9MvPnyWReqdYR
+	jNwUPL1oQXFGJUPIHxV36/pdbUpPcy02xk/f8d04iG/qraAlP7TWCZZYO+knBXxmU2fTkFRi
+	Kc5INNRiLipOBAB9lKQiUAQAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrMIsWRmVeSWpSXmKPExsWy7bCSvC7/m33pBk2XjCzuL/7MYnFo81Z2
+	i5sHdjJZXJx5l8Wi78VDZotNj6+xWlzeNYfNomfDVlaLGef3MVmsPXKX3WLZpj9MFou2fmF3
+	4PFYvOclk8emVZ1sHneu7WHz2Lyk3qNvyypGj8+b5DxOff3MHsAexWWTkpqTWZZapG+XwJXx
+	av8d5oL7chV/p/axNjDek+xi5OSQEDCRuHlrGWsXIxeHkMB2Ron/606yQCRkJP63HWOHsIUl
+	Vv57zg5R9JRRYv/3XkaQBJuAjcS1PweYQRIiAnMYJQ4c3QZWxSzwnVHiyKLPjBAtBxglzuzb
+	DDaLU8BWYuP8i8wgtrCAm8SCSwuAlnNwsAioSnTt1gMJ8wpYSvx/8pYVwhaUODnzCdhJzALa
+	Ek9vPoWzly18zQxxnoLEz6fLwOpFBJwkVl06ywZRIy5x9GcP8wRG4VlIRs1CMmoWklGzkLQs
+	YGRZxSiaWlCcm56bXGCoV5yYW1yal66XnJ+7iREcj1pBOxiXrf+rd4iRiYPxEKMEB7OSCC9n
+	5p50Id6UxMqq1KL8+KLSnNTiQ4zSHCxK4rzKOZ0pQgLpiSWp2ampBalFMFkmDk6pBqYIiefO
+	wXte1Dau5KoqeDDnxtdcZgP97zeEfHZeu5A5wW/KzWW3yp10mF+xVDDd/XFb69C3xmtPN5v6
+	R7XazOnfKWtas2uxn9/hw40HtN9GvHY5VpjV9d32WVUtN/f8/4a/VmV4ztMr07n0daKwkfz9
+	X4dbn0SbGtekfCrbvbfOqkY2qOWc3nTe+WeXiWa/6/fZ1cNYbXBTxv9vzDr2qKC/xlH+FsbW
+	tUelL+fnqnnfLGRo4jjO80k8UjShJqc1c+0e988iSoxsNQeTXy7beGmv/FqFtAkpd1avecnN
+	+snl9ZWC2sp4/9NuK8J73yy60rCThaVBQ3G2T6Li/8ZfAd2bLix90nbYYVqKwrRfJkosxRmJ
+	hlrMRcWJAOuWeIg2AwAA
+X-CMS-MailID: 20250226102519epcas5p37f883e6750a956c3c930f3a3f4dfd964
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20240806120911epcas5p1b0defc027a7f03ee9bf5f21036d3ae5e
+References: <CGME20240806120911epcas5p1b0defc027a7f03ee9bf5f21036d3ae5e@epcas5p1.samsung.com>
+	<20240806115714.29828-1-aakarsh.jain@samsung.com>
+	<c09e7819-a7d9-432f-baab-732e81b3f489@xs4all.nl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_182423_714069_1C623A24 
-X-CRM114-Status: UNSURE (   9.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250226_193711_140538_32A66C59 
+X-CRM114-Status: GOOD (  24.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,73 +143,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When CONFIG_ARM64_PA_BITS_52 is enabled, page table helpers __pte_to_phys()
-and __phys_to_pte_val() are functions which return phys_addr_t and pteval_t
-respectively as expected. But otherwise without this config being enabled,
-they are defined as macros and their return types are implicit.
+Hi Hans,
 
-Until now this has worked out correctly as both pte_t and phys_addr_t data
-types have been 64 bits. But with the introduction of 128 bit page tables,
-pte_t becomes 128 bits. Hence this ends up with incorrect widths after the
-conversions, which leads to compiler warnings.
+-----Original Message-----
+From: Hans Verkuil <hverkuil-cisco=40xs4all.nl>=20
+Sent: 11 October 2024 18:17
+To: Aakarsh Jain <aakarsh.jain=40samsung.com>; linux-arm-kernel=40lists.inf=
+radead.org; linux-media=40vger.kernel.org; linux-kernel=40vger.kernel.org
+Cc: m.szyprowski=40samsung.com; andrzej.hajda=40intel.com; mchehab=40kernel=
+.org; krzysztof.kozlowski+dt=40linaro.org; linux-samsung-soc=40vger.kernel.=
+org; gost.dev=40samsung.com; aswani.reddy=40samsung.com; pankaj.dubey=40sam=
+sung.com
+Subject: Re: =5BPATCH=5D media: s5p-mfc: Corrected NV12M/NV21M plane-sizes
 
-Fix these warnings by converting __pte_to_phys() and __phys_to_pte_val()
-as functions instead where the return types are handled explicitly.
+On 06/08/2024 13:57, Aakarsh Jain wrote:
+> There is a possibility of getting page fault if the overall buffer=20
+> size is not aligned to 256bytes. Since MFC does read operation only=20
+> and it won't corrupt the data values even if it reads the extra bytes.
+> Corrected luma and chroma plane sizes for V4L2_PIX_FMT_NV12M and=20
+> V4L2_PIX_FMT_NV21M pixel format.
+>=20
+> Signed-off-by: Aakarsh Jain <aakarsh.jain=40samsung.com>
+> ---
+>  .../media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c    =7C 10 ++++++----
+>  1 file changed, 6 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c=20
+> b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c
+> index 73f7af674c01..03c957221fc4 100644
+> --- a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c
+> +++ b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c
+> =40=40 -498,8 +498,8 =40=40 static void s5p_mfc_dec_calc_dpb_size_v6(stru=
+ct s5p_mfc_ctx *ctx)
+>  	case V4L2_PIX_FMT_NV21M:
+>  		ctx->stride=5B0=5D =3D ALIGN(ctx->img_width, S5P_FIMV_NV12MT_HALIGN_V6=
+);
+>  		ctx->stride=5B1=5D =3D ALIGN(ctx->img_width, S5P_FIMV_NV12MT_HALIGN_V6=
+);
+> -		ctx->luma_size =3D calc_plane(ctx->stride=5B0=5D, ctx->img_height);
+> -		ctx->chroma_size =3D calc_plane(ctx->stride=5B1=5D, (ctx->img_height /=
+ 2));
+> +		ctx->luma_size =3D calc_plane(ctx->img_width, ctx->img_height);
+> +		ctx->chroma_size =3D calc_plane(ctx->img_width, (ctx->img_height >>=20
+> +1));
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
-This patch applies on v6.14-rc3
+I don't really understand why this is changed. Looking at the implementatio=
+n of calc_plane and the various =23define values that are used here and in =
+calc_plane, the number should be the same.
 
-Changes in V2:
+I think the original code makes more sense.
+okay.
 
-- Changed the helper macros as functions instead per Mark
-- Dropped irrelevant (now) in-code comments per Mark
+If I missed something, let me know.
 
-Changes in V1:
+>  		break;
+>  	case V4L2_PIX_FMT_YUV420M:
+>  	case V4L2_PIX_FMT_YVU420M:
+> =40=40 -539,9 +539,11 =40=40 static void s5p_mfc_dec_calc_dpb_size_v6(str=
+uct=20
+> s5p_mfc_ctx *ctx)  static void s5p_mfc_enc_calc_src_size_v6(struct=20
+> s5p_mfc_ctx *ctx)  =7B
+>  	unsigned int mb_width, mb_height;
+> +	unsigned int default_size;
+> =20
+>  	mb_width =3D MB_WIDTH(ctx->img_width);
+>  	mb_height =3D MB_HEIGHT(ctx->img_height);
+> +	default_size =3D (mb_width * mb_height) * 256;
+> =20
+>  	if (IS_MFCV12(ctx->dev)) =7B
+>  		switch (ctx->src_fmt->fourcc) =7B
+> =40=40 -549,8 +551,8 =40=40 static void s5p_mfc_enc_calc_src_size_v6(stru=
+ct s5p_mfc_ctx *ctx)
+>  		case V4L2_PIX_FMT_NV21M:
+>  			ctx->stride=5B0=5D =3D ALIGN(ctx->img_width, S5P_FIMV_NV12M_HALIGN_V6=
+);
+>  			ctx->stride=5B1=5D =3D ALIGN(ctx->img_width, S5P_FIMV_NV12M_HALIGN_V6=
+);
+> -			ctx->luma_size =3D ctx->stride=5B0=5D * ALIGN(ctx->img_height, 16);
+> -			ctx->chroma_size =3D  ctx->stride=5B0=5D * ALIGN(ctx->img_height / 2,=
+ 16);
+> +			ctx->luma_size =3D ALIGN(default_size, 256);
+> +			ctx->chroma_size =3D ALIGN(default_size / 2, 256);
 
-https://lore.kernel.org/all/20250219035646.536707-1-anshuman.khandual@arm.com/
+Isn't this effectively the same as doing:
 
- arch/arm64/include/asm/pgtable.h | 15 +++++++++------
- 1 file changed, 9 insertions(+), 6 deletions(-)
+			ctx->luma_size =3D ALIGN(ctx->luma_size, 256);
+			ctx->chroma_size =3D ALIGN(ctx->chroma_size, 256);
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 0b2a2ad1b9e8..4ebfa60ea5c6 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -68,10 +68,6 @@ extern unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)];
- #define pte_ERROR(e)	\
- 	pr_err("%s:%d: bad pte %016llx.\n", __FILE__, __LINE__, pte_val(e))
- 
--/*
-- * Macros to convert between a physical address and its placement in a
-- * page table entry, taking care of 52-bit addresses.
-- */
- #ifdef CONFIG_ARM64_PA_BITS_52
- static inline phys_addr_t __pte_to_phys(pte_t pte)
- {
-@@ -84,8 +80,15 @@ static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
- 	return (phys | (phys >> PTE_ADDR_HIGH_SHIFT)) & PHYS_TO_PTE_ADDR_MASK;
- }
- #else
--#define __pte_to_phys(pte)	(pte_val(pte) & PTE_ADDR_LOW)
--#define __phys_to_pte_val(phys)	(phys)
-+static inline phys_addr_t __pte_to_phys(pte_t pte)
-+{
-+	return pte_val(pte) & PTE_ADDR_LOW;
-+}
-+
-+static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
-+{
-+	return phys;
-+}
- #endif
- 
- #define pte_pfn(pte)		(__pte_to_phys(pte) >> PAGE_SHIFT)
--- 
-2.30.2
+I.e., the bug is that these sizes are not rounded up to a multiple of 256, =
+so just add that, rather than changing code elsewhere.
+
+I might be wrong, but this seems a much simpler solution.
+sure Hans. Will address in v2.
+
+Thanks for review.
+
+Regards,
+
+	Hans
+
+>  			break;
+>  		case V4L2_PIX_FMT_YUV420M:
+>  		case V4L2_PIX_FMT_YVU420M:
+
 
 
