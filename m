@@ -4,81 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93FE4C18E7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:55:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32E97C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2EOvlAclHzeQp38EozYAQpR/NIfs720sD/vFVN9IDmA=; b=2hw1RWDSLRQoCdC62O6ErZESXW
-	OEwuv7cb/V20/OBxLr61d58cpd/uI5qxehHOEo6O9sIZwal7c/b6GGiPMuRHBq5AXo5AMQWxRld/D
-	zqtHf/pqcP+s6MWgl4lYoqy2g89dkyJ2gb1t1Tn7vvmJlEBHR79TIrHTfh1LWhNAAUqzpcFBWpCsT
-	cU0kaBhnT3CXihAPYBWPwdf/VaCqygDacZF3TfEVhzcvDuC+9quJvhllX9BCPYzW8zZmLIvUZzV2S
-	Ob+2RBY+T64Qcze7gTxWC+gkB+Y/rSsONIQB2jdIZtdL7DsprZLN9pHTZCKJoLXXG4dPFqVn/gyCl
-	eWxhRf5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UKO+pmLQatUCt7yegvUS1k29o1fQVlfCOBaelBDtfAU=; b=gLj+Sbr1PGV/5HBTjZAN1+50xz
+	pOJDs2MRrAlEZkScuckfCWhYavfUOlxXUFGrcGhzndJgKZkQrc/vqqtQEOgRciYVnY8ILbIStbZd6
+	LJnhGnAFbnJ0W6xX71CLhz1gFzybpnOEeRzy9lH5iY95Nc42cKZq4kcmMZvgzd1glhwg6v7v/3/mQ
+	y7WaSIJNakmGa7RisKo0rGOfkjhRRX3dp01GxGRkHLeHfYeX5CvygWt3eZ6aA4cuuYOiFzGvRzQB0
+	vgC+vjzvo9VQU6QvMAXmScnzW1G7XyzjR9kv1O52XBdngIfRnbKknyW//u/dx84dBcdWN8qfkaA+l
+	8PUm4nRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnHsm-00000003yyY-3Q7F;
-	Wed, 26 Feb 2025 13:55:28 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1tnHvn-00000003zTN-0qtW;
+	Wed, 26 Feb 2025 13:58:35 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnHrE-00000003yhG-2K0s
+	id 1tnHuF-00000003zBj-0Lad
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 13:53:53 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51QDrXEg1558673
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 26 Feb 2025 07:53:33 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1740578013;
-	bh=2EOvlAclHzeQp38EozYAQpR/NIfs720sD/vFVN9IDmA=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=BflfOoIKoe3ZMuBooXdYzUcIURGor7uEcCvrRrE7hwrDtxFPyPAUDQLK9WFwgKo7e
-	 mFzx6HAvmdpG9Y30AHISfDanoeG+kOzh4lysq4jVK2LEt1zoArEMjreuwiDjMa+V9d
-	 iPeCbZRvSnAIWa/M/CMJ1LDdcaRxl7wmnjrksY1k=
-Received: from DLEE104.ent.ti.com (dlee104.ent.ti.com [157.170.170.34])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51QDrXm1128702
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 26 Feb 2025 07:53:33 -0600
-Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 26
- Feb 2025 07:53:32 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 26 Feb 2025 07:53:32 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51QDrW4B126476;
-	Wed, 26 Feb 2025 07:53:32 -0600
-Date: Wed, 26 Feb 2025 07:53:32 -0600
-From: Nishanth Menon <nm@ti.com>
-To: Meghana Malladi <m-malladi@ti.com>
-CC: Vignesh Raghavendra <vigneshr@ti.com>,
-        <elinor.montmasson@savoirfairelinux.com>,
-        <javier.carrasco@wolfvision.net>, <ebiggers@google.com>,
-        <biju.das.jz@bp.renesas.com>, <quic_tdas@quicinc.com>,
-        <nfraprado@collabora.com>, <arnd@arndb.de>,
-        <dmitry.baryshkov@linaro.org>, <krzysztof.kozlowski@linaro.org>,
-        <geert+renesas@glider.be>, <quic_bjorande@quicinc.com>,
-        <will@kernel.org>, <catalin.marinas@arm.com>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <srk@ti.com>, Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>,
-        "Ravi
- Gunasekaran" <r-gunasekaran@ti.com>
-Subject: Re: [PATCH v2] arm64: defconfig: Enable HSR driver
-Message-ID: <20250226135332.5g3ydyukzy5oqivo@legume>
-References: <20250226104517.1746190-1-m-malladi@ti.com>
+	Wed, 26 Feb 2025 13:57:00 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 7EF7CA0929;
+	Wed, 26 Feb 2025 14:56:57 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=UKO+pmLQatUCt7yegvUS
+	1k29o1fQVlfCOBaelBDtfAU=; b=OqMQfTBrW+wDeQ5v1RIKWkX4gi6XvJt5qIzp
+	/W5fRINaBZoudm3hspOOtxNO7rGtCth14AilNf9ArKtaiIYCyXNuSnq75Ka46Rv9
+	f/kARS1XihmTkDfZD7cgx2xIWF7Fn/C1Q87e6vt59OySvCGse8dGN70V5X4RxvQp
+	DM86nU1UEo7HOfPfNlmNOMfWV0gyCzNNCOqE/lo6IbS5FAZlyS/cz28xTlLpJYtM
+	4Gp1BTalEzQcypRMt72OYUPKSbRSuECENu5toki9PM7AdPCVl/UZyRiPTZOPMPnh
+	GIBhCoPqQNhJavWMpEMf2aWMeoso6iF4t0FKDN5EiclTM7Ikvum05R5T8n33zq2f
+	Wh3k95d6MBPa3kKH7PRaDrs6dCxxQWLliQ6EJ6F0wlSqViz5LYtogQ/Fguryr/El
+	yphkFXlSvE0gHYnQsnUpOfhHmxLxEUIb5XiKoCbvVrzHnzfyKSB1TL+LzYyaTm2o
+	S+kMyK3yPx+ZWGMOocX4n6P1LT7VExPOJfT1vOLEAb1Yqt0kIFkvzX13Hx6LkaG9
+	M3gSQHxO2Rqc5W+3/+co7lZUVrjc4rXnY4/+s0YpLUGsf8JHPebORGBQqBkRfbBJ
+	Rktty2nIIGfHMS1gXaffJ1hoA2ysgLYPjOspXmwCrtpcbXnA7x3i2ZrBOtOMAQxc
+	kq9+XLc=
+Message-ID: <3758bdc7-2eb3-4e42-845a-8ecb1103d4f1@prolan.hu>
+Date: Wed, 26 Feb 2025 14:56:56 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250226104517.1746190-1-m-malladi@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Q] Frequency & duty cycle measurement?
+To: Dipen Patel <dipenp@nvidia.com>, <linux-iio@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <timestamp@lists.linux.dev>
+CC: William Breathitt Gray <wbg@kernel.org>, Jonathan Cameron
+	<jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>
+References: <f2ec8a55-42ad-498a-b793-072444dcb92e@prolan.hu>
+ <7b6505ca-6082-4644-be4d-6e1372c183b7@nvidia.com>
+Content-Language: en-US, hu-HU
+From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
+In-Reply-To: <7b6505ca-6082-4644-be4d-6e1372c183b7@nvidia.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.254.7.14]
+X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
+ ATLAS.intranet.prolan.hu (10.254.0.229)
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D9485263756A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_055352_683312_49D72E90 
-X-CRM114-Status: GOOD (  16.57  )
+X-CRM114-CacheID: sfid-20250226_055659_281140_C183F497 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,53 +87,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16:15-20250226, Meghana Malladi wrote:
-> From: Ravi Gunasekaran <r-gunasekaran@ti.com>
-> 
-> HSR is a redundancy protocol that can be realized with any
-> two port ethernet controller.
-> 
-> Many of TI's K3 SoCs support multi port ethernet controller.
-> So enable HSR driver inorder to support this protocol on
-> such SoCs.
+Hi,
 
-Which boards use this? cam you update the commit message for the same?
+On 2025. 02. 19. 23:32, Dipen Patel wrote:
+> On 1/21/25 7:19 AM, Csókás Bence wrote:
+>> he hardware is capable of taking a snapshot of the timer value into another
+>> dedicated register pair (RA, RB) on the rising/falling edges, and a small
+>> `devmem`-based userspace utility was created as a working PoC
+> I am late to the party :) Seems above statement looks lot like what HTE
+> subsystem is doing. Right now, only userspace path is through the gpiolib
+> due to usage that time was limited to GPIOs. However, we can extend HTE to meet
+> this scenario.
 
-> 
-> Signed-off-by: Ravi Gunasekaran <r-gunasekaran@ti.com>
-> Acked-by: Arnd Bergmann <arnd@arndb.de>
-> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
-> ---
-> 
-> v1: https://lore.kernel.org/all/20240419060013.14909-1-r-gunasekaran@ti.com/
-> 
-> v2-v1:
-> - Rebase to the latest tip
-> - Included TI specific maintainers in 'to'
-> 
->  arch/arm64/configs/defconfig | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index c3df5120b23d..f3afc0ec68f0 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -177,6 +177,7 @@ CONFIG_NET_CLS_FLOWER=m
->  CONFIG_NET_CLS_ACT=y
->  CONFIG_NET_ACT_GACT=m
->  CONFIG_NET_ACT_MIRRED=m
-> +CONFIG_HSR=m
->  CONFIG_NET_ACT_GATE=m
->  CONFIG_QRTR_SMD=m
->  CONFIG_QRTR_TUN=m
-> 
-> base-commit: 8433c776e1eb1371f5cd40b5fd3a61f9c7b7f3ad
-> -- 
-> 2.43.0
+Yes, I had the same impression. But since there was already a driver for 
+this block in the counter subsystem, it was easier to extend that to our 
+use case.
+
+> Thanks,
+> Best Regards,
+> Dipen Patel
 > 
 
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+Bence
+
 
