@@ -4,201 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D68DC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 17:43:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58BA1C021BC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 17:44:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yafNpcL8aIYsgRBggH7NG+AFIEeMpPwkAoX/CLjf8l0=; b=yZdjgXTSMcGJoTU4melwteU8li
-	8I8YT6kgYVEVHuAKgCawuV6rQEPk/oid5E3AnLgE/kG9AyOydkZYCTu2+uP7HMoKrMKyrTaGwx34x
-	svQFVFq2hWLOQNNmdfQLle6jtI6b5eRH/zQxFefazniBgg/es94kJY8tNcWpIk3HG2B+IaT2mP88B
-	995h9ZeVgeV9/VxEdlVjpbO41lIVvAV6yYN3X8WIICbuYtgvQJE32pgZFfghahYXCJsX3zxTLlaXP
-	srLmgldp3D82NKk7OVQ7Eucv6pKo8O8xw9GVAdjHLaKPPqAfcp1ip18TMSG2ruDw5yVISwdXuqs3d
-	n0w5OjEQ==;
+	bh=jvvD8VmtA028dfmpfoqe4awku57v1pGyKkk2EdLcK5A=; b=OUhHulrdeNdGlfGVyVnmBU5J/B
+	a3PIOhBSIBvGY/gWXQI/NQT0bC9Is7j0BkVrtwrO9B1ugsmDDGLDmdhHsjqiDuIFYYE28KFNF93Gs
+	dUSe1ZW50ZDPas0QCbijHbcxpTA2i5ddqZNaSsVNuv1MHmA5p21lA6eQ6KOY4eSH1g8cEBhopHzt6
+	iasjxX1lfdo5W12ZKyJXCb6XwE4ytTjOTMSv2tTzbVGqEiL6A1DyJdg4uh5zgCmqthd0OMAQOxX9+
+	ZbiOTtmqvRHWSwhDR7Mqhe7R2PN2SiPzikACCM4RYzu4Tr+ENDNsBG+hpF0CFcaEFJ93YzvyyUSTI
+	AwJ4/cjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnLR4-00000004lN9-2Pr5;
-	Wed, 26 Feb 2025 17:43:06 +0000
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+	id 1tnLSa-00000004ldl-1FHp;
+	Wed, 26 Feb 2025 17:44:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnLPW-00000004l0D-0e2G
+	id 1tnLPc-00000004l1U-3B66
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 17:41:31 +0000
-Received: from pps.filterd (m0246629.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51QEtaZg005809;
-	Wed, 26 Feb 2025 17:41:11 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	corp-2023-11-20; bh=yafNpcL8aIYsgRBggH7NG+AFIEeMpPwkAoX/CLjf8l0=; b=
-	OEHnz9D70W3NHCdemjDbob6MoTb2zUpRlpoZn9WBGkObw9rWuPlgvBybjUxdAj1u
-	tGFsDQnWg/hkeeO4g6FkxY5+LgEJQDCIz5nZR5ApcvSsnKWhrKd+V1btNkDTnsBp
-	pDmLbmlzavJK8QibcwO87rfEA+4cEDvNpwQ7IsBaQ8dKX50AaLQZHnP3x08C6VyP
-	l625NZRRKqJsvrN8ugk0KpXVbF76BSJBehLBvdvcqyM12W+me8bUTX9J+o6bH0Si
-	aenclQz+Ak1GrAgpuY8Scg4T20E2cvGS2GHGYNclkXerC5Jzpx0vtnvqp8LkhK0Z
-	ZqnEX411jyvvcgRNIPYOsg==
-Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.appoci.oracle.com [138.1.37.129])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 451psf1nvv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 26 Feb 2025 17:41:04 +0000 (GMT)
-Received: from pps.filterd (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 51QGAIgK002830;
-	Wed, 26 Feb 2025 17:41:03 GMT
-Received: from nam12-bn8-obe.outbound.protection.outlook.com (mail-bn8nam12lp2174.outbound.protection.outlook.com [104.47.55.174])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 44y51b7tvx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 26 Feb 2025 17:41:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=c59ZmlSM9NpNip/rIjG8W3n2ny8YOZIn6krlsSOKoISxOX6AitEeMsIM8IVGggedC8rA2MpvXUueJ55BIRQG1KhVJpMtm2VtRYCbrYr3Am1B1TDxcjUdKdL+8j01tKNnJ6/e7hBhMDqo2obIgraxcDiPFC99HU5lSNAjfCXr8DNIBvzGitjLozwN+LxBMzqj6tfMgJoeEyLxtoBs1/lfVrxX9I7vTlegkP61I4W92JJysheOYlSW73aegNjucNBYVydn+ZJXP04yCNlkHiO9oxAn/ogLZLM73+8xy9FOi2ORYkMWZa/+bZRjmWXqdofePX7sByHg+9c8b43UN8H1MQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yafNpcL8aIYsgRBggH7NG+AFIEeMpPwkAoX/CLjf8l0=;
- b=DCKYBGE40jYyqo1jFARf+v6japBgKyUNb6zUwI5tOT1AHCIIo/lpxYkugx1vJyL0RCqWKnIfkF9Xocbc3vsdmtSyMPGEdpWDTqens1VBt90T485cRyzz8mJK5vXAmC2BUW3iP4Nn3mAGMTQZZ/vN8/xFkSyOYExuon4wc51qoCuAgMM0jzjdS8BoVOfaT6rvkdF5dwwSha6cZcFH35gfZPsjECXkx4mnzLVFZWSRdkaPDRHzpv4KQotThW+ykGIf5NhlRxO/VFFfIbpNFvc1nbm19RG5/QfqdBQO0oNoKjm68qsZEYVeuXJIDrcsSo6wf55k+D6MVN+3X/C7egIDQQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yafNpcL8aIYsgRBggH7NG+AFIEeMpPwkAoX/CLjf8l0=;
- b=NN9DFBtSZ4ITf7rYqKtHt3UT2uS6pD0AcjjCnKxC+pmwuLEXz/uAzOgFt83FN36i/vaVxbxvrzq6IUdLVGXln3QdsTHYwn8f8J+lVT6hAuP8veE3C9YkuSZZ2gPiGHnOJ0J+p6zK64Jf0aPhf9rCYmaFgOAQ5Le34U315FO2bb8=
-Received: from SA1PR10MB6365.namprd10.prod.outlook.com (2603:10b6:806:255::12)
- by PH0PR10MB5756.namprd10.prod.outlook.com (2603:10b6:510:146::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.17; Wed, 26 Feb
- 2025 17:40:59 +0000
-Received: from SA1PR10MB6365.namprd10.prod.outlook.com
- ([fe80::81bb:1fc4:37c7:a515]) by SA1PR10MB6365.namprd10.prod.outlook.com
- ([fe80::81bb:1fc4:37c7:a515%5]) with mapi id 15.20.8489.018; Wed, 26 Feb 2025
- 17:40:59 +0000
-Message-ID: <91fae2dc-4f52-4f38-9135-66935a421322@oracle.com>
-Date: Wed, 26 Feb 2025 09:40:53 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
-To: Puranjay Mohan <puranjay@kernel.org>, Weinan Liu <wnliu@google.com>
-Cc: irogers@google.com, joe.lawrence@redhat.com, jpoimboe@kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org,
-        mark.rutland@arm.com, peterz@infradead.org, roman.gushchin@linux.dev,
-        rostedt@goodmis.org, will@kernel.org
-References: <4356c17a-8dba-4da0-86dd-f65afb8145e2@oracle.com>
- <20250225235455.655634-1-wnliu@google.com>
- <da6aad99-3461-47fd-b9d8-65f8bb446ae1@oracle.com>
- <mb61ph64h9f8m.fsf@kernel.org>
-Content-Language: en-US
-From: Indu Bhagat <indu.bhagat@oracle.com>
-In-Reply-To: <mb61ph64h9f8m.fsf@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MW4PR03CA0168.namprd03.prod.outlook.com
- (2603:10b6:303:8d::23) To SA1PR10MB6365.namprd10.prod.outlook.com
- (2603:10b6:806:255::12)
+	Wed, 26 Feb 2025 17:41:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 22ADC6125B;
+	Wed, 26 Feb 2025 17:41:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C9E5C4CEE2;
+	Wed, 26 Feb 2025 17:41:29 +0000 (UTC)
+Date: Wed, 26 Feb 2025 17:41:27 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	David Hildenbrand <david@redhat.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Dev Jain <dev.jain@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v3 2/3] arm64: hugetlb: Fix huge_ptep_get_and_clear() for
+ non-present ptes
+Message-ID: <Z79SR77ml5ckIzUv@arm.com>
+References: <20250226120656.2400136-1-ryan.roberts@arm.com>
+ <20250226120656.2400136-3-ryan.roberts@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA1PR10MB6365:EE_|PH0PR10MB5756:EE_
-X-MS-Office365-Filtering-Correlation-Id: fca89fdd-df4a-4e32-08f4-08dd568cbb02
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|10070799003|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?WVhCSjZSdzBXdExOTVZxdTdiWXFrU1pUOVl6UVltM3F2L1VLTU55YUg0M0xu?=
- =?utf-8?B?cXNsZkZURnltYlppRlZzZkZqdFNLdFBhNVBPRDgzQ1NKQmhBVjhNd2ViaC84?=
- =?utf-8?B?di90dnlxYy9jMG12eUdWc1RINlUyMmVBbHpkREFTTGxPR2ZoMHppZkpvaElu?=
- =?utf-8?B?VUQyTVZjMkJiWkJuNWRWcVVCMlVIRFlNd1diYTBJSmo2cUU1Rld0b1ZoOXJO?=
- =?utf-8?B?UTMyZUFlU25hYlFIR1Zhck54Y24vbStyNDVEcGZTSGxETmI0MXB0ajZPcDZQ?=
- =?utf-8?B?RTgyaVVpanZ2b05yOHE4VllnS0kreis1V0pEck4zV1ZGS0hQTGtXa2FVM2J6?=
- =?utf-8?B?Y3FjS1N1dmlOVnFmdkVPM3RTQ1ZUb3hLTVFkaEtDM2hyTUR2ZWtrUVUwbFFh?=
- =?utf-8?B?UHdaTkx4K0VsYmlObFZzZVA3YTcxMmtGdlZwaVEwUXI0Vi9QcmFzUTk4aFhx?=
- =?utf-8?B?YjNsVUxJY0tZOWJ2eWhzS3ZzSE5pNjN6WGZFcnBCV3RVMHA5Q0NwemNrMTJa?=
- =?utf-8?B?aUNNNTUwWGVSeW9ZWHJlcmhSdTM0bUpSRVpOL29wdmRwdm5OUDd1cGY5YTdX?=
- =?utf-8?B?K2d1UXFQd2MzWFA2UEJvR1pva3llaWdhSUNvSmRpVnROamUxQjREdjU5ckYx?=
- =?utf-8?B?Z2NiZFZQMXEvZS9tOStjZVlNUTI5Y0NLQUZBNElIRWh0SXFpdEFJWkhmb0E5?=
- =?utf-8?B?RGpubW50WWhVVU8wNFdYam1YdmlWN1lYNUhJYjBKYTIxZ3lsSnNPYnBOUXYw?=
- =?utf-8?B?RlBNVzNma05idWU1OGlidDliaFhXYUM1NDZ2R3c1ZnpLV0JVMFAwalRldFVP?=
- =?utf-8?B?L1JGNFRvNm1mNkpVd0ZRcnE0WTdtNjdoRGh4VnZYTWRiMnFQVWsrTDdsZW1E?=
- =?utf-8?B?ejFSdXdQSGR0T1ZsalpMU09sTlhuakZDcGpUYlJWd0dtVGl1bkNQOFpvRS8z?=
- =?utf-8?B?ZUxuQ3JZSWdzY2hrZmVjQWlXZUp1dnd1bkJaZCtlR0RuRDRzNGtpeGM4UTdm?=
- =?utf-8?B?VWhqN0RITEpKU1hBK2NKVnlibzV6TVZyWnpjTVFHaWtaWEdkaThDcE1JSWVp?=
- =?utf-8?B?YXcvSWUyaytoUEdlSlBVZG1hdmFIdzBuU0JHN09SRWJxcUR3NWxVbjZ3aVZL?=
- =?utf-8?B?dzJPWUZHMlFhV0g1OWo2VXNMbDcwcTMvbFNRUkJsK21lTjEzbGNmdGFZSVo4?=
- =?utf-8?B?TjJtWjk2SWE1b1I2UkVGM2J1Vlc5UlV2eUFndVMrcUprRlBKODM0bEVHeWgr?=
- =?utf-8?B?d1pPUTQrdmx0NitVbFpkeE0xMXh3SVREODhyQXVhUHc3TnFJUDd5OS9FbWR0?=
- =?utf-8?B?ZzBncEdmSmFWVkplcnovQ0k0ajV0aVlLSHVOTXUzSlRXaFl4SXlCOUZ1WEJ5?=
- =?utf-8?B?bXpqWXRpQ2ZvUERtRkRoL0w2UmsvV2NoNFVHSE15VklFbmY3UnBFbTR5ZGFL?=
- =?utf-8?B?NkVPWUhHWjVBVkFXNnpIb09aSllIWkdXWk9ld2VFMDlzUzJWWHhtSmV4eEhC?=
- =?utf-8?B?aXJsQ3hIcVM3T2Z6WUlVTHVxNmhQazcxNnA3K2FYeEdjT3FSMnJoM3NxVUh6?=
- =?utf-8?B?ZEdxNnhOQTF0TFNHNk41T0NCMjlaYXZPTElvV2xldjRkYzdGUTBVb2dMaWdr?=
- =?utf-8?B?dmFLVURIZkNNcFdzZW85bzVYMDlMa2JYbGpFSjBUbzYrSDdwaVgrSEtKUFNH?=
- =?utf-8?B?Zk5MdFBabG5OYU9BR2hQYzVDMGJpRVFQSldnYUt3bHc1VXFhS0xoNlVaM25U?=
- =?utf-8?B?dkdGMWttVHJnYTNudE03cmowaXhBQWhPTDdtOUwzVTRxK0hNbmxUTjVFdGFY?=
- =?utf-8?B?YTdRNHA1K2lTVzVsYno5dz09?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR10MB6365.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(10070799003)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZHFYWFZSWGM0K2tqZEhGZGMxY080eTFQeWFNbHpGYkxoWm5ieExBRU9SS1dF?=
- =?utf-8?B?a1d6c0lVT1d3NHhFNVZZajY0ZDFheXFCUWxFYWVMOUpGUy91enovM1h2VVpM?=
- =?utf-8?B?UUZ0VWRHR3UxaFczT01WNi9UdVNFdTBML2Vtb2RVamtFVDBrRjNlWWpGaG05?=
- =?utf-8?B?cUhrWS9VUGlNSWo5aGc4NEZRSmIyM3p6MjlRTzY0NXd1ZDUzMmw4WkJmamtP?=
- =?utf-8?B?SXVOOXJTc0RzTzFPMm9OR3c1ZkJrMGdMYTdWUE1NOGlleWN0QkNBRjdsam5R?=
- =?utf-8?B?QUlVOTJ1b3RraU54Nm0xaDdNWnFKSEhDYy9nME9VTklOUDZJQTkwOG1nVWRi?=
- =?utf-8?B?MC8yeHJUbldYV01abk04VnNqVDRlQTRpajlrbUlUc2FsVEVoR3ZqYUtEL0pj?=
- =?utf-8?B?eUZwT01SQzFNWGc5aXJvY3R6b2NCaGsybTlxRm1JZEhyT05OS1VkTkNDSVQy?=
- =?utf-8?B?VzhmeFZramtVUEJnNE9yV3dUWVVHaVZ0ZWdtMllTZnJNSUdrTHQxTjlqaVVr?=
- =?utf-8?B?c2NEeXNkRHMvbmxoQktSM1VRc01TUGtsRUFiaFZIcHpCQWNaTjJhL29uOGx0?=
- =?utf-8?B?OHNIdUxBeWRiWnZ6VjQxZGR1MGM2ZCtlVXN0VGs2ZElVUTlRN284SzQvSGIx?=
- =?utf-8?B?bWRrNHE1Y0VueUl6Q295RlVqbXNaVkFBM2hSZEtJTGIvcUVJeVJEZ1RCS1hW?=
- =?utf-8?B?bHpZWjhQMUphaUt0ZWk3bFNVam8vcXhCZ3EramtZS2xXVFArZElMOGl3VHpG?=
- =?utf-8?B?MHZIbjFBTEh2YU55L0tmdTlKN0RiK1RXVkF6bmNJbHRUMVl4Q01za2VtVlVz?=
- =?utf-8?B?WktYSUJjOFJESmRNd1pKK3JYbnoyOUM5dEljTzJCK1ZNOHd3NWpqc1dYWkxy?=
- =?utf-8?B?SDFMZHhneXZkN1lFZFpVMitMYUpCUkI2elkyM0RpVmc1Z05rUEE0YkJtZ0Jr?=
- =?utf-8?B?aDNPcDdTQmQrcUZXM1loQnRsYmZIamtvOFlPYXJYNzhLUzlpODkwZXdjaUlh?=
- =?utf-8?B?YnQrRlhLR2lVbi9pM0lNQm9aU1NuQkJJVktTZDd4WjFaZERiY1hkLy9nMGpD?=
- =?utf-8?B?ZE1CY1RqTTZKVk5ndU90d0ZJaU9keVVOcVQ0S2lrTWw2TTYzVVFsSkFENXlW?=
- =?utf-8?B?TVhqUE85Ly9kR0RkL3BGZEdmbFZJKzliTFNCYjFnL3dVUUdGUWRVaG5PeXJl?=
- =?utf-8?B?L1A1Yk1PRlFkUzVsakQ1d05pV0c2eXZ0Z2l0UjB1cHBKNXZESVF6NWt5aW9S?=
- =?utf-8?B?VHp3RGkzK0tYTlNBc1RtZjBqSGQ5VjkwVXl0SDBnV0ZtdWwycW85UnU1Wk5U?=
- =?utf-8?B?SGxuQ1hBYjV5VEdIMUFpRURGdXRCVU0rS1gvakgzNkpBTklaTWF6K2hmdmcz?=
- =?utf-8?B?cHV6UGx3R3plOVRZVU1MWm85MEQ2RzlpVjN5SDNFbkMrSURmd1N2TzJsMVRp?=
- =?utf-8?B?L25hbU10Z3RrR1Y4YjJicEJJM1NzYTlsYTFaZjh2NGtPYnhEK2t2SE9HQnVa?=
- =?utf-8?B?ZGg5UnNCdklKVCtIQVUvUm4yNDhQN3FzTW5QdVFhd2pCNlNnWEh6bEkzcWFa?=
- =?utf-8?B?aFNjQWpBT3VaRHpWbk1kNC9SeXZhdFBmU09nNjdDam1CcGRtSFFPb2NiVENI?=
- =?utf-8?B?VG1zVkJCTEFISnR6NnJNeEFITUcxa2tmTXNlUDhET3NkTGFaRHE3WnI4QVJ2?=
- =?utf-8?B?OTd1eGl6NzRiZkpSZVc0NFp0L2drRDBydTZwWUk1bmFZdkl5QWE0LzlRbmhw?=
- =?utf-8?B?U1dJbEJkYzVpM2lRcjBRd3NyMmdXMnd2MWFIM205TkZra3M2WVRJTFVFaHVM?=
- =?utf-8?B?a3QrT1ZEZjRzYzFPUkJjZVExR2MxOHRkdFJXcms2elBKeVJLS3JPNXJmaGtX?=
- =?utf-8?B?WEZXc2Z1Tm90aXF5WU9UeVg3MUN0aVlzaG1VblB3QnBDRW03Wk5LczFObGNa?=
- =?utf-8?B?MFJPdjdJbW8zd3V3UUVreE92ZkJqSFN3eHk0YXJtTGF6MGZYdWMzQ1pNZDlI?=
- =?utf-8?B?OXFVSlVZTnQwTjV4RVhkMVhPSzQ4TXkwWnZPbmllanpWc1pxbTlKU3FwTmZl?=
- =?utf-8?B?UGZ5Y3c3N2h1RWVSWGNHNHRJYncvRUNzbWpRODN1S2lXOTQyT2c4UGJUdFNj?=
- =?utf-8?B?WVFkNzNyVmRTMSt2UlRSSnZFOHNjWExmeGRnZ1h1dGlwekZubm5KenNubVlK?=
- =?utf-8?Q?zVJswXpBIK1Of+K9mpT1oQ8=3D?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 8/UmvsE4cpC+cGPOtv/ZwUtl9TqL/fJKH3WXnLiSSU3fVHdP40yA/9rflB3iwXu+K2uZDOaEaifbVDp8/NgOdovz8zXOvEzNMcqAlt8IctyEQWgnSbOjZLERGVhvDy6vS005khRGSa39Q57irYl2Xrz3Wrl3agV2hUcCl2KaUKxgDY3SGQ58Kf+AZfCCqTIWP+I2iJRfzinWOs3ai/r4zTrPrsGXcuYjyRl1V+QyD7yrGTiQDmuMAjHkDvUbOgTBNYhx0zhJOye7JXKMcTbetkNXrZU/hBUXeOwJdsltpdpBckuJxItVgHq4wDS03PGL5Do/BARpZ82ANZyQxhMokYodNQbFJFa68KNkFEEBcUKg8y/hLXpuNV0+cjLi2pY3YEzKQgUCi0i7COz+O/3gg4EBoFpL7j0OpqeeyUMZuXEm4bEeVLKjNBa3zrhZNkKWgs62T4xqm6JgqCAKXuorffrOYivYkDwVRCZ68budARUMECDJeQrJALOq4mGJpRQAaQq1hQGy6fcVHahfTb1hn6mKC5/Tx/2gKrKYJEpdVfhER2gRr/WfdoSUHLh4NdZ4z5xydDX6mqZq532mtnTmb5OzJofBzaNzi6pYOqdw1d0=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fca89fdd-df4a-4e32-08f4-08dd568cbb02
-X-MS-Exchange-CrossTenant-AuthSource: SA1PR10MB6365.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2025 17:40:59.1375
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DIy2SZ+KhSQnzzqTcIAdHGBXLQNkEks985a71rlOgKgzx82/cVi2R4f6BFIQ9jDH560LuFLj94dURDE9j4g0zQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR10MB5756
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-26_04,2025-02-26_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0 malwarescore=0
- mlxscore=0 adultscore=0 bulkscore=0 phishscore=0 spamscore=0
- mlxlogscore=999 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2502100000 definitions=main-2502260139
-X-Proofpoint-ORIG-GUID: dM7HWmK4J0uiuQvPqKT6jih2r-0qlXlD
-X-Proofpoint-GUID: dM7HWmK4J0uiuQvPqKT6jih2r-0qlXlD
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_094130_198120_3D2B1427 
-X-CRM114-Status: GOOD (  22.57  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250226120656.2400136-3-ryan.roberts@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -213,120 +91,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/26/25 2:23 AM, Puranjay Mohan wrote:
-> Indu Bhagat <indu.bhagat@oracle.com> writes:
+On Wed, Feb 26, 2025 at 12:06:52PM +0000, Ryan Roberts wrote:
+> arm64 supports multiple huge_pte sizes. Some of the sizes are covered by
+> a single pte entry at a particular level (PMD_SIZE, PUD_SIZE), and some
+> are covered by multiple ptes at a particular level (CONT_PTE_SIZE,
+> CONT_PMD_SIZE). So the function has to figure out the size from the
+> huge_pte pointer. This was previously done by walking the pgtable to
+> determine the level and by using the PTE_CONT bit to determine the
+> number of ptes at the level.
 > 
->> On 2/25/25 3:54 PM, Weinan Liu wrote:
->>> On Tue, Feb 25, 2025 at 11:38 AM Indu Bhagat <indu.bhagat@oracle.com> wrote:
->>>>
->>>> On Mon, Feb 10, 2025 at 12:30 AM Weinan Liu <wnliu@google.com> wrote:
->>>>>> I already have a WIP patch to add sframe support to the kernel module.
->>>>>> However, it is not yet working. I had trouble unwinding frames for the
->>>>>> kernel module using the current algorithm.
->>>>>>
->>>>>> Indu has likely identified the issue and will be addressing it from the
->>>>>> toolchain side.
->>>>>>
->>>>>> https://sourceware.org/bugzilla/show_bug.cgi?id=32666
->>>>>
->>>>> I have a working in progress patch that adds sframe support for kernel
->>>>> module.
->>>>> https://github.com/heuza/linux/tree/sframe_unwinder.rfc
->>>>>
->>>>> According to the sframe table values I got during runtime testing, looks
->>>>> like the offsets are not correct .
->>>>>
->>>>
->>>> I hope to sanitize the fix for 32666 and post upstream soon (I had to
->>>> address other related issues).  Unless fixed, relocating .sframe
->>>> sections using the .rela.sframe is expected to generate incorrect output.
->>>>
->>>>> When unwind symbols init_module(0xffff80007b155048) from the kernel
->>>>> module(livepatch-sample.ko), the start_address of the FDE entries in the
->>>>> sframe table of the kernel modules appear incorrect.
->>>>
->>>> init_module will apply the relocations on the .sframe section, isnt it ?
->>>>
->>>>> For instance, the first FDE's start_addr is reported as -20564. Adding
->>>>> this offset to the module's sframe section address (0xffff80007b15a040)
->>>>> yields 0xffff80007b154fec, which is not within the livepatch-sample.ko
->>>>> memory region(It should be larger than 0xffff80007b155000).
->>>>>
->>>>
->>>> Hmm..something seems off here.  Having tested a potential fix for 32666
->>>> locally, I do not expect the first FDE to show this symptom.
->>>>
->>>
+> But the PTE_CONT bit is only valid when the pte is present. For
+> non-present pte values (e.g. markers, migration entries), the previous
+> implementation was therefore erroneously determining the size. There is
+> at least one known caller in core-mm, move_huge_pte(), which may call
+> huge_ptep_get_and_clear() for a non-present pte. So we must be robust to
+> this case. Additionally the "regular" ptep_get_and_clear() is robust to
+> being called for non-present ptes so it makes sense to follow the
+> behavior.
 > 
-> Hi,
+> Fix this by using the new sz parameter which is now provided to the
+> function. Additionally when clearing each pte in a contig range, don't
+> gather the access and dirty bits if the pte is not present.
 > 
-> Sorry for not responding in the past few days.  I was on PTO and was
-> trying to improve my snowboarding technique, I am back now!!
+> An alternative approach that would not require API changes would be to
+> store the PTE_CONT bit in a spare bit in the swap entry pte for the
+> non-present case. But it felt cleaner to follow other APIs' lead and
+> just pass in the size.
 > 
-> I think what we are seeing is expected behaviour:
+> As an aside, PTE_CONT is bit 52, which corresponds to bit 40 in the swap
+> entry offset field (layout of non-present pte). Since hugetlb is never
+> swapped to disk, this field will only be populated for markers, which
+> always set this bit to 0 and hwpoison swap entries, which set the offset
+> field to a PFN; So it would only ever be 1 for a 52-bit PVA system where
+> memory in that high half was poisoned (I think!). So in practice, this
+> bit would almost always be zero for non-present ptes and we would only
+> clear the first entry if it was actually a contiguous block. That's
+> probably a less severe symptom than if it was always interpreted as 1
+> and cleared out potentially-present neighboring PTEs.
 > 
->   | For instance, the first FDE's start_addr is reported as -20564. Adding
->   | this offset to the module's sframe section address (0xffff80007b15a040)
->   | yields 0xffff80007b154fec, which is not within the livepatch-sample.ko
->   | memory region(It should be larger than 0xffff80007b155000).
+> Cc: stable@vger.kernel.org
+> Fixes: 66b3923a1a0f ("arm64: hugetlb: add support for PTE contiguous bit")
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 > 
-> 
-> Let me explain using a __dummy__ example.
-> 
-> Assume Memory layout before relocation:
-> 
->   | Address | Element                                 | Relocation
->   |  ....   | ....                                    |
->   |   60    | init_module (start address)             |
->   |   72    | init_module (end address)               |
->   |  ....   | .....                                   |
->   |   100   | Sframe section header start address     |
->   |   128   | First FDE's start address               | RELOC_OP_PREL -> Put init_module address (60) - current address (128)
-> 
-> So, after relocation First FDE's start address has value 60 - 128 = -68
-> 
+> tmp
+> ---
 
-For SFrame FDE function start address is :
+Random "tmp" here, otherwise the patch looks fine (can be removed when
+applying).
 
-"Signed 32-bit integral field denoting the virtual memory address of the 
-described function, for which the SFrame FDE applies.  The value encoded 
-in the ‘sfde_func_start_address’ field is the offset in bytes of the 
-function’s start address, from the SFrame section."
-
-So, in your case, after applying the relocations, you will get:
-S + A - P = 60 - 128 = -68
-
-This is the distance of the function start address (60) from the current 
-location in SFrame section (128)
-
-But what we intend to store is the distance of the function start 
-address from the start of the SFrame section.  So we need to do an 
-additional step for SFrame FDE:  Value += r_offset
-
--68 + 28 = -40
-Where 28 is the r_offset in the RELA.
-
-So we really expect a -40 in the relocated SFrame section instead of -68 
-above.  IOW, the RELAs of SFrame section will need an additional step 
-after relocation.
-
-> Now, while doing unwinding we Try to add this value to the sframe
-> section header's start address which is in this example 100,
-> 
-> so 100 + (-68) = 32
-> 
-> So, 32 is not within [60, 72], i.e. within init_module.
-> 
-> You can see that it is possible for this value to be less than the start
-> address of the module's memory region when this function's address is
-> very close to the start of the memory region.
-> 
-> The crux is that the offset in the FDE's start address is calculated
-> based on the address of the FDE's start_address and not based on the
-> address of the sframe section.
-> 
-> 
-> Thanks,
-> Puranjay
-
+-- 
+Catalin
 
