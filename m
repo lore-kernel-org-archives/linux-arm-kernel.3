@@ -4,90 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7F55C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:33:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D025FC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:36:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TZ/QbTWZNshBxb5hC06ZzjWtL5HiviO0RmZtIpOJ43M=; b=jwESZvIHR7D3RgIPNyX3tLfgw7
-	FgXfGz4XymCbM/qGr6ZHulpMYGYlqPPQKGwIvLYIhzL4OFxos5q46VlyMi1IBJYKVxYzyBZeLMt37
-	KQdvnBK5jRu7sGgtVEKZBhQRDP+dnIS56vGfn1NXXRuiTeVxEMOhPBY4YrgHzRoziJZxqAVUkGZdx
-	8qWDdkoSGxsWgKIqxidpm4l0flYG4ozM2Tcb85zWr6uHnfPil02farimHPf9RC8c5vhiU9IO87Du8
-	6nvQMTZ1LijnRb1zR2uWiRV3KT7qEQFJZt4cREGcs46UkQyaf8ocB5xvce945cXFR6nR2GWjkEPLV
-	ADmP2XcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=We2PZZN/Z/OuW0OC8GwI1XN1ZlLiDb7BHXEm1VKevUk=; b=kEj1ZidUXIlM5DjZjDHLqZalu4
+	YS7DipRiqAmW4gkC4lt7UQ27kpLOQBzdhnX/Ebz3V4GxaOakxJLX0bCDiTnb1IxmPVHGSyYJUyPPQ
+	nbudTgHsRGDAEpcUvnh0+HhCesYC8v8Dl2gtgWGTSDyFO1wPH+1l1Yy0VHK70CPc5i9oUZKcXPP05
+	AUpFfKxFd8PJYFkEJTQgIIcFF/2bWPnv81FttzfkOT1IjViiAlhcVJPXlnJoGtwrxxhMBtSIdqrtS
+	uYx8pBsnbK+Vz5w8WPDPqmBLoqVq5IyaSA5u2pDzMSs4H9zqbYhnyqc/FzvSLe/1HNlOACfIo6YBr
+	j40jBQCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJPI-00000004KI9-1eJu;
-	Wed, 26 Feb 2025 15:33:08 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1tnJSf-00000004L3J-2oIx;
+	Wed, 26 Feb 2025 15:36:37 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJMn-00000004JhW-0Cmx
+	id 1tnJR8-00000004Kkm-0YZ8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 15:30:34 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-2fcb6c42c47so10761936a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 07:30:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740583832; x=1741188632; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TZ/QbTWZNshBxb5hC06ZzjWtL5HiviO0RmZtIpOJ43M=;
-        b=j0P/FOhnqVKLcvcugiY6DkquM4Xisrm7oTyLbkcxd416IeWbGh4Fsqva3w4pThai5E
-         CwDrE7B9e7D20R/rxnPhGB2cQdGc7A8+3EhckzpGQlmwlJ2Hil2vfKLNgtOOnt7HFX1S
-         DN5QEhWL1XXAcgL+N3AurR16Lh07DEIoJLzyf+ZakDmZRbAPyvqFwaP3nyE7Jq0dLvep
-         X8sHSngMt7A5C4TPH1MWqLmxyguii5BEFEIaHjTxx0AR3Jh8PZPAUF6flKtEosVJeuwP
-         WmofriDs3hICF1pSaoujlRD/8mWCkuYmbMcw/TqNaWHKg6uedIWMdsrw0PphqSFVywbx
-         EKKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740583832; x=1741188632;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TZ/QbTWZNshBxb5hC06ZzjWtL5HiviO0RmZtIpOJ43M=;
-        b=cQJqZuepryfMTJUYD8NBRficHH8xhVbh0qK5yoiuM42jULeLXv+NyneWDr8U3zqnj6
-         P36cmSRNqFo55a3lQNEsc5Pt2FZ61vJEGV8LyoZRzNL7rmLPqVF13YEhop90D5h78Mk1
-         jy9MdZFfhQm2u30/JJM3qnJu2UfD7cCYIJN++xyO6Ec7UttrPiWuhGY+k/QpL/b64moR
-         ZUHVLwMykPN7Db29iAuNvO/z3wQUr/Zej4OAWSBP6nffA8OSgVhhPbXOFpfAaItnOVgw
-         js3Gi4Dh4m8P8WTCUSSgprTa8QCOyUTZ585iUcldk0kIR3BsUvRVO1uhlrUPGPNIdXd3
-         33Yw==
-X-Forwarded-Encrypted: i=1; AJvYcCVwf0oocpEbs8ubsd0bXcTQRU7tbo60t7WSEzz4uROayC+jtufWeLkLGB2LFVi+JZ/ebodswnF+EC7LGpc3Q31v@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDL6GLxvESk8ImL+yimWf+Tr5cnj8/QQ3v3AXQe/KPDq76wBp/
-	QfADCv1rxRH9d5p49jKfI5bNGSBlzjbM6j3D9mUKAnyTNBrIJzPZkWUhL/o0xXt3B8tjvrOM0Wn
-	d2HZNdc9qdV/jfQN3X9Vk34L96Yc=
-X-Gm-Gg: ASbGncsgT8P5VMmCgAhasy0Xno7hCWwGRm3Hw57N75yiN3fxZsnZ2u/maGH3f0M3Kyj
-	EowjD289D7ra3fvLKGPf5KJKQuqymHSuw2pDSI//o+tsFvVqjBUuM37HU1kQ0wj2f51QqKVriiJ
-	hEUKGv
-X-Google-Smtp-Source: AGHT+IFo6DOoGnTsS38LlUXMIhC0H9EtIGCJVFbM5Bu56nEtT839xcPAHtRDebmakeB9TC+KDHHS0qohqRpYH+q6d2s=
-X-Received: by 2002:a17:90a:c2c7:b0:2ee:e113:815d with SMTP id
- 98e67ed59e1d1-2fe68ada148mr12284035a91.8.1740583831681; Wed, 26 Feb 2025
- 07:30:31 -0800 (PST)
+	Wed, 26 Feb 2025 15:35:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=We2PZZN/Z/OuW0OC8GwI1XN1ZlLiDb7BHXEm1VKevUk=; b=Nr0yY4QOvO504vfmWBFQmckDao
+	kNFatIEDpJJ49/rgYpfiH++mWZHYZIFvqFiGiXICM9+pzthfUMdPm085ugAORIS3wfA6892RzO7ys
+	XfghSaloouVCRP/vJ4x1dPqWm4qT9JOLDlXny/EWwtvq2FoQRvL01pJn6YNuVsEDQ2AQbmNrF1sMQ
+	prEvODafyJe2vhYMbMrOCqIzl76gHh8JPgUgK0HbiqTvGpBjuY6PfdNEeMiouWLF5C7wG2IiUlS9m
+	XFFePb5qrC1YziycPejRxgJ/jMXRSUZrhxfnRbnOM6zeZFJ4JKzGAho6Vn3ki5ucSBQ0Uy6i9xN8H
+	fIvMutIA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:42746)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tnJQQ-0004iF-1A;
+	Wed, 26 Feb 2025 15:34:18 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tnJQG-0007CL-1X;
+	Wed, 26 Feb 2025 15:34:08 +0000
+Date: Wed, 26 Feb 2025 15:34:08 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+Cc: Simon Horman <horms@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
+	Jose Abreu <Jose.Abreu@synopsys.com>,
+	David E Box <david.e.box@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>,
+	David E Box <david.e.box@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jiawen Wu <jiawenwu@trustnetic.com>,
+	Mengyuan Lou <mengyuanlou@net-swift.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Hans de Goede <hdegoede@redhat.com>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Serge Semin <fancer.lancer@gmail.com>, x86@kernel.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	platform-driver-x86@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net-next v8 1/6] net: phylink: use pl->link_interface in
+ phylink_expects_phy()
+Message-ID: <Z780cM9bejxhzTXO@shell.armlinux.org.uk>
+References: <20250226074837.1679988-1-yong.liang.choong@linux.intel.com>
+ <20250226074837.1679988-2-yong.liang.choong@linux.intel.com>
 MIME-Version: 1.0
-References: <20250226-initial_display-v2-0-23fafa130817@gocontroll.com> <20250226-initial_display-v2-4-23fafa130817@gocontroll.com>
-In-Reply-To: <20250226-initial_display-v2-4-23fafa130817@gocontroll.com>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Wed, 26 Feb 2025 17:32:08 +0200
-X-Gm-Features: AWEUYZnVDiZ00SedBZ6EyKd9EOM22xcDBV6m1uAzMRnVUY2vdD1K52vvrRAuSvo
-Message-ID: <CAEnQRZDXxuviih+o-iFOtiS6j8=JqnhUOHaZf3RhGL++fg=moA@mail.gmail.com>
-Subject: Re: [PATCH v2 04/12] arm64: dts: imx8mp: Add pinctrl config definitions
-To: maudspierings@gocontroll.com
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <quic_jesszhan@quicinc.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Thierry Reding <thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>, 
-	Liu Ying <victor.liu@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Mark Brown <broonie@kernel.org>, dri-devel@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250226074837.1679988-2-yong.liang.choong@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_073033_092914_133938E3 
-X-CRM114-Status: GOOD (  18.44  )
+X-CRM114-CacheID: sfid-20250226_073502_172516_E86437DC 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,41 +104,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 26, 2025 at 4:23=E2=80=AFPM Maud Spierings via B4 Relay
-<devnull+maudspierings.gocontroll.com@kernel.org> wrote:
->
-> From: Maud Spierings <maudspierings@gocontroll.com>
->
-> Currently to configure each IOMUXC_SW_PAD_CTL_PAD the raw value of this
-> register is written in the dts, these values are not obvious. Add defines
-> which describe the fields of this register which can be or-ed together to
-> produce readable settings.
->
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
-> ---
-> This patch has already been sent in a different group of patches: [1]
-> It was requested there to submit it along with a user, this series also
-> includes some users for it.
->
-> [1]: https://lore.kernel.org/all/20250218-pinctrl_defines-v2-2-c554cad0e1=
-d2@gocontroll.com/
-> ---
->  arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h | 27 ++++++++++++++++++++=
-++++++
->  1 file changed, 27 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h b/arch/arm64/=
-boot/dts/freescale/imx8mp-pinfunc.h
-> index 0fef066471ba607be02d0ab15da5a048a8a213a7..0927ed11ec687d5b273c4a4a6=
-455e8d81468f676 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h
-> @@ -6,6 +6,33 @@
->  #ifndef __DTS_IMX8MP_PINFUNC_H
->  #define __DTS_IMX8MP_PINFUNC_H
->
-> +//Drive Strength
+On Wed, Feb 26, 2025 at 03:48:32PM +0800, Choong Yong Liang wrote:
+> The phylink_expects_phy() function allows MAC drivers to check if they are
+> expecting a PHY to attach. The checking condition in phylink_expects_phy()
+> aims to achieve the same result as the checking condition in
+> phylink_attach_phy().
+> 
+> However, the checking condition in phylink_expects_phy() uses
+> pl->link_config.interface, while phylink_attach_phy() uses
+> pl->link_interface.
+> 
+> Initially, both pl->link_interface and pl->link_config.interface are set
+> to SGMII, and pl->cfg_link_an_mode is set to MLO_AN_INBAND.
+> 
+> When the interface switches from SGMII to 2500BASE-X,
+> pl->link_config.interface is updated by phylink_major_config().
+> At this point, pl->cfg_link_an_mode remains MLO_AN_INBAND, and
+> pl->link_config.interface is set to 2500BASE-X.
+> Subsequently, when the STMMAC link goes down and comes up again,
+> it is blocked by phylink_expects_phy().
 
-Please use C-style comments /* .. */
+I thought we ascertained that it's not "link goes down" but when the
+interface is taken down administratively. "Link goes down" to most
+people mean an event such as the network cable being unplugged.
+Please fix the patch description.
+
+> Since phylink_expects_phy() and phylink_attach_phy() aim to achieve the
+> same result, phylink_expects_phy() should check pl->link_interface,
+> which never changes, instead of pl->link_config.interface, which is
+> updated by phylink_major_config().
+> 
+> Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+
+With, and *only* with the above fixed:
+
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+
+Thanks!
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
