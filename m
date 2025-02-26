@@ -4,59 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59AF3C021B8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A467C19777
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 11:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/seCHNZ0A/pjeXBH/7QjGRg13yE1mkpjPL934GqMjRo=; b=26uJEnljSZ69F4hVj4sNFLgvL4
-	39fQZh/pCaAB6htC7iLI83Mdisyjn41NDyqvVUeFMVFBanRB/iI721ou6hKrdCX5MRXjKG/WvenGr
-	nvpLqmwxLNmkO75MmDZB7tMS3vGY59yCH/toLSml8jP6dr9SaOOBPn7QooSe2CjTRv7psE+/o1+lj
-	OC23wvM83LNhxi2GhLseNem1C/oUfFbhh5XiBKnQGoUe9msWLJmvdrNqLEkxCFPeOWiUuVV05U5iR
-	c32rELo43PxXiqEiAKmS/cxfEMQoIv+nRE88w/DSsrd1G/xwL81Sp3K1Vsug1+fKr1btSytwoiWeb
-	m3TBmrlw==;
+	bh=mRmd87Bt4r/gRs/8A2tyjVoJarc357y7FoApmSgOrbg=; b=t+PJDy9UMBBimc5HKhNqMdsdwI
+	qhWff+RYKEc5T939mz6OjOCN7F5m9Yi9rW1EmgyM8K9Ymon98IF7VBXO9dYE9AlA7b6pwowCuLlGB
+	lh/XCmL8acCCNMFFgZF/7vG6g/CCR7R483s+2qopkp2RXzqfY/8y95tctK2hxDOINw4SkkA1ru2+6
+	8zf7u41K11UuzNpO4vkZDEQL1tlRgyHzjVRUGYC5HuywuNY27DP1jiBim4xH7R1Eo+1qwYR9nqYOK
+	u1smfD0ZQrBITGNA6xYQczDPwEYu3pDY4jy/wsDxjTLRFyvAW5CuKkewow9Zof3JNVSf29K0gXAe0
+	J6tacipQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnG36-00000003ZSl-2utV;
-	Wed, 26 Feb 2025 11:58:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnF6S-00000003OHC-2xG9
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 10:57:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9EBE21BA8;
-	Wed, 26 Feb 2025 02:57:39 -0800 (PST)
-Received: from [192.168.7.252] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EB9093F673;
-	Wed, 26 Feb 2025 02:57:21 -0800 (PST)
-Message-ID: <d90bc4a6-2f9b-4b02-9eb5-95a237d30910@arm.com>
-Date: Wed, 26 Feb 2025 10:57:20 +0000
+	id 1tnG34-00000003ZR3-1DOh;
+	Wed, 26 Feb 2025 11:57:58 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnEo4-00000003KMJ-3I7N;
+	Wed, 26 Feb 2025 10:38:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=mRmd87Bt4r/gRs/8A2tyjVoJarc357y7FoApmSgOrbg=; b=jQC9vgkx1+0En9VesSDoKW11QF
+	BmNxkXGLOF8S0n62Y3KY7U7t3vdTq+yN6cRLw61ZoG/U6DLQiSBxemp0n+xUBkAEBFNhYqZ3ADFMh
+	ChXOQe9ujdrerGH8jiLvisoMfcR+rYYx/2gHsSvAnTulNvyJlQo2vUvpwolh6GIsn0gBEOMb3udSz
+	D+VmoOwmU9EMnDDXRYC22pJAm6u2WaSjq84Aucra6/hHtJrviNhxT5UFz/1CAzW8GjCzoBxnVB3uK
+	Q8f2p5lKQURAgUJZe7gbGqafZRNG4yTGclhAwSy0zoL8wullQu4u42sE3utdawakSmkMFEVCLP8cs
+	uUwjyURQ==;
+Received: from i53875b47.versanet.de ([83.135.91.71] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tnEo3-0006aJ-Fw; Wed, 26 Feb 2025 11:38:23 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: vkoul@kernel.org,
+	kishon@kernel.org
+Cc: heiko@sntech.de,
+	linux-phy@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	quentin.schulz@cherry.de,
+	sebastian.reichel@collabora.com,
+	christophe.jaillet@wanadoo.fr,
+	Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: [PATCH v2 2/2] phy: rockchip: usbdp: re-init the phy on orientation-change
+Date: Wed, 26 Feb 2025 11:38:10 +0100
+Message-ID: <20250226103810.3746018-3-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250226103810.3746018-1-heiko@sntech.de>
+References: <20250226103810.3746018-1-heiko@sntech.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 06/10] perf: arm_pmuv3: Add support for ARM Rainier PMU
-To: Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Russell King <linux@armlinux.org.uk>, Mark Rutland <mark.rutland@arm.com>,
- Jessica Clarke <jrtc27@jrtc27.com>
-References: <20250220180427.3382482-1-vincenzo.frascino@arm.com>
- <20250220180427.3382482-7-vincenzo.frascino@arm.com> <Z77tD1VuD_W0CK5B@bogus>
-Content-Language: en-GB
-From: Vincenzo Frascino <vincenzo.frascino@arm.com>
-In-Reply-To: <Z77tD1VuD_W0CK5B@bogus>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_025724_793912_9D3B5D3E 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20250226_023824_825074_74A34770 
+X-CRM114-Status: GOOD (  20.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,26 +80,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Will,
+From: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-On 26/02/2025 10:29, Sudeep Holla wrote:
-> On Thu, Feb 20, 2025 at 06:04:24PM +0000, Vincenzo Frascino wrote:
->> Add support for the ARM Rainier CPU core PMU.
->>
-> 
-> I can't take this through Arm SoC unless there is a strong dependency
-> and/or urgency. I can take 05/10. The other option is you can take
-> 05 and 06/10 via Will's perf changes as usual as I they seem quite
-> independent to me.
-> 
-> I can take the rest of the patches through Arm SoC tree for next merge
-> window.
-> 
+Until now the usbdp in the orientation-handler set the new lane setup in
+its internal state variables and adapted the sbu gpios as needed.
+It never actually updated the phy itself though, but relied on the
+controlling usb-controller to disable and re-enable the phy.
 
-Based on Sudeep comment, are you happy to take patch 05/10 and 06/10 as is?
+And while on the vendor-kernel, I could see that on every unplug the dwc3
+did go to its suspend and woke up on the next device plug-in event,
+thus toggling the phy as needed, this does not happen in all cases and we
+should not rely on that behaviour.
 
+This results in the usb2 always working, as it's not affected by the
+orientation, but usb3 only working in one direction right now.
+
+So similar to how the update works in the power-on callback, just re-init
+the phy if it's already running when the orientation-event happens.
+
+Both the power-on/-off functions as well as the orientation-set callback
+work with the usbdp-mutex held, so can't conflict.
+
+The behaviour is similar to how the qcom qmp phys handle the orientaton
+re-init - by re-initting the phy.
+
+Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+---
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+index 960cad5b01a9..c07b79da5b6b 100644
+--- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
++++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+@@ -1277,6 +1277,7 @@ static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
+ 				 enum typec_orientation orien)
+ {
+ 	struct rk_udphy *udphy = typec_switch_get_drvdata(sw);
++	int ret = 0;
+ 
+ 	mutex_lock(&udphy->mutex);
+ 
+@@ -1292,9 +1293,13 @@ static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
+ 	rk_udphy_set_typec_default_mapping(udphy);
+ 	rk_udphy_usb_bvalid_enable(udphy, true);
+ 
++	/* re-init the phy if already on */
++	if (udphy->status != UDPHY_MODE_NONE)
++		ret = rk_udphy_init(udphy);
++
+ unlock_ret:
+ 	mutex_unlock(&udphy->mutex);
+-	return 0;
++	return ret;
+ }
+ 
+ static void rk_udphy_orien_switch_unregister(void *data)
 -- 
-Regards,
-Vincenzo
+2.47.2
 
 
