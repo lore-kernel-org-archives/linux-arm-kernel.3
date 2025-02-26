@@ -4,92 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF104C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 01:55:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AB15C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 01:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=WEgQbAyN812Od1PLDKL03NyhRQA8kQhgcIrLRcSGxlQ=; b=UhnenxUQTG27PF
-	ypHfXl+T9Ldy8AP5VJfwFT/JqSSA27hn+GqN+rF4iNfmXG5BU/aut7/wN7uqd/oVtauZNOGKesKYS
-	vradp9Ic3R7tW9x8kaUIw6qvgTCa2UpvCBggmSSczk8tD7JCz1W3TaTkxa6pBbdv8VbqR5ceOj+iD
-	mwfdCyE4aOTQk6uV59bpjqgVbi9sXiA3Fu0jq68OUxFO+DtQXOOSzaWn8PuxW0xjMdM0vnObvazIV
-	orp3eh9pVAp3Nl7JbvURCdxC8H68u/pBQcuER7L1eqAjgmu5A+GHjHVzIzPfuLxKGT/3KRgPdd+pI
-	NLzk5pdJoCX8hkGbW76A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SYGXr6ObxBCz/rMlq9BwzU4N8B+1nvlSFrvEr4NdUT8=; b=lEGXjwKqf+FQawU3aU20CNnqxB
+	hBD+3IJB4pd6aaXQXYJLF/XF5LznXxyWhHkTtS9/bIrHktEDdMNMBsvE8y9JBWrNsXvqsSluoN6u5
+	OyvUck3vnCXAl7FYYjDTaj5GptpMTJISDENcTeCB37+Le8kwlfLO9QMAOc0qC7ipP93nkj+3wrOwY
+	RZBdNsAa6ki5TqsJmq3b0mrCNhcJRim4XZW0/iRsEqjE/nTjnnFhzn07Iuc3DJyc17P8BHZiXcySx
+	yv1zLad7ck5DmB6v9Q/yYNKEXns4rYicqGh23y0prAucHGX8FCGUq5CoVvvqHbHOKylAyk3p6g7Vp
+	eOJ4DbIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn6e8-000000023Rt-2Gj9;
-	Wed, 26 Feb 2025 01:55:36 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1tn6ft-000000023kh-2uiR;
+	Wed, 26 Feb 2025 01:57:25 +0000
+Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn6cb-000000023F9-2Rb9
+	id 1tn6eH-000000023TU-2wyL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 01:54:02 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-220d8599659so115989405ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Feb 2025 17:54:00 -0800 (PST)
+	Wed, 26 Feb 2025 01:55:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740534840; x=1741139640; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=WEgQbAyN812Od1PLDKL03NyhRQA8kQhgcIrLRcSGxlQ=;
-        b=byxFdDOxZwJWNimAgp5tisBHznaFweaX2B+5Sc2jD8pn/2a9DHyoF3Y6W5+YZcG9Z9
-         RPQ52/Px9K/1NTDIWFcMQ9Yvea4T1zC32l0lxDBONVpMRLFJoS3hmRTHdA4BdaDJipwp
-         8mUG7rKP5+N9Xjs+NHC/A0dVcApKBemIol7++C7oA3KFWDYZmANPxkuQjR6sk4tOJ5hM
-         yxcKUD/Skl2HMWW96NDrQF5PYorO/HrUzY7Z2uCsXy4KeXQrTYv+8XFywQXvlzL5njBo
-         l/QQ4WR30n7SWdl8rYXv9zo8HXdsxvjLvz+O6Pa+CuPYx0hskEBH45Rx7sdAhrVCFeNH
-         RxaA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740534840; x=1741139640;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=WEgQbAyN812Od1PLDKL03NyhRQA8kQhgcIrLRcSGxlQ=;
-        b=XfpVRHKc7+dRsTzfpif8hz4/lQbBsYcO+2xpqZomDbfhAPVRrwgIYEQPp0WhwlW4r8
-         2c98jY9I/FNjxDoOkco5N4RZKx7oHOCIb6UEDdHG3tKv/9Eugv+NUjHHbD2YYdeMZyJP
-         TcX4Kk+OvgacWrLjqyEIW6r6vvjgmBkBrBaJDORSBKVNPAJ37PmpuZr0MOiFKCD+/MZT
-         LmSJJ59i0Z1yYSSe/NiO02LRYD+N4aelLbW74YJCFGIxIFp4S2RnXEr7txG6ZgmDLK2k
-         JcGWXeESe5JfQpalqGEbxIgGC+6ExN5k2f1V/da/IwQLW/BpLbQJwJ7hbdeUMydq5GRL
-         1w0g==
-X-Forwarded-Encrypted: i=1; AJvYcCUl9llSyxEv7KLuceszvXcOAAPkJqU9eQjxIA8zaa7T9gXVmE4j+umk8xxJ/iw3kHorUiG1Nxuxb1i3WNzP5Yfr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLh1LPzsQ3mHkqYOT3PTSjDkVq2pLlY93iEScmVuEzRW9zcPc9
-	TTqR8C+9zXOElce5dBWRPhNjWMwm+Ep9XpVQO/tMT6WjFgBCHXZt7/l9eeLeLqIpKHwliMdHKUG
-	tg3lqK+5ueBDYcdn1BQ==
-X-Google-Smtp-Source: AGHT+IFkznZMkNBk5de2vOfANCIGfGmFUq4ZoIai/G7n3JkeCyYN8XDtQ2NLIWeTlmgvn0M2N7vBP6JVrlIIeeRX
-X-Received: from pfbna17.prod.google.com ([2002:a05:6a00:3e11:b0:732:502c:4a0f])
- (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a00:2e1e:b0:725:df1a:285 with SMTP id d2e1a72fcca58-7348bdd003bmr2703166b3a.12.1740534840070;
- Tue, 25 Feb 2025 17:54:00 -0800 (PST)
-Date: Tue, 25 Feb 2025 17:53:39 -0800
-In-Reply-To: <20250206132754.2596694-3-rppt@kernel.org>
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.48.1.711.g2feabab25a-goog
-Message-ID: <20250226015342.2136669-1-changyuanl@google.com>
-Subject: Re: [PATCH v4 02/14] memblock: add MEMBLOCK_RSRV_KERN flag
-From: Changyuan Lyu <changyuanl@google.com>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Changyuan Lyu <changyuanl@google.com>, Alexander Graf <graf@amazon.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>, 
-	Anthony Yznaga <anthony.yznaga@oracle.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Ashish Kalra <ashish.kalra@amd.com>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
-	Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, David Woodhouse <dwmw2@infradead.org>, 
-	Eric Biederman <ebiederm@xmission.com>, Ingo Molnar <mingo@redhat.com>, 
-	James Gowans <jgowans@amazon.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Pasha Tatashin <pasha.tatashin@soleen.com>, 
-	"H. Peter Anvin" <hpa@zytor.com>, Peter Zijlstra <peterz@infradead.org>, Pratyush Yadav <ptyadav@amazon.de>, 
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, 
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>, Steven Rostedt <rostedt@goodmis.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Tom Lendacky <thomas.lendacky@amd.com>, 
-	Usama Arif <usama.arif@bytedance.com>, Will Deacon <will@kernel.org>, devicetree@vger.kernel.org, 
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	d=linux.alibaba.com; s=default;
+	t=1740534941; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=SYGXr6ObxBCz/rMlq9BwzU4N8B+1nvlSFrvEr4NdUT8=;
+	b=s6PnOyV5Hx1wWZTvJb0tZIGlPs8yLonlr32R2ycp9In8VbyRDmOjdAkUCTY32RWL9xZPnaq0BU7Jc5ltrr94LLb3ic84yL6k+iX0CVyNQbGTnZtIA4b560QO6dt2Fy6HmJkPsmb/Pfry1rKTXIXVZ7tlR7OW6Az3uZuZR/Nbvcs=
+Received: from 30.246.161.128(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WQGACDe_1740534937 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 26 Feb 2025 09:55:38 +0800
+Message-ID: <855b4178-cbd5-4d95-a2eb-32c5ee0e5894@linux.alibaba.com>
+Date: Wed, 26 Feb 2025 09:55:35 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 1/5] perf/dwc_pcie: Move common DWC struct definitions
+ to 'pcie-dwc.h'
+To: Shradha Todi <shradha.t@samsung.com>, linux-kernel@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org
+Cc: manivannan.sadhasivam@linaro.org, lpieralisi@kernel.org, kw@linux.com,
+ robh@kernel.org, bhelgaas@google.com, jingoohan1@gmail.com,
+ Jonathan.Cameron@Huawei.com, fan.ni@samsung.com, nifan.cxl@gmail.com,
+ a.manzanares@samsung.com, pankaj.dubey@samsung.com, cassel@kernel.org,
+ 18255117159@163.com, renyu.zj@linux.alibaba.com, will@kernel.org,
+ mark.rutland@arm.com
+References: <20250221131548.59616-1-shradha.t@samsung.com>
+ <CGME20250221132024epcas5p13d6e617805e4ef0c081227b08119871b@epcas5p1.samsung.com>
+ <20250221131548.59616-2-shradha.t@samsung.com>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <20250221131548.59616-2-shradha.t@samsung.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_175401_619585_8898FBE4 
-X-CRM114-Status: GOOD (  18.52  )
+X-CRM114-CacheID: sfid-20250225_175546_482650_E9F51CA3 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,60 +74,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mike,
 
-On Thu,  6 Feb 2025 15:27:42 +0200, Mike Rapoport <rppt@kernel.org> wrote:
-> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
->
-> to denote areas that were reserved for kernel use either directly with
-> memblock_reserve_kern() or via memblock allocations.
->
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+
+在 2025/2/21 21:15, Shradha Todi 写道:
+> From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> 
+> Since these are common to all Desginware PCIe IPs, move them to a new
+> header 'pcie-dwc.h', so that other drivers like debugfs, perf and sysfs
+> could make use of them.
+> 
+> Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> Signed-off-by: Shradha Todi <shradha.t@samsung.com>
 > ---
->  include/linux/memblock.h | 16 +++++++++++++++-
->  mm/memblock.c            | 32 ++++++++++++++++++++++++--------
->  2 files changed, 39 insertions(+), 9 deletions(-)
->
-> diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-> index e79eb6ac516f..65e274550f5d 100644
-> --- a/include/linux/memblock.h
-> +++ b/include/linux/memblock.h
-> ......
-> @@ -116,7 +117,19 @@ int memblock_add_node(phys_addr_t base, phys_addr_t size, int nid,
->  int memblock_add(phys_addr_t base, phys_addr_t size);
->  int memblock_remove(phys_addr_t base, phys_addr_t size);
->  int memblock_phys_free(phys_addr_t base, phys_addr_t size);
-> -int memblock_reserve(phys_addr_t base, phys_addr_t size);
-> +int __memblock_reserve(phys_addr_t base, phys_addr_t size, int nid,
-> +		       enum memblock_flags flags);
+>   MAINTAINERS                 |  1 +
+>   drivers/perf/dwc_pcie_pmu.c | 25 +++----------------------
+>   include/linux/pcie-dwc.h    | 34 ++++++++++++++++++++++++++++++++++
+>   3 files changed, 38 insertions(+), 22 deletions(-)
+>   create mode 100644 include/linux/pcie-dwc.h
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 3864d473f52f..6474a2d83de4 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -18167,6 +18167,7 @@ S:	Maintained
+>   F:	Documentation/devicetree/bindings/pci/snps,dw-pcie-ep.yaml
+>   F:	Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
+>   F:	drivers/pci/controller/dwc/*designware*
+> +F:	include/linux/pcie-dwc.h
+>   
+>   PCI DRIVER FOR TI DRA7XX/J721E
+>   M:	Vignesh Raghavendra <vigneshr@ti.com>
+> diff --git a/drivers/perf/dwc_pcie_pmu.c b/drivers/perf/dwc_pcie_pmu.c
+> index cccecae9823f..da30f2c2d674 100644
+> --- a/drivers/perf/dwc_pcie_pmu.c
+> +++ b/drivers/perf/dwc_pcie_pmu.c
+> @@ -13,6 +13,7 @@
+>   #include <linux/errno.h>
+>   #include <linux/kernel.h>
+>   #include <linux/list.h>
+> +#include <linux/pcie-dwc.h>
+>   #include <linux/perf_event.h>
+>   #include <linux/pci.h>
+>   #include <linux/platform_device.h>
+> @@ -99,26 +100,6 @@ struct dwc_pcie_dev_info {
+>   	struct list_head dev_node;
+>   };
+>   
+> -struct dwc_pcie_pmu_vsec_id {
+> -	u16 vendor_id;
+> -	u16 vsec_id;
+> -	u8 vsec_rev;
+> -};
+> -
+> -/*
+> - * VSEC IDs are allocated by the vendor, so a given ID may mean different
+> - * things to different vendors.  See PCIe r6.0, sec 7.9.5.2.
+> - */
+> -static const struct dwc_pcie_pmu_vsec_id dwc_pcie_pmu_vsec_ids[] = {
+> -	{ .vendor_id = PCI_VENDOR_ID_ALIBABA,
+> -	  .vsec_id = 0x02, .vsec_rev = 0x4 },
+> -	{ .vendor_id = PCI_VENDOR_ID_AMPERE,
+> -	  .vsec_id = 0x02, .vsec_rev = 0x4 },
+> -	{ .vendor_id = PCI_VENDOR_ID_QCOM,
+> -	  .vsec_id = 0x02, .vsec_rev = 0x4 },
+> -	{} /* terminator */
+> -};
+> -
+>   static ssize_t cpumask_show(struct device *dev,
+>   					 struct device_attribute *attr,
+>   					 char *buf)
+> @@ -529,14 +510,14 @@ static void dwc_pcie_unregister_pmu(void *data)
+>   
+>   static u16 dwc_pcie_des_cap(struct pci_dev *pdev)
+>   {
+> -	const struct dwc_pcie_pmu_vsec_id *vid;
+> +	const struct dwc_pcie_vsec_id *vid;
+>   	u16 vsec;
+>   	u32 val;
+>   
+>   	if (!pci_is_pcie(pdev) || !(pci_pcie_type(pdev) == PCI_EXP_TYPE_ROOT_PORT))
+>   		return 0;
+>   
+> -	for (vid = dwc_pcie_pmu_vsec_ids; vid->vendor_id; vid++) {
+> +	for (vid = dwc_pcie_rasdes_vsec_ids; vid->vendor_id; vid++) {
+>   		vsec = pci_find_vsec_capability(pdev, vid->vendor_id,
+>   						vid->vsec_id);
+>   		if (vsec) {
+> diff --git a/include/linux/pcie-dwc.h b/include/linux/pcie-dwc.h
+> new file mode 100644
+> index 000000000000..40f3545731c8
+> --- /dev/null
+> +++ b/include/linux/pcie-dwc.h
+> @@ -0,0 +1,34 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (C) 2021-2023 Alibaba Inc.
+> + *
+> + * Copyright 2025 Linaro Ltd.
+> + * Author: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> + */
 > +
-> +static __always_inline int memblock_reserve(phys_addr_t base, phys_addr_t size)
-> +{
-> +	return __memblock_reserve(base, size, NUMA_NO_NODE, 0);
+> +#ifndef LINUX_PCIE_DWC_H
+> +#define LINUX_PCIE_DWC_H
+> +
+> +#include <linux/pci_ids.h>
+> +
+> +struct dwc_pcie_vsec_id {
+> +	u16 vendor_id;
+> +	u16 vsec_id;
+> +	u8 vsec_rev;
+> +};
+> +
+> +/*
+> + * VSEC IDs are allocated by the vendor, so a given ID may mean different
+> + * things to different vendors.  See PCIe r6.0, sec 7.9.5.2.
+> + */
+> +static const struct dwc_pcie_vsec_id dwc_pcie_rasdes_vsec_ids[] = {
+> +	{ .vendor_id = PCI_VENDOR_ID_ALIBABA,
+> +	  .vsec_id = 0x02, .vsec_rev = 0x4 },
+> +	{ .vendor_id = PCI_VENDOR_ID_AMPERE,
+> +	  .vsec_id = 0x02, .vsec_rev = 0x4 },
+> +	{ .vendor_id = PCI_VENDOR_ID_QCOM,
+> +	  .vsec_id = 0x02, .vsec_rev = 0x4 },
+> +	{} /* terminator */
+> +};
+> +
+> +#endif /* LINUX_PCIE_DWC_H */
 
-Without this patch `memblock_reserve` eventually calls `memblock_add_range`
-with `MAX_NUMNODES`, but with this patch, `memblock_reserve` calls
-`memblock_add_range` with `NUMA_NO_NODE`. Is it intended or an
-accidental typo? Thanks!
+LGTM. Thanks.
 
-> ......
->
-> -int __init_memblock memblock_reserve(phys_addr_t base, phys_addr_t size)
-> +int __init_memblock __memblock_reserve(phys_addr_t base, phys_addr_t size,
-> +				       int nid, enum memblock_flags flags)
->  {
->  	phys_addr_t end = base + size - 1;
->
-> -	memblock_dbg("%s: [%pa-%pa] %pS\n", __func__,
-> -		     &base, &end, (void *)_RET_IP_);
-> +	memblock_dbg("%s: [%pa-%pa] nid=%d flags=%x %pS\n", __func__,
-> +		     &base, &end, nid, flags, (void *)_RET_IP_);
->
-> -	return memblock_add_range(&memblock.reserved, base, size, MAX_NUMNODES, 0);
+Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
 
-Originally `memblock_reserve` calls `memblock_add_range` with `MAX_NUMNODES`,
-See my comments above.
-
-Best,
-Changyuan
+Shuai
 
