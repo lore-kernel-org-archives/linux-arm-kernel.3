@@ -4,112 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3A67C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 21:42:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4729BC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 21:48:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JgO9NpdCEGs6Z6jBDJsgB6BtDtxW71jiKGyTEKJKCGA=; b=qjFPJb/2rKEwDUXh6PFRvGlDoS
-	T64SmPxh0MwfPwEDd+oKO/pdvDsLveZFEIGXPbDyVjkF3WipG1Y3m6SHiPVLTTxSmofJ+pQC3vYf8
-	SEZG5M5DE1QSO79Vu7mj4mf2ssbjpYnMgs9OQnPB82lIrfvVb7iVgbnEowvx865eBBKJ2UGj2pl81
-	AvcJFCpk55sXfnKaIwIjaRC5VB5PdDBoX3F4m5+OlyJDp3J68sxKm/4WEBNPSCEWOP+keJzvV6v4r
-	o4L+avjCrxva2lSbiN1xGWroKE/THljL85TWufjg28ut4DId6WlnRJ1ZW9G/FP6FnpszBQUuPHXpM
-	JD5iX5iQ==;
+	bh=YFbakQilfrCFdJzAsEkSswfsOnqR/LYLZZiUe3xWbCI=; b=KfJkzTH8VHO2fF5GtPBzvckNrC
+	xyERNYowGskJ76e/aZJp8Zpb1RKZyM00GpdVIjx2KsgdaBP+CL9E0A9auDwbGD5F/ajL8n2oRIDnq
+	8L+a8+jcF6jetLnRFXWwfxwBAWeDngOqodKyejoJr37Ny9T7xsMsSEujmv7s2ldeGenc4TKbkY7P7
+	NtVbb50tGXZ8kPZ1VfPVZ3UWnBDFTnoWPN+Kjn6tu5qtEk9mBFvzl6BgtRFSBATL3PVefRwAgGz0b
+	ilxKKrC96Xlp3nA8mPTLChxR1+noJtnhduccHQx0KCJrY2tZFoQBX1awed5PMEZ2INOrb9expHac+
+	dpFXauwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnPAQ-00000005VP8-3Pot;
-	Wed, 26 Feb 2025 21:42:10 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1tnPG6-00000005W9T-3NiU;
+	Wed, 26 Feb 2025 21:48:02 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnP8Q-00000005UsD-2aiw
+	id 1tnPEZ-00000005VwL-3cJA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 21:40:07 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4394944f161so386695e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 13:40:06 -0800 (PST)
+	Wed, 26 Feb 2025 21:46:29 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-439a2780b42so356365e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 13:46:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740606005; x=1741210805; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1740606386; x=1741211186; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=JgO9NpdCEGs6Z6jBDJsgB6BtDtxW71jiKGyTEKJKCGA=;
-        b=HIZicoIePJm3aQh+VIVg4LUtplx4VAmPwjcug5VR+XfVUzVETdqQrMm26uzQV0gbHg
-         cPRyDFixvoa3uf107Oqd+yFa7gw6E1UbgLmisRtn1ZOq1LGwfO2io79dFf37/ndq+afk
-         BNi0adA8KZpPmByo+9m+wpqysDbVryz3JHtzEFVdVoQiCuSOBEodS8P0HyHsDrrNL7IJ
-         +3jVoeEEIeyR9o8XyHQHHEOhaQ4689SlQIRSnVpm+M+qWLCJ2Z/VpuLWLufRjKEiOsbw
-         ixMNv61psf6eK5nQVAZyuYGYLp/EvFUPUlaFmYL3XzT64hz50aPFWzXBQkj58/6KPHvG
-         qzNw==
+        bh=YFbakQilfrCFdJzAsEkSswfsOnqR/LYLZZiUe3xWbCI=;
+        b=hRN0yApOw9YJmbUn9Mb13UsQr4YmwdlMojZWJC2gmd/ktT94OW1LwAZZW56bjJ6/sM
+         G0AEZD+dJsVmfVpoPtpncEoTfO44f6rXyws/WU2Xu9mlUizqiwwv5jFo4LHMfnQqQ6Wq
+         D9i2XLnlqCeHE4irpGZlqoZTAbW/Inj6z8uRspzFFMOHNnYYTMCXwaH1mDVi+Fhg+dTr
+         KEJi3LCFgzB0gOrp3l/skiY79oymno2L8aGxAUHbJ4hRKKIK3sxaJmmj+bkRVwFAc8Er
+         +XdPiTR5FiORdJw4Mt4nZ02nykndoLem+lRxRlsvdtZYQWWMU9YlWHxwzxe+p+HsqxNv
+         eOYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740606005; x=1741210805;
+        d=1e100.net; s=20230601; t=1740606386; x=1741211186;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=JgO9NpdCEGs6Z6jBDJsgB6BtDtxW71jiKGyTEKJKCGA=;
-        b=raez/ieiay91FIlOaPoWDcPUEwNB2q+t4HbY2gTNBHzJTZ/0nPYu2U28PGTKpvjhVe
-         kucJlFbPaNn29J08aiBm/ZEc62BLLvYi4JJEt+mjgPS1CpA5DzgXM7au2VCWMc1W2cTj
-         KGykXuBXuKbbPlZgDmiBCNf5L7OMlrHpyP20+6MH/YR76n9H1f5DZpTUd2pbsNy4XZlP
-         P0TAhe7nY6sGUt9Q8TMRjLaYJIOgDBXxKPgW30w/79XYXUwlwVVY5zB1pFH+wHC1RCVr
-         hvYbywUFzO1+TMDW0Ff5wytO6eRjvWa8V4airN0oCT7nYlz4SUFX1JFwxo99Y6x+c85s
-         ScrA==
-X-Forwarded-Encrypted: i=1; AJvYcCWYtszSh6nnIZtfNlEFOm9EFJ8g6jJopIfcCpukyfzCg+0DRwy+Wtm2IsljekVAiz7v6GcydClpR3A9jxbqzxA7@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpPXEb5oi8jijuD9IE2RggCmm30rDpnHj7E0ySLnDF6FP4wyz9
-	Dt8multqTH0x+ZbO6HOrGEoUtC6DfxCVgbX2KPZ2HmzxFPtU9nd6utU2Qk6dcYA=
-X-Gm-Gg: ASbGncuZb24/UZAUYqSIwK2VR83sMm+Of/xXQg20v2kq8LiM/H4F8q23PPSodEuqL2z
-	sPjD9+SWgPihUgnkOnhJ8wVI+Jz4CH2McWaDdSnH3lFu+c8G9RnE7QqfWYqgAroon4e5Q+UmiQO
-	smZeHW2LXGok+nqHFZ3VA14tUF1hklf/E57mceoYEd1gPc+DD/2T58R4K5jHQs/MqBz7sFKKbd7
-	39QS7FWL1WfxQDEV+kzd72Ybt6RajJEOZvi7smcTl9e2Mhxzs9GxdHZuReJU/ilQJN1h3W5twsD
-	Ms4sCVy5gocZnlVO8s9mTkU8Zgpg87kW7ovn6GzBm6WgHQ==
-X-Google-Smtp-Source: AGHT+IH5K8VXJUv24C/joRhmZsMKIJdarB1HjHPAB90m4NhFdVMZeL3+c4slkqthb1e8MrMy4FkHHw==
-X-Received: by 2002:a5d:6d8e:0:b0:390:e150:96b8 with SMTP id ffacd0b85a97d-390e1509a57mr323111f8f.6.1740606004983;
-        Wed, 26 Feb 2025 13:40:04 -0800 (PST)
+        bh=YFbakQilfrCFdJzAsEkSswfsOnqR/LYLZZiUe3xWbCI=;
+        b=eyr6HzZc3ypuaDXoyuoCzI/cqRbnkjihkh+0fjGxOhzVohNEgnyDWRF8OK8NP1V594
+         fwyl1Ow6f1PPG0aUiJAGEBQtRGUyGeLeH1olLLE4W+HEFHWOv+19CpnJtf6VekYtR8nC
+         fa03Q1U4bUi88+64ob//XXBlgwmdhhV4lPSaxjk4sLOuSyEq4yK9nisaDRPwQ2yVvVIX
+         SzzzissT0cJisW2iac9MgiOm9KHS5Zt/rPHaOkqbjoa4RPxDsV5IMMnO96/gG1xRqSUI
+         kw3M1HQmkUhmkkyz+FdOp699vghNWj6UIr2kqQlrc0iOxBz91z9Wa/IqmcS9ajt2CaSj
+         ZP0w==
+X-Forwarded-Encrypted: i=1; AJvYcCWNmkbAhQ72xvlq4OvL32w6PiB9GgpUdGtNfo/IXiI8R0w6bRXUn34gbFqpcq0SC4wCdv9wt6Y/NGW6MjPpuBgE@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBVUivSxM6EteL/mmNtwDul/wseltW2n6YSKcBg3gf4X1BfId3
+	yTl91M6sCK0NpFLYo6FKLb+dzGYPjpyrfvE5oYt9XPR6jWRU2XYeLBw9k+SiGNQ=
+X-Gm-Gg: ASbGncu0yBRZAJxpLCfJJCJfQrVKkB/mp8gw9gXaX0JRtxlRCfkkTxkrJDyGuHLNwoT
+	lmVGWkGLNik54m0C9319R7gSletP+LSJN5Rbqn4yoODCD6o/Ocj212tKKNVDwywniyi+JyKbQcm
+	pRoSvCqGYladhL7FaX1ok5xOdrFg8vjbMJ0fWL0LPV5+sxqKTlf/7BcwxpYCWoEgQT7OX5wPK7M
+	xINE5Hecq/g0vrtAG9C3JMgr6dgcCwOMS0X7iMU59bELgjQwdNvW56djYvFAdA8nxEIohko+KcB
+	ZX4obQUGVwRLkTN6ZkwMxnh5chcsSGwYddjmd7YQ5cVD3A==
+X-Google-Smtp-Source: AGHT+IEtK1mvKfE+Jrb2eiE9/ZRmv/XDdzfXvcs10OfwXomz3dm8J+yPkFC2Jsa9R+dhNmzu86YwxA==
+X-Received: by 2002:a05:600c:4f02:b0:439:930a:589b with SMTP id 5b1f17b1804b1-439ae21e0fdmr78223425e9.3.1740606386090;
+        Wed, 26 Feb 2025 13:46:26 -0800 (PST)
 Received: from [192.168.1.20] ([178.197.206.225])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e47960b6sm67703f8f.17.2025.02.26.13.40.02
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43aba5329besm33666575e9.15.2025.02.26.13.46.23
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 26 Feb 2025 13:40:04 -0800 (PST)
-Message-ID: <ac6a461b-44f3-414e-b5a2-2d5a0a87cdf8@linaro.org>
-Date: Wed, 26 Feb 2025 22:40:01 +0100
+        Wed, 26 Feb 2025 13:46:25 -0800 (PST)
+Message-ID: <455e8796-bf53-40d2-b3dc-13f583af0865@linaro.org>
+Date: Wed, 26 Feb 2025 22:46:22 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] media: i2c: Add driver for Sony IMX728
-To: Sebastian LaVine <slavine@d3embedded.com>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org
-Cc: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
- Abel Vesa <abel.vesa@linaro.org>, Achath Vaishnav <vaishnav.a@ti.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Ard Biesheuvel <ardb@kernel.org>,
- Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
- Biju Das <biju.das.jz@bp.renesas.com>,
- Bjorn Andersson <quic_bjorande@quicinc.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley
- <conor+dt@kernel.org>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- Elinor Montmasson <elinor.montmasson@savoirfairelinux.com>,
- Fabio Estevam <festevam@gmail.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Hans Verkuil <hverkuil@xs4all.nl>,
- Javier Carrasco <javier.carrasco@wolfvision.net>, Jianzhong Xu <xuj@ti.com>,
- Julien Massot <julien.massot@collabora.com>,
- Kieran Bingham <kieran.bingham@ideasonboard.com>,
- Kory Maincent <kory.maincent@bootlin.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Mikhail Rudenko <mike.rudenko@gmail.com>, Nishanth Menon <nm@ti.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Sakari Ailus <sakari.ailus@linux.intel.com>,
- Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
- Stuart Burtner <sburtner@d3embedded.com>, Tero Kristo <kristo@kernel.org>,
- Thakkar Devarsh <devarsht@ti.com>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Umang Jain <umang.jain@ideasonboard.com>,
- Vignesh Raghavendra <vigneshr@ti.com>, Will Deacon <will@kernel.org>,
- Zhi Mao <zhi.mao@mediatek.com>
-References: <20250212195656.69528-1-slavine@d3embedded.com>
- <20250212195656.69528-3-slavine@d3embedded.com>
- <416d75fd-40d0-45d7-9590-0322abb480ca@linaro.org>
- <D82NHO05EBSQ.3AZF1VYBU17V5@d3embedded.com>
+Subject: Re: [PATCH 2/2] docs: process: maintainer-soc-clean-dts: linux-next
+ is decisive
+To: Rob Herring <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Jonathan Corbet <corbet@lwn.net>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ soc@lists.linux.dev, workflows@vger.kernel.org, linux-doc@vger.kernel.org
+References: <20250225184822.213296-1-krzysztof.kozlowski@linaro.org>
+ <20250225184822.213296-2-krzysztof.kozlowski@linaro.org>
+ <20250226152910.GA2447540-robh@kernel.org>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
@@ -156,12 +130,12 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <D82NHO05EBSQ.3AZF1VYBU17V5@d3embedded.com>
+In-Reply-To: <20250226152910.GA2447540-robh@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_134006_668639_3C0A2229 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20250226_134627_913492_FCAB8FA5 
+X-CRM114-Status: GOOD (  20.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,26 +150,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/02/2025 21:13, Sebastian LaVine wrote:
->> ...
+On 26/02/2025 16:29, Rob Herring wrote:
+> On Tue, Feb 25, 2025 at 07:48:22PM +0100, Krzysztof Kozlowski wrote:
+>> Devicetree bindings patches go usually via driver subsystem tree, so
+>> obviously testing only SoC branches would result in new dtbs_check
+>> warnings.  Mention that linux-next branch is decisice for zero-warnings
+>> rule.
 >>
->>> +
->>> +static int imx728_set_stream(struct v4l2_subdev *sd, int enable)
->>> +{
->>> +       struct imx728 *imx728 = to_imx728(sd);
->>> +       int ret;
->>> +
->>> +       mutex_lock(&imx728->lock);
+>> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>> ---
+>>  Documentation/process/maintainer-soc-clean-dts.rst | 5 +++--
+>>  1 file changed, 3 insertions(+), 2 deletions(-)
 >>
->> Just use guard. That's actually perfect candidate.
->>
+>> diff --git a/Documentation/process/maintainer-soc-clean-dts.rst b/Documentation/process/maintainer-soc-clean-dts.rst
+>> index 1b32430d0cfc..5423fb7d6047 100644
+>> --- a/Documentation/process/maintainer-soc-clean-dts.rst
+>> +++ b/Documentation/process/maintainer-soc-clean-dts.rst
+>> @@ -17,8 +17,9 @@ Strict DTS DT Schema and dtc Compliance
+>>  No changes to the SoC platform Devicetree sources (DTS files) should introduce
+>>  new ``make dtbs_check W=1`` warnings.  Warnings in a new board DTS, which are
+>>  results of issues in an included DTSI file, are considered existing, not new
+>> -warnings.  The platform maintainers have automation in place which should point
+>> -out any new warnings.
+>> +warnings.  For series split between different trees (DT bindings go via driver
+>> +subsystem tree), warnings on linux-next are decisive.  The platform maintainers
+>> +have automation in place which should point out any new warnings.
 > 
-> Okay -- I'll include this change in v4. I'm not so familiar with using
-> this interface, so please let me know if this is incorrect:
-> 
+> I see a lot of warnings due to dependencies (both bindings and other dts 
+> changes) not be applied yet (or applied but not in linux-next). I've 
+> been filtering those out, but maybe they're useful? Some are things like 
+> missing labels, so dtc fails. I think that gets run enough a failure 
+> report on it isn't too useful.
+Maintainer-soc-clean-dts is an opt-in and so far only two guys in kernel
+opted-in: for Arm/Arm64 one Samsung dude and for other archs only the
+Risc-v guy.
 
+Total coincidence is that these two do the DT bindings reviews...
 
-Yes, looks fine.
+I would say most of such warnings are very useful, just the question is
+how much of false positives you have. For example LKP (Kernel test
+robot) was sending reports on maintainer branches, but that had too many
+false reports due to missing bindings going via different tree, e.g.
+driver subsystem tree.
 
 Best regards,
 Krzysztof
