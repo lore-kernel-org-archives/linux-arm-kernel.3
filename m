@@ -4,81 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2299FC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 04:38:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0A3BC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 05:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NXOZaR6/PGazYRzBCe1uSyWCfVEJvtHu1Fz6Y1sK7yg=; b=2ocqzRjYhNns432Cegzrun+0N8
-	rYXldodNGgKj8bzNqF1Ryd4DqMX/4C5fVGTDOH/dSkadNHQWowFtpVGkoG3+vsyDy8RKCrd0jDkOm
-	sWkToulZp2CFYI+baQVUiJZefmKTBVuWDizUTH3iDVLtKAegOs19KxqTYLHy1VfMvbNVbNMQHObzR
-	eMiZf4R9sS0yG61wE1GFL3oKHjvJEiPTQA4e1aK2p4LNntfJTl9G8jhZROGjV0rXHS32e4+giG8II
-	//ZADd/q7XofJc5YdcyNqikRvbBVXUJHpEGLWhogN5aFasmEAswII4FvJ227tbH+CdZwph4sF5DJr
-	BB4ke1gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=I7JGj9Y2NvlR+Ur5b6WMaXa2nlsT9ZFJEwFDS8Jks74=; b=Q5B0eFc4bbg+hFqt627jiK6eze
+	DnPQdnU1rwBNIAGvvAa45Fg0wBAAvyDsbQvEVUiUrw7j0BjqhN14JIXtqUA8LQhShqYBDnjj2DZ7F
+	pNddPE8H0kMFD+ktPDsrrHjN8yuLbN3pT+XqoakaHzXmKfVGB3MoGUVC2pY1AHVLcb+CyC5Qtx0YH
+	1t/6AZi02TVUfyq5erkKMcYvmaNncclU/FZO+Nn6e6MPTkdq3u1kznrRHZAadEbNV1UYfnd3wFbU5
+	reZzo0b1jn7CjVhyjImZyZpzRQMWmL0vEWM5ioTcDuRxPRmSstx9hBWoOxj5s9QBJWVnQ0RbgEG9D
+	IMTzGCjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn9Bx-00000002O19-0Jr3;
-	Wed, 26 Feb 2025 04:38:41 +0000
-Received: from abb.hmeau.com ([144.6.53.87])
+	id 1tn9Zu-00000002Pjb-2sIg;
+	Wed, 26 Feb 2025 05:03:26 +0000
+Received: from mail-am7eur03on2072c.outbound.protection.outlook.com ([2a01:111:f403:260e::72c] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tn9AP-00000002NvR-1Xnp
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 04:37:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=NXOZaR6/PGazYRzBCe1uSyWCfVEJvtHu1Fz6Y1sK7yg=; b=i35Zjp/lQ/g3zMTt0++/NQhvIP
-	iImy+eywSlmrR4HV0JsT/FIOCWSs8WSlACoSq2vsgyRugY1Vnj6YqwZeEV7GidarctXBbkFGEY70n
-	/RzG2I8dKIawXJdrI/9/p2Hwk2EAdkBFDrLFsXawWkfpbFFpf1/5f88JbV5kZ/P6mSRUmaVw/mwvj
-	JVA+ZFgGftFCmnA1/tdIjGnaHJqqLtnhrQgK9HtJJ0bIsb/0JsVRKtaTaMGigUJ2Z9/jG/YQNsPPE
-	1XNSoo0aRRSYMXy3s2VGcTE8VO9YDDUMMqbs0JwOSeVdTxTEgk1b+mLaws7FOpGDco05WPibRZ//V
-	8znIVxVw==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1tn99t-001pbR-2t;
-	Wed, 26 Feb 2025 12:36:34 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Wed, 26 Feb 2025 12:36:33 +0800
-Date: Wed, 26 Feb 2025 12:36:33 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Will Deacon <will@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Harald Freudenberger <freude@linux.ibm.com>,
-	Holger Dengler <dengler@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Eric Biggers <ebiggers@google.com>,
-	"James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Jarkko Sakkinen <jarkko@kernel.org>, linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org, linux-s390@vger.kernel.org
-Subject: [PATCH] crypto: lib/Kconfig - Select and hide arch options
-Message-ID: <Z76aUfPIbhPAsHbv@gondor.apana.org.au>
-References: <20250225164216.4807-1-arnd@kernel.org>
- <20250225213344.GA23792@willie-the-truck>
- <f7c298b8-7989-49e7-90a2-5356029a6283@app.fastmail.com>
- <c4896a12-8abe-4fe6-b381-86b23d32b332@app.fastmail.com>
- <Z75xKexTUNm_FnSK@gondor.apana.org.au>
+	id 1tn9YN-00000002PcC-05Wa;
+	Wed, 26 Feb 2025 05:01:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WAZnJaTmXnct5UsbhJ/oExfLpSzoN0O0L+jZ5RkDbdO9zgdfWPD+F6mKi9nRAi39cH8KAh62ToMY0iQ8jNVaAiOZqgAE3VGkrf/XozTHE8B1JpE9WsZSTOlJxiOL2b2zCDwkKuF4O0lALPm0/54PpSdKQn8rZJeUDJEuK9ondoRm2NiLsLyC7IcuhLOc8jYTQgdqNj3Y1AgwRD6roG2CH6BPZx/MRJmMyVOhNFV7Gf7Xj/wBPwZG5zZULkNZlp+OLBu8s9vcYd6pDRwNjQdC56OKYJ5JOmQZpBQXjTOaeiJ1ZIY12jbYEEIUIFT6Kbht15HF2lnc/CDNKd/KMTcPIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=I7JGj9Y2NvlR+Ur5b6WMaXa2nlsT9ZFJEwFDS8Jks74=;
+ b=lKxaa5jTbbdZ2Y2aqsv4S4lgICG8Fo2tXFH4YSPy9JCEgYwP50rYIFO/fsakykEGAd8aKM9Z23C9yVpFHn/Bio5KK2kc2HC3qUoBhFyoIieV4BVfroL7fDIpYK+SfkEpF7z3WWEQvQj6KYmaRwclbzpwg8zwgP/hyipMd25RViV1fubyNuCFe4YIoeL6gTso/D9kNox3ZGM0D3vjhREPvq47O0++Aw+N5CIZtGxMXxrEXHKlaUs24PR9dDFRI7arw14HuI1EACZNs1Pci9XzURN8qgfeGrRfi3YASThtEN2fpf9Lqw1yLC9of+mYAVq4plHnRraB2EgqqU7pHJB6Lg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
+ dkim=pass header.d=iopsys.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=I7JGj9Y2NvlR+Ur5b6WMaXa2nlsT9ZFJEwFDS8Jks74=;
+ b=KsEQbYGzBH1LFIEJvy36thpFi6D+28zYnTG5OjheGt9wPkpQCQFXl7KNmearqZG7sCfUTHx/4IvqhcvvZPg1bu0TmtH+8flyRK1zqyp2jn9Hfbzk/8zEdHUR5iVYY80Z6OFSL+xnu0PyrKV+W4WQ9dCS6tcRMKyRRR9L62iW27inkG6tj2uGf91GR11NkJbRfX162lCAzHrC9vRQpZWyzrsUAwKN9xPAGgFvsrDJwBq1BCLNw8faqEWwzd/0F5LEI0M1ezXa2DBf2sV9y/UwSBW3NoaICHzvpsKgUN2PqkqC9qIo80uJK3eMFoRtVGOeNtPvLuOJKqJlmgs3n0K6QQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=iopsys.eu;
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
+ by AS2PR08MB10054.eurprd08.prod.outlook.com (2603:10a6:20b:649::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.19; Wed, 26 Feb
+ 2025 05:01:40 +0000
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0%4]) with mapi id 15.20.8466.016; Wed, 26 Feb 2025
+ 05:01:40 +0000
+From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+Subject: [RESEND][PATCH] arm64: dts: mediatek: mt7986: fix pwn fan settings for sinovoip bpi-r3 board
+Date: Wed, 26 Feb 2025 08:01:32 +0300
+Message-ID: <20250226050132.547353-1-mikhail.kshevetskiy@iopsys.eu>
+X-Mailer: git-send-email 2.47.2
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: FR3P281CA0095.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:a1::7) To GV2PR08MB8121.eurprd08.prod.outlook.com
+ (2603:10a6:150:7d::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z75xKexTUNm_FnSK@gondor.apana.org.au>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|AS2PR08MB10054:EE_
+X-MS-Office365-Filtering-Correlation-Id: 80a18c20-411c-4d20-b564-08dd5622a7d6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ZGN4iA1L2aGqn8h0CR+lPV7gzMfGBW8T9+K9M0pIIefSsJYCy5BkQIml6z4x?=
+ =?us-ascii?Q?QfO49LgCTLWnhbycDW3ZMbcsxNYctEEqXnP5zYZdcFvbo0Q2GjjwDLFQrpYH?=
+ =?us-ascii?Q?KxSCVrVJ6s9ixLRa2Mun3iPdOJFzOuCi0RkRtXSP8DLRX4DxlyWJyyx7jm59?=
+ =?us-ascii?Q?WSddDzGxzwfKNimCh6081XbUcU4lRiCo80lp5eQgbL6MSrDnzXRRFvdtngGH?=
+ =?us-ascii?Q?1Xh0sJ9eTi2sFQKR9yCOX+aPVRsZGkdqD4VYf1RVeizERQpPDMfCLeav/LRX?=
+ =?us-ascii?Q?g9H/YXXIDvOv0D1hY65JDP2KO13gHoIrt4qrxa4jjFiH+i4TgaIT+r8Rv2G5?=
+ =?us-ascii?Q?rZHHVNpUKV4rtS26ZTxET1KU8cVH//cW1B5MMJvhyoyY6w1oFSQavylfaIs0?=
+ =?us-ascii?Q?MF1glPPQa8zUGXrgtxYOuE2VmC2E4e60h4zev+0FLLj1EXnVMV0TEVXByOYL?=
+ =?us-ascii?Q?a4WTScEnZOcefNPkXdUQBQ371lxEClyk5ECbVCgkCnzC6YRgSZPI98dJSTcz?=
+ =?us-ascii?Q?8WOlYbaHSbnRizyZW7btF2jBH+0YC84Dfel/jO9tu7zW7yjH5pNLd9fm7nGE?=
+ =?us-ascii?Q?+4P7mM2XuT1peVJozguQfqkrZ2T1ya26exZhTFAlOZlHNAxQ59tA3rTFWBfj?=
+ =?us-ascii?Q?uLeAavcgDM57xd4pxA4YECm3yV+bruhVNEQajczziT0AuFVw++0HGF5a40tS?=
+ =?us-ascii?Q?T5VXp3fgHxNVOEUpv5RjgFeHUvNGj8F3FdcXo0Dy9gTvddn/PS97k/VFybYi?=
+ =?us-ascii?Q?gSP0Av2g2rTfOKoaicTJ5Di0Lj15yTLRP7TqzXFRHk9V7JnYhSh3ysMATewM?=
+ =?us-ascii?Q?x7i2U20gtifFfhwi7pNe3sB2fvmzSvAlL/4iXNhgw6tNYKOSlMBUQ5E0VATB?=
+ =?us-ascii?Q?97UyBl4I1Zt2yDkdqvshK94vV42QA3DZECHQtOr6kChZG/vqqxGoLcYl9M8b?=
+ =?us-ascii?Q?CxF60ThIruMZcG1+B92XR5v5hGRV3JrU24saIC+MjjeLSxlc7CLGdM9tmgxP?=
+ =?us-ascii?Q?ws5Vl1Zu6v5hTeHWaOpUCP0ZYaZvKQ7BKRRfv3MHzBTCMrCLnjHl+lL1WcYE?=
+ =?us-ascii?Q?7DM1riv38ud5oB34mB80WPpn4odhjUfYzHho25V++wJYxLrHujgzkNmZGYxI?=
+ =?us-ascii?Q?dO4tx/d6g0nENKn2Kfwhum9tBNa7+w0KhsQEU80ggYGTOfX3Egl+wpkVMxAT?=
+ =?us-ascii?Q?DaC/CD9m5sPI33RkYCBXcnaOsy0X0Vm94P3Tx785Gd8v6gyo9COGJEGPe2s3?=
+ =?us-ascii?Q?RmwG2gJ/9enFtLLzpEBdDRA1ekkFCNddCRn3J+fQbOcAuGN1Y+yg3VckLe8n?=
+ =?us-ascii?Q?R9rqoURlV4XVgFUY29lwpF8rjjpK6B6lZP3MaG/XpBTm3HKhw4cr+yR47cF8?=
+ =?us-ascii?Q?QMy+1ZtVKPdZEP5UmZM6/ywA/sYNACyF4LZSFxbFwqslUN0bx6oXb0g52mA0?=
+ =?us-ascii?Q?G19WNAXz1q5rr8pcYWEPLNaSyoL67mwp?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CMTHOU7YEj+vNhktFXXa9uPRO2uxp/iWpB3hm1FxJYjPHvjB8xGiG4NFlzvh?=
+ =?us-ascii?Q?8CcCoIa1siP+wvIUXInPUV0oQNcYh4Xk6jOQXNX1/113AIKKPyYg2l8IgqZB?=
+ =?us-ascii?Q?7vj3QzO/0HFjYGjayKRi6qnrTg1+IyE10mqz7S4DjLm6l4ddsBmAWve02wvn?=
+ =?us-ascii?Q?rM5KlCC8lWMlNQ/rmC1TrFNu6504YbiBSoSbO/Jt2U5tXe+vZh/ZW+/T0Lmw?=
+ =?us-ascii?Q?+R3RBdUNazDMVPCubFmgGHFjUsF+afSRZb6hUeb8tCrhuZHmCjoQp3cKO6n1?=
+ =?us-ascii?Q?fN7wi1vkf3OjSgSbzA3SDBK2VO344Iv8XC9Y/gopyZpOcHT54GGP4ln4XIzH?=
+ =?us-ascii?Q?y9BBiAMELsGaTe53sjpmYQaeBwJX9jgO55lfP+Dl4x/cUnm+xCPkroj4pbLs?=
+ =?us-ascii?Q?FGexF8sAwAuCXvgFkIhI+5+/vJkge378g+E1nVkbtwzcoI9oA942ipF1jBSo?=
+ =?us-ascii?Q?vOlEEp5pwiKA8N0sEMIG6yHSKTeLvmfqUwqFyck3OsZ2EmqevZsUzDKGBZKe?=
+ =?us-ascii?Q?i5gYXKZCsSLHo5gJ3SFYB7LUXV3VudCe6EeKHHONbqrK21S5IjZsjwaZCm+f?=
+ =?us-ascii?Q?zcClgD15BjswAuNoCPGySAS9PovO/eqUK6arJ4ViWd9MAXiHZLA+c+kpMFql?=
+ =?us-ascii?Q?CgyN4etlHn9DJn15oU3+7yVj6KCvlEWII4TKrlenTUp1DD2Vz36Uo4mogIvK?=
+ =?us-ascii?Q?5svUqS73bDwm5S7+O5tSjtvLOrI8gbWfwyXn92Veyu2E61advljuArarpxef?=
+ =?us-ascii?Q?GnzRiGgmkLbsfSYmqYI2TgDxHALI9iHQPc2vYwWrimWrexY/iXwQNjTiXnZ4?=
+ =?us-ascii?Q?doiUk2T/UZZlf7aJcKfHDN4Ww3XINbHwknYqaAiYA11hW5wqF5iAYFroqktU?=
+ =?us-ascii?Q?I+ziRFpNUz1qJyHLx/4GIQDnKr7NK3DGyv5Mtz9jl8PWD/oIipj9FL5/icem?=
+ =?us-ascii?Q?JPqHvoJmSqDlwPMNh/uLavKfX6a8nNRAQZrIrEequO+v/PCW6b9ReBIWVif2?=
+ =?us-ascii?Q?paq+X9/c3DlAKBFv+r2R9sB+JkAWTIYTHZNORA3/WTg9WHUjlqmyfHf1B6Aq?=
+ =?us-ascii?Q?/vNKCpAyxPgJE89PC1pWoSRfMhACzoerCSwz2pqkJhy1AC7beBK8VV6diIN/?=
+ =?us-ascii?Q?mWsV2f1dVhaNSLePMjwb//CQT0Siho3jEjWPxUpIfPkV6KnJ7k9kC2QpxiSi?=
+ =?us-ascii?Q?dNBkBZw+tjLA4i/PPcIvshWwf3+EFrNAzozhmtcwVEymXFTGmRx/EPZGxWR0?=
+ =?us-ascii?Q?CW3uGNGfgnUZJHjfv6zVjoNdnn/jI64Ao9Az9u5ZiWFGDKxf37vGCPEeF5aS?=
+ =?us-ascii?Q?kxLYSofAxrzhQ+0Pvs1byoc/BxUETL8oCSKdsBh6c2US0FowOkpmL0MauxXg?=
+ =?us-ascii?Q?R0wUBY3N6/FrMlKFFHvf4iR77ehPl/TPv2Gs2/XoMg35QysSKH68/jRWo0Ol?=
+ =?us-ascii?Q?tu93K5K65oZbCCeO4r8pvtGRlBLgFOSSr/xYRObY7dae2lr53xVR2GD7Xugf?=
+ =?us-ascii?Q?tHyPAmy0syESXGJWUvvA64xAo4WO0egj/FQAlLPUQcnxVUHFD2+13qSIMnex?=
+ =?us-ascii?Q?Vmw/YyIbQWcqhA9m3PcZiWfeC1tyA+GEw5kmP6zbX4A9V801IsgszHGaNPvX?=
+ =?us-ascii?Q?UAa6WpbQMrji0T2a6+sMuFA=3D?=
+X-OriginatorOrg: iopsys.eu
+X-MS-Exchange-CrossTenant-Network-Message-Id: 80a18c20-411c-4d20-b564-08dd5622a7d6
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2025 05:01:40.3271
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fICigIYkSGIJHHNroR+CmPxxZqJSLv5UPCilTr9L04MHGSz57pm2QRX1XUSltIs34UcuRS7vfikTW9E4stEEvnTNBp/qqLlmEyLvgTNztMA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB10054
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_203705_719879_BEB87CA6 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20250225_210151_475104_30043202 
+X-CRM114-Status: GOOD (  16.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,310 +162,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARCH_MAY_HAVE patch missed arm64, mips and s390.  But it may
-also lead to arch options being enabled but ineffective because
-of modular/built-in conflicts.
+Popular bpi-r3 pwm fans like this one
 
-As the primary user of all these options wireguard is selecting
-the arch options anyway, make the same selections at the lib/crypto
-option level and hide the arch options from the user.
+  https://www.amazon.com/youyeetoo-Barebone-Fan-BPI-R3-Integrated/dp/B0CCCTY8PS
 
-Fixes: 1047e21aecdf ("crypto: lib/Kconfig - Fix lib built-in failure when arch is modular")
-Reported-by: kernel test robot <lkp@intel.com>
-Reported-by: Arnd Bergmann <arnd@kernel.org>
-Closes: https://lore.kernel.org/oe-kbuild-all/202502232152.JC84YDLp-lkp@intel.com/
-Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
+will not work properly. Trying different pwm setting using a command
 
-diff --git a/arch/arm/crypto/Kconfig b/arch/arm/crypto/Kconfig
-index 47d9cc59f254..e28c177e63d3 100644
---- a/arch/arm/crypto/Kconfig
-+++ b/arch/arm/crypto/Kconfig
-@@ -3,10 +3,10 @@
- menu "Accelerated Cryptographic Algorithms for CPU (arm)"
- 
- config CRYPTO_CURVE25519_NEON
--	tristate "Public key crypto: Curve25519 (NEON)"
-+	tristate
- 	depends on KERNEL_MODE_NEON
--	select CRYPTO_LIB_CURVE25519_GENERIC
--	select CRYPTO_ARCH_MAY_HAVE_LIB_CURVE25519
-+	select CRYPTO_KPP
-+	select CRYPTO_ARCH_HAVE_LIB_CURVE25519
- 	help
- 	  Curve25519 algorithm
- 
-@@ -45,9 +45,9 @@ config CRYPTO_NHPOLY1305_NEON
- 	  - NEON (Advanced SIMD) extensions
- 
- config CRYPTO_POLY1305_ARM
--	tristate "Hash functions: Poly1305 (NEON)"
-+	tristate
- 	select CRYPTO_HASH
--	select CRYPTO_ARCH_MAY_HAVE_LIB_POLY1305
-+	select CRYPTO_ARCH_HAVE_LIB_POLY1305
- 	help
- 	  Poly1305 authenticator algorithm (RFC7539)
- 
-@@ -212,9 +212,9 @@ config CRYPTO_AES_ARM_CE
- 	  - ARMv8 Crypto Extensions
- 
- config CRYPTO_CHACHA20_NEON
--	tristate "Ciphers: ChaCha20, XChaCha20, XChaCha12 (NEON)"
-+	tristate
- 	select CRYPTO_SKCIPHER
--	select CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA
-+	select CRYPTO_ARCH_HAVE_LIB_CHACHA
- 	help
- 	  Length-preserving ciphers: ChaCha20, XChaCha20, and XChaCha12
- 	  stream cipher algorithms
-diff --git a/arch/arm64/crypto/Kconfig b/arch/arm64/crypto/Kconfig
-index 5636ab83f22a..6bf844da022d 100644
---- a/arch/arm64/crypto/Kconfig
-+++ b/arch/arm64/crypto/Kconfig
-@@ -26,7 +26,7 @@ config CRYPTO_NHPOLY1305_NEON
- 	  - NEON (Advanced SIMD) extensions
- 
- config CRYPTO_POLY1305_NEON
--	tristate "Hash functions: Poly1305 (NEON)"
-+	tristate
- 	depends on KERNEL_MODE_NEON
- 	select CRYPTO_HASH
- 	select CRYPTO_ARCH_HAVE_LIB_POLY1305
-@@ -186,10 +186,9 @@ config CRYPTO_AES_ARM64_NEON_BLK
- 	  - NEON (Advanced SIMD) extensions
- 
- config CRYPTO_CHACHA20_NEON
--	tristate "Ciphers: ChaCha (NEON)"
-+	tristate
- 	depends on KERNEL_MODE_NEON
- 	select CRYPTO_SKCIPHER
--	select CRYPTO_LIB_CHACHA_GENERIC
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
- 	help
- 	  Length-preserving ciphers: ChaCha20, XChaCha20, and XChaCha12
-diff --git a/arch/mips/crypto/Kconfig b/arch/mips/crypto/Kconfig
-index 7decd40c4e20..e02481cc9c06 100644
---- a/arch/mips/crypto/Kconfig
-+++ b/arch/mips/crypto/Kconfig
-@@ -3,8 +3,9 @@
- menu "Accelerated Cryptographic Algorithms for CPU (mips)"
- 
- config CRYPTO_POLY1305_MIPS
--	tristate "Hash functions: Poly1305"
-+	tristate
- 	depends on MIPS
-+	select CRYPTO_HASH
- 	select CRYPTO_ARCH_HAVE_LIB_POLY1305
- 	help
- 	  Poly1305 authenticator algorithm (RFC7539)
-@@ -52,7 +53,7 @@ config CRYPTO_SHA512_OCTEON
- 	  Architecture: mips OCTEON using crypto instructions, when available
- 
- config CRYPTO_CHACHA_MIPS
--	tristate "Ciphers: ChaCha20, XChaCha20, XChaCha12 (MIPS32r2)"
-+	tristate
- 	depends on CPU_MIPS32_R2
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
-diff --git a/arch/powerpc/crypto/Kconfig b/arch/powerpc/crypto/Kconfig
-index e453cb0c82d2..589ae680a272 100644
---- a/arch/powerpc/crypto/Kconfig
-+++ b/arch/powerpc/crypto/Kconfig
-@@ -3,10 +3,10 @@
- menu "Accelerated Cryptographic Algorithms for CPU (powerpc)"
- 
- config CRYPTO_CURVE25519_PPC64
--	tristate "Public key crypto: Curve25519 (PowerPC64)"
-+	tristate
- 	depends on PPC64 && CPU_LITTLE_ENDIAN
--	select CRYPTO_LIB_CURVE25519_GENERIC
--	select CRYPTO_ARCH_MAY_HAVE_LIB_CURVE25519
-+	select CRYPTO_KPP
-+	select CRYPTO_ARCH_HAVE_LIB_CURVE25519
- 	help
- 	  Curve25519 algorithm
- 
-@@ -91,11 +91,10 @@ config CRYPTO_AES_GCM_P10
- 	  later CPU. This module supports stitched acceleration for AES/GCM.
- 
- config CRYPTO_CHACHA20_P10
--	tristate "Ciphers: ChaCha20, XChacha20, XChacha12 (P10 or later)"
-+	tristate
- 	depends on PPC64 && CPU_LITTLE_ENDIAN && VSX
- 	select CRYPTO_SKCIPHER
--	select CRYPTO_LIB_CHACHA_GENERIC
--	select CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA
-+	select CRYPTO_ARCH_HAVE_LIB_CHACHA
- 	help
- 	  Length-preserving ciphers: ChaCha20, XChaCha20, and XChaCha12
- 	  stream cipher algorithms
-diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
-index ad58dad9a580..c67095a3d669 100644
---- a/arch/riscv/crypto/Kconfig
-+++ b/arch/riscv/crypto/Kconfig
-@@ -22,7 +22,6 @@ config CRYPTO_CHACHA_RISCV64
- 	tristate "Ciphers: ChaCha"
- 	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
- 	select CRYPTO_SKCIPHER
--	select CRYPTO_LIB_CHACHA_GENERIC
- 	help
- 	  Length-preserving ciphers: ChaCha20 stream cipher algorithm
- 
-diff --git a/arch/s390/crypto/Kconfig b/arch/s390/crypto/Kconfig
-index b760232537f1..c327aeccfde7 100644
---- a/arch/s390/crypto/Kconfig
-+++ b/arch/s390/crypto/Kconfig
-@@ -108,10 +108,9 @@ config CRYPTO_DES_S390
- 	  As of z196 the CTR mode is hardware accelerated.
- 
- config CRYPTO_CHACHA_S390
--	tristate "Ciphers: ChaCha20"
-+	tristate
- 	depends on S390
- 	select CRYPTO_SKCIPHER
--	select CRYPTO_LIB_CHACHA_GENERIC
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
- 	help
- 	  Length-preserving cipher: ChaCha20 stream cipher (RFC 7539)
-diff --git a/arch/x86/crypto/Kconfig b/arch/x86/crypto/Kconfig
-index c189dad0969b..725105919cd3 100644
---- a/arch/x86/crypto/Kconfig
-+++ b/arch/x86/crypto/Kconfig
-@@ -3,10 +3,10 @@
- menu "Accelerated Cryptographic Algorithms for CPU (x86)"
- 
- config CRYPTO_CURVE25519_X86
--	tristate "Public key crypto: Curve25519 (ADX)"
-+	tristate
- 	depends on X86 && 64BIT
--	select CRYPTO_LIB_CURVE25519_GENERIC
--	select CRYPTO_ARCH_MAY_HAVE_LIB_CURVE25519
-+	select CRYPTO_KPP
-+	select CRYPTO_ARCH_HAVE_LIB_CURVE25519
- 	help
- 	  Curve25519 algorithm
- 
-@@ -348,11 +348,10 @@ config CRYPTO_ARIA_GFNI_AVX512_X86_64
- 	  Processes 64 blocks in parallel.
- 
- config CRYPTO_CHACHA20_X86_64
--	tristate "Ciphers: ChaCha20, XChaCha20, XChaCha12 (SSSE3/AVX2/AVX-512VL)"
-+	tristate
- 	depends on X86 && 64BIT
- 	select CRYPTO_SKCIPHER
--	select CRYPTO_LIB_CHACHA_GENERIC
--	select CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA
-+	select CRYPTO_ARCH_HAVE_LIB_CHACHA
- 	help
- 	  Length-preserving ciphers: ChaCha20, XChaCha20, and XChaCha12
- 	  stream cipher algorithms
-@@ -417,10 +416,10 @@ config CRYPTO_POLYVAL_CLMUL_NI
- 	  - CLMUL-NI (carry-less multiplication new instructions)
- 
- config CRYPTO_POLY1305_X86_64
--	tristate "Hash functions: Poly1305 (SSE2/AVX2)"
-+	tristate
- 	depends on X86 && 64BIT
--	select CRYPTO_LIB_POLY1305_GENERIC
--	select CRYPTO_ARCH_MAY_HAVE_LIB_POLY1305
-+	select CRYPTO_HASH
-+	select CRYPTO_ARCH_HAVE_LIB_POLY1305
- 	help
- 	  Poly1305 authenticator algorithm (RFC7539)
- 
-diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index c542ef1d64d0..f095df82f5e9 100644
---- a/lib/crypto/Kconfig
-+++ b/lib/crypto/Kconfig
-@@ -48,11 +48,6 @@ config CRYPTO_ARCH_HAVE_LIB_CHACHA
- 	  accelerated implementation of the ChaCha library interface,
- 	  either builtin or as a module.
- 
--config CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA
--	tristate
--	select CRYPTO_ARCH_HAVE_LIB_CHACHA if CRYPTO_LIB_CHACHA=m
--	select CRYPTO_ARCH_HAVE_LIB_CHACHA if CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA=y
--
- config CRYPTO_LIB_CHACHA_GENERIC
- 	tristate
- 	select CRYPTO_LIB_UTILS
-@@ -65,7 +60,13 @@ config CRYPTO_LIB_CHACHA_GENERIC
- 
- config CRYPTO_LIB_CHACHA
- 	tristate "ChaCha library interface"
-+	select CRYPTO
- 	select CRYPTO_LIB_CHACHA_GENERIC if CRYPTO_ARCH_HAVE_LIB_CHACHA=n
-+	select CRYPTO_CHACHA20_X86_64 if X86 && 64BIT
-+	select CRYPTO_CHACHA20_NEON if ARM || (ARM64 && KERNEL_MODE_NEON)
-+	select CRYPTO_CHACHA_MIPS if CPU_MIPS32_R2
-+	select CRYPTO_CHACHA_S390 if S390
-+	select CRYPTO_CHACHA20_P10 if PPC64 && CPU_LITTLE_ENDIAN && VSX
- 	help
- 	  Enable the ChaCha library interface. This interface may be fulfilled
- 	  by either the generic implementation or an arch-specific one, if one
-@@ -78,13 +79,9 @@ config CRYPTO_ARCH_HAVE_LIB_CURVE25519
- 	  accelerated implementation of the Curve25519 library interface,
- 	  either builtin or as a module.
- 
--config CRYPTO_ARCH_MAY_HAVE_LIB_CURVE25519
--	tristate
--	select CRYPTO_ARCH_HAVE_LIB_CURVE25519 if CRYPTO_LIB_CURVE25519=m
--	select CRYPTO_ARCH_HAVE_LIB_CURVE25519 if CRYPTO_ARCH_MAY_HAVE_LIB_CURVE25519=y
--
- config CRYPTO_LIB_CURVE25519_GENERIC
- 	tristate
-+	select CRYPTO_LIB_UTILS
- 	help
- 	  This symbol can be depended upon by arch implementations of the
- 	  Curve25519 library interface that require the generic code as a
-@@ -95,7 +92,9 @@ config CRYPTO_LIB_CURVE25519_GENERIC
- config CRYPTO_LIB_CURVE25519
- 	tristate "Curve25519 scalar multiplication library"
- 	select CRYPTO_LIB_CURVE25519_GENERIC if CRYPTO_ARCH_HAVE_LIB_CURVE25519=n
--	select CRYPTO_LIB_UTILS
-+	select CRYPTO_CURVE25519_X86 if X86 && 64BIT
-+	select CRYPTO_CURVE25519_NEON if ARM && KERNEL_MODE_NEON
-+	select CRYPTO_CURVE25519_PPC64 if PPC64 && CPU_LITTLE_ENDIAN
- 	help
- 	  Enable the Curve25519 library interface. This interface may be
- 	  fulfilled by either the generic implementation or an arch-specific
-@@ -118,11 +117,6 @@ config CRYPTO_ARCH_HAVE_LIB_POLY1305
- 	  accelerated implementation of the Poly1305 library interface,
- 	  either builtin or as a module.
- 
--config CRYPTO_ARCH_MAY_HAVE_LIB_POLY1305
--	tristate
--	select CRYPTO_ARCH_HAVE_LIB_POLY1305 if CRYPTO_LIB_POLY1305=m
--	select CRYPTO_ARCH_HAVE_LIB_POLY1305 if CRYPTO_ARCH_MAY_HAVE_LIB_POLY1305=y
--
- config CRYPTO_LIB_POLY1305_GENERIC
- 	tristate
- 	help
-@@ -135,6 +129,10 @@ config CRYPTO_LIB_POLY1305_GENERIC
- config CRYPTO_LIB_POLY1305
- 	tristate "Poly1305 library interface"
- 	select CRYPTO_LIB_POLY1305_GENERIC if CRYPTO_ARCH_HAVE_LIB_POLY1305=n
-+	select CRYPTO_POLY1305_X86_64 if X86 && 64BIT
-+	select CRYPTO_POLY1305_NEON if ARM64 && KERNEL_MODE_NEON
-+	select CRYPTO_POLY1305_ARM if ARM
-+	select CRYPTO_POLY1305_MIPS if MIPS
- 	help
- 	  Enable the Poly1305 library interface. This interface may be fulfilled
- 	  by either the generic implementation or an arch-specific one, if one
-@@ -142,9 +140,10 @@ config CRYPTO_LIB_POLY1305
- 
- config CRYPTO_LIB_CHACHA20POLY1305
- 	tristate "ChaCha20-Poly1305 AEAD support (8-byte nonce library version)"
--	depends on CRYPTO
-+	select CRYPTO
- 	select CRYPTO_LIB_CHACHA
- 	select CRYPTO_LIB_POLY1305
-+	select CRYPTO_LIB_UTILS
- 	select CRYPTO_ALGAPI
- 
- config CRYPTO_LIB_SHA1
+  echo $value > /sys/devices/platform/pwm-fan/hwmon/hwmon1/pwm1
+
+I found:
+
+  pwm1 value     fan rotation speed   cpu temperature     notes
+  -----------------------------------------------------------------
+    0            maximal              31.5 Celsius        too noisy
+   40            optimal              35.2 Celsius        no noise hearable
+   95            minimal
+   above 95      does not rotate      55.5 Celsius
+  -----------------------------------------------------------------
+
+At the moment we have following cooling levels defined:
+
+  cooling-levels = <255 96 0>;
+
+for cpu-active-low, cpu-active-medium and cpu-active-high modes
+correspondingly. Thus only cpu-active-high and cpu-active-low are usable.
+I think this is wrong.
+
+This patch fixes cpu-active-medium settings for bpi-r3 board.
+
+PS: I know, the patch is not ideal as it can break pwm fan for some users.
+    There are some peoples that use handmade cooling solutions, but:
+      * discussed cooler is the only 'official' pwm cooler for bpi-r3
+        available on the market.
+      * most peoples will use passive cooling available on the market or
+        the discussed cooler.
+      * the pwm-fan dts section was added before the official cooler
+        appears on the market.
+    Thus it should not be a lot of harm from this fix.
+
+This patch may not be enough. Users may wants to tweak their thermal_zone0
+trip points, thus tuning fan rotation speed depending on cpu temperature.
+That can be done on the base of the folloving example:
+
+  === example =========
+  # cpu temterature below 25 Celsius degrees, no rotation
+  echo 25000 > /sys/class/thermal/thermal_zone0/trip_point_4_temp
+  # cpu temperature in [25..32] Celsius degrees, normal rotation speed
+  echo 32000 > /sys/class/thermal/thermal_zone0/trip_point_3_temp
+  # cpu temperature above 50 Celsius degrees, max rotation speed
+  echo 50000 > /sys/class/thermal/thermal_zone0/trip_point_2_temp
+  =====================
+
+Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+---
+ arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
+index ed79ad1ae871..b0cc0cbdff0f 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
++++ b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
+@@ -42,7 +42,7 @@ fan: pwm-fan {
+ 		compatible = "pwm-fan";
+ 		#cooling-cells = <2>;
+ 		/* cooling level (0, 1, 2) - pwm inverted */
+-		cooling-levels = <255 96 0>;
++		cooling-levels = <255 40 0>;
+ 		pwms = <&pwm 0 10000>;
+ 		status = "okay";
+ 	};
 -- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+2.47.2
+
 
