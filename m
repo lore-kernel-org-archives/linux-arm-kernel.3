@@ -4,82 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B811C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:25:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 650F4C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:25:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SBvlcDZJjiFBF2gq7CnaJtPrKlUyhkTAXHh7O8k3KuU=; b=lJHbuINSsgE53VEqhZxu0X7UZY
-	L4aLYW2odhVqTCjVpI/uqPryqu6GYHXu+xJgCcDphaX2KyfG6wmC2Plm2yCH01a/QS71n/0Mmqzb6
-	RDZ1tKj6wri1Dcmwm+XtKptNpcFwmpXdXW0jZMKIutQSDQye2yZDdM5HisrBVdP1P7DIPuW92YZiL
-	C+CUdFua59cmpHAqnESC8qAYQgX25CkSj5fSRyBSMlVVK8W4cFgeHWHL4FKjfQTMcQubzk9/AOCTq
-	OJqfidoOLM7+85QDWsle/APZhI8D6M01tUFGmQ55RSVi9YabXOkeHNHlY3emFWlYE2KX0tspuyEBf
-	uGo2sklA==;
+	bh=alBmJLHqLeak0MrBEaiF+GvOpgs6GCrussWTD7ASuFg=; b=E3lXhz+L3AcZu+8zp/ucpCJaYb
+	x+GFyNKvDMlSq2/ZdR+YeCLcyoB6nLPEgagBZ/TNqu/uxGSk+JXvKwqzI/J2S3/o9yHyi8C7yGVWt
+	n/Gk38dgtoJFvLD4bs+QvkxaBIKugLHEP7b1kPazRdZtgVcbAhQF9dSA5EQBsMbEcCvZ7kuGuKfjJ
+	QtI+eRYUpxgIyD1LTAQ7hgnHBYoOoFH7vGztMkpr+dtqITucetz6J5vInmotniMJrXUWZDz87ksgk
+	fPQOs3tWWUPWb/KrHFsDpiBK7LZo/nU99xtWiOEHvwBgqXkTxd8tOfGwaC5pDdtoAdZOK4a/1g00/
+	MOZ86ESA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnHPw-00000003qoO-3Mpg;
-	Wed, 26 Feb 2025 13:25:40 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1tnHPy-00000003qqA-1fYt;
+	Wed, 26 Feb 2025 13:25:42 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnFfc-00000003UX2-2XSB;
-	Wed, 26 Feb 2025 11:33:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740569624; x=1772105624;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version:content-transfer-encoding;
-  bh=bj8u/VTfvEKSVadoM6eWhJguZpmIx7UFV9zPkjdjO6o=;
-  b=Q6ytFVy0B94ZOPYXgpDWxSd07r9X2IlJVKmMwPXakYKBZ8FORzDtxLrg
-   ZXUVhNCMtQsEn8FjeDk4LPgGWg/tgv0QCSogiIhenPndtfA9uXjitpgBa
-   5l3duEsWy2KQrtvtCXHmviwdSp2B3ZDDBPS+Kosuo62P3UYBBB38z3x6l
-   UrvD/trhUrwDaCZgxF95POU6Zko9YvT0+LG/R0JrMX0YCPfCxu0gxGdqa
-   zYSP3avgTFJ3PNdqP8GCchqneBm64kRp+Uh0b7YWoTW1m0DL+t9T1mbLd
-   GYdYOJktlYB26llgzqSMbraMNSZ9gR6y0Z1vSvBstKmQgCk5PJGUH4PEO
-   w==;
-X-CSE-ConnectionGUID: f52+H702SoS15wKAhSptZg==
-X-CSE-MsgGUID: LQiIKRYmQ362kJGNwejMtw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11357"; a="66781900"
-X-IronPort-AV: E=Sophos;i="6.13,316,1732608000"; 
-   d="scan'208";a="66781900"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Feb 2025 03:33:38 -0800
-X-CSE-ConnectionGUID: TJihvrrsRgeQybRZ0yeiSA==
-X-CSE-MsgGUID: 5L4ZB8/RTCS7cCKbWuK2zQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,316,1732608000"; 
-   d="scan'208";a="116680184"
-Received: from dprybysh-mobl.ger.corp.intel.com (HELO localhost) ([10.245.246.74])
-  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Feb 2025 03:33:33 -0800
-From: Jani Nikula <jani.nikula@intel.com>
-To: Andy Yan <andyshrk@163.com>, Thomas Zimmermann <tzimmermann@suse.de>
-Cc: dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org, Sandy
- Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan
- <andy.yan@rock-chips.com>, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, sam@ravnborg.org, Cristian Ciocaltea
- <cristian.ciocaltea@collabora.com>
-Subject: Re:Re: [PATCH 2/5] drm/rockchip: stop passing non struct drm_device
- to drm_err() and friends
-In-Reply-To: <f5dc475.a51e.19541d449c5.Coremail.andyshrk@163.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-References: <cover.1737644530.git.jani.nikula@intel.com>
- <f42da4c9943a2f2a9de4272b7849e72236d4c3f9.1737644530.git.jani.nikula@intel.com>
- <2c0a76c3.618c.19497bb4329.Coremail.andyshrk@163.com>
- <87plkcbfp0.fsf@intel.com>
- <730ee1d4.f63.1949b97fc99.Coremail.andyshrk@163.com>
- <21d7745d-8fcd-484f-b1f2-82fd87dc8079@suse.de>
- <f5dc475.a51e.19541d449c5.Coremail.andyshrk@163.com>
-Date: Wed, 26 Feb 2025 13:33:30 +0200
-Message-ID: <87plj53ppx.fsf@intel.com>
+	id 1tnFhb-00000003UkM-1UKS
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Feb 2025 11:35:49 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4399d14334aso58501975e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 03:35:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1740569745; x=1741174545; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=alBmJLHqLeak0MrBEaiF+GvOpgs6GCrussWTD7ASuFg=;
+        b=HjQRW7r+y/lk9rrJlR5Ik3BNNUV1cyKQGcX7pmIkO3cTUrn7NDAgGNf7auTKKbBxBi
+         qmAEZLTxRZNFejxWM5EygYIlkqC/zKpe0boT9YNWuyNgRGn2ydy7kYR0dwo4bdswacUQ
+         aIiLtP7vOsjbJvoUR2Ap1m5qdBteEGLhqZV7DyhkGwqujjQfcDfH5+BmAqgwzM82U97C
+         /7JW+tYiP99wvJZPxQYNr7Qf+sJBkOyVk0sSJyUu901xom/C0R4eFKdt4Up0+AKttWFA
+         WS2afMlf/MoQUh6cLm8fWkflqQW4RyhHNdtkkhaTyWcEE/pO1WUXgFozxEsY8EofkV+/
+         1ScQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740569745; x=1741174545;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=alBmJLHqLeak0MrBEaiF+GvOpgs6GCrussWTD7ASuFg=;
+        b=pBLSNpasjqbi03GbXXAijpJXu8AP2SwLPGh8f5Os6a/PfPOShRuZmWI1L5pAHPbU/c
+         7oPs1S+Sa2AVI5qMJBHs8K9/Mu4QMvH2zom6jzmQ/F13SOPh9h0BLGWdd9E3KNTXhD8U
+         X5LSEra6Gy5pNfwyAIkzxhFjOhOC8PZs4VTbU91wjIEVrX+Bp16r2OFsqBjOI0zLLH/H
+         J8Z2bMxUQ3THIOTm77WPFYLNMJMWrEaSH0JhTVgZOU/jzO4C897BNJ8Rk2MipeywWOES
+         4UGcngMdZC0nfSTT1ZyhDSWfkmSttkKfdxBXYyH93nwN9tygbAVzyfKJ4XgmPNidpnLU
+         SSKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUbmaEq1QKVFg5UpRCKUOVCD9ZawTjd2urJKdl43ocp2e1yeBWvEB3se5lLYsC7Fbcl5KExdzunHAOjvGs6dv0q@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqZujUqohdeciPzTWz/X904/5q2QzswJls03kUvdeh1fFhhi3b
+	r8hwk3R3L+ywlszEu1Xc9qdJ49pyWbmoFr4xn1wiWWrqXoss4zxISnY9DhayTcA=
+X-Gm-Gg: ASbGncv1oT/yp6nQpAuVA3j15hVDGoJvpCWhIN5rc18ri2hT31rHGujcJFz3y0r4+eb
+	29TBJQNq5stnnoAaeZ9kqVjSTzTkMeHUEpU0safJVfwxe7Q3ytdEarzNZ3GvLPk1O2YDviJbD+a
+	+8lImfjBsS9y+0RYfjkXMajwV7WEOx2LnkMl64BbVWiqkKsJnJiPVV/5F1x8R7prwUYFTIBITIN
+	NCQB7tvDoDwhi5Pgqy8MIn79jGAnapiGqCLxTou0bgrCCt5LKX0jbzwLTvyHjE2TcAkkkk0b4/a
+	2Xd2YIRBXcWLW+zKvLA1sGClkD9K3kDTOFW687T9cwhXn6I3H3NsV8gHCTLWm58jRw==
+X-Google-Smtp-Source: AGHT+IFDxhZDh0OTrZqQRYhLB3t0W3PSVkeDzir54VORaU0Ul7AQg6j84zQMQRzUVA7uut0cfrh6Pw==
+X-Received: by 2002:a05:600c:4f86:b0:439:967b:46fc with SMTP id 5b1f17b1804b1-43ab8fd73f2mr24567335e9.8.1740569745142;
+        Wed, 26 Feb 2025 03:35:45 -0800 (PST)
+Received: from [192.168.0.172] (88-127-185-231.subs.proxad.net. [88.127.185.231])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43aba5442c0sm18103605e9.32.2025.02.26.03.35.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 26 Feb 2025 03:35:44 -0800 (PST)
+Message-ID: <0863ee2e-25ed-43b7-a896-e380de828d58@baylibre.com>
+Date: Wed, 26 Feb 2025 12:35:42 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 2/6] drm/mediatek: dsi: Improves the DSI lane setup
+ robustness
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
+Cc: "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+ "mripard@kernel.org" <mripard@kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
+ "simona.vetter@ffwll.ch" <simona.vetter@ffwll.ch>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "airlied@gmail.com" <airlied@gmail.com>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "will@kernel.org" <will@kernel.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "tzimmermann@suse.de" <tzimmermann@suse.de>,
+ "simona@ffwll.ch" <simona@ffwll.ch>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ =?UTF-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?= <jitao.shi@mediatek.com>,
+ "robh@kernel.org" <robh@kernel.org>
+References: <20231023-display-support-v7-0-6703f3e26831@baylibre.com>
+ <20231023-display-support-v7-2-6703f3e26831@baylibre.com>
+ <ab3bd050c873bb6cecc00b615b938eabc157cb49.camel@mediatek.com>
+ <79477810-00a9-47f1-8282-f8077ea082bb@baylibre.com>
+ <3310b6f9-df7a-4769-a221-4a93cc3ec035@collabora.com>
+Content-Language: en-US
+From: Alexandre Mergnat <amergnat@baylibre.com>
+In-Reply-To: <3310b6f9-df7a-4769-a221-4a93cc3ec035@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_033344_647075_CA423D30 
-X-CRM114-Status: GOOD (  21.54  )
+X-CRM114-CacheID: sfid-20250226_033547_471854_5A928F20 
+X-CRM114-Status: GOOD (  22.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,109 +124,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 26 Feb 2025, "Andy Yan" <andyshrk@163.com> wrote:
-> Hi=EF=BC=8C
->
-> =E5=9C=A8 2025-02-26 16:33:21=EF=BC=8C"Thomas Zimmermann" <tzimmermann@su=
-se.de> =E5=86=99=E9=81=93=EF=BC=9A
->>Hi
+
+
+On 18/02/2025 09:52, AngeloGioacchino Del Regno wrote:
+> Il 17/02/25 16:03, Alexandre Mergnat ha scritto:
+>> Hi CK.
 >>
->>Am 25.01.25 um 04:53 schrieb Andy Yan:
+>> On 17/02/2025 08:56, CK Hu (胡俊光) wrote:
+>>> On Fri, 2025-01-10 at 14:31 +0100, Alexandre Mergnat wrote:
+>>>> External email : Please do not click links or open attachments until you have verified the 
+>>>> sender or the content.
+>>>>
+>>>>
+>>>> Currently, mtk_dsi_lane_ready (which setup the DSI lane) is triggered
+>>>> before mtk_dsi_poweron. lanes_ready flag toggle to true during
+>>>> mtk_dsi_lane_ready function, and the DSI module is set up during
+>>>> mtk_dsi_poweron.
+>>>>
+>>>> Later, during panel driver init, mtk_dsi_lane_ready is triggered but does
+>>>> nothing because lanes are considered ready. Unfortunately, when the panel
+>>>> driver try to communicate, the DSI returns a timeout.
+>>>>
+>>>> The solution found here is to put lanes_ready flag to false after the DSI
+>>>> module setup into mtk_dsi_poweron to init the DSI lanes after the power /
+>>>> setup of the DSI module.
 >>>
->>> =E5=9C=A8 2025-01-24 19:43:07=EF=BC=8C"Jani Nikula" <jani.nikula@intel.=
-com> =E5=86=99=E9=81=93=EF=BC=9A
->>>> On Fri, 24 Jan 2025, "Andy Yan" <andyshrk@163.com> wrote:
->>>>> Hi=EF=BC=8C
->>>>>
->>>>> At 2025-01-23 23:09:09, "Jani Nikula" <jani.nikula@intel.com> wrote:
->>>>>> The expectation is that the struct drm_device based logging helpers =
-get
->>>>>> passed an actual struct drm_device pointer rather than some random
->>>>>> struct pointer where you can dereference the ->dev member.
->>>>>>
->>>>>> Convert drm_err(hdmi, ...) to dev_err(hdmi->dev, ...). This matches
->>>>>> current usage, but drops "[drm] *ERROR*" prefix from logging.
->>>>> Frankly, I prefer the original version of the log.
->>>>> It is a platform driver, so it should use its own device.
->>>>> It is a driver that works in drm subsystem, so it's better to use "[d=
-rm] *ERROR*" prefix when logging
->>>> If you need to do struct device based logging that is not the same
->>>> device as the struct drm_device dev member, you need to use dev_err()
->>>> and friends. You can't and must not use drm_err() and friends.
->>>>
->>>> It's as simple as that.
->>>>
->>>> The current drm_err(hdmi, ...) usage is simply abuse of the macros, and
->>>> must stop.
->>> Perhaps when you initially designed this macros, you intended it to acc=
-ept only drm_device,
->>> but your code implementation didn't enforce this restriction at the beg=
-inning.
+>>> I'm not clear about what happen.
+>>> I think this DSI flow has worked for a long time.
+>>> So only some panel has problem?
 >>
->>C'mon. Are we really arguing about type safety now?
+>> I don't know if it's related to a specific panel or not.
 >>
->>Patch 5 adds a little getter function that does the type check on the=20
->>function call's argument.
+>>>
+>>> And another question.
+>>> Do you mean mtk_dsi_lane_ready() do some setting to hardware, but lane is not actually ready?
 >>
+>> The workflow should be:
+>> ... | dsi->lanes_ready = false | Power-on | setup dsi lanes | dsi->lanes_ready = true (to avoid 
+>> re-do dsi lanes setup) | ...
 >>
->>> If that's truly what you intended, I suggest just reverting this commit=
- that converting to use these macros[0],
->>> as neither drm_err nor dev_err can maintain consistency with the origin=
-al log of this driver.
->>> Alternatively, as suggested by Sam  in the initial submission of your p=
-atch 5 years ago,
->>> there should also be a macro similar to drm_dev_info(device *, ..).[1]
->>
->>DRM code tends to keep a reference to the drm_device somewhere and=20
->>fetches it if necessary. For this patch, it should be possible to fetch=20
->>the DRM device from struct rockchip_hdmi easily. Just do
->>
->> =C2=A0 drm_err(rockchip_hdmi_drm_dev(hdmi), "...");
->>
->>This would resolve the problem without new logging functions and keep=20
->>the "[drm]" prefix to the messages.
->
-> Yes, this keeps the "[drm]" prefix to the log messages, but it also chang=
-ed hdmi
-> device from drm device in the log messages.
-> For more efficient debugging, it is preferable for log entries to explici=
-tly specify which device generated them,
-> especially in DRM systems where multiple devices(bridge/encoder) may be p=
-resent."
->
-> And I'm ok with this PATCH. However, I would also like to know your and J=
-ani's opinions on whether we can consider
-> adding an API similar to drm_dev_info=EF=BC=8Cas Sam suggested before. Of=
- course, this could be left for future implementation
-> by others.
+>> I observe (print function name called + dsi->lanes_ready value):
+> 
+> Alex, the first poweron is called by mtk_dsi_ddp_start() - and the start callback
+> is internal to the mediatek-drm driver.
+> 
+> That callback is called by mtk_crtc during setup and during bridge enable(), and
+> there we go with suboptimal code design backfiring - instead of using what the
+> DRM APIs provide, this driver uses something custom *and* the DRM APIs, giving
+> this issue.
+> 
+> Part of what mtk_crtc does is duplicated with what the DRM APIs want to do, so
+> there you go, that's your problem here :-)
+> 
+> Should I go on with describing the next step(s), or is that obvious for everyone?
+> 
+> :-)
+> 
+> Cheers,
 
-I'm not at all thrilled about adding loads of variations of drm specific
-debug macros. They just multiply.
+Ok thanks Angelo.
+Can you let me know if you agree with this change please ? This should be better:
 
-The way around that would be to use _Generic() to allow passing either
-struct drm_device (which would use drm->dev) or a more specific struct
-device to be used for dev based logging. I'd be supportive of that.
+@@ -843,25 +843,6 @@ static void mtk_dsi_bridge_atomic_enable(struct drm_bridge *bridge,
+  	mtk_output_dsi_enable(dsi);
+  }
 
-However, this patch series is a dependency for implementing generics at
-a later time. I'd like to start here instead of piling on more work.
+-static void mtk_dsi_bridge_atomic_pre_enable(struct drm_bridge *bridge,
+-					     struct drm_bridge_state *old_bridge_state)
+-{
+-	struct mtk_dsi *dsi = bridge_to_dsi(bridge);
+-	int ret;
+-
+-	ret = mtk_dsi_poweron(dsi);
+-	if (ret < 0)
+-		DRM_ERROR("failed to power on dsi\n");
+-}
+-
+-static void mtk_dsi_bridge_atomic_post_disable(struct drm_bridge *bridge,
+-					       struct drm_bridge_state *old_bridge_state)
+-{
+-	struct mtk_dsi *dsi = bridge_to_dsi(bridge);
+-
+-	mtk_dsi_poweroff(dsi);
+-}
+-
+  static enum drm_mode_status
+  mtk_dsi_bridge_mode_valid(struct drm_bridge *bridge,
+  			  const struct drm_display_info *info,
+@@ -886,8 +867,6 @@ static const struct drm_bridge_funcs mtk_dsi_bridge_funcs = {
+  	.atomic_disable = mtk_dsi_bridge_atomic_disable,
+  	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
+  	.atomic_enable = mtk_dsi_bridge_atomic_enable,
+-	.atomic_pre_enable = mtk_dsi_bridge_atomic_pre_enable,
+-	.atomic_post_disable = mtk_dsi_bridge_atomic_post_disable,
+  	.atomic_reset = drm_atomic_helper_bridge_reset,
+  	.mode_valid = mtk_dsi_bridge_mode_valid,
+  	.mode_set = mtk_dsi_bridge_mode_set,
 
-Furthermore, there's been talk about drm display object based
-logging. The generics could later be expanded to allow for example:
 
-	drm_err(connector, "Fail\n");
-
-to translate to:
-
-	dev_err(connector->dev->dev, "[CONNECTOR:%d:%s] Fail\n",
-		connector->base.id, connector->name);
-
-This would simplify a lot of connector based logging. Similarly for
-other objects.
-
-BR,
-Jani.
-
-
---=20
-Jani Nikula, Intel
+-- 
+Regards,
+Alexandre
 
