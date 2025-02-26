@@ -4,65 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5589DC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:23:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B3E3C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:30:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s2KiHCRA5QT7UfzfGaUrGKo2f1M1l1E4d9U48qCobb8=; b=CzaZ+ntNFuvOWsQBoWHoUidQN3
-	spT0BsCjkBrSrkOQtvbb1+2spb4UOZGggGFC9B0ouKHwfT5fYjcSuRrvt4xMrxYgyP/kEamqYpGix
-	h91SviEdTdcRWhKdFZZpkK74zNLgX5CXRDGkUvpEHV+Jb2ctFV9fGtTIe8vg+pipBnpngfjckryVB
-	UOH+rAu/ECwyJMhwTGYyZAM/f1Dug4YKpmHBXFVDY4oDg+2fTiMcaJXqZoRRSgifZSo5NaZWMHHjx
-	m0w/pw9R7sNPMgTgo5HfKcsl9jFQpOXQ2XsUru4dUQCxfanPjJNBT2WxjavHDLZn0xpBCTW+uKu3I
-	lFBgg8yA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mR1bRWMoTjUHEoKAJEhE88XmtMveAZ45TWALqSC25IM=; b=ELb2a3SVdEjPFZECB1zCG/MAYu
+	DnQ5K5U/AthSjyiqrljbboQ/5QIiFDfiHQDr/jAaOFAqt2Uo00Sp6nHYdjjVG9VnN8wRK1WOu+C4W
+	SzP8nUKki8Gsm9P6zXXHjJbHOlcYOWLFBt0uJJwrcDpFbnzhGbFKmMxa87PL5b1NiTx2q7u84IvjT
+	KWXA4ihFVJBVYm9c3iSzt68sfmizNw8iRMADn/sokmnJxbQYRIZiDJVCfl1l5LqePnTM5MS70Z7DC
+	TuiFaVzwp2nCMTtMWZDvsLt0iFJlnUfwObCSLDuFr5iSAxt03io5eipGe6tRw+/GztdlFD6D3XOn3
+	m0eZwtkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJFr-00000004HOx-0M4s;
-	Wed, 26 Feb 2025 15:23:23 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tnJMG-00000004JYh-3xlF;
+	Wed, 26 Feb 2025 15:30:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnI6q-000000041E1-2Uqc;
-	Wed, 26 Feb 2025 14:10:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=s2KiHCRA5QT7UfzfGaUrGKo2f1M1l1E4d9U48qCobb8=; b=TSQptmHI/rY6TIdyEBpV/oEQH3
-	4wIuOfHUuDXN9oaL0AZjjfXEOFWuIosn2MYqSCOIqAsxrIvnylog0yOTUiWRPfJEXO/8NeftpFnyA
-	zSHKNtXSyQgFdPMKB9rJW4wEKVImFat4JCdRA4XbDK5vccKA3nC+k8FMeq05NewrEBc/QLe9R2WU0
-	pCH6Q39tA47+LOlXDDtl/LlsYDq+0fjwSXVNyDDTJLHsh6VckSyR0ilxesLpn0ABGspSbbCbj5SP2
-	LOjmx46GcGzgNVEb9mgz8jbxnExoPfkpFhtr97pNrL6YiIvQNW90Eq19bnPb4VroryJkvRxlMw2Qa
-	XKFHFA+Q==;
-Received: from i53875b47.versanet.de ([83.135.91.71] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tnI6p-0000V2-B6; Wed, 26 Feb 2025 15:09:59 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: heiko@sntech.de
-Cc: quentin.schulz@cherry.de,
-	devicetree@vger.kernel.org,
+	id 1tnJKk-00000004JL9-0V8e
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Feb 2025 15:28:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id ABFB9612D9;
+	Wed, 26 Feb 2025 15:28:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C061C4CED6;
+	Wed, 26 Feb 2025 15:28:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740583705;
+	bh=H6QFppNoLPP0F59QyjvNjPfY7kEdjEWciYi4Y+OHehU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=CUQdjENW6BawMLA8c76zIkAuNtcvFwO59BgSRaDAyva992mruC23nndQepgLsBolk
+	 tqEkxZZuYF97EAjz1uicGcWI4DTUfqQwsEa0Bjma0j1wyh95uSvX7fSBTt80vcUZha
+	 o+vSK1uQIsgzTrqk5CUK0ju9Oj84lh42PU9DcmejpcEVHiPRFem7yvJqXA7m6kJC7v
+	 9ybNckZdP4qGB17Wu8u3W7dn6SopSGAB/LBIbLCoF2HGNkVQUof4tyqOxeMDLrQP8s
+	 iIYk1RXObnDbJXSqXLWkLjUlS/KewBqR6qY0g9ABknQknTiQ9vgnka0NNnjtskyd1Y
+	 nbk59oL3GYyzg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tnJKh-008EWj-Aj;
+	Wed, 26 Feb 2025 15:28:23 +0000
+Date: Wed, 26 Feb 2025 15:28:22 +0000
+Message-ID: <865xkwrai1.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	dse@thaumatec.com,
-	Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: [PATCH v3 3/3] arm64: dts: rockchip: add overlay for tiger-haikou video-demo adapter
-Date: Wed, 26 Feb 2025 15:09:42 +0100
-Message-ID: <20250226140942.3825223-4-heiko@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250226140942.3825223-1-heiko@sntech.de>
-References: <20250226140942.3825223-1-heiko@sntech.de>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_061000_633309_DE4B3E6D 
-X-CRM114-Status: GOOD (  18.30  )
+	mark.rutland@arm.com,
+	will@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	broonie@kernel.org,
+	qperret@google.com,
+	vdonnefort@google.com
+Subject: Re: [PATCH v1 1/3] KVM: arm64: Initialize HCRX_EL2 traps in pKVM
+In-Reply-To: <CA+EHjTwRNj6z_TTCXR8UNiB0ty=85_VKWDVsFOLke31UGnBE7A@mail.gmail.com>
+References: <20250214150258.464798-1-tabba@google.com>
+	<20250214150258.464798-2-tabba@google.com>
+	<Z77n_Gv0X0bolONW@linux.dev>
+	<86a5a9q90z.wl-maz@kernel.org>
+	<CA+EHjTwRNj6z_TTCXR8UNiB0ty=85_VKWDVsFOLke31UGnBE7A@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, oliver.upton@linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com, vdonnefort@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,207 +94,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Heiko Stuebner <heiko.stuebner@cherry.de>
+On Wed, 26 Feb 2025 12:44:49 +0000,
+Fuad Tabba <tabba@google.com> wrote:
+> 
+> Hi Marc,
+> 
+> On Wed, 26 Feb 2025 at 02:45, Marc Zyngier <maz@kernel.org> wrote:
+> >
+> > On Wed, 26 Feb 2025 10:07:56 +0000,
+> > Oliver Upton <oliver.upton@linux.dev> wrote:
+> > >
+> > > Hi Fuad,
+> > >
+> > > Series LGTM overall, one comment:
+> > >
+> > > On Fri, Feb 14, 2025 at 03:02:56PM +0000, Fuad Tabba wrote:
+> > > > Initialize and set the traps controlled by the HCRX_EL2 in pKVM
+> > > > when the register is supported by the system.
+> > > >
+> > > > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > > > ---
+> > > >  arch/arm64/kvm/hyp/nvhe/pkvm.c | 46 ++++++++++++++++++++++++++++++++++
+> > > >  1 file changed, 46 insertions(+)
+> > > >
+> > > > diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > > > index 3927fe52a3dd..668ebec27f1b 100644
+> > > > --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > > > +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > > > @@ -58,6 +58,30 @@ static void pkvm_vcpu_reset_hcr(struct kvm_vcpu *vcpu)
+> > > >             vcpu->arch.hcr_el2 |= HCR_ATA;
+> > > >  }
+> > > >
+> > > > +static void pkvm_vcpu_reset_hcrx(struct pkvm_hyp_vcpu *hyp_vcpu)
+> > > > +{
+> > > > +   struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
+> > > > +   struct kvm_vcpu *vcpu = &hyp_vcpu->vcpu;
+> > > > +
+> > > > +   if (!cpus_have_final_cap(ARM64_HAS_HCX))
+> > > > +           return;
+> > > > +
+> > > > +   /*
+> > > > +    * In general, all HCRX_EL2 bits are gated by a feature.
+> > > > +    * The only reason we can set SMPME without checking any
+> > > > +    * feature is that its effects are not directly observable
+> > > > +    * from the guest.
+> > > > +    */
+> > > > +   vcpu->arch.hcrx_el2 = HCRX_EL2_SMPME;
+> > > > +
+> > >
+> > > The comment isn't wrong, but we don't support SME at all in KVM at this
+> > > point.
+> >
+> > This is a copy/paste of what we have in kvm_calculate_traps(), and the
+> > result of the removal of the dreaded HCRX_GUEST_FLAGS.
+> >
+> > > Any objection to dropping this bit? I can fix it when applying the
+> > > series, no need to respin.
+> >
+> > Whatever we do, I think we should keep the two side of the trap
+> > configuration in sync, as this is otherwise a cause of bugs.
+> 
+> I could take the initialization of hcrx part from
+> kvm_calculate_traps() and place it in an inline function in
+> kvm_emulate.h. This then would be called by kvm_calculate_traps() and
+> pkvm_vcpu_init_traps().
+> 
+> What do you think?
 
-This adds support for the video-demo-adapter DEVKIT ADDON CAM-TS-A01
-(https://embedded.cherry.de/product/development-kit/) for the Haikou
-devkit with Tiger RK3588 SoM.
+That could be a good option indeed, irrespective of the fate of SMPME.
 
-The Video Demo adapter is an adapter connected to the fake PCIe slot
-labeled "Video Connector" on the Haikou devkit.
+Thanks,
 
-It's main feature is a Leadtek DSI-display with touchscreen and a camera
-(that is not supported yet). To drive these components a number of
-additional regulators are grouped on the adapter as well as a PCA9670
-gpio-expander to provide the needed additional gpio-lines.
+	M.
 
-Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
----
- arch/arm64/boot/dts/rockchip/Makefile         |   5 +
- .../rk3588-tiger-haikou-video-demo.dtso       | 153 ++++++++++++++++++
- 2 files changed, 158 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso
-
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index db6017272ff1..4cddb5d2807d 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -158,6 +158,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-ep.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-srns.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou-video-demo.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-toybrick-x0.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-turing-rk1.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-coolpi-4b.dtb
-@@ -214,3 +215,7 @@ rk3588-rock-5b-pcie-ep-dtbs := rk3588-rock-5b.dtb \
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-srns.dtb
- rk3588-rock-5b-pcie-srns-dtbs := rk3588-rock-5b.dtb \
- 	rk3588-rock-5b-pcie-srns.dtbo
-+
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou-video-demo.dtb
-+rk3588-tiger-haikou-video-demo-dtbs := rk3588-tiger-haikou.dtb \
-+	rk3588-tiger-haikou-video-demo.dtbo
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso
-new file mode 100644
-index 000000000000..b8636fcb4f39
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou-video-demo.dtso
-@@ -0,0 +1,153 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2024 Cherry Embedded Solutions GmbH
-+ *
-+ * DEVKIT ADDON CAM-TS-A01
-+ * https://embedded.cherry.de/product/development-kit/
-+ *
-+ * DT-overlay for the camera / DSI demo appliance for Haikou boards.
-+ * In the flavour for use with a Tiger system-on-module.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
-+#include <dt-bindings/soc/rockchip,vop2.h>
-+
-+&{/} {
-+	backlight: backlight {
-+		compatible = "pwm-backlight";
-+		power-supply = <&dc_12v>;
-+		pwms = <&pwm0 0 25000 0>;
-+	};
-+
-+	vcc1v8_video: regulator-vcc1v8-video {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc1v8-video";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&vcc3v3_baseboard>;
-+	};
-+
-+	vcc2v8_video: regulator-vcc2v8-video {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc2v8-video";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <2800000>;
-+		regulator-max-microvolt = <2800000>;
-+		vin-supply = <&vcc3v3_baseboard>;
-+	};
-+
-+	video-adapter-leds {
-+		compatible = "gpio-leds";
-+
-+		video-adapter-led {
-+			color = <LED_COLOR_ID_BLUE>;
-+			gpios = <&pca9670 7 GPIO_ACTIVE_HIGH>;
-+			label = "video-adapter-led";
-+			linux,default-trigger = "none";
-+		};
-+	};
-+};
-+
-+&dsi0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	status = "okay";
-+
-+	panel@0 {
-+		compatible = "leadtek,ltk050h3148w";
-+		reg = <0>;
-+		backlight = <&backlight>;
-+		iovcc-supply = <&vcc1v8_video>;
-+		reset-gpios = <&pca9670 0 GPIO_ACTIVE_LOW>;
-+		vci-supply = <&vcc2v8_video>;
-+
-+		port {
-+			mipi_panel_in: endpoint {
-+				remote-endpoint = <&dsi0_out_panel>;
-+			};
-+		};
-+	};
-+};
-+
-+&dsi0_in {
-+	dsi0_in_vp3: endpoint {
-+		remote-endpoint = <&vp3_out_dsi0>;
-+	};
-+};
-+
-+&dsi0_out {
-+	dsi0_out_panel: endpoint {
-+		remote-endpoint = <&mipi_panel_in>;
-+	};
-+};
-+
-+&i2c6 {
-+	/* OV5675, GT911, DW9714 are limited to 400KHz */
-+	clock-frequency = <400000>;
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	touchscreen@14 {
-+		compatible = "goodix,gt911";
-+		reg = <0x14>;
-+		interrupt-parent = <&gpio3>;
-+		interrupts = <RK_PC3 IRQ_TYPE_LEVEL_LOW>;
-+		irq-gpios = <&gpio3 RK_PC3 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&touch_int>;
-+		reset-gpios = <&pca9670 1 GPIO_ACTIVE_HIGH>;
-+		AVDD28-supply = <&vcc2v8_video>;
-+		VDDIO-supply = <&vcc3v3_baseboard>;
-+	};
-+
-+	pca9670: gpio@27 {
-+		compatible = "nxp,pca9670";
-+		reg = <0x27>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pca9670_resetn>;
-+		reset-gpios = <&gpio3 RK_PC1 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&mipidcphy0 {
-+	status = "okay";
-+};
-+
-+&pinctrl {
-+	pca9670 {
-+		pca9670_resetn: pca9670-resetn {
-+			rockchip,pins = <3 RK_PC1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	touch {
-+		touch_int: touch-int {
-+			rockchip,pins = <3 RK_PC3 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&pwm0 {
-+	status = "okay";
-+};
-+
-+&vp3 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	vp3_out_dsi0: endpoint@ROCKCHIP_VOP2_EP_MIPI0 {
-+		reg = <ROCKCHIP_VOP2_EP_MIPI0>;
-+		remote-endpoint = <&dsi0_in_vp3>;
-+	};
-+};
 -- 
-2.47.2
-
+Without deviation from the norm, progress is not possible.
 
