@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 913D8C19777
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 07:07:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3A47C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 07:08:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=slQtf7Wl+XVRUPh94xXu3LZhYbI/FI5CkmDioXCBNJc=; b=S2WJMeE8cIjDvhj6tO4Y7TJsfy
-	iORjn1gGlDJuw4pNAb2GlYuVj4NarT8MZiiY26G8/F6MvOJBOaTbCYIJYELDSIf+JoY3WmqD6m5bx
-	jh8lrjIWt8gokrOtLhVobEgz/whjQRI/KhEin6CHkfGSwCDQo2pK7qdtwlGCJfdwuEywV1ANEwC7l
-	Ng6Ya7BC80mgp9z6Lbb78qz4KJFbHnnwZVIp4cN/tGAWDF8HtcEaCNIRR2K9EFZ+niEmtXcxLTNIN
-	cIKFYjOWy3eN7YxviPlGXyGQC2/sMPakmmObmUzfWy/5cxzIOjSaFDAkPQ+92eND8mhKcM/wn3qZv
-	xvPCAQ/Q==;
+	bh=xWym4HVp9iv3ggRmqJqrn2QqZWEcy8jNfu6pDhIlfOg=; b=eQH7RrPlA7UmAgM0Nqr7lQXVnR
+	N4WSaIqIUAgUtKD+aqIanvTiDdlwB4lYdf6dm1ZP903dEI8rapdvtrvJ6oXsWcPrIaQd0SSF8ujTJ
+	E06Hlv4H2TsGNldkFROs7g32oLDjZ7qr74/lRgaFKM7dMVKM7T7voRoFA59uiZhlDTpgKHww49ruo
+	0bQtDoamhWz0j5vrEXWVbDK94pjaBEjoq8SHd9bxnRNaUmIl2YUIW46enRNXthAQFzO7AeF8aa2di
+	fxhEnuxNfvMaJxSbYd6Iu8+dSWE6GgqTcu+JxC7FwRrZSaGXj7Qs2DvKT8GvOXihw3S5mj5+GWs5h
+	hcA85ltQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnBVW-00000002drN-0IlM;
-	Wed, 26 Feb 2025 07:07:02 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tnBX0-00000002e5m-36IR;
+	Wed, 26 Feb 2025 07:08:34 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnBQ1-00000002cZW-1xdj
+	id 1tnBQx-00000002co0-0Znv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 07:01:22 +0000
+	Wed, 26 Feb 2025 07:02:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E64815C3740;
-	Wed, 26 Feb 2025 07:00:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87760C4CED6;
-	Wed, 26 Feb 2025 07:01:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7FD385C61D4;
+	Wed, 26 Feb 2025 07:01:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AF39C4CEE2;
+	Wed, 26 Feb 2025 07:02:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740553280;
-	bh=r+BD51nRDDY6EYiNA30sagutBCjcum7slAsYcChYEYg=;
+	s=k20201202; t=1740553338;
+	bh=LNW2RCAz3S4DPK/VKv4XUbUdFMgW/79zioxJj69XsEs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hd+sq28XBUb0mNRpyVYin2tJ0LOOaEbT8kMzJ9ru37gwKnko9DqpDX2tGATvyNJsj
-	 AoToWSPJON9CER4T+lxg9ocn2d1mgGQjD7MjLxrPR1306vR6S6ommIb22AFLvERt5o
-	 n/fjdRDp9bZTWUXOX3pnh9aATjBKUzFZt1YdQIlKZ48ZtKhG3Qu8NqiWNhx20GKB25
-	 2xOOMzjo3cO7gWcePRxB0B/ovZw2+EZLi0KxnMS3JoX72YPi499bz4P40UN5F+6PnB
-	 FAug5EWgQ9CwovcVRxuXPrNNVvr0Cc3s/rNqeXKAdqnpT8coyg5JbeMnH+JnX1pYrR
-	 SNIVRBzykG8rw==
-Message-ID: <6345b7fe-58d2-4b66-9ab7-2d44a4b98497@kernel.org>
-Date: Wed, 26 Feb 2025 08:01:16 +0100
+	b=gWGfhsRkOdAtLrTKIuG5ReuA2Y9V7HLVEmt6fVZYZGDpAhc/ZLyBbFw2g3/N5WoM7
+	 zChlSdRtojeYdaXOjy2MYk27V6pWYUAQTyxzDj7Fqr+VLzh3cqr48L+XRDKxx7I0UO
+	 wCnfSmohznvbTKBDzVCsgdk92Mm3hx7MFfqYvEOtTw+i6wCmFBYqvwo+afgkkPC8kr
+	 0fc5o6XX0g++VIm456Wz1XGcTxcua8ywGNCa9L92TFvdUi0tgB5WPEXCwobWjjV66b
+	 wNLS7uihw/HEaRmv9imPKU9lpTqtqa0Td5txpuCa7vUYEB+agWQZbN1agBdC/T5ePn
+	 rKIpgaf4MGx5Q==
+Message-ID: <f89817fe-22af-460e-9f5c-a3347eba1892@kernel.org>
+Date: Wed, 26 Feb 2025 08:02:12 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: defconfig: Enable iris video driver
-To: Dikshita Agarwal <quic_dikshita@quicinc.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Vikash Garodia <quic_vgarodia@quicinc.com>, Hans Verkuil <hverkuil@xs4all.nl>
-References: <20250225-enable-iris-defconfig-v1-1-1ed49c8396bb@quicinc.com>
- <2bfb37fe-6e6a-4f9a-82be-5776935563cc@kernel.org>
- <786af13e-942a-09ff-49c4-2a3d7e9be7c9@quicinc.com>
+Subject: Re: [PATCH v2 2/6] dt-bindings: arm: add CIX P1 (SKY1) SoC
+To: Peter Chen <peter.chen@cixtech.com>, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
+ marcin@juszkiewicz.com.pl, Fugang Duan <fugang.duan@cixtech.com>
+References: <20250226012136.854614-1-peter.chen@cixtech.com>
+ <20250226012136.854614-3-peter.chen@cixtech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -99,12 +99,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <786af13e-942a-09ff-49c4-2a3d7e9be7c9@quicinc.com>
+In-Reply-To: <20250226012136.854614-3-peter.chen@cixtech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_230121_595416_D55CD247 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20250225_230219_320039_8033CE38 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,25 +119,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/02/2025 06:51, Dikshita Agarwal wrote:
+On 26/02/2025 02:21, Peter Chen wrote:
+> Add device tree bindings for CIX P1 (Internal name sky1) Arm SoC,
+> it consists several SoC models like CP8180, CD8180, etc.
 > 
-> 
-> On 2/25/2025 6:36 PM, Krzysztof Kozlowski wrote:
->> On 25/02/2025 11:09, Dikshita Agarwal wrote:
->>> Enable the building of the iris video driver by default.
->>
->>
->> 1. Why?
->>
->> 2. This was already sent by Neil...
->>
-> Apologies, I wasn't aware of that. May be I should subscribe to
-> linux-kernel mailing list for such patches.
-> 
-> Please ignore this patch.
+> Acked-by: Fugang Duan <fugang.duan@cixtech.com>
+> Signed-off-by: Peter Chen <peter.chen@cixtech.com>
+> ---
 
-No worries, this was tight timing. I just noted that this was sent, but
-in future anyway always explain in commit msg "why" changing something.
+<form letter>
+This is a friendly reminder during the review process.
+
+It looks like you received a tag and forgot to add it.
+
+If you do not know the process, here is a short explanation:
+Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
+of patchset, under or above your Signed-off-by tag, unless patch changed
+significantly (e.g. new properties added to the DT bindings). Tag is
+"received", when provided in a message replied to you on the mailing
+list. Tools like b4 can help here. However, there's no need to repost
+patches *only* to add the tags. The upstream maintainer will do that for
+tags received on the version they apply.
+
+Please read:
+https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
+
+If a tag was not added on purpose, please state why and what changed.
+</form letter>
 
 Best regards,
 Krzysztof
