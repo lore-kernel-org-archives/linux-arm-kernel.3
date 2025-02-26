@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE0A0C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 14:14:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0489C18E7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 14:17:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5adloVzHwi79uY2dXSZYO3t6+ZhCtMojJZzwEopgbso=; b=RQTZ3GwwwNovDKMJuWWKzsE1J7
-	z/Iijk/NchU6h1U+HGMEYSFCykvxUGPI2V+mgjcRwxshfx03mA5XVThK/mEcM+PO31XUsGX/gDnsB
-	8KSf7xlnEoeXDy3xY3t4drKwZWfVofkHatNVvL2p8SWLxIVdw49Wx5FtQQUnrW5wFlcdy4lfIbtCe
-	04X/uuJwDVSUIh2AmICXs+eqbIsT//+qB0+7MD1phLNwLjH8dKsKkMaEdO1GkCos5RWFU5AvrRYX3
-	/M16QwWjQRNyo1akadVKx9rsWURl318P/Up+tB/K7IpO8tVpU0vgogYi87GnafXeBmr/Zq1fFail9
-	zFp4Ae0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KvJGAbyWkcvedoLLc4FaW3JqrKOaqT7oAs2HApM74cQ=; b=ahiNDfVVY1y325ReEPsSXSNtqK
+	U2FuoDnOZXUavD7Ru4uVpL8A5UW3y5UbN4rFL7oc47ffxVrvLUeULAluXFC2to7sb72B+xONFVMdA
+	wLbtIF601wSys9SDTzrbQb5/xxEmdQXLSrc1sAjPiXYwW8ExBNeQcp1xDhxmjqDJU6f+Lsqf4jRr4
+	vP6MFFkwdQO3ATT1rIpDB0qfldlgqiYzxgooqj/pNlPyqkcWmCDSIRtGJTVowM7cFjbaCYU5kk04t
+	9wOVkk9ZqiaKZA8ZptlB9mtbTzeAseW5Tc2WrD3VNTG+KGsWhgxyycANd+ulkZwTClR/Pafwr9maC
+	8UsES9MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnIBN-0000000422B-0nL4;
-	Wed, 26 Feb 2025 14:14:41 +0000
+	id 1tnIEN-000000042cs-2jEP;
+	Wed, 26 Feb 2025 14:17:47 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnI6q-000000041Dc-168S;
-	Wed, 26 Feb 2025 14:10:01 +0000
+	id 1tnIBJ-0000000421D-0PYq;
+	Wed, 26 Feb 2025 14:14:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
 	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=5adloVzHwi79uY2dXSZYO3t6+ZhCtMojJZzwEopgbso=; b=flrSuKaAKkFeZq+ohPNluB1Y1z
-	Ry6xTumrh9UED8H8MtEfDf7fA6X6kvP96dljk411PwSAnewNn4n/+ZyC0IOh2oKJ02kvGtzoLDIcy
-	SvxVa97TqF3qE3yasU73G3aSjZL1AXTg1Fg4vobMFjQPi4nixx1D2K90HYTq3569kT5dhGqQKguFP
-	U3VYyEj5qquydYnzPMHeaeYBiaN8p1cLV3mGxwXFkZT++oQuOIP0irzovaym/p0hLJUATeHbNNKbI
-	qC5wl4ob5ifCjZpMd34AhrPTqE0Da3HLa+4olUmf1sjIxoUVYBgcKVOlfatrJduoaOy/qBYqYQ2Yl
-	89wnxyjw==;
-Received: from i53875b47.versanet.de ([83.135.91.71] helo=localhost.localdomain)
+	bh=KvJGAbyWkcvedoLLc4FaW3JqrKOaqT7oAs2HApM74cQ=; b=KP+ssduJCcCljk3HCk1xztnkk3
+	zS+GF9pbhbYxs31tkIc2o1qgOvBu73G6nQzg79jNujH4QtrV/x03B5kel06GZxwVlF4zqtsEz59p4
+	ru+ycq0C3F+HcU8HRvffn8jqfbXLhQYlB/evrA589kvVMPsgnBKDNt5w82GcGfGRkMy8PdsroOFSz
+	636143j44zLKs98WFAY6XFV11DqeZmGi/Z8eYumMznOW+xAbNtzwH0fzumWX2A8TB+ZXJi5AIUW14
+	0UawrXNqsHTNcbdTLvHAIJ0D5AOQF89jh8mWGN1MckA15++rkbSjCzJ4fntz5Op3XSfGPuwfEgOUO
+	oRwePrdA==;
+Received: from i53875b47.versanet.de ([83.135.91.71] helo=diego.localnet)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1tnI6o-0000V2-VF; Wed, 26 Feb 2025 15:09:59 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: heiko@sntech.de
-Cc: quentin.schulz@cherry.de,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	dse@thaumatec.com,
-	Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: [PATCH v3 2/3] arm64: dts: rockchip: add dsi controller nodes on rk3588
-Date: Wed, 26 Feb 2025 15:09:41 +0100
-Message-ID: <20250226140942.3825223-3-heiko@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250226140942.3825223-1-heiko@sntech.de>
+	id 1tnIBH-0000Xq-P2; Wed, 26 Feb 2025 15:14:35 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: quentin.schulz@cherry.de, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, dse@thaumatec.com,
+ Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: Re: [PATCH v3 3/3] arm64: dts: rockchip: add overlay for tiger-haikou
+ video-demo adapter
+Date: Wed, 26 Feb 2025 15:14:35 +0100
+Message-ID: <12349849.zAa99ISigo@diego>
+In-Reply-To: <20250226140942.3825223-4-heiko@sntech.de>
 References: <20250226140942.3825223-1-heiko@sntech.de>
+ <20250226140942.3825223-4-heiko@sntech.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_061000_299933_B3590A1B 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20250226_061437_142608_31EDFE8F 
+X-CRM114-Status: GOOD (  16.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,92 +76,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Heiko Stuebner <heiko.stuebner@cherry.de>
+Am Mittwoch, 26. Februar 2025, 15:09:42 MEZ schrieb Heiko Stuebner:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
+> 
+> This adds support for the video-demo-adapter DEVKIT ADDON CAM-TS-A01
+> (https://embedded.cherry.de/product/development-kit/) for the Haikou
+> devkit with Tiger RK3588 SoM.
+> 
+> The Video Demo adapter is an adapter connected to the fake PCIe slot
+> labeled "Video Connector" on the Haikou devkit.
+> 
+> It's main feature is a Leadtek DSI-display with touchscreen and a camera
+> (that is not supported yet). To drive these components a number of
+> additional regulators are grouped on the adapter as well as a PCA9670
+> gpio-expander to provide the needed additional gpio-lines.
+> 
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-The RK3588 comes with two DSI2 controllers based on a new Synopsis IP.
-Add the necessary nodes for them.
+in v2 Quentin commented with a (which I forgot to add)
 
-Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
----
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 57 +++++++++++++++++++
- 1 file changed, 57 insertions(+)
+Tested-by: Quentin Schulz <quentin.schulz@cherry.de>
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-index 5535d5d905f6..9f9e0d3c7722 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-@@ -6,6 +6,7 @@
- #include <dt-bindings/clock/rockchip,rk3588-cru.h>
- #include <dt-bindings/interrupt-controller/arm-gic.h>
- #include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/phy/phy.h>
- #include <dt-bindings/power/rk3588-power.h>
- #include <dt-bindings/reset/rockchip,rk3588-cru.h>
- #include <dt-bindings/phy/phy.h>
-@@ -1406,6 +1407,62 @@ i2s9_8ch: i2s@fddfc000 {
- 		status = "disabled";
- 	};
- 
-+	dsi0: dsi@fde20000 {
-+		compatible = "rockchip,rk3588-mipi-dsi2";
-+		reg = <0x0 0xfde20000 0x0 0x10000>;
-+		interrupts = <GIC_SPI 167 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru PCLK_DSIHOST0>, <&cru CLK_DSIHOST0>;
-+		clock-names = "pclk", "sys";
-+		resets = <&cru SRST_P_DSIHOST0>;
-+		reset-names = "apb";
-+		power-domains = <&power RK3588_PD_VOP>;
-+		phys = <&mipidcphy0 PHY_TYPE_DPHY>;
-+		phy-names = "dcphy";
-+		rockchip,grf = <&vop_grf>;
-+		status = "disabled";
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			dsi0_in: port@0 {
-+				reg = <0>;
-+			};
-+
-+			dsi0_out: port@1 {
-+				reg = <1>;
-+			};
-+		};
-+	};
-+
-+	dsi1: dsi@fde30000 {
-+		compatible = "rockchip,rk3588-mipi-dsi2";
-+		reg = <0x0 0xfde30000 0x0 0x10000>;
-+		interrupts = <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clocks = <&cru PCLK_DSIHOST1>, <&cru CLK_DSIHOST1>;
-+		clock-names = "pclk", "sys";
-+		resets = <&cru SRST_P_DSIHOST1>;
-+		reset-names = "apb";
-+		power-domains = <&power RK3588_PD_VOP>;
-+		phys = <&mipidcphy1 PHY_TYPE_DPHY>;
-+		phy-names = "dcphy";
-+		rockchip,grf = <&vop_grf>;
-+		status = "disabled";
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			dsi1_in: port@0 {
-+				reg = <0>;
-+			};
-+
-+			dsi1_out: port@1 {
-+				reg = <1>;
-+			};
-+		};
-+	};
-+
- 	hdmi0: hdmi@fde80000 {
- 		compatible = "rockchip,rk3588-dw-hdmi-qp";
- 		reg = <0x0 0xfde80000 0x0 0x20000>;
--- 
-2.47.2
+
+> +	vcc1v8_video: regulator-vcc1v8-video {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc1v8-video";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <1800000>;
+> +		regulator-max-microvolt = <1800000>;
+> +		vin-supply = <&vcc3v3_baseboard>;
+> +	};
+> +
+> +	vcc2v8_video: regulator-vcc2v8-video {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc2v8-video";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <2800000>;
+> +		regulator-max-microvolt = <2800000>;
+> +		vin-supply = <&vcc3v3_baseboard>;
+> +	};
+
+and suggested to add the additional regulators on that board, that are used
+for the camera part that is unsupported right now.
+
+If there is a v4, I'll probably add those.
+
 
 
