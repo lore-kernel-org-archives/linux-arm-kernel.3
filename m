@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0A31C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 08:32:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05B20C021BC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 08:33:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RTPCL3bJ22/BfZ0DYy+zPJ2HcQNthlLl55iYHSsXgf4=; b=SDiTvFFl8OUuSFuuaeQL0mW4nr
-	zYhugebDYmKsO6WpkuZvO1TrtpJhqo0bGe5byizGBeVzGKmM2Ad9iNBR2HKbxtXnzWTLZC+70JB/7
-	gq9vpYaOKgqloqmuTL1bWYeA8uZHyIX527/9ODfoqtVEmEPlxdczJyulqdWo04mHtLBltmM1hTn7I
-	IAm1itusaz/ReJID1RAA1rFlzp5XS8GD36mBw6iDMX8dpX4VGyoKfHr9DuPj7+hVTiSZI7pM5gz49
-	K9Mwvhq3UDqY2BxPwYMAerLtEUamz9D/7xxJGdqW+plVFQlDe7zaNdLGEms8RLVVMqHenQDHX1C6k
-	lDlwi5Qg==;
+	bh=BuWCmFRfUPT37K5Fdla6ye4GXv/m5YINJK2Nulqq/s8=; b=cvwT0pA4Vf8M1dtdJAUZW7aC/n
+	by5G/G5VT1TdWdCHa5B6+GxPyhKVrcSxi4AjqE52qEaIGCmZ4h09tej8OJV7/JupLJPINO1Xv5+IW
+	ufeMfBztRki1wwuSRe0Vl9fW6qY0X59Dj++SffyqoRAqQIbMOYsT3q4eVZCOzM/NH2jIXaK1WPOL4
+	6m9IMrA0H0Zrmf/bs/ZD+AKw5KuNqRVKur6GrAEtjbicNUobn7btJ2WW3wYeelWb1NzpkhbVR7bl9
+	kdW6BCqu9K6KgZ1fPIj1bx3+kTLCrA2bl1fzTqGevGhU5eJAPCVAVoHPDtO150/NSWU+dywSLCBxO
+	F2YNNhQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnCpn-00000002tc2-26h5;
-	Wed, 26 Feb 2025 08:32:03 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tnCrJ-00000002u0S-0rZH;
+	Wed, 26 Feb 2025 08:33:37 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnCRn-00000002oe0-08Pq;
-	Wed, 26 Feb 2025 08:07:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=RTPCL3bJ22/BfZ0DYy+zPJ2HcQNthlLl55iYHSsXgf4=; b=fRP53DWuVGxiOES0oTWTWO40pa
-	aQbMHORaTsVwKaFQnsDdyAO6FV5Pu5jiMrr6lVAfy2+Z3UOfhrHVSanu++BR3slgsrN7yXB4UkSWy
-	X2auVT4MHLTC5wBWSrl9he6ntyojDcxdf/j9XUfVnAXBuihGbjgOTsNK39VVVp07tVTJExZ7NYjrk
-	jj6pmdh4BqDYXpMB/3bfEcArywK1xToNDaMt+RHVjZzC8v2fKkg34zKyGcre3Rxcj+8j2Puc865/O
-	g618ljGYIwK4KWm9Rw9H5xVn1imt6Nmhl6t80evJ8MwT+4pUXVPvr8yIIh8k6Wmcm93lFBLtGi0KK
-	KjqbuwqA==;
-Received: from i53875b47.versanet.de ([83.135.91.71] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tnCRk-0004zD-A4; Wed, 26 Feb 2025 09:07:12 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Quentin Schulz <quentin.schulz@cherry.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Heiko Stuebner <heiko.stuebner@cherry.de>,
- Chen-Yu Tsai <wens@csie.org>
-Subject: Re: [PATCH v2] arm64: dts: rockchip: add usb typec host support to
- rk3588-jaguar
-Date: Wed, 26 Feb 2025 09:07:11 +0100
-Message-ID: <1952248.GKX7oQKdZx@diego>
-In-Reply-To: <18716872.sWSEgdgrri@diego>
-References: <20250218211044.2256762-1-heiko@sntech.de>
- <c50c6053-4569-44b0-943d-5450960be147@cherry.de> <18716872.sWSEgdgrri@diego>
+	id 1tnCgb-00000002rWK-3Cfs;
+	Wed, 26 Feb 2025 08:22:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 059185C5E99;
+	Wed, 26 Feb 2025 08:21:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2139FC4CEE2;
+	Wed, 26 Feb 2025 08:22:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740558152;
+	bh=IXeKLcSbvMcqBKVSn5skB9BHbi03YvYAsNDK395OQeY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AxsG1GalGapRIo6NCASGUf8kylYzD0wwQr0usYQ94FO6Mer+N72etp5FxXFhrHc/u
+	 oOtAiN+gwcPkGrmvwDb7MrwMnru4CAdpFxwnNZVvDcv/qY+kCoOUUQIPfUB1rTl7DT
+	 ieCtXXtGP9V4G19Cppkox0qKZf3F4BiNGfeQhfauGUfR4R4eHVEMIs63jLf++/j++A
+	 +xjRXrTb6koJPIOd2ApJnenewnAuzIErygRes7ND5H2C3/7M/4CbQf97neRrLgh5/n
+	 g1+5GhWgasjDuIMUxqpOqfdAOQWJdbTHdsW3SjZH4YHSpW4/2nobxuXO7sy0CX7b1V
+	 o0uvDJI74WH3g==
+Date: Wed, 26 Feb 2025 09:22:29 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Trevor Wu <trevor.wu@mediatek.com>, kernel@collabora.com, linux-sound@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 7/8] ASoC: dt-bindings: mediatek,mt8188-mt6359: Add
+ DMIC backend to dai-link
+Message-ID: <20250226-ludicrous-seagull-of-music-a40daf@krzk-bin>
+References: <20250225-genio700-dmic-v2-0-3076f5b50ef7@collabora.com>
+ <20250225-genio700-dmic-v2-7-3076f5b50ef7@collabora.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+In-Reply-To: <20250225-genio700-dmic-v2-7-3076f5b50ef7@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_000715_090876_EDB9D16E 
-X-CRM114-Status: GOOD (  30.21  )
+X-CRM114-CacheID: sfid-20250226_002233_887641_78A41271 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,61 +79,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 21. Februar 2025, 22:53:20 MEZ schrieb Heiko St=C3=BCbner:
-> Am Freitag, 21. Februar 2025, 17:43:08 MEZ schrieb Quentin Schulz:
-> > Hi Heiko,
-> >=20
-> > On 2/18/25 10:10 PM, Heiko Stuebner wrote:
-> > > From: Heiko Stuebner <heiko.stuebner@cherry.de>
-> > >=20
-> > > Jaguar has two type-c ports connected to fusb302 controllers that can
-> > > work both in host and device mode and can also run in display-port
-> > > altmode.
-> > >=20
-> > > While these ports can work in dual-role data mode, they do not support
-> > > powering the device itself as power-sink. This causes issues because
-> > > the current infrastructure does not cope well with dual-role data
-> > > without dual-role power.
-> > >=20
-> > > So add the necessary nodes for the type-c controllers as well
-> > > as enable the relevant core usb nodes, but limit the mode to host-mode
-> > > for now until we figure out device mode.
-> > >=20
-> > > Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-> >=20
-> > While the USB functionality does work for both ports, and the=20
-> > orientation is properly reported, it seems like there may be some issue=
-=20
-> > with how the PHY or controller interacts with that info because I do no=
-t=20
-> > get USB3 speeds when the device is inserted in reverse orientation,=20
-> > while I do when it's in normal orientation.
+On Tue, Feb 25, 2025 at 11:33:53AM -0300, N=C3=ADcolas F. R. A. Prado wrote:
+> MT8188 platforms also have DMIC DAIs, which were previously undescribed.
+> Add DMIC_BE as a possible backend for the dai-link property.
 >=20
-> I've tested both ports and saw the issue too.
-> Interestingly on the usbdp-phy side, orientation detection seems correct
-> and also the sbu pins are set accordingly.
+> Signed-off-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
+> ---
+>  Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 >=20
->=20
-> > I assume that's the case for the Rock 5 ITX and Orange Pi 5+ as well an=
-d=20
-> > probably has nothing to do with the DT?
-> >=20
-> > Should we go still go on with trying to merge this patch knowing that? =
-I=20
-> > mean USB2 is still better than no USB at all :)
-> >=20
-> > +Cc Chen-Yu, owner of an Orange Pi 5+, who may be able to confirm the=20
-> > issue is widespread.
+> diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt63=
+59.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.ya=
+ml
+> index 362e729b51b43ec16716aee70ad736420def81f3..8c77e7f68ad7b6f5b88b53ced=
+ccb291139a2eeea 100644
+> --- a/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml
+> +++ b/Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml
+> @@ -62,6 +62,7 @@ patternProperties:
+>              - PCM1_BE
+>              - DL_SRC_BE
+>              - UL_SRC_BE
+> +            - DMIC_BE
 
-=46or reference, after digging around I found out that the usbdp-phy does n=
-ot
-handle the orientation correctly but relies on specific behaviour of the dw=
-c3
-controller (suspending between unplug and plugin).
+Any reason why you keep adding to the end of the lists but not
+alphabetically sorted? It's enum, so it's expected to be sorted which
+reduces conflicts between edits. Last commit already broke sorting :/
 
-usbdp-phy series fixing that is in
-https://lore.kernel.org/linux-rockchip/20250225184519.3586926-1-heiko@sntec=
-h.de/
-
+Best regards,
+Krzysztof
 
 
