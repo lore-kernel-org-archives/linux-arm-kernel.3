@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41650C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:44:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3ECEC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:45:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JQFHZ/kdDsS4cmacYVEXIC+sRK+7fav8gHKUqIh5pBo=; b=lM7s2+ThY6/PlM5NZZxKXsa+Vz
-	Cjz50fpvuNL4Z/ZkWS2tH+bCFRw+GYOKWb6nFT5WaQx/5i5fTvrbjJ2uTqc0fVRXIWy0FpjlnNG2u
-	JZy7WEztk9bAlYddm+6fkw+doU/FuLRK6KT4PyWiGQpQJW+hwFX3RZ7sWgUTbrnJJf3xKHQRt35Yl
-	vlse1xyuMZDiY264MX3inHgCpPO09o13HNSVs23MhF9BrXaIgLRZuQU7Cd5l3wdcpZYE3LcnmLyVt
-	/NsHg76jhnLeepFELuipDnpGf2titxfOpSO1zo0NfQcdfIW77PJHW+WmCfJi8RSdGPeQXabdkQRxN
-	uON+WLJQ==;
+	bh=a/Qb5wr4Rktc7tGiLjgQsav252MOo0XtSMwhk7qeqzs=; b=lM0Iq9xQk49lAXivLF5s7Gkz4f
+	jgoMiVKZKfeIsDQGwQKh09gDWGl0HkHSMv/7DOogViwHmWs9183tWe7aXBa9zUNeB2LLrSf6w/sTG
+	iccLmsHhWr45a63WbnAzjPprDwV4cXjoG0OT6CpcPYnjTqUmD7T5KeZ8rMjrjG6htTH16j10uEZdf
+	f83NHbevq/2T2iEbrz1qAK0OuN754Yt+jj1Om4vGIve4UlaG7NapNWXqWcJHlqAbnzqtORzzz9sf/
+	wJUy6HirCmC/8o46zQjBvpPO7Wc71FeE+SCMcUqTiKEo9IDTGyZqtk4ZqoHiAzNVBWSyYLkYp+e2X
+	MOU4HZNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJZt-00000004NE2-3DXd;
-	Wed, 26 Feb 2025 15:44:05 +0000
+	id 1tnJbP-00000004NcM-0dHl;
+	Wed, 26 Feb 2025 15:45:39 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJXC-00000004Mbk-1TjR
+	id 1tnJZX-00000004N7E-0iHa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 15:41:19 +0000
+	Wed, 26 Feb 2025 15:43:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
 	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=JQFHZ/kdDsS4cmacYVEXIC+sRK+7fav8gHKUqIh5pBo=; b=ya8e/MihaW9zZqW6s9mBDHFloc
-	Sm5jbxrIfXIRjDtO8huDZnrzi5pWuHJVcEart1ut2y2g1y8SE+OI1Qs3gsoWm6iJNcW+nOB5XCZ99
-	FGQ1LNq8aoLJ2cSJmqsNg9V8YJLA+9TOEQ1My3owfK18QKqSxD16YV82bHL7KXCT+MypbIm6MB75i
-	O4UMnBszWlJB5AsJ77jMv/RtDPaenNeZo7YB6hqmWjCjmv3D19S7uqFsAW/AnL8NMYJ4V56Xs1EDu
-	5aFm05oKk7nSsSeE71wde3f8TFBoaWmWI6FRuLSfE8OLignQUE5U6iEhXEMTGMLcwA4yc9AlsVYcE
-	klDf8hjw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:42196)
+	bh=a/Qb5wr4Rktc7tGiLjgQsav252MOo0XtSMwhk7qeqzs=; b=QudsgOBLA9IYJ3c1Izp+exRAYJ
+	I6tGKvgOw4TgPpxeHoFVHf4MSl9ILu7W+9BjMZHD6rWe+ZyqrdbM6uZFpBUI5XCZ+irh8rJE0wyx6
+	BWjjWJRHN7p+ZRePLH+aQnZAq6pvC8LgE3WdRL6pVN01ai14LVj8M3qpmBgvIeeO1twxc5/Z+slHJ
+	kkivBkwv2WLg9kLWreuvHJ6zhSzamCKGFVRiAC9UZHNPEn4WGBod2FefrsfgHXEk2XaMcgL84Bu1Z
+	YwWqkWFwZSnzxGFIDlwzLUBRXGQsNf4oNRFb2YAEkqoVl3SoHzvZN3nxQk0JbJOG87KUJtRuQGzOI
+	H50kXAJw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40300)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <linux@armlinux.org.uk>)
-	id 1tnJWm-0004kG-2T;
-	Wed, 26 Feb 2025 15:40:52 +0000
+	id 1tnJZ1-0004ky-0z;
+	Wed, 26 Feb 2025 15:43:11 +0000
 Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
 	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tnJWk-0007DX-0U;
-	Wed, 26 Feb 2025 15:40:50 +0000
-Date: Wed, 26 Feb 2025 15:40:49 +0000
+	id 1tnJYx-0007Dk-1g;
+	Wed, 26 Feb 2025 15:43:07 +0000
+Date: Wed, 26 Feb 2025 15:43:07 +0000
 From: "Russell King (Oracle)" <linux@armlinux.org.uk>
 To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
 Cc: Simon Horman <horms@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
@@ -78,19 +78,18 @@ Cc: Simon Horman <horms@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
 	platform-driver-x86@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next v8 5/6] net: stmmac: configure SerDes on
- mac_finish
-Message-ID: <Z782AcW4a7SEfDUT@shell.armlinux.org.uk>
+Subject: Re: [PATCH net-next v8 4/6] stmmac: intel: configure SerDes
+ according to the interface mode
+Message-ID: <Z782i67tlpj6d57m@shell.armlinux.org.uk>
 References: <20250226074837.1679988-1-yong.liang.choong@linux.intel.com>
- <20250226074837.1679988-6-yong.liang.choong@linux.intel.com>
+ <20250226074837.1679988-5-yong.liang.choong@linux.intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250226074837.1679988-6-yong.liang.choong@linux.intel.com>
+In-Reply-To: <20250226074837.1679988-5-yong.liang.choong@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_074118_390248_5FF07B5C 
-X-CRM114-Status: UNSURE (   7.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250226_074343_204614_F99A6F3B 
+X-CRM114-Status: GOOD (  12.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,15 +104,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 26, 2025 at 03:48:36PM +0800, Choong Yong Liang wrote:
-> SerDes will configure according to the provided interface mode after
-> finish a major reconfiguration of the interface mode.
-> 
-> Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+On Wed, Feb 26, 2025 at 03:48:35PM +0800, Choong Yong Liang wrote:
+> diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+> index 6d2aa77ea963..af22a11c2b8a 100644
+> --- a/include/linux/stmmac.h
+> +++ b/include/linux/stmmac.h
+> @@ -236,6 +236,10 @@ struct plat_stmmacenet_data {
+>  	int (*serdes_powerup)(struct net_device *ndev, void *priv);
+>  	void (*serdes_powerdown)(struct net_device *ndev, void *priv);
+>  	void (*speed_mode_2500)(struct net_device *ndev, void *priv);
+> +	int (*mac_finish)(struct net_device *ndev,
+> +			  void *priv,
+> +			  unsigned int mode,
+> +			  phy_interface_t interface);
+>  	void (*ptp_clk_freq_config)(struct stmmac_priv *priv);
+>  	int (*init)(struct platform_device *pdev, void *priv);
+>  	void (*exit)(struct platform_device *pdev, void *priv);
 
-Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+This should be part of patch 5, and the order of patches 4 and 5
+reversed.
 
-Thanks!
+The subject line should also be "net: stmmac: ..."
 
 -- 
 RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
