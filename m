@@ -4,82 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23858C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 21:40:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3A67C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 21:42:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PKWXxeyerycjT8mINlrePYKkJ8KjgafF3u1tMHpySjU=; b=D+6r3SJ/wPdlQt7GSRMKRxtbsX
-	AfBIE/IOQCcbvHlDKhLt/Lr6Vb3CfOSi6WIY/KNwLFlQMuS/T/BDk+ZLlT2hwVC9FiLgbYEAV0cVk
-	WnGEDpjyQfPmMaTjBY63jLbOnKd3Ek0dNp8h7LpcRg6oMPJf16JRshwnrV+kIuoRnCtwTVj4m38RS
-	plz7eyy+Dxj/zGunu00EfQGlSUrJ6OYkYjMYxHh5UKPrAm156G+jx8CicNSUd5sxyf7UcwCJf2j2t
-	Uyjtlg81KeuYDwB3Kq5WLa4yIcaTuBlw1UlzvARmVTUyiWr3eL1uQWEznhIYy4AyWjUKsdzPboyis
-	t6jSPbZg==;
+	bh=JgO9NpdCEGs6Z6jBDJsgB6BtDtxW71jiKGyTEKJKCGA=; b=qjFPJb/2rKEwDUXh6PFRvGlDoS
+	T64SmPxh0MwfPwEDd+oKO/pdvDsLveZFEIGXPbDyVjkF3WipG1Y3m6SHiPVLTTxSmofJ+pQC3vYf8
+	SEZG5M5DE1QSO79Vu7mj4mf2ssbjpYnMgs9OQnPB82lIrfvVb7iVgbnEowvx865eBBKJ2UGj2pl81
+	AvcJFCpk55sXfnKaIwIjaRC5VB5PdDBoX3F4m5+OlyJDp3J68sxKm/4WEBNPSCEWOP+keJzvV6v4r
+	o4L+avjCrxva2lSbiN1xGWroKE/THljL85TWufjg28ut4DId6WlnRJ1ZW9G/FP6FnpszBQUuPHXpM
+	JD5iX5iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnP8v-00000005V0q-0M9x;
-	Wed, 26 Feb 2025 21:40:37 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1tnPAQ-00000005VP8-3Pot;
+	Wed, 26 Feb 2025 21:42:10 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnP7M-00000005UdH-0zsd
+	id 1tnP8Q-00000005UsD-2aiw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 21:39:01 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-43992f474d1so381855e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 13:38:59 -0800 (PST)
+	Wed, 26 Feb 2025 21:40:07 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4394944f161so386695e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 13:40:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740605938; x=1741210738; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1740606005; x=1741210805; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=PKWXxeyerycjT8mINlrePYKkJ8KjgafF3u1tMHpySjU=;
-        b=fKR5MXYBqLSD/4VEr5ausjvGO4c396w/z7mrrPdOL6lnujaIqQM7fTx551egcG0kFS
-         cotUFwkGj/PJb1OSX0Djvb0mXwex3Tcgwi68a7gohmQAzlKq4umRdbc8JGWxl007cX64
-         l5KpKVNc4Lozd9lBaF2Tj7RlGo7Nf6uJQkrJhcv5HkRL6+e0Vx2Ggea7amsmAZEmRLUM
-         68Rgn0Cb6Fk08WjX32mTv4CDI2738qjSRzrdCRRfN13AYNDgbkLQc+3qat9WIqy3dOZU
-         vDhcYxySXjGESsiBNWH4yyohVcd9185Tp1gcIfR2bO0JWPWjRoC+Hggwa2Rh/plrzLQn
-         AaTQ==
+        bh=JgO9NpdCEGs6Z6jBDJsgB6BtDtxW71jiKGyTEKJKCGA=;
+        b=HIZicoIePJm3aQh+VIVg4LUtplx4VAmPwjcug5VR+XfVUzVETdqQrMm26uzQV0gbHg
+         cPRyDFixvoa3uf107Oqd+yFa7gw6E1UbgLmisRtn1ZOq1LGwfO2io79dFf37/ndq+afk
+         BNi0adA8KZpPmByo+9m+wpqysDbVryz3JHtzEFVdVoQiCuSOBEodS8P0HyHsDrrNL7IJ
+         +3jVoeEEIeyR9o8XyHQHHEOhaQ4689SlQIRSnVpm+M+qWLCJ2Z/VpuLWLufRjKEiOsbw
+         ixMNv61psf6eK5nQVAZyuYGYLp/EvFUPUlaFmYL3XzT64hz50aPFWzXBQkj58/6KPHvG
+         qzNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740605938; x=1741210738;
+        d=1e100.net; s=20230601; t=1740606005; x=1741210805;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=PKWXxeyerycjT8mINlrePYKkJ8KjgafF3u1tMHpySjU=;
-        b=AvheLT1vWCGOg1oO4LVLgASH08G+3F1waTsL3dvGY13XVJ6LcqtrK8swQu1/tFl0NE
-         ISBBYRos+Upi94jUSVaZqGdOaCHlMFyE9ELMZCMTJoM8AqpS2R817cgYB/N2Ct5CvqBY
-         1zFY1kYsXlC78q/efHgWebWgdU59Wf2d9LG45AdjaXpEclOy6S1PKG78wV8vbqUE9bYY
-         VElCF5UHcFnBcQyGjSy4u05KM/Kf8jYjSBmGwzUyjljadgqJg6kEElFD0a18WgZGR5kz
-         QeV1AjUC+DUGtXDCsUMSXyl6MYXUIU5H4GSga1eZl/qcTeZaKIxZpXyUzGM76du5Sf0Z
-         3APw==
-X-Forwarded-Encrypted: i=1; AJvYcCVy0kMf9jnr+Q/SPQpAD03dVZLLIRiKVoVSE3hRpJX0gq/L/LR1Dc4jTUnC9Uuv7A8fwMrSNLeSY70tErHkMosZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYJRKxdQd2/2AlSN4r9mreQTJf4wj3ufhE4AuUbDKrEQPZJFH5
-	AZuAONvmdI8lk9+wUF4krEYPYbJtafUYvcKALfTNOugLhjb+aGVTugKXNZlt1uY=
-X-Gm-Gg: ASbGnctP+5C+rCz1bN0cl8obo3aQMZWPEdc9Pgg56DpjlR2lKN8unMiSIR5q8r4BPu2
-	3gL0BBVW1xHbrerQRIWXoXhR3hROX3arkD9gls1bWbTQ31VjmLPdNV6XhSEkzB7bE/QT1UJpYGx
-	p+1FbyZWsFdrf4EehmW2Lz8Hw/uADgyJFUlQLgHbGrjL2V3lWqyV+TtY1sAD/v/ghaOs646/9oC
-	m5J7tAS3RWR8LRtdls2Nd6PrdxPiznUNCFlbXtgCt0xywS6OLFk+obV/1ovLxUpyO6IeSh1nqDf
-	Vi7PsywOft5MyfDTQHzf8eG29/cHPYWJi61d4ql0VbWi6g==
-X-Google-Smtp-Source: AGHT+IGl7z2yXYQHS8gtgp/PqAYtjqjx8GIvMA1PyfTi0fvGywrgelfkuzD4zx0PHjsiR/DbwpgGzg==
-X-Received: by 2002:a05:600c:1d25:b0:439:930a:5899 with SMTP id 5b1f17b1804b1-439ae22991cmr84882045e9.7.1740605938535;
-        Wed, 26 Feb 2025 13:38:58 -0800 (PST)
+        bh=JgO9NpdCEGs6Z6jBDJsgB6BtDtxW71jiKGyTEKJKCGA=;
+        b=raez/ieiay91FIlOaPoWDcPUEwNB2q+t4HbY2gTNBHzJTZ/0nPYu2U28PGTKpvjhVe
+         kucJlFbPaNn29J08aiBm/ZEc62BLLvYi4JJEt+mjgPS1CpA5DzgXM7au2VCWMc1W2cTj
+         KGykXuBXuKbbPlZgDmiBCNf5L7OMlrHpyP20+6MH/YR76n9H1f5DZpTUd2pbsNy4XZlP
+         P0TAhe7nY6sGUt9Q8TMRjLaYJIOgDBXxKPgW30w/79XYXUwlwVVY5zB1pFH+wHC1RCVr
+         hvYbywUFzO1+TMDW0Ff5wytO6eRjvWa8V4airN0oCT7nYlz4SUFX1JFwxo99Y6x+c85s
+         ScrA==
+X-Forwarded-Encrypted: i=1; AJvYcCWYtszSh6nnIZtfNlEFOm9EFJ8g6jJopIfcCpukyfzCg+0DRwy+Wtm2IsljekVAiz7v6GcydClpR3A9jxbqzxA7@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpPXEb5oi8jijuD9IE2RggCmm30rDpnHj7E0ySLnDF6FP4wyz9
+	Dt8multqTH0x+ZbO6HOrGEoUtC6DfxCVgbX2KPZ2HmzxFPtU9nd6utU2Qk6dcYA=
+X-Gm-Gg: ASbGncuZb24/UZAUYqSIwK2VR83sMm+Of/xXQg20v2kq8LiM/H4F8q23PPSodEuqL2z
+	sPjD9+SWgPihUgnkOnhJ8wVI+Jz4CH2McWaDdSnH3lFu+c8G9RnE7QqfWYqgAroon4e5Q+UmiQO
+	smZeHW2LXGok+nqHFZ3VA14tUF1hklf/E57mceoYEd1gPc+DD/2T58R4K5jHQs/MqBz7sFKKbd7
+	39QS7FWL1WfxQDEV+kzd72Ybt6RajJEOZvi7smcTl9e2Mhxzs9GxdHZuReJU/ilQJN1h3W5twsD
+	Ms4sCVy5gocZnlVO8s9mTkU8Zgpg87kW7ovn6GzBm6WgHQ==
+X-Google-Smtp-Source: AGHT+IH5K8VXJUv24C/joRhmZsMKIJdarB1HjHPAB90m4NhFdVMZeL3+c4slkqthb1e8MrMy4FkHHw==
+X-Received: by 2002:a5d:6d8e:0:b0:390:e150:96b8 with SMTP id ffacd0b85a97d-390e1509a57mr323111f8f.6.1740606004983;
+        Wed, 26 Feb 2025 13:40:04 -0800 (PST)
 Received: from [192.168.1.20] ([178.197.206.225])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43b736f839asm2112905e9.2.2025.02.26.13.38.55
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e47960b6sm67703f8f.17.2025.02.26.13.40.02
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 26 Feb 2025 13:38:57 -0800 (PST)
-Message-ID: <6db6b361-caed-42f4-b319-2b8cd43a73b5@linaro.org>
-Date: Wed, 26 Feb 2025 22:38:54 +0100
+        Wed, 26 Feb 2025 13:40:04 -0800 (PST)
+Message-ID: <ac6a461b-44f3-414e-b5a2-2d5a0a87cdf8@linaro.org>
+Date: Wed, 26 Feb 2025 22:40:01 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] media: dt-bindings: Add Sony IMX728
-To: Sebastian LaVine <slavine@d3embedded.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-media@vger.kernel.org, =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?=
- <nfraprado@collabora.com>, Abel Vesa <abel.vesa@linaro.org>,
- Achath Vaishnav <vaishnav.a@ti.com>,
+Subject: Re: [PATCH 2/4] media: i2c: Add driver for Sony IMX728
+To: Sebastian LaVine <slavine@d3embedded.com>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-media@vger.kernel.org
+Cc: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ Abel Vesa <abel.vesa@linaro.org>, Achath Vaishnav <vaishnav.a@ti.com>,
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
  Ard Biesheuvel <ardb@kernel.org>,
  Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
@@ -108,9 +107,9 @@ Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
  Vignesh Raghavendra <vigneshr@ti.com>, Will Deacon <will@kernel.org>,
  Zhi Mao <zhi.mao@mediatek.com>
 References: <20250212195656.69528-1-slavine@d3embedded.com>
- <20250212195656.69528-2-slavine@d3embedded.com>
- <20250213-shrewd-tacky-chachalaca-778a50@krzk-bin>
- <D82KGJEBFQO0.1TX611HMKWB16@d3embedded.com>
+ <20250212195656.69528-3-slavine@d3embedded.com>
+ <416d75fd-40d0-45d7-9590-0322abb480ca@linaro.org>
+ <D82NHO05EBSQ.3AZF1VYBU17V5@d3embedded.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
@@ -157,12 +156,12 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <D82KGJEBFQO0.1TX611HMKWB16@d3embedded.com>
+In-Reply-To: <D82NHO05EBSQ.3AZF1VYBU17V5@d3embedded.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_133900_279316_3BA186D8 
-X-CRM114-Status: GOOD (  18.88  )
+X-CRM114-CacheID: sfid-20250226_134006_668639_3C0A2229 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,45 +176,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/02/2025 18:50, Sebastian LaVine wrote:
-> Hello Krzysztof,
-> 
-> On Thu Feb 13, 2025 at 4:26 AM EST, Krzysztof Kozlowski wrote:
->> On Wed, Feb 12, 2025 at 02:56:53PM -0500, Sebastian LaVine wrote:
->>> Adds bindings for the Sony IMX728.
->>>
->>> Signed-off-by: Sebastian LaVine <slavine@d3embedded.com>
->>> Mentored-by: Stuart Burtner <sburtner@d3embedded.com>
->>> ---
->>
->> Please run scripts/checkpatch.pl and fix reported warnings. After that,
->> run also 'scripts/checkpatch.pl --strict' and (probably) fix more
->> warnings. Some warnings can be ignored, especially from --strict run,
->> but the code here looks like it needs a fix. Feel free to get in touch
->> if the warning is not clear.
-> 
-> The only output I get from scripts/checkpatch.pl for this patch is the
-> following:
-> 
->> next$ scripts/checkpatch.pl --strict  patches/outgoing/0001-media-dt-bindings-Add-Sony-IMX728.patch
->> WARNING: Non-standard signature: Mentored-by:
->> #9:
->> Mentored-by: Stuart Burtner <sburtner@d3embedded.com>
->>
->> total: 0 errors, 1 warnings, 0 checks, 108 lines checked
->>
+On 26/02/2025 21:13, Sebastian LaVine wrote:
 >> ...
+>>
+>>> +
+>>> +static int imx728_set_stream(struct v4l2_subdev *sd, int enable)
+>>> +{
+>>> +       struct imx728 *imx728 = to_imx728(sd);
+>>> +       int ret;
+>>> +
+>>> +       mutex_lock(&imx728->lock);
+>>
+>> Just use guard. That's actually perfect candidate.
+>>
 > 
-> I can change this to a Signed-off-by from Stuart if you would like,
-> though I feel that Mentored-by is applicable to this case.
+> Okay -- I'll include this change in v4. I'm not so familiar with using
+> this interface, so please let me know if this is incorrect:
+> 
 
-It has been two weeks, so I don't remember what warning I saw (countless
-of patches in between). It's possible I had in mind the "mentored-by",
-because it's nowhere explained in Linux. Does it mean part of DCO chain?
-Does it mean reviews or suggestions? This should be one of standard
-tags, IMO, with all its effects (because tags have meaning, e.g. DCO or
-reviewer's statement of oversight).
 
+Yes, looks fine.
 
 Best regards,
 Krzysztof
