@@ -4,63 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2755C19776
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 10:58:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61E3AC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 10:59:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zhbnzRqIjVotQu0rksiwkrW5TRAYh4TJyrUYZDFOmfo=; b=Q6+V7ASQtOGRaFrdzVTTx6OGa4
-	9GJnfqTUGXKLxqC8YjkhlF0/kLRTzHpGkkrN4Lh8rNIeDvUwF4o6sk5RJvvW1Lh0cUPBc/dZTuYa1
-	miI5Ei3FWELfiY8wPtEML84xD/1wkfsTwabeBeey0yqaoKjKpI9lyTMQVEcpbzxpufIKezujNkDnF
-	gbPFvJnVEvjgVlyrFoQY/v78IMQaOZdU3lT2wldNrBRXCwhaMAX8kHIyFoSZXXUV6lzq/29JDwHm/
-	yuWOeb+WFbZtN7qAMB3YAVOCFWv+v+827LNGuhbB0roof4alLoIibd8yCcOzWs4ClRg4k+1vEPQxl
-	4WrpRTKw==;
+	bh=Q+TTEw3VP48zUC/PkvypRyYeZ/WywIR/eg8J4cofHUM=; b=zF4OC9ZfXvko2HdqMDAHZP0Ci/
+	SZdvkWy9o8y7vDHSqjOUtnF2pjudonsXJzSDenNMSYh8se//ui8Xr4poiRj3D70w9GvDd5mStJw+0
+	awrnfWa7hAVUv03T389M2B7oRujfwl9tYRajtYAuT7yIrzcmGIo2QAI+U7/3juW9E9VYJE64H9IYI
+	2Qk3EHmso8G1o9yBRkky9284GywhIW188sJ5cxodXpXlgKCw6SHovC/GlXdiphCbcJzInQ6+Z3B4b
+	gCE+YZiu9Mcg/iiQPpQdoMjPYiY7V3gSuU2UKdZCA3yVJCe6LN9bRwovKC0bw/504kB9BI847Wie5
+	N/YfSL9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnF77-00000003OSl-3O5e;
-	Wed, 26 Feb 2025 10:58:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tnF8e-00000003Om0-28eM;
+	Wed, 26 Feb 2025 10:59:40 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnEgf-00000003Ije-1Jz2
+	id 1tnEh3-00000003IoT-0XtR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 10:30:45 +0000
+	Wed, 26 Feb 2025 10:31:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 02B366115B;
-	Wed, 26 Feb 2025 10:30:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87CC6C4CED6;
-	Wed, 26 Feb 2025 10:30:40 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 940005C6973;
+	Wed, 26 Feb 2025 10:30:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6040C4CED6;
+	Wed, 26 Feb 2025 10:31:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740565844;
-	bh=12xjjcbr8wkE+v+6ct+nnGb1YzfZrIoiphJhPdLep14=;
+	s=k20201202; t=1740565868;
+	bh=OWlJ6XxA7vZJtc6jcef0BbL4NgMbslF6C1xe+Kb14+E=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MRN+CDHpwO2M7lvH3rhzw21FdnD7DuEQkTv16oMjzRm34SSeksf4wAXixCkvEBqeZ
-	 IhourRNnR4/58me31Ao02UiTaE9kWstfdh78ZS8v7UNiH/dRS5OJPflL8+R/2PakIY
-	 zc02Dbr9lHAyHSZQXxZSZmMRMcHAn+JjnYh+IZERM7jL2eSki1W1UaKIFc9AAWI4cQ
-	 ssoTbKAOIbAm/nD/JGsxXSaNbkthgHjZqx/uy8Ug88vXPZlsJs3m0IQT7ABl5b1xnG
-	 wwYlqFMHejz4t1juJju0SAcmTJnkhxYNjwnQBVuA5fJuibWS2mCk3jkTiDdOYIovs1
-	 2/TrHMJdqY4vw==
-Message-ID: <816a3601-4ce1-47ef-8ef9-befc39c479c5@kernel.org>
-Date: Wed, 26 Feb 2025 11:30:38 +0100
+	b=Q4m0hVRAaKVWumri5vt7HKpmcJWQ0NaRJVwKeRyIEWKFEo/jHerp7wFhNVbzVdmkV
+	 GeUh/w7PbdHsFtFbKyDBJWcm0QwPvhWpAvql34y4qdK9Ik3y3RQQZI+RiqRHGZQKhQ
+	 P6jp4z7bss4vLy0/edqIFEro/lqj2vOAoLeVqzElg4oVaL/+gUToPaAcs8sHxkX5L4
+	 1NE8oYqTGKxoNhWj+p/dAzAgJVGoPv1AZ87vLiIurr+HXXYunKyaevYt/r+CDoRblw
+	 fCfO3ZeW3TKwvEbsu4sXxf0Xlb0p2I0lGg4L6vj3TJkkxcQBdattrY0bf8h2a5eCQ4
+	 w761jzp+iNi8w==
+Message-ID: <df24ac09-1717-4a91-a710-cf1e46341ca8@kernel.org>
+Date: Wed, 26 Feb 2025 11:31:03 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/6] dt-bindings: arm: add CIX P1 (SKY1) SoC
-To: Peter Chen <peter.chen@cixtech.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+Subject: Re: [PATCH v2 1/6] dt-bindings: vendor-prefixes: Add CIX Technology
+ Group Co., Ltd.
+To: Peter Chen <peter.chen@cixtech.com>, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
  marcin@juszkiewicz.com.pl, Fugang Duan <fugang.duan@cixtech.com>
 References: <20250226012136.854614-1-peter.chen@cixtech.com>
- <20250226012136.854614-3-peter.chen@cixtech.com>
- <f89817fe-22af-460e-9f5c-a3347eba1892@kernel.org>
- <Z77MHGhUF6pPwLww@nchen-desktop>
- <d9556611-cfe7-44fa-8965-bc2b0f870845@kernel.org>
- <Z77sSg_3YC30oYoP@nchen-desktop>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <20250226012136.854614-2-peter.chen@cixtech.com>
 Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -104,9 +100,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <Z77sSg_3YC30oYoP@nchen-desktop>
+In-Reply-To: <20250226012136.854614-2-peter.chen@cixtech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250226_023109_306303_A2D6F86B 
+X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,73 +121,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/02/2025 11:26, Peter Chen wrote:
-> On 25-02-26 09:40:06, Krzysztof Kozlowski wrote:
->>>>
->>>> On 26/02/2025 02:21, Peter Chen wrote:
->>>>> Add device tree bindings for CIX P1 (Internal name sky1) Arm SoC,
->>>>> it consists several SoC models like CP8180, CD8180, etc.
->>>>>
->>>>> Acked-by: Fugang Duan <fugang.duan@cixtech.com>
->>>>> Signed-off-by: Peter Chen <peter.chen@cixtech.com>
->>>>> ---
->>>>
->>>> <form letter>
->>>> This is a friendly reminder during the review process.
->>>>
->>>> It looks like you received a tag and forgot to add it.
->>>>
->>>> If you do not know the process, here is a short explanation:
->>>> Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
->>>> of patchset, under or above your Signed-off-by tag, unless patch changed
->>>> significantly (e.g. new properties added to the DT bindings). Tag is
->>>> "received", when provided in a message replied to you on the mailing
->>>> list. Tools like b4 can help here. However, there's no need to repost
->>>> patches *only* to add the tags. The upstream maintainer will do that for
->>>> tags received on the version they apply.
->>>>
->>>> Please read:
->>>> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
->>>>
->>>> If a tag was not added on purpose, please state why and what changed.
->>>> </form letter>
->>>>
->>>
->>> I have checked the review-process again at:
->>> https://patchwork.kernel.org/project/linux-arm-kernel/list/?series=935897
->>
->> This does not matter - that's not a patchwork anyone uses...
->>
->>> It seems no one gives any Reviewed-by or Acked-by Tag.
->>
->> You were directly addressed! So you got email and what did you do with it?
->>
->> And lists received it:
->> https://lore.kernel.org/all/ac6c4a8b-a6bd-44a9-993b-3b743a172dcc@kernel.org/
->>
+On 26/02/2025 02:21, Peter Chen wrote:
+> CIX Technology Group Co., Ltd. is a high performance Arm SoC design
+> company. Link: https://www.cixtech.com/.
 > 
-> I am sorry about that. I checked this email with our IT engineers at
-> office365 administration page, it was not received by Microsoft office365
-> server, we don't know what's the reason.
+> Acked-by: Fugang Duan <fugang.duan@cixtech.com>
+> Signed-off-by: Peter Chen <peter.chen@cixtech.com>
+
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 
-That's the only email which did not reach you, I think. 4 or 5 others
-did, so this could mean your system will spam/reject silently anything
-with review tag (or email address).
 
-If so, your corporate mail system is not suitable for upstream work
-(Microsoft outlook is known of poor quality in that matter and that's
-not the first case people have trouble with Outlook servers) and maybe
-you should switch to b4-relay and other mail boxes.
+---
 
-> 
-> I will put your Reviewed-by tag when sending v3 patch, may I get your
-> Ack for the 1st patch:
-> https://lore.kernel.org/linux-arm-kernel/330a01b7-7285-47fe-abb1-8d5fa71dd240@kernel.org/T/#u
+<form letter>
+This is an automated instruction, just in case, because many review tags
+are being ignored. If you know the process, you can skip it (please do
+not feel offended by me posting it here - no bad intentions intended).
+If you do not know the process, here is a short explanation:
 
+Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
+of patchset, under or above your Signed-off-by tag, unless patch changed
+significantly (e.g. new properties added to the DT bindings). Tag is
+"received", when provided in a message replied to you on the mailing
+list. Tools like b4 can help here. However, there's no need to repost
+patches *only* to add the tags. The upstream maintainer will do that for
+tags received on the version they apply.
 
-I'll send it, but I still have doubts Microsoft won't put me in spam :/
-
+Full context and explanation:
+https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
+</form letter>
 
 Best regards,
 Krzysztof
