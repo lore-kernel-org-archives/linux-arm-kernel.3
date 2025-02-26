@@ -4,193 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9C3BC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 21:19:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 721CEC19F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 21:24:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	References:Subject:Cc:To:From:Message-Id:Date:Content-Type:
-	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qMPqHkZ2yWvviD3ZN8OOibZCsDVCae6LW80VZH4AwF0=; b=3pZJxi+ab1kXN/MLcmdXzRM5hJ
-	FIHIDQPQEX+ctZSE/6yJbQhID+ZOnGCD9D3qjGIaPk5pNrK4BPSXI+4zbjmZuf2zxJndGOTcssesH
-	sTASa1AHRlwcrs9g9aQfSW9BP+PAmcop5qhfWw/cda5w1vAx3fQ/lBvsB5X4wBYveJ4r6HI8qJ1vl
-	KkxXpwqzC9B/pCax7B5MtnphVuI4aI9TdCA+SzzfcXf/bMKawg9dCMGs2WFS0V1oDz7CAhGM4K5dE
-	AiRqf5Ik8CQ7Ycf5pETihk7r2jb9b2R+B+RQ2igERP5iWGSYPSLsMXe5k/p3AJozPL14Af1jElUFB
-	eMfc3IrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U9x0SsBTG97m/aMrnNs3+hwttNW5WG7Q12RR+rw5dq0=; b=KZxAKsqg7mvxtSbB0zrq3PWWh3
+	Jn2Vnbgd2+2IoYs9sfVhYWlumBBftlQiFiBGsU4+SqQRSPfd1VRmjsEv+m8iI5VG73Ykutrg4Gi4k
+	e/gfVTkQcaNVtD9KCnXtt8gOscv0t6+DBkELTxUdtKJuZ3Ly6/dU+IymGvxion5CQmu5fuDK1Sd70
+	5XLBxLmYFlPoFLSWgpLAk+juPKpm8XUhsAnFkXxxZRIqZN+EXzUaCHyuJBF2GyYUpaksKGnBoQmz4
+	+D4y0dxFinlF2tx55QtusruNdDm0YKJtbYtnI/SIWQbQ4tOoLkJgWiJWI/OttiRrJCtUZ7DdBX7YX
+	wc12afgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnOok-00000005RyF-34de;
-	Wed, 26 Feb 2025 21:19:46 +0000
-Received: from mail-co1nam11on20714.outbound.protection.outlook.com ([2a01:111:f403:2416::714] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1tnOt2-00000005SPI-2fl6;
+	Wed, 26 Feb 2025 21:24:12 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnOn7-00000005Rjz-39sg
+	id 1tnOrT-00000005SJr-45t7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 21:18:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bCIJ0Y6kIylFY0zW9pq18/kQtk60rEDAamwawEYWVt96+rhzaZCd7Omh8qGv5gBTlXj2PJEyU4QH7KVgt2v3bFX0hCn2bO+FERI+f2rYRbM4A8npsLTswYsZcvrn+e0LN2WXvG8SxuwxaeI97eoN54l+wgEhW7G32Q7zNYj23SWNcmh8mY9vp9lH3DSzapOSshNrZv39Ubk2H96f8YxpHcxiP/boCxz/KotpiSeCh027zxwB2ElCT3UUVkZ4cXpPKW69aEtJaDz6Zbfs80NKBFI9zfR0vLdPBIoIOQuHk0tbVETsTKUjj3r281SrzFzbijP0Gmzx1DzeJ2jm882XcQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qMPqHkZ2yWvviD3ZN8OOibZCsDVCae6LW80VZH4AwF0=;
- b=Vg3qmOFBxOqg1VEMtzBKeci3lTaY8LfRQS8YjfJ82Jdfy3BS05JCze2fgJMizr3qDVjNW64jqcmT+8Iga8KYluoWnbqpXB/FY2QLbA9I2DvlG5pZhBfIP0TpHI1yb/bAQS1I68hiMwfamIawuZNwjuPQU2Vqsqr1cvvVgstULu3eeh0xO/TbXMDp1p6OcRDe0NfOZVuCo8C02JP+aDKzdyh3Q7MmXUcnXwsCKo6REnTIsgA0RyMFzKOc5VGVUJJffT3U2KGUV/mxt4hsWbP7S/HidpmcxJVw9t+/z/HNYdL2rBM6DJ0QEpcnyBSAe9qPNoaqtMN6RP0GO3rnJN5dhA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=d3embedded.com; dmarc=pass action=none
- header.from=d3embedded.com; dkim=pass header.d=d3embedded.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=d3engineering.onmicrosoft.com; s=selector2-d3engineering-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qMPqHkZ2yWvviD3ZN8OOibZCsDVCae6LW80VZH4AwF0=;
- b=axwnsklGu12q4HDQA+mFTZTGmW+LdMgII+8NeUEPhVnC5lc25Nxyi80uSMVNb5oWpKmh5e7P/L6T7TZ8txLBFg/xII2q8jsfpozYz96t6DpRPT5Dng8bMYKhCC2Fcr+4jDVEYqbtBxDr6qV2igJY80Sofkk5FfPmmugbyfY3g+Y=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=d3embedded.com;
-Received: from MN2PR14MB4207.namprd14.prod.outlook.com (2603:10b6:208:1d6::13)
- by CYXPR14MB7572.namprd14.prod.outlook.com (2603:10b6:930:d6::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.20; Wed, 26 Feb
- 2025 21:17:59 +0000
-Received: from MN2PR14MB4207.namprd14.prod.outlook.com
- ([fe80::1232:fdf5:3cae:d9d7]) by MN2PR14MB4207.namprd14.prod.outlook.com
- ([fe80::1232:fdf5:3cae:d9d7%3]) with mapi id 15.20.8466.020; Wed, 26 Feb 2025
- 21:17:59 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 26 Feb 2025 16:17:56 -0500
-Message-Id: <D82OV1MZ1U4T.2KKSJIP8P27I@d3embedded.com>
-From: "Sebastian LaVine" <slavine@d3embedded.com>
-To: "Markus Elfring" <Markus.Elfring@web.de>, "Stuart Burtner"
- <sburtner@d3embedded.com>, <linux-media@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
- <linux-arm-kernel@lists.infradead.org>
-Cc: "LKML" <linux-kernel@vger.kernel.org>, <kernel@pengutronix.de>, "Abel
- Vesa" <abel.vesa@linaro.org>, "Alexander Stein"
- <alexander.stein@ew.tq-group.com>, "Angelo Gioacchino Del Regno"
- <angelogioacchino.delregno@collabora.com>, "Ard Biesheuvel"
- <ardb@kernel.org>, "Benjamin Mugnier" <benjamin.mugnier@foss.st.com>, "Biju
- Das" <biju.das.jz@bp.renesas.com>, "Bjorn Andersson"
- <quic_bjorande@quicinc.com>, "Catalin Marinas" <catalin.marinas@arm.com>,
- "Conor Dooley" <conor+dt@kernel.org>, "Dave Stevenson"
- <dave.stevenson@raspberrypi.com>, "Devarsh Thakkar" <devarsht@ti.com>,
- "Dmitry Baryshkov" <dmitry.baryshkov@linaro.org>, "Elinor Montmasson"
- <elinor.montmasson@savoirfairelinux.com>, "Fabio Estevam"
- <festevam@gmail.com>, "Geert Uytterhoeven" <geert+renesas@glider.be>, "Hans
- Verkuil" <hverkuil@xs4all.nl>, "Javier Carrasco"
- <javier.carrasco@wolfvision.net>, "Jianzhong Xu" <xuj@ti.com>, "Julien
- Massot" <julien.massot@collabora.com>, "Kieran Bingham"
- <kieran.bingham@ideasonboard.com>, "Kory Maincent"
- <kory.maincent@bootlin.com>, "Krzysztof Kozlowski"
- <krzysztof.kozlowski@linaro.org>, "Laurent Pinchart"
- <laurent.pinchart@ideasonboard.com>, "Mauro Carvalho Chehab"
- <mchehab@kernel.org>, "Mikhail Rudenko" <mike.rudenko@gmail.com>,
- =?utf-8?b?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
- "Nishanth Menon" <nm@ti.com>, "Rob Herring" <robh@kernel.org>, "Sakari
- Ailus" <sakari.ailus@linux.intel.com>, "Sascha Hauer"
- <s.hauer@pengutronix.de>, "Shawn Guo" <shawnguo@kernel.org>, "Spencer Hill"
- <shill@d3engineering.com>, "Tero Kristo" <kristo@kernel.org>, "Tomi
- Valkeinen" <tomi.valkeinen@ideasonboard.com>, "Umang Jain"
- <umang.jain@ideasonboard.com>, "Vaishnav Achath" <vaishnav.a@ti.com>,
- "Vignesh Raghavendra" <vigneshr@ti.com>, "Will Deacon" <will@kernel.org>,
- "Zhi Mao" <zhi.mao@mediatek.com>
-Subject: Re: [PATCH 2/4] media: i2c: Add driver for Sony IMX728
-X-Mailer: aerc 0.20.1
-References: <20250212195656.69528-3-slavine@d3embedded.com>
- <c929975d-6928-4161-b062-64636a4f278e@web.de>
-In-Reply-To: <c929975d-6928-4161-b062-64636a4f278e@web.de>
-X-ClientProxiedBy: BL6PEPF00013E11.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:22e:400:0:1001:0:17) To MN2PR14MB4207.namprd14.prod.outlook.com
- (2603:10b6:208:1d6::13)
+	Wed, 26 Feb 2025 21:22:37 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1tnOrD-00085X-L1; Wed, 26 Feb 2025 22:22:19 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1tnOrD-0030wc-0f;
+	Wed, 26 Feb 2025 22:22:19 +0100
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1tnOrD-001fiU-0G;
+	Wed, 26 Feb 2025 22:22:19 +0100
+Date: Wed, 26 Feb 2025 22:22:19 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>, Frank Li <Frank.li@nxp.com>,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/5] imx8mp: add support for the IMX AIPSTZ bridge
+Message-ID: <20250226212219.lthoofw7nrs3gtg6@pengutronix.de>
+References: <20250226165314.34205-1-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN2PR14MB4207:EE_|CYXPR14MB7572:EE_
-X-MS-Office365-Filtering-Correlation-Id: 40dce939-1c36-41fc-f20c-08dd56ab0b9f
-X-LD-Processed: b7153db5-3376-478b-b601-92ce9bc0d3bc,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?YjYvZ1BLUXZmQnpoSVNteFdPR1RDSk93RHh5aFBpeFFpd3p4Z1YrQTFseDNW?=
- =?utf-8?B?eU94TTVoaC9ISkliS2FyUlVRaUxCdnRwWmpNSEwzRmF4R052c3VLM2x6R011?=
- =?utf-8?B?Unhxblh5azVuQmU1bUc0VDQyQ3pncldGbG51c2kwaSttcFpLaCt5aDBzT2NN?=
- =?utf-8?B?Qllya0xhZU5vRmFmUmJCREVacWtYZ0tGd1pnRTNFbndLMVFqL1d5NWJRQkxq?=
- =?utf-8?B?a0Y1cGEzUXZRTGJSMnhpMnBHcWQrSGk4TU85b3JFMEw3UDFnMTBwWjFhWUFC?=
- =?utf-8?B?Y1N0MTJ0V094ci9sZWdicE0rNUZCcytPai9GdnhabVFQQ0tyL1IxMFlJcVRw?=
- =?utf-8?B?WlhWQXVoZmdHSlZtQyt2cFczdG1GQkVRTElPNWhVMFc0WEg2empOWDdoUEpU?=
- =?utf-8?B?K3hCbTJZazVOTk13ay9uR0E1OFA5L3U3TDhQWjY5djl3SHBENnBtQWhYK0RK?=
- =?utf-8?B?Q0U1ME9IV252QldiTWJsdS9ueHowWGMvWXZIZTUvQ3JFYkE1MDBYZ2lCb2VL?=
- =?utf-8?B?S1pjQjZYYmRpWGlXQlVYbkppdVdTNUdFTStTMjcrOC92M1RualFia0swK1pr?=
- =?utf-8?B?VGpKZGF3NjJXemdtYmZpS09qUkJFcG1Gd0lTMzU5WThWdFBOT2I2Z2U2WkFZ?=
- =?utf-8?B?djhUVFFKYU5qbWE5Z2hxanMzZDJuM1RDREtUL0FnYUlFeWYwZ21qdnFDTHZj?=
- =?utf-8?B?K2dmL3pobncrRGVtdC9rV0ZhSEF4VDFxSjBic29kWGlqU212cEh5U0dXeFU1?=
- =?utf-8?B?R2hJbGZEeFFwclVQL3Q3U1RBaWNQQTZPbjBhMUhXNXN0OTM2dm1YVnhxUU8x?=
- =?utf-8?B?RDVJbGE0RTM4cVNNRW8veE9IVVlzWVhUdFd0QTE4VWludE15aDE4azkra0J0?=
- =?utf-8?B?akVjL0FZS25CQTN5RU1nWXc3S2F2SkdWcVo1SERIRDI3T2RqTmtwMnZuTS9x?=
- =?utf-8?B?NlBkT2tYdDluenVCanBwRDRwTFNmazNBWkRqQkhpbXVPUFZ6YWZKUjZmb3Zl?=
- =?utf-8?B?dWNxcVFvcmptTENreTQrcHB6SVFYbnNRbkY3amF2MCttc0VYcEdxSDdzZDBa?=
- =?utf-8?B?dkFZaDlrUmx2M0VMb0J5d1pPVzB2V1hrK081dmZoMzkydzJvYUlKSTBuRWIz?=
- =?utf-8?B?eUFnckROKzVPVEZ3UEY0Umc2Y01JNXJ3Vms1THpmVTBNRVJKRURodStIYUFz?=
- =?utf-8?B?K0NiWjhYVStZemdBVEhnQlNscGNKVUdGMkJXQk9TUkQ1dkNtVmpwTUpGRkJk?=
- =?utf-8?B?cGVRL1QwNXF5R005OTBTVmxDY2ZWQ2s2OXZQSjBLR3o0WG1wRkZETmgzcDBq?=
- =?utf-8?B?VGQrUFlzQXl1Yy9pblhkOTc0TWQ2K2ljanhNRE0ydUxXc0JrU1BLcC9zUitG?=
- =?utf-8?B?enB0eW9HckIweTV5Vm5XM3lyeWp3aERKRWVmTWt5MElOa2xnd3YwYmorTkhu?=
- =?utf-8?B?aWJKbzJ0ZEp5SHZpd08wTmdPTXZjUW1vMk1aMFJMd3pEVmZIT01KY0RGWCtr?=
- =?utf-8?B?amhFM2xYeURaL2VEYzNrN2VjZEErdjd6d21MbDlCOHBQOVMzcnZMYWNzM2NN?=
- =?utf-8?B?V29ncS91cmcxMmkvdzVVejlPYXVSLy9KNXJBaGh5TWE3Z0hSeGJneWVBWFRz?=
- =?utf-8?B?cWJkYVV5MzMvdEpGUndXcEtCa3A5UGhTWEdRbG9SY1UvQlVRdWhoaG1NR3E4?=
- =?utf-8?B?OHR2eU1uVTJIa3FQUVFPTHVLcWE2UVRDTjYrVlRtU09LaHNVRGI3dlBvQk1p?=
- =?utf-8?Q?4yMqyz7A48pirtj08iYHutUd0c9eS54gTocHzqH?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR14MB4207.namprd14.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UmE1ZzNrN3JySXliZmRTMHc5MjBVM1VBWG5kZ2RiTlpBdXhYYWVMUkRiZXlH?=
- =?utf-8?B?WElZbE9hMDBUcENiUFk0TXVCcEErckZBT0VwbVdiQnZyU01JRUJTdE5QQy9V?=
- =?utf-8?B?azJXdmtCd2ZrNG9uN2d6dnVvZmNGTU5OSDBjSnFTNnFBOU1PaGdXMFJMMlVI?=
- =?utf-8?B?Vm4zV0QxWFlUNXF5bk85YTQ2MmFxNzQxU2VhNnFsZFRISXNBWHJ4a2V2SXJZ?=
- =?utf-8?B?U2RtR3VwNlhTdE9CVE1ZZ0MwZWNrNzMyVnY4cmx5MlU4amIxV1Q5M1ZxZDc2?=
- =?utf-8?B?d3hyeTN3aThseTh6SHF3bHR2V0FaMUF0RTJMdkYreVBaVVdMTCsrbThnR1lP?=
- =?utf-8?B?UkFDdlBxY2pRa2Q2Yk9JMVlHUFdGb1FmN29DRG1UYS9YemZQN3hIeVVsQ05s?=
- =?utf-8?B?amloUUZzVFpBT05VTHg5d1dHb25OSjNOemNNcHhNREcxTmVQUkUrZ0FLZ1Fz?=
- =?utf-8?B?TGRFa2Z2U0QyUDZySTRGY1IxN01EWERxU3pBYjdxUCtkK1Z4bjI3OUQwb1Ur?=
- =?utf-8?B?dnRSMW5XaURFNkg1bVlCNnQ2cS85aVRSSVVHNUJacURIQVhIQk5NVU9jN01D?=
- =?utf-8?B?YkNlaThiRnAzS0l6U1dTMFlMSkJmYysvOG9BZG9sbGZTSzg4NEJwRGpZWGZt?=
- =?utf-8?B?U1Vmek5lTlQvU2ZXY3dreUlGZlgxS3grT0JyU3VjZ3pGQWNETHYrME4rUXI5?=
- =?utf-8?B?KzNRbHl2UFRaRjBESVJTT3lvTmlCTUVXWXlyODNOeTNtYmV2OTBvVVFaWHNy?=
- =?utf-8?B?azJkc3puaU05TnFzK0J3a21sdkpaZTF2YW9La0xCdS9kaGk2djdnTVhMNFdw?=
- =?utf-8?B?TGJpS0cxcGQ5NHlxL2RmY3NlQnZZRkNTOVJYc0VWTHlmSFJYeUlMNFlEdXZH?=
- =?utf-8?B?R05Ud0dqUHRicThISjFOMmNZY01obUtOc3FIU3hjamlRODExZ0wzTDZKUVhm?=
- =?utf-8?B?ZWVENDhUb0p4a2NyRjdWRXYzT1RiQmdRSWtnWHNrWkxPeFdicHB1c3Vac2g3?=
- =?utf-8?B?bUpIc0dkNUtjeUlxM3JZTmVKMzhZVTRrWkd1WHVXTlJWUSs2MUxrZ0lNMUNp?=
- =?utf-8?B?Qk9FZ2RiTDM3cXdHeDYxdFYxYk12N0dJaHRiMVJwV3pPNTJ1dWw4R3Jma3hz?=
- =?utf-8?B?SVhKWmRSQ0I4aGhRRVB2cU00dFYvY2l6UG9jdk5LUzA2YWZBOFpwNUVFdXU5?=
- =?utf-8?B?UzBTbExud3ovanp0SnBod25NTjJwa1lsQXREVkE3Z2J3TnV2WU9rblpNbzdJ?=
- =?utf-8?B?eG1LRWlTZG16ZDVwb0l2MXNZWVRKRjdkZCtSM1RLOUUrSUtPcVJwZGEzeDF4?=
- =?utf-8?B?ZEM3NDF2T1VpWUxPUkdJdTJCcDR5cmxlWjkyZXhFbHVpeU5OTFNTeEpMVkZE?=
- =?utf-8?B?VHJaSE93TmpOUzQ5cWxLbVA4NGdFK1VNajdla2hEZ3NaZzY4S2MrbGVRNE54?=
- =?utf-8?B?aU5sM2t0YVY1enozbFJWNFVRUDlzaFNHblh3ZDZlZTRma0NXQkZyVERScnJB?=
- =?utf-8?B?WW9SMzB3NHZybmpwL0hXN05rblpza3pldlR1U0tTdGlqUzl2bXFvNERDWjVZ?=
- =?utf-8?B?ZWhxaDZHMGR2OFkxVnVvK2I1MXM1QzF0ZjBjcXh6UGNXUXMxYUFKV2JQN2xo?=
- =?utf-8?B?S0lVRm9OUjJaTWtHeEpTbHcvd1duZnpIeXEwQVBwb1A3anB5NnJsSGFmZll0?=
- =?utf-8?B?dlZaQ29RZXpRMllPUlV6ZjhjUnhwdWJtQmdJWlY1U0lOUlh2YVd3VUpuTmpM?=
- =?utf-8?B?Y1U4RGQwcy9VZS9Hd2NRaFM0TDQ2UEJCcnpNNm5IZXV2WTVUV0hKTksyTEJG?=
- =?utf-8?B?Umd4dmFoa080cXBhOWdGMnpoQTVxc3Njc1VzUnZFcWgxK01MS010NXZvSklu?=
- =?utf-8?B?dWxaMHgxU2ZnQ04wWGV4Sm4yUFZYbHA1SjdqRXI5UmhySDkrVXY3aXJtYzN0?=
- =?utf-8?B?ODB1RGNqckRlenB0bmkwYStGNWVUQXZ4WFdyQlZnK2xDc1YwN2tJN3dnVW5T?=
- =?utf-8?B?QnRIQnJlRU9QbVc4MEdKcXNoeW1FWHNXYTBWT2J6QTVyRmFzOXFXMndGR09k?=
- =?utf-8?B?OWFqbGN3ZEtpaTREcEEzaTNTcEtYd2l3RkxHdzJOTjhyTEpHUU9qVk9aV0xv?=
- =?utf-8?B?RXZPVWl5TndFN0Vqdmd0K1djODFTeGc1OVlWaTZhM2JKUEFHdG5JQWRUY2tv?=
- =?utf-8?B?d0E9PQ==?=
-X-OriginatorOrg: d3embedded.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 40dce939-1c36-41fc-f20c-08dd56ab0b9f
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR14MB4207.namprd14.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2025 21:17:59.2582
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: b7153db5-3376-478b-b601-92ce9bc0d3bc
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: J+q33GjXHPS9PRjePuPS4s8YprNWLS2Nt1GvhSck8g69xQak9frRLAG3X7OxQo0yjbPM1peT2/l7bWNcaciSsQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYXPR14MB7572
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250226165314.34205-1-laurentiumihalcea111@gmail.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_131805_799649_9B4AB04E 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250226_132236_012661_04B67EE1 
+X-CRM114-Status: GOOD (  26.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -205,48 +82,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Markus,
+Hi,
 
-On Wed Feb 19, 2025 at 12:51 PM EST, Markus Elfring wrote:
->> Adds a driver for the Sony IMX728 image sensor.
->
-> See also:
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/D=
-ocumentation/process/submitting-patches.rst?h=3Dv6.14-rc3#n94
+On 25-02-26, Laurentiu Mihalcea wrote:
+> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> 
+> The AIPSTZ bridge offers some security-related configurations which can
+> be used to restrict master access to certain peripherals on the bridge.
+> 
+> Normally, this could be done from a secure environment such as ATF before
+> Linux boots but the configuration of AIPSTZ5 is lost each time the power
+> domain is powered off and then powered on. Because of this, it has to be
+> configured each time the power domain is turned on and before any master
+> tries to access the peripherals (e.g: AP, CM7, DSP, on i.MX8MP).
 
-Thanks, I'll modify the commit description in v4 to use the imperative
-mood.
+My question still stands:
 
->
-> =E2=80=A6
->> +++ b/drivers/media/i2c/imx728.c
->> @@ -0,0 +1,9655 @@
-> =E2=80=A6
->> +static int imx728_set_stream(struct v4l2_subdev *sd, int enable)
->> +{
->> +       struct imx728 *imx728 =3D to_imx728(sd);
->> +       int ret;
->> +
->> +       mutex_lock(&imx728->lock);
-> =E2=80=A6
->> +       __v4l2_ctrl_grab(imx728->ctrl.v_flip, enable);
->> +
->> +       mutex_unlock(&imx728->lock);
-> =E2=80=A6
->
-> Under which circumstances would you become interested to apply a statemen=
-t
-> like =E2=80=9Cguard(mutex)(&imx728->lock);=E2=80=9D?
-> https://elixir.bootlin.com/linux/v6.14-rc3/source/include/linux/mutex.h#L=
-201
+Setting these bits requires very often that the core is running at EL3
+(e.g. secure-monitor) which is not the case for Linux. Can you please
+provide more information how Linux can set these bits?
 
-I will use this construct in v4.
+Regards,
+  Marco
 
-Thanks,
-
---
-Sebastian
-
-Please be aware that this email includes email addresses outside of the org=
-anization.
+> The child-parent relationship between the bridge and its peripherals
+> should guarantee that the bridge is configured before the AP attempts
+> to access the IPs.
+> 
+> Other masters should use the 'access-controllers' property to enforce
+> a dependency between their device and the bridge device (see the DSP,
+> for example).
+> 
+> At the moment, we only want to apply a default, more relaxed
+> configuration, which is why the number of access controller cells
+> is 0.
+> 
+> The initial version of the series can be found at [1]. The new version
+> should provide better management of the device dependencies.
+> 
+> [1]: https://lore.kernel.org/linux-arm-kernel/20241119130726.2761726-1-daniel.baluta@nxp.com/
+> 
+> ---
+> Changes in v2:
+> * adress Frank Li's comments
+> * pick up some A-b/R-b's
+> * don't use "simple-bus" as the second compatible. As per Krzysztof's
+> comment, AIPSTZ is not a "simple-bus".
+> ---
+> 
+> Laurentiu Mihalcea (5):
+>   dt-bindings: bus: add documentation for the IMX AIPSTZ bridge
+>   dt-bindings: dsp: fsl,dsp: document 'access-controllers' property
+>   bus: add driver for IMX AIPSTZ bridge
+>   arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
+>   arm64: dts: imx8mp: make 'dsp' node depend on 'aips5'
+> 
+>  .../bindings/bus/fsl,imx8mp-aipstz.yaml       | 86 +++++++++++++++++
+>  .../devicetree/bindings/dsp/fsl,dsp.yaml      |  3 +
+>  arch/arm64/boot/dts/freescale/imx8mp.dtsi     |  9 +-
+>  drivers/bus/Kconfig                           |  6 ++
+>  drivers/bus/Makefile                          |  1 +
+>  drivers/bus/imx-aipstz.c                      | 92 +++++++++++++++++++
+>  6 files changed, 194 insertions(+), 3 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/bus/fsl,imx8mp-aipstz.yaml
+>  create mode 100644 drivers/bus/imx-aipstz.c
+> 
+> -- 
+> 2.34.1
+> 
+> 
+> 
 
