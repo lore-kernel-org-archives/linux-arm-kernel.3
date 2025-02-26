@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D658C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 14:21:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EEF5C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 14:23:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j0ORTswxQwCb7Xs6ZOEVpPSKiYjB9Ja0d+rK+jRWXLA=; b=ZUqiE2LSbR/h8zb3bYGZax6olW
-	Ztkp+kGAryVynH9KqXCLzSdgXpzCE1WsRMghdCnGVUVwdAhxjqxD/Tn9fnhKaFUZSi4xTBQJgIOp7
-	pJi1T6vSrSmwzojMOVD9cweLeSvC3U14iOrLTXx7vG7chObz6LGzaePUnGasac9kqmgwcyvg+XmE3
-	jl9rRGLEeWyL+bfdTxnD8iHL+/Vdvq1j95vHWIPltZ2pRcf6yeNB5GzClQ9XjuyYiTvjQ1WNqMt/V
-	BWR9OhUxQ+8MVs6ak1NcdPjbfMPlRGODcYSQJuYm892xHIVlEEsemBuhR8OvTjYxifKCSIinebWBP
-	1Geiz88Q==;
+	bh=ME672IE5PzzLv2rF1cTc6v4IkaeO3/J8iCva+nkAy5Y=; b=11PFDL2nPJfNmq9Xi0OZO2mpQi
+	qwOTI9SaXEhBfVZGrEzTuxXsWgXJFYJ0jMbEpOuuz/drsinPg1etM0EkqewHQBdOBXGWRBdsZVlWu
+	fo7GW6JBQagYMIQjj9gJfmbktjNPbqciO7j3dyeuKOcI2bzNvMTnxY5FTDfps9b4yEiGLpf7NlLjF
+	chN9T70r6GF/Ii/CBhFGecTgH9aP4+8Am2+UWTIlbFJNtbS4ECgAZ8/NafJfr6cH9fHgRh1lR428E
+	5Y2x48L38NtFxFBuiukIRq+f6Wy+xwEpHdmEEtA+QVyw+lcqPRHSWryCCc7A47S6SOf8WnG+spUQ1
+	f9s/FCrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnIHs-000000043YM-0BlZ;
-	Wed, 26 Feb 2025 14:21:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tnIJM-000000043tF-3DgD;
+	Wed, 26 Feb 2025 14:22:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnIFt-000000042zg-1X8w
+	id 1tnIFs-000000042yv-1Fke
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 26 Feb 2025 14:19:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AF306612F5;
-	Wed, 26 Feb 2025 14:19:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C7BF0C4AF64;
-	Wed, 26 Feb 2025 14:19:19 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 52D995C4609;
+	Wed, 26 Feb 2025 14:18:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 8BEBDC4CEE8;
+	Wed, 26 Feb 2025 14:19:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740579559;
-	bh=5myc+unuv0mfBhimUhk1emfOfhdL+1INGKDKqdZalcE=;
+	s=k20201202; t=1740579558;
+	bh=yzlu7C1Ilu9dacgUhIz/BCN7V18c7nAEEfTiqq67Dk8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=cy/ZKe+dXQfPLf0vUoeRR9WETiyy2RiQ7Xd+Xge4uigLKfm/GPsx7q5MsKJQrSo1n
-	 QrbPE6HX4tu4EsOZur3tXBknn1qVBmHt+Sr8KogZWONRvaEdzkpnmKe9vKjZuVbsmC
-	 ddywj9YmE1e5CRLmnN9D540ZMIEMBSRe9L0lNbL66Fj/sCk1ZKVHqd0W3Mrezif6ym
-	 NYahznXq+lQ9hjyt6OYNjVOMiP8oLmCNgWs15sLLfrkZA4Te4+pAsSajz85of2lgT0
-	 NlTjm6qsf9G0+Rr7150FjJLi9hfo2P+PPp0knFVIT4gBI3CFk6d+pnSIt8WB9ItbNK
-	 PfEdymDN7/96g==
+	b=fhrVIPGKnahShK0SdUq7Sbdkh7HdubhTJpTxC48yA6u/GfLI5Zc0jhlEDAlF3VT2C
+	 qPJuCY7yI5Uc02VEXsRa1Mkg736cyW4fb9BJjM+uDxD8CZhyP0eW++0Fy8oXsPBZuR
+	 ulIZ1B6fzC3mTYvWqrGeSCx819G7LZkuIXJ0AN6Mpjg2+rEaz0zRNEuG7B6X3Lz3in
+	 UXcf0PVwNi6CV7/EroUmlXVpn36Jmo8gxBCrlMAsKEzzIY2HTatvOKJNolZT3ev1jP
+	 mS1EVlPWSscvYKC9srdWTjrqfjdKzDZFe3l4oOLZN3p2r+jGGV7X0IfNsRiiRafE9y
+	 us2/mIruN3w2w==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B1ACAC021B8;
-	Wed, 26 Feb 2025 14:19:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 791D5C19778;
+	Wed, 26 Feb 2025 14:19:18 +0000 (UTC)
 From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Date: Wed, 26 Feb 2025 15:19:23 +0100
-Subject: [PATCH v2 12/12] spi: spidev: Add an entry for the gocontroll
- moduline module slot
+Date: Wed, 26 Feb 2025 15:19:12 +0100
+Subject: [PATCH v2 01/12] dt-bindings: arm: fsl: Add GOcontroll Moduline
+ Display
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250226-initial_display-v2-12-23fafa130817@gocontroll.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250226-initial_display-v2-1-23fafa130817@gocontroll.com>
 References: <20250226-initial_display-v2-0-23fafa130817@gocontroll.com>
 In-Reply-To: <20250226-initial_display-v2-0-23fafa130817@gocontroll.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>, 
@@ -72,16 +72,20 @@ Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org, 
  Maud Spierings <maudspierings@gocontroll.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1740579556; l=1586;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1740579556; l=1224;
  i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=Tycawk+/5vgO1pNpkUXDG2S/Gx+HvpTkRpC88dFEYj4=;
- b=6lU9pAT+NW5qS57Ca9Rq3dfeMU83IRh/BZe/VuSTJYVbPvx7jK0+WtZGOd/B0b9I4sWLR6PIy
- tXF7iNFpYdOBRuzUcoSSXasaqTMdzZV4nzvxZDYI0xNl1lpeuuKb90+
+ bh=XzzwrOc9xVSfmdKG+ke4olEHtzQu7fTQaSQ8cG5/qtY=;
+ b=ABwoQ4wLxyHJ5tU87/yspLvaG11vwwnIv6B4L53Ie07g0oyNP6tydHs5rrMs/AN0paPKTnCna
+ GOr63LBqd3TBdjdv91NmDAMexIUVEN3zcB5E57gBkdJZorPAJGVUhua
 X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
  pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
 X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
  with auth_id=341
 X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250226_061920_449387_CC5F6D60 
+X-CRM114-Status: UNSURE (   8.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,38 +103,26 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Maud Spierings <maudspierings@gocontroll.com>
 
-The main point of the Moduline series of embedded controllers is its
-ecosystem of IO modules, these are currently operated through the spidev
-interface. Ideally there will be a full dedicated driver in the future.
+Document the compatible strings for the Moduline Display controller.
 
-Add the gocontroll moduline-module-slot device to enable the required
-spidev interface.
-
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
 ---
- drivers/spi/spidev.c | 2 ++
- 1 file changed, 2 insertions(+)
+ Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/spi/spidev.c b/drivers/spi/spidev.c
-index 58ae4304fdab155748e66117f7ceb050da95afed..6108959c28d9c7505be63583e8206519275663ba 100644
---- a/drivers/spi/spidev.c
-+++ b/drivers/spi/spidev.c
-@@ -706,6 +706,7 @@ static const struct spi_device_id spidev_spi_ids[] = {
- 	{ .name = /* cisco */ "spi-petra" },
- 	{ .name = /* dh */ "dhcom-board" },
- 	{ .name = /* elgin */ "jg10309-01" },
-+	{ .name = /* gocontroll */ "moduline-module-slot"},
- 	{ .name = /* lineartechnology */ "ltc2488" },
- 	{ .name = /* lwn */ "bk4" },
- 	{ .name = /* lwn */ "bk4-spi" },
-@@ -737,6 +738,7 @@ static const struct of_device_id spidev_dt_ids[] = {
- 	{ .compatible = "cisco,spi-petra", .data = &spidev_of_check },
- 	{ .compatible = "dh,dhcom-board", .data = &spidev_of_check },
- 	{ .compatible = "elgin,jg10309-01", .data = &spidev_of_check },
-+	{ .compatible = "gocontroll,moduline-module-slot", .data = &spidev_of_check},
- 	{ .compatible = "lineartechnology,ltc2488", .data = &spidev_of_check },
- 	{ .compatible = "lwn,bk4", .data = &spidev_of_check },
- 	{ .compatible = "lwn,bk4-spi", .data = &spidev_of_check },
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index db781d31569811ca241b5bd9a32a0896f7d9c3b9..40b2734f0caf3c431f05d33637a6bed8312c9d10 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1099,6 +1099,7 @@ properties:
+               - gateworks,imx8mp-gw74xx   # i.MX8MP Gateworks Board
+               - gateworks,imx8mp-gw75xx-2x # i.MX8MP Gateworks Board
+               - gateworks,imx8mp-gw82xx-2x # i.MX8MP Gateworks Board
++              - gocontroll,moduline-display # GOcontroll Moduline Display controller
+               - skov,imx8mp-skov-revb-hdmi # SKOV i.MX8MP climate control without panel
+               - skov,imx8mp-skov-revb-lt6 # SKOV i.MX8MP climate control with 7” panel
+               - skov,imx8mp-skov-revb-mi1010ait-1cp1 # SKOV i.MX8MP climate control with 10.1" panel
 
 -- 
 2.48.1
