@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61E8AC19F2E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45C46C18E7C
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:25:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,56 +12,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=exRAXfQ+0AIYB0X47hh2dVuwWDuzhqJuj66CBO8sOB8=; b=W/wSSWIxBaVuxy93MC/Mtpc6o2
-	+kkfJzP/OH9EJ7qwXhJF88drQJ6zVwg9wh1OWIjkuwk6oWk1elZ9+HbASn2/7KZ6vYMQfS1I+8xGS
-	3iLZm6Wn8nvsTx8CrvtBZ6eMUpCTZfq2n3PoHPk7t5LaB5z6q5621esOR0QBlFA00rHAC4SiXhE4J
-	nU89XXI8NXaEfDdCptvtq8Bg26dI32bOEikzj/AoPoAS55u+VUT3yHNS8vxdPlI2BvA2a8PNcD3Hs
-	xj5/YaHzWhJljEj2yIovGynQfcyZrYkci2quWX3xojcwKkDrVXFe0Njjqpp5Ntz0PXXoKXkp5X4bt
-	0+mpyq5g==;
+	bh=QIfI2Pnrq5fTtNbjcstohTjp8ECPAov5fJL/L91Kv70=; b=qQFewLryrJe5mxXnXtZH3XVMN8
+	a+Vck5lCiD/iu56ncFuuTrWEc1QVVDKnZ0+tmVjWU/Y4oOQS6kE969mZn2kWUIbP+9g5vUBpaCGJe
+	gBotsnJXUaQmVMktD3eCUvu4aUv8xLeY1iZlDN6h+Ue76mj64u9aNosGJmcUrEiBltsYeTrQDIOTO
+	OTUC0jEf3rDIibwVviE4xEAjKA6ttmGuFDxNTBMRiPggZ4lSb0AMdvs/IARNKC3JGEdU2OGCFM2nU
+	l47N6qVzq1wzzWu050tRzxWrFMtZPaaphXx7QqMsUOVkNXrR/4bRmiAKqqbRtqpdX1YBX9j3o8AyT
+	9YLQKvfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnHPG-00000003pej-0rCp;
-	Wed, 26 Feb 2025 13:24:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tnHPE-00000003pcx-3N97;
+	Wed, 26 Feb 2025 13:24:56 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnFQX-00000003STS-2H6D
+	id 1tnFKw-00000003RVO-0CC3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 11:18:09 +0000
+	Wed, 26 Feb 2025 11:12:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3C01D611D8;
-	Wed, 26 Feb 2025 11:17:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81E52C4CED6;
-	Wed, 26 Feb 2025 11:17:30 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A94B55C694B;
+	Wed, 26 Feb 2025 11:11:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FDEEC4CED6;
+	Wed, 26 Feb 2025 11:12:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740568657;
-	bh=7/KhHCNzmJJ/t9mQPUjzLL7Pfm96XkWSysYhhYdAhdA=;
+	s=k20201202; t=1740568341;
+	bh=jZw9UiUOrosfMM/sq64CfD9dAVrPX0T09356az2lcn8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HaeThs8No7iKfcEzyWyPGDMXgGzg/WV1VlirWCoZHyaa/8V0xQ42bPzHNpfVsKBtO
-	 r2Cq0ssLOARGeFsKeuw9IEAJeHfa4omw74hbtn52v0ZC9zO8KdXb12yxVl6rp+Qngj
-	 gj986yXmu2Yd8jV1L1rWL6IrOsBWJymtuoFNGMs50tKmc9EazcG03GqtV7Zi35n8aB
-	 vfIHXcj8CK0KOp9s1EF3ZWpRvP/obwEt/Ww9c/AcGNhyBcIJaA3wbyyQNEtKQvFcwQ
-	 UajmadIZq2fZZD6zPqx5oFA7PpURvwDqQ+O5RF0QOWqGZ9bzBRPjZq3bBrWV7FHxvS
-	 HcRYpVMrMUQPA==
-Message-ID: <e535b0ed-b79f-4c98-8585-be5aea69f18d@kernel.org>
-Date: Wed, 26 Feb 2025 12:17:28 +0100
+	b=U4UZjGRVj/GAe6cQw0SBXKABZXheweZqqsnuaK4R7FEnAhhYuB8935c1pxzUuKy23
+	 iKjuW4Gyk85euPwoTSQRQZXO3d5OS/TLNhoYgQAOdHbBsHV7Xo2oLkm3xSXxMdV9Lc
+	 R0AQM+OizId6HH0sYEAvA0CGTxafjlOnDoPQMAWbfdDFf/r//XF22TUUvNUWqx1810
+	 ZQhPRTOagkhWDk8B9E/QspEnB24zRmoHkblV1OSbhEx26tV7D3NGJu8fa+snYKJKoH
+	 6jllMkSzApR7AHf3oNSAJRZM0SvgnJujN9hKmFDFVb8L+fipgtmQVaBEmobtFW0jfn
+	 /5ZnapxjCVNow==
+Message-ID: <6f01269a-bd64-46e7-800f-d8d59c4bf72e@kernel.org>
+Date: Wed, 26 Feb 2025 12:12:15 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 6/6] arm64: defconfig: Build NSS Clock Controller
- driver for IPQ9574
-To: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>, andersson@kernel.org,
- mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, konradybcio@kernel.org,
- catalin.marinas@arm.com, will@kernel.org, p.zabel@pengutronix.de,
- richardcochran@gmail.com, geert+renesas@glider.be,
- dmitry.baryshkov@linaro.org, arnd@arndb.de, nfraprado@collabora.com,
- biju.das.jz@bp.renesas.com, quic_tdas@quicinc.com, ebiggers@google.com,
- ardb@kernel.org, ross.burton@arm.com, quic_anusha@quicinc.com,
- linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org
-Cc: quic_srichara@quicinc.com, quic_varada@quicinc.com
-References: <20250207073926.2735129-1-quic_mmanikan@quicinc.com>
- <20250207073926.2735129-7-quic_mmanikan@quicinc.com>
+Subject: Re: [PATCH v2 5/5] coresight-tnoc: add nodes to configure freq packet
+To: Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: kernel@quicinc.com, linux-kernel@vger.kernel.org,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ kernel@oss.qualcomm.com, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com>
+ <20250226-trace-noc-driver-v2-5-8afc6584afc5@quicinc.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,9 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250207073926.2735129-7-quic_mmanikan@quicinc.com>
+In-Reply-To: <20250226-trace-noc-driver-v2-5-8afc6584afc5@quicinc.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250226_031222_173449_5DBDA370 
+X-CRM114-Status: GOOD (  15.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,18 +124,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/02/2025 08:39, Manikanta Mylavarapu wrote:
-> From: Devi Priya <quic_devipriy@quicinc.com>
+On 26/02/2025 12:05, Yuanfang Zhang wrote:
+> Three nodes for freq packet config are added here:
 > 
-> NSSCC driver is needed to enable the ethernet interfaces present
-> in RDP433 based on IPQ9574. Since this is not necessary for bootup
-> enabling it as a module.
+> 1. freq_type: used to set the type of issued ATB FREQ packets.
+> 0: 'FREQ' packets; 1: 'FREQ_TS' packets.
 > 
-> Signed-off-by: Devi Priya <quic_devipriy@quicinc.com>
-> Signed-off-by: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>
+> 2. freq_req_val: used to set frequency values carried by 'FREQ'
+> and 'FREQ_TS' packets.
+> 
+> 3. freq_ts_req: writing '1' to issue a 'FREQ' or 'FREQ_TS' packet.
+> 
+> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
 > ---
+>  drivers/hwtracing/coresight/coresight-tnoc.c | 97 ++++++++++++++++++++++++++++
+>  1 file changed, 97 insertions(+)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
+> index ad973749250644760adc4dfd855240026d0a744c..24b1add4c921866b944d756e563d50b4172d583a 100644
+> --- a/drivers/hwtracing/coresight/coresight-tnoc.c
+> +++ b/drivers/hwtracing/coresight/coresight-tnoc.c
+> @@ -112,10 +112,107 @@ static ssize_t flag_type_show(struct device *dev,
+>  }
+>  static DEVICE_ATTR_RW(flag_type);
+>  
+> +static ssize_t freq_type_show(struct device *dev,
+> +			      struct device_attribute *attr,
+> +			      char *buf)
+> +{
+> +	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> +
+> +	return sysfs_emit(buf, "%u\n", drvdata->freq_type);
+> +}
+> +
+> +static ssize_t freq_type_store(struct device *dev,
+> +			       struct device_attribute *attr,
+> +			       const char *buf,
+> +			       size_t size)
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+No improvements. You got here comments and you got also later my
+complain that yo missed comments already.
+
+You keep ignoring received feedback and that's a no go for me.
+
+Maybe process needs to be improved, so reach to your colleagues and
+learn how to interact with upstream. There is very comprehensive
+internal guideline in Qualcomm, so follow it carefully.
+
+I expect still to respond to my original comment or implement it fully.
 
 Best regards,
 Krzysztof
