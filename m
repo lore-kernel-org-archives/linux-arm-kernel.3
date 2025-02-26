@@ -4,108 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76F05C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 07:45:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E220BC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 07:48:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FPie5GzllhYEKBi5B2C2HqGfAw5XgVgG/ds/N6AGF00=; b=2cxxrSi2RWhR+JfWEn0fNHiiaX
-	LSgmV1lbKr7VNBHzsvGGmwBB4pTv7CcYWYQp2RIJNzw7Z4PPaJwxVuySiqG7CzV/Av9KdsTEPEaFT
-	LLhj8kqsqlQeaPi7/PAIUpvcdNKngtVfZm7FGxnmKRk6uoNLSuuGW2PUGm5pCKg6aX+V3TEXNu4sZ
-	DG/Ulv9BX1gPRPpOuIiLvHNWa7Vju/p8s5KOrJ2XWmLHUl3oiK9ZH7zMD0oedSlcRzQYrbA/q3Uzz
-	mXxYDx3mSanO4hOI3/A9ny22WfiZJ7aOLpwkNSKuVBLWJQd0ZcX/wDkrIXy5qs5OlsnyQlk6dF4nY
-	q+YhqNPQ==;
+	bh=Pet/LFXJukOjpKw3N/qfkQZuhd+dmy6ut6K9bQDsKNE=; b=T4KIMdX9vdZDBfaFM9UfpJXigX
+	Keq3HR+NbSLidon5H+3/A81NXUDf95a/fFWUbErFNP5SFPCPCtS5eG6Dji7rwFtyUEu7HovW+F8hi
+	iGnZjEkazcWuuwV7LHe4TINAdlSzg57HkviziqNcWJPamnPL1fEZ+o6jAZmvXXvEMJm8aEc0a4F5d
+	Rnhuyo2Py6mt7I0orxhbYNSOi10lLz8BEUa6lc/jclYAa1T2vQ3V80ZW91WPY+GpqSHa0yJxm8PHq
+	SkSKVFrBgC0Z/GfoFo5o/Vdz7lTbT6esKTujVbwlSPrm6YAZgKLTp7zoUflZrVe5TheXSAC478Gw7
+	S/+I8mUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnC6l-00000002jEA-1qjw;
-	Wed, 26 Feb 2025 07:45:31 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tnC92-00000002jdq-13wB;
+	Wed, 26 Feb 2025 07:47:52 +0000
+Received: from fhigh-b1-smtp.messagingengine.com ([202.12.124.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnC5C-00000002iyU-40Kd
+	id 1tnC7T-00000002jOi-1rCb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 07:43:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 506475C5578;
-	Wed, 26 Feb 2025 07:43:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1440CC4CED6;
-	Wed, 26 Feb 2025 07:43:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740555833;
-	bh=TlotOXl+MlcuWgcpW7R/wM9IAru7nzqbanYYiDA0BX8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JegS85JWKA51Szg3RS4UflboG3VFRSSTRphuZZPUthDC5T2rzXVfr61kbar4UyQj0
-	 FahDSOYOPKjAw4p29A8xVs99h9cAbTzotScnxwQuGeQoHZFOLZu4JiwOx+Sga+wh+e
-	 dCEl+gL4XwnBMDwrsqBEdfUNg+/98TwdpHZ44S3Cb9gkJY1RobBhoQJ/GN6kVWoouD
-	 Ka5C0Qh66f4JS84YBZRthLmmCrUlBJTsQ8M+V4K7w7qbPZyQTYTONw7SEsgYL9jPOH
-	 paLl21uTD95tea23OL3EhocYMs4daInWl+tw1RXJHXcMPCvkviyhIpHTPpukbmdsJ+
-	 /q1sXkdaBtMSQ==
-Message-ID: <9c94a771-b3e6-4ba4-9b7f-dcd93b53f924@kernel.org>
-Date: Wed, 26 Feb 2025 08:43:49 +0100
+	Wed, 26 Feb 2025 07:46:16 +0000
+Received: from phl-compute-11.internal (phl-compute-11.phl.internal [10.202.2.51])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 7F2B12540213;
+	Wed, 26 Feb 2025 02:46:13 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-11.internal (MEProxy); Wed, 26 Feb 2025 02:46:13 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1740555973;
+	 x=1740642373; bh=Pet/LFXJukOjpKw3N/qfkQZuhd+dmy6ut6K9bQDsKNE=; b=
+	XmCAsjMLj0jyRI5c7icQpfnx5Q3lhSuEt95dhaiQeMN97I3PWatrgOGQ3hsAnOPj
+	gtLGaAsyilMAW9/ikh+7dYdnQU1T6lVNDIc5HStuCSxMrvsK26vps2on7mOvp5Rs
+	45cyKGzz9FFX3aHtmglBP/6H5P1CQ72fj8JzHgx6X0NR5kkUJ79c4g8VzOJ3PITO
+	8TrEvQKbv9q/dNoY3eGCLscoPs8opSK157UWbypgb96zuTRzZ05Afs8mFHrbmEVC
+	dwsrEVMAqHCSep0HQogGEaw6jQ4HY+AGs4y8gRkFHZPbrZt3cz/vuUb/Crrjlzn2
+	0lUHlvYKdDhxOMW24yU8Ag==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1740555973; x=
+	1740642373; bh=Pet/LFXJukOjpKw3N/qfkQZuhd+dmy6ut6K9bQDsKNE=; b=v
+	ILheoZmgVcumoGluM0sqmzHhGkUdRyCCdgjI+bUU93DKkFfwYLwKuE745qKar4rY
+	8PoJmWGYLDUWqsMWqBAKe0ps9pRqCUWJhedewFiExVlBVK1ToWKyMLP537uQ0+I4
+	HM4BpRMedxXea2Nlcokd+VI6AnfgRdqE0vtvTHFeWdW7oPbfoVtwUnbDuvhvhqW7
+	tW28QmtoLfHSHXaetuuF8xl5/JqPMvD42CYtk4fVcOuAMCW5jL6T5m0xqDnfTfCI
+	lvKx+a3IEOjR/H8oP0ElUArBle3RTPRebw0+xFDPcqdnqeDsi8wT7SfFlS6mMgxa
+	uxqpCEL/nS6EHMbLGbSuQ==
+X-ME-Sender: <xms:xca-Z1h-av5BN7_pu2ZO5kwn7JqvTruAOL96TFa1bj2XpjATGLFcOQ>
+    <xme:xca-Z6D38BG_bgVSaWuria_qOP6USGDa7kwTki-wmmMw5uPdPStYXDZI3G0nf64M2
+    IbZ2W2-y4Rou_-v1iE>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdekgedtudcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredt
+    tdenucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusg
+    druggvqeenucggtffrrghtthgvrhhnpefhtdfhvddtfeehudekteeggffghfejgeegteef
+    gffgvedugeduveelvdekhfdvieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
+    epmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopeel
+    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrg
+    hssegrrhhmrdgtohhmpdhrtghpthhtohepfihilhhlsehkvghrnhgvlhdrohhrghdprhgt
+    phhtthhopehkrhiihihsiihtohhfrdhkohiilhhofihskhhisehlihhnrghrohdrohhrgh
+    dprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhr
+    rgguvggrugdrohhrghdprhgtphhtthhopehquhhitggpsghjohhrrghnuggvsehquhhitg
+    hinhgtrdgtohhmpdhrtghpthhtohepuggrnhhishhhrghnfigrrhesthhirdgtohhmpdhr
+    tghpthhtohepmhdqmhgrlhhlrgguihesthhirdgtohhmpdhrtghpthhtohepshhrkhesth
+    hirdgtohhmpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhn
+    vghlrdhorhhg
+X-ME-Proxy: <xmx:xca-Z1GH8yA_lYNQdHJboVueStmIiJ96ofVfN8o-qxod_GIkAag2Pg>
+    <xmx:xca-Z6TP0hTt3FxBCDIAKQd7EDJQZ5qvJpC-ivoAXxMVkmun-l4qLw>
+    <xmx:xca-ZyyFwyP7b4219fTGmYx1dQRNXP29maDiGLg1EOZGAdgQKNeKKA>
+    <xmx:xca-Zw7YW1HxdaT1IddqhRn4dIYxZNxhWo-PYUZ-77xU3y0NpnkleQ>
+    <xmx:xca-ZxnmRi2dtQvxN3cG5XNYUL9c4KTot-CgX9Ty3c_z1wXa2rPG7ZSJ>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id F28662220072; Wed, 26 Feb 2025 02:46:12 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V1 RESEND] watchdog: s3c2410_wdt: Fix PMU register bits
- for ExynosAutoV920 SoC
-To: Sangwook Shin <sw617.shin@samsung.com>, alim.akhtar@samsung.com,
- wim@linux-watchdog.org, linux@roeck-us.net
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org,
- Kyunghwan Seo <khwan.seo@samsung.com>
-References: <CGME20250226072535epcas2p46d41cb5cdd7ece18c898657c3c66a219@epcas2p4.samsung.com>
- <20250226072151.2123990-1-sw617.shin@samsung.com>
-Content-Language: en-US
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
- QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
- gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
- /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
- iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
- VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
- 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
- xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
- eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
- AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
- MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
- Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
- ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
- vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
- oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
- lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
- t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
- uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
- 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
- 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250226072151.2123990-1-sw617.shin@samsung.com>
-Content-Type: text/plain; charset=UTF-8
+Date: Wed, 26 Feb 2025 08:45:52 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Malladi, Meghana" <m-malladi@ti.com>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>
+Cc: "Bjorn Andersson" <quic_bjorande@quicinc.com>,
+ "Krzysztof Kozlowski" <krzysztof.kozlowski@linaro.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ srk@ti.com, "MD Danish Anwar" <danishanwar@ti.com>
+Message-Id: <839c2c04-0022-4a7a-8e28-f526814b0aa3@app.fastmail.com>
+In-Reply-To: <686f583d-6bf4-4486-b9e4-20c1e268eda6@ti.com>
+References: <20240419060013.14909-1-r-gunasekaran@ti.com>
+ <686f583d-6bf4-4486-b9e4-20c1e268eda6@ti.com>
+Subject: Re: [PATCH] arm64: defconfig: Enable HSR driver
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250225_234355_170247_4B1818FC 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20250225_234615_543300_D98819A4 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,49 +118,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/02/2025 08:21, Sangwook Shin wrote:
-> From: Kyunghwan Seo <khwan.seo@samsung.com>
-> 
-> Fix the PMU register bits for the ExynosAutoV920 SoC.
-> This SoC has different bit information compared to its previous
-> version, ExynosAutoV9, and we have made the necessary adjustments.
-> 
-> rst_stat_bit:
->     - ExynosAutoV920 cl0 : 0
->     - ExynosAutoV920 cl1 : 1
-> 
-> cnt_en_bit:
->     - ExynosAutoV920 cl0 : 8
->     - ExynosAutoV920 cl1 : 8
-> 
-> Signed-off-by: Kyunghwan Seo <khwan.seo@samsung.com>
-> Signed-off-by: Sangwook Shin <sw617.shin@samsung.com>
+On Wed, Feb 26, 2025, at 07:18, Malladi, Meghana wrote:
+> Hi all,
+>
+> Apologies in case you are receiving this email for the second time.
+> Any reason why this patch hasn't been merged yet. Other than re-basing 
+> this to the tip, anything else which needs to be addressed to get this 
+> merged?
+>
 
-Resending while ignoring all previous emails, so we should do the work
-twice. If you ever wonder why your patches are not applied, you got answer.
+Someone needs to send it to soc@linux.dev so it makes it into patchwork,
+ideally it should come from a platform maintainer that needs it to
+be enabled.
 
-
-<form letter>
-This is a friendly reminder during the review process.
-
-It looks like you received a tag and forgot to add it.
-
-If you do not know the process, here is a short explanation:
-Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
-of patchset, under or above your Signed-off-by tag, unless patch changed
-significantly (e.g. new properties added to the DT bindings). Tag is
-"received", when provided in a message replied to you on the mailing
-list. Tools like b4 can help here. However, there's no need to repost
-patches *only* to add the tags. The upstream maintainer will do that for
-tags received on the version they apply.
-
-Please read:
-https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
-
-If a tag was not added on purpose, please state why and what changed.
-</form letter>
-
-
-Best regards,
-Krzysztof
+    Arnd
 
