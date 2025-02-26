@@ -4,65 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17CD7C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 19:02:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2572C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 19:03:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BSZAKZJBtmXPfCIzyN+pyGhW+GDpOa1dgPvIqwhe5V4=; b=JKEiwpA7YQTjEMYpzSnVLlFPi6
-	m7ZZORB0bBMMnNYhaSK9/u8cXHdP1H7nDazryj+xBZDuxqyKb9yFHEWEge+KVwCMMdhBleyOqV0CJ
-	kCVj9j1e5vH21BBwnKTbQqNh74u9zJsY5hFRQQ8n6m7mE7WgivAvrk7Xq+ZlBONdCNLL5J1SFEv+l
-	IX3jGVUgD4muJdjs1WX4lobrpNYgkcWqo4TyexljSFHEKflvOQ/83vYObghYZsAwX7wk33CzKNZfC
-	PBVBxo4zWRRmpgjtKqOwWQLtMOL7EDcdb0XyBx+X1Wb24lWMcguiTSXP3QYMhJim3UnUJQNgF5LMS
-	pXlklqRQ==;
+	bh=kxAxXw/7LlHwDuyLWdUAuIPiJid9ZZBU/iEH2WYWVF0=; b=J6yy37iW8uxiX7rh0LvQ5udLBX
+	WfSwe3balslk+oDqndUpJ/mON3xVkeWTIjrniWmdVJFfTkTzTyZNiLWoCJaQdHBITj2UUbH9ObScp
+	ce2BzH9vWyoIn5uCuBEiKqX/wfgP6SkZ1LzC+nL+BT4sGKwJyMO+V3/LjyNSwJLAZ+YwnmHvDjQ9R
+	OTSaldbQ5upYpGQjogWLyeI068I8J19P3DRrucdqc7BgqgU+4wa6QjikKQ/IxYfUEekXJKjZlYUn9
+	9JUxVw18D4DRO2LAp0UuYx0DY8BQEibxaw5KcZL00vTfDyyDKc/iBwQcNl4VgBZCBAO5+ipvegNj5
+	ZBEtJkeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnMfN-0000000553G-2ToG;
-	Wed, 26 Feb 2025 19:01:57 +0000
-Received: from out-175.mta0.migadu.com ([2001:41d0:1004:224b::af])
+	id 1tnMgt-000000055LR-2ESr;
+	Wed, 26 Feb 2025 19:03:31 +0000
+Received: from mail-dm6nam10on2062a.outbound.protection.outlook.com ([2a01:111:f403:2413::62a] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnMa5-000000053cJ-0B0u
+	id 1tnMax-000000053qD-2cXm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 18:56:30 +0000
-Date: Wed, 26 Feb 2025 10:56:21 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1740596186;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BSZAKZJBtmXPfCIzyN+pyGhW+GDpOa1dgPvIqwhe5V4=;
-	b=DTrVl07ICp5qpVt9MAbJRYr2jB6odrQGw25//j+jiz92ZneaTgdDrKxpiezmpU/LqmQ43I
-	JALYeNQ0rzYI+D5/Kg7jn9ve6YZsWTOq2pUMBN/fF/SjaKuW4hlJPRhK+IMYGRaD01KVOD
-	/BMsU7qHDH6aVQa/frsYmyPqUVcg77s=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Sebastian Ott <sebott@redhat.com>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	Cornelia Huck <cohuck@redhat.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/4] KVM: arm64: writable MIDR/REVIDR
-Message-ID: <Z79j1ckWLx_Hwqct@linux.dev>
-References: <20250218163443.32836-1-sebott@redhat.com>
- <Z7zxSdW5b6rqe2bt@linux.dev>
- <b2b015de-569b-2cdd-8ec3-8c8690ff950b@redhat.com>
+	Wed, 26 Feb 2025 18:57:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=q+uFE1D4M2lOxVPfFXRrBPh/agdDyBXuQz97KBlk0qPmO0EItUFBVXPR3l8rd+tcsLuEOGedlnIqoWGN45R6vZls+r51Rgo3aKO8hqpKmXfQ4YBHZKzSXpjWEED/6NA67hYhF7pOL1gUrkf9C+X/1vG2N6F5oVpCM6Ceb8maZUrJxUHz6azSWnSvrgmgNM+0IBLicgdfZWH/3I2dX1kJYYR0a+B4/uiG3IcT89STCrCFZA2nwdWHHFjAUctktY5YDvxFXYfZNmLCvVGNGrJTJFydh7Y2Gfo9iJKC5oyMPZ8enKOn3b3wPjG7bRQUAGx/eQ9m+2BHrr2bVuvPM4dw6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kxAxXw/7LlHwDuyLWdUAuIPiJid9ZZBU/iEH2WYWVF0=;
+ b=E2hIS3ujayNgPyPbRHNNs3oKt69ybFPSXuR77mkNEsGO+9VWTw3c7EBEj5tBGlRJaHjbWfiLhg+D30RnTHUktx213+XmXzweYEE1Sb4Bem8P4zHDaQTn2crD/GcwBj+i52iX+rdouh0spJ6Y0uUKzav8VxsQ8CrOApnZFyv5xbkk/S7vVuCxgTYMqkjvujglK6fEPme6CI4C8xN0NO3aYcmtmq+mZwUlNot0ZhkiRbMORoPMAIgfatWEBwUCGICSgtkXqsORaYsbZU3F8S247UhXFb0R5ZCbkdYs1YBLg4VRi6APyIRPPhUUJFnSWQfJ+lknmBlAF8Fto1P90oLFAg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=gmail.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kxAxXw/7LlHwDuyLWdUAuIPiJid9ZZBU/iEH2WYWVF0=;
+ b=iJw6MHIJ736kXtVsWGZqez3/dZVZRRMQHxqUyaU4mxI+FKfWbA/uk2YraX8CiF0bfEnuBa2sT/9pCPgZGGznriDFK+iVL/FdHgNTavVGE93AYiMx3eU+WseguNy/HgB4tXwpwfZPBPiI551J9Yl2HLeJqFbEQQX7714G/0HzdOr3zSl6o9EuPLOd9uEEVK+zpIyRNFDA2GLdM+8WbaQoksqpkpTI3m5yxDcPsA9oC1IqgfjRFS6A2oAdLaoNJuNoIk8QUG1N9nKU5V5U6ekmLGWU+2cREHbutIp9iGmNvP0+mMRe2gMr7FvQXLEuyagt/pJbN/EggW/awM8YZqLzxA==
+Received: from CH0PR03CA0344.namprd03.prod.outlook.com (2603:10b6:610:11a::35)
+ by PH7PR12MB9202.namprd12.prod.outlook.com (2603:10b6:510:2ef::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.21; Wed, 26 Feb
+ 2025 18:57:16 +0000
+Received: from CH2PEPF000000A0.namprd02.prod.outlook.com
+ (2603:10b6:610:11a:cafe::e7) by CH0PR03CA0344.outlook.office365.com
+ (2603:10b6:610:11a::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8489.20 via Frontend Transport; Wed,
+ 26 Feb 2025 18:57:16 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ CH2PEPF000000A0.mail.protection.outlook.com (10.167.244.26) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8489.16 via Frontend Transport; Wed, 26 Feb 2025 18:57:16 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 26 Feb
+ 2025 10:57:02 -0800
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Wed, 26 Feb
+ 2025 10:57:02 -0800
+Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.6)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Wed, 26 Feb 2025 10:57:01 -0800
+Date: Wed, 26 Feb 2025 10:57:00 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <kevin.tian@intel.com>, <tglx@linutronix.de>, <maz@kernel.org>,
+	<joro@8bytes.org>, <will@kernel.org>, <robin.murphy@arm.com>,
+	<shuah@kernel.org>, <iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<eric.auger@redhat.com>, <baolu.lu@linux.intel.com>, <yi.l.liu@intel.com>,
+	<yury.norov@gmail.com>, <jacob.pan@linux.microsoft.com>,
+	<patches@lists.linux.dev>
+Subject: Re: [PATCH v2 7/7] iommu: Turn iova_cookie to dma-iommu private
+ pointer
+Message-ID: <Z79j/DblkTGNRDg+@Asurada-Nvidia>
+References: <cover.1740014950.git.nicolinc@nvidia.com>
+ <949e28875e01646feac5c4951b63723579d29b36.1740014950.git.nicolinc@nvidia.com>
+ <20250221143959.GA272220@nvidia.com>
+ <Z757lz6ucDE6Otix@Asurada-Nvidia>
+ <20250226173610.GE28425@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <b2b015de-569b-2cdd-8ec3-8c8690ff950b@redhat.com>
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <20250226173610.GE28425@nvidia.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF000000A0:EE_|PH7PR12MB9202:EE_
+X-MS-Office365-Filtering-Correlation-Id: a4558011-5267-4504-4f27-08dd56976366
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/vLBkQJVDRG3BonkgmTTplGY/+8SAaPtedJNYVVRXXW1BM5bwdq0ubc4exn9?=
+ =?us-ascii?Q?nh044CtXX1w1jQx1zajj/q1Tyc86FyTaxxN8nAi+qIA/rxpkz6trQiz4lfVL?=
+ =?us-ascii?Q?WIW2ctm03EwS+fUdr1syF76EdHlmxORofZS0+o3ZmDVZmOz1bfkOLf8hiJ8t?=
+ =?us-ascii?Q?sM0zpBQWy93CmTLeUx/iwJnh/2Z0E6EnQ2w2cKK2qXpUEHuoeI+dwjIUt7kX?=
+ =?us-ascii?Q?iGQH1r9cy2PScs6Flvmx302MMW7fQbyAkrpksq7wLSQwi23DqYQhYz5qI72F?=
+ =?us-ascii?Q?brEEzziPHWslPuXcLRvHokhEmBb8hc61jGGKyvliokUIFWu3VUgcq0q/VpSC?=
+ =?us-ascii?Q?z5YPwuzlx+O2InjWrlSra2NK7SzpcHI47ECnYdrf5mgiZjknG/UYyF6T+y+n?=
+ =?us-ascii?Q?YQmtl+JTdjWQJXqhUN9rwPYbhc7WrGEr/u9f+xqO1yhihp1HNPW8pO30zoFl?=
+ =?us-ascii?Q?d7pis7LVAMjaOAfvOgxqgMZg4+y/cZ1pe4IJadjxnq/r9mWXyz2Ugu1LcWnW?=
+ =?us-ascii?Q?rci5XBFNREM0TZBBuybKinGtvwRTS6VrF3fq7fts6t+QguRa4h14BLJpoNar?=
+ =?us-ascii?Q?Sbru33ZIdlSO1O67QHUOmmucoPYEwwzL/CeGHtme3MbI+3PieRrpvzPBEAap?=
+ =?us-ascii?Q?l5nuXbsIdfw7COf26S/N+QgHejAq5ABzX6+rAXB3gdFjvd7SNg10hPLn5dQY?=
+ =?us-ascii?Q?fOb0vMG+8c9OTvNCJamng5MGYuH/689RMYXDffZccZDyiz7RlDR58rBpBMsB?=
+ =?us-ascii?Q?4alJPKh4SFH9WanEqTdC7lou65ECOzwkOCtHipihAcZJd6ewbQcq6iZJnhzd?=
+ =?us-ascii?Q?cXK9o0UpcBM9rQpRhWdDH0eYAR3QQYKE2Vt66A+pl5melSssh4bU6+Cky7Nk?=
+ =?us-ascii?Q?3NhZy7h2nkgp0qLqXn7oKwM8bElY6HpdyaTqEe/U7jQV8xvPIeNpTDB+dHQr?=
+ =?us-ascii?Q?5iTKQiK8xoXxwW2GfxSVgXSePBJcXRNReA1Vm+7zjGCcFrep9R6eMLW6Bibw?=
+ =?us-ascii?Q?ksMCujOQthuNJYveTqHOMJbR01B0E4AvWYdjJw66lE8nMZxXIdNSrydy/5WD?=
+ =?us-ascii?Q?Elpmsb66oqVbAcp7MpGqRnm0pNGkORLPq7ieshwlJfLIzkb20CvyB71DBzGg?=
+ =?us-ascii?Q?7V7wIsFaHcmYtDhU49wnQrtJFN1pcNlCajZ8bN8TA+mwLXuSxPUeMce4DJjP?=
+ =?us-ascii?Q?dj23FrKvAqiQGUz8OvhlOGoJqTo/ee6FuBa2+Gny3rbwp6VtARurMC+Rdun2?=
+ =?us-ascii?Q?eNMxRf2bdZrzeKd3Zymfx5QZs0VGGnys07qrJ1rwww9ugRhyj8qp/9k7PxNt?=
+ =?us-ascii?Q?k+wwhSt8/5Eqr/m0I7AYLFZb/s5rkxsJkKti/NDDDQn11tauHDW81sVfI6Xa?=
+ =?us-ascii?Q?JmmK40opIltWYsnw4qhu1Cd/NMAbKU2JcijNwwEm2YASEaHY/49KTPzplMgN?=
+ =?us-ascii?Q?R3vTcA9djkMk2Q5U2wMkiwsRhzOgBjt/fbM3BMPRhzEzPlToLR/T5Vm9n+zU?=
+ =?us-ascii?Q?yj9y4pLaxVGeqnA=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2025 18:57:16.2459
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a4558011-5267-4504-4f27-08dd56976366
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF000000A0.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB9202
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_105629_218335_EDB8E4BC 
-X-CRM114-Status: GOOD (  26.10  )
+X-CRM114-CacheID: sfid-20250226_105723_666078_AA00FD18 
+X-CRM114-Status: GOOD (  20.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,46 +159,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 26, 2025 at 05:47:53PM +0100, Sebastian Ott wrote:
-> On Mon, 24 Feb 2025, Oliver Upton wrote:
-> > On Tue, Feb 18, 2025 at 05:34:39PM +0100, Sebastian Ott wrote:
-> > > Based on prior discussion [1] this series allows VMMs to change
-> > > MIDR/REVIDR to enable migration between machines that differ in
-> > > these registers. Since these are used for errata handling the
-> > > errata management series [2] is a prerequisite for this one.
-> > > 
-> > > changes for V3:
-> > > * handle VPIDR_EL2 as part of vcpu ctxt - thanks Oliver!
+On Wed, Feb 26, 2025 at 01:36:10PM -0400, Jason Gunthorpe wrote:
+> On Tue, Feb 25, 2025 at 06:25:27PM -0800, Nicolin Chen wrote:
+> > On Fri, Feb 21, 2025 at 10:39:59AM -0400, Jason Gunthorpe wrote:
+> > > diff --git a/include/linux/iommu.h b/include/linux/iommu.h
+> > > index 99dd72998cb7f7..082274e8ba6a3d 100644
+> > > --- a/include/linux/iommu.h
+> > > +++ b/include/linux/iommu.h
+> > > @@ -1534,12 +1534,16 @@ void iommu_debugfs_setup(void);
+> > >  static inline void iommu_debugfs_setup(void) {}
+> > >  #endif
+> > >  
+> > > -#ifdef CONFIG_IOMMU_DMA
+> > > +#if defined(CONFIG_IOMMU_DMA) && IS_ENABLED(CONFIG_IRQ_MSI_IOMMU)
+> > >  int iommu_get_msi_cookie(struct iommu_domain *domain, dma_addr_t base);
+> > > +void iommu_put_msi_cookie(struct iommu_domain *domain);
+> > >  #else /* CONFIG_IOMMU_DMA */
+> > >  static inline int iommu_get_msi_cookie(struct iommu_domain *domain, dma_addr_t base)
+> > >  {
+> > > -	return -ENODEV;
+> > > +	return 0;
 > > 
-> > Thanks for respinning. While your changes are looking good, as I got
-> > ready to apply this series I wound up peeling the onion a bit further
-> > and have a few more concerns:
-> > 
-> > - Current KVM allows guests to read SMIDR_EL1 despite the fact that we
-> >   do not support SME (this is part of TID1 traps)
-> > 
-> > - The "invariant" values that KVM presents to userspace originate from
-> >   the boot CPU, not the CPU that resets the ID registers for a VM
-> > 
-> > - A VMM that wants to present big-little can do so on current KVM by
-> >   affining vCPUs, but cannot with this series
-> > 
-> > All of this is to say, I think your series is going to collide with
-> > the pre-existing pile of crap we have. I'm going to pick up these
-> > changes and rework them so we can send a fix for #1 to stable trees and
-> > (hopefully) avoid breaking the old "invariant" behavior.
-> > 
-> > I'll post what I have as soon as I test it, hopefully we can get this
-> > shaped up for 6.15.
+> > Should we keep the -ENODEV here for !CONFIG_IOMMU_DMA?
 > 
-> Sry, for the additional work I've caused. I gave what you have in next a
-> spin and it looks good so far.
-> Thank you very much!
+> My feeling was if the system doesn't have an IRQ driver that needs
+> MSI_IOMMU but does have a IOMMU driver that reports SW_MSI reserved
+> regions then iommufd/vfio should not fail.
 
-Don't apologize -- it isn't your fault what we had already was a mess! :)
+OK, I see. But we are also changing the behavior for the
+!CONFIG_IOMMU_DMA configuration, in which case all other iommu
+functions seem to return -ENODEV. And I assume we would need a
+justification for such a change?
 
-Thanks for kicking the tires.
+Perhaps, this can be explicit, just to keep the consistency:
+	/* NOP if IOMMU driver reports SW_MSI reserved regions */
+	return IS_ENABLED(CONFIG_IOMMU_DMA) ? 0 : -ENODEV;
 
-Best,
-Oliver
+> I don't think it is realistic that we'd ever hit this return.
+
+Yea, the only caller is VFIO, where there are quite a few IOMMU
+functions calls before reaching to this one. So, it would have
+been just returned with any -ENODEV prior.
+
+Thanks
+Nicolin
 
