@@ -4,87 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A8D2C021BF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:27:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81DE3C19F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:27:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bZlwIOxkAACUPrshgQHP61y/YpLPScyN6eb23KhD2xM=; b=aGc8fzWDYKAYJqy2q7ZvGqn0aG
-	NVw1VzuRCZF1jvUjc8Ar1g4MlemEUmopHg1JtarC3V8OJvFUtQHeZonoPrVfSCIOhSgrb+PlgP4Xd
-	GLVqxaLnYNhr4CAA8VvEmv+TuvmiftnFJ0I0vbqhFtBtP58qwC7uDgc4y93F8Ij4nvtct3SUN1qPS
-	2D2xd715f436TY6dwrEXDcukcY01Kmv3JFLI+gj2IcRDKd9o8PhDbPC55fiwwo27sZoY17AMS1RtL
-	Qg9asJ+O7A2YucdXV1JH950+Lh/1Wl7f6z3y2ZkOEgJmDdU092C4F2BpGpPSL6BDJRCjB1VD1TqBN
-	CA/PmBNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BaknfrXG6/Un2qMiCSQ6CotrWqsP5SO0MdjrGTY8+88=; b=2+8+z7ikQCArMU+VY1sUPZf1b5
+	sc2ZBYkTFhoeVQ8PJgrQbJkSynOz+VIwdEvmNM9hUsdP6shRCbdp2hBjO60lkf/Q+KeQPcuLAPvbw
+	pPwIxhETCjZr3WVIDyVqaD3iAsb+kEnwWU8NxmJW9f0rt4fHs072UwxTzZkat5RrM7i6PnNiPyUCp
+	BOCOLtNzmeBl3PK8GF/1Wmj6VGR4ibi77MoEGTHJcuZSI8o4Z1cdkBU/LfzIiEElznh63KXAQhADk
+	xE/VGPhYRrzBRQ9AX76UAL3luuRJ8UNvzH7QpPLYM4HEB3QTKWEBqKXPDAWEdVu+2oMC0rwfQN5hG
+	TodQMynA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnHRQ-00000003sj6-2pYY;
-	Wed, 26 Feb 2025 13:27:12 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tnHRR-00000003sks-3oVI;
+	Wed, 26 Feb 2025 13:27:13 +0000
+Received: from [198.175.65.9] (helo=mgamail.intel.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnGOb-00000003eZ6-192w
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 12:20:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=bZlwIOxkAACUPrshgQHP61y/YpLPScyN6eb23KhD2xM=; b=I93yfmCNTOJXyvpcdVodzhVYqQ
-	0VWn5iCDf9O8PsZH/JLw8zF8L9kNKW3Zq/seBdz4VP0ERhNRIrXfekRUh18IM4BPbxsYDT9wKibvl
-	Hk5TbcjcjIHyLC/adSlGeXSi2sI+X2qWT6RAY4kqiDzvaFAa+TS3lXPvwj5/OOleV18CCVLTRoh3g
-	ugEdNUXe22F+MGuVrbn1BPPkeOJ3GB3ZQqeU+M3D5AOXCKnLBHYeBrSpRWj58nQx2Xzu2KJWFzTiU
-	F63dJyLsyB4SKsSKJ/ET8l3F7tgKpUfo40Sa/1r6O24qoWaGOP/o+gnuLwxVmrHUEccpFCpuJXMIy
-	ZNGNB3CA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:59272)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tnGOM-0004Bm-0r;
-	Wed, 26 Feb 2025 12:19:58 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tnGOF-00074L-06;
-	Wed, 26 Feb 2025 12:19:51 +0000
-Date: Wed, 26 Feb 2025 12:19:50 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jan Petrous <jan.petrous@oss.nxp.com>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Minda Chen <minda.chen@starfivetech.com>, netdev@vger.kernel.org,
-	NXP S32 Linux Team <s32@nxp.com>, Paolo Abeni <pabeni@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Thierry Reding <treding@nvidia.com>
-Subject: Re: [PATCH RFC net-next 3/7] net: stmmac: dwc-qos-eth: use generic
- stmmac_set_clk_tx_rate()
-Message-ID: <Z78G5tqpMrsm8iUD@shell.armlinux.org.uk>
-References: <Z7RrnyER5ewy0f3T@shell.armlinux.org.uk>
- <E1tkLYv-004RZ7-Ot@rmk-PC.armlinux.org.uk>
- <qcarhmsd6u33ij4kupaiyxvyr7jxxv2uxvr6jsnhxjd3o3axkt@z4m3zvdpxogb>
+	id 1tnGQg-00000003f2l-3Ufc;
+	Wed, 26 Feb 2025 12:22:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740572542; x=1772108542;
+  h=message-id:date:mime-version:cc:subject:to:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=lFhxRXpv6QTFcMfVUvDqKANeqKNOPbO6YgonBgCYQJI=;
+  b=bKxa+tzriX9SBviBJdHIMUH6iCJgBJEvxhkwM1m5hArCp2Sz5MP6G7P3
+   /hy5lb/BLJayYYMINt46SKFzoUdQlIt8ko/mrQ5FOGDn4h36gC1uH6JM+
+   eggHeaGCT0ohkZmGD5tXr4+vI/+2p7Epp9DEVBlks+pio6OI8KzFthkij
+   hf9HMNSJQBQNf/28iWlZijwCKwmGbwwWciUoChVuIaN+IDtZDrBL7HOEQ
+   YOmglOS33jEHb+R8XvCyL0FeEhHwfufZQMuB+9GM0KVKT1tDzOFufQSnm
+   oQf3V6/jwlZdbTuF7pPnpmG7KhmjHr594ORgAfp9zh/6Z0lSR1bYaZxXq
+   Q==;
+X-CSE-ConnectionGUID: rcKKt8jdQeKEp0gAnf1R1g==
+X-CSE-MsgGUID: eznvDZdUTZGGwVVASX3Nvw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11357"; a="63877914"
+X-IronPort-AV: E=Sophos;i="6.13,317,1732608000"; 
+   d="scan'208";a="63877914"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Feb 2025 04:22:21 -0800
+X-CSE-ConnectionGUID: hCu3EQHDT2qlP3dV1KuKQw==
+X-CSE-MsgGUID: vpSaOO0DSI+Av8u8OcxQ2A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,317,1732608000"; 
+   d="scan'208";a="116691259"
+Received: from blu2-mobl.ccr.corp.intel.com (HELO [10.124.240.105]) ([10.124.240.105])
+  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Feb 2025 04:22:13 -0800
+Message-ID: <caff123f-0910-4949-8512-acb77c6f0a8b@linux.intel.com>
+Date: Wed, 26 Feb 2025 20:22:10 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <qcarhmsd6u33ij4kupaiyxvyr7jxxv2uxvr6jsnhxjd3o3axkt@z4m3zvdpxogb>
+User-Agent: Mozilla Thunderbird
+Cc: baolu.lu@linux.intel.com, Bagas Sanjaya <bagasdotme@gmail.com>,
+ Joerg Roedel <jroedel@suse.de>, Pasha Tatashin <pasha.tatashin@soleen.com>,
+ patches@lists.linux.dev, David Rientjes <rientjes@google.com>,
+ Matthew Wilcox <willy@infradead.org>
+Subject: Re: [PATCH v3 16/23] iommu/pages: Allow sub page sizes to be passed
+ into the allocator
+To: Jason Gunthorpe <jgg@nvidia.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
+ asahi@lists.linux.dev, David Woodhouse <dwmw2@infradead.org>,
+ Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-tegra@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Hector Martin <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Robin Murphy
+ <robin.murphy@arm.com>, Samuel Holland <samuel@sholland.org>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
+ Tomasz Jeznach <tjeznach@rivosinc.com>, Krishna Reddy <vdumpa@nvidia.com>,
+ Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>
+References: <16-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <16-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_042013_312889_50EF16D0 
-X-CRM114-Status: GOOD (  18.54  )
+X-CRM114-CacheID: sfid-20250226_042222_950736_5BE78C4B 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,101 +103,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 09:35:52PM +0100, Thierry Reding wrote:
-> On Tue, Feb 18, 2025 at 11:14:49AM +0000, Russell King (Oracle) wrote:
-> > Use the generic stmmac_set_clk_tx_rate() to configure the MAC transmit
-> > clock.
-> > 
-> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> > ---
-> >  .../net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c    | 10 ++--------
-> >  1 file changed, 2 insertions(+), 8 deletions(-)
+On 2025/2/26 3:39, Jason Gunthorpe wrote:
+> Generally drivers have a specific idea what their HW structure size should
+> be. In a lot of cases this is related to PAGE_SIZE, but not always. ARM64,
+> for example, allows a 4K IO page table size on a 64K CPU page table
+> system.
 > 
-> Reviewed-by: Thierry Reding <treding@nvidia.com>
+> Currently we don't have any good support for sub page allocations, but
+> make the API accommodate this by accepting a sub page size from the caller
+> and rounding up internally.
+> 
+> This is done by moving away from order as the size input and using size:
+>    size == 1 << (order + PAGE_SHIFT)
+> 
+> Following patches convert drivers away from using order and try to specify
+> allocation sizes independent of PAGE_SIZE.
+> 
+> Signed-off-by: Jason Gunthorpe<jgg@nvidia.com>
 
-Hi Thierry,
-
-Please note that things changed in this patch as a result of:
-
-cff608268baf net: stmmac: dwc-qos: name struct plat_stmmacenet_data consistently
-
-which has now been merged. Are you still happy for me to add your
-r-b? The current patch is below.
-
-8<===
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Subject: [PATCH net-next] net: stmmac: dwc-qos: use generic
- stmmac_set_clk_tx_rate()
-
-Use the generic stmmac_set_clk_tx_rate() to configure the MAC transmit
-clock.
-
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c    | 10 ++--------
- 1 file changed, 2 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-index 6cadf24a575c..3f0f4ea6cf2e 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-@@ -30,7 +30,6 @@ struct tegra_eqos {
- 
- 	struct reset_control *rst;
- 	struct clk *clk_slave;
--	struct clk *clk_tx;
- 
- 	struct gpio_desc *reset;
- };
-@@ -150,7 +149,6 @@ static void tegra_eqos_fix_speed(void *priv, int speed, unsigned int mode)
- {
- 	struct tegra_eqos *eqos = priv;
- 	bool needs_calibration = false;
--	long rate = 125000000;
- 	u32 value;
- 	int err;
- 
-@@ -161,7 +159,6 @@ static void tegra_eqos_fix_speed(void *priv, int speed, unsigned int mode)
- 		fallthrough;
- 
- 	case SPEED_10:
--		rate = rgmii_clock(speed);
- 		break;
- 
- 	default:
-@@ -208,10 +205,6 @@ static void tegra_eqos_fix_speed(void *priv, int speed, unsigned int mode)
- 		value &= ~AUTO_CAL_CONFIG_ENABLE;
- 		writel(value, eqos->regs + AUTO_CAL_CONFIG);
- 	}
--
--	err = clk_set_rate(eqos->clk_tx, rate);
--	if (err < 0)
--		dev_err(eqos->dev, "failed to set TX rate: %d\n", err);
- }
- 
- static int tegra_eqos_init(struct platform_device *pdev, void *priv)
-@@ -247,7 +240,7 @@ static int tegra_eqos_probe(struct platform_device *pdev,
- 	if (!is_of_node(dev->fwnode))
- 		goto bypass_clk_reset_gpio;
- 
--	eqos->clk_tx = dwc_eth_find_clk(plat_dat, "tx");
-+	plat_dat->clk_tx_i = dwc_eth_find_clk(plat_dat, "tx");
- 
- 	eqos->reset = devm_gpiod_get(&pdev->dev, "phy-reset", GPIOD_OUT_HIGH);
- 	if (IS_ERR(eqos->reset)) {
-@@ -281,6 +274,7 @@ static int tegra_eqos_probe(struct platform_device *pdev,
- 
- bypass_clk_reset_gpio:
- 	plat_dat->fix_mac_speed = tegra_eqos_fix_speed;
-+	plat_dat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
- 	plat_dat->init = tegra_eqos_init;
- 	plat_dat->bsp_priv = eqos;
- 	plat_dat->flags |= STMMAC_FLAG_SPH_DISABLE;
--- 
-2.30.2
-
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
 
