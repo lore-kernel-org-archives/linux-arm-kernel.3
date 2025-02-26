@@ -4,64 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0489C18E7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 14:17:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D658C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 14:21:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KvJGAbyWkcvedoLLc4FaW3JqrKOaqT7oAs2HApM74cQ=; b=ahiNDfVVY1y325ReEPsSXSNtqK
-	U2FuoDnOZXUavD7Ru4uVpL8A5UW3y5UbN4rFL7oc47ffxVrvLUeULAluXFC2to7sb72B+xONFVMdA
-	wLbtIF601wSys9SDTzrbQb5/xxEmdQXLSrc1sAjPiXYwW8ExBNeQcp1xDhxmjqDJU6f+Lsqf4jRr4
-	vP6MFFkwdQO3ATT1rIpDB0qfldlgqiYzxgooqj/pNlPyqkcWmCDSIRtGJTVowM7cFjbaCYU5kk04t
-	9wOVkk9ZqiaKZA8ZptlB9mtbTzeAseW5Tc2WrD3VNTG+KGsWhgxyycANd+ulkZwTClR/Pafwr9maC
-	8UsES9MQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j0ORTswxQwCb7Xs6ZOEVpPSKiYjB9Ja0d+rK+jRWXLA=; b=ZUqiE2LSbR/h8zb3bYGZax6olW
+	Ztkp+kGAryVynH9KqXCLzSdgXpzCE1WsRMghdCnGVUVwdAhxjqxD/Tn9fnhKaFUZSi4xTBQJgIOp7
+	pJi1T6vSrSmwzojMOVD9cweLeSvC3U14iOrLTXx7vG7chObz6LGzaePUnGasac9kqmgwcyvg+XmE3
+	jl9rRGLEeWyL+bfdTxnD8iHL+/Vdvq1j95vHWIPltZ2pRcf6yeNB5GzClQ9XjuyYiTvjQ1WNqMt/V
+	BWR9OhUxQ+8MVs6ak1NcdPjbfMPlRGODcYSQJuYm892xHIVlEEsemBuhR8OvTjYxifKCSIinebWBP
+	1Geiz88Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnIEN-000000042cs-2jEP;
-	Wed, 26 Feb 2025 14:17:47 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tnIHs-000000043YM-0BlZ;
+	Wed, 26 Feb 2025 14:21:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnIBJ-0000000421D-0PYq;
-	Wed, 26 Feb 2025 14:14:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=KvJGAbyWkcvedoLLc4FaW3JqrKOaqT7oAs2HApM74cQ=; b=KP+ssduJCcCljk3HCk1xztnkk3
-	zS+GF9pbhbYxs31tkIc2o1qgOvBu73G6nQzg79jNujH4QtrV/x03B5kel06GZxwVlF4zqtsEz59p4
-	ru+ycq0C3F+HcU8HRvffn8jqfbXLhQYlB/evrA589kvVMPsgnBKDNt5w82GcGfGRkMy8PdsroOFSz
-	636143j44zLKs98WFAY6XFV11DqeZmGi/Z8eYumMznOW+xAbNtzwH0fzumWX2A8TB+ZXJi5AIUW14
-	0UawrXNqsHTNcbdTLvHAIJ0D5AOQF89jh8mWGN1MckA15++rkbSjCzJ4fntz5Op3XSfGPuwfEgOUO
-	oRwePrdA==;
-Received: from i53875b47.versanet.de ([83.135.91.71] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tnIBH-0000Xq-P2; Wed, 26 Feb 2025 15:14:35 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: quentin.schulz@cherry.de, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, dse@thaumatec.com,
- Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: Re: [PATCH v3 3/3] arm64: dts: rockchip: add overlay for tiger-haikou
- video-demo adapter
-Date: Wed, 26 Feb 2025 15:14:35 +0100
-Message-ID: <12349849.zAa99ISigo@diego>
-In-Reply-To: <20250226140942.3825223-4-heiko@sntech.de>
-References: <20250226140942.3825223-1-heiko@sntech.de>
- <20250226140942.3825223-4-heiko@sntech.de>
+	id 1tnIFt-000000042zg-1X8w
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Feb 2025 14:19:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AF306612F5;
+	Wed, 26 Feb 2025 14:19:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C7BF0C4AF64;
+	Wed, 26 Feb 2025 14:19:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740579559;
+	bh=5myc+unuv0mfBhimUhk1emfOfhdL+1INGKDKqdZalcE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=cy/ZKe+dXQfPLf0vUoeRR9WETiyy2RiQ7Xd+Xge4uigLKfm/GPsx7q5MsKJQrSo1n
+	 QrbPE6HX4tu4EsOZur3tXBknn1qVBmHt+Sr8KogZWONRvaEdzkpnmKe9vKjZuVbsmC
+	 ddywj9YmE1e5CRLmnN9D540ZMIEMBSRe9L0lNbL66Fj/sCk1ZKVHqd0W3Mrezif6ym
+	 NYahznXq+lQ9hjyt6OYNjVOMiP8oLmCNgWs15sLLfrkZA4Te4+pAsSajz85of2lgT0
+	 NlTjm6qsf9G0+Rr7150FjJLi9hfo2P+PPp0knFVIT4gBI3CFk6d+pnSIt8WB9ItbNK
+	 PfEdymDN7/96g==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B1ACAC021B8;
+	Wed, 26 Feb 2025 14:19:19 +0000 (UTC)
+From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
+Date: Wed, 26 Feb 2025 15:19:23 +0100
+Subject: [PATCH v2 12/12] spi: spidev: Add an entry for the gocontroll
+ moduline module slot
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
 Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_061437_142608_31EDFE8F 
-X-CRM114-Status: GOOD (  16.69  )
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250226-initial_display-v2-12-23fafa130817@gocontroll.com>
+References: <20250226-initial_display-v2-0-23fafa130817@gocontroll.com>
+In-Reply-To: <20250226-initial_display-v2-0-23fafa130817@gocontroll.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Jessica Zhang <quic_jesszhan@quicinc.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Thierry Reding <thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>, 
+ Liu Ying <victor.liu@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Mark Brown <broonie@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org, 
+ Maud Spierings <maudspierings@gocontroll.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1740579556; l=1586;
+ i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
+ bh=Tycawk+/5vgO1pNpkUXDG2S/Gx+HvpTkRpC88dFEYj4=;
+ b=6lU9pAT+NW5qS57Ca9Rq3dfeMU83IRh/BZe/VuSTJYVbPvx7jK0+WtZGOd/B0b9I4sWLR6PIy
+ tXF7iNFpYdOBRuzUcoSSXasaqTMdzZV4nzvxZDYI0xNl1lpeuuKb90+
+X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
+ pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
+X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
+ with auth_id=341
+X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,55 +93,47 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 26. Februar 2025, 15:09:42 MEZ schrieb Heiko Stuebner:
-> From: Heiko Stuebner <heiko.stuebner@cherry.de>
-> 
-> This adds support for the video-demo-adapter DEVKIT ADDON CAM-TS-A01
-> (https://embedded.cherry.de/product/development-kit/) for the Haikou
-> devkit with Tiger RK3588 SoM.
-> 
-> The Video Demo adapter is an adapter connected to the fake PCIe slot
-> labeled "Video Connector" on the Haikou devkit.
-> 
-> It's main feature is a Leadtek DSI-display with touchscreen and a camera
-> (that is not supported yet). To drive these components a number of
-> additional regulators are grouped on the adapter as well as a PCA9670
-> gpio-expander to provide the needed additional gpio-lines.
-> 
-> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+From: Maud Spierings <maudspierings@gocontroll.com>
 
-in v2 Quentin commented with a (which I forgot to add)
+The main point of the Moduline series of embedded controllers is its
+ecosystem of IO modules, these are currently operated through the spidev
+interface. Ideally there will be a full dedicated driver in the future.
 
-Tested-by: Quentin Schulz <quentin.schulz@cherry.de>
+Add the gocontroll moduline-module-slot device to enable the required
+spidev interface.
 
+Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
+---
+ drivers/spi/spidev.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-> +	vcc1v8_video: regulator-vcc1v8-video {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc1v8-video";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <1800000>;
-> +		vin-supply = <&vcc3v3_baseboard>;
-> +	};
-> +
-> +	vcc2v8_video: regulator-vcc2v8-video {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc2v8-video";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt = <2800000>;
-> +		regulator-max-microvolt = <2800000>;
-> +		vin-supply = <&vcc3v3_baseboard>;
-> +	};
+diff --git a/drivers/spi/spidev.c b/drivers/spi/spidev.c
+index 58ae4304fdab155748e66117f7ceb050da95afed..6108959c28d9c7505be63583e8206519275663ba 100644
+--- a/drivers/spi/spidev.c
++++ b/drivers/spi/spidev.c
+@@ -706,6 +706,7 @@ static const struct spi_device_id spidev_spi_ids[] = {
+ 	{ .name = /* cisco */ "spi-petra" },
+ 	{ .name = /* dh */ "dhcom-board" },
+ 	{ .name = /* elgin */ "jg10309-01" },
++	{ .name = /* gocontroll */ "moduline-module-slot"},
+ 	{ .name = /* lineartechnology */ "ltc2488" },
+ 	{ .name = /* lwn */ "bk4" },
+ 	{ .name = /* lwn */ "bk4-spi" },
+@@ -737,6 +738,7 @@ static const struct of_device_id spidev_dt_ids[] = {
+ 	{ .compatible = "cisco,spi-petra", .data = &spidev_of_check },
+ 	{ .compatible = "dh,dhcom-board", .data = &spidev_of_check },
+ 	{ .compatible = "elgin,jg10309-01", .data = &spidev_of_check },
++	{ .compatible = "gocontroll,moduline-module-slot", .data = &spidev_of_check},
+ 	{ .compatible = "lineartechnology,ltc2488", .data = &spidev_of_check },
+ 	{ .compatible = "lwn,bk4", .data = &spidev_of_check },
+ 	{ .compatible = "lwn,bk4-spi", .data = &spidev_of_check },
 
-and suggested to add the additional regulators on that board, that are used
-for the camera part that is unsupported right now.
-
-If there is a v4, I'll probably add those.
+-- 
+2.48.1
 
 
 
