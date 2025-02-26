@@ -4,92 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3ECEC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:45:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35AE0C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:47:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a/Qb5wr4Rktc7tGiLjgQsav252MOo0XtSMwhk7qeqzs=; b=lM0Iq9xQk49lAXivLF5s7Gkz4f
-	jgoMiVKZKfeIsDQGwQKh09gDWGl0HkHSMv/7DOogViwHmWs9183tWe7aXBa9zUNeB2LLrSf6w/sTG
-	iccLmsHhWr45a63WbnAzjPprDwV4cXjoG0OT6CpcPYnjTqUmD7T5KeZ8rMjrjG6htTH16j10uEZdf
-	f83NHbevq/2T2iEbrz1qAK0OuN754Yt+jj1Om4vGIve4UlaG7NapNWXqWcJHlqAbnzqtORzzz9sf/
-	wJUy6HirCmC/8o46zQjBvpPO7Wc71FeE+SCMcUqTiKEo9IDTGyZqtk4ZqoHiAzNVBWSyYLkYp+e2X
-	MOU4HZNQ==;
+	bh=ZdivMF2micHtrvkry4935zJ83xS7YFqQL06cr89Pw4U=; b=V/LTysZBp+cUkQgQHRBekLSvNG
+	kx6tsVNhCjgodmMuTKOl6TERTJU2GwFD+9P5eTW8GlWAU7S9RVWbZKNVVMKitzHMDvwrMb/4ceV5t
+	1qOPqCeQAn7BYsQy+trp0tcUFGcf9+y/MNeh2yk8eGBP5C3AGlQxK7DFrGnLYovRGCTYCKxdKbIWE
+	x3w+XwsDbU71zXhXmrEg/u70mLIrZtK4cuSunHIigPiQWU/ZyGcohqL3RoPhPm5EMV6rCxU9XBEjU
+	880vUZ/TYb+KFJTh1cOQhvVqdPaC8vwgqRrqQ/SQpIBxqX5uSxqchBYqXWfy95vJEwsQrI8AiOWyW
+	NMtDcNKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJbP-00000004NcM-0dHl;
-	Wed, 26 Feb 2025 15:45:39 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tnJcv-00000004NxF-0Wed;
+	Wed, 26 Feb 2025 15:47:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJZX-00000004N7E-0iHa
+	id 1tnJaW-00000004NPL-2fS7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 15:43:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=a/Qb5wr4Rktc7tGiLjgQsav252MOo0XtSMwhk7qeqzs=; b=QudsgOBLA9IYJ3c1Izp+exRAYJ
-	I6tGKvgOw4TgPpxeHoFVHf4MSl9ILu7W+9BjMZHD6rWe+ZyqrdbM6uZFpBUI5XCZ+irh8rJE0wyx6
-	BWjjWJRHN7p+ZRePLH+aQnZAq6pvC8LgE3WdRL6pVN01ai14LVj8M3qpmBgvIeeO1twxc5/Z+slHJ
-	kkivBkwv2WLg9kLWreuvHJ6zhSzamCKGFVRiAC9UZHNPEn4WGBod2FefrsfgHXEk2XaMcgL84Bu1Z
-	YwWqkWFwZSnzxGFIDlwzLUBRXGQsNf4oNRFb2YAEkqoVl3SoHzvZN3nxQk0JbJOG87KUJtRuQGzOI
-	H50kXAJw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40300)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tnJZ1-0004ky-0z;
-	Wed, 26 Feb 2025 15:43:11 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tnJYx-0007Dk-1g;
-	Wed, 26 Feb 2025 15:43:07 +0000
-Date: Wed, 26 Feb 2025 15:43:07 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-Cc: Simon Horman <horms@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
-	Jose Abreu <Jose.Abreu@synopsys.com>,
-	David E Box <david.e.box@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>,
-	David E Box <david.e.box@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jiawen Wu <jiawenwu@trustnetic.com>,
-	Mengyuan Lou <mengyuanlou@net-swift.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Hans de Goede <hdegoede@redhat.com>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Serge Semin <fancer.lancer@gmail.com>, x86@kernel.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	platform-driver-x86@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next v8 4/6] stmmac: intel: configure SerDes
- according to the interface mode
-Message-ID: <Z782i67tlpj6d57m@shell.armlinux.org.uk>
-References: <20250226074837.1679988-1-yong.liang.choong@linux.intel.com>
- <20250226074837.1679988-5-yong.liang.choong@linux.intel.com>
+	Wed, 26 Feb 2025 15:44:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2A59C612CC;
+	Wed, 26 Feb 2025 15:44:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77086C4CEE4;
+	Wed, 26 Feb 2025 15:44:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740584683;
+	bh=VDSomwl6LzEXsr4LwgRvd++OnseNgFtQFF9SkT6kNt0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Qwf2gzjuhyX5kLyfs/3nK1bGOejn526NdZSpQSKHGdVdeSXCusUHJmcR/f1rXWosT
+	 qxa9ekOZgGBgeGx+GzZ4t6eS2QvN3kKX2dseUf8vNZiQ01PJzF7AHxBj6XMj8VMy4o
+	 kzOyfGhALTnNCCpfI6bYgaHWXHU78CY3nHpPHT4uPuDUqmuLc2Vok2TeAZNC6cC358
+	 bcXBRrphtqMUbEOrphyUSfdf+efbooC+KConbTAtK3N9CV6AEHp2c6OB/yNJ5zZPLX
+	 5I4AFe2CTIl5CcHfjmtJv2z1vXBgdHxH0EN05zMBE5J/EtafHgl6vMksVSVEhHpLnh
+	 /71lJSbYWsDww==
+Date: Wed, 26 Feb 2025 09:44:41 -0600
+From: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Jonathan Corbet <corbet@lwn.net>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	soc@lists.linux.dev, workflows@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH 1/2] docs: dt: submitting-patches: Document sending DTS
+ patches
+Message-ID: <20250226154441.GA2485697-robh@kernel.org>
+References: <20250225184822.213296-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250226074837.1679988-5-yong.liang.choong@linux.intel.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_074343_204614_F99A6F3B 
-X-CRM114-Status: GOOD (  12.49  )
+In-Reply-To: <20250225184822.213296-1-krzysztof.kozlowski@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,29 +73,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 26, 2025 at 03:48:35PM +0800, Choong Yong Liang wrote:
-> diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
-> index 6d2aa77ea963..af22a11c2b8a 100644
-> --- a/include/linux/stmmac.h
-> +++ b/include/linux/stmmac.h
-> @@ -236,6 +236,10 @@ struct plat_stmmacenet_data {
->  	int (*serdes_powerup)(struct net_device *ndev, void *priv);
->  	void (*serdes_powerdown)(struct net_device *ndev, void *priv);
->  	void (*speed_mode_2500)(struct net_device *ndev, void *priv);
-> +	int (*mac_finish)(struct net_device *ndev,
-> +			  void *priv,
-> +			  unsigned int mode,
-> +			  phy_interface_t interface);
->  	void (*ptp_clk_freq_config)(struct stmmac_priv *priv);
->  	int (*init)(struct platform_device *pdev, void *priv);
->  	void (*exit)(struct platform_device *pdev, void *priv);
+On Tue, Feb 25, 2025 at 07:48:21PM +0100, Krzysztof Kozlowski wrote:
+> Document two rules already widely used and enforced by DT maintainers
+> and SoC platform maintainers:
+> 
+> 1. DTS patches should be placed at the end of driver patchset to
+>    indicate no dependencies of driver code on DTS.
+> 
+> 2. DTS patches should be applied via SoC platform maintainers, because
+>    it is a driver-independent hardware description.  However some
+>    driver maintainers are reluctant to pick up portions of patchsets and
+>    prefer to take entire set at once.  For such cases, the DTS portion
+>    should be split into separate patchset, so it will not end up in the
+>    driver subsystem integration tree.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+>  .../bindings/submitting-patches.rst           | 19 +++++++++++++++++--
+>  1 file changed, 17 insertions(+), 2 deletions(-)
 
-This should be part of patch 5, and the order of patches 4 and 5
-reversed.
+I've applied both patches.
 
-The subject line should also be "net: stmmac: ..."
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Rob
 
