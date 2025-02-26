@@ -4,83 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C07DAC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 08:37:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E3FDC021BC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 08:38:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WG/BZB8dw3KJbqJYA4MeEP90bt5qmYBoQ2VtcFkN6bQ=; b=L6OtF9DMg0yDR9O1cbD6NR7NI2
-	H9026fNRvvt/2J0hUzSrKvc9/pmI6BPo0yGCa6t0Qu9K5a6VnM6nMZu/ntzrrpxC0y8Dej2YqcHQw
-	WPmx309r94XxoqhCjAk4O6vyIKanJC4Thrf4m4biL1mtdtYxpP4tp5kIloiw6QkqVG3DUJ/0Az9Q6
-	3qadrDZ+bKZKRwrDiFG9K/wTPUQp4NS+JZXw89KA/0+/1SVHcyZ3ntCe04iBidNtTVsAiT9DYLvyi
-	fmBeYx/D2eACbVRuGGcRqE+QI+SldqC1euP48+21/shqCs1A5QPSUvJy/nsxusxgcFTnnbJdYArXG
-	olXz1BLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cMrQKYLq2Akc5QSaYsv0fl0/xtgDTXqROcqUDNj8yVo=; b=UKzSnZ2WmErqplaeWlSejjv6Cm
+	4Lk010cTGAWRF4WsK0XBsZQuMF/i9v9FdFDArUeqI1n0RfgqqWe8T2Y+chXVjbwd5HLs7MW11YnXE
+	/mJVulR1TXa4jB/WGUW2e6ko6uYcZIlgOypUi6u4tkjoxJQa40mXz812o1puZ85+jmp1KDdSmOxxY
+	x36pePV/ivjocmD4kvQu7nQBFVOtcv3VNRB5pV9w651d5fAGk36NYjoWDAe1Tiy/79nmH+5f7cCun
+	alIITxddXeQrgMxeEZ9xw0e+3JzJp0nvxr6+dD3xHAc3tD4yB8ql88LuF7Nc9rUo78NR7pqNwZVHw
+	v6Jezqxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnCv3-00000002v1d-0MQi;
-	Wed, 26 Feb 2025 08:37:29 +0000
-Received: from abb.hmeau.com ([144.6.53.87])
+	id 1tnCva-00000002v80-2lOC;
+	Wed, 26 Feb 2025 08:38:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnCpl-00000002tZR-29S1
+	id 1tnBjA-00000002fuZ-0u2R
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 08:32:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=WG/BZB8dw3KJbqJYA4MeEP90bt5qmYBoQ2VtcFkN6bQ=; b=hRaTwBlonDtEs5WWJDXcbJm7MU
-	d4V9ZU6gHuJhkoi+hhZkS5kWAh65aYIBJTcW3+buIGJCXhqkaXgQ9PDIyPPhzH3nHEL5s0BMo74Ay
-	ZQ1g0YhnFjKc7xk8lbHvBTR1rIBGK96J+TfAXWfTK4R7NRj8VBy/UjHmYuTO/b84eyf6qdI6Wfr+Y
-	+baf0BP/9ndb6/emmAdd/YEU8pr6wLK4fIYy3EYMBtbaCqZ/jyeKA6m/D8Y1Nxa/jz+FksG6aR4IB
-	/e3yhBCDN1MtgDD5i2uJvxQjkjgJPUPoFkAMvzVh58O+wk5F75j/yVAw4ngML9BIE98ykuLrredB9
-	wHmg+PfA==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1tnCpM-001sM7-0Y;
-	Wed, 26 Feb 2025 16:31:37 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Wed, 26 Feb 2025 16:31:36 +0800
-Date: Wed, 26 Feb 2025 16:31:36 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Arnd Bergmann <arnd@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Will Deacon <will@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Harald Freudenberger <freude@linux.ibm.com>,
-	Holger Dengler <dengler@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Jarkko Sakkinen <jarkko@kernel.org>, linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org, linux-s390@vger.kernel.org
-Subject: Re: [PATCH] crypto: lib/Kconfig - Select and hide arch options
-Message-ID: <Z77RaBFMc7u4EEIc@gondor.apana.org.au>
-References: <20250225164216.4807-1-arnd@kernel.org>
- <20250225213344.GA23792@willie-the-truck>
- <f7c298b8-7989-49e7-90a2-5356029a6283@app.fastmail.com>
- <c4896a12-8abe-4fe6-b381-86b23d32b332@app.fastmail.com>
- <Z75xKexTUNm_FnSK@gondor.apana.org.au>
- <Z76aUfPIbhPAsHbv@gondor.apana.org.au>
- <20250226060725.GA41090@sol.localdomain>
+	Wed, 26 Feb 2025 07:21:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E8A2961139;
+	Wed, 26 Feb 2025 07:20:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E5E6C4CEE2;
+	Wed, 26 Feb 2025 07:21:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740554467;
+	bh=QegaP2Da7E1JZvVAchd05hz3+HLw4pHhxmZVYmicUQQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=CP3R7TuXqviDoYcwaepIbuSIGdnf60Nsa9lHT+WW8r7Too1AZKMSjmCD1LS3zePkV
+	 BFeKkSOeWhjoTYlTOfJB5P2eJbN0Dwyh8kMNvxgdYvE4w/+wyc6q7cujyW/3puCbbn
+	 fguCBEjAxmDYpsHHuKS2O8zj24BYfPIQn2KJic/Rfdl1VCG4835z703J8I/v08yazJ
+	 G1ABsieQNik94oYbOoRuHLhyLwPjXDzVxXyaRyLNK3U5IRsL/79f/x5UNlo8Y9Icpx
+	 C+V/Vm9ukQCEMOAkmw8Sk25afT9qMKvepBls4oNiZYEhbyOBVinWxCEyb8LNnuq7h+
+	 X3bznEDKsSIBg==
+Message-ID: <00526b1d-b753-4ee5-8f83-67d27d66a43c@kernel.org>
+Date: Wed, 26 Feb 2025 08:21:01 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250226060725.GA41090@sol.localdomain>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_003201_555890_FD9A510D 
-X-CRM114-Status: GOOD (  10.20  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/9] dt-bindings: pinctrl: stm32: Introduce HDP
+To: Clement LE GOFFIC <clement.legoffic@foss.st.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20250225-hdp-upstream-v1-0-9d049c65330a@foss.st.com>
+ <20250225-hdp-upstream-v1-2-9d049c65330a@foss.st.com>
+ <6fc80544-6fc3-4450-a0cc-bfc740fe97bb@kernel.org>
+ <91f19306-4b31-41fe-8ad2-680b1a339204@foss.st.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <91f19306-4b31-41fe-8ad2-680b1a339204@foss.st.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,27 +122,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 10:07:25PM -0800, Eric Biggers wrote:
->
-> There's no need to have a select for every architecture, with the dependencies
-> redundantly listed.  Instead just 'default' each of the arch-optimized options
-> to CRYPTO_LIB_CHACHA.
+On 25/02/2025 16:51, Clement LE GOFFIC wrote:
+> On 2/25/25 14:04, Krzysztof Kozlowski wrote:
+>> On 25/02/2025 09:48, Clément Le Goffic wrote:
+>>> +
+>>> +maintainers:
+>>> +  - Clément LE GOFFIC <clement.legoffic@foss.st.com>
+>>> +
+>>> +description: |
+>>
+>>
+>> Do not need '|' unless you need to preserve formatting.
+> 
+> Ok
+> 
+>>> +  STMicroelectronics's STM32 MPUs integrate a Hardware Debug Port (HDP).
+>>> +  It allows to output internal signals on SoC's GPIO.
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    const: st,stm32mp-hdp
+>>
+>> There is a mess in STM SoCs. Sometimes you call SoC stm32, sometimes
+>> stm32mp and sometimes stm32mpXX.
+>>
+>> Define for all your STM contributions what is the actual SoC. This
+>> feedback was already given to ST.
+>>
+>>> +
+>>> +  reg:
+>>> +    maxItems: 1
+>>> +
+>>> +  clocks:
+>>> +    maxItems: 1
+>>> +
+>>> +patternProperties:
+>>> +  '-pins$':
+>>> +    type: object
+>>> +    $ref: pinmux-node.yaml#
+>>> +
+>>> +    properties:
+>>> +      function:
+>>> +        enum: [ "0", "1", "2", "3", "4", "5", "6", "7",
+>>> +                "8", "9", "10", "11", "12", "13", "14",
+>>> +                "15" ]
+>>
+>> Function which has a number is not really useful. What does it even express?
+> 
+> As said in my previous answer, function names are very different from 
+> one platform to another. Numbers were used as string to be generic.
+> I'll consider it in a V2.
 
-Good point.
+What does it mean "one platform to another"? This is one platform! Is
+this some sort of continuation of SoC compatible mess?
 
-> The way it should work is that CRYPTO_CHACHA20 should just select
-> CRYPTO_LIB_CHACHA (and thus also the optimized code).
+What are the exact functions written in datasheet?
 
-Good catch.  I'll add them.
-
-> And similarly for the other algorithms, which should be in their patches.
-
-It's best to keep everything together as if done separately they
-may introduce bisection issues between the patches.
-
-Thanks,
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+Best regards,
+Krzysztof
 
