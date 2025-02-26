@@ -4,102 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D768C1B0D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:22:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 119C0C1B087
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 15:22:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G0bimvLxqpdsAnmq95gtQRY7p/b87OPXBA7IS8VNAdg=; b=Rp+47OghrhJvAm53kHYPYkVHk5
-	vQpY7Ka8B5bVl/PSPyKqhccH7gSZIVKut5ug1Bol8BF9KRCrk/nO5N4KeHuRy+byzAOBJXaACrC/A
-	Rgnih7kMM7JTGye0UIiR42ZeHg3V9VFkH/VCy1P7Ac5fRfCox3OEZo1DfHSBoMrpaztWLJ7PIPpdh
-	4S1YG5xSOVe04aMbCb4URRb6eYqKot70wDF/pa4jAsIxW0vQ2GMoT3Iz2FMNdi9+3AuPQyHMZ9Xu0
-	xjeB5heAyvt3Nde0y/LT/L4bEQ5BQCRm6etB5Fu618p9ERlYxkL+RyyMiXA3XM8ca+Dl+z3cAwVZn
-	dv0kQ8FA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=srlQpvYJmp4WGJbQ2gOhstlghcIxLLDbBOH3Hms1G1E=; b=w1fjii1mhu/lO5
+	9EFmtZwfFEkTlM+lffVo9b1KHw7Twrcv3XiYkN9gRlhpkx/B9+EPs8PsbhMujyWHZsCt5LyoHLtKs
+	38OaO9RD+Ne/yHsf7d3bjwcI06d66lnKvNxOXdouwZlMsgosIVNessl8EEEsxeb7PjKe+iD0y3xo7
+	XeVaMVHO8nAskzI7z5L3dsYiZYm5vcJZdxz4f72iVxGAvVJ5sdmVDkdE62gnI94CyAiUlou7tMcjx
+	p3HmoFCRE5F7HLdnABO0DPmU8pWtiU72ejIDK3sgD85gQiy0VwSLGvVL1GVLPG2tjEvgruXeS561y
+	NuOL/zGIN9Pp18X5e+gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJEu-00000004FQW-1d87;
-	Wed, 26 Feb 2025 15:22:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tnJEz-00000004FZT-1C8j;
+	Wed, 26 Feb 2025 15:22:29 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnIFz-0000000432b-1EEm
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 26 Feb 2025 14:19:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Content-ID:Content-Description;
-	bh=G0bimvLxqpdsAnmq95gtQRY7p/b87OPXBA7IS8VNAdg=; b=jkXZalbAWA+kjhxO4kqVUAfr0z
-	6gvhqMUTlyoF9Mqu7tv6HB5DNZn+8ZeSRRjE5LlvDNf+QLYA+SudLorR7FRdaQJDyxPt/sgvukQKV
-	d66/uNWRhK7qsCRHyUFBr0zJpKAjP3SF5jjr7DE0tYVTFczeZT2sJbeZcboCD8fw+6EbDW8Qpr9ID
-	2lDqzlyaLDGjaJCa9eCbiG2cSD9lRtEU7rTmNbqtSt5BvGqDGy45p7vy+jV3VVmTI0FFT5EshZB68
-	CGdgAfto0MP/xPQkCb4Lcii7X09rRP725m4zHz+ONawLdqCbK4b3nGWZ0E3dmsDrgN136OXJ3vxcE
-	Jh4g3jqg==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnIFu-00000003cXi-2bJd
+	id 1tnIOf-000000045Dn-14gp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 14:19:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 819B75C485E;
-	Wed, 26 Feb 2025 14:18:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B451BC4CEED;
-	Wed, 26 Feb 2025 14:19:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740579558;
-	bh=osfiWDazaUUhIdjl88Wsp3F8y+CDBUMkVLAgYN+JnH8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=rvSnPX9b4IMPt5UqTG/4eLqsYj0/DwHMOjH/wsWG1mkivnH11hP3vfIYRmbBmOQsv
-	 tzc8GaFi47nXAyQpnqx6aAoPF/83mj8EbSb4en4kQqCXwgFKeyP794jjKWKh3z+ZtA
-	 erhKBs84jLaPk5oC8WyyfyeJ9oPRc7s/7GrtBGhamZfV9sSGmLFIe0k9AbT09dkgEP
-	 PTZ738Zh9a1uuFYuygsZVN4c5fgpkvK8cdzwvG6mAODGmhlP95s61WOeu5Yhm4euoB
-	 WzwrRbVcv/VZlk6cNLjaKMEtIon54RdGeyaHtCD2CyvdIbtBgKJOsr+B9kewD0ABlO
-	 xiHvI9C4Rg4KA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A4A15C021B8;
-	Wed, 26 Feb 2025 14:19:18 +0000 (UTC)
-From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Date: Wed, 26 Feb 2025 15:19:14 +0100
-Subject: [PATCH v2 03/12] dt-bindings: connector: Add the GOcontroll
- Moduline module slot bindings
+	Wed, 26 Feb 2025 14:28:27 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 85F5844279;
+	Wed, 26 Feb 2025 14:28:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1740580100;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=srlQpvYJmp4WGJbQ2gOhstlghcIxLLDbBOH3Hms1G1E=;
+	b=YVmqFcjk0U4E+e7zKuj6Rpt4rxnNlmQ/mknWE7cS2QlmyRYYG1pX0skomC3EzGSFK0+D0F
+	LofQCcAcczK0rToLqkgTL6IcBlrchx6Td+Em78I4vSLNbZiWK81HGy3XvZ4r9UK2BY2m+s
+	t4y9WnK03LesL2wCljRBBavDBr7cQcUGTVz+SqalkLwcf72W6+PuUyj9YfmeNtygDQ7AL2
+	mQM1gdT5t/e1zEh2tTHsacPJtCQUZfENXAk/U235HEbS8uFItYZ5vSwAM2o94jAhPbDzwS
+	EC5ezudhpnVxZ2B1Yw5qFD9iXvELunSAI9SqyWyf+7aI5kLws9yeteiVn2k+6w==
+Date: Wed, 26 Feb 2025 15:28:13 +0100
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Maxime Ripard <mripard@kernel.org>
+Subject: Re: [PATCH v6 14/26] drm/bridge: add support for refcounted DRM
+ bridges
+Message-ID: <20250226152813.4a1ad218@booty>
+In-Reply-To: <20250211-merciful-nyala-of-justice-a4fabb@houat>
+References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
+	<20250206-hotplug-drm-bridge-v6-14-9d6f2c9c3058@bootlin.com>
+	<20250207-ingenious-daffodil-dugong-51be57@houat>
+	<20250210181252.5ee028d4@booty>
+	<20250211-merciful-nyala-of-justice-a4fabb@houat>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250226-initial_display-v2-3-23fafa130817@gocontroll.com>
-References: <20250226-initial_display-v2-0-23fafa130817@gocontroll.com>
-In-Reply-To: <20250226-initial_display-v2-0-23fafa130817@gocontroll.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Jessica Zhang <quic_jesszhan@quicinc.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Thierry Reding <thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>, 
- Liu Ying <victor.liu@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Mark Brown <broonie@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org, 
- Maud Spierings <maudspierings@gocontroll.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1740579556; l=5048;
- i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=pJTRryEUH61y/AD454hzp/uuXsK9vkVHu0FC9+9tIo4=;
- b=5Vy65hAOZ6+zDffYGJ4I89iOR6gkn9v6VIpxtfvaD3g4iEr4vK6fOm3hDLEHBc73H+EZYNOzC
- B4UQQjssmy/DnyeOH0kqf0Lwj/p2P6Svkw30uRwwBAvZPQG4emMmWoa
-X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
- pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
-X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
- with auth_id=341
-X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdekgeekvdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeglefffefghefhtddvfeeufeeiveekgffgleekieduteekkeetvdehudekgfdvvdenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghlohepsghoohhthidpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefjedprhgtphhtthhopehmrhhiphgrrhgusehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsihhmohhnrgesfhhffihllhdrtghhpdhrtghpthhtohepihhnkhhirdgurggvsehsrghmshhunhhgrdgtohhmpdhrtghpthhtohepj
+ hgrghgrnhesrghmrghruhhlrghsohhluhhtihhonhhsrdgtohhmpdhrtghpthhtohepmhdrshiihihprhhofihskhhisehsrghmshhunhhgrdgtohhmpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvlhdrohhrgh
+X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_141923_086014_370955B9 
-X-CRM114-Status: GOOD (  20.81  )
+X-CRM114-CacheID: sfid-20250226_062825_772799_37AAAC4E 
+X-CRM114-Status: GOOD (  27.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,151 +77,100 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: maudspierings@gocontroll.com
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?UTF-8?B?SGVy?= =?UTF-8?B?dsOp?= Codina <herve.codina@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Paul Kocialkowski <contact@paulk.fr>, dri-devel@lists.freedesktop.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Simona Vetter <simona@ffwll.ch>, Robert Foss <rfoss@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Sam Ravnborg <sam@ravnborg.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Daniel Thompson <danielt@kernel.org>, Jagan Teki <jagan@amarulasolutions.com>, Jessica Zhang <quic_jesszhan@quicinc.com>, Thomas Zimmermann <tzimmermann@suse.de>, Will Deacon <will@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, Sascha Hauer <s.hauer@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Inki Dae <inki.dae@samsung.com>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Boris Brezillon <bbrezillon@kernel.org>, linux-kernel@vger.kernel.org, Paul Kocialkowski <paul.kocialkowski@bootlin.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Shawn Guo <shawnguo@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Maud Spierings <maudspierings@gocontroll.com>
+Hi Maxime,
 
-Add the bindings that describe a GOcontroll Moduline module slot. This
-slot provides all the interfaces to interface with a Moduline compatible
-IO module. The actual module is not reasonable to describe as it can be
-swapped at will, with this connector the driver will be able to probe
-for a module on boot.
+On Tue, 11 Feb 2025 14:10:50 +0100
+Maxime Ripard <mripard@kernel.org> wrote:
 
-The connector consists of 2 parts, one part for interfacing with the SoC
-and main board, the other part has 13 IO channels for the module to
-interact with the outside world. The functions of these IO channels are
-determined by the type of module in the slot. The IO on the SoC side is
-as follows:
+> On Mon, Feb 10, 2025 at 06:12:52PM +0100, Luca Ceresoli wrote:
+> > Hello Maxime,
+> > 
+> > On Fri, 7 Feb 2025 12:47:51 +0100
+> > Maxime Ripard <mripard@kernel.org> wrote:
+> >   
+> > > > diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
+> > > > index ad7ba444a13e5ecf16f996de3742e4ac67dc21f1..43cef0f6ccd36034f64ad2babfebea62db1d9e43 100644
+> > > > --- a/include/drm/drm_bridge.h
+> > > > +++ b/include/drm/drm_bridge.h
+> > > > @@ -31,6 +31,7 @@
+> > > >  #include <drm/drm_encoder.h>
+> > > >  #include <drm/drm_mode_object.h>
+> > > >  #include <drm/drm_modes.h>
+> > > > +#include <drm/drm_print.h>
+> > > >  
+> > > >  struct device_node;
+> > > >  
+> > > > @@ -863,6 +864,22 @@ struct drm_bridge {
+> > > >  	const struct drm_bridge_timings *timings;
+> > > >  	/** @funcs: control functions */
+> > > >  	const struct drm_bridge_funcs *funcs;
+> > > > +
+> > > > +	/**
+> > > > +	 * @container_offset: Offset of this struct within the container
+> > > > +	 * struct embedding it. Used for refcounted bridges to free the
+> > > > +	 * embeddeing struct when the refcount drops to zero. Unused on
+> > > > +	 * legacy bridges.
+> > > > +	 */
+> > > > +	size_t container_offset;    
+> > > 
+> > > This shouldn't be in there. You can create an intermediate structure and
+> > > store both pointers for the action to consume.  
+> > 
+> > You mean to store container_offset + refcount + is_refcounted?  
+> 
+> No, I meant for the private structure pointer and the drm_bridge
+> pointer. refcount should be in drm_bridge, and I think is_refcounted
+> should be dropped.
 
- - a 3v3 supply, this tends to be the logic level of the module and its
-   microcontroller
- - a 5v0 supply, this can be used to power low power peripherals on the
-   module
- - a 6v-8v supply, this can be used for high power peripherals on the
-   module
- - a 6v-30v supply, this tends to be a dirty supply that comes from the
-   controller supply after some circuit protection, or is the same as
-   the 6v-8v supply.
- - an SPI bus which carries the communication between the SoC and the
-   microcontroller on the module.
- - an I2C bus shared between the SoC and all module slots which can
-   carry direct module-to-module communication.
- - a reset line
- - an interrupt line that indicates a clear to transmit signal
- - a sync line shared between the SoC and all module slots which could
-   be used to synchronize modules for time sensitive IO spread across
-   modules.
- - a SMBus alert line that is shared between the modules but is not
-   connected to the SoC so that is ignored.
+Storing the container pointer instead of the offset is a good idea, it
+will allow to get rid of is_refcounted: drm_bridge_is_refcounted() can
+just return "container != NULL" instead of "bridge->is_refcounted". So
+far so good.
 
-A slot-number property is used to identify the physical location of a
-module slot. Without it, it would be impossible to identify which module
-to control if there are multiple of one type, to address the desired IO.
+I'm not sure about the intermediate struct you have in mind though.
 
-Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
----
- .../connector/gocontroll,moduline-module-slot.yaml | 88 ++++++++++++++++++++++
- 1 file changed, 88 insertions(+)
+Do you mean:
 
-diff --git a/Documentation/devicetree/bindings/connector/gocontroll,moduline-module-slot.yaml b/Documentation/devicetree/bindings/connector/gocontroll,moduline-module-slot.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..a16ae2762d160180d5b163e20f5294235e65053b
---- /dev/null
-+++ b/Documentation/devicetree/bindings/connector/gocontroll,moduline-module-slot.yaml
-@@ -0,0 +1,88 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/connector/gocontroll,moduline-module-slot.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: GOcontroll Moduline Module slot
-+
-+maintainers:
-+  - Maud Spierings <maudspierings@gocontroll.com>
-+
-+description:
-+  The GOcontroll Moduline module slot represents a connector that fullfills the
-+  Moduline slot specification, and can thus house any IO module that is also
-+  built to this spec.
-+
-+properties:
-+  compatible:
-+    const: gocontroll,moduline-module-slot
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    description: indicates readiness, high means busy.
-+    maxItems: 1
-+  reset-gpios:
-+    description: resets the module, active low.
-+    maxItems: 1
-+  sync-gpios:
-+    description: sync line between all module slots.
-+    maxItems: 1
-+
-+  vdd-supply:
-+    description: low power 3v3 supply generally for the microcontroller.
-+  vddp-supply:
-+    description: medium power 5v0 supply for on module low power peripherals.
-+  vddhpp-supply:
-+    description: high power 6v-8v supply for on module high power peripherals.
-+  power-supply:
-+    description: high power 6v-30v supply for high power module circuits.
-+
-+  i2c-bus:
-+    description: i2c bus shared between module slots and the SoC
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+
-+  slot-number:
-+    description:
-+      The number of the module slot representing the location of on the pcb.
-+      This enables access to the modules based on slot location.
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+
-+  spi-max-frequency: true
-+
-+required:
-+  - compatible
-+  - reg
-+  - reset-gpios
-+  - interrupts
-+  - sync-gpios
-+  - i2c-bus
-+  - slot-number
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/gpio/gpio.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    spi {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        connector@0 {
-+            reg = <0>;
-+            compatible = "gocontroll,moduline-module-slot";
-+            reset-gpios = <&gpio5 10 GPIO_ACTIVE_LOW>;
-+            sync-gpios = <&gpio4 16 GPIO_ACTIVE_HIGH>;
-+            interrupt-parent = <&gpio4>;
-+            interrupts = <5 IRQ_TYPE_EDGE_FALLING>;
-+            vdd-supply = <&reg_3v3_per>;
-+            vddp-supply = <&reg_5v0>;
-+            vddhpp-supply = <&reg_6v4>;
-+            i2c-bus = <&i2c2>;
-+            slot-number = <1>;
-+        };
-+    };
+struct drm_bridge_pointers {
+    struct drm_bridge *bridge;
+    void              *container;
+}
+
+?
+
+If that's what you mean, should it be embedded in drm_struct or
+allocated separately?
+
+If you mean to embed that struct in drm_bridge, then I the drm_bridge
+pointer inside the intermediate struct would be useless.
+
+If instead you mean to embed it in drm_struct: I'm not sure I see much
+benefit except maybe not exposing the container pointer to drm_bridge
+users, but I see a drawbacks: at the last put we need to find the
+container pointer to free from a struct kref pointer, which can work
+only if the container pointer is in the same struct as struct kref.
+
+Additionally, the consuming action for that struct just needs a
+drm_bridge pointer:
+
+     static void drm_bridge_put_void(void *data)
+     {
+	struct drm_bridge *bridge = (struct drm_bridge *)data;
+
+	drm_bridge_put(bridge);
+     }
+
+Can you clarify this? I'd love to have this cleanup in the next
+iteration.
+
+Luca
 
 -- 
-2.48.1
-
-
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
