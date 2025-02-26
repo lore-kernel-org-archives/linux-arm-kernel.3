@@ -4,105 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B67CFC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 07:13:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14608C19777
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 07:14:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9fcstKmDycWFCYYGpy+u92c5xwx3E08rIfRInyoURw4=; b=Qjl7zuoYb6wUdvHIQ65UfeAGdH
-	hDZjxae7SQIXvED//HVjK5MGwm/joHNtA2/C1NEJcrZRZOdiW52Lb8rQ/+BzbappadHHA1JTS81c4
-	ccL7yfq4GuJdtfaN6QlMWvR5IjLr8hjDpnbKBQmUuf/M7B6V+p4ZGpmyFALuclLWctICHbH52r3Ao
-	nk1V2OzMK9DFNnohweAl9ZDEdktTSnYUW4ORl6yM9USat7QFP+x23lAWEZwRp+Ne2fmrdOVTBiIk1
-	MSbfl4WYTv6/akJOjU2rqSlwnpIErWfG8a3sH+A7GStnbGwQATnCc9k/f8GbUWkjnKPIhJU+Svfkv
-	aOUrwLLA==;
+	bh=YI93Qd6/SxP8QpdHCunqdC2cypU5sNBcCMSzZB1XCKg=; b=TXHpUnKXyW5dwUB8Zp0v0rTzSZ
+	29MCkRReHvMOsPbBnqyaQNwcm+5suCAkYv16cly8OIa8xb3i9OKJULSY8GoIWFCWEYKfPRr4hB/RX
+	edVh430Je5M+vQn870+xGx9Y1IlI75drp8mViVblNXJmKXakhwo0lo5KSq2NnsHtzbWZ1xrvkL47e
+	fAAVxM7BJ9bAgsR0nV0Te6Evg7aWYCMoWcnQ3y6yIzkL/NB7YBtFb52PKn2/gHB2+J8GR9HIkqfo+
+	/vuauWMBDPmyS1hqVS/L+JYsUae5jiyU+M9HzTwvmtXEUw4zri3iUHaNxwkQCZM1jR3pdXZUwo/Eq
+	aIFLnVxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnBbW-00000002efF-1cZ4;
-	Wed, 26 Feb 2025 07:13:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tnBd2-00000002eru-0ISk;
+	Wed, 26 Feb 2025 07:14:48 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnBU8-00000002daq-1rDB
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 07:05:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 44A9F61128;
-	Wed, 26 Feb 2025 07:05:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10F46C4CEE2;
-	Wed, 26 Feb 2025 07:05:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740553535;
-	bh=xooNKPR7LwqPsPK+WfulWHJIPzpUEscC2O7IjomRQvU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qRJOXTuUh+8JKXGDBGnWrerDupbZSBxANMJ7xwa2Bq8g4EwQS7HBekhP6zUiHcizK
-	 aWFRPUvwDw3shSUDdw98YzcBgoWHFat/2I6bZXaSJ1PlpWT7PHWFXM0tp89SWVlQHh
-	 2UIxH3iPZVer+5uG5IfgT6gaAXyxJ67v9ToheL76sWv5LPBvpnwTgAv9Ll/GRQLluR
-	 rudeCAofcnTQyW7uzuAl/iETKfJrZeb6BbjO9P60KGBGJ7epB/S+q9ECB4zr82yNtB
-	 2gEb3Y/ajswOcMEzkD/XwzKr6LFLLFyU1Ahxl+Qrp7xmS5sQweOjbs1gO9Tm02ke4y
-	 kY6a+y7RRrmpw==
-Message-ID: <33504452-6326-4403-95e1-fef40f3fb49e@kernel.org>
-Date: Wed, 26 Feb 2025 08:05:29 +0100
+	id 1tnBUq-00000002dk4-35Dt;
+	Wed, 26 Feb 2025 07:06:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740553581; x=1772089581;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=W5m8VXXaCJzooM7nBsw1fkyJLmefcSUyEyU2R1fyCSM=;
+  b=MThRaYb/MD3R9bSbWTl5MdSSFldXfiLiD298pBpXCX+/NmeQGygdlT/f
+   ZxO6VqfaAF5uYJXuof4nY+RDtSDNhmBDZfd4J/UdwTKb90qpBGxDdw+gk
+   wLJZuLmrdo66ZnCfM13a4TBYB4WGu4myPq2B90zA9qO8asip8KCRM4i4P
+   iyGIPcXE8MwnF7JGZaZPHzA5O4je+43M8uA/R5Lu5eUMC/pjrUfLJFOSn
+   x7p0KABW38suS3S5vV0JEwfyaWuiv8rehg9ZM+HvxVnGs7K53sFwRBBTh
+   8XzwHtEB1b8Sk5X3efiTLpRItgJQZCCDwxNgCj6fGumcS+76NDCXhrpns
+   A==;
+X-CSE-ConnectionGUID: bBo2A1Y1Rx+pOzwcWhSapw==
+X-CSE-MsgGUID: Zq8m+p45Q1ycsCQs0YcslA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11356"; a="45300940"
+X-IronPort-AV: E=Sophos;i="6.13,316,1732608000"; 
+   d="scan'208";a="45300940"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 23:06:20 -0800
+X-CSE-ConnectionGUID: o2XeqybiSAuGJr9XU9Ilgg==
+X-CSE-MsgGUID: 55W0no9QSx2jxxin+p8ALw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,316,1732608000"; 
+   d="scan'208";a="121717131"
+Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
+  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Feb 2025 23:06:12 -0800
+Message-ID: <7e70dfea-1be1-4699-b238-2d63fbfc2bc5@linux.intel.com>
+Date: Wed, 26 Feb 2025 15:02:57 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/6] arm64: dts: cix: add initial CIX P1(SKY1) dts
- support
-To: Peter Chen <peter.chen@cixtech.com>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
- marcin@juszkiewicz.com.pl, Fugang Duan <fugang.duan@cixtech.com>
-References: <20250226012136.854614-1-peter.chen@cixtech.com>
- <20250226012136.854614-7-peter.chen@cixtech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v3 12/23] iommu: Change iommu_iotlb_gather to use
+ iommu_page_list
+To: Jason Gunthorpe <jgg@nvidia.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
+ asahi@lists.linux.dev, David Woodhouse <dwmw2@infradead.org>,
+ Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-tegra@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Hector Martin <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Robin Murphy
+ <robin.murphy@arm.com>, Samuel Holland <samuel@sholland.org>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
+ Tomasz Jeznach <tjeznach@rivosinc.com>, Krishna Reddy <vdumpa@nvidia.com>,
+ Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>
+Cc: Bagas Sanjaya <bagasdotme@gmail.com>, Joerg Roedel <jroedel@suse.de>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+ David Rientjes <rientjes@google.com>, Matthew Wilcox <willy@infradead.org>
+References: <12-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
- QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
- gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
- /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
- iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
- VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
- 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
- xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
- eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
- AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
- MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
- Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
- ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
- vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
- oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
- lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
- t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
- uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
- 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
- 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250226012136.854614-7-peter.chen@cixtech.com>
-Content-Type: text/plain; charset=UTF-8
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <12-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250225_230620_820202_7FFB51F4 
+X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,61 +103,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/02/2025 02:21, Peter Chen wrote:
+On 2/26/25 03:39, Jason Gunthorpe wrote:
+> This converts the remaining places using list of pages to the new API.
+> 
+> The Intel free path was shared with its gather path, so it is converted at
+> the same time.
+> 
+> Signed-off-by: Jason Gunthorpe<jgg@nvidia.com>
 
-> +				core7 {
-> +					cpu = <&cpu7>;
-> +				};
-> +				core8 {
-> +					cpu = <&cpu8>;
-> +				};
-> +				core9 {
-> +					cpu = <&cpu9>;
-> +				};
-> +				core10 {
-> +					cpu = <&cpu10>;
-> +				};
-> +				core11 {
-> +					cpu = <&cpu11>;
-> +				};
-> +			};
-> +		};
-> +
-
-
-Stray blank line
-
-> +	};
-> +
-> +	pmu-a520 {
-> +		compatible = "arm,cortex-a520-pmu";
-> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW>;
-> +	};
-> +
-> +	pmu-a720 {
-> +		compatible = "arm,cortex-a720-pmu";
-> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW>;
-> +	};
-> +
-> +	pmu-spe {
-> +		compatible = "arm,statistical-profiling-extension-v1";
-> +		interrupts = <GIC_PPI 5 IRQ_TYPE_LEVEL_LOW>;
-> +	};
-> +
-> +	psci {
-> +		compatible = "arm,psci-1.0";
-> +		method = "smc";
-> +	};
-> +
-> +	soc@0 {
-> +		compatible = "simple-bus";
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges = <0 0 0 0 0x20 0>;
-
-
-Ranges is like reg, so after compatible. See DTS coding style.
-
-Best regards,
-Krzysztof
+Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
 
