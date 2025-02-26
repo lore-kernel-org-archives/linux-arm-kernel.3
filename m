@@ -4,91 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B27BBC18E7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 16:05:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7C05C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 16:08:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gwu1vQV8ggck37Vg9L4D8awhycEpwFoshE6s78gkYcU=; b=E4ybjROCzrctUep/HYhaZwN88n
-	WiynKsrwLfvdf3h7/nCueLXXhFd48+M07QcwxhiCjhYZquYQR6ILpuB/OciVt4qdOFeL6gESqul12
-	lSRpPV1L/yz3N8ws6hZdPSY0szw8gHtUv783ib1nCEYrUD32J6B/fOHQKG4Sy4KrCYvzDpfKJA0st
-	Q9RPYy3UGo69e8d23YwmK9w3SQxfbFH4XYpK1FvNTRSqfc73BD0yJV/yITfGdCkoFB5IyfOf9y8gI
-	VpdKOT/y1cDnNd2SQBFwXvLJZbsPcaLeBViCvHtS2oL+RTmrYc/4hFqMnWhMmCp6NDG/dint6eGkf
-	XwmIi5cA==;
+	bh=9GAv7KnsrTUkn0jHtFLhgqdTWfESGKdmqysIaPun+oE=; b=ioNgmIf8J7dgddVRYBLxv2YbzX
+	Km1SdRwVQsHT1BGDPEbYYO01EIcmDSD7b15vF2Ha7QLzqWUgrSI5sAsI2WjldAjxyqsuTSiSI1nb1
+	MGTUdP/snzIJj9MYgMLScWOl3aaL4iLhz2YQ805M1x45Y6s9C1EAo94k+BOHoqw95onwqEjNjg3RC
+	euH2gElyJ3yb5t7H1YCe4qQuZekIbORW1301DtP00J+nfNIoKUBDphOhC5sjr+SOeYxkYBXBr4Dc8
+	JAbKw0WbCzBlFmWuN/Ftumoeu5Vd9uv4hGQcI30mOMyFfN2jM/I9l9WwU3H1LCXPuEvIijvpaUpIp
+	HaL+XaRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJuV-00000004Sfr-24iP;
-	Wed, 26 Feb 2025 16:05:23 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1tnJwt-00000004TLP-1yxW;
+	Wed, 26 Feb 2025 16:07:51 +0000
+Received: from mail-dm6nam12on20620.outbound.protection.outlook.com ([2a01:111:f403:2417::620] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnJpv-00000004RWB-3y8G
+	id 1tnJvM-00000004T2N-0vIZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 16:00:41 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5ded6c31344so9796607a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 08:00:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740585638; x=1741190438; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Gwu1vQV8ggck37Vg9L4D8awhycEpwFoshE6s78gkYcU=;
-        b=GhhP9lmBOcDUqQUdxio9WfkEkCKqdBet5vrQit+b9I5jsd9ClZhluKWsDcKLi8ljs9
-         5dt0Drl2uuVVs0f4A8s5a9YRZobsPGhstH+luxWvVQeERql5DdxZDuVg2AHM1ebwsYgR
-         OkDTlFJAKl0lKWAyO5WuNqOAsxJPk6e8FKmYyAmqZUqKldNvmxU4o4Oxmg14rRejmxiq
-         krvgcB+829OsRTbHsn0D1/Hb3VM5q7q5BCuzkF7hSmoUejgW7/QqI3ICVi0F0jcxBJZc
-         EX8gFLQVZ7sJdC94Vf90Bpeq8gs+zqQwj6f2n7TLIrhEHwDrVGROYM6rAlj2xLIqZPft
-         QVsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740585638; x=1741190438;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Gwu1vQV8ggck37Vg9L4D8awhycEpwFoshE6s78gkYcU=;
-        b=RmkAegMO7vEt8idkzacyvSsWPyghn3q/mFZbrrvotjRYEV1hty54MlCaBs65ZgFO3g
-         ha3D7j85NCeFXvOZ0UG10lZai5eu7oYaCnrG8qNENbggBD2nMFtklBkUcVMYO7sgX2Sw
-         1q6J9a/eatL/FhC8gbtmE7x/L6n6pEhYtpgagkK2uClLPabOus1uCmwFDpNOe0g4RqRv
-         i2Sno+rcuQ8ToDVJzuvJhqoFdgFqFYmFI0aSmDcgUaQBHtVzcnkbxcumWpWXYfVdxcCN
-         FwhGRpkb4pikjpArH5a+DMqnVkkl4D2ZzBqTqpTYB/FMxG3t7oa0MLTopWa894sPYVvv
-         1d3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW5/hWl9AS+l71tv+DDYgzgL864gw49Qj8Qi3mfAw3O6UZqiKEN8jxIb0hrzBvqypiD+kZlbZdYaJBw37gCgvDS@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzf7itVkXIidT8irSZZhmVl3Pfc+4Z74k7PXOJY5WqClBDZT1PK
-	CErbK7wcNVVUwQgWc/007T9qj2W9YFJ6osewP8OGeBSGPxF5VdBU
-X-Gm-Gg: ASbGncviA6DbQHDrFz3QDacUzLHQB6U6nDOwIXENsdQdHix7eW+QV10yw4s4m/+7M7h
-	OW3EibMLZkRoPJyRDt0E0NwXqWBo4PmVyJmv2cfFL6mBQKRE645JTUqvZ7zJbVBE/9GZjJtRB6n
-	hETbSczRzYIGA4ipjnDr3bxebUi2j0n7fGyyV2cYe5N3OW+VKk4kM/S4EqCKleRhY7RY42505TM
-	9IFys5LA0g3TKuNg2LXhwkxGJKQbgekTDcn8eyYiGBXSPn03AT4iAIUhv+4lU9rypWmBJ4AXUdK
-	YAKHrs+GBKVWEAlqard87Zx5qS1sOg8QDXq4Ljgrow/bZQZDApEXW1Nwd9/0iYE8BGF4rcQtjZP
-	oAA==
-X-Google-Smtp-Source: AGHT+IEX8QHzkUkc9cGra4oV85XFYs0dB6tGVSwdZwBd02GmYl2uN7wCwssdJKsfpCdyntXkd/9Lkw==
-X-Received: by 2002:a05:6402:2684:b0:5e0:49e4:2180 with SMTP id 4fb4d7f45d1cf-5e44a256c8dmr19099315a12.25.1740585633378;
-        Wed, 26 Feb 2025 08:00:33 -0800 (PST)
-Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abed2053ec9sm350378666b.137.2025.02.26.08.00.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Feb 2025 08:00:32 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Samuel Holland <samuel@sholland.org>, Andre Przywara <andre.przywara@arm.com>
-Cc: Maxime Ripard <mripard@kernel.org>,
- Kuba =?UTF-8?B?U3pjem9kcnp5xYRza2k=?= <kuba@szczodrzynski.pl>,
- linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH 1/2] clk: sunxi-ng: mp: provide wrapper for setting feature flags
-Date: Wed, 26 Feb 2025 17:00:31 +0100
-Message-ID: <2979203.e9J7NaK4W3@jernej-laptop>
-In-Reply-To: <20250226103734.1252013-2-andre.przywara@arm.com>
-References: <20250226103734.1252013-1-andre.przywara@arm.com>
- <20250226103734.1252013-2-andre.przywara@arm.com>
+	Wed, 26 Feb 2025 16:06:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AS31WtkQNT0xqw9QY4ahz8C4JVdslLMrAkguIVatCqni8k6Eg02gCfmmiaAzrUFZq3zaImr6Xfm5HDc3tZ4ClzetZG23Nubmn/JeUtusCHMacWJGCWZtwh+10u4Hy1UGGEWZezawT0+tLZpjrIZo1Jsj2Z8kM6MKw4kAg4vAI9OnCfA2RFRF2L7q6D/ZkoK4eH0RjY68xfE9S1oU6LzMd4v/UHdh9ir8zvwWaDPss82Ey5d01ujZCSF39qGzbphekha5hTvR+QpFYl4i5cNRIolX9+LKHXwMmlakhm0I2fEPZm/YiMmsBJ0UZiuT0CBhL1N6sGiQFfgTpRnZHPLiYg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9GAv7KnsrTUkn0jHtFLhgqdTWfESGKdmqysIaPun+oE=;
+ b=PphVgH1oB4XQHDMLw8Bsx2xjTQp9X5H4FGtACgPICBi4qYK2lhaD4BLKxshml1O4yXmr3N2fACTlSRzJ+Q4orKEm3hfI1CRm1REykou+xZjKjLAXJJWhMfm0vfO33xy8KUKGqPtM9k+2NMzCt8sPJsZrevJlDDMxWG/D9eTke7XGcbKgErsFWOpzUM7bn/d09r5teBZdVmmaPRaQEStxoBx04bY7EoLKZvTojSFILnvBnXRdjbcuR11vHDZYROsWOVcdCOtfwDQOU1htxg+RPmThf3wI1mBoM/cjqZJ3CkI0Fv+kKCRcw9UfEB3IV3spUWgvlbQdLtITlILtxF9r6A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9GAv7KnsrTUkn0jHtFLhgqdTWfESGKdmqysIaPun+oE=;
+ b=PRuQxA0DdXUE+YmGvXto3qnLG7kDpmUbdTVardBIPrO1UEb0ddftWWEiCYokhYesf0V02li17HQODBJI9Fc9mavrSuQL4SkTGaS84nGXdG0dlnwhkFYQT73GnnztZ6GqB/ky4cBKmKWoy6RxTFx/hWLu1swgFAxyntX2qAcnrSi2pJpx73L+8iZ6S5DZlTmDv6KlgKyOrH/Ry1q6W1StOu76ltm+6Ouf0WBeXoC3qUWpVVFK5ZmEeyf6IYzkGcEIUHljmx5OoahECs3icraG1wuVpCCjF3M+wCAv3bQ4djoSkF3/C08Qt7ldysZkNQS8dT7kpVMaFEOWAgIlZnfniQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ2PR12MB8784.namprd12.prod.outlook.com (2603:10b6:a03:4d0::11)
+ by PH0PR12MB7792.namprd12.prod.outlook.com (2603:10b6:510:281::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.20; Wed, 26 Feb
+ 2025 16:06:10 +0000
+Received: from SJ2PR12MB8784.namprd12.prod.outlook.com
+ ([fe80::1660:3173:eef6:6cd9]) by SJ2PR12MB8784.namprd12.prod.outlook.com
+ ([fe80::1660:3173:eef6:6cd9%6]) with mapi id 15.20.8466.016; Wed, 26 Feb 2025
+ 16:06:10 +0000
+Message-ID: <757869f5-7341-402e-b81e-fb6a8ce8d801@nvidia.com>
+Date: Wed, 26 Feb 2025 16:06:03 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 9/9] net: stmmac: convert to phylink managed EEE
+ support
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>,
+ Bryan Whitehead <bryan.whitehead@microchip.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Marcin Wojtas <marcin.s.wojtas@gmail.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+ Paolo Abeni <pabeni@redhat.com>, UNGLinuxDriver@microchip.com,
+ "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+References: <Z7X6Z8yLMsQ1wa2D@shell.armlinux.org.uk>
+ <203871c2-c673-4a98-a0a3-299d1cf71cf0@nvidia.com>
+ <Z7YtWmkVl0rWFvQO@shell.armlinux.org.uk>
+ <fd4af708-0c92-4295-9801-bf53db3a16cc@nvidia.com>
+ <Z7ZF0dA4-jwU7O2E@shell.armlinux.org.uk>
+ <31731125-ab8f-48d9-bd6f-431d49431957@nvidia.com>
+ <Z77myuNCoe_la7e4@shell.armlinux.org.uk>
+ <dd1f65bf-8579-4d32-9c9c-9815d25cc116@nvidia.com>
+ <Z770LRrhPOjOsdrd@shell.armlinux.org.uk>
+ <63f9d470-e4e4-4e06-a057-1e1ab0aca9d0@nvidia.com>
+ <Z786jCGYDewTH7bN@shell.armlinux.org.uk>
+From: Jon Hunter <jonathanh@nvidia.com>
+Content-Language: en-US
+In-Reply-To: <Z786jCGYDewTH7bN@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO2P265CA0113.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:c::29) To SJ2PR12MB8784.namprd12.prod.outlook.com
+ (2603:10b6:a03:4d0::11)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB8784:EE_|PH0PR12MB7792:EE_
+X-MS-Office365-Filtering-Correlation-Id: f4a9622f-30a9-49a0-417a-08dd567f7c61
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|10070799003;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?N3NhdUlJSDVGdTI3RThqbzMxYi9uZEtSYjF3eUJxSW9zRzllSHFQdHNmYjl6?=
+ =?utf-8?B?V1FqMmtzcmpIeXRrVFN3Nm1LR21xYjF0UGl1RlYrV3FUcVdjdFZlVVBOci9j?=
+ =?utf-8?B?cHQxdzltaG40VHZ5RnFOZlBUeVhFVDZ3R1lScmowK2hVc3hmTTN2cHhjNG8y?=
+ =?utf-8?B?SkJCcUIzaVlzY1h5dEZETjZHSGR5eW9ETEVSaForNzQ0Mmp0anh4UytFZzhZ?=
+ =?utf-8?B?Qzg4VGl4dVI1aGU3cmhrdnFLL2d3SUhLYVZQaUxYQk1QWnZ6aXIxYzVnVEF2?=
+ =?utf-8?B?cThPVitycnc0V3VmS3ZtZjhDbXdaWDZCRkJrcnl2TDlOa2tTbmlLUEhGNk5C?=
+ =?utf-8?B?aGU0bVhoY0RBWXhQRWltRmZlek1zMDlTWmNWZ3h6alNwOUVzbEVYU0ZjMlRM?=
+ =?utf-8?B?NTZ1ZCt6Nm92UExNSWNlc2tmQ2UwelR6VGtIcHlFd2hibEpGeUl3NVUzQnZs?=
+ =?utf-8?B?OHVvV3BmcFJpQUphK3lpekdjdFJpNFBqUVFYUFgzSng5eE5PdnROL1MxQ1Ns?=
+ =?utf-8?B?d0M0RTh2eEpHR2gwUmc3KzhINW1lRW5ZS0xSazNjdDNMWjZET1pFQm5vc2l5?=
+ =?utf-8?B?MUlLMnY1L0VZV245TFZaRG5Fek9aUkRMME1zWVdoVCtIWjAzNG1xamMzWWNl?=
+ =?utf-8?B?UW15TkxvUFY3bmxRdWhqT0dHdTlqVGdUTytvR1J1WkZSOFRaQ3JJcDhUVGxa?=
+ =?utf-8?B?cWplc1hLV2tjR3JQREpNY3NZWkRUVzVCZHdTRDRsd0pBU1hQckxweGVUODRu?=
+ =?utf-8?B?aXp2c2ppbmovbytMVHlLL2R6NFhOZXAvOHdoUk9kYWM3ZCtlR2V0SkkzdTNK?=
+ =?utf-8?B?WFZJamFFNU04VDdVMHJpQU9BbEV2SGd6WmVzVG1yRzNOZDZQWjdaUDVSdHkw?=
+ =?utf-8?B?L0xjeHgzWDNmcVRsRU1iSzRWZlhqUUlPZktBbm00ejVMQ0p5SGR2T2IvRE9m?=
+ =?utf-8?B?bFdxandUQ0lkbHdnd1E0QWZqMkpTRjIvYjFFVXp4SitFZk9XNXNSd2JRVFZo?=
+ =?utf-8?B?ck1SVUtYVWQ3VHBGV0JLZUdOUHpUMVFVY1hSNDcrNStRT1NFU0dxY0VQQWFU?=
+ =?utf-8?B?RnhlN3pIWkZMd2ZTUGZCUytSaTY1b2E5WU5CMUE5aXl2RE94Si94akx2QVZj?=
+ =?utf-8?B?dTFHT1dMc29JeFhIeWordFpiYlZEbHRQNFhjUy96V0RtSzhpSW56dmNnVEJi?=
+ =?utf-8?B?MHVhazRScmZybzhoVUJsZmNpNDBPQWlXU0YrYkxXUWVNNmk2RlMvZ2o2YXFh?=
+ =?utf-8?B?bUVBZzc3WXo0R1RtdzNUaGM2Q3hUWFJqdklyZ29jOTM5dzVDdGFVZlluTW81?=
+ =?utf-8?B?VmxvRzBEYzZuZXUxTUJmb25MTkxuWlhYTS8ycWd0VEhnOHUxWWVkazVDMC8x?=
+ =?utf-8?B?UlJwNkZTWmNSK2pvcnMwNGxWVklidmVNT01va1NFMXR6dk5zUldyeDlWV0dM?=
+ =?utf-8?B?N1pna2pPTDdoclBaNzFLVHU4V3FyT0Vyb0lTQXR1a1hOWXY1N2h4eTRINEM3?=
+ =?utf-8?B?eXVodllSMWc3NitLWE53cUJLK1lUOC9BcFVwQllnTy9lSCtqclFjNlpHQkZE?=
+ =?utf-8?B?N1ZNbjB4Ukdob2NydXo2RC9OR1BQUlN3WW90WGdGRUhRK0cyRzJKUkgzM29r?=
+ =?utf-8?B?N09VTytHb0o0M3hOaTE2K3Z6c0JWNmc2SHUzcWhJcktFTlY0SmltWDRVMGtT?=
+ =?utf-8?B?Zlg5TXoxOFN6eURNV3BIU3ZxQnA2dmRoSjhLaVFVWHRCN0NsbFpMZmZOamhq?=
+ =?utf-8?B?Z04rblJDcTQyS3B3U2lxZFloL2syaGFFQTZqczVicy9PRFRsYnlKMzBGaWRn?=
+ =?utf-8?B?eGY0Wkt6QTlRT3czYVErUkorQVl5TTVGdnVKOEMvdzZYL0JIRmZDdmlIaE9r?=
+ =?utf-8?Q?K3iE++Og+Pw1F?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8784.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(10070799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bFpsNXVLSGZnVVg3N3NCOVlpY1ZmNUw3M1hudW9meVhFeldENDdvN0gxaGlp?=
+ =?utf-8?B?L0ZaWVE0RkY3Q3BiTGNvbFJoTjQvZnJmckxLM2NvR3k4WjJIV1hLMGUzT2tG?=
+ =?utf-8?B?QzN4ZkpMRFlHRTdaTVZ2ZjBRUXFpMUZQVGdEbTEvWFRWcDNKbjFqUWpBbGYv?=
+ =?utf-8?B?USsrc0k1dnNXb0p6Wmc1OTBHOC8vNGhwT1hYSzgzMXZHYXJVRXo1bXlLOWlz?=
+ =?utf-8?B?VGsxRCtMaFdnVllmdHJmSHBkK1hrSG5peEsrNXN3cG9POUdoTlJJVll3aFhi?=
+ =?utf-8?B?a2tlK0Mzb0FVUVl3eXVDalhXak5uSnYyWkFpeWxQYlQzbmx3Z2ZUVFNNNFRT?=
+ =?utf-8?B?cjlEdVFEMm5kbUVkR3g1NWJhWVRJcEhVbTg4SWV5OHpaOTlOdXZlRzNIRDBo?=
+ =?utf-8?B?SFRHV1ZSUlBrbVVTTitDN2VhQnA2Q2QremxKUGNiQjdTZkgrc0pGRlBwcGlK?=
+ =?utf-8?B?NU5yVi9BUSs0VUZsdkFwbTRteksvR243YjJHMjhWMjZyZXJMNVZab2lPMWpO?=
+ =?utf-8?B?dUpTQjF2MnI1bW1UTGRpSWU5ajdkQXg1amJwbWpOMENnRGVNczkxc3VSKzRC?=
+ =?utf-8?B?djVJZk1kNnFRT2xJRTNrM3pWa3ZmOGJpTlVlTVhGREZSZEtDQjAvZmNmMjR5?=
+ =?utf-8?B?MG8xdnZaYnBrUHpOcUlpeEc3S1QwRDcwN0YzQm1lTlRIR0hsZ3ZBeFMzRTAz?=
+ =?utf-8?B?T2lZRzMrRDNvdlF1UTNIeGJhTVdWUUNXdUFra05ERHVXdUdlakRrVnNwYkhu?=
+ =?utf-8?B?WFowRHBMQm1hc3Iwd1NZQVA5alNlNEFsd090dlRUek5nOVRjTzJkOUtxanVk?=
+ =?utf-8?B?eXNYcnF5NmtCdUNOUHJZUlRXSXpDaG5ISEVhMVUxNnJOQTc5c1kvL2VISEc0?=
+ =?utf-8?B?YlJES3NnNS9YNkprWUNHNWFFZ1Y5dGtYQThJVlBLcWQyM3BqSm9YTWtjTlBZ?=
+ =?utf-8?B?NXRxN2llTk14dnpOWm55Z2FHeWJCTjB6aFVYaGc3M0lNd2FNOUcwazFsVG05?=
+ =?utf-8?B?UmtHdFp3eEx1NW56MnF2cGVqUittZFkxWlNJaWh3VVVxbDRpdHplSXZOZ0w5?=
+ =?utf-8?B?bVFFUE5USE5LKzl4bi9BNGtiRjF5bjJXeGtLaEkxVytKcy9PSXl0MHIrdTdH?=
+ =?utf-8?B?S1ArMUNGTk5ZU3IxY3pVK0lVbzQ5MWNDbEFNK010T0VPZU1EditCMVRyWDJN?=
+ =?utf-8?B?cHlnQmRjK1RsWE1yU0NYc2FCUkJTUEg3TGwzMkhoQ0puVE5hWHFWWXQ2eWJs?=
+ =?utf-8?B?ak9NVU4wOUd2dXpzSVBrZnAyei9LUVpCQzNFYW1VUk5XUm5rNi8wOVhnTjlv?=
+ =?utf-8?B?TDJPRUIwalY1SUxsUlFkSzZKeWIydjZEeEdxaTVsV3Y4aFVXYUtod0Q2b0FH?=
+ =?utf-8?B?ZTZBYnlYa2FyeFdIZXhLY0VGY2oralgzVjd4OWF6YVVZbjJRSmFNallUc1lM?=
+ =?utf-8?B?dHc5UUtGcVlJelBNNG5BZWg2UmduVTc2Ni9ZL3dtYWlNR0NRZXZqRlkwWFBJ?=
+ =?utf-8?B?Q3IwU0s0NHJNWmtJTjVvT2NSTkZWWTZUZVlMcnBqK2EweUVGVmlRdlJQcGti?=
+ =?utf-8?B?ZHZ3MllWeFpFdEVCUkJ6VXJseE03U0lidHArRlpoSXNvMTQwbEg5ZjFPOGc5?=
+ =?utf-8?B?NkNDZ2o1bHdmVjUrYk5UYStwZllJY1dqdFAyWWlIVnp3WjllVElHYVN2NWVn?=
+ =?utf-8?B?Wm8rSC9JTVdaUFNqcDNLYmRRVGwzd3J3TTJMbHUyUmNza054WjBOc3JrOTll?=
+ =?utf-8?B?TDBQNGNrVFZpb09tMWtXa2F5MC9nQVlUamx5TmQ5cnhSOEpQU1h1alNDamRZ?=
+ =?utf-8?B?Yzk4bkdPZDNvem5UTDk2aTh2TUdhTnE4RlYrdDg3anozZWpreG9xREEraVR6?=
+ =?utf-8?B?cnQ5amRXOUh2YnorZHlQTWNLZ0NHdXkraXM5cjZoVDYrSU9LelFIUDJUYTli?=
+ =?utf-8?B?bUs1U1pBaWRrOGJXNVdxNTJtcFZ3YmwwZ2VTS3pyZTJpSGZyQzRqQ1BIUU9D?=
+ =?utf-8?B?cXY0VzFzbGxNd3MvcEwxSm1kVHMyaThXQmR6eHhlWko5b3FLV1VwSmltWUoz?=
+ =?utf-8?B?MExWOG81Tm05R2d5eWZRZXhFcmxwalVYUkFlV21senFodGJjVGJiT3RQUmJp?=
+ =?utf-8?B?KzZBZk1SQmNUVDUyRHkyOEJ2akdYSDlPUkhqeEJNamlNU0tMM3FmZ3dGc1V0?=
+ =?utf-8?Q?Mx77LAx/++pOijXvdxuzE1ug8DXovTS86y+wajfA4gwN?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f4a9622f-30a9-49a0-417a-08dd567f7c61
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8784.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2025 16:06:10.5955
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: eX6NoL6t6bUbYTL6n7Ee/c5gGnooPnGH4sIHJoVFJEp+m3H0yLegk1o+UW12gXLaFG4E0GwnUXpWgxPdUexOzw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB7792
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_080039_992127_94B4298E 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20250226_080616_322471_FB743471 
+X-CRM114-Status: GOOD (  31.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,84 +195,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne sreda, 26. februar 2025 ob 11:37:33 Srednjeevropski standardni =C4=8Das=
- je Andre Przywara napisal(a):
-> So far our sunxi clock instantiation macros set the required flags
-> depending on the clock type, but the new "dual divider MP clock"
-> requires us to pass that piece of information in by the macro user.
->=20
-> Add a new wrapper macro that allows to specify a "features" field, to
-> allow marking those dual-divider clocks accordingly.
-> Since the MMC clocks will be a prominent user, combine this with the
-> postdiv field required there. Users who just want the feature, can
-> pass in a postdiv of 1, users of just the postdiv can pass in a feature
-> mask of 0.
->=20
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 
-I'm fine with the new macro, but we don't need to chain them, especially
-since this forces all of them to have post divider.
+On 26/02/2025 16:00, Russell King (Oracle) wrote:
+> On Wed, Feb 26, 2025 at 03:55:47PM +0000, Jon Hunter wrote:
+>>
+>> On 26/02/2025 10:59, Russell King (Oracle) wrote:
+>>> On Wed, Feb 26, 2025 at 10:11:58AM +0000, Jon Hunter wrote:
+>>>>
+>>>> On 26/02/2025 10:02, Russell King (Oracle) wrote:
+>>>>> On Tue, Feb 25, 2025 at 02:21:01PM +0000, Jon Hunter wrote:
+>>>>>> Hi Russell,
+>>>>>>
+>>>>>> On 19/02/2025 20:57, Russell King (Oracle) wrote:
+>>>>>>> So, let's try something (I haven't tested this, and its likely you
+>>>>>>> will need to work it in to your other change.)
+>>>>>>>
+>>>>>>> Essentially, this disables the receive clock stop around the reset,
+>>>>>>> something the stmmac driver has never done in the past.
+>>>>>>>
+>>>>>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>>>>>>> index 1cbea627b216..8e975863a2e3 100644
+>>>>>>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>>>>>>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>>>>>>> @@ -7926,6 +7926,8 @@ int stmmac_resume(struct device *dev)
+>>>>>>>      	rtnl_lock();
+>>>>>>>      	mutex_lock(&priv->lock);
+>>>>>>> +	phy_eee_rx_clock_stop(priv->dev->phydev, false);
+>>>>>>> +
+>>>>>>>      	stmmac_reset_queues_param(priv);
+>>>>>>>      	stmmac_free_tx_skbufs(priv);
+>>>>>>> @@ -7937,6 +7939,9 @@ int stmmac_resume(struct device *dev)
+>>>>>>>      	stmmac_restore_hw_vlan_rx_fltr(priv, ndev, priv->hw);
+>>>>>>> +	phy_eee_rx_clock_stop(priv->dev->phydev,
+>>>>>>> +			      priv->phylink_config.eee_rx_clk_stop_enable);
+>>>>>>> +
+>>>>>>>      	stmmac_enable_all_queues(priv);
+>>>>>>>      	stmmac_enable_all_dma_irq(priv);
+>>>>>>
+>>>>>>
+>>>>>> Sorry for the delay, I have been testing various issues recently and needed
+>>>>>> a bit more time to test this.
+>>>>>>
+>>>>>> It turns out that what I had proposed last week does not work. I believe
+>>>>>> that with all the various debug/instrumentation I had added, I was again
+>>>>>> getting lucky. So when I tested again this week on top of vanilla v6.14-rc2,
+>>>>>> it did not work :-(
+>>>>>>
+>>>>>> However, what you are suggesting above, all by itself, is working. I have
+>>>>>> tested this on top of vanilla v6.14-rc2 and v6.14-rc4 and it is working
+>>>>>> reliably. I have also tested on some other boards that use the same stmmac
+>>>>>> driver (but use the Aquantia PHY) and I have not seen any issues. So this
+>>>>>> does fix the issue I am seeing.
+>>>>>>
+>>>>>> I know we are getting quite late in the rc for v6.14, but not sure if we
+>>>>>> could add this as a fix?
+>>>>>
+>>>>> The patch above was something of a hack, bypassing the layering, so I
+>>>>> would like to consider how this should be done properly.
+>>>>>
+>>>>> I'm still wondering whether the early call to phylink_resume() is
+>>>>> symptomatic of this same issue, or whether there is a PHY that needs
+>>>>> phy_start() to be called to output its clock even with link down that
+>>>>> we don't know about.
+>>>>>
+>>>>> The phylink_resume() call is relevant to this because I'd like to put:
+>>>>>
+>>>>> 	phy_eee_rx_clock_stop(priv->dev->phydev,
+>>>>> 			      priv->phylink_config.eee_rx_clk_stop_enable);
+>>>>>
+>>>>> in there to ensure that the PHY is correctly configured for clock-stop,
+>>>>> but given stmmac's placement that wouldn't work.
+>>>>>
+>>>>> I'm then thinking of phylink_pre_resume() to disable the EEE clock-stop
+>>>>> at the PHY.
+>>>>>
+>>>>> I think the only thing we could do is try solving this problem as per
+>>>>> above and see what the fall-out from it is. I don't get the impression
+>>>>> that stmmac users are particularly active at testing patches though, so
+>>>>> it may take months to get breakage reports.
+>>>>
+>>>>
+>>>> We can ask Furong to test as he seems to active and making changes, but
+>>>> otherwise I am not sure how well it is being tested across various devices.
+>>>> On the other hand, it feels like there are still lingering issues like this
+>>>> with the driver and so I would hope this is moving in the right direction.
+>>>>
+>>>> Let me know if you have a patch you want me to test and I will run in on our
+>>>> Tegra186, Tegra194 and Tegra234 devices that all use this.
+>>>
+>>> Do we think this needs to be a patch for the net tree or the net-next
+>>> tree? I think we've established that it's been a long-standing bug,
+>>> so maybe if we target net-next to give it more time to be tested?
+>>>
+>>
+>> Yes I agree there is a long-standing issue here. What is unfortunate for
+>> Linux v6.14 is that failure rate is much higher. However, I don't see what I
+>> can really do about that. I can mark suspend as broken for Linux v6.14 for
+>> this device and then hopefully we will get this resolved properly.
+> 
+> If we put the patches in net-next, it can have longer to be tested - it
+> won't go straight into 6.14, but will wait until after net-next gets
+> merged, and it'll then be backported to 6.14 stable trees.
 
-What about making special, standalone macro for that?
+Yes that would be great.
 
-Best regards,
-Jernej
+> I think the fix that I've outlined is too big and too risky to go
+> straight into 6.14, but the smaller fix may be better, but would then
+> need to be rewritten into the larger fix.
 
-> ---
->  drivers/clk/sunxi-ng/ccu_mp.h | 19 +++++++++++++++++--
->  1 file changed, 17 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/clk/sunxi-ng/ccu_mp.h b/drivers/clk/sunxi-ng/ccu_mp.h
-> index 6e50f3728fb5f..1da1dcaf62ea9 100644
-> --- a/drivers/clk/sunxi-ng/ccu_mp.h
-> +++ b/drivers/clk/sunxi-ng/ccu_mp.h
-> @@ -82,18 +82,22 @@ struct ccu_mp {
->  				   _muxshift, _muxwidth,		\
->  				   0, _flags)
-> =20
-> -#define SUNXI_CCU_MP_DATA_WITH_MUX_GATE(_struct, _name, _parents, _reg,	\
-> +#define SUNXI_CCU_MP_MUX_GATE_POSTDIV_FEAT(_struct, _name, _parents, _re=
-g, \
->  					_mshift, _mwidth,		\
->  					_pshift, _pwidth,		\
->  					_muxshift, _muxwidth,		\
-> -					_gate, _flags)			\
-> +					_gate, _postdiv,		\
-> +					_flags, _features)		\
->  	struct ccu_mp _struct =3D {					\
->  		.enable	=3D _gate,					\
->  		.m	=3D _SUNXI_CCU_DIV(_mshift, _mwidth),		\
->  		.p	=3D _SUNXI_CCU_DIV(_pshift, _pwidth),		\
->  		.mux	=3D _SUNXI_CCU_MUX(_muxshift, _muxwidth),		\
-> +		.fixed_post_div =3D _postdiv,				\
->  		.common	=3D {						\
->  			.reg		=3D _reg,				\
-> +			.features	=3D CCU_FEATURE_FIXED_POSTDIV |	\
-> +						_features,		\
->  			.hw.init	=3D CLK_HW_INIT_PARENTS_DATA(_name, \
->  								   _parents, \
->  								   &ccu_mp_ops, \
-> @@ -101,6 +105,17 @@ struct ccu_mp {
->  		}							\
->  	}
-> =20
-> +#define SUNXI_CCU_MP_DATA_WITH_MUX_GATE(_struct, _name, _parents, _reg,	\
-> +					_mshift, _mwidth,		\
-> +					_pshift, _pwidth,		\
-> +					_muxshift, _muxwidth,		\
-> +					_gate, _flags)			\
-> +	SUNXI_CCU_MP_MUX_GATE_POSTDIV_FEAT(_struct, _name, _parents,	\
-> +					     _reg, _mshift, _mwidth,	\
-> +					     _pshift, _pwidth,		\
-> +					     _muxshift, _muxwidth,	\
-> +					     _gate, 1, _flags, 0)
-> +
->  #define SUNXI_CCU_MP_DATA_WITH_MUX(_struct, _name, _parents, _reg,	\
->  				   _mshift, _mwidth,			\
->  				   _pshift, _pwidth,			\
->=20
+I think it is fine and better to get it fixed for the long term.
 
+Thanks
+Jon
 
-
+-- 
+nvpublic
 
 
