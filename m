@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE80DC19776
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 22:19:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EFDAC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 22:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1H5V/4krQO0tnwIPu67VnVVU8I6AEiTtxk+UIVEETD8=; b=D3pIrlBdVFD2xtTnayK75fT3f2
-	wvslr320Va3qir6C3ZS3m2rtzBu4JHv5vMq57Ld8zSmJAb3Veq60IKkcN7M5x0xhNtD8OE8idnPHx
-	Q5ZkUFJkXta7f154O8W5Dy5aDGusAUQhm84/OeeS/5OIZD9Qe2kPpozcwXn0ha/HQuGVGapzEYIer
-	dSZhfXOnaZHohVOipdOAXVwiSOo9ExaE2cERFW26Ev8haRFwga/ys31F0ztlsYNDgyxHjZj0fy/si
-	H35DJoR2Vbd5uqQE8OSiIIZ8gs/jlgWy3TDWNXTVC0/xXzGrdykkPvIi5J1rHOIjqluEVPb7fM/0Q
-	t3LqT3IQ==;
+	bh=ZVSwZvqHp4KclUxAlGtZReiZmGLJRUAId7nnJAavdso=; b=EuWV1BZOrohniv8rFtem8/4i0/
+	k36PQv9S/vOUjJ/kRBcSB12bUhH+Uljbu8Zwj49m5RMaOJStTEZLf1MUJ19NUC5jOZpd4IQKBA+Fj
+	JiEr5adbJWphVIFrnnn054EKeet5Xb7t36vExI70fsjr4vRJVgyx8pL3Ib0eVDWcehJeix1AzfR94
+	2cbBuzvnH4jOjBumVdp4ruK1GrIgmdduLsHa5BPZu2fiFURuuMyC9om0Nf70YbMrNIOKFm/qs0Od7
+	X+7g/xanoAOajapL2SCLFshobGYbhec9f55sWIR/ksZRNw9Bw1XGxXN62qpsu/JNRhBKfGZObdBlo
+	bx5whBCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnPkK-00000005acA-0T7E;
-	Wed, 26 Feb 2025 22:19:16 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1tnPlp-00000005aoY-3C8g;
+	Wed, 26 Feb 2025 22:20:49 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnPW1-00000005YAC-3MNr
+	id 1tnPW4-00000005YAp-0HB2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 22:04:30 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-220f4dd756eso4481785ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 14:04:29 -0800 (PST)
+	Wed, 26 Feb 2025 22:04:33 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-223480ea43aso5837895ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 14:04:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740607469; x=1741212269; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1740607471; x=1741212271; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=1H5V/4krQO0tnwIPu67VnVVU8I6AEiTtxk+UIVEETD8=;
-        b=weftFkvBGNR6S6ZYwLhJZCKNgkb5m/yMMCMuwxsFRMSh89v8XSs1oMF3D5tk60Ceqe
-         y+P7XMsy4rcqhl52En11XZt2Y72LUJUZSX5NSRlWekoOVsQRT2qj2FFZQgZIjn9xyRum
-         JcvI34jflkVjFzMORWB9QX9lTxtBSbaPAJRawKeCNLz+fhbVIURm+2jwrmMlMjmk9cRj
-         sgXs0ltMei9ICC4oFW3r6S6+eSksKVmsLz41Tuy//bLN5PJ0WxkRYJ5rB81KYLR3nUth
-         mWo8ZKBaP583p36QPNeC8jdrdRna40KWilQN9seJ6NPP3mKEQ+J2mVhm+qtIucI8FU1q
-         /usw==
+        bh=ZVSwZvqHp4KclUxAlGtZReiZmGLJRUAId7nnJAavdso=;
+        b=gHDWjI1BL7G18W4Yu2PEUILaGOE7WdUXKjUBA5MdoZTkl70rz8OSHon5ae1FYqAvZg
+         7qm6GPUDfgc8IbH5SIYWTZo2mKD8f9QvrKVPaAzgNQjN2pDLCFG4wVVFMiyZDCwLZYpD
+         ygae1NdPx69mh/e+cqV21pM9qoTxOIHjgItWAzYkVqrGIVs/BhYx/uLClYT3XlNKu0Ey
+         cO2AvKRxHEy8WXs3OmnMLZ7f0i2vbd47f3QMS45lLTSUJQjGUl8AJI/K9OXOR6fj2iUi
+         9Uc9Hro7yX3tXuG30EnJl5QLC6mSgkSCJFNP4vdFO0jqg4C5bdFXxX2nkFvZz0r5Cjm9
+         48iw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740607469; x=1741212269;
+        d=1e100.net; s=20230601; t=1740607471; x=1741212271;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=1H5V/4krQO0tnwIPu67VnVVU8I6AEiTtxk+UIVEETD8=;
-        b=IIlwW2OAjY9GsfM7j0IhBNT3djVWsg89xJyg/9q0bui7bPnZn4NnGPnZy8zpBD0hDW
-         c6VvAKfU2GcTCJZ6RpjEsA0qg9FFAXk58taFHhZCZvy8uO1025XoStowT21eu1nTJIxj
-         t1mOoxVHIAp1IIUMQLn62JyUeTuMAgE6VopgKa2VvlRWrepOtIHbmtVto2BZGQK7q0mh
-         aVp/jABESWF7TjeWNNqCOn1X6qD8Hx+co1CpPQ9sA4TlmgtxARAxxjLIu0iKqnb2Nx6P
-         /dD+wS4yD4FPHM+PvG/NVBkFFvEj+8zB3NMK+vng+uAY6Ds4qQC/oJNO0+XCudF7L733
-         u0Cw==
-X-Forwarded-Encrypted: i=1; AJvYcCVsNe/ICJTcP+/bsuYSdB4CNVoAaeBvBf0dvJXsinAGnbGzWLA/Qyedg/I1PndHnX18OTMDKs1NljOvofyH+rrV@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywvy8qrUN7T8HDRwT3GtgrgqbgDEkEWXKiB/kZsuF9dVWY9c0Is
-	sh2WQz16O6bbiirZy2y6wTwCqtISgXDJ+VFtZxMsp7IVaYzodpTTRnw6xwIa0jY=
-X-Gm-Gg: ASbGncscQT82nN07t8iWIHtzhpEXaWahoOmT9Ryuk5CslddVkg88XxGmTH3ynoFsEuj
-	h29as/0tcystjCVfjtXqoLuH1gMS0rp1Sb3HTlcuiLhWQ1FRxp2+g4pvtuuPW2zP3v1T4YTDouM
-	btW80mcHcVrRhgqfNw4oA2tBQjfg4iPbtp3yC0n3hnY/4iWHY9R0jsU867mSB0N7jrX5S1RnEqV
-	IpDLLNeF0H1ahVAMaqhkdvyQI33LCfTbt0hHDB/fs5zeuvbiiECUPx3BRv1pt1XdYdfMgxmkQQ8
-	4QGHdtWAVqDyWJZ8gIL5gXqduPp0AyzoYnNh4S7T0O4IcbYsvtY1PzdF
-X-Google-Smtp-Source: AGHT+IECzNts0Mtu5VbZUxztS2HO/B6nm80SgninqK7JKlelTupDcduJXw38Hys3XginT6lu7IkrHA==
-X-Received: by 2002:a17:903:2348:b0:216:53fa:634f with SMTP id d9443c01a7336-22307e78babmr138892345ad.48.1740607469342;
-        Wed, 26 Feb 2025 14:04:29 -0800 (PST)
+        bh=ZVSwZvqHp4KclUxAlGtZReiZmGLJRUAId7nnJAavdso=;
+        b=JD/HYkhBxqMHhpejy6D0VjILhG34KAH1PsgvvbH6gMoM4UROkcIzC0pRLA3rxd94jX
+         3vJ5daJ/DV93SduuSIvzb472qAAvKJjVRiBAk/wTVvwjRmpUYg2evKjMi2Syzc0BRJGq
+         xnm6U6pXKyLxltuLJUPEUfBGNGuW4iDj75vxkyLbx3gZpgTSFJCQLtbxbFfBD9Cm72x6
+         7rJ7Teos2vIS8vyhkZ8eMhxIdm1rnliDOajAcUliGfpllHBKqGj/nIRblnrsa247keZY
+         BV2F4EedE9tpRJLYWXHE/YJN8NZINVxZqQJXLL45supPI2hpHdZUr6mgH6SUc8Cj/HDQ
+         fsow==
+X-Forwarded-Encrypted: i=1; AJvYcCWb8elJuBmbaAp+iYCncmowg2KGhxruGMFdKSk6TV7nyLcBdLqS1oc+PszAnm64nBb0oTt47eGycQMTXVAV0nTH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8d/JeHk3Yuld77s8fIh6RCKcMLNwHAF9X6kcRSQKp9bOWOQcn
+	+bHdqxnjv3f2o23SGB1IqBgOhiLefiwFUNZENDKEfkDf5gG2A8OZoHdczBPakE0=
+X-Gm-Gg: ASbGnct3YLeTg+gXeFGANPue3JDLrSECAmBgGEdcW+Itiu2fnsCLz6D7yKiSgD3ptk0
+	a8gFNAxuuYzU5L9xAYHOzZLFUgwEGHi+fDxTzVRYVHXKg0C/iy5ujR7/4g9yCxUlBuybH5SwMBr
+	If/Z7eEfJsqGB8cPODbFzlfY0AkaTwxi4N6QAwCCtK2cj4W18uVFgZWFFTl7rSmdAgONDTwptG5
+	u9MYDwavbgZlR/6UT4nrVt76NhJaVUsvLJzYavJZSh0P1jWle7axc/Fa5AW6YcmamUG/iDirqgL
+	tXB3JywXmAJVB4Si4oju0osNH7VZPL1aDmtHwIgAtvKHSzDLWm0pASwe
+X-Google-Smtp-Source: AGHT+IHv2DLo5yokOufzr6ieTPFjBCf/BVk00fjUAV4YbzWaoAbBY7sSAOQrP6QEylsN4Iqip6zQ3Q==
+X-Received: by 2002:a17:902:d2c9:b0:221:f61:14c3 with SMTP id d9443c01a7336-221a0ed8294mr315855585ad.18.1740607471584;
+        Wed, 26 Feb 2025 14:04:31 -0800 (PST)
 Received: from gpeter-l.roam.corp.google.com ([104.134.203.15])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22350534004sm1044145ad.252.2025.02.26.14.04.27
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22350534004sm1044145ad.252.2025.02.26.14.04.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Feb 2025 14:04:29 -0800 (PST)
+        Wed, 26 Feb 2025 14:04:31 -0800 (PST)
 From: Peter Griffin <peter.griffin@linaro.org>
 To: alim.akhtar@samsung.com,
 	James.Bottomley@HansenPartnership.com,
@@ -84,17 +84,17 @@ Cc: linux-scsi@vger.kernel.org,
 	bvanassche@acm.org,
 	kernel-team@android.com,
 	Peter Griffin <peter.griffin@linaro.org>
-Subject: [PATCH 5/6] scsi: ufs: exynos: Move phy calls to .exit() callback
-Date: Wed, 26 Feb 2025 22:04:13 +0000
-Message-ID: <20250226220414.343659-6-peter.griffin@linaro.org>
+Subject: [PATCH 6/6] scsi: ufs: exynos: put ufs device in reset on .exit() and .suspend()
+Date: Wed, 26 Feb 2025 22:04:14 +0000
+Message-ID: <20250226220414.343659-7-peter.griffin@linaro.org>
 X-Mailer: git-send-email 2.48.1.658.g4767266eb4-goog
 In-Reply-To: <20250226220414.343659-1-peter.griffin@linaro.org>
 References: <20250226220414.343659-1-peter.griffin@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_140429_836908_E37C6D99 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20250226_140432_105782_951E9AA2 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,61 +109,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ufshcd_pltfrm_remove() calls ufshcd_remove(hba) which in turn calls
-ufshcd_hba_exit().
-
-By moving the phy_power_off() and phy_exit() calls to the newly created
-.exit callback they get called by ufshcd_variant_hba_exit() before
-ufshcd_hba_exit() turns off the regulators. This is also similar flow
-to the ufs-qcom driver.
+GPIO_OUT[0] is connected to the reset pin of embedded UFS device.
+Before powering off the phy assert the reset signal.
 
 Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
 ---
- drivers/ufs/host/ufs-exynos.c | 16 ++++++++++------
- 1 file changed, 10 insertions(+), 6 deletions(-)
+ drivers/ufs/host/ufs-exynos.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
 diff --git a/drivers/ufs/host/ufs-exynos.c b/drivers/ufs/host/ufs-exynos.c
-index 27eb360458a7..4c3e03a3b8d9 100644
+index 4c3e03a3b8d9..64e2bf924213 100644
 --- a/drivers/ufs/host/ufs-exynos.c
 +++ b/drivers/ufs/host/ufs-exynos.c
-@@ -1513,6 +1513,15 @@ static int exynos_ufs_init(struct ufs_hba *hba)
- 	return ret;
- }
- 
-+static void exynos_ufs_exit(struct ufs_hba *hba)
-+{
-+	struct exynos_ufs *ufs = ufshcd_get_variant(hba);
-+
-+	phy_power_off(ufs->phy);
-+	phy_exit(ufs->phy);
-+}
-+
-+
- static int exynos_ufs_host_reset(struct ufs_hba *hba)
+@@ -1517,6 +1517,7 @@ static void exynos_ufs_exit(struct ufs_hba *hba)
  {
  	struct exynos_ufs *ufs = ufshcd_get_variant(hba);
-@@ -1968,6 +1977,7 @@ static int gs101_ufs_pre_pwr_change(struct exynos_ufs *ufs,
- static const struct ufs_hba_variant_ops ufs_hba_exynos_ops = {
- 	.name				= "exynos_ufs",
- 	.init				= exynos_ufs_init,
-+	.exit				= exynos_ufs_exit,
- 	.hce_enable_notify		= exynos_ufs_hce_enable_notify,
- 	.link_startup_notify		= exynos_ufs_link_startup_notify,
- 	.pwr_change_notify		= exynos_ufs_pwr_change_notify,
-@@ -2006,13 +2016,7 @@ static int exynos_ufs_probe(struct platform_device *pdev)
  
- static void exynos_ufs_remove(struct platform_device *pdev)
- {
--	struct ufs_hba *hba =  platform_get_drvdata(pdev);
--	struct exynos_ufs *ufs = ufshcd_get_variant(hba);
--
- 	ufshcd_pltfrm_remove(pdev);
--
--	phy_power_off(ufs->phy);
--	phy_exit(ufs->phy);
++	hci_writel(ufs, 0 << 0, HCI_GPIO_OUT);
+ 	phy_power_off(ufs->phy);
+ 	phy_exit(ufs->phy);
  }
+@@ -1700,6 +1701,8 @@ static int exynos_ufs_suspend(struct ufs_hba *hba, enum ufs_pm_op pm_op,
+ 	if (status == PRE_CHANGE)
+ 		return 0;
  
- static struct exynos_ufs_uic_attr exynos7_uic_attr = {
++	hci_writel(ufs, 0 << 0, HCI_GPIO_OUT);
++
+ 	if (!ufshcd_is_link_active(hba))
+ 		phy_power_off(ufs->phy);
+ 
 -- 
 2.48.1.658.g4767266eb4-goog
 
