@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88CB8C021BF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 11:11:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DE68C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 11:12:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jo/UvzfaVefTj5QmF17mHt05v9bWd2UKSSqwvyDmE90=; b=LjqWnpJSkggz9VwIsY0RPBQuek
-	up4sYriq94lN0D1bnNb2KR/ufLMZJ5Qrxuao8SuzkU/5aDq5uGSLrzuts97win4L1GvmSe5gBjWai
-	tZgJEHtQlRhslCyaiFDLkgzMXG8fPxNooGZhy+kdXxPA2H8ZmqgMyG+90K1pEiL9N/Q6ScfdWng8N
-	R4NRS67dRG0UBReHN3j0a/ZZ92Ln6rCuF4iuFsIlzVpqfzHhrzqybdxf8vSImFrxEDndjAQ3f1SFQ
-	3KE2YPaGjnuvQeW7FR6KPwMcWpm4EJWteSmveON0moQ2WguENaRV46QinXtjo1O8pwKqFsWWQyZo1
-	BPvMjmog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A7ctPFMSJw9LrIsmrryIjwyKasq4M9J1CRD8hVjRhQw=; b=1gMy7KYwwma1esQjbnQYElfygD
+	N0b74xKxdBjn51xMlWROLK+GskMP2JJP7CgUa0v5f8oQmjiy3pdfckJ+4O9/9qVBXYkaigCxswah+
+	014iB0XUlIa6nZ/hFrpNVvFYE7RY3ByFdFTHyKOnv2lQ3QRRovnKAR3JCsbQD/IFIIPspxv0i5kzj
+	xVPaLCnkN4q/s3xyoeeTNAOPGqgMAmTyP0ymp2cMTJOB0vNQLv9szvS3C2PeL108ylYw7f+xfkUy1
+	kD+zK00RtMhk1+bY/tWe9GrrrfOEos/QU4r0w0Q0WgqD5F2yztkvjvMx3vYFgPmoollyGDXGW5Hb5
+	VwjSfv+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnFJo-00000003RAe-3JfS;
-	Wed, 26 Feb 2025 11:11:12 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1tnFLK-00000003RZr-25ny;
+	Wed, 26 Feb 2025 11:12:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnEuW-00000003LYw-1w6I
+	id 1tnEv1-00000003Lcs-2soq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 10:45:05 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51QAisqA1525409
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 26 Feb 2025 04:44:54 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1740566694;
-	bh=jo/UvzfaVefTj5QmF17mHt05v9bWd2UKSSqwvyDmE90=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=DgwmjuI0Ej3hhm2PlZOGXrSLhaq4K4zanEVbUbgWhElgK0fZyzqlbyTC49ySsE9rY
-	 ptWs86AY+0SQkS+yLYrVgRm378slc6VceFMXyhO29CqH2xyifLSIdCIt07uwFcvQju
-	 k4YxXZ/8NUnJJfzgJKe+wQSRiU+LC0Lae4xWNCKs=
-Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51QAishd024132
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 26 Feb 2025 04:44:54 -0600
-Received: from DFLE109.ent.ti.com (10.64.6.30) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 26
- Feb 2025 04:44:54 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 26 Feb 2025 04:44:54 -0600
-Received: from [172.24.18.117] (lt9560gk3.dhcp.ti.com [172.24.18.117])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51QAipZ4106894;
-	Wed, 26 Feb 2025 04:44:51 -0600
-Message-ID: <0d33dea6-c021-4f2a-bb3f-92efd6eebd18@ti.com>
-Date: Wed, 26 Feb 2025 16:14:50 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [EXTERNAL] Re: [PATCH] arm64: defconfig: Enable HSR driver
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-        Arnd Bergmann
-	<arnd@arndb.de>
-CC: <quic_bjorande@quicinc.com>, <arnd@arndb.de>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <srk@ti.com>, "Anwar, Md Danish" <danishanwar@ti.com>,
-        <catalin.marinas@arm.com>, <will@kernel.org>
-References: <20240419060013.14909-1-r-gunasekaran@ti.com>
- <686f583d-6bf4-4486-b9e4-20c1e268eda6@ti.com>
- <d4954e5e-e51f-41c0-bca5-6e14b4640022@linaro.org>
-Content-Language: en-US
-From: "Malladi, Meghana" <m-malladi@ti.com>
-In-Reply-To: <d4954e5e-e51f-41c0-bca5-6e14b4640022@linaro.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_024504_591227_8994ED06 
-X-CRM114-Status: GOOD (  17.54  )
+	Wed, 26 Feb 2025 10:45:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 70420611D8;
+	Wed, 26 Feb 2025 10:45:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA8F1C4CED6;
+	Wed, 26 Feb 2025 10:45:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740566734;
+	bh=Aoyk5i039i3K4vSIZbUYee6SquXrsZNgAvYyy1nF94M=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=dwhR3/+6ZQkmtrXmXNnvXov2VWi1mX3a6pUI28+6Qvgv7PiCNvbVtZHXHGBBSml3E
+	 TJXzHB3RZSU9B8kwKMBmh15CbqZvIje9VWz8JvOpxuBZ8FiFfKED8ajjuW7TKW2xDA
+	 iH0MwNUXBxiMhnxUbn+SHLnO4qBKAnOkW08ASvjNmGgVy+HhrEGMSSUyOmIm2JUyIT
+	 LAUI7084abOp6bsD6wlb+eO0sMllVgUoh56u6XOrCGMAzDXh9C1h+xxtYB7X5TIIIQ
+	 2sjAP+qWLhsoepRaeVgXQrtjilOYOAM+LQWZlFSKfzwJZdB3VCnIuAwv8Mpbkq2mNM
+	 2qz3b7NmNP8Ww==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tnEuy-0088gP-Dc;
+	Wed, 26 Feb 2025 10:45:32 +0000
+Date: Wed, 26 Feb 2025 10:45:32 +0000
+Message-ID: <86a5a9q90z.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: Fuad Tabba <tabba@google.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	mark.rutland@arm.com,
+	will@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	broonie@kernel.org,
+	qperret@google.com,
+	vdonnefort@google.com
+Subject: Re: [PATCH v1 1/3] KVM: arm64: Initialize HCRX_EL2 traps in pKVM
+In-Reply-To: <Z77n_Gv0X0bolONW@linux.dev>
+References: <20250214150258.464798-1-tabba@google.com>
+	<20250214150258.464798-2-tabba@google.com>
+	<Z77n_Gv0X0bolONW@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com, vdonnefort@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,46 +92,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2/26/2025 1:35 PM, Krzysztof Kozlowski wrote:
-> On 26/02/2025 07: 18, Malladi, Meghana wrote: > Hi all, > > Apologies in 
-> case you are receiving this email for the second time. > Any reason why 
-> this patch hasn't been merged yet. Other than re-basing > this to the 
-> tip, anything
-> ZjQcmQRYFpfptBannerStart
-> This message was sent from outside of Texas Instruments.
-> Do not click links or open attachments unless you recognize the source 
-> of this email and know the content is safe.
-> Report Suspicious
-> <https://us-phishalarm-ewt.proofpoint.com/EWT/v1/G3vK! 
-> updgnZav1ue7gKXOnHOpH5hg8gLmw9Osqsqh- 
-> KTLRTnBEurV_VetrG7mzU898vB_5xFrYgbRkkuuFMBobM-uhFAmUgccRSk$>
-> ZjQcmQRYFpfptBannerEnd
+On Wed, 26 Feb 2025 10:07:56 +0000,
+Oliver Upton <oliver.upton@linux.dev> wrote:
 > 
-> On 26/02/2025 07:18, Malladi, Meghana wrote:
->> Hi all,
->> 
->> Apologies in case you are receiving this email for the second time.
->> Any reason why this patch hasn't been merged yet. Other than re-basing 
->> this to the tip, anything else which needs to be addressed to get this 
->> merged?
+> Hi Fuad,
 > 
-> I don't think you sent it to your platform maintainers, so no one would
-> apply it. Usually people ignore emails they did not receive, although I
-> am here an exception tracking missing-DT-patchwork things... :)
+> Series LGTM overall, one comment:
 > 
-> Best regards,
-> Krzysztof
+> On Fri, Feb 14, 2025 at 03:02:56PM +0000, Fuad Tabba wrote:
+> > Initialize and set the traps controlled by the HCRX_EL2 in pKVM
+> > when the register is supported by the system.
+> > 
+> > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > ---
+> >  arch/arm64/kvm/hyp/nvhe/pkvm.c | 46 ++++++++++++++++++++++++++++++++++
+> >  1 file changed, 46 insertions(+)
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > index 3927fe52a3dd..668ebec27f1b 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > @@ -58,6 +58,30 @@ static void pkvm_vcpu_reset_hcr(struct kvm_vcpu *vcpu)
+> >  		vcpu->arch.hcr_el2 |= HCR_ATA;
+> >  }
+> >  
+> > +static void pkvm_vcpu_reset_hcrx(struct pkvm_hyp_vcpu *hyp_vcpu)
+> > +{
+> > +	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
+> > +	struct kvm_vcpu *vcpu = &hyp_vcpu->vcpu;
+> > +
+> > +	if (!cpus_have_final_cap(ARM64_HAS_HCX))
+> > +		return;
+> > +
+> > +	/*
+> > +	 * In general, all HCRX_EL2 bits are gated by a feature.
+> > +	 * The only reason we can set SMPME without checking any
+> > +	 * feature is that its effects are not directly observable
+> > +	 * from the guest.
+> > +	 */
+> > +	vcpu->arch.hcrx_el2 = HCRX_EL2_SMPME;
+> > +
 > 
+> The comment isn't wrong, but we don't support SME at all in KVM at this
+> point.
 
-Hello Arnd/Krzysztof,
+This is a copy/paste of what we have in kvm_calculate_traps(), and the
+result of the removal of the dreaded HCRX_GUEST_FLAGS.
 
-Thank you for the replies :)
-Was having ambiguity since this is not TI specific change. Wanted to 
-confirm before re-posting. Will post v2 patch including TI platform 
-maintainers.
+> Any objection to dropping this bit? I can fix it when applying the
+> series, no need to respin.
 
-Regards,
-Meghana
+Whatever we do, I think we should keep the two side of the trap
+configuration in sync, as this is otherwise a cause of bugs.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
