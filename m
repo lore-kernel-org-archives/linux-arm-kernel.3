@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35D18C18E7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:25:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 232CAC19F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 13:25:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8xUC9CIJo2nQrbIA7j7Wu8W6l1NO8SdPqz5Cw9pBVgE=; b=4ToXRVMkVoITszj27Pu6ywZOuM
-	CKV9Pnol7JdGdsiKJ4XcK4MaoP9nu52rzHmgI37R9yJEf7SxrufA7eAEWEKLAUdwwnbPjH2uNHaUi
-	on81VsWOAOXPAWEFp4Q00BzgEtogeRM7p7WJN4PUlpkdQ8rGQ1/CgQoWI2u2ojAOjWXHDT9c2MM9J
-	4IQE5RH8or71BPaky73EgZVnaYqLKlIO6HRyCVr8xsY3mwkcLJjcBBapc8pCoOdo8qe4pckLpCKgK
-	+0PR/TT01mtmNwtoKzSfTQtvy0BghOj0N3i2xPZ30wc3cNTq9zqB07j3IpcX5MN4APSh2ss6jsOog
-	ItqhAixg==;
+	bh=v89iAwFyeqPHsdE/yiVGiniloe1eRnc0ZkN7Jaae0aY=; b=awQsDOoXiW3ahhO0leTQgbjf9m
+	pryHPmQd2QZFkVg4K3le3IWmnB3O1Jeg6bInG0RI+b5PMPrQkwJny6SM09MtITI8Q2L91WpmVb0hT
+	fFO48XNcEK4+8KtW7YVtOnrfoo4eQN8zIbca2EhE5X3n8slGELotSIPWI1PL3gsoCwklu9Bzfcbok
+	+QVzt3v9UomVdd0VBpAq3ecWPSsuYSX6MywfYS/nGp66M4t4ZdhKiRh5VnTbhPifu+ibtNcD0qXri
+	dt6ArkzPbNw+/uraTsnH8BKZNpKIO6eIXHbBoK7Ta36EGkMGyz0aMbjsrqT5TzIANLYWJJ7VcAPiE
+	7Fb6qO5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnHPB-00000003pZx-0X9b;
+	id 1tnHPB-00000003paL-2vrb;
 	Wed, 26 Feb 2025 13:24:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnFGI-00000003QQR-2y5R
+	id 1tnFIE-00000003Qqy-0R1i
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 11:07:34 +0000
+	Wed, 26 Feb 2025 11:09:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5936E61186;
-	Wed, 26 Feb 2025 11:07:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28261C4CED6;
-	Wed, 26 Feb 2025 11:07:29 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6A1C75C5F35;
+	Wed, 26 Feb 2025 11:08:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07E4FC4CED6;
+	Wed, 26 Feb 2025 11:09:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740568053;
-	bh=ZTBsCOjtBvKlejCxwaGw4Bbd2frZLqHUrvkP8WXmrwU=;
+	s=k20201202; t=1740568173;
+	bh=MHm2io10GdTyBbgyWfXeVlZ2/mG8TgvsSf8dQBDFNsY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Xu6THLNG00JiNQn6JtdM4u2UJyZmTpxaSz1rkRcVgWL7OP8DYTfAZtfnGE7GprCdB
-	 UuGsDRqpgHjoFW/R4dNahDa92xq0ktjSPXzptu+XzKkV1ajw+urmoXcgewJGPQkjFu
-	 tqHOlZCxKmhyAGkF9SdAfl7rgSXQ0XR/Qm7QuQYFDinwWEiplVwP+hTMpz6UJLgzIF
-	 XRyWJ2SEDlXd6b13GHpIHLSBAw491/DNIF6OQIALRSIJHB6BkodIckxh9PdG+7Cn01
-	 iY+DFSzyXMlnARfWafNUJQemmFdnnRIGlQIbGMgVHkwDdQ7xRq2V/mM+NObKBwTE5n
-	 0kKYQSHCb3nIw==
-Message-ID: <19e9db80-e493-4494-a57f-18118c1ffad1@kernel.org>
-Date: Wed, 26 Feb 2025 12:07:27 +0100
+	b=K4PkizeAb0CwJrJrpZrO3qosJ9eAZth7PQoIJztZuGBBYEV62zHKJ/cW5ANB4n9Kl
+	 0BUz/oWgFSt+GSFN++Y2Yh5KGhum7dorKlNJmAnO4lxGcsaYJtP7C1SgegmZSJcHhd
+	 eoRrJMfeuhLfGhGv5PN+YLOOqqP+4asiP74LZkibMNjxYQqdEB40Nf55JAzqJjWx7J
+	 +mrv9QGPivd1EvtcvgcpzHTWMD3cc/AbcvwqxQE/MrKv4bm819yccQeczL6h+ZfPzy
+	 1DZ2g148h2DRbPhC61gL8ZsrkzaF6ioTN/b9xfRKTkSCMnC9Gc2WIy3LqXsAYkvkr9
+	 Ec8XgbOZN6bTQ==
+Message-ID: <d1c945bd-a738-4f01-8b93-c2a03b190c34@kernel.org>
+Date: Wed, 26 Feb 2025 12:09:27 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] dt-bindings: arm: Add Coresight device Trace NOC
+Subject: Re: [PATCH v2 1/5] dt-bindings: arm: Add Coresight device Trace NOC
  definition
 To: Yuanfang Zhang <quic_yuanfang@quicinc.com>,
  Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
@@ -58,10 +58,8 @@ Cc: kernel@quicinc.com, linux-kernel@vger.kernel.org,
  coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  kernel@oss.qualcomm.com, linux-arm-msm@vger.kernel.org,
  devicetree@vger.kernel.org
-References: <20250221-trace-noc-driver-v1-0-0a23fc643217@quicinc.com>
- <20250221-trace-noc-driver-v1-1-0a23fc643217@quicinc.com>
- <edfd6c6a-65d2-42f1-8225-0808359dd375@kernel.org>
- <593e1777-a033-4922-93c4-c056e6b9bf4c@quicinc.com>
+References: <20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com>
+ <20250226-trace-noc-driver-v2-1-8afc6584afc5@quicinc.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,9 +105,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <593e1777-a033-4922-93c4-c056e6b9bf4c@quicinc.com>
+In-Reply-To: <20250226-trace-noc-driver-v2-1-8afc6584afc5@quicinc.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250226_030934_259668_F14020A2 
+X-CRM114-Status: UNSURE (   6.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,27 +126,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/02/2025 11:52, Yuanfang Zhang wrote:
-> 
-> 
-> On 2/22/2025 6:47 PM, Krzysztof Kozlowski wrote:
->> On 21/02/2025 08:40, Yuanfang Zhang wrote:
->>> Adds new coresight-tnoc.yaml file describing the bindings required
->>> to define Trace NOC in the device trees.
->>>
->>> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
->>
->>
->> So you just sent the same v1, ignoring previous review. That's not how
->> it works.
->>
-> sorry for this incorrect process. because i just update --to-cc list and no other
-> change, i forced the version to V1, hoped it would work like resend,
-> but the result was not as expected.
-
-
-But you got feedback, so why resending without implementing it? That's
-the problem, not you labeled/not-labeled it as resend.
+On 26/02/2025 12:05, Yuanfang Zhang wrote:
+> +
+> +  compatible:
+> +    items:
+> +      - const: qcom,coresight-tnoc
+> +      - const: arm,primecell
+> +
+> +  reg:
+> +    minItems: 1
+> +    maxItems: 2
+> +    description:
+> +      Physical address space of the device.
+Not much improved - still items are not listed. Which binding did you
+choose as an example as I asked to? (so I can fix it)
 
 Best regards,
 Krzysztof
