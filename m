@@ -4,70 +4,189 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A886C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 16:57:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4881C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 16:59:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RKFbsKGv3ILH4cYw/IV0cPzmTVV6FlS/4IE/gRTMmSs=; b=hIoL2DoPqXpZnBUZGMRbnKMB0P
-	a5IMM/MrP6wt+wbIoNnPzWESTcEYYYvbTXcrhuT4288Wk7usrUVxJVBpIzEzPOot3UrFvOrsKfGKW
-	C3d4QNI3ntN9vcmWCeY9zqtkAHWt/8dCb4dmGR660qXLZIqXD8pdBRMexOkKXR8SMfEkYC16Rurlc
-	SSrudUEvIDImr3JPvQjwCKnxVVrFJg5RwNiUCzqB3XWCQ/9FPfmucGk80IKHMdgTpEWQR59Xu8cjU
-	PMRnEI7+DgLMrsrGwiMRUyacnuFaiVs5bjczNkFlh4+ALthRhlSad4UPU2lQ0bD2pdLnv+51WdBNd
-	3uKCWVsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	References:To:From:Subject:Cc:Message-Id:Date:Content-Type:
+	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rd9nC+NKMn7+7nJGHbe2O9p5BcScuJLjTAtsMKTsIs0=; b=jf8gzwjZhINRaO26+BjeoePbFV
+	mdZ9dAWaURiJGxOEBSMtmF/ei9sPsEvmiqVsRflHgN5C0rTkJ55oWRwTF/NZwMgavDvnGLc7O6rRr
+	dNxxfIa9jWirIJDjEOjYetGiBVQrM5FIrA5p35zyjR6Tjeil04Kx1CuY801l/zxMp8MfAgSeS7wSD
+	WCZMnKxNX3VHDE1yPUspWBUQ9oEI/k77JkMEhR0vRuvTFssJjv+36OMcSqRykojVRBQnKVuOeCd2M
+	xLJ9S/dzgE8ZYsaLH2AwTgutTopMTi4XIDfQ9hrYDxsH27nn8XXE+pKCyhJSx3hZjxbwKZtRjaRvY
+	uld4V0/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnKj1-00000004bwN-3DF0;
-	Wed, 26 Feb 2025 16:57:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tnKkX-00000004cBc-1hUz;
+	Wed, 26 Feb 2025 16:59:09 +0000
+Received: from mail-bn1nam02on20703.outbound.protection.outlook.com ([2a01:111:f403:2407::703] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnKaE-00000004a6u-41tA
+	id 1tnKcB-00000004aTX-2OJP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 16:48:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1F40F5C630C;
-	Wed, 26 Feb 2025 16:47:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B430C4CEE4;
-	Wed, 26 Feb 2025 16:48:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740588509;
-	bh=V0eP11ys4UBKYIyVMcIalsuc1S5/rdawoXtavRMVxbM=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=iCdE1u/srDnmbqcyqDr0YGZIETy/BcVLfqnaDFDiU4YHsBTfAlTZAZMCgKqhrZU5G
-	 27NcKpuZp5El+JeuWaltK7Nra2rWzKQyV6KGA+tkhLs+EMA/gqZ27EoiK9xozIfo/z
-	 ZRb9iqvGFPHcC8BziEzCHO7vN1r0zQsBlXHkWCleYRNcI4NquYihoX25X4mqPFund4
-	 0RZrbqSI0MYF8XEGzXzOZkq6osEujIoaZpr79C9U4Q/wJv/sVleC/I+UzoFhJiaRce
-	 DSc+qOEPzTweP1iV6OsIOINf0AL3Qr/5atJYGQbrP9v5j8T/ZIBWnaqCDFlyF26Ra3
-	 ZH0fCN0sDb7+Q==
-X-Mailer: emacs 30.1 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Peter Collingbourne <pcc@google.com>
-Subject: Re: [PATCH] KVM: arm64: Drop mte_allowed check during memslot creation
-In-Reply-To: <Z786ODqxlYNpj40l@arm.com>
-References: <20250224093938.3934386-1-aneesh.kumar@kernel.org>
- <Z7xSfVME4z2ComUm@arm.com> <86ldtvr0nl.wl-maz@kernel.org>
- <Z7yElHKrJGn8XuPS@arm.com> <86jz9fqtbk.wl-maz@kernel.org>
- <yq5aseo3gund.fsf@kernel.org> <86ikozqmsl.wl-maz@kernel.org>
- <yq5a8qptauyl.fsf@kernel.org> <Z786ODqxlYNpj40l@arm.com>
-Date: Wed, 26 Feb 2025 22:18:21 +0530
-Message-ID: <yq5a1pvkbqju.fsf@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Wed, 26 Feb 2025 16:50:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=j1+jtD/NhCYgzqtS8lSU7/aETAYTfKHng+vPH14Tx37XkVmXlj9ybyIj0HhwPEw2xpQHoD0mhUaua2eIejMFfglEy9guowFtlTTyV40g6bTNljPhLq+Qjy12YfsG1XUudJsQJrFiHY3lZeHCfC8fJK2IoD1mssAzHxKbeWDUe3aDtAAlzEkNy3TsikuJpRDotBIycluWZcgT3SR6M6bUJQNZ6e7PV26MTMFTgag477L7KPKG+TC2yalj+BKcXvuISeVkb1e0ARLVgN+k7MrUprvmyMlYbbQ66VnXlEBpaNJlKAH76p66EFE4je5eQjGnA5+NEKep4MxAmXkye77f/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Rd9nC+NKMn7+7nJGHbe2O9p5BcScuJLjTAtsMKTsIs0=;
+ b=VechUyEg1v0lSOUmyAMzm1sO7N1tRoGh3LnbW90K3sofsXjhPWATNyRsMayQk1abddl3eqbo8OLciY27RSR9Iq/Q/ALB3oBno7kW9ycUTu6IYsftGEYivafBPfB6I5LFAcIu2zaL8a4Vvc/CnKc4Xq6GqXxlG/iQz+YwUGT2fonE4fh5RF/VueOLGFJZliYxHav+XkJp0+YDTC+d2yUYT0IkjIJ8IY58w3F1oEBdtistaD/tlxoNcDyboTrcIlmR+74DXqtEYq0JUusimtutd6FgJDhAeYVhv89ZIZPuSj9R2utpz2EPHRFLLRbmGi7OdqWb38C6IpCzgJ3I3yC4Gg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=d3embedded.com; dmarc=pass action=none
+ header.from=d3embedded.com; dkim=pass header.d=d3embedded.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=d3engineering.onmicrosoft.com; s=selector2-d3engineering-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Rd9nC+NKMn7+7nJGHbe2O9p5BcScuJLjTAtsMKTsIs0=;
+ b=IG3nGALEqoToYjWflmHLCF7IFRkX8U8rSo9bH8hg77OjqYSs+m5dkcswyT8uD5GzRr3VBUM78f0maGgsrXREbML7dlssj8gqWjRsY4oW7lLSEpvljjw5kqeU8MSvG7nHyb61TpWckIzX7L3cFqk1E52YHy8Sfy8oD/wvLYt3Ung=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=d3embedded.com;
+Received: from MN2PR14MB4207.namprd14.prod.outlook.com (2603:10b6:208:1d6::13)
+ by PH7PR14MB7033.namprd14.prod.outlook.com (2603:10b6:510:248::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.20; Wed, 26 Feb
+ 2025 16:50:23 +0000
+Received: from MN2PR14MB4207.namprd14.prod.outlook.com
+ ([fe80::1232:fdf5:3cae:d9d7]) by MN2PR14MB4207.namprd14.prod.outlook.com
+ ([fe80::1232:fdf5:3cae:d9d7%3]) with mapi id 15.20.8466.020; Wed, 26 Feb 2025
+ 16:50:22 +0000
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 26 Feb 2025 11:50:20 -0500
+Message-Id: <D82J65FKPE98.1GAVEAPQ6QN0N@d3embedded.com>
+Cc: =?utf-8?b?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ "Abel Vesa" <abel.vesa@linaro.org>, "Achath Vaishnav" <vaishnav.a@ti.com>,
+ "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>,
+ "Ard Biesheuvel" <ardb@kernel.org>, "Benjamin Mugnier"
+ <benjamin.mugnier@foss.st.com>, "Biju Das" <biju.das.jz@bp.renesas.com>,
+ "Bjorn Andersson" <quic_bjorande@quicinc.com>, "Catalin Marinas"
+ <catalin.marinas@arm.com>, "Conor Dooley" <conor+dt@kernel.org>, "Dmitry
+ Baryshkov" <dmitry.baryshkov@linaro.org>, "Elinor Montmasson"
+ <elinor.montmasson@savoirfairelinux.com>, "Fabio Estevam"
+ <festevam@gmail.com>, "Geert Uytterhoeven" <geert+renesas@glider.be>, "Hans
+ Verkuil" <hverkuil@xs4all.nl>, "Javier Carrasco"
+ <javier.carrasco@wolfvision.net>, "Jianzhong Xu" <xuj@ti.com>, "Julien
+ Massot" <julien.massot@collabora.com>, "Kieran Bingham"
+ <kieran.bingham@ideasonboard.com>, "Kory Maincent"
+ <kory.maincent@bootlin.com>, "Laurent Pinchart"
+ <laurent.pinchart@ideasonboard.com>, "Mauro Carvalho Chehab"
+ <mchehab@kernel.org>, "Mikhail Rudenko" <mike.rudenko@gmail.com>, "Nishanth
+ Menon" <nm@ti.com>, "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Rob
+ Herring" <robh@kernel.org>, "Sakari Ailus" <sakari.ailus@linux.intel.com>,
+ "Sascha Hauer" <s.hauer@pengutronix.de>, "Shawn Guo" <shawnguo@kernel.org>,
+ "Stuart Burtner" <sburtner@d3embedded.com>, "Tero Kristo"
+ <kristo@kernel.org>, "Thakkar Devarsh" <devarsht@ti.com>, "Tomi Valkeinen"
+ <tomi.valkeinen@ideasonboard.com>, "Umang Jain"
+ <umang.jain@ideasonboard.com>, "Vignesh Raghavendra" <vigneshr@ti.com>,
+ "Will Deacon" <will@kernel.org>, "Zhi Mao" <zhi.mao@mediatek.com>
+Subject: Re: [PATCH 0/4] media: i2c: Add driver for Sony IMX728
+From: "Sebastian LaVine" <slavine@d3embedded.com>
+To: "Krzysztof Kozlowski" <krzysztof.kozlowski@linaro.org>,
+ <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <linux-media@vger.kernel.org>
+X-Mailer: aerc 0.20.1
+References: <20250212195656.69528-1-slavine@d3embedded.com>
+ <251cbe57-da12-47a8-bcf4-be0a0c4082f6@linaro.org>
+In-Reply-To: <251cbe57-da12-47a8-bcf4-be0a0c4082f6@linaro.org>
+X-ClientProxiedBy: BL1PR13CA0028.namprd13.prod.outlook.com
+ (2603:10b6:208:256::33) To MN2PR14MB4207.namprd14.prod.outlook.com
+ (2603:10b6:208:1d6::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN2PR14MB4207:EE_|PH7PR14MB7033:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4981ba63-403e-4c46-b08a-08dd5685a935
+X-LD-Processed: b7153db5-3376-478b-b601-92ce9bc0d3bc,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?MHQyS0ZjeUcyTXZtMWE3UVMzdm0xcG1NWHkrUGFlUXNQMkYvc0VhSU5JbkMr?=
+ =?utf-8?B?TlM4QXRuRXVaa0N0WWEwUU9ieVk1c0psRzhLRGg3RHBQZ2c2RkcrOXJHUXZJ?=
+ =?utf-8?B?SjRkWlNETk4yQUZkUTRHcDV5NE1ubTFJQUJlUWlHUkZyVUJpQ2Q2WDZNTUNi?=
+ =?utf-8?B?UEZzVUJGZEIwWEVTNmZ0WFhwL0ZsWU9iZTFtWDAxVGRqVEo5WFpmU1FPN2Zr?=
+ =?utf-8?B?ZGZCNzUwZGdLV1pGRDlScEQwKys4elBKdGFiaTMyaEZBMWxxaWhzcmNpR2xy?=
+ =?utf-8?B?Q2tpMG82NVUvckRjMTY4RUQ0TFpocllGL2w0OGc3d0EyV0ZHQndhZE9xS2FM?=
+ =?utf-8?B?dXVRRTM3bW1qMkRzL3lwaE5MU250dFpoQUNDeHJ2bVAyRmxsREEya1BidWU1?=
+ =?utf-8?B?RXBzZjFjQ29FQnRtV1hJaUZUVjVtTHRMZXYzazFhV0NrdnMyR2M2UzlCWFVS?=
+ =?utf-8?B?bkdoazI5U1dET2cyQXNhbVYrL1h6NDhJZFQzY0xrWmVwQ21XaWJVV0tZcXg3?=
+ =?utf-8?B?RHMwMGFySENtQklEQ0lTVVREWlNMOVpsVHc1dFk0S1BEeUdTSGp3TXlRYi9Q?=
+ =?utf-8?B?cFViTnVDRFNlWERQN3djekhKeGI2WnhqYlJ4Rld1ZElxTWg1U0lyb0Job1B0?=
+ =?utf-8?B?Qks2SEFBZDd5MVRhK1NKdDRML0ZmZjJkbHB4QU9BNTlJZzlEZzRPUzhwc0pR?=
+ =?utf-8?B?bmZkck5lNjRtRStQSU9Vb05zSFA3RDRiMWJvY0pNM09CeDNKSmRIRThUUVJ1?=
+ =?utf-8?B?czJRYUR5bzlQYjREMCtKakNiNUJEZ3o0a3VFbENIUCtTN20xZzRpMGE3ZWZL?=
+ =?utf-8?B?RVNIYitEMDFlRmU5Vll1TkVYZy90d2V2K3dCR3JhbFBKeGtLa0Z5SXRGaDRr?=
+ =?utf-8?B?c1FRcitrdWNhWU43QVJ3dE1HTS9DRHpYN1NhRjVjM3puWmd6V1JLQUxsUWNh?=
+ =?utf-8?B?RU54dUpkRTJRcUlGMFltUERiK2FIdTVKQUZaVlBUTGVPdXdlY25WWWUwMXdq?=
+ =?utf-8?B?Tk9tZGJiR1crdWpxL3F4YkgyYXpGQ1UyMHlNcE9MQUJ0Mm9zMFFReDN1eS9n?=
+ =?utf-8?B?TXNncWtzRmlDNlF2dEJCbmI1Wm5hYlF5VmxwVDVmZy96TGJlMWZWNGU1WCs5?=
+ =?utf-8?B?MFIzUGFidXdvazRTdWVWL3RaY1NZY1p4eGtMVTUrR2lKZmhkZFV1VGZRWmx6?=
+ =?utf-8?B?aXI4S1gwb3pycHIxbWNWdmdGeXltYk80dzBwNEhTekM0OXBCRXVMdkxWaFYy?=
+ =?utf-8?B?SzMzeWo2YklPdVRrYnhLTTh6YmtlY29KMG5Vc2YyZEsvR0FIUE5qQTRJZG1w?=
+ =?utf-8?B?L0hFMlpmMjFFYTlhVjhLUXVESW9PcEUwc0lYOFY1VnRRSnpGS0tPVXdtUzM1?=
+ =?utf-8?B?Z1N3UzdDRVlmYnVzN2VZZVlmOGxMK2NveVU3QnM3V0NvWFdvVkVDeDQ5VEpq?=
+ =?utf-8?B?Y0F0bFZWbytwaU5XU29PWG9HWkpKSk5UNnU3RG5HM0tSQ1NGRC9JZVNUUHZo?=
+ =?utf-8?B?cW5ReWxqcGhyTEFPMmFzM0FoVzFYdnZwRnphVHBKeEV4bk5aQkFsQm1ZalNY?=
+ =?utf-8?B?YVpyWm9WSGJxZlhseDFsU28zdjV6MWNIc3h4Zkd4TTh2TmNvdWhjdWRyeUoz?=
+ =?utf-8?B?dk9vMDNlRGgyZVVNNVVHdmJVOC96aDUvQ0g0VmRQeUtWS09wMXBtd2ZwU3JF?=
+ =?utf-8?B?eGZCMHYvaXE3SEZuMlV2N1E5UDFDUzQ5UVJ4ZG5BNWdLR2RuWmVFNmpCcGlE?=
+ =?utf-8?B?UERmdXI3ejNGZHpXV2RHejZaZ0hIRStnMXRZd3lBaTNpUVpBcSt6NHA5d29F?=
+ =?utf-8?B?bmFzWllHeG0rd2gycVorNk1MSWcyYTNkRjBoWTdUY3o2aWpadDNITVA4MXFi?=
+ =?utf-8?Q?nYtl+Hf//GpO9?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR14MB4207.namprd14.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dE5DTVlEdHJEMEVmUllRRW1FT005NVUzWHBiellUdDVZTlp6aFQ1LzViMFE0?=
+ =?utf-8?B?endkMVV3aW8zT2lLVUdiR3oyOVN6WlB3ei9qeG9WbmlYUEluWnkzNmhLeklt?=
+ =?utf-8?B?RGNQRXg4aHEyUGYwb1VNcm9LUHJyT29NRDFTeEY5YnN0cFdickx2UUtzb0to?=
+ =?utf-8?B?Zy9hZlAweVJtcEVXQ0IrM1VRWVVQZm5BWGxqWGsvS3NBK2RDdkJLQi9JNjhM?=
+ =?utf-8?B?OUQ4bU5ONU8rN21zQW8yaTMwRXFPZHRoekpXVENxWG0rM2s5NFNmZTFBVlJW?=
+ =?utf-8?B?d014NVNyUmhFSzdzSUpmL0xzckttOEw1SFNpRkRBZkpxeE9wejFaUmQ3SnEz?=
+ =?utf-8?B?MUlHcTROQjZiNXlsdU1hYWVTZEc4d2tJb0R5Y21hM1ExazBHWC9hNFVidDdu?=
+ =?utf-8?B?anlhS3d2aGNqcGxqWmFEK0htTnlsNmJrNzVETFRJZ1E2b3N2cndwMFVQM0NE?=
+ =?utf-8?B?b1I4dWRLWitieFYvbUNSK1BpS0trbkhuOHZQUjhxUG9GbVJvZURmNThyZzB2?=
+ =?utf-8?B?WHByRU5lWVVzcDBCRDNwSWZTeFMrQ3A4Syt2dXhRZFo2bkJWcUZPRWdObGh3?=
+ =?utf-8?B?VzJHZ210TzY5OVNrb3JGdFRNWTBzYzhlcXVVYzV2N3JKUWYrMzJXVVhGUmdh?=
+ =?utf-8?B?V01TS08wbmNlMUFoWU9OK2dvY3hBYXRrM2NkejdFcmJKTGFVRVl6RGlrcFE1?=
+ =?utf-8?B?RnhUaVNOTmYvbWErOUN0dDNINk9XRzJkVGtqMGxSTDlwcjF2bnR0bTVUZFRI?=
+ =?utf-8?B?L2hHd0pESzFLdHcvd0FyTk1PSVZIalc1VEhCM1MrMmVITGNTWkdsQzZwVG1y?=
+ =?utf-8?B?UzZWN21qMzBBclZnN3BjcUJTVVpCVXFtTmZEUEQ0MTZaVk9EeG5pVStmQXNS?=
+ =?utf-8?B?OEgzMWpZOFFyWUpXL3psYkg2Sm8xbkdqMG85Q0h6VjVuTVRNTmVCbmZOc09G?=
+ =?utf-8?B?OHAycVRLSXh0eWdzeTlSd1ZMZ0puTDg0RDNmeTBXYXhiU21qOTBkbFpsRFFa?=
+ =?utf-8?B?a1JkaFk4S2Zka3gzQnpWbUE0MXlwZ05qV3hPZHRCWUI2ajlsUWlTMFlCYTJE?=
+ =?utf-8?B?U1YwZE13TnlIYjNKeVlKK2VCUG5ZVkRrbDc5WmhmeDZoWXZ6WjM4eHR2aXVy?=
+ =?utf-8?B?ZmdHR3JRNGlneTkvakFURjZXRElxU0NxVHp3bk1qTFB5eGE2M3RYZ0l6RXdP?=
+ =?utf-8?B?a1RWQ04wZ2VrMEdtaFBDWTBJQ1JqYWpNN2h1cmNSUUxzeXpNaUxqVTl6NnBk?=
+ =?utf-8?B?WExYK3JZVExQM2NROTlBNEdPbWlkV200alMydFl0QXhpYU9VR1dCNUNhUitl?=
+ =?utf-8?B?U1IraUg3VnZXOFBMcDgvMkszNmlGMnpvc3U1dXJHdDlZT1R5eFR5U0crQ3VT?=
+ =?utf-8?B?NmhVRWE4SjgxYmxoV0NiZVVLanMzM0cwbHVNZFJuSit5bWJhNFZVM0I4aWYx?=
+ =?utf-8?B?OXdNbHQydlhqV2VoTDRkSTJiOUxGSUJLTURVdXlFOUZBSTFxcGY0QnBXdEIx?=
+ =?utf-8?B?L2ZLV2tMUG9iRkdXSnE0RFhsaXRkVSsyb0xVS29sVVp1UWh4aW1YZS9wRGNG?=
+ =?utf-8?B?dEgwOHdYV3pWd3loZXlmRFl2TDl3MEJIdXJWRmJtcm5adlZNaXdHa0QxSjJ2?=
+ =?utf-8?B?VGpsMVRpYUVMY3E4Z2h6QzVTWHE2b3dUbHczWjBwNGJjck95YnJsWEVLWHVs?=
+ =?utf-8?B?dFh3dXFwSm9iN2VwdkI5c1NzVStEeExvQ1Y3Z0hkNkduWHVoenBhVU15djJn?=
+ =?utf-8?B?M0NVSjdiSHZqaVYydFlUUlY0Q3B2UVUyQmU1YWYrcnFrczljRnBBUm91MElu?=
+ =?utf-8?B?MW5BRGo5RWRkN2tMN1RTYURUZ0h4SVJxUUliOWxORGVrbDY1RW9pdzRpanM3?=
+ =?utf-8?B?T2s2TkhzcmlTVmNNYm53RmtoZmwrVEtJbENRU0IyVUlVUjBySnJaeE0xN1Ux?=
+ =?utf-8?B?a0Q1NE1FRmpLQWF3Tk5QMHhYMmRNdzZtUUZlc28wbzhSUWk3REtCaUZPMy9K?=
+ =?utf-8?B?ME5jeFZlQ013blhwejUyQ2FXejFFUCtDcUpOL0dUWVd2L0U4K1B2ek40NFFp?=
+ =?utf-8?B?R3JFZkhmeTAvVWMvMTlYMjBxVmJlRnY0Z2NGcTh4ZDNBNmRVcW9XTVNQcGxv?=
+ =?utf-8?Q?V6SY61DFmrHfQ4T8tdZIkqO2A?=
+X-OriginatorOrg: d3embedded.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4981ba63-403e-4c46-b08a-08dd5685a935
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR14MB4207.namprd14.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2025 16:50:22.7454
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: b7153db5-3376-478b-b601-92ce9bc0d3bc
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: n/gO/FqZxR5nM1KuxiC2tk+GXHO9nS6AThhVjbEzcRlXjVsPGh5ephTngrLha2ul7pOIj33MHu918BffZFABpg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR14MB7033
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_084831_110627_FD70917A 
-X-CRM114-Status: GOOD (  27.99  )
+X-CRM114-CacheID: sfid-20250226_085031_620105_B713BDA0 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,97 +201,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Catalin Marinas <catalin.marinas@arm.com> writes:
+Hello Krzysztof,
 
-> On Wed, Feb 26, 2025 at 03:28:26PM +0530, Aneesh Kumar K.V wrote:
->> Marc Zyngier <maz@kernel.org> writes:
->> > On Mon, 24 Feb 2025 16:44:06 +0000,
->> > Aneesh Kumar K.V <aneesh.kumar@kernel.org> wrote:
->> >> >> On Mon, Feb 24, 2025 at 12:24:14PM +0000, Marc Zyngier wrote:
->> >> >> > > On Mon, Feb 24, 2025 at 03:09:38PM +0530, Aneesh Kumar K.V (Ar=
-m) wrote:
->> >> >> > > > This change is needed because, without it, users are not abl=
-e to use MTE
->> >> >> > > > with VFIO passthrough (currently the mapping is either Devic=
-e or
->> >> >> > > > NonCacheable for which tag access check is not applied.), as=
- shown
->> >> >> > > > below (kvmtool VMM).
-> [...]
->> >> >> > My other concern is that this gives pretty poor consistency to t=
-he
->> >> >> > guest, which cannot know what can be tagged and what cannot, and
->> >> >> > breaks a guarantee that the guest should be able to rely on.
-> [...]
->> >> What if we trigger a memory fault exit with the TAGACCESS flag, allow=
-ing
->> >> the VMM to use the GPA to retrieve additional details and print extra
->> >> information to aid in analysis? BTW, we will do this on the first fau=
-lt
->> >> in cacheable, non-tagged memory even if there is no tagaccess in that
->> >> region. This can be further improved using the NoTagAccess series I
->> >> posted earlier, which ensures the memory fault exit occurs only on
->> >> actual tag access
->> >>=20
->> >> Something like below?
->> >
->> > Something like that, only with:
->> >
->> > - a capability informing userspace of this behaviour
->> >
->> > - a per-VM (or per-VMA) flag as a buy-in for that behaviour
->>=20
->> If we=E2=80=99re looking for a capability based control, could we tie th=
-at up to
->> FEAT_MTE_PERM? That=E2=80=99s what I did here:
->>=20
->> https://lore.kernel.org/all/20250110110023.2963795-1-aneesh.kumar@kernel=
-.org
->>=20
->> That patch set also addresses the issue mentioned here. Let me know if
->> you think this is a better approach
+On Wed Feb 12, 2025 at 3:04 PM EST, Krzysztof Kozlowski wrote:
+> On 12/02/2025 20:56, Sebastian LaVine wrote:
+>> This series adds a V4L2 sensor driver for the Sony IMX728, and related
+>> devicetree overlays.
+>>
+>> v4l2-compliance 1.26.1-5142, 64 bits, 64-bit time_t
+>> v4l2-compliance SHA: 4aee01a02792 2023-12-12 21:40:38
 >
-> From the patch linked above:
+> Your Cc list is neither correct (incorrect my email) nor reasonable
+> size. You cc-ed several maintainers which are not responsible for these
+> files.
 >
-> | @@ -2152,7 +2162,8 @@ int kvm_arch_prepare_memory_region(struct kvm *kv=
-m,
-> |  		if (!vma)
-> |  			break;
-> |=20
-> | -		if (kvm_has_mte(kvm) && !kvm_vma_mte_allowed(vma)) {
-> | +		if (kvm_has_mte(kvm) &&
-> | +		    !kvm_has_mte_perm(kvm) && !kvm_vma_mte_allowed(vma)) {
-> |  			ret =3D -EINVAL;
-> |  			break;
-> |  		}
+> For next version or any resend:
 >
-> we also have the same ABI change every time FEAT_MTE_PERM is present.
-> TBH, I'd rather have it from the start as per the patch in this thread,
-> irrespective of FEAT_MTE_PERM. I'm fine, however, with better exit to
-> VMM information though.
->
+> Please use scripts/get_maintainers.pl to get a list of necessary people
+> and lists to CC (and consider --no-git-fallback argument, so you will
+> not CC people just because they made one commit years ago). It might
+> happen, that command when run on an older kernel, gives you outdated
+> entries. Therefore please be sure you base your patches on recent Linux
+> kernel.
 
-The patch also does:
+Apologies for the extra noise -- the list of folks I CC'd was obtained
+using scripts/get_maintainers.pl, and the impression I got from the
+documentation was that all of the people that are listed from that
+command should be CC'd. I will be sure to prune the list more strictly
+next time.
 
-#define kvm_has_mte_perm(kvm)					\
-	(system_supports_notagaccess() &&				\
-	 test_bit(KVM_ARCH_FLAG_MTE_PERM_ENABLED, &(kvm)->arch.flags))
-
-
-That is it depends on userspace to drive the behavior and also relies on the
-FEAT_MTE_PERM hardware feature. I was considering whether, if we're
-introducing this capability, should we also include FEAT_MTE_PERM? since
-adding FEAT_MTE_PERM would also require a capability to handle VM
-migration
-
->
-> If we don't want to confuse the VMMs, we could skip the
-> kvm_vma_mte_allowed() check only for VM_ALLOW_ANY_UNCACHED and
-> VM_PFNMAP vmas, maybe the latter only with FEAT_MTE_PERM. I don't think
-> the VMM would get it wrong here since a VFIO mmap() would not support
-> MTE anyway.
-
-ok.
-
--aneesh
+Thanks,
+Sebastian
+Please be aware that this email includes email addresses outside of the org=
+anization.
 
