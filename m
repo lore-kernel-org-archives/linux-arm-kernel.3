@@ -4,78 +4,190 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF696C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 20:10:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9999EC19776
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 20:15:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=799ywvcUyhx2UxHktogDN5ekutBUXjzubgG695SUbqQ=; b=zxD1qtS9Qjkpw4TsZs4lpExHrN
-	ITIHsg4hKDb71oSDhlH9jvMY4H7B2tLG57Hhpy/ibc8eU+aqKkSD8p6sCgOaZb6sEgFRfblMEOV6E
-	AHBW0OMAI6ivgZ6iGQwgNKljmwgN9Hrq9CfCKRIFzjct1vuOi8oplZoe57qh9AXLjY5QbeJdUfKlB
-	dHgwEzxfFDhybrS3ue+L1g++wmig6xsF4HYAbyMtkQQKLoasvwKdYl9IERtfBLDFWfO3aq8B9r+rc
-	2Ev01o5Lk1KCr1basltd1jWfkpGfTxYXyAmhZIXSLBPH4Axfhc1immhp6RCD1WDqcqzDxG29GXxwM
-	IguibOJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	References:From:Subject:Cc:To:Message-Id:Date:Content-Type:
+	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HC3RNv0zRkL8JB3B9YbRuq05r11k79SCIrwFmV7QaRo=; b=DOsH491b6NcR9C28l4MLV7pxAA
+	G4dRo/N8jOTZ0Ji0kjIk/fXtXnCZSi3sf7yNhwhEBhj2Pvj3qPE08vkgMxlCHB6VUoHFIzK4jPC63
+	BOeFdcJTKGFGoYXrUI1b4oW7TB7iJNdcp0gMA+0l6oSpLh9SrHioV67mf2ex0sj27zQocp9Yzpdjn
+	XWdORJ2QD+BAFVqMTZO6X20au/9GcBOajf+HrRNVGIWyFhxqstX3ccZS0DKjC5arjVDUHJhVQUCOY
+	WUvZTxAyhK4iaN+jiqz9BF4k35dkBgWUjpnoIkiQrcWbMSZaTgcbBPVfqZ+MFvcPDWvJPqmCSpkd7
+	UWwI77Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnNjQ-00000005ICI-2eyt;
-	Wed, 26 Feb 2025 20:10:12 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tnNoJ-00000005IqR-2Wvg;
+	Wed, 26 Feb 2025 20:15:15 +0000
+Received: from mail-co1nam11on20717.outbound.protection.outlook.com ([2a01:111:f403:2416::717] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnNhr-00000005Hnt-2CZs;
-	Wed, 26 Feb 2025 20:08:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A408E5C7530;
-	Wed, 26 Feb 2025 20:07:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4686FC4CED6;
-	Wed, 26 Feb 2025 20:08:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740600513;
-	bh=eyjq2Ww0jb1bZoJZAm8Lti1Xqu4cmFY5VmjvlWk4yqA=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=hIsCK2HEyhp8nnDLJ+Ekvog5QghvhFW4Cl+KDfi0CZGOJKkMDEC9CaRuDg/XDA1fC
-	 qVqjjzFJyeQkF0X5bHt6W0Q7BuiacZqYGew1xs6zh8qQFVvmDVywAdlAO4gdvGBQhA
-	 3394HsxFSmco+PRk6EEbmQDrCd0V+MGYMIWXPw5/uxsNmLRZAbI3PJJy7EZeZ4N8US
-	 ykjC/ZKl/0ceKcYQtfp5CzccSnJO3mMsJ8D/wzkYmtl7zDlfLyIcljMsUqeUnTndqq
-	 ydBaPiAoBMBdxvWMy52tcsFQBFOkIEe/3go+jCHkQNSrWKTxzoT6woIf2uu2euVfT6
-	 J7GWf8+UFCESQ==
-From: Pratyush Yadav <pratyush@kernel.org>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: linux-kernel@vger.kernel.org,  Alexander Graf <graf@amazon.com>,  Andrew
- Morton <akpm@linux-foundation.org>,  Andy Lutomirski <luto@kernel.org>,
-  Anthony Yznaga <anthony.yznaga@oracle.com>,  Arnd Bergmann
- <arnd@arndb.de>,  Ashish Kalra <ashish.kalra@amd.com>,  Benjamin
- Herrenschmidt <benh@kernel.crashing.org>,  Borislav Petkov <bp@alien8.de>,
-  Catalin Marinas <catalin.marinas@arm.com>,  Dave Hansen
- <dave.hansen@linux.intel.com>,  David Woodhouse <dwmw2@infradead.org>,
-  Eric Biederman <ebiederm@xmission.com>,  Ingo Molnar <mingo@redhat.com>,
-  James Gowans <jgowans@amazon.com>,  Jonathan Corbet <corbet@lwn.net>,
-  Krzysztof Kozlowski <krzk@kernel.org>,  Mark Rutland
- <mark.rutland@arm.com>,  Paolo Bonzini <pbonzini@redhat.com>,  Pasha
- Tatashin <pasha.tatashin@soleen.com>,  "H. Peter Anvin" <hpa@zytor.com>,
-  Peter Zijlstra <peterz@infradead.org>,  Rob Herring <robh+dt@kernel.org>,
-  Rob Herring <robh@kernel.org>,  Saravana Kannan <saravanak@google.com>,
-  Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,  Steven Rostedt
- <rostedt@goodmis.org>,  Thomas Gleixner <tglx@linutronix.de>,  Tom
- Lendacky <thomas.lendacky@amd.com>,  Usama Arif
- <usama.arif@bytedance.com>,  Will Deacon <will@kernel.org>,
-  devicetree@vger.kernel.org,  kexec@lists.infradead.org,
-  linux-arm-kernel@lists.infradead.org,  linux-doc@vger.kernel.org,
-  linux-mm@kvack.org,  x86@kernel.org
-Subject: Re: [PATCH v4 00/14] kexec: introduce Kexec HandOver (KHO)
-In-Reply-To: <20250206132754.2596694-1-rppt@kernel.org> (Mike Rapoport's
-	message of "Thu, 6 Feb 2025 15:27:40 +0200")
-References: <20250206132754.2596694-1-rppt@kernel.org>
-Date: Wed, 26 Feb 2025 20:08:27 +0000
-Message-ID: <mafs0cyf4ii4k.fsf@kernel.org>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1tnNml-00000005IZV-2HS4
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Feb 2025 20:13:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VZLR1Vdkdmm+8ZVZw3SZurQ7hDZzO8Io1fWF01S2tnk/jCO/mybl+e6UrPOMB70r+y03Xv7Tj99gA284qmJCw0CPSBAcd2mmQn/Vp5SHh2AlHmu9pAO5LIlWd3Lu7W/P5HQZke02AeJm6xnbZh3pPg+ZQzpWI2Ha0rKjuVocPHjBe5WgQCDxdbzMZSBlOuBtOJhxTj5ya45o9p01OQbsUYQahU35q3rGtKehiiA9enBsPn2dT/VwWRBqsJLEzOV4BNYGANL40AS4p7+/wlkbHtKuuuRyIEsAi+VlsNnj503J0xf0nBxPmgNO5Qox34dBKBbIZdv1pF5Y/OEVB9DnOg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HC3RNv0zRkL8JB3B9YbRuq05r11k79SCIrwFmV7QaRo=;
+ b=Mnwsi+s4xDw/1TIfNTCoX8IVTSz0oad4yAK+R7OUOslBbEF+Bk02hz0gIT/1l3ZX1DU2upXXfvkbsuNuIBB18EXrGCZS1Sz46HuDdZk17YeM+vKezIDVxfctjCMEBWfL219GhgqlHEYAi8ciyhBpok4vJ7/QLKTdtJRbDdzcoNaD0+Hh9jp3K0g2eH08iXeawSO+EcBQ6r5X4hpdm4cOzfAKUvoGrfET3ucEoKvFDbj9AtY7JbSFyRdTLdhUJ3X7g2ML9qGx4ncDjr3YDhXr3WK5d3fEGrgxPVPXqtkXXY57gLIaIQlNz4wH83rJ8tM5jGs27BkzzTvWZFlMGCQ/dw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=d3embedded.com; dmarc=pass action=none
+ header.from=d3embedded.com; dkim=pass header.d=d3embedded.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=d3engineering.onmicrosoft.com; s=selector2-d3engineering-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HC3RNv0zRkL8JB3B9YbRuq05r11k79SCIrwFmV7QaRo=;
+ b=X/F+j/P5oGkvb/36zIN3mTW09SAWASFVE72V+4LA3VfkZ9Vryv5TMMjrw5M5Zjf4fUIyTBGl0FBWxbrOYL8TyNaZ66K9bRcaB+6meUiY9ccWmj4Wfhgy5tI+iPt2w0NytlSWCeqUBsjSN5+QgtyCZw+4vEx30/jBT38UYJ2p8Oo=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=d3embedded.com;
+Received: from MN2PR14MB4207.namprd14.prod.outlook.com (2603:10b6:208:1d6::13)
+ by CY5PR14MB5559.namprd14.prod.outlook.com (2603:10b6:930:39::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.20; Wed, 26 Feb
+ 2025 20:13:29 +0000
+Received: from MN2PR14MB4207.namprd14.prod.outlook.com
+ ([fe80::1232:fdf5:3cae:d9d7]) by MN2PR14MB4207.namprd14.prod.outlook.com
+ ([fe80::1232:fdf5:3cae:d9d7%3]) with mapi id 15.20.8466.020; Wed, 26 Feb 2025
+ 20:13:29 +0000
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 26 Feb 2025 15:13:27 -0500
+Message-Id: <D82NHO05EBSQ.3AZF1VYBU17V5@d3embedded.com>
+To: "Krzysztof Kozlowski" <krzysztof.kozlowski@linaro.org>,
+ <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <linux-media@vger.kernel.org>
+Cc: =?utf-8?b?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ "Abel Vesa" <abel.vesa@linaro.org>, "Achath Vaishnav" <vaishnav.a@ti.com>,
+ "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>,
+ "Ard Biesheuvel" <ardb@kernel.org>, "Benjamin Mugnier"
+ <benjamin.mugnier@foss.st.com>, "Biju Das" <biju.das.jz@bp.renesas.com>,
+ "Bjorn Andersson" <quic_bjorande@quicinc.com>, "Catalin Marinas"
+ <catalin.marinas@arm.com>, "Conor Dooley" <conor+dt@kernel.org>, "Dmitry
+ Baryshkov" <dmitry.baryshkov@linaro.org>, "Elinor Montmasson"
+ <elinor.montmasson@savoirfairelinux.com>, "Fabio Estevam"
+ <festevam@gmail.com>, "Geert Uytterhoeven" <geert+renesas@glider.be>, "Hans
+ Verkuil" <hverkuil@xs4all.nl>, "Javier Carrasco"
+ <javier.carrasco@wolfvision.net>, "Jianzhong Xu" <xuj@ti.com>, "Julien
+ Massot" <julien.massot@collabora.com>, "Kieran Bingham"
+ <kieran.bingham@ideasonboard.com>, "Kory Maincent"
+ <kory.maincent@bootlin.com>, "Laurent Pinchart"
+ <laurent.pinchart@ideasonboard.com>, "Mauro Carvalho Chehab"
+ <mchehab@kernel.org>, "Mikhail Rudenko" <mike.rudenko@gmail.com>, "Nishanth
+ Menon" <nm@ti.com>, "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Rob
+ Herring" <robh@kernel.org>, "Sakari Ailus" <sakari.ailus@linux.intel.com>,
+ "Sascha Hauer" <s.hauer@pengutronix.de>, "Shawn Guo" <shawnguo@kernel.org>,
+ "Stuart Burtner" <sburtner@d3embedded.com>, "Tero Kristo"
+ <kristo@kernel.org>, "Thakkar Devarsh" <devarsht@ti.com>, "Tomi Valkeinen"
+ <tomi.valkeinen@ideasonboard.com>, "Umang Jain"
+ <umang.jain@ideasonboard.com>, "Vignesh Raghavendra" <vigneshr@ti.com>,
+ "Will Deacon" <will@kernel.org>, "Zhi Mao" <zhi.mao@mediatek.com>
+Subject: Re: [PATCH 2/4] media: i2c: Add driver for Sony IMX728
+From: "Sebastian LaVine" <slavine@d3embedded.com>
+X-Mailer: aerc 0.20.1
+References: <20250212195656.69528-1-slavine@d3embedded.com>
+ <20250212195656.69528-3-slavine@d3embedded.com>
+ <416d75fd-40d0-45d7-9590-0322abb480ca@linaro.org>
+In-Reply-To: <416d75fd-40d0-45d7-9590-0322abb480ca@linaro.org>
+X-ClientProxiedBy: BLAPR03CA0072.namprd03.prod.outlook.com
+ (2603:10b6:208:329::17) To MN2PR14MB4207.namprd14.prod.outlook.com
+ (2603:10b6:208:1d6::13)
 MIME-Version: 1.0
-Content-Type: text/plain
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN2PR14MB4207:EE_|CY5PR14MB5559:EE_
+X-MS-Office365-Filtering-Correlation-Id: 55f0034d-d6ed-4885-5abf-08dd56a2091b
+X-LD-Processed: b7153db5-3376-478b-b601-92ce9bc0d3bc,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?akNoTWVrbEJkbk9DWUNvamtaWnJjb2loOURCTC9Ia0tWdHljSlU1eXFHQ0d3?=
+ =?utf-8?B?cWZtRGt3SDV5K2tHd0NoS0I4bFNyYjV1aDZxWUZtdTVPWUVtcGpoZmFxdUxG?=
+ =?utf-8?B?bXZZREhyMjJ1T0xtZ2hSMG5iZVdIZDY3cEVFK2RvWXZhUldOSEpYZDdKY1hI?=
+ =?utf-8?B?NWltWk0xeUFDNHpIei9LeFkybG5TSTZTMDdEQlFuZWptVi8xcnBGb3oxVDZP?=
+ =?utf-8?B?Z0MrQURqQ0xGTFhnSFJXMUdqWmhOdTRORU1iTWFOaDlPcmNMb1FvaTcxR1JS?=
+ =?utf-8?B?YUhuc1ZPai9qcndzMGxZNXp3bS9XVUViUnZ0ZXQ3N2EwQkplOWNCSjVPSnBk?=
+ =?utf-8?B?WlFpNVFmTmJ4dzFMdDZNSEtWVytZNnNReEdJaE5kUWVDeG5WNXhQdVE0TXNz?=
+ =?utf-8?B?YkMvaU5XeWI2Nm1HbzBqdkdyeDRrZDdIRXpaRjNMajgwNnhHMGsxSmxOblFo?=
+ =?utf-8?B?YUpTb0pCdG1sZU9pbFl2cVJYUUliUUxhNlhqZiszT1NEY2FTK2dLTVJWdE5E?=
+ =?utf-8?B?MlUxb2wrdDQrRXcwdVErMXlPWHBVSzJPbTU3Z1p4bWJlZjVkM1daN1pEei9N?=
+ =?utf-8?B?dTJ3SVdsZi9heDFUQkRIK0p3V2U4TTlDeFdENnVLQW05ck91L0Z0Vy9xZnQr?=
+ =?utf-8?B?VlRBenFqOVkxeUt3a3RtQUdTWCt4TmtwMlNydkpYQWRRU3ZjNlBUSys3V1Y3?=
+ =?utf-8?B?eDFoaWVqb21WL2U0L0VtWjN5c1l2UVZsTUtqNmhqbWwxenRRZlE4a1NDRGJV?=
+ =?utf-8?B?RVJpdUs1ZkU1TEhRVkFrdHFCOUh3NkJ2cDc2d3Rkd0o0dHg2OGNGdWt5MnhS?=
+ =?utf-8?B?UUtGaXN5VU5kNFk4eE8zSVNLem4xdXRscloxQzZrZHhmN1JjSURUSUtCMno0?=
+ =?utf-8?B?SnY3MHBmVEN4ZUdjMHdsSk1PdEYvcDluRUU2RU1CNUpPTHVtOGh5K3Rld0Y3?=
+ =?utf-8?B?ZWVkTmQ0bTA0V2hQMURXQTdydDlaL3FuUHIzcU1uVUpVU2QwSzhwUmVDcFVN?=
+ =?utf-8?B?RTlLaHNwSmZ2OGVSdWYzN3Q0bkk1Mm1QZEhTaTM1QVZqQjJleDZtL1pxd3dL?=
+ =?utf-8?B?b0tTaXdXU21YYVFKMFFTeWVxVUgyK3VTUG5YQXNwQ1lTdDBSZXdMSkpaanhq?=
+ =?utf-8?B?ZjZiS3lUc0JVa3FSbld0L1h3SWRsNHJjUUQzOW42amVOM3VVVlE0aVdYbG51?=
+ =?utf-8?B?VWl2SElMd0JPSFhvQ0pvcFU5SVl1L1JzdUJjV05pNmZjWWdWZkZPYmZDRG1w?=
+ =?utf-8?B?eG9sdGl0L2IrbWRwZFF1WXpiK3IwTGZnQ0FQUmc2Z2dWOTM5clNBYUE5enpW?=
+ =?utf-8?B?U21EMXZMMjNTdUplZmkzTlVLQ3BJMXBqd0ptZ1FTSDNhRWpSSTJXMVFqUHA3?=
+ =?utf-8?B?UGMvVS9RVXFXWUNUMWhpVnBDc2ZoYWIvdWFEeFRHZ1RyTjZqNUpJZDI4QnNu?=
+ =?utf-8?B?N3MvT1Flblc4Um15SnM2L2UvTEVRWDZIbnY3Z0d3V3dBOWVqUnRSc3oxRU10?=
+ =?utf-8?B?L1phOHN1eFd0MzZEVW5xdElGWjliRkxZWlRjV1N1MzZhSy9FYmVmTGJ2dXVH?=
+ =?utf-8?B?aytjRXY0MnFNMDZaakxxaDl3K0ZKT3NGS1hocFdyRVg1VDBaMGJyckZnZVpk?=
+ =?utf-8?B?OWxQdWZFKy9zQnAzbHNoaU9VRk8vdVV0WkZKTGMyNUFlYUczbWhXRU1jTGFw?=
+ =?utf-8?B?MWxncndiZjEzdTdYODFRQk1pS3lXZ3lKWDJ5emhGay9qeHVWTDhQb0NUVnBG?=
+ =?utf-8?B?M3R2Um1NZEwrOEg4S0xJS093a3RNeDF6MHJzNWxIeUVIc3VNT0wxaC9yeDIr?=
+ =?utf-8?B?SWd1RkpJTEppVlVzZkI2SjExSHFWQlNGcHhSaWV1eUl3OG1PUGd2ajF3ZFZn?=
+ =?utf-8?Q?ihzTW0wV6UpEs?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR14MB4207.namprd14.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TFh4cldJcGdGVmQxZWlobmk3bXhzd1RFT0dWRnk5clF2dlVQejBST0dGUUg0?=
+ =?utf-8?B?VnpiL0FaZHo4Y0NMY2VIVWdhcnRoWWpESTRRRG9EeklaTnNvckJsbXU0anF0?=
+ =?utf-8?B?aHJ1ZWVmY0laWEIrOW9VRWt6OGNaMGZxclNIQmdLN29ZS2FhVmVZTTlPaWZN?=
+ =?utf-8?B?NVpSZ0hwK0w2Zkp1cWhPOHRaQ0hKdk9wSkJ2M3pwWnIySVo0TVRob2EwdGZQ?=
+ =?utf-8?B?RjdvTTI2OHhQYkF0YTdMRU9IdksyQWlFaEZzRmNkK2RlOHA1SG14SkZpM2JM?=
+ =?utf-8?B?cVF6WWRqMFBZSTVCbmVXV0grTVRpVU14N25EbWFTR1JEUyt1WHFqNTlTK0dF?=
+ =?utf-8?B?V2VUcHRLcXAzc2w2Q0o3ZkcwRTNuSnRlRzJadFBYeWVUT2lNVVJMUGxnSXhN?=
+ =?utf-8?B?QkFYdGdUcHN2eG5xY2hQamJrUzVXQ0pEcWJPYWU3alRUQ0lmUW91c3ZwTG9V?=
+ =?utf-8?B?aHVVMmd6ZUtVNFVDY1I0NGp2YTdIcFZVYlNlVHFrZER1cGNITFFTRHVIUEhD?=
+ =?utf-8?B?SmZuOGFKWDZzK1ErMnVQRG9XUzBXVHh4dnU0ZE9sNXVqbFV3bjFGUmN3bFlG?=
+ =?utf-8?B?clRiNSt0MU5walppSTdCVGpCVzRnMmMzRU83WG9EVFJKWXBJTkpXaVYvU3Vr?=
+ =?utf-8?B?d3F1RnhaZml1OXhiNFpxdU1yREErSjQ5cDdiRjZLbEF1cXJ2NGpNdjdJUHBj?=
+ =?utf-8?B?bk5yanJDUjlQeHJIaDQ0eUpMYkF6dWltM2tpeWp6eFJEVXZhSkVKQnVlbmpI?=
+ =?utf-8?B?V0lCdk5mQVRJMm5qUXlBN2FaOGdrdzRpV0JLSS8zMjlMcmNaU1ZBblYyYUJE?=
+ =?utf-8?B?NDQ3YlA1T3lvWjRRQmlnL2tHK2hQblFOSlhoTlV6UnM4emJsRnM1RGdtSEZY?=
+ =?utf-8?B?TERDSm1kWUZSelhzN01wcW5mVVJCaEVOTzJYaWZuOFFNaUJFODNqUTFwK0VG?=
+ =?utf-8?B?RnhRSitETXJkMlE1SmxVWG83dFJrREVSVTFEMUliVksxMW1EZUQrdVFPcElG?=
+ =?utf-8?B?SHJyK3kxNmZMcVAvcGJzbXdHcEh3a2FBMzNWbzhteTFZMnVTSWtEZ3crS0lx?=
+ =?utf-8?B?SlMxbUpqazdjelU2NkY1UXVTSW1MQXpZR1hNNFM0TFRXQ2VlZjdsaFdpcjc1?=
+ =?utf-8?B?cUViYUYxcDBaLysxblVDSitTNmppa2dCMHRRdVVPbjFlVkJMcllRRE9zU2VX?=
+ =?utf-8?B?MEtOc3lrMjdqN2g0MEtZZTZUbDUrOC9pTjdMU0c4eXpRb2tXbm5zc3Q2V2ND?=
+ =?utf-8?B?eUpUNXM0V2tnZlYzM2R6ajF2RENJK0dMZWRmRDMxZjFOZnNiNDdDN1grTzFC?=
+ =?utf-8?B?K0lmVFJaUWR6Z2d4T2JucS9XR3U4ZzVabS8rNXVYa3pKNjhNcWRxT2tnUU05?=
+ =?utf-8?B?R093MEdpYkR4NGNNQzMyN3E0L0d3MjlHT0JFN1Fualc3dWd4UG84K3ZsRkox?=
+ =?utf-8?B?NXY2SlRQSk1LcERGSy9SM1FsMk0vd0h0VDBJVEhXL2c1T3g1Q2lLaXk2MHBu?=
+ =?utf-8?B?MGRxYjVOVWxPcWFCQ25PaExJS3N0bjloU0wrS0YyVFJFelZLY1dJUkp1eW0v?=
+ =?utf-8?B?OWYwRXkvTGdIYk9yNGNrRWdZQzFRc0U4ZnowUU5acmZpUjJrKzJtTlpBRGt2?=
+ =?utf-8?B?am0vQ0duQTlxQ254YXRtNUIvUXlsN1F6cG15SG55OE9KWXhONDhqZkRYUEEz?=
+ =?utf-8?B?Sng5alJpMzFXVnJZUzQrTHZpWlBHdmFyQmF3YWxlZnBlMlNaUGFDUU96TjBo?=
+ =?utf-8?B?c0tzWmJsWFJuQ2FoTDhUb0ZheXVCRkI4SnV1UFUwbFI3VEJCUXBnTHFWMTBV?=
+ =?utf-8?B?dTdYVk9oRWk0YmcxZkp3ZVNvZHNoa0hEM1d5dFZWbTVodC8yTzQwL3pGWGlH?=
+ =?utf-8?B?akI1MCtrTlAvdEtrdTBoOVI1SFZCa2Z5dVBQUzJ4Q3Y0WTVwMVk5Um1KeTQw?=
+ =?utf-8?B?SVh5T3k5VXJKdjd4V216VXpTc2g5Mk96SkRRWUNUY25BQXJYeUVIMTVFM2o2?=
+ =?utf-8?B?RDVFK1FSSW42RGlRQmc4OG91L3hsdHplS2NVUFpjSWRSS2p4ZnA3bWhkREFE?=
+ =?utf-8?B?enNpcXpCNkxiY0x3dVdDTlFKZk1kUU4ydEQ3em44RnJYaGZNclNJUy9iT290?=
+ =?utf-8?Q?0bqK3Q6YYq4xX0GYU7W8gFsfS?=
+X-OriginatorOrg: d3embedded.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 55f0034d-d6ed-4885-5abf-08dd56a2091b
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR14MB4207.namprd14.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Feb 2025 20:13:29.5865
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: b7153db5-3376-478b-b601-92ce9bc0d3bc
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1SPJPZApB+Oo8X5Wi/AUe1L0E3QeWQWZgorW0Gw6ruczafyA3G0kbHL2gvDUBTcp7bcgSn4ggxUWAOzsT3Do9w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR14MB5559
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_120835_647822_1D072DEA 
-X-CRM114-Status: GOOD (  20.76  )
+X-CRM114-CacheID: sfid-20250226_121339_612301_870A1740 
+X-CRM114-Status: GOOD (  19.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,140 +202,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mike,
-
-On Thu, Feb 06 2025, Mike Rapoport wrote:
-
-> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+On Wed Feb 12, 2025 at 3:11 PM EST, Krzysztof Kozlowski wrote:
+> On 12/02/2025 20:56, Sebastian LaVine wrote:
+>>
+>> ...
+>>
+>> +static int imx728_reset(struct imx728 *imx728)
+>> +{
+>> +
+>> +       int ret =3D 0;
+>> +
+>> +       // Prefer hardware reset if available.
+>> +       if (!IS_ERR_OR_NULL(imx728->reset_gpio)) {
 >
-> Hi,
+> Here can be ERR (although why?) but...
 >
-> This a next version of Alex's "kexec: Allow preservation of ftrace buffers"
-> series (https://lore.kernel.org/all/20240117144704.602-1-graf@amazon.com),
-> just to make things simpler instead of ftrace we decided to preserve
-> "reserve_mem" regions.
-[...]
+>> +               gpiod_set_value_cansleep(imx728->reset_gpio, 1);
+>>
+>> ...
+>>
+>> +static int imx728_power_off(struct imx728 *imx728)
+>> +{
+>> +
+>> +       if (imx728->reset_gpio) {
+>
+> Here cannot.
+>
+>> +               gpiod_set_value_cansleep(imx728->reset_gpio, 1);
+>> +
+>> +               usleep_range(1, 10);
+>> +       }
+>> +       clk_disable_unprepare(imx728->clk);
+>> +       return 0;
+>> +}
+>> +
+>>
+>> ...
+>>
+>> +static int imx728_probe(struct i2c_client *client)
+>> +{
+>> +       struct imx728 *imx728;
+>> +       struct v4l2_subdev *sd;
+>> +       struct v4l2_ctrl_handler *ctrl_hdr;
+>> +       int ret;
+>> +
+>> +       imx728 =3D devm_kzalloc(&client->dev, sizeof(*imx728), GFP_KERNE=
+L);
+>> +       if (!imx728)
+>> +               return -ENOMEM;
+>> +
+>> +       imx728->dev =3D &client->dev;
+>> +
+>> +       imx728->regmap =3D devm_cci_regmap_init_i2c(client, 16);
+>> +       if (IS_ERR(imx728->regmap))
+>> +               return PTR_ERR(imx728->regmap);
+>> +
+>> +       imx728->reset_gpio =3D devm_gpiod_get_optional(imx728->dev,
+>> +                                            "reset", GPIOD_OUT_LOW);
+>> +       if (IS_ERR(imx728->reset_gpio))
+>> +               return PTR_ERR(imx728->reset_gpio);
+>
+> So can it be ERR after that point? Looks like not.
+>
 
-I applied the patches on top of v6.14-rc1 and tried them out on an x86
-qemu machine . When I do a plain KHO activate and kexec, I get the below
-errors on boot. This causes networking to fail on the VM. The errors are
-consistent and happen every kexec-reboot, though fairly late in boot
-after systemd tries to bring up network. The same setup has worked fine
-with Alex's v3 of KHO patches.
+I see what you mean -- I'll change the check in imx728_reset to a simple
+null check in v4. Thanks.
 
-Do you see anything obvious that might cause this? I can try to debug
-this tomorrow, but if it rings any loud bells it would be nice to know.
+> (Jumping back up to previous inline feedback)
+>
+> ...
+>
+>> +
+>> +static int imx728_set_stream(struct v4l2_subdev *sd, int enable)
+>> +{
+>> +       struct imx728 *imx728 =3D to_imx728(sd);
+>> +       int ret;
+>> +
+>> +       mutex_lock(&imx728->lock);
+>
+> Just use guard. That's actually perfect candidate.
+>
 
-    [    1.665225] ------------[ cut here ]------------
-    [    1.665606] e1000 0000:00:03.0: DMA addr 0x0000000107978040+1522 overflow (mask ffffffff, bus limit 0).
-    [    1.666364] WARNING: CPU: 6 PID: 2033 at kernel/dma/direct.h:103 dma_direct_map_page+0x271/0x280
-    [    1.667074] Modules linked in:
-    [    1.667335] CPU: 6 UID: 980 PID: 2033 Comm: systemd-network Not tainted 6.14.0-rc1+ #70
-    [    1.668004] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Arch Linux 1.16.3-1-1 04/01/2014
-    [    1.668760] RIP: 0010:dma_direct_map_page+0x271/0x280
-    [    1.669166] Code: 04 48 8b 5d 00 48 89 ef e8 7c 5f 7a 00 4d 89 e9 4d 89 e0 48 89 da 48 89 e1 41 56 48 89 c6 48 c7 c7 58 a9 4f 82 e8 3f 09 f4 ff <0f> 0b 58 eb 88 e8 05 b7 b9 00 0f 1f 44 00 00 90 90 90 90 90 90 90
-    [    1.670624] RSP: 0018:ffffc90002baf628 EFLAGS: 00010282
-    [    1.671035] RAX: 0000000000000000 RBX: ffff888100dd2e00 RCX: 0000000000000027
-    [    1.671607] RDX: ffff88842d920a88 RSI: 0000000000000001 RDI: ffff88842d920a80
-    [    1.672177] RBP: ffff8881015530c0 R08: 0000000000000000 R09: ffffc90002baf4b0
-    [    1.672757] R10: ffffffff82deeec8 R11: 0000000000000003 R12: 00000000000005f2
-    [    1.673320] R13: 00000000ffffffff R14: 0000000000000000 R15: 0000000000000040
-    [    1.673882] FS:  00007f15c3edb880(0000) GS:ffff88842d900000(0000) knlGS:0000000000000000
-    [    1.674516] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-    [    1.674977] CR2: 00007f15c430cb50 CR3: 0000000102d28000 CR4: 00000000000006f0
-    [    1.675554] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
-    [    1.676117] DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
-    [    1.676698] Call Trace:
-    [    1.676914]  <TASK>
-    [    1.677097]  ? show_trace_log_lvl+0x1a7/0x2f0
-    [    1.677458]  ? show_trace_log_lvl+0x1a7/0x2f0
-    [    1.677811]  ? dma_map_page_attrs+0x6e/0x1f0
-    [    1.678158]  ? dma_direct_map_page+0x271/0x280
-    [    1.678510]  ? __warn.cold+0x93/0xf1
-    [    1.678802]  ? dma_direct_map_page+0x271/0x280
-    [    1.679158]  ? report_bug+0xff/0x140
-    [    1.679461]  ? handle_bug+0x53/0x90
-    [    1.679768]  ? exc_invalid_op+0x17/0x70
-    [    1.680077]  ? asm_exc_invalid_op+0x1a/0x20
-    [    1.680428]  ? dma_direct_map_page+0x271/0x280
-    [    1.680789]  ? dma_direct_map_page+0x271/0x280
-    [    1.681149]  dma_map_page_attrs+0x6e/0x1f0
-    [    1.681483]  e1000_alloc_rx_buffers+0x140/0x340
-    [    1.681852]  e1000_configure+0xf9/0x110
-    [    1.682163]  e1000_open+0xc5/0x200
-    [    1.682441]  __dev_open+0xff/0x1d0
-    [    1.682728]  __dev_change_flags+0x1f8/0x240
-    [    1.683066]  ? __nla_put+0x10/0x30
-    [    1.683345]  dev_change_flags+0x26/0x70
-    [    1.683668]  do_setlink.isra.0+0x2ca/0xbe0
-    [    1.684002]  ? cred_has_capability.isra.0+0x6a/0x110
-    [    1.684411]  ? blk_mq_get_tags+0x33/0x70
-    [    1.684731]  ? virtqueue_add_split+0xa4/0x6b0
-    [    1.685086]  ? security_capable+0x70/0xc0
-    [    1.685409]  rtnl_setlink+0x184/0x220
-    [    1.685712]  ? cred_has_capability.isra.0+0x6a/0x110
-    [    1.686110]  ? xa_load+0x7a/0xb0
-    [    1.686374]  ? __pfx_rtnl_setlink+0x10/0x10
-    [    1.686710]  rtnetlink_rcv_msg+0x354/0x3f0
-    [    1.687039]  ? folio_wait_bit_common+0x28b/0x300
-    [    1.687407]  ? ___pte_offset_map+0x1b/0x140
-    [    1.687757]  ? __pfx_rtnetlink_rcv_msg+0x10/0x10
-    [    1.688123]  netlink_rcv_skb+0x53/0x100
-    [    1.688451]  netlink_unicast+0x245/0x390
-    [    1.688772]  netlink_sendmsg+0x21b/0x470
-    [    1.689085]  ? __check_object_size.part.0+0x39/0xd0
-    [    1.689481]  __sys_sendto+0x1d4/0x1e0
-    [    1.689788]  __x64_sys_sendto+0x24/0x30
-    [    1.690108]  do_syscall_64+0x4b/0x110
-    [    1.690414]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
-    [    1.690820] RIP: 0033:0x7f15c40fc897
-    [    1.691114] Code: c7 c0 ff ff ff ff eb be 66 2e 0f 1f 84 00 00 00 00 00 90 f3 0f 1e fa 80 3d d5 37 0d 00 00 41 89 ca 74 10 b8 2c 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 69 c3 55 48 89 e5 53 48 83 ec 38 44 89 4d d0
-    [    1.692589] RSP: 002b:00007ffc3c3080b8 EFLAGS: 00000202 ORIG_RAX: 000000000000002c
-    [    1.693191] RAX: ffffffffffffffda RBX: 000055eda6a76a70 RCX: 00007f15c40fc897
-    [    1.693752] RDX: 0000000000000020 RSI: 000055eda6a93260 RDI: 0000000000000003
-    [    1.694308] RBP: 00007ffc3c308150 R08: 00007ffc3c3080c0 R09: 0000000000000080
-    [    1.694867] R10: 0000000000000000 R11: 0000000000000202 R12: 000055eda6a93bc0
-    [    1.695423] R13: 000055eda6a8c748 R14: 0000000000000000 R15: 000055eda6a8c700
-    [    1.695998]  </TASK>
-    [    1.696183] ---[ end trace 0000000000000000 ]---
-    [    1.707952] e1000: ens3 NIC Link is Up 1000 Mbps Full Duplex, Flow Control: RX
-    [...]
-    [    3.071312] e1000 0000:00:03.0: TX DMA map failed
-    [    3.263302] e1000 0000:00:03.0: TX DMA map failed
-    [    3.388180] e1000 0000:00:03.0: TX DMA map failed
-    [many more times]
+Okay -- I'll include this change in v4. I'm not so familiar with using
+this interface, so please let me know if this is incorrect:
 
-Qemu version:
+diff --git a/drivers/media/i2c/imx728.c b/drivers/media/i2c/imx728.c
+index 4a6dfa0a6c58..d7d62e9917a4 100644
+--- a/drivers/media/i2c/imx728.c
++++ b/drivers/media/i2c/imx728.c
+@@ -9320,17 +9320,16 @@ static int imx728_set_stream(struct v4l2_subdev *sd=
+, int enable)
+        struct imx728 *imx728 =3D to_imx728(sd);
+        int ret;
 
-    QEMU emulator version 9.2.0
-    Copyright (c) 2003-2024 Fabrice Bellard and the QEMU Project developers
+-       mutex_lock(&imx728->lock);
++       guard(mutex)(&imx728->lock);
++
+-       if (imx728->streaming =3D=3D enable) {
++       if (imx728->streaming =3D=3D enable)
+-               mutex_unlock(&imx728->lock);
+                return 0;
+-       }
 
-Command to run qemu:
+        if (enable) {
+                ret =3D pm_runtime_get_sync(imx728->dev);
+                if (ret < 0) {
+                        pm_runtime_put_noidle(imx728->dev);
+-                       goto err_unlock;
++                       goto err;
+                }
 
-    qemu-system-x86_64 \
-            -m 16G \
-            -smp 10 \
-            -kernel arch/x86/boot/bzImage \
-            -append "console=ttyS0 root=/dev/vda rw earlyprintk=serial net.ifnames=0 kho=1 kho_scratch=200M,200M nokaslr" \
-            -drive file=/local/home/ptyadav/qemu/drive.ext4,format=raw,if=virtio \
-            -nic user,hostfwd=tcp::10022-:22 \
-            -gdb tcp::1234 \
-            -nographic
+                ret =3D imx728_start_stream(imx728);
+@@ -9349,15 +9348,12 @@ static int imx728_set_stream(struct v4l2_subdev *sd=
+, int enable)
+        __v4l2_ctrl_grab(imx728->ctrl.h_flip, enable);
+        __v4l2_ctrl_grab(imx728->ctrl.v_flip, enable);
 
-Steps used to kexec:
+-       mutex_unlock(&imx728->lock);
+-
+        return 0;
 
-    $ echo 1 > /sys/kernel/kho/active
-    $ kexec -l bzImage -s --initrd /boot/initramfs-linux.img --reuse-cmdline
+ err_runtime_put:
+        pm_runtime_put(imx728->dev);
 
-DT after KHO activate:
+-err_unlock:
+-       mutex_unlock(&imx728->lock);
++err:
+        dev_err(imx728->dev,
+                "%s: failed to setup streaming %d\n", __func__, ret);
+        return ret;
 
-    /dts-v1/;
 
-    / {
-            compatible = "kho-v1";
-    };
+Thanks,
 
--- 
-Regards,
-Pratyush Yadav
+--
+Sebastian
+
+Please be aware that this email includes email addresses outside of the org=
+anization.
 
