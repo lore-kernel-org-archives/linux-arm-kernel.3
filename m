@@ -4,100 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F18DC021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 13:00:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DEAEC021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 13:02:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rJc/4lpDdjdzt4vnCII5ZxhVCUBOXuCUR/VWVGFhL5Y=; b=0rVJFfejBg7PZrxJiqU5PzFSiA
-	uVlqNDbYNAYJmHAm6yqUJHmFq5X5xOKNg/uVjd3M/1WP1oSDrYpbjd/b51Q7TYL5Qdnah451yi5oa
-	31AijmWkD/rQcrze7x+QaZanyaDqHBsIMNZJFJbyEPWy/5Ekc6qPDmW0VFmjhVU5XCDmffReJQvBh
-	VEraX/pL2xWwNCnydjWAgswIUWqjm2NqYYD5Kx+nu0jXd4WjQYYViTCj/sdjU9mpBnTS2oj3NENGJ
-	frsCw1aLhmevVrL0aevUfReijG7vj8I7UYy4lxubRapJIpOZZjgxCGq2JDU4b4DNmcegieoMUVoid
-	zXodXlUA==;
+	bh=dWz8azjbSVzMO5hesdQqLVfPW8tdj2Mvtub7uQ9nCnc=; b=4vfrHUuavbpJiSUcCwxhG+1PDR
+	1AUrPo+/iooD5sSCBvaH3HZcQUl0NMUk0k2tTdMatOx6bgQGP3Cf+GvEVcoz+VlNT9pIsyx0WJnoK
+	8RNkIw0rZ/J0+atW1wl0aSz45LD7YsZaubZ8JkBoGfuBV8E7QxiaegwwvY7Tnu1tgAcEkkzAvsTmG
+	cemrAP3R8B047mDkDFD0V39MQyCbiD6hsPUJDnE8gj0NmwzCm7dUtkm+6inJpp4tK8dlRSCSnVivg
+	6dnF+xmmHK0imoyHWyduTVtTc0vqpCwmQme+J2jdHLhDRWc69I4LpHKoL0CkZpWPtNbbnqjpXNyrM
+	uapNHPVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tndV4-00000007S1o-1ILb;
-	Thu, 27 Feb 2025 13:00:26 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tncpY-00000007KYE-3pt7
+	id 1tndWZ-00000007SCP-42hK;
+	Thu, 27 Feb 2025 13:01:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tncqH-00000007Khn-0MRw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 12:17:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740658652; x=1772194652;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=cmKtuwnc2KIDaRI+wvWtnzBRpft8byHlKWXn0enjH2M=;
-  b=PyWzV5OMOn99v+9ssoSgbmSdzCFa0wnkINi5SXYt6DPda0xubiHm91qb
-   srkNfCiFljeDy7RhP0idD73PRipJQbiFRpOT4aR2JeWKj07DzxGJmmV4j
-   pFrLV41h85D35qBRSDHwXE1oXxiICCvx60RhOSO3CFtcbZbXRmCFZeRjr
-   6gJqYVjscieLK6t24k1i3hfJmxQbW/HMqTWnc0K04Pwj7/Sm7eZdBMJzj
-   nXyPT7QFEjhUVCOP462oYI8byoACRS2yGvVEV2o3/OvKQeURQkDP4zK+E
-   J7FK5nqi5bqDG80iEgGhdXkDfI/GgZXAo2iNDxZjH2hQu+blKT6wqdmxO
-   A==;
-X-CSE-ConnectionGUID: xWUACWOyT8OrXTaf55bXpw==
-X-CSE-MsgGUID: 3QqxRLQ+TK2LUDZOTVM+gg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11358"; a="41464439"
-X-IronPort-AV: E=Sophos;i="6.13,319,1732608000"; 
-   d="scan'208";a="41464439"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Feb 2025 04:17:32 -0800
-X-CSE-ConnectionGUID: 7vofMf2LTX++1OfF11Gvog==
-X-CSE-MsgGUID: r3sYWK5QQbiJ+y4gBWx37A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="117519408"
-Received: from yongliang-ubuntu20-ilbpg12.png.intel.com ([10.88.227.39])
-  by orviesa007.jf.intel.com with ESMTP; 27 Feb 2025 04:17:25 -0800
-From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-To: Simon Horman <horms@kernel.org>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Jose Abreu <Jose.Abreu@synopsys.com>,
-	David E Box <david.e.box@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>,
-	David E Box <david.e.box@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jiawen Wu <jiawenwu@trustnetic.com>,
-	Mengyuan Lou <mengyuanlou@net-swift.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Hans de Goede <hdegoede@redhat.com>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Serge Semin <fancer.lancer@gmail.com>
-Cc: x86@kernel.org,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	platform-driver-x86@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH net-next v9 6/6] net: stmmac: interface switching support for ADL-N platform
-Date: Thu, 27 Feb 2025 20:15:22 +0800
-Message-Id: <20250227121522.1802832-7-yong.liang.choong@linux.intel.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250227121522.1802832-1-yong.liang.choong@linux.intel.com>
-References: <20250227121522.1802832-1-yong.liang.choong@linux.intel.com>
+	Thu, 27 Feb 2025 12:18:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 971B62BCA;
+	Thu, 27 Feb 2025 04:18:31 -0800 (PST)
+Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6FF5E3F673;
+	Thu, 27 Feb 2025 04:18:14 -0800 (PST)
+Date: Thu, 27 Feb 2025 12:18:11 +0000
+From: Andre Przywara <andre.przywara@arm.com>
+To: Chen-Yu Tsai <wens@csie.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
+ Holland <samuel@sholland.org>, <linux-gpio@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 4/8] pinctrl: sunxi: support moved power
+ configuration registers
+Message-ID: <20250227121811.23460bf0@donnerap.manchester.arm.com>
+In-Reply-To: <CAGb2v67V7PAOC8MLVzE5SwwvpogN_WLNhQnRVD2pikGVDHtJjA@mail.gmail.com>
+References: <20250214003734.14944-1-andre.przywara@arm.com>
+	<20250214003734.14944-5-andre.przywara@arm.com>
+	<CAGb2v67V7PAOC8MLVzE5SwwvpogN_WLNhQnRVD2pikGVDHtJjA@mail.gmail.com>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_041732_992966_FE9A53CB 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20250227_041817_212812_ED9D2CE8 
+X-CRM114-Status: GOOD (  25.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,96 +71,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The intel_config_serdes function was provided to handle interface mode
-changes for the ADL-N platform.
+On Mon, 17 Feb 2025 23:48:13 +0800
+Chen-Yu Tsai <wens@csie.org> wrote:
 
-The Modphy register lane was provided to configure the serdes when
-changing interface modes.
+Hi,
 
-Signed-off-by: Michael Sit Wei Hong <michael.wei.hong.sit@intel.com>
-Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
----
- .../net/ethernet/stmicro/stmmac/dwmac-intel.c | 52 ++++++++++++++++++-
- 1 file changed, 51 insertions(+), 1 deletion(-)
+> * # Be careful, this email looks suspicious; * Out of Character: The send=
+er is exhibiting a significant deviation from their usual behavior, this ma=
+y indicate that their account has been compromised. Be extra cautious befor=
+e opening links or attachments. *
+> On Fri, Feb 14, 2025 at 8:40=E2=80=AFAM Andre Przywara <andre.przywara@ar=
+m.com> wrote:
+> >
+> > The Allwinner pincontroller IP features some registers to control the
+> > withstand voltage of each pin group. So far those registers were always
+> > located at the same offset, but the A523 SoC has moved them (probably to
+> > accommodate all eleven pin banks).
+> >
+> > Add a flag to note this feature, and use that to program the registers
+> > either at offset 0x340 or 0x380. So far no pincontroller driver uses
+> > this flag, but we need it for the upcoming A523 support.
+> >
+> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> > ---
+> >  drivers/pinctrl/sunxi/pinctrl-sunxi.c | 15 +++++++++++----
+> >  drivers/pinctrl/sunxi/pinctrl-sunxi.h |  7 +++++--
+> >  2 files changed, 16 insertions(+), 6 deletions(-)
+> >
+> > diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/su=
+nxi/pinctrl-sunxi.c
+> > index 83a031ceb29f2..a1057122272bd 100644
+> > --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> > +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> > @@ -736,9 +736,9 @@ static int sunxi_pinctrl_set_io_bias_cfg(struct sun=
+xi_pinctrl *pctl,
+> >                 val =3D uV > 1800000 && uV <=3D 2500000 ? BIT(bank) : 0;
+> >
+> >                 raw_spin_lock_irqsave(&pctl->lock, flags);
+> > -               reg =3D readl(pctl->membase + PIO_POW_MOD_CTL_REG);
+> > +               reg =3D readl(pctl->membase + pctl->pow_mod_sel_offset);
+> >                 reg &=3D ~BIT(bank);
+> > -               writel(reg | val, pctl->membase + PIO_POW_MOD_CTL_REG);
+> > +               writel(reg | val, pctl->membase + pctl->pow_mod_sel_off=
+set);
+> >                 raw_spin_unlock_irqrestore(&pctl->lock, flags);
+> >
+> >                 fallthrough;
+> > @@ -746,9 +746,12 @@ static int sunxi_pinctrl_set_io_bias_cfg(struct su=
+nxi_pinctrl *pctl,
+> >                 val =3D uV <=3D 1800000 ? 1 : 0;
+> >
+> >                 raw_spin_lock_irqsave(&pctl->lock, flags);
+> > -               reg =3D readl(pctl->membase + PIO_POW_MOD_SEL_REG);
+> > +               reg =3D readl(pctl->membase + pctl->pow_mod_sel_offset +
+> > +                           PIO_POW_MOD_SEL_OFS);
+> >                 reg &=3D ~(1 << bank);
+> > -               writel(reg | val << bank, pctl->membase + PIO_POW_MOD_S=
+EL_REG);
+> > +               writel(reg | val << bank,
+> > +                      pctl->membase + pctl->pow_mod_sel_offset +
+> > +                      PIO_POW_MOD_SEL_OFS);
+> >                 raw_spin_unlock_irqrestore(&pctl->lock, flags);
+> >                 return 0;
+> >         default:
+> > @@ -1520,6 +1523,10 @@ int sunxi_pinctrl_init_with_flags(struct platfor=
+m_device *pdev,
+> >                 pctl->pull_regs_offset =3D PULL_REGS_OFFSET;
+> >                 pctl->dlevel_field_width =3D DLEVEL_FIELD_WIDTH;
+> >         }
+> > +       if (flags & SUNXI_PINCTRL_ELEVEN_BANKS)
+> > +               pctl->pow_mod_sel_offset =3D PIO_11B_POW_MOD_SEL_REG;
+> > +       else
+> > +               pctl->pow_mod_sel_offset =3D PIO_POW_MOD_SEL_REG;
+> >
+> >         pctl->irq_array =3D devm_kcalloc(&pdev->dev,
+> >                                        IRQ_PER_BANK * pctl->desc->irq_b=
+anks,
+> > diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/su=
+nxi/pinctrl-sunxi.h
+> > index 6cf721876d89d..a93385e456a57 100644
+> > --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> > +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> > @@ -87,9 +87,11 @@
+> >  #define SUNXI_PINCTRL_VARIANT_MASK     GENMASK(7, 0)
+> >  #define SUNXI_PINCTRL_NEW_REG_LAYOUT   BIT(8)
+> >  #define SUNXI_PINCTRL_PORTF_SWITCH     BIT(9)
+> > +#define SUNXI_PINCTRL_ELEVEN_BANKS     BIT(10)
+> >
+> > -#define PIO_POW_MOD_SEL_REG    0x340
+> > -#define PIO_POW_MOD_CTL_REG    0x344
+> > +#define PIO_POW_MOD_SEL_REG            0x340
+> > +#define PIO_11B_POW_MOD_SEL_REG                0x380
+> > +#define PIO_POW_MOD_SEL_OFS            0x004 =20
+>=20
+> Shouldn't this be PIO_POW_MOD_CTL_OFS instead?
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
-index f73a48f98581..9c8de47ee149 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
-@@ -87,6 +87,7 @@ static const struct pmc_serdes_regs pid_modphy1_2p5g_regs[] = {
- };
- 
- static const int ehl_tsn_lane_regs[] = {7, 8, 9, 10, 11};
-+static const int adln_tsn_lane_regs[] = {6};
- 
- static int stmmac_pci_find_phy_addr(struct pci_dev *pdev,
- 				    const struct dmi_system_id *dmi_list)
-@@ -1004,6 +1005,55 @@ static int adls_sgmii_phy1_data(struct pci_dev *pdev,
- static struct stmmac_pci_info adls_sgmii1g_phy1_info = {
- 	.setup = adls_sgmii_phy1_data,
- };
-+
-+static int adln_common_data(struct pci_dev *pdev,
-+			    struct plat_stmmacenet_data *plat)
-+{
-+	struct intel_priv_data *intel_priv = plat->bsp_priv;
-+
-+	plat->rx_queues_to_use = 6;
-+	plat->tx_queues_to_use = 4;
-+	plat->clk_ptp_rate = 204800000;
-+
-+	plat->safety_feat_cfg->tsoee = 1;
-+	plat->safety_feat_cfg->mrxpee = 0;
-+	plat->safety_feat_cfg->mestee = 1;
-+	plat->safety_feat_cfg->mrxee = 1;
-+	plat->safety_feat_cfg->mtxee = 1;
-+	plat->safety_feat_cfg->epsi = 0;
-+	plat->safety_feat_cfg->edpp = 0;
-+	plat->safety_feat_cfg->prtyen = 0;
-+	plat->safety_feat_cfg->tmouten = 0;
-+
-+	intel_priv->tsn_lane_regs = adln_tsn_lane_regs;
-+	intel_priv->max_tsn_lane_regs = ARRAY_SIZE(adln_tsn_lane_regs);
-+
-+	return intel_mgbe_common_data(pdev, plat);
-+}
-+
-+static int adln_sgmii_phy0_data(struct pci_dev *pdev,
-+				struct plat_stmmacenet_data *plat)
-+{
-+	struct intel_priv_data *intel_priv = plat->bsp_priv;
-+
-+	plat->bus_id = 1;
-+	plat->phy_interface = PHY_INTERFACE_MODE_SGMII;
-+	plat->serdes_powerup = intel_serdes_powerup;
-+	plat->serdes_powerdown = intel_serdes_powerdown;
-+	plat->mac_finish = intel_mac_finish;
-+
-+	intel_priv->pid_1g.regs = pid_modphy1_1g_regs;
-+	intel_priv->pid_1g.num_regs = ARRAY_SIZE(pid_modphy1_1g_regs);
-+	intel_priv->pid_2p5g.regs = pid_modphy1_2p5g_regs;
-+	intel_priv->pid_2p5g.num_regs = ARRAY_SIZE(pid_modphy1_2p5g_regs);
-+
-+	return adln_common_data(pdev, plat);
-+}
-+
-+static struct stmmac_pci_info adln_sgmii1g_phy0_info = {
-+	.setup = adln_sgmii_phy0_data,
-+};
-+
- static const struct stmmac_pci_func_data galileo_stmmac_func_data[] = {
- 	{
- 		.func = 6,
-@@ -1386,7 +1436,7 @@ static const struct pci_device_id intel_eth_pci_id_table[] = {
- 	{ PCI_DEVICE_DATA(INTEL, TGLH_SGMII1G_1, &tgl_sgmii1g_phy1_info) },
- 	{ PCI_DEVICE_DATA(INTEL, ADLS_SGMII1G_0, &adls_sgmii1g_phy0_info) },
- 	{ PCI_DEVICE_DATA(INTEL, ADLS_SGMII1G_1, &adls_sgmii1g_phy1_info) },
--	{ PCI_DEVICE_DATA(INTEL, ADLN_SGMII1G, &tgl_sgmii1g_phy0_info) },
-+	{ PCI_DEVICE_DATA(INTEL, ADLN_SGMII1G, &adln_sgmii1g_phy0_info) },
- 	{ PCI_DEVICE_DATA(INTEL, RPLP_SGMII1G, &tgl_sgmii1g_phy0_info) },
- 	{}
- };
--- 
-2.34.1
+Ah, I already got lost myself in those three-letter stubs, but you are
+right: it's the offset of the control register within the POW_MOD(?)
+register block.
+So nice catch, will fix it.
+
+Thanks,
+Andre
+
+> ChenYu
+>=20
+> >
+> >  #define PIO_BANK_K_OFFSET              0x500
+> >
+> > @@ -173,6 +175,7 @@ struct sunxi_pinctrl {
+> >         u32                             bank_mem_size;
+> >         u32                             pull_regs_offset;
+> >         u32                             dlevel_field_width;
+> > +       u32                             pow_mod_sel_offset;
+> >  };
+> >
+> >  #define SUNXI_PIN(_pin, ...)                                   \
+> > --
+> > 2.46.3
+> > =20
+>=20
+>=20
 
 
