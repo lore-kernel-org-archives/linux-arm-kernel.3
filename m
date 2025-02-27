@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3A5BC021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 13:08:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C278AC021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 13:10:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ffjbbX1venPHBxlRywpaQkm9vgFtpK4oll/Ov8SSvoI=; b=a/BKP4mGpIVLkKzSnBktFZjPkN
-	CJAsEAF1yGe85+RGU4fzep0/YiAPrQOulinecVK7v5gGBEdD+rxHN434dng9xZdyPKxbtzTqmuvS4
-	TSh9zmk9DNDIMhU27ngntyKJtQGk+W23lQSY9lJ+l+RdvynTHoUQJlYpR8LAX7rgifpuMIvXzBKVe
-	uJj7KJ5iArv+p+EHemCMuEDBYXWLZywHmBdzpg9IeLfqklIoTKtPSYAGGBwaB8KrLYsEtyI2kqtDb
-	v7u3CkTG+15EW+yf3C463sOg9BH2qOg9AYCM2xPiuqSWKBpf/At3HQ2q0SgKH/Y8U3xATceU+cH/8
-	qUVhvmmw==;
+	bh=C2M2nugFCuwY4305/DjYiqJCN7yy++YJP3XiyKABLKg=; b=dmc61ckPlExiRZ8rjvAdyBV+fs
+	MCzLqLbV057CXAxtNN7vu3A5T6zFAjEwcFfHgr7qM1zm+vbc+hPo2xa5FsjGWewI3S+Z+hqNxZIDs
+	kIItqN7IJCy9bjtYaPbr5hEWzp/rOPsb2mlHgFnuvl8AHVI3VhoW3zudDdJTqePIyPQFnHS521ufn
+	oYT4N9GQBAzfYaGEEB3dCShsG578IxbgRpvY2Uj5xSDNGvyToCK+DzBamdhGjoePs8MfbgZATSg9J
+	cMWD0GGUaEGEPxkJUHjhxrHl4dOQ6wTtz066JWDrKUulVeb/S7e92J1Am1qjRbWqy2a8oefCd+wfc
+	VQcAebrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tndcb-00000007Szt-2iiR;
-	Thu, 27 Feb 2025 13:08:13 +0000
+	id 1tnde7-00000007T8w-1Aju;
+	Thu, 27 Feb 2025 13:09:47 +0000
 Received: from relmlor1.renesas.com ([210.160.252.171] helo=relmlie5.idc.renesas.com)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tncx7-00000007MIo-1Kig
+	id 1tncxD-00000007MIo-2ARM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 12:25:22 +0000
-X-CSE-ConnectionGUID: c5o7PANlQBGrSvyPSvZHmg==
-X-CSE-MsgGUID: edZ3QwiJTmGq+7ZZk05JGA==
+	Thu, 27 Feb 2025 12:25:28 +0000
+X-CSE-ConnectionGUID: RG252z/3SoibSevHGW7hiw==
+X-CSE-MsgGUID: VrzK82oZROymALWu3JMMtg==
 Received: from unknown (HELO relmlir5.idc.renesas.com) ([10.200.68.151])
-  by relmlie5.idc.renesas.com with ESMTP; 27 Feb 2025 21:25:19 +0900
+  by relmlie5.idc.renesas.com with ESMTP; 27 Feb 2025 21:25:27 +0900
 Received: from ubuntu.adwin.renesas.com (unknown [10.226.92.68])
-	by relmlir5.idc.renesas.com (Postfix) with ESMTP id 3A9964004CF4;
-	Thu, 27 Feb 2025 21:25:11 +0900 (JST)
+	by relmlir5.idc.renesas.com (Postfix) with ESMTP id CF66C4004CF4;
+	Thu, 27 Feb 2025 21:25:19 +0900 (JST)
 From: John Madieu <john.madieu.xa@bp.renesas.com>
 To: john.madieu.xa@bp.renesas.com,
 	geert+renesas@glider.be,
@@ -58,18 +58,17 @@ Cc: john.madieu@gmail.com,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	biju.das.jz@bp.renesas.com
-Subject: [PATCH v2 2/7] clk: renesas: r9a09g047: Add clock and reset signals for the TSU IP
-Date: Thu, 27 Feb 2025 13:24:38 +0100
-Message-ID: <20250227122453.30480-3-john.madieu.xa@bp.renesas.com>
+Subject: [PATCH v2 3/7] dt-bindings: thermal: r9a09g047-tsu: Document the TSU unit
+Date: Thu, 27 Feb 2025 13:24:39 +0100
+Message-ID: <20250227122453.30480-4-john.madieu.xa@bp.renesas.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250227122453.30480-1-john.madieu.xa@bp.renesas.com>
 References: <20250227122453.30480-1-john.madieu.xa@bp.renesas.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_042521_480010_C36F59D4 
-X-CRM114-Status: UNSURE (   7.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250227_042527_663021_A3C3F2D3 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,37 +83,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add required clocks and resets signals for the TSU IP available on the
-Renesas RZ/G3E SoC
+The Renesas RZ/G3E SoC includes a Thermal Sensor Unit (TSU) block designed
+to measure the junction temperature. The device provides real-time temperature
+measurements for thermal management, utilizing a single dedicated channel
+(channel 1) for temperature sensing.
 
 Signed-off-by: John Madieu <john.madieu.xa@bp.renesas.com>
 ---
-v1 -> v2: no changes
+v1 -> v2:
+ * Fix reg property specifier to get rid of yamlint warnings
+ * Fix IRQ name to reflect TSU expectations
 
- drivers/clk/renesas/r9a09g047-cpg.c | 3 +++
- 1 file changed, 3 insertions(+)
+ .../thermal/renesas,r9a09g047-tsu.yaml        | 123 ++++++++++++++++++
+ 1 file changed, 123 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/thermal/renesas,r9a09g047-tsu.yaml
 
-diff --git a/drivers/clk/renesas/r9a09g047-cpg.c b/drivers/clk/renesas/r9a09g047-cpg.c
-index 51fd24c20ed5..ada57964c132 100644
---- a/drivers/clk/renesas/r9a09g047-cpg.c
-+++ b/drivers/clk/renesas/r9a09g047-cpg.c
-@@ -154,6 +154,8 @@ static const struct rzv2h_mod_clk r9a09g047_mod_clks[] __initconst = {
- 						BUS_MSTOP(8, BIT(4))),
- 	DEF_MOD("sdhi_2_aclk",			CLK_PLLDTY_ACPU_DIV4, 10, 14, 5, 14,
- 						BUS_MSTOP(8, BIT(4))),
-+	DEF_MOD("tsu_1_pclk",			CLK_QEXTAL, 16, 10, 8, 10,
-+						BUS_MSTOP(2, BIT(15))),
- };
- 
- static const struct rzv2h_reset r9a09g047_resets[] __initconst = {
-@@ -177,6 +179,7 @@ static const struct rzv2h_reset r9a09g047_resets[] __initconst = {
- 	DEF_RST(10, 7, 4, 24),		/* SDHI_0_IXRST */
- 	DEF_RST(10, 8, 4, 25),		/* SDHI_1_IXRST */
- 	DEF_RST(10, 9, 4, 26),		/* SDHI_2_IXRST */
-+	DEF_RST(15, 8, 7, 9),		/* TSU_1_PRESETN */
- };
- 
- const struct rzv2h_cpg_info r9a09g047_cpg_info __initconst = {
+diff --git a/Documentation/devicetree/bindings/thermal/renesas,r9a09g047-tsu.yaml b/Documentation/devicetree/bindings/thermal/renesas,r9a09g047-tsu.yaml
+new file mode 100644
+index 000000000000..e786561ddbe3
+--- /dev/null
++++ b/Documentation/devicetree/bindings/thermal/renesas,r9a09g047-tsu.yaml
+@@ -0,0 +1,123 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/thermal/renesas,r9a09g047-tsu.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Renesas RZ/G3E Temperature Sensor Unit (TSU)
++
++maintainers:
++  - John Madieu <john.madieu.xa@bp.renesas.com>
++
++description:
++  The Temperature Sensor Unit (TSU) is an integrated thermal sensor that
++  monitors the chip temperature on the Renesas RZ/G3E SoC. The TSU provides
++  real-time temperature measurements for thermal management.
++
++properties:
++  compatible:
++    const: renesas,r9a09g047-tsu
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
++  power-domains:
++    maxItems: 1
++
++  interrupts:
++    description: |
++      Interrupt specifiers for the TSU:
++      - S12TSUADI1: Conversion complete interrupt signal (pulse)
++      - S12TSUADCMPI1: Comparison result interrupt signal (level)
++
++  interrupt-names:
++    items:
++      - const: adi
++      - const: adcmpi
++
++  "#thermal-sensor-cells":
++    const: 0
++
++  renesas,tsu-calibration-sys:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: |
++      Phandle to the system controller (sys) that contains the TSU
++      calibration values used for temperature calculations.
++
++  renesas,tsu-operating-mode:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [0, 1]
++    description: |
++      TSU operating mode:
++      0: Mode 0 - Conversion started by software
++      1: Mode 1 - Conversion started by ELC trigger
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - resets
++  - power-domains
++  - interrupts
++  - interrupt-names
++  - "#thermal-sensor-cells"
++  - renesas,tsu-operating-mode
++  - renesas,tsu-calibration-sys
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/renesas,r9a09g047-cpg.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    tsu: thermal@14002000 {
++        compatible = "renesas,r9a09g047-tsu";
++        reg = <0x14002000 0x1000>;
++        clocks = <&cpg CPG_MOD 0x10a>;
++        resets = <&cpg 0xf8>;
++        power-domains = <&cpg>;
++        interrupts = <GIC_SPI 250 IRQ_TYPE_EDGE_RISING>,
++                     <GIC_SPI 251 IRQ_TYPE_LEVEL_HIGH>;
++        interrupt-names = "adi", "adcmpi";
++        #thermal-sensor-cells = <0>;
++        renesas,tsu-operating-mode = <0>;
++        renesas,tsu-calibration-sys = <&sys>;
++    };
++
++    thermal-zones {
++        cpu-thermal {
++            polling-delay = <1000>;
++            polling-delay-passive = <250>;
++            thermal-sensors = <&tsu>;
++
++            cooling-maps {
++                map0 {
++                    trip = <&target>;
++                    cooling-device = <&cpu0 0 3>, <&cpu1 0 3>,
++                                     <&cpu2 0 3>, <&cpu3 0 3>;
++                    contribution = <1024>;
++                };
++            };
++
++            trips {
++                target: trip-point {
++                    temperature = <95000>;
++                    hysteresis = <1000>;
++                    type = "passive";
++                };
++
++                sensor_crit: sensor-crit {
++                    temperature = <120000>;
++                    hysteresis = <1000>;
++                    type = "critical";
++                };
++            };
++        };
++    };
 -- 
 2.25.1
 
