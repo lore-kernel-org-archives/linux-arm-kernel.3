@@ -4,64 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C467DC021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 13:19:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4D8AC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 13:20:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3D27/czJ9tTae692WszgtvNJJBNH99Ngz/ZrVGIZii8=; b=P6Xxf1r7cMxLvCGAffAYHmdom+
-	J06DJbPgFtBTU9TiAb2gnTPZtUnCgcMmSj/+cT1zQ6XNjYIVzdh8s3V9LasKIM9I64b3gdX2QfLWH
-	W/pL2bmdqFn7ifJRo4Ir09YxArYH0yCZ6RKVySJqNsE/iRTWjiRIlgaxFu4r0QwFaALQkdWmMAaeT
-	YQpZpNMCDYGZuHXiJTg7PyuTyz7SgI8xHln2M7O2JLCWcn7mIP4erb0Xls7hN0Y7hyssesgkxZOxE
-	PsxWLH7O03y45APgO2rz15qvmaX8E0oSCsLIZtSV+E1Ez2X3CKLCRQiV6fUT3aDho/yCVUZoiFC4o
-	cuTLHOFQ==;
+	bh=gLtar/wHfeVCmLMg/jaoFP7v7u+SOrYejD4+SDmmhUE=; b=Hkr9NkzeHwZ6U9Fy54iv9IoIja
+	U7kkeOjumRWxohc7ykRpj5Vf4UNm9AhGPuw9tITPbFvj0CGUignbD12UvrZ5lK6vp/J7PBw4BCRJZ
+	+OjhcaeLu//GpTdEoIRBkLGK5teAkOamk2IOBMQ+c08zKap1ZbqkwGtprU4EZkRQpW0JZGyzzsA6L
+	RmwxNKewj01I7gwUIkJZfQd8p5jFbbUMrecVX+9N14QhCYYzRV3QhNRdpWsXe5K+g8wEG+tVyila7
+	dX0UY/hdoMsyAe18zMcfR1vv9uL9ssLrkwPQZzGUYO/2boddlWWhH12JR3bGIr+5PGBV/Wia6ULuO
+	hcOjxM0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tndnA-00000007UrZ-1PYK;
-	Thu, 27 Feb 2025 13:19:08 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tndog-00000007V75-47KN;
+	Thu, 27 Feb 2025 13:20:42 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnd31-00000007NKt-2Hjs
+	id 1tnd5g-00000007NgB-079u
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 12:31:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D54B25C28D8;
-	Thu, 27 Feb 2025 12:30:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D25AC4CEE9;
-	Thu, 27 Feb 2025 12:31:20 +0000 (UTC)
-Date: Thu, 27 Feb 2025 12:31:17 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Shuai Xue <xueshuai@linux.alibaba.com>
-Cc: yazen.ghannam@amd.com, mark.rutland@arm.com, mingo@redhat.com,
-	robin.murphy@arm.com, Jonathan.Cameron@huawei.com, bp@alien8.de,
-	rafael@kernel.org, linux-arm-kernel@lists.infradead.org,
-	wangkefeng.wang@huawei.com, tanxiaofei@huawei.com,
-	mawupeng1@huawei.com, tony.luck@intel.com, linmiaohe@huawei.com,
-	naoya.horiguchi@nec.com, james.morse@arm.com,
-	tongtiangen@huawei.com, gregkh@linuxfoundation.org, will@kernel.org,
-	jarkko@kernel.org, linux-acpi@vger.kernel.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, akpm@linux-foundation.org,
-	linux-edac@vger.kernel.org, x86@kernel.org, justin.he@arm.com,
-	ardb@kernel.org, ying.huang@linux.alibaba.com, ashish.kalra@amd.com,
-	baolin.wang@linux.alibaba.com, tglx@linutronix.de,
-	dave.hansen@linux.intel.com, lenb@kernel.org, hpa@zytor.com,
-	robert.moore@intel.com, lvying6@huawei.com, xiexiuqi@huawei.com,
-	zhuo.song@linux.alibaba.com
-Subject: Re: [PATCH v18 2/3] mm: memory-failure: move return value
- documentation to function declaration
-Message-ID: <Z8BbFRupgknBTvH8@arm.com>
-References: <20250107081735.16159-1-xueshuai@linux.alibaba.com>
- <20250107081735.16159-3-xueshuai@linux.alibaba.com>
+	Thu, 27 Feb 2025 12:34:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=gLtar/wHfeVCmLMg/jaoFP7v7u+SOrYejD4+SDmmhUE=; b=yOwIp/wLpIAD63YfkPXz6hmvgx
+	8wybSmMu5NeH5TJurRum8vIiTyAWntTUZPBagHrPzZ/Kz1uBarRkJc9JORZSScrrfQRqYkTYk7C0B
+	Wezx7q6s4uoDZI3vh3q9rORa7zpsdCDYMhAwnba7CyitYDmQCk8mWgNc2+1c642iTsgDY5TUlGhwc
+	dZi61rVK/bKoj4wIr8m9YgHFwiewA3GDuGsvZ/cxcF3D+l/VPuNFSWyMBRIr/kKtMOpWZ1SdP7+Py
+	+fUxpjcNsKPlB8hhmLR6zncZdIxOzvZhf0C38kNgCg+bfmcgKpA79Du8ivR4nAZIt45hWu2+n9Rt1
+	lQ7yRHwA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43564)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tnd5J-00074f-0H;
+	Thu, 27 Feb 2025 12:33:49 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tnd57-00087j-2f;
+	Thu, 27 Feb 2025 12:33:37 +0000
+Date: Thu, 27 Feb 2025 12:33:37 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Furong Xu <0x1207@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Eric Dumazet <edumazet@google.com>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jan Petrous <jan.petrous@oss.nxp.com>,
+	Jon Hunter <jonathanh@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Minda Chen <minda.chen@starfivetech.com>, netdev@vger.kernel.org,
+	NXP S32 Linux Team <s32@nxp.com>, Paolo Abeni <pabeni@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Thierry Reding <treding@nvidia.com>, hailong.fan@siengine.com,
+	2694439648@qq.com
+Subject: Re: net: stmmac: weirdness in stmmac_hw_setup()
+Message-ID: <Z8BboX9RxZBSXRr1@shell.armlinux.org.uk>
+References: <Z7dVp7_InAHe0q_y@shell.armlinux.org.uk>
+ <20250226104326.0000766e@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250107081735.16159-3-xueshuai@linux.alibaba.com>
+In-Reply-To: <20250226104326.0000766e@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_043127_671442_54261632 
-X-CRM114-Status: GOOD (  18.55  )
+X-CRM114-CacheID: sfid-20250227_043412_212649_D13E8F8E 
+X-CRM114-Status: GOOD (  38.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,70 +98,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-(going through patches in my inbox)
-
-On Tue, Jan 07, 2025 at 04:17:34PM +0800, Shuai Xue wrote:
-> Part of return value comments for memory_failure() were originally
-> documented at the call site. Move those comments to the function
-> declaration to improve code readability and to provide developers with
-
-s/declaration/definition/
-
-> immediate access to function usage and return information.
+On Wed, Feb 26, 2025 at 10:43:26AM +0800, Furong Xu wrote:
+> On Thu, 20 Feb 2025 16:17:43 +0000, "Russell King (Oracle)" wrote:
 > 
-> Signed-off-by: Shuai Xue <xueshuai@linux.alibaba.com>
-> Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
-> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-> Reviewed-by: Yazen Ghannam <yazen.ghannam@amd.com>
-> Reviewed-by: Jane Chu <jane.chu@oracle.com>
-> ---
->  arch/x86/kernel/cpu/mce/core.c |  7 -------
->  mm/memory-failure.c            | 10 +++++++---
->  2 files changed, 7 insertions(+), 10 deletions(-)
+> > While looking through the stmmac driver, I've come across some
+> > weirdness in stmmac_hw_setup() which looks completely barmy to me.
+> > 
+> > It seems that it follows the initialisation suggested by Synopsys
+> > (as best I can determine from the iMX8MP documentation), even going
+> > as far as to *enable* transmit and receive *before* the network
+> > device has been administratively brought up. stmmac_hw_setup() does
+> > this:
+> > 
+> >         /* Enable the MAC Rx/Tx */
+> >         stmmac_mac_set(priv, priv->ioaddr, true);
+> > 
+> > which sets the TE and RE bits in the MAC configuration register.
+> > 
+> > This means that if the network link is active, packets will start
+> > to be received and will be placed into the receive descriptors.
+> > 
+> > We won't transmit anything because we won't be placing packets in
+> > the transmit descriptors to be transmitted.
+> > 
+> > However, this in stmmac_hw_setup() is just wrong. Can it be deleted
+> > as per the below?
+> > Tested-by: Thierry Reding <treding@nvidia.com>
+> > 
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > index c2913f003fe6..d6e492f523f5 100644
+> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > @@ -3493,9 +3493,6 @@ static int stmmac_hw_setup(struct net_device *dev, bool ptp_register)
+> >  		priv->hw->rx_csum = 0;
+> >  	}
+> >  
+> > -	/* Enable the MAC Rx/Tx */
+> > -	stmmac_mac_set(priv, priv->ioaddr, true);
+> > -
+> >  	/* Set the HW DMA mode and the COE */
+> >  	stmmac_dma_operation_mode(priv);
+> >  
 > 
-> diff --git a/arch/x86/kernel/cpu/mce/core.c b/arch/x86/kernel/cpu/mce/core.c
-> index 7fb5556a0b53..d1dd7f892514 100644
-> --- a/arch/x86/kernel/cpu/mce/core.c
-> +++ b/arch/x86/kernel/cpu/mce/core.c
-> @@ -1398,13 +1398,6 @@ static void kill_me_maybe(struct callback_head *cb)
->  		return;
->  	}
->  
-> -	/*
-> -	 * -EHWPOISON from memory_failure() means that it already sent SIGBUS
-> -	 * to the current process with the proper error info,
-> -	 * -EOPNOTSUPP means hwpoison_filter() filtered the error event,
-> -	 *
-> -	 * In both cases, no further processing is required.
-> -	 */
->  	if (ret == -EHWPOISON || ret == -EOPNOTSUPP)
->  		return;
->  
-> diff --git a/mm/memory-failure.c b/mm/memory-failure.c
-> index a7b8ccd29b6f..14c316d7d38d 100644
-> --- a/mm/memory-failure.c
-> +++ b/mm/memory-failure.c
-> @@ -2211,9 +2211,13 @@ static void kill_procs_now(struct page *p, unsigned long pfn, int flags,
->   * Must run in process context (e.g. a work queue) with interrupts
->   * enabled and no spinlocks held.
->   *
-> - * Return: 0 for successfully handled the memory error,
-> - *         -EOPNOTSUPP for hwpoison_filter() filtered the error event,
-> - *         < 0(except -EOPNOTSUPP) on failure.
-> + * Return:
-> + *   0             - success,
-> + *   -ENXIO        - memory not managed by the kernel
-> + *   -EOPNOTSUPP   - hwpoison_filter() filtered the error event,
-> + *   -EHWPOISON    - the page was already poisoned, potentially
-> + *                   kill process,
-> + *   other negative values - failure.
->   */
->  int memory_failure(unsigned long pfn, int flags)
->  {
+> A better fix here:
+> https://lore.kernel.org/all/tencent_CCC29C4F562F2DEFE48289DB52F4D91BDE05@qq.com/
+> 
+> I can reproduce and confirm that patch works well.
+> I was going to leave a Tested-by: tag on that patch if everything looks good enough,
+> but the author (now copied) never come back.
 
-Why not keep the comment in both places? One is about the x86 decisions,
-the other is about what memory_failure() can return.
+As I now have access to the databook, the initialisation guidance given
+in appendix E is very clear that at least the RE bit should not be set
+until initialisation of both DMA and MAC have been completed.
+
+RE allows the MAC to start receiving packets and placing them in the
+FIFO for the DMA block to then transfer them to memory.
+
+If the link is down, then there should be no activity on the receive
+interface, so not setting RE until the link is up should have no
+effect. Therefore, start_rx methods that set this bit should not be
+doing so, and we should not set this bit until mac_link_up() has
+been called.
+
+Analysing the code for the RE bit, we have:
+
+1. xxx_set_mac() (called via stmmac_mac_set()) which sets/clears both
+   the RE and TE bits together. This is called with a "true" argument
+   from:
+
+1.1. stmmac_mac_link_up() - correct, the link has come up.
+
+1.2. stmmac_hw_setup() - incorrect, we don't know whether the link
+     is up or down. I think simply removing this would be correct,
+     provided the patches that move phylink_resume() later in
+     stmmac_resume() are merged (will be posted non-RFC only once my
+     current set of stmmac clock changes have been merged.)
+
+1.3. stmmac_xdp_open() - probably incorrect, we don't know whether
+     the link is up or down. stmmac_xdp_open() is only called from
+     stmmac_xdp_set_prog(), and the network interface must be
+     running. This implies that everything has already been
+     initialised, and phylink has been started. stmmac_xdp_open()
+     also messes with the carrier, which will upset phylink.
+     I think the right solution here is to call phylink_stop() in
+     stmmac_xdp_release() and phylink_start() in stmmac_xdp_open(),
+     removing the stmmac_mac_set() and netif_carrier*() calls in
+     both these functions.
+
+2. xxx_pmt() (called via stmmac_pmt()) sets RE if (e.g. dwxgmac2)
+   WAKE_MAGIC or WAKE_UCAST is set.
+
+   This brings up questions. The only place it's called with a
+   potentially non-zero argument is in stmmac_suspend(). A few lines
+   above is:
+
+        /* Stop TX/RX DMA */
+        stmmac_stop_all_dma(priv);
+
+   which is a reasonable thing to do when suspending. However, the
+   DW databook states clearly that RE should not be set if DMA is
+   not able to empty the FIFO between the MAC and DMA otherwise it
+   will overflow. So... I think this causes overflow there. I'm not
+   sure what effect that has. Has wake-on-lan been tested?
+
+3. xxx_start_rx() (called via stmmac_start_rx()) sets RE along with
+   starting the requested queue.
+
+   This is called in two places:
+
+3.1. stmmac_test_flowctrl(). It looks to me like this needs the link
+     to already be up, which means that RE must already be set. Note
+     that the call to stmmac_stop_rx() does not clear RE.
+
+3.2. stmmac_start_rx_dma() which has two callers.
+
+3.2.1. stmmac_start_all_dma(). This is called from:
+
+3.2.1.1. the end of stmmac_hw_setup(), which has already called
+         stmmac_mac_set() which would've set the RE bit. Same
+         arguments as for 1.2 for why this is wrong.
+
+3.2.2. the end of stmmac_enable_rx_queue(), which is called from
+       stmmac_xdp_enable_pool(). Very similar to 3.1 above.
+
+TE seems to be a very similar story with the exception of xxx_pmt(),
+except the functions are "tx" rather than "rx".
+
+So, my plan with regard to RE is:
+
+1. Add phylink_start() and phylink_stop() into stmmac_xdp_open()
+   and stmmac_xdp_release() to the link is properly managed.
+
+2. Remove setting RE from xxx_start_rx().
+
+3. Remove stmmac_mac_set(, true) from everywhere except
+   stmmac_mac_link_up().
+
+4. Remove stmmac_mac_set(, false) from stmmac_release(). This has
+   already called phylink_stop(), which will have synchronously called
+   stmmac_mac_link_down().
+
+5. With (1) addressed stmmac_mac_set(, false) and netif_carrier_off()
+   both become redundant in stmmac_xdp_release().
+
+6. Remove stmmac_stop_all_dma() and stmmac_mac_set(, false) in
+   stmmac_dvr_remove(). Not only is this inherently racy (the network
+   device is *still* *published* *to* *userspace* here, but one of
+   the jobs unregister_netdev() does is to take the network device
+   down before unregistering - in other words, .ndo_stop() will
+   have been called and completed before this returns, which will have
+   the effect of calling stmmac_mac_link_down() (which will call
+   stmmac_mac_set(, false), and stmmac_release() will have already
+   called stmmac_stop_all_dma().
+
+(6) is a frequent programming mistake that I see in lots of network
+drivers. It seems most people assume that unregister_netdev() does
+nothing, and they need to manually take stop the MAC and take down the
+link. :(
+
+I'm going to leave xxx_pmt() alone for the moment as although that's
+questionable, I think feedback from people using WoL is necessary.
 
 -- 
-Catalin
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
