@@ -4,108 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE255C021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 12:49:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 878B4C021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 12:51:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pkh4hhvitVpN0mKPmW0tH5YxKInmBYciLZFphhKj924=; b=Dmix5ce4YCuMLBHQDdLgN4J/Y1
-	0R2Ja6Pa9GMmpHL5qTCxlsyfRjgj4Pnr52XNPJbqd9dDUpWRGel/NcyvuLP+pMCY+4akCAoWfIcka
-	f/Nb2lisChgI1GJwp0iEvtL4a9te5aUrgutBMri2Nc8otqDZFn+M4RT5x7rH+muV6oTa5bT/cL0NB
-	zijkcGB1GSiqvcPQv8wbbxbZvGLtZqBE4xvYSnLVeuIX3yOXK8i/hZ+LlU7ZG7NVFZrdQR0y1cMDc
-	763mdfzUZNQ6Y2yiAQSc7MMJYiGTXF0WNZ8UTV3L6MJAK/7+GWoaNNiER1dl3m+Cn7kMnPz2jKSU/
-	BwSeutMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hoSyQ1QpJNetds+N3e1Ts31do3slsyWOiedXfXZuQeQ=; b=B6hYRiUkXyuQAW7SdFVf505w5T
+	rxkC/P7YuWuj5gLztb/4FmkwYoKp/l+ZyMIlzhY8E9YX5lFxYSLaX3LjsXYqhZvvomRHLjDsPfj33
+	bd88f1ta8jpP8Uv72cJ868x6jZfnuiNzL/iLaWUkWkMkM7BFRiqx42I7oinusgpkpaY0w+EP5Wc3a
+	nzXurKjfTMNJcZx1ve1CYF/uHbtATZKRBOcrnCAPQ4yn7lOPUm90z0derYvSOyozowmDfknnXn6mq
+	OENdOqWRm0SyDaaY3fIZPkpnA4wTrrwCkdc5N23o8rHwdhT6VVmxJ7y7mgVYU+bt+GJ00+ecOC2hD
+	yJUbzXFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tndKW-00000007QTC-0D7V;
-	Thu, 27 Feb 2025 12:49:32 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1tndM1-00000007Qey-1348;
+	Thu, 27 Feb 2025 12:51:05 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnciT-00000007IuT-1Jyr
+	id 1tncon-00000007KIs-0d9V
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 12:10:14 +0000
-Received: from pobox.suse.cz (unknown [10.100.2.14])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 2E94921179;
-	Thu, 27 Feb 2025 12:10:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1740658210; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Pkh4hhvitVpN0mKPmW0tH5YxKInmBYciLZFphhKj924=;
-	b=ip1Jz9IurwcOjzrHThzL3ETYe0y+abQ5eqK8IserEG6735aAbxFFnWlupVdUXOy+68ORds
-	64sI995sqxExnQr92i6ZUDtqB82nigpXMfQIXwHXA1XOcwHYwp8b/3LW8oK2d6z2AVSryM
-	yidfOTKEG5p8RLIwPbzY/wqQ9sOsHNk=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1740658210;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Pkh4hhvitVpN0mKPmW0tH5YxKInmBYciLZFphhKj924=;
-	b=C7QCxcA51Gxrg6/yfdUJBm5QkTqTsKbY0IeIvcuSXc+YTJN9EynkZUmYBh5PTjxbe07otZ
-	e9owObibSiKc5FBw==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1740658210; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Pkh4hhvitVpN0mKPmW0tH5YxKInmBYciLZFphhKj924=;
-	b=ip1Jz9IurwcOjzrHThzL3ETYe0y+abQ5eqK8IserEG6735aAbxFFnWlupVdUXOy+68ORds
-	64sI995sqxExnQr92i6ZUDtqB82nigpXMfQIXwHXA1XOcwHYwp8b/3LW8oK2d6z2AVSryM
-	yidfOTKEG5p8RLIwPbzY/wqQ9sOsHNk=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1740658210;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Pkh4hhvitVpN0mKPmW0tH5YxKInmBYciLZFphhKj924=;
-	b=C7QCxcA51Gxrg6/yfdUJBm5QkTqTsKbY0IeIvcuSXc+YTJN9EynkZUmYBh5PTjxbe07otZ
-	e9owObibSiKc5FBw==
-Date: Thu, 27 Feb 2025 13:10:10 +0100 (CET)
-From: Miroslav Benes <mbenes@suse.cz>
-To: Weinan Liu <wnliu@google.com>
-cc: Josh Poimboeuf <jpoimboe@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
-    Indu Bhagat <indu.bhagat@oracle.com>, 
-    Peter Zijlstra <peterz@infradead.org>, Mark Rutland <mark.rutland@arm.com>, 
-    roman.gushchin@linux.dev, Will Deacon <will@kernel.org>, 
-    Ian Rogers <irogers@google.com>, linux-toolchains@vger.kernel.org, 
-    linux-kernel@vger.kernel.org, live-patching@vger.kernel.org, 
-    joe.lawrence@redhat.com, linux-arm-kernel@lists.infradead.org, 
-    "Madhavan T. Venkataraman" <madvenka@linux.microsoft.com>, 
-    Suraj Jitindar Singh <sjitindarsingh@gmail.com>
-Subject: Re: [PATCH 7/8] arm64: Define TIF_PATCH_PENDING for livepatch
-In-Reply-To: <20250127213310.2496133-8-wnliu@google.com>
-Message-ID: <alpine.LSU.2.21.2502271308390.25291@pobox.suse.cz>
-References: <20250127213310.2496133-1-wnliu@google.com> <20250127213310.2496133-8-wnliu@google.com>
-User-Agent: Alpine 2.21 (LSU 202 2017-01-01)
+	Thu, 27 Feb 2025 12:16:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740658605; x=1772194605;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=3B68ndRlRYLxP/8pC4+Fmm06fsLO6KJg+oy0KLO1Twg=;
+  b=D7s7TV2AqkWQ1uSm36vs95kakaLl8ij13sNkWUljvDZ9bbrw8Osep9OI
+   /yJiL8kTpKo7ZuY1+kmPgkXbg4fYOjXLWlT2Qrf2q8OLXzCCjH5ZjGeLS
+   V1fqWl+SGkM5b8drrWL6ezobTM2jpMjmfOLCTmq+qePI02yoZuQMSzZcu
+   z7V6u5KFPKGZ7TUd8iVeTLVgxM1orOxd3DU40ljSBAQaY0Gzwa/6ZB+GH
+   iiI1GRPaTLRvCsV5oomR0igNwOe/kDTGjsPYzu6UvHf+aRslVQQ3oNjbc
+   M8vYNUpAxoXOTxu0PTjzfzz09VO0yp6BKdM5+H/3ji4rOMjpOOdNobbFV
+   A==;
+X-CSE-ConnectionGUID: 7GGLimRcTkefFeYmzXDTgg==
+X-CSE-MsgGUID: 66F7MBpiQsGUJsHUkC+bhA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11358"; a="41464273"
+X-IronPort-AV: E=Sophos;i="6.13,319,1732608000"; 
+   d="scan'208";a="41464273"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Feb 2025 04:16:41 -0800
+X-CSE-ConnectionGUID: FaGy/bVPSu2TMb+h1UTLiw==
+X-CSE-MsgGUID: qK8nIfgOTtKnYWj/rrQvDw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="117519088"
+Received: from yongliang-ubuntu20-ilbpg12.png.intel.com ([10.88.227.39])
+  by orviesa007.jf.intel.com with ESMTP; 27 Feb 2025 04:16:34 -0800
+From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+To: Simon Horman <horms@kernel.org>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Jose Abreu <Jose.Abreu@synopsys.com>,
+	David E Box <david.e.box@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>,
+	David E Box <david.e.box@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jiawen Wu <jiawenwu@trustnetic.com>,
+	Mengyuan Lou <mengyuanlou@net-swift.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Hans de Goede <hdegoede@redhat.com>,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Serge Semin <fancer.lancer@gmail.com>
+Cc: x86@kernel.org,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	platform-driver-x86@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH net-next v9 0/6] Enable SGMII and 2500BASEX interface mode switching for Intel platforms
+Date: Thu, 27 Feb 2025 20:15:16 +0800
+Message-Id: <20250227121522.1802832-1-yong.liang.choong@linux.intel.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-X-Spamd-Result: default: False [-4.29 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.19)[-0.950];
-	MIME_GOOD(-0.10)[text/plain];
-	MID_RHS_MATCH_FROMTLD(0.00)[];
-	ARC_NA(0.00)[];
-	RCVD_COUNT_ZERO(0.00)[0];
-	MIME_TRACE(0.00)[0:+];
-	RCPT_COUNT_TWELVE(0.00)[16];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	FREEMAIL_CC(0.00)[kernel.org,goodmis.org,oracle.com,infradead.org,arm.com,linux.dev,google.com,vger.kernel.org,redhat.com,lists.infradead.org,linux.microsoft.com,gmail.com];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_DN_SOME(0.00)[]
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_041013_497791_9C5D7DAD 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20250227_041645_224410_B6789DA6 
+X-CRM114-Status: GOOD (  19.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,33 +110,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+During the interface mode change, the 'phylink_major_config' function will
+be triggered in phylink. The modification of the following functions will
+support the switching between SGMII and 2500BASE-X interface modes for
+the Intel platform:
 
-> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index b260ddc4d3e9..b537af333b42 100644
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -8,6 +8,7 @@
->  #include <linux/context_tracking.h>
->  #include <linux/kasan.h>
->  #include <linux/linkage.h>
-> +#include <linux/livepatch.h>
->  #include <linux/lockdep.h>
->  #include <linux/ptrace.h>
->  #include <linux/resume_user_mode.h>
-> @@ -144,6 +145,9 @@ static void do_notify_resume(struct pt_regs *regs, unsigned long thread_flags)
->  				       (void __user *)NULL, current);
->  		}
->  
-> +		if (thread_flags & _TIF_PATCH_PENDING)
-> +			klp_update_patch_state(current);
-> +
->  		if (thread_flags & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL))
->  			do_signal(regs);
+- xpcs_switch_interface_mode: Re-initiates clause 37 auto-negotiation for
+  the SGMII interface mode to perform auto-negotiation.
+- mac_finish: Configures the SerDes according to the interface mode.
 
-Just a remark so that it is recorded. Once arm64 is moved to generic 
-entry infra, the hunk will not be needed.
+With the above changes, the code will work as follows during the interface
+mode change. The PCS will reconfigure according to the pcs_neg_mode and the
+selected interface mode. Then, the MAC driver will perform SerDes
+configuration in 'mac_finish' based on the selected interface mode. During
+the SerDes configuration, the selected interface mode will identify TSN
+lane registers from FIA and then send IPC commands to the Power Management
+Controller (PMC) through the PMC driver/API. The PMC will act as a proxy to
+program the PLL registers.
 
-Regards,
-Miroslav
+Change log:
+v1 -> v2: 
+ - Add static to pmc_lpm_modes declaration
+ - Add cur_link_an_mode to the kernel doc
+ - Combine 2 commits i.e. "stmmac: intel: Separate driver_data of ADL-N
+ from TGL" and "net: stmmac: Add 1G/2.5G auto-negotiation
+ support for ADL-N" into 1 commit.
+
+v2 -> v3:
+ - Create `pmc_ipc.c` file for `intel_pmc_ipc()` function and 
+ allocate the file in `arch/x86/platform/intel/` directory.
+ - Update phylink's AN mode during phy interface change and 
+ not exposing phylink's AN mode into phylib.
+ 
+ v3 -> v4:
+ - Introduce `allow_switch_interface` flag to have all ethtool 
+ link modes that are supported and advertised will be published.
+ - Introduce `mac_get_pcs_neg_mode` function that selects the PCS 
+ negotiation mode according to the interface mode.
+ - Remove pcs-xpcs.c changes and handle pcs during `mac_select_pcs`
+ function
+ - Configure SerDes base on the interface on `mac_finish` function.
+ 
+ v4 -> v5:
+ - remove 'allow_switch_interface' related patches.
+ - remove 'mac_select_pcs' related patches.
+ - add a soft reset according to XPCS datasheet for re-initiate Clause 37
+ auto-negotiation when switching to SGMII interface mode.
+
+v5 -> v6:
+- Remove 'mac_get_pcs_neg_mode' related patches. 
+  The pcs_neg_mode is properly handled by the
+  'net: add negotiation of in-band capabilities' patch series:
+  https://patchwork.kernel.org/project/netdevbpf/cover/Z08kCwxdkU4n2V6x@shell.armlinux.org.uk/
+- Using act_link_an_mode to determine PHY, as cfg_link_an_mode was not
+  updated for the 2500BASE-X interface mode, caused a failure to link up.
+- Clean up and standardize the interface mode switch for xpcs.
+
+v6 -> v7:
+- Remove the "net: phylink: use act_link_an_mode to determine PHY" patch.
+- Use pl->link_interface in phylink_expects_phy().
+- Remove priv->plat->serdes_powerup in intel_tsn_lane_is_available() as it is
+  always true.
+- Refactor the code in intel_config_serdes().
+- Rename intel_config_serdes() to intel_mac_finish() with an AN mode parameter.
+- Define the magic number as "max_fia_regs".
+- Store the pointer and the number of elements in the platform info structure.
+- Move the arrays to the C file.
+
+v7 -> v8:
+- Move xpcs_switch_interface_mode() into xpcs_pre_config().
+- Move the "stmmac: intel: interface switching support for EHL platform" commit
+  into "stmmac: intel: configure SerDes according to the interface mode" to
+  resolve the "defined but not used" error.
+- Changes for the "arch: x86: add IPC mailbox accessor function and add SoC register access" commit:
+    - Rephrase the second bullet in the patch description.
+    - Remove 'config INTEL_PMC_IPC' from Kconfig, as discussed.
+    - Remove the authors from intel_pmc_ipc.h.
+    - Define VALID_IPC_RESPONSE for package.count.
+    - Update the copyright year to 2025.
+    - Create struct pmc_ipc_rbuf.
+    - Update the function description for intel_pmc_ipc().
+
+v8 -> v9
+- Clarify the patch description by changing "link goes down" to
+  "interface is taken down administratively."
+- Revert the change in txgbe_xpcs_switch_mode().
+- Swap the sequence of patches 4 and 5.
+- Rename the subject line from "stmmac: intel: ..." to "net: stmmac: ...".
+
+v1: https://patchwork.kernel.org/project/netdevbpf/cover/20230622041905.629430-1-yong.liang.choong@linux.intel.com/
+v2: https://patchwork.kernel.org/project/netdevbpf/cover/20230804084527.2082302-1-yong.liang.choong@linux.intel.com/
+v3: https://patchwork.kernel.org/project/netdevbpf/cover/20230921121946.3025771-1-yong.liang.choong@linux.intel.com/
+v4: https://patchwork.kernel.org/project/netdevbpf/cover/20240129130253.1400707-1-yong.liang.choong@linux.intel.com/
+v5: https://patchwork.kernel.org/project/netdevbpf/cover/20240215030500.3067426-1-yong.liang.choong@linux.intel.com/
+v6: https://patchwork.kernel.org/project/netdevbpf/cover/20250204061020.1199124-1-yong.liang.choong@linux.intel.com/
+v7: https://patchwork.kernel.org/project/netdevbpf/cover/20250206131859.2960543-1-yong.liang.choong@linux.intel.com/
+v8: https://patchwork.kernel.org/project/netdevbpf/cover/20250226074837.1679988-1-yong.liang.choong@linux.intel.com/
+
+Choong Yong Liang (5):
+  net: phylink: use pl->link_interface in phylink_expects_phy()
+  net: pcs: xpcs: re-initiate clause 37 Auto-negotiation
+  net: stmmac: configure SerDes on mac_finish
+  net: stmmac: configure SerDes according to the interface mode
+  net: stmmac: interface switching support for ADL-N platform
+
+David E. Box (1):
+  arch: x86: add IPC mailbox accessor function and add SoC register
+    access
+
+ MAINTAINERS                                   |   1 +
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |   1 +
+ .../net/ethernet/stmicro/stmmac/dwmac-intel.c | 231 +++++++++++++++++-
+ .../net/ethernet/stmicro/stmmac/dwmac-intel.h |  29 +++
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c |  13 +
+ drivers/net/pcs/pcs-xpcs.c                    |  25 +-
+ drivers/net/phy/phylink.c                     |   2 +-
+ .../linux/platform_data/x86/intel_pmc_ipc.h   |  94 +++++++
+ include/linux/stmmac.h                        |   4 +
+ 9 files changed, 389 insertions(+), 11 deletions(-)
+ create mode 100644 include/linux/platform_data/x86/intel_pmc_ipc.h
+
+-- 
+2.34.1
+
 
