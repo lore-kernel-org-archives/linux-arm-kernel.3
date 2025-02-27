@@ -4,51 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0299C021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 04:17:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E5BAC021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 04:24:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iAil2Ima9vwIDQC9z+K6FsSpkSoOPe+iPvxYMjSXBbw=; b=dX2VWkf7tAYMIveAQQGFNNc82t
-	01YN7A85GxXkUERLMDHvGXtEmHncV9LkSKLPEwg4u4IsY4w8mB3JMFxVDHEABEZJ8Jfo7mS3sx8to
-	YS/fu22sXuX27qbLS7SM8RJkgSaIlMWKQ8D78WQl+xCqZ/grUSrC2Fh0T3ZbjSCLb4nIs/CRaBclk
-	zCSFYSUH3+q1EW6W9n9FG2vHwrPZDtNMR6ODz4KeKuiaizMlSTR6v3iAiD1SGb3QW6GqVFxSgwNnY
-	HeCtbhYQQ/eB1O0wfwUJqiudY+xLJWYz/F+YCc8VIB9UxhKDYKAaNFzjKl0H+DprfoLWnt6yAEszA
-	FR9SIjrg==;
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U5G5xTY6+fXf4Ew9CkmDffOj4/0p8uXLMYX0nezFcPk=; b=aVxi2vkabXeRYSBDnehcwTW21+
+	czuqQnlTKiW6vcIta6eyGqrqn6K1lSkmD+eARzSe9wtY7f0J4KcPDIeyEMXulsVIEmGnbsZ+SveCx
+	qVSK9TLQkImf6RHdXDR39uWWquLFamBqjOeTq1BM1yuDpWaqeUSEeRuCDTvAnLEytSyfeRdrhfCDs
+	iq5eWDgro1RgeIpy4Fw6TpWeUn+dvNtGGJUws+rIiu3zqOQ73L+foW23dekq5tR9qR4A+B+iHT4ib
+	CiU8bN0e1OswN8kb01OnXbYru4qyq8Nqyo2ubP+xBBNwgrTewHIU9CmQ4bkEDkmS/YoxzWD6sXQPn
+	Yj7AJB8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnVLH-00000006GfF-0qCU;
-	Thu, 27 Feb 2025 04:17:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
+	id 1tnVR9-00000006HJa-0sCw;
+	Thu, 27 Feb 2025 04:23:51 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnVJj-00000006GM5-2mxS
+	id 1tnVPb-00000006HCA-2pe9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 04:16:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 96C2B1515;
-	Wed, 26 Feb 2025 20:16:26 -0800 (PST)
-Received: from a077893.blr.arm.com (a077893.blr.arm.com [10.162.40.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BABE13F6A8;
-	Wed, 26 Feb 2025 20:16:08 -0800 (PST)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	catalin.marinas@arm.com,
-	mark.rutland@arm.com,
-	robh@kernel.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-Subject: [boot-wrapper] aarch64: Enable access into FEAT_PMUv3p9 registers from EL2 and below
-Date: Thu, 27 Feb 2025 09:46:03 +0530
-Message-Id: <20250227041603.2029058-1-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.25.1
+	Thu, 27 Feb 2025 04:22:16 +0000
+Received: from [100.65.224.197] (unknown [20.236.10.163])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 4CD29210C333;
+	Wed, 26 Feb 2025 20:22:12 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 4CD29210C333
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1740630133;
+	bh=U5G5xTY6+fXf4Ew9CkmDffOj4/0p8uXLMYX0nezFcPk=;
+	h=Date:Cc:Subject:To:References:From:In-Reply-To:From;
+	b=Yj0GNh38MoHz51PzsW/53YVVftr1/q9O9R0OX96QMbTlzOgN/TjToG0SlG5QOBXA2
+	 dnfYpenjxcQriG18n/BrMF01HbDXo7A183oYUUsx82R3g6VmrX8lQFZL/ROOGT8HIZ
+	 pAPaDYjfFLZ+8F40HCRxjjQmsbECZz1JL16qr4Zs=
+Message-ID: <2889fab1-4836-4a66-aa63-b63d8cc70a69@linux.microsoft.com>
+Date: Wed, 26 Feb 2025 20:22:10 -0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Cc: linux-hyperv@vger.kernel.org, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org,
+ eahariha@linux.microsoft.com, kys@microsoft.com, haiyangz@microsoft.com,
+ wei.liu@kernel.org, mhklinux@outlook.com, decui@microsoft.com,
+ catalin.marinas@arm.com, will@kernel.org, tglx@linutronix.de,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com,
+ daniel.lezcano@linaro.org, joro@8bytes.org, robin.murphy@arm.com,
+ arnd@arndb.de, jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
+ skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com,
+ ssengar@linux.microsoft.com, apais@linux.microsoft.com,
+ Tianyu.Lan@microsoft.com, stanislav.kinsburskiy@gmail.com,
+ gregkh@linuxfoundation.org, vkuznets@redhat.com, prapal@linux.microsoft.com,
+ muislam@microsoft.com, anrayabh@linux.microsoft.com, rafael@kernel.org,
+ lenb@kernel.org, corbet@lwn.net
+Subject: Re: [PATCH v5 01/10] hyperv: Convert Hyper-V status codes to strings
+To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1740611284-27506-2-git-send-email-nunodasneves@linux.microsoft.com>
+From: Easwar Hariharan <eahariha@linux.microsoft.com>
+Content-Language: en-US
+In-Reply-To: <1740611284-27506-2-git-send-email-nunodasneves@linux.microsoft.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_201611_743696_9AF86DCF 
-X-CRM114-Status: UNSURE (   7.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250226_202215_774726_060E2398 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,54 +83,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FEAT_PMUv3p9 adds system register PMUACR_EL1 and similarly FEAT_PMUv3_ICNTR
-adds system registers PMICFILTR_EL0 and PMICNTR_EL0. But access into these
-system registers from EL2 and below exception levels, will trap into EL3
-unless MDCR_EL3.EnPM2 is set.
+On 2/26/2025 3:07 PM, Nuno Das Neves wrote:
+> Introduce hv_result_to_string() for this purpose. This allows
+> hypercall failures to be debugged more easily with dmesg.
+> 
 
-Enable access to FEAT_PMUv3p9 registers when they are implemented.
+Let the commit message stand on its own, i.e. state that hv_result_to_string()
+is introduced to convert hyper-v status codes to string.
 
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
- arch/aarch64/include/asm/cpu.h | 2 ++
- arch/aarch64/init.c            | 3 +++
- 2 files changed, 5 insertions(+)
+> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+> ---
+>  drivers/hv/hv_common.c         | 65 ++++++++++++++++++++++++++++++++++
+>  drivers/hv/hv_proc.c           | 13 ++++---
+>  include/asm-generic/mshyperv.h |  1 +
+>  3 files changed, 74 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
+> index 9804adb4cc56..ce20818688fe 100644
+> --- a/drivers/hv/hv_common.c
+> +++ b/drivers/hv/hv_common.c
+> @@ -740,3 +740,68 @@ void hv_identify_partition_type(void)
+>  			pr_crit("Hyper-V: CONFIG_MSHV_ROOT not enabled!\n");
+>  	}
+>  }
+> +
+> +const char *hv_result_to_string(u64 hv_status)
+> +{
+> +	switch (hv_result(hv_status)) {
+> +	case HV_STATUS_SUCCESS:
+> +		return "HV_STATUS_SUCCESS";
+> +	case HV_STATUS_INVALID_HYPERCALL_CODE:
+> +		return "HV_STATUS_INVALID_HYPERCALL_CODE";
+> +	case HV_STATUS_INVALID_HYPERCALL_INPUT:
+> +		return "HV_STATUS_INVALID_HYPERCALL_INPUT";
+> +	case HV_STATUS_INVALID_ALIGNMENT:
+> +		return "HV_STATUS_INVALID_ALIGNMENT";
+> +	case HV_STATUS_INVALID_PARAMETER:
+> +		return "HV_STATUS_INVALID_PARAMETER";
+> +	case HV_STATUS_ACCESS_DENIED:
+> +		return "HV_STATUS_ACCESS_DENIED";
+> +	case HV_STATUS_INVALID_PARTITION_STATE:
+> +		return "HV_STATUS_INVALID_PARTITION_STATE";
+> +	case HV_STATUS_OPERATION_DENIED:
+> +		return "HV_STATUS_OPERATION_DENIED";
+> +	case HV_STATUS_UNKNOWN_PROPERTY:
+> +		return "HV_STATUS_UNKNOWN_PROPERTY";
+> +	case HV_STATUS_PROPERTY_VALUE_OUT_OF_RANGE:
+> +		return "HV_STATUS_PROPERTY_VALUE_OUT_OF_RANGE";
+> +	case HV_STATUS_INSUFFICIENT_MEMORY:
+> +		return "HV_STATUS_INSUFFICIENT_MEMORY";
+> +	case HV_STATUS_INVALID_PARTITION_ID:
+> +		return "HV_STATUS_INVALID_PARTITION_ID";
+> +	case HV_STATUS_INVALID_VP_INDEX:
+> +		return "HV_STATUS_INVALID_VP_INDEX";
+> +	case HV_STATUS_NOT_FOUND:
+> +		return "HV_STATUS_NOT_FOUND";
+> +	case HV_STATUS_INVALID_PORT_ID:
+> +		return "HV_STATUS_INVALID_PORT_ID";
+> +	case HV_STATUS_INVALID_CONNECTION_ID:
+> +		return "HV_STATUS_INVALID_CONNECTION_ID";
+> +	case HV_STATUS_INSUFFICIENT_BUFFERS:
+> +		return "HV_STATUS_INSUFFICIENT_BUFFERS";
+> +	case HV_STATUS_NOT_ACKNOWLEDGED:
+> +		return "HV_STATUS_NOT_ACKNOWLEDGED";
+> +	case HV_STATUS_INVALID_VP_STATE:
+> +		return "HV_STATUS_INVALID_VP_STATE";
+> +	case HV_STATUS_NO_RESOURCES:
+> +		return "HV_STATUS_NO_RESOURCES";
+> +	case HV_STATUS_PROCESSOR_FEATURE_NOT_SUPPORTED:
+> +		return "HV_STATUS_PROCESSOR_FEATURE_NOT_SUPPORTED";
+> +	case HV_STATUS_INVALID_LP_INDEX:
+> +		return "HV_STATUS_INVALID_LP_INDEX";
+> +	case HV_STATUS_INVALID_REGISTER_VALUE:
+> +		return "HV_STATUS_INVALID_REGISTER_VALUE";
+> +	case HV_STATUS_OPERATION_FAILED:
+> +		return "HV_STATUS_OPERATION_FAILED";
+> +	case HV_STATUS_TIME_OUT:
+> +		return "HV_STATUS_TIME_OUT";
+> +	case HV_STATUS_CALL_PENDING:
+> +		return "HV_STATUS_CALL_PENDING";
+> +	case HV_STATUS_VTL_ALREADY_ENABLED:
+> +		return "HV_STATUS_VTL_ALREADY_ENABLED";
+> +	default:
+> +		return "Unknown";
+> +	};
+> +	return "Unknown";
 
-diff --git a/arch/aarch64/include/asm/cpu.h b/arch/aarch64/include/asm/cpu.h
-index e049cda..b04bf71 100644
---- a/arch/aarch64/include/asm/cpu.h
-+++ b/arch/aarch64/include/asm/cpu.h
-@@ -56,6 +56,7 @@
- #define MDCR_EL3_SBRBE_NOTRAP_NOPROHIBIT	(UL(3) << 32)
- #define MDCR_EL3_ENPMSN				BIT(36)
- #define MDCR_EL3_EBWE				BIT(43)
-+#define MDCR_EL3_EnPM2				BIT(7)
- 
- #define SCR_EL3_RES1			BITS(5, 4)
- #define SCR_EL3_NS			BIT(0)
-@@ -87,6 +88,7 @@
- #define ID_AA64DFR0_EL1_PMSVER		BITS(35, 32)
- #define ID_AA64DFR0_EL1_TRACEBUFFER	BITS(47, 44)
- #define ID_AA64DFR0_EL1_BRBE		BITS(55, 52)
-+#define ID_AA64DFR0_EL1_PMUVER		BITS(11, 8)
- #define ID_AA64DFR0_EL1_DEBUGVER	BITS(3, 0)
- 
- #define ID_AA64ISAR0_EL1_TME		BITS(27, 24)
-diff --git a/arch/aarch64/init.c b/arch/aarch64/init.c
-index 54e4cc4..fe7ed5f 100644
---- a/arch/aarch64/init.c
-+++ b/arch/aarch64/init.c
-@@ -152,6 +152,9 @@ static void cpu_init_el3(void)
- 	if (mrs_field(ID_AA64DFR0_EL1, DEBUGVER) >= 11)
- 		mdcr |= MDCR_EL3_EBWE;
- 
-+	if (mrs_field(ID_AA64DFR0_EL1, PMUVER) >= 0b1001)
-+		mdcr |= MDCR_EL3_EnPM2;
-+
- 	msr(MDCR_EL3, mdcr);
- 
- 	if (mrs_field(ID_AA64PFR0_EL1, SVE)) {
--- 
-2.25.1
+Unnecessary extra return since the default case already returns "Unknown"
+
+> +}
+> +EXPORT_SYMBOL_GPL(hv_result_to_string);
+> +
+
+Extra line here ^
+
+> diff --git a/drivers/hv/hv_proc.c b/drivers/hv/hv_proc.c
+> index 2fae18e4f7d2..8fc30f509fa7 100644
+> --- a/drivers/hv/hv_proc.c
+> +++ b/drivers/hv/hv_proc.c
+> @@ -87,7 +87,8 @@ int hv_call_deposit_pages(int node, u64 partition_id, u32 num_pages)
+>  				     page_count, 0, input_page, NULL);
+>  	local_irq_restore(flags);
+>  	if (!hv_result_success(status)) {
+> -		pr_err("Failed to deposit pages: %lld\n", status);
+> +		pr_err("%s: Failed to deposit pages: %s\n", __func__,
+> +		       hv_result_to_string(status));
+>  		ret = hv_result_to_errno(status);
+>  		goto err_free_allocations;
+>  	}
+> @@ -137,8 +138,9 @@ int hv_call_add_logical_proc(int node, u32 lp_index, u32 apic_id)
+>  
+>  		if (hv_result(status) != HV_STATUS_INSUFFICIENT_MEMORY) {
+>  			if (!hv_result_success(status)) {
+> -				pr_err("%s: cpu %u apic ID %u, %lld\n", __func__,
+> -				       lp_index, apic_id, status);
+> +				pr_err("%s: cpu %u apic ID %u, %s\n",
+> +				       __func__, lp_index, apic_id,
+> +				       hv_result_to_string(status));
+>  				ret = hv_result_to_errno(status);
+>  			}
+>  			break;
+> @@ -179,8 +181,9 @@ int hv_call_create_vp(int node, u64 partition_id, u32 vp_index, u32 flags)
+>  
+>  		if (hv_result(status) != HV_STATUS_INSUFFICIENT_MEMORY) {
+>  			if (!hv_result_success(status)) {
+> -				pr_err("%s: vcpu %u, lp %u, %lld\n", __func__,
+> -				       vp_index, flags, status);
+> +				pr_err("%s: vcpu %u, lp %u, %s\n",
+> +				       __func__, vp_index, flags,
+> +				       hv_result_to_string(status));
+>  				ret = hv_result_to_errno(status);
+>  			}
+>  			break;
+
+There are more convertible instances in arch/x86/hyperv/irqdomain.c and drivers/iommu/hyperv-iommu.c
+
+> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+> index b13b0cda4ac8..dc4729dba9ef 100644
+> --- a/include/asm-generic/mshyperv.h
+> +++ b/include/asm-generic/mshyperv.h
+> @@ -298,6 +298,7 @@ static inline int cpumask_to_vpset_skip(struct hv_vpset *vpset,
+>  	return __cpumask_to_vpset(vpset, cpus, func);
+>  }
+>  
+> +const char *hv_result_to_string(u64 hv_status);
+>  int hv_result_to_errno(u64 status);
+>  void hyperv_report_panic(struct pt_regs *regs, long err, bool in_die);
+>  bool hv_is_hyperv_initialized(void);
 
 
