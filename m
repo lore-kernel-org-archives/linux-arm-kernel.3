@@ -4,93 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD6A2C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 01:08:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A5A0C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 01:09:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OPhlc9bmrf/baBUYMBCbtsRt7KZ0PJ5cb4Ib6su88Rg=; b=AsAs9vttQ5oDj0LrrAdXcvyH5N
-	3/5eANdYkfbkx1bJeVmK8QRoXqjIVHHdoCO3zNjMg7NWvfQaA4Br6joWP77+uuxnklAyDzfS6MoQZ
-	zkn7ov6hZcAgrF3/h2REfU6drvvgdAPJXQUrn2jU/S04i4Y5RmaaCmuwz52Oytj0B7l8ciIIknNou
-	1ilwdhcmoWVhcWsfd2cqx0ckRBT1FbO0J2B6f/Qfipn2kjwiJJqKlhIRb1P90FqtB4tYKoeeFaP0M
-	vsMY4DmF2YB6gZKUJVMeU9TUtX6l4QMrNLpy2bgUokNmHu8QCOIAhDwsZSYOk09TD6lm1StW9O/ta
-	fW9RH5DA==;
+	bh=Pw/qtYKWcNYdrX3Ze/kwVTdo38LzMv+SwIbu4uPn3MY=; b=Dsr/QHmP4x33Fq0MI7/4rJy1EJ
+	jvFEq2ZsNcy7UVwHCptRx/yssq1JlfwMQlz8rGp8AV5En0SoXHAZqgAmvHUfXICJtP/itrTiQf+cF
+	Oy+/cudjJAJSSS9JqksdK5MnvlhYFq4m/Xz+K/kofSxCzPfAbOdJFz5kG+FBka9FdDrtpwv9Zo1Xu
+	fDBrFaqdoDouQ45I6/ayLVQMk+B6mdajzBIz9jRiu/D7tV95Chb/4Jdp4GI2cpLN6tex7NlNyXmAq
+	K/HsbWnx/U57V8EaQj084RH9CNh27QrVshG/LOKDLv7y+UguAlqAexN/mElpMTn4thNhR2o6KtJia
+	EVVv9bIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnSNi-00000005sxO-0pWA;
-	Thu, 27 Feb 2025 01:08:06 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1tnSPD-00000005t8C-1rHt;
+	Thu, 27 Feb 2025 01:09:39 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnSKy-00000005sa4-2aYA
+	id 1tnSLe-00000005sl9-33Of
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 01:05:19 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-22113560c57so6378625ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 17:05:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1740618316; x=1741223116; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OPhlc9bmrf/baBUYMBCbtsRt7KZ0PJ5cb4Ib6su88Rg=;
-        b=sddcCz1i3SSOIEslLUNtB37x1roPKKATTNHqC15Dnqqr9X+nr90iqeq8tpxD4ajZPm
-         MG8RWeKYrQGNrCk7+95elQ1FgNPkeADQUZ8h87LbkQx9FGi+TDeBPsVWpuWJEy7C/tTS
-         aGxjPVCoWtkKXGA5haWdTtRA0wCLzBzMUJRSII8OM8sRjOgbMsIsM7RuRJbHknqKb6UW
-         HtfNfOQ+aq9y8lHE8Z1q+ThZ5g3cww/SnlJs/hmbKF0Zoq4wM/GaTZ2L/hSNneEs6WxT
-         vh6gTH9OB24iN4gt0kRIyPEEdGWv0QVH5GySx2YkA9sYZksQXeGw0HBPXKrzwbiJ/XQc
-         a8pg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740618316; x=1741223116;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=OPhlc9bmrf/baBUYMBCbtsRt7KZ0PJ5cb4Ib6su88Rg=;
-        b=i1BpyzokOaKOPyswWqk1WGn9eS5s86yJsSUu7uyKKPclVWyK/YwTl7KzJtk4iIoLQg
-         FLfqK0uBYw6BZQvO94RGbTmODE81dfMkllYkqn4CT+RI4hnhVjT6+U3qsst3ohOfVzSh
-         xcdWYjkc6eyw4oOrMSnHduPpsehftOKkrLIinpz93JWvYNQe16hcirGNqkU9r57Mw2zS
-         u5mZ2AVK1ExtXb5X801wvz6n0ms2VY118ZmKQ0WsvONrCQqxY8ZPmiDGoxZjyBFIZ66k
-         JOi9qo7uh066z0RsJkc849MaiG7Ju+VutdJpYnNp7JkYSH29duxFnEZ1Ze4PLchBS+CR
-         G4Jw==
-X-Forwarded-Encrypted: i=1; AJvYcCVt8zA+wc7N18RJ/HVkReaqowLg6xkZZ4+d0RgPev5mJeZUv/1m6YeKTEK7TrzrvPp/CT+nUzNFpuesedNMmGF0@lists.infradead.org
-X-Gm-Message-State: AOJu0YySReQzMIPXYRbPJPKV25tnrtW+HZ1bJCu4vC9kk/rmW5GmeTju
-	G3HgkazVDmkMeYaIW7h4XvfmtThd8Ia+IKTEK6CIe0vfgsO0naeMs31YCOdpCPcfvIHbv3BHPII
-	fak/itw/tooM12kA8CtKzISAl0MguBNTynNCAlw==
-X-Gm-Gg: ASbGncu4TvCI6nSompMtLngpzRM9x6S4mcPxAxi/oYJ30PRb9y4YdF63Z+FiSlOr9u9
-	qM2JOQEsyifwuCj/N1bKlZbDo3gYlQL9vC+gWPqKXbiRSrP8RPg6B6XIbk5ncdLj8/wgo8oeH/8
-	sqDAVRig==
-X-Google-Smtp-Source: AGHT+IEmzNz0icfWLpez1BUsW/bodw4yxi3kEJGu2T9c7GZ0fGiTA+k8NPv9fX34ISAbJbxPgbyIN7vFEs0p7/UvZxk=
-X-Received: by 2002:a05:6a00:2445:b0:731:e974:f9c2 with SMTP id
- d2e1a72fcca58-73426af3a2dmr33707676b3a.0.1740618315744; Wed, 26 Feb 2025
- 17:05:15 -0800 (PST)
+	Thu, 27 Feb 2025 01:06:00 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51QD9A33001059;
+	Thu, 27 Feb 2025 01:05:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Pw/qtYKWcNYdrX3Ze/kwVTdo38LzMv+SwIbu4uPn3MY=; b=QvVvOTDG9l8h7qPB
+	Cs1R0gJpTRIBeF8i7ZESBmZdWyzVRJ/cuDXABYnh6ifYJAf3paNXQy7vE5W5PeW1
+	iGy6/CM8skq9l2RuqelHLNonZiuCTGlimIvdzA7UDDPP4qo9f04ZWxCau1QivHYp
+	QAI0xw4PnbWs11SvLZPeCf8unjgnEdCAxnQ9qUYpra/+1EMt53zz58EAcm71D+FQ
+	apbqh152ozr/LyxJgPVhs7EskY4zdIrR0nDASNQbKYKhnPkS5U+ZT7k+MdKJx92S
+	If/2UIS9HXjyxuQwid5XRs1vbIkh7wgRynDplvl2GWpneEzoy/AC5tD5GHcljkZR
+	beh7dw==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4523kc9qyc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 27 Feb 2025 01:05:46 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51R15j3N032305
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 27 Feb 2025 01:05:45 GMT
+Received: from [10.64.68.153] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 26 Feb
+ 2025 17:05:40 -0800
+Message-ID: <1ead93cb-863c-471c-8a5a-d8f0bef26f92@quicinc.com>
+Date: Thu, 27 Feb 2025 09:05:37 +0800
 MIME-Version: 1.0
-References: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
- <20250205-counter_delegation-v4-12-835cfa88e3b1@rivosinc.com> <586dc43d-74cd-413b-86e2-545384ad796f@rivosinc.com>
-In-Reply-To: <586dc43d-74cd-413b-86e2-545384ad796f@rivosinc.com>
-From: Atish Kumar Patra <atishp@rivosinc.com>
-Date: Wed, 26 Feb 2025 17:05:02 -0800
-X-Gm-Features: AQ5f1Jpcwi9qlqm9BYyz76VdGTMqDksYTZy-kqauaAcNToAAh7JyG1DiMAREibo
-Message-ID: <CAHBxVyGAtZV8mJdcLtSHKHCrtrx3ygUG16onhpPRUUPk6_WJuA@mail.gmail.com>
-Subject: Re: [PATCH v4 12/21] RISC-V: perf: Modify the counter discovery mechanism
-To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v14 02/10] Coresight: Add trace_id function to retrieving
+ the trace ID
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+CC: Tingwei Zhang <quic_tingweiz@quicinc.com>,
+        Jinlong Mao
+	<quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>
+References: <20250226041342.53933-1-quic_jiegan@quicinc.com>
+ <20250226041342.53933-3-quic_jiegan@quicinc.com>
+ <abad8cd1-2436-416b-9db8-3c5e9eb38d73@arm.com>
+Content-Language: en-US
+From: Jie Gan <quic_jiegan@quicinc.com>
+In-Reply-To: <abad8cd1-2436-416b-9db8-3c5e9eb38d73@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: 6oUJsxGDNHEPIGhObqUQRvRSIA24JaS8
+X-Proofpoint-ORIG-GUID: 6oUJsxGDNHEPIGhObqUQRvRSIA24JaS8
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-27_01,2025-02-26_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 phishscore=0
+ bulkscore=0 mlxscore=0 impostorscore=0 spamscore=0 mlxlogscore=999
+ clxscore=1015 priorityscore=1501 adultscore=0 suspectscore=0
+ lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2502100000 definitions=main-2502270007
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_170516_933637_38E378C7 
-X-CRM114-Status: GOOD (  43.15  )
+X-CRM114-CacheID: sfid-20250226_170558_789708_C20158E0 
+X-CRM114-Status: GOOD (  23.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,298 +118,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 7, 2025 at 2:29=E2=80=AFAM Cl=C3=A9ment L=C3=A9ger <cleger@rivo=
-sinc.com> wrote:
->
->
->
-> On 06/02/2025 08:23, Atish Patra wrote:
-> > If both counter delegation and SBI PMU is present, the counter
-> > delegation will be used for hardware pmu counters while the SBI PMU
-> > will be used for firmware counters. Thus, the driver has to probe
-> > the counters info via SBI PMU to distinguish the firmware counters.
-> >
-> > The hybrid scheme also requires improvements of the informational
-> > logging messages to indicate the user about underlying interface
-> > used for each use case.
-> >
-> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> > ---
-> >  drivers/perf/riscv_pmu_dev.c | 118 ++++++++++++++++++++++++++++++++---=
---------
-> >  1 file changed, 88 insertions(+), 30 deletions(-)
-> >
-> > diff --git a/drivers/perf/riscv_pmu_dev.c b/drivers/perf/riscv_pmu_dev.=
-c
-> > index 6b43d844eaea..5ddf4924c5b3 100644
-> > --- a/drivers/perf/riscv_pmu_dev.c
-> > +++ b/drivers/perf/riscv_pmu_dev.c
-> > @@ -66,6 +66,10 @@ static bool sbi_v2_available;
-> >  static DEFINE_STATIC_KEY_FALSE(sbi_pmu_snapshot_available);
-> >  #define sbi_pmu_snapshot_available() \
-> >       static_branch_unlikely(&sbi_pmu_snapshot_available)
-> > +static DEFINE_STATIC_KEY_FALSE(riscv_pmu_sbi_available);
-> > +static DEFINE_STATIC_KEY_FALSE(riscv_pmu_cdeleg_available);
-> > +static bool cdeleg_available;
-> > +static bool sbi_available;
-> >
-> >  static struct attribute *riscv_arch_formats_attr[] =3D {
-> >       &format_attr_event.attr,
-> > @@ -88,7 +92,8 @@ static int sysctl_perf_user_access __read_mostly =3D =
-SYSCTL_USER_ACCESS;
-> >
-> >  /*
-> >   * This structure is SBI specific but counter delegation also require =
-counter
-> > - * width, csr mapping. Reuse it for now.
-> > + * width, csr mapping. Reuse it for now we can have firmware counters =
-for
-> > + * platfroms with counter delegation support.
-> >   * RISC-V doesn't have heterogeneous harts yet. This need to be part o=
-f
-> >   * per_cpu in case of harts with different pmu counters
-> >   */
-> > @@ -100,6 +105,8 @@ static unsigned int riscv_pmu_irq;
-> >
-> >  /* Cache the available counters in a bitmask */
-> >  static unsigned long cmask;
-> > +/* Cache the available firmware counters in another bitmask */
-> > +static unsigned long firmware_cmask;
-> >
-> >  struct sbi_pmu_event_data {
-> >       union {
-> > @@ -778,35 +785,49 @@ static int rvpmu_sbi_find_num_ctrs(void)
-> >               return sbi_err_map_linux_errno(ret.error);
-> >  }
-> >
-> > -static int rvpmu_sbi_get_ctrinfo(int nctr, unsigned long *mask)
-> > +static int rvpmu_deleg_find_ctrs(void)
-> > +{
-> > +     /* TODO */
-> > +     return -1;
-> > +}
-> > +
-> > +static int rvpmu_sbi_get_ctrinfo(int nsbi_ctr, int ndeleg_ctr)
->
-> Hi Atish,
->
-> These parameters could be unsigned I think.
->
 
-sure. Changed it to u32.
 
-> >  {
-> >       struct sbiret ret;
-> > -     int i, num_hw_ctr =3D 0, num_fw_ctr =3D 0;
-> > +     int i, num_hw_ctr =3D 0, num_fw_ctr =3D 0, num_ctr =3D 0;
-> >       union sbi_pmu_ctr_info cinfo;
-> >
-> > -     pmu_ctr_list =3D kcalloc(nctr, sizeof(*pmu_ctr_list), GFP_KERNEL)=
-;
-> > -     if (!pmu_ctr_list)
-> > -             return -ENOMEM;
-> > -
-> > -     for (i =3D 0; i < nctr; i++) {
-> > +     for (i =3D 0; i < nsbi_ctr; i++) {
-> >               ret =3D sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_GET_IN=
-FO, i, 0, 0, 0, 0, 0);
-> >               if (ret.error)
-> >                       /* The logical counter ids are not expected to be=
- contiguous */
-> >                       continue;
-> >
-> > -             *mask |=3D BIT(i);
-> > -
-> >               cinfo.value =3D ret.value;
-> >               if (cinfo.type =3D=3D SBI_PMU_CTR_TYPE_FW)
-> >                       num_fw_ctr++;
-> > -             else
-> > +
-> > +             if (!cdeleg_available) {
->
-> What is the rationale for using additional boolean identical to the
-> static keys ? Reducing the amount of code patch site in cold path ? If
+On 2/26/2025 7:55 PM, Suzuki K Poulose wrote:
+> On 26/02/2025 04:13, Jie Gan wrote:
+>> Add 'trace_id' function pointer in coresight_ops. It's responsible for 
+>> retrieving
+>> the device's trace ID.
+>>
+>> Co-developed-by: James Clark <james.clark@linaro.org>
+>> Signed-off-by: James Clark <james.clark@linaro.org>
+>> Reviewed-by: James Clark <james.clark@linaro.org>
+>> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
+>> ---
+>>   drivers/hwtracing/coresight/coresight-core.c  | 27 +++++++++++++++++++
+>>   drivers/hwtracing/coresight/coresight-dummy.c | 13 ++++++++-
+>>   .../coresight/coresight-etm3x-core.c          |  1 +
+>>   .../coresight/coresight-etm4x-core.c          |  1 +
+>>   drivers/hwtracing/coresight/coresight-stm.c   | 11 ++++++++
+>>   drivers/hwtracing/coresight/coresight-tpda.c  | 11 ++++++++
+>>   include/linux/coresight.h                     |  5 ++++
+>>   7 files changed, 68 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/ 
+>> hwtracing/coresight/coresight-core.c
+>> index 0a9380350fb5..6cad777757f3 100644
+>> --- a/drivers/hwtracing/coresight/coresight-core.c
+>> +++ b/drivers/hwtracing/coresight/coresight-core.c
+>> @@ -23,6 +23,7 @@
+>>   #include "coresight-etm-perf.h"
+>>   #include "coresight-priv.h"
+>>   #include "coresight-syscfg.h"
+>> +#include "coresight-trace-id.h"
+>>   /*
+>>    * Mutex used to lock all sysfs enable and disable actions and 
+>> loading and
+>> @@ -1515,6 +1516,32 @@ void coresight_remove_driver(struct amba_driver 
+>> *amba_drv,
+>>   }
+>>   EXPORT_SYMBOL_GPL(coresight_remove_driver);
+>> +int coresight_etm_get_trace_id(struct coresight_device *csdev, enum 
+>> cs_mode mode,
+>> +                   struct coresight_device *sink)
+>> +{
+>> +    int trace_id;
+>> +    int cpu = source_ops(csdev)->cpu_id(csdev);
+>> +
+>> +    switch (mode) {
+>> +    case CS_MODE_SYSFS:
+>> +        trace_id = coresight_trace_id_get_cpu_id(cpu);
+>> +        break;
+>> +    case CS_MODE_PERF:
+> 
+> Please could we handle a case where "sink" may be passed NULL ?
+> 
+>          if (WARN_ON(!sink))
+>              return -EINVAL;
+> 
+> Sorry, didn't spot that in the last review.
 
-yes.
+Hi Suzuki,
 
-> so, I guess you can use static_key_enabled(&riscv_pmu_cdeleg_available).
-> But your solution is fine as well, it just duplicates two identical value=
-s.
->
+Thanks for poniting out.
 
-good point. I will change it. Thanks!
+There are two scenarios for current useage:
+1. From traceid_show() - this is sysfs mode, so we dont need check sink.
+2. From coresight_path_assign_trace_id function, the sink is obtained 
+from coresight_path and the "sink" has been verified before building the 
+coresight_path.
 
-> >                       num_hw_ctr++;
-> > -             pmu_ctr_list[i].value =3D cinfo.value;
-> > +                     cmask |=3D BIT(i);
-> > +                     pmu_ctr_list[i].value =3D cinfo.value;
-> > +             } else if (cinfo.type =3D=3D SBI_PMU_CTR_TYPE_FW) {
-> > +                     /* Track firmware counters in a different mask */
-> > +                     firmware_cmask |=3D BIT(i);
-> > +                     pmu_ctr_list[i].value =3D cinfo.value;
-> > +             }
-> > +
-> >       }
-> >
-> > -     pr_info("%d firmware and %d hardware counters\n", num_fw_ctr, num=
-_hw_ctr);
-> > +     if (cdeleg_available) {
-> > +             pr_info("%d firmware and %d hardware counters\n", num_fw_=
-ctr, ndeleg_ctr);
-> > +             num_ctr =3D num_fw_ctr + ndeleg_ctr;
-> > +     } else {
-> > +             pr_info("%d firmware and %d hardware counters\n", num_fw_=
-ctr, num_hw_ctr);
-> > +             num_ctr =3D nsbi_ctr;
-> > +     }
-> >
-> > -     return 0;
-> > +     return num_ctr;
-> >  }
-> >
-> >  static inline void rvpmu_sbi_stop_all(struct riscv_pmu *pmu)
-> > @@ -1067,16 +1088,33 @@ static void rvpmu_ctr_stop(struct perf_event *e=
-vent, unsigned long flag)
-> >       /* TODO: Counter delegation implementation */
-> >  }
-> >
-> > -static int rvpmu_find_num_ctrs(void)
-> > +static int rvpmu_find_ctrs(void)
-> >  {
-> > -     return rvpmu_sbi_find_num_ctrs();
-> > -     /* TODO: Counter delegation implementation */
-> > -}
-> > +     int num_sbi_counters =3D 0, num_deleg_counters =3D 0, num_counter=
-s =3D 0;
-> >
-> > -static int rvpmu_get_ctrinfo(int nctr, unsigned long *mask)
-> > -{
-> > -     return rvpmu_sbi_get_ctrinfo(nctr, mask);
-> > -     /* TODO: Counter delegation implementation */
-> > +     /*
-> > +      * We don't know how many firmware counters available. Just alloc=
-ate
-> > +      * for maximum counters driver can support. The default is 64 any=
-ways.
-> > +      */
-> > +     pmu_ctr_list =3D kcalloc(RISCV_MAX_COUNTERS, sizeof(*pmu_ctr_list=
-),
-> > +                            GFP_KERNEL);
-> > +     if (!pmu_ctr_list)
-> > +             return -ENOMEM;
-> > +
-> > +     if (cdeleg_available)
-> > +             num_deleg_counters =3D rvpmu_deleg_find_ctrs();
-> > +
-> > +     /* This is required for firmware counters even if the above is tr=
-ue */
-> > +     if (sbi_available)
-> > +             num_sbi_counters =3D rvpmu_sbi_find_num_ctrs();
-> > +
-> > +     if (num_sbi_counters >=3D RISCV_MAX_COUNTERS || num_deleg_counter=
-s >=3D RISCV_MAX_COUNTERS)
-> > +             return -ENOSPC;
->
-> Why is this using '>=3D' ? You allocated space for RISCV_MAX_COUNTERS, so
-> RISCV_MAX_COUNTERS should fit right ?
->
-Yeah. That's a typo. Thanks for catching it.
+That's why I did not include the verification for sink before using it.
+But I think it's worthwhile to add this code to enhance our code's 
+robustness.
 
-> > +
-> > +     /* cache all the information about counters now */
-> > +     num_counters =3D rvpmu_sbi_get_ctrinfo(num_sbi_counters, num_dele=
-g_counters);
-> > +
-> > +     return num_counters;
->
-> return rvpmu_sbi_get_ctrinfo(num_sbi_counters, num_deleg_counters);
->
-> >  }
-> >
-> >  static int rvpmu_event_map(struct perf_event *event, u64 *econfig)
-> > @@ -1377,12 +1415,21 @@ static int rvpmu_device_probe(struct platform_d=
-evice *pdev)
-> >       int ret =3D -ENODEV;
-> >       int num_counters;
-> >
-> > -     pr_info("SBI PMU extension is available\n");
-> > +     if (cdeleg_available) {
-> > +             pr_info("hpmcounters will use the counter delegation ISA =
-extension\n");
-> > +             if (sbi_available)
-> > +                     pr_info("Firmware counters will be use SBI PMU ex=
-tension\n");
->
-> s/will be use/will use
->
-> > +             else
-> > +                     pr_info("Firmware counters will be not available =
-as SBI PMU extension is not present\n");
->
-> s/will be not/will not
->
+Will fix it in next version.
 
-Fixed.
+Thanks,
+Jie
 
-> > +     } else if (sbi_available) {
-> > +             pr_info("Both hpmcounters and firmware counters will use =
-SBI PMU extension\n");
-> > +     }
-> > +
-> >       pmu =3D riscv_pmu_alloc();
-> >       if (!pmu)
-> >               return -ENOMEM;
-> >
-> > -     num_counters =3D rvpmu_find_num_ctrs();
-> > +     num_counters =3D rvpmu_find_ctrs();
-> >       if (num_counters < 0) {
-> >               pr_err("SBI PMU extension doesn't provide any counters\n"=
-);
-> >               goto out_free;
-> > @@ -1394,9 +1441,6 @@ static int rvpmu_device_probe(struct platform_dev=
-ice *pdev)
-> >               pr_info("SBI returned more than maximum number of counter=
-s. Limiting the number of counters to %d\n", num_counters);
-> >       }
-> >
-> > -     /* cache all the information about counters now */
-> > -     if (rvpmu_get_ctrinfo(num_counters, &cmask))
-> > -             goto out_free;
-> >
-> >       ret =3D rvpmu_setup_irqs(pmu, pdev);
-> >       if (ret < 0) {
-> > @@ -1486,13 +1530,27 @@ static int __init rvpmu_devinit(void)
-> >       int ret;
-> >       struct platform_device *pdev;
-> >
-> > -     if (sbi_spec_version < sbi_mk_version(0, 3) ||
-> > -         !sbi_probe_extension(SBI_EXT_PMU)) {
-> > -             return 0;
-> > +     if (sbi_spec_version >=3D sbi_mk_version(0, 3) &&
-> > +         sbi_probe_extension(SBI_EXT_PMU)) {
-> > +             static_branch_enable(&riscv_pmu_sbi_available);
-> > +             sbi_available =3D true;
-> >       }
-> >
-> >       if (sbi_spec_version >=3D sbi_mk_version(2, 0))
-> >               sbi_v2_available =3D true;
-> > +     /*
-> > +      * We need all three extensions to be present to access the count=
-ers
-> > +      * in S-mode via Supervisor Counter delegation.
-> > +      */
-> > +     if (riscv_isa_extension_available(NULL, SSCCFG) &&
-> > +         riscv_isa_extension_available(NULL, SMCDELEG) &&
-> > +         riscv_isa_extension_available(NULL, SSCSRIND)) {
-> > +             static_branch_enable(&riscv_pmu_cdeleg_available);
-> > +             cdeleg_available =3D true;
-> > +     }
-> > +
-> > +     if (!(sbi_available || cdeleg_available))
-> > +             return 0;
-> >
-> >       ret =3D cpuhp_setup_state_multi(CPUHP_AP_PERF_RISCV_STARTING,
-> >                                     "perf/riscv/pmu:starting",
-> >
->
+> 
+> Suzuki
+> 
+> 
+>> +        trace_id = coresight_trace_id_get_cpu_id_map(cpu, &sink- 
+>> >perf_sink_id_map);
+> 
+>> +        break;
+>> +    default:
+>> +        trace_id = -EINVAL;
+>> +        break;
+>> +    }
+>> +
+>> +    if (!IS_VALID_CS_TRACE_ID(trace_id))
+>> +        dev_err(&csdev->dev,
+>> +            "Failed to allocate trace ID on CPU%d\n", cpu);
+>> +
+>> +    return trace_id;
+>> +}
+>> +EXPORT_SYMBOL_GPL(coresight_etm_get_trace_id);
+>> +
+>>   MODULE_LICENSE("GPL v2");
+>>   MODULE_AUTHOR("Pratik Patel <pratikp@codeaurora.org>");
+>>   MODULE_AUTHOR("Mathieu Poirier <mathieu.poirier@linaro.org>");
+>> diff --git a/drivers/hwtracing/coresight/coresight-dummy.c b/drivers/ 
+>> hwtracing/coresight/coresight-dummy.c
+>> index 9be53be8964b..b5692ba358c1 100644
+>> --- a/drivers/hwtracing/coresight/coresight-dummy.c
+>> +++ b/drivers/hwtracing/coresight/coresight-dummy.c
+>> @@ -41,6 +41,16 @@ static void dummy_source_disable(struct 
+>> coresight_device *csdev,
+>>       dev_dbg(csdev->dev.parent, "Dummy source disabled\n");
+>>   }
+>> +static int dummy_source_trace_id(struct coresight_device *csdev, 
+>> __maybe_unused enum cs_mode mode,
+>> +                 __maybe_unused struct coresight_device *sink)
+>> +{
+>> +    struct dummy_drvdata *drvdata;
+>> +
+>> +    drvdata = dev_get_drvdata(csdev->dev.parent);
+>> +
+>> +    return drvdata->traceid;
+>> +}
+>> +
+>>   static int dummy_sink_enable(struct coresight_device *csdev, enum 
+>> cs_mode mode,
+>>                   void *data)
+>>   {
+>> @@ -62,7 +72,8 @@ static const struct coresight_ops_source 
+>> dummy_source_ops = {
+>>   };
+>>   static const struct coresight_ops dummy_source_cs_ops = {
+>> -    .source_ops = &dummy_source_ops,
+>> +    .trace_id    = dummy_source_trace_id,
+>> +    .source_ops    = &dummy_source_ops,
+>>   };
+>>   static const struct coresight_ops_sink dummy_sink_ops = {
+>> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/ 
+>> drivers/hwtracing/coresight/coresight-etm3x-core.c
+>> index c103f4c70f5d..c1dda4bc4a2f 100644
+>> --- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
+>> +++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
+>> @@ -704,6 +704,7 @@ static const struct coresight_ops_source 
+>> etm_source_ops = {
+>>   };
+>>   static const struct coresight_ops etm_cs_ops = {
+>> +    .trace_id    = coresight_etm_get_trace_id,
+>>       .source_ops    = &etm_source_ops,
+>>   };
+>> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/ 
+>> drivers/hwtracing/coresight/coresight-etm4x-core.c
+>> index 2c1a60577728..cfd116b87460 100644
+>> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+>> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+>> @@ -1067,6 +1067,7 @@ static const struct coresight_ops_source 
+>> etm4_source_ops = {
+>>   };
+>>   static const struct coresight_ops etm4_cs_ops = {
+>> +    .trace_id    = coresight_etm_get_trace_id,
+>>       .source_ops    = &etm4_source_ops,
+>>   };
+>> diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/ 
+>> hwtracing/coresight/coresight-stm.c
+>> index b581a30a1cd9..aca25b5e3be2 100644
+>> --- a/drivers/hwtracing/coresight/coresight-stm.c
+>> +++ b/drivers/hwtracing/coresight/coresight-stm.c
+>> @@ -281,12 +281,23 @@ static void stm_disable(struct coresight_device 
+>> *csdev,
+>>       }
+>>   }
+>> +static int stm_trace_id(struct coresight_device *csdev, 
+>> __maybe_unused enum cs_mode mode,
+>> +            __maybe_unused struct coresight_device *sink)
+>> +{
+>> +    struct stm_drvdata *drvdata;
+>> +
+>> +    drvdata = dev_get_drvdata(csdev->dev.parent);
+>> +
+>> +    return drvdata->traceid;
+>> +}
+>> +
+>>   static const struct coresight_ops_source stm_source_ops = {
+>>       .enable        = stm_enable,
+>>       .disable    = stm_disable,
+>>   };
+>>   static const struct coresight_ops stm_cs_ops = {
+>> +    .trace_id    = stm_trace_id,
+>>       .source_ops    = &stm_source_ops,
+>>   };
+>> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/ 
+>> hwtracing/coresight/coresight-tpda.c
+>> index 189a4abc2561..68079169b11b 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tpda.c
+>> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
+>> @@ -241,12 +241,23 @@ static void tpda_disable(struct coresight_device 
+>> *csdev,
+>>       dev_dbg(drvdata->dev, "TPDA inport %d disabled\n", in->dest_port);
+>>   }
+>> +static int tpda_trace_id(struct coresight_device *csdev, 
+>> __maybe_unused enum cs_mode mode,
+>> +             __maybe_unused struct coresight_device *sink)
+>> +{
+>> +    struct tpda_drvdata *drvdata;
+>> +
+>> +    drvdata = dev_get_drvdata(csdev->dev.parent);
+>> +
+>> +    return drvdata->atid;
+>> +}
+>> +
+>>   static const struct coresight_ops_link tpda_link_ops = {
+>>       .enable        = tpda_enable,
+>>       .disable    = tpda_disable,
+>>   };
+>>   static const struct coresight_ops tpda_cs_ops = {
+>> +    .trace_id    = tpda_trace_id,
+>>       .link_ops    = &tpda_link_ops,
+>>   };
+>> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+>> index 157c4bd009a1..ce89ad24c2a2 100644
+>> --- a/include/linux/coresight.h
+>> +++ b/include/linux/coresight.h
+>> @@ -335,6 +335,7 @@ enum cs_mode {
+>>       CS_MODE_PERF,
+>>   };
+>> +#define coresight_ops(csdev)    csdev->ops
+>>   #define source_ops(csdev)    csdev->ops->source_ops
+>>   #define sink_ops(csdev)        csdev->ops->sink_ops
+>>   #define link_ops(csdev)        csdev->ops->link_ops
+>> @@ -410,6 +411,8 @@ struct coresight_ops_helper {
+>>   };
+>>   struct coresight_ops {
+>> +    int (*trace_id)(struct coresight_device *csdev, enum cs_mode mode,
+>> +            struct coresight_device *sink);
+>>       const struct coresight_ops_sink *sink_ops;
+>>       const struct coresight_ops_link *link_ops;
+>>       const struct coresight_ops_source *source_ops;
+>> @@ -697,4 +700,6 @@ int coresight_init_driver(const char *drv, struct 
+>> amba_driver *amba_drv,
+>>   void coresight_remove_driver(struct amba_driver *amba_drv,
+>>                    struct platform_driver *pdev_drv);
+>> +int coresight_etm_get_trace_id(struct coresight_device *csdev, enum 
+>> cs_mode mode,
+>> +                   struct coresight_device *sink);
+>>   #endif        /* _LINUX_COREISGHT_H */
+> 
+
 
