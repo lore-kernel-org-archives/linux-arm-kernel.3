@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C54CC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:40:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CFF9C197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:40:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t3GT2Q59z7jRgJeDRmMHoLHVswcssOZ7ZZ/HLhh5BeQ=; b=IHmXb2jj/EUG41EqsWZ0G9tM3P
-	yuoKx4A//DjB4Lm0hwySZhwyH3pZ2a8lZYjQm8tRdfilykR/FbIhzj8aZJCBkThltS2BWoWO3qQKm
-	8Q9UkUwGMGmSariWuBC254jcDeygjg/PsDvNEMzVK6X8BnOMkSdunjr1/fh1NyPyCvaOxUZyzfq/2
-	pxQFzubUkFuz6uCC16b51w0dWYJq3nasqyuJCbCSPFYbFlxDOzOp876C5WZILYWQhrcOqy2T+sAm6
-	mBkXxqMJvF0bFQkXejy9Vozu4zpoAVQHdWkGyqE6wVsHQVcndnoiI7N6bGGhJ5r8hi8SeC1yfyMem
-	+axDzmbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5x59HniqPBqKKUIe7KYWznQqiJ8WVEBPJBvvS+VQjM0=; b=O3F/Yc/YM1WCTIZ4tgjGZnIRph
+	7CLKTAB24qB8ANkaIAznvsCXimvPgG/GXhMeVEyAHpDZGzJtQknOEIHKzLSBHeEIcU5t+NGHA1gf7
+	oOEq+iy2KCmP+0F6O4jhqrAo8amI/j+gtI0jwNRgR283SEq/JJhrPDvtITH0XxghBb0jZ3iYCsu7n
+	m8G7l2l2oL3G/ztGeUy0QEkoYXoNcdcaISemsfJotKfBK0b4a8ev4Fr9bUOc1aomqjElEr6HdpMLL
+	L//BNYKsugpsv9mdRqT8ACp5eu4ldPJ+fgzOV518goJYgST/HFZwnTriDxSNtQtG5qZldSat7PPdM
+	e7aetbAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjk3-00000008ZSv-1fOG;
-	Thu, 27 Feb 2025 19:40:19 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1tnjk7-00000008ZZn-4Bj1;
+	Thu, 27 Feb 2025 19:40:26 +0000
+Received: from out-170.mta1.migadu.com ([2001:41d0:203:375::aa])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnhFw-000000089pH-1alb;
-	Thu, 27 Feb 2025 17:01:08 +0000
-MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1740675661;
+	id 1tnhGm-000000089xV-3wnM
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Feb 2025 17:01:58 +0000
+Date: Thu, 27 Feb 2025 12:01:47 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
+	s=key1; t=1740675714;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=t3GT2Q59z7jRgJeDRmMHoLHVswcssOZ7ZZ/HLhh5BeQ=;
-	b=qrJ9xGeRk+ZoCCKaNXMPs6xQlPX39ci0CumbybmMrC6mVweHQH5PlKL2yj8BheOaIHOcB+
-	+hzhs3pexdg3aZotFFKWOuVzAJxkvGnNkrBJCTebjkY75j0bkdK1V0Lu617yzD7ilnGPR7
-	i0B4Wz8JrDWwn0UbWL2eipuZtE/JJNjPA3D+YyFFRPAdON/aM2VBiRDYUFZTb4ER8XcswK
-	SxrOvHM9owPT8JX7pPnBznvCtOWsTC48wicoLtxgmd8kcQRUYFg3wocSb34Z4fZ9wovthg
-	YXH+fP/2PHByu/Yxjffx8F/sGJW1fBQhdgHVJrRdUkhDQ87a8tMRawdv5G7Meg==
-Date: Thu, 27 Feb 2025 18:01:00 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Lukasz Luba <lukasz.luba@arm.com>
-Cc: rafael@kernel.org, daniel.lezcano@linaro.org,
- linux-rockchip@lists.infradead.org, rui.zhang@intel.com, heiko@sntech.de,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Kever
- Yang <kever.yang@rock-chips.com>, Diederik de Haas <didi.debian@cknow.org>,
- linux-pm@vger.kernel.org
-Subject: Re: [PATCH] thermal: rockchip: Extract TSADC conversion tables into a
- header file
-In-Reply-To: <8fcb202f-d1b3-4989-9777-5bafd6fed59e@arm.com>
-References: <08d2fc6e1972f1f90c900542bf66945d6dc6db63.1740577122.git.dsimic@manjaro.org>
- <8fcb202f-d1b3-4989-9777-5bafd6fed59e@arm.com>
-Message-ID: <f13f480aae41e7d893bc6b285e3ad95c@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+	bh=5x59HniqPBqKKUIe7KYWznQqiJ8WVEBPJBvvS+VQjM0=;
+	b=Kera79ZW3++yznfu3mAeSIAL6eOLHyPpNcGQKzcrdDdDb73e2Fh0TwnZ9Yq00rcKdFJNFQ
+	5z1fb483MJ22YqTgDZOzt3kjh4/VwlPwvfvNt3VtNAoygbgrzMJG1iq206e4g+LgyCkZRi
+	eomuOu1bEz4CFNaQfLF84y/U8KV1kvVxWDiAhcrDLrtTauVh7hLBJ/ZIQJeTKCHsddI1zI
+	oKodu9pwXf6cr01Udyk0uXEzbjd/TdgQmHGwCp37InptMozO5CwDZkQ0Kn2HZ592bfdEFs
+	321icTewVkrwRzENiVe6VErW1A4HQJ3TpaGfyVtncVF0tST5jW1zUP2XoiMdGA==
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+To: fnkl.kernel@gmail.com
+Cc: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>,
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Hector Martin <marcan@marcan.st>
+Subject: Re: [PATCH 2/2] iommu: apple-dart: Allow mismatched bypass support
+Message-ID: <Z8Cae58jLqcGwF8S@blossom>
+References: <20250227-isp-dart-v1-0-161e91ef4f46@gmail.com>
+ <20250227-isp-dart-v1-2-161e91ef4f46@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250227-isp-dart-v1-2-161e91ef4f46@gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_090104_712660_FC31E217 
-X-CRM114-Status: GOOD (  18.85  )
+X-CRM114-CacheID: sfid-20250227_090157_441377_736F5D53 
+X-CRM114-Status: UNSURE (   5.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,60 +74,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Lukasz,
+> +		/* Will be ANDed with DART capabilities */
+> +		cfg->supports_bypass = true;
+...
+> +	if (!dart->supports_bypass)
+> +		cfg->supports_bypass = false;
 
-On 2025-02-27 15:42, Lukasz Luba wrote:
-> On 2/26/25 13:42, Dragan Simic wrote:
->> Move the TSADC code-to-temperature mapping tables from the Rockchip 
->> thermal
->> driver to a separate header file, to no longer have the somewhat 
->> cluttering
->> mapping data as part of the driver itself. [1]
->> 
->> These mapping tables come verbatim from the SoC technical reference 
->> manuals
->> (TRMs) and the downstream kernel code, [2] and may be updated at some 
->> point
->> in the future, according to the manufacturer test results, [3] so 
->> extracting
->> the tables into a separate header file not just improves the 
->> readability of
->> the driver code, but introduces a clear separation.
->> 
->> Improve the wording of the moved comment block, sprinkle a few short 
->> comments
->> over the newly introduced header file, and move the already existing 
->> single
->> stray #include directive in the driver code to its beginning.
->> 
->> [1] 
->> https://lore.kernel.org/linux-rockchip/7f17cc55-a741-4bb8-9513-0580ca6fedd3@linaro.org/T/#u
->> [2] 
->> https://raw.githubusercontent.com/rockchip-linux/kernel/f8b9431ee38ed561650be7092ab93f564598daa9/drivers/thermal/rockchip_thermal.c
->> [3] 
->> https://lore.kernel.org/linux-rockchip/b4ab86b56177a234f3738c477693e858@manjaro.org/T/#u
-> 
-> I think Daniel was more thinking something about saving the
-> memory in the kernel. I see how this patch can help the readability
-> of the driver code, but that doesn't help much to not occupy the kernel
-> data. The driver will be built with that memory and the distro would
-> run on some platform with particular chip. The other chips data won't
-> be needed.
+Probably better to write
 
-Thanks for your response!  Yes, carrying all that data in the kernel
-memory, out of which only one variant actually gets used at runtime,
-is far from optimal.
+   cfg->supports_bypass &= dart->supports_bypass;
 
-> Why not to have that information in the DT?
-> That would save the memory and be configurable for only needed 
-> platform.
-> Please have a look into the generic thermal ADC driver and related
-> DT entry, which is used e.g. here [1].
-> That table looks similar to your info.
-
-Let me have a detailed look into all that, please, and I'll come back
-with some further thoughts.
-
-> [1] 
-> https://elixir.bootlin.com/linux/v6.13.4/source/arch/arm64/boot/dts/mediatek/mt8195-cherry.dtsi#L136
+To match what's in the comment!
 
