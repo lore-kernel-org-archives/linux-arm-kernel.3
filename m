@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E900AC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 00:11:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39856C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 00:13:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=VbAHL8IagjkOx1wbGHgEbwPoYTQJLkUXNTIF6YfyPxE=; b=rRvQ9zu+V/L0Qt
-	93Tyoha+wDMC9FYl4d+jRB7Nc1sLM56RndM9d5drhIqgbhN12o7y7RxK71hBrCITFXZolAVVOmiFy
-	xtbXtf3+52FACgaU2AOqZFHYaPXAlcmPI5otebmCMXV3m2Gz3VG4gIQzzfkVw4wve/8TBsfWlUKYm
-	EEiQwNyUHjJqb7yRAcQvm+FPVdbpiDBHtL7h6bf3a4dQwDUwfe0Q2TU7RkJNL0J1TJoWl0yUIPRbS
-	l7jc0uasWz63C33PeZI5Xq4My/y+Dd9C5eRx9gaYURUKli1KveiUYbNtOG5UA50ROBItlfLxsCen/
-	k+HccbzaeYTYDnVf3sRA==;
+	List-Owner; bh=74velbzXhj86ayyNJU8eE/T9Ph27FbIFsXRb+I255gE=; b=upuyXXRLFEMQXi
+	9Bal7tsHzYOIv9L8gTKKK7I7GftCeDJT0RtT7p0fh7dSOwXoTS82hQdI6fokpsWQ7YuKQJsKxs3bH
+	dGcROFYPPf/9JE3qkswzEU6F7L5eYo9QIGPF8Oi7BwluRqhGoOgYjv4FEyozgerJniU0D+5rgnznu
+	4W45+oBfkVCO234mxKv3ztKrDh5gT5boJSDM/TcKCuNJk/VhyCPue9JfIX2nXIFt1stBgfYg8xYQD
+	XVeIdzxKgJNUdPrl06LJ/zngNsAizE/RTc4tPZ+rS0bKzUNj1UhyD76ylcH82D6Mv1Mv/0mYJO3JG
+	FzX0ID5PBtV51Z4Im+pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnRUi-00000005mXl-3hc5;
-	Thu, 27 Feb 2025 00:11:16 +0000
+	id 1tnRXB-00000005my8-2s41;
+	Thu, 27 Feb 2025 00:13:49 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnRRs-00000005mAX-0Li6
+	id 1tnRVd-00000005mfN-3dmq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 00:08:21 +0000
+	Thu, 27 Feb 2025 00:12:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4FE605C70ED;
-	Thu, 27 Feb 2025 00:07:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC32FC4CED6;
-	Thu, 27 Feb 2025 00:08:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6D4485C75EC;
+	Thu, 27 Feb 2025 00:11:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBC25C4CEE4;
+	Thu, 27 Feb 2025 00:12:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740614898;
-	bh=xgs7rT60JFXEHjg9mQodKhFyFx8CjHFlo+z0Izl+sPE=;
+	s=k20201202; t=1740615133;
+	bh=kFgcrBElLJTonBz0lClAOsPUWgdoPyhvMj791RqwlRA=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=g2xCzwEZWvRK21RHGuJr1sXCfA+YRAmrbtRAF4GdHDCVQ3wVOMp9umP4H7FarbFdq
-	 7frYHCCegvUG0mb37YjiDdZI3TS/JXMRQoy8q3nP8xTtrzv/gKad+G/LeFkkA1GdFq
-	 +Xb/QGPx2cFkpgnS1M0vlAOmhAYWCMBFnU2lez3G/iFcVyxa7KOkyiINv+WN2gLZOZ
-	 3iXL2RslMqWfH1h/qfcGQk7RDLA0bYR35kyCAplYb7xyeHFgDhnBDatEcCUXqJi1Ug
-	 vIXiULOxDdWv9Ye3W2luRCJb+zAmf0jgS7eqPIm2IKSwpg2PlAXAvDncAFh4R3rhSd
-	 +wcSfEiHPTm/Q==
-Date: Wed, 26 Feb 2025 18:08:17 -0600
+	b=CJfB1rL5oz2xpW+K4hNOju3ADuUKr3b8mhl4wOWC+Qn0heguTMtKgVXVPzr+VjVen
+	 Niv05HKBuXK7mv38wfm9zy4Y9KW0j0a2bvoOz5imlD4kZkxdlvs+64HW2uRAzRDyZj
+	 KCEewPo383Hdn6XZLd3uJwtK1+181T8UXgaPvqyljnglkIg8loQHfbYjvRKqvzSk1b
+	 zA2ZR+J0YJiI+qMtN84BJDDvA6n372iU2EbFephjXf7tNfX9wpCXBozcw0b0JDhpB9
+	 JJTswsUJOmP2WY+kKWa8B+wNCZeYATO3GP9Sd4x8qivhBU11PwR0BHRWxCsP7Lf59g
+	 bzInoK3C+tTAw==
+Date: Wed, 26 Feb 2025 18:12:11 -0600
 From: Bjorn Helgaas <helgaas@kernel.org>
 To: Frank Li <Frank.Li@nxp.com>
 Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
@@ -60,15 +60,17 @@ Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
 	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
 	Niklas Cassel <cassel@kernel.org>
-Subject: Re: [PATCH v9 3/7] PCI: Add parent_bus_offset to resource_entry
-Message-ID: <20250227000817.GA565171@bhelgaas>
+Subject: Re: [PATCH v9 6/7] PCI: dwc: ep: Ensure proper iteration over
+ outbound map windows
+Message-ID: <20250227001211.GA566164@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250128-pci_fixup_addr-v9-3-3c4bb506f665@nxp.com>
+In-Reply-To: <20250128-pci_fixup_addr-v9-6-3c4bb506f665@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_160820_217087_17F93D50 
-X-CRM114-Status: GOOD (  15.57  )
+X-CRM114-CacheID: sfid-20250226_161213_945450_FFA69688 
+X-CRM114-Status: UNSURE (   6.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,59 +85,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 28, 2025 at 05:07:36PM -0500, Frank Li wrote:
-> Introduce `parent_bus_offset` in `resource_entry` and a new API,
-> `pci_add_resource_parent_bus_offset()`, to provide necessary information
-> for PCI controllers with address translation units.
-> 
-> Typical PCI data flow involves:
->   CPU (CPU address) -> Bus Fabric (Intermediate address) ->
->   PCI Controller (PCI bus address) -> PCI Bus.
-> 
-> While most bus fabrics preserve address consistency, some modify addresses
-> to intermediate values. 
+On Tue, Jan 28, 2025 at 05:07:39PM -0500, Frank Li wrote:
+> Most systems' PCIe outbound map windows have non-zero physical addresses,
+> but the possibility of encountering zero increased with commit
+> 700cafbb642b ("PCI: dwc: ep: Add bus_addr_base for outbound window").
 
-s/modify/translate/
+I don't know what commit 700cafbb642b is.  It doesn't appear
+upstream, and there's no subject line or patch match for
+bus_addr_base.
 
-Specifically, they *translate* addresses, which means the same offset
-is added to every address in the range, as opposed to masking or some
-other transformation.
-
-I think we can take advantage of this to simplify the callers of
-.cpu_addr_fixup() later.
-
-Ironically, most of the .cpu_addr_fixup() implementations *do* mask
-the address, e.g., cdns_plat_cpu_addr_fixup() masks with 0x0fffffff.
-But I think this is actually incorrect because masking results in a
-many-to-one mapping, e.g.,
-
-  0x42000000 & 0x0fffffff == 0x02000000
-  0x52000000 & 0x0fffffff == 0x02000000
-
-But presumably the addresses we pass to cdns_plat_cpu_addr_fixup()
-don't cross a 256MB (0x10000000) boundary, so we could accomplish the
-same by subtracting 0x40000000:
-
-  0x42000000 - 0x40000000 == 0x02000000
-
-> +++ b/drivers/pci/of.c
-> @@ -402,7 +402,17 @@ static int devm_of_pci_get_host_bridge_resources(struct device *dev,
->  			res->flags &= ~IORESOURCE_MEM_64;
->  		}
->  
-> -		pci_add_resource_offset(resources, res,	res->start - range.pci_addr);
-> +		/*
-> +		 * IORESOURCE_IO res->start is io space start address.
-> +		 * IORESOURCE_MEM res->start is cpu start address, which is the
-> +		 * same as range.cpu_addr.
-> +		 *
-> +		 * Use (range.cpu_addr - range.parent_bus_addr) to align both
-> +		 * IO and MEM's parent_bus_offset always offset to cpu address.
-> +		 */
-> +
-> +		pci_add_resource_parent_bus_offset(resources, res, res->start - range.pci_addr,
-> +						   range.cpu_addr - range.parent_bus_addr);
-
-Wrap to fit in 80 columns like the rest of the file.  Will have to
-unindent the two lines of arguments to make this work.
+Bjorn
 
