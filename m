@@ -4,101 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E05F2C021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 13:03:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 788E7C19F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 13:05:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5VtVpJbGl3ABqgeyotfSFZTXggVBvrafMpv9raSwNMI=; b=PnR0O7v3lR1uKAbGXbhBVOC7X5
-	gZ4obD/5LV7MC3dp4sWoV8qPbEexoE/DKGKXnCFxTdbtToL1zSNQV7fttIj0eAEZOhNsar/m7tL5A
-	DR8Nqe+TLu6OSPDEaD6JZfUbKWfv4ESKTfviXlPCK+B7BO2nVa8JA3r6vE3uMjMQnVpP0yWO+fbau
-	zeP2MHDTAcWesRUVDd7ICr5D8RR4LAzAZpBvDkHmIzrPiNChB3vyOY+zD5ERZpBquHZsx6QBAo24/
-	lqyIqd3aA9dE8dCIseD0+s8hIeBr7thD2u7+xgRTtNzf4K1NxFrFgTWrs8Vk/ZGhs3nLtVMUJUZ1B
-	8MBy2+yQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=b7lv7GGS9WubiIrgugkDkQn15aDp/fEieZs8gy6FFRc=; b=f5vwolXzOEmDEOPTHvdIa9xsiY
+	uyVlr+St+snR6JAtFfqEWJwt0QYqA9cBlutWNEDt2nl4s/iLr1YoUc6j0WTLxU/CH5xXWyBJy6Dxe
+	Ie3kVvZTPjyQ0u+4QHpe/9JydNZr7fL0XZ97QHmAILyMz+k4+mdIdDZG6IkXNprXiswMTbiMMxd9I
+	xTRchkPSO9hptTznWkYusW5pE8SJqNYddTz+aqyzMkhq0ZkOkOuSZV6VQeGs2Uc/AeDaYi9gHHR/D
+	oBbB9mvZraVCDyBUuvXsMebujQn1fBHczcphWMZzZ0ms0gGw0TCWUIrs5cVjwfHctJfhDS1Rm3x7Z
+	RDXh9A/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tndY5-00000007SKp-2ZgL;
-	Thu, 27 Feb 2025 13:03:33 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tncqj-00000007KqV-2vBE
+	id 1tndZa-00000007SaY-1LlX;
+	Thu, 27 Feb 2025 13:05:06 +0000
+Received: from relmlor2.renesas.com ([210.160.252.172] helo=relmlie6.idc.renesas.com)
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tncwu-00000007MGb-08it
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 12:18:47 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51R9RU3K012382;
-	Thu, 27 Feb 2025 13:18:38 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	5VtVpJbGl3ABqgeyotfSFZTXggVBvrafMpv9raSwNMI=; b=nJwZcULPguYTFbLK
-	s00zfJzJvVpHQh6/3RohsrUhqhjn5Uu6s/W72KrdQhfvtEj9v+b+VBIjBKouXUJc
-	cTA0ai1DvN6SC2Qa3r7gMUqs2gSODT9cie56XWXiyf9MYzV1yuPJgY7Gtu0dmXvh
-	Z/3KS9y5wUYK6E415GV7CkqaP48Iv9fyC018NbQ/6iRK99WgnP/BKdDKh66+hW5Y
-	LZqNKHjDzI9l8hcBnnQ8qB8f1u8X80M9IY0sAcmgA2fNjLo9VizKFhsty8DZWyti
-	Hny0mmZFyCUzaLhMZyZdzQn3vcIdkOp13Whwhn8ebzvG13LCYBjw22njwSWnOnHs
-	NRhWRw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 451psvah7m-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 27 Feb 2025 13:18:38 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 45CEC40045;
-	Thu, 27 Feb 2025 13:17:31 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 73A2540E4F0;
-	Thu, 27 Feb 2025 13:16:43 +0100 (CET)
-Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 27 Feb
- 2025 13:16:42 +0100
-Message-ID: <df74157e-d141-4045-a244-3168c58c0ff4@foss.st.com>
-Date: Thu, 27 Feb 2025 13:16:42 +0100
+	Thu, 27 Feb 2025 12:25:09 +0000
+X-CSE-ConnectionGUID: znxM1xLTR3mpvimHHn6aDw==
+X-CSE-MsgGUID: ml/HIhIST4aCimY9fdisBQ==
+Received: from unknown (HELO relmlir5.idc.renesas.com) ([10.200.68.151])
+  by relmlie6.idc.renesas.com with ESMTP; 27 Feb 2025 21:25:03 +0900
+Received: from ubuntu.adwin.renesas.com (unknown [10.226.92.68])
+	by relmlir5.idc.renesas.com (Postfix) with ESMTP id C581840029C3;
+	Thu, 27 Feb 2025 21:24:56 +0900 (JST)
+From: John Madieu <john.madieu.xa@bp.renesas.com>
+To: john.madieu.xa@bp.renesas.com,
+	geert+renesas@glider.be,
+	magnus.damm@gmail.com,
+	mturquette@baylibre.com,
+	sboyd@kernel.org,
+	rafael@kernel.org,
+	daniel.lezcano@linaro.org,
+	rui.zhang@intel.com,
+	lukasz.luba@arm.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	p.zabel@pengutronix.de,
+	catalin.marinas@arm.com,
+	will@kernel.org
+Cc: john.madieu@gmail.com,
+	linux-renesas-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	biju.das.jz@bp.renesas.com
+Subject: [PATCH v2 0/7] thermal: renesas: Add support fot RZ/G3E
+Date: Thu, 27 Feb 2025 13:24:36 +0100
+Message-ID: <20250227122453.30480-1-john.madieu.xa@bp.renesas.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/9] ARM: dts: stm32: add Hardware debug port (HDP) on
- stm32mp25
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-        Clement LE GOFFIC
-	<clement.legoffic@foss.st.com>,
-        Linus Walleij <linus.walleij@linaro.org>,
-        Rob
- Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor
- Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Bartosz Golaszewski <brgl@bgdev.pl>
-CC: <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250225-hdp-upstream-v1-0-9d049c65330a@foss.st.com>
- <20250225-hdp-upstream-v1-7-9d049c65330a@foss.st.com>
- <418a80a9-8c08-4dd1-bf49-1bd7378321aa@kernel.org>
- <b257aa79-6ca9-4f57-988a-ec00225992ab@foss.st.com>
- <b57e3c9e-244e-435b-8a7b-cf90f3a973b3@kernel.org>
- <988667a4-4bc0-4594-8dfd-a7b652b149b2@foss.st.com>
- <55beb3e7-65ac-4145-adae-fb064378c78d@kernel.org>
- <8cdc7e52-f9e2-4fc9-be68-0dd72a25ee1b@foss.st.com>
- <48cc626a-d632-444f-8563-07a9ea0ecc71@kernel.org>
- <17450f7d-d398-4a75-8b53-6c9c396661ab@kernel.org>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <17450f7d-d398-4a75-8b53-6c9c396661ab@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-27_05,2025-02-27_01,2024-11-22_01
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_041846_230840_420CDEB9 
-X-CRM114-Status: GOOD (  22.44  )
+X-CRM114-CacheID: sfid-20250227_042508_189393_69AF47AA 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,89 +81,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello,
+
+This series adds support for the temperature sensor unit (TSU) found on the
+Renesas RZ/G3E SoC.
+
+The series consists of 7 patches (some of which are not related to the thermal
+framework) that progressively add TSU support as follows:
+- patch 1/7:    adds syscon/regmap support for accessing system controller
+                registers, enabling access to TSU calibration values
+- patch 2/7:    adds clock and reset signals to the CPG driver
+
+- patch 3/7:    adds dt-bindings
+- patch 4/7:    adds the actual TSU driver for the RZ/G3E
+- patch 5/6:    adds safety mechanism to make sure we we protect the chip in
+                case of consecutive read failures
+- patch 6-7/7:  add DT node and defconfig enablement
 
 
-On 2/26/25 22:31, Krzysztof Kozlowski wrote:
-> On 26/02/2025 22:26, Krzysztof Kozlowski wrote:
->> On 26/02/2025 16:30, Alexandre TORGUE wrote:
->>>
->>>
->>> On 2/26/25 16:08, Krzysztof Kozlowski wrote:
->>>> On 26/02/2025 10:33, Alexandre TORGUE wrote:
->>>>>>>>> +		hdp: pinctrl@44090000 {
->>>>>>>>> +			compatible = "st,stm32mp-hdp";
->>>>>>>>
->>>>>>>> So here again - you have stm32mp251 SoC, but use entirely different
->>>>>>>> compatible.
->>>>>>>
->>>>>>> Ok so I will use "st,stm32mp15-hdp"
->>>>>>
->>>>>>
->>>>>> This means this is stm32mp15 SoC. I do not see such SoC on list of your
->>>>>> SoCs in bindings. What's more, there are no bindings for other SoC
->>>>>> components for stm32mp15!
->>>>>
->>>>> Yes stm32mp15 is not a "real SoC". I agree that at the beginning of the
->>>>> STM32 story we didn't have a clear rule/view to correctly naming our
->>>>> compatible. We tried to improve the situation to avoid compatible like
->>>>> "st,stm32", "st,stm32mp" or "st,stm32mp1". So we introduced
->>>>> "st,stm32mp13", "st,stm32mp15" or "st,stm32mp25" for new drivers. So yes
->>>>> it represents a SoC family and not a real SoC. We haven't had much
->>>>> negative feedback it.
->>>>>
->>>>> But, if it's not clean to do it in this way, lets define SoC compatible
->>>>> for any new driver.
->>>>
->>>> Compatibles are for hardware.
->>>>
->>>>> For the HDP case it is: "st,stm32mp157" and used for STM32MP13,
->>>>> STM32MP15 end STM32MP25 SoC families (if driver is the same for all
->>>>> those SoCs).
->>>>
->>>> No, it's three compatibles, because you have three SoCs. BTW, writing
->>>> bindings (and online resources and previous reviews and my talks) are
->>>> saying that, so we do not ask for anything new here, anything different.
->>>> At least not new when looking at last 5 years, because 10 years ago many
->>>> rules were relaxed...
->>>
->>> So adding 3 times the same IP in 3 different SoCs implies to have 3
->>
->> Yes. Always, as requested by writing bindings.
->>
->>> different compatibles. So each time we use this same IP in a new SoC, we
->>> have to add a new compatible. My (wrong) understanding was: as we have
->>
->> Yes, as requested by writing bindings and followed up by all recent
->> platforms having decent/active upstream support. See qcom, nxp, renesas
->> for example.
->>
->>> the same IP (same hardware) in each SoC we have the same compatible (and
->>
->> You do not have same hardware. You have same IP, or almost same because
->> they are almost never same, implemented in different hardware.
->>
->>> IP integration differences (clocks, interrupts) are handled by DT
->>> properties.
->>
->> Which binding doc/guide suggested such way? Countless reviews from DT
->> maintainers were saying opposite.
-> I was not precise: IP integration differences are of course handles as
-> DT properties, but I wanted to say that it does not solve the problem
-> that IP integration means you might have differences in this device and
-> you should have different quirks.
+Changes:
 
-Yes I agree. We'll take care of it for future development. Maybe, It 
-would be nice to apply this rule in our current drivers/DT already 
-upstream ?
+v1 -> v2
+ * Fix yaml warnings from dt-binding
+ * Update IRQ names to reflect TSU expectations
 
-> 
-> And the example in this patchset: entirely different pin functions is a
-> proof. This device behaves/operates/integrates differently, thus
-> different compatible.
+Regards,
 
-Yes, discussing with Clement, it is clear that we need 3 different 
-compatibles.
+John Madieu (7):
+  soc: renesas: rz-sysc: add syscon/regmap support
+  clk: renesas: r9a09g047: Add clock and reset signals for the TSU IP
+  dt-bindings: thermal: r9a09g047-tsu: Document the TSU unit
+  thermal: renesas: rzg3e: Add thermal driver for the Renesas RZ/G3E SoC
+  thermal: renesas: rzg3e: Add safety check when reading temperature
+  arm64: dts: renesas: r9a09g047: Add TSU node
+  arm64: defconfig: Enable RZ/G3E thermal
 
-> Best regards,
-> Krzysztof
+ .../thermal/renesas,r9a09g047-tsu.yaml        | 123 +++++
+ MAINTAINERS                                   |   7 +
+ arch/arm64/boot/dts/renesas/r9a09g047.dtsi    |  49 ++
+ arch/arm64/configs/defconfig                  |   1 +
+ drivers/clk/renesas/r9a09g047-cpg.c           |   3 +
+ drivers/soc/renesas/Kconfig                   |   1 +
+ drivers/soc/renesas/r9a09g047-sys.c           |   1 +
+ drivers/soc/renesas/rz-sysc.c                 |  30 +-
+ drivers/soc/renesas/rz-sysc.h                 |   2 +
+ drivers/thermal/renesas/Kconfig               |   7 +
+ drivers/thermal/renesas/Makefile              |   1 +
+ drivers/thermal/renesas/rzg3e_thermal.c       | 479 ++++++++++++++++++
+ 12 files changed, 703 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/devicetree/bindings/thermal/renesas,r9a09g047-tsu.yaml
+ create mode 100644 drivers/thermal/renesas/rzg3e_thermal.c
+
+-- 
+2.25.1
+
 
