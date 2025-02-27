@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A65DBC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 22:18:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9963C197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 22:20:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0vW2upRPSd5LLd1via6CVZkp3pUHMr3UQjB71gJgNPE=; b=oIKl2Vi9tjVEKpHTre1HcUtDKY
-	uCpV2WFML7Fj+sQ8mYo2NWcgSPlDK3tA2R8Fa7qWSmlxHgnMj/ezYNSdaISHe/Z6V3knf9nSwj5FM
-	AxoPT/oHTinllsgCAoIkc8zgmzJFxEFlcwbAE/rxcyVysBhWsPrnG2V6RoO/S00XzgDzC2qWMdryU
-	C4Gykg//phTGz7FDJSqr9KpZWYnufWlDvkrFqvvu0dkCa95hREZWjjmp6i9/uA05IdinfcTVaSyRU
-	PmSZcZ6n3aaqNx9DP/AO3Q32/zRxTUkossThBGaqfelqrQGLYVr3BYpo6oYsuioxK7/cVoBM5FipP
-	6M4qHlBw==;
+	bh=EE25XAsvhnFPgPLYy6dng4+2igaG0tj5/voU58VKW+w=; b=zoMLyRSzeZl+XXC1gc8fkAVD4U
+	ilJEQgl9T+4G+ywBYVpO2DPEc+XowGyYL2dgsLMihBHOlZKFRWXcTi6QjJauWyPFuczl9Vtx2S2BG
+	DSNd5OkYsxS0fG+RZpwF/CvprapwWkZXf6uGKUPqamhQ4q8V76bPlCqnFXtI+RjdB1vxBpGsXm3B/
+	YHH7zsG8xMhzomAUXcQ5HiW2idGYZv/vgPIqxKHK3+lJ3La6p6etnYYiu0G3LKncK7tcvzT8dA7GY
+	d+zNkfHbHaiPl6irqmov1BW+eLzQwRHQsJEtRGD4z7fLJPcbdkIt1JijrDP6oQC5WYajCj6eh6pM+
+	mk3oFOJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnmD5-00000008zAD-3gS7;
-	Thu, 27 Feb 2025 22:18:27 +0000
+	id 1tnmEb-00000008zVE-29Vb;
+	Thu, 27 Feb 2025 22:20:01 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnmBX-00000008ytY-0Rxx
+	id 1tnmBr-00000008yw9-0Ejv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 22:16:52 +0000
+	Thu, 27 Feb 2025 22:17:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=0vW2upRPSd5LLd1via6CVZkp3pUHMr3UQjB71gJgNPE=; b=DMHpKzLamSx1RRMiNoYsM6m+ci
-	1szkNqwNx0Bvn9TIM8if0t6a/A/dAc0WPfyi4eABJic8LWrdHYeF57qhQgLzR0LyKAVONHee/0tSL
-	oZov52lh0f+TPqk75GsYNQUm2ErXinpjcf1PBFy1fB7HE51/1cl0WErp+cxvrG2Y20E8=;
+	bh=EE25XAsvhnFPgPLYy6dng4+2igaG0tj5/voU58VKW+w=; b=UUs1oId+Z3hGUPkm+ucjt98CV+
+	psoOP9GEioeCf4nrItaN615xIiMApAJvd2LS7kYvsgooKqOJEYq88LAKDYnTOTXDlckJgd7IWUam4
+	WPdVee/CYkaIWtTHsTHsRAxVGygdj9D6COxC0358AIPapodzCVBFqc3M3VZBfvHDcy0s=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1tnmBN-000jjN-A5; Thu, 27 Feb 2025 23:16:41 +0100
-Date: Thu, 27 Feb 2025 23:16:41 +0100
+	id 1tnmBm-000jkS-MQ; Thu, 27 Feb 2025 23:17:06 +0100
+Date: Thu, 27 Feb 2025 23:17:06 +0100
 From: Andrew Lunn <andrew@lunn.ch>
 To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 Cc: Heiner Kallweit <hkallweit1@gmail.com>,
@@ -52,18 +52,19 @@ Cc: Heiner Kallweit <hkallweit1@gmail.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>,
 	Thierry Reding <treding@nvidia.com>
-Subject: Re: [PATCH RFC net-next 2/5] net: stmmac: remove redundant racy
- tear-down in stmmac_dvr_remove()
-Message-ID: <c8117288-5ef9-445c-a14d-28b2756e5944@lunn.ch>
+Subject: Re: [PATCH RFC net-next 3/5] net: stmmac: remove unnecessary
+ stmmac_mac_set() in stmmac_release()
+Message-ID: <dca35d31-e9af-4453-be2d-cae3a86a8ac9@lunn.ch>
 References: <Z8B-DPGhuibIjiA7@shell.armlinux.org.uk>
- <E1tnfRj-0057SF-9t@rmk-PC.armlinux.org.uk>
+ <E1tnfRo-0057SL-Dz@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <E1tnfRj-0057SF-9t@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1tnfRo-0057SL-Dz@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_141651_145451_3C413A1C 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20250227_141711_093878_1AB108CC 
+X-CRM114-Status: UNSURE (   6.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,25 +79,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025 at 03:05:07PM +0000, Russell King (Oracle) wrote:
-> While the network device is registered, it is published to userspace,
-> and thus userspace can change its state. This means calling
-> functions such as stmmac_stop_all_dma() and stmmac_mac_set() are
-> racy.
-> 
-> Moreover, unregister_netdev() will unpublish the network device, and
-> then if appropriate call the .ndo_stop() method, which is
-> stmmac_release(). This will first call phylink_stop() which will
-> synchronously take the link down, resulting in stmmac_mac_link_down()
-> and stmmac_mac_set(, false) being called.
-> 
-> stmmac_release() will also call stmmac_stop_all_dma().
-> 
-> Consequently, neither of these two functions need to called prior
-> to unregister_netdev() as that will safely call paths that will
-> result in this work being done if necessary.
-> 
-> Remove these redundant racy calls.
+On Thu, Feb 27, 2025 at 03:05:12PM +0000, Russell King (Oracle) wrote:
+> stmmac_release() calls phylink_stop() and then goes on to call
+> stmmac_mac_set(, false). However, phylink_stop() will call
+> stmmac_mac_link_down() before returning, which will do this work.
+> Remove this unnecessary call.
 > 
 > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
