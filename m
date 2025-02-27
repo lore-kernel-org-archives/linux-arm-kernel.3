@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 270DAC021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 11:11:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 526BDC021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 11:12:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WZpBvNTiF72CoGtzoTsdS/QN/xhPzaQrjim5IiJgJWc=; b=BObK1GrvzzjtmC/D80BfvGASyu
-	7KTeah2Ba9IJlsq8KQ6YWJpqMz+1xqs2oD/sZZwU60GlkhyKZ9hVLSl8WLxB5KhyLVew41XUwe3Mp
-	SUI2LYoZA6pDKPKVQt4aSwNO1a7smxPaEVuQPaiMjcOgNJhLG5c5Y0paeXxMlOMUXEyfzwAxS/8+7
-	XCrQxH4XHA4M6aJnrHQQfFc6RtNXBf+mMtlOcmvA1FTIcM97Y8eLYMaDKuoGGRv2Oaa0GOsOYyH76
-	qM2UQoZiD8uynrhUdck29DU0oPVZ4l0ZV1mFDFvu7edSAtTYOeD8o7AqlFRLduLWTLMdWwAqM6Srw
-	mXKjtlAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nwHfhAaVNdbWsSpgLPAqaXSfh9N5ThHSjgQ30wKWVPA=; b=2WPVYEFvRvq+fNmj1NJVfHWjgm
+	sCd4Z9ON0GhZ4AyVi7QJYExtmCHaGmr1MgI1C2yY4o2Vt393hPE0i/NY6ZgCQ5bC64lAVnykcSdb7
+	SEPq+wqYZGVGEPUBV+uYktHroBVf1v0DiXjGc9zwM7+nWduVRDWJ6mTJTdLMSTUsOcKZuT1AQGM6G
+	Rx+miTV2KXpZCHT7zC37e6xbDz2gM3lRak+DPZkAdMqtrlHrJRBD1dIn2n+Ltzt8tLCbX6oYBiRhc
+	0/FC21hxK+0kbOQRKkV9SddzLs2HVJ0psCWoHLDl8+P68iUQQ8oW+2hFkez0IxNz+3P2dIhUHIjHL
+	tCQo0OdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnbnK-00000007746-2Q92;
-	Thu, 27 Feb 2025 11:11:10 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tnbop-000000077Sb-2L0R;
+	Thu, 27 Feb 2025 11:12:43 +0000
+Received: from mail-m1973187.qiye.163.com ([220.197.31.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnbcq-000000074f6-2Ifq
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 11:00:21 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tnbck-0000FI-RT; Thu, 27 Feb 2025 12:00:14 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tnbck-0036wn-1o;
-	Thu, 27 Feb 2025 12:00:14 +0100
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tnbck-0005pz-1b;
-	Thu, 27 Feb 2025 12:00:14 +0100
-Message-ID: <4dbc990ae607404ce4288d884652b9143032023b.camel@pengutronix.de>
-Subject: Re: [PATCH v4] reset: mchp: sparx5: Fix for lan966x
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Horatiu Vultur <horatiu.vultur@microchip.com>, 
-	Steen.Hegelund@microchip.com, daniel.machon@microchip.com, 
-	UNGLinuxDriver@microchip.com, herve.codina@bootlin.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Thu, 27 Feb 2025 12:00:14 +0100
-In-Reply-To: <20250227105502.25125-1-horatiu.vultur@microchip.com>
-References: <20250227105502.25125-1-horatiu.vultur@microchip.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	id 1tnbcy-000000074hR-3Fvt;
+	Thu, 27 Feb 2025 11:00:30 +0000
+Received: from localhost.localdomain (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id c6596ab8;
+	Thu, 27 Feb 2025 19:00:23 +0800 (GMT+08:00)
+From: Kever Yang <kever.yang@rock-chips.com>
+To: heiko@sntech.de
+Cc: linux-rockchip@lists.infradead.org,
+	Kever Yang <kever.yang@rock-chips.com>,
+	devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Finley Xiao <finley.xiao@rock-chips.com>,
+	Rob Herring <robh@kernel.org>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-pm@vger.kernel.org,
+	Elaine Zhang <zhangqing@rock-chips.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Ulf Hansson <ulf.hansson@linaro.org>
+Subject: [PATCH v3 0/2] rockchip: Add rk3562 power domain support
+Date: Thu, 27 Feb 2025 18:59:55 +0800
+Message-Id: <20250227105957.2341107-1-kever.yang@rock-chips.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ09OGFZPSUIfShhKQkNKGhlWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a954710934803afkunmc6596ab8
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MzI6Sxw*PTINIw08AhkKOTgw
+	Mz5PC0hVSlVKTE9LTU5PS0lPQ0xPVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFDTE83Bg++
+DKIM-Signature: a=rsa-sha256;
+	b=bodHX+nX26+wDPL0L7R3+BcC9KfsRht18KaUDideUQmHXDFksKtU3M938qsfRLiKOsPKUrER+huHfpcwSyKKAXN0MYlhCUnHEyXIZFx/hywG7F/FYP1g0MO5py7ER51yMZCqQUd4uzHarOQf+T/F2IZQr9XydbwBpUY3NzFW2MM=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=nwHfhAaVNdbWsSpgLPAqaXSfh9N5ThHSjgQ30wKWVPA=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_030020_586135_E5335E7B 
-X-CRM114-Status: GOOD (  10.77  )
+X-CRM114-CacheID: sfid-20250227_030028_988832_42BBBCBC 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,21 +83,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Do, 2025-02-27 at 11:55 +0100, Horatiu Vultur wrote:
-> With the blamed commit it seems that lan966x doesn't seem to boot
-> anymore when the internal CPU is used.
-> The reason seems to be the usage of the devm_of_iomap, if we replace
-> this with devm_ioremap, this seems to fix the issue as we use the same
-> region also for other devices.
->=20
-> Fixes: 0426a920d6269c ("reset: mchp: sparx5: Map cpu-syscon locally in ca=
-se of LAN966x")
-> Reviewed-by: Herve Codina <herve.codina@bootlin.com>
-> Tested-by: Herve Codina <herve.codina@bootlin.com>
-> Signed-off-by: Horatiu Vultur <horatiu.vultur@microchip.com>
 
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+This patch set add power domain driver for a new SoC rk3562, the SoC DT will
+be sent as a separate patch set and the new compatible will be used in the DT.
 
-regards
-Philipp
+Changes in v3:
+- squash the header file and the binding document
+- Update license
+
+Changes in v2:
+- rename to rockchip,rk3562-power.h
+- update the subject
+- use dual license
+- update the header name
+
+Finley Xiao (1):
+  dt-bindings: power: rockchip: Add support for RK3562 SoC
+
+Kever Yang (1):
+  soc: rockchip: power-domain: add power domain support for rk3562
+
+ .../power/rockchip,power-controller.yaml      |  1 +
+ drivers/pmdomain/rockchip/pm-domains.c        | 48 ++++++++++++++++++-
+ .../dt-bindings/power/rockchip,rk3562-power.h | 35 ++++++++++++++
+ 3 files changed, 83 insertions(+), 1 deletion(-)
+ create mode 100644 include/dt-bindings/power/rockchip,rk3562-power.h
+
+-- 
+2.25.1
+
 
