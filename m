@@ -4,72 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71815C1B087
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97529C282C5
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UoCV5HAJeH3XjGtJFdhDgStkjmGqfA1T4wdKfeu4AsQ=; b=gtLslht3tu7k9VkaPlgy/NatSO
-	fj4DrUdLr+6zLTlBOzxNpFuao5WskeESE/9KMgv71bIFHIV71dlYdwioVOkIHCsObs7oF2xlNz/pX
-	m/9P/ASJ4SNEJyERN+hv9RLh78YEuJN9XUjO4oP4wzVF3GL6lrRpgv/Hd0+8NuFWYIjFIAHNkCVBR
-	puvK/y5C/JRTEjQcIjg0/MA8t7GzeJQM4VYzr5bd+ELscjRz5uor9PU73BTfH4FQ5QFecMoIxUTKj
-	Qf3KaUByB3F1wsrIIgj3EOA7vtx7bmEK2PlDZRsDJmgPIayLAApHzv1J7FJMAMV8DmVlv5wvz/PoU
-	lozaWmXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=buScLni0fJpq/olYSYs/TP5v5AMqPIGM9l8uVS6GTbk=; b=i7FAJRGt5Fhp/i8FOiD5B0zh39
+	/uH5BOdnLz6xONLdFhpDZcqYNAIuSPaDG+wD9e+p7DHVy7PuagkGN9J1lDoELsqXX3FuWv1Logzuc
+	TbcLX8/X0Q/ngcH82wiOFmNuhOz3DDIsp1QjYtnp/Xd88hwHfLlHcQqndvH0ZM0VmqafKhxanQ9xH
+	a0j4Q7OowWtF35ikqWXR2qXkFia6U6JiQX+mND/VvNQxPAUS0ietV445xyYTGYNe1/5NIjSDPuAAh
+	cp+tGV/9mPK6wxNHQFWuEEOfC07HsVaTpOYXkosPJedAmhWzO3Xtk6Jyqph31YSiObQh+w/6m0yVO
+	JsU1xUfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjkB-00000008ZhG-1qXB;
-	Thu, 27 Feb 2025 19:40:27 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnhH1-000000089zY-3xH1
+	id 1tnjkD-00000008Zjq-0y4Y;
+	Thu, 27 Feb 2025 19:40:29 +0000
+Received: from out-188.mta0.migadu.com ([2001:41d0:1004:224b::bc])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnhH9-00000008A0T-2k33
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 17:02:13 +0000
-Received: from [10.137.184.60] (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id F0B68210D0D8;
-	Thu, 27 Feb 2025 09:02:09 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com F0B68210D0D8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1740675730;
-	bh=UoCV5HAJeH3XjGtJFdhDgStkjmGqfA1T4wdKfeu4AsQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VlV7HjWLGHggF73qzcmagSPrXdyB3Ix7hVmrQTgBusBHr3KadTdfJw7oJ2yXwUk/u
-	 kr4aIHEUGfkzWNvvtjBkjAK/7EfisK4p8Jts/+3gCZZGO/f3wovVYe/0X7hvCNX0Nf
-	 n+uakKRBuAXNaRCdRUx/ewFxPDYTCuUsc/g4y41M=
-Message-ID: <74af19c4-639f-4bcc-b667-b5f102bbb312@linux.microsoft.com>
-Date: Thu, 27 Feb 2025 09:02:09 -0800
+	Thu, 27 Feb 2025 17:02:20 +0000
+Date: Thu, 27 Feb 2025 12:02:11 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
+	s=key1; t=1740675736;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=buScLni0fJpq/olYSYs/TP5v5AMqPIGM9l8uVS6GTbk=;
+	b=jYgTgyQatW2/J5YgV8UCLIUrdXMporvBsRM4196W2rfF289Fk2/Fo4JOKsXSBEwxsHD4Sf
+	Mi0suq3ARv+pa1DunsrhOHKtSWRaKeBTK+UgaRt3cgCDDk/HhsWQTkI1OVWM+CDgh5mKYN
+	HOlYj17+N+3DA6LbkE8AmChqAivD9n73e4EY23o4GoSzEU9mLNbvqv2fk1PVTh3q10oaTd
+	mWilusDemTDcY1gqTUHcmmcPS2ePcoYQAdzXYG3QrJkJ0RYqZOj5/rp/Hfr3kLMm/4o8bq
+	6ctgtfJJHAQ1CHalr99fAEPA+kFirTjIlrx4PsnMJ+/2Cy8DEVuDlLkWEV0fig==
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+To: fnkl.kernel@gmail.com
+Cc: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>,
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Hector Martin <marcan@marcan.st>
+Subject: Re: [PATCH 1/2] iommu: apple-dart: Increase MAX_DARTS_PER_DEVICE to 3
+Message-ID: <Z8Cak9VdyUIedOsV@blossom>
+References: <20250227-isp-dart-v1-0-161e91ef4f46@gmail.com>
+ <20250227-isp-dart-v1-1-161e91ef4f46@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 01/10] hyperv: Convert Hyper-V status codes to strings
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
- linux-hyperv@vger.kernel.org, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org
-Cc: kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
- mhklinux@outlook.com, decui@microsoft.com, catalin.marinas@arm.com,
- will@kernel.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, hpa@zytor.com, daniel.lezcano@linaro.org,
- joro@8bytes.org, robin.murphy@arm.com, arnd@arndb.de,
- jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
- skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com,
- ssengar@linux.microsoft.com, apais@linux.microsoft.com,
- Tianyu.Lan@microsoft.com, stanislav.kinsburskiy@gmail.com,
- gregkh@linuxfoundation.org, vkuznets@redhat.com, prapal@linux.microsoft.com,
- muislam@microsoft.com, anrayabh@linux.microsoft.com, rafael@kernel.org,
- lenb@kernel.org, corbet@lwn.net
-References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740611284-27506-2-git-send-email-nunodasneves@linux.microsoft.com>
-Content-Language: en-US
-From: Roman Kisel <romank@linux.microsoft.com>
-In-Reply-To: <1740611284-27506-2-git-send-email-nunodasneves@linux.microsoft.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250227-isp-dart-v1-1-161e91ef4f46@gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_090212_012429_A7BB0891 
-X-CRM114-Status: UNSURE (   9.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250227_090219_833252_380D768D 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,41 +75,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 
-
-On 2/26/2025 3:07 PM, Nuno Das Neves wrote:
-
-[...]
-
-> +
-> +const char *hv_result_to_string(u64 hv_status)
-> +{
-> +	switch (hv_result(hv_status)) {
-
-[...]
-
-> +		return "HV_STATUS_VTL_ALREADY_ENABLED";
-> +	default:
-> +		return "Unknown";
-> +	};
-> +	return "Unknown";
-> +}
-> +EXPORT_SYMBOL_GPL(hv_result_to_string);
-
-Should we remove this and output the hexadecimal error code in ~3 places
-this function is used?
-
-The "Unknown" part would make debugging harder actually when something
-fails. I presume that the mainstream scenarios all work, and it is the
-edge cases that might fail, and these are likelier to produce "Unknown".
-
-Folks who actually debug failed hypercalls rarely have issues with
-looking up the error code, and printing "Unknown" to the log is worse
-than a hexadecimal. Like even the people who wrote the code got nothing
-to say about what is going on.
-
--- 
-Thank you,
-Roman
-
+Le Thu , Feb 27, 2025 at 05:56:03PM +0100, Sasha Finkelstein via B4 Relay a écrit :
+> From: Hector Martin <marcan@marcan.st>
+> 
+> ISP needs this.
+> 
+> Signed-off-by: Hector Martin <marcan@marcan.st>
+> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+> ---
+>  drivers/iommu/apple-dart.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/iommu/apple-dart.c b/drivers/iommu/apple-dart.c
+> index 95ba3caeb40177901086076416874b9905a1f40a..edb2fb22333506d7c64ad1b6321df00ebfd07747 100644
+> --- a/drivers/iommu/apple-dart.c
+> +++ b/drivers/iommu/apple-dart.c
+> @@ -36,7 +36,7 @@
+>  
+>  #define DART_MAX_STREAMS 256
+>  #define DART_MAX_TTBR 4
+> -#define MAX_DARTS_PER_DEVICE 2
+> +#define MAX_DARTS_PER_DEVICE 3
+>  
+>  /* Common registers */
+>  
+> 
+> -- 
+> 2.48.1
+> 
+> 
 
