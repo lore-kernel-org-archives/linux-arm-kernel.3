@@ -4,75 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1ECDC197BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 23:33:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6578AC197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 23:34:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EiYVaoXbtdVeqdOIjPOIL+TQYlIQmgqlmJX0DgXhCSQ=; b=I86dTbcehZIoJ0a2+M9yy4VQMt
-	ZOYlq/pPMfcNZqbM8Ahl9GfqpYA/HF/iQ5xO9rVBSTlnGDfUyRfYgOuk4sqfIT04E/REArKc+6hR4
-	NyEOBg2sQRiqBsd2dHrUbpfWXRdUd2XYl/8VcptQITHwvqPStUu6+Wtsj/UDIs3Gz5wUdjg/lnTxz
-	eoJS1Cqj9GAEZKnIz/AQoJYiTRMdk/3HUSRi1CZJdfAS9TaZ3mEviCxV6xnPjKn/dCC2rM6YXT0+Q
-	a9/wV0Z3iPPRkvm8jwPnTOUp/Y4kA6CD2V6vjLy2QeQx+QXYz3V3PLA+ICPfBB8qIPj6EXGfhUpLY
-	dilJhQuw==;
+	bh=00gtyCYqXrSE/b5izDUf0f21xEdhdcSgRFslmdAQqPQ=; b=Ri7kP3Dl2WjYh+z+cW0UhB5xnU
+	NN91bcmV4K2/a+X2nnD1PhfmjBqczu7Zk+0WmNcW0fnzN5V+wfpQmZrF7+qkaS5Qy55vmsYet+2az
+	VUll8NBwZpm7ynb30KmMN6OR4Z13EBXb0iI34VU0xx8beELtBJLZKP/LJI8DUrftp5BwOeHK0bj3Q
+	D22djn3HNVgAdwVBqKhBX4e4ePXKnH1hyw7xL66auecWehVNQF9h08MhTh69OZUAHbqTd/UqXceut
+	Gm3+e8WSlnHH6Ds5Fl2u2zTrXAf4l2nzqa8kb8wembWb75hFUKjF0+naVpg/2gEVS45LtMpOPTTFG
+	BL1usB1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnnNE-00000009BMW-1PA3;
-	Thu, 27 Feb 2025 23:33:00 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnnBv-000000099pZ-3wDC
+	id 1tnnOl-00000009BWn-06DQ;
+	Thu, 27 Feb 2025 23:34:35 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnnDO-00000009A4e-2Wep
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 23:21:21 +0000
-Received: from [10.137.184.60] (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id D4954210D0F2;
-	Thu, 27 Feb 2025 15:21:18 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com D4954210D0F2
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1740698479;
-	bh=EiYVaoXbtdVeqdOIjPOIL+TQYlIQmgqlmJX0DgXhCSQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZGgsU1Ox1cQX31aaBLp4RLR7Ct4s9L78MTyYhRvvM4obhge2PYIUmXflaMQPr6qxD
-	 vDZ9RIa6tzCLJBcZd7GkKr5DDIzXQYIBYS0qvUsV9ZaFdp/0D65u8nPd3bH0DzGWS2
-	 ZmGBG9mZl+qWpxpArzPuAcf0HDoEWs1++Nt3ykis=
-Message-ID: <b9317a6c-5427-45bf-af93-2b78a8c97863@linux.microsoft.com>
-Date: Thu, 27 Feb 2025 15:21:18 -0800
+	Thu, 27 Feb 2025 23:22:52 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-54843052bcdso1306719e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 15:22:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1740698569; x=1741303369; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=00gtyCYqXrSE/b5izDUf0f21xEdhdcSgRFslmdAQqPQ=;
+        b=LunxNuIBvXr55Qk5eCAO6E9mI7+zw4Rj2Ei+dogJ+AryI5k30HDdyKJFWLn6uT9K8p
+         o5fw1r+C5YIIxSZdeiHkNsf8juRsbiLB89J3N9zuIa1x/1zhG/l90i3IOqmcFmIoPKPs
+         oXUWTMCZ57dfTlKUQwJ4NEmjA36eoT5HzYDVXOOxnnZeaXFojlj+ntm4zPAkzAfYYSfO
+         AKervsvNX264wrCXWhh2H+3QNi/t9SnhOWpO82faknzXIywFwVQO5Ld8qd/rLo3oj//h
+         iAE0WndK5Dm+ZVvqQp40g5qyX9Si6ccLXxxgAGhRdLttm+Z837JdwN4YR2I7zjcPa9Gk
+         mF7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740698569; x=1741303369;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=00gtyCYqXrSE/b5izDUf0f21xEdhdcSgRFslmdAQqPQ=;
+        b=NfY73tnv8H4/jzvMOdFHEvdixkKpNSUWtlZqERmn+Ud8vckuoj5DMA5AhTG/crN0Uq
+         oRewY1Z5aJBroWQw/l6+UoINVbn3YJznsE/P3yM909r9K8gddvzepvdPw3Cx4TkgRKsa
+         +x0utY8r5LhMpmUX+6rRGzpOQlb14iEAJPm9ZYXEa7Z9PYTjhPbin7ee/lCEBoJOekZD
+         yeu/HxuOyrHb1QnTU3BT0kC2WFQMciQTvnNqyvdaAkdf3IvIHP+ro7q1dzN+02lmvGvw
+         SXBFWDm1w68Dwq86aDw1W5LvTswEfeFDrmabU9NahxSxgXivQzKZQGz956O97nhGJLpk
+         TUYw==
+X-Forwarded-Encrypted: i=1; AJvYcCW/Tsd4clxI9yYc296JtXc+0/GC7gAQGvBllOykhMdqrrfAVryVuTagWow0Yz/eJVrp4qJWiQB4GVL3AZBCyDQ3@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/u8pmwv4kue9/AVRVENWoT684c5jnOu1rP0G5l96wpFIisPwF
+	3DVyjlCsfo5A03yzA2ZonTtChaVEVEMqFaDjE3u+WKaT1TB/3OuVV6dQebVwDE1niyhXVtJxObZ
+	e+cvzCtzV7SYE+fu6tA5mTisD7CByGhqBwSkaqQ==
+X-Gm-Gg: ASbGncvbqkubF8Jl/5sjNHYCD+8esXoOui2SKQm+x0SpDbaDEcM52bulbI8JF2pDhFs
+	bN3Bxoe/7PNEhVDu9+SYqvyFKKDMmWzXTlkEt9LnMfp/V4z8IKu74fW68XD3QIDQikXS92Y+8Ul
+	CPEsAXT7o=
+X-Google-Smtp-Source: AGHT+IEQkWRbl/rqTGPZWE6RWd1+bUR4lNwgs9fA64RyFVNEkrdR+tkoe+YfJ+7HwPOazZ+bfaaXCKna4jvoNXdJt58=
+X-Received: by 2002:a05:6512:3ba8:b0:545:81b:1510 with SMTP id
+ 2adb3069b0e04-5494c10c90cmr386304e87.2.1740698568904; Thu, 27 Feb 2025
+ 15:22:48 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 01/10] hyperv: Convert Hyper-V status codes to strings
-To: Easwar Hariharan <eahariha@linux.microsoft.com>
-Cc: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
- linux-hyperv@vger.kernel.org, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org, kys@microsoft.com,
- haiyangz@microsoft.com, wei.liu@kernel.org, mhklinux@outlook.com,
- decui@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
- tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, hpa@zytor.com, daniel.lezcano@linaro.org,
- joro@8bytes.org, robin.murphy@arm.com, arnd@arndb.de,
- jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
- skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com,
- ssengar@linux.microsoft.com, apais@linux.microsoft.com,
- Tianyu.Lan@microsoft.com, stanislav.kinsburskiy@gmail.com,
- gregkh@linuxfoundation.org, vkuznets@redhat.com, prapal@linux.microsoft.com,
- muislam@microsoft.com, anrayabh@linux.microsoft.com, rafael@kernel.org,
- lenb@kernel.org, corbet@lwn.net
-References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740611284-27506-2-git-send-email-nunodasneves@linux.microsoft.com>
- <74af19c4-639f-4bcc-b667-b5f102bbb312@linux.microsoft.com>
- <8338dd00-3aa4-418f-a547-1c19623358cb@linux.microsoft.com>
-Content-Language: en-US
-From: Roman Kisel <romank@linux.microsoft.com>
-In-Reply-To: <8338dd00-3aa4-418f-a547-1c19623358cb@linux.microsoft.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20250224125414.2184-1-ceggers@arri.de>
+In-Reply-To: <20250224125414.2184-1-ceggers@arri.de>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Fri, 28 Feb 2025 00:22:37 +0100
+X-Gm-Features: AQ5f1Jp46qVZUb2P-50a9KhXsYzlOeRhxfka-eek84I0uZFyIaa4wogc1XO6a0o
+Message-ID: <CACRpkdau2cYA=+UOprqj7n9HCf5xQqpZWxnX1gMmuntr95E+fw@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] ARM: substitute OVERLAY description in linker script
+To: Christian Eggers <ceggers@arri.de>
+Cc: Russell King <linux@armlinux.org.uk>, Yuntao Liu <liuyuntao12@huawei.com>, 
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Nathan Chancellor <nathan@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_152120_001140_032E222A 
-X-CRM114-Status: UNSURE (   8.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250227_152250_644838_21B9EFD7 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,46 +97,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Feb 24, 2025 at 1:54=E2=80=AFPM Christian Eggers <ceggers@arri.de> =
+wrote:
 
+> If linker garbage collection is active, we must ensure that the vectors
+> are not removed during linking (by using the KEEP keyword).  But it
+> seems that the LLD linker doesn't support using the KEEP() keyword
+> within an overlay description.
+>
+> The GNU linker manual shows an alternative way to accomplish the same
+> result without using the overlay statement:
+>
+> https://sourceware.org/binutils/docs/ld/Overlay-Description.html
+>
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202502222158.UhwuvDZv-lkp@i=
+ntel.com/
+> Signed-off-by: Christian Eggers <ceggers@arri.de>
 
-On 2/27/2025 2:54 PM, Easwar Hariharan wrote:
-> On 2/27/2025 9:02 AM, Roman Kisel wrote:
+Looks right to me:
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 
-[...]
-
-> 
-> Sorry, I have to disagree with this, a recent commit of mine[1] closed a WSL
-> issue that was open for over 2 years for, partly, the utter uselessness of
-> the hex return code of the hypercall.
-
-What hypercall was that? I see
-
-		storvsc_log_ratelimited(device, loglevel,
-			"tag#%d cmd 0x%x status: scsi 0x%x srb 0x%x hv 0x%x\n",
-			scsi_cmd_to_rq(request->cmd)->tag,
-			stor_pkt->vm_srb.cdb[0],
-			vstor_packet->vm_srb.scsi_status,
-			vstor_packet->vm_srb.srb_status,
-			vstor_packet->status);
-
-in your patch where `vstor_packet->status` is claimed to be a hypercall
-status? I'd be surprised if the hypervisor concerned itself with
-the details of visualized SCSI storage. The VMM on the host might and
-should.
-
-I'll look through the code to gain more confidence in my suspicion that
-calling the SCSI virt storage packet status a hv status causd the
-frustration with debugging, and if no counter examples found, will send
-a patch to fix that log statement above.
-
-> 
-> [1] https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d2138eab8cde61e0e6f62d0713e45202e8457d6d
-> 
-> Thanks,
-> Easwar (he/him)
-
--- 
-Thank you,
-Roman
-
+Yours,
+Linus Walleij
 
