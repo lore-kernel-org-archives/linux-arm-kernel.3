@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94792C1B087
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:39:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52D1BC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:39:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/CKJy8q/rGoQyzPgxvKD/Q59ZGIYg8zRV4SyOOtEa+0=; b=DWx69AUSKyyvq2MvyZpGEHLocl
-	mXAqQnH8+DAzF1tsrva3o45myil7dZX7DphzuccPlK131eoSP038gz64W6NzIR5jMHssnYKtnKomV
-	U0FwFfEf//nAiyHtOwaywKBGKaxNG2agwT56mjNC1rFDF1crawGaT5m1Wjg4GH7GLGqgO0EG4q8JX
-	HPc+5A1DCt5HfiSYkHULRLU4DwVGjmToVdbPfteLdeTFjC1tPxEAlBFI6Vw+MbA+MIos8toWVbBXy
-	UpsYzLy0Lie0HWB5FYiDvtl5eenGoGXP45QSLYA7NBxCwX+3X8W5dsVHD4uJIaBmH8lfXixrqULIZ
-	JFBIMcbw==;
+	bh=0Wz/42wIaeBaSl7TdoWHH30clfooNjF6JzJUD5Ih9LI=; b=Rlr3xf5BC40FgYuiBWNIpaXKb4
+	N9Dyh84lbLoCxDF7CNW6g3AjRIBWDnru1hGabUHhncrNLQHh2G44BYGf+OM7pskEfa2jgiUoYtNZD
+	sRbbBU2rddcjJz4tFeMfgcmbNX72GhZyM+Y8BeWsfsl8F6T4Otwc2FJsrU/+vehg/Nl+5RSeOgWrT
+	PvjOCBczuRrJp1X0U294RIPSYRdjRrW/Vycy4iW0eOKRRvVSA/ekpPDE98XEFv/+8ITNW/biexcSI
+	mQ3xHp1v0MjlTxTisqCqZKj2A3Uu2gjAjyO/oEeWqlshygOYEOdb/1wnZApeojUFja4yrwQ8xCVsN
+	3NKzR9kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjiu-00000008X6g-1g6Q;
-	Thu, 27 Feb 2025 19:39:08 +0000
+	id 1tnjit-00000008X4T-1non;
+	Thu, 27 Feb 2025 19:39:07 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tngCA-00000007xu7-07PY
+	id 1tngC9-00000007xuB-0Eob
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 15:53:07 +0000
+	Thu, 27 Feb 2025 15:53:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1740671586; x=1772207586;
+  t=1740671585; x=1772207585;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=xTx5wh3DLWkZDyZ37nnm/R93yMNnkrcFvkblSIgFki4=;
-  b=rIcqqmN5P346GOh5pR2xMBP700BdxrOX0i3KnfdGxp8Wbt3rvbjNAcaM
-   z+482J53Xq8ydoPnp+LIOsDP+ng3NdtmmMxO5PcOLOjL/qzvfPeerAyEI
-   Sa8/dJCPr4atL0ZpkbygTdNXhBio+Y65IpBLy0ABARBN7JXQ+IR3+yxGV
-   91lsm55rJ/YCUmWB6mJ63xy7epVA42v+g2SPl7FbUz5Q/C7WOB4uxr5zr
-   xllyLwosS4o5S9VXL4OVTI8Qq3qhCWP87eVzTOwpizazYSFUd390mQ4De
-   TzWYUT4TU/H+5qRIG4H9CJzw1r8fti6Imv+CshQpe0Ay6cdu+/JwVIsud
-   A==;
+  bh=YTKmnoBoJKJalyZ9+wnMP6cOqS4GPx8T77stiH9ewgc=;
+  b=u2lfqUpWGsEhvXD3yQ+8824WaCSNz1lv5KZmbr27e2mipzJ2+oD9otv3
+   +cTFc5q12yMN6470qjeFkZ09NQ8EJA140a52CkztXyo4iGQrgHKDqp1K1
+   4vNuwWon/nJBvWM+lkjJEa7ZbRAxCf903niR12z24Vi/DAxEnsTbAFTWI
+   z3ttDitR8E5SuTEOJWaO8w+00goJoyX5B/BNkz0oJKDgzp8rjIBW9+aZN
+   Q6lrBIKTbVwDf/hhInibxa/JTuPcWFyfjsPuZmfcGIfw1UXpO9jVcBqaa
+   hnzL916rDHzC5wRhWgyqjnzIYfEnXbia+qz3uNFWA+kpWWtHp/gHtMuTq
+   w==;
 X-CSE-ConnectionGUID: xBkIAngZQVSwQhIMCQbtUA==
-X-CSE-MsgGUID: VfNqJMEyRMeS0YCa5htHdg==
+X-CSE-MsgGUID: L6MQVkjMRV+EIvF8OWYFtQ==
 X-IronPort-AV: E=Sophos;i="6.13,320,1732604400"; 
-   d="scan'208";a="38638185"
+   d="scan'208";a="38638184"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Feb 2025 08:53:00 -0700
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Feb 2025 08:52:59 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
@@ -63,9 +63,9 @@ CC: <linux@armlinux.org.uk>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-rtc@vger.kernel.org>, "Ryan
  Wanner" <Ryan.Wanner@microchip.com>
-Subject: [PATCH v3 20/21] ARM: dts: microchip: sama7d65: Enable shutdown controller
-Date: Thu, 27 Feb 2025 08:52:07 -0700
-Message-ID: <c31c40eb388b2fc0ad6ee17ed2e23bcd04e8e1c8.1740671156.git.Ryan.Wanner@microchip.com>
+Subject: [PATCH v3 19/21] ARM: dts: microchip: sama7d65: Add SFRBU support to sama7d65
+Date: Thu, 27 Feb 2025 08:52:06 -0700
+Message-ID: <dbc51f95f301c106c031fb93f84d0d847e818d91.1740671156.git.Ryan.Wanner@microchip.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1740671156.git.Ryan.Wanner@microchip.com>
 References: <cover.1740671156.git.Ryan.Wanner@microchip.com>
@@ -73,8 +73,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_075306_150663_D329651D 
-X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-CacheID: sfid-20250227_075305_174031_D9A18190 
+X-CRM114-Status: UNSURE (   9.82  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,33 +92,30 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-Enable shutdown controller to support shutdown and wake up.
+Add SFRBU support to the SAMA7D65 SoC. This is required to change the power
+source for backup mode for the SoC.
 
 Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
 ---
- arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ arch/arm/boot/dts/microchip/sama7d65.dtsi | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
-index 93a1b0684eb9..30fdc4f55a3b 100644
---- a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
-+++ b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
-@@ -148,6 +148,15 @@ &sdmmc1 {
- 	status = "okay";
- };
+diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+index e623f9d22f36..45037fc95adf 100644
+--- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
++++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+@@ -78,6 +78,11 @@ secumod: secumod@e0004000 {
+ 			#gpio-cells = <2>;
+ 		};
  
-+&shdwc {
-+	debounce-delay-us = <976>;
-+	status = "okay";
++		sfrbu: sfr@e0008000 {
++			compatible ="microchip,sama7d65-sfrbu", "atmel,sama5d2-sfrbu", "syscon";
++			reg = <0xe0008000 0x20>;
++		};
 +
-+	input@0 {
-+		reg = <0>;
-+	};
-+};
-+
- &slow_xtal {
- 	clock-frequency = <32768>;
- };
+ 		pioa: pinctrl@e0014000 {
+ 			compatible = "microchip,sama7d65-pinctrl", "microchip,sama7g5-pinctrl";
+ 			reg = <0xe0014000 0x800>;
 -- 
 2.43.0
 
