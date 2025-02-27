@@ -4,59 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DEAEC021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 13:02:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E05F2C021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 13:03:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dWz8azjbSVzMO5hesdQqLVfPW8tdj2Mvtub7uQ9nCnc=; b=4vfrHUuavbpJiSUcCwxhG+1PDR
-	1AUrPo+/iooD5sSCBvaH3HZcQUl0NMUk0k2tTdMatOx6bgQGP3Cf+GvEVcoz+VlNT9pIsyx0WJnoK
-	8RNkIw0rZ/J0+atW1wl0aSz45LD7YsZaubZ8JkBoGfuBV8E7QxiaegwwvY7Tnu1tgAcEkkzAvsTmG
-	cemrAP3R8B047mDkDFD0V39MQyCbiD6hsPUJDnE8gj0NmwzCm7dUtkm+6inJpp4tK8dlRSCSnVivg
-	6dnF+xmmHK0imoyHWyduTVtTc0vqpCwmQme+J2jdHLhDRWc69I4LpHKoL0CkZpWPtNbbnqjpXNyrM
-	uapNHPVg==;
+	bh=5VtVpJbGl3ABqgeyotfSFZTXggVBvrafMpv9raSwNMI=; b=PnR0O7v3lR1uKAbGXbhBVOC7X5
+	gZ4obD/5LV7MC3dp4sWoV8qPbEexoE/DKGKXnCFxTdbtToL1zSNQV7fttIj0eAEZOhNsar/m7tL5A
+	DR8Nqe+TLu6OSPDEaD6JZfUbKWfv4ESKTfviXlPCK+B7BO2nVa8JA3r6vE3uMjMQnVpP0yWO+fbau
+	zeP2MHDTAcWesRUVDd7ICr5D8RR4LAzAZpBvDkHmIzrPiNChB3vyOY+zD5ERZpBquHZsx6QBAo24/
+	lqyIqd3aA9dE8dCIseD0+s8hIeBr7thD2u7+xgRTtNzf4K1NxFrFgTWrs8Vk/ZGhs3nLtVMUJUZ1B
+	8MBy2+yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tndWZ-00000007SCP-42hK;
-	Thu, 27 Feb 2025 13:01:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tncqH-00000007Khn-0MRw
+	id 1tndY5-00000007SKp-2ZgL;
+	Thu, 27 Feb 2025 13:03:33 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tncqj-00000007KqV-2vBE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 12:18:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 971B62BCA;
-	Thu, 27 Feb 2025 04:18:31 -0800 (PST)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6FF5E3F673;
-	Thu, 27 Feb 2025 04:18:14 -0800 (PST)
-Date: Thu, 27 Feb 2025 12:18:11 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Chen-Yu Tsai <wens@csie.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
- Holland <samuel@sholland.org>, <linux-gpio@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 4/8] pinctrl: sunxi: support moved power
- configuration registers
-Message-ID: <20250227121811.23460bf0@donnerap.manchester.arm.com>
-In-Reply-To: <CAGb2v67V7PAOC8MLVzE5SwwvpogN_WLNhQnRVD2pikGVDHtJjA@mail.gmail.com>
-References: <20250214003734.14944-1-andre.przywara@arm.com>
-	<20250214003734.14944-5-andre.przywara@arm.com>
-	<CAGb2v67V7PAOC8MLVzE5SwwvpogN_WLNhQnRVD2pikGVDHtJjA@mail.gmail.com>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	Thu, 27 Feb 2025 12:18:47 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51R9RU3K012382;
+	Thu, 27 Feb 2025 13:18:38 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	5VtVpJbGl3ABqgeyotfSFZTXggVBvrafMpv9raSwNMI=; b=nJwZcULPguYTFbLK
+	s00zfJzJvVpHQh6/3RohsrUhqhjn5Uu6s/W72KrdQhfvtEj9v+b+VBIjBKouXUJc
+	cTA0ai1DvN6SC2Qa3r7gMUqs2gSODT9cie56XWXiyf9MYzV1yuPJgY7Gtu0dmXvh
+	Z/3KS9y5wUYK6E415GV7CkqaP48Iv9fyC018NbQ/6iRK99WgnP/BKdDKh66+hW5Y
+	LZqNKHjDzI9l8hcBnnQ8qB8f1u8X80M9IY0sAcmgA2fNjLo9VizKFhsty8DZWyti
+	Hny0mmZFyCUzaLhMZyZdzQn3vcIdkOp13Whwhn8ebzvG13LCYBjw22njwSWnOnHs
+	NRhWRw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 451psvah7m-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 27 Feb 2025 13:18:38 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 45CEC40045;
+	Thu, 27 Feb 2025 13:17:31 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 73A2540E4F0;
+	Thu, 27 Feb 2025 13:16:43 +0100 (CET)
+Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 27 Feb
+ 2025 13:16:42 +0100
+Message-ID: <df74157e-d141-4045-a244-3168c58c0ff4@foss.st.com>
+Date: Thu, 27 Feb 2025 13:16:42 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 7/9] ARM: dts: stm32: add Hardware debug port (HDP) on
+ stm32mp25
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+        Clement LE GOFFIC
+	<clement.legoffic@foss.st.com>,
+        Linus Walleij <linus.walleij@linaro.org>,
+        Rob
+ Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor
+ Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Bartosz Golaszewski <brgl@bgdev.pl>
+CC: <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250225-hdp-upstream-v1-0-9d049c65330a@foss.st.com>
+ <20250225-hdp-upstream-v1-7-9d049c65330a@foss.st.com>
+ <418a80a9-8c08-4dd1-bf49-1bd7378321aa@kernel.org>
+ <b257aa79-6ca9-4f57-988a-ec00225992ab@foss.st.com>
+ <b57e3c9e-244e-435b-8a7b-cf90f3a973b3@kernel.org>
+ <988667a4-4bc0-4594-8dfd-a7b652b149b2@foss.st.com>
+ <55beb3e7-65ac-4145-adae-fb064378c78d@kernel.org>
+ <8cdc7e52-f9e2-4fc9-be68-0dd72a25ee1b@foss.st.com>
+ <48cc626a-d632-444f-8563-07a9ea0ecc71@kernel.org>
+ <17450f7d-d398-4a75-8b53-6c9c396661ab@kernel.org>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <17450f7d-d398-4a75-8b53-6c9c396661ab@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.79]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-27_05,2025-02-27_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_041817_212812_ED9D2CE8 
-X-CRM114-Status: GOOD (  25.65  )
+X-CRM114-CacheID: sfid-20250227_041846_230840_420CDEB9 
+X-CRM114-Status: GOOD (  22.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,126 +113,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 17 Feb 2025 23:48:13 +0800
-Chen-Yu Tsai <wens@csie.org> wrote:
 
-Hi,
 
-> * # Be careful, this email looks suspicious; * Out of Character: The send=
-er is exhibiting a significant deviation from their usual behavior, this ma=
-y indicate that their account has been compromised. Be extra cautious befor=
-e opening links or attachments. *
-> On Fri, Feb 14, 2025 at 8:40=E2=80=AFAM Andre Przywara <andre.przywara@ar=
-m.com> wrote:
-> >
-> > The Allwinner pincontroller IP features some registers to control the
-> > withstand voltage of each pin group. So far those registers were always
-> > located at the same offset, but the A523 SoC has moved them (probably to
-> > accommodate all eleven pin banks).
-> >
-> > Add a flag to note this feature, and use that to program the registers
-> > either at offset 0x340 or 0x380. So far no pincontroller driver uses
-> > this flag, but we need it for the upcoming A523 support.
-> >
-> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> > ---
-> >  drivers/pinctrl/sunxi/pinctrl-sunxi.c | 15 +++++++++++----
-> >  drivers/pinctrl/sunxi/pinctrl-sunxi.h |  7 +++++--
-> >  2 files changed, 16 insertions(+), 6 deletions(-)
-> >
-> > diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/su=
-nxi/pinctrl-sunxi.c
-> > index 83a031ceb29f2..a1057122272bd 100644
-> > --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-> > +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
-> > @@ -736,9 +736,9 @@ static int sunxi_pinctrl_set_io_bias_cfg(struct sun=
-xi_pinctrl *pctl,
-> >                 val =3D uV > 1800000 && uV <=3D 2500000 ? BIT(bank) : 0;
-> >
-> >                 raw_spin_lock_irqsave(&pctl->lock, flags);
-> > -               reg =3D readl(pctl->membase + PIO_POW_MOD_CTL_REG);
-> > +               reg =3D readl(pctl->membase + pctl->pow_mod_sel_offset);
-> >                 reg &=3D ~BIT(bank);
-> > -               writel(reg | val, pctl->membase + PIO_POW_MOD_CTL_REG);
-> > +               writel(reg | val, pctl->membase + pctl->pow_mod_sel_off=
-set);
-> >                 raw_spin_unlock_irqrestore(&pctl->lock, flags);
-> >
-> >                 fallthrough;
-> > @@ -746,9 +746,12 @@ static int sunxi_pinctrl_set_io_bias_cfg(struct su=
-nxi_pinctrl *pctl,
-> >                 val =3D uV <=3D 1800000 ? 1 : 0;
-> >
-> >                 raw_spin_lock_irqsave(&pctl->lock, flags);
-> > -               reg =3D readl(pctl->membase + PIO_POW_MOD_SEL_REG);
-> > +               reg =3D readl(pctl->membase + pctl->pow_mod_sel_offset +
-> > +                           PIO_POW_MOD_SEL_OFS);
-> >                 reg &=3D ~(1 << bank);
-> > -               writel(reg | val << bank, pctl->membase + PIO_POW_MOD_S=
-EL_REG);
-> > +               writel(reg | val << bank,
-> > +                      pctl->membase + pctl->pow_mod_sel_offset +
-> > +                      PIO_POW_MOD_SEL_OFS);
-> >                 raw_spin_unlock_irqrestore(&pctl->lock, flags);
-> >                 return 0;
-> >         default:
-> > @@ -1520,6 +1523,10 @@ int sunxi_pinctrl_init_with_flags(struct platfor=
-m_device *pdev,
-> >                 pctl->pull_regs_offset =3D PULL_REGS_OFFSET;
-> >                 pctl->dlevel_field_width =3D DLEVEL_FIELD_WIDTH;
-> >         }
-> > +       if (flags & SUNXI_PINCTRL_ELEVEN_BANKS)
-> > +               pctl->pow_mod_sel_offset =3D PIO_11B_POW_MOD_SEL_REG;
-> > +       else
-> > +               pctl->pow_mod_sel_offset =3D PIO_POW_MOD_SEL_REG;
-> >
-> >         pctl->irq_array =3D devm_kcalloc(&pdev->dev,
-> >                                        IRQ_PER_BANK * pctl->desc->irq_b=
-anks,
-> > diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/su=
-nxi/pinctrl-sunxi.h
-> > index 6cf721876d89d..a93385e456a57 100644
-> > --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
-> > +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
-> > @@ -87,9 +87,11 @@
-> >  #define SUNXI_PINCTRL_VARIANT_MASK     GENMASK(7, 0)
-> >  #define SUNXI_PINCTRL_NEW_REG_LAYOUT   BIT(8)
-> >  #define SUNXI_PINCTRL_PORTF_SWITCH     BIT(9)
-> > +#define SUNXI_PINCTRL_ELEVEN_BANKS     BIT(10)
-> >
-> > -#define PIO_POW_MOD_SEL_REG    0x340
-> > -#define PIO_POW_MOD_CTL_REG    0x344
-> > +#define PIO_POW_MOD_SEL_REG            0x340
-> > +#define PIO_11B_POW_MOD_SEL_REG                0x380
-> > +#define PIO_POW_MOD_SEL_OFS            0x004 =20
->=20
-> Shouldn't this be PIO_POW_MOD_CTL_OFS instead?
+On 2/26/25 22:31, Krzysztof Kozlowski wrote:
+> On 26/02/2025 22:26, Krzysztof Kozlowski wrote:
+>> On 26/02/2025 16:30, Alexandre TORGUE wrote:
+>>>
+>>>
+>>> On 2/26/25 16:08, Krzysztof Kozlowski wrote:
+>>>> On 26/02/2025 10:33, Alexandre TORGUE wrote:
+>>>>>>>>> +		hdp: pinctrl@44090000 {
+>>>>>>>>> +			compatible = "st,stm32mp-hdp";
+>>>>>>>>
+>>>>>>>> So here again - you have stm32mp251 SoC, but use entirely different
+>>>>>>>> compatible.
+>>>>>>>
+>>>>>>> Ok so I will use "st,stm32mp15-hdp"
+>>>>>>
+>>>>>>
+>>>>>> This means this is stm32mp15 SoC. I do not see such SoC on list of your
+>>>>>> SoCs in bindings. What's more, there are no bindings for other SoC
+>>>>>> components for stm32mp15!
+>>>>>
+>>>>> Yes stm32mp15 is not a "real SoC". I agree that at the beginning of the
+>>>>> STM32 story we didn't have a clear rule/view to correctly naming our
+>>>>> compatible. We tried to improve the situation to avoid compatible like
+>>>>> "st,stm32", "st,stm32mp" or "st,stm32mp1". So we introduced
+>>>>> "st,stm32mp13", "st,stm32mp15" or "st,stm32mp25" for new drivers. So yes
+>>>>> it represents a SoC family and not a real SoC. We haven't had much
+>>>>> negative feedback it.
+>>>>>
+>>>>> But, if it's not clean to do it in this way, lets define SoC compatible
+>>>>> for any new driver.
+>>>>
+>>>> Compatibles are for hardware.
+>>>>
+>>>>> For the HDP case it is: "st,stm32mp157" and used for STM32MP13,
+>>>>> STM32MP15 end STM32MP25 SoC families (if driver is the same for all
+>>>>> those SoCs).
+>>>>
+>>>> No, it's three compatibles, because you have three SoCs. BTW, writing
+>>>> bindings (and online resources and previous reviews and my talks) are
+>>>> saying that, so we do not ask for anything new here, anything different.
+>>>> At least not new when looking at last 5 years, because 10 years ago many
+>>>> rules were relaxed...
+>>>
+>>> So adding 3 times the same IP in 3 different SoCs implies to have 3
+>>
+>> Yes. Always, as requested by writing bindings.
+>>
+>>> different compatibles. So each time we use this same IP in a new SoC, we
+>>> have to add a new compatible. My (wrong) understanding was: as we have
+>>
+>> Yes, as requested by writing bindings and followed up by all recent
+>> platforms having decent/active upstream support. See qcom, nxp, renesas
+>> for example.
+>>
+>>> the same IP (same hardware) in each SoC we have the same compatible (and
+>>
+>> You do not have same hardware. You have same IP, or almost same because
+>> they are almost never same, implemented in different hardware.
+>>
+>>> IP integration differences (clocks, interrupts) are handled by DT
+>>> properties.
+>>
+>> Which binding doc/guide suggested such way? Countless reviews from DT
+>> maintainers were saying opposite.
+> I was not precise: IP integration differences are of course handles as
+> DT properties, but I wanted to say that it does not solve the problem
+> that IP integration means you might have differences in this device and
+> you should have different quirks.
 
-Ah, I already got lost myself in those three-letter stubs, but you are
-right: it's the offset of the control register within the POW_MOD(?)
-register block.
-So nice catch, will fix it.
+Yes I agree. We'll take care of it for future development. Maybe, It 
+would be nice to apply this rule in our current drivers/DT already 
+upstream ?
 
-Thanks,
-Andre
+> 
+> And the example in this patchset: entirely different pin functions is a
+> proof. This device behaves/operates/integrates differently, thus
+> different compatible.
 
-> ChenYu
->=20
-> >
-> >  #define PIO_BANK_K_OFFSET              0x500
-> >
-> > @@ -173,6 +175,7 @@ struct sunxi_pinctrl {
-> >         u32                             bank_mem_size;
-> >         u32                             pull_regs_offset;
-> >         u32                             dlevel_field_width;
-> > +       u32                             pow_mod_sel_offset;
-> >  };
-> >
-> >  #define SUNXI_PIN(_pin, ...)                                   \
-> > --
-> > 2.46.3
-> > =20
->=20
->=20
+Yes, discussing with Clement, it is clear that we need 3 different 
+compatibles.
 
+> Best regards,
+> Krzysztof
 
