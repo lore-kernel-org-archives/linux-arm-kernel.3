@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E319C197BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 23:05:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D39B3C197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 23:06:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QxAcpt0+lW01/ig2J6vWiepSryvmGyljQIhYNOU2c/8=; b=kOfLeMj+pxMJqn8VtcacBas/5L
-	10DHSbBV/NJXC/vh7brfem4pfylSqqdMfz14aB4GrvsWTN7ld/iY39Xu5NmH+sjb83qIcAh1IJqZz
-	zAefWI1gDtfwI7owC6tDda12HIw2mree3KppOii1/bXTRDpWRUbAKWQkwWaVVojVppMHLqIMfHyXD
-	nLHl7QYokYj+RPWjoIF1nPK5K/xrGZNDUKiZN5eAUQuVwH3eHsaKqoBOTAwVBHxiX6e3kR3ZzyPpS
-	TEPtphlFfYIZ/Jg89FuUL4btb+t2nUkh/tDQi2FEAEEJfzbTlvfamvCZqhdGSXy4hhHtO5HHo2Mmi
-	+PVz20zw==;
+	bh=dCjZ9jMbRkmsPS+4OvPLxv/lO9UYo97B0D5ofNvRttk=; b=N47lcZ86Op5Hm0d4Uhju/9xdp5
+	Z27GsR6bDJsZ7kRNgZ0ULLGrtkvJQLRiiyN47qcJgAFV329nAHOyP958LPXotrqZdTfc3thB1CS9L
+	21uEldjur9biLG88OjbAjdBXsfZsdfMjdyrJZ185nOixg/onalGQnA5Px0PlK8TKvCIihsk4c/MMO
+	1Auhe22g78pQo4ouVxGtCpzZWp3krmu8dzqUN42kDz/OIjUAixZ1nSeTgHwZUyO5vWTEXtni99Pg4
+	dCBJyyfMH7kI/X2enGGUtkpcZnYBJH5B+FDqGua9Yk6qwsgz2cL/O2FSgWA/Asnd0qjeBout1E+L/
+	J1E+6qYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnmwB-000000096zJ-2epP;
-	Thu, 27 Feb 2025 23:05:03 +0000
+	id 1tnmxt-000000097H6-1Ruz;
+	Thu, 27 Feb 2025 23:06:49 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnmuc-000000096iP-3dLi
+	id 1tnmwL-0000000971B-0Apc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 23:03:28 +0000
+	Thu, 27 Feb 2025 23:05:14 +0000
 Received: from [192.168.35.166] (c-24-22-154-137.hsd1.wa.comcast.net [24.22.154.137])
-	by linux.microsoft.com (Postfix) with ESMTPSA id B7CFE210EAC1;
-	Thu, 27 Feb 2025 15:03:23 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com B7CFE210EAC1
+	by linux.microsoft.com (Postfix) with ESMTPSA id 769CA210EAC0;
+	Thu, 27 Feb 2025 15:05:10 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 769CA210EAC0
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1740697404;
-	bh=QxAcpt0+lW01/ig2J6vWiepSryvmGyljQIhYNOU2c/8=;
+	s=default; t=1740697511;
+	bh=dCjZ9jMbRkmsPS+4OvPLxv/lO9UYo97B0D5ofNvRttk=;
 	h=Date:Cc:Subject:To:References:From:In-Reply-To:From;
-	b=bxzf0KSsUaGf0Nytx/thMSUWtHwHn5I/IWuc30R4oUpVESsi59QYzve8DdAojqVeS
-	 wh7oR5+oq6vJ3pbCm3dM9Bi11DroQv/1tvRSdzmVSbBJ8Q4ubfxZcaWgDCwnVAWAyB
-	 SVRIH/V8d2vZzi2MEtzdxJG4TulbapRL5gkG36N8=
-Message-ID: <7749367d-d87d-43f0-8c24-cd08bb4ce1a8@linux.microsoft.com>
-Date: Thu, 27 Feb 2025 15:03:22 -0800
+	b=qkPpQObiOfq236VL3tI2mDXngA4cs30KZVyxnx7UZmqoO4Z+PP1V3dKTXgl0ym5W7
+	 qMXyfTC13t91+BJwaSAJFCTKnoPVNvcXzrl4l2RzeByTYqZTGZ/27ctSzlj4kptFmW
+	 OeOnUXHhnxrYZun4MyIOGtSDxPpwz48NiW+qy72Q=
+Message-ID: <51612cb0-fa25-45c4-9d49-dc2580706a41@linux.microsoft.com>
+Date: Thu, 27 Feb 2025 15:05:09 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Cc: linux-hyperv@vger.kernel.org, x86@kernel.org,
@@ -57,18 +57,18 @@ Cc: linux-hyperv@vger.kernel.org, x86@kernel.org,
  gregkh@linuxfoundation.org, vkuznets@redhat.com, prapal@linux.microsoft.com,
  muislam@microsoft.com, anrayabh@linux.microsoft.com, rafael@kernel.org,
  lenb@kernel.org, corbet@lwn.net
-Subject: Re: [PATCH v5 04/10] hyperv: Introduce hv_recommend_using_aeoi()
+Subject: Re: [PATCH v5 05/10] acpi: numa: Export node_to_pxm()
 To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
 References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740611284-27506-5-git-send-email-nunodasneves@linux.microsoft.com>
+ <1740611284-27506-6-git-send-email-nunodasneves@linux.microsoft.com>
 From: Easwar Hariharan <eahariha@linux.microsoft.com>
 Content-Language: en-US
-In-Reply-To: <1740611284-27506-5-git-send-email-nunodasneves@linux.microsoft.com>
+In-Reply-To: <1740611284-27506-6-git-send-email-nunodasneves@linux.microsoft.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_150326_930956_6E407D89 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20250227_150513_108605_E520C51C 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,48 +84,29 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 2/26/2025 3:07 PM, Nuno Das Neves wrote:
-> Factor out the check for enabling auto eoi, to be reused in root
-> partition code.
+> node_to_pxm() is used by hv_numa_node_to_pxm_info().
+> That helper will be used by Hyper-V root partition module code
+> when CONFIG_MSHV_ROOT=m.
 > 
 > Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
 > ---
->  drivers/hv/hv.c                | 12 +-----------
->  include/asm-generic/mshyperv.h | 13 +++++++++++++
->  2 files changed, 14 insertions(+), 11 deletions(-)
+>  drivers/acpi/numa/srat.c | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-
-<snip>
-
-> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
-> index 258034dfd829..1f46d19a16aa 100644
-> --- a/include/asm-generic/mshyperv.h
-> +++ b/include/asm-generic/mshyperv.h
-> @@ -77,6 +77,19 @@ extern u64 hv_do_fast_hypercall16(u16 control, u64 input1, u64 input2);
->  bool hv_isolation_type_snp(void);
->  bool hv_isolation_type_tdx(void);
+> diff --git a/drivers/acpi/numa/srat.c b/drivers/acpi/numa/srat.c
+> index 00ac0d7bb8c9..ce815d7cb8f6 100644
+> --- a/drivers/acpi/numa/srat.c
+> +++ b/drivers/acpi/numa/srat.c
+> @@ -51,6 +51,7 @@ int node_to_pxm(int node)
+>  		return PXM_INVAL;
+>  	return node_to_pxm_map[node];
+>  }
+> +EXPORT_SYMBOL_GPL(node_to_pxm);
 >  
-> +/*
-> + * On architectures where Hyper-V doesn't support AEOI (e.g., ARM64),
-> + * it doesn't provide a recommendation flag and AEOI must be disabled.
-> + */
-> +static inline bool hv_recommend_using_aeoi(void)
-> +{
-> +#ifdef HV_DEPRECATING_AEOI_RECOMMENDED
-> +	return !(ms_hyperv.hints & HV_DEPRECATING_AEOI_RECOMMENDED);
-> +#else
-> +	return false;
-> +#endif
-> +}
-> +
+>  static void __acpi_map_pxm_to_node(int pxm, int node)
+>  {
 
-I must be missing something very basic here, and if so, I apologize, and please enlighten me.
+FWIW,
 
-HV_DEPRECATING_AEOI_RECOMMENDED is defined as BIT(9) in include/hyperv/hvgdk_mini.h, and
-asm-generic/mshyperv.h includes that via include/hyperv/hvhdk.h.
-
-If this is the case, when would HV_DEPRECATING_AEOI_RECOMMENDED ever be not defined?
-If it's always defined, do we need the #ifdef?
-
-Thanks,
-Easwar (he/him)
+Reviewed-by: Easwar Hariharan <eahariha@linux.microsoft.com>
 
