@@ -4,87 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F7B8C021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 08:43:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEABDC19F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 08:45:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s/BrDT6HDNlhYIGawveZn0l9RzyImOeLlokPy7GIcsk=; b=JaahFyAWRL9xKHnvA2hlB3AKtL
-	8sf/MYk2H5YLIIBYRqXf+UoJBjuXKyEEem8uQmdGqK01AbRz0kHq1nlDmDRBd8WUqOTnO3OQjoqyP
-	r7edTXwvYwMTCDrCQbBTO23FNkHvjEQasoe1IB+t+eeyCKq01Jo3Ydf47pG4P3Q+6NFbj1yAZMlRV
-	o776i5atiZtTMWKOKzGRUuW5Ic/l2E9bQUw5O/sKbDnO6r7QEDw0aKG2v+2Am1vQh99Tv1TlbhnOI
-	VSoxUycuc1vmPvAfdid1uNL9eyXOnczed2Pg8Roduwa0F+XPUrAL2Rv/duJAg4YdotTy1lvl1s92f
-	NWbKl0Ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jiPcZapR216itPgDV41PdhwEbp2fRiThI86FlwLZTVA=; b=wRmkS2YaSBzUXB0+VkCzarlkaa
+	OGqZDLLOme5rZhIftdTCXwMRUJidmeZsorjmgTGkqRY3Tas7Do364pJBHKJeBvNICR4b7XahO/MzH
+	gAKe0ADQlFv4v/3JfOXHhnkFPS3+/qVNmE13SpWJUDMxzHIZvG2cgDoNo0LDkZBj6R5vfY+K4/zl3
+	OYofb7SiuVgPj52fqwhth+3TrS1XUv3iFZVk7DMpGCv9eQ4XG31m8E0J7eRcG2pj1LOgnh9zVj8AX
+	g0hxte3XwqRyx3siwqPj7MeXuv9Gg+cZmLMJKBm+dlguw0mXHURWkKceVvs/+P6R33pxjqbM5bnGX
+	yTQDjs7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnZTo-00000006jRz-0Iql;
-	Thu, 27 Feb 2025 08:42:52 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tnZW5-00000006kUJ-3STN;
+	Thu, 27 Feb 2025 08:45:13 +0000
+Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnZRM-00000006j3s-28rb
+	id 1tnZUX-00000006jrt-1Zau
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 08:40:21 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51R53Rw5015424;
-	Thu, 27 Feb 2025 09:40:12 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	s/BrDT6HDNlhYIGawveZn0l9RzyImOeLlokPy7GIcsk=; b=xdkbs63L8r9z0AqE
-	J4UQC6e18L4aiHVcmWoO3+lareNu5cZoaFGEGXAah1u0BJATczOMLc/ShqGg01zq
-	W7frUBh2zrelobq2bNiGwlmbSlNuB1xnn1BZ565h+Qau/JKv6L6PS3oV0xzNyKnB
-	bj8xRRWxdVwTil/6zHhvcpXcKeCvF4JldJDuTVDUWHRGgBzqMLlkxI6wcG+5ZrMS
-	cDjHZ4FKBt8cYGY3qXPEaSnKfA4z9k5VUM9BDlLAPM0RR+vr1C5HjqXvKhknyxM7
-	Olw6W9SJA8716YWaX2Wf3Lxrtle5Ric+C9a3cX3Rms+hNOg4PeOoy5lQCAZpYCnu
-	hsvJ0w==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 451psuh1he-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 27 Feb 2025 09:40:12 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 1E65D40050;
-	Thu, 27 Feb 2025 09:39:10 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 15873381A90;
-	Thu, 27 Feb 2025 09:38:29 +0100 (CET)
-Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 27 Feb
- 2025 09:38:28 +0100
-Message-ID: <ea295010-136c-419a-80ff-3cdd0701fbd8@foss.st.com>
-Date: Thu, 27 Feb 2025 09:38:27 +0100
+	Thu, 27 Feb 2025 08:43:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=jiPcZapR216itPgDV41PdhwEbp2fRiThI86FlwLZTVA=; b=GsRmCFqWzGCGd5G+zhMOhUMliV
+	cvZYzsxKo30kJ+tvuntDdmv1EkdyiT0+RGypU3QuqxpBqjsmnSUpF1KQU6I08bJLDR964dnyF1dg2
+	F+hRMofLDZkexeOuz6TJIBgcOgYD9e1FkzFYhTWrW4tOXm3izNYMQIKBiVxOvR9VWbfx2DMLc0209
+	2U9reGjCRZC6/5tRtAkyM8XYsb4BO0sGHkWzjsMU2O6Hc8b5CHNlDooaTzPulqLwb1B18CHh17Z7E
+	ksxKtGLzPh9rNCN+j9JS2t9utYmWIFsJNWGFUqZfk8XAPqdt5vR9G4T9uNTl71HMzUAzeG3P8/0tE
+	oef5neBw==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1tnZTz-002Cin-38;
+	Thu, 27 Feb 2025 16:43:05 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Thu, 27 Feb 2025 16:43:03 +0800
+Date: Thu, 27 Feb 2025 16:43:03 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Arnd Bergmann <arnd@kernel.org>, Will Deacon <will@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Harald Freudenberger <freude@linux.ibm.com>,
+	Holger Dengler <dengler@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Eric Biggers <ebiggers@google.com>,
+	"James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Jarkko Sakkinen <jarkko@kernel.org>, linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mips@vger.kernel.org, linux-s390@vger.kernel.org
+Subject: Re: [v3 PATCH] crypto: lib/Kconfig - Hide arch options from user
+Message-ID: <Z8All3G80gGXzfaU@gondor.apana.org.au>
+References: <20250225164216.4807-1-arnd@kernel.org>
+ <20250225213344.GA23792@willie-the-truck>
+ <f7c298b8-7989-49e7-90a2-5356029a6283@app.fastmail.com>
+ <c4896a12-8abe-4fe6-b381-86b23d32b332@app.fastmail.com>
+ <Z75xKexTUNm_FnSK@gondor.apana.org.au>
+ <Z76aUfPIbhPAsHbv@gondor.apana.org.au>
+ <Z77aFJCVuXeDXRrs@gondor.apana.org.au>
+ <Z8AY16EIqAYpfmRI@gondor.apana.org.au>
+ <134f64aa-65bd-4de0-9ac6-52326e35d6d6@app.fastmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] ARM: dts: stm32: add usr3 LED node to stm32f769-disco
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-        <linux-kernel@vger.kernel.org>
-CC: Conor Dooley <conor+dt@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Rob
- Herring <robh@kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>
-References: <20250217114513.1098844-1-dario.binacchi@amarulasolutions.com>
- <20250217114513.1098844-2-dario.binacchi@amarulasolutions.com>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20250217114513.1098844-2-dario.binacchi@amarulasolutions.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-27_04,2025-02-26_01,2024-11-22_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <134f64aa-65bd-4de0-9ac6-52326e35d6d6@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_004020_839438_ADB590B5 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20250227_004337_416260_16DB926C 
+X-CRM114-Status: GOOD (  21.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,35 +97,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Feb 27, 2025 at 09:32:51AM +0100, Arnd Bergmann wrote:
+>
+> This looks like a good approach. Once it works correctly,
+> it should be possible to clean up the 'select' statements
+> in wireguard as well and just 'select CRYPTO_LIB_CHACHA' etc.
 
+Yes that's the idea.
 
-On 2/17/25 12:45, Dario Binacchi wrote:
-> As indicated by the board silkscreen, there are three user LEDs.
-> Add the missing one.
-> 
-> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> ---
-> 
->   arch/arm/boot/dts/st/stm32f769-disco.dts | 3 +++
->   1 file changed, 3 insertions(+)
-> 
-> diff --git a/arch/arm/boot/dts/st/stm32f769-disco.dts b/arch/arm/boot/dts/st/stm32f769-disco.dts
-> index d52e36aedcfb..535cfdc4681c 100644
-> --- a/arch/arm/boot/dts/st/stm32f769-disco.dts
-> +++ b/arch/arm/boot/dts/st/stm32f769-disco.dts
-> @@ -86,6 +86,9 @@ led-usr2 {
->   		led-usr1 {
->   			gpios = <&gpioj 13 GPIO_ACTIVE_HIGH>;
->   		};
-> +		led-usr3 {
-> +			gpios = <&gpioa 12 GPIO_ACTIVE_HIGH>;
-> +		};
->   	};
->   
->   	gpio-keys {
+> I think the more common style is to put the 'default'
+> lines before 'select'.
 
-Series applied on stm32-next.
+It is the customary place in the crypto tree.
 
-Thanks
-Alex
+> It appears that the two above are missing a
+> 'depends on KERNEL_MODE_NEON' line. There is still
+> a runtime check that prevents it from being used on
+> non-neon machines, but I think you should add these
+> lines here since it's no longer possible to turn
+> them off individually when building a kernel for a
+> non-NEON target.
+
+Good catch.  But I think this was deliberate as it also includes
+a non-NEON implementation:
+
+commit b36d8c09e710c71f6a9690b6586fea2d1c9e1e27
+Author: Ard Biesheuvel <ardb@kernel.org>
+Date:   Fri Nov 8 13:22:14 2019 +0100
+
+    crypto: arm/chacha - remove dependency on generic ChaCha driver
+    
+    Instead of falling back to the generic ChaCha skcipher driver for
+    non-SIMD cases, use a fast scalar implementation for ARM authored
+    by Eric Biggers. This removes the module dependency on chacha-generic
+    altogether, which also simplifies things when we expose the ChaCha
+    library interface from this module.
+    
+    Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+    Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
+ 
+> I'm not sure why we need the extra "_INTERNAL" symbols, but I
+> may be missing something here. What problem does this solve
+> for you?
+
+Without them Kconfig will bomb out because of a loop centering
+on CONFIG_CRYPTO.
+
+Cheers,
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
