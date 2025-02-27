@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12A62C197BF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40CA8C1B087
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:39:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,38 +12,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cxVJdG69CXDfbS7jCR8J3uQXwplIdnGXRXCFjwaVDdg=; b=3vFZ/JgQbgFDEIq/AxZHNrBPRz
-	fhEPjhqcjdLo5VOqqXZKunEESh6zaPypzqVHdklNNFyJUjpaLlMgRZu3kiWvgbtnzTXZufJOj3ELE
-	ZVI+OgiyiMMsFkBOTbX58MCak3lWDAsRxWhtBnYs0h9WDwGiMrpK13oNbSnysyjCPq+6hIcZ8PAsT
-	LgkhWnQNW5yrOAFHX4rrKhAU9OOSGf6Wycrep5mDe3jBYaxOlWnj1K461eXLgAyn/dURJ2jPYY6Fw
-	jVeBcWCTgsq7z8TEaSM+uHvCI4A2y8wAcIQ81ZPDUHOJioVMMrU55C1ilHIkFvvFQ56umXLYo/6bY
-	eEzsXO3A==;
+	bh=Xi7BXKj7dO0+F7jCRO/UavDC1rA1ynLAStCdxwVvOqg=; b=M8XdkEiiaASgU42rMSOEqlJfUq
+	DTS4TlaGUw2NxKJYq0l2raXioNI+G5tY2wbONL+E449ylgAjQDZdXGEc6bxbqA5lubZM8ZPN13cig
+	sf3SpWMxwCKyYdI0bXjDMojDQHOBjWtbVHLIZ7xZTkui2Ev2poAVKaC80z6UW72/GCwMC8BHT5MNh
+	g8S7k4ijNq+5/XxEZWXX/e27+Bwfn7ekLzFlHcXR7j8Ojj/i/hqQK05s3NZWNMheC6+YJLJoWG6fp
+	wFqJobxPOXg5TG9XSnPQFSrNXjrosx8mK10984zK+Ycprp2GpMmzysEqIV/ZNhcyhVjNg8i9hUyCd
+	9KBVK5zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjid-00000008Wa4-2nEx;
-	Thu, 27 Feb 2025 19:38:51 +0000
+	id 1tnjif-00000008Wcy-1RDE;
+	Thu, 27 Feb 2025 19:38:53 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tngC6-00000007xu7-2FBF
+	id 1tngC7-00000007xuh-2NdT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 15:53:03 +0000
+	Thu, 27 Feb 2025 15:53:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1740671582; x=1772207582;
+  t=1740671583; x=1772207583;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=FqFmeojqTK+deQ4FOgVDuvvMDBOUq3qMFO0P9+tUytQ=;
-  b=UMjofq2gV5T6ZriiJmYDFlIZlBMZHrHkWHuVQ6YRRFVGwplCh3uyD3/D
-   Iwvh165ifdYfaO0CJo1N4y7skxmqOyF9XBfebQPYRbE8+wJZdQxtyHjWj
-   Uy/WbiT6bgkyI6zNA6cNbaPgZjVhmAhqmZumxjJ6OrQdemDBA0CExYRE8
-   WoKB4j1lAHOKbHzOYIEmAzkIif/fw1PuypKEuQD5JR7FaU2hqLQsAjjze
-   6hL0TALJVZryp0au7isuu73D1T9R2vKbJ67RUOGSrSSGimkTYZl1YJS6D
-   PoFKW9mJhxEfhA7aJ49RkU/tuLhnty6LSyyzbtBweorjK/8nXMjp4Kas7
-   w==;
+  bh=9bsGD1HtLiE5n6V0YC+e3jk1OxXU7Mp7V0z9UDJ1XPc=;
+  b=hAKV8NsXBXBdNWchYDw1J8bFLQxphoFw6SICFsL+7k7ZLDR+GcnJKOYD
+   P2r89fhJeKNqeqeH1gOiHC+d/X5bOlPkISxtxVdEBQuoUZrl5uESRABNF
+   0kqJhRPmi83EbPAj8vFmUdjR2+2NGxuqv3POt/ylu2Jukh8TVORGLko0a
+   yNBteYk0KoOtUmEw0b2lJuVRngzI6LseFguohmzh7xSuCmH9WBGiR+sK4
+   SZTiQxkYbVVXtQwAwZ2zbHUrA7p4swlz1vlDlts/f3eiV3U00oMwKZFir
+   rwP9La6bAYiX+78pJv87dTflPejFL7KNUS5rex3JuII/lCSrRQ3s8ddyR
+   A==;
 X-CSE-ConnectionGUID: xBkIAngZQVSwQhIMCQbtUA==
-X-CSE-MsgGUID: b83FHUnIRLOi9QLdwLO/vQ==
+X-CSE-MsgGUID: UmESS6IjRrOgI0xd1tUzAg==
 X-IronPort-AV: E=Sophos;i="6.13,320,1732604400"; 
-   d="scan'208";a="38638179"
+   d="scan'208";a="38638180"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
   by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Feb 2025 08:52:58 -0700
@@ -63,9 +63,9 @@ CC: <linux@armlinux.org.uk>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-rtc@vger.kernel.org>, "Ryan
  Wanner" <Ryan.Wanner@microchip.com>
-Subject: [PATCH v3 14/21] ARM: dts: microchip: sama7d65: Add SRAM and DRAM components support
-Date: Thu, 27 Feb 2025 08:52:01 -0700
-Message-ID: <ab4002faa1b672023ffc97bf91755720508c275e.1740671156.git.Ryan.Wanner@microchip.com>
+Subject: [PATCH v3 15/21] ARM: dts: microchip: sama7d65: Add Reset Controller to sama7d65 SoC
+Date: Thu, 27 Feb 2025 08:52:02 -0700
+Message-ID: <a9620ff11456a1ddfb9c289421606602193ce5b6.1740671156.git.Ryan.Wanner@microchip.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1740671156.git.Ryan.Wanner@microchip.com>
 References: <cover.1740671156.git.Ryan.Wanner@microchip.com>
@@ -73,8 +73,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_075302_638603_5A1878CF 
-X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-CacheID: sfid-20250227_075303_668633_070E2D22 
+X-CRM114-Status: UNSURE (   7.91  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,72 +92,31 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-Add SRAM, secumod, UDDRC, and DDR3phy to enable support for low power modes.
+Add Reset Controller support to SAMA7D65 SoC.
 
 Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
 ---
- arch/arm/boot/dts/microchip/sama7d65.dtsi | 35 +++++++++++++++++++++++
- 1 file changed, 35 insertions(+)
+ arch/arm/boot/dts/microchip/sama7d65.dtsi | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
 diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-index 92a5347e35b5..c10cc3558efd 100644
+index c10cc3558efd..5165259fb926 100644
 --- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
 +++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-@@ -47,12 +47,37 @@ slow_xtal: clock-slowxtal {
- 		};
- 	};
- 
-+	ns_sram: sram@100000 {
-+		compatible = "mmio-sram";
-+		reg = <0x100000 0x20000>;
-+		ranges;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+	};
-+
- 	soc {
- 		compatible = "simple-bus";
- 		ranges;
- 		#address-cells = <1>;
- 		#size-cells = <1>;
- 
-+		securam: sram@e0000800 {
-+			compatible = "microchip,sama7d65-securam", "atmel,sama5d2-securam", "mmio-sram";
-+			reg = <0xe0000800 0x4000>;
-+			ranges = <0 0xe0000800 0x4000>;
-+			clocks = <&pmc PMC_TYPE_PERIPHERAL 17>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+			no-memory-wc;
-+		};
-+
-+		secumod: secumod@e0004000 {
-+			compatible = "microchip,sama7d65-secumod", "atmel,sama5d2-secumod", "syscon";
-+			reg = <0xe0004000 0x4000>;
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+		};
-+
- 		pioa: pinctrl@e0014000 {
- 			compatible = "microchip,sama7d65-pinctrl", "microchip,sama7g5-pinctrl";
- 			reg = <0xe0014000 0x800>;
-@@ -190,6 +215,16 @@ i2c10: i2c@600 {
- 			};
+@@ -102,6 +102,13 @@ pmc: clock-controller@e0018000 {
+ 			clock-names = "td_slck", "md_slck", "main_xtal";
  		};
  
-+		uddrc: uddrc@e3800000 {
-+			compatible = "microchip,sama7d65-uddrc", "microchip,sama7g5-uddrc";
-+			reg = <0xe3800000 0x4000>;
++		reset_controller: reset-controller@e001d100 {
++			compatible = "microchip,sama7d65-rstc", "microchip,sama7g5-rstc";
++			reg = <0xe001d100 0xc>, <0xe001d1e4 0x4>;
++			#reset-cells = <1>;
++			clocks = <&clk32k 0>;
 +		};
 +
-+		ddr3phy: ddr3phy@e3804000 {
-+			compatible = "microchip,sama7d65-ddr3phy", "microchip,sama7g5-ddr3phy";
-+			reg = <0xe3804000 0x1000>;
-+		};
-+
- 		gic: interrupt-controller@e8c11000 {
- 			compatible = "arm,cortex-a7-gic";
- 			reg = <0xe8c11000 0x1000>,
+ 		clk32k: clock-controller@e001d500 {
+ 			compatible = "microchip,sama7d65-sckc", "microchip,sam9x60-sckc";
+ 			reg = <0xe001d500 0x4>;
 -- 
 2.43.0
 
