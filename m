@@ -4,68 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4655C19F2E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 14:54:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51F8EC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 14:55:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=33Zkbezka9OfCIWTsVns3mWdwFBxDhYSMXVDe6+Lw0k=; b=F50TCX/RYtZYsQ5QUBGHAF412R
-	PxjMqS+yT3dx+ZbtW/rTSGLu30eI93d30BmMrIh+WJu0BiuhTUfj3d9nFx1Vkj8IU/xUB68VRfim3
-	GRIDxmTFwLxXK5XjhTAulP+ymZhA/H4uhwPBIHO8Qbtgy0PjYZMhKk7HeaNiQYZET+sJ+9EA70VL+
-	sy4Hlc6soVA22bmsJRjhhAsDvxdMJ8y2JJhaXcISMceKznV+TSgY9+6lgO2U8ZC7QJZaLs2gdD2Ex
-	j8O93wwxPOvOQtpDTe0X8HURPugKa0VQl3+cyTENPUs6+TIM2t0xlh299hYExg+7bgFQYTvKToeY7
-	o0h7gWLg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oiwYDnalcOWLxT6B/Bkzq59HPzR1dq0zPgE4ezlSWq4=; b=K3lx0goOILsKwer22FWL6l3mqb
+	Engbr2pvJtoyiUJB1CY0PxAZH48vyJQF/HLqS1VYAYFWlSqO24Cq/sdhX7msqTLxVUisTF6GE6qdL
+	xIP9trsgJ55xvLgL0rALA8l/+1L49zCjNTI0UfgKTZid+MTVnoIB6kcS0ubzAmEUGpWuzpgZSFNP+
+	2Y+RBZnhS5lPz8Yo/bvXnH1SHET/O/laXHOqzsXcAyj/AYHKsc4edsk3ljoBtC+JEHwn7JvTdmkIg
+	ZttGFl5wN1IZxGcgnmNCsOAyWJf8TnBQ2vba7y9K6Wl/+iuVd0KeijMTRMKEmJSeHH3Qpi3bF52R1
+	MGLSzYBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnfHC-00000007pbz-3CMS;
-	Thu, 27 Feb 2025 14:54:14 +0000
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+	id 1tnfIi-00000007puD-1kdi;
+	Thu, 27 Feb 2025 14:55:48 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnf13-00000007lIM-18dI
+	id 1tnf1J-00000007lMt-1AAB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 14:37:34 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id A3E5344409;
-	Thu, 27 Feb 2025 14:37:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1740667049;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=33Zkbezka9OfCIWTsVns3mWdwFBxDhYSMXVDe6+Lw0k=;
-	b=dk0X7NKEVYsxppSgwZJT9Cl4v6bC+OLX5Vmx2gRds6URW2FtlH7DWtL/ktNKz6Hfn5iVom
-	qzhJfN8BZtIq81Hy14qu4NFA6a4ujjeC16dxfAOp0pnNU6caLcYUxx5ee/UNVATfVm2/V7
-	bN3/2JcK42wVnTgELIJlBivuHQ4e8++8vOVn2m1Io5EoL9zn5RJckYSt9jZfgcTO2kNE4G
-	GQAjfAEZD7OQGN8usEeKYCS92aFwnHcbdc/uiRMSYGwW6zn5j7VqbasUEAH9m4Am/WQd76
-	nmjx7ywjfblHHfh+pHpUcuwVs8WqzngBqMYmOTry8btQ1NscKXTD5xhOn2I9WQ==
-Date: Thu, 27 Feb 2025 15:37:28 +0100
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: William Breathitt Gray <wbg@kernel.org>
-Subject: Re: [PATCH v4 0/2] microchip-tcb-capture: Add Capture, Compare,
- Overflow etc. events
-Message-ID: <202502271437280a6701d8@mail.local>
-References: <20250211151914.313585-3-csokas.bence@prolan.hu>
- <Z7h0AXV1zlgp9Nw-@ishi>
- <8fb9f188-3065-4fdc-a9f1-152cc5959186@prolan.hu>
- <Z7vihBqOgP3fBUVq@ishi>
- <bfa70e78-3cc3-4295-820b-3925c26135cb@prolan.hu>
- <Z7_xTQeTzD-RH3nH@ishi>
- <20250227135330.GC182392@tpx1.home>
- <Z8B1LDT-n2XTTp8q@ishi>
+	Thu, 27 Feb 2025 14:37:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=oiwYDnalcOWLxT6B/Bkzq59HPzR1dq0zPgE4ezlSWq4=; b=w/peQvAvOuCnZFaTMw3cbppWQA
+	FovXewpHGfzdvCoXoW23WG2/mbsbKhl3ZC29qTW6Qk+26lwPDeiLaUhd7gqftdl5vTgCKi1LjksAY
+	s2gTPyC9hZwrA+BxvoUfSIkdi2VeSYrrU3vR35NLYufhkDXmDZqLucSWCRyNO9CSQwuD3dDp7l8ll
+	TWpcrNP+GYhV9Psn4lrP8x+G3Ld4qEB45GRYRhMzGMXe6oXvHn8+AYbuK1RZewXFgUwwycAyTryHJ
+	abhygfIMfsyUGC4Wn3sfJxoGBPBMY2QU2hvsxgXkS81wqxdSuwizuuYj0+zuzoKtqAePiJcIrrfGY
+	6ryq0f3g==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40258)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tnf1D-0007Ps-29;
+	Thu, 27 Feb 2025 14:37:43 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tnf1B-0008Cn-2M;
+	Thu, 27 Feb 2025 14:37:41 +0000
+Date: Thu, 27 Feb 2025 14:37:41 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jon Hunter <jonathanh@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Thierry Reding <treding@nvidia.com>
+Subject: [PATCH RFC 0/5] net: stmmac: fix resume failures due to RX clock
+Message-ID: <Z8B4tVd4nLUKXdQ4@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z8B1LDT-n2XTTp8q@ishi>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdekjeejvdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkfhggtggujgesthdtredttddtvdenucfhrhhomheptehlvgigrghnughrvgcuuegvlhhlohhnihcuoegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegieduueethefhkeegjeevfefhiedujeeuhffgleejgfejgeekueejuefgheeggfenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddumegtsgdugeemheehieemjegrtddtmegukeejvgemudgsudgsmeeltdekgeemtggtfhgtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgdugeemheehieemjegrtddtmegukeejvgemudgsudgsmeeltdekgeemtggtfhgtpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduuddprhgtphhtthhopeifsghgsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrghmvghlrdgsohhuhhgrrhgrsegsohhothhlihhnrdgtohhmpdhrtghpthhtoheptghsohhkrghsr
- dgsvghntggvsehprhholhgrnhdrhhhupdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqihhiohesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopeffhhgrrhhmrgdrueesmhhitghrohgthhhiphdrtghomhdprhgtphhtthhopehluhguohhvihgtrdguvghsrhhotghhvghssehmihgtrhhotghhihhprdgtohhm
-X-GND-Sasl: alexandre.belloni@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_063733_445420_96224CCE 
-X-CRM114-Status: GOOD (  27.86  )
+X-CRM114-CacheID: sfid-20250227_063749_315722_66AC79A0 
+X-CRM114-Status: GOOD (  17.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,63 +81,64 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Kamel Bouhara <kamel.bouhara@bootlin.com>, Jonathan Cameron <jic23@kernel.org>, linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, Dharma.B@microchip.com, Ludovic Desroches <ludovic.desroches@microchip.com>, =?iso-8859-1?B?Q3Pza+Fz?= Bence <csokas.bence@prolan.hu>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/02/2025 23:22:36+0900, William Breathitt Gray wrote:
-> On Thu, Feb 27, 2025 at 02:53:30PM +0100, Kamel Bouhara wrote:
-> > On Thu, Feb 27, 2025 at 01:59:57PM +0900, William Breathitt Gray wrote:
-> > > Let me make sure I understand the situation correctly. This SoC has two
-> > > Timer Counter Blocks (TCB) and each TCB has three Timer Counter Channels
-> > > (TCC); each TCC has a Counter Value (CV) and three general registers
-> > > (RA, RB, RC); RA and RB can store Captures, and RC can be used for
-> > > Compare operations.
-> > >
-> > > If that is true, then the correct way for this hardware to be exposed is
-> > > to have each TCB be a Counter device where each TCC is exposed as a
-> > > Count. So for this SoC: two Counter devices as counter0 and counter1;
-> > > count0, count1, and count2 as the three TCC; i.e. counter0/count{0,1,2}
-> > > and counter1/count{0,1,2}.
-> 
-> [...]
-> 
-> > > Kamel, what would it take for us to rectify this situation so that the
-> > > TCC are organized together by TCB under the same Counter devices?
-> > 
-> > Hello,
-> > 
-> > Indeed, each TCC operates independently except when quadrature mode is
-> > enabled. I assume this approach was taken to provide more flexibility by
-> > exposing them separately.
-> > 
-> > Currently only one channel is configured this would need to rework the
-> > driver to make the 3 TCCs exposed.
-> > 
-> > Greetings,
-> > Kamel
-> 
-> Skimming through the driver, it looks like what we'll need is for
-> mchp_tc_counts[] to have all three TCCs defined, then have
-> mchp_tc_probe() match on a TCB node and configure each TCC. Once that's
-> setup, then whenever we need to identify which TCC a callback is
-> exposing, we can get it from count->id.
-> 
-> So for example, the TC_CV register offset is calculated as 0x00 +
-> channel * 0x40 + 0x10. In the count_read() callback we can leverage
-> count->id to identify the TCC and thus get the respective TC_CV register
-> at offset + count->id * 0x40 + 0x10.
-> 
+Hi,
 
-We can't do that because the TCC of a single TCB can have a mix of
-different features. I struggled with the breakage to move away from the
-one TCB, one feature state we had.
-Be fore this, it was not possible to mix features on a single TCB, now,
-we can have e.g. the clocksource on TCC 0 and 1 of TCB0 and a PWM on
-TCC 2. mchp_tc_probe must not match on a TCB node...
+This series is likely dependent on the "net: stmmac: cleanup transmit
+clock setting" series which was submitted earlier today.
+
+stmmac has a long history of failing to resume due to lack of receive
+clock. NVidia have reported that as a result of the EEE changes, they
+see a greater chance of resume failure with those patches applied than
+before.
+
+The issue is that the DesignWare core requires that the receive clock
+is running in order to complete software reset, which causes
+stmmac_reset() and stmmac_hw_setup() to fail.
+
+There are several things that are wrong:
+
+1. Calling phylink_start() early can result in a call to mac_link_up()
+   which will set TE and RE bits before stmmac_hw_setup() has been
+   called. This is evident in the debug logs that NVidia sent while
+   debugging the problem.
+
+   This is something I have pointed out in the past, but ithas been
+   claimed to be necessary to do things this way to have the PHY
+   receive clock running. Enabling RE before DMA is setup is against
+   the DesignWare databook documentation.
+
+2. Enabling LPI clock-stop at the PHY (as the driver has done prior
+   to my patch set) allows the PHY to stop its receive clock when the
+   link enters low-power mode. This means the completion of reset is
+   dependent on the current EEE state, which is indeterminable, but
+   is likely to be in low power mode on resume.
+
+We solve (1) by moving the call to phylink_resume() later. This patch
+on its own probably causes regressions as it may make it more likely
+that the link will be in low power state, or maybe the PHY driver does
+not respect the PHY_F_RXC_ALWAYS_ON flag - this needs to be tested on
+as many different hardware setups that use this driver as possible,
+and any issues addressed *without* moving phylink_resume() back.
+If we need some way to resume the PHY early, then we need to work out
+some way to do that with phylib without calling phy_start() early.
+
+(2) is fixed by introducing phylink_prepare_resume(), which will
+disable receive clock-stop in LPI mode at the PHY, and we will restore
+the clock-stop setting in phylink_resume(). It is possible that this
+solves some of the reason for the early placement of phylink_resume().
+
+phylink_prepare_resume() also provides a convenient site should (1)
+need further work.
+
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 27 +++++++--------
+ drivers/net/phy/phylink.c                         | 40 ++++++++++++++++++++++-
+ include/linux/phylink.h                           |  1 +
+ 3 files changed, 51 insertions(+), 17 deletions(-)
 
 -- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
