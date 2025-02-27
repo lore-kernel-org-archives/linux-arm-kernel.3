@@ -4,160 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B13C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:41:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A22FEC1B087
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:41:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4PW9NvEw2PKcbHrbdBBBAMJ7f3NuJiNQ2LUGcbatiwA=; b=0FsJ9NwOx/lmuInTCcDeRdIquk
-	ICQ3PZoqf22D85cUanKVM7FaK5bjMkuRZmUBcDN+wdfV8Dx4CVugeHTmiKpP6M/4b8z8uxONyGiCq
-	U8A8fm0ApeROMP/jSbUALadO8KYPIzgrA3F63U288IUVaDRmLJiR9fa3TtHOK5GiEO6UXiTN03o2G
-	x+Pwjim7ew9T8My/tGP1AmP3A6YytWeugRjQxGxwm0C3ARCLuV6tJaFCC6HAzHOclDG53Dbnvbvfc
-	ClnTzsVbPtTDHH70sxODedxhKQaCp1gR58LO3VdvNMmPTYOwtmuQFa2JZTaNz3owkmRsHVdT4lmhT
-	hGWv9/fA==;
+	bh=pSkiEkBXDYScEZ5ofMG9zWS4tKdrzFrmkGZ34AMFarA=; b=J6fBzc63455Uu3BVEh1WvAL/gq
+	xUzEUCCAPpyVu+0IyntDDf2YvIDn/xjnd4eyQhZpnQni7lqSl4FMN96/zDs1zXrQD21vchQNM9RzY
+	8PubW1/cGKlzZx3ARI4ubOVd5Hn5csbcOppQCLgrWmKR25dsh+8WES51lJ6wcsYHPBRrFIGFGZq1b
+	Yah+ofIC7Ph8FtP/+m8A4ZEfcPLAZHhvGov+gUrJZBi9281rv/YgsG5sWE4FOV5xkM2DLmWUD4dYn
+	hgkXySKzGYdxLwgTeSuRTrJEBkPmzO8wnvaDAWWNZCNTjUf/3CvtcP/Vc/Xrw9WYhmPmS+sYmSomD
+	HPzWHoIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjl6-00000008b8Q-2TNt;
-	Thu, 27 Feb 2025 19:41:24 +0000
-Received: from mail-db8eur05on20604.outbound.protection.outlook.com ([2a01:111:f403:2614::604] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1tnjl9-00000008bEO-3geB;
+	Thu, 27 Feb 2025 19:41:28 +0000
+Received: from relay4-d.mail.gandi.net ([217.70.183.196])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnhnM-00000008E26-0AeU
+	id 1tnhoe-00000008EFd-1Ecf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 17:35:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gp79x14/JubDA6ZwpwXXqoNPwzFts+aVtFP8Rh5C+BRLRU22qILatNFUQf2wQS8MSwxujPb6WmCnBo0CNViPnOOJPo8h1hPFz7SCz8T7LR/v5Hys5acUJl5WMFbvljAJpFqcjIjGvchL9tElt+1KwRy4dXmTbWiXdgerV/Xzec7ivXyVmSSrHJF/NEqE10JNRWltFFoGfiHVgk14CCF+a3MQl2nhJ3ZTUt+Rm9eWs+qLtVzfCIvaMoyMD/D/ILNv6vzhWFdWAE4sA0CuQKliViLl6hS5ad0D2LnouNjvn2RQc4fnCW/OP47xd6y/DayhmLUxA49y5bBPbj7byVd5mQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4PW9NvEw2PKcbHrbdBBBAMJ7f3NuJiNQ2LUGcbatiwA=;
- b=sqz2mVdZkhTteSb/apGibZoOsZCMO5/qajRre0wo3WmF/Mvr2E5O+Z1SOSFjlsdh8l8XWUXYjEt2Z1rPVXb2EwL+MMo7CsGojjvdnW9sIxNDnv1SEljT+7cAltMxwovOk2bJBPrxDTl0igu+3HGw+PGLZ/jdyCD8SZDGCkOO743A9dS3AptyuTHO7uPvs1+ZqsX5ltAuZcC0gMdC9Oo7KXyWxaVxVaemTqQLst2M4UTPAJy4cc0+tUAGgzLKonNVhcHCDMGNT0ybrLS9J5e6Pasx2UlhisYDJ6vzLHMGD6pC4wUIoUWcNVor9Ba9EPN5Yqu8xAWQDTcb9My3lhr1Ng==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4PW9NvEw2PKcbHrbdBBBAMJ7f3NuJiNQ2LUGcbatiwA=;
- b=iJXyc5U9QLOJjlX+KIVHyhdHC5QtTOEMTtJLMVobVufTnmAiuTiaPB1K6lUIcncgOFY10/S/t2vbKxDdz9SctK/J81D+q8BqoKRjx4J2VCs4gHFHlxYr/I6Rw/FbbNL7sghKXZSa11k05ZtIrWuKQeVzFZUI9qEI06Qspf+2YG3LuQUWTqM7bQkMcULs3v2nM0Y9fhpkFZuxQNqvSo8d//+2oJC906HZEXcS5leBgXoCLM4JXw2YfViaNjuXQUZFxuf/ilG9S0VACtBTYbooNTa/QVOZ7OH5IqgdFLaiEpFMqLettGKD25kqjvJhzt1srqZHn8Ng9QIq1xSRTtNFBw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DB9PR04MB9791.eurprd04.prod.outlook.com (2603:10a6:10:4ce::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.18; Thu, 27 Feb
- 2025 17:35:31 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8466.016; Thu, 27 Feb 2025
- 17:35:31 +0000
-Date: Thu, 27 Feb 2025 12:35:21 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Marek Vasut <marex@denx.de>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Airlie <airlied@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Sebastian Reichel <sre@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Simona Vetter <simona@ffwll.ch>,
-	Steven Price <steven.price@arm.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, imx@lists.linux.dev
-Subject: Re: [PATCH 8/9] drm/panthor: Add i.MX95 support
-Message-ID: <Z8CiWcz86aEE1IH6@lizhi-Precision-Tower-5810>
-References: <20250227170012.124768-1-marex@denx.de>
- <20250227170012.124768-9-marex@denx.de>
+	Thu, 27 Feb 2025 17:36:58 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id D57C144517;
+	Thu, 27 Feb 2025 17:36:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1740677812;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pSkiEkBXDYScEZ5ofMG9zWS4tKdrzFrmkGZ34AMFarA=;
+	b=DIvKo15afjSNGSOcvCupB0MV/J3WwoCrlldJWszOmh/qtQDfA/7dL5t8NYBJeTk7Dd7vQN
+	vQs+JEPAWAg5ux9R8tmZ0xGdcsrPOmqMT9GoqFHIOnOaDaEMvlfLFufaKH0kQahQiCCS30
+	mZWUhQkuAdu6cPTv2PCEL1A2NUe9Ux7+Ued0hAFNm+mMsvX786rZPfMFuNkIVTN3YAkCk6
+	Z3eze4n9SwXeuv8pUIK2hXAtECFqjLpdW9wRv+Li0ecCaT2K/GkPAVW1CAgIZF4413DC3x
+	hfvt3FGGI1ms4pxOirPcPIZZWMPD46L7Oqrm6oSW2OJa1A2Wr277sHHwJCC0Vg==
+Date: Thu, 27 Feb 2025 18:36:51 +0100
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: William Breathitt Gray <wbg@kernel.org>
+Subject: Re: [PATCH v4 0/2] microchip-tcb-capture: Add Capture, Compare,
+ Overflow etc. events
+Message-ID: <202502271736515748ffda@mail.local>
+References: <Z7h0AXV1zlgp9Nw-@ishi>
+ <8fb9f188-3065-4fdc-a9f1-152cc5959186@prolan.hu>
+ <Z7vihBqOgP3fBUVq@ishi>
+ <bfa70e78-3cc3-4295-820b-3925c26135cb@prolan.hu>
+ <Z7_xTQeTzD-RH3nH@ishi>
+ <20250227135330.GC182392@tpx1.home>
+ <Z8B1LDT-n2XTTp8q@ishi>
+ <202502271437280a6701d8@mail.local>
+ <Z8CA9RTZWChh9cJW@ishi>
+ <Z8CKQvRjqH9lwzgO@ishi>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250227170012.124768-9-marex@denx.de>
-X-ClientProxiedBy: SJ0PR03CA0291.namprd03.prod.outlook.com
- (2603:10b6:a03:39e::26) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB9PR04MB9791:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5518a419-ec45-4d31-0f7a-08dd575521f5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|52116014|376014|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ngleWrRbPhMYheC600krYes0ec9Cu5Dcz7MjAnFGNU/SktBwjc6v6KDObmnA?=
- =?us-ascii?Q?4zyQNS89qKaYiQerp8N1Yy4nxZiRo9++BDtAR/KZWr8rQQ3+m3NaIBS9JC4Q?=
- =?us-ascii?Q?4OW7kDWVuPmIsi0zlzzRHzh2c/MK69F9jeOSr7rSJ+I7IkNfJefvNrNNhcp8?=
- =?us-ascii?Q?bduEgtxOPt91BLbYfNWxZJPsdY1e/MR53b5DphBOHPaPlKglCg571TDv98lf?=
- =?us-ascii?Q?1GTFTvqUvOqd8PHiJSglnxCh4b6GFnUG+s3zLw0dkyjZohmi8iLh9TQEiJds?=
- =?us-ascii?Q?cxA8LpB9hMl8g+tv8i2Lzv/h6UYTQes6CS2yqyR/Z0MHUS+CK4VxlAGbS8uG?=
- =?us-ascii?Q?5JxslEV4ly+ewegmJR9fTjE8EiAnEDKaAscP/edbcnqi9BhjwEhGXks+XfKc?=
- =?us-ascii?Q?VYlSqR2t+nstPmiPMPY/3u1sxZhXGLnaaCvAwH+KGqX3oSQn5HunHsLI8Bd8?=
- =?us-ascii?Q?91YB8XOFIEZaWpuaVhILkbeO2FCcPhvwVJOxubY2+jn+LGho7VUIrBzEmnfd?=
- =?us-ascii?Q?0mLMI01Plse1QaeB5V89LlwL18U1lgTPTBL4TfLt4vUA9COAznW1NNYnF8n1?=
- =?us-ascii?Q?DGL8UuM9Iq/ueeQqKERc/kOerpkWmMj8X4XN150LfHt8HEUZxoH/wpwBYFvZ?=
- =?us-ascii?Q?p306KeXuP+r6c+vJDxmVLA+X3dCoKTyIglWfb4RaWPb2TYa49EWWAH8AnowF?=
- =?us-ascii?Q?bHPhfFZTwHMFXVyjqMV2GDw87YhyYb6K+jhP9q4R8G338Cp05g1rH07ipnlp?=
- =?us-ascii?Q?SUjhdHsAmYpHD3w5F3QJvxJMy3YBDwyM7EZ7lf+RhelUg+Kj28fTEhxo9OZ2?=
- =?us-ascii?Q?MV0k0zFLIQ9wPrD4absPcqSpt5Mrn/gRGCo1VUmlAo85EfNkhs7MqqgbxdWm?=
- =?us-ascii?Q?jQaV8NliUdmmkeA6oYtksHfrPxN7JC34jX3j+NDsbdigRd9fLOYmLRk35PSL?=
- =?us-ascii?Q?7oF3MlWyi9ag8bFAYZ665GRVmRqoqZMKd7rfn4Wb4omM9r9ugqPw5nS2YH3L?=
- =?us-ascii?Q?bVBZZpcov/Wq8bQtw7u0OzMLRO0kFcB6sxL4PHJkAOPn/lrCGW31juN6toF5?=
- =?us-ascii?Q?q15r3dtX/HTcamYEI6x+jluSeH79iVNFV8jrQwOVMfx8qTRWBjHIDzM/Jdaa?=
- =?us-ascii?Q?cxH4yk0dFEcVRC146ImJJmKlGlS4JRtq0aMnrHu1VpMmXbEN/s8/x6g/BNmO?=
- =?us-ascii?Q?lLHXvy+THeB5ZGCXqJkI3EVNY1Wud0QN+7woadMTury2RyxYEk09NUfee/kY?=
- =?us-ascii?Q?fbWeK9p/jo76ShPoUj/ZiFdD9ndJtZVKkn9n7Pes5uad+B6wU5WsK0pwCtx+?=
- =?us-ascii?Q?BTAqkSvzZ9eLk1D92dO+nOQ6mPqeXoX/x2ipBXTrsqztFerp3Dqawykeqqlz?=
- =?us-ascii?Q?sWMrRVY8OeEh9J0frbEBOsygMxgu/cC3AVyf7r2Y8ZidNpqNK5ZCMSkAadr7?=
- =?us-ascii?Q?FUr/518CdzQtflr4PW47ApuvcexAOSJN?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(52116014)(376014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2ouCRS7bw9ts8KSChrg7CPpqjG55dQNUPSfXovbuXa2fdVBdWHAZ833gHL/U?=
- =?us-ascii?Q?50MY7pYeL8Ebm/sptBnSOYqRV3e7sWlc7+9VcTK6Q/ON7m2wY6K3X1UUNU3n?=
- =?us-ascii?Q?ZSZxGhNtZdTcXSlSkYsvaf8CH2deqny5pH/BwvnwOn73bPv4S5cjd/WGlRA9?=
- =?us-ascii?Q?tgOu/LcmsuBoDtVO7gdecmnWqlmpQoir7p5y+TfBesGy3bttIGgvkkdysvTO?=
- =?us-ascii?Q?2MijNUTaEwBvJ7+1xX0cCWLfeysc5wiADxe04jcz9tbmqrRU+VtnVwUy0Od/?=
- =?us-ascii?Q?EMFtWxxzaX7W97oxbaJrrrOv6MeZTEw/EP1V1HcXcCwLAmKR6mf6ngXSjbwe?=
- =?us-ascii?Q?fXb/Tlccq1rGkra24U8/E4EJiwClOHa2g2AJ1BIagzzdmPF0In5kC20Oltto?=
- =?us-ascii?Q?Y5KwzYqUzYAENpHKz/dan8wIdc1H1pJUXm6brIzcj1jqsZ1FMa78VBy+M6nt?=
- =?us-ascii?Q?Ma7KdYk6/vjaq8ilj5tF6YeXnTsjgpLuvyOKTQmex8noDmREYA6fQdoilCW7?=
- =?us-ascii?Q?h179EvoTqPDpBRz3ZH0iRT5hYRWMtgQNg69IwreSAVVGC1ZbTkWUnZYNw7HG?=
- =?us-ascii?Q?oefSV0r0SnHDvApqC94ypZpoDVHNbWpTi0l0griwhWhsWifvhbQe7m0+OsYO?=
- =?us-ascii?Q?r7VXTac5nm1YqOxjT//fQ5QBxSBDvwtpx4OWpdwBN1sjzXxUho01NuMeuWpi?=
- =?us-ascii?Q?G8NkPZJWMvNoqcfZa3fF4r15S2CNafqgGUj9Dh5P6keivWNi2FcqWF1DtQl8?=
- =?us-ascii?Q?CJc+oHv4xccGvL1zqQH4VQdyRGTDK/F7UtqRKHteDcJFOLr07HXTaT8z2kxx?=
- =?us-ascii?Q?hxTZ5uYZSen7/18JZPxvRotNoXEVEuzk5EBqn6xc5nkj2ORGN4SwOayxbavs?=
- =?us-ascii?Q?P+lnuvqSrzboN5/K0dEYnUIwn+07PgYoVmU6umz9c5gDcxV171SOAKx1kq0P?=
- =?us-ascii?Q?7Hr1q53vWSfUKaH0dmj9YXUTTDEGk1Buz9NuCbAKoCNAPgdDd6l1s2k66O5H?=
- =?us-ascii?Q?b6oMXUnQivza6fWzpBPj/v611sc8i29QC3rboTL7TCg9CoB/6Sr/2xSKcAxN?=
- =?us-ascii?Q?v2J7xXHY4BYV3bqj8aXQDsxjG3nakfY97cRiS/c6oC905mWyG4NkLWyUwhv1?=
- =?us-ascii?Q?yoWnoNaIWT6tl4hqIJkI2ppjX7xRWfHM6tX8WdmBRg/dVZbiFYg0Lm/B4SNg?=
- =?us-ascii?Q?51sggnwAbam5gwJzCislEd6dPc7DmKCL2POswYAaEcCj7n4/nrUH61f5Rn/5?=
- =?us-ascii?Q?UcJqNpXG90Av/uEIZOUJiDa7RPDGy6/vZGQtLG4PLBLVK3NRPJnbphKDCxvW?=
- =?us-ascii?Q?lx0fSrpY6huTvWrz42EVe+wNg7+m7XQSckh2Xvg+dPzc7sbGu4FwALByEso3?=
- =?us-ascii?Q?iMptKSdHy3GxyitDmIDEP4d8N1Gz5drUZkqautm2bOKHfGnapr8JsRPrDd13?=
- =?us-ascii?Q?ryKp1srInmalHFJBL8lG8eqg5NO+FKNIYEhTLlUQEe5ltCqcHHzj5+OOGhjq?=
- =?us-ascii?Q?tcFzJzqTGMadlsaBgj9RegGHM3ItWSGKq0X1yf44EbCLRp9BqrnXbqMQsBjE?=
- =?us-ascii?Q?0nmc9/s4Ir9zTX2R+nIficHNLe85H3TiCi7aMwGd?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5518a419-ec45-4d31-0f7a-08dd575521f5
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Feb 2025 17:35:31.0981
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KzdNnAIz9qqXECLCTS/oxkRlkYSDXT8x7EZrc/W4sJo+znrBnkHHMKK8KnYZMRjwxZGj6C3KIHT4bwXuRUYWAQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9791
+In-Reply-To: <Z8CKQvRjqH9lwzgO@ishi>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdekkedtkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkfhggtggujgesthdtredttddtvdenucfhrhhomheptehlvgigrghnughrvgcuuegvlhhlohhnihcuoegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegieduueethefhkeegjeevfefhiedujeeuhffgleejgfejgeekueejuefgheeggfenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddumegtsgdugeemheehieemjegrtddtmegukeejvgemudgsudgsmeeltdekgeemtggtfhgtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgdugeemheehieemjegrtddtmegukeejvgemudgsudgsmeeltdekgeemtggtfhgtpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduuddprhgtphhtthhopeifsghgsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrghmvghlrdgsohhuhhgrrhgrsegsohhothhlihhnrdgtohhmpdhrtghpthhtoheptghsohhkrghsr
+ dgsvghntggvsehprhholhgrnhdrhhhupdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqihhiohesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopeffhhgrrhhmrgdrueesmhhitghrohgthhhiphdrtghomhdprhgtphhtthhopehluhguohhvihgtrdguvghsrhhotghhvghssehmihgtrhhotghhihhprdgtohhm
+X-GND-Sasl: alexandre.belloni@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_093536_095921_A462B8CD 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20250227_093656_787740_7C27D9CF 
+X-CRM114-Status: GOOD (  38.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,69 +79,72 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Kamel Bouhara <kamel.bouhara@bootlin.com>, Jonathan Cameron <jic23@kernel.org>, linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, Dharma.B@microchip.com, Ludovic Desroches <ludovic.desroches@microchip.com>, =?iso-8859-1?B?Q3Pza+Fz?= Bence <csokas.bence@prolan.hu>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025 at 05:58:08PM +0100, Marek Vasut wrote:
-> The instance of the GPU populated in Freescale i.MX95 is the
-> Mali G310, add support for this variant.
->
-> Signed-off-by: Marek Vasut <marex@denx.de>
+On 28/02/2025 00:52:34+0900, William Breathitt Gray wrote:
+> On Fri, Feb 28, 2025 at 12:13:00AM +0900, William Breathitt Gray wrote:
+> > On Thu, Feb 27, 2025 at 03:37:28PM +0100, Alexandre Belloni wrote:
+> > > On 27/02/2025 23:22:36+0900, William Breathitt Gray wrote:
+> > > > Skimming through the driver, it looks like what we'll need is for
+> > > > mchp_tc_counts[] to have all three TCCs defined, then have
+> > > > mchp_tc_probe() match on a TCB node and configure each TCC. Once that's
+> > > > setup, then whenever we need to identify which TCC a callback is
+> > > > exposing, we can get it from count->id.
+> > > > 
+> > > > So for example, the TC_CV register offset is calculated as 0x00 +
+> > > > channel * 0x40 + 0x10. In the count_read() callback we can leverage
+> > > > count->id to identify the TCC and thus get the respective TC_CV register
+> > > > at offset + count->id * 0x40 + 0x10.
+> > > > 
+> > > 
+> > > We can't do that because the TCC of a single TCB can have a mix of
+> > > different features. I struggled with the breakage to move away from the
+> > > one TCB, one feature state we had.
+> > > Be fore this, it was not possible to mix features on a single TCB, now,
+> > > we can have e.g. the clocksource on TCC 0 and 1 of TCB0 and a PWM on
+> > > TCC 2. mchp_tc_probe must not match on a TCB node...
+> > 
+> > Okay I see what you mean, if we match on a TCB mode then we wouldn't be
+> > able to define the cases where one TCC is different from the next in the
+> > same TCB.
+> > 
+> > The goal however isn't to support all functionality (i.e. PWM-related
+> > settings, etc.) in the counter driver, but just expose the TCB
+> > configuration options that affect the TCCs when configured for counter
+> > mode. For example, the sysfs attributes can be created, but they don't
+> > have to be available until the TCC is in the appropriate mode (e.g.
+> > return -EBUSY until they are in a counter mode).
+> > 
+> > Is there a way to achieve that? Maybe there's a way we can populate the
+> > sysfs tree on the first encountered TCC, and then somehow indicate when
+> > additional TCCs match. Attributes can become available then dynamically
+> > based on the TCCs that match.
+> > 
+> > William Breathitt Gray
+> 
+> Sorry, let me step back for a moment because maybe I'm trying to solve
+> a problem that might not actually be a problem.
+> 
+> I see functionality settings available in the TC Block Mode Register
+> (BMR) that can affect multiple TCCs at a time. Are these BMR settings
+> exposed already to users in someway? If not, do we have a way to
+> introduce these settings if someone wants them; e.g. would the
+> AutoCorrection function enable bit be exposed as a sysfs attribute, or
+> configured in the devicetree?
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+BMR is already available and used by the individual drivers. The current
+microchip-tcb-capture already uses it to enable qdec mode.
+timer-atmel-tcb uses it to chain timers.
 
-> ---
-> Cc: Boris Brezillon <boris.brezillon@collabora.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: David Airlie <airlied@gmail.com>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Liviu Dudau <liviu.dudau@arm.com>
-> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> Cc: Maxime Ripard <mripard@kernel.org>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Philipp Zabel <p.zabel@pengutronix.de>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Sascha Hauer <s.hauer@pengutronix.de>
-> Cc: Sebastian Reichel <sre@kernel.org>
-> Cc: Shawn Guo <shawnguo@kernel.org>
-> Cc: Simona Vetter <simona@ffwll.ch>
-> Cc: Steven Price <steven.price@arm.com>
-> Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> Cc: devicetree@vger.kernel.org
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> ---
->  drivers/gpu/drm/panthor/panthor_drv.c | 1 +
->  drivers/gpu/drm/panthor/panthor_gpu.c | 1 +
->  2 files changed, 2 insertions(+)
->
-> diff --git a/drivers/gpu/drm/panthor/panthor_drv.c b/drivers/gpu/drm/panthor/panthor_drv.c
-> index 06fe46e320738..2504a456d45c4 100644
-> --- a/drivers/gpu/drm/panthor/panthor_drv.c
-> +++ b/drivers/gpu/drm/panthor/panthor_drv.c
-> @@ -1591,6 +1591,7 @@ static struct attribute *panthor_attrs[] = {
->  ATTRIBUTE_GROUPS(panthor);
->
->  static const struct of_device_id dt_match[] = {
-> +	{ .compatible = "fsl,imx95-mali" },	/* G310 */
->  	{ .compatible = "rockchip,rk3588-mali" },
->  	{ .compatible = "arm,mali-valhall-csf" },
->  	{}
-> diff --git a/drivers/gpu/drm/panthor/panthor_gpu.c b/drivers/gpu/drm/panthor/panthor_gpu.c
-> index 0f07ef7d9aea7..2371ab8e50627 100644
-> --- a/drivers/gpu/drm/panthor/panthor_gpu.c
-> +++ b/drivers/gpu/drm/panthor/panthor_gpu.c
-> @@ -67,6 +67,7 @@ struct panthor_model {
->  }
->
->  static const struct panthor_model gpu_models[] = {
-> +	GPU_MODEL(g310, 0, 0),	/* NXP i.MX95 */
->  	GPU_MODEL(g610, 10, 7),
->  	{},
->  };
-> --
-> 2.47.2
->
+Note that we already have a driver for the pwm function too in
+drivers/pwm/pwm-atmel-tcb.c. In fact all the other TCB drivers predate
+the microchip-tcb-capture driver.
+
+
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
