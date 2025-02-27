@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BE9CC1B087
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 22:02:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A65DBC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 22:18:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C/9ya0lu6KhoG4jRTrPkXiJ1wqU17iyxfUGvARg2BkM=; b=M505Mmp31M4gVmquBT1xjko9B2
-	TdW+UWe3qcJ4AmJJGX2Jreq3muTFbaNkVamFXi33rqhv2feM2id6OpCIVegTcuGpiHaugR+EKFfw/
-	/u2TLWoBnqxqB7B6ZcUp/czHuut+TNG74T3mBG5vvDLmff9zCL/JfhPZxTAwWQVOjOx5PXvAzVB5v
-	q2R1dWhn7uAy9BkjhqEDS4GyAj8JwNnAgWQyFccUUYQF5qRs7Tsw8ok4ZR2PZmTSYYNm6sGoNSyOI
-	c1+JIYO8XSShEsVJa+dpUUa61+ZWWQmRVO02IWxRqSTp+z8mo+QG4EO/Zt6Xg7U1mCseheQG2F0R7
-	8SNLll8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0vW2upRPSd5LLd1via6CVZkp3pUHMr3UQjB71gJgNPE=; b=oIKl2Vi9tjVEKpHTre1HcUtDKY
+	uCpV2WFML7Fj+sQ8mYo2NWcgSPlDK3tA2R8Fa7qWSmlxHgnMj/ezYNSdaISHe/Z6V3knf9nSwj5FM
+	AxoPT/oHTinllsgCAoIkc8zgmzJFxEFlcwbAE/rxcyVysBhWsPrnG2V6RoO/S00XzgDzC2qWMdryU
+	C4Gykg//phTGz7FDJSqr9KpZWYnufWlDvkrFqvvu0dkCa95hREZWjjmp6i9/uA05IdinfcTVaSyRU
+	PmSZcZ6n3aaqNx9DP/AO3Q32/zRxTUkossThBGaqfelqrQGLYVr3BYpo6oYsuioxK7/cVoBM5FipP
+	6M4qHlBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnlxc-00000008xSl-1zGn;
-	Thu, 27 Feb 2025 22:02:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnlvF-00000008x7x-2WWp;
-	Thu, 27 Feb 2025 22:00:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7BD021516;
-	Thu, 27 Feb 2025 14:00:14 -0800 (PST)
-Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9A6013F5A1;
-	Thu, 27 Feb 2025 13:59:55 -0800 (PST)
-Date: Thu, 27 Feb 2025 21:57:32 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Andras Szemzo <szemzo.andras@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai
- <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
- <samuel@sholland.org>, Linus Walleij <linus.walleij@linaro.org>, Philipp
- Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>, Vinod
- Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Ulf
- Hansson <ulf.hansson@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Uwe
- =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@baylibre.com>, Florian
- Fainelli <florian.fainelli@broadcom.com>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 02/10] pinctrl: sunxi: add driver for Allwinner V853
-Message-ID: <20250227215732.5f5753d9@minigeek.lan>
-In-Reply-To: <20250205125225.1152849-3-szemzo.andras@gmail.com>
-References: <20250205125225.1152849-1-szemzo.andras@gmail.com>
-	<20250205125225.1152849-3-szemzo.andras@gmail.com>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+	id 1tnmD5-00000008zAD-3gS7;
+	Thu, 27 Feb 2025 22:18:27 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnmBX-00000008ytY-0Rxx
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Feb 2025 22:16:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=0vW2upRPSd5LLd1via6CVZkp3pUHMr3UQjB71gJgNPE=; b=DMHpKzLamSx1RRMiNoYsM6m+ci
+	1szkNqwNx0Bvn9TIM8if0t6a/A/dAc0WPfyi4eABJic8LWrdHYeF57qhQgLzR0LyKAVONHee/0tSL
+	oZov52lh0f+TPqk75GsYNQUm2ErXinpjcf1PBFy1fB7HE51/1cl0WErp+cxvrG2Y20E8=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tnmBN-000jjN-A5; Thu, 27 Feb 2025 23:16:41 +0100
+Date: Thu, 27 Feb 2025 23:16:41 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jon Hunter <jonathanh@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Thierry Reding <treding@nvidia.com>
+Subject: Re: [PATCH RFC net-next 2/5] net: stmmac: remove redundant racy
+ tear-down in stmmac_dvr_remove()
+Message-ID: <c8117288-5ef9-445c-a14d-28b2756e5944@lunn.ch>
+References: <Z8B-DPGhuibIjiA7@shell.armlinux.org.uk>
+ <E1tnfRj-0057SF-9t@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <E1tnfRj-0057SF-9t@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_140001_733261_D1AD3644 
-X-CRM114-Status: GOOD (  24.41  )
+X-CRM114-CacheID: sfid-20250227_141651_145451_3C413A1C 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,127 +78,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed,  5 Feb 2025 13:52:17 +0100
-Andras Szemzo <szemzo.andras@gmail.com> wrote:
-
-Hi,
-
-> The V853 family has multiple package variants, from BGA to QFN88.
-> The latter has co-packaged DRAM and fewer pins, and less features (pin muxes).
-> All family members can be supported by a single driver, as the available pins
-> with allowed muxes is the same across the devices.
+On Thu, Feb 27, 2025 at 03:05:07PM +0000, Russell King (Oracle) wrote:
+> While the network device is registered, it is published to userspace,
+> and thus userspace can change its state. This means calling
+> functions such as stmmac_stop_all_dma() and stmmac_mac_set() are
+> racy.
 > 
-> This new pinctrl driver depends on the new sunxi device-tree based mux support
-> patch series [1].
+> Moreover, unregister_netdev() will unpublish the network device, and
+> then if appropriate call the .ndo_stop() method, which is
+> stmmac_release(). This will first call phylink_stop() which will
+> synchronously take the link down, resulting in stmmac_mac_link_down()
+> and stmmac_mac_set(, false) being called.
 > 
-> [1]: https://lore.kernel.org/linux-sunxi/20241111005750.13071-1-andre.przywara@arm.com/T/
+> stmmac_release() will also call stmmac_stop_all_dma().
 > 
-> Signed-off-by: Andras Szemzo <szemzo.andras@gmail.com>
-> ---
->  drivers/pinctrl/sunxi/Kconfig              |  5 ++
->  drivers/pinctrl/sunxi/Makefile             |  1 +
->  drivers/pinctrl/sunxi/pinctrl-sun8i-v853.c | 53 ++++++++++++++++++++++
->  3 files changed, 59 insertions(+)
->  create mode 100644 drivers/pinctrl/sunxi/pinctrl-sun8i-v853.c
+> Consequently, neither of these two functions need to called prior
+> to unregister_netdev() as that will safely call paths that will
+> result in this work being done if necessary.
 > 
-> diff --git a/drivers/pinctrl/sunxi/Kconfig b/drivers/pinctrl/sunxi/Kconfig
-> index a78fdbbdfc0c..fac9c61039e2 100644
-> --- a/drivers/pinctrl/sunxi/Kconfig
-> +++ b/drivers/pinctrl/sunxi/Kconfig
-> @@ -81,6 +81,11 @@ config PINCTRL_SUN9I_A80_R
->  	default MACH_SUN9I
->  	select PINCTRL_SUNXI
->  
-> +config PINCTRL_SUN8I_V853
-> +	bool "Support for the Allwinner V853/V851S/V851SE PIO"
-> +	default MACH_SUN8I
-> +	select PINCTRL_SUNXI
-> +
->  config PINCTRL_SUN20I_D1
->  	bool "Support for the Allwinner D1 PIO"
->  	default MACH_SUN8I || (RISCV && ARCH_SUNXI)
-> diff --git a/drivers/pinctrl/sunxi/Makefile b/drivers/pinctrl/sunxi/Makefile
-> index 2ff5a55927ad..8937b56b2ef4 100644
-> --- a/drivers/pinctrl/sunxi/Makefile
-> +++ b/drivers/pinctrl/sunxi/Makefile
-> @@ -20,6 +20,7 @@ obj-$(CONFIG_PINCTRL_SUN8I_A83T_R)	+= pinctrl-sun8i-a83t-r.o
->  obj-$(CONFIG_PINCTRL_SUN8I_H3)		+= pinctrl-sun8i-h3.o
->  obj-$(CONFIG_PINCTRL_SUN8I_H3_R)	+= pinctrl-sun8i-h3-r.o
->  obj-$(CONFIG_PINCTRL_SUN8I_V3S)		+= pinctrl-sun8i-v3s.o
-> +obj-$(CONFIG_PINCTRL_SUN8I_V853)	+= pinctrl-sun8i-v853.o
->  obj-$(CONFIG_PINCTRL_SUN20I_D1)		+= pinctrl-sun20i-d1.o
->  obj-$(CONFIG_PINCTRL_SUN50I_H5)		+= pinctrl-sun50i-h5.o
->  obj-$(CONFIG_PINCTRL_SUN50I_H6)		+= pinctrl-sun50i-h6.o
-> diff --git a/drivers/pinctrl/sunxi/pinctrl-sun8i-v853.c b/drivers/pinctrl/sunxi/pinctrl-sun8i-v853.c
-> new file mode 100644
-> index 000000000000..fb2112ee12d0
-> --- /dev/null
-> +++ b/drivers/pinctrl/sunxi/pinctrl-sun8i-v853.c
-> @@ -0,0 +1,53 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Allwinner V853 SoC pinctrl driver.
-> + *
-> + * Copyright (c) 2025 Andras Szemzo <szemzo.andras@gmail.com>
-> + */
-> +
-> +#include <linux/module.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/of.h>
-> +#include <linux/of_device.h>
-> +#include <linux/pinctrl/pinctrl.h>
-> +
-> +#include "pinctrl-sunxi.h"
-> +
-> +static const u8 v853_nr_bank_pins[SUNXI_PINCTRL_MAX_BANKS] =
-> +/*	  PA  PB  PC  PD  PE  PF  PG  PH  PI  */
-> +	{ 22,  0, 12, 23, 18,  7,  8, 16,  5 };
-> +
-> +static const unsigned int v853_irq_bank_map[] = { 0, 2, 3, 4, 5, 6, 7, 8 };
-> +
-> +static const u8 v853_irq_bank_muxes[SUNXI_PINCTRL_MAX_BANKS] =
-> +/*	  PA  PB  PC  PD  PE  PF  PG  PH  PI */
-> +	{ 14,  0, 14, 14, 14, 14, 14, 14, 14 };
-> +
-> +static struct sunxi_pinctrl_desc v853_pinctrl_data = {
-> +	.irq_banks = ARRAY_SIZE(v853_irq_bank_map),
-> +	.irq_bank_map = v853_irq_bank_map,
-> +	.io_bias_cfg_variant = BIAS_VOLTAGE_PIO_POW_MODE_SEL,
-> +};
-> +
-> +static int v853_pinctrl_probe(struct platform_device *pdev)
-> +{
-> +	return sunxi_pinctrl_dt_table_init(pdev, v853_nr_bank_pins,
-> +					   v853_irq_bank_muxes,
-> +					   &v853_pinctrl_data,
-> +					   SUNXI_PINCTRL_NEW_REG_LAYOUT |
-> +					   SUNXI_PINCTRL_ELEVEN_BANKS);
+> Remove these redundant racy calls.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-This last flag doesn't apply: it would put the offset for the
-POW_MOD_SEL registers at 0x380, but the manual says it's 0x340, as with
-the previous SoCs.
-I compared the rest against the A523 driver, and the V853 specific bits
-against the manual: they match, so with that line removed:
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-
-Cheers,
-Andre
-
-> +}
-> +
-> +static const struct of_device_id v853_pinctrl_match[] = {
-> +	{ .compatible = "allwinner,sun8i-v853-pinctrl", },
-> +	{}
-> +};
-> +
-> +static struct platform_driver v853_pinctrl_driver = {
-> +	.probe	= v853_pinctrl_probe,
-> +	.driver	= {
-> +		.name		= "sun8i-v853-pinctrl",
-> +		.of_match_table	= v853_pinctrl_match,
-> +	},
-> +};
-> +builtin_platform_driver(v853_pinctrl_driver);
-
+    Andrew
 
