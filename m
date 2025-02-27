@@ -4,87 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55ABFC197BF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D38DBC282C5
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:37:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LZ+QbE2SGjdrxarwEbi7lvcPGvz/5NMYU71bCP9sffE=; b=3mQzpk9QFRhiUEDrRc+iurs8FF
-	WByPjYzjcSM14wf4HwOf9qADI2jt89YKwai9ob0kxYUmeh0/UvTlmfbE9iFwcp83V/2JL9dme+w7e
-	K+h/IW736RLHYYhgMMymhk2WbGvAmhMnO/Evi3P2KcNX8+g5mC/MP5FqwuoViWWkwBjOMZ3pgFIhG
-	6bi7vxGJsdd8V4x+gcmj6STkcEtSLulMdBUkCl4ycO24jnvIPM1/P8nb7rrZbqkQTU03ZNL6Eg7WK
-	jONtMmMtV+pKhkBk0O5pyY+Xd59HXznWnTqenVMxWsXMV1sPhtBy0dxeZy9gPoSKgibzrGL6xWDQe
-	Gdn2AfGg==;
+	bh=Jgu3bQcQ5Vt6zZ/CZekVoI/v3BCKJ/5Y9Ufcxu9reiQ=; b=Ljr4r3nuDniaT4urdZ5FOkBaZk
+	1ogkVhw/EEpB7mW3GjlxJDfN/Ybs9cs227K8twCW5wQKm9JLStQI5AdRMrwpO/FDwfJng15ILZSRx
+	Kr1Yn1cHusCcx1J8YEOK6rma9MsqTpjUVYiMpenXMTsWeSIu3MjKuYeMKDNYcUnnE4jbG+VpLIlSZ
+	4H+6U5pyGaU0YkWMMKgU+W/1cqsxM8P2deHnGBN6OAlqDvklhtiWgML24VhonSwxiBJK4ZMLwXvhh
+	YfyRBRhghdqZpBgoZb8fVTmEYZiRJ/S8Gle5ZDzfsaIQ9Tbs8QaMCIyAqzcsF6fIs8qSB3EO8Hj3J
+	iFRembNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjhU-00000008UNu-08J6;
-	Thu, 27 Feb 2025 19:37:40 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnfge-00000007t5j-19XG
+	id 1tnjhV-00000008UQd-2uIh;
+	Thu, 27 Feb 2025 19:37:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnfnV-00000007tr7-3ssA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 15:20:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740669632; x=1772205632;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=O2RSGihEUeZucdzzlTWlLZ5f5Ojwj25KIj+Cw9BroWs=;
-  b=FKLV04MRYYb7b6aXwpHrfElsZjmra+KifLCD9npobdPcD6XJ+PTnz8f8
-   BRO0ec2GprKE4W+RlWeca1D1GXHrG+Mb1pwyqk8LQr694wRmx+VPzISLD
-   A/CHUEwzfLQWIx7jZH59NOq3+pEME+lINtvK9p6WV3mvkSaFDt2UedETM
-   iNL9zLs3oJ8AO2e4NHxSuAnozxtNelGgeqATD9UOcg87aqtrTGZWOui+0
-   t1C1+zxPB2j5gqAEnywl962TNVD+upBjEuAr3d2KAoDiMcIfc7j63A9zw
-   HGYQxK3OQ5gr2IG5noLmRg9N61wc4V9WrBfeUvzRGocDyx6ZWz+mpNW+9
-   g==;
-X-CSE-ConnectionGUID: TNw1JEf3SJysws7SHavkEA==
-X-CSE-MsgGUID: 0CvShEytQVe5emBGocyZRA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11358"; a="59100831"
-X-IronPort-AV: E=Sophos;i="6.13,320,1732608000"; 
-   d="scan'208";a="59100831"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Feb 2025 07:20:31 -0800
-X-CSE-ConnectionGUID: tghChrLAT3uZcFB1OG6MDw==
-X-CSE-MsgGUID: fJ23NbXIRqK8v79NrO9hEw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="121177193"
-Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
-  by fmviesa003.fm.intel.com with ESMTP; 27 Feb 2025 07:20:25 -0800
-Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tnfgR-000DYs-2D;
-	Thu, 27 Feb 2025 15:20:23 +0000
-Date: Thu, 27 Feb 2025 23:18:40 +0800
-From: kernel test robot <lkp@intel.com>
-To: Menglong Dong <menglong8.dong@gmail.com>, rostedt@goodmis.org,
-	mark.rutland@arm.com, alexei.starovoitov@gmail.com
-Cc: Paul Gazzillo <paul@pgazz.com>,
-	Necip Fazil Yildiran <fazilyildiran@gmail.com>,
-	oe-kbuild-all@lists.linux.dev, catalin.marinas@arm.com,
-	will@kernel.org, mhiramat@kernel.org, tglx@linutronix.de,
-	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
-	x86@kernel.org, hpa@zytor.com, mathieu.desnoyers@efficios.com,
-	nathan@kernel.org, ndesaulniers@google.com, morbo@google.com,
-	justinstitt@google.com, dongml2@chinatelecom.cn,
-	akpm@linux-foundation.org, rppt@kernel.org, graf@amazon.com,
-	dan.j.williams@intel.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	bpf@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH bpf-next v2] add function metadata support
-Message-ID: <202502272339.DtueAali-lkp@intel.com>
-References: <20250226121537.752241-1-dongml2@chinatelecom.cn>
+	Thu, 27 Feb 2025 15:27:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 260FE2C3A
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 07:27:50 -0800 (PST)
+Received: from e110455-lin.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5FAE23F5A1
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 07:27:34 -0800 (PST)
+Date: Thu, 27 Feb 2025 15:27:30 +0000
+From: Liviu Dudau <liviu.dudau@arm.com>
+To: Vincenzo Frascino <vincenzo.frascino@arm.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jessica Clarke <jrtc27@jrtc27.com>
+Subject: Re: [PATCH v7 01/10] arm64: Kconfig: Update description for
+ CONFIG_ARCH_VEXPRESS
+Message-ID: <Z8CEYheKAr3VJ8k5@e110455-lin.cambridge.arm.com>
+References: <20250221180349.1413089-1-vincenzo.frascino@arm.com>
+ <20250221180349.1413089-2-vincenzo.frascino@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250226121537.752241-1-dongml2@chinatelecom.cn>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250221180349.1413089-2-vincenzo.frascino@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_072032_327334_54204941 
-X-CRM114-Status: UNSURE (   9.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250227_072738_005751_3CF7FC29 
+X-CRM114-Status: GOOD (  18.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,32 +74,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Menglong,
+On Fri, Feb 21, 2025 at 06:03:40PM +0000, Vincenzo Frascino wrote:
+> Update the description and contextually the help text of
+> CONFIG_ARCH_VEXPRESS to reflect the inclusion of all ARM Ltd Platforms.
+> 
+> Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
 
-kernel test robot noticed the following build warnings:
+Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
 
-[auto build test WARNING on bpf-next/master]
+Best regards,
+Liviu
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Menglong-Dong/add-function-metadata-support/20250226-202312
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git master
-patch link:    https://lore.kernel.org/r/20250226121537.752241-1-dongml2%40chinatelecom.cn
-patch subject: [PATCH bpf-next v2] add function metadata support
-config: i386-kismet-CONFIG_CALL_PADDING-CONFIG_FUNCTION_METADATA-0-0 (https://download.01.org/0day-ci/archive/20250227/202502272339.DtueAali-lkp@intel.com/config)
-reproduce: (https://download.01.org/0day-ci/archive/20250227/202502272339.DtueAali-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202502272339.DtueAali-lkp@intel.com/
-
-kismet warnings: (new ones prefixed by >>)
->> kismet: WARNING: unmet direct dependencies detected for CALL_PADDING when selected by FUNCTION_METADATA
-   WARNING: unmet direct dependencies detected for CALL_PADDING
-     Depends on [n]: CC_HAS_ENTRY_PADDING [=y] && OBJTOOL [=n]
-     Selected by [y]:
-     - FUNCTION_METADATA [=y]
+> ---
+>  arch/arm64/Kconfig.platforms | 5 ++---
+>  1 file changed, 2 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+> index 02f9248f7c84..c468c23b2bba 100644
+> --- a/arch/arm64/Kconfig.platforms
+> +++ b/arch/arm64/Kconfig.platforms
+> @@ -374,13 +374,12 @@ config ARCH_UNIPHIER
+>  	  This enables support for Socionext UniPhier SoC family.
+>  
+>  config ARCH_VEXPRESS
+> -	bool "ARMv8 software model (Versatile Express)"
+> +	bool "ARM Ltd Platforms"
+>  	select GPIOLIB
+>  	select PM
+>  	select PM_GENERIC_DOMAINS
+>  	help
+> -	  This enables support for the ARMv8 software model (Versatile
+> -	  Express).
+> +	  This enables support for the ARM Ltd Platforms.
+>  
+>  config ARCH_VISCONTI
+>  	bool "Toshiba Visconti SoC Family"
+> -- 
+> 2.43.0
+> 
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+====================
+| I would like to |
+| fix the world,  |
+| but they're not |
+| giving me the   |
+ \ source code!  /
+  ---------------
+    ¯\_(ツ)_/¯
 
