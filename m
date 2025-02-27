@@ -4,66 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50841C19F2E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 14:23:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71313C19F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 14:24:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ScUAY0cVN3AiCj1Pv3Q9M56FbP0eZiiumkcl17a6prk=; b=IdS82m91br50ltsqCYcOm2a2QD
-	WCzoTM9zj9v97bkNm9h5w2aI2dHIfdMvLnZL0Lvn0Hrvmq+evT4Wn32gfrSJzKvAOxpoyg1jC8abF
-	WNmbKUMOjI9qG7PYmoK32NvRwsSbrULORdb+QaoiBAJI19Xs7K9uh0Egy80nWnN40O46aJQyLoA9l
-	P7yyAItuUSim+Pkvkos3LlnZ2VW+dHWpiq6VrNUZWdvMjFXbZEA2UDDkFD8zRRxp6KELZOVedJLr2
-	arza84JBSWTNu1K41dLgn4bMspvl/AAOlAN7GLwbTz2NoYhdZJEc6CeMfYgLGLr1sxW2lsDaffXth
-	KtaWzBfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nns2pb75X82OiRUnuI2QHZ6PcDEQCoIyJJLFfE3oNG0=; b=eaI/x/HOZ31jHCBYRL1BcEl2sF
+	8rql4nyb55Kc3ftlZro0BSnTvBEqbatxuJb/CuTqLUMCZ9kBkmVYRdsHxktrI4mZG7DzQQVc2pmHp
+	g/+t6x0+FxNfA43+OHBbIz+egrsdu1SQS6QelhPnT0TPTc6fQ4xdEAgXfHZMadOpk0KJbIeVUbsRj
+	e6LC5LNZd52Ww3qfwBBIKPxdKRepfMHEBMc1skIBPBx/Nf69Mbo+mnRTNBAaa3yC4z9fki/G2Gx9Q
+	TcLKM1OhC3NGsEc9ucMrueuwdMBBXG6NOZIKbpm31/NYoBKGZ6fZgJkVQUU6zm51UuUPKOpUBQLmB
+	mRrEhFuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnemt-00000007i3o-1myk;
-	Thu, 27 Feb 2025 14:22:55 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tneoP-00000007iVi-0Jq1;
+	Thu, 27 Feb 2025 14:24:29 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tneTS-00000007dgk-2QRG
+	id 1tneTZ-00000007diQ-3eTD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 14:02:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=ScUAY0cVN3AiCj1Pv3Q9M56FbP0eZiiumkcl17a6prk=; b=KUbLhr+V4K7WYfSP7M+gQiKTwC
-	B0QXrCN1ruVMwYesbOVb1+GeRTGWR6/lgCs1sf/TsC5IyvAKulZNOBqv/2SnnGigAeMljOpf0NRb1
-	Aa5LMcaM3jIqrAsYXJA2udZ7IwG6PQm2zYW7jb15ig+TxArIULFgduSH72qnzIvYwFTE=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tneTO-000bzh-0J; Thu, 27 Feb 2025 15:02:46 +0100
-Date: Thu, 27 Feb 2025 15:02:45 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Thu, 27 Feb 2025 14:02:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740664978; x=1772200978;
+  h=from:to:subject:date:message-id:in-reply-to:references:
+   mime-version:content-transfer-encoding;
+  bh=2Msp7YoBmanu425m0MXmljH1/c1Or8M2lkzZSA8x+50=;
+  b=fKnd9KgVgiOwklVQpFX6BpdYOc8M1InQbCeYgVscQqbtIlW57aBjmQqP
+   4n1AnVpQ7nClS4kxLH7gA/TLCrYDoD/c18zPm2ps9J2wIDUJM6Cj1ZaFn
+   QTCA5t1Ig3XSexBPqWDliW5hxGeup8EseiNlPyRu6MIxscr49AIw0L5tY
+   ifn8mHtFlaAFhI+X/QDLJMfcYHxBpK9zeOJUuu6gi720JMOLefWmlSo2p
+   XRlW3X5b/CoziKSJKbO5qCjHyk1GKcSsYrvMh+N8YdSnV0h9Jgf4YY0VC
+   rrdBSmN5MRakja5j68Rqz958fiJqeI2ajURueacyCPe08Q1eCfXtmeEyo
+   g==;
+X-CSE-ConnectionGUID: FKmWqwCSRianKcM5wbmSmQ==
+X-CSE-MsgGUID: bbKeTMx1RGKIkTwpG3In9Q==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="41752357"
+X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
+   d="scan'208";a="41752357"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Feb 2025 06:02:57 -0800
+X-CSE-ConnectionGUID: UnMvmEi2QmWQ5xMolcf1/A==
+X-CSE-MsgGUID: VkTmaFqeTsqlGt0eqbsrPQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,319,1732608000"; 
+   d="scan'208";a="122149579"
+Received: from mohdfai2-ilbpg12-1.png.intel.com ([10.88.227.73])
+  by fmviesa004.fm.intel.com with ESMTP; 27 Feb 2025 06:02:49 -0800
+From: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
+To: Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
+	"David S . Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
 	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Simon Horman <horms@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Furong Xu <0x1207@gmail.com>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Xiaolei Wang <xiaolei.wang@windriver.com>,
+	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	Gal Pressman <gal@nvidia.com>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Andrew Halaney <ahalaney@redhat.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
+	intel-wired-lan@lists.osuosl.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 09/11] net: stmmac: ipq806x: switch to use
- set_clk_tx_rate() hook
-Message-ID: <4f3b032c-6a29-42f3-a72b-c6c6c57fd2c8@lunn.ch>
-References: <Z8AtX-wyPal1auVO@shell.armlinux.org.uk>
- <E1tna0u-0052tH-KQ@rmk-PC.armlinux.org.uk>
+	linux-arm-kernel@lists.infradead.org,
+	bpf@vger.kernel.org
+Subject: [PATCH iwl-next v6 4/9] igc: Set the RX packet buffer size for TSN mode
+Date: Thu, 27 Feb 2025 09:01:52 -0500
+Message-Id: <20250227140158.2129988-5-faizal.abdul.rahim@linux.intel.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250227140158.2129988-1-faizal.abdul.rahim@linux.intel.com>
+References: <20250227140158.2129988-1-faizal.abdul.rahim@linux.intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <E1tna0u-0052tH-KQ@rmk-PC.armlinux.org.uk>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_060250_614800_E778051C 
-X-CRM114-Status: UNSURE (   6.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250227_060257_946276_E8074184 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,13 +115,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025 at 09:17:04AM +0000, Russell King (Oracle) wrote:
-61;7803;1c> Switch from using the fix_mac_speed() hook to set_clk_tx_rate() to
-> manage the transmit clock.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+In preparation for supporting frame preemption, when entering TSN mode
+set the receive packet buffer to 16KB for the Express MAC, 16KB for
+the Preemptible MAC and 2KB for the BMC, according to the datasheet
+section 7.1.3.2.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Co-developed-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
+Signed-off-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
+Signed-off-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
+---
+ drivers/net/ethernet/intel/igc/igc_defines.h |  3 +++
+ drivers/net/ethernet/intel/igc/igc_tsn.c     | 13 +++++++++++--
+ 2 files changed, 14 insertions(+), 2 deletions(-)
 
-    Andrew
+diff --git a/drivers/net/ethernet/intel/igc/igc_defines.h b/drivers/net/ethernet/intel/igc/igc_defines.h
+index 516ef70c98e9..b19ac6f30dac 100644
+--- a/drivers/net/ethernet/intel/igc/igc_defines.h
++++ b/drivers/net/ethernet/intel/igc/igc_defines.h
+@@ -402,6 +402,9 @@
+ 
+  /* 7KB bytes buffer for each tx queue (total 4 queues) + 4KB for BMC*/
+ #define IGC_TXPBSIZE_TSN	0x041c71c7
++/* 15KB for EXP + 15KB for BE + 2KB for BMC */
++#define IGC_RXPBSIZE_TSN	0x0000f08f
++#define IGC_RXPBSIZE_SIZE_MASK	0x0001FFFF
+ 
+ #define IGC_DTXMXPKTSZ_TSN	0x19 /* 1600 bytes of max TX DMA packet size */
+ #define IGC_DTXMXPKTSZ_DEFAULT	0x98 /* 9728-byte Jumbo frames */
+diff --git a/drivers/net/ethernet/intel/igc/igc_tsn.c b/drivers/net/ethernet/intel/igc/igc_tsn.c
+index 1e44374ca1ff..f0213cfce07d 100644
+--- a/drivers/net/ethernet/intel/igc/igc_tsn.c
++++ b/drivers/net/ethernet/intel/igc/igc_tsn.c
+@@ -132,13 +132,17 @@ static int igc_tsn_disable_offload(struct igc_adapter *adapter)
+ {
+ 	u16 queue_per_tc[4] = { 3, 2, 1, 0 };
+ 	struct igc_hw *hw = &adapter->hw;
+-	u32 tqavctrl;
++	u32 tqavctrl, rxpbs;
+ 	int i;
+ 
+ 	wr32(IGC_GTXOFFSET, 0);
+ 	wr32(IGC_TXPBS, I225_TXPBSIZE_DEFAULT);
+ 	wr32(IGC_DTXMXPKTSZ, IGC_DTXMXPKTSZ_DEFAULT);
+ 
++	rxpbs = rd32(IGC_RXPBS) & ~IGC_RXPBSIZE_SIZE_MASK;
++	rxpbs |= I225_RXPBSIZE_DEFAULT;
++	wr32(IGC_RXPBS, rxpbs);
++
+ 	if (igc_is_device_id_i226(hw))
+ 		igc_tsn_restore_retx_default(adapter);
+ 
+@@ -194,7 +198,7 @@ static int igc_tsn_enable_offload(struct igc_adapter *adapter)
+ {
+ 	struct igc_hw *hw = &adapter->hw;
+ 	u32 tqavctrl, baset_l, baset_h;
+-	u32 sec, nsec, cycle;
++	u32 sec, nsec, cycle, rxpbs;
+ 	ktime_t base_time, systim;
+ 	int i;
+ 
+@@ -202,6 +206,11 @@ static int igc_tsn_enable_offload(struct igc_adapter *adapter)
+ 	wr32(IGC_DTXMXPKTSZ, IGC_DTXMXPKTSZ_TSN);
+ 	wr32(IGC_TXPBS, IGC_TXPBSIZE_TSN);
+ 
++	rxpbs = rd32(IGC_RXPBS) & ~IGC_RXPBSIZE_SIZE_MASK;
++	rxpbs |= IGC_RXPBSIZE_TSN;
++
++	wr32(IGC_RXPBS, rxpbs);
++
+ 	if (igc_is_device_id_i226(hw))
+ 		igc_tsn_set_retx_qbvfullthreshold(adapter);
+ 
+-- 
+2.34.1
+
 
