@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD77FC197BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:40:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24C27C197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:40:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q+0tAWt+Qjct3O4SDcG8rZZ2o6M/LcHVGvtP3po6lSY=; b=XytELkKOEu3xffvcJPIasW7vCy
-	bAJvZT5g0WBjKeUIKImiJ8J0AxSJ+YRanB9zg4RSMh2S2ncegYtwMDJHG4ztojwXf1sjBA2BYVSUN
-	N4J9q2wIkQ3wPFnqHz2dSueoK3txmFVyv9HBbTetbeoLysHGatjTJo2aVS3HCWN4LmD8koPMZtyO5
-	Rn1wnMNyzRoPx/xkamr8UyrIM8B/EdzFe0fSBozIieJf+mzAhwB7RmfLVoWqVVnY5/H6K4xoQoqhS
-	LFKgCtY3QusGheU/anKSGvQoq5pcjkG9aryKSGsrpphE0plqyi4nYGuXZzg9U05PPxPkNcD4ZjFu5
-	uCLBD1Sg==;
+	bh=mLfA893WYcW7m3Urm2lChQwvniJaazs2mTWPwNN2Oco=; b=b2az8aDWDQAiRWI1v29y/7nXYl
+	EdW9hOsf0OqHdFMYWgJKwIl33O0weUOwYPsCNAV/vRPkaleiJJdX1v/FKOy5BHtubP77auv3W/bKe
+	MmqglQCA0wS4wG6oCj8N4eSp5vm32GIXoyWfN3QLHkmqWwn4i16UXoVlfqzm6hqYWvARLJOgRp9pn
+	hSVx4sMySR8N/5dwb+/whyrwH+SwQzrKC+fUdDh4EVCGytxKs3///gi4eO3K+DyER6pmY3iDW6qnl
+	ccnYB4Ihepk46cqvqlSoBVzu6hMT+fviEKyk8AmC/zZQXuykz6z7sWglkWA5Sz5KMIAdDMK87BQKi
+	FKTA2I2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjjm-00000008Yy6-2CDb;
-	Thu, 27 Feb 2025 19:40:02 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1tnjjp-00000008Z4k-34Q2;
+	Thu, 27 Feb 2025 19:40:05 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnhFk-000000089kN-01Ea
+	id 1tnhFo-000000089mn-2P1q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 17:00:54 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8A02410382F1A;
-	Thu, 27 Feb 2025 18:00:43 +0100 (CET)
+	Thu, 27 Feb 2025 17:00:57 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5027E103801B5;
+	Thu, 27 Feb 2025 18:00:53 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1740675645;
+	t=1740675655;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=q+0tAWt+Qjct3O4SDcG8rZZ2o6M/LcHVGvtP3po6lSY=;
-	b=KQNxjRXpcvJbz9cgkcZQoHo9j6WJlFA4+eHsi+79LIXltTLb8A2GR9urWj7yMW/wa4fC++
-	O7re390e2VOV3buJ5/H6NnTQ2nJ9lhtq8tQ8dJKEU9I6CIgBgfQpklf8Qh1wkKodqvMZgY
-	1kXjSslr0OIIA+HI6ZwkwsQA9/bl3iTU5+jCdZ4O3fei8TLnvxUThvGT7PIe3I+tUxP5WX
-	uCsYX7xWdJ0IziUY+ZGVfNDARw9uFflLV38qjFs/KZGwnouYXYptpWA0Yr68dV5dhbd45a
-	608JCAPJkOQTBgxfxoEMdJe/nPXD4hDYp6Xxg/Og7YOgn2xnNNJQp0hfdSF7Pw==
+	bh=mLfA893WYcW7m3Urm2lChQwvniJaazs2mTWPwNN2Oco=;
+	b=eBKuSDm+Zjp/EoKicmIXcRQuuu777EWnLVb+5QMRDyvMp+w75ngC/wb9FmMdsUgiwpLDYT
+	7acC7YZP+Y+QOQxjz0TM3BOyXkR12QlsTIC7hqqEjZsbwhtkpTzOZm1QBMo8zmuBHTo8/w
+	ILwRXKpIET/rDOEIGlivuCNOi4dXUFHm2z9fV7BhNMaq6o8owNP8anhzpABX5OO834u17I
+	7F3IyHTFBJ36UBkx13JjSrxnXIfSc+Fct6WifpZ2lQ4AoxzQMY/onYMAYQUj3tTGlt5Ugh
+	+ui8X2WavrsFFD6VCgYb8gcp7C4QXo7tDzYsaEafjTanZWCp7We+FqtIkHDYbQ==
 From: Marek Vasut <marex@denx.de>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marex@denx.de>,
@@ -64,9 +64,9 @@ Cc: Marek Vasut <marex@denx.de>,
 	devicetree@vger.kernel.org,
 	dri-devel@lists.freedesktop.org,
 	imx@lists.linux.dev
-Subject: [PATCH 1/9] dt-bindings: reset: imx95-gpu-blk-ctrl: Document Freescale i.MX95 GPU reset
-Date: Thu, 27 Feb 2025 17:58:01 +0100
-Message-ID: <20250227170012.124768-2-marex@denx.de>
+Subject: [PATCH 6/9] drm/panthor: Reset GPU after L2 cache power off
+Date: Thu, 27 Feb 2025 17:58:06 +0100
+Message-ID: <20250227170012.124768-7-marex@denx.de>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20250227170012.124768-1-marex@denx.de>
 References: <20250227170012.124768-1-marex@denx.de>
@@ -74,8 +74,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_090052_183259_F70E1268 
-X-CRM114-Status: GOOD (  14.54  )
+X-CRM114-CacheID: sfid-20250227_090056_755785_04A7D7FD 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,9 +90,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The instance of the GPU populated in Freescale i.MX95 does require
-release from reset by writing into a single GPUMIX block controller
-GPURESET register bit 0. Document support for this reset register.
+This seems necessary on Freescale i.MX95 Mali G310 to reliably resume
+from runtime PM suspend. Without this, if only the L2 is powered down
+on RPM entry, the GPU gets stuck and does not indicate the firmware is
+booted after RPM resume.
 
 Signed-off-by: Marek Vasut <marex@denx.de>
 ---
@@ -118,65 +119,31 @@ Cc: dri-devel@lists.freedesktop.org
 Cc: imx@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org
 ---
- .../reset/fsl,imx95-gpu-blk-ctrl.yaml         | 49 +++++++++++++++++++
- 1 file changed, 49 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/reset/fsl,imx95-gpu-blk-ctrl.yaml
+ drivers/gpu/drm/panthor/panthor_gpu.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/reset/fsl,imx95-gpu-blk-ctrl.yaml b/Documentation/devicetree/bindings/reset/fsl,imx95-gpu-blk-ctrl.yaml
-new file mode 100644
-index 0000000000000..dc701bd556c0b
---- /dev/null
-+++ b/Documentation/devicetree/bindings/reset/fsl,imx95-gpu-blk-ctrl.yaml
-@@ -0,0 +1,49 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/reset/fsl,imx95-gpu-blk-ctrl.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Freescale i.MX95 GPU Block Controller
-+
-+maintainers:
-+  - Marek Vasut <marex@denx.de>
-+
-+description: |
-+  This reset controller is a block of ad-hoc debug registers, one of
-+  which is a single-bit GPU reset.
-+
-+properties:
-+  compatible:
-+    - const: fsl,imx95-gpu-blk-ctrl
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  power-domains:
-+    maxItems: 1
-+
-+  '#reset-cells':
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - power-domains
-+  - '#reset-cells'
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    reset-controller@4d810000 {
-+        compatible = "fsl,imx95-gpu-blk-ctrl";
-+        reg = <0x0 0x4d810000 0x0 0xc>;
-+        clocks = <&scmi_clk IMX95_CLK_GPUAPB>;
-+        power-domains = <&scmi_devpd IMX95_PD_GPU>;
-+        #reset-cells = <1>;
-+    };
+diff --git a/drivers/gpu/drm/panthor/panthor_gpu.c b/drivers/gpu/drm/panthor/panthor_gpu.c
+index 671049020afaa..0f07ef7d9aea7 100644
+--- a/drivers/gpu/drm/panthor/panthor_gpu.c
++++ b/drivers/gpu/drm/panthor/panthor_gpu.c
+@@ -470,11 +470,12 @@ int panthor_gpu_soft_reset(struct panthor_device *ptdev)
+  */
+ void panthor_gpu_suspend(struct panthor_device *ptdev)
+ {
+-	/* On a fast reset, simply power down the L2. */
+-	if (!ptdev->reset.fast)
+-		panthor_gpu_soft_reset(ptdev);
+-	else
+-		panthor_gpu_power_off(ptdev, L2, 1, 20000);
++	/*
++	 * Power off the L2 and soft reset the GPU, that makes
++	 * iMX95 Mali G310 resume without firmware boot timeout.
++	 */
++	panthor_gpu_power_off(ptdev, L2, 1, 20000);
++	panthor_gpu_soft_reset(ptdev);
+ 
+ 	panthor_gpu_irq_suspend(&ptdev->gpu->irq);
+ }
 -- 
 2.47.2
 
