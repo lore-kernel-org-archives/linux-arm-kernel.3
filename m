@@ -4,60 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71B65C19F2E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 10:32:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45D30C19F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 10:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qd4HzO5DI05dF9t4EH+iv2z6iNBamypUQVWMX+idBZQ=; b=MS+fWClDtNedL7JK00/1Q2+XLi
-	Xyn8RAabjUv86YPQueliIknfzN9pdQxiXK6HENlS/bI9UzCEgyVVwRtY52DDMs5ED/v7/cm3kG5vn
-	PyKvAPxSeNojDMmqLdhBoiwkXPQlWeR3GwdMsbvDzwMLxWDbWpbh5bjBORh20HYUxm5w57ZSn69+z
-	Y4nrrug1dC/07dhGRM7U8lWLjpCuUmQF5X10buKSxDZNlSXHc9VXBzeI4PzlTdCTxem6VkLtZs1Oa
-	j991MsmDIvx9IR/CY/hpzgCu6R39falc2b0AIvMda9fTk/dAqqtxMagdXz+dAq1IWza7+To/vUFPc
-	JDIoil1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jsFKh9UbkZa4mPXu6xn2EHAIINbDdqAyML0CYYvfpfc=; b=h/LULD486gTx/SdMaIRTdBGMYy
+	R5gKEaUByBqqOHpvhfh3FzsKXfa01beEVZNRuCgm6ZDmZEfCT7hYHgyHwu32VNgkMO+52krqX/NQC
+	rS0C9zc8Wwv3yUB2vHcJn4LJkBa/VdTdE+EmoYdPVDEenVb/02x8TcfGB0EjP/IW4E0JAnqY2hxcG
+	94fyUna1DvUqxB6FxOAI9xiDxspVB4c9xn8CVF4ODuXoQvJCVTO2UEHiVYxKnyOa+KHEIzltaDyw0
+	7AnHRyTMZ+eu0fd4fc6TeAG+SwoLXv2d/wxoZnWVVvUPZrfj51UkJ2djefvgtMlPPS+WOhXdraWBN
+	ez5s+9NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnbBX-000000070EZ-2HnK;
-	Thu, 27 Feb 2025 10:32:07 +0000
-Received: from mail-m16.yeah.net ([220.197.32.18])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnb9y-0000000707L-2qpv
+	id 1tnbHi-000000071Bp-13qA;
+	Thu, 27 Feb 2025 10:38:30 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnbG9-0000000710O-3gxg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 10:30:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=qd4HzO5DI05dF9t4EH+iv2z6iNBamypUQVWMX+idBZQ=;
-	b=de6IKaUWk4gJS58kgVUA8ARoMXnGwGbRNG4BeySV+MMY3ZiTd1W24oSrMyonRA
-	Xft550fi30swTpCZE7b9RAa4Ocbx4Uy9E6eIt/yF3FFcaezDzUwADcWLq5be/OcW
-	tZrTUTJXSNocCDhrCKPGcwGJnDFUzohLZBjyGa4rlgegU=
-Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgC3EYquPsBnJxMcCg--.28199S3;
-	Thu, 27 Feb 2025 18:30:08 +0800 (CST)
-Date: Thu, 27 Feb 2025 18:30:06 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: soc@kernel.org, arm@kernel.org
-Cc: Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	kernel@pengutronix.de, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] i.MX fixes for 6.14
-Message-ID: <Z8A+rihFV4K3l8QR@dragon>
+	Thu, 27 Feb 2025 10:36:55 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-abbac134a19so110117066b.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 02:36:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1740652612; x=1741257412; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=jsFKh9UbkZa4mPXu6xn2EHAIINbDdqAyML0CYYvfpfc=;
+        b=DGsdyoSahnZmZ7jhqbN2CKVfcXt/YBKRaUZVgFhHpdalipVa8cr31NIzcqmMHraxch
+         zAT50RrHIjeX2guFm7rz/MVr7iSMdXEpq3yQ1fQyyTq8zUfFAkkZnLe7gSDNrzoLzYCz
+         z82o5kt8F8KZnPvWKTkdSM1gWjwMBy28WdwpYcg4y/BuFL2GaZtoeyO4u2K7OXXqeVTg
+         KAmA7VL9svPkzVWPf+fP5bGAV9oeWCnIjgjg3DZTU06vJtv4IMtDFNUC/3hGkHFgvrbK
+         ywTQVV/lfgEGMGVMWEue27I5ocGZho9HGltGdAk2BMPVpdOvN8kM0uhJ2tM1U+0S90hT
+         nh9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740652612; x=1741257412;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=jsFKh9UbkZa4mPXu6xn2EHAIINbDdqAyML0CYYvfpfc=;
+        b=Ah+CvSS/0XCU3KybCczHaB62NCXv8c81gQbr4XD+O/vG4rE+4Fli/36qv5jIalUQgg
+         JW122sTB1cASY9fIUT1lScf4G97YM/JEmgeV7T8KKeWLMPi8ByF5e3OdZqLIHIIy3REl
+         yacWd8ZFP4t8qU80n4mBBQOxsoL8obHPhCvw214Rz4yMxmQc7/kkCPG1t+f9c+zfEHH/
+         fxt0/9s+fd5DL+sIM6L8GK8ym01XbEKzTixOY3OrjTCT/LHbZ14n8ZZ7pj6xySGAeRxz
+         5by2nnN0pHbHdb2eG1RQR7p5LO9tJsA+uB8dzOUyICWQHGiIMrJijTD2+YTyJ9ZB0wpb
+         7BXQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU/Ly1cxSYRXy7Lsa9BKcpOOx6PjuACoKtgtS3KWTAb3MKf1ntr8Iz5zqUUgfBmNnhcomjjJr47tXx1nd7QB/VL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+mKPeyFotASGlkfGGRLO67s4qUrhi6uIkFEk6UOWjZAJL41cg
+	oSz5E5vm8XICZt8ItVjEzDpSZsQIoL0hDqx7ybFx/chHxUq2r7SJgA+gw0m9eJ8=
+X-Gm-Gg: ASbGnctAst3yRsuL/zFQGrDoHRELPaQ0yZRbEkFEYduwDrGTn7sWSbcvmdm5BeUcbAU
+	w7J5eFBCsQHIappQu4WnvxTe4GMqVifybg7Qrk1omKwPsqh+RWJXeqc4cwqr/2SBZpoX4S2YS4b
+	C69n3gXnwFmQvBWMj+BXRrxIsvPbC6IY0pk2QdqNsF8xm+3x0z7oOsBkHsxWT1HK2sDcNw52eNL
+	3oiUFNUVrLTgFeBsH8T79jZgOI2eqv49HTJPhCgxodA/wsWAFuaIlPHz5i2FwUDIKt8U3WOkJmZ
+	/is3Wx+r0IMyoP1QO8gRdkGKmkdJk5LCJA==
+X-Google-Smtp-Source: AGHT+IEsSfiZIs400KhlsV64WxdFbebZ9xtk3b00PNEdGcSXHdqx0XdTR9/OXY1rEFnEmYXIsXcKzQ==
+X-Received: by 2002:a17:906:6a20:b0:ab7:e451:4834 with SMTP id a640c23a62f3a-abed0d117bamr1339096666b.19.1740652612039;
+        Thu, 27 Feb 2025 02:36:52 -0800 (PST)
+Received: from [192.168.1.247] ([145.224.66.72])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abf0c6ed7ccsm101865366b.96.2025.02.27.02.36.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 27 Feb 2025 02:36:51 -0800 (PST)
+Message-ID: <7c3e1316-a4a6-4a9e-b179-57e9c8aca697@linaro.org>
+Date: Thu, 27 Feb 2025 10:36:50 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-CM-TRANSID: Ms8vCgC3EYquPsBnJxMcCg--.28199S3
-X-Coremail-Antispam: 1Uf129KBjvJXoW7ArW7WF18WFykKFW8XF1UKFg_yoW8CFW3pF
-	4fArnxKr18JryfArnxXw48XF9xta1rJF45Wr13t3y8CF15CFn7Jr1jqryIgry2qryxAr43
-	tF17JryUCFy5Ww7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07Uu6wNUUUUU=
-X-Originating-IP: [117.82.86.124]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiBA8BZWfANJQmPgAAsw
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] perf arm-spe: Report error if set frequency
+To: Leo Yan <leo.yan@arm.com>
+References: <20250227085544.2154136-1-leo.yan@arm.com>
+Content-Language: en-US
+Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Will Deacon <will@kernel.org>,
+ Mike Leach <mike.leach@linaro.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ "Liang, Kan" <kan.liang@linux.intel.com>,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250227085544.2154136-1-leo.yan@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_023031_075134_A41E4AB7 
-X-CRM114-Status: UNSURE (   6.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250227_023653_922359_9F4AC510 
+X-CRM114-Status: GOOD (  24.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,50 +106,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
 
-  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
 
-are available in the Git repository at:
+On 27/02/2025 8:55 am, Leo Yan wrote:
+> When users set the parameter '-F' to specify frequency for Arm SPE, the
+> tool reports error:
+> 
+>    perf record -F 1000 -e arm_spe_0// -- sleep 1
+>    Error:
+>    Invalid event (arm_spe_0//) in per-thread mode, enable system wide with '-a'.
+> 
+> The output logs are confused and it does not give the correct reminding.
+> Arm SPE does not support frequency setting given it adopts a statistical
+> based approach.
+> 
+> Alternatively, Arm SPE supports setting period.  This commit adds a
+> for frequency setting.  It reports error and reminds users to set period
+> instead.
+> 
+> After:
+> 
+>    perf record -F 1000 -e arm_spe_0// -- sleep 1
+>    Arm SPE: Frequency is not supported. Set period with -c option or PMU parameter (-e arm_spe_0/period=NUM/).
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+> 
+> Changes from v1:
+> - Sugguested users for '-c' option or PMU parameter 'period' in the log
+>    (Namhyung)
+> 
+>   tools/perf/arch/arm64/util/arm-spe.c | 21 +++++++++++++++++++++
+>   1 file changed, 21 insertions(+)
+> 
+> diff --git a/tools/perf/arch/arm64/util/arm-spe.c b/tools/perf/arch/arm64/util/arm-spe.c
+> index 4301181b8e45..4f2833b62ff5 100644
+> --- a/tools/perf/arch/arm64/util/arm-spe.c
+> +++ b/tools/perf/arch/arm64/util/arm-spe.c
+> @@ -40,6 +40,19 @@ struct arm_spe_recording {
+>   	bool			*wrapped;
+>   };
+>   
+> +/* Iterate config list to detect if the "freq" parameter is set */
+> +static bool arm_spe_is_set_freq(struct evsel *evsel)
+> +{
+> +	struct evsel_config_term *term;
+> +
+> +	list_for_each_entry(term, &evsel->config_terms, list) {
+> +		if (term->type == EVSEL__CONFIG_TERM_FREQ)
+> +			return true;
+> +	}
+> +
+> +	return false;
+> +}
+> +
+>   /*
+>    * arm_spe_find_cpus() returns a new cpu map, and the caller should invoke
+>    * perf_cpu_map__put() to release the map after use.
+> @@ -389,6 +402,14 @@ static int arm_spe_recording_options(struct auxtrace_record *itr,
+>   				return -EINVAL;
+>   			}
+>   			opts->full_auxtrace = true;
+> +
+> +			if (opts->user_freq != UINT_MAX ||
+> +			    arm_spe_is_set_freq(evsel)) {
+> +				pr_err("Arm SPE: Frequency is not supported. "
+> +				       "Set period with -c option or PMU parameter (-e %s/period=NUM/).\n",
+> +				       evsel->pmu->name);
+> +				return -EINVAL;
+> +			}
+>   		}
+>   	}
+>   
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git tags/imx-fixes-6.14
-
-for you to fetch changes up to 2c1092823eb03f8508d6769e2f38eef7e1fe62a0:
-
-  arm64: dts: freescale: imx8mm-verdin-dahlia: add Microphone Jack to sound card (2025-02-23 16:13:33 +0800)
-
-----------------------------------------------------------------
-i.MX fixes for 6.14:
-
-- A tqma8mpql board fix from Alexander Stein to correct vqmmc-supply for
-  usdhc3
-- A change from Joe Hattori to fix OF node leak in imx-scu driver probe
-- A soc-imx8m driver fix from Peng Fan unregister cpufreq and soc device
-  in cleanup path
-- A couple of changes from Stefan Eichenberger to fix iMX6 Apalis
-  poweroff and iMX8M verdin-dahlia sound-card descriptions
-
-----------------------------------------------------------------
-Alexander Stein (1):
-      arm64: dts: freescale: tqma8mpql: Fix vqmmc-supply
-
-Joe Hattori (1):
-      firmware: imx-scu: fix OF node leak in .probe()
-
-Peng Fan (1):
-      soc: imx8m: Unregister cpufreq and soc dev in cleanup path
-
-Stefan Eichenberger (3):
-      ARM: dts: imx6qdl-apalis: Fix poweroff on Apalis iMX6
-      arm64: dts: freescale: imx8mp-verdin-dahlia: add Microphone Jack to sound card
-      arm64: dts: freescale: imx8mm-verdin-dahlia: add Microphone Jack to sound card
-
- arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi      | 10 ++++-----
- .../boot/dts/freescale/imx8mm-verdin-dahlia.dtsi   |  6 ++---
- .../arm64/boot/dts/freescale/imx8mp-tqma8mpql.dtsi | 16 ++++---------
- .../boot/dts/freescale/imx8mp-verdin-dahlia.dtsi   |  6 ++---
- drivers/firmware/imx/imx-scu.c                     |  1 +
- drivers/soc/imx/soc-imx8m.c                        | 26 ++++++++++++++++++++--
- 6 files changed, 40 insertions(+), 25 deletions(-)
+Reviewed-by: James Clark <james.clark@linaro.org>
 
 
