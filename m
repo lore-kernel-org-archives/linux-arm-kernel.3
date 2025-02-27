@@ -4,63 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97529C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:40:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F369C197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:40:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=buScLni0fJpq/olYSYs/TP5v5AMqPIGM9l8uVS6GTbk=; b=i7FAJRGt5Fhp/i8FOiD5B0zh39
-	/uH5BOdnLz6xONLdFhpDZcqYNAIuSPaDG+wD9e+p7DHVy7PuagkGN9J1lDoELsqXX3FuWv1Logzuc
-	TbcLX8/X0Q/ngcH82wiOFmNuhOz3DDIsp1QjYtnp/Xd88hwHfLlHcQqndvH0ZM0VmqafKhxanQ9xH
-	a0j4Q7OowWtF35ikqWXR2qXkFia6U6JiQX+mND/VvNQxPAUS0ietV445xyYTGYNe1/5NIjSDPuAAh
-	cp+tGV/9mPK6wxNHQFWuEEOfC07HsVaTpOYXkosPJedAmhWzO3Xtk6Jyqph31YSiObQh+w/6m0yVO
-	JsU1xUfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XOhuochHAyZFrE0QZmNJN55rNw/wCGo76Z8G9VPPrHo=; b=pbj++pHJhRXZWLESBYXGfTdSaz
+	IUqm49c99CXb1k755KZ0GsnGZOBBBtPo5BpXtoz1O0R3f+BBCWkA8aCU54o/ju+CkBAJaRTr/fZi+
+	4/n5jYNc51dAx2rS2LobfexDq4QMAysTtK7T+vN1rjvv1XRPe6eNcyaINnWrM9AV7g6TIxBCEX5ae
+	R6z3T1YlgiOflVboAchEI0mkywpjbpx3SoRNix5LInS7puYdSMelYVPAku+MuMDJoKbDRAKUYq8UA
+	w/EjWY+kB5JWwdnEKipViO4+muCTwdzz5RDF28JrPAk0AsdyRIqGiPKwkR1VfVKk3Db7YKo7NFFSc
+	4Mu1Z0kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjkD-00000008Zjq-0y4Y;
-	Thu, 27 Feb 2025 19:40:29 +0000
-Received: from out-188.mta0.migadu.com ([2001:41d0:1004:224b::bc])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnhH9-00000008A0T-2k33
+	id 1tnjkF-00000008ZpJ-46O9;
+	Thu, 27 Feb 2025 19:40:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnhIk-00000008AGY-1UY9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 17:02:20 +0000
-Date: Thu, 27 Feb 2025 12:02:11 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
-	s=key1; t=1740675736;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=buScLni0fJpq/olYSYs/TP5v5AMqPIGM9l8uVS6GTbk=;
-	b=jYgTgyQatW2/J5YgV8UCLIUrdXMporvBsRM4196W2rfF289Fk2/Fo4JOKsXSBEwxsHD4Sf
-	Mi0suq3ARv+pa1DunsrhOHKtSWRaKeBTK+UgaRt3cgCDDk/HhsWQTkI1OVWM+CDgh5mKYN
-	HOlYj17+N+3DA6LbkE8AmChqAivD9n73e4EY23o4GoSzEU9mLNbvqv2fk1PVTh3q10oaTd
-	mWilusDemTDcY1gqTUHcmmcPS2ePcoYQAdzXYG3QrJkJ0RYqZOj5/rp/Hfr3kLMm/4o8bq
-	6ctgtfJJHAQ1CHalr99fAEPA+kFirTjIlrx4PsnMJ+/2Cy8DEVuDlLkWEV0fig==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-To: fnkl.kernel@gmail.com
-Cc: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>,
-	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Hector Martin <marcan@marcan.st>
-Subject: Re: [PATCH 1/2] iommu: apple-dart: Increase MAX_DARTS_PER_DEVICE to 3
-Message-ID: <Z8Cak9VdyUIedOsV@blossom>
-References: <20250227-isp-dart-v1-0-161e91ef4f46@gmail.com>
- <20250227-isp-dart-v1-1-161e91ef4f46@gmail.com>
+	Thu, 27 Feb 2025 17:03:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C834E1424;
+	Thu, 27 Feb 2025 09:04:12 -0800 (PST)
+Received: from [10.57.39.40] (unknown [10.57.39.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5C4A33F5A1;
+	Thu, 27 Feb 2025 09:03:55 -0800 (PST)
+Message-ID: <8e0cd41d-7cb1-4b78-9cc3-d7c92e86ec0c@arm.com>
+Date: Thu, 27 Feb 2025 17:03:54 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250227-isp-dart-v1-1-161e91ef4f46@gmail.com>
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/3] arm64: realm: Use aliased addresses for device DMA
+ to shared buffers
+Content-Language: en-GB
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-kernel@vger.kernel.org, will@kernel.org, maz@kernel.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, gshan@redhat.com,
+ robin.murphy@arm.com, linux-arm-kernel@lists.infradead.org,
+ Jean-Philippe Brucker <jean-philippe@linaro.org>,
+ Christoph Hellwig <hch@lst.de>, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Tom Lendacky <thomas.lendacky@amd.com>
+References: <20250227144150.1667735-1-suzuki.poulose@arm.com>
+ <20250227144150.1667735-4-suzuki.poulose@arm.com> <Z8CNRqJ6dJAG0Daa@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <Z8CNRqJ6dJAG0Daa@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_090219_833252_380D768D 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20250227_090358_439677_BC436AE6 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,35 +70,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+On 27/02/2025 16:05, Catalin Marinas wrote:
+> On Thu, Feb 27, 2025 at 02:41:50PM +0000, Suzuki K Poulose wrote:
+>> When a device performs DMA to a shared buffer using physical addresses,
+>> (without Stage1 translation), the device must use the "{I}PA address" with the
+>> top bit set in Realm. This is to make sure that a trusted device will be able
+>> to write to shared buffers as well as the protected buffers. Thus, a Realm must
+>> always program the full address including the "protection" bit, like AMD SME
+>> encryption bits.
+>>
+>> Enable this by providing arm64 specific dma_addr_{encrypted, canonical}
+>> helpers for Realms. Please note that the VMM needs to similarly make sure that
+>> the SMMU Stage2 in the Non-secure world is setup accordingly to map IPA at the
+>> unprotected alias.
+>>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Robin Murphy <robin.murphy@arm.com>
+>> Cc: Steven Price <steven.price@arm.com>
+>> Cc: Christoph Hellwig <hch@lst.de>
+>> Cc: Marek Szyprowski <m.szyprowski@samsung.com>
+>> Cc: Tom Lendacky <thomas.lendacky@amd.com>
+>> Cc: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> 
+> In case this goes in via the DMA API tree:
+> 
+> Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 
-Le Thu , Feb 27, 2025 at 05:56:03PM +0100, Sasha Finkelstein via B4 Relay a écrit :
-> From: Hector Martin <marcan@marcan.st>
+Thanks Catalin.
+
 > 
-> ISP needs this.
-> 
-> Signed-off-by: Hector Martin <marcan@marcan.st>
-> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
-> ---
->  drivers/iommu/apple-dart.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/iommu/apple-dart.c b/drivers/iommu/apple-dart.c
-> index 95ba3caeb40177901086076416874b9905a1f40a..edb2fb22333506d7c64ad1b6321df00ebfd07747 100644
-> --- a/drivers/iommu/apple-dart.c
-> +++ b/drivers/iommu/apple-dart.c
-> @@ -36,7 +36,7 @@
->  
->  #define DART_MAX_STREAMS 256
->  #define DART_MAX_TTBR 4
-> -#define MAX_DARTS_PER_DEVICE 2
-> +#define MAX_DARTS_PER_DEVICE 3
->  
->  /* Common registers */
->  
-> 
-> -- 
-> 2.48.1
-> 
-> 
+> (we could bikeshed on the names like unencrypted vs decrypted but I'm
+> not fussed about)
+
+It was initially decrypted, but Robin suggested that the DMA layer 
+already uses "encrypted" and "unencrypted" (e.g., 
+force_dma_unencrypted(), phys_to_dma_unencrypted() etc)
+
+Cheers
+Suzuki
+
+
+
 
