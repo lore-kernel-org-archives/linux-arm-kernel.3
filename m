@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E14F3C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 00:00:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81D70C197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 00:02:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5f7cp01etSGqQcJpVMZaoL9eSKNoSeKF/3ov9ybZvxo=; b=eJeo59UnQkY/hka8GohmG1XxU+
-	Tj3ZGsfnRe/hLbTF+CZBz4hcxlf2xJav9nFhTlpTCSmkCV2fedIZAV71xcJQ+xPrV/0s4egMlnIXC
-	zPNLiNr0nwOAJ5G5nKZwyyT6gUgd0H/s2nKTnveBnGvAXXLg0i955vcCQljN9K/epi2+xI3PNS/Zr
-	V9WQCgXuBOEGdBpkXxihjw/uilL01+KIw9XyEn2iWW5fZ//n/WLRjXqfk5tTBLRRDqiNX3Sl744bV
-	XWrbn2Z8We/wL4U/Nf2Kz7nNVmLZaHpeMpaPpF4tMpOV/YENBXz9DfzUC6BhuSs27nlHv2+diiqTq
-	av8CMw2w==;
+	bh=Z5qldtwKTOk2lyY9k2JiKh0YOeGWKV3wOOQCJvRufmo=; b=YQLz2s0zZosHxkMAMR0yxgtX80
+	+vISyj5q01TNWRdVxQu79oaLUMyTNu6if+9F2sqxdckNld7HRU7EB339lESwQ27nPs0a93wQ0GrXd
+	bDPETlaGO8+k82AywAKMYsNapJkfe+Jw2KxXt9rpV6opfbEqDgBm8V/dDYLaSVL+RljRuTJmskIy9
+	FWoCnSxi4/es6uyOXBvnXrPOnDlHAtPvNkdFCAvhduEOzNFDnnCLnimMLjRD1+YVL9qEbdG2msMP3
+	0Kwzik+YGmb4imNBlgRHe2rLHkaKCcQnMdSKFsL7MQbS1GUpy4pyl88Ch/fgXUC/OjQX+4//PwdYb
+	TYdxQrfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnnnd-00000009DxO-49Py;
-	Fri, 28 Feb 2025 00:00:17 +0000
-Received: from mail-oa1-x2c.google.com ([2001:4860:4864:20::2c])
+	id 1tnnp9-00000009E6I-494g;
+	Fri, 28 Feb 2025 00:01:51 +0000
+Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnnkU-00000009DYo-1wlP;
-	Thu, 27 Feb 2025 23:57:07 +0000
-Received: by mail-oa1-x2c.google.com with SMTP id 586e51a60fabf-2c11ddc865eso462161fac.3;
-        Thu, 27 Feb 2025 15:57:02 -0800 (PST)
+	id 1tnnkV-00000009DZG-2c6X;
+	Thu, 27 Feb 2025 23:57:12 +0000
+Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-727388e8f6cso760485a34.0;
+        Thu, 27 Feb 2025 15:57:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740700621; x=1741305421; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1740700622; x=1741305422; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=5f7cp01etSGqQcJpVMZaoL9eSKNoSeKF/3ov9ybZvxo=;
-        b=cD6muYyx21Nvc4zp20+jBGQrK3f2jopK+Jaih/ZDyNfeUUs35O/lNUx//x3a2FvwWy
-         DNSngQJsGI0KQ9uD4tmWOqHHd4EGeSVULyWKMacA8mTqBJkdaEAd7FtU9WwJfw0LS+Te
-         vzUUybyoTrod7Kz9TomuBqliX7jgPdNUZeow9JkidsnlLkNY3egRH6WhgNBkPmgNTnm/
-         p8mHBde94of/Cw8suFdFLYWKWO8KaxDCxa/GXHd8msTeKhGNzUxQTVNM9wdPvxKbvpS5
-         PfqAAw1DwpATP30FiiyNTtuXd9WS5h58BqNIydbnqVkKsGjAS82uCZlD5/HcjOWQgejO
-         4qtg==
+        bh=Z5qldtwKTOk2lyY9k2JiKh0YOeGWKV3wOOQCJvRufmo=;
+        b=dPdlfZDa2W/GIMcPtK2QU+UTQ8GCSvIGSYqPezWOMSBuRUNhwL4PjEMBuRTkKX8UOC
+         C9ec4yjtT9ck1JIZnQ30Br9KnhVdMBG5FbdtcYmZW/MJc0kOZ3Y1HACQ1WCWPmteI+Ox
+         jATRHoPEnUYPx+Khw4keJo625NJbWgw9i+6Hkk/Z+cI6TDAVWe1Ju3HfqkqPTTJTbFyH
+         pWPS0ga4CWIoOy3ddIMRfNdVEkyocQAXbF7P+kfd7FoZPlIYW7DZkfSajxPbirjoFmyW
+         JiKBBqWb4zngySNrdoY+4n7pZYv/pSgwF7f3RYfx0hfc65Lhj76oX/WCZ6Reb01DeE35
+         GF7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740700621; x=1741305421;
+        d=1e100.net; s=20230601; t=1740700622; x=1741305422;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=5f7cp01etSGqQcJpVMZaoL9eSKNoSeKF/3ov9ybZvxo=;
-        b=R9YLXpBxw1Sglk3qGZYYhyPj1qj/2pvTSQfuxPMyIBRFUHn1Bem9c1HTFd10k565lY
-         HmFmngY9QB8Kc/8DxfcYMILPt8TaM65Jo5wUf7IVJU6zV8J6/56SgqSdUPcYVNLyDt8N
-         JEhRj2eLkpOWc037d+a6ivVBmE/vzMeS5AJnMdJJ5XCtWHqxACJfRlFMu3Sl9DeVNNSv
-         0gdbepNLRDf6tlKaIkzUHPzVUcb19AhiyZPzIjw3QKA9Ox8+WZu0C/elSuHmdI7VwYpZ
-         1Lpbk68i/9u+npcu0MzYuj9mP29t4wu0gpxv6E3HdGgHJNV1VjJj0xTCiEVqc834SytP
-         SIoA==
-X-Forwarded-Encrypted: i=1; AJvYcCWQyq7R1K3tdKvavYJScwsK+LGsgKUnwOG+3OuFw924a7Hig7kYERCOoJF7JtsVBiH3GC1hzOOmmdehwsMIFu4=@lists.infradead.org, AJvYcCXVVy6n1rIPZ+4IwwhBkkWmP7RjV7L17KQtC4fQGx7oD6NMG+k+aOkZ4SnEEe236p5+dYCXAyKHyoaXm2jUcYbq@lists.infradead.org
-X-Gm-Message-State: AOJu0YwqYde72o74O4RSTP96ag2J9gAh/Tfn6tIGt5RGkcsyBJ5yjJdH
-	TJ3OTVCIDERv1+Z/icrEUg8GTE0uw5IS1mOa//t4vijwY61MjM0g
-X-Gm-Gg: ASbGnctox0sEN2LekncOcZHHyACgMphCQ13QF3ok9DZAYIGH9GLsnNvlXSwvGZARuYd
-	v4j3Sc2unaxVakBl7ePcCFbP+cBm9rmco0Trdg8WFwj6CTgQ8I0mVq0575FKu8C3rzaNSqDEi1G
-	QCNS/fci6MHeJEuRAEK7k4Hh6UgIx41uGh2Nwb0/cD5S0BAyoZHX5jO2XXX1QtV8WhyCprfE0Tv
-	j6I5+lDXCcVbATnG1B0l2Ef1dkvtkvfj2doB88ueal2+m7GfxYtuy/n4Q/bI0tUxDod7jByjkzG
-	FgvEbH9+PhM3LsA77dCfFlqyftgJWC1co+g=
-X-Google-Smtp-Source: AGHT+IHeUEKjz+4sGoCB5gVNYNI3uQzQx3hNsvSywy0xjlxhu59fctjx6SgN7YI3BUYwIqr3Z5ffAA==
-X-Received: by 2002:a05:6871:5314:b0:29e:4c37:b471 with SMTP id 586e51a60fabf-2c17873227cmr783286fac.30.1740700621592;
-        Thu, 27 Feb 2025 15:57:01 -0800 (PST)
+        bh=Z5qldtwKTOk2lyY9k2JiKh0YOeGWKV3wOOQCJvRufmo=;
+        b=R35TwdsJfG+Z+ZPHy1Q5Q9rc/5xFBK/ccmJ5/J3xghapEa3aOKOVjHvhFldt3YbM8F
+         5SxO0V0rP/I0DoMl4X/Zq0aFUMlbBpg7nxUCRlZfoJ0mcPxH7WeUXpWXn/wOpV8won4f
+         XLEq3CBV7PMxaAg3v1vGHF5ZgeNSea3UffMPQEDF5y+uNCm3/uF7yjOTwlrryrUAumMS
+         wEDeuG1IV3Yttefvkmx8mAjI94iwL7Cwm8IkmxJifbhudvmvEkQqRuTmTMaD9IUeW/qR
+         XGTtiFC1HqEjH9R+ENhq96ouL1YAQJclPLIhiltqzrtSTkU023Mjgnr7HHAJtF3yeYp/
+         E3Ww==
+X-Forwarded-Encrypted: i=1; AJvYcCVYId67aCEJ8v0ORoyJhp1o6yrGUmtHcyw/HRZbujF0OnwWANdaki4o9a2cvfgYFHMsmqk9vGSJ2V2VCMxzOdMd@lists.infradead.org, AJvYcCVznwfx5SqPLjgX7IWhCG7s3ksiWNIAjIBc4j1/eO8ZKYYYyF3zsZpEkhxn/GRhcOOsN7oE58wjK/oOWis4Mg0=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyd6AnynXpCj1thlo8PBExXkoQm9rM6rqJWyKIn2HT2VcCzicjx
+	7+mF0Y5DZ6OnXuqi1tf5w4osQ2fBovu0qFrxpGhLTAHe6QcgE8Q5
+X-Gm-Gg: ASbGncssGMNhdV/Obm672RiEbHl2QyagpiUctkILZx2Etdx/1jHSHz0uRT6ObA7YNbv
+	yFdaJrOm73NeRVuP+2RyAKXJh98dtwIVUSgO4wPfzCPugBMMfHxijj7OKXIcABBYYvARKVaszev
+	KML4L9U1S8oVeGUztioBIvu6lblEgKJSh6ezBRA2RX5eR3CU/2JJuhMcaq2ChQMZnYkkvGkgQOF
+	6tzvBG7mWtgkTbnj7zAKLzHUL7v6LtnP7SAYbCRe1t6f2gTKodHBr4YkQVGOx4yMTUdo98wI1U6
+	24YJoC8yYV2cLgE/CgnNr5FPmEyfVuNp7is=
+X-Google-Smtp-Source: AGHT+IGEdHKwS2hSSdb/fkXNu1lxMp/LqiB34cBRPY7akjBzyiDCblI/9TJhTawmjo7GuyZgfRQ+1g==
+X-Received: by 2002:a05:6830:2784:b0:727:2b73:cbbb with SMTP id 46e09a7af769-728b8286a11mr661836a34.12.1740700622642;
+        Thu, 27 Feb 2025 15:57:02 -0800 (PST)
 Received: from tower.cjhon.com ([2603:8081:ad00:4a:87c8:8ae4:f338:6188])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-728afd7694fsm443893a34.50.2025.02.27.15.57.00
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-728afd7694fsm443893a34.50.2025.02.27.15.57.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Feb 2025 15:57:01 -0800 (PST)
+        Thu, 27 Feb 2025 15:57:02 -0800 (PST)
 From: Jimmy Hon <honyuenkwun@gmail.com>
 To: Heiko Stuebner <heiko@sntech.de>,
 	Cenk Uluisik <cenk.uluisik@googlemail.com>,
@@ -81,17 +81,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	Jimmy Hon <honyuenkwun@gmail.com>
-Subject: [PATCH 1/4] arm64: dts: rockchip: Enable HDMI0 audio output for Orange Pi 5/5B
-Date: Thu, 27 Feb 2025 17:56:20 -0600
-Message-ID: <20250227235623.1624-2-honyuenkwun@gmail.com>
+Subject: [PATCH 2/4] arm64: dts: rockchip: Enable HDMI audio outputs for Orange Pi 5 Max
+Date: Thu, 27 Feb 2025 17:56:21 -0600
+Message-ID: <20250227235623.1624-3-honyuenkwun@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250227235623.1624-1-honyuenkwun@gmail.com>
 References: <20250227235623.1624-1-honyuenkwun@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_155702_498652_835820CC 
-X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-CacheID: sfid-20250227_155703_658163_D2181622 
+X-CRM114-Status: UNSURE (   9.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,18 +107,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-HDMI audio is available on the Orange Pi 5 HDMI0 TX port.
+HDMI audio is available on the Orange Pi 5 Max HDMI TX ports.
+Enable it for both ports.
 
 Signed-off-by: Jimmy Hon <honyuenkwun@gmail.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ .../boot/dts/rockchip/rk3588-orangepi-5-max.dts  | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
-index 9e16960b8705..3fef11f79788 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
-@@ -197,6 +197,10 @@ hdmi0_out_con: endpoint {
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts
+index be8cc96b5308..8b1d35760c3b 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts
+@@ -50,6 +50,10 @@ hdmi0_out_con: endpoint {
  	};
  };
  
@@ -126,10 +127,21 @@ index 9e16960b8705..3fef11f79788 100644
 +	status = "okay";
 +};
 +
+ &hdmi1 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&hdmim0_tx1_cec &hdmim0_tx1_hpd
+@@ -69,6 +73,10 @@ hdmi1_out_con: endpoint {
+ 	};
+ };
+ 
++&hdmi1_sound {
++	status = "okay";
++};
++
  &hdptxphy0 {
  	status = "okay";
  };
-@@ -355,6 +359,10 @@ &i2s1m0_sdi1
+@@ -77,6 +85,14 @@ &hdptxphy1 {
  	status = "okay";
  };
  
@@ -137,9 +149,13 @@ index 9e16960b8705..3fef11f79788 100644
 +	status = "okay";
 +};
 +
- &mdio1 {
- 	rgmii_phy1: ethernet-phy@1 {
- 		compatible = "ethernet-phy-ieee802.3-c22";
++&i2s6_8ch {
++	status = "okay";
++};
++
+ &led_blue_pwm {
+ 	pwms = <&pwm4 0 25000 0>;
+ };
 -- 
 2.48.1
 
