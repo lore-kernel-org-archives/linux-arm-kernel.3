@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4DAFC282C7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB545C282C8
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:37:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nlO+h5s1Zy7GWUa9wjsUqRXyREiZA4sRNDEoMB9ruZQ=; b=S0HPTg+QEXR9QnErDYlnmhuDnQ
-	uSDlxE7xDT9wnOmj1KiCoBX1DVMh5BEFFGi0QJ8wTPY4DUq0bagcWkjBnXFkiv7YigTwAdbyjhrZZ
-	H3XKKqgwySDOxHsOwNjQOmOL1Na1iQMXvNI2HBjomDJ/hoc7XO0XsgX71NPKwYJVZ3i9NLHshivEE
-	8dQHACMO6V9clXYJzZm9ShNcRYm7f6LFFK4gHAStVgYdhrs0wACxrtkHQNLstEhLSMFoh7COPVYKD
-	rTOHcP7oxvHQP33yDW4w4YhRmnYSspg26C8j9/mOS4maiAMgOpM2qeVLue+8A2TuRztgpFtnH1CR4
-	Q/m+6xAQ==;
+	bh=2wjf5qk9tIY6PWFIE2zevhBevRGtXVokUfnqWpdVT9E=; b=LUP80oU6GkUKaxXIPgdsrxVP4J
+	Z0FHNhH0wmdyQWrpqD0p4W6VQsnlV0EI6eHXM1Qq3S1WSGZce+CoTt0sK6LDKiDF2DitGx8uRyYMm
+	CEyVDcM6VFC+vm31VCjXF+gJtNJqnT1FqxM7Kb48EOB7kjcV3aP06UJDZFDR5SPIYNBR898XkkAx9
+	A9+sxupiDmsJdcDQMgaaMpH6rGEyz3U/CoXQlPHc3oaR5gUu0nJ4nOpb9kcVM9659R0NR1nxy/YQZ
+	B+u84rWCdi0MnlWaGTNp2U0Pcz9DchTAcXF9tw4LGIdEcK8W205sbfV7b7dsi93RpgKDkA2zHzM1s
+	P1KdXPbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjhB-00000008ToP-00tE;
-	Thu, 27 Feb 2025 19:37:21 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnf5l-00000007n9V-1YmV;
-	Thu, 27 Feb 2025 14:42:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1740667342;
-	bh=gw3yhjaD34XHxfwtco/3BRJayc9o3DLXMMEhaJRahdk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=izF4xcrCafDcNBAziKL40z+O24j05bpv7QQCpr1mlk78Prem1x3LczV3gTWAL7eN7
-	 HhP+R9Z2pl3w8KIkEqQjhZc2NkU9pZM9O76ENRFuTqmF0FkP/q4Q2Ed2ohSufJT7VP
-	 PP1KxeY6rZpxCogyjKSJs8EU4iGzu2ZQWSXOWESz9XpGgDaeX+8AioxzOXWDfhed/g
-	 CNeURodYDSoaf82rHOFTcjrORQlR8dpPr0gYJMeu+geM67KX9OnE2ME29goZeTqDnp
-	 vitS9KvVdBuFz/u9xsSVZMx0oowaCuEI3Xpj2Rm34u1aXbKMJTwrb4kCQW40+G2dsn
-	 lCXKMK+0OcoYw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AA0B517E05A6;
-	Thu, 27 Feb 2025 15:42:21 +0100 (CET)
-Message-ID: <06563381-faea-48de-86f1-4db174de394b@collabora.com>
-Date: Thu, 27 Feb 2025 15:42:20 +0100
+	id 1tnjhA-00000008Tn4-11GD;
+	Thu, 27 Feb 2025 19:37:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnf5W-00000007n6r-3izp
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Feb 2025 14:42:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 28A722C3D;
+	Thu, 27 Feb 2025 06:42:26 -0800 (PST)
+Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E88453F673;
+	Thu, 27 Feb 2025 06:42:08 -0800 (PST)
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: linux-kernel@vger.kernel.org
+Cc: will@kernel.org,
+	catalin.marinas@arm.com,
+	maz@kernel.org,
+	steven.price@arm.com,
+	aneesh.kumar@kernel.org,
+	gshan@redhat.com,
+	robin.murphy@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Christoph Hellwig <hch@lst.de>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Tom Lendacky <thomas.lendacky@amd.com>
+Subject: [PATCH v3 3/3] arm64: realm: Use aliased addresses for device DMA to shared buffers
+Date: Thu, 27 Feb 2025 14:41:50 +0000
+Message-ID: <20250227144150.1667735-4-suzuki.poulose@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250227144150.1667735-1-suzuki.poulose@arm.com>
+References: <20250227144150.1667735-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ASoC: mediatek: mt8188: avoid uninitialized variable use
-To: Arnd Bergmann <arnd@kernel.org>, Mark Brown <broonie@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Liam Girdwood <lgirdwood@gmail.com>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- parkeryang <Parker.Yang@mediatek.com>,
- =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
- linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20250227131939.1040168-1-arnd@kernel.org>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250227131939.1040168-1-arnd@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_064225_591216_A22F2B76 
-X-CRM114-Status: UNSURE (   7.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250227_064210_974434_8EE925FE 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,21 +73,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 27/02/25 14:19, Arnd Bergmann ha scritto:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> The 'msk' variable has no initialization:
-> 
-> sound/soc/mediatek/mt8188/mt8188-dai-dmic.c:311:4: error: variable 'msk' is uninitialized when used here [-Werror,-Wuninitialized]
->    311 |                         msk |= PWR2_TOP_CON1_DMIC_FIFO_SOFT_RST_EN(i);
->        |                         ^~~
-> 
-> Set it to zero before the loop.
-> 
-> Fixes: c1e42ec04197 ("ASoC: mediatek: mt8188: Add support for DMIC")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+When a device performs DMA to a shared buffer using physical addresses,
+(without Stage1 translation), the device must use the "{I}PA address" with the
+top bit set in Realm. This is to make sure that a trusted device will be able
+to write to shared buffers as well as the protected buffers. Thus, a Realm must
+always program the full address including the "protection" bit, like AMD SME
+encryption bits.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Enable this by providing arm64 specific dma_addr_{encrypted, canonical}
+helpers for Realms. Please note that the VMM needs to similarly make sure that
+the SMMU Stage2 in the Non-secure world is setup accordingly to map IPA at the
+unprotected alias.
 
+Cc: Will Deacon <will@kernel.org>
+Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Robin Murphy <robin.murphy@arm.com>
+Cc: Steven Price <steven.price@arm.com>
+Cc: Christoph Hellwig <hch@lst.de>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Tom Lendacky <thomas.lendacky@amd.com>
+Cc: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+---
+Changes since v2:
+ - Drop dma_addr_encrypted() helper, which is a NOP for CCA ( Aneesh )
+ - Only mask the "top" IPA bit and not all the bits beyond top bit. ( Robin )
+ - Use PROT_NS_SHARED, now that we only set/clear top bit. (Gavin)
+---
+ arch/arm64/include/asm/mem_encrypt.h | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/arch/arm64/include/asm/mem_encrypt.h b/arch/arm64/include/asm/mem_encrypt.h
+index f8f78f622dd2..a2a1eeb36d4b 100644
+--- a/arch/arm64/include/asm/mem_encrypt.h
++++ b/arch/arm64/include/asm/mem_encrypt.h
+@@ -21,4 +21,15 @@ static inline bool force_dma_unencrypted(struct device *dev)
+ 	return is_realm_world();
+ }
+ 
++/*
++ * For Arm CCA guests, canonical addresses are "encrypted", so no changes
++ * required for dma_addr_encrypted().
++ * The unencrypted DMA buffers must be accessed via the unprotected IPA,
++ * "top IPA bit" set.
++ */
++#define dma_addr_unencrypted(x)		((x) | PROT_NS_SHARED)
++
++/* Clear the "top" IPA bit while converting back */
++#define dma_addr_canonical(x)		((x) & ~PROT_NS_SHARED)
++
+ #endif	/* __ASM_MEM_ENCRYPT_H */
+-- 
+2.43.0
 
 
