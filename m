@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0673C021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 11:03:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5843C1B087
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 11:05:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h+Nv/i3AGjRTsrY90yJrW/7RqYiOCVlJKwcvrzl0CdU=; b=F1njYI9cURQtbi2AUcuUTkYAAw
-	00QTbV+KIlW5h3viFGzlp4CFcICrVRN6tNCKNOKm+IY4nf4kwIgxfS6a11HMRjVXXb3/sXpqyvr00
-	54nYpmRzBymQMNrF/JITLKEsEdz51gbfcpte+kQpIuVor685ClBB2Z8d4nSh9FP9vtvAKAcj0yxCl
-	kZSVFDynOtOIUnwh0+7a5TN7aIsqONgM/qh0HlX7Tqe0G4WhBEOmG2Xx55XjmknauUuQIPrcOZDoi
-	39FfnBFUMnkmPepVtoZIUl3epx07yvgSyk8oun/H9p7QJWPkyjgWo8buaARrlcGg7hljmZeZ1gPW5
-	5Eu4cU4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/rqSAHt9/OA2l3CBgPr0JoENW2JxaW1dKXIPiByOCdg=; b=PH8ikKnN0No+ox/QqosMJuewhv
+	1F3Fom15/Ma0x6gB8usmgqCfYtB/x0RkUENnEvvHHk3BzEmtVi27nK+FwcpIQ6BXRL2KhzgbFMbKq
+	NzPcat4vAfz2cbUGVhio3Jnj2QryL3XJRzFFH4FBzCDEhZdeFkmUVgw+lrmlU/hNqeZJWTSzgNKH1
+	fEXWoJrhBF5QNBwxcJFHjgcDFGQbQWqT7TTaZ5jDcx3mQSEqIEJHGAi9zacV0XS5NYRXKT6DqbHoe
+	MK7pTExXnSrUnZmVF1zzSkZQThmArxLgDolBPvS07AREcg7aYgutm1CGLEZFAkdu+obVR2ehA+wnK
+	jnfNwCHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnbfm-0000000756T-0lTX;
-	Thu, 27 Feb 2025 11:03:22 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tnbhH-000000075Rr-3hQp;
+	Thu, 27 Feb 2025 11:04:55 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnbag-000000074Au-1Hub
+	id 1tnbax-000000074F4-1AKU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 10:58:08 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tnbaV-0008AV-Km; Thu, 27 Feb 2025 11:57:55 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tnbaV-0036wT-18;
-	Thu, 27 Feb 2025 11:57:55 +0100
-Received: from pengutronix.de (p5b164285.dip0.t-ipconnect.de [91.22.66.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id DA0BA3CD463;
-	Thu, 27 Feb 2025 10:57:54 +0000 (UTC)
-Date: Thu, 27 Feb 2025 11:57:54 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Mihalcea Laurentiu <laurentiumihalcea111@gmail.com>
-Cc: Frank Li <Frank.li@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>, 
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
-	Fabio Estevam <festevam@gmail.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Shengjiu Wang <shengjiu.wang@nxp.com>, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 4/5] arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
-Message-ID: <20250227-monumental-whale-of-security-b1c84e-mkl@pengutronix.de>
-References: <20250221191909.31874-1-laurentiumihalcea111@gmail.com>
- <20250221191909.31874-5-laurentiumihalcea111@gmail.com>
- <Z7jahtO3bxjkMfnc@lizhi-Precision-Tower-5810>
- <cd6a84cd-ff17-45df-becc-9bfc74522f73@gmail.com>
+	Thu, 27 Feb 2025 10:58:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1740653903; x=1772189903;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=teTDa3liTei2AdNqaa9IqgRmnKDfj0qKFfTebiwSFag=;
+  b=QhrhG1MNfXqM0BrH9/XB+Pg10P9SYp4w0HbvfV1uEkBcN4w4EOlTW36n
+   w0F7qg0YweAt235spcpx0ry4K5Rvgog60Oiu+jTHbYkU5ppS42IOgf1nF
+   SdcdjAl6NZ2qKCfzl9nDh6br6tcNkOwVrGULFQoR2xTYPZZIdIKJ9ious
+   SlkDScLF6kqh9uavzvZokDYzk0Ba0CDmCgUKoHWDN+i2Z92vu/qnQSQnN
+   s61eBAG0lO9EhAUSuQnHA0RwLPrJAF/PCJE4oNpDkRucdfIhY+es6M9QS
+   Yhh/lWaH4sVlh741hIM40aaUUC3nog620qLAGn65kj4iAIsOjbna+Ho42
+   w==;
+X-CSE-ConnectionGUID: JWjrnE6DQtWZk0nVbJYONA==
+X-CSE-MsgGUID: JCcOmOIfRpqgToz9BX0Zsw==
+X-IronPort-AV: E=Sophos;i="6.13,319,1732604400"; 
+   d="scan'208";a="269594456"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Feb 2025 03:58:22 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Thu, 27 Feb 2025 03:58:12 -0700
+Received: from DEN-DL-M31836.microchip.com (10.10.85.11) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
+ 15.1.2507.35 via Frontend Transport; Thu, 27 Feb 2025 03:58:10 -0700
+From: Horatiu Vultur <horatiu.vultur@microchip.com>
+To: <p.zabel@pengutronix.de>, <Steen.Hegelund@microchip.com>,
+	<daniel.machon@microchip.com>, <UNGLinuxDriver@microchip.com>,
+	<herve.codina@bootlin.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>
+Subject: [PATCH v4] reset: mchp: sparx5: Fix for lan966x
+Date: Thu, 27 Feb 2025 11:55:02 +0100
+Message-ID: <20250227105502.25125-1-horatiu.vultur@microchip.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="khvk74ne4kfr3emu"
-Content-Disposition: inline
-In-Reply-To: <cd6a84cd-ff17-45df-becc-9bfc74522f73@gmail.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_025806_344829_4A19F632 
-X-CRM114-Status: GOOD (  28.80  )
+X-CRM114-CacheID: sfid-20250227_025823_430362_4B10144B 
+X-CRM114-Status: GOOD (  17.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,102 +84,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+With the blamed commit it seems that lan966x doesn't seem to boot
+anymore when the internal CPU is used.
+The reason seems to be the usage of the devm_of_iomap, if we replace
+this with devm_ioremap, this seems to fix the issue as we use the same
+region also for other devices.
 
---khvk74ne4kfr3emu
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 4/5] arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
-MIME-Version: 1.0
+Fixes: 0426a920d6269c ("reset: mchp: sparx5: Map cpu-syscon locally in case of LAN966x")
+Reviewed-by: Herve Codina <herve.codina@bootlin.com>
+Tested-by: Herve Codina <herve.codina@bootlin.com>
+Signed-off-by: Horatiu Vultur <horatiu.vultur@microchip.com>
+---
+v3->v4:
+- update commit message to match the actual changes
+- add comment explaining why we can't use devm_of_iomap
+v2->v3:
+- forward error from of_address_to_resource
+- use devm_ioremap instead of_iomap
+v1->v2:
+- make sure to use iounmap when driver is removed
+---
+ drivers/reset/reset-microchip-sparx5.c | 19 ++++++++++++++-----
+ 1 file changed, 14 insertions(+), 5 deletions(-)
 
-On 25.02.2025 16:14:34, Mihalcea Laurentiu wrote:
->=20
-> On 21.02.2025 21:56, Frank Li wrote:
-> > On Fri, Feb 21, 2025 at 02:19:08PM -0500, Laurentiu Mihalcea wrote:
-> >> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> >>
-> >> AIPS5 is actually AIPSTZ5 as it offers some security-related
-> >> configurations. Since these configurations need to be applied before
-> >> accessing any of the peripherals on the bus, it's better to make AIPST=
-Z5
-> >> be their parent instead of keeping AIPS5 and adding a child node for
-> >> AIPSTZ5. Also, because of the security configurations, the address spa=
-ce
-> >> of the bus has to be changed to that of the configuration registers.
-> > The orginal 0x30c0_0000..0x31200000 include 0x30df0000, why not map only
-> > config address part in your drivers.
-> >
-> > Frank
->=20
->=20
-> Any concerns/anything wrong with current approach?
->=20
->=20
-> I find it a bit awkward to have the whole bus address space
-> in the DT given that we're only interested in using the access
-> controller register space.
->=20
->=20
-> I'm fine with the approach you suggested but I don't see a
-> reason for using it?
+diff --git a/drivers/reset/reset-microchip-sparx5.c b/drivers/reset/reset-microchip-sparx5.c
+index aa5464be7053b..6d3e75b33260e 100644
+--- a/drivers/reset/reset-microchip-sparx5.c
++++ b/drivers/reset/reset-microchip-sparx5.c
+@@ -8,6 +8,7 @@
+  */
+ #include <linux/mfd/syscon.h>
+ #include <linux/of.h>
++#include <linux/of_address.h>
+ #include <linux/module.h>
+ #include <linux/platform_device.h>
+ #include <linux/property.h>
+@@ -72,14 +73,22 @@ static struct regmap *mchp_lan966x_syscon_to_regmap(struct device *dev,
+ 						    struct device_node *syscon_np)
+ {
+ 	struct regmap_config regmap_config = mchp_lan966x_syscon_regmap_config;
+-	resource_size_t size;
++	struct resource res;
+ 	void __iomem *base;
++	int err;
++
++	err = of_address_to_resource(syscon_np, 0, &res);
++	if (err)
++		return ERR_PTR(err);
+ 
+-	base = devm_of_iomap(dev, syscon_np, 0, &size);
+-	if (IS_ERR(base))
+-		return ERR_CAST(base);
++	/* It is not possible to use devm_of_iomap because this resource is
++	 * shared with other drivers.
++	 */
++	base = devm_ioremap(dev, res.start, resource_size(&res));
++	if (!base)
++		return ERR_PTR(-ENOMEM);
+ 
+-	regmap_config.max_register = size - 4;
++	regmap_config.max_register =  resource_size(&res) - 4;
+ 
+ 	return devm_regmap_init_mmio(dev, base, &regmap_config);
+ }
+-- 
+2.34.1
 
-Looking at the "AIPS5 Memory Map" (page 34/35 in i.MX 8M Plus
-Applications Processor Reference Manual, Rev. 3, 08/2024), the
-AIPS5_Configuration is part of the AIPS5 bus. IMHO the bus is something
-different than the bus configuration. Why not model it as part of the
-bus?
-
-> >> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/bo=
-ot/dts/freescale/imx8mp.dtsi
-> >> index e0d3b8cba221..a1d9b834d2da 100644
-> >> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> >> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> >> @@ -1399,11 +1399,13 @@ eqos: ethernet@30bf0000 {
-> >>  			};
-> >>  		};
-> >>
-> >> -		aips5: bus@30c00000 {
-> >> -			compatible =3D "fsl,aips-bus", "simple-bus";
-> >> -			reg =3D <0x30c00000 0x400000>;
-> >> +		aips5: bus@30df0000 {
-                       ^^^^^^^^^^^^
-> >> +			compatible =3D "fsl,imx8mp-aipstz", "simple-bus";
-> >> +			reg =3D <0x30df0000 0x10000>;
-> >> +			power-domains =3D <&pgc_audio>;
-> >>  			#address-cells =3D <1>;
-> >>  			#size-cells =3D <1>;
-> >> +			#access-controller-cells =3D <0>;
-> >>  			ranges;
-> >>
-> >>  			spba-bus@30c00000 {
-                        ^^^^^^^^^^^^^^^^^
-
-This looks very strange: The aips5 bus starts at 0x30df0000 and has a
-child bus starting at 0x30c00000?
-
-regards,
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---khvk74ne4kfr3emu
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmfARS8ACgkQDHRl3/mQ
-kZy1eAf+NIqSit01hbOk1TNt3Hmnml2DOG0v3yFMt3q0JGMriHkU9Rfgf+J6HLQF
-+7ZiOn+KkncBW72Or3hAO4/BjlQoHwaf7ds4d+INbRY9JZxlqc1HovkScesRV+Gi
-ce/CK0cz7sG02xqvFf4D08p3GaC5Do6oGtXmlOt8Mi45HC3ulKLnri/In9ZnfGXb
-HZQr89ukWg67YwLxVd+wwIQzoGPH/qWZAhe+f6lfB8SGd1Jcp+vLoFLBJ2LctquC
-wShPsn0p+dzhjANxj8yNc3uIncdU5yToRwWTTjodk6xQez9Duc+JZplVPMx6ptoJ
-W1mmqIcEGNHve3tu7qHKeKwmrpiH+w==
-=8kNX
------END PGP SIGNATURE-----
-
---khvk74ne4kfr3emu--
 
