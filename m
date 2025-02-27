@@ -4,59 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 236BCC021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 08:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4EE2C1B087
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 08:38:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ypuPD5OxM2/gUWzzTeslfAj9pnWNAkv2HsViXRsiWYc=; b=cXErClsoUGz/77CqhraHPBwHEk
-	WAdfaL98XJ1Yz5zDPldyWlbT1xYkpK4U4dukEeRbpvKQH7q6YE11qu+o5WIbintfJd+qaKOrcDUSx
-	q7X0lG75TGvDETAWWmtL6eHDsv+g1tI4aH58LleMFYx1c2j/Nngm2/6S4Mo0Jd0sznfjhZlK/Zylg
-	TG4/elf7oaKSvsz/pfDR47NL9Fj3zfIi3MmK41BIxJsvNL7mNOGWim8pAvofov7gl29s/bkWBPBkF
-	Wz0riFH305FCEd+ERHTUr2MSHYN6SeQGrsJXs8IH26umssjaXrq2oIbdzc6/Wp6uH6/F/bWoGvXmv
-	sA54mCTA==;
+	bh=PDeYYUOHDnMiBpLFvcoGjESPSceT3e34+89HKRm6dZI=; b=Y2my51YTy9NkraEWEzUTOB/cZQ
+	nayjn8qbu21awNlLrQCIdr660OwF+vIDz9LY2eqXSxANaAhWlGBSEO8+tLEGqtrN/AjabHNEZZSTb
+	MQvsP/keFL2EmMj9PZ8IoK7bQUb6oROZRLcyf4U3uWTYwcgTVKcWLplrLss2wXFc0tFh5EBB73IF1
+	icKQ/QEfMYB1QAzlaVabhxywHMlZTww1UWKZNr2c+PmK6FjAk8uRkVOi16n8HK2NVzDsYU3yr5IeP
+	IXz7Zd+YaVXXEZsScVqz9YNNesvyKwguGu1mUzCWOyYUfXw8ejuu3w3/BER3me3s351T7WZxoTwin
+	5Hza5Gnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnZNl-00000006iQr-03cJ;
-	Thu, 27 Feb 2025 08:36:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnZM7-00000006iCF-3Fqs
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 08:34:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A80172C1C;
-	Thu, 27 Feb 2025 00:35:10 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 719873F6A8;
-	Thu, 27 Feb 2025 00:34:53 -0800 (PST)
-Date: Thu, 27 Feb 2025 08:34:44 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Johan Hovold <johan@kernel.org>
-Cc: Dan Carpenter <dan.carpenter@linaro.org>,
-	Sibi Sankar <quic_sibis@quicinc.com>, sudeep.holla@arm.com,
-	cristian.marussi@arm.com, dmitry.baryshkov@linaro.org,
-	maz@kernel.org, linux-kernel@vger.kernel.org,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org, konradybcio@kernel.org
-Subject: Re: [RFC V6 2/2] firmware: arm_scmi: Add quirk to bypass SCP fw bug
-Message-ID: <Z8AjhHsVT9ZQTtZX@pluto>
-References: <20250226024338.3994701-1-quic_sibis@quicinc.com>
- <20250226024338.3994701-3-quic_sibis@quicinc.com>
- <Z77M5iXHQsdMptWm@hovoldconsulting.com>
- <Z77W-fKBUqAALZKJ@hovoldconsulting.com>
- <759226e1-05aa-4ca2-b2f5-7f1a84dc427f@stanley.mountain>
- <Z77l1NflYXTnRyg0@hovoldconsulting.com>
+	id 1tnZPm-00000006ijO-2nhe;
+	Thu, 27 Feb 2025 08:38:42 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnZOE-00000006iW9-3TEx;
+	Thu, 27 Feb 2025 08:37:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C8D0E5C10E7;
+	Thu, 27 Feb 2025 08:36:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA9A9C4CEDD;
+	Thu, 27 Feb 2025 08:37:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740645425;
+	bh=nRbj/Wkfu4NpdGGUja9RSPwp1X8dZdVwrbBMJ/2V0wM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mRkxdmgokJlBe27n3RIU7ojbt+6jpjnxlL94eKr6TcvXAyZXXYLS+rBDbVJVjv5BR
+	 MZB6qyjZyrvjqgzO1hlFGzXr/ZK6e8Zj7Kx/AmDypMr3NuJOiPYeFSCJDJBtL1rAKi
+	 hU6iqYEbfpEh/YnEyctlqDgGjTODN3TYzh/YFVfimCs1ECvUBd6RA2+QbPpAuPtaOV
+	 LcwHnGjmBAtamEYnvRcabR4R+9O/oZM1rUOm4EFoU99TPGg9E03ouiJfb0FYqe580S
+	 2BQWn7cwGorXReTMdyhVlMgOiAVab+nE6XCa2lpFYoYQeRhl0oYSsURKDKlg2PBnTE
+	 mYXL0AK8kNe1Q==
+Date: Thu, 27 Feb 2025 09:37:02 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	DENG Qingfang <dqfext@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+	upstream@airoha.com, Sayantan Nandy <sayantan.nandy@airoha.com>
+Subject: Re: [PATCH net-next v7 13/15] net: airoha: Introduce flowtable
+ offload support
+Message-ID: <Z8AkLpF1svgNfXNu@lore-desk>
+References: <20250224-airoha-en7581-flowtable-offload-v7-0-b4a22ad8364e@kernel.org>
+ <20250224-airoha-en7581-flowtable-offload-v7-13-b4a22ad8364e@kernel.org>
+ <20250226194310.03398da0@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="3EJw5ixjEJCaV9I4"
 Content-Disposition: inline
-In-Reply-To: <Z77l1NflYXTnRyg0@hovoldconsulting.com>
+In-Reply-To: <20250226194310.03398da0@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_003455_905394_26151B0C 
-X-CRM114-Status: GOOD (  39.63  )
+X-CRM114-CacheID: sfid-20250227_003706_904819_35459999 
+X-CRM114-Status: UNSURE (   8.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,109 +90,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 26, 2025 at 10:58:44AM +0100, Johan Hovold wrote:
-> On Wed, Feb 26, 2025 at 12:31:27PM +0300, Dan Carpenter wrote:
-> > On Wed, Feb 26, 2025 at 09:55:21AM +0100, Johan Hovold wrote:
-> > > On Wed, Feb 26, 2025 at 09:12:23AM +0100, Johan Hovold wrote:
-> > > > On Wed, Feb 26, 2025 at 08:13:38AM +0530, Sibi Sankar wrote:
-> > > 
-> > > > >  scmi_common_fastchannel_init(const struct scmi_protocol_handle *ph,
-> > > > >  			     u8 describe_id, u32 message_id, u32 valid_size,
-> > > > >  			     u32 domain, void __iomem **p_addr,
-> > > > > -			     struct scmi_fc_db_info **p_db, u32 *rate_limit)
-> > > > > +			     struct scmi_fc_db_info **p_db, u32 *rate_limit,
-> > > > > +			     bool skip_check)
-> > > > 
-> > > > This does not look like it will scale.
-> > > 
 
-Hi,
+--3EJw5ixjEJCaV9I4
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> > > After taking a closer look, perhaps it needs to be done along these
-> > > lines.
-> > > 
-> > > But calling the parameter 'force' or similar as Dan suggested should
-> > > make it more readable.
-> > > 
-> > > > >  {
-> > > > >  	int ret;
-> > > > >  	u32 flags;
-> > > > > @@ -1919,7 +1920,7 @@ scmi_common_fastchannel_init(const struct scmi_protocol_handle *ph,
-> > > > >  
-> > > > >  	/* Check if the MSG_ID supports fastchannel */
-> > > > >  	ret = scmi_protocol_msg_check(ph, message_id, &attributes);
-> > > > > -	if (!ret && !MSG_SUPPORTS_FASTCHANNEL(attributes))
-> > > > > +	if (!ret && !MSG_SUPPORTS_FASTCHANNEL(attributes) && !skip_check)
-> > > > 
-> > > > Why can't you just make sure that the bit is set in attributes as I
-> > > > suggested? That seems like it should allow for a minimal implementation
-> > > > of this.
-> > > 
-> > > My idea here was that you could come up with some way of abstracting
-> > > this so that you did not have to update every call site. Not sure how
-> > > feasible that is.
-> > 
-> > I'm having a hard time finding your email.
-> 
-> 	https://lore.kernel.org/lkml/Z4Dt8E7C6upVtEGV@hovoldconsulting.com/
->  
-> > Why does the scmi_proto_helpers_ops struct even exist?  We could just
-> > call all these functions directly.  Do we have plans to actually create
-> > different implementations?
-> > 
-> > If we got rid of the scmi_proto_helpers_ops struct then we could just
-> > rename scmi_common_fastchannel_init() to __scmi_common_fastchannel_init()
-> > and create a default wrapper around it and a _forced() wrapper.
-> > 
-> > Some other potentially stupid ideas in the spirit of brainstorming are
-> > that we could add a quirks parameter which takes a flag instead of a
-> > bool.  Or we could add a quirks flag to the scmi_protocol_handle struct.
-> 
-> Something like that, yes. :) I didn't try to implement it, but it seems
-> like it should be possible implement this is a way that keeps the quirk
-> handling isolated.
->
+> On Mon, 24 Feb 2025 12:25:33 +0100 Lorenzo Bianconi wrote:
+> > +	foe_size =3D PPE_NUM_ENTRIES * sizeof(struct airoha_foe_entry);
+> > +	ppe->foe =3D dmam_alloc_coherent(eth->dev, foe_size, &ppe->foe_dma,
+> > +				       GFP_KERNEL | __GFP_ZERO);
+>=20
+> dmam_alloc_coherent() always zeros the memory, the GFP_ZERO is not necess=
+ary
 
-I hope next week to have a better look at this, in tne meantime just a
-few considerations....
+ack, I will fix it.
 
-Sooner or later we should have introduced some sort of quirk framework
-in SCMI to deal systematically with potentially out-of-spec FW, but as
-in the name, it should be some sort of framework where you have a table of
-quirks, related activation conditions and a few very well isolated points
-where the quirks are placed and take action if enabled...this does not
-seem the case here where instead an ad-hoc param is added to the function
-that needs to be quirked...this does not scale and will make the codebase
-a mess IMHO...
+Regards,
+Lorenzo
 
-Last but not least, these quirks 'activations' in the SCMI world should
-be driven mainly by the VENDOR/SUB-VENDOR/IMPLEMENTATION_VERS triple and
-only as a last resort by a platform compatible match...because the
-IMPLEMENTATION_VERSION, exposed by the FW and gathered via SCMI Base
-protocol, is completely under the vendor control so it can, and should, be
-used to identify broken FW-versions...indeed all the distinct SCMI protocols
-are anyway versioned elsewhere according to the spec, so there is no need to
-repeat SCMI protocol version here..I mean it is an IMPLEMENTATION version
+--3EJw5ixjEJCaV9I4
+Content-Type: application/pgp-signature; name="signature.asc"
 
-As an example on a JUNO the SCP reference FW reports:
+-----BEGIN PGP SIGNATURE-----
 
-arm-scmi arm-scmi.1.auto: SCMI Protocol v2.0 'arm:arm' Firmware version 0x20f0000
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ8AkLgAKCRA6cBh0uS2t
+rHkvAQDr0fPTwe5MsGWTZebtC+cvgeqIcwk+UMbKIk75G9QRHQEAyMgTUip42VH/
+4sD9pimv2XO4Yc7c3UHDupHqbjzpkQw=
+=h8X6
+-----END PGP SIGNATURE-----
 
-where the FW version represent something like the FW release tag, I think...not
-really sure about the menaing our FW gys give to it, BUT definitely it is not
-a bare copy of the SCMI protocol version...
-
-So...
-...does the platfom-to-be-quirked at hand properly use the IMPLEMENTATION_VERSION
-flag in a sensible way ?
-IOW does that change between a bad and good (or less bad :D) version ?
-Because shooting with the platform 'compatible-gun' should be the last resort
-if all of the above does NOT happen in this beloved fw...
-
-Anyway, after all of this babbling, I know, talk is cheap :D...so now I will shut
-up and see if I can prototype something generic to deal with quirks, possibly
-next week...
-
-Thanks,
-Cristian
+--3EJw5ixjEJCaV9I4--
 
