@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29AF3C021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 12:10:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D26EC021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 12:12:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p4FmA/927F5boNXN/102JmQn3FElS/aQCvpXxFZNvS4=; b=Pc8ZrcHa5a6j0aUdT6oYsX3vmh
-	t8X3JGbb47szQq42NqeMbDI8oMQbORmhk+6hU11eYAx/nztNcaZbqz/9MZkbpu2riTQrtj/rz7CjT
-	ZMMjj0eD/Ua6tQ48rT4nhYDu/e9ccV7fjJgR9K28rH6/QMNUJIuZlKkF0vlBmonhLMpfx/Gp4unus
-	Hehz2+oejO0Ur8EE8A+FyQl9EMX7U6R39iOqSCjNsTInw327YgmmfK7K9Xk3/nsD5SN3XU3WcqRoX
-	WHGRQmcXK2c7IF4RPwDwvT9nc7zvp9QpvzoJtOWakvgDRaZM75gav/vo2w0jYS8TpOjuvOmuFgaKT
-	AmyqLluQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XGi4qiLf9rsL71QgwWMb4PvJdyymrfzxVqDoj0cQP6Q=; b=WNIN7MnXfLJ3+8lRjXJv1mYVFj
+	GHcyj2FU23UKVqQmZkFIu8f9zqfghYE3/zsk/WsvBo1v7wM33VZJtE3J6m6TmWmPblMFuG31kA6JU
+	IsrYfzX53QsRK5K27cmTWkjzGTgk5jMUoxFUZoKAUtJL6MF6yAcZIFdbvNBx67tFbZniJ4nWKvut0
+	XQmUm1hjFxuca52PFsA4fYUjxWuZ+ysuDVJN3zsM9apcfv3PPqPVHQLhyYVs9fhxNFh3hL8ANcy31
+	z+FnnMwi2FcV36pCivPxVfADn2eze167tqlGJ6IyS6WyYLK0ndLU+SS1ZRVhBUL3Q3LHu6wx8Khq6
+	k6pOYixA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tncim-00000007IzH-3dKz;
-	Thu, 27 Feb 2025 12:10:32 +0000
+	id 1tnckI-00000007JKL-3NPY;
+	Thu, 27 Feb 2025 12:12:06 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tncEW-00000007DOS-0i2Z
+	id 1tncLK-00000007EEU-1hxB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 11:39:17 +0000
+	Thu, 27 Feb 2025 11:46:19 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1629D15A1;
-	Thu, 27 Feb 2025 03:39:31 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.2.76.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 189873F6A8;
-	Thu, 27 Feb 2025 03:39:14 -0800 (PST)
-Date: Thu, 27 Feb 2025 11:39:10 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, kernel@quicinc.com,
-	linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, kernel@oss.qualcomm.com,
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 2/5] coresight: add coresight Trace NOC driver
-Message-ID: <20250227113910.GA2157064@e132581.arm.com>
-References: <20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com>
- <20250226-trace-noc-driver-v2-2-8afc6584afc5@quicinc.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5461F15A1;
+	Thu, 27 Feb 2025 03:46:31 -0800 (PST)
+Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DADDB3F6A8;
+	Thu, 27 Feb 2025 03:46:13 -0800 (PST)
+Date: Thu, 27 Feb 2025 11:46:11 +0000
+From: Andre Przywara <andre.przywara@arm.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Jernej Skrabec <jernej.skrabec@gmail.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, Chen-Yu
+ Tsai <wens@csie.org>, Conor Dooley <conor+dt@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Samuel Holland <samuel@sholland.org>
+Subject: Re: [PATCH v2 6/8] dt-bindings: pinctrl: add compatible for
+ Allwinner A523/T527
+Message-ID: <20250227114611.67a1ba00@donnerap.manchester.arm.com>
+In-Reply-To: <173949598874.895319.6861900349653451498.robh@kernel.org>
+References: <20250214003734.14944-1-andre.przywara@arm.com>
+	<20250214003734.14944-7-andre.przywara@arm.com>
+	<173949598874.895319.6861900349653451498.robh@kernel.org>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250226-trace-noc-driver-v2-2-8afc6584afc5@quicinc.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_033916_308176_FC6698E4 
-X-CRM114-Status: GOOD (  44.26  )
+X-CRM114-CacheID: sfid-20250227_034618_551760_2FA7FB00 
+X-CRM114-Status: GOOD (  25.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,366 +71,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yuanfang,
+On Thu, 13 Feb 2025 19:19:48 -0600
+"Rob Herring (Arm)" <robh@kernel.org> wrote:
 
-On Wed, Feb 26, 2025 at 07:05:51PM +0800, Yuanfang Zhang wrote:
+Hi Rob,
+
+> On Fri, 14 Feb 2025 00:37:32 +0000, Andre Przywara wrote:
+> > The A523 contains a pin controller similar to previous SoCs, although
+> > using 10 GPIO banks (PortB-PortK), all of them being IRQ capable.
+> > With this SoC we introduce a new style of binding, where the pinmux values
+> > for each pin group are stored in the new "allwinner,pinmux" property in
+> > the DT node, instead of requiring every driver to store a mapping between
+> > the function names and the required pinmux.
+> > 
+> > Add a new binding file, since all the different variants of the old
+> > binding are making the file a bit unwieldy to handle already, and the new
+> > property would make the situation worse.
+> > 
+> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> > ---
+> >  .../allwinner,sun55i-a523-pinctrl.yaml        | 177 ++++++++++++++++++
+> >  1 file changed, 177 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/pinctrl/allwinner,sun55i-a523-pinctrl.yaml
+> >   
 > 
-> Add driver to support Coresight device Trace NOC(Network On Chip).
-> Trace NOC is an integration hierarchy which is a replacement of
-> Dragonlink configuration. It brings together debug components like
-> TPDA, funnel and interconnect Trace Noc.
+> My bot found errors running 'make dt_binding_check' on your patch:
 > 
-> It sits in the different subsystem of SOC and aggregates the trace
-> and transports to QDSS trace bus.
+> yamllint warnings/errors:
 > 
-> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-> ---
->  drivers/hwtracing/coresight/Kconfig          |  13 ++
->  drivers/hwtracing/coresight/Makefile         |   1 +
->  drivers/hwtracing/coresight/coresight-tnoc.c | 190 +++++++++++++++++++++++++++
->  drivers/hwtracing/coresight/coresight-tnoc.h |  53 ++++++++
->  4 files changed, 257 insertions(+)
+> dtschema/dtc warnings/errors:
+> Documentation/devicetree/bindings/pinctrl/allwinner,sun55i-a523-pinctrl.example.dts:24:18: fatal error: dt-bindings/clock/sun55i-a523-r-ccu.h: No such file or directory
+>    24 |         #include <dt-bindings/clock/sun55i-a523-r-ccu.h>
+>       |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Ah yeah, of course, that's in another series. What's the best approach
+here? I could cheekily import an existing header file, the symbol names in
+there are often the same (ccu-sun20i-d1-r.h defines the same symbol, even
+with the same number).
+Or I just replace it below with the number "1"?
+Or let git format-patch append the patch-id of the clock binding header
+patch?
+
+Cheers,
+Andre
+
+> compilation terminated.
+> make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/pinctrl/allwinner,sun55i-a523-pinctrl.example.dtb] Error 1
+> make[2]: *** Waiting for unfinished jobs....
+> make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1511: dt_binding_check] Error 2
+> make: *** [Makefile:251: __sub-make] Error 2
 > 
-> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
-> index 06f0a7594169c5f03ca5f893b7debd294587de78..6cfd160f09d383ab5f5aa276fa57496a52c8f961 100644
-> --- a/drivers/hwtracing/coresight/Kconfig
-> +++ b/drivers/hwtracing/coresight/Kconfig
-> @@ -247,4 +247,17 @@ config CORESIGHT_DUMMY
+> doc reference errors (make refcheckdocs):
 > 
->           To compile this driver as a module, choose M here: the module will be
->           called coresight-dummy.
-> +
-> +config CORESIGHT_TNOC
-> +       tristate "Coresight Trace Noc driver"
-> +       help
-> +         This driver provides support for Trace NoC component.
-> +         Trace NoC is a interconnect that is used to collect trace from
-> +         various subsystems and transport it QDSS trace sink.It sits in
-
-Trace NoC is an interconnect used to collect traces from various
-subsystems and transport to a QDSS trace sink.
-
-> +         the different tiles of SOC and aggregates the trace local to the
-> +         tile and transports it another tile or to QDSS trace sink eventually.
-> +
-> +         To compile this driver as a module, choose M here: the module will be
-> +         called coresight-tnoc.
-> +
->  endif
-> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
-> index 4ba478211b318ea5305f9f98dda40a041759f09f..60b729979f19c8f8848c77c290605132dba1a991 100644
-> --- a/drivers/hwtracing/coresight/Makefile
-> +++ b/drivers/hwtracing/coresight/Makefile
-> @@ -34,6 +34,7 @@ obj-$(CONFIG_CORESIGHT_SINK_TPIU) += coresight-tpiu.o
->  obj-$(CONFIG_CORESIGHT_SINK_ETBV10) += coresight-etb10.o
->  obj-$(CONFIG_CORESIGHT_LINKS_AND_SINKS) += coresight-funnel.o \
->                                            coresight-replicator.o
-> +obj-$(CONFIG_CORESIGHT_TNOC) += coresight-tnoc.o
->  obj-$(CONFIG_CORESIGHT_SOURCE_ETM3X) += coresight-etm3x.o
->  coresight-etm3x-y := coresight-etm3x-core.o coresight-etm-cp14.o \
->                      coresight-etm3x-sysfs.o
-> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..fad8e61f05ef25989aba1be342c547f835e8953a
-> --- /dev/null
-> +++ b/drivers/hwtracing/coresight/coresight-tnoc.c
-> @@ -0,0 +1,190 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
-> + */
-> +
-> +#include <linux/kernel.h>
-> +#include <linux/module.h>
-> +#include <linux/device.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/amba/bus.h>
-> +#include <linux/io.h>
-> +#include <linux/coresight.h>
-> +#include <linux/of.h>
-
-Please include headers in alphabetical ordering.
-
-> +#include "coresight-priv.h"
-> +#include "coresight-tnoc.h"
-> +#include "coresight-trace-id.h"
-> +
-> +static void trace_noc_enable_hw(struct trace_noc_drvdata *drvdata)
-> +{
-> +       u32 val;
-> +
-> +       /* Set ATID */
-> +       writel_relaxed(drvdata->atid, drvdata->base + TRACE_NOC_XLD);
-> +
-> +       /* Config sync CR */
-> +       writel_relaxed(0xffff, drvdata->base + TRACE_NOC_SYNCR);
-> +
-> +       /* Set frequency value */
-> +       writel_relaxed(drvdata->freq_req_val, drvdata->base + TRACE_NOC_FREQVAL);
-> +
-> +       /* Set Ctrl register */
-> +       val = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
-> +
-> +       if (drvdata->flag_type == FLAG_TS)
-> +               val = val | TRACE_NOC_CTRL_FLAGTYPE;
-> +       else
-> +               val = val & ~TRACE_NOC_CTRL_FLAGTYPE;
-> +
-> +       if (drvdata->freq_type == FREQ_TS)
-> +               val = val | TRACE_NOC_CTRL_FREQTYPE;
-> +       else
-> +               val = val & ~TRACE_NOC_CTRL_FREQTYPE;
-> +
-> +       val = val | TRACE_NOC_CTRL_PORTEN;
-> +       writel_relaxed(val, drvdata->base + TRACE_NOC_CTRL);
-
-It is fine for using writel_relaxed() for continuous writing into the
-same component.  However, the last writing into TRACE_NOC_CTRL enales
-the NOC but without any barrier guard, it might cause the out-of-order
-issue with Arm CoreSight modules (or any other relevant endpoints).
-
-I'd like suggest to use writel() for writing TRACE_NOC_CTRL.
-
-> +       dev_dbg(drvdata->dev, "Trace NOC is enabled\n");
-> +}
-> +
-> +static int trace_noc_enable(struct coresight_device *csdev, struct coresight_connection *inport,
-> +                           struct coresight_connection *outport)
-> +{
-> +       struct trace_noc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> +
-> +       spin_lock(&drvdata->spinlock);
-> +       if (csdev->refcnt == 0)
-
-AFAICT csdev->refcnt is only used in sink drivers.  This driver is for
-funnel, it should use `inport->dest_refcnt` as the counter.
-
-> +               trace_noc_enable_hw(drvdata);
-> +
-> +       csdev->refcnt++;
-> +       spin_unlock(&drvdata->spinlock);
-> +
-> +       return 0;
-> +}
-> +
-> +static void trace_noc_disable_hw(struct trace_noc_drvdata *drvdata)
-> +{
-> +       writel_relaxed(0x0, drvdata->base + TRACE_NOC_CTRL);
-
-Same with the comment above for using writel() to replace
-writel_relaxed().
-
-> +       dev_dbg(drvdata->dev, "Trace NOC is disabled\n");
-> +}
-> +
-> +static void trace_noc_disable(struct coresight_device *csdev, struct coresight_connection *inport,
-> +                             struct coresight_connection *outport)
-> +{
-> +       struct trace_noc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> +
-> +       spin_lock(&drvdata->spinlock);
-> +       if (--csdev->refcnt == 0)
-> +               trace_noc_disable_hw(drvdata);
-> +
-> +       spin_unlock(&drvdata->spinlock);
-> +       dev_info(drvdata->dev, "Trace NOC is disabled\n");
-> +}
-> +
-> +static const struct coresight_ops_link trace_noc_link_ops = {
-> +       .enable         = trace_noc_enable,
-> +       .disable        = trace_noc_disable,
-> +};
-> +
-> +static const struct coresight_ops trace_noc_cs_ops = {
-> +       .link_ops       = &trace_noc_link_ops,
-> +};
-> +
-> +static int trace_noc_init_default_data(struct trace_noc_drvdata *drvdata)
-> +{
-> +       int atid;
-> +
-> +       atid = coresight_trace_id_get_system_id();
-> +       if (atid < 0)
-> +               return atid;
-> +
-> +       drvdata->atid = atid;
-> +
-> +       drvdata->freq_type = FREQ_TS;
-
-I don't see anywhere uses FREQ.  Please remove the unused definitions
-and related code.
-
-> +       drvdata->flag_type = FLAG;
-
-FLAG_TS is not used in the driver as well.  Remove it.
-
-> +       drvdata->freq_req_val = 0;
-> +
-> +       return 0;
-> +}
-> +
-> +static int trace_noc_probe(struct amba_device *adev, const struct amba_id *id)
-> +{
-> +       struct device *dev = &adev->dev;
-> +       struct coresight_platform_data *pdata;
-> +       struct trace_noc_drvdata *drvdata;
-> +       struct coresight_desc desc = { 0 };
-> +       int ret;
-> +
-> +       desc.name = coresight_alloc_device_name(&trace_noc_devs, dev);
-> +       if (!desc.name)
-> +               return -ENOMEM;
-> +       pdata = coresight_get_platform_data(dev);
-> +       if (IS_ERR(pdata))
-> +               return PTR_ERR(pdata);
-> +       adev->dev.platform_data = pdata;
-> +
-> +       drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
-> +       if (!drvdata)
-> +               return -ENOMEM;
-> +
-> +       drvdata->dev = &adev->dev;
-> +       dev_set_drvdata(dev, drvdata);
-> +
-> +       drvdata->base = devm_ioremap_resource(dev, &adev->res);
-> +       if (!drvdata->base)
-> +               return -ENOMEM;
-> +
-> +       spin_lock_init(&drvdata->spinlock);
-> +
-> +       ret = trace_noc_init_default_data(drvdata);
-> +       if (ret)
-> +               return ret;
-> +
-> +       desc.ops = &trace_noc_cs_ops;
-> +       desc.type = CORESIGHT_DEV_TYPE_LINK;
-> +       desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_MERG;
-> +       desc.pdata = adev->dev.platform_data;
-> +       desc.dev = &adev->dev;
-> +       desc.access = CSDEV_ACCESS_IOMEM(drvdata->base);
-> +       drvdata->csdev = coresight_register(&desc);
-> +       if (IS_ERR(drvdata->csdev))
-> +               return PTR_ERR(drvdata->csdev);
-> +
-> +       pm_runtime_put(&adev->dev);
-> +
-> +       return 0;
-> +}
-> +
-> +static void trace_noc_remove(struct amba_device *adev)
-> +{
-> +       struct trace_noc_drvdata *drvdata = dev_get_drvdata(&adev->dev);
-> +
-> +       coresight_trace_id_put_system_id(drvdata->atid);
-> +       coresight_unregister(drvdata->csdev);
-> +}
-> +
-> +static struct amba_id trace_noc_ids[] = {
-> +       {
-> +               .id     = 0x000f0c00,
-> +               .mask   = 0x000fff00,
-
-Unlike Arm CoreSight drivers (the mask value is 0x000fffff in most
-cases), could you remind me why here the mask is 0x000fff00?
-
-> +       },
-> +       {},
-> +};
-> +MODULE_DEVICE_TABLE(amba, trace_noc_ids);
-> +
-> +static struct amba_driver trace_noc_driver = {
-> +       .drv = {
-> +               .name   = "coresight-trace-noc",
-> +               .owner  = THIS_MODULE,
-
-I don't think you need to explicitly set `THIS_MODULE`, as this will
-be set default by amba_driver_register().
-
-> +               .suppress_bind_attrs = true,
-> +       },
-> +       .probe          = trace_noc_probe,
-> +       .remove         = trace_noc_remove,
-> +       .id_table       = trace_noc_ids,
-> +};
-> +
-> +module_amba_driver(trace_noc_driver);
-> +
-> +MODULE_LICENSE("GPL");
-> +MODULE_DESCRIPTION("Trace NOC driver");
-> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.h b/drivers/hwtracing/coresight/coresight-tnoc.h
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..b6bd1ef659897d8e0994c5e8514e8cbdd16eebd8
-> --- /dev/null
-> +++ b/drivers/hwtracing/coresight/coresight-tnoc.h
-> @@ -0,0 +1,53 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (c) 2022-2024 Qualcomm Innovation Center, Inc. All rights reserved.
-> + */
-> +
-> +#define TRACE_NOC_CTRL 0x008
-> +#define TRACE_NOC_XLD  0x010
-> +#define TRACE_NOC_FREQVAL      0x018
-> +#define TRACE_NOC_SYNCR        0x020
-> +
-> +/* Enable generation of output ATB traffic.*/
-> +#define TRACE_NOC_CTRL_PORTEN  BIT(0)
-> +/* Writing 1 to issue a FREQ or FREQ_TS packet*/
-> +#define TRACE_NOC_CTRL_FREQTSREQ       BIT(5)
-
-This is not used.  Remove it.
-
-> +/* Sets the type of issued ATB FLAG packets. 0: 'FLAG' packets; 1: 'FLAG_TS' packets.*/
-> +#define TRACE_NOC_CTRL_FLAGTYPE                BIT(7)
-
-> +/* sets the type of issued ATB FREQ packets. 0: 'FREQ' packets; 1: 'FREQ_TS' packets.*/
-> +#define TRACE_NOC_CTRL_FREQTYPE                BIT(8)
-> +DEFINE_CORESIGHT_DEVLIST(trace_noc_devs, "traceNoc");
-
-It is good to move the definition into C file.
-
-Thanks,
-Leo
-
-> +
-> +/**
-> + * struct trace_noc_drvdata - specifics associated to a trace noc component
-> + * @base:      memory mapped base address for this component.
-> + * @dev:       device node for trace_noc_drvdata.
-> + * @csdev:     component vitals needed by the framework.
-> + * @spinlock:  only one at a time pls.
-> + * @atid:      id for the trace packet.
-> + * @freqtype:  0: 'FREQ' packets; 1: 'FREQ_TS' packets.
-> + * @flagtype:  0: 'FLAG' packets; 1: 'FLAG_TS' packets.
-> + * @freq_req_val:       set frequency values carried by 'FREQ' and 'FREQ_TS' packets.
-> + */
-> +struct trace_noc_drvdata {
-> +       void __iomem            *base;
-> +       struct device           *dev;
-> +       struct coresight_device *csdev;
-> +       spinlock_t              spinlock; /* lock for the drvdata. */
-> +       u32                     atid;
-> +       u32                     freq_type;
-> +       u32                     flag_type;
-> +       u32                     freq_req_val;
-> +};
-> +
-> +/* freq type */
-> +enum freq_type {
-> +       FREQ,
-> +       FREQ_TS,
-> +};
-> +
-> +/* flag type */
-> +enum flag_type {
-> +       FLAG,
-> +       FLAG_TS,
-> +};
+> See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250214003734.14944-7-andre.przywara@arm.com
 > 
-> --
-> 2.34.1
+> The base for the series is generally the latest rc1. A different dependency
+> should be noted in *this* patch.
 > 
-> _______________________________________________
-> CoreSight mailing list -- coresight@lists.linaro.org
-> To unsubscribe send an email to coresight-leave@lists.linaro.org
+> If you already ran 'make dt_binding_check' and didn't see the above
+> error(s), then make sure 'yamllint' is installed and dt-schema is up to
+> date:
+> 
+> pip3 install dtschema --upgrade
+> 
+> Please check and re-submit after running the above command yourself. Note
+> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+> your schema. However, it must be unset to test all examples with your schema.
+> 
+
 
