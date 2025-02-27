@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3218AC021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 09:48:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FD7EC1B087
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 09:49:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RIPAEx0Xxkg/M3o31a8OSRrTsKWxz+XD/C1adjeL+Xs=; b=MBvUy0a78AQPskU4cUTOXiUNRQ
-	inXNqPUZDtYXGGHQBc+PKKz1nAcNd3srHVsEH5PnFYzuKanHHSR3AcPVvyARDMH81TeWLJz+sr1Ms
-	P+hBl/9YsfUE9FdfgCxpdDlE34e9n+f00L667Oupc9HikkwuueYpkrZ1iF+p9E7cnhuhjVS5dYd4N
-	XQRhFvZ4teNUsVAmCRUOrXfwUNglyAF8x7W/gz1Qr8m25ywHv3ooUdzFvZ8mcWS0lckbJ0+6ENpAV
-	I/xFIMt/8l7zDDdI8dOEESeRlhfy0biAzfWvVO4t7azMmaYGf28T7yO6O0+eHMdShnWbpurwa4Cj6
-	hjhnt1/Q==;
+	bh=1l7edTeasmoMFPJa7aEBSwFL/pdGW62t+1SXgjMizNw=; b=MQGlz0uidzrICF33JidRbworzG
+	lhY6kQnfkozAbrwH0C3t8rM5zN+gjM+sX0h1y1abkIwyD00bRN4/CzsgNcjC6lit96csDk/nKVzWD
+	HJtuLq5EINN288XiLloVQQfFz9KZSkc7QzGUf8s1nwEnLmTw+Ogu+hDioFpF9eSq8//V14HCEgJTi
+	SzWbOvMz98S2qkSDELVcOipEm3EF/hMpbqb0LXXuTM+CQa2G4frc/FmPrXehdGKl0aE+Tv3T0mSAF
+	+vY+j8Y2KM9E4f/TeaoyCXtDEuDmcT0UmpwH8MP9upPtpiJguI5HmHAG9pf7Tjj7Z+cNFxtmF3uCR
+	Ud4kdF1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnaUl-00000006uUp-23aT;
-	Thu, 27 Feb 2025 09:47:55 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tnaWG-00000006uae-0XeO;
+	Thu, 27 Feb 2025 09:49:28 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnaB4-00000006rKC-1VAP
+	id 1tnaB7-00000006rL0-30Ew
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 09:27:35 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51R9RPWE017857;
-	Thu, 27 Feb 2025 09:27:27 GMT
+	Thu, 27 Feb 2025 09:27:38 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51R8n5mw002157;
+	Thu, 27 Feb 2025 09:27:30 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	RIPAEx0Xxkg/M3o31a8OSRrTsKWxz+XD/C1adjeL+Xs=; b=V+pGbUmKqRhw/Icu
-	dARjqtTMfr6Flm68haQxE1A/U7Jq2mZONnW4K/to/MCU0KYpfovlZ1GJVbb8P2Sp
-	DVvlqLGTeXiM+R2NGUi6fzLho1kLP0sYPFoE5tund3RtojsfOKDnAgL5ATWsD0Gf
-	DDVk91EwbWet1gIZ4npPXLa6sYXkKgMaBv0VzpFHaWPYO34v8JFwy59549wSPtmf
-	y3LKeEjB6whMoirpXv0T0fVsNybKdUtcZt0O7unQveY8LKN0VuSXGqfJDWj+yrhX
-	gzNVTiBGFnLsJ+1Bv6ZvGgy8u2J8ka/JX5h6A3FkFu3n5aNJRn3hsFbioumRXfBZ
-	xJm50Q==
-Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 451prn532m-1
+	1l7edTeasmoMFPJa7aEBSwFL/pdGW62t+1SXgjMizNw=; b=VwWV+QVIYrpjXcOG
+	CM3KKCLtKafZtyZ7UGNICLSRtHB/JeKEatGw6IR2JItnFWqUUGxRV3EzyuhmIK/k
+	+CFL5CeIaMpenqSwy27FHo0+y8lqU7Qk8tvUzTLXJhOJILx9T++TV68FoMw3SXMT
+	vZ2Pt6+lKALaGtksQL2yezUeLK1T+Mf1PauyJ4tiu9tq+3RJIr1vqd9vPuB4t4Nn
+	npB7dMsiFscXCC36FfAg7HLQ05+bDIpYdfBqyCgljI4WTT/B/M/K/TrjXT6/3YVp
+	mRnd/pL+xlgZYePIBF2z/tKvwe7fuP/7bOC1gVJOF+9V+zvYy2kHRHDL6IHfIpr5
+	FMOHLQ==
+Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 451pu9d4dj-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 27 Feb 2025 09:27:26 +0000 (GMT)
+	Thu, 27 Feb 2025 09:27:30 +0000 (GMT)
 Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51R9RP0l021781
+	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51R9RUqG012443
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 27 Feb 2025 09:27:25 GMT
+	Thu, 27 Feb 2025 09:27:30 GMT
 Received: from ap-cloud-sh02-lnx.qualcomm.com (10.80.80.8) by
  nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Thu, 27 Feb 2025 01:27:21 -0800
+ 15.2.1544.9; Thu, 27 Feb 2025 01:27:25 -0800
 From: songchai <quic_songchai@quicinc.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
         Mike Leach
@@ -69,9 +69,9 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 CC: Songwei Chai <quic_songchai@quicinc.com>, <linux-kernel@vger.kernel.org>,
         <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
         <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>
-Subject: [PATCH v3 6/7] coresight-tgu: add timer/counter functionality for TGU
-Date: Thu, 27 Feb 2025 17:26:39 +0800
-Message-ID: <20250227092640.2666894-7-quic_songchai@quicinc.com>
+Subject: [PATCH v3 7/7] coresight-tgu: add reset node to initialize
+Date: Thu, 27 Feb 2025 17:26:40 +0800
+Message-ID: <20250227092640.2666894-8-quic_songchai@quicinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250227092640.2666894-1-quic_songchai@quicinc.com>
 References: <20250227092640.2666894-1-quic_songchai@quicinc.com>
@@ -83,19 +83,19 @@ X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
  nasanex01b.na.qualcomm.com (10.46.141.250)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: ZIShICkOIyNnN1nQ4u0SpE0TJvaIw61A
-X-Proofpoint-GUID: ZIShICkOIyNnN1nQ4u0SpE0TJvaIw61A
+X-Proofpoint-GUID: ez9pBtqEFL_RKGTRrdyRjH8hiiDxTHnL
+X-Proofpoint-ORIG-GUID: ez9pBtqEFL_RKGTRrdyRjH8hiiDxTHnL
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-02-27_04,2025-02-26_01,2024-11-22_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- spamscore=0 clxscore=1011 mlxscore=0 adultscore=0 mlxlogscore=999
- suspectscore=0 phishscore=0 bulkscore=0 malwarescore=0 lowpriorityscore=0
- impostorscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ phishscore=0 adultscore=0 spamscore=0 impostorscore=0 lowpriorityscore=0
+ bulkscore=0 mlxlogscore=999 malwarescore=0 suspectscore=0 clxscore=1011
+ mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
  engine=8.19.0-2502100000 definitions=main-2502270071
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_012734_527313_68C80A81 
-X-CRM114-Status: GOOD (  21.97  )
+X-CRM114-CacheID: sfid-20250227_012737_762687_108141A5 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,299 +112,127 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Songwei Chai <quic_songchai@quicinc.com>
 
-Add counter and timer node for each step which could be
-programed if they are to be utilized in trigger event/sequence.
+Add reset node to initialize the value of
+priority/condition_decode/condition_select/timer/counter nodes
 
 Signed-off-by: Songwei Chai <quic_songchai@quicinc.com>
 Signed-off-by: songchai <quic_songchai@quicinc.com>
 ---
- .../testing/sysfs-bus-coresight-devices-tgu   | 14 +++
- drivers/hwtracing/coresight/coresight-tgu.c   | 95 ++++++++++++++++++-
- drivers/hwtracing/coresight/coresight-tgu.h   | 47 ++++++++-
- 3 files changed, 154 insertions(+), 2 deletions(-)
+ .../testing/sysfs-bus-coresight-devices-tgu   |  7 ++
+ drivers/hwtracing/coresight/coresight-tgu.c   | 79 +++++++++++++++++++
+ 2 files changed, 86 insertions(+)
 
 diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
-index bd41d872ab46..d88d05fbff43 100644
+index d88d05fbff43..8fb5afd7c655 100644
 --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
 +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
-@@ -28,3 +28,17 @@ KernelVersion   6.15
+@@ -42,3 +42,10 @@ KernelVersion   6.15
  Contact:        Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Sam Chai (QUIC) <quic_songchai@quicinc.com>
  Description:
-                 (RW) Set/Get the next action with specific step for TGU.
+                 (RW) Set/Get the counter value with specific step for TGU.
 +
-+What:           /sys/bus/coresight/devices/<tgu-name>/step[0:7]_timer/reg[0:1]
++What:           /sys/bus/coresight/devices/<tgu-name>/reset_tgu
 +Date:           February 2025
 +KernelVersion   6.15
 +Contact:        Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Sam Chai (QUIC) <quic_songchai@quicinc.com>
 +Description:
-+                (RW) Set/Get the timer value with specific step for TGU.
-+
-+What:           /sys/bus/coresight/devices/<tgu-name>/step[0:7]_counter/reg[0:1]
-+Date:           February 2025
-+KernelVersion   6.15
-+Contact:        Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Sam Chai (QUIC) <quic_songchai@quicinc.com>
-+Description:
-+                (RW) Set/Get the counter value with specific step for TGU.
++                (Write) Reset the dataset for TGU.
 diff --git a/drivers/hwtracing/coresight/coresight-tgu.c b/drivers/hwtracing/coresight/coresight-tgu.c
-index 4f41bd0fd5d7..693d632fb079 100644
+index 693d632fb079..b36ced761c0d 100644
 --- a/drivers/hwtracing/coresight/coresight-tgu.c
 +++ b/drivers/hwtracing/coresight/coresight-tgu.c
-@@ -37,6 +37,10 @@ static int calculate_array_location(struct tgu_drvdata *drvdata, int step_index,
- 	case TGU_CONDITION_SELECT:
- 		ret = step_index * (drvdata->max_condition_select) + reg_index;
- 		break;
-+	case TGU_COUNTER:
-+	case TGU_TIMER:
-+		ret = step_index * (drvdata->max_timer_counter) + reg_index;
-+		break;
- 	default:
- 		break;
- 	}
-@@ -70,7 +74,16 @@ static ssize_t tgu_dataset_show(struct device *dev,
- 			drvdata->value_table->condition_select[calculate_array_location(
- 				drvdata, tgu_attr->step_index, tgu_attr->operation_index,
- 				tgu_attr->reg_num)]);
--
-+	case TGU_TIMER:
-+		return sysfs_emit(buf, "0x%x\n",
-+			drvdata->value_table->timer[calculate_array_location(
-+				drvdata, tgu_attr->step_index, tgu_attr->operation_index,
-+				tgu_attr->reg_num)]);
-+	case TGU_COUNTER:
-+		return sysfs_emit(buf, "0x%x\n",
-+			drvdata->value_table->counter[calculate_array_location(
-+				drvdata, tgu_attr->step_index, tgu_attr->operation_index,
-+				tgu_attr->reg_num)]);
- 	}
- 	return -EINVAL;
+@@ -343,6 +343,84 @@ static ssize_t enable_tgu_store(struct device *dev,
+ }
+ static DEVICE_ATTR_RW(enable_tgu);
  
-@@ -113,6 +126,18 @@ static ssize_t tgu_dataset_store(struct device *dev,
- 			tgu_attr->reg_num)] = val;
- 		ret = size;
- 		break;
-+	case TGU_TIMER:
-+		tgu_drvdata->value_table->timer[calculate_array_location(
-+			tgu_drvdata, tgu_attr->step_index, tgu_attr->operation_index,
-+			tgu_attr->reg_num)] = val;
-+		ret = size;
-+		break;
-+	case TGU_COUNTER:
-+		tgu_drvdata->value_table->counter[calculate_array_location(
-+			tgu_drvdata, tgu_attr->step_index, tgu_attr->operation_index,
-+			tgu_attr->reg_num)] = val;
-+		ret = size;
-+		break;
- 	default:
- 		break;
- 	}
-@@ -153,6 +178,15 @@ static umode_t tgu_node_visible(struct kobject *kobject, struct attribute *attr,
- 					drvdata->max_condition_select) ?
- 						attr->mode : 0;
- 			break;
-+		case TGU_COUNTER:
-+		case TGU_TIMER:
-+			if (drvdata->max_timer_counter == 0)
-+				ret = SYSFS_GROUP_INVISIBLE;
-+			else
-+				ret = (tgu_attr->reg_num <
-+					drvdata->max_timer_counter) ?
-+					attr->mode : 0;
-+			break;
- 		default:
- 			break;
- 		}
-@@ -200,6 +234,26 @@ static void tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
- 		}
- 	}
- 
-+	for (i = 0; i < drvdata->max_step; i++) {
-+		for (j = 0; j < drvdata->max_timer_counter; j++) {
-+			tgu_writel(drvdata,
-+				drvdata->value_table->timer
-+					[calculate_array_location(drvdata, i,
-+							TGU_TIMER, j)],
-+						TIMER0_COMPARE_STEP(i, j));
++/* reset_tgu_store - Reset Trace and Gating Unit (TGU) configuration. */
++static ssize_t reset_tgu_store(struct device *dev,
++			       struct device_attribute *attr, const char *buf,
++			       size_t size)
++{
++	unsigned long value;
++	struct tgu_drvdata *drvdata = dev_get_drvdata(dev->parent);
++	int i, j, ret;
++
++	if (kstrtoul(buf, 0, &value))
++		return -EINVAL;
++
++	if (!drvdata->enable) {
++		ret = pm_runtime_get_sync(drvdata->dev);
++		if (ret < 0) {
++			pm_runtime_put(drvdata->dev);
++			return ret;
 +		}
 +	}
 +
-+	for (i = 0; i < drvdata->max_step; i++) {
-+		for (j = 0; j < drvdata->max_timer_counter; j++) {
-+			tgu_writel(drvdata,
-+				drvdata->value_table->counter
-+					[calculate_array_location(drvdata, i,
-+						TGU_COUNTER, j)],
-+				COUNTER0_COMPARE_STEP(i, j));
++	spin_lock(&drvdata->spinlock);
++	CS_UNLOCK(drvdata->base);
++
++	if (value) {
++		tgu_writel(drvdata, 0, TGU_CONTROL);
++
++		if (drvdata->value_table->priority)
++			memset(drvdata->value_table->priority, 0,
++			       MAX_PRIORITY * drvdata->max_step *
++				       drvdata->max_reg * sizeof(unsigned int));
++
++		if (drvdata->value_table->condition_decode)
++			memset(drvdata->value_table->condition_decode, 0,
++			       drvdata->max_condition_decode * drvdata->max_step *
++				       sizeof(unsigned int));
++
++		/* Initialize all condition registers to NOT(value=0x1000000) */
++		for (i = 0; i < drvdata->max_step; i++) {
++			for (j = 0; j < drvdata->max_condition_decode; j++) {
++				drvdata->value_table
++					->condition_decode[calculate_array_location(
++						drvdata, i, TGU_CONDITION_DECODE, j)] =
++					0x1000000;
++			}
 +		}
++
++		if (drvdata->value_table->condition_select)
++			memset(drvdata->value_table->condition_select, 0,
++			       drvdata->max_condition_select * drvdata->max_step *
++				       sizeof(unsigned int));
++
++		if (drvdata->value_table->timer)
++			memset(drvdata->value_table->timer, 0,
++			       (drvdata->max_step) *
++				       (drvdata->max_timer_counter) *
++				       sizeof(unsigned int));
++
++		if (drvdata->value_table->counter)
++			memset(drvdata->value_table->counter, 0,
++			       (drvdata->max_step) *
++				       (drvdata->max_timer_counter) *
++				       sizeof(unsigned int));
++
++		dev_dbg(dev, "Coresight-TGU reset complete\n");
++	} else {
++		dev_dbg(dev, "Coresight-TGU invalid input\n");
 +	}
 +
- 	/* Enable TGU to program the triggers */
- 	tgu_writel(drvdata, 1, TGU_CONTROL);
- 	CS_LOCK(drvdata->base);
-@@ -358,6 +412,22 @@ static const struct attribute_group *tgu_attr_groups[] = {
- 	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(5),
- 	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(6),
- 	CONDITION_SELECT_ATTRIBUTE_GROUP_INIT(7),
-+	TIMER_ATTRIBUTE_GROUP_INIT(0),
-+	TIMER_ATTRIBUTE_GROUP_INIT(1),
-+	TIMER_ATTRIBUTE_GROUP_INIT(2),
-+	TIMER_ATTRIBUTE_GROUP_INIT(3),
-+	TIMER_ATTRIBUTE_GROUP_INIT(4),
-+	TIMER_ATTRIBUTE_GROUP_INIT(5),
-+	TIMER_ATTRIBUTE_GROUP_INIT(6),
-+	TIMER_ATTRIBUTE_GROUP_INIT(7),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(0),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(1),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(2),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(3),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(4),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(5),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(6),
-+	COUNTER_ATTRIBUTE_GROUP_INIT(7),
++	CS_LOCK(drvdata->base);
++
++	drvdata->enable = false;
++	spin_unlock(&drvdata->spinlock);
++	pm_runtime_put(drvdata->dev);
++
++	return size;
++}
++static DEVICE_ATTR_WO(reset_tgu);
++
+ static const struct coresight_ops_helper tgu_helper_ops = {
+ 	.enable = tgu_enable,
+ 	.disable = tgu_disable,
+@@ -354,6 +432,7 @@ static const struct coresight_ops tgu_ops = {
+ 
+ static struct attribute *tgu_common_attrs[] = {
+ 	&dev_attr_enable_tgu.attr,
++	&dev_attr_reset_tgu.attr,
  	NULL,
  };
  
-@@ -407,6 +477,11 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
- 	if (ret)
- 		return -EINVAL;
- 
-+	ret = of_property_read_u32(adev->dev.of_node, "tgu-timer-counters",
-+				   &drvdata->max_timer_counter);
-+	if (ret)
-+		return -EINVAL;
-+
- 	drvdata->max_condition_decode = drvdata->max_condition;
- 	/* select region has an additional 'default' register */
- 	drvdata->max_condition_select = drvdata->max_condition + 1;
-@@ -443,6 +518,24 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
- 	if (!drvdata->value_table->condition_select)
- 		return -ENOMEM;
- 
-+	drvdata->value_table->timer = devm_kzalloc(
-+		dev,
-+		drvdata->max_step * drvdata->max_timer_counter *
-+			sizeof(*(drvdata->value_table->timer)),
-+		GFP_KERNEL);
-+
-+	if (!drvdata->value_table->timer)
-+		return -ENOMEM;
-+
-+	drvdata->value_table->counter = devm_kzalloc(
-+		dev,
-+		drvdata->max_step * drvdata->max_timer_counter *
-+			sizeof(*(drvdata->value_table->counter)),
-+		GFP_KERNEL);
-+
-+	if (!drvdata->value_table->counter)
-+		return -ENOMEM;
-+
- 	drvdata->enable = false;
- 	desc.type = CORESIGHT_DEV_TYPE_HELPER;
- 	desc.pdata = adev->dev.platform_data;
-diff --git a/drivers/hwtracing/coresight/coresight-tgu.h b/drivers/hwtracing/coresight/coresight-tgu.h
-index f215bc01519c..237aa999eae1 100644
---- a/drivers/hwtracing/coresight/coresight-tgu.h
-+++ b/drivers/hwtracing/coresight/coresight-tgu.h
-@@ -52,6 +52,12 @@
- #define CONDITION_SELECT_STEP(step, select) \
- 	(0x0060 + 0x4 * select + 0x1D8 * step)
- 
-+#define TIMER0_COMPARE_STEP(step, timer) \
-+	(0x0040 + 0x4 * timer + 0x1D8 * step)
-+
-+#define COUNTER0_COMPARE_STEP(step, counter) \
-+	(0x0048 + 0x4 * counter + 0x1D8 * step)
-+
- #define tgu_dataset_ro(name, step_index, type, reg_num)     \
- 	(&((struct tgu_attribute[]){ {                      \
- 		__ATTR(name, 0444, tgu_dataset_show, NULL), \
-@@ -78,6 +84,12 @@
- #define STEP_SELECT(step_index, reg_num) \
- 	tgu_dataset_rw(reg##reg_num, step_index, TGU_CONDITION_SELECT, reg_num)
- 
-+#define STEP_TIMER(step_index, reg_num) \
-+	tgu_dataset_rw(reg##reg_num, step_index, TGU_TIMER, reg_num)
-+
-+#define STEP_COUNTER(step_index, reg_num) \
-+	tgu_dataset_rw(reg##reg_num, step_index, TGU_COUNTER, reg_num)
-+
- #define STEP_PRIORITY_LIST(step_index, priority)  \
- 	{STEP_PRIORITY(step_index, 0, priority),  \
- 	 STEP_PRIORITY(step_index, 1, priority),  \
-@@ -117,6 +129,18 @@
- 	 NULL           \
- 	}
- 
-+#define STEP_TIMER_LIST(n) \
-+	{STEP_TIMER(n, 0), \
-+	 STEP_TIMER(n, 1), \
-+	 NULL           \
-+	}
-+
-+#define STEP_COUNTER_LIST(n) \
-+	{STEP_COUNTER(n, 0), \
-+	 STEP_COUNTER(n, 1), \
-+	 NULL           \
-+	}
-+
- #define PRIORITY_ATTRIBUTE_GROUP_INIT(step, priority)\
- 	(&(const struct attribute_group){\
- 		.attrs = (struct attribute*[])STEP_PRIORITY_LIST(step, priority),\
-@@ -138,13 +162,29 @@
- 		.name = "step" #step "_condition_select" \
- 	})
- 
-+#define TIMER_ATTRIBUTE_GROUP_INIT(step)\
-+	(&(const struct attribute_group){\
-+		.attrs = (struct attribute*[])STEP_TIMER_LIST(step),\
-+		.is_visible = tgu_node_visible,\
-+		.name = "step" #step "_timer" \
-+	})
-+
-+#define COUNTER_ATTRIBUTE_GROUP_INIT(step)\
-+	(&(const struct attribute_group){\
-+		.attrs = (struct attribute*[])STEP_COUNTER_LIST(step),\
-+		.is_visible = tgu_node_visible,\
-+		.name = "step" #step "_counter" \
-+	})
-+
- enum operation_index {
- 	TGU_PRIORITY0,
- 	TGU_PRIORITY1,
- 	TGU_PRIORITY2,
- 	TGU_PRIORITY3,
- 	TGU_CONDITION_DECODE,
--	TGU_CONDITION_SELECT
-+	TGU_CONDITION_SELECT,
-+	TGU_TIMER,
-+	TGU_COUNTER
- };
- 
- /* Maximum priority that TGU supports */
-@@ -161,6 +201,8 @@ struct value_table {
- 	unsigned int *priority;
- 	unsigned int *condition_decode;
- 	unsigned int *condition_select;
-+	unsigned int *timer;
-+	unsigned int *counter;
- };
- 
- /**
-@@ -176,6 +218,8 @@ struct value_table {
-  * @max_condition: Maximum number of condition
-  * @max_condition_decode: Maximum number of condition_decode
-  * @max_condition_select: Maximum number of condition_select
-+ * @max_timer_counter: Maximum number of timers and counters
-+ *
-  * This structure defines the data associated with a TGU device, including its base
-  * address, device pointers, clock, spinlock for synchronization, trigger data pointers,
-  * maximum limits for various trigger-related parameters, and enable status.
-@@ -192,6 +236,7 @@ struct tgu_drvdata {
- 	int max_condition;
- 	int max_condition_decode;
- 	int max_condition_select;
-+	int max_timer_counter;
- };
- 
- #endif
 
 
