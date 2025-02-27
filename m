@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF995C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:42:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBF30C197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:42:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WML+/ObPWkSPRoaiWIHFm8yG2IrgtdFB4ZBzBau4x8I=; b=hejdrBdBKWYriNxmXBD4qcgeCm
-	74nfv+O+uEwN+Klkvt9Ns04Cr7Z2zKeIL2SceNLQAPyNDAIEPMe4b8Yge2MzV9GbjgdcM7qlJwu1O
-	Ct9dghSin7u+59gh5/fwJZrv1pr7n4DtU0/0xam172ogcwOB5wgMNpmaTaz4eCzQj64fdDZTUisY6
-	exj4U4N05NXr8tU9pRxP7lMi//tvJ8cTd1le4g2nroCdGFy20fVzitHkDJ+Lkii7bD3UArGLc/7vJ
-	uQfCiFW3h++PMtqmtIuBqkf5owyzW5H9eHPzcuojKyI3afYl5ew8NI0LWXwVl2OBfvKSdsLHJMY14
-	NbAD5/lA==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fv4f4paK6utMxGVLBPvw8fcn9CW6EObNKlJ/GybX54A=; b=4kPFxbxbGOyiSccBag7tnwX0nW
+	YLOKZkJEsN1aqzwZOGxAIwc8pZ2I+6a4HmmgFwLOTPTuiHe9SO6qeJ/kM2AHop17HFgohVUrA6AMV
+	00ES38SBjyeULXbTmmCzAHvLoF+jU/k+bbW5ckngn00Pck+GBojgEaFQT1QbPy/YD4ilnA/T9sp3F
+	fsvaj9UmVsm2GkVvKfIb8h/m2DdRTlOdeI+BcXhPYTEV4oHatRQAwJTejm2NY+snRJjZrUObteITe
+	zN1LrUbe/qBKLeJUMFepviK6WStKW8XwtROx0DfLDyRqFMnsNeerLq4T94nDNzmoSBehBXAQN5Rgc
+	X8PLHHOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjlw-00000008ccS-2Wbg;
-	Thu, 27 Feb 2025 19:42:16 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1tnjlz-00000008cha-1wkJ;
+	Thu, 27 Feb 2025 19:42:19 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tniSK-00000008JBs-2uT5
+	id 1tniSN-00000008JCB-0fdA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 18:17:57 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-390e27150dbso1039659f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 10:17:55 -0800 (PST)
+	Thu, 27 Feb 2025 18:18:00 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43947a0919aso11592015e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 10:17:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740680274; x=1741285074; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=WML+/ObPWkSPRoaiWIHFm8yG2IrgtdFB4ZBzBau4x8I=;
-        b=Uxu9l65tNWACi6mIOLUZBGWzoyO5sm3TaL09Tc31J6/ea178u3N49yRSpCpE9NY34y
-         tBuX2d9C9fqYRrvlKEAs3gUI604qpec5Y+S4wuaeonC8W5B5du1n+KHfMgaaJTdioptj
-         BC058Gc+7mKRwMNbslYcEHFUU+kB/oVnmnEr70lo98HumnriawoAEpjVupYaIexII9yH
-         +OICIKN4Xezw/FImFhCCX/fcAS6Yerx2Ou9QoVYCfqSsjN/GpZFZ0IjPJrHqcIVw4HaP
-         QotCDOyBAt6jHP3dNpYUlzRIPLSBwrE959zD8J3hQtBk42ZqtirITdtXfxg7/eGdc1d4
-         QFHw==
+        d=google.com; s=20230601; t=1740680276; x=1741285076; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Fv4f4paK6utMxGVLBPvw8fcn9CW6EObNKlJ/GybX54A=;
+        b=P199Z5EPIgYzuYAz1j7MRX+QHRgSI8PR6CL3uDULzMqKi7cNcE3dODeipsOB8tox/2
+         kOAM+biwKK5NshBhVM6t/dODQbiU8tTD1yf4fompoFsKNZMTXKAq1UCiRislgYeoLupV
+         6ZOxWSbCGa/TOv6tAfIvEAnaJJFvley+qWcrQALcnduZ4ym3BdXysanlbg9uRgvD+dwp
+         WNFIv8fpM/o1Wi4GYZt6pgAR7gktXamiQc56zEhnH8srBiBPKo+ID1zyzIY2mdI2DDfM
+         Ks8LRLZHe8qLHcGBMeyvbF4fGA/Zmn5XCXW/asbZ1QUUJUpKw+qtb/oSp37ihul50QbO
+         qIaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740680274; x=1741285074;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=WML+/ObPWkSPRoaiWIHFm8yG2IrgtdFB4ZBzBau4x8I=;
-        b=a4Yc8jwwL9Tb7efL9ANNPd1bYHtj1yqsJOJyLdRbJOdqnPPATHSEax7ZQ01vA4XHeE
-         dvSj+OrjDVdqShNoyBSRT0qPNB8etLq6lrPbhET1LcCehFwr5fbpLULzvZnj0DPdA7bG
-         t7IKMszvQ1xU1MaoPAkpfQhQAqQ3vetYDRQgBSUbJ9+Xh8Q4Co//V99b8igqYX6bPZXo
-         YtSZXm5exyTP5gg6QGTVKuL2Xq96rFjhYToOnSYOAWV9C4lE/yD4MtgjNYaJqjW8GYnw
-         uIOnJrzrlv6VdjNn8qZQYN5OQQj5jQcA/AmcIUJpHQlfeDbPaFa71w+bjEM/0mr6jM61
-         HYSw==
-X-Forwarded-Encrypted: i=1; AJvYcCV6EX4Sn06w8AvYAKVcBXuvxc3vxGy9l0oDfUXgaZOFk0H6WV70UcDoU9oG/h4G8iBtQAOKdcYPInkdG+wr0m7d@lists.infradead.org
-X-Gm-Message-State: AOJu0YxK7mhFnpqhoNUuzJUf24lvuPJ85l2MIgzrw7vNQ7uCLp6KaXGX
-	L2GHRTf7myqaazQtEyOX/eJuhfNf5aDEByxIE5jibXd9Ot5kmi6X6zUvu4aqSRYDP0EdDVsJ79f
-	mQxntF/pO1Ii0CI8tZqKIs3TuIA==
-X-Google-Smtp-Source: AGHT+IFFgy3uOiYkfgXSKvEHx/UgS5vFK40ACXZHcvac3+mJfnimRkLhC2vM9vssr/5l88QZLrGZkaFEBXqbcHd+ZhA=
-X-Received: from wrbfa8.prod.google.com ([2002:a05:6000:2588:b0:390:e9d7:900b])
+        d=1e100.net; s=20230601; t=1740680276; x=1741285076;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Fv4f4paK6utMxGVLBPvw8fcn9CW6EObNKlJ/GybX54A=;
+        b=ZdSzdn+w9Eev8P1aDvr6NiyJ9GWcqrzT5u864IB8XjLWREiEXMotQUS/mnt74iPLbq
+         PHwQLpk3wk9y/fA3aKauFwYS0Maz9qG2vsZJ+zqxTSRgT6z/460f+jIQgRW5RzxHcq9g
+         IzyX2HyFoOmPtxL9CVcO90VxdVtcGKEA6H2axvwR9xW6WzTXAE1mLYjNQ0B+dzCGPI2A
+         DzWWwaTgmrl+UjxHYCCksvEUYjXPz8ceWIdSLFK+kYoZ6P3UsQMWXdVThigZmgBUIC50
+         SJ/NrLyYWfOcvoo/Km65AzAmdxTlXQYiXB9gGEGMKeNhEwvhyy8bn7CKS9MKZMXHbNyc
+         Kdxw==
+X-Forwarded-Encrypted: i=1; AJvYcCXC92EQOc3Tyy6SXkiQ/0pSemNdnTcU1GGIHsP9I+licNJ95IB7jJONM1kHUrI5Qb93qLIGtkMwxE+qfoEoCDTj@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywk/DYd97ma2rEJIdequQJLaFwJvjlid2GaaG3JHy7gEMNkYU5G
+	/gKXo7RTcRTcuPsO24AEz26C3G56iiRU3Zp9h49ft8URW2vBHKbb3eurgyKAAP2VZxcgTA+8HFT
+	8nb3xGxvAh2GW45CLKGp0bbffiw==
+X-Google-Smtp-Source: AGHT+IGeSgG4Yj46KVsKJq4Od+bRmoB4CwRl78JJio8Udz/pRZxQUsr/HNXRQbwORqLTtPX98pEazY6JQMdxAAlRg0U=
+X-Received: from wmsp32.prod.google.com ([2002:a05:600c:1da0:b0:439:89d1:bf88])
  (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:1a8f:b0:38d:d274:4533 with SMTP id ffacd0b85a97d-390eca41791mr151865f8f.55.1740680274621;
- Thu, 27 Feb 2025 10:17:54 -0800 (PST)
-Date: Thu, 27 Feb 2025 18:17:45 +0000
+ 2002:a05:600c:1d8e:b0:439:b565:f457 with SMTP id 5b1f17b1804b1-43ba675c3afmr2084445e9.27.1740680276746;
+ Thu, 27 Feb 2025 10:17:56 -0800 (PST)
+Date: Thu, 27 Feb 2025 18:17:46 +0000
+In-Reply-To: <20250227181750.3606372-1-sebastianene@google.com>
 Mime-Version: 1.0
+References: <20250227181750.3606372-1-sebastianene@google.com>
 X-Mailer: git-send-email 2.48.1.711.g2feabab25a-goog
-Message-ID: <20250227181750.3606372-1-sebastianene@google.com>
-Subject: [PATCH v2 0/4] KVM: arm64: Separate the hyp FF-A buffers init from
- the host
+Message-ID: <20250227181750.3606372-2-sebastianene@google.com>
+Subject: [PATCH v2 1/4] KVM: arm64: Use the static initializer for the vesion lock
 From: Sebastian Ene <sebastianene@google.com>
 To: catalin.marinas@arm.com, joey.gouly@arm.com, maz@kernel.org, 
 	oliver.upton@linux.dev, sebastianene@google.com, snehalreddy@google.com, 
@@ -75,8 +76,8 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org, kernel-team@android.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_101756_729113_2C3D8FD4 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20250227_101759_195942_F668C605 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,36 +92,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Replace the definition of the hypervisor version lock
+with a static initializer.
 
-This moves the initialization of the hypervisor FF-A buffers
-away from the host FF-A map calling path. If the hypervisor
-cannot map the buffers with Trustzone, it rejects any FF-A call
-when it runs under protected mode. 
-Other than that it moves the definitions of the ffa_to_linux_err
-map from the arm_ffa driver to the ffa header so that the hyp code
-can make use of it.
+Signed-off-by: Sebastian Ene <sebastianene@google.com>
+---
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-*** Changelog ***
-
-v1 -> this version:
-
-Split the patch that maps the ff-a buffers of ffa init and introduce
-"Move the ffa_to_linux definition to the ffa header".
-
-Thanks,
-
-Sebastian Ene (4):
-  KVM: arm64: Use the static initializer for the vesion lock
-  KVM: arm64: Move the ffa_to_linux definition to the ffa header
-  KVM: arm64: Map the hypervisor FF-A buffers on ffa init
-  KVM: arm64: Release the ownership of the hyp rx buffer to Trustzone
-
- arch/arm64/kvm/hyp/nvhe/ffa.c     | 56 +++++++++++++------------------
- drivers/firmware/arm_ffa/driver.c | 24 -------------
- include/linux/arm_ffa.h           | 24 +++++++++++++
- 3 files changed, 47 insertions(+), 57 deletions(-)
-
+diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+index e433dfab882a..6df6131f1107 100644
+--- a/arch/arm64/kvm/hyp/nvhe/ffa.c
++++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+@@ -69,7 +69,7 @@ static struct kvm_ffa_buffers hyp_buffers;
+ static struct kvm_ffa_buffers host_buffers;
+ static u32 hyp_ffa_version;
+ static bool has_version_negotiated;
+-static hyp_spinlock_t version_lock;
++static DEFINE_HYP_SPINLOCK(version_lock);
+ 
+ static void ffa_to_smccc_error(struct arm_smccc_res *res, u64 ffa_errno)
+ {
+@@ -911,6 +911,5 @@ int hyp_ffa_init(void *pages)
+ 		.lock	= __HYP_SPIN_LOCK_UNLOCKED,
+ 	};
+ 
+-	version_lock = __HYP_SPIN_LOCK_UNLOCKED;
+ 	return 0;
+ }
 -- 
 2.48.1.711.g2feabab25a-goog
 
