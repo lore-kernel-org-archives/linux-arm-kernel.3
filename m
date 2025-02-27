@@ -4,64 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FA3BC021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 11:23:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB416C19F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 11:25:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dXsD9MQD1sYnSEmH2nVcNU78cnc+FXKwdmWo6JL0D7U=; b=UTye8cY3/olbNymIarGVL+CNYJ
-	OBLPCJJDxGz6XlVIneTLH42bO1c2jFgfivvJw4priB8zbhPuiaxs5XxMJ88IuZdoMxSf6gRcggD1J
-	FPD7exdRrI47wCFArtL9MzjVPfg7Xkzl+FDse3hZ7ndVCGauvgO8pNASTNc/MsU1vHbE9FW78Kr+u
-	nBZAqtclTqY1kL2UJ+alk5DtQglfjJ9mJN1Ul2+KlTvX4Au1uAsSaW1D4L6DqGnWEHx3nYl5eqOUb
-	tdLXzyySx42BSogTop3HltyaRIR/CLBZ9Og/rD0qeCaQMqXA6FkhBr7cfPbFbzBoz8oDoy9kobLlG
-	CVv0CH4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gjtMjIFCbBqdyLhStmlaYyvs0n8jkqiHMgxcKjIxdk0=; b=WAD/cVtJktXEaJj7SdMvI2Uwk5
+	uZVnZ0IBQ246H1UJMI2t9M5hdt/YOE7G+ihJP0kAV4HCJ/eMkSDfORD+bhJ52B0UITiCimejj7uOp
+	FO1U2I7nmhLPdpb4ZAXfqn/LoIqAbsJcGWxRavj+2CYaReROdeni7q2TUyaeD5WqHHbYRq6oSIMEh
+	qHpJPYmR+61Qzm/c2wHgbgyZmWnAY3ZwjbV4gh3YDtSerAZFTPXZkRDKntVexStPhv77GW2UFoIeg
+	YtKyZFT4hDmAhJd91IxmJD1wgN4B3k+OqEE2Gv5CLP3zwS7wsp9hwN3kFQGk7vhxAc1+P+8fDRXKs
+	EnA+1p/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnbz5-00000007A8F-0oFb;
-	Thu, 27 Feb 2025 11:23:19 +0000
-Received: from mail-m19731108.qiye.163.com ([220.197.31.108])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnbkS-000000076MX-2D3a;
-	Thu, 27 Feb 2025 11:08:13 +0000
-Received: from localhost.localdomain (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id c65b37e3;
-	Thu, 27 Feb 2025 19:08:07 +0800 (GMT+08:00)
-From: Kever Yang <kever.yang@rock-chips.com>
-To: heiko@sntech.de
-Cc: linux-rockchip@lists.infradead.org,
-	Finley Xiao <finley.xiao@rock-chips.com>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
-Subject: [PATCH v2 3/3] nvmem: rockchip-otp: Add support for rk3562
-Date: Thu, 27 Feb 2025 19:08:04 +0800
-Message-Id: <20250227110804.2342976-3-kever.yang@rock-chips.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250227110804.2342976-1-kever.yang@rock-chips.com>
-References: <20250227110804.2342976-1-kever.yang@rock-chips.com>
+	id 1tnc0a-00000007AWN-3Plz;
+	Thu, 27 Feb 2025 11:24:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnbks-000000076VD-2fLl
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Feb 2025 11:08:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5D84A2BCC;
+	Thu, 27 Feb 2025 03:08:51 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4C90A3F6A8;
+	Thu, 27 Feb 2025 03:08:33 -0800 (PST)
+Date: Thu, 27 Feb 2025 11:08:30 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Vincenzo Frascino <vincenzo.frascino@arm.com>
+Cc: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Sudeep Holla <sudeep.holla@arm.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jessica Clarke <jrtc27@jrtc27.com>
+Subject: Re: [PATCH v7 07/10] arm64: dts: morello: Add support for common
+ functionalities
+Message-ID: <Z8BHrrL0kXeBmRpx@bogus>
+References: <20250221180349.1413089-1-vincenzo.frascino@arm.com>
+ <20250221180349.1413089-8-vincenzo.frascino@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQh5ITFYaSB1KSk9OSkNKSE9WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
-	1VSktLVUpCWQY+
-X-HM-Tid: 0a954717a85e03afkunmc65b37e3
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6OSI6Eyo*LTILFQ0LKBQ6Lhgc
-	TDIKCjBVSlVKTE9LTU5PT0NDTk5OVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFKSEhJNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=NuJ9PbZOq0suEaL1eeWZHCn6FQR1hTBrmFt+1/iim5yUFnS9gNJpowjYkMkMjLQEhJAUfyAETUpE3pF7CpqWCvb0Qe9RQaFhfZ50tbcdnVrC/sUHWNMyRj0BFMLpkl2SrM3uWnFenUvpdI0eyVZsTl8kshuq6DLU53A6M/v141c=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=dXsD9MQD1sYnSEmH2nVcNU78cnc+FXKwdmWo6JL0D7U=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250221180349.1413089-8-vincenzo.frascino@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_030812_745708_169E7D56 
-X-CRM114-Status: UNSURE (   8.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250227_030838_756914_0DB47B60 
+X-CRM114-Status: GOOD (  19.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,53 +73,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Finley Xiao <finley.xiao@rock-chips.com>
+On Fri, Feb 21, 2025 at 06:03:46PM +0000, Vincenzo Frascino wrote:
+> The Morello architecture is an experimental extension to Armv8.2-A,
+> which extends the AArch64 state with the principles proposed in
+> version 7 of the Capability Hardware Enhanced RISC Instructions
+> (CHERI) ISA.
+> 
+> The Morello Platform (soc) and the Fixed Virtual Platfom (fvp) share
+> some functionalities that have conveniently been included in
+> morello.dtsi to avoid duplication.
+> 
+> Introduce morello.dtsi.
+> 
+> Note: Morello fvp will be introduced with a future patch series.
+> 
+> Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
+> ---
+>  arch/arm64/boot/dts/arm/morello.dtsi | 323 +++++++++++++++++++++++++++
+>  1 file changed, 323 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/arm/morello.dtsi
+> 
+> diff --git a/arch/arm64/boot/dts/arm/morello.dtsi b/arch/arm64/boot/dts/arm/morello.dtsi
+> new file mode 100644
+> +
+> +		gic: interrupt-controller@2c010000 {
+> +			compatible = "arm,gic-v3";
+> +			reg = <0x0 0x30000000 0x0 0x10000>,	/* GICD */
+> +			      <0x0 0x300c0000 0x0 0x80000>;	/* GICR */
 
-This adds the necessary data for handling otp on the rk3562.
+[...]
 
-Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
-Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
----
+> +
+> +
+> +		sram: sram@45200000 {
+> +			compatible = "mmio-sram";
+> +			reg = <0x0 0x06000000 0x0 0x8000>;
+> +			ranges = <0 0x0 0x06000000 0x8000>;
+> +
 
-Changes in v2: None
+[...]
 
- drivers/nvmem/rockchip-otp.c | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+Not sure if you are not seeing these warnings from DTC. Looks pretty clear
+to me. May be you missed or using some old DTC. I don't know why though.
+If you agree, I can patch it up with below patch and no need to repost:
 
-diff --git a/drivers/nvmem/rockchip-otp.c b/drivers/nvmem/rockchip-otp.c
-index a04bce89ecc8..6f86cf8ec390 100644
---- a/drivers/nvmem/rockchip-otp.c
-+++ b/drivers/nvmem/rockchip-otp.c
-@@ -341,6 +341,17 @@ static const struct rockchip_data px30_data = {
- 	.reg_read = px30_otp_read,
- };
- 
-+static const char * const rk3562_otp_clocks[] = {
-+	"usr", "sbpi", "apb_pclk", "phy",
-+};
-+
-+static const struct rockchip_data rk3562_data = {
-+	.size = 0x80,
-+	.clks = rk3562_otp_clocks,
-+	.num_clks = ARRAY_SIZE(rk3562_otp_clocks),
-+	.reg_read = rk3568_otp_read,
-+};
-+
- static const char * const rk3568_otp_clocks[] = {
- 	"usr", "sbpi", "apb_pclk", "phy",
- };
-@@ -372,6 +383,10 @@ static const struct of_device_id rockchip_otp_match[] = {
- 		.compatible = "rockchip,rk3308-otp",
- 		.data = &px30_data,
- 	},
-+	{
-+		.compatible = "rockchip,rk3562-otp",
-+		.data = &rk3562_data,
-+	},
- 	{
- 		.compatible = "rockchip,rk3568-otp",
- 		.data = &rk3568_data,
--- 
-2.25.1
+morello.dtsi:227.38-272.5: Warning (simple_bus_reg): /soc/interrupt-controller@2c010000: simple-bus unit address format error, expected "30000000"
+morello.dtsi:296.23-313.5: Warning (simple_bus_reg): /soc/sram@45200000: simple-bus unit address format error, expected "6000000"
+morello.dtsi:227.38-272.5: Warning (simple_bus_reg): /soc/interrupt-controller@2c010000: simple-bus unit address format error, expected "30000000"
+morello.dtsi:296.23-313.5: Warning (simple_bus_reg): /soc/sram@45200000: simple-bus unit address format error, expected "6000000"
+
+Regards,
+Sudeep
+
+-->8
+
+diff --git i/arch/arm64/boot/dts/arm/morello.dtsi w/arch/arm64/boot/dts/arm/morello.dtsi
+index e35e5e482720..0bab0b3ea969 100644
+--- i/arch/arm64/boot/dts/arm/morello.dtsi
++++ w/arch/arm64/boot/dts/arm/morello.dtsi
+@@ -224,7 +224,7 @@ uart0: serial@2a400000 {
+                        status = "disabled";
+                };
+
+-               gic: interrupt-controller@2c010000 {
++               gic: interrupt-controller@30000000 {
+                        compatible = "arm,gic-v3";
+                        reg = <0x0 0x30000000 0x0 0x10000>,     /* GICD */
+                              <0x0 0x300c0000 0x0 0x80000>;     /* GICR */
+@@ -293,7 +293,7 @@ mailbox: mhu@45000000 {
+                        clock-names = "apb_pclk";
+                };
+
+-               sram: sram@45200000 {
++               sram: sram@6000000 {
+                        compatible = "mmio-sram";
+                        reg = <0x0 0x06000000 0x0 0x8000>;
+                        ranges = <0 0x0 0x06000000 0x8000>;
 
 
