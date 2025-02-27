@@ -4,73 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E8AAC197BF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41A5FC19F32
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:41:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z4OqO0DlmHTyAuXAgYbGzIkXg36xy2WA6u8k/uPoPPA=; b=iHbRxG3CLyVHxELk+LiTfs0dCv
-	JSnPI4GjnyXI5eM4OfXhqdptYg9RAIdKfMtbh4kqqS07P09vdG4/HALaGM184r0m6n4Zwxkby7E1x
-	Xq+qkbC5brgt/zvn+vj83UAwWyJzUw81yrvaWokMvO1w/sVddu2i3sH1uvPFll7x8RTHSAwg1MTG3
-	LgqYpBt6SfbOE+fQCsaJeBU2CUmokAmgZZbPvAuNtwEFulw8Zek2OiLYB83T/a7+JjFtX+PUwP44R
-	cmKNsL0AJJzARFmoSXt4P5W1ql/BtUJdyRhQgeORXx2dOIEOmEE0tPpxU4y6GkcSLvW9lDyY9bwo8
-	2zbHhl+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rbxxJ9pdlSP3U09DcPRoocZLIIpwjB5GRyunBWX+jlE=; b=Jl3ntwPevGZ07hUR14CTkv+qj4
+	/eUVYmbi6Te08f2ef1lNZICZ1BmUIHaxtXmVHtZKU1HvA8nqJSz930Wc2lm7KpI8KezY6jAUxhgdo
+	s2drOK43U8MlA+hIh8C/2fxBctKrs7eizRzhgHWeOEfnWwcjLDa7i2yeANu7at2yzRcag8xlnN862
+	gd00pkUH0c4DI0zxuUw89FE924i1ka6+hgOqm8H+UgirjTI38l7FaBtjW/NFYwjM2nmInqnsnXYlk
+	g0Y5M2RTDsyxaI9coj6KaoIZ/B9SBaX3Lw1ElxXZuAqoxEP9LQJVJEPu5KfUIpbO3+wcBWoO8Rc/B
+	F5ncRdvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjky-00000008at8-1WWv;
-	Thu, 27 Feb 2025 19:41:16 +0000
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
+	id 1tnjkw-00000008apv-3bnL;
+	Thu, 27 Feb 2025 19:41:14 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnheO-00000008Cse-3JIa
+	id 1tnhdM-00000008ClU-3N8t
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 17:26:22 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B722510382F24;
-	Thu, 27 Feb 2025 18:26:14 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1740677178;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=z4OqO0DlmHTyAuXAgYbGzIkXg36xy2WA6u8k/uPoPPA=;
-	b=I52RF/4RmJii3MfN1/Z74h9+4oa9hwjgxOCPH+oHDZwj4E3b6qEDxXRqbxa3A2GutMSz8n
-	e8pIozchEVC9K2kZKq13KKYtSmYYsXuA8t4yBFhQ+XfVYVJ/TZHobjR1HIis418UoIV8dQ
-	iR7Lz9ep20PlsCmzbPxEZd5J0FzLQSHo5f4sF8whxei2m6WiAgUoH/eLFzfHD/mNuVstvs
-	drAsgJd5vut8VFuOo0wAP663gFSltxq+xcAK2wOR/n7CoHaSmAHjFAUte5ljno2pvTp5op
-	+AC4aFkDRUlXO1mPjEoMS5GWeBaQcbNtVOBzY5PAW4WRrItNNjkTN10FKmziwA==
-Message-ID: <601055ff-6a19-4d89-b4ae-fb437d3f1670@denx.de>
-Date: Thu, 27 Feb 2025 18:26:04 +0100
+	Thu, 27 Feb 2025 17:25:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=rbxxJ9pdlSP3U09DcPRoocZLIIpwjB5GRyunBWX+jlE=; b=bJ+zGhXU3FlmjFeUxlk/urw9rv
+	L3AEa6Crjr/Tt+MWVqCW0ex61iL/HQnvl3iWgmhVvH4aJHt0TkewpstPiWl9JPfnh4xG7Cb4VmA3H
+	yyddM7pcXpXp+dBWq25hy9PipEB1RwCOXRY82q4gsJ30fsMS70CyliJYkoLmHF/IQw2ZA5gupv82F
+	D7iolgE/gBFu84QJaTZoJ61CB8hgph05k8nciXdOQu6/rKC1BCkkqpqX0njPqk53QtXiMh7G6UJiN
+	fpPWiy8fBrDilcnDsPoqV1N1h8vcTvR+syRi+ISMqC3Go2wLTTqRCVecY+SaMdYTuCPXaiGoT1bJi
+	XeF9wDbw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:48846)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tnhdD-0007oW-2A;
+	Thu, 27 Feb 2025 17:25:07 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tnhd8-0008Jo-1M;
+	Thu, 27 Feb 2025 17:25:02 +0000
+Date: Thu, 27 Feb 2025 17:25:02 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jon Hunter <jonathanh@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Thierry Reding <treding@nvidia.com>
+Subject: Re: [PATCH RFC net-next 3/5] net: stmmac: simplify phylink_suspend()
+ and phylink_resume() calls
+Message-ID: <Z8Cf7j530L2QaUqT@shell.armlinux.org.uk>
+References: <Z8B4tVd4nLUKXdQ4@shell.armlinux.org.uk>
+ <E1tnf1S-0056LC-6H@rmk-PC.armlinux.org.uk>
+ <16e3f674-0267-47c1-8825-7f15a379332c@lunn.ch>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Marek Vasut <marex@denx.de>
-Subject: Re: [PATCH 6/9] drm/panthor: Reset GPU after L2 cache power off
-To: Boris Brezillon <boris.brezillon@collabora.com>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
- David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Sebastian Reichel <sre@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
- Steven Price <steven.price@arm.com>, Thomas Zimmermann
- <tzimmermann@suse.de>, devicetree@vger.kernel.org,
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev
-References: <20250227170012.124768-1-marex@denx.de>
- <20250227170012.124768-7-marex@denx.de>
- <20250227181748.3f99d67e@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250227181748.3f99d67e@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <16e3f674-0267-47c1-8825-7f15a379332c@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_092620_979552_B7C8146F 
-X-CRM114-Status: GOOD (  15.81  )
+X-CRM114-CacheID: sfid-20250227_092516_839051_1D31F85D 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,42 +90,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/27/25 6:17 PM, Boris Brezillon wrote:
-
-[...]
-
->> diff --git a/drivers/gpu/drm/panthor/panthor_gpu.c b/drivers/gpu/drm/panthor/panthor_gpu.c
->> index 671049020afaa..0f07ef7d9aea7 100644
->> --- a/drivers/gpu/drm/panthor/panthor_gpu.c
->> +++ b/drivers/gpu/drm/panthor/panthor_gpu.c
->> @@ -470,11 +470,12 @@ int panthor_gpu_soft_reset(struct panthor_device *ptdev)
->>    */
->>   void panthor_gpu_suspend(struct panthor_device *ptdev)
->>   {
->> -	/* On a fast reset, simply power down the L2. */
->> -	if (!ptdev->reset.fast)
->> -		panthor_gpu_soft_reset(ptdev);
->> -	else
->> -		panthor_gpu_power_off(ptdev, L2, 1, 20000);
->> +	/*
->> +	 * Power off the L2 and soft reset the GPU, that makes
->> +	 * iMX95 Mali G310 resume without firmware boot timeout.
->> +	 */
->> +	panthor_gpu_power_off(ptdev, L2, 1, 20000);
->> +	panthor_gpu_soft_reset(ptdev);
+On Thu, Feb 27, 2025 at 05:45:35PM +0100, Andrew Lunn wrote:
+> > @@ -7927,13 +7925,9 @@ int stmmac_resume(struct device *dev)
+> >  	}
+> >  
+> >  	rtnl_lock();
+> > -	if (device_may_wakeup(priv->device) && priv->plat->pmt) {
+> > -		phylink_resume(priv->phylink);
+> > -	} else {
+> > -		phylink_resume(priv->phylink);
+> > -		if (device_may_wakeup(priv->device))
+> > -			phylink_speed_up(priv->phylink);
+> > -	}
+> > +	phylink_resume(priv->phylink);
+> > +	if (device_may_wakeup(priv->device) && !priv->plat->pmt)
+> > +		phylink_speed_up(priv->phylink);
+> >  	rtnl_unlock();
+> >  
+> >  	rtnl_lock();
 > 
-> Unfortunately, if you do that unconditionally we no longer have a
-> fast-reset. Would be good to figure out why the fast-reset doesn't work
-> on this platform.
+> Unrelated to this patch, but unlock() followed by lock()? Seems like
+> some more code which could be cleaned up?
 
-I was hoping to get some hint on this one, I spent quite a while trying 
-to narrow this down, finally got it down to this particular bit.
+Indeed, this vanishes in the next patch due to phylink_resume()
+moving later.
 
-The NXP downstream vendor kernel vendor Mali driver does not seem to 
-have anything interesting regarding the L2 power handling, but I might 
-have missed it, the code is difficult to read.
-
-Have you ever seen anything problematic in this specific L2 department ?
-
-Do you have any hints how I can debug this further ?
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
