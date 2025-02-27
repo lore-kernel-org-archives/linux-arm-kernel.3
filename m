@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD8D7C19F2E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 13:13:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2355BC021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 13:14:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PQxlVtrJtUCrJtsTUEo3upetgEQMqaEgBfUje9yw0l0=; b=xbLbnVeHh32+d5ru1fhYFaEwBB
-	BKdcNY66oMRs/WOlr+8bpAvEGxtfb73B/dBxkrnfuFE2erxPq69UrfaSCU2ZwRpvP39y34xWo5sve
-	VcOGOmtlbzSpuaM+iUlA/SH27OO54T2PCe7TOQjYTMoQjtjjozSAmtWunq0srY4uLaHCpoNulF+eH
-	lFgE6/KFOcZ3T2gA7Cc3L6RmSpDCc7lv4UuL3glr9oeVLSczIX9OD8m4UZr9j+MR0cjwQ91kfsohK
-	nOe+bxkA3x1nYPwxTENsxRw/2gG9errsz8J/w2u1XkMz6mXltHg6U/9zmheIiGF7ScYobIOuWMq8Y
-	xAA4jYgA==;
+	bh=DMy9dUkJU56DJTvhIPb2QmSzWfdgvdoGZhrFNGotouU=; b=E0dvEVWNc1PtZz8dE30EjdVbbm
+	J2b2PL7kn/RCW/I+NS0krvZm6trzQnaxx2NU6klXc3FDVRdkWbAJ+/xbe7U0R/9MPN25VonkgVKKl
+	aYDx/G+Ts2fC4x8h2NAvUSPXaoiz21EPh2yYkqMQ3A3lJQz9qhTX7oC+MyRD7csD6wMmcGE7IchpQ
+	Zn3Eju24St4jkkjGUSv5uyn0cbFRw8UcaW7h70Mk4jHKyYUVUyzAXUvR3ZraLpZ7/aAPU/zrpoEXx
+	i5FNrqD7Qbx+Bi/MUDKV8dmsk1jjBepcUtvpfaO8CJMsW+pAS6itVxe0cbGIbjyTW8EvyZy1qKxG9
+	J2/jMKuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tndh7-00000007Tgq-2iQZ;
-	Thu, 27 Feb 2025 13:12:53 +0000
-Received: from relmlor1.renesas.com ([210.160.252.171] helo=relmlie5.idc.renesas.com)
+	id 1tndid-00000007TtD-18HF;
+	Thu, 27 Feb 2025 13:14:27 +0000
+Received: from relmlor2.renesas.com ([210.160.252.172] helo=relmlie6.idc.renesas.com)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tncxT-00000007MQx-0ckF
+	id 1tncxa-00000007MTH-3aZr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 12:25:44 +0000
-X-CSE-ConnectionGUID: yBFGoVt4TKauLojNfmO+9g==
-X-CSE-MsgGUID: TYxiKB1vSN+0/gxkx2XnNw==
+	Thu, 27 Feb 2025 12:25:52 +0000
+X-CSE-ConnectionGUID: g6Vaue9kS5qa2+4g9N+WzA==
+X-CSE-MsgGUID: YJ4Ty9v5QdG0ExfWErAv4g==
 Received: from unknown (HELO relmlir5.idc.renesas.com) ([10.200.68.151])
-  by relmlie5.idc.renesas.com with ESMTP; 27 Feb 2025 21:25:42 +0900
+  by relmlie6.idc.renesas.com with ESMTP; 27 Feb 2025 21:25:50 +0900
 Received: from ubuntu.adwin.renesas.com (unknown [10.226.92.68])
-	by relmlir5.idc.renesas.com (Postfix) with ESMTP id 4EFEF4007D01;
-	Thu, 27 Feb 2025 21:25:35 +0900 (JST)
+	by relmlir5.idc.renesas.com (Postfix) with ESMTP id 019F64007D01;
+	Thu, 27 Feb 2025 21:25:42 +0900 (JST)
 From: John Madieu <john.madieu.xa@bp.renesas.com>
 To: john.madieu.xa@bp.renesas.com,
 	geert+renesas@glider.be,
@@ -58,17 +58,18 @@ Cc: john.madieu@gmail.com,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	biju.das.jz@bp.renesas.com
-Subject: [PATCH v2 5/7] thermal: renesas: rzg3e: Add safety check when reading temperature
-Date: Thu, 27 Feb 2025 13:24:41 +0100
-Message-ID: <20250227122453.30480-6-john.madieu.xa@bp.renesas.com>
+Subject: [PATCH v2 6/7] arm64: dts: renesas: r9a09g047: Add TSU node
+Date: Thu, 27 Feb 2025 13:24:42 +0100
+Message-ID: <20250227122453.30480-7-john.madieu.xa@bp.renesas.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250227122453.30480-1-john.madieu.xa@bp.renesas.com>
 References: <20250227122453.30480-1-john.madieu.xa@bp.renesas.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_042543_294305_8A5E9FE0 
-X-CRM114-Status: GOOD (  16.79  )
+X-CRM114-CacheID: sfid-20250227_042551_009509_DE32923C 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,110 +84,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Becaure reading temperature may fail, add mechanism to panic in case
-reading the temperature fails after a given number of trials. This is due
-to the thermal core disabling the thermal zone device after a couple of
-consecutive attempt failures.
+Add TSU node along with thermal zones and keep it enabled in the SoC DTSI.
 
 Signed-off-by: John Madieu <john.madieu.xa@bp.renesas.com>
 ---
-v1 -> v2: no changes
+v1 -> v2: Fix IRQ names
 
- drivers/thermal/renesas/rzg3e_thermal.c | 38 +++++++++++++++++++++++--
- 1 file changed, 36 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/renesas/r9a09g047.dtsi | 49 ++++++++++++++++++++++
+ 1 file changed, 49 insertions(+)
 
-diff --git a/drivers/thermal/renesas/rzg3e_thermal.c b/drivers/thermal/renesas/rzg3e_thermal.c
-index be9e1d118a67..ff80d1b517c8 100644
---- a/drivers/thermal/renesas/rzg3e_thermal.c
-+++ b/drivers/thermal/renesas/rzg3e_thermal.c
-@@ -83,6 +83,19 @@
- #define TSU_TIMEOUT_US		10000
- #define TSU_MIN_CLOCK_RATE	24000000
+diff --git a/arch/arm64/boot/dts/renesas/r9a09g047.dtsi b/arch/arm64/boot/dts/renesas/r9a09g047.dtsi
+index a6b83e057a40..93b57d7ad7b9 100644
+--- a/arch/arm64/boot/dts/renesas/r9a09g047.dtsi
++++ b/arch/arm64/boot/dts/renesas/r9a09g047.dtsi
+@@ -64,6 +64,7 @@ cpu0: cpu@0 {
+ 			next-level-cache = <&L3_CA55>;
+ 			enable-method = "psci";
+ 			clocks = <&cpg CPG_CORE R9A09G047_CA55_0_CORECLK0>;
++			#cooling-cells = <2>;
+ 			operating-points-v2 = <&cluster0_opp>;
+ 		};
  
-+/*
-+ * Number of consecutive errors before shutdown
-+ *
-+ * While simulating thermal sensor failure, we have noticed that the thermal
-+ * core tries to fetch the temperature a couple times and then disable the
-+ * thermal zone device. In case of extreme heat, this might lead to SoC
-+ * destruction.
-+ *
-+ * Let's prevent this by limitating the number of failure and panic in
-+ * case it happens.
-+ */
-+#define MAX_TEMP_READ_ERRORS       10
+@@ -74,6 +75,7 @@ cpu1: cpu@100 {
+ 			next-level-cache = <&L3_CA55>;
+ 			enable-method = "psci";
+ 			clocks = <&cpg CPG_CORE R9A09G047_CA55_0_CORECLK1>;
++			#cooling-cells = <2>;
+ 			operating-points-v2 = <&cluster0_opp>;
+ 		};
+ 
+@@ -84,6 +86,7 @@ cpu2: cpu@200 {
+ 			next-level-cache = <&L3_CA55>;
+ 			enable-method = "psci";
+ 			clocks = <&cpg CPG_CORE R9A09G047_CA55_0_CORECLK2>;
++			#cooling-cells = <2>;
+ 			operating-points-v2 = <&cluster0_opp>;
+ 		};
+ 
+@@ -94,6 +97,7 @@ cpu3: cpu@300 {
+ 			next-level-cache = <&L3_CA55>;
+ 			enable-method = "psci";
+ 			clocks = <&cpg CPG_CORE R9A09G047_CA55_0_CORECLK3>;
++			#cooling-cells = <2>;
+ 			operating-points-v2 = <&cluster0_opp>;
+ 		};
+ 
+@@ -302,6 +306,20 @@ wdt3: watchdog@13000400 {
+ 			status = "disabled";
+ 		};
+ 
++		tsu: thermal@14002000 {
++			compatible = "renesas,r9a09g047-tsu";
++			reg = <0 0x14002000 0 0x1000>;
++			interrupts = <GIC_SPI 250 IRQ_TYPE_EDGE_RISING>,
++				     <GIC_SPI 251 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "adi", "adcmpi";
++			clocks = <&cpg CPG_MOD 0x10a>;
++			resets = <&cpg 0xf8>;
++			power-domains = <&cpg>;
++			#thermal-sensor-cells = <0>;
++			renesas,tsu-operating-mode = <0>;
++			renesas,tsu-calibration-sys = <&sys>;
++		};
 +
- /**
-  * struct rzg3e_thermal_priv - RZ/G3E thermal private data structure
-  * @base: TSU base address
-@@ -93,6 +106,7 @@
-  * @conv_complete: ADC conversion completion
-  * @reg_lock: protect shared register access
-  * @cached_temp: last computed temperature (milliCelsius)
-+ * @error_count: Track consecutive errors
-  * @trmval: trim (calibration) values
-  */
- struct rzg3e_thermal_priv {
-@@ -104,6 +118,7 @@ struct rzg3e_thermal_priv {
- 	struct completion conv_complete;
- 	spinlock_t reg_lock;
- 	int cached_temp;
-+	atomic_t error_count;
- 	u32 trmval[2];
- };
+ 		i2c0: i2c@14400400 {
+ 			compatible = "renesas,riic-r9a09g047", "renesas,riic-r9a09g057";
+ 			reg = <0 0x14400400 0 0x400>;
+@@ -502,6 +520,37 @@ gic: interrupt-controller@14900000 {
+ 		};
+ 	};
  
-@@ -200,6 +215,7 @@ static irqreturn_t rzg3e_thermal_adc_irq(int irq, void *dev_id)
- static int rzg3e_thermal_get_temp(struct thermal_zone_device *zone, int *temp)
- {
- 	struct rzg3e_thermal_priv *priv = thermal_zone_device_priv(zone);
-+	int error_count;
- 	u32 val;
- 	int ret;
- 
-@@ -217,7 +233,7 @@ static int rzg3e_thermal_get_temp(struct thermal_zone_device *zone, int *temp)
- 					TSU_POLL_DELAY_US, TSU_TIMEOUT_US);
- 	if (ret) {
- 		dev_err(priv->dev, "ADC conversion timed out\n");
--		return ret;
-+		goto handle_error;
- 	}
- 
- 	/* Start conversion */
-@@ -225,15 +241,33 @@ static int rzg3e_thermal_get_temp(struct thermal_zone_device *zone, int *temp)
- 
- 	if (!wait_for_completion_timeout(&priv->conv_complete,
- 					 msecs_to_jiffies(100))) {
-+		ret = -ETIMEDOUT;
- 		dev_err(priv->dev, "ADC conversion completion timeout\n");
--		return -ETIMEDOUT;
-+		goto handle_error;
- 	}
- 
- 	scoped_guard(spinlock_irqsave, &priv->reg_lock) {
- 		*temp = priv->cached_temp;
- 	}
- 
-+	/* Reset error count on successful read */
-+	atomic_set(&priv->error_count, 0);
- 	return 0;
++	thermal-zones {
++		cpu-thermal {
++			polling-delay = <1000>;
++			polling-delay-passive = <250>;
++			thermal-sensors = <&tsu>;
 +
-+handle_error:
-+	error_count = atomic_inc_return(&priv->error_count);
-+	if (error_count >= MAX_TEMP_READ_ERRORS) {
-+		dev_emerg(priv->dev,
-+			"Failed to read temperature %d times, initiating emergency shutdown\n",
-+			error_count);
-+		mdelay(100);
-+		panic("Temperature sensor failure - emergency shutdown");
-+	}
++			cooling-maps {
++				map0 {
++					trip = <&target>;
++					cooling-device = <&cpu0 0 3>, <&cpu1 0 3>,
++							 <&cpu2 0 3>, <&cpu3 0 3>;
++					contribution = <1024>;
++				};
++			};
 +
-+	dev_err(priv->dev, "Failed to read temperature (error %d), attempt %d/%d\n",
-+		ret, error_count, MAX_TEMP_READ_ERRORS);
++			trips {
++				target: trip-point {
++					temperature = <95000>;
++					hysteresis = <1000>;
++					type = "passive";
++				};
 +
-+	return ret;
- }
- 
- /* Convert temperature in milliCelsius to raw sensor code */
++				sensor_crit: sensor-crit {
++					temperature = <120000>;
++					hysteresis = <1000>;
++					type = "critical";
++				};
++			};
++		};
++	};
++
+ 	timer {
+ 		compatible = "arm,armv8-timer";
+ 		interrupts-extended = <&gic GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
 -- 
 2.25.1
 
