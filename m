@@ -4,63 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68F89C1B0FF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 14:38:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E6A8C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 14:40:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rSW8vY1Lz82V3O90pR+pYsVexANwdbEdqaogjvgFhUU=; b=J+gmEvXus1MHLqLTdNno14iYmw
-	Fc8b4+VXgSabllFmWUP0Z8DCfqAdQXFKl9twCpXhG84eHxcDUviOIZVJ2x8uN2T4H8iwqYW615dSx
-	nHbbdUXktM3pwz90vrk0mgAM9By2oFIOZ2ZOUDwHaTrsnrE7oZoHd3Qe8IfyGgLUr6SSciMtnoU4F
-	udGJvw9mF/wOaSJPLknbGjDwzaB63INvBVT4oTXzxhfL7hir9sKB91FHGItHzrMl7ooDC6C577JMe
-	L9KW1b0snkmpTg6Lh5Ok9xsT8w9CSMFBVEXAoVbNwphOYqmkXLgthifkffTaweEBDnkAe9tJpfqGG
-	BiLh67Zg==;
+	bh=1bsSfCGo2eaXVSSEVkUjI4R222JTBlUq4Z1S3jnELqk=; b=FCcEYGyGbZJRKdjDQorQQ7g9Cm
+	qa3UVQe/C+z9shvNHnwpYvfXMEIv2+KrKwXTxIJNe3VYsmdH2+rNRK6QNm7FR5QBxrvHr3FCbzE6j
+	xLKM9jaOgiL9qjuX6yH7WU2Qq50q6cQB/mXAm/IO6q3xhdFvu9JXomkR4cAHHHNIOVoVH1t1jtS3P
+	V9NfQD9DBo/Sr7nS1GM22npRz9J99zueTOwVTigyKXG3eZ7LT2JGzs+zETrL3v40CdTcSfXBXSsMY
+	L/YGcFA1oG091JjSHkfQx+4HilxsNsptIZvL36Kbi/841a1d8ijhQoLLMSJFMs29u+ECxCfxvUpns
+	UB6Cr/+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnf1q-00000007lcx-1ba9;
-	Thu, 27 Feb 2025 14:38:22 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tnf3Z-00000007mWk-2h0X;
+	Thu, 27 Feb 2025 14:40:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tndxq-00000007XXg-3AXB;
-	Thu, 27 Feb 2025 13:30:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=rSW8vY1Lz82V3O90pR+pYsVexANwdbEdqaogjvgFhUU=; b=bBg4Du/fOsVoASBNeammEzgOX6
-	sMwnZjf9NZkDzTj0cYQWJKCGLoYwFfsb8lyIMEzuKr9THey0k5TY3NOXcFWBpRjR2gyqwzEB1xfgt
-	2mBOE5B+A0xBANnFBluQp1wGNR3GIRcD4VVQoL7jIOD9zrA0lja4silnhHjmLUOQDFCh91j4Ha8d+
-	aHUWajsW9QhBqZtEH3vh5w3zEtOrIbKaMBiy1z8676q1pJClEF8JHcRjK8sKSijfqPME9MXepcKVM
-	887gCUSJLrgZHBu0C9u7QuPlu9coFLqydeNZg8nxZ8mpwzQgEA83dGtAhmc1WpP3b2GOGyNGj/p0r
-	VBi7lk3w==;
-Received: from i53875b47.versanet.de ([83.135.91.71] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tndxl-000163-FM; Thu, 27 Feb 2025 14:30:05 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Thorsten Blum <thorsten.blum@linux.dev>
-Cc: Thorsten Blum <thorsten.blum@linux.dev>, linux-phy@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] phy: rockchip: usbdp: Remove unnecessary bool conversion
-Date: Thu, 27 Feb 2025 14:30:04 +0100
-Message-ID: <6199846.GJh79HuArf@diego>
-In-Reply-To: <20250224220339.199180-2-thorsten.blum@linux.dev>
-References: <20250224220339.199180-2-thorsten.blum@linux.dev>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_053010_800979_C639B5CC 
-X-CRM114-Status: UNSURE (   8.03  )
-X-CRM114-Notice: Please train this message.
+	id 1tneeL-00000007fwk-00jV
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Feb 2025 14:14:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A317B6156B;
+	Thu, 27 Feb 2025 14:13:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEFB3C4CEDD;
+	Thu, 27 Feb 2025 14:14:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740665642;
+	bh=Fl1mW4a9yaufHwlEcm4v98DFsEtChO1FWA0a8FKEScU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=HKkx26x79Pu3kxbnGnLGfYeMX9o+PjWrQAg/FNlLP9ZisQiLt5sk2ok+ufzM1fnwu
+	 tcCngpb4XsOrRYyDuAmdcZ7YN01cs0r5E36ES2u1BvtZat1+rITQxcsG6ciWNiLRdE
+	 EQFoYAdkhyp4BnaH9iv91YCfBn2b/99RU6yTNkmwvU2JnO+pFzc8RzQkcgzkrhM1+B
+	 lu/967uRC83VFa5loIIzUFnS70lPP6Vy+xoKhDlljIAvVkFDW8SW6XUHkXXJnMUItV
+	 oQBGFoGoshn0QCfrBvWgcdB5cQSoHpP9k/J7ylkmj1ryQ7vvw4um8gVFnVO4U/VT6e
+	 C2lrr04rSJwug==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tneeG-008gqi-Bv;
+	Thu, 27 Feb 2025 14:14:00 +0000
+Date: Thu, 27 Feb 2025 14:13:59 +0000
+Message-ID: <86zfi7pja0.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	oliver.upton@linux.dev,
+	mark.rutland@arm.com,
+	will@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	broonie@kernel.org,
+	qperret@google.com,
+	vdonnefort@google.com
+Subject: Re: [PATCH v2 0/4] KVM: arm64: Fix initializing HCRX_EL2 and other traps in pKVM
+In-Reply-To: <20250226215520.1759218-1-tabba@google.com>
+References: <20250226215520.1759218-1-tabba@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, mark.rutland@arm.com, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com, vdonnefort@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,12 +90,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 24. Februar 2025, 23:03:39 MEZ schrieb Thorsten Blum:
-> Remove the unnecessary bool conversion and simplify the code.
+On Wed, 26 Feb 2025 21:55:16 +0000,
+Fuad Tabba <tabba@google.com> wrote:
 > 
-> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+> Changes since v1 [*]:
+> - Factor out setting HCRX_EL2 traps into a separate function and
+> share logic between protected and non-protected modes
+> - Rebase on Linux 6.14-rc4
+> 
+> For context, please refer to v1 [*].
+> 
+> Cheers,
+> /fuad
+> 
+> [*] https://lore.kernel.org/all/20250214150258.464798-1-tabba@google.com/
+> 
+> Fuad Tabba (4):
+>   KVM: arm64: Factor out setting HCRX_EL2 traps into separate function
+>   KVM: arm64: Initialize HCRX_EL2 traps in pKVM
+>   KVM: arm64: Factor out pKVM hyp vcpu creation to separate function
+>   KVM: arm64: Create each pKVM hyp vcpu after its corresponding host
+>     vcpu
+> 
+>  arch/arm64/include/asm/kvm_emulate.h   | 24 +++++++++
+>  arch/arm64/include/asm/kvm_host.h      |  2 +
+>  arch/arm64/include/asm/kvm_pkvm.h      |  1 +
+>  arch/arm64/kvm/arm.c                   |  4 ++
+>  arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  6 ---
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c         | 62 ++++++++++++++---------
+>  arch/arm64/kvm/pkvm.c                  | 70 +++++++++++++-------------
+>  arch/arm64/kvm/sys_regs.c              | 20 +-------
+>  8 files changed, 104 insertions(+), 85 deletions(-)
+> 
+> 
+> base-commit: d082ecbc71e9e0bf49883ee4afd435a77a5101b6
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Reviewed-by: Marc Zyngier <maz@kernel.org>
 
+	M.
 
+-- 
+Without deviation from the norm, progress is not possible.
 
