@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA033C1B087
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C03DFC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:43:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zyDf40pSgrSopnvi3VDfQLuD1JfH1B1bxMawPHCl584=; b=Dp6Bd/I1DG2vK59nWUcJtUgO9i
-	6PkcvfW3mEfySVw1aExkRm6kpPybCa0PeDcDkn4BmwLLrodY5PqGXckzEIlvkZSl7jx8hXEbmTIzf
-	MyH5fOOiIzuO0E0uKQJHIb0h014F5frwsq6wFxeFV+mSfUbxDvPDSYMW1cAHy1D+bUwUCSqUr/R1+
-	EycA54XSRhxuxdCOjSE+jfUwPOc5mn4loDJ8nOTHXQ3TyU2l7c4BOZMIPbgWOHlBEAOyjR075eCJ5
-	txKFsQ05Vt5aD280QfCAoGbKLTAH+eD7p7StPOxYcFZ74xheERfGGf4qGyyy0UazMOpA9KDXVf5jL
-	4PP/6NhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bnDwHn3VE/1QDoX5PmDpHlQdrc4Kek1m+Wmq70y11Yg=; b=kSeyAmRzgA/WkyXabUGYaRZM/p
+	lV2xc6fWqAqbuRGnCBld0nPEKQJh9aycUTw/xlI5vN4bpDesdnSV4RqgTDLOlhchF0chnaPb4PHm0
+	C1cxuDVsFuu6bliJId+jrLQufakySmBeadFrr+laIZR3/B2rySMBeBLrnFBf6PoNvyQFGVSocz8fr
+	+JGwf9Z5+KHlNMu7zqdYNNb1vIcHUyIQL5cJdY+PbfqthwBVDd/F5q0BjFrs5xKHuuCstv5eloUZr
+	cRUFDCLYj9Pmmy+rthBF+qHaMBai/P6w93UR1WfdUCr/2gKoMZmYi8qAew6ek6qB9Rvc1luhydnXc
+	hyatbgHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjmj-00000008dyo-067J;
-	Thu, 27 Feb 2025 19:43:05 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1tnjmh-00000008dv8-0cuR;
+	Thu, 27 Feb 2025 19:43:03 +0000
+Received: from smtp.forwardemail.net ([121.127.44.59])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tniv4-00000008MKL-0w9r;
-	Thu, 27 Feb 2025 18:47:39 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id DFBD225A3E;
-	Thu, 27 Feb 2025 19:47:30 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id NeJMdeaV9PgI; Thu, 27 Feb 2025 19:47:30 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1740682050; bh=tNxufyEmqvelo58l5TdexlWiSdxOsHppCDLg7M4W79s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=R06d9cIO2xlwenccd6afG9XhP6C1IMj8IPLlXGO2KvKAHnpKzXfum2DQz+NcuTWN0
-	 eKaJSBCJKrnbfQQgvtFqZPEN+i7v3DGl8C684Z8qWwcqPcbW3DfBXne0RuN0Zye6c7
-	 vNBvlgZfE8Cgz5bOGrDF0Ymao6CA+y1aPGAVom1Jc2wJNEOrukHwqR+wEmNT9sEYKp
-	 GovGi0gZqWlwIc/+oF4wO6g3RJLP7UgCqg2RYctlfK6ddTayjeqBPi8cZfGb4Mo3Lz
-	 pG3qtSfHwL78PCjTxzK/CfA7qWPDwVcwPtyZXS4sGKx/B43qXN/LIPPzUATLbb4GyF
-	 hSMehDccy9T1A==
-Date: Thu, 27 Feb 2025 18:47:12 +0000
-From: Yao Zi <ziyao@disroot.org>
-To: Jonas Karlman <jonas@kwiboo.se>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+	id 1tnipB-00000008LTO-2w6E
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Feb 2025 18:41:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
+ Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
+ t=1740681693; bh=bnDwHn3VE/1QDoX5PmDpHlQdrc4Kek1m+Wmq70y11Yg=;
+ b=NBqM4qidq/tKl1rLyHAw6yL8e40xXGp8JWxgtAaFpf3gbe9rTrCYfBVhcJa0+tf3u6evneI0j
+ 13OrUozS/vBmwjEJnUUiZOmdXUOOhAVMAX3UOzFTuARsyNkRz3cKTMOlwE0wm3Pe90eblUvf3Xu
+ jA3tpNPUcNOjvBHSFCUUVLUROp3LHszgUa+6UEBQs8wE6LhGO+bHAVnTp79xnvgoY9+fTkZeEHV
+ /HJDs8Q+ZEhrisx4h7nZrE0Eigfe7QZ1Opkzto8b5zXGkBlJatgaK2VKVx595BHTO8Uheuk7jpm
+ 63ju8ROa7hRGbJOInrWx9I5sMLNIxdpc6g4ecd6Jh4xA==
+X-Forward-Email-ID: 67c0b1dabf572996e86214e5
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.59
+X-Forward-Email-Version: 0.4.40
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Yao Zi <ziyao@disroot.org>,
+	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-iio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH] clk: rockchip: Add reset lookup table for RK3528
-Message-ID: <Z8CzMNI_1CjUgSrl@pie.lan>
-References: <20250227175302.2950788-1-jonas@kwiboo.se>
+	linux-kernel@vger.kernel.org,
+	Jonas Karlman <jonas@kwiboo.se>
+Subject: [PATCH 4/4] arm64: dts: rockchip: Add adc-keys node to Radxa E20C
+Date: Thu, 27 Feb 2025 18:40:53 +0000
+Message-ID: <20250227184058.2964204-5-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250227184058.2964204-1-jonas@kwiboo.se>
+References: <20250227184058.2964204-1-jonas@kwiboo.se>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250227175302.2950788-1-jonas@kwiboo.se>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_104738_673622_E89D109E 
-X-CRM114-Status: GOOD (  16.08  )
+X-CRM114-CacheID: sfid-20250227_104133_829210_D40A3539 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,32 +83,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025 at 05:52:57PM +0000, Jonas Karlman wrote:
-> In the commit 5d0eb375e685 ("clk: rockchip: Add clock controller driver
-> for RK3528 SoC") only the dt-binding header was added for the reset
-> controller for the RK3528 SoC.
-> 
-> Add a reset lookup table generated from the SRST symbols used by vendor
-> linux-6.1-stan-rkr5 kernel to complete support for the reset controller.
-> 
+Radxa E20C has two buttons, one SARADC maskrom button and one GPIO user
+button.
 
-Thanks for completing the reset part! The patch looks good to me, but
+Add support for the maskrom button using a adc-keys node, also add the
+regulators used by SARADC controller.
 
-> Fixes: 5d0eb375e685 ("clk: rockchip: Add clock controller driver for RK3528 SoC")
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+---
+ .../boot/dts/rockchip/rk3528-radxa-e20c.dts   | 50 +++++++++++++++++++
+ 1 file changed, 50 insertions(+)
 
-I wonder whether it deserves a Fix tag: to me it's more like a new
-feature. Please correct me if I'm wrong.
+diff --git a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
+index d2cdb63d4a9d..dcc0b2584bbc 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
+@@ -6,6 +6,8 @@
+  */
+ 
+ /dts-v1/;
++
++#include <dt-bindings/input/input.h>
+ #include "rk3528.dtsi"
+ 
+ / {
+@@ -15,6 +17,54 @@ / {
+ 	chosen {
+ 		stdout-path = "serial0:1500000n8";
+ 	};
++
++	adc-keys {
++		compatible = "adc-keys";
++		io-channels = <&saradc 0>;
++		io-channel-names = "buttons";
++		keyup-threshold-microvolt = <1800000>;
++		poll-interval = <100>;
++
++		button-maskrom {
++			label = "MASKROM";
++			linux,code = <KEY_SETUP>;
++			press-threshold-microvolt = <0>;
++		};
++	};
++
++	vcc_1v8: regulator-1v8-vcc {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_1v8";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		vin-supply = <&vcc_3v3>;
++	};
++
++	vcc_3v3: regulator-3v3-vcc {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc_3v3";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
++	vcc5v0_sys: regulator-5v0-vcc-sys {
++		compatible = "regulator-fixed";
++		regulator-name = "vcc5v0_sys";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++	};
++};
++
++&saradc {
++	vref-supply = <&vcc_1v8>;
++	status = "okay";
+ };
+ 
+ &uart0 {
+-- 
+2.48.1
 
-> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-> ---
->  drivers/clk/rockchip/Makefile     |   2 +-
->  drivers/clk/rockchip/clk-rk3528.c |   2 +
->  drivers/clk/rockchip/clk.h        |   1 +
->  drivers/clk/rockchip/rst-rk3528.c | 306 ++++++++++++++++++++++++++++++
->  4 files changed, 310 insertions(+), 1 deletion(-)
->  create mode 100644 drivers/clk/rockchip/rst-rk3528.c
-> 
-
-Thanks,
-Yao Zi
 
