@@ -4,69 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FAE5C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:37:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B94B8C282C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:37:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RgGNxrUr8LJkEzv7yIWYEgpM/6tPuhZMATjWdJfm/zw=; b=Wm1hhLJn/RqWKnblIWIAXlIdqn
-	yA7ipAFNGFZkFAM7lw3viZczTqfksRCX90c6/5VkJWvNm7z+DpkXkGlnr52YsMVLDKvq+HCGJcCcd
-	mV8XtUwsdfdfXV6zZTSaCeNp5bXw2iDZOc5TuqTIjEyEv8gPBjsW8v30qZsNFZ+ehe5DpkmSwtmbB
-	hsg8q0njByGCYUHHsj0mxveIXVAQnT08FJVU/cVqKmHMq3o6Zksbv/L/yYxiYet4uDKVQMZ7q3CyE
-	wQJNVHsz4U7Y1MAuedbMBE8E6U2IBbDj0j8gOTUYCRxRmA/cXd9voGai8z53Hkzx557xOzV8Ocv19
-	Y1kiashQ==;
+	bh=4I0f1PHQaAjjm2hMikqLDrqSEQ1EPe1JRRvpJJihO7c=; b=uPdSucYH0FpD3vVCZ/BJE3R6SR
+	nWjU2fICrpNYst5x/gO3n86hPt8SlxHbBDW6xx16ZEslKR/iUcoBp2Pn/D096JPOG+Rt6BG/3aIwy
+	LkhVWdsf7FB0jW8YWDNcbOO8yvL5zClSt/RiUpyWmu/ghCBsjpJaKuHivAtA5SB+2iorsaD6gCny1
+	v37KMzKC7NPqlQir/lqo4u4JHtTun3ssvan5tchtR7PABUHZ6i4pNXWcQPQx2/CgQh6Rc5aqQDxvg
+	0CBqalyDjfpPRrtZb5USyY9HkMdksVXE94XM/CGmLK0mUx66XRH4fMTvNQvtirMHTyni+qPSr4D3s
+	qN/PQVVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjh6-00000008TiD-358H;
-	Thu, 27 Feb 2025 19:37:16 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1tnjh0-00000008Tdb-1W1r;
+	Thu, 27 Feb 2025 19:37:10 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnf4S-00000007mrV-0eSf
+	id 1tnf1p-00000007lav-1rPC
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 27 Feb 2025 14:38:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description;
+	bh=4I0f1PHQaAjjm2hMikqLDrqSEQ1EPe1JRRvpJJihO7c=; b=BGEg8rg5YrzKPQxqwv5LMx5DzQ
+	J9LE4r4EKr6PS/RH6qmXXG/pHaX+jEF1kHtrz2geBLWyDoE6FIskcX7a3N2E6x+8fOCA+zdQSJ77r
+	bEk6u7WlWq7vdTwtVR7xzUW57ElXi8ANZKccVfdEzu8WMVLDbrbt6YnAzQu77lnVFdhUPC0QZCzMi
+	IOpezncGZG6HCcnS1xFz5erDaHtJFLwGjEwn4bVooo3eV1USNWJKjT4fi5iPCOzWcwCHkscekTLBe
+	Wp8ekwDnBuyNAk1AB81duj+jVzfQTkNJLiStoRN9cgOP+dJeCf/Gbwl5pvulO5DdXuNXsUVsrgQIm
+	cyUtbOlA==;
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnf1m-00000003oRd-2354
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 14:41:05 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id B910CA02D7;
-	Thu, 27 Feb 2025 15:41:02 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=RgGNxrUr8LJkEzv7yIWY
-	EgpM/6tPuhZMATjWdJfm/zw=; b=NXs/Siajzan1KhEv6oKWql6dKV5jRSIIaMJc
-	qEkz6blskcKq/6QfeXZgj8sePbd/sN+hlrgRasMgcBJu071PqzNojDDv8c3DCiZe
-	qgq2d5fxsdMSXD6kwsvzhp0LVB4xQnhFjwv46WX7byeY6uSOQ9ns3TZtS+Qx7LSi
-	0xBTPKReuSfI9DqkDPvGHhXN+d/w55MjZKNuIK/6UQR/I5EMkvH1Z7ULybrHZdEC
-	kGMTIiFpZFm64PDojncyh4yYqibJaq+FWQyt0FBJDuodqq/LHgc3A/GBhfsWvK6T
-	zogrPu5QZhvkxq2gK79Yvb6Z4Zld5qYJQdyv9gNdo1Ez8acSve2Evih8CkjCDLyw
-	Kh0tt/IUwEw3cjh75bcPeX1xqki7T2Hka5ZW6Y7I7Ph9reJWQI4NUhf9BHg54Cxq
-	Mchg/47qe/JE2shmX8hOYN/s4eOVvl7MKUmSbEiIYF2R/+Kl+lj6dqMK8mE/6wzD
-	nS+2ReFSgAIA4/tLTN8hdooTj4CHKb2JCxo9ncN0FHhkYahEfskEh6xdyoDZ6A1a
-	vfyJmti7pk8bOfrtPwckSaSXQF6zyu57PozQyPEC69Z+4sTE09FbIxfhIw2n4Tqf
-	vCN4crg/RNOU7LrLm4Zsz1GCG+Y5HIcjHD5SzvpjiXeKIeVmU9ZNGTYHtXXfPWiM
-	y9u2+j0=
-From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-To: <linux-arm-kernel@lists.infradead.org>, <linux-iio@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Kamel
- Bouhara" <kamel.bouhara@bootlin.com>, William Breathitt Gray <wbg@kernel.org>
-Subject: [PATCH v6 3/3] counter: microchip-tcb-capture: Add capture extensions for registers RA/RB
-Date: Thu, 27 Feb 2025 15:40:20 +0100
-Message-ID: <20250227144023.64530-4-csokas.bence@prolan.hu>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250227144023.64530-1-csokas.bence@prolan.hu>
-References: <20250227144023.64530-1-csokas.bence@prolan.hu>
+	Thu, 27 Feb 2025 14:38:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=4I0f1PHQaAjjm2hMikqLDrqSEQ1EPe1JRRvpJJihO7c=; b=RbDq/Og3xnnNmeI8ijSBQHIQDv
+	zfpsWLuMyPmLKtjvbDxrRweXy6wXBx9ZAUAYmSEs3yZegSq7RNrxj748BMMFVVGmuII113WURS30/
+	l8OvSXyl/KpBj8A9wWBH18ZFyMS794Zus7mSLsToCCGjN9BGfuUWDp94vEhevuxExLNHWIFj8+dn+
+	/VSiRC3wv/6qENtfFRj70Q75QQghb0+S293qbUg4qWCm+8GKFRxjgabHHPc+dXBz3EWHsoHH9Dr/v
+	Z5m2yGFqzdb251CWXonPxh398UB2+FMokmrwRbozZLct70qlRsa+cKf10YuIRFFQhkQjSr9BjGZcT
+	BQpmhzbw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:40470 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1tnf1h-0007QM-04;
+	Thu, 27 Feb 2025 14:38:13 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1tnf1N-0056L5-2X; Thu, 27 Feb 2025 14:37:53 +0000
+In-Reply-To: <Z8B4tVd4nLUKXdQ4@shell.armlinux.org.uk>
+References: <Z8B4tVd4nLUKXdQ4@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jon Hunter <jonathanh@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Thierry Reding <treding@nvidia.com>
+Subject: [PATCH RFC net-next 2/5] net: phylink: add phylink_prepare_resume()
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1740667261;VERSION=7985;MC=2016132060;ID=1459478;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A2980D94852637760
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1tnf1N-0056L5-2X@rmk-PC.armlinux.org.uk>
+Date: Thu, 27 Feb 2025 14:37:53 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_064104_372955_CF7EDE16 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20250227_143818_676139_62544CDF 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,130 +104,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-TCB hardware is capable of capturing the timer value to registers RA and
-RB. Add these registers as capture extensions.
+Add a resume preparation function, which will ensure that the receive
+clock from the PHY is appropriately configured while resuming.
 
-Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
+ drivers/net/phy/phylink.c | 24 ++++++++++++++++++++++++
+ include/linux/phylink.h   |  1 +
+ 2 files changed, 25 insertions(+)
 
-Notes:
-    Changes in v2:
-    * Add IRQs
-    Changes in v3:
-    * Move IRQs to previous patch
-    Changes in v4:
-    * Return the status of the regmap_*() operations
-    * Add names for the extension numbers
-    Changes in v6:
-    * Remove RC, as it is not a capture register
-
- drivers/counter/microchip-tcb-capture.c       | 56 +++++++++++++++++++
- .../linux/counter/microchip-tcb-capture.h     |  9 +++
- 2 files changed, 65 insertions(+)
-
-diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/microchip-tcb-capture.c
-index cc12c2e2113a..4ba5e29138e7 100644
---- a/drivers/counter/microchip-tcb-capture.c
-+++ b/drivers/counter/microchip-tcb-capture.c
-@@ -254,6 +254,60 @@ static int mchp_tc_count_read(struct counter_device *counter,
- 	return 0;
+diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+index 0aae0bb2a254..976e569feb70 100644
+--- a/drivers/net/phy/phylink.c
++++ b/drivers/net/phy/phylink.c
+@@ -2636,6 +2636,30 @@ void phylink_suspend(struct phylink *pl, bool mac_wol)
  }
+ EXPORT_SYMBOL_GPL(phylink_suspend);
  
-+static int mchp_tc_count_cap_read(struct counter_device *counter,
-+				  struct counter_count *count, size_t idx, u64 *val)
++/**
++ * phylink_prepare_resume() - prepare to resume a network device
++ * @pl: a pointer to a &struct phylink returned from phylink_create()
++ *
++ * Optional, thus must be called prior to phylink_resume().
++ *
++ * Prepare to resume a network device, preparing the PHY as necessary.
++ */
++void phylink_prepare_resume(struct phylink *pl)
 +{
-+	struct mchp_tc_data *const priv = counter_priv(counter);
-+	u32 cnt;
-+	int ret;
++	ASSERT_RTNL();
 +
-+	switch (idx) {
-+	case COUNTER_MCHP_EXCAP_RA:
-+		ret = regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], RA), &cnt);
-+		break;
-+	case COUNTER_MCHP_EXCAP_RB:
-+		ret = regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], RB), &cnt);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	if (!ret)
-+		*val = cnt;
-+
-+	return ret;
++	/* If the MAC requires the receive clock, but receive clock
++	 * stop was enabled at the PHY, we need to ensure that the
++	 * receive clock is running. Disable receive clock stop.
++	 * phylink_resume() will re-enable it if necessary.
++	 */
++	if (pl->mac_supports_eee_ops && pl->phydev &&
++	    pl->config->mac_requires_rxc &&
++	    pl->config->eee_rx_clk_stop_enable)
++		phy_eee_rx_clock_stop(pl->phydev, false);
 +}
++EXPORT_SYMBOL_GPL(phylink_prepare_resume);
 +
-+static int mchp_tc_count_cap_write(struct counter_device *counter,
-+				   struct counter_count *count, size_t idx, u64 val)
-+{
-+	struct mchp_tc_data *const priv = counter_priv(counter);
-+	int ret;
-+
-+	if (val > U32_MAX)
-+		return -ERANGE;
-+
-+	switch (idx) {
-+	case COUNTER_MCHP_EXCAP_RA:
-+		ret = regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], RA), val);
-+		break;
-+	case COUNTER_MCHP_EXCAP_RB:
-+		ret = regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], RB), val);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	return ret;
-+}
-+
-+static DEFINE_COUNTER_ARRAY_CAPTURE(mchp_tc_cnt_cap_array, 2);
-+
-+static struct counter_comp mchp_tc_count_ext[] = {
-+	COUNTER_COMP_ARRAY_CAPTURE(mchp_tc_count_cap_read, mchp_tc_count_cap_write,
-+				   mchp_tc_cnt_cap_array),
-+};
-+
- static struct counter_count mchp_tc_counts[] = {
- 	{
- 		.id = 0,
-@@ -262,6 +316,8 @@ static struct counter_count mchp_tc_counts[] = {
- 		.num_functions = ARRAY_SIZE(mchp_tc_count_functions),
- 		.synapses = mchp_tc_count_synapses,
- 		.num_synapses = ARRAY_SIZE(mchp_tc_count_synapses),
-+		.ext = mchp_tc_count_ext,
-+		.num_ext = ARRAY_SIZE(mchp_tc_count_ext),
- 	},
- };
+ /**
+  * phylink_resume() - handle a network device resume event
+  * @pl: a pointer to a &struct phylink returned from phylink_create()
+diff --git a/include/linux/phylink.h b/include/linux/phylink.h
+index 08df65f6867a..071ed4683c8c 100644
+--- a/include/linux/phylink.h
++++ b/include/linux/phylink.h
+@@ -699,6 +699,7 @@ void phylink_start(struct phylink *);
+ void phylink_stop(struct phylink *);
  
-diff --git a/include/uapi/linux/counter/microchip-tcb-capture.h b/include/uapi/linux/counter/microchip-tcb-capture.h
-index ee72f1463594..5c015fafe42c 100644
---- a/include/uapi/linux/counter/microchip-tcb-capture.h
-+++ b/include/uapi/linux/counter/microchip-tcb-capture.h
-@@ -12,6 +12,9 @@
-  * Count 0
-  * \__  Synapse 0 -- Signal 0 (Channel A, i.e. TIOA)
-  * \__  Synapse 1 -- Signal 1 (Channel B, i.e. TIOB)
-+ * \__  Extension capture0    (RA register)
-+ * \__  Extension capture1    (RB register)
-+ * \__  Extension capture2    (RC register)
-  *
-  * It also supports the following events:
-  *
-@@ -30,6 +33,12 @@ enum counter_mchp_signals {
- 	COUNTER_MCHP_SIG_TIOB,
- };
+ void phylink_suspend(struct phylink *pl, bool mac_wol);
++void phylink_prepare_resume(struct phylink *pl);
+ void phylink_resume(struct phylink *pl);
  
-+enum counter_mchp_capture_extensions {
-+	COUNTER_MCHP_EXCAP_RA,
-+	COUNTER_MCHP_EXCAP_RB,
-+	COUNTER_MCHP_EXCAP_RC,
-+};
-+
- enum counter_mchp_event_channels {
- 	COUNTER_MCHP_EVCHN_CV = 0,
- 	COUNTER_MCHP_EVCHN_RA = 0,
+ void phylink_ethtool_get_wol(struct phylink *, struct ethtool_wolinfo *);
 -- 
-2.48.1
-
+2.30.2
 
 
