@@ -4,59 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0D37C197BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96169C197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:39:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5a4LZe2ZmL0X2dhuQaKTZV4ALT1etPqXHOHjq1lRgkc=; b=XUZBHlcPjFnPD5ICY/GaWVw4lS
-	q0H1eaE2Ej5pp2xxAEqYyfBS+LUa9aWsIWeiSbbVsp/tXQpnpY/sKzV740sYjKm14unWGmAclLo8r
-	bNxt7yQVoqOyB9vJ9qP3C68VTF/k6gxDgBk++98fy/ew6wShD52DMTc4/IYxIyxwlyO2p6jxMhGus
-	oLEWLEOusutFvTks7gLIuvdZUfJSq0A16vP5UyTTgb8+YrdDpFJVKiPKsH8W/bRWQNFkL2Ky+pBgS
-	720G7Ny3Qti5vWPY5M69u9DHtnR/E7hVNAgeLOuKIVrKpsojVl4D137ZjF0UZG5DK6HoepHkh10q6
-	ByfT79Ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9GeYTXENMr3flP3ciwo2GiPqCMR91G8nXsrWmZtyddE=; b=X1Ab7jVpDoo1Pi+qX+j2cJnn1M
+	Br++T0/wHeakioCAYX5RRNfRX+xAmYtYfhDA5/lDH0+J2Zn53UJKmoJc9YZEYWXYdgyUhEFB+tXug
+	A6FyGi+zEQYHWxA/DdDtct+ga0wd3mtZ/iPX6PzjqP+abIiCfOvPfIBTezNHqXeylUm6yYnbb8f5N
+	2gIlcC41lK+9cjQ57K/+h6It26r3fxqVoMjHb56bgpt8T2q11I5jp7YyvXcW/ZIax40QkhPAALiS2
+	rJbyqjHo2c6AFuPOVLYDztI+OKCI1S/KG3Z6SKPEJNX4cvq8YLE6Bwp5zP52K/mrXioB156CAREze
+	bC0HjQUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjjJ-00000008Xy4-3sGJ;
-	Thu, 27 Feb 2025 19:39:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tngfz-000000083l5-04UD
+	id 1tnjjO-00000008Y6K-0Egc;
+	Thu, 27 Feb 2025 19:39:38 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tngnG-000000084zA-37Fz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 16:23:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 997C91516;
-	Thu, 27 Feb 2025 08:24:09 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.2.76.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AC1373F673;
-	Thu, 27 Feb 2025 08:23:53 -0800 (PST)
-Date: Thu, 27 Feb 2025 16:23:49 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, kernel@quicinc.com,
-	linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, kernel@oss.qualcomm.com,
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 3/5] coresight-tnoc: add nodes to configure flush
-Message-ID: <20250227162349.GB2157064@e132581.arm.com>
-References: <20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com>
- <20250226-trace-noc-driver-v2-3-8afc6584afc5@quicinc.com>
+	Thu, 27 Feb 2025 16:31:28 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-54622e97753so1163596e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 08:31:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=minyard-net.20230601.gappssmtp.com; s=20230601; t=1740673884; x=1741278684; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9GeYTXENMr3flP3ciwo2GiPqCMR91G8nXsrWmZtyddE=;
+        b=DlaZIWLSYfsPOxFz6awDmcSj9eWdRTmcutKegC+Fpae0xbjjguKteuvpj2lnMHANFQ
+         MwcyVOt+mtqXkvIivxaE9a9jHjeCWEmI1EJZ7xs33bWpQHuqA28oX/ydUbHTSKJGo2rD
+         YzDjLHa4f/zmJ/AATVU4e3PP+wjvdqwbjUtAcyozpv1vAi/AwbvYvLGgyICb3+oAuSCf
+         OeAXxOUKMJpC+Mvqxy9QxV8Spa23j5zqE0AMivArcK9dO3h1ZIPbKYKMEdhNBzrBu1L4
+         K2EOmzET4XJpCqfLbiw1XQZLzJvjKYDNn9EwCZETUBwzyZr2/RMSVJWKcaqpEOdrlO7J
+         AVpg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740673884; x=1741278684;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9GeYTXENMr3flP3ciwo2GiPqCMR91G8nXsrWmZtyddE=;
+        b=TazIAADxs0z6rTWdHTcbW87rr2prY7ucHyrwT9TE+mTNqO8pRZczrkC44NRQXhc5pJ
+         xO83f0pGp1yQyQzW7gnU9GlW7q365eLAMjlnj2kndvywLfaYm9+Aoksu52rUmpPdKtYF
+         eFUdaWr76AABdIrP6WukyhCwtUUl6W/inonSAsDoRH1FR/GF0IjERqr/kP7tLXPJwRUS
+         rLzXGPHO5zmmJTVBJu+jkLVXF5aOfeJkehg4yhGrSYvCsO0UbiQQLIo8e5LB4MD19BRH
+         nEhnGv4Pa5Zr4Y+16M0dC9WJLJV1ereCK2ZSWOMgP+VHrnbGYCftPy+37U5iIFRU2Cdo
+         jPWw==
+X-Forwarded-Encrypted: i=1; AJvYcCXrRK93+vvfCVqkNqdjVNJLHEpqRx13QKFZxylgZEGsYiCH+LeNc9DHBbcAyqpFc09ylsY6Fm0WJGwRihrrF8YT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5WvKbn0C4I5HV92/ni6VnXbt34V1Mpa6WokSjnPBlU+6PGSFO
+	QYLnZG86OdWLZmAtTGAu49ZyQHaAr6AD4VkASXR6MmcXybjAMnaWkV0IYBy9CJoBFT4qIwajblC
+	kTxEc9XsOpQIXd4FZ5iif9RdQyHLb+Aa45eimcg==
+X-Gm-Gg: ASbGnctGY6T+3FnRQhbjmQJ1bysSneg376YJ9XBTrzLAaUlmMpKoO9KywGVVBeZ39IF
+	8KM4p1nvg1W1FR1cZH/5YEQKOJfHoxfCg2dFWo65lEtvrS8pPzARB9JTGhRDmkq5s0Jpab7R7wq
+	bdjYU0tXjpQhDbwSvpREM19CfVtkIXK0KpJbZ7ow==
+X-Google-Smtp-Source: AGHT+IEUbAC3kjl5eNNXKnBI/MMkmVbVJWoGnJKM7ezHnOTqe5P7XXqY0IVO/n+TvmfZpG/9CNbmwSisZkbfQ+rFnfw=
+X-Received: by 2002:a05:6512:281d:b0:545:d54:2ebf with SMTP id
+ 2adb3069b0e04-5494c107e76mr52906e87.3.1740673883880; Thu, 27 Feb 2025
+ 08:31:23 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250226-trace-noc-driver-v2-3-8afc6584afc5@quicinc.com>
+References: <20250204194115.3899174-1-ninad@linux.ibm.com> <20250204194115.3899174-2-ninad@linux.ibm.com>
+ <fd92f75620e48957c2875cdcfd1285c33d3176e6.camel@codeconstruct.com.au>
+In-Reply-To: <fd92f75620e48957c2875cdcfd1285c33d3176e6.camel@codeconstruct.com.au>
+From: Corey Minyard <corey@minyard.net>
+Date: Thu, 27 Feb 2025 10:31:12 -0600
+X-Gm-Features: AQ5f1JrxG1t1lSqYDcbZpYZ-TVphariQNf3aM6dUFwiyKs1tLOEBbUdBR-9V5Rs
+Message-ID: <CAB9gMfqkRZY3y5V+WDyxvyrdzWNWu2gjmyEnj8mygo85hjX8sw@mail.gmail.com>
+Subject: Re: [PATCH v9 1/9] dt-bindings: ipmi: Add binding for IPMB device
+To: Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: Ninad Palsule <ninad@linux.ibm.com>, minyard@acm.org, andrew@lunn.ch, brgl@bgdev.pl, 
+	linus.walleij@linaro.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, openipmi-developer@lists.sourceforge.net, joel@jms.id.au, 
+	devicetree@vger.kernel.org, eajames@linux.ibm.com, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_082355_141707_2288E4DB 
-X-CRM114-Status: GOOD (  29.60  )
+X-CRM114-CacheID: sfid-20250227_083127_273044_99A4D5A9 
+X-CRM114-Status: GOOD (  14.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,148 +99,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 26, 2025 at 07:05:52PM +0800, Yuanfang Zhang wrote:
-> 
-> Two nodes for configure flush are added here:
-> 1. flush_req: write 1 to initiates a flush sequence.
-> 
-> 2. flush_state: read this node to get flush status. 0: sequence in
-> progress; 1: sequence has been completed.
-> 
-> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-> ---
->  drivers/hwtracing/coresight/coresight-tnoc.c | 73 ++++++++++++++++++++++++++++
->  drivers/hwtracing/coresight/coresight-tnoc.h |  4 ++
->  2 files changed, 77 insertions(+)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
-> index fad8e61f05ef25989aba1be342c547f835e8953a..20231f28ddcb6a60d9b3c1ca3e0ca4d731dac39c 100644
-> --- a/drivers/hwtracing/coresight/coresight-tnoc.c
-> +++ b/drivers/hwtracing/coresight/coresight-tnoc.c
-> @@ -16,6 +16,78 @@
->  #include "coresight-tnoc.h"
->  #include "coresight-trace-id.h"
-> 
-> +static ssize_t flush_req_store(struct device *dev,
-> +                              struct device_attribute *attr,
-> +                              const char *buf,
-> +                              size_t size)
-> +{
-> +       struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +       struct coresight_device *csdev = drvdata->csdev;
-> +       unsigned long val;
-> +       u32 reg;
-> +
-> +       if (kstrtoul(buf, 10, &val))
-> +               return -EINVAL;
-> +
-> +       if (val != 1)
-> +               return -EINVAL;
-> +
-> +       spin_lock(&drvdata->spinlock);
-> +       if (csdev->refcnt == 0) {
-> +               spin_unlock(&drvdata->spinlock);
-> +               return -EPERM;
-> +       }
-> +
-> +       reg = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
-> +       reg = reg | TRACE_NOC_CTRL_FLUSHREQ;
-> +       writel_relaxed(reg, drvdata->base + TRACE_NOC_CTRL);
+Oops.
 
-How can userspace determine when to trigger a flush?
+Go ahead and take it through the BMC tree.
 
-Generally, a driver kicks off a flush operation for a hardware before
-reading data from buffer or when disable a link path.  I don't know the
-hardware mechanism of TNOC, but seems to me, it does not make sense to
-let the userspace to trigger a hardware flush, given the userspace has
-no knowledge for device's state.
+Acked-by: Corey Minyard <corey@minyard.net>
 
-Furthermore, based on my understanding for patch 02 and 03, the working
-flow is also concerned me.  IIUC, you want to use the driver to create
-a linkage and then use userspace program to poll state and trigger
-flushing.  Could you explain why use this way for managing the device?
-
-Thanks,
-Leo
-
-> +
-> +       spin_unlock(&drvdata->spinlock);
-> +
-> +       return size;
-> +}
-> +static DEVICE_ATTR_WO(flush_req);
-> +
-> +/*
-> + * flush-sequence status:
-> + * value 0: sequence in progress;
-> + * value 1: sequence has been completed.
-> + */
-> +static ssize_t flush_status_show(struct device *dev,
-> +                                struct device_attribute *attr,
-> +                                char *buf)
-> +{
-> +       struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +       struct coresight_device *csdev = drvdata->csdev;
-> +       u32 val;
-> +
-> +       spin_lock(&drvdata->spinlock);
-> +       if (csdev->refcnt == 0) {
-> +               spin_unlock(&drvdata->spinlock);
-> +               return -EPERM;
-> +       }
-> +
-> +       val = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
-> +       spin_unlock(&drvdata->spinlock);
-> +       return sysfs_emit(buf, "%lu\n", BMVAL(val, 2, 2));
-> +}
-> +static DEVICE_ATTR_RO(flush_status);
-> +
-> +static struct attribute *trace_noc_attrs[] = {
-> +       &dev_attr_flush_req.attr,
-> +       &dev_attr_flush_status.attr,
-> +       NULL,
-> +};
-> +
-> +static struct attribute_group trace_noc_attr_grp = {
-> +       .attrs = trace_noc_attrs,
-> +};
-> +
-> +static const struct attribute_group *trace_noc_attr_grps[] = {
-> +       &trace_noc_attr_grp,
-> +       NULL,
-> +};
-> +
->  static void trace_noc_enable_hw(struct trace_noc_drvdata *drvdata)
->  {
->         u32 val;
-> @@ -142,6 +214,7 @@ static int trace_noc_probe(struct amba_device *adev, const struct amba_id *id)
->                 return ret;
-> 
->         desc.ops = &trace_noc_cs_ops;
-> +       desc.groups = trace_noc_attr_grps;
->         desc.type = CORESIGHT_DEV_TYPE_LINK;
->         desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_MERG;
->         desc.pdata = adev->dev.platform_data;
-> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.h b/drivers/hwtracing/coresight/coresight-tnoc.h
-> index b6bd1ef659897d8e0994c5e8514e8cbdd16eebd8..d0fe8f52709ff4147d66dbf90987595012cfaa4e 100644
-> --- a/drivers/hwtracing/coresight/coresight-tnoc.h
-> +++ b/drivers/hwtracing/coresight/coresight-tnoc.h
-> @@ -10,6 +10,10 @@
-> 
->  /* Enable generation of output ATB traffic.*/
->  #define TRACE_NOC_CTRL_PORTEN  BIT(0)
-> +/* Writing 1 to initiate a flush sequence.*/
-> +#define TRACE_NOC_CTRL_FLUSHREQ        BIT(1)
-> +/* 0: sequence in progress; 1: sequence has been completed.*/
-> +#define TRACE_NOC_CTRL_FLUSHSTATUS     BIT(2)
->  /* Writing 1 to issue a FREQ or FREQ_TS packet*/
->  #define TRACE_NOC_CTRL_FREQTSREQ       BIT(5)
->  /* Sets the type of issued ATB FLAG packets. 0: 'FLAG' packets; 1: 'FLAG_TS' packets.*/
-> 
-> --
-> 2.34.1
-> 
-> _______________________________________________
-> CoreSight mailing list -- coresight@lists.linaro.org
-> To unsubscribe send an email to coresight-leave@lists.linaro.org
+On Tue, Feb 4, 2025 at 6:01=E2=80=AFPM Andrew Jeffery
+<andrew@codeconstruct.com.au> wrote:
+>
+> Hi Corey,
+>
+> On Tue, 2025-02-04 at 13:41 -0600, Ninad Palsule wrote:
+> > Add device tree binding document for the IPMB device interface.
+> > This device is already in use in both driver and .dts files.
+> >
+> > Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> > Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
+> > ---
+> >  .../devicetree/bindings/ipmi/ipmb-dev.yaml    | 56
+> > +++++++++++++++++++
+> >  1 file changed, 56 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/ipmi/ipmb-
+> > dev.yaml
+>
+> Would you like to take this through the IPMI tree? Otherwise I'm happy
+> to take it through the BMC tree with your ack.
+>
+> Andrew
+>
 
