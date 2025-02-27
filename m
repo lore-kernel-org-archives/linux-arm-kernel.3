@@ -4,82 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F75AC197BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:37:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED32C1B087
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:37:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JZ0rC//sE06hPYVngKetF+Xs1DKrHPyHj2XylN4/E1I=; b=a1+tiDBQdnHGuBKdfJLaK8VQDZ
-	BZMlCWo3fJSttcmsw2Uk4hD4aWIc3ymCJd6DEvI7fZ/APZ/SzgI0mIk6vB1Akr3ore2MO9Cv4sdra
-	9jF7U/LT6KtNqIE0/KhlSfXJn+U1HCQEp+PDkOoD7F4/4F+iHUw88Hf1bpFk8N9p/5Co9hKQ2BlRW
-	rFZmEL2QPQ2ekUr5C9cpBOpNBoCw4OVIgSRtg86OiGbc3egUvnTZLNOZwpFTqd3wmZzcEJ6yIpN6a
-	Qux1DbbYK/3npWckNnrxFFKrVQpScyRz0mINgttjJXw9W60n1NajErNUKG4cL5n88z4vTGA6ZdYcG
-	RKwo1uwA==;
+	bh=DwHRwZmE4pv5OgydkogVPm2m4foeghXLNP4W9q1z10s=; b=VL+uLjFS6Lxd0UYD/un8WVSndh
+	AxyEQKDf3kAsyGIEmI+LdeXyusJzeJdnHpJ/Sm31QgRUso0oydUrgMFBKgKwLn3cAF/6+muOl51J/
+	hVayLdlLeepiOliy9zyq7aFbgpqj4ypoCWQl5HwS5+6Ap/ml+17XqEh66tviJqqNRh0tC9DgeXWTn
+	9Wu6Q22DZ4gaSPgynnA5IAzhw+7p0vp29h1MJq8K2fJnH6rtcIrW3Vlz6ZiPn9K+aBgGmFOK4onjs
+	ROsnwD+NY9KYK+0XhCnN7xU/8wGe9LcWGg3aGvscHJBmsndzUxjHTZ4q1I09Qt8LHN2kglynb4D0x
+	RjONYT8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjhI-00000008U1t-1j13;
-	Thu, 27 Feb 2025 19:37:28 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tnjhK-00000008U4p-0Fu8;
+	Thu, 27 Feb 2025 19:37:30 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnfJH-00000007q4Q-1NGN;
-	Thu, 27 Feb 2025 14:56:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=JZ0rC//sE06hPYVngKetF+Xs1DKrHPyHj2XylN4/E1I=; b=ZH5nw2HmODeAQoGF5DwatfyRge
-	+AUj4ZofsP5hrrQshUdx0NTfcOTcd0tqxPCrtp8XyTAidSTzSozayjo2LiC0BN9fB8BWk8CY8ZHKs
-	11tHep8i8RET06cu+C1Bi7sMZ4F9/O2toXvO+0tdoGMg8QPJYBQOe1FYgQW3zvab1IPI363kK57TP
-	kPC3nL/5VU1GGO8Ur+zAH0nT0pp3kB16gwYYMR2YEUHWeZalIO3BovKycBe+bkMg3XKVwynxoSw1v
-	E+IAuGrytIT/0lY/KRfWfujqysevSnma6znK3JlmuO0u3z0kPf/CWLKPTpBHhN6DWuHYCmnEWKPJJ
-	J6IIAaYQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:57152)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tnfJ8-0007Un-1W;
-	Thu, 27 Feb 2025 14:56:14 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tnfJ5-0008Dz-0M;
-	Thu, 27 Feb 2025 14:56:11 +0000
-Date: Thu, 27 Feb 2025 14:56:10 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 10/11] net: stmmac: meson: switch to use
- set_clk_tx_rate() hook
-Message-ID: <Z8B9Cie3nFVY7mMS@shell.armlinux.org.uk>
-References: <Z8AtX-wyPal1auVO@shell.armlinux.org.uk>
- <E1tna0z-0052tN-O1@rmk-PC.armlinux.org.uk>
- <2198e689-ed38-4842-9964-dca42468088a@linaro.org>
- <Z8B4OSbY954Zy37S@shell.armlinux.org.uk>
- <f21edb2c-e49d-4448-a25d-fb75f44c902a@linaro.org>
+	id 1tnfND-00000007qhl-2q2y
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Feb 2025 15:00:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 249535C5DE6;
+	Thu, 27 Feb 2025 14:59:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D07CC4CEDD;
+	Thu, 27 Feb 2025 15:00:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740668426;
+	bh=/wEWDdRFvDhvBDXL2VX1k4uW6fkAuxc2yL3wG/BajfM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FBodfDEd7ufhMdkegCEIXifhmdKJEbQBFH73iRziE7fUxcJG3pQ8uRd5Ykm1o9N2J
+	 ltD8hyx4eDfINE197ZJrIlz/4x9QVixyC/CPKEr4r3SqZw1mLzsJj/xkWqvG+8JYFn
+	 vvFAwFNOQmQHpfc98u/tIpPXdmeIv9RgPrAWziici+0L+qS1Kq0Wcvt88s0YHvC56N
+	 1+hViXT7+UXkey9Arl7pXxMk5CkdKSzNU84JM4Y9ohY4TFUjqHpy/WCXcPKGRw6o8e
+	 XT3AYZzFL096g5xUDK9HZ1VIo88y0oWQBQZs6+FORy7aO2GwDth7KX/MzsYjmUCjlN
+	 /AWimxzp8ao1g==
+Date: Fri, 28 Feb 2025 00:00:21 +0900
+From: William Breathitt Gray <wbg@kernel.org>
+To: =?iso-8859-1?B?Q3Pza+Fz?= Bence <csokas.bence@prolan.hu>
+Subject: Re: [PATCH v4 0/2] microchip-tcb-capture: Add Capture, Compare,
+ Overflow etc. events
+Message-ID: <Z8B-BW1JwIrI18E4@ishi>
+References: <20250211151914.313585-3-csokas.bence@prolan.hu>
+ <Z7h0AXV1zlgp9Nw-@ishi>
+ <8fb9f188-3065-4fdc-a9f1-152cc5959186@prolan.hu>
+ <Z7vihBqOgP3fBUVq@ishi>
+ <bfa70e78-3cc3-4295-820b-3925c26135cb@prolan.hu>
+ <Z7_xTQeTzD-RH3nH@ishi>
+ <7c9941e0-1169-46cd-95b0-785e8f72eb34@prolan.hu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="JRv2vhZkORQfAtjS"
 Content-Disposition: inline
-In-Reply-To: <f21edb2c-e49d-4448-a25d-fb75f44c902a@linaro.org>
+In-Reply-To: <7c9941e0-1169-46cd-95b0-785e8f72eb34@prolan.hu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_065623_364007_4A083480 
-X-CRM114-Status: GOOD (  21.01  )
+X-CRM114-CacheID: sfid-20250227_070027_802780_FBA2455A 
+X-CRM114-Status: GOOD (  29.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,47 +74,99 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Kamel Bouhara <kamel.bouhara@bootlin.com>, linux-iio@vger.kernel.org, Ludovic Desroches <ludovic.desroches@microchip.com>, linux-kernel@vger.kernel.org, Dharma.B@microchip.com, Jonathan Cameron <jic23@kernel.org>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025 at 03:38:53PM +0100, Neil Armstrong wrote:
-> On 27/02/2025 15:35, Russell King (Oracle) wrote:
-> > On Thu, Feb 27, 2025 at 03:18:22PM +0100, Neil Armstrong wrote:
-> > > Hi,
-> > > 
-> > > On 27/02/2025 10:17, Russell King (Oracle) wrote:
-> > > > Switch from using the fix_mac_speed() hook to set_clk_tx_rate() to
-> > > > manage the transmit clock.
-> > > > 
-> > > > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> > > > ---
-> > > >    drivers/net/ethernet/stmicro/stmmac/dwmac-meson.c | 9 ++++++---
-> > > >    1 file changed, 6 insertions(+), 3 deletions(-)
-> > > > 
-> > > > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-meson.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-meson.c
-> > > > index b115b7873cef..07c504d07604 100644
-> > > > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-meson.c
-> > > > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-meson.c
-> > > > @@ -22,9 +22,10 @@ struct meson_dwmac {
-> > > >    	void __iomem	*reg;
-> > > >    };
-> > > > -static void meson6_dwmac_fix_mac_speed(void *priv, int speed, unsigned int mode)
-> > > > +static int meson6_dwmac_set_clk_tx_rate(void *bsp_priv, struct clk *clk_tx_i,
-> > > > +					phy_interface_t interface, int speed)
-> > > 
-> > > You can keep priv as first argument name and remove the next changes
-> > 
-> > I *can* but I don't want to. Inside the bulk of the stmmac driver,
-> > "priv" is used with struct stmmac_priv. "plat_dat" is used with
-> > struct plat_stmmacenet_data.
-> 
-> Right, it's still an unrelated change in this case.
 
-This is a new method, even though it happens to have mostly the same
-body. All instances of this new method use "bsp_priv" for this argument,
-therefore it is consistent.
+--JRv2vhZkORQfAtjS
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+On Thu, Feb 27, 2025 at 03:17:55PM +0100, Cs=F3k=E1s Bence wrote:
+> On 2025. 02. 27. 5:59, William Breathitt Gray wrote:
+> > If that is true, then the correct way for this hardware to be exposed is
+> > to have each TCB be a Counter device where each TCC is exposed as a
+> > Count. So for this SoC: two Counter devices as counter0 and counter1;
+> > count0, count1, and count2 as the three TCC; i.e. counter0/count{0,1,2}
+> > and counter1/count{0,1,2}.
+>=20
+> And how would the extensions fit into this? `capture{0..6}`/`compare{0..3=
+}?
+> For me, the status quo fits better.
+
+For your patchset here, treat it as if nothing is changing. So leave it
+as capture0 and capture1 exposing RA and RB respectively.
+
+> > With that setup, configurations that affect the entire TCB (e.g. Block
+> > Mode Register) can be exposed as Counter device components. Furthermore,
+> > this would allow users to set Counter watches to collect component
+> > values for the other two Counts while triggering off of the events of
+> > any particular one, which wouldn't be possible if each TCC is isolated
+> > to its own Counter device as is the case right now.
+>=20
+> TCCs are pretty self-contained though. BMR only seems to be used
+
+In the Generic Counter Interface, hardware functionality exposure is
+scoped by its influence over particular components of the Generic
+Counter paradigm. That means, configurations that affect a particular
+Count are grouped under that Count (i.e. "count0/enable" enables Count0)
+while configurations that affect a particular Signal are grouped under
+that Signal (i.e. "signal2/polarity" sets Signal2's polarity).
+
+In the same way, configurations that affect the Counter device as a
+whole are exposed as device components. That's what the functionality
+BMR provides does, so it's appropriate to expose it as several Counter
+device components.
+
+Right now the microchip-tcb-capture doesn't do much with BMR, but
+looking at the datasheet I see that it does have the capable to
+configure several settings that affect the entire TCB. For example, you
+can swap PHA and PHB (via SWAP bit), you can enable autocorrection for
+missing pulses (via AUTOC bit), you can define a maximum filter threshold
+(via MAXFILT bitfield), etc. These are controls users would expect to
+find as Counter device components rather than Count components for
+example.
+
+> > Regardless, the three TCC of each TCB should be grouped together
+> > logically as they can represent related values. For example,  when using
+> > the quadrature decoder TTC0 CV can represent Speed/Position while TTC1
+> > CV represents rotation, thus giving a high level of precision on motion
+> > system position as the datasheet points out.
+>=20
+> From what I gathered from looking at the code, the quadrature mode uses a
+> hardware decoder that gives us processed values already. Though I don't u=
+se
+> it, so I don't know any specifics.
+>=20
+> One more thing, as Kamel pointed it out, the current implementation allows
+> channels of a TCB to perform different functions, e.g. one used for PWM, =
+one
+> for clocksource and a third for counter capture. Whether that works in
+> practice, I cannot tell either, we only use TCB0 channel 0 for clocksource
+> and TCB1 channel 1 for the counter.
+
+In theory this shouldn't be a problem because the counter driver
+shouldn't try to perform non-counter functions, just expose the
+counter-specific ones when available. We would need to check which mode
+the channel is in and return -EBUSY if that respective channel's
+components are accessed during a non-supported mode. This is how we
+handle similar situations in other counter driver such as the
+stm32-lptimer-cnt and intel-qep modules.
+
+William Breathitt Gray
+
+--JRv2vhZkORQfAtjS
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQSNN83d4NIlKPjon7a1SFbKvhIjKwUCZ8B+BQAKCRC1SFbKvhIj
+K2B7AP92Bqn5O1QmN/PsfBvrBJMxb/B6Caf8ZfWiXnKGsj0irwD+O+0ifNToacDX
+/+9P6G5lzlqM3moVhdFNPdXC6ZCMjwc=
+=sDy7
+-----END PGP SIGNATURE-----
+
+--JRv2vhZkORQfAtjS--
 
