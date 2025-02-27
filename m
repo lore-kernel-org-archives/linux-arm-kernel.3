@@ -4,86 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4D8AC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 13:20:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A9AC021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 13:22:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gLtar/wHfeVCmLMg/jaoFP7v7u+SOrYejD4+SDmmhUE=; b=Hkr9NkzeHwZ6U9Fy54iv9IoIja
-	U7kkeOjumRWxohc7ykRpj5Vf4UNm9AhGPuw9tITPbFvj0CGUignbD12UvrZ5lK6vp/J7PBw4BCRJZ
-	+OjhcaeLu//GpTdEoIRBkLGK5teAkOamk2IOBMQ+c08zKap1ZbqkwGtprU4EZkRQpW0JZGyzzsA6L
-	RmwxNKewj01I7gwUIkJZfQd8p5jFbbUMrecVX+9N14QhCYYzRV3QhNRdpWsXe5K+g8wEG+tVyila7
-	dX0UY/hdoMsyAe18zMcfR1vv9uL9ssLrkwPQZzGUYO/2boddlWWhH12JR3bGIr+5PGBV/Wia6ULuO
-	hcOjxM0Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=wTt5QbyADMJ+0WvsKLYId9FZQBGxvlR5X8sImHZOIM4=; b=NwhQqA5E3iPjiY
+	SrgHCPcBItRDDl9RP5sfVx0bqxSj/S0xowPb+IDHqXcFtZ7WIUib1zey0JBCzkI1t9YR/pD2WnMJ1
+	mELx4pRaGxZXma6PctGsiXXoALX2gODrXLLdAOZzUmkn/gWFpuf116irB9h/F82DyKDFcc1l4WzPN
+	CCZc9NngJVJlepfklI7bzj5bo8addE/BAp63NChuhhkz+QzlLl9GnfsG9rge85IBjLEmNrrAnHEv5
+	YdQmHwy2IKMjMEe3d9C4TM9so8WWSrYnzZX16QjIrX4BawuZ44WFLGaZZJZHbDKU72EcIpzupuuYp
+	nGDsTAI5qMsV2OkhMiDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tndog-00000007V75-47KN;
-	Thu, 27 Feb 2025 13:20:42 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tndqD-00000007W2l-1uhL;
+	Thu, 27 Feb 2025 13:22:17 +0000
+Received: from mail-lf1-f53.google.com ([209.85.167.53])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnd5g-00000007NgB-079u
+	id 1tndHy-00000007Q6J-1wgL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 12:34:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=gLtar/wHfeVCmLMg/jaoFP7v7u+SOrYejD4+SDmmhUE=; b=yOwIp/wLpIAD63YfkPXz6hmvgx
-	8wybSmMu5NeH5TJurRum8vIiTyAWntTUZPBagHrPzZ/Kz1uBarRkJc9JORZSScrrfQRqYkTYk7C0B
-	Wezx7q6s4uoDZI3vh3q9rORa7zpsdCDYMhAwnba7CyitYDmQCk8mWgNc2+1c642iTsgDY5TUlGhwc
-	dZi61rVK/bKoj4wIr8m9YgHFwiewA3GDuGsvZ/cxcF3D+l/VPuNFSWyMBRIr/kKtMOpWZ1SdP7+Py
-	+fUxpjcNsKPlB8hhmLR6zncZdIxOzvZhf0C38kNgCg+bfmcgKpA79Du8ivR4nAZIt45hWu2+n9Rt1
-	lQ7yRHwA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43564)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tnd5J-00074f-0H;
-	Thu, 27 Feb 2025 12:33:49 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tnd57-00087j-2f;
-	Thu, 27 Feb 2025 12:33:37 +0000
-Date: Thu, 27 Feb 2025 12:33:37 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Furong Xu <0x1207@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jan Petrous <jan.petrous@oss.nxp.com>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Minda Chen <minda.chen@starfivetech.com>, netdev@vger.kernel.org,
-	NXP S32 Linux Team <s32@nxp.com>, Paolo Abeni <pabeni@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Thierry Reding <treding@nvidia.com>, hailong.fan@siengine.com,
-	2694439648@qq.com
-Subject: Re: net: stmmac: weirdness in stmmac_hw_setup()
-Message-ID: <Z8BboX9RxZBSXRr1@shell.armlinux.org.uk>
-References: <Z7dVp7_InAHe0q_y@shell.armlinux.org.uk>
- <20250226104326.0000766e@gmail.com>
+	Thu, 27 Feb 2025 12:46:56 +0000
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5461cb12e39so826373e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 04:46:53 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740660411; x=1741265211;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=wTt5QbyADMJ+0WvsKLYId9FZQBGxvlR5X8sImHZOIM4=;
+        b=U5+hk+PfUJP4elzZXY/ytvF51iyJlDRBxQtcjRsrUBUYfOl2BQVaxkmmm82lMVMwx8
+         KYjcfjpZaAatSHWBHuy8pIq9rTXC8D12V4vzXDE+LdF8rnfTe9MpgoQQPzu7bzmIdRtE
+         9FSncKJ1qiqMSo3TB7Jb/IRlr+Guv0YiA/LVPmbKy8gUhofzSXD2Y+n9mQ6FKcjJPUps
+         bf/h8fBopG7ZyyX87zDd/o+dBpWiOM4rMoC4TsJpGiHM46e1pCTgBefFhWEBThbQlw1L
+         uVgvxGeimZxm6Qyh58q5rfHLxaOGuptEMf92Wsld2kg08Ke6ARYSBhZWeQDc2je13L5k
+         QihA==
+X-Forwarded-Encrypted: i=1; AJvYcCWVidr7YxwwLy478PMLPygZgIz64pe/LEkMaalYhbR0OR1Bp8aRM4LlH2k8wLJJE8nZxXqFWH6qpVQIdfm4CT5A@lists.infradead.org
+X-Gm-Message-State: AOJu0Yycm/mb4LlUgWVg85lKZi9Cr2ArRCg/d6XvmNosMGlrvbd1GRaS
+	D7sRFsjO+kwZnvWOIuqYu3aJZzQEfqW2tAdefGmsuC4dIc8LxCOTehKBYcRd
+X-Gm-Gg: ASbGnctwgxA3hDyDNUlNrcF02zzSkH5tByDZe6jiavQwTgeyoD4Z2enmVJ22WBXi5/Z
+	tLg/9gYTGdLn/0hRNHk3MeKphK3Lu33mNQ1fJbuc613ZowzJr93G2ox9GZ3YOSTHukhlG1Zs53+
+	LE0le8dOg4u6TyQbPaKOo/+JnAc1Hg/dSxPq6UpjUYa12eHk/3nVu7KCAgKh6EK5zyYWeFVLuaU
+	gLwCe9HKDyM02XQCwTbaInBQ5ovg6/2uDjHoN0/PYdjRvUa7VRTa45qrOJ3k5xORVTjmF04i5kq
+	Mr/AgNBlXXK7GHhNRXx0PkmM6lzIGWZZSjhcyvcSph94k2N+N3Wsu6oycls=
+X-Google-Smtp-Source: AGHT+IGIb8PmFSvQYs/mdcDxlOnTk938DDmgzr2NWLkqysxkeYPp+n5tf6RgajMa5CuT1cAHIsLarg==
+X-Received: by 2002:a05:6512:2242:b0:544:c36:3333 with SMTP id 2adb3069b0e04-54838ef5b9cmr12831204e87.30.1740660410777;
+        Thu, 27 Feb 2025 04:46:50 -0800 (PST)
+Received: from mail-lj1-f179.google.com (mail-lj1-f179.google.com. [209.85.208.179])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-549443b1357sm153919e87.110.2025.02.27.04.46.49
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 27 Feb 2025 04:46:50 -0800 (PST)
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-30a36eecb9dso10860401fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 04:46:49 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVg2dmdMr8ww10Ru+x6ezk/DZplGI72D4OeAepLsxyFILiifbAQR8N5pM48tEhyR3jAiN2V3PI90vvymhERMUtT@lists.infradead.org
+X-Received: by 2002:a2e:8743:0:b0:308:eb34:1037 with SMTP id
+ 38308e7fff4ca-30a599702f2mr99762991fa.23.1740660409212; Thu, 27 Feb 2025
+ 04:46:49 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250226104326.0000766e@gmail.com>
+References: <20250214003734.14944-1-andre.przywara@arm.com>
+ <20250214003734.14944-7-andre.przywara@arm.com> <173949598874.895319.6861900349653451498.robh@kernel.org>
+ <20250227114611.67a1ba00@donnerap.manchester.arm.com>
+In-Reply-To: <20250227114611.67a1ba00@donnerap.manchester.arm.com>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Thu, 27 Feb 2025 20:46:37 +0800
+X-Gmail-Original-Message-ID: <CAGb2v66eOuT+0n71OEPUky_rLd37_msT4b1+QC+8Nyhwtqarng@mail.gmail.com>
+X-Gm-Features: AQ5f1Jrl692zM4GeD3auZTYmCOG5P6JcCZDXCDM_tdSURnSO6l5VyT64A9SuHe4
+Message-ID: <CAGb2v66eOuT+0n71OEPUky_rLd37_msT4b1+QC+8Nyhwtqarng@mail.gmail.com>
+Subject: Re: [PATCH v2 6/8] dt-bindings: pinctrl: add compatible for Allwinner A523/T527
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: "Rob Herring (Arm)" <robh@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	Samuel Holland <samuel@sholland.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_043412_212649_D13E8F8E 
-X-CRM114-Status: GOOD (  38.96  )
+X-CRM114-CacheID: sfid-20250227_044654_500740_C32A8D71 
+X-CRM114-Status: GOOD (  30.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,171 +97,101 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 26, 2025 at 10:43:26AM +0800, Furong Xu wrote:
-> On Thu, 20 Feb 2025 16:17:43 +0000, "Russell King (Oracle)" wrote:
-> 
-> > While looking through the stmmac driver, I've come across some
-> > weirdness in stmmac_hw_setup() which looks completely barmy to me.
-> > 
-> > It seems that it follows the initialisation suggested by Synopsys
-> > (as best I can determine from the iMX8MP documentation), even going
-> > as far as to *enable* transmit and receive *before* the network
-> > device has been administratively brought up. stmmac_hw_setup() does
-> > this:
-> > 
-> >         /* Enable the MAC Rx/Tx */
-> >         stmmac_mac_set(priv, priv->ioaddr, true);
-> > 
-> > which sets the TE and RE bits in the MAC configuration register.
-> > 
-> > This means that if the network link is active, packets will start
-> > to be received and will be placed into the receive descriptors.
-> > 
-> > We won't transmit anything because we won't be placing packets in
-> > the transmit descriptors to be transmitted.
-> > 
-> > However, this in stmmac_hw_setup() is just wrong. Can it be deleted
-> > as per the below?
-> > Tested-by: Thierry Reding <treding@nvidia.com>
-> > 
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > index c2913f003fe6..d6e492f523f5 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > @@ -3493,9 +3493,6 @@ static int stmmac_hw_setup(struct net_device *dev, bool ptp_register)
-> >  		priv->hw->rx_csum = 0;
-> >  	}
-> >  
-> > -	/* Enable the MAC Rx/Tx */
-> > -	stmmac_mac_set(priv, priv->ioaddr, true);
-> > -
-> >  	/* Set the HW DMA mode and the COE */
-> >  	stmmac_dma_operation_mode(priv);
-> >  
-> 
-> A better fix here:
-> https://lore.kernel.org/all/tencent_CCC29C4F562F2DEFE48289DB52F4D91BDE05@qq.com/
-> 
-> I can reproduce and confirm that patch works well.
-> I was going to leave a Tested-by: tag on that patch if everything looks good enough,
-> but the author (now copied) never come back.
+On Thu, Feb 27, 2025 at 7:46=E2=80=AFPM Andre Przywara <andre.przywara@arm.=
+com> wrote:
+>
+> On Thu, 13 Feb 2025 19:19:48 -0600
+> "Rob Herring (Arm)" <robh@kernel.org> wrote:
+>
+> Hi Rob,
+>
+> > On Fri, 14 Feb 2025 00:37:32 +0000, Andre Przywara wrote:
+> > > The A523 contains a pin controller similar to previous SoCs, although
+> > > using 10 GPIO banks (PortB-PortK), all of them being IRQ capable.
+> > > With this SoC we introduce a new style of binding, where the pinmux v=
+alues
+> > > for each pin group are stored in the new "allwinner,pinmux" property =
+in
+> > > the DT node, instead of requiring every driver to store a mapping bet=
+ween
+> > > the function names and the required pinmux.
+> > >
+> > > Add a new binding file, since all the different variants of the old
+> > > binding are making the file a bit unwieldy to handle already, and the=
+ new
+> > > property would make the situation worse.
+> > >
+> > > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> > > ---
+> > >  .../allwinner,sun55i-a523-pinctrl.yaml        | 177 ++++++++++++++++=
+++
+> > >  1 file changed, 177 insertions(+)
+> > >  create mode 100644 Documentation/devicetree/bindings/pinctrl/allwinn=
+er,sun55i-a523-pinctrl.yaml
+> > >
+> >
+> > My bot found errors running 'make dt_binding_check' on your patch:
+> >
+> > yamllint warnings/errors:
+> >
+> > dtschema/dtc warnings/errors:
+> > Documentation/devicetree/bindings/pinctrl/allwinner,sun55i-a523-pinctrl=
+.example.dts:24:18: fatal error: dt-bindings/clock/sun55i-a523-r-ccu.h: No =
+such file or directory
+> >    24 |         #include <dt-bindings/clock/sun55i-a523-r-ccu.h>
+> >       |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>
+> Ah yeah, of course, that's in another series. What's the best approach
+> here? I could cheekily import an existing header file, the symbol names i=
+n
+> there are often the same (ccu-sun20i-d1-r.h defines the same symbol, even
+> with the same number).
+> Or I just replace it below with the number "1"?
 
-As I now have access to the databook, the initialisation guidance given
-in appendix E is very clear that at least the RE bit should not be set
-until initialisation of both DMA and MAC have been completed.
+This, or just drop in a random number.
 
-RE allows the MAC to start receiving packets and placing them in the
-FIFO for the DMA block to then transfer them to memory.
+ChenYu
 
-If the link is down, then there should be no activity on the receive
-interface, so not setting RE until the link is up should have no
-effect. Therefore, start_rx methods that set this bit should not be
-doing so, and we should not set this bit until mac_link_up() has
-been called.
-
-Analysing the code for the RE bit, we have:
-
-1. xxx_set_mac() (called via stmmac_mac_set()) which sets/clears both
-   the RE and TE bits together. This is called with a "true" argument
-   from:
-
-1.1. stmmac_mac_link_up() - correct, the link has come up.
-
-1.2. stmmac_hw_setup() - incorrect, we don't know whether the link
-     is up or down. I think simply removing this would be correct,
-     provided the patches that move phylink_resume() later in
-     stmmac_resume() are merged (will be posted non-RFC only once my
-     current set of stmmac clock changes have been merged.)
-
-1.3. stmmac_xdp_open() - probably incorrect, we don't know whether
-     the link is up or down. stmmac_xdp_open() is only called from
-     stmmac_xdp_set_prog(), and the network interface must be
-     running. This implies that everything has already been
-     initialised, and phylink has been started. stmmac_xdp_open()
-     also messes with the carrier, which will upset phylink.
-     I think the right solution here is to call phylink_stop() in
-     stmmac_xdp_release() and phylink_start() in stmmac_xdp_open(),
-     removing the stmmac_mac_set() and netif_carrier*() calls in
-     both these functions.
-
-2. xxx_pmt() (called via stmmac_pmt()) sets RE if (e.g. dwxgmac2)
-   WAKE_MAGIC or WAKE_UCAST is set.
-
-   This brings up questions. The only place it's called with a
-   potentially non-zero argument is in stmmac_suspend(). A few lines
-   above is:
-
-        /* Stop TX/RX DMA */
-        stmmac_stop_all_dma(priv);
-
-   which is a reasonable thing to do when suspending. However, the
-   DW databook states clearly that RE should not be set if DMA is
-   not able to empty the FIFO between the MAC and DMA otherwise it
-   will overflow. So... I think this causes overflow there. I'm not
-   sure what effect that has. Has wake-on-lan been tested?
-
-3. xxx_start_rx() (called via stmmac_start_rx()) sets RE along with
-   starting the requested queue.
-
-   This is called in two places:
-
-3.1. stmmac_test_flowctrl(). It looks to me like this needs the link
-     to already be up, which means that RE must already be set. Note
-     that the call to stmmac_stop_rx() does not clear RE.
-
-3.2. stmmac_start_rx_dma() which has two callers.
-
-3.2.1. stmmac_start_all_dma(). This is called from:
-
-3.2.1.1. the end of stmmac_hw_setup(), which has already called
-         stmmac_mac_set() which would've set the RE bit. Same
-         arguments as for 1.2 for why this is wrong.
-
-3.2.2. the end of stmmac_enable_rx_queue(), which is called from
-       stmmac_xdp_enable_pool(). Very similar to 3.1 above.
-
-TE seems to be a very similar story with the exception of xxx_pmt(),
-except the functions are "tx" rather than "rx".
-
-So, my plan with regard to RE is:
-
-1. Add phylink_start() and phylink_stop() into stmmac_xdp_open()
-   and stmmac_xdp_release() to the link is properly managed.
-
-2. Remove setting RE from xxx_start_rx().
-
-3. Remove stmmac_mac_set(, true) from everywhere except
-   stmmac_mac_link_up().
-
-4. Remove stmmac_mac_set(, false) from stmmac_release(). This has
-   already called phylink_stop(), which will have synchronously called
-   stmmac_mac_link_down().
-
-5. With (1) addressed stmmac_mac_set(, false) and netif_carrier_off()
-   both become redundant in stmmac_xdp_release().
-
-6. Remove stmmac_stop_all_dma() and stmmac_mac_set(, false) in
-   stmmac_dvr_remove(). Not only is this inherently racy (the network
-   device is *still* *published* *to* *userspace* here, but one of
-   the jobs unregister_netdev() does is to take the network device
-   down before unregistering - in other words, .ndo_stop() will
-   have been called and completed before this returns, which will have
-   the effect of calling stmmac_mac_link_down() (which will call
-   stmmac_mac_set(, false), and stmmac_release() will have already
-   called stmmac_stop_all_dma().
-
-(6) is a frequent programming mistake that I see in lots of network
-drivers. It seems most people assume that unregister_netdev() does
-nothing, and they need to manually take stop the MAC and take down the
-link. :(
-
-I'm going to leave xxx_pmt() alone for the moment as although that's
-questionable, I think feedback from people using WoL is necessary.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+> Or let git format-patch append the patch-id of the clock binding header
+> patch?
+>
+> Cheers,
+> Andre
+>
+> > compilation terminated.
+> > make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindi=
+ngs/pinctrl/allwinner,sun55i-a523-pinctrl.example.dtb] Error 1
+> > make[2]: *** Waiting for unfinished jobs....
+> > make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1511: dt_b=
+inding_check] Error 2
+> > make: *** [Makefile:251: __sub-make] Error 2
+> >
+> > doc reference errors (make refcheckdocs):
+> >
+> > See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/2025=
+0214003734.14944-7-andre.przywara@arm.com
+> >
+> > The base for the series is generally the latest rc1. A different depend=
+ency
+> > should be noted in *this* patch.
+> >
+> > If you already ran 'make dt_binding_check' and didn't see the above
+> > error(s), then make sure 'yamllint' is installed and dt-schema is up to
+> > date:
+> >
+> > pip3 install dtschema --upgrade
+> >
+> > Please check and re-submit after running the above command yourself. No=
+te
+> > that DT_SCHEMA_FILES can be set to your schema file to speed up checkin=
+g
+> > your schema. However, it must be unset to test all examples with your s=
+chema.
+> >
+>
+>
 
