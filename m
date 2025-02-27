@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4DFDC021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 12:35:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51C09C19F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 12:37:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gIctAosM0FHAL2lrsPDZJsgydsMBBLaQN0rTC6oieAI=; b=4JsyI8boUtF2RlTPc6Cj/crTXb
-	CMhhJlxexujhuZV3zRRBaOJ3knPaAmKJtSuFaVa6nCKgHA3HyrjEoUN00o5M/iYEXmiPs/bd6xIPa
-	klg+Q/uu9KFswZ07VR5mYLvE9vZ7B9yYBDeWFDdrib7gS+sbwNVEMcYnkn5ftar3BEaRfES8vyQaR
-	2Zlh+rt/iu0EJEPhqRfwEG/B9Wn6GbLaJlWIs0i5TKtO7hVOj3Ch/yJ18EwT+dXvHP8II4AKMCCL2
-	yHjRPT5MdRrpn3x6zH/E1uDOJip3JulhaVFKZ9ddQGWE8ssncAI0fMlWioL7Or374OU9zSDeVdqSi
-	7d2qdBJw==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JxHL/z7KVPyEEvM1kjITwFO2qXWe/VB+sL8iK7Zi7NA=; b=FJxSuVHt1BYDj6QGOr0o2opnwC
+	YL+jfM8seclO8PLY5i3NYIzNiYezTWedDG5/9/T74CBATx0C2MqsaqFMeZR4ixv8bRq83D28DcFko
+	lnimQtfR++9u0RD6cLlmdf1k5SARS/ib1JPkNN/2AlrbZEX4r6eSoPlhhxPs60lYRcuN98m7l9cmI
+	w02LyVBDlchn4xx7cKgxWvdkbBea8z5Eqhw9aNZLKGMjbIQdu8CcCAceKgzu4sWhGM32UWYiatDcR
+	fuq5/tNqoUmzqUnrcNSJ7nkRhvr3H13ap1VypBEi9kk/C591HKTf9cc/FD81lPBbGH+t8gehEhOTy
+	P66MSsfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnd6y-00000007Nq1-3wXW;
-	Thu, 27 Feb 2025 12:35:32 +0000
-Received: from mail-tyzapc01on2070c.outbound.protection.outlook.com ([2a01:111:f403:2011::70c] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
+	id 1tnd8T-00000007O5V-2Qdn;
+	Thu, 27 Feb 2025 12:37:05 +0000
+Received: from mail-sg2apc01on2071f.outbound.protection.outlook.com ([2a01:111:f403:200f::71f] helo=APC01-SG2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tncew-00000007I4e-19Bl
+	id 1tncex-00000007I4r-2LQx
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 27 Feb 2025 12:06:36 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kUCmvqtK1r4pZjxq1rzy9NyVvAVvAmyOsMbQuiPfgVaxfeYDtxdkNJscZTLHZ03wq8Th1QNPCNDSYPbsiZ5rtv07/lzpk4dqy8zf8qwPOkNw739supIwWaqOLocPj+eiNgdwSmvM17K/6hFuSumYih1m7dZWn9w5M7bj3I7fuy5md8WruQIFMFp9loLwkYUuho9zZllpM88y8iUKlimBVOxef3Sqowf5YO1r10Qi6i0fv26hMBxzZVO9mkmhiNGLOhpbvqUtS3L8MXSqYCdvqYRv8+SPwSkhAZ1BbW8qHMKxn6bCW8W0R+mKjLPZE4umsxnFgaWVhIxXGK0opX56eA==
+ b=Ak1rBOREyEJntT8I031vy2rR0NG9paDbNkQklu5kQAfugHi6oWA/Niz7MutImw5FQyMpmx+2bc+1SHkgpeRj3RIFEeB0SlTPPJTnbrPKuMHNzb1JgefxZXkqzQX84gLVJrBwZQeHQk6puKesaVQgV+xM1z6KQ2+/mx+xMzn3IAH68B8zpsBlL4rjUtR0mGhtoY93KocSKgmqsugvlmqwwQ6O6eNW1NV+kNFLCpC84szH4EmVd5wAnAgJdhvT6JwF3FWBWeQgcqj5lgY+e2vU5m11pZp/iNy/6/NybhEok7kSKSRUBXo0x2+weTULebfyM/OO/1GZ6M40B3S/qm3C0A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gIctAosM0FHAL2lrsPDZJsgydsMBBLaQN0rTC6oieAI=;
- b=bX5at//DXaNwcjC+lKUyTNoBSXrhK6ThSwOp98SlZxJnidTK4zIL7cBeL2UMC9jpBJYLLwL5DPWDCMyrXo7njLxRXJbBn1G8XIWplT2x8m32kuJYTVoLKWX7+v7tDOefEnVDLidgwf3CApMZuhGj6SWXOHecpmka52ng5uhyQ/+BwU7r+2iwrJYTb+EseWdhsF1LpoCFSu7Xbm3nTCeTr+Myd6P8cW1MzOSzrmFu+FTKp1OXAQtQRDapNFl+W15SbEGxWiGUOYzItPBRn3v/oK6OJg/tGHCG0oEOF1fsZxstB/OEP+hZXs/EEXL/BeUHKYliE7sUCyMMaBENbUXHbQ==
+ bh=JxHL/z7KVPyEEvM1kjITwFO2qXWe/VB+sL8iK7Zi7NA=;
+ b=fVMi5AaU3yd9jpojyWHhOtghNiY89VjM71gRzvbShh13p0atgXfY/1K7VxwW7luwO/H81ZcUQ3DYlD9N1H+pHQGJUY/BqcS0DQkj7RwkF91mOCk92ES6JStCcuMCpyqIcpn73XwwYckkOhe8eRpnlCnv5K9ZOIu9Zm/6t0wmeObo86SFFzn5L+EYpMgP2YqHJWJG94WCT+fQbL3raWvs8CthqiMgn431kyGwgstCCtkHaLgG0dnKXEUWg1jPzG4HuI5/aX9GoLjyT/vpcgbQASBWFtr+t96KfKVovJ7LeoVvN3rIUgsg9kE9rpmQjrJwYennpbmI95IYgNCtuqL5Lw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
  dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
  not signed); arc=none (0)
-Received: from SG3P274CA0019.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:be::31) by
- SEZPR06MB6744.apcprd06.prod.outlook.com (2603:1096:101:17f::8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8466.20; Thu, 27 Feb 2025 12:06:21 +0000
-Received: from SG1PEPF000082E4.apcprd02.prod.outlook.com
- (2603:1096:4:be:cafe::12) by SG3P274CA0019.outlook.office365.com
- (2603:1096:4:be::31) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8489.19 via Frontend Transport; Thu,
+Received: from SI2PR01CA0017.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:191::19) by SEZPR06MB6485.apcprd06.prod.outlook.com
+ (2603:1096:101:17e::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.19; Thu, 27 Feb
+ 2025 12:06:21 +0000
+Received: from SG2PEPF000B66D0.apcprd03.prod.outlook.com
+ (2603:1096:4:191:cafe::ed) by SI2PR01CA0017.outlook.office365.com
+ (2603:1096:4:191::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8489.18 via Frontend Transport; Thu,
  27 Feb 2025 12:06:20 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
  smtp.mailfrom=cixtech.com; dkim=none (message not signed)
@@ -54,11 +55,11 @@ Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
  222.71.101.198 as permitted sender) receiver=protection.outlook.com;
  client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
 Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG1PEPF000082E4.mail.protection.outlook.com (10.167.240.7) with Microsoft
+ SG2PEPF000B66D0.mail.protection.outlook.com (10.167.240.26) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.20.8489.16 via Frontend Transport; Thu, 27 Feb 2025 12:06:20 +0000
 Received: from localhost.localdomain (unknown [172.16.64.25])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 8F1F941604E4;
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id A0F6A41604F5;
 	Thu, 27 Feb 2025 20:06:19 +0800 (CST)
 From: Peter Chen <peter.chen@cixtech.com>
 To: robh@kernel.org,
@@ -72,60 +73,65 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	cix-kernel-upstream@cixtech.com,
 	marcin@juszkiewicz.com.pl,
-	Peter Chen <peter.chen@cixtech.com>
-Subject: [PATCH v3 0/6] arm64: Introduce CIX P1 (SKY1) SoC
-Date: Thu, 27 Feb 2025 20:06:13 +0800
-Message-Id: <20250227120619.1741431-1-peter.chen@cixtech.com>
+	Peter Chen <peter.chen@cixtech.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Fugang Duan <fugang.duan@cixtech.com>
+Subject: [PATCH v3 1/6] dt-bindings: vendor-prefixes: Add CIX Technology Group Co., Ltd.
+Date: Thu, 27 Feb 2025 20:06:14 +0800
+Message-Id: <20250227120619.1741431-2-peter.chen@cixtech.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250227120619.1741431-1-peter.chen@cixtech.com>
+References: <20250227120619.1741431-1-peter.chen@cixtech.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG1PEPF000082E4:EE_|SEZPR06MB6744:EE_
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66D0:EE_|SEZPR06MB6485:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 5c289c89-46e3-48c0-4161-08dd572725b4
+X-MS-Office365-Filtering-Correlation-Id: 8d3f18c4-fae1-4fba-c31c-08dd572725be
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?q0KPmqssaIsx3x4TA5eG9hLE8rexJzZivcPSuEXBC35rBZyzMBYza5jXS1i4?=
- =?us-ascii?Q?W/1APyGL3ChQF/5vmo9FMqd5J8hAFryF5374JuYFrp+ppqTaQx3NHJwe5Uap?=
- =?us-ascii?Q?0tlcrEQQqAGzGuZDII6AN+572JmneYF3e8b7NzuENFaT1+XKPlQKIFf1/tAX?=
- =?us-ascii?Q?2RTQu7IZ6KivaFweOY12pCh7mtFPp4LbNadKuAOxqHtkDSIY5v1Ze8m7OzRs?=
- =?us-ascii?Q?mM/e6aDKrJ5vnSQH70YgfKtSR5khAmTSTGCXh+16NgOolp8PvOAU/eg7b91M?=
- =?us-ascii?Q?N6vqkmmyVCrd8UsyFD/gDZPtVdpu7sD1mE3xxPyMO+O84a9bFWcxXaTqFol2?=
- =?us-ascii?Q?0fz8sOIrY5gsIK8ScyF2ZoGRx0Kn0FDjH0RBEkaKoNAUXgGdybIhExC3i6I4?=
- =?us-ascii?Q?inkyTf5hefMsL8Nul0CBPBmXjGlc7nShbqlAjSh1/SkZqzawY6fSXXKdnxBA?=
- =?us-ascii?Q?SznT3Knf3fbP4V8dU946f+u+SS0ZtSR+OUD3LEMQi3HWt0MDRJYBy8LjBQRE?=
- =?us-ascii?Q?Ba1S77oIUhxuDicbmrLYad/YTjzWebD8EHu/1nYtJGu42/t7D8L/gI6sTCPF?=
- =?us-ascii?Q?tRJMYjCM0KASMA1tTzJ1VZmjIDttiqELlWg+Xo9bpbR0f5LUxr7JK+KZDL3W?=
- =?us-ascii?Q?GmSJrGrWPgoKlEcGrhvo8NyMCiAvF6gEz+ynSKqryIX66t+iPE0jr5/im8cd?=
- =?us-ascii?Q?gj5Hu2oESgsfVTkHrngtDvl1APnhID0Ntnf7DQxue3louPZRuLj2y8wzh3IG?=
- =?us-ascii?Q?ceMqB6QUYkerQse5MO/eOii1QpylTXNnifm8kjxbyULfm8fQehbZC5Xld35W?=
- =?us-ascii?Q?9M5BhYqjg/SRjMUVSMV8Hd6qjPtObq3WRCTgjMN73vjAaBr8KEe1MkUMWzPI?=
- =?us-ascii?Q?FgLoAvVY5JtIw5aVTuIBHtzh12W1KEeH39/qx2iAs2gNedTuL9se+8cb96QV?=
- =?us-ascii?Q?iQTVDDPxemFOdiM/gHE2bn9YBG1ZU4ZDhueHadNimZsd/d1B5C8tInmTchEX?=
- =?us-ascii?Q?5+v+vIOGgZli3NRyYAkmtX0h7Yfn/yF7UP8+Y303KSKQM9Kdt69abDxTRkz8?=
- =?us-ascii?Q?iDJKhZmY19bXoUjQd/lah7hlHjUag6nd/bgqOvfO8ZApJPRc1zxL3As3Ay+f?=
- =?us-ascii?Q?agciuhnWKlTvF4IoI8eIAKPND30f/IiluWlc6OQeaBZKjnhzxtXKpnBS+BTj?=
- =?us-ascii?Q?vyVnN1vAh+VZkYuS0RReCdjl+CvEuH9g7aMY+d+RlLqH7gIDuiMv4qZl1/Ba?=
- =?us-ascii?Q?0TE1hmAWxcJ7V8BHEgbuzeCZdHw3LcyATV/f88FDx1Nlzjt92lArrLqLpKfK?=
- =?us-ascii?Q?wic21o+ZFW8ziu8//mnPJmNU6xULHw3jHVVRKOKLbisoEOoZJ04KR5fj1MNT?=
- =?us-ascii?Q?POKGqv6OYi3eSovWGRaJCSCB3waaORZgqbxwNy5SuIQkLHvvuw2B4CzrxACY?=
- =?us-ascii?Q?67q4mPLdBluh751v5RdpRrtZ2rU5ZL4C?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?cKPkvpap2WAZLh9Vlk66YikzoPx097rFdBjNfsMSpWq+oIu0NETiTyjZYQEj?=
+ =?us-ascii?Q?tkFl3Xmv4Q+MuYlEhFdRdSmY/8SKrjhgxZR3f9WSfp13Lb19/uygKj4J4rwv?=
+ =?us-ascii?Q?CCtyJpq/Za77/NweLdNeRt+08s90LgqRrDrWu/29t9671DKfr0cMFqNzTIYn?=
+ =?us-ascii?Q?LymepquXu4gKfh/Cq5Q6//ldC2PeCK8N5IFoRTLZh0gGfr5t6PUb2MNcEmUW?=
+ =?us-ascii?Q?TVSWcye2HYekMrTKgzr7jHm91bHzBM6EUZrmbNBccX4ojTAfxurvwlCamBI+?=
+ =?us-ascii?Q?ek5hxVjiznrpvDWBivtvOOiZGs0OkvbYHBjbAvw9jFRaL65V9RIKjlCeAOZM?=
+ =?us-ascii?Q?7jjvfUoYjAJGnyM2o0CtNO25L5F4re6YuPSu3TzcZsm8g9UbMVaqBndVaZGI?=
+ =?us-ascii?Q?Ga7wffAnNUkK39vdclFe7Q+rTOkngnY6NzjY2e1woH9DzkNwy76g7MYSCqa8?=
+ =?us-ascii?Q?pfKiOfwKls+NOvRspdY0tTwMN4Rw/Egp5lirWLqKvPQP1f4QRXqJI1Xq7Tpj?=
+ =?us-ascii?Q?rJ28ZPsBG/Tqfrpkz3WhRXeckIX63zcuKSpphwWRI2AtzJm7zJT3X0TTfPZK?=
+ =?us-ascii?Q?YVJ7JETFsomqD6mDljPtHXmXkbVDWWcmDSwvKBHUv79O6tuKoD/bxMOBY9z0?=
+ =?us-ascii?Q?4x057tLHJUS34F5t3RppSUzAsRBs2RFsvvqX1tCKre9QVNDITKaObb4mMEhd?=
+ =?us-ascii?Q?+Zzt/BGAo6+Hvql+/jkY2T7G7gQqm7gnLdWgDmPqsM4zpt3LXvxpJWTdCcrb?=
+ =?us-ascii?Q?336sILuV0LTcT2GiaGeUGsQyIO1QqwhWGCTOfs4eWBmtuE2PL9rb8v//bWMw?=
+ =?us-ascii?Q?Ct9VGdfg/8r+xdLLqzl4U9UK8XjEPbFsmchDvRpgVCW7smASF/4XWqHWfUW8?=
+ =?us-ascii?Q?gVu03P5xmQpIrgidnBEDvHq7JGQWwYi5ocG72YJbOBx1XnAm2f/plm5TaqyZ?=
+ =?us-ascii?Q?WWNIDmFAcQ/+79tmPKWQqIlveGOlwULNlaPjD4ck555JKzADCKglhO+LdC3K?=
+ =?us-ascii?Q?k7Evhr2+OjgoBO/8elCg0a1avXf0qTmVxX/QSr2pCMHOtaW83AVBAo141t1X?=
+ =?us-ascii?Q?EKgOYeWyaj1CToZQ5LLZknb84rLuzsG6n44U5Ix7HRaQeDGDjrZaeOH7bFe2?=
+ =?us-ascii?Q?c/jcBxnj3wOl6j9PNIib6wVkVHqxIfoQWM238cChOsMrh4URKV5V25ODghig?=
+ =?us-ascii?Q?CgnN5Vuc+kySOyoAHXWyIb9+xiRy4bHfSIo3hS4AnXn1yFyhAjr1tnBjK8hy?=
+ =?us-ascii?Q?pjQXeYs8/DkSvuZGhM3JY2yHqGxSEL50Sucp5AiuosSCROP3ncS/nc8v73kS?=
+ =?us-ascii?Q?8zgv+mDdesfU6R1zMegQ8pu6bdcosDLBNOtwnr/CxU3gu9NyDHYPTVMOMNZJ?=
+ =?us-ascii?Q?GaiUoYwdnAC0IX6IPR8Q006d2MX4FUVs4/78kLDMeIOCVBN0gc6SJ4CMicZF?=
+ =?us-ascii?Q?8i0XnYRQHoI=3D?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(376014);DIR:OUT;SFP:1102;
 X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Feb 2025 12:06:20.2670
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Feb 2025 12:06:20.3359
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5c289c89-46e3-48c0-4161-08dd572725b4
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8d3f18c4-fae1-4fba-c31c-08dd572725be
 X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E4.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66D0.apcprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB6744
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB6485
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_040634_313105_0F606461 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20250227_040635_597941_7B327768 
+X-CRM114-Status: UNSURE (   7.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,68 +146,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Cixtech P1 (internal name sky1) is high performance generic Armv9 SoC.
-Orion O6 is the world's first open source Arm V9 Motherboard built by
-Radxa. You could find brief introduction for SoC and related boards at:
-https://radxa.com/products/orion/o6#overview
+CIX Technology Group Co., Ltd. is a high performance Arm SoC design
+company. Link: https://www.cixtech.com/.
 
-In this series, we add initial SoC and board support for Kernel building.
-Patch 1-2: Add dt-binding doc for CIX and its sky1 SoC
-Patch 3: add related maintainter entry
-Patch 4-5: add Arm64 build support
-Patch 6: add initial dts support for SoC and Orion O6 board
-
-To run upstream kernel at Orion O6 board, you need to use BIOS
-released by Radxa:
-https://docs.radxa.com/en/orion/o6/bios/install-bios
-
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Acked-by: Fugang Duan <fugang.duan@cixtech.com>
+Signed-off-by: Peter Chen <peter.chen@cixtech.com>
+---
 Changes for v3:
-- Patch 1: Add Krzysztof Kozlowski's Acked-by Tag
-- Patch 2: Add Krzysztof Kozlowski's Reviewed-by Tag
-- Patch 6: Fix two dts coding sytle issues
+- Add Krzysztof Kozlowski's Acked-by Tag
 
-Changes for v2:
-- Pass dts build check with below commands:
-make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=vendor-prefixes.yaml
-make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=arm/cix.yaml
-make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
-- Re-order the patch set, and move vendor-perfixes to the 1st patch.
-- Patch 4: Ordered Kconfig config entry by alpha-numerically
-- Patch 5: Corrects the Ack tag's name
-- Patch 6: see below.
-1) Corrects the SoF tag's name
-2) Fix several coding sytle issues
-3) move linux,cma node to dts file
-4) delete memory node, memory size is passed by firmware
-5) delete uart2 node which will be added in future patches
-6) Improve for pmu and cpu node to stands for more specific cpu model
-7) Improve the timer node and add hypervisor virtual timer irq
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Fugang Duan (1):
-  arm64: Kconfig: add ARCH_CIX for cix silicons
-
-Peter Chen (5):
-  dt-bindings: vendor-prefixes: Add CIX Technology Group Co., Ltd.
-  dt-bindings: arm: add CIX P1 (SKY1) SoC
-  MAINTAINERS: Add CIX SoC maintainer entry
-  arm64: defconfig: Enable CIX SoC
-  arm64: dts: cix: add initial CIX P1(SKY1) dts support
-
- .../devicetree/bindings/arm/cix.yaml          |  26 +++
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- MAINTAINERS                                   |   8 +
- arch/arm64/Kconfig.platforms                  |   6 +
- arch/arm64/boot/dts/Makefile                  |   1 +
- arch/arm64/boot/dts/cix/Makefile              |   2 +
- arch/arm64/boot/dts/cix/sky1-orion-o6.dts     |  26 +++
- arch/arm64/boot/dts/cix/sky1.dtsi             | 216 ++++++++++++++++++
- arch/arm64/configs/defconfig                  |   1 +
- 9 files changed, 288 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/arm/cix.yaml
- create mode 100644 arch/arm64/boot/dts/cix/Makefile
- create mode 100644 arch/arm64/boot/dts/cix/sky1-orion-o6.dts
- create mode 100644 arch/arm64/boot/dts/cix/sky1.dtsi
-
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 5079ca6ce1d1..5e76223e4570 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -302,6 +302,8 @@ patternProperties:
+     description: Cirrus Logic, Inc.
+   "^cisco,.*":
+     description: Cisco Systems, Inc.
++  "^cix,.*":
++    description: CIX Technology Group Co., Ltd.
+   "^clockwork,.*":
+     description: Clockwork Tech LLC
+   "^cloos,.*":
 -- 
 2.25.1
 
