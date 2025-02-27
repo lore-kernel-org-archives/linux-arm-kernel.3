@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8604C021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 11:28:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8CF9C19F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 11:29:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k263oKWboHCcuxXXk1JkUAVYt1B/neLERbLAUbODuas=; b=meH1UYYjWhJEskw5RaI6jrR86z
-	8/YHoGsgSoZfqqWEQvWCbyLw9QpN3XNW1RkRwQEddiPlTrUxPB6YA5dBlGw6QWHXxbNImJHl4UoSQ
-	p6UVjOFMvAE4ox2ByGVcaoj6EVDU1oHObwd+Idqo8pQZP9RWQ8oh5PsjrFxJf3Naw1y6Wgy2kYNXU
-	ZsxL4re3NGhSDt/it3S9FjOD2Yw1blS6bZOfUDMTXT4CcpRqZ+KxQjb94Epuh5Nk4z01hu6mdYq4y
-	HdJBLk/kAgI4ajLvt5MmzPw9guWF4zOWPph5QuzmW4Pq9XXldC1zNFSx1lrUCzkCx34ZtHDKiXgfR
-	rZ5UnOiQ==;
+	bh=DKX8ERULlKOlqmEzPMDQ7tcuj/pXzM/HFpRfsyeTQqQ=; b=r+bw2l7iiZ2Eu28sIHWn0HskG+
+	E9Oe0S3/gf0AC6z4rvw4bjGzZRSPjzysBC7jad/dmrwqJBrI9+sLNZl2Z+fCrQ2RZlcdN1HxlJRNx
+	FLFz2gYCTDQ/Mfh59ode3anGaGTULRAnVgxEpDkikurpsI9XVsCZaNsbATVUa0mXeoiC8JgWYcg/E
+	X1MwJGG4KCE3Gf4bLLf4PY7JwtoqS5C3brEe17MS9qnj4DrQj1cs1YsW4s29B2imWDtmlpWb2Uo8B
+	BQVmXYmjGtXcPkW9UQ3MEE/fnbXVX514g0JsAjj85y3MLsIZiUDAhRHAYkHNdc95ilHb81Ts4nFqA
+	MAzMohCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnc3d-00000007BHm-1aWk;
-	Thu, 27 Feb 2025 11:28:01 +0000
-Received: from mail-m49230.qiye.163.com ([45.254.49.230])
+	id 1tnc59-00000007Bf8-1HjB;
+	Thu, 27 Feb 2025 11:29:35 +0000
+Received: from mail-m1973192.qiye.163.com ([220.197.31.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnbkw-000000076Vv-3eOB;
-	Thu, 27 Feb 2025 11:08:44 +0000
+	id 1tnbd0-000000074iX-0NwM;
+	Thu, 27 Feb 2025 11:00:32 +0000
 Received: from localhost.localdomain (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id c65b3847;
-	Thu, 27 Feb 2025 19:08:39 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id c6596ac9;
+	Thu, 27 Feb 2025 19:00:26 +0800 (GMT+08:00)
 From: Kever Yang <kever.yang@rock-chips.com>
 To: heiko@sntech.de
 Cc: linux-rockchip@lists.infradead.org,
-	Jon Lin <jon.lin@rock-chips.com>,
 	Kever Yang <kever.yang@rock-chips.com>,
-	Vinod Koul <vkoul@kernel.org>,
+	Finley Xiao <finley.xiao@rock-chips.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	linux-pm@vger.kernel.org,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
 	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 2/2] phy: rockchip-naneng-combo: Support rk3562
-Date: Thu, 27 Feb 2025 19:08:36 +0800
-Message-Id: <20250227110836.2343158-2-kever.yang@rock-chips.com>
+	linux-arm-kernel@lists.infradead.org,
+	Ulf Hansson <ulf.hansson@linaro.org>
+Subject: [PATCH v3 2/2] soc: rockchip: power-domain: add power domain support for rk3562
+Date: Thu, 27 Feb 2025 18:59:57 +0800
+Message-Id: <20250227105957.2341107-3-kever.yang@rock-chips.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250227110836.2343158-1-kever.yang@rock-chips.com>
-References: <20250227110836.2343158-1-kever.yang@rock-chips.com>
+In-Reply-To: <20250227105957.2341107-1-kever.yang@rock-chips.com>
+References: <20250227105957.2341107-1-kever.yang@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQh4ZTFYfTU1NGUtJGRhNThhWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEtNQk
-	tVSktLVUpCWQY+
-X-HM-Tid: 0a95471824e603afkunmc65b3847
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGk0ZQ1YaT00dSx8eGU5OT0hWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a9547109f3203afkunmc6596ac9
 X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Mxg6KBw*KTIQPw0QEhQ5LiIr
-	N0wKCTNVSlVKTE9LTU5PTklLTE9OVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFNTU9NNwY+
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NRw6NBw*KTINTg0BAiICOTIa
+	EhwKCTVVSlVKTE9LTU5PS0lMTUJCVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFPT0lMNwY+
 DKIM-Signature: a=rsa-sha256;
-	b=ULhwrt4CtUYgtoeVhaymrZeyMuRaiMahRK817+qjyUak3w4pOORljjkbvn+1GxclU3P0EXgGFnt9vYGesjtcFKCKnssCta5H2VP7mGI2+uwMPVw6mQH+o4XuDaeZFjIV6sSw3QsbSW+j6dh1yqfi+WM4h1zpunFV0/JXmnmpxhU=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=k263oKWboHCcuxXXk1JkUAVYt1B/neLERbLAUbODuas=;
+	b=Txix2qS21u7XOR6rtQdlq1PXcupaV8OhxHDt0ZzGNQe0tZU/WaBCglnB5ST5JX1Ve1TCtvJXSNtVhRWCUfM8kDyY+cX7ysamMjFWNtShxyDQnerEM8Cv/sIEgWJxiVhFl0nhtU12FHeEjQrXiNkcHhGWkW55L3CUfabm6PWVFbI=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=DKX8ERULlKOlqmEzPMDQ7tcuj/pXzM/HFpRfsyeTQqQ=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_030843_095524_B556AA19 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20250227_030030_334688_66243EC8 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,191 +79,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jon Lin <jon.lin@rock-chips.com>
+This driver is modified to support RK3562 SoC.
+Add support to ungate clk.
+Add support to shut down memory for rk3562.
 
-rk3562 has 1 naneng comboPHY used for PCIe and USB3.
-
-Signed-off-by: Jon Lin <jon.lin@rock-chips.com>
+Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
 Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
 ---
 
+Changes in v3: None
 Changes in v2:
-- Collect review tag
+- update the header name
 
- .../rockchip/phy-rockchip-naneng-combphy.c    | 152 ++++++++++++++++++
- 1 file changed, 152 insertions(+)
+ drivers/pmdomain/rockchip/pm-domains.c | 48 +++++++++++++++++++++++++-
+ 1 file changed, 47 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-index a1532ef8bbe9..e4c5e0531b16 100644
---- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-+++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-@@ -393,6 +393,154 @@ static int rockchip_combphy_probe(struct platform_device *pdev)
- 	return PTR_ERR_OR_ZERO(phy_provider);
+diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/pm-domains.c
+index cb0f93800138..d05ec0a009a0 100644
+--- a/drivers/pmdomain/rockchip/pm-domains.c
++++ b/drivers/pmdomain/rockchip/pm-domains.c
+@@ -2,7 +2,7 @@
+ /*
+  * Rockchip Generic power domain support.
+  *
+- * Copyright (c) 2015 ROCKCHIP, Co. Ltd.
++ * Copyright (c) 2015 Rockchip Electronics Co., Ltd.
+  */
+ 
+ #include <linux/io.h>
+@@ -32,6 +32,7 @@
+ #include <dt-bindings/power/rk3366-power.h>
+ #include <dt-bindings/power/rk3368-power.h>
+ #include <dt-bindings/power/rk3399-power.h>
++#include <dt-bindings/power/rockchip,rk3562-power.h>
+ #include <dt-bindings/power/rk3568-power.h>
+ #include <dt-bindings/power/rockchip,rk3576-power.h>
+ #include <dt-bindings/power/rk3588-power.h>
+@@ -129,6 +130,20 @@ struct rockchip_pmu {
+ 	.active_wakeup = wakeup,			\
  }
  
-+static int rk3562_combphy_cfg(struct rockchip_combphy_priv *priv)
-+{
-+	const struct rockchip_combphy_grfcfg *cfg = priv->cfg->grfcfg;
-+	unsigned long rate;
-+	u32 val;
-+
-+	switch (priv->type) {
-+	case PHY_TYPE_PCIE:
-+		/* Set SSC downward spread spectrum */
-+		rockchip_combphy_updatel(priv, PHYREG32_SSC_MASK,
-+					 PHYREG32_SSC_DOWNWARD << PHYREG32_SSC_DIR_SHIFT,
-+					 PHYREG32);
-+
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->con0_for_pcie, true);
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->con1_for_pcie, true);
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->con2_for_pcie, true);
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->con3_for_pcie, true);
-+		break;
-+	case PHY_TYPE_USB3:
-+		/* Set SSC downward spread spectrum */
-+		rockchip_combphy_updatel(priv, PHYREG32_SSC_MASK,
-+					 PHYREG32_SSC_DOWNWARD << PHYREG32_SSC_DIR_SHIFT,
-+					 PHYREG32);
-+
-+		/* Enable adaptive CTLE for USB3.0 Rx */
-+		rockchip_combphy_updatel(priv, PHYREG15_CTLE_EN,
-+					 PHYREG15_CTLE_EN, PHYREG15);
-+
-+		/* Set PLL KVCO fine tuning signals */
-+		rockchip_combphy_updatel(priv, PHYREG33_PLL_KVCO_MASK, BIT(3), PHYREG33);
-+
-+		/* Set PLL LPF R1 to su_trim[10:7]=1001 */
-+		writel(PHYREG12_PLL_LPF_ADJ_VALUE, priv->mmio + PHYREG12);
-+
-+		/* Set PLL input clock divider 1/2 */
-+		val = FIELD_PREP(PHYREG6_PLL_DIV_MASK, PHYREG6_PLL_DIV_2);
-+		rockchip_combphy_updatel(priv, PHYREG6_PLL_DIV_MASK, val, PHYREG6);
-+
-+		/* Set PLL loop divider */
-+		writel(PHYREG18_PLL_LOOP, priv->mmio + PHYREG18);
-+
-+		/* Set PLL KVCO to min and set PLL charge pump current to max */
-+		writel(PHYREG11_SU_TRIM_0_7, priv->mmio + PHYREG11);
-+
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_sel_usb, true);
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_txcomp_sel, false);
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_txelec_sel, false);
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->usb_mode_set, true);
-+		break;
-+	default:
-+		dev_err(priv->dev, "incompatible PHY type\n");
-+		return -EINVAL;
-+	}
-+
-+	rate = clk_get_rate(priv->refclk);
-+
-+	switch (rate) {
-+	case REF_CLOCK_24MHz:
-+		if (priv->type == PHY_TYPE_USB3) {
-+			/* Set ssc_cnt[9:0]=0101111101 & 31.5KHz */
-+			val = FIELD_PREP(PHYREG15_SSC_CNT_MASK, PHYREG15_SSC_CNT_VALUE);
-+			rockchip_combphy_updatel(priv, PHYREG15_SSC_CNT_MASK,
-+						 val, PHYREG15);
-+
-+			writel(PHYREG16_SSC_CNT_VALUE, priv->mmio + PHYREG16);
-+		}
-+		break;
-+	case REF_CLOCK_25MHz:
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_clk_25m, true);
-+		break;
-+	case REF_CLOCK_100MHz:
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_clk_100m, true);
-+		if (priv->type == PHY_TYPE_PCIE) {
-+			/* PLL KVCO tuning fine */
-+			val = FIELD_PREP(PHYREG33_PLL_KVCO_MASK, PHYREG33_PLL_KVCO_VALUE);
-+			rockchip_combphy_updatel(priv, PHYREG33_PLL_KVCO_MASK,
-+						 val, PHYREG33);
-+
-+			/* Enable controlling random jitter, aka RMJ */
-+			writel(0x4, priv->mmio + PHYREG12);
-+
-+			val = PHYREG6_PLL_DIV_2 << PHYREG6_PLL_DIV_SHIFT;
-+			rockchip_combphy_updatel(priv, PHYREG6_PLL_DIV_MASK,
-+						 val, PHYREG6);
-+
-+			writel(0x32, priv->mmio + PHYREG18);
-+			writel(0xf0, priv->mmio + PHYREG11);
-+		}
-+		break;
-+	default:
-+		dev_err(priv->dev, "Unsupported rate: %lu\n", rate);
-+		return -EINVAL;
-+	}
-+
-+	if (priv->ext_refclk) {
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_clk_ext, true);
-+		if (priv->type == PHY_TYPE_PCIE && rate == REF_CLOCK_100MHz) {
-+			val = PHYREG13_RESISTER_HIGH_Z << PHYREG13_RESISTER_SHIFT;
-+			val |= PHYREG13_CKRCV_AMP0;
-+			rockchip_combphy_updatel(priv, PHYREG13_RESISTER_MASK, val, PHYREG13);
-+
-+			val = readl(priv->mmio + PHYREG14);
-+			val |= PHYREG14_CKRCV_AMP1;
-+			writel(val, priv->mmio + PHYREG14);
-+		}
-+	}
-+
-+	if (priv->enable_ssc) {
-+		val = readl(priv->mmio + PHYREG8);
-+		val |= PHYREG8_SSC_EN;
-+		writel(val, priv->mmio + PHYREG8);
-+	}
-+
-+	return 0;
++#define DOMAIN_M_G_SD(_name, pwr, status, req, idle, ack, g_mask, mem, wakeup, keepon)	\
++{							\
++	.name = _name,					\
++	.pwr_w_mask = (pwr) << 16,			\
++	.pwr_mask = (pwr),				\
++	.status_mask = (status),			\
++	.req_w_mask = (req) << 16,			\
++	.req_mask = (req),				\
++	.idle_mask = (idle),				\
++	.ack_mask = (ack),				\
++	.clk_ungate_mask = (g_mask),			\
++	.active_wakeup = wakeup,			\
 +}
 +
-+static const struct rockchip_combphy_grfcfg rk3562_combphy_grfcfgs = {
-+	/* pipe-phy-grf */
-+	.pcie_mode_set		= { 0x0000, 5, 0, 0x00, 0x11 },
-+	.usb_mode_set		= { 0x0000, 5, 0, 0x00, 0x04 },
-+	.pipe_rxterm_set	= { 0x0000, 12, 12, 0x00, 0x01 },
-+	.pipe_txelec_set	= { 0x0004, 1, 1, 0x00, 0x01 },
-+	.pipe_txcomp_set	= { 0x0004, 4, 4, 0x00, 0x01 },
-+	.pipe_clk_25m		= { 0x0004, 14, 13, 0x00, 0x01 },
-+	.pipe_clk_100m		= { 0x0004, 14, 13, 0x00, 0x02 },
-+	.pipe_phymode_sel	= { 0x0008, 1, 1, 0x00, 0x01 },
-+	.pipe_rate_sel		= { 0x0008, 2, 2, 0x00, 0x01 },
-+	.pipe_rxterm_sel	= { 0x0008, 8, 8, 0x00, 0x01 },
-+	.pipe_txelec_sel	= { 0x0008, 12, 12, 0x00, 0x01 },
-+	.pipe_txcomp_sel	= { 0x0008, 15, 15, 0x00, 0x01 },
-+	.pipe_clk_ext		= { 0x000c, 9, 8, 0x02, 0x01 },
-+	.pipe_sel_usb		= { 0x000c, 14, 13, 0x00, 0x01 },
-+	.pipe_phy_status	= { 0x0034, 6, 6, 0x01, 0x00 },
-+	.con0_for_pcie		= { 0x0000, 15, 0, 0x00, 0x1000 },
-+	.con1_for_pcie		= { 0x0004, 15, 0, 0x00, 0x0000 },
-+	.con2_for_pcie		= { 0x0008, 15, 0, 0x00, 0x0101 },
-+	.con3_for_pcie		= { 0x000c, 15, 0, 0x00, 0x0200 },
-+};
+ #define DOMAIN_M_O_R(_name, p_offset, pwr, status, m_offset, m_status, r_status, r_offset, req, idle, ack, wakeup)	\
+ {							\
+ 	.name = _name,					\
+@@ -194,6 +209,9 @@ struct rockchip_pmu {
+ #define DOMAIN_RK3399(name, pwr, status, req, wakeup)		\
+ 	DOMAIN(name, pwr, status, req, req, req, wakeup)
+ 
++#define DOMAIN_RK3562(name, pwr, req, g_mask, mem, wakeup)		\
++	DOMAIN_M_G_SD(name, pwr, pwr, req, req, req, g_mask, mem, wakeup, false)
 +
-+static const struct rockchip_combphy_cfg rk3562_combphy_cfgs = {
-+	.num_phys = 1,
-+	.phy_ids = {
-+		0xff750000
-+	},
-+	.grfcfg		= &rk3562_combphy_grfcfgs,
-+	.combphy_cfg	= rk3562_combphy_cfg,
-+};
-+
- static int rk3568_combphy_cfg(struct rockchip_combphy_priv *priv)
- {
- 	const struct rockchip_combphy_grfcfg *cfg = priv->cfg->grfcfg;
-@@ -1046,6 +1194,10 @@ static const struct rockchip_combphy_cfg rk3588_combphy_cfgs = {
+ #define DOMAIN_RK3568(name, pwr, req, wakeup)		\
+ 	DOMAIN_M(name, pwr, pwr, req, req, req, wakeup)
+ 
+@@ -1130,6 +1148,18 @@ static const struct rockchip_domain_info rk3399_pm_domains[] = {
+ 	[RK3399_PD_SDIOAUDIO]	= DOMAIN_RK3399("sdioaudio", BIT(31), BIT(31), BIT(29), true),
  };
  
- static const struct of_device_id rockchip_combphy_of_match[] = {
++static const struct rockchip_domain_info rk3562_pm_domains[] = {
++					     /* name           pwr     req     g_mask  mem wakeup */
++	[RK3562_PD_GPU]		= DOMAIN_RK3562("gpu",         BIT(0), BIT(1), BIT(1), 0, false),
++	[RK3562_PD_NPU]		= DOMAIN_RK3562("npu",         BIT(1), BIT(2), BIT(2), 0, false),
++	[RK3562_PD_VDPU]	= DOMAIN_RK3562("vdpu",        BIT(2), BIT(6), BIT(6), 0, false),
++	[RK3562_PD_VEPU]	= DOMAIN_RK3562("vepu",        BIT(3), BIT(7), BIT(7) | BIT(3), 0, false),
++	[RK3562_PD_RGA]		= DOMAIN_RK3562("rga",         BIT(4), BIT(5), BIT(5) | BIT(4), 0, false),
++	[RK3562_PD_VI]		= DOMAIN_RK3562("vi",          BIT(5), BIT(3), BIT(3), 0, false),
++	[RK3562_PD_VO]		= DOMAIN_RK3562("vo",  BIT(6), BIT(4), BIT(4), 16, false),
++	[RK3562_PD_PHP]		= DOMAIN_RK3562("php",         BIT(7), BIT(8), BIT(8), 0, false),
++};
++
+ static const struct rockchip_domain_info rk3568_pm_domains[] = {
+ 	[RK3568_PD_NPU]		= DOMAIN_RK3568("npu",  BIT(1), BIT(2),  false),
+ 	[RK3568_PD_GPU]		= DOMAIN_RK3568("gpu",  BIT(0), BIT(1),  false),
+@@ -1331,6 +1361,18 @@ static const struct rockchip_pmu_info rk3399_pmu = {
+ 	.domain_info = rk3399_pm_domains,
+ };
+ 
++static const struct rockchip_pmu_info rk3562_pmu = {
++	.pwr_offset = 0x210,
++	.status_offset = 0x230,
++	.req_offset = 0x110,
++	.idle_offset = 0x128,
++	.ack_offset = 0x120,
++	.clk_ungate_offset = 0x140,
++
++	.num_domains = ARRAY_SIZE(rk3562_pm_domains),
++	.domain_info = rk3562_pm_domains,
++};
++
+ static const struct rockchip_pmu_info rk3568_pmu = {
+ 	.pwr_offset = 0xa0,
+ 	.status_offset = 0x98,
+@@ -1429,6 +1471,10 @@ static const struct of_device_id rockchip_pm_domain_dt_match[] = {
+ 		.compatible = "rockchip,rk3399-power-controller",
+ 		.data = (void *)&rk3399_pmu,
+ 	},
 +	{
-+		.compatible = "rockchip,rk3562-naneng-combphy",
-+		.data = &rk3562_combphy_cfgs,
++		.compatible = "rockchip,rk3562-power-controller",
++		.data = (void *)&rk3562_pmu,
 +	},
  	{
- 		.compatible = "rockchip,rk3568-naneng-combphy",
- 		.data = &rk3568_combphy_cfgs,
+ 		.compatible = "rockchip,rk3568-power-controller",
+ 		.data = (void *)&rk3568_pmu,
 -- 
 2.25.1
 
