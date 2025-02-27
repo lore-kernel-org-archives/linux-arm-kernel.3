@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04A3EC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 23:19:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 933A9C197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 23:20:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lUBG3cVYHEjoNMeivnhEzVrtMLXIn9Qgo6njbWn33FQ=; b=PAwp0jOf6vTWPbXOorP1bn+pcV
-	QrzYMy1z9LTJ9jFHP4pJvh1JEryml/ERX/khuXRsuVa5qPR1sSDMunS53zF8ve1i6acQOnNAdCKGM
-	BXZfFuiIgnW8pQWVv3IEILGFRnYh0VcRDqY2Ro2ag1RQMy1rL10tmCBEiT0gZRgKnDLhfTqg68vV6
-	iDDDv6aEhw4LnumQymLVjCRkX7mP9LZzDuXUdNr4zCESefNiV2fIzZTycyWpbNzMjaAB9BIJ1JiyR
-	Bq/eh90Dkod1wbbmQv/zULjOwL+pNj2leqV9QlL60sMDg6WS/KBEDbonbA0S9ktekT5IjEPw9mjtL
-	j3GmHblg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aI522qqpMKBoq9alAstargfnSopaozm1Bu8pOAVgytE=; b=v70spy/ELSdwci1kFZXU7XgYGd
+	W404gnaGbcDzcujcChqP+uSd6moXoPBhUg6V+TSsWfI/XHB3B0++DZpGREEvSt4QSKcHJrL2RDPxA
+	9Erd1GYSqHVEoqbq7p9crwd5g4mwr2ZvjZez+FZx+zn6y6NWOTFjiRplRaDrbtKSFbSGZsBhhKTkb
+	43Yu4dBp8CpcfdaNgoRSTGyHWur/xArionxyoCLgOWsJmAKmj+3v28zFWhvIZUiNCdE0WBTNOwTZm
+	BjtPdyfEVPW4tHHrEO4yKHMB7Wg3yh+Bx0oYfK8WZxuYSJLyt8CDZN3h5Geehw1po4VmJ0px0y/DH
+	xoebV6Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnn9Y-00000009979-14c6;
-	Thu, 27 Feb 2025 23:18:52 +0000
+	id 1tnnB4-000000099aD-401x;
+	Thu, 27 Feb 2025 23:20:26 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnn7y-000000098gu-1Tx2
+	id 1tnn7z-000000098hX-31Uq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 23:17:16 +0000
+	Thu, 27 Feb 2025 23:17:17 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9B1C31516;
-	Thu, 27 Feb 2025 15:17:28 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7D2E5153B;
+	Thu, 27 Feb 2025 15:17:30 -0800 (PST)
 Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8D5C13F673;
-	Thu, 27 Feb 2025 15:17:11 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 717D33F673;
+	Thu, 27 Feb 2025 15:17:13 -0800 (PST)
 From: Andre Przywara <andre.przywara@arm.com>
 To: Linus Walleij <linus.walleij@linaro.org>,
 	Rob Herring <robh@kernel.org>,
@@ -46,15 +46,17 @@ Cc: linux-gpio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 0/8] pinctrl: sunxi: Add Allwinner A523 support
-Date: Thu, 27 Feb 2025 23:14:39 +0000
-Message-ID: <20250227231447.20161-1-andre.przywara@arm.com>
+Subject: [PATCH v3 1/8] pinctrl: sunxi: refactor pinctrl variants into flags
+Date: Thu, 27 Feb 2025 23:14:40 +0000
+Message-ID: <20250227231447.20161-2-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.46.3
+In-Reply-To: <20250227231447.20161-1-andre.przywara@arm.com>
+References: <20250227231447.20161-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_151714_480125_192B5A6B 
-X-CRM114-Status: GOOD (  19.81  )
+X-CRM114-CacheID: sfid-20250227_151715_846775_C0CE4957 
+X-CRM114-Status: GOOD (  22.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,87 +71,235 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+For some Allwinner SoCs we have one pinctrl driver caring for multiple
+very similar chips, and are tagging certain pins with a variant bitmask.
+The Allwinner D1 introduced a slightly extended register layout, and we
+were abusing this variant mask to convey this bit of information into
+the common code part.
+Now there will be more pinctrl device properties to consider (has PortF
+voltage switch, for instance), so shoehorning this into the variant
+bitmask will not fly anymore.
 
-this is the third drop of the series introducing pinctrl support for the
-Allwinner A523 family of SoCs (comprising A523, A527, T527, H728). [1]
-Only small changes this time: renaming a symbol, fixing the DT binding
-example, add adding the accrued tags. Many thanks to the reviewers, in
-particular Jernej for biting the bullet and looking at patch 5/8!
-Changelog below.
+Refactor the "variant" field into a more generic "flags" field. It turns
+out that we don't need the variant bits to be unique across all SoCs,
+but only among those SoCs that share one driver (table), of which there
+are at most three variants at the moment. So the actual variant field can
+be limited to say 8 bits, and the other bits in the flag register can be
+re-purposed to hold other information, like this extended register
+layout.
+As a side effect we can move the variant definition into the per-SoC
+pinctrl driver file, which makes it more obvious that this is just a
+private definition, only relevant for this particular table.
+This also changes the artificial sun20i-d1 "variant" into the actual
+flag bit that we are after.
 
-==============
-The first four patches extend the sunxi pinctrl core code to deal with
-some specialities of the new SoC: it uses every of the 11 possible banks
-except the first one, which required some register remapping. The first
-patch here is some cleanup, which we should take regardless, I think,
-since it fixes some hack we introduced with the D1 support.
+Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+---
+ drivers/pinctrl/sunxi/pinctrl-sun20i-d1.c |  6 ++----
+ drivers/pinctrl/sunxi/pinctrl-sun4i-a10.c |  8 ++++++--
+ drivers/pinctrl/sunxi/pinctrl-sun5i.c     |  8 ++++++--
+ drivers/pinctrl/sunxi/pinctrl-sun6i-a31.c |  8 +++++---
+ drivers/pinctrl/sunxi/pinctrl-sun8i-v3s.c |  7 +++++--
+ drivers/pinctrl/sunxi/pinctrl-sunxi.c     | 10 +++++-----
+ drivers/pinctrl/sunxi/pinctrl-sunxi.h     | 23 +++++++----------------
+ 7 files changed, 36 insertions(+), 34 deletions(-)
 
-The main feature is actually patch 5, which introduces a new way to
-express the required pinmux values for each function/pin pair. 
-Traditionally, we dumped a rather large table of data into the (single
-image!) kernel for that, but this approach now puts that value into
-the DT, and builds the table at runtime. This patch was posted twice
-before [2][3], the last time LinusW seemed to be fine with the idea,
-just complained about the abuse of the generic pinmux property. I changed
-that to allwinner,pinmux now.
-
-The rest of the patches are the usual suspects: the two files for the
-two pinctrl instances of the new SoC (now very small), and the DT
-binding.
-
-Based on v6.14-rc1. Please have a look, review and test!
-
-Cheers,
-Andre
-
-[1] https://linux-sunxi.org/A523#Family_of_sun55iw3
-[2] https://patchwork.ozlabs.org/project/linux-gpio/cover/20171113012523.2328-1-andre.przywara@arm.com/
-[3] https://lore.kernel.org/linux-arm-kernel/20221110014255.20711-1-andre.przywara@arm.com/
-
-Changelog v2 .. v3:
-- rename POW_MOD_SEL symbol
-- drop CCU binding header inclusion in DT binding example
-- add review tags (with thanks!)
-
-Changelog v1 .. v2:
-- rebased on v6.14-rc1
-- extend regulator array to cover PortK as well
-- increase number of pins in A523 PortJ from 18 to 28
-- extend comment for new pinctrl DT code
-- move DT binding into separate yaml file
-- Add Jernej's Reviewed-by (with thanks!)
-
-
-Andre Przywara (8):
-  pinctrl: sunxi: refactor pinctrl variants into flags
-  pinctrl: sunxi: increase number of GPIO bank regulators
-  pinctrl: sunxi: move bank K register offset
-  pinctrl: sunxi: support moved power configuration registers
-  pinctrl: sunxi: allow reading mux values from DT
-  dt-bindings: pinctrl: add compatible for Allwinner A523/T527
-  pinctrl: sunxi: Add support for the Allwinner A523
-  pinctrl: sunxi: Add support for the secondary A523 GPIO ports
-
- .../allwinner,sun55i-a523-pinctrl.yaml        | 175 ++++++++
- drivers/pinctrl/sunxi/Kconfig                 |  10 +
- drivers/pinctrl/sunxi/Makefile                |   3 +
- drivers/pinctrl/sunxi/pinctrl-sun20i-d1.c     |   6 +-
- drivers/pinctrl/sunxi/pinctrl-sun4i-a10.c     |   8 +-
- drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c |  54 +++
- drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c   |  54 +++
- drivers/pinctrl/sunxi/pinctrl-sun5i.c         |   8 +-
- drivers/pinctrl/sunxi/pinctrl-sun6i-a31.c     |   8 +-
- drivers/pinctrl/sunxi/pinctrl-sun8i-v3s.c     |   7 +-
- drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c      | 374 ++++++++++++++++++
- drivers/pinctrl/sunxi/pinctrl-sunxi.c         |  54 ++-
- drivers/pinctrl/sunxi/pinctrl-sunxi.h         |  47 ++-
- 13 files changed, 758 insertions(+), 50 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/pinctrl/allwinner,sun55i-a523-pinctrl.yaml
- create mode 100644 drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
- create mode 100644 drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c
- create mode 100644 drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c
-
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sun20i-d1.c b/drivers/pinctrl/sunxi/pinctrl-sun20i-d1.c
+index 8e2aab542fcfe..8efe35b77af4d 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sun20i-d1.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sun20i-d1.c
+@@ -820,15 +820,13 @@ static const struct sunxi_pinctrl_desc d1_pinctrl_data = {
+ 
+ static int d1_pinctrl_probe(struct platform_device *pdev)
+ {
+-	unsigned long variant = (unsigned long)of_device_get_match_data(&pdev->dev);
+-
+-	return sunxi_pinctrl_init_with_variant(pdev, &d1_pinctrl_data, variant);
++	return sunxi_pinctrl_init_with_flags(pdev, &d1_pinctrl_data,
++					     SUNXI_PINCTRL_NEW_REG_LAYOUT);
+ }
+ 
+ static const struct of_device_id d1_pinctrl_match[] = {
+ 	{
+ 		.compatible = "allwinner,sun20i-d1-pinctrl",
+-		.data = (void *)PINCTRL_SUN20I_D1
+ 	},
+ 	{}
+ };
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sun4i-a10.c b/drivers/pinctrl/sunxi/pinctrl-sun4i-a10.c
+index fa47fe36ee5bc..b2e82bf927b3c 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sun4i-a10.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sun4i-a10.c
+@@ -17,6 +17,10 @@
+ 
+ #include "pinctrl-sunxi.h"
+ 
++#define PINCTRL_SUN4I_A10	BIT(0)
++#define PINCTRL_SUN7I_A20	BIT(1)
++#define PINCTRL_SUN8I_R40	BIT(2)
++
+ static const struct sunxi_desc_pin sun4i_a10_pins[] = {
+ 	SUNXI_PIN(SUNXI_PINCTRL_PIN(A, 0),
+ 		  SUNXI_FUNCTION(0x0, "gpio_in"),
+@@ -1295,8 +1299,8 @@ static int sun4i_a10_pinctrl_probe(struct platform_device *pdev)
+ {
+ 	unsigned long variant = (unsigned long)of_device_get_match_data(&pdev->dev);
+ 
+-	return sunxi_pinctrl_init_with_variant(pdev, &sun4i_a10_pinctrl_data,
+-					       variant);
++	return sunxi_pinctrl_init_with_flags(pdev, &sun4i_a10_pinctrl_data,
++					     variant);
+ }
+ 
+ static const struct of_device_id sun4i_a10_pinctrl_match[] = {
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sun5i.c b/drivers/pinctrl/sunxi/pinctrl-sun5i.c
+index 06ecb121c8274..6eef314c93775 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sun5i.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sun5i.c
+@@ -16,6 +16,10 @@
+ 
+ #include "pinctrl-sunxi.h"
+ 
++#define PINCTRL_SUN5I_A10S	BIT(0)
++#define PINCTRL_SUN5I_A13	BIT(1)
++#define PINCTRL_SUN5I_GR8	BIT(2)
++
+ static const struct sunxi_desc_pin sun5i_pins[] = {
+ 	SUNXI_PIN_VARIANT(SUNXI_PINCTRL_PIN(A, 0),
+ 		  PINCTRL_SUN5I_A10S,
+@@ -719,8 +723,8 @@ static int sun5i_pinctrl_probe(struct platform_device *pdev)
+ {
+ 	unsigned long variant = (unsigned long)of_device_get_match_data(&pdev->dev);
+ 
+-	return sunxi_pinctrl_init_with_variant(pdev, &sun5i_pinctrl_data,
+-					       variant);
++	return sunxi_pinctrl_init_with_flags(pdev, &sun5i_pinctrl_data,
++					     variant);
+ }
+ 
+ static const struct of_device_id sun5i_pinctrl_match[] = {
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sun6i-a31.c b/drivers/pinctrl/sunxi/pinctrl-sun6i-a31.c
+index 82ac064931df3..8d8c92ce41cff 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sun6i-a31.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sun6i-a31.c
+@@ -17,6 +17,9 @@
+ 
+ #include "pinctrl-sunxi.h"
+ 
++#define PINCTRL_SUN6I_A31	BIT(0)
++#define PINCTRL_SUN6I_A31S	BIT(1)
++
+ static const struct sunxi_desc_pin sun6i_a31_pins[] = {
+ 	SUNXI_PIN(SUNXI_PINCTRL_PIN(A, 0),
+ 		  SUNXI_FUNCTION(0x0, "gpio_in"),
+@@ -972,9 +975,8 @@ static int sun6i_a31_pinctrl_probe(struct platform_device *pdev)
+ 	unsigned long variant =
+ 		(unsigned long)of_device_get_match_data(&pdev->dev);
+ 
+-	return sunxi_pinctrl_init_with_variant(pdev,
+-					       &sun6i_a31_pinctrl_data,
+-					       variant);
++	return sunxi_pinctrl_init_with_flags(pdev, &sun6i_a31_pinctrl_data,
++					     variant);
+ }
+ 
+ static const struct of_device_id sun6i_a31_pinctrl_match[] = {
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sun8i-v3s.c b/drivers/pinctrl/sunxi/pinctrl-sun8i-v3s.c
+index 49c9a0b6a0eb4..696d7dd8d87ba 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sun8i-v3s.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sun8i-v3s.c
+@@ -22,6 +22,9 @@
+ 
+ #include "pinctrl-sunxi.h"
+ 
++#define PINCTRL_SUN8I_V3	BIT(0)
++#define PINCTRL_SUN8I_V3S	BIT(1)
++
+ static const struct sunxi_desc_pin sun8i_v3s_pins[] = {
+ 	/* Hole */
+ 	SUNXI_PIN(SUNXI_PINCTRL_PIN(B, 0),
+@@ -552,8 +555,8 @@ static int sun8i_v3s_pinctrl_probe(struct platform_device *pdev)
+ {
+ 	unsigned long variant = (unsigned long)of_device_get_match_data(&pdev->dev);
+ 
+-	return sunxi_pinctrl_init_with_variant(pdev, &sun8i_v3s_pinctrl_data,
+-					       variant);
++	return sunxi_pinctrl_init_with_flags(pdev, &sun8i_v3s_pinctrl_data,
++					     variant);
+ }
+ 
+ static const struct of_device_id sun8i_v3s_pinctrl_match[] = {
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+index bde67ee31417f..ae281a3c2ed34 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+@@ -1472,9 +1472,9 @@ static int sunxi_pinctrl_setup_debounce(struct sunxi_pinctrl *pctl,
+ 	return 0;
+ }
+ 
+-int sunxi_pinctrl_init_with_variant(struct platform_device *pdev,
+-				    const struct sunxi_pinctrl_desc *desc,
+-				    unsigned long variant)
++int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
++				  const struct sunxi_pinctrl_desc *desc,
++				  unsigned long flags)
+ {
+ 	struct device_node *node = pdev->dev.of_node;
+ 	struct pinctrl_desc *pctrl_desc;
+@@ -1497,8 +1497,8 @@ int sunxi_pinctrl_init_with_variant(struct platform_device *pdev,
+ 
+ 	pctl->dev = &pdev->dev;
+ 	pctl->desc = desc;
+-	pctl->variant = variant;
+-	if (pctl->variant >= PINCTRL_SUN20I_D1) {
++	pctl->variant = flags & SUNXI_PINCTRL_VARIANT_MASK;
++	if (flags & SUNXI_PINCTRL_NEW_REG_LAYOUT) {
+ 		pctl->bank_mem_size = D1_BANK_MEM_SIZE;
+ 		pctl->pull_regs_offset = D1_PULL_REGS_OFFSET;
+ 		pctl->dlevel_field_width = D1_DLEVEL_FIELD_WIDTH;
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+index a87a2f944d609..8e2eca45b57f8 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+@@ -82,18 +82,9 @@
+ #define SUN4I_FUNC_INPUT	0
+ #define SUN4I_FUNC_IRQ		6
+ 
+-#define PINCTRL_SUN5I_A10S	BIT(1)
+-#define PINCTRL_SUN5I_A13	BIT(2)
+-#define PINCTRL_SUN5I_GR8	BIT(3)
+-#define PINCTRL_SUN6I_A31	BIT(4)
+-#define PINCTRL_SUN6I_A31S	BIT(5)
+-#define PINCTRL_SUN4I_A10	BIT(6)
+-#define PINCTRL_SUN7I_A20	BIT(7)
+-#define PINCTRL_SUN8I_R40	BIT(8)
+-#define PINCTRL_SUN8I_V3	BIT(9)
+-#define PINCTRL_SUN8I_V3S	BIT(10)
+-/* Variants below here have an updated register layout. */
+-#define PINCTRL_SUN20I_D1	BIT(11)
++#define SUNXI_PINCTRL_VARIANT_MASK	GENMASK(7, 0)
++#define SUNXI_PINCTRL_NEW_REG_LAYOUT	BIT(8)
++#define SUNXI_PINCTRL_PORTF_SWITCH	BIT(9)
+ 
+ #define PIO_POW_MOD_SEL_REG	0x340
+ #define PIO_POW_MOD_CTL_REG	0x344
+@@ -299,11 +290,11 @@ static inline u32 sunxi_grp_config_reg(u16 pin)
+ 	return GRP_CFG_REG + bank * 0x4;
+ }
+ 
+-int sunxi_pinctrl_init_with_variant(struct platform_device *pdev,
+-				    const struct sunxi_pinctrl_desc *desc,
+-				    unsigned long variant);
++int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
++				  const struct sunxi_pinctrl_desc *desc,
++				  unsigned long flags);
+ 
+ #define sunxi_pinctrl_init(_dev, _desc) \
+-	sunxi_pinctrl_init_with_variant(_dev, _desc, 0)
++	sunxi_pinctrl_init_with_flags(_dev, _desc, 0)
+ 
+ #endif /* __PINCTRL_SUNXI_H */
 -- 
 2.46.3
 
