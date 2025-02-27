@@ -4,78 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4EE2C1B087
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 08:38:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BCABC021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 08:41:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PDeYYUOHDnMiBpLFvcoGjESPSceT3e34+89HKRm6dZI=; b=Y2my51YTy9NkraEWEzUTOB/cZQ
-	nayjn8qbu21awNlLrQCIdr660OwF+vIDz9LY2eqXSxANaAhWlGBSEO8+tLEGqtrN/AjabHNEZZSTb
-	MQvsP/keFL2EmMj9PZ8IoK7bQUb6oROZRLcyf4U3uWTYwcgTVKcWLplrLss2wXFc0tFh5EBB73IF1
-	icKQ/QEfMYB1QAzlaVabhxywHMlZTww1UWKZNr2c+PmK6FjAk8uRkVOi16n8HK2NVzDsYU3yr5IeP
-	IXz7Zd+YaVXXEZsScVqz9YNNesvyKwguGu1mUzCWOyYUfXw8ejuu3w3/BER3me3s351T7WZxoTwin
-	5Hza5Gnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jOxsqz5lmxXPH64l2epflbTQhqz10HA2W4ktSeXgbXE=; b=06EGb/Ct7IACOs8d7JI54Sg89X
+	0hYdcpn5GXR0ro0mAusIv9jMDPw3/uem9IODruPLipJ1pKc4WIvhA/erlGf9fts7ZR9b+EPWvJmHI
+	Jpd4La78rTpEw4rfehmbLiZfmn1CcA0kmA1PU90iQhydVoRsXSVkHp1VwKmg+DeWSQQQt4B4AzBXo
+	mowJwntONhW6L00tEGK/J910VmoEEErmjSc8xQyEC3xXxab2a+oBWGM9FARq8Qw7M+ujmkeEcgXDD
+	3Ii16MfsrTb1X7g3u6KxLw7Qpqk/KJXnbBEpruNYsAw04X/OS+uogmPNif+2AG5Wa3M8BcXOV+kXt
+	xlwTmqBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnZPm-00000006ijO-2nhe;
-	Thu, 27 Feb 2025 08:38:42 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tnZSI-00000006jEA-33U5;
+	Thu, 27 Feb 2025 08:41:18 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnZOE-00000006iW9-3TEx;
-	Thu, 27 Feb 2025 08:37:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C8D0E5C10E7;
-	Thu, 27 Feb 2025 08:36:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA9A9C4CEDD;
-	Thu, 27 Feb 2025 08:37:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740645425;
-	bh=nRbj/Wkfu4NpdGGUja9RSPwp1X8dZdVwrbBMJ/2V0wM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mRkxdmgokJlBe27n3RIU7ojbt+6jpjnxlL94eKr6TcvXAyZXXYLS+rBDbVJVjv5BR
-	 MZB6qyjZyrvjqgzO1hlFGzXr/ZK6e8Zj7Kx/AmDypMr3NuJOiPYeFSCJDJBtL1rAKi
-	 hU6iqYEbfpEh/YnEyctlqDgGjTODN3TYzh/YFVfimCs1ECvUBd6RA2+QbPpAuPtaOV
-	 LcwHnGjmBAtamEYnvRcabR4R+9O/oZM1rUOm4EFoU99TPGg9E03ouiJfb0FYqe580S
-	 2BQWn7cwGorXReTMdyhVlMgOiAVab+nE6XCa2lpFYoYQeRhl0oYSsURKDKlg2PBnTE
-	 mYXL0AK8kNe1Q==
-Date: Thu, 27 Feb 2025 09:37:02 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	DENG Qingfang <dqfext@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	upstream@airoha.com, Sayantan Nandy <sayantan.nandy@airoha.com>
-Subject: Re: [PATCH net-next v7 13/15] net: airoha: Introduce flowtable
- offload support
-Message-ID: <Z8AkLpF1svgNfXNu@lore-desk>
-References: <20250224-airoha-en7581-flowtable-offload-v7-0-b4a22ad8364e@kernel.org>
- <20250224-airoha-en7581-flowtable-offload-v7-13-b4a22ad8364e@kernel.org>
- <20250226194310.03398da0@kernel.org>
+	id 1tnZQk-00000006iwr-3x2V
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Feb 2025 08:39:44 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51R3i9mS022215;
+	Thu, 27 Feb 2025 09:39:34 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	jOxsqz5lmxXPH64l2epflbTQhqz10HA2W4ktSeXgbXE=; b=473uiRl9Y1yCMnX3
+	DofNQhz/bYfvPlQ3IhdHea3NbcOFdIxBmZPRVlvDKdxrqUBU6FKRhvKVKDW0OIJA
+	4YAzwEHYTfZ2KXhUK1FtpKyIdXqhIlnCA2lz5seH+5Kk6e7bsZ2NV+ncYeIjph8F
+	5bIytUs1ivYqZwML4rOIFTVJ+JFNoLjE09uPLTpDzUK2Y8RQPZVuTFFoNMFHVbq/
+	MbX+CaODUh15mZdxLZ8cvtK5ObMiNZXmVNHfqW/8ZFw9Fm1heGoCI2dKpvjkUS12
+	ddnuOTYcj69xOhOUMW2eh5gNtHeOFWlYM20e4Nb8QFOMaT9JE46TMw9tfnKlIVqs
+	6aei3g==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 451psrhd2k-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 27 Feb 2025 09:39:34 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 66C5840063;
+	Thu, 27 Feb 2025 09:38:30 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 7426D37F76F;
+	Thu, 27 Feb 2025 09:37:53 +0100 (CET)
+Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 27 Feb
+ 2025 09:37:52 +0100
+Message-ID: <59e547fd-8301-4757-9343-8919f5625d0e@foss.st.com>
+Date: Thu, 27 Feb 2025 09:37:52 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="3EJw5ixjEJCaV9I4"
-Content-Disposition: inline
-In-Reply-To: <20250226194310.03398da0@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] ARM: dts: stm32: add push button to stm32f746
+ Discovery board
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+        <linux-kernel@vger.kernel.org>
+CC: Conor Dooley <conor+dt@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Rob
+ Herring <robh@kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>
+References: <20250217114332.1098482-1-dario.binacchi@amarulasolutions.com>
+ <20250217114332.1098482-2-dario.binacchi@amarulasolutions.com>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20250217114332.1098482-2-dario.binacchi@amarulasolutions.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.79]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-27_04,2025-02-26_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_003706_904819_35459999 
-X-CRM114-Status: UNSURE (   8.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250227_003943_536201_DC3771E0 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,34 +101,40 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---3EJw5ixjEJCaV9I4
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-> On Mon, 24 Feb 2025 12:25:33 +0100 Lorenzo Bianconi wrote:
-> > +	foe_size =3D PPE_NUM_ENTRIES * sizeof(struct airoha_foe_entry);
-> > +	ppe->foe =3D dmam_alloc_coherent(eth->dev, foe_size, &ppe->foe_dma,
-> > +				       GFP_KERNEL | __GFP_ZERO);
->=20
-> dmam_alloc_coherent() always zeros the memory, the GFP_ZERO is not necess=
-ary
+On 2/17/25 12:43, Dario Binacchi wrote:
+> Add node for user push button.
+> 
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> ---
+> 
+>   arch/arm/boot/dts/st/stm32f746-disco.dts | 10 ++++++++++
+>   1 file changed, 10 insertions(+)
+> 
+> diff --git a/arch/arm/boot/dts/st/stm32f746-disco.dts b/arch/arm/boot/dts/st/stm32f746-disco.dts
+> index 8bdd10644bf1..b57dbdce2f40 100644
+> --- a/arch/arm/boot/dts/st/stm32f746-disco.dts
+> +++ b/arch/arm/boot/dts/st/stm32f746-disco.dts
+> @@ -86,6 +86,16 @@ led-usr {
+>   		};
+>   	};
+>   
+> +	gpio-keys {
+> +		compatible = "gpio-keys";
+> +		autorepeat;
+> +		button-0 {
+> +			label = "User";
+> +			linux,code = <KEY_HOME>;
+> +			gpios = <&gpioi 11 GPIO_ACTIVE_HIGH>;
+> +		};
+> +	};
+> +
+>   	usbotg_hs_phy: usb-phy {
+>   		#phy-cells = <0>;
+>   		compatible = "usb-nop-xceiv";
 
-ack, I will fix it.
+Series applied on stm32-next.
 
-Regards,
-Lorenzo
-
---3EJw5ixjEJCaV9I4
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ8AkLgAKCRA6cBh0uS2t
-rHkvAQDr0fPTwe5MsGWTZebtC+cvgeqIcwk+UMbKIk75G9QRHQEAyMgTUip42VH/
-4sD9pimv2XO4Yc7c3UHDupHqbjzpkQw=
-=h8X6
------END PGP SIGNATURE-----
-
---3EJw5ixjEJCaV9I4--
+thanks
+Alex
 
