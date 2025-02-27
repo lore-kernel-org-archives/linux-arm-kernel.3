@@ -4,87 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70607C197BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 23:09:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51197C197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 23:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=frw/Kxp/v2+PP+mGe/xu93cFHbH9YYmz+7s+Ghe+Vqk=; b=jntPX8UAe2r/BYHrIGsfUNdEpz
-	XqF7mVwwrT2GL9hrqiKdAIUMfx17uz9R18ps77Lq01+ieauUdcwbcjWIz8eK+hGY9crtBqlQL5iCp
-	PfjXsVeXmoJ+Kkb9mzNst1JUuDdPGrk7Tw3lvTebrjmnAg27DoRYYq8OUkkqitnjz/rCFbzptZrxb
-	k+rqaJ6mHZVXd+ijM8YCSYxe3+OPXk4syTdHmYDjSrQJdbASY46skFz8uWSYya64YPqn4rFowMUOH
-	v4l8q1pZdgt8h12QNNq7wiHizafH1ZIk0Ms9PdbZhhIQErPRwZNHd07hh0DOKMyee98ObswS1HRn+
-	RWzM/4hQ==;
+	bh=zYskf4Q6IOL04q9jyqtfU8Zgdvew2yriJ3Ik8GT2/Z0=; b=ezFwj5vx4KB+b7QyUFN6khqms1
+	rmAImMNrGR+oQJnEPY1IfC9CVDRU0KRNanH+YU32k5f6XWaLE967tRAkqNZXkQrWQarPR0XSH+cNw
+	5E5EdDmGhTpir8M5aCz1dtpnyssQdEGMZ7G+ITfjSImLezKfcPEQ+QvENy1rUnet12KcfYgQpIWIf
+	rVc2IDsiaNM1hdXyff+27mvdbSVVlXRJogwjkHxG8lseeLqG9/gZE1NZJQCcRvLXE/g2oWMEylJdD
+	zG1cfQC2qZ/JmqcA2pt0WRGfv1bGMHydF7l8cqEKJK6BJ1qhcEBvsOWF9r/oHFBdvGEqsQFBehBRO
+	uFLrlzVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnmzy-000000097gF-1iub;
-	Thu, 27 Feb 2025 23:08:58 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnmyO-000000097QD-3YXg
+	id 1tnn1U-000000097ra-0DVg;
+	Thu, 27 Feb 2025 23:10:32 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnmzm-000000097dp-1bGO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 23:07:23 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-30b8cbbac91so5745601fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 15:07:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740697639; x=1741302439; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=frw/Kxp/v2+PP+mGe/xu93cFHbH9YYmz+7s+Ghe+Vqk=;
-        b=cQutJJx0t/CKjGHEGBApDcCNak8ggrM4JETKZACyZA7iygT8G/X6Oj7huDoGH53EIa
-         4FfVbm/NWma6OEFrhTyGBOnUmP1+v97MZv0nqrYSyt3rf7FqK15dkyRVdcE/G7DgvfTA
-         DosA453jAoxNxPB76CFfXv7lZFketiEud/XGquxLRy8c2MxLmZ3Ii0cpj2kP7E76szWy
-         B2mDKvVGY/AXERXJIYVQcPX+ShHSRHNcRY0Q6QMZg5mdYZmlkIgHOAz6uDGOdB+7CAmK
-         QRuPaP5MAcAUPtKEKt/7leRMk5XfjgnhrFUqNh+7HyT1OREA2HHDTTiTFkGS1UtKVOo9
-         8Xyg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740697639; x=1741302439;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=frw/Kxp/v2+PP+mGe/xu93cFHbH9YYmz+7s+Ghe+Vqk=;
-        b=jGZ4X3TSznx92kBbm4+ihZehrhIfRJ8TwfJUUim3x7t0TsGOhAIPgB8QMwZDIYqzIF
-         V+pOLi6tmuxY76KrTkPaBGYQ3WmC4lj7eZtPloua/Cz8X2Ml1D13yGDoD1PdI8HGxYTN
-         AOQbvybveV3OFmK4HKo7Z5dpvVHlo3c6ZD7sWigVbzBrMDN1WrrmBRA9G9uo1eAMQVFq
-         +Q4q0YPg/AQDASpf1u7mRyS4l4CBknVznE26cfL5SMk82uAFf4pI1/iAMcoHmrKLMxeN
-         bxYUKh3OYOc0ny2cpNeMAsc24M7dbpn5xABjBODa8o6fC37HPhWVBYDKZp5oNxrCsc62
-         UQ9g==
-X-Forwarded-Encrypted: i=1; AJvYcCVCD+HNNS7KuI2JobLBphkZz73KnRdn1tnWKYvVDAIaPNxaGRWBDLpL3nXh1Yozq1PacU8fACfnmBnU5x2gTzab@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/Lm6A9GeuDsfND1Y8II6cGhKqQX+znOSDAa+rWIBifKLhmtMW
-	aB1d1Fq94l32QuBFLNwL9KwvupWVW1jpTq9h0p97+0bIYFMBsnUKuEqdNS4FOwR0o1oQkTHaWwk
-	ytdZFSfnsCk/cYncQHLDHMh9pxoaJ75wbYIe4pQ==
-X-Gm-Gg: ASbGncvy7cA55FEzjcYFsbIr1ZpMl8gBLKILsCmAOxb0z9SDHrujWX+Hz1fyTY7GT5Y
-	nrW9Ahu2KolndtfoD0mm6odXKpyYO4tEsIEDrCC0vaUxTjeoOuFse3KzvQhZqOCQbiAh2jyRg0i
-	igsBPHHAU=
-X-Google-Smtp-Source: AGHT+IFufz181XNYlSjaAjssVbP9sbOQz0B9cNRA45vok7xAon3DLgbajO4WEtqa7uIwsizRpA7u/lhxgF69lTQZ82w=
-X-Received: by 2002:a05:651c:2105:b0:30a:2a8a:e4d0 with SMTP id
- 38308e7fff4ca-30b90a8247cmr3926491fa.17.1740697639007; Thu, 27 Feb 2025
- 15:07:19 -0800 (PST)
+	Thu, 27 Feb 2025 23:08:47 +0000
+Received: from [10.137.184.60] (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 5037E210EAC0;
+	Thu, 27 Feb 2025 15:08:45 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 5037E210EAC0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1740697725;
+	bh=zYskf4Q6IOL04q9jyqtfU8Zgdvew2yriJ3Ik8GT2/Z0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GVDOlEPTyz3LD9fsfIPoqV+r6EmceZBi0lZLEjt/esvDYSWBzJjxwDfhA40k7eLd+
+	 0K0FXz2Kavl7vHD5TLQAvsxN/qTlo/ZLEwepIXxhd+v+y1mh/0ohhhVwfX9M2yKbDK
+	 HIizPi+oz4D9ih/ptnOZGFMknxlWUe66k2Iq4mt0=
+Message-ID: <49a69fe3-fca5-426d-999d-61ee0c8f60f3@linux.microsoft.com>
+Date: Thu, 27 Feb 2025 15:08:45 -0800
 MIME-Version: 1.0
-References: <20250212-amlogic-pinctrl-v5-0-282bc2516804@amlogic.com>
-In-Reply-To: <20250212-amlogic-pinctrl-v5-0-282bc2516804@amlogic.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 28 Feb 2025 00:07:07 +0100
-X-Gm-Features: AQ5f1JqjsVFh7X8JQClBDzM8iluOtRQbPulUgXhGdh38CQTozMVRauwBZfmmZkc
-Message-ID: <CACRpkdZg-9Zr3f7zG36x7jGvT46FRfRJ40khNZDdYb01-BGigw@mail.gmail.com>
-Subject: Re: [PATCH v5 0/5] Pinctrl: Add Amlogic pinctrl driver
-To: xianwei.zhao@amlogic.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 01/10] hyperv: Convert Hyper-V status codes to strings
+To: Easwar Hariharan <eahariha@linux.microsoft.com>
+Cc: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
+ linux-hyperv@vger.kernel.org, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org, kys@microsoft.com,
+ haiyangz@microsoft.com, wei.liu@kernel.org, mhklinux@outlook.com,
+ decui@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
+ tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, hpa@zytor.com, daniel.lezcano@linaro.org,
+ joro@8bytes.org, robin.murphy@arm.com, arnd@arndb.de,
+ jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
+ skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com,
+ ssengar@linux.microsoft.com, apais@linux.microsoft.com,
+ Tianyu.Lan@microsoft.com, stanislav.kinsburskiy@gmail.com,
+ gregkh@linuxfoundation.org, vkuznets@redhat.com, prapal@linux.microsoft.com,
+ muislam@microsoft.com, anrayabh@linux.microsoft.com, rafael@kernel.org,
+ lenb@kernel.org, corbet@lwn.net
+References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1740611284-27506-2-git-send-email-nunodasneves@linux.microsoft.com>
+ <74af19c4-639f-4bcc-b667-b5f102bbb312@linux.microsoft.com>
+ <8338dd00-3aa4-418f-a547-1c19623358cb@linux.microsoft.com>
+Content-Language: en-US
+From: Roman Kisel <romank@linux.microsoft.com>
+In-Reply-To: <8338dd00-3aa4-418f-a547-1c19623358cb@linux.microsoft.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_150720_883176_A91021EE 
-X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-CacheID: sfid-20250227_150846_445557_845CC866 
+X-CRM114-Status: UNSURE (   9.78  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,23 +87,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Xianwei,
 
-I applied patches 1, 2, 3 and 5 to the pinctrl tree on this
-immutable branch:
-https://web.git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-pinctrl.gi=
-t/log/?h=3Dib-amlogic-a4
 
-On Wed, Feb 12, 2025 at 6:24=E2=80=AFAM Xianwei Zhao via B4 Relay
-<devnull+xianwei.zhao.amlogic.com@kernel.org> wrote:
+On 2/27/2025 2:54 PM, Easwar Hariharan wrote:
+[...]
 
->       arm64: dts: amlogic: a4: add pinctrl node
+> 
+> Sorry, I have to disagree with this, a recent commit of mine[1] closed a WSL
+> issue that was open for over 2 years for, partly, the utter uselessness of
+> the hex return code of the hypercall.
 
-Please funnel this patch through the SoC tree.
+Thanks for your efforts, and sorry to hear you had a frustrating
+debugging experience (sounds like it).
 
-If there are dependencies, they can be pulled in from the immutable
-branch.
+Would be great to learn the details to understand how this function is
+going to improve the situation:
 
-Yours,
-Linus Walleij
+1. How come the hex error code was useless, what is not matching
+    anything in the Linux headers?
+2. How having "Unknown" in the log can possibly be better?
+3. Given that the select hv status codes and the proposed strings have
+    1:1 correspondence, and there is the 1:N catch-all case for the
+    "Unknown", how's that better?
+
+> 
+> [1] https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d2138eab8cde61e0e6f62d0713e45202e8457d6d
+> 
+> Thanks,
+> Easwar (he/him)
+
+-- 
+Thank you,
+Roman
+
 
