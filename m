@@ -4,67 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A444C1B0FF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 14:37:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 476F4C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 14:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hhbjhVI6L7X1Yp3pBuL+czttai3RVbeLQIKlHMJuY0Q=; b=Y5ZunpB0pZrLYIVDHfBfdh5BLd
-	2Iy5+YoUap6OAElFtSE6APBAtx+BF5TLYfJcPBH6QXAn6CCid3Icx1TTHQQ/NhKMFdrVGCIfNH5uN
-	Dy7F4VWtSA+ANzGOHNCEjljV0ZfdZP9kGhhQgNlXska6EZ9ANiTpsPpGfSsWpHNyjBOfGwUhjMBc6
-	J+triqDMmb0OiaFCoy9wrAFv6zfirW4ICrmo94qw9Nq791raIwntgodKISSxHeSfnvVlbfGsdcI/X
-	StOpLevqKrDMKGVE21aFc0fcIRiJLRIoKMgMMkAfn85SFOaXMRc9LDKOZSM1GKx+txJAy0dljR8os
-	9KQxukzw==;
+	bh=jKfAa0Y4QqMGJoYxTlrv1q30VfaaUBgzdpc7bbsXTMU=; b=tQsraPbGtDINvDvMo4ovRRHqi/
+	okFzyGdolXHQ9DrzZhnxrZC9qS3ypmi5c4K3avcW1USnU9TmRmJLbeKRyEroTCxqtYFxHKDJXXe8T
+	6Ul5jKUVPAO21jy5Uz1ZoA8aDP8dcpahlck8SCMPSDy4gxiUZbniq9rLQQDMbJB9KTkX2DBVsFUXx
+	vAry2OOc+ZweOgn9hGBL52e3rQRNY5W4ynP+2Ko7OonwnK7A8y0Ou4gWRHcRbYNFkNMk2AwiOQ9mG
+	6psi7pQEgQKaatESbITh/8HQkqPt+ZAN2fD5lOAXpMM62ESm9BtvrhCkycqRoojKxgYtX/TkDJESl
+	fp96j0Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnf0V-00000007l6n-0vGq;
-	Thu, 27 Feb 2025 14:36:59 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tnf1j-00000007lW5-3ZqD;
+	Thu, 27 Feb 2025 14:38:15 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tneUp-00000007e2o-39nO;
-	Thu, 27 Feb 2025 14:04:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=hhbjhVI6L7X1Yp3pBuL+czttai3RVbeLQIKlHMJuY0Q=; b=w4SRFl513DU+MAiNNSNxibPh0Q
-	Y7vuhemGk9JrO2K1FOMUg/CRHt0AVe16tMsaRG+aFB8wy9i94mT0P4SSeM0c5M8LHcx91B52yHzu3
-	YCSEOrS3fLYWhF67UYmjiLa2syHG5FoE7EiA/JcTTn5SfdunnM+vwX0WALdNIiPgYSzg=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tneUh-000c4W-G8; Thu, 27 Feb 2025 15:04:07 +0100
-Date: Thu, 27 Feb 2025 15:04:07 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Drew Fustini <drew@pdp7.com>, Eric Dumazet <edumazet@google.com>,
-	Fu Wei <wefu@redhat.com>, Guo Ren <guoren@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 11/11] net: stmmac: thead: switch to use
- set_clk_tx_rate() hook
-Message-ID: <50bb7ed7-189f-4ad4-a486-5ec39b5e0a75@lunn.ch>
-References: <Z8AtX-wyPal1auVO@shell.armlinux.org.uk>
- <E1tna14-0052tT-S4@rmk-PC.armlinux.org.uk>
+	id 1tndIw-00000007QFO-2WgX
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Feb 2025 12:47:55 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-471fa3b19bcso266431cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 04:47:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1740660473; x=1741265273; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=jKfAa0Y4QqMGJoYxTlrv1q30VfaaUBgzdpc7bbsXTMU=;
+        b=VTBwX2irrY9THAcauHTfN3RiURoJlan7KbvLKgNwrCg/+jV9LDhXzIWLB2PBlVUcKM
+         Yjk4NWcL0XKlWnYDMrINVj2gnSB/SITyHXDLlXZx6f6cE9IFCImuMoFQ9PEEzZHC/9xl
+         +OjCyNgyZ/Li3JU/CqBu/2DgAELdKDUgev0JkHpMAE1jDYkBeGBKCUuqkwXLvPq764q1
+         GFHnIw83hCl1IauU5CLs6Zkvxqw74moNvF5WjQog+9JaT1vLaY9fdLmEYNySlkvbZvJM
+         7v/jm7gR1mr37pChQLT6IcONMXARv3WGMGohT5hUKoEW15zrUyIeoYSv6VXxwuRMXSk5
+         us9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740660473; x=1741265273;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jKfAa0Y4QqMGJoYxTlrv1q30VfaaUBgzdpc7bbsXTMU=;
+        b=nfjGMkrYXPLK84hjJr6vez0cF3VvGXErlRF4EJNRkYNz6nb/skwm+acgFy0+hVue5E
+         IVanr79HNOezkoG2ZmVujlMLTCIAGnl20cEXX6wvIKkDzqIj8Un3qjduHwe/vk3oTvA0
+         pm8R2XhoCu0qoG6JseaodSdAYrGJNFIGSWnscIR2JO/rP/23BBPCRT9DZlnjJ+SCYkrA
+         bA2AiyIjogoOPIDauAdzA45ue/3j+oDGbsqu1huTQtm43whmGWn7e0vc+yJujXCIZ9Gq
+         JomH6ErGqi7g4K5RXelhtqSy17NsfAp7PYQ59Wpc8LmKPfzyNVmi7YBq3w7hgwrOxN0C
+         /nig==
+X-Forwarded-Encrypted: i=1; AJvYcCUJcojaN7Cnjvd7kux/UqS8wz4BN4s0PlpSC9/yDO9R9y0bz58R7EUXjTeTgUZezFrt9IvgaWYvGlOHKrGo/NOy@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzJQfVfJi9Eh/rN3psHie5SRDMZHWi5R28Dsow6FYW8Yu/mUC2
+	lZcIobr3YTDUVXAzknuZfYf5s88hPcI34+15nC2Lv0u8aiuuPp7y8Q5h1k9a/YKzMYZM5GwI7cG
+	J9KB5OA81to3WymPUElSTc2Ko/FME/UH17TFJ
+X-Gm-Gg: ASbGncsiawezZPozNpwvW38siluhVA7WxG8Uga431q6khtbflhI/O13MTkOG1m95ipj
+	zO2VPkypKrGPTAKsWl1zK9yID4r4V40aam62QN6Y/+KljFderPxoG0dwu5NmU/UvQb6e0bC58kP
+	CZIiE=
+X-Google-Smtp-Source: AGHT+IHWUM9StvpMxTR1veAWbKD3F0IvKPiFCSnfuUozdIUs6NKdtI7rvvBzOdmVI68lbvumaPJTvMO7DJi2qSftbmE=
+X-Received: by 2002:ac8:5943:0:b0:46d:f29d:4173 with SMTP id
+ d75a77b69052e-4742e10ab22mr3399631cf.16.1740660472515; Thu, 27 Feb 2025
+ 04:47:52 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <E1tna14-0052tT-S4@rmk-PC.armlinux.org.uk>
+References: <20250226215520.1759218-1-tabba@google.com> <20250226215520.1759218-5-tabba@google.com>
+ <8634fzr3m1.wl-maz@kernel.org>
+In-Reply-To: <8634fzr3m1.wl-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Thu, 27 Feb 2025 04:47:16 -0800
+X-Gm-Features: AQ5f1Jrj0OYH1ko9OQCBTsbltlCUH5L-oDvJ4j9ZT42gtFRD7R39beJcLhGtUNY
+Message-ID: <CA+EHjTzPH_K1BUrNW9EkaFWj3qCdr4uwJS1pZhCYYfi2Uecu=Q@mail.gmail.com>
+Subject: Re: [PATCH v2 4/4] KVM: arm64: Create each pKVM hyp vcpu after its
+ corresponding host vcpu
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	oliver.upton@linux.dev, mark.rutland@arm.com, will@kernel.org, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com, 
+	vdonnefort@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_060415_793658_5F3AA11B 
-X-CRM114-Status: UNSURE (   5.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250227_044754_646294_1F2C6B5D 
+X-CRM114-Status: GOOD (  33.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,13 +97,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025 at 09:17:14AM +0000, Russell King (Oracle) wrote:
-> Switch from using the fix_mac_speed() hook to set_clk_tx_rate() to
-> manage the transmit clock.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Hi Marc,
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+On Thu, 27 Feb 2025 at 04:09, Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Wed, 26 Feb 2025 21:55:20 +0000,
+> Fuad Tabba <tabba@google.com> wrote:
+> >
+> > Instead of creating and initializing _all_ hyp vcpus in pKVM when
+> > the first host vcpu runs for the first time, initialize _each_
+> > hyp vcpu in conjunction with its corresponding host vcpu.
+> >
+> > Some of the host vcpu state (e.g., system registers and traps
+> > values) is not initialized until the first time the host vcpu is
+> > run. Therefore, initializing a hyp vcpu before its corresponding
+> > host vcpu has run for the first time might not view the complete
+> > host state of these vcpus.
+> >
+> > Additionally, this behavior is inline with non-protected modes.
+> >
+> > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > ---
+> >  arch/arm64/include/asm/kvm_host.h      |  2 +
+> >  arch/arm64/include/asm/kvm_pkvm.h      |  1 +
+> >  arch/arm64/kvm/arm.c                   |  4 ++
+> >  arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  6 ---
+> >  arch/arm64/kvm/hyp/nvhe/pkvm.c         | 54 +++++++++++++++-----------
+> >  arch/arm64/kvm/pkvm.c                  | 28 ++++++-------
+> >  6 files changed, 53 insertions(+), 42 deletions(-)
+> >
+> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > index 3a7ec98ef123..4a0e522f6001 100644
+> > --- a/arch/arm64/include/asm/kvm_host.h
+> > +++ b/arch/arm64/include/asm/kvm_host.h
+> > @@ -869,6 +869,8 @@ struct kvm_vcpu_arch {
+> >  #define VCPU_INITIALIZED     __vcpu_single_flag(cflags, BIT(0))
+> >  /* SVE config completed */
+> >  #define VCPU_SVE_FINALIZED   __vcpu_single_flag(cflags, BIT(1))
+> > +/* pKVM VCPU setup completed */
+> > +#define VCPU_PKVM_FINALIZED  __vcpu_single_flag(cflags, BIT(2))
+> >
+> >  /* Exception pending */
+> >  #define PENDING_EXCEPTION    __vcpu_single_flag(iflags, BIT(0))
+> > diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+> > index eb65f12e81d9..abd693ce5b93 100644
+> > --- a/arch/arm64/include/asm/kvm_pkvm.h
+> > +++ b/arch/arm64/include/asm/kvm_pkvm.h
+> > @@ -19,6 +19,7 @@
+> >  int pkvm_init_host_vm(struct kvm *kvm);
+> >  int pkvm_create_hyp_vm(struct kvm *kvm);
+> >  void pkvm_destroy_hyp_vm(struct kvm *kvm);
+> > +int pkvm_create_hyp_vcpu(struct kvm_vcpu *vcpu);
+> >
+> >  /*
+> >   * This functions as an allow-list of protected VM capabilities.
+> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> > index b8e55a441282..cd7a808eeb64 100644
+> > --- a/arch/arm64/kvm/arm.c
+> > +++ b/arch/arm64/kvm/arm.c
+> > @@ -833,6 +833,10 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
+> >               ret = pkvm_create_hyp_vm(kvm);
+> >               if (ret)
+> >                       return ret;
+> > +
+> > +             ret = pkvm_create_hyp_vcpu(vcpu);
+> > +             if (ret)
+> > +                     return ret;
+> >       }
+> >
+> >       mutex_lock(&kvm->arch.config_lock);
+> > diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> > index e42bf68c8848..ce31d3b73603 100644
+> > --- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> > +++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> > @@ -43,12 +43,6 @@ struct pkvm_hyp_vm {
+> >       struct hyp_pool pool;
+> >       hyp_spinlock_t lock;
+> >
+> > -     /*
+> > -      * The number of vcpus initialized and ready to run.
+> > -      * Modifying this is protected by 'vm_table_lock'.
+> > -      */
+> > -     unsigned int nr_vcpus;
+> > -
+> >       /* Array of the hyp vCPU structures for this VM. */
+> >       struct pkvm_hyp_vcpu *vcpus[];
+> >  };
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > index 6efb9bf56180..4ef3748dc660 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > @@ -245,10 +245,12 @@ struct pkvm_hyp_vcpu *pkvm_load_hyp_vcpu(pkvm_handle_t handle,
+> >
+> >       hyp_spin_lock(&vm_table_lock);
+> >       hyp_vm = get_vm_by_handle(handle);
+> > -     if (!hyp_vm || hyp_vm->nr_vcpus <= vcpu_idx)
+> > +     if (!hyp_vm || hyp_vm->kvm.created_vcpus <= vcpu_idx)
+>
+> Why is it reasonable to trust kvm.created_vcpus here? It looks like
+> something that is under direct control of the host, and that could be
+> arbitrarily changed to allow dereferencing the vcpus[] array past its
+> actual boundaries.
+>
+> What guarantees that it is stable at load-time?
+>
+> I have similar misgivings about the init and teardown paths.
 
-    Andrew
+This is the hypervisor's view of created_vcpus
+(hyp_vm->kvm.created_vcpus), i.e., not the host's (not
+host_kvm->created_vcpus). We read it once from the host at
+__pkvm_init_vm(). We should know that it wouldn't overflow the vcpus
+array since it's the value of created_vcpus (nr_vcpus) we use when we
+calculate the vm_size in __pkvm_init_vm(), and try to map the
+corresponding amount of donated memory for the hyp_vm (all in
+__pkvm_init_vm()).
+
+Since it's all hyp values, it should be fine, right?
+
+Cheers,
+/fuad
+
+> Thanks,
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
