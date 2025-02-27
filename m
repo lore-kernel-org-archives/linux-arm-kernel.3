@@ -4,57 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97A58C197BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:40:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25FD0C197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6K6RMuFqw/0yA8o+/CTvB3vW+m44k9m9LPe8/wSzQGA=; b=UsINCZCso4TAMgcX9FsegDrRvz
-	dDtweR6ktuuEBRh3QNjzMU2YLtcjCazsFiAvlC4aYQU65RWX30V6Vs04RrEkQCNd4Iq7cuDbDEjJ3
-	SWwDs+c8s+0+3GG0TzO9CSj9hqBRN+m3vERMJp7iOSx5tholYIRxQFG6DoDYTxX0d1eawpeN+DkRF
-	7dhtvPqr0kK+eI9eVN5AYR5h/scexA4CKZ6HecZlhrHBJRU8k8ULUdRuJV0TNpG8r0Bz3kqh5BmR1
-	PWWRAuIayp5hgJUMMS/DPUqrjHbCuJFT6a/WQ3fErbN3O/2iVA9IPbkNkE4PE2ToDVycNBqHhIBiP
-	bd1Y2gKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gO53KeG1WPUYrsia7l0Tb9ExCzbXGMl2yOXGdu7Dqdk=; b=dg5b52RM8a4xvipQhKVPpqfL4Z
+	PNrJpoWKXqOp85m7s62fxgFSIGuEWoDNgfiaaAwbq0YooyVK6c5uJ8draFDFARwoiYKEWVy4r7ZVp
+	lopKLxqxdIuBWEkH6LhvG9gjIzMxgYGym5GDWhU3Qbnczl1BTH5Hd9fZ1JBVG8pOnba86kT5bOQ57
+	d0PKeYMDZGcs593LvK0GpExGIZ0TvJucQRToy0YYIWB6Fc9RkbdNfowLme6rKOoy8NX9u/QsbRkwR
+	HrmU458tkBL328Vg7Jl2DgK19IA3H9HVhYytA87wYvwtXQusmP6/kCzth812rERbWoxXi70uYXucG
+	Xm5fwMJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjkO-00000008Zx0-0MZq;
-	Thu, 27 Feb 2025 19:40:40 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1tnjkV-00000008aA0-3m4M;
+	Thu, 27 Feb 2025 19:40:47 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnhKM-00000008AaN-3kWp;
-	Thu, 27 Feb 2025 17:05:40 +0000
-Received: from ideasonboard.com (93-61-96-190.ip145.fastwebnet.it [93.61.96.190])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 206AF6A6;
-	Thu, 27 Feb 2025 18:04:06 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1740675846;
-	bh=6K6RMuFqw/0yA8o+/CTvB3vW+m44k9m9LPe8/wSzQGA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bCxsA/uBn8Roii7nvPfKx5n6xPZL7bvOmsR03e6MYuo5F1rEuUaT/IQcgdIergUH2
-	 fSoNdeEwoNdwohz6Bhze9Yd9195IU04lOE1YT8YByG/hjsK46/0iL4n4NuxECjDjq+
-	 tJiXr1m4A1pCk/YO9xgQnI8Wz31UosUIgtoGWbJ0=
-Date: Thu, 27 Feb 2025 18:05:31 +0100
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-To: Mikhail Rudenko <mike.rudenko@gmail.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Dafna Hirschfeld <dafna@fastmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] media: rkisp1: allow non-coherent video capture buffers
-Message-ID: <dtfv2slbtj3ar2wvlcnd74p3xtlvggebkk3fj5ocm3eil7kyqw@al3brwf4y5dw>
-References: <20250102-b4-rkisp-noncoherent-v1-1-bba164f7132c@gmail.com>
- <20250103152326.GP554@pendragon.ideasonboard.com>
- <87bjw9s4s3.fsf@gmail.com>
+	id 1tnhKv-00000008AhJ-38kd
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Feb 2025 17:06:15 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-390d98ae34dso945220f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 09:06:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740675972; x=1741280772; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gO53KeG1WPUYrsia7l0Tb9ExCzbXGMl2yOXGdu7Dqdk=;
+        b=j30cLhCvSc5Of0+NkE3kHgjVgMwoGBqlR9f0FZqIcyfubfplOuN0roZQsvBj/RatnF
+         MWXiulMc4HiChO5xUeCyCqEYnI6c0qDyM1DqaxiF8YeUTqs7TCTeij2Ve+hW1oj4OiK6
+         B4S3Vn5Z/lXyiVNAYq8XsBVjpgfcAp9qWQJpSrnKeAlS7/niJCqqJ92ms8AWCpv6OYZd
+         qglBs5OispbFdkkQtCRMcua9Ljt5ByZxcBHrsR3g7xOQeenIBxxwvSxcs7Y6trdIFz60
+         iCqeg1I6hSW65JhZMkpwBdfevNTGgsxAmemcprRcEXerGpX1ouhPWqqg47zZryLQZ5z/
+         7yTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740675972; x=1741280772;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=gO53KeG1WPUYrsia7l0Tb9ExCzbXGMl2yOXGdu7Dqdk=;
+        b=Av0WPkCuItM+14sOZBbJsuu3dgb8QBMX63HwrAv4ZvZHq7Owkj2qtPD4L3i6cXR4fr
+         7dKyIVW3pBIsvabGe45Ge0mfxqUfYfaQRGGTIhz85elht3vk5RkUSLzGZGCc6EgFsF9w
+         R+wG7ccQx9d+sQ+0D4fz0RaSy0SPKR4Hnq4mz6/r7c+vezpdfPj+g24jNHRfSB9I7Hbi
+         hUukYbpHAPN0YMRBpNol6AI4opcYrO8489KfX8K2WFtRqZddT4a6jqUdnd9GWX7Qpq11
+         dn21uNO+02x0I5PRCw98lkK6/zr1dPDaCXGBC/SmyE1uMF+dudZ1gtXhuxEPsNflGRP0
+         BDLQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU9LkcWbOYWLEIH94VSDh7EoMKmJ0JzGB1lf8t+cU1ovcogo0D+bAO3MGbYalncsDFNP8D/Y6WWAXzNJ7EarG3B@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNodX0MQzNwBxnMhdU5OQLXc2/RYQtjZxj5D4zp/YNfNas/94a
+	ZZh9WRKNihfJysgyHsSt0IEUbEBbyhi0Ew307L/ujbptRFHt1NEU/dNi5HdK
+X-Gm-Gg: ASbGncvk0T0vkT8zJWsKJexD29tKlOW041MXQcCttthpJsxZbD8jRl3eE3borU0DAB4
+	f/np0QCWmrPCSZId6Dh2nWirAzaQtfZyxov1am8g0eT4F4sYPs7xUQ3+4s36Fag1rjq6l3AUkI0
+	Q4H5I2lviUt6mHk9HQD73WO8akj+xPpVBUMhSaHxSwhmikrWWL4dW2CSFuuIoiMY44hNXA6jqvp
+	TEzWBIy9mWs6HAnonLZ9iOJpAWdJLAtxz5CjP9ZrPicuJj/uMVeI+CIaUHMMkNDaVb07Ff8Iwr2
+	2EOW6J6eisQx8TKVDaUTP7FFGzSQ3KqYc8/VAHSlK+yWASEI6/lO9wYXpMwQbZWTqfFAIwKO/8l
+	iRW4z
+X-Google-Smtp-Source: AGHT+IERDIu0iZ+hBFIiIkbbbpaVVGZ6G37IX9OWfYQr1SknQHLsuZbyaI8TcO5g3Sxx15wY0R6sRw==
+X-Received: by 2002:a5d:47c4:0:b0:390:e311:a8c7 with SMTP id ffacd0b85a97d-390e311acb3mr3600237f8f.5.1740675971592;
+        Thu, 27 Feb 2025 09:06:11 -0800 (PST)
+Received: from ernest.corp.toradex.com (31-10-206-125.static.upc.ch. [31.10.206.125])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e485dbe7sm2613138f8f.93.2025.02.27.09.06.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 27 Feb 2025 09:06:11 -0800 (PST)
+From: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
+X-Google-Original-From: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/2] ARM: dts: apalis/colibri-imx6: Enable STMPE811 TS
+Date: Thu, 27 Feb 2025 18:04:52 +0100
+Message-ID: <20250227170556.589668-2-ernest.vanhoecke@toradex.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250227170556.589668-1-ernest.vanhoecke@toradex.com>
+References: <20250227170556.589668-1-ernest.vanhoecke@toradex.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <87bjw9s4s3.fsf@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_090539_072471_69A08D31 
-X-CRM114-Status: GOOD (  28.03  )
+X-CRM114-CacheID: sfid-20250227_090613_790700_840197D6 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,72 +108,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mikhail
+Enable the STMPE811 touchscreen in the SOM dtsi files. The STMPE811 is
+part of the SOM. It's self contained within it, therefore, disabling it
+is not the correct default behavior.
 
-On Tue, Jan 14, 2025 at 07:00:39PM +0300, Mikhail Rudenko wrote:
->
-> Hi Laurent,
->
-> On 2025-01-03 at 17:23 +02, Laurent Pinchart <laurent.pinchart@ideasonboard.com> wrote:
->
-> > On Thu, Jan 02, 2025 at 06:35:00PM +0300, Mikhail Rudenko wrote:
-> >> Currently, the rkisp1 driver always uses coherent DMA allocations for
-> >> video capture buffers. However, on some platforms, using non-coherent
-> >> buffers can improve performance, especially when CPU processing of
-> >> MMAP'ed video buffers is required.
-> >>
-> >> For example, on the Rockchip RK3399 running at maximum CPU frequency,
-> >> the time to memcpy a frame from a 1280x720 XRGB32 MMAP'ed buffer to a
-> >> malloc'ed userspace buffer decreases from 7.7 ms to 1.1 ms when using
-> >> non-coherent DMA allocation. CPU usage also decreases accordingly.
-> >
-> > What's the time taken by the cache management operations ?
->
-> Sorry for the late reply, your question turned out a little more
-> interesting than I expected initially. :)
->
-> When capturing using Yavta with MMAP buffers under the conditions mentioned
-> in the commit message, ftrace gives 437.6 +- 1.1 us for
-> dma_sync_sgtable_for_cpu and 409 +- 14 us for
-> dma_sync_sgtable_for_device. Thus, it looks like using non-coherent
-> buffers in this case is more CPU-efficient even when considering cache
-> management overhead.
->
-> When trying to do the same measurements with libcamera, I failed. In a
-> typical libcamera use case when MMAP buffers are allocated from a
-> device, exported as dmabufs and then used for capture on the same device
-> with DMABUF memory type, cache management in kernel is skipped [1]
-> [2]. Also, vb2_dc_dmabuf_ops_{begin,end}_cpu_access are no-ops [3], so
-> DMA_BUF_IOCTL_SYNC from userspace does not work either.
->
-> So it looks like to make this change really useful, the above issue of
-> cache management for libcamera/DMABUF/videobuf2-dma-contig has to be
-> solved. I'm not an expert in this area, so any advice is kindly welcome. :)
+Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+---
+ arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi  | 1 -
+ arch/arm/boot/dts/nxp/imx/imx6qdl-colibri.dtsi | 1 -
+ 2 files changed, 2 deletions(-)
 
-It would be shame if we let this discussion drop dead.. cache
-management policies are relevant for performances, specifically for
-cpu access, and your above 7.7ms vs 1.1 ms test clearly shows that.
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi
+index dffab5aa8b9c..23913f18586c 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi
+@@ -664,7 +664,6 @@ stmpe_ts: stmpe_touchscreen {
+ 			st,settling = <3>;
+ 			/* 5 ms touch detect interrupt delay */
+ 			st,touch-det-delay = <5>;
+-			status = "disabled";
+ 		};
+ 
+ 		stmpe_adc: stmpe_adc {
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-colibri.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-colibri.dtsi
+index 9f33419c260b..9a9f9764dc65 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-colibri.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-colibri.dtsi
+@@ -588,7 +588,6 @@ stmpe_ts: stmpe_touchscreen {
+ 			st,settling = <3>;
+ 			/* 5 ms touch detect interrupt delay */
+ 			st,touch-det-delay = <5>;
+-			status = "disabled";
+ 		};
+ 
+ 		stmpe_adc: stmpe_adc {
+-- 
+2.43.0
 
->
-> [1] https://git.linuxtv.org/media.git/tree/drivers/media/common/videobuf2/videobuf2-core.c?id=94794b5ce4d90ab134b0b101a02fddf6e74c437d#n411
-
-I would like to know from Hans if the decision to disallow cache-hints
-for dmabuf importers is a design choice or is deeply rooted in other
-reasons I might be missing.
-
-I'm asking because the idea is for libcamera to act solely as dma-buf
-importer, the current alloc-export-then-import trick is an helper for
-applications to work around the absence of a system allocator.
-
-If the requirement to disable cache-hints for importers cannot be
-lifted, for libcamera it means we would not be able to use it.
-
-
-> [2] https://git.linuxtv.org/media.git/tree/drivers/media/common/videobuf2/videobuf2-core.c?id=94794b5ce4d90ab134b0b101a02fddf6e74c437d#n829
-> [3] https://git.linuxtv.org/media.git/tree/drivers/media/common/videobuf2/videobuf2-dma-contig.c?id=94794b5ce4d90ab134b0b101a02fddf6e74c437d#n426
->
-> --
-> Best regards,
-> Mikhail Rudenko
->
 
