@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15533C197BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 23:28:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 202E7C197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 23:30:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JodowtJoyry4M1r1PWrTJRoU1XES9DHrcXMd8qg1w+k=; b=kmW4yQFNqY/dAvfzWzoxnzsLul
-	Gk3i9W5w7N5bbTZPtWAZvjkYOOSbEowOddfAjRGD10ksKvPRmnp0MZ+SvEQBM6S4SNsEsLn+NhlVl
-	0SFC/fbtMdTWfB+WmYqEkuAav4tPdwpS9kRydyaAERXqYlGU8MrYciDNuLmrxxBTrfWIZD0Dxc7Wf
-	XNfs9AH7TMWJQ2GYwQvS2ci5h17nsM/KUkJ35t3AsFS81jo+E25DkHQKHETAIpNSNmJ5S4gLRbFbT
-	uyR0iG+rwQ/2S9lqWKsZ9NC+JgoCH2QddOXMtXJRZR+rmQIUzQlh5bLxcTAxibeGBCrEDVlgs/I0+
-	xPP4RJAg==;
+	bh=WJe3Y3FRtYle791DoUHIkEAdiGDRbs++UxjQmRwygJs=; b=NHLtRyL+isjmJvrS5o37E3b7un
+	Klb8amZkf43q/yjtVo5KG1yzjOFX0REmh2Dv2PC/pcFiBNTdHmGwx2P/OQDfucjen7PRHFc1VDjoP
+	Aj4Pi7CH9aDGhl9gR5aFYWVU13A4RAB+7T/p6OdYnS7lmOK0/Hlg1BVPYme4IZS2AXBs6WBZ4PDDy
+	rznv5JyMRshctgxDQTHBjZsGzjk6dx1HA88Gd2K6ERYLVrpV2qDM9QsN90dw9CYFe7eeIJZIGaijO
+	1NAvE/3XLhgIbrmsB7VIPO4dOtGTj+RTwc743TmVk01cI8Dq17d6+uI+uAdAtqAuC1mfDex201TyK
+	omtUITlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnnIg-00000009Apx-1J6k;
-	Thu, 27 Feb 2025 23:28:18 +0000
+	id 1tnnKB-00000009AyD-3zHr;
+	Thu, 27 Feb 2025 23:29:51 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnn89-000000098mJ-0sDx
+	id 1tnn8B-000000098mJ-0jl2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 23:17:26 +0000
+	Thu, 27 Feb 2025 23:17:28 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1BCA41516;
-	Thu, 27 Feb 2025 15:17:40 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F30C5153B;
+	Thu, 27 Feb 2025 15:17:41 -0800 (PST)
 Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 101EF3F673;
-	Thu, 27 Feb 2025 15:17:22 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E7A183F673;
+	Thu, 27 Feb 2025 15:17:24 -0800 (PST)
 From: Andre Przywara <andre.przywara@arm.com>
 To: Linus Walleij <linus.walleij@linaro.org>,
 	Rob Herring <robh@kernel.org>,
@@ -46,17 +46,17 @@ Cc: linux-gpio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 6/8] dt-bindings: pinctrl: add compatible for Allwinner A523/T527
-Date: Thu, 27 Feb 2025 23:14:45 +0000
-Message-ID: <20250227231447.20161-7-andre.przywara@arm.com>
+Subject: [PATCH v3 7/8] pinctrl: sunxi: Add support for the Allwinner A523
+Date: Thu, 27 Feb 2025 23:14:46 +0000
+Message-ID: <20250227231447.20161-8-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.46.3
 In-Reply-To: <20250227231447.20161-1-andre.przywara@arm.com>
 References: <20250227231447.20161-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_151725_334797_261C222C 
-X-CRM114-Status: GOOD (  19.97  )
+X-CRM114-CacheID: sfid-20250227_151727_344535_F7C3BB8F 
+X-CRM114-Status: GOOD (  17.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,204 +71,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The A523 contains a pin controller similar to previous SoCs, although
-using 10 GPIO banks (PortB-PortK), all of them being IRQ capable.
-With this SoC we introduce a new style of binding, where the pinmux values
-for each pin group are stored in the new "allwinner,pinmux" property in
-the DT node, instead of requiring every driver to store a mapping between
-the function names and the required pinmux.
-
-Add a new binding file, since all the different variants of the old
-binding are making the file a bit unwieldy to handle already, and the new
-property would make the situation worse.
+The Allwinner A523 contains pins in 10 out of the 11 possible pin banks;
+it just skips port A.
+Use the newly introduced DT based pinctrl driver to describe just the
+generic pinctrl properties, so advertise the number of pins per bank
+and the interrupt capabilities. The actual function/mux assignment is
+taken from the devicetree.
 
 Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 ---
- .../allwinner,sun55i-a523-pinctrl.yaml        | 175 ++++++++++++++++++
- 1 file changed, 175 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pinctrl/allwinner,sun55i-a523-pinctrl.yaml
+ drivers/pinctrl/sunxi/Kconfig               |  5 ++
+ drivers/pinctrl/sunxi/Makefile              |  1 +
+ drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c | 54 +++++++++++++++++++++
+ 3 files changed, 60 insertions(+)
+ create mode 100644 drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/allwinner,sun55i-a523-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/allwinner,sun55i-a523-pinctrl.yaml
+diff --git a/drivers/pinctrl/sunxi/Kconfig b/drivers/pinctrl/sunxi/Kconfig
+index a78fdbbdfc0c7..0cbe466683650 100644
+--- a/drivers/pinctrl/sunxi/Kconfig
++++ b/drivers/pinctrl/sunxi/Kconfig
+@@ -131,4 +131,9 @@ config PINCTRL_SUN50I_H616_R
+ 	default ARM64 && ARCH_SUNXI
+ 	select PINCTRL_SUNXI
+ 
++config PINCTRL_SUN55I_A523
++	bool "Support for the Allwinner A523 PIO"
++	default ARM64 && ARCH_SUNXI
++	select PINCTRL_SUNXI
++
+ endif
+diff --git a/drivers/pinctrl/sunxi/Makefile b/drivers/pinctrl/sunxi/Makefile
+index f5bad7a529519..4e55508ff7f76 100644
+--- a/drivers/pinctrl/sunxi/Makefile
++++ b/drivers/pinctrl/sunxi/Makefile
+@@ -27,5 +27,6 @@ obj-$(CONFIG_PINCTRL_SUN50I_H6)		+= pinctrl-sun50i-h6.o
+ obj-$(CONFIG_PINCTRL_SUN50I_H6_R)	+= pinctrl-sun50i-h6-r.o
+ obj-$(CONFIG_PINCTRL_SUN50I_H616)	+= pinctrl-sun50i-h616.o
+ obj-$(CONFIG_PINCTRL_SUN50I_H616_R)	+= pinctrl-sun50i-h616-r.o
++obj-$(CONFIG_PINCTRL_SUN55I_A523)	+= pinctrl-sun55i-a523.o
+ obj-$(CONFIG_PINCTRL_SUN9I_A80)		+= pinctrl-sun9i-a80.o
+ obj-$(CONFIG_PINCTRL_SUN9I_A80_R)	+= pinctrl-sun9i-a80-r.o
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c
 new file mode 100644
-index 0000000000000..154e03da8ce98
+index 0000000000000..7d2308c37d29e
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/pinctrl/allwinner,sun55i-a523-pinctrl.yaml
-@@ -0,0 +1,175 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pinctrl/allwinner,sun55i-a523-pinctrl.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c
+@@ -0,0 +1,54 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Allwinner A523 SoC pinctrl driver.
++ *
++ * Copyright (C) 2023 Arm Ltd.
++ */
 +
-+title: Allwinner A523 Pin Controller
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/of.h>
++#include <linux/of_device.h>
++#include <linux/pinctrl/pinctrl.h>
 +
-+maintainers:
-+  - Andre Przywara <andre.przywara@arm.com>
++#include "pinctrl-sunxi.h"
 +
-+properties:
-+  "#gpio-cells":
-+    const: 3
-+    description:
-+      GPIO consumers must use three arguments, first the number of the
-+      bank, then the pin number inside that bank, and finally the GPIO
-+      flags.
++static const u8 a523_nr_bank_pins[SUNXI_PINCTRL_MAX_BANKS] =
++/*	  PA  PB  PC  PD  PE  PF  PG  PH  PI  PJ  PK */
++	{  0, 15, 17, 24, 16,  7, 15, 20, 17, 28, 24 };
 +
-+  "#interrupt-cells":
-+    const: 3
-+    description:
-+      Interrupts consumers must use three arguments, first the number
-+      of the bank, then the pin number inside that bank, and finally
-+      the interrupts flags.
++static const unsigned int a523_irq_bank_map[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 +
-+  compatible:
-+    enum:
-+      - allwinner,sun55i-a523-pinctrl
-+      - allwinner,sun55i-a523-r-pinctrl
++static const u8 a523_irq_bank_muxes[SUNXI_PINCTRL_MAX_BANKS] =
++/*	  PA  PB  PC  PD  PE  PF  PG  PH  PI  PJ  PK */
++	{  0, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14};
 +
-+  reg:
-+    maxItems: 1
++static struct sunxi_pinctrl_desc a523_pinctrl_data = {
++	.irq_banks = ARRAY_SIZE(a523_irq_bank_map),
++	.irq_bank_map = a523_irq_bank_map,
++	.irq_read_needs_mux = true,
++	.io_bias_cfg_variant = BIAS_VOLTAGE_PIO_POW_MODE_SEL,
++};
 +
-+  interrupts:
-+    minItems: 2
-+    maxItems: 10
-+    description:
-+      One interrupt per external interrupt bank supported on the
-+      controller, sorted by bank number ascending order.
++static int a523_pinctrl_probe(struct platform_device *pdev)
++{
++	return sunxi_pinctrl_dt_table_init(pdev, a523_nr_bank_pins,
++					   a523_irq_bank_muxes,
++					   &a523_pinctrl_data,
++					   SUNXI_PINCTRL_NEW_REG_LAYOUT |
++					   SUNXI_PINCTRL_ELEVEN_BANKS);
++}
 +
-+  clocks:
-+    items:
-+      - description: Bus Clock
-+      - description: High Frequency Oscillator
-+      - description: Low Frequency Oscillator
++static const struct of_device_id a523_pinctrl_match[] = {
++	{ .compatible = "allwinner,sun55i-a523-pinctrl", },
++	{}
++};
 +
-+  clock-names:
-+    items:
-+      - const: apb
-+      - const: hosc
-+      - const: losc
-+
-+  gpio-controller: true
-+  interrupt-controller: true
-+  gpio-line-names: true
-+
-+  input-debounce:
-+    description:
-+      Debouncing periods in microseconds, one period per interrupt
-+      bank found in the controller
-+    $ref: /schemas/types.yaml#/definitions/uint32-array
-+    minItems: 2
-+    maxItems: 10
-+
-+patternProperties:
-+  # It's pretty scary, but the basic idea is that:
-+  #   - One node name can start with either s- or r- for PRCM nodes,
-+  #   - Then, the name itself can be any repetition of <string>- (to
-+  #     accommodate with nodes like uart4-rts-cts-pins), where each
-+  #     string can be either starting with 'p' but in a string longer
-+  #     than 3, or something that doesn't start with 'p',
-+  #   - Then, the bank name is optional and will be between pa and pm.
-+  #     Some pins groups that have several options will have the pin
-+  #     numbers then,
-+  #   - Finally, the name will end with either -pin or pins.
-+
-+  "^([rs]-)?(([a-z0-9]{3,}|[a-oq-z][a-z0-9]*?)?-)+?(p[a-m][0-9]*?-)??pins?$":
-+    type: object
-+
-+    properties:
-+      pins: true
-+      function: true
-+      bias-disable: true
-+      bias-pull-up: true
-+      bias-pull-down: true
-+
-+      drive-strength:
-+        $ref: /schemas/types.yaml#/definitions/uint32
-+        enum: [10, 20, 30, 40]
-+
-+      allwinner,pinmux:
-+        $ref: /schemas/types.yaml#/definitions/uint32-array
-+        description:
-+          Pinmux selector value, for each pin. Almost every time this value
-+          is the same for all pins, so any array shorter than the number of
-+          pins will repeat the last value, to allow just specifying a single
-+          cell, for all cells.
-+
-+    required:
-+      - pins
-+      - allwinner,pinmux
-+      - function
-+
-+    additionalProperties: false
-+
-+  "^vcc-p[a-m]-supply$":
-+    description:
-+      Power supplies for pin banks.
-+
-+required:
-+  - "#gpio-cells"
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - gpio-controller
-+  - "#interrupt-cells"
-+  - interrupts
-+  - interrupt-controller
-+
-+allOf:
-+  - $ref: pinctrl.yaml#
-+  - if:
-+      properties:
-+        compatible:
-+          enum:
-+            - allwinner,sun55i-a523-pinctrl
-+
-+    then:
-+      properties:
-+        interrupts:
-+          minItems: 10
-+          maxItems: 10
-+
-+  - if:
-+      properties:
-+        compatible:
-+          enum:
-+            - allwinner,sun55i-a523-r-pinctrl
-+
-+    then:
-+      properties:
-+        interrupts:
-+          minItems: 2
-+          maxItems: 2
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    r_pio: pinctrl@7022000 {
-+        compatible = "allwinner,sun55i-a523-r-pinctrl";
-+        reg = <0x7022000 0x800>;
-+        interrupts = <0 159 4>, <0 161 4>;
-+        clocks = <&r_ccu 1>, <&osc24M>, <&osc32k>;
-+        clock-names = "apb", "hosc", "losc";
-+        gpio-controller;
-+        #gpio-cells = <3>;
-+        interrupt-controller;
-+        #interrupt-cells = <3>;
-+
-+        r_i2c_pins: r-i2c-pins {
-+            pins = "PL0", "PL1";
-+            allwinner,pinmux = <2>;
-+            function = "r_i2c0";
-+            bias-pull-up;
-+        };
-+
-+        r_spi_pins: r-spi-pins {
-+            pins = "PL11" ,"PL12", "PL13";
-+            allwinner,pinmux = <6>;
-+            function = "r_spi";
-+        };
-+    };
++static struct platform_driver a523_pinctrl_driver = {
++	.probe	= a523_pinctrl_probe,
++	.driver	= {
++		.name		= "sun55i-a523-pinctrl",
++		.of_match_table	= a523_pinctrl_match,
++	},
++};
++builtin_platform_driver(a523_pinctrl_driver);
 -- 
 2.46.3
 
