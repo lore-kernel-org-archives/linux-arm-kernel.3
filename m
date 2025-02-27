@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B7F6C197BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 21:13:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5A99C197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 21:23:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=R8UU9AhIT4eFDbiN/1dEzKY7asXGitgeeDBUFr3qr2c=; b=Z15JUw/Oorp5pBMHfCqjhnWBOk
-	h363hIEcdJM2ivy2f59ARCUnz00GN743GCwN1aKAuD5d3i19oWUiV+GxE7PuVR75+bG4wSPT3PGj7
-	EsiZ+4IHtkMQBcATRjg59WBWrAAAUIy6ducZu8szo05js627zsB7s6iZvJi2j5xhoHHhTIvXH3GEV
-	cxZuCRWMwTqofe2lz5+Ir5fHtUlmE1KnDOOnPOlOR9rtVD7bE5R32W4nq08ehCtNV/eSGwEq+0nwZ
-	y4AhN0wkjTJWIhCZlVz1gxZ8pYew0kGyV/1hRbUuQ1rWZW/HLZ0OMrFzF93n2cZw3/yiwf2Jd8XzR
-	ybUbAoPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P4EHyml6sgsrseMBGiXLmuhmECRf034wo9gePu93sHg=; b=t/OSo2Jk4T7ft7wElS4JFFyG02
+	9KTqvLEeyI/i8Qdb18/flAc2x/ICcL0i+1z16h4w82aFm/0B4J98VQyyum+DvAYRyLtuzbQ8Yp2m8
+	wR+kYHTaI100HTVFAaokyOzz6GGh1Yr6eylG5oKMQkFJVMNt8IWTXJHWrM6kG3fzUtvviT60MfQ7V
+	FoeZl70ABfncxYPjqz6uyhZtszn/GDV5hGtquMvMkgPblYzQyuaG0g9SgrhGzEyzLzBVJg1DkyLyv
+	Dc18KN+LXCUrSxwQyhpft8yMi7ZY/FBFowIGTmc6I031Kq1DZy4Z1RRInrDjHsG+hMKmJ5q678yxI
+	Q+Gp43fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnlCW-00000008s5j-29Vh;
-	Thu, 27 Feb 2025 21:13:48 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tnlLK-00000008shW-36IG;
+	Thu, 27 Feb 2025 21:22:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnlAy-00000008rkF-0QGU
+	id 1tnlJm-00000008sa8-1F7E
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 21:12:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1740690730;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=R8UU9AhIT4eFDbiN/1dEzKY7asXGitgeeDBUFr3qr2c=;
-	b=ZUILlb22PPPGBR4Dq1PWBw0wa9CF2aHAHsr2gg7YIrwyfmLBVYl8WjhRVh1DVlQpxphEz4
-	RGcPvqhtJB1oyhhi1noUxFWxRQa7mg+e34z7fDWDHfqt0cmpIqrzY5WWBVuPAUriwZE1EK
-	299lQ/Fp/qdX0OET9xxWw6FibNmprYw=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-198-V7zhxVywPwK4LbDAEe-Ptw-1; Thu,
- 27 Feb 2025 16:12:06 -0500
-X-MC-Unique: V7zhxVywPwK4LbDAEe-Ptw-1
-X-Mimecast-MFC-AGG-ID: V7zhxVywPwK4LbDAEe-Ptw_1740690725
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9FACF1800876;
-	Thu, 27 Feb 2025 21:12:05 +0000 (UTC)
-Received: from [172.64.10.27] (unknown [10.30.34.106])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 14D631800359;
-	Thu, 27 Feb 2025 21:12:04 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.14.0-rc4,
- upstream-arm-next, 017f704f)
-Date: Thu, 27 Feb 2025 21:12:04 -0000
-To: linux-arm-kernel@lists.infradead.org, will@kernel.org,
- catalin.marinas@arm.com
+	Thu, 27 Feb 2025 21:21:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 28F4B61136;
+	Thu, 27 Feb 2025 21:21:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE34DC4CEDD;
+	Thu, 27 Feb 2025 21:21:13 +0000 (UTC)
+Date: Thu, 27 Feb 2025 21:21:11 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: Steven Price <steven.price@arm.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org
+Subject: Re: [PATCH v7 09/11] arm64: Enable memory encrypt for Realms
+Message-ID: <Z8DXRwVrTpDVVMO2@arm.com>
+References: <20241017131434.40935-1-steven.price@arm.com>
+ <20241017131434.40935-10-steven.price@arm.com>
+ <5aeb6f47-12be-40d5-be6f-847bb8ddc605@arm.com>
+ <Z79lZdYqWINaHfrp@arm.com>
+ <20250227002330.GA24899@willie-the-truck>
+ <Z8BEhK8P7FXgG11f@arm.com>
+ <20250227172254.GB25617@willie-the-truck>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
-Message-Id: <67742.125022716120601079@us-mta-198.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: EjZrSaeIcfhWYnA1b-pMNqwA8khI3Dc6sW2hdJvqr2Q_1740690725
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_131212_208258_FFC9E993 
-X-CRM114-Status: UNSURE (   6.47  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250227172254.GB25617@willie-the-truck>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,47 +78,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Thu, Feb 27, 2025 at 05:22:55PM +0000, Will Deacon wrote:
+> On Thu, Feb 27, 2025 at 10:55:00AM +0000, Catalin Marinas wrote:
+> > On Thu, Feb 27, 2025 at 12:23:31AM +0000, Will Deacon wrote:
+> > > On Wed, Feb 26, 2025 at 07:03:01PM +0000, Catalin Marinas wrote:
+> > > > On Wed, Feb 19, 2025 at 02:30:28PM +0000, Steven Price wrote:
+> > > > > > @@ -23,14 +25,16 @@ bool rodata_full __ro_after_init = IS_ENABLED(CONFIG_RODATA_FULL_DEFAULT_ENABLED
+> > > > > >  bool can_set_direct_map(void)
+> > > > > >  {
+> > > > > >  	/*
+> > > > > > -	 * rodata_full and DEBUG_PAGEALLOC require linear map to be
+> > > > > > -	 * mapped at page granularity, so that it is possible to
+> > > > > > +	 * rodata_full, DEBUG_PAGEALLOC and a Realm guest all require linear
+> > > > > > +	 * map to be mapped at page granularity, so that it is possible to
+> > > > > >  	 * protect/unprotect single pages.
+> > > > > >  	 *
+> > > > > >  	 * KFENCE pool requires page-granular mapping if initialized late.
+> > > > > > +	 *
+> > > > > > +	 * Realms need to make pages shared/protected at page granularity.
+> > > > > >  	 */
+> > > > > >  	return rodata_full || debug_pagealloc_enabled() ||
+> > > > > > -	       arm64_kfence_can_set_direct_map();
+> > > > > > +		arm64_kfence_can_set_direct_map() || is_realm_world();
+> > > > > >  }
+> > > > > 
+> > > > > Aneesh pointed out that this call to is_realm_world() is now too early 
+> > > > > since the decision to delay the RSI detection. The upshot is that a 
+> > > > > realm guest which doesn't have page granularity forced for other reasons 
+> > > > > will fail to share pages with the host.
+> > > > > 
+> > > > > At the moment I can think of a couple of options:
+> > > > > 
+> > > > > (1) Make rodata_full a requirement for realm guests. 
+> > > > >     CONFIG_RODATA_FULL_DEFAULT_ENABLED is already "default y" so this 
+> > > > >     isn't a big ask.
+> > > > > 
+> > > > > (2) Revisit the idea of detecting when running as a realm guest early. 
+> > > > >     This has the advantage of also "fixing" earlycon (no need to 
+> > > > >     manually specify the shared-alias of an unprotected UART).
+> > > > > 
+> > > > > I'm currently leaning towards (1) because it's the default anyway. But 
+> > > > > if we're going to need to fix earlycon (or indeed find other similar 
+> > > > > issues) then (2) would obviously make sense.
+> > > > 
+> > > > I'd go with (1) since the end result is the same even if we implemented
+> > > > (2) - i.e. we still avoid block mappings in realms.
+> > > 
+> > > Is it, though? The config option is about the default behaviour but there's
+> > > still an "rodata=" option on the command-line.
+> > 
+> > Yeah, that's why I suggested the pr_err() to only state that it cannot
+> > set the direct map and consider rodata=full rather than a config option.
+> > We already force CONFIG_STRICT_KERNEL_RWX.
+> 
+> rodata=full has absolutely nothing to do with realms, though.
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
+I fully agree, that's what I said a couple of emails earlier (towards
+the end, not quoted above).
 
-Tested-by: CKI Project <cki-project@redhat.com>
+> It just
+> happens to result in the linear map being created at page granularity
+> and I don't think we should expose that implementation detail like this.
 
-Kernel information:
-    Commit message: Merge branch 'for-next/core' into for-kernelci
+I wasn't keen on adding a new realms=on or whatever command line option,
+so I suggested the lazy but confusing rodata=full.
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1692309366
+> > But we can also revisit the decision not to probe the RSI early.
+> 
+> Alternatively, could we predicate realm support on BBM level-3 w/o TLB
+> conflicts? Then we could crack the blocks in the linear map.
 
-One or more kernel builds failed:
-    We also see the following known issues which are not related to your ch=
-anges:
-         aarch64 - https://datawarehouse.cki-project.org/kcidb/builds/redha=
-t:1692309366-aarch64-kernel
-                   Issue: [upstream] error: initializer-string for array of=
- 'char' is too long [-Werror=3Dunterminated-string-initialization]
-                          https://gitlab.com/cki-project/infrastructure/-/i=
-ssues/473
+Long term, I agree that's a better option. It needs wiring up though,
+with some care to handle page table allocation failures at run-time. I
+think most callers already handle the return code from set_memory_*().
 
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+-- 
+Catalin
 
