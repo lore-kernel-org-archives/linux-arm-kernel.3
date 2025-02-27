@@ -4,77 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA91BC1B087
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:41:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 501A5C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:41:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WPNXK7KQ5MpRRYWq0KLtF7TwN/rOCRuz8TuoIYjdjVY=; b=taj2ae5ylJCX7GvZSoUQWJH6wo
-	x5OaFiF/Me+2QGau3svP6wpbHxXlJxRRpJSRJs4yKtQmTYCF+WBg2wluEbRMXYtjFBemrTxBh1TGS
-	ac6KXplu2Ac0y27P4ir+j/0lLSQ5injV3BRrSholNPC0qOOWjUrnkDDiXl2wyjd0Ujuk30xVTdiB6
-	hDgwC6sJNMS+SCpFDNfmIFH47zrsioEQ2539qABf42s/8dvMCwZDzhC8aTpVcFPiX9blZqQ22EW+H
-	4o1+LaXWCouvnTR9g86UkSqOV6dpu7fppyIr4Ht4JGlejRiSj4svc7WitSaNLrRyrBga5aMZo3TGI
-	aWxXNhBA==;
+	bh=CiVRQjPWW2H0Nocpg5xLIO2Md1QMkhz6T0WohFmNoCc=; b=Mlp3QzGmafEajaFvv+bmSp5XP4
+	Q6+ezwLSUw2BAmb8gNq/9E4YRmmqyvMBtoNGGE1DHMzUaqT/jvtGmigPTBneNn7ULgwpxT7ZcmDg3
+	HRXZseJrwygf2yZuVWk/BhrDeg/ar+fagY5MRR86CpPp2iZIXFRfs37SOPG8Nu1x0aSyrBEI4JZV0
+	iebR2gWxtpesxj3XVzYiCXdxVM1GrIlaDivKyEEQhlU6JrXPHIXVHE86p+4cQ9lovB9cpW2ALwCmW
+	FKuALjP3vX6CPvU6wUWHEH3QnwMZbHFyZNROFJxbMpqIGeCOQjtqrPFmbMUICxko9oZtYn0OaPwuC
+	Z1IrV4Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjlL-00000008bWF-20bb;
-	Thu, 27 Feb 2025 19:41:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tnjlH-00000008bRR-3EIG;
+	Thu, 27 Feb 2025 19:41:35 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnhx9-00000008EwR-2zse;
-	Thu, 27 Feb 2025 17:45:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0000D6111F;
-	Thu, 27 Feb 2025 17:45:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9685C4CEDD;
-	Thu, 27 Feb 2025 17:45:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740678342;
-	bh=axlj6OwJVLYwr+IYJL39G4o+MqL7DKsYZuPxTQMr9eE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Itq4eoKtNVNpeFYQ7F357k3WR+YxDtrfU/WrLbn773ZYNI9GB1aPTUGoFWFTPxK1s
-	 ZPRPgYSCBXlEQQYxeeA184qAcY+WqsJUXllKK+DG5A1S+iTbcnxf08pqIG80X9whzu
-	 8Keuii1YTeNMBU54jhF7Leb0TuETm/Nr5ngiNPyjMN9kiRfW3+xakpRGAE6IT5vIvk
-	 du7MXtbCYIbfuCLkdgF9p1TwiFue1ekqKjL7YM/wWeZEpTMrDhnZzySqX7Fqv7+K4+
-	 2y71/+2T8whsUxscXC74/WzJzU2a2XC8kFsnYkP2itqPEPn1f6T+0GeqBTUi9PPnP1
-	 u/cy38V0JG4qw==
-Date: Thu, 27 Feb 2025 17:45:35 +0000
-From: Lee Jones <lee@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Val Packett <val@packett.cool>, Fabien Parent <parent.f@gmail.com>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	id 1tnhvN-00000008ElY-1YZI
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Feb 2025 17:43:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=emjgMNTGa0YzAvgL7oSSvot16fiFGmsh4pXtSccPkrnMXCN8/Po82QVZZ9aq7o3hfsycE36n0+mDY5gw3CoCITsiSyeJqeXGwy+rvHzbKXoEAsaadAsCNdELkEbwyMidxaiRXs0vXfeg/fdD99GUju3DlEdQ/8WZyE40Z1UNVsjzLFAHUrDeJfTAPCdNtUSwWtMY/GREaDED/41U2CoV+oc18Z046HDu3qRZkXhhd+i9rTSnkUz6BaQModVNBR/ZZug3kCVX/trPQWOUTkb8antK27kzFi+i+8ITSjDo7UnGN12RhizBF6xQ8cwbexXzq+n/KWxHFY/LqWfq5KExLg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CiVRQjPWW2H0Nocpg5xLIO2Md1QMkhz6T0WohFmNoCc=;
+ b=zOluwRlvR6Nc6YDB612pLdHQq2dQp2wlUQcQSmKch9wErvocBlqCG5djVkkPYPaPeKWH9HXU5RKrenw/CGdkHPWElRHIf8eu4Sfk7IsyqCB3VJ/D8/5uqsVpNIXURaWdzMK9KecCeYXBhVl6A5scGn+kFs/xw9E+JUsLaTcJE+oWmzqxRhDB0glG1T5pQpzTF3IT800x/lVxjt1uZm+hO/mtoMdR+BiHAxUigxyq48mjGQyeoSbhyuxSJ8Enx0T4O5LIRVGiUvlQthWfWy3DtjVTq6uNH3Dwq5pIbYleol7HrJ4+IvCDPROB6/xPbpZAYA4a/4MsETeYavJyqIRPxQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CiVRQjPWW2H0Nocpg5xLIO2Md1QMkhz6T0WohFmNoCc=;
+ b=A5pXjeUMQwv0JvDnXQF1DwGyfH8IL2kNMnIBbc8bUSyjM1Xv3goqsvuBSXeK6Qek3RMY2T7+8+v+5QwDeGHJ9JlxYOKhpvBMjcQXmWEghreQm2N30P/NKsXlXEPifD4sg7r/b1ImtacfKrhL2G7qMlGgvWKFMsjwk6M51ciVXZ5rwYgVGE43KjR4lYS+UvQm0qVZASDpli/r3clol7NUWyDIikpyg2NH5qbPmMnHSUhtwt4dUf0hbLJiCG8EexThoFNqbk6O2HLgRzLHNa2czFar0ujcN0eugrm5Ibrctp8Zk4Vn4mU6BUJVY2lMN6lLyDAXxuITSUjc2rrkqi5U5Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AS8PR04MB7639.eurprd04.prod.outlook.com (2603:10a6:20b:23e::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.22; Thu, 27 Feb
+ 2025 17:43:47 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8466.016; Thu, 27 Feb 2025
+ 17:43:47 +0000
+Date: Thu, 27 Feb 2025 12:43:37 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Marek Vasut <marex@denx.de>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Boris Brezillon <boris.brezillon@collabora.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	David Airlie <airlied@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Macpaul Lin <macpaul.lin@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Eddie Huang <eddie.huang@mediatek.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
-	Yassine Oudjana <y.oudjana@protonmail.com>,
-	Chen Zhong <chen.zhong@mediatek.com>, linux-input@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-rtc@vger.kernel.org
-Subject: Re: (subset) [PATCH 4/9] mfd: mt6397: Add support for MT6392 pmic
-Message-ID: <20250227174535.GI824852@google.com>
-References: <20241226050205.30241-1-val@packett.cool>
- <20241226050205.30241-5-val@packett.cool>
- <173920541986.1887800.1972669785800121190.b4-ty@kernel.org>
- <CAL_Jsq+PPYeFxr=utwZLemUVCzk5iabtMckOJmNy1-LO39cqeQ@mail.gmail.com>
- <20250227154833.GF824852@google.com>
- <20250227172457.GA3415187-robh@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Sebastian Reichel <sre@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Simona Vetter <simona@ffwll.ch>,
+	Steven Price <steven.price@arm.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, imx@lists.linux.dev
+Subject: Re: [PATCH 9/9] arm64: dts: imx95: Describe Mali G310 GPU
+Message-ID: <Z8CkSUry5puMu6Mx@lizhi-Precision-Tower-5810>
+References: <20250227170012.124768-1-marex@denx.de>
+ <20250227170012.124768-10-marex@denx.de>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250227172457.GA3415187-robh@kernel.org>
+In-Reply-To: <20250227170012.124768-10-marex@denx.de>
+X-ClientProxiedBy: SJ0PR05CA0010.namprd05.prod.outlook.com
+ (2603:10b6:a03:33b::15) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB7639:EE_
+X-MS-Office365-Filtering-Correlation-Id: 749c9952-9c57-477f-aa34-08dd5756498a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|1800799024|366016|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?EheXE7nqdKrtUjwnggSxjAsJ47nlwQxE7SwNApHX3xSrGRR8PxtjPYjoAhu3?=
+ =?us-ascii?Q?I04do9lNxtZVZUBqrwveD72lKxgsm8PEx0TQUJ+KyEeIwIJppJ/MkNjg+bnJ?=
+ =?us-ascii?Q?B5CH64Sv2/m6VmZuMujSXXDcdzCaqldAbD4y/Emv4AQCFyGp/gtjb/Rq+xRA?=
+ =?us-ascii?Q?foCbByZnIF3yvj71zc8CeERqrkk7HlTZkdRunK69b3rS8Ygq8sn/XBW8pLCR?=
+ =?us-ascii?Q?q22LhNME2cqJFSdi2XrCeARi1KjqEYyxlohFBm2hrAXr6TRtfGOesiHV4o3u?=
+ =?us-ascii?Q?MajFstNRwBzhswkwWTA0ewuDXX8Q7qTZelz88AHNlwpls6edQFoRYUuaASw9?=
+ =?us-ascii?Q?5A06Lk/KLVdmdYVIzZ/D/D1y8nivToR46WoMk6XQkRJO3aeTt1bXL06GdZHR?=
+ =?us-ascii?Q?fGkujw29nlOoVq/WyGaenkNk8yxuvBo/y+biK3ocRpXqB0cGQZUKnK1T8qk8?=
+ =?us-ascii?Q?61N3iTLr9EY6EWX7PNHoB9wLVCJeyGtHkbbLx+DEo5yOw3Segb4LX+k+NkR+?=
+ =?us-ascii?Q?f2I1AzyqF1paDO8OJBUzSkbw1QeuN+eAnZMf97i+441vwslKntA0AKUaY9hY?=
+ =?us-ascii?Q?Una5C0sBLcxCth5dw5BX0piD8mHaSAPoW7atIYY/qMzRLwDkEl95Be+U5E73?=
+ =?us-ascii?Q?wKvJcTeF0YRUWzyEyGu3JCbK7n5nMXJ+Vf9532niwxUIjRwmz95H1zBz2hmC?=
+ =?us-ascii?Q?lLAY5/k55//jX2Opz8rAGxCVgLji9L5YAcG54xY/4+J6wcbKpYxTjj4AJi7S?=
+ =?us-ascii?Q?dGEtdK8X2lRMpWSxGwLSPVMMwUxo+qikLpfjZViCJ4S+gJwqO44TD/YRy0gJ?=
+ =?us-ascii?Q?f/fWwpv+osqw2n5FZyrb+x19B4C5SKEx4CPMJA6OwXxOz8aBGQI29t2iGetz?=
+ =?us-ascii?Q?NomKdM/dANCdsiVvRO8MG7hfv5UqZuSpvkIz76ATGG9z/NK8YpUqDtcPgOha?=
+ =?us-ascii?Q?RkwjkbvLd5nsRMQPdPHRaWAlFcMouugvyi6/oroBHxfdgB1KxTVpBlTmzzo1?=
+ =?us-ascii?Q?c03lLNB7u9LENQ4p8pukvfbrghLaMhxoD7HJF3M2V46J0KhHev+uzQfPnSTU?=
+ =?us-ascii?Q?4vLu/PrJizrjG/hgEnpzQgVbYIUbDdssZ/EdJQVpeLwHCMO2Cod5FF76S3Rv?=
+ =?us-ascii?Q?+LacFo4k38FfZ3ALI2ZoqL78KkL9uEdsL7g+s2qX4azFUfyoj8Q8rcX3XelK?=
+ =?us-ascii?Q?8lHcCWfGdLbm/kikLxsZGaei1qw/4Fr3r8QOn8cjGLs63an9s8UUtQbzMZ6T?=
+ =?us-ascii?Q?CpcV7dIE++qJYDqtLB5doXZeo1H0ilnSHhFkz4i0ozurgv0YwAZOMR6lU+pJ?=
+ =?us-ascii?Q?AdyBDtvwbR7Hx1td0cGF7VbguAQQBE1a9p5lSN5M5pKWrCgH8nUGOAEzhe7b?=
+ =?us-ascii?Q?bM07JJ7vhkQ7tjCTSTbPIJm01E1HHD+DUdsabbLEeirnH/c6tDrGFrNx5dVV?=
+ =?us-ascii?Q?T9SnEiLKGJociA3wdF9BqNgyAeON9hu5?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(1800799024)(366016)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ieX0MMLDMcNny5BIfrzHJNcU1b1TZ3Va12X2Z9N5jNB1/AYzDipjoZm/lhBH?=
+ =?us-ascii?Q?TmFp0sKkA0RoqbkmIESaiGT8KR05DQF82pXK9gxhYh+VjEyBX1Z7ghg/fNMD?=
+ =?us-ascii?Q?MqhZ1In4p+6JFyUJ3IOn8Q/OGqI9yHsMYGkuOHhWj6D3WOm6BCFOfRv0mdc2?=
+ =?us-ascii?Q?C66m6nxCdgCvlUkYTRFQKH05iKmYc1ktn1moSv1QMMb4qSBxkomNroGe6epF?=
+ =?us-ascii?Q?3Waadsn5X61M3dpeZu61+T7npMyACzkvAJkuIQHcTckRJ3H6y/1rOlHXku7q?=
+ =?us-ascii?Q?kOdKwEdf86tj/1zJwSF16a6rkYGIgKRM5nD7cZg0OQ75u3Q9vc0VgZkT07RC?=
+ =?us-ascii?Q?ks5yo5/Mjez5CT9mE2+LF/YNiwycjVCE8sMwRs/SO3XndA97CyNWr6VdBaAT?=
+ =?us-ascii?Q?38Bn11vMbCLgC8CRfYDdlCBbuIgQxYiNIAtAGEIn2Ug86W9k/aeEGaRJKcCX?=
+ =?us-ascii?Q?LlbHEuqbaIzpOvrVR3w3WXdtOJoX9zlavQQHGmIIxiyJW4ns0BY01YgSe9Wj?=
+ =?us-ascii?Q?zOurRisJ5J7VUuClgvjZobQGr0tq8jpi+4w7cY15Ib4S5NhBZH+YBz3bXvMS?=
+ =?us-ascii?Q?PzcXxk8vM1Lr7v32omMfSCc+f50H84O0qdU58GMdMF4SG9seiJGTyC/V/vjw?=
+ =?us-ascii?Q?MBc7q8uIovVwrWTlXiwxrxZM9x7nvbM1wl8W7vMriHRQUGCUBcJ5WlYFUwhG?=
+ =?us-ascii?Q?QCbXZgOs7uLJFpZktGlL9Rw0Ee2LzShnBkC3A5/5o7MCQE2yQSGirY5id2jW?=
+ =?us-ascii?Q?GdeA9GaWHPuxOdrVa3x5lZZ3LA61zVNMuVF8qCNg1QypoMCgjt1USM+MMZUv?=
+ =?us-ascii?Q?zUPecZdFHuf3GKoeREtkhsZ9mdOYqCnj3arh4DFDiCFAZYsRyo3MBI2Dxje6?=
+ =?us-ascii?Q?HYpgAr473l8pvviDgJ4BLOspU7MwDl94AsWdAwcKAm4qAHjV9KRJ9cM/wEDO?=
+ =?us-ascii?Q?szS3CT5/r0NDOVgR7R1LtisdEqRt4aCahQfizUrio6GHCpp520TiQ12B/g+7?=
+ =?us-ascii?Q?PhXvzy7mE6IBqgRUgDRI1TBm0ES+zKxVtYFeB46wp5bosZW+Gthu2Ye0WiqY?=
+ =?us-ascii?Q?pgbAvDkw7z7qd8pAVO6y2T5z5+g4BJgwiFqJ8FBEqGq77k41ILuhimXYszz1?=
+ =?us-ascii?Q?5HtpODDWP6nWmVl8XRZAvHeqoPFGIQupt5MRYyPLU5osmemfAlaCKyfqgHtu?=
+ =?us-ascii?Q?+O+eAzQMWbAMqey7aQa5rXk2uPstNuBB3NlP2ywZ6On22o2cbpidvOBRZ6XY?=
+ =?us-ascii?Q?nW/2pYNAXUN+cPblXsTFr7QMAqnWS9oxEpQl7YOpQ5cvCaNPS9YZc/mIamzg?=
+ =?us-ascii?Q?k3fL0+tOvl8mB6TsxhNNMvYJeFY0niWZDrgsE+U+E7EygfiIhYoDbVnI9sX2?=
+ =?us-ascii?Q?vnMFLM/G7sv3Ez5MMpG6p7Bu6YxIc9bfCO5rhkYnhX5PTO/zoOVfOb0q8cSw?=
+ =?us-ascii?Q?EusZynbwMPW6bMd4xKbDcdva/vbii/f3Tsthc8jzl6rQaxvlBe7NbstLFBWR?=
+ =?us-ascii?Q?kQM/PyI/1Dl3Emd/ebNfs1hucHvS/thhdW5UFm2LiHRoNiRuJE8Y1dS4Ktv8?=
+ =?us-ascii?Q?gYAdK7xVZ4Aklg/COhY6WsBv5Nv657/L9pmDBQU5?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 749c9952-9c57-477f-aa34-08dd5756498a
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Feb 2025 17:43:47.1532
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /2vG5eeaCXcmVY69WijHGDsjjiG4F0bUoZnYJ6D9dTKw4LfH4oveFxZBvHPbIudx8uPOAbpuz3LnooPYpir/8w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7639
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250227_094353_434302_BF1279A4 
+X-CRM114-Status: GOOD (  19.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,39 +172,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Feb 2025, Rob Herring wrote:
+On Thu, Feb 27, 2025 at 05:58:09PM +0100, Marek Vasut wrote:
+> The instance of the GPU populated in i.MX95 is the G310,
+> describe this GPU in the DT. Include description of the
+> GPUMIX block controller, which can be operated as a simple
+> reset. Include dummy GPU voltage regulator and OPP tables.
+>
+> Signed-off-by: Marek Vasut <marex@denx.de>
+> ---
+> Cc: Boris Brezillon <boris.brezillon@collabora.com>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: David Airlie <airlied@gmail.com>
+> Cc: Fabio Estevam <festevam@gmail.com>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Liviu Dudau <liviu.dudau@arm.com>
+> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+> Cc: Maxime Ripard <mripard@kernel.org>
+> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+> Cc: Philipp Zabel <p.zabel@pengutronix.de>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Sascha Hauer <s.hauer@pengutronix.de>
+> Cc: Sebastian Reichel <sre@kernel.org>
+> Cc: Shawn Guo <shawnguo@kernel.org>
+> Cc: Simona Vetter <simona@ffwll.ch>
+> Cc: Steven Price <steven.price@arm.com>
+> Cc: Thomas Zimmermann <tzimmermann@suse.de>
+> Cc: devicetree@vger.kernel.org
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: imx@lists.linux.dev
+> Cc: linux-arm-kernel@lists.infradead.org
+> ---
+>  arch/arm64/boot/dts/freescale/imx95.dtsi | 62 ++++++++++++++++++++++++
+>  1 file changed, 62 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+> index 3af13173de4bd..36bad211e5558 100644
+> --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+> @@ -249,6 +249,37 @@ dummy: clock-dummy {
+>  		clock-output-names = "dummy";
+>  	};
+>
+> +	gpu_fixed_reg: fixed-gpu-reg {
+> +		compatible = "regulator-fixed";
+> +		regulator-min-microvolt = <920000>;
+> +		regulator-max-microvolt = <920000>;
+> +		regulator-name = "vdd_gpu";
+> +		regulator-always-on;
+> +		regulator-boot-on;
 
-> On Thu, Feb 27, 2025 at 03:48:33PM +0000, Lee Jones wrote:
-> > On Tue, 25 Feb 2025, Rob Herring wrote:
-> > 
-> > > On Mon, Feb 10, 2025 at 10:37 AM Lee Jones <lee@kernel.org> wrote:
-> > > >
-> > > > On Thu, 26 Dec 2024 01:58:04 -0300, Val Packett wrote:
-> > > > > Update the MT6397 MFD driver to support the MT6392 PMIC.
-> > > > >
-> > > > >
-> > > >
-> > > > Applied, thanks!
-> > > >
-> > > > [4/9] mfd: mt6397: Add support for MT6392 pmic
-> > > >       commit: 896b1eb4ca771b37ea50feb4d90a78dd4e9cb388
-> > > 
-> > > This should be dropped. Missing the sender's S-o-b and the rest of the
-> > > series has issues still.
-> > 
-> > Are you sure you're commenting on the correct patch?
-> 
-> Yes.
-> 
-> > > Signed-off-by: Fabien Parent <parent.f@gmail.com>
-> 
-> It was sent by Val and is missing their S-o-b. If you send another 
-> author's patch, it needs your S-o-b.
+Does really need regulator-boot-on and regulator-always-on ?
 
-Ah, gotcha.  Yes, that's fair.
+> +	};
+> +
+> +	gpu_opp_table: opp_table {
+> +		compatible = "operating-points-v2";
+> +
+> +		opp-500000000 {
+> +			opp-hz = /bits/ 64 <500000000>;
+> +			opp-hz-real = /bits/ 64 <500000000>;
+> +			opp-microvolt = <920000>;
+> +		};
+> +
+> +		opp-800000000 {
+> +			opp-hz = /bits/ 64 <800000000>;
+> +			opp-hz-real = /bits/ 64 <800000000>;
+> +			opp-microvolt = <920000>;
+> +		};
+> +
+> +		opp-1000000000 {
+> +			opp-hz = /bits/ 64 <1000000000>;
+> +			opp-hz-real = /bits/ 64 <1000000000>;
+> +			opp-microvolt = <920000>;
+> +		};
+> +	};
+> +
+>  	clk_ext1: clock-ext1 {
+>  		compatible = "fixed-clock";
+>  		#clock-cells = <0>;
+> @@ -1846,6 +1877,37 @@ netc_emdio: mdio@0,0 {
+>  			};
+>  		};
+>
+> +		gpu_blk_ctrl: reset-controller@4d810000 {
+> +			compatible = "fsl,imx95-gpu-blk-ctrl";
+> +			reg = <0x0 0x4d810000 0x0 0xc>;
+> +			#reset-cells = <1>;
+> +			clocks = <&scmi_clk IMX95_CLK_GPUAPB>;
+> +			assigned-clocks = <&scmi_clk IMX95_CLK_GPUAPB>;
+> +			assigned-clock-parents = <&scmi_clk IMX95_CLK_SYSPLL1_PFD1_DIV2>;
+> +			assigned-clock-rates = <133333333>;
+> +			power-domains = <&scmi_devpd IMX95_PD_GPU>;
+> +			status = "disabled";
+> +		};
+> +
+> +		gpu: gpu@4d900000 {
+> +			compatible = "fsl,imx95-mali", "arm,mali-valhall-csf";
+> +			reg = <0 0x4d900000 0 0x480000>;
+> +			clocks = <&scmi_clk IMX95_CLK_GPU>;
+> +			clock-names = "core";
+> +			interrupts = <GIC_SPI 288 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 289 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 290 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "gpu", "job", "mmu";
+> +			mali-supply = <&gpu_fixed_reg>;
+> +			operating-points-v2 = <&gpu_opp_table>;
+> +			power-domains = <&scmi_devpd IMX95_PD_GPU>, <&scmi_perf IMX95_PERF_GPU>;
+> +			power-domain-names = "mix", "perf";
+> +			resets = <&gpu_blk_ctrl 0>;
+> +			#cooling-cells = <2>;
+> +			dynamic-power-coefficient = <1013>;
+> +			status = "disabled";
 
-I'll pull the patch.
+GPU is internal module, which have not much dependence with other module
+such as pinmux. why not default status is "disabled". Supposed gpu driver
+will turn off clock and power if not used.
 
--- 
-Lee Jones [李琼斯]
+Frank
+
+> +		};
+> +
+>  		ddr-pmu@4e090dc0 {
+>  			compatible = "fsl,imx95-ddr-pmu", "fsl,imx93-ddr-pmu";
+>  			reg = <0x0 0x4e090dc0 0x0 0x200>;
+> --
+> 2.47.2
+>
 
