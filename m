@@ -4,63 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DFBAC1B087
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:39:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7127C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:39:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jbqQv9mTISgsVsoSLPq0DwlI+escD/wkkpwj8GOQ6IM=; b=Czkx30coLE/orsZ4ZWwa+yMok8
-	n6vjVRMNUdRdDVQk3iqok+0DetWnzBJ8ylu5p2VzQizwyf8T3sTuqQ0o9BQnBxHrgO8BKapdtZ+YE
-	wF0DHybcqMgRpAVJ96/Q2zuYP5xTIP21zk+UEiUXLgrJ+wPC1RYIfy1FO9T+7pteV0rjHX151G5wB
-	snoYP/o5xPrN88bvhL7qigZPtGVeKcM7zdSDOP63L/YI98TMZ98SQdEB991IGau/tkeBErUkoad5q
-	LL13pwdH/H3gNbHt6Qe1i29mKIp6HGEnnB+I/HsPQ3TyvfIU9k5pAt4d3abKsvL/HEEtzsndBtKKu
-	BqV+4RYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oDBjB+4gz+U2yN0S/IInEnbYh3AEcIyGBS1F84SFo6s=; b=FYJYfUp+S3Ebz1kiwPtVBPMayN
+	sbkMjmZQtpJpmlEBH8YuMys+kDyJkib0uIlvCi+Frp7Uhq2dbsFdMkQOqLD8Dz0X3PCUWihA8njQP
+	gb3K1VI5OUFLX0yo8vHDRBiDWzHA53IJiAzvdBW2MY2rQdcSFZUtk/s9qUFp5x50ZOlZ7g+XWyYMj
+	VB4CDyBOnG+Zv6wN/YV6kavBCF0vwInqa66KEVazIGcGCjvkAql2k0EpAPI9hFKP2FgqRr4mTKp+n
+	2MGtlG7LzxW8U2LsVDm3d8s04xdDuTu+BhpT5fqocgrtzRNRG7PDSndrmnH0oNfg5c6SeGeiwAFG2
+	iV7XmxUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjil-00000008Wqf-0Abj;
-	Thu, 27 Feb 2025 19:39:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tnjiq-00000008Wyx-1RLq;
+	Thu, 27 Feb 2025 19:39:05 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tngC9-00000007y0a-3qjD;
-	Thu, 27 Feb 2025 15:53:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D2F3461F21;
-	Thu, 27 Feb 2025 15:52:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 908FEC4CEED;
-	Thu, 27 Feb 2025 15:53:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740671585;
-	bh=TBF7wUkwR5l5SAlFOkV5L7qayuPJGqlI2MqDmi1e2Qg=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=cy8dsJl5R0GGYabMm31a4uFGRKRsFfxDV0JxeTwy/T+jLa4Rls9aVmvo9ZR/WQ+5D
-	 L5UAIUySR+ivTBBEiktecSu+8ja+NV9S+XuODphYxQIzh06YTnKgaDwdrHlwhTCpCo
-	 kc0sfT4pcosTadJqQpxMk0qSVpQLocvBZZTiTLGnBXENfvcfHs4bMoQAuyETw4q/2I
-	 w+0hY4OrS7uikMUTjszPLDLiOf0lz7+kjX9+lptK3DayTJ4A8OchnIT3HMmNQn5bOO
-	 owKGVkvrHForNoID6Yn2elgqZ/H3GiRQZnO3F6Ua7CR0B/eThfOVp5QuSxpudr4rrQ
-	 dc75GWBzG50NA==
-From: Mark Brown <broonie@kernel.org>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Liam Girdwood <lgirdwood@gmail.com>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- parkeryang <Parker.Yang@mediatek.com>, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
- linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-In-Reply-To: <20250227131939.1040168-1-arnd@kernel.org>
-References: <20250227131939.1040168-1-arnd@kernel.org>
-Subject: Re: [PATCH] ASoC: mediatek: mt8188: avoid uninitialized variable
- use
-Message-Id: <174067158231.70060.14955037927245786834.b4-ty@kernel.org>
-Date: Thu, 27 Feb 2025 15:53:02 +0000
+	id 1tngC8-00000007xuh-3n6l
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Feb 2025 15:53:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1740671585; x=1772207585;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=fGIF9yqZoL5+kzzD63s1CFCY6nJfHyqhfQ1cti4gw0c=;
+  b=Az4GoCNURSAFSTLixx+WiPeKyVBH9CUh22Vr8zRvkLEuKRGN9S/4sPX4
+   3sKorfTV7XeLBFOeRExDDTTC/qiIIROxNaogo0IdBN7VzBER5Aj56prgo
+   niIGEiR4XH4Z2wFC6P7BF/5LsrrK47PHz4AjiopjduLsKTaArkmNArtDx
+   4whmLFUuGSVUcU+kBTSYvZEzhxttMzVWQt85wGx4UXo3QBXfiA48Jlk0U
+   YGnYRWEV2gkQZ2dYC1kbaLBc8ijh4q093YpWbVxJiL0PVMpHcqw6NHV5u
+   QrYgIa7a0yv5QHHUXEg3BkkB8VG6hgQF6o+0DnNLKUMSD+uh3EHH7qp3v
+   g==;
+X-CSE-ConnectionGUID: xBkIAngZQVSwQhIMCQbtUA==
+X-CSE-MsgGUID: tQydNibLQ7q4BPYtWVKj1w==
+X-IronPort-AV: E=Sophos;i="6.13,320,1732604400"; 
+   d="scan'208";a="38638183"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Feb 2025 08:52:59 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Thu, 27 Feb 2025 08:52:47 -0700
+Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.35 via Frontend Transport; Thu, 27 Feb 2025 08:52:47 -0700
+From: <Ryan.Wanner@microchip.com>
+To: <lee@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <claudiu.beznea@tuxon.dev>, <sre@kernel.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<p.zabel@pengutronix.de>
+CC: <linux@armlinux.org.uk>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-rtc@vger.kernel.org>, "Ryan
+ Wanner" <Ryan.Wanner@microchip.com>
+Subject: [PATCH v3 18/21] ARM: dts: microchip: sama7d65: Add RTC support for sama7d65
+Date: Thu, 27 Feb 2025 08:52:05 -0700
+Message-ID: <fa1587ffef21a8198317062c15d8eb5c3ca6187c.1740671156.git.Ryan.Wanner@microchip.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1740671156.git.Ryan.Wanner@microchip.com>
+References: <cover.1740671156.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-1b0d6
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250227_075305_014454_852B955E 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,43 +90,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Feb 2025 14:19:01 +0100, Arnd Bergmann wrote:
-> The 'msk' variable has no initialization:
-> 
-> sound/soc/mediatek/mt8188/mt8188-dai-dmic.c:311:4: error: variable 'msk' is uninitialized when used here [-Werror,-Wuninitialized]
->   311 |                         msk |= PWR2_TOP_CON1_DMIC_FIFO_SOFT_RST_EN(i);
->       |                         ^~~
-> 
-> Set it to zero before the loop.
-> 
-> [...]
+From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-Applied to
+Add RTC support for the SAMA7D65 SoC.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+---
+ arch/arm/boot/dts/microchip/sama7d65.dtsi | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-Thanks!
-
-[1/1] ASoC: mediatek: mt8188: avoid uninitialized variable use
-      commit: 79ed408b2402e8113aa5a298f3bb9088ede58f6c
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+index aadeea132289..e623f9d22f36 100644
+--- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
++++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+@@ -144,6 +144,13 @@ gpbr: gpbr@e001d700 {
+ 			reg = <0xe001d700 0x48>;
+ 		};
+ 
++		rtc: rtc@e001d800 {
++			compatible = "microchip,sama7d65-rtc", "microchip,sam9x60-rtc";
++			reg = <0xe001d800 0x30>;
++			interrupts = <GIC_SPI 6 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clk32k 1>;
++		};
++
+ 		dma2: dma-controller@e1200000 {
+ 			compatible = "microchip,sama7d65-dma", "microchip,sama7g5-dma";
+ 			reg = <0xe1200000 0x1000>;
+-- 
+2.43.0
 
 
