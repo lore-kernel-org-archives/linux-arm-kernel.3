@@ -4,103 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17848C19F2E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 14:18:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F736C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 14:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oNz0gm6s9Y1Y/1K5KRe9biL7hupOBSfqXQtcebOru1s=; b=AEvoZDb58aKc6bjBxGcNmfMvx9
-	ANtQS8rOvpUpLPsyp/vuQsNYoox/qqyHkQQiGnYc/cl3GCf9imy5hOF/gjaoJKfxl1uq3YPrem4Ki
-	fXz4pllirpoT8nG4C8cpbfspV9iOErYNP14KRcnkht54edFEEu+5cwMMb8FIoHGJQMoz5C6nm5QqD
-	UVwA5sLSFpcBBlu0Yms75WAmrZ1NQY9apdvJS3iC4y8zUQNYGuCTcCZeOKbG3kd1zkaol6xf8n53E
-	HrOQW2CUkSF6KC53myXFrXilYjJek1SzVggjC5bPezQ8CNPMxtrKlOoWGUOgN2Lm/rEHQxKRWA5Bm
-	urzYEtDQ==;
+	bh=gl2YGr8BLw/wNus1iEMG6KY7DRu+t64YQRFArFZ0uP0=; b=1UnhT4bXISU+OH7UGG8/TfW9Up
+	/zHPlE6oi4z4c4m9UAjmVnPbE3/466CvOMwoj4he80urZ1yZPbMoTlqILSMXl7MjgRNTipsI3BG0X
+	Csdqk4izq7Kh7a4tuFArrHBzaRivzWt2adjAPhtfyukg8TgUK0DO6TDApWVDuqYQROy/y6WmxD8oj
+	vzNv5pI3kY9gUkv7LsKn9nnM6Zv1NAUw114DiTLE2cWMYEom9+izshKRL3iByO9U+7Ts2GUuu1fJH
+	ia941C8y2i1bOlWZsmxYi6b+8wl/M7YbW6rOWa5dNcyUM2kynmLzjlnynezUjCjB0tHWCv8H7BA8R
+	sinYW64Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tneiM-00000007gpx-07P0;
-	Thu, 27 Feb 2025 14:18:14 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1tnejq-00000007h9q-2v7R;
+	Thu, 27 Feb 2025 14:19:46 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tneTK-00000007ddV-3n4Y
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 14:02:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740664963; x=1772200963;
-  h=from:to:subject:date:message-id:in-reply-to:references:
-   mime-version:content-transfer-encoding;
-  bh=y/vg46vRn1lgg6h2OUWs7r6Zp75W28a+qluOoO9J7Nk=;
-  b=Vx13hn50fCIUToIhcP0c5NfBMha+j55QnKFjNhASrYNhgS9JnnLLz+pT
-   Z1BPYHOqSCW8OY/zgPEK08t+mp3JRRm4p1DJ6f1gyWOph0MnbYWboxLEF
-   t1dEDNnp1AtHgSAIooo9INHyU5DvM4D9jLTuF1i3gvlezix3lspa7WINu
-   Gz+HQb1hf2lHZdHHr5OQBvIVS66DEn8h9gcbrwUKBRNavBRniuz+gVOaY
-   Gnh32ZTD2EvYO+Jo7PDawbbulYEgMhaxgCd3NKAhM22Lc5Viz9SN5yJQk
-   4lz86Rv2x1fK8s9+noTY+qyUlPG8kdc/ruj9sP6i2Oc+pTj3TpqRYefa+
-   Q==;
-X-CSE-ConnectionGUID: lp+I2SfhRxmqke4frlGtnQ==
-X-CSE-MsgGUID: Lyl0ShkdSWS6uD37wNZSTw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="41752317"
-X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
-   d="scan'208";a="41752317"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Feb 2025 06:02:42 -0800
-X-CSE-ConnectionGUID: NhBMIehdRk6BeJsHKOXElA==
-X-CSE-MsgGUID: QueMaA3QToyFdCn831cvsQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,319,1732608000"; 
-   d="scan'208";a="122149471"
-Received: from mohdfai2-ilbpg12-1.png.intel.com ([10.88.227.73])
-  by fmviesa004.fm.intel.com with ESMTP; 27 Feb 2025 06:02:34 -0800
-From: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
-To: Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Simon Horman <horms@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Furong Xu <0x1207@gmail.com>,
-	Russell King <rmk+kernel@armlinux.org.uk>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Xiaolei Wang <xiaolei.wang@windriver.com>,
-	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	Gal Pressman <gal@nvidia.com>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Andrew Halaney <ahalaney@redhat.com>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
-	intel-wired-lan@lists.osuosl.org,
-	netdev@vger.kernel.org,
+	id 1tneTO-00000007df7-2G5t;
+	Thu, 27 Feb 2025 14:02:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=gl2YGr8BLw/wNus1iEMG6KY7DRu+t64YQRFArFZ0uP0=; b=bQZIi9oEBCJISZINLmrQvKI0d7
+	4NQ27FI0uRR5OcXcSNQ4h4j7WAHVabJpGI0/LWHCO9fqwIqcG83F0XHpL0blaiLZNtl9BBdBMJNg6
+	68lTa1OULh4hvJVJZlfl20dg6uqkW0M1lL9hvuSAtabL8hgXBGcjbkAus+lLVSEroIo+ZPQEgawvV
+	E8GEXGgC/AnEVaegAG8vy2YomFZmgTNCc2EH70JpZTfBeCS5biT9jm7J+KxE0ytXPrNxWycTziuYk
+	+nLf6HQi2SSmPQjzBvvf9fb27jpD1mG+ll37fXeKxo7vksc8A72irQdCR+z4F26gcU6buiQ7LHlzf
+	WJABAuNw==;
+Received: from i53875b47.versanet.de ([83.135.91.71] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tneT4-0001In-99; Thu, 27 Feb 2025 15:02:26 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: gregkh@linuxfoundation.org,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: rafael@kernel.org,
+	dakr@kernel.org,
+	hjc@rock-chips.com,
+	andy.yan@rock-chips.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	dri-devel@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	bpf@vger.kernel.org
-Subject: [PATCH iwl-next v6 2/9] igc: Rename xdp_get_tx_ring() for non-xdp usage
-Date: Thu, 27 Feb 2025 09:01:50 -0500
-Message-Id: <20250227140158.2129988-3-faizal.abdul.rahim@linux.intel.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250227140158.2129988-1-faizal.abdul.rahim@linux.intel.com>
-References: <20250227140158.2129988-1-faizal.abdul.rahim@linux.intel.com>
+	linux-rockchip@lists.infradead.org,
+	quentin.schulz@cherry.de
+Subject: Re: [PATCH 0/2] Fix the shutdown callback of a drm component device
+Date: Thu, 27 Feb 2025 15:02:15 +0100
+Message-ID: <174066492648.11813.12373419424939960288.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250220234141.2788785-1-heiko@sntech.de>
+References: <20250220234141.2788785-1-heiko@sntech.de>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_060242_985368_5DBFFA95 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20250227_060246_581746_FFC74926 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,71 +84,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Renamed xdp_get_tx_ring() function to a more generic name for use in
-upcoming frame preemption patches.
 
-Signed-off-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
----
- drivers/net/ethernet/intel/igc/igc.h      |  2 +-
- drivers/net/ethernet/intel/igc/igc_main.c | 10 +++++-----
- 2 files changed, 6 insertions(+), 6 deletions(-)
+On Fri, 21 Feb 2025 00:41:39 +0100, Heiko Stuebner wrote:
+> Probe deferral can cause the platform-data we access to be freed already
+> causing ugly splats on system shutdown.
+> 
+> Fix this via a small component-helper and adapting the rockchip-drm
+> shutdown handler.
+> 
+> Heiko Stuebner (2):
+>   drivers: base: component: add function to query the bound status
+>   drm/rockchip: Fix shutdown when no drm-device is set up
+> 
+> [...]
 
-diff --git a/drivers/net/ethernet/intel/igc/igc.h b/drivers/net/ethernet/intel/igc/igc.h
-index b8111ad9a9a8..22ecdac26cf4 100644
---- a/drivers/net/ethernet/intel/igc/igc.h
-+++ b/drivers/net/ethernet/intel/igc/igc.h
-@@ -736,7 +736,7 @@ struct igc_nfc_rule *igc_get_nfc_rule(struct igc_adapter *adapter,
- 				      u32 location);
- int igc_add_nfc_rule(struct igc_adapter *adapter, struct igc_nfc_rule *rule);
- void igc_del_nfc_rule(struct igc_adapter *adapter, struct igc_nfc_rule *rule);
--
-+struct igc_ring *igc_get_tx_ring(struct igc_adapter *adapter, int cpu);
- void igc_ptp_init(struct igc_adapter *adapter);
- void igc_ptp_reset(struct igc_adapter *adapter);
- void igc_ptp_suspend(struct igc_adapter *adapter);
-diff --git a/drivers/net/ethernet/intel/igc/igc_main.c b/drivers/net/ethernet/intel/igc/igc_main.c
-index 56a35d58e7a6..44e4f925491f 100644
---- a/drivers/net/ethernet/intel/igc/igc_main.c
-+++ b/drivers/net/ethernet/intel/igc/igc_main.c
-@@ -2444,8 +2444,8 @@ static int igc_xdp_init_tx_descriptor(struct igc_ring *ring,
- 	return -ENOMEM;
- }
- 
--static struct igc_ring *igc_xdp_get_tx_ring(struct igc_adapter *adapter,
--					    int cpu)
-+struct igc_ring *igc_get_tx_ring(struct igc_adapter *adapter,
-+				 int cpu)
- {
- 	int index = cpu;
- 
-@@ -2469,7 +2469,7 @@ static int igc_xdp_xmit_back(struct igc_adapter *adapter, struct xdp_buff *xdp)
- 	if (unlikely(!xdpf))
- 		return -EFAULT;
- 
--	ring = igc_xdp_get_tx_ring(adapter, cpu);
-+	ring = igc_get_tx_ring(adapter, cpu);
- 	nq = txring_txq(ring);
- 
- 	__netif_tx_lock(nq, cpu);
-@@ -2546,7 +2546,7 @@ static void igc_finalize_xdp(struct igc_adapter *adapter, int status)
- 	struct igc_ring *ring;
- 
- 	if (status & IGC_XDP_TX) {
--		ring = igc_xdp_get_tx_ring(adapter, cpu);
-+		ring = igc_get_tx_ring(adapter, cpu);
- 		nq = txring_txq(ring);
- 
- 		__netif_tx_lock(nq, cpu);
-@@ -6699,7 +6699,7 @@ static int igc_xdp_xmit(struct net_device *dev, int num_frames,
- 	if (unlikely(flags & ~XDP_XMIT_FLAGS_MASK))
- 		return -EINVAL;
- 
--	ring = igc_xdp_get_tx_ring(adapter, cpu);
-+	ring = igc_get_tx_ring(adapter, cpu);
- 	nq = txring_txq(ring);
- 
- 	__netif_tx_lock(nq, cpu);
+Applied, thanks!
+
+[1/2] drivers: base: component: add function to query the bound status
+      commit: a6ba2dad0aa4f623ab0def8b6e6888ac00639055
+[2/2] drm/rockchip: Fix shutdown when no drm-device is set up
+      commit: 4444e4d789d64f053435713e5984f0ef31a7633b
+
+Best regards,
 -- 
-2.34.1
-
+Heiko Stuebner <heiko@sntech.de>
 
