@@ -4,81 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08610C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 00:44:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78374C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 01:02:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=go/rSw9bkr3V2Z7S0UpAa5FZKtjaGuIC5hzD90cfQFg=; b=X0E6bHqf+d/Q43TN1YXqbiN8/T
-	SekgxxQhq9MMAiCsZI/1LrQioZST2sTznv6lV2Xx5h0H595mUKCpAfgQ+2fRAvA1i/93LWanowszG
-	FCkME3mHbJpiNB5fd/OJ0yJIGpiLvwUd0xfZe0e5G63+JfGSzOkmLaXB/0D+Ke7f3oP3yc89RdKmZ
-	loBYeUjOShtLQDUm34M8Xog209sx3PEpgxOTEVlAohQ6D4hv2yIJVLGCP+OBHosvSmBmaVKfJaYna
-	L5KNYNcLt2S0Br3w+EQKWqeeTOOkMDVh2Z//IV7FctlErSS08RWi+dobJDp8b8st052+pBkoaMCH9
-	sAuqCzjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
+	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TcgW8SbjQSaa3gvEsH7H9zMa1QYHlH8EzMqCag0ggL0=; b=m2wz2Hq8sWp5vLqRGxgmxO45XS
+	qWIUTm/ppbLw3Z2HHo8p01mQUncoMtlIsoUcl1UuMrVVzUHcHC18Sq+m3wx0ay+ueoJcrtFsQgly7
+	GQcVPw6e3u/2/4sMbg5ssMnd3QiLz18qH47b5a7GKzZKwabXE4BM3dreKBPr5hQuisxJIn6aLGpST
+	mJrSwWeRKh716Nimt0Y2EqzIc0v5kMRx4cK2/Fq9HH5olqJgL6vF7IyXaej+1MY2JZaBOu1JaJXrJ
+	2KYww9IdxLi7ukjH370FKhLTe9sp+QrdqZbxBnbFULDZXlWVuIsOpdJHkGfyQ6bTCBKKiLmTnZTfM
+	2VxjoAZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnS0a-00000005qVV-23HS;
-	Thu, 27 Feb 2025 00:44:12 +0000
-Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
+	id 1tnSIV-00000005sBJ-0nVt;
+	Thu, 27 Feb 2025 01:02:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnRqB-00000005otW-1iRj
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 00:33:28 +0000
-Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-abbb6fa430fso22362866b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 16:33:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740616405; x=1741221205; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=go/rSw9bkr3V2Z7S0UpAa5FZKtjaGuIC5hzD90cfQFg=;
-        b=LWRwlv0Xm6twLigy8fRLmEp/r0gbXmnFR/Zbc+BgHlmaBfAiGsAktaaEOOGc71hMvX
-         2/ZHIACN1+PQo3vXjhU7vrrWvNv/Y07qFcOFq9GcNthKLxCIGczjJmEAl9Lz5FLAbqEC
-         FrP3tk8yQFAA7hVLnpyxu0RJEU9FLxCV3aa7YwVTNS9dWT9MvGtqpQBoVJL6yiv/aa8G
-         S7SEEaTj6MAVKIE2JONnFj2x5PwnXHUhxbjGkcpODijmGqzgUPP+8XVMdBeO4bqSa5cV
-         ZC9mgCAgtvyfropc628y0iP4+E6POhPqMpfpQ0u5HKvQSigdVJAoE5fXGs6wyg4ukBdK
-         NPQA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740616405; x=1741221205;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=go/rSw9bkr3V2Z7S0UpAa5FZKtjaGuIC5hzD90cfQFg=;
-        b=mA2YSA+IFlW5bNHTh5d2+ueUV285OdYXdDwry+covVeiWio6rW6dDkz6VbgQ0zxOiV
-         Rw5bn4+kzWoW9TcSQfkjfdJlhwHF1NClRwNDpiv0ow6LGpStLeb6DPmP14PPgchisy4q
-         Omg7GX0GwIHXcwJbi+ZvGFu4BCpF2XwhXj5sb+EkejC3k8ztqqUNNOkMQKb6h/eiEimG
-         xrLzwkK+VSiYFkH0MNkJVFI9VoxVrhSGf71SgVjyBgbFCxouJAdKxQLLd0PO1v9rlj65
-         7TBvTG+5YC0QE2iTumcUGePvhOtPccJqTb2PPj58xci09hfyWBXATfKTdg8jzo6MX7G8
-         /RIw==
-X-Forwarded-Encrypted: i=1; AJvYcCW9uX+qgqV20DTmwG6UEJRXspa2GoF0KaQgjiRajEX9dLFiRGqgapFEciFoMHlC/jCsHg2rWl4YhCutunTAJz3i@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0Hpze1C7DX2e/Z6zRhvVuWrDyrpsAp/Pns7zLZm0bu7li+8cv
-	DKEgcMmGKb7DJw2l6DJU1aJwf/mqiyLbpiDIciGYyjpv96qyU4SUO5/8yB98QCldaWjfeUZ6BgY
-	7o2vOKA==
-X-Google-Smtp-Source: AGHT+IHoE0D/+VTxFu9mBffqWU8TmUIEm77P7VHQouobm1YsZoARZri0ZIO8rfS0b5y60ajdzwb57L0Mwq80
-X-Received: from ejclm3.prod.google.com ([2002:a17:907:18c3:b0:abb:9896:c72f])
- (user=qperret job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:5202:b0:5e0:8c55:4fa
- with SMTP id 4fb4d7f45d1cf-5e444853ef4mr25783357a12.6.1740616405565; Wed, 26
- Feb 2025 16:33:25 -0800 (PST)
-Date: Thu, 27 Feb 2025 00:33:10 +0000
-In-Reply-To: <20250227003310.367350-1-qperret@google.com>
-Mime-Version: 1.0
-References: <20250227003310.367350-1-qperret@google.com>
-X-Mailer: git-send-email 2.48.1.658.g4767266eb4-goog
-Message-ID: <20250227003310.367350-7-qperret@google.com>
-Subject: [PATCH 6/6] KVM: arm64: Unconditionally cross check hyp state
-From: Quentin Perret <qperret@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>
-Cc: Vincent Donnefort <vdonnefort@google.com>, Quentin Perret <qperret@google.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_163327_448881_C6DE77B0 
-X-CRM114-Status: GOOD (  10.07  )
+	id 1tnSGy-00000005rv2-3Scn;
+	Thu, 27 Feb 2025 01:01:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DD99861223;
+	Thu, 27 Feb 2025 01:00:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80005C4CED6;
+	Thu, 27 Feb 2025 01:01:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740618067;
+	bh=Az777yEEvc7WNpZb40fbFEenMSc4zBZXmQAQcH1+SrQ=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=UEoozr8165xSjeMQKQpHvilejSkF7ea3Evo63RS/b9hp3roHeAtHLM3EhZvbJAqZc
+	 ogsNHvfZkdDdUo512fRWHvJyCZ8xuJidSuDJ8U4BZDu2QuwJMdEiObzsSk6Jr8ZQsi
+	 j20E00sXJMW+XIbcf0hVNWofIDMzYCp8IYWI476UjJIgk/5Ni3sLFuTf87hiIPlyoM
+	 9xAU/STIgTuk1r4tMsLVY6Hg8RZfMh7lp3EnonkYI8keB5Oe/z+RID4RP6Minkwt27
+	 lG2OAX/8r5aaEpo8/h+fwQFAhUVFfyZFKQM7gzfN4xNShYb2XV6D7arhChHX/q0pos
+	 8rh0QumR10lFQ==
+Message-ID: <508a5ee6c6b365e8d9cdefd5a9eec769.sboyd@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250120-amlogic-clk-drop-clk-regmap-tables-v3-1-126244146947@baylibre.com>
+References: <20250120-amlogic-clk-drop-clk-regmap-tables-v3-0-126244146947@baylibre.com> <20250120-amlogic-clk-drop-clk-regmap-tables-v3-1-126244146947@baylibre.com>
+Subject: Re: [PATCH v3 1/4] clk: add a clk_hw helpers to get the clock device or device_node
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, Jerome Brunet <jbrunet@baylibre.com>
+To: Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Michael Turquette <mturquette@baylibre.com>, Neil Armstrong <neil.armstrong@linaro.org>
+Date: Wed, 26 Feb 2025 17:01:05 -0800
+User-Agent: alot/0.12.dev1+gaa8c22fdeedb
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,69 +67,237 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that the hypervisor's state is stored in the hyp_vmemmap, we no
-longer need an expensive page-table walk to read it. This means we can
-now afford to cross check the hyp-state during all memory ownership
-transitions where the hyp is involved unconditionally, hence avoiding
-problems such as [1].
+Quoting Jerome Brunet (2025-01-20 09:15:30)
+> Add helpers to get the device or device_node associated with clk_hw.
+>=20
+> This can be used by clock drivers to access various device related
+> functionality such as devres, dev_ prints, etc ...
+>=20
+> Add test for these new helpers in clk-test.
+>=20
+> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+> ---
 
-[1] https://lore.kernel.org/kvmarm/20241128154406.602875-1-qperret@google.com/
+Thanks for adding tests!
 
-Signed-off-by: Quentin Perret <qperret@google.com>
----
- arch/arm64/kvm/hyp/nvhe/mem_protect.c | 24 +++++++++---------------
- 1 file changed, 9 insertions(+), 15 deletions(-)
+> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+> index 9b45fa005030f56e1478b9742715ebcde898133f..9818f87c1c56ab9a3782c2fd5=
+5d3f602041769c3 100644
+> --- a/drivers/clk/clk.c
+> +++ b/drivers/clk/clk.c
+> @@ -365,6 +365,39 @@ const char *clk_hw_get_name(const struct clk_hw *hw)
+>  }
+>  EXPORT_SYMBOL_GPL(clk_hw_get_name);
+> =20
+> +/**
+> + * clk_hw_get_dev - get device from an hardware clock.
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index ae39d74be1f2..22a906c7973a 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -695,11 +695,9 @@ int __pkvm_host_share_hyp(u64 pfn)
- 	ret = __host_check_page_state_range(phys, size, PKVM_PAGE_OWNED);
- 	if (ret)
- 		goto unlock;
--	if (IS_ENABLED(CONFIG_NVHE_EL2_DEBUG)) {
--		ret = __hyp_check_page_state_range(phys, size, PKVM_NOPAGE);
--		if (ret)
--			goto unlock;
--	}
-+	ret = __hyp_check_page_state_range(phys, size, PKVM_NOPAGE);
-+	if (ret)
-+		goto unlock;
- 
- 	__hyp_set_page_state_range(phys, size, PKVM_PAGE_SHARED_BORROWED);
- 	WARN_ON(__host_set_page_state_range(phys, size, PKVM_PAGE_SHARED_OWNED));
-@@ -755,11 +753,9 @@ int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages)
- 	ret = __host_check_page_state_range(phys, size, PKVM_PAGE_OWNED);
- 	if (ret)
- 		goto unlock;
--	if (IS_ENABLED(CONFIG_NVHE_EL2_DEBUG)) {
--		ret = __hyp_check_page_state_range(phys, size, PKVM_NOPAGE);
--		if (ret)
--			goto unlock;
--	}
-+	ret = __hyp_check_page_state_range(phys, size, PKVM_NOPAGE);
-+	if (ret)
-+		goto unlock;
- 
- 	__hyp_set_page_state_range(phys, size, PKVM_PAGE_OWNED);
- 	WARN_ON(pkvm_create_mappings_locked(virt, virt + size, PAGE_HYP));
-@@ -785,11 +781,9 @@ int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages)
- 	ret = __hyp_check_page_state_range(phys, size, PKVM_PAGE_OWNED);
- 	if (ret)
- 		goto unlock;
--	if (IS_ENABLED(CONFIG_NVHE_EL2_DEBUG)) {
--		ret = __host_check_page_state_range(phys, size, PKVM_NOPAGE);
--		if (ret)
--			goto unlock;
--	}
-+	ret = __host_check_page_state_range(phys, size, PKVM_NOPAGE);
-+	if (ret)
-+		goto unlock;
- 
- 	__hyp_set_page_state_range(phys, size, PKVM_NOPAGE);
- 	WARN_ON(kvm_pgtable_hyp_unmap(&pkvm_pgtable, virt, size) != size);
--- 
-2.48.1.658.g4767266eb4-goog
+Please add () to indicate function.
 
+> + * @hw: the clk_hw pointer to get the struct device from
+> + *
+> + * This is a helper to get the struct device associated with a hardware
+> + * clock. Some clocks, such as the ones registered from an early clock
+> + * controller, may not be associated with any struct device.
+
+Maybe write out that an 'early clock controller' is one that registers
+clks with CLK_OF_DECLARE() or otherwise didn't pass a device pointer
+while registering the clk.
+
+> + *
+> + * Return: the struct device associated with the clock, or NULL if there
+> + * is none.
+> + */
+> +struct device *clk_hw_get_dev(const struct clk_hw *hw)
+> +{
+> +       return hw->core->dev;
+
+Maybe we should increment the device refcount and require callers to
+put_device(). Now's our chance to make the change!
+
+> +}
+> +EXPORT_SYMBOL_GPL(clk_hw_get_dev);
+> +
+> +/**
+> + * clk_hw_get_of_node - get device_node from an hardware clock.
+
+'from a hardware' and remove the period.
+
+> + * @hw: the clk_hw pointer to get the struct device_node from
+> + *
+> + * This is a helper to get the struct device_node associated with an
+> + * hardware clock.
+> + *
+> + * Return: the struct device_node associated with the clock, or NULL
+> + * if there is none.
+> + */
+
+Can you put the kernel-doc in the header prototype? I want to move all
+the comments there so we can include the header in the rst doc file with
+the header 'clk provider API' or something like that.
+
+> +struct device_node *clk_hw_get_of_node(const struct clk_hw *hw)
+> +{
+> +       return hw->core->of_node;
+
+Maybe we should increment the of_node refcount and require callers to
+of_node_put(). Now's our chance to make the change!
+
+> +}
+> +EXPORT_SYMBOL_GPL(clk_hw_get_of_node);
+> +
+>  struct clk_hw *__clk_get_hw(struct clk *clk)
+>  {
+>         return !clk ? NULL : clk->core->hw;
+> diff --git a/drivers/clk/clk_test.c b/drivers/clk/clk_test.c
+> index f08feeaa3750bc86859294650de298762dea690a..4dcdde283598b7f940c653ebc=
+0d5a5f4c27637a2 100644
+> --- a/drivers/clk/clk_test.c
+> +++ b/drivers/clk/clk_test.c
+> @@ -3077,6 +3084,80 @@ static struct kunit_suite clk_register_clk_parent_=
+data_device_suite =3D {
+>         .test_cases =3D clk_register_clk_parent_data_device_test_cases,
+>  };
+> =20
+> +static void clk_register_dummy_device_driver(struct kunit *test)
+> +{
+> +       static const struct of_device_id match_table[] =3D {
+> +               { .compatible =3D "test,clk-dummy-device" },
+> +               { }
+> +       };
+> +
+> +       clk_register_of_device_driver(test, match_table);
+> +}
+> +
+> +/*
+> + * Test that a clk registered with a struct device can provide back the
+> + * struct device it was registered with.
+> + */
+> +static void clk_hw_get_dev_test(struct kunit *test)
+
+The name of the test can tell us what it expects:
+
+	clk_hw_get_dev_with_dev_gets_dev()
+	clk_hw_get_dev_null_dev_gets_null()
+	clk_hw_get_dev_with_node_gets_null() # this one uses of_clk_hw_register()
+	clk_hw_get_of_node_with_dev_gets_node() # this one uses clk_hw_register()
+	clk_hw_get_of_node_with_node_gets_node()
+	clk_hw_get_of_node_null_node_gets_null()
+
+I put some more test names. If we use gen params we can have spaces in
+the name.
+
+> +{
+> +       struct clk_register_device_ctx *ctx;
+> +
+> +       ctx =3D kunit_kzalloc(test, sizeof(*ctx), GFP_KERNEL);
+> +       KUNIT_ASSERT_NOT_ERR_OR_NULL(test, ctx);
+> +       test->priv =3D ctx;
+> +
+> +       clk_register_dummy_device_driver(test);
+> +       ctx->hw.init =3D CLK_HW_INIT_NO_PARENT("test_get_dev",
+> +                                            &clk_dummy_rate_ops, 0);
+> +
+> +       KUNIT_ASSERT_EQ(test, 0, clk_hw_register_kunit(test, ctx->dev, &c=
+tx->hw));
+
+Please put a newline between the assertions and the expectation. That
+makes it easier to see at a glance what's expected by the test.
+
+> +       KUNIT_EXPECT_PTR_EQ(test, ctx->dev, clk_hw_get_dev(&ctx->hw));
+> +}
+> +
+> +/*
+> + * Test that a clk registered with a struct device_node can provide back=
+ the
+> + * struct device_node it was registered with.
+> + */
+> +static void clk_hw_get_of_node_test(struct kunit *test)
+> +{
+> +       struct device_node *np;
+> +       struct clk_hw *hw;
+> +
+> +       hw =3D kunit_kzalloc(test, sizeof(*hw), GFP_KERNEL);
+> +       KUNIT_ASSERT_NOT_ERR_OR_NULL(test, hw);
+> +
+> +       np =3D of_find_compatible_node(NULL, NULL, "test,clk-dummy-device=
+");
+> +       hw->init =3D CLK_HW_INIT_NO_PARENT("test_get_of_node",
+> +                                        &clk_dummy_rate_ops, 0);
+> +       of_node_put_kunit(test, np);
+> +
+> +       KUNIT_ASSERT_EQ(test, 0, of_clk_hw_register_kunit(test, np, hw));
+
+The stuff before the expectation should likely go to the init function.
+Or it can use the genparams stuff so we can set some struct members to
+indicate if the pointer should be NULL or not and then twist through the
+code a couple times.
+
+> +       KUNIT_EXPECT_PTR_EQ(test, np, clk_hw_get_of_node(hw));
+> +}
+> +
+> +static struct kunit_case clk_hw_test_cases[] =3D {
+> +       KUNIT_CASE(clk_hw_get_dev_test),
+> +       KUNIT_CASE(clk_hw_get_of_node_test),
+
+Please add tests for the absence of the pointers.
+
+> +       {}
+> +};
+> +
+> +static int clk_hw_test_init(struct kunit *test)
+> +{
+> +       KUNIT_ASSERT_EQ(test, 0,
+> +                       of_overlay_apply_kunit(test, kunit_clk_dummy_devi=
+ce));
+> +
+> +       return 0;
+> +}
+> +
+> +/*
+> + * Test suite to verify the sanity clk_hw helper functions.
+
+Test suite to verify clk_hw_get_dev() and clk_hw_get_of_node().
+
+> + */
+> +static struct kunit_suite clk_hw_test_suite =3D {
+
+A better name is clk_hw_get_dev_of_node_suite
+
+> +       .name =3D "clk_hw_test_suite",
+
+Same, clk_hw_get_dev_of_node_suite.
+
+> +       .init =3D clk_hw_test_init,
+> +       .test_cases =3D clk_hw_test_cases,
+> +};
+> +
+>  struct clk_assigned_rates_context {
+>         struct clk_dummy_context clk0;
+>         struct clk_dummy_context clk1;
+> diff --git a/drivers/clk/kunit_clk_dummy_device.dtso b/drivers/clk/kunit_=
+clk_dummy_device.dtso
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..5cc89aa11264428b09e47fd29=
+c5f9ecfb8c32fdd
+> --- /dev/null
+> +++ b/drivers/clk/kunit_clk_dummy_device.dtso
+
+Ideally the name of the file gives a clue to the name of the test suite that
+uses it. Perhaps kunit_clk_hw_get_dev_of_node.dtso is better.
+
+> @@ -0,0 +1,10 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +&{/} {
+> +       kunit-clock-controller {
+> +               compatible =3D "test,clk-dummy-device";
+
+Maybe "test,clk-hw-get-dev-node".
+
+> +               #clock-cells =3D <0>;
+> +       };
+> +};
 
