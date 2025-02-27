@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72A27C197BF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D1C8C1B087
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:39:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vlwRt4wQ2xFVKA1gnOfel5WpP6ziq3DqOeLOcmYMfaQ=; b=lKPfnbxAFwYnpwN+gZsbmlscp/
-	Ggd8QcTmzUZ8/lIM2KGRkPMEVZwF/vyih5iVGIx2MI2SzFDgbkYl+EB0DREpj40LwmoRQfAE4gXvS
-	iDxyRxUdG+yiMh/QRP1mBtF2kvshegVSXft3KxXiP5Cy7iwAxNXjKApxh8dO4TZusyavwvrItz4Bd
-	aWikScF0DrO5ZH3NQ+zhKjFcx5ph530AlfaKe0wFSmG1iaIERnof7TjuF/WYYF2IwdWwnygIJ8HW6
-	9Yrz8B4uEPr87PhGB2WHi7BSSltXEs2b7M8sqccAnhHqiAEAU1N8tXIonRSBdDZ3Uy/EfYBtyA84A
-	b8MlEyxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YCYZEqDU29mV/oNhQzvKUezViExGkTYP3v0Ttd1er+E=; b=nTKdTzUBPtGQQUlftzg2gfU49K
+	sALLLEKsq1ykLyh/WWnzmfPfkLIIGD4EWLGe7JL5i2lSPQjGoN0D9X6b/jnPt0lFU+qasp4e9yCfy
+	CUye1B+CRaF2HWSwB7O+/c3wPot0bqCj2LXq9rKpnCQSoJg6/0prmnDo+DTaHv4mjzSw19am2l4Zm
+	fxc1WEElIG78tnIHWvqG0TAZrCFT08fAWRJRzJ6z/qH1bRvsAsU5T9whoix0F72pJPk+F977pA6rl
+	hrGXpj/ETvW12mcqLHq+RDoOydr70HIZFuZ/0J8Td8552KUxSgLGxY6aeRhpZBSxQxwxQ+Gm1tuzn
+	uZtTYjXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjj8-00000008XZS-2K5u;
-	Thu, 27 Feb 2025 19:39:22 +0000
-Received: from out-183.mta0.migadu.com ([91.218.175.183])
+	id 1tnjjB-00000008Xf6-0AZv;
+	Thu, 27 Feb 2025 19:39:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tngP4-000000080Iz-2N5S
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 16:06:28 +0000
-Message-ID: <542018d4-ded1-40c6-9a97-d3789877b771@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1740672380;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vlwRt4wQ2xFVKA1gnOfel5WpP6ziq3DqOeLOcmYMfaQ=;
-	b=f1xRBVY9kC5vW0Jmevz6TSCi6ihdzUm1YZh8shcQgPXA/5MQK77athpLb9tTS6JlCKbbo/
-	g/ZkYclMC3BONheB7zHH/CKYLOMheX2zqrMHh6J5w6F0OfVaDOi3qXwMqpPvLKYfvZMr9p
-	wtA9SMC8mz2efcjqOcd9uJqxRCQdR30=
-Date: Thu, 27 Feb 2025 16:06:17 +0000
+	id 1tngSr-000000081Hc-0CIa;
+	Thu, 27 Feb 2025 16:10:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9C1EC61548;
+	Thu, 27 Feb 2025 16:10:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 727BDC4CEE7;
+	Thu, 27 Feb 2025 16:10:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740672619;
+	bh=YCYZEqDU29mV/oNhQzvKUezViExGkTYP3v0Ttd1er+E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=j9jgtNv2TfNW57fbo62ipO3IfdMDTIdaY+Q2mzg4eQ8YdQsp0h/yXw3FkSA8Myfmi
+	 V6d7RW0ZzMYMlsAwg6z3dlyUaiIdZCwtyw3yLiD/au7CHcZTSMl9HP1Ager722NGzk
+	 B3jIc9TGXbZ3SgNkr1tU0bobTT1MwYTyQk+/ABjjOdbdnE4DzqNZOSQpaWJfNlPfii
+	 UheFk+CcWHIroX7zRZOT7vM/PoPJEJ8N0Gyw4ddK6rK2/xzLQ/IOwd+AyuppJeNWKG
+	 2h0UF/GQJLHjn1KsDMfHs96xZT2QERoEWPJ2TfanTIbmAa7dig1BdnJHPPKvmZfUd5
+	 NeNRRvg4anqOw==
+Date: Thu, 27 Feb 2025 16:10:14 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Colin Ian King <colin.i.king@gmail.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, kernel-janitors@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH][next] ASoC: mediatek: mt8188: Fix uninitialized variable
+ msk
+Message-ID: <7e26d6f8-a920-4933-9f27-52f08a975acf@sirena.org.uk>
+References: <20250226161847.567160-1-colin.i.king@gmail.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH net] net: ti: icss-iep: Reject perout generation request
-To: Meghana Malladi <m-malladi@ti.com>, vigneshr@ti.com,
- javier.carrasco.cruz@gmail.com, jacob.e.keller@intel.com,
- diogo.ivo@siemens.com, horms@kernel.org, richardcochran@gmail.com,
- pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
- davem@davemloft.net, andrew+netdev@lunn.ch
-Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, srk@ti.com,
- Roger Quadros <rogerq@kernel.org>, danishanwar@ti.com
-References: <20250227092441.1848419-1-m-malladi@ti.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
-In-Reply-To: <20250227092441.1848419-1-m-malladi@ti.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_080626_757372_0FEA4967 
-X-CRM114-Status: GOOD (  18.11  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="pWySIzzNsqHTGnmF"
+Content-Disposition: inline
+In-Reply-To: <20250226161847.567160-1-colin.i.king@gmail.com>
+X-Cookie: Swim at your own risk.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,63 +75,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/02/2025 09:24, Meghana Malladi wrote:
-> IEP driver supports both perout and pps signal generation
-> but perout feature is faulty with half-cooked support
-> due to some missing configuration. Remove perout
-> support from the driver and reject perout requests with
-> "not supported" error code.
-> 
-> Fixes: c1e0230eeaab2 ("net: ti: icss-iep: Add IEP driver")
-> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
-> ---
-> 
-> This patch is a bug fix to disable/remove a faulty feature, which will be
-> enabled separately as a feature addition to net-next, as suggested by
-> Jakub Kicinski and Jacob Keller:
-> https://lore.kernel.org/all/20250220172410.025b96d6@kernel.org/
-> 
->   drivers/net/ethernet/ti/icssg/icss_iep.c | 21 +--------------------
->   1 file changed, 1 insertion(+), 20 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.c b/drivers/net/ethernet/ti/icssg/icss_iep.c
-> index 768578c0d958..d59c1744840a 100644
-> --- a/drivers/net/ethernet/ti/icssg/icss_iep.c
-> +++ b/drivers/net/ethernet/ti/icssg/icss_iep.c
-> @@ -474,26 +474,7 @@ static int icss_iep_perout_enable_hw(struct icss_iep *iep,
->   static int icss_iep_perout_enable(struct icss_iep *iep,
->   				  struct ptp_perout_request *req, int on)
->   {
-> -	int ret = 0;
-> -
-> -	mutex_lock(&iep->ptp_clk_mutex);
-> -
-> -	if (iep->pps_enabled) {
-> -		ret = -EBUSY;
-> -		goto exit;
-> -	}
-> -
-> -	if (iep->perout_enabled == !!on)
-> -		goto exit;
-> -
-> -	ret = icss_iep_perout_enable_hw(iep, req, on);
-> -	if (!ret)
-> -		iep->perout_enabled = !!on;
-> -
-> -exit:
-> -	mutex_unlock(&iep->ptp_clk_mutex);
-> -
-> -	return ret;
-> +	return -EOPNOTSUPP;
->   }
->   
->   static void icss_iep_cap_cmp_work(struct work_struct *work)
-> 
-> base-commit: 29b036be1b0bfcfc958380d5931325997fddf08a
 
-LGTM. It maybe cleaner to remove PTP_CLK_REQ_PEROUT in
-icss_iep_ptp_enable as well, but if the idea is to bring the feature
-back, then it should be good enough.
+--pWySIzzNsqHTGnmF
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Reviewed-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+On Wed, Feb 26, 2025 at 04:18:47PM +0000, Colin Ian King wrote:
+> The variable msk not initialized and is being bit-wise or'd with values
+> in a for-loop, leading to an undefined result. Fix this by initializing
+> msk to zero before the for-loop.
+
+Arnd sent a version of this that picked up reviews from the Mediatek
+people so I applied that one, should be fixed in tomorrow's -next.
+
+--pWySIzzNsqHTGnmF
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmfAjmUACgkQJNaLcl1U
+h9Cs1Af+MSLOz0trHITEydA1HvWLS0Wo5bVckllFyYx804ML5J1ygfDeFai7jkCg
+xvv6G4/0iIDehHzjt6Dgx9QchR7zs1jYHqYB18VHczyC1FmDxAZqsJP8BiLdiZAc
+LmJqP7Ja/AKV38HZ7PRzNumF6+wleFdUFGSFUjTVPeQhY3gBBA6m+/yzt9OsBmnq
+vFaxQQO7gi0K1o/FGNtYrFVvd9M/daCguvavPfHWUFA4CRTc/sMKCEfmxPwTcqQl
+4Qy2pG9lptEg0Z2NWfDyk7eS9lXPZgMae4Ce9OXhQFR8UnLprTGz9xXoQjvGQ7qm
+UhKi612TSq9alxvM1gAim+feYjpyTg==
+=YEY3
+-----END PGP SIGNATURE-----
+
+--pWySIzzNsqHTGnmF--
 
