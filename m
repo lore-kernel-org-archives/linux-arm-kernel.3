@@ -4,72 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CBF6C282C8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4508DC282C5
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:37:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PgMRekuM6/wN27KKXDqw9MR6fLL7vwR1VpZwGH+P4Y8=; b=jETvxr6+ybRVsjXRG4ybLjr9CR
-	EwJI/kp36s+Z5HDyMV8YCbO294hTP3QlNbwqXWkezUvwtQ0/wHfOWiGZWVRHDka8xk746h+vuhIlg
-	5s3GdodjFJBZe1snAcX14SMpW5YKestEXZsLW5aqXco6nn6IWRQtNXKAdgJkQvP3YW0FVrgkIX4Ue
-	Xz4J3e2siRIcNK0ETfwEImSVqWo25ka4I9JRw7R7PeF+OaMng7nLr1wka5/MkIakx8MqXdOggOgqb
-	KDtPMFiLjPLSazZMDzyGMW2tlwyIBa5ehFFcg1cY5VqmTUAKoOS99RHWBrlSw83o8IPS7TcjKnRpv
-	TF21+sSA==;
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hXMzX7d145b6AtZkRBKLZBuN8t7mUmHOlSJMWDttmc0=; b=Vqp7SXFqjEcaSw0uF+Jagq4zPP
+	Fco4Bo5TBI0q6zSHgiycbNsIFmZVj5M2n1KMCnqnrTiz6ydkYeE4A/3R3KG6FzHQJcc0J3URheJ+9
+	gdUREI88yxXglAIYjx0ZpzCbkxFlSRgZoAUydUnKF4bE5QwL9A9937FN36A1twCz8ZXyGAycvy/aJ
+	raeYUC7yVyJBl2LoXglINYKmAn+DyojuHqMshPWFPsxxjndgRsciPisQKqJjz3K9Bb0d5V1nQRAb8
+	zFK5Q9teUN3mmUQoNyr1OGylwQysSLdueMUxBNSsv5xlEWwgVcVt8Y6maVGsMyGXu+Y94UYLzt/Lk
+	zxSElLyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjhL-00000008U79-08Ka;
-	Thu, 27 Feb 2025 19:37:31 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tnjgy-00000008Td8-3eOv;
+	Thu, 27 Feb 2025 19:37:08 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnfNM-00000007qiq-3NrO
+	id 1tnedv-00000007ftP-1VKR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 15:00:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=PgMRekuM6/wN27KKXDqw9MR6fLL7vwR1VpZwGH+P4Y8=; b=a9KJOkrzhoferwAPNCQyMPdkU2
-	qZq3mkWYyvs6Z4TJGj35fJVHCiby0eopRMzZYQ5xd0L6GlUXgF3/QPA/AOsBkurMLKePFqo0iHFLK
-	AlGAlRAPdSiZj5m+yHUBbsES7QgzC4r2bJWRb1u3BBTEWgDJmFIaG+xLeVwlj4uq51q+kNwyV7M2M
-	hvvLTPAUWPEK9XJIhQ7+N7rxB2Xao20o/RB+zNLhcu6qspur//+lo795Ax+Eml/Iu6IdgnV55xvp5
-	qqytsHGLIeT7+mWIjr5Z9FQ7vmG9AR/49sH9HCIfxFKxHUzsMhkIe6f6DRcz/cyq8++/4JGaST5wZ
-	xogKCMyg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54178)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tnfNH-0007Vv-0H;
-	Thu, 27 Feb 2025 15:00:31 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tnfNE-0008EE-31;
-	Thu, 27 Feb 2025 15:00:28 +0000
-Date: Thu, 27 Feb 2025 15:00:28 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Jon Hunter <jonathanh@nvidia.com>,
+	Thu, 27 Feb 2025 14:13:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8FB6C5C0622;
+	Thu, 27 Feb 2025 14:12:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C563C4CEE6;
+	Thu, 27 Feb 2025 14:13:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740665618;
+	bh=+WL4i4M70cixQtfVOqasrx2YZsATDRdbQJ50oP28uBg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=X0zwJItoqRhi7lEJY4Q2GanbVK3A1fJrvOSGFGQwK/JLVHGsVjp3UkJjExYZO0N9i
+	 f9BQr9/vf/pcmxccOqna+/XerooPb64600s5kshTujVP7UWT1RbbNtx2kkoPrIUOqg
+	 AaWhRhoyCZ+fU03cinWE9fAdUfnrTOxDu0z7QIGMy6fH+Jaa80mzzGPDBnCzmKc4OM
+	 VxvEi6JRPLrtebBE0OipCxip5XjXzbG4WHSnCW3dTNYtRhHNzG0rbxmVWG1ZAegHr/
+	 mXXq5iLD+no+l/lny1xAIO/zkxYcjYNf9K8jE38n8YoexZTFFNg19E5Jj8vuJr0Ms0
+	 fdQe4quJQRRVA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tnedr-008gqC-Mz;
+	Thu, 27 Feb 2025 14:13:35 +0000
+Date: Thu, 27 Feb 2025 14:13:34 +0000
+Message-ID: <861pvjqxv5.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Thierry Reding <treding@nvidia.com>
-Subject: [PATCH RFC 0/5] net: stmmac: fix setting RE and TE inappropriately
-Message-ID: <Z8B-DPGhuibIjiA7@shell.armlinux.org.uk>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+	oliver.upton@linux.dev,
+	mark.rutland@arm.com,
+	will@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	broonie@kernel.org,
+	qperret@google.com,
+	vdonnefort@google.com
+Subject: Re: [PATCH v2 4/4] KVM: arm64: Create each pKVM hyp vcpu after its corresponding host vcpu
+In-Reply-To: <CA+EHjTzPH_K1BUrNW9EkaFWj3qCdr4uwJS1pZhCYYfi2Uecu=Q@mail.gmail.com>
+References: <20250226215520.1759218-1-tabba@google.com>
+	<20250226215520.1759218-5-tabba@google.com>
+	<8634fzr3m1.wl-maz@kernel.org>
+	<CA+EHjTzPH_K1BUrNW9EkaFWj3qCdr4uwJS1pZhCYYfi2Uecu=Q@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, mark.rutland@arm.com, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com, vdonnefort@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_070036_842425_5A69B4A1 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20250227_061339_575404_E36EE98D 
+X-CRM114-Status: GOOD (  38.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,46 +96,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-Note: this series depends on "net: stmmac: fix resume failures due to
-RX clock".
+On Thu, 27 Feb 2025 12:47:16 +0000,
+Fuad Tabba <tabba@google.com> wrote:
+> 
+> Hi Marc,
+> 
+> On Thu, 27 Feb 2025 at 04:09, Marc Zyngier <maz@kernel.org> wrote:
+> >
+> > On Wed, 26 Feb 2025 21:55:20 +0000,
+> > Fuad Tabba <tabba@google.com> wrote:
+> > >
+> > > Instead of creating and initializing _all_ hyp vcpus in pKVM when
+> > > the first host vcpu runs for the first time, initialize _each_
+> > > hyp vcpu in conjunction with its corresponding host vcpu.
+> > >
+> > > Some of the host vcpu state (e.g., system registers and traps
+> > > values) is not initialized until the first time the host vcpu is
+> > > run. Therefore, initializing a hyp vcpu before its corresponding
+> > > host vcpu has run for the first time might not view the complete
+> > > host state of these vcpus.
+> > >
+> > > Additionally, this behavior is inline with non-protected modes.
+> > >
+> > > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > > ---
+> > >  arch/arm64/include/asm/kvm_host.h      |  2 +
+> > >  arch/arm64/include/asm/kvm_pkvm.h      |  1 +
+> > >  arch/arm64/kvm/arm.c                   |  4 ++
+> > >  arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  6 ---
+> > >  arch/arm64/kvm/hyp/nvhe/pkvm.c         | 54 +++++++++++++++-----------
+> > >  arch/arm64/kvm/pkvm.c                  | 28 ++++++-------
+> > >  6 files changed, 53 insertions(+), 42 deletions(-)
+> > >
+> > > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > > index 3a7ec98ef123..4a0e522f6001 100644
+> > > --- a/arch/arm64/include/asm/kvm_host.h
+> > > +++ b/arch/arm64/include/asm/kvm_host.h
+> > > @@ -869,6 +869,8 @@ struct kvm_vcpu_arch {
+> > >  #define VCPU_INITIALIZED     __vcpu_single_flag(cflags, BIT(0))
+> > >  /* SVE config completed */
+> > >  #define VCPU_SVE_FINALIZED   __vcpu_single_flag(cflags, BIT(1))
+> > > +/* pKVM VCPU setup completed */
+> > > +#define VCPU_PKVM_FINALIZED  __vcpu_single_flag(cflags, BIT(2))
+> > >
+> > >  /* Exception pending */
+> > >  #define PENDING_EXCEPTION    __vcpu_single_flag(iflags, BIT(0))
+> > > diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+> > > index eb65f12e81d9..abd693ce5b93 100644
+> > > --- a/arch/arm64/include/asm/kvm_pkvm.h
+> > > +++ b/arch/arm64/include/asm/kvm_pkvm.h
+> > > @@ -19,6 +19,7 @@
+> > >  int pkvm_init_host_vm(struct kvm *kvm);
+> > >  int pkvm_create_hyp_vm(struct kvm *kvm);
+> > >  void pkvm_destroy_hyp_vm(struct kvm *kvm);
+> > > +int pkvm_create_hyp_vcpu(struct kvm_vcpu *vcpu);
+> > >
+> > >  /*
+> > >   * This functions as an allow-list of protected VM capabilities.
+> > > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> > > index b8e55a441282..cd7a808eeb64 100644
+> > > --- a/arch/arm64/kvm/arm.c
+> > > +++ b/arch/arm64/kvm/arm.c
+> > > @@ -833,6 +833,10 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
+> > >               ret = pkvm_create_hyp_vm(kvm);
+> > >               if (ret)
+> > >                       return ret;
+> > > +
+> > > +             ret = pkvm_create_hyp_vcpu(vcpu);
+> > > +             if (ret)
+> > > +                     return ret;
+> > >       }
+> > >
+> > >       mutex_lock(&kvm->arch.config_lock);
+> > > diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> > > index e42bf68c8848..ce31d3b73603 100644
+> > > --- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> > > +++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> > > @@ -43,12 +43,6 @@ struct pkvm_hyp_vm {
+> > >       struct hyp_pool pool;
+> > >       hyp_spinlock_t lock;
+> > >
+> > > -     /*
+> > > -      * The number of vcpus initialized and ready to run.
+> > > -      * Modifying this is protected by 'vm_table_lock'.
+> > > -      */
+> > > -     unsigned int nr_vcpus;
+> > > -
+> > >       /* Array of the hyp vCPU structures for this VM. */
+> > >       struct pkvm_hyp_vcpu *vcpus[];
+> > >  };
+> > > diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > > index 6efb9bf56180..4ef3748dc660 100644
+> > > --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > > +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > > @@ -245,10 +245,12 @@ struct pkvm_hyp_vcpu *pkvm_load_hyp_vcpu(pkvm_handle_t handle,
+> > >
+> > >       hyp_spin_lock(&vm_table_lock);
+> > >       hyp_vm = get_vm_by_handle(handle);
+> > > -     if (!hyp_vm || hyp_vm->nr_vcpus <= vcpu_idx)
+> > > +     if (!hyp_vm || hyp_vm->kvm.created_vcpus <= vcpu_idx)
+> >
+> > Why is it reasonable to trust kvm.created_vcpus here? It looks like
+> > something that is under direct control of the host, and that could be
+> > arbitrarily changed to allow dereferencing the vcpus[] array past its
+> > actual boundaries.
+> >
+> > What guarantees that it is stable at load-time?
+> >
+> > I have similar misgivings about the init and teardown paths.
+> 
+> This is the hypervisor's view of created_vcpus
+> (hyp_vm->kvm.created_vcpus), i.e., not the host's (not
+> host_kvm->created_vcpus). We read it once from the host at
+> __pkvm_init_vm(). We should know that it wouldn't overflow the vcpus
+> array since it's the value of created_vcpus (nr_vcpus) we use when we
+> calculate the vm_size in __pkvm_init_vm(), and try to map the
+> corresponding amount of donated memory for the hyp_vm (all in
+> __pkvm_init_vm()).
+> 
+> Since it's all hyp values, it should be fine, right?
 
-This series addresses inappropriate setting of the receive and transmit
-enables in the GMAC control register.
+Ah, I got confused between the host_kvm and kvm fields. Apologies for
+the noise, this looks fine indeed.
 
-The databook is clear for the receive enable, that this should not be
-set until the initialisation of the MAC and DMA has been completed.
-The previous RFC patch series ("net: stmmac: fix resume failures due to
-RX clock") which moves phylink_resume() solves that, but we are left
-with these enables being set when the link is down. This is not correct.
-
-Sadly, when XDP support was added, new calls to netif_carrier_on() and
-netif_carrier_off() were added, which are incorrect in drivers that
-make use of phylink - by doing so, the driver has no guarantee that
-the .mac_link_up() and .mac_link_down() methods will be called in
-sequence anymore.
-
-Solving this requires a number of changes. First, fixing XDP to call
-into phylink to bring the link down. This removes a source of
-phylink method de-sync mentioned above.
-
-Then we remove the racy teardown in the driver's remove method -
-nothing should be torn down while userspace still has access to the
-netdev.
-
-Then we remove an unnecessary call to disable the enable bits in
-the .ndo_stop() method.
-
-Finally, we remove manipulation of the RE and TE bits from the
-start_tx(), stop_tx(), start_rx() and stop_rx() methods.
-
- drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c   |  8 --------
- drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c | 12 ------------
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 22 ++++++----------------
- 3 files changed, 6 insertions(+), 36 deletions(-)
+	M.
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Without deviation from the norm, progress is not possible.
 
