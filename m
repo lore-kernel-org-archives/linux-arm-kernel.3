@@ -4,76 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AD61C19F2E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 13:45:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D708C19F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 13:47:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xM2HHa44z/uki5r/XsN4Skql5oqMCUJnloS/h7yO+wo=; b=kbfq9bRA268AOdxt7/nINB3BA0
-	gouCSOOrOr9IDADmV+8vjVDcrUG3uLenrNcOxnUpye5tOA0BwoTVz/vUjcw88hirur3TO63KJHaFk
-	0/2FJYZUQiQOqcID4Zgf8n7yqe+PoSg0yk6UldaMOcKW7A3eQf/9j4cHHBUN+wSSEGVi32jiwHQ6j
-	r9tXGFcV441O9pT/h6/ZGepaWoVQzB3ayUyPyoYK81ujmtZr8MDn88pGTp/3cxC9no+HAjN+nrKCP
-	UnvC/EGxUgTdRZyPjWm22ty74hjgs5kmJWnxNgkRL/5mTENuhfIyEmOuc1u0VDM3EOVnuqeejNzgn
-	jFe366Hg==;
+	bh=meVcx23r/r7Dytz72YqeRZuHInvAetvSfHOgo60wpy0=; b=oKfpyzK53LNMTzL0LY/qcP1Wnq
+	VpdgR1TOmgQPnZcGZnqPlS3NdewV1X1CMaxkNwgZHAWs2u5MrXn2Ph/d+TLSirGD45fNYddiJw2l4
+	xz/2V55KJthkuWHSZZ+UnnHCjUtVA+/O2mdfTBhZWB0X4+MDez1AfVzRcSEIkzGr550MO04APnmmg
+	aDRj1BP4tH83vW5t+lm4dD5AKgJP9E+TsCf7gjzAF8JHBZBf26kc+yl94klyFVrtfzb6/ci4yRreP
+	O1Tg7sEbh+iI8F1atFhmgDznNKfdG4IdV1q70mm4BhP1qqMnISp0yJWGGt6CoXPyOgXUdFMCfPUUR
+	wKPQicXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tneCd-00000007aSy-1sdH;
-	Thu, 27 Feb 2025 13:45:27 +0000
+	id 1tneE9-00000007alA-0NcU;
+	Thu, 27 Feb 2025 13:47:01 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tne5t-00000007Yq8-3EFB;
-	Thu, 27 Feb 2025 13:38:30 +0000
+	id 1tne6E-00000007YtG-3wXS;
+	Thu, 27 Feb 2025 13:38:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
 	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=xM2HHa44z/uki5r/XsN4Skql5oqMCUJnloS/h7yO+wo=; b=HPp+4I/XmV10tmTEqe+vSHO4Tp
-	ovIKFdNQLJxv6we0V7bj5VN1W3sLawocwFpQhBUoGba7W0m3Aaz2mjbnXehXJQ9u5U6V+1amJkm0A
-	KDSwDp0eQmqSLsfyrLxm1iCQ4G7WS2DeqywTzVqL7XCAwejqNAUMh6SR7VMdC47iy3VgYJ9Vl73Oh
-	mg2mHkcSjSXWO3NeH19wmEHAXbuLou6V0BbsSD8gtEF4a9MswAK+doGnoICisvZNuyXmdZxEz4qWi
-	TOBfoRWjCU0CDgFOZONWo2sksyJDo1bGDK+r7GQEvJUi90hiyqH6zXZkHPh5vQvZxK/bSVylCpVPm
-	DvUniP9Q==;
+	bh=meVcx23r/r7Dytz72YqeRZuHInvAetvSfHOgo60wpy0=; b=GFEjVF6ZyupV+W2QCWTF/Utl7O
+	OgQTRNZSJUwppxQptsnxIyzoPnuntHdT7WgyzUD4CkcAl6USJGFTmLpdZ/tz74XVbyfjBeK5PVB8y
+	0hNKQaRQzJYxypYzSM1xgSOFhfX6CZ+UuUetDCtXpKz8ueb+DuvP2mWQfsRLeJ4cLM0HJAwZ4PiJ4
+	vUooOewyVgpD4ivZJyI6I3cOiMjwSKjWewiRIcb7U5FZAVqdfbNMsOtwjayDkOg4dkM0TcJ3g9tSv
+	pEc7yNRYplHFBKsFXE5hpDqZLN08+/MRsbFu1tFadAfS91BTShdk8v1jVlLuE76cWtgaWbmdgPtBB
+	2JN7VILA==;
 Received: from i53875b47.versanet.de ([83.135.91.71] helo=localhost.localdomain)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1tne5X-00018T-Ix; Thu, 27 Feb 2025 14:38:07 +0100
+	id 1tne5Y-00018T-RH; Thu, 27 Feb 2025 14:38:08 +0100
 From: Heiko Stuebner <heiko@sntech.de>
-To: Sandy Huang <hjc@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
+To: linux-kernel@vger.kernel.org,
+	Detlev Casanova <detlev.casanova@collabora.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Maxime Ripard <mripard@kernel.org>,
 	Thomas Zimmermann <tzimmermann@suse.de>,
 	David Airlie <airlied@gmail.com>,
 	Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	kernel@collabora.com,
-	dri-devel@lists.freedesktop.org,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Alexey Charkov <alchark@gmail.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Niklas Cassel <cassel@kernel.org>,
+	Dragan Simic <dsimic@manjaro.org>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Johan Jonker <jbx6244@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Algea Cao <algea.cao@rock-chips.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Sugar Zhang <sugar.zhang@rock-chips.com>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: (subset) [PATCH v2 0/5] Improve Rockchip VOP2 display modes handling on RK3588 HDMI1
-Date: Thu, 27 Feb 2025 14:37:51 +0100
-Message-ID: <174066344868.4164500.9088227108064466339.b4-ty@sntech.de>
+	dri-devel@lists.freedesktop.org,
+	kernel@collabora.com
+Subject: Re: (subset) [PATCH v7 0/3] Add HDMI audio on the rk3588 SoC
+Date: Thu, 27 Feb 2025 14:37:52 +0100
+Message-ID: <174066344874.4164500.18360075305644085277.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250223-vop2-hdmi1-disp-modes-v2-0-f4cec5e06fbe@collabora.com>
-References: <20250223-vop2-hdmi1-disp-modes-v2-0-f4cec5e06fbe@collabora.com>
+In-Reply-To: <20250217215641.372723-1-detlev.casanova@collabora.com>
+References: <20250217215641.372723-1-detlev.casanova@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_053829_807106_A99B83A5 
-X-CRM114-Status: GOOD (  13.64  )
+X-CRM114-CacheID: sfid-20250227_053851_002064_A69A2F94 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,28 +105,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 23 Feb 2025 11:31:36 +0200, Cristian Ciocaltea wrote:
-> As a followup to getting basic HDMI1 output support [1] merged upstream,
-> make use of the HDMI1 PHY PLL to provide better VOP2 display modes
-> handling for the second HDMI output port on RK3588 SoC, similarly to
-> what has been achieved recently for HDMI0 [2].
+On Mon, 17 Feb 2025 16:47:39 -0500, Detlev Casanova wrote:
+> To support HDMI audio on the rk3588 based devices, the generic HDMI
+> Codec framework is used in the dw-hdmi-qp DRM bridge driver.
 > 
-> Please note Heiko's fix [3] in of_clk_get_hw_from_clkspec() is also
-> required for boards that do not provide HDMI0 output, that is to ensure
-> devm_clk_get_optional() returns NULL instead of ERR_PTR(-EPROBE_DEFER),
-> which otherwise would put rockchip-drm module in a permanent deferred
-> probe mode.
+> The implementation is mainly based on the downstream driver, ported to the
+> generic HDMI Codec framework [1] recently merged in the master branch.
+> The parameters computation has been kept as is and the data stored in the
+> dw_hdmi_qp struct as been cleaned up.
 > 
 > [...]
 
 Applied, thanks!
 
-[3/5] arm64: dts: rockchip: Enable HDMI1 PHY clk provider on RK3588
-      commit: aadaa27956e3430217d9e6b8af5880e39b05b961
-[4/5] arm64: dts: rockchip: Add HDMI1 PHY PLL clock source to VOP2 on RK3588
-      commit: b2e668a60ed866ba960acb5310d1fb6bf81d154f
-[5/5] arm64: dts: rockchip: Enable HDMI1 on rk3588-evb1
-      commit: 5c2d6181ae830e02856c603b8c08e80e9d419874
+[2/3] arm64: dts: rockchip: Add HDMI audio outputs for rk3588 SoC
+      commit: b8c6c136971c0e9750eec89f367529b2854d3a3c
+[3/3] arm64: dts: rockchip: Enable HDMI audio outputs for Rock 5B
+      commit: 97aa62ed1e970bf8aa9f57e87c946a95fa3d5bef
 
 Best regards,
 -- 
