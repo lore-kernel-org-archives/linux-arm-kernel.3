@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3C42C197BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:40:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6E22C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:40:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PKmkyZsvoEXQ3oHPek2RaKdUe/+800h3uZ080lhDXM0=; b=0xnyh+GF0vxTi/PYE94xsVvHI0
-	wbAdJ5/HM41PbPN8F3H7DUZxe6HIjZ3wf9p/Rl0ewAEX+bfipYkfG3z/0u5I/gW1ywgubkTpioJms
-	fJfQGBLT6fATWGtaFRFjfP6umkW7+GGJBpC0nyV7jy8FYQesiM2yF+f521xmI7d3hlBRPbHycU+o+
-	GdPe8l1ksSdTGFPYhclG7SLksBfJE9fSQ94ftvK5xgXKEAsB965E3Lhv2zO9Un/pdwdtetmSj9dKk
-	hDWmc7WZ3wlMEqLFh13dTX51fYtAjDxTwtqHrCyh8g3yvMeC1ezmBh+aG7tj+sAn0FMeEvcdsKBbn
-	D2b06qKg==;
+	bh=dLRiMt6/Dpy2Jty4UVTf/yvA7e/j44jHTgLx5ffQrLk=; b=HhTrJMMK9ND9sG4lwLjwbzv848
+	mxDp4H1Dt71Ss+/ob3CHB/rskwK+jAKB3aoELE70pjnIOVyjDuI0gRoqXUTXEdMnfbPkyYZnUpM8i
+	WxDR/kRcHb4wQXWEHackVrzHP4seuwbWi2q0l7iCAg8kiGGtVBhgN5fqs3NmJh6XuxmYJFZhCRLhI
+	WpT4oNALYjXd+sEryrHb/Psq3zC0HrLXIV5rp/0hUpmNVUDOo0axt2isnmQvyygtB1lrsenWZPrpL
+	Qz/kzAWAKO0EdVvhFIUhNN+Y6aSYqrUyb1I2/t/sviMKKUwI8VJIYQcli7nU9427oDaIW1beD+Fpv
+	8HTa3r4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjju-00000008ZAs-1UVD;
-	Thu, 27 Feb 2025 19:40:10 +0000
+	id 1tnjjy-00000008ZIg-0kGT;
+	Thu, 27 Feb 2025 19:40:14 +0000
 Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnhFq-000000089nC-1qj4
+	id 1tnhFs-000000089nl-1Rr6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 17:00:59 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 45D76103801B9;
-	Thu, 27 Feb 2025 18:00:55 +0100 (CET)
+	Thu, 27 Feb 2025 17:01:01 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 19ACC10375A1E;
+	Thu, 27 Feb 2025 18:00:57 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1740675656;
+	t=1740675658;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=PKmkyZsvoEXQ3oHPek2RaKdUe/+800h3uZ080lhDXM0=;
-	b=IuhA8IB8s4QYIMIERpFZTKD8rXnESB1uTfOseZ/4mAt2ieHPTA2t82movTel8DiWMXpFTT
-	W9nSQCFv2WncvpaCpbxjuS6eZnt/IbKWn58TGA65MPL12ply6YE1kbheYeRAN3v+XXSFyE
-	Rg4E01AN3qKwj4wjuGcG8HWQlf+r+DMNcjVmryR7ezdEZAs6NmJIVGWpaglh2WA4N8vLLB
-	C1h7QhHNORYFS10iUH0NUJjnDJIFDUEsanHCXd4Ber1CogYwyBnpkInBNnnhd4AtCdYDPk
-	xhD21PwyI+I3jWIZaqkr8NifIY8ziPxCXDGEv/TLYqsziqWP/huHIELpXsJjgQ==
+	bh=dLRiMt6/Dpy2Jty4UVTf/yvA7e/j44jHTgLx5ffQrLk=;
+	b=ODvEJVWIhWmh+IobAVZwz92gr/HgIwjafRAW0V3ehEqsbQUOr8VqAzwPsDu2OOFd38Z/YT
+	/wk0C7uAVnPyhMroKz0MWro3S9ixeeI2xnoEY24vjN5zYyXWxNnOgyIqABdJF2aJzPLsss
+	GG3m1Rd+Zl7k9oUaNlQ3EXbMv0fdx6JaKbDXuC6nXa/Y5IOM2bvBu72UaRv6E/VkLteRIM
+	SK3OCq+ZqoCaZj7dX+2s6osBzXmB8XJaqIu6jY+Haz/muhMDPTFLDvFUreBNOdlhc/Nn2U
+	ICc84CI6rDTYs9nrjDEa6sJfB1LYz527IAMr52Jwa0uLyZjm5lLrG7ZWkbB46Q==
 From: Marek Vasut <marex@denx.de>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marex@denx.de>,
@@ -64,9 +64,9 @@ Cc: Marek Vasut <marex@denx.de>,
 	devicetree@vger.kernel.org,
 	dri-devel@lists.freedesktop.org,
 	imx@lists.linux.dev
-Subject: [PATCH 7/9] dt-bindings: gpu: mali-valhall-csf: Document i.MX95 support
-Date: Thu, 27 Feb 2025 17:58:07 +0100
-Message-ID: <20250227170012.124768-8-marex@denx.de>
+Subject: [PATCH 8/9] drm/panthor: Add i.MX95 support
+Date: Thu, 27 Feb 2025 17:58:08 +0100
+Message-ID: <20250227170012.124768-9-marex@denx.de>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20250227170012.124768-1-marex@denx.de>
 References: <20250227170012.124768-1-marex@denx.de>
@@ -74,8 +74,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_090058_618032_E4257D1B 
-X-CRM114-Status: GOOD (  10.02  )
+X-CRM114-CacheID: sfid-20250227_090100_522438_83BD99A5 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,7 +91,7 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 The instance of the GPU populated in Freescale i.MX95 is the
-Mali G310, document support for this variant.
+Mali G310, add support for this variant.
 
 Signed-off-by: Marek Vasut <marex@denx.de>
 ---
@@ -117,21 +117,34 @@ Cc: dri-devel@lists.freedesktop.org
 Cc: imx@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org
 ---
- Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/gpu/drm/panthor/panthor_drv.c | 1 +
+ drivers/gpu/drm/panthor/panthor_gpu.c | 1 +
+ 2 files changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-index 0efa06822a543..3ab62bd424e41 100644
---- a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-+++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-@@ -18,6 +18,7 @@ properties:
-     oneOf:
-       - items:
-           - enum:
-+              - fsl,imx95-mali            # G310
-               - rockchip,rk3588-mali
-           - const: arm,mali-valhall-csf   # Mali Valhall GPU model/revision is fully discoverable
+diff --git a/drivers/gpu/drm/panthor/panthor_drv.c b/drivers/gpu/drm/panthor/panthor_drv.c
+index 06fe46e320738..2504a456d45c4 100644
+--- a/drivers/gpu/drm/panthor/panthor_drv.c
++++ b/drivers/gpu/drm/panthor/panthor_drv.c
+@@ -1591,6 +1591,7 @@ static struct attribute *panthor_attrs[] = {
+ ATTRIBUTE_GROUPS(panthor);
  
+ static const struct of_device_id dt_match[] = {
++	{ .compatible = "fsl,imx95-mali" },	/* G310 */
+ 	{ .compatible = "rockchip,rk3588-mali" },
+ 	{ .compatible = "arm,mali-valhall-csf" },
+ 	{}
+diff --git a/drivers/gpu/drm/panthor/panthor_gpu.c b/drivers/gpu/drm/panthor/panthor_gpu.c
+index 0f07ef7d9aea7..2371ab8e50627 100644
+--- a/drivers/gpu/drm/panthor/panthor_gpu.c
++++ b/drivers/gpu/drm/panthor/panthor_gpu.c
+@@ -67,6 +67,7 @@ struct panthor_model {
+ }
+ 
+ static const struct panthor_model gpu_models[] = {
++	GPU_MODEL(g310, 0, 0),	/* NXP i.MX95 */
+ 	GPU_MODEL(g610, 10, 7),
+ 	{},
+ };
 -- 
 2.47.2
 
