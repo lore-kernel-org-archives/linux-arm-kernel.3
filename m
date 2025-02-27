@@ -4,92 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E45C0C021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 11:01:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0673C021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 11:03:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PiGv4eKvzFP8GKMacfTTM7wI8HoQk+tFnB/wXXe8oC8=; b=JChMQcFUk99+iRTm3m4UerB0tH
-	F3yaWlHTwplHglbCHuSHlkRTfWadM2e1xvGvn8A2EoextwDXU7mwqfo/5MoD0CcaS/txhncY1ENxN
-	Tw1GoOUqsKnhqTiabbd0s8eFd4fT2X446rdvBcZ0xSNkDwTFuO1EMWCQLa6DGMuCqS72Rd2enhe1W
-	26OzQjbGR9AB1bcPN60caG2/MDMZ1nWzGoaB4es9rq35vk7whWUsk693KYP5p4GwlunTauoyNLcPc
-	gNn5v0yRouY+roN30egym7Fs0nq0z6v1K6QKyLg+k72PN4VzVSeEu0yUKUL6RNJnrOElX4Pmr2BWa
-	N57j/4jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h+Nv/i3AGjRTsrY90yJrW/7RqYiOCVlJKwcvrzl0CdU=; b=F1njYI9cURQtbi2AUcuUTkYAAw
+	00QTbV+KIlW5h3viFGzlp4CFcICrVRN6tNCKNOKm+IY4nf4kwIgxfS6a11HMRjVXXb3/sXpqyvr00
+	54nYpmRzBymQMNrF/JITLKEsEdz51gbfcpte+kQpIuVor685ClBB2Z8d4nSh9FP9vtvAKAcj0yxCl
+	kZSVFDynOtOIUnwh0+7a5TN7aIsqONgM/qh0HlX7Tqe0G4WhBEOmG2Xx55XjmknauUuQIPrcOZDoi
+	39FfnBFUMnkmPepVtoZIUl3epx07yvgSyk8oun/H9p7QJWPkyjgWo8buaARrlcGg7hljmZeZ1gPW5
+	5Eu4cU4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnbeG-000000074wN-0Ips;
-	Thu, 27 Feb 2025 11:01:48 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tnbfm-0000000756T-0lTX;
+	Thu, 27 Feb 2025 11:03:22 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnbYx-000000073lT-1VWa;
-	Thu, 27 Feb 2025 10:56:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=PiGv4eKvzFP8GKMacfTTM7wI8HoQk+tFnB/wXXe8oC8=; b=HUfv/1krv0CyQhz1z4QDZFRZsv
-	Ew44NpgikJfUrQxB7Vc9O1guk+n0kGcoRVa3acgN5p4v7hrCMY4/+ExEqYKbjsInQnS2MEgy9SbDN
-	vvtcJZ/t9l9TeDcTFOdoMLxj+G4kfePEb4mjrm5yjzhTCPGVo3aqHLqj05FzGtZZKxITpaA+RcdzU
-	Ja7FlvKQV5aYI1OgyS9nYWgYNp3ligoqMqnKyX0VtRehMtrO5VBaMxJUEcIquKyDIy1qs5ndZRvsA
-	Itcz9Rl9q0cJAwZ5CIQU7c0F+8DFBBZq3VDzB+cksbXm3HPO4WTxQfWzvKW5Nql2qg2UzdCwHOLhr
-	+ckAx6zQ==;
-Received: from i53875b47.versanet.de ([83.135.91.71] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tnbY9-00008f-Av; Thu, 27 Feb 2025 11:55:29 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: linux-kernel@vger.kernel.org,
-	Detlev Casanova <detlev.casanova@collabora.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Alexey Charkov <alchark@gmail.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Niklas Cassel <cassel@kernel.org>,
-	Dragan Simic <dsimic@manjaro.org>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Johan Jonker <jbx6244@gmail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Algea Cao <algea.cao@rock-chips.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Sugar Zhang <sugar.zhang@rock-chips.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	kernel@collabora.com
-Subject: Re: (subset) [PATCH v7 0/3] Add HDMI audio on the rk3588 SoC
-Date: Thu, 27 Feb 2025 11:55:16 +0100
-Message-ID: <174065370894.4124124.10616312809882779303.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250217215641.372723-1-detlev.casanova@collabora.com>
-References: <20250217215641.372723-1-detlev.casanova@collabora.com>
+	id 1tnbag-000000074Au-1Hub
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Feb 2025 10:58:08 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1tnbaV-0008AV-Km; Thu, 27 Feb 2025 11:57:55 +0100
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1tnbaV-0036wT-18;
+	Thu, 27 Feb 2025 11:57:55 +0100
+Received: from pengutronix.de (p5b164285.dip0.t-ipconnect.de [91.22.66.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id DA0BA3CD463;
+	Thu, 27 Feb 2025 10:57:54 +0000 (UTC)
+Date: Thu, 27 Feb 2025 11:57:54 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Mihalcea Laurentiu <laurentiumihalcea111@gmail.com>
+Cc: Frank Li <Frank.li@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>, 
+	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	Fabio Estevam <festevam@gmail.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Shengjiu Wang <shengjiu.wang@nxp.com>, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 4/5] arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
+Message-ID: <20250227-monumental-whale-of-security-b1c84e-mkl@pengutronix.de>
+References: <20250221191909.31874-1-laurentiumihalcea111@gmail.com>
+ <20250221191909.31874-5-laurentiumihalcea111@gmail.com>
+ <Z7jahtO3bxjkMfnc@lizhi-Precision-Tower-5810>
+ <cd6a84cd-ff17-45df-becc-9bfc74522f73@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="khvk74ne4kfr3emu"
+Content-Disposition: inline
+In-Reply-To: <cd6a84cd-ff17-45df-becc-9bfc74522f73@gmail.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_025619_394582_4A45FD36 
-X-CRM114-Status: GOOD (  13.62  )
+X-CRM114-CacheID: sfid-20250227_025806_344829_4A19F632 
+X-CRM114-Status: GOOD (  28.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,23 +88,101 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 17 Feb 2025 16:47:39 -0500, Detlev Casanova wrote:
-> To support HDMI audio on the rk3588 based devices, the generic HDMI
-> Codec framework is used in the dw-hdmi-qp DRM bridge driver.
-> 
-> The implementation is mainly based on the downstream driver, ported to the
-> generic HDMI Codec framework [1] recently merged in the master branch.
-> The parameters computation has been kept as is and the data stored in the
-> dw_hdmi_qp struct as been cleaned up.
-> 
-> [...]
+--khvk74ne4kfr3emu
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 4/5] arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
+MIME-Version: 1.0
 
-Applied, thanks!
+On 25.02.2025 16:14:34, Mihalcea Laurentiu wrote:
+>=20
+> On 21.02.2025 21:56, Frank Li wrote:
+> > On Fri, Feb 21, 2025 at 02:19:08PM -0500, Laurentiu Mihalcea wrote:
+> >> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> >>
+> >> AIPS5 is actually AIPSTZ5 as it offers some security-related
+> >> configurations. Since these configurations need to be applied before
+> >> accessing any of the peripherals on the bus, it's better to make AIPST=
+Z5
+> >> be their parent instead of keeping AIPS5 and adding a child node for
+> >> AIPSTZ5. Also, because of the security configurations, the address spa=
+ce
+> >> of the bus has to be changed to that of the configuration registers.
+> > The orginal 0x30c0_0000..0x31200000 include 0x30df0000, why not map only
+> > config address part in your drivers.
+> >
+> > Frank
+>=20
+>=20
+> Any concerns/anything wrong with current approach?
+>=20
+>=20
+> I find it a bit awkward to have the whole bus address space
+> in the DT given that we're only interested in using the access
+> controller register space.
+>=20
+>=20
+> I'm fine with the approach you suggested but I don't see a
+> reason for using it?
 
-[1/3] drm/bridge: synopsys: Add audio support for dw-hdmi-qp
-      commit: fd0141d1a8a2a26675ee88df75615c05a55044de
+Looking at the "AIPS5 Memory Map" (page 34/35 in i.MX 8M Plus
+Applications Processor Reference Manual, Rev. 3, 08/2024), the
+AIPS5_Configuration is part of the AIPS5 bus. IMHO the bus is something
+different than the bus configuration. Why not model it as part of the
+bus?
 
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+> >> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/bo=
+ot/dts/freescale/imx8mp.dtsi
+> >> index e0d3b8cba221..a1d9b834d2da 100644
+> >> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> >> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> >> @@ -1399,11 +1399,13 @@ eqos: ethernet@30bf0000 {
+> >>  			};
+> >>  		};
+> >>
+> >> -		aips5: bus@30c00000 {
+> >> -			compatible =3D "fsl,aips-bus", "simple-bus";
+> >> -			reg =3D <0x30c00000 0x400000>;
+> >> +		aips5: bus@30df0000 {
+                       ^^^^^^^^^^^^
+> >> +			compatible =3D "fsl,imx8mp-aipstz", "simple-bus";
+> >> +			reg =3D <0x30df0000 0x10000>;
+> >> +			power-domains =3D <&pgc_audio>;
+> >>  			#address-cells =3D <1>;
+> >>  			#size-cells =3D <1>;
+> >> +			#access-controller-cells =3D <0>;
+> >>  			ranges;
+> >>
+> >>  			spba-bus@30c00000 {
+                        ^^^^^^^^^^^^^^^^^
+
+This looks very strange: The aips5 bus starts at 0x30df0000 and has a
+child bus starting at 0x30c00000?
+
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--khvk74ne4kfr3emu
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmfARS8ACgkQDHRl3/mQ
+kZy1eAf+NIqSit01hbOk1TNt3Hmnml2DOG0v3yFMt3q0JGMriHkU9Rfgf+J6HLQF
++7ZiOn+KkncBW72Or3hAO4/BjlQoHwaf7ds4d+INbRY9JZxlqc1HovkScesRV+Gi
+ce/CK0cz7sG02xqvFf4D08p3GaC5Do6oGtXmlOt8Mi45HC3ulKLnri/In9ZnfGXb
+HZQr89ukWg67YwLxVd+wwIQzoGPH/qWZAhe+f6lfB8SGd1Jcp+vLoFLBJ2LctquC
+wShPsn0p+dzhjANxj8yNc3uIncdU5yToRwWTTjodk6xQez9Duc+JZplVPMx6ptoJ
+W1mmqIcEGNHve3tu7qHKeKwmrpiH+w==
+=8kNX
+-----END PGP SIGNATURE-----
+
+--khvk74ne4kfr3emu--
 
