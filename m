@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBF30C197BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:42:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AFC1C197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:42:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fv4f4paK6utMxGVLBPvw8fcn9CW6EObNKlJ/GybX54A=; b=4kPFxbxbGOyiSccBag7tnwX0nW
-	YLOKZkJEsN1aqzwZOGxAIwc8pZ2I+6a4HmmgFwLOTPTuiHe9SO6qeJ/kM2AHop17HFgohVUrA6AMV
-	00ES38SBjyeULXbTmmCzAHvLoF+jU/k+bbW5ckngn00Pck+GBojgEaFQT1QbPy/YD4ilnA/T9sp3F
-	fsvaj9UmVsm2GkVvKfIb8h/m2DdRTlOdeI+BcXhPYTEV4oHatRQAwJTejm2NY+snRJjZrUObteITe
-	zN1LrUbe/qBKLeJUMFepviK6WStKW8XwtROx0DfLDyRqFMnsNeerLq4T94nDNzmoSBehBXAQN5Rgc
-	X8PLHHOQ==;
+	bh=1lj8uuu7iWZsAclpHD2qzdXk8KQojj805ab43KuXmCc=; b=lt2Leek03slxrMMjf+6WWCf5NU
+	77qmrWs4rW7Zl96gZjj+xReOVuLh6axjptzdjLxq1rL/8UcB7a+X3ltg1gyAoD23u+13awmbHyTzz
+	GB4HzKY4DPuDT09CLE467UoNb7VpuTcrB0TVTC7Lhj0CFTHvfL3aBmnrOS923+wJGIrEaJRX7YEfd
+	Wo6M8E7vLN3Da6F6F7uxo+4f85nAVk1WtEfgN2pXiaKjHBmoETQfV5En64J2mDznqzb0XxzcmBRUH
+	sWM3ESdAaBMcsJCqD7kbslL/xuyC9UkD6fMYg9AD9M5xK7OyLaUONKj8PL6656JW9CU9beJdfspzu
+	KrHFzzvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjlz-00000008cha-1wkJ;
-	Thu, 27 Feb 2025 19:42:19 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1tnjm0-00000008cje-2tEn;
+	Thu, 27 Feb 2025 19:42:20 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tniSN-00000008JCB-0fdA
+	id 1tniSO-00000008JCQ-3DRX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 18:18:00 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43947a0919aso11592015e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 10:17:57 -0800 (PST)
+	Thu, 27 Feb 2025 18:18:01 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-43ab456333aso11441495e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 10:17:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740680276; x=1741285076; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1740680278; x=1741285078; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Fv4f4paK6utMxGVLBPvw8fcn9CW6EObNKlJ/GybX54A=;
-        b=P199Z5EPIgYzuYAz1j7MRX+QHRgSI8PR6CL3uDULzMqKi7cNcE3dODeipsOB8tox/2
-         kOAM+biwKK5NshBhVM6t/dODQbiU8tTD1yf4fompoFsKNZMTXKAq1UCiRislgYeoLupV
-         6ZOxWSbCGa/TOv6tAfIvEAnaJJFvley+qWcrQALcnduZ4ym3BdXysanlbg9uRgvD+dwp
-         WNFIv8fpM/o1Wi4GYZt6pgAR7gktXamiQc56zEhnH8srBiBPKo+ID1zyzIY2mdI2DDfM
-         Ks8LRLZHe8qLHcGBMeyvbF4fGA/Zmn5XCXW/asbZ1QUUJUpKw+qtb/oSp37ihul50QbO
-         qIaA==
+        bh=1lj8uuu7iWZsAclpHD2qzdXk8KQojj805ab43KuXmCc=;
+        b=dR+Jnrp1kdkmpLZoJJf6+HcVSByK5Sj4Xs11ESwKE4J+xnXorLAi0rOICIY8oeaaTd
+         88rZPutVt+zYn6kQV9YC+ebxzd2FQ9Y6XFeE2w1/z3wlYZ7WQoUoGPbg85Yiz7TswQ63
+         rilMH7oYfvl7uuFkDSUD71YrdZ5k2fo1nHYkOr3JrsUXWwsJDWB2bitHneaqbiAviEiK
+         J9a1yR7COq83SiaszfVVgpESmO85IIxepNnpXsDDgDLCJmtPshxxfmRhJgSyvaZwYepO
+         5QLdPxGEUiStRjGFITUsTm7kIsJ3v9ytWGhLHSgFJg6Xk3rnZ32r+t81cdvtkv6rbpEI
+         ZGFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740680276; x=1741285076;
+        d=1e100.net; s=20230601; t=1740680278; x=1741285078;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Fv4f4paK6utMxGVLBPvw8fcn9CW6EObNKlJ/GybX54A=;
-        b=ZdSzdn+w9Eev8P1aDvr6NiyJ9GWcqrzT5u864IB8XjLWREiEXMotQUS/mnt74iPLbq
-         PHwQLpk3wk9y/fA3aKauFwYS0Maz9qG2vsZJ+zqxTSRgT6z/460f+jIQgRW5RzxHcq9g
-         IzyX2HyFoOmPtxL9CVcO90VxdVtcGKEA6H2axvwR9xW6WzTXAE1mLYjNQ0B+dzCGPI2A
-         DzWWwaTgmrl+UjxHYCCksvEUYjXPz8ceWIdSLFK+kYoZ6P3UsQMWXdVThigZmgBUIC50
-         SJ/NrLyYWfOcvoo/Km65AzAmdxTlXQYiXB9gGEGMKeNhEwvhyy8bn7CKS9MKZMXHbNyc
-         Kdxw==
-X-Forwarded-Encrypted: i=1; AJvYcCXC92EQOc3Tyy6SXkiQ/0pSemNdnTcU1GGIHsP9I+licNJ95IB7jJONM1kHUrI5Qb93qLIGtkMwxE+qfoEoCDTj@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywk/DYd97ma2rEJIdequQJLaFwJvjlid2GaaG3JHy7gEMNkYU5G
-	/gKXo7RTcRTcuPsO24AEz26C3G56iiRU3Zp9h49ft8URW2vBHKbb3eurgyKAAP2VZxcgTA+8HFT
-	8nb3xGxvAh2GW45CLKGp0bbffiw==
-X-Google-Smtp-Source: AGHT+IGeSgG4Yj46KVsKJq4Od+bRmoB4CwRl78JJio8Udz/pRZxQUsr/HNXRQbwORqLTtPX98pEazY6JQMdxAAlRg0U=
-X-Received: from wmsp32.prod.google.com ([2002:a05:600c:1da0:b0:439:89d1:bf88])
+        bh=1lj8uuu7iWZsAclpHD2qzdXk8KQojj805ab43KuXmCc=;
+        b=gl8UvZrt8GS4O2m/AA4kOQ+Aty51I292vfPhlMgpCGydtUvaKvvVV3MCeEB8jUF4sP
+         nRyOCjH3709drGt4s4C/s5DQqn/hWWA33ZJRB7gZrG/oPcUxgw2QFtJd8ZXiIyNHgtjb
+         +9vWEoL6bhppydMxncjGzsjVLJdRkH2DwyiLEBP0OeqN/uDsxiEjO+P/ks6ajMi9EooV
+         uXpo6Hbs8crDo5N/fcU1X/xWIAsQCGI41LxGq1J+/ghrn8NrwtlJ5AmfDsJ+JVa3+4C4
+         7OQlm3Wukx3ZeKCRUJCUSmVJJ/M4ZsxOaw3w92rlhFEbmB9kDy7sUaBzZLmT3G8dH/Ci
+         TrVg==
+X-Forwarded-Encrypted: i=1; AJvYcCUo3Egjh9N+CeKUjwvXyl2ZRiP5SmRUsn0FgQwj8w/HUIudZ0xbdr66t5kAyu31nvthtCbKJYpwtlvU8VammEGs@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbPKeR/Ki5BS/Iv6IvvUWAhvTER0Z6XTfNlEFQ+XccdLwEQBub
+	zS2Nnq5Zn/yNMnCKZfm56lE4KuPiDHzn2PyfLZpmhvW00W/IwR0duYFO+zJS6agrYBTXDfkWnQT
+	6QQirNKd1tZsBWgZm0L8hMoklKQ==
+X-Google-Smtp-Source: AGHT+IF2Njxm5dDDIzoh690S6dlDK7FR8OBLvtmE8g2ukm7Bwq0tFN/UVviqT95gpNUzFNzheKYgVxT063PkICiN5Uw=
+X-Received: from wmqd1.prod.google.com ([2002:a05:600c:34c1:b0:439:65f0:b039])
  (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:1d8e:b0:439:b565:f457 with SMTP id 5b1f17b1804b1-43ba675c3afmr2084445e9.27.1740680276746;
- Thu, 27 Feb 2025 10:17:56 -0800 (PST)
-Date: Thu, 27 Feb 2025 18:17:46 +0000
+ 2002:a05:600c:4fd3:b0:439:a255:b2ed with SMTP id 5b1f17b1804b1-43ba66e5f09mr2558785e9.9.1740680278652;
+ Thu, 27 Feb 2025 10:17:58 -0800 (PST)
+Date: Thu, 27 Feb 2025 18:17:47 +0000
 In-Reply-To: <20250227181750.3606372-1-sebastianene@google.com>
 Mime-Version: 1.0
 References: <20250227181750.3606372-1-sebastianene@google.com>
 X-Mailer: git-send-email 2.48.1.711.g2feabab25a-goog
-Message-ID: <20250227181750.3606372-2-sebastianene@google.com>
-Subject: [PATCH v2 1/4] KVM: arm64: Use the static initializer for the vesion lock
+Message-ID: <20250227181750.3606372-3-sebastianene@google.com>
+Subject: [PATCH v2 2/4] KVM: arm64: Move the ffa_to_linux definition to the
+ ffa header
 From: Sebastian Ene <sebastianene@google.com>
 To: catalin.marinas@arm.com, joey.gouly@arm.com, maz@kernel.org, 
 	oliver.upton@linux.dev, sebastianene@google.com, snehalreddy@google.com, 
@@ -76,8 +77,8 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org, kernel-team@android.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_101759_195942_F668C605 
-X-CRM114-Status: GOOD (  11.71  )
+X-CRM114-CacheID: sfid-20250227_101800_801990_27F1034F 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,34 +93,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace the definition of the hypervisor version lock
-with a static initializer.
+Keep the ffa_to_linux error map in the header and move it away
+from the arm ffa driver to make it accessible for other components.
 
 Signed-off-by: Sebastian Ene <sebastianene@google.com>
 ---
- arch/arm64/kvm/hyp/nvhe/ffa.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ drivers/firmware/arm_ffa/driver.c | 24 ------------------------
+ include/linux/arm_ffa.h           | 24 ++++++++++++++++++++++++
+ 2 files changed, 24 insertions(+), 24 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index e433dfab882a..6df6131f1107 100644
---- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-+++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -69,7 +69,7 @@ static struct kvm_ffa_buffers hyp_buffers;
- static struct kvm_ffa_buffers host_buffers;
- static u32 hyp_ffa_version;
- static bool has_version_negotiated;
--static hyp_spinlock_t version_lock;
-+static DEFINE_HYP_SPINLOCK(version_lock);
+diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+index 2c2ec3c35f15..b02b80f3dfe8 100644
+--- a/drivers/firmware/arm_ffa/driver.c
++++ b/drivers/firmware/arm_ffa/driver.c
+@@ -61,30 +61,6 @@
  
- static void ffa_to_smccc_error(struct arm_smccc_res *res, u64 ffa_errno)
- {
-@@ -911,6 +911,5 @@ int hyp_ffa_init(void *pages)
- 		.lock	= __HYP_SPIN_LOCK_UNLOCKED,
- 	};
+ static ffa_fn *invoke_ffa_fn;
  
--	version_lock = __HYP_SPIN_LOCK_UNLOCKED;
- 	return 0;
- }
+-static const int ffa_linux_errmap[] = {
+-	/* better than switch case as long as return value is continuous */
+-	0,		/* FFA_RET_SUCCESS */
+-	-EOPNOTSUPP,	/* FFA_RET_NOT_SUPPORTED */
+-	-EINVAL,	/* FFA_RET_INVALID_PARAMETERS */
+-	-ENOMEM,	/* FFA_RET_NO_MEMORY */
+-	-EBUSY,		/* FFA_RET_BUSY */
+-	-EINTR,		/* FFA_RET_INTERRUPTED */
+-	-EACCES,	/* FFA_RET_DENIED */
+-	-EAGAIN,	/* FFA_RET_RETRY */
+-	-ECANCELED,	/* FFA_RET_ABORTED */
+-	-ENODATA,	/* FFA_RET_NO_DATA */
+-	-EAGAIN,	/* FFA_RET_NOT_READY */
+-};
+-
+-static inline int ffa_to_linux_errno(int errno)
+-{
+-	int err_idx = -errno;
+-
+-	if (err_idx >= 0 && err_idx < ARRAY_SIZE(ffa_linux_errmap))
+-		return ffa_linux_errmap[err_idx];
+-	return -EINVAL;
+-}
+-
+ struct ffa_pcpu_irq {
+ 	struct ffa_drv_info *info;
+ };
+diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
+index 74169dd0f659..850577edadbc 100644
+--- a/include/linux/arm_ffa.h
++++ b/include/linux/arm_ffa.h
+@@ -475,4 +475,28 @@ struct ffa_ops {
+ 	const struct ffa_notifier_ops *notifier_ops;
+ };
+ 
++static const int ffa_linux_errmap[] = {
++	/* better than switch case as long as return value is continuous */
++	0,		/* FFA_RET_SUCCESS */
++	-EOPNOTSUPP,	/* FFA_RET_NOT_SUPPORTED */
++	-EINVAL,	/* FFA_RET_INVALID_PARAMETERS */
++	-ENOMEM,	/* FFA_RET_NO_MEMORY */
++	-EBUSY,		/* FFA_RET_BUSY */
++	-EINTR,		/* FFA_RET_INTERRUPTED */
++	-EACCES,	/* FFA_RET_DENIED */
++	-EAGAIN,	/* FFA_RET_RETRY */
++	-ECANCELED,	/* FFA_RET_ABORTED */
++	-ENODATA,	/* FFA_RET_NO_DATA */
++	-EAGAIN,	/* FFA_RET_NOT_READY */
++};
++
++static inline int ffa_to_linux_errno(int errno)
++{
++	int err_idx = -errno;
++
++	if (err_idx >= 0 && err_idx < ARRAY_SIZE(ffa_linux_errmap))
++		return ffa_linux_errmap[err_idx];
++	return -EINVAL;
++}
++
+ #endif /* _LINUX_ARM_FFA_H */
 -- 
 2.48.1.711.g2feabab25a-goog
 
