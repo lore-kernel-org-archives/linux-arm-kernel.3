@@ -4,81 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CE42C19F2E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 13:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAFECC021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 13:33:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M58RpA4bCeeCl3AORbGOjEIwjSHSeOh6hGZ/du2O3yI=; b=4dhlVfc9xK3o7i+jxX1o7naB0M
-	GhU8Ef2SErXYmIEe9fxDFXm7d26ndBeWZDb9dgQRaHdG+0YxdWsvdnnOgb8TO8bOxmBR0ypTS/d5u
-	//63ySF/10Db8XuQaEiPYsh5MP/hkY9yqp9JoDXCCg5pzCIvb0dpG/lt0oPQPl0VFY7f0oTvtYRfK
-	KXZNzSEAMKe4EHBOyTEmqZAdZpUk+fKQO+28BY94mTEce9fvRq0TgLdEAez6E/qb9VkrTetW6t6dy
-	JJJ38skaxYFHzRJq39QEBHt8iiF4B3+8gc9QMouks1EALIifkbMPzYDVgfrEENFh4TqsvC36vqWkO
-	M+aoqBzw==;
+	bh=TgTF9fnQCtZ/1JPDuErDL3hK2IiKktv+/F9Qx31sPmI=; b=exfKk6Lzclfzo5Re+uQsKejCbN
+	TBJ8eczNH2Jst3s+Fb1f6POWs4UE1Fr+jpb8UzUrmz/zwX8xble6u/lhwmlF4+JkgTvF9seg+wvp2
+	PH9ZCcgWqfr6EsGVDVW48sbFA8t+nyvWj6WLgli9ZRuM3nFXhJfDa4yD8O2R/x0oA9g9ll/1YpoEq
+	NflhJmWRF1FcFvCFOMs4zbBYH9M0CVqwJ2vMbmM+PpPB/9wdiNwgMGBRAOqySV49WFvwA1ObmalRv
+	CIAJyIM7RbRqw1nbgQwxa/U3BRZ47gpOVPSTBxM2W20OylUIWWayyhMMIeX9erET4AldiP16H10CC
+	p2RFHVYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tndzH-00000007XpJ-0Swe;
-	Thu, 27 Feb 2025 13:31:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tne0n-00000007Y03-0CNe;
+	Thu, 27 Feb 2025 13:33:13 +0000
+Received: from mail-ua1-f44.google.com ([209.85.222.44])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tndsr-00000007WWK-2juT;
-	Thu, 27 Feb 2025 13:25:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=M58RpA4bCeeCl3AORbGOjEIwjSHSeOh6hGZ/du2O3yI=; b=RC2kRLg5QXYW/pNaLYGNM8YFUa
-	89kmtLgjEtoWL5PNpA7p57TVC85FBvooUHcyy0BbHvsLlnh6wA66T1NvnKuU41EIvbCXWcfXLGh0X
-	/XoHdaZmlBWlKt8CwHK9oKiU4k6hp7CiLG69FUDH5+YXyQBGdxJA+X8LIr/fGyLjNfHuM8Bqrt8Xg
-	HTydLqRJxLp1UOybjNp8KPRxGPIBWhp2eE8ZVMd/GnA0ywAPuU4jTz2jFvIz9ty+9eHxo13HEiUld
-	Q3OD0rYkwV3ldOVbynkWL9i3MOsRcErbwwmfmxQwDGoIsNcopelW3pG+JhtVo/XNgXO4W7Wmn13E0
-	VEgs0+OA==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tndso-00000003mls-2G9V;
-	Thu, 27 Feb 2025 13:25:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1740662693;
-	bh=AJjwwKgwMjC0SHvP8uGYEB65jk8pzela6cd/RTnaqyI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=f0QoHOnX0vfIw3O2gfZkLHAuREA7zqlhfAXRUqRTnz3tMmR/P6bX01jtVhZhiSNsb
-	 KTMNTR1tfU2FzIvyQqXfXlCtiViHA2xQpirTrCZasgyrGvdKZe5VP1H7H5QZcOx4HJ
-	 qj4S4fh5MzByO2uVP/AZyX0b/VihXBMYEfYMfhMmGi/oSFuTszR36M2WAYkjGeWBHO
-	 xddc5dHCgX1E2TaUKfH3JVOLFbsBUXNmMNbgIlNXkSpCEKvs64nGWwgq0QvrUI0Uh5
-	 sXITq27v9U+ngQ2VQ4Ry3NHafY+G5CHE39/9I3E0ijvX33261CBk7246U5tf21hAWv
-	 lpAppYbIn3Ijw==
-Received: from notapiano (unknown [IPv6:2804:14c:1a9:53ee::1003])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2E41517E0880;
-	Thu, 27 Feb 2025 14:24:48 +0100 (CET)
-Date: Thu, 27 Feb 2025 10:24:46 -0300
-From: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	parkeryang <Parker.Yang@mediatek.com>, linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] ASoC: mediatek: mt8188: avoid uninitialized variable use
-Message-ID: <34a4f185-f4a8-4055-bfe6-68be9a3a7a89@notapiano>
-References: <20250227131939.1040168-1-arnd@kernel.org>
+	id 1tndtg-00000007WgS-3GEk
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Feb 2025 13:25:53 +0000
+Received: by mail-ua1-f44.google.com with SMTP id a1e0cc1a2514c-86911fd168dso369000241.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 05:25:52 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740662750; x=1741267550;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=TgTF9fnQCtZ/1JPDuErDL3hK2IiKktv+/F9Qx31sPmI=;
+        b=TNOEmCp8YVj/PPAZdeWro1YhM641wQDU5fNpz39GBFR9SyyJRCXU1743SD8COv74gB
+         +Eg+KJLBiHiVueElKr/da3E8OhELXvlub4yIxfmazpRkmzSpiajBUVfjyL5q6zb/m4ol
+         yrpq4LPVs+a0ZO2sOUauaQUH14zXVCSU3VxhWkI0r+9zVu5SR9Bf9FF6eZxnxE373LA/
+         U/cjRyInNp/Ypo1KOEBGj4k7BQdEInv32us6ZNh376bm6GitIdtVEUogtK84plB46avh
+         P9mwgmklgek9ovH7MSJwoAXiNBsr6bKB4J/yaeqFgiMldpIaQ7MPbzGOQy9CVjZZHOE8
+         AnHg==
+X-Forwarded-Encrypted: i=1; AJvYcCUXid/Sw45cEzp37Z60THu+cHrYrnIum+OhVXbho6+v/BLR0KniTGop9ivCol05PBlKQJUAcxpRzu4q+Zhxr3ui@lists.infradead.org
+X-Gm-Message-State: AOJu0YyrOMZBcb+f3TJMtKGGwTfnGCnV9r2/xNhXeG5UqlhHaxVWXFoc
+	JOFcl/0eldGWtmbRbcSgWHrVo6tjdySYcsM6Wqugc/QLUFq1QvHPD9sZrxvD
+X-Gm-Gg: ASbGncvqxEreHuWZzTCLCIG/PaYalegwL78RdqiDB0cOf6TlLyuiOAQqDo7r9fx6lsc
+	KToYTVXMKd2DE3iMksMh83av5rIYnC/XXJ4If9+UFArfY1nbkxJo7NulnEduslvJhGN9Tnqd92R
+	4jo62GL1P8laMa1rUf0WMbnbMdA3M+2oPV9Vaw3lXWdtaRjn/ER2TCGeKONk++jCgOz4y6a5KoU
+	XVhXsRhmEJzxOHrfaP2qBPKTvRv8nCqf4tqcpyiaz2z7HhshD9dfpSKaJ9Ktm3T1skpGrkDoUYs
+	68yEhLDzStdlOKsQX+iY+rUDcVY3YuO3PcgAWlgBUKEDf/uHUF82JWVPabU6LVZX
+X-Google-Smtp-Source: AGHT+IHXv/F7E2B6uaI5f/bc20NP6xRymm8gUwImPKkWwpdd9vpBPOLUiEth4rdO+nOtEIq+4PgodQ==
+X-Received: by 2002:a05:6102:3f13:b0:4bb:f1f0:1b34 with SMTP id ada2fe7eead31-4c01e18b519mr3435048137.2.1740662750606;
+        Thu, 27 Feb 2025 05:25:50 -0800 (PST)
+Received: from mail-ua1-f45.google.com (mail-ua1-f45.google.com. [209.85.222.45])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4c0343cf6bbsm266404137.0.2025.02.27.05.25.49
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 27 Feb 2025 05:25:50 -0800 (PST)
+Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-86b31db3c3bso376103241.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 05:25:49 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWhW/D40fAFKfua7xyDASz2MGrxRc7bbGNOzdqZTAsEvWuXSNeFzrycmTeS/aRx18TP7jVx1gcYXpA343YR8W5S@lists.infradead.org
+X-Received: by 2002:a05:6102:161f:b0:4bb:d45c:7f4b with SMTP id
+ ada2fe7eead31-4c01e204103mr4220550137.11.1740662749508; Thu, 27 Feb 2025
+ 05:25:49 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250227131939.1040168-1-arnd@kernel.org>
+References: <20250226130935.3029927-1-thierry.bultel.yh@bp.renesas.com>
+ <20250226130935.3029927-14-thierry.bultel.yh@bp.renesas.com>
+ <fe4ccf6d-bdf0-41eb-bffe-83d459319689@kernel.org> <TYCPR01MB1149252F0825C9BCF6A1B832F8AC22@TYCPR01MB11492.jpnprd01.prod.outlook.com>
+ <f134c607-2a03-4ee2-9f7a-befa1e4feb74@kernel.org> <CAMuHMdW1k71gL_OYug+aF=SEkMDuXLy_oLpikahYVcqPMsMbHg@mail.gmail.com>
+ <4f737623-6083-4ef9-b7a3-d09ebafa92de@kernel.org> <TYCPR01MB11492DBCAD461B83B3CBE75E68ACD2@TYCPR01MB11492.jpnprd01.prod.outlook.com>
+ <c4a44c39-5448-47d5-aeb1-32bab6e57047@kernel.org>
+In-Reply-To: <c4a44c39-5448-47d5-aeb1-32bab6e57047@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 27 Feb 2025 14:25:37 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdXwMoY0mhG6-u0iVg79zYxAvv0Snrt019kDP+TJoXA5FQ@mail.gmail.com>
+X-Gm-Features: AQ5f1Jo-pN5NazOUtBQZzfnaAHBmOkbTZWUZun2zxJCQJ3Pcdx3o1kvUeaCI4V4
+Message-ID: <CAMuHMdXwMoY0mhG6-u0iVg79zYxAvv0Snrt019kDP+TJoXA5FQ@mail.gmail.com>
+Subject: Re: [PATCH v3 13/13] arm64: defconfig: Enable Renesas RZ/T2H SoC option
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>, 
+	"thierry.bultel@linatsea.fr" <thierry.bultel@linatsea.fr>, 
+	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>, 
+	Paul Barker <paul.barker.ct@bp.renesas.com>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_132458_828309_FD2E01E4 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20250227_052552_819198_E8ACDA4B 
+X-CRM114-Status: GOOD (  30.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,24 +102,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025 at 02:19:01PM +0100, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> The 'msk' variable has no initialization:
-> 
-> sound/soc/mediatek/mt8188/mt8188-dai-dmic.c:311:4: error: variable 'msk' is uninitialized when used here [-Werror,-Wuninitialized]
->   311 |                         msk |= PWR2_TOP_CON1_DMIC_FIFO_SOFT_RST_EN(i);
->       |                         ^~~
-> 
-> Set it to zero before the loop.
-> 
-> Fixes: c1e42ec04197 ("ASoC: mediatek: mt8188: Add support for DMIC")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Hi Krzysztof,
 
-Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+On Thu, 27 Feb 2025 at 12:48, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> On 27/02/2025 11:48, Thierry Bultel wrote:
+> >> This is fine, I am not against fine-grained SoC-enable options. However
+> >> all your SoCs should be enabled by default (default y if ARCH_RENESAS or
+> >> any other option which works for you) thus you won't be growing user-
+> >> selectable choices.
+> >>
+> >> Strictly speaking this still will be choice, because you need to trim
+> >> config, but all people and all distros will just ignore it  and don't see
+> >> it in defconfig.
+> >>
+> >
+> > I understand.
+> >
+> > All the ARCH_XXX SoC options are already under a menuconfig section, which
+> > is defaulted to 'y' if ARCH_RENESAS.
+>
+> Indeed and it actually cannot have "if ARCH_RENESAS" due to how compile
+> test is enabled there.
 
-Sorry about the delay, I was about to send this myself.
+Sorry, I don't get what you mean here...
 
-Thanks,
-Nícolas
+> > So I guess that this simple additional change would make it:
+> >
+> > diff --git a/drivers/soc/renesas/Kconfig b/drivers/soc/renesas/Kconfig
+> > index 91a815e0a522..231880c21aa7 100644
+> > --- a/drivers/soc/renesas/Kconfig
+> > +++ b/drivers/soc/renesas/Kconfig
+> > @@ -358,6 +358,7 @@ config ARCH_R9A09G057
+> >
+> >  config ARCH_R9A09G077
+> >         bool "ARM64 Platform support for RZ/T2H"
+> > +       default y
+
+Please add "if ARCH_RENESAS" iff we decide to go this route...
+
+> >         help
+> >           This enables support for the Renesas RZ/T2H SoC variants.
+>
+> Yes and then run savedefconfig and check if defconfig needs this symbol.
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
