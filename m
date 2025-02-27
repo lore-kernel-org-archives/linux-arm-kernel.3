@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B97C197BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:38:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5BCEC197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:38:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GlkBo13gAAMFxY69YUO/r2kEBTxBz8AgO2heyKDlsH0=; b=r+L0hfJaMAQoqCBVPsr81MXptC
-	udQldumMN97PVKdLnEKXbkCX0qdkKyn1ofgV9pWBeowe1Wd/PKsS4MmW7a4DTRcyUPhaKNpXd0M6U
-	pZCrQxfKCp/+KXumLBsVKXVP+4p4Sv98LjSDZ71gFrPbDlitfb5cB4JKecayesqc+cMbY1hUrYM03
-	kVYNWEfQKVdSwrP2egdL3TsQ59Pab/NrH94by5f6TaAEp6BrFZfzEHn4fKB5wuE5wzE5UJk0aL3sU
-	999TlDaFKxfGEJgLKNJcxctsZUGWGH8+xKQ3FQ/F2cxNR+42RrgE/OgOnz9kYZDwiOU8+nOxneg3X
-	PGO6Z7Tg==;
+	bh=I+3UgZPNuzz/YXDMYKi17qCbdiRivy2PRfUhjk5JlKM=; b=GbnLSnZj7+DGdvVW/KFdgXRK6P
+	2WiYpKqK/EtsdLj4CZkGwSegs++w+ECAjBf6I7Og7cFumsIi0VwAAnyi28vDJTeHvi6T8XpB1l9rT
+	X2uBQ8M5028fqNV5HqDxgb1+oija/1NrV7GEf5VxkKeisy+T3UM23KSNtjkspE2NVkqzSfZWe2JQD
+	5IWSnCXccyYSwKtPnOtedNlcwHyJ9FLyUhkIeo+apd3KFCOnkgceTO9YbUkxZ0f6pDw9ku8Ivlx6N
+	oFPoocE/ddp0t/OMtklRs7SuTqmwWCB4o5dfmJS1bEMdmjHsp84xdwc/F/rQB9VteMkFp0POnWbCs
+	ITupsboQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjhq-00000008V53-0UQR;
-	Thu, 27 Feb 2025 19:38:02 +0000
-Received: from mail-am7eur03on2072d.outbound.protection.outlook.com ([2a01:111:f403:260e::72d] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
+	id 1tnjht-00000008VBC-0kSS;
+	Thu, 27 Feb 2025 19:38:05 +0000
+Received: from mail-vi1eur05on2071b.outbound.protection.outlook.com ([2a01:111:f403:2613::71b] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnfzr-00000007w3J-0qwX
+	id 1tnfzr-00000007w3N-3FFf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 15:40:25 +0000
+	Thu, 27 Feb 2025 15:40:26 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UC5G+KYDctD/d9ZusShTEz+n9wCy9K79a7jqbrH9A6T8ANrKivf4kCL+CDKXD69rk4C69iuyDrZGL4WZSiLP+EUoiklk8ESfVMlhWCzjtMlJ+y2sbDTwryuDTeBBwr9U/NIJl81zg5G6XHzs7EHvjCx0+uGOc4yM2WdkEbhUAilrroxzTW0SqidyaJLEKU6yX9v6F1j8ZLY31ySwtp5YDi5W3HFDhm1bg9lto+cj2zA76Mc9OHYlGEeLRCqJBYeWAx2YJX7LxWwU8cM8+A/HuNkY0/vzZk964RN24QvK4gI35M9+N3ekHroMj4Ibxd/aH0sereym9HDRmxlInKkxPw==
+ b=DVEitV9kfjvUu5jQ6WnfEpToddiLEmHnSdJXvB+Nl3r/Y77uRiZVAtQBq80v2tyd/jg4octCq6w5yIjZ8uWLQCInGYweBiMgoJ0icvjZGwk/edEbaUMwKjRQJYsfiyLJZ32+kvKX4WVga6OlxfuTWB8TefYASF6x36joib13BY+lCaT3tcWWKOvrM5Ev8+1uWC6tdaiVb4tz1Aflp19b35Ku3CSPCN0GM65Rc1ClL4PilryTf5Dd/9gfWO90PJLZkyOGlpxCOQiqomf0lPpyowSMoor/i7Z1A7D8wMS7nI5rc2q40pyFzJgBAbm6jVRqiYcHBej4tWPhHUYna/FIqQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GlkBo13gAAMFxY69YUO/r2kEBTxBz8AgO2heyKDlsH0=;
- b=cxN+QjGfcv6V2a/nEyyY6H4isyyye8aKiCAxlrgPVQBCLtmgUKiqz/3yajsY7sQc+ax9U/P2IJFnjwVT9Xz5z58YGmlcJXB8wKrbQfiMEgTD4HGx6X0A/DX9gWnFx6ZZfTrw45VvQ5apUTUKDrU4KRgB31mJ1ILtLWKLjbS0nFDNKkubhuCUVtPiY/rUK7LySEXRCeUBCgFtdLBLe1js05bxwkyYgyQFTRGEZMWQ3iv4LBOnuyTcS5YAH9Bf2W0W2DBJAEO/dghPHy2808xSPTv6kw+1RfE93skbKkM3rmstE63x6sQNGKBrxCPn0dHEyIfG9ttQieGSsngvmL9VsQ==
+ bh=I+3UgZPNuzz/YXDMYKi17qCbdiRivy2PRfUhjk5JlKM=;
+ b=PcUiQ900gYrAH7CfzlYqrlgtuW2xsLmVSX8L1HpkD+UXY7FqIdbGHo0HhkMmGGNScI529mGQGzaBBQArkN8WAuojXCPuRyTAyPphYCbBiL+IhnMO0WKgJ8Jce4BY3EjI1L2zsQEjU1FdMw0OCSpoBnSCkadM06RU2AFpqkDY/x5peB6RlJynC31O353RWOk70iykN9bfbNd6tOabb8KFzoVGYLXnlaNtwL++fXlf4CLymAiBEWT1REw6Hp350FHQ+e+wIU5lr76ScxwGHX34D8TKTVklxFujHmVPncou3Nvz+rhJ6A2V7k5qE2WRDUfa2+0fpa+RoRRJ7RFRNBT6Eg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
  91.26.50.189) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=phytec.fr;
  dmarc=fail (p=quarantine sp=quarantine pct=100) action=quarantine
@@ -42,18 +42,18 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=phytecmesstechnikgmbh.onmicrosoft.com;
  s=selector1-phytecmesstechnikgmbh-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GlkBo13gAAMFxY69YUO/r2kEBTxBz8AgO2heyKDlsH0=;
- b=sfwcRV5N5WZtlLnLpkZ/BAmNGVYUQ6E2a9C8nzFX+yWpbo4rL8ELOSjpR0s3MHwOX5VdXrQ2pO/jezFCyXgOXY8x+D19zIC22mxt3aEKAKlIJzGm7G195rwG0sR6WrcZGUtY7qc6QcwRMSkCiS3/4CLjnBPmlyrc2u7jDsMxft4=
-Received: from CWLP123CA0086.GBRP123.PROD.OUTLOOK.COM (2603:10a6:401:5b::26)
- by DB8P195MB0677.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:151::17) with
+ bh=I+3UgZPNuzz/YXDMYKi17qCbdiRivy2PRfUhjk5JlKM=;
+ b=Mo8A7WNg8x7p8D2tFPNAL6tgAAIbHYJSTVZHM4rQmoDllPn3OA0WBT3Ko06QYoP6XuPuRBJRhyRwwileO09NPzSBU7Xrjp7Bx0iZMwOFDzjxza2Qu3kD9cPMqglvia5pwmzXFv+qjE7eKOtoy95jQ/mddqdonkn//D4pzt0TNzo=
+Received: from AS4PR10CA0021.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:5d8::9)
+ by DBAP195MB0939.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:1c3::8) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.19; Thu, 27 Feb
- 2025 15:40:17 +0000
-Received: from AM2PEPF0001C70E.eurprd05.prod.outlook.com
- (2603:10a6:401:5b:cafe::78) by CWLP123CA0086.outlook.office365.com
- (2603:10a6:401:5b::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8489.21 via Frontend Transport; Thu,
- 27 Feb 2025 15:40:17 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.18; Thu, 27 Feb
+ 2025 15:40:14 +0000
+Received: from AM2PEPF0001C708.eurprd05.prod.outlook.com
+ (2603:10a6:20b:5d8:cafe::35) by AS4PR10CA0021.outlook.office365.com
+ (2603:10a6:20b:5d8::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8489.23 via Frontend Transport; Thu,
+ 27 Feb 2025 15:40:14 +0000
 X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 91.26.50.189)
  smtp.mailfrom=phytec.fr; dkim=none (message not signed)
  header.d=none;dmarc=fail action=quarantine header.from=phytec.fr;
@@ -61,24 +61,24 @@ Received-SPF: Fail (protection.outlook.com: domain of phytec.fr does not
  designate 91.26.50.189 as permitted sender) receiver=protection.outlook.com;
  client-ip=91.26.50.189; helo=Diagnostix.phytec.de;
 Received: from Diagnostix.phytec.de (91.26.50.189) by
- AM2PEPF0001C70E.mail.protection.outlook.com (10.167.16.202) with Microsoft
+ AM2PEPF0001C708.mail.protection.outlook.com (10.167.16.196) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8489.16 via Frontend Transport; Thu, 27 Feb 2025 15:40:17 +0000
-Received: from Florix.phytec.de (172.25.0.13) by Diagnostix.phytec.de
+ 15.20.8489.16 via Frontend Transport; Thu, 27 Feb 2025 15:40:14 +0000
+Received: from Berlix.phytec.de (172.25.0.12) by Diagnostix.phytec.de
  (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Thu, 27 Feb
- 2025 16:40:16 +0100
-Received: from Florix.phytec.de (172.25.0.13) by Florix.phytec.de
- (172.25.0.13) with Microsoft SMTP Server (version=TLS1_2,
+ 2025 16:40:13 +0100
+Received: from Florix.phytec.de (172.25.0.13) by Berlix.phytec.de
+ (172.25.0.12) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Thu, 27 Feb
- 2025 16:40:16 +0100
+ 2025 16:40:13 +0100
 Received: from idefix.phytec.de (172.25.0.20) by mailrelayint.phytec.de
  (172.25.0.13) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
- Transport; Thu, 27 Feb 2025 16:40:16 +0100
+ Transport; Thu, 27 Feb 2025 16:40:13 +0100
 Received: from localhost.localdomain ([172.25.39.2])
           by idefix.phytec.de (IBM Domino Release 9.0.1FP7)
-          with ESMTP id 2025022716401639-90 ;
-          Thu, 27 Feb 2025 16:40:16 +0100 
+          with ESMTP id 2025022716401335-84 ;
+          Thu, 27 Feb 2025 16:40:13 +0100 
 From: Christophe Parant <c.parant@phytec.fr>
 To: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
@@ -86,66 +86,67 @@ CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
 	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	<upstream@lists.phytec.de>
-Subject: [PATCH 07/11] ARM: dts: stm32: phycore-stm32mp15: Add dummy memory-node
-Date: Thu, 27 Feb 2025 16:40:08 +0100
-Message-ID: <20250227154012.259566-8-c.parant@phytec.fr>
+Subject: [PATCH 01/11] ARM: dts: stm32: phycore-stm32mp15: Rename device tree files
+Date: Thu, 27 Feb 2025 16:40:02 +0100
+Message-ID: <20250227154012.259566-2-c.parant@phytec.fr>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250227154012.259566-1-c.parant@phytec.fr>
 References: <20250227154012.259566-1-c.parant@phytec.fr>
 MIME-Version: 1.0
 X-MIMETrack: Itemize by SMTP Server on Idefix/Phytec(Release 9.0.1FP7|August  17, 2016) at
- 27.02.2025 16:40:16,
+ 27.02.2025 16:40:13,
 	Serialize by Router on Idefix/Phytec(Release 9.0.1FP7|August  17, 2016) at
- 27.02.2025 16:40:16
+ 27.02.2025 16:40:13
 X-TNEFEvaluated: 1
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM2PEPF0001C70E:EE_|DB8P195MB0677:EE_
-X-MS-Office365-Filtering-Correlation-Id: d1aa5a89-598e-49d2-622c-08dd57450934
+X-MS-TrafficTypeDiagnostic: AM2PEPF0001C708:EE_|DBAP195MB0939:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0dd1d66e-6c4c-4dae-4e4d-08dd57450743
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Aojs5x7NVBRHhKVRfKuWRHNy7Hy2a/P44a42NSTXH3w/6+8l5y9je5FM6ldf?=
- =?us-ascii?Q?Ttae+Rfn+ttRL9Tr4QFqqBEjZwq5Q2UJANUpmJ5M/9L5h+MrnnNne/iM9ZW1?=
- =?us-ascii?Q?gnp7EIWWS6wIjIadq2OSTgqxeZZlHvbz1e0i5LKoCkW26UewUlcd23vH3IyN?=
- =?us-ascii?Q?TEZv3OsS27wgBLIvO5Mr/y8EfKMIEFu5OxDy2Fb61TUFU+I0/jne5LGolKPy?=
- =?us-ascii?Q?KWKrWNEqbVhQNE1AC/HzPKaDt2ATNpH0cPlhU+O9nRPbvUGPX1S4kCjW0Wi3?=
- =?us-ascii?Q?zX7SoUkuX7y4GVh2BX0tx3bRoPxLn+ksR9rAI4j2k8lRwFYYbG5bB7/V87cs?=
- =?us-ascii?Q?O6aepL+1kEPQTQdhfrMbUFmMn/tkb6wfufEdA7uHDBihG1cL/ad0j2LxML9X?=
- =?us-ascii?Q?JphlgDfoTF2WpKieU7c1nd9+5uOhWcutlbZJELiOsAEtUWaxR30OABAPGNVE?=
- =?us-ascii?Q?AR9Im+Ram8NZq6QWatGYlcJseUBqNMyyp962719fEvxHu/KRZH+KkzjcGo7q?=
- =?us-ascii?Q?y5mJzZhoWkdC+HPkPDes0q3zOj2kEyQYDYiWJjc53+UxotaxZeJJEpGjDNu2?=
- =?us-ascii?Q?RJEfegHe0A2skW4CA1A1NdZ1/+X68/wGXoDuar5HNYhhExx/WTFxen0CfNAr?=
- =?us-ascii?Q?PE48vIDXurkBpDLBOScbo4P9KQrrw17Lkx1FV1X6dd/rTaHfATKQrKXdIiq9?=
- =?us-ascii?Q?yrF4I2UwBkUcJj35Gx+YwbWLbHDOAOC2j0/gx189cWRxM1SNDkoMCTQ9MAN2?=
- =?us-ascii?Q?wCFy/gvxO44/e/slmCO3dC1qi6MrHomfevPN/IDokcVFCdEcxm64i/VKshkS?=
- =?us-ascii?Q?OV2j6XP65qJqbAjG7TPefa+S7BFohRNgDL0Zd6aC93p4GSWtSdQagWZBBBp4?=
- =?us-ascii?Q?SHptUl+nf75RY5/MFQVPaGz7xNvOVwYElOgb5fVnmvmfbRWWpLoqCTUjCpPa?=
- =?us-ascii?Q?/1W9p6en39YVAJDTGXdKfbrYDu6ih7ZEh5CsKASVXc/ELB0yQ7dgfMt0CYjF?=
- =?us-ascii?Q?dzLD89jPpnxdiKTr6YFjxss5jxOGyVLHEamPAJPbWVvMVYWyMXqOwUSoc4AF?=
- =?us-ascii?Q?wNdEybdRXa4KIPdRT/NWqOiCcP8McK066ySnCaNvIQF9k+GG/5pIc/P5ECau?=
- =?us-ascii?Q?9TlsMEUErXVK6r/aJKHbQ42VdLKuoVkdYy+yvseFUi3QPA3oDBcQQ4TErtYs?=
- =?us-ascii?Q?sRlxJwUa4RSdd9qrcfhkS3yQ6eQH4OaofhRLRpQcpaDjiho5wCI7z0IFMeCc?=
- =?us-ascii?Q?r9vKfXx/QjmG6VNl5Xl36JlEkDz7Tom9PNlr1SPkD5uoRRiG2hYAR96k3iGq?=
- =?us-ascii?Q?uw7TO/Cad8SA35l3hKf544VYwgZOAkfbn3rNaqXBx8q6Ohob8eD8EqUXM/q9?=
- =?us-ascii?Q?ziwhBobyz2lhK03jrK1Wa1B769Vo1ZHBhzGh35nCEblAiDYHQvW9rA1+y/3W?=
- =?us-ascii?Q?42jazPogXZoW+80rD/vyFHrnOOqgSXRzEqPbad8LKmM6uDfbUOQFMw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(36860700013);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?kq1nzESRdgq4oZvNwGVOXqw5r7F7bYjh2BE8QGQv3vaCJg5ZpkC61ZRdAmZJ?=
+ =?us-ascii?Q?VKZVU7rQ2JBIR+4opZgsrkpoTZq93vAE/BFY+RaNN3hnszvLvPzLU/m9YsWl?=
+ =?us-ascii?Q?p/aaV/Qbl4vhre124eMW/zGCtjXWf5FaHTFsLSRsD7EkQJFMyyiWleQQ0HBY?=
+ =?us-ascii?Q?YHqP+BOl0HNd7HsFHakBj1JGDx0OsF3cqkqARES/cG+Ps96g32i+exYexJ5q?=
+ =?us-ascii?Q?T01BNNO4HdBI0j1dXWShrDlWqu1tlvO1Xo6PkYSyFPDLSvp44S1cV8/AB+XY?=
+ =?us-ascii?Q?YZ7WxhCb8nXPtmphgxsq8P6rzV/c16p0ha9A0Dg4Nbzlowf9tCSa2cPkUnjZ?=
+ =?us-ascii?Q?3TpQQoAir31yTCTOhtRhtz+jqaln/ulJMIVqg0u2tSQXPjWEgRZVkrKi34kB?=
+ =?us-ascii?Q?TYPG/yMvDhIeqq71aBKT9nKRfX6IlIClpFxRGrCt3yFpo6uOMEAKrRS0NzCc?=
+ =?us-ascii?Q?+H84KqJJA31YXAg6KjR+PUaDgnZHwkTkATTI/5yUML1kDrlh4zeHYMExSAGK?=
+ =?us-ascii?Q?kLJvcAnBcxn75K462i5O070t4UDxD7S95Kj+cQ1L+akOqjsW3PqkN464GXGI?=
+ =?us-ascii?Q?A3+oxbf5dC8mEhSgmClORQkrCduL8v7uN+mKhRmgy2cdbn/QCKmolBRaTyHd?=
+ =?us-ascii?Q?ymS4EW1nf/pK8OHi71ffa1l1R2OOr7zDWYc4dYEkWfcV7RubmFEceysWImVZ?=
+ =?us-ascii?Q?JmdAqMLM0EJANmVhLhen30zQaE5kbxEOBJabBHQfcgW9Eaihw9KnxWsGh2M2?=
+ =?us-ascii?Q?6VGRHC3woyvwXl6MU04vf+M5vkUIzRfoTjRUR3d77/IXnf3nW9Gmi7Xj0SbW?=
+ =?us-ascii?Q?vIUb6g0efLCfMMt3gs0RnI7ltLRKqQhiGSqE9TwYcd+PmdFOSdZjlhG4G+vo?=
+ =?us-ascii?Q?xTVlsHhY+ddgc6DFn5XkGwHcl7VA8wfDsjXMoB+OTWCA8Ci7T1yc/90E8wvU?=
+ =?us-ascii?Q?frsUV7doqDgXPRc2/FGFo5aF3O8/aR8H/JmQSDwhTJ6vm56yl8uWApTpmmXX?=
+ =?us-ascii?Q?p9UTBBzJRc8F683fnWPv1V62GqlQZl1Bu49A0Ev4/iGRT2QTzVYyhOq0iz4d?=
+ =?us-ascii?Q?oTk12LPct0R1mQp6qF9Ut8CwFaM3eap3K55K4+qHoPHa6Bh6FuZS1pmuHn3a?=
+ =?us-ascii?Q?DbnEQIbFpfiBs3AgBqWj6hhUBDWeS1bzYnScvUVCG1nAelN11rdxPyJRc8dd?=
+ =?us-ascii?Q?jAKTG8CzDu9KHXQ/rxcPoE9S5i2Fme+CK90ijd8Nqw2RffnFWdd/jL3Txt42?=
+ =?us-ascii?Q?XJp2s+TMP3W4hKtegDLGuOZ8iISYvucxupLJzdT2UPUkwdkuitj3E/09Wgnc?=
+ =?us-ascii?Q?OUdY8pqZ2T1VITstARPYE/jV/6wkkqJKBttkeghF7uJKBv99awipp+Rf1kk4?=
+ =?us-ascii?Q?jTGZD0JSUDBEdqHsaLhl3Fv9VXc+3+Ul1bakB1aQ8gcTIj7zrwAwBfd7AnFg?=
+ =?us-ascii?Q?sMIzRjC32o6CHscmfq3ErRb2Ix6HSl92n+nEdqHIlq3Rpa3XJdlb7fYM5XkW?=
+ =?us-ascii?Q?qxQxulKOM4Ye6g4=3D?=
+X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(36860700013);DIR:OUT;SFP:1102;
 X-OriginatorOrg: phytec.fr
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Feb 2025 15:40:17.4797
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Feb 2025 15:40:14.2377
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d1aa5a89-598e-49d2-622c-08dd57450934
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0dd1d66e-6c4c-4dae-4e4d-08dd57450743
 X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF0001C70E.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF0001C708.eurprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8P195MB0677
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAP195MB0939
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_074023_252110_7321054E 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20250227_074023_835033_2A60FE09 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,37 +161,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-"memory" node is not necessary as the bootloader is taking care of
-passing the correct DDR size.
-However keep a dummy memory node with the minimum DDR size (512MB) with
-comment explaining that.
+Rename "stm32mp157c-phycore-*" device tree for the following reasons:
+
+- The name of the dts should match to the phyBOARD name and not the name
+of the SoM ("phycore-stm32mp1-3" was initialy coming from the name of
+the yocto machine from meta-phytec).
+- PHYTEC manages different SoM configurations with different STM32MP15x
+SoC versions, so common dtsi files starting with "stm32mp15xx-*" should
+be used (as it is done for ST boards for example).
+- Add "-rdk" as suffix (for "Rapid Development Kit") to match our others
+phytec boards dts names (imx6, imx6ul,..).
+
+"model" and "compatible" properties are updated to follow new device
+tree naming.
 
 Signed-off-by: Christophe Parant <c.parant@phytec.fr>
 ---
- arch/arm/boot/dts/st/stm32mp15xx-phycore-som.dtsi | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ arch/arm/boot/dts/st/Makefile                             | 2 +-
+ ...stm32mp1-3.dts =3D> stm32mp157c-phyboard-sargas-rdk.dts} | 8 ++++----
+ ...tm32mp15-som.dtsi =3D> stm32mp15xx-phyboard-sargas.dtsi} | 3 ---
+ 3 files changed, 5 insertions(+), 8 deletions(-)
+ rename arch/arm/boot/dts/st/{stm32mp157c-phycore-stm32mp1-3.dts =3D> stm32=
+mp157c-phyboard-sargas-rdk.dts} (77%)
+ rename arch/arm/boot/dts/st/{stm32mp157c-phycore-stm32mp15-som.dtsi =3D> s=
+tm32mp15xx-phyboard-sargas.dtsi} (99%)
 
-diff --git a/arch/arm/boot/dts/st/stm32mp15xx-phycore-som.dtsi b/arch/arm/b=
-oot/dts/st/stm32mp15xx-phycore-som.dtsi
-index 72926c3de52c..ce859b94ae26 100644
---- a/arch/arm/boot/dts/st/stm32mp15xx-phycore-som.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp15xx-phycore-som.dtsi
-@@ -22,6 +22,15 @@ aliases {
- 		rtc1 =3D &rtc;
- 	};
+diff --git a/arch/arm/boot/dts/st/Makefile b/arch/arm/boot/dts/st/Makefile
+index b7d5d305cbbe..57b20c53cfee 100644
+--- a/arch/arm/boot/dts/st/Makefile
++++ b/arch/arm/boot/dts/st/Makefile
+@@ -66,7 +66,7 @@ dtb-$(CONFIG=5FARCH=5FSTM32) +=3D \
+ 	stm32mp157c-lxa-tac-gen2.dtb \
+ 	stm32mp157c-odyssey.dtb \
+ 	stm32mp157c-osd32mp1-red.dtb \
+-	stm32mp157c-phycore-stm32mp1-3.dtb
++	stm32mp157c-phyboard-sargas-rdk.dtb
+ dtb-$(CONFIG=5FARCH=5FU8500) +=3D \
+ 	ste-snowball.dtb \
+ 	ste-hrefprev60-stuib.dtb \
+diff --git a/arch/arm/boot/dts/st/stm32mp157c-phycore-stm32mp1-3.dts b/arch=
+/arm/boot/dts/st/stm32mp157c-phyboard-sargas-rdk.dts
+similarity index 77%
+rename from arch/arm/boot/dts/st/stm32mp157c-phycore-stm32mp1-3.dts
+rename to arch/arm/boot/dts/st/stm32mp157c-phyboard-sargas-rdk.dts
+index 28d7203264ce..cb5a55798036 100644
+--- a/arch/arm/boot/dts/st/stm32mp157c-phycore-stm32mp1-3.dts
++++ b/arch/arm/boot/dts/st/stm32mp157c-phyboard-sargas-rdk.dts
+@@ -10,12 +10,12 @@
+ #include "stm32mp157.dtsi"
+ #include "stm32mp15xc.dtsi"
+ #include "stm32mp15xxac-pinctrl.dtsi"
+-#include "stm32mp157c-phycore-stm32mp15-som.dtsi"
++#include "stm32mp15xx-phyboard-sargas.dtsi"
 =20
-+	/*
-+	 * Set the minimum memory size here and
-+	 * let the bootloader set the real size.
-+	 */
-+	memory@c0000000 {
-+		device=5Ftype =3D "memory";
-+		reg =3D <0xc0000000 0x20000000>;
-+	};
-+
- 	reserved-memory {
- 		#address-cells =3D <1>;
- 		#size-cells =3D <1>;
+ / {
+-	model =3D "PHYTEC phyCORE-STM32MP1-3 Dev Board";
+-	compatible =3D "phytec,phycore-stm32mp1-3",
+-		     "phytec,phycore-stm32mp157c-som", "st,stm32mp157";
++	model =3D "PHYTEC phyBOARD-Sargas STM32MP157C";
++	compatible =3D "phytec,stm32mp157c-phyboard-sargas-rdk",
++		     "phytec,stm32mp157c-phycore-som", "st,stm32mp157";
+=20
+ 	aliases {
+ 		mmc0 =3D &sdmmc1;
+diff --git a/arch/arm/boot/dts/st/stm32mp157c-phycore-stm32mp15-som.dtsi b/=
+arch/arm/boot/dts/st/stm32mp15xx-phyboard-sargas.dtsi
+similarity index 99%
+rename from arch/arm/boot/dts/st/stm32mp157c-phycore-stm32mp15-som.dtsi
+rename to arch/arm/boot/dts/st/stm32mp15xx-phyboard-sargas.dtsi
+index bf0c32027baf..ebbb82c09a1e 100644
+--- a/arch/arm/boot/dts/st/stm32mp157c-phycore-stm32mp15-som.dtsi
++++ b/arch/arm/boot/dts/st/stm32mp15xx-phyboard-sargas.dtsi
+@@ -16,9 +16,6 @@
+ #include "stm32mp15-pinctrl.dtsi"
+=20
+ / {
+-	model =3D "PHYTEC phyCORE-STM32MP15 SOM";
+-	compatible =3D "phytec,phycore-stm32mp157c-som", "st,stm32mp157";
+-
+ 	aliases {
+ 		ethernet0 =3D &ethernet0;
+ 		rtc0 =3D &i2c4=5Frtc;
 --=20
 2.34.1
 
