@@ -4,58 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C177C197BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 22:58:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E319C197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 23:05:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
-	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ux2E4jvh/Ocsfhy0Opgxl23/9YtBB9G3dgRMTH7FaQk=; b=A7FgPG+TPMiA2aUkSssCFK/Cuy
-	V9eD6B5VKWyNgY7MoHWSj9RK5Dl+/tuHAd+EMp1ngeF1GoaEon1VGRP5LD1PnmTiW2cFzoKaKqirk
-	k7AEi9gNrwghqFalTWnylaFuQeBLflcgEuaX7QMg0sIYNGFLjrUvI8VD8dnOC4BUSXpGJF1RGXU5+
-	abxMZTtQawI6QH/i/fUQRHPoT5QQ43ZUdUpAfk4HIKOF2hwsV3MHqNXcEzuDRbb4e1LXfzW0m9EUU
-	TdsiW9iDp8/NBhjuDmo7v3OUE1MxOarlsS7ZfV6vvIlAARQMBFdUhG2e8yHHXtxN/rRp0+rDtGCHJ
-	M1zmhWNQ==;
+	bh=QxAcpt0+lW01/ig2J6vWiepSryvmGyljQIhYNOU2c/8=; b=kOfLeMj+pxMJqn8VtcacBas/5L
+	10DHSbBV/NJXC/vh7brfem4pfylSqqdMfz14aB4GrvsWTN7ld/iY39Xu5NmH+sjb83qIcAh1IJqZz
+	zAefWI1gDtfwI7owC6tDda12HIw2mree3KppOii1/bXTRDpWRUbAKWQkwWaVVojVppMHLqIMfHyXD
+	nLHl7QYokYj+RPWjoIF1nPK5K/xrGZNDUKiZN5eAUQuVwH3eHsaKqoBOTAwVBHxiX6e3kR3ZzyPpS
+	TEPtphlFfYIZ/Jg89FuUL4btb+t2nUkh/tDQi2FEAEEJfzbTlvfamvCZqhdGSXy4hhHtO5HHo2Mmi
+	+PVz20zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnmpU-0000000961k-41IL;
-	Thu, 27 Feb 2025 22:58:08 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnmmV-000000095f8-325M;
-	Thu, 27 Feb 2025 22:55:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 452F65C4609;
-	Thu, 27 Feb 2025 22:52:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA2C7C4CEE5;
-	Thu, 27 Feb 2025 22:55:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740696902;
-	bh=9M9wgjf5Eku3KGzfU/Spz3evA/7ijTJ6zhkFNKmluts=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=iGTUEjAdoa+AEcKSIz7YTUkqwuibJdq7HdrpnSPAot2i4LDqimrqFLjnOY3uop015
-	 OBNS6/3/hyivaNYzAl+skCbD+IFjwVOQ9YaN0sn21wKiCJhlpGv3LDjpSYRqto+zSi
-	 R1kjqxgi5Ho1UoJyB9KJqBCvUdC3QsCmo9LHGD8SD5GXABdTWl/wOk/aITHLlX7KvH
-	 sKHoltNlmYJaGqhGMV8PRFwb+k1DlBY/orWCp7ERwPK5DJTAXLPRvpqmBqvaNo7vY4
-	 95lDTV84TZ6ggRUWc7y6ESsHgacRmawXtXfC50WyUo6326L5mH6lAqjfLnn1ReIf7k
-	 1CNGnQiJvj16w==
-Message-ID: <5109de7fe1a1a8467118daf80c7b7f8a.sboyd@kernel.org>
-Content-Type: text/plain; charset="utf-8"
+	id 1tnmwB-000000096zJ-2epP;
+	Thu, 27 Feb 2025 23:05:03 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnmuc-000000096iP-3dLi
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Feb 2025 23:03:28 +0000
+Received: from [192.168.35.166] (c-24-22-154-137.hsd1.wa.comcast.net [24.22.154.137])
+	by linux.microsoft.com (Postfix) with ESMTPSA id B7CFE210EAC1;
+	Thu, 27 Feb 2025 15:03:23 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com B7CFE210EAC1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1740697404;
+	bh=QxAcpt0+lW01/ig2J6vWiepSryvmGyljQIhYNOU2c/8=;
+	h=Date:Cc:Subject:To:References:From:In-Reply-To:From;
+	b=bxzf0KSsUaGf0Nytx/thMSUWtHwHn5I/IWuc30R4oUpVESsi59QYzve8DdAojqVeS
+	 wh7oR5+oq6vJ3pbCm3dM9Bi11DroQv/1tvRSdzmVSbBJ8Q4ubfxZcaWgDCwnVAWAyB
+	 SVRIH/V8d2vZzi2MEtzdxJG4TulbapRL5gkG36N8=
+Message-ID: <7749367d-d87d-43f0-8c24-cd08bb4ce1a8@linux.microsoft.com>
+Date: Thu, 27 Feb 2025 15:03:22 -0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <1j4j205ark.fsf@starbuckisacylon.baylibre.com>
-References: <20241220-amlogic-clk-drop-clk-regmap-tables-v1-0-96dd657cbfbd@baylibre.com> <20241220-amlogic-clk-drop-clk-regmap-tables-v1-2-96dd657cbfbd@baylibre.com> <9f1d69ebe1ddce5dfc170e986c9213f2.sboyd@kernel.org> <1ja5cp8f87.fsf@starbuckisacylon.baylibre.com> <88fe909ab182d1f17f6ef18161c7f064.sboyd@kernel.org> <1jfrlwb69r.fsf@starbuckisacylon.baylibre.com> <ed20c67e7d1a91d7fd8b921f156f56fb.sboyd@kernel.org> <1jmsg2adgu.fsf@starbuckisacylon.baylibre.com> <697b634770d789ef8ff0e05cec9465f5.sboyd@kernel.org> <1j4j205ark.fsf@starbuckisacylon.baylibre.com>
-Subject: Re: [PATCH 2/3] clk: amlogic: drop clk_regmap tables
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: Kevin Hilman <khilman@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Michael Turquette <mturquette@baylibre.com>, Neil Armstrong <neil.armstrong@linaro.org>, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-To: Jerome Brunet <jbrunet@baylibre.com>
-Date: Thu, 27 Feb 2025 14:55:00 -0800
-User-Agent: alot/0.12.dev1+gaa8c22fdeedb
+User-Agent: Mozilla Thunderbird
+Cc: linux-hyperv@vger.kernel.org, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org,
+ eahariha@linux.microsoft.com, kys@microsoft.com, haiyangz@microsoft.com,
+ wei.liu@kernel.org, mhklinux@outlook.com, decui@microsoft.com,
+ catalin.marinas@arm.com, will@kernel.org, tglx@linutronix.de,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com,
+ daniel.lezcano@linaro.org, joro@8bytes.org, robin.murphy@arm.com,
+ arnd@arndb.de, jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
+ skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com,
+ ssengar@linux.microsoft.com, apais@linux.microsoft.com,
+ Tianyu.Lan@microsoft.com, stanislav.kinsburskiy@gmail.com,
+ gregkh@linuxfoundation.org, vkuznets@redhat.com, prapal@linux.microsoft.com,
+ muislam@microsoft.com, anrayabh@linux.microsoft.com, rafael@kernel.org,
+ lenb@kernel.org, corbet@lwn.net
+Subject: Re: [PATCH v5 04/10] hyperv: Introduce hv_recommend_using_aeoi()
+To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1740611284-27506-5-git-send-email-nunodasneves@linux.microsoft.com>
+From: Easwar Hariharan <eahariha@linux.microsoft.com>
+Content-Language: en-US
+In-Reply-To: <1740611284-27506-5-git-send-email-nunodasneves@linux.microsoft.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_145503_849863_D20DE2C4 
-X-CRM114-Status: GOOD (  22.77  )
+X-CRM114-CacheID: sfid-20250227_150326_930956_6E407D89 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,74 +83,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Jerome Brunet (2025-01-15 07:58:55)
->=20
-> I'd like to register controller init hook to apply on all the clocks of
-> a particular type. The reason to do that is to drop the big clk_regmap
-> table that are a pain to maintain (in addition to be ugly). I hoped it
-> would also save a bit of memory.
->=20
-> The solutions we've been discussing so far feels like we are moving
-> around the problem, recreating the memory saved somewhere else,
-> perhaps in a more complicated way. I'd like to find something more
-> convinient to use, which does not scale the memory used with the number
-> of clock registered. The point is not a different hook for clk_hw after
-> all.
+On 2/26/2025 3:07 PM, Nuno Das Neves wrote:
+> Factor out the check for enabling auto eoi, to be reused in root
+> partition code.
+> 
+> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+> ---
+>  drivers/hv/hv.c                | 12 +-----------
+>  include/asm-generic/mshyperv.h | 13 +++++++++++++
+>  2 files changed, 14 insertions(+), 11 deletions(-)
+> 
 
-What are the goals?
+<snip>
 
- 1. Drop clk_regmap table
- 2. Reduce memory
- 3. ??
+> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+> index 258034dfd829..1f46d19a16aa 100644
+> --- a/include/asm-generic/mshyperv.h
+> +++ b/include/asm-generic/mshyperv.h
+> @@ -77,6 +77,19 @@ extern u64 hv_do_fast_hypercall16(u16 control, u64 input1, u64 input2);
+>  bool hv_isolation_type_snp(void);
+>  bool hv_isolation_type_tdx(void);
+>  
+> +/*
+> + * On architectures where Hyper-V doesn't support AEOI (e.g., ARM64),
+> + * it doesn't provide a recommendation flag and AEOI must be disabled.
+> + */
+> +static inline bool hv_recommend_using_aeoi(void)
+> +{
+> +#ifdef HV_DEPRECATING_AEOI_RECOMMENDED
+> +	return !(ms_hyperv.hints & HV_DEPRECATING_AEOI_RECOMMENDED);
+> +#else
+> +	return false;
+> +#endif
+> +}
+> +
 
->=20
-> Here is an idea, how about list of hook identified by ops and controller ?
->=20
-> The node would look like this
->=20
-> struct clk_type_init_node {
->        struct list_head         entry;
->       =20
->        struct device_node       *of_node;
->        struct device            *dev;
->        const struct clk_ops     *ops;
->=20
->        int (*init_hook)(struct clk_hw *hw);
-> };
->=20
-> The change would be minimal in core CCF, just searching the list for a
-> match in clk_register. On most platform the list would be empty so there
-> is virtually no penalty when it is not used.
->=20
-> From the controller, the usage would be very simple, just calling a
-> function before registering the clocks, something like:
->=20
-> int clk_type_register_dev_hook(struct device *dev,
->                                const struct clk_ops *ops,
->                                int (*init_hook)(struct clk_hw *hw))
->=20
-> or the 'of_node' equivalent.
+I must be missing something very basic here, and if so, I apologize, and please enlighten me.
 
-Why can't we register the clk at the same time? I don't understand why
-we want to search a list to match something up to what could be another
-argument to the clk registration API. Isn't this the same as=20
+HV_DEPRECATING_AEOI_RECOMMENDED is defined as BIT(9) in include/hyperv/hvgdk_mini.h, and
+asm-generic/mshyperv.h includes that via include/hyperv/hvhdk.h.
 
- clk_hw_register_data(struct device *dev, struct clk_hw *hw, const struct c=
-lk_register_data *data)
+If this is the case, when would HV_DEPRECATING_AEOI_RECOMMENDED ever be not defined?
+If it's always defined, do we need the #ifdef?
 
-Why is that hard to maintain? Is that because the clk driver is
-registering various different types of clks and it wants to do different
-stuff depending on the type of clk? Why wouldn't wrapping the clk_ops
-in another struct and then using container_of to find the custom clk_ops
-not work there?
-
->=20
-> I admit this is heavily inspired by how devres works :) but it does solve
-> the early clock controller problem and does not scale with the number of
-> clock registered.
->=20
-
-I don't know if devres is a good model. It's about tracking allocations
-and things to undo later, not really to track things to do when called
-initially.
+Thanks,
+Easwar (he/him)
 
