@@ -4,87 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1536C197BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 22:45:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA6A4C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 22:55:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KU04ndGRpVnkCi2LzBZ0RaQjHf6S8suG7PAxWO1HqFQ=; b=oU9uP/D2IVA0lxJGPOqPV4ELp0
-	OOY6MZwIO7Bwd3vf2Nlg8hDl249RUsFBTV3GRbcGChtsGKOGYX2ZgvXk2xsHTS4XZdnu7nJuPuaLO
-	Bql80mmD5cN9kdV2Ib/G6pM3xGkHBfspqrN/mOAejq1opQ2nPMKm9KCufEQF4W32Lhmk7IldZQIqm
-	zZACU66TfHAKCrMET3PcKOf7aBlQdZbLMrtdT1/lq+/LNIYAHeM9/zzvqGn72kypRxrDEVhXKb9yK
-	ml0SVj9UzfcnLx/snFNlXn/tEFb7Afbtr1Kym1FkGNjRWpxX3wkqirogX9Bx5aedU6CJm3hh/83VI
-	g9ja2Yvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sYAfR6rT+J2Pmezoedxv/QKmEL6vhTnAGCGwcyVDn58=; b=pasRW/sd9jz0r4PD//xOjNzdXZ
+	g5R2ttjg9ebKXN1G0shOC/ISa2uoMnrGBe7z0xevShSiuN08TyJzRhDzw+Imt+SM0Bo2z7OM6EzF8
+	tsKI8IjxLtvRgLO4eFcpMsR4Yq0uO7zNT7ulQbIXHmE63A/pwEvkZQzqP3pD7joZwDBapB4YVjJLs
+	d7H/xUBI3i7b6hJkdXEX29sT35jV0JHCm6qfjmPAyGtxtIZUQ6ffpEYbSASs4htbigPeQnDwxXczA
+	8qNf2zUmaVEfRpkMUOW7dDNGkOP1ZVt/dyoxssx9bX8lDXwyEybdrFzCGXblZ3JULjCqpelAUMC0+
+	KII1a/6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnmdT-000000094c1-2WIh;
-	Thu, 27 Feb 2025 22:45:43 +0000
-Received: from mail-yb1-xb36.google.com ([2607:f8b0:4864:20::b36])
+	id 1tnmmS-000000095dB-47vW;
+	Thu, 27 Feb 2025 22:55:00 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnmbu-000000094Mc-1McP
+	id 1tnmku-000000095SE-3haM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 22:44:08 +0000
-Received: by mail-yb1-xb36.google.com with SMTP id 3f1490d57ef6-e545c1e8a15so1847610276.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 14:44:05 -0800 (PST)
+	Thu, 27 Feb 2025 22:53:26 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-545fed4642aso1456653e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 14:53:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740696245; x=1741301045; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=KU04ndGRpVnkCi2LzBZ0RaQjHf6S8suG7PAxWO1HqFQ=;
-        b=HvQ3/ECb4bDdJGIoB2n3E0VggZhXlGHusSwmSY7/xST6YW9vDLAEEe+l38uUmcfbdc
-         dmwfDbjJO+9S8Qae7wkzGCDMCMf68wvCe04c6O3g1h1D/cUlm4gE1t5ZSCTvVN/B9Fn/
-         haNAf2pG1C+g84bF5o04+JE6O62QjjlQ0iBvI6U0kBLbkSnqnWhrhGv77KyZzdUiUYvO
-         GcmxvgtmNcFeSt/tbqgbQxZy/HIT/zPEx46NkfHWqwSYBcEoDYJU1p8fIUHhrv0M36QT
-         47ZuPtJnx840qaFc6hlqWlqVoh0tcNwBj/KaDA2atvbCfx6rX2TtLlGtod80I0FupI6w
-         jdZA==
+        d=linaro.org; s=google; t=1740696803; x=1741301603; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sYAfR6rT+J2Pmezoedxv/QKmEL6vhTnAGCGwcyVDn58=;
+        b=cJgrCFwPXS8qnwxF/uJYNb1igaB7hMJcm8CG3UVib0QeNQqCMelDqo54ywa3gQtsIh
+         FgCZ48vX3ECary3Xx8Ek+C6zRPy9f8FEmem6vmnEoQA9s+b8d8Ka612M1fRLgGotTNjf
+         qKGkU+gXjNbvK4asmAjiz9i6AxWlL6YSt9NghvtHfFnvhtjpoKKzQk/YUmCgMgQrmp0j
+         HA3lqZPthpmVQLdMwkDfHMSOPchSPr3GTS7L8LnvS3HjbL1LLPPTCD7qA2qJpdpFu9qO
+         zKsZVUOvCR80FLM635WI6YxA7RnRGZQTsSEUsehvovz69OpJ+LexjzQ//j/hw9z+5lfs
+         jGnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740696245; x=1741301045;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=KU04ndGRpVnkCi2LzBZ0RaQjHf6S8suG7PAxWO1HqFQ=;
-        b=vorLI4epNAed71PvoHJwWp873VMQr6Q3ePmEKi4F+sOnkfLF+xh8GY08Wm3e5puInp
-         KdnLXu1/pWyaBfHdxS7gGTmA55jJUZ2lZG5DqTjOSIE9tTAMcZBNBMsA3ObrJmKXGLoL
-         LiemflHdpQ4UvR5Fs7pnVTLfdpy44xiwSBNNxbGIyD5Mz8Ui2lQOAOWVgh+NTnmBvRT8
-         90tZWLpQF2KtLAcCvi6TPflEfq7AAa5f9DpMhYZpMAZ7AZPd04jZfPfQF3S3cJE836qG
-         ucCMnJRhGY16+ut7qwJSrxciIdXNTXQ2sUDU9AhywnmXSR9su/JSnqZAoNLn3v07+8QW
-         xJ2A==
-X-Forwarded-Encrypted: i=1; AJvYcCVF6Nxz5Id6uHsErlf5Sxkcai9EsmUgYwX7Q7IAhMYjs4UcEOyYvlzzdCLyu1EO0RxfHGvUUMQGaiqbJ5aaQXx/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEiBYSNa6b1ICu0+i9QJG00UvGnsADGQ1FzfUuYC/Eoaa9QqT9
-	p6O6nKwEnaYhuxHiM+QBDz3Zc0mrP4pf25Vaz8Q8n9FNk+aALqlWNh9dtAQIePWFi0F6GvNUWgX
-	9qpXdeC9wfYuTnmE8OEHi33w6XBGc53pp7rJAfQ==
-X-Gm-Gg: ASbGncvrZ7V21wteAKvsGjs+9RzSC+kTolGEFDl/FTJJiJFrCnmIrDBXrYsuEn/6n4U
-	RcrruMTxnZTNefBFIg4bUvpa/9s8/ed9WBJYgz7aOCd/Qvv9YGC7gR08HRZNRRQSHcQ7bgmq6ve
-	iy9UhE+VhF
-X-Google-Smtp-Source: AGHT+IGEy3bc1Bp1xRr8BLb+QC/rd48GSWbVDCH5GXU6tDDpNE7TqnX1Hma037xcueQcp7T70U4jid/sXaVT3cNYdms=
-X-Received: by 2002:a05:6902:1687:b0:e60:9acd:7f1e with SMTP id
- 3f1490d57ef6-e60b2f2eae2mr1177565276.46.1740696244810; Thu, 27 Feb 2025
- 14:44:04 -0800 (PST)
+        d=1e100.net; s=20230601; t=1740696803; x=1741301603;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=sYAfR6rT+J2Pmezoedxv/QKmEL6vhTnAGCGwcyVDn58=;
+        b=GLyaRk0FSCecBrKnYVxG89fCAEvEmcJDalwjh1g/he7lMEsTI2hInLD/BFC2T3p4d+
+         iB6kP/57ssVqJM6T289a/yWK03h8qF3fkIP0I2+Kbsb1dcSej0ajKB+Nq0VPqWEP+Gsa
+         OlRW/lhsuTvWHwiZy+aSg9R2NhcUa9i3Q21oZHfbsEC523Be17Skvy2nzJIw7a+30ji6
+         kQ6tZg+0NYTEemWXPo9G0v7eFHSLU4oWL9CVQoRvs5c/LxHSyICB9ySU6f1k9jyNtECB
+         WorbINKMjyUzDLpXj4TBBn5M/v2K6tvAHbjJ9nGBHfGVI8N4Cq3mbm3QUoDYZJBAHnPg
+         008g==
+X-Forwarded-Encrypted: i=1; AJvYcCU8P9iSiKTJ8pYkReHfJZXgbVQXe31BxiSQi3zKi5JXrF+LoXlSIlPrJCAVu3flPhyrhWJVJahxTfxRY9ujhwuY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyml2Fp85hMk6HyhKKJtgOr/uDF/Ux5FfS+YHAqHpFZobGUArJ4
+	vMOtm3Tdr7G8vNOJu7VQjP31vS4UBxnalDe9ahw9HmxWFQvnfVYF7OC7Mr0ETSMeaom2LACNC0D
+	7gEKg/CyrnguQBFezYRdbskmUktj26QbY3TTXTQ==
+X-Gm-Gg: ASbGncufwaqv98vodHGDQM24ueojT9eU2BOenHdHwSIuh3KFejUBQoc3YIgG1BFm/2k
+	C0OqfFwavZEWp7xBvRjYjmM4NRkxCxtbRguiUyZEPMovTC+IbfjCTyaiHnkYVCfCmSl8Aa+hxZ/
+	VVbnyIRAI=
+X-Google-Smtp-Source: AGHT+IEtwiHtj9LHUcW0e/otkeY6xFx8rK1S/vfrLBTeffolkmIjfF0YZc4BMa7wskN4DXcOEuc/fyfJLasqmpJiYAc=
+X-Received: by 2002:ac2:4c4f:0:b0:545:2770:79b2 with SMTP id
+ 2adb3069b0e04-5494c351b83mr499150e87.33.1740696802619; Thu, 27 Feb 2025
+ 14:53:22 -0800 (PST)
 MIME-Version: 1.0
-References: <20250221005802.11001-1-andre.przywara@arm.com> <20250221005802.11001-3-andre.przywara@arm.com>
-In-Reply-To: <20250221005802.11001-3-andre.przywara@arm.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 27 Feb 2025 23:43:29 +0100
-X-Gm-Features: AQ5f1Jqs172d4wK_E6GAR9ZUw6OL7SIpKMGguaBKR7COOTYVobqJK7Uj4skIcjU
-Message-ID: <CAPDyKFqne4VLemkkgS948whoNm4pOdvp_CCJ4SSBJOBzt9k2Nw@mail.gmail.com>
-Subject: Re: [PATCH 2/5] pmdomain: sunxi: add H6 PRCM PPU driver
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Boris Brezillon <boris.brezillon@collabora.com>, Steven Price <steven.price@arm.com>, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-pm@vger.kernel.org
+References: <20250219102750.38519-1-brgl@bgdev.pl> <Z7XqSVfhPGI5J63B@finisterre.sirena.org.uk>
+ <CAMRc=MdEcjFUp2OEutcnDqSHbbait3f25NEWbdp7mARyKZLvBw@mail.gmail.com>
+In-Reply-To: <CAMRc=MdEcjFUp2OEutcnDqSHbbait3f25NEWbdp7mARyKZLvBw@mail.gmail.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Thu, 27 Feb 2025 23:53:10 +0100
+X-Gm-Features: AQ5f1Jp6iZursAYFoyZhYUa8R_xOEcekX9mX715XkkcwLe7KRWmfwikYltCeIOs
+Message-ID: <CACRpkdbkcX5pEeikkDZAxSGp+M3kJH5SWimxQA6P35iiDAUNdA@mail.gmail.com>
+Subject: Re: [RFC/RFT PATCH] pinctrl: bcm2835: don't -EINVAL on alternate
+ funcs from get_direction()
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Mark Brown <broonie@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Stefan Wahren <wahrenst@gmx.net>, 
+	Liao Chen <liaochen4@huawei.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, linux-gpio@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_144406_368916_3FA6F6B0 
-X-CRM114-Status: GOOD (  41.14  )
+X-CRM114-CacheID: sfid-20250227_145324_923018_6F144882 
+X-CRM114-Status: GOOD (  24.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,266 +102,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 21 Feb 2025 at 02:00, Andre Przywara <andre.przywara@arm.com> wrote:
+On Wed, Feb 19, 2025 at 3:30=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.pl>=
+ wrote:
+> On Wed, Feb 19, 2025 at 3:27=E2=80=AFPM Mark Brown <broonie@kernel.org> w=
+rote:
+> >
+> > On Wed, Feb 19, 2025 at 11:27:50AM +0100, Bartosz Golaszewski wrote:
+> > > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> > >
+> > > Since commit 9d846b1aebbe ("gpiolib: check the return value of
+> > > gpio_chip::get_direction()") we check the return value of the
+> > > get_direction() callback as per its API contract. This driver returns
+> > > -EINVAL if the pin in question is set to one of the alternative
+> > > (non-GPIO) functions. This isn't really an error that should be
+> > > communicated to GPIOLIB so default to returning the "safe" value of
+> > > INPUT in this case. The GPIO subsystem does not have the notion of
+> > > "unknown" direction.
+> >
+> > I see this was already tested for these specific boards.  I've also
+> > found that Avenger96 is failing with bisect pointing to the same commit
+> > this is fixing:
+> >
+> >     https://lava.sirena.org.uk/scheduler/job/1126314
+> >
+> > as is the Libretech Potato:
+> >
+> >     https://lava.sirena.org.uk/scheduler/job/1126285
+> >
+> > neither of which produce any output before dying, they'll not be fixed
+> > by this change.  Seems like an audit of the drivers might be in order?
 >
-> The Allwinner Power Reset Clock Management (RPCM) block contains a few
-> bits that control some power domains. The most prominent one is the one
-> for the Mali GPU. On the Allwinner H6 this domain is enabled at reset, so
-> we didn't care about it so far, but the H616 defaults to it being disabled.
+> Right. I don't know if they return EINVAL or some other error so let
+> me prepare a change that will not bail-out but simply warn on
+> get_direction() errors in gpiochip_add_data() instead.
 >
-> Add a power domain driver for those bits. Some BSP code snippets and
-> some spare documentation describe three bits, slightly different between
-> the H6 and H616, so add three power domains for each SoC, connected to
-> their compatible string.
->
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> ---
->  drivers/pmdomain/sunxi/Kconfig              |  10 +
->  drivers/pmdomain/sunxi/Makefile             |   1 +
->  drivers/pmdomain/sunxi/sun50i-h6-prcm-ppu.c | 191 ++++++++++++++++++++
->  3 files changed, 202 insertions(+)
->  create mode 100644 drivers/pmdomain/sunxi/sun50i-h6-prcm-ppu.c
->
-> diff --git a/drivers/pmdomain/sunxi/Kconfig b/drivers/pmdomain/sunxi/Kconfig
-> index 17781bf8d86d7..43eecb3ea9819 100644
-> --- a/drivers/pmdomain/sunxi/Kconfig
-> +++ b/drivers/pmdomain/sunxi/Kconfig
-> @@ -8,3 +8,13 @@ config SUN20I_PPU
->         help
->           Say y to enable the PPU power domain driver. This saves power
->           when certain peripherals, such as the video engine, are idle.
-> +
-> +config SUN50I_H6_PRCM_PPU
-> +       tristate "Allwinner H6 PRCM power domain driver"
-> +       depends on ARCH_SUNXI || COMPILE_TEST
-> +       depends on PM
-> +       select PM_GENERIC_DOMAINS
-> +       help
-> +         Say y to enable the Allwinner H6/H616 PRCM power domain driver.
-> +         This is required to enable the Mali GPU in the H616 SoC, it is
-> +         optional for the H6.
-> diff --git a/drivers/pmdomain/sunxi/Makefile b/drivers/pmdomain/sunxi/Makefile
-> index ec1d7a2fb21db..c1343e1237599 100644
-> --- a/drivers/pmdomain/sunxi/Makefile
-> +++ b/drivers/pmdomain/sunxi/Makefile
-> @@ -1,2 +1,3 @@
->  # SPDX-License-Identifier: GPL-2.0-only
->  obj-$(CONFIG_SUN20I_PPU)               += sun20i-ppu.o
-> +obj-$(CONFIG_SUN50I_H6_PRCM_PPU)       += sun50i-h6-prcm-ppu.o
-> diff --git a/drivers/pmdomain/sunxi/sun50i-h6-prcm-ppu.c b/drivers/pmdomain/sunxi/sun50i-h6-prcm-ppu.c
-> new file mode 100644
-> index 0000000000000..1c6b0c78b222d
-> --- /dev/null
-> +++ b/drivers/pmdomain/sunxi/sun50i-h6-prcm-ppu.c
-> @@ -0,0 +1,191 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) Arm Ltd. 2024
-> + *
-> + * Allwinner H6/H616 PRCM power domain driver.
-> + * This covers a few registers inside the PRCM (Power Reset Clock Management)
-> + * block that control some power rails, most prominently for the Mali GPU.
-> + */
-> +
-> +#include <linux/bitfield.h>
-> +#include <linux/clk.h>
-> +#include <linux/io.h>
-> +#include <linux/iopoll.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pm_domain.h>
-> +#include <linux/reset.h>
-> +
-> +/*
-> + * The PRCM block covers multiple devices, starting with some clocks,
-> + * then followed by the power rails.
-> + * The clocks are covered by a different driver, so this driver's MMIO range
-> + * starts later in the PRCM MMIO frame, not at the beginning of it.
-> + * To keep the register offsets consistent with other PRCM documentation,
-> + * express the registers relative to the beginning of the whole PRCM, and
-> + * subtract the PPU offset this driver is bound to.
-> + */
-> +#define PD_H6_PPU_OFFSET               0x250
-> +#define PD_H6_VDD_SYS_REG              0x250
-> +#define PD_H616_ANA_VDD_GATE                   BIT(4)
-> +#define PD_H6_CPUS_VDD_GATE                    BIT(3)
-> +#define PD_H6_AVCC_VDD_GATE                    BIT(2)
-> +#define PD_H6_GPU_REG                  0x254
-> +#define PD_H6_GPU_GATE                         BIT(0)
-> +
-> +struct sun50i_h6_ppu_pd {
-> +       struct generic_pm_domain        genpd;
-> +       void __iomem                    *reg;
-> +       u32                             gate_mask;
-> +       bool                            negated;
-> +};
-> +
-> +#define FLAG_PPU_ALWAYS_ON     BIT(0)
-> +#define FLAG_PPU_NEGATED       BIT(1)
-> +
-> +struct sun50i_h6_ppu_desc {
-> +       const char *name;
-> +       u32 offset;
-> +       u32 mask;
-> +       unsigned int flags;
-> +};
-> +
-> +struct sun50i_h6_ppu_desc sun50i_h6_ppus[] = {
-> +       { "AVCC", PD_H6_VDD_SYS_REG, PD_H6_AVCC_VDD_GATE },
-> +       { "CPUS", PD_H6_VDD_SYS_REG, PD_H6_CPUS_VDD_GATE },
-> +       { "GPU", PD_H6_GPU_REG, PD_H6_GPU_GATE },
-> +       {}
-> +};
+> This patch can still go upstream IMO.
 
-I suggest we define a new struct (perhaps sun50_domain_data!?) that
-has a struct sun50i_h6_ppu_desc* member along with a size_t member to
-keep the number of the domains, set by using ARRAY_SIZE().
+I'm fine to apply it, maybe as non-urgent fix at this point? (for -next)
 
-In this way we don't need the additional NULL domain at the end - and
-we can also avoid looping through the array during probe  to count
-them.
+Do you want to send a non-RFC/RFT version or should I just apply it?
 
-> +
-> +struct sun50i_h6_ppu_desc sun50i_h616_ppus[] = {
-> +       { "PLL", PD_H6_VDD_SYS_REG, PD_H6_AVCC_VDD_GATE,
-> +               FLAG_PPU_ALWAYS_ON | FLAG_PPU_NEGATED },
-> +       { "ANA", PD_H6_VDD_SYS_REG, PD_H616_ANA_VDD_GATE, FLAG_PPU_ALWAYS_ON },
-> +       { "GPU", PD_H6_GPU_REG, PD_H6_GPU_GATE, FLAG_PPU_NEGATED },
-> +       {}
-> +};
-> +#define to_sun50i_h6_ppu_pd(_genpd) \
-> +       container_of(_genpd, struct sun50i_h6_ppu_pd, genpd)
-> +
-> +static bool sun50i_h6_ppu_power_status(const struct sun50i_h6_ppu_pd *pd)
-> +{
-> +       bool bit = readl(pd->reg) & pd->gate_mask;
-> +
-> +       return bit ^ pd->negated;
-> +}
-> +
-> +static int sun50i_h6_ppu_pd_set_power(const struct sun50i_h6_ppu_pd *pd,
-> +                                     bool set_bit)
-> +{
-> +       u32 reg = readl(pd->reg);
-> +
-> +       if (set_bit)
-> +               writel(reg | pd->gate_mask, pd->reg);
-> +       else
-> +               writel(reg & ~pd->gate_mask, pd->reg);
-> +
-> +       return 0;
-> +}
-> +
-> +static int sun50i_h6_ppu_pd_power_on(struct generic_pm_domain *genpd)
-> +{
-> +       const struct sun50i_h6_ppu_pd *pd = to_sun50i_h6_ppu_pd(genpd);
-> +
-> +       return sun50i_h6_ppu_pd_set_power(pd, !pd->negated);
-> +}
-> +
-> +static int sun50i_h6_ppu_pd_power_off(struct generic_pm_domain *genpd)
-> +{
-> +       const struct sun50i_h6_ppu_pd *pd = to_sun50i_h6_ppu_pd(genpd);
-> +
-> +       return sun50i_h6_ppu_pd_set_power(pd, pd->negated);
-> +}
-> +
-> +static int sun50i_h6_ppu_probe(struct platform_device *pdev)
-> +{
-> +       struct device *dev = &pdev->dev;
-> +       struct genpd_onecell_data *ppu;
-> +       struct sun50i_h6_ppu_pd *pds;
-> +       const struct sun50i_h6_ppu_desc *desc;
-> +       void __iomem *base;
-> +       int ret, i, count;
-> +
-> +       desc = of_device_get_match_data(dev);
-> +       if (!desc)
-> +               return -EINVAL;
-> +
-> +       for (count = 0; desc[count].name; count++)
-> +               ;
-> +
-> +       pds = devm_kcalloc(dev, count, sizeof(*pds), GFP_KERNEL);
-> +       if (!pds)
-> +               return -ENOMEM;
-> +
-> +       ppu = devm_kzalloc(dev, sizeof(*ppu), GFP_KERNEL);
-> +       if (!ppu)
-> +               return -ENOMEM;
-> +
-> +       ppu->num_domains = count;
-> +       ppu->domains = devm_kcalloc(dev, count, sizeof(*ppu->domains),
-> +                                   GFP_KERNEL);
-> +       if (!ppu->domains)
-> +               return -ENOMEM;
-> +
-> +       platform_set_drvdata(pdev, ppu);
-> +
-> +       base = devm_platform_ioremap_resource(pdev, 0);
-> +       if (IS_ERR(base))
-> +               return PTR_ERR(base);
-> +
-> +       for (i = 0; i < count; i++) {
-> +               struct sun50i_h6_ppu_pd *pd = &pds[i];
-> +
-> +               pd->genpd.name          = desc[i].name;
-> +               pd->genpd.power_off     = sun50i_h6_ppu_pd_power_off;
-> +               pd->genpd.power_on      = sun50i_h6_ppu_pd_power_on;
-> +               if (desc[i].flags & FLAG_PPU_ALWAYS_ON)
-> +                       pd->genpd.flags = GENPD_FLAG_ALWAYS_ON;
-> +               pd->negated             = !!(desc[i].flags & FLAG_PPU_NEGATED);
-> +               pd->reg                 = base + desc[i].offset - PD_H6_PPU_OFFSET;
-> +               pd->gate_mask           = desc[i].mask;
-> +
-> +               ret = pm_genpd_init(&pd->genpd, NULL,
-> +                                   !sun50i_h6_ppu_power_status(pd));
-> +               if (ret) {
-> +                       dev_warn(dev, "Failed to add GPU power domain: %d\n", ret);
-> +                       return ret;
-> +               }
-> +               ppu->domains[i] = &pd->genpd;
-> +       }
-> +
-> +       ret = of_genpd_add_provider_onecell(dev->of_node, ppu);
-> +       if (ret)
-> +               dev_warn(dev, "Failed to add provider: %d\n", ret);
-
-If of_genpd_add_provider_onecell() fails, shouldn't we remove the
-genpds in the error path?
-
-> +
-> +       return 0;
-> +}
-> +
-> +static const struct of_device_id sun50i_h6_ppu_of_match[] = {
-> +       { .compatible   = "allwinner,sun50i-h6-prcm-ppu",
-> +         .data         = &sun50i_h6_ppus },
-> +       { .compatible   = "allwinner,sun50i-h616-prcm-ppu",
-> +         .data         = &sun50i_h616_ppus },
-> +       { }
-> +};
-> +MODULE_DEVICE_TABLE(of, sun50i_h6_ppu_of_match);
-> +
-> +static struct platform_driver sun50i_h6_ppu_driver = {
-> +       .probe  = sun50i_h6_ppu_probe,
-> +       .driver = {
-> +               .name                   = "sun50i-h6-prcm-ppu",
-> +               .of_match_table         = sun50i_h6_ppu_of_match,
-> +               /* Power domains cannot be removed while they are in use. */
-> +               .suppress_bind_attrs    = true,
-> +       },
-> +};
-> +module_platform_driver(sun50i_h6_ppu_driver);
-> +
-> +MODULE_AUTHOR("Andre Przywara <andre.przywara@arm.com>");
-> +MODULE_DESCRIPTION("Allwinner H6 PRCM power domain driver");
-> +MODULE_LICENSE("GPL");
-> --
-> 2.46.3
->
-
-Kind regards
-Uffe
+Yours,
+Linus Walleij
 
