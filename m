@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9235FC19F2E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 14:48:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0521FC19F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 14:49:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2dMTzqRKOVP6zI4y+SKJqu8AaktMKU/o6Ry3f8HrIys=; b=ddF4J/sPw8Vp6yJUR3ZK+O2Ta0
-	jmfqb35x2RSREMaVGRx+L1Vsh8GZD0SElMhwP7cPgyMUEmocm2TbhvpqiDyGTclZ9ErYwUiuITiGM
-	Jw2y62VHvZHKG3rSrQI61O9psCNw5h0MLQdlXeOUp2iBVBGP4xI79JALw0aE/ka8KQ1jpobBxwNje
-	22KwGupc+t1BhVy+GziMdxDyf+7yFWRLEAgGidEq7POsLYpCb0XFejbuNoGvzEeO/6IUC2PVIxKVb
-	tuokBDLn2Ii64jr2RAYYsjrA7HBi1PftBtfOm627TGBc+5kBttcRNLHXPnDHuT+69nCcGJsOOmylk
-	UPNkcTqQ==;
+	bh=d7fmU8TJDq6KTOuPGSb8jkfqdk5VnvNn0zD+r2C2d+k=; b=uAAnU0oEkV2b7dmlaZ4/cUMTt+
+	80W61P0ytMdaYOcrt9IC5wusw3wErxaGUttdQWmehBCjMy/uhqy3/JjmLjphgv+/rk7tNdWUVuB/X
+	a1t1QbTHyxdh/egkDhTVTiPad91D/fjsfxJFc7FJfjQtGQSgZozaVwuJDmAyIW2c4X4WveemFI5IG
+	Ocob6jhOcldBOnMp4nzK9TOA/+dlHjQAfjTUThEmDESbenncZtCzZKyAbiFHfrgi4u4vW72oMvVOg
+	cYiuS1O9kMmCatVnO0tvja8IRJNKAlSdqwRdsHdsNp6L1vno0SGPQQt/mpBFVsTyOcZDfWu8RZnEb
+	GNg8jrJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnfB9-00000007oRo-07T5;
-	Thu, 27 Feb 2025 14:47:59 +0000
+	id 1tnfCf-00000007omK-2jGF;
+	Thu, 27 Feb 2025 14:49:33 +0000
 Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnerl-00000007jJR-18dv
+	id 1tnerm-00000007jKE-33rj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 14:27:58 +0000
+	Thu, 27 Feb 2025 14:28:00 +0000
 Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id F3C6EA0D06;
-	Thu, 27 Feb 2025 15:27:55 +0100 (CET)
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 6E7D2A0D6D;
+	Thu, 27 Feb 2025 15:27:57 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
 	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=2dMTzqRKOVP6zI4y+SKJ
-	qu8AaktMKU/o6Ry3f8HrIys=; b=iIK4vdNzwirARn9ePnH7YdLz9jSue29GshN8
-	PMBb+u8yV+/qrMmGUVni7WrsTDhIxQeNil2CdqKK3a0izxDYq0S96UnzGGuOG2X5
-	6v8qyLCpiHJfJdU0Ao1eL/DJLWojsA/nA16+mxTdbpFxT/70JWvF0bfQow1HO5xu
-	nN5SdtAhb+Y1YYzhs7P+ANn/I/LvmP+mRCEBrfXSZiOb8TNv+2lsFayEtVpaf64y
-	95ps7r53PDjpLjmqRRQrvQkVRVmrNiXbvCoHLryAKMMhi0bhd+IlmphxGRqy+XWt
-	57YnUW2fBu1XXJF0cLmwVK1wXiaD5oHTeTm9n5Q6fo2sJ12I6nEDTlABhXcGB7aI
-	EsaeoxsFfSPLs5cGxOKSvGUY07soWy4vBDcRvLbYF2uydIX76/i0Et+6bYZdDexe
-	hXDru6upmu5L6I1ZNeynDsu8rees5A/uWkoTatceSqkAhdV8ser27IR4a4oc2eXs
-	96tDLiUUSrF18+jJSgyxtcfix4NcUiGfTzi37uE4MIpWB2pzq1HX+zRBVMEUecS/
-	LWzMPJzxobzmYzhbD93nxPDRSkv0GKTWKF1LacWxfDMUqwijNpsCLZ2atPi4kaee
-	hP8jsRjrVI61YmK/lomaqrERYWFy9hHhPiUHQ3hcjpPXegA09WKY0hfvqeq5xDhw
-	JJKDer4=
+	:reply-to:subject:subject:to:to; s=mail; bh=d7fmU8TJDq6KTOuPGSb8
+	jkfqdk5VnvNn0zD+r2C2d+k=; b=uB1+dInFmyAOvQ2vWGPI3vdq4CTOxTGjWggw
+	htDxDEgGcf9pns1HIPksWuGIUaItMg0fQ7gfrZTlKQmWGYArhwCZo+KtqVl0Azyj
+	XbFdxAAYmOZ3zYo6jt+9B0BMAxEZ2g22B0hhFbbNn3VFjxtqkSy+SWpucZIAzpHP
+	vhsEuTCanrmL1ytOVr37wAZraeDRcjklxRVFntTwcS0llBiuXvKlJ1WFhFouRmbo
+	IDsMVcdR0ohMOm1d0kx/lD059Xzeho4pZK5cCX3Y2AJQj/WYczif4O5NmH+6yF9F
+	Ba/iHuy3SREszlHOEqJOU6r+gTpGqlYaLpAhWZ0VPzIYD/p3szC5KDpgVp6UAgFt
+	F+RkCqYvh1kNOjhTVejltRKNR9Ag4DfAoYfIsx9hhjzbnJmgj8t0ewp4BLUule0w
+	kvSjX3VBBLCWbnwJOEz2n0fIdXJP9Z7B/f0VAz7cEbiK/9VzJoEe6lhaLxhxd97i
+	XcDiZOXrOFouzcJl/j6UlFvzrkr/UskrC3JANTm4TfJ5HVnV5LjARyJ5OsOfaTnA
+	7h+k/gXKQmPpyu06rW37eG6RizJe+R3/bDWOXrx0adhoM7+nrOVUuHijKC9WITqf
+	dnGFNHV+yvalF/OozJc/tJz3dyUNT8A9i6qRorPGJqyKgFZaiceWGD0K0UhXuAvZ
+	bSoaoeA=
 From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-To: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-iio@vger.kernel.org>
+To: <linux-arm-kernel@lists.infradead.org>, <linux-iio@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
 CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Kamel
- Bouhara" <kamel.bouhara@bootlin.com>
-Subject: [PATCH v5 1/3] include: uapi: counter: Add microchip-tcb-capture.h
-Date: Thu, 27 Feb 2025 15:27:46 +0100
-Message-ID: <20250227142751.61496-2-csokas.bence@prolan.hu>
+ Bouhara" <kamel.bouhara@bootlin.com>, William Breathitt Gray <wbg@kernel.org>
+Subject: [PATCH v5 2/3] counter: microchip-tcb-capture: Add IRQ handling
+Date: Thu, 27 Feb 2025 15:27:47 +0100
+Message-ID: <20250227142751.61496-3-csokas.bence@prolan.hu>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250227142751.61496-1-csokas.bence@prolan.hu>
 References: <20250227142751.61496-1-csokas.bence@prolan.hu>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1740666475;VERSION=7985;MC=289978743;ID=1450426;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1740666476;VERSION=7985;MC=1421377409;ID=1450430;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
 X-ESET-Antispam: OK
 X-EsetResult: clean, is OK
 X-EsetId: 37303A29ACD94852637760
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_062757_464556_CA3F5FAF 
-X-CRM114-Status: GOOD (  14.16  )
+X-CRM114-CacheID: sfid-20250227_062758_935723_EA95868D 
+X-CRM114-Status: GOOD (  18.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,61 +81,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add UAPI header for the microchip-tcb-capture.c driver.
-This header will hold the various event channels, component numbers etc.
-used by this driver.
+Add interrupt servicing to allow userspace to wait for the following events:
+* Change-of-state caused by external trigger
+* Capture of timer value into RA/RB
+* Compare to RC register
+* Overflow
 
 Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
 ---
 
 Notes:
-    New in v5
+    New in v2
+    Changes in v3:
+    * Add IRQs for Capture events (from next patch)
+    * Add IRQ for RC Compare
+    * Add events as bullet points to commit msg
+    Changes in v4:
+    * Add uapi header, names for the event channels
+    * Add check for -EPROBE_DEFER from `of_irq_get()`
+    Changes in v5:
+    * Split out UAPI header introduction
 
- MAINTAINERS                                   |  1 +
- .../linux/counter/microchip-tcb-capture.h     | 22 +++++++++++++++++++
- 2 files changed, 23 insertions(+)
- create mode 100644 include/uapi/linux/counter/microchip-tcb-capture.h
+ drivers/counter/microchip-tcb-capture.c       | 75 +++++++++++++++++++
+ .../linux/counter/microchip-tcb-capture.h     | 18 +++++
+ 2 files changed, 93 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 8e047e20fbd8..d1d264210690 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -15579,6 +15579,7 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- L:	linux-iio@vger.kernel.org
- S:	Maintained
- F:	drivers/counter/microchip-tcb-capture.c
-+F:	include/uapi/linux/counter/microchip-tcb-capture.h
+diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/microchip-tcb-capture.c
+index 2f096a5b973d..cc12c2e2113a 100644
+--- a/drivers/counter/microchip-tcb-capture.c
++++ b/drivers/counter/microchip-tcb-capture.c
+@@ -6,18 +6,24 @@
+  */
+ #include <linux/clk.h>
+ #include <linux/counter.h>
++#include <linux/interrupt.h>
+ #include <linux/mfd/syscon.h>
+ #include <linux/module.h>
+ #include <linux/mutex.h>
+ #include <linux/of.h>
++#include <linux/of_irq.h>
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
++#include <uapi/linux/counter/microchip-tcb-capture.h>
+ #include <soc/at91/atmel_tcb.h>
  
- MICROCHIP USB251XB DRIVER
- M:	Richard Leitner <richard.leitner@skidata.com>
+ #define ATMEL_TC_CMR_MASK	(ATMEL_TC_LDRA_RISING | ATMEL_TC_LDRB_FALLING | \
+ 				 ATMEL_TC_ETRGEDG_RISING | ATMEL_TC_LDBDIS | \
+ 				 ATMEL_TC_LDBSTOP)
+ 
++#define ATMEL_TC_DEF_IRQS	(ATMEL_TC_ETRGS | ATMEL_TC_COVFS | \
++				 ATMEL_TC_LDRAS | ATMEL_TC_LDRBS | ATMEL_TC_CPCS)
++
+ #define ATMEL_TC_QDEN			BIT(8)
+ #define ATMEL_TC_POSEN			BIT(9)
+ 
+@@ -27,6 +33,7 @@ struct mchp_tc_data {
+ 	int qdec_mode;
+ 	int num_channels;
+ 	int channel[2];
++	int irq;
+ };
+ 
+ static const enum counter_function mchp_tc_count_functions[] = {
+@@ -294,6 +301,65 @@ static const struct of_device_id atmel_tc_of_match[] = {
+ 	{ /* sentinel */ }
+ };
+ 
++static irqreturn_t mchp_tc_isr(int irq, void *dev_id)
++{
++	struct counter_device *const counter = dev_id;
++	struct mchp_tc_data *const priv = counter_priv(counter);
++	u32 sr, mask;
++
++	regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], SR), &sr);
++	regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], IMR), &mask);
++
++	sr &= mask;
++	if (!(sr & ATMEL_TC_ALL_IRQ))
++		return IRQ_NONE;
++
++	if (sr & ATMEL_TC_ETRGS)
++		counter_push_event(counter, COUNTER_EVENT_CHANGE_OF_STATE,
++				   COUNTER_MCHP_EVCHN_CV);
++	if (sr & ATMEL_TC_LDRAS)
++		counter_push_event(counter, COUNTER_EVENT_CAPTURE,
++				   COUNTER_MCHP_EVCHN_RA);
++	if (sr & ATMEL_TC_LDRBS)
++		counter_push_event(counter, COUNTER_EVENT_CAPTURE,
++				   COUNTER_MCHP_EVCHN_RB);
++	if (sr & ATMEL_TC_CPCS)
++		counter_push_event(counter, COUNTER_EVENT_THRESHOLD,
++				   COUNTER_MCHP_EVCHN_RC);
++	if (sr & ATMEL_TC_COVFS)
++		counter_push_event(counter, COUNTER_EVENT_OVERFLOW,
++				   COUNTER_MCHP_EVCHN_CV);
++
++	return IRQ_HANDLED;
++}
++
++static void mchp_tc_irq_remove(void *ptr)
++{
++	struct mchp_tc_data *priv = ptr;
++
++	regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], IDR), ATMEL_TC_DEF_IRQS);
++}
++
++static int mchp_tc_irq_enable(struct counter_device *const counter)
++{
++	struct mchp_tc_data *const priv = counter_priv(counter);
++	int ret = devm_request_irq(counter->parent, priv->irq, mchp_tc_isr, 0,
++				   dev_name(counter->parent), counter);
++
++	if (ret < 0)
++		return ret;
++
++	ret = regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], IER), ATMEL_TC_DEF_IRQS);
++	if (ret < 0)
++		return ret;
++
++	ret = devm_add_action_or_reset(counter->parent, mchp_tc_irq_remove, priv);
++	if (ret < 0)
++		return ret;
++
++	return 0;
++}
++
+ static void mchp_tc_clk_remove(void *ptr)
+ {
+ 	clk_disable_unprepare((struct clk *)ptr);
+@@ -378,6 +444,15 @@ static int mchp_tc_probe(struct platform_device *pdev)
+ 	counter->num_signals = ARRAY_SIZE(mchp_tc_count_signals);
+ 	counter->signals = mchp_tc_count_signals;
+ 
++	priv->irq = of_irq_get(np->parent, 0);
++	if (priv->irq == -EPROBE_DEFER)
++		return -EPROBE_DEFER;
++	if (priv->irq > 0) {
++		ret = mchp_tc_irq_enable(counter);
++		if (ret < 0)
++			return dev_err_probe(&pdev->dev, ret, "Failed to set up IRQ");
++	}
++
+ 	ret = devm_counter_add(&pdev->dev, counter);
+ 	if (ret < 0)
+ 		return dev_err_probe(&pdev->dev, ret, "Failed to add counter\n");
 diff --git a/include/uapi/linux/counter/microchip-tcb-capture.h b/include/uapi/linux/counter/microchip-tcb-capture.h
-new file mode 100644
-index 000000000000..7bda5fdef19b
---- /dev/null
+index 7bda5fdef19b..ee72f1463594 100644
+--- a/include/uapi/linux/counter/microchip-tcb-capture.h
 +++ b/include/uapi/linux/counter/microchip-tcb-capture.h
-@@ -0,0 +1,22 @@
-+/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-+/*
-+ * Channel numbers used by the microchip-tcb-capture driver
-+ * Copyright (C) 2025 Bence Csókás
-+ */
-+#ifndef _UAPI_COUNTER_MCHP_TCB_H_
-+#define _UAPI_COUNTER_MCHP_TCB_H_
-+
-+/*
-+ * The driver defines the following components:
+@@ -12,6 +12,17 @@
+  * Count 0
+  * \__  Synapse 0 -- Signal 0 (Channel A, i.e. TIOA)
+  * \__  Synapse 1 -- Signal 1 (Channel B, i.e. TIOB)
 + *
-+ * Count 0
-+ * \__  Synapse 0 -- Signal 0 (Channel A, i.e. TIOA)
-+ * \__  Synapse 1 -- Signal 1 (Channel B, i.e. TIOB)
-+ */
-+
-+enum counter_mchp_signals {
-+	COUNTER_MCHP_SIG_TIOA,
-+	COUNTER_MCHP_SIG_TIOB,
++ * It also supports the following events:
++ *
++ * Channel 0:
++ * - CV register changed
++ * - CV overflowed
++ * - RA captured
++ * Channel 1:
++ * - RB captured
++ * Channel 2:
++ * - RC compare triggered
+  */
+ 
+ enum counter_mchp_signals {
+@@ -19,4 +30,11 @@ enum counter_mchp_signals {
+ 	COUNTER_MCHP_SIG_TIOB,
+ };
+ 
++enum counter_mchp_event_channels {
++	COUNTER_MCHP_EVCHN_CV = 0,
++	COUNTER_MCHP_EVCHN_RA = 0,
++	COUNTER_MCHP_EVCHN_RB,
++	COUNTER_MCHP_EVCHN_RC,
 +};
 +
-+#endif /* _UAPI_COUNTER_MCHP_TCB_H_ */
+ #endif /* _UAPI_COUNTER_MCHP_TCB_H_ */
 -- 
 2.48.1
 
