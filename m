@@ -4,71 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FC86C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Feb 2025 23:53:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 737A1C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 00:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d+6I+3A1b4iKmWuAFLCEc6Cxy/RwiNoKQINkgAxYW+s=; b=YlaCUIpvxNqUVDlrUd2rEhxQxk
-	6cREjKBrinUmv+FNJSLXf77JDT9q1YMIpTbHvFugZ+0yBzhHclCI2Ukc9sdbxCqonlnzRomr7IDTa
-	ygyQGYoe1envqljKqPTcNBAvB5cZ/xObsJXv3uLWsyCdMHZPn1yNiBPt3s5bitIKlb6D3qBb2IziT
-	EZLAqW0wWpmdMHWjVPSj8eLvAA1thRaYr0zJOv8byo73ALoacnONssx+EFnWoqrR8Gv79baWM4dJc
-	0kRZkLk934f6Pn85PNmb90QWI6YR3hNHYs3a10SaSq7SgHybPNXeb7cxEl91snrPT2GS+8+GV+3tl
-	weUlTRsQ==;
+	bh=rCKtPSqaLbMiAwTZR5MaQSFBSBzSDQKA0HKE8xQS4c8=; b=XDKiMmZiwZCQ1rMc08kUygGxVB
+	ApgFjgImOU1dmVT0jzE9DJn6viKq7pskfMQ/JWntJXfgxDuBzTdIu0NYAFkDUjItDNBu3UmlzNjIp
+	2lms8IjvPQnehBy93Tj0eBtb75j/D2ekRHHQo2QckI5Ao+5BxKtLEbXkLYK+lxwfYcu9BefV3Qfxc
+	IkNw5ond2hvIHT2BtUkGr8QRjLdgd3VEIH+aeA5bzj+4JIAadsnYCw09gb2toTHM6eEQx1iEiuzsA
+	udt13VnQ4hkn5vH9JtceyaKkNkWy4FWE1sHTEIiVyEjGVepgrpry2MtENuO8xKwgzvrzXA6WSJKAw
+	SA7kG5wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnRD4-00000005kUs-2Los;
-	Wed, 26 Feb 2025 23:53:02 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnRBW-00000005kLG-1iNn
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Feb 2025 23:51:28 +0000
-Received: from skinsburskii. (unknown [20.236.10.120])
-	by linux.microsoft.com (Postfix) with ESMTPSA id C853F210EACD;
-	Wed, 26 Feb 2025 15:51:23 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com C853F210EACD
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1740613884;
-	bh=d+6I+3A1b4iKmWuAFLCEc6Cxy/RwiNoKQINkgAxYW+s=;
+	id 1tnRMH-00000005l93-3Pzr;
+	Thu, 27 Feb 2025 00:02:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnRKl-00000005l1e-1VaQ;
+	Thu, 27 Feb 2025 00:00:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 743DB612B0;
+	Thu, 27 Feb 2025 00:00:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F154EC4CED6;
+	Thu, 27 Feb 2025 00:00:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740614458;
+	bh=qd5L09r8BbWtp3sAdRkvQxm/boMlegFYOUTq9AxcaRA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=n+MWT2OfBjANgztlGDriEEM11l+NAjEHrobcrCxCnPibzMo12xR4JKZRSGtO0sf4w
-	 3RzDqrRxyFlELGGpbpBsyaGm5ADrPpt55c8GJbd1TQx3u+LIJHojqvAByoYbTphfI2
-	 0PnHNwffW+IeWKXwvZTUTq9JqJ8upPvhZlec5Gn4=
-Date: Wed, 26 Feb 2025 15:51:21 -0800
-From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-Cc: linux-hyperv@vger.kernel.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org,
-	kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
-	mhklinux@outlook.com, decui@microsoft.com, catalin.marinas@arm.com,
-	will@kernel.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, hpa@zytor.com,
-	daniel.lezcano@linaro.org, joro@8bytes.org, robin.murphy@arm.com,
-	arnd@arndb.de, jinankjain@linux.microsoft.com,
-	muminulrussell@gmail.com, mrathor@linux.microsoft.com,
-	ssengar@linux.microsoft.com, apais@linux.microsoft.com,
-	Tianyu.Lan@microsoft.com, stanislav.kinsburskiy@gmail.com,
-	gregkh@linuxfoundation.org, vkuznets@redhat.com,
-	prapal@linux.microsoft.com, muislam@microsoft.com,
-	anrayabh@linux.microsoft.com, rafael@kernel.org, lenb@kernel.org,
-	corbet@lwn.net
-Subject: Re: [PATCH v5 09/10] hyperv: Add definitions for root partition
- driver to hv headers
-Message-ID: <Z7-o-VnE6iffOi7Z@skinsburskii.>
-References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740611284-27506-10-git-send-email-nunodasneves@linux.microsoft.com>
+	b=JJiViAXPMxyzFzf9Hv16zUQzj8/qcVzYFJj7H31yYwopnzVcgJ3IWMgfHJ+14Oawi
+	 FH/2zQ38hXIe2aBZp+k+W5gHvA14Ols6fXDb2nobInHVV9tZuM6fyRIVKnpX3rbSE/
+	 S19H8+xhIluAVHCe3LrlHXrLWswcBkjjlrOH/VfX/SdIq/8LgFQBU7vIeh06BAMDzV
+	 /XKxRxaQP2UfjOsbZKRHTRhCx0Ozbdy0Apq0EMTCr2HEQfQpk1RSjZunhinNdVW28S
+	 /sguI1ft/UZy/3f5o7gSzvdrZJWwnBHVbnYDea42DQwCuDW4sMzAxs15CFkGwqajov
+	 yLqLq3Dn7PJJQ==
+Date: Wed, 26 Feb 2025 16:00:55 -0800
+From: Namhyung Kim <namhyung@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	guoren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
+	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+	linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH v3 0/8] perf: Support multiple system call tables in the
+ build
+Message-ID: <Z7-rN8iGUpPe6b-1@google.com>
+References: <20250219185657.280286-1-irogers@google.com>
+ <Z702_CQ7nMx9fZQn@google.com>
+ <CAP-5=fWYiQP84BMjm69xud4vYaRrutRG-RASKbxQaGSisRm7jA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <1740611284-27506-10-git-send-email-nunodasneves@linux.microsoft.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_155126_498078_6FB8F1FC 
-X-CRM114-Status: GOOD (  20.21  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAP-5=fWYiQP84BMjm69xud4vYaRrutRG-RASKbxQaGSisRm7jA@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,98 +94,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 26, 2025 at 03:08:03PM -0800, Nuno Das Neves wrote:
-> A few additional definitions are required for the mshv driver code
-> (to follow). Introduce those here and clean up a little bit while
-> at it.
+On Mon, Feb 24, 2025 at 08:22:50PM -0800, Ian Rogers wrote:
+> On Mon, Feb 24, 2025 at 7:20 PM Namhyung Kim <namhyung@kernel.org> wrote:
+> >
+> > On Wed, Feb 19, 2025 at 10:56:49AM -0800, Ian Rogers wrote:
+> > > This work builds on the clean up of system call tables and removal of
+> > > libaudit by Charlie Jenkins <charlie@rivosinc.com>.
+> > >
+> > > The system call table in perf trace is used to map system call numbers
+> > > to names and vice versa. Prior to these changes, a single table
+> > > matching the perf binary's build was present. The table would be
+> > > incorrect if tracing say a 32-bit binary from a 64-bit version of
+> > > perf, the names and numbers wouldn't match.
+> > >
+> > > Change the build so that a single system call file is built and the
+> > > potentially multiple tables are identifiable from the ELF machine type
+> > > of the process being examined. To determine the ELF machine type, the
+> > > executable's header is read from /proc/pid/exe with fallbacks to using
+> > > the perf's binary type when unknown.
+> >
+> > Hmm.. then this is limited to live mode and potentially detect wrong
+> > machine type if it reads an old data, right?
+> >
+> > Also IIUC fallback to the perf binary means it cannot use cross-machine
+> > table.  For example, it cannot process data from ARM64 on x86, no?  It
+> > seems it should use perf_env.arch.
 > 
-> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-> ---
->  include/hyperv/hvgdk_mini.h |  64 ++++++++++++++++-
->  include/hyperv/hvhdk.h      | 132 ++++++++++++++++++++++++++++++++++--
->  include/hyperv/hvhdk_mini.h |  91 +++++++++++++++++++++++++
->  3 files changed, 280 insertions(+), 7 deletions(-)
+> The perf env arch is kind of horrid. On x86 it has the value x86 and
+> then there is an extra 64bit flag, who knows how x32 should be encoded
+> - but we barely support x32 as-is. I'd rather we added a new feature
+> for the e_machine/e_flags of the executable and worked with those, but
+> it is kind of weird with doing system wide mode. I didn't want to drag
+> that into this patch series anyway as there is already enough here.
+
+Right, I don't know how to handle x32 properly.  Maybe we can just
+ignore it for now.
+
+But anyway looking at /proc/PID for recorded data doesn't seem correct.
+Can you please add a flag to do that only from trace__run() and just use
+EM_HOST for trace__replay()?
+
+Later, we may need to add a misc flag or so to PERF_RECORD_FORK (and
+PERF_RECORD_COMM with MISC_COMM_EXEC) to indicate non-standard ABI for a
+new thread.  But it's not clear how to make it arch-independent.
+
 > 
-> diff --git a/include/hyperv/hvgdk_mini.h b/include/hyperv/hvgdk_mini.h
-> index 58895883f636..e4a3cca0cbce 100644
-> --- a/include/hyperv/hvgdk_mini.h
-> +++ b/include/hyperv/hvgdk_mini.h
- @@ -1325,6 +1344,49 @@ struct hv_retarget_device_interrupt {	 /* HV_INPUT_RETARGET_DEVICE_INTERRUPT */
->  	struct hv_device_interrupt_target int_target;
->  } __packed __aligned(8);
->  
-> +enum hv_intercept_type {
-> +#if defined(CONFIG_X86_64)
+> > One more concern is BPF.  The BPF should know about the ABI of the
+> > current process so that it can augment the syscall arguments correctly.
+> > Currently it only checks the syscall number but it can be different on
+> > 32-bit and 64-bit.
+> 
+> That's right. This change is trying to clean up
+> tools/perf/util/syscalltbl.c and the perf trace usage. I didn't go as
+> far as making BPF programs pair system call number with e_machine and
+> e_flags, there is enough here and the behavior after these patches
+> matches the behavior before - that is to assume the system call ABI
+> matches that of the perf binary.
 
-Prehaps it would be nice to have per-arch headers for such structures
-instead.
+Right, the next step would be adding a BPF kfunc to identify the current
+ABI.
 
-> +	HV_INTERCEPT_TYPE_X64_IO_PORT			= 0x00000000,
-> +	HV_INTERCEPT_TYPE_X64_MSR			= 0x00000001,
-> +	HV_INTERCEPT_TYPE_X64_CPUID			= 0x00000002,
-> +#endif
-> +	HV_INTERCEPT_TYPE_EXCEPTION			= 0x00000003,
-> +	/* Used to be HV_INTERCEPT_TYPE_REGISTER */
-> +	HV_INTERCEPT_TYPE_RESERVED0			= 0x00000004,
-> +	HV_INTERCEPT_TYPE_MMIO				= 0x00000005,
-> +#if defined(CONFIG_X86_64)
-> +	HV_INTERCEPT_TYPE_X64_GLOBAL_CPUID		= 0x00000006,
-> +	HV_INTERCEPT_TYPE_X64_APIC_SMI			= 0x00000007,
-> +#endif
-> +	HV_INTERCEPT_TYPE_HYPERCALL			= 0x00000008,
-> +#if defined(CONFIG_X86_64)
-> +	HV_INTERCEPT_TYPE_X64_APIC_INIT_SIPI		= 0x00000009,
-> +	HV_INTERCEPT_MC_UPDATE_PATCH_LEVEL_MSR_READ	= 0x0000000A,
-> +	HV_INTERCEPT_TYPE_X64_APIC_WRITE		= 0x0000000B,
-> +	HV_INTERCEPT_TYPE_X64_MSR_INDEX			= 0x0000000C,
-> +#endif
-> +	HV_INTERCEPT_TYPE_MAX,
-> +	HV_INTERCEPT_TYPE_INVALID			= 0xFFFFFFFF,
-> +};
-> +
-> +union hv_intercept_parameters {
-> +	/*  HV_INTERCEPT_PARAMETERS is defined to be an 8-byte field. */
-> +	__u64 as_uint64;
+Thanks,
+Namhyung
 
-Should this one be "u64" instead of "__u64" (here and below) ?
-
-> +#if defined(CONFIG_X86_64)
-> +	/* HV_INTERCEPT_TYPE_X64_IO_PORT */
-> +	__u16 io_port;
-> +	/* HV_INTERCEPT_TYPE_X64_CPUID */
-> +	__u32 cpuid_index;
-> +	/* HV_INTERCEPT_TYPE_X64_APIC_WRITE */
-> +	__u32 apic_write_mask;
-> +	/* HV_INTERCEPT_TYPE_EXCEPTION */
-> +	__u16 exception_vector;
-> +	/* HV_INTERCEPT_TYPE_X64_MSR_INDEX */
-> +	__u32 msr_index;
-> +#endif
-> +	/* N.B. Other intercept types do not have any parameters. */
-> +};
-> +
->  /* Data structures for HVCALL_MMIO_READ and HVCALL_MMIO_WRITE */
->  #define HV_HYPERCALL_MMIO_MAX_DATA_LENGTH 64
->  
-> diff --git a/include/hyperv/hvhdk.h b/include/hyperv/hvhdk.h
-> index 64407c2a3809..1b447155c338 100644
-> --- a/include/hyperv/hvhdk.h
-> +++ b/include/hyperv/hvhdk.h
-> @@ -19,11 +19,24 @@
->  
->  #define HV_VP_REGISTER_PAGE_VERSION_1	1u
->  
-> +#define HV_VP_REGISTER_PAGE_MAX_VECTOR_COUNT		7
-> +
-> +union hv_vp_register_page_interrupt_vectors {
-> +	u64 as_uint64;
-> +	struct {
-> +		u8 vector_count;
-> +		u8 vector[HV_VP_REGISTER_PAGE_MAX_VECTOR_COUNT];
-> +	} __packed;
-> +} __packed;
-
-Packed attribute for the union looks redundant.
-
-Reviewed-by: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
 
