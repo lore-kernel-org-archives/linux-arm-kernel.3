@@ -4,61 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DA2CC282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:37:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40B37C1B087
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:37:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ora4J3k033uC6jkRzN8zu95lxerkVRvUbgmdpwCvk2k=; b=eGzRuMkIuTdbSc/8U65WIGHRBI
-	+7tyRnEhUG3irpviy+gcPQ5JJK0tNVD9xhJa0vPP5Dm5fCnvK3vNVGp6rxdclFufyGp2k/Xt7Iqao
-	Lv2MSFFuzCMgaphoiywJPGZNqqh9X4aIsmDe/eg+8R+qWG2u92PYMUZDc51vLGiDt5UoAVPyQuhw+
-	gTL6YT1B4Lz2zPHygvgR9w6Kq8n+vB3y6ZuCsM9apHo1L73MRYZRxVbTrNnIg7Dn3vZ5mfdaQqNM1
-	CMzBePDRIVW0nAjeCyyzLNfgu/XYsVgqzvKuyDoJ05WLnEj+spNl6XSv5HL9Drk+I+DlBt+U6q/7c
-	1HZzt3Mg==;
+	bh=d7fmU8TJDq6KTOuPGSb8jkfqdk5VnvNn0zD+r2C2d+k=; b=eYSgNjt7rc7fLVzab+q8EIhcbH
+	8znVmfWytT7tsDydDMnJtrhArlGCxg923JzUmOm/T3jvf2UtxwRiHOZ5MH/WYcJykuU4z94QSk3FB
+	l/vhjT/sgyNk1Tku9yMJlkS8kR+IRDjaT4l2QYvNa7qWqS73zDAJ58RLiwHiYxb51tYiqWmrmuQ0z
+	I9ZWFSjlcYGeO+yb9kCR/CevJKMzmyBcrRkFiiANtDso12aG+kGhkK3KUlDt2q7OXx+X5f316GJUV
+	sWK746Q0M6XTRUuSVsy6G2+ne8zvhajGEqMgNaLxeaV7KE7QlwpSLwoHdYnnzTvOGrHay8me8afWw
+	J2llZvqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjh8-00000008TjI-0xIq;
-	Thu, 27 Feb 2025 19:37:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnf5V-00000007n5c-0APq
+	id 1tnjh7-00000008Tir-2iLb;
+	Thu, 27 Feb 2025 19:37:17 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnf4b-00000007mu2-2peI
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 27 Feb 2025 14:41:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=d7fmU8TJDq6KTOuPGSb8jkfqdk5VnvNn0zD+r2C2d+k=; b=ol6tYN8SBccO16QYXX9993249k
+	GuoCHgmYH5l5bg+VONt4YlAjyLzrGF49H74x0SEkoRAzcht+tKe73W7r3vQj4082Nv4RMfxhoQBWb
+	U/yH4S5mEnEnB7cQ7T6HG58IK8Sd94k0yDVRLVzmAks+HusVbrpOdvK6CjjqLKhIbxzgNoJ4pq735
+	Lbq/4Yzl9qJm4NWhBkDRLvrYlc2NKWy1Ccpj48PTe4pUK9gy7sLeAINAzsG6yZPQSmgNCdnrqOJXi
+	fjhLMPhpzD5etanjK3zCpSxaQuOkD3jhfQvrNK7V+Y2k9zFaEgapVt0s85ZCHlfjyCQfb+uBPPkVi
+	YhS11mRA==;
+Received: from fw2.prolan.hu ([193.68.50.107])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnf4Y-00000003oY8-3bPo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 14:42:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3D21B2C3A;
-	Thu, 27 Feb 2025 06:42:24 -0800 (PST)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 095A53F673;
-	Thu, 27 Feb 2025 06:42:06 -0800 (PST)
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: linux-kernel@vger.kernel.org
-Cc: will@kernel.org,
-	catalin.marinas@arm.com,
-	maz@kernel.org,
-	steven.price@arm.com,
-	aneesh.kumar@kernel.org,
-	gshan@redhat.com,
-	robin.murphy@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Christoph Hellwig <hch@lst.de>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Tom Lendacky <thomas.lendacky@amd.com>
-Subject: [PATCH v3 2/3] dma: Introduce generic dma_addr_*crypted helpers
-Date: Thu, 27 Feb 2025 14:41:49 +0000
-Message-ID: <20250227144150.1667735-3-suzuki.poulose@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250227144150.1667735-1-suzuki.poulose@arm.com>
-References: <20250227144150.1667735-1-suzuki.poulose@arm.com>
+	Thu, 27 Feb 2025 14:41:12 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 7A905A0A38;
+	Thu, 27 Feb 2025 15:41:01 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=d7fmU8TJDq6KTOuPGSb8
+	jkfqdk5VnvNn0zD+r2C2d+k=; b=O1UizQKB3lDlHAEzczTGNJqqb/e8WZ14yN4w
+	OsVBOvCIgun0meCOlpCdOZWbHXyS0v5KtkMGJn7YPrWo2rmLJNXrOTVY/h0d87m9
+	B1Vh12ik53l98gAKJ+ydcaND0iUl9sFaShIVdn+uBkwXB5Tf0c4AxA1tfYrhzBTS
+	D8ZmHwicOiQPjB+FjLG5Y3MqefWGej0Z5aspFTrvJTVe8jJy0FccBFbtC+jblaZD
+	ojq1JSTfdYbl6eXzfAwvIcE64GIjPGCDnhIlASMsut2WnkKc4Yt1RYv4ehoBkpMN
+	7TGRQsezvPcqVCpT7yUaDbxu5wPBLMwa7mCSv/P4jmlotr93V0gUSkP3n5X5PoSZ
+	vQ3X2ipQODCGRq/5Pz2l4e6HR1LIamZzUgIdH5fYKcFDDDQ16IIE8Ry/7gPuGVwN
+	pMWfv/b3FvzOzMIYo5VCRwwbdpggnfinylqUjYqp50DmFqEHuTj8LYVfkKren4Lx
+	lg3hXP2xFXQ6ieK6V0cGmpO4+zRPwkh5CEB0X/OJSYN2ZW9iU5ZQ+rNa4WpPibLY
+	/qdLSlh3Lz73fWatGHp/uOwLt2SHGYl6O0o1uPFCZm7yYQyewM/Fh8e2odFqbhM2
+	5U+CBh4nNR9Dh9QCGQKBKaPrCBHPdPWfggi9KY2dCOT+wfPaWaFuzB3MGz9LYQ+8
+	OrTfsPM=
+From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+To: <linux-arm-kernel@lists.infradead.org>, <linux-iio@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Kamel
+ Bouhara" <kamel.bouhara@bootlin.com>, William Breathitt Gray <wbg@kernel.org>
+Subject: [PATCH v6 2/3] counter: microchip-tcb-capture: Add IRQ handling
+Date: Thu, 27 Feb 2025 15:40:19 +0100
+Message-ID: <20250227144023.64530-3-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250227144023.64530-1-csokas.bence@prolan.hu>
+References: <20250227144023.64530-1-csokas.bence@prolan.hu>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1740667260;VERSION=7985;MC=2154083884;ID=1452435;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A29ACD94852637760
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_064209_171268_9FEB490E 
-X-CRM114-Status: GOOD (  18.62  )
+X-CRM114-CacheID: sfid-20250227_144111_049056_7AB6A882 
+X-CRM114-Status: GOOD (  18.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,128 +96,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-AMD SME added __sme_set/__sme_clr primitives to modify the DMA address for
-encrypted/decrypted traffic. However this doesn't fit in with other models,
-e.g., Arm CCA where the meanings are the opposite. i.e., "decrypted" traffic
-has a bit set and "encrypted" traffic has the top bit cleared.
+Add interrupt servicing to allow userspace to wait for the following events:
+* Change-of-state caused by external trigger
+* Capture of timer value into RA/RB
+* Compare to RC register
+* Overflow
 
-In preparation for adding the support for Arm CCA DMA conversions, convert the
-existing primitives to more generic ones that can be provided by the backends.
-i.e., add helpers to
- 1. dma_addr_encrypted - Convert a DMA address to "encrypted" [ == __sme_set() ]
- 2. dma_addr_unencrypted - Convert a DMA address to "decrypted" [ None exists today ]
- 3. dma_addr_canonical - Clear any "encryption"/"decryption" bits from DMA
-    address [ SME uses __sme_clr() ] and convert to a canonical DMA address.
-
-Since the original __sme_xxx helpers come from linux/mem_encrypt.h, use that
-as the home for the new definitions and provide dummy ones when none is provided
-by the architectures.
-
-With the above, phys_to_dma_unencrypted() uses the newly added dma_addr_unencrypted()
-helper and to make it a bit more easier to read and avoid double conversion,
-provide __phys_to_dma().
-
-Suggested-by: Robin Murphy <robin.murphy@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Robin Murphy <robin.murphy@arm.com>
-Cc: Steven Price <steven.price@arm.com>
-Cc: Christoph Hellwig <hch@lst.de>
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Tom Lendacky <thomas.lendacky@amd.com>
-Cc: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
 ---
-Changes since v2:
- - Rename helpers- s/dma_*crypted/dma_addr_*crypted (Robin)
----
- include/linux/dma-direct.h  | 12 ++++++++----
- include/linux/mem_encrypt.h | 23 +++++++++++++++++++++++
- 2 files changed, 31 insertions(+), 4 deletions(-)
 
-diff --git a/include/linux/dma-direct.h b/include/linux/dma-direct.h
-index d20ecc24cb0f..f3bc0bcd7098 100644
---- a/include/linux/dma-direct.h
-+++ b/include/linux/dma-direct.h
-@@ -78,14 +78,18 @@ static inline dma_addr_t dma_range_map_max(const struct bus_dma_region *map)
- #define phys_to_dma_unencrypted		phys_to_dma
- #endif
- #else
--static inline dma_addr_t phys_to_dma_unencrypted(struct device *dev,
--		phys_addr_t paddr)
-+static inline dma_addr_t __phys_to_dma(struct device *dev, phys_addr_t paddr)
- {
- 	if (dev->dma_range_map)
- 		return translate_phys_to_dma(dev, paddr);
- 	return paddr;
- }
+Notes:
+    New in v2
+    Changes in v3:
+    * Add IRQs for Capture events (from next patch)
+    * Add IRQ for RC Compare
+    * Add events as bullet points to commit msg
+    Changes in v4:
+    * Add uapi header, names for the event channels
+    * Add check for -EPROBE_DEFER from `of_irq_get()`
+    Changes in v5:
+    * Split out UAPI header introduction
+
+ drivers/counter/microchip-tcb-capture.c       | 75 +++++++++++++++++++
+ .../linux/counter/microchip-tcb-capture.h     | 18 +++++
+ 2 files changed, 93 insertions(+)
+
+diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/microchip-tcb-capture.c
+index 2f096a5b973d..cc12c2e2113a 100644
+--- a/drivers/counter/microchip-tcb-capture.c
++++ b/drivers/counter/microchip-tcb-capture.c
+@@ -6,18 +6,24 @@
+  */
+ #include <linux/clk.h>
+ #include <linux/counter.h>
++#include <linux/interrupt.h>
+ #include <linux/mfd/syscon.h>
+ #include <linux/module.h>
+ #include <linux/mutex.h>
+ #include <linux/of.h>
++#include <linux/of_irq.h>
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
++#include <uapi/linux/counter/microchip-tcb-capture.h>
+ #include <soc/at91/atmel_tcb.h>
  
-+static inline dma_addr_t phys_to_dma_unencrypted(struct device *dev,
-+						phys_addr_t paddr)
+ #define ATMEL_TC_CMR_MASK	(ATMEL_TC_LDRA_RISING | ATMEL_TC_LDRB_FALLING | \
+ 				 ATMEL_TC_ETRGEDG_RISING | ATMEL_TC_LDBDIS | \
+ 				 ATMEL_TC_LDBSTOP)
+ 
++#define ATMEL_TC_DEF_IRQS	(ATMEL_TC_ETRGS | ATMEL_TC_COVFS | \
++				 ATMEL_TC_LDRAS | ATMEL_TC_LDRBS | ATMEL_TC_CPCS)
++
+ #define ATMEL_TC_QDEN			BIT(8)
+ #define ATMEL_TC_POSEN			BIT(9)
+ 
+@@ -27,6 +33,7 @@ struct mchp_tc_data {
+ 	int qdec_mode;
+ 	int num_channels;
+ 	int channel[2];
++	int irq;
+ };
+ 
+ static const enum counter_function mchp_tc_count_functions[] = {
+@@ -294,6 +301,65 @@ static const struct of_device_id atmel_tc_of_match[] = {
+ 	{ /* sentinel */ }
+ };
+ 
++static irqreturn_t mchp_tc_isr(int irq, void *dev_id)
 +{
-+	return dma_addr_unencrypted(__phys_to_dma(dev, paddr));
++	struct counter_device *const counter = dev_id;
++	struct mchp_tc_data *const priv = counter_priv(counter);
++	u32 sr, mask;
++
++	regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], SR), &sr);
++	regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], IMR), &mask);
++
++	sr &= mask;
++	if (!(sr & ATMEL_TC_ALL_IRQ))
++		return IRQ_NONE;
++
++	if (sr & ATMEL_TC_ETRGS)
++		counter_push_event(counter, COUNTER_EVENT_CHANGE_OF_STATE,
++				   COUNTER_MCHP_EVCHN_CV);
++	if (sr & ATMEL_TC_LDRAS)
++		counter_push_event(counter, COUNTER_EVENT_CAPTURE,
++				   COUNTER_MCHP_EVCHN_RA);
++	if (sr & ATMEL_TC_LDRBS)
++		counter_push_event(counter, COUNTER_EVENT_CAPTURE,
++				   COUNTER_MCHP_EVCHN_RB);
++	if (sr & ATMEL_TC_CPCS)
++		counter_push_event(counter, COUNTER_EVENT_THRESHOLD,
++				   COUNTER_MCHP_EVCHN_RC);
++	if (sr & ATMEL_TC_COVFS)
++		counter_push_event(counter, COUNTER_EVENT_OVERFLOW,
++				   COUNTER_MCHP_EVCHN_CV);
++
++	return IRQ_HANDLED;
 +}
- /*
-  * If memory encryption is supported, phys_to_dma will set the memory encryption
-  * bit in the DMA address, and dma_to_phys will clear it.
-@@ -94,14 +98,14 @@ static inline dma_addr_t phys_to_dma_unencrypted(struct device *dev,
-  */
- static inline dma_addr_t phys_to_dma(struct device *dev, phys_addr_t paddr)
- {
--	return __sme_set(phys_to_dma_unencrypted(dev, paddr));
-+	return dma_addr_encrypted(__phys_to_dma(dev, paddr));
- }
- 
- static inline phys_addr_t dma_to_phys(struct device *dev, dma_addr_t dma_addr)
- {
- 	phys_addr_t paddr;
- 
--	dma_addr = __sme_clr(dma_addr);
-+	dma_addr = dma_addr_canonical(dma_addr);
- 	if (dev->dma_range_map)
- 		paddr = translate_dma_to_phys(dev, dma_addr);
- 	else
-diff --git a/include/linux/mem_encrypt.h b/include/linux/mem_encrypt.h
-index ae4526389261..07584c5e36fb 100644
---- a/include/linux/mem_encrypt.h
-+++ b/include/linux/mem_encrypt.h
-@@ -26,11 +26,34 @@
-  */
- #define __sme_set(x)		((x) | sme_me_mask)
- #define __sme_clr(x)		((x) & ~sme_me_mask)
 +
-+#define dma_addr_encrypted(x)	__sme_set(x)
-+#define dma_addr_canonical(x)	__sme_clr(x)
++static void mchp_tc_irq_remove(void *ptr)
++{
++	struct mchp_tc_data *priv = ptr;
 +
- #else
- #define __sme_set(x)		(x)
- #define __sme_clr(x)		(x)
- #endif
++	regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], IDR), ATMEL_TC_DEF_IRQS);
++}
++
++static int mchp_tc_irq_enable(struct counter_device *const counter)
++{
++	struct mchp_tc_data *const priv = counter_priv(counter);
++	int ret = devm_request_irq(counter->parent, priv->irq, mchp_tc_isr, 0,
++				   dev_name(counter->parent), counter);
++
++	if (ret < 0)
++		return ret;
++
++	ret = regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], IER), ATMEL_TC_DEF_IRQS);
++	if (ret < 0)
++		return ret;
++
++	ret = devm_add_action_or_reset(counter->parent, mchp_tc_irq_remove, priv);
++	if (ret < 0)
++		return ret;
++
++	return 0;
++}
++
+ static void mchp_tc_clk_remove(void *ptr)
+ {
+ 	clk_disable_unprepare((struct clk *)ptr);
+@@ -378,6 +444,15 @@ static int mchp_tc_probe(struct platform_device *pdev)
+ 	counter->num_signals = ARRAY_SIZE(mchp_tc_count_signals);
+ 	counter->signals = mchp_tc_count_signals;
  
-+/*
-+ * dma_addr_encrypted() and dma_addr_unencrypted() are for converting a given DMA
-+ * address to the respective type of addressing.
++	priv->irq = of_irq_get(np->parent, 0);
++	if (priv->irq == -EPROBE_DEFER)
++		return -EPROBE_DEFER;
++	if (priv->irq > 0) {
++		ret = mchp_tc_irq_enable(counter);
++		if (ret < 0)
++			return dev_err_probe(&pdev->dev, ret, "Failed to set up IRQ");
++	}
++
+ 	ret = devm_counter_add(&pdev->dev, counter);
+ 	if (ret < 0)
+ 		return dev_err_probe(&pdev->dev, ret, "Failed to add counter\n");
+diff --git a/include/uapi/linux/counter/microchip-tcb-capture.h b/include/uapi/linux/counter/microchip-tcb-capture.h
+index 7bda5fdef19b..ee72f1463594 100644
+--- a/include/uapi/linux/counter/microchip-tcb-capture.h
++++ b/include/uapi/linux/counter/microchip-tcb-capture.h
+@@ -12,6 +12,17 @@
+  * Count 0
+  * \__  Synapse 0 -- Signal 0 (Channel A, i.e. TIOA)
+  * \__  Synapse 1 -- Signal 1 (Channel B, i.e. TIOB)
 + *
-+ * dma_addr_canonical() is used to reverse any conversions for encrypted/decrypted
-+ * back to the canonical address.
-+ */
-+#ifndef dma_addr_encrypted
-+#define dma_addr_encrypted(x)		(x)
-+#endif
-+
-+#ifndef dma_addr_unencrypted
-+#define dma_addr_unencrypted(x)		(x)
-+#endif
-+
-+#ifndef dma_addr_canonical
-+#define dma_addr_canonical(x)		(x)
-+#endif
-+
- #endif	/* __ASSEMBLY__ */
++ * It also supports the following events:
++ *
++ * Channel 0:
++ * - CV register changed
++ * - CV overflowed
++ * - RA captured
++ * Channel 1:
++ * - RB captured
++ * Channel 2:
++ * - RC compare triggered
+  */
  
- #endif	/* __MEM_ENCRYPT_H__ */
+ enum counter_mchp_signals {
+@@ -19,4 +30,11 @@ enum counter_mchp_signals {
+ 	COUNTER_MCHP_SIG_TIOB,
+ };
+ 
++enum counter_mchp_event_channels {
++	COUNTER_MCHP_EVCHN_CV = 0,
++	COUNTER_MCHP_EVCHN_RA = 0,
++	COUNTER_MCHP_EVCHN_RB,
++	COUNTER_MCHP_EVCHN_RC,
++};
++
+ #endif /* _UAPI_COUNTER_MCHP_TCB_H_ */
 -- 
-2.43.0
+2.48.1
+
 
 
