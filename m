@@ -4,66 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADDF1C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 14:13:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9269DC19F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 14:15:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JXo/gwQcHIzjTzOx3CIOMAATJASGHIlvjB+ltGLd90w=; b=khPNMGHg5NAmA/pRXq8wmR870+
-	87sAVb7QfJ1sXOK8Ehq8N3ejtAX3B7t3kvcdG3ICVfMA690CuXwm2FC7bhDMfL02gK3wZBrfUkJp2
-	gim3UDCV+ZiX7lRHpxYGUiT/TS7LVeeRE1yvNq/MUe97KKNx9+FvP/99pAZL6t8rs/7k08upZ5ZLb
-	kR0hc0Tx76rnXbeej02pLtl3l3FDkG3jumUuUG+JJn5LQEUXA72eEk+ztTrDqOa9oQc1YTJNp5P9C
-	oaV1lZXw1TarTlrMngtTyzj9tb6dl3MbMaeL0lZe1K/M/RbUdrmKf4o70P+VnVljtsnpSZKmumoMH
-	lRpP3Shw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MVjh2urR8QAGEfcAb0jEZZWjxMQYra9evypbMwB2E+w=; b=Dv2aaAzv4YEMKWZqcbquniemmt
+	LSItPYKPVYoFwzVQw+PhSwEhcQyZ/aPAG+d8cqlh4uJHy3SvZeSSIMTWJ48aZjmDb90Vzcmrp2vz+
+	j45PyyWEWSttzPAWG+4z8vM8CT6DPt//d8nQAM5sC6PgRvKeELL0YKOWsLzL4r/RLCyqzGVkjRw4r
+	fskK3KQO08Ss7nGtBpc6KHaHVZxvhvVk7C6JpZh03eL+nRtz/qlpWcjW3yi05rX+IkNcx5tXqpJSQ
+	CUOkjNOsTNvbx4V9QBPZMKZN41Zq9+bwlddemrTo1A7xHj3iz9lcm/KWrkshaG/oSEPwJfYWwOE8h
+	8+mTxQ3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnedo-00000007fqs-06O5;
-	Thu, 27 Feb 2025 14:13:32 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tnefJ-00000007g95-2hab;
+	Thu, 27 Feb 2025 14:15:05 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tneT0-00000007dYJ-2ZVs
+	id 1tneT5-00000007dZM-3Qr8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 14:02:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=JXo/gwQcHIzjTzOx3CIOMAATJASGHIlvjB+ltGLd90w=; b=lgISJFitMArp1pyFbmmz7qXrym
-	cYJMCGJZ1iOqhPso3y+jmxfwI6EQoFxD0MRfJZB76SC2Ejis7hJm6VZqIMjG2T0Yn4UyHAV/dUOOW
-	CS9s2M1gaWN5QgTBiXR8S9HpbhqFMNck5XhhwHZr4Acg6ArJf6Z35H3YRJNwUNdlyegM=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tneSw-000bxn-0G; Thu, 27 Feb 2025 15:02:18 +0100
-Date: Thu, 27 Feb 2025 15:02:17 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Thu, 27 Feb 2025 14:02:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740664948; x=1772200948;
+  h=from:to:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=rEMh9PsJCZ3kkmRhx+jQzcCgEnXbGpK8dPaS0dhS4eo=;
+  b=glav1FQtvdw2JWau5oYTi9kGP1784DelsO172YXJZJZ/54xYCMIFJacW
+   gO6OmuObtZO3dxrI2mk0HJ4j2mvshvjuodbeKq+zoGCdqKcyuSK2N3TGW
+   9GcQWJSW64b/MN3NjECLkrxSEJwPRXH3Y4Bl+3Zl+viRQvE+eGKoarSbO
+   zpLIaw+DH4iaM/eFeJiBjQAmE03rMp1CZx+ErjD0W1OmSl/ge5IP13tFc
+   3WSGd6/cxF2pu6yjH4APepcP85zwDcjJzXcdBkBO7FFqJayd2ZeAz3nww
+   ifrMMvIRsLqlKEHNIJoy3OODsqqE0fwbczwwP6YA1196rpNnceqNhe9WD
+   w==;
+X-CSE-ConnectionGUID: ZnIQswcRQ9mXwM0YpVYf9w==
+X-CSE-MsgGUID: Q7XK9+GLSpO9kWZW3TLjcg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="41752250"
+X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
+   d="scan'208";a="41752250"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Feb 2025 06:02:26 -0800
+X-CSE-ConnectionGUID: QU4ZCot/QdOAxSVr4FukTQ==
+X-CSE-MsgGUID: bo8p130TRX6bVzX3qXS1/A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,319,1732608000"; 
+   d="scan'208";a="122149363"
+Received: from mohdfai2-ilbpg12-1.png.intel.com ([10.88.227.73])
+  by fmviesa004.fm.intel.com with ESMTP; 27 Feb 2025 06:02:18 -0800
+From: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
+To: Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
+	"David S . Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
 	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Simon Horman <horms@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Furong Xu <0x1207@gmail.com>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Xiaolei Wang <xiaolei.wang@windriver.com>,
+	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	Gal Pressman <gal@nvidia.com>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Andrew Halaney <ahalaney@redhat.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
+	intel-wired-lan@lists.osuosl.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 08/11] net: stmmac: rk: switch to use
- set_clk_tx_rate() hook
-Message-ID: <1e7b72d2-b2f1-4ec4-90ba-5b712edf8f0b@lunn.ch>
-References: <Z8AtX-wyPal1auVO@shell.armlinux.org.uk>
- <E1tna0p-0052t8-Gn@rmk-PC.armlinux.org.uk>
+	linux-arm-kernel@lists.infradead.org,
+	bpf@vger.kernel.org
+Subject: [PATCH iwl-next v6 0/9] igc: Add support for Frame Preemption feature in IGC
+Date: Thu, 27 Feb 2025 09:01:48 -0500
+Message-Id: <20250227140158.2129988-1-faizal.abdul.rahim@linux.intel.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <E1tna0p-0052t8-Gn@rmk-PC.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_060222_645900_FAD3D2A2 
-X-CRM114-Status: UNSURE (   6.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250227_060227_902245_121C0933 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,13 +114,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025 at 09:16:59AM +0000, Russell King (Oracle) wrote:
-> Switch from using the fix_mac_speed() hook to set_clk_tx_rate() to
-> manage the transmit clock.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Introduces support for the FPE feature in the IGC driver.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+The patches aligns with the upstream FPE API:
+https://patchwork.kernel.org/project/netdevbpf/cover/20230220122343.1156614-1-vladimir.oltean@nxp.com/
+https://patchwork.kernel.org/project/netdevbpf/cover/20230119122705.73054-1-vladimir.oltean@nxp.com/
 
-    Andrew
+It builds upon earlier work:
+https://patchwork.kernel.org/project/netdevbpf/cover/20220520011538.1098888-1-vinicius.gomes@intel.com/
+
+The patch series adds the following functionalities to the IGC driver:
+a) Configure FPE using `ethtool --set-mm`.
+b) Display FPE settings via `ethtool --show-mm`.
+c) View FPE statistics using `ethtool --include-statistics --show-mm'.
+e) Block setting preemptible tc in taprio since it is not supported yet.
+   Existing code already blocks it in mqprio.
+
+Tested:
+Enabled CONFIG_PROVE_LOCKING, CONFIG_DEBUG_ATOMIC_SLEEP, CONFIG_DMA_API_DEBUG, and CONFIG_KASAN
+1) selftests
+2) netdev down/up cycles
+3) suspend/resume cycles
+4) fpe verification
+
+No bugs or unusual dmesg logs were observed.
+Ran 1), 2) and 3) with and without the patch series, compared dmesg and selftest logs — no differences found.
+
+Change Log:
+v5 -> v6:
+- Added Tested-by: Furong Xu for patch 1/9 (Vladimir, Furong Xu)
+- Updated logic in ethtool_mmsv_link_state_handle() (Vladimir, Furong Xu)
+- Swap sequence of function call in stmmac_set_mm() (Furong Xu)
+- Log an error if igc_enable_empty_addr_recv() fails (Vladimir)
+- Move the patch ".. Block setting preemptible traffic .." before ".. Add support to get MAC Merge data .." (Vladimir)
+- Move mmsv function kernel-doc from .h to .c file (Vladimir)
+
+v4 -> v5:
+- Remove "igc: Add support for preemptible traffic class in taprio" patch (Vladimir)
+- Add a new patch "igc: Block setting preemptible traffic classes in taprio" (Vladimir)
+- Add kernel-doc for mmsv api (Vladimir)
+- olininfo_status to use host byte order (Simon)
+- status_error should host byte type (Simon)
+- Some code was misplaced in the wrong patch (Vladimir)
+- Mix of tabs and spaces in patch description (Vladimir)
+- Created igc_is_pmac_enabled() to reduce code repetition (Vladimir)
+
+v3 -> v4:
+- Fix compilation warnings introduced by this patch series
+
+v2 -> v3:
+- Implement configure_tx() mmsv callback (Vladimir)
+- Use static_branch_inc() and static_branch_dec() (Vladimir)
+- Add adapter->fpe.mmsv.pmac_enabled as extra check (Vladimir)
+- Remove unnecessary error check in igc_fpe_init_tx_descriptor() (Vladimir)
+- Additional places to use FIELD_PREP() instead of manual bit manipulation (Vladimir)
+- IGC_TXD_POPTS_SMD_V and IGC_TXD_POPTS_SMD_R type change to enum (Vladimir)
+- Remove unnecessary netif_running() check in igc_fpe_xmit_frame (Vladimir)
+- Rate limit print in igc_fpe_send_mpacket (Vladimir)
+
+v1 -> v2:
+- Extract the stmmac verification logic into a common library (Vladimir)
+- igc to use common library for verification (Vladimir)
+- Fix syntax for kernel-doc to use "Return:" (Vladimir)
+- Use FIELD_GET instead of manual bit masking (Vladimir)
+- Don't assign 0 to statistics counter in igc_ethtool_get_mm_stats() (Vladimir)
+- Use pmac-enabled as a condition to allow MAC address value 0 (Vladimir)
+- Define macro register value in increasing value order (Vladimir)
+- Fix tx-min-frag-size handling for igc (Vladimir)
+- Handle link state changes with verification in igc (Vladimir)
+- Add static key for fast path code (Vladimir)
+- rx_min_frag_size get from constant (Vladimir)
+
+v1: https://patchwork.kernel.org/project/netdevbpf/cover/20241216064720.931522-1-faizal.abdul.rahim@linux.intel.com/
+v2: https://patchwork.kernel.org/project/netdevbpf/cover/20250205100524.1138523-1-faizal.abdul.rahim@linux.intel.com/
+v3: https://patchwork.kernel.org/project/netdevbpf/cover/20250207165649.2245320-1-faizal.abdul.rahim@linux.intel.com/
+v4: https://patchwork.kernel.org/project/netdevbpf/cover/20250210070207.2615418-1-faizal.abdul.rahim@linux.intel.com/
+v5: https://patchwork.kernel.org/project/netdevbpf/cover/20250220025349.3007793-1-faizal.abdul.rahim@linux.intel.com/
+
+Faizal Rahim (8):
+  igc: Rename xdp_get_tx_ring() for non-xdp usage
+  igc: Optimize the TX packet buffer utilization
+  igc: Set the RX packet buffer size for TSN mode
+  igc: Add support for frame preemption verification
+  igc: Add support to set tx-min-frag-size
+  igc: Block setting preemptible traffic class in taprio
+  igc: Add support to get MAC Merge data via ethtool
+  igc: Add support to get frame preemption statistics via ethtool
+
+Vladimir Oltean (1):
+  net: ethtool: mm: extract stmmac verification logic into common
+    library
+
+ drivers/net/ethernet/intel/igc/igc.h          |  15 +-
+ drivers/net/ethernet/intel/igc/igc_base.h     |   1 +
+ drivers/net/ethernet/intel/igc/igc_defines.h  |  15 +-
+ drivers/net/ethernet/intel/igc/igc_ethtool.c  |  76 +++++
+ drivers/net/ethernet/intel/igc/igc_main.c     |  67 ++++-
+ drivers/net/ethernet/intel/igc/igc_regs.h     |  16 +
+ drivers/net/ethernet/intel/igc/igc_tsn.c      | 193 +++++++++++-
+ drivers/net/ethernet/intel/igc/igc_tsn.h      |  52 ++++
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h  |  16 +-
+ .../ethernet/stmicro/stmmac/stmmac_ethtool.c  |  41 +--
+ .../net/ethernet/stmicro/stmmac/stmmac_fpe.c  | 174 +++--------
+ .../net/ethernet/stmicro/stmmac/stmmac_fpe.h  |   5 -
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c |   8 +-
+ include/linux/ethtool.h                       |  73 +++++
+ net/ethtool/mm.c                              | 281 +++++++++++++++++-
+ 15 files changed, 816 insertions(+), 217 deletions(-)
+
+--
+2.34.1
+
 
