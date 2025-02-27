@@ -4,63 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6909BC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 00:08:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79035C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 00:09:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XAQJ9hVbCH22Qcmgm3BpIe9og2DlEBB/bE11Ejk0MI0=; b=wLUePkIvFD8meUsk4Vj7pXEL/t
-	Gham4FDQlyOzxidobZpOYG6C+0VlqCTLC/+Pf/jlT4RJfNvoe4XM6nBiNbhRqwpVbBQ1LgXciqkjN
-	mzxrhkjaxWKyyd2wWkn9FA6s544Ej6f8BrWpCWoOYXaget6NLTsSJ/wlXUqxmsg12zQ7B3mKpCT29
-	e2wIeNA1kTGaMAJHPBxISxwUu488pD7ZJKzEnU7UZMyzbgKJy5Q/ZUyQVEMHu7dkkeZxnDjQMHiDk
-	P9Y2cn71/smSQatouBxUwYg6bsrtZYC2m4XL069iyYXSwEkAEMSx9XlHYPWu64Z+zVyt9yipi89de
-	83DC0XhQ==;
+	bh=7nOMcPPI5c1jXJRM+8g52gTtzt6JEQOhHcXYY3HpyA0=; b=Di9cZKcn/uR9dtyqpqQ/g/0S+9
+	O9Fy6llNzT3Oxg0zC4YfK+R4LeEl6SjPaWg/RvpkEyfkd6ZygaAmc2pa0pN0IgGRatZAFflkqkCj+
+	LN5xX/fWb2UZYEaYJE8HxgQ+STpOVRVKYK8zEQ5yAvPeVsQt9YKQND98G8YqzrZBhilsmdJGGH4S0
+	FVdsnUKg/A6m8khg9vmgw31v18xJX9PPClec/NLZcQMjOqfVV1hTywQZh60g272Bov8tCLtprkgMW
+	o2nV3nHodXQWgFupMguePYGOQ9Yq2sU7Oh9hebXi54qIMGrRJ5pzLBd6mt53sZWeF3/e8Vm2+95oy
+	ZCBgjR6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnRRi-00000005m5j-3GnR;
-	Thu, 27 Feb 2025 00:08:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnRQ9-00000005lp1-3Vp1;
-	Thu, 27 Feb 2025 00:06:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5564812FC;
-	Wed, 26 Feb 2025 16:06:48 -0800 (PST)
-Received: from [10.163.39.237] (unknown [10.163.39.237])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F2DD63F5A1;
-	Wed, 26 Feb 2025 16:06:25 -0800 (PST)
-Message-ID: <39986b7d-7a82-4f28-9289-5620a2bec2b5@arm.com>
-Date: Thu, 27 Feb 2025 05:36:25 +0530
+	id 1tnRTE-00000005mP4-2jkA;
+	Thu, 27 Feb 2025 00:09:44 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnRQg-00000005lsu-1uHV
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Feb 2025 00:07:09 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-2f9b91dff71so637435a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Feb 2025 16:07:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1740614825; x=1741219625; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7nOMcPPI5c1jXJRM+8g52gTtzt6JEQOhHcXYY3HpyA0=;
+        b=uEhE73mOsvk4M+Je3v4cfP3eqNr8mNIsXoQqowaX5b78cpnV3mZccpdt9Cu6JS36UG
+         cARBl0TFw6Is5NmpcwOAN73F6uOjOkbUvA976LOlC9In932pDDIb1XvzuqHWheDFT1GG
+         fbWPzXmJIsIZ7RIWgEVw7LMRecZmGjCxsbddwhVtP/bzyn3YSyUVswi1GNSslqarlUqe
+         QbHEXxFMaxnIlyJFiw/zf+Y4ch3YjUSZOYUzMxKZCouVLkl+CWq90gJjqFxAirOIBUi5
+         /W/rES7hvU1GLJhuitxbMZ3dEIlgaOcQMPA5yk4MeAGZxSLkcaACG3fIsCPJeiZ6xymi
+         h2gg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740614825; x=1741219625;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=7nOMcPPI5c1jXJRM+8g52gTtzt6JEQOhHcXYY3HpyA0=;
+        b=bMgnMe6dBteqBWsBPhpBVQiQxB9cdJHD8mk6/4uNwftut0ij3XNz9ilyeLRINxEAsN
+         V4pkGU9Vjt5he3fCzRleR8sMR3klWbxSE2GkoAgPglxFspahiZTTHskkvs/bYVJapds2
+         9hsEuttSy6on2z0IvpKxPEkD8RRaSz9KSGqYHE7ghpOZL+Twq4EE5Ji0iTn4F1kIPsII
+         rdONLr0IGyT69ue2zycn++FtTUv8Rg+fkMB8XFDvkU5qwMKHuW3F8QuYiU2tsGGnIAoG
+         3gEhYoLQyY19lEauxqGb+4M1MLsl33goG0p8qYZlVYx/1V2+BARxJGOFvg2nOupPD2VB
+         VMWQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWUVygJlUnv52Z4aNL9f1nNNKZt8iT7TUfn6bvpnAf/Ff2qPQYLaUO+xgByqbjGMFEClQl8WGj4rWUd/A1T4MkK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwkYHf8XB8xuRL9PKNdXF9rEU13+CLVXLi1VLCzVV49Hrkgbrp4
+	PaTvXJXnxKhyWtKwqe3kmY+U2taB6PURjPOOm1G2+gPtmj0EcW8hsre/crBAzz8UF3FnBGIbRu+
+	pePuODZiXyLNzbM985LNxl21v74cMTnc2ElJ0YQ==
+X-Gm-Gg: ASbGncsn1G/0cp2rA/UVM1foIIUeU23alRm3amtKd9ZzB7dd9NI0qxWt0QtEIF+Tfnu
+	mQJMUxx/OAzjGFcSGsPiZMKB9U/ba6pA/q2VF0VQwsI/9dO6prolsvdzhLViPwL/Gxu+68/Cnxm
+	bZGdhx7A==
+X-Google-Smtp-Source: AGHT+IFU1bq8mMWQr/nfAv06hNruBT5LhpE0t240NRVcR7JAq7ma1dPyg4mvl61oVDhks/31ToFVQUQ4SS/zaz0yHCw=
+X-Received: by 2002:a17:90b:5446:b0:2ee:c04a:4276 with SMTP id
+ 98e67ed59e1d1-2fe7e2fad73mr7598919a91.5.1740614825599; Wed, 26 Feb 2025
+ 16:07:05 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V3 5/5] mm: Rename GENERIC_PTDUMP and PTDUMP_CORE
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
- Marc Zyngier <maz@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
- Nicholas Piggin <npiggin@gmail.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>
-References: <20250226122404.1927473-1-anshuman.khandual@arm.com>
- <20250226122404.1927473-6-anshuman.khandual@arm.com>
- <Z79xK3xJWm0vH5jH@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <Z79xK3xJWm0vH5jH@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com>
+ <20250205-counter_delegation-v4-9-835cfa88e3b1@rivosinc.com> <d03581a9-495d-47df-99f2-96065b06ee8f@rivosinc.com>
+In-Reply-To: <d03581a9-495d-47df-99f2-96065b06ee8f@rivosinc.com>
+From: Atish Kumar Patra <atishp@rivosinc.com>
+Date: Wed, 26 Feb 2025 16:06:54 -0800
+X-Gm-Features: AQ5f1Jor6j_JB-qT3VHcFUngBC7pDF2lQ8l_4vLXmUWI5FABCG8w44W6HyNkHE4
+Message-ID: <CAHBxVyFxX78+zf3NFvRZ8sE6PV83gkQ0ibHMTPY7kr8HNr8naQ@mail.gmail.com>
+Subject: Re: [PATCH v4 09/21] RISC-V: Add Ssccfg ISA extension definition and parsing
+To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-perf-users@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_160633_924520_F6D130D5 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20250226_160706_501346_FE3FB981 
+X-CRM114-Status: GOOD (  22.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,31 +105,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
- 
+On Fri, Feb 7, 2025 at 12:13=E2=80=AFAM Cl=C3=A9ment L=C3=A9ger <cleger@riv=
+osinc.com> wrote:
+>
+>
+>
+> On 06/02/2025 08:23, Atish Patra wrote:
+> > Ssccfg (=E2=80=98Ss=E2=80=99 for Privileged architecture and Supervisor=
+-level
+> > extension, =E2=80=98ccfg=E2=80=99 for Counter Configuration) provides a=
+ccess to
+> > delegated counters and new supervisor-level state.
+> >
+> > This patch just enables the definitions and enable parsing.
+> >
+> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> > ---
+> >  arch/riscv/include/asm/hwcap.h | 2 ++
+> >  arch/riscv/kernel/cpufeature.c | 2 ++
+> >  2 files changed, 4 insertions(+)
+> >
+> > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hw=
+cap.h
+> > index b4eddcb57842..fa5e01bcb990 100644
+> > --- a/arch/riscv/include/asm/hwcap.h
+> > +++ b/arch/riscv/include/asm/hwcap.h
+> > @@ -103,6 +103,8 @@
+> >  #define RISCV_ISA_EXT_SSCSRIND               94
+> >  #define RISCV_ISA_EXT_SMCSRIND               95
+> >  #define RISCV_ISA_EXT_SMCNTRPMF         96
+> > +#define RISCV_ISA_EXT_SSCCFG            97
+> > +#define RISCV_ISA_EXT_SMCDELEG          98
+> >
+> >  #define RISCV_ISA_EXT_XLINUXENVCFG   127
+> >
+> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeat=
+ure.c
+> > index 8f225c9c3055..3cb208d4913e 100644
+> > --- a/arch/riscv/kernel/cpufeature.c
+> > +++ b/arch/riscv/kernel/cpufeature.c
+> > @@ -390,12 +390,14 @@ const struct riscv_isa_ext_data riscv_isa_ext[] =
+=3D {
+> >       __RISCV_ISA_EXT_BUNDLE(zvksg, riscv_zvksg_bundled_exts),
+> >       __RISCV_ISA_EXT_DATA(zvkt, RISCV_ISA_EXT_ZVKT),
+> >       __RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
+> > +     __RISCV_ISA_EXT_DATA(smcdeleg, RISCV_ISA_EXT_SMCDELEG),
+>
+> Hi Atish,
+>
+> based on your dt-binding commit, if smcdeleg depends on Sscsrind, Zihpm,
+> Zicntr, then you could add a validation callback here:
+>
 
-On 2/27/25 01:23, Catalin Marinas wrote:
-> On Wed, Feb 26, 2025 at 05:54:04PM +0530, Anshuman Khandual wrote:
->> diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
->> index 6cf4aae05219..b2931d1ae0fb 100644
->> --- a/arch/arm64/include/asm/ptdump.h
->> +++ b/arch/arm64/include/asm/ptdump.h
->> @@ -7,7 +7,7 @@
->>  
->>  #include <linux/ptdump.h>
->>  
->> -#ifdef CONFIG_PTDUMP_CORE
->> +#ifdef CONFIG_PTDUMP
-> 
-> Do we need this #ifdef at all? I haven't tried but usually, if the
-> feature is not enabled, the header file on its own should be harmless.
+Sure.
 
-With or without the #ifdef CONFIG_PTDUMP in place here, this does not cause
-any build warnings even without CONFIG_PTDUMP enabled. But dropping #ifdef
-while renaming the config option itself, might have caused unrelated code
-churn. So probably if required we could drop this later on.
+> static int riscv_smcdeleg_validate(const struct riscv_isa_ext_data
+> *data, const unsigned long *isa_bitmap)
+> {
+>         if (__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_SSC=
+SRIND) &&
+>             __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_ZIH=
+PM) &&
+>             __riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_ZIC=
+NTR))
+>                 return 0;
+>
+>         return -EPROBE_DEFER;
+> }
+>
+> __RISCV_ISA_EXT_DATA_VALIDATE(smcdeleg, RISCV_ISA_EXT_SMCDELEG,
+> riscv_smcdeleg_validate),
+>
+> >       __RISCV_ISA_EXT_DATA(smcntrpmf, RISCV_ISA_EXT_SMCNTRPMF),
+> >       __RISCV_ISA_EXT_DATA(smcsrind, RISCV_ISA_EXT_SMCSRIND),
+> >       __RISCV_ISA_EXT_DATA(smmpm, RISCV_ISA_EXT_SMMPM),
+> >       __RISCV_ISA_EXT_SUPERSET(smnpm, RISCV_ISA_EXT_SMNPM, riscv_xlinux=
+envcfg_exts),
+> >       __RISCV_ISA_EXT_DATA(smstateen, RISCV_ISA_EXT_SMSTATEEN),
+> >       __RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
+> > +     __RISCV_ISA_EXT_DATA(ssccfg, RISCV_ISA_EXT_SSCCFG),
+>
+> Ditto for this one with Smcdeleg, Sscsrind, Zihpm, Zicntr, Sscofpmf,
+> Smcntrpmf.
+>
 
-> 
-> For arm64:
-> 
-> Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+Smcdeleg is dependent on Sscofpmf/Smcntrpmf only for some of the registers.
+For example, Sscofpmf dependancy is only for sireg2 (hpmevent3h-hpmevent31h=
+)
+while Smcntrpmf is only for cyclecfg/instretcfg[1].
+
+So we can't include those for validation but I will include other
+extensions which are always required.
+
+[1] https://github.com/riscvarchive/riscv-smcdeleg-ssccfg/blob/main/body.ad=
+oc
+> Thanks,
+>
+> Cl=C3=A9ment
+>
+> >       __RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+> >       __RISCV_ISA_EXT_DATA(sscsrind, RISCV_ISA_EXT_SSCSRIND),
+> >       __RISCV_ISA_EXT_SUPERSET(ssnpm, RISCV_ISA_EXT_SSNPM, riscv_xlinux=
+envcfg_exts),
+> >
+>
 
