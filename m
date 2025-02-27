@@ -4,79 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93779C197BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:41:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E8AAC197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:41:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gKvilTlJUfYFmL3xuqFtESB8dT5JxVgk5avZ5dOv2Gs=; b=Rf1M3CpLUogWzge1QbbUUaCBzB
-	GZCwm41VDH4oVbhBwrMfYoSptLa+SnlEQlBxZAsDwWUKLXLl4bfO2xH5uRl8feAGtCB4RmVVJY4tG
-	P1JwR9vGjm0ZTS7MO9949pitQaOQm8Oks+LhwaATWripESJZk7yH/j9CNr3Cr8L/MJHG7HlDOqSq4
-	m3J07iyc0hX0rNuogP4d3u+S6WGO/+eKjckZQi0pFp0oemgTb/x9sSRmlWkPkHSVdMdvrRKty1vLi
-	iEHrQxdr/xx8m7fv+Bu3B0TunSupeNMoOx27WlJdlIyHWQvQBT4165bgvSnmV3vzHSgKRJVv3pDYG
-	r46unNmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z4OqO0DlmHTyAuXAgYbGzIkXg36xy2WA6u8k/uPoPPA=; b=iHbRxG3CLyVHxELk+LiTfs0dCv
+	JSnPI4GjnyXI5eM4OfXhqdptYg9RAIdKfMtbh4kqqS07P09vdG4/HALaGM184r0m6n4Zwxkby7E1x
+	Xq+qkbC5brgt/zvn+vj83UAwWyJzUw81yrvaWokMvO1w/sVddu2i3sH1uvPFll7x8RTHSAwg1MTG3
+	LgqYpBt6SfbOE+fQCsaJeBU2CUmokAmgZZbPvAuNtwEFulw8Zek2OiLYB83T/a7+JjFtX+PUwP44R
+	cmKNsL0AJJzARFmoSXt4P5W1ql/BtUJdyRhQgeORXx2dOIEOmEE0tPpxU4y6GkcSLvW9lDyY9bwo8
+	2zbHhl+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjkt-00000008ajb-3ENH;
-	Thu, 27 Feb 2025 19:41:11 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tnjky-00000008at8-1WWv;
+	Thu, 27 Feb 2025 19:41:16 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnhbG-00000008CUk-3dGF
+	id 1tnheO-00000008Cse-3JIa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 17:23:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B6CD65C6202;
-	Thu, 27 Feb 2025 17:22:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C098FC4CEDD;
-	Thu, 27 Feb 2025 17:22:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740676982;
-	bh=JkGpybMCuNUorSQNS9AQSV0Uqu4j4/+ypLnwebjcqLM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MLlli9RCpdQCuAsBdWqfHmp7qixapnVQZ/yolrYRPuNVwSLv2DoIEnneEWgeJ0nj4
-	 kzslxwyRk4X5rONRKO1bqgqSt9C3pC9FU+Dw5jqRoegd3rg9l1CUAmQ1OuaG7KeJc6
-	 miM13dNF1MOvnEIBQo4iLOJv/M89KGdRvYKH0JQ9WAmgtq8oVlFge2R6aLoYdrh1uc
-	 ZUDwQIzQhGwRdkR9Y79KCrgmF6zl0wVlq4LvDI2EyxTmbe+bq1PXrGqbnKdO3ZjJqI
-	 dQ7uWYdutGW1tJU1mc/f27f8ak/hFR6odrvuxZfzbqaEidm4f3FdDLn/LWlXP8GFbc
-	 SA8lIAmdy0sxQ==
-Date: Thu, 27 Feb 2025 17:22:55 +0000
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Steven Price <steven.price@arm.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org
-Subject: Re: [PATCH v7 09/11] arm64: Enable memory encrypt for Realms
-Message-ID: <20250227172254.GB25617@willie-the-truck>
-References: <20241017131434.40935-1-steven.price@arm.com>
- <20241017131434.40935-10-steven.price@arm.com>
- <5aeb6f47-12be-40d5-be6f-847bb8ddc605@arm.com>
- <Z79lZdYqWINaHfrp@arm.com>
- <20250227002330.GA24899@willie-the-truck>
- <Z8BEhK8P7FXgG11f@arm.com>
+	Thu, 27 Feb 2025 17:26:22 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B722510382F24;
+	Thu, 27 Feb 2025 18:26:14 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1740677178;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z4OqO0DlmHTyAuXAgYbGzIkXg36xy2WA6u8k/uPoPPA=;
+	b=I52RF/4RmJii3MfN1/Z74h9+4oa9hwjgxOCPH+oHDZwj4E3b6qEDxXRqbxa3A2GutMSz8n
+	e8pIozchEVC9K2kZKq13KKYtSmYYsXuA8t4yBFhQ+XfVYVJ/TZHobjR1HIis418UoIV8dQ
+	iR7Lz9ep20PlsCmzbPxEZd5J0FzLQSHo5f4sF8whxei2m6WiAgUoH/eLFzfHD/mNuVstvs
+	drAsgJd5vut8VFuOo0wAP663gFSltxq+xcAK2wOR/n7CoHaSmAHjFAUte5ljno2pvTp5op
+	+AC4aFkDRUlXO1mPjEoMS5GWeBaQcbNtVOBzY5PAW4WRrItNNjkTN10FKmziwA==
+Message-ID: <601055ff-6a19-4d89-b4ae-fb437d3f1670@denx.de>
+Date: Thu, 27 Feb 2025 18:26:04 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z8BEhK8P7FXgG11f@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+User-Agent: Mozilla Thunderbird
+From: Marek Vasut <marex@denx.de>
+Subject: Re: [PATCH 6/9] drm/panthor: Reset GPU after L2 cache power off
+To: Boris Brezillon <boris.brezillon@collabora.com>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
+ David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Sebastian Reichel <sre@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
+ Steven Price <steven.price@arm.com>, Thomas Zimmermann
+ <tzimmermann@suse.de>, devicetree@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, imx@lists.linux.dev
+References: <20250227170012.124768-1-marex@denx.de>
+ <20250227170012.124768-7-marex@denx.de>
+ <20250227181748.3f99d67e@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250227181748.3f99d67e@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_092306_992147_0174237E 
-X-CRM114-Status: GOOD (  33.42  )
+X-CRM114-CacheID: sfid-20250227_092620_979552_B7C8146F 
+X-CRM114-Status: GOOD (  15.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,66 +85,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025 at 10:55:00AM +0000, Catalin Marinas wrote:
-> On Thu, Feb 27, 2025 at 12:23:31AM +0000, Will Deacon wrote:
-> > On Wed, Feb 26, 2025 at 07:03:01PM +0000, Catalin Marinas wrote:
-> > > On Wed, Feb 19, 2025 at 02:30:28PM +0000, Steven Price wrote:
-> > > > > @@ -23,14 +25,16 @@ bool rodata_full __ro_after_init = IS_ENABLED(CONFIG_RODATA_FULL_DEFAULT_ENABLED
-> > > > >  bool can_set_direct_map(void)
-> > > > >  {
-> > > > >  	/*
-> > > > > -	 * rodata_full and DEBUG_PAGEALLOC require linear map to be
-> > > > > -	 * mapped at page granularity, so that it is possible to
-> > > > > +	 * rodata_full, DEBUG_PAGEALLOC and a Realm guest all require linear
-> > > > > +	 * map to be mapped at page granularity, so that it is possible to
-> > > > >  	 * protect/unprotect single pages.
-> > > > >  	 *
-> > > > >  	 * KFENCE pool requires page-granular mapping if initialized late.
-> > > > > +	 *
-> > > > > +	 * Realms need to make pages shared/protected at page granularity.
-> > > > >  	 */
-> > > > >  	return rodata_full || debug_pagealloc_enabled() ||
-> > > > > -	       arm64_kfence_can_set_direct_map();
-> > > > > +		arm64_kfence_can_set_direct_map() || is_realm_world();
-> > > > >  }
-> > > > 
-> > > > Aneesh pointed out that this call to is_realm_world() is now too early 
-> > > > since the decision to delay the RSI detection. The upshot is that a 
-> > > > realm guest which doesn't have page granularity forced for other reasons 
-> > > > will fail to share pages with the host.
-> > > > 
-> > > > At the moment I can think of a couple of options:
-> > > > 
-> > > > (1) Make rodata_full a requirement for realm guests. 
-> > > >     CONFIG_RODATA_FULL_DEFAULT_ENABLED is already "default y" so this 
-> > > >     isn't a big ask.
-> > > > 
-> > > > (2) Revisit the idea of detecting when running as a realm guest early. 
-> > > >     This has the advantage of also "fixing" earlycon (no need to 
-> > > >     manually specify the shared-alias of an unprotected UART).
-> > > > 
-> > > > I'm currently leaning towards (1) because it's the default anyway. But 
-> > > > if we're going to need to fix earlycon (or indeed find other similar 
-> > > > issues) then (2) would obviously make sense.
-> > > 
-> > > I'd go with (1) since the end result is the same even if we implemented
-> > > (2) - i.e. we still avoid block mappings in realms.
-> > 
-> > Is it, though? The config option is about the default behaviour but there's
-> > still an "rodata=" option on the command-line.
+On 2/27/25 6:17 PM, Boris Brezillon wrote:
+
+[...]
+
+>> diff --git a/drivers/gpu/drm/panthor/panthor_gpu.c b/drivers/gpu/drm/panthor/panthor_gpu.c
+>> index 671049020afaa..0f07ef7d9aea7 100644
+>> --- a/drivers/gpu/drm/panthor/panthor_gpu.c
+>> +++ b/drivers/gpu/drm/panthor/panthor_gpu.c
+>> @@ -470,11 +470,12 @@ int panthor_gpu_soft_reset(struct panthor_device *ptdev)
+>>    */
+>>   void panthor_gpu_suspend(struct panthor_device *ptdev)
+>>   {
+>> -	/* On a fast reset, simply power down the L2. */
+>> -	if (!ptdev->reset.fast)
+>> -		panthor_gpu_soft_reset(ptdev);
+>> -	else
+>> -		panthor_gpu_power_off(ptdev, L2, 1, 20000);
+>> +	/*
+>> +	 * Power off the L2 and soft reset the GPU, that makes
+>> +	 * iMX95 Mali G310 resume without firmware boot timeout.
+>> +	 */
+>> +	panthor_gpu_power_off(ptdev, L2, 1, 20000);
+>> +	panthor_gpu_soft_reset(ptdev);
 > 
-> Yeah, that's why I suggested the pr_err() to only state that it cannot
-> set the direct map and consider rodata=full rather than a config option.
-> We already force CONFIG_STRICT_KERNEL_RWX.
+> Unfortunately, if you do that unconditionally we no longer have a
+> fast-reset. Would be good to figure out why the fast-reset doesn't work
+> on this platform.
 
-rodata=full has absolutely nothing to do with realms, though. It just
-happens to result in the linear map being created at page granularity
-and I don't think we should expose that implementation detail like this.
+I was hoping to get some hint on this one, I spent quite a while trying 
+to narrow this down, finally got it down to this particular bit.
 
-> But we can also revisit the decision not to probe the RSI early.
+The NXP downstream vendor kernel vendor Mali driver does not seem to 
+have anything interesting regarding the L2 power handling, but I might 
+have missed it, the code is difficult to read.
 
-Alternatively, could we predicate realm support on BBM level-3 w/o TLB
-conflicts? Then we could crack the blocks in the linear map.
+Have you ever seen anything problematic in this specific L2 department ?
 
-Will
+Do you have any hints how I can debug this further ?
 
