@@ -4,52 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47976C021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 10:16:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 660F8C19F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 10:27:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=geZtNYrj+XD0JEXtVNjIWNCgJMc3ZKET945SuPJR0hg=; b=alHJ1B790nekM6956dhji/lcHD
-	d3kk3gqaojaFVYS3MSDmIEPHpu9Jbloh6lrZSnoqBr6kTIzj6uIMpe8fqN5R48z3cfZZmR3G5lIZK
-	LwotfNOX2l+c66aER5c9gzZ8/tYESAl9qgHDeUkuiJIlI1myFU/CzsBREvKg420AvOdTy53/Lnkzk
-	dF7ivA4Iyvoqt3Dw68OJDz5kqJ0Y/ZcByLMLWz/elWzlKtyxJSNbFhGIPOLS7jqAZBkaACKSsmEIJ
-	1Ldq76ycpmBUdc66Kw9WiEwEZ2JAvRIirbe9rzSVxH0GeoUAfMYOEOH90L1Ro+dt+c4Td55lW22cC
-	6BBsTvBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BkDluYegP9fz6ZGoo2X9sZIE1EvxSRLVt+l7d1VddSI=; b=0FJQfdN8kliCjIYC0VrdZZx3Xr
+	L5YMw9oCTsEt1YJ10snBh1zXWA1aQEXMyOV6691VXko2ulEhKBTcirYliw9GsuZZHySv8ZcSLlSJU
+	5YXZLOYpPowke+wb24/MA5bgO+Puyq8BTc1hFTtqSnlFrB8hFBgs8D0sVm06aHoxTmpHhqrp28a+U
+	gDPQr5E9Lh9WdLIs0BtxUOrq18iPEwQ5fyo/+uWi0spkZNRfdIl4qFhhidjFQfm88k4JIIrTBZL1H
+	IunJ3AHg8A19LalKqi/o9U1HNenFVQxFdfDq5cEuZgS31LNZM8dv+/GsgNHwBsyTKmyef40eD3Ly8
+	IGUAkBwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnawX-00000006yGN-0xuv;
-	Thu, 27 Feb 2025 10:16:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnauz-00000006y2J-1Kb9
+	id 1tnb6W-00000006zkj-2Oup;
+	Thu, 27 Feb 2025 10:26:56 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnb4z-00000006zTE-08Iy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 10:15:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 292AE2BCC;
-	Thu, 27 Feb 2025 02:15:16 -0800 (PST)
-Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9FCE23F673;
-	Thu, 27 Feb 2025 02:14:59 -0800 (PST)
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	Sudeep Holla <sudeep.holla@arm.com>
-Cc: linux-kernel@vger.kernel.org,
-	Andrei Homescu <ahomescu@google.com>
-Subject: Re: [PATCH 1/2] firmware: arm_ffa: Explicitly cast return value from FFA_VERSION before comparison
-Date: Thu, 27 Feb 2025 10:14:57 +0000
-Message-Id: <174065123542.2364600.7340078100778272878.b4-ty@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250221095633.506678-1-sudeep.holla@arm.com>
-References: <20250221095633.506678-1-sudeep.holla@arm.com>
+	Thu, 27 Feb 2025 10:25:22 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tnb4q-0004Ph-2F; Thu, 27 Feb 2025 11:25:12 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tnb4p-0036me-2a;
+	Thu, 27 Feb 2025 11:25:11 +0100
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tnb4p-000526-2K;
+	Thu, 27 Feb 2025 11:25:11 +0100
+Message-ID: <e243ca952b3aaf7e1331dee4da14ac06d878cf61.camel@pengutronix.de>
+Subject: Re: [PATCH v3] reset: mchp: sparx5: Fix for lan966x
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Herve Codina <herve.codina@bootlin.com>, Horatiu Vultur
+	 <horatiu.vultur@microchip.com>
+Cc: Steen.Hegelund@microchip.com, daniel.machon@microchip.com, 
+	UNGLinuxDriver@microchip.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Date: Thu, 27 Feb 2025 11:25:11 +0100
+In-Reply-To: <20250226182449.61a126ea@bootlin.com>
+References: <20250226144645.1950451-1-horatiu.vultur@microchip.com>
+	 <5cc5cd05e0a481773212fff0bce574dcfea3f74d.camel@pengutronix.de>
+	 <20250226182449.61a126ea@bootlin.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_021501_794617_00EEAAE3 
-X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-CacheID: sfid-20250227_022521_065132_D2DB8867 
+X-CRM114-Status: UNSURE (   9.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -65,26 +81,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 21 Feb 2025 09:56:31 +0000, Sudeep Holla wrote:
-> The return value ver.a0 is unsigned long type and FFA_RET_NOT_SUPPORTED
-> is a negative value.
->
-> Since the return value from the firmware can be just 32-bit even on
-> 64-bit systems as FFA specification mentions it as int32 error code in
-> w0 register, explicitly casting to s32 ensures correct sign interpretation
-> when comparing against a signed error code FFA_RET_NOT_SUPPORTED.
->
-> [...]
+On Mi, 2025-02-26 at 18:24 +0100, Herve Codina wrote:
+> Hi Philipp, Horatiu,
+>=20
+> On Wed, 26 Feb 2025 17:32:22 +0100
+> Philipp Zabel <p.zabel@pengutronix.de> wrote:
+>=20
+> ...
+>=20
+> > > Fixes: 0426a920d6269c ("reset: mchp: sparx5: Map cpu-syscon locally i=
+n case of LAN966x")
+> > > Reviewed-by: Herve Codina <herve.codina@bootlin.com>
+> > > Tested-by: Herve Codina <herve.codina@bootlin.com> =20
+> >=20
+> > Is this still correct?
+>=20
+> Yes, it is correct.
+>=20
+> Reviewed this v3, saw Philipp's comments and I have nothing more to add.
+>=20
+> Also tested this v3 and no regression were detected.
 
-Applied to sudeep.holla/linux (for-next/ffa/updates), thanks!
+Excellent, thank you.
 
-[1/2] firmware: arm_ffa: Explicitly cast return value from FFA_VERSION before comparison
-      https://git.kernel.org/sudeep.holla/c/cecf6a504137
-[2/2] firmware: arm_ffa: Explicitly cast return value from NOTIFICATION_INFO_GET
-      https://git.kernel.org/sudeep.holla/c/3e282f41585c
-
---
-Regards,
-Sudeep
-
+regards
+Philipp
 
