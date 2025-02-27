@@ -4,93 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6527DC021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 09:57:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 110B3C19F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 09:59:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XSFMyHZjL2sLB+0egAbBkuSTNnV3nLYFcpeSny0Lnto=; b=mvHyQlAmktaiyL9GjCwkfDPdZz
-	dc/jZJ0JQ1oKjodzP6G6up60y1q6G6K0+5BRtGJMBubcbPd6aDmBZJ11MYj+lAbpjZks4i7a7/tIG
-	uoRQfKXjt8NC9li/ZHAfMyVvdo6tgz3pcsX8AppTwjNez49OZ7ziVyTUt921cllDzgcfDCdh3Rcwh
-	Ol00FPkkR9MpiHpzhMTxdqmavgHSCz2Giqr/6CaDlEjrOFOphCMIKATCgZBo9Agb5T33RNthIsDyJ
-	cefLHRuzuIe+QYUbSbhjvQMluSWYOS8V/A/sRH9/kFCxLo98B/yIyQ9Vd1MEO7iCMnqg5W+Fy3BSP
-	povHz3CA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E5QDWkO2mZIUqFyZfWARuefSQbIGKebt4uDjmqBxFCM=; b=v/TSECUNquhO/uqaDy9rHuuVax
+	SK+yWgXsxTws/Q//WWKxU8wsU1oEZo0dYqOqhWEUB9I00a5fJRkoErsN8iU41tgmO3u7DkwXnbU2Q
+	S+Itra9tTUugBvCFr3I3wLRFTqLcXhQb+i+SM3aYvQr8durtivu60fyqTAFSeadwjsVv7bASszGAQ
+	UQiF6JM9FtIDSv8XZVZWKq54018XKhEAdNQW2mKGIyy+yyrwroQhNiB3z9lwV5VLp/5ziCxBXlLN0
+	Y5SVJ6NOTgHYkHKDdkvthaGNPAb75In0fx2UECc//+wYMXonXhgIM/YEPQB/MRNov454+jO8TXXLz
+	5uJZ+yDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnadn-00000006vYL-2GI2;
-	Thu, 27 Feb 2025 09:57:15 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1tnafI-00000006vi3-25sx;
+	Thu, 27 Feb 2025 09:58:48 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnaLt-00000006t9t-0N55
+	id 1tnaNF-00000006tI3-3Zes
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 09:38:47 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-390ddf037ffso299582f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 01:38:44 -0800 (PST)
+	Thu, 27 Feb 2025 09:40:11 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-38f1e8efe84so238177f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 01:40:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1740649123; x=1741253923; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=XSFMyHZjL2sLB+0egAbBkuSTNnV3nLYFcpeSny0Lnto=;
-        b=T+IqATbw6I5Ev16BxbH7d2Urf5ZO+WzgeWkxwJyjwyAK7JFVyNhO9sqLK9tqEcsusZ
-         BoVDdLofme6q7cf1IrnH6sUCG+1k5WnOsuRazMHS8aTpN6WyR/Sj1+BXIvlzfmosj+FB
-         y0AxlSjRKe8HXR9/7mV5Wq/qO0lpEk9u6z6M3ad/L9+HV/fRusogfIsLheB08JRukd8R
-         dhu2wnIMArmF0g6Jjk2H7/1g1wjF5Tsej186ckEIlDkCiHCBf7deGgRb7F9e8askvX+G
-         DC6QDm4FYCZT9bZVp0ZVOzYlRs3ysD/b+TvFoDMP2OaNPtrUTCFp6YkEPCdOkcq3Y2fx
-         tybQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740649123; x=1741253923;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1740649207; x=1741254007; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=XSFMyHZjL2sLB+0egAbBkuSTNnV3nLYFcpeSny0Lnto=;
-        b=tiqvcDJ1rOyxjep3QFC7PDrKNH3LqSX3MCX0qqNQUHEW3wA7AXLPwB02/QmrGRXLdU
-         u+jnyNyy3DboMp7OfVUep8q8HCCyR5vDwYu5NDUGqys8uacDlrJXIm3rgs13UDgxrY/0
-         DM5+M6a/8DkRregOTAwROXDt3qLTRB7a0HHpQqni24C01CW91kw4Hf/QYLegzFYflwfl
-         fUZuUxL1eM0RwG8cqfyGVzMX8ZJRxpVd/RLx8adOk0MxOza05BtCtdtJPJTJLGsgfZVr
-         49Y1VRH1gxsqnCkszd3Rzne9aP+tDZMUr9F6mIKauL40aDVvV9VLozYkTifge9j2CQjI
-         bteA==
-X-Forwarded-Encrypted: i=1; AJvYcCXwTU1WSJMK26TIF5ugqmBdOrs2v9OA5PqbfziI8PeTdfzTmTxhLi7s6czgYG7XkJ3Wxwz0s87MBVq1dyCFypnW@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHT/jxTypzE7iKu0Ivgrw5dmBWU7+c83lmVULEgT4YhNBggnwM
-	4W/Yt4sSFxoL3i7ZqY2qGahHWzmFVaBQrmhVteLuQiKyC+9xhvZ5g/g4jLYD7sA=
-X-Gm-Gg: ASbGncu1RJgmmH7xA9RXmdFxG47I4D4Riw5KpJ3/kQjIdLSxE/oa7uqBWk+0m3gaVdQ
-	MA65YQJl1nteFgycJWMW0ClzUMyVfPnA6rtddG3Ln4hZtcIr6cJgOQPTN20fcWQm5FjLwgP84m/
-	VQY2QVjTs/qpbYyUheR/v8LrbaC5p/AvurqOTrxwCW84bN3Xm7DMYekfC+GpGBIQqgK5OuEwE+r
-	W+6nEJP6nSjdN0VWQHE0bFi9e1TGxsPzODNZjLBnvCzX0XzI0TLNjzCROhcbpXBAL3BAXmdSlf6
-	4tSkCy3V0FxyBzmFfZ4ch1AQbg==
-X-Google-Smtp-Source: AGHT+IFUel99Gq412qHUYoqq4QU0Kh33QuQ9q7aFAyceuOEGM3mTTh0OtaZyPMhSjBmzd7LFLY/Vng==
-X-Received: by 2002:a5d:64a9:0:b0:390:e853:85bd with SMTP id ffacd0b85a97d-390e8538bfdmr865626f8f.48.1740649122847;
-        Thu, 27 Feb 2025 01:38:42 -0800 (PST)
-Received: from localhost ([2a01:e0a:3c5:5fb1:ede3:f33f:7555:723d])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-390e479652dsm1484719f8f.16.2025.02.27.01.38.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Feb 2025 01:38:42 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: <linux@martijnvandeventer.nl>
-Cc: "'Neil Armstrong'" <neil.armstrong@linaro.org>,  "'Michael Turquette'"
- <mturquette@baylibre.com>,  "'Stephen Boyd'" <sboyd@kernel.org>,  "'Kevin
- Hilman'" <khilman@baylibre.com>,  "'Martin Blumenstingl'"
- <martin.blumenstingl@googlemail.com>,
-  <linux-amlogic@lists.infradead.org>,  <linux-clk@vger.kernel.org>,
-  <linux-arm-kernel@lists.infradead.org>,  <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] clk: meson: g12a: Fix kernel warnings when no display
- attached
-In-Reply-To: <003301db888e$8ea84e90$abf8ebb0$@martijnvandeventer.nl>
-	(linux@martijnvandeventer.nl's message of "Wed, 26 Feb 2025 21:39:39
-	+0100")
-References: <20250213221702.606-1-linux@martijnvandeventer.nl>
-	<1jpljkzyf0.fsf@starbuckisacylon.baylibre.com>
-	<003301db888e$8ea84e90$abf8ebb0$@martijnvandeventer.nl>
-User-Agent: mu4e 1.12.8; emacs 29.4
-Date: Thu, 27 Feb 2025 10:38:41 +0100
-Message-ID: <1jplj3g21q.fsf@starbuckisacylon.baylibre.com>
+        bh=E5QDWkO2mZIUqFyZfWARuefSQbIGKebt4uDjmqBxFCM=;
+        b=ivpYjZ2/DxZ+TSKe/KLtHdpwdTqkswLMk5voKjXXT+ucViED5O5kaHiVATm4VwSNF3
+         JYeKLGj8EQj0suAhZ5VnV2Y1aVOIAibQWyqcSuUTbbPUPnx6MOPBgEr+7h822Z4i9L0K
+         +e2yvrFstJ0fTj/2BTvXspfJUxKh2kqhzfYvIIh000RK8rzD9lqvwZlT7fwUxzx9Z2SJ
+         nPvz7W4XEUgLAvyg5oFh4a0q8Ppvr5A2sG/t909qCYFE5hMWEKuYURtMxPTRlVSt1MJP
+         7fUT9SWMvqTum30NIj0hXAc+0CVjl6sgxzhihezfAi9LVDICTfb+t9wmkOsftEKWj0cJ
+         pURg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740649207; x=1741254007;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=E5QDWkO2mZIUqFyZfWARuefSQbIGKebt4uDjmqBxFCM=;
+        b=Af5Hye6kOl3+ChI3sJ8SXRm7V+8SZKogyXBRUmNNvBOn7ysO+H4jmCrDMZAr0AUdOx
+         CNyeMfe1izphPGgE0fuTUvpAuAJEOoj3+XxRaEX5oLuGO56mLOhyPdFe6/AXagAkqrHt
+         AUFmcCXRhIBZKMGmcxbnHEwM+Lj6HtdKLzWGk8R9sM5TgzXfrl0uix85r8fkSEQrhcHP
+         LYqeFcJbsgPLOFEu7W4+gATVerR2j5r6HMaqMmocdU0+LdTz9bMgII3gA7URoOZ4PQu0
+         b/Wuw656eZvJijy3h0CqMK8jmUQtPznJHBMo8/1v5O1qVAYXDuIU3CSXcJUCDxnEKbqZ
+         l9iA==
+X-Forwarded-Encrypted: i=1; AJvYcCWs6hjxMLOEQB0Q21hHRrDn1vCA5ldGwO7AFVbAUD3jLO/PLCVWkL9G81PaoOOahNdoFfESjsEb0k7nfel/ORwi@lists.infradead.org
+X-Gm-Message-State: AOJu0YxLsMUg9CUBrIuTLvh8mvaN4EpwrgyBchUAqRem0mzLcVuLBPR3
+	4GqUd/0c0/2DumOn8semaphabpWUaLYyR6nu6XS29vnqfTv68WavOgI/85/Pn0NTqLk0ZLNE2kx
+	az8uU/9yGEM4tiTp1NJcJU7Ydm/M=
+X-Gm-Gg: ASbGnctpkHHahFtKOiPjKvRGKT9H50ksn5NxMQMRecMVagXC7tqVoYV/wbVQs3ApPiE
+	GkpEG+x4egwL1gt0tgHX3FVuBnB0Z1/roXjzQjVXAg2ubbhRjRanRR9TiGdFn6tfk8z777KfeOK
+	tyGGvPwjqg
+X-Google-Smtp-Source: AGHT+IHVxpKqJjF6Oy3UiSsoNMUk3O6YtCQmwyuh/+RElalPL6ZKmZpdr7GUuDOpP7wb1pIYfzRVat/b4jfY+6rXg4Q=
+X-Received: by 2002:adf:ed4c:0:b0:38f:476f:e176 with SMTP id
+ ffacd0b85a97d-38f6ec63868mr17667271f8f.31.1740649207536; Thu, 27 Feb 2025
+ 01:40:07 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain
+References: <20250225143638.1989755-1-regis.dargent@gmail.com>
+ <20250225143638.1989755-2-regis.dargent@gmail.com> <2547277e-d9c0-4138-abaa-7afbff1ba3ca@roeck-us.net>
+In-Reply-To: <2547277e-d9c0-4138-abaa-7afbff1ba3ca@roeck-us.net>
+From: =?UTF-8?Q?R=C3=A9gis_DARGENT?= <regis.dargent@gmail.com>
+Date: Thu, 27 Feb 2025 10:39:56 +0100
+X-Gm-Features: AQ5f1JrSA6DaEhL-Nslpn5PJiSZvOfwBqv4VOqRh3wNZ-79IdfFHdRc-00phYLw
+Message-ID: <CANarb_ci_vgBMU4XejMwOwxKjGVccfMuweUQA7JwbNzWZqotuw@mail.gmail.com>
+Subject: Re: [PATCH v3] watchdog: sunxi_wdt: Allow watchdog to remain enabled
+ after probe
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: Wim Van Sebroeck <wim@linux-watchdog.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	linux-watchdog@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_013845_350487_F620DDEE 
-X-CRM114-Status: GOOD (  31.21  )
+X-CRM114-CacheID: sfid-20250227_014009_895863_ABBFD0DD 
+X-CRM114-Status: GOOD (  27.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,147 +98,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed 26 Feb 2025 at 21:39, <linux@martijnvandeventer.nl> wrote:
-
-> Hi Jerome,
+Le mar. 25 f=C3=A9vr. 2025 =C3=A0 22:51, Guenter Roeck <linux@roeck-us.net>=
+ a =C3=A9crit :
 >
-> Thank you for reviewing, and apologies for my late response due to a holiday.
+> On 2/25/25 06:36, Regis Dargent wrote:
+> > If the watchdog is already running during probe, let it run on, read it=
+s
+> > configured timeout, and set its status so that it is correctly handled =
+by the
+> > kernel.
+> >
+> > Signed-off-by: Regis Dargent <regis.dargent@gmail.com>
+> >
+> > --
+> >
+> > Changelog v1..v2:
+> > - add sunxi_wdt_read_timeout function
+> > - add signed-off-by tag
+> >
+> > Changelog v2..v3:
+> > - WDIOF_SETTIMEOUT was set twice, and other code cleanup
+> > ---
+> >   drivers/watchdog/sunxi_wdt.c | 45 ++++++++++++++++++++++++++++++++++-=
+-
+> >   1 file changed, 43 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/watchdog/sunxi_wdt.c b/drivers/watchdog/sunxi_wdt.=
+c
+> > index b85354a99582..d509dbcb77ce 100644
+> > --- a/drivers/watchdog/sunxi_wdt.c
+> > +++ b/drivers/watchdog/sunxi_wdt.c
+> > @@ -140,6 +140,7 @@ static int sunxi_wdt_set_timeout(struct watchdog_de=
+vice *wdt_dev,
+> >               timeout++;
+> >
+> >       sunxi_wdt->wdt_dev.timeout =3D timeout;
+> > +     sunxi_wdt->wdt_dev.max_hw_heartbeat_ms =3D 0;
+> >
+> >       reg =3D readl(wdt_base + regs->wdt_mode);
+> >       reg &=3D ~(WDT_TIMEOUT_MASK << regs->wdt_timeout_shift);
+> > @@ -152,6 +153,32 @@ static int sunxi_wdt_set_timeout(struct watchdog_d=
+evice *wdt_dev,
+> >       return 0;
+> >   }
+> >
+> > +static int sunxi_wdt_read_timeout(struct watchdog_device *wdt_dev)
+> > +{
+> > +     struct sunxi_wdt_dev *sunxi_wdt =3D watchdog_get_drvdata(wdt_dev)=
+;
+> > +     void __iomem *wdt_base =3D sunxi_wdt->wdt_base;
+> > +     const struct sunxi_wdt_reg *regs =3D sunxi_wdt->wdt_regs;
+> > +     int i;
+> > +     u32 reg;
+> > +
+> > +     reg =3D readl(wdt_base + regs->wdt_mode);
+> > +     reg >>=3D regs->wdt_timeout_shift;
+> > +     reg &=3D WDT_TIMEOUT_MASK;
+> > +
+> > +     /* Start at 0 which actually means 0.5s */
+> > +     for (i =3D 0; (i < WDT_MAX_TIMEOUT) && (wdt_timeout_map[i] !=3D r=
+eg); i++)
 >
->> On Thu 13 Feb 2025 at 23:17, Martijn van Deventer
->> <linux@martijnvandeventer.nl> wrote:
->> 
->> > When booting SM1 or G12A boards without a dislay attached to HDMI,
->> > the kernel shows the following warning:
->> >
->> > [CRTC:46:meson_crtc] vblank wait timed out
->> > WARNING: CPU: 2 PID: 265 at drivers/gpu/drm/drm_atomic_helper.c:1682
->> drm_atomic_helper_wait_for_vblanks.part.0+0x240/0x264
->> > CPU: 2 UID: 0 PID: 265 Comm: setfont Tainted: G         C
->> > Tainted: [C]=CRAP
->> > pstate: 60400009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
->> > pc : drm_atomic_helper_wait_for_vblanks.part.0+0x240/0x264
->> > lr : drm_atomic_helper_wait_for_vblanks.part.0+0x240/0x264
->> > Call trace:
->> >  drm_atomic_helper_wait_for_vblanks.part.0+0x240/0x264
->> >  drm_atomic_helper_commit_tail_rpm+0x84/0xa0
->> >  commit_tail+0xa4/0x18c
->> >  drm_atomic_helper_commit+0x164/0x178
->> >  drm_atomic_commit+0xb4/0xec
->> >  drm_client_modeset_commit_atomic+0x210/0x270
->> >  drm_client_modeset_commit_locked+0x5c/0x188
->> >  drm_fb_helper_pan_display+0xb8/0x1d4
->> >  fb_pan_display+0x7c/0x120
->> >  bit_update_start+0x20/0x48
->> >  fbcon_switch+0x418/0x54c
->> >  el0t_64_sync+0x194/0x198
->> >
->> > This happens when the kernel disables the unused clocks.
->> > Sometimes this causes the boot to hang.
->> >
->> > By (re)adding the flag CLK_IGNORE_UNUSED to the VCLK2 clocks, these
->> > clocks will not be disabled.
->> >
->> > This partially reverts commit b70cb1a21a54 ("clk: meson: g12a:
->> > make VCLK2 and ENCL clock path configurable by CCF").
->> 
->> It looks like DRM needs those clock enabled regardless of connection
->> status on HDMI. Even with this change applied, you would get the same
->> problem again if the bootloader does not take of turning the clock on,
->> which is not a given.
->> 
->> CLK_IGNORE_UNUSED gives not guarantee a clock will be enabled or stay
->> enabled at any point.
->> 
->> A proper fix to this issue should be done in DRM, IMO.
+> Unnecessary (). On top of that, its complexity is unnecessary.
+> The timeout in seconds, except for reg =3D=3D 0, is wdt_timeout_map[reg],
+> with values of 0x0c..0x0f undefined. Worse, the above code can access
+> beyond the size of wdt_timeout_map[] if reg >=3D 0x0c.
+
+Ok, I prefer parenthesis for (my) readability, but I will remove them.
+
+wdt_timeout_map is not linear, so timeout in seconds is i when
+wdt_timeout_map[i] =3D=3D reg, some values of i not corresponding to any
+reg value.
+reg values of 0x0c and more will end with a timeout of 16s
+(i =3D=3D WDT_MAX_TIMEOUT) which will lead to unknown behaviour only
+because these values are marked "reserved" in the HW timer documentation.
+
+> > +             ;
+> > +     if (i =3D=3D 0) {
+> > +             wdt_dev->timeout =3D 1;
+> > +             wdt_dev->max_hw_heartbeat_ms =3D 500;
 >
-> I know and I totally agree. Unfortunately, I don't have access to any vendor 
-> documentation, nor do I have any real knowledge about the DRM/HDMI 
-> subsystem to fix that.
+> This is an unacceptable API abuse. max_hw_heartbeat_ms, if set,
+> should be 16000, not 500. You could set the timeout to 1 second instead.
 
-You have identified which clocks are not properly claimed, by what they
-are not claimed and even when. 50% of the job is done. Thanks for this.
+sorry about that, my comprehension of the documentation on
+min/max_hw_heartbeat_ms suggested that they define the time window during
+which the HW timer must receive a heartbeat or it will reset.
+0-'timeout' defines the time window for the userspace point of view,
+meaning that if 'timeout' > max_hw_heartbeat_ms, extra heartbeats must be
+sent to HW timer so that the reset can occur only after 'timeout' seconds.
 
+Just to be clear, setting max_hw_heartbeat_ms to the maximum HW possible
+value (here 16000ms) means that one cannot use sub-second HW timer values,
+while all the watchdog API actually handles them well enough (my tests on
+the 500ms HW timer worked good).
+
+For this sunxi driver case, this implies that instead of just reading the
+current timeout value from the HW timer (if it was enabled before the
+kernel start), I also have to reconfigure the HW timer (to 1sec) if its
+timeout is less than a second (the 0 register value).
+
+> Guenter
 >
-> And I guess if it were as easy as adding a clock to the DT and calling 
-> clk_prepare_enable on it in the probe function, Neil would have done that 
-> already.
->
-> So, all I can do, for now, is revert to the previous situation when it did  work
-> for (probably) most boards.
-
-Maybe so, but it does not make this change appropriate. The problem
-is the DRM driver which does not enable what it needs to properly
-operate. This should be fixed.
-
->
->> >
->> > Fixes: b70cb1a21a54 ("clk: meson: g12a: make VCLK2 and ENCL clock path
->> configurable by CCF").
->> > Signed-off-by: Martijn van Deventer <linux@martijnvandeventer.nl>
->> > ---
->> >  drivers/clk/meson/g12a.c | 12 ++++++------
->> >  1 file changed, 6 insertions(+), 6 deletions(-)
->> >
->> > diff --git a/drivers/clk/meson/g12a.c b/drivers/clk/meson/g12a.c
->> > index cfffd434e998..1651898658f5 100644
->> > --- a/drivers/clk/meson/g12a.c
->> > +++ b/drivers/clk/meson/g12a.c
->> > @@ -3234,7 +3234,7 @@ static struct clk_regmap g12a_vclk2_div = {
->> >  			&g12a_vclk2_input.hw
->> >  		},
->> >  		.num_parents = 1,
->> > -		.flags = CLK_SET_RATE_GATE,
->> > +		.flags = CLK_SET_RATE_GATE | CLK_IGNORE_UNUSED,
->> >  	},
->> >  };
->> >
->> > @@ -3270,7 +3270,7 @@ static struct clk_regmap g12a_vclk2 = {
->> >  		.ops = &meson_vclk_gate_ops,
->> >  		.parent_hws = (const struct clk_hw *[]) { &g12a_vclk2_div.hw
->> },
->> >  		.num_parents = 1,
->> > -		.flags = CLK_SET_RATE_PARENT,
->> > +		.flags = CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED,
->> >  	},
->> >  };
->> >
->> > @@ -3354,7 +3354,7 @@ static struct clk_regmap g12a_vclk2_div1 = {
->> >  		.ops = &clk_regmap_gate_ops,
->> >  		.parent_hws = (const struct clk_hw *[]) { &g12a_vclk2.hw },
->> >  		.num_parents = 1,
->> > -		.flags = CLK_SET_RATE_PARENT,
->> > +		.flags = CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED,
->> >  	},
->> >  };
->> >
->> > @@ -3368,7 +3368,7 @@ static struct clk_regmap g12a_vclk2_div2_en = {
->> >  		.ops = &clk_regmap_gate_ops,
->> >  		.parent_hws = (const struct clk_hw *[]) { &g12a_vclk2.hw },
->> >  		.num_parents = 1,
->> > -		.flags = CLK_SET_RATE_PARENT,
->> > +		.flags = CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED,
->> >  	},
->> >  };
->> >
->> > @@ -3382,7 +3382,7 @@ static struct clk_regmap g12a_vclk2_div4_en = {
->> >  		.ops = &clk_regmap_gate_ops,
->> >  		.parent_hws = (const struct clk_hw *[]) { &g12a_vclk2.hw },
->> >  		.num_parents = 1,
->> > -		.flags = CLK_SET_RATE_PARENT,
->> > +		.flags = CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED,
->> >  	},
->> >  };
->> >
->> > @@ -3396,7 +3396,7 @@ static struct clk_regmap g12a_vclk2_div6_en = {
->> >  		.ops = &clk_regmap_gate_ops,
->> >  		.parent_hws = (const struct clk_hw *[]) { &g12a_vclk2.hw },
->> >  		.num_parents = 1,
->> > -		.flags = CLK_SET_RATE_PARENT,
->> > +		.flags = CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED,
->> >  	},
->> >  };
->> 
-
--- 
-Jerome
 
