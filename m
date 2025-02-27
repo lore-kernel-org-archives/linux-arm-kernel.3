@@ -4,71 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D39B3C197BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 23:06:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70607C197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 23:09:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dCjZ9jMbRkmsPS+4OvPLxv/lO9UYo97B0D5ofNvRttk=; b=N47lcZ86Op5Hm0d4Uhju/9xdp5
-	Z27GsR6bDJsZ7kRNgZ0ULLGrtkvJQLRiiyN47qcJgAFV329nAHOyP958LPXotrqZdTfc3thB1CS9L
-	21uEldjur9biLG88OjbAjdBXsfZsdfMjdyrJZ185nOixg/onalGQnA5Px0PlK8TKvCIihsk4c/MMO
-	1Auhe22g78pQo4ouVxGtCpzZWp3krmu8dzqUN42kDz/OIjUAixZ1nSeTgHwZUyO5vWTEXtni99Pg4
-	dCBJyyfMH7kI/X2enGGUtkpcZnYBJH5B+FDqGua9Yk6qwsgz2cL/O2FSgWA/Asnd0qjeBout1E+L/
-	J1E+6qYw==;
+	bh=frw/Kxp/v2+PP+mGe/xu93cFHbH9YYmz+7s+Ghe+Vqk=; b=jntPX8UAe2r/BYHrIGsfUNdEpz
+	XqF7mVwwrT2GL9hrqiKdAIUMfx17uz9R18ps77Lq01+ieauUdcwbcjWIz8eK+hGY9crtBqlQL5iCp
+	PfjXsVeXmoJ+Kkb9mzNst1JUuDdPGrk7Tw3lvTebrjmnAg27DoRYYq8OUkkqitnjz/rCFbzptZrxb
+	k+rqaJ6mHZVXd+ijM8YCSYxe3+OPXk4syTdHmYDjSrQJdbASY46skFz8uWSYya64YPqn4rFowMUOH
+	v4l8q1pZdgt8h12QNNq7wiHizafH1ZIk0Ms9PdbZhhIQErPRwZNHd07hh0DOKMyee98ObswS1HRn+
+	RWzM/4hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnmxt-000000097H6-1Ruz;
-	Thu, 27 Feb 2025 23:06:49 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnmwL-0000000971B-0Apc
+	id 1tnmzy-000000097gF-1iub;
+	Thu, 27 Feb 2025 23:08:58 +0000
+Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnmyO-000000097QD-3YXg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 23:05:14 +0000
-Received: from [192.168.35.166] (c-24-22-154-137.hsd1.wa.comcast.net [24.22.154.137])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 769CA210EAC0;
-	Thu, 27 Feb 2025 15:05:10 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 769CA210EAC0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1740697511;
-	bh=dCjZ9jMbRkmsPS+4OvPLxv/lO9UYo97B0D5ofNvRttk=;
-	h=Date:Cc:Subject:To:References:From:In-Reply-To:From;
-	b=qkPpQObiOfq236VL3tI2mDXngA4cs30KZVyxnx7UZmqoO4Z+PP1V3dKTXgl0ym5W7
-	 qMXyfTC13t91+BJwaSAJFCTKnoPVNvcXzrl4l2RzeByTYqZTGZ/27ctSzlj4kptFmW
-	 OeOnUXHhnxrYZun4MyIOGtSDxPpwz48NiW+qy72Q=
-Message-ID: <51612cb0-fa25-45c4-9d49-dc2580706a41@linux.microsoft.com>
-Date: Thu, 27 Feb 2025 15:05:09 -0800
+	Thu, 27 Feb 2025 23:07:23 +0000
+Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-30b8cbbac91so5745601fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 15:07:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1740697639; x=1741302439; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=frw/Kxp/v2+PP+mGe/xu93cFHbH9YYmz+7s+Ghe+Vqk=;
+        b=cQutJJx0t/CKjGHEGBApDcCNak8ggrM4JETKZACyZA7iygT8G/X6Oj7huDoGH53EIa
+         4FfVbm/NWma6OEFrhTyGBOnUmP1+v97MZv0nqrYSyt3rf7FqK15dkyRVdcE/G7DgvfTA
+         DosA453jAoxNxPB76CFfXv7lZFketiEud/XGquxLRy8c2MxLmZ3Ii0cpj2kP7E76szWy
+         B2mDKvVGY/AXERXJIYVQcPX+ShHSRHNcRY0Q6QMZg5mdYZmlkIgHOAz6uDGOdB+7CAmK
+         QRuPaP5MAcAUPtKEKt/7leRMk5XfjgnhrFUqNh+7HyT1OREA2HHDTTiTFkGS1UtKVOo9
+         8Xyg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740697639; x=1741302439;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=frw/Kxp/v2+PP+mGe/xu93cFHbH9YYmz+7s+Ghe+Vqk=;
+        b=jGZ4X3TSznx92kBbm4+ihZehrhIfRJ8TwfJUUim3x7t0TsGOhAIPgB8QMwZDIYqzIF
+         V+pOLi6tmuxY76KrTkPaBGYQ3WmC4lj7eZtPloua/Cz8X2Ml1D13yGDoD1PdI8HGxYTN
+         AOQbvybveV3OFmK4HKo7Z5dpvVHlo3c6ZD7sWigVbzBrMDN1WrrmBRA9G9uo1eAMQVFq
+         +Q4q0YPg/AQDASpf1u7mRyS4l4CBknVznE26cfL5SMk82uAFf4pI1/iAMcoHmrKLMxeN
+         bxYUKh3OYOc0ny2cpNeMAsc24M7dbpn5xABjBODa8o6fC37HPhWVBYDKZp5oNxrCsc62
+         UQ9g==
+X-Forwarded-Encrypted: i=1; AJvYcCVCD+HNNS7KuI2JobLBphkZz73KnRdn1tnWKYvVDAIaPNxaGRWBDLpL3nXh1Yozq1PacU8fACfnmBnU5x2gTzab@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/Lm6A9GeuDsfND1Y8II6cGhKqQX+znOSDAa+rWIBifKLhmtMW
+	aB1d1Fq94l32QuBFLNwL9KwvupWVW1jpTq9h0p97+0bIYFMBsnUKuEqdNS4FOwR0o1oQkTHaWwk
+	ytdZFSfnsCk/cYncQHLDHMh9pxoaJ75wbYIe4pQ==
+X-Gm-Gg: ASbGncvy7cA55FEzjcYFsbIr1ZpMl8gBLKILsCmAOxb0z9SDHrujWX+Hz1fyTY7GT5Y
+	nrW9Ahu2KolndtfoD0mm6odXKpyYO4tEsIEDrCC0vaUxTjeoOuFse3KzvQhZqOCQbiAh2jyRg0i
+	igsBPHHAU=
+X-Google-Smtp-Source: AGHT+IFufz181XNYlSjaAjssVbP9sbOQz0B9cNRA45vok7xAon3DLgbajO4WEtqa7uIwsizRpA7u/lhxgF69lTQZ82w=
+X-Received: by 2002:a05:651c:2105:b0:30a:2a8a:e4d0 with SMTP id
+ 38308e7fff4ca-30b90a8247cmr3926491fa.17.1740697639007; Thu, 27 Feb 2025
+ 15:07:19 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: linux-hyperv@vger.kernel.org, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org,
- eahariha@linux.microsoft.com, kys@microsoft.com, haiyangz@microsoft.com,
- wei.liu@kernel.org, mhklinux@outlook.com, decui@microsoft.com,
- catalin.marinas@arm.com, will@kernel.org, tglx@linutronix.de,
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com,
- daniel.lezcano@linaro.org, joro@8bytes.org, robin.murphy@arm.com,
- arnd@arndb.de, jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
- skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com,
- ssengar@linux.microsoft.com, apais@linux.microsoft.com,
- Tianyu.Lan@microsoft.com, stanislav.kinsburskiy@gmail.com,
- gregkh@linuxfoundation.org, vkuznets@redhat.com, prapal@linux.microsoft.com,
- muislam@microsoft.com, anrayabh@linux.microsoft.com, rafael@kernel.org,
- lenb@kernel.org, corbet@lwn.net
-Subject: Re: [PATCH v5 05/10] acpi: numa: Export node_to_pxm()
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740611284-27506-6-git-send-email-nunodasneves@linux.microsoft.com>
-From: Easwar Hariharan <eahariha@linux.microsoft.com>
-Content-Language: en-US
-In-Reply-To: <1740611284-27506-6-git-send-email-nunodasneves@linux.microsoft.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250212-amlogic-pinctrl-v5-0-282bc2516804@amlogic.com>
+In-Reply-To: <20250212-amlogic-pinctrl-v5-0-282bc2516804@amlogic.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Fri, 28 Feb 2025 00:07:07 +0100
+X-Gm-Features: AQ5f1JqjsVFh7X8JQClBDzM8iluOtRQbPulUgXhGdh38CQTozMVRauwBZfmmZkc
+Message-ID: <CACRpkdZg-9Zr3f7zG36x7jGvT46FRfRJ40khNZDdYb01-BGigw@mail.gmail.com>
+Subject: Re: [PATCH v5 0/5] Pinctrl: Add Amlogic pinctrl driver
+To: xianwei.zhao@amlogic.com
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_150513_108605_E520C51C 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20250227_150720_883176_A91021EE 
+X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,30 +100,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/26/2025 3:07 PM, Nuno Das Neves wrote:
-> node_to_pxm() is used by hv_numa_node_to_pxm_info().
-> That helper will be used by Hyper-V root partition module code
-> when CONFIG_MSHV_ROOT=m.
-> 
-> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-> ---
->  drivers/acpi/numa/srat.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/acpi/numa/srat.c b/drivers/acpi/numa/srat.c
-> index 00ac0d7bb8c9..ce815d7cb8f6 100644
-> --- a/drivers/acpi/numa/srat.c
-> +++ b/drivers/acpi/numa/srat.c
-> @@ -51,6 +51,7 @@ int node_to_pxm(int node)
->  		return PXM_INVAL;
->  	return node_to_pxm_map[node];
->  }
-> +EXPORT_SYMBOL_GPL(node_to_pxm);
->  
->  static void __acpi_map_pxm_to_node(int pxm, int node)
->  {
+Hi Xianwei,
 
-FWIW,
+I applied patches 1, 2, 3 and 5 to the pinctrl tree on this
+immutable branch:
+https://web.git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-pinctrl.gi=
+t/log/?h=3Dib-amlogic-a4
 
-Reviewed-by: Easwar Hariharan <eahariha@linux.microsoft.com>
+On Wed, Feb 12, 2025 at 6:24=E2=80=AFAM Xianwei Zhao via B4 Relay
+<devnull+xianwei.zhao.amlogic.com@kernel.org> wrote:
+
+>       arm64: dts: amlogic: a4: add pinctrl node
+
+Please funnel this patch through the SoC tree.
+
+If there are dependencies, they can be pulled in from the immutable
+branch.
+
+Yours,
+Linus Walleij
 
