@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 690B3C19F32
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B97C197BF
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:38:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,28 +12,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pQO8uPwiRnegS6YcE6ygHHVuR9M9l9c6CwSIO+xOeZI=; b=18x2uT6Oyq4deFVlYjGH67IXIe
-	8G3N77kgQz6cDNBlCILqHuE1mwLqSDddVJtMvQp/ZZ4uimvvpi+FyjHnM3fhLwcgHHQ+f/t+GsGBx
-	fO5Vi6iepleR2T6aj59vp/rwj/k5tgqhlcBbxndNI7IuYaQy5/YT6vk0F/e9ZRYMJzsulTO9nCzP7
-	YP1AJP/2yU0vYTnda+HqJLPTVVul3D9fGDwzeUa5b6PXsSVSlQvCHuzb2r0swWTQm1HZoeQ2DZT6z
-	ocnxe/ARLJ8zhEn+zCBIsb051325O+t6O6gBU1BQXjBi102kgCnEFA9Zn3Di+jb5W2ipz3fhIXVBT
-	VKxM4KjA==;
+	bh=GlkBo13gAAMFxY69YUO/r2kEBTxBz8AgO2heyKDlsH0=; b=r+L0hfJaMAQoqCBVPsr81MXptC
+	udQldumMN97PVKdLnEKXbkCX0qdkKyn1ofgV9pWBeowe1Wd/PKsS4MmW7a4DTRcyUPhaKNpXd0M6U
+	pZCrQxfKCp/+KXumLBsVKXVP+4p4Sv98LjSDZ71gFrPbDlitfb5cB4JKecayesqc+cMbY1hUrYM03
+	kVYNWEfQKVdSwrP2egdL3TsQ59Pab/NrH94by5f6TaAEp6BrFZfzEHn4fKB5wuE5wzE5UJk0aL3sU
+	999TlDaFKxfGEJgLKNJcxctsZUGWGH8+xKQ3FQ/F2cxNR+42RrgE/OgOnz9kYZDwiOU8+nOxneg3X
+	PGO6Z7Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjhn-00000008UzT-1mjO;
-	Thu, 27 Feb 2025 19:37:59 +0000
-Received: from mail-am6eur05on20710.outbound.protection.outlook.com ([2a01:111:f403:2612::710] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1tnjhq-00000008V53-0UQR;
+	Thu, 27 Feb 2025 19:38:02 +0000
+Received: from mail-am7eur03on2072d.outbound.protection.outlook.com ([2a01:111:f403:260e::72d] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnfzq-00000007w3D-2i4I
+	id 1tnfzr-00000007w3J-0qwX
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 27 Feb 2025 15:40:25 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=A+xoIe8pSkjJwK6i1IiRfsBAzkqHhho+antMHAHP5Y7CY/agXvAt15eBHjkTfMnEmi6yiQQAtZoHw5qCkMYHRUs6aeaGMGGc5TBnRvVzj+fqfuFK3FziFWI3O3K3F4wfbv+vqjNQTZ8xYTBpdiXFNeKFTgSg2vzvqi/435NRjpwdcQzHT5e+hqD9JFE6lUtFSWR/fWCIKx595TI4zDGjZ0f/SM3Yu1QYVXaN++e17Ln/UuLTVUo7cSJy7l2wUMtTmeJe4zwhOZ6doqLsGqDWUy96ztyP1kAL14h069r850/vsDFUyjS5jYzIr8VaoUIhPb3tOSYrCesDezp8k1UsOg==
+ b=UC5G+KYDctD/d9ZusShTEz+n9wCy9K79a7jqbrH9A6T8ANrKivf4kCL+CDKXD69rk4C69iuyDrZGL4WZSiLP+EUoiklk8ESfVMlhWCzjtMlJ+y2sbDTwryuDTeBBwr9U/NIJl81zg5G6XHzs7EHvjCx0+uGOc4yM2WdkEbhUAilrroxzTW0SqidyaJLEKU6yX9v6F1j8ZLY31ySwtp5YDi5W3HFDhm1bg9lto+cj2zA76Mc9OHYlGEeLRCqJBYeWAx2YJX7LxWwU8cM8+A/HuNkY0/vzZk964RN24QvK4gI35M9+N3ekHroMj4Ibxd/aH0sereym9HDRmxlInKkxPw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pQO8uPwiRnegS6YcE6ygHHVuR9M9l9c6CwSIO+xOeZI=;
- b=pBVitUkDArocECuWxDaEWrq463dMhufxICylfdD37mzgHs2NR6+/aRqWWKdpCJrd0KjHVx/Xm7vZiKyUaT9UzOM5wMifB96SzWRkKhftoqze3cXqNVTukRTGW3kP9t4knu9ycjuU5e4FFxIPrfrBQt3ojUG2TirLhKJnNRfKgAuWLCBCoAaA6sufixxZ3Q6PLbEAYfw2KFJZEpoXC1/yd+PJ1OZhbV/TctgN4rhXkt4SFR5ecrPxUGvYAk/jet5/kXeKZI9Yn7oyiqZKUb0BQ9vle/AeDT1EQiO/ldyOXnQXWZaqVmiJ50Sn54dqtj/mHS7+dLDOOh1Wy6bb/1nx/w==
+ bh=GlkBo13gAAMFxY69YUO/r2kEBTxBz8AgO2heyKDlsH0=;
+ b=cxN+QjGfcv6V2a/nEyyY6H4isyyye8aKiCAxlrgPVQBCLtmgUKiqz/3yajsY7sQc+ax9U/P2IJFnjwVT9Xz5z58YGmlcJXB8wKrbQfiMEgTD4HGx6X0A/DX9gWnFx6ZZfTrw45VvQ5apUTUKDrU4KRgB31mJ1ILtLWKLjbS0nFDNKkubhuCUVtPiY/rUK7LySEXRCeUBCgFtdLBLe1js05bxwkyYgyQFTRGEZMWQ3iv4LBOnuyTcS5YAH9Bf2W0W2DBJAEO/dghPHy2808xSPTv6kw+1RfE93skbKkM3rmstE63x6sQNGKBrxCPn0dHEyIfG9ttQieGSsngvmL9VsQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
  91.26.50.189) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=phytec.fr;
  dmarc=fail (p=quarantine sp=quarantine pct=100) action=quarantine
@@ -42,18 +42,18 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=phytecmesstechnikgmbh.onmicrosoft.com;
  s=selector1-phytecmesstechnikgmbh-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pQO8uPwiRnegS6YcE6ygHHVuR9M9l9c6CwSIO+xOeZI=;
- b=ZJdFZS39jb1r/aFGfG7yZz7IrwPjGZWcwkPGRJEJK9cLyl+51LUfg+Y6rsInH0GgeOMcu1mIHk75HAvCvjv0+hsk+ZtbVQyZc4gI6gOfO+kXUSj0eqrRLX5BiqUWHMCBKuJNCyz4tVZfNqu6aE00imNj+KWgFCqZ+FYAdPPkA3c=
-Received: from AS4PR10CA0026.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:5d8::20)
- by PAXP195MB1582.EURP195.PROD.OUTLOOK.COM (2603:10a6:102:285::9) with
+ bh=GlkBo13gAAMFxY69YUO/r2kEBTxBz8AgO2heyKDlsH0=;
+ b=sfwcRV5N5WZtlLnLpkZ/BAmNGVYUQ6E2a9C8nzFX+yWpbo4rL8ELOSjpR0s3MHwOX5VdXrQ2pO/jezFCyXgOXY8x+D19zIC22mxt3aEKAKlIJzGm7G195rwG0sR6WrcZGUtY7qc6QcwRMSkCiS3/4CLjnBPmlyrc2u7jDsMxft4=
+Received: from CWLP123CA0086.GBRP123.PROD.OUTLOOK.COM (2603:10a6:401:5b::26)
+ by DB8P195MB0677.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:151::17) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.20; Thu, 27 Feb
- 2025 15:40:15 +0000
-Received: from AM2PEPF0001C708.eurprd05.prod.outlook.com
- (2603:10a6:20b:5d8:cafe::b0) by AS4PR10CA0026.outlook.office365.com
- (2603:10a6:20b:5d8::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8489.19 via Frontend Transport; Thu,
- 27 Feb 2025 15:40:15 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.19; Thu, 27 Feb
+ 2025 15:40:17 +0000
+Received: from AM2PEPF0001C70E.eurprd05.prod.outlook.com
+ (2603:10a6:401:5b:cafe::78) by CWLP123CA0086.outlook.office365.com
+ (2603:10a6:401:5b::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8489.21 via Frontend Transport; Thu,
+ 27 Feb 2025 15:40:17 +0000
 X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 91.26.50.189)
  smtp.mailfrom=phytec.fr; dkim=none (message not signed)
  header.d=none;dmarc=fail action=quarantine header.from=phytec.fr;
@@ -61,24 +61,24 @@ Received-SPF: Fail (protection.outlook.com: domain of phytec.fr does not
  designate 91.26.50.189 as permitted sender) receiver=protection.outlook.com;
  client-ip=91.26.50.189; helo=Diagnostix.phytec.de;
 Received: from Diagnostix.phytec.de (91.26.50.189) by
- AM2PEPF0001C708.mail.protection.outlook.com (10.167.16.196) with Microsoft
+ AM2PEPF0001C70E.mail.protection.outlook.com (10.167.16.202) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8489.16 via Frontend Transport; Thu, 27 Feb 2025 15:40:15 +0000
-Received: from Berlix.phytec.de (172.25.0.12) by Diagnostix.phytec.de
+ 15.20.8489.16 via Frontend Transport; Thu, 27 Feb 2025 15:40:17 +0000
+Received: from Florix.phytec.de (172.25.0.13) by Diagnostix.phytec.de
  (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Thu, 27 Feb
- 2025 16:40:14 +0100
-Received: from Florix.phytec.de (172.25.0.13) by Berlix.phytec.de
- (172.25.0.12) with Microsoft SMTP Server (version=TLS1_2,
+ 2025 16:40:16 +0100
+Received: from Florix.phytec.de (172.25.0.13) by Florix.phytec.de
+ (172.25.0.13) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Thu, 27 Feb
- 2025 16:40:14 +0100
+ 2025 16:40:16 +0100
 Received: from idefix.phytec.de (172.25.0.20) by mailrelayint.phytec.de
  (172.25.0.13) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
- Transport; Thu, 27 Feb 2025 16:40:14 +0100
+ Transport; Thu, 27 Feb 2025 16:40:16 +0100
 Received: from localhost.localdomain ([172.25.39.2])
           by idefix.phytec.de (IBM Domino Release 9.0.1FP7)
-          with ESMTP id 2025022716401419-86 ;
-          Thu, 27 Feb 2025 16:40:14 +0100 
+          with ESMTP id 2025022716401639-90 ;
+          Thu, 27 Feb 2025 16:40:16 +0100 
 From: Christophe Parant <c.parant@phytec.fr>
 To: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
@@ -86,67 +86,66 @@ CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
 	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	<upstream@lists.phytec.de>
-Subject: [PATCH 03/11] dt-bindings: arm: stm32: Rename STM32MP15x Phytec board and SoM
-Date: Thu, 27 Feb 2025 16:40:04 +0100
-Message-ID: <20250227154012.259566-4-c.parant@phytec.fr>
+Subject: [PATCH 07/11] ARM: dts: stm32: phycore-stm32mp15: Add dummy memory-node
+Date: Thu, 27 Feb 2025 16:40:08 +0100
+Message-ID: <20250227154012.259566-8-c.parant@phytec.fr>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250227154012.259566-1-c.parant@phytec.fr>
 References: <20250227154012.259566-1-c.parant@phytec.fr>
 MIME-Version: 1.0
 X-MIMETrack: Itemize by SMTP Server on Idefix/Phytec(Release 9.0.1FP7|August  17, 2016) at
- 27.02.2025 16:40:14,
+ 27.02.2025 16:40:16,
 	Serialize by Router on Idefix/Phytec(Release 9.0.1FP7|August  17, 2016) at
- 27.02.2025 16:40:14
+ 27.02.2025 16:40:16
 X-TNEFEvaluated: 1
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM2PEPF0001C708:EE_|PAXP195MB1582:EE_
-X-MS-Office365-Filtering-Correlation-Id: ca7c54ff-f2dc-4f30-a97b-08dd574507e0
+X-MS-TrafficTypeDiagnostic: AM2PEPF0001C70E:EE_|DB8P195MB0677:EE_
+X-MS-Office365-Filtering-Correlation-Id: d1aa5a89-598e-49d2-622c-08dd57450934
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?TWWXbl3xkFlQoeRBu3c3YpKx4ysdcFMqJAHmkrhU1RcEYD3tLit6mJB4Z4QT?=
- =?us-ascii?Q?xoysKcEtr9MTAve/bFDFJ2+imcei7+ogZc++okCFt4e1m9gVuphJ+st4pG8+?=
- =?us-ascii?Q?9SDLkjwd8O1hg8VmbdYf8Zh26bXxewH8bUBwHSirVe8Kg9WjmHo2ROonZVNu?=
- =?us-ascii?Q?RmR9yVOclEDq30n7v2c2zZjCIxdwhUFdxSzIBT7xqjcY2jnkLZuAk/yFpv+n?=
- =?us-ascii?Q?ke6gz0nSyLUX6Ez0H0HWaKc2cDKZD8FRi+OmPELzt6xZ22MUO4smufXZSnI3?=
- =?us-ascii?Q?57U52Av/bucu6n5az11MNDPj6fHr+WuiNN+47WENgGqD8+jg8uAHW1/iC/Fh?=
- =?us-ascii?Q?bjpN8MAAU5Y5b49cwf7n6DtnIFWvdLtCdGnaB0gJMxsA6+aTldo8UL3Q81mm?=
- =?us-ascii?Q?wOtNN9R9ydpSIG4Dyo8dQnBnOU1QWvbS6kZKweOY536WzwN+xAaKIxUi0xEd?=
- =?us-ascii?Q?qXKXaMvczsnI7wjeKU0ZdpKtLW+TYa2tqsmsAurbPhElSQanlnz+sVnNaBF4?=
- =?us-ascii?Q?SzOFtBRtg4aiNq0epAMSUP9NDXPmgS9P0V+X4VoLgYQuD2qB7uD89j5+Ybm5?=
- =?us-ascii?Q?FtLsg/h3fLOqoEBpLsB6TGmRWq/im3VCrv90wwLcWBmrmi/1YlsaVB6a/bzV?=
- =?us-ascii?Q?WCcP9gg7wYggY+nY03Qf3NL/+XskZN8JdfRSJ+95c/EHQpK+hvyGaoksQ52Q?=
- =?us-ascii?Q?U0yexegVPl7GSBaFtmKYXbCwDdRbEy8R4wcsX3DeQ+JBgM3p10pfx7dQJZAr?=
- =?us-ascii?Q?jU6sNhnY6+5G1RovDChvNlAoD4yCYeAcipKZBBVak5+jVjDzDGRW2ZJoCUoi?=
- =?us-ascii?Q?TwedZi7fQXB3ysdY5DWJEIKP9gImRFo5qptqnhLGJVLFPUn/6hIGKSXeXQXD?=
- =?us-ascii?Q?RbM/gdSLGAS7LgWRGIgclGx9o8Pq41VkBDFUyiYexJus/8M/Kohm+3oWYLXa?=
- =?us-ascii?Q?LfSoZR1nKy5NXPup4SN/xw1xzpTndgYcyySXzpREgFKMIbnxJKLOJhSkDJnL?=
- =?us-ascii?Q?7frOJ6bDfyzjUmfarboJWfTUSpIkDqUEsTmIpCNmoksuaxcxv6sTXlIbZdqp?=
- =?us-ascii?Q?6O0LUJI3eC5hfLI8pm+QJPwnujtGxJi/ffFSPSS2Z/v9XwlK+/JZ5BMV8/RS?=
- =?us-ascii?Q?qZoOBZBkkbwlD5mxlv/bbAZQhVwSZixC06o7xyts9Ci7DDJAdbM1FLnLOx5U?=
- =?us-ascii?Q?qI6gUKzBJGLoR/XSzGas5NhVBqdirZkfQQZZmdm7LEXCk47EzT0RNABsRaN+?=
- =?us-ascii?Q?H6xUUDAAWDHcCmyI3DEvhgBIQq9gl4k0jP0M+n83etONva4xOPcpS5Ey4GYl?=
- =?us-ascii?Q?kVJRY457iGKmG2Fuv6Xy590x47OzErCafK3ylQCdO8g7ii1f4jDMLn73ilw8?=
- =?us-ascii?Q?+jMqrvZ/8xrNH0XPLCF4WoLoCUcsG1R7GcAe4YHg3UFmPnLBX2tjghI0jRUD?=
- =?us-ascii?Q?WLPkn00EwacEXom1QxxukQYaRDdyJqnrP9PPezH/o2C5rD7ifZb1wA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700013)(1800799024);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Aojs5x7NVBRHhKVRfKuWRHNy7Hy2a/P44a42NSTXH3w/6+8l5y9je5FM6ldf?=
+ =?us-ascii?Q?Ttae+Rfn+ttRL9Tr4QFqqBEjZwq5Q2UJANUpmJ5M/9L5h+MrnnNne/iM9ZW1?=
+ =?us-ascii?Q?gnp7EIWWS6wIjIadq2OSTgqxeZZlHvbz1e0i5LKoCkW26UewUlcd23vH3IyN?=
+ =?us-ascii?Q?TEZv3OsS27wgBLIvO5Mr/y8EfKMIEFu5OxDy2Fb61TUFU+I0/jne5LGolKPy?=
+ =?us-ascii?Q?KWKrWNEqbVhQNE1AC/HzPKaDt2ATNpH0cPlhU+O9nRPbvUGPX1S4kCjW0Wi3?=
+ =?us-ascii?Q?zX7SoUkuX7y4GVh2BX0tx3bRoPxLn+ksR9rAI4j2k8lRwFYYbG5bB7/V87cs?=
+ =?us-ascii?Q?O6aepL+1kEPQTQdhfrMbUFmMn/tkb6wfufEdA7uHDBihG1cL/ad0j2LxML9X?=
+ =?us-ascii?Q?JphlgDfoTF2WpKieU7c1nd9+5uOhWcutlbZJELiOsAEtUWaxR30OABAPGNVE?=
+ =?us-ascii?Q?AR9Im+Ram8NZq6QWatGYlcJseUBqNMyyp962719fEvxHu/KRZH+KkzjcGo7q?=
+ =?us-ascii?Q?y5mJzZhoWkdC+HPkPDes0q3zOj2kEyQYDYiWJjc53+UxotaxZeJJEpGjDNu2?=
+ =?us-ascii?Q?RJEfegHe0A2skW4CA1A1NdZ1/+X68/wGXoDuar5HNYhhExx/WTFxen0CfNAr?=
+ =?us-ascii?Q?PE48vIDXurkBpDLBOScbo4P9KQrrw17Lkx1FV1X6dd/rTaHfATKQrKXdIiq9?=
+ =?us-ascii?Q?yrF4I2UwBkUcJj35Gx+YwbWLbHDOAOC2j0/gx189cWRxM1SNDkoMCTQ9MAN2?=
+ =?us-ascii?Q?wCFy/gvxO44/e/slmCO3dC1qi6MrHomfevPN/IDokcVFCdEcxm64i/VKshkS?=
+ =?us-ascii?Q?OV2j6XP65qJqbAjG7TPefa+S7BFohRNgDL0Zd6aC93p4GSWtSdQagWZBBBp4?=
+ =?us-ascii?Q?SHptUl+nf75RY5/MFQVPaGz7xNvOVwYElOgb5fVnmvmfbRWWpLoqCTUjCpPa?=
+ =?us-ascii?Q?/1W9p6en39YVAJDTGXdKfbrYDu6ih7ZEh5CsKASVXc/ELB0yQ7dgfMt0CYjF?=
+ =?us-ascii?Q?dzLD89jPpnxdiKTr6YFjxss5jxOGyVLHEamPAJPbWVvMVYWyMXqOwUSoc4AF?=
+ =?us-ascii?Q?wNdEybdRXa4KIPdRT/NWqOiCcP8McK066ySnCaNvIQF9k+GG/5pIc/P5ECau?=
+ =?us-ascii?Q?9TlsMEUErXVK6r/aJKHbQ42VdLKuoVkdYy+yvseFUi3QPA3oDBcQQ4TErtYs?=
+ =?us-ascii?Q?sRlxJwUa4RSdd9qrcfhkS3yQ6eQH4OaofhRLRpQcpaDjiho5wCI7z0IFMeCc?=
+ =?us-ascii?Q?r9vKfXx/QjmG6VNl5Xl36JlEkDz7Tom9PNlr1SPkD5uoRRiG2hYAR96k3iGq?=
+ =?us-ascii?Q?uw7TO/Cad8SA35l3hKf544VYwgZOAkfbn3rNaqXBx8q6Ohob8eD8EqUXM/q9?=
+ =?us-ascii?Q?ziwhBobyz2lhK03jrK1Wa1B769Vo1ZHBhzGh35nCEblAiDYHQvW9rA1+y/3W?=
+ =?us-ascii?Q?42jazPogXZoW+80rD/vyFHrnOOqgSXRzEqPbad8LKmM6uDfbUOQFMw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(36860700013);DIR:OUT;SFP:1102;
 X-OriginatorOrg: phytec.fr
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Feb 2025 15:40:15.2533
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Feb 2025 15:40:17.4797
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ca7c54ff-f2dc-4f30-a97b-08dd574507e0
+X-MS-Exchange-CrossTenant-Network-Message-Id: d1aa5a89-598e-49d2-622c-08dd57450934
 X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF0001C708.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF0001C70E.eurprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXP195MB1582
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8P195MB0677
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_074022_693718_5C760A88 
-X-CRM114-Status: UNSURE (   8.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250227_074023_252110_7321054E 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,34 +160,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Modifications following new PHYTEC stm32mp15x SoM and board device tree
-naming.
+"memory" node is not necessary as the bootloader is taking care of
+passing the correct DDR size.
+However keep a dummy memory node with the minimum DDR size (512MB) with
+comment explaining that.
 
 Signed-off-by: Christophe Parant <c.parant@phytec.fr>
 ---
- Documentation/devicetree/bindings/arm/stm32/stm32.yaml | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+ arch/arm/boot/dts/st/stm32mp15xx-phycore-som.dtsi | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/stm32/stm32.yaml b/Docum=
-entation/devicetree/bindings/arm/stm32/stm32.yaml
-index b6c56d4ce6b9..11b3f59ac550 100644
---- a/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
-+++ b/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
-@@ -169,10 +169,11 @@ properties:
-           - const: seeed,stm32mp157c-odyssey-som
-           - const: st,stm32mp157
+diff --git a/arch/arm/boot/dts/st/stm32mp15xx-phycore-som.dtsi b/arch/arm/b=
+oot/dts/st/stm32mp15xx-phycore-som.dtsi
+index 72926c3de52c..ce859b94ae26 100644
+--- a/arch/arm/boot/dts/st/stm32mp15xx-phycore-som.dtsi
++++ b/arch/arm/boot/dts/st/stm32mp15xx-phycore-som.dtsi
+@@ -22,6 +22,15 @@ aliases {
+ 		rtc1 =3D &rtc;
+ 	};
 =20
--      - description: Phytec STM32MP1 SoM based Boards
-+      - description: Phytec STM32MP15x SoM based Boards
-         items:
--          - const: phytec,phycore-stm32mp1-3
--          - const: phytec,phycore-stm32mp157c-som
-+          - enum:
-+              - phytec,stm32mp157c-phyboard-sargas-rdk
-+          - const: phytec,stm32mp157c-phycore-som
-           - const: st,stm32mp157
-=20
-       - description: ST STM32MP257 based Boards
++	/*
++	 * Set the minimum memory size here and
++	 * let the bootloader set the real size.
++	 */
++	memory@c0000000 {
++		device=5Ftype =3D "memory";
++		reg =3D <0xc0000000 0x20000000>;
++	};
++
+ 	reserved-memory {
+ 		#address-cells =3D <1>;
+ 		#size-cells =3D <1>;
 --=20
 2.34.1
 
