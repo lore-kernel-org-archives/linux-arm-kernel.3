@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2355BC021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 13:14:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3918C19F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 13:16:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DMy9dUkJU56DJTvhIPb2QmSzWfdgvdoGZhrFNGotouU=; b=E0dvEVWNc1PtZz8dE30EjdVbbm
-	J2b2PL7kn/RCW/I+NS0krvZm6trzQnaxx2NU6klXc3FDVRdkWbAJ+/xbe7U0R/9MPN25VonkgVKKl
-	aYDx/G+Ts2fC4x8h2NAvUSPXaoiz21EPh2yYkqMQ3A3lJQz9qhTX7oC+MyRD7csD6wMmcGE7IchpQ
-	Zn3Eju24St4jkkjGUSv5uyn0cbFRw8UcaW7h70Mk4jHKyYUVUyzAXUvR3ZraLpZ7/aAPU/zrpoEXx
-	i5FNrqD7Qbx+Bi/MUDKV8dmsk1jjBepcUtvpfaO8CJMsW+pAS6itVxe0cbGIbjyTW8EvyZy1qKxG9
-	J2/jMKuQ==;
+	bh=ydnQHf4QAum8JgUR93fvcnryb/LsbHUpijjlB6HdBho=; b=n9gplU9AqQM3UIei2L1j1izd58
+	rdkF7PPv5LNZHZOKA3dRxR9jljnuf+V/jm1MAgK0puZtZMnOV7N3+qZNONihba1/RjFKlhijd5cCe
+	sBvyeEQzDayOQv7vaQuhxWn0XHmbwjVXrIYhLPuRceSUaHyZlagi0LEX0kO8zlkbOGJpIl1RobXCa
+	OoyzVA0C1BTWmmRpi1rf3TUdTEp8MxovOHza1I9Kgs4YHPX3CUwlBb1O1mQVOzH2UtoxkdNw1P82e
+	1vBn7P1W4ookegNf+6Ad6+Wr2H5S9/eD2TR8yk8+4OHQzP8fZ4uH/nluNMH+MPbWOK6PCER4gDdsY
+	u4qU4iFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tndid-00000007TtD-18HF;
-	Thu, 27 Feb 2025 13:14:27 +0000
+	id 1tndk8-00000007UE8-3zCY;
+	Thu, 27 Feb 2025 13:16:00 +0000
 Received: from relmlor2.renesas.com ([210.160.252.172] helo=relmlie6.idc.renesas.com)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tncxa-00000007MTH-3aZr
+	id 1tncxi-00000007MVB-2mzu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 12:25:52 +0000
-X-CSE-ConnectionGUID: g6Vaue9kS5qa2+4g9N+WzA==
-X-CSE-MsgGUID: YJ4Ty9v5QdG0ExfWErAv4g==
+	Thu, 27 Feb 2025 12:25:59 +0000
+X-CSE-ConnectionGUID: SA+o/NoLQrKw8p9iPKEJsw==
+X-CSE-MsgGUID: WJc6qwMwS/2KVz/+mIS6vQ==
 Received: from unknown (HELO relmlir5.idc.renesas.com) ([10.200.68.151])
-  by relmlie6.idc.renesas.com with ESMTP; 27 Feb 2025 21:25:50 +0900
+  by relmlie6.idc.renesas.com with ESMTP; 27 Feb 2025 21:25:57 +0900
 Received: from ubuntu.adwin.renesas.com (unknown [10.226.92.68])
-	by relmlir5.idc.renesas.com (Postfix) with ESMTP id 019F64007D01;
-	Thu, 27 Feb 2025 21:25:42 +0900 (JST)
+	by relmlir5.idc.renesas.com (Postfix) with ESMTP id A0D1B4007D01;
+	Thu, 27 Feb 2025 21:25:50 +0900 (JST)
 From: John Madieu <john.madieu.xa@bp.renesas.com>
 To: john.madieu.xa@bp.renesas.com,
 	geert+renesas@glider.be,
@@ -58,17 +58,17 @@ Cc: john.madieu@gmail.com,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	biju.das.jz@bp.renesas.com
-Subject: [PATCH v2 6/7] arm64: dts: renesas: r9a09g047: Add TSU node
-Date: Thu, 27 Feb 2025 13:24:42 +0100
-Message-ID: <20250227122453.30480-7-john.madieu.xa@bp.renesas.com>
+Subject: [PATCH v2 7/7] arm64: defconfig: Enable RZ/G3E thermal
+Date: Thu, 27 Feb 2025 13:24:43 +0100
+Message-ID: <20250227122453.30480-8-john.madieu.xa@bp.renesas.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250227122453.30480-1-john.madieu.xa@bp.renesas.com>
 References: <20250227122453.30480-1-john.madieu.xa@bp.renesas.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_042551_009509_DE32923C 
-X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-CacheID: sfid-20250227_042558_807157_C47032B6 
+X-CRM114-Status: UNSURE (   6.81  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,110 +84,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add TSU node along with thermal zones and keep it enabled in the SoC DTSI.
+Enable the CONFIG_RZG3E_THERMAL flag for the RZ/G3E SoC.
 
 Signed-off-by: John Madieu <john.madieu.xa@bp.renesas.com>
 ---
-v1 -> v2: Fix IRQ names
+v1 -> v2: no changes
 
- arch/arm64/boot/dts/renesas/r9a09g047.dtsi | 49 ++++++++++++++++++++++
- 1 file changed, 49 insertions(+)
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/renesas/r9a09g047.dtsi b/arch/arm64/boot/dts/renesas/r9a09g047.dtsi
-index a6b83e057a40..93b57d7ad7b9 100644
---- a/arch/arm64/boot/dts/renesas/r9a09g047.dtsi
-+++ b/arch/arm64/boot/dts/renesas/r9a09g047.dtsi
-@@ -64,6 +64,7 @@ cpu0: cpu@0 {
- 			next-level-cache = <&L3_CA55>;
- 			enable-method = "psci";
- 			clocks = <&cpg CPG_CORE R9A09G047_CA55_0_CORECLK0>;
-+			#cooling-cells = <2>;
- 			operating-points-v2 = <&cluster0_opp>;
- 		};
- 
-@@ -74,6 +75,7 @@ cpu1: cpu@100 {
- 			next-level-cache = <&L3_CA55>;
- 			enable-method = "psci";
- 			clocks = <&cpg CPG_CORE R9A09G047_CA55_0_CORECLK1>;
-+			#cooling-cells = <2>;
- 			operating-points-v2 = <&cluster0_opp>;
- 		};
- 
-@@ -84,6 +86,7 @@ cpu2: cpu@200 {
- 			next-level-cache = <&L3_CA55>;
- 			enable-method = "psci";
- 			clocks = <&cpg CPG_CORE R9A09G047_CA55_0_CORECLK2>;
-+			#cooling-cells = <2>;
- 			operating-points-v2 = <&cluster0_opp>;
- 		};
- 
-@@ -94,6 +97,7 @@ cpu3: cpu@300 {
- 			next-level-cache = <&L3_CA55>;
- 			enable-method = "psci";
- 			clocks = <&cpg CPG_CORE R9A09G047_CA55_0_CORECLK3>;
-+			#cooling-cells = <2>;
- 			operating-points-v2 = <&cluster0_opp>;
- 		};
- 
-@@ -302,6 +306,20 @@ wdt3: watchdog@13000400 {
- 			status = "disabled";
- 		};
- 
-+		tsu: thermal@14002000 {
-+			compatible = "renesas,r9a09g047-tsu";
-+			reg = <0 0x14002000 0 0x1000>;
-+			interrupts = <GIC_SPI 250 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 251 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "adi", "adcmpi";
-+			clocks = <&cpg CPG_MOD 0x10a>;
-+			resets = <&cpg 0xf8>;
-+			power-domains = <&cpg>;
-+			#thermal-sensor-cells = <0>;
-+			renesas,tsu-operating-mode = <0>;
-+			renesas,tsu-calibration-sys = <&sys>;
-+		};
-+
- 		i2c0: i2c@14400400 {
- 			compatible = "renesas,riic-r9a09g047", "renesas,riic-r9a09g057";
- 			reg = <0 0x14400400 0 0x400>;
-@@ -502,6 +520,37 @@ gic: interrupt-controller@14900000 {
- 		};
- 	};
- 
-+	thermal-zones {
-+		cpu-thermal {
-+			polling-delay = <1000>;
-+			polling-delay-passive = <250>;
-+			thermal-sensors = <&tsu>;
-+
-+			cooling-maps {
-+				map0 {
-+					trip = <&target>;
-+					cooling-device = <&cpu0 0 3>, <&cpu1 0 3>,
-+							 <&cpu2 0 3>, <&cpu3 0 3>;
-+					contribution = <1024>;
-+				};
-+			};
-+
-+			trips {
-+				target: trip-point {
-+					temperature = <95000>;
-+					hysteresis = <1000>;
-+					type = "passive";
-+				};
-+
-+				sensor_crit: sensor-crit {
-+					temperature = <120000>;
-+					hysteresis = <1000>;
-+					type = "critical";
-+				};
-+			};
-+		};
-+	};
-+
- 	timer {
- 		compatible = "arm,armv8-timer";
- 		interrupts-extended = <&gic GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index a1cc3814b09b..91136c0196b5 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -714,6 +714,7 @@ CONFIG_ROCKCHIP_THERMAL=m
+ CONFIG_RCAR_THERMAL=y
+ CONFIG_RCAR_GEN3_THERMAL=y
+ CONFIG_RZG2L_THERMAL=y
++CONFIG_RZG3E_THERMAL=y
+ CONFIG_ARMADA_THERMAL=y
+ CONFIG_MTK_THERMAL=m
+ CONFIG_MTK_LVTS_THERMAL=m
 -- 
 2.25.1
 
