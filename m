@@ -4,93 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3B1BC197BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:37:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F041C1B087
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:37:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V4xItPbtlJ5lsuoyRDac1DDkraw/yUeUUl9JhlRmrgI=; b=L8Rywy7T6Rm27KGg6g0DlEUNJ4
-	W9Jky2vJJJ2wgQ0SuSINnMgP6HVJhsEw+5upAbiAkcpzFqXojSc2uA1ZDHEccCgy4Cr2uvZTunc+6
-	93Oykl7fNmXvd5mHLd/MrmxrBCHNyYSm+fPrd8KI920/N8lzm6tm5WGJFCAJ4jZND/+6yvYMz4u+/
-	bhtlAaJDuLHpzVrdft2AZxC9s6JsfN13H77t1KKT5tBhxs8422Xnt50uw7nXOcL2sYMxHWj7qsy5f
-	LCSQRiwZhE2M0CytdzN3gICgnsm1fkJJap2qoYVmMsRHIQgC3LahlvQPvzJBcZ/3QjxWuLLVGwxr2
-	dWescTLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7+U/H48sVhDKT4EC1mYrNr5/JRrYqDkzYSFlQnG2vr8=; b=hEhsl+Pz6gX7ocUFiuSNtcqevt
+	S1kZls7Ae6z5e5cXRv3OCTB3yNqb18zGzkxKm7FWNkmaSf1pPzzer3sO2yh3wzRgF/bVnHu+fCxli
+	Du58GGVfcu/55Eho9rQv6hRQcG9AhGt/ITMGuI3PqR8V9rCJmI7fIbPDI9Ai65Cn+tGAq17cFXEGc
+	HTf1L9fbPsrsIQyOMqnP8Hn32+TuFqwm3BTyWu4qhiRTjaTN4AzFVVigU3Y6RM4/0MyWugncU+BRj
+	zNFidNM23DrCKaXHJCtYRoZT1BI07D9/rY1wtgkIEK8/fZ2TPzNaBtvVoyTvTziLNmx8oAEEs6EX5
+	innMdfVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjh1-00000008Tdz-0UPZ;
-	Thu, 27 Feb 2025 19:37:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tnjh5-00000008Th5-0Hcc;
+	Thu, 27 Feb 2025 19:37:15 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnf1t-00000007lgo-3kNu
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 27 Feb 2025 14:38:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description;
-	bh=V4xItPbtlJ5lsuoyRDac1DDkraw/yUeUUl9JhlRmrgI=; b=EC/0fuTDjPtwwutyLsDikiaHV0
-	DYBdYWkHwhuiv2fZKAanwJSCYO7eC9B6VWfGy6639b9Kcx1vGW6UyStV8CzpD9QEOeBmSmO6J/xwy
-	0enOyH7Vj7UA4mE2qZEaoIKJsZxmP0lO3ztZE/iqpgrIGbdxk8YYCZZZNJYQFvm9FgLpeNJYtMxcF
-	BG4NOsNxmRl0W82qBZ25SgJ7SzE45GiqVTtPUXBLRg6bjobPDs8RFEWh+Erd7627Zk6HIDcLU8Ijj
-	eNvJ/r6djvfjlOLlwttWVEZKgWAMawtYa+atPokEXxWqTJyXDcvdCxwsa+UA3V9SdWmzVMuU3gJWM
-	7t4XBUFQ==;
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnf1r-00000003oRv-0UIr
+	id 1tnf4O-00000007mpb-14MP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 14:38:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=V4xItPbtlJ5lsuoyRDac1DDkraw/yUeUUl9JhlRmrgI=; b=x0HUPSHXQRzD5834rCGUklnfSa
-	VbkJ7FDJAGW9Kx08gSeKw2RZ3xhHd8AboKDkYmvt0q5GyAYWdoTGYSa/EP2mtXgNsoA5oNlOq4KG0
-	qwMAS5JjJhdsw0c/9sXSmzbPhQsmNbbFUku9tVjpZU86LxQ1rbSMSpw2I4NL2p81cMX0muNBM6vUX
-	9BT5RwN+dAhjzaKkCpDQOx58FnZU2CBj6pw3rIhz2ffTZX3Kv/Y4FrJCfrQl8iB5RBBLaZ2OYYH+9
-	4cbJrq9Naar2NfYY+RcNku5HAWBUdJmk6mDQiWjA9kwMByLnXeOqShv5C+jHS5KaD58ckUEQfjNCS
-	mYKlsmqw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:40472 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tnf1m-0007Qe-19;
-	Thu, 27 Feb 2025 14:38:18 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tnf1S-0056LC-6H; Thu, 27 Feb 2025 14:37:58 +0000
-In-Reply-To: <Z8B4tVd4nLUKXdQ4@shell.armlinux.org.uk>
-References: <Z8B4tVd4nLUKXdQ4@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Thierry Reding <treding@nvidia.com>
-Subject: [PATCH RFC net-next 3/5] net: stmmac: simplify phylink_suspend() and
- phylink_resume() calls
+	Thu, 27 Feb 2025 14:41:01 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id A4C2AA0622;
+	Thu, 27 Feb 2025 15:40:58 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=mail; bh=7+U/H48sVhDKT4EC1mYrNr5/JRrYqDkzYSFlQnG2vr8=; b=
+	gI7SsqlzWMgZVk7fqNN+kHmCrqYnQ7hn4k77RkEs2V7qldFQ+Gi2IMt9DVyAsSuX
+	WcrTk/nQ/pecNCkQjTWyRbG8LPz3nL2Y2R8t3831tJ6JYKqVMh2vc1sOdpNVG8jn
+	pUZIGbBjxltXbfg+qNZw5PVUqLpkDhdaJq/DCXH/IRoA5lakR5ENUi70eS7G0XGL
+	ADyDBf8tnB/0+SIJrlA7i2o6RuZ20nwU0anEOYmcIZjqtK6x/uuxF7EeQObNKpRL
+	75CIizcobZAr6JObcz+Mn4yAB7hi/F35wykYh3DJbjQ0wY0hjR/Q0mgg1hzMpTQc
+	UyoVT/fLSRdTxMBqMamAQ02kOueGmtC1Xzw0zQruZvqJkvHbWF73/5blSY32/Ram
+	Dbktb/psWk0XdZrUR2Q21pSGlnh1Nqn8F7pcp7yDKizmQ71FHKMx3ABZr3qlEOll
+	ZEnsmo5huqkTTOSqsjSkcGCdZ4TJ9+3WJfK4UgINDiG8eUzj5rWgR0uchtyYciNg
+	MCJygyYLG+D0CHK2kMghIY8OqU73eNBvK673++NnUHEBwMvwRN/f+YkI8Ar2iovl
+	PHAdmEKSA8UyRibZiM2crAQKLivRZTVp8Oc6hxl0Pam3hRef87H25+Q0IcQ0QK15
+	Qr2e4TCAT7AuZiBw+o90ewmxA7w0i+2pmDv1+oU5Fe8=
+From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+To: <linux-arm-kernel@lists.infradead.org>, <linux-iio@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Kamel
+ Bouhara" <kamel.bouhara@bootlin.com>, William Breathitt Gray
+	<wbg@kernel.org>, <Dharma.B@microchip.com>
+Subject: [PATCH v6 0/3] microchip-tcb-capture: Add Capture, Compare, Overflow etc. events
+Date: Thu, 27 Feb 2025 15:40:17 +0100
+Message-ID: <20250227144023.64530-1-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Disposition: inline
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tnf1S-0056LC-6H@rmk-PC.armlinux.org.uk>
-Date: Thu, 27 Feb 2025 14:37:58 +0000
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1740667258;VERSION=7985;MC=1480940311;ID=1459460;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D94852637760
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_143823_306074_F324F9F0 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20250227_064100_458840_8F3F050E 
+X-CRM114-Status: UNSURE (   7.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,69 +80,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, the calls to phylink's suspend and resume functions are
-inside overly complex tests, and boil down to:
+The TCB has three R/W-able "general purpose" hardware registers:
+RA, RB and RC. The hardware is capable of:
+* sampling Counter Value Register (CV) to RA/RB on a trigger edge
+* sending an interrupt of this change
+* sending an interrupt on CV change due to trigger
+* triggering an interrupt on CV compare to RC
+* stop counting after sampling to RB
 
-	if (device_may_wakeup(priv->device) && priv->plat->pmt) {
-		call phylink
-	} else {
-		call phylink and
-		if (device_may_wakeup(priv->device))
-			do something else
-	}
+To enable using these features in user-space, an interrupt handler
+was added, generating the necessary counter events. On top, RA/RB
+registers are added as Count Extensions. To aid interoperation, a
+uapi header was also added, containing the various numeral IDs of
+the Extensions, Event channels etc.
 
-This results in phylink always being called, possibly with differing
-arguments for phylink_suspend().
+Bence Csókás (3):
+  include: uapi: counter: Add microchip-tcb-capture.h
+  counter: microchip-tcb-capture: Add IRQ handling
+  counter: microchip-tcb-capture: Add capture extensions for registers
+    RA/RB
 
-Simplify this code, noting that each site is slightly different due to
-the order in which phylink is called and the "something else".
+ MAINTAINERS                                   |   1 +
+ drivers/counter/microchip-tcb-capture.c       | 131 ++++++++++++++++++
+ .../linux/counter/microchip-tcb-capture.h     |  49 +++++++
+ 3 files changed, 181 insertions(+)
+ create mode 100644 include/uapi/linux/counter/microchip-tcb-capture.h
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 22 +++++++------------
- 1 file changed, 8 insertions(+), 14 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index aec230353ac4..fbcba6c71f12 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -7831,13 +7831,11 @@ int stmmac_suspend(struct device *dev)
- 	mutex_unlock(&priv->lock);
- 
- 	rtnl_lock();
--	if (device_may_wakeup(priv->device) && priv->plat->pmt) {
--		phylink_suspend(priv->phylink, true);
--	} else {
--		if (device_may_wakeup(priv->device))
--			phylink_speed_down(priv->phylink, false);
--		phylink_suspend(priv->phylink, false);
--	}
-+	if (device_may_wakeup(priv->device) && !priv->plat->pmt)
-+		phylink_speed_down(priv->phylink, false);
-+
-+	phylink_suspend(priv->phylink,
-+			device_may_wakeup(priv->device) && priv->plat->pmt);
- 	rtnl_unlock();
- 
- 	if (stmmac_fpe_supported(priv))
-@@ -7927,13 +7925,9 @@ int stmmac_resume(struct device *dev)
- 	}
- 
- 	rtnl_lock();
--	if (device_may_wakeup(priv->device) && priv->plat->pmt) {
--		phylink_resume(priv->phylink);
--	} else {
--		phylink_resume(priv->phylink);
--		if (device_may_wakeup(priv->device))
--			phylink_speed_up(priv->phylink);
--	}
-+	phylink_resume(priv->phylink);
-+	if (device_may_wakeup(priv->device) && !priv->plat->pmt)
-+		phylink_speed_up(priv->phylink);
- 	rtnl_unlock();
- 
- 	rtnl_lock();
 -- 
-2.30.2
+2.48.1
+
 
 
