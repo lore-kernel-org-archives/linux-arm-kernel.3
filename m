@@ -4,93 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6EE0C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:37:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35444C282C8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:37:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p1D8n6sAJQ7YC/Q50BthGw8wcmOYNk6MxTkRcRqV4ZM=; b=aNXWpLvPAcaVuYMNULT4Y9ByJT
-	VOu/0P0E/vv9asrnJbfqZoql1mHm33MinChHUFfVJVdAQk9rDcdq3wJUT6ZXKQr/0F60pHK/B/Krk
-	sNsOXjp2a3LzlB7wbwue33T0aQyGNKnGshv+0OhivdSCM8nuGd19a0qOA5u3mP9uaLDTFtHhBTKYC
-	KyrPxbrBDJcu2zhU6aKB30JEIyN8XyWfO6onvB77W1r7fW2KjGIKGTyat1VPcxpcgQe+yfQcuU5QO
-	pBIq0bOhtvB1EeOJI4weXxcaz2dglCeTYNqeSFgy8qBjlqltsC+MLGXaUCVzj14/3xImixekGoV+M
-	jsjDHNsQ==;
+	bh=2dMTzqRKOVP6zI4y+SKJqu8AaktMKU/o6Ry3f8HrIys=; b=DLDHnc/9mNHrFmgvSqL82Su29x
+	YCrKps87MqxpRSMpoFmqbB+pRacbEOVPhLCfSHapQm0NAX1A+ilZxip22Ye1g8pVJc4SodrIKKOD3
+	y8Vi4u1iJRlRvQDaDKGytymw5b+LNZxl3V8EpMCXaFZqsOdHp0kvTvcyJgOC+xzRttt7ZX/qYxKGN
+	Lo1S7NiBzWqNcpkjnw5JPdjCYHFT5vlczDnfaRb8XwKCNZCDMBZPVxqPD+5kKaxoLtCSGePij+4gG
+	SGb+xbwVlY0XZHgcOPpIvMP1E3sGrXj6WtspQ1VBYnTx1vRx5neIQ8C22ipzMkK+QxTZ7RYJULhD4
+	mJsQtH7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjh4-00000008Tgb-1uHs;
-	Thu, 27 Feb 2025 19:37:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tnjh6-00000008Thb-0XON;
+	Thu, 27 Feb 2025 19:37:16 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnf3f-00000007mc7-3Xw5
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 27 Feb 2025 14:40:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description;
-	bh=p1D8n6sAJQ7YC/Q50BthGw8wcmOYNk6MxTkRcRqV4ZM=; b=kU6KvMXCuChG4QHA1emHTjTpjZ
-	imPNzlbvSjBQMYfY8x/WgW6y0ri7SNjDZYQdVNpzaWGJ8Si2zGgx88FY6Zi8OReDlSfcEnh9Crccj
-	x52rYkpHwqNeTtM3Ww+5asTrhsvX/X9tfResU2sHgvA0JgTHhXdolLfhdu0zfps5kFj70/9hcUnu1
-	RPaGuVqich/aJFogo9SDv6/h1SjuwnemhCUIc/ZhqF2hOdkNxZzdLpXoxM5OtjoGrZQxAsg641tR6
-	pW0vLiAMUhPUAJ7oX+i4ZRgdfFO4Do2ktOM+QfAbbJW7KXbABNqFNK+RXRFupfX2x9tn/ENfaziPf
-	l4B3RaYQ==;
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnf3d-00000003oRZ-0EnG
+	id 1tnf4P-00000007mqB-0yMa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 14:40:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=p1D8n6sAJQ7YC/Q50BthGw8wcmOYNk6MxTkRcRqV4ZM=; b=rtYJnuXrIe0AQCnCJTGaP+rbsD
-	2pSTyrwH8a81FCamY6OfDZeHuTfe/4E0UBMj/qAeg9m6r00Q0hkXDhkAdwPIRVNUU/47h8G62AS/G
-	FLJ9w/VPZ9XE336PNBWVn28tbetb6QvKIn/AJPnH8MmWOOpPy/snEUrpB/e0vvCicRsay2AxTI/eF
-	ql1EcppUEMU+IStB7BNwPmEZ1fRkCVyqLK092zIkHVi7UYFagnsIQ8DDeGVk1xto4Ibm0G1FLBCyB
-	4fhGDbCQ7ghIRdlfM5wCubpDrcuU+JnNLojCX0HGeU5V9/Hzrx9a7/sdSYEiLRsaTCd2bVcXEkCWh
-	acPTN1Kw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:36794 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tnf1b-0007QA-2x;
-	Thu, 27 Feb 2025 14:38:07 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tnf1H-0056Kz-To; Thu, 27 Feb 2025 14:37:47 +0000
-In-Reply-To: <Z8B4tVd4nLUKXdQ4@shell.armlinux.org.uk>
-References: <Z8B4tVd4nLUKXdQ4@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Thierry Reding <treding@nvidia.com>
-Subject: [PATCH RFC net-next 1/5] net: phylink: add config of PHY receive
- clock-stop in phylink_resume()
+	Thu, 27 Feb 2025 14:41:02 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id DFE30A06EC;
+	Thu, 27 Feb 2025 15:40:59 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=2dMTzqRKOVP6zI4y+SKJ
+	qu8AaktMKU/o6Ry3f8HrIys=; b=Mmdbh03CFS54/KUj2nEgo42yT4zFs70n5xpy
+	jBJrzNAo60+wWrx9xmMYb99nXJ4qT4RdCiwluBUoMKFF707JouzOhdWcQfOwDUQB
+	32lgBa1vN2H5Op6jahoKT+lT4wju5ErXowj9CV7fi+h/NaAnN31tZX6mnACYesWR
+	5z+bg6dSUXD2604CN8NfX/TpQfKK8gjbjEcXHLBEH6WygxYvcFQrQmmYFaMumB7g
+	d2gFa1AAasaiXWRXUe6mba6/eLqMNgg4vGIBuvQLjNv8iQPdZfk9oEap1rLlYGy0
+	LDD0Crkoumr36o45vYOQ//PO0wAoptVzX72o3eyANmg3I8iVvl7o8jCqwsqiF9KL
+	q69t+v1q3ahicWQJSk4sEiWuSh/cWZuJAvJ0IuF6MijImxz955346RKwE7Q1nU8x
+	otBqQUr75/BHONH2k5cBAMZ1Exs9Dp3QXeTKHQ2LBf+68jm6vUf7jNOTkWYDJwNs
+	UWLLFCqnXzwERM1x0bmZY1PnF47kpmzIe+w/kWSXQ9QHbS1K9KV12vgXuCXa5HI5
+	Mt9pE70b35HkKxKLhDnQz+bG1yxbh8DwQFDXExiT5i8r54vhh1v2b2aV22bpr1FK
+	OvYUIZiXa0giHZBHgOQRt2WIObs51DRpA4UKCghjBzE4i5QZoUwr+7xDbv1vRqhx
+	0NUOtwI=
+From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+To: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-iio@vger.kernel.org>
+CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Kamel
+ Bouhara" <kamel.bouhara@bootlin.com>
+Subject: [PATCH v6 1/3] include: uapi: counter: Add microchip-tcb-capture.h
+Date: Thu, 27 Feb 2025 15:40:18 +0100
+Message-ID: <20250227144023.64530-2-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250227144023.64530-1-csokas.bence@prolan.hu>
+References: <20250227144023.64530-1-csokas.bence@prolan.hu>
 MIME-Version: 1.0
-Content-Disposition: inline
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tnf1H-0056Kz-To@rmk-PC.armlinux.org.uk>
-Date: Thu, 27 Feb 2025 14:37:47 +0000
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1740667259;VERSION=7985;MC=472284457;ID=1452434;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A29ACD94852637760
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_144013_239861_59FBCD45 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20250227_064101_416061_873FAFF5 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,48 +81,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/phy/phylink.c | 16 +++++++++++++++-
- 1 file changed, 15 insertions(+), 1 deletion(-)
+Add UAPI header for the microchip-tcb-capture.c driver.
+This header will hold the various event channels, component numbers etc.
+used by this driver.
 
-diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-index a3b186ab3854..0aae0bb2a254 100644
---- a/drivers/net/phy/phylink.c
-+++ b/drivers/net/phy/phylink.c
-@@ -2264,7 +2264,7 @@ static int phylink_bringup_phy(struct phylink *pl, struct phy_device *phy,
- 	pl->mac_tx_clk_stop = phy_eee_tx_clock_stop_capable(phy) > 0;
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+---
+
+Notes:
+    New in v5
+
+ MAINTAINERS                                   |  1 +
+ .../linux/counter/microchip-tcb-capture.h     | 22 +++++++++++++++++++
+ 2 files changed, 23 insertions(+)
+ create mode 100644 include/uapi/linux/counter/microchip-tcb-capture.h
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 8e047e20fbd8..d1d264210690 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -15579,6 +15579,7 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ L:	linux-iio@vger.kernel.org
+ S:	Maintained
+ F:	drivers/counter/microchip-tcb-capture.c
++F:	include/uapi/linux/counter/microchip-tcb-capture.h
  
- 	if (pl->mac_supports_eee_ops) {
--		/* Explicitly configure whether the PHY is allowed to stop it's
-+		/* Explicitly configure whether the PHY is allowed to stop its
- 		 * receive clock.
- 		 */
- 		ret = phy_eee_rx_clock_stop(phy,
-@@ -2645,8 +2645,22 @@ EXPORT_SYMBOL_GPL(phylink_suspend);
-  */
- void phylink_resume(struct phylink *pl)
- {
-+	int ret;
+ MICROCHIP USB251XB DRIVER
+ M:	Richard Leitner <richard.leitner@skidata.com>
+diff --git a/include/uapi/linux/counter/microchip-tcb-capture.h b/include/uapi/linux/counter/microchip-tcb-capture.h
+new file mode 100644
+index 000000000000..7bda5fdef19b
+--- /dev/null
++++ b/include/uapi/linux/counter/microchip-tcb-capture.h
+@@ -0,0 +1,22 @@
++/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
++/*
++ * Channel numbers used by the microchip-tcb-capture driver
++ * Copyright (C) 2025 Bence Csókás
++ */
++#ifndef _UAPI_COUNTER_MCHP_TCB_H_
++#define _UAPI_COUNTER_MCHP_TCB_H_
 +
- 	ASSERT_RTNL();
- 
-+	if (pl->mac_supports_eee_ops && pl->phydev) {
-+		/* Explicitly configure whether the PHY is allowed to stop its
-+		 * receive clock on resume to ensure that it is correctly
-+		 * configured.
-+		 */
-+		ret = phy_eee_rx_clock_stop(pl->phydev,
-+					    pl->config->eee_rx_clk_stop_enable);
-+		if (ret == -EOPNOTSUPP)
-+			phylink_warn(pl, "failed to set rx clock stop: %pe\n",
-+				     ERR_PTR(ret));
-+	}
++/*
++ * The driver defines the following components:
++ *
++ * Count 0
++ * \__  Synapse 0 -- Signal 0 (Channel A, i.e. TIOA)
++ * \__  Synapse 1 -- Signal 1 (Channel B, i.e. TIOB)
++ */
 +
- 	if (test_bit(PHYLINK_DISABLE_MAC_WOL, &pl->phylink_disable_state)) {
- 		/* Wake-on-Lan enabled, MAC handling */
- 
++enum counter_mchp_signals {
++	COUNTER_MCHP_SIG_TIOA,
++	COUNTER_MCHP_SIG_TIOB,
++};
++
++#endif /* _UAPI_COUNTER_MCHP_TCB_H_ */
 -- 
-2.30.2
+2.48.1
+
 
 
