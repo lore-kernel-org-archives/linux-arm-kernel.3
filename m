@@ -4,70 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4F90C197BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 12:09:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29AF3C021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 12:10:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wQBR1fbUgTFIGJuy0ZeL6bl5jhpsm/4S7x+eKQJsjW8=; b=Wfk0IWJg6XYP6E
-	+c9XC5WFJ5d/hThpOC1WfHXBM7ykpZee5FK0AlhUQboMnJHIOQPoEA2dJ3ZWZF2yOy1PdKBFuVxMW
-	lrnUUp/E9V4FvcnDYd45ogLwxSKY6lYms42vhOwiZVtXqrwz/KJvsdoCnUDEJAimWphtE46ShlFNf
-	onV3Ugcr9gcbE5pbyX96Wcu11VA2oWGqa03fmPa3tLkdrncswvQaK81qMAyfQkUHoGag7dpKsGV6t
-	nhiBdDKQtm87+DcneiFnMl01waqL4R2HVmpd8Q3GMhqdkNNHuzeAQRXIi/KrNjCkXU0uPRV69E7MT
-	HgtoZs4VsqNusCCQxlSA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p4FmA/927F5boNXN/102JmQn3FElS/aQCvpXxFZNvS4=; b=Pc8ZrcHa5a6j0aUdT6oYsX3vmh
+	t8X3JGbb47szQq42NqeMbDI8oMQbORmhk+6hU11eYAx/nztNcaZbqz/9MZkbpu2riTQrtj/rz7CjT
+	ZMMjj0eD/Ua6tQ48rT4nhYDu/e9ccV7fjJgR9K28rH6/QMNUJIuZlKkF0vlBmonhLMpfx/Gp4unus
+	Hehz2+oejO0Ur8EE8A+FyQl9EMX7U6R39iOqSCjNsTInw327YgmmfK7K9Xk3/nsD5SN3XU3WcqRoX
+	WHGRQmcXK2c7IF4RPwDwvT9nc7zvp9QpvzoJtOWakvgDRaZM75gav/vo2w0jYS8TpOjuvOmuFgaKT
+	AmyqLluQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnchH-00000007IaC-0m8v;
-	Thu, 27 Feb 2025 12:08:59 +0000
-Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnc7M-00000007CNP-384v
+	id 1tncim-00000007IzH-3dKz;
+	Thu, 27 Feb 2025 12:10:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tncEW-00000007DOS-0i2Z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 11:31:54 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 7D9ED444D9;
-	Thu, 27 Feb 2025 11:31:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1740655909;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=wQBR1fbUgTFIGJuy0ZeL6bl5jhpsm/4S7x+eKQJsjW8=;
-	b=gOf3RlVDCB0iEix51gKo+4FwCbxqsZApCYSTE84rSmrTUvz0CR4ce3C4zNz+Apic0q76S4
-	INXSesy1PzmMyNhwDPtnN9zs+S+J4WbGk3LMatBS/D2rCiyrZJKYrGI3TOraCOBoKKeTlz
-	6epNfKEzRIRqj72t8uGakHHHI+tciLaeL7otJ5GwyLWdE8fhQDyrtQ0tPq3XQLnjJI2mFc
-	3ut3NMiotZto/rOnF+Huzj7z1jj8QPjYw7xAJwTUVafk7nVmHQm+UTii+zmy8Z5jG/hqZk
-	BFtnPOESGHIPZWiJQmEc6P98Gy25oH0UC3xHMdTQa48pWatoLTbasb58tFAwOA==
-Date: Thu, 27 Feb 2025 12:31:43 +0100
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Maxime Ripard <mripard@kernel.org>
-Subject: Re: [PATCH v6 14/26] drm/bridge: add support for refcounted DRM
- bridges
-Message-ID: <20250227123143.54d4aa03@booty>
-In-Reply-To: <20250227-savvy-monumental-toucan-edffe2@houat>
-References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
-	<20250206-hotplug-drm-bridge-v6-14-9d6f2c9c3058@bootlin.com>
-	<20250207-ingenious-daffodil-dugong-51be57@houat>
-	<20250210181252.5ee028d4@booty>
-	<20250211-merciful-nyala-of-justice-a4fabb@houat>
-	<20250226152813.4a1ad218@booty>
-	<20250227-savvy-monumental-toucan-edffe2@houat>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Thu, 27 Feb 2025 11:39:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1629D15A1;
+	Thu, 27 Feb 2025 03:39:31 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.2.76.71])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 189873F6A8;
+	Thu, 27 Feb 2025 03:39:14 -0800 (PST)
+Date: Thu, 27 Feb 2025 11:39:10 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, kernel@quicinc.com,
+	linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, kernel@oss.qualcomm.com,
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 2/5] coresight: add coresight Trace NOC driver
+Message-ID: <20250227113910.GA2157064@e132581.arm.com>
+References: <20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com>
+ <20250226-trace-noc-driver-v2-2-8afc6584afc5@quicinc.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdekjeefhecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeglefffefghefhtddvfeeufeeiveekgffgleekieduteekkeetvdehudekgfdvvdenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghlohepsghoohhthidpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefjedprhgtphhtthhopehmrhhiphgrrhgusehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsihhmohhnrgesfhhffihllhdrtghhpdhrtghpthhtohepihhnkhhirdgurggvsehsrghmshhunhhgrdgtohhmpdhrtghpthhtohepj
- hgrghgrnhesrghmrghruhhlrghsohhluhhtihhonhhsrdgtohhmpdhrtghpthhtohepmhdrshiihihprhhofihskhhisehsrghmshhunhhgrdgtohhmpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: luca.ceresoli@bootlin.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250226-trace-noc-driver-v2-2-8afc6584afc5@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_033153_253540_CD185901 
-X-CRM114-Status: GOOD (  47.08  )
+X-CRM114-CacheID: sfid-20250227_033916_308176_FC6698E4 
+X-CRM114-Status: GOOD (  44.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,151 +68,369 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?UTF-8?B?SGVy?= =?UTF-8?B?dsOp?= Codina <herve.codina@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Paul Kocialkowski <contact@paulk.fr>, dri-devel@lists.freedesktop.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Simona Vetter <simona@ffwll.ch>, Robert Foss <rfoss@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Sam Ravnborg <sam@ravnborg.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Daniel Thompson <danielt@kernel.org>, Jagan Teki <jagan@amarulasolutions.com>, Jessica Zhang <quic_jesszhan@quicinc.com>, Thomas Zimmermann <tzimmermann@suse.de>, Will Deacon <will@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, Sascha Hauer <s.hauer@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Inki Dae <inki.dae@samsung.com>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Boris Brezillon <bbrezillon@kernel.org>, linux-kernel@vger.kernel.org, Paul Kocialkowski <paul.kocialkowski@bootlin.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Shawn Guo <shawnguo@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
+Hi Yuanfang,
 
-On Thu, 27 Feb 2025 10:32:20 +0100
-Maxime Ripard <mripard@kernel.org> wrote:
-
-> On Wed, Feb 26, 2025 at 03:28:13PM +0100, Luca Ceresoli wrote:
-> > On Tue, 11 Feb 2025 14:10:50 +0100
-> > Maxime Ripard <mripard@kernel.org> wrote:  
-> > > On Mon, Feb 10, 2025 at 06:12:52PM +0100, Luca Ceresoli wrote:  
-> > > > On Fri, 7 Feb 2025 12:47:51 +0100
-> > > > Maxime Ripard <mripard@kernel.org> wrote:
-> > > >     
-> > > > > > diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
-> > > > > > index ad7ba444a13e5ecf16f996de3742e4ac67dc21f1..43cef0f6ccd36034f64ad2babfebea62db1d9e43 100644
-> > > > > > --- a/include/drm/drm_bridge.h
-> > > > > > +++ b/include/drm/drm_bridge.h
-> > > > > > @@ -31,6 +31,7 @@
-> > > > > >  #include <drm/drm_encoder.h>
-> > > > > >  #include <drm/drm_mode_object.h>
-> > > > > >  #include <drm/drm_modes.h>
-> > > > > > +#include <drm/drm_print.h>
-> > > > > >  
-> > > > > >  struct device_node;
-> > > > > >  
-> > > > > > @@ -863,6 +864,22 @@ struct drm_bridge {
-> > > > > >  	const struct drm_bridge_timings *timings;
-> > > > > >  	/** @funcs: control functions */
-> > > > > >  	const struct drm_bridge_funcs *funcs;
-> > > > > > +
-> > > > > > +	/**
-> > > > > > +	 * @container_offset: Offset of this struct within the container
-> > > > > > +	 * struct embedding it. Used for refcounted bridges to free the
-> > > > > > +	 * embeddeing struct when the refcount drops to zero. Unused on
-> > > > > > +	 * legacy bridges.
-> > > > > > +	 */
-> > > > > > +	size_t container_offset;      
-> > > > > 
-> > > > > This shouldn't be in there. You can create an intermediate structure and
-> > > > > store both pointers for the action to consume.    
-> > > > 
-> > > > You mean to store container_offset + refcount + is_refcounted?    
-> > > 
-> > > No, I meant for the private structure pointer and the drm_bridge
-> > > pointer. refcount should be in drm_bridge, and I think is_refcounted
-> > > should be dropped.  
-> > 
-> > Storing the container pointer instead of the offset is a good idea, it
-> > will allow to get rid of is_refcounted: drm_bridge_is_refcounted() can
-> > just return "container != NULL" instead of "bridge->is_refcounted". So
-> > far so good.  
+On Wed, Feb 26, 2025 at 07:05:51PM +0800, Yuanfang Zhang wrote:
 > 
-> Again, I don't think the whole is_refcounted thing is a good idea. Once
-> we have the right API, we should convert all bridges to the new
-> allocation and assume that they are refcounted.
-
-Ah, thanks for clarifying, now I understand the reason you'd remove
-is_refecounted while I didn't. In my plan it's for a transition phase
-where not all bridges are converted yet. I should have added a note
-about that, indeed.
-
-While I obviously think all bridges should be converted to dynamic
-lifetime, I'm not sure it can happen all in a single run, however.
-Converting bridges to refcounting is mostly easy, but before we should
-switch all bridge users to put the pointers they have, or the bridges
-will never be freed. But the users are more in number and harder to
-convert. However I still haven't tried a real conversion of all of
-them, so it I'm going to reconsider this after I'll have tried.
-
-Generally speaking, would you be OK with having is_refcounted in a
-transition phase, or do you think we absolutely must convert all bridge
-drivers and users at once?
-
-> > I'm not sure about the intermediate struct you have in mind though.
-> > 
-> > Do you mean:
-> > 
-> > struct drm_bridge_pointers {
-> >     struct drm_bridge *bridge;
-> >     void              *container;
-> > }
-> > 
-> > ?  
+> Add driver to support Coresight device Trace NOC(Network On Chip).
+> Trace NOC is an integration hierarchy which is a replacement of
+> Dragonlink configuration. It brings together debug components like
+> TPDA, funnel and interconnect Trace Noc.
 > 
-> Yes
+> It sits in the different subsystem of SOC and aggregates the trace
+> and transports to QDSS trace bus.
 > 
-> > If that's what you mean, should it be embedded in drm_struct or
-> > allocated separately?  
+> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+> ---
+>  drivers/hwtracing/coresight/Kconfig          |  13 ++
+>  drivers/hwtracing/coresight/Makefile         |   1 +
+>  drivers/hwtracing/coresight/coresight-tnoc.c | 190 +++++++++++++++++++++++++++
+>  drivers/hwtracing/coresight/coresight-tnoc.h |  53 ++++++++
+>  4 files changed, 257 insertions(+)
 > 
-> Separately, but still as part of the bridge allocation function.
+> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
+> index 06f0a7594169c5f03ca5f893b7debd294587de78..6cfd160f09d383ab5f5aa276fa57496a52c8f961 100644
+> --- a/drivers/hwtracing/coresight/Kconfig
+> +++ b/drivers/hwtracing/coresight/Kconfig
+> @@ -247,4 +247,17 @@ config CORESIGHT_DUMMY
 > 
-> > If you mean to embed that struct in drm_bridge, then I the drm_bridge
-> > pointer inside the intermediate struct would be useless.
-> > 
-> > If instead you mean to embed it in drm_struct: I'm not sure I see much
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^
-For the records, I (obviously?) meant "allocated separately" here.
+>           To compile this driver as a module, choose M here: the module will be
+>           called coresight-dummy.
+> +
+> +config CORESIGHT_TNOC
+> +       tristate "Coresight Trace Noc driver"
+> +       help
+> +         This driver provides support for Trace NoC component.
+> +         Trace NoC is a interconnect that is used to collect trace from
+> +         various subsystems and transport it QDSS trace sink.It sits in
 
-> > benefit except maybe not exposing the container pointer to drm_bridge
-> > users, but I see a drawbacks: at the last put we need to find the
-> > container pointer to free from a struct kref pointer, which can work
-> > only if the container pointer is in the same struct as struct kref.  
+Trace NoC is an interconnect used to collect traces from various
+subsystems and transport to a QDSS trace sink.
+
+> +         the different tiles of SOC and aggregates the trace local to the
+> +         tile and transports it another tile or to QDSS trace sink eventually.
+> +
+> +         To compile this driver as a module, choose M here: the module will be
+> +         called coresight-tnoc.
+> +
+>  endif
+> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
+> index 4ba478211b318ea5305f9f98dda40a041759f09f..60b729979f19c8f8848c77c290605132dba1a991 100644
+> --- a/drivers/hwtracing/coresight/Makefile
+> +++ b/drivers/hwtracing/coresight/Makefile
+> @@ -34,6 +34,7 @@ obj-$(CONFIG_CORESIGHT_SINK_TPIU) += coresight-tpiu.o
+>  obj-$(CONFIG_CORESIGHT_SINK_ETBV10) += coresight-etb10.o
+>  obj-$(CONFIG_CORESIGHT_LINKS_AND_SINKS) += coresight-funnel.o \
+>                                            coresight-replicator.o
+> +obj-$(CONFIG_CORESIGHT_TNOC) += coresight-tnoc.o
+>  obj-$(CONFIG_CORESIGHT_SOURCE_ETM3X) += coresight-etm3x.o
+>  coresight-etm3x-y := coresight-etm3x-core.o coresight-etm-cp14.o \
+>                      coresight-etm3x-sysfs.o
+> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..fad8e61f05ef25989aba1be342c547f835e8953a
+> --- /dev/null
+> +++ b/drivers/hwtracing/coresight/coresight-tnoc.c
+> @@ -0,0 +1,190 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
+> + */
+> +
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/device.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/amba/bus.h>
+> +#include <linux/io.h>
+> +#include <linux/coresight.h>
+> +#include <linux/of.h>
+
+Please include headers in alphabetical ordering.
+
+> +#include "coresight-priv.h"
+> +#include "coresight-tnoc.h"
+> +#include "coresight-trace-id.h"
+> +
+> +static void trace_noc_enable_hw(struct trace_noc_drvdata *drvdata)
+> +{
+> +       u32 val;
+> +
+> +       /* Set ATID */
+> +       writel_relaxed(drvdata->atid, drvdata->base + TRACE_NOC_XLD);
+> +
+> +       /* Config sync CR */
+> +       writel_relaxed(0xffff, drvdata->base + TRACE_NOC_SYNCR);
+> +
+> +       /* Set frequency value */
+> +       writel_relaxed(drvdata->freq_req_val, drvdata->base + TRACE_NOC_FREQVAL);
+> +
+> +       /* Set Ctrl register */
+> +       val = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
+> +
+> +       if (drvdata->flag_type == FLAG_TS)
+> +               val = val | TRACE_NOC_CTRL_FLAGTYPE;
+> +       else
+> +               val = val & ~TRACE_NOC_CTRL_FLAGTYPE;
+> +
+> +       if (drvdata->freq_type == FREQ_TS)
+> +               val = val | TRACE_NOC_CTRL_FREQTYPE;
+> +       else
+> +               val = val & ~TRACE_NOC_CTRL_FREQTYPE;
+> +
+> +       val = val | TRACE_NOC_CTRL_PORTEN;
+> +       writel_relaxed(val, drvdata->base + TRACE_NOC_CTRL);
+
+It is fine for using writel_relaxed() for continuous writing into the
+same component.  However, the last writing into TRACE_NOC_CTRL enales
+the NOC but without any barrier guard, it might cause the out-of-order
+issue with Arm CoreSight modules (or any other relevant endpoints).
+
+I'd like suggest to use writel() for writing TRACE_NOC_CTRL.
+
+> +       dev_dbg(drvdata->dev, "Trace NOC is enabled\n");
+> +}
+> +
+> +static int trace_noc_enable(struct coresight_device *csdev, struct coresight_connection *inport,
+> +                           struct coresight_connection *outport)
+> +{
+> +       struct trace_noc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> +
+> +       spin_lock(&drvdata->spinlock);
+> +       if (csdev->refcnt == 0)
+
+AFAICT csdev->refcnt is only used in sink drivers.  This driver is for
+funnel, it should use `inport->dest_refcnt` as the counter.
+
+> +               trace_noc_enable_hw(drvdata);
+> +
+> +       csdev->refcnt++;
+> +       spin_unlock(&drvdata->spinlock);
+> +
+> +       return 0;
+> +}
+> +
+> +static void trace_noc_disable_hw(struct trace_noc_drvdata *drvdata)
+> +{
+> +       writel_relaxed(0x0, drvdata->base + TRACE_NOC_CTRL);
+
+Same with the comment above for using writel() to replace
+writel_relaxed().
+
+> +       dev_dbg(drvdata->dev, "Trace NOC is disabled\n");
+> +}
+> +
+> +static void trace_noc_disable(struct coresight_device *csdev, struct coresight_connection *inport,
+> +                             struct coresight_connection *outport)
+> +{
+> +       struct trace_noc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> +
+> +       spin_lock(&drvdata->spinlock);
+> +       if (--csdev->refcnt == 0)
+> +               trace_noc_disable_hw(drvdata);
+> +
+> +       spin_unlock(&drvdata->spinlock);
+> +       dev_info(drvdata->dev, "Trace NOC is disabled\n");
+> +}
+> +
+> +static const struct coresight_ops_link trace_noc_link_ops = {
+> +       .enable         = trace_noc_enable,
+> +       .disable        = trace_noc_disable,
+> +};
+> +
+> +static const struct coresight_ops trace_noc_cs_ops = {
+> +       .link_ops       = &trace_noc_link_ops,
+> +};
+> +
+> +static int trace_noc_init_default_data(struct trace_noc_drvdata *drvdata)
+> +{
+> +       int atid;
+> +
+> +       atid = coresight_trace_id_get_system_id();
+> +       if (atid < 0)
+> +               return atid;
+> +
+> +       drvdata->atid = atid;
+> +
+> +       drvdata->freq_type = FREQ_TS;
+
+I don't see anywhere uses FREQ.  Please remove the unused definitions
+and related code.
+
+> +       drvdata->flag_type = FLAG;
+
+FLAG_TS is not used in the driver as well.  Remove it.
+
+> +       drvdata->freq_req_val = 0;
+> +
+> +       return 0;
+> +}
+> +
+> +static int trace_noc_probe(struct amba_device *adev, const struct amba_id *id)
+> +{
+> +       struct device *dev = &adev->dev;
+> +       struct coresight_platform_data *pdata;
+> +       struct trace_noc_drvdata *drvdata;
+> +       struct coresight_desc desc = { 0 };
+> +       int ret;
+> +
+> +       desc.name = coresight_alloc_device_name(&trace_noc_devs, dev);
+> +       if (!desc.name)
+> +               return -ENOMEM;
+> +       pdata = coresight_get_platform_data(dev);
+> +       if (IS_ERR(pdata))
+> +               return PTR_ERR(pdata);
+> +       adev->dev.platform_data = pdata;
+> +
+> +       drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+> +       if (!drvdata)
+> +               return -ENOMEM;
+> +
+> +       drvdata->dev = &adev->dev;
+> +       dev_set_drvdata(dev, drvdata);
+> +
+> +       drvdata->base = devm_ioremap_resource(dev, &adev->res);
+> +       if (!drvdata->base)
+> +               return -ENOMEM;
+> +
+> +       spin_lock_init(&drvdata->spinlock);
+> +
+> +       ret = trace_noc_init_default_data(drvdata);
+> +       if (ret)
+> +               return ret;
+> +
+> +       desc.ops = &trace_noc_cs_ops;
+> +       desc.type = CORESIGHT_DEV_TYPE_LINK;
+> +       desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_MERG;
+> +       desc.pdata = adev->dev.platform_data;
+> +       desc.dev = &adev->dev;
+> +       desc.access = CSDEV_ACCESS_IOMEM(drvdata->base);
+> +       drvdata->csdev = coresight_register(&desc);
+> +       if (IS_ERR(drvdata->csdev))
+> +               return PTR_ERR(drvdata->csdev);
+> +
+> +       pm_runtime_put(&adev->dev);
+> +
+> +       return 0;
+> +}
+> +
+> +static void trace_noc_remove(struct amba_device *adev)
+> +{
+> +       struct trace_noc_drvdata *drvdata = dev_get_drvdata(&adev->dev);
+> +
+> +       coresight_trace_id_put_system_id(drvdata->atid);
+> +       coresight_unregister(drvdata->csdev);
+> +}
+> +
+> +static struct amba_id trace_noc_ids[] = {
+> +       {
+> +               .id     = 0x000f0c00,
+> +               .mask   = 0x000fff00,
+
+Unlike Arm CoreSight drivers (the mask value is 0x000fffff in most
+cases), could you remind me why here the mask is 0x000fff00?
+
+> +       },
+> +       {},
+> +};
+> +MODULE_DEVICE_TABLE(amba, trace_noc_ids);
+> +
+> +static struct amba_driver trace_noc_driver = {
+> +       .drv = {
+> +               .name   = "coresight-trace-noc",
+> +               .owner  = THIS_MODULE,
+
+I don't think you need to explicitly set `THIS_MODULE`, as this will
+be set default by amba_driver_register().
+
+> +               .suppress_bind_attrs = true,
+> +       },
+> +       .probe          = trace_noc_probe,
+> +       .remove         = trace_noc_remove,
+> +       .id_table       = trace_noc_ids,
+> +};
+> +
+> +module_amba_driver(trace_noc_driver);
+> +
+> +MODULE_LICENSE("GPL");
+> +MODULE_DESCRIPTION("Trace NOC driver");
+> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.h b/drivers/hwtracing/coresight/coresight-tnoc.h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..b6bd1ef659897d8e0994c5e8514e8cbdd16eebd8
+> --- /dev/null
+> +++ b/drivers/hwtracing/coresight/coresight-tnoc.h
+> @@ -0,0 +1,53 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (c) 2022-2024 Qualcomm Innovation Center, Inc. All rights reserved.
+> + */
+> +
+> +#define TRACE_NOC_CTRL 0x008
+> +#define TRACE_NOC_XLD  0x010
+> +#define TRACE_NOC_FREQVAL      0x018
+> +#define TRACE_NOC_SYNCR        0x020
+> +
+> +/* Enable generation of output ATB traffic.*/
+> +#define TRACE_NOC_CTRL_PORTEN  BIT(0)
+> +/* Writing 1 to issue a FREQ or FREQ_TS packet*/
+> +#define TRACE_NOC_CTRL_FREQTSREQ       BIT(5)
+
+This is not used.  Remove it.
+
+> +/* Sets the type of issued ATB FLAG packets. 0: 'FLAG' packets; 1: 'FLAG_TS' packets.*/
+> +#define TRACE_NOC_CTRL_FLAGTYPE                BIT(7)
+
+> +/* sets the type of issued ATB FREQ packets. 0: 'FREQ' packets; 1: 'FREQ_TS' packets.*/
+> +#define TRACE_NOC_CTRL_FREQTYPE                BIT(8)
+> +DEFINE_CORESIGHT_DEVLIST(trace_noc_devs, "traceNoc");
+
+It is good to move the definition into C file.
+
+Thanks,
+Leo
+
+> +
+> +/**
+> + * struct trace_noc_drvdata - specifics associated to a trace noc component
+> + * @base:      memory mapped base address for this component.
+> + * @dev:       device node for trace_noc_drvdata.
+> + * @csdev:     component vitals needed by the framework.
+> + * @spinlock:  only one at a time pls.
+> + * @atid:      id for the trace packet.
+> + * @freqtype:  0: 'FREQ' packets; 1: 'FREQ_TS' packets.
+> + * @flagtype:  0: 'FLAG' packets; 1: 'FLAG_TS' packets.
+> + * @freq_req_val:       set frequency values carried by 'FREQ' and 'FREQ_TS' packets.
+> + */
+> +struct trace_noc_drvdata {
+> +       void __iomem            *base;
+> +       struct device           *dev;
+> +       struct coresight_device *csdev;
+> +       spinlock_t              spinlock; /* lock for the drvdata. */
+> +       u32                     atid;
+> +       u32                     freq_type;
+> +       u32                     flag_type;
+> +       u32                     freq_req_val;
+> +};
+> +
+> +/* freq type */
+> +enum freq_type {
+> +       FREQ,
+> +       FREQ_TS,
+> +};
+> +
+> +/* flag type */
+> +enum flag_type {
+> +       FLAG,
+> +       FLAG_TS,
+> +};
 > 
-> Yeah, that's true. Storing the container pointer in drm_bridge makes
-> sense to solve this.
-
-OK, so when moving the container pointer to drm_bridge, the
-drm_bridge_pointers struct will be left with the drm_bridge pointer
-only:
-
-struct drm_bridge_pointer {
-    struct drm_bridge *bridge;
-}
-
-So while it would work, I still don't see the added value. We'd have
-one more allocation, we'd need to free both structs at the same time
-(correct?) and drm_bridge_put_void() would have an extra indirection
-step:
-
-     static void drm_bridge_put_void(void *data)
-     {
-        struct drm_bridge_pointer *bridge_pointer = (struct drm_bridge_pointers *)data;
-	struct drm_bridge *bridge = bridge_pointer->bridge;
-
-	drm_bridge_put(bridge);
-     }
-
-Can you elaborate on the gain in having such struct, or point me to
-some code using the same pattern?
-
-> I'm still not sure why we need the container offset though: if we have a
-> bridge and container pointer, then the offset is bridge - container, so
-> there's no point in storing it, right?
-
-We need either the container_offset or the container pointer, not both.
-I had chosen the offset in v6, I'm going to convert to the pointer in
-v7.
-
-Luca
-
--- 
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+> --
+> 2.34.1
+> 
+> _______________________________________________
+> CoreSight mailing list -- coresight@lists.linaro.org
+> To unsubscribe send an email to coresight-leave@lists.linaro.org
 
