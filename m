@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A108C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:38:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C79BEC1B087
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:38:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c+xM+XCfjJXo7wLIMNi8PnhZ4YE1WTYV+BUvsseE1eQ=; b=gd+Khzjvn9K1sgAWbTZ8yBj5Xt
-	Pm1YR4gh4hzsxaNoZZIK4ISYFOjaCZmF2mVFGf2bytmL/leWaiQ8JEgBBF0DVL/LarVXnsGDOHpFl
-	z5VsSb/dP30dzULqU7wWsOuXl2wWisUQtJfNd1W4F8N7gsqoYm8SJY7EnFfbUrvoF6g+o4u8667um
-	GnRqXGjOb3lrdJGe8/lS4K4fbpQue68l3dYR6OxQ8A8TWmcBEe/+BxMxYitzsMIosT/WHeP6XXHYd
-	3jsmNGr0J+SQL/eVYfRB6P5fJMdcoyLnhTSL8IhUgAyTzWRtyzm2mv5fkIdfVCqa4yP7Wkbb5jm6I
-	uVc/bExQ==;
+	bh=w0vqTTsiASAyqiOw+JH4nmNPvnky79FuDO0r46YuJqY=; b=g/GoGjNlqiODnHAhukkDm3aCUT
+	M3Tlvz/PK5P64N1VUoJM1xOF2HSYOGdVKEHXz2pW4SVx2SuxPqprEVKYk2K7lYPlDkzLA0h9YCw6s
+	66/cfOoICsOxDQdFyx1oy77Yq2Nm8BJRhrCVW+lnQQgvDd9lh2OHyaJn8+M/Tv5epjMVOLCpLNouA
+	ARuSm1/JREy4Nh/1Q9FPs1cn8HfiEFd5IJrw9QTQKQY/oQLN4ZtMxwWSh4OFPvyX4PGgC8gIXSF2r
+	Fp9i0oRL39/AvUYwaR1rkUksYn39xGFCK1YDPN5wxkUJIscWSNLVukVofpuMClPxH5fVd3mX89N/K
+	LM3zrI8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjiB-00000008Vn7-3TqF;
-	Thu, 27 Feb 2025 19:38:23 +0000
+	id 1tnjiA-00000008Vkp-3XOh;
+	Thu, 27 Feb 2025 19:38:22 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tngC1-00000007xuh-2cor
+	id 1tngC0-00000007xu7-3dIJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 15:52:59 +0000
+	Thu, 27 Feb 2025 15:52:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1740671577; x=1772207577;
+  t=1740671576; x=1772207576;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=y6zBcUQgWavANG8NsuRsZDucUUdJh5SHXwtzFjn3t3c=;
-  b=jet7ay+En6XL0c0+AlGmzAw9TfknlD4sU42Gtfc/IO+XqWBmLgDxZ7VA
-   xKSuaZa7t9tXA8RAr4jdSVavJGaf+13CD5XEv3SgNIysXMqGueOTaBfBu
-   47SxLDCHNLqGsD+gaWLwtc8h0oYx4jbPG/nC6VixXEHL5pDlzbexA9f9Q
-   X9cdg7wmR1U2qeT3pS7QZlnsH0c1+bt+Khmi+3Z4c2USxx4zIRDzLFxaI
-   sMQvhnnvxG7ua7zaJmyghooTTB2Snspym4FfzfF0PRr8ss7m10XCxI4YC
-   gJaSiV1nhoOQNZoSNAp0uw+xfSqlyViwJSlnk3+k1TOlSDUnriv6x8Dku
-   Q==;
+  bh=uwvaQhpL/ryj7UfrdD3+qReVR79lU5INxwAw4Zh+LZ8=;
+  b=KZcud93ZEJhLbmP4Yh64Lz8y+ofy8s7W4jccGlA6VV/XdgSZu+cOIqCW
+   VjWOPU28oUxNHDnwQLsYFlLtL4+uhFftr4VFrb3MNVSqOsLmqWxwUODHJ
+   EnAIXrAOHU903QY6ujH7jGqijJ/JnJRebGDsOtIgfZhEmzwbPONFTmTl4
+   whGLhW93e6ow7uCuB6JnxQ4SsIxT+sa6hGFpARVVF6Yqd4YhXlv7jXYsh
+   XkcmdYiP1ojOrI+WU0CpDAMm7ieVNiOf2Ux8VIORx0kBhkvCEOAhSE/WX
+   sO2csnAxrp6smgT9KsHbqVBlM45VHFNzLsvFGcwt7xqye+cmU0bOSLfwy
+   g==;
 X-CSE-ConnectionGUID: xBkIAngZQVSwQhIMCQbtUA==
-X-CSE-MsgGUID: TSfk1f/VQZaZsJ8UblroGw==
+X-CSE-MsgGUID: Nu2RswKDQFOU7TU3XGo13g==
 X-IronPort-AV: E=Sophos;i="6.13,320,1732604400"; 
-   d="scan'208";a="38638163"
+   d="scan'208";a="38638160"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
   by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Feb 2025 08:52:54 -0700
@@ -62,10 +62,11 @@ To: <lee@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
 CC: <linux@armlinux.org.uk>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-rtc@vger.kernel.org>, "Ryan
- Wanner" <Ryan.Wanner@microchip.com>
-Subject: [PATCH v3 03/21] dt-bindings: sram: Add microchip,sama7d65-sram
-Date: Thu, 27 Feb 2025 08:51:50 -0700
-Message-ID: <1f27526bcb63f611d2e14a0f1925b3106f1914c6.1740671156.git.Ryan.Wanner@microchip.com>
+ Wanner" <Ryan.Wanner@microchip.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v3 01/21] dt-bindings: mfd: syscon: add microchip,sama7d65-ddr3phy
+Date: Thu, 27 Feb 2025 08:51:48 -0700
+Message-ID: <c5d602b7d4c29333013ef3f75544c2eb7e4b8dab.1740671156.git.Ryan.Wanner@microchip.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1740671156.git.Ryan.Wanner@microchip.com>
 References: <cover.1740671156.git.Ryan.Wanner@microchip.com>
@@ -73,8 +74,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_075257_724273_F7191FBD 
-X-CRM114-Status: UNSURE (   7.55  )
+X-CRM114-CacheID: sfid-20250227_075257_190481_1400C6C4 
+X-CRM114-Status: UNSURE (   7.78  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,26 +93,34 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-Add microchip,sama7d65-sram compatibility to DT binding documentation.
+Add SAMA7D65 DDR3phy compatible to DT bindings documentation
 
 Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- Documentation/devicetree/bindings/sram/sram.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/devicetree/bindings/mfd/syscon.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/sram/sram.yaml b/Documentation/devicetree/bindings/sram/sram.yaml
-index 7c1337e159f2..3071c5075ee4 100644
---- a/Documentation/devicetree/bindings/sram/sram.yaml
-+++ b/Documentation/devicetree/bindings/sram/sram.yaml
-@@ -31,6 +31,7 @@ properties:
-         - amlogic,meson-gxbb-sram
-         - arm,juno-sram-ns
-         - atmel,sama5d2-securam
-+        - microchip,sama7d65-securam
-         - nvidia,tegra186-sysram
-         - nvidia,tegra194-sysram
-         - nvidia,tegra234-sysram
+diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
+index 4d67ff26d445..769dcb096186 100644
+--- a/Documentation/devicetree/bindings/mfd/syscon.yaml
++++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
+@@ -90,6 +90,7 @@ select:
+           - microchip,lan966x-cpu-syscon
+           - microchip,mpfs-sysreg-scb
+           - microchip,sam9x60-sfr
++          - microchip,sama7d65-ddr3phy
+           - microchip,sama7g5-ddr3phy
+           - mscc,ocelot-cpu-syscon
+           - mstar,msc313-pmsleep
+@@ -189,6 +190,7 @@ properties:
+           - microchip,lan966x-cpu-syscon
+           - microchip,mpfs-sysreg-scb
+           - microchip,sam9x60-sfr
++          - microchip,sama7d65-ddr3phy
+           - microchip,sama7g5-ddr3phy
+           - mscc,ocelot-cpu-syscon
+           - mstar,msc313-pmsleep
 -- 
 2.43.0
 
