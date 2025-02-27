@@ -4,112 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F45DC021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 07:34:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE00CC021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 07:47:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tYps54CSP4q1mdFjIcSj14UTUcUsKc9OKtYE+7qXw10=; b=QOvskmAA0zrCccYJ5GVJ9hRwue
-	4BUG78CLnWAX+4xUXeutgLNeAtJnLHuxO7vwYxqEXOzFCFg8GBHpkxeM3KW9XoHE/mmQb24yGUn7n
-	9J1I7HzlTz4kCb4ub/2e0rc0l975qOnmxhyMUS+RLFd/9xlVVyoDhWgnWKsNmyeXnT6OSBbMC99F5
-	udDSf6Vc/Uy9JFVtTb50D0RilxsLJco58PSKP4L+jitpyEiRhqtsoL2Zxze6J/tsmbvd+omQSql0n
-	Cb10aZgicv7hHBtmDECMaL6o7ylInt5ex6Q1ibt0O53orRG3xOLQFohtvcaOyBG99IaNueADijbQY
-	YEeLTG0Q==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1r95TCcHEiHpvMqFCEcTBmSykQv+FZGWvggAUclAA/A=; b=ZD1djw0L1lGeV7KL0KEjaM/1BF
+	9szW96tSyuUbN6UEgx+0CsZLeiHFi1DFxDWQDkmx300PpNqGiBa7lgsjtR9bhpAE45t5cJavaKh4U
+	xN1i9wh0Vw3D5zrnIWuqPfWcuMEl02EFGGO3NcyRO7F5iLyToMERPszIOBXCmg/Rwc8E1D784Df4I
+	j2TXH0gVxG8Uqq6AKXGY9Px5OOOGst+MNs+KB//SYsVH0CkodZag9wSrWKmTixJs/3U63NLnbBvXs
+	0uM+J7JXBo3Dn/omSTXH1nRG60UUQDKI1UogUEtWIcgAu/WYm3i4iffg8LwMqAJ1HtHiRAQo2a8LR
+	2T06Z0kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnYPK-00000006ZaZ-2k7Y;
-	Thu, 27 Feb 2025 07:34:10 +0000
-Received: from fout-a4-smtp.messagingengine.com ([103.168.172.147])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnYNn-00000006ZU4-2Hyi
+	id 1tnYcI-00000006acn-0de1;
+	Thu, 27 Feb 2025 07:47:34 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnYaj-00000006aVl-1gnw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 07:32:37 +0000
-Received: from phl-compute-11.internal (phl-compute-11.phl.internal [10.202.2.51])
-	by mailfout.phl.internal (Postfix) with ESMTP id 3B9F21382F1B;
-	Thu, 27 Feb 2025 02:32:32 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-11.internal (MEProxy); Thu, 27 Feb 2025 02:32:32 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1740641552;
-	 x=1740727952; bh=tYps54CSP4q1mdFjIcSj14UTUcUsKc9OKtYE+7qXw10=; b=
-	XRkCGA0QxqmXOxmFUzvyte20POOFw3l2KWZi56I5lymlKwVwTnqHIlLjNn4QIiRH
-	qBgJ/ZIJzWdgqwkcC2DO5ZHYxSShwj6cTbhTkNN5EF2YOZlzzlSvImcbFIq2sxgj
-	T+P2ksWTeV9WwV4Cs3cKNMtpTp0Gv6wFrQFi1Y+tJkfxOOtVGPq2ley+glgm+Zil
-	oIMuJSvS6RV3+MIFOvYLjFvu/CZvbtJVN7fgBPdyCMVvXYKLNootAGttPnHiA1NQ
-	/bZPrYcdxfa7Ic2CtJTIdyOP9fylQqxJ1zY5nyh3ZcvsIk9e9i6JnuyuTDqD5yLd
-	YoHcGlzKRGAzKBS3ucI/xQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1740641552; x=
-	1740727952; bh=tYps54CSP4q1mdFjIcSj14UTUcUsKc9OKtYE+7qXw10=; b=Z
-	/TAEnrnTy9agTqBRmR13xWuPBI9TkI9IJE9eRVmab9s5iUZFIAOAiuwJTCsIsjyU
-	gZhAVUt2BK9CkZvnpZiaYwG3Ut0F8+fOA7CuduZ2A/XgX86QvW2znQBakVpkVkk2
-	wpDGCVMJKcYwje44sTgExjNR4/0VRg76QbmVO+huRslcOWzPzD/03kT11YbFKmKZ
-	N9Df4UnKXQqvGQLasjqCNHolql3h0ygkuxXn9C4dV80NwoNJZcIhUwhiHGMDZQOE
-	8UoeLRBJBmyLKFYSIDXH1uG0up91Z/LAX4v2WK4er16JVb8Y0BguzeqFqyGh1ToR
-	3e4S8h+wFSz5AIFUDlNFA==
-X-ME-Sender: <xms:DxXAZ8JsBQ_RZ1LYX6RA02K50EUzF9JdMGcX_ZQ5b8HgMPD6bDsAfQ>
-    <xme:DxXAZ8K20wsDhbG3qXZFfhsXRvp8KZIt61TY3CudNLMe7C5v7XGv5ZnwsXntxtRqf
-    2-Xijyp9S1CTXuHPpY>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdekieekjecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthhqredtredt
-    jeenucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusg
-    druggvqeenucggtffrrghtthgvrhhnpedvhfdvkeeuudevfffftefgvdevfedvleehvddv
-    geejvdefhedtgeegveehfeeljeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
-    epmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopeel
-    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrg
-    hssegrrhhmrdgtohhmpdhrtghpthhtohepfihilhhlsehkvghrnhgvlhdrohhrghdprhgt
-    phhtthhopehkrhiihihsiihtohhfrdhkohiilhhofihskhhisehlihhnrghrohdrohhrgh
-    dprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhr
-    rgguvggrugdrohhrghdprhgtphhtthhopehquhhitggpsghjohhrrghnuggvsehquhhitg
-    hinhgtrdgtohhmpdhrtghpthhtohepuggrnhhishhhrghnfigrrhesthhirdgtohhmpdhr
-    tghpthhtohepmhdqmhgrlhhlrgguihesthhirdgtohhmpdhrtghpthhtohepshhrkhesth
-    hirdgtohhmpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhn
-    vghlrdhorhhg
-X-ME-Proxy: <xmx:DxXAZ8t0j-2FDkHU77hj7T54-yfPV4CRYy03eQS0VYtKy9rByJDD_g>
-    <xmx:DxXAZ5aICgPTX8N9tIUDxWKLE6xDSI9tsiyXmhIVQ-45Zo3HGUIMPg>
-    <xmx:DxXAZzawvvwTXfnkcOsCzNcQkTt_Wdcz5aslfGQ8vSKSd18xMhgOLA>
-    <xmx:DxXAZ1AnMLbbvxp-eeTcvnYhpkllMEKMCHOns-eRFHZ5G_YsGONCKA>
-    <xmx:EBXAZxMmAbTJSCNli44SU1q7sn_Uj7PvsLN_6FRUoofemWD6nScV4gvl>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id A96982220073; Thu, 27 Feb 2025 02:32:31 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 27 Feb 2025 07:45:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=1r95T
+	CcHEiHpvMqFCEcTBmSykQv+FZGWvggAUclAA/A=; b=Pdw9TsGxqEIb8P1Njcyt2
+	65sRf1XYHRd/Y87FZJJVFM9B4S1n7jBzIVrgtfyMiwaao9AucI5GaqA2BCTeXhDb
+	Yd2ifvgOtUDxN86mHg4aNwTGJc/2Xgvj2+/YzKg8T8f5oy6tsbENpHM4/8BWwLsa
+	oHjEHQsO9B5l7chEHKG388=
+Received: from icess-ProLiant-DL380-Gen10.. (unknown [])
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wBnKk_0F8Bnz+IEPA--.57589S4;
+	Thu, 27 Feb 2025 15:44:54 +0800 (CST)
+From: Haoxiang Li <haoxiang_li2024@163.com>
+To: slongerbeam@gmail.com,
+	p.zabel@pengutronix.de,
+	mchehab@kernel.org,
+	gregkh@linuxfoundation.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	hverkuil@xs4all.nl
+Cc: linux-media@vger.kernel.org,
+	linux-staging@lists.linux.dev,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Haoxiang Li <haoxiang_li2024@163.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] media: imx: fix a potential memory leak in imx_media_csc_scaler_device_init()
+Date: Thu, 27 Feb 2025 15:44:51 +0800
+Message-Id: <20250227074451.3698971-1-haoxiang_li2024@163.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Date: Thu, 27 Feb 2025 08:32:00 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Meghana Malladi" <m-malladi@ti.com>,
- "Krzysztof Kozlowski" <krzysztof.kozlowski@linaro.org>
-Cc: "Bjorn Andersson" <quic_bjorande@quicinc.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- srk@ti.com, "MD Danish Anwar" <danishanwar@ti.com>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>
-Message-Id: <d0303f33-3cde-45ca-8f25-313629bce863@app.fastmail.com>
-In-Reply-To: <f1d61696-a5c0-4727-ab52-526294a2a5f9@ti.com>
-References: <20240419060013.14909-1-r-gunasekaran@ti.com>
- <686f583d-6bf4-4486-b9e4-20c1e268eda6@ti.com>
- <d4954e5e-e51f-41c0-bca5-6e14b4640022@linaro.org>
- <0d33dea6-c021-4f2a-bb3f-92efd6eebd18@ti.com>
- <6081917c-9c20-48fc-baaf-7ac9a9679a72@linaro.org>
- <1982291f-4a02-4ed2-b4bf-778a2fe0ad9e@ti.com>
- <a3fc706c-3825-49fc-beea-3fea7d9c0038@linaro.org>
- <f1d61696-a5c0-4727-ab52-526294a2a5f9@ti.com>
-Subject: Re: [EXTERNAL] Re: [PATCH] arm64: defconfig: Enable HSR driver
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wBnKk_0F8Bnz+IEPA--.57589S4
+X-Coremail-Antispam: 1Uf129KBjvdXoW7XFyxtFWfKr15GFy5JFyxKrg_yoWDtwc_CF
+	4FgryxZrWUC3ySy3W5tF10v34Sqrs7urWFq3Z0va95XFWjy3WYvr4qvws3X34jgryF9F9I
+	yr1rJr1akry2kjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sRtnYw7UUUUU==
+X-Originating-IP: [183.174.60.14]
+X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbB0g0BbmfAEbmqBQAAsQ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250226_233236_143215_462E9774 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20250226_234557_807551_EE819943 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,33 +84,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025, at 06:43, Malladi, Meghana wrote:
-> On 2/26/2025 5:36 PM, Krzysztof Kozlowski wrote:
->> On 26/02/2025 12:=E2=80=8A54, Malladi, Meghana wrote: > Hi Krzysztof,=
- > > On=20
->> 2/26/2025 4:=E2=80=8A18 PM, Krzysztof Kozlowski wrote: >> On 26/02/20=
-25 11: 44,=20
->>=20
->> Yes, sure, but this defconfig change benefits and is sent for certain=
- TI
->> upstream boards, so it is TI upstream maintainers field. It still fits
->> the "Submitting Patches for Given SoC" in SoC maintainer profile.
->>=20
->
-> Okay, I got your point now. So as long as this defconfig benefits TI=20
-> SoCs, it should be sent with maintainer profile. I will keep that in=20
-> mind for future patches as well. Thanks for clarifying this.
+Add video_device_release() in label 'err_m2m' to release the memory
+allocated by video_device_alloc() and prevent potential memory leaks.
+Remove the reduntant code in label 'err_m2m'.
 
-It's mainly for practical reasons: the patches I put into the soc
-tree usually come from platform maintainers that I'm already working
-with. They understand the process and I generally trust their
-judgement of what should go into the kernel or not.
+Fixes: a8ef0488cc59 ("media: imx: add csc/scaler mem2mem device")
+Cc: stable@vger.kernel.org
+Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
+---
+Changes in v2:
+- Remove the reduntant code. Thanks, Dan!
+---
+ drivers/staging/media/imx/imx-media-csc-scaler.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Individual contributors can still send patches to soc@lists.linux.dev
-(formerly soc@kernel.org) and I will usually end up merging them, but
-that means that the patch itself needs a more elaborate justification
-for why it should be merged, and I end up spending a bit more time on
-figuring out if I should take it.
+diff --git a/drivers/staging/media/imx/imx-media-csc-scaler.c b/drivers/staging/media/imx/imx-media-csc-scaler.c
+index e5e08c6f79f2..19fd31cb9bb0 100644
+--- a/drivers/staging/media/imx/imx-media-csc-scaler.c
++++ b/drivers/staging/media/imx/imx-media-csc-scaler.c
+@@ -912,7 +912,7 @@ imx_media_csc_scaler_device_init(struct imx_media_dev *md)
+ 	return &priv->vdev;
+ 
+ err_m2m:
+-	video_set_drvdata(vfd, NULL);
++	video_device_release(vfd);
+ err_vfd:
+ 	kfree(priv);
+ 	return ERR_PTR(ret);
+-- 
+2.25.1
 
-      Arnd
 
