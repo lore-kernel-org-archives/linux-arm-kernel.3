@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50E57C282C7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C02BC1B087
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:37:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YCufWFd6G+xrz+BePjT03qTPZYQ4Xqveeaiwin3kBZY=; b=C1njU4ISTxAskZho+CpSAxT8pc
-	v4BaPOnq96orkR0M0FlVZQ2GNLxMA+Cax94AZ3l6E45+epVScQV2eqsdzig8YLEtMWXtEFHM0YQ8/
-	BSeMFSf9V5CsfFQoxa8Owi5F5VV3d+Xb1n+ng8XyuV6Sjk85Gphe4cH+3++a24F4BG+7IPRnBtnJK
-	uaJraWtZ3SBkt0xcAm2PURjFlSCkhe183mHA7AqEkLRSfpVbhA/H0IWi0hT5HK44xcMyAk0xQ5XqL
-	dj8wsQCj0afmf0zAVzq9edCl1DR8tilcb4CNWPFidcCPiYGp/3Sue/SOnM2oCNmipwcWXOzV8I0lF
-	NzAlzLjQ==;
+	bh=B5lx7JkhQqTUFvx02MAjNql+WyKMowqOBnsMeSQXWtU=; b=PIcnEp+rtmFpfjmGojtoSsri5W
+	hPzzA/w1JD3dBJmXRl16YnnNR450m7CMAYT7OlSDryhZAGWhxnOtVUwIeMCQ57gXGuCg7O6il7idK
+	PkZ8AWTmosVOVirwr41aEKNysDYcGnox6QZuYlFAqVPfoqMYlqfFuaxXWYRU0nkjPCE66f85G+es+
+	zCaCxaObu2OhEhurByZLwgSXXelp2itMkbbDWeY3xP48Q23IwNsI0bqzOJr1On1ZkX6j0cNOG/4v+
+	lV4/KBLEBr13KekaXDOKoktqn7Ra8cJMJvUBrU4NaBvayzdeOA1dNd7GFRggR0LV0F02y5TsV2YG/
+	0V6JC7ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjhQ-00000008UGw-2A40;
-	Thu, 27 Feb 2025 19:37:36 +0000
+	id 1tnjhP-00000008UEi-1Ugz;
+	Thu, 27 Feb 2025 19:37:35 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnfSN-00000007rJi-1oBx
+	id 1tnfSI-00000007rIv-2fjP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 15:05:48 +0000
+	Thu, 27 Feb 2025 15:05:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=YCufWFd6G+xrz+BePjT03qTPZYQ4Xqveeaiwin3kBZY=; b=tlRKRqmfRq7SMY6gL21jv5t0mU
-	qWtAohbIyGTYR85mQjfixnVJFbC2juOSSXj0NjQgKtr7wJkuXqcYJTRQ1FFywnnuqaWJ3H1UuzZ2F
-	D8auRIOmrUdfIqgQZxBufhtUV4nt0czgVFfC9L1R+rdsm37G+bpDz1NRSebDiii7ecEH1MhGfP+81
-	ws8HsIdNNco/AZXDIOJY8xzOBS0tpu4tjcq0WeTG6dj7OB/EHW8XMxXwGIhw1MHmLyS1c2I6XUdcj
-	/XcsoNotQahe9y5T+CYCs9X5LFLBzc49z1A3mdtER8BZZu1hoBIBlVTH4mXandvaEEM9vwyb0I+M0
-	SC1znplw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:41118 helo=rmk-PC.armlinux.org.uk)
+	bh=B5lx7JkhQqTUFvx02MAjNql+WyKMowqOBnsMeSQXWtU=; b=UVnNqd+JJmc7ij8XJGyjqZKhLL
+	KzdoMbqkVDVCNCVy3NWFI7wi3q9wZ3nu2ab6cP4rXrqi0fLFLpazdyklj3UMRK9ps6OJ2lAE8GX0K
+	eH3dInY3JMd/EJ/tL5+42MqSFsd3YdYFSrIlP+hdVHW5Rt1KH1lZxyk/8bnl+ap+A1wxuhxD2f6uZ
+	eJB5pzHGQSX9SCcRoA0RiRpha4zueuiay3zX4ykHOPmhsC0eep7Cz3Y0nL+IZVS9Nno+VE7V5aK+H
+	R6jeMasobQwjntYl7KiNlTcrJRsrzjGr3AM0bRtA2ejPopFwW1mX0k7w+ULQlupo9/wbKqc45w4vU
+	hq+HvPyA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:35204 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tnfSI-0007Xj-2Q;
-	Thu, 27 Feb 2025 15:05:42 +0000
+	id 1tnfSD-0007XS-2B;
+	Thu, 27 Feb 2025 15:05:37 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tnfRy-0057SX-Lj; Thu, 27 Feb 2025 15:05:22 +0000
+	id 1tnfRt-0057SR-Hx; Thu, 27 Feb 2025 15:05:17 +0000
 In-Reply-To: <Z8B-DPGhuibIjiA7@shell.armlinux.org.uk>
 References: <Z8B-DPGhuibIjiA7@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -65,17 +65,18 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>,
 	Thierry Reding <treding@nvidia.com>
-Subject: [PATCH RFC net-next 5/5] net: stmmac: leave enabling RE and TE to
- stmmac_mac_link_up()
+Subject: [PATCH RFC net-next 4/5] net: stmmac: remove _RE and _TE in
+ (start|stop)_(tx|rx)() methods
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tnfRy-0057SX-Lj@rmk-PC.armlinux.org.uk>
-Date: Thu, 27 Feb 2025 15:05:22 +0000
+Message-Id: <E1tnfRt-0057SR-Hx@rmk-PC.armlinux.org.uk>
+Date: Thu, 27 Feb 2025 15:05:17 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_070547_467414_D2FBF35A 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20250227_070542_677104_854D5FC3 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,36 +91,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We only need to enable the MAC receiver and transmiter only when the
-link has come up.
-
-With commit "net: stmmac: move phylink_resume() after resume setup
-is complete" we move the race between stmmac_mac_link_up() and
-stmmac_hw_setup(), ensuring that stmmac_mac_link_up() happens
-afterwards. This patch is a pre-requisit of this change.
-
-Remove the unnecessary call to stmmac_mac_set(, true) in
-stmmac_hw_setup().
+Remove fiddling with _TE and _RE in the GMAC control register in the
+start_tx/stop_tx/start_rx/stop_rx() methods as this should be handled
+by phylink and not during initialisation.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 ---
- 1 file changed, 3 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c   |  8 --------
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c | 12 ------------
+ 2 files changed, 20 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index e47b702fb9f9..c80952349eb7 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -3506,9 +3506,6 @@ static int stmmac_hw_setup(struct net_device *dev, bool ptp_register)
- 		priv->hw->rx_csum = 0;
- 	}
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
+index 57c03d491774..61584b569be7 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
+@@ -50,10 +50,6 @@ void dwmac4_dma_start_tx(struct stmmac_priv *priv, void __iomem *ioaddr,
  
--	/* Enable the MAC Rx/Tx */
--	stmmac_mac_set(priv, priv->ioaddr, true);
+ 	value |= DMA_CONTROL_ST;
+ 	writel(value, ioaddr + DMA_CHAN_TX_CONTROL(dwmac4_addrs, chan));
 -
- 	/* Set the HW DMA mode and the COE */
- 	stmmac_dma_operation_mode(priv);
+-	value = readl(ioaddr + GMAC_CONFIG);
+-	value |= GMAC_CONFIG_TE;
+-	writel(value, ioaddr + GMAC_CONFIG);
+ }
  
+ void dwmac4_dma_stop_tx(struct stmmac_priv *priv, void __iomem *ioaddr,
+@@ -77,10 +73,6 @@ void dwmac4_dma_start_rx(struct stmmac_priv *priv, void __iomem *ioaddr,
+ 	value |= DMA_CONTROL_SR;
+ 
+ 	writel(value, ioaddr + DMA_CHAN_RX_CONTROL(dwmac4_addrs, chan));
+-
+-	value = readl(ioaddr + GMAC_CONFIG);
+-	value |= GMAC_CONFIG_RE;
+-	writel(value, ioaddr + GMAC_CONFIG);
+ }
+ 
+ void dwmac4_dma_stop_rx(struct stmmac_priv *priv, void __iomem *ioaddr,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+index 7840bc403788..cba12edc1477 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_dma.c
+@@ -288,10 +288,6 @@ static void dwxgmac2_dma_start_tx(struct stmmac_priv *priv,
+ 	value = readl(ioaddr + XGMAC_DMA_CH_TX_CONTROL(chan));
+ 	value |= XGMAC_TXST;
+ 	writel(value, ioaddr + XGMAC_DMA_CH_TX_CONTROL(chan));
+-
+-	value = readl(ioaddr + XGMAC_TX_CONFIG);
+-	value |= XGMAC_CONFIG_TE;
+-	writel(value, ioaddr + XGMAC_TX_CONFIG);
+ }
+ 
+ static void dwxgmac2_dma_stop_tx(struct stmmac_priv *priv, void __iomem *ioaddr,
+@@ -302,10 +298,6 @@ static void dwxgmac2_dma_stop_tx(struct stmmac_priv *priv, void __iomem *ioaddr,
+ 	value = readl(ioaddr + XGMAC_DMA_CH_TX_CONTROL(chan));
+ 	value &= ~XGMAC_TXST;
+ 	writel(value, ioaddr + XGMAC_DMA_CH_TX_CONTROL(chan));
+-
+-	value = readl(ioaddr + XGMAC_TX_CONFIG);
+-	value &= ~XGMAC_CONFIG_TE;
+-	writel(value, ioaddr + XGMAC_TX_CONFIG);
+ }
+ 
+ static void dwxgmac2_dma_start_rx(struct stmmac_priv *priv,
+@@ -316,10 +308,6 @@ static void dwxgmac2_dma_start_rx(struct stmmac_priv *priv,
+ 	value = readl(ioaddr + XGMAC_DMA_CH_RX_CONTROL(chan));
+ 	value |= XGMAC_RXST;
+ 	writel(value, ioaddr + XGMAC_DMA_CH_RX_CONTROL(chan));
+-
+-	value = readl(ioaddr + XGMAC_RX_CONFIG);
+-	value |= XGMAC_CONFIG_RE;
+-	writel(value, ioaddr + XGMAC_RX_CONFIG);
+ }
+ 
+ static void dwxgmac2_dma_stop_rx(struct stmmac_priv *priv, void __iomem *ioaddr,
 -- 
 2.30.2
 
