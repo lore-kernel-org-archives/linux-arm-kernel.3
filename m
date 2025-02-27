@@ -4,86 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 110B3C19F2E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 09:59:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 851FBC19F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 10:00:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E5QDWkO2mZIUqFyZfWARuefSQbIGKebt4uDjmqBxFCM=; b=v/TSECUNquhO/uqaDy9rHuuVax
-	SK+yWgXsxTws/Q//WWKxU8wsU1oEZo0dYqOqhWEUB9I00a5fJRkoErsN8iU41tgmO3u7DkwXnbU2Q
-	S+Itra9tTUugBvCFr3I3wLRFTqLcXhQb+i+SM3aYvQr8durtivu60fyqTAFSeadwjsVv7bASszGAQ
-	UQiF6JM9FtIDSv8XZVZWKq54018XKhEAdNQW2mKGIyy+yyrwroQhNiB3z9lwV5VLp/5ziCxBXlLN0
-	Y5SVJ6NOTgHYkHKDdkvthaGNPAb75In0fx2UECc//+wYMXonXhgIM/YEPQB/MRNov454+jO8TXXLz
-	5uJZ+yDw==;
+	bh=Q61X8rDiS67pVbwRI8itK0hzgjg4JemBGrUqHsGoqEY=; b=c6C4ZiGqZgc1Obq5e4w4H2wpXV
+	vuuNczL2sVbC1+WB+WyKaIpxU2ZSyf4no+nBs3jSdIJvVPhB0pUNYekw6PjVHTQ4FbPfXYiT3LArR
+	RkYrboUIBPYcVSBw7csiUqa1kiQS5IehmXdzSZinUa34fu1yRCz17gIsIXwrG4EhYkUhLohhGGEod
+	/ojG+7NMenYULjNPUoreS0fkRDwkxj7htGw+M5BfYvcqfuCzjJFP0pSADiYXeTDF05VZv0lLKnhki
+	HZz9Ke7ohvN72jRaJeW5ICutKsc2ruFbivRxwzJ39OkNNguENsxBZcfhike5SY/96O0TsV0WWBsWX
+	TW4t1b2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnafI-00000006vi3-25sx;
-	Thu, 27 Feb 2025 09:58:48 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1tnago-00000006vyQ-0tKw;
+	Thu, 27 Feb 2025 10:00:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnaNF-00000006tI3-3Zes
+	id 1tnaQE-00000006thc-2I7G
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 09:40:11 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-38f1e8efe84so238177f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 01:40:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740649207; x=1741254007; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=E5QDWkO2mZIUqFyZfWARuefSQbIGKebt4uDjmqBxFCM=;
-        b=ivpYjZ2/DxZ+TSKe/KLtHdpwdTqkswLMk5voKjXXT+ucViED5O5kaHiVATm4VwSNF3
-         JYeKLGj8EQj0suAhZ5VnV2Y1aVOIAibQWyqcSuUTbbPUPnx6MOPBgEr+7h822Z4i9L0K
-         +e2yvrFstJ0fTj/2BTvXspfJUxKh2kqhzfYvIIh000RK8rzD9lqvwZlT7fwUxzx9Z2SJ
-         nPvz7W4XEUgLAvyg5oFh4a0q8Ppvr5A2sG/t909qCYFE5hMWEKuYURtMxPTRlVSt1MJP
-         7fUT9SWMvqTum30NIj0hXAc+0CVjl6sgxzhihezfAi9LVDICTfb+t9wmkOsftEKWj0cJ
-         pURg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740649207; x=1741254007;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=E5QDWkO2mZIUqFyZfWARuefSQbIGKebt4uDjmqBxFCM=;
-        b=Af5Hye6kOl3+ChI3sJ8SXRm7V+8SZKogyXBRUmNNvBOn7ysO+H4jmCrDMZAr0AUdOx
-         CNyeMfe1izphPGgE0fuTUvpAuAJEOoj3+XxRaEX5oLuGO56mLOhyPdFe6/AXagAkqrHt
-         AUFmcCXRhIBZKMGmcxbnHEwM+Lj6HtdKLzWGk8R9sM5TgzXfrl0uix85r8fkSEQrhcHP
-         LYqeFcJbsgPLOFEu7W4+gATVerR2j5r6HMaqMmocdU0+LdTz9bMgII3gA7URoOZ4PQu0
-         b/Wuw656eZvJijy3h0CqMK8jmUQtPznJHBMo8/1v5O1qVAYXDuIU3CSXcJUCDxnEKbqZ
-         l9iA==
-X-Forwarded-Encrypted: i=1; AJvYcCWs6hjxMLOEQB0Q21hHRrDn1vCA5ldGwO7AFVbAUD3jLO/PLCVWkL9G81PaoOOahNdoFfESjsEb0k7nfel/ORwi@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLsMUg9CUBrIuTLvh8mvaN4EpwrgyBchUAqRem0mzLcVuLBPR3
-	4GqUd/0c0/2DumOn8semaphabpWUaLYyR6nu6XS29vnqfTv68WavOgI/85/Pn0NTqLk0ZLNE2kx
-	az8uU/9yGEM4tiTp1NJcJU7Ydm/M=
-X-Gm-Gg: ASbGnctpkHHahFtKOiPjKvRGKT9H50ksn5NxMQMRecMVagXC7tqVoYV/wbVQs3ApPiE
-	GkpEG+x4egwL1gt0tgHX3FVuBnB0Z1/roXjzQjVXAg2ubbhRjRanRR9TiGdFn6tfk8z777KfeOK
-	tyGGvPwjqg
-X-Google-Smtp-Source: AGHT+IHVxpKqJjF6Oy3UiSsoNMUk3O6YtCQmwyuh/+RElalPL6ZKmZpdr7GUuDOpP7wb1pIYfzRVat/b4jfY+6rXg4Q=
-X-Received: by 2002:adf:ed4c:0:b0:38f:476f:e176 with SMTP id
- ffacd0b85a97d-38f6ec63868mr17667271f8f.31.1740649207536; Thu, 27 Feb 2025
- 01:40:07 -0800 (PST)
+	Thu, 27 Feb 2025 09:43:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9F44C6114C;
+	Thu, 27 Feb 2025 09:43:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38D6DC4CEDD;
+	Thu, 27 Feb 2025 09:43:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740649393;
+	bh=rhZFnjMg+djY7ot31T8mlPega5Poldl8bzTau+ol+1Y=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=nlfZ0Ma6ZgFJhLr04yaoOeKC64EpwKMlj4iJ1DfPLM38VyK5Bj5IFFMgBgdsLrR0P
+	 RRndHubCXPuhvZvj2lGCpT4GSI2wp7AYk3eTXucnujSsQNLz0IY32sAMtje+8BKCs1
+	 BNGz/9t30wnbSWJ1oFrJCsLs5O+vLREC5qluZASJ5GQk2hujVOfLaf4s6x7zR85d/T
+	 s7ECaLEAkgvFebzLQLlX3wQ7/1XOopfkgeQy1y3cdjyG6iaovcFNmN9xXgnIiVvf3s
+	 kvjqN+1NMYYxdDsJBs3VGfdQF/JYpHitbsJV2toe0oytPzo86Ix1tGmt8IppwxENtB
+	 d403pVt6Jll6Q==
+Message-ID: <4f737623-6083-4ef9-b7a3-d09ebafa92de@kernel.org>
+Date: Thu, 27 Feb 2025 10:43:08 +0100
 MIME-Version: 1.0
-References: <20250225143638.1989755-1-regis.dargent@gmail.com>
- <20250225143638.1989755-2-regis.dargent@gmail.com> <2547277e-d9c0-4138-abaa-7afbff1ba3ca@roeck-us.net>
-In-Reply-To: <2547277e-d9c0-4138-abaa-7afbff1ba3ca@roeck-us.net>
-From: =?UTF-8?Q?R=C3=A9gis_DARGENT?= <regis.dargent@gmail.com>
-Date: Thu, 27 Feb 2025 10:39:56 +0100
-X-Gm-Features: AQ5f1JrSA6DaEhL-Nslpn5PJiSZvOfwBqv4VOqRh3wNZ-79IdfFHdRc-00phYLw
-Message-ID: <CANarb_ci_vgBMU4XejMwOwxKjGVccfMuweUQA7JwbNzWZqotuw@mail.gmail.com>
-Subject: Re: [PATCH v3] watchdog: sunxi_wdt: Allow watchdog to remain enabled
- after probe
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	linux-watchdog@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_014009_895863_ABBFD0DD 
-X-CRM114-Status: GOOD (  27.20  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 13/13] arm64: defconfig: Enable Renesas RZ/T2H SoC
+ option
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>,
+ "thierry.bultel@linatsea.fr" <thierry.bultel@linatsea.fr>,
+ "linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
+ Paul Barker <paul.barker.ct@bp.renesas.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20250226130935.3029927-1-thierry.bultel.yh@bp.renesas.com>
+ <20250226130935.3029927-14-thierry.bultel.yh@bp.renesas.com>
+ <fe4ccf6d-bdf0-41eb-bffe-83d459319689@kernel.org>
+ <TYCPR01MB1149252F0825C9BCF6A1B832F8AC22@TYCPR01MB11492.jpnprd01.prod.outlook.com>
+ <f134c607-2a03-4ee2-9f7a-befa1e4feb74@kernel.org>
+ <CAMuHMdW1k71gL_OYug+aF=SEkMDuXLy_oLpikahYVcqPMsMbHg@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <CAMuHMdW1k71gL_OYug+aF=SEkMDuXLy_oLpikahYVcqPMsMbHg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,106 +124,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le mar. 25 f=C3=A9vr. 2025 =C3=A0 22:51, Guenter Roeck <linux@roeck-us.net>=
- a =C3=A9crit :
->
-> On 2/25/25 06:36, Regis Dargent wrote:
-> > If the watchdog is already running during probe, let it run on, read it=
-s
-> > configured timeout, and set its status so that it is correctly handled =
-by the
-> > kernel.
-> >
-> > Signed-off-by: Regis Dargent <regis.dargent@gmail.com>
-> >
-> > --
-> >
-> > Changelog v1..v2:
-> > - add sunxi_wdt_read_timeout function
-> > - add signed-off-by tag
-> >
-> > Changelog v2..v3:
-> > - WDIOF_SETTIMEOUT was set twice, and other code cleanup
-> > ---
-> >   drivers/watchdog/sunxi_wdt.c | 45 ++++++++++++++++++++++++++++++++++-=
--
-> >   1 file changed, 43 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/watchdog/sunxi_wdt.c b/drivers/watchdog/sunxi_wdt.=
-c
-> > index b85354a99582..d509dbcb77ce 100644
-> > --- a/drivers/watchdog/sunxi_wdt.c
-> > +++ b/drivers/watchdog/sunxi_wdt.c
-> > @@ -140,6 +140,7 @@ static int sunxi_wdt_set_timeout(struct watchdog_de=
-vice *wdt_dev,
-> >               timeout++;
-> >
-> >       sunxi_wdt->wdt_dev.timeout =3D timeout;
-> > +     sunxi_wdt->wdt_dev.max_hw_heartbeat_ms =3D 0;
-> >
-> >       reg =3D readl(wdt_base + regs->wdt_mode);
-> >       reg &=3D ~(WDT_TIMEOUT_MASK << regs->wdt_timeout_shift);
-> > @@ -152,6 +153,32 @@ static int sunxi_wdt_set_timeout(struct watchdog_d=
-evice *wdt_dev,
-> >       return 0;
-> >   }
-> >
-> > +static int sunxi_wdt_read_timeout(struct watchdog_device *wdt_dev)
-> > +{
-> > +     struct sunxi_wdt_dev *sunxi_wdt =3D watchdog_get_drvdata(wdt_dev)=
-;
-> > +     void __iomem *wdt_base =3D sunxi_wdt->wdt_base;
-> > +     const struct sunxi_wdt_reg *regs =3D sunxi_wdt->wdt_regs;
-> > +     int i;
-> > +     u32 reg;
-> > +
-> > +     reg =3D readl(wdt_base + regs->wdt_mode);
-> > +     reg >>=3D regs->wdt_timeout_shift;
-> > +     reg &=3D WDT_TIMEOUT_MASK;
-> > +
-> > +     /* Start at 0 which actually means 0.5s */
-> > +     for (i =3D 0; (i < WDT_MAX_TIMEOUT) && (wdt_timeout_map[i] !=3D r=
-eg); i++)
->
-> Unnecessary (). On top of that, its complexity is unnecessary.
-> The timeout in seconds, except for reg =3D=3D 0, is wdt_timeout_map[reg],
-> with values of 0x0c..0x0f undefined. Worse, the above code can access
-> beyond the size of wdt_timeout_map[] if reg >=3D 0x0c.
+On 27/02/2025 10:24, Geert Uytterhoeven wrote:
+> Hi Krzysztof,
+> 
+> On Wed, 26 Feb 2025 at 15:40, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>> On 26/02/2025 15:32, Thierry Bultel wrote:
+>>>> -----Original Message-----
+>>>> From: Krzysztof Kozlowski <krzk@kernel.org>
+>>>> Sent: mercredi 26 février 2025 15:22
+>>>> To: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>; thierry.bultel@linatsea.fr
+>>>> Cc: linux-renesas-soc@vger.kernel.org; geert@linux-m68k.org; Paul Barker <paul.barker.ct@bp.renesas.com>; linux-arm->kernel@lists.infradead.org; linux-kernel@vger.kernel.org
+>>>> Subject: Re: [PATCH v3 13/13] arm64: defconfig: Enable Renesas RZ/T2H SoC option
+>>>>
+>>>> On 26/02/2025 14:09, Thierry Bultel wrote:
+>>>>> Selects support for RZ/T2H (aka r9a09g077), and SCI (serial) specific
+>>>>> code for it.
+>>>>>
+>>>>> Signed-off-by: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>
+>>>>> Reviewed-by: Paul Barker <paul.barker.ct@bp.renesas.com>
+>>>>> ---
+>>>>
+>>>> You never responded to my comments at v1. So I asked at v2. Still no answer.
+>>>>
+>>>> That's v3 and still silence from your side.
+>>>
+>>> Yes, I understand your position and have added a paragraph
+>>> at the end of the cover letter about this point.
+>>
+>> We do no read cover letters, unless look for dependencies, so if you
+>> disagree with someone you ought to respond to the email directly. Not
+>> silently discard.
+>>
+>> You keep adding more and more symbols, so your "out of scope of this
+>> patchset" is no true. Otherwise every contributor will use exactly the
+>> same arguments - "not my problem".
+>>
+>> So again NAK because it is something ought to be finally fixed (and is
+>> not even tricky to, so I don't ask for impossible).
+> 
+> Adding RAM to existing systems is usually quite hard ;-)
+> 
+> Not all Renesas SoCs are used in systems with multi-GiBs of RAM, so
+> IMHO it is still valuable to have fine control over which SoCs are
+> supported by your kernel (and e.g. which large pin control tables are
+> included in your kernel image).
 
-Ok, I prefer parenthesis for (my) readability, but I will remove them.
 
-wdt_timeout_map is not linear, so timeout in seconds is i when
-wdt_timeout_map[i] =3D=3D reg, some values of i not corresponding to any
-reg value.
-reg values of 0x0c and more will end with a timeout of 16s
-(i =3D=3D WDT_MAX_TIMEOUT) which will lead to unknown behaviour only
-because these values are marked "reserved" in the HW timer documentation.
+This is fine, I am not against fine-grained SoC-enable options. However
+all your SoCs should be enabled by default (default y if ARCH_RENESAS or
+any other option which works for you) thus you won't be growing
+user-selectable choices.
 
-> > +             ;
-> > +     if (i =3D=3D 0) {
-> > +             wdt_dev->timeout =3D 1;
-> > +             wdt_dev->max_hw_heartbeat_ms =3D 500;
->
-> This is an unacceptable API abuse. max_hw_heartbeat_ms, if set,
-> should be 16000, not 500. You could set the timeout to 1 second instead.
+Strictly speaking this still will be choice, because you need to trim
+config, but all people and all distros will just ignore it  and don't
+see it in defconfig.
 
-sorry about that, my comprehension of the documentation on
-min/max_hw_heartbeat_ms suggested that they define the time window during
-which the HW timer must receive a heartbeat or it will reset.
-0-'timeout' defines the time window for the userspace point of view,
-meaning that if 'timeout' > max_hw_heartbeat_ms, extra heartbeats must be
-sent to HW timer so that the reset can occur only after 'timeout' seconds.
+> 
+> Gr{oetje,eeting}s,
+> 
+>                         Geert
+> 
 
-Just to be clear, setting max_hw_heartbeat_ms to the maximum HW possible
-value (here 16000ms) means that one cannot use sub-second HW timer values,
-while all the watchdog API actually handles them well enough (my tests on
-the 500ms HW timer worked good).
 
-For this sunxi driver case, this implies that instead of just reading the
-current timeout value from the HW timer (if it was enabled before the
-kernel start), I also have to reconfigure the HW timer (to 1sec) if its
-timeout is less than a second (the 0 register value).
-
-> Guenter
->
+Best regards,
+Krzysztof
 
