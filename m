@@ -4,91 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 138B3C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:41:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4BF0C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:42:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=witULyw7TtoqLetVGW1Y6LysfNxj0X5B05/dTt9izbo=; b=lNXhd7/LaUIpCQW4RF+ITXQOmt
-	sQBg5UEtewWYk/fma/e3lYv/Jo6YfmExc7qG1cIYJp7o0+OxdFoTL0A18bSZ6sKEWcg/X4EMrNqwD
-	VO2mmhyezZ3yNiqyMzYPwkFuNJ4z2Qe8G8Zisw5KN566es/0kfqEM8yb3s2wUT5DSw4JSg3xgupX8
-	0Hawz9hleLgGVrJoakpLbKqbcEsVVb1uCd4NLAJ6DJ5s8eumrQw+57uW0XjNpgBxoHnxyEfzTgb49
-	tLJzZbKgui62aYeEc0tqTlKyy/4Py87xv5EUHcFimewD6J5XK3yGR9FGE6bFBKNLrv1/uH8w0XlHS
-	zaxOj+qQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1cWNu+rL2XdcdJVhPLU9VIeXn64oBQqcNz36m3NYwI0=; b=i+CtHpRCtu9AKr2W6galmudrY0
+	feyZkr0cRrRL7jRqyAo/q7x8+0VDUP9BOuVtxdepAxWHqzjR1myJlWEkPGpIy4GlNXNkY62ZTCXf2
+	kvIFCjrodGi5luF/d46oBcPGhk6RcLnxuQxVyBz7NvbAeb1WwRvzw9j3i52L4niT7jlcekD4wyc7Q
+	/0FBJd5Jkh5BrujwyUDO/c5RuBhsDqcDTpgNd2sG7detqFHD30+q1MQQY3mWe3c+jw4wU/REImR3E
+	V62EKTP8vUqloJGIGE2RpB0hADScIE/vNuf6AY+h8ld45OzRzv2M/QRacW/jyAMXLFI7147w0iRDf
+	t3eiNKZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjlW-00000008boS-1wac;
-	Thu, 27 Feb 2025 19:41:50 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tni9U-00000008G8P-1jS2
+	id 1tnjlX-00000008bsM-3y14;
+	Thu, 27 Feb 2025 19:41:51 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tniAe-00000008GM2-1FSQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 17:58:29 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4393ee912e1so925e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 09:58:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740679106; x=1741283906; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=witULyw7TtoqLetVGW1Y6LysfNxj0X5B05/dTt9izbo=;
-        b=2J9AqRjZWisBF1AvoE1gh73GludGRt6Op/zHNpJxh9IeQZZvTgLvVPACYwXy1zgHqC
-         9JxlPw5O7iCr6PTULrCk2APPepbGtnxcfpW1pbaVxCh6ceP1V1v52/21+gwOGR/TniOt
-         SC51kXmbLHjzbyaTRQk1SGQaQO/te7f5BAMLdjjcm0QUOnY7UP3DVHl6+l41vo9wRgt0
-         XXrQL7vxKJ2qzHO7/Joz0rDqmn1/KceNyEc8Ga9+YIGgdSXwS5ccxHZQcjlZGsqX4D5j
-         8d1+JALF8YwTBvnmWBwS9eYSTInPJ/75bgJOD9NbqXwt0gOpHtc3/8N1aOZ/PU4F1/90
-         l4Bw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740679106; x=1741283906;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=witULyw7TtoqLetVGW1Y6LysfNxj0X5B05/dTt9izbo=;
-        b=dXi1KHCeqsixWguZabLS9lysTKAVeIgigaWN5wtV4PEB0aMHjwOzptBKdw5IVhO1US
-         VQzG2gnIiBgavnhU3O9/2kTJowhdU5i4aSm974+AwN6g4No5mY8YHMNq5hPZIJ93ZtUJ
-         h+yWMNXah5c2q1mZFkmZvECuKJjNF1kNFhGgrgtG7EsVm2fH7UpEW5Mk4LvtGBNsgTxS
-         Q1e2dyrDvCHiCEsu+Tbir/jaS3sJybMBtEOokodMVJOoluUS8WJ0rccZgjC5pnjMczhK
-         BV9ADsWxT2CrMsnnFhNqUgbpW++P0fhqPrzL0f98a1Mqq/0KqY25i698Oxc+R49Q3PJE
-         PL9w==
-X-Forwarded-Encrypted: i=1; AJvYcCUSXc+risG4SaBoqMExypqUMJQAAo1OS0aqXdVho9Dcl4uCCXiq/U7SC/yFwXitO79yA86BKLiAOReF+1SxJTfv@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8ohXBsDSqDcvKTBEFsAbNl/cOW6Xe4cRUVTMhXZ5PbBVN6i82
-	N4uLCx7vt3ETSVx3rh3D0P1I02HwgX6nmGhqtgCToVDh5CG6gDZVFjSBCM5PFw==
-X-Gm-Gg: ASbGncvHwcYObkatH3ykpaa/LxmHlJcH9MK8Lq/ZNaDSE02FCOyiQkl0Uanvtc/6XIO
-	lwGhI3Ox6FWgQYIsocxc2067hAJVXIXXVBgvTpqkUO2gAagXd04ATy43JGrFQBfx6It9WSShFel
-	TgKXaBVNxbCshCTxxu+YQuWaNwWFDYoVjUvyIpkqfuDhFawYtdRJTyKyyb/qrKFTPmhJeASFWbv
-	aY16dGUO4ihQfBNn1OTAfJUsA8rkArBeSYlj7xfzmW4As2+RpsyLliqBeLYc1ipTlVH68HuMK4N
-	8ji6MDd4ePFMPA1bYI0t/UJwEoJyJsY0xYaAZR/fTrCq/bo0t63a2Rj14kDPwMTuMKaRlg==
-X-Google-Smtp-Source: AGHT+IGXNHWKRbpRDhtRxmSOQkQhsusbKI17eAfdufiuBuU7YJHxATrJHQS1X9gdlxiAiDFx96bvtA==
-X-Received: by 2002:a05:600c:3ca8:b0:439:9434:1b6c with SMTP id 5b1f17b1804b1-43ba6bb74a0mr15565e9.3.1740679105829;
-        Thu, 27 Feb 2025 09:58:25 -0800 (PST)
-Received: from google.com (100.235.22.34.bc.googleusercontent.com. [34.22.235.100])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e47a7868sm2738983f8f.24.2025.02.27.09.58.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Feb 2025 09:58:24 -0800 (PST)
-Date: Thu, 27 Feb 2025 17:58:22 +0000
-From: Sebastian Ene <sebastianene@google.com>
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: catalin.marinas@arm.com, joey.gouly@arm.com, maz@kernel.org,
-	oliver.upton@linux.dev, snehalreddy@google.com,
-	suzuki.poulose@arm.com, vdonnefort@google.com, will@kernel.org,
-	yuzenghui@huawei.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-team@android.com
-Subject: Re: [PATCH 2/3] KVM: arm64: Map the hypervisor FF-A buffers on ffa
- init
-Message-ID: <Z8CnvkUwGKxcz2hj@google.com>
-References: <20250226214853.3267057-1-sebastianene@google.com>
- <20250226214853.3267057-3-sebastianene@google.com>
- <Z8A3RLoZxVxcz3wj@bogus>
+	Thu, 27 Feb 2025 17:59:41 +0000
+Received: from [10.137.184.60] (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 3653B2107A9A;
+	Thu, 27 Feb 2025 09:59:39 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 3653B2107A9A
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1740679179;
+	bh=1cWNu+rL2XdcdJVhPLU9VIeXn64oBQqcNz36m3NYwI0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Q9T9093DwMoOphebD28z8327uEo6bfOM00Eldccj/caewO1Vyph91pM+MjCyVmF8u
+	 GAQEXjYW8M1QfAV0wuqX8/+q4COSEOzbOnvSWcFZ6GvELBURwtxXIN7qrDgQ1Vo52J
+	 s3uD5tx6MbUdInEm1O/OhLl5ddUtj04ozTG374YE=
+Message-ID: <681a8922-b743-42cb-8793-ece9ae8919c1@linux.microsoft.com>
+Date: Thu, 27 Feb 2025 09:59:39 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z8A3RLoZxVxcz3wj@bogus>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 02/10] x86/mshyperv: Add support for extended Hyper-V
+ features
+To: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
+ linux-hyperv@vger.kernel.org, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org
+Cc: kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
+ mhklinux@outlook.com, decui@microsoft.com, catalin.marinas@arm.com,
+ will@kernel.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, hpa@zytor.com, daniel.lezcano@linaro.org,
+ joro@8bytes.org, robin.murphy@arm.com, arnd@arndb.de,
+ jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
+ skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com,
+ ssengar@linux.microsoft.com, apais@linux.microsoft.com,
+ Tianyu.Lan@microsoft.com, stanislav.kinsburskiy@gmail.com,
+ gregkh@linuxfoundation.org, vkuznets@redhat.com, prapal@linux.microsoft.com,
+ muislam@microsoft.com, anrayabh@linux.microsoft.com, rafael@kernel.org,
+ lenb@kernel.org, corbet@lwn.net
+References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1740611284-27506-3-git-send-email-nunodasneves@linux.microsoft.com>
+Content-Language: en-US
+From: Roman Kisel <romank@linux.microsoft.com>
+In-Reply-To: <1740611284-27506-3-git-send-email-nunodasneves@linux.microsoft.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_095828_456387_DE5F8123 
-X-CRM114-Status: GOOD (  20.53  )
+X-CRM114-CacheID: sfid-20250227_095940_365464_1D21CC35 
+X-CRM114-Status: UNSURE (   5.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,37 +85,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025 at 09:58:28AM +0000, Sudeep Holla wrote:
-> On Wed, Feb 26, 2025 at 09:48:52PM +0000, Sebastian Ene wrote:
-> > Map the hypervisor's buffers irrespective to the host and return
-> > a linux error code from the FF-A error code on failure. Remove
-> > the unmap ff-a buffers calls from the hypervisor as it will
-> > never be called and move the definition of the
-> > ffa_to_linux_error map in the header where it should belong to.
-> > Prevent the host from using FF-A if the hypervisor could not
-> > map its own buffers with Trustzone.
-> > 
-> > Signed-off-by: Sebastian Ene <sebastianene@google.com>
-> > ---
-> >  arch/arm64/kvm/hyp/nvhe/ffa.c     | 46 ++++++++++++-------------------
-> >  drivers/firmware/arm_ffa/driver.c | 24 ----------------
-> >  include/linux/arm_ffa.h           | 24 ++++++++++++++++
 
-Hi Sudeep,
 
-> 
-> Can you post the code movement from driver to the header as separate patch
-> so that I can take it separately to avoid conflicts with the other changes
-> I have. It could be just fine but I see no reason as why it can't be a
-> separate change or why it needs to be bundled here.
+On 2/26/2025 3:07 PM, Nuno Das Neves wrote:
+> From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+[...]
+>   
+> -	pr_info("Hyper-V: privilege flags low 0x%x, high 0x%x, hints 0x%x, misc 0x%x\n",
+> -		ms_hyperv.features, ms_hyperv.priv_high, ms_hyperv.hints,
+> +	pr_info("Hyper-V: privilege flags low 0x%x, high 0x%x, ext 0x%x, hints 0x%x, misc 0x%x\n",
+> +		ms_hyperv.features, ms_hyperv.priv_high,
+> +		ms_hyperv.ext_features, ms_hyperv.hints,
+>   		ms_hyperv.misc_features);
 
-Yes, let me do that and I will spin up a v2.
+Would using %#x instead of 0x%x be better in your opinion?
 
-Thanks,
-Sebastian
+[..]
+-- 
+Thank you,
+Roman
 
-> 
-> -- 
-> Regards,
-> Sudeep
 
