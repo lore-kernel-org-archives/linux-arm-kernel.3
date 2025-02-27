@@ -4,160 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 501A5C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:41:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F270C1B087
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:41:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CiVRQjPWW2H0Nocpg5xLIO2Md1QMkhz6T0WohFmNoCc=; b=Mlp3QzGmafEajaFvv+bmSp5XP4
-	Q6+ezwLSUw2BAmb8gNq/9E4YRmmqyvMBtoNGGE1DHMzUaqT/jvtGmigPTBneNn7ULgwpxT7ZcmDg3
-	HRXZseJrwygf2yZuVWk/BhrDeg/ar+fagY5MRR86CpPp2iZIXFRfs37SOPG8Nu1x0aSyrBEI4JZV0
-	iebR2gWxtpesxj3XVzYiCXdxVM1GrIlaDivKyEEQhlU6JrXPHIXVHE86p+4cQ9lovB9cpW2ALwCmW
-	FKuALjP3vX6CPvU6wUWHEH3QnwMZbHFyZNROFJxbMpqIGeCOQjtqrPFmbMUICxko9oZtYn0OaPwuC
-	Z1IrV4Mw==;
+	bh=6qfwAKHnTduYh9WVRV2fjARbrab5NBY3Zz90WxtrY78=; b=RVHp7fMNGJH99jGew3ky6HjQ4i
+	8yrjKPdN0gcySKOlnCOKKbGBfM8+urzZCakpsJS3g9yhG487dzCHqvE0ba9msb8DbxoTYqAmJYTuv
+	Sz5hsp5PMUkYittcGSa7ILvcGVbWqdb8Iu66Jye4dtTtQFgB+k4LAMFDbfabZuIZS82ZSqAcYCNq3
+	c+VfgKkvAECjr0EKKNsa/FZKRY7FhPYAnsh7kAkQ1v5iMBsgRwlrMJShU/dAKq2+fZm940UXUPlC1
+	3y9CY+VP+hKbyqE4HXDFQowY6yoATx+8Ed64Ylcpdm8WDzXPkH1OmZj64w7+Jdr642Gw3JtNl1Wbt
+	DW4deeiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjlH-00000008bRR-3EIG;
-	Thu, 27 Feb 2025 19:41:35 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1tnjlQ-00000008bfE-3UR3;
+	Thu, 27 Feb 2025 19:41:44 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnhvN-00000008ElY-1YZI
+	id 1tni0g-00000008FGk-2PMW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 17:43:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=emjgMNTGa0YzAvgL7oSSvot16fiFGmsh4pXtSccPkrnMXCN8/Po82QVZZ9aq7o3hfsycE36n0+mDY5gw3CoCITsiSyeJqeXGwy+rvHzbKXoEAsaadAsCNdELkEbwyMidxaiRXs0vXfeg/fdD99GUju3DlEdQ/8WZyE40Z1UNVsjzLFAHUrDeJfTAPCdNtUSwWtMY/GREaDED/41U2CoV+oc18Z046HDu3qRZkXhhd+i9rTSnkUz6BaQModVNBR/ZZug3kCVX/trPQWOUTkb8antK27kzFi+i+8ITSjDo7UnGN12RhizBF6xQ8cwbexXzq+n/KWxHFY/LqWfq5KExLg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CiVRQjPWW2H0Nocpg5xLIO2Md1QMkhz6T0WohFmNoCc=;
- b=zOluwRlvR6Nc6YDB612pLdHQq2dQp2wlUQcQSmKch9wErvocBlqCG5djVkkPYPaPeKWH9HXU5RKrenw/CGdkHPWElRHIf8eu4Sfk7IsyqCB3VJ/D8/5uqsVpNIXURaWdzMK9KecCeYXBhVl6A5scGn+kFs/xw9E+JUsLaTcJE+oWmzqxRhDB0glG1T5pQpzTF3IT800x/lVxjt1uZm+hO/mtoMdR+BiHAxUigxyq48mjGQyeoSbhyuxSJ8Enx0T4O5LIRVGiUvlQthWfWy3DtjVTq6uNH3Dwq5pIbYleol7HrJ4+IvCDPROB6/xPbpZAYA4a/4MsETeYavJyqIRPxQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CiVRQjPWW2H0Nocpg5xLIO2Md1QMkhz6T0WohFmNoCc=;
- b=A5pXjeUMQwv0JvDnXQF1DwGyfH8IL2kNMnIBbc8bUSyjM1Xv3goqsvuBSXeK6Qek3RMY2T7+8+v+5QwDeGHJ9JlxYOKhpvBMjcQXmWEghreQm2N30P/NKsXlXEPifD4sg7r/b1ImtacfKrhL2G7qMlGgvWKFMsjwk6M51ciVXZ5rwYgVGE43KjR4lYS+UvQm0qVZASDpli/r3clol7NUWyDIikpyg2NH5qbPmMnHSUhtwt4dUf0hbLJiCG8EexThoFNqbk6O2HLgRzLHNa2czFar0ujcN0eugrm5Ibrctp8Zk4Vn4mU6BUJVY2lMN6lLyDAXxuITSUjc2rrkqi5U5Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AS8PR04MB7639.eurprd04.prod.outlook.com (2603:10a6:20b:23e::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.22; Thu, 27 Feb
- 2025 17:43:47 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8466.016; Thu, 27 Feb 2025
- 17:43:47 +0000
-Date: Thu, 27 Feb 2025 12:43:37 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Marek Vasut <marex@denx.de>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Airlie <airlied@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Sebastian Reichel <sre@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Simona Vetter <simona@ffwll.ch>,
-	Steven Price <steven.price@arm.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, imx@lists.linux.dev
-Subject: Re: [PATCH 9/9] arm64: dts: imx95: Describe Mali G310 GPU
-Message-ID: <Z8CkSUry5puMu6Mx@lizhi-Precision-Tower-5810>
-References: <20250227170012.124768-1-marex@denx.de>
- <20250227170012.124768-10-marex@denx.de>
+	Thu, 27 Feb 2025 17:49:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740678563; x=1772214563;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=hbOcWRR965qL+r3t+KOoQIZ6pqo51J3oCtyYdu/MbP8=;
+  b=dlj0/z71zM2koZnLgKpZ2VRKew8MSA8c4AG08ydelH067L0tVsIj/Z8L
+   Qa/gCvZs91gz/oDVMkNmXpyVDGW67E0rrVoN0ShKnzt9+HpJvLLuVeYck
+   Uuq7Fhh6ZwNXOP6Q4B3qMPJ6Ap/m3RsU5Zp7nqrWEgnBqYN3OQ0lXf5jT
+   AB5U7YG7FNGD+RogVQ7WsKzd3wCZD2Lz/WUDhg5ZN+LlnZvZa8OVTY8p3
+   UA7jIDuBPWSn4GKNkkS7gF49wvz+3Gj1EL3MAQO/5tN2aNzqEp6VPSRZH
+   Y/vFqxVWaFJqZbXEFRIXTX4CaAeVaeUjvuHtr8S+R0Ho4URIPBX8/zX/I
+   Q==;
+X-CSE-ConnectionGUID: vyB64+XZQtibg/4MF7033Q==
+X-CSE-MsgGUID: AAeaT9dCTdqekhHoHZh1sw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11358"; a="41503215"
+X-IronPort-AV: E=Sophos;i="6.13,320,1732608000"; 
+   d="scan'208";a="41503215"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Feb 2025 09:49:16 -0800
+X-CSE-ConnectionGUID: od8b3YkhQHOqc5lLH407AA==
+X-CSE-MsgGUID: qM2gFwLiQoGeQ9Pbh3oF7w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,320,1732608000"; 
+   d="scan'208";a="117753696"
+Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
+  by fmviesa009.fm.intel.com with ESMTP; 27 Feb 2025 09:49:09 -0800
+Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tni0R-000DnH-0q;
+	Thu, 27 Feb 2025 17:49:07 +0000
+Date: Fri, 28 Feb 2025 01:48:52 +0800
+From: kernel test robot <lkp@intel.com>
+To: Menglong Dong <menglong8.dong@gmail.com>, rostedt@goodmis.org,
+	mark.rutland@arm.com, alexei.starovoitov@gmail.com
+Cc: oe-kbuild-all@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org,
+	mhiramat@kernel.org, tglx@linutronix.de, mingo@redhat.com,
+	bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
+	hpa@zytor.com, mathieu.desnoyers@efficios.com, nathan@kernel.org,
+	ndesaulniers@google.com, morbo@google.com, justinstitt@google.com,
+	dongml2@chinatelecom.cn, akpm@linux-foundation.org, rppt@kernel.org,
+	graf@amazon.com, dan.j.williams@intel.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH bpf-next v2] add function metadata support
+Message-ID: <202502280123.BNaCYT2A-lkp@intel.com>
+References: <20250226121537.752241-1-dongml2@chinatelecom.cn>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250227170012.124768-10-marex@denx.de>
-X-ClientProxiedBy: SJ0PR05CA0010.namprd05.prod.outlook.com
- (2603:10b6:a03:33b::15) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB7639:EE_
-X-MS-Office365-Filtering-Correlation-Id: 749c9952-9c57-477f-aa34-08dd5756498a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|1800799024|366016|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?EheXE7nqdKrtUjwnggSxjAsJ47nlwQxE7SwNApHX3xSrGRR8PxtjPYjoAhu3?=
- =?us-ascii?Q?I04do9lNxtZVZUBqrwveD72lKxgsm8PEx0TQUJ+KyEeIwIJppJ/MkNjg+bnJ?=
- =?us-ascii?Q?B5CH64Sv2/m6VmZuMujSXXDcdzCaqldAbD4y/Emv4AQCFyGp/gtjb/Rq+xRA?=
- =?us-ascii?Q?foCbByZnIF3yvj71zc8CeERqrkk7HlTZkdRunK69b3rS8Ygq8sn/XBW8pLCR?=
- =?us-ascii?Q?q22LhNME2cqJFSdi2XrCeARi1KjqEYyxlohFBm2hrAXr6TRtfGOesiHV4o3u?=
- =?us-ascii?Q?MajFstNRwBzhswkwWTA0ewuDXX8Q7qTZelz88AHNlwpls6edQFoRYUuaASw9?=
- =?us-ascii?Q?5A06Lk/KLVdmdYVIzZ/D/D1y8nivToR46WoMk6XQkRJO3aeTt1bXL06GdZHR?=
- =?us-ascii?Q?fGkujw29nlOoVq/WyGaenkNk8yxuvBo/y+biK3ocRpXqB0cGQZUKnK1T8qk8?=
- =?us-ascii?Q?61N3iTLr9EY6EWX7PNHoB9wLVCJeyGtHkbbLx+DEo5yOw3Segb4LX+k+NkR+?=
- =?us-ascii?Q?f2I1AzyqF1paDO8OJBUzSkbw1QeuN+eAnZMf97i+441vwslKntA0AKUaY9hY?=
- =?us-ascii?Q?Una5C0sBLcxCth5dw5BX0piD8mHaSAPoW7atIYY/qMzRLwDkEl95Be+U5E73?=
- =?us-ascii?Q?wKvJcTeF0YRUWzyEyGu3JCbK7n5nMXJ+Vf9532niwxUIjRwmz95H1zBz2hmC?=
- =?us-ascii?Q?lLAY5/k55//jX2Opz8rAGxCVgLji9L5YAcG54xY/4+J6wcbKpYxTjj4AJi7S?=
- =?us-ascii?Q?dGEtdK8X2lRMpWSxGwLSPVMMwUxo+qikLpfjZViCJ4S+gJwqO44TD/YRy0gJ?=
- =?us-ascii?Q?f/fWwpv+osqw2n5FZyrb+x19B4C5SKEx4CPMJA6OwXxOz8aBGQI29t2iGetz?=
- =?us-ascii?Q?NomKdM/dANCdsiVvRO8MG7hfv5UqZuSpvkIz76ATGG9z/NK8YpUqDtcPgOha?=
- =?us-ascii?Q?RkwjkbvLd5nsRMQPdPHRaWAlFcMouugvyi6/oroBHxfdgB1KxTVpBlTmzzo1?=
- =?us-ascii?Q?c03lLNB7u9LENQ4p8pukvfbrghLaMhxoD7HJF3M2V46J0KhHev+uzQfPnSTU?=
- =?us-ascii?Q?4vLu/PrJizrjG/hgEnpzQgVbYIUbDdssZ/EdJQVpeLwHCMO2Cod5FF76S3Rv?=
- =?us-ascii?Q?+LacFo4k38FfZ3ALI2ZoqL78KkL9uEdsL7g+s2qX4azFUfyoj8Q8rcX3XelK?=
- =?us-ascii?Q?8lHcCWfGdLbm/kikLxsZGaei1qw/4Fr3r8QOn8cjGLs63an9s8UUtQbzMZ6T?=
- =?us-ascii?Q?CpcV7dIE++qJYDqtLB5doXZeo1H0ilnSHhFkz4i0ozurgv0YwAZOMR6lU+pJ?=
- =?us-ascii?Q?AdyBDtvwbR7Hx1td0cGF7VbguAQQBE1a9p5lSN5M5pKWrCgH8nUGOAEzhe7b?=
- =?us-ascii?Q?bM07JJ7vhkQ7tjCTSTbPIJm01E1HHD+DUdsabbLEeirnH/c6tDrGFrNx5dVV?=
- =?us-ascii?Q?T9SnEiLKGJociA3wdF9BqNgyAeON9hu5?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(1800799024)(366016)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ieX0MMLDMcNny5BIfrzHJNcU1b1TZ3Va12X2Z9N5jNB1/AYzDipjoZm/lhBH?=
- =?us-ascii?Q?TmFp0sKkA0RoqbkmIESaiGT8KR05DQF82pXK9gxhYh+VjEyBX1Z7ghg/fNMD?=
- =?us-ascii?Q?MqhZ1In4p+6JFyUJ3IOn8Q/OGqI9yHsMYGkuOHhWj6D3WOm6BCFOfRv0mdc2?=
- =?us-ascii?Q?C66m6nxCdgCvlUkYTRFQKH05iKmYc1ktn1moSv1QMMb4qSBxkomNroGe6epF?=
- =?us-ascii?Q?3Waadsn5X61M3dpeZu61+T7npMyACzkvAJkuIQHcTckRJ3H6y/1rOlHXku7q?=
- =?us-ascii?Q?kOdKwEdf86tj/1zJwSF16a6rkYGIgKRM5nD7cZg0OQ75u3Q9vc0VgZkT07RC?=
- =?us-ascii?Q?ks5yo5/Mjez5CT9mE2+LF/YNiwycjVCE8sMwRs/SO3XndA97CyNWr6VdBaAT?=
- =?us-ascii?Q?38Bn11vMbCLgC8CRfYDdlCBbuIgQxYiNIAtAGEIn2Ug86W9k/aeEGaRJKcCX?=
- =?us-ascii?Q?LlbHEuqbaIzpOvrVR3w3WXdtOJoX9zlavQQHGmIIxiyJW4ns0BY01YgSe9Wj?=
- =?us-ascii?Q?zOurRisJ5J7VUuClgvjZobQGr0tq8jpi+4w7cY15Ib4S5NhBZH+YBz3bXvMS?=
- =?us-ascii?Q?PzcXxk8vM1Lr7v32omMfSCc+f50H84O0qdU58GMdMF4SG9seiJGTyC/V/vjw?=
- =?us-ascii?Q?MBc7q8uIovVwrWTlXiwxrxZM9x7nvbM1wl8W7vMriHRQUGCUBcJ5WlYFUwhG?=
- =?us-ascii?Q?QCbXZgOs7uLJFpZktGlL9Rw0Ee2LzShnBkC3A5/5o7MCQE2yQSGirY5id2jW?=
- =?us-ascii?Q?GdeA9GaWHPuxOdrVa3x5lZZ3LA61zVNMuVF8qCNg1QypoMCgjt1USM+MMZUv?=
- =?us-ascii?Q?zUPecZdFHuf3GKoeREtkhsZ9mdOYqCnj3arh4DFDiCFAZYsRyo3MBI2Dxje6?=
- =?us-ascii?Q?HYpgAr473l8pvviDgJ4BLOspU7MwDl94AsWdAwcKAm4qAHjV9KRJ9cM/wEDO?=
- =?us-ascii?Q?szS3CT5/r0NDOVgR7R1LtisdEqRt4aCahQfizUrio6GHCpp520TiQ12B/g+7?=
- =?us-ascii?Q?PhXvzy7mE6IBqgRUgDRI1TBm0ES+zKxVtYFeB46wp5bosZW+Gthu2Ye0WiqY?=
- =?us-ascii?Q?pgbAvDkw7z7qd8pAVO6y2T5z5+g4BJgwiFqJ8FBEqGq77k41ILuhimXYszz1?=
- =?us-ascii?Q?5HtpODDWP6nWmVl8XRZAvHeqoPFGIQupt5MRYyPLU5osmemfAlaCKyfqgHtu?=
- =?us-ascii?Q?+O+eAzQMWbAMqey7aQa5rXk2uPstNuBB3NlP2ywZ6On22o2cbpidvOBRZ6XY?=
- =?us-ascii?Q?nW/2pYNAXUN+cPblXsTFr7QMAqnWS9oxEpQl7YOpQ5cvCaNPS9YZc/mIamzg?=
- =?us-ascii?Q?k3fL0+tOvl8mB6TsxhNNMvYJeFY0niWZDrgsE+U+E7EygfiIhYoDbVnI9sX2?=
- =?us-ascii?Q?vnMFLM/G7sv3Ez5MMpG6p7Bu6YxIc9bfCO5rhkYnhX5PTO/zoOVfOb0q8cSw?=
- =?us-ascii?Q?EusZynbwMPW6bMd4xKbDcdva/vbii/f3Tsthc8jzl6rQaxvlBe7NbstLFBWR?=
- =?us-ascii?Q?kQM/PyI/1Dl3Emd/ebNfs1hucHvS/thhdW5UFm2LiHRoNiRuJE8Y1dS4Ktv8?=
- =?us-ascii?Q?gYAdK7xVZ4Aklg/COhY6WsBv5Nv657/L9pmDBQU5?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 749c9952-9c57-477f-aa34-08dd5756498a
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Feb 2025 17:43:47.1532
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /2vG5eeaCXcmVY69WijHGDsjjiG4F0bUoZnYJ6D9dTKw4LfH4oveFxZBvHPbIudx8uPOAbpuz3LnooPYpir/8w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7639
+In-Reply-To: <20250226121537.752241-1-dongml2@chinatelecom.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_094353_434302_BF1279A4 
-X-CRM114-Status: GOOD (  19.88  )
+X-CRM114-CacheID: sfid-20250227_094922_652306_799EBB9F 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,130 +96,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025 at 05:58:09PM +0100, Marek Vasut wrote:
-> The instance of the GPU populated in i.MX95 is the G310,
-> describe this GPU in the DT. Include description of the
-> GPUMIX block controller, which can be operated as a simple
-> reset. Include dummy GPU voltage regulator and OPP tables.
->
-> Signed-off-by: Marek Vasut <marex@denx.de>
-> ---
-> Cc: Boris Brezillon <boris.brezillon@collabora.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: David Airlie <airlied@gmail.com>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Liviu Dudau <liviu.dudau@arm.com>
-> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> Cc: Maxime Ripard <mripard@kernel.org>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Philipp Zabel <p.zabel@pengutronix.de>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Sascha Hauer <s.hauer@pengutronix.de>
-> Cc: Sebastian Reichel <sre@kernel.org>
-> Cc: Shawn Guo <shawnguo@kernel.org>
-> Cc: Simona Vetter <simona@ffwll.ch>
-> Cc: Steven Price <steven.price@arm.com>
-> Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> Cc: devicetree@vger.kernel.org
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> ---
->  arch/arm64/boot/dts/freescale/imx95.dtsi | 62 ++++++++++++++++++++++++
->  1 file changed, 62 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
-> index 3af13173de4bd..36bad211e5558 100644
-> --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-> @@ -249,6 +249,37 @@ dummy: clock-dummy {
->  		clock-output-names = "dummy";
->  	};
->
-> +	gpu_fixed_reg: fixed-gpu-reg {
-> +		compatible = "regulator-fixed";
-> +		regulator-min-microvolt = <920000>;
-> +		regulator-max-microvolt = <920000>;
-> +		regulator-name = "vdd_gpu";
-> +		regulator-always-on;
-> +		regulator-boot-on;
+Hi Menglong,
 
-Does really need regulator-boot-on and regulator-always-on ?
+kernel test robot noticed the following build warnings:
 
-> +	};
-> +
-> +	gpu_opp_table: opp_table {
-> +		compatible = "operating-points-v2";
-> +
-> +		opp-500000000 {
-> +			opp-hz = /bits/ 64 <500000000>;
-> +			opp-hz-real = /bits/ 64 <500000000>;
-> +			opp-microvolt = <920000>;
-> +		};
-> +
-> +		opp-800000000 {
-> +			opp-hz = /bits/ 64 <800000000>;
-> +			opp-hz-real = /bits/ 64 <800000000>;
-> +			opp-microvolt = <920000>;
-> +		};
-> +
-> +		opp-1000000000 {
-> +			opp-hz = /bits/ 64 <1000000000>;
-> +			opp-hz-real = /bits/ 64 <1000000000>;
-> +			opp-microvolt = <920000>;
-> +		};
-> +	};
-> +
->  	clk_ext1: clock-ext1 {
->  		compatible = "fixed-clock";
->  		#clock-cells = <0>;
-> @@ -1846,6 +1877,37 @@ netc_emdio: mdio@0,0 {
->  			};
->  		};
->
-> +		gpu_blk_ctrl: reset-controller@4d810000 {
-> +			compatible = "fsl,imx95-gpu-blk-ctrl";
-> +			reg = <0x0 0x4d810000 0x0 0xc>;
-> +			#reset-cells = <1>;
-> +			clocks = <&scmi_clk IMX95_CLK_GPUAPB>;
-> +			assigned-clocks = <&scmi_clk IMX95_CLK_GPUAPB>;
-> +			assigned-clock-parents = <&scmi_clk IMX95_CLK_SYSPLL1_PFD1_DIV2>;
-> +			assigned-clock-rates = <133333333>;
-> +			power-domains = <&scmi_devpd IMX95_PD_GPU>;
-> +			status = "disabled";
-> +		};
-> +
-> +		gpu: gpu@4d900000 {
-> +			compatible = "fsl,imx95-mali", "arm,mali-valhall-csf";
-> +			reg = <0 0x4d900000 0 0x480000>;
-> +			clocks = <&scmi_clk IMX95_CLK_GPU>;
-> +			clock-names = "core";
-> +			interrupts = <GIC_SPI 288 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 289 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 290 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "gpu", "job", "mmu";
-> +			mali-supply = <&gpu_fixed_reg>;
-> +			operating-points-v2 = <&gpu_opp_table>;
-> +			power-domains = <&scmi_devpd IMX95_PD_GPU>, <&scmi_perf IMX95_PERF_GPU>;
-> +			power-domain-names = "mix", "perf";
-> +			resets = <&gpu_blk_ctrl 0>;
-> +			#cooling-cells = <2>;
-> +			dynamic-power-coefficient = <1013>;
-> +			status = "disabled";
+[auto build test WARNING on bpf-next/master]
 
-GPU is internal module, which have not much dependence with other module
-such as pinmux. why not default status is "disabled". Supposed gpu driver
-will turn off clock and power if not used.
+url:    https://github.com/intel-lab-lkp/linux/commits/Menglong-Dong/add-function-metadata-support/20250226-202312
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git master
+patch link:    https://lore.kernel.org/r/20250226121537.752241-1-dongml2%40chinatelecom.cn
+patch subject: [PATCH bpf-next v2] add function metadata support
+config: i386-randconfig-062-20250227 (https://download.01.org/0day-ci/archive/20250228/202502280123.BNaCYT2A-lkp@intel.com/config)
+compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250228/202502280123.BNaCYT2A-lkp@intel.com/reproduce)
 
-Frank
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202502280123.BNaCYT2A-lkp@intel.com/
 
-> +		};
-> +
->  		ddr-pmu@4e090dc0 {
->  			compatible = "fsl,imx95-ddr-pmu", "fsl,imx93-ddr-pmu";
->  			reg = <0x0 0x4e090dc0 0x0 0x200>;
-> --
-> 2.47.2
->
+sparse warnings: (new ones prefixed by >>)
+   kernel/trace/kfunc_md.c:12:23: sparse: sparse: symbol 'kfunc_mds' redeclared with different type (different address spaces):
+   kernel/trace/kfunc_md.c:12:23: sparse:    struct kfunc_md [noderef] __rcu *[addressable] [toplevel] kfunc_mds
+   kernel/trace/kfunc_md.c: note: in included file:
+   include/linux/kfunc_md.h:16:24: sparse: note: previously declared as:
+   include/linux/kfunc_md.h:16:24: sparse:    struct kfunc_md *extern [addressable] [toplevel] kfunc_mds
+   kernel/trace/kfunc_md.c:186:20: sparse: sparse: incorrect type in assignment (different address spaces) @@     expected struct kfunc_md *md @@     got struct kfunc_md [noderef] __rcu * @@
+   kernel/trace/kfunc_md.c:186:20: sparse:     expected struct kfunc_md *md
+   kernel/trace/kfunc_md.c:186:20: sparse:     got struct kfunc_md [noderef] __rcu *
+>> kernel/trace/kfunc_md.c:98:25: sparse: sparse: non size-preserving pointer to integer cast
+
+vim +98 kernel/trace/kfunc_md.c
+
+    10	
+    11	static u32 kfunc_md_count = ENTRIES_PER_PAGE, kfunc_md_used;
+  > 12	struct kfunc_md __rcu *kfunc_mds;
+    13	EXPORT_SYMBOL_GPL(kfunc_mds);
+    14	
+    15	static DEFINE_MUTEX(kfunc_md_mutex);
+    16	
+    17	
+    18	void kfunc_md_unlock(void)
+    19	{
+    20		mutex_unlock(&kfunc_md_mutex);
+    21	}
+    22	EXPORT_SYMBOL_GPL(kfunc_md_unlock);
+    23	
+    24	void kfunc_md_lock(void)
+    25	{
+    26		mutex_lock(&kfunc_md_mutex);
+    27	}
+    28	EXPORT_SYMBOL_GPL(kfunc_md_lock);
+    29	
+    30	static u32 kfunc_md_get_index(void *ip)
+    31	{
+    32		return *(u32 *)(ip - KFUNC_MD_DATA_OFFSET);
+    33	}
+    34	
+    35	static void kfunc_md_init(struct kfunc_md *mds, u32 start, u32 end)
+    36	{
+    37		u32 i;
+    38	
+    39		for (i = start; i < end; i++)
+    40			mds[i].users = 0;
+    41	}
+    42	
+    43	static int kfunc_md_page_order(void)
+    44	{
+    45		return fls(DIV_ROUND_UP(kfunc_md_count, ENTRIES_PER_PAGE)) - 1;
+    46	}
+    47	
+    48	/* Get next usable function metadata. On success, return the usable
+    49	 * kfunc_md and store the index of it to *index. If no usable kfunc_md is
+    50	 * found in kfunc_mds, a larger array will be allocated.
+    51	 */
+    52	static struct kfunc_md *kfunc_md_get_next(u32 *index)
+    53	{
+    54		struct kfunc_md *new_mds, *mds;
+    55		u32 i, order;
+    56	
+    57		mds = rcu_dereference(kfunc_mds);
+    58		if (mds == NULL) {
+    59			order = kfunc_md_page_order();
+    60			new_mds = (void *)__get_free_pages(GFP_KERNEL, order);
+    61			if (!new_mds)
+    62				return NULL;
+    63			kfunc_md_init(new_mds, 0, kfunc_md_count);
+    64			/* The first time to initialize kfunc_mds, so it is not
+    65			 * used anywhere yet, and we can update it directly.
+    66			 */
+    67			rcu_assign_pointer(kfunc_mds, new_mds);
+    68			mds = new_mds;
+    69		}
+    70	
+    71		if (likely(kfunc_md_used < kfunc_md_count)) {
+    72			/* maybe we can manage the used function metadata entry
+    73			 * with a bit map ?
+    74			 */
+    75			for (i = 0; i < kfunc_md_count; i++) {
+    76				if (!mds[i].users) {
+    77					kfunc_md_used++;
+    78					*index = i;
+    79					mds[i].users++;
+    80					return mds + i;
+    81				}
+    82			}
+    83		}
+    84	
+    85		order = kfunc_md_page_order();
+    86		/* no available function metadata, so allocate a bigger function
+    87		 * metadata array.
+    88		 */
+    89		new_mds = (void *)__get_free_pages(GFP_KERNEL, order + 1);
+    90		if (!new_mds)
+    91			return NULL;
+    92	
+    93		memcpy(new_mds, mds, kfunc_md_count * sizeof(*new_mds));
+    94		kfunc_md_init(new_mds, kfunc_md_count, kfunc_md_count * 2);
+    95	
+    96		rcu_assign_pointer(kfunc_mds, new_mds);
+    97		synchronize_rcu();
+  > 98		free_pages((u64)mds, order);
+    99	
+   100		mds = new_mds + kfunc_md_count;
+   101		*index = kfunc_md_count;
+   102		kfunc_md_count <<= 1;
+   103		kfunc_md_used++;
+   104		mds->users++;
+   105	
+   106		return mds;
+   107	}
+   108	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
