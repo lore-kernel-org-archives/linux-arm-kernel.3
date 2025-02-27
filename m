@@ -4,59 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08225C197BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 23:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1ECDC197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 23:33:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XlLJKA/rZVUHk60jeVpzwLxxcSxLepwcu1pCCYTuJMs=; b=1Q6AerAJj1vFiw1JyfyFNWl1vp
-	z2XNrBHZWs36yXf4r56hSj0Vt3U3rzm0RbslZa80yCVo3oFxG1vMNTHGPThKZLc/wkg3abE0h4RMH
-	yl0kHqPXGPRrMnSeFDnyMWy6PVtNB67q+fZagCk/LcefPtYLEXOl1AvKJ8PG0cv+FEzQrTiiatPbS
-	xAa7rNVr9ue/cJ/IRoNgY8nB5Vuy1YaLItX9rUeH7mTA/Kpj0jTqCjZ9QWoqZ7d9S1V5UTK2zEzyr
-	y9c9rowSus+LekojPvU88KjnpaWDWjDJN/AJc4o/LPLiWBkKJYX2l2Skc/3eKnBBLqECdHtYHOd2f
-	as4ITwew==;
+	bh=EiYVaoXbtdVeqdOIjPOIL+TQYlIQmgqlmJX0DgXhCSQ=; b=I86dTbcehZIoJ0a2+M9yy4VQMt
+	ZOYlq/pPMfcNZqbM8Ahl9GfqpYA/HF/iQ5xO9rVBSTlnGDfUyRfYgOuk4sqfIT04E/REArKc+6hR4
+	NyEOBg2sQRiqBsd2dHrUbpfWXRdUd2XYl/8VcptQITHwvqPStUu6+Wtsj/UDIs3Gz5wUdjg/lnTxz
+	eoJS1Cqj9GAEZKnIz/AQoJYiTRMdk/3HUSRi1CZJdfAS9TaZ3mEviCxV6xnPjKn/dCC2rM6YXT0+Q
+	a9/wV0Z3iPPRkvm8jwPnTOUp/Y4kA6CD2V6vjLy2QeQx+QXYz3V3PLA+ICPfBB8qIPj6EXGfhUpLY
+	dilJhQuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnnLi-00000009B8e-2VK4;
-	Thu, 27 Feb 2025 23:31:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
+	id 1tnnNE-00000009BMW-1PA3;
+	Thu, 27 Feb 2025 23:33:00 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnn8C-000000098oi-3LpU
+	id 1tnnBv-000000099pZ-3wDC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 23:17:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D64FB1688;
-	Thu, 27 Feb 2025 15:17:43 -0800 (PST)
-Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CAB693F673;
-	Thu, 27 Feb 2025 15:17:26 -0800 (PST)
-From: Andre Przywara <andre.przywara@arm.com>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 8/8] pinctrl: sunxi: Add support for the secondary A523 GPIO ports
-Date: Thu, 27 Feb 2025 23:14:47 +0000
-Message-ID: <20250227231447.20161-9-andre.przywara@arm.com>
-X-Mailer: git-send-email 2.46.3
-In-Reply-To: <20250227231447.20161-1-andre.przywara@arm.com>
-References: <20250227231447.20161-1-andre.przywara@arm.com>
+	Thu, 27 Feb 2025 23:21:21 +0000
+Received: from [10.137.184.60] (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id D4954210D0F2;
+	Thu, 27 Feb 2025 15:21:18 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com D4954210D0F2
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1740698479;
+	bh=EiYVaoXbtdVeqdOIjPOIL+TQYlIQmgqlmJX0DgXhCSQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ZGgsU1Ox1cQX31aaBLp4RLR7Ct4s9L78MTyYhRvvM4obhge2PYIUmXflaMQPr6qxD
+	 vDZ9RIa6tzCLJBcZd7GkKr5DDIzXQYIBYS0qvUsV9ZaFdp/0D65u8nPd3bH0DzGWS2
+	 ZmGBG9mZl+qWpxpArzPuAcf0HDoEWs1++Nt3ykis=
+Message-ID: <b9317a6c-5427-45bf-af93-2b78a8c97863@linux.microsoft.com>
+Date: Thu, 27 Feb 2025 15:21:18 -0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 01/10] hyperv: Convert Hyper-V status codes to strings
+To: Easwar Hariharan <eahariha@linux.microsoft.com>
+Cc: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
+ linux-hyperv@vger.kernel.org, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org, kys@microsoft.com,
+ haiyangz@microsoft.com, wei.liu@kernel.org, mhklinux@outlook.com,
+ decui@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
+ tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, hpa@zytor.com, daniel.lezcano@linaro.org,
+ joro@8bytes.org, robin.murphy@arm.com, arnd@arndb.de,
+ jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
+ skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com,
+ ssengar@linux.microsoft.com, apais@linux.microsoft.com,
+ Tianyu.Lan@microsoft.com, stanislav.kinsburskiy@gmail.com,
+ gregkh@linuxfoundation.org, vkuznets@redhat.com, prapal@linux.microsoft.com,
+ muislam@microsoft.com, anrayabh@linux.microsoft.com, rafael@kernel.org,
+ lenb@kernel.org, corbet@lwn.net
+References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1740611284-27506-2-git-send-email-nunodasneves@linux.microsoft.com>
+ <74af19c4-639f-4bcc-b667-b5f102bbb312@linux.microsoft.com>
+ <8338dd00-3aa4-418f-a547-1c19623358cb@linux.microsoft.com>
+Content-Language: en-US
+From: Roman Kisel <romank@linux.microsoft.com>
+In-Reply-To: <8338dd00-3aa4-418f-a547-1c19623358cb@linux.microsoft.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_151728_986965_9F8EAC64 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20250227_152120_001140_032E222A 
+X-CRM114-Status: UNSURE (   8.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,107 +87,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As most other Allwinner SoCs before, the A523 chip contains a second
-GPIO controller, managing banks PL and PM.
-Use the newly introduced DT based pinctrl driver to describe just the
-generic pinctrl properties, so advertise the number of pins per bank
-and the interrupt capabilities. The actual function/mux assignment is
-taken from the devicetree.
 
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
----
- drivers/pinctrl/sunxi/Kconfig                 |  5 ++
- drivers/pinctrl/sunxi/Makefile                |  1 +
- drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c | 54 +++++++++++++++++++
- 3 files changed, 60 insertions(+)
- create mode 100644 drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
 
-diff --git a/drivers/pinctrl/sunxi/Kconfig b/drivers/pinctrl/sunxi/Kconfig
-index 0cbe466683650..dc62eba96348e 100644
---- a/drivers/pinctrl/sunxi/Kconfig
-+++ b/drivers/pinctrl/sunxi/Kconfig
-@@ -136,4 +136,9 @@ config PINCTRL_SUN55I_A523
- 	default ARM64 && ARCH_SUNXI
- 	select PINCTRL_SUNXI
- 
-+config PINCTRL_SUN55I_A523_R
-+	bool "Support for the Allwinner A523 R-PIO"
-+	default ARM64 && ARCH_SUNXI
-+	select PINCTRL_SUNXI
-+
- endif
-diff --git a/drivers/pinctrl/sunxi/Makefile b/drivers/pinctrl/sunxi/Makefile
-index 4e55508ff7f76..951b3f1e4b4f1 100644
---- a/drivers/pinctrl/sunxi/Makefile
-+++ b/drivers/pinctrl/sunxi/Makefile
-@@ -28,5 +28,6 @@ obj-$(CONFIG_PINCTRL_SUN50I_H6_R)	+= pinctrl-sun50i-h6-r.o
- obj-$(CONFIG_PINCTRL_SUN50I_H616)	+= pinctrl-sun50i-h616.o
- obj-$(CONFIG_PINCTRL_SUN50I_H616_R)	+= pinctrl-sun50i-h616-r.o
- obj-$(CONFIG_PINCTRL_SUN55I_A523)	+= pinctrl-sun55i-a523.o
-+obj-$(CONFIG_PINCTRL_SUN55I_A523_R)	+= pinctrl-sun55i-a523-r.o
- obj-$(CONFIG_PINCTRL_SUN9I_A80)		+= pinctrl-sun9i-a80.o
- obj-$(CONFIG_PINCTRL_SUN9I_A80_R)	+= pinctrl-sun9i-a80-r.o
-diff --git a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
-new file mode 100644
-index 0000000000000..69cd2b4ebd7d7
---- /dev/null
-+++ b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
-@@ -0,0 +1,54 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Allwinner A523 SoC r-pinctrl driver.
-+ *
-+ * Copyright (C) 2024 Arm Ltd.
-+ */
-+
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/of.h>
-+#include <linux/of_device.h>
-+#include <linux/pinctrl/pinctrl.h>
-+
-+#include "pinctrl-sunxi.h"
-+
-+static const u8 a523_r_nr_bank_pins[SUNXI_PINCTRL_MAX_BANKS] =
-+/*	  PL  PM */
-+	{ 14,  6 };
-+
-+static const unsigned int a523_r_irq_bank_map[] = { 0, 1 };
-+
-+static const u8 a523_r_irq_bank_muxes[SUNXI_PINCTRL_MAX_BANKS] =
-+/*	  PL  PM */
-+	{ 14, 14 };
-+
-+static struct sunxi_pinctrl_desc a523_r_pinctrl_data = {
-+	.irq_banks = ARRAY_SIZE(a523_r_irq_bank_map),
-+	.irq_bank_map = a523_r_irq_bank_map,
-+	.irq_read_needs_mux = true,
-+	.io_bias_cfg_variant = BIAS_VOLTAGE_PIO_POW_MODE_SEL,
-+	.pin_base = PL_BASE,
-+};
-+
-+static int a523_r_pinctrl_probe(struct platform_device *pdev)
-+{
-+	return sunxi_pinctrl_dt_table_init(pdev, a523_r_nr_bank_pins,
-+					   a523_r_irq_bank_muxes,
-+					   &a523_r_pinctrl_data,
-+					   SUNXI_PINCTRL_NEW_REG_LAYOUT);
-+}
-+
-+static const struct of_device_id a523_r_pinctrl_match[] = {
-+	{ .compatible = "allwinner,sun55i-a523-r-pinctrl", },
-+	{}
-+};
-+
-+static struct platform_driver a523_r_pinctrl_driver = {
-+	.probe	= a523_r_pinctrl_probe,
-+	.driver	= {
-+		.name		= "sun55i-a523-r-pinctrl",
-+		.of_match_table	= a523_r_pinctrl_match,
-+	},
-+};
-+builtin_platform_driver(a523_r_pinctrl_driver);
+On 2/27/2025 2:54 PM, Easwar Hariharan wrote:
+> On 2/27/2025 9:02 AM, Roman Kisel wrote:
+
+[...]
+
+> 
+> Sorry, I have to disagree with this, a recent commit of mine[1] closed a WSL
+> issue that was open for over 2 years for, partly, the utter uselessness of
+> the hex return code of the hypercall.
+
+What hypercall was that? I see
+
+		storvsc_log_ratelimited(device, loglevel,
+			"tag#%d cmd 0x%x status: scsi 0x%x srb 0x%x hv 0x%x\n",
+			scsi_cmd_to_rq(request->cmd)->tag,
+			stor_pkt->vm_srb.cdb[0],
+			vstor_packet->vm_srb.scsi_status,
+			vstor_packet->vm_srb.srb_status,
+			vstor_packet->status);
+
+in your patch where `vstor_packet->status` is claimed to be a hypercall
+status? I'd be surprised if the hypervisor concerned itself with
+the details of visualized SCSI storage. The VMM on the host might and
+should.
+
+I'll look through the code to gain more confidence in my suspicion that
+calling the SCSI virt storage packet status a hv status causd the
+frustration with debugging, and if no counter examples found, will send
+a patch to fix that log statement above.
+
+> 
+> [1] https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d2138eab8cde61e0e6f62d0713e45202e8457d6d
+> 
+> Thanks,
+> Easwar (he/him)
+
 -- 
-2.46.3
+Thank you,
+Roman
 
 
