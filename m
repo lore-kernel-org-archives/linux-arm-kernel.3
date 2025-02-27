@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B734C197BF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C310EC19F32
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:37:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
@@ -12,55 +12,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
 	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/nVQCSMMyO8oVMTzk41AY5rZq6aO5dLc5UursNimU2E=; b=mVnbE3lnKrJRznjKPU2wf8Qgu2
-	6v957cdUzyxa5s3ZuuvFQ1iM42hXNrmLLk15Vyx2TR1F20njX5jNtaHdR7Q8dl7hAdSDP8j596JzC
-	54NC4sP64kOvgicyvcUrkvCf1JX2JR+gkklhjZjxRDY/0tqENKOZS3n7ulgi3s6lj97tLNOCJ/W6H
-	5L3uKdaggAhLzyOYzAmGbUAf2BCmYI5QQPtTxm0sO3RnaViCyUGiLTHEuHzNhSCWpmi4mtsDgXLbF
-	TF/UmUqVmG6GT3wo9UGkNYQI1sx3DEWg4HoXJHxqatcvp2eI36n3/2gLZPtnDKwuMW9oGmEG9zqmn
-	Gin/zXqQ==;
+	bh=7STf7KR5l+VejlzjpR6E9zLjagUfqiPeoLC/F4HyI+g=; b=c82paZ4jXEXSsx5UODaAjnzRsb
+	FQIXhmy7YREL+XUl9Yh3a09u1Y925hcoP/ba1/thxdxSG2jsuQ3aqH0nEP+tSKX2yOustFz+XwO+K
+	diKXRqT0YbN7f6PF4JlEGCIFi74aqwqpcKq5qdQa4DshGFuFrVsNUn5vVrcfyH6BomqtkusZpyKnR
+	DOBQMPexRvQnpmpSIA/jswxSlwJhPYKe/Cfbpngtt3U5q22vce8q4uQfQPXu6XP72OfqIAyQc6yWe
+	smtXWu0tA2VGS459Nmn9fHVemT2WezErh/uYQTOBMGlJdeHr0V71yvR0E7Wqr5lhve9vhoaSPo5G8
+	s1RsHnsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjh3-00000008TfR-3muo;
-	Thu, 27 Feb 2025 19:37:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tnjhS-00000008ULL-3KJQ;
+	Thu, 27 Feb 2025 19:37:38 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnf3M-00000007mSl-2I5u
+	id 1tnfZL-00000007s9v-0DAE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 14:39:56 +0000
+	Thu, 27 Feb 2025 15:13:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 824046156B;
-	Thu, 27 Feb 2025 14:39:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23671C4CEDD;
-	Thu, 27 Feb 2025 14:39:55 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B16955C5CEE;
+	Thu, 27 Feb 2025 15:12:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32EC8C4CEDD;
+	Thu, 27 Feb 2025 15:12:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740667195;
-	bh=YeeTFH2ZS8NNOmOAQydfFuyWCzJ2Y1VT1iYWTjiGOj4=;
+	s=k20201202; t=1740669178;
+	bh=7STf7KR5l+VejlzjpR6E9zLjagUfqiPeoLC/F4HyI+g=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CRcHZMheGNmLLYbtEZzWezstF44M04/1PSLciKvBGZF5HAKCnwwQRhMjluHbXEKOb
-	 NSmtkB5Ll7sMrT/okvTVUuGCH+WEkBsCdpja3LWxErFseXKn31scOpe8WaOse1+5jD
-	 gyPl3ogFVtvjgbp8PpMD7XW6NfmUWpDgObSZZYUnfyJBjPzmh9zJ0jobkmEtGclibd
-	 Y1S22GerO+bAGla1YyLN91T63i6V7m/YwpldH+uHoS4YPPmn3tjh02wVkH1qD/vAUK
-	 BX/oPsxN0vZhlPF3dTjndqDh5hjDZuxEEQ6vMONtdzHzhFG2WNaFfb/PGXOlrxbKju
-	 jwNvzAdSD6BSw==
-Date: Thu, 27 Feb 2025 15:39:52 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v6 14/26] drm/bridge: add support for refcounted DRM
- bridges
-Message-ID: <20250227-macho-convivial-tody-cea7dc@houat>
-References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
- <20250206-hotplug-drm-bridge-v6-14-9d6f2c9c3058@bootlin.com>
- <20250207-ingenious-daffodil-dugong-51be57@houat>
- <20250210181252.5ee028d4@booty>
- <20250211-merciful-nyala-of-justice-a4fabb@houat>
- <20250226152813.4a1ad218@booty>
- <20250227-savvy-monumental-toucan-edffe2@houat>
- <20250227123143.54d4aa03@booty>
+	b=Y1DgGDbozJrXDySPeEwcaVWIuwFMGuBU00Hfx+8kMP+fKJY6gA5/1nay2+MTvwBIv
+	 4mlESna60cg4Rx8ZpkUFHIf72oTAo+wQkVqvzL2jRCf8mtuoT89MRQ7V0Mx+xxdDgb
+	 DMLu4CX1A8UtRup4TE8qLARxpydaweF/KQ/RYldAkeNPxpdQiO9hMsyUvGJi+FiAFA
+	 4YVF2Yvaql9XEu5BxTQLTtFdAlw0rFgskYkC1LezmR3ALXNVyS+BPbo/Y2KNzdhkpR
+	 wbuLSfMTjnO0iOP7AbCaaYxJDgrlZXEHybbIm7lfi36SX1rUKFrl7cFR+HNrRsY5j9
+	 ZxOgqZ+gtOglQ==
+Date: Fri, 28 Feb 2025 00:12:53 +0900
+From: William Breathitt Gray <wbg@kernel.org>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Subject: Re: [PATCH v4 0/2] microchip-tcb-capture: Add Capture, Compare,
+ Overflow etc. events
+Message-ID: <Z8CA9RTZWChh9cJW@ishi>
+References: <20250211151914.313585-3-csokas.bence@prolan.hu>
+ <Z7h0AXV1zlgp9Nw-@ishi>
+ <8fb9f188-3065-4fdc-a9f1-152cc5959186@prolan.hu>
+ <Z7vihBqOgP3fBUVq@ishi>
+ <bfa70e78-3cc3-4295-820b-3925c26135cb@prolan.hu>
+ <Z7_xTQeTzD-RH3nH@ishi>
+ <20250227135330.GC182392@tpx1.home>
+ <Z8B1LDT-n2XTTp8q@ishi>
+ <202502271437280a6701d8@mail.local>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="2kfbsn3codjdgoyq"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="S63rS5Zp1ngJmb2c"
 Content-Disposition: inline
-In-Reply-To: <20250227123143.54d4aa03@booty>
+In-Reply-To: <202502271437280a6701d8@mail.local>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250227_071259_186537_439589CA 
+X-CRM114-Status: GOOD (  37.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,211 +76,104 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?utf-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Paul Kocialkowski <contact@paulk.fr>, dri-devel@lists.freedesktop.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Simona Vetter <simona@ffwll.ch>, Robert Foss <rfoss@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Sam Ravnborg <sam@ravnborg.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Daniel Thompson <danielt@kernel.org>, Jagan Teki <jagan@amarulasolutions.com>, Jessica Zhang <quic_jesszhan@quicinc.com>, Thomas Zimmermann <tzimmermann@suse.de>, Will Deacon <will@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, Sascha Hauer <s.hauer@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Inki Dae <inki.dae@samsung.com>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Boris Brezillon <bbrezillon@kernel.org>, linux-kernel@vger.kernel.org, Paul Kocialkowski <paul.kocialkowski@bootlin.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Shawn Guo <shawnguo@kernel.org>
+Cc: Kamel Bouhara <kamel.bouhara@bootlin.com>, Jonathan Cameron <jic23@kernel.org>, linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, Dharma.B@microchip.com, Ludovic Desroches <ludovic.desroches@microchip.com>, =?iso-8859-1?B?Q3Pza+Fz?= Bence <csokas.bence@prolan.hu>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---2kfbsn3codjdgoyq
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+--S63rS5Zp1ngJmb2c
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v6 14/26] drm/bridge: add support for refcounted DRM
- bridges
-MIME-Version: 1.0
 
-On Thu, Feb 27, 2025 at 12:31:43PM +0100, Luca Ceresoli wrote:
-> On Thu, 27 Feb 2025 10:32:20 +0100
-> Maxime Ripard <mripard@kernel.org> wrote:
-> > On Wed, Feb 26, 2025 at 03:28:13PM +0100, Luca Ceresoli wrote:
-> > > On Tue, 11 Feb 2025 14:10:50 +0100
-> > > Maxime Ripard <mripard@kernel.org> wrote: =20
-> > > > On Mon, Feb 10, 2025 at 06:12:52PM +0100, Luca Ceresoli wrote: =20
-> > > > > On Fri, 7 Feb 2025 12:47:51 +0100
-> > > > > Maxime Ripard <mripard@kernel.org> wrote:
-> > > > >    =20
-> > > > > > > diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridg=
-e.h
-> > > > > > > index ad7ba444a13e5ecf16f996de3742e4ac67dc21f1..43cef0f6ccd36=
-034f64ad2babfebea62db1d9e43 100644
-> > > > > > > --- a/include/drm/drm_bridge.h
-> > > > > > > +++ b/include/drm/drm_bridge.h
-> > > > > > > @@ -31,6 +31,7 @@
-> > > > > > >  #include <drm/drm_encoder.h>
-> > > > > > >  #include <drm/drm_mode_object.h>
-> > > > > > >  #include <drm/drm_modes.h>
-> > > > > > > +#include <drm/drm_print.h>
-> > > > > > > =20
-> > > > > > >  struct device_node;
-> > > > > > > =20
-> > > > > > > @@ -863,6 +864,22 @@ struct drm_bridge {
-> > > > > > >  	const struct drm_bridge_timings *timings;
-> > > > > > >  	/** @funcs: control functions */
-> > > > > > >  	const struct drm_bridge_funcs *funcs;
-> > > > > > > +
-> > > > > > > +	/**
-> > > > > > > +	 * @container_offset: Offset of this struct within the cont=
-ainer
-> > > > > > > +	 * struct embedding it. Used for refcounted bridges to free=
- the
-> > > > > > > +	 * embeddeing struct when the refcount drops to zero. Unuse=
-d on
-> > > > > > > +	 * legacy bridges.
-> > > > > > > +	 */
-> > > > > > > +	size_t container_offset;     =20
-> > > > > >=20
-> > > > > > This shouldn't be in there. You can create an intermediate stru=
-cture and
-> > > > > > store both pointers for the action to consume.   =20
-> > > > >=20
-> > > > > You mean to store container_offset + refcount + is_refcounted?   =
-=20
-> > > >=20
-> > > > No, I meant for the private structure pointer and the drm_bridge
-> > > > pointer. refcount should be in drm_bridge, and I think is_refcounted
-> > > > should be dropped. =20
+On Thu, Feb 27, 2025 at 03:37:28PM +0100, Alexandre Belloni wrote:
+> On 27/02/2025 23:22:36+0900, William Breathitt Gray wrote:
+> > On Thu, Feb 27, 2025 at 02:53:30PM +0100, Kamel Bouhara wrote:
+> > > On Thu, Feb 27, 2025 at 01:59:57PM +0900, William Breathitt Gray wrot=
+e:
+> > > > Let me make sure I understand the situation correctly. This SoC has=
+ two
+> > > > Timer Counter Blocks (TCB) and each TCB has three Timer Counter Cha=
+nnels
+> > > > (TCC); each TCC has a Counter Value (CV) and three general registers
+> > > > (RA, RB, RC); RA and RB can store Captures, and RC can be used for
+> > > > Compare operations.
+> > > >
+> > > > If that is true, then the correct way for this hardware to be expos=
+ed is
+> > > > to have each TCB be a Counter device where each TCC is exposed as a
+> > > > Count. So for this SoC: two Counter devices as counter0 and counter=
+1;
+> > > > count0, count1, and count2 as the three TCC; i.e. counter0/count{0,=
+1,2}
+> > > > and counter1/count{0,1,2}.
+> >=20
+> > [...]
+> >=20
+> > > > Kamel, what would it take for us to rectify this situation so that =
+the
+> > > > TCC are organized together by TCB under the same Counter devices?
 > > >=20
-> > > Storing the container pointer instead of the offset is a good idea, it
-> > > will allow to get rid of is_refcounted: drm_bridge_is_refcounted() can
-> > > just return "container !=3D NULL" instead of "bridge->is_refcounted".=
- So
-> > > far so good. =20
-> >=20
-> > Again, I don't think the whole is_refcounted thing is a good idea. Once
-> > we have the right API, we should convert all bridges to the new
-> > allocation and assume that they are refcounted.
->=20
-> Ah, thanks for clarifying, now I understand the reason you'd remove
-> is_refecounted while I didn't. In my plan it's for a transition phase
-> where not all bridges are converted yet. I should have added a note
-> about that, indeed.
->=20
-> While I obviously think all bridges should be converted to dynamic
-> lifetime, I'm not sure it can happen all in a single run, however.
-> Converting bridges to refcounting is mostly easy, but before we should
-> switch all bridge users to put the pointers they have, or the bridges
-> will never be freed. But the users are more in number and harder to
-> convert. However I still haven't tried a real conversion of all of
-> them, so it I'm going to reconsider this after I'll have tried.
-
-I mean, you're going to have that issue anyway. There's several calls
-that can get a bridge to a consumer:
-
-  - of_drm_find_bridge
-  - drm_bridge_get_prev_bridge / drm_bridge_get_next_bridge
-  - drm_bridge_chain_get_first_bridge
-  - drm_for_each_bridge_in_chain
-  - devm_drm_of_get_bridge
-  - drmm_of_get_bridge
-
-The last two are easy to deal with: just add an action that will put the
-reference, and you're done. devm_drm_of_get_bridge() still is completely
-broken and you should deprecate it as well, but the semantics are what
-they are already so you're not going to break it more than it already
-is.
-
-For all the others though, you do change the semantics of the API, and
-you will need to add drm_bridge_put or switch to drmm_of_get_bridge.
-
-Also, is_refcounted doesn't really help. Your problem is that *callers*
-might not give back the reference, but the way you set it is how you
-allocate the provider.
-
-Even assuming we're not doing the mass-conversion, how do you ensure
-that you fixed all the callers that would use the bridge you just
-converted?
-
-> Generally speaking, would you be OK with having is_refcounted in a
-> transition phase, or do you think we absolutely must convert all bridge
-> drivers and users at once?
-
-No, see above.
-
-> > > I'm not sure about the intermediate struct you have in mind though.
+> > > Hello,
 > > >=20
-> > > Do you mean:
+> > > Indeed, each TCC operates independently except when quadrature mode is
+> > > enabled. I assume this approach was taken to provide more flexibility=
+ by
+> > > exposing them separately.
 > > >=20
-> > > struct drm_bridge_pointers {
-> > >     struct drm_bridge *bridge;
-> > >     void              *container;
-> > > }
+> > > Currently only one channel is configured this would need to rework the
+> > > driver to make the 3 TCCs exposed.
 > > >=20
-> > > ? =20
+> > > Greetings,
+> > > Kamel
 > >=20
-> > Yes
+> > Skimming through the driver, it looks like what we'll need is for
+> > mchp_tc_counts[] to have all three TCCs defined, then have
+> > mchp_tc_probe() match on a TCB node and configure each TCC. Once that's
+> > setup, then whenever we need to identify which TCC a callback is
+> > exposing, we can get it from count->id.
 > >=20
-> > > If that's what you mean, should it be embedded in drm_struct or
-> > > allocated separately? =20
+> > So for example, the TC_CV register offset is calculated as 0x00 +
+> > channel * 0x40 + 0x10. In the count_read() callback we can leverage
+> > count->id to identify the TCC and thus get the respective TC_CV register
+> > at offset + count->id * 0x40 + 0x10.
 > >=20
-> > Separately, but still as part of the bridge allocation function.
-> >=20
-> > > If you mean to embed that struct in drm_bridge, then I the drm_bridge
-> > > pointer inside the intermediate struct would be useless.
-> > >=20
-> > > If instead you mean to embed it in drm_struct: I'm not sure I see much
->                         ^^^^^^^^^^^^^^^^^^^^^^^^^
-> For the records, I (obviously?) meant "allocated separately" here.
 >=20
-> > > benefit except maybe not exposing the container pointer to drm_bridge
-> > > users, but I see a drawbacks: at the last put we need to find the
-> > > container pointer to free from a struct kref pointer, which can work
-> > > only if the container pointer is in the same struct as struct kref. =
-=20
-> >=20
-> > Yeah, that's true. Storing the container pointer in drm_bridge makes
-> > sense to solve this.
->=20
-> OK, so when moving the container pointer to drm_bridge, the
-> drm_bridge_pointers struct will be left with the drm_bridge pointer
-> only:
->=20
-> struct drm_bridge_pointer {
->     struct drm_bridge *bridge;
-> }
->=20
-> So while it would work, I still don't see the added value. We'd have
-> one more allocation, we'd need to free both structs at the same time
-> (correct?) and drm_bridge_put_void() would have an extra indirection
-> step:
->=20
->      static void drm_bridge_put_void(void *data)
->      {
->         struct drm_bridge_pointer *bridge_pointer =3D (struct drm_bridge_=
-pointers *)data;
-> 	struct drm_bridge *bridge =3D bridge_pointer->bridge;
->=20
-> 	drm_bridge_put(bridge);
->      }
->=20
-> Can you elaborate on the gain in having such struct, or point me to
-> some code using the same pattern?
+> We can't do that because the TCC of a single TCB can have a mix of
+> different features. I struggled with the breakage to move away from the
+> one TCB, one feature state we had.
+> Be fore this, it was not possible to mix features on a single TCB, now,
+> we can have e.g. the clocksource on TCC 0 and 1 of TCB0 and a PWM on
+> TCC 2. mchp_tc_probe must not match on a TCB node...
 
-There's none, if we're going to have a single pointer it's not useful
-indeed.
+Okay I see what you mean, if we match on a TCB mode then we wouldn't be
+able to define the cases where one TCC is different from the next in the
+same TCB.
 
-> > I'm still not sure why we need the container offset though: if we have a
-> > bridge and container pointer, then the offset is bridge - container, so
-> > there's no point in storing it, right?
->=20
-> We need either the container_offset or the container pointer, not both.
-> I had chosen the offset in v6, I'm going to convert to the pointer in
-> v7.
+The goal however isn't to support all functionality (i.e. PWM-related
+settings, etc.) in the counter driver, but just expose the TCB
+configuration options that affect the TCCs when configured for counter
+mode. For example, the sysfs attributes can be created, but they don't
+have to be available until the TCC is in the appropriate mode (e.g.
+return -EBUSY until they are in a counter mode).
 
-Sounds good
+Is there a way to achieve that? Maybe there's a way we can populate the
+sysfs tree on the first encountered TCC, and then somehow indicate when
+additional TCCs match. Attributes can become available then dynamically
+based on the TCCs that match.
 
-Maxime
+William Breathitt Gray
 
---2kfbsn3codjdgoyq
+--S63rS5Zp1ngJmb2c
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ8B5OAAKCRAnX84Zoj2+
-diwkAX0fAul0N84x9BXCKZFKThWNvSe+QKekTxks6Qt8WDKv5/nOS0pSnZkGwEoY
-oljSzRYBfiFM6ejt4tnT9AXPE8zmpP+4bmwlFQibqbNlXf5GpaKRJiwrsWOFKmwx
-3UtfIm9ODA==
-=qyvw
+iHUEARYKAB0WIQSNN83d4NIlKPjon7a1SFbKvhIjKwUCZ8CA9QAKCRC1SFbKvhIj
+KzfbAQDlTYiUlgbcGQwRUT570H/RH0ghKls+Gy2YmhpCVscIcAD9E/gGa6CbXDL+
+5KRRytXkMqv0z8iXRNmCVcaYM07jxw4=
+=xdBI
 -----END PGP SIGNATURE-----
 
---2kfbsn3codjdgoyq--
+--S63rS5Zp1ngJmb2c--
 
