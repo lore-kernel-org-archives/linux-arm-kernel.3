@@ -4,75 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D02C2C021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 11:36:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E9E2C021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 11:37:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9EucAap5cfNYf1T7YC3Wo7ad59wsKJ45r+uZoKWrjnE=; b=NH9/7KpzbK/mt2XZ1deFBssFhW
-	74nDZjH4eBXmH8KqKC+wAoFvL6NFqfm0oXIR7gb6Y7YgtQfc9yot9/CpnVeWG0yTxqNOHpIJv65Ax
-	ZRefjqeUlP/DRSFJX13AvkbLnQJR/FctFZaX/jqSmtKUJYClq5T/TWgRAtohJwzCFXWkyk20BWLJR
-	wc1nKGs3Ou3m8OZjUuA0HzvLHluyna/IUYJqMSSAWT+xxtJmsqdI0Lqflm3Q7z5Vf99GN6EBc1l9K
-	uXGbWztZ09j/g9q6REhZVAb59f5GjADglzCbsB2//7M4KzHaZDgxEnDnyqGZOGuxbS7nDoWnaD6qk
-	yEBNW3Yw==;
+	bh=uxZnvirIyErX9mPNWRA9E5ZM7s+JLzX2G+ZuBG29gKQ=; b=HJuaCrWsLe7MgR9RSqAtxP1Xk5
+	HKv49665+nYmPM8f2DsD1o5exUFVZpT9Op9BSH5785Zax30CIx/3sOaqupPPiNjqAP4/bU3zCJy42
+	S0nXQOIqfr2J5pUElVRgQcq6eQwPjyo078L1IQUMbElHnRFwdbKzLsnxXuL1fZrROsir9qrqvLiqL
+	xBzb0i1G7/geqUv3Y8X5PgW0EjgxPGgD5Fouwo3CWSJQ3q7IIcwmgHTLM8H0Ir9OdvXlHZGEfTEHC
+	L0v/OiBrBBBf0xglKzIA5xGz1BoDzrNzKLysHPWLmZFc/I0OmbmaxLwSEOHc+eNrmXVYhxfxfB5hV
+	hlTOhYIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tncBC-00000007D1e-0c6y;
-	Thu, 27 Feb 2025 11:35:50 +0000
-Received: from mail-m3283.qiye.163.com ([220.197.32.83])
+	id 1tncCj-00000007DEW-0fuZ;
+	Thu, 27 Feb 2025 11:37:25 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnbjI-0000000765H-1yo5;
-	Thu, 27 Feb 2025 11:07:01 +0000
-Received: from localhost.localdomain (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id c65b3757;
-	Thu, 27 Feb 2025 19:06:56 +0800 (GMT+08:00)
-From: Kever Yang <kever.yang@rock-chips.com>
-To: heiko@sntech.de
-Cc: linux-rockchip@lists.infradead.org,
-	David Wu <david.wu@rock-chips.com>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	linux-arm-kernel@lists.infradead.org,
-	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
-	netdev@vger.kernel.org,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-kernel@vger.kernel.org,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH v2 2/3] ethernet: stmmac: dwmac-rk: Add gmac support for rk3562
-Date: Thu, 27 Feb 2025 19:06:51 +0800
-Message-Id: <20250227110652.2342729-2-kever.yang@rock-chips.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250227110652.2342729-1-kever.yang@rock-chips.com>
-References: <20250227110652.2342729-1-kever.yang@rock-chips.com>
+	id 1tnbts-000000078mQ-2nkP
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Feb 2025 11:17:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740655077; x=1772191077;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=CNhFV9T14sh7OY2SRFlpy7R8+gM04CqgJ0xYvF9HFpo=;
+  b=Rn7u7UFvNDOSQ+ndUMGp+APrFdOkRY9rBoWIDWIGBBjs+FEoVnAfuZsU
+   GNU9SeXM7VK0bJJs1MAWESPssJ54ael8VkpgdZ/Cq4OzVC6DE3KoEi9Ce
+   scz2icOCicCgejUglUrofYvQUmCzOGU9atgHRQyapVK/OmfbL4LByEGe9
+   R2S0eKBqmeVTiIlgqn4STBP14GJlll+HeF0SvdDoXk/nyb7EOosTdcdjR
+   gjYyH/L2IwYnv8LJ9ewMbg379a1NbiK03H1uAUrjh5Gyp0p72quV5ugew
+   UtarqT1LL+MPAN9KV8iMTWMQft4RiEMkk2JzUvBfrU3QHZgJebg0ZDjqY
+   Q==;
+X-CSE-ConnectionGUID: qyuASdtjQvWCQJSpQmq8gA==
+X-CSE-MsgGUID: WsXkJUniTT637QJngd8I2A==
+X-IronPort-AV: E=McAfee;i="6700,10204,11357"; a="58955489"
+X-IronPort-AV: E=Sophos;i="6.13,319,1732608000"; 
+   d="scan'208";a="58955489"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Feb 2025 03:17:49 -0800
+X-CSE-ConnectionGUID: 3Tb9u1sUQPaKicuPXGkj2w==
+X-CSE-MsgGUID: 45DyLiKXRPyvMBlpNWZcDw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,319,1732608000"; 
+   d="scan'208";a="117172315"
+Received: from choongyo-mobl.gar.corp.intel.com (HELO [10.247.81.210]) ([10.247.81.210])
+  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Feb 2025 03:17:41 -0800
+Message-ID: <1ff2fcac-d9d5-4c70-a101-f7026b50646a@linux.intel.com>
+Date: Thu, 27 Feb 2025 19:17:39 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGRoaGlYYTxhDSx5PSRlNQ01WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a954716924803afkunmc65b3757
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6P006ODo*NzIXNw1JAhM*DB0I
-	HyEKFB9VSlVKTE9LTU5PT0pDS0hPVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFDQ0tINwY+
-DKIM-Signature: a=rsa-sha256;
-	b=W5zTv67mtZLyn/3iQON9O7D9fuvH6PvStFrLCDKrh6UUjALUtNp1S1cg0Iy6ka8Jg87/13HjKxCBchBdQ9w0WbonWjJ1f8YUMY+QG80prQ4futf8+UqeAj3pAwiptYGctu7lNUDvgBl8UvodpVlwJnptRreoccPXFDGxCohbDlc=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=9EucAap5cfNYf1T7YC3Wo7ad59wsKJ45r+uZoKWrjnE=;
-	h=date:mime-version:subject:message-id:from;
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v8 1/6] net: phylink: use pl->link_interface in
+ phylink_expects_phy()
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Simon Horman <horms@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
+ Jose Abreu <Jose.Abreu@synopsys.com>,
+ David E Box <david.e.box@linux.intel.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "H . Peter Anvin" <hpa@zytor.com>,
+ Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>,
+ David E Box <david.e.box@intel.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Jiawen Wu <jiawenwu@trustnetic.com>,
+ Mengyuan Lou <mengyuanlou@net-swift.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Hans de Goede <hdegoede@redhat.com>,
+ =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Serge Semin <fancer.lancer@gmail.com>, x86@kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ platform-driver-x86@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20250226074837.1679988-1-yong.liang.choong@linux.intel.com>
+ <20250226074837.1679988-2-yong.liang.choong@linux.intel.com>
+ <Z780cM9bejxhzTXO@shell.armlinux.org.uk>
+Content-Language: en-US
+From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+In-Reply-To: <Z780cM9bejxhzTXO@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_030700_694129_187254DA 
-X-CRM114-Status: GOOD (  16.90  )
+X-CRM114-CacheID: sfid-20250227_031756_740773_C3BB809F 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,262 +108,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: David Wu <david.wu@rock-chips.com>
 
-Add constants and callback functions for the dwmac on RK3562 soc.
-As can be seen, the base structure is the same.
 
-Signed-off-by: David Wu <david.wu@rock-chips.com>
-Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
----
-
-Changes in v2:
-- Collect review tag
-
- .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 207 +++++++++++++++++-
- 1 file changed, 205 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-index a4dc89e23a68..ccf4ecdffad3 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-@@ -2,8 +2,7 @@
- /**
-  * DOC: dwmac-rk.c - Rockchip RK3288 DWMAC specific glue layer
-  *
-- * Copyright (C) 2014 Chen-Zhi (Roger Chen)
-- *
-+ * Copyright (c) 2014 Rockchip Electronics Co., Ltd.
-  * Chen-Zhi (Roger Chen)  <roger.chen@rock-chips.com>
-  */
- 
-@@ -91,6 +90,16 @@ struct rk_priv_data {
- 	(((tx) ? soc##_GMAC_TXCLK_DLY_ENABLE : soc##_GMAC_TXCLK_DLY_DISABLE) | \
- 	 ((rx) ? soc##_GMAC_RXCLK_DLY_ENABLE : soc##_GMAC_RXCLK_DLY_DISABLE))
- 
-+#define DELAY_VALUE(soc, tx, rx) \
-+	((((tx) >= 0) ? soc##_GMAC_CLK_TX_DL_CFG(tx) : 0) | \
-+	 (((rx) >= 0) ? soc##_GMAC_CLK_RX_DL_CFG(rx) : 0))
-+
-+#define GMAC_RGMII_CLK_DIV_BY_ID(soc, id, div) \
-+		(soc##_GMAC##id##_CLK_RGMII_DIV##div)
-+
-+#define GMAC_RMII_CLK_DIV_BY_ID(soc, id, div) \
-+		(soc##_GMAC##id##_CLK_RMII_DIV##div)
-+
- #define PX30_GRF_GMAC_CON1		0x0904
- 
- /* PX30_GRF_GMAC_CON1 */
-@@ -1013,6 +1022,199 @@ static const struct rk_gmac_ops rk3399_ops = {
- 	.set_rmii_speed = rk3399_set_rmii_speed,
- };
- 
-+/* sys_grf */
-+#define RK3562_GRF_SYS_SOC_CON0			0X0400
-+#define RK3562_GRF_SYS_SOC_CON1			0X0404
-+
-+#define RK3562_GMAC0_CLK_RMII_MODE		GRF_BIT(5)
-+#define RK3562_GMAC0_CLK_RGMII_MODE		GRF_CLR_BIT(5)
-+
-+#define RK3562_GMAC0_CLK_RMII_GATE		GRF_BIT(6)
-+#define RK3562_GMAC0_CLK_RMII_NOGATE		GRF_CLR_BIT(6)
-+
-+#define RK3562_GMAC0_CLK_RMII_DIV2		GRF_BIT(7)
-+#define RK3562_GMAC0_CLK_RMII_DIV20		GRF_CLR_BIT(7)
-+
-+#define RK3562_GMAC0_CLK_RGMII_DIV1		\
-+				(GRF_CLR_BIT(7) | GRF_CLR_BIT(8))
-+#define RK3562_GMAC0_CLK_RGMII_DIV5		\
-+				(GRF_BIT(7) | GRF_BIT(8))
-+#define RK3562_GMAC0_CLK_RGMII_DIV50		\
-+				(GRF_CLR_BIT(7) | GRF_BIT(8))
-+
-+#define RK3562_GMAC0_CLK_RMII_DIV2		GRF_BIT(7)
-+#define RK3562_GMAC0_CLK_RMII_DIV20		GRF_CLR_BIT(7)
-+
-+#define RK3562_GMAC0_CLK_SELET_CRU		GRF_CLR_BIT(9)
-+#define RK3562_GMAC0_CLK_SELET_IO		GRF_BIT(9)
-+
-+#define RK3562_GMAC1_CLK_RMII_GATE		GRF_BIT(12)
-+#define RK3562_GMAC1_CLK_RMII_NOGATE		GRF_CLR_BIT(12)
-+
-+#define RK3562_GMAC1_CLK_RMII_DIV2		GRF_BIT(13)
-+#define RK3562_GMAC1_CLK_RMII_DIV20		GRF_CLR_BIT(13)
-+
-+#define RK3562_GMAC1_RMII_SPEED100		GRF_BIT(11)
-+#define RK3562_GMAC1_RMII_SPEED10		GRF_CLR_BIT(11)
-+
-+#define RK3562_GMAC1_CLK_SELET_CRU		GRF_CLR_BIT(15)
-+#define RK3562_GMAC1_CLK_SELET_IO		GRF_BIT(15)
-+
-+/* ioc_grf */
-+#define RK3562_GRF_IOC_GMAC_IOFUNC0_CON0	0X10400
-+#define RK3562_GRF_IOC_GMAC_IOFUNC0_CON1	0X10404
-+#define RK3562_GRF_IOC_GMAC_IOFUNC1_CON0	0X00400
-+#define RK3562_GRF_IOC_GMAC_IOFUNC1_CON1	0X00404
-+
-+#define RK3562_GMAC_RXCLK_DLY_ENABLE		GRF_BIT(1)
-+#define RK3562_GMAC_RXCLK_DLY_DISABLE		GRF_CLR_BIT(1)
-+#define RK3562_GMAC_TXCLK_DLY_ENABLE		GRF_BIT(0)
-+#define RK3562_GMAC_TXCLK_DLY_DISABLE		GRF_CLR_BIT(0)
-+
-+#define RK3562_GMAC_CLK_RX_DL_CFG(val)		HIWORD_UPDATE(val, 0xFF, 8)
-+#define RK3562_GMAC_CLK_TX_DL_CFG(val)		HIWORD_UPDATE(val, 0xFF, 0)
-+
-+#define RK3562_GMAC0_IO_EXTCLK_SELET_CRU	GRF_CLR_BIT(2)
-+#define RK3562_GMAC0_IO_EXTCLK_SELET_IO		GRF_BIT(2)
-+
-+#define RK3562_GMAC1_IO_EXTCLK_SELET_CRU	GRF_CLR_BIT(3)
-+#define RK3562_GMAC1_IO_EXTCLK_SELET_IO		GRF_BIT(3)
-+
-+static void rk3562_set_to_rgmii(struct rk_priv_data *bsp_priv,
-+				int tx_delay, int rx_delay)
-+{
-+	struct device *dev = &bsp_priv->pdev->dev;
-+
-+	if (IS_ERR(bsp_priv->grf) || IS_ERR(bsp_priv->php_grf)) {
-+		dev_err(dev, "Missing rockchip,grf or rockchip,php_grf property\n");
-+		return;
-+	}
-+
-+	if (bsp_priv->id > 0)
-+		return;
-+
-+	regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0,
-+		     RK3562_GMAC0_CLK_RGMII_MODE);
-+
-+	regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC0_CON1,
-+		     DELAY_ENABLE(RK3562, tx_delay, rx_delay));
-+	regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC0_CON0,
-+		     DELAY_VALUE(RK3562, tx_delay, rx_delay));
-+
-+	regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC1_CON1,
-+		     DELAY_ENABLE(RK3562, tx_delay, rx_delay));
-+	regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC1_CON0,
-+		     DELAY_VALUE(RK3562, tx_delay, rx_delay));
-+}
-+
-+static void rk3562_set_to_rmii(struct rk_priv_data *bsp_priv)
-+{
-+	struct device *dev = &bsp_priv->pdev->dev;
-+
-+	if (IS_ERR(bsp_priv->grf)) {
-+		dev_err(dev, "%s: Missing rockchip,grf property\n", __func__);
-+		return;
-+	}
-+
-+	if (!bsp_priv->id)
-+		regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0,
-+			     RK3562_GMAC0_CLK_RMII_MODE);
-+}
-+
-+static void rk3562_set_gmac_speed(struct rk_priv_data *bsp_priv, int speed)
-+{
-+	struct device *dev = &bsp_priv->pdev->dev;
-+	unsigned int val = 0, offset, id = bsp_priv->id;
-+
-+	switch (speed) {
-+	case 10:
-+		if (bsp_priv->phy_iface == PHY_INTERFACE_MODE_RMII) {
-+			if (id > 0) {
-+				val = GMAC_RMII_CLK_DIV_BY_ID(RK3562, 1, 20);
-+				regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0,
-+					     RK3562_GMAC1_RMII_SPEED10);
-+			} else {
-+				val = GMAC_RMII_CLK_DIV_BY_ID(RK3562, 0, 20);
-+			}
-+		} else {
-+			val = GMAC_RGMII_CLK_DIV_BY_ID(RK3562, 0, 50);
-+		}
-+		break;
-+	case 100:
-+		if (bsp_priv->phy_iface == PHY_INTERFACE_MODE_RMII) {
-+			if (id > 0) {
-+				val = GMAC_RMII_CLK_DIV_BY_ID(RK3562, 1, 2);
-+				regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0,
-+					     RK3562_GMAC1_RMII_SPEED100);
-+			} else {
-+				val = GMAC_RMII_CLK_DIV_BY_ID(RK3562, 0, 2);
-+			}
-+		} else {
-+			val = GMAC_RGMII_CLK_DIV_BY_ID(RK3562, 0, 5);
-+		}
-+		break;
-+	case 1000:
-+		if (bsp_priv->phy_iface != PHY_INTERFACE_MODE_RMII)
-+			val = GMAC_RGMII_CLK_DIV_BY_ID(RK3562, 0, 1);
-+		else
-+			goto err;
-+		break;
-+	default:
-+		goto err;
-+	}
-+
-+	offset = (bsp_priv->id > 0) ? RK3562_GRF_SYS_SOC_CON1 :
-+					  RK3562_GRF_SYS_SOC_CON0;
-+	regmap_write(bsp_priv->grf, offset, val);
-+
-+	return;
-+err:
-+	dev_err(dev, "unknown speed value for GMAC speed=%d", speed);
-+}
-+
-+static void rk3562_set_clock_selection(struct rk_priv_data *bsp_priv, bool input,
-+				       bool enable)
-+{
-+	struct device *dev = &bsp_priv->pdev->dev;
-+	unsigned int value;
-+
-+	if (IS_ERR(bsp_priv->grf) || IS_ERR(bsp_priv->php_grf)) {
-+		dev_err(dev, "Missing rockchip,grf or rockchip,php_grf property\n");
-+		return;
-+	}
-+
-+	if (!bsp_priv->id) {
-+		value = input ? RK3562_GMAC0_CLK_SELET_IO :
-+				RK3562_GMAC0_CLK_SELET_CRU;
-+		value |= enable ? RK3562_GMAC0_CLK_RMII_NOGATE :
-+				  RK3562_GMAC0_CLK_RMII_GATE;
-+		regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON0, value);
-+
-+		value = input ? RK3562_GMAC0_IO_EXTCLK_SELET_IO :
-+				RK3562_GMAC0_IO_EXTCLK_SELET_CRU;
-+		regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC0_CON1, value);
-+		regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC1_CON1, value);
-+	} else {
-+		value = input ? RK3562_GMAC1_CLK_SELET_IO :
-+				RK3562_GMAC1_CLK_SELET_CRU;
-+		value |= enable ? RK3562_GMAC1_CLK_RMII_NOGATE :
-+				 RK3562_GMAC1_CLK_RMII_GATE;
-+		regmap_write(bsp_priv->grf, RK3562_GRF_SYS_SOC_CON1, value);
-+
-+		value = input ? RK3562_GMAC1_IO_EXTCLK_SELET_IO :
-+				RK3562_GMAC1_IO_EXTCLK_SELET_CRU;
-+		regmap_write(bsp_priv->php_grf, RK3562_GRF_IOC_GMAC_IOFUNC1_CON1, value);
-+	}
-+}
-+
-+static const struct rk_gmac_ops rk3562_ops = {
-+	.set_to_rgmii = rk3562_set_to_rgmii,
-+	.set_to_rmii = rk3562_set_to_rmii,
-+	.set_rgmii_speed = rk3562_set_gmac_speed,
-+	.set_rmii_speed = rk3562_set_gmac_speed,
-+	.set_clock_selection = rk3562_set_clock_selection,
-+};
-+
- #define RK3568_GRF_GMAC0_CON0		0x0380
- #define RK3568_GRF_GMAC0_CON1		0x0384
- #define RK3568_GRF_GMAC1_CON0		0x0388
-@@ -2044,6 +2246,7 @@ static const struct of_device_id rk_gmac_dwmac_match[] = {
- 	{ .compatible = "rockchip,rk3366-gmac", .data = &rk3366_ops },
- 	{ .compatible = "rockchip,rk3368-gmac", .data = &rk3368_ops },
- 	{ .compatible = "rockchip,rk3399-gmac", .data = &rk3399_ops },
-+	{ .compatible = "rockchip,rk3562-gmac", .data = &rk3562_ops },
- 	{ .compatible = "rockchip,rk3568-gmac", .data = &rk3568_ops },
- 	{ .compatible = "rockchip,rk3576-gmac", .data = &rk3576_ops },
- 	{ .compatible = "rockchip,rk3588-gmac", .data = &rk3588_ops },
--- 
-2.25.1
-
+On 26/2/2025 11:34 pm, Russell King (Oracle) wrote:
+> On Wed, Feb 26, 2025 at 03:48:32PM +0800, Choong Yong Liang wrote:
+>> The phylink_expects_phy() function allows MAC drivers to check if they are
+>> expecting a PHY to attach. The checking condition in phylink_expects_phy()
+>> aims to achieve the same result as the checking condition in
+>> phylink_attach_phy().
+>>
+>> However, the checking condition in phylink_expects_phy() uses
+>> pl->link_config.interface, while phylink_attach_phy() uses
+>> pl->link_interface.
+>>
+>> Initially, both pl->link_interface and pl->link_config.interface are set
+>> to SGMII, and pl->cfg_link_an_mode is set to MLO_AN_INBAND.
+>>
+>> When the interface switches from SGMII to 2500BASE-X,
+>> pl->link_config.interface is updated by phylink_major_config().
+>> At this point, pl->cfg_link_an_mode remains MLO_AN_INBAND, and
+>> pl->link_config.interface is set to 2500BASE-X.
+>> Subsequently, when the STMMAC link goes down and comes up again,
+>> it is blocked by phylink_expects_phy().
+> 
+> I thought we ascertained that it's not "link goes down" but when the
+> interface is taken down administratively. "Link goes down" to most
+> people mean an event such as the network cable being unplugged.
+> Please fix the patch description.
+> 
+>> Since phylink_expects_phy() and phylink_attach_phy() aim to achieve the
+>> same result, phylink_expects_phy() should check pl->link_interface,
+>> which never changes, instead of pl->link_config.interface, which is
+>> updated by phylink_major_config().
+>>
+>> Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+> 
+> With, and *only* with the above fixed:
+> 
+> Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> 
+> Thanks!
+> 
+Thank you for your feedback and clarification. I will update the patch 
+description to accurately reflect the administrative interface down scenario.
 
