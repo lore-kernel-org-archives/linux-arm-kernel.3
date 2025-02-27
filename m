@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A00E0C19F2E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 13:25:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADF0EC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 13:28:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Fr71GDo1am/Op8h/SXIAkrUghbPA9DQZOi1Gai4x2w=; b=3+JSVNAhLDMV/5oAKnAovL1FEv
-	dFGMae9vmFOannyjYMgJmaNfDhB8AZz1utd6K0n37QNQeqw13vDTLaKtlJM+cn8pVWcQAF0Dp7558
-	Itw+b0tiG52tnaZ/MmEVoM7d6xdLN4zexnYxHAafcb42UOC2dX5I05n7JDR8Zaz+iPmC7GfTkzcOE
-	R6qqlxgaiPk3IDomEJJ28GfgrFQiLbY0y3zzaTd8vfnFzBgpwcjUclZD3Lc7qnLxKQDOMbcWf1wMf
-	ob99aPvrR/Kc67UL2rxDTTbEEGU0WZ7FsbotDxqBa6Roz29DCT2Fc01XgywWYMr1CL2oq4iNcD8Wt
-	yVw0356g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WF+WnuoEAmqiMqKkWFSdlb/we8IR4F2IFUrpx+PjxVw=; b=KdX2sNggrGQhzB+gKdFsn19bjy
+	4a6UAWIT8RNyAYmfOTP++FpfhIU7B2mftHG+qshn42P+HhYS0FQ51qHICe/cmpaH8G6ebg/z6Mjlu
+	hWZgwyTPlZlAT4g9+/sfqBprdlcz8WjMrSAouVc0phvsE8Kwc7oWVnIt0tHhDuB9YeK2nKq92iMNU
+	UYnF/QNM/LVoTqZpyexoa0m4PF/tsIr0boFNkCIuf60jsMJHhUY5BDWQl3gl0CUgtpYESP071ZyWD
+	HpH9k/Vzo3+pRgOwXBx6P/u+hnkYw+cU8QtO67Huy3B5GU3yMQ/JqgS7jq0kTnN8tmuk9rewScfB+
+	H5DpADFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tndtE-00000007WZ5-0Oj5;
-	Thu, 27 Feb 2025 13:25:24 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tndwG-00000007X8H-14uS;
+	Thu, 27 Feb 2025 13:28:32 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tndj4-00000007Txh-4BGZ;
-	Thu, 27 Feb 2025 13:14:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=9Fr71GDo1am/Op8h/SXIAkrUghbPA9DQZOi1Gai4x2w=; b=qkUHwjoTumYUWrOUJU6/Ndn4Gg
-	vOGDCdAV907lnL4DY1bEQMqAp0UD6zJxgpDIivYN4kQxXSWb2JZBJMxWVX9zZVoloCVhhzw8z4NKu
-	M2y1MyVlKesoG1OxsbC4yRXw4cosagKDLZW/MPKWg88l5KrL1ndPVF3IJZ7GHbf/KXuWmfcNupF1P
-	Zhe5i5XgVrvbgHPRA27iEVe+yIaSd9e20bD0xuW2UyoBemodrlqK1ZHzqZWpPZK6oyncDbeMdkmZs
-	qRBd6AXvqLLVBCMXPS1TBFJMiaeKfrsXTnPEBpGu/Vybtra6744cc7mGre89HQ6apFUdzFzMNbtuN
-	OnCr8wyw==;
-Received: from i53875b47.versanet.de ([83.135.91.71] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tndit-00011o-GV; Thu, 27 Feb 2025 14:14:43 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Kever Yang <kever.yang@rock-chips.com>
-Cc: linux-rockchip@lists.infradead.org,
- Finley Xiao <finley.xiao@rock-chips.com>,
- Kever Yang <kever.yang@rock-chips.com>, devicetree@vger.kernel.org,
- Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- Detlev Casanova <detlev.casanova@collabora.com>,
- linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Elaine Zhang <zhangqing@rock-chips.com>,
- linux-arm-kernel@lists.infradead.org, Ulf Hansson <ulf.hansson@linaro.org>
-Subject: Re: [PATCH v3 1/2] dt-bindings: power: rockchip: Add support for RK3562 SoC
-Date: Thu, 27 Feb 2025 14:14:42 +0100
-Message-ID: <2045951.zToM8qfIzz@diego>
-In-Reply-To: <20250227105957.2341107-2-kever.yang@rock-chips.com>
-References: <20250227105957.2341107-1-kever.yang@rock-chips.com>
- <20250227105957.2341107-2-kever.yang@rock-chips.com>
+	id 1tndnm-00000007UzP-47Q0;
+	Thu, 27 Feb 2025 13:19:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 772255C5884;
+	Thu, 27 Feb 2025 13:19:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C302C4CEE7;
+	Thu, 27 Feb 2025 13:19:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740662386;
+	bh=nW5BiIn0YY0mTP99cWvGx5b/yVrftP8IeddADOYqBGs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=YUzIF0swFxoup6z6QOJJrcJn1JjDsL6QInSriI61Pf/0VegFMk6tDcJT1zJEJkTFo
+	 ed+CujGahHYepR+8jK4o/1IVlTdEpgpbAlhQRFfixz0Hr4zLaWVBQre3YrbPqO85Aj
+	 HS9TjEuWpdL8aKMDXb5kdlTGtxqdVUMRFTFr2a2frvxby8vNaDhkgzDVHFeM7YGiUg
+	 F4hlXpVB2bS/GOhqUPYp5iRjDqzaoYPwfx97C9GyFYYxoNRtSoGag4QxCvHsmVnAm4
+	 CAX20iulNsI/YyQ1JgXYr7OBm8eNDQjuhs5VIufCY8tx9buHuA2jvZz+Baxfd4EY4G
+	 /KXk10eol7QCw==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	parkeryang <Parker.Yang@mediatek.com>,
+	=?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?= <nfraprado@collabora.com>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] ASoC: mediatek: mt8188: avoid uninitialized variable use
+Date: Thu, 27 Feb 2025 14:19:01 +0100
+Message-Id: <20250227131939.1040168-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_051455_065008_1F7D22B4 
-X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-CacheID: sfid-20250227_051947_072393_1983F212 
+X-CRM114-Status: UNSURE (   9.15  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,18 +79,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 27. Februar 2025, 11:59:56 MEZ schrieb Kever Yang:
-> From: Finley Xiao <finley.xiao@rock-chips.com>
-> 
-> According to a description from TRM, add all the power domains.
-> 
-> Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
-> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+From: Arnd Bergmann <arnd@arndb.de>
 
+The 'msk' variable has no initialization:
 
-checked the defined power-domains against the TRM and they match
+sound/soc/mediatek/mt8188/mt8188-dai-dmic.c:311:4: error: variable 'msk' is uninitialized when used here [-Werror,-Wuninitialized]
+  311 |                         msk |= PWR2_TOP_CON1_DMIC_FIFO_SOFT_RST_EN(i);
+      |                         ^~~
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Set it to zero before the loop.
 
+Fixes: c1e42ec04197 ("ASoC: mediatek: mt8188: Add support for DMIC")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ sound/soc/mediatek/mt8188/mt8188-dai-dmic.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/sound/soc/mediatek/mt8188/mt8188-dai-dmic.c b/sound/soc/mediatek/mt8188/mt8188-dai-dmic.c
+index 4cfbcb71d2d9..adcea7818be2 100644
+--- a/sound/soc/mediatek/mt8188/mt8188-dai-dmic.c
++++ b/sound/soc/mediatek/mt8188/mt8188-dai-dmic.c
+@@ -307,6 +307,7 @@ static int mtk_dmic_event(struct snd_soc_dapm_widget *w,
+ 	switch (event) {
+ 	case SND_SOC_DAPM_PRE_PMU:
+ 		/* request fifo soft rst */
++		msk = 0;
+ 		for (i = dmic_num; i >= DMIC0; i--)
+ 			msk |= PWR2_TOP_CON1_DMIC_FIFO_SOFT_RST_EN(i);
+ 
+-- 
+2.39.5
 
 
