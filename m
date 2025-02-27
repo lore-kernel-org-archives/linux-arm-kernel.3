@@ -4,148 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59665C197BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:41:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74821C197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:41:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6bWoknXiyduvcXpNpYIUL3dOOVAOiZ5FAl0OB00x/Tc=; b=FriQUYuVd7RDNxQXHjPX1Wjxvz
-	t3k+7EQURx0DsnwlZ786PueFpAnt5rVIcoVZlTGpeQeyZ/tBktzHVdTjxONCTMWyZdMsPwX2p+WRw
-	eU+tDXsnOx9Hp0xY2QIUPF4jXJ0o+tWg8E+8jTs1AOUvo71q9nYQyWHIzDtIzKjknG5CrTg6h5/o1
-	Sb3lhDQxJe4WOXBrX5cgYUEH8Tu5hS3lKBVmAKl0QcjoEtk+C50xUhNpaH9Ay0+9+bT9/uhVafbeo
-	Q5rcxFTjKqpgHNOB5wMbpr0J5gCpoqrwuuGSU1G2dOkXUhWQdmpCNcQre5T/b46FynpJElqmbExLQ
-	SpOKkETg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9ty4e/zSrNHaCJk0SFQt9vg6rC5/YneZMYB2JJ3Fd6c=; b=4600dywqIWz4m0kKbDm7XtS8pV
+	RvxG0QwVjZ4nrT4d0G6wJUWQxF9wYahUs6ZVme0gKiBs53xNIAjIdHuqh9BdWm5wtnvX11ZN6/JrP
+	b2ziu/Yf0gGOzGgmxYxyuxdrkLsqz1VRYk96qUMm/22U/gOAG7ycNYrtz3mIzrgx7sfXstLvABWir
+	W9KUl8yeRITsz6TJNqro+Sa5cn0PLIa+lctnUQOqvfPZRtfWAthvP1D5SEeO47p+jhRH4wnucSNne
+	lBIWDPee8j6yi5Xte/9Ycuhf5qDCQJGf3HbStmCjO/hjuL4WPDnND/XXH0raeBWMPCJ7MckKTCSXK
+	1hTsOzJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjlP-00000008bci-2lQ9;
-	Thu, 27 Feb 2025 19:41:43 +0000
-Received: from mail-dm6nam10on20624.outbound.protection.outlook.com ([2a01:111:f403:2413::624] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1tnjlS-00000008bhp-0ADW;
+	Thu, 27 Feb 2025 19:41:46 +0000
+Received: from smtp.forwardemail.net ([121.127.44.59])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnhyp-00000008F8W-3lqb
+	id 1tni4T-00000008FoJ-1e5I
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 17:47:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pTPRCgvZB8olkWghbvpNKTXf4F0s5arL8v0u6K758Ewe8t8CNDyXTrRayFiRQI00g2nLJ7vyy0sweM9Mel6fUBGs4dm5d0Ui1WbFbpvKfPdwM3bNRaNNaF8c2GFO1bgnigiNc28rQC582Isi8e3fYUBbJiZh+7yWzKEYso5G1DUgDCMneRRtZ3/2YUenEtzYPY/mwpqJdcfXPgh85FW+/fdm5d7MCRJqSRCMjvEQtkWNtNy49CUrUjsWdRkbJl/4PWk7yecP2DVqZjmipFoQjXkhWRxHcDAiaWuiWfjNAPdJ6ca9RL1p/Kf6Bt+AFGr2eUB4AI2ed85wEVjaKZ8EvQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6bWoknXiyduvcXpNpYIUL3dOOVAOiZ5FAl0OB00x/Tc=;
- b=uG7kkv35Zed6cV9DgY7VXXCHZS+VOBL6ER1rQMcaWQkhnvscRX7t34Nr7Wv/5j0fBjfjS/1xAjYITwF4qeMDkltPsDvIzxpk5yfWErA5H2mp48745MSqYpJu5uuIIc1QqR1NMH9qufrk35GMrpXKNKsBxtXFp12BVA0KAzv2btWeI1B3IV9wWrT39kOJl1723RVA/hpaA1bX1RVDya4xxhuoAoawBHv9FRKT6jP0eCUJ2QSfI41rzYtAE4nkqgV5Q8nZRSM4XGHxiIQeCUo7ve99SAWkE2Z6qmx0B6b3dIrWuoMiE/MgYsnV+OtH++d9lY25u39Ut30bKip3SRbVCw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=gmail.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6bWoknXiyduvcXpNpYIUL3dOOVAOiZ5FAl0OB00x/Tc=;
- b=GmGH923oSBLHugiBNe0r3KS2KqQ5TxBC8S2tIc3GH13o5DCq0LehkpaY7Z0kbfqyS1rKSwVdEqmewsaStSd5a6BlDdHNeCQNXNWOe0MDZteL8TSyjKG42+6OBzARE5XqbZ2nU4EGnSZDTolyDCNCYTaRp4CKORFXFj/ghxQNxS4/+tjIVaj5snoEJWiKNGXwPct00APMTsJkXukYno8SVXnAX4/36vmp0rX/H3u1oOy3ri64ckYnuHrNjmTdHfQcIND8zdV5dz8iw2J0WBeBjPzd2JsitESb8p0JoTVNFbZ3haosTGJYMkiJWYNweqK88NUHFkzcTz9a750NHKHw4g==
-Received: from PH1PEPF000132F0.NAMP220.PROD.OUTLOOK.COM (2603:10b6:518:1::33)
- by DS0PR12MB6605.namprd12.prod.outlook.com (2603:10b6:8:d3::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.20; Thu, 27 Feb
- 2025 17:47:19 +0000
-Received: from CY4PEPF0000E9D6.namprd05.prod.outlook.com
- (2a01:111:f403:f912::5) by PH1PEPF000132F0.outlook.office365.com
- (2603:1036:903:47::3) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8489.19 via Frontend Transport; Thu,
- 27 Feb 2025 17:47:19 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CY4PEPF0000E9D6.mail.protection.outlook.com (10.167.241.69) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8489.16 via Frontend Transport; Thu, 27 Feb 2025 17:47:18 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 27 Feb
- 2025 09:46:58 -0800
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 27 Feb
- 2025 09:46:58 -0800
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.7)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Thu, 27 Feb 2025 09:46:57 -0800
-Date: Thu, 27 Feb 2025 09:46:55 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Robin Murphy <robin.murphy@arm.com>, <kevin.tian@intel.com>,
-	<tglx@linutronix.de>, <maz@kernel.org>, <joro@8bytes.org>, <will@kernel.org>,
-	<shuah@kernel.org>, <iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<eric.auger@redhat.com>, <baolu.lu@linux.intel.com>, <yi.l.liu@intel.com>,
-	<yury.norov@gmail.com>, <jacob.pan@linux.microsoft.com>,
-	<patches@lists.linux.dev>
-Subject: Re: [PATCH v2 3/7] iommu: Make iommu_dma_prepare_msi() into a
- generic operation
-Message-ID: <Z8ClD4jMtSH31IqA@Asurada-Nvidia>
-References: <cover.1740014950.git.nicolinc@nvidia.com>
- <4ca696150d2baee03af27c4ddefdb7b0b0280e7b.1740014950.git.nicolinc@nvidia.com>
- <5b9e15e1-8081-46ef-b9db-3872e98a6f35@arm.com>
- <20250221164400.GN50639@nvidia.com>
- <634c60ea-fec3-43ad-923a-cf9ba5e76065@arm.com>
- <20250227153242.GG39591@nvidia.com>
+	Thu, 27 Feb 2025 17:53:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From; q=dns/txt; s=fe-e1b5cab7be; t=1740678795;
+ bh=9ty4e/zSrNHaCJk0SFQt9vg6rC5/YneZMYB2JJ3Fd6c=;
+ b=x2g+5Fp/Y0dSJtQsYHMcdtIwEn5+IjewXknf6G5QS+TjMOb7YvM64D2SzoB8grWE31SxYx3ZF
+ Mz8aihjWWfPljaYJ1HWIweNQkcIQHPFAtS4Tc3TFrcPjrOnVwFYhP4gjF6OfLhYX+icr3KppoUk
+ zzSZPLLsB8ix7SGcKY86AJqp3uBIavpaUk8MCdVX90qY29MF4TCM6wGK6vOXYodWWgObQSx1jeC
+ KjjCpgDZ0xAoOsTR0/N6kqHwUH0HQXRk+Yi/RroPmgowkTiAJ3IHoKLxMonaQROCixgoLWjFmUK
+ 5bypWx1TARjNuAocGL513huHshI0KKlIfgEwXDF2fGfg==
+X-Forward-Email-ID: 67c0a6845ef5224158d0c2d5
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.59
+X-Forward-Email-Version: 0.4.40
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Yao Zi <ziyao@disroot.org>
+Cc: Jonas Karlman <jonas@kwiboo.se>,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH] clk: rockchip: Add reset lookup table for RK3528
+Date: Thu, 27 Feb 2025 17:52:57 +0000
+Message-ID: <20250227175302.2950788-1-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250227153242.GG39591@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9D6:EE_|DS0PR12MB6605:EE_
-X-MS-Office365-Filtering-Correlation-Id: f35b1f64-1728-41bd-f87f-08dd5756c7ff
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|376014|7416014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?h+rJr7CttCa1WgPjropsToQUo/fFqjhJSs4SBwhsAL+OFMUiStTQ9gpdduMu?=
- =?us-ascii?Q?SIvyWummM0r6M8odBGz2vg/AtziVTLMxxQLdrARp9oxICjFOUTPj0ZGIg45K?=
- =?us-ascii?Q?xHqw1350XPG8/k+O+ZH684XUmv8KN3XtK7i7/4lc8T8vHbM7RxO4U8rH8QI5?=
- =?us-ascii?Q?MQgDpPGo5BBnVQLRmvtY15u9z6QWz5zGr/DtUHS3q7ZNtjJCemorho11eIZB?=
- =?us-ascii?Q?0JpAz0KUDdmQThDsZoZGYMpOfca8FcL6E+CBK7WJFUqDfEa4+zQsrgSrqYdn?=
- =?us-ascii?Q?vLuhKaLmWrZTW3TiL5XB5fuDaxNWw4/dMPKseI02j7dLgKv9EvyLSr8Y+tHB?=
- =?us-ascii?Q?UKkJCfXawt43Ih5aUkCWRTdmxrvxuXd8uC6ssfMk6teUdqtAHRyMRrA77FEQ?=
- =?us-ascii?Q?YZPVRSLPI98mV2ehSu3DsXat2c2CxzW00qpZxSFYTSkUB/CPoCxIKJ1C6HHu?=
- =?us-ascii?Q?pUYe+qJKsEN1UrG9THKsmPDf3aGEtNFIO6pMbwLJIMH8FhVGOFi4ww7UJWnw?=
- =?us-ascii?Q?cfQpD++aiN7m6SM/QC/GiBCoKDH9dQpSq08K5N9mMlhjPEjVUuRd5BFsC1Cf?=
- =?us-ascii?Q?sxMA4UjcgBZcfLFDT2luvRp0oDwayjCKL4/6NEDDGrpA9MA+Zpsh3ELzLUYa?=
- =?us-ascii?Q?ehjTog85qQuU7qjjzLsDjirIJos8UeP9EzaxzetfsBjEDiYYgTm3LXCpwUmd?=
- =?us-ascii?Q?7YSAV2twgCF9v/pt+AYZfl38un8jIWiXexQ+G5BpEP8kxzs/OPNgmMvwF0KN?=
- =?us-ascii?Q?eygQ62/hlUO29O9/97i5c+Vyn4/owBOJOPEGTNeH76ZlCNuusUYUQaSn4qlk?=
- =?us-ascii?Q?Ywv3ThDxUARP7252pv0r8fQXOjTffyXeKL0Ortaxn4ndeNbs9d8/viG+X5Mo?=
- =?us-ascii?Q?ytUMK8s9AWhPqqfqLBpe/WHh4QmZx7X/Q6ky0CAPSaBBLzdFd9jejHnFH96q?=
- =?us-ascii?Q?GPfYhuKDYhXoBk1V+KU6s3XbInpd4BWzS9iCoWcPuxxQfJbo/jJ6zaBgn3rX?=
- =?us-ascii?Q?yARQX7Ho5qTpdK6BwUPlyrOp+fBzFnmjmyuUyER4ahOgvZM1W4hBBvi7df+f?=
- =?us-ascii?Q?c9zee7tsN7GXu9IwBk8XjEP4q1EtV3e01y7IKBkyrWLn9CNh/7ee083D+Hu+?=
- =?us-ascii?Q?ucT1eqhJu9QDNb1XQHnYlfae1OKBrhpk/nWLJxeK2uBew30L4nrgUJGNSQwW?=
- =?us-ascii?Q?DhDS+bIxX2KZ/pBXnpUVY6i14QN9vXgdpzjnXw1xMpE7pL6dZL+ty4ueHXo4?=
- =?us-ascii?Q?U4yuM6dWDEf/jVWxinGbF+zuLFWcoBgp98zF8c+dIaLQ0KxEZYa1d4XVAkfx?=
- =?us-ascii?Q?r7sQ2v0M8L5Zn5K6wI6wgF5TN9ilQ+XDtt6hZjpfO82ikM/nE1korKGO4RWV?=
- =?us-ascii?Q?RFIhmVY/6fev6jSY8u1Nm9Dhwxrc+R+Jrh0F68Re/OyidiWvNpCLcnY3wH0o?=
- =?us-ascii?Q?DBCE3C/ycexFPFeP0QI5kJlGYDyrR24Y/XhlpPL6dDaRL11KjOekhcmMWzbu?=
- =?us-ascii?Q?coPcvxhs775cfPw=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(376014)(7416014)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Feb 2025 17:47:18.9629
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f35b1f64-1728-41bd-f87f-08dd5756c7ff
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9D6.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB6605
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_094727_953619_8EA35C1A 
-X-CRM114-Status: GOOD (  25.40  )
+X-CRM114-CacheID: sfid-20250227_095317_798641_A8AA360C 
+X-CRM114-Status: GOOD (  16.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,51 +77,374 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025 at 11:32:42AM -0400, Jason Gunthorpe wrote:
-> On Thu, Feb 27, 2025 at 11:21:28AM +0000, Robin Murphy wrote:
-> > All I'm saying is to hide the callback detail in the IOMMUFD code because
-> > being IOMMUFD modular is unique to IOMMUFD and not the rest of the core
-> > code's problem.
-> 
-> Maybe we could use a global function pointer set/cleared on iommufd
-> module load?
-> 
-> Regardless, we need to first find a way for the core code to tell if
-> the domain is iommufd owned or not.
-> 
-> We should also make it so we can tell if dma-iommu.c is linked to that
-> domain (eg vfio or the default_domain), then we can do the iova_cookie
-> move without changing the destruction flows. This would be the missing
-> union struct tag you mentioned in the other email.
-> 
-> What I've been thinking of is changing type into flags. I think we
-> have now removed type from all drivers so this should be a small
-> enough work.
-> 
-> Nicolin should be able to look into some followup here, it is not a
-> small change.
-> 
-> > And frankly otherwise, what even is the benefit of moving the iova_cookie
-> > pointer into the union if we have to replace it with another whole pointer
-> > to make it work?
-> 
-> It makes a lot more semantic sense that the domain owners all share a
-> single "private data" pointer.
+In the commit 5d0eb375e685 ("clk: rockchip: Add clock controller driver
+for RK3528 SoC") only the dt-binding header was added for the reset
+controller for the RK3528 SoC.
 
-I found a bit confusing to use "owner" as the domain->owner isn't
-the same thing in this context. Maybe it should be "driver_ops"?
+Add a reset lookup table generated from the SRST symbols used by vendor
+linux-6.1-stan-rkr5 kernel to complete support for the reset controller.
 
-Then, "owner" could be another op structure that holds the owner-
-specific things, such as:
-	enum iommu_domain_owner { DMA/VFIO/IOMMUFD}; // or flag?
-	union {
-		iova_cookie;  // DMA
-		msi_cookie;   // VFIO
-		iommufd_hwpt; // IOMMUFD
-	}
-	(*sw_msi);
-?
+Fixes: 5d0eb375e685 ("clk: rockchip: Add clock controller driver for RK3528 SoC")
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+---
+ drivers/clk/rockchip/Makefile     |   2 +-
+ drivers/clk/rockchip/clk-rk3528.c |   2 +
+ drivers/clk/rockchip/clk.h        |   1 +
+ drivers/clk/rockchip/rst-rk3528.c | 306 ++++++++++++++++++++++++++++++
+ 4 files changed, 310 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/clk/rockchip/rst-rk3528.c
 
-Thanks
-Nicolin
+diff --git a/drivers/clk/rockchip/Makefile b/drivers/clk/rockchip/Makefile
+index 0b07fd4a226f..3329b64f7616 100644
+--- a/drivers/clk/rockchip/Makefile
++++ b/drivers/clk/rockchip/Makefile
+@@ -28,7 +28,7 @@ obj-$(CONFIG_CLK_RK3308)        += clk-rk3308.o
+ obj-$(CONFIG_CLK_RK3328)        += clk-rk3328.o
+ obj-$(CONFIG_CLK_RK3368)        += clk-rk3368.o
+ obj-$(CONFIG_CLK_RK3399)        += clk-rk3399.o
+-obj-$(CONFIG_CLK_RK3528)	+= clk-rk3528.o
++obj-$(CONFIG_CLK_RK3528)	+= clk-rk3528.o rst-rk3528.o
+ obj-$(CONFIG_CLK_RK3568)	+= clk-rk3568.o
+ obj-$(CONFIG_CLK_RK3576)	+= clk-rk3576.o rst-rk3576.o
+ obj-$(CONFIG_CLK_RK3588)	+= clk-rk3588.o rst-rk3588.o
+diff --git a/drivers/clk/rockchip/clk-rk3528.c b/drivers/clk/rockchip/clk-rk3528.c
+index 00caf277d844..b8b577b902a0 100644
+--- a/drivers/clk/rockchip/clk-rk3528.c
++++ b/drivers/clk/rockchip/clk-rk3528.c
+@@ -1092,6 +1092,8 @@ static int __init clk_rk3528_probe(struct platform_device *pdev)
+ 				     ARRAY_SIZE(rk3528_cpuclk_rates));
+ 	rockchip_clk_register_branches(ctx, rk3528_clk_branches, nr_branches);
+ 
++	rk3528_rst_init(np, reg_base);
++
+ 	rockchip_register_restart_notifier(ctx, RK3528_GLB_SRST_FST, NULL);
+ 
+ 	rockchip_clk_of_add_provider(np, ctx);
+diff --git a/drivers/clk/rockchip/clk.h b/drivers/clk/rockchip/clk.h
+index b2973b76aa2c..b322d42dc879 100644
+--- a/drivers/clk/rockchip/clk.h
++++ b/drivers/clk/rockchip/clk.h
+@@ -1140,6 +1140,7 @@ static inline void rockchip_register_softrst(struct device_node *np,
+ 	return rockchip_register_softrst_lut(np, NULL, num_regs, base, flags);
+ }
+ 
++void rk3528_rst_init(struct device_node *np, void __iomem *reg_base);
+ void rk3576_rst_init(struct device_node *np, void __iomem *reg_base);
+ void rk3588_rst_init(struct device_node *np, void __iomem *reg_base);
+ 
+diff --git a/drivers/clk/rockchip/rst-rk3528.c b/drivers/clk/rockchip/rst-rk3528.c
+new file mode 100644
+index 000000000000..b24f2c367929
+--- /dev/null
++++ b/drivers/clk/rockchip/rst-rk3528.c
+@@ -0,0 +1,306 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright (c) 2022 Rockchip Electronics Co., Ltd.
++ * Based on Sebastian Reichel's implementation for RK3588
++ */
++
++#include <linux/module.h>
++#include <linux/of.h>
++#include <dt-bindings/reset/rockchip,rk3528-cru.h>
++#include "clk.h"
++
++/* 0xFF4A0000 + 0x0A00 */
++#define RK3528_CRU_RESET_OFFSET(id, reg, bit) [id] = (0 + reg * 16 + bit)
++
++/* mapping table for reset ID to register offset */
++static const int rk3528_register_offset[] = {
++	/* CRU_SOFTRST_CON03 */
++	RK3528_CRU_RESET_OFFSET(SRST_CORE0_PO, 3, 0),
++	RK3528_CRU_RESET_OFFSET(SRST_CORE1_PO, 3, 1),
++	RK3528_CRU_RESET_OFFSET(SRST_CORE2_PO, 3, 2),
++	RK3528_CRU_RESET_OFFSET(SRST_CORE3_PO, 3, 3),
++	RK3528_CRU_RESET_OFFSET(SRST_CORE0, 3, 4),
++	RK3528_CRU_RESET_OFFSET(SRST_CORE1, 3, 5),
++	RK3528_CRU_RESET_OFFSET(SRST_CORE2, 3, 6),
++	RK3528_CRU_RESET_OFFSET(SRST_CORE3, 3, 7),
++	RK3528_CRU_RESET_OFFSET(SRST_NL2, 3, 8),
++	RK3528_CRU_RESET_OFFSET(SRST_CORE_BIU, 3, 9),
++	RK3528_CRU_RESET_OFFSET(SRST_CORE_CRYPTO, 3, 10),
++
++	/* CRU_SOFTRST_CON05 */
++	RK3528_CRU_RESET_OFFSET(SRST_P_DBG, 5, 13),
++	RK3528_CRU_RESET_OFFSET(SRST_POT_DBG, 5, 14),
++	RK3528_CRU_RESET_OFFSET(SRST_NT_DBG, 5, 15),
++
++	/* CRU_SOFTRST_CON06 */
++	RK3528_CRU_RESET_OFFSET(SRST_P_CORE_GRF, 6, 2),
++	RK3528_CRU_RESET_OFFSET(SRST_P_DAPLITE_BIU, 6, 3),
++	RK3528_CRU_RESET_OFFSET(SRST_P_CPU_BIU, 6, 4),
++	RK3528_CRU_RESET_OFFSET(SRST_REF_PVTPLL_CORE, 6, 7),
++
++	/* CRU_SOFTRST_CON08 */
++	RK3528_CRU_RESET_OFFSET(SRST_A_BUS_VOPGL_BIU, 8, 1),
++	RK3528_CRU_RESET_OFFSET(SRST_A_BUS_H_BIU, 8, 3),
++	RK3528_CRU_RESET_OFFSET(SRST_A_SYSMEM_BIU, 8, 8),
++	RK3528_CRU_RESET_OFFSET(SRST_A_BUS_BIU, 8, 10),
++	RK3528_CRU_RESET_OFFSET(SRST_H_BUS_BIU, 8, 11),
++	RK3528_CRU_RESET_OFFSET(SRST_P_BUS_BIU, 8, 12),
++	RK3528_CRU_RESET_OFFSET(SRST_P_DFT2APB, 8, 13),
++	RK3528_CRU_RESET_OFFSET(SRST_P_BUS_GRF, 8, 15),
++
++	/* CRU_SOFTRST_CON09 */
++	RK3528_CRU_RESET_OFFSET(SRST_A_BUS_M_BIU, 9, 0),
++	RK3528_CRU_RESET_OFFSET(SRST_A_GIC, 9, 1),
++	RK3528_CRU_RESET_OFFSET(SRST_A_SPINLOCK, 9, 2),
++	RK3528_CRU_RESET_OFFSET(SRST_A_DMAC, 9, 4),
++	RK3528_CRU_RESET_OFFSET(SRST_P_TIMER, 9, 5),
++	RK3528_CRU_RESET_OFFSET(SRST_TIMER0, 9, 6),
++	RK3528_CRU_RESET_OFFSET(SRST_TIMER1, 9, 7),
++	RK3528_CRU_RESET_OFFSET(SRST_TIMER2, 9, 8),
++	RK3528_CRU_RESET_OFFSET(SRST_TIMER3, 9, 9),
++	RK3528_CRU_RESET_OFFSET(SRST_TIMER4, 9, 10),
++	RK3528_CRU_RESET_OFFSET(SRST_TIMER5, 9, 11),
++	RK3528_CRU_RESET_OFFSET(SRST_P_JDBCK_DAP, 9, 12),
++	RK3528_CRU_RESET_OFFSET(SRST_JDBCK_DAP, 9, 13),
++	RK3528_CRU_RESET_OFFSET(SRST_P_WDT_NS, 9, 15),
++
++	/* CRU_SOFTRST_CON10 */
++	RK3528_CRU_RESET_OFFSET(SRST_T_WDT_NS, 10, 0),
++	RK3528_CRU_RESET_OFFSET(SRST_H_TRNG_NS, 10, 3),
++	RK3528_CRU_RESET_OFFSET(SRST_P_UART0, 10, 7),
++	RK3528_CRU_RESET_OFFSET(SRST_S_UART0, 10, 8),
++	RK3528_CRU_RESET_OFFSET(SRST_PKA_CRYPTO, 10, 10),
++	RK3528_CRU_RESET_OFFSET(SRST_A_CRYPTO, 10, 11),
++	RK3528_CRU_RESET_OFFSET(SRST_H_CRYPTO, 10, 12),
++	RK3528_CRU_RESET_OFFSET(SRST_P_DMA2DDR, 10, 13),
++	RK3528_CRU_RESET_OFFSET(SRST_A_DMA2DDR, 10, 14),
++
++	/* CRU_SOFTRST_CON11 */
++	RK3528_CRU_RESET_OFFSET(SRST_P_PWM0, 11, 4),
++	RK3528_CRU_RESET_OFFSET(SRST_PWM0, 11, 5),
++	RK3528_CRU_RESET_OFFSET(SRST_P_PWM1, 11, 7),
++	RK3528_CRU_RESET_OFFSET(SRST_PWM1, 11, 8),
++	RK3528_CRU_RESET_OFFSET(SRST_P_SCR, 11, 10),
++	RK3528_CRU_RESET_OFFSET(SRST_A_DCF, 11, 11),
++	RK3528_CRU_RESET_OFFSET(SRST_P_INTMUX, 11, 12),
++
++	/* CRU_SOFTRST_CON25 */
++	RK3528_CRU_RESET_OFFSET(SRST_A_VPU_BIU, 25, 6),
++	RK3528_CRU_RESET_OFFSET(SRST_H_VPU_BIU, 25, 7),
++	RK3528_CRU_RESET_OFFSET(SRST_P_VPU_BIU, 25, 8),
++	RK3528_CRU_RESET_OFFSET(SRST_A_VPU, 25, 9),
++	RK3528_CRU_RESET_OFFSET(SRST_H_VPU, 25, 10),
++	RK3528_CRU_RESET_OFFSET(SRST_P_CRU_PCIE, 25, 11),
++	RK3528_CRU_RESET_OFFSET(SRST_P_VPU_GRF, 25, 12),
++	RK3528_CRU_RESET_OFFSET(SRST_H_SFC, 25, 13),
++	RK3528_CRU_RESET_OFFSET(SRST_S_SFC, 25, 14),
++	RK3528_CRU_RESET_OFFSET(SRST_C_EMMC, 25, 15),
++
++	/* CRU_SOFTRST_CON26 */
++	RK3528_CRU_RESET_OFFSET(SRST_H_EMMC, 26, 0),
++	RK3528_CRU_RESET_OFFSET(SRST_A_EMMC, 26, 1),
++	RK3528_CRU_RESET_OFFSET(SRST_B_EMMC, 26, 2),
++	RK3528_CRU_RESET_OFFSET(SRST_T_EMMC, 26, 3),
++	RK3528_CRU_RESET_OFFSET(SRST_P_GPIO1, 26, 4),
++	RK3528_CRU_RESET_OFFSET(SRST_DB_GPIO1, 26, 5),
++	RK3528_CRU_RESET_OFFSET(SRST_A_VPU_L_BIU, 26, 6),
++	RK3528_CRU_RESET_OFFSET(SRST_P_VPU_IOC, 26, 8),
++	RK3528_CRU_RESET_OFFSET(SRST_H_SAI_I2S0, 26, 9),
++	RK3528_CRU_RESET_OFFSET(SRST_M_SAI_I2S0, 26, 10),
++	RK3528_CRU_RESET_OFFSET(SRST_H_SAI_I2S2, 26, 11),
++	RK3528_CRU_RESET_OFFSET(SRST_M_SAI_I2S2, 26, 12),
++	RK3528_CRU_RESET_OFFSET(SRST_P_ACODEC, 26, 13),
++
++	/* CRU_SOFTRST_CON27 */
++	RK3528_CRU_RESET_OFFSET(SRST_P_GPIO3, 27, 0),
++	RK3528_CRU_RESET_OFFSET(SRST_DB_GPIO3, 27, 1),
++	RK3528_CRU_RESET_OFFSET(SRST_P_SPI1, 27, 4),
++	RK3528_CRU_RESET_OFFSET(SRST_SPI1, 27, 5),
++	RK3528_CRU_RESET_OFFSET(SRST_P_UART2, 27, 7),
++	RK3528_CRU_RESET_OFFSET(SRST_S_UART2, 27, 8),
++	RK3528_CRU_RESET_OFFSET(SRST_P_UART5, 27, 9),
++	RK3528_CRU_RESET_OFFSET(SRST_S_UART5, 27, 10),
++	RK3528_CRU_RESET_OFFSET(SRST_P_UART6, 27, 11),
++	RK3528_CRU_RESET_OFFSET(SRST_S_UART6, 27, 12),
++	RK3528_CRU_RESET_OFFSET(SRST_P_UART7, 27, 13),
++	RK3528_CRU_RESET_OFFSET(SRST_S_UART7, 27, 14),
++	RK3528_CRU_RESET_OFFSET(SRST_P_I2C3, 27, 15),
++
++	/* CRU_SOFTRST_CON28 */
++	RK3528_CRU_RESET_OFFSET(SRST_I2C3, 28, 0),
++	RK3528_CRU_RESET_OFFSET(SRST_P_I2C5, 28, 1),
++	RK3528_CRU_RESET_OFFSET(SRST_I2C5, 28, 2),
++	RK3528_CRU_RESET_OFFSET(SRST_P_I2C6, 28, 3),
++	RK3528_CRU_RESET_OFFSET(SRST_I2C6, 28, 4),
++	RK3528_CRU_RESET_OFFSET(SRST_A_MAC, 28, 5),
++
++	/* CRU_SOFTRST_CON30 */
++	RK3528_CRU_RESET_OFFSET(SRST_P_PCIE, 30, 1),
++	RK3528_CRU_RESET_OFFSET(SRST_PCIE_PIPE_PHY, 30, 2),
++	RK3528_CRU_RESET_OFFSET(SRST_PCIE_POWER_UP, 30, 3),
++	RK3528_CRU_RESET_OFFSET(SRST_P_PCIE_PHY, 30, 6),
++	RK3528_CRU_RESET_OFFSET(SRST_P_PIPE_GRF, 30, 7),
++
++	/* CRU_SOFTRST_CON32 */
++	RK3528_CRU_RESET_OFFSET(SRST_H_SDIO0, 32, 2),
++	RK3528_CRU_RESET_OFFSET(SRST_H_SDIO1, 32, 4),
++	RK3528_CRU_RESET_OFFSET(SRST_TS_0, 32, 5),
++	RK3528_CRU_RESET_OFFSET(SRST_TS_1, 32, 6),
++	RK3528_CRU_RESET_OFFSET(SRST_P_CAN2, 32, 7),
++	RK3528_CRU_RESET_OFFSET(SRST_CAN2, 32, 8),
++	RK3528_CRU_RESET_OFFSET(SRST_P_CAN3, 32, 9),
++	RK3528_CRU_RESET_OFFSET(SRST_CAN3, 32, 10),
++	RK3528_CRU_RESET_OFFSET(SRST_P_SARADC, 32, 11),
++	RK3528_CRU_RESET_OFFSET(SRST_SARADC, 32, 12),
++	RK3528_CRU_RESET_OFFSET(SRST_SARADC_PHY, 32, 13),
++	RK3528_CRU_RESET_OFFSET(SRST_P_TSADC, 32, 14),
++	RK3528_CRU_RESET_OFFSET(SRST_TSADC, 32, 15),
++
++	/* CRU_SOFTRST_CON33 */
++	RK3528_CRU_RESET_OFFSET(SRST_A_USB3OTG, 33, 1),
++
++	/* CRU_SOFTRST_CON34 */
++	RK3528_CRU_RESET_OFFSET(SRST_A_GPU_BIU, 34, 3),
++	RK3528_CRU_RESET_OFFSET(SRST_P_GPU_BIU, 34, 5),
++	RK3528_CRU_RESET_OFFSET(SRST_A_GPU, 34, 8),
++	RK3528_CRU_RESET_OFFSET(SRST_REF_PVTPLL_GPU, 34, 9),
++
++	/* CRU_SOFTRST_CON36 */
++	RK3528_CRU_RESET_OFFSET(SRST_H_RKVENC_BIU, 36, 3),
++	RK3528_CRU_RESET_OFFSET(SRST_A_RKVENC_BIU, 36, 4),
++	RK3528_CRU_RESET_OFFSET(SRST_P_RKVENC_BIU, 36, 5),
++	RK3528_CRU_RESET_OFFSET(SRST_H_RKVENC, 36, 6),
++	RK3528_CRU_RESET_OFFSET(SRST_A_RKVENC, 36, 7),
++	RK3528_CRU_RESET_OFFSET(SRST_CORE_RKVENC, 36, 8),
++	RK3528_CRU_RESET_OFFSET(SRST_H_SAI_I2S1, 36, 9),
++	RK3528_CRU_RESET_OFFSET(SRST_M_SAI_I2S1, 36, 10),
++	RK3528_CRU_RESET_OFFSET(SRST_P_I2C1, 36, 11),
++	RK3528_CRU_RESET_OFFSET(SRST_I2C1, 36, 12),
++	RK3528_CRU_RESET_OFFSET(SRST_P_I2C0, 36, 13),
++	RK3528_CRU_RESET_OFFSET(SRST_I2C0, 36, 14),
++
++	/* CRU_SOFTRST_CON37 */
++	RK3528_CRU_RESET_OFFSET(SRST_P_SPI0, 37, 2),
++	RK3528_CRU_RESET_OFFSET(SRST_SPI0, 37, 3),
++	RK3528_CRU_RESET_OFFSET(SRST_P_GPIO4, 37, 8),
++	RK3528_CRU_RESET_OFFSET(SRST_DB_GPIO4, 37, 9),
++	RK3528_CRU_RESET_OFFSET(SRST_P_RKVENC_IOC, 37, 10),
++	RK3528_CRU_RESET_OFFSET(SRST_H_SPDIF, 37, 14),
++	RK3528_CRU_RESET_OFFSET(SRST_M_SPDIF, 37, 15),
++
++	/* CRU_SOFTRST_CON38 */
++	RK3528_CRU_RESET_OFFSET(SRST_H_PDM, 38, 0),
++	RK3528_CRU_RESET_OFFSET(SRST_M_PDM, 38, 1),
++	RK3528_CRU_RESET_OFFSET(SRST_P_UART1, 38, 2),
++	RK3528_CRU_RESET_OFFSET(SRST_S_UART1, 38, 3),
++	RK3528_CRU_RESET_OFFSET(SRST_P_UART3, 38, 4),
++	RK3528_CRU_RESET_OFFSET(SRST_S_UART3, 38, 5),
++	RK3528_CRU_RESET_OFFSET(SRST_P_RKVENC_GRF, 38, 6),
++	RK3528_CRU_RESET_OFFSET(SRST_P_CAN0, 38, 7),
++	RK3528_CRU_RESET_OFFSET(SRST_CAN0, 38, 8),
++	RK3528_CRU_RESET_OFFSET(SRST_P_CAN1, 38, 9),
++	RK3528_CRU_RESET_OFFSET(SRST_CAN1, 38, 10),
++
++	/* CRU_SOFTRST_CON39 */
++	RK3528_CRU_RESET_OFFSET(SRST_A_VO_BIU, 39, 3),
++	RK3528_CRU_RESET_OFFSET(SRST_H_VO_BIU, 39, 4),
++	RK3528_CRU_RESET_OFFSET(SRST_P_VO_BIU, 39, 5),
++	RK3528_CRU_RESET_OFFSET(SRST_H_RGA2E, 39, 7),
++	RK3528_CRU_RESET_OFFSET(SRST_A_RGA2E, 39, 8),
++	RK3528_CRU_RESET_OFFSET(SRST_CORE_RGA2E, 39, 9),
++	RK3528_CRU_RESET_OFFSET(SRST_H_VDPP, 39, 10),
++	RK3528_CRU_RESET_OFFSET(SRST_A_VDPP, 39, 11),
++	RK3528_CRU_RESET_OFFSET(SRST_CORE_VDPP, 39, 12),
++	RK3528_CRU_RESET_OFFSET(SRST_P_VO_GRF, 39, 13),
++	RK3528_CRU_RESET_OFFSET(SRST_P_CRU, 39, 15),
++
++	/* CRU_SOFTRST_CON40 */
++	RK3528_CRU_RESET_OFFSET(SRST_A_VOP_BIU, 40, 1),
++	RK3528_CRU_RESET_OFFSET(SRST_H_VOP, 40, 2),
++	RK3528_CRU_RESET_OFFSET(SRST_D_VOP0, 40, 3),
++	RK3528_CRU_RESET_OFFSET(SRST_D_VOP1, 40, 4),
++	RK3528_CRU_RESET_OFFSET(SRST_A_VOP, 40, 5),
++	RK3528_CRU_RESET_OFFSET(SRST_P_HDMI, 40, 6),
++	RK3528_CRU_RESET_OFFSET(SRST_HDMI, 40, 7),
++	RK3528_CRU_RESET_OFFSET(SRST_P_HDMIPHY, 40, 14),
++	RK3528_CRU_RESET_OFFSET(SRST_H_HDCP_KEY, 40, 15),
++
++	/* CRU_SOFTRST_CON41 */
++	RK3528_CRU_RESET_OFFSET(SRST_A_HDCP, 41, 0),
++	RK3528_CRU_RESET_OFFSET(SRST_H_HDCP, 41, 1),
++	RK3528_CRU_RESET_OFFSET(SRST_P_HDCP, 41, 2),
++	RK3528_CRU_RESET_OFFSET(SRST_H_CVBS, 41, 3),
++	RK3528_CRU_RESET_OFFSET(SRST_D_CVBS_VOP, 41, 4),
++	RK3528_CRU_RESET_OFFSET(SRST_D_4X_CVBS_VOP, 41, 5),
++	RK3528_CRU_RESET_OFFSET(SRST_A_JPEG_DECODER, 41, 6),
++	RK3528_CRU_RESET_OFFSET(SRST_H_JPEG_DECODER, 41, 7),
++	RK3528_CRU_RESET_OFFSET(SRST_A_VO_L_BIU, 41, 9),
++	RK3528_CRU_RESET_OFFSET(SRST_A_MAC_VO, 41, 10),
++
++	/* CRU_SOFTRST_CON42 */
++	RK3528_CRU_RESET_OFFSET(SRST_A_JPEG_BIU, 42, 0),
++	RK3528_CRU_RESET_OFFSET(SRST_H_SAI_I2S3, 42, 1),
++	RK3528_CRU_RESET_OFFSET(SRST_M_SAI_I2S3, 42, 2),
++	RK3528_CRU_RESET_OFFSET(SRST_MACPHY, 42, 3),
++	RK3528_CRU_RESET_OFFSET(SRST_P_VCDCPHY, 42, 4),
++	RK3528_CRU_RESET_OFFSET(SRST_P_GPIO2, 42, 5),
++	RK3528_CRU_RESET_OFFSET(SRST_DB_GPIO2, 42, 6),
++	RK3528_CRU_RESET_OFFSET(SRST_P_VO_IOC, 42, 7),
++	RK3528_CRU_RESET_OFFSET(SRST_H_SDMMC0, 42, 9),
++	RK3528_CRU_RESET_OFFSET(SRST_P_OTPC_NS, 42, 11),
++	RK3528_CRU_RESET_OFFSET(SRST_SBPI_OTPC_NS, 42, 12),
++	RK3528_CRU_RESET_OFFSET(SRST_USER_OTPC_NS, 42, 13),
++
++	/* CRU_SOFTRST_CON43 */
++	RK3528_CRU_RESET_OFFSET(SRST_HDMIHDP0, 43, 2),
++	RK3528_CRU_RESET_OFFSET(SRST_H_USBHOST, 43, 3),
++	RK3528_CRU_RESET_OFFSET(SRST_H_USBHOST_ARB, 43, 4),
++	RK3528_CRU_RESET_OFFSET(SRST_HOST_UTMI, 43, 6),
++	RK3528_CRU_RESET_OFFSET(SRST_P_UART4, 43, 7),
++	RK3528_CRU_RESET_OFFSET(SRST_S_UART4, 43, 8),
++	RK3528_CRU_RESET_OFFSET(SRST_P_I2C4, 43, 9),
++	RK3528_CRU_RESET_OFFSET(SRST_I2C4, 43, 10),
++	RK3528_CRU_RESET_OFFSET(SRST_P_I2C7, 43, 11),
++	RK3528_CRU_RESET_OFFSET(SRST_I2C7, 43, 12),
++	RK3528_CRU_RESET_OFFSET(SRST_P_USBPHY, 43, 13),
++	RK3528_CRU_RESET_OFFSET(SRST_USBPHY_POR, 43, 14),
++	RK3528_CRU_RESET_OFFSET(SRST_USBPHY_OTG, 43, 15),
++
++	/* CRU_SOFTRST_CON44 */
++	RK3528_CRU_RESET_OFFSET(SRST_USBPHY_HOST, 44, 0),
++	RK3528_CRU_RESET_OFFSET(SRST_P_DDRPHY_CRU, 44, 4),
++	RK3528_CRU_RESET_OFFSET(SRST_H_RKVDEC_BIU, 44, 6),
++	RK3528_CRU_RESET_OFFSET(SRST_A_RKVDEC_BIU, 44, 7),
++	RK3528_CRU_RESET_OFFSET(SRST_A_RKVDEC, 44, 8),
++	RK3528_CRU_RESET_OFFSET(SRST_H_RKVDEC, 44, 9),
++	RK3528_CRU_RESET_OFFSET(SRST_HEVC_CA_RKVDEC, 44, 11),
++	RK3528_CRU_RESET_OFFSET(SRST_REF_PVTPLL_RKVDEC, 44, 12),
++
++	/* CRU_SOFTRST_CON45 */
++	RK3528_CRU_RESET_OFFSET(SRST_P_DDR_BIU, 45, 1),
++	RK3528_CRU_RESET_OFFSET(SRST_P_DDRC, 45, 2),
++	RK3528_CRU_RESET_OFFSET(SRST_P_DDRMON, 45, 3),
++	RK3528_CRU_RESET_OFFSET(SRST_TIMER_DDRMON, 45, 4),
++	RK3528_CRU_RESET_OFFSET(SRST_P_MSCH_BIU, 45, 5),
++	RK3528_CRU_RESET_OFFSET(SRST_P_DDR_GRF, 45, 6),
++	RK3528_CRU_RESET_OFFSET(SRST_P_DDR_HWLP, 45, 8),
++	RK3528_CRU_RESET_OFFSET(SRST_P_DDRPHY, 45, 9),
++	RK3528_CRU_RESET_OFFSET(SRST_MSCH_BIU, 45, 10),
++	RK3528_CRU_RESET_OFFSET(SRST_A_DDR_UPCTL, 45, 11),
++	RK3528_CRU_RESET_OFFSET(SRST_DDR_UPCTL, 45, 12),
++	RK3528_CRU_RESET_OFFSET(SRST_DDRMON, 45, 13),
++	RK3528_CRU_RESET_OFFSET(SRST_A_DDR_SCRAMBLE, 45, 14),
++	RK3528_CRU_RESET_OFFSET(SRST_A_SPLIT, 45, 15),
++
++	/* CRU_SOFTRST_CON46 */
++	RK3528_CRU_RESET_OFFSET(SRST_DDR_PHY, 46, 0),
++};
++
++void rk3528_rst_init(struct device_node *np, void __iomem *reg_base)
++{
++	rockchip_register_softrst_lut(np,
++				      rk3528_register_offset,
++				      ARRAY_SIZE(rk3528_register_offset),
++				      reg_base + RK3528_SOFTRST_CON(0),
++				      ROCKCHIP_SOFTRST_HIWORD_MASK);
++}
+-- 
+2.48.1
+
 
