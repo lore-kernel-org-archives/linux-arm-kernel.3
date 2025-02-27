@@ -4,55 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF95C1B087
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF4FC197BF
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:37:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uoFTNLQMy5NZltQXz2ilhexg+6uiIr8F5z9Z7TgqryM=; b=onzauvgKHxU17DGftdVbJfkE+t
-	7fd+STaQueBS+u/mR201VWYnvU97GGtwkfxGroELg9uGjHHo77QDCHkVV0qakCoVxAkt4n8BliaM2
-	qAvDz3nc5A6QvLTmmIWBtfDNC3JziQEa3hEtHoL7NK66jkjjDozZErL1ElQsfw130puJw8+GmO2nd
-	BA9ggzbUb3ssxgTeoU5dI+Ai5bv57xOq/4Ke71sxPjeBteU7OFmSyxQNfsQPPHEvygZvuESrxgyOk
-	CaoaA7z5q8d7fKc3JYxeR5/ki9hNaXAHNI5q3xZk6YbWvbk8yXqwV4Vt2spO3Sv+AoTuLvhDKXRR2
-	JkwByCPA==;
+	bh=Z915uYURLS9YYBK3HUBsVHhjYSPFcN02eHGGjD1vORo=; b=kaItgvcwG8u3OLLDPr/tQa8TYS
+	Cv8hXgI/AS2U1JeW7EVd8WVrWLVkKamVoGbgMScguN2vSwGYpe2H2rzYvyCHgk71igZxDnG9NqlMH
+	w94y8XmLxuhQoZrHkUS54PddFbKZazTCI1Mu+LlMty9/J5mkSJsbIDtko4aM7wcWCyxiL7Aob+YEB
+	PRtM48aPv3DqT/e2d+OmA0IvBGPKHpDFcMSe+c3i6gT6s4hmsJSC9u3K4wbAs4cUS/rXMkAehxjtU
+	7Q0OdJqeF0gVkCDWIuV7KynPbAy0EDawZftYkogVaYkC8QWFBuOATJKPSHR63KXJKseQZOmSfI/jO
+	As7P4pnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjhC-00000008TqK-0yeR;
-	Thu, 27 Feb 2025 19:37:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnf67-00000007nEJ-3Tnw;
-	Thu, 27 Feb 2025 14:42:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ED50A2BCA;
-	Thu, 27 Feb 2025 06:43:00 -0800 (PST)
-Received: from [10.57.78.204] (unknown [10.57.78.204])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A5E423F673;
-	Thu, 27 Feb 2025 06:42:43 -0800 (PST)
-Message-ID: <8fcb202f-d1b3-4989-9777-5bafd6fed59e@arm.com>
-Date: Thu, 27 Feb 2025 14:42:46 +0000
+	id 1tnjh1-00000008TeL-2gSU;
+	Thu, 27 Feb 2025 19:37:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnf1z-00000007lnP-3ww6
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 27 Feb 2025 14:38:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description;
+	bh=Z915uYURLS9YYBK3HUBsVHhjYSPFcN02eHGGjD1vORo=; b=qTNmiz9UgcCMsC5At+o2cmahLi
+	ws+TAILeOp5lgVfZJwBvWSVR2fbKsCpYGn78y85FHCtaMFDDrcid8SOypiYbmTXlFqZ7UHbl4u9MX
+	/LV/IS1yxtR12PK2ejL4DNuXHNSXzG6ESoNTr3wtBbpax+W12WJkZrhD8WsF+Q9wOE5AuIRSBx7fI
+	DbMXI0L3Jj/3RLEow/9eJtq2SbEHuCO8zVt4xjz3nszAYaC/6HTYmyKGFXFRrinwC+oeGItatgrVi
+	buE2QCFG55mgf7FSx39xCIjGUkBJRYKTvwwDvfjzHM3dWLn6jZ6Hobqa01wl1Ru8k3BI9SWLuRR1B
+	Es2iR7dw==;
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnf1x-00000003oSF-0vrJ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Feb 2025 14:38:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Z915uYURLS9YYBK3HUBsVHhjYSPFcN02eHGGjD1vORo=; b=hhiZzwczH9Jwtadlk7SMudUeFF
+	XLSnG+YnH9bmqrRioM9+hniodnLIItH5IQk14TNZ4+Hbsa1kgzAylRWI1L0lNXz8QwWXXQJOU4o/u
+	vHUg11YFlr88KC6I7w140r+cI83jfmFgGOFxx9tByGPC6UHsdmPrXsNiNkRxvNsCxgpe/nIfhQH4H
+	op8/6arxw0G8A2P0eKaISlNJFq0v1fgsiYlxumE6cR8kpxgJGiwZEy4gyUlmKoA32iBOTmwtzgbB0
+	4kZrZTjqaTTi+oh6VhAJUeyXoe5SZAsgzcPSMqRATmFbne7xSb7CrAQnCRKjcE7thmWKcK6kLfM6Z
+	ViGD3M5g==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:35842 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1tnf1r-0007R1-1z;
+	Thu, 27 Feb 2025 14:38:23 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1tnf1X-0056LI-9i; Thu, 27 Feb 2025 14:38:03 +0000
+In-Reply-To: <Z8B4tVd4nLUKXdQ4@shell.armlinux.org.uk>
+References: <Z8B4tVd4nLUKXdQ4@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jon Hunter <jonathanh@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Thierry Reding <treding@nvidia.com>
+Subject: [PATCH RFC net-next 4/5] net: stmmac: move phylink_resume() after
+ resume setup is complete
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] thermal: rockchip: Extract TSADC conversion tables into a
- header file
-To: Dragan Simic <dsimic@manjaro.org>
-Cc: rafael@kernel.org, daniel.lezcano@linaro.org,
- linux-rockchip@lists.infradead.org, rui.zhang@intel.com, heiko@sntech.de,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Kever Yang <kever.yang@rock-chips.com>,
- Diederik de Haas <didi.debian@cknow.org>, linux-pm@vger.kernel.org
-References: <08d2fc6e1972f1f90c900542bf66945d6dc6db63.1740577122.git.dsimic@manjaro.org>
-Content-Language: en-US
-From: Lukasz Luba <lukasz.luba@arm.com>
-In-Reply-To: <08d2fc6e1972f1f90c900542bf66945d6dc6db63.1740577122.git.dsimic@manjaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1tnf1X-0056LI-9i@rmk-PC.armlinux.org.uk>
+Date: Thu, 27 Feb 2025 14:38:03 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_064247_918616_A0F8185D 
-X-CRM114-Status: GOOD (  15.24  )
+X-CRM114-CacheID: sfid-20250227_143829_374824_70D73C06 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,45 +106,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dragan,
+Move phylink_resume() to be after the setup in stmmac_resume() has
+completed, as phylink_resume() may result in an immediate call to the
+.mac_link_up method, which will enable the transmitter and receiver,
+and enable the transmit queues.
 
-On 2/26/25 13:42, Dragan Simic wrote:
-> Move the TSADC code-to-temperature mapping tables from the Rockchip thermal
-> driver to a separate header file, to no longer have the somewhat cluttering
-> mapping data as part of the driver itself. [1]
-> 
-> These mapping tables come verbatim from the SoC technical reference manuals
-> (TRMs) and the downstream kernel code, [2] and may be updated at some point
-> in the future, according to the manufacturer test results, [3] so extracting
-> the tables into a separate header file not just improves the readability of
-> the driver code, but introduces a clear separation.
-> 
-> Improve the wording of the moved comment block, sprinkle a few short comments
-> over the newly introduced header file, and move the already existing single
-> stray #include directive in the driver code to its beginning.
-> 
-> [1] https://lore.kernel.org/linux-rockchip/7f17cc55-a741-4bb8-9513-0580ca6fedd3@linaro.org/T/#u
-> [2] https://raw.githubusercontent.com/rockchip-linux/kernel/f8b9431ee38ed561650be7092ab93f564598daa9/drivers/thermal/rockchip_thermal.c
-> [3] https://lore.kernel.org/linux-rockchip/b4ab86b56177a234f3738c477693e858@manjaro.org/T/#u
-> 
+This behaviour has been witnessed by Jon Hunter on the Jetson TX2
+platform (Tegra 186).
 
-I think Daniel was more thinking something about saving the
-memory in the kernel. I see how this patch can help the readability
-of the driver code, but that doesn't help much to not occupy the kernel
-data. The driver will be built with that memory and the distro would
-run on some platform with particular chip. The other chips data won't
-be needed.
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 11 +++++------
+ 1 file changed, 5 insertions(+), 6 deletions(-)
 
-Why not to have that information in the DT?
-That would save the memory and be configurable for only needed platform.
-Please have a look into the generic thermal ADC driver and related
-DT entry, which is used e.g. here [1].
-That table looks similar to your info.
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index fbcba6c71f12..23c610f7c779 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -7924,12 +7924,6 @@ int stmmac_resume(struct device *dev)
+ 			return ret;
+ 	}
+ 
+-	rtnl_lock();
+-	phylink_resume(priv->phylink);
+-	if (device_may_wakeup(priv->device) && !priv->plat->pmt)
+-		phylink_speed_up(priv->phylink);
+-	rtnl_unlock();
+-
+ 	rtnl_lock();
+ 	mutex_lock(&priv->lock);
+ 
+@@ -7948,6 +7942,11 @@ int stmmac_resume(struct device *dev)
+ 	stmmac_enable_all_dma_irq(priv);
+ 
+ 	mutex_unlock(&priv->lock);
++
++	phylink_resume(priv->phylink);
++	if (device_may_wakeup(priv->device) && !priv->plat->pmt)
++		phylink_speed_up(priv->phylink);
++
+ 	rtnl_unlock();
+ 
+ 	netif_device_attach(ndev);
+-- 
+2.30.2
 
-Regards,
-Lukasz
-
-
-[1] 
-https://elixir.bootlin.com/linux/v6.13.4/source/arch/arm64/boot/dts/mediatek/mt8195-cherry.dtsi#L136
 
