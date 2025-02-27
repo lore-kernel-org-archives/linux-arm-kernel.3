@@ -4,95 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD0E4C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:42:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD382C197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 19:42:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HiVWALSTD//m/UIip3RqCj0OCMJzxffojcYsREWRIbE=; b=AQ4R9oKb7QRwcmJVWv9WO+PPD7
-	tuk2MI5zs6p4Pz6SXuB2H6VDtAHKPMW2zFGgEYZvZsPznzkfe0aAjik98OypkQQXBuOS0hZXNfzoe
-	wpmzD/iRIsoF15EWVJWL1hvIq9iY+kNhVdzRlZUkLcr2He7ubQnQR2kRUk+7EG9NvqqrEPK+kZxuj
-	J7FlCmh8aHITHn40DAU5QUwro9UUKeP39wBk/mgyhFyhLc3tOouNMZz4j+OL8H3huGV1G0sKQeyWV
-	mbmDh9e9BSKxYjsnD0Em9WOLtt8LXXLO+QWpuFQG60whSYACyoRI97dkOpbkBPdSbQikabUSYONSp
-	v3zFUT3Q==;
+	bh=TTSt5PdUI9d441UCgQkpXr97+ziOKg47NeKMyBeAWaA=; b=NeQGDwBB2BgJni3lJS/x6x7FEz
+	vc3I+CUADlIs63uFG1o1o8shg7jAdunGF/PkVKS6d2p9T2BQftw/g7eHQ08Ao/bbJFlncraa0k50S
+	J3y6F1M8bjtXzVcqf3ED8f0xQXSmaeUb7yTO9qIT0KrX54ZNB3XQ17J8/ot7Q/oPp+vWu+EOnhurF
+	gUPox3TS+LEB+lSJP12ZovQe/jOb5NK9a5yqlZwgt1B8A1GDg09DW49+V2Ak6giMN1o4LUcrt6B7L
+	w0Exmk/4d2YAqof2drtGPf/74QnMaR8q0WvyqlaiS0mivRFoFT1xD0Rru514D7aGwQsizl/jmMG12
+	pQpRw9Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnjmO-00000008dIk-1qLP;
-	Thu, 27 Feb 2025 19:42:44 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1tnjmT-00000008dRW-1gnj;
+	Thu, 27 Feb 2025 19:42:49 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnie3-00000008KVA-23RR
+	id 1tnimT-00000008LAf-16xN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 18:30:04 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5461cb12e39so1170678e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 10:30:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740681002; x=1741285802; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=HiVWALSTD//m/UIip3RqCj0OCMJzxffojcYsREWRIbE=;
-        b=K+VkK7wwcqi5ig6TkxoWDtsziyluwYjBmiKqdQERhXY7/mEu+4CdkLON1580D9HQLQ
-         GWUQmy4zg0mPtDSf56U8B+bkD+fvTCpryVQJIzw9eptFVJt1BuqZpVIc6PHROKsKKIGA
-         RQcRBU6jfDpZYEB0YiSOCiNXkt5ahNyrQWIRJKpAvOSumJj/lv0qWs0rMZpbFRO1ZL/N
-         pAAcWI1EByB3LHR+MbR2uXW0q/8Wv0TeoG661T7LsmvTc5SOJQbJup9xLfhtc/ZEo0LW
-         IOJwGAHG00yitjZsCEbunpX6tcBNzO/xh+I/gY7mEvjxgRD4lxCpNWnKKNloH3HUWQkg
-         +oEw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740681002; x=1741285802;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HiVWALSTD//m/UIip3RqCj0OCMJzxffojcYsREWRIbE=;
-        b=GJyXPVKeenblNOqU9Pz45j9+vqJFAuXF9M0YhCTsXeNJuvfyxLdvs+jxaw33zeWnqk
-         0VRjtoKlDyf4NVMkwWAFLHWUF4OX+5q4MKWflLIC50s8CeHDqXZBGkdZiREHywVlEXfD
-         dEcHuoEO1yXUZi2b1D2HRHQF7KT1xNh71cqj41B3LUVU8lvQ7ZetrJON82POs2uxafm1
-         3Fi2lDVoc5MtAratXu/s33g2UfHI/VFloTCxmq+pxtI/PEf4V5s8RFH3Q/ZmiBgKGS+k
-         X+hj7mz4MmZaYT66izQfWAZpI5LnqvWPKvJBwAlsisJt2TvCm1uQ6O3jIFlURI2tUK0w
-         3drw==
-X-Forwarded-Encrypted: i=1; AJvYcCVDvA/S0tLy3/N52KYqOH9QNl8qEkm28633acSqFplvtkSgzkGdINO9hIHFBcHUyWKZjqxt6uyhtSvoZMVZdbV0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLzGxPPqzpHDvwGfItK1hw3bPN3z0w8P/Uv6VG8Q2EaO05F9ci
-	7rRLsyXfYdY5PqdAuMxPSnnasLPLX0tXFru+NqYA7rkfKFqba4xIyMZenit7m/k=
-X-Gm-Gg: ASbGncu903lBj1IOdOBEbjYmfTqvk8bnVQTUhoJeHt/aLfvXnH2cvzJyjU3zjb3Cpb3
-	MoMIEb2x0qT8X3iRZyBE5RhasB2BS1pYdQ8Deqr8/W5cNQnZfxBuSaJMNpLBEysjK4zbb2DjYi9
-	Q7lK3mrjzYO1yVbfYXYd357/3sI5kLe2k8R2EUpv6UjycGcIsmgcOZaHOTsCqrpmj1RA3a63tAv
-	KkuopLO8hhjr1jvTVm0hL8JtWJe6cJdyZU3pp/6cm+mRgtj6zvsYoH9NpjDXIjqTreiHIyhwChZ
-	DA3uSgXOyHmpi46IJahQx7nkNw7mFIOljMx5fpFzV0Fwd74dkmqa/nIdUbwv5415Waabf9ntzMr
-	ORFzmEw==
-X-Google-Smtp-Source: AGHT+IHBikfdMSK2JkSKuT0fc4cM+qKPdJZs+aMwAQcHRUzz0Xs5ze16P/SepqSYoZv2Lgzl1OHSNg==
-X-Received: by 2002:a05:6512:1103:b0:545:225d:6463 with SMTP id 2adb3069b0e04-5494c36bcc8mr200018e87.42.1740681001614;
-        Thu, 27 Feb 2025 10:30:01 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5494417b66fsm224376e87.93.2025.02.27.10.29.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Feb 2025 10:30:01 -0800 (PST)
-Date: Thu, 27 Feb 2025 20:29:58 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Melody Olvera <quic_molvera@quicinc.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Wesley Cheng <quic_wcheng@quicinc.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>, 
-	Trilok Soni <quic_tsoni@quicinc.com>, linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 7/7] arm64: dts: qcom: sm8750: Add USB support to SM8750
- platforms
-Message-ID: <g47ac6bzxqyqbkuqsvuwm5vdc7x5wjfppv6fj4mftwyjlyuz7t@jzmw2kfa2jnp>
-References: <20250113-sm8750_usb_master-v1-0-09afe1dc2524@quicinc.com>
- <20250113-sm8750_usb_master-v1-7-09afe1dc2524@quicinc.com>
+	Thu, 27 Feb 2025 18:38:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 195BF5C62DF;
+	Thu, 27 Feb 2025 18:38:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E8B1C4CEDD;
+	Thu, 27 Feb 2025 18:38:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740681523;
+	bh=gaDfvyAyEGdnh+pBzY02Mc2ZhsDIKncJW5KgRSiIhjc=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=qSHGOAE5CS9mvoPTeN7OC6NF9NHWFWZPFoNwLuYXD7d6j+4tbS9+oFL593MPL6UC9
+	 WO18g4G+u9hSw0ethh4nS3l49mnhdnuWJiU0HgStcXfKxAht4DNfVEqhQ5YvTb5KKk
+	 869/GUT+3g+Tl1O5DtL6bh9OYIMSeCOiglNWNM5tdeFngzwXx/ndkBkcTDbX+I8s8k
+	 YktWGltKaz+SsAeDoBDyGDffM2R8FrIvpYhm6qsdjCGbfTmQN6ki7lEclXN9G/Rn0f
+	 SkrZfn9S85iJS2GVAnBdHELGvvCTyjKQQkdn9MIcyjUuU48VAalRlF6x66At3ZFEcl
+	 Vpw67HHjS+XdA==
+Date: Thu, 27 Feb 2025 12:38:41 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250113-sm8750_usb_master-v1-7-09afe1dc2524@quicinc.com>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: imx@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+ Shawn Guo <shawnguo@kernel.org>, David Airlie <airlied@gmail.com>, 
+ Maxime Ripard <mripard@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Steven Price <steven.price@arm.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Liviu Dudau <liviu.dudau@arm.com>, 
+ Simona Vetter <simona@ffwll.ch>, Sebastian Reichel <sre@kernel.org>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Boris Brezillon <boris.brezillon@collabora.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, dri-devel@lists.freedesktop.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Marek Vasut <marex@denx.de>
+In-Reply-To: <20250227170012.124768-2-marex@denx.de>
+References: <20250227170012.124768-1-marex@denx.de>
+ <20250227170012.124768-2-marex@denx.de>
+Message-Id: <174068151845.3906421.16004446583205919737.robh@kernel.org>
+Subject: Re: [PATCH 1/9] dt-bindings: reset: imx95-gpu-blk-ctrl: Document
+ Freescale i.MX95 GPU reset
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_103003_545579_6D29FC4A 
-X-CRM114-Status: GOOD (  14.76  )
+X-CRM114-CacheID: sfid-20250227_103845_395426_4D3E503E 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,54 +83,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 01:52:13PM -0800, Melody Olvera wrote:
-> From: Wesley Cheng <quic_wcheng@quicinc.com>
+
+On Thu, 27 Feb 2025 17:58:01 +0100, Marek Vasut wrote:
+> The instance of the GPU populated in Freescale i.MX95 does require
+> release from reset by writing into a single GPUMIX block controller
+> GPURESET register bit 0. Document support for this reset register.
 > 
-> Enable USB support on SM8750 MTP and QRD variants. SM8750 has a QMP combo
-> PHY for the SSUSB path, and a M31 eUSB2 PHY for the HSUSB path.
-> 
-> Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
-> Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
+> Signed-off-by: Marek Vasut <marex@denx.de>
 > ---
->  arch/arm64/boot/dts/qcom/sm8750-mtp.dts |  24 ++++++
->  arch/arm64/boot/dts/qcom/sm8750-qrd.dts |  24 ++++++
->  arch/arm64/boot/dts/qcom/sm8750.dtsi    | 134 ++++++++++++++++++++++++++++++++
->  3 files changed, 182 insertions(+)
+> Cc: Boris Brezillon <boris.brezillon@collabora.com>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: David Airlie <airlied@gmail.com>
+> Cc: Fabio Estevam <festevam@gmail.com>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Liviu Dudau <liviu.dudau@arm.com>
+> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+> Cc: Maxime Ripard <mripard@kernel.org>
+> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+> Cc: Philipp Zabel <p.zabel@pengutronix.de>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Sascha Hauer <s.hauer@pengutronix.de>
+> Cc: Sebastian Reichel <sre@kernel.org>
+> Cc: Shawn Guo <shawnguo@kernel.org>
+> Cc: Simona Vetter <simona@ffwll.ch>
+> Cc: Steven Price <steven.price@arm.com>
+> Cc: Thomas Zimmermann <tzimmermann@suse.de>
+> Cc: devicetree@vger.kernel.org
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: imx@lists.linux.dev
+> Cc: linux-arm-kernel@lists.infradead.org
+> ---
+>  .../reset/fsl,imx95-gpu-blk-ctrl.yaml         | 49 +++++++++++++++++++
+>  1 file changed, 49 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/reset/fsl,imx95-gpu-blk-ctrl.yaml
 > 
 
-> +
-> +		usb_dp_qmpphy: phy@88e8000 {
-> +			compatible = "qcom,sm8750-qmp-usb3-dp-phy";
-> +			reg = <0x0 0x088e8000 0x0 0x3000>;
+My bot found errors running 'make dt_binding_check' on your patch:
 
-If I understand anything correctly, this should be 0x4000, not 0x3000.
-You have missed the DP part of it.
+yamllint warnings/errors:
 
-> +
-> +			clocks = <&gcc GCC_USB3_PRIM_PHY_AUX_CLK>,
-> +				 <&rpmhcc RPMH_CXO_CLK>,
-> +				 <&gcc GCC_USB3_PRIM_PHY_COM_AUX_CLK>,
-> +				 <&gcc GCC_USB3_PRIM_PHY_PIPE_CLK>;
-> +			clock-names = "aux",
-> +				      "ref",
-> +				      "com_aux",
-> +				      "usb3_pipe";
-> +
-> +			resets = <&gcc GCC_USB3_PHY_PRIM_BCR>,
-> +				 <&gcc GCC_USB3_DP_PHY_PRIM_BCR>;
-> +			reset-names = "phy",
-> +				      "common";
-> +
-> +			power-domains = <&gcc GCC_USB3_PHY_GDSC>;
-> +
-> +			#clock-cells = <1>;
-> +			#phy-cells = <1>;
-> +
-> +			status = "disabled";
-> +		};
-> +
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/reset/fsl,imx95-gpu-blk-ctrl.yaml: ignoring, error in schema: properties: compatible
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/reset/fsl,imx95-gpu-blk-ctrl.yaml: properties:compatible: [{'const': 'fsl,imx95-gpu-blk-ctrl'}] is not of type 'object', 'boolean'
+	from schema $id: http://json-schema.org/draft-07/schema#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/reset/fsl,imx95-gpu-blk-ctrl.yaml: properties:compatible: [{'const': 'fsl,imx95-gpu-blk-ctrl'}] is not of type 'object', 'boolean'
+	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml#
+Error: Documentation/devicetree/bindings/reset/fsl,imx95-gpu-blk-ctrl.example.dts:21.33-34 syntax error
+FATAL ERROR: Unable to parse input tree
+make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/reset/fsl,imx95-gpu-blk-ctrl.example.dtb] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1511: dt_binding_check] Error 2
+make: *** [Makefile:251: __sub-make] Error 2
 
--- 
-With best wishes
-Dmitry
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250227170012.124768-2-marex@denx.de
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
