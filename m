@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA956C021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 12:13:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 759C4C197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 12:15:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fbJlN7jitHcpATJIzTdtSIk8V9emdxHiUWGjROlMWy0=; b=hGWr+E24AaI9jyzHSXDCYkJudq
-	Rp1XC4LR4PztfP0z7v97QiBcH7Grs0GAbQXsh9WvZeEHnh/lxVegFvmowk8GYRfCO6A1wNSa5tdSB
-	GnD17NXQhUx+KVehUap3zQbb+QTWHuY5UMxgSIigsck0ndPCX5C9Xh9kCHX82tJObZnWztf5AeMFL
-	nZ4WkImGqwXFJ1hBWdAjWQtRZn6yNWzlTF5amdxwDY0cAZ3Bmy5QJNVQzgAi9gtK0RsPRc5r+pENn
-	fVzSaQaDe0xcKRYr1zXfeWlWFSHB0x7a0S8tt6XMl7t40loisxQsM7NV1UpeD8ChBjnV9eXKQcmR/
-	C0qFON7Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VweVgqDUJQ1kSuNrRmIIrWkoGES3ruNGpOhx1JTlt3o=; b=p4q1TSFSVHxUq5Ex8f5o03ptky
+	KVQ7bRl/Yc0HSgqLqvmzpkK8RTx5dM0dQI7uoYlsACiLusaF4qwAda1YwhJ0vk9kttKMr5QgYfVMe
+	/YXCVIjR0m9lyBhLePlA4/BQZuf2pA61eclgS/Arp/URgZVb5pyaPpoBnCfimAYmo8wNjmz0ndT0A
+	i+oY2DA6Roi2AK0cs0IamugVpsX/eKxc97O7mwZpzuF1VBNP8E6DQ3d4fShETdNvrnrhu6azOxpW/
+	LshJPQUwft+Z8zCS8ZFR1oqIUu1nvKtlQ16BFD8qNPOkwWWhoTyuDVL8tCdZdWY/M644pZkjcYLr6
+	FW6F8ixA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnclo-00000007JbH-2Lwk;
-	Thu, 27 Feb 2025 12:13:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tncLm-00000007EKV-3yy7
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 11:46:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3F48F15A1;
-	Thu, 27 Feb 2025 03:47:02 -0800 (PST)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0F9093F6A8;
-	Thu, 27 Feb 2025 03:46:44 -0800 (PST)
-Date: Thu, 27 Feb 2025 11:46:42 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Samuel Holland
- <samuel@sholland.org>, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 5/8] pinctrl: sunxi: allow reading mux values from DT
-Message-ID: <20250227114642.28752709@donnerap.manchester.arm.com>
-In-Reply-To: <12609538.O9o76ZdvQC@jernej-laptop>
-References: <20250214003734.14944-1-andre.przywara@arm.com>
-	<20250214003734.14944-6-andre.przywara@arm.com>
-	<12609538.O9o76ZdvQC@jernej-laptop>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	id 1tncnL-00000007Jwj-0pGy;
+	Thu, 27 Feb 2025 12:15:15 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tncLz-00000007EP6-1qNx;
+	Thu, 27 Feb 2025 11:47:00 +0000
+Received: from ideasonboard.com (unknown [IPv6:2a00:6020:448c:6c00:a3f5:6799:2ce9:5b66])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 1C1906A6;
+	Thu, 27 Feb 2025 12:45:28 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1740656728;
+	bh=m0byIXM8l1cSjYztsjedplkoLC9ZBtvnC08V8sv8PfM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=U2/9bzRLid0pBsKRIyD9nae+aOeDLTcv4guOuQog4GnnVNNw17mnTz34zBreMfu1P
+	 pUl8GEg2EhwH2JmV8vjxLqSalGj/ReCv6zNxKlWzjq9FxmXVY6F9rOaAYad74LIjYR
+	 NRf7ES2BoZEwRAIRSHjmza5UGnxgB7e2hFR1o0HQ=
+From: Stefan Klug <stefan.klug@ideasonboard.com>
+To: linux-media@vger.kernel.org,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Stefan Klug <stefan.klug@ideasonboard.com>,
+	Dafna Hirschfeld <dafna@fastmail.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/3] Fix full range quantization on rkisp1 based devices
+Date: Thu, 27 Feb 2025 12:44:58 +0100
+Message-ID: <20250227114558.3097101-1-stefan.klug@ideasonboard.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_034647_037783_61855F03 
-X-CRM114-Status: GOOD (  28.92  )
+X-CRM114-CacheID: sfid-20250227_034659_798196_19FAA13C 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,62 +70,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Feb 2025 18:09:09 +0100
-Jernej =C5=A0krabec <jernej.skrabec@gmail.com> wrote:
+Hi all,
 
-Hi,
+After I sent a patch too early yesterday, I'm sending the corrected
+version now. This series fixes two issues with the rkisp1 driver and
+full range quantization. It was developed and tested on a imx8mp board
+(Debix Som). With the current code it is impossible to get full range
+YUV data by selecting color space JPEG (fixed by patch 1). But even
+explicitly setting the range to full range results in image artifacts
+due to incorrect range handling in CPROC (fixed by patch 2).
 
-> Dne petek, 14. februar 2025 ob 01:37:31 Srednjeevropski standardni =C4=8D=
-as je Andre Przywara napisal(a):
-> > So far every Allwinner SoC needs a large table in the kernel code, to
-> > describe the mapping between the pinctrl function names ("uart") and
-> > the actual pincontroller mux value to be written into the registers.
-> > This adds a lot of data into a single image kernel, and also looks
-> > somewhat weird, as the DT can easily store the mux value.
-> >=20
-> > Add some code that allows to avoid that table: the struct that describes
-> > the existing pins will be build at *runtime*, based on very basic
-> > information provided by the respective SoC's pinctrl driver. This
-> > consists of the number of pins per bank, plus information which bank
-> > provides IRQ support, along with the mux value to use for that.
-> > The code will then iterate over all children of the pincontroller DT
-> > node (which describe each pin group), and populate that struct with the
-> > mapping between function names and mux values. The only thing that needs
-> > adding in the DT is a property with that value, per pin group.
-> >=20
-> > When this table is built, it will be handed over to the existing sunxi
-> > pinctrl driver, which cannot tell a difference between a hardcoded
-> > struct and this new one built at runtime. It will take care of
-> > registering the pinctrl device with the pinctrl subsystem.
-> >=20
-> > All a new SoC driver would need to do is to provide two arrays, and then
-> > call the sunxi_pinctrl_dt_table_init() function.
-> >=20
-> > Signed-off-by: Andre Przywara <andre.przywara@arm.com> =20
->=20
-> I went through the code and it makes sense.
+Please see the individual patches for more details.
 
-Many thanks, that's much appreciated!
+Best regards,
+Stefan
 
-> I wonder if we really need to
-> build whole table instead of having on demand lookups into DT. However,
-> for now, this will do. So:
+Stefan Klug (3):
+  media: rkisp1: Set format defaults based on requested color space
+  media: rkisp1: Fix the quantization settings of CPROC
+  media: rkisp1: Remove unnecessary defines
 
-I agree that would make some sense, but is also quite a departure from the
-current driver, which we have been using for more than a decade now. And I
-guess that would mean that we would need to maintain the two approaches,
-for the old SoCs, and the new ones? With that patch here generic changes
-can be applied just to the one core driver, dealing with the pinctrl
-subsystem.
+ .../media/platform/rockchip/rkisp1/rkisp1-isp.c   | 15 ++++++++++++++-
+ .../platform/rockchip/rkisp1/rkisp1-params.c      |  8 +-------
+ .../media/platform/rockchip/rkisp1/rkisp1-regs.h  |  7 -------
+ 3 files changed, 15 insertions(+), 15 deletions(-)
 
-> Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+-- 
+2.43.0
 
-Thanks,
-Andre
-
-> Thanks!
->=20
-> Best regards,
-> Jernej
->=20
 
