@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1CC5C021BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 12:55:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAEABC19F2E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 12:57:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6T5eJDWcvcr4mu3nb3RgtFwwJuHqGyqn+bnNz1F7lso=; b=llxu7RXNRSjzzdpW3m5ON55Nre
-	li3pHHERTH+3FOnvPWSEm2UF4Bh+3MHLvMK/D+8ozys3My6ZMYtRipc1ptJEgmE2w/zlqFwCfXp0N
-	ItJtLewBwKPNdZbrrrn4WleeSWiYrGDmemdsQLd/fMJbAiQBD26z3YQCICTeR6ktHdYaKl1ldProl
-	YS8Jh3W8fNR6L5KNqULCzeeYAF4IVjqCF1JKf89NTMADarNTcVnFi2/PKBBpBr8xFVAVW3VMcZ5L/
-	XNJFb3l9d1621mcj8zEvahBytvbC+8LvFf74FSuSYE4JgkweguO+MOezEr8xbPHmKKeuP7bjchYGu
-	4vhQUrJA==;
+	bh=9nwR1ylDJB/ihgDa3u2JD9TKc/16kfW45+c7DvPPlqY=; b=mGEXzSlgFkPXIalhXf/CiPvsQP
+	feUBjG3hsMoObmvJbHATwG2qTQV/CbVOFoneeU3zyHXN4+MHXdSxZy2afgegSruVtNEO4cAPKiEw0
+	k4IYbsQAFuIf+s877iNtw4z4QRZbf88ImITNszYioelM5nWNmckxFUgpiW/adrhq1g+YQslVCs6f7
+	GUalzfWHqquKZhXNHoKDyfCvDyp5SEjAPHzFmFDpo59F4JJ9NAThUQacq6K/8bF8G2YBVk2WVnRM3
+	mRl8UinqJPQdjrMLLfA0atZrzSex8+BkzOHXI78ev8W9c3GEUjtVuEnpN/lrLdf67QYiCPUSJPyIy
+	zwN5CGEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tndQY-00000007RDT-0zIg;
-	Thu, 27 Feb 2025 12:55:46 +0000
+	id 1tndS2-00000007RVq-3rBy;
+	Thu, 27 Feb 2025 12:57:18 +0000
 Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tncpA-00000007KS9-1h5j
+	id 1tncpI-00000007KUL-1h6u
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Feb 2025 12:17:09 +0000
+	Thu, 27 Feb 2025 12:17:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740658628; x=1772194628;
+  t=1740658636; x=1772194636;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=J2WrRdXsHM4g/4BW0LGzBua9ax0dXvOez2jZneAIugs=;
-  b=Y8zF1MPzn3nYGMR4IbT5/xaO5JfMxGb6XrfPEKhGqDqINRv//uz//Yjv
-   lSEFM+NeiSQzpjANXY9Ju20gwyUYITjpl3p0RO3oUCSoPCJpV+Ii9WfW7
-   N9BNwRWtmNdcp3EBLtm3JmJDhkLOO3Q8aTbKflYKK01/A0cnYXcCBFGAL
-   F0U5Ve403PbKxC2I9wb+iO+xTB6yR6PGNNfV+3xq7lWUUrqzbPufZAOS3
-   MjIYjCcIpOyPE7KefQYX4OzYRT4Tj18S/1sR/RbbvWlwwMz2R77Jiusqn
-   WC3tZ5lJ99gGm5fkr8zS8m6KhSaZLySCCZRqLuxJLagq5L1++5Zizj6zs
-   Q==;
-X-CSE-ConnectionGUID: jn7QszEATmSbziUV4GHYxg==
-X-CSE-MsgGUID: 2ZmftqOJTrGXjZlgl7loCA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11358"; a="41464349"
+  bh=23Wnyd3qZHaBZICVaJoi2NlVrSEsbcWxMjuwRlV42ko=;
+  b=nzjm99Kpp5p+C8z9iI0+nyL7LItd86R8UCkdw1QlaSqukUqyoAUvtl6v
+   FVkfXLDwJix2ExrUZBLQzLWjrXPYYSo+o5FeLC7ISY+wHALvbmz8rXpL2
+   WNWm3d/eQa+teIfr6SggjZyhmOamAY/9yGaRhIO1jcf9Npqt28AMZXHRo
+   C7L8JBWu4HpBAQgruCcofC5eK07j24P+0jeNfiiWWoXatgT5p6BB2cB5Z
+   iVXHHkOLRaq+ofppKc3+rwpG8EzEj1UIpD70pED7VpS/fG2IKX+sCWyFj
+   flHTqZHzhplDhJ0UYB23Qs1xpJGClRbEdjdrxPZcWaerHKu3BMGBr7wJ7
+   g==;
+X-CSE-ConnectionGUID: B8ho814BRAyTM5lscJIaHQ==
+X-CSE-MsgGUID: X75oW/qgTaOaaCqVOxyuRA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11358"; a="41464374"
 X-IronPort-AV: E=Sophos;i="6.13,319,1732608000"; 
-   d="scan'208";a="41464349"
+   d="scan'208";a="41464374"
 Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Feb 2025 04:17:07 -0800
-X-CSE-ConnectionGUID: jO11jZUEQ5GkIZy6Ekm6yg==
-X-CSE-MsgGUID: cIZQCiqeTeqVaHk+ui2vJg==
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Feb 2025 04:17:15 -0800
+X-CSE-ConnectionGUID: t2HlU1RRQQOkaHSTBT+bwg==
+X-CSE-MsgGUID: WDg8vf6+Q46I63fgcAp6Sg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="117519221"
+   d="scan'208";a="117519259"
 Received: from yongliang-ubuntu20-ilbpg12.png.intel.com ([10.88.227.39])
-  by orviesa007.jf.intel.com with ESMTP; 27 Feb 2025 04:17:01 -0800
+  by orviesa007.jf.intel.com with ESMTP; 27 Feb 2025 04:17:09 -0800
 From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
 To: Simon Horman <horms@kernel.org>,
 	Jose Abreu <joabreu@synopsys.com>,
@@ -87,17 +87,17 @@ Cc: x86@kernel.org,
 	platform-driver-x86@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH net-next v9 3/6] arch: x86: add IPC mailbox accessor function and add SoC register access
-Date: Thu, 27 Feb 2025 20:15:19 +0800
-Message-Id: <20250227121522.1802832-4-yong.liang.choong@linux.intel.com>
+Subject: [PATCH net-next v9 4/6] net: stmmac: configure SerDes on mac_finish
+Date: Thu, 27 Feb 2025 20:15:20 +0800
+Message-Id: <20250227121522.1802832-5-yong.liang.choong@linux.intel.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250227121522.1802832-1-yong.liang.choong@linux.intel.com>
 References: <20250227121522.1802832-1-yong.liang.choong@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_041708_472827_55845B0D 
-X-CRM114-Status: GOOD (  18.23  )
+X-CRM114-CacheID: sfid-20250227_041716_487008_6E9996B0 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,135 +112,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "David E. Box" <david.e.box@linux.intel.com>
+SerDes will configure according to the provided interface mode after
+finish a major reconfiguration of the interface mode.
 
-- Exports intel_pmc_ipc() for host access to the PMC IPC mailbox
-- Enables the host to access specific SoC registers through the PMC
-firmware using IPC commands. This access method is necessary for
-registers that are not available through direct Memory-Mapped I/O (MMIO),
-which is used for other accessible parts of the PMC.
-
-Signed-off-by: David E. Box <david.e.box@linux.intel.com>
-Signed-off-by: Chao Qin <chao.qin@intel.com>
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
 ---
- MAINTAINERS                                   |  1 +
- .../linux/platform_data/x86/intel_pmc_ipc.h   | 94 +++++++++++++++++++
- 2 files changed, 95 insertions(+)
- create mode 100644 include/linux/platform_data/x86/intel_pmc_ipc.h
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 13 +++++++++++++
+ include/linux/stmmac.h                            |  4 ++++
+ 2 files changed, 17 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 8019d5a97546..aff084824b89 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -11864,6 +11864,7 @@ L:	platform-driver-x86@vger.kernel.org
- S:	Maintained
- F:	Documentation/ABI/testing/sysfs-platform-intel-pmc
- F:	drivers/platform/x86/intel/pmc/
-+F:	linux/platform_data/x86/intel_pmc_ipc.h
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 424fa2fe31c6..72ec2ef3907f 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -1086,6 +1086,18 @@ static int stmmac_mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
+ 	return 0;
+ }
  
- INTEL PMIC GPIO DRIVERS
- M:	Andy Shevchenko <andy@kernel.org>
-diff --git a/include/linux/platform_data/x86/intel_pmc_ipc.h b/include/linux/platform_data/x86/intel_pmc_ipc.h
-new file mode 100644
-index 000000000000..6e603a8c075f
---- /dev/null
-+++ b/include/linux/platform_data/x86/intel_pmc_ipc.h
-@@ -0,0 +1,94 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Intel Core SoC Power Management Controller Header File
-+ *
-+ * Copyright (c) 2025, Intel Corporation.
-+ * All Rights Reserved.
-+ *
-+ */
-+#ifndef INTEL_PMC_IPC_H
-+#define INTEL_PMC_IPC_H
-+#include <linux/acpi.h>
-+
-+#define IPC_SOC_REGISTER_ACCESS			0xAA
-+#define IPC_SOC_SUB_CMD_READ			0x00
-+#define IPC_SOC_SUB_CMD_WRITE			0x01
-+#define PMC_IPCS_PARAM_COUNT			7
-+#define VALID_IPC_RESPONSE			5
-+
-+struct pmc_ipc_cmd {
-+	u32 cmd;
-+	u32 sub_cmd;
-+	u32 size;
-+	u32 wbuf[4];
-+};
-+
-+struct pmc_ipc_rbuf {
-+	u32 buf[4];
-+};
-+
-+/**
-+ * intel_pmc_ipc() - PMC IPC Mailbox accessor
-+ * @ipc_cmd:  Prepared input command to send
-+ * @rbuf:     Allocated array for returned IPC data
-+ *
-+ * Return: 0 on success. Non-zero on mailbox error
-+ */
-+static inline int intel_pmc_ipc(struct pmc_ipc_cmd *ipc_cmd, struct pmc_ipc_rbuf *rbuf)
++static int stmmac_mac_finish(struct phylink_config *config, unsigned int mode,
++			     phy_interface_t interface)
 +{
-+	struct acpi_buffer buffer = { ACPI_ALLOCATE_BUFFER, NULL };
-+	union acpi_object params[PMC_IPCS_PARAM_COUNT] = {
-+		{.type = ACPI_TYPE_INTEGER,},
-+		{.type = ACPI_TYPE_INTEGER,},
-+		{.type = ACPI_TYPE_INTEGER,},
-+		{.type = ACPI_TYPE_INTEGER,},
-+		{.type = ACPI_TYPE_INTEGER,},
-+		{.type = ACPI_TYPE_INTEGER,},
-+		{.type = ACPI_TYPE_INTEGER,},
-+	};
-+	struct acpi_object_list arg_list = { PMC_IPCS_PARAM_COUNT, params };
-+	union acpi_object *obj;
-+	int status;
++	struct net_device *ndev = to_net_dev(config->dev);
++	struct stmmac_priv *priv = netdev_priv(ndev);
 +
-+	if (!ipc_cmd || !rbuf)
-+		return -EINVAL;
-+
-+	/*
-+	 * 0: IPC Command
-+	 * 1: IPC Sub Command
-+	 * 2: Size
-+	 * 3-6: Write Buffer for offset
-+	 */
-+	params[0].integer.value = ipc_cmd->cmd;
-+	params[1].integer.value = ipc_cmd->sub_cmd;
-+	params[2].integer.value = ipc_cmd->size;
-+	params[3].integer.value = ipc_cmd->wbuf[0];
-+	params[4].integer.value = ipc_cmd->wbuf[1];
-+	params[5].integer.value = ipc_cmd->wbuf[2];
-+	params[6].integer.value = ipc_cmd->wbuf[3];
-+
-+	status = acpi_evaluate_object(NULL, "\\IPCS", &arg_list, &buffer);
-+	if (ACPI_FAILURE(status))
-+		return -ENODEV;
-+
-+	obj = buffer.pointer;
-+
-+	if (obj && obj->type == ACPI_TYPE_PACKAGE &&
-+	    obj->package.count == VALID_IPC_RESPONSE) {
-+		const union acpi_object *objs = obj->package.elements;
-+
-+		if ((u8)objs[0].integer.value != 0)
-+			return -EINVAL;
-+
-+		rbuf->buf[0] = objs[1].integer.value;
-+		rbuf->buf[1] = objs[2].integer.value;
-+		rbuf->buf[2] = objs[3].integer.value;
-+		rbuf->buf[3] = objs[4].integer.value;
-+	} else {
-+		return -EINVAL;
-+	}
++	if (priv->plat->mac_finish)
++		priv->plat->mac_finish(ndev, priv->plat->bsp_priv, mode, interface);
 +
 +	return 0;
 +}
 +
-+#endif /* INTEL_PMC_IPC_H */
+ static const struct phylink_mac_ops stmmac_phylink_mac_ops = {
+ 	.mac_get_caps = stmmac_mac_get_caps,
+ 	.mac_select_pcs = stmmac_mac_select_pcs,
+@@ -1094,6 +1106,7 @@ static const struct phylink_mac_ops stmmac_phylink_mac_ops = {
+ 	.mac_link_up = stmmac_mac_link_up,
+ 	.mac_disable_tx_lpi = stmmac_mac_disable_tx_lpi,
+ 	.mac_enable_tx_lpi = stmmac_mac_enable_tx_lpi,
++	.mac_finish = stmmac_mac_finish,
+ };
+ 
+ /**
+diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+index 6d2aa77ea963..af22a11c2b8a 100644
+--- a/include/linux/stmmac.h
++++ b/include/linux/stmmac.h
+@@ -236,6 +236,10 @@ struct plat_stmmacenet_data {
+ 	int (*serdes_powerup)(struct net_device *ndev, void *priv);
+ 	void (*serdes_powerdown)(struct net_device *ndev, void *priv);
+ 	void (*speed_mode_2500)(struct net_device *ndev, void *priv);
++	int (*mac_finish)(struct net_device *ndev,
++			  void *priv,
++			  unsigned int mode,
++			  phy_interface_t interface);
+ 	void (*ptp_clk_freq_config)(struct stmmac_priv *priv);
+ 	int (*init)(struct platform_device *pdev, void *priv);
+ 	void (*exit)(struct platform_device *pdev, void *priv);
 -- 
 2.34.1
 
