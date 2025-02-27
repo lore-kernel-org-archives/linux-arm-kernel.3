@@ -4,74 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5C85C1B087
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 08:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECDFEC021BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Feb 2025 08:35:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mL+ScEVoosTCLqReMvWvb0hKdFm7SzXMaD7EnmZ5gQU=; b=iqk5CJ9CcQKQAOQPmSQQsSePQM
-	BijKeMBoA2H/AWA7HpDSQ/I3HWeKncU0TjZXvswOauIffg6f6FkDA78oQXP2Wp6dLUpb9RRhX2fit
-	6MKGUQho0ptzztSF7eZl9jwmGxLfUTXl7wKGiksvXLzNiMk4eWSmtzQO4k3QFQl0Xth6n3FeSF7g8
-	dzpBgHY129w5nmYNh16ajEOHGTHhQ4uUoqpzA3IBzLOLYgDxVqrREn15LtNdejh1bC1gV7vqWVU09
-	Sv/STCzSRfltg1mLYRwrhhnAis1jPIM+7Ruivc/C+yKra8kQQGr56Lh3/31v466Fyg2geGouqilNB
-	mLoSrxvQ==;
+	bh=ynTes2E+sllrgKK7Pc1RbTXF0zUigaX8+Arp9ABtM1E=; b=lGunR6VoI+wAuRAVQRBQqH6vSq
+	RbCMoQLg/RUSwdgr7tHLioAnxBEvX0AKtjaTuRmCxz1+nUISFZ0TB1kTHcCwV2JxfukHGxsR7xPf9
+	MmukkyCFgrKb8yAstswDDi538y4Qaqf4dWKJaK6Ctc32kDLd3wI4QjdcnDSA96DlW56iy1djT8rW+
+	B2yxALmhll938lMWPdPCdFuAaBrCclZmkFP/HF+xo+Bw4vjihGjLCHjkzdtONg/g/lGE/ohBacU0K
+	Z6btO9ZywX41ulbVBaRU5qwdvkterL2FgQ0dF2tbk1xmff7LrRKVq2LccuhioyfJhqKGGioeOjk6e
+	KQdlhDaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnZHL-00000006hPX-0A2w;
-	Thu, 27 Feb 2025 08:29:59 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tnZM9-00000006iCe-17Lf;
+	Thu, 27 Feb 2025 08:34:57 +0000
+Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnZFn-00000006hAe-1Y3L;
-	Thu, 27 Feb 2025 08:28:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E8E285C0767;
-	Thu, 27 Feb 2025 08:27:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB7C8C4CEDD;
-	Thu, 27 Feb 2025 08:28:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740644902;
-	bh=mL+ScEVoosTCLqReMvWvb0hKdFm7SzXMaD7EnmZ5gQU=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=UkCcNxAHNlb8KdOpVGBTAsjYUG5oG1EXqGPyEiclsxzBC4p+LOLBcG4nlsZ/bWo+k
-	 W+AZVnrXuaRNp4mDR5r14XtUQsblr0rPT8GQGXSvmHHye9M6QtKrggxgtlCWPBRshH
-	 VXHHQftNfX5UHocw4EVWQUQmUDQz4GzjrsIKq68nK/GgPYUU36Ou13zR4DA+XXyBwE
-	 VnpTHUvNXXG1VQHUqqmr5E8R4xbVpPoN8BgaUYrbR3al/9qF/BSs/eqYzBZCgu+gBm
-	 aUlhq9JEmKjqnqTOuaNi+lue7T7tGaier67NxH/nVOHEYQbBo2Sn4rUSxSu7KWkMMY
-	 sFWAD4mVSBNWA==
-From: Andreas Hindborg <a.hindborg@kernel.org>
-To: "FUJITA Tomonori" <fujita.tomonori@gmail.com>
-Cc: <linux-kernel@vger.kernel.org>,  <rust-for-linux@vger.kernel.org>,
-  <x86@kernel.org>,  <linux-riscv@lists.infradead.org>,
-  <linux-arm-kernel@lists.infradead.org>,  <loongarch@lists.linux.dev>,
-  <tglx@linutronix.de>,  <mingo@redhat.com>,  <bp@alien8.de>,
-  <dave.hansen@linux.intel.com>,  <peterz@infradead.org>,  <hpa@zytor.com>,
-  <paul.walmsley@sifive.com>,  <palmer@dabbelt.com>,
-  <aou@eecs.berkeley.edu>,  <catalin.marinas@arm.com>,  <will@kernel.org>,
-  <chenhuacai@kernel.org>,  <kernel@xen0n.name>,
-  <tangyouling@loongson.cn>,  <hejinyang@loongson.cn>,
-  <yangtiezhu@loongson.cn>,  <ojeda@kernel.org>,  <alex.gaynor@gmail.com>,
-  <boqun.feng@gmail.com>,  <gary@garyguo.net>,  <bjorn3_gh@protonmail.com>,
-  <benno.lossin@proton.me>,  <aliceryhl@google.com>,  <tmgross@umich.edu>
-Subject: Re: [PATCH v3 0/5] rust: Add bug/warn abstractions
-In-Reply-To: <20250227.155417.1610168537890385926.fujita.tomonori@gmail.com>
-	(FUJITA Tomonori's message of "Thu, 27 Feb 2025 15:54:17 +0900")
-References: <yy_ESUuchCjlaGIJHzCPAcP_d9ucSD0CGXaoZNNkY7BmN5Ch1J8avsA9QpKO5LkTjlGpu99jl8NrFl5NFSQXuw==@protonmail.internalid>
-	<20250213135759.190006-1-fujita.tomonori@gmail.com>
-	<8734g0v6ke.fsf@kernel.org>
-	<aPT3Afc47I_dmAxy1DPVKUobcIJLV0rRUOXJX-ab6IFWqflSxdlOVQdJT0rxYQHjDBeWHDFjWsdXfiCOZ5hPWg==@protonmail.internalid>
-	<20250227.155417.1610168537890385926.fujita.tomonori@gmail.com>
-User-Agent: mu4e 1.12.7; emacs 29.4
-Date: Thu, 27 Feb 2025 09:28:11 +0100
-Message-ID: <87frjzu6zo.fsf@kernel.org>
+	id 1tnZKa-00000006hx3-2DGQ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Feb 2025 08:33:22 +0000
+Received: from phl-compute-11.internal (phl-compute-11.phl.internal [10.202.2.51])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id DEB6D1140B96;
+	Thu, 27 Feb 2025 03:33:18 -0500 (EST)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-11.internal (MEProxy); Thu, 27 Feb 2025 03:33:18 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1740645198;
+	 x=1740731598; bh=ynTes2E+sllrgKK7Pc1RbTXF0zUigaX8+Arp9ABtM1E=; b=
+	pBzBVeXm7BR8+PVaYtSrz1I36VvE8Q0XzA7QE7iH+/1nv7hg3fLYUdLDCZuUr09u
+	/WiZgPbEf75BxSNzINBed+pTJlkp1DLwAiXTbkJN2JQrNtpWAfAPTYWLS2snE8Nd
+	pm1/wRRZdhtUuF7KlddBzZNcH+Mb7Eou03Op2qn9XZbUhJo9W3ZCKUHGKwafJ76b
+	E1Eq0Xxy4ZqNOy4K5ZqZ0Xh94U9TDqvPmVV7m7BKJjn/6fFQoSGkWFYba8/8QZlH
+	xieiWkmrFTNSpxopjvlXFn+noBEBTy88pY3VfPY1GduruTtuVX8d0ko08sOQWhbC
+	htd1s0vFQYmubdJLP2//bQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1740645198; x=
+	1740731598; bh=ynTes2E+sllrgKK7Pc1RbTXF0zUigaX8+Arp9ABtM1E=; b=b
+	Sn216iu2rt2W486BVVi3X/PkSEM1+MuVI6oBXG4IknmLhw/7SbDFQ/Eg6s72GOyL
+	3hPGxR6R5GrA28O6dI5IeeZmd5EhK6DhvQsBbOQv1ogH0VsCjkKEMoBvQwt9OohP
+	NRGZxBtQItyqWH8puxZpVzrjdCboslpJ25WHqzv+t8k/H1iJ5pn0sVubgxeAbJP4
+	dLyNOJMruzr1C25LQ8G488iOnmQ1wQh1vVeB/oR0I35Lj1tBE3roCtZ1JLy1c5yP
+	eHTC9eFNFBwF+402WCgWwc/esvVo98I+CHsDI7bKvlmOk7Ui6Nlu6ox7RRkfwGDk
+	kicTV19sXiPNgdWFGliZA==
+X-ME-Sender: <xms:TSPAZ6b3cIGZ6H_d4XTNkrEHhIg74BTIyQkVJ0UXWfmQIB-wxy0gcg>
+    <xme:TSPAZ9axliR8n2-Yxi7OJQOpOl3Bjrf4kQpjHioCV6UkAvileHg-AFnFkz8wma-0Y
+    5TOIa0bbqEQxRYY_dY>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdekieellecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredt
+    tdenucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusg
+    druggvqeenucggtffrrghtthgvrhhnpeefhfehteffuddvgfeigefhjeetvdekteekjeef
+    keekleffjeetvedvgefhhfeihfenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuve
+    hluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegr
+    rhhnuggsrdguvgdpnhgspghrtghpthhtohepvdefpdhmohguvgepshhmthhpohhuthdprh
+    gtphhtthhopehtshgsohhgvghnugesrghlphhhrgdrfhhrrghnkhgvnhdruggvpdhrtghp
+    thhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhope
+    gurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohephhgvrhgsvghrthes
+    ghhonhguohhrrdgrphgrnhgrrdhorhhgrdgruhdprhgtphhtthhopegvsghighhgvghrsh
+    esghhoohhglhgvrdgtohhmpdhrtghpthhtohepjhgrmhgvshdrsghothhtohhmlhgvhies
+    hhgrnhhsvghnphgrrhhtnhgvrhhshhhiphdrtghomhdprhgtphhtthhopegrrhgusgeskh
+    gvrhhnvghlrdhorhhgpdhrtghpthhtoheprghrnhgusehkvghrnhgvlhdrohhrghdprhgt
+    phhtthhopehjrghrkhhkoheskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:TSPAZ09UmHSoI52io9qO7Fgn-Kw6QUgtDmxmc3Wg2Gnq59wJd0Ru4Q>
+    <xmx:TSPAZ8pLUgAy0cs49dLw6Y9l_9jTfnXIm5MjGuWT20VqwwKyaQLT_Q>
+    <xmx:TSPAZ1qFnVkMCOfbEYip6M4TC-zZex4RNS5HYCR21zgXQ0d76Kqj0g>
+    <xmx:TSPAZ6Q_vynwVagQ4afcGJZLPSHwpgCI3Nmz2nXFqbgf2ZpuwbeveA>
+    <xmx:TiPAZ-bc6NnwIrOr1Kqw3eEdzl7AXX03wclbQxxET-kqC_eQMeU3J82d>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id B32B22220076; Thu, 27 Feb 2025 03:33:17 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Date: Thu, 27 Feb 2025 09:32:51 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Herbert Xu" <herbert@gondor.apana.org.au>,
+ "Arnd Bergmann" <arnd@kernel.org>
+Cc: "Will Deacon" <will@kernel.org>, "David S . Miller" <davem@davemloft.net>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Harald Freudenberger" <freude@linux.ibm.com>,
+ "Holger Dengler" <dengler@linux.ibm.com>,
+ "Heiko Carstens" <hca@linux.ibm.com>, "Vasily Gorbik" <gor@linux.ibm.com>,
+ "Alexander Gordeev" <agordeev@linux.ibm.com>,
+ "Christian Borntraeger" <borntraeger@linux.ibm.com>,
+ "Sven Schnelle" <svens@linux.ibm.com>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ "Ard Biesheuvel" <ardb@kernel.org>, "Eric Biggers" <ebiggers@google.com>,
+ "James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
+ "Jarkko Sakkinen" <jarkko@kernel.org>, linux-crypto@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-s390@vger.kernel.org
+Message-Id: <134f64aa-65bd-4de0-9ac6-52326e35d6d6@app.fastmail.com>
+In-Reply-To: <Z8AY16EIqAYpfmRI@gondor.apana.org.au>
+References: <20250225164216.4807-1-arnd@kernel.org>
+ <20250225213344.GA23792@willie-the-truck>
+ <f7c298b8-7989-49e7-90a2-5356029a6283@app.fastmail.com>
+ <c4896a12-8abe-4fe6-b381-86b23d32b332@app.fastmail.com>
+ <Z75xKexTUNm_FnSK@gondor.apana.org.au> <Z76aUfPIbhPAsHbv@gondor.apana.org.au>
+ <Z77aFJCVuXeDXRrs@gondor.apana.org.au> <Z8AY16EIqAYpfmRI@gondor.apana.org.au>
+Subject: Re: [v3 PATCH] crypto: lib/Kconfig - Hide arch options from user
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_002823_482423_4712672F 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20250227_003321_123659_269AD73C 
+X-CRM114-Status: GOOD (  21.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,65 +133,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-"FUJITA Tomonori" <fujita.tomonori@gmail.com> writes:
+On Thu, Feb 27, 2025, at 08:48, Herbert Xu wrote:
+> The ARCH_MAY_HAVE patch missed arm64, mips and s390.  But it may
+> also lead to arch options being enabled but ineffective because
+> of modular/built-in conflicts.
+>
+> As the primary user of all these options wireguard is selecting
+> the arch options anyway, make the same selections at the lib/crypto
+> option level and hide the arch options from the user.
+>
+> Instead of selecting them centrally from lib/crypto, simply set
+> the default of each arch option as suggested by Eric Biggers.
+>
+> Change the Crypto API generic algorithms to select the top-level
+> lib/crypto options instead of the generic one as otherwise there
+> is no way to enable the arch options (Eric Biggers).  Introduce a
+> set of INTERNAL options to work around dependency cycles on the
+> CONFIG_CRYPTO symbol.
+>
+> Fixes: 1047e21aecdf ("crypto: lib/Kconfig - Fix lib built-in failure 
+> when arch is modular")
+> Reported-by: kernel test robot <lkp@intel.com>
+> Reported-by: Arnd Bergmann <arnd@kernel.org>
+> Closes: 
+> https://lore.kernel.org/oe-kbuild-all/202502232152.JC84YDLp-lkp@intel.com/
+> Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
 
-> On Wed, 26 Feb 2025 20:39:45 +0100
-> Andreas Hindborg <a.hindborg@kernel.org> wrote:
->
->> How does this series compare/overlap with [1] ?
->>
->> [1] https://lore.kernel.org/all/20241126-pr_once_macros-v4-0-410b8ca9643=
-e@tuta.io/
->
-> No overlap. Each solves a different problem. Both are necessary.
->
-> This patchset enables Rust code to call C's BUG/WARN properly.
->
-> Currently, Rust's BUG() is a simple wrapper for C's BUG()
-> (rust/helpers/bug.c). I added BUG() to rnull's init() and got the
-> following:
->
-> # insmod /root/rnull_mod.ko
-> rnull_mod: Rust null_blk loaded
-> ------------[ cut here ]------------
-> kernel BUG at rust/helpers/bug.c:7!
-> Oops: invalid opcode: 0000 [#1] SMP
-> CPU: 0 UID: 0 PID: 31 Comm: insmod Not tainted 6.14.0-rc1+ #103
-> RIP: 0010:rust_helper_BUG+0x8/0x10
-> (snip)
->
-> This is NOT debug information that we expect. The problem is that
-> BUG/WARN feature (lib/bug.c) can only be used from assembly.
->
-> This patchset includes only warn() but with bug() implementation on
-> top of this patchset, I got:
->
-> # insmod /root/rnull_mod.ko
-> rnull_mod: Rust null_blk loaded
-> ------------[ cut here ]------------
-> WARNING: CPU: 0 PID: 31 at /home/fujita/git/linux-rust/drivers/block/rnul=
-l.rs:46 _RNvXCsafUg3oOYix8_5rnullNtB2_13NullBlkModu]
-> Modules linked in: rnull_mod(+)
-> CPU: 0 UID: 0 PID: 31 Comm: insmod Not tainted 6.14.0-rc1+ #104
-> RIP: 0010:_RNvXCsafUg3oOYix8_5rnullNtB2_13NullBlkModuleNtCsaYBeKL739Xz_6k=
-ernel13InPlaceModule4init+0x71/0x4f0 [rnull_mod]
->
->
-> The [1] patchset adds an abstraciton for include/linux/once_lite.h,
-> 'call a function once' feature, with pr_*_once() implementation.
->
-> pr_*_once() just calls printk() once. Unlike BUG/WARN, no debug
-> information (call place, registers, stack trace, etc).
->
->
-> The only connection between two patchset is that WARN_ONCE() can be
-> built on top of both like the C side.
+This looks like a good approach. Once it works correctly,
+it should be possible to clean up the 'select' statements
+in wireguard as well and just 'select CRYPTO_LIB_CHACHA' etc.
 
-Awesome, thanks for explaining =F0=9F=91=8D
+> @@ -45,9 +47,10 @@ config CRYPTO_NHPOLY1305_NEON
+>  	  - NEON (Advanced SIMD) extensions
+> 
+>  config CRYPTO_POLY1305_ARM
+> -	tristate "Hash functions: Poly1305 (NEON)"
+> +	tristate
+>  	select CRYPTO_HASH
+> -	select CRYPTO_ARCH_MAY_HAVE_LIB_POLY1305
+> +	select CRYPTO_ARCH_HAVE_LIB_POLY1305
+> +	default CRYPTO_LIB_POLY1305_INTERNAL
+>  	help
+>  	  Poly1305 authenticator algorithm (RFC7539)
+> 
+> @@ -212,9 +215,10 @@ config CRYPTO_AES_ARM_CE
+>  	  - ARMv8 Crypto Extensions
+> 
+>  config CRYPTO_CHACHA20_NEON
+> -	tristate "Ciphers: ChaCha20, XChaCha20, XChaCha12 (NEON)"
+> +	tristate
+>  	select CRYPTO_SKCIPHER
+> -	select CRYPTO_ARCH_MAY_HAVE_LIB_CHACHA
+> +	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+> +	default CRYPTO_LIB_CHACHA_INTERNAL
 
+I think the more common style is to put the 'default'
+lines before 'select'.
 
-Best regards,
-Andreas Hindborg
+It appears that the two above are missing a
+'depends on KERNEL_MODE_NEON' line. There is still
+a runtime check that prevents it from being used on
+non-neon machines, but I think you should add these
+lines here since it's no longer possible to turn
+them off individually when building a kernel for a
+non-NEON target.
 
+> +config CRYPTO_LIB_CHACHA_INTERNAL
+> +	tristate
+> +	select CRYPTO_LIB_CHACHA_GENERIC if CRYPTO_ARCH_HAVE_LIB_CHACHA=n
+> +
+>  config CRYPTO_LIB_CHACHA
+>  	tristate "ChaCha library interface"
+> -	select CRYPTO_LIB_CHACHA_GENERIC if CRYPTO_ARCH_HAVE_LIB_CHACHA=n
+> +	select CRYPTO
+> +	select CRYPTO_LIB_CHACHA_INTERNAL
+>  	help
+>  	  Enable the ChaCha library interface. This interface may be fulfilled
+>  	  by either the generic implementation or an arch-specific one, if one
 
+I'm not sure why we need the extra "_INTERNAL" symbols, but I
+may be missing something here. What problem does this solve
+for you?
+
+      Arnd
 
