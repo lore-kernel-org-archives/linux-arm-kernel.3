@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE819C282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 10:31:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E59CCC19776
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 10:32:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9iplQ7sXRRMB+d4BYh+wD8NJDMthJtlIttIrvpK1F3E=; b=3tplLqGfgrO0RYMnkj0DVf8Tkc
-	G5lz9bWOocTZVDidExkdSt5WHPj07Ra7HHabqHTKugqsd6CXCmJgf20tvrKThLAaCeCv0a1xaaChN
-	9Dv33VvV0tFMh1Mmp2jxk9I4v0LmZ1WSC+2n8G3llFxWs3DIFrnJmyu9g8QiKfykfvPsfliOoQ/iE
-	nP7Ff5TOgWUxs9QzRWDUbrMWwujfW1oHpVFsfUJRvvov/7j447IKZ1GYqW8x8IvFtly4Rn6o9R6Sh
-	EY90Ur/4Li+f3qBJrzGBRbJiML6kd4xZhsJtQP5NQmK5LBAkqy6FN+1LCSt7S/093HcSZ7UkyaM9s
-	lieZ7uAg==;
+	bh=p4OQhE0Z9A+uhMViDYZDzVf+LSvrQLnNUXYLXlkj2/4=; b=CXQSXobXaZT6DVP7mRPR/KWhWk
+	UtwcPeqkH3s8GhIqxQ96/dg0nl3x3pkhVnAHFBEe+qHnowfACiPP9LbvGxPVLd2TIpGyKtkHJjzGm
+	xJditwIp7vMUP0PzU9cNicmR2VdEIOc4+oE6Pb99BLZEus/6LF56Vyo633VxREohcqYumTIlSZpUp
+	DG6E5Vny1Sn5/2l5E0bdw+62KliZ1kpP/DZpp2OER+Eze1HxwfuAyJYIXrsmsYSoF7uasGM/LDq47
+	AHqVcEY0iABiw4PokGxMB6L7q/tK5p5khnNnMm+a+K7gcFy6pqb2w30M7JSoUs8TB0AOFnn0skBk8
+	BivRqUHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnxe9-0000000Abk4-17Jz;
-	Fri, 28 Feb 2025 10:31:09 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tnxfg-0000000Ac2Q-29Nn;
+	Fri, 28 Feb 2025 10:32:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnxTZ-0000000AZO9-2xSG
+	id 1tnxU3-0000000AZVp-0F3j
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 10:20:15 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tnxTE-0000p1-HQ; Fri, 28 Feb 2025 11:19:52 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tnxTE-003HFg-0g;
-	Fri, 28 Feb 2025 11:19:52 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tnxTE-005Ghl-0F;
-	Fri, 28 Feb 2025 11:19:52 +0100
-Date: Fri, 28 Feb 2025 11:19:52 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Marc Kleine-Budde <mkl@pengutronix.de>, Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>, linux-kernel@vger.kernel.org,
-	Mihalcea Laurentiu <laurentiumihalcea111@gmail.com>,
-	imx@lists.linux.dev,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 4/5] arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
-Message-ID: <20250228101952.g6tae3ni5xrhjk3y@pengutronix.de>
-References: <20250221191909.31874-1-laurentiumihalcea111@gmail.com>
- <20250221191909.31874-5-laurentiumihalcea111@gmail.com>
- <Z7jahtO3bxjkMfnc@lizhi-Precision-Tower-5810>
- <cd6a84cd-ff17-45df-becc-9bfc74522f73@gmail.com>
- <20250227-monumental-whale-of-security-b1c84e-mkl@pengutronix.de>
- <Z8CWsI/DKZtDBkzE@lizhi-Precision-Tower-5810>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z8CWsI/DKZtDBkzE@lizhi-Precision-Tower-5810>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_022013_749927_BF14BD44 
-X-CRM114-Status: GOOD (  39.47  )
+	Fri, 28 Feb 2025 10:20:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 288B460008;
+	Fri, 28 Feb 2025 10:20:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DA8AC4CED6;
+	Fri, 28 Feb 2025 10:20:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740738041;
+	bh=DlrJyqGlbTlAASX6CvC8BEd+irS6odxJiqxBLjq07Z0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=jcg1g2AHGiEdiXGgfXC0+bi/U+Jxfj958eyETbbOIqfm/WKA8ONpbhGOQgjwFRVKD
+	 ld3jt349EQ1hHerN/1TqqaJh1YK1v5G9po0XxavY3T8iIR2T7T+zLzz5gfFqUI/P+5
+	 wFj6M1rcqBRO5N6jrGgxTcAoynImxWDvsyxB3DdOqd7lHhRaTKSCOMlQEd//8EjHmv
+	 Lip1nMdJA8UDoaq8jlc+ZHBvP2vwXoEkoEe7lqQpQ6JSSJIYw1x4Q33q9Dqf1G5Wu+
+	 aAKZwOU42Kx1V618QDAdd1R/vblhD7qDN463jlvCrG76mTAIUAWC0SRJAO+Hhh3a4N
+	 Q0p1tV9YxGcAA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tnxTz-0090Qy-66;
+	Fri, 28 Feb 2025 10:20:39 +0000
+Date: Fri, 28 Feb 2025 10:20:38 +0000
+Message-ID: <86v7supdzd.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Leo Yan <leo.yan@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	ahmed.genidi@arm.com,
+	ben.horgan@arm.com,
+	catalin.marinas@arm.com,
+	kvmarm@lists.linux.dev,
+	oliver.upton@linux.dev,
+	will@kernel.org
+Subject: Re: [PATCH 1/2] KVM: arm64: Initialize HCR_EL2.E2H early
+In-Reply-To: <Z8GHclusYN3CX5m2@J2N7QTR9R3>
+References: <20250227180526.1204723-1-mark.rutland@arm.com>
+	<20250227180526.1204723-2-mark.rutland@arm.com>
+	<20250228092955.GC2157064@e132581.arm.com>
+	<86y0xqpfpj.wl-maz@kernel.org>
+	<Z8GHclusYN3CX5m2@J2N7QTR9R3>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mark.rutland@arm.com, leo.yan@arm.com, linux-arm-kernel@lists.infradead.org, ahmed.genidi@arm.com, ben.horgan@arm.com, catalin.marinas@arm.com, kvmarm@lists.linux.dev, oliver.upton@linux.dev, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,114 +90,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 25-02-27, Frank Li wrote:
-> On Thu, Feb 27, 2025 at 11:57:54AM +0100, Marc Kleine-Budde wrote:
-> > On 25.02.2025 16:14:34, Mihalcea Laurentiu wrote:
+On Fri, 28 Feb 2025 09:52:50 +0000,
+Mark Rutland <mark.rutland@arm.com> wrote:
+> 
+> On Fri, Feb 28, 2025 at 09:43:20AM +0000, Marc Zyngier wrote:
+> > On Fri, 28 Feb 2025 09:29:55 +0000,
+> > Leo Yan <leo.yan@arm.com> wrote:
+> > > 
+> > > Hi Mark,
+> > > 
+> > > On Thu, Feb 27, 2025 at 06:05:25PM +0000, Mark Rutland wrote:
+> > > 
+> > > [...]
+> > > 
+> > > > +.macro init_el2_hcr	val
+> > > > +	mov_q	x0, \val
+> > > > +
+> > > > +	/*
+> > > > +	 * Compliant CPUs advertise their VHE-onlyness with
+> > > > +	 * ID_AA64MMFR4_EL1.E2H0 < 0. On such CPUs HCR_EL2.E2H is RES1, but it
+> > > > +	 * can reset into an UNKNOWN state and might not read as 1 until it has
+> > > > +	 * been initialized explicitly.
+> > > 
+> > > For ID_AA64MMFR4_EL1.E2H0 < 0 case, the code actually clears the
+> > > HCR_EL2.E2H bit.
 > > >
-> > > On 21.02.2025 21:56, Frank Li wrote:
-> > > > On Fri, Feb 21, 2025 at 02:19:08PM -0500, Laurentiu Mihalcea wrote:
-> > > >> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> > > >>
-> > > >> AIPS5 is actually AIPSTZ5 as it offers some security-related
-> > > >> configurations. Since these configurations need to be applied before
-> > > >> accessing any of the peripherals on the bus, it's better to make AIPSTZ5
-> > > >> be their parent instead of keeping AIPS5 and adding a child node for
-> > > >> AIPSTZ5. Also, because of the security configurations, the address space
-> > > >> of the bus has to be changed to that of the configuration registers.
-> > > > The orginal 0x30c0_0000..0x31200000 include 0x30df0000, why not map only
-> > > > config address part in your drivers.
-> > > >
-> > > > Frank
-> > >
-> > > Any concerns/anything wrong with current approach?
-> > >
-> > >
-> > > I find it a bit awkward to have the whole bus address space
-> > > in the DT given that we're only interested in using the access
-> > > controller register space.
-> > >
-> > >
-> > > I'm fine with the approach you suggested but I don't see a
-> > > reason for using it?
-> >
-> > Looking at the "AIPS5 Memory Map" (page 34/35 in i.MX 8M Plus
-> > Applications Processor Reference Manual, Rev. 3, 08/2024), the
-> > AIPS5_Configuration is part of the AIPS5 bus. IMHO the bus is something
-> > different than the bus configuration. Why not model it as part of the
-> > bus?
-> >
-> > > >> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> > > >> index e0d3b8cba221..a1d9b834d2da 100644
-> > > >> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> > > >> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> > > >> @@ -1399,11 +1399,13 @@ eqos: ethernet@30bf0000 {
-> > > >>  			};
-> > > >>  		};
-> > > >>
-> > > >> -		aips5: bus@30c00000 {
-> > > >> -			compatible = "fsl,aips-bus", "simple-bus";
-> > > >> -			reg = <0x30c00000 0x400000>;
-> > > >> +		aips5: bus@30df0000 {
-> >                        ^^^^^^^^^^^^
-> > > >> +			compatible = "fsl,imx8mp-aipstz", "simple-bus";
-> > > >> +			reg = <0x30df0000 0x10000>;
-> > > >> +			power-domains = <&pgc_audio>;
-> > > >>  			#address-cells = <1>;
-> > > >>  			#size-cells = <1>;
-> > > >> +			#access-controller-cells = <0>;
-> > > >>  			ranges;
-> > > >>
-> > > >>  			spba-bus@30c00000 {
-> >                         ^^^^^^^^^^^^^^^^^
-> >
-> > This looks very strange: The aips5 bus starts at 0x30df0000 and has a
-> > child bus starting at 0x30c00000?
+> > > Hence, the comment should be corrected as: "... it can reset into an
+> > > UNKNOWN state and might not read as 0 until it has been initialized
+> > > explicitly".
+> > 
+> > The comment is just fine. It is the code that is wrong, as it avoids
+> > setting E2H when E2H0 < 0 while we want the exact opposite behaviour.
+> > 
+> > As a result, 'b.lt' really should be a 'b.ge'. Or the original code
+> > kept as is.
 > 
-> @30df0000 should match controller reg's address.
+> Ugh, yes. I got confused and got the condition backwards.
 > 
-> subnode address 0x30c00000,  should be descript in "ranges", which 1:1 map.
+> Either works. Using 'b.ge' is closer to my intention -- I found the
+> 'tbz' of the sign bit somewhat surprising and that needed a longer line
+> after the lable name changed.
 > 
-> So it should be reasonable. another example:
-> i2c@1000 {
-> 
-> 	device@1c <- which use difference address space.
-> }
-> 
-> The similar case also happen at pcie.
+> Would you like me to respin, or would you be hapy to fix up when
+> applying?
 
-I'm not really convinced that pcie and i2c are good examples here. I2C
-does have an other addressing scheme by nature and the hotplug-able pcie
-is dependeds on the pcie device memory map of course.
+I can fix it on the fly, but it needs retesting, as I don't understand
+how things could work in this state.
 
-Here we're talking about an access control IP core on a bus which is
-static.
+Thanks,
 
-But.. it looks like from DT abstraction it's fine because STM did
-something similiar with their st,stm32mp25-rifsc or st,stm32-etzpc
-albeit it does look strange and I don't know why we have to limit the
-address space since it was already mapped but used by the fsl,aips-bus
-driver.
+	M.
 
-Regards,
-  Marco
-
-
-> 
-> Frank
-> 
-> >
-> > regards,
-> > Marc
-> >
-> > --
-> > Pengutronix e.K.                 | Marc Kleine-Budde          |
-> > Embedded Linux                   | https://www.pengutronix.de |
-> > Vertretung Nürnberg              | Phone: +49-5121-206917-129 |
-> > Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-> 
-> 
-> 
-> 
+-- 
+Without deviation from the norm, progress is not possible.
 
