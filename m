@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9992FC282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 17:08:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76704C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 17:09:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dpv0DuXtUGFFknXE/Ouo8h8w+qXm8Lm1VQdgq9gJIqY=; b=uMoWLArM21JpqBfs+a7ewVjzoN
-	/RqpCn9c1v19jj3qhuGRM8T8yNg18GEeSGhXDuo6c5wOMbVdQglBj02wmgs/zAUbTiNkMl+w1odLC
-	klPNaZmD4COreH0Bt4LYPnx6gBur584LPuVWVCJITj0TPPF86iOeT5Ui//PiMgKiDPjKjwgg8mq2+
-	ZvhiA1IrSgj9aMG4rLA3Sz/T/aXItE8b9MsmlLakGpQCffm7khZwM8/XSqEfGjZSh6W45ZhnhFbzc
-	ICzAHR//c6ZCAiftakCU+zVt/Rtcw4ZD9+h7LdehGd6q5RQasW4/d4qXqBAT/xEJ6I5MemgWuMcWg
-	Ryp8BWVA==;
+	bh=Lqmq12SCrqyfYv0xwhsfT5Dr2HBh1AB4kz+zFKqUkdY=; b=XIhwHSTCThK5dOyKbjlVxjyPY2
+	6skC1zvhzOWHZZZVBXCmyHFsPMQPHYa5gAwYkavF1DdtaytHw2QXs9GJE+yK2vnKdw7KOqQ7eJ5GT
+	COidh7OySaBsnRUE5mVxGKgAPkoNIJROD6ZbvShUYu4C9Ay0ISpNJfn1z0XgNdCt24BsJAa81eyPl
+	hioi7G1Zwk3CwQHGsLM8q0qZMx5AOTC5B+tx8c+GrNxw3TFOs8a5M5/B/TTcKygwZeX1nTU+Rtv5H
+	s7AQ14BUV9MjNN0D8UR7eE4B4ism/3v7S/dny0Ugs2BEXDUtnApcjSfZxvbxHnE9XM5CIimdutOQZ
+	i6vEGd6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to3qB-0000000Br4r-2ab0;
-	Fri, 28 Feb 2025 17:07:59 +0000
+	id 1to3rj-0000000BrfU-1d2j;
+	Fri, 28 Feb 2025 17:09:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to3jJ-0000000Bota-3etq
+	id 1to3jN-0000000BovO-21qo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 17:00:55 +0000
+	Fri, 28 Feb 2025 17:00:58 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6EB57150C;
-	Fri, 28 Feb 2025 09:01:08 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5454D150C;
+	Fri, 28 Feb 2025 09:01:12 -0800 (PST)
 Received: from e126864.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 91F073F6A8;
-	Fri, 28 Feb 2025 09:00:51 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6F8FF3F6A8;
+	Fri, 28 Feb 2025 09:00:54 -0800 (PST)
 From: =?UTF-8?q?Kristina=20Mart=C5=A1enko?= <kristina.martsenko@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
@@ -41,9 +41,9 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Tong Tiangen <tongtiangen@huawei.com>,
 	Robin Murphy <robin.murphy@arm.com>,
 	James Morse <james.morse@arm.com>
-Subject: [PATCH v2 1/3] arm64: extable: Add fixup handling for uaccess CPY* instructions
-Date: Fri, 28 Feb 2025 17:00:04 +0000
-Message-Id: <20250228170006.390100-2-kristina.martsenko@arm.com>
+Subject: [PATCH v2 2/3] arm64: mm: Handle PAN faults on uaccess CPY* instructions
+Date: Fri, 28 Feb 2025 17:00:05 +0000
+Message-Id: <20250228170006.390100-3-kristina.martsenko@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250228170006.390100-1-kristina.martsenko@arm.com>
 References: <20250228170006.390100-1-kristina.martsenko@arm.com>
@@ -51,8 +51,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_090053_997748_F8F04DC1 
-X-CRM114-Status: GOOD (  19.08  )
+X-CRM114-CacheID: sfid-20250228_090057_561973_C221B2AB 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,136 +68,76 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 A subsequent patch will use CPY* instructions to copy between user and
-kernel memory. Add a new exception fixup type to avoid fixing up faults
-on kernel memory accesses, in order to make it easier to debug kernel
-bugs and to keep the same behavior as with regular loads/stores.
+kernel memory. Add handling for PAN faults caused by an intended kernel
+memory access erroneously accessing user memory, in order to make it
+easier to debug kernel bugs and to keep the same behavior as with
+regular loads/stores.
 
 Signed-off-by: Kristina Martšenko <kristina.martsenko@arm.com>
 ---
- arch/arm64/include/asm/asm-extable.h | 10 +++++++++-
- arch/arm64/include/asm/extable.h     |  2 +-
- arch/arm64/mm/extable.c              | 25 ++++++++++++++++++++++++-
- arch/arm64/mm/fault.c                |  2 +-
- 4 files changed, 35 insertions(+), 4 deletions(-)
+ arch/arm64/include/asm/extable.h |  3 +++
+ arch/arm64/mm/extable.c          | 11 +++++++++++
+ arch/arm64/mm/fault.c            |  4 +++-
+ 3 files changed, 17 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/asm-extable.h b/arch/arm64/include/asm/asm-extable.h
-index b8a5861dc7b7..292f2687a12e 100644
---- a/arch/arm64/include/asm/asm-extable.h
-+++ b/arch/arm64/include/asm/asm-extable.h
-@@ -9,7 +9,8 @@
- #define EX_TYPE_BPF			1
- #define EX_TYPE_UACCESS_ERR_ZERO	2
- #define EX_TYPE_KACCESS_ERR_ZERO	3
--#define EX_TYPE_LOAD_UNALIGNED_ZEROPAD	4
-+#define EX_TYPE_UACCESS_CPY		4
-+#define EX_TYPE_LOAD_UNALIGNED_ZEROPAD	5
- 
- /* Data fields for EX_TYPE_UACCESS_ERR_ZERO */
- #define EX_DATA_REG_ERR_SHIFT	0
-@@ -23,6 +24,9 @@
- #define EX_DATA_REG_ADDR_SHIFT	5
- #define EX_DATA_REG_ADDR	GENMASK(9, 5)
- 
-+/* Data fields for EX_TYPE_UACCESS_CPY */
-+#define EX_DATA_UACCESS_WRITE	BIT(0)
-+
- #ifdef __ASSEMBLY__
- 
- #define __ASM_EXTABLE_RAW(insn, fixup, type, data)	\
-@@ -69,6 +73,10 @@
- 	.endif
- 	.endm
- 
-+	.macro		_asm_extable_uaccess_cpy, insn, fixup, uaccess_is_write
-+	__ASM_EXTABLE_RAW(\insn, \fixup, EX_TYPE_UACCESS_CPY, \uaccess_is_write)
-+	.endm
-+
- #else /* __ASSEMBLY__ */
- 
- #include <linux/stringify.h>
 diff --git a/arch/arm64/include/asm/extable.h b/arch/arm64/include/asm/extable.h
-index 72b0e71cc3de..5892b8977710 100644
+index 5892b8977710..0a8cb2015c97 100644
 --- a/arch/arm64/include/asm/extable.h
 +++ b/arch/arm64/include/asm/extable.h
-@@ -45,5 +45,5 @@ bool ex_handler_bpf(const struct exception_table_entry *ex,
- }
- #endif /* !CONFIG_BPF_JIT */
+@@ -33,6 +33,9 @@ do {							\
+ 	(b)->data = (tmp).data;				\
+ } while (0)
  
--bool fixup_exception(struct pt_regs *regs);
-+bool fixup_exception(struct pt_regs *regs, unsigned long esr);
- #endif
++bool extable_insn_may_access_user(const struct exception_table_entry *ex,
++				  unsigned long esr);
++
+ #ifdef CONFIG_BPF_JIT
+ bool ex_handler_bpf(const struct exception_table_entry *ex,
+ 		    struct pt_regs *regs);
 diff --git a/arch/arm64/mm/extable.c b/arch/arm64/mm/extable.c
-index 228d681a8715..afb5241e4d91 100644
+index afb5241e4d91..f137596dda88 100644
 --- a/arch/arm64/mm/extable.c
 +++ b/arch/arm64/mm/extable.c
-@@ -8,8 +8,18 @@
- #include <linux/uaccess.h>
+@@ -20,6 +20,17 @@ static bool cpy_faulted_on_uaccess(const struct exception_table_entry *ex,
+ 	return uaccess_is_write == fault_on_write;
+ }
  
- #include <asm/asm-extable.h>
-+#include <asm/esr.h>
- #include <asm/ptrace.h>
- 
-+static bool cpy_faulted_on_uaccess(const struct exception_table_entry *ex,
-+				   unsigned long esr)
++bool extable_insn_may_access_user(const struct exception_table_entry *ex,
++				  unsigned long esr)
 +{
-+	bool uaccess_is_write = FIELD_GET(EX_DATA_UACCESS_WRITE, ex->data);
-+	bool fault_on_write = esr & ESR_ELx_WNR;
-+
-+	return uaccess_is_write == fault_on_write;
++	switch (ex->type) {
++	case EX_TYPE_UACCESS_CPY:
++		return cpy_faulted_on_uaccess(ex, esr);
++	default:
++		return true;
++	}
 +}
 +
  static inline unsigned long
  get_ex_fixup(const struct exception_table_entry *ex)
  {
-@@ -29,6 +39,17 @@ static bool ex_handler_uaccess_err_zero(const struct exception_table_entry *ex,
- 	return true;
- }
- 
-+static bool ex_handler_uaccess_cpy(const struct exception_table_entry *ex,
-+				   struct pt_regs *regs, unsigned long esr)
-+{
-+	/* Do not fix up faults on kernel memory accesses */
-+	if (!cpy_faulted_on_uaccess(ex, esr))
-+		return false;
-+
-+	regs->pc = get_ex_fixup(ex);
-+	return true;
-+}
-+
- static bool
- ex_handler_load_unaligned_zeropad(const struct exception_table_entry *ex,
- 				  struct pt_regs *regs)
-@@ -56,7 +77,7 @@ ex_handler_load_unaligned_zeropad(const struct exception_table_entry *ex,
- 	return true;
- }
- 
--bool fixup_exception(struct pt_regs *regs)
-+bool fixup_exception(struct pt_regs *regs, unsigned long esr)
- {
- 	const struct exception_table_entry *ex;
- 
-@@ -70,6 +91,8 @@ bool fixup_exception(struct pt_regs *regs)
- 	case EX_TYPE_UACCESS_ERR_ZERO:
- 	case EX_TYPE_KACCESS_ERR_ZERO:
- 		return ex_handler_uaccess_err_zero(ex, regs);
-+	case EX_TYPE_UACCESS_CPY:
-+		return ex_handler_uaccess_cpy(ex, regs, esr);
- 	case EX_TYPE_LOAD_UNALIGNED_ZEROPAD:
- 		return ex_handler_load_unaligned_zeropad(ex, regs);
- 	}
 diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-index ef63651099a9..da4854fc6150 100644
+index da4854fc6150..c2f14f9c2d92 100644
 --- a/arch/arm64/mm/fault.c
 +++ b/arch/arm64/mm/fault.c
-@@ -375,7 +375,7 @@ static void __do_kernel_fault(unsigned long addr, unsigned long esr,
- 	 * Are we prepared to handle this kernel fault?
- 	 * We are almost certainly not prepared to handle instruction faults.
- 	 */
--	if (!is_el1_instruction_abort(esr) && fixup_exception(regs))
-+	if (!is_el1_instruction_abort(esr) && fixup_exception(regs, esr))
- 		return;
+@@ -553,6 +553,7 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
+ 	unsigned int mm_flags = FAULT_FLAG_DEFAULT;
+ 	unsigned long addr = untagged_addr(far);
+ 	struct vm_area_struct *vma;
++	const struct exception_table_entry *ex;
+ 	int si_code;
+ 	int pkey = -1;
  
- 	if (WARN_RATELIMIT(is_spurious_el1_translation_fault(addr, esr, regs),
+@@ -606,7 +607,8 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
+ 			die_kernel_fault("execution of user memory",
+ 					 addr, esr, regs);
+ 
+-		if (!search_exception_tables(regs->pc))
++		ex = search_exception_tables(regs->pc);
++		if (!ex || !extable_insn_may_access_user(ex, esr))
+ 			die_kernel_fault("access to user memory outside uaccess routines",
+ 					 addr, esr, regs);
+ 	}
 -- 
 2.34.1
 
