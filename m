@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27E1BC282C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 16:08:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4FB0C282C1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 16:10:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hH/mPj9e158rvvCbSLojwm2/ysksrIast3UCEMXPv5U=; b=MHNmg1PWzwNKQL5aCzoL6KgNvX
-	7JmZAOzD3sQJ8Be2yRaI26zvh3dOCeuhsngbzp0UWpayhxYjlq7RlJ75Zw2xEu5NcMSKnd2UXN04/
-	ZAriWR8VfjCG/OrNwW4s1zAIhC4m8J2+j5GNCsw4KI7hvUAgMSwWjv6Y8z5XZZz/HklomdWJuxNYA
-	k+lL4LEh0hu7j+yrVWWC3xNi+a6uz+99x4n1Foya/SzWR6Wc7R1kr8qL+USFxCjR+Yd4oMJY+Fn0M
-	AG0Z0+9ZIkrUjbxOGm3pGMQB71b2sNBbX66qNZrT2B/iE80buCS/iXfOjCM7p9oIl8LF0m4uGnI12
-	lXVlYaGA==;
+	bh=xyPJeXp0BVJ0ltB0IjuqUNFAeRkaPdRIOeWzZZXJ9sA=; b=Ym7RiVAtDUm9q/0eV2HxE32zE9
+	LTjrw6kf30OxaKnVEBcGBPpgH6xDljwmiSFb6hsXn2GP45d+epng4nhex9tfSu2EKvwr/nFXGvWb3
+	FYfgCrUOUQFLJamKYn3nJr0BUsiIrqBdYgr7UpGbTWjolmsU9JWrEd+6sVfvyBN6NwnYrq5UP4v1V
+	66nfYtY2JqqaGvDjlCq/02kP30ylZg9cvph8E1d+7D5FKsAcjI8+IDm1IGpCSKlkthzEuhnlx7E5x
+	QEO/eHEOKzE6bjlO7fGRfFnttWyH48NGw/kU/pv7Qw2wREaEV+Fi3+qdQlT1yZcgNXhSVr6j3FcSZ
+	weEG2NBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to2uV-0000000BbQh-34N0;
-	Fri, 28 Feb 2025 16:08:23 +0000
+	id 1to2w2-0000000Bbdq-1WZ9;
+	Fri, 28 Feb 2025 16:09:58 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to2Zm-0000000BWyH-2ITZ
+	id 1to2Zt-0000000BX07-3uwj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 15:46:59 +0000
+	Fri, 28 Feb 2025 15:47:07 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 454AE1BB0;
-	Fri, 28 Feb 2025 07:47:13 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 492811D14;
+	Fri, 28 Feb 2025 07:47:20 -0800 (PST)
 Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D32043F5A1;
-	Fri, 28 Feb 2025 07:46:54 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D718B3F5A1;
+	Fri, 28 Feb 2025 07:47:01 -0800 (PST)
 From: Robin Murphy <robin.murphy@arm.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Hanjun Guo <guohanjun@huawei.com>,
@@ -58,17 +58,17 @@ Cc: linux-acpi@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-pci@vger.kernel.org,
 	Charan Teja Kalla <quic_charante@quicinc.com>
-Subject: [PATCH v2 3/4] iommu: Keep dev->iommu state consistent
-Date: Fri, 28 Feb 2025 15:46:32 +0000
-Message-Id: <d219663a3f23001f23d520a883ac622d70b4e642.1740753261.git.robin.murphy@arm.com>
+Subject: [PATCH v2 4/4] iommu: Get DT/ACPI parsing into the proper probe path
+Date: Fri, 28 Feb 2025 15:46:33 +0000
+Message-Id: <e3b191e6fd6ca9a1e84c5e5e40044faf97abb874.1740753261.git.robin.murphy@arm.com>
 X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
 In-Reply-To: <cover.1740753261.git.robin.murphy@arm.com>
 References: <cover.1740753261.git.robin.murphy@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_074658_712498_00AB24D1 
-X-CRM114-Status: GOOD (  15.02  )
+X-CRM114-CacheID: sfid-20250228_074706_065764_19388DE1 
+X-CRM114-Status: GOOD (  32.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,81 +83,265 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-At the moment, if of_iommu_configure() allocates dev->iommu itself via
-iommu_fwspec_init(), then suffers a DT parsing failure, it cleans up the
-fwspec but leaves the empty dev_iommu hanging around. So far this is
-benign (if a tiny bit wasteful), but we'd like to be able to reason
-about dev->iommu having a consistent and unambiguous lifecycle. Thus
-make sure that the of_iommu cleanup undoes precisely whatever it did.
+In hindsight, there were some crucial subtleties overlooked when moving
+{of,acpi}_dma_configure() to driver probe time to allow waiting for
+IOMMU drivers with -EPROBE_DEFER, and these have become an
+ever-increasing source of problems. The IOMMU API has some fundamental
+assumptions that iommu_probe_device() is called for every device added
+to the system, in the order in which they are added. Calling it in a
+random order or not at all dependent on driver binding leads to
+malformed groups, a potential lack of isolation for devices with no
+driver, and all manner of unexpected concurrency and race conditions.
+We've attempted to mitigate the latter with point-fix bodges like
+iommu_probe_device_lock, but it's a losing battle and the time has come
+to bite the bullet and address the true source of the problem instead.
 
+The crux of the matter is that the firmware parsing actually serves two
+distinct purposes; one is identifying the IOMMU instance associated with
+a device so we can check its availability, the second is actually
+telling that instance about the relevant firmware-provided data for the
+device. However the latter also depends on the former, and at the time
+there was no good place to defer and retry that separately from the
+availability check we also wanted for client driver probe.
+
+Nowadays, though, we have a proper notion of multiple IOMMU instances in
+the core API itself, and each one gets a chance to probe its own devices
+upon registration, so we can finally make that work as intended for
+DT/IORT/VIOT platforms too. All we need is for iommu_probe_device() to
+be able to run the iommu_fwspec machinery currently buried deep in the
+wrong end of {of,acpi}_dma_configure(). Luckily it turns out to be
+surprisingly straightforward to bootstrap this transformation by pretty
+much just calling the same path twice. At client driver probe time,
+dev->driver is obviously set; conversely at device_add(), or a
+subsequent bus_iommu_probe(), any device waiting for an IOMMU really
+should *not* have a driver already, so we can use that as a condition to
+disambiguate the two cases, and avoid recursing back into the IOMMU core
+at the wrong times.
+
+Obviously this isn't the nicest thing, but for now it gives us a
+functional baseline to then unpick the layers in between without many
+more awkward cross-subsystem patches. There are some minor side-effects
+like dma_range_map potentially being created earlier, and some debug
+prints being repeated, but these aren't significantly detrimental. Let's
+make things work first, then deal with making them nice.
+
+With the basic flow finally in the right order again, the next step is
+probably turning the bus->dma_configure paths inside-out, since all we
+really need from bus code is its notion of which device and input ID(s)
+to parse the common firmware properties with...
+
+Acked-by: Bjorn Helgaas <bhelgaas@google.com> # pci-driver.c
+Acked-by: Rob Herring (Arm) <robh@kernel.org> # of/device.c
 Signed-off-by: Robin Murphy <robin.murphy@arm.com>
 ---
 
-v2: New
-
- drivers/iommu/iommu-priv.h | 2 ++
- drivers/iommu/iommu.c      | 2 +-
- drivers/iommu/of_iommu.c   | 6 +++++-
- 3 files changed, 8 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/iommu/iommu-priv.h b/drivers/iommu/iommu-priv.h
-index 17e245cf17bb..6574c1f97e14 100644
---- a/drivers/iommu/iommu-priv.h
-+++ b/drivers/iommu/iommu-priv.h
-@@ -17,6 +17,8 @@ static inline const struct iommu_ops *dev_iommu_ops(struct device *dev)
- 	return dev->iommu->iommu_dev->ops;
- }
+v2:
+ - Comment bus driver changes for clarity
+ - Use dev->iommu as the now-robust replay condition
+ - Drop the device_iommu_mapped() checks in the firmware paths as they
+   weren't doing much - we can't replace probe_device_lock just yet...
  
-+void dev_iommu_free(struct device *dev);
+ drivers/acpi/arm64/dma.c        |  5 +++++
+ drivers/acpi/scan.c             |  7 -------
+ drivers/amba/bus.c              |  3 ++-
+ drivers/base/platform.c         |  3 ++-
+ drivers/bus/fsl-mc/fsl-mc-bus.c |  3 ++-
+ drivers/cdx/cdx.c               |  3 ++-
+ drivers/iommu/iommu.c           | 24 +++++++++++++++++++++---
+ drivers/iommu/of_iommu.c        |  7 ++++++-
+ drivers/of/device.c             |  7 ++++++-
+ drivers/pci/pci-driver.c        |  3 ++-
+ 10 files changed, 48 insertions(+), 17 deletions(-)
+
+diff --git a/drivers/acpi/arm64/dma.c b/drivers/acpi/arm64/dma.c
+index 52b2abf88689..f30f138352b7 100644
+--- a/drivers/acpi/arm64/dma.c
++++ b/drivers/acpi/arm64/dma.c
+@@ -26,6 +26,11 @@ void acpi_arch_dma_setup(struct device *dev)
+ 	else
+ 		end = (1ULL << 32) - 1;
+ 
++	if (dev->dma_range_map) {
++		dev_dbg(dev, "dma_range_map already set\n");
++		return;
++	}
 +
- const struct iommu_ops *iommu_ops_from_fwnode(const struct fwnode_handle *fwnode);
- 
- static inline const struct iommu_ops *iommu_fwspec_ops(struct iommu_fwspec *fwspec)
-diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-index 37b7088e129a..a3b45b84f42b 100644
---- a/drivers/iommu/iommu.c
-+++ b/drivers/iommu/iommu.c
-@@ -352,7 +352,7 @@ static struct dev_iommu *dev_iommu_get(struct device *dev)
- 	return param;
- }
- 
--static void dev_iommu_free(struct device *dev)
-+void dev_iommu_free(struct device *dev)
- {
- 	struct dev_iommu *param = dev->iommu;
- 
-diff --git a/drivers/iommu/of_iommu.c b/drivers/iommu/of_iommu.c
-index 97987cd78da9..e10a68b5ffde 100644
---- a/drivers/iommu/of_iommu.c
-+++ b/drivers/iommu/of_iommu.c
-@@ -116,6 +116,7 @@ static void of_pci_check_device_ats(struct device *dev, struct device_node *np)
- int of_iommu_configure(struct device *dev, struct device_node *master_np,
- 		       const u32 *id)
- {
-+	bool dev_iommu_present;
- 	int err;
- 
- 	if (!master_np)
-@@ -127,6 +128,7 @@ int of_iommu_configure(struct device *dev, struct device_node *master_np,
- 		mutex_unlock(&iommu_probe_device_lock);
- 		return 0;
- 	}
-+	dev_iommu_present = dev->iommu;
- 
- 	/*
- 	 * We don't currently walk up the tree looking for a parent IOMMU.
-@@ -147,8 +149,10 @@ int of_iommu_configure(struct device *dev, struct device_node *master_np,
- 		err = of_iommu_configure_device(master_np, dev, id);
- 	}
- 
--	if (err)
-+	if (err && dev_iommu_present)
- 		iommu_fwspec_free(dev);
-+	else if (err && dev->iommu)
-+		dev_iommu_free(dev);
+ 	ret = acpi_dma_get_range(dev, &map);
+ 	if (!ret && map) {
+ 		end = dma_range_map_max(map);
+diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+index 9f4efa8f75a6..fb1fe9f3b1a3 100644
+--- a/drivers/acpi/scan.c
++++ b/drivers/acpi/scan.c
+@@ -1632,13 +1632,6 @@ static int acpi_iommu_configure_id(struct device *dev, const u32 *id_in)
+ 		err = viot_iommu_configure(dev);
  	mutex_unlock(&iommu_probe_device_lock);
  
- 	if (!err && dev->bus)
+-	/*
+-	 * If we have reason to believe the IOMMU driver missed the initial
+-	 * iommu_probe_device() call for dev, replay it to get things in order.
+-	 */
+-	if (!err && dev->bus)
+-		err = iommu_probe_device(dev);
+-
+ 	return err;
+ }
+ 
+diff --git a/drivers/amba/bus.c b/drivers/amba/bus.c
+index 8ef259b4d037..71482d639a6d 100644
+--- a/drivers/amba/bus.c
++++ b/drivers/amba/bus.c
+@@ -364,7 +364,8 @@ static int amba_dma_configure(struct device *dev)
+ 		ret = acpi_dma_configure(dev, attr);
+ 	}
+ 
+-	if (!ret && !drv->driver_managed_dma) {
++	/* @drv may not be valid when we're called from the IOMMU layer */
++	if (!ret && dev->driver && !drv->driver_managed_dma) {
+ 		ret = iommu_device_use_default_domain(dev);
+ 		if (ret)
+ 			arch_teardown_dma_ops(dev);
+diff --git a/drivers/base/platform.c b/drivers/base/platform.c
+index 6f2a33722c52..1813cfd0c4bd 100644
+--- a/drivers/base/platform.c
++++ b/drivers/base/platform.c
+@@ -1451,7 +1451,8 @@ static int platform_dma_configure(struct device *dev)
+ 		attr = acpi_get_dma_attr(to_acpi_device_node(fwnode));
+ 		ret = acpi_dma_configure(dev, attr);
+ 	}
+-	if (ret || drv->driver_managed_dma)
++	/* @drv may not be valid when we're called from the IOMMU layer */
++	if (ret || !dev->driver || drv->driver_managed_dma)
+ 		return ret;
+ 
+ 	ret = iommu_device_use_default_domain(dev);
+diff --git a/drivers/bus/fsl-mc/fsl-mc-bus.c b/drivers/bus/fsl-mc/fsl-mc-bus.c
+index d1f3d327ddd1..a8be8cf246fb 100644
+--- a/drivers/bus/fsl-mc/fsl-mc-bus.c
++++ b/drivers/bus/fsl-mc/fsl-mc-bus.c
+@@ -153,7 +153,8 @@ static int fsl_mc_dma_configure(struct device *dev)
+ 	else
+ 		ret = acpi_dma_configure_id(dev, DEV_DMA_COHERENT, &input_id);
+ 
+-	if (!ret && !mc_drv->driver_managed_dma) {
++	/* @mc_drv may not be valid when we're called from the IOMMU layer */
++	if (!ret && dev->driver && !mc_drv->driver_managed_dma) {
+ 		ret = iommu_device_use_default_domain(dev);
+ 		if (ret)
+ 			arch_teardown_dma_ops(dev);
+diff --git a/drivers/cdx/cdx.c b/drivers/cdx/cdx.c
+index c573ed2ee71a..780fb0c4adba 100644
+--- a/drivers/cdx/cdx.c
++++ b/drivers/cdx/cdx.c
+@@ -360,7 +360,8 @@ static int cdx_dma_configure(struct device *dev)
+ 		return ret;
+ 	}
+ 
+-	if (!ret && !cdx_drv->driver_managed_dma) {
++	/* @cdx_drv may not be valid when we're called from the IOMMU layer */
++	if (!ret && dev->driver && !cdx_drv->driver_managed_dma) {
+ 		ret = iommu_device_use_default_domain(dev);
+ 		if (ret)
+ 			arch_teardown_dma_ops(dev);
+diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+index a3b45b84f42b..1cec7074367a 100644
+--- a/drivers/iommu/iommu.c
++++ b/drivers/iommu/iommu.c
+@@ -414,9 +414,21 @@ static int iommu_init_device(struct device *dev)
+ 	if (!dev_iommu_get(dev))
+ 		return -ENOMEM;
+ 	/*
+-	 * For FDT-based systems and ACPI IORT/VIOT, drivers register IOMMU
+-	 * instances with non-NULL fwnodes, and client devices should have been
+-	 * identified with a fwspec by this point. Otherwise, we can currently
++	 * For FDT-based systems and ACPI IORT/VIOT, the common firmware parsing
++	 * is buried in the bus dma_configure path. Properly unpicking that is
++	 * still a big job, so for now just invoke the whole thing. The device
++	 * already having a driver bound means dma_configure has already run and
++	 * either found no IOMMU to wait for, or we're in its replay call right
++	 * now, so either way there's no point calling it again.
++	 */
++	if (!dev->driver && dev->bus->dma_configure) {
++		mutex_unlock(&iommu_probe_device_lock);
++		dev->bus->dma_configure(dev);
++		mutex_lock(&iommu_probe_device_lock);
++	}
++	/*
++	 * At this point, relevant devices either now have a fwspec which will
++	 * match ops registered with a non-NULL fwnode, or we can reasonably
+ 	 * assume that only one of Intel, AMD, s390, PAMU or legacy SMMUv2 can
+ 	 * be present, and that any of their registered instances has suitable
+ 	 * ops for probing, and thus cheekily co-opt the same mechanism.
+@@ -426,6 +438,12 @@ static int iommu_init_device(struct device *dev)
+ 		ret = -ENODEV;
+ 		goto err_free;
+ 	}
++	/*
++	 * And if we do now see any replay calls, they would indicate someone
++	 * misusing the dma_configure path outside bus code.
++	 */
++	if (dev->driver)
++		dev_WARN(dev, "late IOMMU probe at driver bind, something fishy here!\n");
+ 
+ 	if (!try_module_get(ops->owner)) {
+ 		ret = -EINVAL;
+diff --git a/drivers/iommu/of_iommu.c b/drivers/iommu/of_iommu.c
+index e10a68b5ffde..6b989a62def2 100644
+--- a/drivers/iommu/of_iommu.c
++++ b/drivers/iommu/of_iommu.c
+@@ -155,7 +155,12 @@ int of_iommu_configure(struct device *dev, struct device_node *master_np,
+ 		dev_iommu_free(dev);
+ 	mutex_unlock(&iommu_probe_device_lock);
+ 
+-	if (!err && dev->bus)
++	/*
++	 * If we're not on the iommu_probe_device() path (as indicated by the
++	 * initial dev->iommu) then try to simulate it. This should no longer
++	 * happen unless of_dma_configure() is being misused outside bus code.
++	 */
++	if (!err && dev->bus && !dev_iommu_present)
+ 		err = iommu_probe_device(dev);
+ 
+ 	if (err && err != -EPROBE_DEFER)
+diff --git a/drivers/of/device.c b/drivers/of/device.c
+index edf3be197265..5053e5d532cc 100644
+--- a/drivers/of/device.c
++++ b/drivers/of/device.c
+@@ -99,6 +99,11 @@ int of_dma_configure_id(struct device *dev, struct device_node *np,
+ 	bool coherent, set_map = false;
+ 	int ret;
+ 
++	if (dev->dma_range_map) {
++		dev_dbg(dev, "dma_range_map already set\n");
++		goto skip_map;
++	}
++
+ 	if (np == dev->of_node)
+ 		bus_np = __of_get_dma_parent(np);
+ 	else
+@@ -119,7 +124,7 @@ int of_dma_configure_id(struct device *dev, struct device_node *np,
+ 		end = dma_range_map_max(map);
+ 		set_map = true;
+ 	}
+-
++skip_map:
+ 	/*
+ 	 * If @dev is expected to be DMA-capable then the bus code that created
+ 	 * it should have initialised its dma_mask pointer by this point. For
+diff --git a/drivers/pci/pci-driver.c b/drivers/pci/pci-driver.c
+index f57ea36d125d..4468b7327cab 100644
+--- a/drivers/pci/pci-driver.c
++++ b/drivers/pci/pci-driver.c
+@@ -1653,7 +1653,8 @@ static int pci_dma_configure(struct device *dev)
+ 
+ 	pci_put_host_bridge_device(bridge);
+ 
+-	if (!ret && !driver->driver_managed_dma) {
++	/* @driver may not be valid when we're called from the IOMMU layer */
++	if (!ret && dev->driver && !driver->driver_managed_dma) {
+ 		ret = iommu_device_use_default_domain(dev);
+ 		if (ret)
+ 			arch_teardown_dma_ops(dev);
 -- 
 2.39.2.101.g768bb238c484.dirty
 
