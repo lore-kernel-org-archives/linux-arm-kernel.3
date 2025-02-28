@@ -4,90 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DE44C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 11:20:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE94CC282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 11:21:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NU92PAxMuIwAbEifcOhSO2wdvjiG74/DYY2SKby5M8Q=; b=2blrNQT6pkPZPyWRadZsFwg2uy
-	rSIE4IdZXUEr/sXAqIWx3IfO2n1L4riwUK05uZVcyyEP85Bl6zjVvlVO4Ebice6gaK6m3I9CqM8jJ
-	Pr/wLKBQSiEvtMsMw3Qcw0mDbYNbNEsVoB0t8Kl0jm9UcoZgxFZgENlYG6f83lBdDvqCoUwC3+fe6
-	HiVcBkmWAOhjIigRyZ+C4bOoiLNnb12u5sT6QQ7orpWhXf2Arub6dUdMCkHcNQbKl8KUZSFpKXjww
-	4xlq8/A7OrqCpBBnS1tkpvGGpO/j2+jzUco0oBcZ2zbdRwR7ezupgk1VnyTsMOPqofL5DIkzK3HoN
-	WPRiqfpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2nu/Y6+cz0NMSSixySPG8CnuznbZo4tBIamdzIavqDQ=; b=MOQwq1IRtQGmJ4N3wsfjmSDRkC
+	835z1mQmrGI47h441N5q1hS7tuoWFdzHvPZU8q9JCpKtJQmgJnKLJ9hbTgheJbcZXUemhgkNCGfKR
+	pfp/junkqVA/BYbTfhGlULoVVg7z4/S/zvj4uYNn9TQwNqlo9V9mp/HW6wHlFF5sVH2GwQdwKzwdN
+	kWHrZaMjxtUxB47H2aqWCbHrHq+8l+z2bcrxWvt+W33iasYJ4sTiGP2mK3QtfCGS6jhBuFv8Z/mAT
+	hvQDES7Gwtzeh6dv1GIwcnm14TT4BP8lTO23j3Csk7BRu3mtlJ7Bwd53vrkzlofG3fLu5EmtkrMCu
+	nW+cLHgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnyPc-0000000AjWG-3vG0;
-	Fri, 28 Feb 2025 11:20:12 +0000
-Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
+	id 1tnyRA-0000000Ajnr-24Pj;
+	Fri, 28 Feb 2025 11:21:48 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnxtu-0000000Ae5u-3Zkk
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 10:47:28 +0000
-Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-30a69c1a8d3so20433661fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 02:47:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1740739644; x=1741344444; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NU92PAxMuIwAbEifcOhSO2wdvjiG74/DYY2SKby5M8Q=;
-        b=PSzr22APjyoYibZlZFJjBtTbXdxcAI8YtF3Xhb8XsEVHJXSYlI29KcctwxKAjTwRpM
-         FVYLbsgJq0U5cpQEOnZAfHKX9JSU1d3Xuq3iNKBe2vPXCt+zZJvwOLuBR5quVkhjiU6O
-         azIfQFZ3LIxhT1PHTa6OUv4lBJUPRsT7ohWxMffah9wDEybrgsmjg+HEX6PGG/2MFHxc
-         nqgedRdaH874l9z1VwD9H6Q3F1ijZGDC2W3p7QwQL7vJlNoU1ka8MSqmO4KlWpl34lg1
-         M0m+OVkI6TfSrMNALA79DIyhRSuD8KEvHNpf3GZwmwSqX2L1DcGS4srRHLpBYQ0lD/Xx
-         nuFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740739644; x=1741344444;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NU92PAxMuIwAbEifcOhSO2wdvjiG74/DYY2SKby5M8Q=;
-        b=cBmQ+OGOYfcNX87uA4ts1gc+dg9t1HyDXjBubwcNwi7tf3ARj8rJ9LE/iA3utb4Rv8
-         okwojvzeUXC+XG+Hto7ka0wo/DluIb8dj2BZMFe0CyzJKnz8hkdCTaTy/Xus5idouXeN
-         0ATbUgYkqmidGTTDD0jmuujFDijnCuy2+wSX/c4zwWmY/+s5deHgYHQ5Q6uOG6o11BvH
-         1rPV/FOra4qNiz6FTjGWkKcExDvoYmCtCFKu+IwlxhqLb/wmn5DAH1vUWUL7vAUiDsM9
-         S8H2CigXja9OCVBXu3Q/H1lTAjPossYMBqwqIHWfSTXtrehSmlwkTUai3Oertd0yw1+X
-         ghlg==
-X-Forwarded-Encrypted: i=1; AJvYcCXi0VHgdah234czoH2uoKODFwIQ53cdbcTN6Rrm8GT6lzn0g1bz75qnLwXv3ivxCTyAgJfmesobAdZ3nKU3/cUi@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLsK9h4t9bT1oalD3sG/a4Wc3YpxeTXvTxgnugN+JjH4EYQg8q
-	e7usIXh1AQjkDebm1HMQosPIC/J+AaqLx3KRzvZMuBXdLnCtPIEQ3//7ELdokk3lEqont1WKpOg
-	vc6IsmTKsaYWgtCPj/ilBa3ZyopiGIIV0YB65yQ==
-X-Gm-Gg: ASbGncsoXFOB5zgt6K3hhpcfSPcXgYD32Rl9W2+fx/oOT6BFA8l+Jd2ufLfJj0dwsE9
-	rDZOnT2EOmuozz7CNvxJBfkf/yOzzZDCSN0M2z3znvFcTuK2saqe8sF1IPtkvHCG63jeHtwJlW1
-	btnkzCT2rOfk6bt+YqoPBKy18sbm/ZigkUSCugTbU=
-X-Google-Smtp-Source: AGHT+IEffbnoGh/ZB0Av+vhJaJSeIcPXpBvqptVNxXGkyb3XMvwRwNUY07bvRzkN6KART5xjUd6SjTwMbagTMx4dBss=
-X-Received: by 2002:a05:651c:1545:b0:308:e803:1175 with SMTP id
- 38308e7fff4ca-30b930c7c11mr9231511fa.0.1740739644452; Fri, 28 Feb 2025
- 02:47:24 -0800 (PST)
+	id 1tnxvI-0000000AeLy-12rD;
+	Fri, 28 Feb 2025 10:48:53 +0000
+Received: from ideasonboard.com (93-61-96-190.ip145.fastwebnet.it [93.61.96.190])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id B5B036A2;
+	Fri, 28 Feb 2025 11:47:21 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1740739641;
+	bh=2nu/Y6+cz0NMSSixySPG8CnuznbZo4tBIamdzIavqDQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cwbqZ2LkeytLOt2OeEt1HSLjyELIcA+L1HAVjtkn/caZVs7ulBfwHffeI4q7P9piZ
+	 zZx0gVUgQzgzC8kptFXRvvOrj9EjzMYxC1ajQF6xHc+NRI+9ViMA+X3lqsiY+L1qqX
+	 feNJ1RE8DDiyHYPWRM7ytbaYQlFJREwRP/mywSAQ=
+Date: Fri, 28 Feb 2025 11:48:47 +0100
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+To: Tomasz Figa <tfiga@chromium.org>
+Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+	Mikhail Rudenko <mike.rudenko@gmail.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Dafna Hirschfeld <dafna@fastmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] media: rkisp1: allow non-coherent video capture buffers
+Message-ID: <aw6hhc5x7lycbmckbc57ke5whksem5lasfkufcxrcuou5vhoyo@ylggg6tdzcnq>
+References: <20250102-b4-rkisp-noncoherent-v1-1-bba164f7132c@gmail.com>
+ <20250103152326.GP554@pendragon.ideasonboard.com>
+ <87bjw9s4s3.fsf@gmail.com>
+ <dtfv2slbtj3ar2wvlcnd74p3xtlvggebkk3fj5ocm3eil7kyqw@al3brwf4y5dw>
+ <CAAFQd5DS2x3sX59EdkTEMuO=eXc=Q0jD44EUwMisP6ocWz11qg@mail.gmail.com>
+ <bgnkzjpegpmif7gohoijt42rku6jruovjsxscg75dprdz5ek2i@ntfh2yyjyiry>
+ <CAAFQd5BihpFYgqvKta7ULMAVSMTy3kd6iR6Mo4ea9Ci935EFMA@mail.gmail.com>
 MIME-Version: 1.0
-References: <20250219102750.38519-1-brgl@bgdev.pl> <Z7XqSVfhPGI5J63B@finisterre.sirena.org.uk>
- <CAMRc=MdEcjFUp2OEutcnDqSHbbait3f25NEWbdp7mARyKZLvBw@mail.gmail.com> <CACRpkdbkcX5pEeikkDZAxSGp+M3kJH5SWimxQA6P35iiDAUNdA@mail.gmail.com>
-In-Reply-To: <CACRpkdbkcX5pEeikkDZAxSGp+M3kJH5SWimxQA6P35iiDAUNdA@mail.gmail.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Fri, 28 Feb 2025 11:47:13 +0100
-X-Gm-Features: AQ5f1Jq-ljcT0uOKj_SffP5eijOqNrKUyeoMU_8l6yP7Bn_KmF7NH0MYmjepHtY
-Message-ID: <CAMRc=MfcyAxF6Q4XyCiJs-7jCDX5dyT5=1HPmcDGQGiJoXf5Sw@mail.gmail.com>
-Subject: Re: [RFC/RFT PATCH] pinctrl: bcm2835: don't -EINVAL on alternate
- funcs from get_direction()
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Mark Brown <broonie@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Stefan Wahren <wahrenst@gmx.net>, 
-	Liao Chen <liaochen4@huawei.com>, Chen-Yu Tsai <wens@csie.org>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, linux-gpio@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAAFQd5BihpFYgqvKta7ULMAVSMTy3kd6iR6Mo4ea9Ci935EFMA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_024727_055775_4583CB4C 
-X-CRM114-Status: GOOD (  26.86  )
+X-CRM114-CacheID: sfid-20250228_024852_427897_68C8B055 
+X-CRM114-Status: GOOD (  52.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,60 +75,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025 at 11:53=E2=80=AFPM Linus Walleij <linus.walleij@linar=
-o.org> wrote:
->
-> On Wed, Feb 19, 2025 at 3:30=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.p=
-l> wrote:
-> > On Wed, Feb 19, 2025 at 3:27=E2=80=AFPM Mark Brown <broonie@kernel.org>=
- wrote:
+Hi Tomasz
+
+On Fri, Feb 28, 2025 at 07:28:43PM +0900, Tomasz Figa wrote:
+> On Fri, Feb 28, 2025 at 7:18 PM Jacopo Mondi
+> <jacopo.mondi@ideasonboard.com> wrote:
+> >
+> > Hi Tomasz
+> >
+> > On Fri, Feb 28, 2025 at 07:00:57PM +0900, Tomasz Figa wrote:
+> > > Hi Jacopo,
 > > >
-> > > On Wed, Feb 19, 2025 at 11:27:50AM +0100, Bartosz Golaszewski wrote:
-> > > > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> > > On Fri, Feb 28, 2025 at 2:11 AM Jacopo Mondi
+> > > <jacopo.mondi@ideasonboard.com> wrote:
 > > > >
-> > > > Since commit 9d846b1aebbe ("gpiolib: check the return value of
-> > > > gpio_chip::get_direction()") we check the return value of the
-> > > > get_direction() callback as per its API contract. This driver retur=
-ns
-> > > > -EINVAL if the pin in question is set to one of the alternative
-> > > > (non-GPIO) functions. This isn't really an error that should be
-> > > > communicated to GPIOLIB so default to returning the "safe" value of
-> > > > INPUT in this case. The GPIO subsystem does not have the notion of
-> > > > "unknown" direction.
+> > > > Hi Mikhail
+> > > >
+> > > > On Tue, Jan 14, 2025 at 07:00:39PM +0300, Mikhail Rudenko wrote:
+> > > > >
+> > > > > Hi Laurent,
+> > > > >
+> > > > > On 2025-01-03 at 17:23 +02, Laurent Pinchart <laurent.pinchart@ideasonboard.com> wrote:
+> > > > >
+> > > > > > On Thu, Jan 02, 2025 at 06:35:00PM +0300, Mikhail Rudenko wrote:
+> > > > > >> Currently, the rkisp1 driver always uses coherent DMA allocations for
+> > > > > >> video capture buffers. However, on some platforms, using non-coherent
+> > > > > >> buffers can improve performance, especially when CPU processing of
+> > > > > >> MMAP'ed video buffers is required.
+> > > > > >>
+> > > > > >> For example, on the Rockchip RK3399 running at maximum CPU frequency,
+> > > > > >> the time to memcpy a frame from a 1280x720 XRGB32 MMAP'ed buffer to a
+> > > > > >> malloc'ed userspace buffer decreases from 7.7 ms to 1.1 ms when using
+> > > > > >> non-coherent DMA allocation. CPU usage also decreases accordingly.
+> > > > > >
+> > > > > > What's the time taken by the cache management operations ?
+> > > > >
+> > > > > Sorry for the late reply, your question turned out a little more
+> > > > > interesting than I expected initially. :)
+> > > > >
+> > > > > When capturing using Yavta with MMAP buffers under the conditions mentioned
+> > > > > in the commit message, ftrace gives 437.6 +- 1.1 us for
+> > > > > dma_sync_sgtable_for_cpu and 409 +- 14 us for
+> > > > > dma_sync_sgtable_for_device. Thus, it looks like using non-coherent
+> > > > > buffers in this case is more CPU-efficient even when considering cache
+> > > > > management overhead.
+> > > > >
+> > > > > When trying to do the same measurements with libcamera, I failed. In a
+> > > > > typical libcamera use case when MMAP buffers are allocated from a
+> > > > > device, exported as dmabufs and then used for capture on the same device
+> > > > > with DMABUF memory type, cache management in kernel is skipped [1]
+> > > > > [2]. Also, vb2_dc_dmabuf_ops_{begin,end}_cpu_access are no-ops [3], so
+> > > > > DMA_BUF_IOCTL_SYNC from userspace does not work either.
+> > > > >
+> > > > > So it looks like to make this change really useful, the above issue of
+> > > > > cache management for libcamera/DMABUF/videobuf2-dma-contig has to be
+> > > > > solved. I'm not an expert in this area, so any advice is kindly welcome. :)
+> > > >
+> > > > It would be shame if we let this discussion drop dead.. cache
+> > > > management policies are relevant for performances, specifically for
+> > > > cpu access, and your above 7.7ms vs 1.1 ms test clearly shows that.
+> > > >
+> > > > >
+> > > > > [1] https://git.linuxtv.org/media.git/tree/drivers/media/common/videobuf2/videobuf2-core.c?id=94794b5ce4d90ab134b0b101a02fddf6e74c437d#n411
+> > > >
+> > > > I would like to know from Hans if the decision to disallow cache-hints
+> > > > for dmabuf importers is a design choice or is deeply rooted in other
+> > > > reasons I might be missing.
 > > >
-> > > I see this was already tested for these specific boards.  I've also
-> > > found that Avenger96 is failing with bisect pointing to the same comm=
-it
-> > > this is fixing:
-> > >
-> > >     https://lava.sirena.org.uk/scheduler/job/1126314
-> > >
-> > > as is the Libretech Potato:
-> > >
-> > >     https://lava.sirena.org.uk/scheduler/job/1126285
-> > >
-> > > neither of which produce any output before dying, they'll not be fixe=
-d
-> > > by this change.  Seems like an audit of the drivers might be in order=
-?
+> > > When DMA-buf is used, the responsibility for cache management is
+> > > solely on the CPU users' side, so cache-hints don't really apply. It's
+> > > the exporter (=allocator) who determines the mapping policy of the
+> > > buffer and provides necessary DMA_BUF_SYNC operations (can be no-op if
+> > > the buffer is coherent).
 > >
-> > Right. I don't know if they return EINVAL or some other error so let
-> > me prepare a change that will not bail-out but simply warn on
-> > get_direction() errors in gpiochip_add_data() instead.
+> > This all makes sense.
 > >
-> > This patch can still go upstream IMO.
+> > I take it as, for libcamera, users of the FrameBufferAllocator helper
+> > (which first exports MMAP buffers from the video device and the
+> > imports them back as DMABUF) won't be able to control the cache
+> > policies.
+> >
+> > Now, in the long term, we want FrameBufferAllocator to go away and
+> > have either buffers exported by the consumer (likely DRM) or by a
+> > system wide buffer allocator (when we'll have one) and have the video
+> > devices operate as pure importers. But for the time being the
+> > "first export then import" use case is possibile and valid so I wonder
+> > if we should consider measures to allow controlling caching policies
+> > for this use case too.
 >
-> I'm fine to apply it, maybe as non-urgent fix at this point? (for -next)
+> Hmm, I may be missing something, but if FrameBufferAllocator does the
+> allocation internally in libcamera, why couldn't it use the
+> V4L2_MEMORY_FLAG_NON_COHERENT REQBUFS/CREATE_BUFS flag?
+
+-I- might be missing something, but reading the below links that
+Mikhail reported in a previous email
+[1] https://git.linuxtv.org/media.git/tree/drivers/media/common/videobuf2/videobuf2-core.c?id=94794b5ce4d90ab134b0b101a02fddf6e74c437d#n411
+[2] https://git.linuxtv.org/media.git/tree/drivers/media/common/videobuf2/videobuf2-core.c?id=94794b5ce4d90ab134b0b101a02fddf6e74c437d#n829
+
+it seems to me that yes, when first exporting you can hint to tell
+vb2 to allocate from non-coherent/non-contiguous memory, but then when
+switching the device to importer mode (and import the same buffers it
+previously exported) the cache sync point would then
+be skipped, leading to possible synchronization issues between the cpu
+consumer and the device.
+
 >
-
-Yes, the offending changes in gpiolib.c were dropped so this can go in
-the non-urgent way.
-
-> Do you want to send a non-RFC/RFT version or should I just apply it?
+> Note that however, once the buffer is allocated and mapped once, on
+> many architectures it must keep the same mapping attributes across the
+> different mappings, due to how the memory hierarchy works. (Not sure
+> if this is what you are asking for here, though.)
 >
-
-You can take it as is. It got tested and reviewed, so the tags served
-their purpose. :)
-
-Bart
+> >
+> > >
+> > > Best regards,
+> > > Tomasz
+> > >
+> > > >
+> > > > I'm asking because the idea is for libcamera to act solely as dma-buf
+> > > > importer, the current alloc-export-then-import trick is an helper for
+> > > > applications to work around the absence of a system allocator.
+> > > >
+> > > > If the requirement to disable cache-hints for importers cannot be
+> > > > lifted, for libcamera it means we would not be able to use it.
+> > > >
+> > > >
+> > > > > [2] https://git.linuxtv.org/media.git/tree/drivers/media/common/videobuf2/videobuf2-core.c?id=94794b5ce4d90ab134b0b101a02fddf6e74c437d#n829
+> > > > > [3] https://git.linuxtv.org/media.git/tree/drivers/media/common/videobuf2/videobuf2-dma-contig.c?id=94794b5ce4d90ab134b0b101a02fddf6e74c437d#n426
+> > > > >
+> > > > > --
+> > > > > Best regards,
+> > > > > Mikhail Rudenko
+> > > > >
+> > > >
 
