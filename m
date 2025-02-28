@@ -4,59 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFA41C19776
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 12:09:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D421C19776
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 12:10:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zNHptpbLXQ8swyWY9wfkxP0OcEEdiU/o4VafTsgVKzY=; b=JKNYm7jEsRNXxyV/x1Ho+fBOmK
-	eNB+27PQduBoTqns3mD8VK5lKA8dUfFHh5I1dKKsIOKLPnywQvg86nhqysSCXW+0yr1ERXGkicAr6
-	eBrQ25ait5GgvI6DBIosRVj3A7PypX3LIm0s06oOIY3bnsLRhdn7D0aM7J8jn0ndnWjbBbDKvvHc8
-	FuB4XL0nSP4sz4ANH/pEUNKrnnokXLWB4VpHCwvP4z1sZ8FFs5lKVSzvNnXam6Jo+APsENqbPeC91
-	XA0jd1idUQ5gNKqGREMb3FWC3oKywY4hRQf6q0mlN95D+wpibRcnvnMh2PhuR3USxtBJJ7iF7Pn3y
-	Q9ohANtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rbh5IPhsiu/FQ6dkIC689ZFNba03S3wozy5QcqeXKxU=; b=C4r5HRKytj1eHw2ILBQBKdS/9g
+	z8zxiNBUbBNmTeG0wYAFoSSlRP7ub6PBD/U5r7oEQ1o6QN47nw+nnnWMTNnkBSmmkYOeiyfMyOku6
+	SmvmwavhN8Ba+eVzwySYQU171eTqckf3o8/PIn+tA+9amxcjFT9PNcrXd0ZHom224LcwjWe5J1cbu
+	QPTseM+NoC4DmueRGXgnHlKzO9esq1R3ayprrv2ppbq8BMs+bMXzJspvlscguJdW/QXjS9Cqx0nEX
+	PMj3dInv4sH/1qfPBXO8C/+YoyCm1s1QQJcnKyW82HRWTB1bgFUBcY2zfr10xddjjWg64Ucc/OktK
+	ioS+uHZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnzB3-0000000AqgX-1iHe;
-	Fri, 28 Feb 2025 12:09:13 +0000
-Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
+	id 1tnzCb-0000000Aqpz-0b6b;
+	Fri, 28 Feb 2025 12:10:49 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnyY9-0000000Akn0-2sQq
+	id 1tnyYR-0000000AkqO-21lL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 11:29:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=kemnade.info; s=20220719; h=From:Sender:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References;
-	bh=zNHptpbLXQ8swyWY9wfkxP0OcEEdiU/o4VafTsgVKzY=; b=D/gvxBkyHgUgFjNP31TQpXtqHa
-	5fYBULwlTR36eWlzN7e7Ud8N67vuvze555S8fALOQCoPbKfl2T/jRXdsczwy1s1uMM+MYiqyBhHW4
-	ExbsaslAai+b9rctDi2y2x8m23I+LFUgALKvn4hnQhR4LPvk2i0462OB4U7R1jzrIwpRD/NoX5EvU
-	x3XjkLIw/g8vWy3OVTmlkhC3/ge7/c0BCkQGyRx97CKPdVycj5J/ExTDjCI7uk6fJftQruJQHDqIs
-	mCk0jXzwEGMmtJAubB3FwBnlgV/Ay1EiDGgr+VB11YOOYdObW2x3PBSxGu3/cvTm0TDoQvKcmmxsC
-	Sc61pbTg==;
-From: Andreas Kemnade <andreas@kemnade.info>
-To: aaro.koskinen@iki.fi,
-	andreas@kemnade.info,
-	khilman@baylibre.com,
-	rogerq@kernel.org,
-	tony@atomide.com,
-	linux@armlinux.org.uk,
-	linux-omap@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] ARM: omap2plus_defconfig: enable I2C devices of GTA04
-Date: Fri, 28 Feb 2025 12:27:50 +0100
-Message-Id: <20250228112750.367251-1-andreas@kemnade.info>
-X-Mailer: git-send-email 2.39.5
+	Fri, 28 Feb 2025 11:29:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 83CFE5C0782;
+	Fri, 28 Feb 2025 11:27:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55B84C4CED6;
+	Fri, 28 Feb 2025 11:29:11 +0000 (UTC)
+Date: Fri, 28 Feb 2025 11:29:08 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Shuai Xue <xueshuai@linux.alibaba.com>
+Cc: yazen.ghannam@amd.com, mark.rutland@arm.com, mingo@redhat.com,
+	robin.murphy@arm.com, Jonathan.Cameron@huawei.com, bp@alien8.de,
+	rafael@kernel.org, linux-arm-kernel@lists.infradead.org,
+	wangkefeng.wang@huawei.com, tanxiaofei@huawei.com,
+	mawupeng1@huawei.com, tony.luck@intel.com, linmiaohe@huawei.com,
+	naoya.horiguchi@nec.com, james.morse@arm.com,
+	tongtiangen@huawei.com, gregkh@linuxfoundation.org, will@kernel.org,
+	jarkko@kernel.org, linux-acpi@vger.kernel.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, akpm@linux-foundation.org,
+	linux-edac@vger.kernel.org, x86@kernel.org, justin.he@arm.com,
+	ardb@kernel.org, ying.huang@linux.alibaba.com, ashish.kalra@amd.com,
+	baolin.wang@linux.alibaba.com, tglx@linutronix.de,
+	dave.hansen@linux.intel.com, lenb@kernel.org, hpa@zytor.com,
+	robert.moore@intel.com, lvying6@huawei.com, xiexiuqi@huawei.com,
+	zhuo.song@linux.alibaba.com, lpieralisi@kernel.org,
+	guohanjun@huawei.com, sudeep.holla@arm.com
+Subject: Re: [PATCH v18 2/3] mm: memory-failure: move return value
+ documentation to function declaration
+Message-ID: <Z8GeBJ9tTayTm9s9@arm.com>
+References: <20250107081735.16159-1-xueshuai@linux.alibaba.com>
+ <20250107081735.16159-3-xueshuai@linux.alibaba.com>
+ <Z8BbFRupgknBTvH8@arm.com>
+ <0c93542f-4521-41bc-a030-5b2d8621aa6a@linux.alibaba.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0c93542f-4521-41bc-a030-5b2d8621aa6a@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_032901_724606_750ADDAC 
-X-CRM114-Status: UNSURE (   7.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250228_032919_562945_E285B2C2 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,53 +79,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable I2C devices of GTA04 to get better test coverage when using
-the defconfig. Until the I2C host driver is fixed, BMG160 module should be
-blacklisted when booting on the GTA04A5.
+On Fri, Feb 28, 2025 at 09:46:30AM +0800, Shuai Xue wrote:
+[...]
+> > On Tue, Jan 07, 2025 at 04:17:34PM +0800, Shuai Xue wrote:
+> > > Part of return value comments for memory_failure() were originally
+> > > documented at the call site. Move those comments to the function
+> > > declaration to improve code readability and to provide developers with
+[...]
+> By the way, could arm maintainers help to ack patch 1 and 3 if there
+> is no objection?
 
-Signed-off-by: Andreas Kemnade <andreas@kemnade.info>
----
- arch/arm/configs/omap2plus_defconfig | 8 ++++++++
- 1 file changed, 8 insertions(+)
+James Morse is listed as reviewer of the ACPI APEI code but he's busy
+with resctrl/MPAM. Adding Lorenzo, Sudeep and Hanjun as arm64 ACPI
+maintainers, hopefully they can help. Here's the full series:
 
-diff --git a/arch/arm/configs/omap2plus_defconfig b/arch/arm/configs/omap2plus_defconfig
-index 6de45d7f6078..84f334e94d5f 100644
---- a/arch/arm/configs/omap2plus_defconfig
-+++ b/arch/arm/configs/omap2plus_defconfig
-@@ -609,6 +609,7 @@ CONFIG_LEDS_LP5523=m
- CONFIG_LEDS_PCA963X=m
- CONFIG_LEDS_PWM=m
- CONFIG_LEDS_BD2606MVV=m
-+CONFIG_LEDS_TCA6507=m
- CONFIG_LEDS_TRIGGERS=y
- CONFIG_LEDS_TRIGGER_TIMER=m
- CONFIG_LEDS_TRIGGER_ONESHOT=m
-@@ -643,6 +644,8 @@ CONFIG_TI_EMIF_SRAM=m
- CONFIG_IIO=m
- CONFIG_IIO_SW_DEVICE=m
- CONFIG_IIO_SW_TRIGGER=m
-+CONFIG_BMA180=m
-+CONFIG_BMC150_ACCEL=m
- CONFIG_IIO_ST_ACCEL_3AXIS=m
- CONFIG_KXCJK1013=m
- CONFIG_CPCAP_ADC=m
-@@ -650,10 +653,15 @@ CONFIG_INA2XX_ADC=m
- CONFIG_TI_AM335X_ADC=m
- CONFIG_TWL4030_MADC=m
- CONFIG_TWL6030_GPADC=m
-+CONFIG_BMG160=m
- CONFIG_MPU3050_I2C=m
-+CONFIG_ITG3200=m
-+CONFIG_BOSCH_BNO055_I2C=m
- CONFIG_INV_MPU6050_I2C=m
- CONFIG_SENSORS_ISL29028=m
- CONFIG_AK8975=m
-+CONFIG_BMC150_MAGN_I2C=m
-+CONFIG_SENSORS_HMC5843_I2C=m
- CONFIG_BMP280=m
- CONFIG_PWM=y
- CONFIG_PWM_OMAP_DMTIMER=m
+https://lore.kernel.org/r/20250107081735.16159-1-xueshuai@linux.alibaba.com/
+
 -- 
-2.39.5
-
+Catalin
 
