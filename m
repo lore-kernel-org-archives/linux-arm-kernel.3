@@ -4,94 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 397B6C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 17:05:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26529C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 17:06:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PcSFkFCBWmg/rJ4HMocJw7ZFtwyppbHE6DSocNVVLjw=; b=hzg8WYqo6Hc53yZdf4ElK72u2b
-	9pC+lRtaVbsTQM5GdFdBil/QqADH3rVh0gNe3biPzupJuVNsF3qxayjchgCva8IHliarME0n56wQ+
-	LCzZewAT9wS9Rw4MuBXZuPXVciE1iHaxCUrIxmEzdB4g64sKyOYNuFoqAlYIF3O3fML2QpE3Wy7EI
-	KugorY0EHkBjZSckUltIhu18cjzgGqTMi+RbjNOz8AdY/467MLM1Bs4cUYKP1K1SVMu39M6Y6ieUr
-	P8ArBdZ9aUf2Dxo9FQDyURuQNmZUTLlxFUonKj7KcRmQ2k+zlI1hBbSidXgV/y4xBXiATNnxtCoiY
-	qXhnaEig==;
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZIjsc40BexYNa4/UmyaQ5ZhdFME16IoYcTPfDokrdjs=; b=EoLMWmbgfa91LJVg+EAaYk4n6n
+	nLgVZhp/8c4XtWZZRZCYHX3JhgFvEXcHjU416Cmi5i5nFyqmFBktZgDcOCj5sT5PPPtckIqS9T06q
+	+0ZhxWQtekZht1rUNY+C/KF+hdRhutzQoiFbyCZy3LnU2wf4kd8roKcN2q97t1Yl/LBO/5yK7L2QE
+	oToFCwE+vWHvK0bDAuG4IsRAbk2wGXQpeL8RcFYxKfuo3+jXW1zEpdCyY6bPz7m+TmX3TtulGDBjm
+	NPLwTwpSpE5HEJIXIByNpBjCxI/cODZyctzPTR9Gd8UibxcyrrqusZFzpytyTbPD5+n5qn8KBfdcF
+	z6FJ/kwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to3n7-0000000Bq4V-14N5;
-	Fri, 28 Feb 2025 17:04:49 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to3ho-0000000BoSc-0ENd
+	id 1to3od-0000000BqVX-41xh;
+	Fri, 28 Feb 2025 17:06:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1to3jD-0000000BorV-2OCj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 16:59:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 693CA5C6790
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 16:57:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E29B0C4CEE5
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 16:59:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740761958;
-	bh=qOHi6yDNAQDvAh2OBX2mIKesEC+zW55DOff8GRvWCg4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=dW64X0hYl/0lZJwl3cYgpUBJDuBs8Mqe3XBfrzw3l0r9x0AF4t9SLxlUMDLS3TrqN
-	 PngwoCZ0xn1QFbxRCaBAcLz7zkzkMxLWW3VuKYpiwhBKUBAwL0ZvUl5tnXn1CiRzmQ
-	 Zi1CKZUV7Lq57U5KaKEUI/JZ7zAl0iDhjzZb9/AuHStmqd6ifll4Pd0Ue3sPda3o7M
-	 8rG7fAlsU+Cmdy7VGWsFHL6yzZM8eQL0zrerWGYxY8vi0ry1Imd0/cXMawaQ0bxlD7
-	 oDAfDVDFwhZdR93XE/bk8W4wGQ5UFcuzbp0Tv4ZumbNkjB357sJhVnTQ5J/UcmcflJ
-	 JQ1MDoq/mKh6w==
-Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-5e4dc3d22b8so1874277a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 08:59:18 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCV+YpaLueXmFHmnshsEwQbPIW3lXkdDaVe/d/yrV5dm89E+smgR5UzHz/kHD/0gDlxANXvz6ZfjaV4NUU2LFSin@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz185Na4JH6yxBMPJzUzxOC2Ysr7vnMV6MpHveLhWA0FZhwgARo
-	4VEI8somdjgxuYvjEUGBDrlnssYCtTQp6X4jw4qO8tSJbyrQLB5ZRv4yD3fIH8+n6KzLECuvirA
-	/dA95OoU+SotojY9i0MVcaFn0qw==
-X-Google-Smtp-Source: AGHT+IHA0zPRZLteCxoYig/yVyHsZYfuDj8GOG99a9h83rXOpmBqH7x7Q6QAw1T0TGyfEJFB+8YgmxVupI+GLspZlUw=
-X-Received: by 2002:a17:907:7212:b0:ab2:f6e5:3f1 with SMTP id
- a640c23a62f3a-abf26430310mr376479566b.8.1740761957482; Fri, 28 Feb 2025
- 08:59:17 -0800 (PST)
+	Fri, 28 Feb 2025 17:00:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B8C1150C;
+	Fri, 28 Feb 2025 09:00:59 -0800 (PST)
+Received: from e126864.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5CE373F6A8;
+	Fri, 28 Feb 2025 09:00:42 -0800 (PST)
+From: =?UTF-8?q?Kristina=20Mart=C5=A1enko?= <kristina.martsenko@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Tong Tiangen <tongtiangen@huawei.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	James Morse <james.morse@arm.com>
+Subject: [PATCH v2 0/3] arm64: Use memory copy instructions in usercopy routines
+Date: Fri, 28 Feb 2025 17:00:03 +0000
+Message-Id: <20250228170006.390100-1-kristina.martsenko@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <29ec24f1498392cafbecc0e0c0e23e1ce3289565.1740421248.git.mazziesaccount@gmail.com>
- <Z72QAOA9xXbP16K-@kuha.fi.intel.com> <Z72Zp8tpnvlFGdQ_@smile.fi.intel.com>
- <ad39b453-7e5b-49bd-a4fd-6a4988636130@gmail.com> <Z72d7TzZ21WITW3f@smile.fi.intel.com>
- <893a3c45-537e-47ad-afbd-1e5d3b9abe2c@gmail.com> <Z73M3Ua6u1FpgBEK@smile.fi.intel.com>
- <720f9c69-ca1f-45cb-9f6e-c8e4703c9aad@gmail.com> <Z78g_uiXumn4mvET@smile.fi.intel.com>
- <d7982b76-3da7-47ff-b2b2-f964610af1f7@gmail.com> <Z8B7h4_IWz43gFhO@smile.fi.intel.com>
- <c9424f3e-1ff0-4c01-823a-19801cc3e7a7@gmail.com>
-In-Reply-To: <c9424f3e-1ff0-4c01-823a-19801cc3e7a7@gmail.com>
-From: Rob Herring <robh@kernel.org>
-Date: Fri, 28 Feb 2025 10:59:06 -0600
-X-Gmail-Original-Message-ID: <CAL_Jsq+tkXAAVK2D_AtENuXJZOF2eK=sUnjv3=7PM8nAyAB7Xw@mail.gmail.com>
-X-Gm-Features: AQ5f1JoN6diiX-hK5SeGqaOY2e_sxsMHOrauD5SGgB18pP2IXFo3RXN1kEkkKSk
-Message-ID: <CAL_Jsq+tkXAAVK2D_AtENuXJZOF2eK=sUnjv3=7PM8nAyAB7Xw@mail.gmail.com>
-Subject: Re: [PATCH v4 02/10] property: Add device_get_child_node_count_named()
-To: Matti Vaittinen <mazziesaccount@gmail.com>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>, Jonathan Cameron <jic23@kernel.org>, 
-	Lars-Peter Clausen <lars@metafoo.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Daniel Scally <djrscally@gmail.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Hugo Villeneuve <hvilleneuve@dimonoff.com>, 
-	Nuno Sa <nuno.sa@analog.com>, David Lechner <dlechner@baylibre.com>, 
-	Javier Carrasco <javier.carrasco.cruz@gmail.com>, Guillaume Stols <gstols@baylibre.com>, 
-	Olivier Moysan <olivier.moysan@foss.st.com>, Dumitru Ceclan <mitrutzceclan@gmail.com>, 
-	Trevor Gamblin <tgamblin@baylibre.com>, Matteo Martelli <matteomartelli3@gmail.com>, 
-	Alisa-Dariana Roman <alisadariana@gmail.com>, 
-	Ramona Alexandra Nechita <ramona.nechita@analog.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-iio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-acpi@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_085920_179234_61FFC1B9 
-X-CRM114-Status: GOOD (  39.13  )
+X-CRM114-CacheID: sfid-20250228_090047_653166_F5C185A5 
+X-CRM114-Status: UNSURE (   8.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,124 +66,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025 at 9:06=E2=80=AFAM Matti Vaittinen
-<mazziesaccount@gmail.com> wrote:
->
-> On 27/02/2025 16:49, Andy Shevchenko wrote:
-> > On Thu, Feb 27, 2025 at 10:01:49AM +0200, Matti Vaittinen wrote:
-> >> On 26/02/2025 16:11, Andy Shevchenko wrote:
-> >>> On Wed, Feb 26, 2025 at 04:04:02PM +0200, Matti Vaittinen wrote:
-> >>>> On 25/02/2025 15:59, Andy Shevchenko wrote:
-> >>>>> On Tue, Feb 25, 2025 at 03:29:17PM +0200, Matti Vaittinen wrote:
-> >>>>>> On 25/02/2025 12:39, Andy Shevchenko wrote:
-> >>>>>>> On Tue, Feb 25, 2025 at 12:29:31PM +0200, Matti Vaittinen wrote:
-> >>>>>>>> On 25/02/2025 12:21, Andy Shevchenko wrote:
-> >>>>>>>>> On Tue, Feb 25, 2025 at 11:40:16AM +0200, Heikki Krogerus wrote=
-:
-> >
-> > ...
-> >
-> >>>>>>>>>>
-> >>>>>>>>>> I did not check how many users are you proposing for this, but=
- if
-> >>>>>>>>>> there's only one, then IMO this should not be a global functio=
-n yet.
-> >>>>>>>>>> It just feels to special case to me. But let's see what the ot=
-hers
-> >>>>>>>>>> think.
-> >>>>>>>>>
-> >>>>>>>>> The problem is that if somebody hides it, we might potentially =
-see
-> >>>>>>>>> a duplication in the future. So I _slightly_ prefer to publish =
-and
-> >>>>>>>>> then drop that after a few cycles if no users appear.
-> >>>>>>>>
-> >>>>>>>> After taking a very quick grep I spotted one other existing plac=
-e where we
-> >>>>>>>> might be able to do direct conversion to use this function.
-> >>>>>>>>
-> >>>>>>>> drivers/net/ethernet/freescale/gianfar.c
-> >>>>>>>>
-> >>>>>>>> That'd be 2 users.
-> >>>>>>>
-> >>>>>>> I haven't checked myself, I believe your judgement,
-> >>>>>>
-> >>>>>> I took a better look and you obviously shouldn't believe :) The gi=
-anfar used
-> >>>>>> of_node instead of the fwnode. So, it'd be a single caller at star=
-ters.
-> >>>>>
-> >>>>> ...which is the same as dev_of_node(), which means that you can use=
- your
-> >>>>> function there.
-> >>>>
-> >>>> I'm unsure what you mean. The proposed function
-> >>>> device_get_child_node_count_named() takes device pointer. I don't se=
-e how
-> >>>> dev_of_node() helps converting node to device?
-> >>>
-> >>> dev_of_node() takes the device pointer and dev_fwnode() takes that as=
- well,
-> >>> it means that there is no difference which one to use OF-centric or f=
-wnode
-> >>
-> >> The proposed device_get_child_node_count_named() takes a device pointe=
-r. I
-> >> don't see how dev_of_node() helps if there is just of_node and no devi=
-ce
-> >> pointer available in the calling code.
-> >
-> > ???
-> >
-> > The loops are working on
-> >
-> >       struct device_node *np =3D pdev->dev.np;
-> >
-> > which is the equivalent to
-> >
-> >       struct device_node *np =3D dev_of_node(&pdev->dev);
-> >
-> > which takes device pointer.
-> >
-> >> (Well, as I wrote below, I could
-> >> alter the gianfar code by dropping the gfar_of_group_count(), so that =
-I have
-> >> the device pointer in caller). Anyways, I don't see how dev_of_node() =
-should
-> >> help unless you're proposing I add a of_get_child_node_count_named() o=
-r
-> >> somesuch - which I don't think makes sense.
-> >
-> > Are you forbidding yourself to change the function prototype to take a =
-device
-> > pointer instead of device_node one? :-)
-> >
->
-> This is our point of misunderstanding. As I wrote, and as you can see
-> from the prototype, the function _is_ taking the device pointer. Hence I
-> didn't understand how dev_of_node() should help us.
->
-> >>> API in this particular case. Just make sure that the function (and th=
-ere
-> >>> is also a second loop AFAICS) takes struct device *dev instead of str=
-uct
-> >>> device_node *np as a parameter.
-> >>
-> >> I think I lost the track here :)
-> >
-> > Make gfar_of_group_count() to take device pointer. As simple as that.
->
-> that'd just make the gfar_of_group_count() a wrapper of the
-> of_get_child_node_count_named(). I prefer killing whole
-> gfar_of_group_count().
+Hi,
 
-Sigh. This is not that hard.
+This is a follow-up to the series using CPY/SET instructions in the kernel's
+memory copy routines [1]. This series extends that to the usercopy routines.
+This required some additions to exception fixups since a CPY instruction
+accesses both user and kernel memory.
 
-- unsigned int num_grps =3D gfar_of_group_count(np);
-+ unsigned int num_grps =3D
-device_get_child_node_count_named(&ofdev->dev, "queue-groups");
+Changes in v2:
+ - Improved readability of cpy_faulted_on_uaccess()
+ - v1: https://lore.kernel.org/all/20250218171430.28227-1-kristina.martsenko@arm.com/
 
-And remove gfar_of_group_count() of course.
+Note that this conflicts with Tong's series [2].
 
-Rob
+Thanks,
+Kristina
+
+[1] https://lore.kernel.org/all/20240930161051.3777828-1-kristina.martsenko@arm.com/
+[2] https://lore.kernel.org/all/20241209024257.3618492-1-tongtiangen@huawei.com/
+
+
+Kristina Martšenko (3):
+  arm64: extable: Add fixup handling for uaccess CPY* instructions
+  arm64: mm: Handle PAN faults on uaccess CPY* instructions
+  arm64: lib: Use MOPS for usercopy routines
+
+ arch/arm64/include/asm/asm-extable.h | 10 +++++++-
+ arch/arm64/include/asm/asm-uaccess.h |  4 ++++
+ arch/arm64/include/asm/extable.h     |  5 +++-
+ arch/arm64/lib/clear_user.S          | 25 +++++++++++++++----
+ arch/arm64/lib/copy_from_user.S      | 10 ++++++++
+ arch/arm64/lib/copy_template.S       | 10 ++++++++
+ arch/arm64/lib/copy_to_user.S        | 10 ++++++++
+ arch/arm64/mm/extable.c              | 36 +++++++++++++++++++++++++++-
+ arch/arm64/mm/fault.c                |  6 +++--
+ 9 files changed, 107 insertions(+), 9 deletions(-)
+
+
+base-commit: d082ecbc71e9e0bf49883ee4afd435a77a5101b6
+-- 
+2.34.1
+
 
