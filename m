@@ -4,109 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA951C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 19:00:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62475C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 19:01:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pCI4ZmoGqeCLXhlW/vbf3GOCZ0rf6sC2gefIGfgDYh4=; b=xN535IbbWT7Weh/sOAhn32KQXN
-	UBS2Ual5QFq1giLPzUb1WoXn7DS1louPOlWyHxA3X45lW196/XXdFjNYKD8XoMeR/fv8RYP+N7s0O
-	ivQr3lAcF7f6mACUQFYpXhnt/YcgfWCw84yjImc7Qs6tlh8wDifEUVswI/6Cx5pMs3rmyloNw8cMn
-	9fJPtz9O7tu1LkmDbVni5UsXVD4j3KQwFlLfZsibUSh/fGqPE5Nkn1RTtQEVsHGVbZ2n2Wj3Mivng
-	HbTPTL1nfXWotOnujM5n82BasSFfPfcmzdsYRz1+pnFUZZoc69RB4lJa3PzZ+c4/YUZSKl5cH3E5o
-	xktzUUsQ==;
+	bh=ppwxYptxUoJTBAvtQNONLY3e8TNhsTgMXgKzmUOztsk=; b=xLufHfBBFAD8WRJ6/3O5rpGXRb
+	e9BjCjWDnMUJMcZvYFmu/4u2gCFAdWW/DyNozL/tMaYATDUBwMxlsYHbnv/PCNymyr+jDw6cCGlfi
+	zow5zEaOjXhT7hq24tknvhVYKgciZhFwgBAk2UXeOKBDJ3OUwDxpHeeyPHZs5vnR7RYtd1tguaacf
+	o83oGrCNu7KmYOZ5vQKKkt06pRZXMSPhU7AOpFGLP/0Shl/dtYdpBeP6F3hlw0pEJ1cSf/k6HQiaI
+	l5w1DnfcaBJbBloLezJDAN0oiRtaAva0bxoqcz1RrPD7UqjJQkqhWvGX3TEShQciAIgbPjALNK3h+
+	nwcAlepQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to5aY-0000000CHO6-1BQZ;
-	Fri, 28 Feb 2025 18:59:58 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1to5c3-0000000CHpt-3lbK;
+	Fri, 28 Feb 2025 19:01:31 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to5SU-0000000CF8W-46Qe
+	id 1to5VZ-0000000CFkL-2RPi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 18:51:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740768699; x=1772304699;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=pkwgeMwCKf80SIaXk8KhThxONMPc4p/Xo+BvX6bjIBg=;
-  b=MVRfau7coZVJR5o8DyvDzVGPHXN/N+xfDl3t2BBaV8KzOF9F9yjqMffB
-   JYfFasHXdS3W6ttYubPug5S/RJ+DcvoMwUtI4BuK8j/nXmTMgFUa9HwLr
-   5RrZnGacsZhsuyxb6+ajbehED78dxEQ3eEFLzQcYhfVXezN4KKjvWcuge
-   ctnTbjBcsaiJt8qWxqIUwP6FL905GsmvrgGK4RqoEEgyqJ0cuiRzJXnue
-   YaYDvK/o/jqTlAslV+wI3pH1qnyITskGnuSl2dV0rs8gEfKWBEi9ioABn
-   89i0phpgMQt8hP6iu4KOKtnoXywCjP149W6hjKH9dcgCqCQY28G5eIBid
-   w==;
-X-CSE-ConnectionGUID: syKZ8LjkRCONHY1Yd8BgfA==
-X-CSE-MsgGUID: 6kRfVrATRIGVNkVh1OSynw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11359"; a="67083624"
-X-IronPort-AV: E=Sophos;i="6.13,323,1732608000"; 
-   d="scan'208";a="67083624"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Feb 2025 10:51:38 -0800
-X-CSE-ConnectionGUID: aSyNmCmeRwqkQi0uhisfRA==
-X-CSE-MsgGUID: IBifUjH4SWmgzTlo7TfT5Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,323,1732608000"; 
-   d="scan'208";a="117206022"
-Received: from smile.fi.intel.com ([10.237.72.58])
-  by fmviesa006.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Feb 2025 10:51:31 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.98)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1to5SJ-0000000G3mv-0yeh;
-	Fri, 28 Feb 2025 20:51:27 +0200
-Date: Fri, 28 Feb 2025 20:51:27 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Rob Herring <robh@kernel.org>
-Cc: Matti Vaittinen <mazziesaccount@gmail.com>,
-	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Nuno Sa <nuno.sa@analog.com>, David Lechner <dlechner@baylibre.com>,
-	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
-	Guillaume Stols <gstols@baylibre.com>,
-	Olivier Moysan <olivier.moysan@foss.st.com>,
-	Dumitru Ceclan <mitrutzceclan@gmail.com>,
-	Trevor Gamblin <tgamblin@baylibre.com>,
-	Matteo Martelli <matteomartelli3@gmail.com>,
-	Alisa-Dariana Roman <alisadariana@gmail.com>,
-	Ramona Alexandra Nechita <ramona.nechita@analog.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v4 02/10] property: Add
- device_get_child_node_count_named()
-Message-ID: <Z8IFr6LxK8m0kaDF@smile.fi.intel.com>
-References: <cover.1740421248.git.mazziesaccount@gmail.com>
- <29ec24f1498392cafbecc0e0c0e23e1ce3289565.1740421248.git.mazziesaccount@gmail.com>
- <CAL_Jsq+av-fptMQqBeVieKwA9c7+uUCaqZMLGu-RVJzWZ_7+Vg@mail.gmail.com>
+	Fri, 28 Feb 2025 18:54:50 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-abec925a135so322947566b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 10:54:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1740768885; x=1741373685; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ppwxYptxUoJTBAvtQNONLY3e8TNhsTgMXgKzmUOztsk=;
+        b=rPrx0vZN9khXisWbRRd1cJcUqzIi9y095E6WU/+PIsb+NQhfPR9lmMb62ERiCWOc7V
+         W08QPpD+5tufv4ikjBw6Tuoeuh+Glyf8FaSoUduJirROK53yIvAq9PfPWGP587xZg9nD
+         lwWidtau2MynuivMcX1hz0I+2gS5s95J3rG1YxWN9oLl1rY/okqEN58DCkdcnmYUqe1P
+         ElU6rr2jcMxiH0TZI69YhSGyQXuXnX8ltcfM0A9kWZeJ62TrDhP4LsRkDkbzSn919K8l
+         L/k2YDVpCpNIBvFHOp6K/h2H4Y0Ojg4e/xW90ZTXZa1e9JpGD20WZsiyWICe99hyOq0M
+         bSeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740768885; x=1741373685;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ppwxYptxUoJTBAvtQNONLY3e8TNhsTgMXgKzmUOztsk=;
+        b=jRTFB9DfmsSNv3BLPaQ6eOh6VDyegOhBRdfBJOquNo/RNKLWE3Xp3X3Luf3DN/leXX
+         75TBnN67zJGV6QmkJKcGqpfZ1mJYo1YDEtUxoVUE5SskwCzFfOsYkscGFe8WG7SD6NHf
+         LQR2sr8aKpajx5iS1MfysBwiwbTv6QsaaRt3jt1qZwmRmnT81LcEl6zbDLYOjzv4Mh5c
+         HCx5UcKvAfbSY1QSH5YLAILyLhmV4REh52CMhbcQGKrarFssX5ahb5tV5yuvQxhGcaKB
+         KSnmeygjwp8WmYj1XpXT7FhVpfaQoejj9s/lIrvJNXvUFjkGP8s1fM6ARSEthrhpLoeb
+         1sWw==
+X-Forwarded-Encrypted: i=1; AJvYcCX9QG9rkdOy/zg48toa//a4Seturby/yCz8KxkclD5UX+m1ftT3WsaP6+iA10fTK7p89mNZykIjQsPxsY+lcrb3@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8gy2w8fDOvDajAof81B0R1H775RpR7avx+5uBiQDv/q3tWrCc
+	vpJmJolWauLLUot/ZdW5xCeEhQip59Nlv3VWhQsSrPm2tYtJO2z+6u8F6OqKQA==
+X-Gm-Gg: ASbGncsBTVLCIOIKRFnxuDxJxI8xD0AkryYn+s3HGoPJdvyDSo2n0i897ah0abI80Yg
+	tzpKRXIFAIoeYOAVWgteNefEDVjI0J1rG/fbIoir17bIy52Ld1ObD0FpDCHB2tp4rZgqjs5JKiD
+	F7DuP+WlLuxM44ZCG6OUrQ6khaM4t0ev+lh7988p1hEl+VCRSkvzxqqJaGm+wLGZ9WVnH4DZ66I
+	FbAnf2ynIm0YVndzdxZbwNrhzplmCGgTlOS4zQmIqI7XfvA0+88qXJ2mvWcUHkfm3V1eqXvTa9L
+	ZYBEdp22z5AbP89X5CQ4d4mktR2vOBTlc2z7XpSqADyawmL+U0BBebOPSbszD/g=
+X-Google-Smtp-Source: AGHT+IGRZqJXTWPcNybDnAZQX/clH2G/w7qq2Cr5221PpPPsrD4hU6+CM6oIxOZll7K724ZB2dG1Dg==
+X-Received: by 2002:a17:907:7f94:b0:ab7:be66:792f with SMTP id a640c23a62f3a-abf26837d32mr566881466b.49.1740768884775;
+        Fri, 28 Feb 2025 10:54:44 -0800 (PST)
+Received: from google.com (229.112.91.34.bc.googleusercontent.com. [34.91.112.229])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abf0c0ba408sm331183566b.37.2025.02.28.10.54.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 Feb 2025 10:54:43 -0800 (PST)
+Date: Fri, 28 Feb 2025 18:54:40 +0000
+From: Quentin Perret <qperret@google.com>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kernel-team@android.com
+Subject: Re: [PATCH 1/9] KVM: arm64: Handle huge mappings for np-guest CMOs
+Message-ID: <Z8IGcA6h6hZx7ujh@google.com>
+References: <20250228102530.1229089-1-vdonnefort@google.com>
+ <20250228102530.1229089-2-vdonnefort@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAL_Jsq+av-fptMQqBeVieKwA9c7+uUCaqZMLGu-RVJzWZ_7+Vg@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+In-Reply-To: <20250228102530.1229089-2-vdonnefort@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_105139_028088_36CEFAF9 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20250228_105449_636201_6406CB85 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,25 +100,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 28, 2025 at 11:07:24AM -0600, Rob Herring wrote:
-> On Mon, Feb 24, 2025 at 12:33 PM Matti Vaittinen
-> <mazziesaccount@gmail.com> wrote:
+On Friday 28 Feb 2025 at 10:25:17 (+0000), Vincent Donnefort wrote:
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> index 19c3c631708c..a796e257c41f 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> @@ -219,14 +219,24 @@ static void guest_s2_put_page(void *addr)
+>  
+>  static void clean_dcache_guest_page(void *va, size_t size)
+>  {
+> -	__clean_dcache_guest_page(hyp_fixmap_map(__hyp_pa(va)), size);
+> -	hyp_fixmap_unmap();
+> +	while (size) {
 
-...
+Nit: not a problem at the moment, but this makes me mildly worried if
+size ever became non-page-aligned, could we make the code robust to
+that?
 
-> > +unsigned int device_get_child_node_count_named(const struct device *dev,
-> > +                                              const char *name)
+> +		__clean_dcache_guest_page(hyp_fixmap_map(__hyp_pa(va)),
+> +					  PAGE_SIZE);
+> +		hyp_fixmap_unmap();
+> +		va += PAGE_SIZE;
+> +		size -= PAGE_SIZE;
+> +	}
+>  }
+>  
+>  static void invalidate_icache_guest_page(void *va, size_t size)
+>  {
+> -	__invalidate_icache_guest_page(hyp_fixmap_map(__hyp_pa(va)), size);
+> -	hyp_fixmap_unmap();
+> +	while (size) {
+> +		__invalidate_icache_guest_page(hyp_fixmap_map(__hyp_pa(va)),
+> +					       PAGE_SIZE);
+> +		hyp_fixmap_unmap();
+> +		va += PAGE_SIZE;
+> +		size -= PAGE_SIZE;
+> +	}
+>  }
+>  
+>  int kvm_guest_prepare_stage2(struct pkvm_hyp_vm *vm, void *pgd)
+> -- 
+> 2.48.1.711.g2feabab25a-goog
 > 
-> I think this should be implemented as
-> fwnode_get_child_node_count_named() with the device variant being just
-> a wrapper.
-
-Good catch! That's also added to our misunderstanding with Matti who didn't get
-the role of dev_of_node() vs. dev_fwnode() in the first place.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
 
