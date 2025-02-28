@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13949C19776
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 08:17:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2A52C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 08:19:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ECLerjzv+H/miryyyI3JVrdXALKCrkwjtOhpAWLsV8c=; b=Xw6u52m98+NLsihbkpa680e6FX
-	W+zk6Whks0vsuPUFRNBYmXqqAd9TO8NSvXZGBst65I6PksO6UW8KYuuIHXBDrzyaJlN0gNHVIXGOI
-	k8oxt7KyooBjEVh9ggvEKvMoRMN12axglwgimgrOOPl/n8PxpEceXws9QcG2p8kGaLpkd3iUPDmGU
-	tpzdpJsMaIg6AdmgTZt+Me9xgnlUivkuGUIrQbteAc0wtc2MAiN533wDBs/vYdgwkga8+N3QfJxZK
-	T0uUcYYCfOtUvxj0FQjz3lQuPbx+D1SoNsgTCy7qTVrAeMRCPiNvUNjGsP5SbeW9/fw36HExjO3mI
-	xTkcy7Kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pOa3s22YAm/GS76NctbdlTN04itDWk+8Ouif3lZJgQ8=; b=cbK/TG206d+it3jsVjPUoW9dWC
+	2NvEQqJIueBThPT+VLDQH325PnEegDlqJhZ/fZ2XM+yGY1e32VNoCeqLPIdrRZ0p0eDarpx2cP/2e
+	3mKx2JKC679KsocZHg5RKw+WnD7P8gvK+pvD1gB1TFXD1efvs7Sm9xk1unNzj9UZGf7bTkicX4IdA
+	Qf584T4fxNFp6upLZJkQltWnywTXZEYyGgssxcGY99YgQHOhn1rsAdtaP+BcjYzrWFSg3Z5+rza7R
+	Gi669UiEIiAVGa1M/uec7KWsB07qaCEbC66+Bdh+kAIjEEVPCJsCb3p2LPpt0KsBh/fgbD4TfUYrN
+	bDjEYnSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnvYa-0000000A8hs-3Tos;
-	Fri, 28 Feb 2025 08:17:16 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tnvaY-0000000A9VC-3ZB4;
+	Fri, 28 Feb 2025 08:19:18 +0000
+Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnvT6-0000000A7Ne-1ahI
+	id 1tnvVW-0000000A7lQ-0VL5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 08:11:37 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tnvSx-0001Ku-9e; Fri, 28 Feb 2025 09:11:27 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1tnvSw-003GJi-2L;
-	Fri, 28 Feb 2025 09:11:26 +0100
-Received: from pengutronix.de (p5b164285.dip0.t-ipconnect.de [91.22.66.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 5BA913CDEE4;
-	Fri, 28 Feb 2025 08:11:26 +0000 (UTC)
-Date: Fri, 28 Feb 2025 09:11:24 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Mihalcea Laurentiu <laurentiumihalcea111@gmail.com>, 
-	Daniel Baluta <daniel.baluta@nxp.com>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, Fabio Estevam <festevam@gmail.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Shengjiu Wang <shengjiu.wang@nxp.com>, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 4/5] arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
-Message-ID: <20250228-astonishing-didactic-guillemot-9c78ff-mkl@pengutronix.de>
-References: <20250221191909.31874-1-laurentiumihalcea111@gmail.com>
- <20250221191909.31874-5-laurentiumihalcea111@gmail.com>
- <Z7jahtO3bxjkMfnc@lizhi-Precision-Tower-5810>
- <cd6a84cd-ff17-45df-becc-9bfc74522f73@gmail.com>
- <20250227-monumental-whale-of-security-b1c84e-mkl@pengutronix.de>
- <Z8CWsI/DKZtDBkzE@lizhi-Precision-Tower-5810>
+	Fri, 28 Feb 2025 08:14:08 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B4C8B4452E;
+	Fri, 28 Feb 2025 08:14:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1740730443;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pOa3s22YAm/GS76NctbdlTN04itDWk+8Ouif3lZJgQ8=;
+	b=GLOqmQrXUKtxZL+GRVzAyv1Mj0DEAQcSkiraYQ0fH0XoogpE7H53q4W40Y4kK58LVLSt4a
+	4iAGeQGRMndlOVFbbW3oIpfeyqb9c8WbK/eaxfroxXX5nAQRpw2j9VFFNRL3umEFkqMjyb
+	TIPrcZdTLBqr1YXB4VGu0zlOr6cct5NDux3Bbntk+SzTW2IjaIki2KwPT//8jpsy4iu3Ig
+	7VRJddudCQb9+2gT1iuBFBqCCHdA88CW7ShHX4fXpBcbCqnWbxDP9kfrP62UHP3b4KCJxo
+	xQ4RnWQ99rs1q/P4AyRtF8MS+9/v8yc+ypK14Wv2QJgHV8k9Tg/2QxiZ+fyd2Q==
+Date: Fri, 28 Feb 2025 09:14:00 +0100
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: <Parthiban.Veerasooran@microchip.com>
+Cc: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <thomas.petazzoni@bootlin.com>, <linux-arm-kernel@lists.infradead.org>,
+ <christophe.leroy@csgroup.eu>, <herve.codina@bootlin.com>,
+ <f.fainelli@gmail.com>, <vladimir.oltean@nxp.com>,
+ <kory.maincent@bootlin.com>, <o.rempel@pengutronix.de>, <horms@kernel.org>,
+ <romain.gantois@bootlin.com>, <piergiorgio.beruto@gmail.com>,
+ <davem@davemloft.net>, <andrew@lunn.ch>, <kuba@kernel.org>,
+ <edumazet@google.com>, <pabeni@redhat.com>, <hkallweit1@gmail.com>
+Subject: Re: [PATCH net 0/2] net: ethtool: netlink: Fix notifications for
+Message-ID: <20250228091400.7ed7237c@fedora.home>
+In-Reply-To: <c6df7040-40d2-46e0-b8f3-a28227d2d98c@microchip.com>
+References: <20250227182454.1998236-1-maxime.chevallier@bootlin.com>
+	<c6df7040-40d2-46e0-b8f3-a28227d2d98c@microchip.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="t6hsk4jscu4czxbb"
-Content-Disposition: inline
-In-Reply-To: <Z8CWsI/DKZtDBkzE@lizhi-Precision-Tower-5810>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: 0
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdekleekjecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgdphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddtpdhrtghpthhtoheprfgrrhhthhhisggrnhdrgggvvghrrghsohhorhgrnhesmhhitghrohgthhhiphdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrn
+ hgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegthhhrihhsthhophhhvgdrlhgvrhhohiestghsghhrohhuphdrvghupdhrtghpthhtohephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepfhdrfhgrihhnvghllhhisehgmhgrihhlrdgtohhm
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_001136_418139_87EAE15F 
-X-CRM114-Status: GOOD (  36.64  )
+X-CRM114-CacheID: sfid-20250228_001406_316291_C9A8115A 
+X-CRM114-Status: UNSURE (   7.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,114 +85,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 28 Feb 2025 06:19:18 +0000
+<Parthiban.Veerasooran@microchip.com> wrote:
 
---t6hsk4jscu4czxbb
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 4/5] arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
-MIME-Version: 1.0
+> Hi Maxime,
+> 
+> I did a quick test with your patches and it seems working fine without 
+> kernel crash.
+> 
+> Best regards,
+> Parthiban V
 
-On 27.02.2025 11:45:36, Frank Li wrote:
-> On Thu, Feb 27, 2025 at 11:57:54AM +0100, Marc Kleine-Budde wrote:
-> > On 25.02.2025 16:14:34, Mihalcea Laurentiu wrote:
-> > >
-> > > On 21.02.2025 21:56, Frank Li wrote:
-> > > > On Fri, Feb 21, 2025 at 02:19:08PM -0500, Laurentiu Mihalcea wrote:
-> > > >> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> > > >>
-> > > >> AIPS5 is actually AIPSTZ5 as it offers some security-related
-> > > >> configurations. Since these configurations need to be applied befo=
-re
-> > > >> accessing any of the peripherals on the bus, it's better to make A=
-IPSTZ5
-> > > >> be their parent instead of keeping AIPS5 and adding a child node f=
-or
-> > > >> AIPSTZ5. Also, because of the security configurations, the address=
- space
-> > > >> of the bus has to be changed to that of the configuration register=
-s.
-> > > > The orginal 0x30c0_0000..0x31200000 include 0x30df0000, why not map=
- only
-> > > > config address part in your drivers.
-> > > >
-> > > > Frank
-> > >
-> > >
-> > > Any concerns/anything wrong with current approach?
-> > >
-> > >
-> > > I find it a bit awkward to have the whole bus address space
-> > > in the DT given that we're only interested in using the access
-> > > controller register space.
-> > >
-> > >
-> > > I'm fine with the approach you suggested but I don't see a
-> > > reason for using it?
-> >
-> > Looking at the "AIPS5 Memory Map" (page 34/35 in i.MX 8M Plus
-> > Applications Processor Reference Manual, Rev. 3, 08/2024), the
-> > AIPS5_Configuration is part of the AIPS5 bus. IMHO the bus is something
-> > different than the bus configuration. Why not model it as part of the
-> > bus?
-> >
-> > > >> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm6=
-4/boot/dts/freescale/imx8mp.dtsi
-> > > >> index e0d3b8cba221..a1d9b834d2da 100644
-> > > >> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> > > >> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> > > >> @@ -1399,11 +1399,13 @@ eqos: ethernet@30bf0000 {
-> > > >>  			};
-> > > >>  		};
-> > > >>
-> > > >> -		aips5: bus@30c00000 {
-> > > >> -			compatible =3D "fsl,aips-bus", "simple-bus";
-> > > >> -			reg =3D <0x30c00000 0x400000>;
-> > > >> +		aips5: bus@30df0000 {
-> >                        ^^^^^^^^^^^^
-> > > >> +			compatible =3D "fsl,imx8mp-aipstz", "simple-bus";
-> > > >> +			reg =3D <0x30df0000 0x10000>;
-> > > >> +			power-domains =3D <&pgc_audio>;
-> > > >>  			#address-cells =3D <1>;
-> > > >>  			#size-cells =3D <1>;
-> > > >> +			#access-controller-cells =3D <0>;
-> > > >>  			ranges;
-> > > >>
-> > > >>  			spba-bus@30c00000 {
-> >                         ^^^^^^^^^^^^^^^^^
-> >
-> > This looks very strange: The aips5 bus starts at 0x30df0000 and has a
-> > child bus starting at 0x30c00000?
->=20
-> @30df0000 should match controller reg's address.
->=20
-> subnode address 0x30c00000,  should be descript in "ranges", which 1:1 ma=
-p.
+Thanks for testing, good to hear that this solves the issue :)
 
-Ok. What about aips1...4? Should the be changed as well in this patch?
-
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---t6hsk4jscu4czxbb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmfBb6oACgkQDHRl3/mQ
-kZys/Af+JyX79oEo+P42qia0ifhUHhQ8uxl4ubBgAq31jz/UbCwphkgDjXDi58Yr
-GEnxGy2rsLcwwyivdNwDMLAmlUx6Kc2ufwOC5cVbtUV4hvkb8FvaMCKg0SnHWSVE
-AYbPnnjeYF9AWiDzK6hS48Ml8LUuFGordlFBMtXpreyGQsxJ9brOqEJw4U/q0qbO
-O6RDfZPqmFXyiTaw74+Nt1plN8pW2cOod4vT/5kBqPQgDJYvoePucEaZDPQZp+o5
-b1dSH6J75wo0PKIiCbbKJ6oaflX7YUJNg61FxHxLGmm+rEoCwOc6ieHgM+6uAMtu
-SArJMXcrD5c2+tHQu2ndLQl+tQ+Scg==
-=/SWf
------END PGP SIGNATURE-----
-
---t6hsk4jscu4czxbb--
+Maxime
 
