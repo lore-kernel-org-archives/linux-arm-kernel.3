@@ -4,94 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57501C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 03:30:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2BB9C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 03:32:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EY43HLtzrUzkXYHTHJfVcm+528T6DiMSEe7dNOvpyIw=; b=1jS0oR1PU7pO/lSGackX7IMG20
-	0wrJ6nq4Ii1Nidn874aFnuiAYdNdR2hyfpGeuXuWnx/QE98os3ej+DBjZYioyCqOMsLrbf1dsds/j
-	kPzMzKh/TgVgmWqc4F0cEo7oV+2l6Ocpn0KCGuLQyUqoNfczSmiZokNdfox4l0QI24dmOdlw/DrVv
-	YFfDeNB24VvvlOsBdLkNJTYNkY39uv8fnL90EWTEBzCFltZqsPm+fc7PVrm5Cm4bcqabo0CEIOAHy
-	ygdmQBy0ALGDUqmXfeToS3y5w3OBXbMXAUm/Rh+WEtwjRxQwQ5nzskXaqxAA8HWYDVATcnjvc0iyI
-	9h0SlufA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RVVG2IwvthWW/+RBCG6i5JXoqhlYqngpobZWnBOaYI4=; b=mK1gkrzOBsO2uweh5ZFDrDKd06
+	ML1gt5Lp1W26bZT0dFrZftDlfBD2fUbg8Ys+iiQE1PdkVmtdGz9Fpl3duYEJGYomCDDK+4g/8RbBd
+	DD1++wN9HHrb4qrYK8ZF+30OE9WqDgrQr8ZliZMUxBGR5FJK2aWvuo5zSC+nFvOmujaYuddw3jTmw
+	WJ+qn/mYFJ2V+iQ++3KNwTdiWS9I6g78ngFIGdWx6fwEzNVnPrfOdqXr5dy7H7RYDcSENaW/J8QZe
+	TQPYm88rwIy9SGYGKJcu4/8fxxa0AQNw4g6pBwS/NFrVoeJ7O0QGUXWQma1aA2mKJDdC6CxUbW3lv
+	o/gQihew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnr53-00000009aGO-02MV;
-	Fri, 28 Feb 2025 03:30:29 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tnr6l-00000009apL-1LHF;
+	Fri, 28 Feb 2025 03:32:15 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnr3T-00000009aBL-3Sg6
+	id 1tnr5A-00000009aHL-3vmH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 03:28:53 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-22128b7d587so32670335ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 19:28:51 -0800 (PST)
+	Fri, 28 Feb 2025 03:30:38 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-471f9d11176so17551201cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 19:30:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740713331; x=1741318131; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EY43HLtzrUzkXYHTHJfVcm+528T6DiMSEe7dNOvpyIw=;
-        b=BNuHL/KYNNbjwa4atYpFOJ+3snwzA98/UMrW2KSZgmwIqVZx+O0hk3JZVFiyAkkm9n
-         ObOx7yXMOEP+f8uCTeKmaiKrWxi9cb9zVsv0XxBckyKDhLEiPTZmio3ZggujVPJhc63n
-         YSYtVwq4rywdqGnFS304GQRVvqfxNeecXf/q+K3reWQhpRI8zXyAIlcbfTNzN5JVsCrQ
-         MgQjxR57yfhXyOYfDmYTnpzqbxoiwfxMoU6D0BcV6QlH9l02hbbnlIP2HZB59BeXEFlz
-         Jy1hMGchAcOI38zzhG5QQWidBhhxKfQBZ8UmaE5wlgqM/poi9JBkYyeYH5N/rhhrwRT8
-         +kxQ==
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1740713436; x=1741318236; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=RVVG2IwvthWW/+RBCG6i5JXoqhlYqngpobZWnBOaYI4=;
+        b=rQUZk41mjYBK6McZquRkctZfnLLTyfeFCKput/M8GsD9mPUHuL0Lq+3s9IagIor8KI
+         usQRVXhTB3p1mI2EwN7EX1aEvi+lI/pgo64Zr/DqJvVyJWlYjPYkkWtAm/VDOXQeBieR
+         R8PKZUcrgTpyui9wrIb76aZPkbLhBsnfN+er6ntmGrF4rjLOeJFkhWhgUKiyaff6fXrX
+         2jQ7yBwbdP9UXUPLZiyGUp3sjUqze3nYlEKOMiwjiYiSXQR+6RmpB371VFqhIDphux7D
+         LUL0JF76RMoIGcSV5O9GInUd6vMy7B4ag9IKnpUEiZbbobFwS1AgfUCYiVAcTvy8lL7e
+         7uew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740713331; x=1741318131;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=EY43HLtzrUzkXYHTHJfVcm+528T6DiMSEe7dNOvpyIw=;
-        b=Om+vqdQbwZh+4k2fTrixey/BCC2PHxqG4Uv10fUmcDjUJEUBCEaSZPd4EX4lvuKL4w
-         9gKis1tokW/k7Wy3OnOQ272vAo7mDbflA1QHmpZxyGHWNphqZ6LynlzRM3Q/aYWyddNk
-         28h5m+01Zs6JD+Qno9hnMU3LH3dqtx/6ysPIclXtNbQ+ZtPuzyNyYY6YZ9ZZDzA9HjZ3
-         FQcufDBy8xPFvAemr/5u2T8p56DT3t9cXFVtYhMHMOYezSf3JoL8A2Nnn/OFezmQ1cbG
-         HGB3za7nvUzDJchM5abuPGwytELU3Nqq9U9xYPFiVhGxJ5UQguz79/RGq1wftjRPqMMJ
-         J00w==
-X-Forwarded-Encrypted: i=1; AJvYcCUECJHBUDi3+1/0ew8Wo3HKytVpTgSdCtEywNHpepOBFJMbZQO+PMBkl7S5UsPtae/ZIN2l0108nHkA8d1kFlCF@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCJLubbVl3ljsu/vYVz3nnTcTP2+se6HwgyzGnXjou5VS+I5DW
-	PPjBwnB4+6kOv5Qs/pa7ugstC/m7uvh56HrhdC/eEnwoGTzkX6/rEYvQ6g==
-X-Gm-Gg: ASbGncsqNAKPEQ7GuWDl+hqLgZCT+0ZkbaHxS5Vjt2bUwBmal/XXqhi1SuAtoAXUXMB
-	V4dt3mot1MuYwF5zvfQsrUateqJiahhSAkpFZc6mbC5AJZsPY3d5jMHLvQnsMsDFKyE0GtpOc+G
-	NdxscvXoMi+dGyP/tAq/0npkpszkrQenx3Fu2I4BEsgkP9Ar3NC2OqfH6TlEBTOGSQSQlR2tLSZ
-	Q1nHb5y3xqnaOkOwaX7hZpcdtJDWI0qP+hsW2hzfHrrDJXXKqjS1Wm4c56MHiZQJH6RBXB4iZMu
-	TnaIF3LyrbTxvjOfacn51hk=
-X-Google-Smtp-Source: AGHT+IFhTzQtlbRb4GUfkQUHLHJc2YBAelAdku34kRQilo8jgysSfJHVUW03LTM8vyRl+NUxhY5UeQ==
-X-Received: by 2002:a17:902:d48f:b0:211:e812:3948 with SMTP id d9443c01a7336-22368bc365fmr29598825ad.0.1740713330830;
-        Thu, 27 Feb 2025 19:28:50 -0800 (PST)
-Received: from localhost ([129.146.253.192])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-223504c5bf3sm23485515ad.110.2025.02.27.19.28.46
+        d=1e100.net; s=20230601; t=1740713436; x=1741318236;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=RVVG2IwvthWW/+RBCG6i5JXoqhlYqngpobZWnBOaYI4=;
+        b=C5SUdRxbmkGWopTlM4ziZo0dznLH4MEDqUSTskipS9mANGfeTf2LEWydQrvNMeSpGh
+         uqPR90B7X8vOd6rf4qgJHi3CFNA/+CTWbyKrpVkfe8Zm0CNnfh1d8mF1N0MapTpgul1C
+         5F8jyG3zOvs6QWX0qwRwpR7dJeJS6QLw9UI0sne3lTQWvKQkbS1zWG7zv1NPJXQoNtu/
+         mkAGouot3q+Y6epNImWSZzcNHuZuww4+l9k9SrwzlBSqEmtZlGJcT3ZYI3J74X6U8cQX
+         uaMf4au9Bf9oPZ2pQxHW27ovBSqNb5v88to5j0n4BT3bcCu5ccLXXkT6MZ+62nPIy8t/
+         uo6A==
+X-Forwarded-Encrypted: i=1; AJvYcCUVC7Xa2WSG+G3u6Bzl9SDpscplwTHSilCPJZRJ8+BJULCFJvQ1IhfEvYsGz0oSGZNeX/b4gYO8xYuFoFKdGPPo@lists.infradead.org
+X-Gm-Message-State: AOJu0YznBpepetsxj1XRMi6zoeCvTbRCljwwOorZbfDJ4QSSnoKPr4dp
+	EmD8WdGINOimswrSZrqnX8use8QsrIZsEj1b3QGh6Syk89zescxGpLN85Rh7FPE=
+X-Gm-Gg: ASbGncupAOmFwKNi3FdrwfFzOsF8OK8h1xTPTM5OLIHXeRfSsPYNQFFR+JEU7wlyZTf
+	jjZaJ02aSqj2xuVwcWT33vMZgUveJF5xm73PGHEyrfWOFDUTP3jFvty1un8nx6cC0faArLo17wa
+	xLlxCL8OKQJPIgAfnxsUVrZbKYaMuCDR+wi+5asooS/3TjDMIX0e+mEuWiGJXoAkQRkT77UdMmN
+	j1tHwtR3PNb8S69Nn/ZaGAgwVTi84s9dEiGJm/gtHHBZ10xDKcNcy9jZxZRXOKE8Gn8u2wrglSH
+	FanWeh2Y5re0ywqX8t0/ULhd8jW765s=
+X-Google-Smtp-Source: AGHT+IEEio0A7nIEAZI3ddno0TpSgz9fND8CuYHuE1x0cFd3ArDKQjvW9X1ozId7B5F4Eo4JdE2bJw==
+X-Received: by 2002:a05:622a:11d0:b0:471:eca0:113c with SMTP id d75a77b69052e-474bc0fef42mr23052141cf.42.1740713435715;
+        Thu, 27 Feb 2025 19:30:35 -0800 (PST)
+Received: from ?IPv6:2606:6d00:11:e976::c41? ([2606:6d00:11:e976::c41])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-474b7696709sm11029291cf.48.2025.02.27.19.30.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Feb 2025 19:28:50 -0800 (PST)
-Date: Fri, 28 Feb 2025 11:28:40 +0800
-From: Furong Xu <0x1207@gmail.com>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Jon Hunter
- <jonathanh@nvidia.com>, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org, Paolo Abeni
- <pabeni@redhat.com>, Thierry Reding <treding@nvidia.com>
-Subject: Re: [PATCH RFC net-next 2/5] net: stmmac: remove redundant racy
- tear-down in stmmac_dvr_remove()
-Message-ID: <20250228112840.00003e24@gmail.com>
-In-Reply-To: <E1tnfRj-0057SF-9t@rmk-PC.armlinux.org.uk>
-References: <Z8B-DPGhuibIjiA7@shell.armlinux.org.uk>
-	<E1tnfRj-0057SF-9t@rmk-PC.armlinux.org.uk>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+        Thu, 27 Feb 2025 19:30:34 -0800 (PST)
+Message-ID: <25beec7ea929b624d845f5ba4abce6267974ed82.camel@ndufresne.ca>
+Subject: Re: [PATCH v3 1/2] media: videobuf2: Fix dmabuf cache sync/flush in
+ dma-contig
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Mikhail Rudenko <mike.rudenko@gmail.com>, Dafna Hirschfeld	
+ <dafna@fastmail.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+  Mauro Carvalho Chehab	 <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Tomasz Figa	 <tfiga@chromium.org>, Marek Szyprowski
+ <m.szyprowski@samsung.com>, Hans Verkuil	 <hverkuil@xs4all.nl>, Sergey
+ Senozhatsky <senozhatsky@chromium.org>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Mauro
+ Carvalho Chehab <mchehab+huawei@kernel.org>, stable@vger.kernel.org
+Date: Thu, 27 Feb 2025 22:30:33 -0500
+In-Reply-To: <20250128-b4-rkisp-noncoherent-v3-1-baf39c997d2a@gmail.com>
+References: <20250128-b4-rkisp-noncoherent-v3-0-baf39c997d2a@gmail.com>
+	 <20250128-b4-rkisp-noncoherent-v3-1-baf39c997d2a@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_192851_868567_B1BC2633 
-X-CRM114-Status: GOOD (  20.42  )
+X-CRM114-CacheID: sfid-20250227_193037_231314_65551A3D 
+X-CRM114-Status: GOOD (  18.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,52 +106,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Feb 2025 15:05:07 +0000
-"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk> wrote:
-
-> While the network device is registered, it is published to userspace,
-> and thus userspace can change its state. This means calling
-> functions such as stmmac_stop_all_dma() and stmmac_mac_set() are
-> racy.
-> 
-> Moreover, unregister_netdev() will unpublish the network device, and
-> then if appropriate call the .ndo_stop() method, which is
-> stmmac_release(). This will first call phylink_stop() which will
-> synchronously take the link down, resulting in stmmac_mac_link_down()
-> and stmmac_mac_set(, false) being called.
-> 
-> stmmac_release() will also call stmmac_stop_all_dma().
-> 
-> Consequently, neither of these two functions need to called prior
-> to unregister_netdev() as that will safely call paths that will
-> result in this work being done if necessary.
-> 
-> Remove these redundant racy calls.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Le mardi 28 janvier 2025 =C3=A0 23:35 +0300, Mikhail Rudenko a =C3=A9crit=
+=C2=A0:
+> When support for V4L2_FLAG_MEMORY_NON_CONSISTENT was removed in
+> commit 129134e5415d ("media: media/v4l2: remove
+> V4L2_FLAG_MEMORY_NON_CONSISTENT flag"),
+> vb2_dc_dmabuf_ops_{begin,end}_cpu_access() functions were made
+> no-ops. Later, when support for V4L2_MEMORY_FLAG_NON_COHERENT was
+> introduced in commit c0acf9cfeee0 ("media: videobuf2: handle
+> V4L2_MEMORY_FLAG_NON_COHERENT flag"), the above functions remained
+> no-ops, making cache maintenance for non-coherent dmabufs allocated
+> by
+> dma-contig impossible.
+>=20
+> Fix this by reintroducing dma_sync_sgtable_for_{cpu,device} and
+> {flush,invalidate}_kernel_vmap_range calls to
+> vb2_dc_dmabuf_ops_{begin,end}_cpu_access() functions for non-coherent
+> buffers.
+>=20
+> Fixes: c0acf9cfeee0 ("media: videobuf2: handle
+> V4L2_MEMORY_FLAG_NON_COHERENT flag")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Mikhail Rudenko <mike.rudenko@gmail.com>
 > ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 --
->  1 file changed, 2 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 84d8b1c9f6d4..9462d05c40c8 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -7757,8 +7757,6 @@ void stmmac_dvr_remove(struct device *dev)
->  
->  	pm_runtime_get_sync(dev);
->  
-> -	stmmac_stop_all_dma(priv);
-> -	stmmac_mac_set(priv, priv->ioaddr, false);
->  	unregister_netdev(ndev);
->  
->  #ifdef CONFIG_DEBUG_FS
+> =C2=A0.../media/common/videobuf2/videobuf2-dma-contig.c=C2=A0 | 22
+> ++++++++++++++++++++++
+> =C2=A01 file changed, 22 insertions(+)
+>=20
+> diff --git a/drivers/media/common/videobuf2/videobuf2-dma-contig.c
+> b/drivers/media/common/videobuf2/videobuf2-dma-contig.c
+> index
+> bb0b7fa67b539aa73ad5ccf3c3bc318e26f8a4cb..146d7997a0da5989fb081a6f28c
+> e0641fe726e63 100644
+> --- a/drivers/media/common/videobuf2/videobuf2-dma-contig.c
+> +++ b/drivers/media/common/videobuf2/videobuf2-dma-contig.c
+> @@ -427,6 +427,17 @@ static int
+> =C2=A0vb2_dc_dmabuf_ops_begin_cpu_access(struct dma_buf *dbuf,
+> =C2=A0				=C2=A0=C2=A0 enum dma_data_direction
+> direction)
+> =C2=A0{
+> +	struct vb2_dc_buf *buf =3D dbuf->priv;
+> +	struct sg_table *sgt =3D buf->dma_sgt;
+> +
+> +	if (!buf->non_coherent_mem)
+> +		return 0;
+> +
+> +	if (buf->vaddr)
+> +		invalidate_kernel_vmap_range(buf->vaddr, buf->size);
 
-We always build stmmac driver as built-in.
-Tried to build stmmac driver as a module, but some complicated dependencies were
-reported in our down-stream kernel :(
-I can not test this patch, so:
+Am I correct that this is mostly to prevent the kernel from reading
+back old data from the cache after an application or other driver did
+CPU writes ? If so, can't we restrict that to DMA_TO_DEVICE and
+DMA_BIDIRECTIONAL ?
 
-Reviewed-by: Furong Xu <0x1207@gmail.com>
+As for pending kernel writes, they should have been flushed before the
+buffer is made available for dequeue. And any access while a buffer is
+queued is concurrent access, which is expected to have undefined
+behaviour.
+
+> +
+> +	dma_sync_sgtable_for_cpu(buf->dev, sgt, buf->dma_dir);
+
+Isn't there a link to make between buf->dma_dir and direcction before
+calling this ? Also, shouldn't we use direction insead of buf->dma_dir
+to possibly limit the scope ?
+
+> +
+> =C2=A0	return 0;
+> =C2=A0}
+> =C2=A0
+> @@ -434,6 +445,17 @@ static int
+> =C2=A0vb2_dc_dmabuf_ops_end_cpu_access(struct dma_buf *dbuf,
+> =C2=A0				 enum dma_data_direction direction)
+> =C2=A0{
+> +	struct vb2_dc_buf *buf =3D dbuf->priv;
+> +	struct sg_table *sgt =3D buf->dma_sgt;
+> +
+> +	if (!buf->non_coherent_mem)
+> +		return 0;
+> +
+> +	if (buf->vaddr)
+> +		flush_kernel_vmap_range(buf->vaddr, buf->size);
+> +
+> +	dma_sync_sgtable_for_device(buf->dev, sgt, buf->dma_dir);
+
+Similar questions for the end_cpu_access implementation.
+
+Nicolas
+
+> +
+> =C2=A0	return 0;
+> =C2=A0}
+> =C2=A0
+>=20
+
 
