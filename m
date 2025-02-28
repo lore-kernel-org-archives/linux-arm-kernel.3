@@ -4,67 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFAA4C19776
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 11:52:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6F47C19776
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 11:53:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KeaGL1vAcHO4TeDdA2RJEA6VAAo1cZaUya3w/hc3mlQ=; b=RgIcoESOEewm3yay6mY7tsKatw
-	Gq+u/oHwvnV7fKr/fZWI4mLKLV5ds/35FkIU6Crx/JUoX4g1Nf698l1KvNG4vb35xx6a653IFe8vn
-	XYneP+hLz0HZUfT8+AAQU0UVj/rTuKH03o5SxujoCxEgH2fVOHOdhw5K0eFd0JAUXf0ssA4hfYXOZ
-	p53rWThdjid+9dvroM18G9tWPMKI5kNW/cqBP6wXfpNDKjVe9g7NYefi1zVAeuisyvWUEGb4su3jp
-	AT16Ia0SBl9OkZGgkLeNDgjzzFjzhOXy6TeSnCBt/VtxqQ4McsoOx4bhFyE1MgXKaSZFzlW7NCEAD
-	TmKYym+A==;
+	bh=7bO3noIAnLIpAAfMnWMpk9qr4QfTQwAh4WLgGAFGPng=; b=hzRF/94tODnB/NIxux3FhWzzoV
+	4pn4NtIbzZIpu098gEy/bp5oR38oRYJT7cQMltsQc4zqFmOJArirdwApE83MAlW3i2eqmJ718BRb0
+	eoqvCOx6qcwyamLsaU0W2wUgCxTs1g5ydVT/NiO6/nviMTDh56C07IHi5X7kSb14S69mih0LniBFW
+	uYdgDirfk3PYpv3NVj30itwrhaiflEkqLS4+Vg6fovA73DFZUeec6bBxSyI2XqbMvCkdxVrlizBnk
+	hjkLy0aTQ3n/6DyvfRPjg+0fhb0BjRkPkw4tASGNnKwczC1pWw4QWUJSmbMf37ZD4x/vtdI/S/XQb
+	uf4Ey2dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnyuF-0000000AoZO-25Vv;
-	Fri, 28 Feb 2025 11:51:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnyCt-0000000AhDy-0XqY
+	id 1tnyvn-0000000Aois-0aQd;
+	Fri, 28 Feb 2025 11:53:27 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnyDN-0000000AhIc-3Ya0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 11:07:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EB17B1688
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 03:07:15 -0800 (PST)
-Received: from e110455-lin.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7BA373F673
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 03:07:00 -0800 (PST)
-Date: Fri, 28 Feb 2025 11:06:58 +0000
-From: Liviu Dudau <liviu.dudau@arm.com>
-To: Marek Vasut <marex@denx.de>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Airlie <airlied@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Sebastian Reichel <sre@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Simona Vetter <simona@ffwll.ch>,
-	Steven Price <steven.price@arm.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, imx@lists.linux.dev
-Subject: Re: [PATCH 6/9] drm/panthor: Reset GPU after L2 cache power off
-Message-ID: <Z8GY0nWXOxCKF-XL@e110455-lin.cambridge.arm.com>
-References: <20250227170012.124768-1-marex@denx.de>
- <20250227170012.124768-7-marex@denx.de>
+	Fri, 28 Feb 2025 11:07:35 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5e4dc3d22b8so1196429a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 03:07:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1740740852; x=1741345652; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=7bO3noIAnLIpAAfMnWMpk9qr4QfTQwAh4WLgGAFGPng=;
+        b=xpqSA7JAVHAndL3lgVXGMWAhRIPiF3YICvCT6NYnB5oKpfyHzCdZ8LmUyVbeN30z+y
+         mNZSdNsmQKwUDRlM5z1Q8Lp9gbZiLEhRwY1698ule+BEwU4HXReCMTkns3cJBdbGFAHl
+         gTOvDOUiquuKrLqK10Gsc2BFnrHhogZkur1t3Vt8qERoceM3KZs0NeLJTUsnifcETzRV
+         C90r2oay5ZvDVcBBBHCxwuhypUh0sS46fB0sFHM2PhFIu3OnIt8YaT617sNUhw1W0jbG
+         FfMonuusABHhx9YkFMgmizmIYGG4xgvYIjXj7znJ3b5gsXolE9eq3AEDYI2DZVNMjkgk
+         +15Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740740852; x=1741345652;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7bO3noIAnLIpAAfMnWMpk9qr4QfTQwAh4WLgGAFGPng=;
+        b=LqgyiSFp0bdForjo8mYGQxOFipjwZYQK3OT9VylzDrcgniY1Ah8agkGgZBxqrZXgz1
+         0ubWp7Uwif4goXHR6H5Zqea4OC6lcd1eAUVBawGaWJwN++9tfQcQSGEqJh1QEywT0Yl9
+         Y9aktAF+Pitkw/759MS9CGhhKQ/05PGRO/36AWzZyBY4u6Gpt0uztJXUtgAWNpE5Czfh
+         1LPJB7MdydtOJgoGxkkuh2Yr9qdvInZeHAzpwGQNpGTDY+J6vROtZ8CnGwC7UvxfppVK
+         0DfT4cbaxom+yrhjGFpR2IZqb8cBBRtYWmgUqhJDppaQ9DHiIbAFz/F56UAQyXrJhtxO
+         2nIw==
+X-Forwarded-Encrypted: i=1; AJvYcCWNB3MDnFzlal6l6ffAM6mK0M1rdhb0CMoyCivfRsj7NFMVg98kKfJB0e4FMFGqdXbZfIYajmJfk77/CarX4ZdO@lists.infradead.org
+X-Gm-Message-State: AOJu0YwbzTeqszZj+dcCbKJ7XzjDRQeMzwSvP/Hw6qG0rSla8f22Rquk
+	pcLvapqgCKoO1fMiR8dNbpTWNVoHjyoW6/0wSY3IsQb1Al/6uo8tFBUv0sCj3tC4oq17V763fSi
+	3xrPCkyZrgitZzRHiVyQxor74ipXkPiNB5msuJw==
+X-Gm-Gg: ASbGncvI25OxVISBwYN8HJgBGURAz1lcxIkPItCdiGxswED5ODW9x+GNAZSP8u4cmSM
+	1gAMrRQ5J2AxFnavGvsgnjOfZgJPMwO1UmqtKXQ63CuFxmhJJbQkUF7ZPApei29R7QhzLOq9nwA
+	Gu5ke3504=
+X-Google-Smtp-Source: AGHT+IE6y2PosJlmoE9B8+t4z8hZJxD//ouD+A0OiMkPbIArGuvY/3GdQ7UTMlpkbH6gYdu01DmaN4T7Kr+6onvynrE=
+X-Received: by 2002:a17:907:7212:b0:ab2:f6e5:3f1 with SMTP id
+ a640c23a62f3a-abf26430310mr261440866b.8.1740740852178; Fri, 28 Feb 2025
+ 03:07:32 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250227170012.124768-7-marex@denx.de>
+References: <e3dd8042ac680bd74b6580c25df855d092079c18.1737107520.git.viresh.kumar@linaro.org>
+ <Z4osWNCUfufciZNG@bogus> <20250228082745.rc2u5jiqnq7h737l@vireshk-i7> <Z8GAEDVIUiooPjf_@bogus>
+In-Reply-To: <Z8GAEDVIUiooPjf_@bogus>
+From: Viresh Kumar <viresh.kumar@linaro.org>
+Date: Fri, 28 Feb 2025 16:37:24 +0530
+X-Gm-Features: AQ5f1JqpS5GfXKpRF9qd5JBXFvyQxz0hzQ3S-RWDwvb2fNYPEu0YQipblPVbjoY
+Message-ID: <CAKohpomoY8uhqDMeUAa594Eh8Oh53hTSsjkAcJU7Z70asvzcSA@mail.gmail.com>
+Subject: Re: [PATCH] firmware: arm_ffa: Set dma_mask for ffa devices
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Vincent Guittot <vincent.guittot@linaro.org>, =?UTF-8?B?QWxleCBCZW5uw6ll?= <alex.bennee@linaro.org>, 
+	Bill Mills <bill.mills@linaro.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_030703_256913_E48390F5 
-X-CRM114-Status: GOOD (  22.30  )
+X-CRM114-CacheID: sfid-20250228_030733_889586_2C9C7519 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,81 +94,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+On Fri, 28 Feb 2025 at 14:51, Sudeep Holla <sudeep.holla@arm.com> wrote:
+> Sorry I forgot to respond. I kept this out for now as we need to resolve
+> the DT bindings.
+>
+> If you think it can be used/needed irrespective of how we resolve that
+> issue ? If so, I can queue this.
 
-On Thu, Feb 27, 2025 at 05:58:06PM +0100, Marek Vasut wrote:
-> This seems necessary on Freescale i.MX95 Mali G310 to reliably resume
-> from runtime PM suspend. Without this, if only the L2 is powered down
-> on RPM entry, the GPU gets stuck and does not indicate the firmware is
-> booted after RPM resume.
+Yes, this has nothing to do with the DT bindings and reserved-mem thing.
 
-That doesn't sound right. Can you tell me what GPU firmware are you running
-(we are now printing the git sha of the image at boot time).
+We can anyways map memory on need basis at runtime and this is required
+for that to work. The reserved-mem thing only allows us to map everything in
+advance.
 
-Best regards,
-Liviu
-
-> 
-> Signed-off-by: Marek Vasut <marex@denx.de>
-> ---
-> Cc: Boris Brezillon <boris.brezillon@collabora.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: David Airlie <airlied@gmail.com>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Liviu Dudau <liviu.dudau@arm.com>
-> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> Cc: Maxime Ripard <mripard@kernel.org>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Philipp Zabel <p.zabel@pengutronix.de>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Sascha Hauer <s.hauer@pengutronix.de>
-> Cc: Sebastian Reichel <sre@kernel.org>
-> Cc: Shawn Guo <shawnguo@kernel.org>
-> Cc: Simona Vetter <simona@ffwll.ch>
-> Cc: Steven Price <steven.price@arm.com>
-> Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> Cc: devicetree@vger.kernel.org
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> ---
->  drivers/gpu/drm/panthor/panthor_gpu.c | 11 ++++++-----
->  1 file changed, 6 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/panthor/panthor_gpu.c b/drivers/gpu/drm/panthor/panthor_gpu.c
-> index 671049020afaa..0f07ef7d9aea7 100644
-> --- a/drivers/gpu/drm/panthor/panthor_gpu.c
-> +++ b/drivers/gpu/drm/panthor/panthor_gpu.c
-> @@ -470,11 +470,12 @@ int panthor_gpu_soft_reset(struct panthor_device *ptdev)
->   */
->  void panthor_gpu_suspend(struct panthor_device *ptdev)
->  {
-> -	/* On a fast reset, simply power down the L2. */
-> -	if (!ptdev->reset.fast)
-> -		panthor_gpu_soft_reset(ptdev);
-> -	else
-> -		panthor_gpu_power_off(ptdev, L2, 1, 20000);
-> +	/*
-> +	 * Power off the L2 and soft reset the GPU, that makes
-> +	 * iMX95 Mali G310 resume without firmware boot timeout.
-> +	 */
-> +	panthor_gpu_power_off(ptdev, L2, 1, 20000);
-> +	panthor_gpu_soft_reset(ptdev);
->  
->  	panthor_gpu_irq_suspend(&ptdev->gpu->irq);
->  }
-> -- 
-> 2.47.2
-> 
-
--- 
-====================
-| I would like to |
-| fix the world,  |
-| but they're not |
-| giving me the   |
- \ source code!  /
-  ---------------
-    ¯\_(ツ)_/¯
+--
+Viresh
 
