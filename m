@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E31A8C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 08:30:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B117FC19776
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 08:32:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jHgNhNb80DQy4X7ezcT4lUUrnZzt8BAUNO4RPQLnr14=; b=bui35vsAsOzer2fDLBi+vcTFm3
-	Gwo2LS3TjkX0KBQw8ki08neSEXdaDzhHA8OG/a+6182lJgxwl6ZKe7GAByYtbdeu6ks2zzVQFfUba
-	Hl3UwSBn1ua2zXo36gGtADnHfxK3Ubgq18dcEiv7ghNgJc43kiGB050OrKJtD1XuTASO8t6Y52J2y
-	ES5dOcKS13ZskkHduxKAwpColTYSKnmOPG7rUBX8/Ocm7KD+zNjBCCIjMNHQVVIhVxpCNEf0UFrSl
-	zxIUOTtdbJY/CFBPe2f3hByLzBrkxKPXcnKQYMrSVj/7hlK1PClCIPTe9mV+sPgDjDww/40ztjECa
-	RdjoLKgQ==;
+	bh=5mjk45jguiUNe+AcHQUbiNYsEpUBPM+3F/r+trzFvSE=; b=PTjN7wPL+Dtc4296s8hEMnS09l
+	O78cHdbSZKcClpL5YF2dRKausdwSHmWNY4xRHkvqceReYCmMhfkiyWHDugnNgf23ApNUpiSz1PYzx
+	4Jqo5a1l9ciLyRbSk7Os+3mY6aHQXhHwC80tRYIwOXDO4UTCiQxDGIVBd5dVlLZ+nNT9GoTOIPTqY
+	phXVNvgpu68AfeqWAg4zNE37RIUVEn8rLTs41EiF5TWQyvMosEmQc2chnzvzMeqRt4uRBSvhcFsXb
+	e3mD2Aqd1Vr6oVT2k0nJP63nHBLZSs6rLuk1kf9QsuQ6s1FrS3+PwMhuJ+0wP23Tr63sLOosO+8bp
+	KubtDtSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnvlG-0000000ABnP-3qjW;
-	Fri, 28 Feb 2025 08:30:22 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1tnvmn-0000000ACEX-1d1M;
+	Fri, 28 Feb 2025 08:31:57 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnvdo-0000000AACr-44Tt
+	id 1tnvdp-0000000AADP-3mxT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 08:22:42 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4394345e4d5so12747505e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 00:22:40 -0800 (PST)
+	Fri, 28 Feb 2025 08:22:43 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43984e9cc90so18164385e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 00:22:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740730959; x=1741335759; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1740730960; x=1741335760; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=jHgNhNb80DQy4X7ezcT4lUUrnZzt8BAUNO4RPQLnr14=;
-        b=eXAmYiv2H5LnwS+USDVDqj0cM7K54ACNjvOBdE4jekXExybZ8TdNquyjB7zFKF9X1z
-         /XuUgQpEybHKRJJ7YndyOna7TH/8qX0BzxULqtbGvgLMZ9jKJ0Wc4h8zXKFSnKzUWcdU
-         1dW5bqr99TyZ7pkoL8/obDaZpmE8uEWNJj5cpp6B2LNXOu3iz7o62ZJ9fP4XJVk+KO9X
-         VwRh5/n+B1VRsTNuVEaTaWsVed9k99uAV6AduZ0dZL5zTxkDa7A5jAeTtiO/0l5AaeYB
-         2kMf6AY+oQXNILcRHTF72jh1oRCJpfI4cRaLCxXRMBtjmTqS/rq9Z4JWB0MgNAZtWAkq
-         ZmRg==
+        bh=5mjk45jguiUNe+AcHQUbiNYsEpUBPM+3F/r+trzFvSE=;
+        b=n3UU2iSwc+QcoifTwiFwnt4JdMzBQ+MZqGdbPwW1mHIPbnZGERk4/InNW6IdA4yDZw
+         94T50wsb9k3IrBFbV3ZLAv9z7uwvEiNQvLoSN0V67y865Tzt2cr8DTqVxaZIE2+zEIA/
+         ImCdqHMQ6aUMakO0+SKDI4ZMUZzX84Kif+5yVndo2K/FKAjcSfLgxBM6Iyc5PMnFMf34
+         0KhagCn93yU+Tbx3HZe/IljFONSRQ2+wTF8DmMDML9/3d/trRcglwzRfjGiMAzbyaB3n
+         s5AxdJaQhrs5rSd25oRnQqAEjJ2zstg128fNvGThT1C1iFc2PjMdaYuo8dDQe/EnTQgz
+         DWvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740730959; x=1741335759;
+        d=1e100.net; s=20230601; t=1740730960; x=1741335760;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=jHgNhNb80DQy4X7ezcT4lUUrnZzt8BAUNO4RPQLnr14=;
-        b=UBO3x93Z+8Se5l5onxIiIrOXUJQDTo79BX4KtABYTdvDW1EOQ7UriBb0k3HSJnIztF
-         4E/Zmiz48hN9kxOd5LPiIdQDQAuRpw8tyUItfFxGD5zkJsto+GAKsGQvap0QqYWRiBco
-         OuKCZbUA3p1nql7zQsRXdITcckQy1ODWmUMjOyIink0wK7wXEMJU+8aDRoDKkpHdnxYi
-         Lklf8dxd9p/QDBZXgaKmmcW7N4MHU7if3rd8AVVwa92Vq67YnY5BVdV3lLKCF7e2c/6x
-         Z34v1ASYMvAotxvDI3klxumj+56JwpQc8z+D8BkDFuKu9dro/o6Crxw5TFwKspWI/7Zg
-         nktw==
-X-Forwarded-Encrypted: i=1; AJvYcCUswg9+xNLNKeWquOzOcJECO1JNRaZNSjma4yY61xWtvk7/Jwm5Zsfjk5qbZcxCPFun23Pl92l8HaZEgW1lGAvC@lists.infradead.org
-X-Gm-Message-State: AOJu0YyaVv66YHmbp96myELl9lvgrZUzW9gCNU5EB81Jvrtty811LHM1
-	Nt+GB3uEgTTv1U2w4mGVCN+ivy3PeXdoJNyQDzdkXz6UGPwIg3iQhOeqf0eVRE0=
-X-Gm-Gg: ASbGncvL+9FrkK6kMvLvyiWvMM8fbukG6JN5nr5FiEos/wBfq4sZ4SoJ+vkhGvZVq+k
-	M/Rk5T00JD+7Xz4QoxzaVrEaCNu4R2kHWeh7mJTQbXAD/MyKYUJsQvNKu7l9IvqqMMg0Vj7admY
-	VSYpRNYkTR95/NzZ9z3DW1S6OHn0e5pLKCarTSl7xbxEBMSlmyVASP2fAsqpp2HySHGLCwDiRH4
-	KvmEn2rS6k0AJjjKK8Q29Szo32prX8UVZniY4XUAGwWE4gt4Ltt6A6zH8wK1aYni6RY49tuZKaM
-	ZcnmVjn8PI6b8r1npm6j9HFe47v7r9cH+fG5dGq26mpRKy0=
-X-Google-Smtp-Source: AGHT+IFh9o/6ArnjhiUzlNBx86ioNJTlHz7etf9q2i/1fT39QQaodFUpScWDIhXR/Ov2pOocchf/qQ==
-X-Received: by 2002:a05:600c:1384:b0:439:9f42:8652 with SMTP id 5b1f17b1804b1-43ba6704748mr20910835e9.17.1740730959239;
-        Fri, 28 Feb 2025 00:22:39 -0800 (PST)
+        bh=5mjk45jguiUNe+AcHQUbiNYsEpUBPM+3F/r+trzFvSE=;
+        b=Kfi9JTCrCJkRJBchpMvP0vT1+H97eXkvxATQziKGo6p/adapKSTtMZalh/8OiJqI4U
+         3TEzAtPnfwtaTMs14NvI9bjw0w9zcQ9q2fw2dmwxGKA+Gt68bkJnU2Foi37pne7kXDdW
+         jkl9GlyEOCsfHVqdqF/939n3HRRcJSh4PVPjbRCRklozI0zbeXNr0lAfn0UDrRRl05HF
+         KgBf3pnrrnlg3frmk2AOh2H0mhqB+mr/5zdrcD0s/zOgwB4B6qHn6KYZQZHC32iT3aAR
+         9sLNelLIl5PNpBFj4igOYxgc6zXlM49/ZX1i67JFShDNGGYtFrX0AO3hs0ehqT9MlLpe
+         42pw==
+X-Forwarded-Encrypted: i=1; AJvYcCUPMz3Gtc3gle9WYIzDucJpFsr2/u2iv2Pb4a9IFbvhCvbhNPsIrM+TrV4rdhPml05NqAWm5pw5ztJYVZ1YBl5p@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoonpcmBNEZDMCQgb583jp3IDH/cBeBHz/YPlfqSCjEJ6Z7Ebj
+	rOQ5qDM9fgRC09l8+oBQsRSGtGgBNbyJgEtws7EBv/Q2dWrxueWc0Rtl6MJMPww=
+X-Gm-Gg: ASbGncvFFF7xouiTW+oCPXyRigJMsjI0zety2lH8Qrnv48rnt3e/XDxbKh9Pc5kfygN
+	V5aDvI5tNSNFzyUjAB18ySQ83pyomGLW7V/F0nkCpbhmYNe6DZ+A8+7jiWV+biK+wKcN8YESUex
+	P7w/9TlZ5FlSFOFOn+hqK40PFVDVnWyaeQ2wmCY/7I/krFUtruehMKtGlipzcy5b4qlTRdNcRV/
+	n1uUtRUe5oOnb1qG2Yxq+X8P+9/YO6dSY3ebZYl/1mmOMPSWUwtMMyLJdk3m0Y5nCqk7Upkv9Ff
+	QAYZx//CnXk89yePP1EK1WlTRInkZ8XbsqrQ63MSALeESXI=
+X-Google-Smtp-Source: AGHT+IH038oCeROvQ6tVC86akUZzZeoenUNBH2cva8eK5sDSrImvPU+Z4DWRdw7Bok77rrj1L+R8WQ==
+X-Received: by 2002:a05:600c:4f51:b0:43b:4829:8067 with SMTP id 5b1f17b1804b1-43b4829817amr44075105e9.6.1740730960086;
+        Fri, 28 Feb 2025 00:22:40 -0800 (PST)
 Received: from arrakeen.starnux.net ([2a01:e0a:982:cbb0:52eb:f6ff:feb3:451a])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43b737074d8sm48750365e9.16.2025.02.28.00.22.38
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43b737074d8sm48750365e9.16.2025.02.28.00.22.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Feb 2025 00:22:38 -0800 (PST)
+        Fri, 28 Feb 2025 00:22:39 -0800 (PST)
 From: Neil Armstrong <neil.armstrong@linaro.org>
 To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -77,20 +77,20 @@ To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
  Bartosz Golaszewski <brgl@bgdev.pl>, 
  Xianwei Zhao <xianwei.zhao@amlogic.com>
 Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20241113-a4_pinctrl-v7-0-0546a20c1c22@amlogic.com>
-References: <20241113-a4_pinctrl-v7-0-0546a20c1c22@amlogic.com>
-Subject: Re: [PATCH v7 0/5] Pinctrl: A4: Add pinctrl driver
-Message-Id: <174073095841.1139542.4947939584999923520.b4-ty@linaro.org>
-Date: Fri, 28 Feb 2025 09:22:38 +0100
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org
+In-Reply-To: <20250212-amlogic-pinctrl-v5-0-282bc2516804@amlogic.com>
+References: <20250212-amlogic-pinctrl-v5-0-282bc2516804@amlogic.com>
+Subject: Re: (subset) [PATCH v5 0/5] Pinctrl: Add Amlogic pinctrl driver
+Message-Id: <174073095934.1139542.13898190567088651391.b4-ty@linaro.org>
+Date: Fri, 28 Feb 2025 09:22:39 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_002241_013581_74D524DA 
-X-CRM114-Status: GOOD (  13.05  )
+X-CRM114-CacheID: sfid-20250228_002241_951147_EB319D22 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,27 +107,19 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-On Wed, 13 Nov 2024 17:37:27 +0800, Xianwei Zhao wrote:
-> Add pinctrl driver support for Amloigc A4 SoC
+On Wed, 12 Feb 2025 13:20:49 +0800, Xianwei Zhao wrote:
+> Add pinctrl driver support for Amloigc SoCs
 > 
-> All of Amogic SoCs GPIO device requirement is met here by
-> adding GPIO bank definition instead of the pin definition.
-> Binding header files will no longer be added to future
-> SoCs's pin devices.
+> Base on the previous discussion,
+> https://lore.kernel.org/r/20241113-a4_pinctrl-v6-0-35ba2401ee35@amlogic.com
+> The existed meson driver failed to meet the requirement of the current dt-binding.
+> So we start this new pinctrl driver to solve problem.
 > 
 > [...]
 
 Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.15/arm64-dt)
 
-[1/5] dt-bindings: pinctrl: move gpio-cells and gpio-controller property
-      (no commit info)
-[2/5] dt-bindings: pinctrl: Add support for Amlogic A4 SoCs
-      (no commit info)
-[3/5] pinctrl: meson: add interface of of_xlate
-      (no commit info)
-[4/5] pinctrl: meson: Add driver support for Amlogic A4 SoCs
-      (no commit info)
-[5/5] arm64: dts: amlogic: a4: add pinctrl node
+[4/5] arm64: dts: amlogic: a4: add pinctrl node
       https://git.kernel.org/amlogic/c/ce78f679e08cc4f90db1ad8e61ba9f85530c701e
 
 These changes has been applied on the intermediate git tree [1].
