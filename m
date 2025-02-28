@@ -4,56 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA50BC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 20:15:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69E05C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 20:16:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cWGtW43TgLnA9XLRjmVYZyHmW1immnR6brlslYhRp80=; b=HAPWQg9lGlD7o4Y1eQ1X98QGHK
-	khj5Gcd8SAHRGNRcGnLH3T7Ac7gQHT6aqxJaEwifMCGxddh3aGYU22+B9xKTA4D8Dwlh1qmIAlC2C
-	4r8LZTu3phFgvHMPc53xB61Q3ZGPLGYcDVAwvF+eT43VViwPBlxRHYxThjWGliEeZttFNo5g8mpJc
-	aNiw1GjmZTULi/pHTmlkLTZhzZQJzRIaTi1bUf4Lpme8sJv7F6nwdmgD0NC6GkAU0usJUHyhsjy3H
-	xCURX6T899tpbf0V3gqGeTRiyeyWUoain3Q9umzc+A1fZoZpPQ9GFbpZZYQ6spyqsmsH9ucqgwjFB
-	nHj0eDzQ==;
+	bh=yfVTwFHvZdZu0eKKCEjQDIGP9pYsfyaqZxy/3PBlt/w=; b=yV55mabSSgfXwIpYYRjxGaQ5NH
+	y6STQ8ZkH+1JLv1XtS2hO9J6vqbxkmTlbAVtbwhdunG07OOBeYvx6C5D4Zi5Nn4j6SAxXjqBTs7uv
+	k37CVVH77Tz+xitnD+8XM5FUIsp3TQbq2uDZBAvej2+jnk1PEZwvMFmMxuNmG6DrNbFgGdGcnDKb/
+	OEuWu66ehnFjt7cE0Vzxb5lR4T/ti9S/Wsh8VofZg/WIwgYWJGXGvN0lNNKQwRvo6v5iV6dn2R5A0
+	B6nPv/9aUgTXEJvvuSgfvcIjX2+Ee/fea3DGIDBH6aHDg75v30df/crhdQO7HLAB/Zb4TyMnj3lYC
+	C0IeAgOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to6lC-0000000CXkB-0iZD;
-	Fri, 28 Feb 2025 20:15:02 +0000
+	id 1to6mi-0000000CYPW-23bB;
+	Fri, 28 Feb 2025 20:16:36 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to6ds-0000000CV70-0iTE;
-	Fri, 28 Feb 2025 20:07:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1740773236; cv=none; 
+	id 1to6du-0000000CV9K-3XId;
+	Fri, 28 Feb 2025 20:07:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1740773240; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=Ljx4l5wUDUzt4Q3TJ+EHXKTTsZBw2eI+1GpkbH+vziOL5XAkB4oLN3W3DfDRXwb3kOpECW6WbC/vhdIZ5OTkdY3zTfyESCA5lKw8JsXLuhmrcUs2/WAHaQOYX5hBgFNCDGyvhRULX/E+wIcSzhohCo2X9UEzUEOAqX9UpMdQT2M=
+	b=Y5Q3q7xhaSRqfJJLhSwXXA+0B0aGPxeUZUi8bMH8MksQEHGNvorfNuWQpBGEYyk8QyGDGWzSYC8EZtQWxPp19TSWuvXMMPw4XQtbRwK6vJXiw4myhtz9wfbHIf6AGdP1qXGxUR05hedF6Z0/dFktcd9Q+PV/QdGsSMmcyZqv4eg=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1740773236; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=cWGtW43TgLnA9XLRjmVYZyHmW1immnR6brlslYhRp80=; 
-	b=BBoBLTBAEJtWWpxBsidBJSfC1Wr5/vKtmFGX5hg5tuV0lDiyeYLaI1EcoGJ5Y/dSFxgkgLytAehoJTtFas/yL5ehmWtFYEA+PyPhEcvykJmKVAEiW0xnmFsVKAAR09u/C/2A1kz/vB29ChjnEFqMXy+J8guRZV0znSIh1H19Ahw=
+	t=1740773240; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=yfVTwFHvZdZu0eKKCEjQDIGP9pYsfyaqZxy/3PBlt/w=; 
+	b=TUq4amINnoE8VSAU6x3rCck5KkxzwKtVMEekCgg/ef33u9bUOi187LEEcPecACi4GW+liEhI60FgPd1g+sqj32ZyQqcu19xKyH4x3ZFmH9ZuM+J5n8x5VxBv807bPGIn03gEXrJqe5ylP8jr9fUZdrZpZxQihH9ZXvKp4on+w7c=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1740773236;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1740773240;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=cWGtW43TgLnA9XLRjmVYZyHmW1immnR6brlslYhRp80=;
-	b=f/RwSjQ1bk4jtujL2u/olBA2vBMpEGzTmBJd9CdcFT7xVjPswJXrvn4Lw94HjVjt
-	dMjNLOVUd/FwF9Kc5jDa8qRfjfPUx/BaezUoVH9+Fr0GBnjIFZDIW8J4DQjf5gq8kTK
-	sV15xRLUyBfyaEZj44W0XcahnpT7c5ypi+1p9Y+Q=
-Received: by mx.zohomail.com with SMTPS id 1740773234796518.1892036001826;
-	Fri, 28 Feb 2025 12:07:14 -0800 (PST)
+	bh=yfVTwFHvZdZu0eKKCEjQDIGP9pYsfyaqZxy/3PBlt/w=;
+	b=SHMZY21C4DPy5CWFm9CF0hfHCIZLzhpNY5jDzWPD7+MV60coC/Jk0jnc3GMyxhzW
+	4NUGyWYAn+PqOYLg+qf8V1MT9XJyL45QaGjA6gABQdwuxypOsGZNLHw3yT+uaOAQZOt
+	FPng67utjeN9H9nj11vBCzHC6HRVw9KQKmjQjJWo=
+Received: by mx.zohomail.com with SMTPS id 1740773238279186.86754055145548;
+	Fri, 28 Feb 2025 12:07:18 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Fri, 28 Feb 2025 21:06:51 +0100
-Subject: [PATCH v3 1/6] dt-bindings: rockchip-thermal: Add RK3576
- compatible
+Date: Fri, 28 Feb 2025 21:06:52 +0100
+Subject: [PATCH v3 2/6] arm64: dts: rockchip: Add thermal nodes to RK3576
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250228-rk3576-tsadc-upstream-v3-1-4bfbb3b699b9@collabora.com>
+Message-Id: <20250228-rk3576-tsadc-upstream-v3-2-4bfbb3b699b9@collabora.com>
 References: <20250228-rk3576-tsadc-upstream-v3-0-4bfbb3b699b9@collabora.com>
 In-Reply-To: <20250228-rk3576-tsadc-upstream-v3-0-4bfbb3b699b9@collabora.com>
 To: "Rafael J. Wysocki" <rafael@kernel.org>, 
@@ -68,9 +67,8 @@ Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_120728_282440_2A8DE360 
-X-CRM114-Status: UNSURE (   7.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250228_120730_925270_0526120A 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,26 +83,267 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new compatible for the thermal sensor device on the RK3576 SoC.
+Add the TSADC node to the RK3576. Additionally, add everything the TSADC
+needs to function, i.e. thermal zones, their trip points and maps, as
+well as adjust the CPU cooling-cells property.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+The polling-delay properties are set to 0 as we do have interrupts for
+this TSADC on this particular SoC.
+
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 164 ++++++++++++++++++++++++++++++-
+ 1 file changed, 162 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
-index b717ea8261ca24ebaf709f410ec6372de1366b8a..49ceed68c92ce5a32ed8d4f39bd88fd052de0e80 100644
---- a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
-+++ b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
-@@ -21,6 +21,7 @@ properties:
-       - rockchip,rk3368-tsadc
-       - rockchip,rk3399-tsadc
-       - rockchip,rk3568-tsadc
-+      - rockchip,rk3576-tsadc
-       - rockchip,rk3588-tsadc
-       - rockchip,rv1108-tsadc
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index db4be536918a69f6a9187bb14c43e7809e2d4678..6603f442674c09d017a256bc272e33a2fea7cb8d 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -11,6 +11,7 @@
+ #include <dt-bindings/power/rockchip,rk3576-power.h>
+ #include <dt-bindings/reset/rockchip,rk3576-cru.h>
+ #include <dt-bindings/soc/rockchip,boot-mode.h>
++#include <dt-bindings/thermal/thermal.h>
  
+ / {
+ 	compatible = "rockchip,rk3576";
+@@ -113,9 +114,9 @@ cpu_l0: cpu@0 {
+ 			capacity-dmips-mhz = <485>;
+ 			clocks = <&scmi_clk ARMCLK_L>;
+ 			operating-points-v2 = <&cluster0_opp_table>;
+-			#cooling-cells = <2>;
+ 			dynamic-power-coefficient = <120>;
+ 			cpu-idle-states = <&CPU_SLEEP>;
++			#cooling-cells = <2>;
+ 		};
+ 
+ 		cpu_l1: cpu@1 {
+@@ -127,6 +128,7 @@ cpu_l1: cpu@1 {
+ 			clocks = <&scmi_clk ARMCLK_L>;
+ 			operating-points-v2 = <&cluster0_opp_table>;
+ 			cpu-idle-states = <&CPU_SLEEP>;
++			#cooling-cells = <2>;
+ 		};
+ 
+ 		cpu_l2: cpu@2 {
+@@ -138,6 +140,7 @@ cpu_l2: cpu@2 {
+ 			clocks = <&scmi_clk ARMCLK_L>;
+ 			operating-points-v2 = <&cluster0_opp_table>;
+ 			cpu-idle-states = <&CPU_SLEEP>;
++			#cooling-cells = <2>;
+ 		};
+ 
+ 		cpu_l3: cpu@3 {
+@@ -149,6 +152,7 @@ cpu_l3: cpu@3 {
+ 			clocks = <&scmi_clk ARMCLK_L>;
+ 			operating-points-v2 = <&cluster0_opp_table>;
+ 			cpu-idle-states = <&CPU_SLEEP>;
++			#cooling-cells = <2>;
+ 		};
+ 
+ 		cpu_b0: cpu@100 {
+@@ -159,9 +163,9 @@ cpu_b0: cpu@100 {
+ 			capacity-dmips-mhz = <1024>;
+ 			clocks = <&scmi_clk ARMCLK_B>;
+ 			operating-points-v2 = <&cluster1_opp_table>;
+-			#cooling-cells = <2>;
+ 			dynamic-power-coefficient = <320>;
+ 			cpu-idle-states = <&CPU_SLEEP>;
++			#cooling-cells = <2>;
+ 		};
+ 
+ 		cpu_b1: cpu@101 {
+@@ -173,6 +177,7 @@ cpu_b1: cpu@101 {
+ 			clocks = <&scmi_clk ARMCLK_B>;
+ 			operating-points-v2 = <&cluster1_opp_table>;
+ 			cpu-idle-states = <&CPU_SLEEP>;
++			#cooling-cells = <2>;
+ 		};
+ 
+ 		cpu_b2: cpu@102 {
+@@ -184,6 +189,7 @@ cpu_b2: cpu@102 {
+ 			clocks = <&scmi_clk ARMCLK_B>;
+ 			operating-points-v2 = <&cluster1_opp_table>;
+ 			cpu-idle-states = <&CPU_SLEEP>;
++			#cooling-cells = <2>;
+ 		};
+ 
+ 		cpu_b3: cpu@103 {
+@@ -195,6 +201,7 @@ cpu_b3: cpu@103 {
+ 			clocks = <&scmi_clk ARMCLK_B>;
+ 			operating-points-v2 = <&cluster1_opp_table>;
+ 			cpu-idle-states = <&CPU_SLEEP>;
++			#cooling-cells = <2>;
+ 		};
+ 
+ 		idle-states {
+@@ -431,6 +438,143 @@ psci {
+ 		method = "smc";
+ 	};
+ 
++	thermal_zones: thermal-zones {
++		/* sensor near the center of the SoC */
++		package_thermal: package-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tsadc 0>;
++
++			trips {
++				package_crit: package-crit {
++					temperature = <115000>;
++					hysteresis = <0>;
++					type = "critical";
++				};
++			};
++		};
++
++		/* sensor for cluster1 (big Cortex-A72 cores) */
++		bigcore_thermal: bigcore-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tsadc 1>;
++
++			trips {
++				bigcore_alert: bigcore-alert {
++					temperature = <85000>;
++					hysteresis = <2000>;
++					type = "passive";
++				};
++
++				bigcore_crit: bigcore-crit {
++					temperature = <115000>;
++					hysteresis = <0>;
++					type = "critical";
++				};
++			};
++
++			cooling-maps {
++				map0 {
++					trip = <&bigcore_alert>;
++					cooling-device =
++						<&cpu_b0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
++						<&cpu_b1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
++						<&cpu_b2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
++						<&cpu_b3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
++				};
++			};
++		};
++
++		/* sensor for cluster0 (little Cortex-A53 cores) */
++		littlecore_thermal: littlecore-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tsadc 2>;
++
++			trips {
++				littlecore_alert: littlecore-alert {
++					temperature = <85000>;
++					hysteresis = <2000>;
++					type = "passive";
++				};
++
++				littlecore_crit: littlecore-crit {
++					temperature = <115000>;
++					hysteresis = <0>;
++					type = "critical";
++				};
++			};
++
++			cooling-maps {
++				map0 {
++					trip = <&littlecore_alert>;
++					cooling-device =
++						<&cpu_l0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
++						<&cpu_l1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
++						<&cpu_l2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
++						<&cpu_l3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
++				};
++			};
++		};
++
++		gpu_thermal: gpu-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tsadc 3>;
++
++			trips {
++				gpu_alert: gpu-alert {
++					temperature = <85000>;
++					hysteresis = <2000>;
++					type = "passive";
++				};
++
++				gpu_crit: gpu-crit {
++					temperature = <115000>;
++					hysteresis = <0>;
++					type = "critical";
++				};
++			};
++
++			cooling-maps {
++				map0 {
++					trip = <&gpu_alert>;
++					cooling-device =
++						<&gpu THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
++				};
++			};
++		};
++
++		npu_thermal: npu-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tsadc 4>;
++
++			trips {
++				npu_crit: npu-crit {
++					temperature = <115000>;
++					hysteresis = <0>;
++					type = "critical";
++				};
++			};
++		};
++
++		ddr_thermal: ddr-thermal {
++			polling-delay-passive = <0>;
++			polling-delay = <0>;
++			thermal-sensors = <&tsadc 5>;
++
++			trips {
++				ddr_crit: ddr-crit {
++					temperature = <115000>;
++					hysteresis = <0>;
++					type = "critical";
++				};
++			};
++		};
++	};
++
+ 	timer {
+ 		compatible = "arm,armv8-timer";
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+@@ -1718,6 +1862,22 @@ saradc: adc@2ae00000 {
+ 			status = "disabled";
+ 		};
+ 
++		tsadc: tsadc@2ae70000 {
++			compatible = "rockchip,rk3576-tsadc";
++			reg = <0x0 0x2ae70000 0x0 0x400>;
++			interrupts = <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cru CLK_TSADC>, <&cru PCLK_TSADC>;
++			clock-names = "tsadc", "apb_pclk";
++			assigned-clocks = <&cru CLK_TSADC>;
++			assigned-clock-rates = <2000000>;
++			resets = <&cru SRST_P_TSADC>, <&cru SRST_TSADC>;
++			reset-names = "tsadc-apb", "tsadc";
++			#thermal-sensor-cells = <1>;
++			rockchip,hw-tshut-temp = <120000>;
++			rockchip,hw-tshut-mode = <0>; /* tshut mode 0:CRU 1:GPIO */
++			rockchip,hw-tshut-polarity = <0>; /* tshut polarity 0:LOW 1:HIGH */
++		};
++
+ 		i2c9: i2c@2ae80000 {
+ 			compatible = "rockchip,rk3576-i2c", "rockchip,rk3399-i2c";
+ 			reg = <0x0 0x2ae80000 0x0 0x1000>;
 
 -- 
 2.48.1
