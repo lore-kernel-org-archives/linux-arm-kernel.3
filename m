@@ -4,123 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 337D9C19776
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 07:40:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B479CC19776
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 07:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fB1uu5Zm/JdUcvGbMy3KqsovvuV6bSi/1lbv+zVs20Q=; b=kOJB0DT5j6CJI1Koip40Uc6D53
-	Gf2KRBK/4xhfZEw+y8BW6fmPMm5dWP2ctRbjeE/hykt0cItXB35TvbGbKmJtgdS6c2aLCH4wlmfZq
-	D85f0yeGtiICBX6P5JdREhsvXn4wDDka31qMoi3pgp6F4xaJhuD/4z2g+KsVFEpX4smf4OvbgAbzt
-	LO6lAXudddhk16IXLUyNvgjnLbi3myKk+E1+ovTbniCIZMcn0uTs9I58PoJonrpcF8gzHjbr4jjrO
-	nQ/oUGE6cKvQ9rn1x9nPvU1LnmJLsVCOWiYLz52HgJ3XbPpDs/poWV84JleSXkDFWwwBTQG1sgHPn
-	UMui8mmA==;
+	bh=B6O06nCues7TjS3vEUr8Hzch/RGBixqkLvbgwaXBhdM=; b=3qYZMjhjlz2bAAcIEmtrJxZPBa
+	opLT7cFaTGKgqCv2wkD2j4hsaw16zVFjyyvQ3Kx+pLewO8767NHKJUPQkIqUjPtP4H0FM1Dgskhpf
+	xMJE2ipt99t7GdyV0skRSiGOZ19HSe5aMXb2cePDpmERv2vwJrTgx+HkS+C+IHfuSv4NN+ptoLr6O
+	quqaa8tKujw2MhSG7/iOVG4NCr+9xLMFnpS3karrC8MblVUQMFf0PqcV6Cxr08E0HLboP2jgtj4nr
+	0uTx+4DpNkurOe5+l40aCQro2TP4D8P72fbwhfXV/mQhzjWEHQ8p9WPKhD4enU9PWaFJiRgH7HRdU
+	3ev1qsjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnuz5-0000000A20A-2iCh;
-	Fri, 28 Feb 2025 07:40:35 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1tnv4w-0000000A2Pd-2T4F;
+	Fri, 28 Feb 2025 07:46:38 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnuxW-0000000A1sj-0sdN
+	id 1tnv3M-0000000A2BM-41HH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 07:39:00 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250228073853euoutp0198218e5e5f7c651093fb6ee75bfda105~oTzJbOkmJ1968619686euoutp01F
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 07:38:53 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250228073853euoutp0198218e5e5f7c651093fb6ee75bfda105~oTzJbOkmJ1968619686euoutp01F
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1740728333;
-	bh=fB1uu5Zm/JdUcvGbMy3KqsovvuV6bSi/1lbv+zVs20Q=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=E4clRksz1SUtlg+e1C0maB9+KnaXKDWsITIMWljPSLwLsF5HLwawlrv9y3qz8CR8A
-	 m1xoRjArPxkwbx5Rq0kSHJQUXMzLVaNS2UOQE0a6Iiof0KmPbofRg3Mh+N1Jy7EZcd
-	 QlaVR+XtV0E7cjL1mggU6pLM5+K2tsv+QxZKxgF8=
-Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
-	20250228073849eucas1p2ea3c0061bc5efce9c318f48e23b0679e~oTzFTULj60716307163eucas1p2m;
-	Fri, 28 Feb 2025 07:38:49 +0000 (GMT)
-Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
-	eusmges1new.samsung.com (EUCPMTA) with SMTP id D0.76.20821.90861C76; Fri, 28
-	Feb 2025 07:38:49 +0000 (GMT)
-Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250228073848eucas1p2c71a5ff2b7b1ec8388ea57bec7bd9b09~oTzEuBMhB3132931329eucas1p21;
-	Fri, 28 Feb 2025 07:38:48 +0000 (GMT)
-Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
-	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250228073848eusmtrp28a1e245fe1fb3aa7b5c93c5051f85326~oTzEtV3u30517905179eusmtrp2W;
-	Fri, 28 Feb 2025 07:38:48 +0000 (GMT)
-X-AuditID: cbfec7f2-b11c470000005155-85-67c168094b8f
-Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
-	eusmgms1.samsung.com (EUCPMTA) with SMTP id BD.9B.19920.80861C76; Fri, 28
-	Feb 2025 07:38:48 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250228073847eusmtip26d0d11427c3f7d3a2a2b24ab1aa31f3d~oTzDOuM0w0250102501eusmtip2j;
-	Fri, 28 Feb 2025 07:38:46 +0000 (GMT)
-Message-ID: <b0a3d6de-34c7-484a-9622-75431248e4eb@samsung.com>
-Date: Fri, 28 Feb 2025 08:38:46 +0100
+	Fri, 28 Feb 2025 07:45:02 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51RL65d4030047;
+	Fri, 28 Feb 2025 07:44:53 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	B6O06nCues7TjS3vEUr8Hzch/RGBixqkLvbgwaXBhdM=; b=QJqtmSocELidA9nF
+	1ETFYpiplNR8b4rlg7TT84Aka2XKbuAf8ziVRm+4gpDtuJZwC0B28bBS9cC3sT73
+	EVFY97ub2LQZTAeT1aKXlQtnpz5PtMUrEOcS8RDG2CaKb/4YRP0wW1Le47f8WnJz
+	mUFXNpwosPcSqHhduQXM3I6ADepLS7Ilp5b9ZF8RLFRp44fJZtZdhFdG5188rZ9p
+	ZgUACHxuCx0++2+IvYgkHzT1FG2/0cSh0mGl8V4kCr3gwH2yKKazE81qozDI/KVf
+	aKZLG0HqQN3jWF1g3eLqWuXy23YnCsMzM6+4vwvyBx9GXtIzCU7cCm4Lok7ZaSZx
+	zl+S5g==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 452ynwsc3f-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 28 Feb 2025 07:44:53 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51S7ipLu002399
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 28 Feb 2025 07:44:51 GMT
+Received: from [10.239.133.114] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 27 Feb
+ 2025 23:44:45 -0800
+Message-ID: <36f63775-cee8-46e0-a5bf-5e44ff0e582e@quicinc.com>
+Date: Fri, 28 Feb 2025 15:44:42 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [Patch v2] media: s5p-mfc: Corrected NV12M/NV21M plane-sizes
-To: Aakarsh Jain <aakarsh.jain@samsung.com>,
-	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: andrzej.hajda@intel.com, mchehab@kernel.org, hverkuil-cisco@xs4all.nl,
-	krzysztof.kozlowski+dt@linaro.org, linux-samsung-soc@vger.kernel.org,
-	gost.dev@samsung.com, aswani.reddy@samsung.com, pankaj.dubey@samsung.com
+Subject: Re: [PATCH 4/5] coresight-tnoc: add node to configure flag type
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+        Suzuki K Poulose
+	<suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark
+	<james.clark@linaro.org>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+CC: <kernel@quicinc.com>, <linux-kernel@vger.kernel.org>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <kernel@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>
+References: <20250221-trace-noc-driver-v1-0-0a23fc643217@quicinc.com>
+ <20250221-trace-noc-driver-v1-4-0a23fc643217@quicinc.com>
+ <d9eff439-27ae-4555-a0c5-21acdf60d321@kernel.org>
 Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20250226102251.9040-1-aakarsh.jain@samsung.com>
+From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+In-Reply-To: <d9eff439-27ae-4555-a0c5-21acdf60d321@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrEKsWRmVeSWpSXmKPExsWy7djP87qcGQfTDXZM5bB4umMmq8X9xZ9Z
-	LA5t3spucfPATiaLizPvslj0vXjIbLHp8TVWi8u75rBZ9GzYymox4/w+Jotlm/4wWSza+oXd
-	gcdj8Z6XTB6bVnWyedy5tofNY/OSeo++LasYPT5vkvM49fUzewB7FJdNSmpOZllqkb5dAlfG
-	nWkbmQq281fcWb2KqYGxjbeLkZNDQsBEYuf5K0xdjFwcQgIrGCXOP57CDOF8YZRYuX8mVOYz
-	o8T+X8uZYVqeXDgEVbWcUWLhqimsEM5HRoljf4+yg1TxCthJrPywkRHEZhFQlXj+pgEqLihx
-	cuYTFhBbVEBe4v6tGWBxYQFPiVc7J4KtExGYwChx/eMpFhCHWeAuo8SsRc9ZQaqYBcQlbj2Z
-	zwRiswkYSnS97WLrYuTg4BSwlVjfwwRRIi+x/e0csPMkBPo5Jd5eeM0GcbeLxMKl95ggbGGJ
-	V8e3sEPYMhL/d85ngmhoZ5RY8Ps+lAN0RsPzW4wQVdYSd879AtvGLKApsX6XPkTYUWLL+pms
-	IGEJAT6JG28FIY7gk5i0bTozRJhXoqNNCKJaTWLW8XVwaw9euMQ8gVFpFlK4zELy5Swk78xC
-	2LuAkWUVo3hqaXFuemqxYV5quV5xYm5xaV66XnJ+7iZGYDI7/e/4px2Mc1991DvEyMTBeIhR
-	goNZSYR3VuyBdCHelMTKqtSi/Pii0pzU4kOM0hwsSuK8i/a3pgsJpCeWpGanphakFsFkmTg4
-	pRqYGtjE2ws+31Tu4TEXO/32b/t2hqfcSkLqifdc36kWVRR1rL2+hS+/4eUx4aLrzhv2nPOd
-	EKFeFD/vtazM5SAPxdaZG8/Jc2/Y78s7v/2VoIpxQUHarzNi17efOc5ya8qr2npv6V+tCaul
-	4k/P7ug0eur5vFvlne9cS8POaQVPS4TenfSfVe59csKxqeen3LVU36JdcDLy80JW9et+TT3a
-	5e+t2hS9Ltm2/PpsFJtRUKTP692sp7h1uvoyRu1JSzkbf13LPbq21rnsWbHeidwfredrpjZF
-	GKo0XRb4cdCueuNZ47ONp7frOJa5PrJmnZhyyOPmhqAXa31Znz2v2PxRtmnaSc89HZPXvcia
-	ncKuxFKckWioxVxUnAgAmXs5TdUDAAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrMIsWRmVeSWpSXmKPExsVy+t/xe7ocGQfTDeZel7d4umMmq8X9xZ9Z
-	LA5t3spucfPATiaLizPvslj0vXjIbLHp8TVWi8u75rBZ9GzYymox4/w+Jotlm/4wWSza+oXd
-	gcdj8Z6XTB6bVnWyedy5tofNY/OSeo++LasYPT5vkvM49fUzewB7lJ5NUX5pSapCRn5xia1S
-	tKGFkZ6hpYWekYmlnqGxeayVkamSvp1NSmpOZllqkb5dgl7GnWkbmQq281fcWb2KqYGxjbeL
-	kZNDQsBE4smFQ8xdjFwcQgJLGSWuX97HDpGQkTg5rYEVwhaW+HOtiw2i6D2jxOmF58ESvAJ2
-	Eis/bGQEsVkEVCWev2lgh4gLSpyc+YQFxBYVkJe4f2sGWFxYwFPi1c6JTCCDRAQmAA16NwOs
-	mVngLqPEv15fiA1Aib2b3rNDJMQlbj2ZzwRiswkYSnS9BTmDg4NTwFZifQ8TRImZRNfWLqg5
-	8hLb385hnsAoNAvJHbOQTJqFpGUWkpYFjCyrGEVSS4tz03OLDfWKE3OLS/PS9ZLzczcxAmN3
-	27Gfm3cwznv1Ue8QIxMH4yFGCQ5mJRHeWbEH0oV4UxIrq1KL8uOLSnNSiw8xmgIDYyKzlGhy
-	PjB55JXEG5oZmBqamFkamFqaGSuJ87pdPp8mJJCeWJKanZpakFoE08fEwSnVwFR39Oa66oB3
-	YiH7Odte7U1SK+4ts3msLrB69f9i/z2fdsbW2R3TfeHRoLA69OCGNH/t/xJxWbHRxXYSPtdF
-	/tzZv+tN5IQyr03r0zMV4o9auu6q4tpz9HH3H/8rv3NOLrLX2f395/QJ9gobJmwO2yRbc72f
-	Z+3HwrwdvJE/7Nmu8gnNuM+lckVv8dLgqDNtKdNjn8TKvS3/dq1l0+Mvou3cR+b6dKwK+n82
-	w+LMpt1Zqw45s3TsLambzL7Gf5di36HbOlLi+kG9/GoVr59EnS2SzFH8u/mvqls9z9qE85JH
-	jKLvxnvxrPdhLPsvljTdwafooPnGi2UfRCYteLWR5Vjn2gM/NihZzz70QWjOVwUlluKMREMt
-	5qLiRABTtNcrZgMAAA==
-X-CMS-MailID: 20250228073848eucas1p2c71a5ff2b7b1ec8388ea57bec7bd9b09
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20250226102749epcas5p35afe43774ad2917b846c921dc593a5ef
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20250226102749epcas5p35afe43774ad2917b846c921dc593a5ef
-References: <CGME20250226102749epcas5p35afe43774ad2917b846c921dc593a5ef@epcas5p3.samsung.com>
-	<20250226102251.9040-1-aakarsh.jain@samsung.com>
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: 8kWV_iwHsAArISmsCcAxWvAsf4HTuX20
+X-Proofpoint-GUID: 8kWV_iwHsAArISmsCcAxWvAsf4HTuX20
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-28_01,2025-02-27_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 spamscore=0
+ suspectscore=0 lowpriorityscore=0 priorityscore=1501 clxscore=1015
+ malwarescore=0 impostorscore=0 mlxscore=0 bulkscore=0 adultscore=0
+ mlxlogscore=822 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2502100000 definitions=main-2502280054
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_233858_517759_D24ABF7D 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20250227_234501_122939_22C5A982 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,46 +112,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26.02.2025 11:22, Aakarsh Jain wrote:
-> There is a possibility of getting page fault if the overall
-> buffer size is not aligned to 256bytes. Since MFC does read
-> operation only and it won't corrupt the data values even if
-> it reads the extra bytes.
-> Corrected luma and chroma plane sizes for V4L2_PIX_FMT_NV12M
-> and V4L2_PIX_FMT_NV21M pixel format.
->
-> Suggested-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
-> Signed-off-by: Aakarsh Jain <aakarsh.jain@samsung.com>
-Acked-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> ---
-> changelog:
-> v1->v2
-> Patch link: https://patchwork.kernel.org/project/linux-media/patch/20240806115714.29828-1-aakarsh.jain@samsung.com/
-> Removed duplicate code and aligned luma and chroma size
-> to multiple of 256bytes as suggested by Hans.
->   drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c | 5 +++--
->   1 file changed, 3 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c
-> index 73f7af674c01..0c636090d723 100644
-> --- a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c
-> +++ b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c
-> @@ -549,8 +549,9 @@ static void s5p_mfc_enc_calc_src_size_v6(struct s5p_mfc_ctx *ctx)
->   		case V4L2_PIX_FMT_NV21M:
->   			ctx->stride[0] = ALIGN(ctx->img_width, S5P_FIMV_NV12M_HALIGN_V6);
->   			ctx->stride[1] = ALIGN(ctx->img_width, S5P_FIMV_NV12M_HALIGN_V6);
-> -			ctx->luma_size = ctx->stride[0] * ALIGN(ctx->img_height, 16);
-> -			ctx->chroma_size =  ctx->stride[0] * ALIGN(ctx->img_height / 2, 16);
-> +			ctx->luma_size = ALIGN(ctx->stride[0] * ALIGN(ctx->img_height, 16), 256);
-> +			ctx->chroma_size = ALIGN(ctx->stride[0] * ALIGN(ctx->img_height / 2, 16),
-> +					256);
->   			break;
->   		case V4L2_PIX_FMT_YUV420M:
->   		case V4L2_PIX_FMT_YVU420M:
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+
+On 2/22/2025 6:55 PM, Krzysztof Kozlowski wrote:
+> On 21/02/2025 08:40, Yuanfang Zhang wrote:
+>> +
+>> +static ssize_t flag_type_show(struct device *dev,
+>> +			      struct device_attribute *attr,
+>> +			      char *buf)
+>> +{
+>> +	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +
+>> +	return sysfs_emit(buf, "%u\n", drvdata->flag_type);
+>> +}
+>> +static DEVICE_ATTR_RW(flag_type);
+>> +
+>>  static struct attribute *trace_noc_attrs[] = {
+>>  	&dev_attr_flush_req.attr,
+>>  	&dev_attr_flush_status.attr,
+>> +	&dev_attr_flag_type.attr,
+> 
+> Where is the ABI documentation?
+will update in V3.
+> 
+> Best regards,
+> Krzysztof
 
 
