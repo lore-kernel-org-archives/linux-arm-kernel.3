@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B820C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 21:56:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70E73C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 21:58:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BdFnhhzQEC3jcbLOShIpWKd9ImN69zhVCCxS6xvU9/c=; b=gj8ypYb/4GiW2QLTu0TMvyDhdi
-	DSd5L2qQ+0dMDcGj4SK8+e98jjvmmPh1ICeOXOV87KTrJ+SI5s2o+Jgb5nZpZbicGCJJizJoECF98
-	gGnKytAa4EWbrcCoH1NkOQkBhsoRRkzQhRrJUmxZTSE3yRv0hB5HnjbLUFe5swKd2fqx1JVcuHcVP
-	psfg+SUqUC9Qh+esiCa5UCPSSlJSbjruajlqpvag6LLkgq1iBzsxWEbOUC852h/79HoOvYOvEx9Lc
-	yU8IArZrbwOo1fmmkSM0JTKWcOLgujAcd5ZnVcdotahHzN+B3+QFeyFd+1nk3+fV8xVo78v3n/HY0
-	z4UvK3hQ==;
+	bh=vQhsG9cL8t6XLRwybgTrsHxaRynMsLOxVdLp6vkX61M=; b=0i8/we01NVjTArFtxaY2NGfCq0
+	D66n71gl+738ystCVGyQ5sVIfQxpl2UZV04wD5QGe388rIOOf/PIu/IwvpCJ5mNB996uYM+JWv9qe
+	OuGaNuMUonLwF/gDayqdyAtPZG5UGGgFv9+Fj9GNMphBV04cSQL89PbRd3a636ptddc95IGziv5W/
+	mXgbq3o1AqNbf3ft/jx6RBiW0UyqCdSG9Bt1Hf4Nmvm4HPTNnfnAX5H3B3padmGGGV7Cn6igdfkVU
+	KNvc5K2Yt3x7M4m0rL+fVkdNZEAtN+a4U4UYl2bVHu4m5sWpJy0I8PQhZLZnOY+2pdBj8lmtFIvTU
+	u5x3RYPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to8LG-0000000Cmwi-0Bvv;
-	Fri, 28 Feb 2025 21:56:22 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1to8Mm-0000000CnF9-40YQ;
+	Fri, 28 Feb 2025 21:57:56 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to8Dm-0000000Cln8-3r60;
-	Fri, 28 Feb 2025 21:48:40 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5e4c0c12bccso4576480a12.1;
-        Fri, 28 Feb 2025 13:48:38 -0800 (PST)
+	id 1to8EN-0000000Clwv-0xFN;
+	Fri, 28 Feb 2025 21:49:16 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-ab744d5e567so441288666b.1;
+        Fri, 28 Feb 2025 13:49:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740779317; x=1741384117; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1740779354; x=1741384154; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :references:cc:to:from:subject:user-agent:mime-version:date
          :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=BdFnhhzQEC3jcbLOShIpWKd9ImN69zhVCCxS6xvU9/c=;
-        b=m8byDSV8Q4dRVgvP79zOViwPCsuYRwzLsIgJXkduRNnLFMk5lXbv5Z2+n4/ixpuHMn
-         TVNBYJJ+XtNpnvLkRnuhcUyvLE841tKquo/sx2ppJwMs6TN84LXNuJMOQ4floH5asaEm
-         wsHh2QtFKwyyMfAELJHeWWoW3mGw85wZnXSgNWTRZOM7HhXIwDUtSm27meR2DV21hzi1
-         gEXEFo04Jef2acCgDwn43xO19EKo+krdriE0HMDhcyBlRcf8T1vOLTVg31eUOeAh/FXx
-         B2y+Xl6ZBP2HLPWJWT+xx+WgDgL6BVIw/Oj6c48r5TbC4vffndbKg4AQS/d2BQ9VuSlK
-         zstA==
+        bh=vQhsG9cL8t6XLRwybgTrsHxaRynMsLOxVdLp6vkX61M=;
+        b=UzNL6vdfNaG5S6D/SaUYYWrez6ia1HJ/1FSypWco2WnkCeJJOHgCIcNI/orw25HJcB
+         N/KetALw2stmJgwbVA7l4BpVLAu4HO5PIuNUTQ6VGaiqSOM8igjz31cAEETmtREdzlTe
+         ECBrlyjV5feTMWTQ8rA4SxMZr8X7k6Xed6V8J8Ai5TemopG34MAG1Z9x4VDeRtOT2Bq2
+         Rs/fKBUMEmR7RMuqsU1ekVqvjCHWMZdh84TWiDDrswqyoFZG2IkkgabpMz28XHI/7O+D
+         ZLKtDtMh1bUBprCoHPvRfSoQzzsr2aszzWtiLzx09QP3fwZLz8GD/ZwOkvD7A7AmlWM6
+         k5+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740779317; x=1741384117;
+        d=1e100.net; s=20230601; t=1740779354; x=1741384154;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :references:cc:to:from:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=BdFnhhzQEC3jcbLOShIpWKd9ImN69zhVCCxS6xvU9/c=;
-        b=uNoWgHu7ED+cmd4xgJRygIbVRWai1tq6ASFu19+k6z0CZwpckp10mKH2rqwdOPucb2
-         B+HWS9jMB7k0Slyc/FQjhYzap04Lv5cO9qekk1fX3gY8iHH/70JeHKaQFOpcXmCxZayM
-         zpxSWwf3asxrHqZr5+TkA5ul/+NM0HZeGIbGoIfA+O0ZQOWfSwKhBDzwBeZn5u+fK82G
-         QzQyw7MQk4lrdJ/JPk0rB2VHvET0LnpSpyPSSz1O+Sfj0q9QU1Zn4S2n1EHfy9TB4tU9
-         ILvsddr/HgJfPAMD37aj/9DuY8AuhrcXeJRZ+oESLd2R8tF9MAqdwwTok4qeCbajd9QM
-         QSmw==
-X-Forwarded-Encrypted: i=1; AJvYcCUgwEmCpK1WcUd2H3TC13Gf68YdVy7XLr56XUj0q1A2Y7871ZozibI207h0o2qpxSYT/8Lwez6Arb3Rn2jHM9cZ@lists.infradead.org, AJvYcCX+WQOmIB4IDecckCWmr3kR1XNpBHc927QV5w/SKKIsrFfG2pkh0eNAi7LFi87xAW8rbP/t8qmAlEt/3HO65OE=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRg7usLsAyuB8QdQSuNNROn4X4hLhgr9eXNtVwXT2WwYvWzajO
-	wVe9CYo9rQ0dxTHmgy1me8Hnxn2Uz/IXhcI1Caow+BmnBvyZRELz
-X-Gm-Gg: ASbGncsDP/dPAzNI9PWul09JnQJg10T2KmK359U7AEfDHBeQQit7WxLXsJyTeMwmkcg
-	QMocjo8xK5K1eOsDE0w4sl586q55K7/JfB10G+blD5GVOjTc9HNPtQ1n+Xore7eJmP2oiH54u1V
-	w3A3C03AghF6ym9d1+SmWSPuE3nkLyiPIqiW6Zpp6axI6BgyAesyS/J8SmsOcrvGrufnLoGjz//
-	+eh2v4qA1FVLJ25MUHALU8FJ4gHi2jfPtrAIg6hykoYprC8heOROVqrS9NQyVNt86FFW4wj8GJb
-	nf5Un1U6WUhDTFhcTolv1pCxEGREdm5j82KcHxsnm7wr07ReBOIGHCU/BPZchlsrJkGLd25l7dX
-	/9bA9IuCSApS/UI8uXCcjHpBBppSiJX2aBuPb4y3/GKnHi+LslId15wcWbbtPWE7K46VOMmvtiC
-	rNydmSmJ0iHSvR7TK7rA==
-X-Google-Smtp-Source: AGHT+IGuc7T5ZPUaJlrjeMMzg7I4sdxgXUWWoxuE3TuzE3PG9L1NUSegwaSuEsT0oIrc2J6ogPxZTA==
-X-Received: by 2002:a17:906:c108:b0:abb:eec3:394b with SMTP id a640c23a62f3a-abf26822d5fmr478801666b.46.1740779317355;
-        Fri, 28 Feb 2025 13:48:37 -0800 (PST)
+        bh=vQhsG9cL8t6XLRwybgTrsHxaRynMsLOxVdLp6vkX61M=;
+        b=bISvGHle8pCi88uWDTcru82jnHcr8uT+MZ9ubozLndas2Aa2vZpYd4WGczBP+irvhT
+         PccI+YI61jZntCoOKJUycu+X5jOYgk67jrN/8vu0Cnwbl3LPkE2au+bDMmcNG1pjoZ+T
+         Bfcf1nsnKFQbWnbrsuT+w610wAKcNu9JspUR8BNwt6KIaDn2Kr0aLMaU1MVjacggYiEz
+         LAUbDkMC4rh+76C8dD9azFM1LUxBy1A7xBv1XgYAuFGF9hPEOhyiDjI+2R9Ua/Pl/rZs
+         myxallx3NAiV2/lWuqVuwADouhRovBG3zUFpU7KdHxAtuyAbWkM/FmRgZWk8nkrabmNr
+         d1rw==
+X-Forwarded-Encrypted: i=1; AJvYcCVcTgSjun2GzH1vihg4bLTY4KCfTjhUoxFPaquua0V4JSZbjx20JL+x/xRHdMhVYtHvejSxG6fgoF6McTzM8e3S@lists.infradead.org, AJvYcCW6jlGfAMrDkuDtEAUDjrqa3IEN0t7JN9rBKQrnSfR6mxys6QnSci6xfeoFD3J5z4x7kEXccl+w5kONySvMWVo=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZWNXf2kNegJZy/Z8+B8YyGEfqLLkT1Kj2EhD8H/fNoEDcsBLQ
+	MjQWbbuxpD0orcKaX/ikh6nhLE5lpuuSvRkdMCw57aK7/g814anE
+X-Gm-Gg: ASbGncusOC357cFQ7GQCjeQ9dihGsxLV+5vUkjcR/kAwh8w2VHw6Z6eggBb4wjK2P6Z
+	pmcfahHK9k4SmVqSUU/amPhxbbyBdiynzIa+Bz2Sf+E8XysyueJ1udbxxwTTHZy7L237Cxah+Pa
+	IjcczoQOUm+1q9p7sCenruQkLdDJbKc4mkITlZOec6BtKI++Yi1fVt2z3D76mCCgMJazJW9vu9U
+	R+I3WqNOYlfUDLxomgWFAY+LtpDd+veFMs2/BbJT0VjDPVximTHJYmmhRd/zblNIs6iwQRuQUzz
+	FehPX4au8Q4X2EpteyxQ+I8TK66MNcXj+0RL8qLle2Gy7/Yqvgk3CoQjlipUWYF8Tfa9JdKz0Oc
+	iUZjfAFJ+s+yiuHAF+N25FMYXHLPoImILTwj6Ik32ztLcSacg/PfEItW/eNow0sUp9Rs8RTlDNe
+	mfeNkC+Qi+803zPRaopA==
+X-Google-Smtp-Source: AGHT+IHfENdhnDDbvIXUNqMQRcVe5dORm4uQA352jlk3tqJUcuFLr7u/SHH2IJZc279hHWVfavJNVg==
+X-Received: by 2002:a17:907:6d17:b0:ab7:d1d0:1a84 with SMTP id a640c23a62f3a-abf26204a1cmr407627266b.4.1740779353696;
+        Fri, 28 Feb 2025 13:49:13 -0800 (PST)
 Received: from ?IPV6:2a02:3100:af43:5200:e57d:90a4:e6b5:1175? (dynamic-2a02-3100-af43-5200-e57d-90a4-e6b5-1175.310.pool.telefonica.de. [2a02:3100:af43:5200:e57d:90a4:e6b5:1175])
-        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-abf4b7385ebsm42461666b.106.2025.02.28.13.48.36
+        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-abf0c75feffsm348354166b.153.2025.02.28.13.49.12
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 28 Feb 2025 13:48:36 -0800 (PST)
-Message-ID: <0edd6489-ecf8-451b-b175-6d6bbc6b9a1f@gmail.com>
-Date: Fri, 28 Feb 2025 22:49:39 +0100
+        Fri, 28 Feb 2025 13:49:13 -0800 (PST)
+Message-ID: <d45f159c-d37b-47e7-bece-0e58782818e1@gmail.com>
+Date: Fri, 28 Feb 2025 22:50:15 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: [PATCH net-next v2 5/8] net: phy: mediatek: use new
- phy_package_shared getters
+Subject: [PATCH net-next v2 6/8] net: phy: mscc: use new phy_package_shared
+ getters
 From: Heiner Kallweit <hkallweit1@gmail.com>
 To: Andrew Lunn <andrew@lunn.ch>,
  Russell King - ARM Linux <linux@armlinux.org.uk>,
@@ -140,8 +140,8 @@ In-Reply-To: <8b290ccf-ca0c-422f-b853-6fc7af045f99@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_134838_982721_673DB422 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20250228_134915_268667_49B3DDAB 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,48 +160,61 @@ Use the new getters for members of struct phy_package_shared.
 
 Signed-off-by: Heiner Kallweit <hkallweit1@gmail.com>
 ---
- drivers/net/phy/mediatek/mtk-ge-soc.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+ drivers/net/phy/mscc/mscc_ptp.c | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/net/phy/mediatek/mtk-ge-soc.c b/drivers/net/phy/mediatek/mtk-ge-soc.c
-index 9de6fbb45..175cf5239 100644
---- a/drivers/net/phy/mediatek/mtk-ge-soc.c
-+++ b/drivers/net/phy/mediatek/mtk-ge-soc.c
-@@ -8,6 +8,7 @@
- #include <linux/phy.h>
- #include <linux/regmap.h>
+diff --git a/drivers/net/phy/mscc/mscc_ptp.c b/drivers/net/phy/mscc/mscc_ptp.c
+index 738a8822f..ed8fb14a7 100644
+--- a/drivers/net/phy/mscc/mscc_ptp.c
++++ b/drivers/net/phy/mscc/mscc_ptp.c
+@@ -17,6 +17,7 @@
+ #include <linux/udp.h>
+ #include <linux/unaligned.h>
  
 +#include "../phylib.h"
- #include "mtk.h"
+ #include "mscc.h"
+ #include "mscc_ptp.h"
  
- #define MTK_GPHY_ID_MT7981			0x03a29461
-@@ -1278,7 +1279,7 @@ static int mt798x_phy_led_hw_control_set(struct phy_device *phydev, u8 index,
- 
- static bool mt7988_phy_led_get_polarity(struct phy_device *phydev, int led_num)
+@@ -645,11 +646,12 @@ static int __vsc85xx_gettime(struct ptp_clock_info *info, struct timespec64 *ts)
  {
--	struct mtk_socphy_shared *priv = phydev->shared->priv;
-+	struct mtk_socphy_shared *priv = phy_package_get_priv(phydev);
- 	u32 polarities;
+ 	struct vsc85xx_ptp *ptp = container_of(info, struct vsc85xx_ptp, caps);
+ 	struct phy_device *phydev = ptp->phydev;
+-	struct vsc85xx_shared_private *shared =
+-		(struct vsc85xx_shared_private *)phydev->shared->priv;
+ 	struct vsc8531_private *priv = phydev->priv;
++	struct vsc85xx_shared_private *shared;
+ 	u32 val;
  
- 	if (led_num == 0)
-@@ -1317,7 +1318,7 @@ static int mt7988_phy_fix_leds_polarities(struct phy_device *phydev)
- static int mt7988_phy_probe_shared(struct phy_device *phydev)
- {
- 	struct device_node *np = dev_of_node(&phydev->mdio.bus->dev);
--	struct mtk_socphy_shared *shared = phydev->shared->priv;
-+	struct mtk_socphy_shared *shared = phy_package_get_priv(phydev);
- 	struct regmap *regmap;
- 	u32 reg;
- 	int ret;
-@@ -1368,7 +1369,7 @@ static int mt7988_phy_probe(struct phy_device *phydev)
- 			return err;
- 	}
- 
--	shared = phydev->shared->priv;
 +	shared = phy_package_get_priv(phydev);
- 	priv = &shared->priv[phydev->mdio.addr];
++
+ 	val = vsc85xx_ts_read_csr(phydev, PROCESSOR, MSCC_PHY_PTP_LTC_CTRL);
+ 	val |= PTP_LTC_CTRL_SAVE_ENA;
+ 	vsc85xx_ts_write_csr(phydev, PROCESSOR, MSCC_PHY_PTP_LTC_CTRL, val);
+@@ -696,11 +698,12 @@ static int __vsc85xx_settime(struct ptp_clock_info *info,
+ {
+ 	struct vsc85xx_ptp *ptp = container_of(info, struct vsc85xx_ptp, caps);
+ 	struct phy_device *phydev = ptp->phydev;
+-	struct vsc85xx_shared_private *shared =
+-		(struct vsc85xx_shared_private *)phydev->shared->priv;
+ 	struct vsc8531_private *priv = phydev->priv;
++	struct vsc85xx_shared_private *shared;
+ 	u32 val;
  
- 	phydev->priv = priv;
++	shared = phy_package_get_priv(phydev);
++
+ 	vsc85xx_ts_write_csr(phydev, PROCESSOR, MSCC_PHY_PTP_LTC_LOAD_SEC_MSB,
+ 			     PTP_LTC_LOAD_SEC_MSB(ts->tv_sec));
+ 	vsc85xx_ts_write_csr(phydev, PROCESSOR, MSCC_PHY_PTP_LTC_LOAD_SEC_LSB,
+@@ -1580,8 +1583,7 @@ int vsc8584_ptp_probe(struct phy_device *phydev)
+ 
+ int vsc8584_ptp_probe_once(struct phy_device *phydev)
+ {
+-	struct vsc85xx_shared_private *shared =
+-		(struct vsc85xx_shared_private *)phydev->shared->priv;
++	struct vsc85xx_shared_private *shared = phy_package_get_priv(phydev);
+ 
+ 	/* Initialize shared GPIO lock */
+ 	mutex_init(&shared->gpio_lock);
 -- 
 2.48.1
 
