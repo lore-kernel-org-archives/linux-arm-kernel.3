@@ -4,100 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6427C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 19:34:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91FE2C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 19:37:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s8ahLP6tau5z9zFvNaThnA7Wz1kGZZr7teXmDUhSLis=; b=YiAKuQIHJDXdlb2Mwkx+LPyQ5O
-	io449hmwXxX5VD1d0yWRJmjrPVuYREqtsayh1rU5dVjDkj7XqOOHVN5nCC3dgn45JgOdAlThg/UZk
-	fbBZ24RBmlLEWXV8IXa+sy5ufNHaYN/1seL4UptKJ/YcRD+InGOc1aDlQpvSscsjW6g2uaLISlyIQ
-	3QbDgT84XM+8uos1BsKG17mwJrQWcRGdod5TA+1yPsHAEpG12KKdeGAydLPvppj9vLfMOIJLc6wAV
-	Y5JDctjr4j/p4bI59PCsonJTUqJ85bQP5P5HU+C5xEia+0l+uOVUb2SUb9dfvm11a2zAg1BPoaLUu
-	2dHs77Hg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EKGm2ESbhsgblNomRcatYDVkkky7bNLEs5C4D9hxSvo=; b=F/Llw1jLRx8zzJB3JifFreVnmF
+	hs5Ny8C1NlU0d9RGjl9BcmGOKLTOYqav4SNwdEA7MrVHKkYmQE6Ab0TV3xbdmHcJgTgAFm1U4+Eey
+	5Qy9oDDZGeYNEmGWxMLe08cUnDqREVAOZTMqpMfNvOjYin7AWfmWIqIXXL1XOUCurF5kFITV1eLyq
+	nOmiT3Y+D9qxQsRDFhHfBYwWogoLGQ2LgETFF31wWOw6zzZEU7CYCHdBPthJITHlCpMnTn0NslUDf
+	JZ3uB+oza8n0MZ+Aa+9J/jzgDmvKLyjdys7q4rk+8f8mlqZ2iYh0LQ9bpwW4er1PZBhIH1q9eiU8k
+	JaLB/7eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to67U-0000000CN15-0Olo;
-	Fri, 28 Feb 2025 19:34:00 +0000
-Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
+	id 1to6Ak-0000000CNVx-3Yd7;
+	Fri, 28 Feb 2025 19:37:22 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to65w-0000000CMqb-1DLx
+	id 1to69D-0000000CNEU-00it
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 19:32:25 +0000
-Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-7c0ba9825e9so174059585a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 11:32:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1740771143; x=1741375943; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=s8ahLP6tau5z9zFvNaThnA7Wz1kGZZr7teXmDUhSLis=;
-        b=kCI6nH+Fw/gWBs2BHWX5mvziv9IiedSe71xrRFEOjB3l8NLRPK3TzRyxAyyqdeCv5M
-         +JLl6hA+C5DO4DctZ1GzKS+wMHmrXvlfP9XCNQ3AUKBGnjKcLCgQwzZ3yye0VGPtyXyK
-         NiQxF00EZdkQgcxw86JxE/naqWYnlLS4NAcArRVLky1HRaBAvyba34VlBcMZU9XMLeJu
-         AEK42O2HwHpGFnvifINh2nk9ehD99TcCdjVZBECKa66u1TG02lxsuKhzQbsJxYD7IKDw
-         fFS6GLHERYXUx9tYyu+JbxAM8SeRRygcA/vhLdJBzI1gOEIHf2lQcD/qmtyWK6P/F4Mw
-         T8ug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740771143; x=1741375943;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=s8ahLP6tau5z9zFvNaThnA7Wz1kGZZr7teXmDUhSLis=;
-        b=GziTxVTzq65XNgrx8DqgTgNy8Rgu1Z2Pb8fLWw54bBdUuXEnK+Ux5W63cfH5UyRx/A
-         cBWGmXicbLWAg6g4NjRh3zLoTh9YLxY29cL1cmwuY6jkvchhonmRdmpIqhl/zFCxbSEz
-         aKxKmPm4QoyGxJ3u4bvOYHHMbF3CH4sVr35zk3HssArk3vWTYfzy3UzEPThri01HDNRN
-         cZ7gOG9hmO6BXMHAwosX6Nj9Lp9giI7QLdxplG6z0o/0crOdxVj0tUWBbrOQswA+H/s0
-         cNeypeSRTYiJ3oUQt7IR7EgRt7+sX4whZa1U907Ohb5zS1fYKQzDPdLgc/Lyxbaeuz1Y
-         lreg==
-X-Forwarded-Encrypted: i=1; AJvYcCX2buWcWTjyKdiu6f6ELojUx7AEvaoyiC8RAbWkErteB9ysZQ/RYUVdbMVoVJKFWykZVU2On/Xm97E0MgLN+p3S@lists.infradead.org
-X-Gm-Message-State: AOJu0YxuuMayEL/FAz94qZwthtvcG630abFIMLrjtZYC3TT+nuD692wt
-	THQzi/OU5x28DDgn4VbAd3l7zE4XWQd/T5xTwQS2vs0E0GQmP2M6V8ZpcjF+3TE=
-X-Gm-Gg: ASbGnctGw9IoVVXL4H+MvkpHUYL+O//7Lt5N4fX0yxwL2mAsamtrMNWDPT+IsBqdWhw
-	TLCe3yCwsFw4tnSPj2w1q8pc2jzrmJxWbt+rHzFOJ1U1ZnkpMHPghX+fKY4B6Fl/Au/u4XU7PoK
-	lHCFcMsyFlyXeLWdou3z+H1lkVtApY/F8O641Bv+0cASujVIp/OuHQzO4XZrUGLe1E3i2L2siGb
-	vLvUd5iQNn99gM+yrJILhccwX5bt0SVXs7QbWrSBTzvyzD81BEtXojLaE6/PCXaYqoEYzhExlS3
-	40+4a1ltc+ZjI2N5sPImcAHPiHDrZExgcGvTW+dy4fWcHR9XwMZy+g8lqD3dR+Fc7CJJr22Y3UI
-	=
-X-Google-Smtp-Source: AGHT+IGfp/qlV0bFdQ4UlFF5bJNQ0s1CsbH7fJWc4GjD61AnOXb+ucW0858X/QRyI+8xsu26VjRTjg==
-X-Received: by 2002:a05:620a:668d:b0:7c3:9d4c:8193 with SMTP id af79cd13be357-7c39d4c81bfmr429574885a.5.1740771142740;
-        Fri, 28 Feb 2025 11:32:22 -0800 (PST)
-Received: from ziepe.ca (hlfxns017vw-142-68-128-5.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.128.5])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6e8976da283sm25082546d6.111.2025.02.28.11.32.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Feb 2025 11:32:22 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1to65t-00000000Th1-2Pej;
-	Fri, 28 Feb 2025 15:32:21 -0400
-Date: Fri, 28 Feb 2025 15:32:21 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>,
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-Cc: ryan.roberts@arm.com, suzuki.poulose@arm.com,
-	yang@os.amperecomputing.com, catalin.marinas@arm.com,
-	will@kernel.org, joro@8bytes.org, jean-philippe@linaro.org,
-	mark.rutland@arm.com, joey.gouly@arm.com, oliver.upton@linux.dev,
-	james.morse@arm.com, broonie@kernel.org, maz@kernel.org,
-	david@redhat.com, akpm@linux-foundation.org, nicolinc@nvidia.com,
-	mshavit@google.com, jsnitsel@redhat.com, smostafa@google.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev
-Subject: Re: [PATCH v2 4/4] iommu/arm: Add BBM Level 2 smmu feature
-Message-ID: <20250228193221.GM5011@ziepe.ca>
-References: <20250228182403.6269-2-miko.lenczewski@arm.com>
- <20250228182403.6269-6-miko.lenczewski@arm.com>
+	Fri, 28 Feb 2025 19:35:48 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id D248325E67;
+	Fri, 28 Feb 2025 20:35:43 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id Th-yGmHraEZK; Fri, 28 Feb 2025 20:35:43 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1740771343; bh=BeszhtQQ7PFRGkbfedM7GhE2NFsytj/yeq40sd83H64=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=BKWef5RcSg+e8EYHkT8o6EWqs/WurAw3cKOuilf9oleGaygFR+5f2PGste1YyJDpg
+	 yZKx4ZuXBtisqKbYaw7PgpzkuHoMTFSnmoC2k4Dz0XemVrkYkhXBQW/N2YzZ1TkOFZ
+	 4/aU9aVxd7lIuPFzt2hZKvgynthSw6vTS2TDt91F86uJPPt/t2sQ1BmNHrhAunErSE
+	 4z86rM/Dcx9BYTwPMioOOj9TcFoLBiKOMJb0WnAmyccXRWNJmCWxk/Y6QW9I5tNC2H
+	 BfM6buSHZVDbbwpFvV+Q/LX7vGXcBAqSs1bjIGYB5lkRWvU6sZLOdr7Nd3ZYHVjxUL
+	 k2souvkSe769w==
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+Date: Sat, 01 Mar 2025 01:05:17 +0530
+Subject: [PATCH v3 1/3] dt-bindings: pinctrl: samsung: add
+ exynos7870-pinctrl compatible
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250228182403.6269-6-miko.lenczewski@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250301-exynos7870-pinctrl-v3-1-ba1da9d3cd2f@disroot.org>
+References: <20250301-exynos7870-pinctrl-v3-0-ba1da9d3cd2f@disroot.org>
+In-Reply-To: <20250301-exynos7870-pinctrl-v3-0-ba1da9d3cd2f@disroot.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Tomasz Figa <tomasz.figa@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Kaustabh Chakraborty <kauschluss@disroot.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1740771331; l=955;
+ i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
+ bh=BeszhtQQ7PFRGkbfedM7GhE2NFsytj/yeq40sd83H64=;
+ b=p3GEkUgn6LemQaHjNvwSFfcwE3hUGBBcxEiADrw1aIsCJw1HlJbbnUCEFsNOmzXMozlYL2t1T
+ Op3GqwKHoWRAVpCTK9yeigYmwW74gdQtqaPmWvaNlp//WA3v+VWgL66
+X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
+ pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_113224_452520_B4E7CC23 
-X-CRM114-Status: GOOD (  16.35  )
+X-CRM114-CacheID: sfid-20250228_113547_174472_13DD7640 
+X-CRM114-Status: UNSURE (   7.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,36 +86,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 28, 2025 at 06:24:04PM +0000, Mikołaj Lenczewski wrote:
-> For supporting BBM Level 2 for userspace mappings, we want to ensure
-> that the smmu also supports its own version of BBM Level 2. Luckily, the
-> smmu spec (IHI 0070G 3.21.1.3) is stricter than the aarch64 spec (DDI
-> 0487K.a D8.16.2), so already guarantees that no aborts are raised when
-> BBM level 2 is claimed.
-> 
-> Add the feature and testing for it under arm_smmu_sva_supported().
-> 
-> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
-> ---
->  arch/arm64/kernel/cpufeature.c                  | 7 +++----
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 3 +++
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c     | 3 +++
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     | 4 ++++
->  4 files changed, 13 insertions(+), 4 deletions(-)
+Document a dedicated compatible string for Exynos7870's pin controllers,
+having 8 GPIO pin banks.
 
-This patch looks good, for what it does. However for bisection safety
-it should be earlier, before the patches that change the page table
-algorithms to be unsafe for the SMMU.
+Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+---
+ Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-However, I've heard people talking about shipping chips that have CPUs
-with BBML2 but SMMUs without.
+diff --git a/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml
+index c3b82da0c4671aaa411540b13d861f4c4a9b81bc..de846085614166087ef9046cf5d154fb9dad8309 100644
+--- a/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml
+@@ -52,6 +52,7 @@ properties:
+       - samsung,exynos5420-pinctrl
+       - samsung,exynos5433-pinctrl
+       - samsung,exynos7-pinctrl
++      - samsung,exynos7870-pinctrl
+       - samsung,exynos7885-pinctrl
+       - samsung,exynos850-pinctrl
+       - samsung,exynos8895-pinctrl
 
-On such a system it seems like your series would break previously
-working SVA support because this patch will end up disabling it?
+-- 
+2.48.1
 
-Though I see your MIDR_REV list is limited, so perhaps that worry
-doesn't effect any real chips made with those families? I am trying to
-check some NVIDIA products against this list..
-
-Jason
 
