@@ -4,72 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9FE6C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 00:53:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3932CC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 01:20:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TedvLHMPHE8XHCBytj3ubvZb/vERcp/qqIqNRTK3pBY=; b=Oj7EX/BT2lM9586p6BaQo8NsTn
-	Ex7tcw3L5MoRP6VlfuFg5rcEOeWBzKp0rdRYcv4cVa8pt45YB0JCRCPyCH0KsLF/go3FIuVwPB22X
-	brdr68WTT8uPJTC54OaFIsh+ogeQ4Bplnf+4ETsYxD4fCIWzx54zbL7hneZFj3ExwN6tTURhzf0z8
-	x92uZdSUljCDqskWhO8rvj7tjFQVKnGcM4bqZPCChNU0nyRPBJCKNKp1a5//OEo3tdlj2kb1XLx2s
-	ueO5h2IBqHXi9by0sYeZNZFm0/jLvsvrvgrbSZRiWWC+8TtInL8CeHuQY1AGWd4EYEBRA/Qj90jp7
-	57INn2RA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TqwDG9UH3rob70SESaiLXw5aIga92vca0kZfxMsPGkM=; b=gx99kuLxeFNv/zI9EIbgavgsM+
+	sMDcP8CRtPFBiarUVgu8Y49wpuAzJ0l+734+udYqROXYIyhXMO2Zt90g1tSeG0+4BJ2KtadEGXQtT
+	sXjJtY76L+AyEhyqMvEeTwPt9kYhijQB0Uepq0PZv8q6Gakf/XEi9vLuooIpivrU+kt2A5QpSYrvt
+	xCJOHqFGO7h+S8IiKhe89V7mAKOmQk/DRJbjdkTQZNHXT4XQ79D4lv7yGxvdg+lnvV9QK4U/i7QC4
+	S+JVRIefRcohHn0mv3r3wi/Elwl8Pu9U/X3xBXS6dHSnNtYTtwGAKLwaI8KDibPZHP3eUnd3SXpf2
+	PjksT7LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnodF-00000009KIk-1pJA;
-	Fri, 28 Feb 2025 00:53:37 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnobg-00000009KAF-3CAp
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 00:52:02 +0000
-Received: from [192.168.35.166] (c-24-22-154-137.hsd1.wa.comcast.net [24.22.154.137])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 6B86E210EAC2;
-	Thu, 27 Feb 2025 16:51:58 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 6B86E210EAC2
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1740703919;
-	bh=TedvLHMPHE8XHCBytj3ubvZb/vERcp/qqIqNRTK3pBY=;
-	h=Date:Cc:Subject:To:References:From:In-Reply-To:From;
-	b=jzqkDSozW6Jc8P6g7f0kthOLKs0gswB3Y5Tx5xcZDSXOfrJhVx8CoEaBJdNmbG3dY
-	 5xAXJvEkgzR3GR/RlflR8KKFl4JTy1ZGMIDJ8r9FVmGz/hgGHF4p57cEn8+SCSlTlN
-	 8x0I4yt8Rbulty4/1wm7Uf8Xgi9mB3P+Hc7Vx8ZI=
-Message-ID: <dca8eb13-e994-482f-a818-5eaa638bd605@linux.microsoft.com>
-Date: Thu, 27 Feb 2025 16:51:57 -0800
+	id 1tnp3X-00000009NLd-3NO3;
+	Fri, 28 Feb 2025 01:20:47 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnp1y-00000009Mv0-2imv;
+	Fri, 28 Feb 2025 01:19:12 +0000
+X-UUID: 02106408f57211efa1e849db4cc18d44-20250227
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=TqwDG9UH3rob70SESaiLXw5aIga92vca0kZfxMsPGkM=;
+	b=jFf2Q3YvqIj/pdnKeV0jSihV0CyNb59QbfVYgoVglGMwVNvNTLXtpkLcF3K7ShxsSstMLqR+yr876kLf0H7gRjtkAQoWiU1e4LpqXoF3anJiWr8Myz3r+eu7Wz5iCMmxMC+row8ykH3P72Hr+t6zmcl0XI2ff9Z4z7A7F0SpwDE=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.46,REQID:f2ca665e-ce75-4e23-8281-4b6095d02003,IP:0,U
+	RL:25,TC:0,Content:-5,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACT
+	ION:release,TS:-5
+X-CID-META: VersionHash:60aa074,CLOUDID:c58f5929-e0f8-414e-b8c3-b75c08217be8,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:1|
+	19,IP:nil,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA
+	:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
+X-UUID: 02106408f57211efa1e849db4cc18d44-20250227
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
+	(envelope-from <ot_cathy.xu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1540082572; Thu, 27 Feb 2025 18:19:08 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.28; Fri, 28 Feb 2025 09:19:05 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.28 via Frontend Transport; Fri, 28 Feb 2025 09:19:04 +0800
+From: Cathy Xu <ot_cathy.xu@mediatek.com>
+To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@kernel.org>
+CC: <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, Yong Mao <yong.mao@mediatek.com>, Axe
+ Yang <axe.yang@mediatek.com>, Wenbin Mei <wenbin.mei@mediatek.com>, Lei Xue
+	<lei.xue@mediatek.com>, Cathy Xu <ot_cathy.xu@mediatek.com>, Guodong Liu
+	<guodong.liu@mediatek.com>
+Subject: [PATCH v4 1/3] dt-bindings: pinctrl: mediatek: Add support for mt8196
+Date: Fri, 28 Feb 2025 09:16:25 +0800
+Message-ID: <20250228011702.16493-2-ot_cathy.xu@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20250228011702.16493-1-ot_cathy.xu@mediatek.com>
+References: <20250228011702.16493-1-ot_cathy.xu@mediatek.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: linux-hyperv@vger.kernel.org, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org,
- eahariha@linux.microsoft.com, kys@microsoft.com, haiyangz@microsoft.com,
- wei.liu@kernel.org, mhklinux@outlook.com, decui@microsoft.com,
- catalin.marinas@arm.com, will@kernel.org, tglx@linutronix.de,
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com,
- daniel.lezcano@linaro.org, joro@8bytes.org, robin.murphy@arm.com,
- arnd@arndb.de, jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
- skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com,
- ssengar@linux.microsoft.com, apais@linux.microsoft.com,
- Tianyu.Lan@microsoft.com, stanislav.kinsburskiy@gmail.com,
- gregkh@linuxfoundation.org, vkuznets@redhat.com, prapal@linux.microsoft.com,
- muislam@microsoft.com, anrayabh@linux.microsoft.com, rafael@kernel.org,
- lenb@kernel.org, corbet@lwn.net
-Subject: Re: [PATCH v5 06/10] Drivers/hv: Export some functions for use by
- root partition module
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740611284-27506-7-git-send-email-nunodasneves@linux.microsoft.com>
-From: Easwar Hariharan <eahariha@linux.microsoft.com>
-Content-Language: en-US
-In-Reply-To: <1740611284-27506-7-git-send-email-nunodasneves@linux.microsoft.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_165200_895711_9B348294 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20250227_171910_692587_8744F7DE 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,80 +90,263 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/26/2025 3:08 PM, Nuno Das Neves wrote:
-> get_hypervisor_version, hv_call_deposit_pages, hv_call_create_vp,
-> hv_call_deposit_pages, and hv_call_create_vp are all needed in module
-> with CONFIG_MSHV_ROOT=m.
-> 
+Add the new binding document for pinctrl on MediaTek mt8196.
 
-Nit: It's generally good practice to use parentheses when mentioning functions, i.e.
-hv_get_hypervisor_version(), hv_call_deposit_pages() etc
+Signed-off-by: Guodong Liu <guodong.liu@mediatek.com>
+Signed-off-by: Cathy Xu <ot_cathy.xu@mediatek.com>
+---
+ .../pinctrl/mediatek,mt8196-pinctrl.yaml      | 241 ++++++++++++++++++
+ 1 file changed, 241 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/mediatek,mt8196-pinctrl.yaml
 
-Otherwise, looks good to me.
-
-Reviewed-by: Easwar Hariharan <eahariha@linux.microsoft.com>
-
-> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-> ---
->  arch/arm64/hyperv/mshyperv.c   | 1 +
->  arch/x86/kernel/cpu/mshyperv.c | 1 +
->  drivers/hv/hv_common.c         | 1 +
->  drivers/hv/hv_proc.c           | 3 ++-
->  4 files changed, 5 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
-> index 2265ea5ce5ad..4e27cc29c79e 100644
-> --- a/arch/arm64/hyperv/mshyperv.c
-> +++ b/arch/arm64/hyperv/mshyperv.c
-> @@ -26,6 +26,7 @@ int hv_get_hypervisor_version(union hv_hypervisor_version_info *info)
->  
->  	return 0;
->  }
-> +EXPORT_SYMBOL_GPL(hv_get_hypervisor_version);
->  
->  static int __init hyperv_init(void)
->  {
-> diff --git a/arch/x86/kernel/cpu/mshyperv.c b/arch/x86/kernel/cpu/mshyperv.c
-> index 2c29dfd6de19..0116d0e96ef9 100644
-> --- a/arch/x86/kernel/cpu/mshyperv.c
-> +++ b/arch/x86/kernel/cpu/mshyperv.c
-> @@ -420,6 +420,7 @@ int hv_get_hypervisor_version(union hv_hypervisor_version_info *info)
->  
->  	return 0;
->  }
-> +EXPORT_SYMBOL_GPL(hv_get_hypervisor_version);
->  
->  static void __init ms_hyperv_init_platform(void)
->  {
-> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
-> index ce20818688fe..252fd66ad4db 100644
-> --- a/drivers/hv/hv_common.c
-> +++ b/drivers/hv/hv_common.c
-> @@ -717,6 +717,7 @@ int hv_result_to_errno(u64 status)
->  	}
->  	return -EIO;
->  }
-> +EXPORT_SYMBOL_GPL(hv_result_to_errno);
->  
->  void hv_identify_partition_type(void)
->  {
-> diff --git a/drivers/hv/hv_proc.c b/drivers/hv/hv_proc.c
-> index 8fc30f509fa7..20c8cee81e2b 100644
-> --- a/drivers/hv/hv_proc.c
-> +++ b/drivers/hv/hv_proc.c
-> @@ -108,6 +108,7 @@ int hv_call_deposit_pages(int node, u64 partition_id, u32 num_pages)
->  	kfree(counts);
->  	return ret;
->  }
-> +EXPORT_SYMBOL_GPL(hv_call_deposit_pages);
->  
->  int hv_call_add_logical_proc(int node, u32 lp_index, u32 apic_id)
->  {
-> @@ -194,4 +195,4 @@ int hv_call_create_vp(int node, u64 partition_id, u32 vp_index, u32 flags)
->  
->  	return ret;
->  }
-> -
-> +EXPORT_SYMBOL_GPL(hv_call_create_vp);
+diff --git a/Documentation/devicetree/bindings/pinctrl/mediatek,mt8196-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/mediatek,mt8196-pinctrl.yaml
+new file mode 100644
+index 000000000000..3100455c3c9d
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pinctrl/mediatek,mt8196-pinctrl.yaml
+@@ -0,0 +1,241 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/mediatek,mt8196-pinctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MediaTek MT8196 Pin Controller
++
++maintainers:
++  - Lei Xue <lei.xue@mediatek.com>
++  - Cathy Xu <ot_cathy.xu@mediatek.com>
++
++description:
++  The MediaTek's MT8196 Pin controller is used to control SoC pins.
++
++properties:
++  compatible:
++    const: mediatek,mt8196-pinctrl
++
++  gpio-controller: true
++
++  '#gpio-cells':
++    description:
++      Number of cells in GPIO specifier, should be two. The first cell is the
++      pin number, the second cell is used to specify optional parameters which
++      are defined in <dt-bindings/gpio/gpio.h>.
++    const: 2
++
++  gpio-ranges:
++    maxItems: 1
++
++  gpio-line-names: true
++
++  reg:
++    items:
++      - description: gpio registers base address
++      - description: rt group io configuration registers base address
++      - description: rm1 group io configuration registers base address
++      - description: rm2 group io configuration registers base address
++      - description: rb group io configuration registers base address
++      - description: bm1 group io configuration registers base address
++      - description: bm2 group io configuration registers base address
++      - description: bm3 group io configuration registers base address
++      - description: lt group io configuration registers base address
++      - description: lm1 group io configuration registers base address
++      - description: lm2 group io configuration registers base address
++      - description: lb1 group io configuration registers base address
++      - description: lb2 group io configuration registers base address
++      - description: tm1 group io configuration registers base address
++      - description: tm2 group io configuration registers base address
++      - description: tm3 group io configuration registers base address
++
++  reg-names:
++    items:
++      - const: iocfg0
++      - const: iocfg_rt
++      - const: iocfg_rm1
++      - const: iocfg_rm2
++      - const: iocfg_rb
++      - const: iocfg_bm1
++      - const: iocfg_bm2
++      - const: iocfg_bm3
++      - const: iocfg_lt
++      - const: iocfg_lm1
++      - const: iocfg_lm2
++      - const: iocfg_lb1
++      - const: iocfg_lb2
++      - const: iocfg_tm1
++      - const: iocfg_tm2
++      - const: iocfg_tm3
++
++  interrupt-controller: true
++
++  '#interrupt-cells':
++    const: 2
++
++  interrupts:
++    description: The interrupt outputs to sysirq.
++    maxItems: 1
++
++# PIN CONFIGURATION NODES
++patternProperties:
++  '-pins$':
++    type: object
++    additionalProperties: false
++
++    patternProperties:
++      '^pins':
++        type: object
++        $ref: /schemas/pinctrl/pincfg-node.yaml
++        additionalProperties: false
++        description:
++          A pinctrl node should contain at least one subnode representing the
++          pinctrl groups available on the machine. Each subnode will list the
++          pins it needs, and how they should be configured, with regard to muxer
++          configuration, pullups, drive strength, input enable/disable and input
++          schmitt.
++
++        properties:
++          pinmux:
++            description:
++              Integer array, represents gpio pin number and mux setting.
++              Supported pin number and mux varies for different SoCs, and are
++              defined as macros in arch/arm64/boot/dts/mediatek/mt8196-pinfunc.h
++              directly, for this SoC.
++
++          drive-strength:
++            enum: [2, 4, 6, 8, 10, 12, 14, 16]
++
++          bias-pull-down:
++            oneOf:
++              - type: boolean
++              - enum: [100, 101, 102, 103]
++                description: mt8196 pull down PUPD/R0/R1 type define value.
++              - enum: [75000, 5000]
++                description: mt8196 pull down RSEL type si unit value(ohm).
++            description: |
++              For pull down type is normal, it doesn't need add R1R0 define
++              and resistance value.
++              For pull down type is PUPD/R0/R1 type, it can add R1R0 define to
++              set different resistance. It can support "MTK_PUPD_SET_R1R0_00" &
++              "MTK_PUPD_SET_R1R0_01" & "MTK_PUPD_SET_R1R0_10" &
++              "MTK_PUPD_SET_R1R0_11" define in mt8196.
++              For pull down type is PD/RSEL, it can add resistance value(ohm)
++              to set different resistance by identifying property
++              "mediatek,rsel-resistance-in-si-unit". It can support resistance
++              value(ohm) "75000" & "5000" in mt8196.
++
++          bias-pull-up:
++            oneOf:
++              - type: boolean
++              - enum: [100, 101, 102, 103]
++                description: mt8196 pull up PUPD/R0/R1 type define value.
++              - enum: [1000, 1500, 2000, 3000, 4000, 5000, 75000]
++                description: mt8196 pull up RSEL type si unit value(ohm).
++            description: |
++              For pull up type is normal, it don't need add R1R0 define
++              and resistance value.
++              For pull up type is PUPD/R0/R1 type, it can add R1R0 define to
++              set different resistance. It can support "MTK_PUPD_SET_R1R0_00" &
++              "MTK_PUPD_SET_R1R0_01" & "MTK_PUPD_SET_R1R0_10" &
++              "MTK_PUPD_SET_R1R0_11" define in mt8196.
++              For pull up type is PU/RSEL, it can add resistance value(ohm)
++              to set different resistance by identifying property
++              "mediatek,rsel-resistance-in-si-unit". It can support resistance
++              value(ohm) "1000" & "1500" & "2000" & "3000" & "4000" & "5000" &
++              "75000" in mt8196.
++
++          bias-disable: true
++
++          output-high: true
++
++          output-low: true
++
++          input-enable: true
++
++          input-disable: true
++
++          input-schmitt-enable: true
++
++          input-schmitt-disable: true
++
++        required:
++          - pinmux
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - interrupt-controller
++  - '#interrupt-cells'
++  - gpio-controller
++  - '#gpio-cells'
++  - gpio-ranges
++
++additionalProperties: false
++
++examples:
++  - |
++    #include "../../../../arch/arm64/boot/dts/mediatek/mt8196-pinfunc.h"
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    pio: pinctrl@10005000 {
++        compatible = "mediatek,mt8196-pinctrl";
++        reg = <0x1002d000 0x1000>,
++              <0x12000000 0x1000>,
++              <0x12020000 0x1000>,
++              <0x12040000 0x1000>,
++              <0x12060000 0x1000>,
++              <0x12820000 0x1000>,
++              <0x12840000 0x1000>,
++              <0x12860000 0x1000>,
++              <0x13000000 0x1000>,
++              <0x13020000 0x1000>,
++              <0x13040000 0x1000>,
++              <0x130f0000 0x1000>,
++              <0x13110000 0x1000>,
++              <0x13800000 0x1000>,
++              <0x13820000 0x1000>,
++              <0x13860000 0x1000>;
++        reg-names = "iocfg0", "iocfg_rt",
++                    "iocfg_rm1", "iocfg_rm2", "iocfg_rb",
++                    "iocfg_bm1", "iocfg_bm2", "iocfg_bm3",
++                    "iocfg_lt", "iocfg_lm1", "iocfg_lm2",
++                    "iocfg_lb1", "iocfg_lb2", "iocfg_tm1",
++                    "iocfg_tm2", "iocfg_tm3";
++        gpio-controller;
++        #gpio-cells = <2>;
++        gpio-ranges = <&pio 0 0 271>;
++        interrupt-controller;
++        interrupts = <GIC_SPI 225 IRQ_TYPE_LEVEL_HIGH 0>;
++        #interrupt-cells = <2>;
++
++        pio-pins {
++            pins {
++                pinmux = <PINMUX_GPIO0__FUNC_GPIO0>;
++                output-low;
++            };
++        };
++
++        spi0-pins {
++            pins-spi {
++                pinmux = <PINMUX_GPIO110__FUNC_SPI1_CLK>,
++                         <PINMUX_GPIO111__FUNC_SPI1_CSB>,
++                         <PINMUX_GPIO112__FUNC_SPI1_MO>;
++                drive-strength = <6>;
++            };
++            pins-spi-mi {
++                pinmux = <PINMUX_GPIO113__FUNC_SPI1_MI>;
++                bias-pull-down;
++            };
++        };
++
++        i2c0-pins {
++            pins {
++                pinmux = <PINMUX_GPIO99__FUNC_SCL0>,
++                         <PINMUX_GPIO100__FUNC_SDA0>;
++                bias-disable;
++            };
++        };
++    };
+-- 
+2.45.2
 
 
