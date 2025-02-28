@@ -4,74 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27CD0C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 20:07:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 279BFC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 20:08:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fuphV7mRz6VPs/yaUBE0auZj1C2cCV4Y47C5EyhOueQ=; b=MySlWWTLXYQaKrvVVXPEa5UMLQ
-	IZvkaIvx6F/CP6xA9lvwVvIEAFX6jXisR5c5elKmmfQEk8yypS7Xa+VoiPMkC5aT4dw8l+k9UBHT8
-	nskgZydnpeYT2jNMHedwL4/ga7AxHRs05u+faJAuoewfR9BIVUntEg5i5MTosYelZnEhOhLSAa/SR
-	2hOxz9oxFFYq0aFaTtkFkVO16t0JBT8tzqigzUd4UbU8GbLBWOgHW7X5X9A/GWrTcLoVXay999lPl
-	7ZkOvn5/PKCxIn2bejo2iyrOZRK0HCRpBPwi7+0MJr9vVGrXLGWThCzpCH9Da3/Fh7grI7CtVRKip
-	n8EBg85g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n/BRI/bKZqbeAB7Y4NuuTyl4uG4VITzDebuAN8g909s=; b=4UehIvnGilDpk2xRU60M14mXRQ
+	Dc4f/43P4GlPAqDAzMkQKqKD1XQ7vRvo3jNjNu9t9arSGkNaJuE7MaRPp1np+K4JaNOVLuH4lLXlT
+	xgapF8y2cqCxMCzUC+vW3YWmn60WL2n+C61Nu3ZpHKpUBhK9bm+8vwpTyKlj+Q/1FWB29eLc7602g
+	taKRLNHiaDwXwZVNSpgZJn42CHGxNkBpacOknMv6FL41GMxRuNrfLwxOgAHIdF0oK+J2T7xVnvL9a
+	qwIx5Fvko5JrazrUt/SGkCJfRHC1x2YpaJyVnP704PfG86Wzd1VOGjpfUq+wzTP5/CnxCPM26G81E
+	w7Bo99Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to6dc-0000000CUtv-06VJ;
-	Fri, 28 Feb 2025 20:07:12 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1to6f7-0000000CVdu-3Goh;
+	Fri, 28 Feb 2025 20:08:45 +0000
+Received: from mail-db8eur05on20604.outbound.protection.outlook.com ([2a01:111:f403:2614::604] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to6LK-0000000CPfI-0d4o
+	id 1to6aY-0000000CTzn-2kHx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 19:48:19 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 03FAA25CD1;
-	Fri, 28 Feb 2025 20:48:17 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id eHwZoPFPoQma; Fri, 28 Feb 2025 20:48:12 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1740772092; bh=g7aAp6wAdmGaON3EYJNKaoJGcuDZJQ+WVeF/yH56lTw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=jFBX5SYjFwKRJ79CJRQkZ9BQXblh90atAjMbRLhrP+I0iAGkN3Le39utgdPIHqfkC
-	 ygEiprJ0aMeMP1sGsK/ruxckywLH23UMOFMdHHwi6wyzdiodb7ljKeidTw/A0JLOZZ
-	 KXZ4UmmPlIfQiQrSzdHX4Xr/sd0VF8yyTEM0R6uvyih0dWniDXzqUcXgxi3JW9uwu+
-	 hvZKk6SJgmxwg5lqVUhnxKmBs1aM3ix1P1tsQPBTzqAIh9lGsiDIdKLSKSzihhjg+L
-	 ScwJU1E+jxogS5mgA0xMpOWLFLyITXkZikvL83ZBAYtA+t9DymUrZgSJGQzDF1HYby
-	 51CmJKvGCyA/w==
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Sat, 01 Mar 2025 01:16:55 +0530
-Subject: [PATCH v4 7/7] arm64: dts: exynos: add initial support for Samsung
- Galaxy J6
+	Fri, 28 Feb 2025 20:04:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=a9ll7RUVF+k6Pi6DXAuFVI4RzCIQlHZ+xydGEOzsP3gmU18hb2wzp/NtdS5RneLfyEO7NfVIfzL6FNpYq7pnl1muQ9/eS08JlBTBbkmz2RSjT5gyiavln3+Xe38ZP8T/47yPENSOIJ4dnRA+rrTECQGHRyg5BxoCbPePM9Tqxd5GN/F394tpnIJx04qHD9gEkJrNrN2Uk/jTv57LRVjhu7s+zgaN7jPeCwqHYmPyuiGuGRuNXBDHFKhefVB9pnZpmsGhGbkAPDYoMo+SZ1axtMmDuXRlg2WLsPp3oQyUvMaKFX/E8eURPKKKq0P+GWzaLlHhaKZ61Hr9A0LvFjpH9g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=n/BRI/bKZqbeAB7Y4NuuTyl4uG4VITzDebuAN8g909s=;
+ b=sKQDFQGBLWk3ByV8ZKg29N81dRRDkG/20Qst7JPSgUYErDBviXs9y8gDc7dB8uowRLMNt7pPJfxlA6hF3LlQAqxNpca4JuPjrHYHlNXYjDNBxJkUbtd9bJGA51g6UoZ/7UsKFzG343Zb/tnA25hMwS3dZULsTbSjclXgYdHziBrP2drRSsfw/2YbG/JxghL2tbE/raAZhYAzOrS/sihgx3Jo8KLQQP+2YJ8LPC3/rXJcrgW8zVXuSWB3KbqKjb52vA6ORCAgSGCBnFl4tqZ7BpXwuDxClGqRxZ6hbsnMA/1dkzp1qn7vkNp6QKo7lcYzvtxeKoeosGpW9Zw0kWPaoQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=n/BRI/bKZqbeAB7Y4NuuTyl4uG4VITzDebuAN8g909s=;
+ b=i/8VE9lhM8kOlp+WL42CD5xp8GamCz/lFU5gCwiuYhcQirSymOuoZS/uE19VouVX2TAUXTX5lAgsjsqqhNcjQ+mr47frTEC0yTm0CD8mBVcOoCc96q+4BNqwbWZDzLKjyCskplbuLBDN7kNXMrOhvIp2/YWa68nf4vMNKwdIgiecGOaguOnoISDDWw/1PmX8aWFMNOGN1rK8F+1aYuHd0sbnU9GgUyMkLsE2AswBpvJ41BVTtAaPoyjTFmbC8B1RI/e8cl4pqEvgtlYxwvrJRUSsAFqmuADnOK+y21K5mZTBHExrnlVMfenmUJ1qk170eWz7CaJExsuOymKp5VE0cw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AS1PR04MB9699.eurprd04.prod.outlook.com (2603:10a6:20b:482::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.23; Fri, 28 Feb
+ 2025 20:03:56 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8489.019; Fri, 28 Feb 2025
+ 20:03:56 +0000
+Date: Fri, 28 Feb 2025 15:03:47 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Joy Zou <joy.zou@nxp.com>
+Subject: Re: [PATCH 1/3] dt-bindings: dma: fsl-edma: increase maxItems of
+ interrupts and interrupt-names
+Message-ID: <Z8IWo2ssQEKHlujy@lizhi-Precision-Tower-5810>
+References: <20250228-edma_err-v1-0-d1869fe4163e@nxp.com>
+ <20250228-edma_err-v1-1-d1869fe4163e@nxp.com>
+ <20250228-frown-caretaker-4e3e3f2533e9@spud>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250228-frown-caretaker-4e3e3f2533e9@spud>
+X-ClientProxiedBy: BYAPR08CA0051.namprd08.prod.outlook.com
+ (2603:10b6:a03:117::28) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250301-exynos7870-v4-7-2925537f9b2a@disroot.org>
-References: <20250301-exynos7870-v4-0-2925537f9b2a@disroot.org>
-In-Reply-To: <20250301-exynos7870-v4-0-2925537f9b2a@disroot.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-Cc: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
- Kaustabh Chakraborty <kauschluss@disroot.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1740772038; l=16232;
- i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=g7aAp6wAdmGaON3EYJNKaoJGcuDZJQ+WVeF/yH56lTw=;
- b=2tTQakFikZHj9PzGJLAIE10ohHhlHQT65DI5UENtsDNrKhDVEcM+k60cFCSorfn5e6wCdI94c
- KpU7rQBWwpuCYbXX+H9bIq6gvm9kGz8V9eVSunX4omicnKZEYUoUXWi
-X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
- pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS1PR04MB9699:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0538e015-9cb7-49b8-9cd5-08dd58330826
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?SeFVJy48UqYHb0cB4iU/2n09H/mfCN2gy/2dQeMjSWT2Jyipa2pkF4sC4fNI?=
+ =?us-ascii?Q?4num8NH6XfS8vHy/KMOyRkHjZ094PLmIurDVfJRZbmuKR5yCYjiZnoP1yoZK?=
+ =?us-ascii?Q?hJ6yf1DLCpFEgh7Bb4Y3/A9efuoA1bayUoZuKCTPvMmmWfCElrzV56xuGH/E?=
+ =?us-ascii?Q?SHW1TNKHMv5nnBENQX6/B8ggYnRNlBbfs1SQua7eexSrhkGp5uI5vw7CBdNA?=
+ =?us-ascii?Q?c0QwpQbAm6X9fk4To6IDoiZhOfIqJD12faPHNGv9tMmPBU0k7ht8OpM6Ux9N?=
+ =?us-ascii?Q?cio+VrApXDc2IsbMLngKAvIPGcVTw58M3Y5I6yGiw92XY2IJfPStSlyw+h9D?=
+ =?us-ascii?Q?rluJ6TvQrCdoFVum6gY2S0qV/yoNKG4TpSWEbEdzXLb0v/YLcDCK0G+laXQg?=
+ =?us-ascii?Q?m02xR9LwWbsy2sHplOXELbw0TbkZAxGZ/GFi8Kjn3Z6myeKAd3DtYNropGi+?=
+ =?us-ascii?Q?DaOSTt1erNCLeILyYeR0Rxgyu31tUfmeTdJyldfQMN2ui8d5IcxkO64eyeCR?=
+ =?us-ascii?Q?oILdJ2qFc+2DJ0Y5BcPrJuGIpF8jJzWMn83k9lpMTI0XczFHQ1JZtDWVpOQ6?=
+ =?us-ascii?Q?jafw9JvYnZakAM0+vLOQ1FQeIlpJITIT2BXioukUPVuVRd/48Xq7fiLmK0l9?=
+ =?us-ascii?Q?kvYv8g1KJ+pMUPoQ4F1EkYUsg12BkVepL6JwL+IC+Nb+/dDuGJEiD0kpllmL?=
+ =?us-ascii?Q?k2vwBGNP8/0s2xcO0aEcv10B7VrIT0vzOYdM4Pgkk2xDUl9t1x+DF4vIYTGe?=
+ =?us-ascii?Q?07wK1Bzra4H5NPiOWTP1BGdtq3TvV+S2cU+5FMDAAvOScjhpanP0W9Wy5qpW?=
+ =?us-ascii?Q?WQbLHAxPgMc8YDPQpVGkel/EJw61QMpaqEUuZaqFmWff2ozx5U3h92HIhHs5?=
+ =?us-ascii?Q?AQ7fjIAmVsgxGwg9ZVB9rL3y8+IG1zKF4pQvdBYJF4+r3nTZrGvOtBVc3E4R?=
+ =?us-ascii?Q?VjVXD7v1t5IKzL3/dU0j3zsdnz2R5qU6gzIzXnQJa0U8dOp4y4UY3YKKi/J3?=
+ =?us-ascii?Q?Vrbp4fGNrN0EtQn6okNHRkGvJzEFhD8VTjwgvyD3kas198b9qxJyiWXN9Bru?=
+ =?us-ascii?Q?yu3PQyNsystP75OwrtVljIhQDFAzd5fdQB3UAW3ZssdytC6pDlVD6NvIrsjn?=
+ =?us-ascii?Q?mqhJtVB72NeFZqUoaeDH61gonXLS8JV9rL1GaF0YHPjIu3Afl56ewxS5Bd7m?=
+ =?us-ascii?Q?VKyD6sLJR/SdB8Gi8MxAZ8X+R47tuOASXicrG8cAYdmx5PJdNcENDpuWQfHF?=
+ =?us-ascii?Q?ddZ3rJKQvkrX5OcQM9D/z5cv6Oa16w/hbjArJXUuJ9qzQjm2QkRPseCm481D?=
+ =?us-ascii?Q?+eSyqsbT066SImW8nWCj6aEwfZzcmZ/gVvsOOs3vzxl3lU/rml/p/+OAx1RW?=
+ =?us-ascii?Q?6sxHMKbCGv+AylurRHotKoN37A1Q0XcMyLeDXuCxhHUtKIOxAe7f4usYVagh?=
+ =?us-ascii?Q?8t2lzAHXTFgZqWA3LVZkggU8xRs4gnLc?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kZG3965GaW9dRnDv6l90yCdq82dO5NVfUmxsMBpYe54dmWnJh/wYbAFqWSPA?=
+ =?us-ascii?Q?gSjdB3u2cfZPW9c9aAVQE6fqBQHN4Tn1u5HsDc38R7XApzQRBf//HpYjIHP+?=
+ =?us-ascii?Q?fV0MS9OjQJOdLumFg23T1oWS75EIl9q50MQtV2SDPlZYQ/CKb7/vWKK5kA3h?=
+ =?us-ascii?Q?8E79ILGTyQF3ZFvGFy4I+zwIut/viMZN6v5YP3gDe2ByqAGokXRjIpVnyi3B?=
+ =?us-ascii?Q?8TJsjD0v9bOSMMd/AZ69UO1vFeQyXQFUSyCq3jUX1Spg+a/E4s7Ui449tSSq?=
+ =?us-ascii?Q?jQpb3WHiTAIoRTnuJCsNpuHwwCYcbGZ2da9ndpvXKwqgF7s9GsX0OJiozLlC?=
+ =?us-ascii?Q?FXqLhjcaEtezb/YfzsBH0cOqFk1OP1aYJs+oKuXIkf7g6/DUgnoc1Vy1xMo1?=
+ =?us-ascii?Q?0cyCrm/Ar32ui72dx0RG2/78EC6oBKoMmEjsFG1Dy0p/xxYFiZXgkxMd/G9w?=
+ =?us-ascii?Q?PQwADs19+smVXyLZ7VVXPKk0qhs6g3r0KTpp8GqlmXwDhxUCYmtddw0ejh4d?=
+ =?us-ascii?Q?yInjplwxhDkI9Ctp3kSm8VtB+7DPEibsz0n/crpR4hKmGMpVEdaoJAMd59w5?=
+ =?us-ascii?Q?V2/eHCwfj1KsO0yEwucLc4JWyB6b1T2rmNyvCcpySm4koH90urCvC3MvlgUb?=
+ =?us-ascii?Q?Y0fhSMxJpa3FHFXditwCCCe149kGAPGcBrTAsZyVseIfohhBpKMZ5ISBdlMR?=
+ =?us-ascii?Q?Bo6nixWmboDklo3BRLjGzcYpCuqSnjBHWvHjy312CRfR0lbQzxXSZryqI/wl?=
+ =?us-ascii?Q?eYi9ysqKcyoxROnO75mYHeVvsDnCB3yHTanRu3sw8hfFJtTDF60+nxT8dK/V?=
+ =?us-ascii?Q?c553Dxz44D+r62C3Gxs0SUkGJHdButG5+eviX0gQOISatAq9QGAXPLYc895t?=
+ =?us-ascii?Q?JbtplvquUuzxnnohPXtJDN6OtEryj8GjoPdh5p1i3+NSx3T9n0oeJ1Ky11xr?=
+ =?us-ascii?Q?jBwqDoj8/cSQt13s/IAqs12XFDepA3xQLKFmcuUlQxqLN8Mdjx6j4s8QphGv?=
+ =?us-ascii?Q?WxNsBfntDKXu/hYqeyWyDHmPcMuAGiqcD3mX0cFPh+PKteT5FxmHX1uyWWbS?=
+ =?us-ascii?Q?VqzwsdbhUaLvMnuQtgoQx3jaC4eugqLlMF+U2wRCWtYzw1vSd1tOOTcaaWTZ?=
+ =?us-ascii?Q?olBlHo66I+9iYzcnHr7imuBYssNbASiHO/T/GdB/9SIfq9Ua+gdzL3lqGVtO?=
+ =?us-ascii?Q?dX6r0trYsbQMtKgU8I9hO/UyxmnghfAI/M2v388HWw8kjWlBsl+4GAllQdoO?=
+ =?us-ascii?Q?f6K9knijsfjMO6SXtWhvA3AjtaE3SA1iD+hKCrDGYx/oUsbh5T5AO0ZLS8ri?=
+ =?us-ascii?Q?QPqeMeurLe+nd8Xn7kkgkk6CiEN5x0dnT5MNx41hPSKyFpM0oebPql1MNOsM?=
+ =?us-ascii?Q?aIIWdZkzm8v69izf7Wc9ZXHjxdkGQC9cmifodGDAZoD+GCwr4l6wjTrTYHjA?=
+ =?us-ascii?Q?DNwafcPH6nms/pFFeYONdZsRjfDvVnxOHt5MPUVQK+yS3qrZ9yDXneF9wep8?=
+ =?us-ascii?Q?LSnmUg2/CgmY6Guq0rh7aEWn7AMolfvI0LMWThW7SX0DbRHPw9YdOcvAdvi/?=
+ =?us-ascii?Q?ouYGfrbT4SQCdGVsrVU=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0538e015-9cb7-49b8-9cd5-08dd58330826
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Feb 2025 20:03:56.1264
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kgo1nGj6ehJkw6iBPHM08XhHdZXsuAJDsLF2LglBfbGuIYFAkoGThOTd1zarv/cTLm6+Yh/3dvXXqjkfwjZDQg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9699
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_114818_468044_3F8D1E73 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20250228_120402_714826_25A5D0AB 
+X-CRM114-Status: GOOD (  20.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,651 +166,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add initial devicetree support for Samsung Galaxy J6 (codename: j6lte),
-an Exynos7870 device.
+On Fri, Feb 28, 2025 at 06:13:50PM +0000, Conor Dooley wrote:
+> On Fri, Feb 28, 2025 at 12:42:03PM -0500, Frank Li wrote:
+> > From: Joy Zou <joy.zou@nxp.com>
+> >
+> > The edma controller support optional error interrupt, so update interrupts
+> > and interrupt-names's maxItems.
+>
+> This seems like something were you would know based on the soc (or
+> compatible) whether or not 64 or 65 is the correct maximum for that
+> device?
 
-Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
----
- arch/arm64/boot/dts/exynos/Makefile             |   1 +
- arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts | 616 ++++++++++++++++++++++++
- 2 files changed, 617 insertions(+)
+Not exactly, 64 channel is maxium value, which IP supportted. There are
+difference instances in the same SOC. Some may only 31 dma channel, some
+may only 12, some have 64. Each channel have one irqs and one shared err
+irq.
 
-diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exynos/Makefile
-index e0da4c4972c7344cf957e00ef701d6405a16bdcb..89c90564c3d86a268ea46492b67d72fa69ad3e95 100644
---- a/arch/arm64/boot/dts/exynos/Makefile
-+++ b/arch/arm64/boot/dts/exynos/Makefile
-@@ -6,6 +6,7 @@ dtb-$(CONFIG_ARCH_EXYNOS) += \
- 	exynos5433-tm2e.dtb		\
- 	exynos7-espresso.dtb		\
- 	exynos7870-a2corelte.dtb	\
-+	exynos7870-j6lte.dtb		\
- 	exynos7870-on7xelte.dtb		\
- 	exynos7885-jackpotlte.dtb	\
- 	exynos850-e850-96.dtb		\
-diff --git a/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts b/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..34df09b2291830781908801249afe80daa757ef7
---- /dev/null
-+++ b/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts
-@@ -0,0 +1,616 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Samsung Galaxy J6 (j6lte) device tree source
-+ *
-+ * Copyright (c) 2018 Samsung Electronics Co., Ltd.
-+ * Copyright (c) 2025 Kaustabh Chakraborty <kauschluss@disroot.org>
-+ */
-+
-+/dts-v1/;
-+#include "exynos7870.dtsi"
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+/ {
-+	model = "Samsung Galaxy J6";
-+	compatible = "samsung,j6lte", "samsung,exynos7870";
-+	chassis-type = "handset";
-+
-+	aliases {
-+		mmc0 = &mmc0;
-+		mmc1 = &mmc1;
-+		mmc2 = &mmc2;
-+		serial0 = &serial0;
-+		serial1 = &serial1;
-+		serial2 = &serial2;
-+	};
-+
-+	chosen {
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		stdout-path = &serial2;
-+
-+		framebuffer@67000000 {
-+			compatible = "simple-framebuffer";
-+			reg = <0x0 0x67000000 (720 * 1480 * 4)>;
-+			width = <720>;
-+			height = <1480>;
-+			stride = <(720 * 4)>;
-+			format = "a8r8g8b8";
-+		};
-+	};
-+
-+	gpio-hall-effect-sensor {
-+		compatible = "gpio-keys";
-+		label = "GPIO Hall Effect Sensor";
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&hall_irq>;
-+
-+		event-hall-effect-sensor {
-+			label = "Hall Effect Sensor";
-+			gpios = <&gpa1 3 GPIO_ACTIVE_LOW>;
-+			linux,input-type = <EV_SW>;
-+			linux,code = <SW_LID>;
-+			linux,can-disable;
-+			wakeup-source;
-+		};
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+		label = "GPIO Keys";
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&key_power &key_voldown &key_volup>;
-+
-+		key-power {
-+			label = "Power Key";
-+			gpios = <&gpa0 0 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_POWER>;
-+		};
-+
-+		key-voldown {
-+			label = "Volume Down Key";
-+			gpios = <&gpa2 1 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_VOLUMEDOWN>;
-+		};
-+
-+
-+		key-volup {
-+			label = "Volume Up Key";
-+			gpios = <&gpa2 0 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_VOLUMEUP>;
-+		};
-+	};
-+
-+	memory@40000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x40000000 0x3d800000>;
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x80000000 0x40000000>;
-+	};
-+
-+	pwrseq_mmc1: pwrseq-mmc1 {
-+		compatible = "mmc-pwrseq-simple";
-+		reset-gpios = <&gpd3 6 GPIO_ACTIVE_LOW>;
-+	};
-+
-+	/* mmc2: vmmc */
-+	vdd_fixed_mmc2: regulator-fixed-mmc2 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vdd_fixed_mmc2";
-+		regulator-max-microvolt = <2800000>;
-+		regulator-min-microvolt = <2800000>;
-+		gpio = <&gpc0 0 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		ramoops@46e00000 {
-+			compatible = "ramoops";
-+			reg = <0x0 0x46e00000 0x8000>;
-+			console-size = <0x4000>;
-+			pmsg-size = <0x4000>;
-+		};
-+
-+		framebuffer@67000000 {
-+			reg = <0x0 0x67000000 (720 * 1480 * 4)>;
-+			no-map;
-+		};
-+	};
-+
-+	vibrator {
-+		compatible = "regulator-haptic";
-+		haptic-supply = <&vdd_ldo32>;
-+		min-microvolt = <3300000>;
-+		max-microvolt = <3300000>;
-+	};
-+};
-+
-+&gpu {
-+	status = "okay";
-+};
-+
-+&hsi2c0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	status = "okay";
-+
-+	pmic@66 {
-+		compatible = "samsung,s2mpu05-pmic";
-+		reg = <0x66>;
-+		interrupt-parent = <&gpa0>;
-+		interrupts = <2 IRQ_TYPE_LEVEL_LOW>;
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pmic_irq>;
-+
-+		regulators {
-+			vdd_buck1: buck1 {
-+				regulator-name = "vdd_buck1";
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1300000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_buck2: buck2 {
-+				regulator-name = "vdd_buck2";
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1300000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_buck3: buck3 {
-+				regulator-name = "vdd_buck3";
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1300000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_buck4: buck4 {
-+				regulator-name = "vdd_buck4";
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <1500000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_buck5: buck5 {
-+				regulator-name = "vdd_buck5";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <2100000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo1: ldo1 {
-+				regulator-name = "vdd_ldo1";
-+				regulator-min-microvolt = <650000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			/* mmc2: vqmmc */
-+			vdd_ldo2: ldo2 {
-+				regulator-name = "vdd_ldo2";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <2800000>;
-+				regulator-ramp-delay = <12000>;
-+			};
-+
-+			vdd_ldo3: ldo3 {
-+				regulator-name = "vdd_ldo3";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <2375000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo4: ldo4 {
-+				regulator-name = "vdd_ldo4";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo5: ldo5 {
-+				regulator-name = "vdd_ldo5";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo6: ldo6 {
-+				regulator-name = "vdd_ldo6";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo7: ldo7 {
-+				regulator-name = "vdd_ldo7";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <2375000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			/* usbdrd: vdd33 */
-+			vdd_ldo8: ldo8 {
-+				regulator-name = "vdd_ldo8";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3375000>;
-+				regulator-ramp-delay = <12000>;
-+			};
-+
-+			vdd_ldo9: ldo9 {
-+				regulator-name = "vdd_ldo9";
-+				regulator-min-microvolt = <650000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo10: ldo10 {
-+				regulator-name = "vdd_ldo10";
-+				regulator-min-microvolt = <650000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo25: ldo25 {
-+				regulator-name = "vdd_ldo25";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <2375000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			/* mmc0: vmmc */
-+			vdd_ldo26: ldo26 {
-+				regulator-name = "vdd_ldo26";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3375000>;
-+				regulator-ramp-delay = <12000>;
-+			};
-+
-+			/* mmc0: vqmmc */
-+			vdd_ldo27: ldo27 {
-+				regulator-name = "vdd_ldo27";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <2375000>;
-+				regulator-ramp-delay = <12000>;
-+			};
-+
-+			vdd_ldo29: ldo29 {
-+				regulator-name = "vdd_ldo29";
-+				regulator-min-microvolt = <3000000>;
-+				regulator-max-microvolt = <3000000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo30: ldo30 {
-+				regulator-name = "vdd_ldo30";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo31: ldo31 {
-+				regulator-name = "vdd_ldo31";
-+				regulator-min-microvolt = <2800000>;
-+				regulator-max-microvolt = <2800000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			/* vibrator: haptic */
-+			vdd_ldo32: ldo32 {
-+				regulator-name = "vdd_ldo32";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-ramp-delay = <12000>;
-+			};
-+
-+			vdd_ldo33: ldo33 {
-+				regulator-name = "vdd_ldo33";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			/* touchscreen: vdd */
-+			vdd_ldo34: ldo34 {
-+				regulator-name = "vdd_ldo34";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+			};
-+
-+			vdd_ldo35: ldo35 {
-+				regulator-name = "vdd_ldo35";
-+				regulator-min-microvolt = <2800000>;
-+				regulator-max-microvolt = <2800000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+		};
-+	};
-+};
-+
-+&i2c5 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	samsung,i2c-sda-delay = <100>;
-+	samsung,i2c-max-bus-freq = <400000>;
-+
-+	status = "okay";
-+
-+	accelerometer@1d {
-+		compatible = "st,lis2ds12";
-+		reg = <0x1d>;
-+		interrupt-parent = <&gpa2>;
-+		interrupts = <3 IRQ_TYPE_EDGE_RISING>;
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&accel_irq>;
-+
-+		mount-matrix = "-1", "0",  "0",
-+				"0", "1",  "0",
-+				"0", "0", "-1";
-+
-+		st,drdy-int-pin = <1>;
-+	};
-+};
-+
-+&i2c6 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	samsung,i2c-sda-delay = <100>;
-+	samsung,i2c-max-bus-freq = <400000>;
-+
-+	status = "okay";
-+
-+	touchscreen@20 {
-+		compatible = "zinitix,bt532";
-+		reg = <0x20>;
-+		interrupt-parent = <&gpa0>;
-+		interrupts = <6 IRQ_TYPE_LEVEL_LOW>;
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&touch_irq>;
-+
-+		touchscreen-size-x = <720>;
-+		touchscreen-size-y = <1480>;
-+
-+		vdd-supply = <&vdd_ldo34>;
-+	};
-+};
-+
-+&mmc0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sd0_clk &sd0_cmd &sd0_rdqs &sd0_bus1 &sd0_bus4 &sd0_bus8>;
-+
-+	vmmc-supply = <&vdd_ldo26>;
-+	vqmmc-supply = <&vdd_ldo27>;
-+
-+	fifo-depth = <64>;
-+	samsung,dw-mshc-ciu-div = <3>;
-+	samsung,dw-mshc-sdr-timing = <0 4>;
-+	samsung,dw-mshc-ddr-timing = <2 4>;
-+	non-removable;
-+
-+	status = "okay";
-+};
-+
-+&mmc1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sd1_clk &sd1_cmd &sd1_bus1 &sd1_bus4>;
-+
-+	mmc-pwrseq = <&pwrseq_mmc1>;
-+
-+	bus-width = <4>;
-+	fifo-depth = <64>;
-+	samsung,dw-mshc-ciu-div = <3>;
-+	samsung,dw-mshc-sdr-timing = <0 3>;
-+	samsung,dw-mshc-ddr-timing = <1 2>;
-+	non-removable;
-+	cap-sd-highspeed;
-+	cap-sdio-irq;
-+
-+	status = "okay";
-+
-+	wifi@1 {
-+		compatible = "brcm,bcm43430a1-fmac", "brcm,bcm4329-fmac";
-+		reg = <0x1>;
-+		interrupt-names = "host-wake";
-+		interrupt-parent = <&gpa2>;
-+		interrupts = <2 IRQ_TYPE_LEVEL_LOW>;
-+
-+		reset-gpios = <&gpd3 6 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&mmc2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sd2_clk &sd2_cmd &sd2_bus1 &sd2_bus4 &dwmmc2_irq>;
-+
-+	vmmc-supply = <&vdd_fixed_mmc2>;
-+	vqmmc-supply = <&vdd_ldo2>;
-+
-+	bus-width = <4>;
-+	fifo-depth = <64>;
-+	samsung,dw-mshc-ciu-div = <3>;
-+	samsung,dw-mshc-sdr-timing = <0 3>;
-+	samsung,dw-mshc-ddr-timing = <1 2>;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	disable-wp;
-+
-+	status = "okay";
-+};
-+
-+&oscclk {
-+	clock-frequency = <26000000>;
-+};
-+
-+&pinctrl_alive {
-+	accel_irq: accel-irq-pins {
-+		samsung,pins = "gpa2-3";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
-+	dwmmc2_irq: dwmmc2-irq-pins {
-+		samsung,pins = "gpa0-1";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
-+	fuel_irq: fuel-irq-pins {
-+		samsung,pins = "gpa0-3";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_INPUT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
-+	hall_irq: hall-irq-pins {
-+		samsung,pins = "gpa1-3";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
-+	key_power: key-power-pins {
-+		samsung,pins = "gpa0-0";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
-+	key_voldown: key-voldown-pins {
-+		samsung,pins = "gpa2-1";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
-+	key_volup: key-volup-pins {
-+		samsung,pins = "gpa2-0";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
-+	pmic_irq: pmic-irq-pins {
-+		samsung,pins = "gpa0-2";
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR4>;
-+	};
-+
-+	touch_irq: touch-irq-pins {
-+		samsung,pins = "gpa0-6";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
-+	wlan_hostwake: wlan-hostwake-pins {
-+		samsung,pins = "gpa2-2";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_OUTPUT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
-+	};
-+};
-+
-+&pinctrl_top {
-+	bt_enable: bt-enable-pins {
-+		samsung,pins = "gpd4-0";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_OUTPUT>;
-+		samsung,pin-con-pdn = <EXYNOS_PIN_PDN_PREV>;
-+		samsung,pin-pud-pdn = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_DOWN>;
-+	};
-+
-+	wlan_enable: wlan-enable-pins {
-+		samsung,pins = "gpd3-6";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_OUTPUT>;
-+		samsung,pin-con-pdn = <EXYNOS_PIN_PDN_PREV>;
-+		samsung,pin-pud-pdn = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR4>;
-+		samsung,pin-val = <0>;
-+	};
-+};
-+
-+&serial1 {
-+	status = "okay";
-+
-+	bluetooth {
-+		compatible = "brcm,bcm43430a1-bt";
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&bt_btwake &bt_hostwake &bt_enable>;
-+
-+		device-wakeup-gpios = <&gpa1 2 GPIO_ACTIVE_HIGH>;
-+		host-wakeup-gpios = <&gpa1 6 GPIO_ACTIVE_HIGH>;
-+		shutdown-gpios = <&gpd4 0 GPIO_ACTIVE_HIGH>;
-+
-+		max-speed = <3000000>;
-+	};
-+};
-+
-+&serial2 {
-+	status = "okay";
-+};
-+
-+&usbdrd {
-+	vdd33-supply = <&vdd_ldo8>;
-+
-+	status = "okay";
-+};
+Ideally it should be property 'dma-channels' + 1. But not sure if schema
+can check such case.
 
--- 
-2.48.1
+Frank
+
+>
+> >
+> > Signed-off-by: Joy Zou <joy.zou@nxp.com>
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> >  Documentation/devicetree/bindings/dma/fsl,edma.yaml | 4 ++--
+> >  1 file changed, 2 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/Documentation/devicetree/bindings/dma/fsl,edma.yaml b/Documentation/devicetree/bindings/dma/fsl,edma.yaml
+> > index 4f925469533e7..900170b3606ef 100644
+> > --- a/Documentation/devicetree/bindings/dma/fsl,edma.yaml
+> > +++ b/Documentation/devicetree/bindings/dma/fsl,edma.yaml
+> > @@ -40,11 +40,11 @@ properties:
+> >
+> >    interrupts:
+> >      minItems: 1
+> > -    maxItems: 64
+> > +    maxItems: 65
+> >
+> >    interrupt-names:
+> >      minItems: 1
+> > -    maxItems: 64
+> > +    maxItems: 65
+> >
+> >    "#dma-cells":
+> >      description: |
+> >
+> > --
+> > 2.34.1
+> >
+
 
 
