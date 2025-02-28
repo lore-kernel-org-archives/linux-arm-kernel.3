@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95F77C19776
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 06:59:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40CEEC19776
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 07:01:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z+4k873zmsQpMgtwtdSdTGDVVorEBwON2PY++6n1owg=; b=hX9ylbgjLMIi4uJfSMFeSDep5S
-	x/S/jCi4VJkub574kIq2t5YK+CHcX02aqpKq/qE5QQwnflvhBEe/iJXhaBROybRGFz3LqHsrLkozs
-	QTN2ZrrY7KxL/CP3xQaoDbGn3bgmBqkHySi5wH4PTSWnrJCGm7NOPLtergbLoJ4uBqMm+I2o3HVxz
-	6Bhfiy4NYsvy3On98fmCb2PX50AicXNtcikc9OEYOiaIl+3PKe1C9rCsrQzXFQHGn4jUg+hu97d+b
-	KFKPTDa8k+Ub35MoaRHGVOHK0EDFsBMq3I3DONt1nwZHEGlhqfQlQNogsSa27XLWXOdxelHWa0v2e
-	7xQWge1A==;
+	bh=cKjcGFS/j60fSW1rL86kh2B7086JynoEEggDOiCwc5o=; b=Qz/jWyQ3Pd0k/jMGJywEfg+203
+	PRg7vT9tMzhixeXIPdEbLTbb+UOTNJpL71d5ff8PuSOms7dyuycc16S3G/y5p/hPbT6StGfUO1M5r
+	fT6TSH0wSP3TS9ve/vsyeKjHT6JPj0SmtA4/8LYEdi4g0Ac3lCzBbQ9kuzdT+XcWY5yGYF0zKpTdN
+	IP6mOahjrpWnO0igJ93nZo5bfXasBGfEOyDK4/qfghqVF6bLH1ZyzGUoeDrnTBWHMeKA/m5Alfh44
+	vk2di3l6bOmS06iq4QjVKomC5a2dKGO/A5EScQG/PoGrqvy0Irj/3DGd1uhhQV1Bb5nOzsqm/s7zo
+	/P2sKVxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnuLQ-00000009vDL-0fXz;
-	Fri, 28 Feb 2025 06:59:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tnuMx-00000009vN9-0VYi;
+	Fri, 28 Feb 2025 07:01:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnuHi-00000009upx-1VHl
+	id 1tnuIu-00000009v0D-2EaG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 06:55:46 +0000
+	Fri, 28 Feb 2025 06:57:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 207E4612BB;
-	Fri, 28 Feb 2025 06:55:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D90EAC4CED6;
-	Fri, 28 Feb 2025 06:55:40 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 150775C64E1;
+	Fri, 28 Feb 2025 06:54:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2F48C4CED6;
+	Fri, 28 Feb 2025 06:56:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740725745;
-	bh=z4RkjeedtG37Vlzzni9VeCrHOUO5tLivI0IOsgpb5/8=;
+	s=k20201202; t=1740725819;
+	bh=ydJLqEPPVKrxT1k6uVgunTYI/Nt4z8pdkUR12N3r/B4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PxbHi94kA76qomfe/o6XDmrcrfpOlK3kvf7Ikr9Tx/ZKb08Cq0EeuTOA2j36zNRKX
-	 1lIPLc44Lnz7egxi1CpfQ+D5T4ol2ENxZtRLRlZvMxd4dwhiqmtL5UclpDfUq0gszi
-	 C61dkzpCZ38fztlgFimqRNz0nJw1jIiGS2OK/G1/t+VfiVhPiKwQyS4usvp2JWz7g9
-	 9jeedC0ss6IMsTTXC0ySXeU8RxCvkUNoXuOYBOhMcWEBrX0vbW8iMDAPsbw97BWyuK
-	 X9vNtWd1LPlVozMCgVs6mHopsY8seHJsl6++ybKs1FTI/CKDuJ0basfNxAe/buFxPb
-	 eAI3adArohzSw==
-Message-ID: <30c4f57d-0385-4f33-a911-b18e926dd3d6@kernel.org>
-Date: Fri, 28 Feb 2025 07:55:38 +0100
+	b=oL2LhM/vVSv3duEn/5B0cZruS/hUBKh3m6Oq24bMVcEV7kR+1Ih0WFxE+fQVJHUvX
+	 8KDf/BbN2Bst4SEAP65OXXQ0eE2De0iOH0iFq2CyXVUxCQMnFIM0F8wk9EbUV9tiNn
+	 wZ+3oE5wCa8pXSDsO+fVPEqMTccpjfjC782+3xRijpQfyWs4s/jPMM0QVZWXbmp8wh
+	 CnEFmifJSttan0oTBIKL8bX136XrUcI+xbOI/Ph7swX1K8aGfMgqEixy5YREZk1R+Q
+	 hckGN+UDBFFCXKMjEbBh4h1y0Fvw7nwU4xGJesL43l+cVT9LAQkWkNAED6Rs1EzTXO
+	 RciG7QVZ3Dl4g==
+Message-ID: <d085c34a-fdbf-4950-a2e3-b3d25a1c0145@kernel.org>
+Date: Fri, 28 Feb 2025 07:56:52 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] dt-bindings: reset: Add Armada8K reset controller
+Subject: Re: [PATCH v3 3/3] arm64: dts: marvell: cp11x: Add reset controller
+ node
 To: Wilson Ding <dingwei@marvell.com>, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Cc: andrew@lunn.ch, gregory.clement@bootlin.com,
@@ -54,7 +55,7 @@ Cc: andrew@lunn.ch, gregory.clement@bootlin.com,
  conor+dt@kernel.org, p.zabel@pengutronix.de, salee@marvell.com,
  gakula@marvell.com
 References: <20250227192536.2426490-1-dingwei@marvell.com>
- <20250227192536.2426490-2-dingwei@marvell.com>
+ <20250227192536.2426490-4-dingwei@marvell.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,9 +101,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250227192536.2426490-2-dingwei@marvell.com>
+In-Reply-To: <20250227192536.2426490-4-dingwei@marvell.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250227_225700_688047_DF038B4A 
+X-CRM114-Status: GOOD (  12.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,35 +122,41 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 27/02/2025 20:25, Wilson Ding wrote:
+> Add the reset controller node as a sub-node to the system controller
+> node.
+> 
+> Signed-off-by: Wilson Ding <dingwei@marvell.com>
+> ---
+>  arch/arm64/boot/dts/marvell/armada-cp11x.dtsi | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi b/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
+> index 161beec0b6b0..c27058d1534e 100644
+> --- a/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
+> +++ b/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
+> @@ -226,6 +226,8 @@ CP11X_LABEL(rtc): rtc@284000 {
+>  		CP11X_LABEL(syscon0): system-controller@440000 {
+>  			compatible = "syscon", "simple-mfd";
+>  			reg = <0x440000 0x2000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+>  
+>  			CP11X_LABEL(clk): clock {
 
-> +    maxItems: 1
-> +
-> +  "#reset-cells":
-> +    const: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - "#reset-cells"
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    syscon0: system-controller@440000 {
-> +        compatible = "syscon", "simple-mfd";
+Wait, no unit address here.
 
-Drop entire node. Neither correct, nor needed.
-
-> +        reg = <0x440000 0x2000>;
-> +        #address-cells = <1>;
-> +        #size-cells = <1>;
+>  				compatible = "marvell,cp110-clock";
+> @@ -273,6 +275,12 @@ CP11X_LABEL(gpio2): gpio@140 {
+>  					 <&CP11X_LABEL(clk) 1 17>;
+>  				status = "disabled";
+>  			};
 > +
-> +        swrst: reset-controller@268 {
-> +            compatible = "marvell,armada8k-reset";
-> +            reg = <0x268 0x4>;
-> +            #reset-cells = <1>;
-> +        };
+> +			CP11X_LABEL(swrst): reset-controller@268 {
+
+
+So why here it appeared? This is wrong and not even necessary. Entire
+child should be folded into parent, so finally you will fix the
+incomplete parent compatible.
 
 
 
