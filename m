@@ -4,116 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B26E1C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 17:36:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D629C282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 17:38:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KT+MNwpd4F28O8ArZz1ntkuhE4VBNJ7gO9Sos3omueY=; b=mOtu0VdbRiEgh4l4D/g8ycI3ZJ
-	zD+bIr4p5zc5/KjOFKa9LpzBtVA18sMO6uscv0/8EE1KZEmf4cPYGUKloupoE3jM6W0hDxX9Sq3Ci
-	cv1A/g4lKnX1kptJLnbgjJDH92dUTSYzeKyADWdZuGc0PsJRgmxvuSYOVRK5JLtsxiajVtoNNTqZM
-	zIN7G96g+gjz0EF3aUF0CceiNiEloQ90DktAl5qfjyopl9/GhSH8I3d1y3RD44h+isaAFuurOOLwu
-	nZ8loGAzLpg/HwiA5Hv4Tgd/CpBvimwqbFiEhfgujRDKB3D1A9OsreaMHRVDIQkR2ZnfGnTuPp9A4
-	PY+7d89g==;
+	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qFyTk6UI9vQkUT0Y0SbdN5aOZAMFszIFkYavvczvjdM=; b=cwaqS/dv1KpIgoqoG0AHx6Nde5
+	s1T7P27XBIPypslFpZZ8IdcY+4FzqIxEovffeDRkGsAdDauVyU8yvDDHGhULy8Xo1xp3O/TQyhrD1
+	fIGh24nu4C00T7QQxYAoL+iGLIFA7oKPiHiV5gFkRU2eb6A48YRTrSYiOsqc7ZW/9P6s+LAHvk06L
+	W96EtCyO8peecxZs5v25JOhoylBJ9qS+1agmBp7lAuYmnnyFKubA+eQB6OdDo03P0n0GYiHDIu6Tt
+	J6YqpGH7KmeuKE1BjqR7dbLUYSCcqwWWdfxy0wGdnophy1oKypvme4sCOD7xkNwxsGZtjc+bwJszD
+	FMHCJwPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to4Ha-0000000Byya-2hmw;
-	Fri, 28 Feb 2025 17:36:18 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1to4J7-0000000BzDK-17vu;
+	Fri, 28 Feb 2025 17:37:53 +0000
+Received: from mout.web.de ([212.227.17.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to4Cj-0000000Bxnn-2dqp;
-	Fri, 28 Feb 2025 17:31:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6855D5C6804;
-	Fri, 28 Feb 2025 17:28:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2684FC4CED6;
-	Fri, 28 Feb 2025 17:31:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740763874;
-	bh=qbWQBw/uFqQPwpcYNMFggUmUDTmFcLh0DbcUnSSTCuA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BLtJWd/c1bfEyU1HO9uRG+96bn5uoeZFvNoz/ITIoZVr2bPrfVd/obe/e+BjHjPjw
-	 rImRgi3N4f381K4clFXIxdYFPPEl1Yu1WvYMwgQOJZFtFSOKtxwyYAHU9Z7Q/et0am
-	 DHYVrTaTNb3FrTH6miqiIDSrkHeLlJ0lXUTJ8Y7Rv79nepG2UsyIVpzgPZ0hOyxgY3
-	 14M7b6EFOXK6/06VuTXF+6Ai01GbUaupJYuouxn+BZi/fooM6EZalDdPHS6NS/HTK4
-	 h8q4sGCMpmv9O3mSRX6y6C2ScWlYppd9CHT1SXBRN5K0GSqmPa/gShJxlsTAfV4RB5
-	 N1Urg97vMGssg==
-Message-ID: <aff5a71f-ed87-4a3d-b7bd-8d96bcd19a13@kernel.org>
-Date: Fri, 28 Feb 2025 18:31:05 +0100
+	id 1to4Fs-0000000ByaG-06F5
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Feb 2025 17:34:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1740764030; x=1741368830; i=markus.elfring@web.de;
+	bh=qFyTk6UI9vQkUT0Y0SbdN5aOZAMFszIFkYavvczvjdM=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:From:
+	 Subject:Content-Type:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=OI3GlODT7nu2SWH5SZy83uUVQU8+5tFb7uB4py2fClEPknvKBpuS2PfOyDKWB0er
+	 BZKTUlQmtYwhjjAK6OFptGcTO9qO6kc1BAtsKWoL9AapFWvRN+UhcORdpUdULxPXd
+	 2veGeKFT5rRqljtUPCNBf9iIMLBGda+HmRgfFFEg4qcMy7XlnKOgy02GV3HYskvsf
+	 aIitWWKNug7hIcurV1ua/qbGqHVSGOPI3lu0dfT07t2rSnSaW44Ru+mCV7ieZO+cP
+	 SRCM+oLEvRQR0vLAz65GSRLRiA2VxUfLJMwhNGdmIkBmPPNg7MxmIvsaZ0doh5L1Y
+	 WUr7g7jKMALPJbk0Lg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.93.27]) by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MKMA1-1tZz4D0ku7-00KqlH; Fri, 28
+ Feb 2025 18:33:50 +0100
+Message-ID: <8b046033-0f97-49e0-afdd-a3a3a3c23ec4@web.de>
+Date: Fri, 28 Feb 2025 18:33:47 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 02/18] rtc: s5m: drop needless struct s5m_rtc_info::i2c
- member
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Chanwoo Choi <cw00.choi@samsung.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
- Hans Ulli Kroll <ulli.kroll@googlemail.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- =?UTF-8?B?VMOzdGggSsOhbm9z?= <gomba007@gmail.com>,
- Dianlong Li <long17.cool@163.com>
-Cc: linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-amlogic@lists.infradead.org
-References: <20250228-rtc-cleanups-v1-0-b44cec078481@linaro.org>
- <20250228-rtc-cleanups-v1-2-b44cec078481@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
- QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
- gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
- /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
- iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
- VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
- 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
- xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
- eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
- AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
- MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
- Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
- ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
- vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
- oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
- lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
- t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
- uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
- 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
- 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250228-rtc-cleanups-v1-2-b44cec078481@linaro.org>
+To: dri-devel@lists.freedesktop.org, linux-sunxi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, Chen-Yu Tsai <wens@csie.org>,
+ David Airlie <airlied@gmail.com>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Samuel Holland <samuel@sholland.org>,
+ Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>
+Content-Language: en-GB
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
+ Qasim Ijaz <qasdev00@gmail.com>
+From: Markus Elfring <Markus.Elfring@web.de>
+Subject: [PATCH] drm/sun4i: dsi: Simplify maximum determination in
+ sun6i_dsi_setup_timings()
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:lA+yt6XQXGbHJA8i/dPHH3qngpTXFeGZNQWLvKtVckTh6A0dFKR
+ VvIKo0ilo4K7DBjZeXE4QoS4qwWtxJPnmt0+dUesQA0s5PJMlJP6zleg1N54VKHLbJTKQha
+ HiudkuSGSYTNxDpWe0Xla/n+IJxm8E7UcxoeMqX3F1547PEFeOQFUfV7ixoOQH0wJn1/NzA
+ /JXSU0t61PkVg1S59unew==
+UI-OutboundReport: notjunk:1;M01:P0:8JS2gQELrJA=;gJeX7bdK3jHXeCd39Zg45iaR7Gt
+ N5Rje24aQ61qqxH+g1IjROCZuJF4VscVGomPjF61aogbFXUU28SeHsRqyv3FWDWeXvDUjNIni
+ vt/ccojul41zlduG8GlSXJ2Q1339FKuIcQDAkNlRuzi7jSE5oOHfKCYs7gxxdW96wAGg3w1U+
+ Ihx+okmz8+lNa5uvwVb2GB4KBeRWLgvDaCaJe1IzDvc5Dy+swyvwDnGHFpBqEP76xFNqQgSxK
+ Dft1doLFmwj12LXzNU1sXa5Yn/5ToilbzQFiwVrJzIc3oh3RmXqCbZtiXf55rT+l0p48xGEDH
+ 0qTuiwNhMfDrFUQV1S2ohAScQY4Yy8cNBYaDUtvuVklWkzJsaTG09Ld0tsNSFpgUK2OEQMBSH
+ dz8g4QMOEnS6jTiXYbF+gQFchy2N8V7OY/fpr1QJpdcQyp5oT1yido+VO2JEhuwTw06iofq6h
+ OlO0nylfacgE/Xy/uWiGHXUXUuaEbCQcRerbpieWv1MeW+NFuvl53F7TCma+Qt7J+EDUVoQp5
+ Oo+rNropgVEn2fI4Ls1vN3D4iif9JWl2Y093cnc4a/IfTyw8gG3p2KALcYz9ERYdB2vuA/Ex4
+ n0EMqsc9kwgKl4X6uDoJOuUsdf3slrEsOgJordmfY2qZQT7/ky4UQ6OqU+EYSst/yCTDco1co
+ jWMAr0+XnrF5MOb8jvYpC4Afe9IpdmqOboSISsM2M4Ru1j3nnj6kZa/UNJgKDT0kOfTfL3KfO
+ QVopsnd8fGgUWI17zRBv9WxYhtoJ5SC15o392Xuzbk+oV+jyZKK+FJoBa8j+IzujDN1u1VmgL
+ DNbBpWckDYzVJkr9TTV1QH/w1OrixRWlrOTEiUNZfnttY5auDCFgxQ/uglCYjagPdcgKZ2vu3
+ 9CxWBNeoWJCj9SKvVU+iNNoQTF1lbx/eRYffs3qrO7P0Y/B0pSSmaN5sFmO2tFLq/vd0r8EBq
+ XC0XJ9JQdZuLSQTVopmNyawcf7Y7whf00c/xOrHUz6mbxyVJGjlVQ5Qo2kqOiKNuOA7OKWXep
+ /Av8XdIYOcGfyYJTPY2BZTRbEmMG4Ub6Bcf1jH+07aDIJ9uGRc20rrp+/cORxBhA3/28uqAHn
+ QfbvPnNyq4ezBG4Q5QS4MLmldlAp9xURS4jRM2b7DKxQF4KHYpLws9E12N/pw/+fPtFx1dNbz
+ BXCXfwunD+qjGzvZdG2lDyDfbS4Ehc6kbB9+5q0TmwUG4NmqA25pgjOPbpnpu8VtD0f9rU+Y/
+ utnMYnvnUiOoqXCh3gC8ubk9oss3wG44KDHs9srVBEvX9/+wH2wEg9lBohIK9oIb+t/a6Swgc
+ NXEzr0jAQK9OeccjJJdNJDAJXaobhRC2x1EbbEHdyVAYvaHYbAzEQtqvH2hBI46hhkgco0jOo
+ pa1YN+7WIVxF6xXR/sqIydC1VQ5UAq0XquTWahAAdM9S97zNUkzRM7LZtvvmk7fwY8/TruN/b
+ /DP7220xsKFeKDIhAS3mbkTO0Io4=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_093117_789430_B400B927 
-X-CRM114-Status: UNSURE (   7.80  )
+X-CRM114-CacheID: sfid-20250228_093432_352740_E6950F29 
+X-CRM114-Status: UNSURE (   8.77  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -129,18 +106,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/02/2025 15:07, André Draszik wrote:
-> When this driver was converted to using the devres managed i2c device
-> in commit 7db7ad0817fe ("rtc: s5m: use devm_i2c_new_dummy_device()"),
-> struct s5m_rtc_info::i2c became essentially unused.
-> 
-> We can drop it from the structure and just use a local temporary
-> variable, reducing runtime memory consumption by a few bytes.
-> 
-> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+From: Markus Elfring <elfring@users.sourceforge.net>
+Date: Fri, 28 Feb 2025 18:25:31 +0100
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reduce nested max() calls by a single max3() call in this
+function implementation.
 
-Best regards,
-Krzysztof
+This issue was transformed by using the Coccinelle software.
+
+Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
+=2D--
+ drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c b/drivers/gpu/drm/sun4=
+i/sun6i_mipi_dsi.c
+index c35b70d83e53..7765a29e2ef6 100644
+=2D-- a/drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c
++++ b/drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c
+@@ -597,7 +597,7 @@ static void sun6i_dsi_setup_timings(struct sun6i_dsi *=
+dsi,
+ 	}
+
+ 	/* How many bytes do we need to send all payloads? */
+-	bytes =3D max_t(size_t, max(max(hfp, hblk), max(hsa, hbp)), vblk);
++	bytes =3D max_t(size_t, max3(hfp, hblk, max(hsa, hbp)), vblk);
+ 	buffer =3D kmalloc(bytes, GFP_KERNEL);
+ 	if (WARN_ON(!buffer))
+ 		return;
+=2D-
+2.48.1
+
 
