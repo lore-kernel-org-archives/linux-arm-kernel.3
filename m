@@ -4,58 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98692C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 11:23:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 264C0C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 11:25:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+CvipCPFnQOohpxvW+AIGYY3NfzT6KeKeGgj3mAUTNI=; b=XQYmbBz0x1uPe+
-	6v0x5HtwmU+xeMUdokdzieZmPVNpfNpHtd4O2riIqcxOfZjbi73DHeYQOhF4QhAM2d8pqC5NVdDTy
-	OXB6KTtnBBglOHFvpRB4h4fXRtp9dpmBNGsV9j9J4xPyxplEiEDntSp+vwjM+iFyn9f9fOTVUY0Pf
-	e4O295dy58I9o2OqsK7VdewOspmiWg9SDCs+bX9gIcAEbsygr/HuxDfNWgefdgiqH/pt5eqiHjqhg
-	J5cufO+LRQw7yFloxB/SPoBYmca98oEYF40Vq2LErZVSAGf26plr09MV7iOyTbHQLyHudW7QjJoTr
-	xf2uM7ur6lJvMYlnuWjA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vSY+UBE9kzGHPUbh5Y1nwA/QIwhXvgGkQmB5IgW7iD8=; b=dkVe8WRVJtBgKVqnLS/nm9QWfG
+	sK44Ikl9TmYqBk2sWs/qwSQQyNA9Bzom03igGTwoyLVr4H3AHU88O7Rb9q/8ww3NeSP3l2IZ9r7md
+	zTsRa8w0eSYdMvdJNXKvKuPVYyhXf2hCGNijRsX4Mqt6QwYvsQpe3Arfo3VeaRPEtMG3aiemN28lY
+	cAaoMHUHS8ENuI7f7Ov5bQYbaG8fzMPvB6YMAIQku3UJ4gupu2C7EOHBH6jSbPrt4CtogBStD7HvA
+	ahp07hEmo1C6Y9+ndzWZ5+HGWD6f3ZZd9z/md6FLzpaajpNaIUDaYh/gp11Eh1Q9Ezt79/T1BZXtG
+	GWt6WmYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnySi-0000000Ak1q-0M9t;
-	Fri, 28 Feb 2025 11:23:24 +0000
+	id 1tnyUF-0000000AkGU-0AWc;
+	Fri, 28 Feb 2025 11:24:59 +0000
 Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tny0k-0000000Af5X-0Yuw;
-	Fri, 28 Feb 2025 10:54:30 +0000
+	id 1tny0m-0000000Af5m-31XW;
+	Fri, 28 Feb 2025 10:54:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A8D5C60008;
-	Fri, 28 Feb 2025 10:54:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B7E9C4CED6;
-	Fri, 28 Feb 2025 10:54:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 79CE161F60;
+	Fri, 28 Feb 2025 10:54:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60DC6C4CED6;
+	Fri, 28 Feb 2025 10:54:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740740068;
-	bh=D378USUaujIOtk3JUxmuhX8B+XhE/CL+/pfeMthqgwk=;
-	h=From:Subject:Date:To:Cc:From;
-	b=hfeP8FLYk+uGh95AyYg6p7IDmqj2gw0NYL/h0yN6vOtfFGIVhx3r6vVR/ea07VsIs
-	 i+vaF8ucj2/o/B9w7yCKjnfSd8YliktJyZwen/dMlI+M72KkKRkaBRt0BRbfAoAegi
-	 9pqtKMOpFOt9NXon/4HC48K42i5QwfmArXtX5vujHF8UFrslfjSYzyuBGsBsJPeQC1
-	 XctCWdacskBlHxuMChCsQTWzYDQK3nEf4hGck3kfmyX5F9ty6CWE9Q0qMF5FrwYbgW
-	 jtUSEsOqvCktHTNBhWITvVkFywgCau6qSGw9tw28aICDUpiRTye8s0q/hahqJsdwqK
-	 RwgsFMSdPI4xw==
+	s=k20201202; t=1740740071;
+	bh=IpkbnQD0aqV4zTrDQLNPfko65wJI87nBEI5JGdjdZk8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=LhVFHou9p/HvfebyeKPJl3tDWytr92YVqxXMdsJ6gvysCmtwj9FvlHF3KcSurmK7O
+	 I8EppwnpBHzHLw0cDatC5f1vmozHWtJ8fDCZsFGpm3Ll1A+RXK73nJNx+/NVhqaMNk
+	 v7cLUdUM1QhZF3NwEXzVKoOBEf9lJPiOXADpNGLiKoVLO11baQqoeWLeGHIbj1U5G5
+	 qm6Z06OTWbUgn8I+Tt5K6Zbu1cy2+lo6B34LlhUxyjrQRJAIXJ3gcuHMG8ggHC2dgh
+	 tlQN6GYXn6p25pHyuxp/SKG9kf4fRz1nsTIn2dS6CTFtbEXHs0SoDf13r7D2TJHmaZ
+	 26UYevR/Qtg/g==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Subject: [PATCH net-next v8 00/15] Introduce flowtable hw offloading in
- airoha_eth driver
-Date: Fri, 28 Feb 2025 11:54:08 +0100
-Message-Id: <20250228-airoha-en7581-flowtable-offload-v8-0-01dc1653f46e@kernel.org>
+Date: Fri, 28 Feb 2025 11:54:09 +0100
+Subject: [PATCH net-next v8 01/15] net: airoha: Move airoha_eth driver in a
+ dedicated folder
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIANCVwWcC/43RTW7DIBAF4KtErEsFDD+mq96j6mIw4xg1MhGO3
- FaR716cFZUXzo7H4hvecGczlUQzezvdWaElzSlPNXQvJ9aPOJ2Jp1gzU0IZoYThmEoekdPkTCf
- 5cMnfNwwX4nmoZ4ycAKUMEEBjZFW5FhrSz2PCx2fNY5pvufw+Bi5yu33eXiQXPIJV/YDeBSHfv
- 6hMdHnN5cw2fFEt6I5BVUFApcBbr9C6HQgt6I9B2F4Y0ApyxhgLO1A3oIRjUFcwWN+jtNHpGHa
- gacEnKpsKqi6QF7IPDswOtA2o5DFot8rGAw6CvO72O3QtqI9Bt1XW9VcwdmA1/QPXdf0D9Faju
- LUCAAA=
-X-Change-ID: 20250205-airoha-en7581-flowtable-offload-e3a11b3b34ad
+Message-Id: <20250228-airoha-en7581-flowtable-offload-v8-1-01dc1653f46e@kernel.org>
+References: <20250228-airoha-en7581-flowtable-offload-v8-0-01dc1653f46e@kernel.org>
+In-Reply-To: <20250228-airoha-en7581-flowtable-offload-v8-0-01dc1653f46e@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
@@ -70,9 +65,7 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>,
  Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>
 Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
- upstream@airoha.com, Sayantan Nandy <sayantan.nandy@airoha.com>, 
- Christian Marangi <ansuelsmth@gmail.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+ upstream@airoha.com
 X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,119 +81,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce netfilter flowtable integration in airoha_eth driver to
-offload 5-tuple flower rules learned by the PPE module if the user
-accelerates them using a nft configuration similar to the one reported
-below:
+The airoha_eth driver has no codebase shared with mtk_eth_soc one.
+Moreover, the upcoming features (flowtable hw offloading, PCS, ..) will
+not reuse any code from MediaTek driver. Move the Airoha driver in a
+dedicated folder.
 
-table inet filter {
-	flowtable ft {
-		hook ingress priority filter
-		devices = { lan1, lan2, lan3, lan4, eth1 }
-		flags offload;
-	}
-	chain forward {
-		type filter hook forward priority filter; policy accept;
-		meta l4proto { tcp, udp } flow add @ft
-	}
-}
-
-Packet Processor Engine (PPE) module available on EN7581 SoC populates
-the PPE table with 5-tuples flower rules learned from traffic forwarded
-between the GDM ports connected to the Packet Switch Engine (PSE) module.
-airoha_eth driver configures and collects data from the PPE module via a
-Network Processor Unit (NPU) RISC-V module available on the EN7581 SoC.
-Move airoha_eth driver in a dedicated folder
-(drivers/net/ethernet/airoha).
-
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
-Changes in v8:
-- Remove unnecessary GFP_ZERO flag in dmam_alloc_coherent()
-- Fix 802.1q offloading support
-- Link to v7: https://lore.kernel.org/r/20250224-airoha-en7581-flowtable-offload-v7-0-b4a22ad8364e@kernel.org
+ drivers/net/ethernet/Kconfig                           |  2 ++
+ drivers/net/ethernet/Makefile                          |  1 +
+ drivers/net/ethernet/airoha/Kconfig                    | 18 ++++++++++++++++++
+ drivers/net/ethernet/airoha/Makefile                   |  6 ++++++
+ drivers/net/ethernet/{mediatek => airoha}/airoha_eth.c |  0
+ drivers/net/ethernet/mediatek/Kconfig                  |  8 --------
+ drivers/net/ethernet/mediatek/Makefile                 |  1 -
+ 7 files changed, 27 insertions(+), 9 deletions(-)
 
-Changes in v7:
-- Fix Coccicheck warnings
-- Add missing request_module
-- Introduce ops in airoha_npu struct
-- Add missing wlan interrupt to airoha_npu binding
-- Link to v6: https://lore.kernel.org/r/20250221-airoha-en7581-flowtable-offload-v6-0-d593af0e9487@kernel.org
+diff --git a/drivers/net/ethernet/Kconfig b/drivers/net/ethernet/Kconfig
+index 977b42bc1e8c1e8804eb7fafa9ed85252d956cad..7941983d21e9e84cbd78241d5c1d48c95e50a8e4 100644
+--- a/drivers/net/ethernet/Kconfig
++++ b/drivers/net/ethernet/Kconfig
+@@ -20,6 +20,8 @@ source "drivers/net/ethernet/actions/Kconfig"
+ source "drivers/net/ethernet/adaptec/Kconfig"
+ source "drivers/net/ethernet/aeroflex/Kconfig"
+ source "drivers/net/ethernet/agere/Kconfig"
++source "drivers/net/ethernet/airoha/Kconfig"
++source "drivers/net/ethernet/mellanox/Kconfig"
+ source "drivers/net/ethernet/alacritech/Kconfig"
+ source "drivers/net/ethernet/allwinner/Kconfig"
+ source "drivers/net/ethernet/alteon/Kconfig"
+diff --git a/drivers/net/ethernet/Makefile b/drivers/net/ethernet/Makefile
+index 99fa180dedb80555e64b0fbcd7767044262cf432..67182339469a0d8337cc4e92aa51e498c615156d 100644
+--- a/drivers/net/ethernet/Makefile
++++ b/drivers/net/ethernet/Makefile
+@@ -10,6 +10,7 @@ obj-$(CONFIG_NET_VENDOR_ADAPTEC) += adaptec/
+ obj-$(CONFIG_GRETH) += aeroflex/
+ obj-$(CONFIG_NET_VENDOR_ADI) += adi/
+ obj-$(CONFIG_NET_VENDOR_AGERE) += agere/
++obj-$(CONFIG_NET_VENDOR_AIROHA) += airoha/
+ obj-$(CONFIG_NET_VENDOR_ALACRITECH) += alacritech/
+ obj-$(CONFIG_NET_VENDOR_ALLWINNER) += allwinner/
+ obj-$(CONFIG_NET_VENDOR_ALTEON) += alteon/
+diff --git a/drivers/net/ethernet/airoha/Kconfig b/drivers/net/ethernet/airoha/Kconfig
+new file mode 100644
+index 0000000000000000000000000000000000000000..b6a131845f13b23a12464cfc281e3abe5699389f
+--- /dev/null
++++ b/drivers/net/ethernet/airoha/Kconfig
+@@ -0,0 +1,18 @@
++# SPDX-License-Identifier: GPL-2.0-only
++config NET_VENDOR_AIROHA
++	bool "Airoha devices"
++	depends on ARCH_AIROHA || COMPILE_TEST
++	help
++	  If you have a Airoha SoC with ethernet, say Y.
++
++if NET_VENDOR_AIROHA
++
++config NET_AIROHA
++	tristate "Airoha SoC Gigabit Ethernet support"
++	depends on NET_DSA || !NET_DSA
++	select PAGE_POOL
++	help
++	  This driver supports the gigabit ethernet MACs in the
++	  Airoha SoC family.
++
++endif #NET_VENDOR_AIROHA
+diff --git a/drivers/net/ethernet/airoha/Makefile b/drivers/net/ethernet/airoha/Makefile
+new file mode 100644
+index 0000000000000000000000000000000000000000..73a6f3680a4c4ce92ee785d83b905d76a63421df
+--- /dev/null
++++ b/drivers/net/ethernet/airoha/Makefile
+@@ -0,0 +1,6 @@
++# SPDX-License-Identifier: GPL-2.0-only
++#
++# Airoha for the Mediatek SoCs built-in ethernet macs
++#
++
++obj-$(CONFIG_NET_AIROHA) += airoha_eth.o
+diff --git a/drivers/net/ethernet/mediatek/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+similarity index 100%
+rename from drivers/net/ethernet/mediatek/airoha_eth.c
+rename to drivers/net/ethernet/airoha/airoha_eth.c
+diff --git a/drivers/net/ethernet/mediatek/Kconfig b/drivers/net/ethernet/mediatek/Kconfig
+index 95c4405b7d7bee53b964243480a0c173b555da56..7bfd3f230ff50739b3fc6103cd5d0e57ab8f70e1 100644
+--- a/drivers/net/ethernet/mediatek/Kconfig
++++ b/drivers/net/ethernet/mediatek/Kconfig
+@@ -7,14 +7,6 @@ config NET_VENDOR_MEDIATEK
+ 
+ if NET_VENDOR_MEDIATEK
+ 
+-config NET_AIROHA
+-	tristate "Airoha SoC Gigabit Ethernet support"
+-	depends on NET_DSA || !NET_DSA
+-	select PAGE_POOL
+-	help
+-	  This driver supports the gigabit ethernet MACs in the
+-	  Airoha SoC family.
+-
+ config NET_MEDIATEK_SOC_WED
+ 	depends on ARCH_MEDIATEK || COMPILE_TEST
+ 	def_bool NET_MEDIATEK_SOC != n
+diff --git a/drivers/net/ethernet/mediatek/Makefile b/drivers/net/ethernet/mediatek/Makefile
+index ddbb7f4a516caccf5eef7140de1872e9b35e3471..03e008fbc859b35067682f8640dab05ccce6caf7 100644
+--- a/drivers/net/ethernet/mediatek/Makefile
++++ b/drivers/net/ethernet/mediatek/Makefile
+@@ -11,4 +11,3 @@ mtk_eth-$(CONFIG_NET_MEDIATEK_SOC_WED) += mtk_wed_debugfs.o
+ endif
+ obj-$(CONFIG_NET_MEDIATEK_SOC_WED) += mtk_wed_ops.o
+ obj-$(CONFIG_NET_MEDIATEK_STAR_EMAC) += mtk_star_emac.o
+-obj-$(CONFIG_NET_AIROHA) += airoha_eth.o
 
-Changes in v6:
-- Fix Smatch errors.
-- Remove unnecessary GFP_DMA allocating NPU buffers
-- Remove wrong dma coherent mask
-- Rely on skb_cow_head() instead of skb_ensure_writable() in
-  airoha_get_dsa_tag()
-- Unregister net_device before deallocating metadata_dst
-- Link to v5: https://lore.kernel.org/r/20250217-airoha-en7581-flowtable-offload-v5-0-28be901cb735@kernel.org
-
-Changes in v5:
-- Fix uninitialized variable in airoha_ppe_setup_tc_block_cb()
-- Rebase on top of net-next
-- Link to v4: https://lore.kernel.org/r/20250213-airoha-en7581-flowtable-offload-v4-0-b69ca16d74db@kernel.org
-
-Changes in v4:
-- Add dedicated driver for the Airoha NPU module
-- Move airoha npu binding in net
-- Link to v3: https://lore.kernel.org/r/20250209-airoha-en7581-flowtable-offload-v3-0-dba60e755563@kernel.org
-
-Changes in v3:
-- Fix TSO support for header cloned skbs
-- Do not use skb_pull_rcsum() in airoha_get_dsa_tag()
-- Fix head lean computation after running airoha_get_dsa_tag() in
-  airoha_dev_xmit()
-- Link to v2: https://lore.kernel.org/r/20250207-airoha-en7581-flowtable-offload-v2-0-3a2239692a67@kernel.org
-
-Changes in v2:
-- Add airoha-npu document binding
-- Enable Rx SPTAG on MT7530 dsa switch for EN7581 SoC.
-- Fix warnings in airoha_npu_run_firmware()
-- Fix sparse warnings
-- Link to v1: https://lore.kernel.org/r/20250205-airoha-en7581-flowtable-offload-v1-0-d362cfa97b01@kernel.org
-
----
-Lorenzo Bianconi (15):
-      net: airoha: Move airoha_eth driver in a dedicated folder
-      net: airoha: Move definitions in airoha_eth.h
-      net: airoha: Move reg/write utility routines in airoha_eth.h
-      net: airoha: Move register definitions in airoha_regs.h
-      net: airoha: Move DSA tag in DMA descriptor
-      net: dsa: mt7530: Enable Rx sptag for EN7581 SoC
-      net: airoha: Enable support for multiple net_devices
-      net: airoha: Move REG_GDM_FWD_CFG() initialization in airoha_dev_init()
-      net: airoha: Rename airoha_set_gdm_port_fwd_cfg() in airoha_set_vip_for_gdm_port()
-      dt-bindings: net: airoha: Add the NPU node for EN7581 SoC
-      dt-bindings: net: airoha: Add airoha,npu phandle property
-      net: airoha: Introduce Airoha NPU support
-      net: airoha: Introduce flowtable offload support
-      net: airoha: Add loopback support for GDM2
-      net: airoha: Introduce PPE debugfs support
-
- .../devicetree/bindings/net/airoha,en7581-eth.yaml |   10 +
- .../devicetree/bindings/net/airoha,en7581-npu.yaml |   84 ++
- drivers/net/dsa/mt7530.c                           |    5 +
- drivers/net/dsa/mt7530.h                           |    4 +
- drivers/net/ethernet/Kconfig                       |    2 +
- drivers/net/ethernet/Makefile                      |    1 +
- drivers/net/ethernet/airoha/Kconfig                |   27 +
- drivers/net/ethernet/airoha/Makefile               |    9 +
- .../net/ethernet/{mediatek => airoha}/airoha_eth.c | 1277 +++++---------------
- drivers/net/ethernet/airoha/airoha_eth.h           |  551 +++++++++
- drivers/net/ethernet/airoha/airoha_npu.c           |  520 ++++++++
- drivers/net/ethernet/airoha/airoha_npu.h           |   34 +
- drivers/net/ethernet/airoha/airoha_ppe.c           |  910 ++++++++++++++
- drivers/net/ethernet/airoha/airoha_ppe_debugfs.c   |  181 +++
- drivers/net/ethernet/airoha/airoha_regs.h          |  798 ++++++++++++
- drivers/net/ethernet/mediatek/Kconfig              |    8 -
- drivers/net/ethernet/mediatek/Makefile             |    1 -
- 17 files changed, 3422 insertions(+), 1000 deletions(-)
----
-base-commit: 56794b5862c5a9aefcf2b703257c6fb93f76573e
-change-id: 20250205-airoha-en7581-flowtable-offload-e3a11b3b34ad
-
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.48.1
 
 
