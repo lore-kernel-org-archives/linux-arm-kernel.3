@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E280CC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 15:46:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49DB7C282C1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 15:47:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=C5ZmQXx4mxY85GmIXUSq8cDz7Gu+D9pcOZjfpaZ/Z1o=; b=1Skj7ACRd/kF+0BKLr9uIH7YMz
-	+NiRoSuQiPfc9uELlsIEtU8cVtC5PyP2HfKIcTrT9sraiOGb1sVW4wW+ubypfdiqnsHI4YfEXm6aG
-	LGUhHDbP4hOao6q/cjoWoXhPXfUcbjzAkuYvPy6GsAl51qJuKqiMGlUH2rojVsI73xGWzkMyWqsQe
-	sURBwlGwZjDBKRZXOBGoym8ZGs+YU5yHDKhDKL2bY9QPb+gyx5CgJNAGzVkDdAOVaYQxkv6jVuIf7
-	46IGAcp1PbjCjy0FCKtJDqVBOumSgPKHL5ajPF4AxiGfNktY9VeEjdjYrUiey2ZU70g7t82OyGXet
-	8v5CRarA==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y+RyvZFdoio5p3L0+CdI3auMAM5bRt+oRVDnQ9bW1Mw=; b=h5LSi07JFCEOjEuyiInTUIILVL
+	ru4DoNZaqu6kqsOtGAjjOg/5rqtIg88yfnZMO8DCMAQtq7tGPzRRwO8+w7HSKbldCz2D3RqO7rJ4U
+	KG5zspjHNsys/wEL1nWWG/mvYJC2M9qdiLeyO0G5Q6Z4mG8nMaLdZVZfjSNJpXwIzDdf3zdS5A5jx
+	mIjE+AMoweF5CKvUIpamh9DLPZZvl08qyXLhFoh0RNtWt5A5gdux3UoSnDZxjBi8KahOsEaHfSVYg
+	tOVgFWMWev6pEPpTzFsvkXpWR572zu6KeJ8YZBu+9dVBxZLRhN+JvFNlZfFaUuRFjZaiPVUGDO6mR
+	egKp08Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to2Yw-0000000BWjZ-0QKi;
-	Fri, 28 Feb 2025 15:46:06 +0000
+	id 1to2aT-0000000BX9b-3Sfz;
+	Fri, 28 Feb 2025 15:47:41 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to2Dq-0000000BSN6-0Ztc
+	id 1to2Ds-0000000BSN6-0h82
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 15:24:20 +0000
+	Fri, 28 Feb 2025 15:24:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1740756258; x=1772292258;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=mUhcBeFz2G0AqMEg/aSARHZz8N8xLvWlhvTeO9kMMBk=;
-  b=QmE9CHwhjLlwiSNAxZ8LSpMbYFgXPlO0js+dclVvI5qIYHfeFSDPVI4o
-   yXNrUKIZClo9hnJ2b/YaDsIas6kgseTplj8YOz+dHH1P8YZhsRJxT3k64
-   i6zxCM3HO4u04thaM9fvzNll+Sv7mZClyj+EiZEhhe147a+c7Xl0qxUXE
-   Ejvcyn+dCziiqoOCy+Il5bl00EGYUImOcpd4tyOIgLichLF7iYOOMXYa4
-   zopOpd9tsnecMAWw/Nea2MgrW8bjRold/jiHgMNhzZhjti0R2+FXhl42m
-   fDnwUah83bopt1iqLMvkGyzPyfG1boXNer44A1dZ/tHY4YHJUoPDQ01Q5
-   A==;
+  t=1740756260; x=1772292260;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=LzIKqDxFHg4172eexZcr4Iikohe0+ynv0N9qzRji844=;
+  b=xNrzYLzVtmT8i4ODU25J/iFzF8DY8FSR3nv2ULOLw4wsw/RbcRDimSt9
+   0aJi+JG31cI09mkK6nDh3cKoD3ErW5WvJbvE2MNPXT9YXnMHQHZZ0QW5J
+   QwHCmB7wK4z2JDXpxP8GbUjiWKL/AaxFkc0Sk54BiNgwLtB9y9HX72ZmF
+   WLEfJe7TB1ZYHGJKsBguLI131uFFGbc1Svh1e0RcwKnp5Qc8UlWLKmUN3
+   sEe7yB9OcI4x7P4HsEj2K0CJT5JO5yXUZmpeFUF3wq3sfgum/xANrJW/g
+   laAFGXbtHVCvug/uFBcik1Qpl3A5sQ7+EeX0ZFqqjEfnG1QlqyZrjLNzz
+   w==;
 X-CSE-ConnectionGUID: YRQSNli+QiSyLIXFC1GTlQ==
-X-CSE-MsgGUID: 7UExDHXCTZuMclqioX3IKw==
+X-CSE-MsgGUID: OEUZY4WtRjiQyJmWabd75Q==
 X-IronPort-AV: E=Sophos;i="6.13,322,1732604400"; 
-   d="scan'208";a="42415299"
+   d="scan'208";a="42415302"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
   by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Feb 2025 08:24:15 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Fri, 28 Feb 2025 08:23:54 -0700
+ 15.1.2507.35; Fri, 28 Feb 2025 08:23:55 -0700
 Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Fri, 28 Feb 2025 08:23:54 -0700
+ 15.1.2507.35 via Frontend Transport; Fri, 28 Feb 2025 08:23:55 -0700
 From: <Ryan.Wanner@microchip.com>
 To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
 	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
@@ -62,16 +62,18 @@ CC: <vkoul@kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<dmaengine@vger.kernel.org>, <linux-watchdog@vger.kernel.org>, Ryan Wanner
 	<Ryan.Wanner@microchip.com>
-Subject: [PATCH v2 0/2] Add System Components for Microchip SAMA7D65 SoC
-Date: Fri, 28 Feb 2025 08:24:09 -0700
-Message-ID: <cover.1740675317.git.Ryan.Wanner@microchip.com>
+Subject: [PATCH v2 1/2] dt-bindings: watchdog: sama5d4-wdt: Add sama7d65-wdt
+Date: Fri, 28 Feb 2025 08:24:10 -0700
+Message-ID: <15d6f901e64dd36d25a62e27601252c59708275a.1740675317.git.Ryan.Wanner@microchip.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1740675317.git.Ryan.Wanner@microchip.com>
+References: <cover.1740675317.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_072418_304012_CCEB62F0 
-X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-CacheID: sfid-20250228_072420_215599_4836CD4B 
+X-CRM114-Status: UNSURE (   7.56  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,27 +91,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-This patch set adds support for the following systems in the SAMA7D65
-SoC:
-- DMAs
-- Chip ID
-- Dual watchdog timer.
+Add microchip,sama7d65-wdt compatible string to the dt-binding documentation.
 
-Changes v1 -> v2:
-- Removed pathes that have been accepted and applied from v1 [1].
-- Corrected missing newline in dt-binding.
-- Corrected mismatch in watchdog dt node.
+Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+---
+ .../devicetree/bindings/watchdog/atmel,sama5d4-wdt.yaml       | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-1) https://lore.kernel.org/linux-arm-kernel/09eafe54-c262-4db4-b11d-0644a1f90a14@tuxon.dev/
-
-Ryan Wanner (2):
-  dt-bindings: watchdog: sama5d4-wdt: Add sama7d65-wdt
-  ARM: dts: microchip: sama7d65: Add watchdog for sama7d65
-
- .../devicetree/bindings/watchdog/atmel,sama5d4-wdt.yaml    | 4 ++++
- arch/arm/boot/dts/microchip/sama7d65.dtsi                  | 7 +++++++
- 2 files changed, 11 insertions(+)
-
+diff --git a/Documentation/devicetree/bindings/watchdog/atmel,sama5d4-wdt.yaml b/Documentation/devicetree/bindings/watchdog/atmel,sama5d4-wdt.yaml
+index cdf87db36183..7668f1efdc6d 100644
+--- a/Documentation/devicetree/bindings/watchdog/atmel,sama5d4-wdt.yaml
++++ b/Documentation/devicetree/bindings/watchdog/atmel,sama5d4-wdt.yaml
+@@ -23,6 +23,10 @@ properties:
+           - const: microchip,sam9x7-wdt
+           - const: microchip,sam9x60-wdt
+ 
++      - items:
++          - const: microchip,sama7d65-wdt
++          - const: microchip,sama7g5-wdt
++
+   reg:
+     maxItems: 1
+ 
 -- 
 2.43.0
 
