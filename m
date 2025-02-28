@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 091EAC19776
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 10:23:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C06FFC19776
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 10:24:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZOjEf/vwG5NtXAxyilKF2t/fnUdyLrxQir2soHUfYmY=; b=ISCGj6iwd+fsrAXkWaXJWXDOoZ
-	azrXOqyHy3pj411zYNRt89A9btzRRuvFsSILxpiZSUrCk8C6F7BV3UXgjAgV0ieUxXvjZBlzKPq82
-	ywKWikZbD01Tukd1iMEdXmC9qX68vr+LzRV78/I/hXf5V7+zAVAkOUq1rd7+3DMIr51ECK782zsZq
-	47PHJxwFItNBKCeLewbMEcoT3PyPkjdOx2Yc3MCZ7j/re4giyialRkoXUBP63wQB8khI1PEJpLUPw
-	zn9bfsvXkVoeWPANvRSTYlhytbd+P1dHLHGUMuXDV/9BKSrj8hMKiBsdy2Eiv6KaPi89h2NxfZVVv
-	r7k1UKPw==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BKRzO8iJdE9AdOFwiOC4jOji87/asZAhQHWRgXUurKw=; b=KrWxQsGZZ8yyRuHh78LYVATdxu
+	gyZcCH4ldejDdh1ZrjSaxk3dgiHq44npaCk+qnIsVmgK+PRlD0RrvSg9EYiqDkxs3li9ZRfv6HHOg
+	rD20nH13DgGzjh1wBh6xEgzlb6tGiD3bS1xqRMn64rgyQeLfhMAFFcV6PUZ6wDhLjAQioCVXYDIXW
+	md/lZZ5bKq9wdGEM1Pia92kioAXO4n7xphJi5MS/BkgqJnG912oUcSqsM+Kb++L9Z0zfS/f9FTgRp
+	oOmCQSpNl8cMC1ktvTZeR0baBsj2acvRSwePSYd/QLe6079eCgOeke+Dk4Mma69A+UEa+YrsOid/v
+	Yqt3ctwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnxWU-0000000Aa2O-3f01;
-	Fri, 28 Feb 2025 10:23:14 +0000
-Received: from mail-am0eur02on20726.outbound.protection.outlook.com ([2a01:111:f403:2606::726] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1tnxY0-0000000AaK5-2GJi;
+	Fri, 28 Feb 2025 10:24:48 +0000
+Received: from mail-am6eur05on2072c.outbound.protection.outlook.com ([2a01:111:f403:2612::72c] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnxS3-0000000AZ21-2uhd
+	id 1tnxS3-0000000AZ2p-2uJs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 10:18:41 +0000
+	Fri, 28 Feb 2025 10:18:42 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jEeykX0cOrj2PayJ+tPTZe74OY+RSLfgKh8eM8h9cp9RUuxD4Lc3yDlp+HyZvvYVOnYUPbgNgBzM1oaPXfwd+/ezsrL/L0KRi53fqVQ/O6Cms72m13ZK7puj3TQoSUdja6xn8OXiAws5qaF3FnGlpUWruOjJVIJIPUb4ry+cMBv+a/v/DBFxvlgjhfpM2aSo46sqn9avX5CvcfHTZwTFEEm4S3xerDRnyc0I6FpZmh1mRlSpSkXb39iA7T5+d4UyYlOVZI2g49hY3xWrx1Q/pUNDIAYk93oTfxfaqx6rLVxljrkoGHPFAqXAup/OqE3mgOR7Zw7n3BqqVB7dkwlUsw==
+ b=s/k0FCPTUJSzXEHT3c2IySyhs0iL6NSNtHmYWMfAHUzSO0zfUOXFpeme/OOMXOvZCj7rWx6l+C0/42vJqIybVVvhwz9O++fCB78CH5frGtN3lViKGiwjCQo22/iT2BC8XUB8cj33Hpr3PyCePJISW4jPk64BghXo6ItJnX7pjdAHOloSFZluwYCEWQ3sIBPAy7aqhd10/hAEZzKWCDElnLzdclKZ+9ND3rMppz0Bce2ZG9ANlHqZLI1r9yjw9Dh8G381iUci6eG0uWcU9zhBS0Qdda7uVnLPkbCHvpDV/4ZV9/5V2e9XWPkxnRkkpZ8Kw7PGmbWstz1+JU8tLK3qwg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZOjEf/vwG5NtXAxyilKF2t/fnUdyLrxQir2soHUfYmY=;
- b=f6sROkemC2MkP/JegvQmscUNq/QkgvpWtEMe7qBu8s7ky3MAp71P/4ZcIuJtArWa6KkwMgapk/edC7SiQ658yJ6tB5kD94czDeCbKi++wQmMC1mUPE8j77fvLe+8n5lySurrU4Lrt2rj74HXeie0AFINvJc8E8Y2CSUbo0OM3rAdFEhxYUPLY2uvo5KxFVziyrJVwkRPbGtvjPi+4j992ip4qWddnWnz2mSe+rAWEDvtBl3la0+6XjJ057L09H39W64ifrg0z1MCyCg+lLw1xDii9n8k62ohQN1CouEtvo3Zcd7AT+qVRXN6E3uJca/rdgQhSf6oLKjYzvHuWDG7SQ==
+ bh=BKRzO8iJdE9AdOFwiOC4jOji87/asZAhQHWRgXUurKw=;
+ b=QWfJBMAjZRtYTE2Pj0VnXoL1Mjs3dBZ9qqBdQWaWj3v2SUbebpWP9+XhPxSpxcbeVoTf0TighNnKGZPjf+beX5Qw2kNHsPZ6ln6zWXZfqwyRArQzUzCwE9tY8X866ftktGqYEFgT1QGgY/sr3tcrrPsgfUJr1zx14mzGlZlwXwk1bIusgPABbMGJN+WsZcrxjNwRBxAkJyP6uKo0Y50yDAfum5f1qjvD8AsQP8wVIMRnu7fvHNp+dFZNI1FkMgqTotlqu1Z/GgLRB6jAE4XKWRTSMGmfhLSHn9Hg2Ryj6FII9C9knUCFNO+yj7ke6aR8OAJyaQ2B5KzwvdCYilzvDw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
  is 91.26.50.189) smtp.rcpttodomain=ti.com smtp.mailfrom=phytec.de; dmarc=fail
  (p=quarantine sp=quarantine pct=100) action=quarantine header.from=phytec.de;
@@ -41,18 +41,17 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZOjEf/vwG5NtXAxyilKF2t/fnUdyLrxQir2soHUfYmY=;
- b=idGz34hR1jUj0BcD0p/FCBi6NXirVy+5q//z9ZnvWXZkZe2AocucrG65zeMf0046Oob98LC6LKFUKCnkxnHU7kbwuVs4GhZ0ilUtgdHNc+HzgjpCBE+SV6WZLQj3Hqc46AWKA7p2up9f/zH3Ik3VQLWrPeyfMAEyCYaAxbU6n8GibPMgmPsHXU0/+u+cX9QNtD2KwXVhE7bxgVvn1ki7V2jRXXPImlw5Tn1ivNzVVqv9JTaHNLCQHbYnv1Pu2yqdheJWTGsI/Ra2MxOkMA3WxHrfA1CmyhjlzW6Ah/t8dGHDawDXdNjSAqiKMWxAguM/b/Sp8vPKA9ZyW9upEe5bew==
-Received: from PR3P193CA0010.EURP193.PROD.OUTLOOK.COM (2603:10a6:102:50::15)
- by PA2P195MB2535.EURP195.PROD.OUTLOOK.COM (2603:10a6:102:407::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.21; Fri, 28 Feb
- 2025 10:18:33 +0000
+ bh=BKRzO8iJdE9AdOFwiOC4jOji87/asZAhQHWRgXUurKw=;
+ b=Tx3a/8XWbOT5jcHlldsYM3V2fJbB7W4ZLbj7O4eoNzpkxAMs0g5YBFQ9Jw1Odc6676OaDUbPfCPPUJP3Cn33+1fD/r8BnAzUouXOU+CfFFwrV+MmggfP/U6txFZSwZStqS27sorfgcJlXIQbPWt1GZtNhxh9Rbgfi5BmwoPgZxdpvKQ2102orZuTcjJk4lLdVjrqAbt2s2Io3iao/s5V0/Zlf1CrIcy7xKLkHO6BS8UNZIyW+dk9nO5q+MQzme7LKy0IwJV7uF3o839fO0gWaOC4qXIaS4BxWuSXoQHV5Nhdadt4hlfN0YmgrRWfXQfromuAK2RRHnViuJov4GpdAw==
+Received: from PR3P193CA0001.EURP193.PROD.OUTLOOK.COM (2603:10a6:102:50::6) by
+ AS1P195MB1447.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:4a7::12) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8489.19; Fri, 28 Feb 2025 10:18:35 +0000
 Received: from AMS0EPF000001A0.eurprd05.prod.outlook.com
- (2603:10a6:102:50:cafe::4e) by PR3P193CA0010.outlook.office365.com
- (2603:10a6:102:50::15) with Microsoft SMTP Server (version=TLS1_3,
+ (2603:10a6:102:50:cafe::82) by PR3P193CA0001.outlook.office365.com
+ (2603:10a6:102:50::6) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.8489.23 via Frontend Transport; Fri,
- 28 Feb 2025 10:18:33 +0000
+ 28 Feb 2025 10:18:34 +0000
 X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
  smtp.mailfrom=phytec.de; dkim=none (message not signed)
  header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
@@ -61,7 +60,7 @@ Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
 Received: from Diagnostix.phytec.de (91.26.50.189) by
  AMS0EPF000001A0.mail.protection.outlook.com (10.167.16.230) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8489.16 via Frontend Transport; Fri, 28 Feb 2025 10:18:32 +0000
+ 15.20.8489.16 via Frontend Transport; Fri, 28 Feb 2025 10:18:34 +0000
 Received: from Florix.phytec.de (172.25.0.13) by Diagnostix.phytec.de
  (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Fri, 28 Feb
@@ -69,16 +68,18 @@ Received: from Florix.phytec.de (172.25.0.13) by Diagnostix.phytec.de
 Received: from phytec.de (172.25.0.51) by Florix.phytec.de (172.25.0.13) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Fri, 28 Feb
- 2025 11:18:31 +0100
+ 2025 11:18:32 +0100
 From: Wadim Egorov <w.egorov@phytec.de>
 To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
 	<krzk+dt@kernel.org>, <conor+dt@kernel.org>
 CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>
-Subject: [PATCH 1/5] arm64: dts: ti: k3-am62x-phyboard-lyra: Add boot phase tags
-Date: Fri, 28 Feb 2025 11:18:13 +0100
-Message-ID: <20250228101817.865811-1-w.egorov@phytec.de>
+Subject: [PATCH 4/5] arm64: dts: ti: k3-am642-phyboard-electra: Reorder properties per DTS coding style
+Date: Fri, 28 Feb 2025 11:18:16 +0100
+Message-ID: <20250228101817.865811-4-w.egorov@phytec.de>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250228101817.865811-1-w.egorov@phytec.de>
+References: <20250228101817.865811-1-w.egorov@phytec.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -87,50 +88,51 @@ X-ClientProxiedBy: Diagnostix.phytec.de (172.25.0.14) To Florix.phytec.de
  (172.25.0.13)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS0EPF000001A0:EE_|PA2P195MB2535:EE_
-X-MS-Office365-Filtering-Correlation-Id: f211d8c1-87d4-40f6-1acc-08dd57e140f3
+X-MS-TrafficTypeDiagnostic: AMS0EPF000001A0:EE_|AS1P195MB1447:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3454ee86-64dd-4cf4-bb3b-08dd57e14258
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700013|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?3IxQ4+e9r7ABV39Xz7Gpd2O5o/HT/Yd2dMXZatKCefw8gHzgD351idKnORvK?=
- =?us-ascii?Q?nIN+yZjJeNhjO5HHPncPY6jn9wJ9vGACzwO7jlvtirIsbdMH8v4i4KkG1uAc?=
- =?us-ascii?Q?TEQJn3ijJF9qGqsFlS3ejmSMgvTPSYAZpA+XTNaUPDh+j2YMP1P5/PnGr2nO?=
- =?us-ascii?Q?Xjm6IGbPb285GJnfXMjxLWVSvNn1Duj46GRQ6Z5TH7n3bN1WNo4duGte5kQM?=
- =?us-ascii?Q?Dr3ZYuBt9G2O9YB1oGNSPO8f858H27Vai8TsP0Trj5RuZUS2H70325ngomgM?=
- =?us-ascii?Q?3WOTb0E6ZJs0j9DOpE0siyEmrxQ8i2Teg8d0zLqHAzJV0/DzrZp9dEqVdFUt?=
- =?us-ascii?Q?NhrCF+tHF82l2n/ci3ASbuqDLEbIr99ZSUypgF79uSg+xwlQngrjKWSGQ51U?=
- =?us-ascii?Q?CWbVPUx2AxD0BblXrMa60AllRbHSUTT+bFMI23lXz6FKQJLUplLgssG0043g?=
- =?us-ascii?Q?IRK+yqIysm6u7DoPsE5sllNfTLXh4a7dYxZoTrZOnG/oanPNC5HNRLxWEnRE?=
- =?us-ascii?Q?Pcbp1ProJIRYgaQ/broHqgyu5h8eqj2Smf4TDxZO4RQHkiO5b1rS63WLfbTZ?=
- =?us-ascii?Q?aUCq7j2qJuva7kgmuMQvsqA9QoolUFWRWC/A4Q/WnQb299zORQE/y1UFP+Y0?=
- =?us-ascii?Q?EUuBmHRqvb+F0WNsp325FMVxqvYAk1hDgQtOBAjrBPTiCbyMtv9cqVcWLvDT?=
- =?us-ascii?Q?hGVcGy7PBElsfiV+WEuga98vyqZIVqVx4/yPmdOLqCbw1jYNkbKuRi7BXBJe?=
- =?us-ascii?Q?euhxwdt6GBNLOSc72ZqM9tlyFU0MYjuR0OK+tofrDZBxMnsh5efBAn62hqcM?=
- =?us-ascii?Q?CglebT1nxeMg9VlqW/YUbMHFMW3/n0dflVBjbppHH3kc/UT+58fhrAg9bhwx?=
- =?us-ascii?Q?bhvax2PAnjpB/GtbXXP0Hqba43RiY5mowIR9U2hjMWvs6MND5tNjJWvWhKXK?=
- =?us-ascii?Q?y13Aw8ZqXU0GOIL5rgzd/ZQk88rroJgbjxFUb2DAgtW83q3gfPt9vvKfKNsH?=
- =?us-ascii?Q?NEl+x63KcRPxZea60svME7IJFlmPl+DGwSrXVUcAgVnSDrQTF8eombPi5RIi?=
- =?us-ascii?Q?Xa5TsDMzA12T9jBUpJAiksRDYk6xV4LHQYf7CRRDVayiyPhY06Gmf4/P/g2T?=
- =?us-ascii?Q?lgvf8xduRiQwwy3egMZ3b6mG08Sh7L8OG/CEd/Z+LlwrJ6LFuRGHIk2fXZbj?=
- =?us-ascii?Q?wdqnoDhGnDoeliNaFq/NXJbzKA6YMt1zm0myDlNikY5SPjgyQ4KSMvBQA2Tm?=
- =?us-ascii?Q?x/fA3kXq+145b+99TIMGQJS7T1wN3C6Y437QHsgHi+7Crak83NZDXGIMkW8/?=
- =?us-ascii?Q?nL7SFVMoH0lPMew/uouPplRQlDlrWnbS98DTcDZWX5Jmkh9nVfwrJiy29s4Y?=
- =?us-ascii?Q?pd4SBD2VgTXshxjsdpwphKVXoSo6202z5XRwicWLCocE6QfW6JaNKChxNxGi?=
- =?us-ascii?Q?3dCkjkqPKeQkVRBdNpTHswom6PrDXAzPI3HvnvhJfPgmV3QCVizWcA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700013)(376014);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|376014|82310400026|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?rX8kkLdeZFDsy+8RsWWlpbHB0oygVRowtqxM8ZUS+ElUlj//a+E1mp2GqXlS?=
+ =?us-ascii?Q?8SCF2tChIIekpHicHiopNbQSISbjgiV8i9sIrk5bS+uZk4sk8ckmukmYUx4b?=
+ =?us-ascii?Q?iBXUyzTBWohOVLEDk0bXDHXuh1jcqcqa90ouGm0e6ZLznfwHG9QAQZWZXSdi?=
+ =?us-ascii?Q?upKwNYbblYC0KvdJujKWmbG8ELBNA9Fx6obHLnMizqE+CAEM/RSNImp71Apj?=
+ =?us-ascii?Q?0Xe14fdYLxufazZov0YDXxsGDN9gbqoGj2Zg0zchvLfhzVbdIQjiNsarSWKj?=
+ =?us-ascii?Q?YyNB7o3Vsi8FMdxkZDFYbxfy+zvWZglMOvDni0e5J3qgaqm4ofzU1P4JttkL?=
+ =?us-ascii?Q?aD2CAyCa4BWGh8MSg5pd9Jy2BpFt3QN/NBgdFzNMKEF1eun/ypw0uF76T3yp?=
+ =?us-ascii?Q?HT46OvNLx3ZTRpQ1uJHkfHMNtLik9OugLb2NjX5tPey2n2iZ55m5tB5t1VQ1?=
+ =?us-ascii?Q?P6NVtMbgDk2k6CxergyRiGfybz9m5C/ru9GOXjKZAlDpJs+Miou6mmqF4JJw?=
+ =?us-ascii?Q?Hk7o4wUw6mBJ9ug04U1QKEm8bvKHMcJ0paOTJUIBKHrGAPXK1Z7ZT2FsvVnc?=
+ =?us-ascii?Q?XxV/44zzAySJN+dcZACRTtbM0J9vvIDBHaFy/mBWtVL+c8S3yPmFLSXotLsT?=
+ =?us-ascii?Q?IdH0dKMcxg3B3Mama/jnmfQZ+tTrYLAcajntcGSL+jMr/RXfpUIYze5L3XIe?=
+ =?us-ascii?Q?S7j5xvH5I8nptLlwDIBKuio68QD0tZZA96D9HaS+TVzR2JWyGthmd7mwr5F4?=
+ =?us-ascii?Q?Dr66YKxCU7YqW8uoQP7oP1JRj4jhpiWGeUhuH7sUaktn2ihW43nXPQZqL5Sm?=
+ =?us-ascii?Q?i3G9ZdjOODkGs9eJzDJJDFJPNyRJeR2mMHen49PPHGrkzXzTo0U9DlFOtW+x?=
+ =?us-ascii?Q?lS4r4sEry77AFLZd9hSGKZiUPDvgzEu75WnYXsZuJzQ6kJJUqPZ7WhjEWeSJ?=
+ =?us-ascii?Q?h3Lgm1Vu1X10MqvwbQgJwS5m9QspVcWBwNHs4gtv+3Qi20jqxLxpogHLm7uA?=
+ =?us-ascii?Q?ThsyLMr5a1Ax6MVKi8ZvxnRYx+chYCkpZaqE8gJ1EcZdLWMMw9mO9Qwk5jgH?=
+ =?us-ascii?Q?CWDXUbW7ncHWl2EDtWzcFioL3FAJ1Fp0+5skQdwAaNAOrBlgTGHC5hcpNiEd?=
+ =?us-ascii?Q?UKw6rBP9LALIa+6r4za4P8W8CgWNL5iL5hAow+sY/fj3+fogBr6NK/GbQOHw?=
+ =?us-ascii?Q?0Typ+EchgsybfnhfDo4iyrXScPXsyvpVFoBKCiIMY9Jyutk62E+y3sA0l4cv?=
+ =?us-ascii?Q?y3yTdMryGUH8JrtogMX1wa/MDCQwIBSpzlyVF73iS/i0DnSUTC72CVr0KR5M?=
+ =?us-ascii?Q?/8GRQbbvU7dLOMtPyZELo3NfzG/DqlnRPrXL494IEytmsckSQyN294g8lhzS?=
+ =?us-ascii?Q?8lURXDLZyfyZcp9Jk8tK0RVdF3bgKTDObygjnVQN3ejJ/Qt8f4TS1taXfxOJ?=
+ =?us-ascii?Q?EoNz6BdaBvy27WeZSdLuOWxhqpdqs6Fh67TyJ1HWBv3Z4D12xIzEtCx+mnx/?=
+ =?us-ascii?Q?GxROFfw/ZIYNT28=3D?=
+X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(376014)(82310400026)(13003099007);DIR:OUT;SFP:1102;
 X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Feb 2025 10:18:32.5098
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Feb 2025 10:18:34.8535
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f211d8c1-87d4-40f6-1acc-08dd57e140f3
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3454ee86-64dd-4cf4-bb3b-08dd57e14258
 X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
 X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001A0.eurprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2P195MB2535
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1P195MB1447
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_021840_051444_8836B873 
-X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-CacheID: sfid-20250228_021840_049089_327234ED 
+X-CRM114-Status: UNSURE (   8.60  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -146,190 +148,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The bootph-all and bootph-pre-ram tags were introduced in dt-schema
-(dtschema/schemas/bootph.yaml) to define node usage across different
-boot phases.
-
-Add boot phase tags to all required nodes to ensure boot support from
-all sources, including UART, USB (DFU), Ethernet, uSD card, eMMC, and
-OSPI NOR Flash.
+Reorder properties to comply with the DeviceTree coding style guidelines:
+https://docs.kernel.org/devicetree/bindings/dts-coding-style.html
 
 Signed-off-by: Wadim Egorov <w.egorov@phytec.de>
 ---
- arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi    | 12 ++++++++++++
- arch/arm64/boot/dts/ti/k3-am62x-phyboard-lyra.dtsi |  9 +++++++++
- 2 files changed, 21 insertions(+)
+ arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi    | 12 ++++++------
+ .../boot/dts/ti/k3-am642-phyboard-electra-rdk.dts  | 14 +++++++-------
+ 2 files changed, 13 insertions(+), 13 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-index 2ef4cbaec789..8b845bf9eda1 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-@@ -29,6 +29,7 @@ aliases {
- 	memory@80000000 {
- 		device_type = "memory";
- 		reg = <0x00000000 0x80000000 0x00000000 0x80000000>;
-+		bootph-all;
- 	};
- 
- 	reserved_memory: reserved-memory {
-@@ -131,6 +132,7 @@ main_i2c0_pins_default: main-i2c0-default-pins {
- 			AM62X_IOPAD(0x1e0, PIN_INPUT_PULLUP, 0) /* (B16) I2C0_SCL */
- 			AM62X_IOPAD(0x1e4, PIN_INPUT_PULLUP, 0) /* (A16) I2C0_SDA */
- 		>;
-+		bootph-all;
- 	};
- 
- 	main_mdio1_pins_default: main-mdio1-default-pins {
-@@ -138,6 +140,7 @@ main_mdio1_pins_default: main-mdio1-default-pins {
- 			AM62X_IOPAD(0x160, PIN_OUTPUT, 0) /* (AD24) MDIO0_MDC */
- 			AM62X_IOPAD(0x15c, PIN_INPUT, 0) /* (AB22) MDIO0_MDIO */
- 		>;
-+		bootph-all;
- 	};
- 
- 	main_mmc0_pins_default: main-mmc0-default-pins {
-@@ -153,6 +156,7 @@ AM62X_IOPAD(0x200, PIN_INPUT_PULLUP, 0) /* (AC1) MMC0_DAT5 */
- 			AM62X_IOPAD(0x1fc, PIN_INPUT_PULLUP, 0) /* (AD2) MMC0_DAT6 */
- 			AM62X_IOPAD(0x1f8, PIN_INPUT_PULLUP, 0) /* (AC2) MMC0_DAT7 */
- 		>;
-+		bootph-all;
- 	};
- 
- 	main_rgmii1_pins_default: main-rgmii1-default-pins {
-@@ -170,6 +174,7 @@ AM62X_IOPAD(0x140, PIN_OUTPUT, 0) /* (AD18) RGMII1_TD3 */
- 			AM62X_IOPAD(0x130, PIN_OUTPUT, 0) /* (AE19) RGMII1_TXC */
- 			AM62X_IOPAD(0x12c, PIN_OUTPUT, 0) /* (AD19) RGMII1_TX_CTL */
- 		>;
-+		bootph-all;
- 	};
- 
- 	ospi0_pins_default: ospi0-default-pins {
-@@ -186,6 +191,7 @@ AM62X_IOPAD(0x024, PIN_INPUT, 0) /* (H25) OSPI0_D6 */
- 			AM62X_IOPAD(0x028, PIN_INPUT, 0) /* (J22) OSPI0_D7 */
- 			AM62X_IOPAD(0x008, PIN_INPUT, 0) /* (J24) OSPI0_DQS */
- 		>;
-+		bootph-all;
- 	};
- 
- 	pmic_irq_pins_default: pmic-irq-default-pins {
-@@ -205,11 +211,13 @@ opp-1400000000 {
- &cpsw3g {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_rgmii1_pins_default>;
-+	bootph-all;
- };
- 
- &cpsw_port1 {
- 	phy-mode = "rgmii-rxid";
- 	phy-handle = <&cpsw3g_phy1>;
-+	bootph-all;
+diff --git a/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi
+index 52d53b690ac9..4697c395fcb9 100644
+--- a/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi
+@@ -207,22 +207,22 @@ &cpsw3g {
  };
  
  &cpsw3g_mdio {
-@@ -220,6 +228,7 @@ &cpsw3g_mdio {
+-	status = "okay";
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&cpsw_mdio_pins_default>;
+ 	bootph-all;
++	status = "okay";
+ 
  	cpsw3g_phy1: ethernet-phy@1 {
  		compatible = "ethernet-phy-id2000.a231", "ethernet-phy-ieee802.3-c22";
  		reg = <1>;
-+		bootph-all;
- 		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
- 		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
+ 		interrupt-parent = <&main_gpio0>;
+ 		interrupts = <84 IRQ_TYPE_EDGE_FALLING>;
+-		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+-		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
+ 		reset-gpios = <&main_gpio0 63 GPIO_ACTIVE_LOW>;
+ 		reset-assert-us = <1000>;
+ 		reset-deassert-us = <1000>;
+ 		bootph-all;
++		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
++		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
  	};
-@@ -236,6 +245,7 @@ &main_i2c0 {
+ };
+ 
+@@ -271,11 +271,11 @@ mbox_m4_0: mbox-m4-0 {
+ };
+ 
+ &main_i2c0 {
+-	status = "okay";
  	pinctrl-names = "default";
  	pinctrl-0 = <&main_i2c0_pins_default>;
  	clock-frequency = <400000>;
-+	bootph-all;
- 	status = "okay";
+ 	bootph-all;
++	status = "okay";
  
- 	pmic@30 {
-@@ -355,6 +365,7 @@ serial_flash: flash@0 {
- 		cdns,tchsh-ns = <60>;
- 		cdns,tslch-ns = <60>;
- 		cdns,read-delay = <0>;
-+		bootph-all;
- 	};
+ 	eeprom@50 {
+ 		compatible = "atmel,24c32";
+@@ -372,9 +372,9 @@ &mcu_m4fss {
  };
  
-@@ -363,5 +374,6 @@ &sdhci0 {
- 	pinctrl-0 = <&main_mmc0_pins_default>;
- 	disable-wp;
+ &ospi0 {
+-	status = "okay";
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&ospi0_pins_default>;
++	status = "okay";
+ 
+ 	serial_flash: flash@0 {
+ 		compatible = "jedec,spi-nor";
+@@ -392,12 +392,12 @@ serial_flash: flash@0 {
+ };
+ 
+ &sdhci0 {
+-	status = "okay";
  	non-removable;
-+	bootph-all;
- 	status = "okay";
+ 	ti,driver-strength-ohm = <50>;
+ 	disable-wp;
+ 	keep-power-in-suspend;
+ 	bootph-all;
++	status = "okay";
  };
-diff --git a/arch/arm64/boot/dts/ti/k3-am62x-phyboard-lyra.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-phyboard-lyra.dtsi
-index 922cad14c9f8..aab74d6019b0 100644
---- a/arch/arm64/boot/dts/ti/k3-am62x-phyboard-lyra.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62x-phyboard-lyra.dtsi
-@@ -138,6 +138,7 @@ vcc_3v3_mmc: regulator-vcc-3v3-mmc {
- 		regulator-max-microvolt = <3300000>;
- 		regulator-always-on;
- 		regulator-boot-on;
-+		bootph-all;
- 	};
  
- 	vcc_3v3_sw: regulator-vcc-3v3-sw {
-@@ -233,6 +234,7 @@ AM62X_IOPAD(0x228, PIN_INPUT_PULLUP, 0) /* (C21) MMC1_DAT2 */
- 			AM62X_IOPAD(0x224, PIN_INPUT_PULLUP, 0) /* (D22) MMC1_DAT3 */
- 			AM62X_IOPAD(0x240, PIN_INPUT_PULLUP, 0) /* (D17) MMC1_SDCD */
- 		>;
-+		bootph-all;
- 	};
+ &tscadc0 {
+diff --git a/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts b/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
+index 6fbd8d932396..f63c101b7d61 100644
+--- a/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
+@@ -352,10 +352,10 @@ &i2c_som_rtc {
+ };
  
- 	main_rgmii2_pins_default: main-rgmii2-default-pins {
-@@ -257,6 +259,7 @@ main_uart0_pins_default: main-uart0-default-pins {
- 			AM62X_IOPAD(0x1c8, PIN_INPUT, 0) /* (D14) UART0_RXD */
- 			AM62X_IOPAD(0x1cc, PIN_OUTPUT, 0) /* (E14) UART0_TXD */
- 		>;
-+		bootph-all;
- 	};
+ &main_i2c1 {
+-	status = "okay";
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&main_i2c1_pins_default>;
+ 	clock-frequency = <400000>;
++	status = "okay";
  
- 	main_uart1_pins_default: main-uart1-default-pins {
-@@ -266,6 +269,7 @@ AM62X_IOPAD(0x198, PIN_OUTPUT, 2) /* (A19) MCASP0_AXR2.UART1_RTSn */
- 			AM62X_IOPAD(0x1ac, PIN_INPUT, 2) /* (E19) MCASP0_AFSR.UART1_RXD */
- 			AM62X_IOPAD(0x1b0, PIN_OUTPUT, 2) /* (A20) MCASP0_ACLKR.UART1_TXD */
- 		>;
-+		bootph-pre-ram;
- 	};
+ 	eeprom@51 {
+ 		compatible = "atmel,24c02";
+@@ -385,25 +385,25 @@ led-5 {
+ };
  
- 	main_usb1_pins_default: main-usb1-default-pins {
-@@ -430,12 +434,14 @@ &main_mcan0 {
+ &main_mcan0 {
+-	status = "okay";
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&main_mcan0_pins_default>;
+ 	phys = <&can_tc1>;
++	status = "okay";
+ };
+ 
+ &main_mcan1 {
+-	status = "okay";
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&main_mcan1_pins_default>;
+ 	phys = <&can_tc2>;
++	status = "okay";
+ };
+ 
+ &main_spi0 {
+-	status = "okay";
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&main_spi0_pins_default>;
+ 	cs-gpios = <0>, <&main_gpio1 43 GPIO_ACTIVE_LOW>;
+ 	ti,pindir-d0-out-d1-in;
++	status = "okay";
+ 
+ 	tpm@1 {
+ 		compatible = "infineon,slb9670", "tcg,tpm_tis-spi";
+@@ -413,27 +413,27 @@ tpm@1 {
+ };
+ 
  &main_uart0 {
+-	status = "okay";
  	pinctrl-names = "default";
  	pinctrl-0 = <&main_uart0_pins_default>;
-+	bootph-all;
- 	status = "okay";
+ 	bootph-all;
++	status = "okay";
  };
  
  &main_uart1 {
+-	status = "okay";
  	pinctrl-names = "default";
  	pinctrl-0 = <&main_uart1_pins_default>;
-+	bootph-pre-ram;
- 	/* Main UART1 may be used by TIFS firmware */
- 	status = "okay";
+ 	uart-has-rtscts;
++	status = "okay";
  };
-@@ -467,11 +473,13 @@ &sdhci1 {
+ 
+ &sdhci1 {
+-	status = "okay";
+ 	vmmc-supply = <&vcc_3v3_mmc>;
+ 	pinctrl-names = "default";
  	pinctrl-0 = <&main_mmc1_pins_default>;
  	disable-wp;
  	no-1-8-v;
-+	bootph-all;
- 	status = "okay";
+ 	bootph-all;
++	status = "okay";
  };
  
- &usbss0 {
- 	ti,vbus-divider;
-+	bootph-all;
- 	status = "okay";
- };
- 
-@@ -482,6 +490,7 @@ &usbss1 {
- 
- &usb0 {
- 	usb-role-switch;
-+	bootph-all;
- 
- 	port {
- 		typec_hs: endpoint {
+ &serdes0 {
 -- 
 2.34.1
 
