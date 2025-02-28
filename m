@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E29BC282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 17:34:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B26E1C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 17:36:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F/vVUd9bjaEWgZi7xVgsmCaZbgpB0Tw80Ic/JRvH4gI=; b=wt6lp3BJhGv4cRA5NI4qkTIQaP
-	ATe3QEsVUCZ3gOAp9YJaupkJPAz20Z3sIWJsRMKsR8pwtluF2KUFhf/QTYlIQCbsVF7xhAoTj56cd
-	Bp3UimAxEoeqWCWnwr5I436QlpmZjifrchffXxTUOhUPqHbVvNLptVvTFTmu6L6bMoaKJPxgOOH8J
-	iidJAkSt4NntrL90tDewgwC8FWqoEoRXVFSHj1D6E4vvtNwSiWN8JCs6g5+QZ27ESKzjUaUxask1j
-	XUnk5f3r2puiiO+ZWVnBKaXK2p8CrAFZo6PfI8dUbyjVkU49FGwjomeTtI6JKOWtsMBB6cVX4dNxC
-	30SuZUPg==;
+	bh=KT+MNwpd4F28O8ArZz1ntkuhE4VBNJ7gO9Sos3omueY=; b=mOtu0VdbRiEgh4l4D/g8ycI3ZJ
+	zD+bIr4p5zc5/KjOFKa9LpzBtVA18sMO6uscv0/8EE1KZEmf4cPYGUKloupoE3jM6W0hDxX9Sq3Ci
+	cv1A/g4lKnX1kptJLnbgjJDH92dUTSYzeKyADWdZuGc0PsJRgmxvuSYOVRK5JLtsxiajVtoNNTqZM
+	zIN7G96g+gjz0EF3aUF0CceiNiEloQ90DktAl5qfjyopl9/GhSH8I3d1y3RD44h+isaAFuurOOLwu
+	nZ8loGAzLpg/HwiA5Hv4Tgd/CpBvimwqbFiEhfgujRDKB3D1A9OsreaMHRVDIQkR2ZnfGnTuPp9A4
+	PY+7d89g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to4G2-0000000BycK-2fER;
-	Fri, 28 Feb 2025 17:34:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1to4Ha-0000000Byya-2hmw;
+	Fri, 28 Feb 2025 17:36:18 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to4Cb-0000000BxlM-2DAp;
-	Fri, 28 Feb 2025 17:31:09 +0000
+	id 1to4Cj-0000000Bxnn-2dqp;
+	Fri, 28 Feb 2025 17:31:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2475661FAC;
-	Fri, 28 Feb 2025 17:31:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 766A3C4CED6;
-	Fri, 28 Feb 2025 17:31:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6855D5C6804;
+	Fri, 28 Feb 2025 17:28:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2684FC4CED6;
+	Fri, 28 Feb 2025 17:31:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740763868;
-	bh=gF4ghbQiAaJ5xTcJ/cbYCtx4ZQ2upF+SCfAg+CIwopY=;
+	s=k20201202; t=1740763874;
+	bh=qbWQBw/uFqQPwpcYNMFggUmUDTmFcLh0DbcUnSSTCuA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mCvXJigMR91385/f69RM5SSBdnNPDU7oxghnPQ3zgCtbOOQjxpcDmBd5n6ugkUxoy
-	 ZAV5U+XIF2bAmTPc3iZpoWQihb82w9bXiVY5LG8b8EBt3hUMllcAcyNw17dxKpWrGd
-	 Hdo5IjgoqWLxrSiEZBpqLzSQ+G1yRWhrenTkcghW+nqBmngw3TfqUT0QTEX2bY+9tz
-	 l+LGHKEEyFB5q3igA8Dm+jDVFmixPqnF/4a4iUKWrQZHs7DFy6M9RAZn9URURcFGVv
-	 kJRzDY46Y8qXj8q3ZFtndna+8iZa1oqEiYiHPd/FuC3yhU4tgYIQ2G3qdIyenwlpl5
-	 z8AespW16ofZg==
-Message-ID: <24104b0c-aa80-41d7-89b0-0a253a1ccdc9@kernel.org>
-Date: Fri, 28 Feb 2025 18:30:58 +0100
+	b=BLtJWd/c1bfEyU1HO9uRG+96bn5uoeZFvNoz/ITIoZVr2bPrfVd/obe/e+BjHjPjw
+	 rImRgi3N4f381K4clFXIxdYFPPEl1Yu1WvYMwgQOJZFtFSOKtxwyYAHU9Z7Q/et0am
+	 DHYVrTaTNb3FrTH6miqiIDSrkHeLlJ0lXUTJ8Y7Rv79nepG2UsyIVpzgPZ0hOyxgY3
+	 14M7b6EFOXK6/06VuTXF+6Ai01GbUaupJYuouxn+BZi/fooM6EZalDdPHS6NS/HTK4
+	 h8q4sGCMpmv9O3mSRX6y6C2ScWlYppd9CHT1SXBRN5K0GSqmPa/gShJxlsTAfV4RB5
+	 N1Urg97vMGssg==
+Message-ID: <aff5a71f-ed87-4a3d-b7bd-8d96bcd19a13@kernel.org>
+Date: Fri, 28 Feb 2025 18:31:05 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/18] rtc: max77686: drop needless struct
- max77686_rtc_info::rtc member
+Subject: Re: [PATCH 02/18] rtc: s5m: drop needless struct s5m_rtc_info::i2c
+ member
 To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
  Chanwoo Choi <cw00.choi@samsung.com>,
  Alexandre Belloni <alexandre.belloni@bootlin.com>,
@@ -62,7 +62,7 @@ Cc: linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
  linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-aspeed@lists.ozlabs.org, linux-amlogic@lists.infradead.org
 References: <20250228-rtc-cleanups-v1-0-b44cec078481@linaro.org>
- <20250228-rtc-cleanups-v1-1-b44cec078481@linaro.org>
+ <20250228-rtc-cleanups-v1-2-b44cec078481@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,9 +108,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250228-rtc-cleanups-v1-1-b44cec078481@linaro.org>
+In-Reply-To: <20250228-rtc-cleanups-v1-2-b44cec078481@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250228_093117_789430_B400B927 
+X-CRM114-Status: UNSURE (   7.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,17 +131,13 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On 28/02/2025 15:07, André Draszik wrote:
 > When this driver was converted to using the devres managed i2c device
-> in commit 59a7f24fceb3 ("rtc: max77686: convert to
-> devm_i2c_new_dummy_device()"), struct max77686_rtc_info::rtc became
-> essentially unused.
+> in commit 7db7ad0817fe ("rtc: s5m: use devm_i2c_new_dummy_device()"),
+> struct s5m_rtc_info::i2c became essentially unused.
 > 
 > We can drop it from the structure and just use a local temporary
 > variable, reducing runtime memory consumption by a few bytes.
 > 
 > Signed-off-by: André Draszik <andre.draszik@linaro.org>
-> ---
->  drivers/rtc/rtc-max77686.c | 12 ++++++------
->  1 file changed, 6 insertions(+), 6 deletions(-)
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
