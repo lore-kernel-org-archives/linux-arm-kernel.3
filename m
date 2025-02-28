@@ -4,82 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F7C4C282C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 15:28:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0AC3C282C1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 15:30:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O2KEOIN654eh0ZXtL5wCEgoP3atnVLBSrHIjNXUhEGs=; b=yTDl5w0xMxFhU/tsHYRpWab68T
-	YumR7cx9YZTj/YJzjZjGISToROnYFASK/fV7GkohMmtlkmGbkDyFvS9+8n8dEc/dS0plkGd6W3Xy7
-	hlybyzFeCJvkK/ngqlrfsW4BMtSrx+bi30jZuvgYMeJVwLBm4a2pspkfG7EMlekxOiWppNtPPubAd
-	fGLgO/i+BomOJfmwE8J/Hz3Wlcin8NkOWk124r6fK3qShhhRpojEb71EdAbniJg+P4+droJM7u/6f
-	+/SipvBzij1BDm3Ud2weBPJx+Bo/cU1Q39F83/OWHdm00BdDKczKkMjy/Jq3fPLj1qmJS9/yiXqZw
-	SGvLTpvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hba3OPddqmnGuDnES7XnqkDAeIm8Aq9AiYitH82aoGY=; b=gKo+4atqlQ+lGcwFGCdKM/h1cN
+	/eq+uzBdnJF796Mbfm7tjaATmwmR12YRws6DTWIgi0c325QgZpCbP1fYO8AaXzuJVLgTyu0YSIQh+
+	r7LT0W7MWzPjJOpbK4CpMpfGyzN0ZmivlaFkNlk6xS/1UGlxc7FCdWrgMvqHsxdvO+zjKnZD4eu4a
+	QEyJm268VTt2CkRkr/7IVXH0/CflUhXhVFhBa9ZR8rBzyXAliXaU5TlKK2DzhwyTZWFdOG8/uU48J
+	VaGY/rL1yydeWzS8Oha2y1u6Xh+pAclJ/llP//4AbaWK6pakRmfN0bPkL+m1ECZV8YOwegn6ZrjRD
+	knrV2rjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to2I0-0000000BTL5-3TMZ;
-	Fri, 28 Feb 2025 15:28:36 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1to2JY-0000000BTbs-1vRH;
+	Fri, 28 Feb 2025 15:30:12 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to20T-0000000BOpt-2ohF
+	id 1to23t-0000000BPj3-2CuW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 15:10:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 00F4F5C019B;
-	Fri, 28 Feb 2025 15:08:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 372BBC4CED6;
-	Fri, 28 Feb 2025 15:10:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740755427;
-	bh=ZxZ3U4UI58ui7l/tX+m1aiWEAVqlpLKgpsunvIyKk6g=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=c3/udowap86TNDEbZLhVxiisnW5/x2aQ6jaGrby0RDSW0mcevILV0qFo4uJEprgyl
-	 LnFjTqmYCQ9uOZkvcuJdVxix0HSTiK2vB3u9/IoixqewLNLpIi43jHCGffgcVMT/88
-	 O6Tlu8Bfh1mJNiKDwrjQ2goMR7hHhewbllKQmoddMXqtHDyYeq7/2NkIeVIyWEcfU6
-	 rpg06/2hMzvfzoGcg9FpHgO2LpAFjk/ySze9vbd5mwocQrIblYcdWLs6CRfp/YpdLJ
-	 RWZdn9/+tfKQxm8ZITi1KT+H6rHAIc4ndekMv266TXZcHm90KSkxDrtw+3fe5vU5jc
-	 Oy/eeuNPHdTRg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1to20O-0096E8-T4;
-	Fri, 28 Feb 2025 15:10:25 +0000
-Date: Fri, 28 Feb 2025 15:10:24 +0000
-Message-ID: <86r03ip0kf.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Peter Chen <peter.chen@cixtech.com>
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	arnd@arndb.de,
-	linux-arm-kernel@lists.infradead.org,
+	Fri, 28 Feb 2025 15:14:03 +0000
+Received: from francesco-nb.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 6C9221F9D8;
+	Fri, 28 Feb 2025 16:13:59 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1740755639;
+	bh=Hba3OPddqmnGuDnES7XnqkDAeIm8Aq9AiYitH82aoGY=; h=From:To:Subject;
+	b=bEJ31olJuMURWHkviCt3MCT+NaBg2GBhN+P0kQLpFhkLzKmYUl+G2XcdKdLLvYrv4
+	 K/2cuaZNo/EWQ7zkde/wW7UI0g78yucskujp0lCrXSHYuNMFQUuEvSl8lxzNi/2/0A
+	 KkWAaAdDux/p6pV9EI8juHId4Iled9ceox3HOJL1D1IaorWyQPEX26pxJycpFqTbBZ
+	 uAQhdWb9d3vUYGOFwE5LT4nyhoXao/GcqlOcZ6hUDVkavfP3CCebfiBlSEn6pkN/YQ
+	 r88gUhxkfIuh+clbdgEQmSo2mkqd5EMeqVe0YVV8mPrH2orgDo6EeyE0zaVgzDWDo7
+	 eia7dNDQhyQlQ==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Stefan Agner <stefan@agner.ch>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	cix-kernel-upstream@cixtech.com,
-	marcin@juszkiewicz.com.pl,
-	Fugang Duan <fugang.duan@cixtech.com>
-Subject: Re: [PATCH v3 6/6] arm64: dts: cix: add initial CIX P1(SKY1) dts support
-In-Reply-To: <20250227120619.1741431-7-peter.chen@cixtech.com>
-References: <20250227120619.1741431-1-peter.chen@cixtech.com>
-	<20250227120619.1741431-7-peter.chen@cixtech.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: peter.chen@cixtech.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com, marcin@juszkiewicz.com.pl, fugang.duan@cixtech.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 2/4] ARM: dts: imx6qdl-apalis/colibri: Remove compatible from SoM dtsi
+Date: Fri, 28 Feb 2025 16:13:50 +0100
+Message-Id: <20250228151352.91768-3-francesco@dolcini.it>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250228151352.91768-1-francesco@dolcini.it>
+References: <20250228151352.91768-1-francesco@dolcini.it>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_071029_826882_27A96868 
-X-CRM114-Status: GOOD (  28.18  )
+X-CRM114-CacheID: sfid-20250228_071402_164994_0B563F0B 
+X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,339 +79,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Feb 2025 12:06:19 +0000,
-Peter Chen <peter.chen@cixtech.com> wrote:
-> 
-> CIX SKY1 SoC is high performance Armv9 SoC designed by Cixtech,
-> and Orion O6 is open source motherboard launched by Radxa.
-> See below for detail:
-> https://docs.radxa.com/en/orion/o6/getting-started/introduction
-> 
-> In this commit, it only adds limited components for running initramfs
-> at Orion O6.
-> 
-> Acked-by: Fugang Duan <fugang.duan@cixtech.com>
-> Signed-off-by: Peter Chen <peter.chen@cixtech.com>
-> ---
-> Changes for v3:
-> - Fix two dts coding sytle issues 
-> 
->  arch/arm64/boot/dts/Makefile              |   1 +
->  arch/arm64/boot/dts/cix/Makefile          |   2 +
->  arch/arm64/boot/dts/cix/sky1-orion-o6.dts |  26 +++
->  arch/arm64/boot/dts/cix/sky1.dtsi         | 216 ++++++++++++++++++++++
->  4 files changed, 245 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/cix/Makefile
->  create mode 100644 arch/arm64/boot/dts/cix/sky1-orion-o6.dts
->  create mode 100644 arch/arm64/boot/dts/cix/sky1.dtsi
-> 
-> diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
-> index 79b73a21ddc2..8e7ccd0027bd 100644
-> --- a/arch/arm64/boot/dts/Makefile
-> +++ b/arch/arm64/boot/dts/Makefile
-> @@ -13,6 +13,7 @@ subdir-y += bitmain
->  subdir-y += blaize
->  subdir-y += broadcom
->  subdir-y += cavium
-> +subdir-y += cix
->  subdir-y += exynos
->  subdir-y += freescale
->  subdir-y += hisilicon
-> diff --git a/arch/arm64/boot/dts/cix/Makefile b/arch/arm64/boot/dts/cix/Makefile
-> new file mode 100644
-> index 000000000000..ed3713982012
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/cix/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +dtb-$(CONFIG_ARCH_CIX) += sky1-orion-o6.dtb
-> diff --git a/arch/arm64/boot/dts/cix/sky1-orion-o6.dts b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
-> new file mode 100644
-> index 000000000000..78f4fcd87216
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
-> @@ -0,0 +1,26 @@
-> +// SPDX-License-Identifier: BSD-3-Clause
-> +/*
-> + * Copyright 2025 Cix Technology Group Co., Ltd.
-> + *
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "sky1.dtsi"
-> +/ {
-> +	model = "Radxa Orion O6";
-> +	compatible = "radxa,orion-o6", "cix,sky1";
-> +
-> +	reserved-memory {
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +
-> +		linux,cma {
-> +			compatible = "shared-dma-pool";
-> +			reusable;
-> +			size = <0x0 0x28000000>;
-> +			linux,cma-default;
-> +		};
-> +	};
-> +};
-> diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
-> new file mode 100644
-> index 000000000000..c6d7a48e9893
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/cix/sky1.dtsi
-> @@ -0,0 +1,216 @@
-> +// SPDX-License-Identifier: BSD-3-Clause
-> +/*
-> + * Copyright 2025 Cix Technology Group Co., Ltd.
-> + *
-> + */
-> +
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +/ {
-> +	interrupt-parent = <&gic>;
-> +	#address-cells = <2>;
-> +	#size-cells = <2>;
-> +
-> +	cpus {
-> +		#address-cells = <2>;
-> +		#size-cells = <0>;
-> +
-> +		cpu0: cpu@0 {
-> +			compatible = "arm,cortex-a520";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x0>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <403>;
-> +		};
-> +
-> +		cpu1: cpu@100 {
-> +			compatible = "arm,cortex-a520";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x100>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <403>;
-> +		};
-> +
-> +		cpu2: cpu@200 {
-> +			compatible = "arm,cortex-a520";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x200>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <403>;
-> +		};
-> +
-> +		cpu3: cpu@300 {
-> +			compatible = "arm,cortex-a520";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x300>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <403>;
-> +		};
-> +
-> +		cpu4: cpu@400 {
-> +			compatible = "arm,cortex-a720";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x400>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		cpu5: cpu@500 {
-> +			compatible = "arm,cortex-a720";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x500>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		cpu6: cpu@600 {
-> +			compatible = "arm,cortex-a720";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x600>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		cpu7: cpu@700 {
-> +			compatible = "arm,cortex-a720";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x700>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		cpu8: cpu@800 {
-> +			compatible = "arm,cortex-a720";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x800>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		cpu9: cpu@900 {
-> +			compatible = "arm,cortex-a720";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x900>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		cpu10: cpu@a00 {
-> +			compatible = "arm,cortex-a720";
-> +			enable-method = "psci";
-> +			reg = <0x0 0xa00>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		cpu11: cpu@b00 {
-> +			compatible = "arm,cortex-a720";
-> +			enable-method = "psci";
-> +			reg = <0x0 0xb00>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Given that half the A720s are advertised with lower clock speed, how
-comes they all have the same capacity?
+The SoM cannot be used standalone, this compatible is invalid and it is
+always overwritten when this .dtsi file is included, remove it
+therefore.
 
-> +
-> +		cpu-map {
-> +			cluster0 {
-> +				core0 {
-> +					cpu = <&cpu0>;
-> +				};
-> +				core1 {
-> +					cpu = <&cpu1>;
-> +				};
-> +				core2 {
-> +					cpu = <&cpu2>;
-> +				};
-> +				core3 {
-> +					cpu = <&cpu3>;
-> +				};
-> +				core4 {
-> +					cpu = <&cpu4>;
-> +				};
-> +				core5 {
-> +					cpu = <&cpu5>;
-> +				};
-> +				core6 {
-> +					cpu = <&cpu6>;
-> +				};
-> +				core7 {
-> +					cpu = <&cpu7>;
-> +				};
-> +				core8 {
-> +					cpu = <&cpu8>;
-> +				};
-> +				core9 {
-> +					cpu = <&cpu9>;
-> +				};
-> +				core10 {
-> +					cpu = <&cpu10>;
-> +				};
-> +				core11 {
-> +					cpu = <&cpu11>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +
-> +	pmu-a520 {
-> +		compatible = "arm,cortex-a520-pmu";
-> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW>;
-> +	};
-> +
-> +	pmu-a720 {
-> +		compatible = "arm,cortex-a720-pmu";
-> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW>;
-> +	};
+Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+---
+v2: new patch
+---
+ arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi  | 1 -
+ arch/arm/boot/dts/nxp/imx/imx6qdl-colibri.dtsi | 1 -
+ 2 files changed, 2 deletions(-)
 
-This is wrong. The default configuration for PPIs is to expose the
-*same* device on all CPUs. You must use PPI affinities for your PMUs.
-Please see the GICv3 binding for the details.
-
-> +
-> +	pmu-spe {
-> +		compatible = "arm,statistical-profiling-extension-v1";
-> +		interrupts = <GIC_PPI 5 IRQ_TYPE_LEVEL_LOW>;
-> +	};
-> +
-> +	psci {
-> +		compatible = "arm,psci-1.0";
-> +		method = "smc";
-> +	};
-> +
-> +	soc@0 {
-> +		compatible = "simple-bus";
-> +		ranges = <0 0 0 0 0x20 0>;
-> +		dma-ranges;
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +
-> +		gic: interrupt-controller@e010000 {
-> +			compatible = "arm,gic-v3";
-> +			reg = <0x0 0x0e010000 0 0x10000>,	/* GICD */
-> +			      <0x0 0x0e090000 0 0x300000>;       /* GICR * 12 */
-> +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_LOW>;
-> +			#interrupt-cells = <3>;
-
-This will need to be bumped up to 4, and all the interrupt specifiers adjusted.
-
-> +			interrupt-controller;
-> +			#redistributor-regions = <1>;
-
-Drop this, this is useless. It is pretty obvious that there is a
-single RD region, and 1 is the default.
-
-> +			redistributor-stride = <0 0x40000>;
-
-Drop this. This is a standard GIC700 that doesn't need any help
-computing the stride as it obeys the architecture.
-
-> +			#address-cells = <2>;
-> +			#size-cells = <2>;
-
-I don't understand why you repeat this on every sub-nodes.
-
-> +			ranges;
-> +
-> +			gic_its: msi-controller@e050000 {
-> +				compatible = "arm,gic-v3-its";
-> +				reg = <0x0 0x0e050000 0x0 0x30000>;
-> +				msi-controller;
-> +				#msi-cells = <1>;
-> +			};
-> +		};
-> +	};
-> +
-> +	timer {
-> +		compatible = "arm,armv8-timer";
-> +		interrupt-names = "sec-phys", "phys", "virt", "hyp-phys", "hyp-virt";
-> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
-> +		clock-frequency = <1000000000>;
-
-Drop this. The firmware already sets CNTFRQ_EL0 to the correct value,
-it seems. And if it doesn't, please fix the firmware.
-
-> +		arm,no-tick-in-suspend;
-
-Why do you need this? Is the HW so broken that you have implemented
-the global counter in a power domain that isn't always on?
-
-As it stands, this DT is completely broken and needs major fixing.
-
-	M.
-
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi
+index dffab5aa8b9c..e42a553bdd3b 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-apalis.dtsi
+@@ -10,7 +10,6 @@
+ 
+ / {
+ 	model = "Toradex Apalis iMX6Q/D Module";
+-	compatible = "toradex,apalis_imx6q", "fsl,imx6q";
+ 
+ 	aliases {
+ 		mmc0 = &usdhc3; /* eMMC */
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-colibri.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-colibri.dtsi
+index 9f33419c260b..fc61d5866b09 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-colibri.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-colibri.dtsi
+@@ -10,7 +10,6 @@
+ 
+ / {
+ 	model = "Toradex Colibri iMX6DL/S Module";
+-	compatible = "toradex,colibri_imx6dl", "fsl,imx6dl";
+ 
+ 	aliases {
+ 		mmc0 = &usdhc3; /* eMMC */
 -- 
-Without deviation from the norm, progress is not possible.
+2.39.5
+
 
