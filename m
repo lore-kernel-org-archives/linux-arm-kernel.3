@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A4D5C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 22:21:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E959C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 22:26:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=55OhSfVdRnoqozwDNpIsZh+Xs6Y47EwzqxfCHs4QIFk=; b=ODgR6mrq3KttfMDZejpjF9+2ZN
-	ZUjbadf1RV3CSXOSx/1Jd6Nu3YEIoyTDr9JW99AdqnH+ph9SSAINzg+9nzMYpyotpLu9nJtqgULKr
-	IGqPGZAeMGtEe+sKDfe3n9thLP5lhU62AaqtbZYvH9cV4go13+p7QOXCYqJtNRyhKmjs+3/gyfArm
-	FRLFHsyHjAwNNaz7cTVV2vx6i8isIYfFccXJzAk+QxveGPbIA715lWtVJ9v2Jfgce2WaE6c/bXn25
-	Fq0cqayloqJE/w6JX60Xt9Y65xRh9bHqzF45Erot7u2X8hgWyx506/xqHe4jl6wYiXFhXzB74Ab+Q
-	zNIphgzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6IWAR+IBURm6fLbHh3tr2O3zeACO2+3CQvBtXQZTu6M=; b=F6flJ/9LSyb/a2q5CXhI2osvL5
+	/eAa1rZHzk6nUWnFZ9ujHj5UxWJEv/r0NzqOSO7g9KdzsdPPccrTKVf04JrxpkgdEEUVTaSYXe7cG
+	LJ5CBshWos+VjymGqnEZMuutIX+GM1zxMHRkWiBuqEkjSAdGwHQd7GoA5P3MMZYEAqeYgdpYtfB1r
+	2zwJzGK7opHrxYiwqmymALvCjzHGT3iklngbb36Xula7cyyYTkLe2lpFYbhyikQX2I49g1Eg9R2IZ
+	R2Yb6Igz6x94mFIg7pnuBFbSNTK9ghq20t9ulxIhCzZzQN5plZXczfly+Ab7CwXzdPfW0CWCGBXUd
+	os38KUFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to8jZ-0000000Cr06-3a62;
-	Fri, 28 Feb 2025 22:21:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1to8oZ-0000000CrhJ-0Az7;
+	Fri, 28 Feb 2025 22:26:39 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to8i3-0000000CqqJ-1h2M
+	id 1to8n0-0000000CrOl-2PKA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 22:19:55 +0000
+	Fri, 28 Feb 2025 22:25:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2DE726115C;
-	Fri, 28 Feb 2025 22:19:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A2E6C4CED6;
-	Fri, 28 Feb 2025 22:19:53 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7A9845C69FE;
+	Fri, 28 Feb 2025 22:22:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A6CEC4CEE2;
+	Fri, 28 Feb 2025 22:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740781194;
-	bh=Is6EeypzsIr/GF6ox/TafGl7L+nMb7erAmt/bL5FM1w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=B8y2kzuV8D87XwUZ2YJvDIXbHwWYckrI5sK8ggl9au6Qxm2XDhTSaG9J8IkqkcEnI
-	 h1UycieE7vZL+YLs3Fz2sejd5HMdPjZfAojQ/NyCHI4Muow8bB6wM9kTWGZNfTReMO
-	 Ts8T66ca5cNjzs4dnZ8snorkdwPytsSSEj/7klyt9X9bO+Kd7JxSGfwPxDPzU+yHvV
-	 1qeJB178Xxub7nCmXQvz5FG/ETLZMhemUl/WI9NJwUcVRk54vTnnNuPCS5LwNY5Y5T
-	 BoKd3E/l7MgcQl7nQFiehQBHSoIhtX/W+LDcTHadE1d8TIBtM7WRbDP8D9S6basBXq
-	 JDXP8EA59ocQg==
-Date: Fri, 28 Feb 2025 16:19:51 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Joy Zou <joy.zou@nxp.com>,
-	imx@lists.linux.dev, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 1/3] dt-bindings: dma: fsl-edma: increase maxItems of
- interrupts and interrupt-names
-Message-ID: <174078119105.3778835.11301085997308334922.robh@kernel.org>
-References: <20250228-edma_err-v1-0-d1869fe4163e@nxp.com>
- <20250228-edma_err-v1-1-d1869fe4163e@nxp.com>
+	s=k20201202; t=1740781501;
+	bh=nl0RxLxluqEXdwZrRYcWUvlPQj16buT8wUVR1+IW6iM=;
+	h=From:To:In-Reply-To:References:Subject:Date:From;
+	b=kLYoa5ZD1tgEpJrzTr028axEhdyIgCeEEujQNZ+krj6mzvUouRhGZQ8em5TF2zHM7
+	 ShRDbMBadSb5IAkSXm2Lg+UFy8bZ6fqVLGJNfPTNYRonz2a/G0tf6XGq8oSpc/gyLr
+	 SBKjq2MaTK5I3RVuBQMXk5ZyKRnaS95Ubv6CJ+/SY48mLvWem58bPzLjyg5FYJbMVx
+	 aAlGcVaLYA+kJ5/aWYyuHKo4CXMQ0ZWNvDUrhfb9PeF6Qaee2pug9/lIDHB+hbBmzM
+	 30SeD0ZIw2Pw2yOnV+0t+aj7O+JEmTNFe9pfjQ2wr7bdiNnZuijUgzSESdT57CrWrF
+	 Id+Krrv4JXJ+w==
+From: Namhyung Kim <namhyung@kernel.org>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>, 
+ Mike Leach <mike.leach@linaro.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ "Liang, Kan" <kan.liang@linux.intel.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
+In-Reply-To: <20250227085544.2154136-1-leo.yan@arm.com>
+References: <20250227085544.2154136-1-leo.yan@arm.com>
+Subject: Re: [PATCH v2] perf arm-spe: Report error if set frequency
+Message-Id: <174078150058.322575.7287434251293207744.b4-ty@kernel.org>
+Date: Fri, 28 Feb 2025 14:25:00 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250228-edma_err-v1-1-d1869fe4163e@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-c04d2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250228_142502_676902_733A0CA0 
+X-CRM114-Status: UNSURE (   6.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,20 +79,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 27 Feb 2025 08:55:44 +0000, Leo Yan wrote:
+> When users set the parameter '-F' to specify frequency for Arm SPE, the
+> tool reports error:
+> 
+>   perf record -F 1000 -e arm_spe_0// -- sleep 1
+>   Error:
+>   Invalid event (arm_spe_0//) in per-thread mode, enable system wide with '-a'.
+> 
+> [...]
+Applied to perf-tools-next, thanks!
 
-On Fri, 28 Feb 2025 12:42:03 -0500, Frank Li wrote:
-> From: Joy Zou <joy.zou@nxp.com>
-> 
-> The edma controller support optional error interrupt, so update interrupts
-> and interrupt-names's maxItems.
-> 
-> Signed-off-by: Joy Zou <joy.zou@nxp.com>
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  Documentation/devicetree/bindings/dma/fsl,edma.yaml | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
+Best regards,
+Namhyung
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
