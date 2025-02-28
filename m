@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C659C19776
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 10:50:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 767C8C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 10:51:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kBFHvME4v7wAoT7habVFSIRXDLX0Fgacd+7YWwIrSSE=; b=tqXsH5ZriA169lgxoKcDLo9Ity
-	46DPgJXB0lc9qJj9bwvpWU6P75aH33IQq4/xUtuId/20l+2LgZcBiBn4vTdlBCFwDJ9Yjr7MdxCkE
-	fzQxWPtz4+FZlrdpvQ47pAWcXMR/P1VJyigG5V7ZgwIj868tqxMcNRbW2376ztmxUoWA+6w5SVO6K
-	0bwJLJAdrE5rxQVXPeWz6dElDxPTQu72eVPrDI6FJeLRInDpBRB/l/bu24W0OilrRFc/NE2/QL4Jf
-	fPuArRCYY/WqeNikM2sZZG8HGHKUrYF6zwxbLXGO5F9aeFhounmsJg7kkRIv3tV5gLFbfoGGO/8yc
-	SjJIycuA==;
+	bh=FJ8YKtq6hiI77A4ivZTnaB9Ne+xlMbNHdkfYD+3eEfk=; b=X9UqMYAI2q5yJwwmr05tGjJguf
+	AIsa97BqTn1tB1UtbFLI/uv6lEZKRRQk8JvnynwzKa6YSGeg6jAjbxubV4vI7HZwbbD6JSuRsM+B7
+	JZcIG7R3AgFbBJOuyvP2Kvxb6GUVh2cpPm1VRNkzUllZcjjuOYpPlz5q+xlEm9tcFTMGLnKWYFTmC
+	KXuy5wJx5vzXydpKBa/iB1WHXucBUmDm68jUZHahCqle+467rq4m/69nXxtJ1TU7fmS9TM/+L4yt8
+	ia6HGtZQBiXRw8qtlXC3akrmWl0CEAPiYcSBwZiPv1bxI9q6v/bkxoYVw45r59oDb4jduZODR68UD
+	Nz+RHAiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnxwW-0000000AeZE-22dy;
-	Fri, 28 Feb 2025 10:50:08 +0000
-Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
+	id 1tnxy3-0000000Aek2-0Tnw;
+	Fri, 28 Feb 2025 10:51:43 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnxZE-0000000AaWr-2UpM
+	id 1tnxZF-0000000AaXX-3Thy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 10:26:05 +0000
-Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-390ddb917abso955670f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 02:26:03 -0800 (PST)
+	Fri, 28 Feb 2025 10:26:06 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4399a5afc72so10234725e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 02:26:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740738362; x=1741343162; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1740738364; x=1741343164; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kBFHvME4v7wAoT7habVFSIRXDLX0Fgacd+7YWwIrSSE=;
-        b=cUa0xnIzdZrdQho7Zol2dy+NS5aDNwmW2t3pWqSfCAaxk3Yn9iSZSrDz+uuOo6HL73
-         MD2FDVE+yDyyhLK85oUgvOZSQCN6Osy7RbF8po8DwXTs4acnXn1KmJk3p3ub8f8rSFOJ
-         kl2d6xrg9FYNXT6bUPoaf1vonTVqbiaAQwvd5BTqNPntWE3n5W+6CGLf8il/o9q+vhXy
-         Z6VvrQaVWNsgj5o3ol2c46s6rOhUDpyK7+kIAeXcqST0PEGhuPJCxraHgQmC6TIMSZ60
-         chBq0IhKliNpTshFi+mEK6Xqgxsp/35Yg+FpogB+EhMQ2a3h+JYRSjWRJSwAcPSgMyhd
-         z8YA==
+        bh=FJ8YKtq6hiI77A4ivZTnaB9Ne+xlMbNHdkfYD+3eEfk=;
+        b=md3jLt3+sEyOrf5QZcyfCAVhyeXg7zpMPcdHJ1rnsvFuvRd3xF/rsdzBJutMb/9RyZ
+         K0jluX/WWSKg9+mW/D9TU2/2HPjsrZzxJ1ZmtR78xX6Q8PNNtsQbQQJEI1TN49zXvQ6C
+         aekZ6S5qpxjimlY1WtCa7UHe5bjwZgJ+S5yjRG3i3HoSSCsraOE73Jv1imSq8FA1vHlk
+         9UUssiO7McjNlhYeX+MyjcqzEmxjBkf+7WZiKLCEEHhhgC5Yt5V9SLqpsFG+NUp6+Y/R
+         +BMQwoUk0sp3LbpOYuK7L/qGXDmjIGi87THwTm/Wc1T+FRnb/GSHLD3anwdTEKWCws6J
+         B85g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740738362; x=1741343162;
+        d=1e100.net; s=20230601; t=1740738364; x=1741343164;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kBFHvME4v7wAoT7habVFSIRXDLX0Fgacd+7YWwIrSSE=;
-        b=EIwTgSiFcHJ9FlMgxRgoIk93EF1SnyfjpL0HAmtPbL5Xcl68rSQ/QE7ttDXkrWaAjW
-         U/k4f6xlN+JLwH1iOI5VJyZ9WSCQQw5Fw10JILjZvFG/Rukdii+rkbi8oVfQRz3U1Svj
-         rVafWpLc5DAOuXK9mIKmWiFvhR9SR11bq+iEroaZxYMrXwRpRBCd2k5PGAy5x7xdZlh5
-         5PQY6j1rtJTZcdYpsHXPQKT/Mr1N4lZR3XuoFkrWbD2TDZOD5SEEMrdCr7Bno9TZibfc
-         B1nB+7Qc9Spl9S7uovOxB2+CFyaIHC1wcpeWJkzshsVMXMpoXSwZneZvYkm0T6CIVmL1
-         AHHA==
-X-Forwarded-Encrypted: i=1; AJvYcCWS4v+aloZyv3YOf5Q0dgNDTTMp2wO82ErBoHnl4mOBZQ5J8FeQbNl7jorWi1CytGFuu8JeI3ohvydAuEt45Xb9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx74ghjTTLyWsEP1pKF9/cUk20Nu/pMPhDaNl5FyAXuHuP+xdB1
-	YIO4jAauGsTN7PoocibbtEGCoh2TE+sPAcwORHaVBwezFpVwiBwy23qoxEPih3hG8lZbI/zhIJ2
-	ETXjVOhGqLx/N8TZPaQ==
-X-Google-Smtp-Source: AGHT+IEwHls1BLgdvt5KFxyshaKSutUV2RLW38Q+fbEdSBaFOyihQeFxU0qCKw+zxyowZaUN4jkoWQg3AuWNfSEu
-X-Received: from wrbce9.prod.google.com ([2002:a5d:5e09:0:b0:390:e493:b594])
+        bh=FJ8YKtq6hiI77A4ivZTnaB9Ne+xlMbNHdkfYD+3eEfk=;
+        b=X6/OtiAFWjvNXCXE+xVKY705Dcf3jDFpWd0FDCzoQmp+wa9YNFTsFGwy89mvhvlrzr
+         axBw+9u9SkXofwo86EIrC4zEBXb39AJI09AThxCBfCDjuYxdGdL8qcKUNc8towdCVLbr
+         j6v6tyjVpVyR7yLDjwuG9vvq/Tpoc1jyG7DfUHjcLzqwpw68DS38VUWJfvlF/2HFBPlg
+         qEtzu1OUY5pfoU0Y4zFHrrXhsoBJff1m/66s7xK/X2TosF+61X414XmQsLmHpbBSdRHE
+         MUOC7q3kURPMFYVv2eXNQkOh05GxwSrtJhV1yIBJS7FDovn74jZK4ROw+UHpMQ513GWe
+         bJ2g==
+X-Forwarded-Encrypted: i=1; AJvYcCUje8FfhyCSzyL4L8F/U7Ab0uMDWFfEcncKSuNUvrKji0YlQB63BEaWKwX2G4VD5iTP849ejLYEqW9f0+1B24ls@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzx95+uLV3MBrLlYgfBDa3WLcAIENsU0nPLtwaxsYyTyjj2x2Ll
+	qQxeoge/cORKdsh6DKIcCFSQ0fKWAFGNDIQaaKEy8oE9lT+7Hd+GnCtLy/iVbNfAYBprqsZTXee
+	h8sPhCgbDAN0TQcChSg==
+X-Google-Smtp-Source: AGHT+IF7RliymnqyVqI2LxMXafp0QAO3saYMD0WdzwsnhK9hIXHApQBnwQLte7rc3DZHMIaauPQxquwj982tRnHP
+X-Received: from wmbfm22.prod.google.com ([2002:a05:600c:c16:b0:439:5636:735f])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:1a8d:b0:38d:d0ca:fbd5 with SMTP id ffacd0b85a97d-390ec9bbc4cmr2282409f8f.22.1740738362092;
- Fri, 28 Feb 2025 02:26:02 -0800 (PST)
-Date: Fri, 28 Feb 2025 10:25:24 +0000
+ 2002:a05:600c:5123:b0:439:9274:81d0 with SMTP id 5b1f17b1804b1-43ba66da2a9mr17359265e9.1.1740738364175;
+ Fri, 28 Feb 2025 02:26:04 -0800 (PST)
+Date: Fri, 28 Feb 2025 10:25:25 +0000
 In-Reply-To: <20250228102530.1229089-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20250228102530.1229089-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.48.1.711.g2feabab25a-goog
-Message-ID: <20250228102530.1229089-9-vdonnefort@google.com>
-Subject: [PATCH 5/9] KVM: arm64: Add a range to __pkvm_host_test_clear_young_guest()
+Message-ID: <20250228102530.1229089-10-vdonnefort@google.com>
+Subject: [PATCH 5/9] KVM: arm64: Add range to __pkvm_host_test_clear_young_guest()
 From: Vincent Donnefort <vdonnefort@google.com>
 To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
 	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
@@ -76,8 +76,9 @@ Cc: qperret@google.com, linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_022604_631302_967AD6FF 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20250228_022605_865289_3DE9FE12 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,8 +95,6 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 In preparation for supporting stage-2 huge mappings for np-guest. Add a
 nr_pages argument to the __pkvm_host_test_clear_young_guest hypercall.
-This range supports only two values: 1 or PMD_SIZE / PAGE_SIZE (that is
-512 on a 4K-pages system).
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
