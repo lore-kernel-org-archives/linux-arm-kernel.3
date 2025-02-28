@@ -4,79 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92A4CC282C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 16:37:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CECAC282C1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 16:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=w68nXYhO8w1Z+UFacTP/9xoe54ZOVhy0dTj5FdmDPus=; b=QHIKuTKaIB3cMdMMbmpMf9F+Ql
-	fTrGcJpSN61h3jtonsn5qJm8bS/eXfK7X4gRYeclukgrSnap9FqpMaZGCmSJC7JbTGvem5aV/HG1p
-	hB+5xEnIZU0fps4LwWVvyjJgjZCqNyRHAIoEXr1wFthf1IwEPT7Cr09gZQsGpDPtp7kP+vERuIhFG
-	Bt210sdadNf8w2ri9hxaQw0Uia91xW50IfirqdKc5cwRm50Vwn5HQgwUDh7YGCdQs/x9VJCq6v1KZ
-	p32VV4NQEUYD6n64U3/uVGm2RwZE7pbIXCusf8b/MKHkzMGPcrBYx786cy+DCI5+sEWpD3Mk1xwWC
-	VZ7/zDBg==;
+	bh=e6RHUXNqOmeKTOHELeZ3950zyo/T6bcO4bNId6xPDkE=; b=YBYSkVNHfgvvJu0LXpvjkqzfR4
+	OXAvEekHLA+PID+9QIOxOrST7Smacha4JELh5rE2wIuevXZq4HbXGW3x1zGzTeBTXXmpGMNpacU+U
+	wJ42kCIjv0TfUdEmkI9ho8v1Fhwero1QE1jrT9bjaAK8VLbSZwA48TGk3BoMP3eqgg2JdndoTmX9R
+	roylD3+kn6+TLPrHoCMf8B2xqImgXP/wHRINF4G/0JHTkAEnR6IwlZs93SN+3hk6xDtehaPcsOiF7
+	4PgpE6lRXP3xxtTNCQwfnfyrKDNZKh/gfJlTjDrMbYoUxtdnKt1wohgRqzekcPmp1SKA67kaQOx7l
+	OVWMNyVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to3MA-0000000Bi0p-2QvY;
-	Fri, 28 Feb 2025 16:36:58 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1to3Ni-0000000BiUV-0pPr;
+	Fri, 28 Feb 2025 16:38:34 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to3HV-0000000BgAt-3JbL
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 16:32:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 44EE85C67CC;
-	Fri, 28 Feb 2025 16:29:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id BB783C4CED6;
-	Fri, 28 Feb 2025 16:32:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740760328;
-	bh=QxKE/vnJMWgW3Fp9S6RUPUhxvfrYA/OhRaJWoXg5OT0=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=E5/ReRPm3Hx56j0Y7VqvCQBpbaRGUJITQD3WoknMWBf0wvJkoloKeklZwhdIDfo2p
-	 LtWbj134LSWzcyvZpjbeMNKg1uEpkzpp45OzzNgmSoMpaPftc2iC4AVraoBiV6J3Vd
-	 VoWEyfKcPSrZR/l/Jg9VOAfWzjNd1htHqXQMKjcD0zF+ehx4fiof/Orou/vj2E6D5n
-	 yr1tZELClvsO7uj3gpY3oWTmCICE0XKeqG2+gOywuZYfdmdNwGtQzs0r+QB20s/5c0
-	 +V09pCNaGYb0nITGTPH2lizR4o622/1T4TVnlmAsQx8eRooKfUoWSCh8JneNxx9w+b
-	 IiGoQezo2Dt1g==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id ABBF1C282C1;
-	Fri, 28 Feb 2025 16:32:08 +0000 (UTC)
-From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
-Subject: [PATCH v2 0/2] iommu: apple-dart: Support the ISP DART
-Date: Fri, 28 Feb 2025 17:32:06 +0100
-Message-Id: <20250228-isp-dart-v2-0-0ead81a90e2d@gmail.com>
+	id 1to3Hk-0000000BgIa-0lJq;
+	Fri, 28 Feb 2025 16:32:25 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 31D0A259C1;
+	Fri, 28 Feb 2025 17:32:21 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id mxMkCbQGKZyu; Fri, 28 Feb 2025 17:32:16 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1740760332; bh=/WgDmotLNZWIT1LRFDaE6/uBsWpuLYmYcKgtd73b4uI=;
+	h=From:To:Cc:Subject:Date;
+	b=IBm7uNclD2xtpKvBdOplyoTU9RL0cMbmVskEFxJGSOCFtvK6otlZgJuZUwVpEoaAp
+	 j7izJ3JIbkYIn2eUtLkDQMvNvh7mWN0MjaWUuCELvebtuAy+ovKfXNhe+Ej1bpU24H
+	 XATQPTSAGUDl5XiPhE/gbOyw83f7hbaEaM9Oq6IMz8nDZWLHBoJhRscuk8YqQ1TYUs
+	 1b+VRPLy8dmjUfBbM5XJnUCo7z6wg2MDm+lmj6Gm/Zqw2vE7qj1E/V0AqoZ7IY0wdO
+	 +AByPb2FXABEpPAdXfSwAFLSbt3jJl0vhKa/qdstvCQmCX/UN1ijVNKU7AO1PSyVcE
+	 St1cZuVAqhu3g==
+From: Yao Zi <ziyao@disroot.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Johan Jonker <jbx6244@gmail.com>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	Wenhao Cui <lasstp5011@gmail.com>,
+	Yuteng Zhong <zonyitoo@gmail.com>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yao Zi <ziyao@disroot.org>
+Subject: [PATCH] arm64: dts: rockchip: Remove undocumented sdmmc property from lubancat-1
+Date: Fri, 28 Feb 2025 16:31:18 +0000
+Message-ID: <20250228163117.47318-2-ziyao@disroot.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAblwWcC/23MQQ6CMBCF4auQWVvTqViFlfcwLEqZwiRCSUsaD
- endraxd/i8v3w6RAlOEttohUOLIfimhThXYySwjCR5Kg5LqKpW6CY6rGEzYhLtfdNMbQ7ZHKPc
- 1kOP3QT270hPHzYfPISf8rX+QhEIK1EgNkqtdrR/jbPh1tn6GLuf8BTf5WjagAAAA
-X-Change-ID: 20250227-isp-dart-f8369baaecb1
-To: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Joerg Roedel <joro@8bytes.org>, 
- Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Sasha Finkelstein <fnkl.kernel@gmail.com>, Hector Martin <marcan@marcan.st>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1740760327; l=820;
- i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
- bh=QxKE/vnJMWgW3Fp9S6RUPUhxvfrYA/OhRaJWoXg5OT0=;
- b=NkWNCpfcMNwzWsbnSKE+X1A1U4WmVG9Nd2rgKOi5zpr713ES47sa+Vb6FYzPoD6/JrAn/oHg5
- H7rwQkMQBQiB4NsAeu4cBz9ysy5g2QqS+7KaiGZ/StIiAE3RJ4QPQ1R
-X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
- pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
-X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
- auth_id=283
-X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_083209_874736_225355E0 
-X-CRM114-Status: UNSURE (   7.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250228_083224_637509_6BA5611C 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,32 +76,36 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ISP block has 3 linked DARTs with mismatched bypass support.
-This series adds support for this setup.
+Property "supports-cd" isn't documented anywhere and is unnecessary for
+mainline driver to function. It seems a property used by downstream
+kernel was brought into mainline.
 
-(The ISP driver itself is sent as a separate series
-https://lore.kernel.org/asahi/20250219-isp-v1-0-6d3e89b67c31@gmail.com/T/ )
+This should be reported by dtbs_check, but mmc-controller-common.yaml
+defaults additionalProperties to true thus allows it. Remove the
+property to clean the devicetree up and avoid possible confusion.
 
-Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Fixes: 8d94da58de53 ("arm64: dts: rockchip: Add EmbedFire LubanCat 1")
+Signed-off-by: Yao Zi <ziyao@disroot.org>
 ---
-Changes in v2:
-- Made comments and code a closer match for each other
-- Link to v1: https://lore.kernel.org/r/20250227-isp-dart-v1-0-161e91ef4f46@gmail.com
+ arch/arm64/boot/dts/rockchip/rk3566-lubancat-1.dts | 1 -
+ 1 file changed, 1 deletion(-)
 
----
-Hector Martin (2):
-      iommu: apple-dart: Increase MAX_DARTS_PER_DEVICE to 3
-      iommu: apple-dart: Allow mismatched bypass support
-
- drivers/iommu/apple-dart.c | 19 +++++++++++++------
- 1 file changed, 13 insertions(+), 6 deletions(-)
----
-base-commit: dd83757f6e686a2188997cb58b5975f744bb7786
-change-id: 20250227-isp-dart-f8369baaecb1
-
+diff --git a/arch/arm64/boot/dts/rockchip/rk3566-lubancat-1.dts b/arch/arm64/boot/dts/rockchip/rk3566-lubancat-1.dts
+index 61dd71c259aa..ddf84c2a19cf 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3566-lubancat-1.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3566-lubancat-1.dts
+@@ -512,7 +512,6 @@ &sdhci {
+ 
+ &sdmmc0 {
+ 	max-frequency = <150000000>;
+-	supports-sd;
+ 	bus-width = <4>;
+ 	cap-mmc-highspeed;
+ 	cap-sd-highspeed;
+-- 
+2.48.1
 
 
