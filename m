@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEE03C282D2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 16:53:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D597C282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 16:57:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RjvmYgFj26Tl1M9VV8mPvQ7wgYX8kNV0gdkARYL9DLE=; b=juw2tUQTopYPLIX80adLYuM+3j
-	JGrzIhk2olSq8b4aTWNxy/+i77li+ly4HeOo2FdA/g5ODa6fOXQBreV7lL6KiwcfZrfOcj3iX4voO
-	FHw6z/XW5mivOS8ejAWhLeSkxe8wVMTrSeCJoNVSuowAH8w+zmSd9OVYQyKZjlXhHmif6wrOPNSHA
-	zbcc7+VptDWXR3Io01KTyo9OZ88pUscVMZO6UIm4HSCn5sGXfx16mIx5V/Efjz2BYBlbap7DYehU/
-	+EnpxzphexkwDuSbBeXGDxgdyX8Q7BhCbjPqCKkdgNt+tePnBK+bNvcmt0ZYLzwGVTHbY91xqVypv
-	Q2RIbYJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CK2+2eTKEOuhyBSMGk3107aiSfJh4IB6MZYp2fX2orA=; b=BnizLmor+wwofkx/HWI0scs47b
+	uLG9CzgNUsGwZOfgJ0dxsYGVIpQKIRJ8lYiDN+WH4+RPXr6xgNhuiDqUloTbrsoafBBA6lnEkm0UM
+	spy0UBb6ZGoVShI8sdPWv96I5RIRVo98h66hSQKPSHPOAYpiGOXvgnRWyqhy/q05SU6QjtBBmAUwV
+	O1gyWQninbxs5q8EA+xD1tsbWw1NpP4qEblp2Z9tKd5S2EyRsjZqRsWxzWhgkHqZH1qgGj/5Wzom9
+	GZL6ie4T8BOz06f1DFrpyPymQe2f00cj2UO2s1cX2a/yieIIEZ+ZyF5ntxf/3SyyeBryEPpeUSxw/
+	Ga8BWjdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to3bj-0000000BmHB-1Yoy;
-	Fri, 28 Feb 2025 16:53:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to3Zi-0000000BlkJ-2XMH
+	id 1to3gL-0000000Bnwq-33T2;
+	Fri, 28 Feb 2025 16:57:49 +0000
+Received: from out-174.mta0.migadu.com ([2001:41d0:1004:224b::ae])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1to3el-0000000BnNo-3OO8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 16:51:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6BA44150C;
-	Fri, 28 Feb 2025 08:51:10 -0800 (PST)
-Received: from [10.57.79.187] (unknown [10.57.79.187])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 349603F6A8;
-	Fri, 28 Feb 2025 08:50:53 -0800 (PST)
-Message-ID: <4b83669e-db37-4a38-ac43-5d210d7ce544@arm.com>
-Date: Fri, 28 Feb 2025 16:50:51 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/4] drivers/thermal/exymos: Remove redundant IS_ERR()
- checks for clk_sec clock
-To: Anand Moon <linux.amoon@gmail.com>
-References: <20250216195850.5352-1-linux.amoon@gmail.com>
- <20250216195850.5352-3-linux.amoon@gmail.com>
-Content-Language: en-US
-Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
- "open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- "moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:SAMSUNG THERMAL DRIVER" <linux-pm@vger.kernel.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, "Rafael J. Wysocki"
- <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- open list <linux-kernel@vger.kernel.org>
-From: Lukasz Luba <lukasz.luba@arm.com>
-In-Reply-To: <20250216195850.5352-3-linux.amoon@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	Fri, 28 Feb 2025 16:56:13 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1740761759;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CK2+2eTKEOuhyBSMGk3107aiSfJh4IB6MZYp2fX2orA=;
+	b=YnP5ml4lSpqZvZxXgRMBOB/tXJezBC6B6VFzwlj9SWokVPcyO2HSn0JrITrq3scrHkWXu8
+	P2NlPxV4wh2Snwo8S/3TIX7B3S2tlkZ08AymOj//GP3SX1QbQtvC5ZDvEyRAooPgUoeE64
+	j9eoZQB1dqHlTMSUJR458UWPER81onHKg512NWLcZyq3TV78EYMKPnnZn/z/TtccALiS/4
+	FgMyo5ZC4U2AtDv3xw/k0ZMOmSg7xa2IFYFVk+Wk4Zij2dFBBQmzZrsFy9PWe1nl4NWeYK
+	QE+jt2V+SrPhMP4k1JT3W3EAYP09vjRoBDLFCADQPhfmDZhD0jJuawYHjtvfqg==
+Content-Type: multipart/signed;
+ boundary=9db44123ad8e24452ea89acc1d1803313fb749feac7e1c6887c874175b10;
+ micalg=pgp-sha256; protocol="application/pgp-signature"
+Date: Fri, 28 Feb 2025 17:55:47 +0100
+Message-Id: <D848JET5TDL6.2L4ZQR0YHYQU6@cknow.org>
+Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] arm64: dts: rockchip: Remove undocumented sdmmc
+ property from lubancat-1
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Yao Zi" <ziyao@disroot.org>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
+ <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>, "Dragan Simic"
+ <dsimic@manjaro.org>, "Johan Jonker" <jbx6244@gmail.com>, "Wenhao Cui"
+ <lasstp5011@gmail.com>, "Yuteng Zhong" <zonyitoo@gmail.com>
+References: <20250228163117.47318-2-ziyao@disroot.org>
+In-Reply-To: <20250228163117.47318-2-ziyao@disroot.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_085058_688065_EC06BAEA 
-X-CRM114-Status: UNSURE (   7.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250228_085611_982824_BAA09FF0 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,14 +75,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+--9db44123ad8e24452ea89acc1d1803313fb749feac7e1c6887c874175b10
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+
+On Fri Feb 28, 2025 at 5:31 PM CET, Yao Zi wrote:
+> Property "supports-cd" isn't documented anywhere and is unnecessary for
+
+s/supports-cd/supports-sd/ ?
+
+Cheers,
+  Diederik
+
+> mainline driver to function. It seems a property used by downstream
+> kernel was brought into mainline.
+>
+> This should be reported by dtbs_check, but mmc-controller-common.yaml
+> defaults additionalProperties to true thus allows it. Remove the
+> property to clean the devicetree up and avoid possible confusion.
+>
+> Fixes: 8d94da58de53 ("arm64: dts: rockchip: Add EmbedFire LubanCat 1")
+> Signed-off-by: Yao Zi <ziyao@disroot.org>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3566-lubancat-1.dts | 1 -
+>  1 file changed, 1 deletion(-)
+>
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3566-lubancat-1.dts b/arch/ar=
+m64/boot/dts/rockchip/rk3566-lubancat-1.dts
+> index 61dd71c259aa..ddf84c2a19cf 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3566-lubancat-1.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3566-lubancat-1.dts
+> @@ -512,7 +512,6 @@ &sdhci {
+> =20
+>  &sdmmc0 {
+>  	max-frequency =3D <150000000>;
+> -	supports-sd;
+>  	bus-width =3D <4>;
+>  	cap-mmc-highspeed;
+>  	cap-sd-highspeed;
 
 
-On 2/16/25 19:58, Anand Moon wrote:
-> Remove unnecessary IS_ERR() checks for the clk_sec clock,
-> the clk_enable() and clk_disable() functions can handle NULL clock
-> pointers, so the additional checks are redundant and have been removed
-> to simplify the code.
+--9db44123ad8e24452ea89acc1d1803313fb749feac7e1c6887c874175b10
+Content-Type: application/pgp-signature; name="signature.asc"
 
-This patch looks sane, just rework the 'goto' stuff in the
-exynos_tmu_probe() maybe in the patch 1/4 so won't be needed here.
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCZ8HqmAAKCRDXblvOeH7b
+brBnAQDYQlWpCi07tRhXA4WUv7ubZmIyzqkjeaOSH8mLwC7m9wEAhEKazw8l4USI
+CuStlAfbvqiFxfbuBJrPLhrrU8ag6A0=
+=EyJp
+-----END PGP SIGNATURE-----
+
+--9db44123ad8e24452ea89acc1d1803313fb749feac7e1c6887c874175b10--
 
