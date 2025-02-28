@@ -4,156 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37B4EC282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 17:17:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA94CC282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 17:21:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pPaQ11RqX5Vs4Fo9i/YL8cwXDTrQf/lWYZhmH2KqqWs=; b=l7O/DmVR61sa5ev7r7T19uPgCV
-	MbH+SY64IQgYKmO0fj9KIUgVH5Zt80C6kGXrmP2ALCqY5tk2khrxMlIN2upTxU8I/JlZsBpD8Uta5
-	dwilxaVZJLChzZLCry8pJsf4GNTV4pDB0ork8RqmjO7mhW1HrSNQLSKMwvKl0hSgxMKo+X+TG2G9O
-	OFSn3zacgXet57ARAuvR/luU/Dvj0MliUMwa6intocZDCjsNt/3iHKIpYfBS3KiFwAkCiKqh3LCa5
-	jc8Mtryt0r6j1889FykgUezeW74f5hCsmtf7v4lRj5LmEbtxrpwyDM2o/Na/8jv/SPBpxFQIXVkKC
-	cyV3lxqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fM5yl+jV66hkBUX8rKXqUuyJWGY3J4aakKl/6m8WSG0=; b=z0jTuCIk3yrMcXtc97JFZglmP6
+	LQVKTiKuF8Yl8m6IGY8exgx6SW4G+2uLmj9uOd8U1LVvTqx0DNFeCBKCv6dNlN1NMKvgiTC81H1k0
+	iDoSApSLUPeN8cnjleq503zFMlr4W5VBxhqlwl/N2S/azUEgAtGIlUFAuNlppXesc4kkTrAHF7My/
+	cimAY1yQrFX2PKoaliShlyr9WtkKUBzcICqzqhBNMsJwgRZiq3iLuybbwMbDhqWLK//oU/pqMDdfV
+	3sSd8bBBoIRKlyWBpuIPXrYgw7HxuYCwEzoZla2pq9wBIrC48X3q81grLL+Le3CMfMR6cVFzalA43
+	OlEhia9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to3zQ-0000000BucY-1PKz;
-	Fri, 28 Feb 2025 17:17:32 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1to43M-0000000Bvsw-3UgN;
+	Fri, 28 Feb 2025 17:21:36 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to3u7-0000000BscF-0170
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 17:12:04 +0000
+	id 1to41m-0000000BvPU-3UiL;
+	Fri, 28 Feb 2025 17:20:00 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HDfX4y9U+VvTHK+DN9r5kUBJCOy8ZbQE4HyCXr8ySuL/2y66fhtXQJx9neh9Ol4/JCD3kvCLP83RZSmQQm926FiUGw5NTRBJJgsBJd1Uj7ZCnM9e41NbkykT819rFA3AvGoIfxAmjUmXrr7vYFRkdO+4QYJ9IbnqUXpzvIPLcVOgScMlYZJYBJgng355tajS4YYrZE9mG1oiRDG5Ev+TL8HWbuesfWabhgNwi1YSIOP79DQe9vMYNY245yNY1XnXMw1seN8xpxJlH6N6qPDypjNB9TiDus9mxyhwE5BFUXRcQ4PjEgOpR936Rg0pcNIiNpFCI7cMeTVGl8DEiwltRg==
+ b=BncCCpHTwyJgjZZnIN5wYc67vG5bcGoXAWUrF9cbg6VQsCvqfF2sqW+vWHIS978mhBtb0hUukQ6x/49LcpKPEL+blgDKwrBpmz5x/k9phGdNkav/zxrQuZK95XZxSSEi+jdt8sO9wGVFN2q9/MAohZoJt+3L2r02XsLqlBGFpGDjtoMvTYbJKMC9unKRxpeMWcdIWFxa92ExxLANDhMsjgd+O0Y0ZPvshFFj/xfihiNM4nuLlQCO3y3jhdvjmNYtBMsJHkMhL/J+awEBjz39WPU0Ob+LuqEZdWpGH1iqKmgXzZRg2ZN5NfhFjbqybbfct9r7i1boAr/ZYLkuOrohAA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8wke8UjKKRAPcISyvJWTWeKSL/jeTf3ukEY+aHI1oFY=;
- b=TDDNbPEGyEOzdKyt0LaHpiVUkJPuOxMlSvhgdeQbPtf4UE1Qg5AwkAyfDRRf/zi3q3wBT5N2rzzCaPf9JQ3cqWJkv2R3EMyrYAfeLETixwWje3lU/D5GBrHxoHtVgttmpL5j2pdkKdMG/250vZaqMW7kn8q4YCjgkMGhETq/VxNQ4LSY4+auVAmDWWnDwJVl/6aQTnwKJk79rg0JttO5aCP2/YV3hd2UOG4gFYtcYnU54ul9HWK1rcWbVdvE0AzpJjqhOtTVd/wgVeqpocUYcGJB6bo12ppxQzfeSYWY8Rl4fbAIyEL3qlW8avIRmabXn24PtQpCKl+ecT/tB8cicg==
+ bh=fM5yl+jV66hkBUX8rKXqUuyJWGY3J4aakKl/6m8WSG0=;
+ b=g9wDwDre8GMxRwUrMBXIEeLJI7OVVvYmDFktbzeRLN3WUpoJ1wsGUpaLncorLa+Ls5VnKEi+rAM8XeQgJhuByyiUgqBR1JgeyVWpMdHqtka6CChYnmfrYT4n0cme30UgFnGwcNlzffsGvH7tHpDVYpVOlnOeFgNfzD6Ol8/IisoGvAanZq2qNx9eAfXpB71jVAoaPpWHeTNm4fNbarEcspBwSUh2tdak6z1x4sQwOwBJQdb3vhQM2MfGV6+Wqloi5efSoiuzoAUyq3ejAeizSsBKRysaxAKTqtKK93iFmzNjJNNLDxCQRbZrKbex6R3sfmXRS2qs2k88iUFprXe/sw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8wke8UjKKRAPcISyvJWTWeKSL/jeTf3ukEY+aHI1oFY=;
- b=Ei26qR9TwmHu2/+2IW5p9yFEjrZw7VGOiGCKTNioZqkwbgYfurxNz6mUDu11woGc1mwKKyjtxStcIsWncaQNnTPYFcXgKfzBXqHhwZgLR8kB3zMoULgNbHCer9kcLNh+XJXMbtcbxCNAyZcoZymXgxrS6rVRrXqpXP/E9oVRJSe3hYK+/9Yrv6WJzQop4ylT7l9rCMQBeYBoxka3tJWGW46TMf4JCswKPH9R8x//hBoI7Nv5mkyeoTFU0sXtCEXM2fl6IVWjrrWMtIPMSuRImKE0IQefhH7QNni4hG6oUDxShL/lkrwfrVUBli9Ky6q8PFuwNEK6BxKFMlepoI4pYg==
+ bh=fM5yl+jV66hkBUX8rKXqUuyJWGY3J4aakKl/6m8WSG0=;
+ b=NaxKrmduNSlFLlAv854qHGuPPkrMR3e0jrgREE5YYqKfI+rxWbcyUXTP8NwrBNElXcHsnh/sFsOft6VB1BfjfsW7H1Vl0r6i5dm6ntnUKGP3LKxk8/i5PXC95CeUWEku2PWCNi2uUYNkc8x9UJD8yupriSXJDbxxumv38vqngBk=
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DU4PR04MB10531.eurprd04.prod.outlook.com (2603:10a6:10:55a::10) with
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
+ by AS8PR04MB9175.eurprd04.prod.outlook.com (2603:10a6:20b:44a::10) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.19; Fri, 28 Feb
- 2025 17:11:55 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8489.019; Fri, 28 Feb 2025
- 17:11:55 +0000
-Date: Fri, 28 Feb 2025 12:11:47 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>, hongxing.zhu@nxp.com
-Subject: Re: [PATCH 4/5] arm64: dts: imx95: add PCIe's msi-map and iommu-map
- property
-Message-ID: <Z8HuU6ULEN756lyr@lizhi-Precision-Tower-5810>
-References: <20250128211559.1582598-1-Frank.Li@nxp.com>
- <47051102.fMDQidcC6G@steina-w>
- <Z8HXIvAZcvNY72Jx@lizhi-Precision-Tower-5810>
- <3661300.LM0AJKV5NW@steina-w>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <3661300.LM0AJKV5NW@steina-w>
-X-ClientProxiedBy: BY5PR13CA0023.namprd13.prod.outlook.com
- (2603:10b6:a03:180::36) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.22; Fri, 28 Feb
+ 2025 17:19:55 +0000
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a%6]) with mapi id 15.20.8489.021; Fri, 28 Feb 2025
+ 17:19:55 +0000
+Message-ID: <521cb717-68a4-43ce-84fa-580fcd8cd50b@cherry.de>
+Date: Fri, 28 Feb 2025 18:19:54 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] drm/rockchip: lvds: move pclk preparation in with
+ clk_get
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: andy.yan@rock-chips.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Heiko Stuebner <heiko.stuebner@cherry.de>
+References: <20250228165755.405138-1-heiko@sntech.de>
+ <20250228165755.405138-2-heiko@sntech.de>
+Content-Language: en-US
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <20250228165755.405138-2-heiko@sntech.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: AS9PR05CA0108.eurprd05.prod.outlook.com
+ (2603:10a6:20b:498::19) To AS8PR04MB8897.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::20)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU4PR04MB10531:EE_
-X-MS-Office365-Filtering-Correlation-Id: 87c78609-07d7-48a7-96c5-08dd581b0093
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|AS8PR04MB9175:EE_
+X-MS-Office365-Filtering-Correlation-Id: e9011276-c03a-447f-6a55-08dd581c1e70
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|376014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?jP8SNKio7jXF+3DRPnJ+PCKVoERSEzK3mk7gE0XxU/kAO6BgvSQXTD/ZE1?=
- =?iso-8859-1?Q?p/s2uN58UQFvt0QcaKRj1sKul0FkqOapVBBrCt1gOg4WZ2heorZTMclB+P?=
- =?iso-8859-1?Q?x/frPIxxG78qx584iuSJeQOyFMwA2kbCdF9f+z3dPgkul1hzF+o6bZFX6t?=
- =?iso-8859-1?Q?9OhvTAA++foqg4dHniyM/IZYUI1dLfv+x7mOnezqUz7jUmaNLTilDkbgeP?=
- =?iso-8859-1?Q?Ad2JyliNYDiKmhN1fkLrYCt7UmJlfOJES7lqClYAojhdworLUMsCd6v+U6?=
- =?iso-8859-1?Q?yMDWRFpoH6iQWUjv/aH0ICHPYHzXGIH+XlO5D7YjCvd2XmZbMHkeOLdGic?=
- =?iso-8859-1?Q?w6O9bua2k5WiTFR3w++Cu+VyCP8lZ7pHwfbSV1uchsFx//T3Wvep3kaLR8?=
- =?iso-8859-1?Q?X6vOcsI0VtmM1fxgZWX8u5LNeBhV/G94Bc+ipqmGwo4/9D1SRkqy2F1zKD?=
- =?iso-8859-1?Q?gj/kcyZI/WV8cNm676UrUytB8KcSJtHs4nrDPM4Q+atrM63z8FRUTuTotu?=
- =?iso-8859-1?Q?6jAkrp4AZBi5GrdSvHtXjAxy6fHYon23pLF0fKXuZ8hFuiulSIbedAHprH?=
- =?iso-8859-1?Q?Mr/W11lXXGhma8C35xWaLJRmkbD2oJ2R7w2VEpCUKDmL8qL/SDV0s9d4nK?=
- =?iso-8859-1?Q?3z8eR6WmlcGRi6AqKG1foVoAl8R7yhjsiSHBRuzoGITqxI26DPjqzKm+HC?=
- =?iso-8859-1?Q?wsw5Z6S/vrqX1lv7tuEayPehNAHcYEhJP+fUQxeyYyp31FiHNMY92IIRH8?=
- =?iso-8859-1?Q?O9r9vL1a8Q9Dg0SiCo2zHMxO9az8lNPUDjpOKpEBry9uEKomPntgcvUH/v?=
- =?iso-8859-1?Q?DLETdK3oChjEAXj6ZpU7BzHlXVeLvzqW2OY1XzMdVtuEC+wHo30CAZmhM3?=
- =?iso-8859-1?Q?D8To5GE1reMYYf/7S5xS1ruW6RuGxB4Jp1iF0iN0Ajmv4n49CJUyus1XCz?=
- =?iso-8859-1?Q?OZTWFpN5bhvF2XcROTDRkqedwLA17cE25EQ0JK8m27PAW4Baf+RCsgi/vg?=
- =?iso-8859-1?Q?e1kgvkrAAt+Q2MustyrbGuykfvZN6nSrtwt0iXoCwGT2X+8xxvJ1y/CnYy?=
- =?iso-8859-1?Q?gG7Vs3niSNG8zikuvk0coe+ma707fMux9ounhAOGpLhDskgFv4qBiyE97j?=
- =?iso-8859-1?Q?2hx2Qi1qTORs4lknCcZ6hQm1MShGvgTRkgZVpGntZKS3iRDdEAcJ5pS6fr?=
- =?iso-8859-1?Q?Zm4xddLI2MyoYev93A67JOSBc9k0qkRPhKHDUVwjE54PYG+orlS9M11X51?=
- =?iso-8859-1?Q?2MdvZMRHJuG8kTfJhVqhFQS8S0zrtKYQjNDCLCKgv2E+BgnXJ4oKo3Q+2s?=
- =?iso-8859-1?Q?KCQjSraej/Mt7pMwTrTEck3iA5Pen/72rQmf0A7t6aJJTuPpvfurRpOvas?=
- =?iso-8859-1?Q?Pb+GIkjqlgqqEqvthVHYF3edNEffqoyPNaiwmTzABWywyt4nGyprbJx1Gd?=
- =?iso-8859-1?Q?XZcTVEkk5o3zOEDa?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(376014)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?OXZRY2ExOGs2dFpkRThKUmowSGkrVXlMTEJwb0NyTENoT04wa0ZiU3RadFZn?=
+ =?utf-8?B?N3FlZGVONllIZ3plbWEvTVZzM0MwNUtOK3FlM3dzaW5XTURFS0J6Q0N1R0hn?=
+ =?utf-8?B?eHlzZGpPSzduZVM2KzVYNEszK0Z0Vk9FTHRnZUpUS3JxU0JJQnhqM1JtTGU2?=
+ =?utf-8?B?b0kxSDlPd0lKNll4QWZLblpBMGJoRU5Edld3aFE2dTh6ZWFwM0Z1V2E4S1V2?=
+ =?utf-8?B?ZmRLNGFXSlAvRWQyS0tzQUxTWVBFVjJuKzlXYUpBdndkUUJPSW1xeVd4b0NZ?=
+ =?utf-8?B?cFlpZVhqS3ZycUFKNGJGSStWVFkwVURvbzBTMFBTT01peHBFbUlteWg4ejhD?=
+ =?utf-8?B?L05qVGlUakw1VldFZ2h0NFBVTGp5aFIrcURYeUh1VE5QVjR3OE1NUHdPUUJm?=
+ =?utf-8?B?R2RSTi9tb0N6UlJZcWdLcFpFWFA1T2NxR2EreEVwYWxydFYxc3ZHSjdBclhG?=
+ =?utf-8?B?azVtZGJOUitqckZnSERacDFqMGFBWDAyY0c4RnNIOUk4OXRGSjZIaGZ4UkVk?=
+ =?utf-8?B?V2VZSy80b3MxT1d6UWZtMERobUIxNW4yVDhENjRoL0cxV2o0VnBxbWJoRzEv?=
+ =?utf-8?B?U3BqZG13cENKVnB2VGlqU25weE1mRFRsMXkvVUZrL01HdmNJVzFzNWJEUGJr?=
+ =?utf-8?B?dGF6WTdRU2ZzemF5QnZWZUQxSWl5b0NRWjBRZlBjays1T0MyMEIzR21sMFMy?=
+ =?utf-8?B?QlVDcmhCc3EwM3JzUDRmUUZId0VuZXl2Q1RoZnVIR2dTcE14S2xhaUZHTXVp?=
+ =?utf-8?B?QUxKZEM2eUZ5V04xdHJqVTB4LytxaVp6R0xialJ6UEpjM1BOSVBGb1FvazQ5?=
+ =?utf-8?B?SHpERnlUNUdmNlplUjhZWXBXNktQd3BOQzVGbXdHSDdaUmtXVldYdGQ5S0VN?=
+ =?utf-8?B?VjBQYUUycUZXZldqdktoU1MrdW42TWhiNEF3WU9TUEg2ZklXQlB2YTYrUndK?=
+ =?utf-8?B?SG0vZDlWNzdDRjJpR1NpQmp4Mmd2YkVqM1ZxQmZ4NnhUT2F4Mm9zNmNjanky?=
+ =?utf-8?B?S1J4VjMxZXFIeGl6M2h4OFc0SXJ1clJNckpDSHNHc05IS2VBNGJFU3dWRGNK?=
+ =?utf-8?B?Y0R4em56NGdwZkYwU3JMUHI4SVpJR3MrNGdRTHhRUEV6Y2kwZFJUQzhEYlR0?=
+ =?utf-8?B?N2tmbDlUTGJQbWtIcVU1RW4zNWNkY3hBM1RnazUyS3BIYzFoM083WFdCelFh?=
+ =?utf-8?B?TEJaZEZhVml3Nm0wdkpUd2gzclVnUC9Sbm5BTG5CQW50Z3pUWHIwMkNKcHB2?=
+ =?utf-8?B?ZkFNSmduSEFwNjZCdWVEVmI0R2lBNjhYMEpYREYrZ1lOQ2pURFNTc25IOUtI?=
+ =?utf-8?B?MjluK25XcFNsZm8ycHlqRHMrVmliNWc1ZVNOejNjYW1YUXhzR012cW9yZDI2?=
+ =?utf-8?B?Nm1kY0M2aDB5SUtMYWFDcnhDNC9WRTlYMmhTTVVqTXR6SS9ZNkdZeXUrZ3Na?=
+ =?utf-8?B?MkJCNENXTXFFbFVxYU92TDVQQ3F0Y3N2N1JNenlaQU1obEI5UXpydG1Ic1VH?=
+ =?utf-8?B?QWZ5enJ1ZlFFQ0d1eDQ0bmlLUlB0L3B4M0FjbzNKbmpuVW5YV2J5YVM0bEdW?=
+ =?utf-8?B?NTdMWndGalU2WnYvaFZsdkdqODFraHdzN1pjTWpYaXpJbGg5Q3M1QU94ZUsy?=
+ =?utf-8?B?a1dGeWdSbDh0LytOelJNcU1vSGdIRkhITkt3dU5yS1FDM2ozTUNseUNMVXkx?=
+ =?utf-8?B?RS9COG9obXRiRWZ4NlhlZlRXWFBITThnYU9mWDJJdjVrYVdtSnFhbXF5d2tR?=
+ =?utf-8?B?d0xTM214WDlQTmhuYWt1a1FWWGF6aXIyQTQyUXVUdmRxZ2tJbE9wMVNkVGZT?=
+ =?utf-8?B?Qk01NE8wTStaTXUyaHlySWMvTjdIR1lxV0JGUUoxUVFaSzFTR3dmb3ltc1k4?=
+ =?utf-8?Q?TVq/jsamcaWXa?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?ij1zWOPgzhSiZSeEAot7JxiYaeel3jxYGvLFzKENsEn0j5VwVsLt7KGgyS?=
- =?iso-8859-1?Q?hYLF8prjVAQ++njRlwPRDu71U2jH9fH8dpseKft6EJbIr3Ypyq1PyeH/Je?=
- =?iso-8859-1?Q?AvaWH3x4tSAOcauFmlp88oochtlC6IfqaSlOlzckn6puKXe+PTyO+6iaV9?=
- =?iso-8859-1?Q?ECzX7hYEaGGEUsVrNCbsUzBl04tWAit1UaTvVsn0Wi4hCb69l3ApQVk4M6?=
- =?iso-8859-1?Q?sahjW2ZFUBBYQ455w0bQXx3PQJJU001DtNG5a3Fg37Qk0JzFFzlb8ShG8p?=
- =?iso-8859-1?Q?oiLO3vxJ9w1NIYzsvXCHgPIAxGrefNEEKTqbH4auWQT38VIha/PbBoViMO?=
- =?iso-8859-1?Q?I21Z6+Z9qon5WNtgmv9tn9mNnKOoY/SkPxY+XN8koRoZGf/wzStCZFoghD?=
- =?iso-8859-1?Q?98TPLLtQlulcA28yLAfqVuDbzMfoXyUv25XbUUldfFf8VQKLC1Z6ldnDk9?=
- =?iso-8859-1?Q?cU8xcIFhvkBwNT65tqoTrL9Jep/bg8CjCZTBmUWIQHJyxSSmve5OdzQqZg?=
- =?iso-8859-1?Q?M1kM1YVy61PomSRwcGIsvzZi7p+0w/hGsx0Bhw1op77fw+LD8UIzEYjBl0?=
- =?iso-8859-1?Q?txFPQ19qlYpeXO/haFZFqJW9OEEpPXKRGul7QLVNHvWAXuVw5w/vTRVXVU?=
- =?iso-8859-1?Q?tTeVAwzjC2Ts+hsHPPza02J/nBOnxI/DOYGSUjF7LjEKkXCnSK60uAqlxy?=
- =?iso-8859-1?Q?LnsHV6KUjlTF8t8ys/MvnLrGfSkGIC5DukdO0YjtpR4aL0cOjqBLyH2WcM?=
- =?iso-8859-1?Q?t4p6liNY6VVFNHd6lwcDfEg3GzAbIpek4XHxaMmLg8BqcryZ7Ft2MG/lQ7?=
- =?iso-8859-1?Q?NG7FTqEnBkcZgr7pEXOoKkArtENk3h9T0DtAqGtnyTl/Xt0Jlpl7Gbaj/8?=
- =?iso-8859-1?Q?d8bDOZ9z/8A90fHPZ8vbTyMm3gSQzwGwc9JifktmkuMDDhiea2x8gSROdc?=
- =?iso-8859-1?Q?DsIzQq3gd7hi/63zbcIv8eteW26l27bLowPBhRQ+WCWElF3Da3TlaJHOwg?=
- =?iso-8859-1?Q?0kxP+4P6PTMNHReLJXsk5rDC3l6mTDFt/fE6cpEwNobSu1rkJglJrauLAB?=
- =?iso-8859-1?Q?4f6bGjtrZmvIafwCQCdoFAMYKqLG7+KEYgKflVjO6dyGzYEzCxxnmrUYbl?=
- =?iso-8859-1?Q?0mu56ZO7j2+IjKyNAo45qMTGMfH0X4XHAPOODnsqTyRr+9u2yrmVm5a1GB?=
- =?iso-8859-1?Q?rbAw7VwFwLnr5i9YeL94TJyQp53bXAdft9dam7HU/xJQSFHbkDJxJqjK9Y?=
- =?iso-8859-1?Q?Zhe2GVQzPJcFltI+AauP1sHI3FK43nAUIhYCLgEs6quMCRmGib2CoTQoZl?=
- =?iso-8859-1?Q?VZNwvKp2lsP42rgv2X+GwUvoibIX6LfObzRDW88yq90Chls5/C6v7pQet3?=
- =?iso-8859-1?Q?FHkm9jm/ELoLy0ZOjVn292Uwr/XzfQqTzXRW4gg0bFqmMEShIYZ2oJzw/L?=
- =?iso-8859-1?Q?91P1ftaVf8I80hAXUqiMC8ONB/5GwWWHzHJ0tX0fOGqdV0Tm2P93umqOUJ?=
- =?iso-8859-1?Q?gUXdbHFWExrLCudJqQyI1ZQxGP6OpahGb4U4wx/XfcMO556mKgMMSBB1uV?=
- =?iso-8859-1?Q?zZ139Nd1fD9D5NZo8OyYjoXxwxQ5lCA0YwhNVbMw41GnqRekUhUjAOUxJU?=
- =?iso-8859-1?Q?pvs6wz8caAvAD+gZvZxyowqVNWBvWdZNnd?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 87c78609-07d7-48a7-96c5-08dd581b0093
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NlZoK0MvdXZWNm9ZNklpT3IyQ1RIOHdzOGdkRHl0Q2VPMTdlSnNYMjEvVDJo?=
+ =?utf-8?B?RFhObUJFaU1HUzEwRXVlTUc2WHBWMVBFd0I0L29OZWhtaGFoRnZTL2hSSVIw?=
+ =?utf-8?B?aHRVRFE4aUJ5eG05WVZ4ZnFXYXZDRGJSRGU4UTJpMFdYNWNqdkdMZUNzQkth?=
+ =?utf-8?B?NG9XVlprdXZKRTZnQTFlSDJ3ZUpHT3FQc0RaZ3NKUUN0TDZCNlZxVkJwYk1a?=
+ =?utf-8?B?dDdBUXZhREFaY1laMTU4UXMyVTdqbHJqMFBnTTg3RjM3YmVNZ2JmR3NSRU15?=
+ =?utf-8?B?a0NIMHZ3RURGNGIwZVZ5bkF3RC9sWjdGdEprOEZvN0oybnQ2K1haR0FDU3Fq?=
+ =?utf-8?B?VGxuZzJjS1B0bFB4VFJGdEZsd2NpK0tmdGxhalplQjFSMmUvM0NRc2dER2Qy?=
+ =?utf-8?B?QjloUjFoNERKZWUzUm1vVEtEWHVVM3BoTTBSeklvM2QzS1hSeStiMzRvZlll?=
+ =?utf-8?B?TWNlVHJBdDdzR3hRL2hjaUhaU2EvMG8vNEVRMkt6YWZsc0pWdE9GSThFcTVp?=
+ =?utf-8?B?b1JLajZURmc4SmJ1ZzE0dTZ6VlpNYTNKdFRUT3VsL3BwZnB1bWwrdVJTOEN5?=
+ =?utf-8?B?VTQwUWtlbDh3R2IvYjM2NUJoQW50QzAyNDRpNVVPdGNnUFNqRDBzYWp5UXBw?=
+ =?utf-8?B?Ry9oOXEzWVFPYTN5VThIdzNVTStLVmttU3JDL1FNU2EwVEpKc3ZrZGl6NDlO?=
+ =?utf-8?B?SzNWK29iSXpVYk9CQ3dlK2lKd0Q1Q3loNFRBQmF6OVNKcVA2Q1BQMkYzYUhj?=
+ =?utf-8?B?MXNqTGt5QXRvbkx0NnE3aXozQVdyWkpZYTcxQlgzVGVJbjFUMGNyc3NCc2pR?=
+ =?utf-8?B?cGFZZ2ZKeGNEeXY0M0ovZzJnTkFtRnVvd2p5TkpsVTh5L2pBbDBaQ2JXSENG?=
+ =?utf-8?B?NlF0L08vVmRMMzdqUXd5VVQzNE5TTVFibFVZaG5kMEpiN3VWQ1RqZ2ZGZ2dN?=
+ =?utf-8?B?V1o1YkF6dHhrdkl6eDArT285NkJ5RDJraDByVHdMems0cS9kRW04cHdWQ1ZC?=
+ =?utf-8?B?Mk56QXNhZjVtdEUxc1RUY3g1bnVTRm9JK2x2SkdBbkYzK1dCWjRYL0FTdnF0?=
+ =?utf-8?B?MHFXRmZCb3dnaWFtR3NYd05lSVdWcDlUdmtXbEczYjBIdmxVUC9wOWlQSDBH?=
+ =?utf-8?B?SVZscGtYR0JqKzNtN01odWY4Q3NuVGZ1R1lCa2UvQk9CTFIrU3lvVGNtc2dj?=
+ =?utf-8?B?bHdwWk9FT2RnZkE4TUVsZmdNdjcySTlvbHYvbnQyUno1YUdGL256amhWTG5L?=
+ =?utf-8?B?WGVKS2JCaWNRRXdRdTNxN2Z2TjFRZDhSdncwd2VtU0FicC9OYVRaL3VHR1Jy?=
+ =?utf-8?B?cXJjQldxMEdKWDVTYmloWUp0RCs3VmZtTEJQdGlNSllFUDFDQktqaDNjMXl4?=
+ =?utf-8?B?UGUvUXp2WkFzWnFKTThGZ0N2c0N0WHVQT1BLT2F3Tk1McTJjZU1JT3ZhOTNQ?=
+ =?utf-8?B?bkkzZXdSMm00SW1JRkVrdFNoa1BWb0dSMzlQQWpWY21venI4OTVtM0x3bVJC?=
+ =?utf-8?B?RzNobnFPVmZCVnFBWW5jYzVBRVhhaWNjTWpBaEZCa0RZTGN2bVhFRjRNWExw?=
+ =?utf-8?B?ck5pQnpETmR5dGxER1liU0l3SU5vZGpWYit3WjErbWpKa3h3cnVIeUY0ZmJx?=
+ =?utf-8?B?ZEVJOC8zYlhDS2dySlZJVVRjNXhDZ0NERGkxeUVxVS9ZdG5kd0tlY1FXbzd6?=
+ =?utf-8?B?UXZWRUorZ1JiUWhtYVF0eVhVZFNINTJKVDZFMWhEYW9UTlI3RldnalFRRzZu?=
+ =?utf-8?B?dkpUbXBuMThkTnRjejViMGxFMHdzc2NzNW5NZ29CT2RsN2FxVTVEOEZnQmNU?=
+ =?utf-8?B?UW9iMU9rNXUvczBDZnZNbXFWMnBmcXRORm8rT3FGOXl3WEJuekhUSk5pMUZ1?=
+ =?utf-8?B?TkNYMUc2UHFKTFJYT2tMNjl1VVZMdGdmajBwRzR4anc3Z25SaGZXSllwUGJH?=
+ =?utf-8?B?Sjk2a0NjYlQwTk1CYStFcW91WkdoMnBuWHNUdXpsZUZ5WHdrMkdkZlNYNUZF?=
+ =?utf-8?B?SWtXQkZyZkQwb0Y5TG5kdUl5OTRyazZHcDJtVEdWSy9xSWNRSCs5ZFE2VlR1?=
+ =?utf-8?B?OHhwc0lLQ0ttaFA5T3E5WnR3NW9HN1FwcFVxSXkzK1Z2b0JsTW5ocHpCV2Fh?=
+ =?utf-8?B?ekVxNFJMZXdXQmFSZTcvZnVoRHZFcTFxWHN3cElhRldrdFBYZ3Y1YW1YTjQw?=
+ =?utf-8?B?Unc9PQ==?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: e9011276-c03a-447f-6a55-08dd581c1e70
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Feb 2025 17:11:55.4569
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Feb 2025 17:19:55.1266
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xCnrj3uBZaKe6egbhFZJEHv88y+tlVdLapE4lrrMTymxa6cf0jLZNx0ONONq+fi1QfOedKsVeuzLLa82PNj/kg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10531
+X-MS-Exchange-CrossTenant-UserPrincipalName: jj4zREq3smGkCVeKA+cgmV7ZY0oagc50OWOwkuVkfB0VCXUBh3iAYbRRWpnR8JbxVogevhNPqlf3V6WwCTvXRClsHak6QgQjZ9FR/ZvfEco=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9175
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_091203_197453_6F2C56A0 
-X-CRM114-Status: GOOD (  32.53  )
+X-CRM114-CacheID: sfid-20250228_091958_885384_A4043284 
+X-CRM114-Status: GOOD (  20.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,154 +178,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 28, 2025 at 05:01:15PM +0100, Alexander Stein wrote:
-> Hi Frank,
->
-> Am Freitag, 28. Februar 2025, 16:32:50 CET schrieb Frank Li:
-> > On Fri, Feb 28, 2025 at 10:08:58AM +0100, Alexander Stein wrote:
-> > > Hi Frank,
-> > >
-> > > Am Donnerstag, 27. Februar 2025, 17:39:47 CET schrieb Frank Li:
-> > > > On Thu, Feb 27, 2025 at 08:54:13AM +0100, Alexander Stein wrote:
-> > > > > Hi Frank,
-> > > > >
-> > > > > Am Mittwoch, 26. Februar 2025, 17:31:26 CET schrieb Frank Li:
-> > > > > > On Wed, Feb 26, 2025 at 01:11:37PM +0100, Alexander Stein wrote:
-> > > > > > > Hi Frank,
-> > > > > > >
-> > > > > > > Am Dienstag, 28. Januar 2025, 22:15:58 CET schrieb Frank Li:
-> > > > > > > > Add PCIe's msi-map and iommu-map property because i.MX95 support smmu and
-> > > > > > > > its.
-> > > > > > > >
-> > > > > > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > > > > > > ---
-> > > > > > > >  arch/arm64/boot/dts/freescale/imx95.dtsi | 14 ++++++++++++++
-> > > > > > > >  1 file changed, 14 insertions(+)
-> > > > > > > >
-> > > > > > > > diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
-> > > > > > > > index 6b8470cb3461a..2cebeda43a52d 100644
-> > > > > > > > --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-> > > > > > > > +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-> > > > > > > > @@ -1573,6 +1573,12 @@ pcie0: pcie@4c300000 {
-> > > > > > > >  			assigned-clock-parents = <0>, <0>,
-> > > > > > > >  						 <&scmi_clk IMX95_CLK_SYSPLL1_PFD1_DIV2>;
-> > > > > > > >  			power-domains = <&scmi_devpd IMX95_PD_HSIO_TOP>;
-> > > > > > > > +			/* pcie0's Devid(BIT[7:6]) is 0x00, stream id(BIT[5:0]) is 0x10~0x17 */
-> > > > > > > > +			msi-map = <0x0 &its 0x10 0x1>,
-> > > > > > > > +				  <0x100 &its 0x11 0x7>;
-> > > > > > >
-> > > > > > > Aren't you missing msi-map-mask = <0x1ff>; here? Similar to pcie1.
-> > > > > > > Either way, with this change PCIe on pcie0 is not working anymore,
-> > > > > > > regardless of msi-map-mask.
-> > > > > >
-> > > > > > Yes, it should have msi-map-mask. During my test, I have not enable enetc
-> > > > > > so I have not found this problem.
-> > > > >
-> > > > > Just to be clear: This is not about enetc. This works fine here.
-> > > > >
-> > > > > > > Without msi-map-mask:
-> > > > > > > > OF: /soc/pcie@4c300000: iommu-map, using mask 000001ff, id-base: 00000100, out-base: 00000011, length: 00000007, id: 00000300 -> 00000011
-> > > > > > > > OF: /soc/pcie@4c300000: no msi-map translation for id 0x300 on (null)
-> > > > > > > > r8169 0000:03:00.0: error -EINVAL: enable failure
-> > > > > > > > r8169 0000:03:00.0: probe with driver r8169 failed with error -22
-> > > > > > >
-> > > > > > > With msi-map-mask:
-> > > > > > > > OF: /soc/pcie@4c300000: iommu-map, using mask 000001ff, id-base: 00000100, out-base: 00000011, length: 00000007, id: 00000300 -> 00000011
-> > > > > > > > OF: /soc/pcie@4c300000: msi-map, using mask 000001ff, id-base: 00000100, out-base: 00000011, length: 00000007, id: 00000300 -> 00000011
-> > > > > > > > r8169 0000:03:00.0: enabling device (0000 -> 0003)
-> > > > > > > > r8169 0000:03:00.0: enabling Mem-Wr-Inval
-> > > > > > > > r8169 0000:03:00.0: error -EIO: PCI read failed
-> > > > > > > > r8169 0000:03:00.0: probe with driver r8169 failed with error -5
-> > > > > >
-> > > > > > Can you try remove iommu-map and keep msi-map? then remove msi-map and
-> > > > > > keep iommu-map to check which one cause this problem.
-> > > > >
-> > > > > With only msi-map removed, but smmu enabled:
-> > > > > > arm-smmu-v3 490d0000.iommu: event 0x10 received:
-> > > > > > arm-smmu-v3 490d0000.iommu:      0x0000001100000010
-> > > > > > arm-smmu-v3 490d0000.iommu:      0x0000020a00000000
-> > > > > > arm-smmu-v3 490d0000.iommu:      0x000000009b0cc000
-> > > > > > arm-smmu-v3 490d0000.iommu:      0x0000000000000000
-> > > > > > arm-smmu-v3 490d0000.iommu: event: F_TRANSLATION client: 0000:01:00.0 sid: 0x11 ssid: 0x0 iova: 0x9b0cc000 ipa: 0x0
-> > > > > > arm-smmu-v3 490d0000.iommu: priv data read s1 "Input address caused fault" stag: 0x0 r8169 0000:03:00.0
-> > > > > > enp3s0: Link is Down
-> > > > >
-> > > > > With only iommu-map removed, both smmu enabled or disabled:
-> > > > > > OF: /soc/pcie@4c300000: msi-map, using mask 000001ff, id-base: 00000100, out-base: 00000011, length: 00000007, id: 00000300 -> 00000011
-> > > > > > r8169 0000:03:00.0: enabling device (0000 -> 0003)
-> > > > > > r8169 0000:03:00.0: enabling Mem-Wr-Inval
-> > > > > > r8169 0000:03:00.0: error -EIO: PCI read failed
-> > > > > > r8169 0000:03:00.0: probe with driver r8169 failed with error -5
-> > > > >
-> > > > > Only if smmu is disabled and msi-map is removed the driver probes
-> > > > > successfully:
-> > > > > > r8169 0000:03:00.0: enabling device (0000 -> 0003)
-> > > > > > r8169 0000:03:00.0: enabling Mem-Wr-Inval
-> > > > > > r8169 0000:03:00.0 eth0: RTL8168g/8111g, d8:9d:b9:00:16:10, XID 4c0, IRQ 160
-> > > > > > r8169 0000:03:00.0 eth0: jumbo features [frames: 9194 bytes, tx checksumming: ko]
-> > > > > > r8169 0000:03:00.0 enp3s0: renamed from eth0
-> > > > > > r8169 0000:03:00.0: enabling bus mastering
-> > > > > > r8169 0000:03:00.0 enp3s0: Link is Down
-> > > > >
-> > > > > > >
-> > > > > > > Without msi-map/iommu-map:
-> > > > > > > > r8169 0000:03:00.0: enabling device (0000 -> 0003)
-> > > > > > > > r8169 0000:03:00.0: enabling Mem-Wr-Inval
-> > > > > > > > r8169 0000:03:00.0 eth0: RTL8168g/8111g, d8:9d:b9:00:16:10, XID 4c0, IRQ 166
-> > > > > > > > r8169 0000:03:00.0 eth0: jumbo features [frames: 9194 bytes, tx checksumming: ko]
-> > > > > > > > r8169 0000:03:00.0 enp3s0: renamed from eth0
-> > > > > > > > r8169 0000:03:00.0: enabling bus mastering
-> > > > > > > > r8169 0000:03:00.0 enp3s0: Link is Down
-> > > > > > >
-> > > > > > > pcie1 works as expected. But this is only a single PCIe device, rather than
-> > > > > > > having a PCIe bridge.
-> > > > > > > Any idea what's wrong here?
-> > > > > >
-> > > > > > Can you help dump more information at for PCIe bridge case:
-> > > > > >
-> > > > > > imx_pcie_add_lut(), need rid and sid information.
-> > > > > > drivers/pci/controller/dwc/pci-imx6.c
-> > > > >
-> > > > > Just to be clear, without msi-map and iommu-map I get:
-> > > > > > imx6q-pcie 4c380000.pcie: rid: 0x0, sid: 0x18
-> > > > > > imx6q-pcie 4c380000.pcie: rid: 0x100, sid: 0x19
-> > > >
-> > > > Can you help dump register value PE0_LUT_CREQID offset 0x101 for your
-> > > > smmu-map or msi-map enable case
-> > >
-> > > I am assuming you meant offset 0x101c, as stated in the RM.
-> > > I added a dump directly before printing "PCI read failed" in r8169_main.c.
-> >
-> > Can you point me the code about where "error -EIO: PCI read failed"?
->
-> The error messages comes from [1]. As far as I can tell, this is the first
-> read after pcim_iomap_table().
+Hi Heiko,
 
-Strange, it is CPU read MMIO, should not go through iommu at all.
+On 2/28/25 5:57 PM, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
+> 
+> The LVDS block needs a separate pclk only on some socs, so currently
+> requests and prepares it in the soc-specific probe function, but common
+> code is required to unprepare it in the error path or on driver remove.
+> 
+> While this works because clk_unprepare just does nothing if clk is NULL,
+> this mismatch of who is responsible still is not very nice.
+> The clock-framework already has a helper for clk-get-and-prepare even
+> with devres support in devm_clk_get_prepared().
+> 
+> This will get and prepare the clock and also unprepare it on driver
+> removal, saving the driver from having to handle it "manually".
+> 
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
 
->
-> > I tested nvme devices worked at both PCIE0 and PCIE1.
-> >
-> > Which PCI switch do you use?
->
-> This is a COTS MiniPCIe ethernet card [2]. If I'm reading correctly
-> the bridge seems to be a P17C9X20
+Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
 
-I order the same chipset one from amazon. Let me debug it after get it.
+Small nitpick below.
 
-Frank
+> ---
+>   drivers/gpu/drm/rockchip/rockchip_lvds.c | 17 ++---------------
+>   1 file changed, 2 insertions(+), 15 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/rockchip/rockchip_lvds.c b/drivers/gpu/drm/rockchip/rockchip_lvds.c
+> index 385cf6881504..c19b7b1f6cb5 100644
+> --- a/drivers/gpu/drm/rockchip/rockchip_lvds.c
+> +++ b/drivers/gpu/drm/rockchip/rockchip_lvds.c
+> @@ -448,13 +448,11 @@ struct drm_encoder_helper_funcs px30_lvds_encoder_helper_funcs = {
+>   static int rk3288_lvds_probe(struct platform_device *pdev,
+>   			     struct rockchip_lvds *lvds)
+>   {
+> -	int ret;
+> -
+>   	lvds->regs = devm_platform_ioremap_resource(pdev, 0);
+>   	if (IS_ERR(lvds->regs))
+>   		return PTR_ERR(lvds->regs);
+>   
+> -	lvds->pclk = devm_clk_get(lvds->dev, "pclk_lvds");
+> +	lvds->pclk = devm_clk_get_prepared(lvds->dev, "pclk_lvds");
+>   	if (IS_ERR(lvds->pclk)) {
+>   		DRM_DEV_ERROR(lvds->dev, "could not get pclk_lvds\n");
 
->
-> Thanks and best regards
-> Alexander
->
-> [1] https://web.git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/drivers/net/ethernet/realtek/r8169_main.c?h=next-20250228#n5454
-> [2] https://www.delock.com/produkt/95237/merkmale.html?f=s
-> --
-> TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
-> Amtsgericht München, HRB 105018
-> Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
-> http://www.tq-group.com/
->
->
+Should we say
+
+Could not get or prepare pclk_lvds\n
+
+instead?
+
+Thanks!
+Quentin
 
