@@ -4,55 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1496FC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 17:11:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2BA6C282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 17:12:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SAAkrxbNhSnw0VmwOT1mFPOMUAh9jgzv4DOv5jdm4R4=; b=ttkYTuMWeR3/OcyAr3iVA6qZ8g
-	utx05GByxhEe88lfZG8g+MZxeD4+KU2tpAEFj5O31uhqG9olt11Z97QghSGL4TY08v89sqmoRCyaV
-	BLvBEGO7LJpKCKKctcTV3WmsV19AO3VtVhZ//G5igG6ykfnO6Ed68T+m3DbTziMaoJxztLmyK4TIb
-	IdD1uaoleIXHZ6/PUF5vUw1YlF1oEXfdp+PX0wi8LhuV3NseheQNL3TaaT+h8VueAbueud1MyR2qd
-	hiEZonHBml8QS4ChmbxRNn0pkMpI79qZxRnodrVPyDm3uJZHzq81PQ5PTick7GcfYU/dfihi+ymwF
-	+RtsnoLg==;
+	bh=Y/RtQC/ZqMiqlAwLgN/RxMo2XuVJ4B9B3hd4T+t3P24=; b=pqkaV5LPDtCUyApCk9k88LvxJE
+	ILlkqF2dZ21y7QaD78pYC8u6S/rDbsxdjDz5xelPwj/q58agUUJY3CLOtkZNs7Ct/p3XjB75j8K8u
+	DKPuY9Q1jVddTC/O9Yae1Ij47FKQ6UQMJcDD4f20wHuQW+zVU83VdDk5aRcXe9gmGqYMQrHnV19Li
+	6XOB6YHIv+BpG5Kz4sScXB4uE0qECim9U01hGElKUvfSq5vZ6I4Jc6FUQ2w7MXHKgNl6zLlW0WLJ3
+	is255Y6/yKubBUXXZGHsXc6ggYYNLxIn2uKUD/bnyF8iiyoRDKg5fYlN0IDX/iklvPpjlMK+FoxZE
+	ACCbMQkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to3tG-0000000BsDG-0Dnr;
-	Fri, 28 Feb 2025 17:11:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to3jS-0000000Box1-0jet
+	id 1to3uo-0000000Bsu5-0hMa;
+	Fri, 28 Feb 2025 17:12:46 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1to3pr-0000000Bqwv-0MZd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 17:01:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B736D150C;
-	Fri, 28 Feb 2025 09:01:16 -0800 (PST)
-Received: from e126864.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D97A53F6A8;
-	Fri, 28 Feb 2025 09:00:59 -0800 (PST)
-From: =?UTF-8?q?Kristina=20Mart=C5=A1enko?= <kristina.martsenko@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Tong Tiangen <tongtiangen@huawei.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	James Morse <james.morse@arm.com>
-Subject: [PATCH v2 3/3] arm64: lib: Use MOPS for usercopy routines
-Date: Fri, 28 Feb 2025 17:00:06 +0000
-Message-Id: <20250228170006.390100-4-kristina.martsenko@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250228170006.390100-1-kristina.martsenko@arm.com>
-References: <20250228170006.390100-1-kristina.martsenko@arm.com>
+	Fri, 28 Feb 2025 17:07:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BACD35C689E
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 17:05:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DF8CC4CEF1
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 17:07:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740762458;
+	bh=uz7YWAd8O0uBi8Im2yha/KDIrRaCObz+LjL/VNUp47k=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=V1Bc1gJjVvY8uePckrHl2AFcrmUlPiqmSt+OKYDZaaYAJRwiCi7f0yG9+fWABXU+G
+	 5mDN83OtUY092ZtJNVZ7g5fiq40tlGcK6KT5FUYAlbUikn9TLl7XAZy7tpFucqLjpR
+	 xHQJr6rEUrjVcvVH2MeWvnY9qymeF6QoGzQkMVrWWw0LQho2OfjP5wydZF69WBOXIY
+	 Y1P79tmbbAWlev1lftPgkAbmrCpT5K4GQoq7zcrnMQO6Vt/mKR5+kBSVH1Qu2n7CDU
+	 2n70Q8nmFGdOThFtacF8TESbv4hy5Lm0kP8rRqr3sCrUxZ1XVp3BORJEyhg9ZHC/9B
+	 Ew3pJIqBi0btQ==
+Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-5e04064af07so4271550a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 09:07:37 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXI3iHqE+NO1e+8NDuzzp4NwNWWdnS+5sQvvN1i9KD9ekwvFgYtzdnUyUTerLRwrNrFvUiFPiaeVsx89AfB6/Jb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1MOnYHlJrBIweGiu69ScKSXae9n5Tzv2IwIqmFfFnFzi8VA8i
+	ruLtggYYMPoi6ayW6O54xzqrAJcZxPk/Ikk1DLLhIp8sJDAT1/jsdjSYnGbqjTRx/LaHsUqX17k
+	XzQwobKdkwFjAR6LqK0k8T0NM9A==
+X-Google-Smtp-Source: AGHT+IEHPy1qvm3dSI803ZGj26xFQwAtPW1n1+HYVcZOF+85YFAZAlcsJm1lq/IdmNqWRFeTlLzx0+mxXPel52yDr9A=
+X-Received: by 2002:a05:6402:40c7:b0:5e4:c532:d69d with SMTP id
+ 4fb4d7f45d1cf-5e4d6926964mr3829294a12.0.1740762456471; Fri, 28 Feb 2025
+ 09:07:36 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <cover.1740421248.git.mazziesaccount@gmail.com> <29ec24f1498392cafbecc0e0c0e23e1ce3289565.1740421248.git.mazziesaccount@gmail.com>
+In-Reply-To: <29ec24f1498392cafbecc0e0c0e23e1ce3289565.1740421248.git.mazziesaccount@gmail.com>
+From: Rob Herring <robh@kernel.org>
+Date: Fri, 28 Feb 2025 11:07:24 -0600
+X-Gmail-Original-Message-ID: <CAL_Jsq+av-fptMQqBeVieKwA9c7+uUCaqZMLGu-RVJzWZ_7+Vg@mail.gmail.com>
+X-Gm-Features: AQ5f1Jq19gEh952WMm9N8aBYMg7AK4rciiMO8rsTCtZsR8RobHuwRIGj0QbQL8Y
+Message-ID: <CAL_Jsq+av-fptMQqBeVieKwA9c7+uUCaqZMLGu-RVJzWZ_7+Vg@mail.gmail.com>
+Subject: Re: [PATCH v4 02/10] property: Add device_get_child_node_count_named()
+To: Matti Vaittinen <mazziesaccount@gmail.com>
+Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>, Jonathan Cameron <jic23@kernel.org>, 
+	Lars-Peter Clausen <lars@metafoo.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Hugo Villeneuve <hvilleneuve@dimonoff.com>, 
+	Nuno Sa <nuno.sa@analog.com>, David Lechner <dlechner@baylibre.com>, 
+	Javier Carrasco <javier.carrasco.cruz@gmail.com>, Guillaume Stols <gstols@baylibre.com>, 
+	Olivier Moysan <olivier.moysan@foss.st.com>, Dumitru Ceclan <mitrutzceclan@gmail.com>, 
+	Trevor Gamblin <tgamblin@baylibre.com>, Matteo Martelli <matteomartelli3@gmail.com>, 
+	Alisa-Dariana Roman <alisadariana@gmail.com>, 
+	Ramona Alexandra Nechita <ramona.nechita@analog.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-iio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-acpi@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_090102_304377_EE2294FB 
-X-CRM114-Status: GOOD (  15.36  )
+X-CRM114-CacheID: sfid-20250228_090739_213951_A5C19772 
+X-CRM114-Status: GOOD (  22.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,173 +100,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Similarly to what was done with the memcpy() routines, make
-copy_to_user(), copy_from_user() and clear_user() also use the Armv8.8
-FEAT_MOPS instructions.
+On Mon, Feb 24, 2025 at 12:33=E2=80=AFPM Matti Vaittinen
+<mazziesaccount@gmail.com> wrote:
+>
+> There are some use-cases where child nodes with a specific name need to
+> be parsed. In a few cases the data from the found nodes is added to an
+> array which is allocated based on the number of found nodes. One example
+> of such use is the IIO subsystem's ADC channel nodes, where the relevant
+> nodes are named as channel[@N].
+>
+> Add a helper for counting device's sub-nodes with certain name instead
+> of open-coding this in every user.
+>
+> Suggested-by: Jonathan Cameron <jic23@kernel.org>
+> Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
+> ---
+> Revision history:
+> v3 =3D> v4:
+>  - New patch as suggested by Jonathan, see discussion in:
+> https://lore.kernel.org/lkml/20250223161338.5c896280@jic23-huawei/
+> ---
+>  drivers/base/property.c  | 28 ++++++++++++++++++++++++++++
+>  include/linux/property.h |  2 ++
+>  2 files changed, 30 insertions(+)
+>
+> diff --git a/drivers/base/property.c b/drivers/base/property.c
+> index c1392743df9c..3f85818183cd 100644
+> --- a/drivers/base/property.c
+> +++ b/drivers/base/property.c
+> @@ -945,6 +945,34 @@ unsigned int device_get_child_node_count(const struc=
+t device *dev)
+>  }
+>  EXPORT_SYMBOL_GPL(device_get_child_node_count);
+>
+> +/**
+> + * device_get_child_node_count_named - number of child nodes with given =
+name
+> + *
+> + * Scan device's child nodes and find all the nodes with a specific name=
+ and
+> + * return the number of found nodes. Potential '@number' -ending for sca=
+nned
+> + * names is ignored. Eg,
+> + * device_get_child_node_count(dev, "channel");
+> + * would match all the nodes:
+> + * channel { }, channel@0 {}, channel@0xabba {}...
+> + *
+> + * @dev: Device to count the child nodes for
+> + *
+> + * Return: the number of child nodes with a matching name for a given de=
+vice.
+> + */
+> +unsigned int device_get_child_node_count_named(const struct device *dev,
+> +                                              const char *name)
 
-Both MOPS implementation options (A and B) are supported, including
-asymmetric systems. The exception fixup code fixes up the registers
-according to the option used.
+I think this should be implemented as
+fwnode_get_child_node_count_named() with the device variant being just
+a wrapper.
 
-In case of a fault the routines return precisely how much was not copied
-(as required by the comment in include/linux/uaccess.h), as unprivileged
-versions of CPY/SET are guaranteed not to have written past the
-addresses reported in the GPRs.
-
-The MOPS instructions could possibly be inlined into callers (and
-patched to branch to the generic implementation if not detected;
-similarly to what x86 does), but as a first step this patch just uses
-them in the out-of-line routines.
-
-Signed-off-by: Kristina Martšenko <kristina.martsenko@arm.com>
----
- arch/arm64/include/asm/asm-uaccess.h |  4 ++++
- arch/arm64/lib/clear_user.S          | 25 +++++++++++++++++++++----
- arch/arm64/lib/copy_from_user.S      | 10 ++++++++++
- arch/arm64/lib/copy_template.S       | 10 ++++++++++
- arch/arm64/lib/copy_to_user.S        | 10 ++++++++++
- 5 files changed, 55 insertions(+), 4 deletions(-)
-
-diff --git a/arch/arm64/include/asm/asm-uaccess.h b/arch/arm64/include/asm/asm-uaccess.h
-index 5b6efe8abeeb..9148f5a31968 100644
---- a/arch/arm64/include/asm/asm-uaccess.h
-+++ b/arch/arm64/include/asm/asm-uaccess.h
-@@ -61,6 +61,10 @@ alternative_else_nop_endif
- 9999:	x;					\
- 	_asm_extable_uaccess	9999b, l
- 
-+#define USER_CPY(l, uaccess_is_write, x...)	\
-+9999:	x;					\
-+	_asm_extable_uaccess_cpy 9999b, l, uaccess_is_write
-+
- /*
-  * Generate the assembly for LDTR/STTR with exception table entries.
-  * This is complicated as there is no post-increment or pair versions of the
-diff --git a/arch/arm64/lib/clear_user.S b/arch/arm64/lib/clear_user.S
-index a5a5f5b97b17..de9a303b6ad0 100644
---- a/arch/arm64/lib/clear_user.S
-+++ b/arch/arm64/lib/clear_user.S
-@@ -17,14 +17,27 @@
-  * Alignment fixed up by hardware.
-  */
- 
--	.p2align 4
--	// Alignment is for the loop, but since the prologue (including BTI)
--	// is also 16 bytes we can keep any padding outside the function
- SYM_FUNC_START(__arch_clear_user)
- 	add	x2, x0, x1
-+
-+#ifdef CONFIG_AS_HAS_MOPS
-+	.arch_extension mops
-+alternative_if_not ARM64_HAS_MOPS
-+	b	.Lno_mops
-+alternative_else_nop_endif
-+
-+USER(9f, setpt	[x0]!, x1!, xzr)
-+USER(6f, setmt	[x0]!, x1!, xzr)
-+USER(6f, setet	[x0]!, x1!, xzr)
-+	mov	x0, #0
-+	ret
-+.Lno_mops:
-+#endif
-+
- 	subs	x1, x1, #8
- 	b.mi	2f
--1:
-+
-+1:	.p2align 4
- USER(9f, sttr	xzr, [x0])
- 	add	x0, x0, #8
- 	subs	x1, x1, #8
-@@ -47,6 +60,10 @@ USER(7f, sttrb	wzr, [x2, #-1])
- 	ret
- 
- 	// Exception fixups
-+6:	b.cs	9f
-+	// Registers are in Option A format
-+	add	x0, x0, x1
-+	b	9f
- 7:	sub	x0, x2, #5	// Adjust for faulting on the final byte...
- 8:	add	x0, x0, #4	// ...or the second word of the 4-7 byte case
- 9:	sub	x0, x2, x0
-diff --git a/arch/arm64/lib/copy_from_user.S b/arch/arm64/lib/copy_from_user.S
-index 34e317907524..400057d607ec 100644
---- a/arch/arm64/lib/copy_from_user.S
-+++ b/arch/arm64/lib/copy_from_user.S
-@@ -52,6 +52,13 @@
- 	stp \reg1, \reg2, [\ptr], \val
- 	.endm
- 
-+	.macro cpy1 dst, src, count
-+	.arch_extension mops
-+	USER_CPY(9997f, 0, cpyfprt [\dst]!, [\src]!, \count!)
-+	USER_CPY(9996f, 0, cpyfmrt [\dst]!, [\src]!, \count!)
-+	USER_CPY(9996f, 0, cpyfert [\dst]!, [\src]!, \count!)
-+	.endm
-+
- end	.req	x5
- srcin	.req	x15
- SYM_FUNC_START(__arch_copy_from_user)
-@@ -62,6 +69,9 @@ SYM_FUNC_START(__arch_copy_from_user)
- 	ret
- 
- 	// Exception fixups
-+9996:	b.cs	9997f
-+	// Registers are in Option A format
-+	add	dst, dst, count
- 9997:	cmp	dst, dstin
- 	b.ne	9998f
- 	// Before being absolutely sure we couldn't copy anything, try harder
-diff --git a/arch/arm64/lib/copy_template.S b/arch/arm64/lib/copy_template.S
-index 488df234c49a..7f2f5a0e2fb9 100644
---- a/arch/arm64/lib/copy_template.S
-+++ b/arch/arm64/lib/copy_template.S
-@@ -40,6 +40,16 @@ D_l	.req	x13
- D_h	.req	x14
- 
- 	mov	dst, dstin
-+
-+#ifdef CONFIG_AS_HAS_MOPS
-+alternative_if_not ARM64_HAS_MOPS
-+	b	.Lno_mops
-+alternative_else_nop_endif
-+	cpy1	dst, src, count
-+	b	.Lexitfunc
-+.Lno_mops:
-+#endif
-+
- 	cmp	count, #16
- 	/*When memory length is less than 16, the accessed are not aligned.*/
- 	b.lo	.Ltiny15
-diff --git a/arch/arm64/lib/copy_to_user.S b/arch/arm64/lib/copy_to_user.S
-index 802231772608..819f2e3fc7a9 100644
---- a/arch/arm64/lib/copy_to_user.S
-+++ b/arch/arm64/lib/copy_to_user.S
-@@ -51,6 +51,13 @@
- 	user_stp 9997f, \reg1, \reg2, \ptr, \val
- 	.endm
- 
-+	.macro cpy1 dst, src, count
-+	.arch_extension mops
-+	USER_CPY(9997f, 1, cpyfpwt [\dst]!, [\src]!, \count!)
-+	USER_CPY(9996f, 1, cpyfmwt [\dst]!, [\src]!, \count!)
-+	USER_CPY(9996f, 1, cpyfewt [\dst]!, [\src]!, \count!)
-+	.endm
-+
- end	.req	x5
- srcin	.req	x15
- SYM_FUNC_START(__arch_copy_to_user)
-@@ -61,6 +68,9 @@ SYM_FUNC_START(__arch_copy_to_user)
- 	ret
- 
- 	// Exception fixups
-+9996:	b.cs	9997f
-+	// Registers are in Option A format
-+	add	dst, dst, count
- 9997:	cmp	dst, dstin
- 	b.ne	9998f
- 	// Before being absolutely sure we couldn't copy anything, try harder
--- 
-2.34.1
-
+Rob
 
