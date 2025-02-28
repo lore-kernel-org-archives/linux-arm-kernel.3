@@ -4,70 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08903C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 20:56:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52678C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 20:57:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u40uJS+JJhTgmsOn95/Qy87hSNnVXAUAxGCM+fqeuhM=; b=xJhM1T6pJadwj+dfwqxjBQqlNg
-	oN9XCpJw6+E+23BK8IScaY4FU5Heleyv1agYCFZw+F3aMdXi9U+96fmRvt9iA+2K0ZwgHgfg+OzPE
-	3hidhv/j7z/s0ZKdAN2H6iVk4N0KqUs74jMb8G/bTEs38fxngN1ep3zO8DzxvuPB0empqJUPRi4mG
-	c2u4kpCuOgCP6ncqRZtuT3/rO7MLwApoOY/QbmvUTyCWHzm8edVW2YzhL3tyhFqZ8QM/1UkVU+G/m
-	ERoO6bd4RDWn7X4hTnfV1KdAT+Q1gS5rQjV/jLHtMtS+EmJvSXh2FfBWriTXJ0kBVdBghcW3/7UKj
-	t4dBUUcA==;
+	bh=oMsvCa0RZBbh1a14dfeYFwcIWgC4rKUWn90abl03P5w=; b=4WRbwPFPqmB+VB14zYfdBr0QLO
+	DVjKIvmyuHCzaWcDRLA1iEKGtUSJOKoVBPKNy75G4wGClNTzi+lGKJVmJLFY3YB3S3C9qTNbLvVsy
+	4aINmsFodjuk/eKDMGlo7fMVmzaqn4bm/0R3V5vGfQarbMuiraL/q1IU5LVep/g8DqhJqEV8wdm29
+	tQhrl101XQBH9pzR0o+Ylk/6abJDpXlkemyc47u40CXo1v8yBlLI91Vl8w9zve75VR3kD2hoOCDnX
+	SGXhxsTMm2vDu7xSixHOIxo04oIxZcQ/eOEvmyzUWg9d0knM4GY8W+QY7QQZAdtBM/CyRA4NrpsG1
+	ncr/gBsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to7Ox-0000000CfAq-0hA6;
-	Fri, 28 Feb 2025 20:56:07 +0000
+	id 1to7QR-0000000CfGK-3E6L;
+	Fri, 28 Feb 2025 20:57:39 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to6pv-0000000CZKQ-2tJh;
-	Fri, 28 Feb 2025 20:19:56 +0000
+	id 1to6qk-0000000CZVy-2Fvm;
+	Fri, 28 Feb 2025 20:20:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1971F5C6989;
-	Fri, 28 Feb 2025 20:17:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B943C4CEE2;
-	Fri, 28 Feb 2025 20:19:54 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9F51D5C62F8;
+	Fri, 28 Feb 2025 20:18:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5A39C4CED6;
+	Fri, 28 Feb 2025 20:20:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740773994;
-	bh=cx6KMGBCYq6n3t5dzNY2lWOPSoiqWzxG3JY9eJ4yn6E=;
+	s=k20201202; t=1740774045;
+	bh=bbzE7bwrYKBUNI91akgimXhe+iLOXIRvjnh9wKEiBG0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=S0vOO0mOJdgxtFSleXuCWPKumz/sdC+rgI02yMpGAqO1S/cCrsP7wlw1W/Uf/w2ch
-	 CzHhIzKiNhZdiUr0O8Xcfc8G0h2Iy9I7BYbr+RXHCfWyGYr+m81yzFC29DvAZghKaY
-	 xT7TDVqaZsGBM7XwDL5hUhnlNst7SQPGuEv2qrwVoW1eo8g6PSW2HGx/5wTHBTUu40
-	 aOpg80BuowOCcRG7FMMagG4UqpSVsLjhttAuG7DdWrkn9/4BAVZzCrQFJIWncO1zlT
-	 oZJrNh1KCG4P7sC0Ooh2vR715dV93+qtW6p+jz48nEgC5b0SScmut7QxX5pGtByY3X
-	 HCUvVa51IRC1g==
-Date: Fri, 28 Feb 2025 14:19:52 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Kever Yang <kever.yang@rock-chips.com>
-Cc: heiko@sntech.de, devicetree@vger.kernel.org,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Shresth Prasad <shresthprasad7@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Detlev Casanova <detlev.casanova@collabora.com>
-Subject: Re: [PATCH v3 12/15] dt-bindings: soc: rockchip: Add rk3562 syscon
- compatibles
-Message-ID: <174077399176.3618688.11759633731165710590.robh@kernel.org>
-References: <20250227111913.2344207-1-kever.yang@rock-chips.com>
- <20250227111913.2344207-13-kever.yang@rock-chips.com>
+	b=kfFIn91KSNHhn07yKT9l2oOU8euWhSQeLxxD1+CP5Lmkt8N8i6O/Zn9pEs4NGiCJj
+	 qJEjrvhzqZMOIYECg3O0McklsQMWurW5bICaO6Eqlily54ppx+yXiPrIfcDSkbmmEy
+	 mgA+RTO662SeKhJ/BeytWpw2yGPCMjmkdX2P8FuJVAKh+rj8Ay73HcAZ8F0mxABP/0
+	 t/Etv53LQUPDT8LDrOxXxcp5ZTSXxggaTWVIPD4REQMGOIcj+m3X88aLIXEmmDQWmj
+	 830FksBD61RtpQPNDjonn0bpZ2XqD0baA3+sDkYSi8hDY+Sf6kIPnRC3EZcEYLP+NU
+	 hO0vT2n2HTtbg==
+Date: Fri, 28 Feb 2025 22:20:23 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Pratyush Yadav <pratyush@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Anthony Yznaga <anthony.yznaga@oracle.com>,
+	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v4 00/14] kexec: introduce Kexec HandOver (KHO)
+Message-ID: <Z8Iah6FgrhSzApwf@kernel.org>
+References: <20250206132754.2596694-1-rppt@kernel.org>
+ <mafs0cyf4ii4k.fsf@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250227111913.2344207-13-kever.yang@rock-chips.com>
+In-Reply-To: <mafs0cyf4ii4k.fsf@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_121955_781181_16F49509 
-X-CRM114-Status: UNSURE (   8.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250228_122046_683263_39FE624B 
+X-CRM114-Status: GOOD (  28.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,20 +98,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Pratyush,
 
-On Thu, 27 Feb 2025 19:19:10 +0800, Kever Yang wrote:
-> Add all syscon compatibles for rk3562.
+On Wed, Feb 26, 2025 at 08:08:27PM +0000, Pratyush Yadav wrote:
+> Hi Mike,
 > 
-> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
-> ---
+> On Thu, Feb 06 2025, Mike Rapoport wrote:
 > 
-> Changes in v3: None
-> Changes in v2: None
+> > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> >
+> > Hi,
+> >
+> > This a next version of Alex's "kexec: Allow preservation of ftrace buffers"
+> > series (https://lore.kernel.org/all/20240117144704.602-1-graf@amazon.com),
+> > just to make things simpler instead of ftrace we decided to preserve
+> > "reserve_mem" regions.
+> [...]
 > 
->  Documentation/devicetree/bindings/soc/rockchip/grf.yaml | 7 +++++++
->  1 file changed, 7 insertions(+)
+> I applied the patches on top of v6.14-rc1 and tried them out on an x86
+> qemu machine . When I do a plain KHO activate and kexec, I get the below
+> errors on boot. This causes networking to fail on the VM. The errors are
+> consistent and happen every kexec-reboot, though fairly late in boot
+> after systemd tries to bring up network. The same setup has worked fine
+> with Alex's v3 of KHO patches.
+> 
+> Do you see anything obvious that might cause this? I can try to debug
+> this tomorrow, but if it rings any loud bells it would be nice to know.
+
+Thanks for the report!
+It didn't ring any bells, but after I've found the issue and a
+fast-and-dirty fix.
+
+The scratch areas are allocated from high addresses and there is no scratch
+memory to satisfy memblock_alloc_low() in swiotb, so second kernel produces
+a couple of 
+
+software IO TLB: swiotlb_memblock_alloc: Failed to allocate 67108864 bytes for tlb structure
+
+and without those buffers e1000 can't dma :(
+
+A quick fix would be to add another scratch area in the lower memory
+(below). I'll work on a better fix.
+
+diff --git a/kernel/kexec_handover.c b/kernel/kexec_handover.c
+index c26753d613cb..37bb54cdb130 100644
+--- a/kernel/kexec_handover.c
++++ b/kernel/kexec_handover.c
+@@ -623,13 +623,13 @@ static phys_addr_t __init scratch_size(int nid)
+ static void kho_reserve_scratch(void)
+ {
+ 	phys_addr_t addr, size;
+-	int nid, i = 1;
++	int nid, i = 2;
+ 
+ 	if (!kho_enable)
+ 		return;
+ 
+ 	/* FIXME: deal with node hot-plug/remove */
+-	kho_scratch_cnt = num_online_nodes() + 1;
++	kho_scratch_cnt = num_online_nodes() + 2;
+ 	size = kho_scratch_cnt * sizeof(*kho_scratch);
+ 	kho_scratch = memblock_alloc(size, PAGE_SIZE);
+ 	if (!kho_scratch)
+@@ -644,6 +644,15 @@ static void kho_reserve_scratch(void)
+ 	kho_scratch[0].addr = addr;
+ 	kho_scratch[0].size = size;
+ 
++	addr = 	memblock_phys_alloc_range(size, CMA_MIN_ALIGNMENT_BYTES,
++					  MEMBLOCK_LOW_LIMIT,
++					  ARCH_LOW_ADDRESS_LIMIT);
++	if (!addr)
++		goto err_free_scratch_areas;
++
++	kho_scratch[1].addr = addr;
++	kho_scratch[1].size = size;
++
+ 	for_each_online_node(nid) {
+ 		size = scratch_size(nid);
+ 		addr = memblock_alloc_range_nid(size, CMA_MIN_ALIGNMENT_BYTES,
+
+> -- 
+> Regards,
+> Pratyush Yadav
 > 
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-
+-- 
+Sincerely yours,
+Mike.
 
