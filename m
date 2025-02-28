@@ -4,92 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAD5AC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 02:28:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CEF5C282C1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 02:29:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VJcCBxZrPcF1HtINZMO6IVGAMykP+k9zuguph0IARao=; b=AYrgd9nd2J22jnPizASKAB+hvS
-	OMLIm+fH5tu097Pl34ryL2ez9ULjn4Mf/IvAAXC6zykM4LXGQzgTIDR4qk/PTKvOlF52T6Jq6KBAS
-	9gwwNO6CjkmiKlbJADBxtyh2dujL+FEIpLbrsfiKaS+EbGvLKCoR8SBBD5IUzDUb6RTAXiB6bp08m
-	fFM0mF+SxRfUQIHtWgTysuYVNTMQpYL5fHJxgmy9UZOcAUqSJHe9UzInptiPI87Zx2qUNvEX6u1OQ
-	1sWCTPCLWV7MILkLP1NdniBxiAtiFWNyjYDoc9X2ACofM6Mf53WH3vtAr/e2IYKFsGwlBqrFubY3v
-	BQ0mFG9g==;
+	bh=aKVkZLXRtJ0H1yDIkyGrgPYNFEgO/XKza3g9lf0wDtE=; b=jDmNkyr2MRdEzaO4OX3pikQYs1
+	lJXMApC/UefubWJ57Rdpio92ry/QmdyXC8AH9AeDXj4jGO25rjwDqeTjGf9TUZdXLogRy5DEqqOFd
+	9qkP16PmXF+KRNmWNvqZaK1/flfh5FzM3IjXmbUDzOmrYS/X9oZKYeBgivjG5Bt4SjSMIN4BpFLwJ
+	+TxEpNvr9J5QzIBjx48iMbdmJzBxmSThhm5XiAvzNroQTQEZ4eP5xsrFD/lZD3tIe7b/+nr5aHdBA
+	4sgPlYi9Te58iOpRllqwvInDr+wZi7gUd4QCB+3zH/J/YsACrRYgrVAW3atzdFRLNXaanXr6FlU6C
+	luXCrYNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnq6e-00000009Ua7-0aWn;
-	Fri, 28 Feb 2025 02:28:04 +0000
-Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
+	id 1tnq8A-00000009Uky-3KrC;
+	Fri, 28 Feb 2025 02:29:38 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnq4q-00000009UJB-2tZ6
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 02:26:14 +0000
-Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-6e89bce647fso10794116d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 18:26:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1740709571; x=1741314371; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=VJcCBxZrPcF1HtINZMO6IVGAMykP+k9zuguph0IARao=;
-        b=Scf1icO5+GgVo9kpPJ/ZHo+57MWh7As3k3WwgXbbIKnGQMJx95wrkFFEV4ypTpREtd
-         VVGVnGPyVtP9XKs0Z2tmu8H3OLIqBY2URenn6eEIo/7LIBH6aFA+Bk8AzTpZMClq1SGZ
-         1Nt5Lq16V7efXs4g9Ao65R6sz+09JLSxf0rKLciWdAJaLX99wYmGOnS5VNg0KXnHg+Lm
-         LBRBml2Ale3IzfsNUUEv/iJVD58JLhbKl0Zt6HY/CjF7TlHSSCQFPPMaP0sdoWJQkaye
-         UE8Z4WcGsunfzAeQd3sqSvplLsTcYhbJQwsgeuHRJJyngJUz043DbHl5lQjENb1fSGHh
-         s4eQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740709571; x=1741314371;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=VJcCBxZrPcF1HtINZMO6IVGAMykP+k9zuguph0IARao=;
-        b=T3qDebOwjqqscs0OWWDlVJsquvnhBcQ05YrZ8ugmyne4xknnUIZmMueIwlrM4YqpYI
-         MWTWoDdgRjgD+vi4Xb8xPIOmm+ci+sTUdk7405Bb4WgOaskrLhK6HdwXqITkioe2Q69Z
-         9kl7JLCfYKov4+IjqPF+rS1rZWihoo3HVLu4w3ZLMMwUo5C+KOYBJjkKa1R9kKYaQH9N
-         NxKKfjDrk/RRyCRv614TYH+fQm/tFypH6IOhkItIEPg93JYhH7dqE37HXXDmv/xTrDB3
-         eHIoL0wUlhHiiAtnwvldeHHvwX2m3jZFM8BLfSOJwBmTn11DAx0vweRnFApwMrausFNH
-         GP5Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW1fOZHg9lCBor1534bFmu4Ers0pJqYRW5OENr7fwdw8IZGzrrl0Jp8aEuOIBN0XdO3pLb/Il9LAqVvVEyQjLJ5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnamBHDIsmsUYPga4mxvBy9q14rMQ0ubqta/Td7K7B8Meh14mz
-	lppoKWfP0NA5If+kz6AWKzdyekInqDd5UKQn8/rtQIvuwBG/86803Y4r/fzn5DH7ETZ1PIZD3V9
-	2qd0=
-X-Gm-Gg: ASbGncsx+w7r1HFMCDRKeMByyj29RJcf3guKbi4nw6xnXgm65IPDf35eh6k5O8RItBg
-	68E/Ut6UBq/2OOms9M3RyyDTasnpycKnkhJbJbdaSBPBTbm4689njE7N54TbdZHDisUIWA1Zitm
-	Vz7Bl/UF4UXBeOsFdvLHAg6QclahN89+uxdKxKplQSSSDb1CP8xUAysRDHLWsnQOSJbNofrLDs0
-	NRmez0h+14qT5GczC5VIZ0Qvroaw8J95zO4DGZkwVeauxBaQhcZa7eP/icjrG9KMvzYE4Wdex51
-	FHhKHA3xm9N/MyOkJDOXOJHkYzofOUo=
-X-Google-Smtp-Source: AGHT+IGUs//lkbvx/dTZ6S1dXtcIeqOusIiHyVcn8w8wYwcYyF0soDMXcDq4Vyroqi8kUxCmEF+Ucw==
-X-Received: by 2002:a05:6214:2b0b:b0:6e6:6225:a910 with SMTP id 6a1803df08f44-6e8a0c9f160mr30820726d6.14.1740709570881;
-        Thu, 27 Feb 2025 18:26:10 -0800 (PST)
-Received: from ?IPv6:2606:6d00:11:e976::c41? ([2606:6d00:11:e976::c41])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6e8976da38csm16657186d6.108.2025.02.27.18.26.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Feb 2025 18:26:09 -0800 (PST)
-Message-ID: <fb0e0c207cd6c2cad39c2a38398080d93db4000b.camel@ndufresne.ca>
-Subject: Re: [Patch v2] media: s5p-mfc: Corrected NV12M/NV21M plane-sizes
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Aakarsh Jain <aakarsh.jain@samsung.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Cc: m.szyprowski@samsung.com, andrzej.hajda@intel.com, mchehab@kernel.org, 
-	hverkuil-cisco@xs4all.nl, krzysztof.kozlowski+dt@linaro.org, 
-	linux-samsung-soc@vger.kernel.org, gost.dev@samsung.com, 
-	aswani.reddy@samsung.com, pankaj.dubey@samsung.com
-Date: Thu, 27 Feb 2025 21:26:07 -0500
-In-Reply-To: <20250226102251.9040-1-aakarsh.jain@samsung.com>
-References: <CGME20250226102749epcas5p35afe43774ad2917b846c921dc593a5ef@epcas5p3.samsung.com>
-	 <20250226102251.9040-1-aakarsh.jain@samsung.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
+	id 1tnq4w-00000009UKw-09xT;
+	Fri, 28 Feb 2025 02:26:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B22D45C61DD;
+	Fri, 28 Feb 2025 02:24:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AEC2C4CEDD;
+	Fri, 28 Feb 2025 02:26:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740709577;
+	bh=4XXZ9I7t+Z962ZjSI+scZzu97ELOgs2wjrA6GJcuow0=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=KCFy01YvCZ614Qe+4DKOYJYaFXRvq2OU8rY7p+/81nMc6UTkuJsKfqka27v7s+sLO
+	 lhxbRyTDODwe+79/khyCtu1J8DIdJre/1LR/1U84VYGIC83q4Z34WjJo08WKpS+xxE
+	 7UXTMPaxfXCp2Bhp91NYhnYZp9SK1MMEb+7U9W3qfS6zZ/KE4EkFjaLRBrB/lwb/qn
+	 f88qaT2IFYfmWxCZ6QmgPht+Nti1vWwOuEEoGhSGuaA1NthTcnAoc2mHTMOYy41DIV
+	 L88Zy5gbns1HRCe64kLWI7yHYJslvwfrr+D+YbZWexeOv5duApkKoLdaBS5mawDm6T
+	 Vn3POcEwigSFw==
+Date: Thu, 27 Feb 2025 20:26:15 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ Conor Dooley <conor+dt@kernel.org>, Yong Mao <yong.mao@mediatek.com>, 
+ Axe Yang <axe.yang@mediatek.com>, linux-kernel@vger.kernel.org, 
+ Sean Wang <sean.wang@kernel.org>, Lei Xue <lei.xue@mediatek.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Guodong Liu <guodong.liu@mediatek.com>, 
+ Wenbin Mei <wenbin.mei@mediatek.com>, linux-mediatek@lists.infradead.org
+To: Cathy Xu <ot_cathy.xu@mediatek.com>
+In-Reply-To: <20250228011702.16493-2-ot_cathy.xu@mediatek.com>
+References: <20250228011702.16493-1-ot_cathy.xu@mediatek.com>
+ <20250228011702.16493-2-ot_cathy.xu@mediatek.com>
+Message-Id: <174070957527.867625.13463640154036333781.robh@kernel.org>
+Subject: Re: [PATCH v4 1/3] dt-bindings: pinctrl: mediatek: Add support for
+ mt8196
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_182612_984885_D9AD42F4 
-X-CRM114-Status: GOOD (  14.70  )
+X-CRM114-CacheID: sfid-20250227_182618_118296_0B94D477 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,60 +80,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-Le mercredi 26 f=C3=A9vrier 2025 =C3=A0 15:52 +0530, Aakarsh Jain a =C3=A9c=
-rit=C2=A0:
-> There is a possibility of getting page fault if the overall
-> buffer size is not aligned to 256bytes. Since MFC does read
-> operation only and it won't corrupt the data values even if
-> it reads the extra bytes.
-> Corrected luma and chroma plane sizes for V4L2_PIX_FMT_NV12M
-> and V4L2_PIX_FMT_NV21M pixel format.
->=20
-> Suggested-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
-> Signed-off-by: Aakarsh Jain <aakarsh.jain@samsung.com>
+On Fri, 28 Feb 2025 09:16:25 +0800, Cathy Xu wrote:
+> Add the new binding document for pinctrl on MediaTek mt8196.
+> 
+> Signed-off-by: Guodong Liu <guodong.liu@mediatek.com>
+> Signed-off-by: Cathy Xu <ot_cathy.xu@mediatek.com>
 > ---
-> changelog:
-> v1->v2
-> Patch link: https://patchwork.kernel.org/project/linux-media/patch/202408=
-06115714.29828-1-aakarsh.jain@samsung.com/
-> Removed duplicate code and aligned luma and chroma size
-> to multiple of 256bytes as suggested by Hans.
-> =C2=A0drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c | 5 +++--
-> =C2=A01 file changed, 3 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c b/dr=
-ivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c
-> index 73f7af674c01..0c636090d723 100644
-> --- a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c
-> +++ b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c
-> @@ -549,8 +549,9 @@ static void s5p_mfc_enc_calc_src_size_v6(struct s5p_m=
-fc_ctx *ctx)
-> =C2=A0		case V4L2_PIX_FMT_NV21M:
-> =C2=A0			ctx->stride[0] =3D ALIGN(ctx->img_width, S5P_FIMV_NV12M_HALIGN_V=
-6);
-> =C2=A0			ctx->stride[1] =3D ALIGN(ctx->img_width, S5P_FIMV_NV12M_HALIGN_V=
-6);
-> -			ctx->luma_size =3D ctx->stride[0] * ALIGN(ctx->img_height, 16);
-> -			ctx->chroma_size =3D=C2=A0 ctx->stride[0] * ALIGN(ctx->img_height / 2=
-, 16);
-> +			ctx->luma_size =3D ALIGN(ctx->stride[0] * ALIGN(ctx->img_height, 16),=
- 256);
-> +			ctx->chroma_size =3D ALIGN(ctx->stride[0] * ALIGN(ctx->img_height / 2=
-, 16),
-> +					256);
+>  .../pinctrl/mediatek,mt8196-pinctrl.yaml      | 241 ++++++++++++++++++
+>  1 file changed, 241 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pinctrl/mediatek,mt8196-pinctrl.yaml
+> 
 
-An eventual port to v4l2-common helpers instead of open coding this
-would be nice, though I see nothing wrong to report with this code, so:
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+yamllint warnings/errors:
 
-regards,
-Nicolas
+dtschema/dtc warnings/errors:
+Documentation/devicetree/bindings/pinctrl/mediatek,mt8196-pinctrl.example.dts:24:18: fatal error: ../../../../arch/arm64/boot/dts/mediatek/mt8196-pinfunc.h: No such file or directory
+   24 |         #include "../../../../arch/arm64/boot/dts/mediatek/mt8196-pinfunc.h"
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/pinctrl/mediatek,mt8196-pinctrl.example.dtb] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1511: dt_binding_check] Error 2
+make: *** [Makefile:251: __sub-make] Error 2
 
-> =C2=A0			break;
-> =C2=A0		case V4L2_PIX_FMT_YUV420M:
-> =C2=A0		case V4L2_PIX_FMT_YVU420M:
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250228011702.16493-2-ot_cathy.xu@mediatek.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
