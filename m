@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AF49C282C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 14:14:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54B9CC282C1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 14:15:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MzZ6ILzSkM4BJ8jDBuhIko6B+Jnu0p3f7pMZfR82Jo4=; b=tr3ZBYjY3GXdyL+6ZaaS0nKCDl
-	9LVKvYthLmzyUzhSE+BH/Lc0wulRp7YmZ403295y6XnexFiqYQ5e0EhUkUXBKIunClljXqUGetHNR
-	o0OWhD8bwkHL+0ry84a2N660jmNcgPPansRhhCvlZyecZ2htz6NFopovzfhIT7/n5wUp4bMLZfbEt
-	uJ/b7A+plbNK4nMVfHp7qTgMWQ43g9v/jHXg+nw3maTCBiInqOIjCqE+mwEtM2CyYtro5944BAWrq
-	ucD1OPPtfzDtBS161sR0HjmE2QZIFuZCJyXnwcQ1eLcOGfgZqKy+N53ZNCbdzSIZlKUwUidJTba0e
-	k2XpTk5Q==;
+	bh=PnUvUu9cMY/Mxw4Q1sllPthcln3NtgGY7cjKJANyPvk=; b=tHWQqMFEnVvoCiCK0O0iGi9wnQ
+	o0Eh4JU9YilNTpMkeF4khe63K53qIb1KWrrTMX43mGz5NBdQmrzPg8t0VqaxQCoOyJb2kTDWRrB29
+	aVw6T33CCM3wxuxY/LuTVqFt7LkW15oULkAvPYrI93Q1l6UslkywMkdwyPJW0II2S8Tu4ebDE7vug
+	lcvP5VaR2DwVcl7fSHdmjXp9/KgnAOuC8zpzhCWpBFmv2Ug1kiwv6+6n13/4vhDd/uly4/yIOVOKm
+	kl/8/FcQ7pN7T0R9x9v48kuG3/Jn49250o+Ch4VHiGkpvjSWiGmq2y+DaekBb20rfgfBv1vNSMrTH
+	OBWSGGFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to17n-0000000BD1V-2LEK;
-	Fri, 28 Feb 2025 14:13:59 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1to19L-0000000BDWQ-2dbp;
+	Fri, 28 Feb 2025 14:15:35 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to11R-0000000BB3z-38iT
+	id 1to11S-0000000BB4k-2Dyt
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 28 Feb 2025 14:07:27 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5deb1266031so3678794a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 06:07:25 -0800 (PST)
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-abb90f68f8cso416850266b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 06:07:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740751644; x=1741356444; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1740751645; x=1741356445; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=MzZ6ILzSkM4BJ8jDBuhIko6B+Jnu0p3f7pMZfR82Jo4=;
-        b=DIg1kgLt5Oep0o5v4ZjEl3Pao9VvKZWVV1m+kaGGsrYTSXSaODXr9+3PsbZ5X255RK
-         EYbFZIXdL0DmN93CzpY7HYqYxJzBSPhCNJjwEs6nwmGXcpexH6WTiJIBWfxd0YHqsxID
-         M9Z6PmJsWny0nkQU7S/Tf95w5n12qsqwZDsPokW9AaZz6OlrcQqY1G51T5wChPQZKLkz
-         32TKsVSriRYEjPReQ7yYail1oxJ5l/wyMi3eZPEgKmiI0SUxD84Sc2PFUC99ukHJkfHd
-         7JPrj+xazWkJQjrfPlzupoEdxlSk1lXBhdT3kpYHcHTvbB6zJwe7G+L9nO6vuUMdtcXK
-         iRLw==
+        bh=PnUvUu9cMY/Mxw4Q1sllPthcln3NtgGY7cjKJANyPvk=;
+        b=G4PPb6eSOqQsfGd5jw8KZtBIDlaZ46OUx8WEWGYE7MpGMr2pdIAXJto70kQmyhvaka
+         JutkpevsT0A/Grz9sf3a+6xhtTMiKdIF9OQNKxZKIR81IAGOopAh0oSkIA74wlMoJcC+
+         jixqNRFWE4Y7AKLZyEaCsClYmR+D73eHprAbmcXaE9wb5TtkDaRAmlgrloYZk1aFQEs1
+         Kx+hVJZIfoHXakIEdS1385F4XGH7yECRxrQm0JeVRb/9h1akck80j2vrCQ6C0F8Bpdva
+         1Ku6vhqnK00EznVTbKZK2T+SwFXIg+9m9/NLobkL5bYPzdHCvQZb8ErvodJ5vBT2Wlmm
+         2CTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740751644; x=1741356444;
+        d=1e100.net; s=20230601; t=1740751645; x=1741356445;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=MzZ6ILzSkM4BJ8jDBuhIko6B+Jnu0p3f7pMZfR82Jo4=;
-        b=wit4JwOku588myBgr666tRGWTtkkHZS0pPvA/ljLPM5QDLVNIOWHa9O6EwM4M0plca
-         ZiyggMn2KRuuXqoJrsHWwY1nDpxhL1+mk2WwspCIP7PcznlocvMahKOUWTypBrQq/OiK
-         f8Dz2G8rfy3vjUqPmzqcE5yKX5Oq1NBcGaGqfzyC/VQWSHfImfxoXMoVx7wB7MinDF5P
-         yI59Noj95isB2bBWN/wRNWHDbR7+xk4ucEyMcF1kz1J+VZc0agvks0ZSo17fqZqwi0GD
-         UvDpd0Pro0UmE9Zg+M1MfD3YTSmDQ6eDnHjONlqmkAEipSutll9s7zeJhK1r/ZjT2fqq
-         fNQQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXkU+6PyuuLBe76H1a7LjH+qgmcEmgoKps7T/rVWo3iGk5aFTVdBP+EvKh0Sk/CEbcpQecGFopOGMQLaO/UQgvo@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUkXFKSozMAjNEOffNx1wWyAhRiQGzJY4UepnYNx69ggs1wAre
-	m4Qyvi79R/0QQUB44qROy9w1b42pqGaZm8DKZO5vF4lLE8JWAW2VkhyXCkeMbVg=
-X-Gm-Gg: ASbGnctllMUPzLyUoKunBspacm2Yds5xtQgFWweaGLX/En+o7V4t6qia41WVYs0lSRO
-	uX1DvHAZqotD8UEF6fZdsq6wbyNQ0yN2faje3uYIAlOWlRZ/zVvDhCMMbjd3qqRtJQqU6nfk6g5
-	c7fvG9f9xgShTcpsxKBoVGQXyD0Vhh1mlfxqe0EMgAyCkRYwVxIN8XRY1oZFssrPn4NKcHneGF3
-	cr7EQHzT+CBiRUd+5o7QxPnSJBCmfN9FzhjYArYgiV7KSDv5Ocdlu1wQWsYeLdVEdI/bJcGI8/v
-	97LjWSFAC7ecH9Kdc8U3xuj12pwLwGKe5N1x+qoX6BvQU7yYhI/TWYVfl9VaWqq4GDGMFOdWJUZ
-	hF4SWkgKBEQ==
-X-Google-Smtp-Source: AGHT+IESLHMD1ALp0fl5UNtQkvu55XFyzsWGAW2ARn4G0KwygGU8Ail6xNyHqVhAMNH9i4466iKXaA==
-X-Received: by 2002:a05:6402:848:b0:5dc:d10a:1be8 with SMTP id 4fb4d7f45d1cf-5e4d6b0e6c9mr2959043a12.19.1740751643974;
-        Fri, 28 Feb 2025 06:07:23 -0800 (PST)
+        bh=PnUvUu9cMY/Mxw4Q1sllPthcln3NtgGY7cjKJANyPvk=;
+        b=UcR2wC5KDkK38C5RWHS4FM8JcZEsmZHnSzgovup/SnXIpCugKXTSD6N8ZCyVIUgRyS
+         29OiYbVa058pewsmRa5d3fHWm3lx1RA/i+0dlZ0+54Cn4lxRXRXyrQq0IaKOhZGM53jO
+         5hHr0aT+mmdtzL2dLQQLwEhILU+OmpET9R+Euta9LjU+1hE7930tyCi6pJDlR+i9qZdU
+         nNaFVNco77PnKbsSe36bqeBiBAx/QJjiHfMq++aoh6UHAqfjORXWjPR4HwpdAhhP2FcC
+         G8zke3UXGfFSkM5p5adW8bAiTj1joiGFOy9owCAh4rAOl0v4ZAINYMx8amAhqjnIFaco
+         LGPA==
+X-Forwarded-Encrypted: i=1; AJvYcCURZPD+/EeIaNExzSPvpAWSqi9JGoUvQ70jnit+6KUBTJWMQdEtjiONpCi/bU2Qzum/Ghveklk0PzCumTjDXW0o@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLD5DUWMe0YA+w7JKR3pTYKMTutQTucPVwAw2LB+tnm+MkKADJ
+	gkcfglHCUPg4YMrfh9tJLQShwAZGPnurrU3KA8yv2Men8HfVQrBEhf3HB9sOHaY=
+X-Gm-Gg: ASbGncsPfF9EjrBf/yqp1oqb0BPZyrw49vGbL3wbSiHx6UthucqMemvVrhV4OTcdJMO
+	QwqSDSS1VO4LmAp7RWBP01y7lUcJ6acXqW0TUJaFNjmGFnthSn5MWsFho+zHaLTyvrqGnXmb9/X
+	HZL9U0iuYtfu1oVcREShBpYkAtAs+3vdz5wPvOUJPcSElF1jtURYual+YEtYcr6sNt6skHh6I/N
+	uzI8IUzhOowZdtlf8PPHkRs9oQ2rNl1s/JTodsTdLcvkdENktnY+SKzQtJZ5i33pwE3LrdYSjLN
+	kR2UR/HUVWEGavmSCEYvVrMljAzerYyVg/Xw9HKaHnyVoDIBVXD6CmkcR83/tnhULj4bSheOcYW
+	EJSjEA7wQ3w==
+X-Google-Smtp-Source: AGHT+IFpdib5eLXvAKlYp3fUyW87rQ1IfZ8GEMoJsXuLGkDw56XS2aTZMwaUmenZ5apuVJAYF/Nggw==
+X-Received: by 2002:a17:907:c018:b0:ab7:fc9a:28e2 with SMTP id a640c23a62f3a-abf2681f8f2mr377695266b.47.1740751644708;
+        Fri, 28 Feb 2025 06:07:24 -0800 (PST)
 Received: from puffmais.c.googlers.com (30.171.91.34.bc.googleusercontent.com. [34.91.171.30])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e4c3fb51f9sm2550839a12.55.2025.02.28.06.07.23
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e4c3fb51f9sm2550839a12.55.2025.02.28.06.07.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Feb 2025 06:07:23 -0800 (PST)
+        Fri, 28 Feb 2025 06:07:24 -0800 (PST)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Fri, 28 Feb 2025 14:07:16 +0000
-Subject: [PATCH 03/18] rtc: aspeed: drop needless struct
- aspeed_rtc::rtc_dev member
+Date: Fri, 28 Feb 2025 14:07:17 +0000
+Subject: [PATCH 04/18] rtc: ds2404: drop needless struct ds2404::rtc member
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250228-rtc-cleanups-v1-3-b44cec078481@linaro.org>
+Message-Id: <20250228-rtc-cleanups-v1-4-b44cec078481@linaro.org>
 References: <20250228-rtc-cleanups-v1-0-b44cec078481@linaro.org>
 In-Reply-To: <20250228-rtc-cleanups-v1-0-b44cec078481@linaro.org>
 To: Chanwoo Choi <cw00.choi@samsung.com>, 
@@ -96,8 +95,8 @@ Cc: linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
  =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_060725_820616_6261A593 
-X-CRM114-Status: GOOD (  15.03  )
+X-CRM114-CacheID: sfid-20250228_060726_571422_AE3D04F1 
+X-CRM114-Status: GOOD (  14.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,62 +111,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The memory pointed to by the ::rtc_dev member is managed via devres,
-and no code in this driver uses it past _probe().
+The memory pointed to by the ::rtc member is managed via devres, and
+no code in this driver uses it past _probe().
 
 We can drop it from the structure and just use a local temporary
 variable, reducing runtime memory consumption by a few bytes.
 
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
 ---
- drivers/rtc/rtc-aspeed.c | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
+ drivers/rtc/rtc-ds2404.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/rtc/rtc-aspeed.c b/drivers/rtc/rtc-aspeed.c
-index 880b015eebaf796f68ed82c29998f345e1fd418b..0d0053b52f9b90a61725bf29435bfc8071977f9e 100644
---- a/drivers/rtc/rtc-aspeed.c
-+++ b/drivers/rtc/rtc-aspeed.c
-@@ -8,7 +8,6 @@
- #include <linux/io.h>
- 
- struct aspeed_rtc {
--	struct rtc_device *rtc_dev;
- 	void __iomem *base;
+diff --git a/drivers/rtc/rtc-ds2404.c b/drivers/rtc/rtc-ds2404.c
+index 3231fd9f61da49bdaf00e46486fc34836094ee78..217694eca36c3432a8db3b874374e347eeb802d9 100644
+--- a/drivers/rtc/rtc-ds2404.c
++++ b/drivers/rtc/rtc-ds2404.c
+@@ -31,7 +31,6 @@ struct ds2404 {
+ 	struct gpio_desc *rst_gpiod;
+ 	struct gpio_desc *clk_gpiod;
+ 	struct gpio_desc *dq_gpiod;
+-	struct rtc_device *rtc;
  };
  
-@@ -85,6 +84,7 @@ static const struct rtc_class_ops aspeed_rtc_ops = {
- static int aspeed_rtc_probe(struct platform_device *pdev)
+ static int ds2404_gpio_map(struct ds2404 *chip, struct platform_device *pdev)
+@@ -182,6 +181,7 @@ static const struct rtc_class_ops ds2404_rtc_ops = {
+ static int rtc_probe(struct platform_device *pdev)
  {
- 	struct aspeed_rtc *rtc;
-+	struct rtc_device *rtc_dev;
+ 	struct ds2404 *chip;
++	struct rtc_device *rtc;
+ 	int retval = -EBUSY;
  
- 	rtc = devm_kzalloc(&pdev->dev, sizeof(*rtc), GFP_KERNEL);
- 	if (!rtc)
-@@ -94,17 +94,17 @@ static int aspeed_rtc_probe(struct platform_device *pdev)
- 	if (IS_ERR(rtc->base))
- 		return PTR_ERR(rtc->base);
+ 	chip = devm_kzalloc(&pdev->dev, sizeof(struct ds2404), GFP_KERNEL);
+@@ -190,9 +190,9 @@ static int rtc_probe(struct platform_device *pdev)
  
--	rtc->rtc_dev = devm_rtc_allocate_device(&pdev->dev);
--	if (IS_ERR(rtc->rtc_dev))
--		return PTR_ERR(rtc->rtc_dev);
-+	rtc_dev = devm_rtc_allocate_device(&pdev->dev);
-+	if (IS_ERR(rtc_dev))
-+		return PTR_ERR(rtc_dev);
+ 	chip->dev = &pdev->dev;
  
- 	platform_set_drvdata(pdev, rtc);
+-	chip->rtc = devm_rtc_allocate_device(&pdev->dev);
+-	if (IS_ERR(chip->rtc))
+-		return PTR_ERR(chip->rtc);
++	rtc = devm_rtc_allocate_device(&pdev->dev);
++	if (IS_ERR(rtc))
++		return PTR_ERR(rtc);
  
--	rtc->rtc_dev->ops = &aspeed_rtc_ops;
--	rtc->rtc_dev->range_min = RTC_TIMESTAMP_BEGIN_1900;
--	rtc->rtc_dev->range_max = 38814989399LL; /* 3199-12-31 23:59:59 */
-+	rtc_dev->ops = &aspeed_rtc_ops;
-+	rtc_dev->range_min = RTC_TIMESTAMP_BEGIN_1900;
-+	rtc_dev->range_max = 38814989399LL; /* 3199-12-31 23:59:59 */
+ 	retval = ds2404_gpio_map(chip, pdev);
+ 	if (retval)
+@@ -200,10 +200,10 @@ static int rtc_probe(struct platform_device *pdev)
  
--	return devm_rtc_register_device(rtc->rtc_dev);
-+	return devm_rtc_register_device(rtc_dev);
- }
+ 	platform_set_drvdata(pdev, chip);
  
- static const struct of_device_id aspeed_rtc_match[] = {
+-	chip->rtc->ops = &ds2404_rtc_ops;
+-	chip->rtc->range_max = U32_MAX;
++	rtc->ops = &ds2404_rtc_ops;
++	rtc->range_max = U32_MAX;
+ 
+-	retval = devm_rtc_register_device(chip->rtc);
++	retval = devm_rtc_register_device(rtc);
+ 	if (retval)
+ 		return retval;
+ 
 
 -- 
 2.48.1.711.g2feabab25a-goog
