@@ -4,176 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 425B8C282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 17:50:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFABEC282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 17:52:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lZnjK2/2KpcCj7q27I1a4AL4XpdjpWbe/vLdOl7/KIg=; b=AlSAA1+7O8nwkcxFjAt5vLpRS5
-	ZwVhzS51BG5Ao6z2/yq2hP2/bhfbsIhA8QebITTb0y8roYpWpOBcdOl4s5uAF/5W9mDnaqKsavVpq
-	H1jeggbCyAqB0DfDLp47+oEkQzlg//Fvi3O+e4HrLFW1CdW0Y3h1UQ/F0F7oFp7jE98tP4t9yzY4F
-	gm1t2zwDcDDyvQjw6vXqrfZb95H4kzwrqS/rT6Kz/E2z3V9aOQakX8U2NpfSSKcx7KJUMxmFjRe41
-	c/Uyxqg5HCop52nsq86I7vz7dFFMYaXAYT4KI7rc26hb+KgrK42PmzgoG3g3BMBlg1O+2cIm91uuw
-	RT7IaulA==;
+	bh=2sRrVQmgK0R2z5wr+aIoaoWSaXv+nBUPnIdA1TCMyRA=; b=tcfcCJm+AU3xy05quwrRcqQjAL
+	SFb1o8gbCv1Wt6S4dkF9sS9QX35IVSqDzbfQ6dv+Z7aokCbgXaSM6OtfR2zkki3q5nZnSnOjUF88e
+	Wo/rO9ZuKRJhTa3UGAYHlx++xqYy30mC1REU1XNAZAHIa0cxh5Mzj3hlD+x3g2WJITb8XRTZGT5Ay
+	K/GmlYXXcby/wWtVe3fxHS0FotjFKZf0wquK9GRGmWZ2Pf7aIg1aR4nsfR8zU6OIQRC3zSe1B0t5Z
+	sijXDmZJ0YOlSjIgngfTyt8S2UftiQsKssnMrox4IKcHECNjsfb/uzsfIthFn6rroTD8s2gfKSCVY
+	0/UyYoVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to4VQ-0000000C1HJ-3ILb;
-	Fri, 28 Feb 2025 17:50:36 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	id 1to4Wx-0000000C1gc-3Svg;
+	Fri, 28 Feb 2025 17:52:11 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to4Nw-0000000Bzsr-3FEG
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 17:42:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eX1kd5dcw4XLXiOmSiiplVmsemE3QySp7jnYHNcMAPxY7piq9JKg/rKh1jh8k9kfCSOAynQW12SxBG7WePRShmlmf7+aOrwgLcWX18GAEP1QZW7oh4CMIK2prH1relkhecWdMZOdQCUCwaqd+EnySQnCyl2u+oq1B/AUo0QX6f7V6kOOW9XYGuu3z1tabkcV0veOTzoAhpu+k+KSGAl+IrSWiTV36TnYSiFL8s9dYIpocVXBruIGoe+izSi77+66JaDbK6zm8/i6V/8M5zjSJrQbfvNWpRSUJyCJ6CgNXCcE48itUVSqZiKcJx5Dr1vvqCodVeytPFATNk2n/RkCww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lZnjK2/2KpcCj7q27I1a4AL4XpdjpWbe/vLdOl7/KIg=;
- b=wJ/c0bU2OCwnyD/D2h3OvOILtA/IG9lGnOPyX84sB1gfwiqWqXcAg3EwU3deJte0UgYK85uIAgVL3itlUKTJYQEOw6HdQk8z9tfJ61Ub3wv+A1w4N/8I818fB7BJl+ge1bxbuRGOFIQGdNxs6vWnONKu1UFcJCCk6gpr7yJ+F91OmZyUdxdaypBfbKMCmGiAUKJaGiVvF4hxWerqwPVdwJZ63J0EcMktDxKPFYXsi/O2Ols46UiH1afwihNvk7kCioFS/Tzfxx4vTl8H3m9gwmVybfgEfdFQsPLS8OsMSiWIrP7F+8EVx0hJmIVt2EDvhIqD/+4C+XXGUgrQOsWZZA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lZnjK2/2KpcCj7q27I1a4AL4XpdjpWbe/vLdOl7/KIg=;
- b=B1jF3Q4CnZG9uDzQ1+YtaYajottXZofYkuU/CiRPgydpFwGJK2nD4XBIJy6uR27bt+SvTiqVRp/ajbTx6DS28c+Jnv5uv0Baq2Gmfj9VpRpXsMeu7cZgYK/eyQnxlRQQPgoBkua7QNhkaxwypPzj4Yo0kMU24eDYYOi0hCitfV72imdHXFL22xhHaxpYv8dgKz1NyIBmdMNMIRXbgy+5EbnmHLG3pCWK4YYxQleDE1i8AbkDEX5FcwwoLWehWvE4PN+VQwR+GUGyZusCPHHDknQpcWbRIAr3bFvozb6Cr61EEDK00nprOX0Sg3ZBuol22c6r+nRjEHOg+64J7l9M+Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DU4PR04MB10498.eurprd04.prod.outlook.com (2603:10a6:10:56a::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.20; Fri, 28 Feb
- 2025 17:42:43 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8489.019; Fri, 28 Feb 2025
- 17:42:43 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Fri, 28 Feb 2025 12:42:05 -0500
-Subject: [PATCH 3/3] arm64: dtsi: imx93: add edma error interrupt support
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250228-edma_err-v1-3-d1869fe4163e@nxp.com>
-References: <20250228-edma_err-v1-0-d1869fe4163e@nxp.com>
-In-Reply-To: <20250228-edma_err-v1-0-d1869fe4163e@nxp.com>
-To: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: imx@lists.linux.dev, dmaengine@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>, 
- Joy Zou <joy.zou@nxp.com>
-X-Mailer: b4 0.13-dev-e586c
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1740764548; l=1395;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=zsjBFpk4lajE3GWIn1JANr/cft0EaVYhScZDK3IIFhM=;
- b=1KNVpiBlW0Ydiwb/7pf7RxdXz3Sw3G3H0biGZhQ5xynL/15KssbVfmMuDdWMsBo5jh3jeGmrt
- PNhbK7wyrzGD7vHv0cZdbWIER5+tKeuTaEbIBLTDXxw/MkZWMFkGLz+
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SJ0PR13CA0012.namprd13.prod.outlook.com
- (2603:10b6:a03:2c0::17) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	id 1to4Qh-0000000C0S9-1cjM;
+	Fri, 28 Feb 2025 17:45:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=2sRrVQmgK0R2z5wr+aIoaoWSaXv+nBUPnIdA1TCMyRA=; b=pdiHPkkEaE+yoXVffSrekcrk2V
+	UceJy7SUF5Xqf9FVYJVBFcEljZXjL6AzMHraNIeHXyC57VQJr2RbKWuxDhqzlcAWUZM/Hi8/8jClL
+	p8hMC5A3Wi0Hny1px+xu7OJlmwfsnmVM7Hr4TUTKeZJP5MEinS2qX5h1v1tRLoR9W+nO4nXTBen0M
+	CBq3GRbWZNcikLjc39IpKeN3aB7grOAwCjD+AVg7sylF3V9csGTviacBu6KhOsQ79S0FHpkAl/vvy
+	thDh212CzjTRYjY/DLxfNz+itc5hwTtOtqE6+T3cIppLTZCAfGXFWWgezZqs3S3jgg466v8JLXXcB
+	UPvwwgSA==;
+Received: from i53875b47.versanet.de ([83.135.91.71] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1to4QV-0002Po-0K; Fri, 28 Feb 2025 18:45:31 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Quentin Schulz <quentin.schulz@cherry.de>
+Cc: andy.yan@rock-chips.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: Re: [PATCH 2/2] drm/rockchip: lvds: Hide scary error messages on probe
+ deferral
+Date: Fri, 28 Feb 2025 18:45:30 +0100
+Message-ID: <3032732.6M6d0yLqnL@diego>
+In-Reply-To: <b09e5470-2392-4557-9f13-62b6586e5c7b@cherry.de>
+References: <20250228165755.405138-1-heiko@sntech.de>
+ <20250228165755.405138-3-heiko@sntech.de>
+ <b09e5470-2392-4557-9f13-62b6586e5c7b@cherry.de>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU4PR04MB10498:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5fbddf8a-5d66-4c8d-8758-08dd581f4e32
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|1800799024|366016|7416014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?akhKVzhpdXd4U01xZWtrd0VGTEhnakNjYm9ML1RWYTJEMUY1T0JKVjI0Qm9S?=
- =?utf-8?B?aEZPbW92SEFMUU1SVkpHSHlPYXlhNXhYUjZEd2F6YVJmdjQ2V1ZFZHBUSTZt?=
- =?utf-8?B?cDExR2IwVmZ6Z3JyUWhCcmdPd3k2cldBY3ljSXFYTHpXNkRrVi9LZkF2TGFH?=
- =?utf-8?B?eHRsT3B0RWJ5K0dtSUZIanFFSEVSWUhLYXM5UDBRV0o5d3Rrb0V0QTh1ZWNU?=
- =?utf-8?B?SDVxTVloVC9jR3MxOE1zQXBtRi8zZUZNV3poYzE4TmtFZE9MaEZtZ3pVSEpO?=
- =?utf-8?B?ZERLQkxBMkppbTBCMG1ZdTQ0SnA4Y05GV1E5ZFcxdWsrQTZvRWc2aERhaWUz?=
- =?utf-8?B?U1pCOXJZNFNUazIzOEJRYy9RSVB2cUI5SjhmR3NFQk1BektHbnVzSENPQjVO?=
- =?utf-8?B?ZXhQK3pXS1Y0ZkNTSEwyUTBxNmt2bGFnelF4NFQ3ZWZyc3Z3T3JxM3NzOWJE?=
- =?utf-8?B?eElhVXRlUXNqT2ZyVVQ3MndUZlZtaXBIQS81MkZEWjRhTWxlK3lzTm45aWEr?=
- =?utf-8?B?bVVGM1d1dVZwdHIrbi9YcHVNbUZPaWo0VUIzSHliUHR5bjVNUVFjQml5TzRv?=
- =?utf-8?B?bFJmVzJnMWRDR0pSODlTTW5lOU96dk9acGhKNUs4QytJMHU2a3B4S1FlY0Zu?=
- =?utf-8?B?NlVNV0xjWjVwQXdaOUY2TTN1NXV1bXJaUCtHQ0lWZytiN3V1b2RBOEYxSjkw?=
- =?utf-8?B?cWtRTmMxcjdLdG5QdE00OTgzT0M3aVQwbi8wSnBsMCs1NDZYNXhxVmtJM25L?=
- =?utf-8?B?dWFyWnNXZUdYdk1JdVNoUEtCQjNEWVRwSXZmeEcwL2svSGlsaE02U3EweDEv?=
- =?utf-8?B?bUhNSVV6UE52UU9KOXUvVVdDZHZNTUlUY0VJWHQ4ek5VTGE2YlhZSU15b0V4?=
- =?utf-8?B?bmkxeHZYaGkraVdNRk15dnhBZHhxeVJxNTNxK2VOMUNrQ01FVnFGTVlsY2lO?=
- =?utf-8?B?OC8vRkFwMkozZi9VKzBtUzFhY1R0S1dzR1JrV2JXUFRNNFRvY0tkUWp6eS9W?=
- =?utf-8?B?SEhEbmd2alBMeGplOGdoMExRS0JobDUxTlN6RmVhREZHZFpTSnVxVWgyWGwr?=
- =?utf-8?B?dGZpeWk2dVg3VEI2V0FSYk5kb3I1TXR0SzR3bEpubFRJYkVEaW14T0FNc09n?=
- =?utf-8?B?bktaTHhmS09DamQ5Y0VJOHNLMExwbGlKczc5VmFZYytVV21udXljdCs5aDVy?=
- =?utf-8?B?U3k0cWt6TWpVc0d2VzVvRm9wRG1KYjdXUkJCOVF1cUpaS2hWLzN5RHEvWDQr?=
- =?utf-8?B?RmFmaVl5TmRvSHlhUnF4R0twbkFMazVmSElWZGVURDFpSm1DUWhkbnB1RnVi?=
- =?utf-8?B?R3NYbytNUktPdmdxQkdPenNNNm1qWjZiWG5WV2tEWUVFUk5TZzFWMU5kSHd4?=
- =?utf-8?B?dlNjQkNXaUJ0aFVLQkE0SVVSaGxmYitRNGMyNXh6bUczVHBmMDlIQW80YjNv?=
- =?utf-8?B?b21vNUdYc0U2NHdoV1JVaitDYk9EWTNZOTlZWDdsdGg5d29iT09xdi8rYzNz?=
- =?utf-8?B?MXpNNWYwSGJNQTRlcGtMR0hCeTFXTE02a2FYTkxISlFTRzcrSzl1UlVrUlJL?=
- =?utf-8?B?MHc1K2t0VlNGZWlJVmROZEFBMmFGWGg2QnhEY1FTOWc4V010bUI5bG1RNk1S?=
- =?utf-8?B?U05BM0tnbHBOR1pBa0pMcGhiRlBzTWdaWU1zc0FJWHhQSExxK2N6RzRaUVlD?=
- =?utf-8?B?aVlSMjZMdjk3M1hwMHFzSjJpcXFaK3ByS09PSWZPMGNOTENYaXZwRzNZQzBN?=
- =?utf-8?B?RERpaWZ1M0RGMjBZZnQrUThyTkpzaDQ3eitDRVVLSUNjL3FDT3ZZeHZOUjJq?=
- =?utf-8?B?N2JCc1QrSXU4cjBBdTM2TDlXcEZyVnlobXB2L1E2dGZvcWppNzNSbTY5dmh1?=
- =?utf-8?B?ODdXeXY0YkZWVkdCS1JMODBOTnNaQWF6ZXpuaEErOXVXMnhwa0x0RlRMblZx?=
- =?utf-8?Q?X0jgrdJSEi1BdvQun8Bj8qTOUPkgiwgM?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(1800799024)(366016)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VGVKMzNySEdXa3RXZ1p0RW5FTzhMRlBGM2hqNS9DY0xMc3ptdDhLWVBXTFFH?=
- =?utf-8?B?SWplQWIvT0FOMXpkYVV3NUpkYnAxdG1BUEI1VkpGRFBqREtLaGtYT3QzK3Er?=
- =?utf-8?B?cmtaRXVUUTdJUkh4TVNoQmJXbGpRaGdVR2pWb0NWMkxmcDgwOXVnZWF6ZGds?=
- =?utf-8?B?UFpkS3lLYmRUK1ZoNHRIbm9TT2Jpc0hEV0g4NWVrYzVwbEl1QkJFWExPZVBO?=
- =?utf-8?B?ZENBYUtRMzFaQnpLU3FRa3VNNkRsWks5MWVIQ0dTRXQ3MkJ5dWJuYmExLzkw?=
- =?utf-8?B?MVova09YM0IrakpFdDhRYWVveHNXWU4vUlVnd1NMcGcrTldVNHArTzlUeDM4?=
- =?utf-8?B?T2FNRklQdHdjWUtlbGgxR3Jya3lKNmtXeHpENDc1MWxURjBwU21mNUF4RWNH?=
- =?utf-8?B?VGxoRDlzclRPQThVRmI2VnBlc09QK0YvOFZ1TURBM2RSUGN1VVRrYW5Zdk9k?=
- =?utf-8?B?WUtoNmlJMittbGMwNk5kbW0ycDEzZ1R3SVFXWGxCSm5CRmcwYnhMdnlRR2hy?=
- =?utf-8?B?aEMyNjNybHFncm8vNGhNa0MxYXpUaHFET3VKL0h3YzVPSVNONjNOVlJuem1O?=
- =?utf-8?B?NzlhY1gzYkxpRnJVM1E4SEhqK2dGTEk3UHZ5SldFaTN5aVB1cG11bUhrYkJF?=
- =?utf-8?B?R2ZhRVJTSWZrN2FTd0pPd2k2bGRkNDVza3VmWDF3K3hDSDJRK0EvZS9iK05h?=
- =?utf-8?B?SlY1TUdnZnBHTm8xMk9FQ0tZb01HZU1qWjFhdTBUNVNITkRlY1luZjdzaEtB?=
- =?utf-8?B?RUpuQmR3TTFaSk40T0FuMElPTUZ3MFJBOWRyQ2hlQk5RWHVyS0NHZzluUmJG?=
- =?utf-8?B?eGdwN3VBSFRjdGpucXBqdzNHSDhJcUlNdGxIMThYemxVRXJCTzhQUlB4SzNr?=
- =?utf-8?B?allLR3liNFdIOVFSaEtMZGhFZDZyNkVYUHdJcUpvbFZ6dVpXYTUrRnB5enM3?=
- =?utf-8?B?aGdlK24zZGJvZ2tyWUpTL1BXdXdObVVhT2FxK0I2SmpDVkFMQmRnVXdML3ZW?=
- =?utf-8?B?eVVpd1E2UlUwU1JhbDMvNVIvNFpuUFdnOElVVUJ6V0YyZWxOZWMvTngveEE1?=
- =?utf-8?B?V0FmbDkybjNId3RPYnlhL0JxZFBCT3ZKTTBibkNJdDgzWHBQeHZqRkUvekdV?=
- =?utf-8?B?aElkbVlZeEJCdm1EVGdBcWZPWDhETi9LU0hKa3ZBRFdlcUhvL1AvM0ZHT2Nw?=
- =?utf-8?B?V0FZWWR2ZjltU3U5MnRPQnVtOHlzNHhjUFVocEJwK3hwSDhBaXlwNVlhSkdU?=
- =?utf-8?B?S1VoMWx5K3FhNmdINDBWMzF2cEJ3cWp0VTE0Qkx2ZktkWXRKWmJaQzZydVIw?=
- =?utf-8?B?MnFnYms3cUF6bU5iSDVKNFN6VmNMN2N1SW4ydG1WbEh3dzZzZ01ZcFJTZXN2?=
- =?utf-8?B?SUk1ZC8weDV1bEVTSHh6UGhSK0NiWFY4VmRIRFU4UHY1L3F2YU9IcWJjbFhU?=
- =?utf-8?B?WXFoV0NEWVFnMVlFZElWaVB6UDR2dzJncVh4S0ZFNDdqc3VsV0c3OFRRNlE0?=
- =?utf-8?B?aWhSbklYMHdLSllyZ3dsaVVPR3FKemI5QUsvRUhHN1M4a0NiRnRIakpRMzNm?=
- =?utf-8?B?Q3cvdmF6TGV2M3JBYjBsQnlHcGlXaDkzYWlJOTc3cytkNzE1WE9NNDEyY2RJ?=
- =?utf-8?B?SFZRQUloeEJoTktQM0ZweDF3OHJpSGl6UHk3UmNrdHVoaWZjcjZhQ29XY0lr?=
- =?utf-8?B?OEd1RmhCR0EwdGhEZHdaakp2RUV0V25tbUl6N21QcjBFcUp1MDVDTjBlV05H?=
- =?utf-8?B?aGIwcVJHSDkzSGFwVWM4M1p3T3hWSDVHZFVmZXN0WUlmcEhqV3RPQ1FuWU9p?=
- =?utf-8?B?NFczWFI3TjdSVTcrYTBkVXQveVR2N054bGNSR3RFN0dncVVyZjFSakVsQ3hI?=
- =?utf-8?B?blJ4czN4YkZrYVhHOElFSnladFJXS2RCcTc4Q1kvb2VRenNISVlqZGdaTjBj?=
- =?utf-8?B?WTZHVmZLZndWeEFxV0NWVVBNSFpmOEt6TkU1cExBNXdpVWdYQi9oS2xwMlJN?=
- =?utf-8?B?VjFtS25QdHJNaTJSL0p3eks0aUxjV2QwWFIzM2loL3VQdkVxaFd3VHFDYjFL?=
- =?utf-8?B?ZlpIUHVCenlwQkNrc291WWJCRS9URWR1Wkg2eUFZT2ZOTjk4NnUvWVY4VnB0?=
- =?utf-8?Q?hPIw+qKl0iyS/HWbjQ8/EiEYW?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5fbddf8a-5d66-4c8d-8758-08dd581f4e32
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Feb 2025 17:42:43.6867
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jDD7hbMb1STpY5bGaiOrH8cfbHVWJMSVspNLREkTvLSFkL5g67gpTm8CA1eWi978NDMNngCdLI+r+SOpTFvVdQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10498
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_094252_831893_5E8AE3FE 
-X-CRM114-Status: UNSURE (   9.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250228_094543_440251_C8863965 
+X-CRM114-Status: GOOD (  21.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,42 +77,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Joy Zou <joy.zou@nxp.com>
+Am Freitag, 28. Februar 2025, 18:42:32 MEZ schrieb Quentin Schulz:
+> Hi Heiko,
+> 
+> On 2/28/25 5:57 PM, Heiko Stuebner wrote:
+> > From: Heiko Stuebner <heiko.stuebner@cherry.de>
+> > 
+> > Commit 52d11c863ac9 ("drm/rockchip: lvds: do not print scary message when
+> > probing defer") already started hiding scary messages that are not relevant
+> > if the requested supply just returned EPROBE_DEFER, but there are more
+> > possible sources - like the phy.
+> > 
+> > So modernize the whole logging in the probe path by replacing the
+> > remaining deprecated DRM_DEV_ERROR with appropriate dev_err(_probe)
+> > and drm_err calls.
+> > 
+> > The distinction here is that all messages talking about mishaps of the
+> > lvds element use dev_err(_probe) while messages caused by interaction
+> > with the main Rockchip drm-device use drm_err.
+> > 
+> > Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-Add edma error irq for imx93.
+> > @@ -604,8 +602,8 @@ static int rockchip_lvds_bind(struct device *dev, struct device *master,
+> >   
+> >   	ret = drm_simple_encoder_init(drm_dev, encoder, DRM_MODE_ENCODER_LVDS);
+> >   	if (ret < 0) {
+> > -		DRM_DEV_ERROR(drm_dev->dev,
+> > -			      "failed to initialize encoder: %d\n", ret);
+> > +		drm_err(drm_dev,
+> > +			"failed to initialize encoder: %d\n", ret);
+> 
+> All the above are using dev_err, but starting here, it's drm_err, is 
+> that on purpose?
 
-Signed-off-by: Joy Zou <joy.zou@nxp.com>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx93.dtsi | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+The last paragraph of the commit message was supposed to explain that
+(which it seemingly did poorly :-) ) :
 
-diff --git a/arch/arm64/boot/dts/freescale/imx93.dtsi b/arch/arm64/boot/dts/freescale/imx93.dtsi
-index 56766fdb0b1e5..d8e54b893f8cb 100644
---- a/arch/arm64/boot/dts/freescale/imx93.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx93.dtsi
-@@ -297,7 +297,8 @@ edma1: dma-controller@44000000 {
- 					     <GIC_SPI 122 IRQ_TYPE_LEVEL_HIGH>, // 27: TMP2 CH1/CH3
- 					     <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>, // 28: TMP2 Overflow
- 					     <GIC_SPI 124 IRQ_TYPE_LEVEL_HIGH>, // 29: PDM
--					     <GIC_SPI 125 IRQ_TYPE_LEVEL_HIGH>; // 30: ADC1
-+					     <GIC_SPI 125 IRQ_TYPE_LEVEL_HIGH>, // 30: ADC1
-+					     <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH>;  // err
- 				clocks = <&clk IMX93_CLK_EDMA1_GATE>;
- 				clock-names = "dma";
- 			};
-@@ -667,7 +668,8 @@ edma2: dma-controller@42000000 {
- 					     <GIC_SPI 158 IRQ_TYPE_LEVEL_HIGH>,
- 					     <GIC_SPI 158 IRQ_TYPE_LEVEL_HIGH>,
- 					     <GIC_SPI 159 IRQ_TYPE_LEVEL_HIGH>,
--					     <GIC_SPI 159 IRQ_TYPE_LEVEL_HIGH>;
-+					     <GIC_SPI 159 IRQ_TYPE_LEVEL_HIGH>,
-+					     <GIC_SPI 127 IRQ_TYPE_LEVEL_HIGH>;
- 				clocks = <&clk IMX93_CLK_EDMA2_GATE>;
- 				clock-names = "dma";
- 			};
+> > The distinction here is that all messages talking about mishaps of the
+> > lvds element use dev_err(_probe) while messages caused by interaction
+> > with the main Rockchip drm-device use drm_err.
 
--- 
-2.34.1
+
 
 
