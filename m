@@ -4,78 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7C54C197BF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 00:06:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EBFFC197BF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 00:15:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C8YkUSgUJyyz9lrq7gtxuszWtm5nHi8ieFSmR1xycgY=; b=TYyk+gU9898zGWGvi19mmU8o7U
-	XD0kxaMOl793pGHbMr497M7F9pl3cYE2xxG8ra436gsPLhcBMnnDglyycnbr7FtRcM3HbFklwEhTc
-	F9bcm+CEo/dkH8w7zqp+sWQRSNf8+Jdi+8kMRxFG0MvWuP7XRi9RFagT3m6AlDrs7+pXA6NRyjkso
-	Wp0ydKUrxRXoybplf5ze3BFDxnEpfTuleY9hxAHZRhhHhEvKZ98TjQc7m+hkPquYxGTVmVsgJINcH
-	HFk68ELRlOFpCHqeDOrdxssIoEOQl7Dnw33Issk/cQNH8hnLThvXkCEYoSGZan2QHoFbyVakoRRl2
-	AxN5jr+A==;
+	bh=VjWpg7dP0s8mbOXJKdWV+Hs+lOOmlqB/DQ6QK29ok7o=; b=ui8O8RrrmsXySiEoN10hwTjVYI
+	SZAjKGepAlMc41Pk2in1FjiInp4PSNgRvrmPbbHIGg8S2L7yJTjqWlZcHiiDpzP9q1sNWengI2PIz
+	vc7xPANRwDUYyi3LtnMgfs8fK5WuGaKnGP04dkV4srrBZfUuvyREm+oRYbZBAGqpFd89sN+EcoKOw
+	1S8/WejHjCiP0ZnYqargHz5P4RQ4nFV3CIEV8rq7WUQLuk+e+zY6lG1vyajfTyyqIrVZ31jOGT3yi
+	QeyfTMrgulHbNm1ljnAnrg8Dhsi1l7SRfuNEFxEukaMZ15DgsSHzgDBK80ElzgVAXn5JjQKf1hjFi
+	VY1JeUSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnntk-00000009Efy-14rA;
-	Fri, 28 Feb 2025 00:06:36 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tno20-00000009FDa-1qiE;
+	Fri, 28 Feb 2025 00:15:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnnpg-00000009EC5-0EXz
+	id 1tno0S-00000009F5O-3dQd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 00:02:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=C8YkUSgUJyyz9lrq7gtxuszWtm5nHi8ieFSmR1xycgY=; b=gBdZlsQs+VZBAHvrazy5uv0QAh
-	FhAzeVBg9ePSZVo0xWfwq2yVJPqs3AaCsjAUXlNV1xUVXVD+1a7vqiK2XSalcs0QenaqxGz6zNgCk
-	GDXplgBDHCJlwid/UuUelCUk4oV00kAnJ0AKC759Cw8GSSVc6bYXSIEHng2qT3SV9h7+NTqObWvTB
-	BDiwfGm3JR3ocpOrGjRt73asEpNEAeoBb4SZCYxTF6o/ChYOy+Vuewwb1i1lyHAlIWhajv77yJR/O
-	tjwT6rd/usaOVb7ovq/rmw2dU1Qemp2d5EUATjRQ0vIxLdrw0aCJBb3xIOGHkJ9b6/gXPOMQm6dq8
-	KcIo5BLA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:51146)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tnnpX-0000ME-0Y;
-	Fri, 28 Feb 2025 00:02:15 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tnnpS-00008X-1H;
-	Fri, 28 Feb 2025 00:02:10 +0000
-Date: Fri, 28 Feb 2025 00:02:10 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Jon Hunter <jonathanh@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Thierry Reding <treding@nvidia.com>
-Subject: Re: [PATCH RFC net-next 1/5] net: stmmac: call phylink_start() and
- phylink_stop() in XDP functions
-Message-ID: <Z8D9AiZRPp_oyKi_@shell.armlinux.org.uk>
-References: <Z8B-DPGhuibIjiA7@shell.armlinux.org.uk>
- <E1tnfRe-0057S9-6W@rmk-PC.armlinux.org.uk>
- <92442281-9896-4271-a040-0c14331cb1d3@lunn.ch>
+	Fri, 28 Feb 2025 00:13:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6B53561138;
+	Fri, 28 Feb 2025 00:13:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08F47C4CEDD;
+	Fri, 28 Feb 2025 00:13:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740701611;
+	bh=VjWpg7dP0s8mbOXJKdWV+Hs+lOOmlqB/DQ6QK29ok7o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FPSIMBiYpk65tkQodTo/Q6a3uAXXcYR/A9MIjM+eaZtBDRB7mS3zYuwI8XBJKliJI
+	 ZQIBtAcV49xzFkH3e9QjkktmvszB/CaIPUZBJUUhuLEQgAjYMKC9wkwMGfo00V4Ae/
+	 MwgX177YXb8sLMGtS3MyHLB73/SS8BvzIPBqEOqi5fzMZ8xwbSwfoCylasr+Xg2LV9
+	 gq0sW7FykZKyCJpc7A08PNzE/+EnNFxOcag/9/bPAdT28B8/s5UrXhrpLbQDrtEuN6
+	 y9CuxIxYz2ZZB9KmRu2uT5vlzgqAuFMOcveNTnSzTJX+vGJWGrKUixNRyBuW1qQNep
+	 0ursar10TjhZQ==
+Date: Fri, 28 Feb 2025 09:13:26 +0900
+From: William Breathitt Gray <wbg@kernel.org>
+To: =?iso-8859-1?B?Q3Pza+Fz?= Bence <csokas.bence@prolan.hu>
+Subject: Re: [PATCH v4 0/2] microchip-tcb-capture: Add Capture, Compare,
+ Overflow etc. events
+Message-ID: <Z8D_phw3GxvdAO8G@ishi>
+References: <8fb9f188-3065-4fdc-a9f1-152cc5959186@prolan.hu>
+ <Z7vihBqOgP3fBUVq@ishi>
+ <bfa70e78-3cc3-4295-820b-3925c26135cb@prolan.hu>
+ <Z7_xTQeTzD-RH3nH@ishi>
+ <20250227135330.GC182392@tpx1.home>
+ <Z8B1LDT-n2XTTp8q@ishi>
+ <202502271437280a6701d8@mail.local>
+ <Z8CA9RTZWChh9cJW@ishi>
+ <Z8CKQvRjqH9lwzgO@ishi>
+ <077f23f1-3e5f-423c-aa97-ee7fcdf1475d@prolan.hu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="aSZS/FbNbRmlzwJh"
 Content-Disposition: inline
-In-Reply-To: <92442281-9896-4271-a040-0c14331cb1d3@lunn.ch>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_160224_094982_9F806FC1 
-X-CRM114-Status: GOOD (  17.09  )
+In-Reply-To: <077f23f1-3e5f-423c-aa97-ee7fcdf1475d@prolan.hu>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,50 +74,61 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Kamel Bouhara <kamel.bouhara@bootlin.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, Dharma.B@microchip.com, Ludovic Desroches <ludovic.desroches@microchip.com>, Jonathan Cameron <jic23@kernel.org>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025 at 11:27:57PM +0100, Andrew Lunn wrote:
-> On Thu, Feb 27, 2025 at 03:05:02PM +0000, Russell King (Oracle) wrote:
-> > Phylink does not permit drivers to mess with the netif carrier, as
-> > this will de-synchronise phylink with the MAC driver. Moreover,
-> > setting and clearing the TE and RE bits via stmmac_mac_set() in this
-> > path is also wrong as the link may not be up.
-> > 
-> > Replace the netif_carrier_on(), netif_carrier_off() and
-> > stmmac_mac_set() calls with the appropriate phylink_start() and
-> > phylink_stop() calls, thereby allowing phylink to manage the netif
-> > carrier and TE/RE bits through the .mac_link_up() and .mac_link_down()
-> > methods.
-> > 
-> > Note that RE should only be set after the DMA is ready to avoid the
-> > receive FIFO between the MAC and DMA blocks overflowing, so
-> > phylink_start() needs to be placed after DMA has been started.
-> 
-> Sorry, i don't know enough about XDP to review this :-(
 
-I suspect there aren't many people who could review it.
+--aSZS/FbNbRmlzwJh
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-However, delving into the history, it seems that this commit was
-responsible for introducing stmmac_xdp_{open,release}, thus
-intrducing the fidding of the netif carrier which is prohibited
-by phylink:
+On Thu, Feb 27, 2025 at 04:56:17PM +0100, Cs=F3k=E1s Bence wrote:
+> Hi,
+>=20
+> On 2025. 02. 27. 16:52, William Breathitt Gray wrote:
+> > Sorry, let me step back for a moment because maybe I'm trying to solve
+> > a problem that might not actually be a problem.
+> >=20
+> > I see functionality settings available in the TC Block Mode Register
+> > (BMR) that can affect multiple TCCs at a time. Are these BMR settings
+> > exposed already to users in someway? If not, do we have a way to
+> > introduce these settings if someone wants them; e.g. would the
+> > AutoCorrection function enable bit be exposed as a sysfs attribute, or
+> > configured in the devicetree?
+> >=20
+> > Finally, if there's not much interest in general for exposing these BMR
+> > settings, then I suppose there is no need to change how things are right
+> > now with the microchip-tcb-capture module and we can just keep it the
+> > way it is. That's my only concern, whether there are users that want to
+> > control these settings but don't have a way right now.
+>=20
+> My knee-jerk answer to this is that if they do, they will bring it up by
+> submitting a patch or bug request. But I'll let others chime in, we only =
+use
+> an extremely small subset of the features of the TCBs.
+>=20
+> Bence
 
-commit ac746c8520d9d056b6963ecca8ff1da9929d02f1
-Author: Ong Boon Leong <boon.leong.ong@intel.com>
-Date:   Thu Nov 11 22:39:49 2021 +0800
+I think that's a reasonable stance to take. I don't have an elegant
+solution either to this situation, so I'll defer trying to solve it
+until an actual user shows up who needs the functionality. Until then,
+it seems that what we have right now is adequate for the current
+usecases.
 
-    net: stmmac: enhance XDP ZC driver level switching performance
+William Breathitt Gray
 
-but that commit was wrong for this very reason.
+--aSZS/FbNbRmlzwJh
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Didn't phylib used to not renegotiate the link if nothing changed
-across a phy_stop()..phy_start() ?
+-----BEGIN PGP SIGNATURE-----
 
-I'm wondering whether my commit is in essence reverting this commit.
+iHUEARYKAB0WIQSNN83d4NIlKPjon7a1SFbKvhIjKwUCZ8D/pgAKCRC1SFbKvhIj
+Kze+AP0TSQhmivwKtynvIgpJ5od2IRhKMwMjM51kwMuLN/TrgwEAzg47J/c7uToS
+dZ/ygvQQpXY3J5aXOapiR28Wb6kZLgc=
+=D3Ne
+-----END PGP SIGNATURE-----
 
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+--aSZS/FbNbRmlzwJh--
 
