@@ -4,72 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C351C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 22:10:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C77DDC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 22:12:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kP66OtCoIAUGOwrPrVYAUZoLwNYK7xEkiY4rtScu8+0=; b=229JURSj5UxYZkJUPWk3C2ENy6
-	NteSY+j9vQN+XN9YVwKSfEuBM7jB/1XjQs4FTYSZMxE2wFgSaSb8D5lPWR92bt5RYKfstoclRpYNs
-	E7a1nW3T+iUh4SrFiMjXmuKlaOGaXRj/fQ8gFfiIwfdjo2Prv7nMQZvkScwuTusf3ono1bxzrQ6AJ
-	VPop4XNBcOn1M5kq5CNliFyOrVJW3enfaHetT9oLRb/QEI6wMDAuyohvCZQzwxKoV4yhE1yx1dbaI
-	zQiFKzeVc2F3Lgfa1Vc26XymRoLa876/gizlLbq/9h3saRkhM9GzVsiOLcpOP/n0Akwvz8uY+s9wJ
-	tM06stxA==;
+	bh=AJB89FzkhwSIbHXzs/7zaZZGPG1GIi2QRgI16BLxGOI=; b=EqzSJfBl6FdCCuKyasiLY8SMaA
+	PzkoMoxaZSMbVUhL3Z6ilEwHYgxymhCSC0mrxjJX8Rk+RCsAY+X3LTpvnszWeNN6p4axiTZuGWPl4
+	kAn2GI/F9eJ81ZbB3+f6jwWXPjcDswUmbKXKbVTEmvQRZhnuQfSEsuof5uYpp0QESSIpxIlMvsUeN
+	9UOqG/UTFzetO0nS4DFkyyHybDBikz2DDcdb9v0nWYMJjk35j/8HdZAfo6T78vqgfn+/qXdRwV/35
+	3NyL8aPadJpYMUttkUAfJ5cm6Hy33qBsr2gVL+TOPfi0qfe9qN2ufGCnjeYvNff3MkaKihouhEXVm
+	RDdq2Rdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to8Yo-0000000CpOk-42GF;
-	Fri, 28 Feb 2025 22:10:22 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1to8aK-0000000CpVR-2MIZ;
+	Fri, 28 Feb 2025 22:11:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to8QX-0000000CnlT-0oX8;
-	Fri, 28 Feb 2025 22:01:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=kP66OtCoIAUGOwrPrVYAUZoLwNYK7xEkiY4rtScu8+0=; b=OppOjBCY5py8iBMgECLQ+fLWj9
-	W3CxMi4DVZlXB7ryZCKQEpyalTPDuw1mGTdnIKbpGDR7l8/yCnUfr8cO8XT1kt3+o7rLBK/MVvi0v
-	DZY2w0imaGVyMPCQq+SLudvjdmo/+RVmL0BnpuYWcbn/Kpwx2EuG8LY8cS1ZO5Iy9GZ54YzrYk2JE
-	T3d21GMZ4LsX0ithJtJvYtRpSocbIX4D/6q7zKpvZcwbL6C6eBnH3a2/UAywGI4+ohD1KS0a8AAz0
-	94W2ZVnUHIMhq1g+KksKmOL1TxexyHsYD4jVbVm4DRHJ3uJATbFbvencphBWuZUtT4vega7CWupkC
-	kvOwWFvg==;
-Received: from i53875b47.versanet.de ([83.135.91.71] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1to8QO-0003wY-T5; Fri, 28 Feb 2025 23:01:40 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Kever Yang <kever.yang@rock-chips.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Elaine Zhang <zhangqing@rock-chips.com>,
-	linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 0/2] rockchip: Add rk3562 clock support
-Date: Fri, 28 Feb 2025 23:01:28 +0100
-Message-ID: <174078008226.501190.7368829300747006853.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250227105916.2340856-1-kever.yang@rock-chips.com>
-References: <20250227105916.2340856-1-kever.yang@rock-chips.com>
+	id 1to8Sb-0000000CoHV-1tvf
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Feb 2025 22:03:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D6DD96115D;
+	Fri, 28 Feb 2025 22:03:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82329C4CED6;
+	Fri, 28 Feb 2025 22:03:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740780236;
+	bh=AJB89FzkhwSIbHXzs/7zaZZGPG1GIi2QRgI16BLxGOI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=nPmoMjVplmDLnKgNTdpJMp/9BWvtz7PIMQNubFIwAKooZsBFcs95QFMcHEN3Gw4E4
+	 tQ9I9TkSCDYsmwxSTmFR47mVCJ2OxmjbRmQy35IxMG0mMlc4/+fyxRI/UdZtE5/vUM
+	 s/yTKfRDh3Pyt8I0Fjg1DAXB28K0qCpne2/RwUs352zf1hiN4VC5xdL1aSWedb0duq
+	 ZLnkRxRZCb868YrJcV98HI6Vmd8vrIOWk9nil4mtHZ4LoNfjy+xCGK4Ey3fC+lYpDw
+	 3Y7gmah0vMhqUxDcAnehiDwhVSb6Qi8CGoDkLnortrZ5WNgXXUB+WPqeYNyKN2dbsa
+	 +hUgvlML+AP1g==
+Date: Fri, 28 Feb 2025 14:03:54 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Philipp Stanner <pstanner@redhat.com>
+Cc: Philipp Stanner <phasta@kernel.org>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Huacai Chen <chenhuacai@kernel.org>,
+ Yanteng Si <si.yanteng@linux.dev>, Yinggang Gu <guyinggang@loongson.cn>,
+ Feiyang Chen <chenfeiyang@loongson.cn>, Jiaxun Yang
+ <jiaxun.yang@flygoat.com>, Qing Zhang <zhangqing@loongson.cn>,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>, Henry Chen
+ <chenx97@aosc.io>
+Subject: Re: [PATCH net-next v4 1/4] stmmac: loongson: Pass correct arg to
+ PCI function
+Message-ID: <20250228140354.5efff3fd@kernel.org>
+In-Reply-To: <a7720a091ea02a6bbaa88c7311d7a642f9c7fdff.camel@redhat.com>
+References: <20250226085208.97891-1-phasta@kernel.org>
+	<20250226085208.97891-2-phasta@kernel.org>
+	<20250227183545.0848dd61@kernel.org>
+	<a7720a091ea02a6bbaa88c7311d7a642f9c7fdff.camel@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_140149_230234_5372CA1E 
-X-CRM114-Status: GOOD (  15.32  )
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,30 +82,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 28 Feb 2025 10:26:24 +0100 Philipp Stanner wrote:
+> > Since you sent this as a fix (which.. yea.. I guess.. why not..)
+> > I'll apply it to the fixes tree. But then the other patches have=20
+> > to wait and be reposted next Thu. The fixes are merged with net-next
+> > every Thu, but since this series was tagged as net-next I missed
+> > it in today's cross merge :(
+>=20
+> Oh OK, I see =E2=80=93 I'm not very familiar with the net subsystem proce=
+ss. So
+> far I always had it like this: fire everything into Linus's master and
+> Greg & Sasha then pick those with Fixes tags into the stable trees
+> automatically :)
 
-On Thu, 27 Feb 2025 18:59:13 +0800, Kever Yang wrote:
-> This patch set add cru driver for a new SoC rk3562, the SoC DT will be sent as
-> a separate patch set and the new compatible will be used in the DT.
-> 
-> Changes in v3:
-> - remove rk3562_cru_base and MODULE_ALIAS
-> 
-> Changes in v2:
-> - remove rockchip,grf info
-> - Update file license
-> - Update the reset ID with rst-rk3562.c
-> - remove CLK_NR_CLKS
-> 
-> [...]
+Admittedly the fixes vs linux-next material routing is a little tricky.
 
-Applied, thanks!
+> Anyways, I interpret your message so that this series is done and I
+> don't have to do anything about it anymore. Correct me if I'm wrong.
 
-[1/2] dt-bindings: clock: Add RK3562 cru
-      commit: dd113c4fefc8df6ebf6486cb1dce1707d5d677b4
-[2/2] clk: rockchip: Add clock controller for the RK3562
-      commit: 36c7fdc8f585acbf11c8e5bc112fa9d8ef75146a
-
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+You need to repost patches 2,3,4 once the first patch appears in:
+https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git/
 
