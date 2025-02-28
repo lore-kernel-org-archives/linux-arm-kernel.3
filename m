@@ -4,67 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4FF9C282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 18:50:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FFF7C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 18:52:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=145++mwwjIoAaQbE61aIXnzEmj2//gARb3NFlxUHaXE=; b=sO/V44A4kSzCcoXr7BNUZGs41K
-	f7puML4IHoIgrGt2Xai+kb079GL82NBAxKU1+9swErpEE6CymAjw5n47RogF+M8H0Rsr/4+wlVTzY
-	wsL8Ld4aWtWv8Ue1KvS5JCDTHJrt1tDeDeu9ag9T/+SJRRx9z3Qa85Gfbb2SuuYQ433VED7RfiIQw
-	09CBqy6iuBuIpdy7UJBMDIw0lM28KUt1Hi1BktN11nMr1jMVnZn9laH3RA8ZbyO4NFJWJQ1emeZcU
-	cseMozJ/8qy7yF8MykfOwZI2+EmhLeL44afUikMS/dSlKx7x0DN7Fe58IjSWjesfE6JjJIaV/Mhw1
-	lTpRHDJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bcOciFev494FQi+ie3YAuQXZTVFD/MHMZEBQgtl8Sq4=; b=yoYq+W6ucpG1jx35xxdDVhv30C
+	4RYipcuLd2TONsiiwdrvPnib2FoyKoOrppzjef4sLa4JO/+nVqTfkvjF1BKqFz0k2ZED4Hk5tOrTg
+	4M30/yq9WjBpouOPhaNdb6hFXQq0N3h3ol0g6znFB91WNswSB1I9PdxxO4xd7C/2ib97zts3izOM1
+	1GLVGvuYwwiSr2uHDFG9nVe5XgAi+KQ4YtNYado5Xud0JunDMujJk2084YQq/sJOANNQbHpo68kVE
+	JFt03Z/bKAYHQCXxgF1WF5sIexCMjYN6mRCngs2xw67dvvjHNAVYtYaB0H/5sXjj7mz6n2/eUQqI5
+	YTDJQCGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to5RQ-0000000CEle-3rh7;
-	Fri, 28 Feb 2025 18:50:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1to5Sx-0000000CFGD-2WAA;
+	Fri, 28 Feb 2025 18:52:07 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to57a-0000000C951-2QYl;
-	Fri, 28 Feb 2025 18:30:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3C35461FC3;
-	Fri, 28 Feb 2025 18:29:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 917B1C4CEED;
-	Fri, 28 Feb 2025 18:30:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740767401;
-	bh=OilwAZ5RXV38zTb+M44/89NDdAfBWpMVpgBj9F3ie5M=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=qko06JpBaB0Mhqay9/mFCbAZRqjBKioIFBIjsaLX69CFiooIOK6cQTIib8VidkwDa
-	 6920EKQBFWvPxU/KaDSCCQeUmtMyIhUFxJ4SaiAw+TBD9dSJ0sDdr0AIc+oDoyea1u
-	 Cc0CV4QGr2nGWBKrENwhuXlvL4dMSg7D60RJwDn6Ay2EiIGoH5Re4bbPE/fUduBWAl
-	 ED/lJ4r/dxbL76l1rHW5blvs99gEzk0NkQhN1AmHpo1/2Viw687dTXHMY1839QATdA
-	 CihdYAaDCONwhLA+EZWj70TPPMYxNRubEUWc1r8VX0g5dC2CXgcB4OQ0nXMhkcf+XD
-	 ym4ylURLCwE1w==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB9B4380CFF1;
-	Fri, 28 Feb 2025 18:30:34 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1to5Dp-0000000CBCd-2X5U
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Feb 2025 18:36:31 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-abb892fe379so333226566b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 10:36:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740767788; x=1741372588; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=bcOciFev494FQi+ie3YAuQXZTVFD/MHMZEBQgtl8Sq4=;
+        b=lyoPJ6nP9H6IrYJ7zlFLl6orFwggiigC7Sv2snEWyg4dERfNy5mcLKTitkTViS/XX7
+         rUHkGgdMlaAc3hdLDZeLkAk7IcHw5gmQziykz/Lp0kqI/Bx8UShtoed066O5AE7cjU5O
+         n5txvgSWt/Qs7Bgfr0MLsjUdkb0j5D09HIoruR+0tCWZ/zAKvEFiF850GleSfG88AXMZ
+         RUJAIfK/MjWl1rHl0ebHpU6YzZ+HdI2tiKyg2+qYlduOebUfboYxjYAUqMNnvmslUftT
+         EfaJpzrBVo3jn4Aihpb/JswdNFjKNedt9O0HoMLHu6u0DG+wyKj6HUUyjh9yqUO4/3Eq
+         A8DQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740767788; x=1741372588;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=bcOciFev494FQi+ie3YAuQXZTVFD/MHMZEBQgtl8Sq4=;
+        b=qRThlbDfg0aeB9XLGKuWRSTfoVHzXSkQrTg7dqbGxWxsZe/ae2MKC1aaaMFLTDv/8K
+         E8G9URDNcO0LKkGOiYzwDygyG7SPmIXy9eGdrllnvcr4ithwL8s0wEWbffCQiwVa87Rk
+         9Xku15APGO4LA6KT0rzctRtiToHELQHwSqT6/4jLJw56UJjuKjur/SIsYl7iBpNPcZGY
+         kayGPmlFp8yWLh5vDfQAd9kWY6dhOjAf/gQJYzgXeK/gbzwKy2sV2YjfC9wSxgIKAtki
+         8eVUqYVCcUlyGni/jiK6HJLkn6wegP8jbanlF1vI/CsbSC6sxS2Z9nz+RMpvjN4e73Ts
+         Zyuw==
+X-Forwarded-Encrypted: i=1; AJvYcCVNR4QvqDQ/ZP0nbN2sXJ+Cvf91scJt7roXup/bRElhENWox7KL1PAKn+4EUCXZMXkmioOAYQg+ktQnLxr82Pai@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJNVpxbKF1PVnykU8YbtR7zbfmEyq4AsypG2zh1u/hTsSKY9zk
+	ESDNtKvgZHj/gNBXpiBd6i4dYkYy3R+14VWHQ74xzdxvNYNEYoKvBE+1qMLSz0DCRvORmduDU53
+	UStOvRxLLiLxZy53TC/2IGvde1cI=
+X-Gm-Gg: ASbGnctHOLgGwlJI690hzna9BvYymSQQDo8/koPqNgTXlrtWA1ZTNgcrFmz74XdCBh9
+	G2v8yyWpzfaFNSOeF3rfB9lvLbNx0Rsf8eKEF2S/9aAr+Yi2O++XfWK3ecfgd5CY33mOgKVxCtX
+	Poqep9b1s=
+X-Google-Smtp-Source: AGHT+IFE3G2KjHi8I1VMEUvtVVJytNjP0/8SzMhjPmWtNq41A0r54s3RwgOnWAEJT6u1F3AfT20PzYxSV85X9vtUhfM=
+X-Received: by 2002:a05:6402:51c6:b0:5dc:5ada:e0c7 with SMTP id
+ 4fb4d7f45d1cf-5e4d6b4c2edmr8497667a12.26.1740767787540; Fri, 28 Feb 2025
+ 10:36:27 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next 00/11] net: stmmac: cleanup transmit clock setting
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174076743376.2237263.14950662798271470831.git-patchwork-notify@kernel.org>
-Date: Fri, 28 Feb 2025 18:30:33 +0000
-References: <Z8AtX-wyPal1auVO@shell.armlinux.org.uk>
-In-Reply-To: <Z8AtX-wyPal1auVO@shell.armlinux.org.uk>
-To: Russell King (Oracle) <linux@armlinux.org.uk>
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, drew@pdp7.com, kernel@esmil.dk,
- edumazet@google.com, festevam@gmail.com, wefu@redhat.com, guoren@kernel.org,
- imx@lists.linux.dev, kuba@kernel.org, jan.petrous@oss.nxp.com,
- jbrunet@baylibre.com, khilman@baylibre.com,
- linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
- martin.blumenstingl@googlemail.com, mcoquelin.stm32@gmail.com,
- minda.chen@starfivetech.com, neil.armstrong@linaro.org,
- netdev@vger.kernel.org, pabeni@redhat.com, kernel@pengutronix.de,
- s.hauer@pengutronix.de, shawnguo@kernel.org
+References: <20250216195850.5352-1-linux.amoon@gmail.com> <20250216195850.5352-5-linux.amoon@gmail.com>
+ <f44efd1a-1f6e-456d-9395-de2a55ef2279@arm.com>
+In-Reply-To: <f44efd1a-1f6e-456d-9395-de2a55ef2279@arm.com>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Sat, 1 Mar 2025 00:06:10 +0530
+X-Gm-Features: AQ5f1JrCuLXPNSAWoUTKE1NaVm2ihsuQ5JSDdwiiFIEGBSN_Yr_bdvM8NVPBMWc
+Message-ID: <CANAwSgTpV_kGFEU-ND0N+OEtT6+j4ceq37xAoLyC7iHPWAuLjg@mail.gmail.com>
+Subject: Re: [PATCH v3 4/4] drivers/thermal/exymos: Use guard notation when
+ acquiring mutex
+To: Lukasz Luba <lukasz.luba@arm.com>
+Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, 
+	"open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>, 
+	"open list:SAMSUNG THERMAL DRIVER" <linux-pm@vger.kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, open list <linux-kernel@vger.kernel.org>, 
+	"moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES" <linux-arm-kernel@lists.infradead.org>, Zhang Rui <rui.zhang@intel.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250228_103629_642184_D0C5438D 
+X-CRM114-Status: GOOD (  24.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,51 +98,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hi Lukasz,
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+On Fri, 28 Feb 2025 at 22:58, Lukasz Luba <lukasz.luba@arm.com> wrote:
+>
+>
+>
+> On 2/16/25 19:58, Anand Moon wrote:
+> > Using guard notation makes the code more compact and error handling
+> > more robust by ensuring that mutexes are released in all code paths
+> > when control leaves critical section.
+> >
+> > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> > ---
+> > v3: new patch
+> > ---
+> >   drivers/thermal/samsung/exynos_tmu.c | 21 +++++++--------------
+> >   1 file changed, 7 insertions(+), 14 deletions(-)
+> >
+> > diff --git a/drivers/thermal/samsung/exynos_tmu.c b/drivers/thermal/samsung/exynos_tmu.c
+> > index fe090c1a93ab..a34ba3858d64 100644
+> > --- a/drivers/thermal/samsung/exynos_tmu.c
+> > +++ b/drivers/thermal/samsung/exynos_tmu.c
+> > @@ -256,7 +256,7 @@ static int exynos_tmu_initialize(struct platform_device *pdev)
+> >       unsigned int status;
+> >       int ret = 0;
+> >
+> > -     mutex_lock(&data->lock);
+> > +     guard(mutex)(&data->lock);
+> >       clk_enable(data->clk);
+> >       clk_enable(data->clk_sec);
+> >
+> > @@ -270,7 +270,6 @@ static int exynos_tmu_initialize(struct platform_device *pdev)
+> >
+> >       clk_disable(data->clk_sec);
+> >       clk_disable(data->clk);
+> > -     mutex_unlock(&data->lock);
+> >
+> >       return ret;
+> >   }
+> > @@ -292,13 +291,12 @@ static int exynos_thermal_zone_configure(struct platform_device *pdev)
+> >               return ret;
+> >       }
+> >
+> > -     mutex_lock(&data->lock);
+> > +     guard(mutex)(&data->lock);
+> >       clk_enable(data->clk);
+> >
+> >       data->tmu_set_crit_temp(data, temp / MCELSIUS);
+> >
+> >       clk_disable(data->clk);
+> > -     mutex_unlock(&data->lock);
+> >
+> >       return 0;
+> >   }
+> > @@ -325,12 +323,11 @@ static void exynos_tmu_control(struct platform_device *pdev, bool on)
+> >   {
+> >       struct exynos_tmu_data *data = platform_get_drvdata(pdev);
+> >
+> > -     mutex_lock(&data->lock);
+> > +     guard(mutex)(&data->lock);
+> >       clk_enable(data->clk);
+> >       data->tmu_control(pdev, on);
+> >       data->enabled = on;
+> >       clk_disable(data->clk);
+> > -     mutex_unlock(&data->lock);
+> >   }
+> >
+> >   static void exynos_tmu_update_bit(struct exynos_tmu_data *data, int reg_off,
+> > @@ -645,7 +642,7 @@ static int exynos_get_temp(struct thermal_zone_device *tz, int *temp)
+> >                */
+> >               return -EAGAIN;
+> >
+> > -     mutex_lock(&data->lock);
+> > +     guard(mutex)(&data->lock);
+> >       clk_enable(data->clk);
+> >
+> >       value = data->tmu_read(data);
+> > @@ -655,7 +652,6 @@ static int exynos_get_temp(struct thermal_zone_device *tz, int *temp)
+> >               *temp = code_to_temp(data, value) * MCELSIUS;
+> >
+> >       clk_disable(data->clk);
+> > -     mutex_unlock(&data->lock);
+> >
+> >       return ret;
+> >   }
+> > @@ -720,11 +716,10 @@ static int exynos_tmu_set_emulation(struct thermal_zone_device *tz, int temp)
+> >       if (temp && temp < MCELSIUS)
+> >               goto out;
+> >
+> > -     mutex_lock(&data->lock);
+> > +     guard(mutex)(&data->lock);
+> >       clk_enable(data->clk);
+> >       data->tmu_set_emulation(data, temp);
+> >       clk_disable(data->clk);
+> > -     mutex_unlock(&data->lock);
+> >       return 0;
+> >   out:
+> >       return ret;
+> > @@ -760,14 +755,13 @@ static irqreturn_t exynos_tmu_threaded_irq(int irq, void *id)
+> >
+> >       thermal_zone_device_update(data->tzd, THERMAL_EVENT_UNSPECIFIED);
+> >
+> > -     mutex_lock(&data->lock);
+> > +     guard(mutex)(&data->lock);
+> >       clk_enable(data->clk);
+> >
+> >       /* TODO: take action based on particular interrupt */
+> >       data->tmu_clear_irqs(data);
+> >
+> >       clk_disable(data->clk);
+> > -     mutex_unlock(&data->lock);
+> >
+> >       return IRQ_HANDLED;
+> >   }
+> > @@ -987,7 +981,7 @@ static int exynos_set_trips(struct thermal_zone_device *tz, int low, int high)
+> >   {
+> >       struct exynos_tmu_data *data = thermal_zone_device_priv(tz);
+> >
+> > -     mutex_lock(&data->lock);
+> > +     guard(mutex)(&data->lock);
+> >       clk_enable(data->clk);
+> >
+> >       if (low > INT_MIN)
+> > @@ -1000,7 +994,6 @@ static int exynos_set_trips(struct thermal_zone_device *tz, int low, int high)
+> >               data->tmu_disable_high(data);
+> >
+> >       clk_disable(data->clk);
+> > -     mutex_unlock(&data->lock);
+> >
+> >       return 0;
+> >   }
 
-On Thu, 27 Feb 2025 09:16:15 +0000 you wrote:
-> Hi,
-> 
-> A lot of stmmac platform code which sets the transmit clock is very
-> similar - they decode the speed to the clock rate (125, 25 or 2.5 MHz)
-> and then set a clock to that rate.
-> 
-> The DWMAC core appears to have a clock input for the transmit section
-> called clk_tx_i which requires this rate.
-> 
-> [...]
+Thanks for your review comments.
+>
+> IMO you should be able to even use something like we have
+> core framework:
+>
+> guard(thermal_zone)(tz);
+>
+> Your mutex name is simply 'lock' in the struct exynos_tmu_data
+> so you should be able to leverage this by:
+>
+> guard(exynos_tmu_data)(data);
+>
+> Please try that.
 
-Here is the summary with links:
-  - [net-next,01/11] net: stmmac: provide set_clk_tx_rate() hook
-    https://git.kernel.org/netdev/net-next/c/dea5c8ec20be
-  - [net-next,02/11] net: stmmac: provide generic implementation for set_clk_tx_rate method
-    https://git.kernel.org/netdev/net-next/c/12bce6d5404e
-  - [net-next,03/11] net: stmmac: dwc-qos: use generic stmmac_set_clk_tx_rate()
-    https://git.kernel.org/netdev/net-next/c/17c24f6dc641
-  - [net-next,04/11] net: stmmac: starfive: use generic stmmac_set_clk_tx_rate()
-    https://git.kernel.org/netdev/net-next/c/c81eb3da0be8
-  - [net-next,05/11] net: stmmac: s32: use generic stmmac_set_clk_tx_rate()
-    https://git.kernel.org/netdev/net-next/c/36fa8c960720
-  - [net-next,06/11] net: stmmac: intel: use generic stmmac_set_clk_tx_rate()
-    https://git.kernel.org/netdev/net-next/c/61356fb1b0d6
-  - [net-next,07/11] net: stmmac: imx: use generic stmmac_set_clk_tx_rate()
-    https://git.kernel.org/netdev/net-next/c/b693ce4f2704
-  - [net-next,08/11] net: stmmac: rk: switch to use set_clk_tx_rate() hook
-    https://git.kernel.org/netdev/net-next/c/c8caf6100f6d
-  - [net-next,09/11] net: stmmac: ipq806x: switch to use set_clk_tx_rate() hook
-    https://git.kernel.org/netdev/net-next/c/ca723519c28b
-  - [net-next,10/11] net: stmmac: meson: switch to use set_clk_tx_rate() hook
-    https://git.kernel.org/netdev/net-next/c/2a7d55f901a5
-  - [net-next,11/11] net: stmmac: thead: switch to use set_clk_tx_rate() hook
-    https://git.kernel.org/netdev/net-next/c/945db208fbe7
+Ok, I will check this
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Thanks
+-Anand
 
