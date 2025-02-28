@@ -4,92 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF1ACC282C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 16:13:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4366EC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 16:14:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CEN9N+xKBX/C8w3WcwlKzPTpb6+Twn8dMh4CDAQ6Eww=; b=dzKtxZjaYImRFu2O0dAaQryQ8x
-	hGodOihI8zEHOxfVfcoKLmhC+1uDMw6yklqaoWzBWAP8lFJcADRKF8oNoQbrBHy0CqTvh/UwFwxAa
-	n+NQKXeycIXhZIgGw/bcIIazFYBsWRdhEHZ33X0Ui5e14TlqK//H1OfF9GNz5GPJ/0Ihp6SDeOYjx
-	y1mQVIyEkQlvWc0lft1yuN4ZPffWnfoxeoBlwx+OC2/kEkYyghDB6Wgw7oI/tC3BVesx+AQXJKpyI
-	z+20s4tzo+u0qInTirSLxq2wmVm9KOA7boYTg7g+an8Zv2GFJ7mm1YmAUswP03YoA3OttYC9amv1L
-	gXk3kZZg==;
+	bh=RL723Y7hLYwPD198BwDwCvbD/mzXQSgdofBbpBJZHqk=; b=W98vwsfeHOz2/za9Cdj0z7Kth4
+	2cn2i3ywyENQZr+YQKgXxYZAhnmIDTDJSZyk8xdaOURnY3jYY3Oyt8zRKRW9mYUjZpPfup5bC1XV1
+	2gkeJ4FJrGm6lky/r5gXHHS0OBn/8Iacxv2BlqeWez9LNCjXDZm3spNXC1SYFNfH/IUoy+AkfqIC3
+	xsmIoMINVEjWSeHvnSm9ffx72LUu5cRClNR0uzpsQ4B2gLOSVOm/QgTnEvGHDGkhyOW6uICujDWhf
+	IPpy5vLssVACLOQTkRYAcq6M7FSTLKGtZla8eeN1fXS++G6UoWv3gEZe0SmWuSnhsHZodixTwEZIP
+	ZkLOK3Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to2z6-0000000BcFY-2SoJ;
-	Fri, 28 Feb 2025 16:13:08 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1to30e-0000000Bckc-3HPG;
+	Fri, 28 Feb 2025 16:14:44 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to2nk-0000000BaJI-1jvA
+	id 1to2wn-0000000Bbkj-1PHM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 16:01:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1740758484; x=1772294484;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=CEN9N+xKBX/C8w3WcwlKzPTpb6+Twn8dMh4CDAQ6Eww=;
-  b=f/Q8cOFiwzpbZHHxtcgum1I+RXaSeYdszE7zpWW1PBH1xTgbvnS8i7xY
-   bW3hfd6qiWJNF1/p4YoMcOtTLl53+/5ytf3xOcUu3qyKtJSunkJO5BZSS
-   IHuoR4Izj5cQ3+HlOjUKqT0Gyy2hJw1sqUaWDz4wsggUJt1ag2ncNh76v
-   4b30bP3clG2qgmrnCB6jgKKIr+Oo6cOpW82L5y/eZRpNuIGnSarzg9xbg
-   /trp3miHiDj4MJ0F7zXLWVYHOY1B206Tpz+fE+PdSrbIBy4IFwmM5En5L
-   IRoh5NR9beL2aZ32nA+TCLVk7W3HeUztTHW3/PBsL2X+QSz4xzmrKfxJK
-   g==;
-X-CSE-ConnectionGUID: z38Nd0JmQu6yzbirgsyl4A==
-X-CSE-MsgGUID: 73rRz4x+Tby7mTs21ChdyA==
-X-IronPort-AV: E=Sophos;i="6.13,322,1732575600"; 
-   d="scan'208";a="42178670"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 28 Feb 2025 17:01:21 +0100
-X-CheckPoint: {67C1DDD0-F-97089932-E672704E}
-X-MAIL-CPID: A9348A422528F1A28B432AB2F20B25A5_3
-X-Control-Analysis: str=0001.0A002114.67C1DDD1.007D,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A2591164A39;
-	Fri, 28 Feb 2025 17:01:15 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1740758476;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CEN9N+xKBX/C8w3WcwlKzPTpb6+Twn8dMh4CDAQ6Eww=;
-	b=Yzq42jmFwYn+/mjhFdW6WIRQLKyNOwl1iw9LtryqJ5yRA0P3LrbCIPou71/BNBpC2/Belf
-	PJe0QXNY8o7xSA96MWCcA7Sgn1jBDKAEYfF6hZeF9u/hMEG3FIhzarLGqiWy/wQSH48DQj
-	f4K8VuDJhQwFjARhwvdRhiagCSnpZcj5exUn/zpROugrlLyQdsG+py2A/wafGy0zkvrqm1
-	l/iCLOixXz1CowajQMYmEjoXjtOujyWIrDMo5obfm2GZCh/k/+PDnMBtTR9etIYbzXl3eK
-	nhBhWgD+P6P1ORZSrurkWE3nznHeo3hqQtCvvJv3/2GGoc/GAp+eHJBE1jRwhQ==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
- "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>, hongxing.zhu@nxp.com
-Subject: Re: [PATCH 4/5] arm64: dts: imx95: add PCIe's msi-map and iommu-map property
-Date: Fri, 28 Feb 2025 17:01:15 +0100
-Message-ID: <3661300.LM0AJKV5NW@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <Z8HXIvAZcvNY72Jx@lizhi-Precision-Tower-5810>
-References: <20250128211559.1582598-1-Frank.Li@nxp.com> <47051102.fMDQidcC6G@steina-w>
- <Z8HXIvAZcvNY72Jx@lizhi-Precision-Tower-5810>
+	Fri, 28 Feb 2025 16:10:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=RL723Y7hLYwPD198BwDwCvbD/mzXQSgdofBbpBJZHqk=; b=rBUHJGiukrb/hfmv5YCA9S0af/
+	KoxQPnagMLWPY21lJxvN3zgqTeJbkE8JOly0G96VjLvXwE1RauLeqUq5KVsa4ZN+vQONOPH3WNGpM
+	y3zh28l1YQq7xbJJsRLx9cqiOSGBIThDDwZ0XMb0jBuWmqDp+OgBxXBtgYl2Ghd3HtUba+Z7o20rQ
+	TJQW6fvwzOWS//X1fnGccnkadSta9XX++URMrosBa77CdR9GNrAN1/riNyMuqPnjkbwTLQ4p/HWd+
+	ORAeGipgXsidMHUGbxHlJcsZNd76utqXf9dz64zfLRJLHPQT/oJoxb0/OqF1AfQQTQI0e7CkdyD35
+	PrZiyZ0w==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54966)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1to2wf-0002Ly-14;
+	Fri, 28 Feb 2025 16:10:37 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1to2wd-0000si-0U;
+	Fri, 28 Feb 2025 16:10:35 +0000
+Date: Fri, 28 Feb 2025 16:10:35 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Simon Horman <horms@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>
+Subject: Re: [PATCH net-next v3 03/13] net: phy: phy_caps: Move phy_speeds to
+ phy_caps
+Message-ID: <Z8Hf-9yR3qD9cqsX@shell.armlinux.org.uk>
+References: <20250228145540.2209551-1-maxime.chevallier@bootlin.com>
+ <20250228145540.2209551-4-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250228145540.2209551-4-maxime.chevallier@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_080125_482375_6F798DCE 
-X-CRM114-Status: GOOD (  36.18  )
+X-CRM114-CacheID: sfid-20250228_081045_390425_C8C07E7A 
+X-CRM114-Status: GOOD (  28.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,168 +92,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+On Fri, Feb 28, 2025 at 03:55:28PM +0100, Maxime Chevallier wrote:
+> Use the newly introduced link_capabilities array to derive the list of
+> possible speeds when given a combination of linkmodes. As
+> link_capabilities is indexed by speed, we don't have to iterate the
+> whole phy_settings array.
+> 
+> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> ---
+>  drivers/net/phy/phy-caps.h |  3 +++
+>  drivers/net/phy/phy-core.c | 15 ---------------
+>  drivers/net/phy/phy.c      |  3 ++-
+>  drivers/net/phy/phy_caps.c | 27 +++++++++++++++++++++++++++
+>  include/linux/phy.h        |  2 --
+>  5 files changed, 32 insertions(+), 18 deletions(-)
+> 
+> diff --git a/drivers/net/phy/phy-caps.h b/drivers/net/phy/phy-caps.h
+> index 846d483269f6..f8cdfdb09242 100644
+> --- a/drivers/net/phy/phy-caps.h
+> +++ b/drivers/net/phy/phy-caps.h
+> @@ -41,4 +41,7 @@ struct link_capabilities {
+>  
+>  void phy_caps_init(void);
+>  
+> +size_t phy_caps_speeds(unsigned int *speeds, size_t size,
+> +		       unsigned long *linkmodes);
+> +
+>  #endif /* __PHY_CAPS_H */
+> diff --git a/drivers/net/phy/phy-core.c b/drivers/net/phy/phy-core.c
+> index b1c1670de23b..8533e57c3500 100644
+> --- a/drivers/net/phy/phy-core.c
+> +++ b/drivers/net/phy/phy-core.c
+> @@ -339,21 +339,6 @@ phy_lookup_setting(int speed, int duplex, const unsigned long *mask, bool exact)
+>  }
+>  EXPORT_SYMBOL_GPL(phy_lookup_setting);
+>  
+> -size_t phy_speeds(unsigned int *speeds, size_t size,
+> -		  unsigned long *mask)
+> -{
+> -	size_t count;
+> -	int i;
+> -
+> -	for (i = 0, count = 0; i < ARRAY_SIZE(settings) && count < size; i++)
+> -		if (settings[i].bit < __ETHTOOL_LINK_MODE_MASK_NBITS &&
+> -		    test_bit(settings[i].bit, mask) &&
+> -		    (count == 0 || speeds[count - 1] != settings[i].speed))
+> -			speeds[count++] = settings[i].speed;
+> -
+> -	return count;
+> -}
+> -
+>  static void __set_linkmode_max_speed(u32 max_speed, unsigned long *addr)
+>  {
+>  	const struct phy_setting *p;
+> diff --git a/drivers/net/phy/phy.c b/drivers/net/phy/phy.c
+> index 16ffc00b419c..3128df03feda 100644
+> --- a/drivers/net/phy/phy.c
+> +++ b/drivers/net/phy/phy.c
+> @@ -37,6 +37,7 @@
+>  #include <net/sock.h>
+>  
+>  #include "phylib-internal.h"
+> +#include "phy-caps.h"
+>  
+>  #define PHY_STATE_TIME	HZ
+>  
+> @@ -245,7 +246,7 @@ unsigned int phy_supported_speeds(struct phy_device *phy,
+>  				  unsigned int *speeds,
+>  				  unsigned int size)
+>  {
+> -	return phy_speeds(speeds, size, phy->supported);
+> +	return phy_caps_speeds(speeds, size, phy->supported);
+>  }
+>  
+>  /**
+> diff --git a/drivers/net/phy/phy_caps.c b/drivers/net/phy/phy_caps.c
+> index 367ca7110ddc..e5c716365b36 100644
+> --- a/drivers/net/phy/phy_caps.c
+> +++ b/drivers/net/phy/phy_caps.c
+> @@ -76,3 +76,30 @@ void phy_caps_init(void)
+>  		__set_bit(i, link_caps[capa].linkmodes);
+>  	}
+>  }
+> +
+> +/**
+> + * phy_caps_speeds() - Fill an array of supported SPEED_* values for given modes
+> + * @speeds: Output array to store the speeds list into
+> + * @size: Size of the output array
+> + * @linkmodes: Linkmodes to get the speeds from
+> + *
+> + * Fills the speeds array with all possible speeds that can be achieved with
+> + * the specified linkmodes.
+> + *
+> + * Returns: The number of speeds filled into the array. If the input array isn't
+> + *	    big enough to store all speeds, fill it as much as possible.
+> + */
+> +size_t phy_caps_speeds(unsigned int *speeds, size_t size,
+> +		       unsigned long *linkmodes)
+> +{
+> +	size_t count;
+> +	int capa;
+> +
+> +	for (capa = 0, count = 0; capa < __LINK_CAPA_MAX && count < size; capa++) {
+> +		if (linkmode_intersects(link_caps[capa].linkmodes, linkmodes) &&
+> +		    (count == 0 || speeds[count - 1] != link_caps[capa].speed))
+> +			speeds[count++] = link_caps[capa].speed;
+> +	}
 
-Am Freitag, 28. Februar 2025, 16:32:50 CET schrieb Frank Li:
-> On Fri, Feb 28, 2025 at 10:08:58AM +0100, Alexander Stein wrote:
-> > Hi Frank,
-> >
-> > Am Donnerstag, 27. Februar 2025, 17:39:47 CET schrieb Frank Li:
-> > > On Thu, Feb 27, 2025 at 08:54:13AM +0100, Alexander Stein wrote:
-> > > > Hi Frank,
-> > > >
-> > > > Am Mittwoch, 26. Februar 2025, 17:31:26 CET schrieb Frank Li:
-> > > > > On Wed, Feb 26, 2025 at 01:11:37PM +0100, Alexander Stein wrote:
-> > > > > > Hi Frank,
-> > > > > >
-> > > > > > Am Dienstag, 28. Januar 2025, 22:15:58 CET schrieb Frank Li:
-> > > > > > > Add PCIe's msi-map and iommu-map property because i.MX95 supp=
-ort smmu and
-> > > > > > > its.
-> > > > > > >
-> > > > > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > > > > > ---
-> > > > > > >  arch/arm64/boot/dts/freescale/imx95.dtsi | 14 ++++++++++++++
-> > > > > > >  1 file changed, 14 insertions(+)
-> > > > > > >
-> > > > > > > diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/=
-arm64/boot/dts/freescale/imx95.dtsi
-> > > > > > > index 6b8470cb3461a..2cebeda43a52d 100644
-> > > > > > > --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-> > > > > > > +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-> > > > > > > @@ -1573,6 +1573,12 @@ pcie0: pcie@4c300000 {
-> > > > > > >  			assigned-clock-parents =3D <0>, <0>,
-> > > > > > >  						 <&scmi_clk IMX95_CLK_SYSPLL1_PFD1_DIV2>;
-> > > > > > >  			power-domains =3D <&scmi_devpd IMX95_PD_HSIO_TOP>;
-> > > > > > > +			/* pcie0's Devid(BIT[7:6]) is 0x00, stream id(BIT[5:0]) i=
-s 0x10~0x17 */
-> > > > > > > +			msi-map =3D <0x0 &its 0x10 0x1>,
-> > > > > > > +				  <0x100 &its 0x11 0x7>;
-> > > > > >
-> > > > > > Aren't you missing msi-map-mask =3D <0x1ff>; here? Similar to p=
-cie1.
-> > > > > > Either way, with this change PCIe on pcie0 is not working anymo=
-re,
-> > > > > > regardless of msi-map-mask.
-> > > > >
-> > > > > Yes, it should have msi-map-mask. During my test, I have not enab=
-le enetc
-> > > > > so I have not found this problem.
-> > > >
-> > > > Just to be clear: This is not about enetc. This works fine here.
-> > > >
-> > > > > > Without msi-map-mask:
-> > > > > > > OF: /soc/pcie@4c300000: iommu-map, using mask 000001ff, id-ba=
-se: 00000100, out-base: 00000011, length: 00000007, id: 00000300 -> 00000011
-> > > > > > > OF: /soc/pcie@4c300000: no msi-map translation for id 0x300 o=
-n (null)
-> > > > > > > r8169 0000:03:00.0: error -EINVAL: enable failure
-> > > > > > > r8169 0000:03:00.0: probe with driver r8169 failed with error=
- -22
-> > > > > >
-> > > > > > With msi-map-mask:
-> > > > > > > OF: /soc/pcie@4c300000: iommu-map, using mask 000001ff, id-ba=
-se: 00000100, out-base: 00000011, length: 00000007, id: 00000300 -> 00000011
-> > > > > > > OF: /soc/pcie@4c300000: msi-map, using mask 000001ff, id-base=
-: 00000100, out-base: 00000011, length: 00000007, id: 00000300 -> 00000011
-> > > > > > > r8169 0000:03:00.0: enabling device (0000 -> 0003)
-> > > > > > > r8169 0000:03:00.0: enabling Mem-Wr-Inval
-> > > > > > > r8169 0000:03:00.0: error -EIO: PCI read failed
-> > > > > > > r8169 0000:03:00.0: probe with driver r8169 failed with error=
- -5
-> > > > >
-> > > > > Can you try remove iommu-map and keep msi-map? then remove msi-ma=
-p and
-> > > > > keep iommu-map to check which one cause this problem.
-> > > >
-> > > > With only msi-map removed, but smmu enabled:
-> > > > > arm-smmu-v3 490d0000.iommu: event 0x10 received:
-> > > > > arm-smmu-v3 490d0000.iommu:      0x0000001100000010
-> > > > > arm-smmu-v3 490d0000.iommu:      0x0000020a00000000
-> > > > > arm-smmu-v3 490d0000.iommu:      0x000000009b0cc000
-> > > > > arm-smmu-v3 490d0000.iommu:      0x0000000000000000
-> > > > > arm-smmu-v3 490d0000.iommu: event: F_TRANSLATION client: 0000:01:=
-00.0 sid: 0x11 ssid: 0x0 iova: 0x9b0cc000 ipa: 0x0
-> > > > > arm-smmu-v3 490d0000.iommu: priv data read s1 "Input address caus=
-ed fault" stag: 0x0 r8169 0000:03:00.0
-> > > > > enp3s0: Link is Down
-> > > >
-> > > > With only iommu-map removed, both smmu enabled or disabled:
-> > > > > OF: /soc/pcie@4c300000: msi-map, using mask 000001ff, id-base: 00=
-000100, out-base: 00000011, length: 00000007, id: 00000300 -> 00000011
-> > > > > r8169 0000:03:00.0: enabling device (0000 -> 0003)
-> > > > > r8169 0000:03:00.0: enabling Mem-Wr-Inval
-> > > > > r8169 0000:03:00.0: error -EIO: PCI read failed
-> > > > > r8169 0000:03:00.0: probe with driver r8169 failed with error -5
-> > > >
-> > > > Only if smmu is disabled and msi-map is removed the driver probes
-> > > > successfully:
-> > > > > r8169 0000:03:00.0: enabling device (0000 -> 0003)
-> > > > > r8169 0000:03:00.0: enabling Mem-Wr-Inval
-> > > > > r8169 0000:03:00.0 eth0: RTL8168g/8111g, d8:9d:b9:00:16:10, XID 4=
-c0, IRQ 160
-> > > > > r8169 0000:03:00.0 eth0: jumbo features [frames: 9194 bytes, tx c=
-hecksumming: ko]
-> > > > > r8169 0000:03:00.0 enp3s0: renamed from eth0
-> > > > > r8169 0000:03:00.0: enabling bus mastering
-> > > > > r8169 0000:03:00.0 enp3s0: Link is Down
-> > > >
-> > > > > >
-> > > > > > Without msi-map/iommu-map:
-> > > > > > > r8169 0000:03:00.0: enabling device (0000 -> 0003)
-> > > > > > > r8169 0000:03:00.0: enabling Mem-Wr-Inval
-> > > > > > > r8169 0000:03:00.0 eth0: RTL8168g/8111g, d8:9d:b9:00:16:10, X=
-ID 4c0, IRQ 166
-> > > > > > > r8169 0000:03:00.0 eth0: jumbo features [frames: 9194 bytes, =
-tx checksumming: ko]
-> > > > > > > r8169 0000:03:00.0 enp3s0: renamed from eth0
-> > > > > > > r8169 0000:03:00.0: enabling bus mastering
-> > > > > > > r8169 0000:03:00.0 enp3s0: Link is Down
-> > > > > >
-> > > > > > pcie1 works as expected. But this is only a single PCIe device,=
- rather than
-> > > > > > having a PCIe bridge.
-> > > > > > Any idea what's wrong here?
-> > > > >
-> > > > > Can you help dump more information at for PCIe bridge case:
-> > > > >
-> > > > > imx_pcie_add_lut(), need rid and sid information.
-> > > > > drivers/pci/controller/dwc/pci-imx6.c
-> > > >
-> > > > Just to be clear, without msi-map and iommu-map I get:
-> > > > > imx6q-pcie 4c380000.pcie: rid: 0x0, sid: 0x18
-> > > > > imx6q-pcie 4c380000.pcie: rid: 0x100, sid: 0x19
-> > >
-> > > Can you help dump register value PE0_LUT_CREQID offset 0x101 for your
-> > > smmu-map or msi-map enable case
-> >
-> > I am assuming you meant offset 0x101c, as stated in the RM.
-> > I added a dump directly before printing "PCI read failed" in r8169_main=
-=2Ec.
->=20
-> Can you point me the code about where "error -EIO: PCI read failed"?
+Having looked at several of these patches, there's a common pattern
+emerging, which is we're walking over link_caps in either ascending
+speed order or descending speed order. So I wonder whether it would
+make sense to have:
 
-The error messages comes from [1]. As far as I can tell, this is the first
-read after pcim_iomap_table().
+#define for_each_link_caps_asc_speed(cap) \
+	for (cap = link_caps; cap < &link_caps[__LINK_CAPA_MAX]; cap++)
+#define for_each_link_caps_desc_speed(cap) \
+	for (cap = &link_caps[__LINK_CAPA_MAX - 1]; cap >= link_caps; cap--)
 
-> I tested nvme devices worked at both PCIE0 and PCIE1.
->=20
-> Which PCI switch do you use?
+for where iterating over in speed order is important. E.g. this would
+make the above:
 
-This is a COTS MiniPCIe ethernet card [2]. If I'm reading correctly
-the bridge seems to be a P17C9X20
+	struct link_capabilities *lcap;
 
-Thanks and best regards
-Alexander
+	for_each_link_caps_asc_speed(lcap)
+		if (linkmode_intersects(lcap->linkmodes, linkmodes) &&
+		    (count == 0 || speeds[count - 1] != lcap->speed)) {
+			speeds[count++] = lcap->speed;
+			if (count >= size)
+				break;
+		}
 
-[1] https://web.git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git=
-/tree/drivers/net/ethernet/realtek/r8169_main.c?h=3Dnext-20250228#n5454
-[2] https://www.delock.com/produkt/95237/merkmale.html?f=3Ds
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+which helps to make it explicit that speeds[] is in ascending value
+order.
 
-
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
