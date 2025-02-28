@@ -4,87 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A63FCC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 19:53:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE2CC282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 19:54:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ER+r8NXmdkWggNU0HA9uV61RbAhrlmzZHANxsH2Jtn8=; b=3v8B5n0it63CHpWw88VMSHJYyG
-	kgy4+YdNTD1+PdQ2ilz8f7Ni0O6btosMuIQqkpfc/3k2crF2vnlstVVbxhW23eosGbKE2isJSmfLB
-	8mZyex0z+c+Hryj8zOufql/eDgVAUElI10XDuwTvDZMPTpZol7wSH8ghZRy4Gf0x1T1i8c69eIP4X
-	sCevOlX6qQ5epxSI5Y1TbFNWedqefxtRej/l0YLfLgPL0YylvzgBjem+zlzSAJwM4fgN1goKilrlx
-	4uBC/yCyqFdxz4UGG5HevArGUPhJ4X23ZGvCJmA76V9P1VESzpyaJole9fOyVxThV2kbriBGHhTa3
-	epwnO1uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GrxfhSQDPSEzY9FwMiMP3kLRUycgWmI45Gcv8VcIec8=; b=0VePhijvHHWiHLNDhMHNxJeQtG
+	BniJS3Q+M4IFYvY3IDfSFMfmq4b96ITLfYujHZA87v9otgYaftBzxjtvo9zl0KfAok+hW/T5fRioU
+	rvD0hfMUiIlYhj0c6g19jQ/xY7vYuamdCSRImiw9H7qoMdW3zK9BRMvvfXfMCyuhYWPBtLs/e0jw8
+	5hCjJkjBA+oM+4fR7iwMDliAjfWynkzurom6IB8Gx+tcfyWpRTR8wQv8EAo1IEiGdRY5EG8Cs3moc
+	cDDwMu3etfQMpUJzx6nh9/8pF1nmgysOLjrAsAaD+kbgWPjO15CE3c6wmyxGgPhSWFyXn3IRMsEyI
+	3+p2WD2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to6Pt-0000000CQq9-32CW;
-	Fri, 28 Feb 2025 19:53:01 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1to6RP-0000000CRDp-1Q6K;
+	Fri, 28 Feb 2025 19:54:35 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to6Fq-0000000COb0-3Hef
+	id 1to6I1-0000000COtl-36S6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 19:42:39 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-30930b0b420so21358201fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 11:42:37 -0800 (PST)
+	Fri, 28 Feb 2025 19:44:54 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5e08064b4ddso3291188a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 11:44:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740771756; x=1741376556; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ER+r8NXmdkWggNU0HA9uV61RbAhrlmzZHANxsH2Jtn8=;
-        b=ftcVbKvaHGDoKxW3sqJa5wxO2E+WmAejbDGUXGgxavZhqQzBYeTXIv0R8sGndHvBSv
-         L2OgP5rxpQSwqVjb/ZT370l6ucGU3LjaQ/LPksK7TQrUZ75qTbvtSTQUcpOrJMramU0v
-         SPTgefs5s0WtG+QKy0UatQSgN6aalYJ+5NUV2CLahfMEqiSzZS7Ezy95E3S/QxYRO4sA
-         r+oYaqFWqn/6uHh2395+7xUFJX+5pjBqv2AcSwZDLeJe+xFiNL7/g843X/9l2Bh1SeCE
-         QPCElJHUD3OtpCZvd/mXLQKWPv0syYoRB5vaFOof7LMPmKLvmjwLRvYJ4VRAca0Xxc1q
-         XW1g==
+        d=google.com; s=20230601; t=1740771892; x=1741376692; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=GrxfhSQDPSEzY9FwMiMP3kLRUycgWmI45Gcv8VcIec8=;
+        b=OAKr/bKsaum18i8z+pNSLXsBPQH6uTOxdAoHTMM1O1S2n+yy9qdWBu9JzxT+2hWhMB
+         qUX42XjDB0lpR6O6jM9D0WGZciGK1xvqKklFqDrZvyvfU0dCdO1oKRYMM1ASHXRi5wTK
+         9dfOhi3GkEJTm9jvHlt7XTAE3laM8gQF194uekjL3QgIRuDq2VZ2RaZTbI9owEFBiNPl
+         bGnGdAfiexSIOSdpozw4gBMLAMjviQ0kN2QMs/bnwbw6/me7xgX3ylvmGT+SccFMkREC
+         MR0xMyUmwdOlFJqiHKGhgScg8dtTpFaZGKcx7MUVjdsR0sC2nkJ6bSSXlhmSmw3n19WC
+         VBLw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740771756; x=1741376556;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ER+r8NXmdkWggNU0HA9uV61RbAhrlmzZHANxsH2Jtn8=;
-        b=Us+Tozo2X7dzJj9eZw9dJBZbwwGaNReO9tWwNZUJBLsqm2bX5og+29QiylB+sHZGYd
-         3XOjxBbEBVuf27VmTEeHNWS0nyO97BOzCmSh/OPsuDIlxuCJ6GmIAPidWR87kq2Wxxwa
-         Sgf6qqpfQ9x2z9g3UEJ3W8gpWbNB/VSHoUD7gg7y6yQCsa4fSKy8lpdi75cw/PTxjxTP
-         //7nKeSqzcp1ZEh49Czl3Qq7M32Xy4OaDrNOKDvbsYrJFU56e3YqnjUGYI0zZFwMV+a7
-         faPp2Wdp21c+EOj4lhps4IZN+42Kv1QhAMi+w4EskuUy2yHem1/QoAHDOGTN7RkT3U+y
-         MQYg==
-X-Forwarded-Encrypted: i=1; AJvYcCXyk6ndcDptvgJNIrxIAb7NWI0PfnoyQmcWTAVQMybqwEtA4pDXKVZ/RbXVFPk4ma3CCcojhr7j/XbbmA1ACzXj@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/d9jaVBB/CupE0WrBazzzSQGYIbJLEf0vlXG9ACJzUIMbfNTP
-	tWNNjqVig/7smRqbWX/Uf2MfgnQAu5LayGt2D/Gw+B/qfWU/MZT80XpN8s53VM5K+LHJ3x0lNhN
-	xRAt1mcfY51uD+c3qBt4zbn1TOrk=
-X-Gm-Gg: ASbGnct8QTHigpaz3tT+RdcKAvw1EC9hecHV/R3b37FPhUhAuEvT5GhpLsS3rESaNy6
-	Rfoc2nv6lvppUEczixYUXTpeRsUiKHZPRUtivu2abPDCGTSbUec0myzeyFSdSPPczgLaq582lNU
-	pDyYiXWVhB/jxwpD+CQenx6FiH3hP2E2Z18chBAw==
-X-Google-Smtp-Source: AGHT+IF0kZIiHzdFJYX2bvCwbKhMQkcQPj5hmb4BkhewRGIZt77ta8Te2nCI3MxmD7G1uvJYlftQUPlvNFyy6H3yMRA=
-X-Received: by 2002:a2e:8215:0:b0:308:f860:7c1 with SMTP id
- 38308e7fff4ca-30b93418c69mr12907051fa.30.1740771756188; Fri, 28 Feb 2025
- 11:42:36 -0800 (PST)
+        d=1e100.net; s=20230601; t=1740771892; x=1741376692;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GrxfhSQDPSEzY9FwMiMP3kLRUycgWmI45Gcv8VcIec8=;
+        b=BUQULVM5x3C/EwTlA/JTnz7/ltyqjrx5nSksboD9/ZQYNHIdwo9kwm4Wj/fIGT1/y5
+         U+jgqiG3x6Ct2lYAbEoyXTA1aT08nS7GCeYZpRZHE+4FOSaFbsRVNg5c0GrdrJWLbbAE
+         tR4U79pMdsIqeRgGB5tgsf3zE8KsW5TlYBqRnPTgCCd61Rdsepls4RSCv9rjV4BYn5lI
+         m8n9IRfRV8mGcOLt4Jmw9lC1g+b0xswloJx3hfzSwWxk18T60g4ezX5AaZfSIg0R8BuL
+         ReZWP6UUmCAyyFUzKHZMTI6aCj9ze24RquXWX6vARwn7mI+U1hdbBh+itwTaW5n+QMe2
+         7iIA==
+X-Forwarded-Encrypted: i=1; AJvYcCVzC7kHqBvtekDW77KsJtGdREd7PxYY1O2j6RM6AfrCY0GWoIgHE+o/FIdsSBjsjasT5mI1gsci6vkk4iO2jNAl@lists.infradead.org
+X-Gm-Message-State: AOJu0YwiM5VfZJP7daxIxP8HabLPEO9FvOvDJljyPCo+m2fN3M+NopGZ
+	mGNO78ZOQljLCrdhlwjvrhEczuB2hCPE/hutqdLNwmEa4ZToQSjZGxhJytY93A==
+X-Gm-Gg: ASbGncuhZHpIhBNAMlpPO8OtSU4VFUCYbb8UppTC7JqnXw/1JpT8cMnCeVR5xHH88tN
+	VlT1TXFMNjWAnw/OcpvDGrXvYJZdyp8cbeC7ILoHx8/cHIfFTtc6Y6F9jf0FFNA7xTxM4Jr0Wmc
+	NgQj0awppPQhryrVLkHFJpfc/7AoIrlXGXPgKpSeVyTbr9UWLnipMzB9YRgMx7x/+NN97iZSGZ1
+	TvQ0p7Cl7ZVr8X6FnzXqWTM4t28CXR2Q/wPCmsVBqG4NledBT3S8qtTRMhAjMDosLBP5uHMS3+n
+	2e66smRLP5xdXAh+XK/OG10qf3Sn7o8mkzMOkTZdzB3A+RhH0aZ6JGBKCxTbgOg=
+X-Google-Smtp-Source: AGHT+IHTdYieiZ2Aj4ze6pa8HY7tXwIhYVqJDu+daMOyke7B6a6VZw8tHVhi3y8YmBfQzTjNAAk15w==
+X-Received: by 2002:a17:907:9484:b0:abb:b136:a402 with SMTP id a640c23a62f3a-abf26424829mr475325566b.18.1740771891977;
+        Fri, 28 Feb 2025 11:44:51 -0800 (PST)
+Received: from google.com (229.112.91.34.bc.googleusercontent.com. [34.91.112.229])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abf0c7c18a3sm335218866b.185.2025.02.28.11.44.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 Feb 2025 11:44:51 -0800 (PST)
+Date: Fri, 28 Feb 2025 19:44:47 +0000
+From: Quentin Perret <qperret@google.com>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	maz@kernel.org, oliver.upton@linux.dev, mark.rutland@arm.com,
+	will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org,
+	vdonnefort@google.com
+Subject: Re: [PATCH v2 3/4] KVM: arm64: Factor out pKVM hyp vcpu creation to
+ separate function
+Message-ID: <Z8ISLxQRcsx2uuHw@google.com>
+References: <20250226215520.1759218-1-tabba@google.com>
+ <20250226215520.1759218-4-tabba@google.com>
 MIME-Version: 1.0
-References: <20250227170556.589668-1-ernest.vanhoecke@toradex.com> <20250227170556.589668-2-ernest.vanhoecke@toradex.com>
-In-Reply-To: <20250227170556.589668-2-ernest.vanhoecke@toradex.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Fri, 28 Feb 2025 16:42:24 -0300
-X-Gm-Features: AQ5f1JoDhtvIJKnD6zt795G88ZFNlnPp4nsAKKBjoBY0YUhUy9idNheY0yKrIcI
-Message-ID: <CAOMZO5ARY0P3nNnh6tmLi1p5N0uXb8ZLqkBs3ZekXD4U_-rOww@mail.gmail.com>
-Subject: Re: [PATCH 1/2] ARM: dts: apalis/colibri-imx6: Enable STMPE811 TS
-To: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250226215520.1759218-4-tabba@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_114238_839842_53222B2E 
-X-CRM114-Status: UNSURE (   9.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250228_114453_776700_2692D006 
+X-CRM114-Status: GOOD (  15.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,18 +101,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025 at 2:06=E2=80=AFPM Ernest Van Hoecke
-<ernestvanhoecke@gmail.com> wrote:
->
-> Enable the STMPE811 touchscreen in the SOM dtsi files. The STMPE811 is
-> part of the SOM. It's self contained within it, therefore, disabling it
-> is not the correct default behavior.
->
-> Signed-off-by: Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+On Wednesday 26 Feb 2025 at 21:55:19 (+0000), Fuad Tabba wrote:
+>  static int __pkvm_create_hyp_vm(struct kvm *host_kvm)
+>  {
+> -	size_t pgd_sz, hyp_vm_sz, hyp_vcpu_sz;
+> +	size_t pgd_sz, hyp_vm_sz;
+>  	struct kvm_vcpu *host_vcpu;
+> -	pkvm_handle_t handle;
+>  	void *pgd, *hyp_vm;
+>  	unsigned long idx;
+>  	int ret;
+> @@ -161,33 +178,12 @@ static int __pkvm_create_hyp_vm(struct kvm *host_kvm)
+>  	if (ret < 0)
+>  		goto free_vm;
+>  
+> -	handle = ret;
+> +	WRITE_ONCE(host_kvm->arch.pkvm.handle, ret);
 
-Please run /scripts/checkpatch.pl and fix the following warning:
+What's the reason to make this a WRITE_ONCE? Does it mean we should
+update the readers to be READ_ONCE()?
 
-From:/Signed-off-by: email address mismatch: 'From: Ernest Van Hoecke
-<ernestvanhoecke@gmail.com>' !=3D 'Signed-off-by: Ernest Van Hoecke
-<ernest.vanhoecke@toradex.com>'
+> -	host_kvm->arch.pkvm.handle = handle;
+> -
+> -	/* Donate memory for the vcpus at hyp and initialize it. */
+> -	hyp_vcpu_sz = PAGE_ALIGN(PKVM_HYP_VCPU_SIZE);
+>  	kvm_for_each_vcpu(idx, host_vcpu, host_kvm) {
+> -		void *hyp_vcpu;
+> -
+> -		/* Indexing of the vcpus to be sequential starting at 0. */
+> -		if (WARN_ON(host_vcpu->vcpu_idx != idx)) {
+> -			ret = -EINVAL;
+> -			goto destroy_vm;
+> -		}
+> -
+> -		hyp_vcpu = alloc_pages_exact(hyp_vcpu_sz, GFP_KERNEL_ACCOUNT);
+> -		if (!hyp_vcpu) {
+> -			ret = -ENOMEM;
+> -			goto destroy_vm;
+> -		}
+> -
+> -		ret = kvm_call_hyp_nvhe(__pkvm_init_vcpu, handle, host_vcpu,
+> -					hyp_vcpu);
+> -		if (ret) {
+> -			free_pages_exact(hyp_vcpu, hyp_vcpu_sz);
+> +		ret = __pkvm_create_hyp_vcpu(host_vcpu);
+> +		if (ret)
+>  			goto destroy_vm;
+> -		}
+>  	}
+>  
+>  	return 0;
+> -- 
+> 2.48.1.711.g2feabab25a-goog
+> 
 
