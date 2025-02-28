@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D34EAC282C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 16:00:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86DD7C282C1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 16:02:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QzjgdiXNQn2lVM94vvC1YOjh1DnAuEwZM6OUPbLdXjw=; b=yVsCyjA14AKrxpYqxFNBazYAf8
-	dUOSbQcKGZUnNGQyv1xnZ5GqQXH5vF7ykkKpc2mxDtFhcrMrv21h/Ktu971UA8TQDXPrJ81Dn+VF0
-	eF2RGuMslvRI46qkV/9w/1uoqJ2XHvC5jDtDzlA0lOVbUbHDPx3B3ioYsF/KnC8SkOcwf3eZqgeYv
-	qYf6fIX+yV1Vye/pTxPcnBiNdKY8+lk6WHxTckDW1uE30cwaNur0x813OUke0xFq0RyiJQkmz1Nhl
-	8cbrYtDvB28X2FY5rKePTpY+0hJkKVKTM8qh8gV2Dz0l3haFQxSYnHhWbhLcOvk4ZNdzCjjgm03j5
-	aJ/u98Gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=luIE0Lf4JAHBS8LhKxuyQef8bCGyud3N4ZNDHk+iEL8=; b=w+luieDFTt2J1KG8SMgIRCApSo
+	uR8gpJ5gimD17DRt5eVS52sHvX9WowJp2e3m6Toim0BhrWuOuwDjzPcX9ww87P3OWu8AODpunDFR6
+	YDj6zYWy/7sR8C4xWUe6AyWJPdihIYGJ9ZDkGf0+Zhl/O7f1eTYYUrNdI8rbO7GdpQO6r361gLRL+
+	+JB1QHqKxWVP04pERNEpp63sjg29lKkONRr4kRdTA/wwVZJ2qxHWEm1QLg/v+IGMqSLdNNAiXEP8r
+	LaVwJE/RkS45z8UnJxdLda+x6HJhWy0J1MPp+gn+pOmLYgLFHPuq5zPjsXC7S0CsX3XEwsyZBnGwX
+	BkKGrdGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to2mn-0000000Ba5y-2kuG;
-	Fri, 28 Feb 2025 16:00:25 +0000
-Received: from mx.treblig.org ([2a00:1098:5b::1])
+	id 1to2oM-0000000BaSV-1PYw;
+	Fri, 28 Feb 2025 16:02:02 +0000
+Received: from mail.manjaro.org ([116.203.91.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to2VO-0000000BVoY-3BlX
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 15:42:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=treblig.org
-	; s=bytemarkmx; h=Content-Type:MIME-Version:Message-ID:Subject:From:Date:From
-	:Subject; bh=QzjgdiXNQn2lVM94vvC1YOjh1DnAuEwZM6OUPbLdXjw=; b=JLtXwvZY9rod+vN/
-	6zix4+Vc9e0yIA9MhNtdoGNIHovyFlBBn8P4lF9sMuFQ9qVwfCWkNPBpfz15TMrGpY6Vo7/Cezb9L
-	ox2oOdEjwzmJTvgPqUezZT6aN9i0pYPsJmEEFp4PsBXl+nudrh8B+fvMxDR792jSBLMOdHLiTFF3L
-	DihJk7VwIfSzKhdRAWh8/+U4jT2ywSaj1DsNVTUnNAJ8LCPNJpA8KZc5yXU2vdavYnbbyV1d8G+Cy
-	PzWqlc7Qn7IrthdfZqlZbNpXS6rc2FdK6Rjsjr+N/jzMAtGZD91OfXNTsRUED08EwU7q90hbm5zT4
-	UxVAQ7K8X2/euUVlxA==;
-Received: from dg by mx.treblig.org with local (Exim 4.96)
-	(envelope-from <dg@treblig.org>)
-	id 1to2VD-001g24-2A;
-	Fri, 28 Feb 2025 15:42:15 +0000
-Date: Fri, 28 Feb 2025 15:42:15 +0000
-From: "Dr. David Alan Gilbert" <dave@treblig.org>
-To: tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch
-Cc: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, p.zabel@pengutronix.de,
-	deller@gmx.de, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com,
-	dri-devel@lists.freedesktop.org, linux-fbdev@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/7] gpu: ipu-v3: Remove unused functions
-Message-ID: <Z8HZV3RuIeTtcd3a@gallifrey>
-References: <20241226022752.219399-1-linux@treblig.org>
- <gugwtvw6qqknstlscr4hxfrvcgfa4gfwwgxdosr24mf7huk433@oh7axkbesrjs>
+	id 1to2Z7-0000000BWlr-2GwK;
+	Fri, 28 Feb 2025 15:46:19 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-In-Reply-To: <gugwtvw6qqknstlscr4hxfrvcgfa4gfwwgxdosr24mf7huk433@oh7axkbesrjs>
-X-Chocolate: 70 percent or better cocoa solids preferably
-X-Operating-System: Linux/6.1.0-21-amd64 (x86_64)
-X-Uptime: 15:40:47 up 296 days,  2:54,  1 user,  load average: 0.01, 0.02,
- 0.00
-User-Agent: Mutt/2.2.12 (2023-09-09)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1740757575;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=luIE0Lf4JAHBS8LhKxuyQef8bCGyud3N4ZNDHk+iEL8=;
+	b=Jvz7yJ452lR8t9YC1wIIxBp7ro7I7QTTxUlXDF7Oox+l6ZnknysKkZpnv7UnuJeiGoDQz8
+	gkH3gqeNzEBGoIa78J7NYQi5Y3bW+sYOl+EUvtzo+BsbBQ50iuINXLKEeztXQRPDCDOf0w
+	9WL/Mi7yluhc1X5awOdpq2CsCQqI+yEI5ykdtyzUie01AY7O62Grd2XFGSKPrdu4HO/Eo/
+	N8SMvn73edg3RWBySKjupI+YBBcGkmS0WiODzMiYvunvy7WO+lLBWC0iS1uDbvYjHjSBAC
+	J38ps6i8mBWDAVMuLu0b7WQoQ6QIaaiNseLdw721m133y0tqGLRzl8/av8TeVA==
+Date: Fri, 28 Feb 2025 16:46:15 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: Olivier Benjamin <olivier.benjamin@bootlin.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Thomas
+ Petazzoni <thomas.petazzoni@bootlin.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, oren@taumoda.com, Ondrej Jirman <megi@xff.cz>
+Subject: Re: [PATCH 0/2] Describe the cameras in the PinePhone Pro dts
+In-Reply-To: <20250228-camera-v1-0-c51869f94e97@bootlin.com>
+References: <20250228-camera-v1-0-c51869f94e97@bootlin.com>
+Message-ID: <0338826971bfdd5b771bc1c6ada795eb@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_074226_790379_1C6491B3 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20250228_074617_733328_ABFC46E5 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,40 +74,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi All,
+Hello Olivier,
 
-* Dmitry Baryshkov (dmitry.baryshkov@linaro.org) wrote:
-> On Thu, Dec 26, 2024 at 02:27:45AM +0000, linux@treblig.org wrote:
-> > From: "Dr. David Alan Gilbert" <linux@treblig.org>
-> > 
-> > Hi,
-> >   This set removes a bunch of functions in ipu-v3 that
-> > have been unused for a long time (since 2012-2017).
-> > 
-> >   No changes to functions are made, just full deletions.
-> > 
-> >   Build tested only.
-> > 
-> > Signed-off-by: Dr. David Alan Gilbert <linux@treblig.org>
-> > 
+On 2025-02-28 16:19, Olivier Benjamin wrote:
+> This series adds support for the Pine64 PinePhone Pro's rear and front
+> cameras in Device Tree.
+> This is based on some of Ondrej Jirman's patches hosted in his tree at
+> https://codeberg.org/megi/linux, but I have also fully reviewed and
+> re-written the code from the RK3399 datasheet, the PinePhone Pro
+> schematic, and the IMX258-0AQH5 software reference manual.
 > 
+> I have tested these changes on my PinePhone Pro and am able to take
+> photos from both cameras using libcamera's cam.
 > 
-> For the series:
+> Signed-off-by: Olivier Benjamin <olivier.benjamin@bootlin.com>
+
+I'm afraid that you haven't addressed the notes from the feedback
+you received earlier? [*]  Also, this should be the v2 of the series,
+which should contain "PATCH v2" in the patch subjects, and provide
+a summary of changes in the cover letter.
+
+Or, did you just resend the v1 by mistake?
+
+[*] https://lore.kernel.org/linux-rockchip/5127541.31r3eYUQgx@phil/
+
+> ---
+> Olivier Benjamin (2):
+>       arm64: dts: PinePhone Pro: describe I2c Bus 1 and IMX258 world 
+> camera
+>       arm64: dts: PinePhone Pro: describe the OV8858 user camera
 > 
-> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-
-Could this be picked up for drm please?
-
-Thanks,
-
-Dave
-
-> -- 
-> With best wishes
-> Dmitry
--- 
- -----Open up your eyes, open up your mind, open up your code -------   
-/ Dr. David Alan Gilbert    |       Running GNU/Linux       | Happy  \ 
-\        dave @ treblig.org |                               | In Hex /
- \ _________________________|_____ http://www.treblig.org   |_______/
+>  .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 138 
+> +++++++++++++++++++++
+>  1 file changed, 138 insertions(+)
+> ---
 
