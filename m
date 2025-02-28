@@ -4,72 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5786DC19776
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 14:39:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6CA8C19776
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 14:41:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+mews4wqirLVd+SJ74CQGKx7psfw9QW6POpNvpoLYPU=; b=2X5iSqncQUqqTJfNCMwhAiJqyj
-	r2YWJyLrKHYpKhWmg2xZCNPbJJaOioE5YIWosax7B57QEUxa6gXs5nV7HRu42pCuYqw/SgD2FrHJD
-	2Fe5I4Hgb6+gQfITshgluacPdSq3zSQJkaNv+TpgWO6vM/KqsC+9y6XmGEnxuAwIADzohz/85HhB8
-	2JTR8tYcI7Z1mXZ/XN+3qedFsoNDAn0SDH64bCGwHUyKDEheWkYFmSKiEZEa31wvkcsU7+1dWx9yy
-	CbLmq9M3RZ7eLbX7OeKWku2cErR4BFq9TTk4xlDiwhg/mMnOHofAxaOT0SF7JDmRBq1blJGl1sRKn
-	wR2HrSSg==;
+	bh=bgW5g300tmRMFjEsqTbas4ZzfRhvbkRab1mKzDMSykU=; b=QtgF59BKvWQnwA9dW0XS+tRkq3
+	ha8BlsEIGrHlUsjYhlxuL/3EmHnQk2D4TE9a9qlXnSN6w966H4lkPFDXdydv9VphVc3Tz/dwL/M1S
+	DyRTWkZTVOoaSLJ0plTBxYusqC1WW8+aF5ofQGRXH2smNr3OZOQXdLsQ/kcVg/SrqW7KVxMWWv6Jp
+	7WNfpSN2xJMyyYBBa89UOrulM0Vrzg9umc11lTvi16EFtfno4sdBOHNO23tRwOuH/GZoRtdnkjUW1
+	z1s3IuleUaXiI3AK/xAMp7ozBkJ75wN/tYhDRxZUoYwLtcJWIc51P2NasBzYWFT7BfGerLP3DMjak
+	65Dx+ktA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to1WP-0000000BIP7-3R8R;
-	Fri, 28 Feb 2025 14:39:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1to1Xx-0000000BInt-1sCx;
+	Fri, 28 Feb 2025 14:41:01 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to1B0-0000000BDtC-2twj
+	id 1to1Be-0000000BE7n-3mQ1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 14:17:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2087661F60
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 14:17:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FDFDC4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 14:17:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740752237;
-	bh=+mews4wqirLVd+SJ74CQGKx7psfw9QW6POpNvpoLYPU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=UW2yj7OLDI5zuEJjYp9kTPkjpNgQ5I+5MZ0ngBbIdzWUT7pqtBF/VMUzWoOBRRxEV
-	 l+ZuND44lv/fYfOZSZRdQWPfWdCcatWzjFS1YP17PrO3em6I3ASyQw0V7noEb/HxlW
-	 InWuj0scBFOSBOpfIDLEEGEaAYDpBNiUEKjBtcVAplnG1SBZPFrsu3ogya5jJXEYBq
-	 Tdhe757RdCnSrQBEfNFSymmt722b0CN0nyXuHQqFJfu+4pLQUHnwZTrJhWpw7+7WV4
-	 k45eB0y985+vt5zBOzh1TwBi4Bj7PXS488BKzyxpZzQoJW1exvzdiJmyvqnda4R1rl
-	 hw9hLPGt6KJTQ==
-Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-abbdf897503so579557466b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 06:17:17 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWA6V9oVLECOQHTfSTWZFNFWv5+i32BXA0c6YJySFgF7yoT8v+SCwh6bfq++uqJ2KIwdtBr/ATfvYEQ9gkXCPmq@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTN5dU2JZfI8CQaze5nQeYS110hL7BrzBwy5N/dMQjdh47JRdt
-	jzuO9fAhjOal7KcWThMUD5z83XdhMRaK5GXV6Jiy9wUprX2DAMtI8Dmu960iqivORqxru6OqYr1
-	ASIGAsKAP8rBUtM9yzmpw/loYEQ==
-X-Google-Smtp-Source: AGHT+IHjthQkObX46y0x27qvzkeyln9C3sLlHRHU7eP7TpYLalIfwcDLQqE0mQgUy4ECwFqBSo9/JmpROBFMKVh/A3s=
-X-Received: by 2002:a17:907:6e92:b0:ab7:b7b5:2a0c with SMTP id
- a640c23a62f3a-abf2620774dmr419749466b.6.1740752236146; Fri, 28 Feb 2025
- 06:17:16 -0800 (PST)
+	Fri, 28 Feb 2025 14:18:00 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51SEHex32070698
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 28 Feb 2025 08:17:41 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1740752261;
+	bh=bgW5g300tmRMFjEsqTbas4ZzfRhvbkRab1mKzDMSykU=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=QkLfy/jBDukeSUCA17i0+sePLLz+l7falK5ners/Flz6qW8kaYsgKsZc8JcN2rQlw
+	 N9YxmgjU29wdPr3DMD3Bu0k2psvdPWpqJgX7aZXHbzEr0DYIQdXCJ4NzXnWzGzDeGw
+	 aLK19hPiw0q1uX4fd3sqFkTuHgitjfU0MFcp26xc=
+Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51SEHe9p002644
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 28 Feb 2025 08:17:40 -0600
+Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 28
+ Feb 2025 08:17:40 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 28 Feb 2025 08:17:40 -0600
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51SEHe4M008459;
+	Fri, 28 Feb 2025 08:17:40 -0600
+From: Nishanth Menon <nm@ti.com>
+To: Vignesh Raghavendra <vigneshr@ti.com>, Meghana Malladi <m-malladi@ti.com>
+CC: Nishanth Menon <nm@ti.com>, <ebiggers@google.com>,
+        <javier.carrasco@wolfvision.net>,
+        <elinor.montmasson@savoirfairelinux.com>, <biju.das.jz@bp.renesas.com>,
+        <quic_tdas@quicinc.com>, <nfraprado@collabora.com>, <arnd@arndb.de>,
+        <dmitry.baryshkov@linaro.org>, <krzysztof.kozlowski@linaro.org>,
+        <geert+renesas@glider.be>, <quic_bjorande@quicinc.com>,
+        <will@kernel.org>, <catalin.marinas@arm.com>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>, Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>,
+        "Ravi
+ Gunasekaran" <r-gunasekaran@ti.com>
+Subject: Re: [PATCH v3] arm64: defconfig: Enable HSR driver
+Date: Fri, 28 Feb 2025 08:17:39 -0600
+Message-ID: <174075218769.3252220.16260362657554687998.b4-ty@ti.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20250227111828.1963918-1-m-malladi@ti.com>
+References: <20250227111828.1963918-1-m-malladi@ti.com>
 MIME-Version: 1.0
-References: <20250226094456.2351571-1-peng.fan@oss.nxp.com>
- <20250226160945.GA2505223-robh@kernel.org> <20250227030924.GB11411@nxa18884-linux>
- <CAL_JsqJOqKeDRuASWxCT=EA5LJbONpCX=Re8=XxKUbPToWy2Dg@mail.gmail.com> <Z8HCZQQLofaiGtpG@bogus>
-In-Reply-To: <Z8HCZQQLofaiGtpG@bogus>
-From: Rob Herring <robh@kernel.org>
-Date: Fri, 28 Feb 2025 08:17:03 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqLePri5m_dE989poUV4auasAxFvgAiYuXVuZHqLcOBGMg@mail.gmail.com>
-X-Gm-Features: AQ5f1JqWAly9mibB4Wnu0iSmsxkTmC_yUXZnPBFIrDHBvIgsef3vgrKT7bmbhac
-Message-ID: <CAL_JsqLePri5m_dE989poUV4auasAxFvgAiYuXVuZHqLcOBGMg@mail.gmail.com>
-Subject: Re: [RFC] dt-bindings: firmware: scmi: Introduce compatible string
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Peng Fan <peng.fan@oss.nxp.com>, saravanak@google.com, cristian.marussi@arm.com, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250228_061759_030383_CB34FFEE 
+X-CRM114-Status: GOOD (  15.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,28 +93,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 28, 2025 at 8:04=E2=80=AFAM Sudeep Holla <sudeep.holla@arm.com>=
- wrote:
->
-> On Fri, Feb 28, 2025 at 07:34:09AM -0600, Rob Herring wrote:
-> >
-> > - The parent driver creates child devices. The child devices can
-> > either reuse the parent DT node (i.e. set dev.of_node) or just get it
-> > from the parent device if needed.
-> >
->
-> This is exactly what I was thinking to deal with the issue since this
-> discussion started. I will give this a go. I believe this must solve
-> the issue, but I didn't want to spit it out loud until I tried to hack
-> and check.
+Hi Meghana Malladi,
 
-The issue with fw_devlink is that it only checks the dependency of the
-parent which won't be enough. When the parent's probe creates the
-child device, that doesn't mean the child has probed. The child driver
-might not be loaded and/or probe is async. I don't think there's
-anyway for the parent probe to wait for child drivers to be probed and
-ready. I think there's similar issues with the DWC3 wrapper and core
-driver split.
+On Thu, 27 Feb 2025 16:48:28 +0530, Meghana Malladi wrote:
+> HSR is a redundancy protocol that can be realized with any
+> two port ethernet controller.
+> 
+> Many of TI's K3 SoCs such as AM64x and AM65x support multi port ethernet
+> controller. So enable HSR driver inorder to support this protocol for
+> these SoCs.
+> 
+> [...]
 
-Rob
+I have applied the following to branch ti-k3-config-next on [1].
+I have had to slightly improve the commit message (answering the
+question: "what is HSR"), let me know if you dont agree with it and I
+can drop the patch from the queue in favor of an update.
+
+Thank you!
+
+[1/1] arm64: defconfig: Enable HSR driver
+      commit: 44807ecfa6394d8a4764775998f5dde18ec4377c
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent up the chain during
+the next merge window (or sooner if it is a relevant bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+
 
