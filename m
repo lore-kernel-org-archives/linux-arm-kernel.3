@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77B66C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 21:21:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9A6CC282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 21:24:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gJG30Xb143TOyiSzGmpUNwSwfd+MHOuNJ1Pp91/NnNs=; b=fRyuT51oOdGcbbrJQwgR6cZqUL
-	571w92epdjWpzxLck83HTrLpFv5lmtPS6lBD8BeQQ22eTsTSl6PtyoK39LUjiceS+JvCHIJEl76gz
-	SL68IcEnW96z0KvgO5OWaE22+76Pm9GGlOxD/uS+6xMwAtKaV7tVedhWbiVdojovTsxyH5ScGPbJP
-	F9jCmmnWpJcUdT0+leHalLXoSP9l5zdi6PGP2vhuJuqvF98eI41YThpWlAaNZFl9hwYykNw19OjOr
-	TQqzHsrh6oKyKgxwEKGWhEnkbmtZkcSi9bHOLmI5ZYA3jEjW42PC/d7+C31ZSSJUyxGCD4eSaDzar
-	qV0JGFAg==;
+	bh=qjXIOQIGKfgN7Cq0+qSXLSaC1VAj/643E3fuc4Nuwtw=; b=m9RbntR4SP6R2ZNUhI2sc+QHIn
+	7K5rbMurOUT5vJzMmzfd9AlvrJT/iaPzdyT/vDSOegZaFv6HkyqmHal9a3mGsaghzJfvUF3pCZPKp
+	eDuxasegwd42AHhMpTc03BavWXpjp1Z2s3Ovc5Ad0/2mB7RitYEHLVOMMmQGtFI4FIZG/f5M16/yb
+	P7zVscUvBYUFbnuIUpIFvVlCQDq2vExh6IzlRYK3icFW/CX+AdqFGPxxgAHAsDzsFKTvr2HMT1fN+
+	5qynbSxcDYW7pqKeGX5zrskowQA9/VbGcQnT/v5sL0GTcP7+4bbZ6PBmWBebFbe2di/YPuFNq+xQh
+	uEw1jHzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to7nd-0000000CixO-0sF5;
-	Fri, 28 Feb 2025 21:21:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1to7pr-0000000CjN2-3xHG;
+	Fri, 28 Feb 2025 21:23:55 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to7jv-0000000CiAK-1UMk
+	id 1to7oK-0000000Cj5n-04Nk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 21:17:47 +0000
+	Fri, 28 Feb 2025 21:22:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 302276127F;
-	Fri, 28 Feb 2025 21:17:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4396EC4CEE2;
-	Fri, 28 Feb 2025 21:17:46 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8EB6E5C6A20;
+	Fri, 28 Feb 2025 21:20:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7DC8C4CED6;
+	Fri, 28 Feb 2025 21:22:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740777466;
-	bh=IkOzcwzD6g/Xe/Qr+wg9oscXEq2A/Wh3cy8CHPJBqN0=;
+	s=k20201202; t=1740777739;
+	bh=70t/oj00452ALapCWhpb/eHsdBwPEI85u4GX6Y1AcQo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UhiOd0lax+NjVz/abbtzMM1eU2nq1Oma4KGTGpNIQT6pq6zCLYH27hKVoJV3YgvMn
-	 Zp/A8qRN74k5g6Ycebg//15KT6UaMnaQUrMjXq7SZg4gK5/5flt5Syfp7XPdGEb023
-	 85F0CSvVnaiSGoEnnN5OO6K50WZQ5ViKICYsoVG1U8gcsPg5CPnLUFFKU+3bf93CL3
-	 8GMlxFjvBX2UiZwmZgDJ6NmZFZWoTix849Wt1rhZR8gTbbPdY/0HloYHZQ7r2ZXlv7
-	 LkIXxJlTIYyyNhv8qCSkKiXryR1OXiRbY5gBA6S0xjqwZWztavQhj057n1FyVCRxD7
-	 Ic9yHC2CusVVw==
-Date: Fri, 28 Feb 2025 15:17:44 -0600
-From: Rob Herring <robh@kernel.org>
-To: Christophe Parant <c.parant@phytec.fr>
-Cc: devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	upstream@lists.phytec.de
-Subject: Re: [PATCH 03/11] dt-bindings: arm: stm32: Rename STM32MP15x Phytec
- board and SoM
-Message-ID: <20250228211744.GA3730587-robh@kernel.org>
-References: <20250227154012.259566-1-c.parant@phytec.fr>
- <20250227154012.259566-4-c.parant@phytec.fr>
+	b=mjrkcmpqky945mPdhuTZQytsXu8HJGALBLiuuU7MUlu/MV8L16JHuxcsFmT6hMGA7
+	 2ESYG77gQzgGSypqcLdanLuDRxpHiQiIwGLeeLejkG+Huq+okjhoSpMB4i0RQouiFY
+	 8tbyNN7TT90m+bFJDBU7tW3knESkd9jNWche33i8CGebdATFq+JF4bgi/QFT2AKEsH
+	 Ry7WGYYLKsmbYVfyNyBE1A5WX4eVRk3ySeJlBK88kPS42GgQommsI5p/jDnknjyzI8
+	 h73V6NDwB3BrHRmjVhpDoe0Sggj4kxD9++Mtd3Nr/oZKJtzHZT7pDr0xnXY32kSVtj
+	 OEWJLEHzhlx4A==
+Date: Fri, 28 Feb 2025 15:22:17 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Ryan.Wanner@microchip.com
+Subject: Re: [PATCH v3 02/21] dt-bindings: mfd: syscon: add
+ microchip,sama7d65-sfrbu
+Message-ID: <174077773610.3738820.3700947387806799800.robh@kernel.org>
+References: <cover.1740671156.git.Ryan.Wanner@microchip.com>
+ <92543fcff4ab35e770b01d4c15d45cc5d55833f4.1740671156.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250227154012.259566-4-c.parant@phytec.fr>
+In-Reply-To: <92543fcff4ab35e770b01d4c15d45cc5d55833f4.1740671156.git.Ryan.Wanner@microchip.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250228_132220_107823_0DFC38D9 
+X-CRM114-Status: UNSURE (   7.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,44 +69,22 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, conor+dt@kernel.org, lee@kernel.org, alexandre.belloni@bootlin.com, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, linux@armlinux.org.uk, sre@kernel.org, p.zabel@pengutronix.de, claudiu.beznea@tuxon.dev, krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025 at 04:40:04PM +0100, Christophe Parant wrote:
-> Modifications following new PHYTEC stm32mp15x SoM and board device tree
-> naming.
 
-Why?
-
-It's an ABI, so you are stuck with the names. It's just a unique 
-identifier, so it's really not important what the string is.
-
+On Thu, 27 Feb 2025 08:51:49 -0700, Ryan.Wanner@microchip.com wrote:
+> From: Ryan Wanner <Ryan.Wanner@microchip.com>
 > 
-> Signed-off-by: Christophe Parant <c.parant@phytec.fr>
+> Add SAMA7D65 SFRBU compatible string to DT bindings documentation
+> 
+> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
 > ---
->  Documentation/devicetree/bindings/arm/stm32/stm32.yaml | 7 ++++---
->  1 file changed, 4 insertions(+), 3 deletions(-)
+>  Documentation/devicetree/bindings/mfd/syscon.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/arm/stm32/stm32.yaml b/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
-> index b6c56d4ce6b9..11b3f59ac550 100644
-> --- a/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
-> +++ b/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
-> @@ -169,10 +169,11 @@ properties:
->            - const: seeed,stm32mp157c-odyssey-som
->            - const: st,stm32mp157
->  
-> -      - description: Phytec STM32MP1 SoM based Boards
-> +      - description: Phytec STM32MP15x SoM based Boards
->          items:
-> -          - const: phytec,phycore-stm32mp1-3
-> -          - const: phytec,phycore-stm32mp157c-som
-> +          - enum:
-> +              - phytec,stm32mp157c-phyboard-sargas-rdk
-> +          - const: phytec,stm32mp157c-phycore-som
->            - const: st,stm32mp157
->  
->        - description: ST STM32MP257 based Boards
-> -- 
-> 2.34.1
-> 
+
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+
 
