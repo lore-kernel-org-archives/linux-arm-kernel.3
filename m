@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 946D4C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 12:28:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E708C19776
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 12:30:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C6MJUKJ8ivAcDg8zvEnS4P7480VlBNsvsYgvIkxghDI=; b=HJs+IRQM4F8O23lhyP8n/S1m7X
-	hTWXIItnRf6cdTxP/RseAQI0escyC+Iy9Wt0UvmdCsmWvpmbVXM4FuAaLb2q78mWkBNtvQQdhTeOJ
-	u+SRPVGtR9oIyo5GLY6yYzirevC2M6aw296dw7vTvQtFHpHHPqRlMUHdMfhLC02kS4MP1SFsHdJlP
-	TCeXXbNHcr1xxruS4g18EGnvvBD+U7C/m/H6X0Eu4m4PR3XCwWJPXv+d9kGxAXXhtWJg06TOfs5qv
-	UrCmmlEk5YXeWUhujBZzy/syk2dR51a2ZMHx/ewVf5yYmt/bXaxtcsfkSBQ1/HF+1hX4IgCepUzka
-	k5tHx86g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8sw3okeo1ZKyL78EaeP3XZIOldIpii7SYHJp6EOjxzc=; b=xNlmC5Ri3flsBbaoGodam/xDhx
+	t1/OVRCHqAf/VwqlyN84HMlLBXqdSDhNce2BBQfHMxxAjByxSz/r2uresu6Y8VstREmk6CbDKCFjQ
+	jijcJjs5NITSJ/WODXgZc51zNa91ZdgPcGMSyWHnsllyvpmsdc7fKEJIVOPYjzarbumvTymxHKonA
+	lQKFPWVRwGZIJ8hOMefne7nPxozLyUm2z7ND2OR23kgXb1aiphj3nhytafoumvG7U/QbVhlxU+PYS
+	9NFeLSf5hIuBfluNypgadnMF6DxiGXqqBDibgdXwzmOUrtKIQh/uML9hNFaPkmfCbHU295AEg2KkC
+	5WXRlVDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnzTp-0000000AuVY-0Qey;
-	Fri, 28 Feb 2025 12:28:37 +0000
-Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
+	id 1tnzVL-0000000Auyn-0nFO;
+	Fri, 28 Feb 2025 12:30:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnzRc-0000000Au4h-3yF7
+	id 1tnzTi-0000000AuTq-1JIW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 12:26:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1740745577; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=C6MJUKJ8ivAcDg8zvEnS4P7480VlBNsvsYgvIkxghDI=;
-	b=fqFVt/LHo9epLiQuqX6PRTK9p1LGJsjbwhYViYHImSGC77BPl2zCOpvZGBStCHtL0FQjL4e/HfySDDWYdvMhksNNDOPc35z2/082N1HpOgJUGkoip+J490kuPjbaKAkC68gM/fTUviYeH/iSjc9z7cG/0cRPQjumjApT4Cq5gfg=
-Received: from 30.246.161.128(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WQPe85r_1740745568 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 28 Feb 2025 20:26:10 +0800
-Message-ID: <73087b1d-b43a-4fa3-b775-c8797460f01a@linux.alibaba.com>
-Date: Fri, 28 Feb 2025 20:26:08 +0800
+	Fri, 28 Feb 2025 12:28:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 22C6E60008;
+	Fri, 28 Feb 2025 12:28:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39577C4CEEC;
+	Fri, 28 Feb 2025 12:28:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740745709;
+	bh=mTxyB5LfIETi+uJvOVDQqxXR+KxU8npM8MnbMmEt/n0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QvCon2GxURZLGP41UlqCFBsm/k6EHWKtK8TKpZwIps0xE3JxVpXYPf6Idk0a1xcxm
+	 OMwKPb5n2jzmPix3DVoA5xuVJkSxqzhK/zcoYynXQP1WMZh5MKWITEmC1bvVnMvUFb
+	 jBUV46WR0Tdekr+Mme41JFuwt+PyAumTEjJ1pUkw75nbpfEAwjmeEF1TgJJZ28JvRa
+	 6XrfTi4203h9GmQYf0apk3u1o9TZYhPbyV9/tTaYwXwDQ2sm9rENEEczzL3J+fz37f
+	 aJzzs3zRkqn1JKGlRIhGK+QpPEfUXq8vipSlLS7fPPTXE71U4uZDKx81xyCEsloq/F
+	 WJtfQ2NhJOctg==
+Date: Fri, 28 Feb 2025 06:28:22 -0600
+From: Rob Herring <robh@kernel.org>
+To: Marek Vasut <marex@denx.de>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	Thomas Zimmermann <tzimmermann@suse.de>, imx@lists.linux.dev,
+	David Airlie <airlied@gmail.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Simona Vetter <simona@ffwll.ch>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	devicetree@vger.kernel.org, Liviu Dudau <liviu.dudau@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>, dri-devel@lists.freedesktop.org,
+	Boris Brezillon <boris.brezillon@collabora.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Sebastian Reichel <sre@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Subject: Re: [PATCH 7/9] dt-bindings: gpu: mali-valhall-csf: Document i.MX95
+ support
+Message-ID: <20250228122822.GA2321092-robh@kernel.org>
+References: <20250227170012.124768-1-marex@denx.de>
+ <20250227170012.124768-8-marex@denx.de>
+ <174068152164.3906545.6393185343383919273.robh@kernel.org>
+ <77585efa-29f0-47ef-af02-d927a512b9ae@denx.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v18 2/3] mm: memory-failure: move return value
- documentation to function declaration
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: yazen.ghannam@amd.com, mark.rutland@arm.com, mingo@redhat.com,
- robin.murphy@arm.com, Jonathan.Cameron@huawei.com, bp@alien8.de,
- rafael@kernel.org, linux-arm-kernel@lists.infradead.org,
- wangkefeng.wang@huawei.com, tanxiaofei@huawei.com, mawupeng1@huawei.com,
- tony.luck@intel.com, linmiaohe@huawei.com, naoya.horiguchi@nec.com,
- james.morse@arm.com, tongtiangen@huawei.com, gregkh@linuxfoundation.org,
- will@kernel.org, jarkko@kernel.org, linux-acpi@vger.kernel.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, akpm@linux-foundation.org,
- linux-edac@vger.kernel.org, x86@kernel.org, justin.he@arm.com,
- ardb@kernel.org, ying.huang@linux.alibaba.com, ashish.kalra@amd.com,
- baolin.wang@linux.alibaba.com, tglx@linutronix.de,
- dave.hansen@linux.intel.com, lenb@kernel.org, hpa@zytor.com,
- robert.moore@intel.com, lvying6@huawei.com, xiexiuqi@huawei.com,
- zhuo.song@linux.alibaba.com, lpieralisi@kernel.org, guohanjun@huawei.com,
- sudeep.holla@arm.com
-References: <20250107081735.16159-1-xueshuai@linux.alibaba.com>
- <20250107081735.16159-3-xueshuai@linux.alibaba.com>
- <Z8BbFRupgknBTvH8@arm.com>
- <0c93542f-4521-41bc-a030-5b2d8621aa6a@linux.alibaba.com>
- <Z8GeBJ9tTayTm9s9@arm.com>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <Z8GeBJ9tTayTm9s9@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_042621_625449_B9390907 
-X-CRM114-Status: UNSURE (   8.09  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <77585efa-29f0-47ef-af02-d927a512b9ae@denx.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,30 +87,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Feb 27, 2025 at 09:31:48PM +0100, Marek Vasut wrote:
+> On 2/27/25 7:38 PM, Rob Herring (Arm) wrote:
+> > 
+> > On Thu, 27 Feb 2025 17:58:07 +0100, Marek Vasut wrote:
+> > > The instance of the GPU populated in Freescale i.MX95 is the
+> > > Mali G310, document support for this variant.
+> > > 
+> > > Signed-off-by: Marek Vasut <marex@denx.de>
+> > > ---
+> > > Cc: Boris Brezillon <boris.brezillon@collabora.com>
+> > > Cc: Conor Dooley <conor+dt@kernel.org>
+> > > Cc: David Airlie <airlied@gmail.com>
+> > > Cc: Fabio Estevam <festevam@gmail.com>
+> > > Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> > > Cc: Liviu Dudau <liviu.dudau@arm.com>
+> > > Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+> > > Cc: Maxime Ripard <mripard@kernel.org>
+> > > Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+> > > Cc: Philipp Zabel <p.zabel@pengutronix.de>
+> > > Cc: Rob Herring <robh@kernel.org>
+> > > Cc: Sascha Hauer <s.hauer@pengutronix.de>
+> > > Cc: Sebastian Reichel <sre@kernel.org>
+> > > Cc: Shawn Guo <shawnguo@kernel.org>
+> > > Cc: Simona Vetter <simona@ffwll.ch>
+> > > Cc: Steven Price <steven.price@arm.com>
+> > > Cc: Thomas Zimmermann <tzimmermann@suse.de>
+> > > Cc: devicetree@vger.kernel.org
+> > > Cc: dri-devel@lists.freedesktop.org
+> > > Cc: imx@lists.linux.dev
+> > > Cc: linux-arm-kernel@lists.infradead.org
+> > > ---
+> > >   Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml | 1 +
+> > >   1 file changed, 1 insertion(+)
+> > > 
+> > 
+> > My bot found errors running 'make dt_binding_check' on your patch:
+> > 
+> > yamllint warnings/errors:
+> > 
+> > dtschema/dtc warnings/errors:
+> > 
+> > 
+> > doc reference errors (make refcheckdocs):
+> > 
+> > See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250227170012.124768-8-marex@denx.de
+> It seems there are no errors in this list ?
 
+That's an artifact that a prior patch in this series failed.
 
-在 2025/2/28 19:29, Catalin Marinas 写道:
-> On Fri, Feb 28, 2025 at 09:46:30AM +0800, Shuai Xue wrote:
-> [...]
->>> On Tue, Jan 07, 2025 at 04:17:34PM +0800, Shuai Xue wrote:
->>>> Part of return value comments for memory_failure() were originally
->>>> documented at the call site. Move those comments to the function
->>>> declaration to improve code readability and to provide developers with
-> [...]
->> By the way, could arm maintainers help to ack patch 1 and 3 if there
->> is no objection?
-> 
-> James Morse is listed as reviewer of the ACPI APEI code but he's busy
-> with resctrl/MPAM. Adding Lorenzo, Sudeep and Hanjun as arm64 ACPI
-> maintainers, hopefully they can help. Here's the full series:
-> 
-> https://lore.kernel.org/r/20250107081735.16159-1-xueshuai@linux.alibaba.com/
-> 
-
-Thank you for your assistance.
-Looking forward to any updates.
-
-Best regards,
-Shuai
-
+Rob
 
