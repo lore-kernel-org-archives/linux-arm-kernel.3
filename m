@@ -4,96 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6B3AC19776
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 11:10:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 007F6C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 11:12:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RpVjJ+eS+7F71ctZfki5aRuBHw0X6KQZyB8mtCBfchA=; b=bkh1dQ94+J/77n4fvxF9vkWgFT
-	PLxgG0f23Q1vvTOI9XTs++xb2XiUKwHX1rRBdhxYdwF5EcphIiRaVupA9cF3mXQHLRkFS24AYS4sE
-	Gdf5jdh64x2d6cw2DE+AumKHtOcY9rMkPda12ngzpKK4b3OSPjVukoL2CGQKvDg/v+Wgr5b3kGa8x
-	CfU6hYyepqL1XGeMUvTkBkLU+aOVkSCnfQzouvSm17RUDSCPZ522IfmtHjQvW+EGiZnv4AOT7TT09
-	D6TYzLAv1o7SIz2tMqBMflU8gc6aMfv0mjCAAs7UbvyLmQPOp6fvveDpIQnSLeIGPHzafyGGKvnAe
-	Z40XS0Ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Fi80ttWsp61rFaPMRzcRoSBsD+icdSl9C9Rjx5VP+3M=; b=UG9vc8DWmhXNuNtsaShq43g+jl
+	QNiE5abTJ6RJAhFMv2KjCut8trmb1xH+SJ2IDSxglEnGXXStkd7XZQi508b9igjoVAfQjMU6Pfe06
+	LVkQS/b5oYjKMD3PohtXD861BMHY5DfIRKBit9vjZXv6NPes/hrKqczH2fHrzj8dy4SKWIBM5N92T
+	pDWAnTxenAF1dBVRlIjK6HKAaNtVyGW2O0WCp1Uvl/CNtEiCNKAbHJJiKp+ZWqguXvFC+gdu27T6d
+	0emgomaoWm35CRwGEcF79v9meyX24XSu1j6K5M+2FVoAzVIRs7DMuhZ9ShZF8/wj3xgHZsCsmxJlk
+	r2TGfx2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnyGR-0000000AhlP-1HKs;
-	Fri, 28 Feb 2025 11:10:43 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1tnyHy-0000000Ai6D-0sii;
+	Fri, 28 Feb 2025 11:12:18 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnxmB-0000000AdA7-3KUz
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 10:39:29 +0000
+	id 1tnxmk-0000000AdEs-3yYy;
+	Fri, 28 Feb 2025 10:40:04 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4398c8c8b2cso20060225e9.2;
+        Fri, 28 Feb 2025 02:40:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1740739167; x=1772275167;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=RpVjJ+eS+7F71ctZfki5aRuBHw0X6KQZyB8mtCBfchA=;
-  b=QeHRfoEsb8k5kz2h2UKyKBGRAgHbzyUo4BKXRod5qRb5hXFicKcCokAY
-   BJJIMyuxZHuNB9amaveVr0CHAiCO263aGNEswg0NE1aGwO7I2F+n/Fm4y
-   sPOzrAT41XzNyn7p5gTHBOz5iiL2xTftPcCDwovMluCaShwb5nnQFdFiP
-   URdNcXsipjw3tLVWeKx45jH0uB617UlI3bnLPOiXQlIDvDwVvzrSP+9Cq
-   UMpjM9DcLgi89ev3/OBp2brU0y26+3sviLcuw3G5JOHe53Acay1Qdgw9U
-   R8HFFDfP6VI8NTKnm8JxrvaXh4ARBWsRwi9fDzMoeXybfa6sd5F3tfV6T
-   g==;
-X-CSE-ConnectionGUID: rI06XAEPSm6r6OtHMCwJYw==
-X-CSE-MsgGUID: j8b/yOltQb+YmuY1HtO7Xw==
-X-IronPort-AV: E=Sophos;i="6.13,322,1732575600"; 
-   d="scan'208";a="42171994"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 28 Feb 2025 11:39:25 +0100
-X-CheckPoint: {67C1925D-57-3D6C4912-C3EB4537}
-X-MAIL-CPID: 26D5FDDFA77A91E5CA992F49FAF7A837_5
-X-Control-Analysis: str=0001.0A002119.67C1925D.0153,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6891D1688B1;
-	Fri, 28 Feb 2025 11:39:19 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1740739161;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RpVjJ+eS+7F71ctZfki5aRuBHw0X6KQZyB8mtCBfchA=;
-	b=NEcQE8XIjhcqF2KKA+UEYWMrbZpRe6X3H7k3RIPwgT4AIbWTXk6EFHXfHcPv61kztMpTZJ
-	FCxYzYzljgaxSxM/FLH+p2RVugvTr7OwkWFSaqjCozwlai1tVUJwxQtqzsgzj0bwnqVWXW
-	ouq1uzgIqe7F7jl8KfI05HqjsyFABkUxDW81pBzPVrxoWkOobktCPBPzRd32PZOB+ERUCj
-	Jbai33oca3kGvwNOhzVgF5AmMVUutfqWHK1fE5x/VD2PiGy1i9AlmcvgPsmj1m/Tkmd/uT
-	AGX09o9p8esk0xA53juuLUh+SH8NORt1X2cBt5pJYCm01Hj/jBNyCdxjmNlHIA==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Marek Vasut <marex@denx.de>, Frank Li <Frank.li@nxp.com>
-Cc: linux-arm-kernel@lists.infradead.org,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>,
- Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Liviu Dudau <liviu.dudau@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Sebastian Reichel <sre@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
- Steven Price <steven.price@arm.com>, Thomas Zimmermann <tzimmermann@suse.de>,
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- imx@lists.linux.dev
-Subject: Re: [PATCH 9/9] arm64: dts: imx95: Describe Mali G310 GPU
-Date: Fri, 28 Feb 2025 11:39:18 +0100
-Message-ID: <3332618.oiGErgHkdL@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <Z8DlYjq+87sjS9cU@lizhi-Precision-Tower-5810>
-References: <20250227170012.124768-1-marex@denx.de>
- <db903f36-e897-42ed-be46-f0b035303233@denx.de>
- <Z8DlYjq+87sjS9cU@lizhi-Precision-Tower-5810>
+        d=gmail.com; s=20230601; t=1740739201; x=1741344001; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Fi80ttWsp61rFaPMRzcRoSBsD+icdSl9C9Rjx5VP+3M=;
+        b=e/94MfUobLMist0dmvwGu9hSgqeIHdNrePuXqAwNjH29grbI9qVEqMAM8vWIumurGF
+         wfjA1RrGvw+aCGELuP6iWf2PD6wR65fd4Y4LEY3i6J7NwntMZveQ9qu9ffAC1vmO3NIu
+         k7pPNeS8OiaOv8QnMNHHrc5zQrLb6Vp87AOlTERmHHcqid8D2eWwwEIgbhygUFRMoMKa
+         gmh1JCrHfNDuQi5fZJuTyFSGoXQEgzTmdngk9LiKzHOXpoHMR8azDtFWMUzbFUS/WjEQ
+         r5fkqlxvIGAi5PQulijWZT2Lxy3U/vciX3EImH9aFC2GaXoNMIRTydxr/lL3kCD7m0R4
+         RWOQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740739201; x=1741344001;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Fi80ttWsp61rFaPMRzcRoSBsD+icdSl9C9Rjx5VP+3M=;
+        b=KGCmfDAAqszlJI5e/e2mE3cb8jbIrOfP7jDL8QK1aV2aQ7U+yYaQ4Yc79sFM+KBsUV
+         t8Tw2zMQ6Em6QUbDH7aojAX5fY00JZl0Q/HbnoFy7o5P8WfW5qLoApdu2OJ+99SR7+K7
+         io4prAoMOlY8hxb7IcZA0L96dEXHJ2EUC9XDnZ746y2EPYFcn6Z6YUrpBS3JsCdliOUM
+         B0xyXP0da5Vnz4D3kUj2JmGTyWuu/lOGWNGLCOTe/BWI3EsLThwDasjPAPFw4Q580VH6
+         ppGfwqeMgyfqYF3rS69hRipol2/GRSnvi04kfi9+CWpe4NcJ8WWW5udmzxnSWGHIhcFS
+         y6Xw==
+X-Forwarded-Encrypted: i=1; AJvYcCURXisciKTwGHpMDYNErEEnk1UeNcZgHaDJqzDHpNl2WNG9rKU3mwR7ryO8bCrlbhn5Z3TxvmmLiRJd9/RaMB2X@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyf12P1dIG2JqqrpdemXNEZMYLpztNn2Ai2XpPVuvz7o4nQXRNT
+	OaXKR1LSchKo9Tuh59c/nhRzTGI9Lxe2L4s2uBkdcAP80+SRHElF
+X-Gm-Gg: ASbGnctyNj/Vyx6MbZxOkh2gz/16cof34XUMpEQKKZmmPQvC1iI3k8kYtQ9Z1H7ppFq
+	ApTEYTaT6bHEpIW3K7y+66Y4nsyGIpYxaXCa+7VrP0lJcu0a2K4GlOZCN0FvR2q+vCqqEcPaWJ+
+	rnh7Q2IjyPKYIN4ZYBa6Bvm0eAnvXrBMtagOGY90fwjGWtq/Pr2lv0J5LJX16fzv7xQEW/gJWD4
+	NlOcz1BxY6ur4yHYQ7TkUNlhNxOB6NKJnRMQ5k+y2NhuU7Y2Ut5PF0/KQmvgqyxa+UGsxhAtp/m
+	jRbjJp/BzAO55H13iERNsc+eDHFblK+TamRJKSliPA==
+X-Google-Smtp-Source: AGHT+IFZ+9Q0/YRqcF3z6Eyi5tLIR/2s8CMepw/0ILneK1BAb1xfCwMbUhjYYRJlgvj6BOKAvv7DEg==
+X-Received: by 2002:a05:600c:154f:b0:439:86c4:a8ec with SMTP id 5b1f17b1804b1-43ba6704456mr27891215e9.15.1740739200632;
+        Fri, 28 Feb 2025 02:40:00 -0800 (PST)
+Received: from eichest-laptop.toradex.int ([2a02:168:af72:0:31d5:4145:8035:cb68])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43b73703caesm52078855e9.12.2025.02.28.02.39.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 Feb 2025 02:40:00 -0800 (PST)
+From: Stefan Eichenberger <eichest@gmail.com>
+To: vkoul@kernel.org,
+	kishon@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	p.zabel@pengutronix.de,
+	tharvey@gateworks.com,
+	hongxing.zhu@nxp.com,
+	francesco.dolcini@toradex.com
+Cc: linux-phy@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 0/2] phy: freescale: imx8m-pcie: fix and cleanup phy
+Date: Fri, 28 Feb 2025 11:38:32 +0100
+Message-ID: <20250228103959.47419-1-eichest@gmail.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_023928_167772_A1C7E3FB 
-X-CRM114-Status: GOOD (  20.69  )
+X-CRM114-CacheID: sfid-20250228_024002_986581_C0975C91 
+X-CRM114-Status: UNSURE (   6.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,69 +105,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 27. Februar 2025, 23:21:22 CET schrieb Frank Li:
-> On Thu, Feb 27, 2025 at 10:34:20PM +0100, Marek Vasut wrote:
-> > On 2/27/25 10:27 PM, Frank Li wrote:
-> >
-> > [...]
-> >
-> > > > > > +		gpu: gpu@4d900000 {
-> > > > > > +			compatible =3D "fsl,imx95-mali", "arm,mali-valhall-csf";
-> > > > > > +			reg =3D <0 0x4d900000 0 0x480000>;
-> > > > > > +			clocks =3D <&scmi_clk IMX95_CLK_GPU>;
-> > > > > > +			clock-names =3D "core";
-> > > > > > +			interrupts =3D <GIC_SPI 288 IRQ_TYPE_LEVEL_HIGH>,
-> > > > > > +				     <GIC_SPI 289 IRQ_TYPE_LEVEL_HIGH>,
-> > > > > > +				     <GIC_SPI 290 IRQ_TYPE_LEVEL_HIGH>;
-> > > > > > +			interrupt-names =3D "gpu", "job", "mmu";
-> > > > > > +			mali-supply =3D <&gpu_fixed_reg>;
-> > > > > > +			operating-points-v2 =3D <&gpu_opp_table>;
-> > > > > > +			power-domains =3D <&scmi_devpd IMX95_PD_GPU>, <&scmi_perf I=
-MX95_PERF_GPU>;
-> > > > > > +			power-domain-names =3D "mix", "perf";
-> > > > > > +			resets =3D <&gpu_blk_ctrl 0>;
-> > > > > > +			#cooling-cells =3D <2>;
-> > > > > > +			dynamic-power-coefficient =3D <1013>;
-> > > > > > +			status =3D "disabled";
-> > > > >
-> > > > > GPU is internal module, which have not much dependence with other=
- module
-> > > > > such as pinmux. why not default status is "disabled". Supposed gp=
-u driver
-> > > > > will turn off clock and power if not used.
-> > > > My thinking was that there are MX95 SoC with GPU fused off, hence i=
-t is
-> > > > better to keep the GPU disabled in DT by default. But I can also ke=
-ep it
-> > > > enabled and the few boards which do not have MX95 SoC with GPU can
-> > > > explicitly disable it in board DT.
-> > > >
-> > > > What do you think ?
-> > >
-> > > GPU Fuse off should use access-control, see thread
-> > > https://lore.kernel.org/imx/20250207120213.GD14860@localhost.localdom=
-ain/
-> > Did that thread ever go anywhere ? It seems there is no real conclusion=
-, is
-> > there ? +Cc Alex .
->=20
-> The direction is use access-control to indicate fuse disable. Only
-> implement detail is under discussion.
+The imx8m-pcie PHY PLL fails to lock under certain conditions when
+returning from suspend. This is resolved by asserting the PHY reset when
+powering off the PHY during suspend. This ensures that the PHY is
+properly reset when powering on again in resume.
 
-Well, the discussion ended up to be more complicated for i.MX8M. For i.MX95
-things are a bit easier, as fuses and clocks are controlled by System
-Manager (SM), accessed using SCMI. [1] is more important for imx95.
+Stefan Eichenberger (2):
+  phy: freescale: imx8m-pcie: cleanup reset logic
+  phy: freescale: imx8m-pcie: assert phy reset and perst in power off
 
-Best regards
-Alexander
+ drivers/phy/freescale/phy-fsl-imx8m-pcie.c | 24 ++++++++++++++--------
+ 1 file changed, 16 insertions(+), 8 deletions(-)
 
-[1] https://lore.kernel.org/all/20250204-imx-ocotp-v8-0-01be4a4bb045@nxp.co=
-m/
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
+-- 
+2.45.2
 
 
