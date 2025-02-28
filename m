@@ -4,86 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52678C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 20:57:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0CDCC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 20:59:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oMsvCa0RZBbh1a14dfeYFwcIWgC4rKUWn90abl03P5w=; b=4WRbwPFPqmB+VB14zYfdBr0QLO
-	DVjKIvmyuHCzaWcDRLA1iEKGtUSJOKoVBPKNy75G4wGClNTzi+lGKJVmJLFY3YB3S3C9qTNbLvVsy
-	4aINmsFodjuk/eKDMGlo7fMVmzaqn4bm/0R3V5vGfQarbMuiraL/q1IU5LVep/g8DqhJqEV8wdm29
-	tQhrl101XQBH9pzR0o+Ylk/6abJDpXlkemyc47u40CXo1v8yBlLI91Vl8w9zve75VR3kD2hoOCDnX
-	SGXhxsTMm2vDu7xSixHOIxo04oIxZcQ/eOEvmyzUWg9d0knM4GY8W+QY7QQZAdtBM/CyRA4NrpsG1
-	ncr/gBsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1+ex/PI1EKCfFK1H+WPecE98rrnjNmYMX0MiAFRCvj8=; b=swXVmfK9z97KXl7enI4xr2KfTP
+	IEhzZPBgcJLHdijeCzM2zc/m7440RUWI/80DuCBPvVu5OM0luKy3U7n3OSYLk5Vwxa8DBLcjOHjpj
+	V+dcrcNDnvALhmNPaVKjW2GkZ9RDJes60lZWMcXIm4MLJhytCYvPPHtUKBKpKozCOhTADVYUHgVBV
+	MIxNeD+Ho+/enNSRijBbYa6KUBjFpSK5Kv4gp5Egqx8j/aPGvPca44Wy63GEkzEkYgMsiyzs6kMY4
+	PYqfGP7ws3k4Aq51Fa+nA7XxvXuVkbh57fqHJSgLkce71jKmye1+IUL9BFclLZsbz4soj3sGzGveX
+	E0iTESTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to7QR-0000000CfGK-3E6L;
-	Fri, 28 Feb 2025 20:57:39 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to6qk-0000000CZVy-2Fvm;
-	Fri, 28 Feb 2025 20:20:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9F51D5C62F8;
-	Fri, 28 Feb 2025 20:18:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5A39C4CED6;
-	Fri, 28 Feb 2025 20:20:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740774045;
-	bh=bbzE7bwrYKBUNI91akgimXhe+iLOXIRvjnh9wKEiBG0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kfFIn91KSNHhn07yKT9l2oOU8euWhSQeLxxD1+CP5Lmkt8N8i6O/Zn9pEs4NGiCJj
-	 qJEjrvhzqZMOIYECg3O0McklsQMWurW5bICaO6Eqlily54ppx+yXiPrIfcDSkbmmEy
-	 mgA+RTO662SeKhJ/BeytWpw2yGPCMjmkdX2P8FuJVAKh+rj8Ay73HcAZ8F0mxABP/0
-	 t/Etv53LQUPDT8LDrOxXxcp5ZTSXxggaTWVIPD4REQMGOIcj+m3X88aLIXEmmDQWmj
-	 830FksBD61RtpQPNDjonn0bpZ2XqD0baA3+sDkYSi8hDY+Sf6kIPnRC3EZcEYLP+NU
-	 hO0vT2n2HTtbg==
-Date: Fri, 28 Feb 2025 22:20:23 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Pratyush Yadav <pratyush@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>,
-	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v4 00/14] kexec: introduce Kexec HandOver (KHO)
-Message-ID: <Z8Iah6FgrhSzApwf@kernel.org>
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <mafs0cyf4ii4k.fsf@kernel.org>
+	id 1to7Rx-0000000CfQh-1hzC;
+	Fri, 28 Feb 2025 20:59:13 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1to6s3-0000000CZuJ-2g63
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Feb 2025 20:22:08 +0000
+Received: from [192.168.35.166] (c-24-22-154-137.hsd1.wa.comcast.net [24.22.154.137])
+	by linux.microsoft.com (Postfix) with ESMTPSA id C698A210D0EA;
+	Fri, 28 Feb 2025 12:22:04 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com C698A210D0EA
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1740774125;
+	bh=1+ex/PI1EKCfFK1H+WPecE98rrnjNmYMX0MiAFRCvj8=;
+	h=Date:Cc:Subject:To:References:From:In-Reply-To:From;
+	b=AHwXlfxC/UwT2KDJZxxxubZgc0m3IVcGilsc4NKNEzIU5QifQ07agHrbNmiy942b/
+	 rGO0voh/5Ip81GdgnjtJf1upTMe1spMlPxdqIAknZzNZF4SIv/ruxvWbY+bmOnnn9V
+	 AkU2wGDVWiIRjauUiCOlel9XnD8iCjZ/Xdt+LH3g=
+Message-ID: <9254eaa1-8ff0-4dd6-a443-5f127049bdaa@linux.microsoft.com>
+Date: Fri, 28 Feb 2025 12:22:04 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <mafs0cyf4ii4k.fsf@kernel.org>
+User-Agent: Mozilla Thunderbird
+Cc: eahariha@linux.microsoft.com,
+ Nuno Das Neves <nunodasneves@linux.microsoft.com>,
+ linux-hyperv@vger.kernel.org, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org, kys@microsoft.com,
+ haiyangz@microsoft.com, wei.liu@kernel.org, mhklinux@outlook.com,
+ decui@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
+ tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, hpa@zytor.com, daniel.lezcano@linaro.org,
+ joro@8bytes.org, robin.murphy@arm.com, arnd@arndb.de,
+ jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
+ skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com,
+ ssengar@linux.microsoft.com, apais@linux.microsoft.com,
+ Tianyu.Lan@microsoft.com, stanislav.kinsburskiy@gmail.com,
+ gregkh@linuxfoundation.org, vkuznets@redhat.com, prapal@linux.microsoft.com,
+ muislam@microsoft.com, anrayabh@linux.microsoft.com, rafael@kernel.org,
+ lenb@kernel.org, corbet@lwn.net
+Subject: Re: [PATCH v5 01/10] hyperv: Convert Hyper-V status codes to strings
+To: Roman Kisel <romank@linux.microsoft.com>
+References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1740611284-27506-2-git-send-email-nunodasneves@linux.microsoft.com>
+ <74af19c4-639f-4bcc-b667-b5f102bbb312@linux.microsoft.com>
+ <8338dd00-3aa4-418f-a547-1c19623358cb@linux.microsoft.com>
+ <49a69fe3-fca5-426d-999d-61ee0c8f60f3@linux.microsoft.com>
+ <70b62e52-639a-4026-9a52-102d1de46ffd@linux.microsoft.com>
+ <212cc582-845d-42b2-89f2-1e9579f752ec@linux.microsoft.com>
+From: Easwar Hariharan <eahariha@linux.microsoft.com>
+Content-Language: en-US
+In-Reply-To: <212cc582-845d-42b2-89f2-1e9579f752ec@linux.microsoft.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_122046_683263_39FE624B 
-X-CRM114-Status: GOOD (  28.92  )
+X-CRM114-CacheID: sfid-20250228_122207_729024_8BCEAC71 
+X-CRM114-Status: GOOD (  37.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,91 +90,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pratyush,
-
-On Wed, Feb 26, 2025 at 08:08:27PM +0000, Pratyush Yadav wrote:
-> Hi Mike,
+On 2/28/2025 9:20 AM, Roman Kisel wrote:
 > 
-> On Thu, Feb 06 2025, Mike Rapoport wrote:
 > 
-> > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-> >
-> > Hi,
-> >
-> > This a next version of Alex's "kexec: Allow preservation of ftrace buffers"
-> > series (https://lore.kernel.org/all/20240117144704.602-1-graf@amazon.com),
-> > just to make things simpler instead of ftrace we decided to preserve
-> > "reserve_mem" regions.
+> On 2/27/2025 3:25 PM, Easwar Hariharan wrote:
+>> On 2/27/2025 3:08 PM, Roman Kisel wrote:
+> 
 > [...]
 > 
-> I applied the patches on top of v6.14-rc1 and tried them out on an x86
-> qemu machine . When I do a plain KHO activate and kexec, I get the below
-> errors on boot. This causes networking to fail on the VM. The errors are
-> consistent and happen every kexec-reboot, though fairly late in boot
-> after systemd tries to bring up network. The same setup has worked fine
-> with Alex's v3 of KHO patches.
+>>> Would be great to learn the details to understand how this function is
+>>> going to improve the situation:
+>>>
+>>> 1. How come the hex error code was useless, what is not matching
+>>>     anything in the Linux headers?
+>>
+>> It doesn't match anything in the Linux headers, but it's an NTSTATUS, not HVSTATUS.
+>>
 > 
-> Do you see anything obvious that might cause this? I can try to debug
-> this tomorrow, but if it rings any loud bells it would be nice to know.
+> That is what it looks like from the code, I posted the details in the
+> parallel thread.
+> 
+> Here is a fix:
+> https://lore.kernel.org/linux-hyperv/20250227233110.36596-1-romank@linux.microsoft.com/
+> 
+> Also I think the commit description in your patch
+> 
+> https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d2138eab8cde61e0e6f62d0713e45202e8457d6d
+> 
+> conflates the hypervisor (ours runs bare-metal, Type 1) and the VMMs
+> (Virtual Machine Monitors)+VSPs (Virtual Service Providers, e.g StorVSP
+> that implements SCSI) running in the host/root/dom0 partition.
 
-Thanks for the report!
-It didn't ring any bells, but after I've found the issue and a
-fast-and-dirty fix.
+Agreed, that was what I was led to believe, your patch would help with that
+miscommunication, though not in its current form. See my review comment in that
+thread.
 
-The scratch areas are allocated from high addresses and there is no scratch
-memory to satisfy memblock_alloc_low() in swiotb, so second kernel produces
-a couple of 
+> 
+>> Coming from the PoV of a user, it would be a much more useful message to see:
+>>
+>> [  249.512760] hv_storvsc fd1d2cbd-ce7c-535c-966b-eb5f811c95f0: tag#683 cmd 0x28 status: scsi 0x2 srb 0x4 hv STATUS_UNSUCCESSFUL
+>>
+>> than
+>>
+>> [  249.512760] hv_storvsc fd1d2cbd-ce7c-535c-966b-eb5f811c95f0: tag#683 cmd 0x28 status: scsi 0x2 srb 0x4 hv 0xc0000001
+>>
+> 
+> It is likely that the PoV of a user that you've mentioned is actually
+> a PoV of a (kernel) developer.
 
-software IO TLB: swiotlb_memblock_alloc: Failed to allocate 67108864 bytes for tlb structure
+Actually, no, it's PoV of the WSL users that are having the discussion in
+the linked github issue. FWIW, that issue also occurred in Azure with multiple
+incidents coming into our queue because of the unusable flood of error messages.
 
-and without those buffers e1000 can't dma :(
+> It is hard to imagine that folks running
+> web sites, DB servers, LoBs, LLMs, etc. in Hyper-V VMs care about the
+> lowest software level of the virt stack in the form of the symbolic
+> name or the hex code. They need their VMs to be reliable or suggest
+> what the user may try if a configuration error is suspected.
+> 
+> To make the error log message useful to the user, the message should
+> mention ways of remediation or at least hint what might've gotten
+> wedged. Without that, that's only useful for the people who work with
+> the kernel code proper or the kernel interface to the user land.
 
-A quick fix would be to add another scratch area in the lower memory
-(below). I'll work on a better fix.
+There's a step between seeing the issue and fixing it that you're missing,
+i.e. the reporting.
 
-diff --git a/kernel/kexec_handover.c b/kernel/kexec_handover.c
-index c26753d613cb..37bb54cdb130 100644
---- a/kernel/kexec_handover.c
-+++ b/kernel/kexec_handover.c
-@@ -623,13 +623,13 @@ static phys_addr_t __init scratch_size(int nid)
- static void kho_reserve_scratch(void)
- {
- 	phys_addr_t addr, size;
--	int nid, i = 1;
-+	int nid, i = 2;
- 
- 	if (!kho_enable)
- 		return;
- 
- 	/* FIXME: deal with node hot-plug/remove */
--	kho_scratch_cnt = num_online_nodes() + 1;
-+	kho_scratch_cnt = num_online_nodes() + 2;
- 	size = kho_scratch_cnt * sizeof(*kho_scratch);
- 	kho_scratch = memblock_alloc(size, PAGE_SIZE);
- 	if (!kho_scratch)
-@@ -644,6 +644,15 @@ static void kho_reserve_scratch(void)
- 	kho_scratch[0].addr = addr;
- 	kho_scratch[0].size = size;
- 
-+	addr = 	memblock_phys_alloc_range(size, CMA_MIN_ALIGNMENT_BYTES,
-+					  MEMBLOCK_LOW_LIMIT,
-+					  ARCH_LOW_ADDRESS_LIMIT);
-+	if (!addr)
-+		goto err_free_scratch_areas;
-+
-+	kho_scratch[1].addr = addr;
-+	kho_scratch[1].size = size;
-+
- 	for_each_online_node(nid) {
- 		size = scratch_size(nid);
- 		addr = memblock_alloc_range_nid(size, CMA_MIN_ALIGNMENT_BYTES,
+An issue that says "flood of hv_storvsc errors reporting status
+unsuccessful" is better than the same without that status information:
+https://github.com/microsoft/WSL/issues/9173
 
-> -- 
-> Regards,
-> Pratyush Yadav
+> 
+> So I'd think that the hex error codes from the hypervisor give the user
+> exactly as much as the error symbolic names do to get the system to the
+> desired state: nothing. 
+I continue to disagree, seeing HV_STATUS_NO_RESOURCES is better than 0x1D,
+because the user may think to look at `top` or `free -h` or similar to see
+what could be killed to improve the situation.
+
+> Even less when the error reported "Unknown" :)
+
+I agree on the uselessness of "Unknown" to the user, except as already mentioned
+below, as a prompt for the code to be updated.
+
+> 
+>>> 2. How having "Unknown" in the log can possibly be better?
+>>
+>> IMHO, seeing "Unknown" in an error report means that there's a new return value
+>> that needs to be mapped to errno in hv_status_to_errno() and updated here as well.
+>>
+> 
+> It means that to the developer. To the user, it means the developers
+> messed something up and to make matters even worse they didn't leave any
+> breadcrumbs (e.g. the hex code) to see what's wrong to help the user and
+> themselves: there is just that "Unknown" thing in the log.
+
+I think Nuno's compromise addresses this very well, to also print the hex code.
+
+> 
+>>> 3. Given that the select hv status codes and the proposed strings have
+>>>     1:1 correspondence, and there is the 1:N catch-all case for the
+>>>     "Unknown", how's that better?
+>>>
+>>
+>> I didn't really follow this question, but I suppose the answer to Q2 answers this as
+>> well. If not, please expand and I'll try to answer.
+>>
+> 
+> Sorry about that chunk, hit "Send" without looking the e-mail over
+> another time. Appreciate the discussion very much!
+> 
+> 
+>> Thanks,
+>> Easwar (he/him)
 > 
 
--- 
-Sincerely yours,
-Mike.
 
