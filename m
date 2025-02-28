@@ -4,54 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5128CC19776
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 14:49:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 891ABC19776
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 14:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dkQkBvVswrZOpA817JLlPCnffY9Hxs5eJyf2q4kORgg=; b=riBckpbzFHnh+EXj1HiG7iK3yk
-	DBddeg3OOVC53jH1rmoW+mvtmc8YGcAU4RsGUgTyDAbH8vjt+n3hJeLZ/i7VdvSuOWueoB/CEzNka
-	H4PpZ0Uu6rRtfofC8ENznkcngnpptWyISyjv383Q7nuwJPIR/osruoxVIBz2p/pTbFc+XTryj+EIM
-	ik7sOOjpnWqoc2HG6X2sl/rnIdOPvD2UARFLoiilJgXqoQ/P48rdHYduzR8j7JPfWwPXw1lW+sxW9
-	Ten25QmuNWbMf4w5/MP7LPZoVsP3XHUmRSvV5aiHzf6SC5jgjY1XJ/3/9mCDFqfvScoXwADykaaij
-	TgX/LFeg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b4vxpW1RpBpjqviswUwVST1lAGc/pkKLCZyeGVk5xGU=; b=f87Ot7qwZbpaJ3CEJgh/dhVoU2
+	q6aJAF2FM3fHtmQWTz9cgJZZjdm6pq3rvmhZYvgS7d9jE4X/9hXsEGdu/zQrViYTnmGlTnh8W0NY3
+	5WxuPOLCyDKG+hF05lNAUg2lY9AxsLUH06CuR+7WWJ8RooWvWZZBYZTAMl/pD67bkQN4Sd5HUrxim
+	vDRBeUoBMCjUtf1NYPdyWiweo19S78/x/sn8P1w9DAQK/m8lXOwr5V7jGN7WxKAvs/7ybJ7Rm9gPE
+	YV0ccAlyknc84qtDC2MRWF/UMqewsc5AVVbtRpwJbGrMe+MXFdHJ2tfoXyu4qV0+vXUlyuWMqLFXr
+	YRAsTV6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to1fd-0000000BKT8-2BLn;
-	Fri, 28 Feb 2025 14:48:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to1HW-0000000BFV7-10UO
+	id 1to1hA-0000000BKpj-0ONB;
+	Fri, 28 Feb 2025 14:50:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1to1Qm-0000000BHSO-2Hii
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 14:24:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0566C61F74;
-	Fri, 28 Feb 2025 14:23:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38227C4CEE5;
-	Fri, 28 Feb 2025 14:24:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740752641;
-	bh=khKfY/IBW02PeE8kauJY4wJKQ61VMPyzLS8E+LWvU3I=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=OMQZTc/6QWL4nNe8A8lPHGEuMcdgvvD6ahM/H+K3Jx8mwJ3Co9yx0+M63FUzBELB4
-	 BfA1+x24nR8uUyGJUFv6+JYbYpGfkXTLDMw9H01vV7DWmSVIsUj0dqXLFDpmHqlXtp
-	 FUv6uaVWiDm2fJlYnigkZ2dmeCwlAPtQSg08Pf+NWiRcT3ahg9UvDgMRXpc+AxSbrv
-	 4BEqGWi993HEl9c0D5TarEDv77Cc2haiN+lsJ18TXC7TrQQs5AC4DF9fyGAza5A6+t
-	 LEd3KjIfUMv9KGLOL+a09YfsETfSZkbFT0Q5NMUa0yiUVb0MK0S+j8IP0WO6YnHT1f
-	 o1WGLenDfacBQ==
-Date: Fri, 28 Feb 2025 08:23:59 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Fri, 28 Feb 2025 14:33:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA9311515;
+	Fri, 28 Feb 2025 06:33:50 -0800 (PST)
+Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AE8513F6A8;
+	Fri, 28 Feb 2025 06:33:33 -0800 (PST)
+Date: Fri, 28 Feb 2025 14:33:31 +0000
+From: Andre Przywara <andre.przywara@arm.com>
+To: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai
+ <wens@csie.org>, Samuel Holland <samuel@sholland.org>, Philipp Zabel
+ <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 15/15] clk: sunxi-ng: add support for the A523/T527
+ PRCM CCU
+Message-ID: <20250228143331.42153af3@donnerap.manchester.arm.com>
+In-Reply-To: <3136553.CbtlEUcBR6@jernej-laptop>
+References: <20250214125359.5204-1-andre.przywara@arm.com>
+	<20250214125359.5204-16-andre.przywara@arm.com>
+	<3136553.CbtlEUcBR6@jernej-laptop>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Ryan.Wanner@microchip.com
-In-Reply-To: <cover.1740671156.git.Ryan.Wanner@microchip.com>
-References: <cover.1740671156.git.Ryan.Wanner@microchip.com>
-Message-Id: <174075232975.2756279.6056576336708729694.robh@kernel.org>
-Subject: Re: [PATCH v3 00/21] Enable Power Modes Support for SAMA7D65 SoC
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250228_063336_675508_E1E92772 
+X-CRM114-Status: GOOD (  31.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,140 +69,377 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, conor+dt@kernel.org, alexandre.belloni@bootlin.com, linux-pm@vger.kernel.org, lee@kernel.org, linux@armlinux.org.uk, linux-kernel@vger.kernel.org, sre@kernel.org, p.zabel@pengutronix.de, claudiu.beznea@tuxon.dev, krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 18 Feb 2025 21:42:06 +0100
+Jernej =C5=A0krabec <jernej.skrabec@gmail.com> wrote:
 
-On Thu, 27 Feb 2025 08:51:47 -0700, Ryan.Wanner@microchip.com wrote:
-> From: Ryan Wanner <Ryan.Wanner@microchip.com>
-> 
-> This patch set adds support for low power modes for the SAMA7D65 SoC and
-> the required components and changes for low power modes.
-> 
-> The series includes changes in the asm code to account for the addtional
-> clocks that are in this SoC.
-> 
-> The Device tree additions are to enable all the components needed to
-> keep the SoC in low power mode.
-> 
-> There are some DTB check warnings but that is due to the dt-binding not
-> in the correct .yaml file format.
-> 
-> Changes v1 -> v2:
-> - Add missing compatible for ddr3phy, it is now in both syscon sets.
-> - Fix alphabetical ordering for sama7d65.
-> - Remove the incorrect reorganizing patch.
-> - Remove sama7g5-rtt as a compatible for sama7d65-rtt and add
->   sama7d65-rtt as a compatible wake up source in the pm driver.
-> 
-> Changes from v2 -> v3:
-> - Correct mistake in v2 sfrbu dt-binding patch.
-> - Correct incorrect dt-binding addition and formatting for rtc and rtt bindings.
-> - Add missing SoB tag.
-> - Cleaned up commit message for Backup mode to describe SHDWC is status
->   register is cleared for this SoC.
-> - Cleaned up variable naming and usage for mcks. Changed the mcks number
->   to the correct number of clocks needed to be saved and corrected the
->   ASM code accordingly.
-> - Removed the SHDWC from ULP0 wake-up source as it is not configured as
->   a valid wake-up source for ULP0.
-> - Separated all the DTSI and DTS changes into individual patches.
-> 
-> 
-> Li Bin (1):
->   ARM: at91: pm: fix at91_suspend_finish for ZQ calibration
-> 
-> Ryan Wanner (20):
->   dt-bindings: mfd: syscon: add microchip,sama7d65-ddr3phy
->   dt-bindings: mfd: syscon: add microchip,sama7d65-sfrbu
->   dt-bindings: sram: Add microchip,sama7d65-sram
->   dt-bindings: power: reset: atmel,sama5d2-shdwc: Add
->     microchip,sama7d65-shdwc
->   dt-bindings: reset: atmel,at91sam9260-reset: add
->     microchip,sama7d65-rstc
->   dt-bindings: rtc: at91rm9200: add microchip,sama7d65-rtc
->   dt-bindings: at91rm9260-rtt: add microchip,sama7d65-rtt
->   ARM: at91: Add PM support to sama7d65
->   ARM: at91: pm: add DT compatible support for sama7d65
->   ARM: at91: PM: Add Backup mode for SAMA7D65
->   ARM: at91: pm: Enable ULP0/ULP1 for SAMA7D65
->   power: reset: at91-sama5d2_shdwc: Add sama7d65 PMC
->   ARM: dts: microchip: sama7d65: Add SRAM and DRAM components support
->   ARM: dts: microchip: sama7d65: Add Reset Controller to sama7d65 SoC
->   ARM: dts: microchip: sama7d65: Add Shutdown controller support
->   ARM: dts: microchip: sama7d65: Add RTT and GPBR Support for sama7d65
->     SoC
->   ARM: dts: microchip: sama7d65: Add RTC support for sama7d65
->   ARM: dts: microchip: sama7d65: Add SFRBU support to sama7d65
->   ARM: dts: microchip: sama7d65: Enable shutdown controller
->   ARM: dts: microchip: sama7d65: Add RTT timer to curiosity board
-> 
->  .../devicetree/bindings/mfd/syscon.yaml       |   4 +
->  .../power/reset/atmel,sama5d2-shdwc.yaml      |   5 +
->  .../reset/atmel,at91sam9260-reset.yaml        |   3 +
->  .../bindings/rtc/atmel,at91rm9200-rtc.yaml    |   4 +-
->  .../bindings/rtc/atmel,at91sam9260-rtt.yaml   |   1 +
->  .../devicetree/bindings/sram/sram.yaml        |   1 +
->  .../dts/microchip/at91-sama7d65_curiosity.dts |  13 +++
->  arch/arm/boot/dts/microchip/sama7d65.dtsi     |  77 +++++++++++++
->  arch/arm/mach-at91/Kconfig                    |   1 +
->  arch/arm/mach-at91/pm.c                       |  47 +++++---
->  arch/arm/mach-at91/pm.h                       |   1 +
->  arch/arm/mach-at91/pm_data-offsets.c          |   2 +
->  arch/arm/mach-at91/pm_suspend.S               | 101 ++++++++++++++++--
->  drivers/power/reset/at91-sama5d2_shdwc.c      |   1 +
->  14 files changed, 238 insertions(+), 23 deletions(-)
-> 
-> --
-> 2.43.0
-> 
-> 
-> 
+Hi,
 
+> Dne petek, 14. februar 2025 ob 13:53:59 Srednjeevropski standardni =C4=8D=
+as je Andre Przywara napisal(a):
+> > The A523/T527 SoCs have clock/reset controls in the PRCM part, like many
+> > previous SoCs. For a change, the whole PRCM is documented in the A523
+> > manual, including the system bus tree, so we can describe all those
+> > clocks correctly based on that. There layout seems to be derived from
+> > the H6 and H616 PRCM CCUs, though there are more clocks, and many clocks
+> > have subtly changed.
+> >=20
+> > Describe all the mod and gate clocks, including the three bus clocks
+> > (R_AHB, R_APB0, and R_APB1).
+> >=20
+> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> > ---
+> >  drivers/clk/sunxi-ng/Kconfig             |   5 +
+> >  drivers/clk/sunxi-ng/Makefile            |   2 +
+> >  drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c | 245 +++++++++++++++++++++++
+> >  drivers/clk/sunxi-ng/ccu-sun55i-a523-r.h |  14 ++
+> >  4 files changed, 266 insertions(+)
+> >  create mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
+> >  create mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523-r.h
+> >=20
+> > diff --git a/drivers/clk/sunxi-ng/Kconfig b/drivers/clk/sunxi-ng/Kconfig
+> > index 04efbda847cf9..5830a9d87bf25 100644
+> > --- a/drivers/clk/sunxi-ng/Kconfig
+> > +++ b/drivers/clk/sunxi-ng/Kconfig
+> > @@ -57,6 +57,11 @@ config SUN55I_A523_CCU
+> >  	default y
+> >  	depends on ARM64 || COMPILE_TEST
+> > =20
+> > +config SUN55I_A523_R_CCU
+> > +	tristate "Support for the Allwinner A523/T527 PRCM CCU"
+> > +	default y
+> > +	depends on ARM64 || COMPILE_TEST
+> > +
+> >  config SUN4I_A10_CCU
+> >  	tristate "Support for the Allwinner A10/A20 CCU"
+> >  	default y
+> > diff --git a/drivers/clk/sunxi-ng/Makefile b/drivers/clk/sunxi-ng/Makef=
+ile
+> > index 01a887f7824bb..82e471036de69 100644
+> > --- a/drivers/clk/sunxi-ng/Makefile
+> > +++ b/drivers/clk/sunxi-ng/Makefile
+> > @@ -34,6 +34,7 @@ obj-$(CONFIG_SUN50I_H6_CCU)	+=3D sun50i-h6-ccu.o
+> >  obj-$(CONFIG_SUN50I_H6_R_CCU)	+=3D sun50i-h6-r-ccu.o
+> >  obj-$(CONFIG_SUN50I_H616_CCU)	+=3D sun50i-h616-ccu.o
+> >  obj-$(CONFIG_SUN55I_A523_CCU)	+=3D sun55i-a523-ccu.o
+> > +obj-$(CONFIG_SUN55I_A523_R_CCU)	+=3D sun55i-a523-r-ccu.o
+> >  obj-$(CONFIG_SUN4I_A10_CCU)	+=3D sun4i-a10-ccu.o
+> >  obj-$(CONFIG_SUN5I_CCU)		+=3D sun5i-ccu.o
+> >  obj-$(CONFIG_SUN6I_A31_CCU)	+=3D sun6i-a31-ccu.o
+> > @@ -60,6 +61,7 @@ sun50i-h6-ccu-y			+=3D ccu-sun50i-h6.o
+> >  sun50i-h6-r-ccu-y		+=3D ccu-sun50i-h6-r.o
+> >  sun50i-h616-ccu-y		+=3D ccu-sun50i-h616.o
+> >  sun55i-a523-ccu-y		+=3D ccu-sun55i-a523.o
+> > +sun55i-a523-r-ccu-y		+=3D ccu-sun55i-a523-r.o
+> >  sun4i-a10-ccu-y			+=3D ccu-sun4i-a10.o
+> >  sun5i-ccu-y			+=3D ccu-sun5i.o
+> >  sun6i-a31-ccu-y			+=3D ccu-sun6i-a31.o
+> > diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c b/drivers/clk/sun=
+xi-ng/ccu-sun55i-a523-r.c
+> > new file mode 100644
+> > index 0000000000000..0dafc38370f22
+> > --- /dev/null
+> > +++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
+> > @@ -0,0 +1,245 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * Copyright (C) 2024 Arm Ltd.
+> > + * Based on the D1 CCU driver:
+> > + *   Copyright (c) 2020 huangzhenwei@allwinnertech.com
+> > + *   Copyright (C) 2021 Samuel Holland <samuel@sholland.org>
+> > + */
+> > +
+> > +#include <linux/clk-provider.h>
+> > +#include <linux/module.h>
+> > +#include <linux/platform_device.h>
+> > +
+> > +#include "ccu_common.h"
+> > +#include "ccu_reset.h"
+> > +
+> > +#include "ccu_gate.h"
+> > +#include "ccu_mp.h"
+> > +
+> > +#include "ccu-sun55i-a523-r.h"
+> > +
+> > +static const struct clk_parent_data r_ahb_apb_parents[] =3D {
+> > +	{ .fw_name =3D "hosc" },
+> > +	{ .fw_name =3D "losc" },
+> > +	{ .fw_name =3D "iosc" },
+> > +	{ .fw_name =3D "pll-periph" },
+> > +	{ .fw_name =3D "pll-audio" }, =20
+>=20
+> I believe pll-periph has /3 divider and pll-audio x4 multiplier.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+Well, it's actually worse, since the audio PLL is the one from the MCU
+CCU (PLL_AUDIO1), which we don't support yet.
+But those are just the names used in the DT, should they actually reflect
+the dividers and multipliers in their string?
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+> > +};
+> > +static SUNXI_CCU_M_DATA_WITH_MUX(r_ahb_clk, "r-ahb",
+> > +				 r_ahb_apb_parents, 0x000,
+> > +				 0, 5,	/* M */
+> > +				 24, 3,	/* mux */
+> > +				 0);
+> > +
+> > +static SUNXI_CCU_M_DATA_WITH_MUX(r_apb0_clk, "r-apb0",
+> > +				 r_ahb_apb_parents, 0x00c,
+> > +				 0, 5,	/* M */
+> > +				 24, 3,	/* mux */
+> > +				 0);
+> > +
+> > +static SUNXI_CCU_M_DATA_WITH_MUX(r_apb1_clk, "r-apb1",
+> > +				 r_ahb_apb_parents, 0x010,
+> > +				 0, 5,	/* M */
+> > +				 24, 3,	/* mux */
+> > +				 0);
+> > +
+> > +static SUNXI_CCU_P_DATA_WITH_MUX_GATE(r_cpu_timer0, "r-timer0",
+> > +				      r_ahb_apb_parents, 0x100,
+> > +				      1, 3,	/* P */
+> > +				      4, 3,	/* mux */
+> > +				      BIT(0),
+> > +				      0);
+> > +static SUNXI_CCU_P_DATA_WITH_MUX_GATE(r_cpu_timer1, "r-timer1",
+> > +				      r_ahb_apb_parents, 0x104,
+> > +				      1, 3,	/* P */
+> > +				      4, 3,	/* mux */
+> > +				      BIT(0),
+> > +				      0);
+> > +static SUNXI_CCU_P_DATA_WITH_MUX_GATE(r_cpu_timer2, "r-timer2",
+> > +				      r_ahb_apb_parents, 0x108,
+> > +				      1, 3,	/* P */
+> > +				      4, 3,	/* mux */
+> > +				      BIT(0),
+> > +				      0);
+> > +
+> > +static SUNXI_CCU_GATE_HW(bus_r_timer_clk, "bus-r-timer", &r_ahb_clk.co=
+mmon.hw,
+> > +			 0x11c, BIT(0), 0);
+> > +static SUNXI_CCU_GATE_HW(bus_r_twd_clk,	"bus-r-twd", &r_apb0_clk.commo=
+n.hw,
+> > +			 0x12c, BIT(0), 0);
+> > +
+> > +static const struct clk_parent_data r_pwmctrl_parents[] =3D {
+> > +	{ .fw_name =3D "hosc" },
+> > +	{ .fw_name =3D "losc" },
+> > +	{ .fw_name =3D "iosc" },
+> > +};
+> > +static SUNXI_CCU_MUX_DATA_WITH_GATE(r_pwmctrl_clk, "r-pwmctrl",
+> > +				  r_pwmctrl_parents, 0x130,
+> > +				  24, 1,	/* mux */ =20
+>=20
+> Mux width is 2.
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+Thanks, fixed.
 
-  pip3 install dtschema --upgrade
+>=20
+> > +				  BIT(31),
+> > +				  0);
+> > +static SUNXI_CCU_GATE_HW(bus_r_pwmctrl_clk, "bus-r-pwmctrl",
+> > +			 &r_apb0_clk.common.hw, 0x13c, BIT(0), 0);
+> > +
+> > +/* SPI clock is /M/N (same as new MMC?) */ =20
+>=20
+> Missing SPI clock (reg 0x150).
 
+I deliberately left that out, since its parent list is annoyingly insane,
+and includes that PLL_AUDIO1 which we don't support yet. I reserved a
+symbol for it, but was wondering if we could add it later?
 
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/microchip/' for cover.1740671156.git.Ryan.Wanner@microchip.com:
+Cheers,
+Andre
 
-arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dtb: /soc/secumod@e0004000: failed to match any schema with compatible: ['microchip,sama7d65-secumod', 'atmel,sama5d2-secumod', 'syscon']
-arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dtb: /soc/secumod@e0004000: failed to match any schema with compatible: ['microchip,sama7d65-secumod', 'atmel,sama5d2-secumod', 'syscon']
-arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dtb: sfr@e0008000: compatible:1: 'syscon' was expected
-	from schema $id: http://devicetree.org/schemas/mfd/syscon.yaml#
-arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dtb: sfr@e0008000: compatible: ['microchip,sama7d65-sfrbu', 'atmel,sama5d2-sfrbu', 'syscon'] is too long
-	from schema $id: http://devicetree.org/schemas/mfd/syscon.yaml#
-arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dtb: /soc/gpbr@e001d700: failed to match any schema with compatible: ['microchip,sama7d65-gpbr', 'syscon']
-arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dtb: /soc/uddrc@e3800000: failed to match any schema with compatible: ['microchip,sama7d65-uddrc', 'microchip,sama7g5-uddrc']
-arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dtb: /soc/uddrc@e3800000: failed to match any schema with compatible: ['microchip,sama7d65-uddrc', 'microchip,sama7g5-uddrc']
-arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dtb: ddr3phy@e3804000: compatible:1: 'syscon' was expected
-	from schema $id: http://devicetree.org/schemas/mfd/syscon.yaml#
-arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dtb: ddr3phy@e3804000: compatible: ['microchip,sama7d65-ddr3phy', 'microchip,sama7g5-ddr3phy'] does not contain items matching the given schema
-	from schema $id: http://devicetree.org/schemas/mfd/syscon.yaml#
-arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dtb: ddr3phy@e3804000: Unevaluated properties are not allowed ('compatible' was unexpected)
-	from schema $id: http://devicetree.org/schemas/mfd/syscon.yaml#
-arch/arm/boot/dts/microchip/at91-sama7g5ek.dtb: sfr@e0008000: compatible:0: 'microchip,sama7g5-sfrbu' is not one of ['al,alpine-sysfabric-service', 'allwinner,sun8i-a83t-system-controller', 'allwinner,sun8i-h3-system-controller', 'allwinner,sun8i-v3s-system-controller', 'allwinner,sun50i-a64-system-controller', 'altr,l3regs', 'altr,sdr-ctl', 'amd,pensando-elba-syscon', 'amlogic,meson-mx-assist', 'amlogic,meson-mx-bootrom', 'amlogic,meson8-analog-top', 'amlogic,meson8b-analog-top', 'amlogic,meson8-pmu', 'amlogic,meson8b-pmu', 'apm,merlin-poweroff-mailbox', 'apm,mustang-poweroff-mailbox', 'apm,xgene-csw', 'apm,xgene-efuse', 'apm,xgene-mcb', 'apm,xgene-rb', 'apm,xgene-scu', 'atmel,sama5d2-sfrbu', 'atmel,sama5d3-nfc-io', 'atmel,sama5d3-sfrbu', 'atmel,sama5d4-sfrbu', 'axis,artpec6-syscon', 'brcm,cru-clkset', 'brcm,sr-cdru', 'brcm,sr-mhb', 'cirrus,ep7209-syscon1', 'cirrus,ep7209-syscon2', 'cirrus,ep7209-syscon3', 'cnxt,cx92755-uc', 'freecom,fsg-cs2-system-controller', 'fsl,imx93-aonmix-ns-
- syscfg', 'fsl,imx93-wakeupmix-syscfg', 'fsl,ls1088a-reset', 'fsl,vf610-anatop', 'fsl,vf610-mscm-cpucfg', 'hisilicon,dsa-subctrl', 'hisilicon,hi6220-sramctrl', 'hisilicon,hip04-ppe', 'hisilicon,pcie-sas-subctrl', 'hisilicon,peri-subctrl', 'hpe,gxp-sysreg', 'loongson,ls1b-syscon', 'loongson,ls1c-syscon', 'lsi,axxia-syscon', 'marvell,armada-3700-cpu-misc', 'marvell,armada-3700-nb-pm', 'marvell,armada-3700-avs', 'marvell,armada-3700-usb2-host-misc', 'marvell,dove-global-config', 'mediatek,mt2701-pctl-a-syscfg', 'mediatek,mt2712-pctl-a-syscfg', 'mediatek,mt6397-pctl-pmic-syscfg', 'mediatek,mt8135-pctl-a-syscfg', 'mediatek,mt8135-pctl-b-syscfg', 'mediatek,mt8173-pctl-a-syscfg', 'mediatek,mt8365-syscfg', 'microchip,lan966x-cpu-syscon', 'microchip,mpfs-sysreg-scb', 'microchip,sam9x60-sfr', 'microchip,sama7d65-ddr3phy', 'microchip,sama7d65-sfrbu', 'microchip,sama7g5-ddr3phy', 'mscc,ocelot-cpu-syscon', 'mstar,msc313-pmsleep', 'nuvoton,ma35d1-sys', 'nuvoton,wpcm450-shm', 'rockchip,px30-qos', '
- rockchip,rk3036-qos', 'rockchip,rk3066-qos', 'rockchip,rk3128-qos', 'rockchip,rk3228-qos', 'rockchip,rk3288-qos', 'rockchip,rk3368-qos', 'rockchip,rk3399-qos', 'rockchip,rk3562-qos', 'rockchip,rk3568-qos', 'rockchip,rk3576-qos', 'rockchip,rk3588-qos', 'rockchip,rv1126-qos', 'st,spear1340-misc', 'stericsson,nomadik-pmu', 'starfive,jh7100-sysmain', 'ti,am62-opp-efuse-table', 'ti,am62-usb-phy-ctrl', 'ti,am625-dss-oldi-io-ctrl', 'ti,am62p-cpsw-mac-efuse', 'ti,am654-dss-oldi-io-ctrl', 'ti,j784s4-acspcie-proxy-ctrl', 'ti,j784s4-pcie-ctrl', 'ti,keystone-pllctrl']
-	from schema $id: http://devicetree.org/schemas/mfd/syscon.yaml#
-arch/arm/boot/dts/microchip/at91-sama7g54_curiosity.dtb: sfr@e0008000: compatible:0: 'microchip,sama7g5-sfrbu' is not one of ['al,alpine-sysfabric-service', 'allwinner,sun8i-a83t-system-controller', 'allwinner,sun8i-h3-system-controller', 'allwinner,sun8i-v3s-system-controller', 'allwinner,sun50i-a64-system-controller', 'altr,l3regs', 'altr,sdr-ctl', 'amd,pensando-elba-syscon', 'amlogic,meson-mx-assist', 'amlogic,meson-mx-bootrom', 'amlogic,meson8-analog-top', 'amlogic,meson8b-analog-top', 'amlogic,meson8-pmu', 'amlogic,meson8b-pmu', 'apm,merlin-poweroff-mailbox', 'apm,mustang-poweroff-mailbox', 'apm,xgene-csw', 'apm,xgene-efuse', 'apm,xgene-mcb', 'apm,xgene-rb', 'apm,xgene-scu', 'atmel,sama5d2-sfrbu', 'atmel,sama5d3-nfc-io', 'atmel,sama5d3-sfrbu', 'atmel,sama5d4-sfrbu', 'axis,artpec6-syscon', 'brcm,cru-clkset', 'brcm,sr-cdru', 'brcm,sr-mhb', 'cirrus,ep7209-syscon1', 'cirrus,ep7209-syscon2', 'cirrus,ep7209-syscon3', 'cnxt,cx92755-uc', 'freecom,fsg-cs2-system-controller', 'fsl,imx93-a
- onmix-ns-syscfg', 'fsl,imx93-wakeupmix-syscfg', 'fsl,ls1088a-reset', 'fsl,vf610-anatop', 'fsl,vf610-mscm-cpucfg', 'hisilicon,dsa-subctrl', 'hisilicon,hi6220-sramctrl', 'hisilicon,hip04-ppe', 'hisilicon,pcie-sas-subctrl', 'hisilicon,peri-subctrl', 'hpe,gxp-sysreg', 'loongson,ls1b-syscon', 'loongson,ls1c-syscon', 'lsi,axxia-syscon', 'marvell,armada-3700-cpu-misc', 'marvell,armada-3700-nb-pm', 'marvell,armada-3700-avs', 'marvell,armada-3700-usb2-host-misc', 'marvell,dove-global-config', 'mediatek,mt2701-pctl-a-syscfg', 'mediatek,mt2712-pctl-a-syscfg', 'mediatek,mt6397-pctl-pmic-syscfg', 'mediatek,mt8135-pctl-a-syscfg', 'mediatek,mt8135-pctl-b-syscfg', 'mediatek,mt8173-pctl-a-syscfg', 'mediatek,mt8365-syscfg', 'microchip,lan966x-cpu-syscon', 'microchip,mpfs-sysreg-scb', 'microchip,sam9x60-sfr', 'microchip,sama7d65-ddr3phy', 'microchip,sama7d65-sfrbu', 'microchip,sama7g5-ddr3phy', 'mscc,ocelot-cpu-syscon', 'mstar,msc313-pmsleep', 'nuvoton,ma35d1-sys', 'nuvoton,wpcm450-shm', 'rockchip,px3
- 0-qos', 'rockchip,rk3036-qos', 'rockchip,rk3066-qos', 'rockchip,rk3128-qos', 'rockchip,rk3228-qos', 'rockchip,rk3288-qos', 'rockchip,rk3368-qos', 'rockchip,rk3399-qos', 'rockchip,rk3562-qos', 'rockchip,rk3568-qos', 'rockchip,rk3576-qos', 'rockchip,rk3588-qos', 'rockchip,rv1126-qos', 'st,spear1340-misc', 'stericsson,nomadik-pmu', 'starfive,jh7100-sysmain', 'ti,am62-opp-efuse-table', 'ti,am62-usb-phy-ctrl', 'ti,am625-dss-oldi-io-ctrl', 'ti,am62p-cpsw-mac-efuse', 'ti,am654-dss-oldi-io-ctrl', 'ti,j784s4-acspcie-proxy-ctrl', 'ti,j784s4-pcie-ctrl', 'ti,keystone-pllctrl']
-	from schema $id: http://devicetree.org/schemas/mfd/syscon.yaml#
-
-
-
-
+>=20
+> > +static SUNXI_CCU_GATE_HW(bus_r_spi_clk, "bus-r-spi",
+> > +			 &r_ahb_clk.common.hw, 0x15c, BIT(0), 0);
+> > +static SUNXI_CCU_GATE_HW(bus_r_spinlock_clk, "bus-r-spinlock",
+> > +			 &r_ahb_clk.common.hw, 0x16c, BIT(0), 0);
+> > +static SUNXI_CCU_GATE_HW(bus_r_msgbox_clk, "bus-r-msgbox",
+> > +			 &r_ahb_clk.common.hw, 0x17c, BIT(0), 0);
+> > +static SUNXI_CCU_GATE_HW(bus_r_uart0_clk, "bus-r-uart0",
+> > +			 &r_apb1_clk.common.hw, 0x18c, BIT(0), 0);
+> > +static SUNXI_CCU_GATE_HW(bus_r_uart1_clk, "bus-r-uart1",
+> > +			 &r_apb1_clk.common.hw, 0x18c, BIT(1), 0);
+> > +static SUNXI_CCU_GATE_HW(bus_r_i2c0_clk, "bus-r-i2c0",
+> > +			 &r_apb1_clk.common.hw, 0x19c, BIT(0), 0);
+> > +static SUNXI_CCU_GATE_HW(bus_r_i2c1_clk, "bus-r-i2c1",
+> > +			 &r_apb1_clk.common.hw, 0x19c, BIT(1), 0);
+> > +static SUNXI_CCU_GATE_HW(bus_r_i2c2_clk, "bus-r-i2c2",
+> > +			 &r_apb1_clk.common.hw, 0x19c, BIT(2), 0);
+> > +static SUNXI_CCU_GATE_HW(bus_r_ppu0_clk, "bus-r-ppu0",
+> > +			 &r_apb0_clk.common.hw, 0x1ac, BIT(0), 0);
+> > +static SUNXI_CCU_GATE_HW(bus_r_ppu1_clk, "bus-r-ppu1",
+> > +			 &r_apb0_clk.common.hw, 0x1ac, BIT(1), 0);
+> > +static SUNXI_CCU_GATE_HW(bus_r_cpu_bist_clk, "bus-r-cpu-bist",
+> > +			 &r_apb0_clk.common.hw, 0x1bc, BIT(0), 0);
+> > +
+> > +static const struct clk_parent_data r_ir_rx_parents[] =3D {
+> > +	{ .fw_name =3D "losc" },
+> > +	{ .fw_name =3D "hosc" },
+> > +};
+> > +static SUNXI_CCU_M_DATA_WITH_MUX_GATE(r_ir_rx_clk, "r-ir-rx",
+> > +				      r_ir_rx_parents, 0x1c0,
+> > +				      0, 5,	/* M */
+> > +				      24, 2,	/* mux */
+> > +				      BIT(31),	/* gate */
+> > +				      0);
+> > +static SUNXI_CCU_GATE_HW(bus_r_ir_rx_clk, "bus-r-ir-rx",
+> > +			 &r_apb0_clk.common.hw, 0x1cc, BIT(0), 0);
+> > +
+> > +static SUNXI_CCU_GATE_HW(bus_r_dma_clk, "bus-r-dma",
+> > +			 &r_apb0_clk.common.hw, 0x1dc, BIT(0), 0);
+> > +static SUNXI_CCU_GATE_HW(bus_r_rtc_clk, "bus-r-rtc",
+> > +			 &r_apb0_clk.common.hw, 0x20c, BIT(0), 0);
+> > +static SUNXI_CCU_GATE_HW(bus_r_cpucfg_clk, "bus-r-cpucfg",
+> > +			 &r_apb0_clk.common.hw, 0x22c, BIT(0), 0);
+> > +
+> > +static struct ccu_common *sun55i_a523_r_ccu_clks[] =3D {
+> > +	&r_ahb_clk.common,
+> > +	&r_apb0_clk.common,
+> > +	&r_apb1_clk.common,
+> > +	&r_cpu_timer0.common,
+> > +	&r_cpu_timer1.common,
+> > +	&r_cpu_timer2.common,
+> > +	&bus_r_timer_clk.common,
+> > +	&bus_r_twd_clk.common,
+> > +	&r_pwmctrl_clk.common,
+> > +	&bus_r_pwmctrl_clk.common,
+> > +	&bus_r_spi_clk.common,
+> > +	&bus_r_spinlock_clk.common,
+> > +	&bus_r_msgbox_clk.common,
+> > +	&bus_r_uart0_clk.common,
+> > +	&bus_r_uart1_clk.common,
+> > +	&bus_r_i2c0_clk.common,
+> > +	&bus_r_i2c1_clk.common,
+> > +	&bus_r_i2c2_clk.common,
+> > +	&bus_r_ppu0_clk.common,
+> > +	&bus_r_ppu1_clk.common,
+> > +	&bus_r_cpu_bist_clk.common,
+> > +	&r_ir_rx_clk.common,
+> > +	&bus_r_ir_rx_clk.common,
+> > +	&bus_r_dma_clk.common,
+> > +	&bus_r_rtc_clk.common,
+> > +	&bus_r_cpucfg_clk.common,
+> > +};
+> > +
+> > +static struct clk_hw_onecell_data sun55i_a523_r_hw_clks =3D {
+> > +	.num	=3D CLK_NUMBER,
+> > +	.hws	=3D {
+> > +		[CLK_R_AHB]		=3D &r_ahb_clk.common.hw,
+> > +		[CLK_R_APB0]		=3D &r_apb0_clk.common.hw,
+> > +		[CLK_R_APB1]		=3D &r_apb1_clk.common.hw,
+> > +		[CLK_R_TIMER0]		=3D &r_cpu_timer0.common.hw,
+> > +		[CLK_R_TIMER1]		=3D &r_cpu_timer1.common.hw,
+> > +		[CLK_R_TIMER2]		=3D &r_cpu_timer2.common.hw,
+> > +		[CLK_BUS_R_TIMER]	=3D &bus_r_timer_clk.common.hw,
+> > +		[CLK_BUS_R_TWD]		=3D &bus_r_twd_clk.common.hw,
+> > +		[CLK_R_PWMCTRL]		=3D &r_pwmctrl_clk.common.hw,
+> > +		[CLK_BUS_R_PWMCTRL]	=3D &bus_r_pwmctrl_clk.common.hw,
+> > +		[CLK_BUS_R_SPI]		=3D &bus_r_spi_clk.common.hw,
+> > +		[CLK_BUS_R_SPINLOCK]	=3D &bus_r_spinlock_clk.common.hw,
+> > +		[CLK_BUS_R_MSGBOX]	=3D &bus_r_msgbox_clk.common.hw,
+> > +		[CLK_BUS_R_UART0]	=3D &bus_r_uart0_clk.common.hw,
+> > +		[CLK_BUS_R_UART1]	=3D &bus_r_uart1_clk.common.hw,
+> > +		[CLK_BUS_R_I2C0]	=3D &bus_r_i2c0_clk.common.hw,
+> > +		[CLK_BUS_R_I2C1]	=3D &bus_r_i2c1_clk.common.hw,
+> > +		[CLK_BUS_R_I2C2]	=3D &bus_r_i2c2_clk.common.hw,
+> > +		[CLK_BUS_R_PPU0]	=3D &bus_r_ppu0_clk.common.hw,
+> > +		[CLK_BUS_R_PPU1]	=3D &bus_r_ppu1_clk.common.hw,
+> > +		[CLK_BUS_R_CPU_BIST]	=3D &bus_r_cpu_bist_clk.common.hw,
+> > +		[CLK_R_IR_RX]		=3D &r_ir_rx_clk.common.hw,
+> > +		[CLK_BUS_R_IR_RX]	=3D &bus_r_ir_rx_clk.common.hw,
+> > +		[CLK_BUS_R_DMA]		=3D &bus_r_dma_clk.common.hw,
+> > +		[CLK_BUS_R_RTC]		=3D &bus_r_rtc_clk.common.hw,
+> > +		[CLK_BUS_R_CPUCFG]	=3D &bus_r_cpucfg_clk.common.hw,
+> > +	},
+> > +};
+> > +
+> > +static struct ccu_reset_map sun55i_a523_r_ccu_resets[] =3D {
+> > +	[RST_BUS_R_TIMER]	=3D { 0x11c, BIT(16) },
+> > +	[RST_BUS_R_TWD]		=3D { 0x12c, BIT(16) },
+> > +	[RST_BUS_R_PWMCTRL]	=3D { 0x13c, BIT(16) },
+> > +	[RST_BUS_R_SPI]		=3D { 0x15c, BIT(16) },
+> > +	[RST_BUS_R_SPINLOCK]	=3D { 0x16c, BIT(16) },
+> > +	[RST_BUS_R_MSGBOX]	=3D { 0x17c, BIT(16) },
+> > +	[RST_BUS_R_UART0]	=3D { 0x18c, BIT(16) },
+> > +	[RST_BUS_R_UART1]	=3D { 0x18c, BIT(17) },
+> > +	[RST_BUS_R_I2C0]	=3D { 0x19c, BIT(16) },
+> > +	[RST_BUS_R_I2C1]	=3D { 0x19c, BIT(17) },
+> > +	[RST_BUS_R_I2C2]	=3D { 0x19c, BIT(18) },
+> > +	[RST_BUS_R_PPU1]	=3D { 0x1ac, BIT(17) },
+> > +	[RST_BUS_R_IR_RX]	=3D { 0x1cc, BIT(16) },
+> > +	[RST_BUS_R_RTC]		=3D { 0x20c, BIT(16) },
+> > +	[RST_BUS_R_CPUCFG]	=3D { 0x22c, BIT(16) },
+> > +};
+> > +
+> > +static const struct sunxi_ccu_desc sun55i_a523_r_ccu_desc =3D {
+> > +	.ccu_clks	=3D sun55i_a523_r_ccu_clks,
+> > +	.num_ccu_clks	=3D ARRAY_SIZE(sun55i_a523_r_ccu_clks),
+> > +
+> > +	.hw_clks	=3D &sun55i_a523_r_hw_clks,
+> > +
+> > +	.resets		=3D sun55i_a523_r_ccu_resets,
+> > +	.num_resets	=3D ARRAY_SIZE(sun55i_a523_r_ccu_resets),
+> > +};
+> > +
+> > +static int sun55i_a523_r_ccu_probe(struct platform_device *pdev)
+> > +{
+> > +	void __iomem *reg;
+> > +
+> > +	reg =3D devm_platform_ioremap_resource(pdev, 0);
+> > +	if (IS_ERR(reg))
+> > +		return PTR_ERR(reg);
+> > +
+> > +	return devm_sunxi_ccu_probe(&pdev->dev, reg, &sun55i_a523_r_ccu_desc);
+> > +}
+> > +
+> > +static const struct of_device_id sun55i_a523_r_ccu_ids[] =3D {
+> > +	{ .compatible =3D "allwinner,sun55i-a523-r-ccu" },
+> > +	{ }
+> > +};
+> > +MODULE_DEVICE_TABLE(of, sun55i_a523_r_ccu_ids);
+> > +
+> > +static struct platform_driver sun55i_a523_r_ccu_driver =3D {
+> > +	.probe	=3D sun55i_a523_r_ccu_probe,
+> > +	.driver	=3D {
+> > +		.name			=3D "sun55i-a523-r-ccu",
+> > +		.suppress_bind_attrs	=3D true,
+> > +		.of_match_table		=3D sun55i_a523_r_ccu_ids,
+> > +	},
+> > +};
+> > +module_platform_driver(sun55i_a523_r_ccu_driver);
+> > +
+> > +MODULE_IMPORT_NS("SUNXI_CCU");
+> > +MODULE_DESCRIPTION("Support for the Allwinner A523 PRCM CCU");
+> > +MODULE_LICENSE("GPL");
+> > diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.h b/drivers/clk/sun=
+xi-ng/ccu-sun55i-a523-r.h
+> > new file mode 100644
+> > index 0000000000000..d50f46ac4f3fe
+> > --- /dev/null
+> > +++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.h
+> > @@ -0,0 +1,14 @@
+> > +/* SPDX-License-Identifier: GPL-2.0 */
+> > +/*
+> > + * Copyright 2024 Arm Ltd.
+> > + */
+> > +
+> > +#ifndef _CCU_SUN55I_A523_R_H
+> > +#define _CCU_SUN55I_A523_R_H
+> > +
+> > +#include <dt-bindings/clock/sun55i-a523-r-ccu.h>
+> > +#include <dt-bindings/reset/sun55i-a523-r-ccu.h>
+> > +
+> > +#define CLK_NUMBER	(CLK_BUS_R_CPUCFG + 1)
+> > +
+> > +#endif /* _CCU_SUN55I_A523_R_H */
+> >  =20
+>=20
+>=20
+>=20
+>=20
 
 
