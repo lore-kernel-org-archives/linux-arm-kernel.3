@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 726BFC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 18:33:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 074E0C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 18:35:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cSYfa0MiRC9/RFTlBv2qPi+/1HERmjab/OafzY2hlPY=; b=ip6m2aYQ6oKBEf77/Vio4WSEsJ
-	NReBk0xArn2dIklfOY1i/qZr9OQoUAXhMk0suiJ2sjqAlZ1FTx1j6r8QZPvBNk8e8v2clGzy++Rmj
-	t4WdJRbr3wV7eV9h4YkzW7Vl6iTjS6fbe7DHhNsB8ZcyuoUAOkzy53RTCqn6d3VZxtdFgWheg0L5T
-	nhuAq+kgdClE7mkzkL+BPbTXD16LQjpuY7VTOksJJFTy1lpOhuyfgXWARH3kzXcRpABkZMkAw2bFA
-	gD2DOErYLmteAFEoYg5zgDnH5y6qx7HwYcHVSj7DUs98FRt90FeMvXIjNlEOTKsv6go0BAZvqtBUQ
-	K2s+Wm8w==;
+	bh=EEWR1Biyrz/i/9OwEZXDJ1J5UyzPcJrvLTGLj7Exnds=; b=tC/h+GhC+z2kcVpRrWBHOQxqvM
+	y0DngFKO8XXltVA3UpSCFgeIFjbFGqgqoxenPp6Q5NyMcYCrP17b/DbSvhs/n6hBHP8+lvRjRHQ/v
+	RhrGYa0VR2EKnfKMyT+dY23Sk0qMLA87+tRJuYfJ9vEGrFse2KgV7H+SYwLTv1coQwskO0iXfNksB
+	o+ESnDiBGux07DfknYt8b/4WMfVAZKUDv7g64KamJMLaj+tLFBaCytSBHzR7puu2Fs1jgh5ikNwnN
+	tO/zIuWgv3YZqLAvqrxKFLdxyGYr+UFuGIcZrDK51wCSh1ofqpdaj54mYKgXi6RVOeG87bRed3uCA
+	9HsteguA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to5Al-0000000CAEi-3mgN;
-	Fri, 28 Feb 2025 18:33:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to534-0000000C7i2-3AUl
+	id 1to5CI-0000000CAh9-2gQK;
+	Fri, 28 Feb 2025 18:34:54 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1to54m-0000000C8Db-2EdG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 18:25:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4995D19F0;
-	Fri, 28 Feb 2025 10:25:37 -0800 (PST)
-Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.2.80.18])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DF65D3F6A8;
-	Fri, 28 Feb 2025 10:25:18 -0800 (PST)
-From: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
-To: ryan.roberts@arm.com,
-	suzuki.poulose@arm.com,
-	yang@os.amperecomputing.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	joro@8bytes.org,
-	jean-philippe@linaro.org,
-	mark.rutland@arm.com,
-	joey.gouly@arm.com,
-	oliver.upton@linux.dev,
-	james.morse@arm.com,
-	broonie@kernel.org,
-	maz@kernel.org,
-	david@redhat.com,
-	akpm@linux-foundation.org,
-	jgg@ziepe.ca,
-	nicolinc@nvidia.com,
-	mshavit@google.com,
-	jsnitsel@redhat.com,
-	smostafa@google.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev
-Cc: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
-Subject: [PATCH v2 4/4] iommu/arm: Add BBM Level 2 smmu feature
-Date: Fri, 28 Feb 2025 18:24:04 +0000
-Message-ID: <20250228182403.6269-6-miko.lenczewski@arm.com>
-X-Mailer: git-send-email 2.45.3
-In-Reply-To: <20250228182403.6269-2-miko.lenczewski@arm.com>
-References: <20250228182403.6269-2-miko.lenczewski@arm.com>
+	Fri, 28 Feb 2025 18:27:09 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 083DA1034EAF8;
+	Fri, 28 Feb 2025 19:26:56 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1740767223;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=EEWR1Biyrz/i/9OwEZXDJ1J5UyzPcJrvLTGLj7Exnds=;
+	b=dILOl6dKlPvSkD8jJQ3pREfonS5ajNyFDt0yNkJ2Bmgk2sqUHs9TQKM747E5dq1gdWxUT5
+	JjYuCzYPpZwkW/JK5vHS+mvIUP1E0Q4opAw9di3+a/A4GykvnQGp+XO7xLmhV5kKDcTaRm
+	BQ+xQqFdvPo4EMC8nTKIoHdotUusxvCf410fQLT1RjkHqA69JqwIljUIAjar1HUGbXC+nt
+	wfQUeDba/PRyfRG9wRFGfJp8B8WVC1ftkaWvMOFyXtJPmmIuVty/XMp4YEtvOjy1c2wVzR
+	JUnEsnCLSI618BX+wB5nIc70D9Rir0sWbtYEJCIPHhd67M6oCcKTVHCvakQTZw==
+Message-ID: <bf3486cb-4f87-4cf4-ab6a-6c8cc627ce53@denx.de>
+Date: Fri, 28 Feb 2025 17:43:59 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/9] reset: simple: Add support for Freescale i.MX95 GPU
+ reset
+To: Alexander Stein <alexander.stein@ew.tq-group.com>,
+ linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org
+Cc: Boris Brezillon <boris.brezillon@collabora.com>,
+ Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>,
+ Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Sebastian Reichel <sre@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
+ Steven Price <steven.price@arm.com>, Thomas Zimmermann
+ <tzimmermann@suse.de>, devicetree@vger.kernel.org, imx@lists.linux.dev
+References: <20250227170012.124768-1-marex@denx.de>
+ <20250227170012.124768-3-marex@denx.de> <2425297.NG923GbCHz@steina-w>
+Content-Language: en-US
+From: Marek Vasut <marex@denx.de>
+In-Reply-To: <2425297.NG923GbCHz@steina-w>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_102522_940287_F9850046 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20250228_102708_737832_39ECC304 
+X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,100 +86,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For supporting BBM Level 2 for userspace mappings, we want to ensure
-that the smmu also supports its own version of BBM Level 2. Luckily, the
-smmu spec (IHI 0070G 3.21.1.3) is stricter than the aarch64 spec (DDI
-0487K.a D8.16.2), so already guarantees that no aborts are raised when
-BBM level 2 is claimed.
+On 2/28/25 10:58 AM, Alexander Stein wrote:
 
-Add the feature and testing for it under arm_smmu_sva_supported().
+Hi,
 
-Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
----
- arch/arm64/kernel/cpufeature.c                  | 7 +++----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 3 +++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c     | 3 +++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     | 4 ++++
- 4 files changed, 13 insertions(+), 4 deletions(-)
+>>   drivers/reset/reset-simple.c | 8 ++++++++
+>>   1 file changed, 8 insertions(+)
+>>
+>> diff --git a/drivers/reset/reset-simple.c b/drivers/reset/reset-simple.c
+>> index 2760678398308..1415a941fd6eb 100644
+>> --- a/drivers/reset/reset-simple.c
+>> +++ b/drivers/reset/reset-simple.c
+>> @@ -133,9 +133,17 @@ static const struct reset_simple_devdata reset_simple_active_low = {
+>>   	.status_active_low = true,
+>>   };
+>>   
+>> +static const struct reset_simple_devdata reset_simple_fsl_imx95_gpu_blk_ctrl = {
+>> +	.reg_offset = 0x8,
+> 
+> Shouldn't you add ".nr_resets = 1"? Otherwise this will have 8 resets
+> (resource_size(res) * BITS_PER_BYTE).
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 63f6d356dc77..1022c63f81b2 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2223,8 +2223,6 @@ static bool has_bbml2_noabort(const struct arm64_cpu_capabilities *caps, int sco
- 			if (!cpu_has_bbml2_noabort(__cpu_read_midr(cpu)))
- 				return false;
- 		}
--
--		return true;
- 	} else if (scope & SCOPE_LOCAL_CPU) {
- 		/* We are a hot-plugged CPU, so only need to check our MIDR.
- 		 * If we have the correct MIDR, but the kernel booted on an
-@@ -2232,10 +2230,11 @@ static bool has_bbml2_noabort(const struct arm64_cpu_capabilities *caps, int sco
- 		 * we have an incorrect MIDR, but the kernel booted on a
- 		 * sufficient CPU, we will not bring up this CPU.
- 		 */
--		return cpu_has_bbml2_noabort(read_cpuid_id());
-+		if (!cpu_has_bbml2_noabort(read_cpuid_id()))
-+			return false;
- 	}
- 
--	return false;
-+	return has_cpuid_feature(caps, scope);
- }
- 
- #ifdef CONFIG_ARM64_PAN
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-index 9ba596430e7c..6ba182572788 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-@@ -222,6 +222,9 @@ bool arm_smmu_sva_supported(struct arm_smmu_device *smmu)
- 		feat_mask |= ARM_SMMU_FEAT_VAX;
- 	}
- 
-+	if (system_supports_bbml2_noabort())
-+		feat_mask |= ARM_SMMU_FEAT_BBML2;
-+
- 	if ((smmu->features & feat_mask) != feat_mask)
- 		return false;
- 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 358072b4e293..dcee0bdec924 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4406,6 +4406,9 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
- 	if (FIELD_GET(IDR3_RIL, reg))
- 		smmu->features |= ARM_SMMU_FEAT_RANGE_INV;
- 
-+	if (FIELD_GET(IDR3_BBML, reg) == IDR3_BBML2)
-+		smmu->features |= ARM_SMMU_FEAT_BBML2;
-+
- 	/* IDR5 */
- 	reg = readl_relaxed(smmu->base + ARM_SMMU_IDR5);
- 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index bd9d7c85576a..85eaf3ab88c2 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -60,6 +60,9 @@ struct arm_smmu_device;
- #define ARM_SMMU_IDR3			0xc
- #define IDR3_FWB			(1 << 8)
- #define IDR3_RIL			(1 << 10)
-+#define IDR3_BBML			GENMASK(12, 11)
-+#define IDR3_BBML1			(1 << 11)
-+#define IDR3_BBML2			(2 << 11)
- 
- #define ARM_SMMU_IDR5			0x14
- #define IDR5_STALL_MAX			GENMASK(31, 16)
-@@ -754,6 +757,7 @@ struct arm_smmu_device {
- #define ARM_SMMU_FEAT_HA		(1 << 21)
- #define ARM_SMMU_FEAT_HD		(1 << 22)
- #define ARM_SMMU_FEAT_S2FWB		(1 << 23)
-+#define ARM_SMMU_FEAT_BBML2		(1 << 24)
- 	u32				features;
- 
- #define ARM_SMMU_OPT_SKIP_PREFETCH	(1 << 0)
--- 
-2.45.3
+I should, thanks.
 
+> On a side note: RM says this is a write-once register. Do we consider writing
+> this register again?
+> BTW: Would it be possible to disable it completely (until reset) by writing 1?
+My observation is that this register is set and cannot be cleared by 
+writing 0 into it, if I write 0 into this register and read it back, it 
+stays at 1 .
+
+Maybe NXP can clarify whether modelling this as reset-simple is really a 
+good idea or whether it would be better to rewrite this as custom reset 
+driver ?
+
+[...]
 
