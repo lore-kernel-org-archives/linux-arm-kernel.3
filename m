@@ -4,85 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC0DC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 19:07:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2994C282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 19:09:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iFXFYJac1x/01yzYwzJ7fG3+azm9dT5eKRfdOp1DA6I=; b=jjGn/aHp98YOSB/lf15QOyQmal
-	PwgObNjW7fF95P+7HWbAZyRPI+8W8XXAWgMciK5Kz6+ub8hrG9yj+/xUMe+LIq/CYiQyu0qV21K1x
-	2nHP2DDqFLRBQx+j81JoGnToy2OIW/0D4YaxNyTeoJD0drBGn83yyOFTKgJbeGEU5B00xYKx+O55m
-	M+oDSckO6nrcktpKp+08DXka7aUV+Yt0cKc+E+2b5KvD9sB2Xzm6UKiwhG63W4Je2RJGyAudR7NZJ
-	bLA3cJkvwvHnRG7M0oEUCKOBbfOgJXMBVorY+CQJNr1EaW/mKu+/pSOxqMr7IA8axEXay0ilD9rNu
-	uK0hzo2Q==;
+	bh=udZdPk5rSIEiEO82pPqyHTZZnq4m2LrYFx4i9vygGCk=; b=rwh3mqPra//s5BSuRhpPiWSfa7
+	+cH2i22j97cknSkDNvsglwhC9AT/kCVba18/hM3G/zP5pzplgz19jlWr979QjhU7uBn6lyjnj/fB+
+	/Z1rL3kXxJBerZa7xkUS6MvSlcJm47nhM89BC1IKCjO5Rf68XzFf1Auz6EqLL2uLRf9KJyGFoZeQj
+	iGlpvLlSvctD5If8m7dWzidhBYIgVLBbomEzFA5CX0vgGcH7aHVq4V+vqW774OoPceaAzObTgypWt
+	qty9v7dgwn1ZhaGxMUCfDtXa2Y02dFvwGK3ivgAZUwlah9U1BRiWGmIknlqJdC0oKt3AYJI4Wk29A
+	Dj79yAmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to5hh-0000000CImL-1GBx;
-	Fri, 28 Feb 2025 19:07:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to5fM-0000000CIPp-3tl3;
-	Fri, 28 Feb 2025 19:04:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=iFXFYJac1x/01yzYwzJ7fG3+azm9dT5eKRfdOp1DA6I=; b=kQfCDKNaF+H2ib3gdNc9HGhKrx
-	UutlhybJvmNLV2tN4QmVMSE25MlGZaOUHOpxhnaFtKbIeqU0CSw3OxbNdXrH1UFsZPtIt8Esa8rcH
-	ztEbfTeGkCErM4mg9oNo8gUfoLpH/7+McqlMbu9qpT7FFhB3GJXM1dMKw/0CzNwTC3CZSjcGHoPYL
-	ymqK/ONjKiEDjhyWBwGMS0iRXcNJocw2MB2MNSpTwe1+XN81WeHrAdkvjaAfzeIvsbDNyByI4g/Fl
-	zE1Zt5ocBisZ3AA8GTXY3nUAWwv7X9dQDa/wXbyj7JAWarcYu73Bkuh68iiU5bFou1RXR2USPuKEt
-	PxrzoFCw==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to5fJ-000000041Su-0P3A;
-	Fri, 28 Feb 2025 19:04:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0C33A5C691D;
-	Fri, 28 Feb 2025 19:02:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18765C4CED6;
-	Fri, 28 Feb 2025 19:04:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740769481;
-	bh=iFXFYJac1x/01yzYwzJ7fG3+azm9dT5eKRfdOp1DA6I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YwbwhTjWsm/rEWnBTsCJipxxwmUD2J8KuLUOGYi+aUpraG2/peo7/zWSvm5cvML68
-	 64lfs/0VLYwbXLLqym0E0nRDsrtuSW8UNewpyqQqE2FszcdwWxB4sgLqNfky9WGw29
-	 RCBpk9vdQMnAlPYZrxjOLdbW/Ia3d+/dZFStcL2ClIqwaGPKwNibBu9bC4eCSfPBKU
-	 7ahQ6elkUneoih0kqjfMqLoCU9n6jurYDR7VJUpOk1C9cYPPdTtrvk/sUprARGj2hx
-	 UBTHctqjCg8baiXi68DWjerob+3LMTwlBVswGBjpbvsamKiH8qx5n9eptpaRobqUgX
-	 1F8olGDoVjQ3A==
-Date: Fri, 28 Feb 2025 19:04:36 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Kever Yang <kever.yang@rock-chips.com>
-Cc: heiko@sntech.de, linux-rockchip@lists.infradead.org,
-	Jose Abreu <joabreu@synopsys.com>, devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Rob Herring <robh@kernel.org>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	David Wu <david.wu@rock-chips.com>, Paolo Abeni <pabeni@redhat.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/3] dt-bindings: net: Add support for rk3562 dwmac
-Message-ID: <20250228-exciting-utility-29ca9428f121@spud>
-References: <20250227110652.2342729-1-kever.yang@rock-chips.com>
+	id 1to5jC-0000000CJ79-1BPg;
+	Fri, 28 Feb 2025 19:08:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1to5hC-0000000CIga-3j4S
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Feb 2025 19:06:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 16E80150C;
+	Fri, 28 Feb 2025 11:07:05 -0800 (PST)
+Received: from bogus (unknown [10.57.37.210])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 81A9A3F5A1;
+	Fri, 28 Feb 2025 11:06:44 -0800 (PST)
+Date: Fri, 28 Feb 2025 19:06:41 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Pierre Gondois <pierre.gondois@arm.com>
+Cc: Yicong Yang <yangyicong@huawei.com>, catalin.marinas@arm.com,
+	will@kernel.org, tglx@linutronix.de, peterz@infradead.org,
+	mpe@ellerman.id.au, linux-arm-kernel@lists.infradead.org,
+	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+	dietmar.eggemann@arm.com, linuxppc-dev@lists.ozlabs.org,
+	x86@kernel.org, linux-kernel@vger.kernel.org,
+	morten.rasmussen@arm.com, msuchanek@suse.de,
+	gregkh@linuxfoundation.org, rafael@kernel.org,
+	jonathan.cameron@huawei.com, prime.zeng@hisilicon.com,
+	linuxarm@huawei.com, yangyicong@hisilicon.com, xuwei5@huawei.com,
+	guohanjun@huawei.com, sshegde@linux.ibm.com
+Subject: Re: [PATCH v11 3/4] arm64: topology: Support SMT control on ACPI
+ based system
+Message-ID: <20250228190641.q23vd53aaw42tcdi@bogus>
+References: <20250218141018.18082-1-yangyicong@huawei.com>
+ <20250218141018.18082-4-yangyicong@huawei.com>
+ <Z8HAkZiHYRjj97M7@bogus>
+ <336e9c4e-cd9c-4449-ba7b-60ee8774115d@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="s6OSw9lCrmZNjA6K"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250227110652.2342729-1-kever.yang@rock-chips.com>
+In-Reply-To: <336e9c4e-cd9c-4449-ba7b-60ee8774115d@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_190453_320603_1170E982 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20250228_110651_019264_7D56DF88 
+X-CRM114-Status: GOOD (  44.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,31 +75,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Feb 28, 2025 at 06:51:16PM +0100, Pierre Gondois wrote:
+> 
+> 
+> On 2/28/25 14:56, Sudeep Holla wrote:
+> > On Tue, Feb 18, 2025 at 10:10:17PM +0800, Yicong Yang wrote:
+> > > From: Yicong Yang <yangyicong@hisilicon.com>
+> > > 
+> > > For ACPI we'll build the topology from PPTT and we cannot directly
+> > > get the SMT number of each core. Instead using a temporary xarray
+> > > to record the heterogeneous information (from ACPI_PPTT_ACPI_IDENTICAL)
+> > > and SMT information of the first core in its heterogeneous CPU cluster
+> > > when building the topology. Then we can know the largest SMT number
+> > > in the system. If a homogeneous system's using ACPI 6.2 or later,
+> > > all the CPUs should be under the root node of PPTT. There'll be
+> > > only one entry in the xarray and all the CPUs in the system will
+> > > be assumed identical.
+> > > 
+> > > The core's SMT control provides two interface to the users [1]:
+> > > 1) enable/disable SMT by writing on/off
+> > > 2) enable/disable SMT by writing thread number 1/max_thread_number
+> > > 
+> > > If a system have more than one SMT thread number the 2) may
+> > > not handle it well, since there're multiple thread numbers in the
+> > > system and 2) only accept 1/max_thread_number. So issue a warning
+> > > to notify the users if such system detected.
+> > > 
+> > > [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/ABI/testing/sysfs-devices-system-cpu#n542
+> > > 
+> > > Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+> > > Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+> > > ---
+> > >   arch/arm64/kernel/topology.c | 66 ++++++++++++++++++++++++++++++++++++
+> > >   1 file changed, 66 insertions(+)
+> > > 
+> > > diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+> > > index 1a2c72f3e7f8..6eba1ac091ee 100644
+> > > --- a/arch/arm64/kernel/topology.c
+> > > +++ b/arch/arm64/kernel/topology.c
+> > > @@ -15,8 +15,10 @@
+> > >   #include <linux/arch_topology.h>
+> > >   #include <linux/cacheinfo.h>
+> > >   #include <linux/cpufreq.h>
+> > > +#include <linux/cpu_smt.h>
+> > >   #include <linux/init.h>
+> > >   #include <linux/percpu.h>
+> > > +#include <linux/xarray.h>
+> > >   #include <asm/cpu.h>
+> > >   #include <asm/cputype.h>
+> > > @@ -37,17 +39,28 @@ static bool __init acpi_cpu_is_threaded(int cpu)
+> > >   	return !!is_threaded;
+> > >   }
+> > > +struct cpu_smt_info {
+> > > +	unsigned int thread_num;
+> > > +	int core_id;
+> > > +};
+> > > +
+> > >   /*
+> > >    * Propagate the topology information of the processor_topology_node tree to the
+> > >    * cpu_topology array.
+> > >    */
+> > >   int __init parse_acpi_topology(void)
+> > >   {
+> > > +	unsigned int max_smt_thread_num = 0;
+> > > +	struct cpu_smt_info *entry;
+> > > +	struct xarray hetero_cpu;
+> > > +	unsigned long hetero_id;
+> > >   	int cpu, topology_id;
+> > >   	if (acpi_disabled)
+> > >   		return 0;
+> > > +	xa_init(&hetero_cpu);
+> > > +
+> > >   	for_each_possible_cpu(cpu) {
+> > >   		topology_id = find_acpi_cpu_topology(cpu, 0);
+> > >   		if (topology_id < 0)
+> > > @@ -57,6 +70,34 @@ int __init parse_acpi_topology(void)
+> > >   			cpu_topology[cpu].thread_id = topology_id;
+> > >   			topology_id = find_acpi_cpu_topology(cpu, 1);
+> > >   			cpu_topology[cpu].core_id   = topology_id;
+> > > +
+> > > +			/*
+> > > +			 * In the PPTT, CPUs below a node with the 'identical
+> > > +			 * implementation' flag have the same number of threads.
+> > > +			 * Count the number of threads for only one CPU (i.e.
+> > > +			 * one core_id) among those with the same hetero_id.
+> > > +			 * See the comment of find_acpi_cpu_topology_hetero_id()
+> > > +			 * for more details.
+> > > +			 *
+> > > +			 * One entry is created for each node having:
+> > > +			 * - the 'identical implementation' flag
+> > > +			 * - its parent not having the flag
+> > > +			 */
+> > > +			hetero_id = find_acpi_cpu_topology_hetero_id(cpu);
+> > > +			entry = xa_load(&hetero_cpu, hetero_id);
+> > > +			if (!entry) {
+> > > +				entry = kzalloc(sizeof(*entry), GFP_KERNEL);
+> > > +				WARN_ON_ONCE(!entry);
+> > > +
+> > > +				if (entry) {
+> > > +					entry->core_id = topology_id;
+> > > +					entry->thread_num = 1;
+> > > +					xa_store(&hetero_cpu, hetero_id,
+> > > +						 entry, GFP_KERNEL);
+> > > +				}
+> > > +			} else if (entry->core_id == topology_id) {
+> > > +				entry->thread_num++;
+> > > +			}
+> > >   		} else {
+> > >   			cpu_topology[cpu].thread_id  = -1;
+> > >   			cpu_topology[cpu].core_id    = topology_id;
+> > > @@ -67,6 +108,31 @@ int __init parse_acpi_topology(void)
+> > >   		cpu_topology[cpu].package_id = topology_id;
+> > >   	}
+> > > +	/*
+> > > +	 * This should be a short loop depending on the number of heterogeneous
+> > > +	 * CPU clusters. Typically on a homogeneous system there's only one
+> > > +	 * entry in the XArray.
+> > > +	 */
+> > > +	xa_for_each(&hetero_cpu, hetero_id, entry) {
+> > > +		if (entry->thread_num != max_smt_thread_num && max_smt_thread_num)
+> > > +			pr_warn_once("Heterogeneous SMT topology is partly supported by SMT control\n");
+> > 
+> > Ditto as previous patch about handling no threaded cores with threaded cores
+> > in the system. I am not sure if that is required but just raising it here.
+> > 
+> > > +
+> > > +		max_smt_thread_num = max(max_smt_thread_num, entry->thread_num);
+> > > +		xa_erase(&hetero_cpu, hetero_id);
+> > > +		kfree(entry);
+> > > +	}
+> > > +
+> > > +	/*
+> > > +	 * Notify the CPU framework of the SMT support. Initialize the
+> > > +	 * max_smt_thread_num to 1 if no SMT support detected. A thread
+> > > +	 * number of 1 can be handled by the framework so we don't need
+> > > +	 * to check max_smt_thread_num to see we support SMT or not.
+> > > +	 */
+> > > +	if (!max_smt_thread_num)
+> > > +		max_smt_thread_num = 1;
+> > > +
+> > 
+> > Ditto as previous patch, can get rid if it is default 1.
+> > 
+> 
+> On non-SMT platforms, not calling cpu_smt_set_num_threads() leaves
+> cpu_smt_num_threads uninitialized to UINT_MAX:
+> 
+> smt/active:0
+> smt/control:-1
+> 
+> If cpu_smt_set_num_threads() is called:
+> active:0
+> control:notsupported
+> 
+> So it might be slightly better to still initialize max_smt_thread_num.
+>
 
---s6OSw9lCrmZNjA6K
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Sure, what I meant is to have max_smt_thread_num set to 1 by default is
+that is what needed anyways and the above code does that now.
 
-On Thu, Feb 27, 2025 at 07:06:50PM +0800, Kever Yang wrote:
-> Add a rockchip,rk3562-gmac compatible for supporting the 2 gmac
-> devices on the rk3562.
-> rk3562 only has 4 clocks availabl for gmac module.
->=20
-> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+Why not start with initialised to 1 instead ?
+Of course some current logic needs to change around testing it for zero.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
---s6OSw9lCrmZNjA6K
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ8IIwwAKCRB4tDGHoIJi
-0l7CAQDQfVhiOrJrK6vQiAo9PKlTv9kpqY0pN2q/by1QLSaqJAEAs+3bvp2mwkfQ
-MJSUw0vuqY+xCcyhOApXc3xtB4aolgM=
-=7KWW
------END PGP SIGNATURE-----
-
---s6OSw9lCrmZNjA6K--
+-- 
+Regards,
+Sudeep
 
