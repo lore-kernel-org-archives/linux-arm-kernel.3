@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FAA4C282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 10:13:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F5A8C19776
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 10:15:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YE6bnB+P2s7EJv1Gtcomzzk1XsCHf5FrUL6+zsepQYk=; b=SQ13j09uSEFnO8d5K4NCYYaXud
-	wq3IJgxJ3Y+pmI8hvkFQkWY/KCyJ+mKfQRjRO5pVieObVQQyPjPJGgydaGLCLpFhSjE3YHlj2s0XS
-	IfxNgkJ49AP+QjgeuVHeaRt3kZr/99EE9hntgK+g0V7A2GdIPn/4a5tn7F+iNaUMut6QJbb5KElZq
-	Whnx6OHsRq9PeVCuzX1ebnhojcFxncfhQvzeuerZG623eujjO4esTH8S3ni7NOtP5/oerVgbV9NKW
-	WdkO15kJQAeB1dCjf4/AyzYMjU7zsBDmjNykHKqv1mbyQu92rTMrqW2BUyTkq+/v20DfwEo8mf69D
-	i5avOPHg==;
+	bh=wrZESIfIEMlm8bcE5XbWXGC11n9EvGXbhxL7sNZTaKg=; b=TwPtxPxDb51TnQ71s8YEs93Y16
+	CDxQNfLZipJsVTORfqGxdVJXqogoqQbFfTkm2jAyqKONGf1ldyh4RWxd3IEeuHz6DFGzHKCvkYYTZ
+	6Oq3Cx+azvoB42/0wg3y4pquVUFuT+TzbbL7Rpns34Ct8S/rXSxV4bJlSZ7EWaLS28GFu1hPMPuqF
+	MR9yGxhCpgVNTxYYLq3OkeZ4wIKoAJBGulV1SsK04IzaiVrAG+WRo7UAruT2I6Fl3bke+r8R3MHi9
+	U9AtD3u3suWfirYTkZytZi1drq+kD91RrJ1fJJZUKXMQSlqTFAfrWzm/Mb0VPoD4k7YNPxrM3wdHs
+	FBA4WQaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnxNI-0000000AXOT-3GEG;
-	Fri, 28 Feb 2025 10:13:44 +0000
+	id 1tnxOq-0000000AXwh-0G3x;
+	Fri, 28 Feb 2025 10:15:20 +0000
 Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnxJq-0000000AWPM-30r6
+	id 1tnxMJ-0000000AX5o-2j8j
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 10:10:12 +0000
+	Fri, 28 Feb 2025 10:12:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1740737410; x=1772273410;
+  t=1740737563; x=1772273563;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=YE6bnB+P2s7EJv1Gtcomzzk1XsCHf5FrUL6+zsepQYk=;
-  b=h8ZjQJcfc3Y14VhjnJ7HC1N/SrFJ/SRaBTQV2YJTEmJ0nFRYxtKjSHyN
-   PkVr8Ukxjw9HwRs7AQGcgvyfL6wVkqS5woPCowpPI1/T5RYFHmwJvUT5I
-   q9VFzEnaY56kEpmb1M3Qcfe0gOHxRfgYOVznwhQu5tqKIuu6sNY1TC1TA
-   /G0hV8EIViHiSyHu1kHDPBHfXE596WvaEklihijy0yP98lv62UVJ7+/U1
-   bOSePDkn6Q8t4aVaEZfNJ6MyXddrn0E9JACvihRCfqUOolGUnkw3ykOEd
-   n56rjxLlpJAK7xZlFabUxODYAxGh7ahDt8Yn64PESDMVmwA5OKumlP0zZ
+  bh=wrZESIfIEMlm8bcE5XbWXGC11n9EvGXbhxL7sNZTaKg=;
+  b=T3j1j7Gul1i+4UNUH6LNgsqzNkQZ+ZbGk/uH0DQjCGUd0cjzKl+09JG0
+   Sqre+hvHHjGNAFeeT1rfYIL/mYvJLHqVOvDaZ2pUC+jw7MIyIyNUzJFwU
+   N/w3Vm8Iii//gvtLA6OVzPe8QVo3Cfu+jmabkBSF7j6MNqSjhI0+SwI2p
+   3MjPdXW9E7Or3XmxmzCtAMQ+IWZA8i0qWcbNou1aY0u5/my7mjEBWM8ZV
+   Pe9CJUK+aEPjhyiUt3LJvYeDvldddIMPspauUI78RvVMvhm4rr1wd5Bhb
+   k0b6eXf45nTGNhCP4yxBk++d6+8ebbX24qSeAn+A2uXQYjauMw0mm9npQ
    g==;
-X-CSE-ConnectionGUID: ndNCYhvjTbuOSgEIVnFkiw==
-X-CSE-MsgGUID: +mz72M5PRRe7iLQCZsA0pg==
+X-CSE-ConnectionGUID: pa+KqxuLQCOJlUmpZ8dqOg==
+X-CSE-MsgGUID: XOcdYrqWQr2Yz50o0V+ekw==
 X-IronPort-AV: E=Sophos;i="6.13,322,1732575600"; 
-   d="scan'208";a="42171166"
+   d="scan'208";a="42171238"
 Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 28 Feb 2025 11:10:08 +0100
-X-CheckPoint: {67C18B80-0-3D6C4912-C3EB4537}
-X-MAIL-CPID: 5608D6895C0C0D3CBFCC709C8A1F7455_5
-X-Control-Analysis: str=0001.0A002109.67C18B7D.005A,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 82F04168CC3;
-	Fri, 28 Feb 2025 11:10:02 +0100 (CET)
+  by mx1.tq-group.com with ESMTP; 28 Feb 2025 11:12:41 +0100
+X-CheckPoint: {67C18C19-E-2895743E-CD1E7AB7}
+X-MAIL-CPID: 18FEA1C7F914205254E6E81087CE3540_4
+X-Control-Analysis: str=0001.0A002119.67C18C19.00E0,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D6AAB168CC3;
+	Fri, 28 Feb 2025 11:12:35 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1740737403;
+	s=dkim; t=1740737557;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=YE6bnB+P2s7EJv1Gtcomzzk1XsCHf5FrUL6+zsepQYk=;
-	b=aSZkHu5tBl4BOPhn0gC5Txm/SbBCY5/5rfv7waBQSlP+aMm8/Um9qsAoVXwaoSUZtOnUyP
-	pDaeTg3ofEWR6FfOgnx0shiC3Ri8BdesYNBINYPB4FBuDBJDJqNdrGM3Cn0wv9YooXlD4u
-	h33CGkpNjaeK9WGLItWAL4Fc3a1e/31YD5cK3B3pONEoqlV/SPN2jFb7uJ76n0xeRS2ubI
-	rgLNhI5OeczxVDpC4uZOSAc372VjNgL9S2XodOeIi/PkxvEOptci76rjnM2LmGada6K0+S
-	SXtWqzD16qzwth9UCSg1zpac/U6Il/LxEV5jXqyyLbP+92xq7XupA80hhp2mmA==
+	bh=wrZESIfIEMlm8bcE5XbWXGC11n9EvGXbhxL7sNZTaKg=;
+	b=RZIbN3OUvhZO996W35ymd+UmvU0Oe1s/ZIRdblX0G9pxMXjaPdqV3Si/TXhOId9nWCmi4P
+	5opWJlWKMH3LggKe/bDCqJkXBP4MYy12GrGsaasQWYP3JaQGj+Zdpg2TDyEiqLPmlGVvEf
+	a7oGgXhCV8ENhJXpx7RP4iwwqWQs8SRoSzLuif/iCFCSeH6pMlIWJq9p3GfmePgTt0sxGY
+	ZqZl3ZHOU0e/KmiFwlp7JILTqf6x0AZN4T7OJOgTdHU8AW1lM6RQiRL+cfGOKW90hrhESa
+	qOjpJvckYPsC91rSpqL/8PwGVYKWPrTMtn66RABwjrBDuv2LRT7uRf87Acr2HA==
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org
 Cc: Marek Vasut <marex@denx.de>,
@@ -79,20 +79,20 @@ Cc: Marek Vasut <marex@denx.de>,
  Steven Price <steven.price@arm.com>, Thomas Zimmermann <tzimmermann@suse.de>,
  devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
  imx@lists.linux.dev, Marek Vasut <marex@denx.de>
-Subject: Re: [PATCH 5/9] drm/panthor: Implement support for multiple power domains
-Date: Fri, 28 Feb 2025 11:10:02 +0100
-Message-ID: <2848587.BEx9A2HvPv@steina-w>
+Subject: Re: [PATCH 7/9] dt-bindings: gpu: mali-valhall-csf: Document i.MX95 support
+Date: Fri, 28 Feb 2025 11:12:35 +0100
+Message-ID: <4281241.1IzOArtZ34@steina-w>
 Organization: TQ-Systems GmbH
-In-Reply-To: <20250227170012.124768-6-marex@denx.de>
+In-Reply-To: <20250227170012.124768-8-marex@denx.de>
 References: <20250227170012.124768-1-marex@denx.de>
- <20250227170012.124768-6-marex@denx.de>
+ <20250227170012.124768-8-marex@denx.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="iso-8859-1"
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_021011_178033_B54D9B1A 
-X-CRM114-Status: GOOD (  29.50  )
+X-CRM114-CacheID: sfid-20250228_021244_061384_4157E31D 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,15 +107,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 27. Februar 2025, 17:58:05 CET schrieb Marek Vasut:
-> The driver code power domain binding to driver instances only works
-> for single power domain, in case there are multiple power domains,
-> it is necessary to explicitly attach via dev_pm_domain_attach*().
-> As DT bindings list support for up to 5 power domains, add support
-> for attaching them all. This is useful on Freescale i.MX95 which
-> does have two power domains.
+Am Donnerstag, 27. Februar 2025, 17:58:07 CET schrieb Marek Vasut:
+> The instance of the GPU populated in Freescale i.MX95 is the
+> Mali G310, document support for this variant.
 >=20
 > Signed-off-by: Marek Vasut <marex@denx.de>
+
+Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+
 > ---
 > Cc: Boris Brezillon <boris.brezillon@collabora.com>
 > Cc: Conor Dooley <conor+dt@kernel.org>
@@ -139,113 +138,22 @@ Am Donnerstag, 27. Februar 2025, 17:58:05 CET schrieb Marek Vasut:
 > Cc: imx@lists.linux.dev
 > Cc: linux-arm-kernel@lists.infradead.org
 > ---
->  drivers/gpu/drm/panthor/panthor_device.c | 56 ++++++++++++++++++++++++
->  drivers/gpu/drm/panthor/panthor_device.h |  5 +++
->  2 files changed, 61 insertions(+)
+>  Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 >=20
-> diff --git a/drivers/gpu/drm/panthor/panthor_device.c b/drivers/gpu/drm/p=
-anthor/panthor_device.c
-> index 51ee9cae94504..4348b7e917b64 100644
-> --- a/drivers/gpu/drm/panthor/panthor_device.c
-> +++ b/drivers/gpu/drm/panthor/panthor_device.c
-> @@ -75,6 +75,58 @@ static int panthor_reset_init(struct panthor_device *p=
-tdev)
->  	return 0;
->  }
-> =20
-> +/* Generic power domain handling code, see drivers/gpu/drm/tiny/simpledr=
-m.c */
-> +static void panthor_detach_genpd(void *res)
-> +{
-> +	struct panthor_device *ptdev =3D res;
-> +	int i;
-> +
-> +	if (ptdev->pwr_dom_count <=3D 1)
-> +		return;
-> +
-> +	for (i =3D ptdev->pwr_dom_count - 1; i >=3D 0; i--)
-> +		dev_pm_domain_detach(ptdev->pwr_dom_devs[i], true);
-> +}
-> +
-> +static int panthor_genpd_init(struct panthor_device *ptdev)
-> +{
-> +	struct device *dev =3D ptdev->base.dev;
-> +	int i, ret;
-> +
-> +	ptdev->pwr_dom_count =3D of_count_phandle_with_args(dev->of_node, "powe=
-r-domains",
-> +							  "#power-domain-cells");
-> +	/*
-> +	 * Single power-domain devices are handled by driver core nothing to do
-> +	 * here. The same for device nodes without "power-domains" property.
-> +	 */
-> +	if (ptdev->pwr_dom_count <=3D 1)
-> +		return 0;
-> +
-> +	if (ptdev->pwr_dom_count > ARRAY_SIZE(ptdev->pwr_dom_devs)) {
-> +		drm_warn(&ptdev->base, "Too many power domains (%d) for this device\n",
-> +			 ptdev->pwr_dom_count);
-> +		return -EINVAL;
-> +	}
-> +
-> +	for (i =3D 0; i < ptdev->pwr_dom_count; i++) {
-> +		ptdev->pwr_dom_devs[i] =3D dev_pm_domain_attach_by_id(dev, i);
-> +		if (!IS_ERR(ptdev->pwr_dom_devs[i]))
-> +			continue;
-> +
-> +		ret =3D PTR_ERR(ptdev->pwr_dom_devs[i]);
-> +		if (ret !=3D -EPROBE_DEFER) {
-> +			drm_warn(&ptdev->base, "pm_domain_attach_by_id(%u) failed: %d\n", i, =
-ret);
-> +			continue;
-
-Is it a good idea to continue if a power-domain is missing? Any access might
-stuck completely. IMHO returning an error is more sensible.
-Also some dev_err_probe() should be added here.
-
-Best regards
-Alexander
-
-> +		}
-> +
-> +		/* Missing dependency, try again. */
-> +		panthor_detach_genpd(ptdev);
-> +		return ret;
-> +	}
-> +
-> +	return devm_add_action_or_reset(dev, panthor_detach_genpd, ptdev);
-> +}
-> +
->  void panthor_device_unplug(struct panthor_device *ptdev)
->  {
->  	/* This function can be called from two different path: the reset work
-> @@ -232,6 +284,10 @@ int panthor_device_init(struct panthor_device *ptdev)
->  	if (ret)
->  		return ret;
-> =20
-> +	ret =3D panthor_genpd_init(ptdev);
-> +	if (ret)
-> +		return ret;
-> +
->  	ret =3D panthor_devfreq_init(ptdev);
->  	if (ret)
->  		return ret;
-> diff --git a/drivers/gpu/drm/panthor/panthor_device.h b/drivers/gpu/drm/p=
-anthor/panthor_device.h
-> index fea3a05778e2e..7fb65447253e9 100644
-> --- a/drivers/gpu/drm/panthor/panthor_device.h
-> +++ b/drivers/gpu/drm/panthor/panthor_device.h
-> @@ -114,6 +114,11 @@ struct panthor_device {
->  	/** @resets: GPU reset. */
->  	struct reset_control *resets;
-> =20
-> +	/** @pwr_dom_count: Power domain count */
-> +	int pwr_dom_count;
-> +	/** @pwr_dom_dev: Power domain devices */
-> +	struct device *pwr_dom_devs[5];
-> +
->  	/** @coherent: True if the CPU/GPU are memory coherent. */
->  	bool coherent;
+> diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.y=
+aml b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+> index 0efa06822a543..3ab62bd424e41 100644
+> --- a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+> +++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+> @@ -18,6 +18,7 @@ properties:
+>      oneOf:
+>        - items:
+>            - enum:
+> +              - fsl,imx95-mali            # G310
+>                - rockchip,rk3588-mali
+>            - const: arm,mali-valhall-csf   # Mali Valhall GPU model/revis=
+ion is fully discoverable
 > =20
 >=20
 
