@@ -4,62 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86DD7C282C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 16:02:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86A0DC282C1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 16:03:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=luIE0Lf4JAHBS8LhKxuyQef8bCGyud3N4ZNDHk+iEL8=; b=w+luieDFTt2J1KG8SMgIRCApSo
-	uR8gpJ5gimD17DRt5eVS52sHvX9WowJp2e3m6Toim0BhrWuOuwDjzPcX9ww87P3OWu8AODpunDFR6
-	YDj6zYWy/7sR8C4xWUe6AyWJPdihIYGJ9ZDkGf0+Zhl/O7f1eTYYUrNdI8rbO7GdpQO6r361gLRL+
-	+JB1QHqKxWVP04pERNEpp63sjg29lKkONRr4kRdTA/wwVZJ2qxHWEm1QLg/v+IGMqSLdNNAiXEP8r
-	LaVwJE/RkS45z8UnJxdLda+x6HJhWy0J1MPp+gn+pOmLYgLFHPuq5zPjsXC7S0CsX3XEwsyZBnGwX
-	BkKGrdGA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=us3P1yv6VOuxtB5vvFKg6U2I9kXSoWlwy5iqQagTPAU=; b=wG9PllAchoVrBzx/b04ZlGkKVa
+	bY/WNV4y2RXnjKC1xdLbAzYhXbSX5roeKTmegu2AZSw2NGy3TgXs6kl4qMKC2m+41S01kRwzQNLkv
+	hs+aw0vLNw/SG17j8V1qknmmm+ly6/GqKywGEy4gbQEuBQEkS0Y1NLPEkBig9EBey+I8EvsJmxhjn
+	V59tvJDt05v0xwirCJcZI0c50PhvY2Dw/hA7Lx/J9gCSSX8KQKialyms2Xq8Znt6l+jo92DSy80cp
+	UnEFgM5o0EA+51LZukj4JLLZFxqBBLtin0fW0SkvsJnL3Ut4e6bIJUH57Kosj7dUwjQTltCIAi/TT
+	Ll8Q5R0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to2oM-0000000BaSV-1PYw;
-	Fri, 28 Feb 2025 16:02:02 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to2Z7-0000000BWlr-2GwK;
-	Fri, 28 Feb 2025 15:46:19 +0000
+	id 1to2pt-0000000BaiC-343r;
+	Fri, 28 Feb 2025 16:03:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1to2Zd-0000000BWuz-42z5
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Feb 2025 15:46:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CF239150C;
+	Fri, 28 Feb 2025 07:46:59 -0800 (PST)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 64CB43F5A1;
+	Fri, 28 Feb 2025 07:46:41 -0800 (PST)
+From: Robin Murphy <robin.murphy@arm.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Stuart Yoder <stuyoder@gmail.com>,
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
+	Nipun Gupta <nipun.gupta@amd.com>,
+	Nikhil Agarwal <nikhil.agarwal@amd.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Bjorn Helgaas <bhelgaas@google.com>
+Cc: linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	Charan Teja Kalla <quic_charante@quicinc.com>
+Subject: [PATCH v2 0/4] iommu: Fix the longstanding probe issues
+Date: Fri, 28 Feb 2025 15:46:29 +0000
+Message-Id: <cover.1740753261.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1740757575;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=luIE0Lf4JAHBS8LhKxuyQef8bCGyud3N4ZNDHk+iEL8=;
-	b=Jvz7yJ452lR8t9YC1wIIxBp7ro7I7QTTxUlXDF7Oox+l6ZnknysKkZpnv7UnuJeiGoDQz8
-	gkH3gqeNzEBGoIa78J7NYQi5Y3bW+sYOl+EUvtzo+BsbBQ50iuINXLKEeztXQRPDCDOf0w
-	9WL/Mi7yluhc1X5awOdpq2CsCQqI+yEI5ykdtyzUie01AY7O62Grd2XFGSKPrdu4HO/Eo/
-	N8SMvn73edg3RWBySKjupI+YBBcGkmS0WiODzMiYvunvy7WO+lLBWC0iS1uDbvYjHjSBAC
-	J38ps6i8mBWDAVMuLu0b7WQoQ6QIaaiNseLdw721m133y0tqGLRzl8/av8TeVA==
-Date: Fri, 28 Feb 2025 16:46:15 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Olivier Benjamin <olivier.benjamin@bootlin.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Thomas
- Petazzoni <thomas.petazzoni@bootlin.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, oren@taumoda.com, Ondrej Jirman <megi@xff.cz>
-Subject: Re: [PATCH 0/2] Describe the cameras in the PinePhone Pro dts
-In-Reply-To: <20250228-camera-v1-0-c51869f94e97@bootlin.com>
-References: <20250228-camera-v1-0-c51869f94e97@bootlin.com>
-Message-ID: <0338826971bfdd5b771bc1c6ada795eb@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_074617_733328_ABFC46E5 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20250228_074650_045528_B710E04D 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,38 +82,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Olivier,
+v1: https://lore.kernel.org/linux-iommu/cover.1739486121.git.robin.murphy@arm.com/
 
-On 2025-02-28 16:19, Olivier Benjamin wrote:
-> This series adds support for the Pine64 PinePhone Pro's rear and front
-> cameras in Device Tree.
-> This is based on some of Ondrej Jirman's patches hosted in his tree at
-> https://codeberg.org/megi/linux, but I have also fully reviewed and
-> re-written the code from the RK3399 datasheet, the PinePhone Pro
-> schematic, and the IMX258-0AQH5 software reference manual.
-> 
-> I have tested these changes on my PinePhone Pro and am able to take
-> photos from both cameras using libcamera's cam.
-> 
-> Signed-off-by: Olivier Benjamin <olivier.benjamin@bootlin.com>
+Hi all,
 
-I'm afraid that you haven't addressed the notes from the feedback
-you received earlier? [*]  Also, this should be the v2 of the series,
-which should contain "PATCH v2" in the patch subjects, and provide
-a summary of changes in the cover letter.
+This spin irons out a couple of issues which v1 had. Firstly there
+should now be no change in behaviour for the weird of_dma_configure()
+calls, other than possibly getting the warning if they deserve it.
+Secondly I think there was still a possibility for probe to run via
+the replay path while its "real" probe was waiting to reacquire the
+lock; this is now solved by making dev->iommu a reliable indicator of
+the probe lifecycle, with a couple more prep patches.
 
-Or, did you just resend the v1 by mistake?
+Thanks,
+Robin.
 
-[*] https://lore.kernel.org/linux-rockchip/5127541.31r3eYUQgx@phil/
 
-> ---
-> Olivier Benjamin (2):
->       arm64: dts: PinePhone Pro: describe I2c Bus 1 and IMX258 world 
-> camera
->       arm64: dts: PinePhone Pro: describe the OV8858 user camera
-> 
->  .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 138 
-> +++++++++++++++++++++
->  1 file changed, 138 insertions(+)
-> ---
+Robin Murphy (4):
+  iommu: Handle race with default domain setup
+  iommu: Resolve ops in iommu_init_device()
+  iommu: Keep dev->iommu state consistent
+  iommu: Get DT/ACPI parsing into the proper probe path
+
+ drivers/acpi/arm64/dma.c        |  5 +++
+ drivers/acpi/scan.c             |  7 -----
+ drivers/amba/bus.c              |  3 +-
+ drivers/base/platform.c         |  3 +-
+ drivers/bus/fsl-mc/fsl-mc-bus.c |  3 +-
+ drivers/cdx/cdx.c               |  3 +-
+ drivers/iommu/iommu-priv.h      |  2 ++
+ drivers/iommu/iommu.c           | 55 ++++++++++++++++++++++++---------
+ drivers/iommu/of_iommu.c        | 13 ++++++--
+ drivers/of/device.c             |  7 ++++-
+ drivers/pci/pci-driver.c        |  3 +-
+ 11 files changed, 74 insertions(+), 30 deletions(-)
+
+-- 
+2.39.2.101.g768bb238c484.dirty
+
 
