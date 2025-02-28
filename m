@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35B6CC19776
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 04:23:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F6B4C19776
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 04:24:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lkIjPnn91/SRZervKGZC0B8yDAzqnA9SsHweWh8Mdhs=; b=cJrU8oYBTmZpj1I0Kug71Ee84k
-	j4WTGtJQvE/oHm3MSvjhnrTSUP1ADeecA6KpRqBTAJVh7LwmAXdPo280IPUpORqPFel+cP4UKygDl
-	Ol4E0tLRVrhBEXZVjV8NKHImS0dmDtK1kvmuFJMS0lcVRd7e5C0fg7jcNz9rjrCol96FPhpuFip7a
-	LVavaIgVC+dmDkOTv4vzeVIy4LYPNYHg2n13w1gwmaFHfUrhicKUL5nAKPwptDpvs+LC5R7g1vxHT
-	QA+qIHeSE/37s2XUk0xPjR/IkazbNngDdxkIgYwgpyxLE7BysrCEt4hF0GCSd6hPbP9JjqaO8MQmV
-	z2Kr9dBg==;
+	bh=ka7CcpwLE9gHGyeS4O8xFmkIDbnrXqD0zo80hBXzFQI=; b=Y+XaIx2iw0xSTvz1C+QsxRvwxw
+	mGHRpc0fl/41oL5/9gcnMiaOg937UmAU1gWdnv8bJn2dIh+1NjGR0w3MsuyPMrJu7JbFjqADQ2PPe
+	G9im+Ai6S3b8mEhLNvsCZpt3lYhSko98zlmdy3VdM+bLFZr7wjlpJzdHqBufoNmjUOrhp+2lgeT9N
+	mNqF1Wr7aS7kXTzUzXIDoyaqk9peCGhXvRKgyjekJwnRBGtS6tD7ZwJe6THFRKuZi6syVB2pvBxE2
+	9mYd9yv5gHQbn9hlhuUICJMMrVktJccNWYCIAAQY06lXJMxPB1dCgoNNiSe8vujD1tX/1uFKBb8Xf
+	sLqE31bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnrtw-00000009if4-0JxV;
-	Fri, 28 Feb 2025 04:23:04 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1tnrvS-00000009inm-30Au;
+	Fri, 28 Feb 2025 04:24:38 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnrje-00000009gpM-3bST
+	id 1tnrjj-00000009gr5-09jj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 04:12:28 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-2fea47bcb51so3143611a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 20:12:26 -0800 (PST)
+	Fri, 28 Feb 2025 04:12:32 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2fe96dd93b4so3712054a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Feb 2025 20:12:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740715946; x=1741320746; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1740715950; x=1741320750; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=lkIjPnn91/SRZervKGZC0B8yDAzqnA9SsHweWh8Mdhs=;
-        b=jEj76J8XU/Hw/MAy/s15Xea+hhS6pycli5Rbq58QDM/jJ5HjaouFg/L8Rf2lPY2Hnx
-         T63X0F/Efc9i9e+rTFFyDMm+x5QYUd7ZbYfRHPS6WI0Rcj3pmGrylDOf1h0XNeUz6Jlc
-         4wrviTUxzHMYlN5i0aNeCgot/gddAPkRqzK8uRlVeiBoMew1wyG0G3kCEyjVi7M0ax7b
-         RvKJpq0lwRZCeEo4CNRu/aQ/C/qGBVEwn2LaZTt5n7/Am+BN1V9tNdqyTqSCrcKfs9yc
-         t8UOFK5KORA353RhZ9RgyBmtH853HyMhQ+SVjes5FdBW0dNCiU+9xvF5Qp1TykRCWyCx
-         CA8w==
+        bh=ka7CcpwLE9gHGyeS4O8xFmkIDbnrXqD0zo80hBXzFQI=;
+        b=LQFXtrpAIHrG/2n6wPv0nf0FGeCe9fbYJDPVfJfVHGAlmmVmD0e2VShbMJbH468E2b
+         qcWBbE4SIeD58ht9YzcYRUfLBjEhkcDCCE35qxGpEDAa0sbfMVlx4pu/O61J+XZ80VLi
+         dXA7Ha2IPOq7BU0W9C6omu7T/vsp4EOMcM6bvJxEfuFK3rE2XgoTbYF1fbRZHLDYHj60
+         ZLGdRxiVDGY1Zh75NtMK2TvSDiNHQWFbA/DNUsVxUdlMYoC4CwOOFoeI0AGY5wwa8MpR
+         idLN8dB1OLfI3aA51F4KXr7TGhqy+YaZvwojDBSMRV1I1GDeeE9UQyu+cRwTxhIIGXRO
+         /Zkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740715946; x=1741320746;
+        d=1e100.net; s=20230601; t=1740715950; x=1741320750;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=lkIjPnn91/SRZervKGZC0B8yDAzqnA9SsHweWh8Mdhs=;
-        b=sm7oDMhHobO0b2f50wbkhnLSehPQgdWBWcHH1BWCr8IgSC55jZeorkNY4XEY/4qVol
-         oHXvaP0MthTKZprD2cUlLSiYpZQwrsbgSj64m6DGNGm17WnwZWmSnQOx+SdtDOlaR8mG
-         N5EKC99G7Vf0C7dm7gHDsQRJXhmk+VDkYgniH3jDQ6bBxf9jqrCHRUBHL0kzIOglO8RX
-         CaKoU9B6TcqbJPtV14O/y6iDPTSOYHr1Cv5X/ps/9sTjlcn5cG+hlyn0I71wyp/PsCRf
-         D99N7Xws2lwH15cbF/4e6Qd1lAQhJRq+mcJ7+GTjrWt6YcD+i4oB+ztVTlud9OklWE2k
-         lt/g==
-X-Forwarded-Encrypted: i=1; AJvYcCXykeUkE2K4jNRXh76V/NgMZOIZKMyu3/BK0QCV5ndJzRQFjulWIf4AwTMn/Q0Y75XVdw2NrnR4MmzOGTIYEhTz@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYEQVC3qHtlo4LKo6m333Zoo/z/Kxid08uLb74+47MaEPmfWVD
-	19Cbc6QcHchqnhfngozlMiZOmJ1Iv8w3rv1YghKcikgHkRVr0SIx
-X-Gm-Gg: ASbGncvyj1kI0S9XpWp36xHC+zjSfPz7L/wZ3uvJblG02dK047MSELRLCPdBbbeimFN
-	lFhHLiQNEEPnyW+Z20TCjUz6VQX4eGUYvvVenNXUasRL5bHlenMLrJJJJdweFZWPWmzG2gcD8DN
-	dYA/BCTpO4mwx/vV70dk+MqiiL794kFNE2bFI/cfdex+by6d/dJEcJXKoceYFMMO7LXdAeCpcNq
-	JpAE1wRXhV6ufOOjiVamqqq3Sb4XZKSmI+FI4Ykab2RIJoUyCkaWr1o+xx/YNBIwHzPBBd2cB5N
-	sSs9Mi9tC3Me3yD7bJMHMEtc2h4=
-X-Google-Smtp-Source: AGHT+IGHEIpcdEcISrBwhOH0M3m872e7avIuk+po2XsNHsz/FvPF88+rn1jimOEudTdFV276zI1J3w==
-X-Received: by 2002:a05:6a20:2585:b0:1ee:ced0:f093 with SMTP id adf61e73a8af0-1f2f4e4de6cmr3653744637.36.1740715946184;
-        Thu, 27 Feb 2025 20:12:26 -0800 (PST)
+        bh=ka7CcpwLE9gHGyeS4O8xFmkIDbnrXqD0zo80hBXzFQI=;
+        b=NAMA1KdAxOExVT1nsI1cG8hPvVq510kP3SAf+W52waKUBcqiKPBEv4AJIfOl4HrjxN
+         zGW+FF5Ai8+hlHyw424x90QDVByEZfZXKOt0iS+a0B9XVTR9boSeEs4NdTtfzucpQtV+
+         5tNbj7WL0cIM/pu6z+YbwqckzHY+cCe+eoKg5HZn84DimAHbqR2szbt65jAA//oPSb/M
+         g2BnwtVG+AVRCgM0DIn6ssrH6rZdNxsqn1EBWyEVE2SGwvmx9SzeYeHqqkftPNFDecDI
+         V46/Zt3JaVwCbDVA7eGV69szlGlAwNZbORdU0NFgrq+jCacrAGmw1WZeHhDr3Vt0B/8f
+         /wiA==
+X-Forwarded-Encrypted: i=1; AJvYcCXgv6j1xx1WsWv/cZGwoUkvkK0mc5mI3RFqXV5V60hnmbBKMKe+AlwrcuNDLANmrl3J99Gy7lrhwMza3bWRorAt@lists.infradead.org
+X-Gm-Message-State: AOJu0YysYXypEXiMVH01lBc1LVcaVyh/Pg6ifP0w87+lBDUpYdh1y7eA
+	hFKuop/y9OpKkfwcCw4l6QJY2AA0H+NDnzfwvbvBAbvB59kYp468
+X-Gm-Gg: ASbGncthVJpFLkV+03V0mhBbCFg6g5o6bDpYuIbllDX7496S3Ymdi+RyKYlp5ImXGgv
+	KSznQjCbfM60lC6sN1o1koRcxMjnsY4lKzbdN4GjbQOU7v+EgsHu+g7mGhBDBNF3CnyBFjwqs4q
+	TyTIRaIu8oO05CS4sR3nhmfRvNQ43xYCik9RAz5kmRqa0AO6sAJugTV2AleG6tjZher5oPu9rNc
+	fHaxjzHksp6HPaleT+cgP+YEmrNrxC9YNh77mnRKhhvBEwS3kEdCMNaPFxb5D8lcEYIYQRrt3gk
+	q36bCrRuX+cy9NopEAOPmC9PF4I=
+X-Google-Smtp-Source: AGHT+IF+29OLEyiDCHDf0ZXzToTZTrTTy/lXu3VaqX1nUdX72nf/nfBEkSvgY92r1LRRQm3L5LNfLw==
+X-Received: by 2002:a05:6a21:328c:b0:1ee:6b04:641a with SMTP id adf61e73a8af0-1f2e389cbd1mr8437134637.11.1740715950255;
+        Thu, 27 Feb 2025 20:12:30 -0800 (PST)
 Received: from [127.0.1.1] ([49.130.74.133])
-        by smtp.googlemail.com with ESMTPSA id 41be03b00d2f7-aee7dec4114sm2387856a12.57.2025.02.27.20.12.22
+        by smtp.googlemail.com with ESMTPSA id 41be03b00d2f7-aee7dec4114sm2387856a12.57.2025.02.27.20.12.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Feb 2025 20:12:25 -0800 (PST)
+        Thu, 27 Feb 2025 20:12:29 -0800 (PST)
 From: Nick Chan <towinchenmi@gmail.com>
-Date: Fri, 28 Feb 2025 12:06:46 +0800
-Subject: [PATCH v5 06/11] drivers/perf: apple_m1: Support
- per-implementation event attr group
+Date: Fri, 28 Feb 2025 12:06:47 +0800
+Subject: [PATCH v5 07/11] drivers/perf: apple_m1: Add Apple A7 support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250228-apple-cpmu-v5-6-9e124cd28ed4@gmail.com>
+Message-Id: <20250228-apple-cpmu-v5-7-9e124cd28ed4@gmail.com>
 References: <20250228-apple-cpmu-v5-0-9e124cd28ed4@gmail.com>
 In-Reply-To: <20250228-apple-cpmu-v5-0-9e124cd28ed4@gmail.com>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
@@ -87,25 +86,26 @@ Cc: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
  asahi@lists.linux.dev, linux-kernel@vger.kernel.org, 
  Nick Chan <towinchenmi@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2273; i=towinchenmi@gmail.com;
- h=from:subject:message-id; bh=ODunfawf7CVe5hX+5as3cMBvBCM9oIodivRV8l+gVA4=;
- b=owEBbQKS/ZANAwAIAQHKCLemxQgkAcsmYgBnwTeIh8PCw9htkPM24Wl/Zh/QTeVgaglkWxNlc
- VysG94JI76JAjMEAAEIAB0WIQRLUnh4XJes95w8aIMBygi3psUIJAUCZ8E3iAAKCRABygi3psUI
- JIddD/oCNTgA7arcUloG6g0FN1Dv2auoakexelhUz9xCaAin3goV2BFzBBzrgyLx/1RrUJc1jAx
- 4iosM+43Sn2niLgfuaYE4K2wzgiot9PrXCmT7/GKsO40Ox6GrnaQIa3eR1k0+Xv+mzwYfgpxYac
- GDof7/+DamAVN8Xp/vbH/E5bccEmIBOlpG9FwCR1YnlU1IsEQg68R6TaA2uI/arrxjq1I10z5aI
- Ftu2jI6NnIIkncYiev65c4vupqTnluwGM0tVf0r9qqRpng8w/sYCsj7ibB6kcQ1GxrF6EJw5DX/
- +YfVPt42+zpa4BisT/49FXgdjouDNmF8WO9t12PYKcxv6TN2MySK2BTUzGQnVpkyOX5U0NkObAR
- KdofpVJTBQWmeCiMJnp0oWAv23MN3Dm+MT3w/Tt5rfl7x0belHAIq4fp5EpqQVBUIoLjEuuxwoD
- Vxe5jwJddjAVbOxp/+cx0cNIoSZNi3bzpAMLmpB2N6rebTBULPtWDLvm2aUEB8LmQKlkpRCPBgo
- UMIWEPe3rJYx0o1M0nk8RhgmiNVE1YAF586sWYvptu395XJF9VkWtgwcAalznMx2FhNos419Arv
- dPi20SMdNwq8zhysiqAma33qdVeHlY69Q17Mzt24u/eJrTdbR7YNDvZm+LG2zm7vc30/u/F5DdC
- uD/Zm8N5ETVXPvg==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11055;
+ i=towinchenmi@gmail.com; h=from:subject:message-id;
+ bh=HIk4rf7zxCOA98DOmDx17AWtajnJ5bX8H7E5/mhDlbc=;
+ b=owEBbQKS/ZANAwAIAQHKCLemxQgkAcsmYgBnwTeIgUyjt6t87lkQmQ2UDkPLlGJukwdyEEJca
+ Q5krv4XxhmJAjMEAAEIAB0WIQRLUnh4XJes95w8aIMBygi3psUIJAUCZ8E3iAAKCRABygi3psUI
+ JKzlD/934Pb1HL9tSKFdLbhsAEtkyvmXU++FT6b379ojOJqFC5ROvRwu2ZokCPhiNUZ19OIVDVT
+ 0UByAuseH7Zrno6mJjucWNsDzyK52sfQWHpdjTrPeqXfoi8UBnb5A/NgqHHZjWAPf3mjjCdp0fY
+ ObIzXznkZA/xNhsw8RvYGaYV3Q3tX6UxJdRlHJMIwTHaXsy4uv1+Yp1UHkJ4UmJe+ZAj+E9Q8hm
+ 4umGZAFGP4uk+WzVDaiS0zDgG862RsZByeoJ4HNy8i9WdLovcuThWHz1Ii+QFyaxsnoKIM+K2Qj
+ z0jPrfW/NjgRrausCcF2jgM6NdjIDfKgjGpjaduMOzEyxu2q4LW3fMTTR7OTwAAEeAWA0AGFdhH
+ 9qswb3H6wyPB890s9lNybHX2t8FKqNthHdr4hjY4zVsiU+kl5HiK/HS+n4VF2iP42Asx8c863X2
+ uRGkUlJCyFc/5sCPRmYghJTfnSTYJK9vopMlrd6rtiqlsBTGUeg6GpjF35SCSn9NJ6GHfTYpgKz
+ gSffZI5pNWrFlWJBL5je1AtPhdEzPRoMSMvnkNmE4KrH25iz9EPWY6lu4HvVUjv67e1soOJ/RZ6
+ dKJPXyx+WIyNMeqC6BakL0D89luxGpxn+/yrOdslEM80xjfbpXU9v/hrhTB1WcF0u88vLsc4ELt
+ rGwxaYn2D66CKUQ==
 X-Developer-Key: i=towinchenmi@gmail.com; a=openpgp;
  fpr=4B5278785C97ACF79C3C688301CA08B7A6C50824
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_201226_901562_E32601D9 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20250227_201231_088362_99FE612C 
+X-CRM114-Status: GOOD (  17.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,58 +120,279 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To support implementations with different event numbers for cycles or
-instruction events, event attr groups needs to be per-implementation.
+Add support for the CPU PMU found in the Apple A7 SoC. The PMU has 8
+counters and a very different event layout compared to the M1 PMU.
+Interrupts are delivered as IRQs instead of FIQs like on the M1.
 
 Signed-off-by: Nick Chan <towinchenmi@gmail.com>
 ---
- drivers/perf/apple_m1_cpu_pmu.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ drivers/perf/apple_m1_cpu_pmu.c | 190 ++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 190 insertions(+)
 
 diff --git a/drivers/perf/apple_m1_cpu_pmu.c b/drivers/perf/apple_m1_cpu_pmu.c
-index b601d585d204f9e59ad7f5216679b97852a46a04..f98f3e95bfdbb5e9d0fe66357f6037f056fbf25c 100644
+index f98f3e95bfdbb5e9d0fe66357f6037f056fbf25c..93b49f08e5c740c5bba2eede191e279ed4965181 100644
 --- a/drivers/perf/apple_m1_cpu_pmu.c
 +++ b/drivers/perf/apple_m1_cpu_pmu.c
-@@ -612,7 +612,6 @@ static int apple_pmu_init(struct arm_pmu *cpu_pmu, u32 counters)
- 	cpu_pmu->set_event_filter = m1_pmu_set_event_filter;
+@@ -18,6 +18,7 @@
+ #include <asm/irq_regs.h>
+ #include <asm/perf_event.h>
  
- 	bitmap_set(cpu_pmu->cntr_mask, 0, counters);
--	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_EVENTS] = &m1_pmu_events_attr_group;
- 	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_FORMATS] = &m1_pmu_format_attr_group;
- 	return 0;
- }
-@@ -625,6 +624,7 @@ static int m1_pmu_ice_init(struct arm_pmu *cpu_pmu)
- 	cpu_pmu->map_event	  = m1_pmu_map_event;
- 	cpu_pmu->reset		  = m1_pmu_reset;
- 	cpu_pmu->start		  = m1_pmu_start;
-+	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_EVENTS] = &m1_pmu_events_attr_group;
- 	return apple_pmu_init(cpu_pmu, M1_PMU_NR_COUNTERS);
++#define A7_PMU_NR_COUNTERS		8
+ #define M1_PMU_NR_COUNTERS		10
+ #define APPLE_PMU_MAX_NR_COUNTERS	10
+ 
+@@ -44,6 +45,143 @@
+  * know next to nothing about the events themselves, and we already have
+  * per cpu-type PMU abstractions.
+  */
++
++enum a7_pmu_events {
++	A7_PMU_PERFCTR_INST_ALL					= 0x0,
++	A7_PMU_PERFCTR_UNKNOWN_1				= 0x1,
++	A7_PMU_PERFCTR_CORE_ACTIVE_CYCLE			= 0x2,
++	A7_PMU_PERFCTR_L2_TLB_MISS_INSTRUCTION			= 0x10,
++	A7_PMU_PERFCTR_L2_TLB_MISS_DATA				= 0x11,
++	A7_PMU_PERFCTR_BIU_UPSTREAM_CYCLE			= 0x19,
++	A7_PMU_PERFCTR_BIU_DOWNSTREAM_CYCLE			= 0x20,
++	A7_PMU_PERFCTR_L2C_AGENT_LD				= 0x22,
++	A7_PMU_PERFCTR_L2C_AGENT_LD_MISS			= 0x23,
++	A7_PMU_PERFCTR_L2C_AGENT_ST				= 0x24,
++	A7_PMU_PERFCTR_L2C_AGENT_ST_MISS			= 0x25,
++	A7_PMU_PERFCTR_SCHEDULE_UOP				= 0x58,
++	A7_PMU_PERFCTR_MAP_REWIND				= 0x61,
++	A7_PMU_PERFCTR_MAP_STALL				= 0x62,
++	A7_PMU_PERFCTR_FLUSH_RESTART_OTHER_NONSPEC		= 0x6e,
++	A7_PMU_PERFCTR_INST_A32					= 0x78,
++	A7_PMU_PERFCTR_INST_T32					= 0x79,
++	A7_PMU_PERFCTR_INST_A64					= 0x7a,
++	A7_PMU_PERFCTR_INST_BRANCH				= 0x7b,
++	A7_PMU_PERFCTR_INST_BRANCH_CALL				= 0x7c,
++	A7_PMU_PERFCTR_INST_BRANCH_RET				= 0x7d,
++	A7_PMU_PERFCTR_INST_BRANCH_TAKEN			= 0x7e,
++	A7_PMU_PERFCTR_INST_BRANCH_INDIR			= 0x81,
++	A7_PMU_PERFCTR_INST_BRANCH_COND				= 0x82,
++	A7_PMU_PERFCTR_INST_INT_LD				= 0x83,
++	A7_PMU_PERFCTR_INST_INT_ST				= 0x84,
++	A7_PMU_PERFCTR_INST_INT_ALU				= 0x85,
++	A7_PMU_PERFCTR_INST_SIMD_LD				= 0x86,
++	A7_PMU_PERFCTR_INST_SIMD_ST				= 0x87,
++	A7_PMU_PERFCTR_INST_SIMD_ALU				= 0x88,
++	A7_PMU_PERFCTR_INST_LDST				= 0x89,
++	A7_PMU_PERFCTR_UNKNOWN_8d				= 0x8d,
++	A7_PMU_PERFCTR_UNKNOWN_8e				= 0x8e,
++	A7_PMU_PERFCTR_UNKNOWN_8f				= 0x8f,
++	A7_PMU_PERFCTR_UNKNOWN_90				= 0x90,
++	A7_PMU_PERFCTR_UNKNOWN_93				= 0x93,
++	A7_PMU_PERFCTR_UNKNOWN_94				= 0x94,
++	A7_PMU_PERFCTR_UNKNOWN_95				= 0x95,
++	A7_PMU_PERFCTR_L1D_TLB_ACCESS				= 0x96,
++	A7_PMU_PERFCTR_L1D_TLB_MISS				= 0x97,
++	A7_PMU_PERFCTR_L1D_CACHE_MISS_ST			= 0x98,
++	A7_PMU_PERFCTR_L1D_CACHE_MISS_LD			= 0x99,
++	A7_PMU_PERFCTR_UNKNOWN_9b				= 0x9b,
++	A7_PMU_PERFCTR_LD_UNIT_UOP				= 0x9c,
++	A7_PMU_PERFCTR_ST_UNIT_UOP				= 0x9d,
++	A7_PMU_PERFCTR_L1D_CACHE_WRITEBACK			= 0x9e,
++	A7_PMU_PERFCTR_UNKNOWN_9f				= 0x9f,
++	A7_PMU_PERFCTR_LDST_X64_UOP				= 0xa7,
++	A7_PMU_PERFCTR_L1D_CACHE_MISS_LD_NONSPEC		= 0xb4,
++	A7_PMU_PERFCTR_L1D_CACHE_MISS_ST_NONSPEC		= 0xb5,
++	A7_PMU_PERFCTR_L1D_TLB_MISS_NONSPEC			= 0xb6,
++	A7_PMU_PERFCTR_ST_MEMORY_ORDER_VIOLATION_NONSPEC	= 0xb9,
++	A7_PMU_PERFCTR_BRANCH_COND_MISPRED_NONSPEC		= 0xba,
++	A7_PMU_PERFCTR_BRANCH_INDIR_MISPRED_NONSPEC		= 0xbb,
++	A7_PMU_PERFCTR_BRANCH_RET_INDIR_MISPRED_NONSPEC		= 0xbd,
++	A7_PMU_PERFCTR_BRANCH_CALL_INDIR_MISPRED_NONSPEC	= 0xbf,
++	A7_PMU_PERFCTR_BRANCH_MISPRED_NONSPEC			= 0xc0,
++	A7_PMU_PERFCTR_UNKNOWN_c1				= 0xc1,
++	A7_PMU_PERFCTR_UNKNOWN_c4				= 0xc4,
++	A7_PMU_PERFCTR_UNKNOWN_c5				= 0xc5,
++	A7_PMU_PERFCTR_UNKNOWN_c6				= 0xc6,
++	A7_PMU_PERFCTR_UNKNOWN_c8				= 0xc8,
++	A7_PMU_PERFCTR_UNKNOWN_ca				= 0xca,
++	A7_PMU_PERFCTR_UNKNOWN_cb				= 0xcb,
++	A7_PMU_PERFCTR_FED_IC_MISS_DEMAND			= 0xce,
++	A7_PMU_PERFCTR_L1I_TLB_MISS_DEMAND			= 0xcf,
++	A7_PMU_PERFCTR_UNKNOWN_f5				= 0xf5,
++	A7_PMU_PERFCTR_UNKNOWN_f6				= 0xf6,
++	A7_PMU_PERFCTR_UNKNOWN_f7				= 0xf7,
++	A7_PMU_PERFCTR_UNKNOWN_f8				= 0xf8,
++	A7_PMU_PERFCTR_UNKNOWN_fd				= 0xfd,
++	A7_PMU_PERFCTR_LAST					= M1_PMU_CFG_EVENT,
++	/*
++	 * From this point onwards, these are not actual HW events,
++	 * but attributes that get stored in hw->config_base.
++	 */
++	A7_PMU_CFG_COUNT_USER					= BIT(8),
++	A7_PMU_CFG_COUNT_KERNEL					= BIT(9),
++};
++
++static const u16 a7_pmu_event_affinity[A7_PMU_PERFCTR_LAST + 1] = {
++	[0 ... A7_PMU_PERFCTR_LAST]				= ANY_BUT_0_1,
++	[A7_PMU_PERFCTR_INST_ALL]				= ANY_BUT_0_1 | BIT(1),
++	[A7_PMU_PERFCTR_UNKNOWN_1]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_CORE_ACTIVE_CYCLE]			= ANY_BUT_0_1 | BIT(0),
++	[A7_PMU_PERFCTR_INST_A32]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_INST_T32]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_INST_A64]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_INST_BRANCH]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_INST_BRANCH_CALL]			= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_INST_BRANCH_RET]			= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_INST_BRANCH_TAKEN]			= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_INST_BRANCH_INDIR]			= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_INST_BRANCH_COND]			= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_INST_INT_LD]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_INST_INT_ST]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_INST_INT_ALU]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_INST_SIMD_LD]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_INST_SIMD_ST]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_INST_SIMD_ALU]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_INST_LDST]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_UNKNOWN_8d]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_UNKNOWN_8e]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_UNKNOWN_8f]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_UNKNOWN_90]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_UNKNOWN_93]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_UNKNOWN_94]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_UNKNOWN_95]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_L1D_CACHE_MISS_ST]			= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_L1D_CACHE_MISS_LD]			= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_UNKNOWN_9b]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_LD_UNIT_UOP]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_UNKNOWN_9f]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_L1D_CACHE_MISS_LD_NONSPEC]		= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_L1D_CACHE_MISS_ST_NONSPEC]		= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_L1D_TLB_MISS_NONSPEC]			= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_ST_MEMORY_ORDER_VIOLATION_NONSPEC]	= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_BRANCH_COND_MISPRED_NONSPEC]		= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_BRANCH_INDIR_MISPRED_NONSPEC]		= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_BRANCH_RET_INDIR_MISPRED_NONSPEC]	= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_BRANCH_CALL_INDIR_MISPRED_NONSPEC]	= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_BRANCH_MISPRED_NONSPEC]			= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_UNKNOWN_c1]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_UNKNOWN_c4]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_UNKNOWN_c5]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_UNKNOWN_c6]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_UNKNOWN_c8]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_UNKNOWN_ca]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_UNKNOWN_cb]				= ONLY_5_6_7,
++	[A7_PMU_PERFCTR_UNKNOWN_f5]				= ONLY_2_4_6,
++	[A7_PMU_PERFCTR_UNKNOWN_f6]				= ONLY_2_4_6,
++	[A7_PMU_PERFCTR_UNKNOWN_f7]				= ONLY_2_4_6,
++	[A7_PMU_PERFCTR_UNKNOWN_fd]				= ONLY_2_4_6,
++};
++
+ enum m1_pmu_events {
+ 	M1_PMU_PERFCTR_RETIRE_UOP				= 0x1,
+ 	M1_PMU_PERFCTR_CORE_ACTIVE_CYCLE			= 0x2,
+@@ -162,6 +300,14 @@ static const u16 m1_pmu_event_affinity[M1_PMU_PERFCTR_LAST + 1] = {
+ 	[M1_PMU_PERFCTR_UNKNOWN_fd]				= ONLY_2_4_6,
+ };
+ 
++static const unsigned int a7_pmu_perf_map[PERF_COUNT_HW_MAX] = {
++	PERF_MAP_ALL_UNSUPPORTED,
++	[PERF_COUNT_HW_CPU_CYCLES]		= A7_PMU_PERFCTR_CORE_ACTIVE_CYCLE,
++	[PERF_COUNT_HW_INSTRUCTIONS]		= A7_PMU_PERFCTR_INST_ALL,
++	[PERF_COUNT_HW_BRANCH_MISSES]		= A7_PMU_PERFCTR_BRANCH_MISPRED_NONSPEC,
++	[PERF_COUNT_HW_BRANCH_INSTRUCTIONS]	= A7_PMU_PERFCTR_INST_BRANCH
++};
++
+ static const unsigned m1_pmu_perf_map[PERF_COUNT_HW_MAX] = {
+ 	PERF_MAP_ALL_UNSUPPORTED,
+ 	[PERF_COUNT_HW_CPU_CYCLES]		= M1_PMU_PERFCTR_CORE_ACTIVE_CYCLE,
+@@ -185,6 +331,17 @@ static ssize_t m1_pmu_events_sysfs_show(struct device *dev,
+ #define M1_PMU_EVENT_ATTR(name, config)					\
+ 	PMU_EVENT_ATTR_ID(name, m1_pmu_events_sysfs_show, config)
+ 
++static struct attribute *a7_pmu_event_attrs[] = {
++	M1_PMU_EVENT_ATTR(cycles, A7_PMU_PERFCTR_CORE_ACTIVE_CYCLE),
++	M1_PMU_EVENT_ATTR(instructions, A7_PMU_PERFCTR_INST_ALL),
++	NULL,
++};
++
++static const struct attribute_group a7_pmu_events_attr_group = {
++	.name = "events",
++	.attrs = a7_pmu_event_attrs,
++};
++
+ static struct attribute *m1_pmu_event_attrs[] = {
+ 	M1_PMU_EVENT_ATTR(cycles, M1_PMU_PERFCTR_CORE_ACTIVE_CYCLE),
+ 	M1_PMU_EVENT_ATTR(instructions, M1_PMU_PERFCTR_INST_ALL),
+@@ -494,6 +651,12 @@ static int apple_pmu_get_event_idx(struct pmu_hw_events *cpuc,
+ 	return -EAGAIN;
  }
  
-@@ -635,6 +635,7 @@ static int m1_pmu_fire_init(struct arm_pmu *cpu_pmu)
- 	cpu_pmu->map_event	  = m1_pmu_map_event;
- 	cpu_pmu->reset		  = m1_pmu_reset;
- 	cpu_pmu->start		  = m1_pmu_start;
-+	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_EVENTS] = &m1_pmu_events_attr_group;
- 	return apple_pmu_init(cpu_pmu, M1_PMU_NR_COUNTERS);
++static int a7_pmu_get_event_idx(struct pmu_hw_events *cpuc,
++				struct perf_event *event)
++{
++	return apple_pmu_get_event_idx(cpuc, event, a7_pmu_event_affinity);
++}
++
+ static int m1_pmu_get_event_idx(struct pmu_hw_events *cpuc,
+ 				struct perf_event *event)
+ {
+@@ -517,6 +680,11 @@ static void __m1_pmu_set_mode(u8 mode)
+ 	isb();
  }
  
-@@ -645,6 +646,7 @@ static int m2_pmu_avalanche_init(struct arm_pmu *cpu_pmu)
- 	cpu_pmu->map_event	  = m2_pmu_map_event;
- 	cpu_pmu->reset		  = m1_pmu_reset;
- 	cpu_pmu->start		  = m1_pmu_start;
-+	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_EVENTS] = &m1_pmu_events_attr_group;
- 	return apple_pmu_init(cpu_pmu, M1_PMU_NR_COUNTERS);
++static void a7_pmu_start(struct arm_pmu *cpu_pmu)
++{
++	__m1_pmu_set_mode(PMCR0_IMODE_AIC);
++}
++
+ static void m1_pmu_start(struct arm_pmu *cpu_pmu)
+ {
+ 	__m1_pmu_set_mode(PMCR0_IMODE_FIQ);
+@@ -551,6 +719,11 @@ static int apple_pmu_map_event_63(struct perf_event *event,
+ 	return armpmu_map_event(event, perf_map, NULL, M1_PMU_CFG_EVENT);
  }
  
-@@ -655,6 +657,7 @@ static int m2_pmu_blizzard_init(struct arm_pmu *cpu_pmu)
- 	cpu_pmu->map_event	  = m2_pmu_map_event;
- 	cpu_pmu->reset		  = m1_pmu_reset;
- 	cpu_pmu->start		  = m1_pmu_start;
-+	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_EVENTS] = &m1_pmu_events_attr_group;
- 	return apple_pmu_init(cpu_pmu, M1_PMU_NR_COUNTERS);
++static int a7_pmu_map_event(struct perf_event *event)
++{
++	return apple_pmu_map_event_47(event, &a7_pmu_perf_map);
++}
++
+ static int m1_pmu_map_event(struct perf_event *event)
+ {
+ 	return apple_pmu_map_event_47(event, &m1_pmu_perf_map);
+@@ -576,6 +749,11 @@ static void apple_pmu_reset(void *info, u32 counters)
+ 	isb();
  }
  
++static void a7_pmu_reset(void *info)
++{
++	apple_pmu_reset(info, A7_PMU_NR_COUNTERS);
++}
++
+ static void m1_pmu_reset(void *info)
+ {
+ 	apple_pmu_reset(info, M1_PMU_NR_COUNTERS);
+@@ -617,6 +795,17 @@ static int apple_pmu_init(struct arm_pmu *cpu_pmu, u32 counters)
+ }
+ 
+ /* Device driver gunk */
++static int a7_pmu_cyclone_init(struct arm_pmu *cpu_pmu)
++{
++	cpu_pmu->name = "apple_cyclone_pmu";
++	cpu_pmu->get_event_idx	  = a7_pmu_get_event_idx;
++	cpu_pmu->map_event	  = a7_pmu_map_event;
++	cpu_pmu->reset		  = a7_pmu_reset;
++	cpu_pmu->start		  = a7_pmu_start;
++	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_EVENTS] = &a7_pmu_events_attr_group;
++	return apple_pmu_init(cpu_pmu, A7_PMU_NR_COUNTERS);
++}
++
+ static int m1_pmu_ice_init(struct arm_pmu *cpu_pmu)
+ {
+ 	cpu_pmu->name = "apple_icestorm_pmu";
+@@ -666,6 +855,7 @@ static const struct of_device_id m1_pmu_of_device_ids[] = {
+ 	{ .compatible = "apple,blizzard-pmu",	.data = m2_pmu_blizzard_init, },
+ 	{ .compatible = "apple,icestorm-pmu",	.data = m1_pmu_ice_init, },
+ 	{ .compatible = "apple,firestorm-pmu",	.data = m1_pmu_fire_init, },
++	{ .compatible = "apple,cyclone-pmu",	.data = a7_pmu_cyclone_init, },
+ 	{ },
+ };
+ MODULE_DEVICE_TABLE(of, m1_pmu_of_device_ids);
 
 -- 
 2.48.1
