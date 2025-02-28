@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2218C19776
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 06:51:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05511C282C1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 06:53:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Jo9yXuPRKn/9jusZJeonZA0HEr47rkDIZi25HF2beM=; b=Pwlv8F7WJVy6yjKeEfbRVjeNcj
-	Wrsz8/Po7ageQIKIQXAFBTZHpkML43bMusf2BM3LNWsp5xlNLOtHJzr+1W1nO3uogtfs9tuNryXvg
-	MuFWZOC10tK6mKGWqvJdtQkwjfWOwIknVCl8BVaK1wHCSSUZqIq3dm9ntTfzhRt2+tXVIt3uHPrQz
-	QcMl/jnpNd8Kmc8ok5ISfsxVFu0j6UYyqwac5vlq82apn1D2Go+ncIcqg2WSbE92E9Ed4igoFqivx
-	Wk5DotONKPj2XZmqd+fRYYu91HFoJsCdC+gArrZ3IOlSBUdvtAp9JekZZcD3/lhuXPpTQk3O58Y2s
-	/rCsXC8Q==;
+	bh=LFxsWR3l8emE9VbLBSkEoA10aFZjqSCs6/nvHtvdILw=; b=iH3xTRgdS/Q5+PbGIvwX648cPI
+	cBgUVa7kU4P4xqlqfCGvusM1+qD1mQ65XeYFaTkYT/cq1Z0XIbHbu1sgxJpzN02sA1dxp7UK7ATNp
+	njqzBNS8rpfysDk0AVY7n4o1BhQ1BE8RH1kjNGtjHaemfTC7W9nqIDBFXBxeyDGXfhEfNHHElZO9R
+	5cF8RI103K8s0JSoe8e3vyGMUSe5OU12QzaX7FCYAKj3GY/9tani9b/35Lm2TpNLEyzP+dcxC20FA
+	uR+ARttzCt5yIvsoyj9/ZTfgjuwl/4sQsyqz6Bm3bX8gjNJKMiSMio1x5c+aOjw4f8EzYOSRsyYsw
+	V7K6+2tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnuDn-00000009uMS-11Fv;
-	Fri, 28 Feb 2025 06:51:43 +0000
+	id 1tnuFJ-00000009uY4-3hQW;
+	Fri, 28 Feb 2025 06:53:17 +0000
 Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnu3U-00000009t5r-0ZS5
+	id 1tnu3U-00000009t5t-0c8j
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 28 Feb 2025 06:41:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
  h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
  Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1740724863; bh=5Jo9yXuPRKn/9jusZJeonZA0HEr47rkDIZi25HF2beM=;
- b=AU8pBJ53gaedy5wbK+5PO1U5IhUCnRz4NQDy11w84lUiGkeWs2+3VATDx2H6RsvW1lsvsunR6
- AAHzIq1Vdidm9mUB+HYIgh1AKTSQ6plLZfdtgmcYLYVCDu24q4YbippHtbPjsVYP3dui6HUnODG
- NydKNjgAvb/RN2VerjysOQWBSQXr9jL54/3kjy4Iz4qR+O5iKekXpceUXcJmQRiXa+9lsSmFIiL
- /I56FF7sXBMh9C4RGg8knMNdhW/GVuPtDN/xo+Bu2D+Enb3GygkIfCfhiv5oUleZh1OZD57pP0j
- P8tbKbcqnl/0cHmp9WhWc9aM7iU0u5JhIh9Srsf9knVQ==
-X-Forward-Email-ID: 67c15a7dbcf1d1bd23db022f
+ t=1740724863; bh=LFxsWR3l8emE9VbLBSkEoA10aFZjqSCs6/nvHtvdILw=;
+ b=SIuPOk3lP2O2C32iK0TQL6bkiLuFv4+4/SKLVADPTq5B3bR3AzihWkfS0e0rJTv43FoIkG68l
+ ubd7H2DudVQKh0yv2H7FombrOXtqpB9N5vjiJkJqS/h1OtYDFD3ko/EL5BZ8vEwlHTIdJNOauKa
+ Ts2cYBgnvC5fWo16HnvRbfxMl+8nLsZIjQ2601qT53YbcKT341lWWwijZ1SOKjbDnq1vkujNoVW
+ m8g/ROjrrV6/Q9nQQf9xcxedXFsEibllUAxUdwwG0owWqPTedKzLw1OnCnmWP3/wi1RhS5/1Pct
+ yRnQhjLJH3WDRrA+/UZD4I9rMt3I2zH1uk8JvcQPLaLw==
+X-Forward-Email-ID: 67c15a79bcf1d1bd23db021a
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
  121.127.44.73
 X-Forward-Email-Version: 0.4.40
@@ -57,17 +57,17 @@ Cc: Linus Walleij <linus.walleij@linaro.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Jonas Karlman <jonas@kwiboo.se>
-Subject: [PATCH 7/7] arm64: dts: rockchip: Add gpio-leds node to Radxa E20C
-Date: Fri, 28 Feb 2025 06:40:13 +0000
-Message-ID: <20250228064024.3200000-8-jonas@kwiboo.se>
+Subject: [PATCH 6/7] arm64: dts: rockchip: Add user button to Radxa E20C
+Date: Fri, 28 Feb 2025 06:40:12 +0000
+Message-ID: <20250228064024.3200000-7-jonas@kwiboo.se>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250228064024.3200000-1-jonas@kwiboo.se>
 References: <20250228064024.3200000-1-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250227_224104_273823_77D1F7CC 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20250227_224104_294696_32FF870F 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,86 +82,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Radxa E20C has three gpio controlled leds (sys, wan and lan).
+Radxa E20C has two buttons, one SARADC maskrom button and one GPIO user
+button.
 
-Add a gpio-leds node and set default trigger to heartbeat for the sys
-led and netdev for the lan and wan leds.
+Add support for the user button using a gpio-keys node.
 
 Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 ---
- .../boot/dts/rockchip/rk3528-radxa-e20c.dts   | 45 +++++++++++++++++++
- 1 file changed, 45 insertions(+)
+ .../boot/dts/rockchip/rk3528-radxa-e20c.dts   | 21 +++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
-index d19e319b4100..7a14f8d5d601 100644
+index b9a66c6a1dfb..d19e319b4100 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
-@@ -8,6 +8,7 @@
- /dts-v1/;
- 
- #include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
- #include "rk3528.dtsi"
- 
- / {
-@@ -45,6 +46,36 @@ button-user {
+@@ -32,6 +32,19 @@ button-maskrom {
  		};
  	};
  
-+	gpio-leds {
-+		compatible = "gpio-leds";
++	gpio-keys {
++		compatible = "gpio-keys";
 +		pinctrl-names = "default";
-+		pinctrl-0 = <&lan_led_g>, <&sys_led_g>, <&wan_led_g>;
++		pinctrl-0 = <&user_key>;
 +
-+		led-lan {
-+			color = <LED_COLOR_ID_GREEN>;
-+			default-state = "off";
-+			function = LED_FUNCTION_LAN;
-+			gpios = <&gpio4 RK_PB5 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "netdev";
-+		};
-+
-+		led-sys {
-+			color = <LED_COLOR_ID_GREEN>;
-+			default-state = "on";
-+			function = LED_FUNCTION_HEARTBEAT;
-+			gpios = <&gpio4 RK_PC1 GPIO_ACTIVE_LOW>;
-+			linux,default-trigger = "heartbeat";
-+		};
-+
-+		led-wan {
-+			color = <LED_COLOR_ID_GREEN>;
-+			default-state = "off";
-+			function = LED_FUNCTION_WAN;
-+			gpios = <&gpio4 RK_PC0 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "netdev";
++		button-user {
++			gpios = <&gpio0 RK_PA0 GPIO_ACTIVE_LOW>;
++			label = "USER";
++			linux,code = <BTN_1>;
++			wakeup-source;
 +		};
 +	};
 +
  	vcc_1v8: regulator-1v8-vcc {
  		compatible = "regulator-fixed";
  		regulator-name = "vcc_1v8";
-@@ -81,6 +112,20 @@ user_key: user-key {
- 			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
- 		};
+@@ -62,6 +75,14 @@ vcc5v0_sys: regulator-5v0-vcc-sys {
  	};
-+
-+	gpio-leds {
-+		lan_led_g: lan-led-g {
-+			rockchip,pins = <4 RK_PB5 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		sys_led_g: sys-led-g {
-+			rockchip,pins = <4 RK_PC1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		wan_led_g: wan-led-g {
-+			rockchip,pins = <4 RK_PC0 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
  };
  
++&pinctrl {
++	gpio-keys {
++		user_key: user-key {
++			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
++	};
++};
++
  &saradc {
+ 	vref-supply = <&vcc_1v8>;
+ 	status = "okay";
 -- 
 2.48.1
 
