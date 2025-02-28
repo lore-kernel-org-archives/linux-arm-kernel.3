@@ -4,69 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03FFFC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 19:05:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC0DC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 19:07:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LJNHuntw5kLiM/ABI6QC8ajHWMQX7EIkqBeEAnVRc/k=; b=uRpEeagfDIZrxHWorxlR2J0RRM
-	lPrCTKzrcjhqh412sPdffQcO4AqS720l0dFLo7Cu/Wzp82TfDFctA+59gOIU3LF7nLZCM7JilDBa8
-	oL3I4BTYWr3G2AjpPzVWrL+0OmgNqd4ZSFAFFwHPIWuSUoRl+a0BlpeuXTUqF0fL/OAVxOmxUZZOk
-	+eEUhuJdNbGLUxKvmP2ZuAH9T79qxHswE4Po0o4g106W1R0oS5eaEI+m8YIkyXWBJcQlQgNaCynT3
-	x5zwqwHzdOWteCPwddukael1UBrVa4rfm/mmxSCGFU1DRt3296gBVpqzMHfbCYKz5J/vUeOwpiDHQ
-	j/fVVcwg==;
+	bh=iFXFYJac1x/01yzYwzJ7fG3+azm9dT5eKRfdOp1DA6I=; b=jjGn/aHp98YOSB/lf15QOyQmal
+	PwgObNjW7fF95P+7HWbAZyRPI+8W8XXAWgMciK5Kz6+ub8hrG9yj+/xUMe+LIq/CYiQyu0qV21K1x
+	2nHP2DDqFLRBQx+j81JoGnToy2OIW/0D4YaxNyTeoJD0drBGn83yyOFTKgJbeGEU5B00xYKx+O55m
+	M+oDSckO6nrcktpKp+08DXka7aUV+Yt0cKc+E+2b5KvD9sB2Xzm6UKiwhG63W4Je2RJGyAudR7NZJ
+	bLA3cJkvwvHnRG7M0oEUCKOBbfOgJXMBVorY+CQJNr1EaW/mKu+/pSOxqMr7IA8axEXay0ilD9rNu
+	uK0hzo2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to5gB-0000000CIWR-2rGX;
-	Fri, 28 Feb 2025 19:05:47 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1to5hh-0000000CImL-1GBx;
+	Fri, 28 Feb 2025 19:07:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to5dg-0000000CI8c-4A6U
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 19:03:14 +0000
+	id 1to5fM-0000000CIPp-3tl3;
+	Fri, 28 Feb 2025 19:04:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=iFXFYJac1x/01yzYwzJ7fG3+azm9dT5eKRfdOp1DA6I=; b=kQfCDKNaF+H2ib3gdNc9HGhKrx
+	UutlhybJvmNLV2tN4QmVMSE25MlGZaOUHOpxhnaFtKbIeqU0CSw3OxbNdXrH1UFsZPtIt8Esa8rcH
+	ztEbfTeGkCErM4mg9oNo8gUfoLpH/7+McqlMbu9qpT7FFhB3GJXM1dMKw/0CzNwTC3CZSjcGHoPYL
+	ymqK/ONjKiEDjhyWBwGMS0iRXcNJocw2MB2MNSpTwe1+XN81WeHrAdkvjaAfzeIvsbDNyByI4g/Fl
+	zE1Zt5ocBisZ3AA8GTXY3nUAWwv7X9dQDa/wXbyj7JAWarcYu73Bkuh68iiU5bFou1RXR2USPuKEt
+	PxrzoFCw==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1to5fJ-000000041Su-0P3A;
+	Fri, 28 Feb 2025 19:04:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 390155C68D9;
-	Fri, 28 Feb 2025 19:00:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D352C4CED6;
-	Fri, 28 Feb 2025 19:03:07 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0C33A5C691D;
+	Fri, 28 Feb 2025 19:02:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18765C4CED6;
+	Fri, 28 Feb 2025 19:04:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740769391;
-	bh=fkRwxASTRhK3CZzhXw1baxiK+9kAKBEvfZLUN9AOx1A=;
+	s=k20201202; t=1740769481;
+	bh=iFXFYJac1x/01yzYwzJ7fG3+azm9dT5eKRfdOp1DA6I=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tShjH7cEZHyiforgx0ocxgRzr86xXl8LxTLd6sLN4nfpWq2Nvk7kwuu7XSYtuwmmR
-	 GeBc4FWAIBs0eaFqOaV8sTR2CN+kOWmNf/AysWKF9bpyDfCYZvHf3RJidF2HlGf3wF
-	 Uxi4jVVVQi5fLy1P7P1GhxnLqaa/qeKJIs+dxrgZH36OQRpx/lsVU7q+2K3bgAEW9p
-	 s9fVkyUMncr/8YM9Sp4iLbibXI/KQWuuIvAfUImUX4bMiOtecTG5EUPaBUS7xQsbXS
-	 /gSteDdJkRGdCwfov7gGInz+mEtxVFjgb0vYgo2/viJLpskpqVGhsMKP4s3N99++ag
-	 iWRSGtqrNHeNw==
-Date: Fri, 28 Feb 2025 19:03:05 +0000
+	b=YwbwhTjWsm/rEWnBTsCJipxxwmUD2J8KuLUOGYi+aUpraG2/peo7/zWSvm5cvML68
+	 64lfs/0VLYwbXLLqym0E0nRDsrtuSW8UNewpyqQqE2FszcdwWxB4sgLqNfky9WGw29
+	 RCBpk9vdQMnAlPYZrxjOLdbW/Ia3d+/dZFStcL2ClIqwaGPKwNibBu9bC4eCSfPBKU
+	 7ahQ6elkUneoih0kqjfMqLoCU9n6jurYDR7VJUpOk1C9cYPPdTtrvk/sUprARGj2hx
+	 UBTHctqjCg8baiXi68DWjerob+3LMTwlBVswGBjpbvsamKiH8qx5n9eptpaRobqUgX
+	 1F8olGDoVjQ3A==
+Date: Fri, 28 Feb 2025 19:04:36 +0000
 From: Conor Dooley <conor@kernel.org>
-To: John Madieu <john.madieu.xa@bp.renesas.com>
-Cc: geert+renesas@glider.be, magnus.damm@gmail.com, mturquette@baylibre.com,
-	sboyd@kernel.org, rafael@kernel.org, daniel.lezcano@linaro.org,
-	rui.zhang@intel.com, lukasz.luba@arm.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
-	catalin.marinas@arm.com, will@kernel.org, john.madieu@gmail.com,
-	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	biju.das.jz@bp.renesas.com
-Subject: Re: [PATCH v2 3/7] dt-bindings: thermal: r9a09g047-tsu: Document the
- TSU unit
-Message-ID: <20250228-shampoo-uprising-44ae0d3bd68b@spud>
-References: <20250227122453.30480-1-john.madieu.xa@bp.renesas.com>
- <20250227122453.30480-4-john.madieu.xa@bp.renesas.com>
+To: Kever Yang <kever.yang@rock-chips.com>
+Cc: heiko@sntech.de, linux-rockchip@lists.infradead.org,
+	Jose Abreu <joabreu@synopsys.com>, devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Rob Herring <robh@kernel.org>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	David Wu <david.wu@rock-chips.com>, Paolo Abeni <pabeni@redhat.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: net: Add support for rk3562 dwmac
+Message-ID: <20250228-exciting-utility-29ca9428f121@spud>
+References: <20250227110652.2342729-1-kever.yang@rock-chips.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="VeciV8RQYG2Ieked"
+	protocol="application/pgp-signature"; boundary="s6OSw9lCrmZNjA6K"
 Content-Disposition: inline
-In-Reply-To: <20250227122453.30480-4-john.madieu.xa@bp.renesas.com>
+In-Reply-To: <20250227110652.2342729-1-kever.yang@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_110313_169379_824B4F32 
-X-CRM114-Status: GOOD (  20.50  )
+X-CRM114-CacheID: sfid-20250228_190453_320603_1170E982 
+X-CRM114-Status: GOOD (  10.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,183 +98,30 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---VeciV8RQYG2Ieked
+--s6OSw9lCrmZNjA6K
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Feb 27, 2025 at 01:24:39PM +0100, John Madieu wrote:
-> The Renesas RZ/G3E SoC includes a Thermal Sensor Unit (TSU) block designed
-> to measure the junction temperature. The device provides real-time temper=
-ature
-> measurements for thermal management, utilizing a single dedicated channel
-> (channel 1) for temperature sensing.
+On Thu, Feb 27, 2025 at 07:06:50PM +0800, Kever Yang wrote:
+> Add a rockchip,rk3562-gmac compatible for supporting the 2 gmac
+> devices on the rk3562.
+> rk3562 only has 4 clocks availabl for gmac module.
 >=20
-> Signed-off-by: John Madieu <john.madieu.xa@bp.renesas.com>
-> ---
-> v1 -> v2:
->  * Fix reg property specifier to get rid of yamlint warnings
->  * Fix IRQ name to reflect TSU expectations
->=20
->  .../thermal/renesas,r9a09g047-tsu.yaml        | 123 ++++++++++++++++++
->  1 file changed, 123 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/thermal/renesas,r9a=
-09g047-tsu.yaml
->=20
-> diff --git a/Documentation/devicetree/bindings/thermal/renesas,r9a09g047-=
-tsu.yaml b/Documentation/devicetree/bindings/thermal/renesas,r9a09g047-tsu.=
-yaml
-> new file mode 100644
-> index 000000000000..e786561ddbe3
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/thermal/renesas,r9a09g047-tsu.yaml
-> @@ -0,0 +1,123 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/thermal/renesas,r9a09g047-tsu.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Renesas RZ/G3E Temperature Sensor Unit (TSU)
-> +
-> +maintainers:
-> +  - John Madieu <john.madieu.xa@bp.renesas.com>
-> +
-> +description:
-> +  The Temperature Sensor Unit (TSU) is an integrated thermal sensor that
-> +  monitors the chip temperature on the Renesas RZ/G3E SoC. The TSU provi=
-des
-> +  real-time temperature measurements for thermal management.
-> +
-> +properties:
-> +  compatible:
-> +    const: renesas,r9a09g047-tsu
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    description: |
-> +      Interrupt specifiers for the TSU:
-> +      - S12TSUADI1: Conversion complete interrupt signal (pulse)
-> +      - S12TSUADCMPI1: Comparison result interrupt signal (level)
-> +
-> +  interrupt-names:
-> +    items:
-> +      - const: adi
-> +      - const: adcmpi
-> +
-> +  "#thermal-sensor-cells":
-> +    const: 0
-> +
-> +  renesas,tsu-calibration-sys:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: |
-> +      Phandle to the system controller (sys) that contains the TSU
-> +      calibration values used for temperature calculations.
-> +
-> +  renesas,tsu-operating-mode:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    enum: [0, 1]
-> +    description: |
-> +      TSU operating mode:
-> +      0: Mode 0 - Conversion started by software
-> +      1: Mode 1 - Conversion started by ELC trigger
+> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
 
-Can you make this "software" and "elc" or something please, unless
-people will genuinely find "0" and 1" to be more informative.
-And why doesn't the property have a default?
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-cheers,
-Conor.
-
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - resets
-> +  - power-domains
-> +  - interrupts
-> +  - interrupt-names
-> +  - "#thermal-sensor-cells"
-> +  - renesas,tsu-operating-mode
-> +  - renesas,tsu-calibration-sys
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/renesas,r9a09g047-cpg.h>
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +    tsu: thermal@14002000 {
-> +        compatible =3D "renesas,r9a09g047-tsu";
-> +        reg =3D <0x14002000 0x1000>;
-> +        clocks =3D <&cpg CPG_MOD 0x10a>;
-> +        resets =3D <&cpg 0xf8>;
-> +        power-domains =3D <&cpg>;
-> +        interrupts =3D <GIC_SPI 250 IRQ_TYPE_EDGE_RISING>,
-> +                     <GIC_SPI 251 IRQ_TYPE_LEVEL_HIGH>;
-> +        interrupt-names =3D "adi", "adcmpi";
-> +        #thermal-sensor-cells =3D <0>;
-> +        renesas,tsu-operating-mode =3D <0>;
-> +        renesas,tsu-calibration-sys =3D <&sys>;
-> +    };
-> +
-> +    thermal-zones {
-> +        cpu-thermal {
-> +            polling-delay =3D <1000>;
-> +            polling-delay-passive =3D <250>;
-> +            thermal-sensors =3D <&tsu>;
-> +
-> +            cooling-maps {
-> +                map0 {
-> +                    trip =3D <&target>;
-> +                    cooling-device =3D <&cpu0 0 3>, <&cpu1 0 3>,
-> +                                     <&cpu2 0 3>, <&cpu3 0 3>;
-> +                    contribution =3D <1024>;
-> +                };
-> +            };
-> +
-> +            trips {
-> +                target: trip-point {
-> +                    temperature =3D <95000>;
-> +                    hysteresis =3D <1000>;
-> +                    type =3D "passive";
-> +                };
-> +
-> +                sensor_crit: sensor-crit {
-> +                    temperature =3D <120000>;
-> +                    hysteresis =3D <1000>;
-> +                    type =3D "critical";
-> +                };
-> +            };
-> +        };
-> +    };
-> --=20
-> 2.25.1
->=20
-
---VeciV8RQYG2Ieked
+--s6OSw9lCrmZNjA6K
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ8IIaQAKCRB4tDGHoIJi
-0h6yAP9mVpIjUx0jaOqOxtaUXN4UN78pR3bAJQoVq1PhhnX9VAD+ILPM3T/hP0Dc
-+ShPfuSw2qswD5Gh7yHGz+0ikOGf9w0=
-=yvBh
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ8IIwwAKCRB4tDGHoIJi
+0l7CAQDQfVhiOrJrK6vQiAo9PKlTv9kpqY0pN2q/by1QLSaqJAEAs+3bvp2mwkfQ
+MJSUw0vuqY+xCcyhOApXc3xtB4aolgM=
+=7KWW
 -----END PGP SIGNATURE-----
 
---VeciV8RQYG2Ieked--
+--s6OSw9lCrmZNjA6K--
 
