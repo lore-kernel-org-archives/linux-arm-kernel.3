@@ -4,63 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27B24C19776
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 14:53:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA946C19776
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 14:55:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:Cc:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L/eeIQjPq5qXbuXJ2EtGrJGUI9MuYSzF+ERpy0YE3uY=; b=ctJ+WrWf+aFREwDL0w3Pdu+d6f
-	QIrKwUTQQRXT7vtsGHLOQkPPp9A+gN/TzrIVdUOKEI9sAa8fLD7eUGWCzjhgVS2osd1T0cQhGowTQ
-	La9FcMns6qDTMX4FyahmmZXwXkDRAWhtrVizrqB7Pz6Y8zW059XaTGyTkwFDcGKRdAS35Lrppjjij
-	ptQYAN1wjJK8E3kHinUwS86ldx3Akk3809Cpw2mDEzOuxOXIosad0sgqP0KvcU6FYOW47kjbvdPIZ
-	ZnkkJ/9gGAB/30yojQqyhEQPK0DhbY+OIGokH6jsQvbfBwqHqSUY2hf6ACY7cYZo5NZ9rT7KI8hOX
-	p1FuYnUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3tXnve9p7OqPOELNgMc2EsgP+Zfm3xXu92ERqG5r7f4=; b=tLl4He34BYjhAi91aslQsX4xEW
+	exvMDbM2hU6S/aR+JurngeJ48Uk9oXInxtoMAKVvc6lzgpkycHCOrejQ5dvKWhYIrSBI2LF+Xxled
+	0X2pxu7suY1lGkhuLPXGoZtoA/2IBMpOIz9AWDn/W5bojlaj/J/6jVPU+KgUD2Lygq5zNQPyeKOtL
+	5RcQWatR2EdteclASVAm7nYy2Hnv37l26IQrD9x0nwieiKc/6ciV6ByHaDRIEhPwX6kc0fyIj9EFy
+	jXfom1+vtjnzjMJBNU/+f767/SLsyFHj0GpDIBPWg3kaG8DHopS0iOwvc4F3C0NH3iZHhZvs3SHps
+	In2J+bMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to1kE-0000000BLI4-3JJf;
-	Fri, 28 Feb 2025 14:53:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to1UY-0000000BI73-3spv
+	id 1to1ll-0000000BLaV-1jvw;
+	Fri, 28 Feb 2025 14:55:17 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1to1XS-0000000BIFg-01FA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 14:37:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 567C91515;
-	Fri, 28 Feb 2025 06:37:44 -0800 (PST)
-Received: from [10.57.79.187] (unknown [10.57.79.187])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1E15E3F6A8;
-	Fri, 28 Feb 2025 06:37:26 -0800 (PST)
-Message-ID: <e101aff2-a08e-4fed-8e38-df1aea44d23e@arm.com>
-Date: Fri, 28 Feb 2025 14:37:24 +0000
+	Fri, 28 Feb 2025 14:40:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=3tXnve9p7OqPOELNgMc2EsgP+Zfm3xXu92ERqG5r7f4=; b=iFtcGjYqiy3IOCZDaithdJHkh4
+	CU+JJwQVo5k7U4sa3fUv8ige18h8zr+4GdMraoHFGWeOf4zC+u0c/rC+w6HK0gP49RT7j0ZhNXdYg
+	Xo0KXs9QxxcaNvZTTX9c09YPKLWKeegsJ7GPzyGiAHfN+evABjifq7qMKSvG4BvNKB80RdVvgcklS
+	XvpK8Y3ZuS4oSi0ailoVgdn2R2bUyWK3YCkr4INHGO+1wYFhQHxMt/f694g/CGw/Et7wAHt15uHPz
+	K+TSiPZlvmG36cQbvbMTkzQXYQkABeFoOITqOMqdJnWJP9MQeYJ9o/vzo79Fuz01tErck8kn4uUTE
+	ZDLZ2BvQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40904)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1to1VK-00027b-2s;
+	Fri, 28 Feb 2025 14:38:18 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1to1VH-0000oR-2d;
+	Fri, 28 Feb 2025 14:38:15 +0000
+Date: Fri, 28 Feb 2025 14:38:15 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Furong Xu <0x1207@gmail.com>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Jon Hunter <jonathanh@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Thierry Reding <treding@nvidia.com>
+Subject: Re: [PATCH RFC net-next 1/5] net: stmmac: call phylink_start() and
+ phylink_stop() in XDP functions
+Message-ID: <Z8HKV4ytpJJ9NJw8@shell.armlinux.org.uk>
+References: <Z8B-DPGhuibIjiA7@shell.armlinux.org.uk>
+ <E1tnfRe-0057S9-6W@rmk-PC.armlinux.org.uk>
+ <20250228153122.00007c75@gmail.com>
+ <7706823a-a787-4c7e-a6ac-9a4feaf76dee@lunn.ch>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/4] drivers/thermal/exynos: Refactor clk_sec
- initialization inside SOC-specific case
-To: Anand Moon <linux.amoon@gmail.com>
-References: <20250216195850.5352-1-linux.amoon@gmail.com>
- <20250216195850.5352-2-linux.amoon@gmail.com>
-Content-Language: en-US
-From: Lukasz Luba <lukasz.luba@arm.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
- "open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- "open list:SAMSUNG THERMAL DRIVER" <linux-pm@vger.kernel.org>,
- Zhang Rui <rui.zhang@intel.com>,
- "moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
- <linux-arm-kernel@lists.infradead.org>,
- Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
- open list <linux-kernel@vger.kernel.org>
-In-Reply-To: <20250216195850.5352-2-linux.amoon@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <7706823a-a787-4c7e-a6ac-9a4feaf76dee@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_063731_060674_41BC5A48 
-X-CRM114-Status: GOOD (  23.67  )
+X-CRM114-CacheID: sfid-20250228_064030_043490_2E76EBAE 
+X-CRM114-Status: GOOD (  26.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,111 +91,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Anand,
-
-On 2/16/25 19:58, Anand Moon wrote:
-> Refactor the initialization of the clk_sec clock to be inside the
-> SOC_ARCH_EXYNOS5420_TRIMINFO case. It ensures that the clk_sec clock
-> is only initialized for the specified SOC and not for other SOCs,
-> thereby simplifying the code.
-
-So IIUC there was no need to init that clock for other types of SoCs...
-Do we know that for sure (e.g. from other TRMs)?
-
-If that was the case, then simplification here can go further, but after
-some fixes.
-
+On Fri, Feb 28, 2025 at 02:14:29PM +0100, Andrew Lunn wrote:
+> On Fri, Feb 28, 2025 at 03:31:22PM +0800, Furong Xu wrote:
+> > On Thu, 27 Feb 2025 15:05:02 +0000
+> > "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk> wrote:
+> > 
+> > > Phylink does not permit drivers to mess with the netif carrier, as
+> > > this will de-synchronise phylink with the MAC driver. Moreover,
+> > > setting and clearing the TE and RE bits via stmmac_mac_set() in this
+> > > path is also wrong as the link may not be up.
+> > > 
+> > > Replace the netif_carrier_on(), netif_carrier_off() and
+> > > stmmac_mac_set() calls with the appropriate phylink_start() and
+> > > phylink_stop() calls, thereby allowing phylink to manage the netif
+> > > carrier and TE/RE bits through the .mac_link_up() and .mac_link_down()
+> > > methods.
+> > > 
+> > > Note that RE should only be set after the DMA is ready to avoid the
+> > > receive FIFO between the MAC and DMA blocks overflowing, so
+> > > phylink_start() needs to be placed after DMA has been started.
+> > > 
+> > > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+>  
+> > XDP programs work like a charm both before and after this patch.
+> > 
+> > Tested-by: Furong Xu <0x1207@gmail.com>
 > 
-> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
-> ---
-> v3: improve the commit message
-> ---
->   drivers/thermal/samsung/exynos_tmu.c | 26 +++++++++++++-------------
->   1 file changed, 13 insertions(+), 13 deletions(-)
+> Thanks for testing this.
 > 
-> diff --git a/drivers/thermal/samsung/exynos_tmu.c b/drivers/thermal/samsung/exynos_tmu.c
-> index 47a99b3c5395..9c138772d380 100644
-> --- a/drivers/thermal/samsung/exynos_tmu.c
-> +++ b/drivers/thermal/samsung/exynos_tmu.c
-> @@ -1040,19 +1040,6 @@ static int exynos_tmu_probe(struct platform_device *pdev)
->   	if (IS_ERR(data->clk))
->   		return dev_err_probe(dev, PTR_ERR(data->clk), "Failed to get clock\n");
->   
-> -	data->clk_sec = devm_clk_get(dev, "tmu_triminfo_apbif");
-> -	if (IS_ERR(data->clk_sec)) {
-> -		if (data->soc == SOC_ARCH_EXYNOS5420_TRIMINFO)
-> -			return dev_err_probe(dev, PTR_ERR(data->clk_sec),
-> -					     "Failed to get triminfo clock\n");
-> -	} else {
-> -		ret = clk_prepare(data->clk_sec);
-> -		if (ret) {
-> -			dev_err(dev, "Failed to get clock\n");
-> -			return ret;
-> -		}
-> -	}
-> -
->   	ret = clk_prepare(data->clk);
+> Could you give a little details of how you actually tested it?
+> 
+> The issues here is, when is the link set admin up, requiring that
+> phylink triggers an autoneg etc.
+> 
+> For plain old TCP/IP, you at some point use:
+> 
+> ip link set eth42 up
+> 
+> which will cause the core to call the drivers open() method, which
+> then triggers phylnk.
+> 
+> The carrier manipulation which this code replaces seems to suggest you
+> can load an XDP program while the interface is admin down, and that
+> action of loading the program will implicitly set the carrier up.
 
-Here the data->clk is now used in different order.
+It won't. See
+drivers/net/ethernet/stmicro/stmmac/stmmac_xdp.c::stmmac_xdp_set_prog():
 
->   	if (ret) {
->   		dev_err(dev, "Failed to get clock\n");
-> @@ -1060,6 +1047,19 @@ static int exynos_tmu_probe(struct platform_device *pdev)
->   	}
->   
->   	switch (data->soc) {
-> +	case SOC_ARCH_EXYNOS5420_TRIMINFO:
-> +		data->clk_sec = devm_clk_get(dev, "tmu_triminfo_apbif");
-> +		if (IS_ERR(data->clk_sec)) {
-> +			return dev_err_probe(dev, PTR_ERR(data->clk_sec),
-> +					     "Failed to get triminfo clock\n");
+        if_running = netif_running(dev);
 
-Then here you shouldn't simply copy the old code. Now the data->clk
-is first, so should be 'clk_unprepare()' before return of the function.
+        need_update = !!priv->xdp_prog != !!prog;
 
-> +		} else {
+        if (if_running && need_update)
+                stmmac_xdp_release(dev);
 
-You can get rid of this 'else' above and still be safe in your
-refactoring.
+	...
 
-> +			ret = clk_prepare(data->clk_sec);
-> +			if (ret) {
-> +				dev_err(dev, "Failed to get clock\n");
-> +				return ret;
-> +			}
+        if (if_running && need_update)
+                stmmac_xdp_open(dev);
 
-Here you can further simplify this to something like:
------------------------8<-------------------------------------
+stmmac_xdp_open() and stmmac_xdp_release() will only be called if
+netif_running() returns true as explained yesterday (but maybe
+without enough detail). This tests __LINK_STATE_START in dev->state,
+which is set just before calling .ndo_open(), and cleared if it fails
+or before calling .ndo_stop().
 
-+	case SOC_ARCH_EXYNOS5420_TRIMINFO:
-+		data->clk_sec = devm_clk_get(dev, "tmu_triminfo_apbif");
-+		if (IS_ERR(data->clk_sec)) {
-+			clk_unprepare(data->clk); ///// <----
-+			return dev_err_probe(dev, PTR_ERR(data->clk_sec),
-+					     "Failed to get triminfo clock\n");
-+		}
-+		ret = clk_prepare(data->clk_sec);
-+		if (ret) {
-+			dev_err(dev, "Failed to get clock\n");
-+			clk_unprepare(data->clk); ///// <----
-+			return ret;
-+		}
-+
-+	break;
+Thus, netif_running() indicates whether the net core thinks the
+device is adminsitratively "up".
 
---------------------------->8---------------------------------
+Therefore, in the old code, if the programme is changed while the
+device is administratively down, netif_running() will return false,
+if_running will be false, and neither stmmac_xdp_release() nor
+stmmac_xdp_open() will be called.
 
-Or with better 'goto' flow.
+Hope that addresses your concern.
 
-> +		}
-> +	break;
->   	case SOC_ARCH_EXYNOS5433:
->   	case SOC_ARCH_EXYNOS7:
->   		data->sclk = devm_clk_get(dev, "tmu_sclk");
+Thanks.
 
-
-Also, you should revisit the 'goto' cleanup section at the bottom.
-
-Regards,
-Lukasz
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
