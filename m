@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6672C282C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 15:43:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50409C282C1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 15:44:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IsUq5H06K20Ojj2uKEbVuqfjCD6XIwd9/XW0nfo1bpk=; b=dpdiWQoOiWmeH4rtNMJwosmN+h
-	Tfo30Bx2215yKt+hLjbCxXXySs0SPEEIeJKtXA9E9Quq4seBhHIcpnLzUgBT/ZuobEX9QN0qjjFes
-	Y0rhUMDad0nQ9pzZBDkLROl6n3jIYEvddZZ/n0afUuXeFBEJJuUiPeBMhjck3l3NGof3K2fkaT9CU
-	mDcR/Y1K3LYHIBvqegod/K/Dqd//RK2vC/smz1oh+DqUdFZWC0j22v2ZjUkXxcaEO8P4Gon3qNhqZ
-	YDcr+VUGEIlZiody8zTgD6rhdjBZlHQq+3rZ2RRfAlgI1lx6gKmjYFzJn4QPxOyOA+waoTryxgDPE
-	aeNxIUbw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=QZu5jeody6oxpz4x8MYrbb46BHii47kNRlyxqpDsps4=; b=adzblq6MwUVZ7T
+	dMNENXypLU8RzQLUg4oV1xCf41CHa0pMRgGL8V4LJUjN++swVGOI9we5aHep8sgYaQsIHCTGO4LvB
+	MCfKIZOKjKkaM2cFtDGmfG9fa0XGDm9GvJ/sV4k14+SyRty6Ux9AP4NEqAU4EG8zcogYfNqX6AI2I
+	zLZiH0jFM7UIni21vgsnAYyLdv2/IuZrvo8sRCkfRfQycwQDqjpwz7tSTRt71GPYagVJxGxh1XOw+
+	0JgWdIrBZl4wprOCs4a+5JQ7edW7Hzl3paeEeKl/mVqC4s+DFDsFlil0SYM8m/wpbb0kN/1TKCdz8
+	aM6a+2AOG+5NODeKklJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to2Vr-0000000BVwk-3faM;
-	Fri, 28 Feb 2025 15:42:55 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	id 1to2XO-0000000BWJf-3jnN;
+	Fri, 28 Feb 2025 15:44:31 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to29z-0000000BRSo-2PrJ;
+	id 1to29z-0000000BRSQ-2VmR;
 	Fri, 28 Feb 2025 15:20:21 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 714774427A;
-	Fri, 28 Feb 2025 15:20:14 +0000 (UTC)
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 3989842E77;
+	Fri, 28 Feb 2025 15:20:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1740756014;
+	t=1740756013;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IsUq5H06K20Ojj2uKEbVuqfjCD6XIwd9/XW0nfo1bpk=;
-	b=C9Wgyz4MwUwWR10EwE1Cd9deN2Bt8gQSTSAuT8e6LuMRD/pacWvq1F5ykmU6gXqd32gNPR
-	iA0Wbf6KVdoPfCLLVNbCKBXMyhUtiQuS0+9HugB7wmso5X9ZUeiAjoW90f1tVd+P81jc2g
-	GCu6Rv7bN3VD5EYrlF7Qp28KRvG5Lz9pnVj+t0t1a1GXimRZ5umUEbRXnRPRpyd1R/PTM3
-	jj9mXCplfIrtqWZ/DweCHeNDe8wDtBTBF1L5NecMus2wiSk45/3gwFkDDmcYj937K+imAe
-	armGAaFQSawCjmdYTF6ULIQvjDVFEcv64O5Azu6Mc+D/jr2XyaHfHafQzpZ5ew==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=QZu5jeody6oxpz4x8MYrbb46BHii47kNRlyxqpDsps4=;
+	b=bJiCRjWHZaWuUlBYSiq0+u2M0Z5xY07jCE2o+h06fGeLVT/KsWyS2TADB8ycuM2dmyDtPg
+	7iVkMAmvQgajkEa79ecSw8hdMFuKKJtszx9CAwhN9CDtfHQB7HvuDj8UOOHIfeE6topG6V
+	5gXQWLbEowc+E6BkPkYJwNTf1dvP/a9E7DN6ps6OuVuHPSlVj3Z1Jg6eDj4BMOHqvWo9jm
+	NG1qZs4S42NAKRjv1xSp6yF10nY3SCf7WkJsGsGkq6NqNE5guiUAnIo6/hJ1IOgIDR0hbK
+	W0sKiprwmDsz5kdl13CONymdvpNQnh7qJ+lgce5SGGKa2ArnPXCjh5o5thhGdg==
 From: Olivier Benjamin <olivier.benjamin@bootlin.com>
-Date: Fri, 28 Feb 2025 16:19:51 +0100
-Subject: [PATCH 2/2] arm64: dts: PinePhone Pro: describe the OV8858 user
- camera
+Subject: [PATCH 0/2] Describe the cameras in the PinePhone Pro dts
+Date: Fri, 28 Feb 2025 16:19:49 +0100
+Message-Id: <20250228-camera-v1-0-c51869f94e97@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250228-camera-v1-2-c51869f94e97@bootlin.com>
-References: <20250228-camera-v1-0-c51869f94e97@bootlin.com>
-In-Reply-To: <20250228-camera-v1-0-c51869f94e97@bootlin.com>
+X-B4-Tracking: v=1; b=H4sIABXUwWcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDIyML3eTE3NSiRF3zRAtLk6TUtMS0RHMloOKCotS0zAqwQdGxtbUAQP/
+ KrlgAAAA=
+X-Change-ID: 20250228-camera-7a894befafa7
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
 Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
@@ -60,12 +60,13 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeltdejfecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpefqlhhivhhivghruceuvghnjhgrmhhinhcuoeholhhivhhivghrrdgsvghnjhgrmhhinhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeeugeeivddvveevvedvudefjeevffdtuefgffekieelheehfeeihefgleefieelnecukfhppedvrgdtudemvgefgeemvggtfeekmedvgegvtdemfhehtggvmehffeegvdemieehkeejmehfieehieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemvgefgeemvggtfeekmedvgegvtdemfhehtggvmehffeegvdemieehkeejmehfieehiedphhgvlhhopegludelvddrudeikedruddrvddtngdpmhgrihhlfhhrohhmpeholhhivhhivghrrdgsvghnjhgrmhhinhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudefpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhts
- hdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhrohgtkhgthhhipheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegushhimhhitgesmhgrnhhjrghrohdrohhrghdprhgtphhtthhopehmvghgihesgihffhdrtgii
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeltdejfecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffufffkgggtgffvvefosehtjeertdertdejnecuhfhrohhmpefqlhhivhhivghruceuvghnjhgrmhhinhcuoeholhhivhhivghrrdgsvghnjhgrmhhinhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepjeevgfduhefhhfekheeileejieehueevkeffieeiteeluddtheelkeffhffhiefgnecuffhomhgrihhnpegtohguvggsvghrghdrohhrghenucfkphepvdgrtddumegvfeegmegvtgefkeemvdegvgdtmehfhegtvgemfhefgedvmeeiheekjeemfheiheeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegvfeegmegvtgefkeemvdegvgdtmehfhegtvgemfhefgedvmeeiheekjeemfheiheeipdhhvghloheplgduledvrdduieekrddurddvtdgnpdhmrghilhhfrhhomhepohhlihhvihgvrhdrsggvnhhjrghmihhnsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedufedprhgtphhtthhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhin
+ hhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrhhotghktghhihhpsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepughsihhmihgtsehmrghnjhgrrhhordhorhhgpdhrtghpthhtohepmhgvghhiseigfhhfrdgtii
 X-GND-Sasl: olivier.benjamin@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_072019_767337_4A439BD2 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20250228_072019_795855_C1CE0A01 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,107 +81,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the description of the front/user camera (OV8858) on the PinePhone Pro
-to the device dts file.
-It receives commands over SCCB, an I2C-compatible protocol, at
-I2C address 0x36 and transmits data over CSI-MIPI.
-I confirmed this address experimentally.
+This series adds support for the Pine64 PinePhone Pro's rear and front
+cameras in Device Tree.
+This is based on some of Ondrej Jirman's patches hosted in his tree at
+https://codeberg.org/megi/linux, but I have also fully reviewed and
+re-written the code from the RK3399 datasheet, the PinePhone Pro
+schematic, and the IMX258-0AQH5 software reference manual.
 
-The pin control mapping was again extracted from the PinePhone Pro
-schematic v1.0 as well as the RK3399 datasheet revision 1.8.
+I have tested these changes on my PinePhone Pro and am able to take
+photos from both cameras using libcamera's cam.
 
-Table 2-3 in section 2.8 of the RK3399 datasheet contains the mapping
-of IO functions for the SoC pins. Page 52 shows GPIO1_A4, page 54 shows
-GPIO2_B4.
-
-For the reset (RESET) signal:
-page 11 quadrant D2             | p.18 q.B3-4 | p.18 q.C2
-RK3399_E.R28 -> GPIO1_A4 -> Camera2_RST -> MIPI_RST1 -> OV8858.12
-
-For the powerdown (PWDN) signal:
-page 9 quadrants D4-5          | p.18 q.B2
-RK3399_L.F31 -> GPIO2_B4 -> DVP_PDN0_H -> OV8858.14
-
-Helped-by: Dragan Simic <dsimic@manjaro.org>
-Co-developed-by: Ondrej Jirman <megi@xff.cz>
-Signed-off-by: Ondrej Jirman <megi@xff.cz>
 Signed-off-by: Olivier Benjamin <olivier.benjamin@bootlin.com>
 ---
- .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 45 ++++++++++++++++++++++
- 1 file changed, 45 insertions(+)
+Olivier Benjamin (2):
+      arm64: dts: PinePhone Pro: describe I2c Bus 1 and IMX258 world camera
+      arm64: dts: PinePhone Pro: describe the OV8858 user camera
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-index 4c059b4cda198b0f1973c7bba677ce12d37211b3..9129320b51e6a870f8b86d4bc6bb2ea39d9ab483 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-@@ -481,6 +481,27 @@ wcam_lens: camera-lens@c {
- 		/* Same I2c bus as both cameras, depends on vcca1v8_codec for power. */
- 		vcc-supply = <&vcc1v8_dvp>;
- 	};
-+
-+	ucam: camera@36 {
-+		compatible = "ovti,ov8858";
-+		reg = <0x36>;
-+		clocks = <&cru SCLK_CIF_OUT>; /* MIPI_MCLK1, derived from CIF_CLK0 */
-+		clock-names = "xvclk";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&ucam_rst &ucam_pwdn>;
-+		dovdd-supply = <&vcc1v8_dvp>;
-+		reset-gpios = <&gpio1 RK_PA4 GPIO_ACTIVE_LOW>;
-+		powerdown-gpios = <&gpio2 RK_PB4 GPIO_ACTIVE_LOW>;
-+		orientation = <0>; /* V4L2_CAMERA_ORIENTATION_FRONT */
-+		rotation = <90>;
-+
-+		port {
-+			ucam_out: endpoint {
-+				remote-endpoint = <&mipi_in_ucam>;
-+				data-lanes = <1 2 3 4>;
-+			};
-+		};
-+	};
- };
- 
- &i2c3 {
-@@ -546,6 +567,24 @@ &io_domains {
- 	status = "okay";
- };
- 
-+&isp0 {
-+	status = "okay";
-+
-+	ports {
-+		port@0 {
-+			mipi_in_ucam: endpoint@0 {
-+				reg = <0>;
-+				remote-endpoint = <&ucam_out>;
-+				data-lanes = <1 2 3 4>;
-+			};
-+		};
-+	};
-+};
-+
-+&isp0_mmu {
-+	status = "okay";
-+};
-+
- &isp1 {
- 	status = "okay";
- 
-@@ -621,6 +660,12 @@ camera {
- 		wcam_rst: wcam-rst {
- 			rockchip,pins = <1 RK_PA0 RK_FUNC_GPIO &pcfg_pull_none>;
- 		};
-+		ucam_rst: ucam-rst {
-+			rockchip,pins = <1 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+		ucam_pwdn: ucam-pwdn {
-+			rockchip,pins = <2 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
- 	};
- 
- 	leds {
-
+ .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 138 +++++++++++++++++++++
+ 1 file changed, 138 insertions(+)
+---
 -- 
-2.48.1
+Olivier Benjamin <olivier.benjamin@bootlin.com>
 
 
