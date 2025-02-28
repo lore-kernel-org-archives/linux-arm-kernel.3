@@ -4,77 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA831C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 12:51:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3CD6C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 13:04:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=k9ZVSga6lwI98W0bLvyFgnwGf/I1aLNhuhYX32VhGps=; b=ULjU9l0fTe/iFQcE5DA7ZvJ9gT
-	e6bKLIMrthaEuqewbdtCJwrpeRnLZNORiO348NerATliRA6B91DNI4/ZYiBJDiBTre1Le3DMLjky2
-	xO8RF8+EeTxj4V4Vtzv2Q10grM7ihu4RQ+9kF7GkXcUeL0S0p2QCp/zLeTYaZ3HuDs3L4V9TCThcw
-	i/uKxxCbsw0iIQHsc+RT3ZdlCZwCSTzfHIWLRI6BcdQ+Rl4MX2tywnpdGnmV4fWEyLpFNyY1BxeXo
-	Be4q+jaAzj76QGLtlMDfPn7Dtp+5DCG35NDlvj8XycryyScUV9RaJ/MXKFgf7ze+BNwTo4czyf4em
-	bR/5wIZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Lxf1+JQlod0vaF1LjBgi2IcVLIhGNFVeduj0UU5pVvc=; b=lBGZbcBrhYHqKss92iDXb1SFNg
+	m1FOrMgVUBF54Zw+hbqrSIMUmjDbj4CyV6kAXXDzcLmA+aZMU44DMZvmag6eHTvODXNOJEsfjIi8D
+	FOfMa+3buNnH/Yz26V2GDTioMNswkdUtNaaRYwuymMbE/W/w/mtCN1PJTB4ARpkT9mwSPvEar7KID
+	bvKJncQauKzHomn+gq7BwIlF5scZIWQiJT4RTIbMM1i0bfFQ4FJipNERLiiKLfQuN02jt9EQuWbSx
+	lk2RzMafVgmPLcihs4kbPpw75LfuI/HhWzSaxQaR25PuJwzyBGvlCnEXijqDCRviQ2cORqrfqY43W
+	X19jvCng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnzpv-0000000AzLY-0VjE;
-	Fri, 28 Feb 2025 12:51:27 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1to02T-0000000B16V-2P30;
+	Fri, 28 Feb 2025 13:04:25 +0000
+Received: from mail-yw1-x1143.google.com ([2607:f8b0:4864:20::1143])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnzoM-0000000Az5Z-0D73
+	id 1to00v-0000000B0wC-08UH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 12:49:51 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-5494cb8c2e7so947319e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 04:49:49 -0800 (PST)
+	Fri, 28 Feb 2025 13:02:50 +0000
+Received: by mail-yw1-x1143.google.com with SMTP id 00721157ae682-6f88509dad2so20113527b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 05:02:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740746988; x=1741351788; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=k9ZVSga6lwI98W0bLvyFgnwGf/I1aLNhuhYX32VhGps=;
-        b=GbAYNk/KR822aOv+DTDZeVTG5YfTON5pk/9jNElhdxpMHK0dsHb6hEqEsFpW3hkvTl
-         f/CxAzc3tPlF9sCM4o4gL6odBGkJVaj4By2zk9GEE3iz+FZN6WkGJrNEKjx3g3SrykiP
-         ASpXaLGzaIltzIeVZH17hje2COCwKCz8YUftW7SFTgXW/AN/Rczm97kW3jAENUEb2UoK
-         hDUC6jaU11S/4gFomhGbuEhIb91vyf1NNNooiNyrVCDzaaz/5820XJCa8ouqHw2JcXn9
-         qjQA1aoURFBZadTbmWcb2Ht8I8tfig2XvJoD+ySTIsVPYwuuLqDqxX3kzNmTm6Ic9Zl5
-         wKmg==
+        d=gmail.com; s=20230601; t=1740747768; x=1741352568; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Lxf1+JQlod0vaF1LjBgi2IcVLIhGNFVeduj0UU5pVvc=;
+        b=PIEkpINskUtFDzFGfY1XOumaXP53MZxLDfr0MavsVC3jVkV6k909kJWZK1Nff8eT60
+         CjeiWc+TDyg08Y1AnGnNKKpatI1U7dwfXHWSh+UGTIkgDTn3v8pjorlf18F2uqv389Wd
+         d0zbeO6v3LAcYogLXLjsSdqMRk6D7m+ve+4cdwU8unQ8YCIltl3m1wtHlmDuHCeXnIyb
+         AwCjlBjewa/GuYYeJxyUHFa1cVBYz/xO8h33ZDeVpeYXtNRGU1h8QHoMAP6IEOzjRCfV
+         wHKm4xNUMMeDM1qwPPxSMIZrHZDjtkYfoa5bA/EHwUUC2CZX6r5dx8B6UFYkCBArPMpr
+         94OQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740746988; x=1741351788;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=k9ZVSga6lwI98W0bLvyFgnwGf/I1aLNhuhYX32VhGps=;
-        b=TImSEq8bNtfuNXWSldJdV5jktVakKnL2NlERXwfCYf7rrMiNUINNyaP7WlKYNoRYuE
-         hgUhbJxz9IIEARXak7pp5sOtklW7BsSxt7eIPBlIrITvTT/mP8HOrodgknPHZA4tykmV
-         N7geSD4FZFd78W8Bdr1NWRWtykT1bvXjISto1Ms1O+dwbZNQqcUgcuvr/20GitAyujTo
-         HsG7/l7ibsFnam/WBBwaIYlWjluo+mUMCirxdC+bTcdvINOssQBdOJBMKoOV9f6FN908
-         kMURpzMSjBLzxIrVsG2aUlgMID9hjrQFt1O6/zp6HD4O8BPPNW1FHIgz908AHTPro4yX
-         dZTw==
-X-Gm-Message-State: AOJu0YybLrTk8P5kGyaQeGNtMhYrTfSm991qr5sHwOFpxvOT7Bj0l+Rz
-	4YRJwFoX+tlftBLN9MgRBImy+cQsT/EzHRPSjZvoyErIQ7lALKOY1p2Y/xsi3TG2k4rQj9GDNXI
-	Np7Q3noKn7EAXErv58y2pgcW3+KxgLCuXFVmAAg==
-X-Gm-Gg: ASbGnctFpnlckYUxOM8sfSTyksxSgdeKlIE1eJpO00+4qKmwFsSr9o54+ajFNmL0SIP
-	aZ7kZYbjuIhnZDoYowgLxr3VKYqXseUC9Cxyv4+uyuyelrqGWD8EarMcrAgvXPI2JIL4st82sIM
-	ln0KV20fw=
-X-Google-Smtp-Source: AGHT+IHv83YpGHio3+QUhR9YCHOCFGwkWFesxurjw0y4ui3gJWLrfpdRDm9UFJwwj67jhbgnlPAfU8P+mtTd204EoWM=
-X-Received: by 2002:a05:6512:701:b0:549:4e7e:d397 with SMTP id
- 2adb3069b0e04-5494e7ed39amr937756e87.0.1740746987344; Fri, 28 Feb 2025
- 04:49:47 -0800 (PST)
+        d=1e100.net; s=20230601; t=1740747768; x=1741352568;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Lxf1+JQlod0vaF1LjBgi2IcVLIhGNFVeduj0UU5pVvc=;
+        b=detw/5asl2XYS5h0BiQMX5x8ZPtzUCSHlak07qYCQDzkp5MJyDHWkyp9MhyW6WND3w
+         7sd4+ZSxEEAb8/rVD8MHb9KQWxhnBRGBRZVLZEHexOLlY5JLyT4+z1YJPX10/YopLBaa
+         J2ulHyzNkYUFS2M2gS85vzL1fIsYh37NWHHZkfvbcq3naPxRDQn/qGPiWWF6LaRv9nsX
+         6fseKLmX2uMLscJaeM0MBxAbPInDq9UK+H6W5N8OZoo/+lAtKV61U7sujZC1QGpfQeDr
+         1KqGxxv6Ompzu7XIevC+Aj3wE+p7KD304ymoIrE8u3cVyDhPymp22wW9JikSPNZ2TXD3
+         atDg==
+X-Forwarded-Encrypted: i=1; AJvYcCWKXt47rhqM67oV5YS/ZTHCKABgxlrnS69WL7CfSJO3I6BLRHY8fmFikpGaJ2UukOsnNjm9DuvJA2bJbAzC2HUU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyymj/NbUWV40tFCqBkLVnm8cQMo59qdvTPdN5tH0Nv5m1S43wX
+	osadqp7npSHN25fX9R9ihvmealD8wxZi2zdb3N7jigIR6cgKLIc5/GxeVf51csPVGq7otKnl00V
+	haPcrrxu1e7iPopPSUfB6Cd5loRE=
+X-Gm-Gg: ASbGncvhtMAeEOmE+uACTy29GM6CGqzPc7w8vkj2fjHXPA850gAtCAgHbMmJXd4Txo2
+	oHlE25KK1EV49PAPbGDfwCYkAZ2sVMvHl+bxYS9rSZQEpo7xrp9DyOZIUA8bYfSQlZOfW7iuinA
+	d85JjEJjE=
+X-Google-Smtp-Source: AGHT+IFxjntFYCrdKTcPea67JPxe+v5Sa9XZL4MVsSSpjMRa9cd1V2CipkdZZHMWHZoL7poCdPxCL7wYZBcjkNKu7qc=
+X-Received: by 2002:a05:690c:7246:b0:6fb:b36b:300f with SMTP id
+ 00721157ae682-6fd4a12e751mr42505867b3.27.1740747767697; Fri, 28 Feb 2025
+ 05:02:47 -0800 (PST)
 MIME-Version: 1.0
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 28 Feb 2025 13:49:36 +0100
-X-Gm-Features: AQ5f1Jr1JCLHNsD1t1m2zbNIWF1lepmNOrK6kS2jMjpmw7TZR5By60X1siM-XvU
-Message-ID: <CACRpkdZCiiMTwf7eGJJ9aCKFOC3_xTGv1JKQUijjyp+_++cZ_A@mail.gmail.com>
-Subject: [GIT PULL] Generic entry for ARM
-To: Russell King <rmk+kernel@armlinux.org.uk>
-Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Thomas Gleixner <tglx@linutronix.de>, linux-kernel <linux-kernel@vger.kernel.org>, 
-	"Paul E. McKenney" <paulmck@kernel.org>
+References: <20250226121537.752241-1-dongml2@chinatelecom.cn>
+ <20250227165302.GB5880@noisy.programming.kicks-ass.net> <CADxym3YCZ5dqXMFesNaAF_Z2EWWCj0bJyKQ+BnNw2c=g39CRFA@mail.gmail.com>
+ <20250228102646.GW11590@noisy.programming.kicks-ass.net>
+In-Reply-To: <20250228102646.GW11590@noisy.programming.kicks-ass.net>
+From: Menglong Dong <menglong8.dong@gmail.com>
+Date: Fri, 28 Feb 2025 21:01:16 +0800
+X-Gm-Features: AQ5f1JqrzWh6FiWmWs0NqkISwK6qGrIUKQAmD08_dgHluKZH96ief-KRhQb5Uq8
+Message-ID: <CADxym3aECb5xOm0+YMycsx8kD6ijuEfMx6xrR9UKrH-FFn=KBw@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v2] add function metadata support
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: rostedt@goodmis.org, mark.rutland@arm.com, alexei.starovoitov@gmail.com, 
+	catalin.marinas@arm.com, will@kernel.org, mhiramat@kernel.org, 
+	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
+	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
+	mathieu.desnoyers@efficios.com, nathan@kernel.org, ndesaulniers@google.com, 
+	morbo@google.com, justinstitt@google.com, dongml2@chinatelecom.cn, 
+	akpm@linux-foundation.org, rppt@kernel.org, graf@amazon.com, 
+	dan.j.williams@intel.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	bpf@vger.kernel.org, llvm@lists.linux.dev
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_044950_100992_44B12605 
-X-CRM114-Status: GOOD (  17.30  )
+X-CRM114-CacheID: sfid-20250228_050249_077086_D740C2CD 
+X-CRM114-Status: GOOD (  21.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,139 +104,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
+On Fri, Feb 28, 2025 at 6:26=E2=80=AFPM Peter Zijlstra <peterz@infradead.or=
+g> wrote:
+>
+> On Fri, Feb 28, 2025 at 05:53:07PM +0800, Menglong Dong wrote:
+>
+> > I tested it a little by enabling CFI_CLANG and the extra 5-bytes
+> > padding. It works fine, as mostly CFI_CLANG use
+> > CONFIG_FUNCTION_PADDING_BYTES to find the tags. I'll
+> > do more testing on CFI_CLANG to make sure everything goes
+> > well.
+>
+> I don't think you understand; please read:
+>
+> arch/x86/kernel/alternative.c:__apply_fineibt()
+>
+> and all the code involved with patching FineIBT. I think you'll find it
+> very broken if you change anything here.
+>
+> Can you post an actual function preamble from a kernel with
+> CONFIG_FINEIBT=3Dy with your changes on?
+>
+> Ex.
+>
+> $ objdump -wdr build/kernel/futex/core.o
+>
+> Disassembly of section .text:
+>
+> 0000000000000000 <__cfi_futex_hash>:
+>        0:       b9 93 0c f9 ad          mov    $0xadf90c93,%ecx
+>
+> 0000000000000005 <.Ltmp0>:
+>        5:       90                      nop
+>        6:       90                      nop
+>        7:       90                      nop
+>        8:       90                      nop
+>        9:       90                      nop
+>        a:       90                      nop
+>        b:       90                      nop
+>        c:       90                      nop
+>        d:       90                      nop
+>        e:       90                      nop
+>        f:       90                      nop
+>
+> 0000000000000010 <futex_hash>:
+>       10:       f3 0f 1e fa             endbr64
+>       14:       e8 00 00 00 00          call   19 <futex_hash+0x9>      1=
+5: R_X86_64_PLT32      __fentry__-0x4
+>       19:       8b 47 10                mov    0x10(%rdi),%eax
+>
+>
+> Any change to the layout here *WILL* break the FineIBT code.
+>
+>
+> If you want to test, make sure your build has FINEIBT=3Dy and boot on an
+> Intel CPU that has CET-IBT (alderlake and later).
 
-please consider pulling the following git branch for generic entry,
-see below.
+Yeah, I understand now. As I see the definition of CFI_PRE_PADDING, I
+know that things is not as simple as I thought, as the layout can be differ=
+ent
+with different config. I'll dig it deeper on this part.
 
-This branch was just harvested from my own v5 patch series on
-lore with b4 am -t 20250225-arm-generic-entry-v5-0-2f02313653e5@linaro.org
-then git am on top of v6.14-rc1, so you can do the same if you
-prefer.
+Thanks a lot for clearing that up for me. I'll test the CFI_CLANG and
+FINEIBT together with this function later.
 
-It's possible to squash patches, even all of them into one
-big all-or-nothing patch, given the not very gradual nature generic
-entry conversion seems to have.
-
-Main upsides and downsides are in the signed tag.
-
-I don't know who the most important stakeholders are, but I guess
-the context tracker maintainer (Paul McKenney) and the people working
-on generic entry (tglx) could have a say on how important this is, or isn't.
-
-I think it's pretty neat.
-
-Yours,
-Linus Walleij
-
-The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
-
-  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-integrator.git
-tags/arm-generic-entry-for-v6.15
-
-for you to fetch changes up to 98b8e133458a3feefdf882ea16fb7f1f576a49e5:
-
-  ARM: entry: Reimplement local restart in C (2025-02-28 13:40:44 +0100)
-
-----------------------------------------------------------------
-Main upsides:
-
-- Using the same common entry as used by x86_64, RISCV, S390
-  and Loongarch, probably soon also ARM64.
-
-- Moves ARM away from the obsoleted context tracker entry points
-  user_enter_callable() and user_exit_callable() are now only used
-  by ARM, CSKY and Xtensa.
-
-- Solves a few lockdep warnings in the process.
-
-- Converts a bit of assembly into C.
-
-Main downside:
-
-- Slightly increased system call overhead, around 6% in
-  measurements.
-
-----------------------------------------------------------------
-Linus Walleij (31):
-      ARM: Prepare includes for generic entry
-      ARM: ptrace: Split report_syscall()
-      ARM: entry: Skip ret_slow_syscall label
-      ARM: process: Rewrite ret_from_fork i C
-      ARM: process: Remove local restart
-      ARM: entry: Invoke syscalls using C
-      ARM: entry: Rewrite two asm calls in C
-      ARM: entry: Move trace entry to C function
-      ARM: entry: save the syscall sp in thread_info
-      ARM: entry: move all tracing invocation to C
-      ARM: entry: Merge the common and trace entry code
-      ARM: entry: Rename syscall invocation
-      ARM: entry: Create user_mode_enter/exit
-      ARM: entry: Drop trace argument from usr_entry macro
-      ARM: entry: Separate call path for syscall SWI entry
-      ARM: entry: Drop argument to asm_irqentry macros
-      ARM: entry: Implement syscall_exit_to_user_mode()
-      ARM: entry: Drop the superfast ret_fast_syscall
-      ARM: entry: Remove fast and offset register restore
-      ARM: entry: Untangle ret_fast_syscall/to_user
-      ARM: entry: Do not double-call exit functions
-      ARM: entry: Move work processing to C
-      ARM: entry: Stop exiting syscalls like IRQs
-      ARM: entry: Complete syscall and IRQ transition to C
-      ARM: entry: Create irqentry calls from kernel mode
-      ARM: entry: Move in-kernel hardirq tracing to C
-      ARM: irq: Add irqstack helper
-      ARM: entry: Convert to generic entry
-      ARM: entry: Handle dabt, pabt, and und as interrupts
-      ARM: entry: Block IRQs in early IRQ context
-      ARM: entry: Reimplement local restart in C
-
- arch/arm/Kconfig                    |   1 +
- arch/arm/include/asm/entry-common.h |  66 ++++++++++++
- arch/arm/include/asm/entry.h        |  14 +++
- arch/arm/include/asm/ptrace.h       |   8 +-
- arch/arm/include/asm/signal.h       |   4 -
- arch/arm/include/asm/stacktrace.h   |   2 +-
- arch/arm/include/asm/switch_to.h    |   4 +
- arch/arm/include/asm/syscall.h      |   7 ++
- arch/arm/include/asm/thread_info.h  |  22 ++--
- arch/arm/include/asm/traps.h        |   5 +-
- arch/arm/include/uapi/asm/ptrace.h  |   2 +
- arch/arm/kernel/Makefile            |   5 +-
- arch/arm/kernel/asm-offsets.c       |   1 +
- arch/arm/kernel/entry-armv.S        |  82 ++++-----------
- arch/arm/kernel/entry-common.S      | 198 +++++++++++++-----------------------
- arch/arm/kernel/entry-header.S      | 100 ++----------------
- arch/arm/kernel/entry.c             | 120 ++++++++++++++++++++++
- arch/arm/kernel/irq.c               |   6 ++
- arch/arm/kernel/irq.h               |   2 +
- arch/arm/kernel/process.c           |  25 ++++-
- arch/arm/kernel/ptrace.c            |  81 +--------------
- arch/arm/kernel/signal.c            |  68 +++----------
- arch/arm/kernel/syscall.c           |  59 +++++++++++
- arch/arm/kernel/traps.c             |  30 +-----
- arch/arm/mm/abort-ev4.S             |   2 +-
- arch/arm/mm/abort-ev4t.S            |   2 +-
- arch/arm/mm/abort-ev5t.S            |   4 +-
- arch/arm/mm/abort-ev5tj.S           |   6 +-
- arch/arm/mm/abort-ev6.S             |   2 +-
- arch/arm/mm/abort-ev7.S             |   2 +-
- arch/arm/mm/abort-lv4t.S            |  36 +++----
- arch/arm/mm/abort-macro.S           |   2 +-
- arch/arm/mm/abort-nommu.S           |   2 +-
- arch/arm/mm/fault.c                 |   4 +-
- arch/arm/mm/fault.h                 |   8 +-
- arch/arm/mm/pabort-legacy.S         |   2 +-
- arch/arm/mm/pabort-v6.S             |   2 +-
- arch/arm/mm/pabort-v7.S             |   2 +-
- 38 files changed, 484 insertions(+), 504 deletions(-)
- create mode 100644 arch/arm/include/asm/entry-common.h
- create mode 100644 arch/arm/include/asm/entry.h
- create mode 100644 arch/arm/kernel/entry.c
- create mode 100644 arch/arm/kernel/irq.h
- create mode 100644 arch/arm/kernel/syscall.c
+Thanks!
+Menglong Dong
 
