@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 124CEC282C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 16:07:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27E1BC282C1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 16:08:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0qbnA5RtP6yarnIcqpDVg7+8heRiWDvpcH0HlU3PCMI=; b=zFDxgxSGFWWfAa8yAbIGwCvNZ6
-	9U+b/Yv8VIV7hAif5XT/g+CN3UGLHDmenzaBv2WS95kaHx6lutikBWQkJNy8u/pXM831lQCWDkKCz
-	210nnRd+ZZ5D0/Arb2H/yD1a4EsiInW/+4Z9HFou/0nQcW3pNqJpGcz+K6QoO6lWeswJxaYcfrWSQ
-	sr7b6iKKP/OMrTAEmQiwyl2lQsQNhKg6dadAsIzkEIj44ZYEbA8HRjmieQ8S0Rwx7tOLwx0jcnK0F
-	KeizWdH7XCWQVjHc18Q0EAASm5axc7GBMymtWyvlBM1RJygbjCjPFT/r4K8pYnMMMDBJnKr0hxq31
-	YaBG2sEA==;
+	bh=hH/mPj9e158rvvCbSLojwm2/ysksrIast3UCEMXPv5U=; b=MHNmg1PWzwNKQL5aCzoL6KgNvX
+	7JmZAOzD3sQJ8Be2yRaI26zvh3dOCeuhsngbzp0UWpayhxYjlq7RlJ75Zw2xEu5NcMSKnd2UXN04/
+	ZAriWR8VfjCG/OrNwW4s1zAIhC4m8J2+j5GNCsw4KI7hvUAgMSwWjv6Y8z5XZZz/HklomdWJuxNYA
+	k+lL4LEh0hu7j+yrVWWC3xNi+a6uz+99x4n1Foya/SzWR6Wc7R1kr8qL+USFxCjR+Yd4oMJY+Fn0M
+	AG0Z0+9ZIkrUjbxOGm3pGMQB71b2sNBbX66qNZrT2B/iE80buCS/iXfOjCM7p9oIl8LF0m4uGnI12
+	lXVlYaGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to2sz-0000000BbD6-0Tag;
-	Fri, 28 Feb 2025 16:06:49 +0000
+	id 1to2uV-0000000BbQh-34N0;
+	Fri, 28 Feb 2025 16:08:23 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to2Zj-0000000BWxH-2zmX
+	id 1to2Zm-0000000BWyH-2ITZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 15:46:56 +0000
+	Fri, 28 Feb 2025 15:46:59 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B36FD1A25;
-	Fri, 28 Feb 2025 07:47:09 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 454AE1BB0;
+	Fri, 28 Feb 2025 07:47:13 -0800 (PST)
 Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4D14A3F5A1;
-	Fri, 28 Feb 2025 07:46:51 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D32043F5A1;
+	Fri, 28 Feb 2025 07:46:54 -0800 (PST)
 From: Robin Murphy <robin.murphy@arm.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Hanjun Guo <guohanjun@huawei.com>,
@@ -58,17 +58,17 @@ Cc: linux-acpi@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-pci@vger.kernel.org,
 	Charan Teja Kalla <quic_charante@quicinc.com>
-Subject: [PATCH v2 2/4] iommu: Resolve ops in iommu_init_device()
-Date: Fri, 28 Feb 2025 15:46:31 +0000
-Message-Id: <fa4b6cfc67a352488b7f4e0b736008307ce9ac2e.1740753261.git.robin.murphy@arm.com>
+Subject: [PATCH v2 3/4] iommu: Keep dev->iommu state consistent
+Date: Fri, 28 Feb 2025 15:46:32 +0000
+Message-Id: <d219663a3f23001f23d520a883ac622d70b4e642.1740753261.git.robin.murphy@arm.com>
 X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
 In-Reply-To: <cover.1740753261.git.robin.murphy@arm.com>
 References: <cover.1740753261.git.robin.murphy@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_074655_879460_B5000810 
-X-CRM114-Status: GOOD (  16.07  )
+X-CRM114-CacheID: sfid-20250228_074658_712498_00AB24D1 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,86 +83,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since iommu_init_device() was factored out, it is in fact the only
-consumer of the ops which __iommu_probe_device() is resolving, so let it
-do that itself rather than passing them in. This also puts the ops
-lookup at a more logical point relative to the rest of the flow through
-__iommu_probe_device().
+At the moment, if of_iommu_configure() allocates dev->iommu itself via
+iommu_fwspec_init(), then suffers a DT parsing failure, it cleans up the
+fwspec but leaves the empty dev_iommu hanging around. So far this is
+benign (if a tiny bit wasteful), but we'd like to be able to reason
+about dev->iommu having a consistent and unambiguous lifecycle. Thus
+make sure that the of_iommu cleanup undoes precisely whatever it did.
 
 Signed-off-by: Robin Murphy <robin.murphy@arm.com>
 ---
 
 v2: New
 
- drivers/iommu/iommu.c | 30 ++++++++++++++++--------------
- 1 file changed, 16 insertions(+), 14 deletions(-)
+ drivers/iommu/iommu-priv.h | 2 ++
+ drivers/iommu/iommu.c      | 2 +-
+ drivers/iommu/of_iommu.c   | 6 +++++-
+ 3 files changed, 8 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/iommu/iommu-priv.h b/drivers/iommu/iommu-priv.h
+index 17e245cf17bb..6574c1f97e14 100644
+--- a/drivers/iommu/iommu-priv.h
++++ b/drivers/iommu/iommu-priv.h
+@@ -17,6 +17,8 @@ static inline const struct iommu_ops *dev_iommu_ops(struct device *dev)
+ 	return dev->iommu->iommu_dev->ops;
+ }
+ 
++void dev_iommu_free(struct device *dev);
++
+ const struct iommu_ops *iommu_ops_from_fwnode(const struct fwnode_handle *fwnode);
+ 
+ static inline const struct iommu_ops *iommu_fwspec_ops(struct iommu_fwspec *fwspec)
 diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-index 179617bb412d..37b7088e129a 100644
+index 37b7088e129a..a3b45b84f42b 100644
 --- a/drivers/iommu/iommu.c
 +++ b/drivers/iommu/iommu.c
-@@ -404,14 +404,28 @@ EXPORT_SYMBOL_GPL(dev_iommu_priv_set);
-  * Init the dev->iommu and dev->iommu_group in the struct device and get the
-  * driver probed
-  */
--static int iommu_init_device(struct device *dev, const struct iommu_ops *ops)
-+static int iommu_init_device(struct device *dev)
+@@ -352,7 +352,7 @@ static struct dev_iommu *dev_iommu_get(struct device *dev)
+ 	return param;
+ }
+ 
+-static void dev_iommu_free(struct device *dev)
++void dev_iommu_free(struct device *dev)
  {
-+	const struct iommu_ops *ops;
- 	struct iommu_device *iommu_dev;
- 	struct iommu_group *group;
- 	int ret;
+ 	struct dev_iommu *param = dev->iommu;
  
- 	if (!dev_iommu_get(dev))
- 		return -ENOMEM;
-+	/*
-+	 * For FDT-based systems and ACPI IORT/VIOT, drivers register IOMMU
-+	 * instances with non-NULL fwnodes, and client devices should have been
-+	 * identified with a fwspec by this point. Otherwise, we can currently
-+	 * assume that only one of Intel, AMD, s390, PAMU or legacy SMMUv2 can
-+	 * be present, and that any of their registered instances has suitable
-+	 * ops for probing, and thus cheekily co-opt the same mechanism.
-+	 */
-+	ops = iommu_fwspec_ops(dev->iommu->fwspec);
-+	if (!ops) {
-+		ret = -ENODEV;
-+		goto err_free;
-+	}
- 
- 	if (!try_module_get(ops->owner)) {
- 		ret = -EINVAL;
-@@ -514,22 +528,10 @@ DEFINE_MUTEX(iommu_probe_device_lock);
- 
- static int __iommu_probe_device(struct device *dev, struct list_head *group_list)
+diff --git a/drivers/iommu/of_iommu.c b/drivers/iommu/of_iommu.c
+index 97987cd78da9..e10a68b5ffde 100644
+--- a/drivers/iommu/of_iommu.c
++++ b/drivers/iommu/of_iommu.c
+@@ -116,6 +116,7 @@ static void of_pci_check_device_ats(struct device *dev, struct device_node *np)
+ int of_iommu_configure(struct device *dev, struct device_node *master_np,
+ 		       const u32 *id)
  {
--	const struct iommu_ops *ops;
- 	struct iommu_group *group;
- 	struct group_device *gdev;
- 	int ret;
++	bool dev_iommu_present;
+ 	int err;
  
--	/*
--	 * For FDT-based systems and ACPI IORT/VIOT, drivers register IOMMU
--	 * instances with non-NULL fwnodes, and client devices should have been
--	 * identified with a fwspec by this point. Otherwise, we can currently
--	 * assume that only one of Intel, AMD, s390, PAMU or legacy SMMUv2 can
--	 * be present, and that any of their registered instances has suitable
--	 * ops for probing, and thus cheekily co-opt the same mechanism.
--	 */
--	ops = iommu_fwspec_ops(dev_iommu_fwspec_get(dev));
--	if (!ops)
--		return -ENODEV;
- 	/*
- 	 * Serialise to avoid races between IOMMU drivers registering in
- 	 * parallel and/or the "replay" calls from ACPI/OF code via client
-@@ -543,7 +545,7 @@ static int __iommu_probe_device(struct device *dev, struct list_head *group_list
- 	if (dev->iommu_group)
+ 	if (!master_np)
+@@ -127,6 +128,7 @@ int of_iommu_configure(struct device *dev, struct device_node *master_np,
+ 		mutex_unlock(&iommu_probe_device_lock);
  		return 0;
+ 	}
++	dev_iommu_present = dev->iommu;
  
--	ret = iommu_init_device(dev, ops);
-+	ret = iommu_init_device(dev);
- 	if (ret)
- 		return ret;
+ 	/*
+ 	 * We don't currently walk up the tree looking for a parent IOMMU.
+@@ -147,8 +149,10 @@ int of_iommu_configure(struct device *dev, struct device_node *master_np,
+ 		err = of_iommu_configure_device(master_np, dev, id);
+ 	}
  
+-	if (err)
++	if (err && dev_iommu_present)
+ 		iommu_fwspec_free(dev);
++	else if (err && dev->iommu)
++		dev_iommu_free(dev);
+ 	mutex_unlock(&iommu_probe_device_lock);
+ 
+ 	if (!err && dev->bus)
 -- 
 2.39.2.101.g768bb238c484.dirty
 
