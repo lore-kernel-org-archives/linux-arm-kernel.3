@@ -4,76 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A666CC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 17:23:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 413D4C282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 17:26:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bd0qQbfp5v3IPIVdEdHCrsovEB4c3GORz0HpWujPouQ=; b=uWLAUJK1TU7bZnOZ5AiKK62oIN
-	jRRhPlAv9f+L9Z+9fspVBAUo+6aYd29c/X0ImXQ94ZKQXlmMK7SK0oaqyDrw7puW0Xaq7LLWpbJ7Z
-	AZX1OjQDDlE/hTQsgB2HS5xIBR28jZo/yJkri2HGCvj36W19BeM1DSkFsEcOMxwRvrd7on3UMEwGR
-	ToJek1EGGtTxWNzsaa0ap4hkzNfvCuUU5aZPKRy8gU4ZK7yTMaYyxr06oShUKh17buNmO4RGfk+yb
-	D+FJqlW9nTJom0y+tiFaeSkUEIWd+BsYzVY684MetN8/HhJPN1ilGlsSOqkDBlYoKp3m0bJRVCJ2+
-	YaIDpZcw==;
+	bh=lGJ4IMk/2S17LDkhvq63xf3GveG7JHLPRsDkZ58UWfU=; b=FrIT+4keAB6GD56ZyXiBKiMT3P
+	3Xu1nWdOsRnALEgctFVxc1p5InyA/eZpRNyFlw9bIOsWTmGLKHi/fYTNM13esUSknGljLKtQdAoFJ
+	jgqInJ3Sb4GMWcZnV9R51k2DjEQueHvg/CzXFbbTolujLE7Ree3xPG7xN62wA7kKYYP4s3vmCUFD9
+	6rKAxMVzFChpVgeM0k5YWA6F8PKtV095g5Sks7vLIafLz62QU0yI+uAQ8Wi/NbU3mRlE6KhFGgMkK
+	fDdePT7YOm7mjm1HLVebZV6TjxgZbwj3nlk9gBdaA/j64AUGKgJWIai++KiczisyQLmZsdD3DzTFl
+	NVMkgF4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to44t-0000000BwJS-3SQh;
-	Fri, 28 Feb 2025 17:23:11 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to423-0000000BvTu-1Av4
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 17:20:16 +0000
-Received: from [10.137.184.60] (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 36672210D0D4;
-	Fri, 28 Feb 2025 09:20:13 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 36672210D0D4
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1740763213;
-	bh=bd0qQbfp5v3IPIVdEdHCrsovEB4c3GORz0HpWujPouQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AYfrdmEMnrTp3u4fGr+friZ/WQFHHHILDsPmPQ9MKwb3SGKmwjPpsl858UOYErvdP
-	 YwOdhGGSTJXSNvi9mux3U6NeUutiv/cDxsTzOKbmxtZvqdDs0RyzazXvkJbSqEueFJ
-	 br9SJsLdH0V7j1oNDbwlduqiNDshOQi/xfz8XkWI=
-Message-ID: <212cc582-845d-42b2-89f2-1e9579f752ec@linux.microsoft.com>
-Date: Fri, 28 Feb 2025 09:20:13 -0800
+	id 1to47t-0000000Bx69-2gfy;
+	Fri, 28 Feb 2025 17:26:17 +0000
+Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1to46J-0000000Bwhj-2Mjl;
+	Fri, 28 Feb 2025 17:24:41 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B205A44293;
+	Fri, 28 Feb 2025 17:24:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1740763476;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lGJ4IMk/2S17LDkhvq63xf3GveG7JHLPRsDkZ58UWfU=;
+	b=ZjHYKfuReiCginek0gxRtQpQEORyx0FtOFMEQHOOGYi5/rLgqlO2nBEWF2MPHmLLDJf67q
+	doZ39uHef9kpzhrR07JLduVxaUly0YgJVndRcmHGl9wVHS5oezVNffdfBI2eOj9jatCRM3
+	fppR4sBcN8+RCWtfldFGmCF3cUt4+ZApNx9qlWs0Br/yG67bntPHFsKy5F4wR3Hug2+BA9
+	5qImyp03z9QovpbndR6K9UKlOlPC9JCSJueFHqftlrraGU02psiazdb3ign77W+G7KV2gu
+	s4DfRorOuC8ghThvxbt4rHMR1A1lYdJcpfW7DbdDZXhI27GKP5eKgoVvsuk0ZQ==
+Message-ID: <249cb614-5b4d-4bf2-b3ee-58534f4d7852@bootlin.com>
+Date: Fri, 28 Feb 2025 18:24:35 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 01/10] hyperv: Convert Hyper-V status codes to strings
-To: Easwar Hariharan <eahariha@linux.microsoft.com>
-Cc: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
- linux-hyperv@vger.kernel.org, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org, kys@microsoft.com,
- haiyangz@microsoft.com, wei.liu@kernel.org, mhklinux@outlook.com,
- decui@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
- tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, hpa@zytor.com, daniel.lezcano@linaro.org,
- joro@8bytes.org, robin.murphy@arm.com, arnd@arndb.de,
- jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
- skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com,
- ssengar@linux.microsoft.com, apais@linux.microsoft.com,
- Tianyu.Lan@microsoft.com, stanislav.kinsburskiy@gmail.com,
- gregkh@linuxfoundation.org, vkuznets@redhat.com, prapal@linux.microsoft.com,
- muislam@microsoft.com, anrayabh@linux.microsoft.com, rafael@kernel.org,
- lenb@kernel.org, corbet@lwn.net
-References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740611284-27506-2-git-send-email-nunodasneves@linux.microsoft.com>
- <74af19c4-639f-4bcc-b667-b5f102bbb312@linux.microsoft.com>
- <8338dd00-3aa4-418f-a547-1c19623358cb@linux.microsoft.com>
- <49a69fe3-fca5-426d-999d-61ee0c8f60f3@linux.microsoft.com>
- <70b62e52-639a-4026-9a52-102d1de46ffd@linux.microsoft.com>
+Subject: Re: [PATCH 0/2] Describe the cameras in the PinePhone Pro dts
+To: Dragan Simic <dsimic@manjaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, oren@taumoda.com, Ondrej Jirman <megi@xff.cz>
+References: <20250228-camera-v1-0-c51869f94e97@bootlin.com>
+ <0338826971bfdd5b771bc1c6ada795eb@manjaro.org>
 Content-Language: en-US
-From: Roman Kisel <romank@linux.microsoft.com>
-In-Reply-To: <70b62e52-639a-4026-9a52-102d1de46ffd@linux.microsoft.com>
+From: Olivier Benjamin <olivier.benjamin@bootlin.com>
+In-Reply-To: <0338826971bfdd5b771bc1c6ada795eb@manjaro.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeltdellecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtkeertddtvdejnecuhfhrohhmpefqlhhivhhivghruceuvghnjhgrmhhinhcuoeholhhivhhivghrrdgsvghnjhgrmhhinhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveeijeeiheffvefgleetjeehudfgvdejiedvtdegveeljeevheejkeekvefhudeunecuffhomhgrihhnpegtohguvggsvghrghdrohhrghdpkhgvrhhnvghlrdhorhhgpdgsohhothhlihhnrdgtohhmnecukfhppedvrgdtudemvgefgeemvggtfeekmedvgegvtdemfhehtggvmehffeegvdemieehkeejmehfieehieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemvgefgeemvggtfeekmedvgegvtdemfhehtggvmehffeegvdemieehkeejmehfieehiedphhgvlhhopeglkffrggeimedvrgdtudemvgefgeemvggtfeekmedvgegvtdemfhehtggvmehffeegvdemieehkeejmehfieehiegnpdhmrghilhhfrhhomhepohhlihhvihgvrhdrsggvnhhjrghmihhnsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduvddprhgtphhtthhopegushhim
+ hhitgesmhgrnhhjrghrohdrohhrghdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehhvghikhhosehsnhhtvggthhdruggvpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
+X-GND-Sasl: olivier.benjamin@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_092015_364353_DD37523D 
-X-CRM114-Status: GOOD (  27.82  )
+X-CRM114-CacheID: sfid-20250228_092440_054990_54C86F4C 
+X-CRM114-Status: GOOD (  16.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,88 +82,52 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 2/27/2025 3:25 PM, Easwar Hariharan wrote:
-> On 2/27/2025 3:08 PM, Roman Kisel wrote:
+On 2/28/25 16:46, Dragan Simic wrote:
+> Hello Olivier,
+> 
+Hello Dragan,
 
-[...]
-
->> Would be great to learn the details to understand how this function is
->> going to improve the situation:
+> On 2025-02-28 16:19, Olivier Benjamin wrote:
+>> This series adds support for the Pine64 PinePhone Pro's rear and front
+>> cameras in Device Tree.
+>> This is based on some of Ondrej Jirman's patches hosted in his tree at
+>> https://codeberg.org/megi/linux, but I have also fully reviewed and
+>> re-written the code from the RK3399 datasheet, the PinePhone Pro
+>> schematic, and the IMX258-0AQH5 software reference manual.
 >>
->> 1. How come the hex error code was useless, what is not matching
->>     anything in the Linux headers?
-> 
-> It doesn't match anything in the Linux headers, but it's an NTSTATUS, not HVSTATUS.
-> 
-
-That is what it looks like from the code, I posted the details in the
-parallel thread.
-
-Here is a fix:
-https://lore.kernel.org/linux-hyperv/20250227233110.36596-1-romank@linux.microsoft.com/
-
-Also I think the commit description in your patch
-
-https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d2138eab8cde61e0e6f62d0713e45202e8457d6d
-
-conflates the hypervisor (ours runs bare-metal, Type 1) and the VMMs
-(Virtual Machine Monitors)+VSPs (Virtual Service Providers, e.g StorVSP
-that implements SCSI) running in the host/root/dom0 partition.
-
-> Coming from the PoV of a user, it would be a much more useful message to see:
-> 
-> [  249.512760] hv_storvsc fd1d2cbd-ce7c-535c-966b-eb5f811c95f0: tag#683 cmd 0x28 status: scsi 0x2 srb 0x4 hv STATUS_UNSUCCESSFUL
-> 
-> than
-> 
-> [  249.512760] hv_storvsc fd1d2cbd-ce7c-535c-966b-eb5f811c95f0: tag#683 cmd 0x28 status: scsi 0x2 srb 0x4 hv 0xc0000001
-> 
-
-It is likely that the PoV of a user that you've mentioned is actually
-a PoV of a (kernel) developer. It is hard to imagine that folks running
-web sites, DB servers, LoBs, LLMs, etc. in Hyper-V VMs care about the
-lowest software level of the virt stack in the form of the symbolic
-name or the hex code. They need their VMs to be reliable or suggest
-what the user may try if a configuration error is suspected.
-
-To make the error log message useful to the user, the message should
-mention ways of remediation or at least hint what might've gotten
-wedged. Without that, that's only useful for the people who work with
-the kernel code proper or the kernel interface to the user land.
-
-So I'd think that the hex error codes from the hypervisor give the user
-exactly as much as the error symbolic names do to get the system to the
-desired state: nothing. Even less when the error reported "Unknown" :)
-
->> 2. How having "Unknown" in the log can possibly be better?
-> 
-> IMHO, seeing "Unknown" in an error report means that there's a new return value
-> that needs to be mapped to errno in hv_status_to_errno() and updated here as well.
-> 
-
-It means that to the developer. To the user, it means the developers
-messed something up and to make matters even worse they didn't leave any
-breadcrumbs (e.g. the hex code) to see what's wrong to help the user and
-themselves: there is just that "Unknown" thing in the log.
-
->> 3. Given that the select hv status codes and the proposed strings have
->>     1:1 correspondence, and there is the 1:N catch-all case for the
->>     "Unknown", how's that better?
+>> I have tested these changes on my PinePhone Pro and am able to take
+>> photos from both cameras using libcamera's cam.
 >>
+>> Signed-off-by: Olivier Benjamin <olivier.benjamin@bootlin.com>
 > 
-> I didn't really follow this question, but I suppose the answer to Q2 answers this as
-> well. If not, please expand and I'll try to answer.
+> I'm afraid that you haven't addressed the notes from the feedback
+> you received earlier? [*]  Also, this should be the v2 of the series,
+> which should contain "PATCH v2" in the patch subjects, and provide
+> a summary of changes in the cover letter.
+> 
+> Or, did you just resend the v1 by mistake?
 >
+I somehow missed Heiko's feedback in my email, and therefore intended to 
+resend v1, but b4 would not let me simply resend.
+My most sincere apologies for the noise, I'll address the feedback and 
+send a v2!
 
-Sorry about that chunk, hit "Send" without looking the e-mail over
-another time. Appreciate the discussion very much!
-
-
-> Thanks,
-> Easwar (he/him)
+> [*] https://lore.kernel.org/linux-rockchip/5127541.31r3eYUQgx@phil/
+> 
+>> ---
+>> Olivier Benjamin (2):
+>>       arm64: dts: PinePhone Pro: describe I2c Bus 1 and IMX258 world 
+>> camera
+>>       arm64: dts: PinePhone Pro: describe the OV8858 user camera
+>>
+>>  .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 138 ++++++++++++ 
+>> +++++++++
+>>  1 file changed, 138 insertions(+)
+>> ---
 
 -- 
-Thank you,
-Roman
+Olivier Benjamin, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 
