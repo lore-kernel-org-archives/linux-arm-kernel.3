@@ -4,115 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8AF0C19776
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 09:17:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B445C19776
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 09:23:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zbXmaRcT2XwkeDCQc4Fd1apB2+M2uJ/a3I4PM1YAgw0=; b=I2PWtTKID7u6baHRMp2MLCGpdT
-	N0Ou+WoPOHX0tF2zv8MYKSfBR8Y+lBSqP0oAJtAKPnTg+DP91cpVjOojniy+xxrVu+kRK9CojuoPB
-	z4wYUpamhOnk9BRPpCylrzsJtgJrHq0TTkakixWLvuZZRsxfVvKfJrzu4OJRjyIbGhHy91RUdbu/q
-	lfNdi6DwTDe2RP4ADgPqGQdYWIcOyh1QtG2AWB6gaG+86Mth9W++mNyAH4nWpyO69/2R7dfsWeCll
-	CyqxuOp7TqZBohWz2w53SgL8ylrMBhf/OjkRj+VkreQq8yxCTwwVXLVcUUZUG38cTM9TfnbcW599l
-	mBFAOJdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9woLIyZgcBegEQptNa9HSQ3i6yMmda0ceP6jSGZkTQQ=; b=voXX6A+MSRttwyhTi8xxdXttoM
+	bh6jIArAGr+uuFGHHxrL1nF/u+4QY+obePF2f9fb781HB3LYulQWr97cn8vFL0LOxUjSOl2cIWIiJ
+	Wx/Ay0YDMqSJWk8lnQm9WyHUisN2E4eoidLUk4HXolrs0amfsI4RsYmOzs1LU6/zPFCYjk78Yc5rO
+	58OO45E5ew7lpiyh/UmBHYsDglSWQB11twY861EuipZBdb0bfxPE/LQTKA4XV6WEpn9pm3LoJHD+Y
+	JndSlk8GOY9hi+eboI9Xj5aWJY/AxiX7f4HWMZaof1R56OfeWI2Lrv7UoudpxJ3Dq0/FWq5EORnjw
+	2yemLnFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnwUi-0000000AKAk-16Bl;
-	Fri, 28 Feb 2025 09:17:20 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1tnwaE-0000000ALUi-3WFF;
+	Fri, 28 Feb 2025 09:23:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnwT9-0000000AJuq-1v4Y
+	id 1tnwYh-0000000ALFC-22mP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 09:15:44 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51S18l30011287;
-	Fri, 28 Feb 2025 09:15:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=zbXmaRcT2XwkeDCQc4Fd1apB2+M2uJ
-	/a3I4PM1YAgw0=; b=CR5nCp5RBt4kqQy37SzzjYHulkurnB3J6loL1dYZQg3Jw1
-	TRY9FbD2yoZUIsQVu6vsPdB5oazypxeGOE/y89LUz6G1yoNa9PUfNPYP2KzLVc0v
-	ZiyzOnQtoPGKdXFSlsTpr8tRUOGIDGYQqLWU6hidsyNQkR1fKOog+hefQ8uMHdrw
-	hFm12FlgrIhjMZ6tdM0hVcKdXERHMr/0MlGFhklKGj2N30F4q1DxvpYkJF4ja58y
-	nX29zfVCJR4mlOQIPg1jSadnA2UY2/yrU5LwwrNca73oF3TbmlhImTtVeLhRyTV4
-	gPAZVh0J2t72Vp2yFxz65407FMZoUhJRHinNpd+g==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 45337ahym7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 28 Feb 2025 09:15:17 +0000 (GMT)
-Received: from m0360083.ppops.net (m0360083.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 51S8xMff016279;
-	Fri, 28 Feb 2025 09:15:16 GMT
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 45337ahym5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 28 Feb 2025 09:15:16 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 51S7xvWL002595;
-	Fri, 28 Feb 2025 09:15:15 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 44yu4k5avf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 28 Feb 2025 09:15:15 +0000
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 51S9FBd120578658
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 28 Feb 2025 09:15:11 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B3A512004B;
-	Fri, 28 Feb 2025 09:15:11 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B32D720040;
-	Fri, 28 Feb 2025 09:15:10 +0000 (GMT)
-Received: from osiris (unknown [9.171.87.109])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri, 28 Feb 2025 09:15:10 +0000 (GMT)
-Date: Fri, 28 Feb 2025 10:15:09 +0100
-From: Heiko Carstens <hca@linux.ibm.com>
-To: Lyude Paul <lyude@redhat.com>
-Cc: rust-for-linux@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>,
-        Boqun Feng <boqun.feng@gmail.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>, Ingo Molnar <mingo@redhat.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
-        "H. Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>,
-        Juergen Christ <jchrist@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        "moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)" <linux-arm-kernel@lists.infradead.org>,
-        open list <linux-kernel@vger.kernel.org>,
-        "open list:S390 ARCHITECTURE" <linux-s390@vger.kernel.org>,
-        "open list:GENERIC INCLUDE/ASM HEADER FILES" <linux-arch@vger.kernel.org>
-Subject: Re: [PATCH v9 2/9] preempt: Introduce __preempt_count_{sub,
- add}_return()
-Message-ID: <20250228091509.8985B18-hca@linux.ibm.com>
-References: <20250227221924.265259-1-lyude@redhat.com>
- <20250227221924.265259-3-lyude@redhat.com>
+	Fri, 28 Feb 2025 09:21:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1ED5161F4C;
+	Fri, 28 Feb 2025 09:20:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A83BEC4CEE4;
+	Fri, 28 Feb 2025 09:20:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740734456;
+	bh=6fEjHT450t/mGPqxjywj47tlnyvUPeH/lRoVgSKpTko=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Sg8aiEgZGPNMUiwVzxxl7Dk0ozVMsn8cWMYnUbn2b+C5tU7sBZvDLcL34IanWu/tu
+	 ZhIczS/+qlW9Ei3aUh++XjAqyLisc9JHyjScaevppswa2yderDKmnYLNn7pEuDwIQ9
+	 t5OzJ+avjxvTXX0YC2h1hq+6qLlxIOmBPFsqfGXWysYiBASA9Y9Whx6y0zcnextEg5
+	 YsvA4zWW+O5kp7hMox32JSqbykohCjMnwhMtEUv7E+hWmrOLx40ogkZLlAcUtyqwlQ
+	 SbsFPaiqg7IjBkhLjD9aKbDW388z6bzsDh+WKZ97S0UANApDpM0bZU9GZlXnjITJSh
+	 LKB5ohwBn3sBQ==
+Message-ID: <d39893f1-0a1e-4197-aec4-60c8e632fe47@kernel.org>
+Date: Fri, 28 Feb 2025 10:20:50 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250227221924.265259-3-lyude@redhat.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: PXilDMwrSa6mnq-6V0CgFdcdACh3D8aI
-X-Proofpoint-GUID: uvIo6Uq09NLmGDRrJ19UmGamCa1Xy5fB
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-28_02,2025-02-27_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 mlxlogscore=670
- priorityscore=1501 impostorscore=0 bulkscore=0 malwarescore=0
- suspectscore=0 spamscore=0 mlxscore=0 phishscore=0 clxscore=1011
- lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2502100000 definitions=main-2502280064
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_011543_501994_8E9ECDB6 
-X-CRM114-Status: GOOD (  23.83  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: defconfig: enable Qualcomm IRIS & VIDEOCC_8550
+ as module
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+References: <20250227-topic-sm8x50-upstream-iris-defconfig-v2-1-13b490a4f402@linaro.org>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250227-topic-sm8x50-upstream-iris-defconfig-v2-1-13b490a4f402@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,54 +116,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025 at 05:10:13PM -0500, Lyude Paul wrote:
-> From: Boqun Feng <boqun.feng@gmail.com>
+On 27/02/2025 09:51, Neil Armstrong wrote:
+> In order to support the Qualcomm IRIS driver on the Qualcomm SM8550
+> platform, enable the IRIS and the VIDEOCC_8550 dependency as modules.
 > 
-> Signed-off-by: Boqun Feng <boqun.feng@gmail.com>
-> Signed-off-by: Lyude Paul <lyude@redhat.com>
+> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
 > ---
->  arch/arm64/include/asm/preempt.h | 18 ++++++++++++++++++
->  arch/s390/include/asm/preempt.h  | 19 +++++++++++++++++++
->  arch/x86/include/asm/preempt.h   | 10 ++++++++++
->  include/asm-generic/preempt.h    | 14 ++++++++++++++
->  4 files changed, 61 insertions(+)
-...
-> diff --git a/arch/s390/include/asm/preempt.h b/arch/s390/include/asm/preempt.h
-> index 6ccd033acfe52..67a6e265e9fff 100644
-> --- a/arch/s390/include/asm/preempt.h
-> +++ b/arch/s390/include/asm/preempt.h
-> @@ -98,6 +98,25 @@ static __always_inline bool should_resched(int preempt_offset)
->  	return unlikely(READ_ONCE(get_lowcore()->preempt_count) == preempt_offset);
->  }
->  
-> +static __always_inline int __preempt_count_add_return(int val)
-> +{
-> +	/*
-> +	 * With some obscure config options and CONFIG_PROFILE_ALL_BRANCHES
-> +	 * enabled, gcc 12 fails to handle __builtin_constant_p().
-> +	 */
-> +	if (!IS_ENABLED(CONFIG_PROFILE_ALL_BRANCHES)) {
-> +		if (__builtin_constant_p(val) && (val >= -128) && (val <= 127)) {
-> +			return val + __atomic_add_const(val, &get_lowcore()->preempt_count);
-> +		}
-> +	}
-> +	return val + __atomic_add(val, &get_lowcore()->preempt_count);
-> +}
 
-This should just be
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-static __always_inline int __preempt_count_add_return(int val)
-{
-	return val + __atomic_add(val, &get_lowcore()->preempt_count);
-}
-
-since __atomic_add_const() won't return the original value.
-
-Well.. at least it should not, but the way it is currently implemented it
-indeed does sometimes depending on config options - there is room for
-improvement. That's my fault - going to address that.
-
-I couldn't find any cover letter for the whole patch series which describes
-what this is about, and why it is needed.
-It looks like some Rust enablement?
+Best regards,
+Krzysztof
 
