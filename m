@@ -4,77 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6BF1C282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 16:51:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEE03C282D2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 16:53:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x9fDfZJB/WezRePteXdcKn6DL3l6XX4XrV4HxKoRPK4=; b=KQEtlF/sak+yKydZync1OnJiJ0
-	mWrmMAhkhYUnD2JpKpVCbZsyol6SnnJyjCNhcax/qFvtzY41JbSi25p5EonnWxC7kAMnbE1PoOa9k
-	3Wm07wDVke3RQXMSwtbOYhITKPPhcHGMw8H27NQo5wUH1p/nEhD7bzJ0zIgU2/HLi7B7oepQ/3gWr
-	OqyKFXaeF8QLRv4LPHveJilPOFK9pXsq5lBIUndB3cG4bni6mFfGWDA/l+4uaM27jmWJAi1Z6miT+
-	qs2nn3bfIa3xCBfo80v7DclZGnRzuNN2Ab/tOkFL5oNij1iGM/ekBKvUwrskr5ai/CIqUXf2fCdy5
-	is8aeqOA==;
+	bh=RjvmYgFj26Tl1M9VV8mPvQ7wgYX8kNV0gdkARYL9DLE=; b=juw2tUQTopYPLIX80adLYuM+3j
+	JGrzIhk2olSq8b4aTWNxy/+i77li+ly4HeOo2FdA/g5ODa6fOXQBreV7lL6KiwcfZrfOcj3iX4voO
+	FHw6z/XW5mivOS8ejAWhLeSkxe8wVMTrSeCJoNVSuowAH8w+zmSd9OVYQyKZjlXhHmif6wrOPNSHA
+	zbcc7+VptDWXR3Io01KTyo9OZ88pUscVMZO6UIm4HSCn5sGXfx16mIx5V/Efjz2BYBlbap7DYehU/
+	+EnpxzphexkwDuSbBeXGDxgdyX8Q7BhCbjPqCKkdgNt+tePnBK+bNvcmt0ZYLzwGVTHbY91xqVypv
+	Q2RIbYJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to3aC-0000000BlrK-30Gy;
-	Fri, 28 Feb 2025 16:51:28 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to3Yc-0000000BlUQ-2dfy
+	id 1to3bj-0000000BmHB-1Yoy;
+	Fri, 28 Feb 2025 16:53:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1to3Zi-0000000BlkJ-2XMH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 16:49:52 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 7A486432B3;
-	Fri, 28 Feb 2025 16:49:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1740761388;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=x9fDfZJB/WezRePteXdcKn6DL3l6XX4XrV4HxKoRPK4=;
-	b=VsMpQDTmTRTfwdsJcEnPhDuR8dcLtn9+OYZ/jXEJDLTMH8x9BsC0R3jFrLYXDZbztvRrl+
-	TA6jKDzEDfxSRYzKGtuOUu9v1EQ+52cJ/eTBhHw3zo/yuktwCVcGwFL8+GBEYCwoEiNWMa
-	VJUGe6QuYYTHBWxogzuSTTNl22ql57r+FvLAYK2TiScaf9wuz0lQkVEl/Z3euDhKGKxR0X
-	gKsBnpKnWWaMfJidzwlgSM23rVtcgX42WCt7FumF+1+mgfoDCriyq/93bzl11cxP+gTLwI
-	a60cxKSPxNWKb3FR5jYBTklVEB1aVcmsCTnP5AemuDJJhpqzAyQ+AeRCleuljg==
-Date: Fri, 28 Feb 2025 17:49:45 +0100
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
- <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Heiner Kallweit <hkallweit1@gmail.com>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>, Herve Codina
- <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>, =?UTF-8?B?S8O2cnk=?= Maincent
- <kory.maincent@bootlin.com>, Oleksij Rempel <o.rempel@pengutronix.de>,
- Simon Horman <horms@kernel.org>, Romain Gantois
- <romain.gantois@bootlin.com>
-Subject: Re: [PATCH net-next v3 09/13] net: phylink: Use phy_caps_lookup for
- fixed-link configuration
-Message-ID: <20250228174945.791c3f74@fedora.home>
-In-Reply-To: <Z8HiZpxPLy9YKTsf@shell.armlinux.org.uk>
-References: <20250228145540.2209551-1-maxime.chevallier@bootlin.com>
-	<20250228145540.2209551-10-maxime.chevallier@bootlin.com>
-	<Z8HiZpxPLy9YKTsf@shell.armlinux.org.uk>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Fri, 28 Feb 2025 16:51:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6BA44150C;
+	Fri, 28 Feb 2025 08:51:10 -0800 (PST)
+Received: from [10.57.79.187] (unknown [10.57.79.187])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 349603F6A8;
+	Fri, 28 Feb 2025 08:50:53 -0800 (PST)
+Message-ID: <4b83669e-db37-4a38-ac43-5d210d7ce544@arm.com>
+Date: Fri, 28 Feb 2025 16:50:51 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/4] drivers/thermal/exymos: Remove redundant IS_ERR()
+ checks for clk_sec clock
+To: Anand Moon <linux.amoon@gmail.com>
+References: <20250216195850.5352-1-linux.amoon@gmail.com>
+ <20250216195850.5352-3-linux.amoon@gmail.com>
+Content-Language: en-US
+Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
+ "open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ "moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
+ <linux-arm-kernel@lists.infradead.org>,
+ "open list:SAMSUNG THERMAL DRIVER" <linux-pm@vger.kernel.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ open list <linux-kernel@vger.kernel.org>
+From: Lukasz Luba <lukasz.luba@arm.com>
+In-Reply-To: <20250216195850.5352-3-linux.amoon@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeltdeludcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegveeltddvveeuhefhvefhlefhkeevfedtgfeiudefffeiledttdfgfeeuhfeukeenucfkphepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduledprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtt
- hhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepvgguuhhmrgiivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_084950_981012_9A883BBD 
-X-CRM114-Status: UNSURE (   7.20  )
+X-CRM114-CacheID: sfid-20250228_085058_688065_EC06BAEA 
+X-CRM114-Status: UNSURE (   7.10  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,22 +75,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 28 Feb 2025 16:20:54 +0000
-"Russell King (Oracle)" <linux@armlinux.org.uk> wrote:
 
-> On Fri, Feb 28, 2025 at 03:55:34PM +0100, Maxime Chevallier wrote:
-> >  	adv = pl->link_config.advertising;
-> >  	linkmode_zero(adv);
-> > -	linkmode_set_bit(s->bit, adv);
-> > +	linkmode_and(adv, pl->supported, c->linkmodes);  
-> 
-> There is no need for linkmode_zero() with linkmode_and() immediately
-> after. linkmode_and() writes to its entire destination.
-> 
 
-Ah true indeed, I'll address that.
+On 2/16/25 19:58, Anand Moon wrote:
+> Remove unnecessary IS_ERR() checks for the clk_sec clock,
+> the clk_enable() and clk_disable() functions can handle NULL clock
+> pointers, so the additional checks are redundant and have been removed
+> to simplify the code.
 
-Thanks Russell,
-
-Maxime
+This patch looks sane, just rework the 'goto' stuff in the
+exynos_tmu_probe() maybe in the patch 1/4 so won't be needed here.
 
