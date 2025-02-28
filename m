@@ -4,60 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 891ABC19776
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 14:50:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D650BC19776
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 14:52:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b4vxpW1RpBpjqviswUwVST1lAGc/pkKLCZyeGVk5xGU=; b=f87Ot7qwZbpaJ3CEJgh/dhVoU2
-	q6aJAF2FM3fHtmQWTz9cgJZZjdm6pq3rvmhZYvgS7d9jE4X/9hXsEGdu/zQrViYTnmGlTnh8W0NY3
-	5WxuPOLCyDKG+hF05lNAUg2lY9AxsLUH06CuR+7WWJ8RooWvWZZBYZTAMl/pD67bkQN4Sd5HUrxim
-	vDRBeUoBMCjUtf1NYPdyWiweo19S78/x/sn8P1w9DAQK/m8lXOwr5V7jGN7WxKAvs/7ybJ7Rm9gPE
-	YV0ccAlyknc84qtDC2MRWF/UMqewsc5AVVbtRpwJbGrMe+MXFdHJ2tfoXyu4qV0+vXUlyuWMqLFXr
-	YRAsTV6w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+z/hwD0xv70WB1DfpskxcfEOph0OOPc6FfcNrtz55wA=; b=g9kXeKz2csyd3i0PDXFu9LcWNT
+	WwJdKz/BL2LQS+ssAESOrVvoMg28Z8PyXcrYy+EMjdxljGlcvSv34sNNmhQ2/f05Ex2WOXCPo2egG
+	JxW+O1JvH/CNqVRVAmv159GKdH58vZr4/FE7nQGq9mvc9lIme4qDZV6XnNHBHBiLKyiqOojfQn0dk
+	piy1hdVGzELD9PPsDiTKdAEkkNkzJ36NvhguCKYiux7Vi1eTDOEmjI/ylNR3iZa6gBU0OfsNrxGXt
+	Glmn9Bwj10VaMNeZHiDgX7PZK3ZQg7MpaMLa6q6fMu6+CWgXb9mdNK7uUO40H8Uxsus66girNZzDQ
+	9ymjPaBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to1hA-0000000BKpj-0ONB;
-	Fri, 28 Feb 2025 14:50:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to1Qm-0000000BHSO-2Hii
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 14:33:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA9311515;
-	Fri, 28 Feb 2025 06:33:50 -0800 (PST)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AE8513F6A8;
-	Fri, 28 Feb 2025 06:33:33 -0800 (PST)
-Date: Fri, 28 Feb 2025 14:33:31 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai
- <wens@csie.org>, Samuel Holland <samuel@sholland.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 15/15] clk: sunxi-ng: add support for the A523/T527
- PRCM CCU
-Message-ID: <20250228143331.42153af3@donnerap.manchester.arm.com>
-In-Reply-To: <3136553.CbtlEUcBR6@jernej-laptop>
-References: <20250214125359.5204-1-andre.przywara@arm.com>
-	<20250214125359.5204-16-andre.przywara@arm.com>
-	<3136553.CbtlEUcBR6@jernej-laptop>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	id 1to1ii-0000000BL33-0cvW;
+	Fri, 28 Feb 2025 14:52:08 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1to1R3-0000000BHWz-2G2M;
+	Fri, 28 Feb 2025 14:33:55 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2f2f5e91393so592225a91.0;
+        Fri, 28 Feb 2025 06:33:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740753232; x=1741358032; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+z/hwD0xv70WB1DfpskxcfEOph0OOPc6FfcNrtz55wA=;
+        b=ZuutSxUJSdNAzdhdPbOhO6mQIiZkVWy3VKR2R0aqAsIpwt2ZiRkrJJRh4+ZT2G22fl
+         f5hZC0ov2MzthmG1QbIb8LAf0FBH+WmTMlOHI1KNymF+W/T5ucP/21NdHv5moCh2yMPp
+         uOUDm/nK1etIbYAuOR03AjEVsqu+4KQNnK8MuTKmYgufE+GthYEyHdnR2n0+OFtMUK8t
+         DiqT5Nii06fTkR/4cdsNgGPdFqQOEl5cEVgsJ67pENIkPLjuGXpK2qvIae2qTUXG+pnm
+         I6lodQ0quyjVLV0CBF/EmfZ3U/oDsK9GSV9kO+BVI4uXYeHv/vEk5s7D1Ri8uUEN8Kuo
+         PesQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740753232; x=1741358032;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+z/hwD0xv70WB1DfpskxcfEOph0OOPc6FfcNrtz55wA=;
+        b=nqKkoePqlt1jrXjXrUUaI+b3RRYc9gyz0jfgR8Q2qE0rkdoWUxbHhovolRxVqv5QKh
+         MJp/f4NyCys1+yfy/3F0+t6xmNB7mXTWMBKvdZFjLAizKfLXt2769hgXKdA5iWq+Od8B
+         Xsw0M+DfDEqKgAF4pPqULYHet7BOFCCdn4RDgazB7I6GomqrFRaR1Hpw0VP9cS69I35U
+         VOlA/qrH3N6KzM+n2jpmVtW6JXjymvvY1PG+PM1vvgbaH/IXanxEhuFWs3NJgiZ9m1IH
+         3sDVBOznKWEpTOTNTN/VjP7NaSQLa4L9K2E1L2RENl/SfV1urXGjpmh5l/ozveYExgdl
+         qn3A==
+X-Forwarded-Encrypted: i=1; AJvYcCUsYoPHfZD6QLwRmSozmBAnyakssdzmAGZUyd0JLFXdvVd0eGtP+Zpu47Wkv+jDAoeB9V2cNAE9I09g0fZR6Fee@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw0kt5rKLfLC3qhjlHgL956vZ9vgJ/t1TXZ3iHQ2NM2EiCjhSw6
+	5l92tI+9/gLNOcgCbJipEKCQO2irernyE9ilShXf2+y7rVUyKc0jK45Ro/Ak
+X-Gm-Gg: ASbGncs5IwgEawZWlQLvcvhcJ7c+0DFtaLEiHDcl84YIF3dqTyA8j0tMdE+9V7aHPCb
+	V+vqvcBBiqBWDr7cuHivQnw1sEWjEChnDR2eV+gc9hxyXpvG6KUpIzwdyr9tApbSp68npQKydL4
+	eHtQDakOJkPuUGGbqE/VW7dqH9IPoLYNOYXRbhBalcbw/c037t0wA9WY5KzfwSm3ohIn4YjmRgg
+	YSg0QH5EhnkbO+dYxVmwUcQcG+YP37CCgmLPUa7zi1BMsLlzhXxWgSduStMzqZZRDdGn3EB6ERo
+	4HdK8nYOIRDWB6QbLDQvlAyyYkNbNhY=
+X-Google-Smtp-Source: AGHT+IFFK8iGt2zkzJRfvygeL6oG1AvM9o6uoiJiWNbIcylOAd9HzZ8vKfhy7zWgRggSdl3wMWsPWg==
+X-Received: by 2002:a17:90b:1b48:b0:2fe:7f51:d2ec with SMTP id 98e67ed59e1d1-2febaa8d1e9mr2349075a91.0.1740753230444;
+        Fri, 28 Feb 2025 06:33:50 -0800 (PST)
+Received: from rock-5b.. ([221.220.131.19])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fea6752095sm3807148a91.1.2025.02.28.06.33.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 Feb 2025 06:33:49 -0800 (PST)
+From: Jianfeng Liu <liujianfeng1994@gmail.com>
+To: linux-rockchip@lists.infradead.org
+Cc: Jianfeng Liu <liujianfeng1994@gmail.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Stephen Rothwell <sfr@canb.auug.org.au>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: rockchip: slow down emmc freq for rock 5 itx
+Date: Fri, 28 Feb 2025 22:33:08 +0800
+Message-ID: <20250228143341.70244-1-liujianfeng1994@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_063336_675508_E1E92772 
-X-CRM114-Status: GOOD (  31.42  )
+X-CRM114-CacheID: sfid-20250228_063353_593985_886AEA35 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,374 +100,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Feb 2025 21:42:06 +0100
-Jernej =C5=A0krabec <jernej.skrabec@gmail.com> wrote:
+The current max-frequency 200000000 of emmc is not stable. When doing
+heavy write there will be I/O Error. After setting max-frequency to
+150000000 the emmc is stable under write.
 
-Hi,
+Also remove property mmc-hs200-1_8v because we are already running at
+HS400 mode.
 
-> Dne petek, 14. februar 2025 ob 13:53:59 Srednjeevropski standardni =C4=8D=
-as je Andre Przywara napisal(a):
-> > The A523/T527 SoCs have clock/reset controls in the PRCM part, like many
-> > previous SoCs. For a change, the whole PRCM is documented in the A523
-> > manual, including the system bus tree, so we can describe all those
-> > clocks correctly based on that. There layout seems to be derived from
-> > the H6 and H616 PRCM CCUs, though there are more clocks, and many clocks
-> > have subtly changed.
-> >=20
-> > Describe all the mod and gate clocks, including the three bus clocks
-> > (R_AHB, R_APB0, and R_APB1).
-> >=20
-> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> > ---
-> >  drivers/clk/sunxi-ng/Kconfig             |   5 +
-> >  drivers/clk/sunxi-ng/Makefile            |   2 +
-> >  drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c | 245 +++++++++++++++++++++++
-> >  drivers/clk/sunxi-ng/ccu-sun55i-a523-r.h |  14 ++
-> >  4 files changed, 266 insertions(+)
-> >  create mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
-> >  create mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523-r.h
-> >=20
-> > diff --git a/drivers/clk/sunxi-ng/Kconfig b/drivers/clk/sunxi-ng/Kconfig
-> > index 04efbda847cf9..5830a9d87bf25 100644
-> > --- a/drivers/clk/sunxi-ng/Kconfig
-> > +++ b/drivers/clk/sunxi-ng/Kconfig
-> > @@ -57,6 +57,11 @@ config SUN55I_A523_CCU
-> >  	default y
-> >  	depends on ARM64 || COMPILE_TEST
-> > =20
-> > +config SUN55I_A523_R_CCU
-> > +	tristate "Support for the Allwinner A523/T527 PRCM CCU"
-> > +	default y
-> > +	depends on ARM64 || COMPILE_TEST
-> > +
-> >  config SUN4I_A10_CCU
-> >  	tristate "Support for the Allwinner A10/A20 CCU"
-> >  	default y
-> > diff --git a/drivers/clk/sunxi-ng/Makefile b/drivers/clk/sunxi-ng/Makef=
-ile
-> > index 01a887f7824bb..82e471036de69 100644
-> > --- a/drivers/clk/sunxi-ng/Makefile
-> > +++ b/drivers/clk/sunxi-ng/Makefile
-> > @@ -34,6 +34,7 @@ obj-$(CONFIG_SUN50I_H6_CCU)	+=3D sun50i-h6-ccu.o
-> >  obj-$(CONFIG_SUN50I_H6_R_CCU)	+=3D sun50i-h6-r-ccu.o
-> >  obj-$(CONFIG_SUN50I_H616_CCU)	+=3D sun50i-h616-ccu.o
-> >  obj-$(CONFIG_SUN55I_A523_CCU)	+=3D sun55i-a523-ccu.o
-> > +obj-$(CONFIG_SUN55I_A523_R_CCU)	+=3D sun55i-a523-r-ccu.o
-> >  obj-$(CONFIG_SUN4I_A10_CCU)	+=3D sun4i-a10-ccu.o
-> >  obj-$(CONFIG_SUN5I_CCU)		+=3D sun5i-ccu.o
-> >  obj-$(CONFIG_SUN6I_A31_CCU)	+=3D sun6i-a31-ccu.o
-> > @@ -60,6 +61,7 @@ sun50i-h6-ccu-y			+=3D ccu-sun50i-h6.o
-> >  sun50i-h6-r-ccu-y		+=3D ccu-sun50i-h6-r.o
-> >  sun50i-h616-ccu-y		+=3D ccu-sun50i-h616.o
-> >  sun55i-a523-ccu-y		+=3D ccu-sun55i-a523.o
-> > +sun55i-a523-r-ccu-y		+=3D ccu-sun55i-a523-r.o
-> >  sun4i-a10-ccu-y			+=3D ccu-sun4i-a10.o
-> >  sun5i-ccu-y			+=3D ccu-sun5i.o
-> >  sun6i-a31-ccu-y			+=3D ccu-sun6i-a31.o
-> > diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c b/drivers/clk/sun=
-xi-ng/ccu-sun55i-a523-r.c
-> > new file mode 100644
-> > index 0000000000000..0dafc38370f22
-> > --- /dev/null
-> > +++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
-> > @@ -0,0 +1,245 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * Copyright (C) 2024 Arm Ltd.
-> > + * Based on the D1 CCU driver:
-> > + *   Copyright (c) 2020 huangzhenwei@allwinnertech.com
-> > + *   Copyright (C) 2021 Samuel Holland <samuel@sholland.org>
-> > + */
-> > +
-> > +#include <linux/clk-provider.h>
-> > +#include <linux/module.h>
-> > +#include <linux/platform_device.h>
-> > +
-> > +#include "ccu_common.h"
-> > +#include "ccu_reset.h"
-> > +
-> > +#include "ccu_gate.h"
-> > +#include "ccu_mp.h"
-> > +
-> > +#include "ccu-sun55i-a523-r.h"
-> > +
-> > +static const struct clk_parent_data r_ahb_apb_parents[] =3D {
-> > +	{ .fw_name =3D "hosc" },
-> > +	{ .fw_name =3D "losc" },
-> > +	{ .fw_name =3D "iosc" },
-> > +	{ .fw_name =3D "pll-periph" },
-> > +	{ .fw_name =3D "pll-audio" }, =20
->=20
-> I believe pll-periph has /3 divider and pll-audio x4 multiplier.
+Tested with fio command:
+fio -filename=./test_randread -direct=1 -iodepth 1 -thread \
+-rw=randwrite -ioengine=psync -bs=16k -size=1G -numjobs=10 \
+-runtime=600 -group_reporting -name=mytest
 
-Well, it's actually worse, since the audio PLL is the one from the MCU
-CCU (PLL_AUDIO1), which we don't support yet.
-But those are just the names used in the DT, should they actually reflect
-the dividers and multipliers in their string?
+Signed-off-by: Jianfeng Liu <liujianfeng1994@gmail.com>
+---
 
-> > +};
-> > +static SUNXI_CCU_M_DATA_WITH_MUX(r_ahb_clk, "r-ahb",
-> > +				 r_ahb_apb_parents, 0x000,
-> > +				 0, 5,	/* M */
-> > +				 24, 3,	/* mux */
-> > +				 0);
-> > +
-> > +static SUNXI_CCU_M_DATA_WITH_MUX(r_apb0_clk, "r-apb0",
-> > +				 r_ahb_apb_parents, 0x00c,
-> > +				 0, 5,	/* M */
-> > +				 24, 3,	/* mux */
-> > +				 0);
-> > +
-> > +static SUNXI_CCU_M_DATA_WITH_MUX(r_apb1_clk, "r-apb1",
-> > +				 r_ahb_apb_parents, 0x010,
-> > +				 0, 5,	/* M */
-> > +				 24, 3,	/* mux */
-> > +				 0);
-> > +
-> > +static SUNXI_CCU_P_DATA_WITH_MUX_GATE(r_cpu_timer0, "r-timer0",
-> > +				      r_ahb_apb_parents, 0x100,
-> > +				      1, 3,	/* P */
-> > +				      4, 3,	/* mux */
-> > +				      BIT(0),
-> > +				      0);
-> > +static SUNXI_CCU_P_DATA_WITH_MUX_GATE(r_cpu_timer1, "r-timer1",
-> > +				      r_ahb_apb_parents, 0x104,
-> > +				      1, 3,	/* P */
-> > +				      4, 3,	/* mux */
-> > +				      BIT(0),
-> > +				      0);
-> > +static SUNXI_CCU_P_DATA_WITH_MUX_GATE(r_cpu_timer2, "r-timer2",
-> > +				      r_ahb_apb_parents, 0x108,
-> > +				      1, 3,	/* P */
-> > +				      4, 3,	/* mux */
-> > +				      BIT(0),
-> > +				      0);
-> > +
-> > +static SUNXI_CCU_GATE_HW(bus_r_timer_clk, "bus-r-timer", &r_ahb_clk.co=
-mmon.hw,
-> > +			 0x11c, BIT(0), 0);
-> > +static SUNXI_CCU_GATE_HW(bus_r_twd_clk,	"bus-r-twd", &r_apb0_clk.commo=
-n.hw,
-> > +			 0x12c, BIT(0), 0);
-> > +
-> > +static const struct clk_parent_data r_pwmctrl_parents[] =3D {
-> > +	{ .fw_name =3D "hosc" },
-> > +	{ .fw_name =3D "losc" },
-> > +	{ .fw_name =3D "iosc" },
-> > +};
-> > +static SUNXI_CCU_MUX_DATA_WITH_GATE(r_pwmctrl_clk, "r-pwmctrl",
-> > +				  r_pwmctrl_parents, 0x130,
-> > +				  24, 1,	/* mux */ =20
->=20
-> Mux width is 2.
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-Thanks, fixed.
-
->=20
-> > +				  BIT(31),
-> > +				  0);
-> > +static SUNXI_CCU_GATE_HW(bus_r_pwmctrl_clk, "bus-r-pwmctrl",
-> > +			 &r_apb0_clk.common.hw, 0x13c, BIT(0), 0);
-> > +
-> > +/* SPI clock is /M/N (same as new MMC?) */ =20
->=20
-> Missing SPI clock (reg 0x150).
-
-I deliberately left that out, since its parent list is annoyingly insane,
-and includes that PLL_AUDIO1 which we don't support yet. I reserved a
-symbol for it, but was wondering if we could add it later?
-
-Cheers,
-Andre
-
->=20
-> > +static SUNXI_CCU_GATE_HW(bus_r_spi_clk, "bus-r-spi",
-> > +			 &r_ahb_clk.common.hw, 0x15c, BIT(0), 0);
-> > +static SUNXI_CCU_GATE_HW(bus_r_spinlock_clk, "bus-r-spinlock",
-> > +			 &r_ahb_clk.common.hw, 0x16c, BIT(0), 0);
-> > +static SUNXI_CCU_GATE_HW(bus_r_msgbox_clk, "bus-r-msgbox",
-> > +			 &r_ahb_clk.common.hw, 0x17c, BIT(0), 0);
-> > +static SUNXI_CCU_GATE_HW(bus_r_uart0_clk, "bus-r-uart0",
-> > +			 &r_apb1_clk.common.hw, 0x18c, BIT(0), 0);
-> > +static SUNXI_CCU_GATE_HW(bus_r_uart1_clk, "bus-r-uart1",
-> > +			 &r_apb1_clk.common.hw, 0x18c, BIT(1), 0);
-> > +static SUNXI_CCU_GATE_HW(bus_r_i2c0_clk, "bus-r-i2c0",
-> > +			 &r_apb1_clk.common.hw, 0x19c, BIT(0), 0);
-> > +static SUNXI_CCU_GATE_HW(bus_r_i2c1_clk, "bus-r-i2c1",
-> > +			 &r_apb1_clk.common.hw, 0x19c, BIT(1), 0);
-> > +static SUNXI_CCU_GATE_HW(bus_r_i2c2_clk, "bus-r-i2c2",
-> > +			 &r_apb1_clk.common.hw, 0x19c, BIT(2), 0);
-> > +static SUNXI_CCU_GATE_HW(bus_r_ppu0_clk, "bus-r-ppu0",
-> > +			 &r_apb0_clk.common.hw, 0x1ac, BIT(0), 0);
-> > +static SUNXI_CCU_GATE_HW(bus_r_ppu1_clk, "bus-r-ppu1",
-> > +			 &r_apb0_clk.common.hw, 0x1ac, BIT(1), 0);
-> > +static SUNXI_CCU_GATE_HW(bus_r_cpu_bist_clk, "bus-r-cpu-bist",
-> > +			 &r_apb0_clk.common.hw, 0x1bc, BIT(0), 0);
-> > +
-> > +static const struct clk_parent_data r_ir_rx_parents[] =3D {
-> > +	{ .fw_name =3D "losc" },
-> > +	{ .fw_name =3D "hosc" },
-> > +};
-> > +static SUNXI_CCU_M_DATA_WITH_MUX_GATE(r_ir_rx_clk, "r-ir-rx",
-> > +				      r_ir_rx_parents, 0x1c0,
-> > +				      0, 5,	/* M */
-> > +				      24, 2,	/* mux */
-> > +				      BIT(31),	/* gate */
-> > +				      0);
-> > +static SUNXI_CCU_GATE_HW(bus_r_ir_rx_clk, "bus-r-ir-rx",
-> > +			 &r_apb0_clk.common.hw, 0x1cc, BIT(0), 0);
-> > +
-> > +static SUNXI_CCU_GATE_HW(bus_r_dma_clk, "bus-r-dma",
-> > +			 &r_apb0_clk.common.hw, 0x1dc, BIT(0), 0);
-> > +static SUNXI_CCU_GATE_HW(bus_r_rtc_clk, "bus-r-rtc",
-> > +			 &r_apb0_clk.common.hw, 0x20c, BIT(0), 0);
-> > +static SUNXI_CCU_GATE_HW(bus_r_cpucfg_clk, "bus-r-cpucfg",
-> > +			 &r_apb0_clk.common.hw, 0x22c, BIT(0), 0);
-> > +
-> > +static struct ccu_common *sun55i_a523_r_ccu_clks[] =3D {
-> > +	&r_ahb_clk.common,
-> > +	&r_apb0_clk.common,
-> > +	&r_apb1_clk.common,
-> > +	&r_cpu_timer0.common,
-> > +	&r_cpu_timer1.common,
-> > +	&r_cpu_timer2.common,
-> > +	&bus_r_timer_clk.common,
-> > +	&bus_r_twd_clk.common,
-> > +	&r_pwmctrl_clk.common,
-> > +	&bus_r_pwmctrl_clk.common,
-> > +	&bus_r_spi_clk.common,
-> > +	&bus_r_spinlock_clk.common,
-> > +	&bus_r_msgbox_clk.common,
-> > +	&bus_r_uart0_clk.common,
-> > +	&bus_r_uart1_clk.common,
-> > +	&bus_r_i2c0_clk.common,
-> > +	&bus_r_i2c1_clk.common,
-> > +	&bus_r_i2c2_clk.common,
-> > +	&bus_r_ppu0_clk.common,
-> > +	&bus_r_ppu1_clk.common,
-> > +	&bus_r_cpu_bist_clk.common,
-> > +	&r_ir_rx_clk.common,
-> > +	&bus_r_ir_rx_clk.common,
-> > +	&bus_r_dma_clk.common,
-> > +	&bus_r_rtc_clk.common,
-> > +	&bus_r_cpucfg_clk.common,
-> > +};
-> > +
-> > +static struct clk_hw_onecell_data sun55i_a523_r_hw_clks =3D {
-> > +	.num	=3D CLK_NUMBER,
-> > +	.hws	=3D {
-> > +		[CLK_R_AHB]		=3D &r_ahb_clk.common.hw,
-> > +		[CLK_R_APB0]		=3D &r_apb0_clk.common.hw,
-> > +		[CLK_R_APB1]		=3D &r_apb1_clk.common.hw,
-> > +		[CLK_R_TIMER0]		=3D &r_cpu_timer0.common.hw,
-> > +		[CLK_R_TIMER1]		=3D &r_cpu_timer1.common.hw,
-> > +		[CLK_R_TIMER2]		=3D &r_cpu_timer2.common.hw,
-> > +		[CLK_BUS_R_TIMER]	=3D &bus_r_timer_clk.common.hw,
-> > +		[CLK_BUS_R_TWD]		=3D &bus_r_twd_clk.common.hw,
-> > +		[CLK_R_PWMCTRL]		=3D &r_pwmctrl_clk.common.hw,
-> > +		[CLK_BUS_R_PWMCTRL]	=3D &bus_r_pwmctrl_clk.common.hw,
-> > +		[CLK_BUS_R_SPI]		=3D &bus_r_spi_clk.common.hw,
-> > +		[CLK_BUS_R_SPINLOCK]	=3D &bus_r_spinlock_clk.common.hw,
-> > +		[CLK_BUS_R_MSGBOX]	=3D &bus_r_msgbox_clk.common.hw,
-> > +		[CLK_BUS_R_UART0]	=3D &bus_r_uart0_clk.common.hw,
-> > +		[CLK_BUS_R_UART1]	=3D &bus_r_uart1_clk.common.hw,
-> > +		[CLK_BUS_R_I2C0]	=3D &bus_r_i2c0_clk.common.hw,
-> > +		[CLK_BUS_R_I2C1]	=3D &bus_r_i2c1_clk.common.hw,
-> > +		[CLK_BUS_R_I2C2]	=3D &bus_r_i2c2_clk.common.hw,
-> > +		[CLK_BUS_R_PPU0]	=3D &bus_r_ppu0_clk.common.hw,
-> > +		[CLK_BUS_R_PPU1]	=3D &bus_r_ppu1_clk.common.hw,
-> > +		[CLK_BUS_R_CPU_BIST]	=3D &bus_r_cpu_bist_clk.common.hw,
-> > +		[CLK_R_IR_RX]		=3D &r_ir_rx_clk.common.hw,
-> > +		[CLK_BUS_R_IR_RX]	=3D &bus_r_ir_rx_clk.common.hw,
-> > +		[CLK_BUS_R_DMA]		=3D &bus_r_dma_clk.common.hw,
-> > +		[CLK_BUS_R_RTC]		=3D &bus_r_rtc_clk.common.hw,
-> > +		[CLK_BUS_R_CPUCFG]	=3D &bus_r_cpucfg_clk.common.hw,
-> > +	},
-> > +};
-> > +
-> > +static struct ccu_reset_map sun55i_a523_r_ccu_resets[] =3D {
-> > +	[RST_BUS_R_TIMER]	=3D { 0x11c, BIT(16) },
-> > +	[RST_BUS_R_TWD]		=3D { 0x12c, BIT(16) },
-> > +	[RST_BUS_R_PWMCTRL]	=3D { 0x13c, BIT(16) },
-> > +	[RST_BUS_R_SPI]		=3D { 0x15c, BIT(16) },
-> > +	[RST_BUS_R_SPINLOCK]	=3D { 0x16c, BIT(16) },
-> > +	[RST_BUS_R_MSGBOX]	=3D { 0x17c, BIT(16) },
-> > +	[RST_BUS_R_UART0]	=3D { 0x18c, BIT(16) },
-> > +	[RST_BUS_R_UART1]	=3D { 0x18c, BIT(17) },
-> > +	[RST_BUS_R_I2C0]	=3D { 0x19c, BIT(16) },
-> > +	[RST_BUS_R_I2C1]	=3D { 0x19c, BIT(17) },
-> > +	[RST_BUS_R_I2C2]	=3D { 0x19c, BIT(18) },
-> > +	[RST_BUS_R_PPU1]	=3D { 0x1ac, BIT(17) },
-> > +	[RST_BUS_R_IR_RX]	=3D { 0x1cc, BIT(16) },
-> > +	[RST_BUS_R_RTC]		=3D { 0x20c, BIT(16) },
-> > +	[RST_BUS_R_CPUCFG]	=3D { 0x22c, BIT(16) },
-> > +};
-> > +
-> > +static const struct sunxi_ccu_desc sun55i_a523_r_ccu_desc =3D {
-> > +	.ccu_clks	=3D sun55i_a523_r_ccu_clks,
-> > +	.num_ccu_clks	=3D ARRAY_SIZE(sun55i_a523_r_ccu_clks),
-> > +
-> > +	.hw_clks	=3D &sun55i_a523_r_hw_clks,
-> > +
-> > +	.resets		=3D sun55i_a523_r_ccu_resets,
-> > +	.num_resets	=3D ARRAY_SIZE(sun55i_a523_r_ccu_resets),
-> > +};
-> > +
-> > +static int sun55i_a523_r_ccu_probe(struct platform_device *pdev)
-> > +{
-> > +	void __iomem *reg;
-> > +
-> > +	reg =3D devm_platform_ioremap_resource(pdev, 0);
-> > +	if (IS_ERR(reg))
-> > +		return PTR_ERR(reg);
-> > +
-> > +	return devm_sunxi_ccu_probe(&pdev->dev, reg, &sun55i_a523_r_ccu_desc);
-> > +}
-> > +
-> > +static const struct of_device_id sun55i_a523_r_ccu_ids[] =3D {
-> > +	{ .compatible =3D "allwinner,sun55i-a523-r-ccu" },
-> > +	{ }
-> > +};
-> > +MODULE_DEVICE_TABLE(of, sun55i_a523_r_ccu_ids);
-> > +
-> > +static struct platform_driver sun55i_a523_r_ccu_driver =3D {
-> > +	.probe	=3D sun55i_a523_r_ccu_probe,
-> > +	.driver	=3D {
-> > +		.name			=3D "sun55i-a523-r-ccu",
-> > +		.suppress_bind_attrs	=3D true,
-> > +		.of_match_table		=3D sun55i_a523_r_ccu_ids,
-> > +	},
-> > +};
-> > +module_platform_driver(sun55i_a523_r_ccu_driver);
-> > +
-> > +MODULE_IMPORT_NS("SUNXI_CCU");
-> > +MODULE_DESCRIPTION("Support for the Allwinner A523 PRCM CCU");
-> > +MODULE_LICENSE("GPL");
-> > diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.h b/drivers/clk/sun=
-xi-ng/ccu-sun55i-a523-r.h
-> > new file mode 100644
-> > index 0000000000000..d50f46ac4f3fe
-> > --- /dev/null
-> > +++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.h
-> > @@ -0,0 +1,14 @@
-> > +/* SPDX-License-Identifier: GPL-2.0 */
-> > +/*
-> > + * Copyright 2024 Arm Ltd.
-> > + */
-> > +
-> > +#ifndef _CCU_SUN55I_A523_R_H
-> > +#define _CCU_SUN55I_A523_R_H
-> > +
-> > +#include <dt-bindings/clock/sun55i-a523-r-ccu.h>
-> > +#include <dt-bindings/reset/sun55i-a523-r-ccu.h>
-> > +
-> > +#define CLK_NUMBER	(CLK_BUS_R_CPUCFG + 1)
-> > +
-> > +#endif /* _CCU_SUN55I_A523_R_H */
-> >  =20
->=20
->=20
->=20
->=20
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
+index 253b23ea9fba..bcefe5356936 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
+@@ -724,10 +724,9 @@ &saradc {
+ 
+ &sdhci {
+ 	bus-width = <8>;
+-	max-frequency = <200000000>;
++	max-frequency = <150000000>;
+ 	mmc-hs400-1_8v;
+ 	mmc-hs400-enhanced-strobe;
+-	mmc-hs200-1_8v;
+ 	no-sdio;
+ 	no-sd;
+ 	non-removable;
+-- 
+2.43.0
 
 
