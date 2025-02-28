@@ -4,77 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B1B9C19776
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 11:06:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32514C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 11:07:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zfu5Vr/L95oOeC63NZgTBbS0RcwVsKVogd/b3NOwXyM=; b=vsNIi52yFMQWf+jUDz1cfErxRI
-	p8GYc3RlRb2QPNi/+svORDouj1Pbo0Ta6u+ECRKdjXDgId3rE+B4NC3h5KrUDaomrHTgSux6V63qX
-	rIQj2JI3jAlG2FmITCurpZGjg+OgqBDEjLS7EfKOBSenbnBZKVw1EDBomCVkaFPK9TJRyCGp8uCDH
-	7rG0GRdvehebAXyMp3cpQaas4L9Cyd7stB6cWyZcPnjEnPNvv+EUZdgfV8ijXz2mPDrRsUw+BmXf+
-	SKbN1yrGhS9X+sDskFXA2thnwFT/w12ZXuixbAUkx9Jwwtdz9JG24FP0gfT/zg6OKB4i5bvc5ot9a
-	FtJgpY0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v6h2lPuN3y7mtANMgvHsqza2sEzj+GtGPb7+yJOeZQ0=; b=J3TTaer7hkHV9EmYJvhJ19Lb5w
+	Y0MOzYIFSHsGPZ745bJVWtfqvqqrMnMQlfkvOX3piZPb7Hq1yrQoTNofz+Ts7I63Tr7F9TA0jX1aP
+	BaawBbzEoubx/phmh/eFD/zQJD3s3k/nD276o4dUyPpmRAyRz9oWH3+0Xg+TOihihR2u8maaDcVNf
+	8W0vjwGa5FdTPY4YsUBGePpNjhBLGHlRcR3jjhz3hWRwqHWLSD06go1ip1U8dKDk7NnibQBiy/pOm
+	Wvbn2uUA91UQKYOSgAbMd14sgtUokviQHLe2nc2UOspr8xZxgZ1svtLhWAhsTG4llyrH8re2zjTPm
+	6mF9N7RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnyBq-0000000Ah5U-0UmD;
-	Fri, 28 Feb 2025 11:05:58 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnxgD-0000000Ac9J-37YZ;
-	Fri, 28 Feb 2025 10:33:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1740738795;
-	bh=kDGY2YRO4TVDC32xVznZInM/iWmYlqIPkiZVzBj3Lrc=;
-	h=From:Date:Subject:To:Cc:From;
-	b=BoGWHZwQRWEr8/81RONBuVIcCgxDCt/VZyc2pihZIE17gXKI/ysf6hhnQPHjgDL/2
-	 +Sx9il5pLxOdbHVfiWAJ6hRcI6bBmnpkITo7GNZwjMTQcAysLPjnbyOajzIKlMlLKU
-	 2SlXp2oaIC5gWyLIt370cOv/3UCoWL5I3n/2fEox2F3RjNjuMDwBYWpUc9HzSIl/Ym
-	 tOyPOZA0CPJLseCfK0jYsZ20OGCLTjJjulda0Js70f9fzlqNs5ZK3Lw3IQsNYMOcbZ
-	 qQo4U1+X+Ghoa6cv8SQpst/S/YGlxRys9rb5FSwU8WEeSsDdzT9bjJC6/VERP5kMJi
-	 jzRKvJe4k8P4g==
-Received: from yukiji.home (lfbn-tou-1-1147-231.w90-76.abo.wanadoo.fr [90.76.208.231])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EDDD217E0199;
-	Fri, 28 Feb 2025 11:33:14 +0100 (CET)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Fri, 28 Feb 2025 11:32:19 +0100
-Subject: [PATCH] ASoC: mediatek: mt6359: Fix DT parse error due to wrong
- child node name
+	id 1tnyD4-0000000AhEu-0E3X;
+	Fri, 28 Feb 2025 11:07:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnx6R-0000000AT2N-0cVV
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Feb 2025 09:56:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 43BE11515;
+	Fri, 28 Feb 2025 01:56:33 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.2.76.71])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 98CA03F6A8;
+	Fri, 28 Feb 2025 01:56:17 -0800 (PST)
+Date: Fri, 28 Feb 2025 09:56:13 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, ahmed.genidi@arm.com,
+	ben.horgan@arm.com, catalin.marinas@arm.com, kvmarm@lists.linux.dev,
+	maz@kernel.org, oliver.upton@linux.dev, will@kernel.org
+Subject: Re: [PATCH 2/2] KVM: arm64: Initialize SCTLR_EL1 in
+ __kvm_hyp_init_cpu()
+Message-ID: <20250228095613.GD2157064@e132581.arm.com>
+References: <20250227180526.1204723-1-mark.rutland@arm.com>
+ <20250227180526.1204723-3-mark.rutland@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250228-mt6359-fix-probe-failed-v1-1-64941d387b2c@collabora.com>
-X-B4-Tracking: v=1; b=H4sIALKQwWcC/y2NQQ6CMBREr9L8tT+pJShwFcOilKn+RCi21ZAQ7
- m4jLt9kZt5GCVGQqFMbRXwkSZgLnE+K3MPOd7CMhcloU2tjrjzlS1W37GXlJYYB7K08MbJtKmg
- PtNo4KuslonR+z7f+4IjXuwjyEdJgE9iFaZLcqRlr5r+koX7fv8WwDZeaAAAA
-X-Change-ID: 20250227-mt6359-fix-probe-failed-a83e0fee902c
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Macpaul Lin <macpaul.lin@mediatek.com>
-Cc: kernel@collabora.com, linux-sound@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1740738794; l=1893;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=kDGY2YRO4TVDC32xVznZInM/iWmYlqIPkiZVzBj3Lrc=;
- b=PS2OyWfK67cny/X2RYnJVeS4ofLhP5AJvnFhlJTPG/rHIOY9UdU9PVW8/XDv0sX1aV2owfifH
- ItBqfYymvVkBbQSTaz2C+C/lXRs5I8cGhYiH4VOiTREO/H0IR14pkr9
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250227180526.1204723-3-mark.rutland@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_023317_938040_BD72A2CA 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20250228_015619_280225_92F3AF9A 
+X-CRM114-Status: GOOD (  24.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,54 +65,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A recent dtbs_check error fix in mt6359.dtsi file changed a node name
-(from "mt6359codec" to "audio-codec") without modifying the mt6539
-codec code that uses it.
-It leads to a probe failure after devicetree parsing returns in error:
-```
-[    1.354025] mt6359-sound mt6359-sound: mt6359_platform_driver_probe() failed to parse dts
-[    1.355066] mt6359-sound mt6359-sound: probe with driver mt6359-sound failed with error -22
-```
+On Thu, Feb 27, 2025 at 06:05:26PM +0000, Mark Rutland wrote:
+> From: Ahmed Genidi <ahmed.genidi@arm.com>
+> 
+> When KVM is in protected mode, host calls to PSCI are proxied via EL2,
+> and cold entries from CPU_ON, CPU_SUSPEND, and SYSTEM_SUSPEND bounce
+> through __kvm_hyp_init_cpu() at EL2 before entering the host kernel's
+> entry point at EL1. While __kvm_hyp_init_cpu() initializes SPSR_EL2 for
+> the exception return to EL1, it does not initialize SCTLR_EL1.
+> 
+> Due to this, it's possible to enter EL1 with SCTLR_EL1 in an UNKNOWN
+> state. In practice this has been seen to result in kernel crashes after
+> CPU_ON as a result of SCTLR_EL1.M being 1 in violation of the initial
+> core configuration specified by PSCI.
+> 
+> Fix this by initializing SCTLR_EL1 for cold entry to the host kernel.
+> As it's necessary to write to SCTLR_EL12 in VHE mode, this
+> initialization is moved into __kvm_host_psci_cpu_entry() where we can
+> use write_sysreg_el1().
+> 
+> The remnants of the '__init_el2_nvhe_prepare_eret' macro are folded into
+> its only caller, as this is clearer than having the macro.
+> 
+> Fixes: cdf367192766ad11 ("KVM: arm64: Intercept host's CPU_ON SMCs")
+> Reported-by: Leo Yan <leo.yan@arm.com>
+> Signed-off-by: Ahmed Genidi <ahmed.genidi@arm.com>
+> [ Mark: clarify commit message, handle E2H, move to C, remove macro ]
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 
-So, add the child node retrieval with the new name and if not found,
-try with the older one for backward compatibility.
+Reviewed-by: Leo Yan <leo.yan@arm.com>
 
-Fixes: 76b35f59bbe6 ("arm64: dts: mediatek: mt6359: fix dtbs_check error for audio-codec")
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
-I've tested this patch on a Mediatek Genio 510 EVK board with a kernel
-based on linux-next (tag: 20250228)
----
- sound/soc/codecs/mt6359.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
-
-diff --git a/sound/soc/codecs/mt6359.c b/sound/soc/codecs/mt6359.c
-index 0b76a55664b0352f6ee2d0f3c96466ffe1df2d6d..f73120c6a6ce680797a1f61841815ca01a24adf4 100644
---- a/sound/soc/codecs/mt6359.c
-+++ b/sound/soc/codecs/mt6359.c
-@@ -2867,9 +2867,12 @@ static int mt6359_parse_dt(struct mt6359_priv *priv)
- 	struct device *dev = priv->dev;
- 	struct device_node *np;
- 
--	np = of_get_child_by_name(dev->parent->of_node, "mt6359codec");
--	if (!np)
--		return -EINVAL;
-+	np = of_get_child_by_name(dev->parent->of_node, "audio-codec");
-+	if (!np) {
-+		np = of_get_child_by_name(dev->parent->of_node, "mt6359codec");
-+		if (!np)
-+			return -EINVAL;
-+	}
- 
- 	ret = of_property_read_u32(np, "mediatek,dmic-mode",
- 				   &priv->dmic_one_wire_mode);
-
----
-base-commit: 15c3f6fa407bf6913c282b22ef2bcfa40cb53927
-change-id: 20250227-mt6359-fix-probe-failed-a83e0fee902c
-
-Best regards,
--- 
-Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-
+> Cc: Ahmed Genidi <ahmed.genidi@arm.com>
+> Cc: Ben Horgan <ben.horgan@arm.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Leo Yan <leo.yan@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Oliver Upton <oliver.upton@linux.dev>
+> Cc: Will Deacon <will@kernel.org>
+> ---
+>  arch/arm64/include/asm/el2_setup.h   | 5 -----
+>  arch/arm64/kernel/head.S             | 3 ++-
+>  arch/arm64/kvm/hyp/nvhe/hyp-init.S   | 2 --
+>  arch/arm64/kvm/hyp/nvhe/psci-relay.c | 3 +++
+>  4 files changed, 5 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+> index bc8ebd55788ac..7774aec91027e 100644
+> --- a/arch/arm64/include/asm/el2_setup.h
+> +++ b/arch/arm64/include/asm/el2_setup.h
+> @@ -270,11 +270,6 @@
+>  .Lskip_gcs_\@:
+>  .endm
+>  
+> -.macro __init_el2_nvhe_prepare_eret
+> -	mov	x0, #INIT_PSTATE_EL1
+> -	msr	spsr_el2, x0
+> -.endm
+> -
+>  .macro __init_el2_mpam
+>  	/* Memory Partitioning And Monitoring: disable EL2 traps */
+>  	mrs	x1, id_aa64pfr0_el1
+> diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+> index 2d56459d6c94c..2ce73525de2c9 100644
+> --- a/arch/arm64/kernel/head.S
+> +++ b/arch/arm64/kernel/head.S
+> @@ -322,7 +322,8 @@ SYM_INNER_LABEL(init_el2, SYM_L_LOCAL)
+>  	msr	sctlr_el1, x1
+>  	mov	x2, xzr
+>  3:
+> -	__init_el2_nvhe_prepare_eret
+> +	mov	x0, #INIT_PSTATE_EL1
+> +	msr	spsr_el2, x0
+>  
+>  	mov	w0, #BOOT_CPU_MODE_EL2
+>  	orr	x0, x0, x2
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-init.S b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+> index 3fb5504a7d7fc..f8af11189572f 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+> @@ -214,8 +214,6 @@ SYM_CODE_START_LOCAL(__kvm_hyp_init_cpu)
+>  
+>  	bl	__kvm_init_el2_state
+>  
+> -	__init_el2_nvhe_prepare_eret
+> -
+>  	/* Enable MMU, set vectors and stack. */
+>  	mov	x0, x28
+>  	bl	___kvm_hyp_init			// Clobbers x0..x2
+> diff --git a/arch/arm64/kvm/hyp/nvhe/psci-relay.c b/arch/arm64/kvm/hyp/nvhe/psci-relay.c
+> index 9c2ce1e0e99a5..c3e196fb8b18f 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/psci-relay.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/psci-relay.c
+> @@ -218,6 +218,9 @@ asmlinkage void __noreturn __kvm_host_psci_cpu_entry(bool is_cpu_on)
+>  	if (is_cpu_on)
+>  		release_boot_args(boot_args);
+>  
+> +	write_sysreg_el1(INIT_SCTLR_EL1_MMU_OFF, SYS_SCTLR);
+> +	write_sysreg(INIT_PSTATE_EL1, SPSR_EL2);
+> +
+>  	__host_enter(host_ctxt);
+>  }
+>  
+> -- 
+> 2.30.2
+> 
 
