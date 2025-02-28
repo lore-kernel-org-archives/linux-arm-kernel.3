@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CE4EC19776
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 10:47:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAC09C19776
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 10:48:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l5JzOHIWm+Qn+D56CTs6MBaFzEo9/026iUTyI0pXPjg=; b=EBYTppOnWrtb7iUVf/Keem6eGl
-	uzFHrsZ3wzJQvHWGpLakUrZ8XbkMqZUT/5ixjdNw/qdEpk1+iHW7DUMHlR8rQ5UZuNtNzgKUrR6L+
-	iTcqq93u33t49uguGme2/Cnxaln497Vh8CIDxbN+kUFBGdez462rEbGC7HcY1P4bELKiHcN6dnVHd
-	lXIGu2jsq3Aty+IEhl0wsm2aX9fVYptxtU1Ff7a9nSY0+biWpU0MFU2vxORYIxr/cNPLFNZq4ikAT
-	qkDDEuN3rHhZGMtfh8NBCss1ve4wxIWurnGpE0pp4zGMKB39hwgICZksagyRNozJUMy4bNxrCkqzh
-	zvLqXBWg==;
+	bh=l5JzOHIWm+Qn+D56CTs6MBaFzEo9/026iUTyI0pXPjg=; b=TW60JWtqTNWBHq+RKV3ZlnYkv1
+	Fuj2TCijAuEYXMIo36x9BBjlglBmKnCu7BorSB4J3sso7dC090Vyj8NPTix7o5L7G2s0hEAwdlRkx
+	m9Hdau2+b12rIdArN57HVqvHlMzsGAQQc31PIvv+quErjSmBLwLOKKXP3Rhe1z5t9d94aZsoQ6zTn
+	clRSq+g8MJvJaatmsePABQjM+bUt/csFTPQGTs8yQ9C6KLTOs380aPyqAG7HTPdnbgAcfcTWOdGX1
+	x6At/a6k5LiJ/soKUt6HBmFu+GXW8rLI+ps1jbe1E9d9E1tZjb76OAe9mt7loZlnNHmfomasIUt7f
+	CVyavKBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnxtS-0000000Ae0f-0dhj;
-	Fri, 28 Feb 2025 10:46:58 +0000
+	id 1tnxuy-0000000AeIu-3KSE;
+	Fri, 28 Feb 2025 10:48:32 +0000
 Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnxZA-0000000AaUv-0fMN
+	id 1tnxZC-0000000AaWG-0F51
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 10:26:01 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-390e8df7ab6so512590f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 02:25:59 -0800 (PST)
+	Fri, 28 Feb 2025 10:26:03 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-38f55ccb04bso1178368f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 02:26:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740738358; x=1741343158; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1740738360; x=1741343160; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
         bh=l5JzOHIWm+Qn+D56CTs6MBaFzEo9/026iUTyI0pXPjg=;
-        b=WTWyiiiRGux9+DtBuz0+kGnoUHbiLPWJN3vD+3Nw+WkwSjkn11b2ZRG6mJH4HVfNAn
-         uA/rseM2JVdiYIrl8WX8Q8MoWTryTm3snR5tnWr3hxG3wOcPigC3Wyt4ujuJOXTnqCbM
-         r6Sb9OwuGgUd2aoOOR4MQzClfdDtx+7bfj87irSejsmzT6Zcbgx8mI1b+Z0eTuIgm9+P
-         T91gjPLoZOV/DZY50+MsJidnVLz2r1dVm1DzdSmOEC0dDI1PFioxPa+vgIeFRKhcVfeB
-         TiPUY/bAl4t4OP70Qr5/Ve4rFxIZ5pvpRhJFR3DCYR9cgEPHewC5wyXDjxUsJQsK2sVs
-         Vh9w==
+        b=ekzNl1P0TJi3QRTAnvvNoko3bAm8YdZY64OjGchNdrlV/vay/82xQkkTC/sBIorFsT
+         kylmru8UeD0B5kuy6w6ciFxWkYl25aTJ+AxHzvqhWQNsjI7qyNeCnwzKjS1e1ncZJb02
+         Ju67r2pIr/ZqJJXU0hzBpAzD+tBhqXSpk4uRFw5sfUbRT01PJSbmCRDTBYZVNrGpxcG/
+         Bhj24CsyHbcv6PjBDJjt6NQ6vOVhM8FM0pNfB1Igr7PG/nzRofvpAl/TOA9ixhWZGxL1
+         Kh4DdYAJBh1mZFL+jFxQySfTS4WCO1FC5ca+mm//K8uImU9Egryuh168Qs7NbI65ZWdI
+         xOpA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740738358; x=1741343158;
+        d=1e100.net; s=20230601; t=1740738360; x=1741343160;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
         bh=l5JzOHIWm+Qn+D56CTs6MBaFzEo9/026iUTyI0pXPjg=;
-        b=ARO+CIWOfZ5fanFlke2jQVpBmttizNWfGHvi1TN+wNwn9M8ahmvZJ7O32XuaIlrEcc
-         R8ONIyDn8KS68YId5yr5gPfhvR5Tcya5Oe0Ig+IwxlnQUdKvxD0oVgDbXDhuBpw1VB5T
-         1zH2c4YbjUnOD8xHM3ts6HwZDRmpURdqvflnbj7/ggEzzfg/z08XIzIzGeOOu0fiX43O
-         VSoxZVsxisuwW5/uu3Z61eXGQ6/hJDzBz3D44hMX+DXHlQ1mpYy6bp/i1M6IUPs5kV7Z
-         CKnypK1R3GOXgkha3xrtfZE7FtP3jjUY8GYeoFRq9PPkMPLmdQOfDoPLwPnOhMbp3vea
-         M4tg==
-X-Forwarded-Encrypted: i=1; AJvYcCVRuiANERIcrjhh2k6k0R/Wm0Lv+diCRm4LbNr7uH2rrcIL3pYHEI9Tty/2Bj1XbfLSDBKXzCVEY340o+iYtC+T@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPIs6kNJHGUDsnzMyG3NFlMsTBULEg69eK7a+Qng31k4NjjW5q
-	xoQoUTOYuYWaidrrHlUdbznwHFgGLL8mgqiiak2qzRtTUfuaX+F+X9OoK7m0DKJJaIaFAWRNY60
-	kFNOtj7/BPwQA7Bq9PA==
-X-Google-Smtp-Source: AGHT+IGc36H3jkruTF0XKWyqw/7fJ4jy+lnOLdRAHV8wJRsfUXrjOVQj1smZ2A50z4LIQhr1dOWCMFS3Os99bjd5
-X-Received: from wmbec10.prod.google.com ([2002:a05:600c:610a:b0:439:804a:4a89])
+        b=CVpkNX9uY1G8e1Lap9kr8fe+P++wCcFPcaZTwZX0I+QB6/qbVANM82I+cCdrxfZ6EM
+         9iUOOsUMsF/OHKgz52UK4l1MOowaEQV/wrfiK0+AEPiqGQl2a9CiewngE2HHcb1SvEzF
+         u4eULEjuu3uESnZCx4dUe3fCMcqRed/VpIz3/w9H3fNNz6QbyYytWgMlc43FWBbZwhVn
+         nGj7USA5dm+o/qac67Wb6zX+8aY7nahGUOqlCz5ejcc1WQUXhuI8PkPE/4R50INnABGb
+         kVBBSTOW4vte+94f5EIHPJA87UqiAUb61FjzzdQ5qpfE0blJCJNKSHuFQ/Sl7aoR3Pb5
+         qXkA==
+X-Forwarded-Encrypted: i=1; AJvYcCVAlSgKHvQ0HJ5HMMZrtfdqOSMU+dSuwVkInC9rzmWaLenX9jDvJrnVz4pWeWTy0wH4D7qWMi6JsG+8g7aXyScQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUdFI6PwmnUBg6atNP++xQfX5KKRRicFPbIhqbaCKTe97VQ2BN
+	+ApymJ/YnySGM8Hx6crElm2MPlTzenTNR60bjXdbGYthnB176ZlKxZOdCy3SATfHe9gkwG1Wex6
+	IKLo9R1Wp7URA7zpgCg==
+X-Google-Smtp-Source: AGHT+IE9cThuvOOumrDkSe/98JreOfmfuPXx+pald6vYIRYqluFVSVbBGpBAnMTTmkIPGHEwkSM8h/iEIfVJ0+p/
+X-Received: from wrbfy7.prod.google.com ([2002:a05:6000:2d87:b0:38f:3b93:aead])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a5d:6da3:0:b0:38d:b325:471f with SMTP id ffacd0b85a97d-390ec7cc89dmr2470457f8f.15.1740738358111;
- Fri, 28 Feb 2025 02:25:58 -0800 (PST)
-Date: Fri, 28 Feb 2025 10:25:22 +0000
+ 2002:a5d:5f91:0:b0:38f:3c8a:4bf4 with SMTP id ffacd0b85a97d-390ec7cd27fmr2181164f8f.6.1740738360083;
+ Fri, 28 Feb 2025 02:26:00 -0800 (PST)
+Date: Fri, 28 Feb 2025 10:25:23 +0000
 In-Reply-To: <20250228102530.1229089-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20250228102530.1229089-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.48.1.711.g2feabab25a-goog
-Message-ID: <20250228102530.1229089-7-vdonnefort@google.com>
-Subject: [PATCH 4/9] KVM: arm64: Add a range to __pkvm_host_wrprotect_guest()
+Message-ID: <20250228102530.1229089-8-vdonnefort@google.com>
+Subject: [PATCH 4/9] KVM: arm64: Add range to __pkvm_host_wrprotect_guest()
 From: Vincent Donnefort <vdonnefort@google.com>
 To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
 	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
@@ -76,8 +76,8 @@ Cc: qperret@google.com, linux-arm-kernel@lists.infradead.org,
 	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_022600_210070_1A1CAAED 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20250228_022602_089727_23A3318B 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
