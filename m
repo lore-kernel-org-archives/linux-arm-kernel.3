@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC29C282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 13:22:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF89FC282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 13:31:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=olCRpjYr4qsqRXFdIM/b3JCKLN2vd78BQaVxj7nrTLE=; b=PL0i8vBY2rnr/Z1x8O4gXdp7YT
-	0slhBN6kaWRKYOBJN9EHEme3R1UuMQLX5SUZVINrmMqG1Zd+YG8thmHGlwAkHCRQHBbERXLos/Bzf
-	1e1k8r3J2W3h1IHxMIbCrBZ8rSN79uwRGMgj17Skm8T2jrRHPb2C2rRF5Ws6BY+T0kEOmPNiUtPAv
-	49g0kIRi1Sz0mQL0scH7/Su9+CmH5IF5sNMxhhjgUvscnraIsp7XLkuN76Sj+oxHv71bZozLbkCi6
-	mpca2NdmMaVQrEdC9VQ+RBD3Vh658R4K9xmQ0qO0ZHoMVS/Wk6V+d33WdRKLUCL2OQmZksLnDsGBX
-	vJZwTAbQ==;
+	bh=pwibCkvV38GGVq/vfo3SBPvhLLavnh5b/GwpcZX7rTY=; b=fgFr1NjB7VbvqPRYZrWQk6iUSW
+	YMz2zcFiOV7HH1aba+QXhMj+tfOYN29bEnsYzIM2SllWiO5762W0009qBGXVB/kEjyVeMX37seqjy
+	YnPb+C0JV0k3UdKZm0m7GqopnhL3/iqJGCPlCkOmFvtN8i3Vx3/ZANmhtQ44o6B+2Tk+FkoTG8X29
+	iBd4fSXELSGNIk4qhBCGBzAwnS3p1+1ulSOJalfWR1bKG0hPMml65+1LEuu2NefjfBi/RUHll8aKI
+	sXpd0HVHlN8s0Aqy42O/rHqIWQZxQ/5APiW7My34QltBbZTDmhcpimVVDjaPEafJzIxcbb1b9w0br
+	t5BZpu5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to0Jd-0000000B408-3gYz;
-	Fri, 28 Feb 2025 13:22:09 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to0DP-0000000B2qF-07lB;
-	Fri, 28 Feb 2025 13:15:45 +0000
-From: Dragan Simic <dsimic@manjaro.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1740748540;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=olCRpjYr4qsqRXFdIM/b3JCKLN2vd78BQaVxj7nrTLE=;
-	b=kCaYDqlg6pG/DvdWMsiG0vQHMiW09HzgzCV6Qz5Z4bMbRSx/crMZzxA1K+YvfdN+aXZcE0
-	babArb1z2kp1on3hQ2n5AZyQKSybp4UPmzrT6U/8w54oL+mA0wW9RFF0cvfEehePrRaauz
-	B+M+C6IFFZmG3cD9kedNv3lW+kmAVvYm06MSyIow3SZ6WR680DTcAPSQLhYe+ZQBv7Lnph
-	ma9UcCyjt1VhWNRwNSGqdpW4e5ta3pKofGpvaQ7d02IyufA5B9mlXzfw8CT7jY/G5mHcB7
-	6BvUtrCSWcEOZt6h1hmtV9nNR8p2aD1TTZkl9zzyOPL0ZNK/Q/tCwPmPBWHFeg==
-To: linux-rockchip@lists.infradead.org
-Cc: heiko@sntech.de,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Diederik de Haas <didi.debian@cknow.org>
-Subject: [PATCH 2/2] arm64: dts: rockchip: Add missing PCIe supplies to RockPro64 board dtsi
-Date: Fri, 28 Feb 2025 14:15:29 +0100
-Message-Id: <83f2938bdd4ba49c1e840537d6ede0f8219b7b90.1740748439.git.dsimic@manjaro.org>
-In-Reply-To: <cover.1740748439.git.dsimic@manjaro.org>
-References: <cover.1740748439.git.dsimic@manjaro.org>
+	id 1to0SI-0000000B51T-4Bvv;
+	Fri, 28 Feb 2025 13:31:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1to0Qh-0000000B4q9-3Zds
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Feb 2025 13:29:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8C7541688;
+	Fri, 28 Feb 2025 05:29:39 -0800 (PST)
+Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 679E23F673;
+	Fri, 28 Feb 2025 05:29:22 -0800 (PST)
+Date: Fri, 28 Feb 2025 13:29:08 +0000
+From: Andre Przywara <andre.przywara@arm.com>
+To: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai
+ <wens@csie.org>, Samuel Holland <samuel@sholland.org>, Philipp Zabel
+ <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 05/15] clk: sunxi-ng: Add support for the A523/T527
+ CCU PLLs
+Message-ID: <20250228132908.632b82dd@donnerap.manchester.arm.com>
+In-Reply-To: <3341127.44csPzL39Z@jernej-laptop>
+References: <20250214125359.5204-1-andre.przywara@arm.com>
+	<20250214125359.5204-6-andre.przywara@arm.com>
+	<3341127.44csPzL39Z@jernej-laptop>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_051543_350055_1BE3F41E 
-X-CRM114-Status: GOOD (  17.53  )
+X-CRM114-CacheID: sfid-20250228_052927_996736_61DA3767 
+X-CRM114-Status: GOOD (  35.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,74 +72,231 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add missing "vpcie0v9-supply" and "vpcie1v8-supply" properties to the "pcie0"
-node in the Pine64 RockPro64 board dtsi file.  This eliminates the following
-warnings from the kernel log:
+On Tue, 18 Feb 2025 20:03:38 +0100
+Jernej =C5=A0krabec <jernej.skrabec@gmail.com> wrote:
 
-  rockchip-pcie f8000000.pcie: supply vpcie1v8 not found, using dummy regulator
-  rockchip-pcie f8000000.pcie: supply vpcie0v9 not found, using dummy regulator
+Hi Jernej,
 
-There are no functional changes to the way board works after these changes,
-because the "vcca_0v9" and "vcca_1v8" regulators are always enabled, [1][2]
-but these additions improve the accuracy of hardware description.
+many thanks for having a look!
 
-Shuffle and reorder the "vpcie*-supply" properties a bit, so they're sorted
-alphanumerically, which is a bit more logical and more useful than having
-these properties listed in their strict alphabetical order.
+> Dne petek, 14. februar 2025 ob 13:53:49 Srednjeevropski standardni =C4=8D=
+as je Andre Przywara napisal(a):
+> > Add the PLL clocks of the main CCU of the Allwinner A523 and T527 SoCs.
+> > The clocks were modelled after the A523 and T527 manual, and double
+> > checked by writing all 1's into the respective register, to spot all
+> > implemented bits.
+> >=20
+> > The PLL and mod clocks for the two CPU clusters and the DSU are part of
+> > a separate CCU, also most audio clocks are collected in a DSP CCU, so
+> > both of these clock groups are missing from this driver.
+> >=20
+> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> > ---
+> >  drivers/clk/sunxi-ng/Kconfig           |   5 +
+> >  drivers/clk/sunxi-ng/Makefile          |   2 +
+> >  drivers/clk/sunxi-ng/ccu-sun55i-a523.c | 481 +++++++++++++++++++++++++
+> >  drivers/clk/sunxi-ng/ccu-sun55i-a523.h |  14 +
+> >  drivers/clk/sunxi-ng/ccu_mp.h          |  14 +-
+> >  5 files changed, 510 insertions(+), 6 deletions(-)
+> >  create mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523.c
+> >  create mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523.h
+> >=20
+> > diff --git a/drivers/clk/sunxi-ng/Kconfig b/drivers/clk/sunxi-ng/Kconfig
+> > index b547198a2c654..04efbda847cf9 100644
+> > --- a/drivers/clk/sunxi-ng/Kconfig
+> > +++ b/drivers/clk/sunxi-ng/Kconfig
+> > @@ -52,6 +52,11 @@ config SUN50I_H6_R_CCU
+> >  	default y
+> >  	depends on ARM64 || COMPILE_TEST
+> > =20
+> > +config SUN55I_A523_CCU
+> > +	tristate "Support for the Allwinner A523/T527 CCU"
+> > +	default y
+> > +	depends on ARM64 || COMPILE_TEST
+> > +
+> >  config SUN4I_A10_CCU
+> >  	tristate "Support for the Allwinner A10/A20 CCU"
+> >  	default y
+> > diff --git a/drivers/clk/sunxi-ng/Makefile b/drivers/clk/sunxi-ng/Makef=
+ile
+> > index 6b3ae2b620db6..01a887f7824bb 100644
+> > --- a/drivers/clk/sunxi-ng/Makefile
+> > +++ b/drivers/clk/sunxi-ng/Makefile
+> > @@ -33,6 +33,7 @@ obj-$(CONFIG_SUN50I_A100_R_CCU)	+=3D sun50i-a100-r-cc=
+u.o
+> >  obj-$(CONFIG_SUN50I_H6_CCU)	+=3D sun50i-h6-ccu.o
+> >  obj-$(CONFIG_SUN50I_H6_R_CCU)	+=3D sun50i-h6-r-ccu.o
+> >  obj-$(CONFIG_SUN50I_H616_CCU)	+=3D sun50i-h616-ccu.o
+> > +obj-$(CONFIG_SUN55I_A523_CCU)	+=3D sun55i-a523-ccu.o
+> >  obj-$(CONFIG_SUN4I_A10_CCU)	+=3D sun4i-a10-ccu.o
+> >  obj-$(CONFIG_SUN5I_CCU)		+=3D sun5i-ccu.o
+> >  obj-$(CONFIG_SUN6I_A31_CCU)	+=3D sun6i-a31-ccu.o
+> > @@ -58,6 +59,7 @@ sun50i-a100-r-ccu-y		+=3D ccu-sun50i-a100-r.o
+> >  sun50i-h6-ccu-y			+=3D ccu-sun50i-h6.o
+> >  sun50i-h6-r-ccu-y		+=3D ccu-sun50i-h6-r.o
+> >  sun50i-h616-ccu-y		+=3D ccu-sun50i-h616.o
+> > +sun55i-a523-ccu-y		+=3D ccu-sun55i-a523.o
+> >  sun4i-a10-ccu-y			+=3D ccu-sun4i-a10.o
+> >  sun5i-ccu-y			+=3D ccu-sun5i.o
+> >  sun6i-a31-ccu-y			+=3D ccu-sun6i-a31.o
+> > diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523.c b/drivers/clk/sunxi=
+-ng/ccu-sun55i-a523.c
+> > new file mode 100644
+> > index 0000000000000..8374e841e9d82
+> > --- /dev/null
+> > +++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523.c
+> > @@ -0,0 +1,481 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * Copyright (C) 2023-2024 Arm Ltd.
+> > + * Based on the D1 CCU driver:
+> > + *   Copyright (c) 2020 huangzhenwei@allwinnertech.com
+> > + *   Copyright (C) 2021 Samuel Holland <samuel@sholland.org>
+> > + */
+> > +
+> > +#include <linux/clk-provider.h>
+> > +#include <linux/io.h>
+> > +#include <linux/module.h>
+> > +#include <linux/platform_device.h>
+> > +
+> > +#include "../clk.h"
+> > +
+> > +#include "ccu_common.h"
+> > +#include "ccu_reset.h"
+> > +
+> > +#include "ccu_div.h"
+> > +#include "ccu_gate.h"
+> > +#include "ccu_mp.h"
+> > +#include "ccu_mult.h"
+> > +#include "ccu_nk.h"
+> > +#include "ccu_nkm.h"
+> > +#include "ccu_nkmp.h"
+> > +#include "ccu_nm.h"
+> > +
+> > +#include "ccu-sun55i-a523.h"
+> > +
+> > +/*
+> > + * The 24 MHz oscillator, the root of most of the clock tree.
+> > + * .fw_name is the string used in the DT "clock-names" property, used =
+to
+> > + * identify the corresponding clock in the "clocks" property.
+> > + */
+> > +static const struct clk_parent_data osc24M[] =3D {
+> > +	{ .fw_name =3D "hosc" }
+> > +};
+> > +
+> > +/*********************************************************************=
+*****
+> > + *                              PLLs                                  =
+    *
+> > + *********************************************************************=
+*****/
+> > +
+> > +/* Some PLLs are input * N / div1 / P. Model them as NKMP with no K */
+> > +#define SUN55I_A523_PLL_DDR0_REG		0x010
+> > +static struct ccu_nkmp pll_ddr0_clk =3D {
+> > +	.enable		=3D BIT(27),
+> > +	.lock		=3D BIT(28),
+> > +	.n		=3D _SUNXI_CCU_MULT_MIN(8, 8, 11),
+> > +	.m		=3D _SUNXI_CCU_DIV(1, 1), /* input divider */ =20
+>=20
+> Newer manuals, for example A523 manual v1.4, don't mention input dividers=
+ anymore.
+> Newer BSP driver doesn't have them either. Should we drop them (for all P=
+LLs)?
 
-These changes apply to the both supported hardware revisions of the Pine64
-RockPro64, i.e. to the production-run revisions 2.0 and 2.1. [1][2]
+I don't know, as you figured, I found them in my copy of the manual. For
+the PLLs we need today (PLL_PERIPH0) it shouldn't matter anyway: it's
+programmed already, and AFAICS Linux actually never reprograms it(?).
 
-[1] https://files.pine64.org/doc/rockpro64/rockpro64_v21-SCH.pdf
-[2] https://files.pine64.org/doc/rockpro64/rockpro64_v20-SCH.pdf
+In any case, I just left it in for now: the bit is definitely there, I
+verified that in U-Boot by only seeing half of the MMC performance with
+bit 1 set. We can remove them anytime later, without issue, can't we?
 
-Reported-by: Diederik de Haas <didi.debian@cknow.org>
-Signed-off-by: Dragan Simic <dsimic@manjaro.org>
----
+Actually, thinking about that: the manual pretty clearly says that for
+instance PLL_PERIPH0 should be set to 1.2GHz and never changed or even
+touched. I wonder if we should honour this somehow in the code? It seems
+like the CCF doesn't do this anyway at the moment, but it could, I guess?
 
-Notes:
-    Actually, these additions to the DT _might_ improve the way RockPro64
-    works a bit, by _possibly_ resolving the longstanding issues with PCI
-    Express enumeration, which have been observed with certain PCI Express
-    cards only.  This was mentioned in the commit 43853e843aa6 (arm64: dts:
-    rockchip: Remove unsupported node from the Pinebook Pro dts, 2024-04-01),
-    together with a brief description of the out-of-tree enumeration delay
-    that reportedly resolves those issues.
-    
-    Symptomatically enough, AFAIK only the RockPro64 has been reported to
-    suffer from the PCI Express issues, and it's only the RockPro64 that has
-    the missing supplies in its DT, so maybe there's something that causes
-    issues when the PCI Express is probed before the RK808 PMIC, which the
-    "vcca_1v8" regulator comes from.  The above-mentioned enumeration delay
-    might actually be just a workaround for those underlying issues.
-    
-    Admittedly, the RockPro64 is a bit specific board by having a standard
-    PCI Express slot, allowing use of various standard cards, but pretty much
-    standard PCI Express cards have been attached to other RK3399 boards as
-    well, and I can't recall similar issues being reported for them.
-    
-    The required reliability testing will be performed as the time permits,
-    so we'll hopefully see are these assumptions valid.  In the meantime,
-    this patch remains perfectly safe, from the standpoint of being unable
-    to do any harm or cause some unforeseen regressions.
+>=20
+> > +	.p		=3D _SUNXI_CCU_DIV(0, 1), /* output divider */
+> > +	.common		=3D {
+> > +		.reg		=3D 0x010,
+> > +		.hw.init	=3D CLK_HW_INIT_PARENTS_DATA("pll-ddr0", osc24M,
+> > +							   &ccu_nkmp_ops,
+> > +							   CLK_SET_RATE_GATE |
+> > +							   CLK_IS_CRITICAL),
+> > +	},
+> > +};
+> > +
 
- arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dtsi | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+....
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dtsi
-index 47dc198706c8..41ee381ff81f 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dtsi
-@@ -673,8 +673,10 @@ &pcie0 {
- 	num-lanes = <4>;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pcie_perst>;
--	vpcie12v-supply = <&vcc12v_dcin>;
-+	vpcie0v9-supply = <&vcca_0v9>;
-+	vpcie1v8-supply = <&vcca_1v8>;
- 	vpcie3v3-supply = <&vcc3v3_pcie>;
-+	vpcie12v-supply = <&vcc12v_dcin>;
- 	status = "okay";
- };
- 
+> > diff --git a/drivers/clk/sunxi-ng/ccu_mp.h b/drivers/clk/sunxi-ng/ccu_m=
+p.h
+> > index 687bd2ec798e2..5311835a4db60 100644
+> > --- a/drivers/clk/sunxi-ng/ccu_mp.h
+> > +++ b/drivers/clk/sunxi-ng/ccu_mp.h
+> > @@ -100,20 +100,22 @@ struct ccu_mp { =20
+>=20
+> These changes doesn't belong in this commit.
+
+Ah, indeed, I missed that. Moved that out into another patch now.
+
+Cheers,
+Andre
+
+> Other than that, this looks like a good start. Thanks!
+>=20
+> Best regards,
+> Jernej
+>=20
+> >  				   _muxshift, _muxwidth,		\
+> >  				   0, _flags)
+> > =20
+> > -#define SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(_struct, _name, _parents,=
+ _reg, \
+> > +#define SUNXI_CCU_MP_MUX_GATE_POSTDIV_FEAT(_struct, _name, _parents, _=
+reg, \
+> >  					_mshift, _mwidth,		\
+> >  					_pshift, _pwidth,		\
+> >  					_muxshift, _muxwidth,		\
+> > -					_gate, _flags,			\
+> > -					_features)			\
+> > +					_gate, _postdiv,		\
+> > +					_flags, _features)		\
+> >  	struct ccu_mp _struct =3D {					\
+> >  		.enable	=3D _gate,					\
+> >  		.m	=3D _SUNXI_CCU_DIV(_mshift, _mwidth),		\
+> >  		.p	=3D _SUNXI_CCU_DIV(_pshift, _pwidth),		\
+> >  		.mux	=3D _SUNXI_CCU_MUX(_muxshift, _muxwidth),		\
+> > +		.fixed_post_div =3D _postdiv,				\
+> >  		.common	=3D {						\
+> >  			.reg		=3D _reg,				\
+> > -			.features	=3D _features,			\
+> > +			.features	=3D CCU_FEATURE_FIXED_POSTDIV |	\
+> > +						_features,		\
+> >  			.hw.init	=3D CLK_HW_INIT_PARENTS_DATA(_name, \
+> >  								   _parents, \
+> >  								   &ccu_mp_ops,\
+> > @@ -126,11 +128,11 @@ struct ccu_mp {
+> >  					_pshift, _pwidth,		\
+> >  					_muxshift, _muxwidth,		\
+> >  					_gate, _flags)			\
+> > -	SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(_struct, _name, _parents,	\
+> > +	SUNXI_CCU_MP_MUX_GATE_POSTDIV_FEAT(_struct, _name, _parents,	\
+> >  					     _reg, _mshift, _mwidth,	\
+> >  					     _pshift, _pwidth,		\
+> >  					     _muxshift, _muxwidth,	\
+> > -					     _gate, _flags, 0)
+> > +					     _gate, 1, _flags, 0)
+> > =20
+> >  #define SUNXI_CCU_MP_DATA_WITH_MUX(_struct, _name, _parents, _reg,	\
+> >  				   _mshift, _mwidth,			\
+> >  =20
+>=20
+>=20
+>=20
+>=20
+
 
