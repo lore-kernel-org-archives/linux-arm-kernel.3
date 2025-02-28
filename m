@@ -4,59 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D8E6C19776
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 11:59:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CB80C19776
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 12:01:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VsbgSY0KdK4WCEQoWD7P7DX8QHItEdhrghN3ri4wOyw=; b=DblAzBS8hNfHQ/m+bm33vDsOCd
-	fTDtG7gUF8mxaXB/7tAunzycWNbOeRqPT+1178l2VLv3kTxwrsfY1gL9buxsCB955Av92GAbN4RYA
-	lvkYBpQqL4n4eoBBmfJVpC6in11iq766e+ns0pFh/eo8PznRg20r6WKnSftIYLJ7Ulf40vpQnORjt
-	++yB15d9JG5zVfGRidjiZ9v9awQimT1kNn0liWPpJP0a6Rnfq5ejOReVA3lZUZN0S/8ltMdl5u9pU
-	0KQDWXSJSfs7zV9MPxPrlTJlKgfwWuQXr9SWdrS9Y/LirNmdoazWnM4SebvQhSB+YhDX+NLM/tmXy
-	Ynlc0rLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mpTn5WvQbmVfa4udMCUUwuiCw2iOJ9q1CUbIwaSCf7c=; b=orpFtDAQGu0KQEW53FTeWGqPFc
+	rR82jiS71WLuqI0QU8jN47aLm61CWs5CwpMJBkSvwQ3oqKlk2XNwPt9CMl++MjSd3ZfXG90rxXnI8
+	P7dbojHENSmFeGlyQXfc5s/XGrmwljVpQRqaL6BWdVvzMGPUW11A4oIrG2rW0p6W1QaXSyQ4bw+so
+	+FZ6vTvBRa/MLkgOSDpqQjkB+DH44oejHF4m2q2+4XV60Tda/fOcTYkihic64+NFV+6H5oTsCQJ0L
+	WlOAGomeJ9i4zxoshmeZXI8Q9pVEHtObiwlprYgP6UwRSOzl9qvZxi078jT0geegqV2IcoRWy1ZqT
+	9OJ63kSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnz1s-0000000ApT8-3NyS;
-	Fri, 28 Feb 2025 11:59:44 +0000
+	id 1tnz3P-0000000ApcN-23wo;
+	Fri, 28 Feb 2025 12:01:19 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnyHx-0000000Ai5g-2RGp
+	id 1tnyJM-0000000AiR1-2SLj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 11:12:18 +0000
+	Fri, 28 Feb 2025 11:13:46 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4566D1063;
-	Fri, 28 Feb 2025 03:12:32 -0800 (PST)
-Received: from [192.168.178.115] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 92FD63F673;
-	Fri, 28 Feb 2025 03:12:12 -0800 (PST)
-Message-ID: <df9784c3-c2ea-4bac-839a-2b7de0a81aac@arm.com>
-Date: Fri, 28 Feb 2025 12:12:02 +0100
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 597C41692;
+	Fri, 28 Feb 2025 03:13:59 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C5973F673;
+	Fri, 28 Feb 2025 03:13:42 -0800 (PST)
+Date: Fri, 28 Feb 2025 11:13:39 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Leo Yan <leo.yan@arm.com>, linux-arm-kernel@lists.infradead.org,
+	ahmed.genidi@arm.com, ben.horgan@arm.com, catalin.marinas@arm.com,
+	kvmarm@lists.linux.dev, oliver.upton@linux.dev, will@kernel.org
+Subject: Re: [PATCH 1/2] KVM: arm64: Initialize HCR_EL2.E2H early
+Message-ID: <Z8GaY09Ly2-qVRM1@J2N7QTR9R3>
+References: <20250227180526.1204723-1-mark.rutland@arm.com>
+ <20250227180526.1204723-2-mark.rutland@arm.com>
+ <20250228092955.GC2157064@e132581.arm.com>
+ <86y0xqpfpj.wl-maz@kernel.org>
+ <Z8GHclusYN3CX5m2@J2N7QTR9R3>
+ <86v7supdzd.wl-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 0/4] Support SMT control on arm64
-To: Yicong Yang <yangyicong@huawei.com>, catalin.marinas@arm.com,
- will@kernel.org, sudeep.holla@arm.com, tglx@linutronix.de,
- peterz@infradead.org, mpe@ellerman.id.au,
- linux-arm-kernel@lists.infradead.org, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, pierre.gondois@arm.com
-Cc: linuxppc-dev@lists.ozlabs.org, x86@kernel.org,
- linux-kernel@vger.kernel.org, morten.rasmussen@arm.com, msuchanek@suse.de,
- gregkh@linuxfoundation.org, rafael@kernel.org, jonathan.cameron@huawei.com,
- prime.zeng@hisilicon.com, linuxarm@huawei.com, yangyicong@hisilicon.com,
- xuwei5@huawei.com, guohanjun@huawei.com, sshegde@linux.ibm.com
-References: <20250218141018.18082-1-yangyicong@huawei.com>
-From: Dietmar Eggemann <dietmar.eggemann@arm.com>
-Content-Language: en-US
-In-Reply-To: <20250218141018.18082-1-yangyicong@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86v7supdzd.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_031217_666998_13EA7257 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20250228_031344_710094_1AC43BA0 
+X-CRM114-Status: GOOD (  28.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,44 +68,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/02/2025 15:10, Yicong Yang wrote:
-> From: Yicong Yang <yangyicong@hisilicon.com>
+On Fri, Feb 28, 2025 at 10:20:38AM +0000, Marc Zyngier wrote:
+> On Fri, 28 Feb 2025 09:52:50 +0000,
+> Mark Rutland <mark.rutland@arm.com> wrote:
+> > 
+> > On Fri, Feb 28, 2025 at 09:43:20AM +0000, Marc Zyngier wrote:
+> > > On Fri, 28 Feb 2025 09:29:55 +0000,
+> > > Leo Yan <leo.yan@arm.com> wrote:
+> > > > 
+> > > > Hi Mark,
+> > > > 
+> > > > On Thu, Feb 27, 2025 at 06:05:25PM +0000, Mark Rutland wrote:
+> > > > 
+> > > > [...]
+> > > > 
+> > > > > +.macro init_el2_hcr	val
+> > > > > +	mov_q	x0, \val
+> > > > > +
+> > > > > +	/*
+> > > > > +	 * Compliant CPUs advertise their VHE-onlyness with
+> > > > > +	 * ID_AA64MMFR4_EL1.E2H0 < 0. On such CPUs HCR_EL2.E2H is RES1, but it
+> > > > > +	 * can reset into an UNKNOWN state and might not read as 1 until it has
+> > > > > +	 * been initialized explicitly.
+> > > > 
+> > > > For ID_AA64MMFR4_EL1.E2H0 < 0 case, the code actually clears the
+> > > > HCR_EL2.E2H bit.
+> > > >
+> > > > Hence, the comment should be corrected as: "... it can reset into an
+> > > > UNKNOWN state and might not read as 0 until it has been initialized
+> > > > explicitly".
+> > > 
+> > > The comment is just fine. It is the code that is wrong, as it avoids
+> > > setting E2H when E2H0 < 0 while we want the exact opposite behaviour.
+> > > 
+> > > As a result, 'b.lt' really should be a 'b.ge'. Or the original code
+> > > kept as is.
+> > 
+> > Ugh, yes. I got confused and got the condition backwards.
+> > 
+> > Either works. Using 'b.ge' is closer to my intention -- I found the
+> > 'tbz' of the sign bit somewhat surprising and that needed a longer line
+> > after the lable name changed.
+> > 
+> > Would you like me to respin, or would you be hapy to fix up when
+> > applying?
 > 
-> The core CPU control framework supports runtime SMT control which
-> is not yet supported on arm64. Besides the general vulnerabilities
-> concerns we want this runtime control on our arm64 server for:
-> 
-> - better single CPU performance in some cases
-> - saving overall power consumption
-> 
-> This patchset implements it in the following aspects:
-> 
-> - Provides a default topology_is_primary_thread()
-> - support retrieve SMT thread number on OF based system
-> - support retrieve SMT thread number on ACPI based system
-> - select HOTPLUG_SMT for arm64
-> 
-> Tests has been done on our ACPI based arm64 server and on ACPI/OF
-> based QEMU VMs.
+> I can fix it on the fly, but it needs retesting, as I don't understand
+> how things could work in this state.
 
-[...]
+This happened to work by virtue of coincidence :/
 
-> Yicong Yang (4):
->   cpu/SMT: Provide a default topology_is_primary_thread()
->   arch_topology: Support SMT control for OF based system
->   arm64: topology: Support SMT control on ACPI based system
->   arm64: Kconfig: Enable HOTPLUG_SMT
-> 
->  arch/arm64/Kconfig                  |  1 +
->  arch/arm64/kernel/topology.c        | 66 +++++++++++++++++++++++++++++
->  arch/powerpc/include/asm/topology.h |  1 +
->  arch/x86/include/asm/topology.h     |  2 +-
->  drivers/base/arch_topology.c        | 27 ++++++++++++
->  include/linux/topology.h            | 22 ++++++++++
->  6 files changed, 118 insertions(+), 1 deletion(-)
+Critically, I have not tested this on a CPU where HCR_EL2.E2H is
+writeable but one polarity has no effect, as I don't have such a CPU to
+hand. IIUC you tested that with hVHE under NV per commit:
 
-With the review comments on the individual patches [0-3]/4:
+  b3320142f3db9b3f ("arm64: Fix early handling of FEAT_E2H0 not being implemented")
 
-Reviewed-by: Dietmar Eggemann <dietmar.eggemann@arm.com>
+... but I don't currently have a good setup to test that configuration.
 
+In other cases, this largely falls out in the wash, e.g.
+
+* On a CPU without E2H, where the HCR_EL2.E2H bit is implemented as
+  RAZ/WI, the bit always reads as 0. Trying to set the bit has no
+  effect. Later reads see 0.
+
+  Hence this case happens to work.
+
+* On a CPU with E2H and without FEAT_E2H0, where the HCR_EL2.E2H bit is
+  implemented as RAO/WI, the bit always reads as 1. Trying to clear the
+  bit has no effect. Later reads see 1.
+
+  Hence this case happens to work.
+
+* On a CPU with E2H and with FEAT_E2H0, there the HCR_EL2.E2H bit is
+  implemented and has an effect, writing to the bit moves the CPU into
+  E2H mode.
+
+  The early boot code handles this the same as FEAT_E2H0 being absent,
+  and so that happens to work. I haven't dug into how HCR_EL2 gets
+  properly initialized later by KVM, but testing seems to indicate that
+  this works.
+
+Mark.
 
