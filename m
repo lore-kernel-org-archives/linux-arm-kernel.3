@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90A96C282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 16:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D13AC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 16:45:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mFbK6atugzTD7yJD9m3zV6BCGNJwyUhEcjietF557HM=; b=Pxz/pnkBQkA0izaMRM4vaJK6of
-	09XIMa4ueyl7jtuD8Zpy4AoiSj1UuvP31U8H/8smspGcZoRgXc2VJQTuRAyPMSMgBJKkiVFKC+K4V
-	VXARHPZ6wY7KKFlWd3ZI+amYwrKMSJlk/HCdXvE0tMFgYEjlEeRf7e7m5S5f6sjOrOb6VrReOAU1m
-	TlPB33becedcrf4F+yy4h7Osifn3M5ee3qz6A+w5sjLsnDIGQgifYWU6rQPc+RbAWjWVS5SDFLzzH
-	LnEfIKoLt5WCZE/NLZ2amB9r/VoDBdQYj7wU14riIC2s24CueBjxYZaIO/6bLmrlRG1EDxktkdi4h
-	+DBanmRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BuXyC1oOSB2vm0Rr+d7N6BqT0+ZyS774E0qFu11I2qQ=; b=wABGzC8DbLRSPn+BpuCcjraICy
+	TCaxMYWT10wVsaY0bzsiRMwCfmCxbN4mkPoXx+nc/fcAAX7yaaiilxOrHanN6k+VC3Pwb1HQ/M7D+
+	MPngq12z8o3zmtoiNj/EENDpB45eiq+CEMQn5iTlvRIPEBiWT7OTmfLABJv3JJFlcVltWBk/Wch4a
+	HeSZj5W/Ra8PK8WY0J8VquxXkTRSpiDh9Nu+/OKWRFe0iKGG8yfCzSlLpGxBuruGNO+euOF55SCwA
+	3Yg81mcbxYSMQePVJQee9pkxulbpHB+Ug4ZYulSIG65sPmTqOq9q9T49tL7DGqvJ9qK5ks9+cNnjP
+	2xpd3bZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to3Sm-0000000Bk2D-4Bkd;
-	Fri, 28 Feb 2025 16:43:49 +0000
-Received: from out-181.mta0.migadu.com ([2001:41d0:1004:224b::b5])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to3RC-0000000Bjbx-0yMz
+	id 1to3UK-0000000BkUV-2twJ;
+	Fri, 28 Feb 2025 16:45:24 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1to3Ri-0000000Bjlr-45qC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 16:42:12 +0000
-Date: Fri, 28 Feb 2025 11:42:01 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
-	s=key1; t=1740760926;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mFbK6atugzTD7yJD9m3zV6BCGNJwyUhEcjietF557HM=;
-	b=cFIiO50ccNdoysTiPbKL6pEs59H43/JNspVbtHpwph8CQ5GCWccO/7y0yPIisAmHTcotJf
-	KLUDDl/niDtXPGMEdKc49Oo4KijPpig9Ybn1NFHRv6sv9f2LxI/4bJTq9qMbGfl5mpZvi1
-	ZQRcGPY4vr+cq0YR2r8s/yqOtMs6+pIire8RJVO/VPA+LospNomase0ltI8NVWfojZsp73
-	+FeDCA5o2j45RdBg2caiwjdy71LY4IFpXS+42YfaXYtZVJUbEOF/GCCM3gOefGIrQrYWNP
-	RDSsn94yDKDPsVIybmcJNd2eIuc+C2ea/BOqwlxtjWIqi8nVW0pD023QdsBMDA==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-To: fnkl.kernel@gmail.com
-Cc: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>,
-	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Hector Martin <marcan@marcan.st>
-Subject: Re: [PATCH v2 2/2] iommu: apple-dart: Allow mismatched bypass support
-Message-ID: <Z8HnWdgPNMmCoXtX@blossom>
-References: <20250228-isp-dart-v2-0-0ead81a90e2d@gmail.com>
- <20250228-isp-dart-v2-2-0ead81a90e2d@gmail.com>
+	Fri, 28 Feb 2025 16:42:44 +0000
+Received: from [10.137.184.60] (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id D1BD3210D0D5;
+	Fri, 28 Feb 2025 08:42:41 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com D1BD3210D0D5
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1740760962;
+	bh=BuXyC1oOSB2vm0Rr+d7N6BqT0+ZyS774E0qFu11I2qQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ZC+q+2cmxoMS5/5w+OQJrDHlI0cWX7041Z04WaxlO64/2SMVAme2kzBQNMQFXi/we
+	 ObwR14nqEWrUYtHgXNr4LVNAIeFjUCg6DoWgQDBHcS527oIdmDS1oMTc1aVgfGsCI8
+	 CcCkJXpoU7L9cjOUCBceQ9lSqXrova55ptgkseGo=
+Message-ID: <41ec1b2e-0a82-4712-926d-ac73a7151e61@linux.microsoft.com>
+Date: Fri, 28 Feb 2025 08:42:41 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 02/10] x86/mshyperv: Add support for extended Hyper-V
+ features
+To: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
+ linux-hyperv@vger.kernel.org, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org
+Cc: kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
+ mhklinux@outlook.com, decui@microsoft.com, catalin.marinas@arm.com,
+ will@kernel.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, hpa@zytor.com, daniel.lezcano@linaro.org,
+ joro@8bytes.org, robin.murphy@arm.com, arnd@arndb.de,
+ jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
+ skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com,
+ ssengar@linux.microsoft.com, apais@linux.microsoft.com,
+ Tianyu.Lan@microsoft.com, stanislav.kinsburskiy@gmail.com,
+ gregkh@linuxfoundation.org, vkuznets@redhat.com, prapal@linux.microsoft.com,
+ muislam@microsoft.com, anrayabh@linux.microsoft.com, rafael@kernel.org,
+ lenb@kernel.org, corbet@lwn.net
+References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1740611284-27506-3-git-send-email-nunodasneves@linux.microsoft.com>
+ <681a8922-b743-42cb-8793-ece9ae8919c1@linux.microsoft.com>
+ <f8d7c151-fc7b-4f57-96fa-2252c60bd81f@linux.microsoft.com>
+Content-Language: en-US
+From: Roman Kisel <romank@linux.microsoft.com>
+In-Reply-To: <f8d7c151-fc7b-4f57-96fa-2252c60bd81f@linux.microsoft.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250228-isp-dart-v2-2-0ead81a90e2d@gmail.com>
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_084210_974114_EBC08A39 
-X-CRM114-Status: GOOD (  20.61  )
+X-CRM114-CacheID: sfid-20250228_084243_035920_D5312146 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,82 +86,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
 
-Le Fri , Feb 28, 2025 at 05:32:08PM +0100, Sasha Finkelstein via B4 Relay a �crit :
-> From: Hector Martin <marcan@marcan.st>
+
+On 2/27/2025 4:17 PM, Nuno Das Neves wrote:
+> On 2/27/2025 9:59 AM, Roman Kisel wrote:
+>>
+>>
+>> On 2/26/2025 3:07 PM, Nuno Das Neves wrote:
+>>> From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+>> [...]
+>>>    -    pr_info("Hyper-V: privilege flags low 0x%x, high 0x%x, hints 0x%x, misc 0x%x\n",
+>>> -        ms_hyperv.features, ms_hyperv.priv_high, ms_hyperv.hints,
+>>> +    pr_info("Hyper-V: privilege flags low 0x%x, high 0x%x, ext 0x%x, hints 0x%x, misc 0x%x\n",
+>>> +        ms_hyperv.features, ms_hyperv.priv_high,
+>>> +        ms_hyperv.ext_features, ms_hyperv.hints,
+>>>            ms_hyperv.misc_features);
+>>
+>> Would using %#x instead of 0x%x be better in your opinion?
+>>
+> It's a reasonable suggestion. I'm not sure if it's worth another
+> version, if this patch seems good enough to merge as-is.
+> However if I'm doing another version of this series that still
+> includes this patch, then I can certainly make the change.
 > 
-> This is needed by ISP, which has DART0 with bypass and DART1/2 without.
+
+You're right, a suggestion like that shouldn't warrant another version,
+agreed! Whether you implement that tweak or not, looks good to me.
+
+Reviewed-by: Roman Kisel <romank@linux.microsoft.com>
+
+> Thanks!
 > 
-> Signed-off-by: Hector Martin <marcan@marcan.st>
-> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
-> ---
->  drivers/iommu/apple-dart.c | 17 ++++++++++++-----
->  1 file changed, 12 insertions(+), 5 deletions(-)
+>> [..]
 > 
-> diff --git a/drivers/iommu/apple-dart.c b/drivers/iommu/apple-dart.c
-> index edb2fb22333506d7c64ad1b6321df00ebfd07747..13ccb801f52a4d34f6653f78e92787af7dfed1bc 100644
-> --- a/drivers/iommu/apple-dart.c
-> +++ b/drivers/iommu/apple-dart.c
-> @@ -277,6 +277,9 @@ struct apple_dart_domain {
->   * @streams: streams for this device
->   */
->  struct apple_dart_master_cfg {
-> +	/* Intersection of DART capabilitles */
-> +	u32 supports_bypass : 1;
-> +
->  	struct apple_dart_stream_map stream_maps[MAX_DARTS_PER_DEVICE];
->  };
->  
-> @@ -684,7 +687,7 @@ static int apple_dart_attach_dev_identity(struct iommu_domain *domain,
->  	struct apple_dart_stream_map *stream_map;
->  	int i;
->  
-> -	if (!cfg->stream_maps[0].dart->supports_bypass)
-> +	if (!cfg->supports_bypass)
->  		return -EINVAL;
->  
->  	for_each_stream_map(i, cfg, stream_map)
-> @@ -792,20 +795,24 @@ static int apple_dart_of_xlate(struct device *dev,
->  		return -EINVAL;
->  	sid = args->args[0];
->  
-> -	if (!cfg)
-> +	if (!cfg) {
->  		cfg = kzalloc(sizeof(*cfg), GFP_KERNEL);
-> +
-> +		/* Will be ANDed with DART capabilities */
-> +		cfg->supports_bypass = true;
-> +	}
->  	if (!cfg)
->  		return -ENOMEM;
->  	dev_iommu_priv_set(dev, cfg);
->  
->  	cfg_dart = cfg->stream_maps[0].dart;
->  	if (cfg_dart) {
-> -		if (cfg_dart->supports_bypass != dart->supports_bypass)
-> -			return -EINVAL;
->  		if (cfg_dart->pgsize != dart->pgsize)
->  			return -EINVAL;
->  	}
->  
-> +	cfg->supports_bypass &= dart->supports_bypass;
-> +
->  	for (i = 0; i < MAX_DARTS_PER_DEVICE; ++i) {
->  		if (cfg->stream_maps[i].dart == dart) {
->  			set_bit(sid, cfg->stream_maps[i].sidmap);
-> @@ -945,7 +952,7 @@ static int apple_dart_def_domain_type(struct device *dev)
->  
->  	if (cfg->stream_maps[0].dart->pgsize > PAGE_SIZE)
->  		return IOMMU_DOMAIN_IDENTITY;
-> -	if (!cfg->stream_maps[0].dart->supports_bypass)
-> +	if (!cfg->supports_bypass)
->  		return IOMMU_DOMAIN_DMA;
->  
->  	return 0;
-> 
-> -- 
-> 2.48.1
-> 
-> 
+
+-- 
+Thank you,
+Roman
+
 
