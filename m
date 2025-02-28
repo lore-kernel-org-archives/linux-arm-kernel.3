@@ -4,76 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61E1BC282C1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 15:55:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57F85C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 15:57:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n9eLJrzvCc/jZ3rhdLc/8pJEkV1JMKG56goBetbpxb4=; b=J+INZEisgtCDirtxfSKjSeHZ2O
-	C5Tvlcbjcfata/LScux3l6hOX0iMeaGwKp/UqXMtnc0Su4I/+E+8nhtiJy82kDoQ+SZ39U0l7Jxdx
-	MVNeQ9ypPcStlZzcOi9PrU4ZrczPAYwLzzSowBeDsoY6kmxLZIr8Hv/vZAmG4VmmqI3KTp4tnhoRa
-	NWHeJ3GERToOSv2/ZsAysvgOGEqvF9EyLNusUXmQgUH+qgn5R0jug/TQKAsoNqlcVdSz12+x0tKIN
-	No76N3Vx8e4YqyYdnt+syrN/uAZt4pQ/jKUEQa0tZ3kp1FpHdcMGTN1IzXvdl7gc30wLc3ulLuJ1S
-	khI5TUEg==;
+	bh=EPrdJFRFn59ARtf/d1tXroJOa7V4JrIR97fj2e3g0jY=; b=ExFbM7H0R484jknNh8Z+qWiMl2
+	Xo+kD/jQ2JWHh00v3YolS6joKkKjsmVG6ouMtOLCcQuBHizlcb6gwF0RIl3w+2paGOde9nkeGKUnI
+	/gBEbHzVQEQBfm2/J5ypgnZN9bYeVQdy5gOjvggXofVOuL+y4iCH0VvaKWl78xCKwcauSQRuSFpjl
+	c2upEeSp8T659vaPQMnGz/za+NW9sX7riGoh1CDqwu8XUlKDFHn5bM2A5qpgFBLsucVqeZtQZaCBD
+	iY+vxQPuFpD/ylvNMMkHcHqwqmv21DI03j9qoj8kmoGO53csQop47XFYfaP3xws+nfqOOH4/z+x23
+	OP1jr33g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to2iA-0000000BYvF-0MZj;
-	Fri, 28 Feb 2025 15:55:38 +0000
-Received: from out-189.mta1.migadu.com ([2001:41d0:203:375::bd])
+	id 1to2jh-0000000BZWe-37SM;
+	Fri, 28 Feb 2025 15:57:13 +0000
+Received: from mail-am7eur03on20605.outbound.protection.outlook.com ([2a01:111:f403:260e::605] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to2Ma-0000000BU5r-3bvk
+	id 1to2RB-0000000BUta-3gk9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 15:33:23 +0000
-Date: Fri, 28 Feb 2025 15:32:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1740756788;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=n9eLJrzvCc/jZ3rhdLc/8pJEkV1JMKG56goBetbpxb4=;
-	b=vKo+YcgI7v6lDON+yTHR9woNAvbankK+1SDMyOP89t52IYlLrAIepafV5H3+8AgeYWL/pp
-	TS1LqRGd7URb1EH84E98UhU8R08SptbuJvlIbJ9mZtK4wuupGbI0JiYANqWOM+DDaj9sTC
-	yy53IqVA9z5qtTyqinZcyR4dcB12SbQ=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Yosry Ahmed <yosry.ahmed@linux.dev>
-To: Brendan Jackman <jackmanb@google.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Pawan Gupta <pawan.kumar.gupta@linux.intel.com>, x86@kernel.org,
-	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, kvm@vger.kernel.org,
-	linux-efi@vger.kernel.org
-Subject: Re: [PATCH RFC v2 25/29] mm: asi: Restricted execution fore
- bare-metal processes
-Message-ID: <Z8HXJnhMPFPyDJW5@google.com>
-References: <20250110-asi-rfc-v2-v2-0-8419288bc805@google.com>
- <20250110-asi-rfc-v2-v2-25-8419288bc805@google.com>
-MIME-Version: 1.0
+	Fri, 28 Feb 2025 15:38:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CTF4a6RStoT2bBbMv/h8+XpyQpBBQyM4bYkvC6NnGb92c2xQszm6QuauNdu89GSqRWJ69r2PVl8WUMZRxy57JdatDJLWLGBFH8zXZVGiJFZMxUltW4UV5I5MkTusAsVULyRYRUbJuAphYSW8g55Ngt0p9MelZyUvnn7o+1qh2PD95+f8Jwtng8SPZGXLxTe4UW5kmLcWVes+2a3xvxrdFawudbKDD2seI7/43MyHf7A3nTANMqV98CptZfeZRyAQidH8f45b3145irUXjWL6TmXiER6nbcGyHevAk82sWEw7A00rL96SvqwZtKPrVVtdv7JSRVTmWDNaTVaU4EHgUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EPrdJFRFn59ARtf/d1tXroJOa7V4JrIR97fj2e3g0jY=;
+ b=riWxyzhlzjFn0BpEBz5PsXrrekV6wwmmaTeQab0yMcBzQXtA93CLLzrE7O8Fn4TMDN79Tb9qGWJ6qwYNzKfxXsCXyvVcWPDfCoq7WV/lTNF98sEW9T9ObwoP4IWR0MO+TezEOYt6dJVKgnZKmlkbtGMD97yQe2Om8/2vZJKjDsiNO+bcIge+g71iFY9xiRODuIfdF60Gau3kQHYpVmEaFH7B2ZREOf8rO+PUsP8u/PRzx2kEzmOGzE39BNvSp1TxawkR9kezNpsqXcSPQEmYfIuh5MEi1CVs+EpGCGqpD4bPdOK/Exl8Wq33o98NAri2P/Bl7ab3K5c1gEyQ54pe2g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EPrdJFRFn59ARtf/d1tXroJOa7V4JrIR97fj2e3g0jY=;
+ b=aC8OWdm/zq5Qf4XR9jC8+G8kqb2oPpLPoa1cKYCe4E/O8m6Eo3ZYldL0aGrHogYD8ckWjJ+S2aEiiZUxH3QFgSmmu4XCWTbowZ/qYrwvn1TBOCe7fYwIKNnrX7gQTgVqSz/CddcDPnYMMAPR5tWAubv0QyHBxqoRFGXrH2KP58hR1qREoUI6/hkzbDnes1ttcUDryw4V59W06E0ccQM6MRLJTIVqxzQEREjJYqKv6SYuViVkRQzxy6jnvpAGIJIMKqMsoPS4M3B4FMKlD3zKENqpdSM+a5H7vaqQnyeewHItxARoua1fRZXcs38gBHoecGaGykdbEWQtfyoko6IKnw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PAXPR04MB8895.eurprd04.prod.outlook.com (2603:10a6:102:20e::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.21; Fri, 28 Feb
+ 2025 15:38:02 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8489.019; Fri, 28 Feb 2025
+ 15:38:02 +0000
+Date: Fri, 28 Feb 2025 10:37:52 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, NXP S32 Linux <s32@nxp.com>,
+	imx@lists.linux.dev, Christophe Lizzi <clizzi@redhat.com>,
+	Alberto Ruiz <aruizrui@redhat.com>,
+	Enric Balletbo <eballetb@redhat.com>,
+	Bogdan Hamciuc <bogdan.hamciuc@nxp.com>,
+	Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+Subject: Re: [PATCH v8 2/4] rtc: s32g: add NXP S32G2/S32G3 SoC support
+Message-ID: <Z8HYUDy/XG+IYi9l@lizhi-Precision-Tower-5810>
+References: <20250228081812.3115478-1-ciprianmarian.costea@oss.nxp.com>
+ <20250228081812.3115478-3-ciprianmarian.costea@oss.nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250110-asi-rfc-v2-v2-25-8419288bc805@google.com>
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <20250228081812.3115478-3-ciprianmarian.costea@oss.nxp.com>
+X-ClientProxiedBy: SJ0PR13CA0048.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c2::23) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PAXPR04MB8895:EE_
+X-MS-Office365-Filtering-Correlation-Id: faf3b1e6-fe9b-44cd-7bfe-08dd580de2d1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?K7P5WTzEbAjVAzSkPdK8//CdFhC8Sc2hmTT1FNQ0LRIl6DGZNNXscZ/8vomG?=
+ =?us-ascii?Q?rNuOAl9iLXLxM79Fr2tEQWUALNOK9Sk0T6qlENEgNTJT6ixwx14FnIM187CB?=
+ =?us-ascii?Q?2MuDPQpNrIWpjkkMghU+GQPkrZt0BKPZbRX21nHnZsHr5y9w84rpD5GcRPs5?=
+ =?us-ascii?Q?TrXZxYV8orczW2VsghXEIhVsPyG7aYrk9uf3VsWTfuJuanMKo6riGBLDiWJL?=
+ =?us-ascii?Q?ubjJGD+y8A31lKPGqZ2vOkTg8/Oq1Cz29T3FGXFAC/E7vZyy/ZYqYmVtlG8R?=
+ =?us-ascii?Q?Yrj2Csnw204ENERDZAaq52fv3P5E/gimzN2mg9ZaIcqFLQvsWwfeU/ZoKkxo?=
+ =?us-ascii?Q?d5t8rHo5u6H4N2FI8J7rG9agwA8KQdjB/th+eAaZWNXyEdYamghl6aGrwUYM?=
+ =?us-ascii?Q?ADJmkN3VmUsvo1YfCNuU2phgdTE1DqGiyM7HcxPedrQ+Pcyo1Ac5zQHnI3pi?=
+ =?us-ascii?Q?psbG/uv4iAaNoF+Of08cTDyDShG3RY8gsWYptZKGUzzCvX+ba0OR+SN3foxW?=
+ =?us-ascii?Q?K+uT0ks0m2fYxUevVEwW7qTc+MbJLEoODI5UiP9IB1H63wKDPWAx5ClU9/R9?=
+ =?us-ascii?Q?rpA6nUnqbagKdvym9s80a5CCkiKSKEO/FaKtcaLlpUwk7dhxbZDPVv7hZWx6?=
+ =?us-ascii?Q?z0VV4AWhXZX+W2f2nx8ED4Zzobn1cNhvih49TcXpdCT9V2Rs9aplyWFFGuoK?=
+ =?us-ascii?Q?3U/zQCB3a6LVFJel+4KAzTeBCTmhXrtRYJXllu7isytyPfZbyuQanXDW6/N5?=
+ =?us-ascii?Q?9RO10KuJybV4ei7mGxz2PnKhnJQEff1bzLfWhfJSQhZBQzxM+Oa4CYB7NGa6?=
+ =?us-ascii?Q?CTmNQ2tLd2XpqOSw2RhI9iKmmN3Tz5seGWHmH1VSKYTUXX+VHPDTXJqXliV4?=
+ =?us-ascii?Q?QgD1QJQXOPk+ecTU47tgzJN5apeaHQ6ICduCW/Vu36sNPW8msUYj5QOCEpoi?=
+ =?us-ascii?Q?a2mwf2/Sq6Luu3cAWPTq6qswnVJNnJryUk7hVzs+4IPxu4Vy8ViCWjzyTFq1?=
+ =?us-ascii?Q?3eCMslwZZUQLGgOKaIgDsSJcj/EFJQIS+oywkNfQmxP/U8IMeZYy/wdwC+ER?=
+ =?us-ascii?Q?Xo4SYmgAgLrLxn5/pNxwUf53AaBffroqVj28sQwy1LJqqlEhh1DTkkZA3Onw?=
+ =?us-ascii?Q?wrbCCnEqR4hPU3v7SuTokbIzzs0PNUDTjgGuheWdoVMEq6f54uGsEeeVniit?=
+ =?us-ascii?Q?YmIy4UGmPyDQkrmrUT/QGcWwVR3Dgkg5a1JGYkBsJY39L4Z7F3r84EahPQcS?=
+ =?us-ascii?Q?m2LK2heGay/Oi+2cj1EuKZjDsspYMSMjT6DhjZ3AVoBmiQY3amI/OZ8a62JC?=
+ =?us-ascii?Q?yoIfyyHfZFpJgEmI4kUtsN5nOjZMHNsQ0LHMbXuLr8xGEXP5GZU9WCJMSr43?=
+ =?us-ascii?Q?nw6lf3sVAbstBZXWC/OJRKzxV30wxIQ5p/dtrzIUaampa2iKxDsDNLfQy7Kl?=
+ =?us-ascii?Q?81wDccuTHQPPjfld+Ncl/PQuvSdZjF+9?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fXbaZPb4+O9SwZ12VHJkkhuu3b8wAdet8WncpvVdpVVdRRt8ywPmHhRg2woP?=
+ =?us-ascii?Q?4VtXnFJNJG7MA0wcpzyv677kj8Zo5IPw1Gw9A8msTQNvvNLN+Cst99IMD7LI?=
+ =?us-ascii?Q?pr18BBsUFkeq5a4DSgpWgDawT2SmLZLFFievP4hSGrnR78yjx39aF+UhYJwN?=
+ =?us-ascii?Q?chmADD1L9BzX/0lrcOt+t68iMm7SybmUNH4PIxbDwo55qlOedX104ic0dArM?=
+ =?us-ascii?Q?o2+6Cv9UfQLirM3awyYz5peB1/P/4J1nKLsOpOwc+AD7tQ9sAtsRgNiaeNth?=
+ =?us-ascii?Q?TqD9ieCICTU3FolNwpVBtnVIGlS/JDBCRVymN1SRq/HDJ/6WkWH9NdE4bYtx?=
+ =?us-ascii?Q?OCle9D3EZPGuTp/8z6Ms8Uu4pLM4v+75qnwM6ln99jGbYEker9yioPKHp80l?=
+ =?us-ascii?Q?zVJpity9/LEfjMs76vwXCKLMH4qUREj1NjIjBRHIKTuR9hmp+ZdZ/x/1ogBJ?=
+ =?us-ascii?Q?j53XTs636DSUgZiBj41TUVjwWo9WaBk1lfoymRBkoPONK/ltg0JidDNPMYhs?=
+ =?us-ascii?Q?ldiImQJUvMdX8Lc778jnQs5+H7e35g45qZdV/5lfXW2gAzit5I3f4i8Ht+js?=
+ =?us-ascii?Q?mU1mRtDQjfzJm3mGUwrAdopmoVMoS5yFY83ULHDAqYZyqCSgce1+XUjt+gSq?=
+ =?us-ascii?Q?fMePyuryFPZ8c6tLzgFooWl8Yh2bedX37C40hfESmUaFLBCtPfUniJHkIOSK?=
+ =?us-ascii?Q?5UMxz210MQHAf14ACbYBlRZl5j15CbMrPY7iy2Vyj+JkLpJ9e/UHXT1Lg5bt?=
+ =?us-ascii?Q?hHmjCoQEP2TeRV7Kovo/s2dBc6yo7/tRPXWh81rn0z7Q4BOHBighZ80FfjWi?=
+ =?us-ascii?Q?65rtMUXN5NMew2lRI52KNe/PzYZSqpfl18bqUnKUo3IGwC6OIM6Twv24HKSd?=
+ =?us-ascii?Q?E3lT12S0pSuH36mQnegf4ZTp3QFxyfU4VFc4vCQi0gaFdHtCqSDQebkr1Vhl?=
+ =?us-ascii?Q?Mqw3gnChBfDRbbCLfB3nOaSkF84b9mQvdGDahKKschXUwcf06XIVLdFqQfi7?=
+ =?us-ascii?Q?apeSaWFC90LiKsSglAmmQJ+AS7J5f/9AZPbCEzzBBJRFdBoQtK5CiO1lPiq/?=
+ =?us-ascii?Q?mbPzC1ampZ9viQwseuJNgfnISL+SjUDXQXYP9IIgJT2YQaVs7CJYq9U/OUyQ?=
+ =?us-ascii?Q?79wJf/GxrPy8aKL/KH8lyAAuuk2MuadBly03fOXntsU3kdLaCDsJJ9qp6iuX?=
+ =?us-ascii?Q?6U3CMw1AOMpf6IXkg/INophlTQI7J4w28mDOX3sgI0ZRJe017M2g8xdYmL7o?=
+ =?us-ascii?Q?NeCITq8Gbl6tTxcCWHUiy3A8jW0v6JsgVSgtd0hJZOcJ78EikKvZgSMRomya?=
+ =?us-ascii?Q?8Kb2xYKK56rnkypWcgeD03bIt06no96fFOjtKe6RS5AfQ0w32UiIz4LMxItc?=
+ =?us-ascii?Q?debCCwI2tbic2h+MDHMukvdU7E52RjxgL1mPM/tVnoZcacS4ZN3CFKiIuivD?=
+ =?us-ascii?Q?PacxOEH4+aR7EmXXwdjZw2lonT45GqxtDSlC1ecrRhEO/+EczmrTEHukxfat?=
+ =?us-ascii?Q?qqcTE8z4IjKao2UO7YM54v5+wnc83gonUm3TaNCsq6ZA9adCHh3SDomLNnTS?=
+ =?us-ascii?Q?+SxO3EUr20lgX05oA0PsapNh5Yc7NvuBxzp9Fxb+?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: faf3b1e6-fe9b-44cd-7bfe-08dd580de2d1
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Feb 2025 15:38:02.2699
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5TR2VMEc7HnwqwOOsWsdFHtCJtcRL0lP8Qhk9cek/7+RDMa99Y5AGL2yhCrrBHAcC3GztOE46ApYT0oHl1u5zg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8895
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_073321_325401_3816A888 
-X-CRM114-Status: GOOD (  50.55  )
+X-CRM114-CacheID: sfid-20250228_073806_078352_47FFE47A 
+X-CRM114-Status: GOOD (  36.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,345 +167,457 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-(Trimming the CC list as my email server refuses the number of CCs)
-
-On Fri, Jan 10, 2025 at 06:40:51PM +0000, Brendan Jackman wrote:
-> Now userspace gets a restricted address space too. The critical section
-> begins on exit to userspace and ends when it makes a system call.
-> Other entries from userspace just interrupt the critical section via
-> asi_intr_enter().
-> 
-> The reason why system calls have to actually asi_relax() (i.e. fully
-> terminate the critical section instead of just interrupting it) is that
-> system calls are the type of kernel entry that can lead to transition
-> into a _different_ ASI domain, namely the KVM one: it is not supported
-> to transition into a different domain while a critical section exists
-> (i.e. while asi_state.target is not NULL), even if it has been paused by
-> asi_intr_enter() (i.e. even if asi_state.intr_nest_depth is nonzero) -
-> there must be an asi_relax() between any two asi_enter()s.
-> 
-> The restricted address space for bare-metal tasks naturally contains the
-> entire userspace address region, although the task's own memory is still
-> missing from the direct map.
-> 
-> This implementation creates new userspace-specific APIs for asi_init(),
-> asi_destroy() and asi_enter(), which seems a little ugly, maybe this
-> suggest a general rework of these APIs given that the "generic" version
-> only has one caller. For RFC code this seems good enough though.
-> 
-> Signed-off-by: Brendan Jackman <jackmanb@google.com>
+On Fri, Feb 28, 2025 at 10:18:10AM +0200, Ciprian Costea wrote:
+> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+>
+> Add a RTC driver for NXP S32G2/S32G3 SoCs.
+>
+> RTC tracks clock time during system suspend. It can be a wakeup source
+> for the S32G2/S32G3 SoC based boards.
+>
+> The RTC module from S32G2/S32G3 is not battery-powered and it is not kept
+> alive during system reset.
+>
+> Co-developed-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+> Signed-off-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+> Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+> Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
 > ---
->  arch/x86/include/asm/asi.h   |  8 ++++++--
->  arch/x86/mm/asi.c            | 49 ++++++++++++++++++++++++++++++++++++++++----
->  include/asm-generic/asi.h    |  9 +++++++-
->  include/linux/entry-common.h | 11 ++++++++++
->  init/main.c                  |  2 ++
->  kernel/entry/common.c        |  1 +
->  kernel/fork.c                |  4 +++-
->  7 files changed, 76 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/x86/include/asm/asi.h b/arch/x86/include/asm/asi.h
-> index e925d7d2cfc85bca8480c837548654e7a5a7009e..c3c1a57f0147ae9bd11d89c8bf7c8a4477728f51 100644
-> --- a/arch/x86/include/asm/asi.h
-> +++ b/arch/x86/include/asm/asi.h
-> @@ -140,19 +140,23 @@ DECLARE_PER_CPU_ALIGNED(struct asi *, curr_asi);
->  
->  void asi_check_boottime_disable(void);
->  
-> -void asi_init_mm_state(struct mm_struct *mm);
-> +int asi_init_mm_state(struct mm_struct *mm);
->  
->  int asi_init_class(enum asi_class_id class_id, struct asi_taint_policy *taint_policy);
-> +void asi_init_userspace_class(void);
->  void asi_uninit_class(enum asi_class_id class_id);
->  const char *asi_class_name(enum asi_class_id class_id);
->  
->  int asi_init(struct mm_struct *mm, enum asi_class_id class_id, struct asi **out_asi);
->  void asi_destroy(struct asi *asi);
-> +void asi_destroy_userspace(struct mm_struct *mm);
->  void asi_clone_user_pgtbl(struct mm_struct *mm, pgd_t *pgdp);
->  
->  /* Enter an ASI domain (restricted address space) and begin the critical section. */
->  void asi_enter(struct asi *asi);
->  
-> +void asi_enter_userspace(void);
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
+>  drivers/rtc/Kconfig    |  11 ++
+>  drivers/rtc/Makefile   |   1 +
+>  drivers/rtc/rtc-s32g.c | 386 +++++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 398 insertions(+)
+>  create mode 100644 drivers/rtc/rtc-s32g.c
+>
+> diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
+> index 0bbbf778ecfa..510dc2db745d 100644
+> --- a/drivers/rtc/Kconfig
+> +++ b/drivers/rtc/Kconfig
+> @@ -2103,4 +2103,15 @@ config RTC_DRV_AMLOGIC_A4
+>  	  This driver can also be built as a module. If so, the module
+>  	  will be called "rtc-amlogic-a4".
+>
+> +config RTC_DRV_S32G
+> +	tristate "RTC driver for S32G2/S32G3 SoCs"
+> +	depends on ARCH_S32 || COMPILE_TEST
+> +	depends on COMMON_CLK
+> +	help
+> +	  Say yes to enable RTC driver for platforms based on the
+> +	  S32G2/S32G3 SoC family.
 > +
->  /*
->   * Leave the "tense" state if we are in it, i.e. end the critical section. We
->   * will stay relaxed until the next asi_enter.
-> @@ -294,7 +298,7 @@ void asi_handle_switch_mm(void);
->   */
->  static inline bool asi_maps_user_addr(enum asi_class_id class_id)
->  {
-> -	return false;
-> +	return class_id == ASI_CLASS_USERSPACE;
->  }
->  
->  #endif /* CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION */
-> diff --git a/arch/x86/mm/asi.c b/arch/x86/mm/asi.c
-> index 093103c1bc2677c81d68008aca064fab53b73a62..1e9dc568e79e8686a4dbf47f765f2c2535d025ec 100644
-> --- a/arch/x86/mm/asi.c
-> +++ b/arch/x86/mm/asi.c
-> @@ -25,6 +25,7 @@ const char *asi_class_names[] = {
->  #if IS_ENABLED(CONFIG_KVM)
->  	[ASI_CLASS_KVM] = "KVM",
->  #endif
-> +	[ASI_CLASS_USERSPACE] = "userspace",
->  };
->  
->  DEFINE_PER_CPU_ALIGNED(struct asi *, curr_asi);
-> @@ -67,6 +68,32 @@ int asi_init_class(enum asi_class_id class_id, struct asi_taint_policy *taint_po
->  }
->  EXPORT_SYMBOL_GPL(asi_init_class);
->  
-> +void __init asi_init_userspace_class(void)
+> +	  This RTC module can be used as a wakeup source.
+> +	  Please note that it is not battery-powered.
+> +
+>  endif # RTC_CLASS
+> diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
+> index 489b4ab07068..e4b616ecd5ce 100644
+> --- a/drivers/rtc/Makefile
+> +++ b/drivers/rtc/Makefile
+> @@ -161,6 +161,7 @@ obj-$(CONFIG_RTC_DRV_RX8111)	+= rtc-rx8111.o
+>  obj-$(CONFIG_RTC_DRV_RX8581)	+= rtc-rx8581.o
+>  obj-$(CONFIG_RTC_DRV_RZN1)	+= rtc-rzn1.o
+>  obj-$(CONFIG_RTC_DRV_RENESAS_RTCA3)	+= rtc-renesas-rtca3.o
+> +obj-$(CONFIG_RTC_DRV_S32G)	+= rtc-s32g.o
+>  obj-$(CONFIG_RTC_DRV_S35390A)	+= rtc-s35390a.o
+>  obj-$(CONFIG_RTC_DRV_S3C)	+= rtc-s3c.o
+>  obj-$(CONFIG_RTC_DRV_S5M)	+= rtc-s5m.o
+> diff --git a/drivers/rtc/rtc-s32g.c b/drivers/rtc/rtc-s32g.c
+> new file mode 100644
+> index 000000000000..251d86ab3046
+> --- /dev/null
+> +++ b/drivers/rtc/rtc-s32g.c
+> @@ -0,0 +1,386 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * Copyright 2025 NXP
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/of_irq.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/rtc.h>
+> +
+> +#define RTCC_OFFSET	0x4ul
+> +#define RTCS_OFFSET	0x8ul
+> +#define APIVAL_OFFSET	0x10ul
+> +
+> +/* RTCC fields */
+> +#define RTCC_CNTEN				BIT(31)
+> +#define RTCC_APIEN				BIT(15)
+> +#define RTCC_APIIE				BIT(14)
+> +#define RTCC_CLKSEL_MASK		GENMASK(13, 12)
+> +#define RTCC_DIV512EN			BIT(11)
+> +#define RTCC_DIV32EN			BIT(10)
+> +
+> +/* RTCS fields */
+> +#define RTCS_INV_API	BIT(17)
+> +#define RTCS_APIF		BIT(13)
+> +
+> +#define APIVAL_MAX_VAL		GENMASK(31, 0)
+> +#define RTC_SYNCH_TIMEOUT	(100 * USEC_PER_MSEC)
+> +
+> +/*
+> + * S32G2 and S32G3 SoCs have RTC clock source1 reserved and
+> + * should not be used.
+> + */
+> +#define RTC_CLK_SRC1_RESERVED		BIT(1)
+> +
+> +/*
+> + * S32G RTC module has a 512 value and a 32 value hardware frequency
+> + * divisors (DIV512 and DIV32) which could be used to achieve higher
+> + * counter ranges by lowering the RTC frequency.
+> + */
+> +enum {
+> +	DIV1 = 1,
+> +	DIV32 = 32,
+> +	DIV512 = 512,
+> +	DIV512_32 = 16384
+> +};
+> +
+> +static const char *const rtc_clk_src[] = {
+> +	"source0",
+> +	"source1",
+> +	"source2",
+> +	"source3"
+> +};
+> +
+> +struct rtc_priv {
+> +	struct rtc_device *rdev;
+> +	void __iomem *rtc_base;
+> +	struct clk *ipg;
+> +	struct clk *clk_src;
+> +	const struct rtc_soc_data *rtc_data;
+> +	u64 rtc_hz;
+> +	time64_t sleep_sec;
+> +	int irq;
+> +	u32 clk_src_idx;
+> +};
+> +
+> +struct rtc_soc_data {
+> +	u32 clk_div;
+> +	u32 reserved_clk_mask;
+> +};
+> +
+> +static const struct rtc_soc_data rtc_s32g2_data = {
+> +	.clk_div = DIV512_32,
+> +	.reserved_clk_mask = RTC_CLK_SRC1_RESERVED,
+> +};
+> +
+> +static irqreturn_t s32g_rtc_handler(int irq, void *dev)
 > +{
-> +	static struct asi_taint_policy policy = {
-> +		/*
-> +		 * Prevent going to userspace with sensitive data potentially
-> +		 * left in sidechannels by code running in the unrestricted
-> +		 * address space, or another MM. Note we don't check for guest
-> +		 * data here. This reflects the assumption that the guest trusts
-> +		 * its VMM (absent fancy HW features, which are orthogonal).
-> +		 */
-> +		.protect_data = ASI_TAINT_KERNEL_DATA | ASI_TAINT_OTHER_MM_DATA,
-> +		/*
-> +		 * Don't go into userspace with control flow state controlled by
-> +		 * other processes, or any KVM guest the process is running.
-> +		 * Note this bit is about protecting userspace from other parts
-> +		 * of the system, while data_taints is about protecting other
-> +		 * parts of the system from the guest.
-> +		 */
-> +		.prevent_control = ASI_TAINT_GUEST_CONTROL | ASI_TAINT_OTHER_MM_CONTROL,
-> +		.set = ASI_TAINT_USER_CONTROL | ASI_TAINT_USER_DATA,
-> +	};
-> +	int err = asi_init_class(ASI_CLASS_USERSPACE, &policy);
+> +	struct rtc_priv *priv = platform_get_drvdata(dev);
+> +	u32 status;
 > +
-> +	WARN_ON(err);
+> +	status = readl(priv->rtc_base + RTCS_OFFSET);
+> +
+> +	if (status & RTCS_APIF) {
+> +		writel(0x0, priv->rtc_base + APIVAL_OFFSET);
+> +		writel(status | RTCS_APIF, priv->rtc_base + RTCS_OFFSET);
+> +	}
+> +
+> +	rtc_update_irq(priv->rdev, 1, RTC_IRQF | RTC_AF);
+> +
+> +	return IRQ_HANDLED;
 > +}
 > +
->  void asi_uninit_class(enum asi_class_id class_id)
->  {
->  	if (!boot_cpu_has(X86_FEATURE_ASI))
-> @@ -385,7 +412,8 @@ int asi_init(struct mm_struct *mm, enum asi_class_id class_id, struct asi **out_
->  	int err = 0;
->  	uint i;
->  
-> -	*out_asi = NULL;
-> +	if (out_asi)
-> +		*out_asi = NULL;
->  
->  	if (!boot_cpu_has(X86_FEATURE_ASI))
->  		return 0;
-> @@ -424,7 +452,7 @@ int asi_init(struct mm_struct *mm, enum asi_class_id class_id, struct asi **out_
->  exit_unlock:
->  	if (err)
->  		__asi_destroy(asi);
-> -	else
-> +	else if (out_asi)
->  		*out_asi = asi;
->  
->  	__asi_init_user_pgds(mm, asi);
-> @@ -515,6 +543,12 @@ static __always_inline void maybe_flush_data(struct asi *next_asi)
->  	this_cpu_and(asi_taints, ~ASI_TAINTS_DATA_MASK);
->  }
->  
-> +void asi_destroy_userspace(struct mm_struct *mm)
+> +/*
+> + * The function is not really getting time from the RTC since the S32G RTC
+> + * has several limitations. Thus, to setup alarm use system time.
+> + */
+> +static int s32g_rtc_read_time(struct device *dev,
+> +			      struct rtc_time *tm)
 > +{
-> +	VM_BUG_ON(!asi_class_initialized(ASI_CLASS_USERSPACE));
-> +	asi_destroy(&mm->asi[ASI_CLASS_USERSPACE]);
+> +	struct rtc_priv *priv = dev_get_drvdata(dev);
+> +	time64_t sec;
+> +
+> +	if (check_add_overflow(ktime_get_real_seconds(),
+> +			       priv->sleep_sec, &sec))
+> +		return -ERANGE;
+> +
+> +	rtc_time64_to_tm(sec, tm);
+> +
+> +	return 0;
 > +}
 > +
->  noinstr void __asi_enter(void)
->  {
->  	u64 asi_cr3;
-> @@ -584,6 +618,11 @@ noinstr void asi_enter(struct asi *asi)
->  }
->  EXPORT_SYMBOL_GPL(asi_enter);
->  
-> +noinstr void asi_enter_userspace(void)
+> +static int s32g_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *alrm)
 > +{
-> +	asi_enter(&current->mm->asi[ASI_CLASS_USERSPACE]);
+> +	struct rtc_priv *priv = dev_get_drvdata(dev);
+> +	u32 rtcc, rtcs;
+> +
+> +	rtcc = readl(priv->rtc_base + RTCC_OFFSET);
+> +	rtcs = readl(priv->rtc_base + RTCS_OFFSET);
+> +
+> +	alrm->enabled = rtcc & RTCC_APIIE;
+> +	if (alrm->enabled)
+> +		alrm->pending = !(rtcs & RTCS_APIF);
+> +
+> +	return 0;
 > +}
 > +
->  noinstr void asi_relax(void)
->  {
->  	if (static_asi_enabled()) {
-> @@ -633,13 +672,15 @@ noinstr void asi_exit(void)
->  }
->  EXPORT_SYMBOL_GPL(asi_exit);
->  
-> -void asi_init_mm_state(struct mm_struct *mm)
-> +int asi_init_mm_state(struct mm_struct *mm)
->  {
->  	if (!boot_cpu_has(X86_FEATURE_ASI))
-> -		return;
-> +		return 0;
->  
->  	memset(mm->asi, 0, sizeof(mm->asi));
->  	mutex_init(&mm->asi_init_lock);
+> +static int s32g_rtc_alarm_irq_enable(struct device *dev, unsigned int enabled)
+> +{
+> +	struct rtc_priv *priv = dev_get_drvdata(dev);
+> +	u32 rtcc;
 > +
-> +	return asi_init(mm, ASI_CLASS_USERSPACE, NULL);
-
-I think this call here is problematic. This can be called from
-asi_global_init().
-
-An example is:
-
-start_kernel()
-poking_init()
-mm_alloc()
-mm_init()
-asi_init_mm_state()
-
-But the same also happen through dup_mm(), for example:
-
-kernel_thread()
-kernel_clone()
-copy_process()
-copy_mm()
-dup_mm()
-
-asi_global_init() is called later from do_initcalls() (run in a kthread
-by kernel_init()). In this case, asi_init() copies the kernel PGDs from
-asi_global_nonsensitive_pgd, but those PGDs won't be initialized yet.
-
-It could be fine for the current code because all these threads created
-during init never enter userspace, but I am not sure if that's always
-true. It also makes me a bit nervous to have partially initialized ASI
-domains hanging around.
-
-I'd rather we either:
-- Move asi_global_init() earlier, but we have to be careful not to move
-  it too early before some of the mappings it clones are created (or
-  before we can make allocations). In this case, we should also add a
-  warning in asi_init() in case the code changes and it is ever called
-  before asi_global_init().
-
-- Explicitly avoid calling asi_init_mm_state() or asi_init() in these
-  cases. This may be easy-ish in the case of kthreads, but for things
-  like poking_init() we would need to plump more context through.
-  Alternatively we can just make asi_init() a noop if asi_global_init()
-  isn't called yet, but the silent failure makes me a bit worried too.
-
->  }
->  
->  void asi_handle_switch_mm(void)
-> diff --git a/include/asm-generic/asi.h b/include/asm-generic/asi.h
-> index d103343292fad567dcd73e45e986fb3974e59898..c93f9e779ce1fa61e3df7835f5ab744cce7d667b 100644
-> --- a/include/asm-generic/asi.h
-> +++ b/include/asm-generic/asi.h
-> @@ -15,6 +15,7 @@ enum asi_class_id {
->  #if IS_ENABLED(CONFIG_KVM)
->  	ASI_CLASS_KVM,
->  #endif
-> +	ASI_CLASS_USERSPACE,
->  	ASI_MAX_NUM_CLASSES,
->  };
->  static_assert(order_base_2(X86_CR3_ASI_PCID_BITS) <= ASI_MAX_NUM_CLASSES);
-> @@ -37,8 +38,10 @@ int asi_init_class(enum asi_class_id class_id,
->  
->  static inline void asi_uninit_class(enum asi_class_id class_id) { }
->  
-> +static inline void asi_init_userspace_class(void) { }
-> +
->  struct mm_struct;
-> -static inline void asi_init_mm_state(struct mm_struct *mm) { }
-> +static inline int asi_init_mm_state(struct mm_struct *mm) { return 0; }
->  
->  static inline int asi_init(struct mm_struct *mm, enum asi_class_id class_id,
->  			   struct asi **out_asi)
-> @@ -48,8 +51,12 @@ static inline int asi_init(struct mm_struct *mm, enum asi_class_id class_id,
->  
->  static inline void asi_destroy(struct asi *asi) { }
->  
-> +static inline void asi_destroy_userspace(struct mm_struct *mm) { }
-> +
->  static inline void asi_enter(struct asi *asi) { }
->  
-> +static inline void asi_enter_userspace(void) { }
-> +
->  static inline void asi_relax(void) { }
->  
->  static inline bool asi_is_relaxed(void) { return true; }
-> diff --git a/include/linux/entry-common.h b/include/linux/entry-common.h
-> index 1e50cdb83ae501467ecc30ee52f1379d409f962e..f04c4c038556f84ddf3bc09b6c1dd22a9dbd2f6b 100644
-> --- a/include/linux/entry-common.h
-> +++ b/include/linux/entry-common.h
-> @@ -191,6 +191,16 @@ static __always_inline long syscall_enter_from_user_mode(struct pt_regs *regs, l
->  {
->  	long ret;
->  
-> +	/*
-> +	 * End the ASI critical section for userspace. Syscalls are the only
-> +	 * place this happens - all other entry from userspace is handled via
-> +	 * ASI's interrupt-tracking. The reason syscalls are special is that's
-> +	 * where it's possible to switch to another ASI domain within the same
-> +	 * task (i.e. KVM_RUN), an asi_relax() is required here in case of an
-> +	 * upcoming asi_enter().
+> +	/* RTC API functionality is used both for triggering interrupts
+> +	 * and as a wakeup event. Hence it should always be enabled.
 > +	 */
-> +	asi_relax();
+> +	rtcc = readl(priv->rtc_base + RTCC_OFFSET);
+> +	rtcc |= RTCC_APIEN | RTCC_APIIE;
+> +	writel(rtcc, priv->rtc_base + RTCC_OFFSET);
 > +
->  	enter_from_user_mode(regs);
->  
->  	instrumentation_begin();
-> @@ -355,6 +365,7 @@ static __always_inline void exit_to_user_mode_prepare(struct pt_regs *regs)
->   */
->  static __always_inline void exit_to_user_mode(void)
->  {
+> +	return 0;
+> +}
 > +
->  	instrumentation_begin();
->  	trace_hardirqs_on_prepare();
->  	lockdep_hardirqs_on_prepare();
-> diff --git a/init/main.c b/init/main.c
-> index c4778edae7972f512d5eefe8400075ac35a70d1c..d19e149d385e8321d2f3e7c28aa75802af62d09c 100644
-> --- a/init/main.c
-> +++ b/init/main.c
-> @@ -953,6 +953,8 @@ void start_kernel(void)
->  	/* Architectural and non-timekeeping rng init, before allocator init */
->  	random_init_early(command_line);
->  
-> +	asi_init_userspace_class();
+> +static int s32g_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alrm)
+> +{
+> +	struct rtc_priv *priv = dev_get_drvdata(dev);
+> +	unsigned long long cycles;
+> +	long long t_offset;
+> +	time64_t alrm_time;
+> +	u32 rtcs;
+> +	int ret;
 > +
->  	/*
->  	 * These use large bootmem allocations and must precede
->  	 * initalization of page allocator
-> diff --git a/kernel/entry/common.c b/kernel/entry/common.c
-> index 5b6934e23c21d36a3238dc03e391eb9e3beb4cfb..874254ed5958d62eaeaef4fe3e8c02e56deaf5ed 100644
-> --- a/kernel/entry/common.c
-> +++ b/kernel/entry/common.c
-> @@ -218,6 +218,7 @@ __visible noinstr void syscall_exit_to_user_mode(struct pt_regs *regs)
->  	__syscall_exit_to_user_mode_work(regs);
->  	instrumentation_end();
->  	exit_to_user_mode();
-> +	asi_enter_userspace();
->  }
->  
->  noinstr void irqentry_enter_from_user_mode(struct pt_regs *regs)
-> diff --git a/kernel/fork.c b/kernel/fork.c
-> index bb73758790d08112265d398b16902ff9a4c2b8fe..54068d2415939b92409ca8a45111176783c6acbd 100644
-> --- a/kernel/fork.c
-> +++ b/kernel/fork.c
-> @@ -917,6 +917,7 @@ void __mmdrop(struct mm_struct *mm)
->  	/* Ensure no CPUs are using this as their lazy tlb mm */
->  	cleanup_lazy_tlbs(mm);
->  
-> +	asi_destroy_userspace(mm);
->  	WARN_ON_ONCE(mm == current->active_mm);
->  	mm_free_pgd(mm);
->  	destroy_context(mm);
-> @@ -1297,7 +1298,8 @@ static struct mm_struct *mm_init(struct mm_struct *mm, struct task_struct *p,
->  	if (mm_alloc_pgd(mm))
->  		goto fail_nopgd;
->  
-> -	asi_init_mm_state(mm);
-> +	if (asi_init_mm_state(mm))
-> +		goto fail_nocontext;
->  
->  	if (init_new_context(p, mm))
->  		goto fail_nocontext;
-> 
-> -- 
-> 2.47.1.613.gc27f4b7a9f-goog
-> 
+> +	alrm_time = rtc_tm_to_time64(&alrm->time);
+> +	t_offset = alrm_time - ktime_get_real_seconds() - priv->sleep_sec;
+> +	if (t_offset < 0)
+> +		return -ERANGE;
+> +
+> +	cycles = t_offset * priv->rtc_hz;
+> +	if (cycles > APIVAL_MAX_VAL)
+> +		return -ERANGE;
+> +
+> +	/* APIVAL could have been reset from the IRQ handler.
+> +	 * Hence, we wait in case there is a synchronization process.
+> +	 */
+> +	ret = read_poll_timeout(readl, rtcs, !(rtcs & RTCS_INV_API),
+> +				0, RTC_SYNCH_TIMEOUT, false, priv->rtc_base + RTCS_OFFSET);
+> +	if (ret)
+> +		return ret;
+> +
+> +	writel(cycles, priv->rtc_base + APIVAL_OFFSET);
+> +
+> +	return read_poll_timeout(readl, rtcs, !(rtcs & RTCS_INV_API),
+> +				0, RTC_SYNCH_TIMEOUT, false, priv->rtc_base + RTCS_OFFSET);
+> +}
+> +
+> +/*
+> + * Disable the 32-bit free running counter.
+> + * This allows Clock Source and Divisors selection
+> + * to be performed without causing synchronization issues.
+> + */
+> +static void s32g_rtc_disable(struct rtc_priv *priv)
+> +{
+> +	u32 rtcc = readl(priv->rtc_base + RTCC_OFFSET);
+> +
+> +	rtcc &= ~RTCC_CNTEN;
+> +	writel(rtcc, priv->rtc_base + RTCC_OFFSET);
+> +}
+> +
+> +static void s32g_rtc_enable(struct rtc_priv *priv)
+> +{
+> +	u32 rtcc = readl(priv->rtc_base + RTCC_OFFSET);
+> +
+> +	rtcc |= RTCC_CNTEN;
+> +	writel(rtcc, priv->rtc_base + RTCC_OFFSET);
+> +}
+> +
+> +static int rtc_clk_src_setup(struct rtc_priv *priv)
+> +{
+> +	u32 rtcc;
+> +
+> +	if (priv->rtc_data->reserved_clk_mask & (1 << priv->clk_src_idx))
+> +		return -EOPNOTSUPP;
+> +
+> +	rtcc = FIELD_PREP(RTCC_CLKSEL_MASK, priv->clk_src_idx);
+> +
+> +	switch (priv->rtc_data->clk_div) {
+> +	case DIV512_32:
+> +		rtcc |= RTCC_DIV512EN;
+> +		rtcc |= RTCC_DIV32EN;
+> +		break;
+> +	case DIV512:
+> +		rtcc |= RTCC_DIV512EN;
+> +		break;
+> +	case DIV32:
+> +		rtcc |= RTCC_DIV32EN;
+> +		break;
+> +	case DIV1:
+> +		break;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +
+> +	rtcc |= RTCC_APIEN | RTCC_APIIE;
+> +	/*
+> +	 * Make sure the CNTEN is 0 before we configure
+> +	 * the clock source and dividers.
+> +	 */
+> +	s32g_rtc_disable(priv);
+> +	writel(rtcc, priv->rtc_base + RTCC_OFFSET);
+> +	s32g_rtc_enable(priv);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct rtc_class_ops rtc_ops = {
+> +	.read_time = s32g_rtc_read_time,
+> +	.read_alarm = s32g_rtc_read_alarm,
+> +	.set_alarm = s32g_rtc_set_alarm,
+> +	.alarm_irq_enable = s32g_rtc_alarm_irq_enable,
+> +};
+> +
+> +static int rtc_clk_dts_setup(struct rtc_priv *priv,
+> +			     struct device *dev)
+> +{
+> +	u32 i;
+> +
+> +	priv->ipg = devm_clk_get_enabled(dev, "ipg");
+> +	if (IS_ERR(priv->ipg))
+> +		return dev_err_probe(dev, PTR_ERR(priv->ipg),
+> +				"Failed to get 'ipg' clock\n");
+> +
+> +	for (i = 0; i < ARRAY_SIZE(rtc_clk_src); i++) {
+> +		priv->clk_src = devm_clk_get_enabled(dev, rtc_clk_src[i]);
+> +		if (!IS_ERR(priv->clk_src)) {
+> +			priv->clk_src_idx = i;
+> +			break;
+> +		}
+> +	}
+> +
+> +	if (IS_ERR(priv->clk_src))
+> +		return dev_err_probe(dev, PTR_ERR(priv->clk_src),
+> +				"Failed to get rtc module clock source\n");
+> +
+> +	return 0;
+> +}
+> +
+> +static int s32g_rtc_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct rtc_priv *priv;
+> +	unsigned long rtc_hz;
+> +	int ret;
+> +
+> +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> +	if (!priv)
+> +		return -ENOMEM;
+> +
+> +	priv->rtc_data = of_device_get_match_data(dev);
+> +	if (!priv->rtc_data)
+> +		return -ENODEV;
+> +
+> +	priv->rtc_base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(priv->rtc_base))
+> +		return PTR_ERR(priv->rtc_base);
+> +
+> +	device_init_wakeup(dev, true);
+> +
+> +	ret = rtc_clk_dts_setup(priv, dev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	priv->rdev = devm_rtc_allocate_device(dev);
+> +	if (IS_ERR(priv->rdev))
+> +		return PTR_ERR(priv->rdev);
+> +
+> +	ret = rtc_clk_src_setup(priv);
+> +	if (ret)
+> +		return ret;
+> +
+> +	priv->irq = platform_get_irq(pdev, 0);
+> +	if (priv->irq < 0) {
+> +		ret = priv->irq;
+> +		goto disable_rtc;
+> +	}
+> +
+> +	rtc_hz = clk_get_rate(priv->clk_src);
+> +	if (!rtc_hz) {
+> +		dev_err(dev, "Failed to get RTC frequency\n");
+> +		ret = -EINVAL;
+> +		goto disable_rtc;
+> +	}
+> +
+> +	priv->rtc_hz = rtc_hz / priv->rtc_data->clk_div;
+> +	if (rtc_hz % priv->rtc_data->clk_div)
+> +		priv->rtc_hz++;
+> +
+> +	platform_set_drvdata(pdev, priv);
+> +	priv->rdev->ops = &rtc_ops;
+> +
+> +	ret = devm_request_irq(dev, priv->irq,
+> +			       s32g_rtc_handler, 0, dev_name(dev), pdev);
+> +	if (ret) {
+> +		dev_err(dev, "Request interrupt %d failed, error: %d\n",
+> +			priv->irq, ret);
+> +		goto disable_rtc;
+> +	}
+> +
+> +	ret = devm_rtc_register_device(priv->rdev);
+> +	if (ret)
+> +		goto disable_rtc;
+> +
+> +	return 0;
+> +
+> +disable_rtc:
+> +	s32g_rtc_disable(priv);
+> +	return ret;
+> +}
+> +
+> +static int s32g_rtc_suspend(struct device *dev)
+> +{
+> +	struct rtc_priv *priv = dev_get_drvdata(dev);
+> +	u32 apival = readl(priv->rtc_base + APIVAL_OFFSET);
+> +
+> +	if (check_add_overflow(priv->sleep_sec, div64_u64(apival, priv->rtc_hz),
+> +			       &priv->sleep_sec)) {
+> +		dev_warn(dev, "Overflow on sleep cycles occurred. Resetting to 0.\n");
+> +		priv->sleep_sec = 0;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int s32g_rtc_resume(struct device *dev)
+> +{
+> +	struct rtc_priv *priv = dev_get_drvdata(dev);
+> +
+> +	/* The transition from resume to run is a reset event.
+> +	 * This leads to the RTC registers being reset after resume from
+> +	 * suspend. It is uncommon, but this behaviour has been observed
+> +	 * on S32G RTC after issueing a Suspend to RAM operation.
+> +	 * Thus, reconfigure RTC registers on the resume path.
+> +	 */
+> +	return rtc_clk_src_setup(priv);
+> +}
+> +
+> +static const struct of_device_id rtc_dt_ids[] = {
+> +	{ .compatible = "nxp,s32g2-rtc", .data = &rtc_s32g2_data},
+> +	{ /* sentinel */ },
+> +};
+> +
+> +static DEFINE_SIMPLE_DEV_PM_OPS(s32g_rtc_pm_ops,
+> +			 s32g_rtc_suspend, s32g_rtc_resume);
+> +
+> +static struct platform_driver s32g_rtc_driver = {
+> +	.driver		= {
+> +		.name			= "s32g-rtc",
+> +		.pm				= pm_sleep_ptr(&s32g_rtc_pm_ops),
+> +		.of_match_table = rtc_dt_ids,
+> +	},
+> +	.probe		= s32g_rtc_probe,
+> +};
+> +module_platform_driver(s32g_rtc_driver);
+> +
+> +MODULE_AUTHOR("NXP");
+> +MODULE_DESCRIPTION("NXP RTC driver for S32G2/S32G3");
+> +MODULE_LICENSE("GPL");
+> --
+> 2.45.2
+>
 
