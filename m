@@ -4,78 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FD2FC282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 22:28:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F789C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 22:56:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1A0wwVr+M5YdleD5WdQbyvCNYbPCnowwpdIat8Rx3jU=; b=tDjQZ1YpXIK5hYKBXUyvIC2IDl
-	gfZp0JgIz0FVXau4t7jJjN8hcIwEBGq81Xq1ZcEXFPrmKYNZs/En59WLiOlIXbvs8/DygeVlYMurX
-	3aoB2s/5iMVFGK4xjF+jyrEcoRj8aSbiuTYfimZ8Eoh0cx4DssiOCnyAvn0T6ic/rgUYkqO3a/6q2
-	tr2qvjLCzHoZymvDjxgN130JNWpDWtedZYRDPw+cNLcTHGgjFhdl9vG31nhpGXD4t1DOmhe/aVHhr
-	/J3xIj6bKoHCGs6PIQ+NMG+7oSz14PlpMEku9AYsjX/3EgAxCohNNrvVMViFAAkAV0KfOX58yBXd4
-	MVdf9QKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dl9g1rS3GGzgAfBdc0mn2zOFZtimZGKXQWHRcPkd/uU=; b=ULgN1ZUDmN4/uQyxs6N+iajq5a
+	G2hgr7LbBCAr6RVRv3sDuljjgdYKw6yjgxK55hWCWy5IpJz4BlRosceqIy5pyA1sE/IyAGryLJOsh
+	gM0jcBOD4TOtYKivrzH6C2sydJP5lni10a7q4dHPYe9BP+Dd1tUQQmXSMHOGORV7qtshINjs6Xkwk
+	bAsCDIVSRptPuVaLXGXSPi3k/dzXdPnKhTp4/yAD7JVCzzZPrC2O7lMuZqC/rZt+d9rIhTTB0o3Ka
+	/SlhPJJ1f0IBNshaeOvT70eXIvHWVqtodp/RK4lR/Rl4uIciOZZ9uHXRXTF8WjEYyIyGarPlGqZkT
+	c8YoTD3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to8qR-0000000Cs57-2qWg;
-	Fri, 28 Feb 2025 22:28:35 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to8ot-0000000Crmr-47MM
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 22:27:01 +0000
-Received: from [10.137.184.60] (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id BB67A210D0EB;
-	Fri, 28 Feb 2025 14:26:57 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com BB67A210D0EB
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1740781618;
-	bh=1A0wwVr+M5YdleD5WdQbyvCNYbPCnowwpdIat8Rx3jU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iPaqpljp0SPsYOEXK7VBrtInRVWgckeDIadHTBLILkbz6lm3ZiSAC5yniZwL98w9Q
-	 F7FNXGkQStzvgrEgW0HShsyY3FA7178mzv+tFFHskRkkW3SP/1XHSFHHr1amJtB1+D
-	 9HGrCNlzv6+oPzIhOR72qkgcAaskPXKU8ovhxizY=
-Message-ID: <65e3bf97-8d3c-4a53-a3ad-42a16c0456d1@linux.microsoft.com>
-Date: Fri, 28 Feb 2025 14:26:57 -0800
+	id 1to9HG-0000000Cubs-0BiR;
+	Fri, 28 Feb 2025 22:56:18 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1to9Fi-0000000CuOt-1LmW;
+	Fri, 28 Feb 2025 22:54:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1DFCD5C0095;
+	Fri, 28 Feb 2025 22:52:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 365D4C4CEE5;
+	Fri, 28 Feb 2025 22:54:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740783280;
+	bh=9/BEXh6bZ8n930l+zITwwGD3TVUqcE/AjCK/PLv0gB0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nX/j+gbKMT3qpqycuWs1FLkNZM513VJA/ubbB3ELLAIas2x/UEUSHjmElCnSZJM+3
+	 /foNfRWpibRmmI3jmjSJc/yiXsDYGs9ECi4XlrIOly7Pbrfoahe/tpjpPy6tJafgbB
+	 CtwoIvOOl4cpjJrRGp/q/nmvxdj85NIeDRMwGEZvU64I3sgYW7+O4tihMU4aVJ5Y3O
+	 UU0VxqFdtTGot5sUZKk0BX/4EQx59SwSTYP3i74aIEHCT6RSeoa6kxI2leO3AGhSKY
+	 74+5nSVfV6Rh7RsE+AI5kEI1cFEQ2gOGKz6Ors36uE92f9osGZlLU/utjaXgBx5/Bw
+	 tGDKtrPA5UAxg==
+Date: Fri, 28 Feb 2025 23:54:37 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Kever Yang <kever.yang@rock-chips.com>
+Cc: heiko@sntech.de, linux-rockchip@lists.infradead.org, 
+	linux-pwm@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+	Rob Herring <robh@kernel.org>, linux-kernel@vger.kernel.org, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 10/15] dt-bindings: pwm: rockchip: Add
+ rockchip,rk3562-pwm
+Message-ID: <hmqehlztyrudpdkc46afqvgwg2jpanaprru25qxacnmna7tkha@ifz73s2oiqiq>
+References: <20250227111913.2344207-1-kever.yang@rock-chips.com>
+ <20250227111913.2344207-11-kever.yang@rock-chips.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 01/10] hyperv: Convert Hyper-V status codes to strings
-To: Easwar Hariharan <eahariha@linux.microsoft.com>
-Cc: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
- linux-hyperv@vger.kernel.org, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org, kys@microsoft.com,
- haiyangz@microsoft.com, wei.liu@kernel.org, mhklinux@outlook.com,
- decui@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
- tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, hpa@zytor.com, daniel.lezcano@linaro.org,
- joro@8bytes.org, robin.murphy@arm.com, arnd@arndb.de,
- jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
- skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com,
- ssengar@linux.microsoft.com, apais@linux.microsoft.com,
- Tianyu.Lan@microsoft.com, stanislav.kinsburskiy@gmail.com,
- gregkh@linuxfoundation.org, vkuznets@redhat.com, prapal@linux.microsoft.com,
- muislam@microsoft.com, anrayabh@linux.microsoft.com, rafael@kernel.org,
- lenb@kernel.org, corbet@lwn.net
-References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740611284-27506-2-git-send-email-nunodasneves@linux.microsoft.com>
- <74af19c4-639f-4bcc-b667-b5f102bbb312@linux.microsoft.com>
- <8338dd00-3aa4-418f-a547-1c19623358cb@linux.microsoft.com>
- <49a69fe3-fca5-426d-999d-61ee0c8f60f3@linux.microsoft.com>
- <70b62e52-639a-4026-9a52-102d1de46ffd@linux.microsoft.com>
- <212cc582-845d-42b2-89f2-1e9579f752ec@linux.microsoft.com>
- <9254eaa1-8ff0-4dd6-a443-5f127049bdaa@linux.microsoft.com>
-Content-Language: en-US
-From: Roman Kisel <romank@linux.microsoft.com>
-In-Reply-To: <9254eaa1-8ff0-4dd6-a443-5f127049bdaa@linux.microsoft.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="7eve6skvx3pjfnjm"
+Content-Disposition: inline
+In-Reply-To: <20250227111913.2344207-11-kever.yang@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_142700_046437_4A823E75 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20250228_145442_403155_4FB8C8C8 
+X-CRM114-Status: GOOD (  15.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,45 +76,70 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--7eve6skvx3pjfnjm
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 10/15] dt-bindings: pwm: rockchip: Add
+ rockchip,rk3562-pwm
+MIME-Version: 1.0
 
-On 2/28/2025 12:22 PM, Easwar Hariharan wrote:
-> On 2/28/2025 9:20 AM, Roman Kisel wrote:
->>
+Hello,
 
-[...]
+On Thu, Feb 27, 2025 at 07:19:08PM +0800, Kever Yang wrote:
+> The PWM core on Rockchip's RK3562 is the same as the one already
+> included in RK3328. Extend the binding accordingly to allow
+>=20
+> 	compatible =3D "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+>=20
+> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+> Acked-by: Uwe Kleine-K=F6nig <ukleinek@kernel.org>
+> ---
+>=20
+> Changes in v3:
+> - Update the commit message and collect the Acked-by tag.
+>=20
+> Changes in v2: None
+>=20
+>  Documentation/devicetree/bindings/pwm/pwm-rockchip.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/pwm/pwm-rockchip.yaml b/Do=
+cumentation/devicetree/bindings/pwm/pwm-rockchip.yaml
+> index 65bfb492b3a4..e4e1976c542d 100644
+> --- a/Documentation/devicetree/bindings/pwm/pwm-rockchip.yaml
+> +++ b/Documentation/devicetree/bindings/pwm/pwm-rockchip.yaml
+> @@ -30,6 +30,7 @@ properties:
+>            - enum:
+>                - rockchip,px30-pwm
+>                - rockchip,rk3308-pwm
+> +              - rockchip,rk3562-pwm
+>                - rockchip,rk3568-pwm
+>                - rockchip,rk3588-pwm
+>                - rockchip,rv1126-pwm
 
->>
->> So I'd think that the hex error codes from the hypervisor give the user
->> exactly as much as the error symbolic names do to get the system to the
->> desired state: nothing.
-> I continue to disagree, seeing HV_STATUS_NO_RESOURCES is better than 0x1D,
-> because the user may think to look at `top` or `free -h` or similar to see
-> what could be killed to improve the situation.
-> 
+Applied with Rob's Ack to
+https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
+next
+=2E
 
-I agree that the symbolic name might save the step of looking up the
-error code in the headers. Now, the next step depends on how much the
-user is into virt technologies (if at all). That is
-to illustrate the point that a hint in the logs (or in the
-Documentation) is crucial of what to do next.
+Best regards
+Uwe
 
-The symbolic name might mislead; a hex code maybe with an addition of
-"please look up what may fix this at <URL> or report the problem here
-<URL>" would look better to _my imaginary_ customer :) That would be
-as much friendly as possible, if the kernel needs to print any of that
-at all. Likely the VMM in the user land if it gets that code as-is.
+--7eve6skvx3pjfnjm
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Thank you for the fair critique and the time!
+-----BEGIN PGP SIGNATURE-----
 
-[...]
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmfCPqsACgkQj4D7WH0S
+/k5fwQf/bAS8biZKL+kTke5xko1/gSdfFCKIQh8hFMMkR1nephPx57Secam01izM
+4hWWBXkLtnA/4WZXDXftApK2+vParfljyN43aL1aX7ZVEYJAofAHo/VgnA5B36dR
+SJgT3Pj4I10+iF3mtX0miBBxT6GpSY+wbYnscXeU/V1iAt9SuF21MsSXBHYaKd12
+RS1XdmCD9FskxIx67EqE4Uee7nlRAxlmYHRLrLc0RTHABK/hWPJstx3yPDqh57TS
+xFMXo643/mz0yJzWSmEJ6wGtDv6YkK59WUbzZSUBXfODP6qMJmYu0MzOodI02qsQ
+WnrZme04x/XgtigQkvtigVEy8JNqyw==
+=8SAG
+-----END PGP SIGNATURE-----
 
->>> Thanks,
->>> Easwar (he/him)
->>
-> 
-
--- 
-Thank you,
-Roman
-
+--7eve6skvx3pjfnjm--
 
