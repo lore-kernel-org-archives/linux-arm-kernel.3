@@ -4,166 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA94CC282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 17:21:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A666CC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 17:23:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fM5yl+jV66hkBUX8rKXqUuyJWGY3J4aakKl/6m8WSG0=; b=z0jTuCIk3yrMcXtc97JFZglmP6
-	LQVKTiKuF8Yl8m6IGY8exgx6SW4G+2uLmj9uOd8U1LVvTqx0DNFeCBKCv6dNlN1NMKvgiTC81H1k0
-	iDoSApSLUPeN8cnjleq503zFMlr4W5VBxhqlwl/N2S/azUEgAtGIlUFAuNlppXesc4kkTrAHF7My/
-	cimAY1yQrFX2PKoaliShlyr9WtkKUBzcICqzqhBNMsJwgRZiq3iLuybbwMbDhqWLK//oU/pqMDdfV
-	3sSd8bBBoIRKlyWBpuIPXrYgw7HxuYCwEzoZla2pq9wBIrC48X3q81grLL+Le3CMfMR6cVFzalA43
-	OlEhia9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bd0qQbfp5v3IPIVdEdHCrsovEB4c3GORz0HpWujPouQ=; b=uWLAUJK1TU7bZnOZ5AiKK62oIN
+	jRRhPlAv9f+L9Z+9fspVBAUo+6aYd29c/X0ImXQ94ZKQXlmMK7SK0oaqyDrw7puW0Xaq7LLWpbJ7Z
+	AZX1OjQDDlE/hTQsgB2HS5xIBR28jZo/yJkri2HGCvj36W19BeM1DSkFsEcOMxwRvrd7on3UMEwGR
+	ToJek1EGGtTxWNzsaa0ap4hkzNfvCuUU5aZPKRy8gU4ZK7yTMaYyxr06oShUKh17buNmO4RGfk+yb
+	D+FJqlW9nTJom0y+tiFaeSkUEIWd+BsYzVY684MetN8/HhJPN1ilGlsSOqkDBlYoKp3m0bJRVCJ2+
+	YaIDpZcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to43M-0000000Bvsw-3UgN;
-	Fri, 28 Feb 2025 17:21:36 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to41m-0000000BvPU-3UiL;
-	Fri, 28 Feb 2025 17:20:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BncCCpHTwyJgjZZnIN5wYc67vG5bcGoXAWUrF9cbg6VQsCvqfF2sqW+vWHIS978mhBtb0hUukQ6x/49LcpKPEL+blgDKwrBpmz5x/k9phGdNkav/zxrQuZK95XZxSSEi+jdt8sO9wGVFN2q9/MAohZoJt+3L2r02XsLqlBGFpGDjtoMvTYbJKMC9unKRxpeMWcdIWFxa92ExxLANDhMsjgd+O0Y0ZPvshFFj/xfihiNM4nuLlQCO3y3jhdvjmNYtBMsJHkMhL/J+awEBjz39WPU0Ob+LuqEZdWpGH1iqKmgXzZRg2ZN5NfhFjbqybbfct9r7i1boAr/ZYLkuOrohAA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fM5yl+jV66hkBUX8rKXqUuyJWGY3J4aakKl/6m8WSG0=;
- b=g9wDwDre8GMxRwUrMBXIEeLJI7OVVvYmDFktbzeRLN3WUpoJ1wsGUpaLncorLa+Ls5VnKEi+rAM8XeQgJhuByyiUgqBR1JgeyVWpMdHqtka6CChYnmfrYT4n0cme30UgFnGwcNlzffsGvH7tHpDVYpVOlnOeFgNfzD6Ol8/IisoGvAanZq2qNx9eAfXpB71jVAoaPpWHeTNm4fNbarEcspBwSUh2tdak6z1x4sQwOwBJQdb3vhQM2MfGV6+Wqloi5efSoiuzoAUyq3ejAeizSsBKRysaxAKTqtKK93iFmzNjJNNLDxCQRbZrKbex6R3sfmXRS2qs2k88iUFprXe/sw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fM5yl+jV66hkBUX8rKXqUuyJWGY3J4aakKl/6m8WSG0=;
- b=NaxKrmduNSlFLlAv854qHGuPPkrMR3e0jrgREE5YYqKfI+rxWbcyUXTP8NwrBNElXcHsnh/sFsOft6VB1BfjfsW7H1Vl0r6i5dm6ntnUKGP3LKxk8/i5PXC95CeUWEku2PWCNi2uUYNkc8x9UJD8yupriSXJDbxxumv38vqngBk=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
- by AS8PR04MB9175.eurprd04.prod.outlook.com (2603:10a6:20b:44a::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.22; Fri, 28 Feb
- 2025 17:19:55 +0000
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a%6]) with mapi id 15.20.8489.021; Fri, 28 Feb 2025
- 17:19:55 +0000
-Message-ID: <521cb717-68a4-43ce-84fa-580fcd8cd50b@cherry.de>
-Date: Fri, 28 Feb 2025 18:19:54 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] drm/rockchip: lvds: move pclk preparation in with
- clk_get
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: andy.yan@rock-chips.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Heiko Stuebner <heiko.stuebner@cherry.de>
-References: <20250228165755.405138-1-heiko@sntech.de>
- <20250228165755.405138-2-heiko@sntech.de>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <20250228165755.405138-2-heiko@sntech.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AS9PR05CA0108.eurprd05.prod.outlook.com
- (2603:10a6:20b:498::19) To AS8PR04MB8897.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::20)
+	id 1to44t-0000000BwJS-3SQh;
+	Fri, 28 Feb 2025 17:23:11 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1to423-0000000BvTu-1Av4
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Feb 2025 17:20:16 +0000
+Received: from [10.137.184.60] (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 36672210D0D4;
+	Fri, 28 Feb 2025 09:20:13 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 36672210D0D4
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1740763213;
+	bh=bd0qQbfp5v3IPIVdEdHCrsovEB4c3GORz0HpWujPouQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=AYfrdmEMnrTp3u4fGr+friZ/WQFHHHILDsPmPQ9MKwb3SGKmwjPpsl858UOYErvdP
+	 YwOdhGGSTJXSNvi9mux3U6NeUutiv/cDxsTzOKbmxtZvqdDs0RyzazXvkJbSqEueFJ
+	 br9SJsLdH0V7j1oNDbwlduqiNDshOQi/xfz8XkWI=
+Message-ID: <212cc582-845d-42b2-89f2-1e9579f752ec@linux.microsoft.com>
+Date: Fri, 28 Feb 2025 09:20:13 -0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|AS8PR04MB9175:EE_
-X-MS-Office365-Filtering-Correlation-Id: e9011276-c03a-447f-6a55-08dd581c1e70
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?OXZRY2ExOGs2dFpkRThKUmowSGkrVXlMTEJwb0NyTENoT04wa0ZiU3RadFZn?=
- =?utf-8?B?N3FlZGVONllIZ3plbWEvTVZzM0MwNUtOK3FlM3dzaW5XTURFS0J6Q0N1R0hn?=
- =?utf-8?B?eHlzZGpPSzduZVM2KzVYNEszK0Z0Vk9FTHRnZUpUS3JxU0JJQnhqM1JtTGU2?=
- =?utf-8?B?b0kxSDlPd0lKNll4QWZLblpBMGJoRU5Edld3aFE2dTh6ZWFwM0Z1V2E4S1V2?=
- =?utf-8?B?ZmRLNGFXSlAvRWQyS0tzQUxTWVBFVjJuKzlXYUpBdndkUUJPSW1xeVd4b0NZ?=
- =?utf-8?B?cFlpZVhqS3ZycUFKNGJGSStWVFkwVURvbzBTMFBTT01peHBFbUlteWg4ejhD?=
- =?utf-8?B?L05qVGlUakw1VldFZ2h0NFBVTGp5aFIrcURYeUh1VE5QVjR3OE1NUHdPUUJm?=
- =?utf-8?B?R2RSTi9tb0N6UlJZcWdLcFpFWFA1T2NxR2EreEVwYWxydFYxc3ZHSjdBclhG?=
- =?utf-8?B?azVtZGJOUitqckZnSERacDFqMGFBWDAyY0c4RnNIOUk4OXRGSjZIaGZ4UkVk?=
- =?utf-8?B?V2VZSy80b3MxT1d6UWZtMERobUIxNW4yVDhENjRoL0cxV2o0VnBxbWJoRzEv?=
- =?utf-8?B?U3BqZG13cENKVnB2VGlqU25weE1mRFRsMXkvVUZrL01HdmNJVzFzNWJEUGJr?=
- =?utf-8?B?dGF6WTdRU2ZzemF5QnZWZUQxSWl5b0NRWjBRZlBjays1T0MyMEIzR21sMFMy?=
- =?utf-8?B?QlVDcmhCc3EwM3JzUDRmUUZId0VuZXl2Q1RoZnVIR2dTcE14S2xhaUZHTXVp?=
- =?utf-8?B?QUxKZEM2eUZ5V04xdHJqVTB4LytxaVp6R0xialJ6UEpjM1BOSVBGb1FvazQ5?=
- =?utf-8?B?SHpERnlUNUdmNlplUjhZWXBXNktQd3BOQzVGbXdHSDdaUmtXVldYdGQ5S0VN?=
- =?utf-8?B?VjBQYUUycUZXZldqdktoU1MrdW42TWhiNEF3WU9TUEg2ZklXQlB2YTYrUndK?=
- =?utf-8?B?SG0vZDlWNzdDRjJpR1NpQmp4Mmd2YkVqM1ZxQmZ4NnhUT2F4Mm9zNmNjanky?=
- =?utf-8?B?S1J4VjMxZXFIeGl6M2h4OFc0SXJ1clJNckpDSHNHc05IS2VBNGJFU3dWRGNK?=
- =?utf-8?B?Y0R4em56NGdwZkYwU3JMUHI4SVpJR3MrNGdRTHhRUEV6Y2kwZFJUQzhEYlR0?=
- =?utf-8?B?N2tmbDlUTGJQbWtIcVU1RW4zNWNkY3hBM1RnazUyS3BIYzFoM083WFdCelFh?=
- =?utf-8?B?TEJaZEZhVml3Nm0wdkpUd2gzclVnUC9Sbm5BTG5CQW50Z3pUWHIwMkNKcHB2?=
- =?utf-8?B?ZkFNSmduSEFwNjZCdWVEVmI0R2lBNjhYMEpYREYrZ1lOQ2pURFNTc25IOUtI?=
- =?utf-8?B?MjluK25XcFNsZm8ycHlqRHMrVmliNWc1ZVNOejNjYW1YUXhzR012cW9yZDI2?=
- =?utf-8?B?Nm1kY0M2aDB5SUtMYWFDcnhDNC9WRTlYMmhTTVVqTXR6SS9ZNkdZeXUrZ3Na?=
- =?utf-8?B?MkJCNENXTXFFbFVxYU92TDVQQ3F0Y3N2N1JNenlaQU1obEI5UXpydG1Ic1VH?=
- =?utf-8?B?QWZ5enJ1ZlFFQ0d1eDQ0bmlLUlB0L3B4M0FjbzNKbmpuVW5YV2J5YVM0bEdW?=
- =?utf-8?B?NTdMWndGalU2WnYvaFZsdkdqODFraHdzN1pjTWpYaXpJbGg5Q3M1QU94ZUsy?=
- =?utf-8?B?a1dGeWdSbDh0LytOelJNcU1vSGdIRkhITkt3dU5yS1FDM2ozTUNseUNMVXkx?=
- =?utf-8?B?RS9COG9obXRiRWZ4NlhlZlRXWFBITThnYU9mWDJJdjVrYVdtSnFhbXF5d2tR?=
- =?utf-8?B?d0xTM214WDlQTmhuYWt1a1FWWGF6aXIyQTQyUXVUdmRxZ2tJbE9wMVNkVGZT?=
- =?utf-8?B?Qk01NE8wTStaTXUyaHlySWMvTjdIR1lxV0JGUUoxUVFaSzFTR3dmb3ltc1k4?=
- =?utf-8?Q?TVq/jsamcaWXa?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NlZoK0MvdXZWNm9ZNklpT3IyQ1RIOHdzOGdkRHl0Q2VPMTdlSnNYMjEvVDJo?=
- =?utf-8?B?RFhObUJFaU1HUzEwRXVlTUc2WHBWMVBFd0I0L29OZWhtaGFoRnZTL2hSSVIw?=
- =?utf-8?B?aHRVRFE4aUJ5eG05WVZ4ZnFXYXZDRGJSRGU4UTJpMFdYNWNqdkdMZUNzQkth?=
- =?utf-8?B?NG9XVlprdXZKRTZnQTFlSDJ3ZUpHT3FQc0RaZ3NKUUN0TDZCNlZxVkJwYk1a?=
- =?utf-8?B?dDdBUXZhREFaY1laMTU4UXMyVTdqbHJqMFBnTTg3RjM3YmVNZ2JmR3NSRU15?=
- =?utf-8?B?a0NIMHZ3RURGNGIwZVZ5bkF3RC9sWjdGdEprOEZvN0oybnQ2K1haR0FDU3Fq?=
- =?utf-8?B?VGxuZzJjS1B0bFB4VFJGdEZsd2NpK0tmdGxhalplQjFSMmUvM0NRc2dER2Qy?=
- =?utf-8?B?QjloUjFoNERKZWUzUm1vVEtEWHVVM3BoTTBSeklvM2QzS1hSeStiMzRvZlll?=
- =?utf-8?B?TWNlVHJBdDdzR3hRL2hjaUhaU2EvMG8vNEVRMkt6YWZsc0pWdE9GSThFcTVp?=
- =?utf-8?B?b1JLajZURmc4SmJ1ZzE0dTZ6VlpNYTNKdFRUT3VsL3BwZnB1bWwrdVJTOEN5?=
- =?utf-8?B?VTQwUWtlbDh3R2IvYjM2NUJoQW50QzAyNDRpNVVPdGNnUFNqRDBzYWp5UXBw?=
- =?utf-8?B?Ry9oOXEzWVFPYTN5VThIdzNVTStLVmttU3JDL1FNU2EwVEpKc3ZrZGl6NDlO?=
- =?utf-8?B?SzNWK29iSXpVYk9CQ3dlK2lKd0Q1Q3loNFRBQmF6OVNKcVA2Q1BQMkYzYUhj?=
- =?utf-8?B?MXNqTGt5QXRvbkx0NnE3aXozQVdyWkpZYTcxQlgzVGVJbjFUMGNyc3NCc2pR?=
- =?utf-8?B?cGFZZ2ZKeGNEeXY0M0ovZzJnTkFtRnVvd2p5TkpsVTh5L2pBbDBaQ2JXSENG?=
- =?utf-8?B?NlF0L08vVmRMMzdqUXd5VVQzNE5TTVFibFVZaG5kMEpiN3VWQ1RqZ2ZGZ2dN?=
- =?utf-8?B?V1o1YkF6dHhrdkl6eDArT285NkJ5RDJraDByVHdMems0cS9kRW04cHdWQ1ZC?=
- =?utf-8?B?Mk56QXNhZjVtdEUxc1RUY3g1bnVTRm9JK2x2SkdBbkYzK1dCWjRYL0FTdnF0?=
- =?utf-8?B?MHFXRmZCb3dnaWFtR3NYd05lSVdWcDlUdmtXbEczYjBIdmxVUC9wOWlQSDBH?=
- =?utf-8?B?SVZscGtYR0JqKzNtN01odWY4Q3NuVGZ1R1lCa2UvQk9CTFIrU3lvVGNtc2dj?=
- =?utf-8?B?bHdwWk9FT2RnZkE4TUVsZmdNdjcySTlvbHYvbnQyUno1YUdGL256amhWTG5L?=
- =?utf-8?B?WGVKS2JCaWNRRXdRdTNxN2Z2TjFRZDhSdncwd2VtU0FicC9OYVRaL3VHR1Jy?=
- =?utf-8?B?cXJjQldxMEdKWDVTYmloWUp0RCs3VmZtTEJQdGlNSllFUDFDQktqaDNjMXl4?=
- =?utf-8?B?UGUvUXp2WkFzWnFKTThGZ0N2c0N0WHVQT1BLT2F3Tk1McTJjZU1JT3ZhOTNQ?=
- =?utf-8?B?bkkzZXdSMm00SW1JRkVrdFNoa1BWb0dSMzlQQWpWY21venI4OTVtM0x3bVJC?=
- =?utf-8?B?RzNobnFPVmZCVnFBWW5jYzVBRVhhaWNjTWpBaEZCa0RZTGN2bVhFRjRNWExw?=
- =?utf-8?B?ck5pQnpETmR5dGxER1liU0l3SU5vZGpWYit3WjErbWpKa3h3cnVIeUY0ZmJx?=
- =?utf-8?B?ZEVJOC8zYlhDS2dySlZJVVRjNXhDZ0NERGkxeUVxVS9ZdG5kd0tlY1FXbzd6?=
- =?utf-8?B?UXZWRUorZ1JiUWhtYVF0eVhVZFNINTJKVDZFMWhEYW9UTlI3RldnalFRRzZu?=
- =?utf-8?B?dkpUbXBuMThkTnRjejViMGxFMHdzc2NzNW5NZ29CT2RsN2FxVTVEOEZnQmNU?=
- =?utf-8?B?UW9iMU9rNXUvczBDZnZNbXFWMnBmcXRORm8rT3FGOXl3WEJuekhUSk5pMUZ1?=
- =?utf-8?B?TkNYMUc2UHFKTFJYT2tMNjl1VVZMdGdmajBwRzR4anc3Z25SaGZXSllwUGJH?=
- =?utf-8?B?Sjk2a0NjYlQwTk1CYStFcW91WkdoMnBuWHNUdXpsZUZ5WHdrMkdkZlNYNUZF?=
- =?utf-8?B?SWtXQkZyZkQwb0Y5TG5kdUl5OTRyazZHcDJtVEdWSy9xSWNRSCs5ZFE2VlR1?=
- =?utf-8?B?OHhwc0lLQ0ttaFA5T3E5WnR3NW9HN1FwcFVxSXkzK1Z2b0JsTW5ocHpCV2Fh?=
- =?utf-8?B?ekVxNFJMZXdXQmFSZTcvZnVoRHZFcTFxWHN3cElhRldrdFBYZ3Y1YW1YTjQw?=
- =?utf-8?B?Unc9PQ==?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: e9011276-c03a-447f-6a55-08dd581c1e70
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Feb 2025 17:19:55.1266
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jj4zREq3smGkCVeKA+cgmV7ZY0oagc50OWOwkuVkfB0VCXUBh3iAYbRRWpnR8JbxVogevhNPqlf3V6WwCTvXRClsHak6QgQjZ9FR/ZvfEco=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9175
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 01/10] hyperv: Convert Hyper-V status codes to strings
+To: Easwar Hariharan <eahariha@linux.microsoft.com>
+Cc: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
+ linux-hyperv@vger.kernel.org, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org, kys@microsoft.com,
+ haiyangz@microsoft.com, wei.liu@kernel.org, mhklinux@outlook.com,
+ decui@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
+ tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, hpa@zytor.com, daniel.lezcano@linaro.org,
+ joro@8bytes.org, robin.murphy@arm.com, arnd@arndb.de,
+ jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
+ skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com,
+ ssengar@linux.microsoft.com, apais@linux.microsoft.com,
+ Tianyu.Lan@microsoft.com, stanislav.kinsburskiy@gmail.com,
+ gregkh@linuxfoundation.org, vkuznets@redhat.com, prapal@linux.microsoft.com,
+ muislam@microsoft.com, anrayabh@linux.microsoft.com, rafael@kernel.org,
+ lenb@kernel.org, corbet@lwn.net
+References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1740611284-27506-2-git-send-email-nunodasneves@linux.microsoft.com>
+ <74af19c4-639f-4bcc-b667-b5f102bbb312@linux.microsoft.com>
+ <8338dd00-3aa4-418f-a547-1c19623358cb@linux.microsoft.com>
+ <49a69fe3-fca5-426d-999d-61ee0c8f60f3@linux.microsoft.com>
+ <70b62e52-639a-4026-9a52-102d1de46ffd@linux.microsoft.com>
+Content-Language: en-US
+From: Roman Kisel <romank@linux.microsoft.com>
+In-Reply-To: <70b62e52-639a-4026-9a52-102d1de46ffd@linux.microsoft.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_091958_885384_A4043284 
-X-CRM114-Status: GOOD (  20.00  )
+X-CRM114-CacheID: sfid-20250228_092015_364353_DD37523D 
+X-CRM114-Status: GOOD (  27.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,58 +88,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
 
-On 2/28/25 5:57 PM, Heiko Stuebner wrote:
-> From: Heiko Stuebner <heiko.stuebner@cherry.de>
+
+On 2/27/2025 3:25 PM, Easwar Hariharan wrote:
+> On 2/27/2025 3:08 PM, Roman Kisel wrote:
+
+[...]
+
+>> Would be great to learn the details to understand how this function is
+>> going to improve the situation:
+>>
+>> 1. How come the hex error code was useless, what is not matching
+>>     anything in the Linux headers?
 > 
-> The LVDS block needs a separate pclk only on some socs, so currently
-> requests and prepares it in the soc-specific probe function, but common
-> code is required to unprepare it in the error path or on driver remove.
+> It doesn't match anything in the Linux headers, but it's an NTSTATUS, not HVSTATUS.
 > 
-> While this works because clk_unprepare just does nothing if clk is NULL,
-> this mismatch of who is responsible still is not very nice.
-> The clock-framework already has a helper for clk-get-and-prepare even
-> with devres support in devm_clk_get_prepared().
+
+That is what it looks like from the code, I posted the details in the
+parallel thread.
+
+Here is a fix:
+https://lore.kernel.org/linux-hyperv/20250227233110.36596-1-romank@linux.microsoft.com/
+
+Also I think the commit description in your patch
+
+https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=d2138eab8cde61e0e6f62d0713e45202e8457d6d
+
+conflates the hypervisor (ours runs bare-metal, Type 1) and the VMMs
+(Virtual Machine Monitors)+VSPs (Virtual Service Providers, e.g StorVSP
+that implements SCSI) running in the host/root/dom0 partition.
+
+> Coming from the PoV of a user, it would be a much more useful message to see:
 > 
-> This will get and prepare the clock and also unprepare it on driver
-> removal, saving the driver from having to handle it "manually".
+> [  249.512760] hv_storvsc fd1d2cbd-ce7c-535c-966b-eb5f811c95f0: tag#683 cmd 0x28 status: scsi 0x2 srb 0x4 hv STATUS_UNSUCCESSFUL
 > 
-> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-
-Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
-
-Small nitpick below.
-
-> ---
->   drivers/gpu/drm/rockchip/rockchip_lvds.c | 17 ++---------------
->   1 file changed, 2 insertions(+), 15 deletions(-)
+> than
 > 
-> diff --git a/drivers/gpu/drm/rockchip/rockchip_lvds.c b/drivers/gpu/drm/rockchip/rockchip_lvds.c
-> index 385cf6881504..c19b7b1f6cb5 100644
-> --- a/drivers/gpu/drm/rockchip/rockchip_lvds.c
-> +++ b/drivers/gpu/drm/rockchip/rockchip_lvds.c
-> @@ -448,13 +448,11 @@ struct drm_encoder_helper_funcs px30_lvds_encoder_helper_funcs = {
->   static int rk3288_lvds_probe(struct platform_device *pdev,
->   			     struct rockchip_lvds *lvds)
->   {
-> -	int ret;
-> -
->   	lvds->regs = devm_platform_ioremap_resource(pdev, 0);
->   	if (IS_ERR(lvds->regs))
->   		return PTR_ERR(lvds->regs);
->   
-> -	lvds->pclk = devm_clk_get(lvds->dev, "pclk_lvds");
-> +	lvds->pclk = devm_clk_get_prepared(lvds->dev, "pclk_lvds");
->   	if (IS_ERR(lvds->pclk)) {
->   		DRM_DEV_ERROR(lvds->dev, "could not get pclk_lvds\n");
+> [  249.512760] hv_storvsc fd1d2cbd-ce7c-535c-966b-eb5f811c95f0: tag#683 cmd 0x28 status: scsi 0x2 srb 0x4 hv 0xc0000001
+> 
 
-Should we say
+It is likely that the PoV of a user that you've mentioned is actually
+a PoV of a (kernel) developer. It is hard to imagine that folks running
+web sites, DB servers, LoBs, LLMs, etc. in Hyper-V VMs care about the
+lowest software level of the virt stack in the form of the symbolic
+name or the hex code. They need their VMs to be reliable or suggest
+what the user may try if a configuration error is suspected.
 
-Could not get or prepare pclk_lvds\n
+To make the error log message useful to the user, the message should
+mention ways of remediation or at least hint what might've gotten
+wedged. Without that, that's only useful for the people who work with
+the kernel code proper or the kernel interface to the user land.
 
-instead?
+So I'd think that the hex error codes from the hypervisor give the user
+exactly as much as the error symbolic names do to get the system to the
+desired state: nothing. Even less when the error reported "Unknown" :)
 
-Thanks!
-Quentin
+>> 2. How having "Unknown" in the log can possibly be better?
+> 
+> IMHO, seeing "Unknown" in an error report means that there's a new return value
+> that needs to be mapped to errno in hv_status_to_errno() and updated here as well.
+> 
+
+It means that to the developer. To the user, it means the developers
+messed something up and to make matters even worse they didn't leave any
+breadcrumbs (e.g. the hex code) to see what's wrong to help the user and
+themselves: there is just that "Unknown" thing in the log.
+
+>> 3. Given that the select hv status codes and the proposed strings have
+>>     1:1 correspondence, and there is the 1:N catch-all case for the
+>>     "Unknown", how's that better?
+>>
+> 
+> I didn't really follow this question, but I suppose the answer to Q2 answers this as
+> well. If not, please expand and I'll try to answer.
+>
+
+Sorry about that chunk, hit "Send" without looking the e-mail over
+another time. Appreciate the discussion very much!
+
+
+> Thanks,
+> Easwar (he/him)
+
+-- 
+Thank you,
+Roman
+
 
