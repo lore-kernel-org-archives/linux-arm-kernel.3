@@ -4,123 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3663FC282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 09:50:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D6F8C19776
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 09:54:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=d/xrksObyuUS+LfR0wsAM0jpJ6JI4C0qssS+Biux8N8=; b=SCQGgI3Wh7svnx
-	On/W8SiNW5+AAnPG8VPfmj0gdZUunCusJpSSKwRQ2JzOsUcgGdW9gULEzmcvVffIcetSGywZ8ZuAS
-	GHP1jU5ynHfRrterLR7Vncm930qyYYK3Dg+9k9xPNzbzFOsTB6A7fOa7eabkFH2zeRcoRt8+qDdr9
-	BkkLm2aVYLlchl6aZAiTQap6Y2eu62fB8c8x29Gk+X+JPXxY5tMjEXQxZx62pLbrBvqnQVz3WTtJK
-	ZKVK5aw/dxOaigcQ1X2e2ulBgTqeK0n1fojDtyI2Yj29KQYpuoHq6rT5fB3nNxC7Ju8N1WQ6hHPQN
-	rkdxp2WUi7ryPxF4gZQA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oWdZd4UxIzMgLgZmlLod0xXdmOEbR7lZ+tfi7iAWsVQ=; b=buiRkW63lPAGQ2JmUqoSapKPqz
+	EvXkMc+Xi4ryNeYkyGw24E3MqxxxuHLAok3WWpR8LxaM+buDKJHRyKpu0ypVM7ZFvilumGbOCnHjT
+	yYIrAsFK3Hk4IXtMqf0tW9nkhO92FcBsyYAGAFk4bHI1V3M2nZjm++Ev0CyI0qS1EW0QV8arnQOmH
+	SD+C8U8q3pb8svUp8ZSyqkxLqcasHvU6YQURJ+kFcC8NXD7kMf33030czETesbxTYzlfgVXU+2NGu
+	ADTtW818HN3IneyuuRq8OBxVhhQxUDgLDkg41bDjruAhH77YEpORN0QZIrXk0/va54YyxrFiY2XWT
+	9Op1Go8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnx0D-0000000ARa8-3jgZ;
-	Fri, 28 Feb 2025 09:49:53 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnwyf-0000000ARDT-0CTA
+	id 1tnx4n-0000000AScO-19MZ;
+	Fri, 28 Feb 2025 09:54:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tnx3D-0000000ASKB-46Vz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 09:48:19 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250228094810epoutp02fda046a4cc60a209cc8719988fd371ac~oVkBT0T782526825268epoutp02L
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 09:48:10 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250228094810epoutp02fda046a4cc60a209cc8719988fd371ac~oVkBT0T782526825268epoutp02L
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1740736090;
-	bh=d/xrksObyuUS+LfR0wsAM0jpJ6JI4C0qssS+Biux8N8=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=b/wBmhrAsfgpVJAMqJYU0R5MjmfQjV+Tzuva/an1oEo2ZZKMTIDgphUuImNnED8gF
-	 PIsG1Dtq+6Ci93Wg7eeBNPS+qq9MSk/naRg1WMvEYzwGYjml8jcQnIQYbCo1U/64TD
-	 M/4navUYX+kJbQ2zzElVnkzBVNoYMZQJiS1Lj/fI=
-Received: from epsnrtp1.localdomain (unknown [182.195.42.162]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTP id
-	20250228094809epcas5p43b4423daa009f9e6d37523f7cd7d890a~oVkA0hqiK1544615446epcas5p4W;
-	Fri, 28 Feb 2025 09:48:09 +0000 (GMT)
-Received: from epsmges5p3new.samsung.com (unknown [182.195.38.181]) by
-	epsnrtp1.localdomain (Postfix) with ESMTP id 4Z43L006Lmz4x9Pp; Fri, 28 Feb
-	2025 09:48:08 +0000 (GMT)
-Received: from epcas5p2.samsung.com ( [182.195.41.40]) by
-	epsmges5p3new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	F4.9D.19956.75681C76; Fri, 28 Feb 2025 18:48:07 +0900 (KST)
-Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250228070503epcas5p3260dacbf7b2ce5cdb1783e570af665a1~oTVm3L9Hm1856518565epcas5p3E;
-	Fri, 28 Feb 2025 07:05:03 +0000 (GMT)
-Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
-	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250228070503epsmtrp2cec91f437594f495f6c7d4d7d07cfec2~oTVm2ZPRN1928319283epsmtrp2d;
-	Fri, 28 Feb 2025 07:05:03 +0000 (GMT)
-X-AuditID: b6c32a4b-fe9f470000004df4-33-67c18657ffcd
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	00.CA.18729.F1061C76; Fri, 28 Feb 2025 16:05:03 +0900 (KST)
-Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250228070501epsmtip2b98fd1fe64992511d761785b68a5e7a4~oTVlEB6Zi0820508205epsmtip2L;
-	Fri, 28 Feb 2025 07:05:01 +0000 (GMT)
-From: Aakarsh Jain <aakarsh.jain@samsung.com>
-To: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: m.szyprowski@samsung.com, andrzej.hajda@intel.com, mchehab@kernel.org,
-	hverkuil-cisco@xs4all.nl, krzysztof.kozlowski+dt@linaro.org,
-	linux-samsung-soc@vger.kernel.org, gost.dev@samsung.com,
-	aswani.reddy@samsung.com, pankaj.dubey@samsung.com, Aakarsh Jain
-	<aakarsh.jain@samsung.com>
-Subject: [PATCH] media: s5p-mfc: Support for handling RET_ENC_BUFFER_FULL
- interrupt
-Date: Fri, 28 Feb 2025 12:29:52 +0530
-Message-Id: <20250228065952.14375-1-aakarsh.jain@samsung.com>
-X-Mailer: git-send-email 2.17.1
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrJKsWRmVeSWpSXmKPExsWy7bCmhm5428F0g5PTrSye7pjJanF/8WcW
-	i0Obt7Jb3Dywk8ni4sy7LBZ9Lx4yW2x6fI3V4vKuOWwWPRu2slrMOL+PyWLtkbvsFss2/WGy
-	WLT1C7sDr8fiPS+ZPDat6mTzuHNtD5vH5iX1Hn1bVjF6fN4k53Hq62f2APaobJuM1MSU1CKF
-	1Lzk/JTMvHRbJe/geOd4UzMDQ11DSwtzJYW8xNxUWyUXnwBdt8wcoGuVFMoSc0qBQgGJxcVK
-	+nY2RfmlJakKGfnFJbZKqQUpOQUmBXrFibnFpXnpenmpJVaGBgZGpkCFCdkZL/+sZS+4KVOx
-	8/Qa1gbGdxJdjJwcEgImEv13ljB2MXJxCAnsZpS4d2wDlPOJUeLfxmtsEM43RonZExYxdzFy
-	gLU8742CiO9llJjStYcdwvnCKLF+6zFWkCI2AV2Js9tzQFaICKRKvFq3lhWkhllgCZPEoiPP
-	mEASwgKhEo+aPrOD2CwCqhLT/uxkBbF5BWwleg9cYoG4T15i9YYDzCDNEgJv2SVu7/wGdYWL
-	xIXdHhA1whKvjm9hh7ClJD6/28sGYSdLPF70khnCzpFYv2cK1Ex7iQNX5rCAjGEW0JRYv0sf
-	IiwrMfXUOrDTmAX4JHp/P2GCiPNK7JgHY6tJzLnzgxXClpE4vHopI4TtIfHpyBuwGiGBWIk5
-	N56wTWCUnYWwYQEj4ypGydSC4tz01GLTAuO81HJ4PCXn525iBKdBLe8djI8efNA7xMjEwXiI
-	UYKDWUmEd1bsgXQh3pTEyqrUovz4otKc1OJDjKbAIJvILCWanA9MxHkl8YYmlgYmZmZmJpbG
-	ZoZK4rzNO1vShQTSE0tSs1NTC1KLYPqYODilGpjmPY1e8t+Fz27j+UsWdaah1yOmTM79dzn4
-	1bd7jRvfro+ze+/knKJ7NaAj7P9xbQ9xaf1unVUfgw4la16aKfN5fnPq1XzXXaZpK35r7vdM
-	rp50hINb65/qrq6pF1bcWtAiceuUwt8DfvNKhes3fbzb/bBFQ1GHvej7x7m35/REKddq/5+1
-	oejBIRHTc9wvJ8xW/FXF8cjgmRT7tJAi5hVngr2CNl7YUmW9f9WDtKaHuy4uurraKPvqN+X7
-	/U4F27SP9C7ZPelG9br7E4v0fSLk3vrwsJ778OyX732Jg9UlG1Yy8nv/PvUhWf/BqeaWvzHf
-	3V59qMuZtSdync0j1qcfqh+rbCtLOKZxx1NjxfXie0osxRmJhlrMRcWJAM60yisMBAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrKLMWRmVeSWpSXmKPExsWy7bCSvK58wsF0g/bDyhZPd8xktbi/+DOL
-	xaHNW9ktbh7YyWRxceZdFou+Fw+ZLTY9vsZqcXnXHDaLng1bWS1mnN/HZLH2yF12i2Wb/jBZ
-	LNr6hd2B12PxnpdMHptWdbJ53Lm2h81j85J6j74tqxg9Pm+S8zj19TN7AHsUl01Kak5mWWqR
-	vl0CV8bLP2vZC27KVOw8vYa1gfGdRBcjB4eEgInE896oLkYuDiGB3YwSExdPZeli5ASKy0j8
-	bzvGDmELS6z895wdougTo8SmV2uYQZrZBHQlzm7PAakREUiXmHTnKwtIDbPAOiaJnSsnsoIk
-	hAWCJTasms4MYrMIqEpM+7MTLM4rYCvRe+AS1DJ5idUbDjBPYORZwMiwilEytaA4Nz232LDA
-	MC+1XK84Mbe4NC9dLzk/dxMjOCS1NHcwbl/1Qe8QIxMH4yFGCQ5mJRHeWbEH0oV4UxIrq1KL
-	8uOLSnNSiw8xSnOwKInzir/oTRESSE8sSc1OTS1ILYLJMnFwSjUwRV2N/ffr54Nr58REL7Gm
-	LTr3+MUsr4R8g8DQTxP6LNYvsJmyVVk8yP+YZkG/0sJ0z9T/O+Imzg7SeSU3ibe9S3v9Xul3
-	pX2N8Vb3ahNeHxVnPPM7/OMLeyb/dPaUpsjcfSu5X8VdOPqsxz6rQDZxy/snvb48dequ6f9M
-	chkmO/IcSWvXn1ow9/j023MmfXhStUSoZvq/UzUsfod+FwSes9NU02Xl5Mw4+oCnUW5Zudyz
-	hicx37Stl6xRc54mf+Vj0NWZpduWaO46/SnqgoaFVE7DO7YE013bOz4tWS286er1r3WsZpHr
-	u0/ElR3stHVLU401cVvmtYP7f8Kb/fkOPv/uc8ofXs73n2N5yztpJZbijERDLeai4kQA2gjU
-	HbgCAAA=
-X-CMS-MailID: 20250228070503epcas5p3260dacbf7b2ce5cdb1783e570af665a1
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250228070503epcas5p3260dacbf7b2ce5cdb1783e570af665a1
-References: <CGME20250228070503epcas5p3260dacbf7b2ce5cdb1783e570af665a1@epcas5p3.samsung.com>
+	Fri, 28 Feb 2025 09:53:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 081AE1515;
+	Fri, 28 Feb 2025 01:53:14 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2523A3F6A8;
+	Fri, 28 Feb 2025 01:52:57 -0800 (PST)
+Date: Fri, 28 Feb 2025 09:52:50 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Leo Yan <leo.yan@arm.com>, linux-arm-kernel@lists.infradead.org,
+	ahmed.genidi@arm.com, ben.horgan@arm.com, catalin.marinas@arm.com,
+	kvmarm@lists.linux.dev, oliver.upton@linux.dev, will@kernel.org
+Subject: Re: [PATCH 1/2] KVM: arm64: Initialize HCR_EL2.E2H early
+Message-ID: <Z8GHclusYN3CX5m2@J2N7QTR9R3>
+References: <20250227180526.1204723-1-mark.rutland@arm.com>
+ <20250227180526.1204723-2-mark.rutland@arm.com>
+ <20250228092955.GC2157064@e132581.arm.com>
+ <86y0xqpfpj.wl-maz@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86y0xqpfpj.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_014817_709545_75B59103 
-X-CRM114-Status: GOOD (  16.85  )
+X-CRM114-CacheID: sfid-20250228_015300_057365_9DEF3534 
+X-CRM114-Status: GOOD (  18.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,95 +66,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When output encoded buffer size provided by userspace
-is insufficient with current encoding parameters, it
-leads to RET_ENC_BUFFER_FULL interrupt which was not
-handled in IRQ handler.
+On Fri, Feb 28, 2025 at 09:43:20AM +0000, Marc Zyngier wrote:
+> On Fri, 28 Feb 2025 09:29:55 +0000,
+> Leo Yan <leo.yan@arm.com> wrote:
+> > 
+> > Hi Mark,
+> > 
+> > On Thu, Feb 27, 2025 at 06:05:25PM +0000, Mark Rutland wrote:
+> > 
+> > [...]
+> > 
+> > > +.macro init_el2_hcr	val
+> > > +	mov_q	x0, \val
+> > > +
+> > > +	/*
+> > > +	 * Compliant CPUs advertise their VHE-onlyness with
+> > > +	 * ID_AA64MMFR4_EL1.E2H0 < 0. On such CPUs HCR_EL2.E2H is RES1, but it
+> > > +	 * can reset into an UNKNOWN state and might not read as 1 until it has
+> > > +	 * been initialized explicitly.
+> > 
+> > For ID_AA64MMFR4_EL1.E2H0 < 0 case, the code actually clears the
+> > HCR_EL2.E2H bit.
+> >
+> > Hence, the comment should be corrected as: "... it can reset into an
+> > UNKNOWN state and might not read as 0 until it has been initialized
+> > explicitly".
+> 
+> The comment is just fine. It is the code that is wrong, as it avoids
+> setting E2H when E2H0 < 0 while we want the exact opposite behaviour.
+> 
+> As a result, 'b.lt' really should be a 'b.ge'. Or the original code
+> kept as is.
 
-On handling of RET_ENC_BUFFER_FULL interrupt leads to
-NAL_ABORT command from host to risc which in turn leads
-to RET_NAL_ABORT interrupt. On receiving RET_NAL_ABORT
-driver clears workbit and VB2 queues for cleaner closing
-of MFC instance.
+Ugh, yes. I got confused and got the condition backwards.
 
-When user encounters "Call on DQBUF after unrecoverable
-error", userspace should close fd and restart with larger
-output encoder buffer size.
+Either works. Using 'b.ge' is closer to my intention -- I found the
+'tbz' of the sign bit somewhat surprising and that needed a longer line
+after the lable name changed.
 
-Signed-off-by: Aakarsh Jain <aakarsh.jain@samsung.com>
----
- .../media/platform/samsung/s5p-mfc/regs-mfc-v6.h   |  1 +
- drivers/media/platform/samsung/s5p-mfc/s5p_mfc.c   | 14 ++++++++++++++
- .../platform/samsung/s5p-mfc/s5p_mfc_common.h      |  1 +
- .../platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c      |  5 +++++
- 4 files changed, 21 insertions(+)
+Would you like me to respin, or would you be hapy to fix up when
+applying?
 
-diff --git a/drivers/media/platform/samsung/s5p-mfc/regs-mfc-v6.h b/drivers/media/platform/samsung/s5p-mfc/regs-mfc-v6.h
-index fa49fe580e1a..075a58b50b8c 100644
---- a/drivers/media/platform/samsung/s5p-mfc/regs-mfc-v6.h
-+++ b/drivers/media/platform/samsung/s5p-mfc/regs-mfc-v6.h
-@@ -45,6 +45,7 @@
- #define S5P_FIMV_H2R_CMD_WAKEUP_V6		8
- #define S5P_FIMV_CH_LAST_FRAME_V6		9
- #define S5P_FIMV_H2R_CMD_FLUSH_V6		10
-+#define S5P_FIMV_H2R_CMD_NAL_ABORT_V6		11
- /* RMVME: REALLOC used? */
- #define S5P_FIMV_CH_FRAME_START_REALLOC_V6	5
- 
-diff --git a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc.c b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc.c
-index 5f80931f056d..fa211c2d68a4 100644
---- a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc.c
-+++ b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc.c
-@@ -739,6 +739,20 @@ static irqreturn_t s5p_mfc_irq(int irq, void *priv)
- 		ctx->state = MFCINST_RUNNING;
- 		goto irq_cleanup_hw;
- 
-+	case S5P_MFC_R2H_CMD_ENC_BUFFER_FULL_RET:
-+		ctx->state = MFCINST_NAL_ABORT;
-+		s5p_mfc_hw_call(dev->mfc_ops, clear_int_flags, dev);
-+		set_work_bit(ctx);
-+		WARN_ON(test_and_clear_bit(0, &dev->hw_lock) == 0);
-+		s5p_mfc_hw_call(dev->mfc_ops, try_run, dev);
-+		break;
-+
-+	case S5P_MFC_R2H_CMD_NAL_ABORT_RET:
-+		ctx->state = MFCINST_ERROR;
-+		s5p_mfc_cleanup_queue(&ctx->dst_queue, &ctx->vq_dst);
-+		s5p_mfc_cleanup_queue(&ctx->src_queue, &ctx->vq_src);
-+		goto irq_cleanup_hw;
-+
- 	default:
- 		mfc_debug(2, "Unknown int reason\n");
- 		s5p_mfc_hw_call(dev->mfc_ops, clear_int_flags, dev);
-diff --git a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_common.h b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_common.h
-index 3cc2a4f5c40a..86c316c1ff8f 100644
---- a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_common.h
-+++ b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_common.h
-@@ -141,6 +141,7 @@ enum s5p_mfc_inst_state {
- 	MFCINST_RES_CHANGE_INIT,
- 	MFCINST_RES_CHANGE_FLUSH,
- 	MFCINST_RES_CHANGE_END,
-+	MFCINST_NAL_ABORT,
- };
- 
- /*
-diff --git a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c
-index 4cf12f33d706..356adfddcfcf 100644
---- a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c
-+++ b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_opr_v6.c
-@@ -2229,6 +2229,11 @@ static void s5p_mfc_try_run_v6(struct s5p_mfc_dev *dev)
- 		case MFCINST_HEAD_PRODUCED:
- 			ret = s5p_mfc_run_init_enc_buffers(ctx);
- 			break;
-+		case MFCINST_NAL_ABORT:
-+			mfc_write(dev, ctx->inst_no, S5P_FIMV_INSTANCE_ID_V6);
-+			s5p_mfc_hw_call(dev->mfc_cmds, cmd_host2risc,
-+					dev, S5P_FIMV_H2R_CMD_NAL_ABORT_V6, NULL);
-+			break;
- 		default:
- 			ret = -EAGAIN;
- 		}
--- 
-2.17.1
-
+Mark.
 
