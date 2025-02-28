@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3924C19776
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 09:34:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D1DC19776
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 09:45:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nMUAr1gcuflt6omTcMRerC0BrGfDrdRai6m223sPdps=; b=IhO60q8wbousaXxzHoxhThocgV
-	Zv/YjM5qMeWTEMLYw2+hI93YG6qx6NlqVpU64i/c+PPWV+O09rzjEITKj47X/RjGN9geTvLOqYowW
-	cpXhQJmmOaC4mqzNl1KKZMQBznBznHWeAh8ymVsHs0UGTWezFuQ+WLdVjq5ESL1BL4DRVypHKzH5/
-	maHp+AgX6jyPXe3PAVmXCt+vljm36jnUuFJlvQp+BIZi/WRa5ivgZ5RqL9h0ertan9vcsgHJ+rF4D
-	anbqXudHegokfX335TEU5g38g4pnEpaKogV5eH8vGU435MbmQd277mC/zO2D/z8+sQaEYtQB6P8PH
-	N0HTntLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sjZqB+t/NLzEkBMQ1OnSSC1q5SC0yBBja+Zk5ZW3Mpc=; b=qIPNO8Wl8jwwrLq3S8bq0MmUjH
+	wuZ3wjCq1xPzXhGDJJ/spRjgqXs/aZT/EQARPJGrCd2skV9xDTRWKzD2RsPBiO5cigxpB/1EV2i4w
+	3xJWz9Uo9Tvr5JJQH1D8Ew8B7LfxIPzuAKazNYACiZ+HLRtYRHGB7aXrUj9UYMYSpXKXGdahIwRSd
+	I0eihX2bK/wPj2M23Rw50GMGj+oYrWLmn0d4pHlJ+8wtCEJdgGGqs+gyxsE/pDE9pwaiielDW8Z/V
+	yoct8x7JRw6KPwOQm3vmFmxpJBqTj25O3HkgH+ajOd85GbXTYZHKnOut1L0lJCHbe5tXOoBBImHMU
+	+3fWigww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnwl7-0000000AODt-0HEV;
-	Fri, 28 Feb 2025 09:34:17 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1tnwvV-0000000AQSf-0C5V;
+	Fri, 28 Feb 2025 09:45:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tnwhL-0000000AN6D-10Im
+	id 1tnwtw-0000000AQBH-2Flh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 09:30:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740735023; x=1772271023;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=vueB8glrxQlRjIMAss1r71kAHRNbnxrNli+SINmYOp4=;
-  b=FDPfgG7Q7XTjx4edm3JiJmXA1gRxpaJOLF46wPVHRMCp0vd5+R6Kymq9
-   PxKMUuVztlcQ1D8f4EeS/PH8++H/B/H7GoWKVVhD0gqGqRWXeXQB44ilY
-   V7zeYaTxsuEXoHh3FsO106jubQRHOvuR1Hy12Y1PhyBbFmM6vQApBmR3X
-   yI06u8z8WGbPsSGh66YgTKlSRkmQnUVW1yl+bhGqxTf10H3id7w/Gj6n+
-   Ei3Anj6uXsn+zu5f1+zN2lDdlOKkFXXZBaNxGAuIrcbdPM3Z3TgKR1enJ
-   qeD4Xk7ve9ThFhWDyCVDZ4nM9uX9nS7nMDYnm/+91G5cd/+8bGTWWEYO7
-   w==;
-X-CSE-ConnectionGUID: JSOtyAI1SYms6xpzZditKg==
-X-CSE-MsgGUID: IDVBiWuiTQuzCkZFzu4Kvw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11358"; a="45438695"
-X-IronPort-AV: E=Sophos;i="6.13,321,1732608000"; 
-   d="scan'208";a="45438695"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Feb 2025 01:30:21 -0800
-X-CSE-ConnectionGUID: Ql+YnlPFR8mAYyWI4sxNoQ==
-X-CSE-MsgGUID: wfjEbwY/SauCZb3PqK/3UA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="148214038"
-Received: from unknown (HELO [10.237.72.199]) ([10.237.72.199])
-  by fmviesa001.fm.intel.com with ESMTP; 28 Feb 2025 01:30:19 -0800
-Message-ID: <31b489db-9028-4eea-b84d-9497d49fdddc@linux.intel.com>
-Date: Fri, 28 Feb 2025 11:31:20 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] xhci: Restrict USB4 tunnel detection for USB3 devices to
- Intel hosts
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Marc Zyngier <maz@kernel.org>
-Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Oliver Upton <oliver.upton@linux.dev>,
- stable@vger.kernel.org
-References: <20250227194529.2288718-1-maz@kernel.org>
- <2025022709-unread-mystified-ddf1@gregkh>
-Content-Language: en-US
-From: Mathias Nyman <mathias.nyman@linux.intel.com>
-In-Reply-To: <2025022709-unread-mystified-ddf1@gregkh>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_013023_324823_45EBC0D4 
-X-CRM114-Status: GOOD (  15.96  )
+	Fri, 28 Feb 2025 09:43:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2F39B61F45;
+	Fri, 28 Feb 2025 09:43:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 631F7C4CED6;
+	Fri, 28 Feb 2025 09:43:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740735803;
+	bh=ErHeCAesNnkGkf3M+l0YV7DvH8pH/Z9IvRTC76nouv0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=nrjvUM2Wa29B3zu0RztRTMGDl4G/k2Er92oPCrTwozCkMA+YIIjj5EyYCTkzcY5c+
+	 zrIR3HBYNV31OUOpbTMoVKFZfw2MZcLZmdxM6vMPgL9q2Mxqj9yhm29c6CWRnn3t9P
+	 OcrDLPaxYt/vWCvEN6ngnuFPqtftvDsTvcjW2Hswj1x+U8vTTdsPPivW7Wpc+9NvHc
+	 9hnTyLv7YbzZ8Vrt5wfutlrKJKSI3f+yXMDVBsZtZM0z+kwg6mvr1oM9k/9kwK75Ig
+	 vXidRsR/HgAT16+Vm04kU+bjhudTrhejfP43ytrcg4TTzMKXvK5cbUlqw6/r8QQmqB
+	 35ltPokqEOdhg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tnwtt-008zNL-77;
+	Fri, 28 Feb 2025 09:43:21 +0000
+Date: Fri, 28 Feb 2025 09:43:20 +0000
+Message-ID: <86y0xqpfpj.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Leo Yan <leo.yan@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	ahmed.genidi@arm.com,
+	ben.horgan@arm.com,
+	catalin.marinas@arm.com,
+	kvmarm@lists.linux.dev,
+	oliver.upton@linux.dev,
+	will@kernel.org
+Subject: Re: [PATCH 1/2] KVM: arm64: Initialize HCR_EL2.E2H early
+In-Reply-To: <20250228092955.GC2157064@e132581.arm.com>
+References: <20250227180526.1204723-1-mark.rutland@arm.com>
+	<20250227180526.1204723-2-mark.rutland@arm.com>
+	<20250228092955.GC2157064@e132581.arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: leo.yan@arm.com, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, ahmed.genidi@arm.com, ben.horgan@arm.com, catalin.marinas@arm.com, kvmarm@lists.linux.dev, oliver.upton@linux.dev, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,70 +88,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27.2.2025 22.20, Greg Kroah-Hartman wrote:
-> On Thu, Feb 27, 2025 at 07:45:29PM +0000, Marc Zyngier wrote:
->> When adding support for USB3-over-USB4 tunnelling detection, a check
->> for an Intel-specific capability was added. This capability, which
->> goes by ID 206, is used without any check that we are actually
->> dealing with an Intel host.
->>
->> As it turns out, the Cadence XHCI controller *also* exposes an
->> extended capability numbered 206 (for unknown purposes), but of
->> course doesn't have the Intel-specific registers that the tunnelling
->> code is trying to access. Fun follows.
->>
->> The core of the problems is that the tunnelling code blindly uses
->> vendor-specific capabilities without any check (the Intel-provided
->> documentation I have at hand indicates that 192-255 are indeed
->> vendor-specific).
->>
->> Restrict the detection code to Intel HW for real, preventing any
->> further explosion on my (non-Intel) HW.
->>
->> Cc: Mathias Nyman <mathias.nyman@linux.intel.com>
->> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
->> Cc: stable@vger.kernel.org
->> Fixes: 948ce83fbb7df ("xhci: Add USB4 tunnel detection for USB3 devices on Intel hosts")
->> Signed-off-by: Marc Zyngier <maz@kernel.org>
->> ---
->>   drivers/usb/host/xhci-hub.c | 8 ++++++++
->>   1 file changed, 8 insertions(+)
->>
->> diff --git a/drivers/usb/host/xhci-hub.c b/drivers/usb/host/xhci-hub.c
->> index 9693464c05204..69c278b64084b 100644
->> --- a/drivers/usb/host/xhci-hub.c
->> +++ b/drivers/usb/host/xhci-hub.c
->> @@ -12,6 +12,7 @@
->>   #include <linux/slab.h>
->>   #include <linux/unaligned.h>
->>   #include <linux/bitfield.h>
->> +#include <linux/pci.h>
->>   
->>   #include "xhci.h"
->>   #include "xhci-trace.h"
->> @@ -770,9 +771,16 @@ static int xhci_exit_test_mode(struct xhci_hcd *xhci)
->>   enum usb_link_tunnel_mode xhci_port_is_tunneled(struct xhci_hcd *xhci,
->>   						struct xhci_port *port)
->>   {
->> +	struct usb_hcd *hcd;
->>   	void __iomem *base;
->>   	u32 offset;
->>   
->> +	/* Don't try and probe this capability for non-Intel hosts */
->> +	hcd = xhci_to_hcd(xhci);
->> +	if (!dev_is_pci(hcd->self.controller) ||
->> +	    to_pci_dev(hcd->self.controller)->vendor != PCI_VENDOR_ID_INTEL)
->> +		return USB_LINK_UNKNOWN;
+On Fri, 28 Feb 2025 09:29:55 +0000,
+Leo Yan <leo.yan@arm.com> wrote:
 > 
-> Ugh, nice catch.
+> Hi Mark,
 > 
-> Mathias, want me to just take this directly for now and not wait for you
-> to resend it?
+> On Thu, Feb 27, 2025 at 06:05:25PM +0000, Mark Rutland wrote:
+> 
+> [...]
+> 
+> > +.macro init_el2_hcr	val
+> > +	mov_q	x0, \val
+> > +
+> > +	/*
+> > +	 * Compliant CPUs advertise their VHE-onlyness with
+> > +	 * ID_AA64MMFR4_EL1.E2H0 < 0. On such CPUs HCR_EL2.E2H is RES1, but it
+> > +	 * can reset into an UNKNOWN state and might not read as 1 until it has
+> > +	 * been initialized explicitly.
+> 
+> For ID_AA64MMFR4_EL1.E2H0 < 0 case, the code actually clears the
+> HCR_EL2.E2H bit.
+>
+> Hence, the comment should be corrected as: "... it can reset into an
+> UNKNOWN state and might not read as 0 until it has been initialized
+> explicitly".
 
-Yes, please, take it directly
+The comment is just fine. It is the code that is wrong, as it avoids
+setting E2H when E2H0 < 0 while we want the exact opposite behaviour.
 
-Acked-by: Mathias Nyman <mathias.nyman@linux.intel.com>
+As a result, 'b.lt' really should be a 'b.ge'. Or the original code
+kept as is.
 
-Thanks
-Mathias
+> 
+> > +	 *
+> > +	 * Fruity CPUs seem to have HCR_EL2.E2H set to RAO/WI, but
+> > +	 * don't advertise it (they predate this relaxation).
+> > +	 *
+> > +	 * Initalize HCR_EL2.E2H so that later code can rely upon HCR_EL2.E2H
+> > +	 * indicating whether the CPU is running in E2H mode.
+> > +	 */
+> 
+> I think it is even better to clear the HCR_E2H bit first. This can
+> avoid any dependency on the passed parameter 'val'.
+
+What are you trying to avoid? A random value passed as a parameter to
+the macro?
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
