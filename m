@@ -4,89 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE2CC282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 19:54:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2BF4C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 19:56:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GrxfhSQDPSEzY9FwMiMP3kLRUycgWmI45Gcv8VcIec8=; b=0VePhijvHHWiHLNDhMHNxJeQtG
-	BniJS3Q+M4IFYvY3IDfSFMfmq4b96ITLfYujHZA87v9otgYaftBzxjtvo9zl0KfAok+hW/T5fRioU
-	rvD0hfMUiIlYhj0c6g19jQ/xY7vYuamdCSRImiw9H7qoMdW3zK9BRMvvfXfMCyuhYWPBtLs/e0jw8
-	5hCjJkjBA+oM+4fR7iwMDliAjfWynkzurom6IB8Gx+tcfyWpRTR8wQv8EAo1IEiGdRY5EG8Cs3moc
-	cDDwMu3etfQMpUJzx6nh9/8pF1nmgysOLjrAsAaD+kbgWPjO15CE3c6wmyxGgPhSWFyXn3IRMsEyI
-	3+p2WD2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rsE6Z8pefMtcrNqizvA2kbwa2MIu2oj2aEETrBu+PkI=; b=S6ANU4O0o1QjQm
+	FBDfyXn2UfHYvw/Mzz5G9F7EnMoPH8py4LevYfNShpXPhmvFRr0/THChRPSM2s22x0fC8e6FHJPmS
+	mVkVlsnp36zPWtk8Prn8f409kFp6Pto1JEzNMXBgMc370NtHwVkA+Poc01/EKvLXVL8l9i1EvaBhg
+	8S7hbQ52J5Y6Q56DMt6V87VJUZdgaI6b2DbPAXY2Zu9vSLADHfPfWgqQYpf22juxyTSArNSo58Xjn
+	bU12/B7SlrrqigQCSpdX7lvNY/ml8g8S4MtyAK3ob4srpM67YbtlDS8ZzrpE5uZHIf9kj5YJzaEj4
+	R0nnKDr8srVMPh40cwhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to6RP-0000000CRDp-1Q6K;
-	Fri, 28 Feb 2025 19:54:35 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1to6Su-0000000CRfI-4Buk;
+	Fri, 28 Feb 2025 19:56:09 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to6I1-0000000COtl-36S6
+	id 1to6KZ-0000000CPMb-3hJL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 19:44:54 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5e08064b4ddso3291188a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 11:44:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740771892; x=1741376692; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GrxfhSQDPSEzY9FwMiMP3kLRUycgWmI45Gcv8VcIec8=;
-        b=OAKr/bKsaum18i8z+pNSLXsBPQH6uTOxdAoHTMM1O1S2n+yy9qdWBu9JzxT+2hWhMB
-         qUX42XjDB0lpR6O6jM9D0WGZciGK1xvqKklFqDrZvyvfU0dCdO1oKRYMM1ASHXRi5wTK
-         9dfOhi3GkEJTm9jvHlt7XTAE3laM8gQF194uekjL3QgIRuDq2VZ2RaZTbI9owEFBiNPl
-         bGnGdAfiexSIOSdpozw4gBMLAMjviQ0kN2QMs/bnwbw6/me7xgX3ylvmGT+SccFMkREC
-         MR0xMyUmwdOlFJqiHKGhgScg8dtTpFaZGKcx7MUVjdsR0sC2nkJ6bSSXlhmSmw3n19WC
-         VBLw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740771892; x=1741376692;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GrxfhSQDPSEzY9FwMiMP3kLRUycgWmI45Gcv8VcIec8=;
-        b=BUQULVM5x3C/EwTlA/JTnz7/ltyqjrx5nSksboD9/ZQYNHIdwo9kwm4Wj/fIGT1/y5
-         U+jgqiG3x6Ct2lYAbEoyXTA1aT08nS7GCeYZpRZHE+4FOSaFbsRVNg5c0GrdrJWLbbAE
-         tR4U79pMdsIqeRgGB5tgsf3zE8KsW5TlYBqRnPTgCCd61Rdsepls4RSCv9rjV4BYn5lI
-         m8n9IRfRV8mGcOLt4Jmw9lC1g+b0xswloJx3hfzSwWxk18T60g4ezX5AaZfSIg0R8BuL
-         ReZWP6UUmCAyyFUzKHZMTI6aCj9ze24RquXWX6vARwn7mI+U1hdbBh+itwTaW5n+QMe2
-         7iIA==
-X-Forwarded-Encrypted: i=1; AJvYcCVzC7kHqBvtekDW77KsJtGdREd7PxYY1O2j6RM6AfrCY0GWoIgHE+o/FIdsSBjsjasT5mI1gsci6vkk4iO2jNAl@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiM5VfZJP7daxIxP8HabLPEO9FvOvDJljyPCo+m2fN3M+NopGZ
-	mGNO78ZOQljLCrdhlwjvrhEczuB2hCPE/hutqdLNwmEa4ZToQSjZGxhJytY93A==
-X-Gm-Gg: ASbGncuhZHpIhBNAMlpPO8OtSU4VFUCYbb8UppTC7JqnXw/1JpT8cMnCeVR5xHH88tN
-	VlT1TXFMNjWAnw/OcpvDGrXvYJZdyp8cbeC7ILoHx8/cHIfFTtc6Y6F9jf0FFNA7xTxM4Jr0Wmc
-	NgQj0awppPQhryrVLkHFJpfc/7AoIrlXGXPgKpSeVyTbr9UWLnipMzB9YRgMx7x/+NN97iZSGZ1
-	TvQ0p7Cl7ZVr8X6FnzXqWTM4t28CXR2Q/wPCmsVBqG4NledBT3S8qtTRMhAjMDosLBP5uHMS3+n
-	2e66smRLP5xdXAh+XK/OG10qf3Sn7o8mkzMOkTZdzB3A+RhH0aZ6JGBKCxTbgOg=
-X-Google-Smtp-Source: AGHT+IHTdYieiZ2Aj4ze6pa8HY7tXwIhYVqJDu+daMOyke7B6a6VZw8tHVhi3y8YmBfQzTjNAAk15w==
-X-Received: by 2002:a17:907:9484:b0:abb:b136:a402 with SMTP id a640c23a62f3a-abf26424829mr475325566b.18.1740771891977;
-        Fri, 28 Feb 2025 11:44:51 -0800 (PST)
-Received: from google.com (229.112.91.34.bc.googleusercontent.com. [34.91.112.229])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abf0c7c18a3sm335218866b.185.2025.02.28.11.44.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Feb 2025 11:44:51 -0800 (PST)
-Date: Fri, 28 Feb 2025 19:44:47 +0000
-From: Quentin Perret <qperret@google.com>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	maz@kernel.org, oliver.upton@linux.dev, mark.rutland@arm.com,
-	will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org,
-	vdonnefort@google.com
-Subject: Re: [PATCH v2 3/4] KVM: arm64: Factor out pKVM hyp vcpu creation to
- separate function
-Message-ID: <Z8ISLxQRcsx2uuHw@google.com>
-References: <20250226215520.1759218-1-tabba@google.com>
- <20250226215520.1759218-4-tabba@google.com>
+	Fri, 28 Feb 2025 19:47:33 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 7DE0825CD8;
+	Fri, 28 Feb 2025 20:47:30 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id cMtjQdeiNtx0; Fri, 28 Feb 2025 20:47:25 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1740772045; bh=L0vW+9BMQ6QnwnUmlEJKpaiyKdFPAJ2WF5bcFyFpTiQ=;
+	h=From:Subject:Date:To:Cc;
+	b=KPKGk+31v4GHB/NlFULZ/ylU3PaJK/OhdL3PJupbOEPuILXc7Ke21zd/QEWjUhU3g
+	 qWrm0ZGo2xoFGSQt1CtYoI/O8zx9MZ28YIRECLsjUHpsZNoA/aMZcW9/lwCZXXAhd3
+	 BKdffwPEUWPxIbEhvpm2KVPNi7mjAclGSy7VzFEPkw4UCCLQRjHbCFMNwrnnnfyzRQ
+	 GIMluSXCoyU/HbXWcd511QU8SNvYzoh152WQV2rh5u9cq6IzClwy2xKU/5CAGljCtS
+	 1JZazyGvJPQbvO+t8vXdk6z29J7Sl7JPFFfux5PadREFP7POpYdZChIqchIqN14ru5
+	 /m+rUnCyDsp0g==
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+Subject: [PATCH v4 0/7] Add support for the Exynos7870 SoC, along with
+ three devices
+Date: Sat, 01 Mar 2025 01:16:48 +0530
+Message-Id: <20250301-exynos7870-v4-0-2925537f9b2a@disroot.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250226215520.1759218-4-tabba@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKgSwmcC/2XMSwqDMBSF4a1Ixk25eZhoR91H6UDNjWZiSiJBE
+ ffeKBSUDs+B719JxOAwkkexkoDJRefHPOStIN3QjD1SZ/ImHHgJHBjFeRl91JUGCrIuK42y1ca
+ SDD4BrZuP2Oud9+Di5MNytBPb319GnDOJUaC8VcZKrRph4WlcDN5Pdx96socSP2N5wTzjUgkmm
+ CrRQvePxQmz+oJFxigqaVvFoGvMFW/b9gVsWMXBIAEAAA==
+X-Change-ID: 20250201-exynos7870-049587e4b7df
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+Cc: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
+ Kaustabh Chakraborty <kauschluss@disroot.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1740772038; l=4538;
+ i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
+ bh=L0vW+9BMQ6QnwnUmlEJKpaiyKdFPAJ2WF5bcFyFpTiQ=;
+ b=Deb8VQAtnpEegn73ajSh7eE2p6iErSSsjs5WjgymYnBBtShQIiJTacZ9LdHDdCXv0iPGV7xVL
+ 4nTW9bq/gMwBSiE0eMTX/v8EohHo29JjHDNanO5fJsVn2O/avYkmhoe
+X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
+ pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_114453_776700_2692D006 
-X-CRM114-Status: GOOD (  15.57  )
+X-CRM114-CacheID: sfid-20250228_114732_189043_CF3EF42F 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,57 +89,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wednesday 26 Feb 2025 at 21:55:19 (+0000), Fuad Tabba wrote:
->  static int __pkvm_create_hyp_vm(struct kvm *host_kvm)
->  {
-> -	size_t pgd_sz, hyp_vm_sz, hyp_vcpu_sz;
-> +	size_t pgd_sz, hyp_vm_sz;
->  	struct kvm_vcpu *host_vcpu;
-> -	pkvm_handle_t handle;
->  	void *pgd, *hyp_vm;
->  	unsigned long idx;
->  	int ret;
-> @@ -161,33 +178,12 @@ static int __pkvm_create_hyp_vm(struct kvm *host_kvm)
->  	if (ret < 0)
->  		goto free_vm;
->  
-> -	handle = ret;
-> +	WRITE_ONCE(host_kvm->arch.pkvm.handle, ret);
+Samsung Exynos 7870 (codename: Joshua) is an ARM-v8 system-on-chip that was
+announced in 2016. The chipset was found in several popular mid-range to
+low-end Samsung phones, released within 2016 to 2019.
 
-What's the reason to make this a WRITE_ONCE? Does it mean we should
-update the readers to be READ_ONCE()?
+This patch series aims to add support for Exynos 7870, starting with the
+most basic yet essential components such as CPU, GPU, clock controllers,
+PMIC, pin controllers, etc.
 
-> -	host_kvm->arch.pkvm.handle = handle;
-> -
-> -	/* Donate memory for the vcpus at hyp and initialize it. */
-> -	hyp_vcpu_sz = PAGE_ALIGN(PKVM_HYP_VCPU_SIZE);
->  	kvm_for_each_vcpu(idx, host_vcpu, host_kvm) {
-> -		void *hyp_vcpu;
-> -
-> -		/* Indexing of the vcpus to be sequential starting at 0. */
-> -		if (WARN_ON(host_vcpu->vcpu_idx != idx)) {
-> -			ret = -EINVAL;
-> -			goto destroy_vm;
-> -		}
-> -
-> -		hyp_vcpu = alloc_pages_exact(hyp_vcpu_sz, GFP_KERNEL_ACCOUNT);
-> -		if (!hyp_vcpu) {
-> -			ret = -ENOMEM;
-> -			goto destroy_vm;
-> -		}
-> -
-> -		ret = kvm_call_hyp_nvhe(__pkvm_init_vcpu, handle, host_vcpu,
-> -					hyp_vcpu);
-> -		if (ret) {
-> -			free_pages_exact(hyp_vcpu, hyp_vcpu_sz);
-> +		ret = __pkvm_create_hyp_vcpu(host_vcpu);
-> +		if (ret)
->  			goto destroy_vm;
-> -		}
->  	}
->  
->  	return 0;
-> -- 
-> 2.48.1.711.g2feabab25a-goog
-> 
+Moreover, the series also adds support for three Exynos 7870 devices via
+devicetree. The devices are:
+ * Samsung Galaxy J7 Prime	- released 2016, codename on7xelte
+ * Samsung Galaxy J6		- released 2018, codename j6lte
+ * Samsung Galaxy A2 Core	- released 2019, codename a2corelte
+
+Additional features implemented in this series include:
+ * I2C	- touchscreen, IIO sensors, etc.
+ * UART	- bluetooth and serial debugging
+ * MMC	- eMMC, Wi-Fi SDIO, SDCard
+ * USB	- micro-USB 2.0 interface
+
+Build dependencies are in these sub-series:
+ * bootmode	  	- https://lore.kernel.org/all/20250204-exynos7870-bootmode-v1-1-0f17b3033c2d@disroot.org/
+ * pmu-clocks		- https://lore.kernel.org/all/20250301-exynos7870-pmu-clocks-v4-0-0f3e73b10db7@disroot.org/
+
+Other related sub-series:
+ * gpu			R https://lore.kernel.org/all/20250204-exynos7870-gpu-v1-1-0db4c163a030@disroot.org/
+ * i2c	      		A https://lore.kernel.org/all/20250204-exynos7870-i2c-v1-0-63d67871ab7e@disroot.org/
+ * mmc			- https://lore.kernel.org/all/20250219-exynos7870-mmc-v2-0-b4255a3e39ed@disroot.org/
+ * pinctrl	  	- https://lore.kernel.org/all/20250301-exynos7870-pinctrl-v3-0-ba1da9d3cd2f@disroot.org/
+ * pmic-regulators	- https://lore.kernel.org/all/20250301-exynos7870-pmic-regulators-v3-0-808d0b47a564@disroot.org/
+ * uart			R https://lore.kernel.org/all/20250219-exynos7870-uart-v2-1-c8c67f3a936c@disroot.org/
+ * usb			- https://lore.kernel.org/all/20250301-exynos7870-usb-v3-0-f01697165d19@disroot.org/
+ * usbphy		- https://lore.kernel.org/all/20250219-exynos7870-usbphy-v2-0-b8ba4e7a72e9@disroot.org/
+(Legend: [R]eviewed, [A]pplied)
+
+Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+---
+Changes in v4:
+- Drop merged [PATCH v3 1/7].
+- Explicitly mention sub-series having build dependencies.
+- Include the following patch from the pmu-clocks series:
+  - dt-bindings: soc: samsung: exynos-pmu: add exynos7870-pmu compatible
+- Adjust clock header file name to match changes in pmu-clocks.
+- Change regulator node names to match changes in pmic-regulators.
+- Remove non-removable flag for the SDCard's mmc node.
+- Link to v3: https://lore.kernel.org/r/20250219-exynos7870-v3-0-e384fb610cad@disroot.org
+
+Changes in v3:
+- Added patches from https://lore.kernel.org/all/20250204-exynos7870-chipid-v1-0-0bf2db08e621@disroot.org/
+- Fix devicetree formatting according to the devicetree style guide.
+- Take over ownership of patches by the co-author, upon their request.
+- Link to v2: https://lore.kernel.org/r/20250204-exynos7870-v2-0-56313165ef0c@disroot.org
+
+Changes in v2:
+- Redo a few commit descriptions.
+- Split patchsets into multiple sub-series, subsystem-wise.
+- Link to v1: https://lore.kernel.org/r/20250203-exynos7870-v1-0-2b6df476a3f0@disroot.org
+
+---
+Kaustabh Chakraborty (7):
+      dt-bindings: soc: samsung: exynos-pmu: add exynos7870-pmu compatible
+      dt-bindings: arm: samsung: add compatibles for exynos7870 devices
+      soc: samsung: exynos-chipid: add support for exynos7870
+      arm64: dts: exynos: add initial devicetree support for exynos7870
+      arm64: dts: exynos: add initial support for Samsung Galaxy J7 Prime
+      arm64: dts: exynos: add initial support for Samsung Galaxy A2 Core
+      arm64: dts: exynos: add initial support for Samsung Galaxy J6
+
+ .../bindings/arm/samsung/samsung-boards.yaml       |    8 +
+ .../bindings/soc/samsung/exynos-pmu.yaml           |    1 +
+ arch/arm64/boot/dts/exynos/Makefile                |    3 +
+ .../arm64/boot/dts/exynos/exynos7870-a2corelte.dts |  628 ++++++++++++
+ arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts    |  616 ++++++++++++
+ arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts |  664 +++++++++++++
+ arch/arm64/boot/dts/exynos/exynos7870-pinctrl.dtsi | 1022 ++++++++++++++++++++
+ arch/arm64/boot/dts/exynos/exynos7870.dtsi         |  714 ++++++++++++++
+ drivers/soc/samsung/exynos-chipid.c                |    1 +
+ 9 files changed, 3657 insertions(+)
+---
+base-commit: be5c7bbb3a64baf884481a1ba0c2f8fb2f93f7c3
+change-id: 20250201-exynos7870-049587e4b7df
+
+Best regards,
+-- 
+Kaustabh Chakraborty <kauschluss@disroot.org>
+
 
