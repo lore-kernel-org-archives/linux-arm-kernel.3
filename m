@@ -4,74 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D7A0C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 18:39:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A118C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Feb 2025 18:41:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OzwK/2ndWQXM//wMkO3/Qdh0k5btOjmnwFacXzTF3kk=; b=RsR2d8hYkkrfBrW0e8RxEc5Or9
-	FwzU890GUT7popDMXpii2TwvCdGz4Ay+3IXvIcgTCsKCluJFEXJLO3M9jdgDYqVDiHCODmIn3pFbz
-	JuVi5tLtX9a4MkYiSrqXaXlra9eeqRu9pfZRZz5wwqreDkGcyCyh4iLnBqqMqnicxtWskfgwRqBoq
-	LpUg6PiwI31IGp4plyn7s9yZw1xjVvBRh+2VjMy7GlkfpI8VgzhH25687b7zAZHXbbK9Ff7hQabxO
-	kK7g9ko2oGOrUDkqHrJfWTZSo97xwzBME98VW/Y9qE8cpg92P3SUmHpODA4cJRAUYD3tHWHT/YkHl
-	Z2O5yoAw==;
+	bh=0PSz7ZuQ5nzLnJet5Y9kbEfPUEX42BXLUnRfN3fMKwQ=; b=iebH/8nZRzeFejy7Vmbhi8kNSz
+	Ae6YLiO+SD6YyEqKMAaRM6+v/i+y1Vd2ytj8VltRBFXVRG+UB1eucoGFUUYh5EWjS4W3GB9XfvsiO
+	32X+Hw7aCq6ByuQhR/cTKcJgssR2zWJd74Q6WZfz1kbiHFeyHRVNYEBVLSoj3MBEMaIREUCNLmhIy
+	Q1GUJq//+uyVgHNB25USAj30gnceeOw57zpvULMOKkWZV2VCTcPocQYtmQpYcciz/Vm3fb3O06eqO
+	7LmerYGfVoNCO671SDRgUDWjKTfllbtrry6DFqz95i2e00OcUbVbET9XEMZg31VlyMJCd3MREc5bv
+	6l8BRTiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1to5Gq-0000000CBo9-3HBO;
-	Fri, 28 Feb 2025 18:39:36 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1to5IM-0000000CCF4-2HEH;
+	Fri, 28 Feb 2025 18:41:10 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1to54r-0000000C8Gn-2ewq
+	id 1to54u-0000000C8Hb-27NU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Feb 2025 18:27:14 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D5774102901CF;
-	Fri, 28 Feb 2025 19:27:09 +0100 (CET)
+	Fri, 28 Feb 2025 18:27:17 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7E13D102901D2;
+	Fri, 28 Feb 2025 19:27:12 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1740767232;
+	t=1740767234;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=OzwK/2ndWQXM//wMkO3/Qdh0k5btOjmnwFacXzTF3kk=;
-	b=UqAzTE1pv0PeVxUpgwyNifM7y00xjUNJN4kveqUsZWhjsvv9BBZ/tGHxzkOoxlIagi7zng
-	Sx4XYnp+RdTovBJqeY9uBOfrB6cvIojqmjjf/En0Mb4VGAbwK3WsQTzGtuB5z/Hsrk1H9s
-	W+CK1HF9pIltglnooTASo/kHxjrTcNLW9ohEW4eWvXiwKcm95QcGUm6sXD9p2vzyv2w/Rh
-	fYEWNEKW4MSKNGiqwkH6T8W6P8p+JNgNmn3mGaW/sPLGGioHH3EASHuLB/2Lqhed/mGqE0
-	XzIVf6/L1g6loiGJaZ0HRNe+GEwu/XGwqEfHlhEUkAoGpxM/uQGx0QJ1ZeB3WQ==
-Message-ID: <fa88c1c1-89ba-4a10-bd57-0819d7740c0a@denx.de>
-Date: Fri, 28 Feb 2025 18:05:36 +0100
+	bh=0PSz7ZuQ5nzLnJet5Y9kbEfPUEX42BXLUnRfN3fMKwQ=;
+	b=eQ8imoeEEwidEDudYu5MHyQsLjGLBO8dj5+QfJK9e2JR0FczsFVk87HbncD71csVZAqfeX
+	NqtxMeJMIE2eDYNpvkV6pDJpNYP2pKf4UpMnXXPmNweU/w9RFgQHyHC3Vi/kDcQDtgIgTU
+	lGkR9vFKdJPU4zaH4OEzkKqebb5/sG74EKmGOKYh5PFC/7XScQvvcbC2GXgL3WH16wBk3q
+	AB4jy9asH5ejxdYyy6Z6DdnfxSOwE8I/HdYJN9CFrbULwwWdeBIdG0OzU7y/roQOtPbNYz
+	O3lTUWEFE3vEf5Tt37NRw/70PeHGwBobRkeXb5t8wOkcncG9sgLeV8oSL2MBfA==
+Message-ID: <b6eed3e6-e416-4c36-9fdf-f14471b029a8@denx.de>
+Date: Fri, 28 Feb 2025 18:17:03 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/9] drm/panthor: Reset GPU after L2 cache power off
-To: Liviu Dudau <liviu.dudau@arm.com>
+Subject: Re: [PATCH 7/9] dt-bindings: gpu: mali-valhall-csf: Document i.MX95
+ support
+To: Rob Herring <robh@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org,
  Boris Brezillon <boris.brezillon@collabora.com>,
  Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>,
  Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ <krzk+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>,
  Pengutronix Kernel Team <kernel@pengutronix.de>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Sebastian Reichel <sre@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Sebastian Reichel <sre@kernel.org>,
  Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
  Steven Price <steven.price@arm.com>, Thomas Zimmermann
  <tzimmermann@suse.de>, devicetree@vger.kernel.org,
  dri-devel@lists.freedesktop.org, imx@lists.linux.dev
 References: <20250227170012.124768-1-marex@denx.de>
- <20250227170012.124768-7-marex@denx.de>
- <Z8GY0nWXOxCKF-XL@e110455-lin.cambridge.arm.com>
+ <20250227170012.124768-8-marex@denx.de>
+ <20250228123010.GB2321092-robh@kernel.org>
 Content-Language: en-US
 From: Marek Vasut <marex@denx.de>
-In-Reply-To: <Z8GY0nWXOxCKF-XL@e110455-lin.cambridge.arm.com>
+In-Reply-To: <20250228123010.GB2321092-robh@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_102713_816695_A97441B8 
-X-CRM114-Status: GOOD (  11.33  )
+X-CRM114-CacheID: sfid-20250228_102716_689560_7ACDD25C 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,42 +89,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/28/25 12:06 PM, Liviu Dudau wrote:
-> Hi Marek,
-
-Hi,
-
-> On Thu, Feb 27, 2025 at 05:58:06PM +0100, Marek Vasut wrote:
->> This seems necessary on Freescale i.MX95 Mali G310 to reliably resume
->> from runtime PM suspend. Without this, if only the L2 is powered down
->> on RPM entry, the GPU gets stuck and does not indicate the firmware is
->> booted after RPM resume.
+On 2/28/25 1:30 PM, Rob Herring wrote:
+> On Thu, Feb 27, 2025 at 05:58:07PM +0100, Marek Vasut wrote:
+>> The instance of the GPU populated in Freescale i.MX95 is the
+>> Mali G310, document support for this variant.
 > 
-> That doesn't sound right. Can you tell me what GPU firmware are you running
-> (we are now printing the git sha of the image at boot time).
-Please see below. It could be some sort of NXP firmware fork ?
-
-It comes from the NXP firmware repo , mali-imx-r50.2-710cfb6 .
-
-panthor 4d900000.gpu: [drm] clock rate = 1000000000
-panthor 4d900000.gpu: EM: created perf domain
-panthor 4d900000.gpu: [drm] mali-unknown id 0xac74 major 0x0 minor 0x0 
-status 0x1
-panthor 4d900000.gpu: [drm] Features: L2:0x7110306 Tiler:0x809 Mem:0x1 
-MMU:0x2830 AS:0xff
-panthor 4d900000.gpu: [drm] shader_present=0x1 l2_present=0x1 
-tiler_present=0x1
-panthor 4d900000.gpu: [drm] Firmware protected mode entry not be 
-supported, ignoring
-panthor 4d900000.gpu: [drm] Firmware git sha: 
-8e5cfcfec20cc8aff8509d37e72babc935d34a3b
-panthor 4d900000.gpu: [drm] CSF FW using interface v1.1.0, Features 0x0 
-Instrumentation features 0x71
-[drm] Initialized panthor 1.3.0 for 4d900000.gpu on minor 0
-
-$ sha256sum mali_csffw.bin
-befd23b9279b26010ebf35c835cc3aa7d0f50758930c7306ff4f5abbe5218624 
-mali_csffw.bin
-
-[...]
+> You should combine patch 4 with this one and make resets required for
+> imx95 since you said it is required.
+The reset support is orthogonal from MX95, but I did add the resets 
+requirement for MX95 , thanks !
 
