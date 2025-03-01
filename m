@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCBCEC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 12:40:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7AF5C282D2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 12:49:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g7eybK2HiEnG/Sy/24b6WL3kyyt30gNhkAJLXN0wue0=; b=TCRMwzIqVBPCxlrsE8cGIaE0Q6
-	x3aCoaX+/XF4wOA6TfA4tepGXUTsId2K0ncc65oowvSrmr/1D9kYqiiyJSAZ4uBSpCD4IFXIun82u
-	0l5ULqnPrKvRv0R9xeJeUud5OobTSoi7mXxSkeAaaZE9P4S6w4clLTCXvd7eMSOzvf+yY9g+yn4D1
-	2WpX+kavSgyV+Q/Dad+psMsgEB2FbJEtnBmjsJHjOVlh52LzWkmfPJlp0JMald0GSlnud6Pf/nCVl
-	p4/qXlc8LR0i+gkVXkGx+bkGlV3AvA18cWZCghGsnqdnnMz0F0yiHBO7A8S0rNyL0SxrF8GFgPmDb
-	XgzQ/JwQ==;
+	bh=vlAHgpbS8ocJiIPCyubD8pMYmZoM/v7ggXzVGihd27E=; b=i8kgFbUhv4C16RL5oqpAVbs+QR
+	f5NokVoxABQUcc/l+KsEfOZKBJIkyozE2RZZYWgWdG+e2mairMNmS7H2jgL1eqjt5L+fug0RY/ELk
+	O7ZP9rWhLMJJ20jFbGLXu1/rmTxtKjMk4kHKJlNZTAW7eajb4rUpDVwfH0g3Mnd/ZSj7iJULNh38W
+	5A4KGDlpSTJLHpJqYJ8nBtpBRdpZBESbGKm8MdBs+oxiXXAkwJIlx237D/VRhciGRxfnA4UcWU4nm
+	5TBnkaodocWLn32/jMOYRIXTCX9oO49TP5FKINbVppMpnk5nQflt9ZnHrSCYPGcqgRotBTd3HsgpP
+	F7OZ2L6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toM8Q-0000000DvwT-2nHb;
-	Sat, 01 Mar 2025 12:40:02 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toM6q-0000000DvjJ-2XUg;
-	Sat, 01 Mar 2025 12:38:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=wCBzAKO1DjF50DXGutZA1P0FPBm6tQ8AwKNOnu2djxk=; b=U
-	XwOwJCmyFLQziqjztw5xl6+AewfBMkvciqvrfBu3IQy1kKDj9OKy1r19h0v5HoWg
-	Djxf/MsQzb/7Iis6RjKx4zrAga6Ap0uCEvhEz37mp9PWTUz2rSuv94Ua9dDeB32+
-	behE8j06m91CjllViFMHDsYLlvccEHA+8oMymUlAfM=
-Received: from andyshrk$163.com ( [58.22.7.114] ) by
- ajax-webmail-wmsvr-40-107 (Coremail) ; Sat, 1 Mar 2025 20:38:01 +0800 (CST)
-X-Originating-IP: [58.22.7.114]
-Date: Sat, 1 Mar 2025 20:38:01 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: "Sebastian Reichel" <sebastian.reichel@collabora.com>
-Cc: "Heiko Stuebner" <heiko@sntech.de>, "Rob Herring" <robh+dt@kernel.org>,
-	"Krzysztof Kozlowski" <krzysztof.kozlowski+dt@linaro.org>,
-	"Conor Dooley" <conor+dt@kernel.org>,
-	"FUKAUMI Naoki" <naoki@radxa.com>,
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com
-Subject: Re:[PATCH v1 1/1] arm64: dts: rockchip: Add USB-C support to ROCK
- 5B
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
- Copyright (c) 2002-2025 www.mailtech.cn 163com
-In-Reply-To: <20241210163615.120594-1-sebastian.reichel@collabora.com>
-References: <20241210163615.120594-1-sebastian.reichel@collabora.com>
-X-NTES-SC: AL_Qu2fAvSYvU4j5yaaY+kfmkcVgOw9UcO5v/Qk3oZXOJF8jCHpyAceeXBTHlbv/PCDBDqXkAiHVDdI89xeb5lhU4kMMSFSiLgpyvXmQtwdLcfubA==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1toMHi-0000000DwVE-3jAC;
+	Sat, 01 Mar 2025 12:49:38 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1toMGA-0000000DwJw-232W
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 01 Mar 2025 12:48:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1740833280;
+ bh=vlAHgpbS8ocJiIPCyubD8pMYmZoM/v7ggXzVGihd27E=;
+ b=c/YeBY41hfycfNaZNb5GGW+NsJ6MRqVPlbElyKZBoldkClwxYlDSunvgUPJ3x7UixpVRx7N3C
+ Ca+T6AKNIkRexZ8KHrEKGFhntMYd1Uf1JSOhewcv+yBrZpMyu9qeJ+Ag8YaL77GzDWmu+xzOGFG
+ X5kSPgS/4S00IUoeY9NpeGl3UeQS0JTkqtjsr43mNnn/sLuR6twxHlqLX3f+kCYGGewSRcRAq7d
+ IOlsyuK8ghhUY3QVb8+Sm9oO9aVOvXVObtuYq0uSp3ajOq7lUi4i/PB/fPD4hgMueyO5fT+FW4K
+ nBQSHO97tQ1SqLDMPrCsOVsSttGotMB1mMYQwFuYpHtg==
+X-Forward-Email-ID: 67c301f890cf55d47dbe8d70
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 0.4.40
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <9fd51bcb-3e6a-46b6-b1f7-ff16fa562d9e@kwiboo.se>
+Date: Sat, 1 Mar 2025 13:47:47 +0100
 MIME-Version: 1.0
-Message-ID: <12e97e18.367e.19551b6aea2.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: aygvCgC33uap_8Jn5UJzAA--.55400W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0gMDXmfC+tw76gABsf
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 7/8] arm64: dts: rockchip: Add SDMMC/SDIO controllers for
+ RK3528
+To: Yao Zi <ziyao@disroot.org>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Frank Wang <frank.wang@rock-chips.com>,
+ Shresth Prasad <shresthprasad7@gmail.com>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Detlev Casanova <detlev.casanova@collabora.com>, linux-mmc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org
+References: <20250301104250.36295-1-ziyao@disroot.org>
+ <20250301104749.36423-1-ziyao@disroot.org>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20250301104749.36423-1-ziyao@disroot.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250301_043825_135840_F060B434 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20250301_044802_731644_1BD6078C 
+X-CRM114-Status: GOOD (  14.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,102 +87,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CkhpIFNlYmFzdGlhbiwKIApBdCAyMDI0LTEyLTExIDAwOjM2OjAxLCAiU2ViYXN0aWFuIFJlaWNo
-ZWwiIDxzZWJhc3RpYW4ucmVpY2hlbEBjb2xsYWJvcmEuY29tPiB3cm90ZToKPkFkZCBoYXJkd2Fy
-ZSBkZXNjcmlwdGlvbiBmb3IgdGhlIFVTQi1DIHBvcnQgaW4gdGhlIFJhZHhhIFJvY2sgNSBNb2Rl
-bCBCLgo+VGhpcyBkZXNjcmliZXMgdGhlIE9IQ0ksIEVIQ0kgYW5kIFhIQ0kgVVNCIHBhcnRzLCBi
-dXQgbm90IHlldCB0aGUKPkRpc3BsYXlQb3J0IEFsdE1vZGUgKGJpbmRpbmdzIGFyZSBub3QgeWV0
-IHVwc3RyZWFtKS4KPgo+VGhlIGZ1c2IzMDIgbm9kZSBpcyBtYXJrZWQgd2l0aCBzdGF0dXMgImZh
-aWwiLCBzaW5jZSB0aGUgYm9hcmQgaXMgdXN1YWxseQo+cG93ZXJlZCB0aHJvdWdoIHRoZSBVU0It
-QyBwb3J0LiBIYW5kbGluZyBvZiBlcnJvcnMgY2FuIHJlc3VsdCBpbiBoYXJkCj5yZXNldHMsIHdo
-aWNoIHJlbW92ZWQgdGhlIGJ1cyBwb3dlciBmb3Igc29tZSB0aW1lIHJlc3VsdGluZyBpbiBhIGJv
-YXJkCj5yZXNldC4KPgo+VGhlIG1haW4gcHJvYmxlbSBpcyB0aGF0IGRldmljZXMgYXJlIHN1cHBv
-c2VkIHRvIGludGVyYWN0IHdpdGggdGhlCj5wb3dlci1zdXBwbHkgd2l0aGluIDUgc2Vjb25kcyBh
-ZnRlciB0aGUgcGx1ZyBldmVudCBhY2NvcmRpbmcgdG8gdGhlCj5VU0IgUEQgc3BlY2lmaWNhdGlv
-bi4gVGhpcyBpcyBtb3JlIG9yIGxlc3MgaW1wb3NzaWJsZSB0byBhY2hpZXZlIHdoZW4KPnRoZSBr
-ZXJuZWwgaXMgdGhlIGZpcnN0IHNvZnR3YXJlIGNvbW11bmljYXRpbmcgd2l0aCB0aGUgcG93ZXIt
-c3VwcGx5Lgo+Cj5SZWNlbnQgVS1Cb290ICh2MjAyNS4wMSkgd2lsbCBzdGFydCBkb2luZyBVU0It
-UEQgY29tbXVuaWNhdGlvbiwgd2hpY2gKPnNvbHZlcyB0aGlzIGlzc3VlLiBVcHN0cmVhbSBVLUJv
-b3QgZG9pbmcgVVNCLVBEIGNvbW11bmljYXRpb24gd2lsbCBhbHNvCj5zZXQgdGhlIGZ1c2IzMDIg
-bm9kZSBzdGF0dXMgdG8gIm9rYXkiLiBUaGF0IHdheSBib290aW5nIGEga2VybmVsIHdpdGgKPnRo
-ZSB1cGRhdGVkIERUIG9uIGFuIG9sZCBVLUJvb3QgYXZvaWRzIGEgcmVzZXQgbG9vcC4KCiAgICBE
-byB5b3UgaGF2ZSBhbnkgcGxhbnMgdG8gY29udGludWUgd29ya2luZyBvbiB0aGlzIHBhdGNoPwog
-ICAgSSd2ZSBiZWVuIHdvcmtpbmcgb24gZW5hYmxpbmcgdGhlIERQIEFsdCBNb2RlIG91dHB1dCBy
-ZWNlbnRseQogICBhbmQgdGhpbmsgdGhlIFJvY2sgNWIgIGlzIGEgZ29vZCBzdGFydGluZyBwb2lu
-dOOAggogICAgIAo+Cj5TaWduZWQtb2ZmLWJ5OiBTZWJhc3RpYW4gUmVpY2hlbCA8c2ViYXN0aWFu
-LnJlaWNoZWxAY29sbGFib3JhLmNvbT4KPi0tLQo+IC4uLi9ib290L2R0cy9yb2NrY2hpcC9yazM1
-ODgtcm9jay01Yi5kdHMgICAgICB8IDEyMSArKysrKysrKysrKysrKysrKysKPiAxIGZpbGUgY2hh
-bmdlZCwgMTIxIGluc2VydGlvbnMoKykKPgo+ZGlmZiAtLWdpdCBhL2FyY2gvYXJtNjQvYm9vdC9k
-dHMvcm9ja2NoaXAvcmszNTg4LXJvY2stNWIuZHRzIGIvYXJjaC9hcm02NC9ib290L2R0cy9yb2Nr
-Y2hpcC9yazM1ODgtcm9jay01Yi5kdHMKPmluZGV4IGQ1OTcxMTJmMWQ1Yi4uY2I1OTkwZGY2Y2Ni
-IDEwMDY0NAo+LS0tIGEvYXJjaC9hcm02NC9ib290L2R0cy9yb2NrY2hpcC9yazM1ODgtcm9jay01
-Yi5kdHMKPisrKyBiL2FyY2gvYXJtNjQvYm9vdC9kdHMvcm9ja2NoaXAvcmszNTg4LXJvY2stNWIu
-ZHRzCj5AQCAtNSw2ICs1LDcgQEAKPiAjaW5jbHVkZSA8ZHQtYmluZGluZ3MvZ3Bpby9ncGlvLmg+
-Cj4gI2luY2x1ZGUgPGR0LWJpbmRpbmdzL2xlZHMvY29tbW9uLmg+Cj4gI2luY2x1ZGUgPGR0LWJp
-bmRpbmdzL3NvYy9yb2NrY2hpcCx2b3AyLmg+Cj4rI2luY2x1ZGUgPGR0LWJpbmRpbmdzL3VzYi9w
-ZC5oPgo+ICNpbmNsdWRlICJyazM1ODguZHRzaSIKPiAKPiAvIHsKPkBAIC04NCw2ICs4NSwxNSBA
-QCByZmtpbGwtYnQgewo+IAkJc2h1dGRvd24tZ3Bpb3MgPSA8JmdwaW8zIFJLX1BENSBHUElPX0FD
-VElWRV9ISUdIPjsKPiAJfTsKPiAKPisJdmNjMTJ2X2RjaW46IHJlZ3VsYXRvci12Y2MxMnYtZGNp
-biB7Cj4rCQljb21wYXRpYmxlID0gInJlZ3VsYXRvci1maXhlZCI7Cj4rCQlyZWd1bGF0b3ItbmFt
-ZSA9ICJ2Y2MxMnZfZGNpbiI7Cj4rCQlyZWd1bGF0b3ItYWx3YXlzLW9uOwo+KwkJcmVndWxhdG9y
-LWJvb3Qtb247Cj4rCQlyZWd1bGF0b3ItbWluLW1pY3Jvdm9sdCA9IDwxMjAwMDAwMD47Cj4rCQly
-ZWd1bGF0b3ItbWF4LW1pY3Jvdm9sdCA9IDwxMjAwMDAwMD47Cj4rCX07Cj4rCj4gCXZjYzN2M19w
-Y2llMngxbDA6IHJlZ3VsYXRvci12Y2MzdjMtcGNpZTJ4MWwwIHsKPiAJCWNvbXBhdGlibGUgPSAi
-cmVndWxhdG9yLWZpeGVkIjsKPiAJCWVuYWJsZS1hY3RpdmUtaGlnaDsKPkBAIC0xNDIsNiArMTUy
-LDcgQEAgdmNjNXYwX3N5czogcmVndWxhdG9yLXZjYzV2MC1zeXMgewo+IAkJcmVndWxhdG9yLWJv
-b3Qtb247Cj4gCQlyZWd1bGF0b3ItbWluLW1pY3Jvdm9sdCA9IDw1MDAwMDAwPjsKPiAJCXJlZ3Vs
-YXRvci1tYXgtbWljcm92b2x0ID0gPDUwMDAwMDA+Owo+KwkJdmluLXN1cHBseSA9IDwmdmNjMTJ2
-X2RjaW4+Owo+IAl9Owo+IAo+IAl2Y2NfMXYxX25sZG9fczM6IHJlZ3VsYXRvci12Y2MtMXYxLW5s
-ZG8tczMgewo+QEAgLTI2NCw2ICsyNzUsNjcgQEAgcmVndWxhdG9yLXN0YXRlLW1lbSB7Cj4gCX07
-Cj4gfTsKPiAKPismaTJjNCB7Cj4rCXBpbmN0cmwtbmFtZXMgPSAiZGVmYXVsdCI7Cj4rCXBpbmN0
-cmwtMCA9IDwmaTJjNG0xX3hmZXI+Owo+KwlzdGF0dXMgPSAib2theSI7Cj4rCj4rCXVzYmMwOiB1
-c2ItdHlwZWNAMjIgewo+KwkJY29tcGF0aWJsZSA9ICJmY3MsZnVzYjMwMiI7Cj4rCQlyZWcgPSA8
-MHgyMj47Cj4rCQlpbnRlcnJ1cHQtcGFyZW50ID0gPCZncGlvMz47Cj4rCQlpbnRlcnJ1cHRzID0g
-PFJLX1BCNCBJUlFfVFlQRV9MRVZFTF9MT1c+Owo+KwkJcGluY3RybC1uYW1lcyA9ICJkZWZhdWx0
-IjsKPisJCXBpbmN0cmwtMCA9IDwmdXNiYzBfaW50PjsKPisJCXZidXMtc3VwcGx5ID0gPCZ2Y2Mx
-MnZfZGNpbj47Cj4rCQkvKgo+KwkJICogV2hlbiB0aGUgYm9hcmQgaXMgc3RhcnRpbmcgdG8gc2Vu
-ZCBwb3dlci1kZWxpdmVyeSBtZXNzYWdlcwo+KwkJICogdG9vIGxhdGUgKDUgc2Vjb25kcyBhY2Nv
-cmRpbmcgdG8gdGhlIHNwZWNpZmljYXRpb24pLCB0aGUKPisJCSAqIHBvd2VyLXN1cHBseSByZWFj
-dHMgd2l0aCBhIGhhcmQtcmVzZXQuIFRoYXQgcmVtb3ZlcyB0aGUKPisJCSAqIHBvd2VyIGZyb20g
-VkJVUyBmb3Igc29tZSB0aW1lLCB3aGljaCByZXNldHMgdGUgd2hvbGUgYm9hcmQuCj4rCQkgKi8K
-PisJCXN0YXR1cyA9ICJmYWlsIjsKPisKPisJCXVzYl9jb246IGNvbm5lY3RvciB7Cj4rCQkJY29t
-cGF0aWJsZSA9ICJ1c2ItYy1jb25uZWN0b3IiOwo+KwkJCWxhYmVsID0gIlVTQi1DIjsKPisJCQlk
-YXRhLXJvbGUgPSAiZHVhbCI7Cj4rCQkJcG93ZXItcm9sZSA9ICJzaW5rIjsKPisJCQl0cnktcG93
-ZXItcm9sZSA9ICJzaW5rIjsKPisJCQlvcC1zaW5rLW1pY3Jvd2F0dCA9IDwxMDAwMDAwPjsKPisJ
-CQlzaW5rLXBkb3MgPQo+KwkJCQk8UERPX0ZJWEVEKDUwMDAsIDMwMDAsIFBET19GSVhFRF9VU0Jf
-Q09NTSk+LAo+KwkJCQk8UERPX1ZBUig1MDAwLCAyMDAwMCwgNTAwMCk+Owo+Kwo+KwkJCXBvcnRz
-IHsKPisJCQkJI2FkZHJlc3MtY2VsbHMgPSA8MT47Cj4rCQkJCSNzaXplLWNlbGxzID0gPDA+Owo+
-Kwo+KwkJCQlwb3J0QDAgewo+KwkJCQkJcmVnID0gPDA+Owo+KwkJCQkJdXNiYzBfcm9sZV9zdzog
-ZW5kcG9pbnQgewo+KwkJCQkJCXJlbW90ZS1lbmRwb2ludCA9IDwmZHdjM18wX3JvbGVfc3dpdGNo
-PjsKPisJCQkJCX07Cj4rCQkJCX07Cj4rCj4rCQkJCXBvcnRAMSB7Cj4rCQkJCQlyZWcgPSA8MT47
-Cj4rCQkJCQl1c2JjMF9vcmllbl9zdzogZW5kcG9pbnQgewo+KwkJCQkJCXJlbW90ZS1lbmRwb2lu
-dCA9IDwmdXNiZHBfcGh5MF9vcmllbnRhdGlvbl9zd2l0Y2g+Owo+KwkJCQkJfTsKPisJCQkJfTsK
-PisKPisJCQkJcG9ydEAyIHsKPisJCQkJCXJlZyA9IDwyPjsKPisJCQkJCWRwX2FsdG1vZGVfbXV4
-OiBlbmRwb2ludCB7Cj4rCQkJCQkJcmVtb3RlLWVuZHBvaW50ID0gPCZ1c2JkcF9waHkwX2RwX2Fs
-dG1vZGVfbXV4PjsKPisJCQkJCX07Cj4rCQkJCX07Cj4rCQkJfTsKPisJCX07Cj4rCX07Cj4rfTsK
-PisKPiAmaTJjNiB7Cj4gCXN0YXR1cyA9ICJva2F5IjsKPiAKPkBAIC00MjMsNiArNDk1LDEwIEBA
-IHVzYiB7Cj4gCQl2Y2M1djBfaG9zdF9lbjogdmNjNXYwLWhvc3QtZW4gewo+IAkJCXJvY2tjaGlw
-LHBpbnMgPSA8NCBSS19QQjAgUktfRlVOQ19HUElPICZwY2ZnX3B1bGxfbm9uZT47Cj4gCQl9Owo+
-Kwo+KwkJdXNiYzBfaW50OiB1c2JjMC1pbnQgewo+KwkJCXJvY2tjaGlwLHBpbnMgPSA8MyBSS19Q
-QjQgUktfRlVOQ19HUElPICZwY2ZnX3B1bGxfbm9uZT47Cj4rCQl9Owo+IAl9Owo+IH07Cj4gCj5A
-QCAtODM1LDYgKzkxMSwxNCBAQCAmdWFydDIgewo+IAlzdGF0dXMgPSAib2theSI7Cj4gfTsKPiAK
-PismdTJwaHkwIHsKPisJc3RhdHVzID0gIm9rYXkiOwo+K307Cj4rCj4rJnUycGh5MF9vdGcgewo+
-KwlzdGF0dXMgPSAib2theSI7Cj4rfTsKPisKPiAmdTJwaHkxIHsKPiAJc3RhdHVzID0gIm9rYXki
-Owo+IH07Cj5AQCAtODY2LDYgKzk1MCwyOSBAQCAmdXNiZHBfcGh5MSB7Cj4gCXN0YXR1cyA9ICJv
-a2F5IjsKPiB9Owo+IAo+KyZ1c2JkcF9waHkwIHsKPisJbW9kZS1zd2l0Y2g7Cj4rCW9yaWVudGF0
-aW9uLXN3aXRjaDsKPisJc2J1MS1kYy1ncGlvcyA9IDwmZ3BpbzQgUktfUEE2IEdQSU9fQUNUSVZF
-X0hJR0g+Owo+KwlzYnUyLWRjLWdwaW9zID0gPCZncGlvNCBSS19QQTcgR1BJT19BQ1RJVkVfSElH
-SD47Cj4rCXN0YXR1cyA9ICJva2F5IjsKPisKPisJcG9ydCB7Cj4rCQkjYWRkcmVzcy1jZWxscyA9
-IDwxPjsKPisJCSNzaXplLWNlbGxzID0gPDA+Owo+Kwo+KwkJdXNiZHBfcGh5MF9vcmllbnRhdGlv
-bl9zd2l0Y2g6IGVuZHBvaW50QDAgewo+KwkJCXJlZyA9IDwwPjsKPisJCQlyZW1vdGUtZW5kcG9p
-bnQgPSA8JnVzYmMwX29yaWVuX3N3PjsKPisJCX07Cj4rCj4rCQl1c2JkcF9waHkwX2RwX2FsdG1v
-ZGVfbXV4OiBlbmRwb2ludEAxIHsKPisJCQlyZWcgPSA8MT47Cj4rCQkJcmVtb3RlLWVuZHBvaW50
-ID0gPCZkcF9hbHRtb2RlX211eD47Cj4rCQl9Owo+Kwl9Owo+K307Cj4rCj4gJnVzYl9ob3N0MF9l
-aGNpIHsKPiAJc3RhdHVzID0gIm9rYXkiOwo+IH07Cj5AQCAtODc0LDYgKzk4MSwyMCBAQCAmdXNi
-X2hvc3QwX29oY2kgewo+IAlzdGF0dXMgPSAib2theSI7Cj4gfTsKPiAKPismdXNiX2hvc3QwX3ho
-Y2kgewo+Kwl1c2Itcm9sZS1zd2l0Y2g7Cj4rCXN0YXR1cyA9ICJva2F5IjsKPisKPisJcG9ydCB7
-Cj4rCQkjYWRkcmVzcy1jZWxscyA9IDwxPjsKPisJCSNzaXplLWNlbGxzID0gPDA+Owo+Kwo+KwkJ
-ZHdjM18wX3JvbGVfc3dpdGNoOiBlbmRwb2ludCB7Cj4rCQkJcmVtb3RlLWVuZHBvaW50ID0gPCZ1
-c2JjMF9yb2xlX3N3PjsKPisJCX07Cj4rCX07Cj4rfTsKPisKPiAmdXNiX2hvc3QxX2VoY2kgewo+
-IAlzdGF0dXMgPSAib2theSI7Cj4gfTsKPi0tIAo+Mi40NS4yCj4K
+Hi,
+
+On 2025-03-01 11:47, Yao Zi wrote:
+> RK3528 features two SDIO controllers and one SD/MMC controller, describe
+> them in devicetree. Since their sample and drive clocks are located in
+> the VO and VPU GRFs, corresponding syscons are added to make these
+> clocks available.
+> 
+> Signed-off-by: Yao Zi <ziyao@disroot.org>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 62 ++++++++++++++++++++++++
+>  1 file changed, 62 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> index 5b334690356a..078c97fa1d9f 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> @@ -7,6 +7,7 @@
+>  #include <dt-bindings/interrupt-controller/arm-gic.h>
+>  #include <dt-bindings/interrupt-controller/irq.h>
+>  #include <dt-bindings/clock/rockchip,rk3528-cru.h>
+> +#include <dt-bindings/reset/rockchip,rk3528-cru.h>
+>  
+>  / {
+>  	compatible = "rockchip,rk3528";
+> @@ -122,6 +123,16 @@ gic: interrupt-controller@fed01000 {
+>  			#interrupt-cells = <3>;
+>  		};
+>  
+> +		vpu_grf: syscon@ff340000 {
+> +			compatible = "rockchip,rk3528-vpu-grf", "syscon";
+
+vpu_grf is also used for gmac1, so should possible be a "syscon",
+"simple-mfd", or have I misunderstood when to use simple-mfd ?
+
+> +			reg = <0x0 0xff340000 0x0 0x8000>;
+> +		};
+> +
+> +		vo_grf: syscon@ff360000 {
+> +			compatible = "rockchip,rk3528-vo-grf", "syscon";
+
+similar here, vo_grf is also used for gmac0.
+
+> +			reg = <0x0 0xff360000 0x0 0x10000>;
+> +		};
+> +
+>  		cru: clock-controller@ff4a0000 {
+>  			compatible = "rockchip,rk3528-cru";
+>  			reg = <0x0 0xff4a0000 0x0 0x30000>;
+> @@ -251,5 +262,56 @@ uart7: serial@ffa28000 {
+>  			reg-shift = <2>;
+>  			status = "disabled";
+>  		};
+> +
+> +		sdio0: mmc@ffc10000 {
+> +			compatible = "rockchip,rk3528-dw-mshc",
+> +				     "rockchip,rk3288-dw-mshc";
+> +			reg = <0x0 0xffc10000 0x0 0x4000>;
+> +			clocks = <&cru HCLK_SDIO0>,
+> +				 <&cru CCLK_SRC_SDIO0>,
+> +				 <&cru SCLK_SDIO0_DRV>,
+> +				 <&cru SCLK_SDIO0_SAMPLE>;
+> +			clock-names = "biu", "ciu", "ciu-drive", "ciu-sample";
+> +			fifo-depth = <0x100>;
+> +			interrupts = <GIC_SPI 137 IRQ_TYPE_LEVEL_HIGH>;
+> +			max-frequency = <150000000>;
+> +			resets = <&cru SRST_H_SDIO0>;
+> +			reset-names = "reset";
+> +			status = "disabled";
+> +		};
+> +
+> +		sdio1: mmc@ffc20000 {
+> +			compatible = "rockchip,rk3528-dw-mshc",
+> +				     "rockchip,rk3288-dw-mshc";
+> +			reg = <0x0 0xffc20000 0x0 0x4000>;
+> +			clocks = <&cru HCLK_SDIO1>,
+> +				 <&cru CCLK_SRC_SDIO1>,
+> +				 <&cru SCLK_SDIO1_DRV>,
+> +				 <&cru SCLK_SDIO1_SAMPLE>;
+> +			clock-names = "biu", "ciu", "ciu-drive", "ciu-sample";
+> +			fifo-depth = <0x100>;
+> +			interrupts = <GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH>;
+> +			max-frequency = <150000000>;
+> +			resets = <&cru SRST_H_SDIO1>;
+> +			reset-names = "reset";
+> +			status = "disabled";
+> +		};
+> +
+> +		sdmmc: mmc@ffc30000 {
+> +			compatible = "rockchip,rk3528-dw-mshc",
+> +				     "rockchip,rk3288-dw-mshc";
+> +			reg = <0x0 0xffc30000 0x0 0x4000>;
+> +			clocks = <&cru HCLK_SDMMC0>,
+> +				 <&cru CCLK_SRC_SDMMC0>,
+> +				 <&cru SCLK_SDMMC_DRV>,
+> +				 <&cru SCLK_SDMMC_SAMPLE>;
+> +			clock-names = "biu", "ciu", "ciu-drive", "ciu-sample";
+> +			fifo-depth = <0x100>;
+> +			interrupts = <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
+> +			max-frequency = <150000000>;
+> +			resets = <&cru SRST_H_SDMMC0>;
+> +			reset-names = "reset";
+
+Suggest adding default pinctrl props here:
+
+  pinctrl-names = "default";
+  pinctrl-0 = <&sdmmc_bus4>, <&sdmmc_clk>, <&sdmmc_cmd>, <&sdmmc_det>;
+
+And possible also for sdio0 and sdio1.
+
+Regards,
+Jonas
+
+> +			status = "disabled";
+> +		};
+>  	};
+>  };
+
 
