@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56460C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 13:48:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7988CC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 13:51:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bu2RxbjvekFiBTJg1ubw1pOlZPXDDZrk8OTBpxugsIE=; b=vDP96frMrhgvfnFNxyxWljpk4G
-	Qty0KbRC7ioB6KkxFmGD+6Y0miD1rWsVHCwJ2E2JUVZCsvUCpAnJFr/j7rZzXzfYtB4N38TY2609Q
-	IVNJCKeY5quVOc2o+5oqfKqssiYbb9YZeyzI08MasPHUrDs7FZLQegsBq5cAIhNv6BJ1x6kgOXDz6
-	dOB53RLi6OzIt76YABTuf2zf+M2+RQDxC8DDmeB90aguQucyiOz0t78hmL89/H/ekeKlkXAI2Mj1b
-	2/Z7o+9jCFcJfNwhSEizwdU6sMwhownh44DpGtUq93LLu9CiSOSDZK90ukj/HMTAG+EpDmYaywdSD
-	ZVbvOdPw==;
+	bh=GHzNbvyD3bPONlhr5SCvvbfh/qU0QUMKuTYRGHpdqI8=; b=YwVPiYi6UhA78sj8zVuv0YtYDP
+	A7ZO+KRAoGul7VhdPUvykLTzgSc9gwq9+0xlrHsvE94bql9MxlEyZ/UEqCUkncihcWaOngvS5Yeby
+	kUZarbLDbO0q1btAz7byxri6oF/jH6q+yELvVZwkc/FO3cH0hDINgP/Sk0szw/Ysu5ktayjYkw60o
+	a6MgHtBKRf5o0onsYA/WwAddLbjqEoJq/y4TY1hnZSUEA/nSorX7qArqf+e4u8OaJNZjxnWVWJBBH
+	wOTBdyV2F3axExymO3tNFeDLqPiYEDvaLFdZMTDqKSpRk6mdmFkzTzAkxb9X4EawUHgERh1EJ2FF+
+	mepPNwAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toNC3-0000000EMzW-2hQg;
-	Sat, 01 Mar 2025 13:47:51 +0000
+	id 1toNEy-0000000ENLn-1YA9;
+	Sat, 01 Mar 2025 13:50:52 +0000
 Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toNAV-0000000EMsb-0HfP
+	id 1toNDP-0000000EN8l-3Tp7
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Mar 2025 13:46:15 +0000
+	Sat, 01 Mar 2025 13:49:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 59E6261177;
-	Sat,  1 Mar 2025 13:46:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 891FEC4CEDD;
-	Sat,  1 Mar 2025 13:46:09 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3610161174;
+	Sat,  1 Mar 2025 13:49:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D19BC4CEDD;
+	Sat,  1 Mar 2025 13:49:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740836773;
-	bh=ooJVBlorMcSR8IUTzNfqc9lKv92sSxy2dVWtZFArdro=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dw29xOcKGqe7+Nabj3MmgCjhLsD+b7TbM2jHrbH3QBP8/ZBhbrM5pYcvDy7zMx8Ab
-	 yL+ybmuinPWdBTty+IrHiUdOzom57MkT9h4LH/f5NzU3MGeseYQ9wNBFTcExJymQEX
-	 LuWHnaBaCDsn2PqU1M2aanSScjKn378VvG705E1UQmSVT0iOoKAN3Yv0RFEP0MvbHA
-	 UXG/aNyBhrpL/P0gdFL19Yh5pu8dRZm0xtJjIWVf88hjyhC9iMAIGxruDL8t0yAE7H
-	 +mTK7Jjm7HEZ/ylM8NU/YYDwmKAKh/lIR2wkclUYPUHVh4VlMcMu2Yok/9HbvkP3S8
-	 WtT+HFUTb9jqA==
-Message-ID: <050ae833-10b5-4d80-9856-8bc2f434a74f@kernel.org>
-Date: Sat, 1 Mar 2025 14:46:06 +0100
+	s=k20201202; t=1740836954;
+	bh=+7BkRCaAMc58KXpPqobpivf31lnIl3j+4Emd+l300nk=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=uqwv1xUJNLzBJ1t/hU5t0tEi03hedao4PSnQpep+U31PEUwmomlVrYQDhxMiQ2IX3
+	 aSGYQTc5/kwE874DucxsVcSDX9vnvIa0xsqP7fmhGg1RW6VTSu53LR9OTBOhb763s9
+	 xR6dNiFs2skx2Xw+1F9GkAFheG2IwlFr8Y/i9Eya4FO+WbTzsei1/HBEy0LKUGwAOr
+	 Js874oreIerHFSk74MTLDXu1I+8l9E4mih8Zyer+MTaJE0mlKSAlCg09H3Oy9xsHr3
+	 lrUNxsnZgjUsO+Wq5CpnCoYtLrgZ0wMG+YAdeRUnQk+COyF5aMCBFCQSzl6PDjMpC4
+	 FurCXC3Wf+d7w==
+Message-ID: <20946ee0-4973-4831-bc77-4d9942f1a348@kernel.org>
+Date: Sat, 1 Mar 2025 14:49:07 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [EXTERNAL] Re: [PATCH v3 3/3] arm64: dts: marvell: cp11x: Add
  reset controller node
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Wilson Ding <dingwei@marvell.com>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
  "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
@@ -63,7 +64,7 @@ References: <20250227192536.2426490-1-dingwei@marvell.com>
  <20250227192536.2426490-4-dingwei@marvell.com>
  <d085c34a-fdbf-4950-a2e3-b3d25a1c0145@kernel.org>
  <BY3PR18MB46730C150D4CB9619B3B05FBA7CC2@BY3PR18MB4673.namprd18.prod.outlook.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <050ae833-10b5-4d80-9856-8bc2f434a74f@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -108,9 +109,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <BY3PR18MB46730C150D4CB9619B3B05FBA7CC2@BY3PR18MB4673.namprd18.prod.outlook.com>
+In-Reply-To: <050ae833-10b5-4d80-9856-8bc2f434a74f@kernel.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,106 +126,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/02/2025 21:18, Wilson Ding wrote:
-> 
-> 
->> -----Original Message-----
->> From: Krzysztof Kozlowski <krzk@kernel.org>
->> Sent: Thursday, February 27, 2025 10:57 PM
->> To: Wilson Ding <dingwei@marvell.com>; linux-kernel@vger.kernel.org;
->> devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org
->> Cc: andrew@lunn.ch; gregory.clement@bootlin.com;
->> sebastian.hesselbarth@gmail.com; robh@kernel.org; krzk+dt@kernel.org;
->> conor+dt@kernel.org; p.zabel@pengutronix.de; Sanghoon Lee
->> <salee@marvell.com>; Geethasowjanya Akula <gakula@marvell.com>
->> Subject: [EXTERNAL] Re: [PATCH v3 3/3] arm64: dts: marvell: cp11x: Add reset
->> controller node
->>
->> On 27/02/2025 20: 25, Wilson Ding wrote: > Add the reset controller node as
->> a sub-node to the system controller > node. > > Signed-off-by: Wilson Ding
->> <dingwei@ marvell. com> > --- > arch/arm64/boot/dts/marvell/armada-
->> cp11x. dtsi
->>
->> On 27/02/2025 20:25, Wilson Ding wrote:
->>> Add the reset controller node as a sub-node to the system controller
->>> node.
+On 01/03/2025 14:46, Krzysztof Kozlowski wrote:
+>>>> Signed-off-by: Wilson Ding <dingwei@marvell.com>
+>>>> ---
+>>>>  arch/arm64/boot/dts/marvell/armada-cp11x.dtsi | 8 ++++++++
+>>>>  1 file changed, 8 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
+>>> b/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
+>>>> index 161beec0b6b0..c27058d1534e 100644
+>>>> --- a/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
+>>>> +++ b/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
+>>>> @@ -226,6 +226,8 @@ CP11X_LABEL(rtc): rtc@284000 {
+>>>>  		CP11X_LABEL(syscon0): system-controller@440000 {
+>>>>  			compatible = "syscon", "simple-mfd";
+>>>>  			reg = <0x440000 0x2000>;
+>>>> +			#address-cells = <1>;
+>>>> +			#size-cells = <1>;
+>>>>
+>>>>  			CP11X_LABEL(clk): clock {
 >>>
->>> Signed-off-by: Wilson Ding <dingwei@marvell.com>
->>> ---
->>>  arch/arm64/boot/dts/marvell/armada-cp11x.dtsi | 8 ++++++++
->>>  1 file changed, 8 insertions(+)
+>>> Wait, no unit address here.
+>>
+>> This subnode came from the existing code. I didn't touch this subnode
+>> in my patch. As you can see, the system-controller has a wide address
+>> range, which includes clock, GPIO registers as well as the unit-softreset
+>> register.
+>>
 >>>
->>> diff --git a/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
->> b/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
->>> index 161beec0b6b0..c27058d1534e 100644
->>> --- a/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
->>> +++ b/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
->>> @@ -226,6 +226,8 @@ CP11X_LABEL(rtc): rtc@284000 {
->>>  		CP11X_LABEL(syscon0): system-controller@440000 {
->>>  			compatible = "syscon", "simple-mfd";
->>>  			reg = <0x440000 0x2000>;
->>> +			#address-cells = <1>;
->>> +			#size-cells = <1>;
+>>>>  				compatible = "marvell,cp110-clock";
+>>>> @@ -273,6 +275,12 @@ CP11X_LABEL(gpio2): gpio@140 {
+>>>>  					 <&CP11X_LABEL(clk) 1 17>;
+>>>>  				status = "disabled";
+>>>>  			};
+>>>> +
+>>>> +			CP11X_LABEL(swrst): reset-controller@268 {
 >>>
->>>  			CP11X_LABEL(clk): clock {
+>>>
+>>> So why here it appeared? This is wrong and not even necessary. Entire
+>>> child should be folded into parent, so finally you will fix the
+>>> incomplete parent compatible.
 >>
->> Wait, no unit address here.
+>> We do need the reset-controller as a subnode under system-controller node
+>> for the following reasons:
+>>
+>> - We need to have 'reg' property in this subnode so that we can get the offset
+>>   to system-controller register base defined in parent node. This is suggested
+>>   by Rob in V2 comments. 
+>>   And we need to know the register size to calculate the number of reset lines.
+>>   This is suggested by Philipp in V1 comments.
 > 
-> This subnode came from the existing code. I didn't touch this subnode
-> in my patch. As you can see, the system-controller has a wide address
-> range, which includes clock, GPIO registers as well as the unit-softreset
-> register.
+> You do not need and you received that comment as well. It is implied by
+> compatible.
 > 
 >>
->>>  				compatible = "marvell,cp110-clock";
->>> @@ -273,6 +275,12 @@ CP11X_LABEL(gpio2): gpio@140 {
->>>  					 <&CP11X_LABEL(clk) 1 17>;
->>>  				status = "disabled";
->>>  			};
->>> +
->>> +			CP11X_LABEL(swrst): reset-controller@268 {
+>> - We also need to define the 'reset-cells' in this subnode. And the consumer of
+>>   the reset controller uses the label of this subnode for the phandle and reset
+>>   specifier pair. 
+> 
+> reset-cells will be in the parent once you fold it.
+> 
 >>
->>
->> So why here it appeared? This is wrong and not even necessary. Entire
->> child should be folded into parent, so finally you will fix the
->> incomplete parent compatible.
+>> As I mentioned in my reply to the first comment, the reset-controller is not the
+>> only device within the system-controller register spaces. Do you still think I
 > 
-> We do need the reset-controller as a subnode under system-controller node
-> for the following reasons:
-> 
-> - We need to have 'reg' property in this subnode so that we can get the offset
->   to system-controller register base defined in parent node. This is suggested
->   by Rob in V2 comments. 
->   And we need to know the register size to calculate the number of reset lines.
->   This is suggested by Philipp in V1 comments.
+> You provided very little hardware description of the device. So based on
+> hardware description you provided: yes.
 
-You do not need and you received that comment as well. It is implied by
-compatible.
+and to clarify - by device I mean the parent node, the system controller.
+
+Your commit even mentions driver, not the hardware:
+"Add device-tree binding documentation for the Armada8K reset driver..."
+not hardware, so you will get the review as good as you describe things.
+
+Bindings are about hardware so if you disagree with the review here,
+please provide arguments in terms of hardware.
 
 > 
-> - We also need to define the 'reset-cells' in this subnode. And the consumer of
->   the reset controller uses the label of this subnode for the phandle and reset
->   specifier pair. 
-
-reset-cells will be in the parent once you fold it.
-
+>> should fold it into the parent node. And what I proposed is exactly same as
+>> that the armada_thermal driver did (See below). I wonder why what was accepted
+>> in the past become not accepted now. 
 > 
-> As I mentioned in my reply to the first comment, the reset-controller is not the
-> only device within the system-controller register spaces. Do you still think I
+> We did not discuss here drivers, but if you insist talking about
+> "marvell,armada-cp110-thermal" then point me to review or ack from DT
+> people. You claim it was accepted so how did we accept it?
+> 
+> It was 2013 so that's another answer: many things done 12 years ago were
+> done not according to best practices. Also best practices evolved.
 
-You provided very little hardware description of the device. So based on
-hardware description you provided: yes.
 
-> should fold it into the parent node. And what I proposed is exactly same as
-> that the armada_thermal driver did (See below). I wonder why what was accepted
-> in the past become not accepted now. 
-
-We did not discuss here drivers, but if you insist talking about
-"marvell,armada-cp110-thermal" then point me to review or ack from DT
-people. You claim it was accepted so how did we accept it?
-
-It was 2013 so that's another answer: many things done 12 years ago were
-done not according to best practices. Also best practices evolved.
 
 Best regards,
 Krzysztof
