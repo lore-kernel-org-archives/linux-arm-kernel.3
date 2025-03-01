@@ -4,59 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E17CC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 14:37:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A02AC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 14:50:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ncO524Bzl0PXjah3VCVCg5sSxxzrPzJgF88z4jj9r4o=; b=P8oG0ohbZ8Gq7juVekSopu7pe1
-	s4ZEKq1ncWMkAEbEM4WTPN3bgHKVlK+DQ5lDy+jg2gq1rdABO5HcMIvfcFDn0trdIm0qNc8xAT6nA
-	UQNkCBEx7KMFNGzkIxEebESwfPhSaEAvLtsCdwMkiVcKIDl5RCLK24weV5oLstW2F1ZFcHoujnCY5
-	TuKb/jRhmqvGQhJvW20q1Se3as2YdQd4fnPSj6M7sT2RR4sQpGJp7Xp7PrLRH3ebs0dc8HrI6UEm5
-	FOu8IzyqLrnTgSwVvLwVZYrzEQDTbMImd378uyi1AMaIkaXFfQKwTx2NGs7qP0YhYe6JUoLZgGII3
-	gxRNtTmQ==;
+	bh=Kxirebw5kDkF1+wRXCoNpE/6TwpkidGg4t4NyZVsJ/w=; b=l6488BH/tQe+yPbu9h+QvjtuRy
+	RVkzY6UZv1Hcoq1SYKZRQbmuX+9CPbez5mBnBSI3l99btlKs1XxFJ8DFY7Ex6y/2dK0WRlIfuC/6U
+	fi3El71K2PkUN20P/twKUFHPQmqDlv4FrrPpSUWjQhNbmG19FSUAo7NOGTrkJS/DpAMtiREGtJ0T5
+	9VK3e6p+MGtaqSYkyQnqSGRNtzH+yogEL0BMpzfnt1K3OHOJZPk/8jm1bX0nIF+f3svY5kneZ5TzK
+	MAUweqm2N9QtAOpy/hflzP/UBw7K1lV5WFq/7GsjKOFAe9TwQhkaBJZ4Lrg1T8hJURTZpAAd9MYh+
+	lBRBCWIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toNxV-0000000EV9z-0Qtj;
-	Sat, 01 Mar 2025 14:36:53 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1toOAO-0000000EW6d-2fd0;
+	Sat, 01 Mar 2025 14:50:12 +0000
+Received: from mail-pl1-f175.google.com ([209.85.214.175])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toNvu-0000000EUta-3HNf;
-	Sat, 01 Mar 2025 14:35:16 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id BD0DA66B;
-	Sat,  1 Mar 2025 15:33:41 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1740839622;
-	bh=vOx2aCR711x8XBMo5usk7el1mpTt/EExYD3ss0D/AD4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Jq/ql4+6oMrO70oDvXDSy6Ow+xYAlNbU24jR2LiPzTBdEHCyHtvtF3d/RRjH8ABr9
-	 HWdKdQljD3upBXq7gO6Ju16cNJzvWBd1ShXvVeTW7d53A5dAMQ1l/lMpecRzghS4tY
-	 PaM30k0UNsah8UYFpXRY8QBHltPiFLTKwLIU9jfo=
-Date: Sat, 1 Mar 2025 16:34:53 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Stefan Klug <stefan.klug@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, Dafna Hirschfeld <dafna@fastmail.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] media: rkisp1: Set format defaults based on
- requested color space
-Message-ID: <20250301143453.GJ7342@pendragon.ideasonboard.com>
-References: <20250227114558.3097101-1-stefan.klug@ideasonboard.com>
- <20250227114558.3097101-2-stefan.klug@ideasonboard.com>
- <20250301010252.GI7342@pendragon.ideasonboard.com>
+	id 1toO8p-0000000EW1I-03rF;
+	Sat, 01 Mar 2025 14:48:36 +0000
+Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2230c74c8b6so17625595ad.0;
+        Sat, 01 Mar 2025 06:48:34 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740840513; x=1741445313;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Kxirebw5kDkF1+wRXCoNpE/6TwpkidGg4t4NyZVsJ/w=;
+        b=EcbpHiMQw0/iHeoL8hZ8fuJHmQPBNlvEjT9jd5zm3pas5Y6XWovIOJQn8/EpkhycFF
+         kFmmTEdGhMptqHBDIh7Dy+jadnUgG4pl6iUaS4tUfytBGC6je4MMukaeZSoR0563zEAx
+         AtxQPWANLtcbqwuZeF0jgpiAPSNe5770JGYY8pfIaTWJ/HQsVB9UFkUchesBQXhlU4z5
+         PeBQwDtO5c+OxzBhBsLdhqkKPsRRRM2Afiz/ApjY61t+sjeC45j9GrOY79dSSpXatHn0
+         hGWHRTNX8tCp7ibH4r9F84DoMbamM5Oxox316tpZyteGQ1TgNWNPBarG9qZcmuqaiifO
+         bgug==
+X-Forwarded-Encrypted: i=1; AJvYcCVbk4pAi4gCKsQ1RjxD6q8FgVCE2OTVxB5FuHRJ109sDIbLBDtpz1NB7U7EgeByjNOcD+FmwzcvD6CeQTUXjrPS@lists.infradead.org, AJvYcCWbCKTeA9dBHB/5eOxIO6f9z0xJJXr/fBEBU8LkYuuKkk5WF/uHKkLi/LPKumH9zB4ErW330BKnviX/6jlhWTvp/Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YymLk810LaLrtD2yqxB2RyrTUgomxpewWy6YVbwYGuSHctZo1Zj
+	nmZLPn+3pWpDo5BME2L0wKsit0sDA7Tjl4lFt7qavX7FaXVNomDH
+X-Gm-Gg: ASbGncup9CVLuC21Pf4eK3Wz2wU8nfYyBJwIyfOAVsNe6Hd3jWaEOjMp0jV/xpQOqlr
+	rmEcMztnVSx6bs3wspxlokmDq3ub3BB466ADyKQDZw+/xuxBCaEjLjccZzApLNqvIAOjq/PBeH2
+	Zo6tkM1oUlaAnA6qJBZNOamxGVGnGDSvOqjmCbFXDe2++9Vvw75TLLRjKt+/Ow1nEVqTPYAaji6
+	7MZibCjp2/fVkUeN9utfi68dFs0kQu8F2JsbRnB9qzRKJ3ElM+yR91BRHP8JCNuBD7xqLcHfhUN
+	XBHTAeMPRHsBa9kTABOlxKZi6ctkh69zzi9fOy/9+clEGqMW0jSDgnP+hvGe7qIuG1sP70nY0iV
+	x6FE=
+X-Google-Smtp-Source: AGHT+IHG4g0PEDW0krzlx5kdodp+yvsIBSjDMcx+eciBkPw4wgN7QvM+HqAQBJgdzNXvy+rEnV1R2w==
+X-Received: by 2002:a17:902:fc84:b0:220:d28a:c5c7 with SMTP id d9443c01a7336-22368fc267emr124814875ad.21.1740840513441;
+        Sat, 01 Mar 2025 06:48:33 -0800 (PST)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-223501f9d8bsm49585955ad.81.2025.03.01.06.48.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 01 Mar 2025 06:48:32 -0800 (PST)
+Date: Sat, 1 Mar 2025 23:48:31 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: Jim Quinlan <james.quinlan@broadcom.com>
+Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+	Cyril Brulebois <kibi@debian.org>,
+	Stanimir Varbanov <svarbanov@suse.de>,
+	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com,
+	Andrew Murray <amurray@thegoodpenguin.co.uk>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>
+Subject: Re: [PATCH v2 0/8] PCI: brcmstb: Misc small tweaks and fixes
+Message-ID: <20250301144831.GA846783@rocinante>
+References: <20250214173944.47506-1-james.quinlan@broadcom.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250301010252.GI7342@pendragon.ideasonboard.com>
+In-Reply-To: <20250214173944.47506-1-james.quinlan@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250301_063514_990769_A5A587DB 
-X-CRM114-Status: GOOD (  41.58  )
+X-CRM114-CacheID: sfid-20250301_064835_056413_95840302 
+X-CRM114-Status: UNSURE (   6.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,168 +98,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 01, 2025 at 03:02:54AM +0200, Laurent Pinchart wrote:
-> On Thu, Feb 27, 2025 at 12:44:59PM +0100, Stefan Klug wrote:
-> > When color space JPEG is requested, the ISP sets the quantization
-> > incorrectly to limited range. To fix that, set the xfer_func, ycbcr_enc
-> > and quantization to the defaults for the requested color space if they
-> > are not specified explicitly.
-> 
-> The commit message fails to explain why you're addressing xfer_func and
-> ycbcr_enc to fix the quantization issue.
-> 
-> > Do this only in case we are converting
-> > from RAW to YUV.
-> 
-> And this should explain why.
-> 
-> > Signed-off-by: Stefan Klug <stefan.klug@ideasonboard.com>
-> > ---
-> >  .../media/platform/rockchip/rkisp1/rkisp1-isp.c   | 15 ++++++++++++++-
-> >  1 file changed, 14 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> > index d94917211828..468f5a7d03c7 100644
-> > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> > @@ -680,10 +680,23 @@ static void rkisp1_isp_set_src_fmt(struct rkisp1_isp *isp,
-> 
-> Adding a bit more context:
-> 
-> 	set_csc = format->flags & V4L2_MBUS_FRAMEFMT_SET_CSC;
-> 
-> 	if (set_csc && src_info->pixel_enc == V4L2_PIXEL_ENC_YUV) {
-> 
-> If V4L2_MBUS_FRAMEFMT_SET_CSC isn't set, the colorspace fields on the
-> source pad will be copied from the sink pad, which doesn't seem right.
+Hello,
 
-Thinking some more about it, it's not wrong either. The colorspace and
-xfer_func fields are not used by the driver, as the related ISP
-processing blocks are configured through ISP parameters. Without
-userspace providing the value of the fields on the source pad, the
-driver can't know what colorspace and xfer_func is produced. Copying the
-values from the sink pad is as good of a guess as we can make.
+[...]
+>   Six small fixes and improvements for the driver.  This may be applied
+>   before or after Stan's V5 [1] on pci-next (they should not conflict).
 
-The ycbcr_enc and quantization fields are different, as they are taken
-into account by the driver to configure the ISP. Copying ycbcr_enc from
-the sink pad means that it will be set to V4L2_YCBCR_ENC_601 when the
-sink format is bayer and the source format is YUV. As the sink
-colorspace is most likely going to be V4L2_COLORSPACE_RAW in that case,
-that's a fine default, and is identical to what we would get from
-V4L2_MAP_YCBCR_ENC_DEFAULT(). Setting the quantization to
-V4L2_QUANTIZATION_LIM_RANGE also seems fine as a default, and it what
-V4L2_MAP_QUANTIZATION_DEFAULT() would give us.
+Applied to controller/brcmstb, thank you!
 
-TL;DR: there's probably no need to change the current behaviour when
-V4L2_MBUS_FRAMEFMT_SET_CSC isn't set.
-
-> It's a separate issue, but fixing both together may lead to better code.
-> 
-> >  		if (sink_info->pixel_enc == V4L2_PIXEL_ENC_BAYER) {
-> >  			if (format->colorspace != V4L2_COLORSPACE_DEFAULT)
-> >  				src_fmt->colorspace = format->colorspace;
-> > -			if (format->xfer_func != V4L2_XFER_FUNC_DEFAULT)
-> > +
-> > +			if (format->xfer_func == V4L2_XFER_FUNC_DEFAULT)
-> 
-> Are you sure the condition should be inverted ?
-> 
-> >  				src_fmt->xfer_func = format->xfer_func;
-> > +			else
-> > +				src_fmt->xfer_func =
-> > +					V4L2_MAP_XFER_FUNC_DEFAULT(format->colorspace);
-> > +
-> >  			if (format->ycbcr_enc != V4L2_YCBCR_ENC_DEFAULT)
-> >  				src_fmt->ycbcr_enc = format->ycbcr_enc;
-> > +			else
-> > +				src_fmt->ycbcr_enc =
-> > +					V4L2_MAP_YCBCR_ENC_DEFAULT(format->colorspace);
-> > +
-> > +			if (format->quantization == V4L2_QUANTIZATION_DEFAULT)
-> > +				src_fmt->quantization =
-> > +					V4L2_MAP_QUANTIZATION_DEFAULT(false,
-> > +						format->colorspace, format->ycbcr_enc);
-> 
-> Shouldn't this use src_fmt instead of format ?
-> 
-> I think quantization handling could be moved below.
-> 
-> >  		}
-> >  
-> >  		if (format->quantization != V4L2_QUANTIZATION_DEFAULT)
-
-Now I'm wondering if this is right. As far as I can tell, the
-quantization isn't taken into account by the driver when the ISP is
-bypassed (capturing raw bayer data, or capturing YUV data from a YUV
-sensor).
-
-How about something like this ?
-
-diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-index d94917211828..9c215c9bb30f 100644
---- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-+++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-@@ -659,11 +659,10 @@ static void rkisp1_isp_set_src_fmt(struct rkisp1_isp *isp,
- 		src_fmt->quantization = sink_fmt->quantization;
-
- 	/*
--	 * Allow setting the source color space fields when the SET_CSC flag is
--	 * set and the source format is YUV. If the sink format is YUV, don't
--	 * set the color primaries, transfer function or YCbCr encoding as the
--	 * ISP is bypassed in that case and passes YUV data through without
--	 * modifications.
-+	 * Allow setting the source color space fields when the SET_CSC flag.
-+	 * This is restricted to the case where the sink format is raw and the
-+	 * source format is YUV, as in other cases the ISP is bypassed and the
-+	 * input data is passed through without modifications.
- 	 *
- 	 * The color primaries and transfer function are configured through the
- 	 * cross-talk matrix and tone curve respectively. Settings for those
-@@ -676,18 +675,30 @@ static void rkisp1_isp_set_src_fmt(struct rkisp1_isp *isp,
- 	 */
- 	set_csc = format->flags & V4L2_MBUS_FRAMEFMT_SET_CSC;
-
--	if (set_csc && src_info->pixel_enc == V4L2_PIXEL_ENC_YUV) {
--		if (sink_info->pixel_enc == V4L2_PIXEL_ENC_BAYER) {
--			if (format->colorspace != V4L2_COLORSPACE_DEFAULT)
--				src_fmt->colorspace = format->colorspace;
--			if (format->xfer_func != V4L2_XFER_FUNC_DEFAULT)
--				src_fmt->xfer_func = format->xfer_func;
--			if (format->ycbcr_enc != V4L2_YCBCR_ENC_DEFAULT)
--				src_fmt->ycbcr_enc = format->ycbcr_enc;
--		}
-+	if (set_csc && sink_info->pixel_enc == V4L2_PIXEL_ENC_BAYER &&
-+	    src_info->pixel_enc == V4L2_PIXEL_ENC_YUV) {
-+		if (format->colorspace != V4L2_COLORSPACE_DEFAULT)
-+			src_fmt->colorspace = format->colorspace;
-+
-+		if (format->xfer_func != V4L2_XFER_FUNC_DEFAULT)
-+			src_fmt->xfer_func = format->xfer_func;
-+		else
-+			src_fmt->xfer_func =
-+				V4L2_MAP_XFER_FUNC_DEFAULT(src_fmt->colorspace);
-+
-+		if (format->ycbcr_enc != V4L2_YCBCR_ENC_DEFAULT)
-+			src_fmt->ycbcr_enc = format->ycbcr_enc;
-+		else
-+			src_fmt->ycbcr_enc =
-+				V4L2_MAP_YCBCR_ENC_DEFAULT(src_fmt->colorspace);
-
- 		if (format->quantization != V4L2_QUANTIZATION_DEFAULT)
- 			src_fmt->quantization = format->quantization;
-+		else
-+			src_fmt->quantization =
-+				V4L2_MAP_QUANTIZATION_DEFAULT(false,
-+							      src_fmt->colorspace,
-+							      src_fmt->ycbcr_enc);
- 	}
-
- 	*format = *src_fmt;
-
-Can I let you write a commit message ? :-)
-
--- 
-Regards,
-
-Laurent Pinchart
+	Krzysztof
 
