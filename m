@@ -4,99 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FF8DC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 10:05:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57A53C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 10:34:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=76ANipvR3P/jVIpgRlnkUUgAgrkLoL0o+K6EABpA1ek=; b=Jy1ahdeljbWdWbcJ+R+Q+0v8jw
-	EeWuVfkvIGL6AiSQBuHCcz+PaqFCvYmZENwZC5cKJJXyyCvtHwUNHOV1FT0lYttbtvv6ZXSvL8jip
-	v0GL8xMXoNKyU8P8fhgHtsJbEAemSfamF0Q9VL9sQ4lLT9JjXf9Fz182IyuC4EPhjkpvuTOGj9OcB
-	ICH29s98b2MWOXV+KaCOOzMU4lGPkRdMSWNc/sGaRUAcOsIqeKtZ3lFC61xGKdES5lDviM2OY+qnw
-	gYD9fYS3x1bwCGveunY1q6dmppmTaYX06YCN56fYbuwbt+ZbVoD3kwGZag/NRzz1flk725zSE8v+f
-	M2lMi4mw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=284ud8KZgsvJe3kKyqpcZEuN7Tvtd5nIkzcKwoRr0sg=; b=jujP0A1CR/EjKl+3SNcSCiLk69
+	kByW/m4NWGZda5Ng5CgqTI5UOalk/g+D5ZvhyWpBxK+WzaGWw179CeOUmkxQ3EoGBTo8vKdB3QbCg
+	DWueDZi6qYgQyJh4DUhA4l3HAzU0ysh/Pck6PXfCe/1O2Xe/vieIaCjYMGASfGsHZywoKyCP1dRqC
+	kZOiB+/xPyiyVJuaJ7YYnRIVI3sgKfU8Mpg4vBp7bt1BRRvzgBmg9echnIxYZbiHLInptjL0QQkLw
+	bg9AwKqLER/1hUKob06WN8xrQwzjQzhUnguqyv0AWrYVbv3b1O335kxaFnOCgfR5kRzR9ZXcD9WqJ
+	JVcUJOvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toJj2-0000000DjGw-2eTx;
-	Sat, 01 Mar 2025 10:05:40 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1toKAL-0000000DlIs-17SF;
+	Sat, 01 Mar 2025 10:33:53 +0000
+Received: from mail-wr1-x463.google.com ([2a00:1450:4864:20::463])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toJhT-0000000Dj7l-3LbZ
+	id 1toK8l-0000000DlF8-2IEc
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Mar 2025 10:04:05 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-549490e290dso1700460e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Mar 2025 02:04:02 -0800 (PST)
+	Sat, 01 Mar 2025 10:32:17 +0000
+Received: by mail-wr1-x463.google.com with SMTP id ffacd0b85a97d-390e3b3d432so2036277f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Mar 2025 02:32:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740823441; x=1741428241; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=76ANipvR3P/jVIpgRlnkUUgAgrkLoL0o+K6EABpA1ek=;
-        b=YkG8YbxJWGRjEtrhIQ9j3keDGL2OjojAY2QqZSfheOIwLgRaI/OkDbLuljZORpiXJp
-         yd0AMjWukrqzNgb7IZK3SzV2IaLDcr13m0e2eCX5/sX7c15EIBR+z3miod7WydcASM20
-         lKadEAs77EL4na6jGoaU0eC8UI5r5jiOo7jgwEooOcmpQqEfECJuARC1GeYG7OaeOD0t
-         7sSGQnpg1R6hYGqA5Ga8I5JL9Mzmdhocku1M51Att6prJoONiwrddmj3x8gpPAyLq9v9
-         cvubpsK82RwnhCk5WgKYfIY0KZ4dE1bWDapZfnNehjv8V6iJwS87tMR0Z+ynNYjzWAeR
-         +EUA==
+        d=patrick-wildt-de.20230601.gappssmtp.com; s=20230601; t=1740825133; x=1741429933; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=284ud8KZgsvJe3kKyqpcZEuN7Tvtd5nIkzcKwoRr0sg=;
+        b=a7R4ztmB4G6O0nqV1aGVGNeCnf67FONlQ8SUkDWp7OQ+IcwGslZ5v91FU5s9zjVSQ9
+         UMFAFaEZ35Vf1ZnsP5A4kPQGUqDkz6VmINy3wLU4AclyDwPOk9i1sWufm2MczL/hw/qa
+         8XxnD0I7hSxSPyCOgwHEe4st/87D22AeaHTiWAu8oKrtyYTefJGCBPMEgXiigQvjK9v0
+         U9NDbG2RdhFqXJgW6fER8OphkqWWc06oA0WUiPjeYEoK95CxjAPYcdgNR/ZwlYSpf2Xq
+         6YZa5PJHbkG7BUokyRPVR/S+y2VGqUM3eGKo7b+hsXotkKpSTHM/OHUIyexFYhJc8yBF
+         5ObA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740823441; x=1741428241;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=76ANipvR3P/jVIpgRlnkUUgAgrkLoL0o+K6EABpA1ek=;
-        b=pyKNGJtXDzFmFwuW47U25Z88i22/6c/SJoHc97P5S4WmxUOpIbuDVBa7MqOxSxK5xs
-         Fo4xRyDRwQlKXQYjZblpCZuEd/ui2RxexRB8cF4l44kIaomRkbXCW2ncSXgHs5Dn7Iba
-         8v2PDU9qilirVbgwrP6/kqEJzVUh+wYO2MEUvgHq61gTCeha6RYvnBC/gxbR6n6ngrcR
-         TfRC3U/WuJLWY0aBZauz5sOg2VAZadU1LQ1kNzHyxiKsocnV2ez6tH/7DSGYx7SaWnhU
-         gYtM+VQRUwOgq7G5fKuSRLV47uesLW3JUn36Cxkp4I5n9YS6DQ6EFXq6oeFBPzoB/+aY
-         eCqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUHxH1goVUnFOlPQ59zhEiobU6vpRsc7Hjin6RBcz0tNy5DlX2UB/kII3OK26aW+Uau/tUR4WEhO3+WRr/Gh+Sg@lists.infradead.org
-X-Gm-Message-State: AOJu0YxSw9QhwhvFbscFWNbyz09lS6aJa104j/E0UPPNLe5zvg7X5xhV
-	xE6JUCxL5Cbj6cyaEborV8qwIQHM7I1x6Av9ea/SPJkPOZt+ieoBiuGUn0nGWo8=
-X-Gm-Gg: ASbGnctZWC2gYLi6Lp4GCAlHvarDcw3kiyqMw+/eSPRApeMhmj1fbTGo5rtmki67L4K
-	z/NxxLiuI/qTuPZkqFs6YF4NVRy2kNdC/1ckjY5TD/Bo/2Y2cePIQPHio5kwOhMPnoZARl2A0+i
-	gH7tz5bghUoCM31MAvPUbu5GwoIPmdbK3ytWiS43GvJHE+N/NtL5Ba2eVTZUkeKwbUg24Ts4z7Y
-	SSjHh0EImPxCB3QSYQUB6h4EaR+ArgCC03Vkbh5/wyaOKohkpjfOwKdl3udEfdraUlupAlTA72x
-	eQ1ADRHjuqh1WOa2G+I0WHXTHJ93Orz0t1ob33A/E4E07CnLAtTNwmwwSPdf+sEbEMuOe0lNQt4
-	CqDZUZEDyoT92
-X-Google-Smtp-Source: AGHT+IFuYzubuDyf6X5ei2oE/n7MHEB/XJ+jimftn4XgARTj9v/mjL84XjfF68VTOLYEok0MXR5YaA==
-X-Received: by 2002:a05:6512:3f1d:b0:545:aa5:d44a with SMTP id 2adb3069b0e04-5494c33304bmr2297080e87.42.1740823441381;
-        Sat, 01 Mar 2025 02:04:01 -0800 (PST)
-Received: from eriador.lan (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5494f8bdde9sm463722e87.148.2025.03.01.02.03.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 01 Mar 2025 02:04:00 -0800 (PST)
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	deller@gmx.de,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	linux@treblig.org
-Cc: dri-devel@lists.freedesktop.org,
-	linux-fbdev@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/7] gpu: ipu-v3: Remove unused functions
-Date: Sat,  1 Mar 2025 12:03:57 +0200
-Message-ID: <174082343297.2941786.11452976094065423321.b4-ty@linaro.org>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20241226022752.219399-1-linux@treblig.org>
-References: <20241226022752.219399-1-linux@treblig.org>
+        d=1e100.net; s=20230601; t=1740825133; x=1741429933;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=284ud8KZgsvJe3kKyqpcZEuN7Tvtd5nIkzcKwoRr0sg=;
+        b=OP0scQFQJPOUS9SBRM07rMkSiJc3ZnAvhSfh5zChPCXHkE86kGi3N/kVjhFhX8JByc
+         rluw+6DisYCGdlZIBunGCx3fLNA6lYz2M/vd/+BRvNKqJCHoJNlIeaw5Vh2agiOd23ui
+         03WQMak/DRl213rix2P7IzsKekbI1jU9k3RA0NZNeLNeGJYVXwAwEbl+QG0TBi3RU4T3
+         hhywnOU78L/hVZG++5ohNCGfc5lxE8ISysT2F1GfDgfnBm1iryRGH4pV8KBEJ+fBzLBr
+         H6BI7k0ZaArFeDJDGe8x/EyCziJOh6v82Wu5t8BvSOvBzuuSYhaVIzWVEb0nndh81VnP
+         zGNA==
+X-Forwarded-Encrypted: i=1; AJvYcCU6AjISYNXkNEjkU5ZaNaTuLMfPLBvycHISiFbrS6Mngd3IcodZFNVIR4fye+XhHkUCUOF48lL/K/12XtCilti9@lists.infradead.org
+X-Gm-Message-State: AOJu0YzeQuQhZEhfe48Mqe2v7foVam1xwUd+7wzc0GHT9C3gq4edzfDx
+	/oJHa1yvLd5TAXUxXu8Stp7DAQiXVxv4LjZWp+JSctMpCme747lZySdf7vya3GV5i8pDB5QDGTI
+	+HuyAD1/Q16zhfpEgEbOgFNtOF6Q54lDq
+X-Gm-Gg: ASbGncv5Kk5iL5lvft+pMtVL8ogIXCrIe4xdBrk+4Yf22Ljh9GJfgdRz/okk/oix0vQ
+	ml3/kJ9jTUfl2Iv5fUWXjiBVUfrHl9/7MNBmuNI0GThb3OzemxLzFSAbrzX5hM9isIfWxdlZqom
+	kn+493zVLHLsSkce5rV5DtBMf6WW7hRI4WnyjVIwhCKwtqkPXkZh3tJBPYCJscNgjoRntnDWgy4
+	UkzUhM5wPJPgYxuUX1jZV86HYDjdYllqWkZZKKo1RlgmHzw0oIMQ6vKw+e8n0WXeEBxQW/sv5X6
+	Mkvn2Pfd9lpmgkmLI2Z8QSaD1+j9/p2uPvQvf4/kQj4=
+X-Google-Smtp-Source: AGHT+IHrWDWJfyJus07zvqX5oGbCjo4A7NTax9luZq+BhbhEr0aXxJ5c0xg7yw9lm3Lg0IMqKXRt7tZuCCjr
+X-Received: by 2002:a05:6000:401f:b0:38f:38eb:fcfc with SMTP id ffacd0b85a97d-390ec7c7fefmr5243899f8f.7.1740825133251;
+        Sat, 01 Mar 2025 02:32:13 -0800 (PST)
+Received: from windev.fritz.box (pc19f8e2d.dip0.t-ipconnect.de. [193.159.142.45])
+        by smtp-relay.gmail.com with ESMTPS id 5b1f17b1804b1-43b7a28b278sm5090285e9.45.2025.03.01.02.32.12
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sat, 01 Mar 2025 02:32:13 -0800 (PST)
+X-Relaying-Domain: blueri.se
+Date: Sat, 1 Mar 2025 11:32:06 +0100
+From: Patrick Wildt <patrick@blueri.se>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jimmy Hon <honyuenkwun@gmail.com>
+Subject: Re: [PATCH v4 2/2] arm64: dts: rockchip: add MNT Reform 2
+Message-ID: <Z8LiJgNkurF3xt3k@windev.fritz.box>
+References: <Z7OaTzIpeJ-IACrl@windev.fritz.box>
+ <Z7OahO_OtwYSmtmQ@windev.fritz.box>
+ <2700899.tdWV9SEqCh@phil>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2700899.tdWV9SEqCh@phil>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250301_020403_852509_65997325 
-X-CRM114-Status: UNSURE (   9.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250301_023215_844137_41D47E47 
+X-CRM114-Status: GOOD (  30.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,37 +105,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 26 Dec 2024 02:27:45 +0000, linux@treblig.org wrote:
-> From: "Dr. David Alan Gilbert" <linux@treblig.org>
+On Sun, Feb 23, 2025 at 12:38:40AM +0100, Heiko Stuebner wrote:
+> Hi Patrick,
 > 
-> Hi,
->   This set removes a bunch of functions in ipu-v3 that
-> have been unused for a long time (since 2012-2017).
+> Am Montag, 17. Februar 2025, 21:22:28 MEZ schrieb Patrick Wildt:
+> > MNT Reform 2 is an open source laptop with replaceable CPU modules,
+> > including a version with the RK3588-based MNT RCORE[1], which is based
+> > on Firefly's iCore-3588Q SoM:
+> > 
+> > - Rockchip RK3588
+> > - Quad A76 and Quad A55 CPU
+> > - 6 TOPS NPU
+> > - up to 32GB LPDDR4x RAM
+> > - SD Card slot
+> > - Gigabit ethernet port
+> > - HDMI port
+> > - 2x mPCIe ports for WiFi or NVMe
+> > - 3x USB 3.0 Type-A HOST port
+> > 
+> > [1] https://shop.mntre.com/products/mnt-reform
+> > 
+> > Signed-off-by: Lukas F. Hartmann <lukas@mntre.com>
+> > Signed-off-by: Patrick Wildt <patrick@blueri.se>
 > 
->   No changes to functions are made, just full deletions.
+> bureaucracy question, what is Lukas' relationship with the patch?
+> Two options:
+> (1) Lukas initially developed the patch, then the "From:" should be
+>     set accordingly
+> (2) Both of you developed it together, then we should have a
+>     Co-Developed-by: Lukas F. Hartmann <lukas@mntre.com>
+>     up there
 > 
-> [...]
 
-Applied to drm-misc-next, thanks!
+Thanks, will send a v5 with Co-developed-by tag added! :)
 
-[1/7] gpu: ipu-v3: ipu-ic: Remove unused ipu_ic_task_graphics_init
-      commit: 16e3bf497fb2d379f3d461fa0c85d14de0a3d183
-[2/7] gpu: ipu-v3: Remove unused ipu_rot_mode_to_degrees
-      commit: a52ba18c254c0a3819e632e6371554f1c6f5bd16
-[3/7] gpu: ipu-v3: Remove unused ipu_idmac_channel_busy
-      commit: 4f9c64e95c3510f4a5192bd401de5611c1dd5637
-[4/7] gpu: ipu-v3: Remove unused ipu_image_convert_* functions
-      commit: 96e9d754b35e87a5be2de7dce3c810ffdd769c84
-[5/7] gpu: ipu-v3: Remove unused ipu_vdi_unsetup
-      commit: 27985c86e283e1e5ac8a9809f189f03643a6f5f2
-[6/7] gpu: ipu-v3: ipu-csi: Remove unused functions
-      commit: c687c3147d5de801ed835b077802b68fe85d8a3d
-[7/7] gpu: ipu-v3 ipu-cpmem: Remove unused functions
-      commit: 2800028d5bdee8e9a3cda2fec782dadc32225d8d
+> 
+> Some more style things below...
+> 
 
-Best regards,
--- 
-With best wishes
-Dmitry
+Are there further execptions to the alphabetical rule? For regulators
+I often see min before max, which I think makes sense to understand
+the range but isn't technically alphabetical. The same for pinctrl-0
+and pinctrl-names.
 
+Thanks,
+Patrick
+
+> 
+> > ---
+> > Changes for v4:
+> > - Added chassis-type.
+> > - Removed unused nodes.
+> > - Sorted nodes alphabetically.
+> > Changes for v3:
+> > - Split DT as it's based on a Firefly iCore-3588Q SoM.
+> > Changes for v2:
+> > - Aligned with bindings and schemas to appease DTB check warnings.
+> > - Aligned with format of other RK3588 boards for consistency.
+> > 
+> >  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+> >  .../rockchip/rk3588-firefly-icore-3588q.dtsi  | 451 ++++++++++++++++++
+> >  .../boot/dts/rockchip/rk3588-mnt-reform2.dts  | 336 +++++++++++++
+> >  3 files changed, 788 insertions(+)
+> >  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-firefly-icore-3588q.dtsi
+> >  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dts
+> > 
+> > diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
+> > index def1222c1907..88381d9a20e3 100644
+> > --- a/arch/arm64/boot/dts/rockchip/Makefile
+> > +++ b/arch/arm64/boot/dts/rockchip/Makefile
+> > @@ -145,6 +145,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-firefly-itx-3588j.dtb
+> >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-friendlyelec-cm3588-nas.dtb
+> >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-h96-max-v58.dtb
+> >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar.dtb
+> > +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-mnt-reform2.dtb
+> >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-nanopc-t6.dtb
+> >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-nanopc-t6-lts.dtb
+> >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-ok3588-c.dtb
+> > diff --git a/arch/arm64/boot/dts/rockchip/rk3588-firefly-icore-3588q.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-firefly-icore-3588q.dtsi
+> > new file mode 100644
+> > index 000000000000..898a7b29692f
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/rockchip/rk3588-firefly-icore-3588q.dtsi
+> > @@ -0,0 +1,451 @@
+> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> > +
+> > +#include <dt-bindings/gpio/gpio.h>
+> > +#include <dt-bindings/pinctrl/rockchip.h>
+> > +
+> > +#include "rk3588.dtsi"
+> > +
+> > +/ {
+> > +	compatible = "firefly,icore-3588q", "rockchip,rk3588";
+> > +
+> > +	aliases {
+> > +		mmc0 = &sdhci;
+> > +	};
+> > +};
+> > +
+> > +&cpu_b0 {
+> > +	cpu-supply = <&vdd_cpu_big0_s0>;
+> > +	mem-supply = <&vdd_cpu_big0_s0>;
+> 
+> you don't need the unspecified mem-supply for the cpu cores,
+> that is vendor-kernel voodoo and not part of the upstream binding.
+> 
+> Same for all cores.
+> 
+> 
+> > +};
+> > diff --git a/arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dts b/arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dts
+> > new file mode 100644
+> > index 000000000000..936dd959524f
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dts
+> > @@ -0,0 +1,336 @@
+> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> > +/*
+> > + * Copyright (c) 2021 Rockchip Electronics Co., Ltd.
+> > + * Copyright (c) 2024 MNT Research GmbH
+> > + */
+> > +
+> > +/dts-v1/;
+> > +
+> > +#include <dt-bindings/gpio/gpio.h>
+> > +#include <dt-bindings/input/input.h>
+> > +#include <dt-bindings/pinctrl/rockchip.h>
+> > +#include <dt-bindings/soc/rockchip,vop2.h>
+> > +#include <dt-bindings/usb/pd.h>
+> > +
+> > +#include "rk3588-firefly-icore-3588q.dtsi"
+> > +
+> > +/ {
+> > +	model = "MNT Reform 2 with RCORE RK3588 Module";
+> > +	compatible = "mntre,reform2-rcore", "firefly,icore-3588q", "rockchip,rk3588";
+> > +	chassis-type = "laptop";
+> > +
+> > +	aliases {
+> > +		ethernet0 = &gmac0;
+> > +		mmc1 = &sdmmc;
+> > +	};
+> > +
+> > +	chosen {
+> > +		stdout-path = "serial2:1500000n8";
+> > +	};
+> > +
+> > +	backlight: backlight {
+> > +		compatible = "pwm-backlight";
+> > +		pwms = <&pwm8 0 10000 0>;
+> > +		enable-gpios = <&gpio2 RK_PB5 GPIO_ACTIVE_HIGH>;
+> > +		brightness-levels = <0 8 16 32 64 128 160 200 255>;
+> > +		default-brightness-level = <128>;
+> 
+> please sort standard properties alphabetically (compatible at the top,
+> status at the bottom, rest alphabetically)
+> 
+> > +	};
+> > +
+> > +&pcie2x1l2 {
+> > +	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
+> > +	pinctrl-0 = <&pcie2_0_rst>;
+> 
+> more sorting
+> 
+> > +	status = "okay";
+> > +};
+> > +
+> 
+> > +&pcie3x4 {
+> > +	pinctrl-names = "default";
+> > +	pinctrl-0 = <&pcie3_reset>;
+> > +	reset-gpios = <&gpio1 RK_PB4 GPIO_ACTIVE_HIGH>;
+> > +	num-lanes = <1>;
+> 
+> again sorting
+> 
+> > +	vpcie3v3-supply = <&vcc3v3_pcie30>;
+> > +	status = "okay";
+> > +};
+> > +
+> 
+> > +&sdmmc {
+> > +	bus-width = <4>;
+> > +	max-frequency = <40000000>;
+> > +	no-sdio;
+> > +	no-mmc;
+> > +	no-1-8-v;
+> > +	cap-sd-highspeed;
+> > +	vqmmc-supply = <&vcc3v3_pcie30>;
+> > +	vmmc-supply = <&vcc3v3_pcie30>;
+> > +	cd-gpios = <&gpio0 RK_PA4 GPIO_ACTIVE_LOW>;
+> > +	disable-wp;
+> 
+> more sorting
+> 
+> > +	status = "okay";
+> > +};
+> > +
+> 
+> 
+> Heiko
+> 
+> 
 
