@@ -4,87 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19D42C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 15:25:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6695CC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 15:49:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DyE4RDFymN6Y0/tDe7AGiAbq+AewoZBWihg6OLLbjWc=; b=tYTMK61H/7ULSn
-	ee91jyRrlpHsft2FNVRSJnqgktIxVHF2c/Al20mOXIbt0ifdyt6woyXhw5rNSrQmpHYcacfyhKyyj
-	y+P6vxTqE2Vk7hWusymI60+8RJLTjDwZrm39odQok+78QsUrP+/XqHgQu4vlLqH7CJk/+l+WJtIvt
-	q78OgCYZJV7k/W46fPIMVz55TzKV0PW+JuKaAQSutr7R1njFutCOHRtbd0jn9G1VuseOiYIzIE11r
-	QRQkfVSUmxyP86Qzyy/xreiaP4zompdKRPjSFrr9u1B1lzvypBkcBUekSPFNdDx4HTQTQWe8WMnKT
-	mUDhXpp8MT+DMipA8Okw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pvcp/Ow9PKUt0GAoY+iQqvy3UdZ1k/popr5tmmzvjdw=; b=XoshiKs8nUnPy1ZU4CzQBuoPVL
+	TwKSyo1ZDHE9KvPnYLIe9jjCi3EkyAnVDbd0FSaZH2h9wFVlRjbU27VE6Y6+H5gq0ffNkedYVxasA
+	bKlJHdMltPt2VIo1zlrd/rxhDCC1EtwJplWVbZu7TYpHaODIwPo0ZB0eTr6EhmNgjLv6wwNGjHUW6
+	7fWoAWVsrGRk2o90MeNGI+EfzQLUegmHJGXKbGG7x9ZkryZDZ907UWxWQU/emPHKa/Jlx3daP362l
+	cO5mrqJ6JQvVUMjS0QxWMCazbHMliDA4bpCIYS7OxeUGVVnpr23EzBh7pozezEDGOittoZG0+e3T0
+	VYIEpHhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toOin-0000000EYQr-1j04;
-	Sat, 01 Mar 2025 15:25:45 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1toP5Y-0000000EZer-3IJx;
+	Sat, 01 Mar 2025 15:49:16 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toOhD-0000000EYMj-2TB0
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Mar 2025 15:24:08 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4399deda38cso20113735e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Mar 2025 07:24:06 -0800 (PST)
+	id 1toP3z-0000000EZV5-0MaR;
+	Sat, 01 Mar 2025 15:47:40 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-abf5f4e82caso46818366b.1;
+        Sat, 01 Mar 2025 07:47:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1740842645; x=1741447445; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1740844057; x=1741448857; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=DyE4RDFymN6Y0/tDe7AGiAbq+AewoZBWihg6OLLbjWc=;
-        b=jVtNh2l/4EdnnlAR4Bu02a1XAxqL7rmal2xhEtVHMI5ILrW1SRd+RZDV6rYq+lCGxK
-         dBAdhKDDNpfjwKw3+mhElWpQGmM9aF9WqUi8EEZM9tXcDEDs0CiImhkxeeG5gRFZDTPc
-         DAlX0YVDPZC5rZPH0WUGZal4sPdmVcLU0+1EbBOzgNgSz2Eg+tfunfVSm7fHej74en5A
-         g3RooBuGV4Cxq5kgU42pkvnMP6hdDBQGfqXM//NbCjSq0vMApMgRV9Utp5dprVOQDKKb
-         kcKMqbJZmHBIRhQSM3O+lpRzStpOSDhMwT/0fbexYHRhATWF8Hf4tPED4OOFwkvqTOfm
-         IkQw==
+        bh=pvcp/Ow9PKUt0GAoY+iQqvy3UdZ1k/popr5tmmzvjdw=;
+        b=N5m6UPJylhCy65B06MVKVYxjTqQqw9ZDnzaXMoXdMDlR2OK3hDt9H94yCw4VsPGRFl
+         nipI4gXaXrZI7sYn+/GUq6ta0Cpf86AQ1hazgzE6OGOls4eI8SXRAPdyzJ8EMVlIcuZN
+         HQjS+mbd3p2GTSEfbBfWNKaEEuEhBcrZ5XkYPtrLPxtmGbTXAVxUuYuGJRHzev5rvilB
+         E9sRQ5fHsln+0PwUjgr5A6BlxDDhCEVyJQ2vR6oc9UmxdnN7up/dhjpwHjzXnlDIE0/N
+         9xQ57NW4zktZAAkKyGAGFJ0xb9kodza9bt6d0zU6FGwEAGpDh1GDicALxAQ5AoC6AIE6
+         rpAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740842645; x=1741447445;
+        d=1e100.net; s=20230601; t=1740844057; x=1741448857;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=DyE4RDFymN6Y0/tDe7AGiAbq+AewoZBWihg6OLLbjWc=;
-        b=MKlicghqZeJ9MXZ5BwBO0j/nJqiPqKQGXpTmJ0XSQoLORhoZHndVgZIjlZAuPxl26I
-         9ODNP60+ZnMB1dKB1J87u3R1ofIM8wKg89V2z+88iU9cx70INq3h3FbRaWwYWVeDzwrU
-         VTvIyBArZfwSuob2s6x024eA2JP+Veu9jByJA09eU9UMrs+NGFQK7FlH/e6aSPIX181C
-         xMNt/jto7XsU27Y85jzem2Ek8gXQWO2Ix4lPBEfs7vpuPGZe3VPoWQ8rY5dEIiUhauqr
-         Wp9Mw6nAoINyQvRwJk81PLBx7DD25t9QLREsKD+2BM6hoC4V6mF/7QWyEpx1BZj7Tz1i
-         jB/w==
-X-Forwarded-Encrypted: i=1; AJvYcCWSmZc54pdyptnO93sz6N1Zrvf/nlOTTa0bfZXLimXtQT+8Mi67HD1dXkMw4qo6+kL+vFpqDfIYx3FOCn/p5ZVu@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwxpIIOLD/oVeL8Zl97ff2mGne81kTR9vTa6slpdD2eB4+XcpG
-	anIAkkXdsThrhTjzFbgi0azn70AF0s+koUa6YyVpNjlzkA2jXeonRRu5awcrIAbODN6an4FBqc0
-	v2CU=
-X-Gm-Gg: ASbGncsvUkHdQw+4xalHTiMXneUxout362SwK6KR8MytbAVWiil1EfHG0O4aMM01OCb
-	8DKBkh8uyPQ100PShlJzzf9OdZ63rAVNEdaRf2bbt7lV/LY8wt+bYs/LZkUoH0YoqYbb2ip457W
-	mZMfcNgeHgNSqvnEnaevbi4RPHL++8JVvDH20Nzu3qXBWbbVise9FcXZDrdYsw85O41WyfZLM9m
-	ERX6LaPXOp4y3+MDQi1S/TMAoDUywHedz7Y+b27nd7ZQ4gUjmn9z0aJzHsG0dTkM99Ro4/KzDns
-	zCM3L45Qq9LkPu1TULszkn1n2Ug1EjenPriGHEDNwaxtUe2SO2yZcA==
-X-Google-Smtp-Source: AGHT+IHiRxjnZq8NhUb5asT1Hu0VwjQR+BBK3Vyg+BBt9UXQkSJXAdtpoOKry9ltGZaW6bEq4w2XVw==
-X-Received: by 2002:a05:6000:1f81:b0:38f:32ac:7e70 with SMTP id ffacd0b85a97d-390eca4ad13mr5456232f8f.49.1740842645416;
-        Sat, 01 Mar 2025 07:24:05 -0800 (PST)
-Received: from [192.168.50.4] ([82.78.167.138])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e4795da5sm8785532f8f.15.2025.03.01.07.24.04
+        bh=pvcp/Ow9PKUt0GAoY+iQqvy3UdZ1k/popr5tmmzvjdw=;
+        b=q2P10DLNENsSwEvJDJzBvIQwibXRu2d9feDuJT0cZyQ7H8KhsWaEfsa0YWV1ZZHSFR
+         yEbTh9ER7HBa+TrBNjgBWoAMhl6dSyGGg7qP51/VXXY6hbsm13eNfGWItVdWyIKG7t9z
+         qrgTblAxm9ouGCXKtdRlx2j0P3k5KJn2HrYpplZkDPYgyXzUi8pjBNhx0frRjZHH3Yf7
+         3svZUCBrsLxUuK8UyUzezcuoUqws1d7q0INLgapitth+8Kd8+pbtOdaV1NbKaUJp49pu
+         CLKANXDbVMkYzoRoLTWrVWdZB28VIKZSpqk2AyDMTE/pWMu097PKiO79RyD+p0ZlENH0
+         wU5A==
+X-Forwarded-Encrypted: i=1; AJvYcCUFUZoInPqb2xu2oHuL/ZrBMEVgjRwXYKDlIGSH/w8ZWTUEKJX5qKzZEUWbUIXo/dEIbf3ZDZhLM+d3UWeQ0bko@lists.infradead.org, AJvYcCXlzKT8q1oXXeQQxE2Oe8yPXz0c/WulPqamMGmLJGqJdBNPr8GTW1ZSgH6O4/n8Njg3OCWlaJ0Pnu/UlLiwdJY=@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywuzueg5pLz8jPvs3Y8ZRjYi/WwEMaMliGZU1uD+cpE2RGsVmHO
+	TJAgDsxzVX9zb+UUh0aFkiPOhvLtpynZz3f6vtGUyNJz0sAo6OEA
+X-Gm-Gg: ASbGncu8I0OiHlj8nZy0H6BNNlt2IWlsr9ZGlHVWVOTCqfMCjp2IFM+gj8iqn2VyuKV
+	P8IGQJoLdv1ex15uJT/f1pw/dGYIAJ1d2olwTLutyPLzgq0lpOLCguMVDhXcS97SO31QadaCwQL
+	puB71M3X0VBeLh142r/UBFXDo0NU9YvbrfCYre18o3HDn1FiRx46zPFqU1g+mYfAw6gg+/8lSoE
+	DXGtwOMyWWtfg17yTWocVKyfxgVUAsGc06rfhaAUjwf5tYmM3nGj3D6xKweA51HaAlzQVYOnDuG
+	v3e+7L0fd+pttpt5GPRQNAfTUhcRhZ0p4md07mtnMbmYBtUBsT1GKOmuMkQxlQw4qtLndfm/rs3
+	OFLu+c1/IGidVWSPHp7BM1YqcvTjg3GoBtGZgLc0TKZfCAYHMzUrpwcm9zsgJXmC5AP4bBOxm3+
+	5gxYrLzqHVZMhjvsR+Ukg=
+X-Google-Smtp-Source: AGHT+IG+eqrFeyO3A7KDD2S5BrzG0fkxCUE3rRFtAlmdPlWrBAor9q1vffWfk9dSAf3TW6qzlDGFvA==
+X-Received: by 2002:a17:907:2d8c:b0:abf:4c5f:7546 with SMTP id a640c23a62f3a-abf4c5f7590mr317216866b.38.1740844057241;
+        Sat, 01 Mar 2025 07:47:37 -0800 (PST)
+Received: from ?IPV6:2001:1c00:20d:1300:1b1c:4449:176a:89ea? (2001-1c00-020d-1300-1b1c-4449-176a-89ea.cable.dynamic.v6.ziggo.nl. [2001:1c00:20d:1300:1b1c:4449:176a:89ea])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e4c3b6d252sm4287355a12.26.2025.03.01.07.47.34
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 01 Mar 2025 07:24:04 -0800 (PST)
-Message-ID: <35dd6819-591a-4dcb-9c01-f32e7f1db54a@tuxon.dev>
-Date: Sat, 1 Mar 2025 17:24:03 +0200
+        Sat, 01 Mar 2025 07:47:36 -0800 (PST)
+Message-ID: <fc5129dd-35a8-4bcc-8e54-b8facda2cbc4@gmail.com>
+Date: Sat, 1 Mar 2025 16:47:32 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/4] ARM: dts: at91: calao_usb: improve support
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
- linux-arm-kernel@lists.infradead.org
-References: <20250226084938.3436-6-wsa+renesas@sang-engineering.com>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Subject: Re: [PATCH v8 net-next 01/15] net: pppoe: avoid zero-length arrays in
+ struct pppoe_hdr
+To: Michal Ostrowski <mostrows@earthlink.net>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, Pablo Neira Ayuso <pablo@netfilter.org>,
+ Jozsef Kadlecsik <kadlec@netfilter.org>, Jiri Pirko <jiri@resnulli.us>,
+ Ivan Vecera <ivecera@redhat.com>, Roopa Prabhu <roopa@nvidia.com>,
+ Nikolay Aleksandrov <razor@blackwall.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Kuniyuki Iwashima <kuniyu@amazon.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Ahmed Zaki <ahmed.zaki@intel.com>,
+ Alexander Lobakin <aleksander.lobakin@intel.com>,
+ Vladimir Oltean <olteanv@gmail.com>,
+ Frank Wunderlich <frank-w@public-files.de>,
+ Daniel Golle <daniel@makrotopia.org>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
+ bridge@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-hardening@vger.kernel.org,
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>
+References: <20250228201533.23836-1-ericwouds@gmail.com>
+ <20250228201533.23836-2-ericwouds@gmail.com>
+From: Eric Woudstra <ericwouds@gmail.com>
 Content-Language: en-US
-In-Reply-To: <20250226084938.3436-6-wsa+renesas@sang-engineering.com>
+In-Reply-To: <20250228201533.23836-2-ericwouds@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250301_072407_776270_1224C5EF 
-X-CRM114-Status: UNSURE (   6.24  )
+X-CRM114-CacheID: sfid-20250301_074739_135098_A457A58A 
+X-CRM114-Status: UNSURE (   8.00  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,21 +119,16 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
 
-On 26.02.2025 10:49, Wolfram Sang wrote:
-> Wolfram Sang (4):
->   dt-bindings: ARM: at91: make separate entry for Olimex board
->   dt-bindings: ARM: at91: add Calao USB boards
+On 2/28/25 9:15 PM, Eric Woudstra wrote:
+>  drivers/net/ppp/pppoe.c       | 2 +-
+>  include/uapi/linux/if_pppox.h | 4 ++++
+>  2 files changed, 5 insertions(+), 1 deletion(-)
 
-Applied to at91-soc, thanks!
-
->   ARM: dts: at91: usb_a9263: fix wrong vendor
->   ARM: dts: at91: fix faulty ohci/ehci node names
-
-Applied to at91-dt, thanks!
+The maintainers email: Michal Ostrowski <mostrows@earthlink.net>
+Returns 403: 550 5.5.1 Recipient rejected. This mailbox does not exist here.
 
