@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 636ACC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 07:07:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71059C282CD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 07:09:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SlNCMbxju9ERGc1saYnrmp9b4TJYMl4Shd7rAYKspGE=; b=lTs79h2MV3nStYbAcacGUDDbUt
-	4jPHVuSp7FgT/vb6imoai41UAH9d8dIvAjHiU7eRpAL9NFtG6dRrA1RVXb2/Wh2JQP1kNRqUJVhIW
-	pGPe4nFxSkcIb0tf3rF60f1Grt2UEDL7aFx9gDvxL5l9naZlBs5YUulUhktmarXVYaGAQmoHGmWq4
-	ikHAdgUGT5mSqJfQRv1CYJ58n6BYPGgUSqqEncdiWcPKo34vzcMzpp3I4VVflAWflCbLZSEBJ6eYo
-	gN52SNu/PEml5IWwS6Pg894hfUEh7YqXWgf41EqWkxPQNi1gDsgZUzrJSCzZs773If0WyC6NfawnK
-	jRsVDxug==;
+	bh=MMyfAQMi7XN58LfB1Yr9WXjsnjFEiBkWPwHeF12IGj0=; b=ELgAnb+NITbWyWNxlwO2ZuK0Op
+	bAHyg/xH2FspOFvpz60OnECRJuceuJ0ABwOfAx+cmfWwoew94GsuTNAbcSONYet9oiBP58ekLtuN0
+	fmtX5PaudR6hB1TftL64djMF0/Uum8fqRn0mZi5Vjw7ed4NmphV//RCHmwX5IXvXLAz/Iz2XLBMhI
+	7w0LefzS0XlaZGj0px7UWJgw1hLjMjjo8rSRHmgqEv8+OQbYIw98ZMShxqABSuwEsyvWq5wzf184v
+	0pHQ0FXyA+4S1g9yabcGpXUWRk9sgZ7bvkLcmj75tvycbs+//3qJTSkuGExUepe6tlxQm4xdCpl89
+	hLd75ahw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toGwU-0000000DXwE-2feH;
-	Sat, 01 Mar 2025 07:07:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1toGy1-0000000DY2F-16cG;
+	Sat, 01 Mar 2025 07:08:57 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toGuv-0000000DXQD-4AR5
+	id 1toGuk-0000000DXOJ-3NHz
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Mar 2025 07:05:46 +0000
+	Sat, 01 Mar 2025 07:05:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B65C661160;
-	Sat,  1 Mar 2025 07:05:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B0BFC4CEE2;
-	Sat,  1 Mar 2025 07:05:38 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2E0225C3F39;
+	Sat,  1 Mar 2025 07:03:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2F14C4CEDD;
+	Sat,  1 Mar 2025 07:05:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740812742;
-	bh=yVJt2XxPJkXDsYR5/hz24cQxvPQ9Z4yO07rKfmUMNJY=;
+	s=k20201202; t=1740812732;
+	bh=yuV32O2uacAQPpFXxHdzerV8Z0lORjwgQUBONgdPDh4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VH3rpTBIKkP/R2U1T2qD724MwzEMKlQXOAG/Gtp+JSs65wiHzAxMvPEe9H8h11/L3
-	 tjbZVBTmBXRjkeuBISMbtIQ+FQRQqR64zOxHzVceyn9Nz1aleiLJerMqdz2MCYztK4
-	 IGNJijQ0azb4dpAfCznqtYtO96BV3smbxw4dmWgV9Alf0JVnjwSKqwz8Mrp3A3Gdcq
-	 N5IKv0Lf1e5FP9pOiyg8kERVuEx3ancrM1PUHbuBsX3yiljSXLy+1YTV4t7ksmKYPd
-	 DN4/ZVa6jX7vlENmu9oQWC2M/9isuaLx4kaz92TITLQZ4tdH90L71R8J25qn/9mkJw
-	 iwNUNXK+Xmnug==
+	b=Vl0VyKZWz3vG3O12uSfoyp3OypG0rM+HcoZ7wkh5vZUgctgR/LBcFWq75Fyjt+wXL
+	 b+gNN5AWEZi0xN9VEpKICCwUPda0JkzOGFisFMDupjrCV/7n6dDbKyEQ3q43aJiLiO
+	 v4j6yJTq2OfVQEH/0bEt7+9O7anvmoUEcUnld4+/BT3yn7u3s/j4eBeh+DGSNP9uiC
+	 W/9OF3DJSngzizuIHc73DvTCsxJOO00TKBi6BJ+IJbqbqwmUQUpPwbdhPURghXbNsP
+	 5BJmoe+UD+A6LkXDt2hyPwuzYEvZokhESPx1kOiuu/Dw/BN4sY7Yk1UKXMyvOYUGJv
+	 GqbMRFqu0X2Bw==
 From: Will Deacon <will@kernel.org>
-To: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+To: xueshuai@linux.alibaba.com,
+	renyu.zj@linux.alibaba.com,
+	mark.rutland@arm.com,
 	linux-arm-kernel@lists.infradead.org,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Yunhui Cui <cuiyunhui@bytedance.com>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jessica Clarke <jrtc27@jrtc27.com>
-Subject: Re: [PATCH v7 00/10] arm64: dts: Add Arm Morello support
-Date: Sat,  1 Mar 2025 07:05:26 +0000
-Message-Id: <174070628228.2931531.10306009057184657839.b4-ty@kernel.org>
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v4 0/2] Fix dwc_pcie pmu driver issues
+Date: Sat,  1 Mar 2025 07:05:23 +0000
+Message-Id: <174080955779.3218826.2678564312238293449.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20250221180349.1413089-1-vincenzo.frascino@arm.com>
-References: <20250221180349.1413089-1-vincenzo.frascino@arm.com>
+In-Reply-To: <20250220121716.50324-1-cuiyunhui@bytedance.com>
+References: <20250220121716.50324-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250228_230534_885868_66E0F969 
+X-CRM114-Status: UNSURE (   8.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,21 +80,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 21 Feb 2025 18:03:39 +0000, Vincenzo Frascino wrote:
-> The Morello architecture is an experimental extension to Armv8.2-A,
-> which extends the AArch64 state with the principles proposed in
-> version 7 of the Capability Hardware Enhanced RISC Instructions
-> (CHERI) ISA [1].
+On Thu, 20 Feb 2025 20:17:14 +0800, Yunhui Cui wrote:
+> v1:
+> Only sent the patch titled "fix duplicate pci_dev devices".
 > 
-> This series adds dts support for the Arm Morello System Development
-> Platform.
+> v2:
+> 1. New patch: "fix the incorrect reference count".
+> 2. The "fix duplicate pci_dev devices" change is made in two places:
+> One is to remove the modification of the PMU name. The other is to change
+> "for_each_pci_dev" to "pci_get_domain_bus_and_slot".
 > 
 > [...]
 
-Applied PMU driver change to will (for-next/perf), thanks!
+Applied to will (for-next/perf), thanks!
 
-[06/10] perf: arm_pmuv3: Add support for ARM Rainier PMU
-        https://git.kernel.org/will/c/0424b1a81a42
+[1/2] perf/dwc_pcie: fix some unreleased resources
+      https://git.kernel.org/will/c/6eb1e8ef586a
+[2/2] perf/dwc_pcie: fix duplicate pci_dev devices
+      https://git.kernel.org/will/c/7f35b429802a
 
 Cheers,
 -- 
