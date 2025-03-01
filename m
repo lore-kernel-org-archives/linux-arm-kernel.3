@@ -4,88 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 708BAC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 19:27:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7B93C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 20:11:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wr5l9sIqEomz5eozXw32UhnI/Jz5Shj5ZncrcwuPtAc=; b=jrUL9pvmA60zt8bHoyZyHelkFp
-	ra958tO/KHmDiPZYuOzqimmQYRvIdzzNjqddC8w3XWt96IIflC+7J6fynPGoXmY+tg5R4q2/TwBXs
-	CmUZJ+rLg2wfjOWsjt3CAyKZlsf6E2OXijD2wbsMdQ5alAjn91JTpgem0U7+mHn8Wf6qWGz14wyMi
-	psUaeKaBnCCycB+/Xe751WBNUgwzHlXSl6QkNyWdhiYpUI6Cmfu02tYFXyA6SQTqH63t6zzwbMGu3
-	Z6YpENKEhzVhCf5qE7IM+0pw6eGLW8Gl1VeV9SpTglBj6p/2ijl4XsKwyxYC1tJzV9W4eT9nBcl82
-	F9NNSlQA==;
+	bh=QCWmbhpdi3N9n7kLCJZHiuuworse9qQjVBPV79Kb4ps=; b=GXGvDIgJnqcQl2QAO3dL2Z4cmC
+	oKMWNoGBXR6Wltlsy7URo0t2wQ5/hFou5SEjaJzknN8wRqdfdvN/prjvSLNyhpWSBjQQZxaz52QRQ
+	tJcsZSl1epCywfijNWgrfUwWIc0rppTKBrPRTHbbwgVaFJBBC3xUvrvbB0GZtEv4yMbgQ4x9DkSr/
+	3XcRgYVq5qbBfJCGx1Givx0dzWSpmA6KvyCFV0+l3zJNrUZUvcszZhZxlqh4txT2scNTmQONuxNIu
+	RbLMWjwlBMOMEUFEFFX2q7tKZolp6wDCptUevvE3UYjvsMEQfC9xf5OWNGDvqYzAEtprVr4t/lBRi
+	0ld2Ui9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toSV1-0000000Eq97-3YkV;
-	Sat, 01 Mar 2025 19:27:47 +0000
+	id 1toTBY-0000000Etov-0ROb;
+	Sat, 01 Mar 2025 20:11:44 +0000
 Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toSTR-0000000Eq1x-3nQ1;
-	Sat, 01 Mar 2025 19:26:11 +0000
+	id 1toTA0-0000000EtcI-0R3A
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 01 Mar 2025 20:10:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740857170; x=1772393170;
+  t=1740859808; x=1772395808;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=Kgh0c47meoZDWfMVUZjQEqtme+w+1HSPoNcT4ynJ/ro=;
-  b=DBAv/ABwi/Cmh6tRXWqvBaJ4GN9ep+ukLWzUajSH06KqLgcCsRdGN7No
-   M4dEtynqd547LF3dO6Sso2VSnXPvxcEZ3X9mvMZIBhAuVVEsKkXEGmfOd
-   fHgl+xVqWx2XrjCPXmtFwnBu0yRRG8c3vLqfIyxSdr3VZ9ZD18bQ/L9rw
-   6wJrvh4iQ8vc5Xh2oWt572IWYqJ0QxU5D+6rpxpoz2d1rqIghQj1609Zx
-   LOrMh1nKeVXZABo6av6uUh2AfjsMvMItKAlxsfIakWolz0wXPEgkTctWE
-   IgU+4tvblzMncyg479aJrTxUycINGSTZVa5hd3bTfmVssy424fTioD3A4
-   A==;
-X-CSE-ConnectionGUID: 0hJpZm3zTG6lbV5nfiwKnA==
-X-CSE-MsgGUID: zt0U8zpwRjCrvcdjOg89iQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="41958879"
+  bh=ZfGj1VvKOCNm7vTywX/xNLIbng1hIS9ksg3oRkOji3M=;
+  b=FYMlTxg6RLfVSHJ95yMlNhLd183NzOz1V7k97Ov6twBx7wuMFXPzlm5J
+   n4pJ7nSlqXXQ50FALFEk4S1k7msylZ5lrres96oi6oRQ0Rem/ZttsbVUq
+   /PNLg3GNyYAWhXAzM4krXGZl5XXa+86x8CZpZdnEb6xXm7bo1den5NgZ9
+   6T9MtrhAacEmqrYa5U4S4X/i5vo5gnskHcmgKrJS0W71W8CDLjTxJ9Bvu
+   Ja3N91PtwWZ9S55mKKTY0jKdvXplHnAk+PZB49UyosLDU12Rx1L7IGHl9
+   xk8pI4yK32ntvDlLy9AcwGV7LSo5cCPskNUOknVA4YcDcp91rEfrf9Kco
+   w==;
+X-CSE-ConnectionGUID: OyH0/dWyRMC1Jr/kMt4OBw==
+X-CSE-MsgGUID: xBUC4Rt/Sbq3gsLZjjmprw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="41959945"
 X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
-   d="scan'208";a="41958879"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Mar 2025 11:26:09 -0800
-X-CSE-ConnectionGUID: 6zm7FR3RQv2VBKgpt9eVSQ==
-X-CSE-MsgGUID: ArHqyzkEQbubIfiIdkWtKQ==
+   d="scan'208";a="41959945"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Mar 2025 12:10:06 -0800
+X-CSE-ConnectionGUID: n9ipID95TjqGXZ0wuii2jQ==
+X-CSE-MsgGUID: c981CLrzROeKm6mC/sKYEw==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="154800058"
+X-IronPort-AV: E=Sophos;i="6.13,326,1732608000"; 
+   d="scan'208";a="117626585"
 Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
-  by orviesa001.jf.intel.com with ESMTP; 01 Mar 2025 11:26:04 -0800
+  by fmviesa007.fm.intel.com with ESMTP; 01 Mar 2025 12:10:04 -0800
 Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
 	(envelope-from <lkp@intel.com>)
-	id 1toSSF-000GbW-2V;
-	Sat, 01 Mar 2025 19:25:07 +0000
-Date: Sun, 2 Mar 2025 03:22:22 +0800
+	id 1toT9u-000Gek-19;
+	Sat, 01 Mar 2025 20:10:02 +0000
+Date: Sun, 2 Mar 2025 04:09:16 +0800
 From: kernel test robot <lkp@intel.com>
-To: Heiner Kallweit <hkallweit1@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-	Russell King - ARM Linux <linux@armlinux.org.uk>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Eric Dumazet <edumazet@google.com>,
-	David Miller <davem@davemloft.net>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Qingfang Deng <dqfext@gmail.com>,
-	SkyLake Huang <SkyLake.Huang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Richard Cochran <richardcochran@gmail.com>
-Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	Robert Marko <robimarko@gmail.com>,
-	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>
-Subject: Re: [PATCH net-next v2 7/8] net: phy: move PHY package related code
- from phy.h to phy_package.c
-Message-ID: <202503020328.FJG7PJon-lkp@intel.com>
-References: <edba99c5-0f95-40bd-8398-98d811068369@gmail.com>
+To: Robin Murphy <robin.murphy@arm.com>, vkoul@kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, devicetree@vger.kernel.org,
+	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/2] dmaengine: Add Arm DMA-350 driver
+Message-ID: <202503020324.hFtOv6c7-lkp@intel.com>
+References: <55e084dd2b5720bdddf503ffac560d111032aa96.1740762136.git.robin.murphy@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <edba99c5-0f95-40bd-8398-98d811068369@gmail.com>
+In-Reply-To: <55e084dd2b5720bdddf503ffac560d111032aa96.1740762136.git.robin.murphy@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250301_112609_980730_91F2A0B9 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20250301_121008_216213_85FD10B7 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,79 +87,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiner,
+Hi Robin,
 
-kernel test robot noticed the following build errors:
+kernel test robot noticed the following build warnings:
 
-[auto build test ERROR on net-next/main]
+[auto build test WARNING on vkoul-dmaengine/next]
+[also build test WARNING on linus/master v6.14-rc4 next-20250228]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Heiner-Kallweit/net-phy-move-PHY-package-code-from-phy_device-c-to-own-source-file/20250301-055302
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/edba99c5-0f95-40bd-8398-98d811068369%40gmail.com
-patch subject: [PATCH net-next v2 7/8] net: phy: move PHY package related code from phy.h to phy_package.c
-config: loongarch-randconfig-001-20250302 (https://download.01.org/0day-ci/archive/20250302/202503020328.FJG7PJon-lkp@intel.com/config)
-compiler: loongarch64-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250302/202503020328.FJG7PJon-lkp@intel.com/reproduce)
+url:    https://github.com/intel-lab-lkp/linux/commits/Robin-Murphy/dt-bindings-dma-Add-Arm-DMA-350/20250301-012733
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/vkoul/dmaengine.git next
+patch link:    https://lore.kernel.org/r/55e084dd2b5720bdddf503ffac560d111032aa96.1740762136.git.robin.murphy%40arm.com
+patch subject: [PATCH 2/2] dmaengine: Add Arm DMA-350 driver
+config: parisc-randconfig-002-20250302 (https://download.01.org/0day-ci/archive/20250302/202503020324.hFtOv6c7-lkp@intel.com/config)
+compiler: hppa-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250302/202503020324.hFtOv6c7-lkp@intel.com/reproduce)
 
 If you fix the issue in a separate patch/commit (i.e. not just a new version of
 the same patch/commit), kindly add following tags
 | Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202503020328.FJG7PJon-lkp@intel.com/
+| Closes: https://lore.kernel.org/oe-kbuild-all/202503020324.hFtOv6c7-lkp@intel.com/
 
-All errors (new ones prefixed by >>):
+All warnings (new ones prefixed by >>):
 
-   drivers/net/phy/bcm54140.c: In function 'bcm54140_base_read_rdb':
-   drivers/net/phy/bcm54140.c:436:15: error: implicit declaration of function '__phy_package_write'; did you mean '__phy_package_write_mmd'? [-Wimplicit-function-declaration]
-     436 |         ret = __phy_package_write(phydev, BCM54140_BASE_ADDR,
-         |               ^~~~~~~~~~~~~~~~~~~
-         |               __phy_package_write_mmd
-   drivers/net/phy/bcm54140.c:441:15: error: implicit declaration of function '__phy_package_read'; did you mean '__phy_package_read_mmd'? [-Wimplicit-function-declaration]
-     441 |         ret = __phy_package_read(phydev, BCM54140_BASE_ADDR,
-         |               ^~~~~~~~~~~~~~~~~~
-         |               __phy_package_read_mmd
-   drivers/net/phy/bcm54140.c: In function 'bcm54140_probe':
->> drivers/net/phy/bcm54140.c:599:13: error: implicit declaration of function 'phy_package_init_once'; did you mean 'phy_package_write_mmd'? [-Wimplicit-function-declaration]
-     599 |         if (phy_package_init_once(phydev)) {
-         |             ^~~~~~~~~~~~~~~~~~~~~
-         |             phy_package_write_mmd
+>> drivers/dma/arm-dma350.c:641:34: warning: 'd350_of_match' defined but not used [-Wunused-const-variable=]
+     641 | static const struct of_device_id d350_of_match[] = {
+         |                                  ^~~~~~~~~~~~~
 
 
-vim +599 drivers/net/phy/bcm54140.c
+vim +/d350_of_match +641 drivers/dma/arm-dma350.c
 
-6937602ed3f9ebd Michael Walle 2020-04-20  578  
-6937602ed3f9ebd Michael Walle 2020-04-20  579  static int bcm54140_probe(struct phy_device *phydev)
-6937602ed3f9ebd Michael Walle 2020-04-20  580  {
-6937602ed3f9ebd Michael Walle 2020-04-20  581  	struct bcm54140_priv *priv;
-6937602ed3f9ebd Michael Walle 2020-04-20  582  	int ret;
-6937602ed3f9ebd Michael Walle 2020-04-20  583  
-6937602ed3f9ebd Michael Walle 2020-04-20  584  	priv = devm_kzalloc(&phydev->mdio.dev, sizeof(*priv), GFP_KERNEL);
-6937602ed3f9ebd Michael Walle 2020-04-20  585  	if (!priv)
-6937602ed3f9ebd Michael Walle 2020-04-20  586  		return -ENOMEM;
-6937602ed3f9ebd Michael Walle 2020-04-20  587  
-6937602ed3f9ebd Michael Walle 2020-04-20  588  	phydev->priv = priv;
-6937602ed3f9ebd Michael Walle 2020-04-20  589  
-6937602ed3f9ebd Michael Walle 2020-04-20  590  	ret = bcm54140_get_base_addr_and_port(phydev);
-6937602ed3f9ebd Michael Walle 2020-04-20  591  	if (ret)
-6937602ed3f9ebd Michael Walle 2020-04-20  592  		return ret;
-6937602ed3f9ebd Michael Walle 2020-04-20  593  
-dc9989f173289f3 Michael Walle 2020-05-06  594  	devm_phy_package_join(&phydev->mdio.dev, phydev, priv->base_addr, 0);
-dc9989f173289f3 Michael Walle 2020-05-06  595  
-4406d36dfdf1fbd Michael Walle 2020-04-20  596  #if IS_ENABLED(CONFIG_HWMON)
-4406d36dfdf1fbd Michael Walle 2020-04-20  597  	mutex_init(&priv->alarm_lock);
-4406d36dfdf1fbd Michael Walle 2020-04-20  598  
-dc9989f173289f3 Michael Walle 2020-05-06 @599  	if (phy_package_init_once(phydev)) {
-4406d36dfdf1fbd Michael Walle 2020-04-20  600  		ret = bcm54140_probe_once(phydev);
-4406d36dfdf1fbd Michael Walle 2020-04-20  601  		if (ret)
-4406d36dfdf1fbd Michael Walle 2020-04-20  602  			return ret;
-4406d36dfdf1fbd Michael Walle 2020-04-20  603  	}
-4406d36dfdf1fbd Michael Walle 2020-04-20  604  #endif
-4406d36dfdf1fbd Michael Walle 2020-04-20  605  
-6937602ed3f9ebd Michael Walle 2020-04-20  606  	phydev_dbg(phydev, "probed (port %d, base PHY address %d)\n",
-6937602ed3f9ebd Michael Walle 2020-04-20  607  		   priv->port, priv->base_addr);
-6937602ed3f9ebd Michael Walle 2020-04-20  608  
-6937602ed3f9ebd Michael Walle 2020-04-20  609  	return 0;
-6937602ed3f9ebd Michael Walle 2020-04-20  610  }
-6937602ed3f9ebd Michael Walle 2020-04-20  611  
+   640	
+ > 641	static const struct of_device_id d350_of_match[] = {
+   642		{ .compatible = "arm,dma-350" },
+   643		{}
+   644	};
+   645	MODULE_DEVICE_TABLE(of, d350_of_match);
+   646	
 
 -- 
 0-DAY CI Kernel Test Service
