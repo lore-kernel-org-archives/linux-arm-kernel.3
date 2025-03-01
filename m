@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F902C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 07:12:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9698C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 08:00:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6RrCayG0xUHKYkyyjZg3K24ocdryZVIPWFeqEi3bcx4=; b=UMTzNuV4bQzDNOuIRhLVNglT07
-	yYGDiY+1kW/VgqtxB0rlo0m2qfc/7lyrQf8i7LY12z+eljgLW624GEN/b6yxtY/ymuql1M5KRg7nH
-	aKFFKICNRoiPkVPg+9BRoDwh3hJjB7afcppuatyt+rU3Wzy4zvzwxxgV2FPZCaixOnnhbJo2gAO3O
-	wyeFACQ5sM+E15IxsV6UaVzCFL4Y5lWrV0qdd4OjiD+8ovTvxu0XN6m42TeyvmK1NHQlyCv+GfhEP
-	hS4eRbdyBIoH0SH+4cE1xcwo4+enZaK2q69cYscOuO7wYggqJVmDTpzxNAbbxGeYWKONevNDraIJ5
-	8RyAzKcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UHN/ve3uqZoFmbENE1BEVc2Q1wo7QeV6ce4+Mf1ZYQI=; b=B+FKbFRDSCFJ3cmps6HG8It262
+	b1ZGmTZS6idtt0LjaSs01v3DjvL9CTEkrag6lRyiHEbXLtE9vsRX3xE1lEXOnx1VCzlWUftUFJy2/
+	+a8dV5uIM1WNW2CkOz+AbgO3xAVaSVqmq6yy7wzWOPwG5Bbm0hl9VvpViQXiM4FkoUWUsIZYUkAG7
+	gWn73CCaf5r0E4O6Bb7jACzRoJeu91bgxbDYdYbxIyTxCmuvTE+QQloOHQnujxTh0jjLZpAt2gP0s
+	88dMrbKge26EA+rtHeTvv64EsN+3U+kKIPXP+s9LWX+Q4iZCzqmo8Tcrjg7OTFQ0Qokw9kyP9RLxL
+	40VRjb4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toH14-0000000DYGB-2Ih6;
-	Sat, 01 Mar 2025 07:12:06 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1toHly-0000000DbfM-0jGK;
+	Sat, 01 Mar 2025 08:00:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toGup-0000000DXOu-1Pd0
+	id 1toHkP-0000000DbW6-2DM2
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Mar 2025 07:05:51 +0000
+	Sat, 01 Mar 2025 07:58:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0ADCE5C553E;
-	Sat,  1 Mar 2025 07:03:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E51EC4CEDD;
-	Sat,  1 Mar 2025 07:05:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D6B2261160;
+	Sat,  1 Mar 2025 07:58:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0EE6C4CEE5;
+	Sat,  1 Mar 2025 07:58:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740812738;
-	bh=wT10qmxPNjhJO3TUiqD0b6InWJqdJHkHlWn0Rozw/jo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dEgEBU17hpmVAOOUI8kKAia6ph4Q9pDyAxnubjACWGjS0ogNVNHO91AbaVqCrSEhB
-	 vHq3hSasyrO0zXBcU2VNGJG1lKoMQ8Aj09mUwCOvyAkp+ofJlaXpoTcnSMqXMH293o
-	 tNTyIzv0vCZawxrFaH4waE25ZZ/o8VGwzn5qr1UI8feIkM+lLjaQK2QL6Ec1RHNnKc
-	 mH3zxfNHcNcT7GYji3Gq09ZyPyWXZ6UxsjDVas1mrrqkhbnEwQco8hOEBH8j5Ao3kD
-	 NkePOROWZKQUaxydCtYJEVE6JWL3IAoR/82hha7W37AHu0+A7ZBjPZ/YgS8npSTzUo
-	 Z33Cafx5VVCyA==
+	s=k20201202; t=1740815936;
+	bh=+7SBZeyhvdU8q8qqLxjcyLKtSgS5euL5/BSRG+GzYnQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=niS/4gm5vcOZNiqb4rtWstswYmO9WOXfWp21xuJROGBuwNHHrzN2JlaXdUA36BDDA
+	 6Uq+KW1rsVqqQKvu+WC0aqBezbeYx4JJhg5iq6BMQYEaeywqD/GVztbNLdumonJFZ5
+	 5jsf3qdLSn4GXlAGw4BDgAjbcLwTk2xqu64PV12c8Wv3FVgmMADpr0wk+gupPTr7JD
+	 Q59K3Xp8pdgR2I4WLH5bZYpmYSSuzNs5m9oKbvYA2xMKnWE8ik8XYN2F37PZu4Rn5C
+	 IAGLbfEgShX/o5ZK1Fnf0FavSAyqnuMEa8njKofeJL3Xq5DIxfwoPhm7l1MM8GprJn
+	 MqyVkDZDfMLOQ==
+Date: Sat, 1 Mar 2025 07:58:50 +0000
 From: Will Deacon <will@kernel.org>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	ilkka@os.amperecomputing.com
-Subject: Re: [PATCH] perf/arm-cmn: Minor event type housekeeping
-Date: Sat,  1 Mar 2025 07:05:25 +0000
-Message-Id: <174080632166.3210087.735484296197071169.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <ef46a47fc4ab909093f14b2b4289a4835836ab6c.1738851844.git.robin.murphy@arm.com>
-References: <ef46a47fc4ab909093f14b2b4289a4835836ab6c.1738851844.git.robin.murphy@arm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>, Mark Brown <robh@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Eric Auger <eric.auger@redhat.com>, kvmarm@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V2 0/7] arm64/boot: Enable EL2 requirements for
+ FEAT_PMUv3p9
+Message-ID: <20250301075849.GA28249@willie-the-truck>
+References: <20250203050828.1049370-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_230539_418774_64EC6ABF 
-X-CRM114-Status: UNSURE (   9.27  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250203050828.1049370-1-anshuman.khandual@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,26 +76,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 06 Feb 2025 14:24:04 +0000, Robin Murphy wrote:
-> While handling RN-D nodes under the functionally-identical RN-I type
-> works fine for perf tool users using the "rnid_" event aliases, and that
-> is the documented and expected ABI, there's little reason not to be
-> permissive and accept the actual RN-D type as an additional encoding for
-> the same events as well. This may be convenient for other tooling
-> generating event configs directly from its own topology data.
+On Mon, Feb 03, 2025 at 10:38:21AM +0530, Anshuman Khandual wrote:
+> This series adds fine grained trap control in EL2 required for FEAT_PMUv3p9
+> registers like PMICNTR_EL0, PMICFILTR_EL0, and PMUACR_EL1 which are already
+> being used in the kernel. This is required to prevent their EL1 access trap
+> into EL2.
 > 
-> [...]
+> PMZR_EL0 register trap control i.e HDFGWTR2_EL2.nPMZR_EL0 remains unchanged
+> for now as it does not get accessed in the kernel, and there is no plan for
+> its access from user space.
+> 
+> I have taken the liberty to pick up all the review tags for patches related
+> to tools sysreg update from the KVM FGT2 V2 patch series posted earlier.
+> 
+> https://lore.kernel.org/all/20241210055311.780688-1-anshuman.khandual@arm.com/
+> 
+> Rob had earler mentioned about FEAT_FGT2 based trap control requirement for
+> FEAT_PMUv3p9 registers that are currently being used in kernel. The context
+> can be found here.
+> 
+> https://lore.kernel.org/all/20241216234251.GA629562-robh@kernel.org/
+> 
+> This series is based on v6.14-rc1
+> 
+> Changes in V2:
+> 
+> - Rebased on v6.14-rc1
+> - Updated tools sysreg patches with latest DDI0601 2024-12 definitions
+> - Updated document version as DDI0601 2024-12 in all commit messages
+> - Added latest tags from Rob Herring for the last patch
 
-Applied to will (for-next/perf), thanks!
+I know these have been applied already but, fwiw, patches 1-6 look correct
+when compared against the .xml:
 
-[1/1] perf/arm-cmn: Minor event type housekeeping
-      https://git.kernel.org/will/c/678a5d3d6db6
+Acked-by: Will Deacon <will@kernel.org>
 
-Cheers,
--- 
+I presume Catalin will drop/replace the last patch.
+
 Will
-
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
 
