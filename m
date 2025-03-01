@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77A5DC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 14:01:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E9F8C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 14:03:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6uTFf+XiRjijItjymQz/DbbrPd5JWW1lAC0w+bwIFJU=; b=DT34uAPO5UvkwDfeex4jp/pSpq
-	mZqW8gEmZkTgEPoviXvNyCI4wTkbS2ggpgSViyPXwGxyY03SFImmMkg10xOMbUDVWGd0O5LAd0QNv
-	rUqVswMAHNpk3Ymv9PuwYHcwtPv+t3hVhiLFC9JUsPRkuzMuXAO+xDGccNvzaPNXN0lju1Xbkc8xR
-	PyESxKpkAnwagS+t9Z1votZIKbl2MjiqvlLhyatZHEic3ZbyQeVVacVY5bsrevNsAHzXcYtn2h3iX
-	Kvh9EhClxeKJNmaBNgJCK/e2noXhsh8qYRYfZdmWa8njYgOpyFsfn+OdQ1OhedgoLYsdHyCTkvrO4
-	kkpgLBcg==;
+	bh=ejZoGnltkP3RTDHr+HwEHEaouV11hGE5usd+Vq2Y9Bo=; b=EoyAGuuhke+ialXMwtpK20KKhh
+	WcH/LoAUiL01xTFQUr95bdTLjf/pNBrLWHh85SZAt6iznlrbzmQedoRs7i+yoghxdeAzs36LO1vGZ
+	SyaQ9DxbHvR2AwRXTJs3k5ooTKZIvTCGDfsLR6LLFXd/BMew4W7bgN0LO+sCqT02xpKoarTOCfOCR
+	SAVmjRAmhoJu+RpqmVLunNKwLS/lr4y1l6Pc+fmobZQimNWdsjvFHVuh99bT0bxjJWQnGxm/xePUA
+	5COm75Ij8/V8hxietSjeenDvb98EdUc45Gq6nfDkHzbp2+e2/wWhztCrQ9x5stfU3GkYgV/VDGzMX
+	DyKXCNFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toNOz-0000000EOKj-10jf;
-	Sat, 01 Mar 2025 14:01:13 +0000
+	id 1toNQg-0000000EOqt-3zIu;
+	Sat, 01 Mar 2025 14:02:58 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toNNP-0000000EO8T-48Jd
+	id 1toNP6-0000000EOMO-3vnh
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Mar 2025 13:59:37 +0000
+	Sat, 01 Mar 2025 14:01:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 86B945C0095;
-	Sat,  1 Mar 2025 13:57:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0AC4C4CEDD;
-	Sat,  1 Mar 2025 13:59:29 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6518B5C10A2;
+	Sat,  1 Mar 2025 13:59:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2CE3C4CEDD;
+	Sat,  1 Mar 2025 14:01:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740837575;
-	bh=CyH5RNjtxFCfv3oIJOJKyf7js632Edfyw00lesyBqVc=;
+	s=k20201202; t=1740837680;
+	bh=TXbkCcmg1DwyJIZptj01ubpFGDFttiAsT9J/gFA2bRc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RohfkqhXXhpEpM+MwpsDmYTExRDZvdBeqZVyxeOUmPiXOcHGl5a0djuW2YlySjqHp
-	 M1k8nnXNOKBEQCHTPesI/ZxxrwfpH/xMTMeTt0/9RdPpYl4KsUlRphj4AByMuEw9U0
-	 DlYiWTmmmFKq0UCsT9XwU5QXKvPkHzsy0ncTzOOElY0xiHKOfx9CRhBoiZZ+QHGYuA
-	 qasRBNJuwVisafJXCidu6FvXkmWatKOO+LU+BTK1JhrLa/4WvmSrONjnDHq/uHgYQd
-	 g/hlLv74iCtqcrFMrSHJc2kyJ0lSi21fEvytc+wcb0cMy+hIUws9asECaGzft9nNVd
-	 p6jxfKydePaGw==
-Message-ID: <7328e538-31cf-4674-83d2-943f1a2d1455@kernel.org>
-Date: Sat, 1 Mar 2025 14:59:26 +0100
+	b=DXvfrK/gjEsCPFQhyE97cAMnLM7feY+wlB0Lhh9Kr1qihZEw/Dv9iQHR2EwX6JqaF
+	 9PGfNmzxHFVyjQXGUwdmDDBMTi5ozvNOVNK9u4bSy6K7jOn3qH9V8FHcXcdeLdCLrR
+	 JG4yHK5J9n8sSnevF1h7Ws43T/pUFlhs9ndM30ZrdxJYwZ6hWN19HvkHNsE0RPfou3
+	 smXwK5VC7srVsexJY3ywn9ZyOIPQtX3WhCfXAGkcF/KZB7BJHOf4x18QswYjOLosec
+	 +xM+jyulMMnWwUEwKAtAv+JkXB83N+K/FSccNo0r8eIez567JRUEJZlRK9rQ0050C6
+	 7o8VN9iMeSr3g==
+Message-ID: <8b85be4a-ecd9-4ea4-9cfc-905bb4bd5642@kernel.org>
+Date: Sat, 1 Mar 2025 15:01:12 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/2] arm64: dts: fsd: Add Ethernet support for FSYS0
- Block of FSD SoC
-To: Swathi K S <swathi.ks@samsung.com>, krzk+dt@kernel.org,
- linux-fsd@tesla.com, robh@kernel.org, conor+dt@kernel.org,
- richardcochran@gmail.com, alim.akhtar@samsung.com
-Cc: jayati.sahu@samsung.com, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- pankaj.dubey@samsung.com, ravi.patel@samsung.com, gost.dev@samsung.com
-References: <20250220073527.22233-1-swathi.ks@samsung.com>
- <CGME20250220073944epcas5p495ee305ca577a7e1be51ff916f20fc53@epcas5p4.samsung.com>
- <20250220073527.22233-2-swathi.ks@samsung.com>
+Subject: Re: [PATCH v2 1/3] dt-bindings: clock: add Exynos2200 SoC
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250223115601.723886-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250223115601.723886-2-ivo.ivanov.ivanov1@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,12 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250220073527.22233-2-swathi.ks@samsung.com>
+In-Reply-To: <20250223115601.723886-2-ivo.ivanov.ivanov1@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250301_055936_145198_79E69A95 
-X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-CacheID: sfid-20250301_060121_515264_CAB557E1 
+X-CRM114-Status: UNSURE (   7.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -124,22 +125,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/02/2025 08:35, Swathi K S wrote:
->  &pinctrl_peric {
-> diff --git a/arch/arm64/boot/dts/tesla/fsd.dtsi b/arch/arm64/boot/dts/tesla/fsd.dtsi
-> index 690b4ed9c29b..01850fbf761f 100644
-> --- a/arch/arm64/boot/dts/tesla/fsd.dtsi
-> +++ b/arch/arm64/boot/dts/tesla/fsd.dtsi
-> @@ -1007,6 +1007,26 @@
->  			clocks = <&clock_fsys0 UFS0_MPHY_REFCLK_IXTAL26>;
->  			clock-names = "ref_clk";
->  		};
-> +
-> +		ethernet0: ethernet@15300000 {
-> +			compatible = "tesla,fsd-ethqos";
+On 23/02/2025 12:55, Ivaylo Ivanov wrote:
+> Provide dt-schema documentation for Exynos2200 SoC clock controller.
+> Add device tree clock binding definitions for the following CMU blocks:
+> - CMU_ALIVE
+> - CMU_CMGP
+> - CMU_HSI0
+> - CMU_PERIC0/1/2
+> - CMU_PERIS
+> - CMU_TOP
+> - CMU_UFS
+> - CMU_VTS
+> 
+> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+> ---
+>  .../clock/samsung,exynos2200-cmu.yaml         | 247 ++++++++++
+>  .../clock/samsung,exynos2200-cmu.h            | 431 ++++++++++++++++++
+>  2 files changed, 678 insertions(+)
 
-I don't see bindings in the linux-next, so I am dropping this patch from
-my queue. Please resend when the bindings hit the linux-next.
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
