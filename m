@@ -4,93 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57A53C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 10:34:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95BAEC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 10:40:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=284ud8KZgsvJe3kKyqpcZEuN7Tvtd5nIkzcKwoRr0sg=; b=jujP0A1CR/EjKl+3SNcSCiLk69
-	kByW/m4NWGZda5Ng5CgqTI5UOalk/g+D5ZvhyWpBxK+WzaGWw179CeOUmkxQ3EoGBTo8vKdB3QbCg
-	DWueDZi6qYgQyJh4DUhA4l3HAzU0ysh/Pck6PXfCe/1O2Xe/vieIaCjYMGASfGsHZywoKyCP1dRqC
-	kZOiB+/xPyiyVJuaJ7YYnRIVI3sgKfU8Mpg4vBp7bt1BRRvzgBmg9echnIxYZbiHLInptjL0QQkLw
-	bg9AwKqLER/1hUKob06WN8xrQwzjQzhUnguqyv0AWrYVbv3b1O335kxaFnOCgfR5kRzR9ZXcD9WqJ
-	JVcUJOvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jnlxC8ZW/CfqDjl5QKxrbPd8VoYU7dt7zFWgQ1CDGLw=; b=0tvJb1GZiJ0nps/tPA7BGhRZZt
+	VgP7/BghlaBUWoScAN8AXlABXQzi55gP2nxwUIBNmnU1WhttQRLRxq28Ua1vSoi3d6XgvHg4RNvCQ
+	sGgHzmue0qyH3mzu1Lbzl30w4MvrBlXaGp/eG6bDmud/2hTjjVU/AqIZThdB/6akJ5vc72cxUjRht
+	a06Oaj2v0QYWWoq9kLn+b+O9jJBxVp7CX5NvWRRdbvuR5xrJp1VrAdSLyTXsch/wz1ZaWfsCD58wC
+	5OOdhX1pwC4td0Y9xDdiTaAysYi7XAupzi2zRcYOlHaJuWhlQwAP/6sx25TZrOlZj42gba4Nj6AOq
+	peklCm4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toKAL-0000000DlIs-17SF;
-	Sat, 01 Mar 2025 10:33:53 +0000
-Received: from mail-wr1-x463.google.com ([2a00:1450:4864:20::463])
+	id 1toKGi-0000000DleO-2gwv;
+	Sat, 01 Mar 2025 10:40:28 +0000
+Received: from relay5-d.mail.gandi.net ([217.70.183.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toK8l-0000000DlF8-2IEc
+	id 1toKF8-0000000DlYD-0BDQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Mar 2025 10:32:17 +0000
-Received: by mail-wr1-x463.google.com with SMTP id ffacd0b85a97d-390e3b3d432so2036277f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Mar 2025 02:32:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=patrick-wildt-de.20230601.gappssmtp.com; s=20230601; t=1740825133; x=1741429933; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=284ud8KZgsvJe3kKyqpcZEuN7Tvtd5nIkzcKwoRr0sg=;
-        b=a7R4ztmB4G6O0nqV1aGVGNeCnf67FONlQ8SUkDWp7OQ+IcwGslZ5v91FU5s9zjVSQ9
-         UMFAFaEZ35Vf1ZnsP5A4kPQGUqDkz6VmINy3wLU4AclyDwPOk9i1sWufm2MczL/hw/qa
-         8XxnD0I7hSxSPyCOgwHEe4st/87D22AeaHTiWAu8oKrtyYTefJGCBPMEgXiigQvjK9v0
-         U9NDbG2RdhFqXJgW6fER8OphkqWWc06oA0WUiPjeYEoK95CxjAPYcdgNR/ZwlYSpf2Xq
-         6YZa5PJHbkG7BUokyRPVR/S+y2VGqUM3eGKo7b+hsXotkKpSTHM/OHUIyexFYhJc8yBF
-         5ObA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740825133; x=1741429933;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=284ud8KZgsvJe3kKyqpcZEuN7Tvtd5nIkzcKwoRr0sg=;
-        b=OP0scQFQJPOUS9SBRM07rMkSiJc3ZnAvhSfh5zChPCXHkE86kGi3N/kVjhFhX8JByc
-         rluw+6DisYCGdlZIBunGCx3fLNA6lYz2M/vd/+BRvNKqJCHoJNlIeaw5Vh2agiOd23ui
-         03WQMak/DRl213rix2P7IzsKekbI1jU9k3RA0NZNeLNeGJYVXwAwEbl+QG0TBi3RU4T3
-         hhywnOU78L/hVZG++5ohNCGfc5lxE8ISysT2F1GfDgfnBm1iryRGH4pV8KBEJ+fBzLBr
-         H6BI7k0ZaArFeDJDGe8x/EyCziJOh6v82Wu5t8BvSOvBzuuSYhaVIzWVEb0nndh81VnP
-         zGNA==
-X-Forwarded-Encrypted: i=1; AJvYcCU6AjISYNXkNEjkU5ZaNaTuLMfPLBvycHISiFbrS6Mngd3IcodZFNVIR4fye+XhHkUCUOF48lL/K/12XtCilti9@lists.infradead.org
-X-Gm-Message-State: AOJu0YzeQuQhZEhfe48Mqe2v7foVam1xwUd+7wzc0GHT9C3gq4edzfDx
-	/oJHa1yvLd5TAXUxXu8Stp7DAQiXVxv4LjZWp+JSctMpCme747lZySdf7vya3GV5i8pDB5QDGTI
-	+HuyAD1/Q16zhfpEgEbOgFNtOF6Q54lDq
-X-Gm-Gg: ASbGncv5Kk5iL5lvft+pMtVL8ogIXCrIe4xdBrk+4Yf22Ljh9GJfgdRz/okk/oix0vQ
-	ml3/kJ9jTUfl2Iv5fUWXjiBVUfrHl9/7MNBmuNI0GThb3OzemxLzFSAbrzX5hM9isIfWxdlZqom
-	kn+493zVLHLsSkce5rV5DtBMf6WW7hRI4WnyjVIwhCKwtqkPXkZh3tJBPYCJscNgjoRntnDWgy4
-	UkzUhM5wPJPgYxuUX1jZV86HYDjdYllqWkZZKKo1RlgmHzw0oIMQ6vKw+e8n0WXeEBxQW/sv5X6
-	Mkvn2Pfd9lpmgkmLI2Z8QSaD1+j9/p2uPvQvf4/kQj4=
-X-Google-Smtp-Source: AGHT+IHrWDWJfyJus07zvqX5oGbCjo4A7NTax9luZq+BhbhEr0aXxJ5c0xg7yw9lm3Lg0IMqKXRt7tZuCCjr
-X-Received: by 2002:a05:6000:401f:b0:38f:38eb:fcfc with SMTP id ffacd0b85a97d-390ec7c7fefmr5243899f8f.7.1740825133251;
-        Sat, 01 Mar 2025 02:32:13 -0800 (PST)
-Received: from windev.fritz.box (pc19f8e2d.dip0.t-ipconnect.de. [193.159.142.45])
-        by smtp-relay.gmail.com with ESMTPS id 5b1f17b1804b1-43b7a28b278sm5090285e9.45.2025.03.01.02.32.12
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 01 Mar 2025 02:32:13 -0800 (PST)
-X-Relaying-Domain: blueri.se
-Date: Sat, 1 Mar 2025 11:32:06 +0100
-From: Patrick Wildt <patrick@blueri.se>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jimmy Hon <honyuenkwun@gmail.com>
-Subject: Re: [PATCH v4 2/2] arm64: dts: rockchip: add MNT Reform 2
-Message-ID: <Z8LiJgNkurF3xt3k@windev.fritz.box>
-References: <Z7OaTzIpeJ-IACrl@windev.fritz.box>
- <Z7OahO_OtwYSmtmQ@windev.fritz.box>
- <2700899.tdWV9SEqCh@phil>
+	Sat, 01 Mar 2025 10:38:51 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 7478E43319;
+	Sat,  1 Mar 2025 10:38:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1740825527;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jnlxC8ZW/CfqDjl5QKxrbPd8VoYU7dt7zFWgQ1CDGLw=;
+	b=KqrgluW3hC8SfIGrUKkMKKLadJ1eu2tJh+1OKwN8pLZ5ENFClQlIrao6JGWw2C3gsdpNQu
+	0G7xW9aXdBnDd6Et46S01DCo2N+WTw4OHKnjhpY+QoR/dwU0Va3ov3eB0RvImmMpm47fSv
+	NYsUh0Klq7BvPIULXisXYYyG8RGPqMZgOINXbBEYG2wnpbyvD85Ej6rsrjatSn2R/RbiBh
+	GjL8kPHVxYxwBb2f65GC0aNe2Rug8j2bEzOaJKqH17t1M3GRSZ271Ktmo8xpZvtjT3N/2F
+	DD5faTJSD49wgxQns2R+Q2GacNNIr+DBmk7PNSvRpEDuMVU5wjaoPmjYysr5gQ==
+Date: Sat, 1 Mar 2025 11:38:43 +0100
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Heiner Kallweit
+ <hkallweit1@gmail.com>, Parthiban Veerasooran
+ <parthiban.veerasooran@microchip.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
+ linux-arm-kernel@lists.infradead.org, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Vladimir Oltean
+ <vladimir.oltean@nxp.com>, =?UTF-8?B?S8O2cnk=?= Maincent
+ <kory.maincent@bootlin.com>, Oleksij Rempel <o.rempel@pengutronix.de>,
+ Simon Horman <horms@kernel.org>, Romain Gantois
+ <romain.gantois@bootlin.com>, Piergiorgio Beruto
+ <piergiorgio.beruto@gmail.com>
+Subject: Re: [PATCH net 2/2] net: ethtool: netlink: Pass a context for
+ default ethnl notifications
+Message-ID: <20250301113843.3b9df0fe@fedora.home>
+In-Reply-To: <20250228182440.3c7f4709@kernel.org>
+References: <20250227182454.1998236-1-maxime.chevallier@bootlin.com>
+	<20250227182454.1998236-3-maxime.chevallier@bootlin.com>
+	<20250228182440.3c7f4709@kernel.org>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2700899.tdWV9SEqCh@phil>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdelfedtjecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegveeltddvveeuhefhvefhlefhkeevfedtgfeiudefffeiledttdfgfeeuhfeukeenucfkphepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvtddprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopegvughum
+ hgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehprghrthhhihgsrghnrdhvvggvrhgrshhoohhrrghnsehmihgtrhhotghhihhprdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250301_023215_844137_41D47E47 
-X-CRM114-Status: GOOD (  30.54  )
+X-CRM114-CacheID: sfid-20250301_023850_553214_532A8345 
+X-CRM114-Status: GOOD (  13.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,206 +91,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Feb 23, 2025 at 12:38:40AM +0100, Heiko Stuebner wrote:
-> Hi Patrick,
-> 
-> Am Montag, 17. Februar 2025, 21:22:28 MEZ schrieb Patrick Wildt:
-> > MNT Reform 2 is an open source laptop with replaceable CPU modules,
-> > including a version with the RK3588-based MNT RCORE[1], which is based
-> > on Firefly's iCore-3588Q SoM:
-> > 
-> > - Rockchip RK3588
-> > - Quad A76 and Quad A55 CPU
-> > - 6 TOPS NPU
-> > - up to 32GB LPDDR4x RAM
-> > - SD Card slot
-> > - Gigabit ethernet port
-> > - HDMI port
-> > - 2x mPCIe ports for WiFi or NVMe
-> > - 3x USB 3.0 Type-A HOST port
-> > 
-> > [1] https://shop.mntre.com/products/mnt-reform
-> > 
-> > Signed-off-by: Lukas F. Hartmann <lukas@mntre.com>
-> > Signed-off-by: Patrick Wildt <patrick@blueri.se>
-> 
-> bureaucracy question, what is Lukas' relationship with the patch?
-> Two options:
-> (1) Lukas initially developed the patch, then the "From:" should be
->     set accordingly
-> (2) Both of you developed it together, then we should have a
->     Co-Developed-by: Lukas F. Hartmann <lukas@mntre.com>
->     up there
-> 
+On Fri, 28 Feb 2025 18:24:40 -0800
+Jakub Kicinski <kuba@kernel.org> wrote:
 
-Thanks, will send a v5 with Co-developed-by tag added! :)
+> On Thu, 27 Feb 2025 19:24:52 +0100 Maxime Chevallier wrote:
+> > The only relevant user for now is PLCA, and it very likely that we never
+> > ended-up in a situation where the follow-up notif wasn't targeting the
+> > correct PHY as :  
+> 
+> PLCA uses the ethnl_default_* handlers but it seems to operate on PHYs
+> now. How does the dump work? Shoehorning the PHY support into
+> the ethnl_default_* handlers is starting to look pretty messy.
 
-> 
-> Some more style things below...
-> 
+Thinking more about this, this patch shouldn't have targetted -net in
+the first place, as no usecase regressed yet (we don't have any
+multi-PHY PLCA setup that exists). The DUMP keeps working as it did
+before for that command, in that we dump the PLCA info for
+netdev->phydev.
 
-Are there further execptions to the alphabetical rule? For regulators
-I often see min before max, which I think makes sense to understand
-the range but isn't technically alphabetical. The same for pinctrl-0
-and pinctrl-names.
+That DUMP / notify situation needs to be addressed as tome point thouh,
+before the multi-PHY support through muxes lands (haven't sent it yet,
+I'm still on the preliminary series for phy_ports).
 
-Thanks,
-Patrick
+So I think that indeed, I'll resend patch 1, and find a more graceful
+solution for the phy-targetting commands in a separate series.
 
-> 
-> > ---
-> > Changes for v4:
-> > - Added chassis-type.
-> > - Removed unused nodes.
-> > - Sorted nodes alphabetically.
-> > Changes for v3:
-> > - Split DT as it's based on a Firefly iCore-3588Q SoM.
-> > Changes for v2:
-> > - Aligned with bindings and schemas to appease DTB check warnings.
-> > - Aligned with format of other RK3588 boards for consistency.
-> > 
-> >  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
-> >  .../rockchip/rk3588-firefly-icore-3588q.dtsi  | 451 ++++++++++++++++++
-> >  .../boot/dts/rockchip/rk3588-mnt-reform2.dts  | 336 +++++++++++++
-> >  3 files changed, 788 insertions(+)
-> >  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-firefly-icore-3588q.dtsi
-> >  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dts
-> > 
-> > diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-> > index def1222c1907..88381d9a20e3 100644
-> > --- a/arch/arm64/boot/dts/rockchip/Makefile
-> > +++ b/arch/arm64/boot/dts/rockchip/Makefile
-> > @@ -145,6 +145,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-firefly-itx-3588j.dtb
-> >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-friendlyelec-cm3588-nas.dtb
-> >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-h96-max-v58.dtb
-> >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-jaguar.dtb
-> > +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-mnt-reform2.dtb
-> >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-nanopc-t6.dtb
-> >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-nanopc-t6-lts.dtb
-> >  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-ok3588-c.dtb
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk3588-firefly-icore-3588q.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-firefly-icore-3588q.dtsi
-> > new file mode 100644
-> > index 000000000000..898a7b29692f
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/rockchip/rk3588-firefly-icore-3588q.dtsi
-> > @@ -0,0 +1,451 @@
-> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> > +
-> > +#include <dt-bindings/gpio/gpio.h>
-> > +#include <dt-bindings/pinctrl/rockchip.h>
-> > +
-> > +#include "rk3588.dtsi"
-> > +
-> > +/ {
-> > +	compatible = "firefly,icore-3588q", "rockchip,rk3588";
-> > +
-> > +	aliases {
-> > +		mmc0 = &sdhci;
-> > +	};
-> > +};
-> > +
-> > +&cpu_b0 {
-> > +	cpu-supply = <&vdd_cpu_big0_s0>;
-> > +	mem-supply = <&vdd_cpu_big0_s0>;
-> 
-> you don't need the unspecified mem-supply for the cpu cores,
-> that is vendor-kernel voodoo and not part of the upstream binding.
-> 
-> Same for all cores.
-> 
-> 
-> > +};
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dts b/arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dts
-> > new file mode 100644
-> > index 000000000000..936dd959524f
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dts
-> > @@ -0,0 +1,336 @@
-> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> > +/*
-> > + * Copyright (c) 2021 Rockchip Electronics Co., Ltd.
-> > + * Copyright (c) 2024 MNT Research GmbH
-> > + */
-> > +
-> > +/dts-v1/;
-> > +
-> > +#include <dt-bindings/gpio/gpio.h>
-> > +#include <dt-bindings/input/input.h>
-> > +#include <dt-bindings/pinctrl/rockchip.h>
-> > +#include <dt-bindings/soc/rockchip,vop2.h>
-> > +#include <dt-bindings/usb/pd.h>
-> > +
-> > +#include "rk3588-firefly-icore-3588q.dtsi"
-> > +
-> > +/ {
-> > +	model = "MNT Reform 2 with RCORE RK3588 Module";
-> > +	compatible = "mntre,reform2-rcore", "firefly,icore-3588q", "rockchip,rk3588";
-> > +	chassis-type = "laptop";
-> > +
-> > +	aliases {
-> > +		ethernet0 = &gmac0;
-> > +		mmc1 = &sdmmc;
-> > +	};
-> > +
-> > +	chosen {
-> > +		stdout-path = "serial2:1500000n8";
-> > +	};
-> > +
-> > +	backlight: backlight {
-> > +		compatible = "pwm-backlight";
-> > +		pwms = <&pwm8 0 10000 0>;
-> > +		enable-gpios = <&gpio2 RK_PB5 GPIO_ACTIVE_HIGH>;
-> > +		brightness-levels = <0 8 16 32 64 128 160 200 255>;
-> > +		default-brightness-level = <128>;
-> 
-> please sort standard properties alphabetically (compatible at the top,
-> status at the bottom, rest alphabetically)
-> 
-> > +	};
-> > +
-> > +&pcie2x1l2 {
-> > +	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
-> > +	pinctrl-0 = <&pcie2_0_rst>;
-> 
-> more sorting
-> 
-> > +	status = "okay";
-> > +};
-> > +
-> 
-> > +&pcie3x4 {
-> > +	pinctrl-names = "default";
-> > +	pinctrl-0 = <&pcie3_reset>;
-> > +	reset-gpios = <&gpio1 RK_PB4 GPIO_ACTIVE_HIGH>;
-> > +	num-lanes = <1>;
-> 
-> again sorting
-> 
-> > +	vpcie3v3-supply = <&vcc3v3_pcie30>;
-> > +	status = "okay";
-> > +};
-> > +
-> 
-> > +&sdmmc {
-> > +	bus-width = <4>;
-> > +	max-frequency = <40000000>;
-> > +	no-sdio;
-> > +	no-mmc;
-> > +	no-1-8-v;
-> > +	cap-sd-highspeed;
-> > +	vqmmc-supply = <&vcc3v3_pcie30>;
-> > +	vmmc-supply = <&vcc3v3_pcie30>;
-> > +	cd-gpios = <&gpio0 RK_PA4 GPIO_ACTIVE_LOW>;
-> > +	disable-wp;
-> 
-> more sorting
-> 
-> > +	status = "okay";
-> > +};
-> > +
-> 
-> 
-> Heiko
-> 
-> 
+Maxime
 
