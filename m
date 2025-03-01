@@ -4,63 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D6ACC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 11:14:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C5DFC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 11:15:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fWrJQQO1z1ieS3LPSgSxBoRM/rUdNEDOVIFkMVgWCtA=; b=XZanPOrtMw5jeYbnGitKqHLrzM
-	056foJnhrWOJGmJZbFHSNb2OKppAW+u1WiT4353/Dyqv5BiQ1oump+TVaonQvbkMPYdlk+D8//oom
-	1JLWuBF8dLL5Je3t8HvDCSWB0dXacaYf4uT20xsX2/tGn8Exg2UNF9KNhxyc2K8aABnIkcKXFaB/h
-	T+LCGeVm7v/OGtgpu5v+9ko0r0zXmjEpCbRszpf9G5W5nZCH87G1qf3B6E5J9ekFznzcWgLa25uQR
-	5v42p2McE0lPBME/BvWMHwq5x1gdSdP2daLCugpii1bF53R/Lmx/nJUJ2EpV60+57DVh0z8fNrnQe
-	xPmzx5PQ==;
+	bh=hQmFQtir3Lbrtem2QPcwGaN1+PGoL3/O4P0o6KWpzYg=; b=Mh0X0ijspS7wLDkfCcSTZF8crG
+	rGZWQZqgac8ffq+6JFRvZ2t6zD6v7UjdXg77WBF7x7Lty3hWD5PhtTLBaTecSiiW1VlA5Gn4ozMgo
+	Faq8VbUUuiyj0w3fdjbaqeFyXQQXfjm0FEoKoDcyoxBUB/fT5wLKJb1PRbXazFxa2bhKXXVhUz4tE
+	TC82MMGBfDWsNT5eZAFdLYF9tLWIDMqS8ylhZq/JQjESv7ToYsoeHbpEU3bwDUiKeYz50n+LMp9Wn
+	3xQmIryqFFROCpEnRshVpOCXiQ3419tW2cw3Pa5Zi8EbtBfwhu801dUPRtnp2hhPDooDjS90V1Ojt
+	VP6ox2CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toKn6-0000000Dovj-40vn;
-	Sat, 01 Mar 2025 11:13:56 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1toKoe-0000000DpES-2pag;
+	Sat, 01 Mar 2025 11:15:32 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toKk2-0000000Do8Y-4C4v;
-	Sat, 01 Mar 2025 11:10:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=fWrJQQO1z1ieS3LPSgSxBoRM/rUdNEDOVIFkMVgWCtA=; b=wq4SDf5NC6U4ynKABYC9ryyTbN
-	xJ1TZTOPFknUkOJCCp+5enVb0+D31fKn5kOzz8/Elu6o9vDPbfvO3+3cLwwzk3jOQ7ZSx7YHWuly2
-	iHiimmw+uBVLHBBrmHNDmbbuh78IVrJZqDdish4Uf0b4/Ri/vZcZc9AAWb2ceOKwK8jELhCUhFESp
-	oNYA0HUWaTeIlt0PEycO/raBRgEapwLpXwHHRKDty8mIqqrvto1ts68XD/UGebFfYUXxS/Gv2sehx
-	z5m0uCobN+pU4a49FUINcfy+8553v7aNAGEg/hB4TPu/6E7iRWPVpyexbd0WLt6Ho+wkwPY3/MXG1
-	Xj4iojuA==;
-Received: from i53875b47.versanet.de ([83.135.91.71] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1toKjy-0007sS-JM; Sat, 01 Mar 2025 12:10:42 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Patrick Wildt <patrick@blueri.se>
-Cc: linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, Kever Yang <kever.yang@rock-chips.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jimmy Hon <honyuenkwun@gmail.com>
-Subject: Re: [PATCH v4 2/2] arm64: dts: rockchip: add MNT Reform 2
-Date: Sat, 01 Mar 2025 12:10:41 +0100
-Message-ID: <3309912.5fSG56mABF@diego>
-In-Reply-To: <Z8LiJgNkurF3xt3k@windev.fritz.box>
-References: <Z7OaTzIpeJ-IACrl@windev.fritz.box> <2700899.tdWV9SEqCh@phil>
- <Z8LiJgNkurF3xt3k@windev.fritz.box>
+	id 1toKko-0000000DoGa-1TqN
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 01 Mar 2025 11:11:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id EB5285C2765;
+	Sat,  1 Mar 2025 11:09:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A370C4CEDD;
+	Sat,  1 Mar 2025 11:11:31 +0000 (UTC)
+Date: Sat, 1 Mar 2025 11:11:28 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>, Mark Brown <robh@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Eric Auger <eric.auger@redhat.com>, kvmarm@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V2 0/7] arm64/boot: Enable EL2 requirements for
+ FEAT_PMUv3p9
+Message-ID: <Z8LrYBD7WHjOnJgT@arm.com>
+References: <20250203050828.1049370-1-anshuman.khandual@arm.com>
+ <20250301075849.GA28249@willie-the-truck>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250301075849.GA28249@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250301_031047_059223_5076978C 
-X-CRM114-Status: GOOD (  22.67  )
+X-CRM114-CacheID: sfid-20250301_031134_435731_22FE74A7 
+X-CRM114-Status: GOOD (  21.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,64 +69,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Samstag, 1. M=C3=A4rz 2025, 11:32:06 MEZ schrieb Patrick Wildt:
-> On Sun, Feb 23, 2025 at 12:38:40AM +0100, Heiko Stuebner wrote:
-> > Hi Patrick,
-> >=20
-> > Am Montag, 17. Februar 2025, 21:22:28 MEZ schrieb Patrick Wildt:
-> > > MNT Reform 2 is an open source laptop with replaceable CPU modules,
-> > > including a version with the RK3588-based MNT RCORE[1], which is based
-> > > on Firefly's iCore-3588Q SoM:
-> > >=20
-> > > - Rockchip RK3588
-> > > - Quad A76 and Quad A55 CPU
-> > > - 6 TOPS NPU
-> > > - up to 32GB LPDDR4x RAM
-> > > - SD Card slot
-> > > - Gigabit ethernet port
-> > > - HDMI port
-> > > - 2x mPCIe ports for WiFi or NVMe
-> > > - 3x USB 3.0 Type-A HOST port
-> > >=20
-> > > [1] https://shop.mntre.com/products/mnt-reform
-> > >=20
-> > > Signed-off-by: Lukas F. Hartmann <lukas@mntre.com>
-> > > Signed-off-by: Patrick Wildt <patrick@blueri.se>
-> >=20
-> > bureaucracy question, what is Lukas' relationship with the patch?
-> > Two options:
-> > (1) Lukas initially developed the patch, then the "From:" should be
-> >     set accordingly
-> > (2) Both of you developed it together, then we should have a
-> >     Co-Developed-by: Lukas F. Hartmann <lukas@mntre.com>
-> >     up there
-> >=20
->=20
-> Thanks, will send a v5 with Co-developed-by tag added! :)
->=20
-> >=20
-> > Some more style things below...
-> >=20
->=20
-> Are there further execptions to the alphabetical rule? For regulators
-> I often see min before max, which I think makes sense to understand
-> the range but isn't technically alphabetical. The same for pinctrl-0
-> and pinctrl-names.
+On Sat, Mar 01, 2025 at 07:58:50AM +0000, Will Deacon wrote:
+> On Mon, Feb 03, 2025 at 10:38:21AM +0530, Anshuman Khandual wrote:
+> > This series adds fine grained trap control in EL2 required for FEAT_PMUv3p9
+> > registers like PMICNTR_EL0, PMICFILTR_EL0, and PMUACR_EL1 which are already
+> > being used in the kernel. This is required to prevent their EL1 access trap
+> > into EL2.
+> > 
+> > PMZR_EL0 register trap control i.e HDFGWTR2_EL2.nPMZR_EL0 remains unchanged
+> > for now as it does not get accessed in the kernel, and there is no plan for
+> > its access from user space.
+> > 
+> > I have taken the liberty to pick up all the review tags for patches related
+> > to tools sysreg update from the KVM FGT2 V2 patch series posted earlier.
+> > 
+> > https://lore.kernel.org/all/20241210055311.780688-1-anshuman.khandual@arm.com/
+> > 
+> > Rob had earler mentioned about FEAT_FGT2 based trap control requirement for
+> > FEAT_PMUv3p9 registers that are currently being used in kernel. The context
+> > can be found here.
+> > 
+> > https://lore.kernel.org/all/20241216234251.GA629562-robh@kernel.org/
+> > 
+> > This series is based on v6.14-rc1
+> > 
+> > Changes in V2:
+> > 
+> > - Rebased on v6.14-rc1
+> > - Updated tools sysreg patches with latest DDI0601 2024-12 definitions
+> > - Updated document version as DDI0601 2024-12 in all commit messages
+> > - Added latest tags from Rob Herring for the last patch
+> 
+> I know these have been applied already but, fwiw, patches 1-6 look correct
+> when compared against the .xml:
+> 
+> Acked-by: Will Deacon <will@kernel.org>
 
-The "preferred" rules are in [0], and in recent times I've come to
-appreciate not needing to explain exceptions ;-) .
+Thanks Will.
 
-But I do see them as guidelines, especially in a leaf-dt (for a device)
-concessions are possible.
+> I presume Catalin will drop/replace the last patch.
 
-So yes, I can definitly see min before max as beneficial and if you want
-to sort that way, that is fine by me
+I dropped it already, I'll queue the new one.
 
-
-Heiko
-
-[0] https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/=
-tree/Documentation/devicetree/bindings/dts-coding-style.rst#n112
-
-
+-- 
+Catalin
 
