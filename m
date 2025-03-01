@@ -4,68 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85CB3C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 04:04:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B41FFC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 04:18:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gktINyFsEBD8823QreDOM6kIE8wh3TONdKD3DWgM9Ps=; b=e8l2sPNgdIPsGoSZ4UDLnr04mc
-	+X3bjG/poHAETwV0YlvpSEVnm7IOZGkAZayQC7wbw5X4q/Qbc0A1z9y7rfTnGrDyMO5rGp5Ey54Eu
-	DsyGu5WI7eWwCkmd2qrynRe0g4VBiukvSft73i9oTU/WE0WnY5DUkkJPIVrAEo+NlKT7QPNajfCdD
-	YSncN156/1sZnGjW0hZjqMeXGU9leRWLRwzR9rBGngSW8cLZcDAHEPLUbpBa+zfuMyGXmms7KrE94
-	MbZTrj5YmX0+wznvK5xhu8H1syiWlyZfO0iBxIqfuIrXq2vcIbjREKt4Y+LpXgUO0l4noDrHlryxm
-	hggytR6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nRJXVNbZUpNIBtt8TFs13UDH3fN+Tw1tbm1ZW4YHs/4=; b=XdcJZnn+pzXf+pmNmekPopKpNU
+	cloNUyqiZaSxpdB+nRr8WMWmEau9EjTe9rnjOHodN75UCOwszh2vKw51JKXEQ6yPLu9V5tCRD7hco
+	EXgvoMIYd0/j7ee2fRUO8f6fQxuwSf3EVLhhysZ4d0BsFUrSUXDI1dXJwGfFPI3rtmatx390BVonp
+	doSOmNW3sDZhjF6KqMG8lUdDCctIjPlTC9d3cCTifWofodKJmdhhWmywibGv+k91tF5Bz4ERK4m3r
+	K6yIou0DonGXFOJ8M7nhFYAsJK0m3gVXz//8LQ5mhavi+ibNwomm3UzL7/Si77alBewofrEN5t/BI
+	uNxjCCfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toE58-0000000DMEo-1AUw;
-	Sat, 01 Mar 2025 04:04:06 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1toEIR-0000000DNIL-0CYu;
+	Sat, 01 Mar 2025 04:17:51 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toE1l-0000000DLnZ-2msS
+	id 1toEGs-0000000DNBj-1EL8
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Mar 2025 04:00:38 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 5964F25C4F;
-	Sat,  1 Mar 2025 05:00:36 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id DaIIIFkxqZ9H; Sat,  1 Mar 2025 05:00:35 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1740801635; bh=gES+/B8lkFtwldnFslAofLXHw2x8wMNSxzDj7F9SjQk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=IS7EKFwFlT01d5ScSbPJO/i4rajHNOoV7v1YPUJTpbAAaSrfLJX1gpq4MtQw3AWEH
-	 HBUXSxVddzNjtS/NmlF5fwC56kwODlv5d0+iW/71vNU/UTZWJq1GTa8S0FcNN54mE8
-	 /Geb/Cg32yWfkeP2h1x7MQsdZJBD/0Aeiqd2nFUlyKSJPIoXWoa9wheIwOPTp1Er/g
-	 zWg5YeF4T+Qn6xB7bNUgoLzZYdwq1xjV1JPnPslh1CatoUvwpf+YBIDFHKIuRwb9Pl
-	 bwy1nGuWBXdFk1Zrbw5z71CMg72gf72GqRUp6FF6wyetl+E1i01ISg/Igcm/YZTUzp
-	 OoLIAyUyMKXRg==
+	Sat, 01 Mar 2025 04:16:15 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-54838cd334cso3150501e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Feb 2025 20:16:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1740802572; x=1741407372; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=nRJXVNbZUpNIBtt8TFs13UDH3fN+Tw1tbm1ZW4YHs/4=;
+        b=bGdsJQjVG6ArS3oB5Zp2/70lc6wDStxy2GFW4C7SogLV696hd9UwcV+k2nucrEAbe/
+         qcX68XbyXoabtWp7mKDefJSuJhMVx+rJGLunuo1zDDFNRo03x3lpr72TD4LPeADHqNnN
+         HA14B7QBZ04t4BBxJiXD9CtikvbgiqmqKh2Z0HSdCXLDhBVMY3fphnKIdgshAcWnVcB1
+         pObMe4ybSTaiKGr0Qjd98z6KyFKzpNbm3S85l0zAh2TUemlIw6mYevT1jy0mHDP18vfB
+         W/rH+56COSKwFh+uYxPOybE3SoSvd5TrBw5f/nkoli5fOmCNMePi2vS0LXirUgTWvEYD
+         uP6Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740802572; x=1741407372;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nRJXVNbZUpNIBtt8TFs13UDH3fN+Tw1tbm1ZW4YHs/4=;
+        b=vICAgkaDpbsjLd5jKGLZRY3svgFDNpxGWjGXvpiOipZhkCURg8NVgn2UOfYGb/1NXg
+         BFYkQzaAwfwm+7DtA1sBPCZuRXHXfwVCRBDnLBsVX93Qvx4IQqJHxmQG4/BJB6QFMTA4
+         kGVszHnPg6tPtqzSd6ydK/faxZPf7X8ARpnibehXSkA5sskujptXbBWtnsIwPQKbeq0J
+         Qc0Mv2l9767Nb3LheLEsfh1/wEufx5If4wNqax4k01L/aLHQ9QRRqFYGSULTGyCddFe4
+         nyFg72e5lyoaZs+By9izfVEmT7+/5+DpYqhTvFXROzDvqSnmUP5mKpiRiB5eGz9vUshu
+         CWww==
+X-Forwarded-Encrypted: i=1; AJvYcCW6TKYkTG02sg0KK0FhuMLjZeaVypUA7Mmc0s5VEvyQ8uwTJjIPc4Yt4baRXAO3bmOFEm38ft6hR541jYJ2NFFv@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHd4iKzgTkU4mYX6BCGuOhBbopuqf0k8AgB4aFZvpNTLJ/Z3gg
+	b3VyxdRqeuFi8KgnyZozwI6Zs3izuASEbxGp8ebUJAe4pPGWxUh+aD3+i6m/zg4Phsbex3+MKQT
+	isyClnsOvYXkiJkR33bxtG5PDnu0PcdeULm2vxQ==
+X-Gm-Gg: ASbGncvy4+e54q/L0QIvhJ1J4ERXtD9Mh3nEBlXzfZ0LXVtvYiWJfqOdUa1e/x7Vciy
+	oFzcxOz9wTfP0m5K2ULAUzCb6TGmdrJrXFwsO3mLV1hN6ZfcibTiVcf0UTGlb6WAkPcpK0MKk/H
+	ddTTJaiy0eSU1DpozzNsO3a5ViMI21OfE=
+X-Google-Smtp-Source: AGHT+IFP5aCHULz6zpIiPlJszPYhhIKQa4bjgAfv6H6nwuK5koq1iQ2nHbNDaxSV+n8l900FUXdJNFmIzAGeKlhCAx4=
+X-Received: by 2002:a05:6512:693:b0:545:b28:2fa9 with SMTP id
+ 2adb3069b0e04-5494c122af7mr2774025e87.16.1740802571668; Fri, 28 Feb 2025
+ 20:16:11 -0800 (PST)
 MIME-Version: 1.0
-Date: Sat, 01 Mar 2025 04:00:35 +0000
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, "Guilherme G.
- Piccoli" <gpiccoli@igalia.com>
-Cc: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, Krzysztof Kozlowski
- <krzk@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, Kaustabh
- Chakraborty <kauschluss@disroot.org>
-Subject: Re: [PATCH v4 0/7] Add support for the Exynos7870 SoC, along with
- three devices
-In-Reply-To: <20250301-exynos7870-v4-0-2925537f9b2a@disroot.org>
-References: <20250301-exynos7870-v4-0-2925537f9b2a@disroot.org>
-Message-ID: <f37fab8e85cf0c333dc9acc97c1733fd@disroot.org>
-X-Sender: kauschluss@disroot.org
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <cover.1740504232.git.nicolinc@nvidia.com>
+In-Reply-To: <cover.1740504232.git.nicolinc@nvidia.com>
+From: Zhangfei Gao <zhangfei.gao@linaro.org>
+Date: Sat, 1 Mar 2025 12:16:00 +0800
+X-Gm-Features: AQ5f1Jq1aPPNEUtuYw2bvAu1XDeZv-PKWUyrHeAmpxtPMb0nHo1DtYawDISk28E
+Message-ID: <CABQgh9FYqzoUxjR246QBPGW9jqngK1JpgfACvBTLTHq-mBBCJg@mail.gmail.com>
+Subject: Re: [PATCH v8 00/14] iommufd: Add vIOMMU infrastructure (Part-3: vEVENTQ)
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org, 
+	joro@8bytes.org, suravee.suthikulpanit@amd.com, robin.murphy@arm.com, 
+	dwmw2@infradead.org, baolu.lu@linux.intel.com, linux-kernel@vger.kernel.org, 
+	iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org, 
+	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org, 
+	mshavit@google.com, shameerali.kolothum.thodi@huawei.com, smostafa@google.com, 
+	ddutile@redhat.com, yi.l.liu@intel.com, praan@google.com, 
+	patches@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_200037_842240_3387FEF1 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20250228_201614_353374_067C0524 
+X-CRM114-Status: GOOD (  17.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,31 +99,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-02-28 19:46, Kaustabh Chakraborty wrote:
-> Samsung Exynos 7870 (codename: Joshua) is an ARM-v8 system-on-chip that was
-> announced in 2016. The chipset was found in several popular mid-range to
-> low-end Samsung phones, released within 2016 to 2019.
-> 
-> This patch series aims to add support for Exynos 7870, starting with the
-> most basic yet essential components such as CPU, GPU, clock controllers,
-> PMIC, pin controllers, etc.
-> 
-> Moreover, the series also adds support for three Exynos 7870 devices via
-> devicetree. The devices are:
->  * Samsung Galaxy J7 Prime	- released 2016, codename on7xelte
->  * Samsung Galaxy J6		- released 2018, codename j6lte
->  * Samsung Galaxy A2 Core	- released 2019, codename a2corelte
-> 
-> Additional features implemented in this series include:
->  * I2C	- touchscreen, IIO sensors, etc.
->  * UART	- bluetooth and serial debugging
->  * MMC	- eMMC, Wi-Fi SDIO, SDCard
->  * USB	- micro-USB 2.0 interface
-> 
-> Build dependencies are in these sub-series:
->  * bootmode	  	- https://lore.kernel.org/all/20250204-exynos7870-bootmode-v1-1-0f17b3033c2d@disroot.org/
->  * pmu-clocks		- https://lore.kernel.org/all/20250301-exynos7870-pmu-clocks-v4-0-0f3e73b10db7@disroot.org/
+On Wed, 26 Feb 2025 at 01:33, Nicolin Chen <nicolinc@nvidia.com> wrote:
+>
+> As the vIOMMU infrastructure series part-3, this introduces a new vEVENTQ
+> object. The existing FAULT object provides a nice notification pathway to
+> the user space with a queue already, so let vEVENTQ reuse that.
+>
+> Mimicing the HWPT structure, add a common EVENTQ structure to support its
+> derivatives: IOMMUFD_OBJ_FAULT (existing) and IOMMUFD_OBJ_VEVENTQ (new).
+>
+> An IOMMUFD_CMD_VEVENTQ_ALLOC is introduced to allocate vEVENTQ object for
+> vIOMMUs. One vIOMMU can have multiple vEVENTQs in different types but can
+> not support multiple vEVENTQs in the same type.
+>
+> The forwarding part is fairly simple but might need to replace a physical
+> device ID with a virtual device ID in a driver-level event data structure.
+> So, this also adds some helpers for drivers to use.
+>
+> As usual, this series comes with the selftest coverage for this new ioctl
+> and with a real world use case in the ARM SMMUv3 driver.
+>
+> This is on Github:
+> https://github.com/nicolinc/iommufd/commits/iommufd_veventq-v8
+> Paring QEMU branch for testing:
+> https://github.com/nicolinc/qemu/commits/wip/for_iommufd_veventq-v8
 
-Find v5 of exynos7870-pmu-clocks here:
-https://lore.kernel.org/all/20250301-exynos7870-pmu-clocks-v5-0-715b646d5206@disroot.org/
+Thanks Nico
+
+Tested-by: Zhangfei Gao <zhangfei.gao@linaro.org>
+
+After rebase on your branch
+https://github.com/Linaro/linux-kernel-warpdrive/tree/iommufd_veventq-v8
+https://github.com/Linaro/qemu/tree/for_iommufd_veventq-v8
+
+Tested with multi-device in guests, with io page faults happen.
+
+Thanks
 
