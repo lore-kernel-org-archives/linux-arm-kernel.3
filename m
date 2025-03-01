@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B836C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 13:30:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F61AC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 13:31:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fnQ88mf7J6ymYW2h23hpRVMhoGhjj1Y3YZ7TjoDWFEI=; b=XeQGyU4cDZ6fRvqT70TIPRnUVc
-	IPU/Z6IqG87yZvNgTeuV90KB5MR6zXsqK5WyR0WiOP1Gk8aQJGGHFWw7scMmyLnZNwVvc2bi3f1cn
-	5QgL5lkoD6l6P7TyapcJZHZMInh9c//L0AXjY5v527tRL0zT9KRrc40R2cU0llQnBGs11oQz+Tcvj
-	05ZwTLNZWMuwitYif4INuhbkYNFKPUqa1E3XTfyXfSF9RugBFFwi1JgTd+U8uk/Ao/bD+gSr630Jp
-	RMIC2PVK1P2oGuFtOW2upy0l0fbFa1IVJr4Qj2BCivNw9U81PemmuAS6s5muOsqIZNeIzOHH1xJk4
-	lKqc0iKw==;
+	bh=XMVPHldxpgWu/QQRKdF6zVReBNaj3PbOb31rJu1dgc4=; b=QhTfc5G3n8AAZ2r3pofdXRMmgb
+	ERXu1rzvYJSlNaFLU/pkXWp5Gz+KIi0bSyaiK16NIFSW9xZJ63bXxzE2yk6CmTH5fSA61kD0lInL1
+	p2lA44x7s0f6+MJiB3pAWHxrAF95hZBR4jfdw+tvjcqqzHW8u/6qjxuUg6AWOhktUmMm9FphUclG1
+	EL+Tn2qv0diUaMG5XEsgJ1Nri9hFpZlkcQYMyRkQPckg1TUWPZQaYOy7p515SN6Tj25+Imj4YQly2
+	KnxWu+/LjImeeYMqLanqnmtDCy9jv24GWEQcCdsUTX3tvm7KrSpl1q6XSoyUGDrxp9VVoRGZ947XM
+	8H6jCbug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toMva-0000000EL1t-0uJb;
-	Sat, 01 Mar 2025 13:30:50 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1toMvh-0000000EL7T-1osK;
+	Sat, 01 Mar 2025 13:30:57 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toMjw-0000000EBhn-2BRC;
-	Sat, 01 Mar 2025 13:18:49 +0000
+	id 1toMkt-0000000ECNT-18F9;
+	Sat, 01 Mar 2025 13:19:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9AE3B5C0A23;
-	Sat,  1 Mar 2025 13:16:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7385C4CEDD;
-	Sat,  1 Mar 2025 13:18:40 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9533A5C0600;
+	Sat,  1 Mar 2025 13:17:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A3D9C4CEDD;
+	Sat,  1 Mar 2025 13:19:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740835127;
-	bh=lyJ2V25Qg+A5GIPSVs2EsZT71onWrcPKfIl7hdeTGQo=;
+	s=k20201202; t=1740835186;
+	bh=q3Pps1JqWekoYzJLc3BnskzmORQHX3a6nTesaP3DU9U=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Fkgx4kJWGmo4PgVzF6bPTiyzw0rLC3l0oDCJZ9UxXQn5JWUDuSeMxWLiaeBJii/EN
-	 moj82CzBXQPAC9rmdupdwDyviVo7qP0ZuR/GKqaWp/5xNdYrhoGx4+2dNNas3nEqLG
-	 hA5Y1AJuoi3DCOphDpKA7lh6BT/pLQis1mpOdIiyfQGhdKvhW240imTuw59feUUu3y
-	 dw7XX0BYEHCxcbsVWruk81eQUk6bDzvbCouO3aXIMEuXpUZX8zy4FOtsHyvcRtjzOg
-	 xo1qxrJNIImqxnDUuw/Fq3+XBNJWMQDX4kuCTVY3pDgW7LGiGdGsDv1q+CdAuVz9Wl
-	 5HI8J348J21cg==
-Message-ID: <87877293-a6e2-4c36-8932-9e6357a0385b@kernel.org>
-Date: Sat, 1 Mar 2025 14:18:37 +0100
+	b=qMHrvaEOxGfim3FVWrzhplnji6ptU9tvEyKdSc0GHzniu3W7HjJPCCuMOw9GJZcJm
+	 krf4bpsCsmkPoEmYgaQwfBnVjrejc1/ANuppIjItG/cUVErfLHhRYtsu6PPv2hIxnP
+	 lmk7bcI57rCeOs59JSNIZkksLBFOl8upjm3A54ZV8lx+bhGJcLLDjkHHWUcLKL9YqF
+	 CUutk8/UwCB0DsiPU6uDlC/aD9mijEbjlUW6cJ7yaxToXuN20rgDeRntguClGVPXPG
+	 dkaCdwX79bp6f4xZAsUQjXjM1wVk/g2Sw7XQSK0vnJk4SKixKXjXTGj4KWDy4T3lje
+	 ZWTgLV+4zt30w==
+Message-ID: <d11ddca7-2569-431e-b34c-74739832f7f4@kernel.org>
+Date: Sat, 1 Mar 2025 14:19:37 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 17/18] rtc: max77686: use dev_err_probe() where
+Subject: Re: [PATCH 18/18] rtc: s5m: convert to dev_err_probe() where
  appropriate
 To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
  Chanwoo Choi <cw00.choi@samsung.com>,
@@ -62,7 +62,7 @@ Cc: linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
  linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-aspeed@lists.ozlabs.org, linux-amlogic@lists.infradead.org
 References: <20250228-rtc-cleanups-v1-0-b44cec078481@linaro.org>
- <20250228-rtc-cleanups-v1-17-b44cec078481@linaro.org>
+ <20250228-rtc-cleanups-v1-18-b44cec078481@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,12 +108,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250228-rtc-cleanups-v1-17-b44cec078481@linaro.org>
+In-Reply-To: <20250228-rtc-cleanups-v1-18-b44cec078481@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250301_051848_647386_C313D0E9 
-X-CRM114-Status: UNSURE (   7.72  )
+X-CRM114-CacheID: sfid-20250301_051947_425954_C7E0A10D 
+X-CRM114-Status: UNSURE (   6.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -135,8 +135,8 @@ On 28/02/2025 15:07, André Draszik wrote:
 > 
 > Signed-off-by: André Draszik <andre.draszik@linaro.org>
 > ---
->  drivers/rtc/rtc-max77686.c | 29 ++++++++++++-----------------
->  1 file changed, 12 insertions(+), 17 deletions(-)
+>  drivers/rtc/rtc-s5m.c | 50 +++++++++++++++++++++------------------------
+
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
