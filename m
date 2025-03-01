@@ -4,87 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0FAAC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 12:04:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6517C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 12:14:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qxo3RS03jl03BxZp9wETPlvkrS4QPCWdlTHGiNTh9z0=; b=EpY+Z3s6VXPpycsbj9MOhCvy/X
-	TrpIO9BSk+Qe/sG3HdBJYXaYo7kT+BcNSGteJvYUHIowXUDMfU8s0BsBn+6kxlGq4telEh25eh622
-	DvbGIEzb45tkhAetKdmaouO+7Vi6LFOtSItFSxeCkvy7M7IXBa1dchqg7yrqMYjphd8AjlFh5Ui/6
-	tCZiydyzHApzrvS29h1xM5j2oTrEcFVZOxNc60X1HjlkMMif5GvCeUpwt80PLUVaebK4CIkngO1z5
-	yNwmYf0eI8zZhzHkmTbbVHnuKsC9kyzCtYh1q+43C3yjFIPSBBdLv9hwPsao0VjeBPyYb7ROPDTPY
-	fTmdZB8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BNZ1YBaUMBb8ZSzzu6ys9OMPxBzemmGAIWT0I+7EqG0=; b=TxJh3aYv2aGQd8JDxVpjYh0g/C
+	hSCVXH3wtSmLiKjgy5k+f6xyK22la9R0rf/xChK6wNWzh99qEucS7Ck3YnBbuNciYYYfb0JmJXDC5
+	b8W2JRlpDQim4b9HLeDqerb3FmCrwN1tNmjTQUZQmqUPFHI3LaUxmysnPyF8po2BkjSuPyAJUK26/
+	D6VTj8JIeADJ/CTk361BO5nJEHqSaxXdrm3vU0odwqonTsIiscv5fPV5oGA3lczUa/pvsV0v7UDVO
+	W2FGkOwxRUo0tzH44Or134ygJ1Rz2dWXX+VXMWWw/j2i9JwrGLShfuiR5ypzciEiN9tjg/2PYqXOM
+	iti16XzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toLZP-0000000DsnE-2by7;
-	Sat, 01 Mar 2025 12:03:51 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1toLj4-0000000Dtt4-3ff1;
+	Sat, 01 Mar 2025 12:13:50 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toLXq-0000000DshB-3NDw
+	id 1toLhU-0000000DtYO-2NgH
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Mar 2025 12:02:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2478A5C1111;
-	Sat,  1 Mar 2025 11:59:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 998A0C4CEDD;
-	Sat,  1 Mar 2025 12:02:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740830533;
-	bh=+AAMJB/7hTU30KZCU4oBLcGkEpeVOQ4Sdqlumm+i4rs=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=mpMHOMcTcDaKO8h/RY95ri0hmyp0V2BRYqCtoAoZhlW308RiMhWVVrWPqvb2zxTY2
-	 NkRJUqvIAazSb/Wad3cMHGvQ/z6YBnZ9ruhVp2GLiaKLa5Gu/8sUz+cft6Tg13pNs4
-	 50dWvVx31LiV3qaxNDKXDEjX+nETxREDjJJ6QZzVcMeqTn1DzDLI07fcwABz+MSoLM
-	 vH1DaL5LsobXo1P+EEs9TymdimdYFFIs0ZMv8Om58JpIQnW5+cC9L9kA7TQw1+fHwG
-	 buxM27vmpfCwvGxjeLUyHQcvyo8H+YiOQpv6UzBPANnkYfD7yRs6+eUwIrJLOirD4b
-	 aEdabd4Sen7hQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1toLXn-009LnL-Bp;
-	Sat, 01 Mar 2025 12:02:11 +0000
-Date: Sat, 01 Mar 2025 12:02:09 +0000
-Message-ID: <86ldtpot6m.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Kishon Vijay Abraham I <kishon@kernel.org>,	"Rafael J. Wysocki"
- <rafael@kernel.org>,	Thomas Gleixner <tglx@linutronix.de>,	Anup Patel
- <apatel@ventanamicro.com>,	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>,	Manivannan Sadhasivam
- <manivannan.sadhasivam@linaro.org>,	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?=
- <kw@linux.com>,	Bjorn Helgaas <bhelgaas@google.com>,	Arnd Bergmann
- <arnd@arndb.de>,	Shuah Khan <shuah@kernel.org>,	Richard Zhu
- <hongxing.zhu@nxp.com>,	Lucas Stach <l.stach@pengutronix.de>,	Lorenzo
- Pieralisi <lpieralisi@kernel.org>,	Rob Herring <robh@kernel.org>,	Shawn Guo
- <shawnguo@kernel.org>,	Sascha Hauer <s.hauer@pengutronix.de>,	Pengutronix
- Kernel Team <kernel@pengutronix.de>,	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,	Conor Dooley
- <conor+dt@kernel.org>,	Niklas Cassel <cassel@kernel.org>,
-	dlemoal@kernel.org,	jdmason@kudzu.us,	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,	linux-pci@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,	imx@lists.linux.dev,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v15 00/15] PCI: EP: Add RC-to-EP doorbell with platform MSI controller
-In-Reply-To: <Z7eKBsxrmthtElpz@lizhi-Precision-Tower-5810>
-References: <20250211-ep-msi-v15-0-bcacc1f2b1a9@nxp.com>
-	<Z7eKBsxrmthtElpz@lizhi-Precision-Tower-5810>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Frank.li@nxp.com, kishon@kernel.org, rafael@kernel.org, tglx@linutronix.de, apatel@ventanamicro.com, gregkh@linuxfoundation.org, dakr@kernel.org, manivannan.sadhasivam@linaro.org, kw@linux.com, bhelgaas@google.com, arnd@arndb.de, shuah@kernel.org, hongxing.zhu@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, robh@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, krzk+dt@kernel.org, conor+dt@kernel.org, cassel@kernel.org, dlemoal@kernel.org, jdmason@kudzu.us, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, linux-kselftest@vger.kernel.org, imx@lists.linux.dev, devicetree@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Sat, 01 Mar 2025 12:12:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1740831129;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=BNZ1YBaUMBb8ZSzzu6ys9OMPxBzemmGAIWT0I+7EqG0=;
+	b=hT83rDAAyYkPzBrzb63t2ybcO0Fmgo1UZtdiStq9cSSnoxneqz9rXaM9+QOc3YVDYRIeIH
+	8xLx4D80Gln1FzbVlO70EqQGbv4UnIt6PmzusLJ96tPxQ8pClL6+6U1LbyV1jHMpZsURVv
+	YENKZ9ge0bbV8LmdRIy95CUA/3SFWzM=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-223-OL9WXh28NoC4CWurtXuz8g-1; Sat,
+ 01 Mar 2025 07:12:07 -0500
+X-MC-Unique: OL9WXh28NoC4CWurtXuz8g-1
+X-Mimecast-MFC-AGG-ID: OL9WXh28NoC4CWurtXuz8g_1740831126
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2B34719560BC;
+	Sat,  1 Mar 2025 12:12:06 +0000 (UTC)
+Received: from [172.64.10.27] (unknown [10.30.34.106])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 4C92E180035F;
+	Sat,  1 Mar 2025 12:12:05 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.14.0-rc4,
+ upstream-arm-next, e056da87)
+Date: Sat, 01 Mar 2025 12:12:05 -0000
+To: will@kernel.org, linux-arm-kernel@lists.infradead.org,
+ catalin.marinas@arm.com
+MIME-Version: 1.0
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+Message-Id: <45245.125030107120700279@us-mta-223.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 5orEe5qExx7IUX00FWhZpw5kOw0NiWK3GFkk97xOhX8_1740831126
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250301_040214_954708_F34DD166 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20250301_041212_679438_A4915A0B 
+X-CRM114-Status: UNSURE (   6.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,32 +84,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 20 Feb 2025 20:01:10 +0000,
-Frank Li <Frank.li@nxp.com> wrote:
-> 
-> On Tue, Feb 11, 2025 at 02:21:53PM -0500, Frank Li wrote:
-> 
-> Thomas Gleixner and Marc Zyngier:
-> 
-> 	Do you have any comments about irq/msi part?
+Hi, we tested your kernel and here are the results:
 
-It certainly looks better and less invasive than the previous
-incarnations. Things to fix:
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
 
-- Documentation: the msi-map property usage is undefined outside of a
-  PCIe RC, and the way you describe its use is so vague I read
-  anything in it. Please update
-  Documentation/devicetree/bindings/pci/pci-msi.txt to reflect the new
-  use case.
+Tested-by: CKI Project <cki-project@redhat.com>
 
-- This IMMUTABLE thing serves no purpose, because you don't randomly
-  plug this end-point block on any MSI controller. They come as part
-  of an SoC.
+Kernel information:
+    Commit message: Merge remote-tracking branch 'will/for-next/perf' into =
+for-kernelci
 
-Thanks,
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1694600197
 
-	M.
+One or more kernel builds failed:
+    We also see the following known issues which are not related to your ch=
+anges:
+         aarch64 - https://datawarehouse.cki-project.org/kcidb/builds/redha=
+t:1694600197-aarch64-kernel
+                   Issue: [upstream] error: initializer-string for array of=
+ 'char' is too long [-Werror=3Dunterminated-string-initialization]
+                          https://gitlab.com/cki-project/infrastructure/-/i=
+ssues/473
 
--- 
-Without deviation from the norm, progress is not possible.
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
