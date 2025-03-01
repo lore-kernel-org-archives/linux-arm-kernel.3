@@ -4,96 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C41C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 14:21:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9407BC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 14:23:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JF2SZUIZ+BCUsqS+/yls5B4+IVbjBfE9IjNCznqvy2o=; b=PKpoJ/VbnE3urpWuMflfZQJiOk
-	eyFx/1ZDxt0G6w2vGu0ZaPD/TfAjUHFtdf3WuL/EuoW1veN9Z09jmUAfe06IVuT6vzou80ORZxdYC
-	D6BwADd9/5qnUkLMLzySruJUh/480LfspXE8D5lzZpjbWS5CqgJXSgMgicdSVaVPixuMeFXle9+pF
-	XYnADJnpggaWm6aEE4jrVjaKej3xHbswUVM69VIOyhDIlbcxz+ry8VmscLWE5tEi9DPPDqIzaogR+
-	YRXij4h5qtoteXGU5beqVKMDqCsYyfjc2ZjJpE+v6TlSJpGfAjbP/QRprzYKZ/uc0I9EpdhdzFcMy
-	at/xvLdA==;
+	bh=ORIznANDdFUcJ5XrtVLvwudtPX3Md0Kyae8OOhvG3h8=; b=ZuFsc51yiApOzFRa8FUkzyjYg9
+	1nkBDNY+8VoWUYmFN2nDqx3YrO25xF7hFg911zTC8csADzuZQEhWLXnudWcIxCt9sOYmHgH8AHkm8
+	4KFTS4Pj5NeffA8H+LLcu2lIOkzt7FhRsqd2WEai+3O5UchLyCghUpw5AKz1M6dhXC+8eKoojHqr1
+	olEaCMD4EPirWgUoZDW8rVnTTPdxnx7wDtMULaiVx2kaqMB015WgIfv8SHF7ld9nNtKrZvNZxnK90
+	9JWcG/Yx69LCptatps+qeuoqCrSDjEGGsDo1mI9rCXnQ29xE+vSJfiJ54rKsy9Az5/hdlcAfHH0VG
+	qoogxHpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toNiW-0000000ERL9-1PXU;
-	Sat, 01 Mar 2025 14:21:24 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1toNk2-0000000ERTu-4C2f;
+	Sat, 01 Mar 2025 14:22:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toNay-0000000EQLo-0OoJ
+	id 1toNc6-0000000EQb3-16o3
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Mar 2025 14:13:37 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-abf4145368dso15479666b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Mar 2025 06:13:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740838415; x=1741443215; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JF2SZUIZ+BCUsqS+/yls5B4+IVbjBfE9IjNCznqvy2o=;
-        b=OfUBWo8KDEMVYVCYSq8BZPrL18g43QPKSmZQ2Vv130rJB9nPb0xnjdQTVvteH4cWyq
-         Muli+basKWcLkXkKtgOYAhBTzYdbZ6wR+kTXLl/I2UA96nFdzQlX7kezak+bwPfp0l+F
-         Qxf1Xgu9f2jXjfiGsotneN+n8ad2WAbfSChhLUjwkSUq0XbO6hlZc5iDeFTdRG7F+MaW
-         CPVuNpHfgdM60hdAJzfOYrHIgbYSOHzLqQ2ENbUdWezLfTlcu4K5mRbAWjH70rCZJ1Kv
-         2GE3Q2fZFmpxatlMt5bdB5Q5aCtDBSZM3ERYJfM3IwrT/acSf2iiMn1z1311d8j5Ywln
-         OTpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740838415; x=1741443215;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=JF2SZUIZ+BCUsqS+/yls5B4+IVbjBfE9IjNCznqvy2o=;
-        b=chYteV0AWACNoUFj2KgQgfE6n9vnMAqseN5I0RlUnAe9eshok3FbdxuiKY4cBnzY9l
-         qY22ovHgNYzGviENEoPduemXrWVGpAJfEsEPwOsGSL6+yCX9M9g6NMyAW82A3BHj3FSA
-         g7rQaYewHOKiM34bmGzGfMN9IYGBWQwlvn0fCVm+hDIDq08O57eVH+fJMjpv/2rdrlrU
-         XaD6CE3HD6XN0wNjQtkDXf5t28nbc21RcEcnFXW2xSn9m1O1j69b1cLTaKXYbHqvlCHr
-         dF30psDqbKZHN6BzToLVqe8/xNVrekZrBtWikZdT5wbdvlEqE267Pvitw1Jdl9tvLuVk
-         Wv2g==
-X-Forwarded-Encrypted: i=1; AJvYcCXgwD6y/nff9kWE4PKjJ4Lad+ewtZE4VM5PpJzHbxsDfnppljJOEHI5qFkWF91iDtyClXd4cKbWeSsaz9A7mk8v@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5754FE3oH7CTEB2gTPmBb9ZhCzs5M5xQWelN4LjwsqKRR5MR2
-	4N8nn+254O5kca+drLs/ciy5XBKHTPfOTCVzc+mzp4XMjMR3RsD9dSxsiWfTKcY=
-X-Gm-Gg: ASbGncs8WO0cTzMh20q8Ym800aLCZtCN+jaPF5pAgT3FU7rpiRTmiDXqGVszH6xjKbt
-	3+WNvq9tVdo5sjSLihAFnh1j+bqQ1CQgmmQawGjQvMSJ/JRtEZRyRqahxjnKfqAyfMWBfdW/Fsu
-	IJHUhLNqLfHtM+Mo4me8HtDa/REVUGzO95cK4xz94SlEXMdfkGghfhMAiDazuLndq3FIdFjwyUT
-	6KiAQH4miAN7GDfv9UenfUgOMRsYfg9udNwf8WMRsq2yWWQ2beRggC4cjPvi4PnZQ9T/kuKhcOr
-	2lxRS+z6K04o9r+GQRcfOXNpKVnrsaA87lrgokvA0ZB7KDOv/ECxT+zno/ky
-X-Google-Smtp-Source: AGHT+IEXjfOAsbzmDdwBeUYHq/6or4MctOJ1aDy3KgGo+cF5AzBxwpd05SEBfk2hys/UsQO5ckCxQw==
-X-Received: by 2002:a17:907:3f2a:b0:ab6:b8e0:4f25 with SMTP id a640c23a62f3a-abf25fbaf6fmr324049266b.4.1740838414804;
-        Sat, 01 Mar 2025 06:13:34 -0800 (PST)
-Received: from [127.0.1.1] ([178.197.206.225])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abf0c0b9cbfsm485532366b.14.2025.03.01.06.13.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 01 Mar 2025 06:13:34 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Kaustabh Chakraborty <kauschluss@disroot.org>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20250301-exynos7870-pmu-clocks-v5-2-715b646d5206@disroot.org>
-References: <20250301-exynos7870-pmu-clocks-v5-0-715b646d5206@disroot.org>
- <20250301-exynos7870-pmu-clocks-v5-2-715b646d5206@disroot.org>
-Subject: Re: (subset) [PATCH v5 2/2] clk: samsung: add initial exynos7870
- clock driver
-Message-Id: <174083841272.17657.12697906967603393824.b4-ty@linaro.org>
-Date: Sat, 01 Mar 2025 15:13:32 +0100
+	Sat, 01 Mar 2025 14:14:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5DCAE61177;
+	Sat,  1 Mar 2025 14:14:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B5B5C4CEDD;
+	Sat,  1 Mar 2025 14:14:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740838485;
+	bh=o0368wJb5Y92GremWcVyjHvnwdJ4nqQBlZdIgYR3XZQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=SIi8tZ91g090u2vtqcyg5d/KxEAATuo4P7tc7Mbxqnpi8nIdDpdzPknpj/tShE4U+
+	 g9V3ncjo4td5v+laIoGybGshgvaCvPGTlsHArBg/76lflLMaXK+gqevH4UZDpKMxQK
+	 CUdYxCDaDjmteOYCF9XR1/qlVdjCsM/1d+rL8ARA/vY7dZfYl8vzQ7OvctZ7bS/p4K
+	 Q2ZSvpJDkgy9kNnCcTXegmFThyPwxFeoBFQ54T2dZqyG8h7LK68WV/qUpZgasvmPuI
+	 AWvDkg2egYFvAFtGdQCJyhgas7g0Sd/r6avMq850vrKPRoTMA/SH2ryFPnhrIV0TRf
+	 sN64QIgJTYuww==
+Message-ID: <c5cef589-8091-41ce-94e7-82b56ba4143f@kernel.org>
+Date: Sat, 1 Mar 2025 15:14:37 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] clk: samsung: update PLL locktime for PLL142XX
+ used on FSD platform
+To: Varada Pavani <v.pavani@samsung.com>, aswani.reddy@samsung.com,
+ pankaj.dubey@samsung.com, s.nawrocki@samsung.com, cw00.choi@samsung.com,
+ alim.akhtar@samsung.com, mturquette@baylibre.com, sboyd@kernel.org,
+ linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: gost.dev@samsung.com, stable@vger.kernel.org
+References: <20250225131918.50925-1-v.pavani@samsung.com>
+ <CGME20250225132507epcas5p455347acbd580b26ee807e467d3a6a05e@epcas5p4.samsung.com>
+ <20250225131918.50925-3-v.pavani@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250225131918.50925-3-v.pavani@samsung.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250301_061336_143734_E49CCC2A 
-X-CRM114-Status: UNSURE (   8.98  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,22 +119,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Sat, 01 Mar 2025 09:27:13 +0530, Kaustabh Chakraborty wrote:
-> This is a basic implementation of the clock driver required by
-> Samsung's Exynos7870 SoC. It implements CMU_MIF, CMU_DISPAUD, CMU_FSYS,
-> CMU_G3D, CMU_ISP, CMU_MFCMSCL, and CMU_PERI. all other CMUs depend on
-> CMU_MIF.
+On 25/02/2025 14:19, Varada Pavani wrote:
+> Currently PLL142XX locktime is 270. As per spec, it should be 150. Hence
+> update PLL142XX controller locktime to 150.
 > 
+> Cc: stable@vger.kernel.org
+
+Fixes commit?
+
+> Signed-off-by: Varada Pavani <v.pavani@samsung.com>
+> ---
+>  drivers/clk/samsung/clk-pll.c | 7 ++++++-
+>  1 file changed, 6 insertions(+), 1 deletion(-)
 > 
+> diff --git a/drivers/clk/samsung/clk-pll.c b/drivers/clk/samsung/clk-pll.c
+> index 2e94bba6c396..023a25af73c4 100644
+> --- a/drivers/clk/samsung/clk-pll.c
+> +++ b/drivers/clk/samsung/clk-pll.c
+> @@ -206,6 +206,7 @@ static const struct clk_ops samsung_pll3000_clk_ops = {
+>   */
+>  /* Maximum lock time can be 270 * PDIV cycles */
+>  #define PLL35XX_LOCK_FACTOR	(270)
+> +#define PLL142XX_LOCK_FACTOR	(150)
+>  
+>  #define PLL35XX_MDIV_MASK       (0x3FF)
+>  #define PLL35XX_PDIV_MASK       (0x3F)
+> @@ -272,7 +273,11 @@ static int samsung_pll35xx_set_rate(struct clk_hw *hw, unsigned long drate,
+>  	}
+>  
+>  	/* Set PLL lock time. */
+> -	writel_relaxed(rate->pdiv * PLL35XX_LOCK_FACTOR,
+> +	if (pll->type == pll_142xx)
+> +		writel_relaxed(rate->pdiv * PLL142XX_LOCK_FACTOR,
+> +			pll->lock_reg);
+> +	else
+> +		writel_relaxed(rate->pdiv * PLL35XX_LOCK_FACTOR,
+>  			pll->lock_reg);
+>  
+>  	/* Change PLL PMS values */
 
-Applied, thanks!
-
-[2/2] clk: samsung: add initial exynos7870 clock driver
-      https://git.kernel.org/krzk/linux/c/4149066a5e958963f7123be51d3a65d336045c21
 
 Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
+Krzysztof
 
