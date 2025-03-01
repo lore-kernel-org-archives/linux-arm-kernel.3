@@ -4,72 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6517C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 12:14:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15853C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 12:19:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BNZ1YBaUMBb8ZSzzu6ys9OMPxBzemmGAIWT0I+7EqG0=; b=TxJh3aYv2aGQd8JDxVpjYh0g/C
-	hSCVXH3wtSmLiKjgy5k+f6xyK22la9R0rf/xChK6wNWzh99qEucS7Ck3YnBbuNciYYYfb0JmJXDC5
-	b8W2JRlpDQim4b9HLeDqerb3FmCrwN1tNmjTQUZQmqUPFHI3LaUxmysnPyF8po2BkjSuPyAJUK26/
-	D6VTj8JIeADJ/CTk361BO5nJEHqSaxXdrm3vU0odwqonTsIiscv5fPV5oGA3lczUa/pvsV0v7UDVO
-	W2FGkOwxRUo0tzH44Or134ygJ1Rz2dWXX+VXMWWw/j2i9JwrGLShfuiR5ypzciEiN9tjg/2PYqXOM
-	iti16XzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0GR5xCMp1dYppmKer4FyU9W5VDeR263wQ+Fyh/GcmfY=; b=xAV5S7+TYE723Jw7Y5ELUlJwv7
+	1pLbXi1twzMN8cCWehYqHzHDnJt+kmW48xJy53cHEdYpHjK4Fe2RsAKZuRfNKSytPdseW9bOr5ne9
+	PxgnnawSg/NQawc4xfDQYlnlMiMPh/q0eMewqAIjyN9mNnoFepTBgXCt5QRsWkQMp5Bs7bZatOlXC
+	luf/7dtCE4Aa2FyW0+QtiGr74s98G6Meax3Mrywbl3Bjvbi20+5R+sunBcr+e3ePFds+RfMJ1+ekD
+	HOIg0C+9ldECY3P1t1L71imOacpnyWhhcQeJiL5db0V7XOmYJELtUJczqWffCA3gfddnyTUnii1jz
+	SKwXbmaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toLj4-0000000Dtt4-3ff1;
-	Sat, 01 Mar 2025 12:13:50 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1toLoW-0000000DudG-0OYj;
+	Sat, 01 Mar 2025 12:19:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toLhU-0000000DtYO-2NgH
+	id 1toLmy-0000000DuSb-1zMs
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Mar 2025 12:12:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1740831129;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=BNZ1YBaUMBb8ZSzzu6ys9OMPxBzemmGAIWT0I+7EqG0=;
-	b=hT83rDAAyYkPzBrzb63t2ybcO0Fmgo1UZtdiStq9cSSnoxneqz9rXaM9+QOc3YVDYRIeIH
-	8xLx4D80Gln1FzbVlO70EqQGbv4UnIt6PmzusLJ96tPxQ8pClL6+6U1LbyV1jHMpZsURVv
-	YENKZ9ge0bbV8LmdRIy95CUA/3SFWzM=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-223-OL9WXh28NoC4CWurtXuz8g-1; Sat,
- 01 Mar 2025 07:12:07 -0500
-X-MC-Unique: OL9WXh28NoC4CWurtXuz8g-1
-X-Mimecast-MFC-AGG-ID: OL9WXh28NoC4CWurtXuz8g_1740831126
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2B34719560BC;
-	Sat,  1 Mar 2025 12:12:06 +0000 (UTC)
-Received: from [172.64.10.27] (unknown [10.30.34.106])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 4C92E180035F;
-	Sat,  1 Mar 2025 12:12:05 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.14.0-rc4,
- upstream-arm-next, e056da87)
-Date: Sat, 01 Mar 2025 12:12:05 -0000
-To: will@kernel.org, linux-arm-kernel@lists.infradead.org,
- catalin.marinas@arm.com
-MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
-Message-Id: <45245.125030107120700279@us-mta-223.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 5orEe5qExx7IUX00FWhZpw5kOw0NiWK3GFkk97xOhX8_1740831126
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250301_041212_679438_A4915A0B 
-X-CRM114-Status: UNSURE (   6.41  )
-X-CRM114-Notice: Please train this message.
+	Sat, 01 Mar 2025 12:17:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A857C61170;
+	Sat,  1 Mar 2025 12:17:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38D36C4CEDD;
+	Sat,  1 Mar 2025 12:17:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740831471;
+	bh=A8PdxtCizk6PgunyHAGQsWVRlwM9EY3+12Tc6z3znSM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=nhPy5+fOugQVe9poY7fQwjki9+P9S5nAFF7/0COxLPJun7AgwHNF1TsOHcKCUswYj
+	 UKVBh311X/Qk27ZtNHK3Tehk193k3QgTaCn5jQ3M2X6JXObmTolINnm2sYP/28HImG
+	 +oX+sz5e+NfyVqK0jK8c2+4f5uPYOx9Hxn6uVdx7NyV2eSQirUq8oOgrPLE8rL/vwS
+	 /O+CaBOIXSBZA05VOfTXyj9iNLyad0/43WHOcEBCWq4PGn/nCLeYnV7yoAz54teeWE
+	 /RUxG/sphEsuVn3x0lOlKMXtIZVJ0h3FR1Un1qjr0MrofAosyShEgeeQVTRkFG0SGi
+	 VphvI9rWcvJbw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1toLmu-009Ltj-1q;
+	Sat, 01 Mar 2025 12:17:48 +0000
+Date: Sat, 01 Mar 2025 12:17:47 +0000
+Message-ID: <86jz99osgk.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Kishon Vijay Abraham I <kishon@kernel.org>,	"Rafael J. Wysocki"
+ <rafael@kernel.org>,	Thomas Gleixner <tglx@linutronix.de>,	Anup Patel
+ <apatel@ventanamicro.com>,	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,	Manivannan Sadhasivam
+ <manivannan.sadhasivam@linaro.org>,	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?=
+ <kw@linux.com>,	Bjorn Helgaas <bhelgaas@google.com>,	Arnd Bergmann
+ <arnd@arndb.de>,	Shuah Khan <shuah@kernel.org>,	Richard Zhu
+ <hongxing.zhu@nxp.com>,	Lucas Stach <l.stach@pengutronix.de>,	Lorenzo
+ Pieralisi <lpieralisi@kernel.org>,	Rob Herring <robh@kernel.org>,	Shawn Guo
+ <shawnguo@kernel.org>,	Sascha Hauer <s.hauer@pengutronix.de>,	Pengutronix
+ Kernel Team <kernel@pengutronix.de>,	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,	Conor Dooley
+ <conor+dt@kernel.org>,	Niklas Cassel <cassel@kernel.org>,
+	dlemoal@kernel.org,	jdmason@kudzu.us,	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,	linux-pci@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,	imx@lists.linux.dev,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v15 01/15] platform-msi: Add msi_remove_device_irq_domain() in platform_device_msi_free_irqs_all()
+In-Reply-To: <20250211-ep-msi-v15-1-bcacc1f2b1a9@nxp.com>
+References: <20250211-ep-msi-v15-0-bcacc1f2b1a9@nxp.com>
+	<20250211-ep-msi-v15-1-bcacc1f2b1a9@nxp.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Frank.Li@nxp.com, kishon@kernel.org, rafael@kernel.org, tglx@linutronix.de, apatel@ventanamicro.com, gregkh@linuxfoundation.org, dakr@kernel.org, manivannan.sadhasivam@linaro.org, kw@linux.com, bhelgaas@google.com, arnd@arndb.de, shuah@kernel.org, hongxing.zhu@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, robh@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, krzk+dt@kernel.org, conor+dt@kernel.org, cassel@kernel.org, dlemoal@kernel.org, jdmason@kudzu.us, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, linux-kselftest@vger.kernel.org, imx@lists.linux.dev, devicetree@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,48 +96,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Tue, 11 Feb 2025 19:21:54 +0000,
+Frank Li <Frank.Li@nxp.com> wrote:
+> 
+> The follow steps trigger kernel dump warning and
+> platform_device_msi_init_and_alloc_irqs() return false.
+> 
+> 1: platform_device_msi_init_and_alloc_irqs();
+> 2: platform_device_msi_free_irqs_all();
+> 3: platform_device_msi_init_and_alloc_irqs();
+> 
+> [   76.713677] WARNING: CPU: 3 PID: 134 at kernel/irq/msi.c:1028 msi_create_device_irq_domain+0x1bc/0x22c
+> [   76.723010] Modules linked in:
+> [   76.726082] CPU: 3 UID: 0 PID: 134 Comm: kworker/3:1H Not tainted 6.13.0-rc1-00015-gd60b98003b43-dirty #57
+> [   76.735741] Hardware name: NXP i.MX95 19X19 board (DT)
+> [   76.740883] Workqueue: kpcitest pci_epf_test_cmd_handler
+> [   76.746212] pstate: a0400009 (NzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> [   76.753172] pc : msi_create_device_irq_domain+0x1bc/0x22c
+> [   76.758586] lr : msi_create_device_irq_domain+0x104/0x22c
+> [   76.763988] sp : ffff800083f43be0
+> [   76.767313] x29: ffff800083f43be0 x28: 0000000000000000 x27: ffff8000827a7000
+> [   76.774466] x26: ffff00008085f400 x25: ffff00008000b180 x24: ffff000080fc6410
+> [   76.781624] x23: ffff000085704cc0 x22: ffff8000811c8828 x21: ffff000085704cc0
+> [   76.788774] x20: ffff000082814000 x19: 0000000000000000 x18: ffffffffffffffff
+> [   76.795933] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+> [   76.803083] x14: 0000000000000000 x13: 0000000f00000000 x12: 0000000000000000
+> [   76.810233] x11: 0000000000000000 x10: 000000000000002d x9 : ffff800083f43ba0
+> [   76.817383] x8 : 00000000ffffffff x7 : 0000000000000019 x6 : ffff0000857e443a
+> [   76.824533] x5 : 0000000000000000 x4 : ffffffffffffffff x3 : ffff000085704ce8
+> [   76.831683] x2 : ffff000080835640 x1 : 0000000000000213 x0 : ffff0000877189c0
+> [   76.838840] Call trace:
+> [   76.841287]  msi_create_device_irq_domain+0x1bc/0x22c (P)
+> [   76.846701]  msi_create_device_irq_domain+0x104/0x22c (L)
+> [   76.852118]  platform_device_msi_init_and_alloc_irqs+0x6c/0xb8
+> 
+> Do below two things in platform_device_msi_init_and_alloc_irqs().
+> - msi_create_device_irq_domain()
+> - msi_domain_alloc_irqs_range()
+> 
+> But only call msi_domain_free_irqs_all() in
+> platform_device_msi_free_irqs_all(), which missed call
+> msi_remove_device_irq_domain(). This cause above kernel dump when call
+> platform_device_msi_init_and_alloc_irqs() again.
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
+I don't think this commit message makes much sense, and doesn't
+explain the essential problem, which is the lack of symmetry. I'd
+suggest something like:
 
-Tested-by: CKI Project <cki-project@redhat.com>
+"platform_device_msi_init_and_alloc_irqs() performs two tasks:
+allocating the MSI domain for a platform device, and allocate a number
+of MSIs in that domain.
 
-Kernel information:
-    Commit message: Merge remote-tracking branch 'will/for-next/perf' into =
-for-kernelci
+platform_device_msi_free_irqs_all() only frees the MSIs, and leaves
+the MSI domain alive.
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1694600197
+Given that platform_device_msi_init_and_alloc_irqs() is the sole tool
+a platform device has to allocate platform MSIs, it would make sense
+for platform_device_msi_free_irqs_all() to teardown the MSI domain at
+the same time as the MSIs.
 
-One or more kernel builds failed:
-    We also see the following known issues which are not related to your ch=
-anges:
-         aarch64 - https://datawarehouse.cki-project.org/kcidb/builds/redha=
-t:1694600197-aarch64-kernel
-                   Issue: [upstream] error: initializer-string for array of=
- 'char' is too long [-Werror=3Dunterminated-string-initialization]
-                          https://gitlab.com/cki-project/infrastructure/-/i=
-ssues/473
+This also avoids warnings and unexpected behaviours when a driver
+repeatedly allocates and frees MSIs."
 
+With that:
 
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
+Acked-by: Marc Zyngier <maz@kernel.org>
 
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
+	M.
 
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+-- 
+Without deviation from the norm, progress is not possible.
 
