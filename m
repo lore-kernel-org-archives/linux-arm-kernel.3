@@ -4,88 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E41C8C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 20:22:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9E0BC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 20:38:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LDeGD81LcvcGNEuhAUPD0VYikkC8nQkExLEUkP1mwEY=; b=WJYH196NQCn4+w4KDgIxjzP+BV
-	N5GnNJ7cPRYHWumkWVVkNfOX0u8idK4rpBaVqBHvBtcxeXMLKSCmVnQSFT+SfvhgZrQiH+ISe0rph
-	YB9gRfrej+jVuFoxoI0LgWPvHTKm04JwagcEBFQ0TeDZRwHjVw0zH2ZEf28piAXGOGXKLLR/fDsp0
-	UD70Nf3JiBESMsnDJboA4tzoDZ7WG3f3w3eOIAdQNv9GLs8mLxEB305R8oRNBLNNukn1GtvxivqQP
-	KhhGvnUBYTjyMs7JwzJu9ZYj8lWDsMukfyo2i6jivzp3vIEwfKL7knIQixf/SWoJwfOt/6x7iXi85
-	CA7qJgYw==;
+	bh=3Acc0tGYBakmOPZLGuJmU2rnhFl+Tc281npjtzbe/74=; b=phpke2JgMlyx3F6PhcN7NqOdxY
+	kynUGTsvBeIfOTqMbvwxHMOBJhxao+LCIdvSnVjuNh3ErapRRWVOeTyA6ROLJ/jXx8TermQGg5c95
+	IVAfKFpvFPZYvXiQVEg0FUJqnTqvkDYqJWlr1+RiSs3CFjwBt6HlNT8huEcU1nToyRP9iiLYzA/ni
+	AboMF8PorHv1YLI1ZkH6QYNO1pMDAPLsNmN2IbeAdgGkIVBJE/bKDR0rwihE3o47kcdEGzgIFXUwo
+	MHXxzHsCVyDkLEnILeeNOlhIhM7bPjdUBdjaofdA5lWzUQ/cJCFkW4sjVzXo2Hpp6xgFfrHu/kNOU
+	Idrluc8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toTLd-0000000EuqQ-14qc;
-	Sat, 01 Mar 2025 20:22:09 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1toTbj-0000000EvjK-26ZM;
+	Sat, 01 Mar 2025 20:38:47 +0000
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toTK5-0000000EucO-0ydr;
-	Sat, 01 Mar 2025 20:20:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740860433; x=1772396433;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=rrQ//fnypHMrN3fd4zsduRE3QZa4hstc4Z87aOa0Lpo=;
-  b=NP9ICqpNcfiH4HzBHROcha+tDUIyDuWr5QHPEZH8hFdZT01talFoa3AQ
-   0cS8sAx8pEVH8gx0WK00XytFpq7wOY+bvg27Hiy2lT37eAlvR/tcR/9+m
-   zeMThIBuUu0288wUjdOFygWZ+MriS+zZmtUYnCQmYEjxh8GDMIZZmELYh
-   o+dmjEiJkmKmpO9qDIwN71Vpp1qe2udgvjxTtFG7kkcLvZQ3NNHOFhfaZ
-   5XxU3pljxdt5GgBrF8PF0TdOMdiHQIU1Q+2STgI+t9bHboQDO1VMcDt8q
-   gzfrfNdq1TGMxK9cxo/8h4+haw2le23GMfn319fH8zyhWlnnG4LAH7Jx8
-   A==;
-X-CSE-ConnectionGUID: jdMQXhswQJy470FBdtPa4A==
-X-CSE-MsgGUID: BpgQ7iZBQlyjxpZpzrAZ5w==
-X-IronPort-AV: E=McAfee;i="6700,10204,11360"; a="52411940"
-X-IronPort-AV: E=Sophos;i="6.13,326,1732608000"; 
-   d="scan'208";a="52411940"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Mar 2025 12:20:31 -0800
-X-CSE-ConnectionGUID: xuVHpwFRQROXxCZ9NKWMIg==
-X-CSE-MsgGUID: 2Mf5tN2yQliX1ZcvqY3OdQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="117501197"
-Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
-  by orviesa010.jf.intel.com with ESMTP; 01 Mar 2025 12:20:26 -0800
-Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1toTJs-000GfD-1E;
-	Sat, 01 Mar 2025 20:20:22 +0000
-Date: Sun, 2 Mar 2025 04:19:55 +0800
-From: kernel test robot <lkp@intel.com>
-To: Heiner Kallweit <hkallweit1@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-	Russell King - ARM Linux <linux@armlinux.org.uk>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Eric Dumazet <edumazet@google.com>,
-	David Miller <davem@davemloft.net>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Qingfang Deng <dqfext@gmail.com>,
-	SkyLake Huang <SkyLake.Huang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Richard Cochran <richardcochran@gmail.com>
-Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	Robert Marko <robimarko@gmail.com>,
-	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>
-Subject: Re: [PATCH net-next v2 8/8] net: phy: remove remaining PHY package
- related definitions from phy.h
-Message-ID: <202503020420.v2TkGxj1-lkp@intel.com>
-References: <6ad490fa-61ad-48b8-9660-bb525f756f41@gmail.com>
+	id 1toTa9-0000000Evb7-3uiR;
+	Sat, 01 Mar 2025 20:37:12 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id C9EDE20453;
+	Sat,  1 Mar 2025 20:36:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1740861424;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3Acc0tGYBakmOPZLGuJmU2rnhFl+Tc281npjtzbe/74=;
+	b=j0W8ax/uRquO/giWNgJhf4H4p4dxfIxzFW6MO4OZsXaQhJo+e7YlrfmfwuwO8z8CykjSQD
+	0U7Afy7/Ba2WJ6ueUqpasO3bhRsmWK8p1CSKWQJLxASlHZTVaGb200Xak05pxb0hXPgbBk
+	sT9SJIRG4qLHlanaDO5mFlJjeg4NV4xNVcAt6A5IcLajDdg4v3tw1PgIh8R9k5YlEQBuhG
+	dfXSaVruN9RLuzUSlpcs4F7JA1n4iAXoEgtPn0uxly/CwiwCzgGYpZ/+vFDZKpgSjsOMi0
+	+ATKulcM1AzPZZmNwSQMXP1nZ5IL536rUVUy1TzC5EytwvQM/AGNSzQr14PTEA==
+Date: Sat, 1 Mar 2025 21:36:58 +0100
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+Cc: Chanwoo Choi <cw00.choi@samsung.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Hans Ulli Kroll <ulli.kroll@googlemail.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	=?iso-8859-1?Q?T=F3th_J=E1nos?= <gomba007@gmail.com>,
+	Dianlong Li <long17.cool@163.com>, linux-kernel@vger.kernel.org,
+	linux-rtc@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+	linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH 00/18] a few rtc driver cleanups
+Message-ID: <20250301203658839d5482@mail.local>
+References: <20250228-rtc-cleanups-v1-0-b44cec078481@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <6ad490fa-61ad-48b8-9660-bb525f756f41@gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250228-rtc-cleanups-v1-0-b44cec078481@linaro.org>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdelgedvkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkfhggtggugfgjsehtkeertddttddunecuhfhrohhmpeetlhgvgigrnhgurhgvuceuvghllhhonhhiuceorghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveduvefhvdehlefgieelfeetudeugfehgfeugfekleejueefueettdffueetiedvnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppeejjedrudehtddrvdegiedrvdduheenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeejjedrudehtddrvdegiedrvdduhedphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomheprghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudelpdhrtghpthhtoheprghnughrvgdrughrrghsiihikheslhhinhgrrhhordhorhhgpdhrtghpthhtoheptgiftddtrdgthhhoihesshgrmhhsuhhnghdrtghomhdprhgtphhtthhopehkrhiikheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhhovghlsehjmhhsrdhiugdrrghupdhrtghpthhtoheprghnu
+ ghrvgifsegtohguvggtohhnshhtrhhutghtrdgtohhmrdgruhdprhgtphhtthhopehulhhlihdrkhhrohhllhesghhoohhglhgvmhgrihhlrdgtohhmpdhrtghpthhtoheplhhinhhushdrfigrlhhlvghijheslhhinhgrrhhordhorhhgpdhrtghpthhtohepnhgvihhlrdgrrhhmshhtrhhonhhgsehlihhnrghrohdrohhrgh
+X-GND-Sasl: alexandre.belloni@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250301_122033_288063_B26601D8 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20250301_123710_569256_58E05EA1 
+X-CRM114-Status: GOOD (  17.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,65 +88,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiner,
+On 28/02/2025 14:07:13+0000, André Draszik wrote:
+> Hi,
+> 
+> While looking at RTC, I noticed that various drivers are keeping
+> pointers to data that they're not using themselves throughout their
+> lifetime.
+> 
+> So I took the liberty to drop these pointers and this series is the
+> result.
+> 
+> The last two patches also convert two drivers to using dev_err_probe(),
+> as I looked slightly closer into those two. They don't exactly fit the
+> general subject of removal of unneeded pointers, but I wanted to share
+> them anyway, since they're ready.
+> 
+> All of this was compile-tested only.
+> 
+> Cheers,
+> Andre'
+> 
+> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+> ---
+> André Draszik (18):
+>       rtc: max77686: drop needless struct max77686_rtc_info::rtc member
+>       rtc: s5m: drop needless struct s5m_rtc_info::i2c member
+>       rtc: aspeed: drop needless struct aspeed_rtc::rtc_dev member
+>       rtc: ds2404: drop needless struct ds2404::rtc member
+>       rtc: ep93xx: drop needless struct ep93xx_rtc::rtc member
+>       rtc: ftrtc010: drop needless struct ftrtc010_rtc::rtc_dev member
+>       rtc: m48t86: drop needless struct m48t86_rtc_info::rtc member
+>       rtc: meson: drop needless struct meson_rtc::rtc member
+>       rtc: meson-vrtc: drop needless struct meson_vrtc_data::rtc member
+>       rtc: pl030: drop needless struct pl030_rtc::rtc member
+>       rtc: rx8581: drop needless struct rx8581::rtc member
+>       rtc: s35390a: drop needless struct s35390a::rtc member
+>       rtc: sd2405al: drop needless struct sd2405al::rtc member
+>       rtc: sd3078: drop needless struct sd3078::rtc member
 
-kernel test robot noticed the following build errors:
+My main concern with this is that as soon as we introduce irq support,
+we are going to need the rtc pointer back in the struct. But I guess
+that most of them are old enough to say that nobody is interested in irq
+support.
 
-[auto build test ERROR on net-next/main]
+>       rtc: rx8581: drop needless struct rx8581
+>       rtc: sd3078: drop needless struct sd3078
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Heiner-Kallweit/net-phy-move-PHY-package-code-from-phy_device-c-to-own-source-file/20250301-055302
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/6ad490fa-61ad-48b8-9660-bb525f756f41%40gmail.com
-patch subject: [PATCH net-next v2 8/8] net: phy: remove remaining PHY package related definitions from phy.h
-config: arc-randconfig-001-20250302 (https://download.01.org/0day-ci/archive/20250302/202503020420.v2TkGxj1-lkp@intel.com/config)
-compiler: arceb-elf-gcc (GCC) 13.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250302/202503020420.v2TkGxj1-lkp@intel.com/reproduce)
+I guess you could squash those two with the previous ones touching the
+respective drivers because you are the one removing the last remaining
+struct member.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202503020420.v2TkGxj1-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   drivers/net/phy/bcm54140.c: In function 'bcm54140_base_read_rdb':
-   drivers/net/phy/bcm54140.c:436:15: error: implicit declaration of function '__phy_package_write'; did you mean '__phy_package_write_mmd'? [-Werror=implicit-function-declaration]
-     436 |         ret = __phy_package_write(phydev, BCM54140_BASE_ADDR,
-         |               ^~~~~~~~~~~~~~~~~~~
-         |               __phy_package_write_mmd
-   drivers/net/phy/bcm54140.c:441:15: error: implicit declaration of function '__phy_package_read'; did you mean '__phy_package_read_mmd'? [-Werror=implicit-function-declaration]
-     441 |         ret = __phy_package_read(phydev, BCM54140_BASE_ADDR,
-         |               ^~~~~~~~~~~~~~~~~~
-         |               __phy_package_read_mmd
-   drivers/net/phy/bcm54140.c: In function 'bcm54140_probe':
->> drivers/net/phy/bcm54140.c:594:9: error: implicit declaration of function 'devm_phy_package_join' [-Werror=implicit-function-declaration]
-     594 |         devm_phy_package_join(&phydev->mdio.dev, phydev, priv->base_addr, 0);
-         |         ^~~~~~~~~~~~~~~~~~~~~
-   cc1: some warnings being treated as errors
-
-
-vim +/devm_phy_package_join +594 drivers/net/phy/bcm54140.c
-
-6937602ed3f9eb Michael Walle 2020-04-20  578  
-6937602ed3f9eb Michael Walle 2020-04-20  579  static int bcm54140_probe(struct phy_device *phydev)
-6937602ed3f9eb Michael Walle 2020-04-20  580  {
-6937602ed3f9eb Michael Walle 2020-04-20  581  	struct bcm54140_priv *priv;
-6937602ed3f9eb Michael Walle 2020-04-20  582  	int ret;
-6937602ed3f9eb Michael Walle 2020-04-20  583  
-6937602ed3f9eb Michael Walle 2020-04-20  584  	priv = devm_kzalloc(&phydev->mdio.dev, sizeof(*priv), GFP_KERNEL);
-6937602ed3f9eb Michael Walle 2020-04-20  585  	if (!priv)
-6937602ed3f9eb Michael Walle 2020-04-20  586  		return -ENOMEM;
-6937602ed3f9eb Michael Walle 2020-04-20  587  
-6937602ed3f9eb Michael Walle 2020-04-20  588  	phydev->priv = priv;
-6937602ed3f9eb Michael Walle 2020-04-20  589  
-6937602ed3f9eb Michael Walle 2020-04-20  590  	ret = bcm54140_get_base_addr_and_port(phydev);
-6937602ed3f9eb Michael Walle 2020-04-20  591  	if (ret)
-6937602ed3f9eb Michael Walle 2020-04-20  592  		return ret;
-6937602ed3f9eb Michael Walle 2020-04-20  593  
-dc9989f173289f Michael Walle 2020-05-06 @594  	devm_phy_package_join(&phydev->mdio.dev, phydev, priv->base_addr, 0);
-dc9989f173289f Michael Walle 2020-05-06  595  
+>       rtc: max77686: use dev_err_probe() where appropriate
+>       rtc: s5m: convert to dev_err_probe() where appropriate
+> 
+>  drivers/rtc/rtc-aspeed.c     | 16 ++++-----
+>  drivers/rtc/rtc-ds2404.c     | 14 ++++----
+>  drivers/rtc/rtc-ep93xx.c     | 16 ++++-----
+>  drivers/rtc/rtc-ftrtc010.c   | 17 +++++----
+>  drivers/rtc/rtc-m48t86.c     | 14 ++++----
+>  drivers/rtc/rtc-max77686.c   | 37 +++++++++----------
+>  drivers/rtc/rtc-meson-vrtc.c | 12 +++----
+>  drivers/rtc/rtc-meson.c      | 16 ++++-----
+>  drivers/rtc/rtc-pl030.c      | 14 ++++----
+>  drivers/rtc/rtc-rx8581.c     | 85 +++++++++++++++++++-------------------------
+>  drivers/rtc/rtc-s35390a.c    | 22 ++++++------
+>  drivers/rtc/rtc-s5m.c        | 58 +++++++++++++-----------------
+>  drivers/rtc/rtc-sd2405al.c   | 16 ++++-----
+>  drivers/rtc/rtc-sd3078.c     | 71 +++++++++++++++---------------------
+>  14 files changed, 183 insertions(+), 225 deletions(-)
+> ---
+> base-commit: 0226d0ce98a477937ed295fb7df4cc30b46fc304
+> change-id: 20250228-rtc-cleanups-12c0b5123ea4
+> 
+> Best regards,
+> -- 
+> André Draszik <andre.draszik@linaro.org>
+> 
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
