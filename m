@@ -4,74 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC3E9C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 15:17:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19D42C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 15:25:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v/WEZu4XOSgNnI/wzCqASjzT/6f/xQH6R4zSfDlodRQ=; b=bLzTZJi4AItB9wQt4ZS/9SL9n3
-	CuyDhKkszdVWDz1WVx3gW9DZdyn9/ZOji3WNGmauCnl2FdzA+6KBzK6LxN0IHjgwiuIrygGUsuJyq
-	mVL6XcEUHpoBeO0JFkOYd8YvCaAkxfn2cDljUCDu1F4MfeKKAnoonivIZWB1kCTGXFFnRqJ4xxycY
-	5kXFhS7Q3RqoL1CPIs4hhNsgOU29UxpOE4gB9blrO+Sj0QPC3ZmI+9U1066wSxHVjt/BM67D4+8Vl
-	RrdPyhM+s9P28nqSswlwLMrYrG2qgiL6nkbHLePCqDxCECwmIubyc2pV3G08LrCXjkA/eZ3xq8q+n
-	o8vq0qKg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DyE4RDFymN6Y0/tDe7AGiAbq+AewoZBWihg6OLLbjWc=; b=tYTMK61H/7ULSn
+	ee91jyRrlpHsft2FNVRSJnqgktIxVHF2c/Al20mOXIbt0ifdyt6woyXhw5rNSrQmpHYcacfyhKyyj
+	y+P6vxTqE2Vk7hWusymI60+8RJLTjDwZrm39odQok+78QsUrP+/XqHgQu4vlLqH7CJk/+l+WJtIvt
+	q78OgCYZJV7k/W46fPIMVz55TzKV0PW+JuKaAQSutr7R1njFutCOHRtbd0jn9G1VuseOiYIzIE11r
+	QRQkfVSUmxyP86Qzyy/xreiaP4zompdKRPjSFrr9u1B1lzvypBkcBUekSPFNdDx4HTQTQWe8WMnKT
+	mUDhXpp8MT+DMipA8Okw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toOb0-0000000EXyk-42AY;
-	Sat, 01 Mar 2025 15:17:42 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1toOin-0000000EYQr-1j04;
+	Sat, 01 Mar 2025 15:25:45 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toOZQ-0000000EXsb-0l7z;
-	Sat, 01 Mar 2025 15:16:06 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 4033220523;
-	Sat,  1 Mar 2025 16:15:59 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id 0iebN7Isx1Km; Sat,  1 Mar 2025 16:15:57 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1740842157; bh=OmrR4xD/XRUKk2rcMTrbTAl5fxjRwq+7cvLzauhy6QI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=EBrD/O9RrVrUYRP+VtXW2Qnd/HbT6/xhYVGcT888/R1u+nZe8io1CWfIKSlqN+xVh
-	 uosX1SmQ+uG6WyBFrvoMmT17JPz6bItHX9gMyXNllu8xgSfizzV9/xYzM1LbNK//Et
-	 VcfncIB0U4fB6PdG2Wr0kCCH4CPj0lKLyBnVPppk3SVEeRppfh+BHYiHR7srIIZm6A
-	 ZuNv1C5GeFy9qJKkYwH4vp2FPQ8LHcyP+uq4wv0TAsSn/7aviqrzZh7AF4LU9X0ETQ
-	 SdYn8QlV+4DLyohYjHZH6LlYQEMSzJDnHQBh8QLhYMBEBNdU96iGwsLn5J5LXGnR6b
-	 mXqu6/2U4c1gw==
-Date: Sat, 1 Mar 2025 15:15:32 +0000
-From: Yao Zi <ziyao@disroot.org>
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Shresth Prasad <shresthprasad7@gmail.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH 8/8] arm64: dts: rockchip: Enable SD-card interface on
- Radxa E20C
-Message-ID: <Z8MklJfFz2EA6oNS@pie.lan>
-References: <20250301104250.36295-1-ziyao@disroot.org>
- <20250301104835.36439-1-ziyao@disroot.org>
- <0aefd292-7980-434d-9c18-4ab9f6a0b40e@kwiboo.se>
+	id 1toOhD-0000000EYMj-2TB0
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 01 Mar 2025 15:24:08 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4399deda38cso20113735e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Mar 2025 07:24:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1740842645; x=1741447445; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=DyE4RDFymN6Y0/tDe7AGiAbq+AewoZBWihg6OLLbjWc=;
+        b=jVtNh2l/4EdnnlAR4Bu02a1XAxqL7rmal2xhEtVHMI5ILrW1SRd+RZDV6rYq+lCGxK
+         dBAdhKDDNpfjwKw3+mhElWpQGmM9aF9WqUi8EEZM9tXcDEDs0CiImhkxeeG5gRFZDTPc
+         DAlX0YVDPZC5rZPH0WUGZal4sPdmVcLU0+1EbBOzgNgSz2Eg+tfunfVSm7fHej74en5A
+         g3RooBuGV4Cxq5kgU42pkvnMP6hdDBQGfqXM//NbCjSq0vMApMgRV9Utp5dprVOQDKKb
+         kcKMqbJZmHBIRhQSM3O+lpRzStpOSDhMwT/0fbexYHRhATWF8Hf4tPED4OOFwkvqTOfm
+         IkQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740842645; x=1741447445;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=DyE4RDFymN6Y0/tDe7AGiAbq+AewoZBWihg6OLLbjWc=;
+        b=MKlicghqZeJ9MXZ5BwBO0j/nJqiPqKQGXpTmJ0XSQoLORhoZHndVgZIjlZAuPxl26I
+         9ODNP60+ZnMB1dKB1J87u3R1ofIM8wKg89V2z+88iU9cx70INq3h3FbRaWwYWVeDzwrU
+         VTvIyBArZfwSuob2s6x024eA2JP+Veu9jByJA09eU9UMrs+NGFQK7FlH/e6aSPIX181C
+         xMNt/jto7XsU27Y85jzem2Ek8gXQWO2Ix4lPBEfs7vpuPGZe3VPoWQ8rY5dEIiUhauqr
+         Wp9Mw6nAoINyQvRwJk81PLBx7DD25t9QLREsKD+2BM6hoC4V6mF/7QWyEpx1BZj7Tz1i
+         jB/w==
+X-Forwarded-Encrypted: i=1; AJvYcCWSmZc54pdyptnO93sz6N1Zrvf/nlOTTa0bfZXLimXtQT+8Mi67HD1dXkMw4qo6+kL+vFpqDfIYx3FOCn/p5ZVu@lists.infradead.org
+X-Gm-Message-State: AOJu0YxwxpIIOLD/oVeL8Zl97ff2mGne81kTR9vTa6slpdD2eB4+XcpG
+	anIAkkXdsThrhTjzFbgi0azn70AF0s+koUa6YyVpNjlzkA2jXeonRRu5awcrIAbODN6an4FBqc0
+	v2CU=
+X-Gm-Gg: ASbGncsvUkHdQw+4xalHTiMXneUxout362SwK6KR8MytbAVWiil1EfHG0O4aMM01OCb
+	8DKBkh8uyPQ100PShlJzzf9OdZ63rAVNEdaRf2bbt7lV/LY8wt+bYs/LZkUoH0YoqYbb2ip457W
+	mZMfcNgeHgNSqvnEnaevbi4RPHL++8JVvDH20Nzu3qXBWbbVise9FcXZDrdYsw85O41WyfZLM9m
+	ERX6LaPXOp4y3+MDQi1S/TMAoDUywHedz7Y+b27nd7ZQ4gUjmn9z0aJzHsG0dTkM99Ro4/KzDns
+	zCM3L45Qq9LkPu1TULszkn1n2Ug1EjenPriGHEDNwaxtUe2SO2yZcA==
+X-Google-Smtp-Source: AGHT+IHiRxjnZq8NhUb5asT1Hu0VwjQR+BBK3Vyg+BBt9UXQkSJXAdtpoOKry9ltGZaW6bEq4w2XVw==
+X-Received: by 2002:a05:6000:1f81:b0:38f:32ac:7e70 with SMTP id ffacd0b85a97d-390eca4ad13mr5456232f8f.49.1740842645416;
+        Sat, 01 Mar 2025 07:24:05 -0800 (PST)
+Received: from [192.168.50.4] ([82.78.167.138])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e4795da5sm8785532f8f.15.2025.03.01.07.24.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 01 Mar 2025 07:24:04 -0800 (PST)
+Message-ID: <35dd6819-591a-4dcb-9c01-f32e7f1db54a@tuxon.dev>
+Date: Sat, 1 Mar 2025 17:24:03 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0aefd292-7980-434d-9c18-4ab9f6a0b40e@kwiboo.se>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/4] ARM: dts: at91: calao_usb: improve support
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ linux-arm-kernel@lists.infradead.org
+References: <20250226084938.3436-6-wsa+renesas@sang-engineering.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Content-Language: en-US
+In-Reply-To: <20250226084938.3436-6-wsa+renesas@sang-engineering.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250301_071604_635855_18701243 
-X-CRM114-Status: GOOD (  25.18  )
+X-CRM114-CacheID: sfid-20250301_072407_776270_1224C5EF 
+X-CRM114-Status: UNSURE (   6.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,121 +97,21 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Rob Herring <robh@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 01, 2025 at 02:01:05PM +0100, Jonas Karlman wrote:
-> Hi,
-> 
-> On 2025-03-01 11:48, Yao Zi wrote:
-> > SD-card is available on Radxa E20C board.
-> > 
-> > Signed-off-by: Yao Zi <ziyao@disroot.org>
-> > ---
-> >  arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts | 14 ++++++++++++++
-> >  1 file changed, 14 insertions(+)
-> > 
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
-> > index d2cdb63d4a9d..473065aa4228 100644
-> > --- a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
-> > +++ b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
-> > @@ -12,6 +12,10 @@ / {
-> >  	model = "Radxa E20C";
-> >  	compatible = "radxa,e20c", "rockchip,rk3528";
-> >  
-> > +	aliases {
-> > +		mmc0 = &sdmmc;
-> 
-> Suggest using mmc1 for sd-card because the e20c typically have onboard
-> emmc, compared to removable sd-card.
 
-My board doesn't have an eMMC: it's optional as well, but all variants
-of Radxa E20C come with an SD-card interface. The vendor devicetree sets
-sdmmc as mmc0 as well[1].
 
-I won't insist on it and am willing to take the change if you still
-consider mmc0 is better.
+On 26.02.2025 10:49, Wolfram Sang wrote:
+> Wolfram Sang (4):
+>   dt-bindings: ARM: at91: make separate entry for Olimex board
+>   dt-bindings: ARM: at91: add Calao USB boards
 
-> > +	};
-> > +
-> >  	chosen {
-> >  		stdout-path = "serial0:1500000n8";
-> >  	};
-> > @@ -20,3 +24,13 @@ chosen {
-> >  &uart0 {
-> >  	status = "okay";
-> >  };
-> > +
-> > +&sdmmc {
-> > +	bus-width = <4>;
-> > +	cap-mmc-highspeed;
-> > +	cap-sd-highspeed;
-> > +	disable-wp;
-> > +	rockchip,default-sample-phase = <90>;
-> > +	sd-uhs-sdr104;
-> 
-> Are you sure uhs-sdr104 works as is should?
+Applied to at91-soc, thanks!
 
-In fact yes, tuning succeeds at 148.5MHz and results in 66MB/s reading
-speed.
+>   ARM: dts: at91: usb_a9263: fix wrong vendor
+>   ARM: dts: at91: fix faulty ohci/ehci node names
 
-> Vendor kernel use a different "v2" tuning
-
-This isn't a problem. IMHO V2 tuning is more like a quick path, which
-tries inheritting the phase from firmware and then re-tunes roughly.
-Fine tunning is still a fallback here in case of failure, see the commit
-message in the downstream kernel[2]. And testing proves it's okay for
-RK3528 to issue fine-tuning always.
-
-> and this is also missing the vccio_sd vqmmc-supply to switch between
-> 3v3 and 1v8.
-
-But this is a problem, thanks for catching it! Somehow my card managed
-to run at 148.5MHz with 3v3 voltage level, but it's definitely a
-compatiblity issue. I'm surprised that the driver doesn't complain when
-switching to SDR modes without a regulator configured.
-
-> You could add following regulator for sdmmc:
-> 
-> 	vccio_sd: regulator-vccio-sd {
-> 		compatible = "regulator-gpio";
-> 		gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_HIGH>;
-> 		pinctrl-names = "default";
-> 		pinctrl-0 = <&sdmmc_vol_ctrl_h>;
-> 		regulator-name = "vccio_sd";
-> 		regulator-min-microvolt = <1800000>;
-> 		regulator-max-microvolt = <3300000>;
-> 		states = <1800000 0x0>, <3300000 0x1>;
-> 	};
->
-> and following pinctrl:
-> 
-> 	sdmmc {
-> 		sdmmc_vol_ctrl_h: sdmmc-vol-ctrl-h {
-> 			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-> 		};
-> 	};
-> 
-> add then the power supplies to the sdmmc node:
-> 
-> 	vmmc-supply = <&vcc_3v3>;
-> 	vqmmc-supply = <&vccio_sd>;
-> 
-> That matches the schematics for e20c, and works when testing non-uhs modes.
-
-Thanks for the hints. Will rebase on your pinctrl series and get
-regulators and pinctrl settings applied in the next version.
-
-> Regards,
-> Jonas
-> 
-> > +	status = "okay";
-> > +};
-> 
-
-Cheers,
-Yao Zi
-
-[1]: https://github.com/radxa/kernel/blob/2b0c8de7dc4c68947cda206dcc2e457e9677e426/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts#L22-L26
-[2]: https://github.com/rockchip-linux/kernel/commit/795e052cc8610aa59a64b104f975cc4a45493d5d
+Applied to at91-dt, thanks!
 
