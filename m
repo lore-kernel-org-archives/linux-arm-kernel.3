@@ -4,89 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CB5DC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 11:54:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0FAAC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 12:04:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NdjO+gXNbFswOlU5mvEFI+zF9XideHYOKEcG+ZI2j5U=; b=Ys8Q8OLpYSqQ0HIExwwPTzo0B0
-	ZrJfiQiyF/fu5fnCMyhXzO6dyXN8/gbqLc9EPKwqFvFVAqhmlB2RXl7UxgKs/9YmTTbNLNfS5Yb1C
-	0lnEtm0KngAAUddsc9zBhTiBA8Or9CdH4njjSHY+xKK12J/DD8bMmlF4lzcP+l5eRPgrL54KIcY9b
-	HEOpXkEkinw6jOm7LcKrZmGW4QC34S4+1GxGqfOV6zgij436jawpPE9HZp8XF4tiwJD0yOfGfULiD
-	RMOgEsb3slfpU1U78LyzN2tt455jU4MhijeHKcy8K1O2p19tL5mIyTvNUAJUwLIKNzzFMqgMalh8o
-	bpSNHEWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qxo3RS03jl03BxZp9wETPlvkrS4QPCWdlTHGiNTh9z0=; b=EpY+Z3s6VXPpycsbj9MOhCvy/X
+	TrpIO9BSk+Qe/sG3HdBJYXaYo7kT+BcNSGteJvYUHIowXUDMfU8s0BsBn+6kxlGq4telEh25eh622
+	DvbGIEzb45tkhAetKdmaouO+7Vi6LFOtSItFSxeCkvy7M7IXBa1dchqg7yrqMYjphd8AjlFh5Ui/6
+	tCZiydyzHApzrvS29h1xM5j2oTrEcFVZOxNc60X1HjlkMMif5GvCeUpwt80PLUVaebK4CIkngO1z5
+	yNwmYf0eI8zZhzHkmTbbVHnuKsC9kyzCtYh1q+43C3yjFIPSBBdLv9hwPsao0VjeBPyYb7ROPDTPY
+	fTmdZB8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toLQh-0000000DsN7-1qHo;
-	Sat, 01 Mar 2025 11:54:51 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1toLZP-0000000DsnE-2by7;
+	Sat, 01 Mar 2025 12:03:51 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toLNL-0000000Ds5W-3zUf
+	id 1toLXq-0000000DshB-3NDw
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Mar 2025 11:51:25 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5e51e3274f1so718869a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Mar 2025 03:51:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1740829882; x=1741434682; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=NdjO+gXNbFswOlU5mvEFI+zF9XideHYOKEcG+ZI2j5U=;
-        b=MF/j6DCspXDyh5vpCEk+7qORTuFt3doQnMt8tiYWCY+YPfgs6dKWstQn+jkbmg7FLj
-         kyMLvXMK/LS1RpSfwgfF1Hd2xXQvcAoV4Wk8LGCGQDA8uh3CGa9laH8D9CJ2uS4zrYjD
-         EQ8TlXtlFD5PECRbpiPErVng7jbgrP6nS5vxk=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740829882; x=1741434682;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=NdjO+gXNbFswOlU5mvEFI+zF9XideHYOKEcG+ZI2j5U=;
-        b=bWmT/HQAE4hDscWKNRGRnHeMAD08EvhYaR86dgBtkaqsOU5GaxLi+JeBV+RZIhcG6v
-         coGU37BlkBgDptBlIv6PHMijKeDyKXBPdCDNEfwkU1/HxgJAiNiF5qtHWLUIsVz7Hm/8
-         OSog2YhXZwsWMekkoD1r1xbqgS963GENOUNGLEAhd4aEfZSoCXqgrvunuXVkfTTYv74u
-         QWwPe7DiLRbV++7DlchzWpR16Awp4ZIEjutSxvRIWS3caIyf4lz6qvqRRaNVPuc3OT5S
-         mC7S3/qObV6P/CSXpglijod9/Ea79xRxzJDTdvjBm8KXN6Qfgjb2pdAOoQyFuqokGFTx
-         kZCg==
-X-Forwarded-Encrypted: i=1; AJvYcCU1xXGbCIvUvcCfRfJ+/9Dw1OlG0e0eC8mKNvtDaHDuetcivWF5FuZ7Z0IrkkISRsFTVYArktF0nPPJvKWtqTEz@lists.infradead.org
-X-Gm-Message-State: AOJu0YwOsCeyZKDYZ+syy5O9RVdTrinNrdCAMp9EnIGA4PI5QHjgQHqS
-	QEbPF7P04bsqNncUPXeqn3REgUSo+N+z8MOhtrqbUGJ76A0UIxjNMdrwKMz6DaA=
-X-Gm-Gg: ASbGncsA1f8r0bybfhGOxhLqWJ0ZzliwUBngki+i01Gp5fSsFk0UpQkWZUaOEwBuO7k
-	2E88RmaMMhs5D+6hjuXdz97BvAkD0Q1SXhT3Jnx5PbPzXQw3yJQgQN0F1piwPVWLSeFObD9KvpM
-	bc7dqJHNkOx+IAQie2uinZVIizZU3wBCMnEuqmieY23+peMZ2iMlM4Gyzl4q8zefRKpw1GDCY3R
-	P3KiK83ReGcnEIgU1MeWp565f5OPCJsEsZP+PRwMS8oOSDIx6GcnyPch/WCZ/L8DXnt8288Tx//
-	vdnNW9JKJzhvQLfMoyNS5uY9QXoY8E904uzEr6Msf8IpkKf5kRXaDbnf60MkuozqNiNaFvBdQlk
-	LwWqIhyCe3bpvQZw+hxXLrOEX0/F8DbuE+WExrb6f76lNdKq3BWaN70+pD416h0SIpJNIHdrklF
-	Ehw1L2MVgpM5gndw==
-X-Google-Smtp-Source: AGHT+IFx+Y86kAQg3tCp+lkyRYenJ1ns51tOtXrb2wDfJ/ON7EhmhRzo9A+jgX7mXFnhM4YOd6kA8g==
-X-Received: by 2002:a17:907:96a2:b0:abe:eebf:ae54 with SMTP id a640c23a62f3a-abf25fdbdb3mr715780466b.20.1740829881379;
-        Sat, 01 Mar 2025 03:51:21 -0800 (PST)
-Received: from dario-ThinkPad-T14s-Gen-2i.homenet.telecomitalia.it (host-79-25-102-201.retail.telecomitalia.it. [79.25.102.201])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abf0c75d8e8sm460994866b.146.2025.03.01.03.51.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 01 Mar 2025 03:51:20 -0800 (PST)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH] ARM: dts: stm32: use IRQ_TYPE_EDGE_FALLING on stm32mp157c-dk2
-Date: Sat,  1 Mar 2025 12:51:09 +0100
-Message-ID: <20250301115116.2862353-1-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Sat, 01 Mar 2025 12:02:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2478A5C1111;
+	Sat,  1 Mar 2025 11:59:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 998A0C4CEDD;
+	Sat,  1 Mar 2025 12:02:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740830533;
+	bh=+AAMJB/7hTU30KZCU4oBLcGkEpeVOQ4Sdqlumm+i4rs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=mpMHOMcTcDaKO8h/RY95ri0hmyp0V2BRYqCtoAoZhlW308RiMhWVVrWPqvb2zxTY2
+	 NkRJUqvIAazSb/Wad3cMHGvQ/z6YBnZ9ruhVp2GLiaKLa5Gu/8sUz+cft6Tg13pNs4
+	 50dWvVx31LiV3qaxNDKXDEjX+nETxREDjJJ6QZzVcMeqTn1DzDLI07fcwABz+MSoLM
+	 vH1DaL5LsobXo1P+EEs9TymdimdYFFIs0ZMv8Om58JpIQnW5+cC9L9kA7TQw1+fHwG
+	 buxM27vmpfCwvGxjeLUyHQcvyo8H+YiOQpv6UzBPANnkYfD7yRs6+eUwIrJLOirD4b
+	 aEdabd4Sen7hQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1toLXn-009LnL-Bp;
+	Sat, 01 Mar 2025 12:02:11 +0000
+Date: Sat, 01 Mar 2025 12:02:09 +0000
+Message-ID: <86ldtpot6m.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Kishon Vijay Abraham I <kishon@kernel.org>,	"Rafael J. Wysocki"
+ <rafael@kernel.org>,	Thomas Gleixner <tglx@linutronix.de>,	Anup Patel
+ <apatel@ventanamicro.com>,	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,	Manivannan Sadhasivam
+ <manivannan.sadhasivam@linaro.org>,	Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?=
+ <kw@linux.com>,	Bjorn Helgaas <bhelgaas@google.com>,	Arnd Bergmann
+ <arnd@arndb.de>,	Shuah Khan <shuah@kernel.org>,	Richard Zhu
+ <hongxing.zhu@nxp.com>,	Lucas Stach <l.stach@pengutronix.de>,	Lorenzo
+ Pieralisi <lpieralisi@kernel.org>,	Rob Herring <robh@kernel.org>,	Shawn Guo
+ <shawnguo@kernel.org>,	Sascha Hauer <s.hauer@pengutronix.de>,	Pengutronix
+ Kernel Team <kernel@pengutronix.de>,	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,	Conor Dooley
+ <conor+dt@kernel.org>,	Niklas Cassel <cassel@kernel.org>,
+	dlemoal@kernel.org,	jdmason@kudzu.us,	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,	linux-pci@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,	imx@lists.linux.dev,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v15 00/15] PCI: EP: Add RC-to-EP doorbell with platform MSI controller
+In-Reply-To: <Z7eKBsxrmthtElpz@lizhi-Precision-Tower-5810>
+References: <20250211-ep-msi-v15-0-bcacc1f2b1a9@nxp.com>
+	<Z7eKBsxrmthtElpz@lizhi-Precision-Tower-5810>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Frank.li@nxp.com, kishon@kernel.org, rafael@kernel.org, tglx@linutronix.de, apatel@ventanamicro.com, gregkh@linuxfoundation.org, dakr@kernel.org, manivannan.sadhasivam@linaro.org, kw@linux.com, bhelgaas@google.com, arnd@arndb.de, shuah@kernel.org, hongxing.zhu@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, robh@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, krzk+dt@kernel.org, conor+dt@kernel.org, cassel@kernel.org, dlemoal@kernel.org, jdmason@kudzu.us, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, linux-kselftest@vger.kernel.org, imx@lists.linux.dev, devicetree@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250301_035124_006352_C036A2A2 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20250301_040214_954708_F34DD166 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,38 +99,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace the number 2 with the appropriate numerical constant defined in
-dt-bindings/interrupt-controller/irq.h.
+On Thu, 20 Feb 2025 20:01:10 +0000,
+Frank Li <Frank.li@nxp.com> wrote:
+> 
+> On Tue, Feb 11, 2025 at 02:21:53PM -0500, Frank Li wrote:
+> 
+> Thomas Gleixner and Marc Zyngier:
+> 
+> 	Do you have any comments about irq/msi part?
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+It certainly looks better and less invasive than the previous
+incarnations. Things to fix:
 
----
+- Documentation: the msi-map property usage is undefined outside of a
+  PCIe RC, and the way you describe its use is so vague I read
+  anything in it. Please update
+  Documentation/devicetree/bindings/pci/pci-msi.txt to reflect the new
+  use case.
 
- arch/arm/boot/dts/st/stm32mp157c-dk2.dts | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+- This IMMUTABLE thing serves no purpose, because you don't randomly
+  plug this end-point block on any MSI controller. They come as part
+  of an SoC.
 
-diff --git a/arch/arm/boot/dts/st/stm32mp157c-dk2.dts b/arch/arm/boot/dts/st/stm32mp157c-dk2.dts
-index 5f9c0160a9c4..dcf17c493022 100644
---- a/arch/arm/boot/dts/st/stm32mp157c-dk2.dts
-+++ b/arch/arm/boot/dts/st/stm32mp157c-dk2.dts
-@@ -11,6 +11,7 @@
- #include "stm32mp15-pinctrl.dtsi"
- #include "stm32mp15xxac-pinctrl.dtsi"
- #include "stm32mp15xx-dkx.dtsi"
-+#include <dt-bindings/interrupt-controller/irq.h>
- 
- / {
- 	model = "STMicroelectronics STM32MP157C-DK2 Discovery Board";
-@@ -67,7 +68,7 @@ &i2c1 {
- 	touchscreen@38 {
- 		compatible = "focaltech,ft6236";
- 		reg = <0x38>;
--		interrupts = <2 2>;
-+		interrupts = <2 IRQ_TYPE_EDGE_FALLING>;
- 		interrupt-parent = <&gpiof>;
- 		touchscreen-size-x = <480>;
- 		touchscreen-size-y = <800>;
+Thanks,
+
+	M.
+
 -- 
-2.43.0
-
+Without deviation from the norm, progress is not possible.
 
