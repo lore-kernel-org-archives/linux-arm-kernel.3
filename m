@@ -4,83 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22266C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 18:30:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1BBFC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 18:51:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HbQ1yPq8BeEqX0CXAVNZ0UfzgnFZIeuoYkVsuEjiOew=; b=YsUZXIr+2E++fv+az5rrRLyAus
-	v3Hrn56DXi7/S6j3mc5QENC4Y1ihaGqM3zc5Nt+wHFFsGLZBOQE0Q0pt13RvPb143Mo2SZxkaAm7O
-	VGP/GiY3DnCoXB2K/h5KriLtpDE+Z760EiUQO5QotI71aDBalLAQAtI/QYUCV6a3dLputMcvn+doz
-	wYV6UNxlQTfJNlD4VoLj9b9Ea78G79GSxg2ZMiUXa6YrCL61N0woPeMFh2YKTJ7BA3Erp54LOxAEr
-	inwkIWYHr1i8KMOIjB7GjZywKnI3M2/jjnXJGVpl+3Eqbnpjf4sl5b7hI4QHaFxw4xHcTWWqh8d/X
-	EJVCsE5w==;
+	bh=KrfJbIpvNNDzFrmrARf6eWvWkH3oUKiyG0kOMshkNsY=; b=TssjqZZ+xcxRgtpgWE609l51GA
+	v2MTsqPKacHsrqcTnvFf1g1DTtq8b0enespzLctYSu/KJQGInKiLXP0wf9slxrmWcd11PMXKMk+dZ
+	hbKI/20381brg8gMV7Q8RdJ06OYUHa3bmsWi3ggkZ1p6G01OA2QuwMWtPBDGBoDKnfW7QebNlfC6w
+	hfPQ/2JZ91VMmyb1Q6ALixmVsNdDyibFP9vcvwWHG4fOrFxHbfOglrKy5q8I+RR4HLSwiQap+Hyln
+	wr/Nc5T8y7+Y7jbcLHoGCx/IXz3DInnOjeWxyDSudPH81Hs24fykvgnz+Z1P1a7LnrkoEBG9/hfnR
+	tfLapAag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toRbG-0000000Em1G-3a2h;
-	Sat, 01 Mar 2025 18:30:10 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1toRvx-0000000EnGZ-3WIH;
+	Sat, 01 Mar 2025 18:51:33 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toRZg-0000000Elti-2tIG;
-	Sat, 01 Mar 2025 18:28:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=HbQ1yPq8BeEqX0CXAVNZ0UfzgnFZIeuoYkVsuEjiOew=; b=RAXDiiw1szmRllTLCsfWYIkABt
-	5M8maW8X5dftva5kJfNjYhbrEiREaIWbM3x+REQqlJL7bcCn1Z10xqzpbfZvPVIT45jUIVO9A+eKG
-	Cbz3lXNaXNOS3gfbZe/yiGJh+8tRby+A2h95UQq9uCqY9eh9Jwqza2aZ3B1OkJ5Ub9JEF0RIv0vGP
-	C/ExROWSCvB54jyp+5F+wTqmDq8p07T70hGukeIUGZH3yPeWFM+I9IDYdziOdyfh7/J5UvhOXmvm9
-	hpVnlBWNUkTlOZvyvlyvemfMDjWahGTZ48J0KUdCFiVEthOngTmp8xf9oJHRfGF9ogTWYCH9m137n
-	x7hiSpMw==;
-Received: from i53875b47.versanet.de ([83.135.91.71] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1toRZ4-0001tc-FW; Sat, 01 Mar 2025 19:27:54 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Detlev Casanova <detlev.casanova@collabora.com>,
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
-Cc: linux-kernel@vger.kernel.org, Algea Cao <algea.cao@rock-chips.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- dri-devel@lists.freedesktop.org, Niklas Cassel <cassel@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>, kernel@collabora.com,
- David Airlie <airlied@gmail.com>, Dragan Simic <dsimic@manjaro.org>,
- Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>,
- Robert Foss <rfoss@kernel.org>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Sugar Zhang <sugar.zhang@rock-chips.com>, linux-rockchip@lists.infradead.org,
- Chen-Yu Tsai <wens@csie.org>, FUKAUMI Naoki <naoki@radxa.com>,
- devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
- Jonas Karlman <jonas@kwiboo.se>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>,
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- Johan Jonker <jbx6244@gmail.com>, linux-arm-kernel@lists.infradead.org,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Alexey Charkov <alchark@gmail.com>, Thomas Zimmermann <tzimmermann@suse.de>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-Subject: Re: [PATCH v7 0/3] Add HDMI audio on the rk3588 SoC
-Date: Sat, 01 Mar 2025 19:27:52 +0100
-Message-ID: <23891130.6Emhk5qWAg@diego>
-In-Reply-To: <0A30138B-183E-4816-80FF-AACDCFE3B3A6@gmail.com>
-References: <20250217215641.372723-1-detlev.casanova@collabora.com>
- <3337030.aeNJFYEL58@trenzalore>
- <0A30138B-183E-4816-80FF-AACDCFE3B3A6@gmail.com>
+	id 1toRuO-0000000En7t-2Nhv
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 01 Mar 2025 18:49:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740854997; x=1772390997;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=spCrMjTY6Hpbwf+1cmyrHlATFQqZasSJYz/+jT86L9s=;
+  b=P4Va6VwS+PUAdx9DKL1rwkXUS9RgBZBkVFDvnjqnK1717uw/MctUindX
+   uoeMg2RSLQTGvkPQ0E6nGK+h5AvncpUtW3MW6Gjh3ajDrVY7C3Lg1Rf6D
+   XShXD6mysZUP7wethPvkpLwwew7OqzjoMHxohqmvhq1n+75lNNMBgJjMQ
+   p7cyP6SFWVlUsJYUKPsIZuTucLyRrfIorjKECXm9lUz406L+1aNrp7rCz
+   A5wXu3/aMp200dKaCuZUtklmcK6Ml6yJDB+8CFWWlyn1QeXwWOdhiGAJO
+   J1DqOVd2flLHEt6JU/OV7a+FtjjzTQTcA96+MyHI44/lO023opVQZIHqf
+   w==;
+X-CSE-ConnectionGUID: eN6yP43ZRlmu84iLZtVxGw==
+X-CSE-MsgGUID: i4M/4MLJTfCLrQgPz6zUkA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11360"; a="45416185"
+X-IronPort-AV: E=Sophos;i="6.13,325,1732608000"; 
+   d="scan'208";a="45416185"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Mar 2025 10:49:53 -0800
+X-CSE-ConnectionGUID: FIUMgNttTQCCdvZJ9MVmMg==
+X-CSE-MsgGUID: rsFOSBnNRnSmClZcvBfr/g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,325,1732608000"; 
+   d="scan'208";a="122762858"
+Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
+  by fmviesa004.fm.intel.com with ESMTP; 01 Mar 2025 10:49:50 -0800
+Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1toRuG-000GaE-16;
+	Sat, 01 Mar 2025 18:49:48 +0000
+Date: Sun, 2 Mar 2025 02:49:36 +0800
+From: kernel test robot <lkp@intel.com>
+To: Robin Murphy <robin.murphy@arm.com>, vkoul@kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	devicetree@vger.kernel.org, dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/2] dmaengine: Add Arm DMA-350 driver
+Message-ID: <202503020214.QiJLAEK2-lkp@intel.com>
+References: <55e084dd2b5720bdddf503ffac560d111032aa96.1740762136.git.robin.murphy@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <55e084dd2b5720bdddf503ffac560d111032aa96.1740762136.git.robin.murphy@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250301_102832_718544_7BC43656 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20250301_104956_675330_B02C937A 
+X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,37 +88,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Samstag, 1. M=C3=A4rz 2025, 10:11:54 MEZ schrieb Piotr Oniszczuk:
->=20
-> > Wiadomo=C5=9B=C4=87 napisana przez Detlev Casanova <detlev.casanova@col=
-labora.com> w dniu 25 lut 2025, o godz. 15:58:
-> >=20
-> > From what I see, the error is not present anymore on linux 6.14-rc4. I =
-tried=20
-> > reverting your patch "ASoC: simple-card-utils.c: add missing dlc->of_no=
-de"=20
-> > (dabbd325b25edb5cdd99c94391817202dd54b651) and the error reappears.
->=20
-> Guys,
->=20
-> Just FYI:
->=20
-> On 6.14-rc4 without 0001-ASoC-simple-card-utils-Don-t-use-__free-device_n=
-ode-.patch - i still have oops like this: https://gist.github.com/warpme/ed=
-75c05d3b68f995d429dbd9097005ba
-> They are happening not every boot - but still happening.
->=20
-> However applying 0001-ASoC-simple-card-utils-Don-t-use-__free-device_node=
-=2D.patch (with some adaptations as it not applies cleanly on 6.140rc4) - d=
-mesg becomes clean (10 boots; all ok)
+Hi Robin,
 
-that patch was submitted yesterday [0], so hopefully will make its
-way into 6.14-rc next week or so.
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on vkoul-dmaengine/next]
+[also build test WARNING on linus/master v6.14-rc4 next-20250228]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Robin-Murphy/dt-bindings-dma-Add-Arm-DMA-350/20250301-012733
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/vkoul/dmaengine.git next
+patch link:    https://lore.kernel.org/r/55e084dd2b5720bdddf503ffac560d111032aa96.1740762136.git.robin.murphy%40arm.com
+patch subject: [PATCH 2/2] dmaengine: Add Arm DMA-350 driver
+config: hexagon-randconfig-001-20250302 (https://download.01.org/0day-ci/archive/20250302/202503020214.QiJLAEK2-lkp@intel.com/config)
+compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project 14170b16028c087ca154878f5ed93d3089a965c6)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250302/202503020214.QiJLAEK2-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202503020214.QiJLAEK2-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/dma/arm-dma350.c:485:13: warning: logical not is only applied to the left hand side of this bitwise operator [-Wlogical-not-parentheses]
+     485 |         } else if (!ch_status & CH_STAT_INTR_DONE) {
+         |                    ^          ~
+   drivers/dma/arm-dma350.c:485:13: note: add parentheses after the '!' to evaluate the bitwise operator first
+     485 |         } else if (!ch_status & CH_STAT_INTR_DONE) {
+         |                    ^                             
+         |                     (                            )
+   drivers/dma/arm-dma350.c:485:13: note: add parentheses around left hand side expression to silence this warning
+     485 |         } else if (!ch_status & CH_STAT_INTR_DONE) {
+         |                    ^
+         |                    (         )
+   1 warning generated.
 
 
+vim +485 drivers/dma/arm-dma350.c
 
-[0] https://lore.kernel.org/all/87eczisyhh.wl-kuninori.morimoto.gx@renesas.=
-com/T/#me866307a928c2d592a2ba883867f028c5c8b9b40
+   462	
+   463	static irqreturn_t d350_irq(int irq, void *data)
+   464	{
+   465		struct d350_chan *dch = data;
+   466		struct device *dev = dch->vc.chan.device->dev;
+   467		struct virt_dma_desc *vd = &dch->desc->vd;
+   468		u32 ch_status;
+   469	
+   470		ch_status = readl(dch->base + CH_STATUS);
+   471		if (!ch_status)
+   472			return IRQ_NONE;
+   473	
+   474		if (ch_status & CH_STAT_INTR_ERR) {
+   475			u32 errinfo = readl_relaxed(dch->base + CH_ERRINFO);
+   476	
+   477			if (errinfo & (CH_ERRINFO_AXIRDPOISERR | CH_ERRINFO_AXIRDRESPERR))
+   478				vd->tx_result.result = DMA_TRANS_READ_FAILED;
+   479			else if (errinfo & CH_ERRINFO_AXIWRRESPERR)
+   480				vd->tx_result.result = DMA_TRANS_WRITE_FAILED;
+   481			else
+   482				vd->tx_result.result = DMA_TRANS_ABORTED;
+   483	
+   484			vd->tx_result.residue = d350_get_residue(dch);
+ > 485		} else if (!ch_status & CH_STAT_INTR_DONE) {
+   486			dev_warn(dev, "Unexpected IRQ source? 0x%08x\n", ch_status);
+   487		}
+   488		writel_relaxed(ch_status, dch->base + CH_STATUS);
+   489	
+   490		spin_lock(&dch->vc.lock);
+   491		vchan_cookie_complete(vd);
+   492		if (ch_status & CH_STAT_INTR_DONE) {
+   493			dch->status = DMA_COMPLETE;
+   494			dch->residue = 0;
+   495			d350_start_next(dch);
+   496		} else {
+   497			dch->status = DMA_ERROR;
+   498			dch->residue = vd->tx_result.residue;
+   499		}
+   500		spin_unlock(&dch->vc.lock);
+   501	
+   502		return IRQ_HANDLED;
+   503	}
+   504	
 
-
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
