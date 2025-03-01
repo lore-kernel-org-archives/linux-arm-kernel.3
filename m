@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28C58C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 03:08:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA72EC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 03:59:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7MB/uZznmVz2MGUPrZKER+yDG0UNcI7IMiphW4KcyJc=; b=Vw3RmknTOqYKbUswXiWJwrIide
-	Fs5yOYgNCEOaeTLflcnwZsNEsDT9K504ktny8Bgu7Ye5HWRflKeoRqK3/ACHudQbM/nvN4H5MHf6s
-	Mmj18DtGBdwImKTf2B4/5iFzL6yauw3qV4bjF64mmjlQvFLIq414M3ZRHpTuc0Lz/q8cnt5UoXRcV
-	W96Ncq9ApjSkKmEm0rwqqspw2X3+1Fi0d7/hKgOWbMrGM3z1JQgV9Z8LOjktgQ+vK/U0fIsI90+Yg
-	WTY6+r4g3Paa9lZT0iO+IPHpbnGWL0/oD4dUn7W3lXykh4cPdoq+3IINUxbTC0i9oN6NcPfnd9tWG
-	03YkAW9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=veBnxh0z2nVjaZ7JNoW8CQDGVfl7vk5NK2E1mwe8dWk=; b=JIQgSB0Tuxnbu8
+	eToXtWFTJRKDr3sMd3b52ZXmGjyc205T77N5+uIvPHvewvcR3oQfIblOGlMt3oNl1Gi3ha5vxlYUI
+	3twEYcqBGYV/QrmiTic0LhJ2WZYI1IoemxmrkHrD1teZQXRqusIUwSmUgvWjgX4MmbwFchjq6a1Aa
+	wp+MT3j54BEfEr3rijJEaznUVrMDLEMe1rYKni6/lBY2z5D5dNvnXkL2eFF3/G+qf8+5oRavPk/zY
+	iRwfESodglEkiuWwQ+Fqjk9ke3Q0FMOfSmId2JeMxaxcHCouZ9v42NIH5I6DeTk5iwu9HmpIM9dfF
+	0FZgtps9F/u5E0Bxaxgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toDD9-0000000DJ2k-1HHr;
-	Sat, 01 Mar 2025 03:08:19 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1toE0W-0000000DLhx-0rk0;
+	Sat, 01 Mar 2025 03:59:20 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toDBb-0000000DIy6-3H9c
+	id 1toDyw-0000000DLUG-27V6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Mar 2025 03:06:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B4EE85C5419;
-	Sat,  1 Mar 2025 03:04:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E61DC4CED6;
-	Sat,  1 Mar 2025 03:06:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740798401;
-	bh=d4fr13w6NqBDZnKtfIoJruFH/zIQdAD23l+WW0qbwcg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=n6RrAPlQON/vV+L9tp2VbGXYcXIrNNCs66VcFCEEr1iHS8Ul3fWnWzaRWy8nvj4ob
-	 /H5LDlStxLwK+YnGedk3KJzjRFbf8xhuUOYMlndIbHPOwzaIOYcof9b3c4StlsW1U/
-	 4Upw7BNKycO3dbDKFOS19fnnqBfww2PYKGdOBpSlwvqiVKIUuTtBg4g5ZbJaDcquSH
-	 11W/0gUkW7IGOTAVQjLnrc1H/uS0cdsMrbjAL05U9BzoFdA5AeP0CCZbsPNjtY32D6
-	 03Kv7fkQXto2cMQjhqr1Ea54Kcs9rU0LiBuISJs31gvXly51ZTd7ICXocJyMAnNlln
-	 Utj4osVN4V5wA==
-Date: Sat, 1 Mar 2025 03:06:25 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Matti Vaittinen <mazziesaccount@gmail.com>
-Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>, Lars-Peter Clausen
- <lars@metafoo.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Lad Prabhakar
- <prabhakar.mahadev-lad.rj@bp.renesas.com>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
- <samuel@sholland.org>, Hugo Villeneuve <hvilleneuve@dimonoff.com>, Nuno Sa
- <nuno.sa@analog.com>, David Lechner <dlechner@baylibre.com>, Javier
- Carrasco <javier.carrasco.cruz@gmail.com>, Andy Shevchenko
- <andriy.shevchenko@linux.intel.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v3 9/9] iio: adc: ti-ads7924: Respect device tree config
-Message-ID: <20250301030625.54c43d37@jic23-huawei>
-In-Reply-To: <3279aa9348e7149bfbd433daaa201f2eb5873e1f.1739967040.git.mazziesaccount@gmail.com>
-References: <cover.1739967040.git.mazziesaccount@gmail.com>
-	<3279aa9348e7149bfbd433daaa201f2eb5873e1f.1739967040.git.mazziesaccount@gmail.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
+	Sat, 01 Mar 2025 03:57:44 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 63C7E25F0B;
+	Sat,  1 Mar 2025 04:57:35 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id V-yxFxoy9gdi; Sat,  1 Mar 2025 04:57:34 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1740801454; bh=rEHaf4maxyiGGOMN1IF2sOa3FpT4ACpF4a9JkiIWSt8=;
+	h=From:Subject:Date:To:Cc;
+	b=Em96SsLLK3JE0voTXKEtlh2B1s35FP/WwdY8OEFy+JYsArqkr+MlBGDTtjD4ZsuJO
+	 3PnuYqNR7CYabtK2nP0UPImD+xOIhJEBxb5e6imz2MNd56nWcgbjc7N7QGirJp9Rmj
+	 GAHsnOA+Ggf+E7qq52HQ4rRhjqkeoNOzqxvWj9QNO4qKrRZcHxSdqIOPJINGvf1Vph
+	 pMqtDs+sO7/ovusCmZM+49Px0zkXTRJMw3TIg4X2dcCIJm8ixfiJK7jq+5ImMgIg6N
+	 Exsd4XxFlqAvzo6azbKBN+bV15x9uSSRwIOKi9n7hRSUrNDueD3avU+FfEesUXLjBc
+	 oeMGgH8mOLnQA==
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+Subject: [PATCH v5 0/2] Introduce support for Exynos7870 clocks
+Date: Sat, 01 Mar 2025 09:27:11 +0530
+Message-Id: <20250301-exynos7870-pmu-clocks-v5-0-715b646d5206@disroot.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJeFwmcC/3XNQQrCMBCF4auUrI1MOg2xrryHuEia0Qa1KYkGS
+ +ndTQVRkS7/B/PNyCIFR5Fti5EFSi463+WQq4I1re5OxJ3NzUooJZSAnB5D56PaKOD99c6bi2/
+ OkVswiFArIK1Yvu0DHd3j5e4PuVsXbz4MrzdJzOtbrBbEJDhwjYCgSRojcWddDN7f1j6c2Gwm/
+ HJEveRgdsAKqoSkmlD/O9XHQRBLTjU7RySFRoA16teZpukJ68xDzkwBAAA=
+X-Change-ID: 20250203-exynos7870-pmu-clocks-d0b330970ea7
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Kaustabh Chakraborty <kauschluss@disroot.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1740801448; l=2719;
+ i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
+ bh=rEHaf4maxyiGGOMN1IF2sOa3FpT4ACpF4a9JkiIWSt8=;
+ b=UoI5gUYpp/4io6yU8aYNLdhMOhmNT64JGVnwQXQ3FZWV6ZbYTsbxDzPz5RstcQpMzgFknW08c
+ vkVYlaNEjwCCgcFk+h/SLVmnQH7NAnmqniUxQoZs1CyylIE0U3wT0Qt
+X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
+ pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_190643_943742_BD8D8297 
-X-CRM114-Status: GOOD (  34.11  )
+X-CRM114-CacheID: sfid-20250228_195742_982417_29CD2B31 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,175 +88,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 19 Feb 2025 14:32:23 +0200
-Matti Vaittinen <mazziesaccount@gmail.com> wrote:
+Add a CMU driver for Exynos7870 devices. It handles the following
+clock banks:
+ * CMU_MIF
+ * CMU_DISPAUD
+ * CMU_FSYS
+ * CMU_G3D
+ * CMU_ISP
+ * CMU_MFCMSCL
+ * CMU_PERI
 
-> The ti-ads7924 driver ignores the device-tree ADC channel specification
-> and always exposes all 4 channels to users whether they are present in
-> the device-tree or not. Additionally, the "reg" values in the channel
-> nodes are ignored, although an error is printed if they are out of range.
-> 
-> Register only the channels described in the device-tree, and use the reg
-> property as a channel ID.
+This patch series is a part of Exynos7870 upstreaming.
 
-No to this one in it's current form.  The nodes are just there to provide
-the labels.  Maybe it is fine if we fallback to registering them all if
-none are provided.
+Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+---
+Changes in v5:
+- Fix dt_binding_check errors and fix dt example.
+- Link to v4: https://lore.kernel.org/r/20250301-exynos7870-pmu-clocks-v4-0-0f3e73b10db7@disroot.org
 
-> 
-> Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
-> 
-> ---
-> Revision history:
-> v2 => v3: New patch
-> 
-> Please note that this is potentially breaking existing users if they
-> have wrong values in the device-tree. I believe the device-tree should
-> ideally be respected, and if it says device X has only one channel, then
-> we should believe it and not register 4. Well, we don't live in the
-> ideal world, so even though I believe this is TheRightThingToDo - it may
-> cause havoc because correct device-tree has not been required from the
-> day 1. So, please review and test and apply at your own risk :)
-> 
-> As a side note, this might warrant a fixes tag but the adc-helper -stuff
-> is hardly worth to be backported... (And I've already exceeded my time
-> budget with this series - hence I'll leave crafting backportable fix to
-> TI people ;) )
-> 
-> This has only been compile tested! All testing is highly appreciated.
-> ---
->  drivers/iio/adc/ti-ads7924.c | 80 +++++++++++++++++-------------------
->  1 file changed, 37 insertions(+), 43 deletions(-)
-> 
-> diff --git a/drivers/iio/adc/ti-ads7924.c b/drivers/iio/adc/ti-ads7924.c
-> index b1f745f75dbe..a5b8f7c81b8a 100644
-> --- a/drivers/iio/adc/ti-ads7924.c
-> +++ b/drivers/iio/adc/ti-ads7924.c
-> @@ -22,6 +22,7 @@
->  #include <linux/regmap.h>
->  #include <linux/regulator/consumer.h>
->  
-> +#include <linux/iio/adc-helpers.h>
->  #include <linux/iio/iio.h>
->  #include <linux/iio/types.h>
->  
-> @@ -119,15 +120,12 @@
->  #define ADS7924_TOTAL_CONVTIME_US (ADS7924_PWRUPTIME_US + ADS7924_ACQTIME_US + \
->  				   ADS7924_CONVTIME_US)
->  
-> -#define ADS7924_V_CHAN(_chan, _addr) {				\
-> -	.type = IIO_VOLTAGE,					\
-> -	.indexed = 1,						\
-> -	.channel = _chan,					\
-> -	.address = _addr,					\
-> -	.info_mask_separate = BIT(IIO_CHAN_INFO_RAW), 		\
-> -	.info_mask_shared_by_type = BIT(IIO_CHAN_INFO_SCALE),	\
-> -	.datasheet_name = "AIN"#_chan,				\
-> -}
-> +static const struct iio_chan_spec ads7924_chan_template = {
-> +	.type = IIO_VOLTAGE,
-> +	.indexed = 1,
-> +	.info_mask_separate = BIT(IIO_CHAN_INFO_RAW),
-> +	.info_mask_shared_by_type = BIT(IIO_CHAN_INFO_SCALE),
-> +};
->  
->  struct ads7924_data {
->  	struct device *dev;
-> @@ -182,13 +180,6 @@ static const struct regmap_config ads7924_regmap_config = {
->  	.writeable_reg = ads7924_is_writeable_reg,
->  };
->  
-> -static const struct iio_chan_spec ads7924_channels[] = {
-> -	ADS7924_V_CHAN(0, ADS7924_DATA0_U_REG),
-> -	ADS7924_V_CHAN(1, ADS7924_DATA1_U_REG),
-> -	ADS7924_V_CHAN(2, ADS7924_DATA2_U_REG),
-> -	ADS7924_V_CHAN(3, ADS7924_DATA3_U_REG),
-> -};
-> -
->  static int ads7924_get_adc_result(struct ads7924_data *data,
->  				  struct iio_chan_spec const *chan, int *val)
->  {
-> @@ -251,32 +242,38 @@ static const struct iio_info ads7924_info = {
->  	.read_raw = ads7924_read_raw,
->  };
->  
-> -static int ads7924_get_channels_config(struct device *dev)
-> +static const struct iio_adc_props ads7924_chan_props = {
-> +	.required = IIO_ADC_CHAN_PROP_TYPE_REG,
-> +};
-> +
-> +static int ads7924_get_channels_config(struct iio_dev *indio_dev,
-> +				       struct device *dev)
->  {
-> -	struct fwnode_handle *node;
-> -	int num_channels = 0;
-> +	struct iio_chan_spec *chan_array;
-> +	int num_channels = 0, i;
->  
-> -	device_for_each_child_node(dev, node) {
-> -		u32 pval;
-> -		unsigned int channel;
-> +	num_channels = devm_iio_adc_device_alloc_chaninfo(dev,
-> +					&ads7924_chan_template, &chan_array,
-> +					&ads7924_chan_props);
->  
-> -		if (fwnode_property_read_u32(node, "reg", &pval)) {
-> -			dev_err(dev, "invalid reg on %pfw\n", node);
-> -			continue;
-> -		}
-> +	if (num_channels < 0)
-> +		return num_channels;
->  
-> -		channel = pval;
-> -		if (channel >= ADS7924_CHANNELS) {
-> -			dev_err(dev, "invalid channel index %d on %pfw\n",
-> -				channel, node);
-> -			continue;
-> -		}
-> +	if (!num_channels)
-> +		return -EINVAL;
-> +
-> +	for (i = 0; i < num_channels; i++) {
-> +		static const char * const datasheet_names[] = {
-> +			"AIN0", "AIN1", "AIN2", "AIN3"
-> +		};
-> +		int ch_id = chan_array[i].channel;
->  
-> -		num_channels++;
-> +		chan_array[i].address = ADS7924_DATA0_U_REG + ch_id;
-> +		chan_array[i].datasheet_name = datasheet_names[ch_id];
->  	}
->  
-> -	if (!num_channels)
-> -		return -EINVAL;
-> +	indio_dev->channels = chan_array;
-> +	indio_dev->num_channels = num_channels;
->  
->  	return 0;
->  }
-> @@ -370,18 +367,15 @@ static int ads7924_probe(struct i2c_client *client)
->  
->  	mutex_init(&data->lock);
->  
-> -	indio_dev->name = "ads7924";
-> -	indio_dev->modes = INDIO_DIRECT_MODE;
-> -
-> -	indio_dev->channels = ads7924_channels;
-> -	indio_dev->num_channels = ARRAY_SIZE(ads7924_channels);
-> -	indio_dev->info = &ads7924_info;
-> -
-> -	ret = ads7924_get_channels_config(dev);
-> +	ret = ads7924_get_channels_config(indio_dev, dev);
->  	if (ret < 0)
->  		return dev_err_probe(dev, ret,
->  				     "failed to get channels configuration\n");
->  
-> +	indio_dev->name = "ads7924";
-> +	indio_dev->modes = INDIO_DIRECT_MODE;
-> +	indio_dev->info = &ads7924_info;
-> +
->  	data->regmap = devm_regmap_init_i2c(client, &ads7924_regmap_config);
->  	if (IS_ERR(data->regmap))
->  		return dev_err_probe(dev, PTR_ERR(data->regmap),
+Changes in v4:
+- Fix clock dt-binding description and ordering in properties:required.
+- Change filenames of clock dt-binding and header to match the compatible.
+- Squash the following patches from v3 into one:
+  [1/5] dt-bindings: clock: add clock definitions for exynos7870 CMU
+  [2/5] dt-bindings: clock: document exynos7870 clock driver CMU bindings
+- Drop the following patches from v3:
+  [3/5] dt-bindings: soc: samsung: exynos-pmu: add exynos7870-pmu compatible
+  [5/5] clk: samsung: add exynos7870 CLKOUT support
+- Link to v3: https://lore.kernel.org/r/20250219-exynos7870-pmu-clocks-v3-0-0d1e415e9e3a@disroot.org
+
+Changes in v3:
+- Fix incorrect versioning (Link to v2: is labelled as v1).
+- Fix formatting issues in clk-exynos7870 DT docs (from v1).
+- Add myself as maintainer for clk-exynos7870.
+- Change clock name definitions in clk-exynos7870 DT docs.
+- Fix line wrapping in commit message of exynos7870-pmu DT docs.
+- Change a few ordinals of PERI* clocks in the clk-exynos7870 driver.
+- Take over ownership of patches by the co-author, upon their request.
+- Link to v2: https://lore.kernel.org/r/20250204-exynos7870-pmu-clocks-v1-0-a3030ae5bb53@disroot.org
+
+Changes in v2:
+- Drop all patches from v1 except:
+  - dt-bindings: clock: add clock definitions for exynos7870 CMU
+  - dt-bindings: clock: document exynos7870 clock driver CMU bindings
+- Add patch for adding appropriate PMU compatible.
+- Add patches for CMU and CLKOUT drivers.
+- Link to v1: https://lore.kernel.org/all/20250203-exynos7870-v1-0-2b6df476a3f0@disroot.org/
+
+---
+Kaustabh Chakraborty (2):
+      dt-bindings: clock: add clock definitions and documentation for exynos7870 CMU
+      clk: samsung: add initial exynos7870 clock driver
+
+ .../bindings/clock/samsung,exynos7870-cmu.yaml     |  227 +++
+ drivers/clk/samsung/Makefile                       |    1 +
+ drivers/clk/samsung/clk-exynos7870.c               | 1830 ++++++++++++++++++++
+ include/dt-bindings/clock/samsung,exynos7870-cmu.h |  324 ++++
+ 4 files changed, 2382 insertions(+)
+---
+base-commit: be5c7bbb3a64baf884481a1ba0c2f8fb2f93f7c3
+change-id: 20250203-exynos7870-pmu-clocks-d0b330970ea7
+
+Best regards,
+-- 
+Kaustabh Chakraborty <kauschluss@disroot.org>
 
 
