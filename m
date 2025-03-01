@@ -4,81 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 372CCC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 09:10:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96390C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 09:13:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QvUE+Tu/IVZPes5fzG0I4LWpU80ablvAm40ZZxVqfz4=; b=vBxhlIX1tkAVRWokhBmb+irOb0
-	k+aBfuFAJOAa6hJEIKQ5bqGr016IlgE9ZfF7O+S6gFX+re18CWUMXoiEJ3J+82sqxt4vqp6NYckon
-	F4fdVH0wQI4W0WmNsW32GJc51DJr82LESjVXTRJg62Io9b8woWRlxnqdv0J3mizRvk3HgPmZnJi1w
-	+Le6stO7uy8/uxOW4TCT3yt7DDkaNs2eanSyIcrwblK7UILlXi/nxUEtEj8BXGtqtFMEZx08QRnrD
-	2HUtHa+X7vGlFKPoiYTvXMEtir8wj2NizUxJHYfDzcwEcmrz9i5BZpUXCBlGOUAKBJVb2zav8kpBI
-	Gh8tQvGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=62M00yAg51rrJZ04g8zC95EvNZ84F8x3AjdAvJoHunw=; b=A1uv8wPUVUdLqnDjxddwi7oPSp
+	mCPASftGXQiCKxfIdiBksmW959iw9nrh2Q/IjdU0VkDbaR2yD8qe7nbZYFUTN0GfoJCeettsXfLIL
+	BREpkvWetNSTZQut+QDqnkE8zpzelgYey8TmJ7m+NXt30ZF/IgtQhh9zWOzT3Q1RVnnRd+aIAZia3
+	7FYzYxDyN1qk733tjOeTewO+Jk1T7vyJSdR3UTGYGYPdaxYB3NPtpScVrrkudomULDsKxqs6FXz7r
+	Ee6oUbDCpD4YtMO/0wwAALBUIXPRLWQCLX2g8HkxJvBe47RzDCZZiT6NYuB9SsjZQzgkTlZSyeg3S
+	EcEoy6Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toIrH-0000000DfNj-0lMl;
-	Sat, 01 Mar 2025 09:10:07 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1toIup-0000000DgBo-1t0i;
+	Sat, 01 Mar 2025 09:13:47 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toIpi-0000000DfIE-466n
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Mar 2025 09:08:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740820111; x=1772356111;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=bQUvH/LR1KxS95c+RJnGjDSETbksb7G0/CS5aZy0gsA=;
-  b=mqW+vvzLnaUfHEwO3VeNwHHsZVQ9QjpxqFYXZU0YVNy5ZXWF9aFgEAXz
-   MacjHuruaZmTGknAKq1dAIq0deh0VwIejHp3kiRNjzDvV1GoE89i/b0fi
-   GdWPtJh0t3UgCsVee33X0QDKqtzu0bzbubVgY8oBAnZ0kHVroAYjm9jgE
-   mkxmJirwfBuGTarKduqpA5SPkDbyZGuDuGJ7WYVY3WFCvsx11pMl9YgZ1
-   17at3MVnHdvf0ZxVubuxaqnmuOrZ0jgg7Z+bJjAGjUptpMlWOcYp+pF9R
-   hc/zIXA0VdKgh8QLY95M7jDvNtQQeSWHRJa0B7ldY1n9IaMD4tAItizPO
-   w==;
-X-CSE-ConnectionGUID: +LajsOPGR5enrHEjeOO5/Q==
-X-CSE-MsgGUID: P8FbZ0KMTDW2NdR5vweH1g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11359"; a="41596831"
-X-IronPort-AV: E=Sophos;i="6.13,325,1732608000"; 
-   d="scan'208";a="41596831"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Mar 2025 01:08:25 -0800
-X-CSE-ConnectionGUID: hUwnSczhT5aCxc0MFFZ1sQ==
-X-CSE-MsgGUID: 4nOe0TxbSYe4812Pe2RycA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,325,1732608000"; 
-   d="scan'208";a="117564427"
-Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
-  by orviesa006.jf.intel.com with ESMTP; 01 Mar 2025 01:08:22 -0800
-Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1toIpX-000G4Q-2G;
-	Sat, 01 Mar 2025 09:08:19 +0000
-Date: Sat, 1 Mar 2025 17:07:36 +0800
-From: kernel test robot <lkp@intel.com>
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/4] arm64: dts: exynos: add initial support for
- Samsung Galaxy S22+
-Message-ID: <202503011651.Vto3vDw7-lkp@intel.com>
-References: <20250223123044.725493-4-ivo.ivanov.ivanov1@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250223123044.725493-4-ivo.ivanov.ivanov1@gmail.com>
+	id 1toItF-0000000DfXM-2l4v;
+	Sat, 01 Mar 2025 09:12:10 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5e4bed34bccso3969536a12.3;
+        Sat, 01 Mar 2025 01:12:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740820328; x=1741425128; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=62M00yAg51rrJZ04g8zC95EvNZ84F8x3AjdAvJoHunw=;
+        b=URkxpGTqwW+LU9Ht1F4QvwOh+pG2Rk9+WBDSU1XWTCDPnpwlOd0O5d9Su4y1TwocW0
+         R43TIAyHZGVZAod+uM+VQGcAFHJ+hOJJSn1wpzggFtI5EGV7sTJAoaxUKWU8O/QAesZs
+         10dnv18otfaV6Bk+RohWCKIRXh5U/CwT1GLjYMyYHf3bUxFdGbOk2xi4p8BcVVNWQvCx
+         YyMHGnOiZRnP4rFNinyL6mZIPWpds+pI5hLcT0FSwoNCSxc/GqncXl56cD5y87PsAv7M
+         YiQBCSLWegn/UOPdt3nl8klAw1EJU/Nlan0MG4SRLQitjFDWUVcwWSKLJeKE8a9sEu+n
+         7RBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740820328; x=1741425128;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=62M00yAg51rrJZ04g8zC95EvNZ84F8x3AjdAvJoHunw=;
+        b=CQ0tWqd+XjY7iCFG4cUHtmW6ysb6TZH33maNPmcVzOiSwUBIEbILMEZgWwMT4v43J2
+         mhRyiOFgPXD3cFihbFgi1x/971xB5cey6oAuhAOHg5Dzu4FckmnLK6ODuLXDOn+0HpoS
+         EljvFoaP2dd32O36089KXR9jgikcKzgCNEYIadQu9SsDp1hr30izTgqeUM7FVlLWYBwi
+         fG1K1wbsm72obSjzNJqipDtmUoOmpqipbtrZNdOLTMhFVAaKzgccAR8qrPT3KwTqCnEJ
+         gCbqxuKmASpw7pLbhw/Ul4rmggTvvwrBZUcnZT6fSpiugsuwOKGTx+97g5Jb0UQZiChM
+         D5Ew==
+X-Forwarded-Encrypted: i=1; AJvYcCW4rAGtwos/e/eAh61LBfgMIhkBusaj7XoO7HGrAy4dgzA2NNUdaCZhc3cAIhlBDLw4NmwjEG/g4xRMiEvllSOT@lists.infradead.org, AJvYcCX40hguxW6xarV0PxWQruvKGB6pcOv6zAz/eIQCM5JoJFRVVaN5kRFKd/tfJsip0JRIKfiowuuwCGCxev0WoBA=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyu3p8nv2Rn7WyADBK8dWVmp+XulZKGxgJgl4Hfs3a7AeSITpqT
+	oqj2m/gr6zIQ6bonhqZ6JvWxZgdR73D0hgiLQLEazsz4RF7pgPRu
+X-Gm-Gg: ASbGncucYwYiFued22frUSGGc4+cpIdiV2EeYZaHiXYQol/MY7WRGJrpYlw2lMquGf3
+	nl0CCzV0CSmlPq5ufuSgJ7a5njr5dkC6vjQsayG/mWCvN1j0ZbIsZVvGS1b870xWNKlVEf3JgO6
+	ul8s2bkdTD1rPY+PTTSq2tKzKBOTAW7p4L4WZgNofg77MkaBp8ZF+377YdUG5F58TnWkbo+1Nz1
+	8Fw5fqxbe64RGRE/I1XtAMv+sC21QQ6bSYntqqWrmgXSzO8skMYKlncOkCywj7xepILTK1M4dBV
+	XiU5wCuZ1jGCgG7N5eTtwmJQQ9nKvfuHe/EVIS988bEI4Mm8y1KXlTTV0jnh8O1wG8UOFOkqK4H
+	YJSn9fFOyQh57/8JYeLjNEoW1gA==
+X-Google-Smtp-Source: AGHT+IEV8xcpINPWUe49yXpBYPm3MtVspqPFUx6SBprxmJEllwjfLWfeeFh1xeuz1VE+t2lFH6t06w==
+X-Received: by 2002:a17:907:7288:b0:abf:5922:b7a8 with SMTP id a640c23a62f3a-abf5922dccamr135545766b.41.1740820327515;
+        Sat, 01 Mar 2025 01:12:07 -0800 (PST)
+Received: from smtpclient.apple (89-66-237-154.dynamic.chello.pl. [89.66.237.154])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abf0c0b98b5sm436358366b.3.2025.03.01.01.12.05
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 01 Mar 2025 01:12:07 -0800 (PST)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.400.131.1.6\))
+Subject: Re: [PATCH v7 0/3] Add HDMI audio on the rk3588 SoC
+From: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
+In-Reply-To: <3337030.aeNJFYEL58@trenzalore>
+Date: Sat, 1 Mar 2025 10:11:54 +0100
+Cc: linux-kernel@vger.kernel.org,
+ Algea Cao <algea.cao@rock-chips.com>,
+ Heiko Stuebner <heiko@sntech.de>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ dri-devel@lists.freedesktop.org,
+ Niklas Cassel <cassel@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ kernel@collabora.com,
+ David Airlie <airlied@gmail.com>,
+ Dragan Simic <dsimic@manjaro.org>,
+ Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>,
+ Robert Foss <rfoss@kernel.org>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Sugar Zhang <sugar.zhang@rock-chips.com>,
+ linux-rockchip@lists.infradead.org,
+ Chen-Yu Tsai <wens@csie.org>,
+ FUKAUMI Naoki <naoki@radxa.com>,
+ devicetree@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>,
+ Jonas Karlman <jonas@kwiboo.se>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+ Johan Jonker <jbx6244@gmail.com>,
+ linux-arm-kernel@lists.infradead.org,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Alexey Charkov <alchark@gmail.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <0A30138B-183E-4816-80FF-AACDCFE3B3A6@gmail.com>
+References: <20250217215641.372723-1-detlev.casanova@collabora.com>
+ <87frk2sumw.wl-kuninori.morimoto.gx@renesas.com>
+ <8734g2sg4t.wl-kuninori.morimoto.gx@renesas.com>
+ <3337030.aeNJFYEL58@trenzalore>
+To: Detlev Casanova <detlev.casanova@collabora.com>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+X-Mailer: Apple Mail (2.3826.400.131.1.6)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250301_010831_057395_FBBF0355 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20250301_011209_694205_C5AE290A 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,45 +133,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ivaylo,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on krzk/for-next]
-[also build test ERROR on robh/for-next krzk-dt/for-next pinctrl-samsung/for-next linus/master v6.14-rc4 next-20250228]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Ivaylo-Ivanov/dt-bindings-arm-samsung-document-g0s-board-binding/20250223-203243
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git for-next
-patch link:    https://lore.kernel.org/r/20250223123044.725493-4-ivo.ivanov.ivanov1%40gmail.com
-patch subject: [PATCH v2 3/4] arm64: dts: exynos: add initial support for Samsung Galaxy S22+
-config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20250301/202503011651.Vto3vDw7-lkp@intel.com/config)
-compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250301/202503011651.Vto3vDw7-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202503011651.Vto3vDw7-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from arch/arm64/boot/dts/exynos/exynos2200-g0s.dts:9:
->> arch/arm64/boot/dts/exynos/exynos2200.dtsi:8:10: fatal error: 'dt-bindings/clock/samsung,exynos2200-cmu.h' file not found
-       8 | #include <dt-bindings/clock/samsung,exynos2200-cmu.h>
-         |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   1 error generated.
 
 
-vim +8 arch/arm64/boot/dts/exynos/exynos2200.dtsi
+> Wiadomo=C5=9B=C4=87 napisana przez Detlev Casanova =
+<detlev.casanova@collabora.com> w dniu 25 lut 2025, o godz. 15:58:
+>=20
+> =46rom what I see, the error is not present anymore on linux 6.14-rc4. =
+I tried=20
+> reverting your patch "ASoC: simple-card-utils.c: add missing =
+dlc->of_node"=20
+> (dabbd325b25edb5cdd99c94391817202dd54b651) and the error reappears.
 
-b661f5fc96c5e9 Ivaylo Ivanov 2025-02-23  @8  #include <dt-bindings/clock/samsung,exynos2200-cmu.h>
-b661f5fc96c5e9 Ivaylo Ivanov 2025-02-23   9  #include <dt-bindings/interrupt-controller/arm-gic.h>
-b661f5fc96c5e9 Ivaylo Ivanov 2025-02-23  10  
+Guys,
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Just FYI:
+
+On 6.14-rc4 without =
+0001-ASoC-simple-card-utils-Don-t-use-__free-device_node-.patch - i =
+still have oops like this: =
+https://gist.github.com/warpme/ed75c05d3b68f995d429dbd9097005ba
+They are happening not every boot - but still happening.
+
+However applying =
+0001-ASoC-simple-card-utils-Don-t-use-__free-device_node-.patch (with =
+some adaptations as it not applies cleanly on 6.140rc4) - dmesg becomes =
+clean (10 boots; all ok)
+
+
+
+
+
 
