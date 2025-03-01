@@ -4,67 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71059C282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 07:09:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 773B7C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 07:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MMyfAQMi7XN58LfB1Yr9WXjsnjFEiBkWPwHeF12IGj0=; b=ELgAnb+NITbWyWNxlwO2ZuK0Op
-	bAHyg/xH2FspOFvpz60OnECRJuceuJ0ABwOfAx+cmfWwoew94GsuTNAbcSONYet9oiBP58ekLtuN0
-	fmtX5PaudR6hB1TftL64djMF0/Uum8fqRn0mZi5Vjw7ed4NmphV//RCHmwX5IXvXLAz/Iz2XLBMhI
-	7w0LefzS0XlaZGj0px7UWJgw1hLjMjjo8rSRHmgqEv8+OQbYIw98ZMShxqABSuwEsyvWq5wzf184v
-	0pHQ0FXyA+4S1g9yabcGpXUWRk9sgZ7bvkLcmj75tvycbs+//3qJTSkuGExUepe6tlxQm4xdCpl89
-	hLd75ahw==;
+	bh=+XlLjospi/pTgO4kQI2VjN8VjdTkjc4zyHpzF3bj1eU=; b=e/o52GAsXDeyydk+UC0yIudaqC
+	HOI7ok3WOGirbZeoHxGvy0z0oo+7vNjRxWzg23acNkz0CTZV/OlZc85++fdNIb5B+v8NgynBivk1j
+	J1+AhZ1tm4CNb/oXxFIMbmDzf2LqQmFUmA1nJ1iWFHfQG2Yldn8Kpop0kuKzLhIMQGWzJL14XtNs3
+	Bu0XlvL3ZS1R0bcSydEAPC4jRL85nHnLjzMuA3jSS7g68MmYweU+yF0Vv90uMIDaF/jyf/8Sdm46G
+	D5o5AKilC+muOKVRhw46i8Aukv9eIfHAAWJK0hLxthDc+9NDHqPw8jPMLn2eJvt54KWiBzKLLV/dv
+	VN0pHUdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toGy1-0000000DY2F-16cG;
-	Sat, 01 Mar 2025 07:08:57 +0000
+	id 1toGzX-0000000DY8V-3qG9;
+	Sat, 01 Mar 2025 07:10:31 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toGuk-0000000DXOJ-3NHz
+	id 1toGun-0000000DXOZ-1RKo
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 01 Mar 2025 07:05:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2E0225C3F39;
-	Sat,  1 Mar 2025 07:03:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2F14C4CEDD;
-	Sat,  1 Mar 2025 07:05:30 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0ABDB5C04BD;
+	Sat,  1 Mar 2025 07:03:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31A97C4CEE5;
+	Sat,  1 Mar 2025 07:05:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740812732;
-	bh=yuV32O2uacAQPpFXxHdzerV8Z0lORjwgQUBONgdPDh4=;
+	s=k20201202; t=1740812736;
+	bh=+fhqb2OIeApH9GqBSR9/bHlgcwJ4dCJAUctYxXvGHYg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Vl0VyKZWz3vG3O12uSfoyp3OypG0rM+HcoZ7wkh5vZUgctgR/LBcFWq75Fyjt+wXL
-	 b+gNN5AWEZi0xN9VEpKICCwUPda0JkzOGFisFMDupjrCV/7n6dDbKyEQ3q43aJiLiO
-	 v4j6yJTq2OfVQEH/0bEt7+9O7anvmoUEcUnld4+/BT3yn7u3s/j4eBeh+DGSNP9uiC
-	 W/9OF3DJSngzizuIHc73DvTCsxJOO00TKBi6BJ+IJbqbqwmUQUpPwbdhPURghXbNsP
-	 5BJmoe+UD+A6LkXDt2hyPwuzYEvZokhESPx1kOiuu/Dw/BN4sY7Yk1UKXMyvOYUGJv
-	 GqbMRFqu0X2Bw==
+	b=DZtZgzDeox7blJGzCTytvlYuN5NP0CFoYki+ophtf02ztIfhu/1AKHYqsWYIX2cxm
+	 Pmar+FfLsz6PzA/fxnXx7TimQN9YnfriWup5AChiRqpZObzVJ5sOEicRyNSm51W1id
+	 5bdDX+Znij/+CYescJwwOr+GEU2yrwc1AryFBAKf8mOryLBvFARkvBh9fC2uB4Wnwf
+	 zpFJFhCobDOZqSjO56dd1RNLIEcCnDD6br/mHEddETFd6u9kwQsxHwUe76tx0TAS+l
+	 vYX7rTUlSg0iroXbbpOhUzq8nGWWY21upMM+nL+rGjsXxdIeoWjGOv+gt2fMF0VUmR
+	 Qwccz0LEaUWMA==
 From: Will Deacon <will@kernel.org>
-To: xueshuai@linux.alibaba.com,
-	renyu.zj@linux.alibaba.com,
-	mark.rutland@arm.com,
+To: Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	James Clark <james.clark@linaro.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Leo Yan <leo.yan@arm.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-perf-users@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Yunhui Cui <cuiyunhui@bytedance.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v4 0/2] Fix dwc_pcie pmu driver issues
-Date: Sat,  1 Mar 2025 07:05:23 +0000
-Message-Id: <174080955779.3218826.2678564312238293449.b4-ty@kernel.org>
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH v20 00/11] arm64/perf: Enable branch stack sampling
+Date: Sat,  1 Mar 2025 07:05:24 +0000
+Message-Id: <174080569248.3208873.17639032755999041028.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20250220121716.50324-1-cuiyunhui@bytedance.com>
-References: <20250220121716.50324-1-cuiyunhui@bytedance.com>
+In-Reply-To: <20250218-arm-brbe-v19-v20-0-4e9922fc2e8e@kernel.org>
+References: <20250218-arm-brbe-v19-v20-0-4e9922fc2e8e@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_230534_885868_66E0F969 
-X-CRM114-Status: UNSURE (   8.43  )
+X-CRM114-CacheID: sfid-20250228_230537_421635_73701DBC 
+X-CRM114-Status: UNSURE (   8.81  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,24 +90,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 20 Feb 2025 20:17:14 +0800, Yunhui Cui wrote:
-> v1:
-> Only sent the patch titled "fix duplicate pci_dev devices".
+On Tue, 18 Feb 2025 14:39:55 -0600, Rob Herring (Arm) wrote:
+> This series enables perf branch stack sampling support on arm64 via a
+> v9.2 arch feature called Branch Record Buffer Extension (BRBE). Details
+> on BRBE can be found in the Arm ARM[1] chapter D18.
 > 
-> v2:
-> 1. New patch: "fix the incorrect reference count".
-> 2. The "fix duplicate pci_dev devices" change is made in two places:
-> One is to remove the modification of the PMU name. The other is to change
-> "for_each_pci_dev" to "pci_get_domain_bus_and_slot".
+> I've picked up this series from Anshuman. v19 and v20 versions have been
+> reworked quite a bit by Mark and myself. The bulk of those changes are
+> in patch 11.
 > 
 > [...]
 
-Applied to will (for-next/perf), thanks!
+Applied cleanups to will (for-next/perf), thanks!
 
-[1/2] perf/dwc_pcie: fix some unreleased resources
-      https://git.kernel.org/will/c/6eb1e8ef586a
-[2/2] perf/dwc_pcie: fix duplicate pci_dev devices
-      https://git.kernel.org/will/c/7f35b429802a
+[01/11] perf: arm_pmuv3: Call kvm_vcpu_pmu_resync_el0() before enabling counters
+        https://git.kernel.org/will/c/04bd15c4cbc3
+[02/11] perf: arm_pmu: Don't disable counter in armpmu_add()
+        https://git.kernel.org/will/c/dcca27bc1ecc
+[03/11] perf: arm_pmuv3: Don't disable counter in armv8pmu_enable_event()
+        https://git.kernel.org/will/c/4b0567ad0be5
+[04/11] perf: arm_v7_pmu: Drop obvious comments for enabling/disabling counters and interrupts
+        https://git.kernel.org/will/c/7a5387748215
+[05/11] perf: arm_v7_pmu: Don't disable counter in (armv7|krait_|scorpion_)pmu_enable_event()
+        https://git.kernel.org/will/c/7bf1001e0d91
+[06/11] perf: apple_m1: Don't disable counter in m1_pmu_enable_event()
+        https://git.kernel.org/will/c/c2e793da59fc
+[07/11] perf: arm_pmu: Move PMUv3-specific data
+        https://git.kernel.org/will/c/dc4d58a752ea
 
 Cheers,
 -- 
