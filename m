@@ -4,66 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90504C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 12:26:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEAA3C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 12:34:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uk/TVbQmEdhrRriBBk8oaPcQkjOcMSzkB2nVTddFJcY=; b=0b37cEA/RlnxDuhXKv8JDWdUJx
-	muKeq3SUH0rNCg5Jeo9EDSwEPnv5iH8hDrH83Q45FF4po9IG4c0weD5RLK/ioGFAi8fVvtkxZPTTh
-	I9VzNJxgL+HMTM2HPm09g3ESt/+i5ponr+spa0qA7Zg/zKr5/qn9Sgalhdo9DEdpNr5OLvcZM8AQw
-	rpe4Qel2qQdXMUH+EHJhONI7meV3EVsEXMJUwLSGZFvOyCRKUy9ri3C9NjbHImhFIeMYxRR3gWzH2
-	0mtPL+iuiPxxxmAYuyzTl78c5gKXJCvtiL43eo+XAToMytUpdjc+lS04V1G9n0GvmePToyD4iUF9O
-	gXwhnlYA==;
+	bh=ra8gIKFKFiVeUd/HquZVV+FuM2qhRTGX+65IuN5qPDE=; b=tNQWgYyAM3/Rb4nisYTdmSNMYZ
+	8HkEIDHWzJqK+ErJpKH/eEaeZUzzWIAeGzQfdmyuQ18UVjTEUOa50S7fO5Pv6RmcBeiJCPWXgAx8y
+	x3X9c6b4Jb00tDSCQ20Tocoi3xJelm3ct8+AQ1TurJLGn7tMSN0qpU7xOcb6b3rnyF/jvKPLnLXZ/
+	0SPsLdk1pDBT4aveud1EzUxLnHhm3En8X6Pyk+p3hsEFCN6msYQC0IOkVW9wrl1LapFdbuGVtJBOc
+	+8nQxt2OuZbAWELDEB0nSLfLDcPFHNyxZ/WOdlaOcq7kCJc4R1ZIG/IjTW7r6GVCVXWWpu2XUXWP1
+	AxJW3FMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toLvZ-0000000Dv1c-25mV;
-	Sat, 01 Mar 2025 12:26:45 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toLu0-0000000Dust-1DAf;
-	Sat, 01 Mar 2025 12:25:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=OoaYmHX0XxMb3ZGRzqhrOqA+8ik0zFy9oaiXUktOM0A=; b=S
-	2wcqCYjrorMjz0J+aoOHGkQMzk1/HZoe378Dg6qq2Bvi3+iWO4pVzMiKlm51zlXM
-	NHUpBgtTGvLaityI1KHr6V/hyQNAdurRMt+4Bx9dU4aTL/rde6dix2eCHPFk5te1
-	ctQ9plpH2Zi2crBPTys9FKRwmlJtjWsvcS+UNB2Vl8=
-Received: from andyshrk$163.com ( [58.22.7.114] ) by
- ajax-webmail-wmsvr-40-107 (Coremail) ; Sat, 1 Mar 2025 20:24:34 +0800 (CST)
-X-Originating-IP: [58.22.7.114]
-Date: Sat, 1 Mar 2025 20:24:34 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: "Piotr Oniszczuk" <piotr.oniszczuk@gmail.com>
-Cc: heiko@sntech.de, neil.armstrong@linaro.org,
-	sebastian.reichel@collabora.com, devicetree@vger.kernel.org,
-	hjc@rock-chips.com, mripard@kernel.org, linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, yubing.zhang@rock-chips.com,
-	dri-devel@lists.freedesktop.org,
-	"Andy Yan" <andy.yan@rock-chips.com>, krzk+dt@kernel.org,
-	robh@kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re:Re: [PATCH 0/6] Add support for RK3588 DisplayPort Controller
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
- Copyright (c) 2002-2025 www.mailtech.cn 163com
-In-Reply-To: <AC3DE87B-64B1-4C34-8E1B-3900E2C53AA3@gmail.com>
-References: <20250223113036.74252-1-andyshrk@163.com>
- <AC3DE87B-64B1-4C34-8E1B-3900E2C53AA3@gmail.com>
-X-NTES-SC: AL_Qu2fAvSYvkAs4imaYekfmkcVgOw9UcO5v/Qk3oZXOJF8jCHpyAceeXBTHlbv/PCDBDqXkAiHVDdI89xeb5lhU4kMvpw71wI8xCMUqheypabd2w==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1toM2S-0000000DvPC-2K2z;
+	Sat, 01 Mar 2025 12:33:52 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1toM0u-0000000DvJM-1EWq
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 01 Mar 2025 12:32:17 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-2f9b9c0088fso5357422a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Mar 2025 04:32:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740832335; x=1741437135; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ra8gIKFKFiVeUd/HquZVV+FuM2qhRTGX+65IuN5qPDE=;
+        b=D3ahCqygqpp7sCkPWOr0049yv+DsQQleSqdtWh1GYWHa8sZFF4+nqYgoJKPSpXYNrH
+         sCLWVpwlbjplWWmhfnxOu0XWJQL/WO4pvlliVRd08TXleWYpOsY/bedC55DFSLzcuHeD
+         287bLsfS0kiS6xoPvT/h5zjehaZr2CvzPCE5iUqaJpyiy9BgJyt55lTjqphB2NeuSaSh
+         rqRrRfjewMxEBQQTxCrzv5RRT4bRdFpOtoejKH70jTqzLAhvK4/nGM6UKtYCHoUreN+0
+         a6g9Sve5g9/vtEu5Zg3vmv7bL8qGILheSUWZ1/fnA2ZJX9U6bAqr8VUURLQ0p7iA94zc
+         7hlQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740832335; x=1741437135;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ra8gIKFKFiVeUd/HquZVV+FuM2qhRTGX+65IuN5qPDE=;
+        b=RyzgwDBsDBiOOFHCAigoVoJ1yR9gvKci7JIszeLLLryET/+vHEmjko2BZ9qOcVmSqX
+         o601yUPsEGN6yGT+dpwWOEDhN3MRhKY0fvexsIAFgqNp1mi3fdxs1GLZEm1xQKVENP5u
+         Uu+NOVOBP4bduolXWhUKLAdAyJ0a1v6AdoY6FCv5R2zkwnaf0gs0z5u3bPWMSDJJnQXJ
+         UXwfHUf8KJIh9Q3LWhvD+PYSDMgKvciPEi5dIRsN2XUap5od6pGGyTFwUJLg7gpJ/FyX
+         oGIQlRxPC6KdJ9uvKQfmcUPZx0NcGCGb3jnjOBrXGwEOItqwxWmrg+/QySKBOENoZMN9
+         x7Ng==
+X-Forwarded-Encrypted: i=1; AJvYcCXwL06F7PklEfM4y+6PAQb+qQXE4JoHuZJesdLn5RxWzlpQ5kBwPa2mpPe2pFJ2FmAyolx++NBGsMFBlldVxeK6@lists.infradead.org
+X-Gm-Message-State: AOJu0YwnLEPlX6tuj41EGoMlzs0VU3jSDodED8H1+CUphsBLuLgPxi1T
+	mkdmw2ob+2f2oJoYWyCl9oPFWO4yhEy6S4lnpi1vJ1blbSGxqrXZ
+X-Gm-Gg: ASbGncs8Fxt9c3VhC16Nd/+wTi40nCal/6F9v4RaBh7eTuvAjaLG9FWaRqK0kX9zz41
+	uNsedc0IqamVmj8dpqwHkOXoKq+nXm3lEOrsBOinry9Krv5HlDOnG3bCW0MMBJFZoCaDCG+O1lx
+	/aXNpvVmL94wdA57pxL66+X74MJw3jmNOMHi9kUZ7DC/3MmWhI4+YTs9AuzkIktzi6ZDFe/8Rb8
+	x8wnSpWnemj/te0kjHunVDcHq3askk18lnl8uJ3QtvnhP2Wv97m1eT5fgouRXvk5prbVDiYwcvA
+	8da/qgCZhUapaXvBtEE0Yj3HderfOHfqGkde0CNrfdQfwprjRioWdT7BoGpgFVF1AddC
+X-Google-Smtp-Source: AGHT+IF1mhUuctMChazLjJnYgbLD4i8xF/OkaFyb4KVb61pxcTtGOZi+8D/BZaLS5+Cyjw+B2Dpcww==
+X-Received: by 2002:a17:90b:1e51:b0:2ee:c30f:33c9 with SMTP id 98e67ed59e1d1-2feba92bfc9mr11663696a91.14.1740832334925;
+        Sat, 01 Mar 2025 04:32:14 -0800 (PST)
+Received: from [192.168.0.101] ([59.188.211.160])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fe825a99a7sm8346849a91.6.2025.03.01.04.32.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 01 Mar 2025 04:32:14 -0800 (PST)
+Message-ID: <83130117-509a-45ff-bf96-26beb77246e1@gmail.com>
+Date: Sat, 1 Mar 2025 20:32:10 +0800
 MIME-Version: 1.0
-Message-ID: <7b8767fc.3607.19551aa5f74.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: aygvCgA3X+eD_MJna0JzAA--.55803W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0hoDXmfC+twJKAABs2
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/9] arm64: dts: apple: Add CPU cache information for
+ Apple A7-A11, T2 SoCs
+To: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250220-caches-v1-0-2c7011097768@gmail.com>
+ <4670e5f8-2a92-46bd-8faa-dd3774517f3e@app.fastmail.com>
+Content-Language: en-US
+From: Nick Chan <towinchenmi@gmail.com>
+In-Reply-To: <4670e5f8-2a92-46bd-8faa-dd3774517f3e@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250301_042508_690496_C05B5FCF 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20250301_043216_334242_34911033 
+X-CRM114-Status: GOOD (  19.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,37 +103,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CkhpIFBpb3RyLAoK5ZyoIDIwMjUtMDMtMDEgMDQ6MzA6MzPvvIwiUGlvdHIgT25pc3pjenVrIiA8
-cGlvdHIub25pc3pjenVrQGdtYWlsLmNvbT4g5YaZ6YGT77yaCj4KPgo+PiBXaWFkb21vxZvEhyBu
-YXBpc2FuYSBwcnpleiBBbmR5IFlhbiA8YW5keXNocmtAMTYzLmNvbT4gdyBkbml1IDIzIGx1dCAy
-MDI1LCBvIGdvZHouIDEyOjMwOgo+PiAKPj4gRnJvbTogQW5keSBZYW4gPGFuZHkueWFuQHJvY2st
-Y2hpcHMuY29tPgo+PiAKPj4gCj4+IFRoZXJlIGFyZSB0d28gRFcgRFBUWCBiYXNlZCBEaXNwbGF5
-UG9ydCBDb250cm9sbGVyIG9uIHJrMzU4OCB3aGljaAo+PiBhcmUgY29tcGxpYW50IHdpdGggdGhl
-IERpc3BsYXlQb3J0IFNwZWNpZmljYXRpb24gVmVyc2lvbiAxLjQgd2l0aAo+PiB0aGUgZm9sbG93
-aW5nIGZlYXR1cmVzOgo+PiAKPj4gKiBEaXNwbGF5UG9ydCAxLjRhCj4+ICogTWFpbiBMaW5rOiAx
-LzIvNCBsYW5lcwo+PiAqIE1haW4gTGluayBTdXBwb3J0IDEuNjJHYnBzLCAyLjdHYnBzLCA1LjRH
-YnBzIGFuZCA4LjFHYnBzCj4+ICogQVVYIGNoYW5uZWwgMU1icHMKPj4gKiBTaW5nbGUgU3RyZWFt
-IFRyYW5zcG9ydChTU1QpCj4+ICogTXVsdGlzdHJlYW0gVHJhbnNwb3J0IChNU1QpCj4+ICrvga5U
-eXBlLUMgc3VwcG9ydCAoYWx0ZXJuYXRlIG1vZGUpCj4+ICogSERDUCAyLjIsIEhEQ1AgMS4zCj4+
-ICogU3VwcG9ydHMgdXAgdG8gOC8xMCBiaXRzIHBlciBjb2xvciBjb21wb25lbnQKPj4gKiBTdXBw
-b3J0cyBSQkcsIFlDYkNyNDo0OjQsIFlDYkNyNDoyOjIsIFlDYkNyNDoyOjAKPj4gKiBQaXhlbCBj
-bG9jayB1cCB0byA1OTRNSHoKPj4gKiBJMlMsIFNQRElGIGF1ZGlvIGludGVyZmFjZQo+PiAKPj4g
-VGhlIGN1cnJlbnQgdmVyc2lvbiBvZiB0aGlzIHBhdGNoIHNlcmllcyBvbmx5IHN1cHBvcnRzIGJh
-c2ljIGRpc3BsYXkgb3V0cHV0cy4KPj4gSSBjb25kdWN0ZWQgdGVzdHMgaW4gMTA4MHAgYW5kIDRL
-QDYwIFlDYkNyNDoyOjAgbW9kZXM7IHRoZSBBTFQvVHlwZS1DIG1vZGUKPj4gaGFzbid0IGJlZW4g
-dGVzdGVkIHlldCwgYnV0IEkgc3VzcGVjdCBpdCB3aWxsIGxpa2VseSB3b3JrLiBIRENQIGFuZCBh
-dWRpbwo+PiBmZWF0dXJlcyByZW1haW4gdW5pbXBsZW1lbnRlZC4gRm9yIFJLMzU4OCwgaXQncyBv
-bmx5IHN1cHBvcnQgU1NULCB3aGlsZSBpbgo+PiB0aGUgdXBjb21pbmcgUkszNTc2LCBpdCBjYW4g
-c3VwcG9ydCBNU1Qgb3V0cHV0Lgo+PiAKPgo+QW5keSwKPgo+SXMgdGlzIHNlcmllcyBlbm91Z2gg
-dG8gZ2V0IHVzYmMxL2RwMSB3b3JraW5nIGFzIHZpZGVvIG91dHB1dCA/Cj4oYXNzdW1pbmcgaSB3
-aWxsIGFkZCBuZWNlc3NhcnkgY29kZSBpbiBkdCkgCj4KPnJvY2s1LWl0eCBoYXMgc2Vjb25kIGhk
-bWkgcG9ydCB1c2luZyB1c2JjMS9kcDEgbGFuZXMgMiwzIHRvIHJhNjIwIGRwLT5oZG1pIGNvbnZl
-cnRlcgo+Cj5pcyBpdCB3b3J0aCB0byBwbGF5IHdpdGggdGhpcyBvciBpdCBpcyB0b28gZWFybHk/
-CgpJIHRoaW5rIHlvdSBjb3VsZCBnaXZlIGl0IGEgdHJ5IGlmIGl0IHVzaW5nIHRoZSBTdGFuZGFy
-ZCBEUO+8iG5vbi1BTFQgbW9kZe+8iSBwb3J0IGZvciBvdXRwdXQuIApTaW5jZSBJIGRvbid0IGN1
-cnJlbnRseSBoYXZlIGEgZGV2ZWxvcG1lbnQgYm9hcmQgd2l0aCBEUDEgb3V0cHV0IGF2YWlsYWJs
-ZSwgSSBoYXZlbid0IGJlZW4KYWJsZSB0byB0ZXN0IGl0IHlldC4gQXMgZm9yIHRoZSBUeXBlLUMg
-QWx0ZXJuYXRlIE1vZGUgb3V0cHV0LCBzb21lIHBhdGNoZXMgYXJlIHN0aWxsIHJlcXVpcmVkIApJ
-J2xsICBzZW5kIGl0IHdpdGggVjIgdG9tb3Jyb3cgb3IgbmV4dCB3ZWVrLgpGZWVsIGZyZWUgdG8g
-bGV0IG1lIGtub3cgaWYgSWYgeW91IGVuY291bnRlciBhbnkgaXNzdWVz44CCCgoKPiAK
+
+Sven Peter 於 2025/3/1 夜晚7:11 寫道:
+> Hi,
+>
+> On Thu, Feb 20, 2025, at 13:21, Nick Chan wrote:
+>> Add CPU cache information for Apple A7-A11, T2 SoCs. On Apple
+>> A10 (T8010), A10X (T8011), T2 (T8012), only the caches in one of the
+>> CPU clusters can be used due to the "Apple Fusion Architecture"
+>> big.LITTLE switcher. The values for the P-cluster is used in this
+>> case.
+> So this means that the cache information will be "wrong" when the CPU
+> is in the lower power states and only correct for the higher ones?
+> I'm not familiar with how these values are used; are you and do you
+> know if this will have any weird or unexpected effects?
+> Would it be better to use the cache size for the lower rather than
+> the higher states or does this not matter much?
+The information in the device tree is only used for reporting cache sizes in /sys/devices/system/cpu.
+It represents the physical cache size which may not be the same as the architecturally visible cache
+size. Cache operations in the kernel consult ccsidr_el1 and csselr_el1, so it should be fine.
+>
+>
+>
+> Best,
+>
+>
+> Sven
+Nick Chan
+
 
