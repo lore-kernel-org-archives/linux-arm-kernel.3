@@ -4,67 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7988CC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 13:51:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1CEAC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 13:57:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GHzNbvyD3bPONlhr5SCvvbfh/qU0QUMKuTYRGHpdqI8=; b=YwVPiYi6UhA78sj8zVuv0YtYDP
-	A7ZO+KRAoGul7VhdPUvykLTzgSc9gwq9+0xlrHsvE94bql9MxlEyZ/UEqCUkncihcWaOngvS5Yeby
-	kUZarbLDbO0q1btAz7byxri6oF/jH6q+yELvVZwkc/FO3cH0hDINgP/Sk0szw/Ysu5ktayjYkw60o
-	a6MgHtBKRf5o0onsYA/WwAddLbjqEoJq/y4TY1hnZSUEA/nSorX7qArqf+e4u8OaJNZjxnWVWJBBH
-	wOTBdyV2F3axExymO3tNFeDLqPiYEDvaLFdZMTDqKSpRk6mdmFkzTzAkxb9X4EawUHgERh1EJ2FF+
-	mepPNwAw==;
+	bh=HxRGP+2RiJvSXP0XKSMoxzdUKqSt8ofbrHTZaSQsepc=; b=J0PvrVm3hDfEOs66RU1aMCXyIL
+	j/5AfJ2OvbWLrezsOXR8nUvsZ6Z4Aqpcm6VqaO1+83qKbNyuiQDU4WmhFUOo1sHndDvmPzdJMB2Ua
+	xxxIHESdpev+1LYekNa8qKRYK5cP3nsllX7uHVlkSm33cPJbYiAnIAXpVUz2M7EE4oOfmfjbWW6ba
+	IRjXBVXVNrElAmpUYb9s7TgAwl7cy+8ltXmPs8cf6peTSoXfI/vvblMkF9LiwjOYH4SnqGk8mr+ZG
+	sNHd3SMprvkQSX+u9vMbdEcNo1l8rI8nAIdizXCiwPO/DlvcPUk+z7R0dTA+nH991hzDRk0p9/LZj
+	Mzhq9xYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toNEy-0000000ENLn-1YA9;
-	Sat, 01 Mar 2025 13:50:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1toNLj-0000000ENyW-1zlo;
+	Sat, 01 Mar 2025 13:57:51 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toNDP-0000000EN8l-3Tp7
+	id 1toNKB-0000000ENpp-0E5x
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Mar 2025 13:49:15 +0000
+	Sat, 01 Mar 2025 13:56:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3610161174;
-	Sat,  1 Mar 2025 13:49:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D19BC4CEDD;
-	Sat,  1 Mar 2025 13:49:09 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 850EC5C103B;
+	Sat,  1 Mar 2025 13:53:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A480AC4CEDD;
+	Sat,  1 Mar 2025 13:56:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740836954;
-	bh=+7BkRCaAMc58KXpPqobpivf31lnIl3j+4Emd+l300nk=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=uqwv1xUJNLzBJ1t/hU5t0tEi03hedao4PSnQpep+U31PEUwmomlVrYQDhxMiQ2IX3
-	 aSGYQTc5/kwE874DucxsVcSDX9vnvIa0xsqP7fmhGg1RW6VTSu53LR9OTBOhb763s9
-	 xR6dNiFs2skx2Xw+1F9GkAFheG2IwlFr8Y/i9Eya4FO+WbTzsei1/HBEy0LKUGwAOr
-	 Js874oreIerHFSk74MTLDXu1I+8l9E4mih8Zyer+MTaJE0mlKSAlCg09H3Oy9xsHr3
-	 lrUNxsnZgjUsO+Wq5CpnCoYtLrgZ0wMG+YAdeRUnQk+COyF5aMCBFCQSzl6PDjMpC4
-	 FurCXC3Wf+d7w==
-Message-ID: <20946ee0-4973-4831-bc77-4d9942f1a348@kernel.org>
-Date: Sat, 1 Mar 2025 14:49:07 +0100
+	s=k20201202; t=1740837374;
+	bh=BWrrOoF3IGMQNY48tCuiwV9PVgilEYBkKPd1dGjEiok=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QWw51Fjp/oRQSv6aIA0CmUaV6dSc/Mj0HLps4es1RsJgkN0cMvJoYNueeG+F3Ih9f
+	 9vuH896mJRyz1Y/seplnworuv9I3vxfpCShdoA3wxXDFNWPlUNPGY63msaLyt0QOHZ
+	 /E0U0UgFqtKk8YeHuy5XnkmiPopm241nTzQoEpWuL2vQxf5AQ16RU0pcjbdzkle0eb
+	 C58/sD9sS9C+IqiaKrQVqWZ0Wsi2Sp6XY0oOeLz/hX+G/ls8aRCcv+EKLIaDpxeVmV
+	 wbIjPaIDNkvBKMxotHiGFnjyI9MWx26xtPIG8sY8Hj5dOiNVAbCDW1L7syrLnKNOaS
+	 d5Y3bLptd8CLg==
+Message-ID: <cba16ab1-cd5c-4a00-81ac-896de2b4c2ad@kernel.org>
+Date: Sat, 1 Mar 2025 14:56:07 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [EXTERNAL] Re: [PATCH v3 3/3] arm64: dts: marvell: cp11x: Add
- reset controller node
+Subject: Re: [PATCH 1/5] arm64: dts: exynos990: Enable watchdog timer
+To: Igor Belwon <igor.belwon@mentallysanemainliners.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250217-exynos990-dt-changes-febuary-v1-0-99935218cbf4@mentallysanemainliners.org>
+ <20250217-exynos990-dt-changes-febuary-v1-1-99935218cbf4@mentallysanemainliners.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Wilson Ding <dingwei@marvell.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Cc: "andrew@lunn.ch" <andrew@lunn.ch>,
- "gregory.clement@bootlin.com" <gregory.clement@bootlin.com>,
- "sebastian.hesselbarth@gmail.com" <sebastian.hesselbarth@gmail.com>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- Sanghoon Lee <salee@marvell.com>, Geethasowjanya Akula <gakula@marvell.com>
-References: <20250227192536.2426490-1-dingwei@marvell.com>
- <20250227192536.2426490-4-dingwei@marvell.com>
- <d085c34a-fdbf-4950-a2e3-b3d25a1c0145@kernel.org>
- <BY3PR18MB46730C150D4CB9619B3B05FBA7CC2@BY3PR18MB4673.namprd18.prod.outlook.com>
- <050ae833-10b5-4d80-9856-8bc2f434a74f@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -109,9 +99,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <050ae833-10b5-4d80-9856-8bc2f434a74f@kernel.org>
+In-Reply-To: <20250217-exynos990-dt-changes-febuary-v1-1-99935218cbf4@mentallysanemainliners.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250301_055615_205720_E885346F 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,95 +119,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/03/2025 14:46, Krzysztof Kozlowski wrote:
->>>> Signed-off-by: Wilson Ding <dingwei@marvell.com>
->>>> ---
->>>>  arch/arm64/boot/dts/marvell/armada-cp11x.dtsi | 8 ++++++++
->>>>  1 file changed, 8 insertions(+)
->>>>
->>>> diff --git a/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
->>> b/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
->>>> index 161beec0b6b0..c27058d1534e 100644
->>>> --- a/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
->>>> +++ b/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
->>>> @@ -226,6 +226,8 @@ CP11X_LABEL(rtc): rtc@284000 {
->>>>  		CP11X_LABEL(syscon0): system-controller@440000 {
->>>>  			compatible = "syscon", "simple-mfd";
->>>>  			reg = <0x440000 0x2000>;
->>>> +			#address-cells = <1>;
->>>> +			#size-cells = <1>;
->>>>
->>>>  			CP11X_LABEL(clk): clock {
->>>
->>> Wait, no unit address here.
->>
->> This subnode came from the existing code. I didn't touch this subnode
->> in my patch. As you can see, the system-controller has a wide address
->> range, which includes clock, GPIO registers as well as the unit-softreset
->> register.
->>
->>>
->>>>  				compatible = "marvell,cp110-clock";
->>>> @@ -273,6 +275,12 @@ CP11X_LABEL(gpio2): gpio@140 {
->>>>  					 <&CP11X_LABEL(clk) 1 17>;
->>>>  				status = "disabled";
->>>>  			};
->>>> +
->>>> +			CP11X_LABEL(swrst): reset-controller@268 {
->>>
->>>
->>> So why here it appeared? This is wrong and not even necessary. Entire
->>> child should be folded into parent, so finally you will fix the
->>> incomplete parent compatible.
->>
->> We do need the reset-controller as a subnode under system-controller node
->> for the following reasons:
->>
->> - We need to have 'reg' property in this subnode so that we can get the offset
->>   to system-controller register base defined in parent node. This is suggested
->>   by Rob in V2 comments. 
->>   And we need to know the register size to calculate the number of reset lines.
->>   This is suggested by Philipp in V1 comments.
+On 17/02/2025 22:32, Igor Belwon wrote:
+> Enable the two watchdog timer clusters (cl0, cl2) present
+> on the Exynos990 SoC.
 > 
-> You do not need and you received that comment as well. It is implied by
-> compatible.
+> Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+> ---
+>  arch/arm64/boot/dts/exynos/exynos990.dtsi | 24 ++++++++++++++++++++++++
+>  1 file changed, 24 insertions(+)
 > 
->>
->> - We also need to define the 'reset-cells' in this subnode. And the consumer of
->>   the reset controller uses the label of this subnode for the phandle and reset
->>   specifier pair. 
-> 
-> reset-cells will be in the parent once you fold it.
-> 
->>
->> As I mentioned in my reply to the first comment, the reset-controller is not the
->> only device within the system-controller register spaces. Do you still think I
-> 
-> You provided very little hardware description of the device. So based on
-> hardware description you provided: yes.
+> diff --git a/arch/arm64/boot/dts/exynos/exynos990.dtsi b/arch/arm64/boot/dts/exynos/exynos990.dtsi
+> index dd7f99f51a75412f5c3b91c3425a63652546fa5e..4446a1a54ba2de56879353c9c4a898b1d697fc13 100644
+> --- a/arch/arm64/boot/dts/exynos/exynos990.dtsi
+> +++ b/arch/arm64/boot/dts/exynos/exynos990.dtsi
+> @@ -211,6 +211,30 @@ timer@10040000 {
+>  				     <GIC_SPI 477 IRQ_TYPE_LEVEL_HIGH>;
+>  		};
+>  
+> +		watchdog_cl0: watchdog@10050000 {
+> +			compatible = "samsung,exynos990-wdt";
 
-and to clarify - by device I mean the parent node, the system controller.
-
-Your commit even mentions driver, not the hardware:
-"Add device-tree binding documentation for the Armada8K reset driver..."
-not hardware, so you will get the review as good as you describe things.
-
-Bindings are about hardware so if you disagree with the review here,
-please provide arguments in terms of hardware.
-
-> 
->> should fold it into the parent node. And what I proposed is exactly same as
->> that the armada_thermal driver did (See below). I wonder why what was accepted
->> in the past become not accepted now. 
-> 
-> We did not discuss here drivers, but if you insist talking about
-> "marvell,armada-cp110-thermal" then point me to review or ack from DT
-> people. You claim it was accepted so how did we accept it?
-> 
-> It was 2013 so that's another answer: many things done 12 years ago were
-> done not according to best practices. Also best practices evolved.
-
-
+I don't see bindings in the next, so I am dropping this patch from my
+queue. Please resend when they hit the next.
 
 Best regards,
 Krzysztof
