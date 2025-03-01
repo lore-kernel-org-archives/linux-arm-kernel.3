@@ -4,107 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9407BC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 14:23:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E17CC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 14:37:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ORIznANDdFUcJ5XrtVLvwudtPX3Md0Kyae8OOhvG3h8=; b=ZuFsc51yiApOzFRa8FUkzyjYg9
-	1nkBDNY+8VoWUYmFN2nDqx3YrO25xF7hFg911zTC8csADzuZQEhWLXnudWcIxCt9sOYmHgH8AHkm8
-	4KFTS4Pj5NeffA8H+LLcu2lIOkzt7FhRsqd2WEai+3O5UchLyCghUpw5AKz1M6dhXC+8eKoojHqr1
-	olEaCMD4EPirWgUoZDW8rVnTTPdxnx7wDtMULaiVx2kaqMB015WgIfv8SHF7ld9nNtKrZvNZxnK90
-	9JWcG/Yx69LCptatps+qeuoqCrSDjEGGsDo1mI9rCXnQ29xE+vSJfiJ54rKsy9Az5/hdlcAfHH0VG
-	qoogxHpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ncO524Bzl0PXjah3VCVCg5sSxxzrPzJgF88z4jj9r4o=; b=P8oG0ohbZ8Gq7juVekSopu7pe1
+	s4ZEKq1ncWMkAEbEM4WTPN3bgHKVlK+DQ5lDy+jg2gq1rdABO5HcMIvfcFDn0trdIm0qNc8xAT6nA
+	UQNkCBEx7KMFNGzkIxEebESwfPhSaEAvLtsCdwMkiVcKIDl5RCLK24weV5oLstW2F1ZFcHoujnCY5
+	TuKb/jRhmqvGQhJvW20q1Se3as2YdQd4fnPSj6M7sT2RR4sQpGJp7Xp7PrLRH3ebs0dc8HrI6UEm5
+	FOu8IzyqLrnTgSwVvLwVZYrzEQDTbMImd378uyi1AMaIkaXFfQKwTx2NGs7qP0YhYe6JUoLZgGII3
+	gxRNtTmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toNk2-0000000ERTu-4C2f;
-	Sat, 01 Mar 2025 14:22:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1toNxV-0000000EV9z-0Qtj;
+	Sat, 01 Mar 2025 14:36:53 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toNc6-0000000EQb3-16o3
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Mar 2025 14:14:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5DCAE61177;
-	Sat,  1 Mar 2025 14:14:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B5B5C4CEDD;
-	Sat,  1 Mar 2025 14:14:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740838485;
-	bh=o0368wJb5Y92GremWcVyjHvnwdJ4nqQBlZdIgYR3XZQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SIi8tZ91g090u2vtqcyg5d/KxEAATuo4P7tc7Mbxqnpi8nIdDpdzPknpj/tShE4U+
-	 g9V3ncjo4td5v+laIoGybGshgvaCvPGTlsHArBg/76lflLMaXK+gqevH4UZDpKMxQK
-	 CUdYxCDaDjmteOYCF9XR1/qlVdjCsM/1d+rL8ARA/vY7dZfYl8vzQ7OvctZ7bS/p4K
-	 Q2ZSvpJDkgy9kNnCcTXegmFThyPwxFeoBFQ54T2dZqyG8h7LK68WV/qUpZgasvmPuI
-	 AWvDkg2egYFvAFtGdQCJyhgas7g0Sd/r6avMq850vrKPRoTMA/SH2ryFPnhrIV0TRf
-	 sN64QIgJTYuww==
-Message-ID: <c5cef589-8091-41ce-94e7-82b56ba4143f@kernel.org>
-Date: Sat, 1 Mar 2025 15:14:37 +0100
+	id 1toNvu-0000000EUta-3HNf;
+	Sat, 01 Mar 2025 14:35:16 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id BD0DA66B;
+	Sat,  1 Mar 2025 15:33:41 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1740839622;
+	bh=vOx2aCR711x8XBMo5usk7el1mpTt/EExYD3ss0D/AD4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Jq/ql4+6oMrO70oDvXDSy6Ow+xYAlNbU24jR2LiPzTBdEHCyHtvtF3d/RRjH8ABr9
+	 HWdKdQljD3upBXq7gO6Ju16cNJzvWBd1ShXvVeTW7d53A5dAMQ1l/lMpecRzghS4tY
+	 PaM30k0UNsah8UYFpXRY8QBHltPiFLTKwLIU9jfo=
+Date: Sat, 1 Mar 2025 16:34:53 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Stefan Klug <stefan.klug@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, Dafna Hirschfeld <dafna@fastmail.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/3] media: rkisp1: Set format defaults based on
+ requested color space
+Message-ID: <20250301143453.GJ7342@pendragon.ideasonboard.com>
+References: <20250227114558.3097101-1-stefan.klug@ideasonboard.com>
+ <20250227114558.3097101-2-stefan.klug@ideasonboard.com>
+ <20250301010252.GI7342@pendragon.ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] clk: samsung: update PLL locktime for PLL142XX
- used on FSD platform
-To: Varada Pavani <v.pavani@samsung.com>, aswani.reddy@samsung.com,
- pankaj.dubey@samsung.com, s.nawrocki@samsung.com, cw00.choi@samsung.com,
- alim.akhtar@samsung.com, mturquette@baylibre.com, sboyd@kernel.org,
- linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: gost.dev@samsung.com, stable@vger.kernel.org
-References: <20250225131918.50925-1-v.pavani@samsung.com>
- <CGME20250225132507epcas5p455347acbd580b26ee807e467d3a6a05e@epcas5p4.samsung.com>
- <20250225131918.50925-3-v.pavani@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250225131918.50925-3-v.pavani@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250301010252.GI7342@pendragon.ideasonboard.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250301_063514_990769_A5A587DB 
+X-CRM114-Status: GOOD (  41.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,46 +71,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/02/2025 14:19, Varada Pavani wrote:
-> Currently PLL142XX locktime is 270. As per spec, it should be 150. Hence
-> update PLL142XX controller locktime to 150.
+On Sat, Mar 01, 2025 at 03:02:54AM +0200, Laurent Pinchart wrote:
+> On Thu, Feb 27, 2025 at 12:44:59PM +0100, Stefan Klug wrote:
+> > When color space JPEG is requested, the ISP sets the quantization
+> > incorrectly to limited range. To fix that, set the xfer_func, ycbcr_enc
+> > and quantization to the defaults for the requested color space if they
+> > are not specified explicitly.
 > 
-> Cc: stable@vger.kernel.org
-
-Fixes commit?
-
-> Signed-off-by: Varada Pavani <v.pavani@samsung.com>
-> ---
->  drivers/clk/samsung/clk-pll.c | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
+> The commit message fails to explain why you're addressing xfer_func and
+> ycbcr_enc to fix the quantization issue.
 > 
-> diff --git a/drivers/clk/samsung/clk-pll.c b/drivers/clk/samsung/clk-pll.c
-> index 2e94bba6c396..023a25af73c4 100644
-> --- a/drivers/clk/samsung/clk-pll.c
-> +++ b/drivers/clk/samsung/clk-pll.c
-> @@ -206,6 +206,7 @@ static const struct clk_ops samsung_pll3000_clk_ops = {
->   */
->  /* Maximum lock time can be 270 * PDIV cycles */
->  #define PLL35XX_LOCK_FACTOR	(270)
-> +#define PLL142XX_LOCK_FACTOR	(150)
->  
->  #define PLL35XX_MDIV_MASK       (0x3FF)
->  #define PLL35XX_PDIV_MASK       (0x3F)
-> @@ -272,7 +273,11 @@ static int samsung_pll35xx_set_rate(struct clk_hw *hw, unsigned long drate,
->  	}
->  
->  	/* Set PLL lock time. */
-> -	writel_relaxed(rate->pdiv * PLL35XX_LOCK_FACTOR,
-> +	if (pll->type == pll_142xx)
-> +		writel_relaxed(rate->pdiv * PLL142XX_LOCK_FACTOR,
-> +			pll->lock_reg);
-> +	else
-> +		writel_relaxed(rate->pdiv * PLL35XX_LOCK_FACTOR,
->  			pll->lock_reg);
->  
->  	/* Change PLL PMS values */
+> > Do this only in case we are converting
+> > from RAW to YUV.
+> 
+> And this should explain why.
+> 
+> > Signed-off-by: Stefan Klug <stefan.klug@ideasonboard.com>
+> > ---
+> >  .../media/platform/rockchip/rkisp1/rkisp1-isp.c   | 15 ++++++++++++++-
+> >  1 file changed, 14 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+> > index d94917211828..468f5a7d03c7 100644
+> > --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+> > +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+> > @@ -680,10 +680,23 @@ static void rkisp1_isp_set_src_fmt(struct rkisp1_isp *isp,
+> 
+> Adding a bit more context:
+> 
+> 	set_csc = format->flags & V4L2_MBUS_FRAMEFMT_SET_CSC;
+> 
+> 	if (set_csc && src_info->pixel_enc == V4L2_PIXEL_ENC_YUV) {
+> 
+> If V4L2_MBUS_FRAMEFMT_SET_CSC isn't set, the colorspace fields on the
+> source pad will be copied from the sink pad, which doesn't seem right.
 
+Thinking some more about it, it's not wrong either. The colorspace and
+xfer_func fields are not used by the driver, as the related ISP
+processing blocks are configured through ISP parameters. Without
+userspace providing the value of the fields on the source pad, the
+driver can't know what colorspace and xfer_func is produced. Copying the
+values from the sink pad is as good of a guess as we can make.
 
-Best regards,
-Krzysztof
+The ycbcr_enc and quantization fields are different, as they are taken
+into account by the driver to configure the ISP. Copying ycbcr_enc from
+the sink pad means that it will be set to V4L2_YCBCR_ENC_601 when the
+sink format is bayer and the source format is YUV. As the sink
+colorspace is most likely going to be V4L2_COLORSPACE_RAW in that case,
+that's a fine default, and is identical to what we would get from
+V4L2_MAP_YCBCR_ENC_DEFAULT(). Setting the quantization to
+V4L2_QUANTIZATION_LIM_RANGE also seems fine as a default, and it what
+V4L2_MAP_QUANTIZATION_DEFAULT() would give us.
+
+TL;DR: there's probably no need to change the current behaviour when
+V4L2_MBUS_FRAMEFMT_SET_CSC isn't set.
+
+> It's a separate issue, but fixing both together may lead to better code.
+> 
+> >  		if (sink_info->pixel_enc == V4L2_PIXEL_ENC_BAYER) {
+> >  			if (format->colorspace != V4L2_COLORSPACE_DEFAULT)
+> >  				src_fmt->colorspace = format->colorspace;
+> > -			if (format->xfer_func != V4L2_XFER_FUNC_DEFAULT)
+> > +
+> > +			if (format->xfer_func == V4L2_XFER_FUNC_DEFAULT)
+> 
+> Are you sure the condition should be inverted ?
+> 
+> >  				src_fmt->xfer_func = format->xfer_func;
+> > +			else
+> > +				src_fmt->xfer_func =
+> > +					V4L2_MAP_XFER_FUNC_DEFAULT(format->colorspace);
+> > +
+> >  			if (format->ycbcr_enc != V4L2_YCBCR_ENC_DEFAULT)
+> >  				src_fmt->ycbcr_enc = format->ycbcr_enc;
+> > +			else
+> > +				src_fmt->ycbcr_enc =
+> > +					V4L2_MAP_YCBCR_ENC_DEFAULT(format->colorspace);
+> > +
+> > +			if (format->quantization == V4L2_QUANTIZATION_DEFAULT)
+> > +				src_fmt->quantization =
+> > +					V4L2_MAP_QUANTIZATION_DEFAULT(false,
+> > +						format->colorspace, format->ycbcr_enc);
+> 
+> Shouldn't this use src_fmt instead of format ?
+> 
+> I think quantization handling could be moved below.
+> 
+> >  		}
+> >  
+> >  		if (format->quantization != V4L2_QUANTIZATION_DEFAULT)
+
+Now I'm wondering if this is right. As far as I can tell, the
+quantization isn't taken into account by the driver when the ISP is
+bypassed (capturing raw bayer data, or capturing YUV data from a YUV
+sensor).
+
+How about something like this ?
+
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+index d94917211828..9c215c9bb30f 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+@@ -659,11 +659,10 @@ static void rkisp1_isp_set_src_fmt(struct rkisp1_isp *isp,
+ 		src_fmt->quantization = sink_fmt->quantization;
+
+ 	/*
+-	 * Allow setting the source color space fields when the SET_CSC flag is
+-	 * set and the source format is YUV. If the sink format is YUV, don't
+-	 * set the color primaries, transfer function or YCbCr encoding as the
+-	 * ISP is bypassed in that case and passes YUV data through without
+-	 * modifications.
++	 * Allow setting the source color space fields when the SET_CSC flag.
++	 * This is restricted to the case where the sink format is raw and the
++	 * source format is YUV, as in other cases the ISP is bypassed and the
++	 * input data is passed through without modifications.
+ 	 *
+ 	 * The color primaries and transfer function are configured through the
+ 	 * cross-talk matrix and tone curve respectively. Settings for those
+@@ -676,18 +675,30 @@ static void rkisp1_isp_set_src_fmt(struct rkisp1_isp *isp,
+ 	 */
+ 	set_csc = format->flags & V4L2_MBUS_FRAMEFMT_SET_CSC;
+
+-	if (set_csc && src_info->pixel_enc == V4L2_PIXEL_ENC_YUV) {
+-		if (sink_info->pixel_enc == V4L2_PIXEL_ENC_BAYER) {
+-			if (format->colorspace != V4L2_COLORSPACE_DEFAULT)
+-				src_fmt->colorspace = format->colorspace;
+-			if (format->xfer_func != V4L2_XFER_FUNC_DEFAULT)
+-				src_fmt->xfer_func = format->xfer_func;
+-			if (format->ycbcr_enc != V4L2_YCBCR_ENC_DEFAULT)
+-				src_fmt->ycbcr_enc = format->ycbcr_enc;
+-		}
++	if (set_csc && sink_info->pixel_enc == V4L2_PIXEL_ENC_BAYER &&
++	    src_info->pixel_enc == V4L2_PIXEL_ENC_YUV) {
++		if (format->colorspace != V4L2_COLORSPACE_DEFAULT)
++			src_fmt->colorspace = format->colorspace;
++
++		if (format->xfer_func != V4L2_XFER_FUNC_DEFAULT)
++			src_fmt->xfer_func = format->xfer_func;
++		else
++			src_fmt->xfer_func =
++				V4L2_MAP_XFER_FUNC_DEFAULT(src_fmt->colorspace);
++
++		if (format->ycbcr_enc != V4L2_YCBCR_ENC_DEFAULT)
++			src_fmt->ycbcr_enc = format->ycbcr_enc;
++		else
++			src_fmt->ycbcr_enc =
++				V4L2_MAP_YCBCR_ENC_DEFAULT(src_fmt->colorspace);
+
+ 		if (format->quantization != V4L2_QUANTIZATION_DEFAULT)
+ 			src_fmt->quantization = format->quantization;
++		else
++			src_fmt->quantization =
++				V4L2_MAP_QUANTIZATION_DEFAULT(false,
++							      src_fmt->colorspace,
++							      src_fmt->ycbcr_enc);
+ 	}
+
+ 	*format = *src_fmt;
+
+Can I let you write a commit message ? :-)
+
+-- 
+Regards,
+
+Laurent Pinchart
 
