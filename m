@@ -4,73 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8FAEC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 00:40:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82510C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 00:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KckT26d6nP7QZ+/ykn1bui1INDXn2fKcmCtw1s0XLcA=; b=XROyQNWF99rSKw111cVMsROUwH
-	heqnrtv+ovsvgjudGLCoZIboknsf6aRpuwXqQRzDDywTVOJJiLuKLXR8npgXkTHsS+9jI4OHBONlN
-	Qk25ccijl2ecbgWZaIS1/SsUopaNyIPCr6JwplnhyLUKibJzVQQ3O3OcOTk8BCQtkGGOenVijVoRS
-	qcfwkeFIX8H+M08JKRdgTvGjyVjm1Rv14bIv53KQ1subBDnaI/Tb9pEU42pUrqS4KNZOe8O4S842Z
-	NTLR0OWozr+xt3XPn6IqdKrvWeO+mXF1oPjE27f9NMEDBU39NAci/jMDwbFrp0iL1Pugy4KwjMPw7
-	LVx7qr8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o52g9Cjj7Bp26EF6yPH0L+hWpCB99UjgzmlSTFa8nlI=; b=o7kdQGh6zN80H8aV4CrGH/vMYT
+	dhngg1n/LDzKHN+AfLZ48y0F4b9lpPnW8jTH2DJT2+8q0Sv0bKrFF5NYd2vosAEyJQzdx0U0bzuam
+	2+rYs9/RzYreAYfToamkCN2ZK7OGy1Ir+xmOYHiTEEJslYdcSVvmfJv646YDnBruX6ICGv4klqFbu
+	v/Go4X3iNjJN3Dt/Yf6RIbYmHLez2oDRHsxoFz7ppRIhlYjF4zhySiO5+cvQ6aABeywRi4J/9iSwk
+	cG/gqjLxVQSV25ioyTBajrA3tOIzRGjNu+/laAx7O7KOJJbfUMrovik9aT8PJLLAibyL9pxf3g/IK
+	tQWDEExw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toAtd-0000000D5he-0iKF;
-	Sat, 01 Mar 2025 00:40:01 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toAs4-0000000D5KQ-3SW8
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Mar 2025 00:38:25 +0000
-Received: from [10.0.0.114] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 297612038A22;
-	Fri, 28 Feb 2025 16:38:22 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 297612038A22
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1740789502;
-	bh=KckT26d6nP7QZ+/ykn1bui1INDXn2fKcmCtw1s0XLcA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=duIgKnzi0YqTq8nTW9lxdfwU+lhdDZ68Vr54Cm+FjinsQ//tXQ7RD7UbvDDOFpnVx
-	 sYy/xwGAy3qPvhtmpRTpd5Dfusaj2uSOkBm0IIB6rTEsHLeoFoJdheCAczw3nq9Pta
-	 L5r2XPnSPzFfbwnylYl8fKpNlQQ9xS/sED3vuer0=
-Message-ID: <7de9b06d-9a32-48b5-beda-2e19b36ae9c9@linux.microsoft.com>
-Date: Fri, 28 Feb 2025 16:38:19 -0800
+	id 1toB0M-0000000D6Ye-3Xhb;
+	Sat, 01 Mar 2025 00:46:58 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1toAyp-0000000D6Od-0mSG;
+	Sat, 01 Mar 2025 00:45:24 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id F3F02520;
+	Sat,  1 Mar 2025 01:43:51 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1740789832;
+	bh=u4ER5VeMCS9Y7zQdcDvvTBan6ITLcL5eE830Y0FQJIU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KI54OpKvOnqhvdSQL777/pI91DKMeoYS/ct2HGIH8pWIicPzYlz/lxiqGe2kreyfo
+	 MMijQhGer5J0VnWs9/aZdnjoDSoLFwi7pvKfQup5cMIZZVVeALxqDi0oskiuTvSCbF
+	 p4v6gQwTHyKabqbrhHTdX4c851wCQ17iaHvEAvL8=
+Date: Sat, 1 Mar 2025 02:45:02 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Stefan Klug <stefan.klug@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, Dafna Hirschfeld <dafna@fastmail.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] media: rkisp1: Fix the quantization settings of CPROC
+Message-ID: <20250301004502.GH7342@pendragon.ideasonboard.com>
+References: <20250227114558.3097101-1-stefan.klug@ideasonboard.com>
+ <20250227114558.3097101-3-stefan.klug@ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 08/10] x86: hyperv: Add mshv_handler irq handler and
- setup function
-To: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
-Cc: linux-hyperv@vger.kernel.org, x86@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org, kys@microsoft.com,
- haiyangz@microsoft.com, wei.liu@kernel.org, mhklinux@outlook.com,
- decui@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
- tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, hpa@zytor.com, daniel.lezcano@linaro.org,
- joro@8bytes.org, robin.murphy@arm.com, arnd@arndb.de,
- jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
- mrathor@linux.microsoft.com, ssengar@linux.microsoft.com,
- apais@linux.microsoft.com, Tianyu.Lan@microsoft.com,
- stanislav.kinsburskiy@gmail.com, gregkh@linuxfoundation.org,
- vkuznets@redhat.com, prapal@linux.microsoft.com, muislam@microsoft.com,
- anrayabh@linux.microsoft.com, rafael@kernel.org, lenb@kernel.org,
- corbet@lwn.net
-References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740611284-27506-9-git-send-email-nunodasneves@linux.microsoft.com>
- <Z7-nDUe41XHyZ8RJ@skinsburskii.>
-Content-Language: en-US
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-In-Reply-To: <Z7-nDUe41XHyZ8RJ@skinsburskii.>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250227114558.3097101-3-stefan.klug@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250228_163824_913121_DFB48F02 
-X-CRM114-Status: GOOD (  16.25  )
+X-CRM114-CacheID: sfid-20250228_164523_367832_B966FAD8 
+X-CRM114-Status: GOOD (  38.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,95 +69,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/26/2025 3:43 PM, Stanislav Kinsburskii wrote:
-> On Wed, Feb 26, 2025 at 03:08:02PM -0800, Nuno Das Neves wrote:
->> This will handle SYNIC interrupts such as intercepts, doorbells, and
->> scheduling messages intended for the mshv driver.
->>
->> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
->> Reviewed-by: Wei Liu <wei.liu@kernel.org>
->> Reviewed-by: Tianyu Lan <tiala@microsoft.com>
->> ---
->>  arch/x86/kernel/cpu/mshyperv.c | 9 +++++++++
->>  drivers/hv/hv_common.c         | 5 +++++
->>  include/asm-generic/mshyperv.h | 1 +
->>  3 files changed, 15 insertions(+)
->>
->> diff --git a/arch/x86/kernel/cpu/mshyperv.c b/arch/x86/kernel/cpu/mshyperv.c
->> index 0116d0e96ef9..616e9a5d77b4 100644
->> --- a/arch/x86/kernel/cpu/mshyperv.c
->> +++ b/arch/x86/kernel/cpu/mshyperv.c
->> @@ -107,6 +107,7 @@ void hv_set_msr(unsigned int reg, u64 value)
->>  }
->>  EXPORT_SYMBOL_GPL(hv_set_msr);
->>  
->> +static void (*mshv_handler)(void);
->>  static void (*vmbus_handler)(void);
->>  static void (*hv_stimer0_handler)(void);
->>  static void (*hv_kexec_handler)(void);
->> @@ -117,6 +118,9 @@ DEFINE_IDTENTRY_SYSVEC(sysvec_hyperv_callback)
->>  	struct pt_regs *old_regs = set_irq_regs(regs);
->>  
->>  	inc_irq_stat(irq_hv_callback_count);
->> +	if (mshv_handler)
->> +		mshv_handler();
-> 
-> Can mshv_handler be defined as a weak symbol doing nothing instead
-> of defining it a null pointer?
-> This should allow to simplify this code and get rid of
-> hv_setup_mshv_handler, which looks redundant.
-> 
-Interesting, I tested this and it does seems to work! It seems like
-a good change, thanks.
+Hi Stefan,
 
-> Reviewed-by: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
-> 
->> +
->>  	if (vmbus_handler)
->>  		vmbus_handler();
->>  
->> @@ -126,6 +130,11 @@ DEFINE_IDTENTRY_SYSVEC(sysvec_hyperv_callback)
->>  	set_irq_regs(old_regs);
->>  }
->>  
->> +void hv_setup_mshv_handler(void (*handler)(void))
->> +{
->> +	mshv_handler = handler;
->> +}
->> +
->>  void hv_setup_vmbus_handler(void (*handler)(void))
->>  {
->>  	vmbus_handler = handler;
->> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
->> index 2763cb6d3678..f5a07fd9a03b 100644
->> --- a/drivers/hv/hv_common.c
->> +++ b/drivers/hv/hv_common.c
->> @@ -677,6 +677,11 @@ void __weak hv_remove_vmbus_handler(void)
->>  }
->>  EXPORT_SYMBOL_GPL(hv_remove_vmbus_handler);
->>  
->> +void __weak hv_setup_mshv_handler(void (*handler)(void))
->> +{
->> +}
->> +EXPORT_SYMBOL_GPL(hv_setup_mshv_handler);
->> +
->>  void __weak hv_setup_kexec_handler(void (*handler)(void))
->>  {
->>  }
->> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
->> index 1f46d19a16aa..a05f12e63ccd 100644
->> --- a/include/asm-generic/mshyperv.h
->> +++ b/include/asm-generic/mshyperv.h
->> @@ -208,6 +208,7 @@ void hv_setup_kexec_handler(void (*handler)(void));
->>  void hv_remove_kexec_handler(void);
->>  void hv_setup_crash_handler(void (*handler)(struct pt_regs *regs));
->>  void hv_remove_crash_handler(void);
->> +void hv_setup_mshv_handler(void (*handler)(void));
->>  
->>  extern int vmbus_interrupt;
->>  extern int vmbus_irq;
->> -- 
->> 2.34.1
->>
+Thank you for the patch.
 
+On Thu, Feb 27, 2025 at 12:45:00PM +0100, Stefan Klug wrote:
+> On the imx8mp the Image Effect module is not supported.
+
+Could you please include a patch that adds a feature flag for this, and
+disables the feature on i.MX8MP ? That requires:
+
+- Clearing the module update bits based on the feature flag in
+  rkisp1_isp_isr_other_config(), as done for BLS.
+- Marking the RKISP1_EXT_PARAMS_BLOCK_TYPE_IE entry in
+  rkisp1_ext_params_handler with the new feature flag.
+
+> In my case the
+> effect variable had an uninitialized default value of 0x700 leading to
+> limited YUV range in all cases (effects were never touched from user
+> space).
+
+I don't think the value of an uninitialized variable is relevant :-)
+
+> The effects configuration is as far is I understand completely
+> independent of CPROC.
+
+I agree the CPROC and IMGEFF blocks are most likely separate, but they
+both need to be configured according to the selected quantization.
+
+Quantization is applied by the CSM (CSC) block, configured in
+rkisp1_csm_config(). The CPROC module follows, and its
+RKISP1_CIF_C_PROC_CTRL register needs to take quantization into account.
+It has one bit to indicate whether its input data (produced by the CSM
+block) is in full or limited range, and two bits to set the range of
+output data (separately for luma and chroma, I have no idea why).
+
+The rkisp1_cproc_config() function assumes that the input and output
+quantization of the CPROC are always the same. It sets or clears all
+three configuration bits based on the quantization value. As you've
+noticed, it will also hardcode limited range when an image effect is
+selected. That seems wrong indeed.
+
+Note that the CPROC quantization bits only controls the Y offset
+(subtracted on the input side and added on the output side) and the Y
+and C clipping (on the output side). If we were to have different
+quantization on the input and output, the scaling factor to adjust the
+range seems to be something that userspace needs to take into account
+when calculating values for the other CPROC registers.
+
+Then, the IE (IMGEFF) block processes the data, and also needs to be
+configured based on the quantization range. The control register has a
+single bit that selects limited or full range. It is set in
+rkisp1_ie_config():
+
+	if (params->quantization == V4L2_QUANTIZATION_FULL_RANGE)
+		eff_ctrl |= RKISP1_CIF_IMG_EFF_CTRL_YCBCR_FULL;
+
+There's a note in the documentation of the RKISP1_CIF_IMG_EFF_CTRL
+register in the RK3399 registers manual that states
+
+  Note: full_range for image effects is supported in ISP M5_v6, M5_v7 only
+
+The ISP version in the RK3399 seems to be M14_v2. This may be why the
+code disables full range quantization in rkisp1_cproc_config() when a
+image effect is selected.
+
+All of this is a mess, and to make it worse, the implementation in the
+driver is quite broken. The effect is selected by the
+RKISP1_CIF_IMG_EFF_CTRL register, written in rkisp1_ie_config(), and the
+rkisp1_ie_enable() function then rewrites the whole register to enable
+the module, overwriting the selected effect. Only when userspace sets
+the effect without updating the module enable bit does the driver seem
+to handle things correctly.
+
+Now, how do we handle this ? I think this patch is fine, but the commit
+message needs a rewrite to summarize the above, and explain that the
+CPROC never changes quantization. A corresponding comment in
+rkisp1_cproc_config() would be useful.
+
+Regarding the image effect configuration, I think we can consider that
+it should only be enabled by userspace when using limited range, if
+running on a device that doesn't support full range for image effects.
+The driver doesn't need to protect against this in my opinion. A comment
+in rkisp1_ie_config() could also be useful to explain that.
+
+> Completely remove that check. This fixes full
+> range mode on imx8mp and possibly others.
+>
+> Signed-off-by: Stefan Klug <stefan.klug@ideasonboard.com>
+> ---
+>  drivers/media/platform/rockchip/rkisp1/rkisp1-params.c | 8 +-------
+>  1 file changed, 1 insertion(+), 7 deletions(-)
+> 
+> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
+> index b28f4140c8a3..8d61e21ad475 100644
+> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
+> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
+> @@ -764,11 +764,6 @@ static void rkisp1_aec_config_v12(struct rkisp1_params *params,
+>  static void rkisp1_cproc_config(struct rkisp1_params *params,
+>  				const struct rkisp1_cif_isp_cproc_config *arg)
+>  {
+> -	struct rkisp1_cif_isp_isp_other_cfg *cur_other_cfg =
+> -		container_of(arg, struct rkisp1_cif_isp_isp_other_cfg, cproc_config);
+> -	struct rkisp1_cif_isp_ie_config *cur_ie_config =
+> -						&cur_other_cfg->ie_config;
+> -	u32 effect = cur_ie_config->effect;
+>  	u32 quantization = params->quantization;
+>  
+>  	rkisp1_write(params->rkisp1, RKISP1_CIF_C_PROC_CONTRAST,
+> @@ -778,8 +773,7 @@ static void rkisp1_cproc_config(struct rkisp1_params *params,
+>  	rkisp1_write(params->rkisp1, RKISP1_CIF_C_PROC_BRIGHTNESS,
+>  		     arg->brightness);
+>  
+> -	if (quantization != V4L2_QUANTIZATION_FULL_RANGE ||
+> -	    effect != V4L2_COLORFX_NONE) {
+> +	if (quantization != V4L2_QUANTIZATION_FULL_RANGE) {
+>  		rkisp1_param_clear_bits(params, RKISP1_CIF_C_PROC_CTRL,
+>  					RKISP1_CIF_C_PROC_YOUT_FULL |
+>  					RKISP1_CIF_C_PROC_YIN_FULL |
+
+-- 
+Regards,
+
+Laurent Pinchart
 
