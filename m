@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99BABC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 10:58:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCCB4C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Mar 2025 10:59:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I3mjHLC2xPYx7fSMCzhjeB7YTtNlO3lgK3oyqNI4rQg=; b=PpAmA/YfRyq4/dPhzhtcG1waYu
-	k0R8IT3XsdKJ8RbSp5vAOct9tkkIJ/TQXFdgrus4EaEhNCelLu1Xd3qBDkZzhtqQBv7GlfvAw5f6/
-	2O8hcI2/6JFgsK/kLvQvynWm5HImfpewUwPZr+epw2xMw58MN6ALYlSHih+qUUM3+PWpX8sEAEN3T
-	41Zg0bOUNHZPgD3EUktyVPizk2QO91y7nURhA+Ufv39U89q5Bj6Ptq4SlcFTram3ZVIZqb6N2y6Gj
-	6YeYiG9VmvnLiS42jbsgzHJoRRsK60HKYpCHrWWelP1jarZLfT/YF87eCyR3Gv0+8ys656BCwBvAp
-	lyeyO19A==;
+	bh=2ZCakf6JGwbqvm2h6HRTdGxaUvs22cY3XdBlUVVd06E=; b=Z4OyhutD198WRdnSgFtTaqlLFV
+	ev88T4Vo/55yXPulYvv0YsLHN0X3chOvovGTd7ZZyPUKncFdC5CJ8DzRA6i1fq5lHcHlsPhw5wn7o
+	F7mBDXr1CcsyFGu6Qilp8ic3fHDx/HSoj8oRVutPajafqJVVoua7AsVJVdRoBL0DhiJGOuoPpL9SU
+	QFtJmC1EFB35GIuUFSKXpTh+bbkaVpaWMJRcaXFCxQVP3X3v/e5KTPTaK78Z25GVJnxfKimD1zn6O
+	0kEmTq0DvmOS0BeDF/YN+fEesIrSC9bvQ/hei4Z9DI2yzmFk5NPZDLeNCsA+GScsr3CL1r7MNBG2K
+	ysKFEYEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toKXZ-0000000DnTE-3p1G;
-	Sat, 01 Mar 2025 10:57:53 +0000
+	id 1toKZ8-0000000Dnaw-0rgz;
+	Sat, 01 Mar 2025 10:59:30 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toKOI-0000000DmXz-1L7g;
-	Sat, 01 Mar 2025 10:48:19 +0000
+	id 1toKOv-0000000Dmfv-40k4;
+	Sat, 01 Mar 2025 10:48:59 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id E125825D26;
-	Sat,  1 Mar 2025 11:48:16 +0100 (CET)
+	by disroot.org (Postfix) with ESMTP id 6472025F03;
+	Sat,  1 Mar 2025 11:48:56 +0100 (CET)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id ABOnEt0LCSoi; Sat,  1 Mar 2025 11:48:16 +0100 (CET)
+ id QwfR_2k6Scbh; Sat,  1 Mar 2025 11:48:55 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1740826096; bh=Mh8Scn9zD0vJo0No7F96OzW9299oqh4mWGc3Vb0A1ds=;
+	t=1740826135; bh=oH6NiGwxSjELVuqZw+4pyix8JS63OndzJmq8Erv5Xlo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=gGpS1Q4gvX22ZL2StQFcA9v6V4lTov4KyfGyY8SbkgC9NdvsqsBrdONuWfEsXaiPq
-	 S8SS/jgo/LMV4d4A4RxetVonl8Tc2kJyugDXHIyZKAPVm2/6Si2Ho6M+TXRySYt2lo
-	 r7JHsfKeQUHjrkfsWogYwCf2ImobHxoHgO1ePmw75ZK/5rAF/7vIYaDJWvlCVRpTMh
-	 9haiqQkQLrVIekmf6mFYIyU09N95emzVGbUSVgjHLhVKGsjETM284kSaf+uc+j7P10
-	 97vvttQ3TCum9mi8xTj1IbF8Dcwm6dizlP+IsWzVLSzvughY7VOkNmi5ZcEAVt1PvT
-	 A6ncQ600BvgvQ==
+	b=jRXEa/KYzSTYx6difv4h7k7TYQziMtP99ob/mIgs3ma1mfrJ7aSoypYDqA+ilUxxZ
+	 2il0efJ4ux/87uqcqlb2WXSXx1uIdIz9znZYAsQahMh8hU1hSgNskNs79oznvgmMjG
+	 md3sBfksXF8cX5pUiapK8RGREeIX7IsfAUJOkojtLBQyYW9HIQzhydTPdnZraW+azD
+	 8j6/PM7ezUFXx61dDHExCsZqk21VCsx7hUXTFMi6hA0up1Nz/Vh8ygfVZn5ZXwGhjz
+	 fVbSynlyzYu12pMgt8+0c5tiX+YgHTNW6LjZqNa2Gn/t+D3TjOVkPIj2hG3u3NyVtq
+	 V+Q0uQDWRohBQ==
 From: Yao Zi <ziyao@disroot.org>
 To: Ulf Hansson <ulf.hansson@linaro.org>,
 	Rob Herring <robh@kernel.org>,
@@ -62,16 +62,17 @@ Cc: linux-mmc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-clk@vger.kernel.org,
 	Yao Zi <ziyao@disroot.org>
-Subject: [PATCH 7/8] arm64: dts: rockchip: Add SDMMC/SDIO controllers for RK3528
-Date: Sat,  1 Mar 2025 10:47:49 +0000
-Message-ID: <20250301104749.36423-1-ziyao@disroot.org>
+Subject: [PATCH 8/8] arm64: dts: rockchip: Enable SD-card interface on Radxa E20C
+Date: Sat,  1 Mar 2025 10:48:35 +0000
+Message-ID: <20250301104835.36439-1-ziyao@disroot.org>
 In-Reply-To: <20250301104250.36295-1-ziyao@disroot.org>
 References: <20250301104250.36295-1-ziyao@disroot.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250301_024818_489113_0FCABF15 
-X-CRM114-Status: GOOD (  10.08  )
+X-CRM114-CacheID: sfid-20250301_024858_124354_23A9D968 
+X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,102 +87,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RK3528 features two SDIO controllers and one SD/MMC controller, describe
-them in devicetree. Since their sample and drive clocks are located in
-the VO and VPU GRFs, corresponding syscons are added to make these
-clocks available.
+SD-card is available on Radxa E20C board.
 
 Signed-off-by: Yao Zi <ziyao@disroot.org>
 ---
- arch/arm64/boot/dts/rockchip/rk3528.dtsi | 62 ++++++++++++++++++++++++
- 1 file changed, 62 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-index 5b334690356a..078c97fa1d9f 100644
---- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-@@ -7,6 +7,7 @@
- #include <dt-bindings/interrupt-controller/arm-gic.h>
- #include <dt-bindings/interrupt-controller/irq.h>
- #include <dt-bindings/clock/rockchip,rk3528-cru.h>
-+#include <dt-bindings/reset/rockchip,rk3528-cru.h>
+diff --git a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
+index d2cdb63d4a9d..473065aa4228 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
+@@ -12,6 +12,10 @@ / {
+ 	model = "Radxa E20C";
+ 	compatible = "radxa,e20c", "rockchip,rk3528";
  
- / {
- 	compatible = "rockchip,rk3528";
-@@ -122,6 +123,16 @@ gic: interrupt-controller@fed01000 {
- 			#interrupt-cells = <3>;
- 		};
- 
-+		vpu_grf: syscon@ff340000 {
-+			compatible = "rockchip,rk3528-vpu-grf", "syscon";
-+			reg = <0x0 0xff340000 0x0 0x8000>;
-+		};
++	aliases {
++		mmc0 = &sdmmc;
++	};
 +
-+		vo_grf: syscon@ff360000 {
-+			compatible = "rockchip,rk3528-vo-grf", "syscon";
-+			reg = <0x0 0xff360000 0x0 0x10000>;
-+		};
-+
- 		cru: clock-controller@ff4a0000 {
- 			compatible = "rockchip,rk3528-cru";
- 			reg = <0x0 0xff4a0000 0x0 0x30000>;
-@@ -251,5 +262,56 @@ uart7: serial@ffa28000 {
- 			reg-shift = <2>;
- 			status = "disabled";
- 		};
-+
-+		sdio0: mmc@ffc10000 {
-+			compatible = "rockchip,rk3528-dw-mshc",
-+				     "rockchip,rk3288-dw-mshc";
-+			reg = <0x0 0xffc10000 0x0 0x4000>;
-+			clocks = <&cru HCLK_SDIO0>,
-+				 <&cru CCLK_SRC_SDIO0>,
-+				 <&cru SCLK_SDIO0_DRV>,
-+				 <&cru SCLK_SDIO0_SAMPLE>;
-+			clock-names = "biu", "ciu", "ciu-drive", "ciu-sample";
-+			fifo-depth = <0x100>;
-+			interrupts = <GIC_SPI 137 IRQ_TYPE_LEVEL_HIGH>;
-+			max-frequency = <150000000>;
-+			resets = <&cru SRST_H_SDIO0>;
-+			reset-names = "reset";
-+			status = "disabled";
-+		};
-+
-+		sdio1: mmc@ffc20000 {
-+			compatible = "rockchip,rk3528-dw-mshc",
-+				     "rockchip,rk3288-dw-mshc";
-+			reg = <0x0 0xffc20000 0x0 0x4000>;
-+			clocks = <&cru HCLK_SDIO1>,
-+				 <&cru CCLK_SRC_SDIO1>,
-+				 <&cru SCLK_SDIO1_DRV>,
-+				 <&cru SCLK_SDIO1_SAMPLE>;
-+			clock-names = "biu", "ciu", "ciu-drive", "ciu-sample";
-+			fifo-depth = <0x100>;
-+			interrupts = <GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH>;
-+			max-frequency = <150000000>;
-+			resets = <&cru SRST_H_SDIO1>;
-+			reset-names = "reset";
-+			status = "disabled";
-+		};
-+
-+		sdmmc: mmc@ffc30000 {
-+			compatible = "rockchip,rk3528-dw-mshc",
-+				     "rockchip,rk3288-dw-mshc";
-+			reg = <0x0 0xffc30000 0x0 0x4000>;
-+			clocks = <&cru HCLK_SDMMC0>,
-+				 <&cru CCLK_SRC_SDMMC0>,
-+				 <&cru SCLK_SDMMC_DRV>,
-+				 <&cru SCLK_SDMMC_SAMPLE>;
-+			clock-names = "biu", "ciu", "ciu-drive", "ciu-sample";
-+			fifo-depth = <0x100>;
-+			interrupts = <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
-+			max-frequency = <150000000>;
-+			resets = <&cru SRST_H_SDMMC0>;
-+			reset-names = "reset";
-+			status = "disabled";
-+		};
+ 	chosen {
+ 		stdout-path = "serial0:1500000n8";
  	};
+@@ -20,3 +24,13 @@ chosen {
+ &uart0 {
+ 	status = "okay";
  };
++
++&sdmmc {
++	bus-width = <4>;
++	cap-mmc-highspeed;
++	cap-sd-highspeed;
++	disable-wp;
++	rockchip,default-sample-phase = <90>;
++	sd-uhs-sdr104;
++	status = "okay";
++};
 -- 
 2.48.1
 
