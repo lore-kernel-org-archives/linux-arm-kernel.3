@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C491FC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 13:30:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DAA7C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 14:02:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=82ZzxMwz66wTm/Q8WAcyNS4waCVr3h4rwS5RxEI/cOI=; b=Nlar0pOTEpldSRjsY86OavQyw2
-	luLgAVqBL+vRpX61nj7I+d4eAJW7G6hI9wSk88wMSLojaNF4S7K8mfRPvwbycslJXrKjopqumwADE
-	5V511D03QEZaLmDghaFWLF9A+2KtOsbdt30xZuO3BJFG3XLrQtBNwfAUIqLgC7YWp+Cek5a25xU9V
-	EE+bh7Tjx+ATmZ/C8+sD8rEeqDES3G98LbzBCIGk+m6EjYOdNUWMGT/5If8aA6g8SZQm9yrxlfgl2
-	MWAWCNbRcZ1xCKMBuQsK44rH5UIKFnlgWbxB9ElaVBzuoH4+aeZLi20U0Mok6DycUg/F0+CjAcvGJ
-	XH9PwlSA==;
+	bh=PDKLsX8Cl+sMXhcUQfjTf/hVYVMete4bvzDW9sD4b3M=; b=QdhMf+wHh0Sm4VOri6+2m6asso
+	l0VLRzXFiymRg/9tBBNKD+fVpAJFvVFmEbZa68ZUNLFGnFsgppyAqVYtZGfg/3d1Yw2PrgaOqEsVo
+	l4d/nKRI7f9dUIufsZVSxbRXVkbsaJF8grxFchaS4bov12ApNtaU0NoaW2GLIjznq6eZWJe2YOLMb
+	vdDQHoXLKLYpkz24rgL8NTKeE2absA7wo5PCE55Ui1UhUeFZu82PXonft6UpeCJzfrtQPo0oQutCT
+	6J1xrbkdKarX336wqfce/Hyk9WyV0TVRPoT3KurhYtzQybWOChRGQxyO8L98eLQimIdNVMHYXLEw9
+	14sN6xwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tojOn-0000000G4Xd-2GIG;
-	Sun, 02 Mar 2025 13:30:29 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1tojtP-0000000G5qn-1JpH;
+	Sun, 02 Mar 2025 14:02:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tojFi-0000000G3vH-0bO2
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Mar 2025 13:21:07 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 522DKovK3080964
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sun, 2 Mar 2025 07:20:50 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1740921650;
-	bh=82ZzxMwz66wTm/Q8WAcyNS4waCVr3h4rwS5RxEI/cOI=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=l4XjVN0uL46iXAx/TgrKXb3lgX+7w4gEKxz8SEgcNP2ub6m5vFAOCRjF8XcBRHbq0
-	 x4dmz4DzDVX2MmliICdbQDhWUVxUkU4i9ox8vi/Z6AxUFQTHVc0p0oSb2Mw/jEK2eu
-	 B0tmPTwO2It4ByGTEWQC+lVJH6nYO2JyCNOW62jA=
-Received: from DLEE102.ent.ti.com (dlee102.ent.ti.com [157.170.170.32])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 522DKoOU018374
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Sun, 2 Mar 2025 07:20:50 -0600
-Received: from DLEE115.ent.ti.com (157.170.170.26) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Sun, 2
- Mar 2025 07:20:49 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Sun, 2 Mar 2025 07:20:49 -0600
-Received: from uda0132425.dhcp.ti.com (dhcp-10-24-69-250.dhcp.ti.com [10.24.69.250])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 522DKj8E070180;
-	Sun, 2 Mar 2025 07:20:46 -0600
-From: Vignesh Raghavendra <vigneshr@ti.com>
-To: <nm@ti.com>, <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <jai.luthra@linux.dev>,
-        <francesco.dolcini@toradex.com>,
-        Stefan Eichenberger <eichest@gmail.com>
-CC: Vignesh Raghavendra <vigneshr@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>,
-        Stefan Eichenberger
-	<stefan.eichenberger@toradex.com>
-Subject: Re: [PATCH v1] arm64: dts: ti: k3-am62-verdin-dahlia: add Microphone Jack to sound card
-Date: Sun, 2 Mar 2025 18:50:35 +0530
-Message-ID: <174092143355.3272913.9537150435807250847.b4-ty@ti.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250217144643.178222-1-eichest@gmail.com>
-References: <20250217144643.178222-1-eichest@gmail.com>
+	id 1tojrr-0000000G5gi-1W2e;
+	Sun, 02 Mar 2025 14:00:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5918C611C6;
+	Sun,  2 Mar 2025 14:00:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95628C4CEEE;
+	Sun,  2 Mar 2025 14:00:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740924029;
+	bh=Av/PzBkOyruXRWKNi7XdeiMIEbdI1P2Bm67kdtg1gjg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=McIGGuoZ7gMk2Glgi+BCFR2gGNhEJVNnMtxtb7FuX2X0QS1okoEknf61jVDXoKwNn
+	 0nXZNH4n0Hpw4bRx3eyjRFFcF7EgEfBpg4uKzmjNYeB0JZuRxWWmNW0flo+PSESd23
+	 ztxe4Hw3qOelY7Gk8DnI5p1dH69WjRuOjVbGpmDty5zBYI/mFQEQzT2/F8qlZeyO+F
+	 1ymkoVUztYhkV2Ji7jOVozFBNwTvJilnMIOVRltO/p5JsSVPOXsxop3m5J2AZp+US8
+	 U1r5Igo4WtrAV+Nowb+QnB8neIzzYFnkX+l2S1ARK2cnpywKVgWZOf5RH2pGHc7vAs
+	 KsWaqJKxxnP3w==
+Received: by mail-pl1-f179.google.com with SMTP id d9443c01a7336-2239c066347so9356605ad.2;
+        Sun, 02 Mar 2025 06:00:29 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWJP868cIP4JJYGLIOsYL5Nde7cxOw0mkXjDVO7WexuJQRIHrDIeKvlLuAqeBnd7vlcJD07jOuDE6PQj+V4QvY4@lists.infradead.org, AJvYcCXCyVyQrc9xfTv8wfh9fhzD4ZqIKOd6d6+yOhMHQaxcLLuH5xx2rH7IW8emVFrDERSJMFBiNXmL9ISBdxZ/CsQ=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzqz+hDwBDL+zkXYgi/bVOqbQH/KF1zM/2xYrZ4wAWdyBR2dijy
+	B3oJR/rV28l4EGTK1UFeRBi87hefZkgCbgOIanrNHzIMAwvG+eGqxvaN6wGIbBlXiF0/kiWTKxy
+	7fncm9T3QKmEIEfe3rzcNZH3kZw==
+X-Google-Smtp-Source: AGHT+IG1UW/aTlTM1yyIsxH6m8pGtzQb2LXGDtI6T8t/hEX8x0qb7qhCvRhbTMRAi2KttaGOcJDuH66GaQNNrad3F3Y=
+X-Received: by 2002:a17:903:244d:b0:216:6901:d588 with SMTP id
+ d9443c01a7336-22368f75980mr127122725ad.15.1740924028832; Sun, 02 Mar 2025
+ 06:00:28 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_052106_278473_FD28F4B6 
-X-CRM114-Status: GOOD (  13.64  )
+References: <20250217154836.108895-1-angelogioacchino.delregno@collabora.com>
+ <20250217154836.108895-9-angelogioacchino.delregno@collabora.com> <CAAOTY_8kxxaj+jum6CkJGHKrpjiX_cNt4FT345yET8GWR2QSFA@mail.gmail.com>
+In-Reply-To: <CAAOTY_8kxxaj+jum6CkJGHKrpjiX_cNt4FT345yET8GWR2QSFA@mail.gmail.com>
+From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Date: Sun, 2 Mar 2025 22:01:15 +0800
+X-Gmail-Original-Message-ID: <CAAOTY_9tjf8xw8n9euVK1OH7LLopNYwx5qzLJpQyQ+sKfVH6og@mail.gmail.com>
+X-Gm-Features: AQ5f1Jo2Tbkh_sgx6kIGT6QdCzyACy__75IjpU71fY-nThmkgmTkCzBPqTB7-MQ
+Message-ID: <CAAOTY_9tjf8xw8n9euVK1OH7LLopNYwx5qzLJpQyQ+sKfVH6og@mail.gmail.com>
+Subject: Re: [PATCH v7 08/43] drm/mediatek: mtk_dpi: Support AFIFO 1T1P output
+ and conversion
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, p.zabel@pengutronix.de, 
+	airlied@gmail.com, simona@ffwll.ch, maarten.lankhorst@linux.intel.com, 
+	mripard@kernel.org, tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, matthias.bgg@gmail.com, ck.hu@mediatek.com, 
+	jitao.shi@mediatek.com, jie.qiu@mediatek.com, junzhi.zhao@mediatek.com, 
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
+	dmitry.baryshkov@linaro.org, lewis.liao@mediatek.com, 
+	ives.chenjh@mediatek.com, tommyyl.chen@mediatek.com, 
+	jason-jh.lin@mediatek.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,44 +90,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan Eichenberger,
+Chun-Kuang Hu <chunkuang.hu@kernel.org> =E6=96=BC 2025=E5=B9=B43=E6=9C=882=
+=E6=97=A5 =E9=80=B1=E6=97=A5 =E4=B8=8B=E5=8D=887:29=E5=AF=AB=E9=81=93=EF=BC=
+=9A
+>
+> Hi, Angelo:
+>
+> AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> =E6=
+=96=BC
+> 2025=E5=B9=B42=E6=9C=8817=E6=97=A5 =E9=80=B1=E4=B8=80 =E4=B8=8B=E5=8D=881=
+1:49=E5=AF=AB=E9=81=93=EF=BC=9A
+> >
+> > On some SoCs, like MT8195 and MT8188, the DPI's FIFO controller
+> > (afifo) supports outputting either one or two pixels per round
+> > regardless of the input being 1T1P or 1T2P.
+> >
+> > Add a `output_1pixel` member to struct mtk_dpi_conf which, if
+> > set, will enable outputting one pixel per clock.
+> >
+> > In case the input is two pixel per clock (1T2P), the AFIFO HW
+> > will automatically (and internally) convert it to 1T1P.
+>
+> Applied to mediatek-drm-next [1], thanks.
+>
+> [1] https://web.git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linu=
+x.git/log/?h=3Dmediatek-drm-next
 
-On Mon, 17 Feb 2025 15:46:04 +0100, Stefan Eichenberger wrote:
-> The simple-audio-card's microphone widget currently connects to the
-> headphone jack. Routing the microphone input to the microphone jack
-> allows for independent operation of the microphone and headphones.
-> 
-> This resolves the following boot-time kernel log message, which
-> indicated a conflict when the microphone and headphone functions were
-> not separated:
->   debugfs: File 'Headphone Jack' in directory 'dapm' already present!
-> 
-> [...]
+Fix build error then apply. Be care of patch quality.
 
-I have applied the following to branch ti-next on [1].
-Thank you!
+Regards,
+Chun-Kuang.
 
-[1/1] arm64: dts: ti: k3-am62-verdin-dahlia: add Microphone Jack to sound card
-      commit: 7139df64e7c13c079b754476355c62b490213055
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent up the chain during
-the next merge window (or sooner if it is a relevant bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
---
-Vignesh
-
+>
+> Regards,
+> Chun-Kuang.
+>
+> >
+> > Reviewed-by: CK Hu <ck.hu@mediatek.com>
+> > Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@co=
+llabora.com>
+> > ---
+> >  drivers/gpu/drm/mediatek/mtk_dpi.c | 11 ++++++++++-
+> >  1 file changed, 10 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/gpu/drm/mediatek/mtk_dpi.c b/drivers/gpu/drm/media=
+tek/mtk_dpi.c
+> > index 9f83e82437dd..e12dc73ed79c 100644
+> > --- a/drivers/gpu/drm/mediatek/mtk_dpi.c
+> > +++ b/drivers/gpu/drm/mediatek/mtk_dpi.c
+> > @@ -147,6 +147,8 @@ struct mtk_dpi_factor {
+> >   * @edge_cfg_in_mmsys: If the edge configuration for DPI's output need=
+s to be set in MMSYS.
+> >   * @clocked_by_hdmi: HDMI IP outputs clock to dpi_pixel_clk input cloc=
+k, needed
+> >   *                  for DPI registers access.
+> > + * @output_1pixel: Enable outputting one pixel per round; if the input=
+ is two pixel per
+> > + *                 round, the DPI hardware will internally transform i=
+t to 1T1P.
+> >   */
+> >  struct mtk_dpi_conf {
+> >         const struct mtk_dpi_factor *dpi_factor;
+> > @@ -168,6 +170,7 @@ struct mtk_dpi_conf {
+> >         u32 pixels_per_iter;
+> >         bool edge_cfg_in_mmsys;
+> >         bool clocked_by_hdmi;
+> > +       bool output_1pixel;
+> >  };
+> >
+> >  static void mtk_dpi_mask(struct mtk_dpi *dpi, u32 offset, u32 val, u32=
+ mask)
+> > @@ -653,7 +656,13 @@ static int mtk_dpi_set_display_mode(struct mtk_dpi=
+ *dpi,
+> >         if (dpi->conf->support_direct_pin) {
+> >                 mtk_dpi_config_yc_map(dpi, dpi->yc_map);
+> >                 mtk_dpi_config_2n_h_fre(dpi);
+> > -               mtk_dpi_dual_edge(dpi);
+> > +
+> > +               /* DPI can connect to either an external bridge or the =
+internal HDMI encoder */
+> > +               if (dpi->conf->output_1pixel)
+> > +                       mtk_dpi_mask(dpi, DPI_CON, DPI_OUTPUT_1T1P_EN, =
+DPI_OUTPUT_1T1P_EN);
+> > +               else
+> > +                       mtk_dpi_dual_edge(dpi);
+> > +
+> >                 mtk_dpi_config_disable_edge(dpi);
+> >         }
+> >         if (dpi->conf->input_2p_en_bit) {
+> > --
+> > 2.48.1
+> >
 
