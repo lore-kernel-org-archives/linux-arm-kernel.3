@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ACD9C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 11:05:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8932C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 11:07:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=52g/glg7NT0z7wXh+1AGaeQ8us2Hz1vc7u/frasZWfQ=; b=f+Q9gKi5eALNH6GhTyEjo2u5Kq
-	ssuJvPb+tonaz+9uojNWcT9MkxiicFVpSyNLtU/hG7zwRlmzcuAcedMWpsjTbCUv45rn6uLcJko5O
-	s5y14pmv8/Ag6ELO1Og1WEmRL1l3up7hbrGgekf3tbhIaco38+nmPMvvpwnh1Mu7BFvQ8uZtN0z4z
-	+ZJMym61JgxdEVvkEYE9ZFQ5Miu6ME2LzLCWrXl/bALvByS29Ty4EqZp//Dsp/ggZM25t3pXhM0zO
-	3M4iU2jHS9eFLPRSHF1MTKEve6diMrnfm/DgAP4VQCb+Le9ydfvQMvj46L3j2lSC2cNTdj+jrVsiL
-	ykLljS9w==;
+	bh=PV6adQRatt6DeZvVh8HfMkViGDvxGG2kZDUesd3HMZU=; b=LHMBWLm6kVguPdZB+ryfJETM8b
+	OsZ744x2BjM/ihZuwO63aqzAKAoirg5V7I05TEuXZkXqwVvLSMovEMWi2Z3VlhkOmcLHMiTOmTIR9
+	Tw2+VNo2D4rzafn6uFJ8cB/prAzAjR9z5jkgt+MC9jweafo097PoJdN/nuhsWARKrXMTy1/ZfoIFk
+	wpaDpNUs0azIduvPmMGocmCcs1Rv3G/wBaw0MjQ3XTrt3CxzLLNuMQsLgvuFBqdg2WrVtCnt2rUxa
+	8q+xldKK5o9Q5PGnDVPVOWUzrtGVMJzQzF4zHuS7VgMZZz8HM1d2IhHKvdJJX+AEHo5frWHeO3VRq
+	DpXJh5Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toh7y-0000000FsUY-3U9M;
-	Sun, 02 Mar 2025 11:04:58 +0000
+	id 1tohAc-0000000Fsm5-3oSO;
+	Sun, 02 Mar 2025 11:07:42 +0000
 Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toh5V-0000000FsCC-2Lrk;
-	Sun, 02 Mar 2025 11:02:25 +0000
+	id 1toh96-0000000Fsdc-32UU;
+	Sun, 02 Mar 2025 11:06:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B2F12611B2;
-	Sun,  2 Mar 2025 11:02:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57C23C4CEEA;
-	Sun,  2 Mar 2025 11:02:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B0C36611C2;
+	Sun,  2 Mar 2025 11:05:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3993BC4CEE7;
+	Sun,  2 Mar 2025 11:06:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740913343;
-	bh=0dYRopgj7MY9Fono+yLkck1yirLmhq10431jfhctt4M=;
+	s=k20201202; t=1740913567;
+	bh=dFEmSgzocjSvRAOC0rSgdbowwNAjPIkt2fXcO2yivXw=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=dI/jUzxoVB0jnsLae/FQlzvjQ7CYnYsIB3MwnXWvGhhR3jBsOy9Lne55sQfA2mJ3+
-	 PbIU6YS43nQwBKgXeh48GADc9RgU6+S623HOQWg/Vddyswo0yiw5y5eKK2daBf+UN8
-	 Hb938BynaEL8+4HPJwafxhEfLIpvhWmkQ2wgLW9YADDFMxHEOAAGIsI6c9MEdqdVTD
-	 m574t5Se7YXMPz7iXVTCH460eyXEdF+elO9Qz4AoT8Wsmm+I5AzZ+sr0GE33j0yLa5
-	 tjZs5yYHkBB+bR7Z4gom2yJLZO+gDrwnu2Jfx5bJTIqO34/RpHp29Xx2F8PvTM0tzk
-	 eham8rPTPCdgA==
-Received: by mail-pj1-f45.google.com with SMTP id 98e67ed59e1d1-2feb1d7a68fso5854032a91.1;
-        Sun, 02 Mar 2025 03:02:23 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVLFBJSqRaAvHUHizTL97IRvhNeqee9KUGgL0WnUmTAwJRRWgPDEbXIfCIxQzlzq2XELJROzKJBeTNZMeramGw=@lists.infradead.org, AJvYcCXzOq3ZMldP1TfbXkH6dbYTGzPL9eZnDpAoOT1sLnZjDZtj4XKC3od8O5Kv7fb+Gio4R8gIrXoKLclc/IpVY3at@lists.infradead.org
-X-Gm-Message-State: AOJu0YxB3H6/vzmbsYa+/+VXbLnV92L1zet2p1YdOvVRl1Yo0xcuCC0k
-	lce5z+FznwnITiCQcYWrxyV/749EI1u3Rk7qZBoGlhIW0U0JcCe/KJtWDfqHD9dH33uxk6t/61G
-	CAMx7TSDQVWZFGVwQOg6YhTtdDg==
-X-Google-Smtp-Source: AGHT+IGXak0wWZcnO2fYe/U4V7W9M9ejGxSMKy2z27wcwQtCwsLxiJAGJVNg9RMSEfsiEk3SDeQMvuh7fJRecjo++dU=
-X-Received: by 2002:a17:90b:5745:b0:2f2:a664:df1a with SMTP id
- 98e67ed59e1d1-2febab2e065mr15533413a91.2.1740913342866; Sun, 02 Mar 2025
- 03:02:22 -0800 (PST)
+	b=V2WK9r5MIC7WuwVnLRgml0y0Q5B9sU1d82WnY8JOXecLdaeZjJcm4kmY7yFRKDc3Y
+	 kO/Sa4MCO3e90MvlFV6Xn1XLFLWOTkDnuf04RsIaz2xzxu2SdqcViRpOtiLz2EA/gE
+	 kKa4NEtHjL9/Herfmms6aXz0lpNtY9xb/gKM4ZKOoYOcE6ttvrHs04lguK3a3zvyV1
+	 oy8NNpAx+XqsB0FJ6X8nvbrn2zcIeRMIVjtzmb7W3u+QNroGJt8GaM8Do1jJ+v3ofa
+	 vTwyI3iMOhWQviad+e5GxMKcHLHbJvF28lRcWVWOP0/uiFDiRngV8vKLCevKeMOhpn
+	 KLb2gCLX26LTw==
+Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-2fe848040b1so7397254a91.3;
+        Sun, 02 Mar 2025 03:06:07 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUk4pknjM3EO6tr4X1JHaudOcs7ps+ars5wDyFHZzenY0DZF3OCWfNmTmpJilbJTGvLVyGw8Nvb+VXZQtGgCael@lists.infradead.org, AJvYcCVEUdJ3Cp0dNUiEeshfH1M1J00vJ/tulDuue0LhedcEiCOURjkIH94pnwiV0MRnwtMr7u8AvtBvZgqVuoPXyrY=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTxZB/QrMYHgAqmrHNRt2MZ5i0RxSE+G9FHIDzyNqRyKBfbsa5
+	CBc6QnneLu/mDeNbXfJsvCDklh+zm2LSsQN+Q3EvQXskZdsjOE1Bl26qh3rDLDNsabIMSyzKpVL
+	vHm6w55EOPaNVh2FF0nBkcZp4GQ==
+X-Google-Smtp-Source: AGHT+IFaakker1RvlwWBHNoAKzwywldrlnkjxsAGufL3nNbLGGTK04VQQJSQKHzYCBPUBZQAE9j/+vDYFuUUpAcGJ2o=
+X-Received: by 2002:a17:90b:4b03:b0:2ee:b0b0:8e02 with SMTP id
+ 98e67ed59e1d1-2febabdee31mr14288048a91.28.1740913566738; Sun, 02 Mar 2025
+ 03:06:06 -0800 (PST)
 MIME-Version: 1.0
-References: <20250217154836.108895-1-angelogioacchino.delregno@collabora.com> <20250217154836.108895-4-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20250217154836.108895-4-angelogioacchino.delregno@collabora.com>
+References: <20250217154836.108895-1-angelogioacchino.delregno@collabora.com> <20250217154836.108895-6-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250217154836.108895-6-angelogioacchino.delregno@collabora.com>
 From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Sun, 2 Mar 2025 19:03:09 +0800
-X-Gmail-Original-Message-ID: <CAAOTY_8KFgSQEYC7v+6Asi_KdYjdsj==fOt6LR1FnOvFF+-BvA@mail.gmail.com>
-X-Gm-Features: AQ5f1JrgOeeHmf3p3iP0Zim-UptMlcZ6hRTIjGx7ZXATj_NZLe_or-pJTLaht-g
-Message-ID: <CAAOTY_8KFgSQEYC7v+6Asi_KdYjdsj==fOt6LR1FnOvFF+-BvA@mail.gmail.com>
-Subject: Re: [PATCH v7 03/43] drm/mediatek: mtk_dpi: Use an array for pixclk
- factor calculation
+Date: Sun, 2 Mar 2025 19:06:53 +0800
+X-Gmail-Original-Message-ID: <CAAOTY_8BgMwzxa8N-LfwF2E0R0fp390aTc-w320DdeuOrUb=LQ@mail.gmail.com>
+X-Gm-Features: AQ5f1Jr8JxhruQU5SBFrhJlqRkkYTbn86_r90UvYcimeOPdrDui1RogsSo_EkOY
+Message-ID: <CAAOTY_8BgMwzxa8N-LfwF2E0R0fp390aTc-w320DdeuOrUb=LQ@mail.gmail.com>
+Subject: Re: [PATCH v7 05/43] drm/mediatek: mtk_dpi: Add checks for
+ reg_h_fre_con existence
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
 	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
@@ -96,35 +96,17 @@ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> =E6=96=
 2025=E5=B9=B42=E6=9C=8817=E6=97=A5 =E9=80=B1=E4=B8=80 =E4=B8=8B=E5=8D=8811:=
 49=E5=AF=AB=E9=81=93=EF=BC=9A
 >
-> Setting the TVD PLL clock requires to multiply the target pixel
-> clock by a specific constant factor to achieve the target PLL
-> frequency, and this is done to reduce jitter to acceptable levels.
+> In preparation for adding support for newer DPI instances which
+> do support direct-pin but do not have any H_FRE_CON register,
+> like the one found in MT8195 and MT8188, add a branch to check
+> if the reg_h_fre_con variable was declared in the mtk_dpi_conf
+> structure for the probed SoC DPI version.
 >
-> On all MediaTek SoCs, the factor is not retrieved by any real kind
-> of calculation but rather by checking if the target pixel clock
-> is less than a specified frequency, hence assigning a function
-> pointer for just a bunch of if branches does enlarge the code
-> size for little reason.
->
-> Remove all SoC-specific functions, add a structure `mtk_dpi_factor`
-> that holds a clock frequency and corresponding PLL factor, and
-> declare the constraints for each SoC in form of an array of said
-> structure.
-> Instead of function pointers, this structure (and its size) is then
-> assigned to each SoC's platform data.
->
-> The "calculation" is then performed with a new static function
-> mtk_dpi_calculate_factor(dpi, mode_clk) that iterates through all
-> of the entries of the aforementioned array and returns the right
-> factor.
->
-> If no factor is found, the lowest possible factor is returned,
-> mimicking the same flow as all of the old per-SoC calculation
-> functions.
->
-> This commit brings no functional change.
+> As a note, this is useful specifically only for cases in which
+> the support_direct_pin variable is true, so mt8195-dpintf is
+> not affected by any issue.
 
-After fix conflicts, applied to mediatek-drm-next [1], thanks.
+Applied to mediatek-drm-next [1], thanks.
 
 [1] https://web.git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.=
 git/log/?h=3Dmediatek-drm-next
@@ -137,203 +119,33 @@ Chun-Kuang.
 > Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
 abora.com>
 > ---
->  drivers/gpu/drm/mediatek/mtk_dpi.c | 103 +++++++++++++++--------------
->  1 file changed, 52 insertions(+), 51 deletions(-)
+>  drivers/gpu/drm/mediatek/mtk_dpi.c | 5 +++--
+>  1 file changed, 3 insertions(+), 2 deletions(-)
 >
 > diff --git a/drivers/gpu/drm/mediatek/mtk_dpi.c b/drivers/gpu/drm/mediate=
 k/mtk_dpi.c
-> index fc937490feda..41fdc193891a 100644
+> index 59c2e4f32a61..bb1a17f1384b 100644
 > --- a/drivers/gpu/drm/mediatek/mtk_dpi.c
 > +++ b/drivers/gpu/drm/mediatek/mtk_dpi.c
-> @@ -118,9 +118,15 @@ struct mtk_dpi_yc_limit {
->         u16 c_bottom;
->  };
+> @@ -431,12 +431,13 @@ static void mtk_dpi_config_swap_input(struct mtk_dp=
+i *dpi, bool enable)
 >
-> +struct mtk_dpi_factor {
-> +       u32 clock;
-> +       u8 factor;
-> +};
-> +
->  /**
->   * struct mtk_dpi_conf - Configuration of mediatek dpi.
-> - * @cal_factor: Callback function to calculate factor value.
-> + * @dpi_factor: SoC-specific pixel clock PLL factor values.
-> + * @num_dpi_factor: Number of pixel clock PLL factor values.
->   * @reg_h_fre_con: Register address of frequency control.
->   * @max_clock_khz: Max clock frequency supported for this SoCs in khz un=
-its.
->   * @edge_sel_en: Enable of edge selection.
-> @@ -141,7 +147,8 @@ struct mtk_dpi_yc_limit {
->   * @edge_cfg_in_mmsys: If the edge configuration for DPI's output needs =
-to be set in MMSYS.
->   */
->  struct mtk_dpi_conf {
-> -       unsigned int (*cal_factor)(int clock);
-> +       const struct mtk_dpi_factor *dpi_factor;
-> +       const u8 num_dpi_factor;
->         u32 reg_h_fre_con;
->         u32 max_clock_khz;
->         bool edge_sel_en;
-> @@ -516,6 +523,20 @@ static int mtk_dpi_power_on(struct mtk_dpi *dpi)
->         return ret;
+>  static void mtk_dpi_config_2n_h_fre(struct mtk_dpi *dpi)
+>  {
+> -       mtk_dpi_mask(dpi, dpi->conf->reg_h_fre_con, H_FRE_2N, H_FRE_2N);
+> +       if (dpi->conf->reg_h_fre_con)
+> +               mtk_dpi_mask(dpi, dpi->conf->reg_h_fre_con, H_FRE_2N, H_F=
+RE_2N);
 >  }
 >
-> +static unsigned int mtk_dpi_calculate_factor(struct mtk_dpi *dpi, int mo=
-de_clk)
-> +{
-> +       const struct mtk_dpi_factor *dpi_factor =3D dpi->conf->dpi_factor=
-;
-> +       int i;
-> +
-> +       for (i =3D 0; i < dpi->conf->num_dpi_factor; i++) {
-> +               if (mode_clk <=3D dpi_factor[i].clock)
-> +                       return dpi_factor[i].factor;
-> +       }
-> +
-> +       /* If no match try the lowest possible factor */
-> +       return dpi_factor[dpi->conf->num_dpi_factor - 1].factor;
-> +}
-> +
->  static int mtk_dpi_set_display_mode(struct mtk_dpi *dpi,
->                                     struct drm_display_mode *mode)
+>  static void mtk_dpi_config_disable_edge(struct mtk_dpi *dpi)
 >  {
-> @@ -530,7 +551,7 @@ static int mtk_dpi_set_display_mode(struct mtk_dpi *d=
-pi,
->         unsigned int factor;
+> -       if (dpi->conf->edge_sel_en)
+> +       if (dpi->conf->edge_sel_en && dpi->conf->reg_h_fre_con)
+>                 mtk_dpi_mask(dpi, dpi->conf->reg_h_fre_con, 0, EDGE_SEL_E=
+N);
+>  }
 >
->         /* let pll_rate can fix the valid range of tvdpll (1G~2GHz) */
-> -       factor =3D dpi->conf->cal_factor(mode->clock);
-> +       factor =3D mtk_dpi_calculate_factor(dpi, mode_clk);
->         drm_display_mode_to_videomode(mode, &vm);
->         pll_rate =3D vm.pixelclock * factor;
->
-> @@ -965,48 +986,6 @@ static const struct component_ops mtk_dpi_component_=
-ops =3D {
->         .unbind =3D mtk_dpi_unbind,
->  };
->
-> -static unsigned int mt8173_calculate_factor(int clock)
-> -{
-> -       if (clock <=3D 27000)
-> -               return 3 << 4;
-> -       else if (clock <=3D 84000)
-> -               return 3 << 3;
-> -       else if (clock <=3D 167000)
-> -               return 3 << 2;
-> -       else
-> -               return 3 << 1;
-> -}
-> -
-> -static unsigned int mt2701_calculate_factor(int clock)
-> -{
-> -       if (clock <=3D 64000)
-> -               return 4;
-> -       else if (clock <=3D 128000)
-> -               return 2;
-> -       else
-> -               return 1;
-> -}
-> -
-> -static unsigned int mt8183_calculate_factor(int clock)
-> -{
-> -       if (clock <=3D 27000)
-> -               return 8;
-> -       else if (clock <=3D 167000)
-> -               return 4;
-> -       else
-> -               return 2;
-> -}
-> -
-> -static unsigned int mt8195_dpintf_calculate_factor(int clock)
-> -{
-> -       if (clock < 70000)
-> -               return 4;
-> -       else if (clock < 200000)
-> -               return 2;
-> -       else
-> -               return 1;
-> -}
-> -
->  static const u32 mt8173_output_fmts[] =3D {
->         MEDIA_BUS_FMT_RGB888_1X24,
->  };
-> @@ -1021,8 +1000,25 @@ static const u32 mt8195_output_fmts[] =3D {
->         MEDIA_BUS_FMT_YUYV8_1X16,
->  };
->
-> +static const struct mtk_dpi_factor dpi_factor_mt2701[] =3D {
-> +       { 64000, 4 }, { 128000, 2 }, { U32_MAX, 1 }
-> +};
-> +
-> +static const struct mtk_dpi_factor dpi_factor_mt8173[] =3D {
-> +       { 27000, 48 }, { 84000, 24 }, { 167000, 12 }, { U32_MAX, 6 }
-> +};
-> +
-> +static const struct mtk_dpi_factor dpi_factor_mt8183[] =3D {
-> +       { 27000, 8 }, { 167000, 4 }, { U32_MAX, 2 }
-> +};
-> +
-> +static const struct mtk_dpi_factor dpi_factor_mt8195_dp_intf[] =3D {
-> +       { 70000 - 1, 4 }, { 200000 - 1, 2 }, { U32_MAX, 1 }
-> +};
-> +
->  static const struct mtk_dpi_conf mt8173_conf =3D {
-> -       .cal_factor =3D mt8173_calculate_factor,
-> +       .dpi_factor =3D dpi_factor_mt8173,
-> +       .num_dpi_factor =3D ARRAY_SIZE(dpi_factor_mt8173),
->         .reg_h_fre_con =3D 0xe0,
->         .max_clock_khz =3D 300000,
->         .output_fmts =3D mt8173_output_fmts,
-> @@ -1039,7 +1035,8 @@ static const struct mtk_dpi_conf mt8173_conf =3D {
->  };
->
->  static const struct mtk_dpi_conf mt2701_conf =3D {
-> -       .cal_factor =3D mt2701_calculate_factor,
-> +       .dpi_factor =3D dpi_factor_mt2701,
-> +       .num_dpi_factor =3D ARRAY_SIZE(dpi_factor_mt2701),
->         .reg_h_fre_con =3D 0xb0,
->         .edge_sel_en =3D true,
->         .max_clock_khz =3D 150000,
-> @@ -1057,7 +1054,8 @@ static const struct mtk_dpi_conf mt2701_conf =3D {
->  };
->
->  static const struct mtk_dpi_conf mt8183_conf =3D {
-> -       .cal_factor =3D mt8183_calculate_factor,
-> +       .dpi_factor =3D dpi_factor_mt8183,
-> +       .num_dpi_factor =3D ARRAY_SIZE(dpi_factor_mt8183),
->         .reg_h_fre_con =3D 0xe0,
->         .max_clock_khz =3D 100000,
->         .output_fmts =3D mt8183_output_fmts,
-> @@ -1074,7 +1072,8 @@ static const struct mtk_dpi_conf mt8183_conf =3D {
->  };
->
->  static const struct mtk_dpi_conf mt8186_conf =3D {
-> -       .cal_factor =3D mt8183_calculate_factor,
-> +       .dpi_factor =3D dpi_factor_mt8183,
-> +       .num_dpi_factor =3D ARRAY_SIZE(dpi_factor_mt8183),
->         .reg_h_fre_con =3D 0xe0,
->         .max_clock_khz =3D 150000,
->         .output_fmts =3D mt8183_output_fmts,
-> @@ -1092,7 +1091,8 @@ static const struct mtk_dpi_conf mt8186_conf =3D {
->  };
->
->  static const struct mtk_dpi_conf mt8192_conf =3D {
-> -       .cal_factor =3D mt8183_calculate_factor,
-> +       .dpi_factor =3D dpi_factor_mt8183,
-> +       .num_dpi_factor =3D ARRAY_SIZE(dpi_factor_mt8183),
->         .reg_h_fre_con =3D 0xe0,
->         .max_clock_khz =3D 150000,
->         .output_fmts =3D mt8183_output_fmts,
-> @@ -1109,7 +1109,8 @@ static const struct mtk_dpi_conf mt8192_conf =3D {
->  };
->
->  static const struct mtk_dpi_conf mt8195_dpintf_conf =3D {
-> -       .cal_factor =3D mt8195_dpintf_calculate_factor,
-> +       .dpi_factor =3D dpi_factor_mt8195_dp_intf,
-> +       .num_dpi_factor =3D ARRAY_SIZE(dpi_factor_mt8195_dp_intf),
->         .max_clock_khz =3D 600000,
->         .output_fmts =3D mt8195_output_fmts,
->         .num_output_fmts =3D ARRAY_SIZE(mt8195_output_fmts),
 > --
 > 2.48.1
 >
