@@ -4,64 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B510C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 15:28:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2DCEC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 15:36:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8Bh6bLjv98EA8P8H9SQlLoMe1/qkXz4wmKjkYzXqTxY=; b=s0lCMKPTcKI+NIW8Bwj5V8H974
-	rD8lzir37SlfqV5Fg0aOM0VmYEc60kfUyK7Uu1vso6ybqvmTQYDJV69dof79BDvZFvb4ahEelBFXz
-	+AEkLy3o33Ah7WYFinjApwO1MHoOZif/KLfNTFDw/M8F4yYgZR8WkWDcmxd7JwtzBeujNYbasQiQY
-	S4woUV0gzG/UfbjMza1+yYV+zPP2hr8NwYt/30nvJ9p/ZVC/Bmh7o7eU4GKZRrQqFsrRiHa1WYg7z
-	MmryXwY4s1/S2tv7TkZ+bCr5s4JZBU3DmDsuP3VUV8GAvdfGCD7IHGDxmvgvFeyB6V2YYLNnlvQJg
-	+aHLw51g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wdAoh/ayfnLnb4rljIhkNtkXJPCCVbcFapnePSxCyVQ=; b=CekMTAPh7yDlmKe8XJ/CEkXwzv
+	cB9y3vT1Mqp46F1kId52b54OA7nVrCo1ChTfaEkR6pKdU7HCTfIPSnBRMtC5ZElGjy5+l0KEb+s8H
+	FqG07F1dh9mQPzBzQBqZj+cnD++qNdVysN85fJVoOEThg6jH5yu88/8+hAQk/gHm4VfoLlHwyDdrW
+	fjfjgJYFCXYMiydZ2rLj+dC913b/JR1diNgxIHe9l6R0Jd5+C/SGmE+g0h4kLKbcWzUNGWjwymBzU
+	PV8JCTRs05e2O44egskcKaAmAX416LgqpIf4Z3K4T/IoW+sJE++xQzWmz1Z7NpX6mtjF6oONf7+8F
+	UHolwxGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tolEf-0000000GDuJ-1ty4;
-	Sun, 02 Mar 2025 15:28:09 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1tolN1-0000000GEVF-2cGW;
+	Sun, 02 Mar 2025 15:36:47 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tolD5-0000000GDqq-2vTi
+	id 1tolLS-0000000GEIT-0llL
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Mar 2025 15:26:32 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E020610382D03;
-	Sun,  2 Mar 2025 16:26:23 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1740929186;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=8Bh6bLjv98EA8P8H9SQlLoMe1/qkXz4wmKjkYzXqTxY=;
-	b=RDKwCd0anT/sAu/zkYm8sX7eP1ka+sonUhm6e1+GdVn6NGjZOqCZ7LeUhWAQUGAjxgye8v
-	sacKqGGvueFEptvu+Iu3l45yJIeMMEy1JdCSRCBllNpl3X3hPudOMZiHWk204hQqZq65pq
-	oQsDY3u57Kj1bStUlns2DQOVNAPF+/UV+KQP44lSbkwuOUawUqIK00Wyl8ewQxkCBEZWA3
-	o/a4iiToy/JZtABdK8qD5Mg9CrfwF37IMaNOqozClg76H49ADFbtLxtWQbzj5l46KYmKbo
-	nH25XteLnY5OaxnPbKebp0ac6x3jMqqTETmEds9gLGLAQVWH2hemAU/njZhNfw==
-From: Marek Vasut <marex@denx.de>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marex@denx.de>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Christoph Niedermaier <cniedermaier@dh-electronics.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	kernel@dh-electronics.com,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH] ARM: dts: stm32: Add support for STM32MP13xx DHCOR SoM and DHSBC rev.200 board
-Date: Sun,  2 Mar 2025 16:25:14 +0100
-Message-ID: <20250302152605.54792-1-marex@denx.de>
-X-Mailer: git-send-email 2.47.2
+	Sun, 02 Mar 2025 15:35:11 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 522FZ4G42556074
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sun, 2 Mar 2025 09:35:04 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1740929704;
+	bh=wdAoh/ayfnLnb4rljIhkNtkXJPCCVbcFapnePSxCyVQ=;
+	h=From:To:CC:Subject:Date;
+	b=a+FU4jEC28l5XEJbJ2NMrmbp4o6HUFInvm45S6lnBi8pRrTMDYQWQjR/vHEnkiu2E
+	 fsK7pRv+s/LprOOOt+pyYvrSVSakdxr9R2c8SD1go/yE5jWB0scRsuoZK+kmdxhC/T
+	 o0Hww0Qe3u3xGAnr3fmiQfKP9mYPlH4FCGrq44L8=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 522FZ4VP085114
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Sun, 2 Mar 2025 09:35:04 -0600
+Received: from DLEE109.ent.ti.com (157.170.170.41) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Sun, 2
+ Mar 2025 09:35:04 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Sun, 2 Mar 2025 09:35:04 -0600
+Received: from localhost (chintan-thinkstation-p360-tower.dhcp.ti.com [172.24.227.220])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 522FZ3a0120099;
+	Sun, 2 Mar 2025 09:35:03 -0600
+From: Chintan Vankar <c-vankar@ti.com>
+To: Conor Dooley <conor+dt@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Rob Herring <robh@kernel.org>, Tero Kristo
+	<kristo@kernel.org>,
+        Vignesh Raghavendra <vigneshr@ti.com>, Nishanth Menon
+	<nm@ti.com>
+CC: <s-vadapalli@ti.com>, <c-vankar@ti.com>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH v2 0/2] Add bootph-all property to necessary nodes to enable ethernet boot for AM68-SK, J722s and AM62p-SK
+Date: Sun, 2 Mar 2025 21:05:00 +0530
+Message-ID: <20250302153502.181832-1-c-vankar@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_072631_890880_0A6E24D9 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20250302_073510_436210_8C0CFAC6 
+X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,97 +89,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-LDO2 is expansion connector supply on STM32MP13xx DHCOR DHSBC rev.200.
-LDO5 is carrier board supply on STM32MP13xx DHCOR DHSBC rev.200. Keep
-both regulators always enabled to make sure both the carrier board and
-the expansion connector is always powered on and supplied with correct
-voltage.
+This series adds bootph-all property to necessary nodes to enable
+ethernet boot support for AM68-SK, J722s and AM62p-SK.
 
-Describe ST33TPHF2XSPI TPM 2.0 chip interrupt and reset lines.
+This series is based on linux-next tagged next-20250228.
 
-Signed-off-by: Marek Vasut <marex@denx.de>
----
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Christoph Niedermaier <cniedermaier@dh-electronics.com>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: kernel@dh-electronics.com
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-stm32@st-md-mailman.stormreply.com
----
- .../boot/dts/st/stm32mp135f-dhcor-dhsbc.dts   | 30 +++++++++++++++++--
- 1 file changed, 28 insertions(+), 2 deletions(-)
+Link to v1:
+https://lore.kernel.org/r/20250106123122.3531845-1-c-vankar@ti.com/
 
-diff --git a/arch/arm/boot/dts/st/stm32mp135f-dhcor-dhsbc.dts b/arch/arm/boot/dts/st/stm32mp135f-dhcor-dhsbc.dts
-index 853dc21449d99..9902849ed0406 100644
---- a/arch/arm/boot/dts/st/stm32mp135f-dhcor-dhsbc.dts
-+++ b/arch/arm/boot/dts/st/stm32mp135f-dhcor-dhsbc.dts
-@@ -176,7 +176,7 @@ &gpioa {
- 	gpio-line-names = "", "", "", "",
- 			  "", "DHSBC_USB_PWR_CC1", "", "",
- 			  "", "", "", "DHSBC_nETH1_RST",
--			  "", "DHCOR_HW-CODING_0", "", "";
-+			  "", "DHCOR_HW-CODING_0", "", "DHSBC_HW-CODE_2";
- };
- 
- &gpiob {
-@@ -197,7 +197,7 @@ &gpiod {
- 	gpio-line-names = "", "", "", "",
- 			  "", "DHCOR_RAM-CODING_0", "", "",
- 			  "", "DHCOR_RAM-CODING_1", "", "",
--			  "", "", "", "";
-+			  "", "DHSBC_HW-CODE_1", "", "";
- };
- 
- &gpioe {
-@@ -221,6 +221,13 @@ &gpiog {
- 			  "DHSBC_ETH1_INTB", "", "", "DHSBC_ETH2_INTB";
- };
- 
-+&gpioh {
-+	gpio-line-names = "", "", "", "DHSBC_HW-CODE_0",
-+			  "", "", "", "",
-+			  "", "", "", "",
-+			  "", "", "", "";
-+};
-+
- &gpioi {
- 	gpio-line-names = "DHCOR_RTC_nINT", "DHCOR_HW-CODING_1",
- 			  "DHCOR_BT_REG_ON", "DHCOR_PMIC_nINT",
-@@ -296,6 +303,9 @@ &spi2 {
- 	st33htph: tpm@0 {
- 		compatible = "st,st33htpm-spi", "tcg,tpm_tis-spi";
- 		reg = <0>;
-+		interrupt-parent = <&gpioe>;
-+		interrupts = <9 IRQ_TYPE_LEVEL_LOW>;
-+		reset-gpios = <&gpioe 12 GPIO_ACTIVE_LOW>;
- 		spi-max-frequency = <24000000>;
- 	};
- };
-@@ -419,3 +429,19 @@ connector {
- 		type = "micro";
- 	};
- };
-+
-+/* LDO2 is expansion connector 3V3 supply on STM32MP13xx DHCOR DHSBC rev.200 */
-+&vdd_ldo2 {
-+	regulator-always-on;
-+	regulator-boot-on;
-+	regulator-min-microvolt = <3300000>;
-+	regulator-max-microvolt = <3300000>;
-+};
-+
-+/* LDO5 is carrier board 3V3 supply on STM32MP13xx DHCOR DHSBC rev.200 */
-+&vdd_sd {
-+	regulator-always-on;
-+	regulator-boot-on;
-+	regulator-min-microvolt = <3300000>;
-+	regulator-max-microvolt = <3300000>;
-+};
+Changes from v1 to v2:
+- Updated order of "bootph-all" in [PATCH 1/1].
+
+Chintan Vankar (2):
+  arm64: dts: ti: k3-am68-sk/k3-j721s2-mcu: Add bootph-all property to
+    enable Ethernet boot
+  arm64: dts: ti: k3-am62p5*/k3-j722s: Add bootph-all property to enable
+    Ethernet boot
+
+ arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 3 +++
+ arch/arm64/boot/dts/ti/k3-am62p5-sk.dts                | 2 ++
+ arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts       | 3 +++
+ arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi       | 4 ++++
+ arch/arm64/boot/dts/ti/k3-j722s-evm.dts                | 3 +++
+ 5 files changed, 15 insertions(+)
+
 -- 
-2.47.2
+2.34.1
 
 
