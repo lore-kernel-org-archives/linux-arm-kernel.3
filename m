@@ -4,69 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 726D8C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 15:47:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AABF7C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 16:08:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8JYVCrH6PJ04XLrRJrXnDDg8JCjURxqYx8cEKCB0S1w=; b=KH28mza9OBXIXz
-	2a7J1Gwzyn7EWzlGN+yMrNqzqjLxRugBKAdr8eYqrl9Gm3H9G+s19Jswgc3Z3EWAyva2mUKZXEWeH
-	iv2CKazaKkz8mucyqw/xiNlxkeGcCFg1WJaij9uQqqqXv8jBNsCb4yVZWhllwNAQIhC8fHiD8vz9w
-	tU/CpF+8ZFMMnFrvOk78Orja1vNQejYKUIycQcz2DUaBWVbf8odJhAOcNrJiach+bh9hYVnxZM0Q/
-	AsExrBfk1MCSznBj8p/UXBgmWAR36GHiux01g3UwaSpXIBpQ1HzC5aNPSSATMF6aGpPCJcUltQ38x
-	5O0xmdARGOJU94528bPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rOb09eDfRreA7Ky6moGlxy8PbP6wGE+oKv371IUngk8=; b=KJGcrutr7YG9uu9lBEq6Sd3HRR
+	Q7f/mel67s1yX+CE9TchL2TjdXTMjmFYzVAMjjZOpoRtVxOXnFtu/xhV14186XWiVyp7NUxqMrywF
+	zv3isE8xe01zYEO78JnpU9j7OWY8WtZp61kVin4UAXQ5Oa55ekzP6eCblEscT4Xp5VK2TjvU+CaX5
+	8ejYfUwbXmezj44VUnYzHDTY4ldA3SbvNRDafS30ABUY6Pz9/m/30NlXcKRSDWZoRFvu2ZbZh3X2h
+	VDIdQ5/KlfYM/aLZFzjDHcPFISyZ/FpEUmsNE7ArzzwmcTp2Zw1c6fcCQgu3kcl086BOe2Gz1tl34
+	eJWyGcow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tolX7-0000000GFm1-0c9L;
-	Sun, 02 Mar 2025 15:47:13 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1tolrt-0000000GHVY-0ZiF;
+	Sun, 02 Mar 2025 16:08:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tolSV-0000000GFGO-1gbo;
-	Sun, 02 Mar 2025 15:42:29 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 8B48544415;
-	Sun,  2 Mar 2025 15:42:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1740930141;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=8JYVCrH6PJ04XLrRJrXnDDg8JCjURxqYx8cEKCB0S1w=;
-	b=SRlaBSrepmvU2U4DVnbIS5Wzq+OxNoIBSgU2SXAZEDSIGfXYlmUJ37KaCYnI2awcDiIYOD
-	kPYfWZmTqiL8jQLK83vRaP1inoZc1Y992PWYSz8f15eRHmXtvL3iLaLrBvO4n1FOrrDmCD
-	I/DOiqaS4vSMmhw+29Uxv1La7Hjmeb9tcYLaNapbV1XEMaG2YXyoyGp71w1DPzmMb6jEyz
-	P54vxU3O+wCfocsTD+mO8otOvAuTqko0SQxXv3PQSEaUx6N78RoLseifBf9KtGKSzVYge4
-	nK+IC8z6kFidrMGQ+F31F+SVbBCNjPVZH2OYgM9mq/MVOeUPReXVw9/UFf8E6g==
-From: Olivier Benjamin <olivier.benjamin@bootlin.com>
-Subject: [PATCH v2 0/2] Describe the cameras in the PinePhone Pro dts
-Date: Sun, 02 Mar 2025 16:41:01 +0100
-Message-Id: <20250302-camera-v2-0-312b44b4a89c@bootlin.com>
+	id 1tolqK-0000000GHEw-20hx;
+	Sun, 02 Mar 2025 16:07:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9715961135;
+	Sun,  2 Mar 2025 16:06:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E607C4CEEE;
+	Sun,  2 Mar 2025 16:07:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740931621;
+	bh=6Z1K2XeEqTJ+PjSTHPmZvbQCAwrBgXMnsTzeuQ32us4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=TLEwWNmRzoxu50gGetzLmCrV55ix9FhhrsO+ah2335y0pn9Qi3RFBfkZYkYOMS2ab
+	 j9TjFANBQb+7XL6fMzePFbbvwAN7fMzd+fPngIunbIpQ5mhvfdDzuEFiBkS9YU4WVs
+	 zpJ38yLhwZYTN79b/EvKXeFBpHgyPRR1LG8yei1iV882TMyauEBkHI0lhsvb9Udwhj
+	 khewVtukix9yqVAnPHB5w3JAXCfWS0Vtx3NR/1vcQp8NkoOoZZ97hBHfMdKuOTWxK3
+	 MpXDyRlc4Btp+XN74DkPAyeUa0/j+hd/C0QFzKjkDfGb4Ke4tQ/96asbH8mU6mELPR
+	 oVWCFltGcEQvg==
+Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-2fef5c978ccso644255a91.1;
+        Sun, 02 Mar 2025 08:07:01 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWU/ZGBX1tBWS+uj/xgFg5aOZ+SGmdGnyazXF2ONDLtl9VJHRYqnxM+l9eY8WWjO7JnAiHVveQkVwVEPZ659jw=@lists.infradead.org, AJvYcCXSYVyEvTXbdD5PJMxuBw4mAR9a61CZg5b3oAyqr+sjUfCYQu7ZiwePYG68kFoT+bY6I4dOv2X9UrqYWC0mjoaK@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUHXJ7WbOSN0LUi6oaVEOMyGIVLE48uAg36hEXnznFeVkMctp7
+	rOc49Eq/wnZ10uzr9zyDGW5w9jAZ4OejPTD3nlO/wTJV4MJ5zh+hXhisRfNRwECqPULF7OSdMv4
+	yWaOvp4tR0+1bV3D+tPMbZE8pRQ==
+X-Google-Smtp-Source: AGHT+IGgpVK4aKVTw1AYLTQHunnH0lP0Xo7e0HySRK7+dlps4YjnoiELgWFMnKkx9EIddZ2irPPWBjpXbYwY6LnMy7Q=
+X-Received: by 2002:a17:90b:3511:b0:2fa:1f1b:3db2 with SMTP id
+ 98e67ed59e1d1-2febabcfedfmr14936364a91.25.1740931620948; Sun, 02 Mar 2025
+ 08:07:00 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAA18xGcC/2XMQQ7CIBCF4as0sxYDpBVw5T1MFxQHO4mFBhqia
- bi72K3L/+Xl2yFjIsxw7XZIWChTDC3kqQM32/BERo/WILkcuJSaObtgskxZbfoJvfVWQTuvCT2
- 9D+g+tp4pbzF9DreI3/pHFME4c4PQF+NNj0bdphi3F4WziwuMtdYvtGkOSZ4AAAA=
-X-Change-ID: 20250228-camera-7a894befafa7
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Olivier Benjamin <olivier.benjamin@bootlin.com>, oren@taumoda.com, 
- Dragan Simic <dsimic@manjaro.org>, Ondrej Jirman <megi@xff.cz>
-X-Mailer: b4 0.14.2
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdelieeitdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffufffkgggtgffvvefosehtjeertdertdejnecuhfhrohhmpefqlhhivhhivghruceuvghnjhgrmhhinhcuoeholhhivhhivghrrdgsvghnjhgrmhhinhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnheptdduheefuedtffejveeigfejteeiueelfeekfefgveefvdelgfeihfehjeeujedvnecuffhomhgrihhnpegtohguvggsvghrghdrohhrghdpkhgvrhhnvghlrdhorhhgnecukfhppedvrgdtudemvgefgeemvggtfeekmedvgegvtdemfhehtggvmehffeegvdemieehkeejmehfieehieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemvgefgeemvggtfeekmedvgegvtdemfhehtggvmehffeegvdemieehkeejmehfieehiedphhgvlhhopegludelvddrudeikedruddrvddtngdpmhgrihhlfhhrohhmpeholhhivhhivghrrdgsvghnjhgrmhhinhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudefpdhrtghpthhtoheplhhinhhugidqrhhotghktghhihhpsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheptghonhhorhdou
- ghtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmvghgihesgihffhdrtgiipdhrtghpthhtohepughsihhmihgtsehmrghnjhgrrhhordhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepohhrvghnsehtrghumhhouggrrdgtohhmpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhm
-X-GND-Sasl: olivier.benjamin@bootlin.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_074227_592145_C37886B0 
-X-CRM114-Status: UNSURE (   8.90  )
-X-CRM114-Notice: Please train this message.
+References: <20250218090427.20318-1-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250218090427.20318-1-angelogioacchino.delregno@collabora.com>
+From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Date: Mon, 3 Mar 2025 00:07:48 +0800
+X-Gmail-Original-Message-ID: <CAAOTY__aFqL=LnE5vU2RP9JHmQEgkrvPmiYjxmETWo9CvwiwLA@mail.gmail.com>
+X-Gm-Features: AQ5f1JrHQ_avSblgi4HZQ7x19rsI4_LP2M6FFBaV9IRM5Ur_SJsfW7MiHzcF_cw
+Message-ID: <CAAOTY__aFqL=LnE5vU2RP9JHmQEgkrvPmiYjxmETWo9CvwiwLA@mail.gmail.com>
+Subject: Re: [PATCH] dt-bindings: display: mediatek: dsc: Add MT8188 compatible
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, 
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
+	airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, matthias.bgg@gmail.com, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kernel@collabora.com, pablo.sun@mediatek.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,33 +84,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for the Pine64 PinePhone Pro's rear and front
-cameras in Device Tree.
-This is based on some of Ondrej Jirman's patches hosted in his tree at
-https://codeberg.org/megi/linux, but I have also fully reviewed and
-re-written the code from the RK3399 datasheet, the PinePhone Pro
-schematic, and the IMX258-0AQH5 software reference manual.
+Hi, Angelo:
 
-I have tested these changes on my PinePhone Pro and am able to take
-photos from both cameras using libcamera's cam.
+AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> =E6=96=
+=BC
+2025=E5=B9=B42=E6=9C=8818=E6=97=A5 =E9=80=B1=E4=BA=8C =E4=B8=8B=E5=8D=885:0=
+4=E5=AF=AB=E9=81=93=EF=BC=9A
+>
+> Add compatible for Display Stream Compression (DSC) IP found in
+> the display controller of the MT8188 SoC.
+>
+> This IP is fully compatible with the one found on MT8195.
 
-Signed-off-by: Olivier Benjamin <olivier.benjamin@bootlin.com>
----
-Changes in v2:
-- Rebase on mainline
-- Change patch subject to arm64: dts: rockchip
-- Rename new regulators to fit preferred form for fixed regulators
-- Link to v1: https://lore.kernel.org/r/20250228-camera-v1-0-c51869f94e97@bootlin.com
+Applied to mediatek-drm-next [1], thanks.
 
----
-Olivier Benjamin (2):
-      arm64: dts: rockchip: describe I2c Bus 1 and IMX258 world camera on PinePhone Pro
-      arm64: dts: rockchip: describe the OV8858 user camera on PinePhone Pro
+[1] https://web.git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.=
+git/log/?h=3Dmediatek-drm-next
 
- .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 138 +++++++++++++++++++++
- 1 file changed, 138 insertions(+)
----
--- 
-Olivier Benjamin <olivier.benjamin@bootlin.com>
+Regards,
+Chun-Kuang.
 
+>
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
+> ---
+>  .../devicetree/bindings/display/mediatek/mediatek,dsc.yaml     | 3 +++
+>  1 file changed, 3 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,=
+dsc.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.=
+yaml
+> index 846de6c17d93..a5b88eb97e3b 100644
+> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yam=
+l
+> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yam=
+l
+> @@ -22,6 +22,9 @@ properties:
+>      oneOf:
+>        - enum:
+>            - mediatek,mt8195-disp-dsc
+> +      - items:
+> +          - const: mediatek,mt8188-disp-dsc
+> +          - const: mediatek,mt8195-disp-dsc
+>
+>    reg:
+>      maxItems: 1
+> --
+> 2.48.1
+>
 
