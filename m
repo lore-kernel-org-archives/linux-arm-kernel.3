@@ -4,96 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB666C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 11:40:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0ADAC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 11:54:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Z7Y/TKSfcKjLz+8BY7qiShSlDpuTu6NU1rFgchBJCvQ=; b=nZWJ668vBffrDUBhyK46DRofAw
-	O1RleTSJ4FQXoHXBQQpsol5A1JNVggR5jJhLUQ/WdF/ncJLUkk+GvJ/8M4lbuQHe7CDtvxvXOy+V+
-	iw2Ky/R8OG95geFFRvybGkwJyIcldVBfzZFX8zFfyWlPUO+6O6CMmkwZNU0KAbgFA7y5eqasWSg2o
-	3PWPZLKTdYfIaEyF15MigA5ry9sSNbxCI1MHr7Kp23IbWkH+7QUxvTKr3m8xbghEboOr4XJqQZvvJ
-	2ipk3Gdlg8QMijCMKHu/WWiQjjG6LKNw2S/6kLSLMAHOkXbzAQiamkdD3qQWxLLFF3NPWW8A46p0I
-	NNld9+Uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p1wO1tJNUWST5/aSO5B+d0Qst9czfwzaKgHwJnlCm8U=; b=Q5zCFkWBoALRZ50wDw9ONYomTq
+	tkcrF+hLdgaassDdrOmeSqgMdTxiXzMYwDkO9wtkf5S/ar7Zw8QUUaBNOettBbmeaZhXzB1WfOP/o
+	2bR4tle5coVsizfxWW9v4hGvp2iWRC4qODR1HndyLdR23Gi8OgmxGArgfytZvk9ymua2ZCGhkswcG
+	YeDI/M++ruNx1bz7GFrqwTWzBeHCTbpRIOn9X5aWdBK15VUUEgabodY6HlrErizhz5EUBkIzrJqgw
+	KJgnq3ZG6hVVPU6zsgddCytxDbabhavm4j0dwR8q1h7DApk5nnjMozu2qgt/7RZAjtHJ6GjyUQR6r
+	4y4xIa2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tohgN-0000000FvGZ-3XnC;
-	Sun, 02 Mar 2025 11:40:31 +0000
-Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
+	id 1tohtU-0000000FwX2-31YQ;
+	Sun, 02 Mar 2025 11:54:04 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tohep-0000000FvBK-2qcH
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Mar 2025 11:38:57 +0000
-Received: from phl-compute-08.internal (phl-compute-08.phl.internal [10.202.2.48])
-	by mailfout.stl.internal (Postfix) with ESMTP id 0A33C1140132;
-	Sun,  2 Mar 2025 06:38:52 -0500 (EST)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-08.internal (MEProxy); Sun, 02 Mar 2025 06:38:52 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to; s=fm2; t=1740915531; x=1741001931; bh=Z7Y/TKSfcK
-	jLz+8BY7qiShSlDpuTu6NU1rFgchBJCvQ=; b=ijsAh4yDeENoiS+vJz+z5+exXs
-	FT3TIu9GqgbOBXZRb73E4TcQb2FaEnRnT30r1t5J8TRg2xNk7Lk7he3HsL1IvX8E
-	mANGlNaQHKpHmervHmqafCY3AdiNwS2lSk43baVh/XzczvQ2o/5LL2Y/GoGI8kg1
-	S6p9Qm1UzE0dUPDAwX2GtsRWXufhZk1W8E7Cxkoey/K5Rb/jnRiyFYuFfCoq99OZ
-	5mOQJ+khSrIyDKzFUxXhwwfAxucD40rbyXeiHckkOq6UwOevduaQ0c+ZhVV7WOLm
-	zaThmwkc2kT54/C/EerCOmVBC6wuEJbWfl249QRwRbzlFYHbfEPCC+NBBs5g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
-	1740915531; x=1741001931; bh=Z7Y/TKSfcKjLz+8BY7qiShSlDpuTu6NU1rF
-	gchBJCvQ=; b=Thwnl+G1wJ/fJM/Fx1BsZ25YSJGThHZa1pT03BGuEpPW5a40qzy
-	He1KBq/xDmBXtq5hwHrSTSYK3J8k1lCJCJ3bggctBvq/+2WLy36dYvpHrCNCUt3b
-	eycPB+vYjcFgvKuIIPM0vkKHWfMv5t5zouG2z9zuACm3fGywKZSZ16K0TN0wLI1s
-	2LAuftua4Zm2/TPyIa9PKExM52pXu9nty60NaJPsFfRV37tHe7M25sq+boClscAI
-	5IHMBvugl+xPn/QjpyWOzLtkB59OdW2P6TURlEpRMG1ZiS1pQH2L3WfeyMtsWdcD
-	lB5UlNYCip/4ndnjQBaFM4gaPHFfr0njrRA==
-X-ME-Sender: <xms:S0PEZyHLFxfCdY8wN8-nu41tgFU3C4wFlxBtvivA7EqcfEmpr_tZCg>
-    <xme:S0PEZzU_A15PH_ta0tbr_WRnZCwBCJPo5vPHPlZbOegBPO6mWmSCkZoecDh9L5ZQw
-    aNQ6np296170oORoRU>
-X-ME-Received: <xmr:S0PEZ8LfZyS478PA4J4OCbaz3M4ndGGlpby7rtYE0-jH9bNDcQqr99ssQnGyaZcylIlT5GpgrUEkv6VDs2tYrqYGLDmf0MYKDsT_qVna6vQaOB-Uzz7XtC6lFuMAdJs>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdelieduvdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecunecujfgurhephffvve
-    fufffkofgggfestdekredtredttdenucfhrhhomhepufhvvghnucfrvghtvghruceoshhv
-    vghnsehsvhgvnhhpvghtvghrrdguvghvqeenucggtffrrghtthgvrhhnpeduieeihfegte
-    fgkedtieffkefhjeegieekffdtgffhgeevgeekgeejteeuffdvieenucffohhmrghinhep
-    ghhithhhuhgsrdgtohhmnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrg
-    hilhhfrhhomhepshhvvghnsehsvhgvnhhpvghtvghrrdguvghvpdhnsggprhgtphhtthho
-    peegpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehsohgtsehlihhsthhsrdhlih
-    hnuhigrdguvghvpdhrtghpthhtoheprghsrghhiheslhhishhtshdrlhhinhhugidruggv
-    vhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfh
-    hrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghr
-    rdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:S0PEZ8H9_ZqYgeGp__YKoPT_aiX2gi4ga2cJe79FR64V2L54l7g7og>
-    <xmx:S0PEZ4U1ULgt9SaJPW4O3j0KDik3IYjQh8URDSO_iCgPAmpfupeHCw>
-    <xmx:S0PEZ_Pjvrf0sLpbu2zLoF-AsWV2UL_g463u2E8OFGClcQ5T23MmXQ>
-    <xmx:S0PEZ_3xtA1gDzJD_CFlchcgM1Ni_Nve8l8DCZfG7lALpJsZ960eCQ>
-    <xmx:S0PEZ2zjIZjNbN_UqBpiXntYgfHxkMctUo2js0cbu_bbqjge51_SsAU3>
-Feedback-ID: i51094778:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 2 Mar 2025 06:38:50 -0500 (EST)
-From: Sven Peter <sven@svenpeter.dev>
-To: soc@lists.linux.dev
-Cc: asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL] Apple SoC RTKit IPC library updates for v6.15
-Date: Sun,  2 Mar 2025 12:38:42 +0100
-Message-Id: <20250302113842.58092-1-sven@svenpeter.dev>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+	id 1tohrw-0000000FwIb-3W0T;
+	Sun, 02 Mar 2025 11:52:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=p1wO1tJNUWST5/aSO5B+d0Qst9czfwzaKgHwJnlCm8U=; b=jNFLVHYGlFE6ZGeuKX7kSTL6m3
+	5TMkL2oYxZW/PF9kfo2/t7Y52OJYoAjimFiuALIFyeHLYGC12FOM+bUmkSUcdqN9UUTYStk3sfM6q
+	b3oqJHViq35eiD9g0VW6Fw+LOSBBX4KP/ffom4beXhI7HjykR3uWdLTXtc+BW7sTCrTob9yWo/tAR
+	RCRFF4z8ZmEzqN1pjrpqUR1LYCZYklM15XDvRED48m8dlTMsuKhOMeynb/TbkDwqEyU5WVgPo0dV0
+	1+rfixyDTntDyfH+0m7LPAmDfduBwJm+BiloqDrdr4DaDfHDwfSo3qjHSpjyslEq9kF/ZhWFhOn0R
+	rYzKOOAA==;
+Received: from i53875b47.versanet.de ([83.135.91.71] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tohrn-0001yN-P2; Sun, 02 Mar 2025 12:52:19 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Yao Zi <ziyao@disroot.org>, Jonas Karlman <jonas@kwiboo.se>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/7] arm64: dts: rockchip: Add pinctrl and gpio nodes for RK3528
+Date: Sun, 02 Mar 2025 12:52:18 +0100
+Message-ID: <116104909.nniJfEyVGO@diego>
+In-Reply-To: <3f0cd767-1fd8-4c65-b8b4-e948288cd02a@kwiboo.se>
+References: <20250228064024.3200000-1-jonas@kwiboo.se> <Z8GT3rUEyXrTUgtJ@pie.lan>
+ <3f0cd767-1fd8-4c65-b8b4-e948288cd02a@kwiboo.se>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_033856_138876_F7E3475F 
-X-CRM114-Status: UNSURE (   8.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250302_035228_896528_A7574CC0 
+X-CRM114-Status: GOOD (  26.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,59 +76,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Am Sonntag, 2. M=C3=A4rz 2025, 12:14:48 MEZ schrieb Jonas Karlman:
+> Hi Yao Zi,
+>=20
+> On 2025-02-28 11:46, Yao Zi wrote:
+> > On Fri, Feb 28, 2025 at 06:40:10AM +0000, Jonas Karlman wrote:
+> >> Add pinctrl and gpio nodes for RK3528 and import rk3528-pinctrl.dtsi
+> >> from vendor linux-6.1-stan-rkr5 kernel with the hdmi-pins-idle node
+> >> removed due to missing label reference to pcfg_output_low_pull_down.
+> >>
+> >> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+> >> ---
+> >> This was mostly imported from vendor kernel, however the main commit [=
+1]
+> >> list 28 signed-off-by tags, unclear who I should use as author and what
+> >> signed-off-by tags to include.
+> >>
+> >> [1] https://github.com/rockchip-linux/kernel/commit/c17d6325959f0ec1af=
+901e8a17919163454190a2
+> >> ---
+> >>  .../boot/dts/rockchip/rk3528-pinctrl.dtsi     | 1397 +++++++++++++++++
+> >>  arch/arm64/boot/dts/rockchip/rk3528.dtsi      |   82 +
+> >>  2 files changed, 1479 insertions(+)
+> >>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-pinctrl.dtsi
+> >>
+> >=20
+> >> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boo=
+t/dts/rockchip/rk3528.dtsi
+> >> index 0fb90f5c291c..d3e2a64ff2d5 100644
+> >> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> >> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> >> @@ -4,8 +4,10 @@
+> >>   * Copyright (c) 2024 Yao Zi <ziyao@disroot.org>
+> >>   */
+> >> =20
+> >> +#include <dt-bindings/gpio/gpio.h>
+> >>  #include <dt-bindings/interrupt-controller/arm-gic.h>
+> >>  #include <dt-bindings/interrupt-controller/irq.h>
+> >> +#include <dt-bindings/pinctrl/rockchip.h>
+> >>  #include <dt-bindings/clock/rockchip,rk3528-cru.h>
+> >>  #include <dt-bindings/reset/rockchip,rk3528-cru.h>
+> >> =20
+> >> @@ -17,6 +19,11 @@ / {
+> >>  	#size-cells =3D <2>;
+> >> =20
+> >>  	aliases {
+> >> +		gpio0 =3D &gpio0;
+> >> +		gpio1 =3D &gpio1;
+> >> +		gpio2 =3D &gpio2;
+> >> +		gpio3 =3D &gpio3;
+> >> +		gpio4 =3D &gpio4;
+> >>  		serial0 =3D &uart0;
+> >>  		serial1 =3D &uart1;
+> >>  		serial2 =3D &uart2;
+> >> @@ -166,6 +173,11 @@ cru: clock-controller@ff4a0000 {
+> >>  			#reset-cells =3D <1>;
+> >>  		};
+> >> =20
+> >> +		ioc_grf: syscon@ff540000 {
+> >> +			compatible =3D "rockchip,rk3528-ioc-grf", "syscon";
+> >> +			reg =3D <0x0 0xff540000 0x0 0x40000>;
+> >> +		};
+> >> +
+> >>  		uart0: serial@ff9f0000 {
+> >>  			compatible =3D "rockchip,rk3528-uart", "snps,dw-apb-uart";
+> >>  			reg =3D <0x0 0xff9f0000 0x0 0x100>;
+> >> @@ -264,5 +276,75 @@ saradc: adc@ffae0000 {
+> >>  			#io-channel-cells =3D <1>;
+> >>  			status =3D "disabled";
+> >>  		};
+> >> +
+> >> +		pinctrl: pinctrl {
+> >> +			compatible =3D "rockchip,rk3528-pinctrl";
+> >> +			rockchip,grf =3D <&ioc_grf>;
+> >> +			#address-cells =3D <2>;
+> >> +			#size-cells =3D <2>;
+> >> +			ranges;
+> >=20
+> > I doubt whether the pincontroller should be placed under simple-bus:
+> > without a reg property, it doesn't look like a MMIO device.
+> >=20
+> > Actually it is, although all the registers stay in the ioc grf. Maybe
+> > it should be considered as child of the grf.
+>=20
+> This follows how pinctrl was added for RK3576 and what is proposed for
+> RK3562 [2]. I have too little knowledge to know if this needs to change
+> or if this should follow similar SoCs.
+>=20
+> [2] https://lore.kernel.org/r/20250227111913.2344207-15-kever.yang@rock-c=
+hips.com
 
-Please merge these Apple SoC RTKit IPC library updates for v6.15.
-This batch includes a bunch of minor improvements and bugfixes mostly
-required for our downstream drivers (e.g. DCP) which we are planning to
-upstream in the next months.
-There's one API change which requires a single line adjustment to our
-NVMe driver as well which has been reviewed by a NVMe maintainer.
+The reg address shouldn't matter here I think.
+
+The "soc"-bus describes the elements contained in the soc (surrounding the
+cpu cores) and the pinctrl controller definitly is part of the soc itself.
+
+So when looking at the scope, it does belong there and also the
+ gpio-controller elements do have mmio addresses :-)
 
 
-Best,
+Heiko
 
 
-Sven
-
-The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
-
-  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
-
-are available in the Git repository at:
-
-  https://github.com/AsahiLinux/linux.git tags/asahi-soc-rtkit-6.15
-
-for you to fetch changes up to e210227f0259d2666cc41b28ed1b7b0b0a99ed4d:
-
-  soc: apple: rtkit: Cut syslog messages after the first '\0' (2025-02-28 21:36:45 +0000)
-
-----------------------------------------------------------------
-Apple SoC RTKit IPC library updates for 6.15:
-
-- Additional logging for errors
-- A few minor improvements and bugfixes required for drivers that are
-  yet to be upstreamed
-
-----------------------------------------------------------------
-Asahi Lina (2):
-      soc: apple: rtkit: Check & log more failures
-      soc: apple: rtkit: Pass the crashlog to the crashed() callback
-
-Harshit Mogalapalli (1):
-      soc: apple: rtkit: Fix use-after-free in apple_rtkit_crashlog_rx()
-
-Hector Martin (1):
-      soc: apple: rtkit: Implement OSLog buffers properly
-
-Janne Grunau (3):
-      soc: apple: rtkit: Add and use PWR_STATE_INIT instead of _ON
-      soc: apple: rtkit: Use high prio work queue
-      soc: apple: rtkit: Cut syslog messages after the first '\0'
-
- drivers/nvme/host/apple.c          |   2 +-
- drivers/soc/apple/rtkit-internal.h |   1 +
- drivers/soc/apple/rtkit.c          | 112 +++++++++++++++++++++++++------------
- include/linux/soc/apple/rtkit.h    |   2 +-
- 4 files changed, 78 insertions(+), 39 deletions(-)
 
