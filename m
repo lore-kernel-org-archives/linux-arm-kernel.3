@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8932C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 11:07:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36ED7C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 11:09:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PV6adQRatt6DeZvVh8HfMkViGDvxGG2kZDUesd3HMZU=; b=LHMBWLm6kVguPdZB+ryfJETM8b
-	OsZ744x2BjM/ihZuwO63aqzAKAoirg5V7I05TEuXZkXqwVvLSMovEMWi2Z3VlhkOmcLHMiTOmTIR9
-	Tw2+VNo2D4rzafn6uFJ8cB/prAzAjR9z5jkgt+MC9jweafo097PoJdN/nuhsWARKrXMTy1/ZfoIFk
-	wpaDpNUs0azIduvPmMGocmCcs1Rv3G/wBaw0MjQ3XTrt3CxzLLNuMQsLgvuFBqdg2WrVtCnt2rUxa
-	8q+xldKK5o9Q5PGnDVPVOWUzrtGVMJzQzF4zHuS7VgMZZz8HM1d2IhHKvdJJX+AEHo5frWHeO3VRq
-	DpXJh5Rg==;
+	bh=iK/y6R2rqlOnWMEb9BA0sLW7ePdxt9g0xG6aNqcIFic=; b=WYoNMO1W7QElWyfL03MZ9ckD9x
+	zvloJRMIMi2T3w/hIlALqIz0kBG4Aihr0fX0iDD+hRgJ1hY0v70k/zAbGX0JOhYzEujIS3U1RCZyq
+	0tZxkF4lb5Ljv2BAYJbhDsQZ+BP8dvT70xHofnM1joo2KVNTybHF7OmLDGYUBNI7/NeQAoXP0feF1
+	b1h8mwgw/+49XcJLpIs7ZPkwRnNYCa3i+1c85KuSVaUa9aN6QfSAv+NTxNr4dkybR5wxsmpCURlUP
+	/TayqxBkAdyhiiuADpEv8WANmzbuaNzVR7WS2pEK5FqKe7vFiWhiUtMOgvNZhLXYS+kEsDtxp84b3
+	UyEAxuWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tohAc-0000000Fsm5-3oSO;
-	Sun, 02 Mar 2025 11:07:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tohC8-0000000Fstn-0tb9;
+	Sun, 02 Mar 2025 11:09:16 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toh96-0000000Fsdc-32UU;
-	Sun, 02 Mar 2025 11:06:08 +0000
+	id 1tohAJ-0000000FsiT-3IUa;
+	Sun, 02 Mar 2025 11:07:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B0C36611C2;
-	Sun,  2 Mar 2025 11:05:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3993BC4CEE7;
-	Sun,  2 Mar 2025 11:06:07 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D69F05C5577;
+	Sun,  2 Mar 2025 11:05:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05808C4CEED;
+	Sun,  2 Mar 2025 11:07:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740913567;
-	bh=dFEmSgzocjSvRAOC0rSgdbowwNAjPIkt2fXcO2yivXw=;
+	s=k20201202; t=1740913642;
+	bh=3KC5ipDcjMMPu+IkC8vu+yztuxCxRp2YBcH3qbhnh3o=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=V2WK9r5MIC7WuwVnLRgml0y0Q5B9sU1d82WnY8JOXecLdaeZjJcm4kmY7yFRKDc3Y
-	 kO/Sa4MCO3e90MvlFV6Xn1XLFLWOTkDnuf04RsIaz2xzxu2SdqcViRpOtiLz2EA/gE
-	 kKa4NEtHjL9/Herfmms6aXz0lpNtY9xb/gKM4ZKOoYOcE6ttvrHs04lguK3a3zvyV1
-	 oy8NNpAx+XqsB0FJ6X8nvbrn2zcIeRMIVjtzmb7W3u+QNroGJt8GaM8Do1jJ+v3ofa
-	 vTwyI3iMOhWQviad+e5GxMKcHLHbJvF28lRcWVWOP0/uiFDiRngV8vKLCevKeMOhpn
-	 KLb2gCLX26LTw==
-Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-2fe848040b1so7397254a91.3;
-        Sun, 02 Mar 2025 03:06:07 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUk4pknjM3EO6tr4X1JHaudOcs7ps+ars5wDyFHZzenY0DZF3OCWfNmTmpJilbJTGvLVyGw8Nvb+VXZQtGgCael@lists.infradead.org, AJvYcCVEUdJ3Cp0dNUiEeshfH1M1J00vJ/tulDuue0LhedcEiCOURjkIH94pnwiV0MRnwtMr7u8AvtBvZgqVuoPXyrY=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTxZB/QrMYHgAqmrHNRt2MZ5i0RxSE+G9FHIDzyNqRyKBfbsa5
-	CBc6QnneLu/mDeNbXfJsvCDklh+zm2LSsQN+Q3EvQXskZdsjOE1Bl26qh3rDLDNsabIMSyzKpVL
-	vHm6w55EOPaNVh2FF0nBkcZp4GQ==
-X-Google-Smtp-Source: AGHT+IFaakker1RvlwWBHNoAKzwywldrlnkjxsAGufL3nNbLGGTK04VQQJSQKHzYCBPUBZQAE9j/+vDYFuUUpAcGJ2o=
-X-Received: by 2002:a17:90b:4b03:b0:2ee:b0b0:8e02 with SMTP id
- 98e67ed59e1d1-2febabdee31mr14288048a91.28.1740913566738; Sun, 02 Mar 2025
- 03:06:06 -0800 (PST)
+	b=IKOhVmSzFw3Sf2YmjeuKFwjqdYb6is2Gc4m/SbzrvuS12TN1hehDf+fPSBxH52SUb
+	 RWKVlhEIIhQVctA7XYc+z8DfiiPxRbIshjYlUvKYKyVbuhGGSZz3tvcargZc1kRqI8
+	 1SWwvn3IjCnBXW7oQ67PkvvCcjMluXwoy+AtgnyjxKNCEheeNMP1HMs6U4/BYJ04Q2
+	 5nTxlUHtt8vMwPOOQClOOlbYyYjUyDK/qZiMOsD+vjvggZ71hT4f6boqpoXaQvBGMO
+	 Vw29T147PssSVHd+yToJkMe0DY/acwVRHdqXQxnlUU5EhHu4af0quk176ECPMXstAF
+	 fUiHsCWRN0zJg==
+Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-2fe848040b1so7398120a91.3;
+        Sun, 02 Mar 2025 03:07:22 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUrCmzPFZEZTQXYaW0fNoiZqnV5Zs/z9eIxCfOxFpLvRcpi3b40xbD7qte/5KvkdZNcchq6OeFfSjqywYULmP8=@lists.infradead.org, AJvYcCWCA+liF3IJsxKI/RgCw1294L4adxVDxspC1Z/mQiW9/Zmj66d47ZcincuGrpB5A9sUWAaX28hvBFdjRmytTsPh@lists.infradead.org
+X-Gm-Message-State: AOJu0YzN0u9QcRYXByugjB4Fl47yM8I4zCHE6/K9GKgUt/jHfodUrdkQ
+	7DhWf64sluwjMXvIZKeorNxOPG0SxORy92CZgF4WIeZDFQ2WhmleRjCMpRmn0N62YvWp79y5AbS
+	qwwYi8OIT9BjbxW1kJBkToDw9iQ==
+X-Google-Smtp-Source: AGHT+IH01Pb+Acrlm17K+9SKFrPTyC3svpmtUZZOMamUnprzp62lYR8CKSAPg6EiKdHhDLfl4WwIpNFLts/zm0G5jQ8=
+X-Received: by 2002:a17:90b:554f:b0:2ea:712d:9a82 with SMTP id
+ 98e67ed59e1d1-2febabf8577mr14667145a91.29.1740913641527; Sun, 02 Mar 2025
+ 03:07:21 -0800 (PST)
 MIME-Version: 1.0
-References: <20250217154836.108895-1-angelogioacchino.delregno@collabora.com> <20250217154836.108895-6-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20250217154836.108895-6-angelogioacchino.delregno@collabora.com>
+References: <20250217154836.108895-1-angelogioacchino.delregno@collabora.com> <20250217154836.108895-5-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250217154836.108895-5-angelogioacchino.delregno@collabora.com>
 From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Sun, 2 Mar 2025 19:06:53 +0800
-X-Gmail-Original-Message-ID: <CAAOTY_8BgMwzxa8N-LfwF2E0R0fp390aTc-w320DdeuOrUb=LQ@mail.gmail.com>
-X-Gm-Features: AQ5f1Jr8JxhruQU5SBFrhJlqRkkYTbn86_r90UvYcimeOPdrDui1RogsSo_EkOY
-Message-ID: <CAAOTY_8BgMwzxa8N-LfwF2E0R0fp390aTc-w320DdeuOrUb=LQ@mail.gmail.com>
-Subject: Re: [PATCH v7 05/43] drm/mediatek: mtk_dpi: Add checks for
- reg_h_fre_con existence
+Date: Sun, 2 Mar 2025 19:08:08 +0800
+X-Gmail-Original-Message-ID: <CAAOTY__DqCA3+-nsi7+svqHTbjdpTU5+8yDqWwNMnU8V=euQbQ@mail.gmail.com>
+X-Gm-Features: AQ5f1JoGUFVsLmWfEOgrfpxwZh3naxz8ITQIPQgo0omrUXo2qHRWobPGb5JPDMg
+Message-ID: <CAAOTY__DqCA3+-nsi7+svqHTbjdpTU5+8yDqWwNMnU8V=euQbQ@mail.gmail.com>
+Subject: Re: [PATCH v7 04/43] drm/mediatek: mtk_dpi: Move pixel clock setting
+ flow to function
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
 	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
@@ -75,6 +75,9 @@ Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com,
 	jason-jh.lin@mediatek.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250302_030723_941507_48243053 
+X-CRM114-Status: GOOD (  19.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,17 +99,17 @@ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> =E6=96=
 2025=E5=B9=B42=E6=9C=8817=E6=97=A5 =E9=80=B1=E4=B8=80 =E4=B8=8B=E5=8D=8811:=
 49=E5=AF=AB=E9=81=93=EF=BC=9A
 >
-> In preparation for adding support for newer DPI instances which
-> do support direct-pin but do not have any H_FRE_CON register,
-> like the one found in MT8195 and MT8188, add a branch to check
-> if the reg_h_fre_con variable was declared in the mtk_dpi_conf
-> structure for the probed SoC DPI version.
+> In preparation for adding support for the DPI IP found in MT8195
+> and in MT8188 used for HDMI, move the code flow for calculation
+> and setting of the DPI pixel clock to a separate function called
+> mtk_dpi_set_pixel_clk().
 >
-> As a note, this is useful specifically only for cases in which
-> the support_direct_pin variable is true, so mt8195-dpintf is
-> not affected by any issue.
+> This was done because, on those platforms, the DPI instance that
+> is used for HDMI will get its pixel clock from the HDMI clock,
+> hence it is not necessary, nor desirable, to calculate or set
+> the pixel clock in DPI.
 
-Applied to mediatek-drm-next [1], thanks.
+After fix conflicts, applied to mediatek-drm-next [1], thanks.
 
 [1] https://web.git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.=
 git/log/?h=3Dmediatek-drm-next
@@ -119,33 +122,89 @@ Chun-Kuang.
 > Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
 abora.com>
 > ---
->  drivers/gpu/drm/mediatek/mtk_dpi.c | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
+>  drivers/gpu/drm/mediatek/mtk_dpi.c | 43 +++++++++++++++++-------------
+>  1 file changed, 24 insertions(+), 19 deletions(-)
 >
 > diff --git a/drivers/gpu/drm/mediatek/mtk_dpi.c b/drivers/gpu/drm/mediate=
 k/mtk_dpi.c
-> index 59c2e4f32a61..bb1a17f1384b 100644
+> index 41fdc193891a..59c2e4f32a61 100644
 > --- a/drivers/gpu/drm/mediatek/mtk_dpi.c
 > +++ b/drivers/gpu/drm/mediatek/mtk_dpi.c
-> @@ -431,12 +431,13 @@ static void mtk_dpi_config_swap_input(struct mtk_dp=
-i *dpi, bool enable)
->
->  static void mtk_dpi_config_2n_h_fre(struct mtk_dpi *dpi)
->  {
-> -       mtk_dpi_mask(dpi, dpi->conf->reg_h_fre_con, H_FRE_2N, H_FRE_2N);
-> +       if (dpi->conf->reg_h_fre_con)
-> +               mtk_dpi_mask(dpi, dpi->conf->reg_h_fre_con, H_FRE_2N, H_F=
-RE_2N);
+> @@ -537,26 +537,17 @@ static unsigned int mtk_dpi_calculate_factor(struct=
+ mtk_dpi *dpi, int mode_clk)
+>         return dpi_factor[dpi->conf->num_dpi_factor - 1].factor;
 >  }
 >
->  static void mtk_dpi_config_disable_edge(struct mtk_dpi *dpi)
+> -static int mtk_dpi_set_display_mode(struct mtk_dpi *dpi,
+> -                                   struct drm_display_mode *mode)
+> +static void mtk_dpi_set_pixel_clk(struct mtk_dpi *dpi, struct videomode =
+*vm, int mode_clk)
 >  {
-> -       if (dpi->conf->edge_sel_en)
-> +       if (dpi->conf->edge_sel_en && dpi->conf->reg_h_fre_con)
->                 mtk_dpi_mask(dpi, dpi->conf->reg_h_fre_con, 0, EDGE_SEL_E=
-N);
->  }
+> -       struct mtk_dpi_polarities dpi_pol;
+> -       struct mtk_dpi_sync_param hsync;
+> -       struct mtk_dpi_sync_param vsync_lodd =3D { 0 };
+> -       struct mtk_dpi_sync_param vsync_leven =3D { 0 };
+> -       struct mtk_dpi_sync_param vsync_rodd =3D { 0 };
+> -       struct mtk_dpi_sync_param vsync_reven =3D { 0 };
+> -       struct videomode vm =3D { 0 };
+>         unsigned long pll_rate;
+>         unsigned int factor;
 >
+>         /* let pll_rate can fix the valid range of tvdpll (1G~2GHz) */
+>         factor =3D mtk_dpi_calculate_factor(dpi, mode_clk);
+> -       drm_display_mode_to_videomode(mode, &vm);
+> -       pll_rate =3D vm.pixelclock * factor;
+> +       pll_rate =3D vm->pixelclock * factor;
+>
+>         dev_dbg(dpi->dev, "Want PLL %lu Hz, pixel clock %lu Hz\n",
+> -               pll_rate, vm.pixelclock);
+> +               pll_rate, vm->pixelclock);
+>
+>         clk_set_rate(dpi->tvd_clk, pll_rate);
+>         pll_rate =3D clk_get_rate(dpi->tvd_clk);
+> @@ -566,20 +557,34 @@ static int mtk_dpi_set_display_mode(struct mtk_dpi =
+*dpi,
+>          * pixels for each iteration: divide the clock by this number and
+>          * adjust the display porches accordingly.
+>          */
+> -       vm.pixelclock =3D pll_rate / factor;
+> -       vm.pixelclock /=3D dpi->conf->pixels_per_iter;
+> +       vm->pixelclock =3D pll_rate / factor;
+> +       vm->pixelclock /=3D dpi->conf->pixels_per_iter;
+>
+>         if ((dpi->output_fmt =3D=3D MEDIA_BUS_FMT_RGB888_2X12_LE) ||
+>             (dpi->output_fmt =3D=3D MEDIA_BUS_FMT_RGB888_2X12_BE))
+> -               clk_set_rate(dpi->pixel_clk, vm.pixelclock * 2);
+> +               clk_set_rate(dpi->pixel_clk, vm->pixelclock * 2);
+>         else
+> -               clk_set_rate(dpi->pixel_clk, vm.pixelclock);
+> +               clk_set_rate(dpi->pixel_clk, vm->pixelclock);
+>
+> -
+> -       vm.pixelclock =3D clk_get_rate(dpi->pixel_clk);
+> +       vm->pixelclock =3D clk_get_rate(dpi->pixel_clk);
+>
+>         dev_dbg(dpi->dev, "Got  PLL %lu Hz, pixel clock %lu Hz\n",
+> -               pll_rate, vm.pixelclock);
+> +               pll_rate, vm->pixelclock);
+> +}
+> +
+> +static int mtk_dpi_set_display_mode(struct mtk_dpi *dpi,
+> +                                   struct drm_display_mode *mode)
+> +{
+> +       struct mtk_dpi_polarities dpi_pol;
+> +       struct mtk_dpi_sync_param hsync;
+> +       struct mtk_dpi_sync_param vsync_lodd =3D { 0 };
+> +       struct mtk_dpi_sync_param vsync_leven =3D { 0 };
+> +       struct mtk_dpi_sync_param vsync_rodd =3D { 0 };
+> +       struct mtk_dpi_sync_param vsync_reven =3D { 0 };
+> +       struct videomode vm =3D { 0 };
+> +
+> +       drm_display_mode_to_videomode(mode, &vm);
+> +       mtk_dpi_set_pixel_clk(dpi, &vm, mode->clock);
+>
+>         dpi_pol.ck_pol =3D MTK_DPI_POLARITY_FALLING;
+>         dpi_pol.de_pol =3D MTK_DPI_POLARITY_RISING;
 > --
 > 2.48.1
 >
