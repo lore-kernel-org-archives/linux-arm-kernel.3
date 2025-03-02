@@ -4,72 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AABF7C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 16:08:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EC4DC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 16:11:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rOb09eDfRreA7Ky6moGlxy8PbP6wGE+oKv371IUngk8=; b=KJGcrutr7YG9uu9lBEq6Sd3HRR
-	Q7f/mel67s1yX+CE9TchL2TjdXTMjmFYzVAMjjZOpoRtVxOXnFtu/xhV14186XWiVyp7NUxqMrywF
-	zv3isE8xe01zYEO78JnpU9j7OWY8WtZp61kVin4UAXQ5Oa55ekzP6eCblEscT4Xp5VK2TjvU+CaX5
-	8ejYfUwbXmezj44VUnYzHDTY4ldA3SbvNRDafS30ABUY6Pz9/m/30NlXcKRSDWZoRFvu2ZbZh3X2h
-	VDIdQ5/KlfYM/aLZFzjDHcPFISyZ/FpEUmsNE7ArzzwmcTp2Zw1c6fcCQgu3kcl086BOe2Gz1tl34
-	eJWyGcow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=To43lLDGlzQpKhqrZgIsEKWJQN7tLB4Brx/uP5KjK3U=; b=AS7yACYjfU4Oo9IvZpIru1PSM4
+	nBcCjMD9DySCrWzrhp0fS2uATaH/heGe3sPxvN51ZLgi289xXDMGpVaRfGYI4T/e/p5aRZ8q2pCYY
+	D2UDONnExaz15w703Nu75tMCYj+BAeCxQC5Q6oVAE8DFJYHlRbeZHXirpCOWPSPQk1bg/5lgSrJ8p
+	RB5nrAO4wavF7tpi+k3y+NbcowYSHr7ZYP5mPYd1iqAQFK48ZdFEO2nN5A6eDXZFEAKvftscTnoLA
+	MGngn0B9/+WgJwdLSuf0l8nq8ONg7gVZEJOq3ZR4G8pw6jrDMnFS7Dy+iiXMcqquIdXHAnS5rX53X
+	nXts7kpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tolrt-0000000GHVY-0ZiF;
-	Sun, 02 Mar 2025 16:08:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1toluC-0000000GI1P-2axQ;
+	Sun, 02 Mar 2025 16:11:04 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tolqK-0000000GHEw-20hx;
-	Sun, 02 Mar 2025 16:07:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9715961135;
-	Sun,  2 Mar 2025 16:06:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E607C4CEEE;
-	Sun,  2 Mar 2025 16:07:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740931621;
-	bh=6Z1K2XeEqTJ+PjSTHPmZvbQCAwrBgXMnsTzeuQ32us4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=TLEwWNmRzoxu50gGetzLmCrV55ix9FhhrsO+ah2335y0pn9Qi3RFBfkZYkYOMS2ab
-	 j9TjFANBQb+7XL6fMzePFbbvwAN7fMzd+fPngIunbIpQ5mhvfdDzuEFiBkS9YU4WVs
-	 zpJ38yLhwZYTN79b/EvKXeFBpHgyPRR1LG8yei1iV882TMyauEBkHI0lhsvb9Udwhj
-	 khewVtukix9yqVAnPHB5w3JAXCfWS0Vtx3NR/1vcQp8NkoOoZZ97hBHfMdKuOTWxK3
-	 MpXDyRlc4Btp+XN74DkPAyeUa0/j+hd/C0QFzKjkDfGb4Ke4tQ/96asbH8mU6mELPR
-	 oVWCFltGcEQvg==
-Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-2fef5c978ccso644255a91.1;
-        Sun, 02 Mar 2025 08:07:01 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWU/ZGBX1tBWS+uj/xgFg5aOZ+SGmdGnyazXF2ONDLtl9VJHRYqnxM+l9eY8WWjO7JnAiHVveQkVwVEPZ659jw=@lists.infradead.org, AJvYcCXSYVyEvTXbdD5PJMxuBw4mAR9a61CZg5b3oAyqr+sjUfCYQu7ZiwePYG68kFoT+bY6I4dOv2X9UrqYWC0mjoaK@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUHXJ7WbOSN0LUi6oaVEOMyGIVLE48uAg36hEXnznFeVkMctp7
-	rOc49Eq/wnZ10uzr9zyDGW5w9jAZ4OejPTD3nlO/wTJV4MJ5zh+hXhisRfNRwECqPULF7OSdMv4
-	yWaOvp4tR0+1bV3D+tPMbZE8pRQ==
-X-Google-Smtp-Source: AGHT+IGgpVK4aKVTw1AYLTQHunnH0lP0Xo7e0HySRK7+dlps4YjnoiELgWFMnKkx9EIddZ2irPPWBjpXbYwY6LnMy7Q=
-X-Received: by 2002:a17:90b:3511:b0:2fa:1f1b:3db2 with SMTP id
- 98e67ed59e1d1-2febabcfedfmr14936364a91.25.1740931620948; Sun, 02 Mar 2025
- 08:07:00 -0800 (PST)
+	id 1tolsc-0000000GHlQ-0rM4;
+	Sun, 02 Mar 2025 16:09:28 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id ED48C20746;
+	Sun,  2 Mar 2025 17:09:19 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id viBQlnlcbeEl; Sun,  2 Mar 2025 17:09:15 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1740931755; bh=SuCW7erPuPRWso4GqZRpWS+3gl1BI6ZPagbPAaY4PKk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=jYb+tFVVVYmJwA66Yg/pXiup5NL0cltofMdg5DTZnjV9xaIOWy24o1bTjj2wdVs7a
+	 lDQkbqjVfoZ3GIOiETO6LrOmk2D9ssn1q/2SwweEmwTG27FXPnDRNd1scetAqtQe9J
+	 fJUwG58qBhgcVgXNJ/p/v7GDDjH6VeQdH9k3VjBu7AGfcr7X0wuI4QJrIfv34jFDsz
+	 WFwOak66AoS0NZiR+5pQhOBbNxqKBOJF98sWjc1R1Ch+BSbpxqzz24vicYsNzQ8aj8
+	 2ta4xRx2THhrzsg6nKxjgYhSUxlqUbQcw9JPvogdtzkr8EmK4RpYJSn53PUlo0ESUf
+	 S5LhLFJBGT15g==
+Date: Sun, 2 Mar 2025 16:09:01 +0000
+From: Yao Zi <ziyao@disroot.org>
+To: Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Jonas Karlman <jonas@kwiboo.se>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/7] arm64: dts: rockchip: Add pinctrl and gpio nodes for
+ RK3528
+Message-ID: <Z8SCnfZxH-H0iGwf@pie.lan>
+References: <20250228064024.3200000-1-jonas@kwiboo.se>
+ <Z8GT3rUEyXrTUgtJ@pie.lan>
+ <3f0cd767-1fd8-4c65-b8b4-e948288cd02a@kwiboo.se>
+ <116104909.nniJfEyVGO@diego>
 MIME-Version: 1.0
-References: <20250218090427.20318-1-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20250218090427.20318-1-angelogioacchino.delregno@collabora.com>
-From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Mon, 3 Mar 2025 00:07:48 +0800
-X-Gmail-Original-Message-ID: <CAAOTY__aFqL=LnE5vU2RP9JHmQEgkrvPmiYjxmETWo9CvwiwLA@mail.gmail.com>
-X-Gm-Features: AQ5f1JrHQ_avSblgi4HZQ7x19rsI4_LP2M6FFBaV9IRM5Ur_SJsfW7MiHzcF_cw
-Message-ID: <CAAOTY__aFqL=LnE5vU2RP9JHmQEgkrvPmiYjxmETWo9CvwiwLA@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: display: mediatek: dsc: Add MT8188 compatible
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
-	airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, matthias.bgg@gmail.com, dri-devel@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kernel@collabora.com, pablo.sun@mediatek.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <116104909.nniJfEyVGO@diego>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250302_080926_504955_87774BF1 
+X-CRM114-Status: GOOD (  29.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,52 +81,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Angelo:
+On Sun, Mar 02, 2025 at 12:52:18PM +0100, Heiko Stübner wrote:
+> Am Sonntag, 2. März 2025, 12:14:48 MEZ schrieb Jonas Karlman:
+> > Hi Yao Zi,
+> > 
+> > On 2025-02-28 11:46, Yao Zi wrote:
+> > > On Fri, Feb 28, 2025 at 06:40:10AM +0000, Jonas Karlman wrote:
+> > >> Add pinctrl and gpio nodes for RK3528 and import rk3528-pinctrl.dtsi
+> > >> from vendor linux-6.1-stan-rkr5 kernel with the hdmi-pins-idle node
+> > >> removed due to missing label reference to pcfg_output_low_pull_down.
+> > >>
+> > >> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+> > >> ---
+> > >> This was mostly imported from vendor kernel, however the main commit [1]
+> > >> list 28 signed-off-by tags, unclear who I should use as author and what
+> > >> signed-off-by tags to include.
+> > >>
+> > >> [1] https://github.com/rockchip-linux/kernel/commit/c17d6325959f0ec1af901e8a17919163454190a2
+> > >> ---
+> > >>  .../boot/dts/rockchip/rk3528-pinctrl.dtsi     | 1397 +++++++++++++++++
+> > >>  arch/arm64/boot/dts/rockchip/rk3528.dtsi      |   82 +
+> > >>  2 files changed, 1479 insertions(+)
+> > >>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-pinctrl.dtsi
+> > >>
+> > > 
+> > >> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> > >> index 0fb90f5c291c..d3e2a64ff2d5 100644
+> > >> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> > >> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> > >> @@ -4,8 +4,10 @@
+> > >>   * Copyright (c) 2024 Yao Zi <ziyao@disroot.org>
+> > >>   */
+> > >>  
+> > >> +#include <dt-bindings/gpio/gpio.h>
+> > >>  #include <dt-bindings/interrupt-controller/arm-gic.h>
+> > >>  #include <dt-bindings/interrupt-controller/irq.h>
+> > >> +#include <dt-bindings/pinctrl/rockchip.h>
+> > >>  #include <dt-bindings/clock/rockchip,rk3528-cru.h>
+> > >>  #include <dt-bindings/reset/rockchip,rk3528-cru.h>
+> > >>  
+> > >> @@ -17,6 +19,11 @@ / {
+> > >>  	#size-cells = <2>;
+> > >>  
+> > >>  	aliases {
+> > >> +		gpio0 = &gpio0;
+> > >> +		gpio1 = &gpio1;
+> > >> +		gpio2 = &gpio2;
+> > >> +		gpio3 = &gpio3;
+> > >> +		gpio4 = &gpio4;
+> > >>  		serial0 = &uart0;
+> > >>  		serial1 = &uart1;
+> > >>  		serial2 = &uart2;
+> > >> @@ -166,6 +173,11 @@ cru: clock-controller@ff4a0000 {
+> > >>  			#reset-cells = <1>;
+> > >>  		};
+> > >>  
+> > >> +		ioc_grf: syscon@ff540000 {
+> > >> +			compatible = "rockchip,rk3528-ioc-grf", "syscon";
+> > >> +			reg = <0x0 0xff540000 0x0 0x40000>;
+> > >> +		};
+> > >> +
+> > >>  		uart0: serial@ff9f0000 {
+> > >>  			compatible = "rockchip,rk3528-uart", "snps,dw-apb-uart";
+> > >>  			reg = <0x0 0xff9f0000 0x0 0x100>;
+> > >> @@ -264,5 +276,75 @@ saradc: adc@ffae0000 {
+> > >>  			#io-channel-cells = <1>;
+> > >>  			status = "disabled";
+> > >>  		};
+> > >> +
+> > >> +		pinctrl: pinctrl {
+> > >> +			compatible = "rockchip,rk3528-pinctrl";
+> > >> +			rockchip,grf = <&ioc_grf>;
+> > >> +			#address-cells = <2>;
+> > >> +			#size-cells = <2>;
+> > >> +			ranges;
+> > > 
+> > > I doubt whether the pincontroller should be placed under simple-bus:
+> > > without a reg property, it doesn't look like a MMIO device.
+> > > 
+> > > Actually it is, although all the registers stay in the ioc grf. Maybe
+> > > it should be considered as child of the grf.
+> > 
+> > This follows how pinctrl was added for RK3576 and what is proposed for
+> > RK3562 [2]. I have too little knowledge to know if this needs to change
+> > or if this should follow similar SoCs.
+> > 
+> > [2] https://lore.kernel.org/r/20250227111913.2344207-15-kever.yang@rock-chips.com
+> 
+> The reg address shouldn't matter here I think.
+> 
+> The "soc"-bus describes the elements contained in the soc (surrounding the
+> cpu cores) and the pinctrl controller definitly is part of the soc itself.
+> 
+> So when looking at the scope, it does belong there and also the
+>  gpio-controller elements do have mmio addresses :-)
 
-AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> =E6=96=
-=BC
-2025=E5=B9=B42=E6=9C=8818=E6=97=A5 =E9=80=B1=E4=BA=8C =E4=B8=8B=E5=8D=885:0=
-4=E5=AF=AB=E9=81=93=EF=BC=9A
->
-> Add compatible for Display Stream Compression (DSC) IP found in
-> the display controller of the MT8188 SoC.
->
-> This IP is fully compatible with the one found on MT8195.
+Thanks for the explanation, it makes sense to me.
 
-Applied to mediatek-drm-next [1], thanks.
+> Heiko
+> 
 
-[1] https://web.git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.=
-git/log/?h=3Dmediatek-drm-next
+Best regards,
+Yao Zi
 
-Regards,
-Chun-Kuang.
-
->
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
-abora.com>
-> ---
->  .../devicetree/bindings/display/mediatek/mediatek,dsc.yaml     | 3 +++
->  1 file changed, 3 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,=
-dsc.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.=
-yaml
-> index 846de6c17d93..a5b88eb97e3b 100644
-> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yam=
-l
-> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yam=
-l
-> @@ -22,6 +22,9 @@ properties:
->      oneOf:
->        - enum:
->            - mediatek,mt8195-disp-dsc
-> +      - items:
-> +          - const: mediatek,mt8188-disp-dsc
-> +          - const: mediatek,mt8195-disp-dsc
->
->    reg:
->      maxItems: 1
-> --
-> 2.48.1
->
 
