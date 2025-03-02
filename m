@@ -4,76 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2B3BC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 11:58:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B63C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 12:00:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=29q7YvoaMhP8FsAjh3s2NLiuI28mnOHAXYyx1jVG3xA=; b=E8rtXeiafP4DmN4mmk5r7z23Gh
-	VDGKA+KNQHlj7sNyyx3RQFKy7czw3cmPuYzQmCVYWF2GRSBQozqQTH06N5GLo/1hfnuYlvafGndY0
-	EpT4mdmKXRcpl9vlvAd3QKVzjYqk7G0fwb7Qb7n6/ZL3Q1qZw1pi57UFEy7oJISnFHtA/ZYi5ShUa
-	UHnER8uIPdWz/47yJ11JxN/EhcJ+3EaSfboMm48htyInFsFb4XGjlVaSq0vyY3SSAU0+wnXqnJ4zF
-	sJTjOG1oK7VpMJHKfysPhL4L5Rp4UVoGdWyFT5RezAQymfWWnv1bBHvH5pM/FfIHwjfG5x6mVC4+N
-	mnp/NSnA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Y3u4DWgtORalPu24x88ZUnj6vgWYBg8l4GEw4QA6sbA=; b=TOKrfLzfZCoMnHG7p0W4hbXrnT
+	8sucN8a7Jqq3hlyfTIaNDvZzzGzMJ0xrJSfDsbKLjMEGb5ilJVoN7jeMlLnBiVeWQD6EOr1mhC+Gf
+	wM45Z6pIyhIRBtt+KQmiAWijbaSbGB6iR6RMlidnw2kpOEOq3njnSWzXeZyxy0zRtraDvv+CVCQtr
+	90W1iXEm75K6FKQEk9V9tDQ80fhwqElC9pgzQ3UIvEwxVqOYPw/KzjhD8nqN1n0XyLbxWb+OMHd4E
+	Ko3mqAvlk8IiQX+UmZ5h1toufedNWX3e00RMLoDHHxB8g2c36LCIPXA9fxvIro7IZwFjXXkw9J19T
+	A75EzLpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tohxo-0000000Fx1z-2ZJP;
-	Sun, 02 Mar 2025 11:58:32 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1tohzK-0000000FxAz-11Kv;
+	Sun, 02 Mar 2025 12:00:06 +0000
+Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tohwF-0000000FwqS-2wtA
+	id 1tohxW-0000000FwzZ-0VCU
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Mar 2025 11:56:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1740916613;
- bh=29q7YvoaMhP8FsAjh3s2NLiuI28mnOHAXYyx1jVG3xA=;
- b=qZwcdK9OgAaWmtaOxZICtPqN3qBB9l5A2NtYfJ93xXpqVXAOrZLPH3Ekx6E7xCPHlmS+ZNjf6
- cU6KDHedYoB7iy2YSO2KNHDG5YLeC+drLmlqvqTyPkaU56jT12aCsrIO1yNT14rA6ngvj75wx+H
- CksmzK2eJ6Ca4IBX4lvkQ/b7Tkq6PHOKeYyGcjJjDI3TRKwZeQ5l5DTgwe9vO/g1ONzc6utTmek
- lj4OEsJKuvmmBGnkyTk7F5as0LS0+MmtMrUmN/QSDKPnIvBO2kmltAvFbf7xwb4g16WTdfLhvdY
- gNNVrAme0b8vWRKh4j8aFEf9jyRjWZF3j2mzuIM06SmQ==
-X-Forward-Email-ID: 67c447804a29b97c03d4e25b
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 0.4.40
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <d6928adc-1df2-494f-a3d3-7b028c220547@kwiboo.se>
-Date: Sun, 2 Mar 2025 12:56:42 +0100
+	Sun, 02 Mar 2025 11:58:15 +0000
+Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
+	by mailfout.stl.internal (Postfix) with ESMTP id 2BE6211400D3;
+	Sun,  2 Mar 2025 06:58:13 -0500 (EST)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-05.internal (MEProxy); Sun, 02 Mar 2025 06:58:13 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to; s=fm2; t=1740916693; x=1741003093; bh=Y3u4DWgtOR
+	alPu24x88ZUnj6vgWYBg8l4GEw4QA6sbA=; b=EpekGFJvrLGE+03/WtqX5UWDM+
+	6X3NJ8AdTKF8ZsLhrw7FL3yzJ6OHBGezB4ihLraOYyYK0wcmlVRVPj3uXCCDsk0e
+	YjHpoHp+BpM3ThdHq8RwYkfD1ULr6svs/llcbUKVLkTEZSKbqRU4T8hmkt3icZtY
+	/8k+JamQtyyAmGRiwX5tynoDdo67Qh7Jmxg0fbPFNckFUQ97T0a7/2Xpc0bzT+VY
+	efaiZxY+1vS4USYcNHJeUCw+PV92EnnyFaRTVJX6VL5qi4M7LBAXKUM/33nzWkr7
+	RcJKrNVoC/n2gm81sEIx7bCsLi3UCFQFmJa4apyaLatkImmpRgQVhQn83NZA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
+	1740916693; x=1741003093; bh=Y3u4DWgtORalPu24x88ZUnj6vgWYBg8l4GE
+	w4QA6sbA=; b=H36YEWhvfvvslR5HJbOH7bTx18EJhND4/C3v+1Hl0c9W3AmJUlH
+	IetkbzI6sILc2h0SB7EV/90ZaDYQHPmyrYyy6+bQHaNPWZoL7NAOTAI1/HdFyB1p
+	spegx9cqIQTo9OV1jg5XEf/scOO+Aib6ZdGXmcz22Yyws7yn/jf2a1SCtf5+L+WV
+	L5x9BmF2jw+jK0PYuiEfTwC5P1HjSPU9jMTKrJ0LwPEkpo3aoNVtcISjHIu+fmvA
+	JFcezBjQOEIXY2GldMdyJrVmmF/pyPGFgZULk1ROfs3nkHOOQ8K1G8YN4h4HOO2i
+	o9FhjXKmwm77gGx6hK1Mi0OZ4N7rRvNNzuQ==
+X-ME-Sender: <xms:1EfEZ-3e0_h6TTVnwpNGplagjkyd8iKqQ5DC5ItdHMwEpIr8_AZxQw>
+    <xme:1EfEZxH18JxFq296P4Stq60EdMR5LaFw9kTfmov2xOFVouiaGRzcU0erN1LeGNhim
+    N80gF-yzTQhujta_oQ>
+X-ME-Received: <xmr:1EfEZ2720e9C3IIvC6rYvpN9lxuM8kExdW5dyd8l6ak0tOjK5YoM3Z-1stM9jBvFX3_nwmCsXWNkU8xiDWkzUKeEN3N1-4Oqf7egZTdQoryBWIiC-_NOYc1b59imz5w>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdelieduhecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecunecujfgurhephffvve
+    fufffkofgggfestdekredtredttdenucfhrhhomhepufhvvghnucfrvghtvghruceoshhv
+    vghnsehsvhgvnhhpvghtvghrrdguvghvqeenucggtffrrghtthgvrhhnpeejleevffdvfe
+    egueetfeeuteeggefhleevveehueegffdtleeluedufeevhfeileenucffohhmrghinhep
+    khgvrhhnvghlrdhorhhgpdhgihhthhhusgdrtghomhenucevlhhushhtvghrufhiiigvpe
+    dtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehsvhgvnhesshhvvghnphgvthgvrhdruggv
+    vhdpnhgspghrtghpthhtohepgedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepsh
+    hotgeslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopegrshgrhhhisehlihhs
+    thhsrdhlihhnuhigrdguvghvpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvg
+    hlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidq
+    khgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:1EfEZ_0sGJZhlPKZ67zooJnFfl8O0hZz24Va5r-pgXW6qc797FK2Ow>
+    <xmx:1EfEZxE6NrxmExxnqYi-Ok4zlpkAva3xHq2z0oocNGS9CR0PRWevhA>
+    <xmx:1EfEZ4-b1KF07u4Y_1ewjxECA6sSprdGXepPNa8ru5x3DIz4RCHKxw>
+    <xmx:1EfEZ2lHuseW8anZf92RBHmIH3VYyhNTuC-IcYKClsMW23y_5VcfKw>
+    <xmx:1UfEZ1j6e09AJOwlb1054JA8DWo55C8YRH3BN5hE4RDjahzXvEkcJpd_>
+Feedback-ID: i51094778:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 2 Mar 2025 06:58:11 -0500 (EST)
+From: Sven Peter <sven@svenpeter.dev>
+To: soc@lists.linux.dev
+Cc: asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [GIT PULL] Second batch of Apple SoC DT updates for v6.15
+Date: Sun,  2 Mar 2025 12:58:08 +0100
+Message-Id: <20250302115808.59172-1-sven@svenpeter.dev>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 8/8] arm64: dts: rockchip: Enable SD-card interface on
- Radxa E20C
-To: Yao Zi <ziyao@disroot.org>, FUKAUMI Naoki <naoki@radxa.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Frank Wang <frank.wang@rock-chips.com>,
- Shresth Prasad <shresthprasad7@gmail.com>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Detlev Casanova <detlev.casanova@collabora.com>, linux-mmc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org
-References: <20250301104250.36295-1-ziyao@disroot.org>
- <20250301104835.36439-1-ziyao@disroot.org>
- <0aefd292-7980-434d-9c18-4ab9f6a0b40e@kwiboo.se> <Z8MklJfFz2EA6oNS@pie.lan>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <Z8MklJfFz2EA6oNS@pie.lan>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_035655_831713_AB965645 
-X-CRM114-Status: GOOD (  28.35  )
+X-CRM114-CacheID: sfid-20250302_035814_270604_B7CECCE1 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,166 +107,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yao Zi,
+Hi,
 
-On 2025-03-01 16:15, Yao Zi wrote:
-> On Sat, Mar 01, 2025 at 02:01:05PM +0100, Jonas Karlman wrote:
->> Hi,
->>
->> On 2025-03-01 11:48, Yao Zi wrote:
->>> SD-card is available on Radxa E20C board.
->>>
->>> Signed-off-by: Yao Zi <ziyao@disroot.org>
->>> ---
->>>  arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts | 14 ++++++++++++++
->>>  1 file changed, 14 insertions(+)
->>>
->>> diff --git a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
->>> index d2cdb63d4a9d..473065aa4228 100644
->>> --- a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
->>> +++ b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
->>> @@ -12,6 +12,10 @@ / {
->>>  	model = "Radxa E20C";
->>>  	compatible = "radxa,e20c", "rockchip,rk3528";
->>>  
->>> +	aliases {
->>> +		mmc0 = &sdmmc;
->>
->> Suggest using mmc1 for sd-card because the e20c typically have onboard
->> emmc, compared to removable sd-card.
-> 
-> My board doesn't have an eMMC: it's optional as well, but all variants
-> of Radxa E20C come with an SD-card interface. The vendor devicetree sets
-> sdmmc as mmc0 as well[1].
+this is the second batch of device tree updates for Apple SoCs based
+on the first PR sent earlier [1].
+This one adds nodes for SPI controller, SPI NOR flash and NVRAM partitions
+for M1 and M2 devices. The SPI controller driver has been merged for a while
+already and we just forgot to pick the device tree changes up.
+It also adds the touchbar digitizer nodes. The corresponding driver and
+dt-bindings are already in -next and should be part of the 6.15 merge window
+as well.
 
-This is strange as Radxa typically want to align with mmc0=emmc and
-mmc1=sd-card, as seen in [3] and [4].
 
-  Align with other Radxa products.
-  - mmc0 is eMMC
-  - mmc1 is microSD
+Best,
 
-Also mainline U-Boot for Rockchip SoCs typically always treat mmc0 as
-emmc and mmc1 as sd-card, and for most SoCs it will even override the
-board aliases to have some predictability across boards.
+Sven
 
-> 
-> I won't insist on it and am willing to take the change if you still
-> consider mmc0 is better.
 
-Yes, my position is that we should use following:
+[1] https://lore.kernel.org/soc/20250209135558.8243-1-sven@svenpeter.dev/
 
-  mmc0 = &sdhci;
-  mmc1 = &sdmmc;
+The following changes since commit ca96d759d8d24d90b1726c2cc7c568ff4728bb42:
 
-I will send out a short sdhci series based on top of v2 of this series.
-Driver changes was not needed to get basic sdhci working on RK3528 and
-is only required to get HS400 modes working.
+  arm64: dts: apple: t8015: Add cpufreq nodes (2025-02-09 11:50:13 +0000)
 
-[3] https://lore.kernel.org/r/20240620224435.2752-1-naoki@radxa.com
-[4] https://lore.kernel.org/r/20240619050047.1217-2-naoki@radxa.com
+are available in the Git repository at:
 
-> 
->>> +	};
->>> +
->>>  	chosen {
->>>  		stdout-path = "serial0:1500000n8";
->>>  	};
->>> @@ -20,3 +24,13 @@ chosen {
->>>  &uart0 {
->>>  	status = "okay";
->>>  };
->>> +
->>> +&sdmmc {
+  https://github.com/AsahiLinux/linux.git tags/asahi-soc-dt-6.15-v2
 
-This node should be placed above &uart0 to be in alphabetical order.
+for you to fetch changes up to 44db68dee1f77260d7037319e911e9883a6ffe0e:
 
->>> +	bus-width = <4>;
->>> +	cap-mmc-highspeed;
->>> +	cap-sd-highspeed;
->>> +	disable-wp;
->>> +	rockchip,default-sample-phase = <90>;
->>> +	sd-uhs-sdr104;
->>
->> Are you sure uhs-sdr104 works as is should?
-> 
-> In fact yes, tuning succeeds at 148.5MHz and results in 66MB/s reading
-> speed.
-> 
->> Vendor kernel use a different "v2" tuning
-> 
-> This isn't a problem. IMHO V2 tuning is more like a quick path, which
-> tries inheritting the phase from firmware and then re-tunes roughly.
-> Fine tunning is still a fallback here in case of failure, see the commit
-> message in the downstream kernel[2]. And testing proves it's okay for
-> RK3528 to issue fine-tuning always.
+  arm64: dts: apple: Add touchbar digitizer nodes (2025-02-26 15:33:46 +0000)
 
-Thanks for this information, I did not inspect exactly what the v2
-tuning meant, only observed that vendor kernel (incorrectly) used a DT
-prop to indicate when v2 tuning should be used.
+----------------------------------------------------------------
+Apple SoC DT updates for 6.15, second batch:
 
-> 
->> and this is also missing the vccio_sd vqmmc-supply to switch between
->> 3v3 and 1v8.
-> 
-> But this is a problem, thanks for catching it! Somehow my card managed
-> to run at 148.5MHz with 3v3 voltage level, but it's definitely a
-> compatiblity issue. I'm surprised that the driver doesn't complain when
-> switching to SDR modes without a regulator configured.
-> 
->> You could add following regulator for sdmmc:
->>
->> 	vccio_sd: regulator-vccio-sd {
->> 		compatible = "regulator-gpio";
->> 		gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_HIGH>;
->> 		pinctrl-names = "default";
->> 		pinctrl-0 = <&sdmmc_vol_ctrl_h>;
->> 		regulator-name = "vccio_sd";
->> 		regulator-min-microvolt = <1800000>;
->> 		regulator-max-microvolt = <3300000>;
->> 		states = <1800000 0x0>, <3300000 0x1>;
+- Added a missing p-state for iPad mini 4
+- Added SPI controller nodes for M1 and M2 devices
+- Added SPI NOR flash nodes and NVRAM partitions
+- Added touchbar digitizer nodes for M1 and M2 devices
 
-This should also have something like:
+----------------------------------------------------------------
+Hector Martin (1):
+      arm64: dts: apple: t8103: Fix spi4 power domain sort order
 
-  vin-supply = <&vcc5v0_sys>;
+Janne Grunau (4):
+      arm64: dts: apple: t8103: Add spi controller nodes
+      arm64: dts: apple: t8112: Add spi controller nodes
+      arm64: dts: apple: t600x: Add spi controller nodes
+      arm64: dts: apple: Add SPI NOR nvram partition to all devices
 
->> 	};
->>
->> and following pinctrl:
->>
->> 	sdmmc {
->> 		sdmmc_vol_ctrl_h: sdmmc-vol-ctrl-h {
->> 			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
->> 		};
->> 	};
->>
->> add then the power supplies to the sdmmc node:
->>
->> 	vmmc-supply = <&vcc_3v3>;
->> 	vqmmc-supply = <&vccio_sd>;
->>
->> That matches the schematics for e20c, and works when testing non-uhs modes.
-> 
-> Thanks for the hints. Will rebase on your pinctrl series and get
-> regulators and pinctrl settings applied in the next version.
+Nick Chan (1):
+      arm64: dts: apple: t7000: Add missing CPU p-state 7 for J96 and J97
 
-Thanks :-)
+Sasha Finkelstein (1):
+      arm64: dts: apple: Add touchbar digitizer nodes
 
-Regards,
-Jonas
-
-> 
->> Regards,
->> Jonas
->>
->>> +	status = "okay";
->>> +};
->>
-> 
-> Cheers,
-> Yao Zi
-> 
-> [1]: https://github.com/radxa/kernel/blob/2b0c8de7dc4c68947cda206dcc2e457e9677e426/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts#L22-L26
-> [2]: https://github.com/rockchip-linux/kernel/commit/795e052cc8610aa59a64b104f975cc4a45493d5d
-
+ arch/arm64/boot/dts/apple/spi1-nvram.dtsi      | 39 +++++++++++++
+ arch/arm64/boot/dts/apple/t600x-common.dtsi    |  7 +++
+ arch/arm64/boot/dts/apple/t600x-die0.dtsi      | 28 ++++++++++
+ arch/arm64/boot/dts/apple/t600x-gpio-pins.dtsi | 14 +++++
+ arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi |  2 +
+ arch/arm64/boot/dts/apple/t600x-j375.dtsi      |  2 +
+ arch/arm64/boot/dts/apple/t7000-mini4.dtsi     |  4 ++
+ arch/arm64/boot/dts/apple/t7000.dtsi           |  6 ++
+ arch/arm64/boot/dts/apple/t8103-j293.dts       | 27 +++++++++
+ arch/arm64/boot/dts/apple/t8103-jxxx.dtsi      |  2 +
+ arch/arm64/boot/dts/apple/t8103-pmgr.dtsi      | 18 +++---
+ arch/arm64/boot/dts/apple/t8103.dtsi           | 76 ++++++++++++++++++++++++++
+ arch/arm64/boot/dts/apple/t8112-j493.dts       | 23 ++++++++
+ arch/arm64/boot/dts/apple/t8112-jxxx.dtsi      |  2 +
+ arch/arm64/boot/dts/apple/t8112.dtsi           | 44 ++++++++++++++-
+ 15 files changed, 284 insertions(+), 10 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/apple/spi1-nvram.dtsi
 
