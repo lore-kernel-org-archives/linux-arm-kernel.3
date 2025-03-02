@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67126C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 11:25:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D95C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 11:30:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pwG0yK1KSfWk5WyKJkIqXm5Uvn+uEhfN/zg427lzwcI=; b=VSqL0CXeyjg8V/ydO1sIvpc4Ik
-	HDtNWfZIKOF9XAZgO8HLvMYhuiPrVYr3t7b/V+I7ul1SrniwjAd9ijP8I3IKy0NDVtm5OQ01Lf4Xm
-	o4p9eOx+MCe8KVTElFdk7UuBEZA31nv9p7jepMy59CB0Nq2PhoVa1u1zAiaLOkQZP48Y2ZqKQpe2V
-	82AYHJgMPxdfLBFyd+MgRySUqiG2H3fgW/1YnRKaVdtZJKEv2SZ+MCujEAiT9RfMiMy2GoWWCqh8P
-	jNhBiwTTVpMBOwpsfy50Bau6g7683zV8Z71ZyxYaKbvc2Ih8GS8oaajvBMDEqdYR9nsZ2YdNlyF1Z
-	cwkNC2ug==;
+	bh=ePuPcjctU3ceTk0aqaWCLX84CNfJhwXMMhVJDn4S81M=; b=ZzWdtXkOtsbs68y1fCsPQ6VCI5
+	LJR+HLfWkm4589sN3IvLfl3k3HXOt395SpRxQsTLk/kkBf7EJOK+16ZGG9BBHRNR/GqTJXlkHujie
+	r/QYIlv9MWy/rFI7guSo88l1AC2fP5zocOhtsemnBp0CYnV6+sPkvTSzOIZXB+kudlegKEzjNay7O
+	uJx4/gIXFxbCuhQJs+tekbBL4BQAIC1KUQ1DPbMld5X7fwhwoT6OMd6p/pcu/5hk+b2s2oo1Bdplc
+	4tZKkcXHIluxSJKW3j4Keu1gBuYbx+B/B+MuksjVJFpzgmPKDHPXEPPdJ5VAarBZWnVgNFa9Y7jSf
+	Eo8Qrj1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tohRE-0000000FuPm-1jRD;
-	Sun, 02 Mar 2025 11:24:52 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tohWD-0000000FuhT-3sfL;
+	Sun, 02 Mar 2025 11:30:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tohPg-0000000FuJc-0ZND;
-	Sun, 02 Mar 2025 11:23:17 +0000
+	id 1tohUh-0000000FuaW-3djt;
+	Sun, 02 Mar 2025 11:28:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6AFD35C5555;
-	Sun,  2 Mar 2025 11:20:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE206C4CED6;
-	Sun,  2 Mar 2025 11:23:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 23570611C2;
+	Sun,  2 Mar 2025 11:28:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78A12C4CEEA;
+	Sun,  2 Mar 2025 11:28:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740914594;
-	bh=88iTC3VCTOJkXkwpEcxod0WPhai7pUMfCO6THaRxiz0=;
+	s=k20201202; t=1740914906;
+	bh=FfIs5OJets3zRpgfLQ3jbMz9ChRage5kgf6KcUykEhU=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=axgEFXztCbBzkgFhBxNNrjADAY/vCgsxrbfSnqt3lH0RClkOnk2lOB6RSjFLWJoNO
-	 6TKB/wLXebt2e7HwhurZitPvf/Nm+JgOB3Kq82FhxfyDOnjFYPYuVWv9NyIScE7XJ4
-	 TVWkV/BjkuU/6anf+9wDTJRK+VBLTkovprUuF3EC5eCgGv4eD/kGGjVbN1vKqL6/NY
-	 PJuNg+IZsYXkTYLD1Dqsw8HAt1Az6j6RMiuHad1btAQKsFO6hXzZivYi66k+SkOZoa
-	 G/d0WN0kdoRxiZ99jyjkBzGNiDrz1gcDfxdI1DgdM3VdJTK5izIkEV21FQqpSK0LJF
-	 iJX22Cbop+yCQ==
-Received: by mail-pl1-f169.google.com with SMTP id d9443c01a7336-223480ea43aso88617025ad.1;
-        Sun, 02 Mar 2025 03:23:14 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCV3aLeCu4lDH2HuBcWteyJWiglx+ixHv3AkRL0yLgE5UXm4LDUI0m3dGwCmHSTDmAlzf9lRQEo1+8EcKyWkxiVS@lists.infradead.org, AJvYcCVId9A6ag4f0CNvR37kHReJorG9VgCNChEIjE0pBqDBpn8mzmyzmK3Z1nWe57azYSaaQPNm81aSACyWC2jui08=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyN0YW/4ILvSSWSadE7w8YqdHaaiuiD+W0PP6+MrhIkXDC8hXFJ
-	Z6U0tfJ+2t7bLCleYdglErPzlbmi0VYCNeEEkxtdidKOP25VVzmbsgc6md0Od4l4IDGmHk2bJHU
-	/KyU7cuM7hyiEKXR8ZdGlQdPAVA==
-X-Google-Smtp-Source: AGHT+IFpcs+J1xAyfK06/O6FF1+X82uEcHTSqmEDT4XqGI/sksYkVpLwFKzYZ1+KMrLF9RKJkiWsDGoNBEQOX9vfehk=
-X-Received: by 2002:a17:902:dacf:b0:215:a179:14ca with SMTP id
- d9443c01a7336-22368f73284mr153333585ad.2.1740914594460; Sun, 02 Mar 2025
- 03:23:14 -0800 (PST)
+	b=U96P/ECYfFdfEmY00MOBO8lZ+Re2UyFVUwKO2FS24Ejg/IjOxkhSQxI85PwyuRviQ
+	 jw0j2xu1X4UgiqXdHaKaeY+WB59KjjmKegS5wg58lxuJJ5E8fzqUiNpdZvIKpTUoPt
+	 k3C2zE36OFaTgLS6X+8u9ptYdZvnV8LwA0lFllsahA3DdYuI780zZegI+ES26PM9Cp
+	 aPTAlRRUSRLwpbgud9El/r/9nvlCs5+SIOjc7KVF2ult/hqVOyGuWrSYEIAE3o3fuX
+	 WjxzpNcwZp7GRhDa6LiFEskOX6XnCX9PZqL5n3W4xVVp4EQc7ENG5ApvielC2RCpzO
+	 yu3zdNQvROmDg==
+Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-2fea78afde5so4499339a91.2;
+        Sun, 02 Mar 2025 03:28:26 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCU3g5ri+u298nzidQCgJIBNhTNOrbozZFZWEk8IYe2AXZtjrTsGCCZISUslWS9Wz3tKaJsqP6FUVRJhhzgUHx0=@lists.infradead.org, AJvYcCXSYE7qgveEWSjdiTP13lw85FNLOmnJfi5UbkDRX61AL2AMfbyhXm8OwQtruPEZEp2Tx1WS54GVjId9Qr52goZu@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1ujGopYKz1XwwjG4bHyXU7Bn0qnhrGV4Ea5gGgQaScDtaLG2p
+	wK1xMC/gopKtnDlZNaCbqoBNCXaxZki+OKh2U1TciZDcyYm6ypMuRPV3QC/D046IT0HuoNPrS86
+	lzScHP37as7Xp8sgN+5vuMZ98LQ==
+X-Google-Smtp-Source: AGHT+IFRC1P9usso4XTv7JMgu0fBHyNMS/JMJfbPzBZYNlk0eFKXHASNV5TbO4HnaJUruaY5STSEE7582brQlBGjZAA=
+X-Received: by 2002:a17:90a:e703:b0:2f4:43ce:dcea with SMTP id
+ 98e67ed59e1d1-2febac0573fmr13699214a91.25.1740914906028; Sun, 02 Mar 2025
+ 03:28:26 -0800 (PST)
 MIME-Version: 1.0
-References: <20250217154836.108895-1-angelogioacchino.delregno@collabora.com> <20250217154836.108895-8-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20250217154836.108895-8-angelogioacchino.delregno@collabora.com>
+References: <20250217154836.108895-1-angelogioacchino.delregno@collabora.com> <20250217154836.108895-9-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250217154836.108895-9-angelogioacchino.delregno@collabora.com>
 From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Sun, 2 Mar 2025 19:24:02 +0800
-X-Gmail-Original-Message-ID: <CAAOTY_8LmRTabeuwXnwDxxodiPRkRD4P9diCO=5CHrwtT4h2QA@mail.gmail.com>
-X-Gm-Features: AQ5f1JqaQEl0KFCViPa_ifgKV1VqZysAJMdPHTFuV6fAg_m9uoS6AEjQCuQA1_8
-Message-ID: <CAAOTY_8LmRTabeuwXnwDxxodiPRkRD4P9diCO=5CHrwtT4h2QA@mail.gmail.com>
-Subject: Re: [PATCH v7 07/43] drm/mediatek: mtk_dpi: Add support for DPI input
- clock from HDMI
+Date: Sun, 2 Mar 2025 19:29:13 +0800
+X-Gmail-Original-Message-ID: <CAAOTY_8kxxaj+jum6CkJGHKrpjiX_cNt4FT345yET8GWR2QSFA@mail.gmail.com>
+X-Gm-Features: AQ5f1JrqzU6s7sUO38hOT2IPnyssGJxMSyeRq4q2duHbl9tAb7DYvcalEylndsk
+Message-ID: <CAAOTY_8kxxaj+jum6CkJGHKrpjiX_cNt4FT345yET8GWR2QSFA@mail.gmail.com>
+Subject: Re: [PATCH v7 08/43] drm/mediatek: mtk_dpi: Support AFIFO 1T1P output
+ and conversion
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
 	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
@@ -75,9 +75,6 @@ Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com,
 	jason-jh.lin@mediatek.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_032316_292707_ABF5FD09 
-X-CRM114-Status: GOOD (  23.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,23 +96,17 @@ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> =E6=96=
 2025=E5=B9=B42=E6=9C=8817=E6=97=A5 =E9=80=B1=E4=B8=80 =E4=B8=8B=E5=8D=8811:=
 49=E5=AF=AB=E9=81=93=EF=BC=9A
 >
-> On some SoCs, like MT8195 and MT8188, the DPI instance that is
-> reserved to the HDMI Transmitter uses a different clock topology.
+> On some SoCs, like MT8195 and MT8188, the DPI's FIFO controller
+> (afifo) supports outputting either one or two pixels per round
+> regardless of the input being 1T1P or 1T2P.
 >
-> In this case, the DPI is clocked by the HDMI IP, and this outputs
-> its clock to the MM input of dpi_pixel_clk, which is essential to
-> enable register access to the DPI IP.
+> Add a `output_1pixel` member to struct mtk_dpi_conf which, if
+> set, will enable outputting one pixel per clock.
 >
-> Add a `clocked_by_hdmi` member to struct mtk_dpi_conf, and check
-> it to avoid enabling the DPI clocks in the mediatek-drm internal
-> .start() callback (and avoid disabing in the .stop() component
-> callback): this will make sure that the clock configuration
-> sequence is respected during display pipeline setup by following
-> the bridge ops between DPI and HDMI, where the HDMI driver is
-> expected to enable the clocks in the bridge's pre_enable(), and
-> DPI in the enable() cb.
+> In case the input is two pixel per clock (1T2P), the AFIFO HW
+> will automatically (and internally) convert it to 1T1P.
 
-After fix conflicts, applied to mediatek-drm-next [1], thanks.
+Applied to mediatek-drm-next [1], thanks.
 
 [1] https://web.git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.=
 git/log/?h=3Dmediatek-drm-next
@@ -124,69 +115,58 @@ Regards,
 Chun-Kuang.
 
 >
+> Reviewed-by: CK Hu <ck.hu@mediatek.com>
 > Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
 abora.com>
 > ---
->  drivers/gpu/drm/mediatek/mtk_dpi.c | 13 ++++++++++---
->  1 file changed, 10 insertions(+), 3 deletions(-)
+>  drivers/gpu/drm/mediatek/mtk_dpi.c | 11 ++++++++++-
+>  1 file changed, 10 insertions(+), 1 deletion(-)
 >
 > diff --git a/drivers/gpu/drm/mediatek/mtk_dpi.c b/drivers/gpu/drm/mediate=
 k/mtk_dpi.c
-> index 9a6c0f75f764..9f83e82437dd 100644
+> index 9f83e82437dd..e12dc73ed79c 100644
 > --- a/drivers/gpu/drm/mediatek/mtk_dpi.c
 > +++ b/drivers/gpu/drm/mediatek/mtk_dpi.c
-> @@ -145,6 +145,8 @@ struct mtk_dpi_factor {
->                       If present, implies that the feature must be enable=
-d.
->   * @pixels_per_iter: Quantity of transferred pixels per iteration.
+> @@ -147,6 +147,8 @@ struct mtk_dpi_factor {
 >   * @edge_cfg_in_mmsys: If the edge configuration for DPI's output needs =
 to be set in MMSYS.
-> + * @clocked_by_hdmi: HDMI IP outputs clock to dpi_pixel_clk input clock,=
+>   * @clocked_by_hdmi: HDMI IP outputs clock to dpi_pixel_clk input clock,=
  needed
-> + *                  for DPI registers access.
+>   *                  for DPI registers access.
+> + * @output_1pixel: Enable outputting one pixel per round; if the input i=
+s two pixel per
+> + *                 round, the DPI hardware will internally transform it =
+to 1T1P.
 >   */
 >  struct mtk_dpi_conf {
 >         const struct mtk_dpi_factor *dpi_factor;
-> @@ -165,6 +167,7 @@ struct mtk_dpi_conf {
->         u32 input_2p_en_bit;
+> @@ -168,6 +170,7 @@ struct mtk_dpi_conf {
 >         u32 pixels_per_iter;
 >         bool edge_cfg_in_mmsys;
-> +       bool clocked_by_hdmi;
+>         bool clocked_by_hdmi;
+> +       bool output_1pixel;
 >  };
 >
 >  static void mtk_dpi_mask(struct mtk_dpi *dpi, u32 offset, u32 val, u32 m=
 ask)
-> @@ -585,7 +588,9 @@ static int mtk_dpi_set_display_mode(struct mtk_dpi *d=
-pi,
->         struct videomode vm =3D { 0 };
->
->         drm_display_mode_to_videomode(mode, &vm);
-> -       mtk_dpi_set_pixel_clk(dpi, &vm, mode->clock);
+> @@ -653,7 +656,13 @@ static int mtk_dpi_set_display_mode(struct mtk_dpi *=
+dpi,
+>         if (dpi->conf->support_direct_pin) {
+>                 mtk_dpi_config_yc_map(dpi, dpi->yc_map);
+>                 mtk_dpi_config_2n_h_fre(dpi);
+> -               mtk_dpi_dual_edge(dpi);
 > +
-> +       if (!dpi->conf->clocked_by_hdmi)
-> +               mtk_dpi_set_pixel_clk(dpi, &vm, mode->clock);
->
->         dpi_pol.ck_pol =3D MTK_DPI_POLARITY_FALLING;
->         dpi_pol.de_pol =3D MTK_DPI_POLARITY_RISING;
-> @@ -920,14 +925,16 @@ void mtk_dpi_start(struct device *dev)
->  {
->         struct mtk_dpi *dpi =3D dev_get_drvdata(dev);
->
-> -       mtk_dpi_power_on(dpi);
-> +       if (!dpi->conf->clocked_by_hdmi)
-> +               mtk_dpi_power_on(dpi);
->  }
->
->  void mtk_dpi_stop(struct device *dev)
->  {
->         struct mtk_dpi *dpi =3D dev_get_drvdata(dev);
->
-> -       mtk_dpi_power_off(dpi);
-> +       if (!dpi->conf->clocked_by_hdmi)
-> +               mtk_dpi_power_off(dpi);
->  }
->
->  unsigned int mtk_dpi_encoder_index(struct device *dev)
+> +               /* DPI can connect to either an external bridge or the in=
+ternal HDMI encoder */
+> +               if (dpi->conf->output_1pixel)
+> +                       mtk_dpi_mask(dpi, DPI_CON, DPI_OUTPUT_1T1P_EN, DP=
+I_OUTPUT_1T1P_EN);
+> +               else
+> +                       mtk_dpi_dual_edge(dpi);
+> +
+>                 mtk_dpi_config_disable_edge(dpi);
+>         }
+>         if (dpi->conf->input_2p_en_bit) {
 > --
 > 2.48.1
 >
