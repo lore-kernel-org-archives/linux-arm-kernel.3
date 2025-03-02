@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D30C7C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 16:58:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9DF2C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 16:59:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6CBmAu3QLFctf+8qyHXV7bJVmRiWZrZMR2FDHhPQzBk=; b=BO7rrjVj2UiWtIw2yRF6fPFBO4
-	M9MH63VAz8wlDO1COnklGRYE7kg4VTbt1ZEwavSov5lqOPAAb7HsHgZ1z9x+03szahweGenT2fK+w
-	JdtPfJ6TFzJMloHLgz3JGQ3ooqDtoO0Ft5eHpm92zPYGnWHeuLmC4RuHlKa6Cc1f08rhOY56kJIcL
-	841VqpK8cdly9QjFpJDz30AIN8IvBMkSuuIS7DgcAPNfjQl1JtsAQIoVVl3yuRyXrI91ogSeXVHuG
-	rWZe2Llg4hJkotprsE+zeppgEJ8twCVwmEWOZou377lNyd6D2k/kWHdXPqHSfo7H/elCUCY2G/NMI
-	KcpZZ7oQ==;
+	bh=IAffHjLvOsgmSRGom9WoCJviYGzrq7E/Al4G3Wzlyh4=; b=ct9+25gP4qVdV9rewBgmrEq8uS
+	Ou83AIGP1Z5i/2ZSmfkZWIZFVnJBccPJTIKAVL+6AEzTfM7eUumyALexqZVSP1EmJdYUuithUXkHd
+	La1Z7c64PwMD6TEWPl8Sx2rd83xndnGH5O0W79vyvG3ls4p8puLm0hSiBmldQa8DdmEPpW8pLzwNV
+	ZW4mii8A/HA5bEuqvS6ijMQ5ZvauA4kQuQM28ewQ4hhBQVEp7FBJQkFsuvf474TkKPlqITAduguy7
+	qJjR7nCgXBNmuQZOAcwjy1xjPA4eaCxdcGPoJCJDX0OCAynfYblJUAw3Nh69tOp2FdP1QjQntKKWT
+	ZxIJ5dtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tomdg-0000000GOFN-0kHJ;
-	Sun, 02 Mar 2025 16:58:04 +0000
+	id 1tomfD-0000000GOMp-0USD;
+	Sun, 02 Mar 2025 16:59:39 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tomEu-0000000GKb5-1Nkq;
-	Sun, 02 Mar 2025 16:32:29 +0000
+	id 1tomF0-0000000GKcy-062i;
+	Sun, 02 Mar 2025 16:32:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1740933147;
-	bh=ySg4tUQ98HRO6vRyEPikEpgVTA/YNRl0FDdlZxSPKu0=;
+	s=mail; t=1740933152;
+	bh=Q8q9/iehdorRcBwKZ4Cn0dk07/+IjdqsbtrE00SPNg4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=q3MpWxyZJHd4xvav9e85d0ojD1LJHIN3yiT3JDbtD8RKIJdqt1/bhs52dLy8AiwvM
-	 jZNKgkOomFOH6WlDaAYD15u1qFSZxEwrNoN6DNx5hdw1gKpYo5huNMN5wFK9LOjS0C
-	 WbUGEK/mfLbwjAw2Jtan4/ORoT+Dtw/UMcQCyzJIIrC/pMydxoDZTdejN2mpZh+wj7
-	 bCiBpiZx5zicv5v53Nwox8Tk3Ys9vveDM7cNQPiji7+U7/OLC2esk0hB4smgzv49cd
-	 cEJxcIAgiIubSZyrTgLUzW2SvBf28trX4K+mWp2ifa0EZy72KZLpnNpw1V9qRK0Z05
-	 PUbJSA7rQc2rg==
+	b=CtewjSn5nE+5PROzUrKP7hg/DB7xjV07/vM97EHyiUopwBJw3Jt/TTu5XwBAF9SvF
+	 JKZYhRRXP1jtAqIYEYi4t+30mOTSNrKKFGAYaGPZRO5xokqkhY7IQ4sxkkzwOzogJF
+	 g7AmsTIoJVgRWMfw+JTwq/51tK66P68VazMf3gAStzm0+in8sbyvXOOc/qFPQPeAWs
+	 N34ys+c7BmfWyhLT6O65JJyiohp9OVvOu7WlRn6uXx5zGGXK9LqsvEC+3uEbgJ4XBE
+	 9X9xzb+9XCkmUOb6Ta6QtY+cxpXxzb5BidSuRYi+KPzRitnua1NIdT058nDDMGIvgd
+	 lttmX4jt/cHgg==
 Received: from [192.168.0.47] (unknown [IPv6:2804:14c:1a9:53ee::1002])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0C98017E05EA;
-	Sun,  2 Mar 2025 17:32:21 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8CFDC17E07F8;
+	Sun,  2 Mar 2025 17:32:27 +0100 (CET)
 From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Date: Sun, 02 Mar 2025 13:30:55 -0300
-Subject: [PATCH v2 16/20] ASoC: mediatek: mt6359-accdet: Always configure
- hardware as mic-mode 2
+Date: Sun, 02 Mar 2025 13:30:56 -0300
+Subject: [PATCH v2 17/20] ASoC: mediatek: mt6359-accdet: Always set
+ comp-vth to 1.6V
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250302-mt6359-accdet-dts-v2-16-5bd633ee0d47@collabora.com>
+Message-Id: <20250302-mt6359-accdet-dts-v2-17-5bd633ee0d47@collabora.com>
 References: <20250302-mt6359-accdet-dts-v2-0-5bd633ee0d47@collabora.com>
 In-Reply-To: <20250302-mt6359-accdet-dts-v2-0-5bd633ee0d47@collabora.com>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
@@ -69,8 +69,8 @@ Cc: kernel@collabora.com, linux-sound@vger.kernel.org,
  =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_083228_512832_65AAF1F4 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20250302_083234_204070_814BFD5C 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,106 +85,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver currently reads a mediatek,mic-mode property from DT to
-determine certain register configurations. Since there are no current
-users of the property, the property doesn't directly reflect the
-hardware  and the default value (2) is known to work on
-multiple boards, remove the code handling this property and instead
-always configure the hardware according to the known to work default.
-This property can be properly introduced in the binding in the future
-if it really turns out that different boards need different
-configurations.
+The driver currently reads a mediatek,eint-comp-vth property from DT to
+determine the voltage threshold of the EINT comparator. Since there are
+no current users of the property and setting it to 1.6V is known to work
+across multiple boards, remove the code handling this property and
+instead always configure it to 1.6V. The property can be properly
+introduced in the binding in the future if it really turns out that
+different boards need different configurations.
 
 Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 ---
- sound/soc/codecs/mt6359-accdet.c | 43 ++++++----------------------------------
- sound/soc/codecs/mt6359-accdet.h |  5 -----
- 2 files changed, 6 insertions(+), 42 deletions(-)
+ sound/soc/codecs/mt6359-accdet.c | 8 ++------
+ sound/soc/codecs/mt6359-accdet.h | 1 -
+ 2 files changed, 2 insertions(+), 7 deletions(-)
 
 diff --git a/sound/soc/codecs/mt6359-accdet.c b/sound/soc/codecs/mt6359-accdet.c
-index a31e084560c7643b14fb71871699e3167075d9d9..12697b02faff1be39317116cd7d8ffa359f2cd4e 100644
+index 12697b02faff1be39317116cd7d8ffa359f2cd4e..3f6a97e8de8d174e59e512d53135fadc5765b5c1 100644
 --- a/sound/soc/codecs/mt6359-accdet.c
 +++ b/sound/soc/codecs/mt6359-accdet.c
-@@ -494,11 +494,6 @@ static int mt6359_accdet_parse_dt(struct mt6359_accdet *priv)
- 	if (!node)
- 		return -EINVAL;
+@@ -61,6 +61,7 @@
+ #define ACCDET_EINT_INVERTER_DEBOUNCE_256MS 0xe
+ #define ACCDET_EINT_CMPMEN_PWM_WIDTH_400MS 4
+ #define ACCDET_EINT_CMPMEN_PWM_THRESH_2MS 1
++#define ACCDET_EINT_COMP_VTH_1600MV 2
  
--	ret = of_property_read_u32(node, "mediatek,mic-mode",
--				   &priv->data->mic_mode);
+ static struct platform_driver mt6359_accdet_driver;
+ static const struct snd_soc_component_driver mt6359_accdet_soc_driver;
+@@ -506,11 +507,6 @@ static int mt6359_accdet_parse_dt(struct mt6359_accdet *priv)
+ 	else if (tmp == 2)
+ 		priv->caps |= ACCDET_PMIC_BI_EINT;
+ 
+-	ret = of_property_read_u32(node, "mediatek,eint-comp-vth",
+-				   &priv->data->eint_comp_vth);
 -	if (ret)
--		priv->data->mic_mode = 2;
+-		priv->data->eint_comp_vth = 0x0;
 -
- 	priv->data->hp_eint_high = of_property_read_bool(node, "mediatek,hp-eint-high");
+ 	of_node_put(node);
+ 	dev_warn(priv->dev, "accdet caps=%x\n", priv->caps);
  
- 	ret = of_property_read_u32(node, "mediatek,eint-num", &tmp);
-@@ -658,38 +653,12 @@ static void mt6359_accdet_init(struct mt6359_accdet *priv)
- 			     RG_AUDMICBIAS1LOWPEN_MASK_SFT);
- 	/* mic mode setting */
- 	regmap_read(priv->regmap, RG_AUDACCDETMICBIAS0PULLLOW_ADDR, &reg);
--	if (priv->data->mic_mode == HEADSET_MODE_1) {
--		/* ACC mode*/
--		regmap_write(priv->regmap, RG_AUDACCDETMICBIAS0PULLLOW_ADDR,
--			     reg | RG_ACCDET_MODE_ANA11_MODE1);
--		/* enable analog fast discharge */
--		regmap_update_bits(priv->regmap, RG_ANALOGFDEN_ADDR,
--				   RG_ANALOGFDEN_MASK_SFT,
--				   BIT(RG_ANALOGFDEN_SFT));
--		regmap_update_bits(priv->regmap, RG_ACCDETSPARE_ADDR,
--				   0x3 << 11, 0x3 << 11);
--	} else if (priv->data->mic_mode == HEADSET_MODE_2) {
--		/* DCC mode Low cost mode without internal bias */
--		regmap_write(priv->regmap, RG_AUDACCDETMICBIAS0PULLLOW_ADDR,
--			     reg | RG_ACCDET_MODE_ANA11_MODE2);
--		/* enable analog fast discharge */
--		regmap_update_bits(priv->regmap, RG_ANALOGFDEN_ADDR,
--				   0x3 << RG_ANALOGFDEN_SFT,
--				   0x3 << RG_ANALOGFDEN_SFT);
--	} else if (priv->data->mic_mode == HEADSET_MODE_6) {
--		/* DCC mode Low cost mode with internal bias,
--		 * bit8 = 1 to use internal bias
--		 */
--		regmap_write(priv->regmap, RG_AUDACCDETMICBIAS0PULLLOW_ADDR,
--			     reg | RG_ACCDET_MODE_ANA11_MODE6);
--		regmap_update_bits(priv->regmap, RG_AUDPWDBMICBIAS1_ADDR,
--				   RG_AUDMICBIAS1DCSW1PEN_MASK_SFT,
--				   BIT(RG_AUDMICBIAS1DCSW1PEN_SFT));
--		/* enable analog fast discharge */
--		regmap_update_bits(priv->regmap, RG_ANALOGFDEN_ADDR,
--				   0x3 << RG_ANALOGFDEN_SFT,
--				   0x3 << RG_ANALOGFDEN_SFT);
--	}
-+	/* DCC mode Low cost mode without internal bias */
-+	regmap_write(priv->regmap, RG_AUDACCDETMICBIAS0PULLLOW_ADDR,
-+		     reg | RG_ACCDET_MODE_ANA11_MODE2);
-+	/* enable analog fast discharge */
-+	regmap_update_bits(priv->regmap, RG_ANALOGFDEN_ADDR,
-+			   0x3 << RG_ANALOGFDEN_SFT, 0x3 << RG_ANALOGFDEN_SFT);
+@@ -594,7 +590,7 @@ static void config_eint_init_by_mode(struct mt6359_accdet *priv)
+ 			   0x3 << RG_ACCDETSPARE_SFT,
+ 			   0x3 << RG_ACCDETSPARE_SFT);
+ 	regmap_write(priv->regmap, RG_EINTCOMPVTH_ADDR,
+-		     val | priv->data->eint_comp_vth << RG_EINTCOMPVTH_SFT);
++		     val | ACCDET_EINT_COMP_VTH_1600MV << RG_EINTCOMPVTH_SFT);
+ }
  
- 	config_eint_init_by_mode(priv);
- 	config_digital_init_by_mode(priv);
+ static void mt6359_accdet_init(struct mt6359_accdet *priv)
 diff --git a/sound/soc/codecs/mt6359-accdet.h b/sound/soc/codecs/mt6359-accdet.h
-index 46dcd4759230a5190434b9b7c785e8b9ed12fd3d..579373807c414130b2a7384db4978e01cf1d046c 100644
+index 579373807c414130b2a7384db4978e01cf1d046c..288b8fbf7c5efaee6520a2c0a5845e156f3b805d 100644
 --- a/sound/soc/codecs/mt6359-accdet.h
 +++ b/sound/soc/codecs/mt6359-accdet.h
-@@ -12,10 +12,6 @@
- 
- #define ACCDET_DEVNAME "accdet"
- 
--#define HEADSET_MODE_1		(1)
--#define HEADSET_MODE_2		(2)
--#define HEADSET_MODE_6		(6)
--
- #define MT6359_ACCDET_NUM_BUTTONS 4
- #define MT6359_ACCDET_JACK_MASK (SND_JACK_HEADPHONE | \
- 				SND_JACK_HEADSET | \
-@@ -51,7 +47,6 @@ enum {
- };
+@@ -48,7 +48,6 @@ enum {
  
  struct dts_data {
--	unsigned int mic_mode;
  	bool hp_eint_high;
- 	unsigned int eint_comp_vth;
+-	unsigned int eint_comp_vth;
  };
+ 
+ struct mt6359_accdet {
 
 -- 
 2.48.1
