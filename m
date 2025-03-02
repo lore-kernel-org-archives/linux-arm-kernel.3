@@ -4,115 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3668C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 13:17:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BBC0C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 13:19:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aOHZ9RwHYzXMQ8jAnz//sM4ODepJhiFxm1L6Ef+fj6g=; b=GrfkH6Dgwx7o163rrgkHJmesBM
-	0f0fXfH7hdZmUE23myzJxi4TFXEMzuMEnu8HUoi3x5bJJMOcOLH4YdoZRO4cY9N3RqLNxyNyXZaPN
-	nJK8bW/cKLJfIabDR8oVusti4GzCh6a657Gv/j6KhpZ90TBQOXY+ABhuytm9jsJ4Xgn+1xs9vTNGy
-	8sLWeb+4/6erE1dyEjTZji6Datw46xeBATIjhhmIq6Zebv+OW1N0g9DEQqZbPjs7TpsbFVeLJBjTv
-	UuR64xENlX4gpxxwgk6v+eeAHqn5rr8q/DNa66Zt1SR+yCGt4K6xQTU2KbedMjU5wgGsEvwvjjByC
-	fptjDQ2A==;
+	bh=G5EA4gp+ZNDKprhGpH++99VsFnGY6WNQsKRBkIsPWLg=; b=E1LyinKcKASH35AGtx9wxJRV4C
+	cVKWc0Q1eZXf2xm+RDmWYidP2sZHleXHwNJH1ZYuFxk0sL8icUn79cXeSZN1dx8QfecrmhuIWBYEZ
+	/x/qWSAHMSJe0c9+fUHG59qfN9aqovdR+FgAM1Bva3eGaVKO36QohHPy5ogzKOm9wa150gTOd3sff
+	7+dy5MCx1J4jvDJVTgG4g2KmAkP057oNwJN9qK2TYDWYo+UyrksTtr3Wa3o/cnXfFWpA+GuyQIpRe
+	58uoUYdcguV1qTkjn94nXbfpM6X0kzaJWYNV2ZtXq+FZA9I5XSlEBJBAGL4GKlivn/K71ssKd5koI
+	ZzQMqNxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tojCC-0000000G3QH-0V9k;
-	Sun, 02 Mar 2025 13:17:28 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1tojE8-0000000G3e7-3I2l;
+	Sun, 02 Mar 2025 13:19:28 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tojAc-0000000G3LV-28UY
+	id 1tojCa-0000000G3T9-1DVs
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Mar 2025 13:15:51 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-54959d1a856so1047939e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Mar 2025 05:15:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740921349; x=1741526149; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=aOHZ9RwHYzXMQ8jAnz//sM4ODepJhiFxm1L6Ef+fj6g=;
-        b=NkgTXZ3sZ7fGwCfDkZiqbnWGIdruJ/ztshPv+1W6MapA+IJYAqaffT/jOuvAz3xcBj
-         fuzaQ+/Z70CnxMf172qjT4Hp3eGIHuEKe+ZGm33b7o8IzdqZ+afP17Htr+5YopzUrPbJ
-         jihTbwNrV/VH/c7/bA6V24SGugvjacj8FsneXtJvin5qYk0B5ip/hj2rEGSIPE5oaYiI
-         BgXitmkZN8uH1kCcLGwPsZxe7ACjYMOsWs7cQ0PJ9guUbrkwuwVplCw26dNQ5KJs6qod
-         q7BCjRsuLu6oC+P60i53JfllXScVVq5jY3qadg9a+6ZuTCdAfuczyDTHik2auTGCUYJL
-         gzmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740921349; x=1741526149;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=aOHZ9RwHYzXMQ8jAnz//sM4ODepJhiFxm1L6Ef+fj6g=;
-        b=o+t1r9xdlJE92uSwaPKyVTrf9Xjqh/shDnLXn5TN2YYa97ijn91chVF7q8M0lILP4y
-         cGSWzT73/fYsnUjf/NezLz6xOoV7TMe88cON5ecdG0SejFNY72JP3O7aMVsW3YQi/M/p
-         sI1p7MLk3PEz2uBd6WtdabKxf3yh6vpDS4lN7Z5355AonPuC+QZQBsvoPQ8BTQVYf07U
-         bfAIR3RswAkjRYw5qwvx8+wUF8x9Ys7Zo/MZUL0Q/phdMQjmziivRrIaNSUiVdSXk55x
-         9u2YZFDk6mU4WBcaxZVqcvUvaBGurLuA3oPkVtXIXfuJovTOxWfHN/t2M/WQqSwkOsAk
-         vm0w==
-X-Forwarded-Encrypted: i=1; AJvYcCWMceU2k/0gevXCIYcipcnEQDZPQr1Yo13S4VJ36USg08Gn4oDm09xTY5oTU8oGdZaFfOcetwnMbbupbKrA8sDL@lists.infradead.org
-X-Gm-Message-State: AOJu0YwAiJwnrsJBJWJw5VJGN8MB2ZFKDul3zwyXTj9lm13PnnLGnqGq
-	SD4g4UBFnikB8Ns3+VRLKBIeRapZf+1q/BN8ohzffHXGBjqgaL6M
-X-Gm-Gg: ASbGncuUIgTrvj5WY7lW/Vt5nZTMDraEJvK8tboJK9R6hzUOjabB4Slg3eZ/0olTSSD
-	h5MTL56FIYvq7rexp9Ol4NJqTpT7CAA9z98Jq4ZEuBySCWQ9f8wxWfzrmFkKGszvSWe3zoPu2kb
-	YdHYSgCCktx2uacupjQiQ8m7U57E9HxhR/d6qqVDVbjRIJxDTY4nkuBausEubytC6Ns99WLleMX
-	eeLtwJclPEM3T29n2SqCUceLYxcKnnalmNBh7tBcrT2RR+hmrQAl8+GEPGqRqZDK5jUDDSB2pKl
-	lsF+5RzT2ZdHVBo9JXbnJJNqrsVp2IHRVO8wXIbtCjb7HucCYssJqhzShxMDRWYsjtGME1ia/vc
-	l49ljhLx5rb3gD/6cGOdLP9hX1Q==
-X-Google-Smtp-Source: AGHT+IGHFptw3pHDNvEkh6S8B9YASLA7Mxg1Ob35UR3qFEC4CECgPhwErw/f4EuhZrqOLOxsFMYCdA==
-X-Received: by 2002:a05:6512:3a90:b0:545:a70:74c5 with SMTP id 2adb3069b0e04-5494c320d67mr3708996e87.13.1740921348639;
-        Sun, 02 Mar 2025 05:15:48 -0800 (PST)
-Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5495bc78d51sm353840e87.27.2025.03.02.05.15.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 02 Mar 2025 05:15:48 -0800 (PST)
-Message-ID: <ccac509c-d063-42f4-a092-bee4014ec9da@gmail.com>
-Date: Sun, 2 Mar 2025 15:15:45 +0200
+	Sun, 02 Mar 2025 13:17:53 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 522DHlu83080606
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sun, 2 Mar 2025 07:17:47 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1740921467;
+	bh=G5EA4gp+ZNDKprhGpH++99VsFnGY6WNQsKRBkIsPWLg=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=J19nTZ/LYPJC/UEIN/OgMtRkA0ljQxonZab+z/+PX04BgDYfKGLhVWtxioh30KBXv
+	 er8cw9leyhy9wdbDsq+/zk5KcK99cinR2QlLEv6PsJFLDzOht5XW3FY7NGsWxuVQWt
+	 zWg3tzX3B+88L5kKdTNH4841/DKuheT++Tzzrruk=
+Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 522DHlED016487
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Sun, 2 Mar 2025 07:17:47 -0600
+Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Sun, 2
+ Mar 2025 07:17:46 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Sun, 2 Mar 2025 07:17:47 -0600
+Received: from uda0132425.dhcp.ti.com (dhcp-10-24-69-250.dhcp.ti.com [10.24.69.250])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 522DHioo115614;
+	Sun, 2 Mar 2025 07:17:44 -0600
+From: Vignesh Raghavendra <vigneshr@ti.com>
+To: Conor Dooley <conor+dt@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Rob Herring <robh@kernel.org>, Nishanth Menon
+	<nm@ti.com>
+CC: Vignesh Raghavendra <vigneshr@ti.com>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        Tero
+ Kristo <kristo@kernel.org>
+Subject: Re: [PATCH] arm64: dts: ti: k3-am625-beagleplay: Reserve 128MiB of global CMA
+Date: Sun, 2 Mar 2025 18:47:41 +0530
+Message-ID: <174092143357.3272913.16342762135985998493.b4-ty@ti.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250131173508.1338842-1-nm@ti.com>
+References: <20250131173508.1338842-1-nm@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 08/10] iio: adc: Support ROHM BD79124 ADC
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
- Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Daniel Scally <djrscally@gmail.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Hugo Villeneuve <hvilleneuve@dimonoff.com>, Nuno Sa <nuno.sa@analog.com>,
- David Lechner <dlechner@baylibre.com>,
- Javier Carrasco <javier.carrasco.cruz@gmail.com>,
- Guillaume Stols <gstols@baylibre.com>,
- Olivier Moysan <olivier.moysan@foss.st.com>,
- Dumitru Ceclan <mitrutzceclan@gmail.com>,
- Trevor Gamblin <tgamblin@baylibre.com>,
- Matteo Martelli <matteomartelli3@gmail.com>,
- Alisa-Dariana Roman <alisadariana@gmail.com>,
- Ramona Alexandra Nechita <ramona.nechita@analog.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, Linus Walleij <linus.walleij@linaro.org>
-References: <cover.1740421248.git.mazziesaccount@gmail.com>
- <4d1bf5df8f3b0f760422b6b67fcc8245ebf520e0.1740421249.git.mazziesaccount@gmail.com>
- <20250302041046.7fde3c68@jic23-huawei>
-Content-Language: en-US, en-AU, en-GB, en-BW
-From: Matti Vaittinen <mazziesaccount@gmail.com>
-In-Reply-To: <20250302041046.7fde3c68@jic23-huawei>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_051550_559484_22A7890E 
-X-CRM114-Status: GOOD (  25.78  )
+X-CRM114-CacheID: sfid-20250302_051752_466238_8BE419C1 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,96 +90,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/03/2025 06:10, Jonathan Cameron wrote:
-> On Mon, 24 Feb 2025 20:34:30 +0200
-> Matti Vaittinen <mazziesaccount@gmail.com> wrote:
+Hi Nishanth Menon,
+
+On Fri, 31 Jan 2025 11:35:08 -0600, Nishanth Menon wrote:
+> In the same lines of commit 9e8560556f9c ("arm64: dts: ti:
+> k3-am62x-sk-common: Reserve 128MiB of global CMA"), reserve global CMA
+> pool for:
 > 
->> The ROHM BD79124 is a 12-bit, 8-channel, SAR ADC. The ADC supports
->> an automatic measurement mode, with an alarm interrupt for out-of-window
->> measurements. The window is configurable for each channel.
->>
->> The I2C protocol for manual start of the measurement and data reading is
->> somewhat peculiar. It requires the master to do clock stretching after
->> sending the I2C slave-address until the slave has captured the data.
->> Needless to say this is not well suopported by the I2C controllers.
->>
->> Thus the driver does not support the BD79124's manual measurement mode
->> but implements the measurements using automatic measurement mode relying
->> on the BD79124's ability of storing latest measurements into register.
->>
->> The driver does also support configuring the threshold events for
->> detecting the out-of-window events.
->>
->> The BD79124 keeps asserting IRQ for as long as the measured voltage is
->> out of the configured window. Thus the driver masks the received event
->> for a fixed duration (1 second) when an event is handled. This prevents
->> the user-space from choking on the events
->>
->> The ADC input pins can be also configured as general purpose outputs.
->> Those pins which don't have corresponding ADC channel node in the
->> device-tree will be controllable as GPO.
->>
->> Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
-> Some minor stuff inline.
-
-...
-
->> +#define BD79124_INTERVAL_075 0
+> LCD Display: 16MiB, HDMI (1080p): 16MiB, GPU: 16MiB, CSI2 1 1080p
+> sensor: 32MiB with a 32MiB set for other peripherals and a 16MiB
+> buffer.
 > 
-> Can we make these units in these explicit?
-> #define BD79124_INTERVAL_MS_0_75
-> maybe?  Nice to avoid need for comments on what the units are where
-> you use these.
-> 
+> [...]
 
-Sure, thanks.
+I have applied the following to branch ti-next on [1].
+Thank you!
 
->> +#define BD79124_INTERVAL_150 1
->> +#define BD79124_INTERVAL_300 2
->> +#define BD79124_INTERVAL_600 3
+[1/1] arm64: dts: ti: k3-am625-beagleplay: Reserve 128MiB of global CMA
+      commit: 47ab49247b68423c399717f2c8623e7f5d70153e
 
-...
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent up the chain during
+the next merge window (or sooner if it is a relevant bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-> 
->> +static void bd79124_re_enable_hi(struct bd79124_data *data, unsigned int channel)
->> +{
->> +	int ret, evbit = BIT(IIO_EV_DIR_RISING);
->> +
->> +	if (!(data->alarm_suppressed[channel] & evbit))
->> +		return;
->> +
->> +	data->alarm_suppressed[channel] &= (~evbit);
-> 
-> No brackets around the ~evbit.
-> Check for other cases of this.
-> Otherwise we'll get some script written 'cleanup'.
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-Sigh. I had a lengthy discussion about this with Andy explaining why I 
-like having the parenthesis to avoid any confusion. Well, I suppose I 
-have no options if you're strongly opposing them.
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-...
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
->> +static void bd79124_alm_enable_worker(struct work_struct *work)
->> +{
->> +	int i;
->> +	struct bd79124_data *data = container_of(work, struct bd79124_data,
->> +						 alm_enable_work.work);
->> +
->> +	guard(mutex)(&data->mutex);
->> +	/*
->> +	 * We should not re-enable the event if user has disabled it while
->> +	 * rate-limiting was enabled.
->> +	 */
-> 
-> Is this comment suggesting something that isn't done or referring to specific
-> code?  I think it wants to be in the function above where the decision is made.
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+--
+Vignesh
 
-I have to take another look but it seems it got misplaced during the 
-road. Thanks!
-
-Agreeing with all the rest, thanks!
-
-Yours,
-	-- Matti
 
