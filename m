@@ -4,41 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9CECC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 18:50:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 596C3C282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 18:51:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5gQcmtYRJ6ZBHGuG3ItZvKIEimpluYI6lauZf8aMldM=; b=kQr3BulIy5oPk16WME0NrmntHE
-	HGUgtXuGG1R5Rr0F/ON7MH6KZBR5OiIeZJoEvWya8tYMIpxysauDHkjRZKqW5r4mxSlds/8MPwSBB
-	NZhXP9V66dEcyh29uuMXPO7mCp4yW/Cm0rmIaMCXoN1Qb40H989ax4y5gHvS0y1XoJFiCq2vAQyH0
-	wiVd0azUIkEMROsscVLajb9z+30wmXA8x5Q/jbia6lkh9+fwJK/STcejyFvPs6h+JRSjm692LSoRw
-	oq1MPmNKRq86NDj9d/Lda0yjexrBI+KZv1qm1zEIpliGj0l9/A9Zr+3ZY4Gc1DV912XvNFrsWpVcY
-	kPwp96hA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rQXew6m92deUN72dLBiwb/ih/m/f5d9GpQpBSeEN2Ro=; b=3/hQJvOQSfWjmwIFBBlnXoFmkV
+	EhcS8jvBEkxtkIpWR7KR2GK3xG5vTDj7HVA/ZRhnuKu6BN8ePEYsAkObJxxAfxpZ7aXPVqaGh/cFm
+	Fph+Rb6NFskzmQcTKfa6t0CE6vYnOoucwzwwLxMNz6cJslEusr4tVFg2dtjbu0mH5mwoLB4r5PNdq
+	LifFCf2XEPZkbhN6Ex5maBfl5m/dgjdIX5Th2PuCM0LsHNNcvPMHkJA3W+3ojL9YBYKE6rjQkbAwU
+	Yky1IgmxhpJBNzvy1Sjz+i6xcAXgPuED91pidp/vdZFjrMVdJCvWmDvwVSpbYudyZTx/2Eq07jGfj
+	bGw6Ulqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tooNv-0000000GX4h-48ll;
-	Sun, 02 Mar 2025 18:49:55 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1tooPS-0000000GXCY-2ZeU;
+	Sun, 02 Mar 2025 18:51:30 +0000
+Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tooMM-0000000GWuI-3kvZ;
+	id 1tooMM-0000000GWuH-3xQh;
 	Sun, 02 Mar 2025 18:48:20 +0000
 From: Dragan Simic <dsimic@manjaro.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
 	t=1740941293;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5gQcmtYRJ6ZBHGuG3ItZvKIEimpluYI6lauZf8aMldM=;
-	b=HUYGW807T4tqTNe8WFbayXXrWnHqGZwm0xvJeJJ97W21KmzfpUIL8q56xt8ETuvwDXfpHa
-	HzqUDkM0TbRXfnE+WJWMrmNg/fpJT/zZxXWju8a/C7plyQhovZzAoW9mHKBqr++sQb0Lj2
-	Ig1XHeR9kwmQHIGvTuWdIVG6sCHUnzi+OvRMq7pY6BULOS3s9cHBoRVXbpRqbYMi4FJyEF
-	2tnrSlBwpFwMSevXUTzZuL+1khukgSp37yturt7o0SJSn6XtlKPd7vOTkCmUfYNf1bq0Xx
-	9FGJIYuG1C7AB8q2GkLziYQGRYnmF41ePW9KxadYWXM+83TgRW35VdYVKkhVrA==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=rQXew6m92deUN72dLBiwb/ih/m/f5d9GpQpBSeEN2Ro=;
+	b=UOSYoFClTic2PbsC9ZKZ1fJwDcihUrGT2sSqx5TQYRRDjOkhAl6cWyeyGeYDyMbHqe9vet
+	btRM9ugur0ouyrMDvvN2GvE9yZWSZfR51R1mhtxk+NkcUXMkYqof+fcghrOA5N9XLHsUsn
+	BhOEsztZ1BpWPpwjnNY5ubwihMSFSWMqywSYz1eZaWrMF74RhRswq+wZ7lUa3NV+3yyZoz
+	oVf+zkOEm4Whswh9i62CrOX+FysuxDrS+tdUdVzP5eOj6NlQjBqiyz/RP/ue/H7SY3LbCx
+	bVOR5CJHdRQFkyDWDeGwstvcDsXeIXU29pa1RylRbiVoOVcBTVA2i/HuLPQ0zA==
 To: linux-rockchip@lists.infradead.org
 Cc: heiko@sntech.de,
 	linux-arm-kernel@lists.infradead.org,
@@ -48,20 +47,17 @@ Cc: heiko@sntech.de,
 	krzk+dt@kernel.org,
 	conor+dt@kernel.org,
 	didi.debian@cknow.org,
-	chris@z9.de,
-	stable@vger.kernel.org
-Subject: [PATCH v2 1/2] arm64: dts: rockchip: Add avdd HDMI supplies to RockPro64 board dtsi
-Date: Sun,  2 Mar 2025 19:48:03 +0100
-Message-Id: <df3d7e8fe74ed5e727e085b18c395260537bb5ac.1740941097.git.dsimic@manjaro.org>
-In-Reply-To: <cover.1740941097.git.dsimic@manjaro.org>
-References: <cover.1740941097.git.dsimic@manjaro.org>
+	chris@z9.de
+Subject: [PATCH v2 0/2] Slightly improve hardware description of Pine64 RockPro64
+Date: Sun,  2 Mar 2025 19:48:02 +0100
+Message-Id: <cover.1740941097.git.dsimic@manjaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Authentication-Results: ORIGINATING;
 	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_104819_083582_690D19CD 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20250302_104819_129484_582E9F41 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,62 +72,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add missing "avdd-0v9-supply" and "avdd-1v8-supply" properties to the "hdmi"
-node in the Pine64 RockPro64 board dtsi file.  To achieve this, also add the
-associated "vcca_0v9" regulator that produces the 0.9 V supply, [1][2] which
-hasn't been defined previously in the board dtsi file.
+This is a small series that introduces small improvements to the way
+Pine64 RockPro64 [1] single-board-computer is described in the DT files.
+This applies to both production-run revisions of the RockPro64.
 
-This also eliminates the following warnings from the kernel log:
+The introduced improvements boil down to eliminating some warnings from
+the kernel log, by adding a previously undefined regulator and by adding
+some previously missing references to the regulators.
 
-  dwhdmi-rockchip ff940000.hdmi: supply avdd-0v9 not found, using dummy regulator
-  dwhdmi-rockchip ff940000.hdmi: supply avdd-1v8 not found, using dummy regulator
+The patch 2/2 also results in reliability improvements, by reportedly
+resolving (some of) the longstanding issues resulting from using certain
+PCI Express cards with the Pine64 RockPro64.
 
-There are no functional changes to the way board works with these additions,
-because the "vcc1v8_dvp" and "vcca_0v9" regulators are always enabled, [1][2]
-but these additions improve the accuracy of hardware description.
+Changes in v2:
+  - Dissolved the patch 2/2 notes into its description, according to the
+    numerous power cycling/rebooting tests performed on a Pine64 RockPro64
+    by @ChriChri and reported in the #rock64 channel on irc.pine64.org
+  - Adjusted the cover letter to match the latest test results
+  - Added "Fixes" and "Cc: stable" tags to both patches in the series
+  - Added "Tested-by" to the patch 2/2, thanks to Chris' testing [2]
+  - Added a few "Cc" tags to the patch 2/2, to make sure people involved
+    in the earlier related patch [3] are in the loop
 
-These changes apply to the both supported hardware revisions of the Pine64
-RockPro64, i.e. to the production-run revisions 2.0 and 2.1. [1][2]
+Link to v1: https://lore.kernel.org/linux-rockchip/cover.1740748439.git.dsimic@manjaro.org/T/#u
 
-[1] https://files.pine64.org/doc/rockpro64/rockpro64_v21-SCH.pdf
-[2] https://files.pine64.org/doc/rockpro64/rockpro64_v20-SCH.pdf
+[1] https://wiki.pine64.org/wiki/ROCKPro64
+[2] https://z9.de/hedgedoc/s/nF4d5G7rg#reboot-tests-for-PCIe-improvements
+[3] https://lore.kernel.org/lkml/20230509153912.515218-1-vincenzopalazzodev@gmail.com/T/#u
 
-Fixes: e4f3fb490967 ("arm64: dts: rockchip: add initial dts support for Rockpro64")
-Cc: stable@vger.kernel.org
-Suggested-by: Diederik de Haas <didi.debian@cknow.org>
-Signed-off-by: Dragan Simic <dsimic@manjaro.org>
----
- arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dtsi | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+Dragan Simic (2):
+  arm64: dts: rockchip: Add avdd HDMI supplies to RockPro64 board dtsi
+  arm64: dts: rockchip: Add missing PCIe supplies to RockPro64 board
+    dtsi
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dtsi
-index 69a9d6170649..47dc198706c8 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dtsi
-@@ -227,6 +227,16 @@ vcc5v0_usb: regulator-vcc5v0-usb {
- 		vin-supply = <&vcc12v_dcin>;
- 	};
- 
-+	vcca_0v9: regulator-vcca-0v9 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcca_0v9";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <900000>;
-+		regulator-max-microvolt = <900000>;
-+		vin-supply = <&vcc3v3_sys>;
-+	};
-+
- 	vdd_log: regulator-vdd-log {
- 		compatible = "pwm-regulator";
- 		pwms = <&pwm2 0 25000 1>;
-@@ -312,6 +322,8 @@ &gmac {
- };
- 
- &hdmi {
-+	avdd-0v9-supply = <&vcca_0v9>;
-+	avdd-1v8-supply = <&vcc1v8_dvp>;
- 	ddc-i2c-bus = <&i2c3>;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&hdmi_cec>;
+ .../boot/dts/rockchip/rk3399-rockpro64.dtsi      | 16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
+
 
