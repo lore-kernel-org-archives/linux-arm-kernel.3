@@ -4,91 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8117C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 08:14:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60437C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 08:43:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=84McYKpkJJYqDhwKGbOb4J/jLEFuGbb2JLYOWqIz1bA=; b=J20JhXn8cAp4jjey1jGBZ6Lodg
-	VOXpryMgnERxHGoWILUTtcInllMQzsl8Tugq93ya3w85dE0Ou5zS2u4kB8ge4nWd2WpXA2p/NwO0p
-	5xcJwOvcptvpy355tEiON1c/YNMlT8F84OFVIwuynLFDmOB5cz1PSeN+6FbkiUhrVid9V4bbQ7ZeL
-	l46Ahb8pbsIqX7vE3zU1vDRTnrGhRVd7XeW8ZQhKT+xMw5XshyhuAqqJxzpgJZMFAkJVirZS+DVH5
-	LlQ6dR78lmkxhnpPlcWgctuQqgqtIqDbYzXpbu5IK7UiSt9hqiW2JtHYcIvn9D5TKmo+LzIkw4N1A
-	qQAVaF8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b49G2JWa7kOeHxP4WVX/xPZ1G3UT2Z18oMvBJnNuLlU=; b=yHOVkAiRHYU/FFIYdzgkodYLID
+	W3eLZI90bMBNQu3rmfvx/OA4WdY5rere4UCb7VTQ7KPClgMDZlRC8PTfWHIkTJ4nrNHGSR/2OSo2X
+	VH4xWPPixDB/wE79LIACKkHkm/5v72jm6DC1Nw6jv336Rh+OWO/6Um9M8uiGTvasAL2POrd7q4wNh
+	DHuQHTIVlDMJEvn4LpPVl9+zgPvf2bQBDAUl9slZjvI9uLr0S+qjJQemn3l1wrNqoqHJU5OkMzgrx
+	3xmyzxncUsC7N3NvfXhZYy9Ng2O46GaIjCRW+wPt350b2oBwiyNwUsbLNmbyUayCQ1kTDltT3P8Y2
+	I37T3oqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toeTA-0000000FdSf-3jn5;
-	Sun, 02 Mar 2025 08:14:40 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1toeuZ-0000000Fge3-2ON5;
+	Sun, 02 Mar 2025 08:42:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toeRc-0000000FdM4-3ar5
+	id 1toet3-0000000FgbQ-0oh8
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Mar 2025 08:13:06 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-2fe82414cf7so6826209a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Mar 2025 00:13:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=daynix-com.20230601.gappssmtp.com; s=20230601; t=1740903183; x=1741507983; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=84McYKpkJJYqDhwKGbOb4J/jLEFuGbb2JLYOWqIz1bA=;
-        b=WDd0k0YGnaAIffSVoKKwvaTB5FHLZ3JDwETATbNBahGKGBwpfouvleLOdReu9x/YKU
-         Ol3Zz1xdmyo+RrCMn7XmvuEOaVUN/Up8ToYSt/yQV9ttRho7FECA1PPyl+3F+6ava2yn
-         18YVkeOCtHB1sUc8QSE+5Vi9o+kSpHgdeav5Y7Z8dBDMqWFjurMS1XQ1/9cR7gDunlmi
-         nPBWo98pZNo/hsIzPBq8xKVwtOzGmP7JADXPyOzOdDb0N0zAgaUMDTHzvyyeFweXKk7G
-         KDX+KJKFjI/g9rAH4fLgU+P8XJA8x1SSm4TCIdKQ3+nbzqIBpXv05BaPsF7JIxyK2C6r
-         +Vpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740903183; x=1741507983;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=84McYKpkJJYqDhwKGbOb4J/jLEFuGbb2JLYOWqIz1bA=;
-        b=unpFvm5c6lZ8Zsj2V75VwumddfZcc8Ttjmz0XM+cLGvrxTFBSBiVjYOXGdyDkB1O11
-         6tusaY+MLDzor36LwVJ5UGyH/l/H6Lb+068ZH58GG6lgsblNiXuF9fBv/hQqaYvqsp+o
-         kC5mpXAUvx26wubZauxfLdnv/TOmnJmAqVm4tCwq8URvw+KnjzylvpKD81mkeQRE/1n0
-         8ZcialCABpKIJpraYHJV2QsxmO4BvzJOANnHMIMUoxOM+LHn03rwpqhX+nk9+2YfyOiB
-         t3FYjeOZT6x3Ta/RVvuHbLQk+KSAtRlpAs6IjimQwIBni70x1VtuEFdRvynN9yQHcyNl
-         +Yyw==
-X-Gm-Message-State: AOJu0Yzum0ah80OP0/DfkpZ01PcUA+7Y7x7xMXyEsCt89n81dUSKSZ5Z
-	BxJWVqqbD0Gi/K0WitRyIc9JxIxYDYi7NOc1TtIVEaFP5esxKbDJj73YlX1AjrM=
-X-Gm-Gg: ASbGncvQmZUyioZh1chBMoPtJg5RJWpqXRvinJqoH9ydmDgneo6A3IDv8zKuarwRGAw
-	TcmLpgluGYiTI5hFGEY5mGEZkJfx38fDOQ97CQo0w5JSP28bJwSGVCoIT7IZ/hxPXzW8GM2zmeV
-	laXkf6RkkqBkGJFf6qtemjcqwQK1MC3vt3UGt7CTLuXu9TqsxxasXmPZ0Z0sTs1vf1MpchyLoGX
-	djm1FqATq1Qdo9crRuw/1v9gNpdqzgdwcz60v7NkD3oXxGkSpGCG2ixnanRU9UcoYAzwRebq/Le
-	3XqaYUyzSS2BOJaCpC+Brgl1ivHVeunUqMWon+bXwdSKUh7I
-X-Google-Smtp-Source: AGHT+IEm3T6IHk5ovRAm0FLQbBTvAowwUDJVCwuWzj30KVnm2jDxufS66tVGFXW4MWOrLXmcQD8Ulw==
-X-Received: by 2002:a17:90b:3ec9:b0:2ee:9e06:7db0 with SMTP id 98e67ed59e1d1-2febab50f40mr14774270a91.11.1740903183521;
-        Sun, 02 Mar 2025 00:13:03 -0800 (PST)
-Received: from localhost ([157.82.207.107])
-        by smtp.gmail.com with UTF8SMTPSA id 41be03b00d2f7-aee7dedf5a8sm6079482a12.70.2025.03.02.00.13.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 02 Mar 2025 00:13:03 -0800 (PST)
-From: Akihiko Odaki <akihiko.odaki@daynix.com>
-Date: Sun, 02 Mar 2025 17:12:54 +0900
-Subject: [PATCH] KVM: arm64: PMU: Fix SET_ONE_REG for vPMC regs
+	Sun, 02 Mar 2025 08:41:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 72CB561150;
+	Sun,  2 Mar 2025 08:41:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96744C4CED6;
+	Sun,  2 Mar 2025 08:41:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740904883;
+	bh=shygSG4jJZ0nMCTqJCVmz4MRExogp395qEunp5/6nE8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=KnW5XC9Y+ZZ1MmxNnOpHUx/b0xDo6PGQhbEi9SakX+h8awXXephFYF05USFFEn6pG
+	 IcWr8rdMUVJ/CtwmrV5ZSROpNZtRHLKozb0QaruhASpttZOX4wYmkw9KVkkQqHzZSn
+	 2AiMXgLcdCMrrNcNDJ+T587GOgjDi6p85+na+bkjhCb3cbMp1gd9lKMAKv3GSWbdXy
+	 /1nx0LtTKDd9IaG9VoxSBNNA8zQjHt3/ocwAPofRGyy0tzdWqT4gotoAbRLxBf66ko
+	 DlKp4HhupIp0ys4avldhcRVkePlCjCFXdMVyAovBKAIyxpNexVGMvh9t+TKabP+w+G
+	 9/HqX+O+KRZkg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1toesz-009WBm-9s;
+	Sun, 02 Mar 2025 08:41:21 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>
+Cc: ahmed.genidi@arm.com,
+	ben.horgan@arm.com,
+	catalin.marinas@arm.com,
+	kvmarm@lists.linux.dev,
+	leo.yan@arm.com,
+	oliver.upton@linux.dev,
+	will@kernel.org
+Subject: Re: [PATCH 0/2] KVM: arm64: PSCI relay fixes
+Date: Sun,  2 Mar 2025 08:41:18 +0000
+Message-Id: <174090487063.2316303.3603727860925384915.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250227180526.1204723-1-mark.rutland@arm.com>
+References: <20250227180526.1204723-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250302-pmc-v1-1-caff989093dc@daynix.com>
-X-B4-Tracking: v=1; b=H4sIAAUTxGcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDYwMj3YLcZN0kS4NEC7PENEsT02QloMqCotS0zAqwKdGxtbUAQ6KKqlU
- AAAA=
-X-Change-ID: 20250302-pmc-b90a86af945c
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Andrew Jones <drjones@redhat.com>, Shannon Zhao <shannon.zhao@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- linux-kernel@vger.kernel.org, devel@daynix.com, 
- Akihiko Odaki <akihiko.odaki@daynix.com>
-X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_001305_156112_A1A5B5FE 
-X-CRM114-Status: GOOD (  15.57  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com, ahmed.genidi@arm.com, ben.horgan@arm.com, catalin.marinas@arm.com, kvmarm@lists.linux.dev, leo.yan@arm.com, oliver.upton@linux.dev, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,79 +85,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reset the current perf event when setting the vPMU counter (vPMC)
-registers (PMCCNTR_EL0 and PMEVCNTR<n>_EL0). This is a change
-corresponding to commit 9228b26194d1 ("KVM: arm64: PMU: Fix GET_ONE_REG
-for vPMC regs to return the current value") but for SET_ONE_REG.
+On Thu, 27 Feb 2025 18:05:24 +0000, Mark Rutland wrote:
+> These patches fix some missing initialization in the PSCI relay code
+> which can result in host kernel crashes shortly after entering the cold
+> entry points used by PSCI CPU_ON, CPU_SUSPEND, and SYSTEM_SUSPEND.
+> 
+> The SCTLR_EL1 issue was originally reported by Leo Yan and debugged by
+> Ahmed Genidi. While looking at Ahmed's patch I spotted a more general
+> issue with E2H, so I've fixed that up with patch 1, and I've tweaked his
+> patch accordingly. Any errors there are my fault.
+> 
+> [...]
 
-Values of vPMC registers are saved in sysreg files on certain occasions.
-These saved values don't represent the current values of the vPMC
-registers if the perf events for the vPMCs count events after the save.
-The current values of those registers are the sum of the sysreg file
-value and the current perf event counter value.  But, when userspace
-writes those registers (using KVM_SET_ONE_REG), KVM only updates the
-sysreg file value and leaves the current perf event counter value as is.
+Applied to fixes, thanks!
 
-Fix this by calling kvm_pmu_set_counter_value(), which resests the
-current perf event as well.
+[1/2] KVM: arm64: Initialize HCR_EL2.E2H early
+      commit: 7a68b55ff39b0a1638acb1694c185d49f6077a0d
+[2/2] KVM: arm64: Initialize SCTLR_EL1 in __kvm_hyp_init_cpu()
+      commit: 3855a7b91d42ebf3513b7ccffc44807274978b3d
 
-Fixes: 051ff581ce70 ("arm64: KVM: Add access handler for event counter register")
-Signed-off-by: Akihiko Odaki <akihiko.odaki@daynix.com>
----
- arch/arm64/kvm/sys_regs.c | 19 ++++++++++++++++++-
- 1 file changed, 18 insertions(+), 1 deletion(-)
+Cheers,
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 42791971f75887796afab905cc12f49fead39e10..1de990edc6a3e9be2a05a711621bb1bcbeac236a 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -1035,6 +1035,22 @@ static int get_pmu_evcntr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
- 	return 0;
- }
- 
-+static int set_pmu_evcntr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
-+			  u64 val)
-+{
-+	u64 idx;
-+
-+	if (r->CRn == 9 && r->CRm == 13 && r->Op2 == 0)
-+		/* PMCCNTR_EL0 */
-+		idx = ARMV8_PMU_CYCLE_IDX;
-+	else
-+		/* PMEVCNTRn_EL0 */
-+		idx = ((r->CRm & 3) << 3) | (r->Op2 & 7);
-+
-+	kvm_pmu_set_counter_value(vcpu, idx, val);
-+	return 0;
-+}
-+
- static bool access_pmu_evcntr(struct kvm_vcpu *vcpu,
- 			      struct sys_reg_params *p,
- 			      const struct sys_reg_desc *r)
-@@ -1328,6 +1344,7 @@ static int set_pmcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
- #define PMU_PMEVCNTR_EL0(n)						\
- 	{ PMU_SYS_REG(PMEVCNTRn_EL0(n)),				\
- 	  .reset = reset_pmevcntr, .get_user = get_pmu_evcntr,		\
-+	  .set_user = set_pmu_evcntr,					\
- 	  .access = access_pmu_evcntr, .reg = (PMEVCNTR0_EL0 + n), }
- 
- /* Macro to expand the PMEVTYPERn_EL0 register */
-@@ -2682,7 +2699,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 	  .access = access_pmceid, .reset = NULL },
- 	{ PMU_SYS_REG(PMCCNTR_EL0),
- 	  .access = access_pmu_evcntr, .reset = reset_unknown,
--	  .reg = PMCCNTR_EL0, .get_user = get_pmu_evcntr},
-+	  .reg = PMCCNTR_EL0, .get_user = get_pmu_evcntr, .set_user = set_pmu_evcntr },
- 	{ PMU_SYS_REG(PMXEVTYPER_EL0),
- 	  .access = access_pmu_evtyper, .reset = NULL },
- 	{ PMU_SYS_REG(PMXEVCNTR_EL0),
-
----
-base-commit: 97eab90817fc214843ca8ccd4cdf68b8115ed424
-change-id: 20250302-pmc-b90a86af945c
-
-Best regards,
+	M.
 -- 
-Akihiko Odaki <akihiko.odaki@daynix.com>
+Without deviation from the norm, progress is not possible.
+
 
 
