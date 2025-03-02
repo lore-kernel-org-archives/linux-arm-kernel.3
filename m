@@ -4,111 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFC9DC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 23:38:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 061B3C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Mar 2025 23:41:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ejh1GDPAKVllO6gllmhAfMEyCPmPMUvWgSEqENGci+A=; b=nFfkwABDFi9NgHFccm1/jN46nf
-	ktVlro6Vkmv4mM/wQT5xJbyX3fMk0bopTSYXVx008XVWGxMW2AebqunUSMYhpK09l058Ghc15Wrvf
-	/RD9IOhYYqBKjnYAHRu1VkHjxjKKJGxYgK8vFyBAPtj2EphfwAkao/9MvYdIhaDrpTZG4PKAsJOl3
-	BP/HT11dbW4ewiLR+RXZ+48P8YmOV1A6VK5AqCTOOpTluEvkbcl3g6jCVE7dgWYiD+T2BmFt+r09R
-	7YLVYdpGWp7P2e0SGRKH96zDsnLPLx2yO53O90868TJX1S6Qh0TvaQaZDTjggdzr/u6bXo8h5Brho
-	/I6JsRoQ==;
+	bh=GBo5+OYmEobg6wfjqU2wwAFpXo5iLmkJqiW1kfdikek=; b=WI1pP2So3x9W/4rXkRZJ+OzBHU
+	iBRBp/qcrgmldYIzD6qIgodY5hxywNWTZwCaiL0K7+G928FaIM4KATWs2tAPIUR15uiwCzXtoKA98
+	JBrhaxl/MLldplYWhv7X3BrU2SXj1BSKo584aqCFfcg8wuXzgOY9zEUptYI0KiQ0yKymbj9gWa7Bk
+	1Ygrb6+39gIUFlO+GAWpNk6jVHc+F4SkUYxaG9LQ5B0ShFr9IbXWJ2q1Vog5gU+YckiTcQUHtEYm5
+	lIBWM1qzaIW28AeT4++FUCfT1CBFjqODmMqDiKFZCAYIjyBCODDQoJM0ouEOt2byGb2FyF++65HBQ
+	999/bR/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tossw-0000000GoRc-1gL3;
-	Sun, 02 Mar 2025 23:38:14 +0000
+	id 1tosw8-0000000GogH-0coq;
+	Sun, 02 Mar 2025 23:41:32 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tosrL-0000000Go9C-3ERe
+	id 1tosuZ-0000000GoZt-08Uq
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Mar 2025 23:36:37 +0000
+	Sun, 02 Mar 2025 23:39:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1740958592;
+	s=mimecast20190719; t=1740958794;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ejh1GDPAKVllO6gllmhAfMEyCPmPMUvWgSEqENGci+A=;
-	b=Nh9A4hTbeDfQ97vBAXy71M9ouLGGjXnTTZ/avMJmUZnqKrUzitzqbO5wF9eKwzewP+WknH
-	UUUfcNjnReYiCh97VRN746u5sGB/oNwa9rdXjf8yZQvk4VhjpwgQriZnyqBF+7yGTSPwB6
-	4yKA0zl4XYgbOxsw4jYqet9c0qzp4vk=
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com
- [209.85.214.199]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=GBo5+OYmEobg6wfjqU2wwAFpXo5iLmkJqiW1kfdikek=;
+	b=R7we3vMe93/38J4TK9zJfLwUK2mQCLw3VGmTixDN7bDbZVmnEZJa6MjnkAqyNhUreC3qSy
+	75dzAXHWyPfymZR+wCVhR+ifPqSlKIJdSkPP4wtTfzEDG+wqwod56CFlzZJQ6qHKGQHBGk
+	+vFPvBxUEV1IFLTsgLuYtRTMS5JGJYs=
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com
+ [209.85.214.200]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-173--g89oMzSOTyr3-Yb9EQd5g-1; Sun, 02 Mar 2025 18:36:31 -0500
-X-MC-Unique: -g89oMzSOTyr3-Yb9EQd5g-1
-X-Mimecast-MFC-AGG-ID: -g89oMzSOTyr3-Yb9EQd5g_1740958590
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-22379af38e0so27482675ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Mar 2025 15:36:31 -0800 (PST)
+ us-mta-141-HUbiBdESNiC2YsZYm3Y38A-1; Sun, 02 Mar 2025 18:39:52 -0500
+X-MC-Unique: HUbiBdESNiC2YsZYm3Y38A-1
+X-Mimecast-MFC-AGG-ID: HUbiBdESNiC2YsZYm3Y38A_1740958792
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-22368fafed1so69572875ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Mar 2025 15:39:52 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740958590; x=1741563390;
+        d=1e100.net; s=20230601; t=1740958792; x=1741563592;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ejh1GDPAKVllO6gllmhAfMEyCPmPMUvWgSEqENGci+A=;
-        b=Zlys4RWNAmT/CFxUrMXuHvh7i+JOm2iHqqlEBiZDEoWb4YIH5iipWfSxehGTN5W3E9
-         NC/nCa16PkMw0v881NqOmJuy2msD/BYSiOdfpVUVmtBnG03FMo0RKwIfUlju4f++bLGC
-         2vpHntIpJQ1VxA93STgffQaya34t+pFn1H378bnIkqil+u/0uYfrg0b/Pjos5XeasyFv
-         BX1/q5/bo7XJgcoj+3SS3r3+zjDwPtDaustd9m8TgZD5t/3Pw/s1HRjdpsVwEk8qTEX4
-         wcJd7EceugiRKnqQuKy56h1VysjCQJp8LvO2RkT9/Mz7VpV64CGmdbZJmuUYxJfDTq/z
-         wtmA==
-X-Forwarded-Encrypted: i=1; AJvYcCVkeytdE9/fn5nsY0XXsO47O//5ihBu+6H0QeED8GjRjn3X63mZEzdKLFmkiN2jfiVpfooczPB3DXMbOwOX+Zvj@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbILxX6Sc9hV6llWWGYSoUPqKDSmM62k5rcbom0tyU4Nj1w/h7
-	cqyBS1LAz66d+srMh+3ElWYOgc5+d6Mfa/rWWynvkUUjA40dVt6gK4dhCF9IKgIVlM+1/Yo3Es3
-	+vsJwIumg1rAIgWZtIkOMDUFzfNrium7ssOOJJb3DzDTfqwny8IdOXCaAsF5eNYSkZ8HNO8lF
-X-Gm-Gg: ASbGncuXtltxIQhGGgo56p4QMOVaz2Stw13muxTfXHYhFwV/GluFuyBMUlu7fRf2AqO
-	LcDO2M7R8aRTcEyOqHPZe9H91HIKOMqi43r/JIHhr2LizVopOX+08vn40rD4GriNpHksr5469Du
-	WQkbGuOi9enL1/LiC9fhx9i/HQCi9PhM4ZqFsLazRfFitK+llsk89/Jf61YYShGRh6Qp8zSI6pd
-	gBRbH8FesQ0n8Z+TLP14eXHIhSZ7rMk9GseiPg54tGLwCtvIPmdzJz9MLNxzqGw6+8YNzqJjeL4
-	AEw6nl/o2PJl/5tm4A==
-X-Received: by 2002:a17:902:d48c:b0:21a:8300:b9ce with SMTP id d9443c01a7336-2236926a62emr202778645ad.49.1740958590129;
-        Sun, 02 Mar 2025 15:36:30 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEddAUa+nONgsuM9Tynj/Y7d+u/KE8b7znylUvPdW2+N+R2Tk2a3TFLdpAdjVAFLYlLTeS4vg==
-X-Received: by 2002:a17:902:d48c:b0:21a:8300:b9ce with SMTP id d9443c01a7336-2236926a62emr202778335ad.49.1740958589841;
-        Sun, 02 Mar 2025 15:36:29 -0800 (PST)
+        bh=GBo5+OYmEobg6wfjqU2wwAFpXo5iLmkJqiW1kfdikek=;
+        b=Y/3BOTnme7Lto1aQIbBj8fszU1JkvQGiemEYhpfSC41P9ynJiBBFri5bXzJjyma919
+         6yJRmCkvdLroQQ7I2nBVj+7c+AV+KdS1uAC4BdPrxnBfWtu2z4ro93kQWObR1pOvDdSZ
+         GLT7+S+35928A3aJHR7TQmM2tAMXgwMV+yl9JVNqo2XzOccFPmN8wKwWSi9nr40rj5iw
+         i1FHFcjIiERo42Le6uWeRv7dSGFNVp7jGaF6zCd0Qyiq8TiQIASdSmrbuUhmODJYmU8I
+         lrpLvXkY9oIxpc059IKBLmh/aLf6Di/GFDcr1Rh5j8t0jCu6u2fO5UC2u1InflkxweRV
+         9xLw==
+X-Forwarded-Encrypted: i=1; AJvYcCVW89u1FW/v8StYvs+FrlimM4qom3zhzjI4/ww9F4vUwpRGCOlmSJzqJUb8LcAl5m83HznXOl+DRNhgbaGMg4j9@lists.infradead.org
+X-Gm-Message-State: AOJu0YwI7P9nvhBnhMkJDeItrSWcpdVMkBnib6FNeyt86OmhQeopyjom
+	MP7pG3i2YnISuezctWecG17SGDc2kDn8jV0VqMjVejOIszybX/dSstCWrEv8BJ5X1YJ1VbP2klz
+	Pkx5QiBK9vmZ/F+a/I0JgIxsqdKTka1jzryhBr5JWT2b0zSHdv5asUIDqEmoor+kaH9uuIrnv
+X-Gm-Gg: ASbGncvA7a71LAagzA8ul/auS+/hAsJmV3VsKlLpIs93nXBuZ+VgwbuZyBSdafzh4AT
+	Zykvv/0z1Cf/OU4rInzDxwtP9vMiU2um7YZ3d/qj4b2UX4C0o+k9Xdp7AmHOWz/rUMUaCRkGTpN
+	S4c9JWbi1F+3GMRkvZPJINDoCHsxMeVwGs3qPjfAWeJeQTivEHPm8iSGCmVwUqDeIlPe8ZTvvUM
+	79Pmxjs46yWlXKvcBjB4srS+iXyjYcmXKh9eFhJfSUMBDqGkpcniMZykPEDQvBD5SJQgUvkwURq
+	0I7Nz+soq+NIux9wbw==
+X-Received: by 2002:a17:903:32c8:b0:220:be86:a421 with SMTP id d9443c01a7336-22369258505mr198701915ad.38.1740958791837;
+        Sun, 02 Mar 2025 15:39:51 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGtWQhLEYN86O3XnJuZetDZhwrb65+Q6vvyxqpw4uBVTdAA/3YJ21/tM+WdLRJLHGH6Np0Auw==
+X-Received: by 2002:a17:903:32c8:b0:220:be86:a421 with SMTP id d9443c01a7336-22369258505mr198701625ad.38.1740958791506;
+        Sun, 02 Mar 2025 15:39:51 -0800 (PST)
 Received: from [192.168.68.55] ([180.233.125.164])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-223501fbd47sm65995365ad.67.2025.03.02.15.36.21
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-223501d26acsm66078035ad.9.2025.03.02.15.39.44
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 02 Mar 2025 15:36:28 -0800 (PST)
-Message-ID: <8bf9ba6c-a8b2-42aa-9802-8e968bec1cd5@redhat.com>
-Date: Mon, 3 Mar 2025 09:36:20 +1000
+        Sun, 02 Mar 2025 15:39:50 -0800 (PST)
+Message-ID: <a7077902-4286-4b3d-913a-20083ff260f4@redhat.com>
+Date: Mon, 3 Mar 2025 09:39:43 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 01/45] KVM: Prepare for handling only shared mappings
- in mmu_notifier events
+Subject: Re: [PATCH v7 02/45] kvm: arm64: Include kvm_emulate.h in
+ kvm/arm_psci.h
 To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
  kvmarm@lists.linux.dev
-Cc: Sean Christopherson <seanjc@google.com>,
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
  Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
  Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
  Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
  <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
 References: <20250213161426.102987-1-steven.price@arm.com>
- <20250213161426.102987-2-steven.price@arm.com>
+ <20250213161426.102987-3-steven.price@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20250213161426.102987-2-steven.price@arm.com>
+In-Reply-To: <20250213161426.102987-3-steven.price@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: SRNUFSsbYSWSf5J4hIjBL9i674BA67N1FafAhiiA2oI_1740958590
+X-Mimecast-MFC-PROC-ID: I4tnxO2LoLqVYIEr9HPV09pwyEJ7Z2Ho4BijUxbUGbQ_1740958792
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_153635_896183_4EBACFF9 
-X-CRM114-Status: GOOD (  18.36  )
+X-CRM114-CacheID: sfid-20250302_153955_147598_F1F54A86 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,67 +122,26 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 2/14/25 2:13 AM, Steven Price wrote:
-> From: Sean Christopherson <seanjc@google.com>
+> From: Suzuki K Poulose <suzuki.poulose@arm.com>
 > 
-> Add flags to "struct kvm_gfn_range" to let notifier events target only
-> shared and only private mappings, and write up the existing mmu_notifier
-> events to be shared-only (private memory is never associated with a
-> userspace virtual address, i.e. can't be reached via mmu_notifiers).
+> Fix a potential build error (like below, when asm/kvm_emulate.h gets
+> included after the kvm/arm_psci.h) by including the missing header file
+> in kvm/arm_psci.h:
 > 
-> Add two flags so that KVM can handle the three possibilities (shared,
-> private, and shared+private) without needing something like a tri-state
-> enum.
+> ./include/kvm/arm_psci.h: In function ‘kvm_psci_version’:
+> ./include/kvm/arm_psci.h:29:13: error: implicit declaration of function
+>     ‘vcpu_has_feature’; did you mean ‘cpu_have_feature’? [-Werror=implicit-function-declaration]
+>     29 |         if (vcpu_has_feature(vcpu, KVM_ARM_VCPU_PSCI_0_2)) {
+> 	         |             ^~~~~~~~~~~~~~~~
+> 			       |             cpu_have_feature
 > 
-> Link: https://lore.kernel.org/all/ZJX0hk+KpQP0KUyB@google.com
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 > Signed-off-by: Steven Price <steven.price@arm.com>
 > ---
->   include/linux/kvm_host.h | 2 ++
->   virt/kvm/kvm_main.c      | 7 +++++++
->   2 files changed, 9 insertions(+)
+>   include/kvm/arm_psci.h | 2 ++
+>   1 file changed, 2 insertions(+)
 > 
-> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-> index 3cb9a32a6330..0de1e485452c 100644
-> --- a/include/linux/kvm_host.h
-> +++ b/include/linux/kvm_host.h
-> @@ -266,6 +266,8 @@ struct kvm_gfn_range {
->   	gfn_t end;
->   	union kvm_mmu_notifier_arg arg;
->   	enum kvm_gfn_range_filter attr_filter;
-> +	bool only_private;
-> +	bool only_shared;
->   	bool may_block;
->   };
 
-The added members (only_private and only_shared) looks duplicated to the
-member of attr_filter, which can be set to KVM_FILTER_SHARED, KVM_FILTER_PRIVATE,
-or both of them. More details can be found from the following commit where
-attr_filter was by dca6c88532322 ("KVM: Add member to struct kvm_gfn_range
-to indicate private/shared").
-
-I'm guessing Sean's suggestion was given before dca6c88532322 showed up.
-
->   bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range);
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index faf10671eed2..4f0136094fac 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -593,6 +593,13 @@ static __always_inline kvm_mn_ret_t __kvm_handle_hva_range(struct kvm *kvm,
->   			 * the second or later invocation of the handler).
->   			 */
->   			gfn_range.arg = range->arg;
-> +
-> +			/*
-> +			 * HVA-based notifications aren't relevant to private
-> +			 * mappings as they don't have a userspace mapping.
-> +			 */
-> +			gfn_range.only_private = false;
-> +			gfn_range.only_shared = true;
->   			gfn_range.may_block = range->may_block;
->   			/*
->   			 * HVA-based notifications aren't relevant to private
-
-Thanks,
-Gavin
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
 
