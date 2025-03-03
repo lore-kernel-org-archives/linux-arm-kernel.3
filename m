@@ -4,111 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44AEEC282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 05:57:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 961C9C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 06:20:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LWZczVLGJa1y4XReahdUAMxIiZ2gtlx/faB4w9x6vag=; b=tZQV1UUlu+NDjtQZQMAC4PD2To
-	jHa4KP0JHYLnYUCbw3UuE6xQZ8xy+/RUyT/Q+CSH55KD8PY4ayd67LdBj0IGcMjrZD9vkta9Sc0ER
-	I58ijdbn4ZYEEQ48bp8cZIFeXLGITx6eEll/YQDOcgONOG8ICVbPFIpGylmTLGRPF+/a64TY/Lrnk
-	ocCHWyexYmhPoK4gvo49RwAzDs6u+hh3vE+nNmUq1IdYPS+txM2sq+KaVhkITj3O/31wPocD3iaPw
-	ueCksM35TFX8UtU2uU2F0uankoMlCNAR36KENnAUwMC/VWCkrRw8/Vf1hh7+yj2eL/Y2Vcokx4nFs
-	cL5EdfwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BGuzGmklWCwWu9HoCDFiqOtossYHhBZKWQ1cTQEhELE=; b=wt1eAuwXUQ2WvcqZnaI+l0Du8N
+	5kvdbXRA9PI3NWOatSZY0PhdnN7o/rDU3oW9yIBQW17zrckJEXeDxQrAxjEp3hXuo4FB9rGCw8QzF
+	zU/1vo7D/ptGYBkxDVrsm2WpcABXnFnNRWvuVLdX7MX0kQjCc4Mu6erV9WxS+dfzQtUiW0nsicoKu
+	O8mR6mXA0fNylYEv0AxpDBr5r052HmnjAf0W459FDJrQKWO+Kr8j0obFHFdEe+rZDXG79BnzwLr37
+	X4NDF+839b4DNsfq2uuY0ocX5WPIrq4xiiKJllRxzeRBLHVEv4IRHN0lUy+OSHhI5Uk21IC8IvvMf
+	oiopzAjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toyoC-0000000HIHH-3rwE;
-	Mon, 03 Mar 2025 05:57:44 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toyd8-0000000HHIz-1uZP
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 05:46:19 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-223a0da61easo124395ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Mar 2025 21:46:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740980777; x=1741585577; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=LWZczVLGJa1y4XReahdUAMxIiZ2gtlx/faB4w9x6vag=;
-        b=HsYjIPiQcNpwNRUqC2xObMtW3vP0mBlcRGb1N2RqsCj3CLziRsJ+Zcz8CAampOoLFX
-         9ljX9xYjh7vWfajhzk44QJXqWvQoWhApg3MgPKcmkN3Em03Zv5SrXetIkt4NuA4M0R7U
-         1np7B81k9mO4REnnI8+odGKnPR7Cul+ugbiNl085Kx5fnT+2SsT9XZbCMVmqWX3Q93gH
-         ajUiHak6bWUfijYmd5Vg/z8Q8foRgtgvszQKqiZ+O7Uqpw8LWnS0EHEIkdMRBeiXUZKU
-         tszRHt2tL/5/FxvXhH9mEsoHqeDbLnD0Jgt6TMawVnJelydlnCvG7SN/Wo4GSJKZBWjC
-         e+Lw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740980777; x=1741585577;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LWZczVLGJa1y4XReahdUAMxIiZ2gtlx/faB4w9x6vag=;
-        b=tFC8UHZY1zFp9ADzRGN7YJPF0kuKuAG+70BMVoLcOzcWXFDaBUZleRiQra/qQJqo3t
-         kJaKDjO3xWYZwORGk5DAvjhlVGnrUmg4KNyj+hoGRIywjsE9/0feeMbTZ3xgJaU/WlS1
-         kMVwia8y0Vx/IgOnhAJn0bXFiwccbYYvoYroQikhjXbYMnEUlXXfXbx2RlMLAQz1mEEB
-         igV7kar+rZxp3wyVKbI0uHCJd27ybho+2SRw+i+D6OFbEkJnWjfZGEfxnCc6o+AdN5x+
-         XfAYhAH/mUNhluEbTtIpp5KdRQbW0hFhMcdyokL3KILFJbGOEVUYpl0Z2TZdwZ7MC3JC
-         /D9A==
-X-Forwarded-Encrypted: i=1; AJvYcCVg0ChWFRXmBtdF7Sq5gKyk1HtQwUypreUL4x5+hKWbst2oJl5k4GaXRRnaS6Gu4JUWKEFJ1PbgPqvviQsXo9TG@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPTI8lV84teKtyWOlg4GieAbs06oMh3zbbaWdOT89DmHdcVnJQ
-	47AUFgeBZN7Hh18Dx/ba31LwWkOaI3iKDYwQMkMJ1NYMvJI71ljO4dfTlzbDSA==
-X-Gm-Gg: ASbGncuImCu1UYU4fuBRILWyDNIG8hcs1B0xG+qA0EvlRHAYgzjLCw/lQCtpfRaWQ+w
-	CpdrhU3OAs0i8WM+hMjTPGEAO6OJViWxOncoAu5QUAq2dNiCgUnZvSdTz/f+nJWYVmzuNzpp8jJ
-	BCi/X48uqKIK48jd53JIjyLScNjrt7JDINYCqAiVo4iIFnDM02nQSzEvxAMAqhU6Kx184A4i9tk
-	1SEWnztzBQj1U4EbkHag4rYD80hqFwhxD6lbFC99GpOmUEueYoALPjd1bKG2qip5qw50A4wE/vH
-	GIv50LmSVXuAxZIr2Rrvc0oiLEHiYZqJAFR31CcAFJCU3tyXWM0rwvqMc8ymrVsEl4HY+u2j3nA
-	ZrOBKkSQ=
-X-Google-Smtp-Source: AGHT+IGR9sIbs4GODDlDVazb4ZHmmL3k8nYNXhdZXtHYDL05wSLBQV8yxY07hQVWXU5lra6HhADNPw==
-X-Received: by 2002:a17:902:c947:b0:21f:56e5:daee with SMTP id d9443c01a7336-223826bd593mr2964695ad.6.1740980776552;
-        Sun, 02 Mar 2025 21:46:16 -0800 (PST)
-Received: from google.com (147.141.16.34.bc.googleusercontent.com. [34.16.141.147])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-734a0024c04sm8210373b3a.105.2025.03.02.21.46.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 02 Mar 2025 21:46:16 -0800 (PST)
-Date: Mon, 3 Mar 2025 05:46:10 +0000
-From: Peilin Ye <yepeilin@google.com>
-To: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Alexei Starovoitov <ast@kernel.org>
-Cc: bpf@ietf.org, Alexei Starovoitov <ast@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	David Vernet <void@manifault.com>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
-	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Quentin Monnet <qmo@kernel.org>,
-	Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Yingchi Long <longyingchi24s@ict.ac.cn>,
-	Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>,
-	Neel Natu <neelnatu@google.com>,
-	Benjamin Segall <bsegall@google.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH bpf-next v4 08/10] bpf, x86: Support load-acquire and
- store-release instructions
-Message-ID: <Z8VCIrnJ10uBj0yN@google.com>
-References: <cover.1740978603.git.yepeilin@google.com>
- <ea2754510513dce17a1d8f4fcab07d9d769e7b08.1740978603.git.yepeilin@google.com>
+	id 1toz9f-0000000HJoG-32J3;
+	Mon, 03 Mar 2025 06:19:55 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1toz87-0000000HJhP-0MGZ;
+	Mon, 03 Mar 2025 06:18:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=c7wgwg7trkS2FEbermFL5uZykFzbYFprUh1vZsPcxAQ=; b=o
+	4i/l6LAsls14OIcmvtqwwOM4Ex0xrFvPBFf5MGMz0Eq9wk3/SUITXGV1+IEVLCjN
+	NzZgqff57nxwW40y0t2X8iVPvNU1auHQzK30CfapTI2VEmITd7NRc79C32nUiscC
+	/WSexSSVSihNMlz3yKp9cH/z/L/seSW/G+69ExL+Es=
+Received: from andyshrk$163.com ( [58.22.7.114] ) by
+ ajax-webmail-wmsvr-40-100 (Coremail) ; Mon, 3 Mar 2025 14:17:50 +0800 (CST)
+X-Originating-IP: [58.22.7.114]
+Date: Mon, 3 Mar 2025 14:17:50 +0800 (CST)
+From: "Andy Yan" <andyshrk@163.com>
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
+Cc: hjc@rock-chips.com, krzk+dt@kernel.org, devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, derek.foreman@collabora.com,
+	detlev.casanova@collabora.com, daniel@fooishbar.org, robh@kernel.org,
+	sebastian.reichel@collabora.com,
+	"Andy Yan" <andy.yan@rock-chips.com>,
+	"Michael Riesch" <michael.riesch@wolfvision.net>
+Subject: Re:Re: [PATCH v15 07/13] drm/rockchip: vop2: Register the primary
+ plane and overlay plane separately
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
+ Copyright (c) 2002-2025 www.mailtech.cn 163com
+In-Reply-To: <2759797.BddDVKsqQX@diego>
+References: <20250218112744.34433-1-andyshrk@163.com>
+ <20250218112744.34433-8-andyshrk@163.com> <2759797.BddDVKsqQX@diego>
+X-NTES-SC: AL_Qu2fAvWTvU4s5iaaZOkfmkcVgOw9UcO5v/Qk3oZXOJF8jCrp+T4yXHBTF1zd3fCDBzi2nQiHVRZJ0dhgcY1zcacMWFawtM+gPlh8AAO8w94NRQ==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ea2754510513dce17a1d8f4fcab07d9d769e7b08.1740978603.git.yepeilin@google.com>
+Message-ID: <1c3ed06d.5e89.1955aa75521.Coremail.andyshrk@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: ZCgvCgDHjF6OScVn0j4aAA--.17223W
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqBwFXmfFRICUNwADsp
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_214618_499352_80C4448C 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20250302_221819_460732_1FD3F904 
+X-CRM114-Status: UNSURE (   9.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,26 +81,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexei,
-
-On Mon, Mar 03, 2025 at 05:38:07AM +0000, Peilin Ye wrote:
-> Recently we introduced BPF load-acquire (BPF_LOAD_ACQ) and store-release
-> (BPF_STORE_REL) instructions.  For x86-64, simply implement them as
-> regular BPF_LDX/BPF_STX loads and stores.  The verifier always rejects
-> misaligned load-acquires/store-releases (even if BPF_F_ANY_ALIGNMENT is
-> set), so emitted MOV* instructions are guaranteed to be atomic.
-> 
-> Arena accesses are supported.  8- and 16-bit load-acquires are
-> zero-extending (i.e., MOVZBQ, MOVZWQ).
-> 
-> Rename emit_atomic{,_index}() to emit_atomic_rmw{,_index}() to make it
-> clear that they only handle read-modify-write atomics, and extend their
-> @atomic_op parameter from u8 to u32, since we are starting to use more
-> than the lowest 8 bits of the 'imm' field.
-
-For x86-64, v4 PATCH 08/10 implements ld_acq/st_rel as regular LDX/STX
-(aligned) loads/stores.  Please take another look.  Thanks!
-
-Peilin Ye
-
+CkhpIEhlaWtvLAoKQXQgMjAyNS0wMy0wMyAwMjo1Nzo1MCwgIkhlaWtvIFN0w7xibmVyIiA8aGVp
+a29Ac250ZWNoLmRlPiB3cm90ZToKPkhpIEFuZHksCj4KPkFtIERpZW5zdGFnLCAxOC4gRmVicnVh
+ciAyMDI1LCAxMjoyNzozNCBNRVogc2NocmllYiBBbmR5IFlhbjoKPj4gRnJvbTogQW5keSBZYW4g
+PGFuZHkueWFuQHJvY2stY2hpcHMuY29tPgo+PiAKPj4gSW4gdGhlIHVwY29taW5nIFZPUCBvZiBy
+azM1NzYsIGEgV2luZG93IGNhbm5vdCBhdHRhY2ggdG8gYWxsIFZpZGVvIFBvcnRzLAo+PiBzbyBt
+YWtlIHN1cmUgYWxsIFZQIGZpbmQgaXQncyBzdWl0YWJsZSBwcmltYXJ5IHBsYW5lLCB0aGVuIHJl
+Z2lzdGVyIHRoZQo+PiByZW1haW4gd2luZG93cyBhcyBvdmVybGF5IHBsYW5lIHdpbGwgbWFrZSBj
+b2RlIGVhc2llci4KPj4gCj4+IFNpZ25lZC1vZmYtYnk6IEFuZHkgWWFuIDxhbmR5LnlhbkByb2Nr
+LWNoaXBzLmNvbT4KPj4gVGVzdGVkLWJ5OiBNaWNoYWVsIFJpZXNjaCA8bWljaGFlbC5yaWVzY2hA
+d29sZnZpc2lvbi5uZXQ+ICMgb24gUkszNTY4Cj4+IFRlc3RlZC1ieTogRGV0bGV2IENhc2Fub3Zh
+IDxkZXRsZXYuY2FzYW5vdmFAY29sbGFib3JhLmNvbT4KPj4gCj4+IC0tLQo+Cj5wYXRjaGVzIDct
+OSBsb29rIGdvb2QgdG8gZ28sIGJ1dCAuLi4KPgo+dGhpcyBuZWVkcyBhIHJlYmFzZSB0byBhZGFw
+dCB0bwo+ImRybS9yb2NrY2hpcDogdm9wMjogQ29uc2lzdGVudGx5IHVzZSBkZXZfZXJyX3Byb2Jl
+KCkiIFswXQo+Cj5bMF0gaHR0cHM6Ly9naXRsYWIuZnJlZWRlc2t0b3Aub3JnL2RybS9taXNjL2tl
+cm5lbC8tL2NvbW1pdC9iMDZkMWVmMzM1NTU3MTM4M2NkYjQ2M2NmMDE5NWI3YTAyZWZkZmJmCgoK
+VGhhbmsgeW91LgpJIHNlbnQgVjE2IHdpdGggdGhlIHJlbWFpbmluZyBwYXRjaGVzIHJlYmFzZWQg
+b24gZHJtLW1pc2MtbmV4dCwgYW5kIGZpeCB0aGUgc3R5bGUgaXNzdWVzLgoKCj4KPgo+PiAtCQlp
+ZiAod2luLT50eXBlID09IERSTV9QTEFORV9UWVBFX1BSSU1BUlkpIHsKPj4gLQkJCXZwID0gZmlu
+ZF92cF93aXRob3V0X3ByaW1hcnkodm9wMik7Cj4+IC0JCQlpZiAodnApIHsKPj4gKwkJCWlmICh2
+b3AyX2lzX21pcnJvcl93aW4od2luKSkKPj4gKwkJCQljb250aW51ZTsKPj4gKwo+PiArCQkJaWYg
+KHdpbi0+dHlwZSA9PSBEUk1fUExBTkVfVFlQRV9QUklNQVJZKSB7Cj4+ICAJCQkJcG9zc2libGVf
+Y3J0Y3MgPSBCSVQobnZwKTsKPj4gIAkJCQl2cC0+cHJpbWFyeV9wbGFuZSA9IHdpbjsKPj4gKwkJ
+CQlyZXQgPSB2b3AyX3BsYW5lX2luaXQodm9wMiwgd2luLCBwb3NzaWJsZV9jcnRjcyk7Cj4+ICsJ
+CQkJaWYgKHJldCkgewo+PiArCQkJCQlkcm1fZXJyKHZvcDItPmRybSwgImZhaWxlZCB0byBpbml0
+IHByaW1hcnkgcGxhbmUgJXM6ICVkXG4iLAo+PiArCQkJCQkJd2luLT5kYXRhLT5uYW1lLCByZXQp
+Owo+Cj5zaG91bGQgYWxzbyB1c2UgZGV2X2Vycl9wcm9iZQo+Cj4KPkhlaWtvCj4KPgo=
 
