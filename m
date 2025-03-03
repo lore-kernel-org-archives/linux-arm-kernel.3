@@ -4,57 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C98F4C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 05:04:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5427FC282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 05:38:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/+toPz56+fVZjB54QDvqpZyfM3BdQ31cqK0kS8b/3Pw=; b=WzSe/ksDokNhl73NeDrS0itekO
-	tqNaiLDThLZcpgQMPiFwMaDaL9v45I4MtLHklg7sO7orfLUBrAaFOgpYSHPUkPTRXrIDkVex+2fIa
-	j4ciSHFbls9hOvenT+eXF1Z00Y+5/iKL2yqwvRQdgOuYn+dkIipwRXq2DXMk2+9uYEuL8iJgB81bj
-	Kfy72+TDl29x5xg67UGlUdK2jIwMBZ//X+swNZ0zA3iA6d9+F4iP/70//vW0bCFqmdRuuuG7F0qaN
-	+4fj+ouPe7zsRI2re6OyByshpF2sasrdU/qRAmMuC/gimfG77eTkZ7uuRjx4qIigRbPrf4eYz7ay3
-	skAMhA8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9keALfR3MoLw+PD+al73HjvscKcrNY7AfZzPQJDJd+E=; b=OZAf6V/yxVZ5UhlPAIXP4jYDEU
+	KnHG4nPvvuaIB6BpAwQMTsL7EAgxPXdt70aHb3RNGAV2c6CX7XicuzXLtwyxzCtWRMxpFifk1p52e
+	+EOtDd9qZs8u4DEqi4azM2cf5CJGwbwrNtRiD9pYL4Q2N6phWf5GNdYBKL2w4684V4cHn74YILBug
+	5Ga+oz4Ita8D4i8E0zOtVfCYuxazOrFj5F5j0/ccfNOFEkPvXOeS10grbjVpypvS61BqK/Md4ubNo
+	RSKBbmyp+aTbJfiz38WOU2Etomh/LCrFo/uW7YlrTJA97vvgDOdZNizZxx+ETnldBb2WtWowaQB/h
+	VmRLhBUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toxyk-0000000HDLE-02Tf;
-	Mon, 03 Mar 2025 05:04:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toxwl-0000000HD8G-27mJ
+	id 1toyVe-0000000HGWf-2a7U;
+	Mon, 03 Mar 2025 05:38:34 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1toyU4-0000000HGFh-20DE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 05:02:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 96EA5113E;
-	Sun,  2 Mar 2025 21:02:44 -0800 (PST)
-Received: from [10.162.40.21] (a077893.blr.arm.com [10.162.40.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 745A53F66E;
-	Sun,  2 Mar 2025 21:02:26 -0800 (PST)
-Message-ID: <a9600c92-bef0-4dd1-95d4-c696d686da18@arm.com>
-Date: Mon, 3 Mar 2025 10:32:23 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2 0/8] arm64/mm: Drop PXD_TABLE_BIT
-To: Ryan Roberts <ryan.roberts@arm.com>, arm-kernel@lists.infradead.org
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- James Morse <james.morse@arm.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250221044227.1145393-1-anshuman.khandual@arm.com>
- <aa71c6ed-8ff2-4b52-b8f7-49147c7769ba@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <aa71c6ed-8ff2-4b52-b8f7-49147c7769ba@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Mon, 03 Mar 2025 05:36:57 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2fee7f85d03so4073598a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Mar 2025 21:36:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1740980215; x=1741585015; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=9keALfR3MoLw+PD+al73HjvscKcrNY7AfZzPQJDJd+E=;
+        b=cRfqZE37eStbyPQ34auTkh6UbV5n37MVwEVnuVkn5q2voeHutavj91RNbKL27zse2t
+         icXGnRP0Zz8gctlZPoZlW/HJHx/EnxxJFsMfdNKHWVE10py0kNtaOkoXYcACuPJPGjef
+         OAylPo4osXZ0bJjp0gnqO6UennA7QczodoXmORgBxjRqqhmYNRg6bZQm6p5Dy0xbzrPX
+         VyE3vZfo+SMlEo3y5wiscCJSOiyATrXKpqPG+CfStkw+rb6+bYrXNA0K2OK38Ow7x+sP
+         YL2eaC2kxhv/kll2zw2hA2cxutmTmZL710WqtffLcwZ63X0FYEA0F+/8udO9pC666dN4
+         wLYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740980215; x=1741585015;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=9keALfR3MoLw+PD+al73HjvscKcrNY7AfZzPQJDJd+E=;
+        b=PgOfxPL9Ai9l3HPQdYvRk3lFhs99ELECPwFP8AwPL6UQpHut+lB4qk7iRaEJEyevhs
+         jkB1fjEF6TernBmq2zUtbpVGD9W0BNJYdW2FQEOgmB8OKV+kqWwwq97GgpRRLmYqMIYK
+         INMzV7h3jOwMQ2LIT3FE8QrFQsELwBKNW3Xjqz+wm0DAkDQ+C4Pjn05Nl+itIJtHBLSv
+         iITlydOZTRwL3F2x0JFLQGj7ghonxJquQS1bZbdZcKbDzlgzf0kD7NGOoUzR6cY1neF9
+         /yWE0mh/8UBef2pxV9dqmRBmUitN6nfUGeWLZfrEYYNedm1fh+1aXQAlkfOV/VZDV0B+
+         h+6Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUtkxcJVnwC4gWJTjH9dEIIwspW22MGoHimYW/MlQga478EolCwK3upksF+JwAurHGGRXgiX3sDrEFmQ0yWdjLd@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLonHyyYD99+UTnWKcE8nd9bqHyJglBC18hjp2ogVvGqTz8HMu
+	k7e8Ne7c7hKYpqGovcbob13AElEh1S++oA87i/vsCP37JCa09ps72cv74mz55dWntY59qDRXh4c
+	Lq3GPeroa7g==
+X-Google-Smtp-Source: AGHT+IFZCe6yoXZlFRFDi90+BsBsfmlxusZPCR0Zo+o0Z5eNaDi5okT5qbRGGVjCh8760/l6FnXw9H9iaMirUA==
+X-Received: from pjbsu3.prod.google.com ([2002:a17:90b:5343:b0:2fa:284f:adb2])
+ (user=yepeilin job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:90b:3509:b0:2f9:9ddd:68b9 with SMTP id 98e67ed59e1d1-2febabd9c6bmr16920865a91.26.1740980214966;
+ Sun, 02 Mar 2025 21:36:54 -0800 (PST)
+Date: Mon,  3 Mar 2025 05:36:27 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.48.1.711.g2feabab25a-goog
+Message-ID: <cover.1740978603.git.yepeilin@google.com>
+Subject: [PATCH bpf-next v4 00/10] Introduce load-acquire and store-release
+ BPF instructions
+From: Peilin Ye <yepeilin@google.com>
+To: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Peilin Ye <yepeilin@google.com>, bpf@ietf.org, Alexei Starovoitov <ast@kernel.org>, 
+	Xu Kuohai <xukuohai@huaweicloud.com>, Eduard Zingerman <eddyz87@gmail.com>, 
+	David Vernet <void@manifault.com>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
+	Jiri Olsa <jolsa@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	"Paul E. McKenney" <paulmck@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
+	Ilya Leoshkevich <iii@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Quentin Monnet <qmo@kernel.org>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
+	Ihor Solodrai <ihor.solodrai@linux.dev>, Yingchi Long <longyingchi24s@ict.ac.cn>, 
+	Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>, Neel Natu <neelnatu@google.com>, 
+	Benjamin Segall <bsegall@google.com>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_210231_652970_0C389F51 
-X-CRM114-Status: GOOD (  24.17  )
+X-CRM114-CacheID: sfid-20250302_213656_539423_71697AF2 
+X-CRM114-Status: GOOD (  14.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,99 +100,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi all!
 
+This patchset adds kernel support for BPF load-acquire and store-release
+instructions (for background, please see [1]), including core/verifier,
+arm64/x86-64 JIT compiler and Documentation/ changes, as well as
+selftests.  riscv64 is also planned to be supported.  The corresponding
+LLVM changes can be found at:
 
-On 2/28/25 21:02, Ryan Roberts wrote:
-> On 21/02/2025 04:42, Anshuman Khandual wrote:
->> Remove the PXX_TABLE_BIT definitions and instead rely on PXX_TYPE_MASK,
->> PXX_TYPE_SECT and PXX_TYPE_TABLE. The latter versions are more abstract
->> and also include the PTE_VALID bit.
->>
->> This abstraction is valuable for the impending D128 page table support,
->> which doesn't have a single page table bit to determine table vs block.
->> Instead it has the skip level (SKL) field, where it will consider 0 to
->> mean table and any other value to mean a block entry. So PXX_TABLE_BIT
->> therefore doesn't fit into the D128 model well, but the type fields do.
-> 
-> All the patches look logically correct to me and I agree with the intention of
-> removing PXX_TABLE_BIT. But personally I'd prefer to see a single patch that
-> just does everything that's required to remove PXX_TABLE_BIT. And then a second
-> patch for the pud_bad() fix/improvement (currently patch 6) which is orthogonal
-> to the removal of PXX_TABLE_BIT.
-> 
-> That would make it much easier to review IMHO, and would also allow for writing
-> a single commit log which provides the justification for the change. I find the
-> current set of 7 commit logs to not be hugely helpful.
+  https://github.com/llvm/llvm-project/pull/108636
 
-Dropping PXX_TABLE_BIT from individual functional components which stand on their
-own progressively leads to its complete removal from the tree. Even though goal
-is PXX_TABLE_BIT mask's complete removal, each patch here could be justified on
-its own improving consistent reasoning around various section mapping creation
-and identification while keeping the functionality unchanged and also improving
-code readability as well.
+Please refer to the LLVM PR and individual kernel patches for details.
+Thanks!
 
-> 
-> But I wrote the original patches and wrote them as I'm suggesting, so I would
-> say that :)
+v3: https://lore.kernel.org/bpf/cover.1740009184.git.yepeilin@google.com/
+v3..v4 notable changes:
 
-I can understand :) Although it also follows and expands on the previous attempt
-in removing this mask that formed a patch series instead.
+  o (Alexei) add x86-64 JIT support (including arena)
+  o add Acked-by: tags from Xu
 
-https://lore.kernel.org/all/20241005123824.1366397-1-anshuman.khandual@arm.com/
+v2: https://lore.kernel.org/bpf/cover.1738888641.git.yepeilin@google.com/
+v2..v3 notable changes:
 
-TBH this is not a big deal. I can merge all but last one into a single patch as
-you have suggested if that's a general consensus. Although I would prefer the
-current logically progressive series based approach but that's just me.
+  o (Alexei) change encoding to BPF_LOAD_ACQ=0x100, BPF_STORE_REL=0x110
+  o add Acked-by: tags from Ilya and Eduard
+  o make new selftests depend on:
+    * __clang_major__ >= 18, and
+    * ENABLE_ATOMICS_TESTS is defined (currently this means -mcpu=v3 or
+      v4), and
+    * JIT supports load_acq/store_rel (currenty only arm64)
+  o work around llvm-17 CI job failure by conditionally define
+    __arena_global variables as 64-bit if __clang_major__ < 18, to make
+    sure .addr_space.1 has no holes
+  o add Google copyright notice in new files
 
-> 
-> I'm guessing I shouldn't provide a Reviewed-By here, given I wrote the code
-> originally...
-> 
-> Thanks,
-> Ryan
-> 
-> 
->>
->> This series applies on v6.14-rc3.
->>
->> Changes in V2:
->>
->> - Changed pmd_mkhuge() and pud_mkhuge() implementation
->> - Changed pud_bad() implementation with an additional patch
->>
->> Changes in V1:
->>
->> https://lore.kernel.org/all/20241005123824.1366397-1-anshuman.khandual@arm.com/
->>
->> Cc: Marc Zyngier <maz@kernel.org>
->> Cc: Oliver Upton <oliver.upton@linux.dev>
->> Cc: James Morse <james.morse@arm.com>
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: Will Deacon <will@kernel.org>
->> Cc: Ard Biesheuvel <ardb@kernel.org>
->> Cc: Ryan Roberts <ryan.roberts@arm.com>
->> Cc: Mark Rutland <mark.rutland@arm.com>
->> Cc: kvmarm@lists.linux.dev
->> Cc: linux-arm-kernel@lists.infradead.org
->> Cc: linux-kernel@vger.kernel.org
->>
->> Anshuman Khandual (6):
->>   KVM: arm64: ptdump: Test PMD_TYPE_MASK for block mapping
->>   arm64/ptdump: Test PMD_TYPE_MASK for block mapping
->>   arm64/mm: Clear PXX_TYPE_MASK in mk_[pmd|pud]_sect_prot()
->>   arm64/mm: Clear PXX_TYPE_MASK and set PXD_TYPE_SECT in [pmd|pud]_mkhuge()
->>   arm64/mm: Check PXD_TYPE_TABLE in [p4d|pgd]_bad()
->>   arm64/mm: Drop PXD_TABLE_BIT
->>
->> Ryan Roberts (2):
->>   arm64/mm: Check PUD_TYPE_TABLE in pud_bad()
->>   arm64/mm: Check pmd_table() in pmd_trans_huge()
->>
->>  arch/arm64/include/asm/pgtable-hwdef.h |  5 --
->>  arch/arm64/include/asm/pgtable.h       | 65 ++++++++++++++++++--------
->>  arch/arm64/kvm/ptdump.c                |  4 +-
->>  arch/arm64/mm/ptdump.c                 |  4 +-
->>  4 files changed, 50 insertions(+), 28 deletions(-)
->>
-> 
+v1: https://lore.kernel.org/all/cover.1737763916.git.yepeilin@google.com/
+v1..v2 notable changes:
+
+  o (Eduard) for x86 and s390, make
+             bpf_jit_supports_insn(..., /*in_arena=*/true) return false
+	     for load_acq/store_rel
+  o add Eduard's Acked-by: tag
+  o (Eduard) extract LDX and non-ATOMIC STX handling into helpers, see
+             PATCH v2 3/9
+  o allow unpriv programs to store-release pointers to stack
+  o (Alexei) make it clearer in the interpreter code (PATCH v2 4/9) that
+             only W and DW are supported for atomic RMW
+  o test misaligned load_acq/store_rel
+  o (Eduard) other selftests/ changes:
+    * test load_acq/store_rel with !atomic_ptr_type_ok() pointers:
+      - PTR_TO_CTX, for is_ctx_reg()
+      - PTR_TO_PACKET, for is_pkt_reg()
+      - PTR_TO_FLOW_KEYS, for is_flow_key_reg()
+      - PTR_TO_SOCKET, for is_sk_reg()
+    * drop atomics/ tests
+    * delete unnecessary 'pid' checks from arena_atomics/ tests
+    * avoid depending on __BPF_FEATURE_LOAD_ACQ_STORE_REL, use
+      __imm_insn() and inline asm macros instead
+
+RFC v1: https://lore.kernel.org/all/cover.1734742802.git.yepeilin@google.com
+RFC v1..v1 notable changes:
+
+  o 1-2/8: minor verifier.c refactoring patches
+  o   3/8: core/verifier changes
+         * (Eduard) handle load-acquire properly in backtrack_insn()
+         * (Eduard) avoid skipping checks (e.g.,
+                    bpf_jit_supports_insn()) for load-acquires
+         * track the value stored by store-releases, just like how
+           non-atomic STX instructions are handled
+         * (Eduard) add missing link in commit message
+         * (Eduard) always print 'r' for disasm.c changes
+  o   4/8: arm64/insn: avoid treating load_acq/store_rel as
+           load_ex/store_ex
+  o   5/8: arm64/insn: add load_acq/store_rel
+         * (Xu) include Should-Be-One (SBO) bits in "mask" and "value",
+                to avoid setting fixed bits during runtime (JIT-compile
+                time)
+  o   6/8: arm64 JIT compiler changes
+         * (Xu) use emit_a64_add_i() for "pointer + offset" to optimize
+                code emission
+  o   7/8: selftests
+         * (Eduard) avoid adding new tests to the 'test_verifier' runner
+         * add more tests, e.g., checking mark_precise logic
+  o   8/8: instruction-set.rst changes
+
+[1] https://lore.kernel.org/all/20240729183246.4110549-1-yepeilin@google.com/
+
+Thanks,
+Peilin Ye (10):
+  bpf/verifier: Factor out atomic_ptr_type_ok()
+  bpf/verifier: Factor out check_atomic_rmw()
+  bpf/verifier: Factor out check_load_mem() and check_store_reg()
+  bpf: Introduce load-acquire and store-release instructions
+  arm64: insn: Add BIT(23) to {load,store}_ex's mask
+  arm64: insn: Add load-acquire and store-release instructions
+  bpf, arm64: Support load-acquire and store-release instructions
+  bpf, x86: Support load-acquire and store-release instructions
+  selftests/bpf: Add selftests for load-acquire and store-release
+    instructions
+  bpf, docs: Update instruction-set.rst for load-acquire and
+    store-release instructions
+
+ .../bpf/standardization/instruction-set.rst   |  78 ++++--
+ arch/arm64/include/asm/insn.h                 |  12 +-
+ arch/arm64/lib/insn.c                         |  29 ++
+ arch/arm64/net/bpf_jit.h                      |  20 ++
+ arch/arm64/net/bpf_jit_comp.c                 |  86 +++++-
+ arch/s390/net/bpf_jit_comp.c                  |  14 +-
+ arch/x86/net/bpf_jit_comp.c                   |  95 ++++++-
+ include/linux/bpf.h                           |  15 +
+ include/linux/filter.h                        |   2 +
+ include/uapi/linux/bpf.h                      |   3 +
+ kernel/bpf/core.c                             |  63 ++++-
+ kernel/bpf/disasm.c                           |  12 +
+ kernel/bpf/verifier.c                         | 234 +++++++++++-----
+ tools/include/uapi/linux/bpf.h                |   3 +
+ .../selftests/bpf/prog_tests/arena_atomics.c  |  66 ++++-
+ .../selftests/bpf/prog_tests/verifier.c       |   4 +
+ .../selftests/bpf/progs/arena_atomics.c       | 121 +++++++-
+ .../bpf/progs/verifier_load_acquire.c         | 197 +++++++++++++
+ .../selftests/bpf/progs/verifier_precision.c  |  49 ++++
+ .../bpf/progs/verifier_store_release.c        | 264 ++++++++++++++++++
+ 20 files changed, 1246 insertions(+), 121 deletions(-)
+ create mode 100644 tools/testing/selftests/bpf/progs/verifier_load_acquire.c
+ create mode 100644 tools/testing/selftests/bpf/progs/verifier_store_release.c
+
+-- 
+2.48.1.711.g2feabab25a-goog
+
 
