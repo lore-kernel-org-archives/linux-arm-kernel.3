@@ -4,27 +4,27 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E5E4C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 11:55:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BC29C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 11:56:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XReqk4Aen4MK7eX+VauyjHHk/TSJRy2pW2Es7/MoImA=; b=LkT6nMbdLHR07cN1Ff1DGmDOC3
-	z888OWOnLsgbktQ502ywlxIuD4qKgFeaAvhB4cI3Dk5OEz4l87UAgwFPgW4vWukqJrUEzcSzKnE4D
-	XHJzu410aLnMRm3x7i2KdG6HhjsBT4HjlCkL7/No/w+1DtPH2wZo9nmH/dv+yaX6RM+AuM8FbIrWM
-	++gyibf+dQGyBhltSIunZ8+1Q2VJOaH7JS1TpwoJFpN8ntPBSvJtvyw3ncZJn+T/9b7QoFUbY6bS4
-	QmpH3+X6lObnsnbsZyQBw+VKbaxZmGmerPNDcAI/EUpfYBwhHCC4MLqfhHBYOvVnEfhZfgR96Gimt
-	SN2MqD4w==;
+	bh=rgB3LhMqOZ+YBkO0ZZD/ZAGt3jgrVFlcoSgeSBFrG1A=; b=eLxbpkzw9BvMuH5zQbhH2C79E5
+	e0GFjAx6m3iRP/wSx4sp6XFe9t7SEAlnEWaF9C7TD8L89h/xvyeCwF4DXP4NKedkxq+zTYRghLiQ3
+	3XLDWfrauHUsHzEFbwLuNPmGts8oShrY9XTRinQOnKBPOR9XWnQei8oB5sKr6trC8++TD4i6QLgvD
+	skkZuudIwBz7nMk2d18E6CdiBSoLEKkhOuBoog19Sv6UHGZwI+gn5hdVJ4geCJLSCDURzGDZWHg+K
+	6RuR2H4pHrB6b0Ng8OvnUEwEmC7i3kt1Rcvb51Z4vGI7+Bzj9ZbH9nXIEkUdXoI/l9PaUtt4ZhBl5
+	gbJcO8CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp4Ns-00000000eLj-2XNC;
-	Mon, 03 Mar 2025 11:54:56 +0000
+	id 1tp4PP-00000000edB-1Olb;
+	Mon, 03 Mar 2025 11:56:31 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp3hd-00000000TrW-2Roo
+	id 1tp3he-00000000Try-0S7e
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 03 Mar 2025 11:11:19 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
@@ -34,28 +34,27 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=XReqk4Aen4MK7eX+VauyjHHk/TSJRy2pW2Es7/MoImA=;
-	b=LmV6BZNbIbXd82Wfm/N0Wga1F48N9yW7wFH/MNP3apM4AwlfaJ7UUHoH2G4jLcqgfirUrZ
-	bMP3czVab7xcpYSGXAX1FZ4kPenS3TNCt1QPC1+/65AjmrupUTH2OkrYPIkTvMJ4RM2SSB
-	aG0aNqkFKEeAthWGMNFfp6c7yY+Rc5JhcNDkJHE/eZ4CbsNp5XLEkoTvG7IdD8+h+VJDbc
-	BQEJ6RY3Sgdsk8Tl1u242U/4fhoyOVyyrQu0swEnzDkSNQ6xj9/6AYQdkbStOA9gup6WlA
-	PVQh/RK/KrAdDcgCtKpxNlo2yFx2L7e37BmhphP0xIh5qB8jobwZWf/dOkGROQ==
+	bh=rgB3LhMqOZ+YBkO0ZZD/ZAGt3jgrVFlcoSgeSBFrG1A=;
+	b=UbCusKegiY4htXtXb6cmiKpgLftrm8OW6HF0kY4SBA0xVA6X8uBoNc4HcYBYgf3qB7EKjy
+	0vnRhbCV99EGmEO9CIOQU5AdcQcMfSuVz/5cfuOEsSLtkpmIdb9tmSJn0nh1ZOEYvHWBXd
+	x5ohKq3YewG7wcBF2kCJNgLCwTZ1D8/+mkjUHVAlRsJkask5JVQkRUpUXvBwP5yhscXqaz
+	XCh3Z8GjDsSWj8I/uJ8qzqf1Kvs1B2NRxSEdIpg0gcMkgu4ew/f79wpGOjeFlZX68JF+W3
+	yzEpHQhM86wPsh+PyaBRXS68MAr6198hI5WbIhM1S9V/TuYtYWMg1LfvvT3P/A==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020e; t=1741000276;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=XReqk4Aen4MK7eX+VauyjHHk/TSJRy2pW2Es7/MoImA=;
-	b=cidttnyvEBhkcKoxcdejbdB8UW6sNnz6bQlRh0g3VIer+5ywzsJPGAUmJBCSkVPa5eIktN
-	EbTm/ptslRomsQAQ==
-Date: Mon, 03 Mar 2025 12:11:16 +0100
-Subject: [PATCH 14/19] time/namespace: Prepare introduction of struct
- vdso_clock
+	bh=rgB3LhMqOZ+YBkO0ZZD/ZAGt3jgrVFlcoSgeSBFrG1A=;
+	b=1fOvo9r/qH+GjFBoFmV4Mq1GTv7uo31luHW62OlEVNNKdplS0DAqHgugpnuoBkmS+FSCDn
+	OTxv7inUt8L/yyCQ==
+Date: Mon, 03 Mar 2025 12:11:17 +0100
+Subject: [PATCH 15/19] x86/vdso: Prepare introduction of struct vdso_clock
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250303-vdso-clock-v1-14-c1b5c69a166f@linutronix.de>
+Message-Id: <20250303-vdso-clock-v1-15-c1b5c69a166f@linutronix.de>
 References: <20250303-vdso-clock-v1-0-c1b5c69a166f@linutronix.de>
 In-Reply-To: <20250303-vdso-clock-v1-0-c1b5c69a166f@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -77,16 +76,16 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
  linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1741000267; l=3143;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1741000267; l=3053;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=rvrB9ifBvRXgxwLjfAy8fiQwFAt4ofAQmLlLCatQ/ko=;
- b=00VGODDgq5LMqN9LKjPqKVX6bcYBv+gb9Z2V8XxONuiiNC44yja15un2b1lmnwgWBadX1tPE6
- zsfhL+2AmkJCVPhjZEGt7SQCB6rqlcljig5snI8lxOHkljl8bO6qj8y
+ bh=xyNISseLOTNZW4PPjUER0EQo8UUOOyYEKCLROc72ytc=;
+ b=0qWgzjrxn8OGxXIBksBvp9I3CDmpmtrU83qA8jyzdK/S89J9zVZl5lnjSVCXoSYPOtqJjB5z6
+ Eds45EkmeVCCIxtaR0ZY0XAX3AF9MFiqoAGHbKfXMXIBaSvGGgd69bM
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_031117_924412_2D513FC6 
-X-CRM114-Status: GOOD (  16.69  )
+X-CRM114-CacheID: sfid-20250303_031118_436670_A16356E3 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,67 +116,64 @@ Signed-off-by: Anna-Maria Behnsen <anna-maria@linutronix.de>
 Signed-off-by: Nam Cao <namcao@linutronix.de>
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- kernel/time/namespace.c | 18 ++++++++++--------
- 1 file changed, 10 insertions(+), 8 deletions(-)
+ arch/x86/include/asm/vdso/gettimeofday.h | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/kernel/time/namespace.c b/kernel/time/namespace.c
-index f02430a73be8f081618792c8968bf0c112c54505..09bc4fb39f24ccdaa1e6e7f7238660a4f2a63b54 100644
---- a/kernel/time/namespace.c
-+++ b/kernel/time/namespace.c
-@@ -165,26 +165,26 @@ static struct timens_offset offset_from_ts(struct timespec64 off)
-  *     HVCLOCK
-  *     VVAR
-  *
-- * The check for vdso_time_data->clock_mode is in the unlikely path of
-+ * The check for vdso_clock->clock_mode is in the unlikely path of
-  * the seq begin magic. So for the non-timens case most of the time
-  * 'seq' is even, so the branch is not taken.
-  *
-  * If 'seq' is odd, i.e. a concurrent update is in progress, the extra check
-- * for vdso_time_data->clock_mode is a non-issue. The task is spin waiting for the
-+ * for vdso_clock->clock_mode is a non-issue. The task is spin waiting for the
-  * update to finish and for 'seq' to become even anyway.
-  *
-- * Timens page has vdso_time_data->clock_mode set to VDSO_CLOCKMODE_TIMENS which
-+ * Timens page has vdso_clock->clock_mode set to VDSO_CLOCKMODE_TIMENS which
-  * enforces the time namespace handling path.
+diff --git a/arch/x86/include/asm/vdso/gettimeofday.h b/arch/x86/include/asm/vdso/gettimeofday.h
+index edec796832e08b73d6d58bda6408957048f4e80e..9e52cc46e1da99114312d85b34ae52e539dac9b6 100644
+--- a/arch/x86/include/asm/vdso/gettimeofday.h
++++ b/arch/x86/include/asm/vdso/gettimeofday.h
+@@ -261,7 +261,7 @@ static inline u64 __arch_get_hw_counter(s32 clock_mode,
+ 	return U64_MAX;
+ }
+ 
+-static inline bool arch_vdso_clocksource_ok(const struct vdso_time_data *vd)
++static inline bool arch_vdso_clocksource_ok(const struct vdso_clock *vc)
+ {
+ 	return true;
+ }
+@@ -300,34 +300,34 @@ static inline bool arch_vdso_cycles_ok(u64 cycles)
+  * declares everything with the MSB/Sign-bit set as invalid. Therefore the
+  * effective mask is S64_MAX.
   */
--static void timens_setup_vdso_clock_data(struct vdso_time_data *vdata,
-+static void timens_setup_vdso_clock_data(struct vdso_clock *vc,
- 					 struct time_namespace *ns)
+-static __always_inline u64 vdso_calc_ns(const struct vdso_time_data *vd, u64 cycles, u64 base)
++static __always_inline u64 vdso_calc_ns(const struct vdso_clock *vc, u64 cycles, u64 base)
  {
--	struct timens_offset *offset = vdata->offset;
-+	struct timens_offset *offset = vc->offset;
- 	struct timens_offset monotonic = offset_from_ts(ns->offsets.monotonic);
- 	struct timens_offset boottime = offset_from_ts(ns->offsets.boottime);
+-	u64 delta = cycles - vd->cycle_last;
++	u64 delta = cycles - vc->cycle_last;
  
--	vdata->seq			= 1;
--	vdata->clock_mode		= VDSO_CLOCKMODE_TIMENS;
-+	vc->seq				= 1;
-+	vc->clock_mode			= VDSO_CLOCKMODE_TIMENS;
- 	offset[CLOCK_MONOTONIC]		= monotonic;
- 	offset[CLOCK_MONOTONIC_RAW]	= monotonic;
- 	offset[CLOCK_MONOTONIC_COARSE]	= monotonic;
-@@ -220,6 +220,7 @@ static void timens_set_vvar_page(struct task_struct *task,
- 				struct time_namespace *ns)
- {
- 	struct vdso_time_data *vdata;
-+	struct vdso_clock *vc;
- 	unsigned int i;
+ 	/*
+ 	 * Negative motion and deltas which can cause multiplication
+ 	 * overflow require special treatment. This check covers both as
+-	 * negative motion is guaranteed to be greater than @vd::max_cycles
++	 * negative motion is guaranteed to be greater than @vc::max_cycles
+ 	 * due to unsigned comparison.
+ 	 *
+ 	 * Due to the MSB/Sign-bit being used as invalid marker (see
+ 	 * arch_vdso_cycles_ok() above), the effective mask is S64_MAX, but that
+ 	 * case is also unlikely and will also take the unlikely path here.
+ 	 */
+-	if (unlikely(delta > vd->max_cycles)) {
++	if (unlikely(delta > vc->max_cycles)) {
+ 		/*
+ 		 * Due to the above mentioned TSC wobbles, filter out
+ 		 * negative motion.  Per the above masking, the effective
+ 		 * sign bit is now bit 62.
+ 		 */
+ 		if (delta & (1ULL << 62))
+-			return base >> vd->shift;
++			return base >> vc->shift;
  
- 	if (ns == &init_time_ns)
-@@ -236,9 +237,10 @@ static void timens_set_vvar_page(struct task_struct *task,
+ 		/* Handle multiplication overflow gracefully */
+-		return mul_u64_u32_add_u64_shr(delta & S64_MAX, vd->mult, base, vd->shift);
++		return mul_u64_u32_add_u64_shr(delta & S64_MAX, vc->mult, base, vc->shift);
+ 	}
  
- 	ns->frozen_offsets = true;
- 	vdata = page_address(ns->vvar_page);
-+	vc = vdata;
+-	return ((delta * vd->mult) + base) >> vd->shift;
++	return ((delta * vc->mult) + base) >> vc->shift;
+ }
+ #define vdso_calc_ns vdso_calc_ns
  
- 	for (i = 0; i < CS_BASES; i++)
--		timens_setup_vdso_clock_data(&vdata[i], ns);
-+		timens_setup_vdso_clock_data(&vc[i], ns);
- 
- out:
- 	mutex_unlock(&offset_lock);
 
 -- 
 2.48.1
