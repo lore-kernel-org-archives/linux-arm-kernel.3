@@ -4,71 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EE9AC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 21:07:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3AC1C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 21:09:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xp1af/B80KYujPuppsYdEEFIldQcYx8uRUo8y+LPh/s=; b=RwTnyM0ZTpLJgqhTrtcfT6+BhF
-	8nGL7BZzySShWI/QJEt6IgiHXPM0wezS0D+/6Zv42cyd620d9T+515MOW9m+pnuO5BgtZsj6HLAZm
-	rAnfnmHPPH8REDBFrZaeAnI1F3QImCAH0nlSn7fiUvRu5hiaWZy6GkxQEWm7jlvsIZEcKeeopxKw8
-	qdrPBclH/q+5MT+cuAez3XZxAwSH2foWuOecbD4Q8zlYZgO7rrgYxRF1w5VVxEwPu5+YvCEYOoytm
-	lsgU0bnwem2JVFlUg/3IKl0yumQtza+Ao4SxXE8jg8T2w1k3BdOkmr/u4OKEJFWA7IXkuu18htG+v
-	huRciMjA==;
+	bh=B9HBpbXIy/k/ZzJzT43ntRHVnDGFv2MuASArIvtm8UM=; b=CYP6R+lYgbbF3sw1n/DGlpp6b8
+	VF/cyzhsWjleNeoPmbAMMDBRcsvFv5y4kXnFBEZoKQejT6sSHOcpyZ+Xg8M8gRpe4u1/Pq5HMPFvx
+	98+zZ7z98zSQ6YJlBqgBncs1zPjQesaot8q2/Z6wGnvdq2TABwrpXI2R/ry3wRF6r/DR7Swgo1+fr
+	a6KxfoGDwmB/zb5jd1fWv8iKI/8+BJtB4V0AOGrPYTbqutSQOM0USVcROBrOdwyuiUeNtpFEJ5Dhr
+	Ce+59rJDtijBbO0NeJ4EPU/DkzMKHh3Z4V4BUChv+9Lq0mevs/QnnIOm+g7F0n94a4D2z9uNS4wlX
+	bmtD3ZmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpD0n-00000002KSk-0CDV;
-	Mon, 03 Mar 2025 21:07:41 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tpD2K-00000002Kd8-2tQD;
+	Mon, 03 Mar 2025 21:09:16 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpCtl-00000002JAu-0avx
+	id 1tpCwY-00000002JrI-10ci
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 21:00:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BD4755C48DB;
-	Mon,  3 Mar 2025 20:58:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D50AC4CED6;
-	Mon,  3 Mar 2025 21:00:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741035621;
-	bh=bo8HrOIlN5Xf5krNsctVKKdvPdiqrXCjvrUMmNpPcNo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hncZz6O5SzQ0KX7gjO3GOe9xzDMoa4yW4yZqipxllhuZVZIn4j8nJJO3nV3ZNPvUO
-	 6g0BIa85DBrSVK/a7iEZzKSqkt/fKwSFOIWT6hlFT6mTNNSmWN4ue3kJrHpVrM2nw3
-	 cJAiprxl6RVL0xdGqPbKE2yQbqkqNkDhGIwy8wXccJAROe7j4TQWhxaPsneYrHpxgt
-	 7MfKR7bUWDF16JaeGY4vEDa5Mmcxr/Cy3wibEImKe/5CBQ47IYS42DNkRbZ0L78FNA
-	 f5U2rDOQkXOUfYChIQR3bfp7K7jAv1jMhOuyQGRXN3juZtQSpp8B2n5XbVCRVbP6IX
-	 BhdmygBOLobUA==
-Date: Mon, 3 Mar 2025 13:00:19 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Leo Yan <leo.yan@arm.com>
-Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	Will Deacon <will@kernel.org>,
-	Graham Woodward <graham.woodward@arm.com>, Paschalis.Mpeis@arm.com,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 00/12] perf script: Refactor branch flags for Arm SPE
-Message-ID: <Z8YYY2Q_ZPIaZ74g@google.com>
-References: <20250217195908.176207-1-leo.yan@arm.com>
- <20250303093853.GG2157064@e132581.arm.com>
+	Mon, 03 Mar 2025 21:03:19 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2238e884f72so36339375ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 13:03:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741035797; x=1741640597; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=B9HBpbXIy/k/ZzJzT43ntRHVnDGFv2MuASArIvtm8UM=;
+        b=UOEJQIa7NkAFr5z/QBwXeHgLOb3S3CvFDFrVfBw93sqgQq/JL9JPLJ9wtRDamIg9VZ
+         3auarUBtiNqLKgT1dpwE9iB0PINfc4bRo5V6yDCXOnzkHUF5lfD82N8SsOF8cWtliSDn
+         o4MKFOOgzpKQzbKbStEaLMptfNCpjD9ToGVnRU+4e/CnOlLbKRJnLOQKoCsFnXPuA6PQ
+         l43Y2y0dpuTxSuF+nxL1RmXpGGkqJVWLt5mP6FwW/Z/Drmvo1tM1DU8fm0PCmNz0vY9q
+         /8z58ouRJV3hqav7pWsmbSpwKRrb6NkHkDXG0Qx0V20b+b1HFBQIY+KYj5RZsFfoQisO
+         7uIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741035797; x=1741640597;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=B9HBpbXIy/k/ZzJzT43ntRHVnDGFv2MuASArIvtm8UM=;
+        b=QT0OyKevBOtA7eCkVwriirFta24JuWEDcGMbg4/nflz3eAH/ZcPz6tKeIY6BbXAeWd
+         s1DNr7n966fT+NMQ2EqAg1c/RR7fEaYjm9BdFvDod5HDDRb/0Gi4eU+x/yCP8Zpxu9i+
+         GNPt1yklHqu4jbK/Hg3u2u3xTmNddh0GkS3j0ZgCFps33h6Yl6gZWECWn4DMrNye8aRG
+         jud9Ubcix9g+qxywZ1gs2pruVKjeNmWwtn86AIq9oQrDFHYXFUCfEMvCsGUj8ykUenb/
+         xlMz9tmhtg1MFUq8pofaVpUi1fRbmUYOPlvUvlyy+1DfmzrPzfnrHK2iYpEFAtdSplAg
+         lBww==
+X-Forwarded-Encrypted: i=1; AJvYcCVp42AnFt5FLzdBkkoHkXP2+BMCGdq7otNkTN7txpIlhK8PmJUnSBW0n7TQoJxFv2PLUuatZTbkkIqjmb2kFM/o@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx11YQefx601xJjCP11nnLy7ZKSpY64xE/7KwbTHEo28TTpfIxf
+	Z130xw7BOc3XhpTk7ltcieHkz/Q/huzCemQa+/K2XICj8KoEMGfu
+X-Gm-Gg: ASbGncsZ7Fb4uGMjEHAfzwtFz7ewWA1mUXKJOp3aw7qhIO71c3sfFjl7egVMzhJziBn
+	ovvZLSzPS8Zt3F0XDStnObqsqrBjjpsqgVYVa+wiKyycwOJbMRm9Pqnagp9hgGg/NA9r5CA7l3O
+	AF3aHUdjLsFo1rWn6mB4k18YkprVptBzxGgMiS/PC+hWV+0/InldGfEPODdrQQRccN+BreO2AMX
+	BLsPuYBS67M9heGHS0QosyvKFT3EfKoSaZekgfVuCpAXEun+wlU395EIlgtsrFP34DFOdGPG+Wu
+	OTLCCwOd6gvzhO/GOKja4AruJtvgHFxQ5HyoDORF
+X-Google-Smtp-Source: AGHT+IHInytWSAP68J0pF/25lZDGpVvx/ij28c4zW0D1/qGfM3LkSyEL79EClseudwK/bIrxfeuiDg==
+X-Received: by 2002:a05:6a00:3cd1:b0:736:34a2:8a20 with SMTP id d2e1a72fcca58-73634a28b18mr15869743b3a.21.1741035797227;
+        Mon, 03 Mar 2025 13:03:17 -0800 (PST)
+Received: from debian ([2607:fb90:37e1:4bed:f057:b35a:e3e2:4c5f])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73630744c23sm5969768b3a.15.2025.03.03.13.03.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Mar 2025 13:03:16 -0800 (PST)
+From: Fan Ni <nifan.cxl@gmail.com>
+X-Google-Original-From: Fan Ni <fan.ni@samsung.com>
+Date: Mon, 3 Mar 2025 13:03:12 -0800
+To: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+Cc: Fan Ni <nifan.cxl@gmail.com>, Shradha Todi <shradha.t@samsung.com>,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, manivannan.sadhasivam@linaro.org,
+	lpieralisi@kernel.org, robh@kernel.org, bhelgaas@google.com,
+	jingoohan1@gmail.com, Jonathan.Cameron@huawei.com,
+	a.manzanares@samsung.com, pankaj.dubey@samsung.com,
+	cassel@kernel.org, 18255117159@163.com, xueshuai@linux.alibaba.com,
+	renyu.zj@linux.alibaba.com, will@kernel.org, mark.rutland@arm.com
+Subject: Re: [PATCH v7 5/5] Add debugfs based statistical counter support in
+ DWC
+Message-ID: <Z8YZEALV71PUkXpF@debian>
+References: <20250221131548.59616-1-shradha.t@samsung.com>
+ <CGME20250221132043epcas5p27fde98558b13b3311cdc467e8f246380@epcas5p2.samsung.com>
+ <20250221131548.59616-6-shradha.t@samsung.com>
+ <Z8XuuNb6TRevUlHH@debian>
+ <20250303194228.GB1552306@rocinante>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250303093853.GG2157064@e132581.arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250303194228.GB1552306@rocinante>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_130025_232697_31A8F5BE 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20250303_130318_279999_9CFBA74C 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,22 +111,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 03, 2025 at 09:38:53AM +0000, Leo Yan wrote:
-> Hi Arnaldo, Namhyung,
+On Tue, Mar 04, 2025 at 04:42:28AM +0900, Krzysztof Wilczyński wrote:
+> Hello,
 > 
-> On Mon, Feb 17, 2025 at 07:58:56PM +0000, Leo Yan wrote:
-> > This patch series refactors branch flags for support Arm SPE.  The patch
-> > set is divided into two parts, the first part is for refactoring common
-> > code and the second part is for enabling Arm SPE.
+> [...]
+> > > +static ssize_t counter_value_read(struct file *file, char __user *buf, size_t count, loff_t *ppos)
+> > > +{
+> > > +	struct dwc_pcie_rasdes_priv *pdata = file->private_data;
+> > > +	struct dw_pcie *pci = pdata->pci;
+> > > +	struct dwc_pcie_rasdes_info *rinfo = pci->debugfs->rasdes_info;
+> > > +	char debugfs_buf[DWC_DEBUGFS_BUF_MAX];
+> > > +	ssize_t pos;
+> > > +	u32 val;
+> > > +
+> > > +	mutex_lock(&rinfo->reg_event_lock);
+> > > +	set_event_number(pdata, pci, rinfo);
+> > > +	val = dw_pcie_readl_dbi(pci, rinfo->ras_cap_offset + RAS_DES_EVENT_COUNTER_DATA_REG);
+> > > +	mutex_unlock(&rinfo->reg_event_lock);
+> > > +	pos = scnprintf(debugfs_buf, DWC_DEBUGFS_BUF_MAX, "Counter value: %d\n", val);
+> > > +
+> > > +	return simple_read_from_buffer(buf, count, ppos, debugfs_buf, pos);
+> > > +}
+> > 
+> > Do we need to check whether the counter is enabled or not for the event
+> > before retrieving the counter value?
 > 
-> James has given review tags (including the new added patch 06).  Could
-> you kindly pick up this series?
+> I believe, we have a patch that aims to address, have a look at:
 > 
-> Sorry for pushing a bit, as we have dependency on it.
+>   https://lore.kernel.org/linux-pci/20250225171239.19574-1-manivannan.sadhasivam@linaro.org
 
-No problem, I'll add it to the tmp branch and run some tests.
+Maybe I missed something, that seems to fix counter_enable_read(), but
+here is to retrieve counter value. 
+How dw_pcie_readl_dbi() can return something like "Counter Disabled"? 
 
-Thanks,
-Namhyung
-
+Fan
+> 
+> Thank you!
+> 
+> 	Krzysztof
 
