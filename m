@@ -4,66 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DD63C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 12:18:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D94FC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 12:20:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KMjrPT3L+/86EEodzD4BqzwXmz/Fyg900Uiu1GgDoFw=; b=cAmPC6YR0++MBWcYCnLrmbultn
-	TaNO2FyYdQlVyaG7K6/5D08xDpUS3ZDLjfeEZ7IwXa5EPgAhX1xIbVT93ookFmah8TTqwghWxvqkx
-	6a2u4W51Z8D4t1FT6UiTKqhPOncbUptLozs5dqcMCUHWdBjMmzPhwoDnruj6PH5ehxK1L9/aS9eHX
-	edqfUPq5Aiu7EwzTp8OKfNPkweZgJYZLCiBhdg7ADjOfknEEDdpAt4lEM3mlXOdBhIA4oVwH+4pKc
-	w9SM5/Yc7T2S773n6RZjpzhgGVa2PrqUg2vldQgdJIiHMU/CoQHGz58UQg/Uneoffbj7g4yli5B0i
-	px3OMkyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jr7uWyzHUY99eCAGXzsJFETrGHISY9L/T3cghzdv3dw=; b=X4wD5EQKv9h4aJOalWxppcWd9Y
+	WdjwnKOptzptJ5ciicjhhMInjmMGI83Ci0Ww0b3D1rvcWob1E9M3mmj/ioSQ+ZEX9/iWgvwciBPEH
+	x+GwmZF0ey64K6pEoI2tValPISA4vvm6jrBOw3pvd6srVvQ6FwWMwD4RoEI2TbsCwkLf/UuCnDMQE
+	ubEjgMzhtxl0sN85ggRDsNqnbt+AeZNGFci8esBIOlCpGg8f/gHB0VnD3QdUJsHkwR55F0W/VaklT
+	G+xnLaayDotgDxorh1nlJ/S9cUnJh931zLOYTaiPgMKQuwPzBt86n80EIeHPfexvj50qlsDai7uvU
+	Q/wzTuXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp4kz-00000000ihO-2TmN;
-	Mon, 03 Mar 2025 12:18:49 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tp4mW-00000000iwx-2jNY;
+	Mon, 03 Mar 2025 12:20:24 +0000
+Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp42C-00000000ZkS-0v5v;
-	Mon, 03 Mar 2025 11:32:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1741001550;
-	bh=A1dmoEW25l3ZJd4LiRioYAuKRWE98O7QHIl4r9uDJ1Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HQcsNYUppNKgXqrJbXZmI8caBOH/CvXKfBkBRkoeSGjs3hCmBwwrCvJKHmTjD8Ltz
-	 cOJOAdlO08oMAZxFvd5g1dgTWiHu6zIymywJ9i5Dmf9GReBYMoWgtNpcI+o/tBXrnM
-	 6hbmgr7i+hI56tix5dsElSTaS3ZOdB1J9OTcDq135T58BnMRDRdKlSovz0j6nDDTsG
-	 yeXh3roUTLRdlSR/eH5D77oUDhUTY4nIHfkm4wpYRL7fZtnAUMqC7vBDorRYyV3Q8L
-	 wOC7oLSKjVsltBEryM9ukfhnsjAQo+Nex8rnbp7u1xiKTw6pLBJvx3DkT5O45tJfKH
-	 wH4N+4ARMvJMA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D566D17E0607;
-	Mon,  3 Mar 2025 12:32:29 +0100 (CET)
-Message-ID: <fc0a9471-da47-4f4f-a471-1b20f344ad22@collabora.com>
-Date: Mon, 3 Mar 2025 12:32:29 +0100
+	id 1tp42p-00000000a0m-0Z33
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Mar 2025 11:33:12 +0000
+Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-3072f8dc069so47325841fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 03:33:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741001589; x=1741606389; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=jr7uWyzHUY99eCAGXzsJFETrGHISY9L/T3cghzdv3dw=;
+        b=NFUcSKQFupoEkVzZetO1vg1yL57PKxVOldel+6csI494xkxtYL8+L21Jja2dSoArg0
+         xghDKJjW1ZSAWyDq62hpO9DCPdwNUGpCYT83qRlMkB+GDfrqof1eqP+6ewjuXeXv2ZRf
+         Q9gUgiXuY38uJnHMo61ex8Mla6s2ukSmRnX91bU/H/amu/cmRCSAo4ozPq8ge+IaJgtj
+         Z1RAxsySuNQoIjYxkhP5ICLf1RVKKjQf8BPQIYBhZBW0tr+2zN6bgX97sqXDQ4sx/Z/E
+         rnuciTAoCGjCfC7fdDZfcdmQEtPEj0LwpkPJcVoSeChZgfXBNq1Gb+3+rWmOwATmhe03
+         i5TQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741001589; x=1741606389;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jr7uWyzHUY99eCAGXzsJFETrGHISY9L/T3cghzdv3dw=;
+        b=peAxfR9PzXTb9dMW3hnnfLBxcugSMbsdBUTxO8DcIY+jtzYcKoM/NR1PspU8Yf6GF3
+         tuj8yqJtKdGgAGKkdMslrUg07YSRif3dEpjIitCNEi0EGV2uczznU2H0CU1QqkEFDX9a
+         vOuol1TlPQWAJn+pq4S8d4UNkJWYAA/Ub/YDTsPC5vaoMWbTiDgfnY0SCcKeYk58Suq+
+         9BPUYzSRPY39cvp3q5QEYeNHjpfHtdUfx2EQsT4iYvmZL0q6Q9FA6s262n/9SRdATNjg
+         ZsLjoet+ndEaty7zuFSV0Q6/QH+ilGz3XHvBO5ck+06rB1jPbu0lkxo/mcJJZ3wMM4xe
+         /Ggg==
+X-Forwarded-Encrypted: i=1; AJvYcCV0tplCORKVA8qf8AFDEOR6GUy/1QXqGjsTyJpOkPM1dLHuyXnZJiQLw7eD8iP58FJSmAsYCOEPR1K3HtqBVQa2@lists.infradead.org
+X-Gm-Message-State: AOJu0YyxGMrOMYSiJHn06912jz12ctxJC6AOiJgOEix0vb8z2zKd8OkO
+	FqttZYL2rk4u8/dRzTg9oQYPfwdO7FhECdak6kdHPiyvlUWUTa8g
+X-Gm-Gg: ASbGncur+bE/kaOBlgV9p2cfw0T0ox5fOeFLUoh5sjDO6IeVJd1I8/3v2/FjOKiffcV
+	WkJ3sM6hX39jn3kXQh63bG4fqfhVjc/K1XafldP37wml5e2uRxBdDyrYKXPL15n8wrMxNtiJfAi
+	MHCGQh57A7E/3+HDRuWfmrjm5MOhFnoHJFrm8yL04+cuQvs1sIWku23Gk0rpvDNRFYqui2VlwJp
+	NqE+XCsY3TNQRZOQWJ4Y0ogDQf/rAvl+RY8kCVE49n0Ydc8/CslgdM79Ns7AGuUlbbMrp/ctyCx
+	eRX3uefydN9VZZJvjg64ADXKjoe0L6l2Amvfmo5v7DXrKjBJN4h3DnjC4DAsFoMs2868MdKDzBQ
+	Dr4yMRdaUvd8=
+X-Google-Smtp-Source: AGHT+IGzOR5aUmDt+a/MXoTy+5OLlJ65L1UVO+lQK86VsDtTaAuu0JJFF79k+4B/QbjhjBDZ83bKrA==
+X-Received: by 2002:a05:6512:398e:b0:545:3031:40aa with SMTP id 2adb3069b0e04-5494c129d52mr4959258e87.9.1741001588885;
+        Mon, 03 Mar 2025 03:33:08 -0800 (PST)
+Received: from mva-rohm (mobile-access-2e8451-125.dhcp.inet.fi. [46.132.81.125])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5494ab017d0sm1112555e87.84.2025.03.03.03.33.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Mar 2025 03:33:07 -0800 (PST)
+Date: Mon, 3 Mar 2025 13:33:02 +0200
+From: Matti Vaittinen <mazziesaccount@gmail.com>
+To: Matti Vaittinen <mazziesaccount@gmail.com>,
+	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>, Nuno Sa <nuno.sa@analog.com>,
+	David Lechner <dlechner@baylibre.com>,
+	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	Olivier Moysan <olivier.moysan@foss.st.com>,
+	Guillaume Stols <gstols@baylibre.com>,
+	Dumitru Ceclan <mitrutzceclan@gmail.com>,
+	Trevor Gamblin <tgamblin@baylibre.com>,
+	Matteo Martelli <matteomartelli3@gmail.com>,
+	Alisa-Dariana Roman <alisadariana@gmail.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: [PATCH v5 05/10] iio: adc: sun20i-gpadc: Use adc-helpers
+Message-ID: <aabd8836dbe54ef54730d1cd112edb52a57cd353.1740993491.git.mazziesaccount@gmail.com>
+References: <cover.1740993491.git.mazziesaccount@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm64: dts: mediatek: mt8395-nio-12l: Prepare MIPI
- DSI port
-To: Julien Massot <julien.massot@collabora.com>, kernel@collabora.com,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20250226-radxa-panel-overlay-v1-0-9e8938dfbead@collabora.com>
- <20250226-radxa-panel-overlay-v1-1-9e8938dfbead@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250226-radxa-panel-overlay-v1-1-9e8938dfbead@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="H68W2IZGPpj37wy+"
+Content-Disposition: inline
+In-Reply-To: <cover.1740993491.git.mazziesaccount@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_033232_407599_33FA74D0 
-X-CRM114-Status: GOOD (  21.60  )
+X-CRM114-CacheID: sfid-20250303_033311_173742_FAA02318 
+X-CRM114-Status: GOOD (  22.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,92 +113,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 26/02/25 15:35, Julien Massot ha scritto:
-> This board can use a MIPI-DSI panel on the DSI0 connector: in
-> preparation for adding an overlay for the Radxa Display 8HD,
-> add a pipeline connecting VDOSYS0 components to DSI0.
-> 
-> Also add the backlight, and some pin definitions available
-> through the DSI0 port.
-> 
-> Signed-off-by: Julien Massot <julien.massot@collabora.com>
-> ---
->   .../boot/dts/mediatek/mt8395-radxa-nio-12l.dts     | 60 ++++++++++++++++++++++
->   1 file changed, 60 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-> index 7184dc99296c7f5d749c7e6d378722677970b3b7..65c77e43d1cd4913b6741e25130febd746ff753c 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-> +++ b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-> @@ -48,6 +48,17 @@ memory@40000000 {
->   		reg = <0 0x40000000 0x1 0x0>;
->   	};
->   
-> +	backlight: backlight {
-> +		compatible = "pwm-backlight";
-> +		brightness-levels = <0 1023>;
-> +		default-brightness-level = <576>;
-> +		enable-gpios = <&pio 107 GPIO_ACTIVE_HIGH>;
-> +		num-interpolated-steps = <1023>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&dsi0_backlight_pins>;
-> +		pwms = <&disp_pwm0 0 500000>;
 
-This should be disabled, unless there is a display connected to the DSI connector.
+--H68W2IZGPpj37wy+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-If there's no display, there's no point in enabling any backlight, as that pin
-may be reused somehow (with hardware hacks, maybe, yes, but still configuring
-the PWM IP and the pin as PWM while unused is at least a waste of energy).
+The new devm_iio_adc_device_alloc_chaninfo() -helper is intended to help
+drivers avoid open-coding the for_each_node -loop for getting the
+channel IDs. The helper provides standard way to detect the ADC channel
+nodes (by the node name), and a standard way to convert the "reg"
+-propereties to channel identification numbers, used in the struct
+iio_chan_spec. Furthermore, the helper can optionally check the found
+channel IDs are smaller than given maximum. This is useful for callers
+which later use the IDs for example for indexing a channel data array.
 
-> +	};
-> +
->   	wifi_vreg: regulator-wifi-3v3-en {
->   		compatible = "regulator-fixed";
->   		regulator-name = "wifi_3v3_en";
-> @@ -499,9 +510,20 @@ &mt6359_vsram_others_ldo_reg {
->   	regulator-max-microvolt = <750000>;
->   };
->   
-> +&ovl0_in {
-> +	remote-endpoint = <&vdosys0_ep_main>;
-> +};
-> +
+The original driver treated all found child nodes as channel nodes. The
+new helper requires channel nodes to be named channel[@N]. This should
+help avoid problems with devices which may contain also other but ADC
+child nodes. Quick grep from arch/* with the sun20i-gpadc's compatible
+string didn't reveal any in-tree .dts with channel nodes named
+otherwise. Also, same grep shows all the in-tree .dts seem to have
+channel IDs between 0..num of channels.
 
-This goes to the overlay that enables the DSI display.
+Use the new helper.
 
-> @@ -912,6 +960,18 @@ &ssusb2 {
->   	status = "okay";
->   };
->   
-> +&vdosys0 {
-> +	port {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		vdosys0_ep_main: endpoint@0 {
-> +			reg = <0>;
-> +			remote-endpoint = <&ovl0_in>;
-> +		};
-> +	};
-> +};
+Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
 
-If you enable this path, in the event that the DSI display overlay is not added,
-the mediatek-drm driver will fail probing: even if a second path is enabled and
-that will succeed regardless of the first one failing, I don't see a reason why
-whoever doesn't have a DSI display attached should see a miserable failure in the
-kernel log :-)
+---
+Revision history:
+v4 =3D> v5:
+ - Drop the diff-channel stuff from the commit message
+v3 =3D> v4:
+ - Adapt to 'drop diff-channel support' changes to ADC-helpers
+ - select ADC helpers in the Kconfig
+v2 =3D> v3:
+ - New patch
 
-Besides, mediatek-drm failing will also slow down boot for no reason.... etc etc.
+I picked the sun20i-gpadc in this series because it has a straightforward
+approach for populating the struct iio_chan_spec. Everything else except
+the .channel can use 'template'-data.
 
-Please move the display path setup to the DSI display overlay.
+This makes the sun20i-gpadc well suited to be an example user of this new
+helper. I hope this patch helps to evaluate whether these helpers are worth
+the hassle.
 
-Thanks,
-Angelo
+The change is compile tested only!! Testing before applying is highly
+appreciated (as always!). Also, even though I tried to audit the dts
+files for the reg-properties in the channel nodes, use of references
+didn't make it easy. I can't guarantee I didn't miss anything.
+---
+ drivers/iio/adc/Kconfig            |  1 +
+ drivers/iio/adc/sun20i-gpadc-iio.c | 38 ++++++++++++------------------
+ 2 files changed, 16 insertions(+), 23 deletions(-)
 
-> +
->   &xhci0 {
->   	vbus-supply = <&otg_vbus_regulator>;
->   	status = "okay";
-> 
+diff --git a/drivers/iio/adc/Kconfig b/drivers/iio/adc/Kconfig
+index e4933de0c366..0993008a1586 100644
+--- a/drivers/iio/adc/Kconfig
++++ b/drivers/iio/adc/Kconfig
+@@ -1357,6 +1357,7 @@ config SUN4I_GPADC
+ config SUN20I_GPADC
+ 	tristate "Allwinner D1/T113s/T507/R329 and similar GPADCs driver"
+ 	depends on ARCH_SUNXI || COMPILE_TEST
++	select IIO_ADC_HELPER
+ 	help
+ 	  Say yes here to build support for Allwinner (D1, T113, T507 and R329)
+ 	  SoCs GPADC. This ADC provides up to 16 channels.
+diff --git a/drivers/iio/adc/sun20i-gpadc-iio.c b/drivers/iio/adc/sun20i-gp=
+adc-iio.c
+index 136b8d9c294f..bf1db2a3de9b 100644
+--- a/drivers/iio/adc/sun20i-gpadc-iio.c
++++ b/drivers/iio/adc/sun20i-gpadc-iio.c
+@@ -15,6 +15,7 @@
+ #include <linux/property.h>
+ #include <linux/reset.h>
+=20
++#include <linux/iio/adc-helpers.h>
+ #include <linux/iio/iio.h>
+=20
+ #define SUN20I_GPADC_DRIVER_NAME	"sun20i-gpadc"
+@@ -149,37 +150,27 @@ static void sun20i_gpadc_reset_assert(void *data)
+ 	reset_control_assert(rst);
+ }
+=20
++static const struct iio_chan_spec sun20i_gpadc_chan_template =3D {
++	.type =3D IIO_VOLTAGE,
++	.indexed =3D 1,
++	.info_mask_separate =3D BIT(IIO_CHAN_INFO_RAW),
++	.info_mask_shared_by_type =3D BIT(IIO_CHAN_INFO_SCALE),
++};
++
+ static int sun20i_gpadc_alloc_channels(struct iio_dev *indio_dev,
+ 				       struct device *dev)
+ {
+-	unsigned int channel;
+-	int num_channels, i, ret;
++	int num_channels;
+ 	struct iio_chan_spec *channels;
+=20
+-	num_channels =3D device_get_child_node_count(dev);
++	num_channels =3D devm_iio_adc_device_alloc_chaninfo_se(dev,
++				&sun20i_gpadc_chan_template, -1, &channels);
++	if (num_channels < 0)
++		return num_channels;
++
+ 	if (num_channels =3D=3D 0)
+ 		return dev_err_probe(dev, -ENODEV, "no channel children\n");
+=20
+-	channels =3D devm_kcalloc(dev, num_channels, sizeof(*channels),
+-				GFP_KERNEL);
+-	if (!channels)
+-		return -ENOMEM;
+-
+-	i =3D 0;
+-	device_for_each_child_node_scoped(dev, node) {
+-		ret =3D fwnode_property_read_u32(node, "reg", &channel);
+-		if (ret)
+-			return dev_err_probe(dev, ret, "invalid channel number\n");
+-
+-		channels[i].type =3D IIO_VOLTAGE;
+-		channels[i].indexed =3D 1;
+-		channels[i].channel =3D channel;
+-		channels[i].info_mask_separate =3D BIT(IIO_CHAN_INFO_RAW);
+-		channels[i].info_mask_shared_by_type =3D BIT(IIO_CHAN_INFO_SCALE);
+-
+-		i++;
+-	}
+-
+ 	indio_dev->channels =3D channels;
+ 	indio_dev->num_channels =3D num_channels;
+=20
+@@ -271,3 +262,4 @@ module_platform_driver(sun20i_gpadc_driver);
+ MODULE_DESCRIPTION("ADC driver for sunxi platforms");
+ MODULE_AUTHOR("Maksim Kiselev <bigunclemax@gmail.com>");
+ MODULE_LICENSE("GPL");
++MODULE_IMPORT_NS("IIO_DRIVER");
+--=20
+2.48.1
 
+
+--H68W2IZGPpj37wy+
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEEIx+f8wZb28fLKEhTeFA3/03aocUFAmfFk24ACgkQeFA3/03a
+ocW3swgAxdspJKGNebP1wZLtgdUEjveykgvwtguklkaV129G98UZsW3m94ma/8m8
+qTIwg6fC53R3rsy0PgoGQA0rzgCLxLs5SyU7dJ9VBP0rtd/W1QuLjlB2lSWWQ0VZ
+iHEMHTpXN0UECsPhnjdx2AkIV9OhXogF1lUE5SPWmFBwNMqTMN9kuyNmlN3oyi22
+TE/xmHUroVD1hbsnX5LaMIWNC52jrANcg2/fxs6gnXbHvRnlAjxU/07S1p2YEhaF
+NB0fjePrXCd1vcb7wlozyiQxfZzRqH+qtkExmCstmeb+TgLHTokJUZu0JlUmSt91
+L0Chh63By3LN3Z0zGlOnGIyhf5FcwA==
+=Wlf0
+-----END PGP SIGNATURE-----
+
+--H68W2IZGPpj37wy+--
 
