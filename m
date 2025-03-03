@@ -4,80 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FDFFC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 09:27:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AA8DC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 09:28:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SohpPzuxeSg5EmDhX+WiEB/PtEK9LrVBuJuK+Acd2Qs=; b=cXaPsiq9RblxH2c8LjbhoD8e1P
-	1dVYKr0ureVmGQLcB2R6kJdiKHOxZqoDQdsw9+Rswjia8Bz5pbK3j6N+7nRqLupYVhzmJiONDqtxU
-	HhX42lu5kxE6aea/6Fpocf8BjmW9KYPgFBkNb33U7PSAsPcM2v+2T5H+9OOCAMXxah/hu8A4J5x7F
-	SFKH4CB6qU3VDtZXHa5dAuOSJxQ0SHY8I8tFz0CIIdqj31OX8lwPAJ6pTxIh2XXomG5U/K+o62PNE
-	0gvuwQbcwUcqyQyUqAHywI3Zux48/O5/lSIfPeK1f90atgRf2ZR9xSeXo+wYGEh3WAT3jj5RqjCzF
-	o18TWtHw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=y10UqnkPqz20q2Pbz1bkKGi4fsLDf4W3rv1EHCpRRsU=; b=vyqgmNptom6Of7vE0e63kPepR/
+	ZTg68wAs1Zqm8AagN6jRAI3vtG7HvfXfn3k9P8BOkbN0RgYInEVjjFeG0mp2NaPitO7R6qmQ8lbTv
+	yP/yin4q4zroiBezjtLLHh6YDtdrLx4XTKNdGKOYnfmyA/mhLrY4TgI3j2oNkYGrNzLsuhrPCvvNr
+	UieKPj4XiF/jSyrWBc3dRw6OWBc63DXnKpmjhTjh4NdTrJRr0suKwmysa8zdcPwbdEP1tOEzuq2c2
+	Pkmaz1V3rpwqSXDCGS4j/iHJUR8a3eFRRo1H85o9GgxbADQf4wjF3yxg2dxIgjdRXAUBduZPhrJVP
+	EfWTvXZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp24p-000000008Lm-3FdQ;
-	Mon, 03 Mar 2025 09:27:07 +0000
-Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
+	id 1tp26Q-000000008cE-3C6a;
+	Mon, 03 Mar 2025 09:28:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp1iC-000000003Qi-1Ll0
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 09:03:45 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 9C6A444530;
-	Mon,  3 Mar 2025 09:03:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1740992622;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SohpPzuxeSg5EmDhX+WiEB/PtEK9LrVBuJuK+Acd2Qs=;
-	b=TM8k0GKzioHAV1TSikAQCfuMh58lWKMWVAs9geYrbieGjilZoRxObkYWIJg7sQFA6vzLLa
-	rWo/L4G1HrL+WexXozRDsi8KdFEkfeR/cXdTBayamiBzxGusEzVxGvB4mTDhexlsTyOYG5
-	hbKzEZNN/OrxHWC0WlMhKTBnjjnEFLqO68Be/iCCeqqsNkoIvfT0SjifIXt2v7yP+rKWxs
-	2gybj+xvCB9V52JjzKBSkPWQvHXqFz2E9dSaZ2u3bTwEGASpzbaC5rTacWmE7rOqPQQgFh
-	kB3e4/BewCQvvbMeBbyJa7m//NMBsjXbCfoCMvSEGwOStV1Bcavgdy8VjAJqjA==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: davem@davemloft.net,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Simon Horman <horms@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>
-Subject: [PATCH net-next v4 13/13] net: phy: phy_caps: Allow getting an phy_interface's capabilities
-Date: Mon,  3 Mar 2025 10:03:19 +0100
-Message-ID: <20250303090321.805785-14-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250303090321.805785-1-maxime.chevallier@bootlin.com>
-References: <20250303090321.805785-1-maxime.chevallier@bootlin.com>
+	id 1tp1kW-000000003y2-1kxM;
+	Mon, 03 Mar 2025 09:06:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1B3D3611E2;
+	Mon,  3 Mar 2025 09:05:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 7EA61C4CED6;
+	Mon,  3 Mar 2025 09:06:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740992767;
+	bh=+9m8RepECu3KdDR/xyA11+0D+ttRfCLVaFx8rNaHNQI=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=jOpYp0VYLTlOkN/XKt+X6OhLpSnc9AFrJt/Or1YazKO2uvQImYmQ7PCg6F2rZqI+Q
+	 yFDFcLOcrC0FGn+lO2YyynLp8HnXZElVc8olj2FwV8mijSbiSkEM15cqpaPzknooNO
+	 66NSHK10jhj0hfAEIed8Joeurtu3UxTRFN5Z8wV4Vx679qy/5FblwoU2ABLrEpl3YY
+	 lKGYO04tr4tTgQ+/g7On71CfTbYU2j2YEOX12R5O3nRAlY+a6mKK7ZfvwwdqV3r65C
+	 8BVQQcIgf2DNGWoi5sytV/TNiZDcSl9QJyZQoiASh1rRIh4X1k8ry2+z8z/grVhLG2
+	 FFNG6B1xtwfmg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 67E38C282C5;
+	Mon,  3 Mar 2025 09:06:07 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Date: Mon, 03 Mar 2025 17:06:05 +0800
+Subject: [PATCH] pmdomain: amlogic: fix T7 ISP secpower
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdelkeejudcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeevgedtffelffelveeuleelgfejfeevvdejhfehgeefgfffvdefteegvedutefftdenucfkphepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgenucevlhhushhtvghrufhiiigvpeduudenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgdphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddtpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepvgguuhhmr
- giivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhm
-X-GND-Sasl: maxime.chevallier@bootlin.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_010344_507611_15F898BC 
-X-CRM114-Status: GOOD (  15.76  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250303-fix-t7-pwrc-v1-1-b563612bcd86@amlogic.com>
+X-B4-Tracking: v=1; b=H4sIAPxwxWcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDYwNj3bTMCt0Sc92C8qJk3TRjYzNTgyRDS4PUNCWgjoKiVKA02LTo2Np
+ aAPHs9UBdAAAA
+To: Ulf Hansson <ulf.hansson@linaro.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-Mailer: b4 0.12.4
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1740992766; l=1171;
+ i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
+ bh=rJx19Mccy9v03r4IPzrydNTt9cu21guWRk4PdtQnj/s=;
+ b=uqesClxVofnbW/ynh5d/bm2c3Kt2QwEI3r8qy7137qIkThIhcwEJ5t8Lm7peBNEKl3AhmZ73V
+ TB14yRL8lI1C2wcDWE5UOeddEEODPuhesytoihG1QQQjHR9llVP55r3
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
+ auth_id=107
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,267 +83,42 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Phylink has internal code to get the MAC capabilities of a given PHY
-interface (what are the supported speed and duplex).
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-Extract that into phy_caps, but use the link_capa for conversion. Add an
-internal phylink helper for the link caps -> mac caps conversion, and
-use this in phylink_caps_to_linkmodes().
+ISP and MIPI_ISP, these two have a parent-child relationship,
+ISP depends on MIPI_ISP.
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Fixes: ca75e4b214c6 ("pmdomain: amlogic: Add support for T7 power domains controller")
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 ---
-V4: No changes
+ drivers/pmdomain/amlogic/meson-secure-pwrc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- drivers/net/phy/phy-caps.h |  4 ++
- drivers/net/phy/phy_caps.c | 92 ++++++++++++++++++++++++++++++++++++++
- drivers/net/phy/phylink.c  | 90 ++++++-------------------------------
- 3 files changed, 110 insertions(+), 76 deletions(-)
+diff --git a/drivers/pmdomain/amlogic/meson-secure-pwrc.c b/drivers/pmdomain/amlogic/meson-secure-pwrc.c
+index 42ce41a2fe3a..ff76ea36835e 100644
+--- a/drivers/pmdomain/amlogic/meson-secure-pwrc.c
++++ b/drivers/pmdomain/amlogic/meson-secure-pwrc.c
+@@ -221,7 +221,7 @@ static const struct meson_secure_pwrc_domain_desc t7_pwrc_domains[] = {
+ 	SEC_PD(T7_VI_CLK2,	0),
+ 	/* ETH is for ethernet online wakeup, and should be always on */
+ 	SEC_PD(T7_ETH,		GENPD_FLAG_ALWAYS_ON),
+-	SEC_PD(T7_ISP,		0),
++	TOP_PD(T7_ISP,		0, PWRC_T7_MIPI_ISP_ID),
+ 	SEC_PD(T7_MIPI_ISP,	0),
+ 	TOP_PD(T7_GDC,		0, PWRC_T7_NIC3_ID),
+ 	TOP_PD(T7_DEWARP,	0, PWRC_T7_NIC3_ID),
 
-diff --git a/drivers/net/phy/phy-caps.h b/drivers/net/phy/phy-caps.h
-index db53f380392e..e1fe19d11e5f 100644
---- a/drivers/net/phy/phy-caps.h
-+++ b/drivers/net/phy/phy-caps.h
-@@ -8,6 +8,7 @@
- #define __PHY_CAPS_H
- 
- #include <linux/ethtool.h>
-+#include <linux/phy.h>
- 
- enum {
- 	LINK_CAPA_10HD = 0,
-@@ -32,6 +33,8 @@ enum {
- 	__LINK_CAPA_MAX,
- };
- 
-+#define LINK_CAPA_ALL	GENMASK((__LINK_CAPA_MAX - 1), 0)
-+
- struct link_capabilities {
- 	int speed;
- 	unsigned int duplex;
-@@ -45,6 +48,7 @@ size_t phy_caps_speeds(unsigned int *speeds, size_t size,
- void phy_caps_linkmode_max_speed(u32 max_speed, unsigned long *linkmodes);
- bool phy_caps_valid(int speed, int duplex, const unsigned long *linkmodes);
- void phy_caps_linkmodes(unsigned long caps, unsigned long *linkmodes);
-+unsigned long phy_caps_from_interface(phy_interface_t interface);
- 
- const struct link_capabilities *
- phy_caps_lookup_by_linkmode(const unsigned long *linkmodes);
-diff --git a/drivers/net/phy/phy_caps.c b/drivers/net/phy/phy_caps.c
-index 0a64289a161b..555daaa41d52 100644
---- a/drivers/net/phy/phy_caps.c
-+++ b/drivers/net/phy/phy_caps.c
-@@ -253,3 +253,95 @@ void phy_caps_linkmodes(unsigned long caps, unsigned long *linkmodes)
- 		linkmode_or(linkmodes, linkmodes, link_caps[capa].linkmodes);
- }
- EXPORT_SYMBOL_GPL(phy_caps_linkmodes);
-+
-+/**
-+ * phy_caps_from_interface() - Get the link capa from a given PHY interface
-+ * @interface: The PHY interface we want to get the possible Speed/Duplex from
-+ *
-+ * Returns: A bitmask of LINK_CAPA_xxx values that can be achieved with the
-+ *          provided interface.
-+ */
-+unsigned long phy_caps_from_interface(phy_interface_t interface)
-+{
-+	unsigned long link_caps = 0;
-+
-+	switch (interface) {
-+	case PHY_INTERFACE_MODE_USXGMII:
-+		link_caps |= BIT(LINK_CAPA_10000FD) | BIT(LINK_CAPA_5000FD);
-+		fallthrough;
-+
-+	case PHY_INTERFACE_MODE_10G_QXGMII:
-+		link_caps |= BIT(LINK_CAPA_2500FD);
-+		fallthrough;
-+
-+	case PHY_INTERFACE_MODE_RGMII_TXID:
-+	case PHY_INTERFACE_MODE_RGMII_RXID:
-+	case PHY_INTERFACE_MODE_RGMII_ID:
-+	case PHY_INTERFACE_MODE_RGMII:
-+	case PHY_INTERFACE_MODE_PSGMII:
-+	case PHY_INTERFACE_MODE_QSGMII:
-+	case PHY_INTERFACE_MODE_QUSGMII:
-+	case PHY_INTERFACE_MODE_SGMII:
-+	case PHY_INTERFACE_MODE_GMII:
-+		link_caps |= BIT(LINK_CAPA_1000HD) | BIT(LINK_CAPA_1000FD);
-+		fallthrough;
-+
-+	case PHY_INTERFACE_MODE_REVRMII:
-+	case PHY_INTERFACE_MODE_RMII:
-+	case PHY_INTERFACE_MODE_SMII:
-+	case PHY_INTERFACE_MODE_REVMII:
-+	case PHY_INTERFACE_MODE_MII:
-+		link_caps |= BIT(LINK_CAPA_10HD) | BIT(LINK_CAPA_10FD);
-+		fallthrough;
-+
-+	case PHY_INTERFACE_MODE_100BASEX:
-+		link_caps |= BIT(LINK_CAPA_100HD) | BIT(LINK_CAPA_100FD);
-+		break;
-+
-+	case PHY_INTERFACE_MODE_TBI:
-+	case PHY_INTERFACE_MODE_MOCA:
-+	case PHY_INTERFACE_MODE_RTBI:
-+	case PHY_INTERFACE_MODE_1000BASEX:
-+		link_caps |= BIT(LINK_CAPA_1000HD);
-+		fallthrough;
-+	case PHY_INTERFACE_MODE_1000BASEKX:
-+	case PHY_INTERFACE_MODE_TRGMII:
-+		link_caps |= BIT(LINK_CAPA_1000FD);
-+		break;
-+
-+	case PHY_INTERFACE_MODE_2500BASEX:
-+		link_caps |= BIT(LINK_CAPA_2500FD);
-+		break;
-+
-+	case PHY_INTERFACE_MODE_5GBASER:
-+		link_caps |= BIT(LINK_CAPA_5000FD);
-+		break;
-+
-+	case PHY_INTERFACE_MODE_XGMII:
-+	case PHY_INTERFACE_MODE_RXAUI:
-+	case PHY_INTERFACE_MODE_XAUI:
-+	case PHY_INTERFACE_MODE_10GBASER:
-+	case PHY_INTERFACE_MODE_10GKR:
-+		link_caps |= BIT(LINK_CAPA_10000FD);
-+		break;
-+
-+	case PHY_INTERFACE_MODE_25GBASER:
-+		link_caps |= BIT(LINK_CAPA_25000FD);
-+		break;
-+
-+	case PHY_INTERFACE_MODE_XLGMII:
-+		link_caps |= BIT(LINK_CAPA_40000FD);
-+		break;
-+
-+	case PHY_INTERFACE_MODE_INTERNAL:
-+		link_caps |= LINK_CAPA_ALL;
-+		break;
-+
-+	case PHY_INTERFACE_MODE_NA:
-+	case PHY_INTERFACE_MODE_MAX:
-+		break;
-+	}
-+
-+	return link_caps;
-+}
-+EXPORT_SYMBOL_GPL(phy_caps_from_interface);
-diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-index 30f0ecb084ef..0162ce09f54d 100644
---- a/drivers/net/phy/phylink.c
-+++ b/drivers/net/phy/phylink.c
-@@ -335,6 +335,18 @@ static unsigned long phylink_caps_to_link_caps(unsigned long caps)
- 	return link_caps;
- }
- 
-+static unsigned long phylink_link_caps_to_mac_caps(unsigned long link_caps)
-+{
-+	unsigned long caps = 0;
-+	int i;
-+
-+	for (i = 0; i <  ARRAY_SIZE(phylink_caps_params); i++)
-+		if (link_caps & phylink_caps_params[i].caps_bit)
-+			caps |= phylink_caps_params[i].mask;
-+
-+	return caps;
-+}
-+
- /**
-  * phylink_caps_to_linkmodes() - Convert capabilities to ethtool link modes
-  * @linkmodes: ethtool linkmode mask (must be already initialised)
-@@ -412,86 +424,12 @@ static unsigned long phylink_get_capabilities(phy_interface_t interface,
- 					      unsigned long mac_capabilities,
- 					      int rate_matching)
- {
-+	unsigned long link_caps = phy_caps_from_interface(interface);
- 	int max_speed = phylink_interface_max_speed(interface);
- 	unsigned long caps = MAC_SYM_PAUSE | MAC_ASYM_PAUSE;
- 	unsigned long matched_caps = 0;
- 
--	switch (interface) {
--	case PHY_INTERFACE_MODE_USXGMII:
--		caps |= MAC_10000FD | MAC_5000FD;
--		fallthrough;
--
--	case PHY_INTERFACE_MODE_10G_QXGMII:
--		caps |= MAC_2500FD;
--		fallthrough;
--
--	case PHY_INTERFACE_MODE_RGMII_TXID:
--	case PHY_INTERFACE_MODE_RGMII_RXID:
--	case PHY_INTERFACE_MODE_RGMII_ID:
--	case PHY_INTERFACE_MODE_RGMII:
--	case PHY_INTERFACE_MODE_PSGMII:
--	case PHY_INTERFACE_MODE_QSGMII:
--	case PHY_INTERFACE_MODE_QUSGMII:
--	case PHY_INTERFACE_MODE_SGMII:
--	case PHY_INTERFACE_MODE_GMII:
--		caps |= MAC_1000HD | MAC_1000FD;
--		fallthrough;
--
--	case PHY_INTERFACE_MODE_REVRMII:
--	case PHY_INTERFACE_MODE_RMII:
--	case PHY_INTERFACE_MODE_SMII:
--	case PHY_INTERFACE_MODE_REVMII:
--	case PHY_INTERFACE_MODE_MII:
--		caps |= MAC_10HD | MAC_10FD;
--		fallthrough;
--
--	case PHY_INTERFACE_MODE_100BASEX:
--		caps |= MAC_100HD | MAC_100FD;
--		break;
--
--	case PHY_INTERFACE_MODE_TBI:
--	case PHY_INTERFACE_MODE_MOCA:
--	case PHY_INTERFACE_MODE_RTBI:
--	case PHY_INTERFACE_MODE_1000BASEX:
--		caps |= MAC_1000HD;
--		fallthrough;
--	case PHY_INTERFACE_MODE_1000BASEKX:
--	case PHY_INTERFACE_MODE_TRGMII:
--		caps |= MAC_1000FD;
--		break;
--
--	case PHY_INTERFACE_MODE_2500BASEX:
--		caps |= MAC_2500FD;
--		break;
--
--	case PHY_INTERFACE_MODE_5GBASER:
--		caps |= MAC_5000FD;
--		break;
--
--	case PHY_INTERFACE_MODE_XGMII:
--	case PHY_INTERFACE_MODE_RXAUI:
--	case PHY_INTERFACE_MODE_XAUI:
--	case PHY_INTERFACE_MODE_10GBASER:
--	case PHY_INTERFACE_MODE_10GKR:
--		caps |= MAC_10000FD;
--		break;
--
--	case PHY_INTERFACE_MODE_25GBASER:
--		caps |= MAC_25000FD;
--		break;
--
--	case PHY_INTERFACE_MODE_XLGMII:
--		caps |= MAC_40000FD;
--		break;
--
--	case PHY_INTERFACE_MODE_INTERNAL:
--		caps |= ~0;
--		break;
--
--	case PHY_INTERFACE_MODE_NA:
--	case PHY_INTERFACE_MODE_MAX:
--		break;
--	}
-+	caps |= phylink_link_caps_to_mac_caps(link_caps);
- 
- 	switch (rate_matching) {
- 	case RATE_MATCH_OPEN_LOOP:
+---
+base-commit: 73e4ffb27bb8a093d557bb2dac1a271474cca99c
+change-id: 20250303-fix-t7-pwrc-f33650b190ef
+
+Best regards,
 -- 
-2.48.1
+Xianwei Zhao <xianwei.zhao@amlogic.com>
+
 
 
