@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F515C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 06:57:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72FE9C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 06:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mRORuk1lZoTaQ72m0hDUrhIZjvt/8jV8y2hi7nR1rH4=; b=04FtS1d7Oe1WVNh4ReqwZs3hxM
-	ZMADpVjzmhHSv0775R0kUldJZPtn8VtYsuMu0ltuDvhLuJRzTVyt4R/OwH8Kabw1IZbReZ4ZMxPLo
-	RXbVWZk4WRqmnmXcmrghfV1mjGiBTc/XGn5JnVGDtnPuC8mGvSzsxpChqsT5ZY842kiyRMnuh2WlC
-	P8m2Cz9eN4YVf1yce84kZNcwx9QWbN0J4I+TJxqT/dIwNnGNnpAy6XbAFhZSE5VIerbryF26P/xd0
-	Y8+uU+pgzsWXb+6Ee6ggVm1vY4fJQTB+BHwhmj2FDGYEgnABL0Liqxv9zSiJPzO+aRWucOO9yypfu
-	ftoum8nQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nymZZudf34hrdxusEHfgJt6WkWUJ+6WT6FOvsBZVSeI=; b=2FLGq/rhe5zzuvyd4TZWeZuS8T
+	s7M5QPUKm6gE5ht7SFnXnVZaZBuXr48UB+C0luzLpx0eRTsLZxz0k1chrJWRS7kFG+MDkSEnMuRnj
+	1w7jYRTv+InEeza1wkcrH564OT5S7PMCrBbyZoUo17t+hcgbO7Zg7y7EHCD1nIpM++VOnG/bLdXM/
+	pwwXmgKvCKXx0QqTrNYEpit9Zk1NBDAp+T8sr1eY4tK5dfBirvEP7ecIqxo06neCe8bf1im/EBcW1
+	KYz0zzYrjxUXYNmH+LigFGbaUzHuvyuzFddEm2I/CxeejNFGEf2qyzf8ECx/l2ZBUsd7WUalENCJe
+	nYd+p+mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tozjr-0000000HMo7-2jPv;
-	Mon, 03 Mar 2025 06:57:19 +0000
-Received: from mail-pj1-x1043.google.com ([2607:f8b0:4864:20::1043])
+	id 1tozlO-0000000HN77-1B3V;
+	Mon, 03 Mar 2025 06:58:54 +0000
+Received: from mail-pj1-x1041.google.com ([2607:f8b0:4864:20::1041])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toziJ-0000000HMU2-0Utp
+	id 1toziP-0000000HMVD-3snS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 06:55:44 +0000
-Received: by mail-pj1-x1043.google.com with SMTP id 98e67ed59e1d1-2fea47bcb51so8112467a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Mar 2025 22:55:42 -0800 (PST)
+	Mon, 03 Mar 2025 06:55:51 +0000
+Received: by mail-pj1-x1041.google.com with SMTP id 98e67ed59e1d1-2fe821570e4so5804027a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Mar 2025 22:55:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740984942; x=1741589742; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=mRORuk1lZoTaQ72m0hDUrhIZjvt/8jV8y2hi7nR1rH4=;
-        b=j3FPoFu4j5kLNIBgm3yW55lRREtgztnIOcu3EFlK52OHXHCIZXxGEHjJcfOSaB6i9z
-         zcpjRlXGl9kRqrXThesgIspR7fpoRNzbqkLby8qFeZn/xuwQ0GY2gxdlHS4uIY6HflJj
-         f9ZLzsDz0s5Qs3MqkZDP1x1oG263a91gipcVOw+zKLkTabn87BLLIFF4NF8RTLcjnCH8
-         /5gfFR2SGW8OOsVmWl8hP4QO+zdyTZ1bFq+zX6Kf+hILmK3Izvo7Zs127vTF0L5ehYAg
-         oW6rYqxvDNQKHdYIMAquwoYlXVMtiqdXcflfaL9YufLjGn5uv3owRmzE1+eXQPset3t0
-         ttXA==
+        d=gmail.com; s=20230601; t=1740984949; x=1741589749; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nymZZudf34hrdxusEHfgJt6WkWUJ+6WT6FOvsBZVSeI=;
+        b=cGeni1eJ0Pv/c1fxarMLMnsnHk8WyotBCBOJ/5jKO9b5pADqfyjPDqQCEpUra2HKld
+         T76OatE4f4I3NcvYRBwJcZcaEg/4Zu8D+Jtfk0hU6MDVsXqOy6S4pp1zYgSUeOkbkZwT
+         1J0VkIGlG8ySAtPvl9Hn6MsINOiqr1taUZw13D+cATX6OM1/EwvfSJdLCqRyGYjvb53A
+         B5B9KRGuZKgZ0nNvDAonTg6FvqcarbPNvHYJFSTxrTXLO+f931TNQCcV6aokVqPYhN3J
+         uzHmJTekUMSpG+CQ++nL79TyC+P6dwgP93ePxUQiTwepLvD4Op8icbB3MO3AwwoOnIMZ
+         /hRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740984942; x=1741589742;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=mRORuk1lZoTaQ72m0hDUrhIZjvt/8jV8y2hi7nR1rH4=;
-        b=P7Ym/bxZBd1N1s3m/uvVAKVXkgNT5OGBWIqjqd32TvTn8fzFPUz6Tjv/D87A6KFnNb
-         gGDnXmXx+nOXgB/ICGe23Rz94j5+WTKRdo3Ec1YJPqwOdDT3YreMCCS3yuf60lqhkOsv
-         uROeSffDTh+32qKWi8bBHVJp+xiSaAv3JDnryAPjhgTtl/lgodPE5J12oDHAEqB9DMSs
-         6ttZjoZdmWAHwOm7FQx35VUtBxEp0F1hJj+YGmioFDLbIH0yceN+5eE/zcaMA7H6BR7S
-         Qv2B1Vet5ATaD7Y3eB/AtpEk6yP/31YXI7Vn05EnaA130BKA0NKAe0oo5Zw301Gt9/ad
-         cSyw==
-X-Forwarded-Encrypted: i=1; AJvYcCVYH+LVoHTQOQS9aKVO9HvVRYad4lVx3jhJX+FGYXlPvWZEN1VGtgY4bic2RUYWgITn2OYFJ5A6z1/Dso2iSX/V@lists.infradead.org
-X-Gm-Message-State: AOJu0YybSTUDSCwVaxqYKqZddAynIHJlTrXadXzEmWs+3qbUgITNeRGJ
-	h7flLmDnucrtb+GvFg+mWAeB2bN1IS63h/ApOIn0Dx/Pkl9PYBa3
-X-Gm-Gg: ASbGncsqEEJ/ROVLZLvFqTkoCRIqR8lDJGkke0q/ksP1M3mwraw73A7KoX0bsTs5oDd
-	HSeqDJ5B6NvW/rhnjz+cRPj6aVd3+doSlFze1bG840biob89hTdzlCpfX5shGDBK1gqzR6FSCCQ
-	rgGJ5U6A9/bOLuFKnF2M8pv2enZV8Tdu3VgknYeYCAlYknkAvuPbHbEoZ4GXp2jY2eui1NftS6q
-	R1dnPmrTgp8ZVW/8gF39dA5iIR3XWfGJAUiCYc9L3Bn+av/1Cfd7Jb3x3fTt4IOBUNakWlVq/DI
-	UEcDZEi2M5vpvigeO7c34EIUbnsGTbiFoYc5F35yGhvabtEIcWcAftPQ069hSg==
-X-Google-Smtp-Source: AGHT+IHkrQ6QYFMj0geZ0tfgbyR4QorZaQfQ/7JtrPSfKkhKbt8kMcBnshigR2/4fvzZe6e2RxKkcw==
-X-Received: by 2002:a17:90b:3ec9:b0:2fa:17dd:6afa with SMTP id 98e67ed59e1d1-2febab78721mr21988807a91.17.1740984941579;
-        Sun, 02 Mar 2025 22:55:41 -0800 (PST)
+        d=1e100.net; s=20230601; t=1740984949; x=1741589749;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=nymZZudf34hrdxusEHfgJt6WkWUJ+6WT6FOvsBZVSeI=;
+        b=vNgsgxNmNBJ4jHZafF7WThgAKphAbuayK4LqWhnNpwqpZ801GZ0NTqr7jWJgGKNy8U
+         p/HXfgcURbuKq9oHiDR6yWx0ms79lRDUW44IkvX6Y/yGgcervhJn6BvPbL9eHPrhWLGF
+         jULI4W8wa4R69/oe30UaTBg5KMgmrHSfyszSYpz9RUlxxMxfyfeKdmOh62TfwKEFRqor
+         Bu8nLPuiN33kCdORZtBUh+hv9f/7h1gm3ZuOpDjaPcjtDpWV3AIBq1UjmllZCwzquIUE
+         Qv60fziX9efsqL2+nzhKg/qm3cAlxfRc08WW4R0Po2uXSN81XUlXflnOz96WeG93VqKe
+         3TLQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV9HlKjbYgvzICCLtOEPjUnLiGkpiw7PHRjwn+bVfAxPRWM5lXN00D9JBYmGFwM0rSLgWk4xP7UyFzMMM0a6fiY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxk6ngR9LvkQwQ9/0SrflcHZmhnMy9VZFtjAoSxqRxOdvA0+Izt
+	bcA8jJook+GU7DjbSyD5uPG5LHKsfj9kXTgJdRVjEglDI2z0a1Fx
+X-Gm-Gg: ASbGncu9POJKn6i4k6AMl3PkwcYumMyum73lePxtyueYMpYvAe70GtJ1GiRt1Pg5fYg
+	4BFsVHhuspvLzb4YO/uAwjnXqVw0GeNC3MBSJ1hC+tRmADeB4kjYF2Rbyeb49dG+SWYfa3AMoN8
+	dbYfcXGNs/nlimNBOZzXCrCIPH8c0HmkCn9z3+jZjA/FzyuTo23XFjWNCchePbxxwj6uZMNGZRG
+	FjHQ5JT1P4hMncCNlC+vLii2H/i28N1O9HZ23BDyf7kSNiUSxbD0S4OQDLVI41Kcey3eNL9QB0v
+	Km8rEfusD3Fiu862kMDxCmWwKa14BhmyreA00NW8eZVmeDz5mVF/B5nTKWXjNw==
+X-Google-Smtp-Source: AGHT+IGSoY6DTXHZdCGzW7B6A82lurvA8twdiEOcJq7108bwjigQWB9/CnfNiFNnV2PDUqTyIKthyQ==
+X-Received: by 2002:a17:90b:2f8d:b0:2ee:48bf:7dc3 with SMTP id 98e67ed59e1d1-2febab7862fmr19657613a91.15.1740984949306;
+        Sun, 02 Mar 2025 22:55:49 -0800 (PST)
 Received: from localhost.localdomain ([43.129.244.20])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fea6769ad2sm8139575a91.11.2025.03.02.22.55.34
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fea6769ad2sm8139575a91.11.2025.03.02.22.55.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 02 Mar 2025 22:55:41 -0800 (PST)
+        Sun, 02 Mar 2025 22:55:48 -0800 (PST)
 From: Menglong Dong <menglong8.dong@gmail.com>
 X-Google-Original-From: Menglong Dong <dongml2@chinatelecom.cn>
 To: peterz@infradead.org,
@@ -110,15 +111,17 @@ Cc: catalin.marinas@arm.com,
 	bpf@vger.kernel.org,
 	netdev@vger.kernel.org,
 	llvm@lists.linux.dev
-Subject: [PATCH bpf-next v3 0/4] per-function storage support
-Date: Mon,  3 Mar 2025 14:53:41 +0800
-Message-Id: <20250303065345.229298-1-dongml2@chinatelecom.cn>
+Subject: [PATCH bpf-next v3 1/4] x86/ibt: factor out cfi and fineibt offset
+Date: Mon,  3 Mar 2025 14:53:42 +0800
+Message-Id: <20250303065345.229298-2-dongml2@chinatelecom.cn>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250303065345.229298-1-dongml2@chinatelecom.cn>
+References: <20250303065345.229298-1-dongml2@chinatelecom.cn>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_225543_164006_78AFFA0C 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20250302_225549_963279_6BB0848C 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,67 +136,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For now, there isn't a way to set and get per-function metadata with
-a low overhead, which is not convenient for some situations. Take
-BPF trampoline for example, we need to create a trampoline for each
-kernel function, as we have to store some information of the function
-to the trampoline, such as BPF progs, function arg count, etc. The
-performance overhead and memory consumption can be higher to create
-these trampolines. With the supporting of per-function metadata storage,
-we can store these information to the metadata, and create a global BPF
-trampoline for all the kernel functions. In the global trampoline, we
-get the information that we need from the function metadata through the
-ip (function address) with almost no overhead.
+For now, the layout of cfi and fineibt is hard coded, and the padding is
+fixed on 16 bytes.
 
-Another beneficiary can be ftrace. For now, all the kernel functions that
-are enabled by dynamic ftrace will be added to a filter hash if there are
-more than one callbacks. And hash lookup will happen when the traced
-functions are called, which has an impact on the performance, see
-__ftrace_ops_list_func() -> ftrace_ops_test(). With the per-function
-metadata supporting, we can store the information that if the callback is
-enabled on the kernel function to the metadata.
+Factor out FINEIBT_INSN_OFFSET and CFI_INSN_OFFSET. CFI_INSN_OFFSET is
+the offset of cfi, which is the same as FUNCTION_ALIGNMENT when
+CALL_PADDING is enabled. And FINEIBT_INSN_OFFSET is the offset where we
+put the fineibt preamble on, which is 16 for now.
 
-In the 1st patch, we factor out FINEIBT_INSN_OFFSET and CFI_INSN_OFFSET to
-make fineibt works on the kernel function is 32-bytes aligned.
+When the FUNCTION_ALIGNMENT is bigger than 16, we place the fineibt
+preamble on the last 16 bytes of the padding for better performance, which
+means the fineibt preamble don't use the space that cfi uses.
 
-In the 2nd patch, we implement the per-function metadata storage by
-storing the index of the metadata to the function padding space.
+Signed-off-by: Menglong Dong <dongml2@chinatelecom.cn>
+---
+ arch/x86/include/asm/cfi.h    | 12 ++++++++----
+ arch/x86/kernel/alternative.c | 27 ++++++++++++++++++++-------
+ arch/x86/net/bpf_jit_comp.c   | 22 +++++++++++-----------
+ 3 files changed, 39 insertions(+), 22 deletions(-)
 
-In the 3rd and 4th patch, we implement the per-function metadata storage
-for x86 and arm64. And in the feature, we can support more arch.
-
-Changes since V2:
-- split the patch into a series.
-- considering the effect to cfi and fineibt and introduce the 1st patch.
-
-Changes since V1:
-- add supporting for arm64
-- split out arch relevant code
-- refactor the commit log
-
-Menglong Dong (4):
-  x86/ibt: factor out cfi and fineibt offset
-  add per-function metadata storage support
-  x86: implement per-function metadata storage for x86
-  arm64: implement per-function metadata storage for arm64
-
- arch/arm64/Kconfig              |  15 ++
- arch/arm64/Makefile             |  23 ++-
- arch/arm64/include/asm/ftrace.h |  34 +++++
- arch/arm64/kernel/ftrace.c      |  13 +-
- arch/x86/Kconfig                |  16 +++
- arch/x86/include/asm/cfi.h      |  12 +-
- arch/x86/include/asm/ftrace.h   |  54 ++++++++
- arch/x86/kernel/alternative.c   |  27 +++-
- arch/x86/net/bpf_jit_comp.c     |  22 +--
- include/linux/kfunc_md.h        |  25 ++++
- kernel/Makefile                 |   1 +
- kernel/trace/Makefile           |   1 +
- kernel/trace/kfunc_md.c         | 239 ++++++++++++++++++++++++++++++++
- 13 files changed, 456 insertions(+), 26 deletions(-)
- create mode 100644 include/linux/kfunc_md.h
- create mode 100644 kernel/trace/kfunc_md.c
-
+diff --git a/arch/x86/include/asm/cfi.h b/arch/x86/include/asm/cfi.h
+index 31d19c815f99..ab51fa0ef6af 100644
+--- a/arch/x86/include/asm/cfi.h
++++ b/arch/x86/include/asm/cfi.h
+@@ -109,15 +109,19 @@ enum bug_trap_type handle_cfi_failure(struct pt_regs *regs);
+ extern u32 cfi_bpf_hash;
+ extern u32 cfi_bpf_subprog_hash;
+ 
++#ifdef CONFIG_CALL_PADDING
++#define FINEIBT_INSN_OFFSET	16
++#define CFI_INSN_OFFSET		CONFIG_FUNCTION_ALIGNMENT
++#else
++#define CFI_INSN_OFFSET		5
++#endif
++
+ static inline int cfi_get_offset(void)
+ {
+ 	switch (cfi_mode) {
+ 	case CFI_FINEIBT:
+-		return 16;
+ 	case CFI_KCFI:
+-		if (IS_ENABLED(CONFIG_CALL_PADDING))
+-			return 16;
+-		return 5;
++		return CFI_INSN_OFFSET;
+ 	default:
+ 		return 0;
+ 	}
+diff --git a/arch/x86/kernel/alternative.c b/arch/x86/kernel/alternative.c
+index c71b575bf229..ad050d09cb2b 100644
+--- a/arch/x86/kernel/alternative.c
++++ b/arch/x86/kernel/alternative.c
+@@ -908,7 +908,7 @@ void __init_or_module noinline apply_seal_endbr(s32 *start, s32 *end, struct mod
+ 
+ 		poison_endbr(addr, wr_addr, true);
+ 		if (IS_ENABLED(CONFIG_FINEIBT))
+-			poison_cfi(addr - 16, wr_addr - 16);
++			poison_cfi(addr, wr_addr);
+ 	}
+ }
+ 
+@@ -974,12 +974,15 @@ u32 cfi_get_func_hash(void *func)
+ {
+ 	u32 hash;
+ 
+-	func -= cfi_get_offset();
+ 	switch (cfi_mode) {
++#ifdef CONFIG_FINEIBT
+ 	case CFI_FINEIBT:
++		func -= FINEIBT_INSN_OFFSET;
+ 		func += 7;
+ 		break;
++#endif
+ 	case CFI_KCFI:
++		func -= CFI_INSN_OFFSET;
+ 		func += 1;
+ 		break;
+ 	default:
+@@ -1068,7 +1071,7 @@ early_param("cfi", cfi_parse_cmdline);
+  *
+  * caller:					caller:
+  *	movl	$(-0x12345678),%r10d	 // 6	     movl   $0x12345678,%r10d	// 6
+- *	addl	$-15(%r11),%r10d	 // 4	     sub    $16,%r11		// 4
++ *	addl	$-15(%r11),%r10d	 // 4	     sub    $FINEIBT_INSN_OFFSET,%r11 // 4
+  *	je	1f			 // 2	     nop4			// 4
+  *	ud2				 // 2
+  * 1:	call	__x86_indirect_thunk_r11 // 5	     call   *%r11; nop2;	// 5
+@@ -1092,10 +1095,14 @@ extern u8 fineibt_preamble_end[];
+ #define fineibt_preamble_size (fineibt_preamble_end - fineibt_preamble_start)
+ #define fineibt_preamble_hash 7
+ 
++#define ___OFFSET_STR(x)	#x
++#define __OFFSET_STR(x)		___OFFSET_STR(x)
++#define OFFSET_STR		__OFFSET_STR(FINEIBT_INSN_OFFSET)
++
+ asm(	".pushsection .rodata			\n"
+ 	"fineibt_caller_start:			\n"
+ 	"	movl	$0x12345678, %r10d	\n"
+-	"	sub	$16, %r11		\n"
++	"	sub	$"OFFSET_STR", %r11	\n"
+ 	ASM_NOP4
+ 	"fineibt_caller_end:			\n"
+ 	".popsection				\n"
+@@ -1225,6 +1232,7 @@ static int cfi_rewrite_preamble(s32 *start, s32 *end, struct module *mod)
+ 			 addr, addr, 5, addr))
+ 			return -EINVAL;
+ 
++		wr_addr += (CFI_INSN_OFFSET - FINEIBT_INSN_OFFSET);
+ 		text_poke_early(wr_addr, fineibt_preamble_start, fineibt_preamble_size);
+ 		WARN_ON(*(u32 *)(wr_addr + fineibt_preamble_hash) != 0x12345678);
+ 		text_poke_early(wr_addr + fineibt_preamble_hash, &hash, 4);
+@@ -1241,7 +1249,8 @@ static void cfi_rewrite_endbr(s32 *start, s32 *end, struct module *mod)
+ 		void *addr = (void *)s + *s;
+ 		void *wr_addr = module_writable_address(mod, addr);
+ 
+-		poison_endbr(addr + 16, wr_addr + 16, false);
++		poison_endbr(addr + CFI_INSN_OFFSET, wr_addr + CFI_INSN_OFFSET,
++			     false);
+ 	}
+ }
+ 
+@@ -1347,12 +1356,12 @@ static void __apply_fineibt(s32 *start_retpoline, s32 *end_retpoline,
+ 		return;
+ 
+ 	case CFI_FINEIBT:
+-		/* place the FineIBT preamble at func()-16 */
++		/* place the FineIBT preamble at func()-FINEIBT_INSN_OFFSET */
+ 		ret = cfi_rewrite_preamble(start_cfi, end_cfi, mod);
+ 		if (ret)
+ 			goto err;
+ 
+-		/* rewrite the callers to target func()-16 */
++		/* rewrite the callers to target func()-FINEIBT_INSN_OFFSET */
+ 		ret = cfi_rewrite_callers(start_retpoline, end_retpoline, mod);
+ 		if (ret)
+ 			goto err;
+@@ -1381,6 +1390,8 @@ static void poison_cfi(void *addr, void *wr_addr)
+ {
+ 	switch (cfi_mode) {
+ 	case CFI_FINEIBT:
++		addr -= FINEIBT_INSN_OFFSET;
++		wr_addr -= FINEIBT_INSN_OFFSET;
+ 		/*
+ 		 * __cfi_\func:
+ 		 *	osp nopl (%rax)
+@@ -1394,6 +1405,8 @@ static void poison_cfi(void *addr, void *wr_addr)
+ 		break;
+ 
+ 	case CFI_KCFI:
++		addr -= CFI_INSN_OFFSET;
++		wr_addr -= CFI_INSN_OFFSET;
+ 		/*
+ 		 * __cfi_\func:
+ 		 *	movl	$0, %eax
+diff --git a/arch/x86/net/bpf_jit_comp.c b/arch/x86/net/bpf_jit_comp.c
+index a43fc5af973d..e0ddb0fd28e2 100644
+--- a/arch/x86/net/bpf_jit_comp.c
++++ b/arch/x86/net/bpf_jit_comp.c
+@@ -414,6 +414,12 @@ static void emit_nops(u8 **pprog, int len)
+ static void emit_fineibt(u8 **pprog, u32 hash)
+ {
+ 	u8 *prog = *pprog;
++#ifdef CONFIG_CALL_PADDING
++	int i;
++
++	for (i = 0; i < CFI_INSN_OFFSET - 16; i++)
++		EMIT1(0x90);
++#endif
+ 
+ 	EMIT_ENDBR();
+ 	EMIT3_off32(0x41, 0x81, 0xea, hash);		/* subl $hash, %r10d	*/
+@@ -428,20 +434,14 @@ static void emit_fineibt(u8 **pprog, u32 hash)
+ static void emit_kcfi(u8 **pprog, u32 hash)
+ {
+ 	u8 *prog = *pprog;
++#ifdef CONFIG_CALL_PADDING
++	int i;
++#endif
+ 
+ 	EMIT1_off32(0xb8, hash);			/* movl $hash, %eax	*/
+ #ifdef CONFIG_CALL_PADDING
+-	EMIT1(0x90);
+-	EMIT1(0x90);
+-	EMIT1(0x90);
+-	EMIT1(0x90);
+-	EMIT1(0x90);
+-	EMIT1(0x90);
+-	EMIT1(0x90);
+-	EMIT1(0x90);
+-	EMIT1(0x90);
+-	EMIT1(0x90);
+-	EMIT1(0x90);
++	for (i = 0; i < CFI_INSN_OFFSET - 5; i++)
++		EMIT1(0x90);
+ #endif
+ 	EMIT_ENDBR();
+ 
 -- 
 2.39.5
 
