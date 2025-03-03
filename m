@@ -4,107 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5ECEC282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 12:22:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12B37C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 12:23:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jKyByvqg+jAL9PKNdpeqdSWpvScxjw4N93b4UfEb/Uo=; b=4g9Olmn5Ur3AGcXb1DiTsmxFPe
-	WtmojX66+G/UD2QFzn6hWXChtUWZDdweCvMdfzR5XDAhGAP4OzZG0toFEpKXxHx0G9cjn9A1kbyx5
-	NsuqFPwH8lRVRFZHLzqOjwcJea5F8rKLuj1cE0VwdTBimRsXJJfWwX7TfIhxsh5NEnEoWqveaguwP
-	dCrLnFx0c/jyARnnHwduIvxHIB3w/8RIWD5KTHiQA9dHmYwxNdJv4CXdxG+BPTQOSQhP6jVyEmYcC
-	CO5YzkZbeqJfS74uU0DAm8QF+oERGeydVbviStyfRiIDZbNnGhZZtb4TRBQyVN+lg3KMAPBSeIFGE
-	a36C0lcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VT4MWfspcgTJ3SehDYKVLf6wugc4ps4pfbt0RZrf3Yw=; b=YjrReV+xHEVDsEsdwslA+5PFcS
+	w885FeFqcSSmBjvWSmeHsvucpBDTSz0Y2fYKB3PR5W1iVuqAE/pYfZWQHQNsvF/Mlwq83r6MxVd31
+	h1bpK3SDJX7kEu653Gu3g8xCbmEZwo1izL6TMOHZX0XMAgbxt0+V4ibSQmWQ5YUpM9+WG9ITO6l7Y
+	DpmbFc0dVTqMKbbtHI8RHAOLFhBnqzVwtFhrH/iJmIpbe898I+aYaGc0Wb1ffck0LtkILh3N/6tKP
+	11cbgXnu4xFj4Ay98s25HpXhRSYHRUOrI76j+N49RS4hTgF6IQ2Xv6mHLSyfTo+tWmOl5vSukf9wq
+	rosYDQsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp4o4-00000000jIe-380X;
-	Mon, 03 Mar 2025 12:22:00 +0000
-Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp43r-00000000aD1-1HuT
+	id 1tp4pc-00000000jdI-1hxr;
+	Mon, 03 Mar 2025 12:23:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tp44z-00000000aSW-0dpf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 11:34:16 +0000
-Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-30bbbd0ea7eso7923671fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 03:34:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741001653; x=1741606453; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jKyByvqg+jAL9PKNdpeqdSWpvScxjw4N93b4UfEb/Uo=;
-        b=QFn551rPnrsKVlpyfXrUUtPNRDBIhaeZ3i3TMwFF06yUMFQFU/vomedLYStICqDUWd
-         k7I12bygmJIed0U1uxOIjAuicf8RwWYO5lraThIZxfQGSyMD69yFm/8y2b9aAlbafIix
-         9ETNyjGeFhhXMtBeTEiZQeoj/69IvjBQ9wJpbopgK9NwNYKXU2jli3ifS1sdWLBAUwNe
-         BlTVql4lec70w3qVAKM/xjVefWyfQJ4ADxvHD3isWGfzIgbcSaquOtJg5SIn9L4iSsct
-         syaEnOFVcN6QFrnMvZ3zyaNu7wy/7Mp4MM6uDHeHlI5jrp+1mDdQ171++v3n9uzyDjcq
-         OGtQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741001653; x=1741606453;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jKyByvqg+jAL9PKNdpeqdSWpvScxjw4N93b4UfEb/Uo=;
-        b=T+wHwbBD7P1Ek4rG/xdOs3nikCyJQTMTTYfHAS+pD5RvBD2lPaOGt2u5jaVajOLbZA
-         Lu6cmcXntrtTJoYaWMqq6c4jCykpDopWKmHNTfMu3wMRjpxqR4XCWd6aNe6ADN12wxT1
-         o/oAqnhfJwdi7q0UCj6Ak/sXgFDggYVnwqchvDdm5mjwncJAz1pbQd31GzIC8nggV8Ff
-         7UP4y/zyi61fJ+7dNLV7STD5MuvjrLbgXaKtXFffqtt0ii8QKQzhv69IuUre/Di7zrjK
-         SkOcWm7hzOVDdqaqGrZABd7IofVhzH/NfseczFLXtDcRG1Pk5nV/3Ahr6kts+2GNYIQi
-         lWrw==
-X-Forwarded-Encrypted: i=1; AJvYcCUhWSsi7MwabwGj75df8BR8vFl7zfGUAC4/JKsRy0ArBf7uOhhyfawjRXTD1kTpucVQ0Is7VvZSWm/dCMgNGxCE@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxi++n/BKWJQ5OMsH7wtxvUJ/7s63by4TvUzsOOnutEfhsIc3Xb
-	tOVyNjTeNmRYaJYP33/Rrww7xjYMKgHT0549QjDtrSsPLQS0/6JB
-X-Gm-Gg: ASbGncuqJoxQI7P+BZWrZlWIG4YfSYOckNTA88V4OQ38/2uFolGIX4mMqi9cI68aRv+
-	MDGwwws+foDp0JZ8QqDiqZczJR6XCcYpx6XPImQ0ZlfKslwBridhsuw1Oaw8UJtRuqZtVt4tbeJ
-	mJ6+uuw8nHqlJFxEtjt/K2PwMd8vWoQu1VhOW0kzM8ed6m9sU5kaYd/ZJ0M5MxBTfzluKM+VVOe
-	Buom+Q3E31DCkVClT1Y0nhRLSFSt1UrRvvnmp6voBp53bnBQDbQrrdn+bSGHVR+R3GY+mtUC+49
-	DZV29tCrQXjBUYhczR/03ME8acNnR4PQ0kLsFh1Dzr+Be2Yz/chu4VBy0VW8kOdU10lU8Oa+KTI
-	tMPeKuKe6WqA=
-X-Google-Smtp-Source: AGHT+IH2q/EQ50OKDdOvQmK3DgcD8QV9qiZg9HjaiRlsRxpoAX3Icmu9TOCjXHgkc5dFCtxPesT+sQ==
-X-Received: by 2002:a2e:9515:0:b0:307:dc1f:e465 with SMTP id 38308e7fff4ca-30b9326b162mr42530121fa.22.1741001653116;
-        Mon, 03 Mar 2025 03:34:13 -0800 (PST)
-Received: from mva-rohm (mobile-access-2e8451-125.dhcp.inet.fi. [46.132.81.125])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30b86875b76sm14035841fa.91.2025.03.03.03.34.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Mar 2025 03:34:12 -0800 (PST)
-Date: Mon, 3 Mar 2025 13:34:06 +0200
-From: Matti Vaittinen <mazziesaccount@gmail.com>
-To: Matti Vaittinen <mazziesaccount@gmail.com>,
-	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Matti Vaittinen <mazziesaccount@gmail.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Nuno Sa <nuno.sa@analog.com>, David Lechner <dlechner@baylibre.com>,
-	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
-	Guillaume Stols <gstols@baylibre.com>,
-	Dumitru Ceclan <mitrutzceclan@gmail.com>,
-	Trevor Gamblin <tgamblin@baylibre.com>,
-	Matteo Martelli <matteomartelli3@gmail.com>,
-	Alisa-Dariana Roman <alisadariana@gmail.com>,
-	Ramona Alexandra Nechita <ramona.nechita@analog.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: [PATCH v5 08/10] MAINTAINERS: Add IIO ADC helpers
-Message-ID: <78c18b224cd18b1bd83eea51c7e52dcea28e3d50.1740993491.git.mazziesaccount@gmail.com>
-References: <cover.1740993491.git.mazziesaccount@gmail.com>
+	Mon, 03 Mar 2025 11:35:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 654ED1063;
+	Mon,  3 Mar 2025 03:35:36 -0800 (PST)
+Received: from [10.57.37.67] (unknown [10.57.37.67])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 111383F673;
+	Mon,  3 Mar 2025 03:35:19 -0800 (PST)
+Message-ID: <2b6d5287-bdea-4ec3-a07f-986bd3c3b285@arm.com>
+Date: Mon, 3 Mar 2025 11:35:19 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="5Rvc/P61F8vV1THI"
-Content-Disposition: inline
-In-Reply-To: <cover.1740993491.git.mazziesaccount@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/3] arm64: realm: Fix DMA address for devices
+Content-Language: en-GB
+To: linux-kernel@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: will@kernel.org, catalin.marinas@arm.com, maz@kernel.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, gshan@redhat.com,
+ robin.murphy@arm.com, linux-arm-kernel@lists.infradead.org,
+ Jean-Philippe Brucker <jean-philippe@linaro.org>,
+ Christoph Hellwig <hch@lst.de>, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Tom Lendacky <thomas.lendacky@amd.com>
+References: <20250227144150.1667735-1-suzuki.poulose@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250227144150.1667735-1-suzuki.poulose@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_033415_345490_2FCE9B15 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20250303_033525_286506_57BAF5DB 
+X-CRM114-Status: GOOD (  35.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,59 +68,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---5Rvc/P61F8vV1THI
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Add undersigned as a maintainer for the IIO ADC helpers.
-
-Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
----
-Revision history:
-RFC v1 =3D> v2:
- - New patch
----
- MAINTAINERS | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 8e0736dc2ee0..5b96fb864227 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -11208,6 +11208,13 @@ L:	linux-media@vger.kernel.org
- S:	Maintained
- F:	drivers/media/rc/iguanair.c
-=20
-+IIO ADC HELPERS
-+M:	Matti Vaittinen <mazziesaccount@gmail.com>
-+L:	linux-iio@vger.kernel.org
-+S:	Maintained
-+F:	drivers/iio/adc/industrialio-adc.c
-+F:	include/linux/iio/adc-helpers.h
-+
- IIO BACKEND FRAMEWORK
- M:	Nuno Sa <nuno.sa@analog.com>
- R:	Olivier Moysan <olivier.moysan@foss.st.com>
---=20
-2.48.1
+Hi Marek,
 
 
---5Rvc/P61F8vV1THI
-Content-Type: application/pgp-signature; name="signature.asc"
+On 27/02/2025 14:41, Suzuki K Poulose wrote:
+> Linux can be run as a Confidential Guest in Arm CCA from Linux v6.13. The address
+> space (GPA or IPA) of a Realm VM is split into two halves, with private bottom
+> half and shared top half. In Linux we treat the "top" bit of the IPA space as
+> an attribute, to indicate whether it is shared or not (MSB == 1 implies shared).
+> Stage2 (GPA to PA) translations used by the CPU accesses, cover the full IPA space,
+> and are managed by RMM. The "top" bit as attribute is only a software construct.
+> 
+> At present any device passed through to a Realm is treated as untrusted and the
+> Realm uses bounce buffering for any DMA, using the "decrypted" (shared) DMA
+> buffers (i.e., IPA with top bit set). In Linux, we only send the "DMA" address
+> masking the "top" bit. In Arm CCA, SMMU for untrusted devices are managed by the
+> non-secure Host and thus it can be confusing for the host/device when an unmasked
+> address is provided. Given there could be other hypervisors than Linux/KVM
+> running Arm CCA guests, the Realm Guest must adhere to a single convention for
+> the DMA address. This gets further complicated when we add support for trusted
+> devices, which can DMA into the full Realm memory space, once accepted. Thus,
+> a DMA masked address (with "top" bit lost) will prevent a trusted device from
+> accessing a shared buffer.
+> 
+> To resolve this Arm has decided to standardise the DMA address used by the Realm
+> to include the full IPA address bits (including the "top" bit, which Linux uses
+> as an attribute). This implies, any DMA to a shared buffer must have the top bit
+> of the IPA space set.
+> 
+> There is already a provision to do this in phys_to_dma* and dma_to_phys(), but
+> that is specific to AMD SME and is quite the opposite of what we need for Arm CCA.
+> i.e., For Arm CCA we need to set the bit for "decrypted" DMA and clear the bit
+> for "encrypted".
+> 
+> This series converts the existing __sme_* helpers to a bit more generalised versions :
+> dma_addr_decrypted() and dma_encrypted(). Also, while converting a DMA address back
+> to CPU physical address requires clearing off any "encryption/decryption" bits.
+> I have named this "dma_addr_canonical()". (The other options are :
+>    * dma_addr_clear_encryption - Well, not just for encryption, but we clear decryption
+>      too, so not ideal.
+>    * dma_addr_normal
+>    * dma_addr_clear
+>    * dma_addr_default
+> 
+> This also implies that the VMMs must take care to :
+> 
+>   1. Create the S2-SMMU mappings for VFIO at the "unprotected" alias.
+>   2. Always mask the "top" bit off any IPA it receives from the Realm for DMA.
+>      KVM already does that today and no changes are required.
+> 
+> A kvmtool branch with the changes above is available here [1]. There are two
+> patches [2] & [3], that are really required on top of the Arm CCA support.
+> 
+> Ideally it would be good to get this backported to v6.13 stable kernel releases
+> to make sure that they are compliant with this change.
+> 
 
------BEGIN PGP SIGNATURE-----
+Please could you take a look at this series and let us know your
+thoughts ? If you are happy with the changes, are you happy to pull
+this through the DMA MAP tree ? The relevant bits have been reviewed/
+acked by people (arm64 and AMD bits).
 
-iQEzBAEBCAAdFiEEIx+f8wZb28fLKEhTeFA3/03aocUFAmfFk64ACgkQeFA3/03a
-ocUpgwf/SNY3Pn6d3XX6wgquUJWMeNypZTRBxzVX+t3Nm+6wYifiTOOpcNdIYHfV
-UEO/B8hbJ6BzXcUxHFFEUnq5pTr/a1gbQvg+rtBnZiXV95/wnLJjJgx9guw7IW48
-BjUoZhymuhP201Y3/EzSSXwe7MnrOTaUfcTwBxZQSsipdd8PK9co9V1EzEGGIeO+
-LqTyj2W1KqdWOE5qqnTZhzLj3fdEYfJoxyUdXWiHJEcmDyoc9qZ0HNnsLa59j5Co
-d+8xCLwqyB6CFOJWkl7gL/92nAyFvn1XzEvpuQGyz2Ouoo1cZexz/6s+UvexWkuo
-Hh1QZj0U9ni99bqIrOfrEk7zUk5lMQ==
-=gikD
------END PGP SIGNATURE-----
+Kind regards
+Suzuki
 
---5Rvc/P61F8vV1THI--
+
+> Changes since v2:
+>   Link: https://lkml.kernel.org/r/20250219220751.1276854-1-suzuki.poulose@arm.com
+>    - Collect Acks & Reviews for Patch 1
+>    - Rename helpers
+>    	dma_encrypted		=> dma_addr_encrypted
+> 	dma_decrypted		=> dma_addr_unencrypted
+> 	dma_clear_encryption	=> dma_addr_canonical
+>    - For Arm CCA, use PROT_NS_SHARED, set/clear only the top IPA bit.
+>    - Drop dma_addr_encrypted() helper for Arm CCA as it is a NOP
+> 
+> Changes since v1
+>   Link: https://lkml.kernel.org/r/20250212171411.951874-1-suzuki.poulose@arm.com
+>   - Follow Robin's suggestion to generalise the DMA address conversion helpers
+>     to provide dma_{encrypte,decrypted,clear_encryption}. See PATCH 2 for more
+>     details.
+>   - Add a fix to the ordering of "__sme_clr" for dma_to_phys (PATCH 1)
+> 
+> [1] git@git.gitlab.arm.com:linux-arm/kvmtool-cca.git cca/guest-dma-alias/v1
+> [2] https://gitlab.arm.com/linux-arm/kvmtool-cca/-/commit/ea37a6eb968abe4c75be4a8a90808714657c2ef7
+> [3] https://gitlab.arm.com/linux-arm/kvmtool-cca/-/commit/8afd0d5e6a7ee444dd0c1565fe94ecd831054a29
+> 
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Robin Murphy <robin.murphy@arm.com>
+> Cc: Steven Price <steven.price@arm.com>
+> Cc: Christoph Hellwig <hch@lst.de>
+> Cc: Marek Szyprowski <m.szyprowski@samsung.com>
+> Cc: Tom Lendacky <thomas.lendacky@amd.com>
+> Cc: Gavin Shan <gshan@redhat.com>
+> 
+> Suzuki K Poulose (3):
+>    dma: Fix encryption bit clearing for dma_to_phys
+>    dma: Introduce generic dma_addr_*crypted helpers
+>    arm64: realm: Use aliased addresses for device DMA to shared buffers
+> 
+>   arch/arm64/include/asm/mem_encrypt.h | 11 +++++++++++
+>   include/linux/dma-direct.h           | 13 +++++++++----
+>   include/linux/mem_encrypt.h          | 23 +++++++++++++++++++++++
+>   3 files changed, 43 insertions(+), 4 deletions(-)
+> 
+
 
