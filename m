@@ -4,94 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95545C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 10:55:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68DD8C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 10:56:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uqcchcl0H3MHX0plBBglpw5tZdbp+fJLEBNYpMMUwBs=; b=ni0X8D/OQcfLEyuUjC76Ea999/
-	7gKUCs3dga/mUM8G8mF8WhR3eXzmdAcWYpZ+NO4hrszSC0uMdp5Tye3fL21eLYk4KqpNDPlvtYCWB
-	E+5LThlF1yHIPz+EbgwpYN37wWXFukdaoO4NNsnM6moeEmCz+bWolsy0wsXMOpholDxbjNdNrskhL
-	ao3O5dHw168wxmYa2MmmLfctZWfngz1tcA4mIrLF5A3B9yMcmViJXEquqHMulr/cIfBxcYSoupomZ
-	rOC5diBnRmSJuuTqlROpaZm2kGapXm2O/aboKcKb1QsOXIxbNK3o1ajDHWrWj8VD+REkh362dig5g
-	ZhVy7Oyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8VN9UPNNdCnSQLYCBghtlT63w+V581kVwQCE/FtNhyo=; b=eB8fji0Lj4G+MA+b7xOfpgWH7e
+	uuctB5WcYTf1FhMLDJWWe1+aqOQV+WAmKH+v/TO3Y6R0Gcje4Gh3ybDFe7WqiQ2ENz2C+sAQECRJY
+	DPRXjhABgj+/Xc2PVQx3P7GZyQsOoSkx1oTG6MaO3hqIM9KwL8mztGEkylfczI4fgUOciidm40sdX
+	QTELNgjw0Nq84j5oXa6wAitdNE4rexXHGYH5Fr7vOwEGCYUKP3/Bfo+8ZFvHRzsNg4HocOs8Fm+ZO
+	bL/XFzxC7jeRjmSRJXjkBcwAqNDWFzKkyhQ58wQ2fAufnF9jrQsj2ovN3/GV8nIYQ7yc4zInV6gcV
+	7PkiqqWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp3Rn-00000000PnJ-0Q1U;
-	Mon, 03 Mar 2025 10:54:55 +0000
-Received: from mail-yw1-x1143.google.com ([2607:f8b0:4864:20::1143])
+	id 1tp3TK-00000000QB6-3JFo;
+	Mon, 03 Mar 2025 10:56:30 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp3QD-00000000POO-18Zj
+	id 1tp3Qu-00000000Pap-3oBp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 10:53:18 +0000
-Received: by mail-yw1-x1143.google.com with SMTP id 00721157ae682-6fd2587d059so25181087b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 02:53:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740999196; x=1741603996; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uqcchcl0H3MHX0plBBglpw5tZdbp+fJLEBNYpMMUwBs=;
-        b=VM/LvHMh2+Sae2Gy7muwEeDceLjZ6vD+K6UsON/TJkw/IWewiuOc9oTApqOQJeeH7W
-         AuogsMFGCP/T5vdk0gGiPdzArWlfrqCJsfklUKFc5bnCXa+2lAAA+5JsNvdLBUc1IdtE
-         OaKCSdnMij1u+PxPe98dj5onkoiuJlAULFQjy4PM9c27iOOBxn0wXSGbUmatLRrAhiP6
-         9V7CunapzvJ+KuzfNTuQ+eLoMVWy6mfmfuyIfIzkxFhWbROG66VgEg6mH+VMLMQTvGzH
-         /9sdpNFc8v4brg6Apsrx7obkPLdUQlQuZ0RG2a9KUbkl0Rs/rQFt8iWW0eDkOnsraT7I
-         8Pow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740999196; x=1741603996;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=uqcchcl0H3MHX0plBBglpw5tZdbp+fJLEBNYpMMUwBs=;
-        b=g1jmMm0Q2Y7SrjBpy1vg3hAlrI+/R2//lX8Z5Wkfb2lwAb6PqRJrQaFabUaa556W9Y
-         FFcx9dlQYB+0FIGzIz3syY7OjHthXuJaNHXQB6KUJl9jsEpXZQmD1ny1lG19XubEMFOt
-         2anvRPqboDnIUmOSdQHkinHHEzfov12tPUMLZs4DCblLvWv+CqbC1U4ipP8sk+2CoC6p
-         ie7iLnFAeY+x4XpGLXE00Y0khW0dSNllVHvrsrDfFd2SmsCokuPCOBdAOl4QJXgsd676
-         P3V4szTZHItYQauG6l/ZkdGIq42DDzm9YKY0BWOuZVjfkc+UxFjEEDUFqL2Y1AAf4mxG
-         w8TA==
-X-Forwarded-Encrypted: i=1; AJvYcCWtbpVABnFlmIK2TllTRJn9hi3U6M0pLCrH3g03BCbcbkchSqQ2PA1RM9xXh9/FA9buI+pzcq5f/YuKBOgh+J0N@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUldxNBTjlfqKyKuCb7uDaR09zkoR87zk0Kp3B7OfD7Im8OOUk
-	LjG6ZYc5US1AQCal/xMExCb70COU7uFR2xye/cv/4+ujQrMzDq+iNLXKNywz2MGAhZAi7GQDpRr
-	9w6Zs+WcfE/h0DeIDeapnW9rMeB8=
-X-Gm-Gg: ASbGncuddyPSm3ZZ7jDYd8H3ERehnK/A/PMPXNYq/MwXA+2G7Bobv3pc1R2/ir40YeF
-	MNEvP98URcNAcSW7jKk8hY5hFa0nN9avPSFThZwN9mRrwY4L5OZ1cunpWhzAsLeToq0I49P5FsW
-	kWrOuVg6ylOSlcmh7ps705fgqkKQ==
-X-Google-Smtp-Source: AGHT+IGPFg7vyGunvepCrP71hctzW/wiFhK2mnTSkLrkuSsp6X2qPRH18XUJIiB5Y7juu2x6EocYr5DNocerNm2QyWM=
-X-Received: by 2002:a05:690c:4802:b0:6fd:2f47:f4f9 with SMTP id
- 00721157ae682-6fd4a0bad92mr160996667b3.9.1740999195914; Mon, 03 Mar 2025
- 02:53:15 -0800 (PST)
+	Mon, 03 Mar 2025 10:54:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3B2C05C584A;
+	Mon,  3 Mar 2025 10:51:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8B62C4CED6;
+	Mon,  3 Mar 2025 10:53:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740999237;
+	bh=x9DafxnZjhibXkXWWLnjj9HDJzQbEq4SqW+dqvT9BE0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bsZj4rsmU/F1Q2BWq6kCpwkZDU8bVlA5ZeliPJWlRLGcHiBIqoXbE5TfGDzBOhBwc
+	 p8JrexXMSUL9Npt1IJkXoFZIXS/Xzpca/ZXIXmIcbJbBjLhIY9eqJdnAty/xT6cdJS
+	 ZXZR6JMTUGw1nGuLhCJT7vdxC66+OnAhbhg/rABx3SxOc5PrPYPP5wpEcCBFXoetOT
+	 GfiJcw2UwoDGJgYm0Z+rlVUwrAfT+oAzbbx8mxcsmqtjUirh9c+An1ud6YpVTgwgW6
+	 4F6WSjW8PBqOYFoOo7R3wf7ms0edgoSoPZJ5B7pucS4y2HSYxT13CeyYeHDnWlEyjQ
+	 6GzZwpJ/dD7Cw==
+Received: from johan by xi.lan with local (Exim 4.97.1)
+	(envelope-from <johan@kernel.org>)
+	id 1tp3Qm-000000004Ws-0yFQ;
+	Mon, 03 Mar 2025 11:53:52 +0100
+Date: Mon, 3 Mar 2025 11:53:52 +0100
+From: Johan Hovold <johan@kernel.org>
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>,
+	Sibi Sankar <quic_sibis@quicinc.com>, sudeep.holla@arm.com,
+	dmitry.baryshkov@linaro.org, maz@kernel.org,
+	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	konradybcio@kernel.org
+Subject: Re: [RFC V6 2/2] firmware: arm_scmi: Add quirk to bypass SCP fw bug
+Message-ID: <Z8WKQJcPTQDIXaKD@hovoldconsulting.com>
+References: <20250226024338.3994701-1-quic_sibis@quicinc.com>
+ <20250226024338.3994701-3-quic_sibis@quicinc.com>
+ <Z77M5iXHQsdMptWm@hovoldconsulting.com>
+ <Z77W-fKBUqAALZKJ@hovoldconsulting.com>
+ <759226e1-05aa-4ca2-b2f5-7f1a84dc427f@stanley.mountain>
+ <Z77l1NflYXTnRyg0@hovoldconsulting.com>
+ <Z8AjhHsVT9ZQTtZX@pluto>
 MIME-Version: 1.0
-References: <20250303065345.229298-1-dongml2@chinatelecom.cn>
- <20250303065345.229298-2-dongml2@chinatelecom.cn> <20250303091811.GH5880@noisy.programming.kicks-ass.net>
-In-Reply-To: <20250303091811.GH5880@noisy.programming.kicks-ass.net>
-From: Menglong Dong <menglong8.dong@gmail.com>
-Date: Mon, 3 Mar 2025 18:51:41 +0800
-X-Gm-Features: AQ5f1JolBjCiOEE9gVLsf6wdPN2zmwGfmSm6JtRrhu885EwwD4hwEQ1WHKYNmyc
-Message-ID: <CADxym3as+KdeBMUigq4xq302g2U7UG-7Gm+vKiYGnSjHouq=bg@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v3 1/4] x86/ibt: factor out cfi and fineibt offset
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: rostedt@goodmis.org, mark.rutland@arm.com, alexei.starovoitov@gmail.com, 
-	catalin.marinas@arm.com, will@kernel.org, mhiramat@kernel.org, 
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, ast@kernel.org, 
-	daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev, 
-	eddyz87@gmail.com, yonghong.song@linux.dev, john.fastabend@gmail.com, 
-	kpsingh@kernel.org, sdf@fomichev.me, jolsa@kernel.org, davem@davemloft.net, 
-	dsahern@kernel.org, mathieu.desnoyers@efficios.com, nathan@kernel.org, 
-	nick.desaulniers+lkml@gmail.com, morbo@google.com, samitolvanen@google.com, 
-	kees@kernel.org, dongml2@chinatelecom.cn, akpm@linux-foundation.org, 
-	riel@surriel.com, rppt@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
-	bpf@vger.kernel.org, netdev@vger.kernel.org, llvm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z8AjhHsVT9ZQTtZX@pluto>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_025317_310246_80371EFF 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20250303_025401_041404_116D0AD7 
+X-CRM114-Status: GOOD (  34.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,30 +85,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 3, 2025 at 5:18=E2=80=AFPM Peter Zijlstra <peterz@infradead.org=
-> wrote:
->
-> On Mon, Mar 03, 2025 at 02:53:42PM +0800, Menglong Dong wrote:
-> > index c71b575bf229..ad050d09cb2b 100644
-> > --- a/arch/x86/kernel/alternative.c
-> > +++ b/arch/x86/kernel/alternative.c
-> > @@ -908,7 +908,7 @@ void __init_or_module noinline apply_seal_endbr(s32=
- *start, s32 *end, struct mod
-> >
-> >               poison_endbr(addr, wr_addr, true);
-> >               if (IS_ENABLED(CONFIG_FINEIBT))
-> > -                     poison_cfi(addr - 16, wr_addr - 16);
-> > +                     poison_cfi(addr, wr_addr);
-> >       }
-> >  }
->
-> If you're touching this code, please use tip/x86/core or tip/master.
+Hi Cristian,
 
-Thank you for reminding me that, I were using the linux-next, and
-I notice that you just did some optimization to the FINEIBT :/
+On Thu, Feb 27, 2025 at 08:34:44AM +0000, Cristian Marussi wrote:
+> On Wed, Feb 26, 2025 at 10:58:44AM +0100, Johan Hovold wrote:
 
-I'll send a V4 later, based on the tip/x86/core.
+> > Something like that, yes. :) I didn't try to implement it, but it seems
+> > like it should be possible implement this is a way that keeps the quirk
+> > handling isolated.
+> 
+> I hope next week to have a better look at this, in tne meantime just a
+> few considerations....
+> 
+> Sooner or later we should have introduced some sort of quirk framework
+> in SCMI to deal systematically with potentially out-of-spec FW, but as
+> in the name, it should be some sort of framework where you have a table of
+> quirks, related activation conditions and a few very well isolated points
+> where the quirks are placed and take action if enabled...this does not
+> seem the case here where instead an ad-hoc param is added to the function
+> that needs to be quirked...this does not scale and will make the codebase
+> a mess IMHO...
 
-Thanks!
-Menglong Dong
+Sounds good. At least we have a good understanding now of how this
+particular firmware is broken so it would be great if you could use
+this as a test case for the implementation.
+
+In summary, we need to force the use of a fast channel for
+PERF_LEVEL_GET on these machines, or possibly fall back to the current
+behaviour of only using the domain attribute to determine whether the
+fast channels should be initialised.
+
+The latter may allow for a less intrusive implementation even if we'd
+still see:
+
+	arm-scmi arm-scmi.0.auto: Failed to get FC for protocol 13 [MSG_ID:6 / RES_ID:0] - ret:-95. Using regular messaging.
+	arm-scmi arm-scmi.0.auto: Failed to get FC for protocol 13 [MSG_ID:6 / RES_ID:1] - ret:-95. Using regular messaging.
+	arm-scmi arm-scmi.0.auto: Failed to get FC for protocol 13 [MSG_ID:6 / RES_ID:2] - ret:-95. Using regular messaging.
+
+when not supported for all messages (e.g. with the current firmware).
+
+> Last but not least, these quirks 'activations' in the SCMI world should
+> be driven mainly by the VENDOR/SUB-VENDOR/IMPLEMENTATION_VERS triple and
+> only as a last resort by a platform compatible match...because the
+> IMPLEMENTATION_VERSION, exposed by the FW and gathered via SCMI Base
+> protocol, is completely under the vendor control so it can, and should, be
+> used to identify broken FW-versions...indeed all the distinct SCMI protocols
+> are anyway versioned elsewhere according to the spec, so there is no need to
+> repeat SCMI protocol version here..I mean it is an IMPLEMENTATION version
+> 
+> As an example on a JUNO the SCP reference FW reports:
+> 
+> arm-scmi arm-scmi.1.auto: SCMI Protocol v2.0 'arm:arm' Firmware version 0x20f0000
+> 
+> where the FW version represent something like the FW release tag, I think...not
+> really sure about the menaing our FW gys give to it, BUT definitely it is not
+> a bare copy of the SCMI protocol version...
+> 
+> So...
+> ...does the platfom-to-be-quirked at hand properly use the IMPLEMENTATION_VERSION
+> flag in a sensible way ?
+> IOW does that change between a bad and good (or less bad :D) version ?
+
+I guess only Sibi and Qualcomm can answer that. Both machines I have
+that suffer from this report:
+
+	arm-scmi arm-scmi.0.auto: SCMI Protocol v2.0 'Qualcomm:' Firmware version 0x20000
+
+and I'm not sure if any fixed firmware has made it out to the vendors
+yet or if the version was bumped when this was fixed.
+
+On the other hand, perhaps forcing fast channel initialisation for
+PERF_LEVEL_GET on all 'Qualcomm' firmware would work (i.e. only based on
+VENDOR).
+
+> Because shooting with the platform 'compatible-gun' should be the last resort
+> if all of the above does NOT happen in this beloved fw...
+> 
+> Anyway, after all of this babbling, I know, talk is cheap :D...so now I will shut
+> up and see if I can prototype something generic to deal with quirks, possibly
+> next week...
+
+Much appreciated, thanks.
+
+Johan
 
