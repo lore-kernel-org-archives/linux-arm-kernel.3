@@ -4,98 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86775C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 09:59:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC7A7C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 10:03:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ykua7q7gnustm8lPrA9ZG6NARq70FXycw/3eNBtt0hs=; b=SnNrjc8SIXmCrLdVkeLbOdZHYb
-	p23RVjSUkx6Gif0fNen5BjUUjOBTymCfryif7ylMUzAbRW3CCdKqsfrLwMPbK1wJLNL2n0JTQp4KO
-	BVpwoPeUC6GLCdTlZ/7BfWVKNGBmE9NUIS9G3IRDazBbmDUKnMnE3W4wMGTve3A665zvYdWDvYNYT
-	fehLoSd4QnB0JGu3wLLBpTpUaEgKN398x07idgUz+eBHMLSaJqXK5egnm1HQMCAUPchH/h9cUdckg
-	oUqHH6j2OAvGuCMYS2aQbYEr7eicwX8Dfgr8c3/ZDC02PFZL5Zcr09PM2yU2gQmpsLnEA+RrYouUQ
-	6FcIo7/A==;
+	bh=XPMg8qYY6woJwUtyf2x+IAiV5yepPU5ZWaNNfhk/IJY=; b=XDuU2L8fEfxr9gd0k+O1qUBUlk
+	TIqYa0cs6u0MpB56nvgg0mV9/4lPJmJa+mV8T1tMZEu6JPDOwsnRKXydLgYJIy8NSCD7+jjXswNlM
+	MRWia2a67gXbU/cZXocRJfx8ZXnmbXbjlc3ESah6tr8QZs/hBZzFBhLLVojBB4jLJ9euVstTXgn0v
+	GYAO/JwFcuguWZOt8F/yYIdpjlz/HMWrdIklAUy+JhwvmLXHpyOVHEImrelAbwBrhKAev2WrKzPyx
+	5F84n8xUkQof0aTuZZcLa/EjGSHpALeoniB3zyu4VYbmZjt9ijWrIm+2E/xFgJetJq35NGE7zQabO
+	FhHlw2kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp2aI-00000000GUm-1HxT;
-	Mon, 03 Mar 2025 09:59:38 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tp2dn-00000000H44-1lIz;
+	Mon, 03 Mar 2025 10:03:15 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp2YI-00000000G2E-0ejU
+	id 1tp2cD-00000000GpN-2U8u
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 09:57:35 +0000
+	Mon, 03 Mar 2025 10:01:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1740995853;
+	s=mimecast20190719; t=1740996096;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=ykua7q7gnustm8lPrA9ZG6NARq70FXycw/3eNBtt0hs=;
-	b=JzVrq0hNxNd8dxr7Qxov2MANuOLxmUKNlHetNlncRYNqG91lDrzHBkx3XjldVzWlLEvfCd
-	kA2W23epW4K5Cv83wSLJcWM5VnaNICX2gGJL3J+kyGaKRIJCTZNDU5Zco3UYgAVvL8bNGN
-	t+n99stkSkDmyu+90MI+Fq4vQGPXGoc=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=XPMg8qYY6woJwUtyf2x+IAiV5yepPU5ZWaNNfhk/IJY=;
+	b=WXCZRqyUT53/CF1fJqPmyZX86uwX4JS95QE3alHFKfCZBMx+RAxiF7Qn7fnUrpcP2WIFFE
+	acws0BTiMwH87VEkOkBFiC7B+tgfB+K/zsYpfQoSErXz0/i1ccEMThrZyC6X6F+O3IKVdb
+	DX3DEmR/YSwcGDAQUNsJlBTdVaWe0xA=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-332-tdlEV4CCMuW4WrolC4VqCQ-1; Mon, 03 Mar 2025 04:57:24 -0500
-X-MC-Unique: tdlEV4CCMuW4WrolC4VqCQ-1
-X-Mimecast-MFC-AGG-ID: tdlEV4CCMuW4WrolC4VqCQ_1740995844
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3910cd78330so199402f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 01:57:24 -0800 (PST)
+ us-mta-583-JRvtL1JVMTWRDv0mccojQg-1; Mon, 03 Mar 2025 05:01:28 -0500
+X-MC-Unique: JRvtL1JVMTWRDv0mccojQg-1
+X-Mimecast-MFC-AGG-ID: JRvtL1JVMTWRDv0mccojQg_1740996087
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-390f365274dso1032692f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 02:01:28 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740995843; x=1741600643;
+        d=1e100.net; s=20230601; t=1740996087; x=1741600887;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=ykua7q7gnustm8lPrA9ZG6NARq70FXycw/3eNBtt0hs=;
-        b=SBfatgXJBLfbI2reg/2AukuERBovHExr3eENNAvdYyiQJaHoKvU+mruNvuOI95+/5T
-         6j5wNjvD65oylwpHMBkYi2fLycKKbajfxF1rKJHSVsm1EllepwfWYDmR+lJ7Rmj/ePRt
-         E47RA7OQrwYpBH/9D0ljgwftWY7d+rrYM+NKlqJKUyDVFuL/+x8FOQ+mvHwIpf7GfdDs
-         EedKxwO8Z/IzclMheNcLNhKUcP9/AKkfzr/PXFPcH3wKYBZDWCoWA1B1aHUhipT7jKSh
-         Op4PtRltsq8gxfN8ACaerlLxUV0Q5IMC2lwTpfitP0SWn13R7OwJfc96PQb094dZJGsR
-         E8IA==
-X-Forwarded-Encrypted: i=1; AJvYcCVld+Fe6bQE16CzexzbqtiQI5ZM3G6FOO4eZp12yRq68fM8TZ0nUYPeBU9vrmkW+rYZa9pYkHhc1iyZNHRu+26/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwebxE/sC/ausozft61qsluPLIz+ZFBvaE3wCbb9lqycIenvaLb
-	jo1EXr2J5bPwEfw7GxeMuLXYJeBNRJp1NOHRHepE4075nB8lTH537NFt6Li3wS+h3vUKZ1DwfvI
-	weSCKXruesC/y+0twT6hzK1SIvLeKGEyf3Kt+gfq12um7wybpbsALzPT0SVP3ccgWoY9IGIWA
-X-Gm-Gg: ASbGncuKP6lpg7PFErfArpP9jY78AevdDUnRFkL+5eGW2+PTEU9+FPOIcxM8o2M4MjS
-	gdFkC4XTGfelhcNS971zuGmYxuRl6R6KY1UqxoqviX2sRrdth05zOfHWkjpbbFy25sP2wAaTGF+
-	XDNf5OaGNDPWTwC2i5IK4RRPTU7wp61cpOb0JZiKXEIpSMbeiv09fb3I84qKoZXfX4NKvRVlK+y
-	/Q4LdPKL/PBNnn3zorCvCc+yBY85bSkW/SZHmIcRCEWs1YK9sbp4aUyNZzRZcqUDg6eHERSUf6G
-	qOoXQLMUIuYKgCXMi+GzW4VfXNL0NAtEIkTT2mWuyeUPc0GkUOfQRTXgpoMJKfkzKzO4KmDDME6
-	LoMf/gfxm5NNomBdsug9mn/Yy+ZvNxxFqD1JOWO47Fvg=
-X-Received: by 2002:a05:6000:178b:b0:390:e7c1:59d3 with SMTP id ffacd0b85a97d-390ec7c6abamr9721383f8f.2.1740995843578;
-        Mon, 03 Mar 2025 01:57:23 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHyA1rt+UhzjYjejJGIWpt5BNfcz7BL9jMerlSYdXlUaUi7HhGoy2uwdvEypDw3lLTiKoqZLw==
-X-Received: by 2002:a05:6000:178b:b0:390:e7c1:59d3 with SMTP id ffacd0b85a97d-390ec7c6abamr9721350f8f.2.1740995843219;
-        Mon, 03 Mar 2025 01:57:23 -0800 (PST)
+        bh=XPMg8qYY6woJwUtyf2x+IAiV5yepPU5ZWaNNfhk/IJY=;
+        b=tbUoMMuD7lzcQbxw+Q8Iv0GKOXzlxVcSOj1DpuZqxK+HZong4fmjhLqDjHhny8c+ry
+         p5HYjLjvqdv8yGAY7/LdoacCFOXoI/IeyVAfHj3H0uzOPehMDjR3lqm1wicy+Q8Xgee0
+         N71gfafXizKqDoIXOSOvcRrhpobWj0Eaj1f1Jm4sa6lbBXXIbNfhVOypXVI39S41sc8j
+         ii7JTbIQSYXirnUPrNLOt1zfm5hvCSuN2SnZY5dVqAxuiU8GITR46BI367RJ6OUpm/R5
+         WY/rinJqGlLmoawU3jRNqk34waKQFQufNQhi3JOhChA7S2vP3BYSdXGmSZojo5TfRkXM
+         qnKA==
+X-Forwarded-Encrypted: i=1; AJvYcCWh53u1nl+oWgqiSCeg8upuBn30YDDKb08Qxu0w1hpCI4N9TuVycPpxRXRbB1lCXuUU1/3I6H/i+sQ1oABS27iW@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXGVm6I4ZYkz6f7JrIKclNfVHDf6MREjpVysJ5OVrYSxQTVHP8
+	dZAWkDy9N8Mf06qtvzB6uVpuyakIncOzPywf1Sg11YaGDeW5nF3O/KWJ9NQE8dShQbcqR8Hcmq6
+	3PJpUsiZ+KRAf5d/1kXnbCC+J/DjYX1bxoXI6OVJc3l2l9KNmInHFN85mdkLGEZkE0bAnZxnY
+X-Gm-Gg: ASbGncubgPXOOBRfXW4cTh+KdnE37bufIhCTSsaa1X+vtkqYn2nLcJN/cuBFIoMgwgM
+	RTpV6gAB5vKaTyQ8vqBbZNdIGbcMtJjRMilFbxb9H3RbcJ8wpqXxXUBakY8gAUd1QEj/yGugg9j
+	hYh34F8b5a9KVygnK5yRbi5TjdZG0PgQ8kiChipeoBqbF/gkPMy5NMCO2lsGypfkn1zUbYnWhd1
+	y+7cbtrJ4AKnYxznipol+AdhgWj0V1xgI43r2Y7pVb862fLtzjSVU2437xUT4iMw/nobdYZOJKa
+	jgODwY/7euWwVHH1oG+ELySisfsDs/EWN1cC6V4d7UkdMm4q0UALYjDS7csjFr5hYOlRdZMmdJ1
+	HDtrAsLUXqmv/dR51RnEoqFfFpWNXhMk+O7N2NxRkcJw=
+X-Received: by 2002:a5d:59a2:0:b0:390:ff84:532b with SMTP id ffacd0b85a97d-390ff845589mr3552475f8f.7.1740996087029;
+        Mon, 03 Mar 2025 02:01:27 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGXZqIa1M7mGR2dYNXiAZ4lWYbl7hOIdDdeUw6ofOE6vBxI8shgA38Lt8+iwmpijQWMi3sT/g==
+X-Received: by 2002:a5d:59a2:0:b0:390:ff84:532b with SMTP id ffacd0b85a97d-390ff845589mr3552443f8f.7.1740996086689;
+        Mon, 03 Mar 2025 02:01:26 -0800 (PST)
 Received: from ?IPV6:2003:cb:c734:9600:af27:4326:a216:2bfb? (p200300cbc7349600af274326a2162bfb.dip0.t-ipconnect.de. [2003:cb:c734:9600:af27:4326:a216:2bfb])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e4795da5sm14193732f8f.15.2025.03.03.01.57.21
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43b737043aasm152241565e9.14.2025.03.03.02.01.24
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Mar 2025 01:57:22 -0800 (PST)
-Message-ID: <7e987f17-ffcb-45e0-8588-2d569d90f776@redhat.com>
-Date: Mon, 3 Mar 2025 10:57:21 +0100
+        Mon, 03 Mar 2025 02:01:25 -0800 (PST)
+Message-ID: <78d55e35-6cda-4f5e-8e52-0a54b1e64592@redhat.com>
+Date: Mon, 3 Mar 2025 11:01:24 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] arm64/mm: Elide tlbi in contpte_convert() under
- BBML2
-To: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>
-Cc: ryan.roberts@arm.com, suzuki.poulose@arm.com,
- yang@os.amperecomputing.com, catalin.marinas@arm.com, will@kernel.org,
- joro@8bytes.org, jean-philippe@linaro.org, mark.rutland@arm.com,
- joey.gouly@arm.com, oliver.upton@linux.dev, james.morse@arm.com,
- broonie@kernel.org, maz@kernel.org, akpm@linux-foundation.org, jgg@ziepe.ca,
- nicolinc@nvidia.com, mshavit@google.com, jsnitsel@redhat.com,
- smostafa@google.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, iommu@lists.linux.dev
-References: <20250228182403.6269-2-miko.lenczewski@arm.com>
- <20250228182403.6269-5-miko.lenczewski@arm.com>
- <f270bb5d-aa54-45d3-89ed-2b757ab3a4b0@redhat.com>
- <20250303094947.GB13345@e133081.arm.com>
+Subject: Re: [PATCH v8] arm64: mm: Populate vmemmap at the page level if not
+ section aligned
+To: Zhenhua Huang <quic_zhenhuah@quicinc.com>, anshuman.khandual@arm.com,
+ catalin.marinas@arm.com
+Cc: will@kernel.org, ardb@kernel.org, ryan.roberts@arm.com,
+ mark.rutland@arm.com, joey.gouly@arm.com, dave.hansen@linux.intel.com,
+ akpm@linux-foundation.org, chenfeiyang@loongson.cn, chenhuacai@kernel.org,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, quic_tingweiz@quicinc.com,
+ stable@vger.kernel.org
+References: <20250219084001.1272445-1-quic_zhenhuah@quicinc.com>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -142,16 +138,16 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <20250303094947.GB13345@e133081.arm.com>
+In-Reply-To: <20250219084001.1272445-1-quic_zhenhuah@quicinc.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 8Lc_-dsCJ-aMH-Jh36A_zqAGXULQ3GeF0trzYsQCtl8_1740995844
+X-Mimecast-MFC-PROC-ID: W499eNm18C1NvyNih87GGIwXoHB3kLcJcD3BZvDWdZM_1740996087
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_015734_271706_A6C2A63B 
-X-CRM114-Status: GOOD (  26.16  )
+X-CRM114-CacheID: sfid-20250303_020137_721456_5459F8EA 
+X-CRM114-Status: GOOD (  24.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,65 +162,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03.03.25 10:49, Mikołaj Lenczewski wrote:
-> Hi David,
+On 19.02.25 09:40, Zhenhua Huang wrote:
+> On the arm64 platform with 4K base page config, SECTION_SIZE_BITS is set
+> to 27, making one section 128M. The related page struct which vmemmap
+> points to is 2M then.
+> Commit c1cc1552616d ("arm64: MMU initialisation") optimizes the
+> vmemmap to populate at the PMD section level which was suitable
+> initially since hot plug granule is always one section(128M). However,
+> commit ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
+> introduced a 2M(SUBSECTION_SIZE) hot plug granule, which disrupted the
+> existing arm64 assumptions.
 > 
-> Thanks for taking the time to review.
+> The first problem is that if start or end is not aligned to a section
+> boundary, such as when a subsection is hot added, populating the entire
+> section is wasteful.
 > 
-> On Mon, Mar 03, 2025 at 10:17:12AM +0100, David Hildenbrand wrote:
->> On 28.02.25 19:24, Mikołaj Lenczewski wrote:
->>> If we support bbml2 without conflict aborts, we can avoid the final
->>> flush and have hardware manage the tlb entries for us. Avoiding flushes
->>> is a win.
->>>
->>> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
->>> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
->>> ---
->>>    arch/arm64/mm/contpte.c | 3 ---
->>>    1 file changed, 3 deletions(-)
->>>
->>> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
->>> index 145530f706a9..77ed03b30b72 100644
->>> --- a/arch/arm64/mm/contpte.c
->>> +++ b/arch/arm64/mm/contpte.c
->>> @@ -72,9 +72,6 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
->>>    		__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
->>>    	__set_ptes(mm, start_addr, start_ptep, pte, CONT_PTES);
->>> -
->>> -	if (system_supports_bbml2_noabort())
->>> -		__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
->>>    }
->>>    void __contpte_try_fold(struct mm_struct *mm, unsigned long addr,
->>
->> What's the point of not squashing this into #2? :)
->>
->> If this split was requested during earlier review, at least seeing patch #2
->> on its own confused me.
+> The next problem is if we hotplug something that spans part of 128 MiB
+> section (subsections, let's call it memblock1), and then hotplug something
+> that spans another part of a 128 MiB section(subsections, let's call it
+> memblock2), and subsequently unplug memblock1, vmemmap_free() will clear
+> the entire PMD entry which also supports memblock2 even though memblock2
+> is still active.
 > 
-> This split is a holdover from an earlier patchset, where it was still
-> unknown whether the removal of the second flush was permitted with
-> BBML2. Partly this was due to us being worried about conflict aborts
-> after the removal, and partly this was because the "delay" is a separate
-> optimisation that we could apply even if it turned out the final patch
-> was not architecturally sound.
+> Assuming hotplug/unplug sizes are guaranteed to be symmetric. Do the
+> fix similar to x86-64: populate to pages levels if start/end is not aligned
+> with section boundary.
 > 
-> Now that we do not handle conflict aborts (preferring only systems that
-> handle BBML2 without ever raising aborts), the first issue is not a
-> problem. The reasoning behind the second patch is also a little bit
-> outdated, but I can see the logical split between a tlbi reorder, and
-> the removal of the tlbi. If this is truly redundant though, I would be
-> happy to squash the two into a single patch.
+> Cc: <stable@vger.kernel.org> # v5.4+
+> Fixes: ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
+> Signed-off-by: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+> ---
+> Hi Catalin and David,
+> Following our latest discussion, I've updated the patch for your review.
+> I also removed Catalin's review tag since I've made significant modifications.
+>   arch/arm64/mm/mmu.c | 5 ++++-
+>   1 file changed, 4 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index b4df5bc5b1b8..de05ccf47f21 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -1177,8 +1177,11 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+>   		struct vmem_altmap *altmap)
+>   {
+>   	WARN_ON((start < VMEMMAP_START) || (end > VMEMMAP_END));
+> +	/* [start, end] should be within one section */
+> +	WARN_ON(end - start > PAGES_PER_SECTION * sizeof(struct page));
+>   
+> -	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES))
+> +	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) ||
+> +		(end - start < PAGES_PER_SECTION * sizeof(struct page)))
 
-Thanks for the information.
+Indentation should be
 
-Does patch #2 (reordering the tlbi) have any benefit on its own? I read 
-"other threads will not see an invalid pagetable entry", but I am not 
-sure that is correct. A concurrent HW page table walker would still find 
-the invalid PTE? It's just a matter of TLB state.
+	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) ||
+	    (end - start < PAGES_PER_SECTION * sizeof(struct page)))
 
-If there is no benefit in having patch #2 independently, I'd just squash 
-them. Reordering to then remove is more complicated than just removing 
-it IMHO.
+
+Acked-by: David Hildenbrand <david@redhat.com>
+
+
+Thanks!
 
 -- 
 Cheers,
