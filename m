@@ -4,88 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28BA1C282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 14:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8040CC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 14:24:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Evb90FKrgPWzLV5Du6tP4VGKeYOTKgFcIlyLIolITHs=; b=c61uZdALDLuyYpX6sEaZrXNr2Y
-	Qoj0BJTAchtZo0/xat3Mh+IPQfi1uBvvbVh4O3IKZyQU7AkA3JQe4gw3FySm49lrD1QIHLiY3jDVx
-	Fm7G7HLXK4q+VQZVvBBlbpIt2HG1dB+J0rL0JKO05hrRuAnPLTcW0z0gnLPejZfOCuZ4URQV1Q+MD
-	CQKpGMIhxVXS/zTYRu4TTI712XucG9MTV/b2HsjZtUJ4qllU0aUWcolCZ2tV58LpAirS+e0YnIl/N
-	sGG2UPK51v6cCVGFpHmSaaAj91Wf+Uf+WNp8jR+9jHaHrXyDZGZTfPKDTckFq+KtBGYayYfhTVPSd
-	IdalGI+A==;
+	bh=8k28ohh0BPSZHJHOBtNIM4qll2UGyVczMLoUtKSqo1k=; b=S6TQc17n2GE0aU97ddaNnBHJms
+	+KIOMGBoGguBHfg1taOM/ZIPDFBVMFUqp02OC2xwQTwC6EYpc/SBC+iw2qZDYe+VFrwESaCS1IcGS
+	xVGRMUI6N1u1V4T0dSLL4FoUN33losQfeGrwgXXDOn5x2X1itknF2LZxWbz2TExY9oBxd2wALnqJD
+	KcahD2PfNhmmcoUOKUrDaDNZqZJkboKUyBEEMimffmHqKvzdM/Q/Ggcb9RMz+WBP/iNbX577Crife
+	A2B41IlLJFlgRTFXzhfCNwR5lWfuNGHIi3JrbPVy+fOMT3ixrGkz8sHhBMBpCbMuSp79yV6vMC2QM
+	4MbouVvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp6h6-000000015Y3-0ljG;
-	Mon, 03 Mar 2025 14:22:56 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1tp6id-000000015qv-3UwN;
+	Mon, 03 Mar 2025 14:24:31 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp6OO-0000000113N-0ezF
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 14:03:39 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43995b907cfso28349305e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 06:03:35 -0800 (PST)
+	id 1tp6P0-000000011AT-2fzW;
+	Mon, 03 Mar 2025 14:04:15 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-439a1e8ba83so42607795e9.3;
+        Mon, 03 Mar 2025 06:04:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1741010614; x=1741615414; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Evb90FKrgPWzLV5Du6tP4VGKeYOTKgFcIlyLIolITHs=;
-        b=A8LtqzHGR5Wx8tSOoCF8AUENN24/8RrlzextAVylUa+Siisjvidhe/9hjUvCLMhnr6
-         gGwH8Ku3KNEnm4ldNutcVpSVcvtEV2YVJ5ukqaIakrZONV/vvi3I6bNLJ/KIsExMY7vL
-         vwfuhygFZS1SCJQMbA8PlmwZOId0uR2+u6tv0cfJ0jkeli8QEvzzuf5nRxCCR/d3zByz
-         8gDZRq2QvGrFSAfu7l6+50AhIZJ1r8vTzpklkUYd3A8O5K5AWO1DwM/g3fnV1W4dGa4n
-         MBarLHutU4D2FNtF7pcyoTp013D7vtxg93NKmM5jFDp1Qr0L0CxSn+S20JL/TGwS27WZ
-         Yuiw==
+        d=gmail.com; s=20230601; t=1741010652; x=1741615452; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=8k28ohh0BPSZHJHOBtNIM4qll2UGyVczMLoUtKSqo1k=;
+        b=ceFU5/tdG7M4EAh7yV7Q5i9jLF6x2WThoyKhUvTb8R+p5BcFn1usIYYEBRh87WC7/j
+         3fkColp8wWZg11wOjX9GjVqHumdbegJr94vbJpZmRbNJtDT46GPIxXubFG+qIaQCt3qH
+         627XUd8Xhyazq4VvJbOCJYOvGXPui/hzIHFRTNN91nKmLIfS/xFLpEwXrhZng6FZS6WR
+         oQoEZ6fnBOrDfhllbD+7JAx3L2/8LOPGL7qF13cC3K+qblgJzy6tRA6iOfloZh9Edpks
+         Q8XJqUgzDvSPAi+BASbLCOwbhssTFEeSl4TN4LNx6etS2l5X1das0+d3WmqgGZDhXdSz
+         8B0A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741010614; x=1741615414;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Evb90FKrgPWzLV5Du6tP4VGKeYOTKgFcIlyLIolITHs=;
-        b=vFNJhRmUsBkuuLh2EQDywnXRXiDRhVcy9aU301SyCs1HZXo64nYCv3ZPbgKiI6njXv
-         sdGmvvFAuZR8UEFrk1dNe8Y1YwJms++6YUS2iIidACL/N+/18sf1/a0qMiOHCwJW64iM
-         7TAZjitPUkTKw5DCchL1EbyFkC2CtH6zZpXpar52yd8lI37O024KYqr6PJWL1mWSJfxV
-         gEQ8Rfe8LmRTl3hdpGZsGei3lru0ydgALV9nOrM/GOG+QjzRNheM+grGID1xFPh9JK6G
-         VDRmS7UdAGwzgXB65guxZW+vTgaKK5f5kmpquRSs79e8KrD+yY32MAXyOAjcapmhEwkX
-         bW7w==
-X-Forwarded-Encrypted: i=1; AJvYcCW9CpQWxaXef8ITeHq1Vk/Pb9bMoehmLN4Jw1fZNalY8b+7xcNIyp/tNUROTo9dF9uVHLurjfGgmQlMM59y5Hfr@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRo+udlpFrSsYGZpJC4f7n/W3weH7SiRloxuiBsvXdb9c2vx1J
-	h1MhxqPPst2X75CPy9nXDd6lCDLlC3pLdkNUrZAUHbnTe9shzPEPL2gzprl1i7o=
-X-Gm-Gg: ASbGncsN6QEwuZMgI+0rqO+Gwz76GuBXJ/YM4XyrIKKErvAwFdpWGhReF2RXXxc8ca/
-	qILJGcI1Z/wcRGVAIlcP9zcRTJLfsaRBLL4df+nhddv8H2f5iGjaEzzjHi2vV4pPk2TTPW3aDEW
-	O6RgaHiuy4nRvCpQDXJtr4g112dll0CupSVietUxVElDoJiVO6RG6xhC6PZAeHQacOCQpWnp0Ys
-	Osg2Ft+u/NPzWOTOpixhThfPQdlanqyCy1eH1exRQ77fEPypGyr5VKMXs2dR3niKWKNzrWQv/MU
-	A92tXs+N5nJaTwWHcaimyEI4KTQIzkz3YIy0IL8PjWfubXWD9NSmkvPwxjL8y7fvokUM95/q9Et
-	ILUPLgVbnhsWfZbdpQI98rSObcQ==
-X-Google-Smtp-Source: AGHT+IH+p7ThXgxbHvbT9aEZalC898OCXp/uZvsSO+RyrFtvjYhk8Dx7PziT3Aqfwo54nFZzgv1HgA==
-X-Received: by 2002:a05:600c:3505:b0:43a:b8eb:9e5f with SMTP id 5b1f17b1804b1-43ba66d588bmr103036975e9.3.1741010612945;
-        Mon, 03 Mar 2025 06:03:32 -0800 (PST)
-Received: from localhost (amontpellier-556-1-148-206.w109-210.abo.wanadoo.fr. [109.210.4.206])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bc48fc886sm26543925e9.4.2025.03.03.06.03.31
+        d=1e100.net; s=20230601; t=1741010652; x=1741615452;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8k28ohh0BPSZHJHOBtNIM4qll2UGyVczMLoUtKSqo1k=;
+        b=iPk0t3/xeC02pq8NeuhrpDw3xUB9BkbcIMb5fzoI7n8hFeL5QEtamTboMOAQdJFjuk
+         K6EJKPi+XKFSFT+MjlFKLDQWjf6+wf8noAt8k5YZ2zm5zYjcOjd8RsQaSdt+ZL4TTPy6
+         vdiHbvbbNFr60uKKYR0/th37gabwSJydCkF3W096WSSmxqhKOghNn9jBAIeBf/KwTplg
+         HjCknckNX6jWL2HzqqYk2YNlvTmH9Ade9pzP1Pib6FBhyNK0G6s0Tq05w4+VI+qEJPR8
+         oZQ6Ue+1Nc5QKiDVGbU1f31LEuxginvT+pTGWSzzMrrYf0swDzwzQ7iCMe0N/mUua1i9
+         TfeA==
+X-Forwarded-Encrypted: i=1; AJvYcCXOn5Xqzie4YyNx1NkC069fldFhb2Pdct9csH/Qff2lhU1FZ8Qnre/R2f75aDl1j5o4G/FOrTagCQca9F/3zK7sQg==@lists.infradead.org, AJvYcCXmnD4p3e80b+tBxmmoIuiSLp9/tWwc4EgT+dhjWET3uRMJMUR9bD2eurm+HKJzy+JyxxW+0rXiPCnw0bRP@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQageBjZZy1Rr8JIDrWjbjHOY6AQ0m6QCrkG0KcVT1RBR/QbgF
+	+L5QuelATN/g7ShONsuHGq5CTVv9owv5vJ6ZmJAGv0Olu5kHksR1
+X-Gm-Gg: ASbGncuNjyWNhvpcPo412KWWRhzhA+InjMGvRn2s9LnrU/2j7Zn+mApT+QymIinSkjl
+	kaiH/W/0W2c2wRoQ+T3f8/PpORP9IVPm1GQzKFajeTwsrcRpj/MWyOETFGghbrhkS1p101AmMaH
+	V6c8HkFKM6PpOGQtnXk7UCmWBXBE1whXrdiAgTqsQinOdcvazc5GJya+JnLt7hHaavolTUW8dOm
+	/doPaujsoGKWNqqC0TwrxbIqRvV8L657wlJhs/aoKgsnUDQEs74hZcT7apiu6au6o3vI35mcfT3
+	Xo6y92WSKXk37EdEWjLWFn9zQUbWA9Y4KfSpG+cZDxAfAovoPHMnhERA3RLxlxitxFDeVVHjFbP
+	F8Bs=
+X-Google-Smtp-Source: AGHT+IHvcHXOSeKhHWMUt2xXWhTV53mo6yshUFDelmHEDhBHpCQfhR1rFavwoCbMnPzni4lL0cMigA==
+X-Received: by 2002:a05:6000:1f8c:b0:38d:e48b:1783 with SMTP id ffacd0b85a97d-390eca27761mr8649282f8f.42.1741010652096;
+        Mon, 03 Mar 2025 06:04:12 -0800 (PST)
+Received: from ubuntu2204 (207-pool1.nat.godollo.uni-mate.hu. [192.188.242.207])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e47960b6sm14936073f8f.17.2025.03.03.06.04.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Mar 2025 06:03:32 -0800 (PST)
-Date: Mon, 3 Mar 2025 15:03:29 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Dinh Nguyen <dinguyen@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 0/2] ARM: dts: socfpga: Add basic support for
- Terrasic's de10-nano
-Message-ID: <xqe3grxdj62u6ixl5cdzcgzjo6swe64kegzjx4qabkfbkohlb5@rwu6rrh5lkzm>
-References: <cover.1738600838.git.u.kleine-koenig@baylibre.com>
+        Mon, 03 Mar 2025 06:04:11 -0800 (PST)
+Date: Mon, 3 Mar 2025 15:04:09 +0100
+From: =?utf-8?B?VMOzdGggSsOhbm9z?= <gomba007@gmail.com>
+To: =?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>
+Cc: Chanwoo Choi <cw00.choi@samsung.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+	Hans Ulli Kroll <ulli.kroll@googlemail.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	Dianlong Li <long17.cool@163.com>, linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH 13/18] rtc: sd2405al: drop needless struct sd2405al::rtc
+ member
+Message-ID: <2gfjdazu2ohv4evd7iuk2dzexlydnd6yu3xmjk2lgsx3iws5sa@xdwf4df4ojck>
+References: <20250228-rtc-cleanups-v1-0-b44cec078481@linaro.org>
+ <20250228-rtc-cleanups-v1-13-b44cec078481@linaro.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="747pyp5fjw7bmyol"
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <cover.1738600838.git.u.kleine-koenig@baylibre.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250228-rtc-cleanups-v1-13-b44cec078481@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_060336_385681_33209DED 
-X-CRM114-Status: GOOD (  17.72  )
+X-CRM114-CacheID: sfid-20250303_060414_673473_E6AB5B4B 
+X-CRM114-Status: UNSURE (   6.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,49 +108,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi!
 
---747pyp5fjw7bmyol
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 0/2] ARM: dts: socfpga: Add basic support for
- Terrasic's de10-nano
-MIME-Version: 1.0
+> We can drop it from the structure and just use a local temporary
+> variable, reducing runtime memory consumption by a few bytes.
 
-Hello Dinh,
+It works on real hardware.
 
-On Mon, Feb 03, 2025 at 05:46:35PM +0100, Uwe Kleine-K=F6nig wrote:
-> The only change since v2
-> (https://lore.kernel.org/linux-arm-kernel/20250130074553.92023-2-u.kleine=
--koenig@baylibre.com):
-> is that I added patch 1/2 that is supposed to fix the warning that I
-> failed to notice with the testing I did. Thanks to Krzysztof and Rob for
-> their patience with me. I hope I got it right now.
+Tested-by: Tóth János <gomba007@gmail.com>
 
-I didn't hear anything from your side on this patch set and I don't see
-it applied in next. Do you still have it on your radar?
+Regards,
+TJ
 
-If you prefer me dropping the reg property on the fpga node, please
-tell me. Otherwise you dropping it on application is fine for me and
-keeping it is fine for the dt people, too.
-
-Best regards
-Uwe
-
---747pyp5fjw7bmyol
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmfFtq4ACgkQj4D7WH0S
-/k6dEAf/YqUHjcoJ4EMUtHBrWkZ2SOE8Hhtl8/9eJmOAuWiftC/qMfMXKzqOPIN0
-xTSnSCGP9Iuy5lGeSpdtNtzXMtvPQOmQxwSG41/5jRXG3Y2VR11i+OShfvskEd4m
-Pg8Pz8eUP0ZbzTzWXy4Vnmff8foS0a+FrF547HrZT63OEfH5+Ghj10tRX83zYKww
-Y5jZJStU0Yu1/1tpiBr40HCNT/KxVFxJd5mIcPX+ZIoJx3sQU9G4XRU1hG8u32Ab
-Du1tUwz9HJpcjIkgSp43kR0rFMnZ84JrX2E7gGjykaC7urgTI0lU5+wby0gzNdCu
-OuFHTdFjt+y6ax30NbrRxcKar1TxlQ==
-=6e6Z
------END PGP SIGNATURE-----
-
---747pyp5fjw7bmyol--
 
