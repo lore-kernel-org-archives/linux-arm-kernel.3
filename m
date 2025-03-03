@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98495C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 20:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50916C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 20:24:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vQhsG9cL8t6XLRwybgTrsHxaRynMsLOxVdLp6vkX61M=; b=AJ9wuyDGl9eeFPyNOOvbI5vf3d
-	kVb80kGOHhqSMqlkJsMEoBNlx/AihQsjzF2SVzBG5SR5KttDp1mCIGevff/nmR/0LcwyYUgENLv84
-	iNuvuPLG+6tQFDOuWjKN6hzjCb+kLfSu2/qR+iFrsuUrcpcA1lKDtQeseM+hdpXTBySF/pw6ulVCB
-	N9YrC3pJV0hIOwcPd220HiQIeGzHhWZHnCWRtQQ5sMkK05BsjcBHhkNceVC6M/Y8btUDA8RplHxmZ
-	HtJWVt2Xa4Th7IHHZpXu1hUO/oDD2GwzRca8rHPDVAihVf+Oml/7ZmJOCrTtDeEs3EcgsCySsVDCo
-	5gxu35Ig==;
+	bh=tvKkt8IW0AOI1rKL+pyhxjNZjLfY2G93iwn07bnCOCE=; b=op06VHc0yAoym37MorOlHdV2Ai
+	fd2uwVKUJApSxsbIx8cHSBQyahF8/p4CLF45lqyAXQaNHzX0I3HK/2v+wtNHujtawlnrYoTiI4r7W
+	+fQ3ygQE7q1NS50Sl2+65GI0TjkPm/QwK2uv+Jwf0hzzk7EBdRTvdqQ6Zhn9w9Y8TQ2d9fX1JFmy0
+	vWfrJn78ld+gzW/wCKbXku5oyBKyUOB6B6B9erAbgHzc7/KtPChiFGBcMOKrb9j7n4a4yZcc8rk8Y
+	xAOd6TQ+L+VbXfC8keRoe4NnItrnCk3/AsollQVMBH2f6INIxjlKPCeou29foYh1kixZIxTBg0TG3
+	eiBWqEPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpCJk-00000002ByL-2OXM;
-	Mon, 03 Mar 2025 20:23:12 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1tpCLI-00000002CD9-2F4A;
+	Mon, 03 Mar 2025 20:24:48 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpCDY-00000002Avj-3S3d;
-	Mon, 03 Mar 2025 20:16:49 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4393dc02b78so31254595e9.3;
-        Mon, 03 Mar 2025 12:16:48 -0800 (PST)
+	id 1tpCEO-00000002B2I-3B6y;
+	Mon, 03 Mar 2025 20:17:41 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-390dd35c78dso3182741f8f.1;
+        Mon, 03 Mar 2025 12:17:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741033007; x=1741637807; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1741033059; x=1741637859; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :references:cc:to:from:subject:user-agent:mime-version:date
          :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=vQhsG9cL8t6XLRwybgTrsHxaRynMsLOxVdLp6vkX61M=;
-        b=gvbGG6Ci3UdD+kV8DHscnlcHazsensIVK/+hLbTsbSzAhd0ZsjoBZQg3abvd+aDBP+
-         RitlqRdooVOuCK4/eCtutYmFUdXAAb1LHn725N6t8GBf44Cg+98p150ahWNCvlCPWVMj
-         f8w3Uw9+ZViHb533L8yUVtwAei744ZRdQ2mGRIfScjVapYk6hn6u0LwhvBaaMRXBwHDE
-         D618jQwgYhB5m0Yi9My0Br50GEf3DaYdxbxZCHP0gC8vyhpM+xU4tQpD7KFI9cCyR4Ba
-         fzGEXWwM+UXjEvak7TNG8XuPAGRuLB7RifknVOSBFLgj0lCs3O85VkNN9kmK7suIvrOc
-         u7oA==
+        bh=tvKkt8IW0AOI1rKL+pyhxjNZjLfY2G93iwn07bnCOCE=;
+        b=RlWU4Oa/y937lbjmpQvC04om/R5/hM8w0nOk/Yy1DzsJBW49SHBJLtm3G9Dxq9Sqmy
+         KyaJJO7K0FPqnooadTuPdvKLxSnF4dVY9ruW93VF3VB0LIWDpCw2uzJaAmVKj5HPTolN
+         LxpNUt1bTY1jSLNKen1sFbI54h5LFjbEMvvgd15gd5LgfBVJmaW+lHIQhv8MAbGtkK53
+         DqeECqKZ95DxPk75J+srBX5HH41OiAO75YySUshbvOrB9+owGIfygomduYRYqv5a11yd
+         y1K1F9l2Il6VzQzXEBMWBn4EgVW56bRkN5k1FbLj7kj1uFst6Yx1DJehviLFXv8QPbiO
+         Wgkw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741033007; x=1741637807;
+        d=1e100.net; s=20230601; t=1741033059; x=1741637859;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :references:cc:to:from:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=vQhsG9cL8t6XLRwybgTrsHxaRynMsLOxVdLp6vkX61M=;
-        b=Al1m3EUmk3KKrptphKHM7bqNp29lofBsgTBDpTCDCz07RCVrJsOyWDWNsTkOfDLC9L
-         ej+t8/aZP4tE4KEBHC0zRGhi0VdLu4ezjA1SDAD/jHeWFDZ0KXGxonakQwBjt9tdwqX0
-         O1Goq5yNaCRmZSZrm2MOPv0/j17vJQEVX2C7xSnr4loe54NY6yGcgzIuUwLfcipl4xjB
-         4BnggViQ6szCH3cwa46TgZMK2hJUSzEcpQuLw3YBQrMgCVxB2XRTqBMitbWsqj50Djaq
-         z6w1MbWoICOmSrY4a3HC0Gn81jpc21U5JNZNASFhC0SogCQS+B/QeEPSizXhzoxPIIwt
-         REzw==
-X-Forwarded-Encrypted: i=1; AJvYcCXJiFNzgC15McRABp6DLRZyC8vg3fb8JXqRiepY8mfBgtjL69eBGJB8Y/0HZsB55wAflQ38wnj8f/op8k7k8t4=@lists.infradead.org, AJvYcCXPsVHtm+TmHi5oOcNhCkQoZLx5GYDDj/7YC5GMhXOuqzIK75hQRiggWbnRMrjfhnwJyqVbO03s6fel9IPvhpxK@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfiNK30vrVKJLKVmsKwkUm1h/NJW6uCLTd/wjRRrfjEXYO3B0o
-	Dv08c/P+gKMbiuLM9Qvarh3Xvg0TtFMexHrVQySJU5j2F25NGm0P
-X-Gm-Gg: ASbGnctia1O0kE9xr5FUTyKzRZLus1M8326r0Dqh/+rfUqvg/yIgbkMP1ugjpL3lCLy
-	B3deM+sMMAD0+u/b1eSUuUic9CewP6HPKxOhQJhJ986dg+tz4WvM5aJSaRGBWMiD4wFsXCLMCL4
-	LYrry1VvDTBkyNl4rEL4IjvVWk/oR3weOV5EbwRM8EiYZBL55Wtt5kuKmVmFpVP/98VJeR6KXaB
-	+H+P7nF7SNFOs5QeSzkSc5JePkf2iFScqN7jadn+dEKhKkOQ6XauRSX+3o+utp0BCv9oghUS0Se
-	2k7VzUJKJXYC2UsiWp7mTGaQLz4+/E9KgZpq1nHv7PJXb1QXSbnyveF83wePIzq9M8NF4xAoYPG
-	mu9j46xqLjQO6de2hf0wCfozLv01pJkO4VO+VuLmsaH18skwZffkhoOlGTW3ySr+wFF+tvBMhKd
-	HI18hctsTPsBHL9c0Gopn+EOTV0udmac8Pd4Or
-X-Google-Smtp-Source: AGHT+IE6K5QuPL0CYDavUECDApY4RUDAY7s25l+mTuSsN7chkj2mJAKPLCyG8n2b4/sGMgLXiSRYSQ==
-X-Received: by 2002:a05:600c:1caa:b0:43b:c390:b77f with SMTP id 5b1f17b1804b1-43bc390b9ebmr29766695e9.26.1741033006923;
-        Mon, 03 Mar 2025 12:16:46 -0800 (PST)
+        bh=tvKkt8IW0AOI1rKL+pyhxjNZjLfY2G93iwn07bnCOCE=;
+        b=J0dmchQFTEPBm1FWwc4f4ABHsBi57R3AnSEqJwPwEV6SeF7FJmpu9cvCoX1Gbwd9iw
+         xQPVMUn0dOA4zy3XAws0SYYbKn0y732LdQY8hhqK9GiKsRU5GVGvgVU9/mD1RVSPveUq
+         ydppbKXBbU0Kw+DNUs7zih1hBHjUZJDCgkqn79mtKGVGeLx7gdhtXh86GzGekReM4Pza
+         fdDkN89wbGGiF3tvDTcT2872rHBxdZjTDdR+BnKPV4YP56X2jQ50iPGgK3RbiifRhsXJ
+         emSEicLWiAg9pUAL+tJm/Iw1Qml41gcNsKPWYSELikBqRTldHFv/X9ZUj3+huoWizJ3G
+         55nQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV4G3cczMwtfTFFg9Cc/ihMkjfDVXLpD1ewXIftrSA/UrdTT7KFWfMKImc/G2g2deCP2mjz/oiRzS2904vC8Dg=@lists.infradead.org, AJvYcCVT28XxVbvYsk19DjTquyP7MlYSSEdN1ozTdVtWdDD9DCF4LVflAm4VYiVPQcOHxgaY3gVW7euZpSLVx5bwE6hX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0Z7b+iqD6AhOrgAf7DLnjZe6HVHym42QRNHH1vgx08TJOHzTn
+	pG4I1yKuw3loXWpHAHpTtGXZXQmJSsUS62f1f2jPDbLEoRb7Qw0x
+X-Gm-Gg: ASbGncuXUbEt8c3axG7JngfX+DU2Cq+62c5OO5uNZiKwGigsR0n3X1x8nugUOTbcPnB
+	Cg+hGOTgQNTOwNDrfl7qwF13MWFeIcPbz/Iad062O0Rj9rOiWAaqp8wIhRjVv+7iKSzZY8Ze0GU
+	zWg+90/0enlW19Fz2EtLpi1XxRzMQXbkzkwat5vs4mBF8fjYN5Z/0RlO8S/HTyx5moSiU/6tTZk
+	WjIUla0zsvlMdR5il3dckBy5FK3KSelPXguoJ6dOzHsoqSUEwizPrpTQr8mFQPajSBYt9UHiThr
+	HaKXSYroe0o91xaCjB7/TFlGSsnMrguRVLkAKkInYWD0C0LydmJz91lsU0uWl0UJF1oNFDaYtse
+	2d5fgjj1/uSQ2oMeQyvywNStolbzYnmg/gnZMQaYdP/B2vhpWS6DeWvpndlNo+9g0Vfx5DsGKPi
+	XD8LpdqxckLfhemy1yyPj1qOpvt0Ync7XB9htQ
+X-Google-Smtp-Source: AGHT+IHhzVtdwbiG46c1/MnPMyZscLTCC1pfbhJKEc28z9j8UG/oT7SQdd4CSbQW7E09jyqHe78kIg==
+X-Received: by 2002:a05:6000:154e:b0:390:fe2d:3172 with SMTP id ffacd0b85a97d-391155fa457mr463436f8f.3.1741033058993;
+        Mon, 03 Mar 2025 12:17:38 -0800 (PST)
 Received: from ?IPV6:2a02:3100:af60:7000:f08c:4f29:ab35:752a? (dynamic-2a02-3100-af60-7000-f08c-4f29-ab35-752a.310.pool.telefonica.de. [2a02:3100:af60:7000:f08c:4f29:ab35:752a])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43bbed8b26asm61412155e9.22.2025.03.03.12.16.45
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-390e47b7c43sm15146539f8f.49.2025.03.03.12.17.37
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Mar 2025 12:16:46 -0800 (PST)
-Message-ID: <61ee43ec-be20-4be1-bfad-d18d2a4fae2b@gmail.com>
-Date: Mon, 3 Mar 2025 21:17:54 +0100
+        Mon, 03 Mar 2025 12:17:38 -0800 (PST)
+Message-ID: <a4518379-7a5d-45f3-831c-b7fde6512c65@gmail.com>
+Date: Mon, 3 Mar 2025 21:18:46 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: [PATCH net-next v3 6/8] net: phy: mscc: use new phy_package_shared
- getters
+Subject: [PATCH net-next v3 7/8] net: phy: move PHY package related code from
+ phy.h to phy_package.c
 From: Heiner Kallweit <hkallweit1@gmail.com>
 To: Andrew Lunn <andrew@lunn.ch>,
  Russell King - ARM Linux <linux@armlinux.org.uk>,
@@ -141,8 +141,8 @@ In-Reply-To: <5c5e60b3-0378-4960-8cf0-07ce0e219c68@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_121648_861503_F884C130 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20250303_121740_805890_696CD057 
+X-CRM114-Status: GOOD (  16.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,65 +157,277 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the new getters for members of struct phy_package_shared.
+Move PHY package related inline functions from phy.h to phy_package.c.
+While doing so remove locked versions phy_package_read() and
+phy_package_write() which have no user.
 
 Signed-off-by: Heiner Kallweit <hkallweit1@gmail.com>
 ---
- drivers/net/phy/mscc/mscc_ptp.c | 14 ++++++++------
- 1 file changed, 8 insertions(+), 6 deletions(-)
+ drivers/net/phy/bcm54140.c        |  1 +
+ drivers/net/phy/mscc/mscc_main.c  |  2 +
+ drivers/net/phy/phy-core.c        |  1 +
+ drivers/net/phy/phy_package.c     | 61 ++++++++++++++++++++++
+ drivers/net/phy/phylib-internal.h |  2 +
+ drivers/net/phy/phylib.h          |  6 +++
+ include/linux/phy.h               | 86 -------------------------------
+ 7 files changed, 73 insertions(+), 86 deletions(-)
 
-diff --git a/drivers/net/phy/mscc/mscc_ptp.c b/drivers/net/phy/mscc/mscc_ptp.c
-index 738a8822f..ed8fb14a7 100644
---- a/drivers/net/phy/mscc/mscc_ptp.c
-+++ b/drivers/net/phy/mscc/mscc_ptp.c
-@@ -17,6 +17,7 @@
- #include <linux/udp.h>
- #include <linux/unaligned.h>
+diff --git a/drivers/net/phy/bcm54140.c b/drivers/net/phy/bcm54140.c
+index 7969345f6..a8edf45fd 100644
+--- a/drivers/net/phy/bcm54140.c
++++ b/drivers/net/phy/bcm54140.c
+@@ -10,6 +10,7 @@
+ #include <linux/module.h>
+ #include <linux/phy.h>
  
++#include "phylib.h"
+ #include "bcm-phy-lib.h"
+ 
+ /* RDB per-port registers
+diff --git a/drivers/net/phy/mscc/mscc_main.c b/drivers/net/phy/mscc/mscc_main.c
+index 19cf12ee8..7ff975efd 100644
+--- a/drivers/net/phy/mscc/mscc_main.c
++++ b/drivers/net/phy/mscc/mscc_main.c
+@@ -17,6 +17,8 @@
+ #include <linux/of.h>
+ #include <linux/netdevice.h>
+ #include <dt-bindings/net/mscc-phy-vsc8531.h>
++
 +#include "../phylib.h"
+ #include "mscc_serdes.h"
  #include "mscc.h"
- #include "mscc_ptp.h"
  
-@@ -645,11 +646,12 @@ static int __vsc85xx_gettime(struct ptp_clock_info *info, struct timespec64 *ts)
+diff --git a/drivers/net/phy/phy-core.c b/drivers/net/phy/phy-core.c
+index b1c1670de..154d29be6 100644
+--- a/drivers/net/phy/phy-core.c
++++ b/drivers/net/phy/phy-core.c
+@@ -6,6 +6,7 @@
+ #include <linux/phy.h>
+ #include <linux/of.h>
+ 
++#include "phylib.h"
+ #include "phylib-internal.h"
+ 
+ /**
+diff --git a/drivers/net/phy/phy_package.c b/drivers/net/phy/phy_package.c
+index 873420e58..12c92d26e 100644
+--- a/drivers/net/phy/phy_package.c
++++ b/drivers/net/phy/phy_package.c
+@@ -7,6 +7,7 @@
+ #include <linux/phy.h>
+ 
+ #include "phylib.h"
++#include "phylib-internal.h"
+ 
+ struct device_node *phy_package_get_node(struct phy_device *phydev)
  {
- 	struct vsc85xx_ptp *ptp = container_of(info, struct vsc85xx_ptp, caps);
- 	struct phy_device *phydev = ptp->phydev;
--	struct vsc85xx_shared_private *shared =
--		(struct vsc85xx_shared_private *)phydev->shared->priv;
- 	struct vsc8531_private *priv = phydev->priv;
-+	struct vsc85xx_shared_private *shared;
- 	u32 val;
+@@ -20,6 +21,66 @@ void *phy_package_get_priv(struct phy_device *phydev)
+ }
+ EXPORT_SYMBOL_GPL(phy_package_get_priv);
  
-+	shared = phy_package_get_priv(phydev);
++int phy_package_address(struct phy_device *phydev, unsigned int addr_offset)
++{
++	struct phy_package_shared *shared = phydev->shared;
++	u8 base_addr = shared->base_addr;
 +
- 	val = vsc85xx_ts_read_csr(phydev, PROCESSOR, MSCC_PHY_PTP_LTC_CTRL);
- 	val |= PTP_LTC_CTRL_SAVE_ENA;
- 	vsc85xx_ts_write_csr(phydev, PROCESSOR, MSCC_PHY_PTP_LTC_CTRL, val);
-@@ -696,11 +698,12 @@ static int __vsc85xx_settime(struct ptp_clock_info *info,
- {
- 	struct vsc85xx_ptp *ptp = container_of(info, struct vsc85xx_ptp, caps);
- 	struct phy_device *phydev = ptp->phydev;
--	struct vsc85xx_shared_private *shared =
--		(struct vsc85xx_shared_private *)phydev->shared->priv;
- 	struct vsc8531_private *priv = phydev->priv;
-+	struct vsc85xx_shared_private *shared;
- 	u32 val;
- 
-+	shared = phy_package_get_priv(phydev);
++	if (addr_offset >= PHY_MAX_ADDR - base_addr)
++		return -EIO;
 +
- 	vsc85xx_ts_write_csr(phydev, PROCESSOR, MSCC_PHY_PTP_LTC_LOAD_SEC_MSB,
- 			     PTP_LTC_LOAD_SEC_MSB(ts->tv_sec));
- 	vsc85xx_ts_write_csr(phydev, PROCESSOR, MSCC_PHY_PTP_LTC_LOAD_SEC_LSB,
-@@ -1580,8 +1583,7 @@ int vsc8584_ptp_probe(struct phy_device *phydev)
++	/* we know that addr will be in the range 0..31 and thus the
++	 * implicit cast to a signed int is not a problem.
++	 */
++	return base_addr + addr_offset;
++}
++
++int __phy_package_read(struct phy_device *phydev, unsigned int addr_offset,
++		       u32 regnum)
++{
++	int addr = phy_package_address(phydev, addr_offset);
++
++	if (addr < 0)
++		return addr;
++
++	return __mdiobus_read(phydev->mdio.bus, addr, regnum);
++}
++EXPORT_SYMBOL_GPL(__phy_package_read);
++
++int __phy_package_write(struct phy_device *phydev, unsigned int addr_offset,
++			u32 regnum, u16 val)
++{
++	int addr = phy_package_address(phydev, addr_offset);
++
++	if (addr < 0)
++		return addr;
++
++	return __mdiobus_write(phydev->mdio.bus, addr, regnum, val);
++}
++EXPORT_SYMBOL_GPL(__phy_package_write);
++
++static bool __phy_package_set_once(struct phy_device *phydev, unsigned int b)
++{
++	struct phy_package_shared *shared = phydev->shared;
++
++	if (!shared)
++		return false;
++
++	return !test_and_set_bit(b, &shared->flags);
++}
++
++bool phy_package_init_once(struct phy_device *phydev)
++{
++	return __phy_package_set_once(phydev, 0);
++}
++EXPORT_SYMBOL_GPL(phy_package_init_once);
++
++bool phy_package_probe_once(struct phy_device *phydev)
++{
++	return __phy_package_set_once(phydev, 1);
++}
++EXPORT_SYMBOL_GPL(phy_package_probe_once);
++
+ /**
+  * phy_package_join - join a common PHY group
+  * @phydev: target phy_device struct
+diff --git a/drivers/net/phy/phylib-internal.h b/drivers/net/phy/phylib-internal.h
+index dc9592c6b..afac2bd15 100644
+--- a/drivers/net/phy/phylib-internal.h
++++ b/drivers/net/phy/phylib-internal.h
+@@ -20,6 +20,8 @@ void of_set_phy_timing_role(struct phy_device *phydev);
+ int phy_speed_down_core(struct phy_device *phydev);
+ void phy_check_downshift(struct phy_device *phydev);
  
- int vsc8584_ptp_probe_once(struct phy_device *phydev)
- {
--	struct vsc85xx_shared_private *shared =
--		(struct vsc85xx_shared_private *)phydev->shared->priv;
-+	struct vsc85xx_shared_private *shared = phy_package_get_priv(phydev);
++int phy_package_address(struct phy_device *phydev, unsigned int addr_offset);
++
+ int genphy_c45_read_eee_adv(struct phy_device *phydev, unsigned long *adv);
  
- 	/* Initialize shared GPIO lock */
- 	mutex_init(&shared->gpio_lock);
+ #endif /* __PHYLIB_INTERNAL_H */
+diff --git a/drivers/net/phy/phylib.h b/drivers/net/phy/phylib.h
+index a42e1fc07..06c50d275 100644
+--- a/drivers/net/phy/phylib.h
++++ b/drivers/net/phy/phylib.h
+@@ -11,5 +11,11 @@ struct phy_device;
+ 
+ struct device_node *phy_package_get_node(struct phy_device *phydev);
+ void *phy_package_get_priv(struct phy_device *phydev);
++int __phy_package_read(struct phy_device *phydev, unsigned int addr_offset,
++		       u32 regnum);
++int __phy_package_write(struct phy_device *phydev, unsigned int addr_offset,
++			u32 regnum, u16 val);
++bool phy_package_init_once(struct phy_device *phydev);
++bool phy_package_probe_once(struct phy_device *phydev);
+ 
+ #endif /* __PHYLIB_H */
+diff --git a/include/linux/phy.h b/include/linux/phy.h
+index 7bfbae510..2b12d1bef 100644
+--- a/include/linux/phy.h
++++ b/include/linux/phy.h
+@@ -350,10 +350,6 @@ struct phy_package_shared {
+ 	void *priv;
+ };
+ 
+-/* used as bit number in atomic bitops */
+-#define PHY_SHARED_F_INIT_DONE  0
+-#define PHY_SHARED_F_PROBE_DONE 1
+-
+ /**
+  * struct mii_bus - Represents an MDIO bus
+  *
+@@ -2149,67 +2145,6 @@ int __phy_hwtstamp_set(struct phy_device *phydev,
+ 		       struct kernel_hwtstamp_config *config,
+ 		       struct netlink_ext_ack *extack);
+ 
+-static inline int phy_package_address(struct phy_device *phydev,
+-				      unsigned int addr_offset)
+-{
+-	struct phy_package_shared *shared = phydev->shared;
+-	u8 base_addr = shared->base_addr;
+-
+-	if (addr_offset >= PHY_MAX_ADDR - base_addr)
+-		return -EIO;
+-
+-	/* we know that addr will be in the range 0..31 and thus the
+-	 * implicit cast to a signed int is not a problem.
+-	 */
+-	return base_addr + addr_offset;
+-}
+-
+-static inline int phy_package_read(struct phy_device *phydev,
+-				   unsigned int addr_offset, u32 regnum)
+-{
+-	int addr = phy_package_address(phydev, addr_offset);
+-
+-	if (addr < 0)
+-		return addr;
+-
+-	return mdiobus_read(phydev->mdio.bus, addr, regnum);
+-}
+-
+-static inline int __phy_package_read(struct phy_device *phydev,
+-				     unsigned int addr_offset, u32 regnum)
+-{
+-	int addr = phy_package_address(phydev, addr_offset);
+-
+-	if (addr < 0)
+-		return addr;
+-
+-	return __mdiobus_read(phydev->mdio.bus, addr, regnum);
+-}
+-
+-static inline int phy_package_write(struct phy_device *phydev,
+-				    unsigned int addr_offset, u32 regnum,
+-				    u16 val)
+-{
+-	int addr = phy_package_address(phydev, addr_offset);
+-
+-	if (addr < 0)
+-		return addr;
+-
+-	return mdiobus_write(phydev->mdio.bus, addr, regnum, val);
+-}
+-
+-static inline int __phy_package_write(struct phy_device *phydev,
+-				      unsigned int addr_offset, u32 regnum,
+-				      u16 val)
+-{
+-	int addr = phy_package_address(phydev, addr_offset);
+-
+-	if (addr < 0)
+-		return addr;
+-
+-	return __mdiobus_write(phydev->mdio.bus, addr, regnum, val);
+-}
+-
+ int __phy_package_read_mmd(struct phy_device *phydev,
+ 			   unsigned int addr_offset, int devad,
+ 			   u32 regnum);
+@@ -2226,27 +2161,6 @@ int phy_package_write_mmd(struct phy_device *phydev,
+ 			  unsigned int addr_offset, int devad,
+ 			  u32 regnum, u16 val);
+ 
+-static inline bool __phy_package_set_once(struct phy_device *phydev,
+-					  unsigned int b)
+-{
+-	struct phy_package_shared *shared = phydev->shared;
+-
+-	if (!shared)
+-		return false;
+-
+-	return !test_and_set_bit(b, &shared->flags);
+-}
+-
+-static inline bool phy_package_init_once(struct phy_device *phydev)
+-{
+-	return __phy_package_set_once(phydev, PHY_SHARED_F_INIT_DONE);
+-}
+-
+-static inline bool phy_package_probe_once(struct phy_device *phydev)
+-{
+-	return __phy_package_set_once(phydev, PHY_SHARED_F_PROBE_DONE);
+-}
+-
+ extern const struct bus_type mdio_bus_type;
+ 
+ struct mdio_board_info {
 -- 
 2.48.1
 
