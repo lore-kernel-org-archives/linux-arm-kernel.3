@@ -4,72 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08484C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 21:50:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB4DC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 21:51:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oZS9W6LWueZRel5mHElMEY/qHM3otop7VBPbgcAUBlI=; b=vqLvk+WlopeM2aoD92dCTmj/9u
-	Yl+aLCunzKX09F7pWB6TxAJyNdYKA2S7hPKh0XzdnqqwL0+M16XaFNOTDtQ5AN8m6widh8CmRbXLA
-	LwhAMNtwtgDm32giu7a/WuqydIUQ1Epe2uBkvgdByBDcMyCCf8xchzeIEPFckRmu0ZEifmtpBRTOI
-	7DjGvMK8BZqh8Q144RllxJ3qemoiCcZH5ecLDRqBh4rJFCCkF78ax0YxZkfjTbs6+GtAXOlY9mgbU
-	6B7s1YaomcgoFLbiIfJ7dgJAUe1I0GA3xKOC2n81U1iir9DnkISC9yutuMF2Em+KAoYhIyp++K/ML
-	evoDz00g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e4SsDEfQ73OaZ3p7/QQHcwSlyTin9grm306tgx0HvvI=; b=2T3Z76cuW3vKmtsqnMmeG5CMa3
+	YcbET/qM2DxVFdpLkqOGMwDMFatnhu1EK/4kjhokS0bGtgsIAc19mS9JxYyysmdtZJdqTuPrtMVyO
+	8RuQ/E12yDV58GNV4Uz3zq+IrNiLiHl5EQcWfTkmxyimHaFRToDAnge1lkTsfsN8eTi8Y2gKRad4u
+	xrArWtwhB4VRAXCoaXF/8QtoliPHMLnMUJI8r82veLbZSAfPvCV5jsXBqLoUywzdI54l7+Fr8+LtG
+	uzkFlQJaSm7TcjkzQPSGKP95phe7qYUxCEWVJvt6TuSc+1P6GlpLI5t0djRDlDCn5+mgSD0KLxJhz
+	JL8l0k/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpDfZ-00000002Og3-3645;
-	Mon, 03 Mar 2025 21:49:49 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tpDhG-00000002OtX-37Zd;
+	Mon, 03 Mar 2025 21:51:34 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpDdy-00000002OQ9-33Id;
-	Mon, 03 Mar 2025 21:48:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=oZS9W6LWueZRel5mHElMEY/qHM3otop7VBPbgcAUBlI=; b=KMTGTLTs3m3xBOfDSyeVo65kNA
-	MklFXt7AU/oF3hgMY6RFmAOYW2t1GIy9Ofz7UVoHICWq4Yeiq4FK/shpr8o7RN0rWk7SKrAyRAWco
-	hGzvO/A6wC4QkmCHbR4SIEaB4bn1f2VxirBb3Uf+g9yiTQfUJjR0c1oZa5pzVY3F3JabsN+v/fsHk
-	7B+pwn0gUgEZpjMUF9fWXUY5deuoJDOq/Wv/eaDs5bDNdeou33NQSYnL8IFQEW7NJtFnLkqzoenKt
-	syTwCcY4WwL+RfwU4fIL5bAuqGZ3Jw3euggXx9Uyfr8NGHg3GreoV+WW3Q6XhhQpOiFcgi83bhyO1
-	79V4oveg==;
-Received: from i53875a38.versanet.de ([83.135.90.56] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tpDdl-0005hg-LD; Mon, 03 Mar 2025 22:47:57 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Andy Yan <andyshrk@163.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	hjc@rock-chips.com,
-	krzk+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	derek.foreman@collabora.com,
-	detlev.casanova@collabora.com,
-	robh@kernel.org,
-	sebastian.reichel@collabora.com,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: Re: [PATCH v16 0/7] VOP Support for rk3576
-Date: Mon,  3 Mar 2025 22:47:47 +0100
-Message-ID: <174103845739.1823374.12191535922821188431.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250303034436.192400-1-andyshrk@163.com>
-References: <20250303034436.192400-1-andyshrk@163.com>
+	id 1tpDfh-00000002Oix-0SYG
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Mar 2025 21:49:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 56E2DA45059;
+	Mon,  3 Mar 2025 21:44:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F4BAC4CED6;
+	Mon,  3 Mar 2025 21:49:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741038595;
+	bh=ALl48r6anu62p/kIZEp7WsaiglCB7bM580oIvR2O5OE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jWIZ0KngcSAXcOeweP07+DdJh1gp/KBc4UGaIKuJJhv2OU+lUjCHkVH64IHuPPTni
+	 2TPwlG4d4Tfe3R0CfuQ+wDoNygvw4yiDPq4++A2P9n4OrJKl+jW6rHH/R8oT0fxpfk
+	 txfO6GRqBGGVIKky1Fl+S2WZEl5/PcWZj+zk+sj9PWGEaB2kecs2VM6G/VenyRgm+S
+	 YBAkaS/zsuAcWtxZbgntV3Dj/NErFYNxPflOSa12U5YLCdt8/t9TFieZJU9sBfsSje
+	 OMwDDrAR+mZ6WBMnWQkU9ockiZv3fwAe3c5Wa93PIdvRmYI54gMPDa/UhbRUJsamI3
+	 HSjQhAWehhJiA==
+Date: Mon, 3 Mar 2025 21:49:50 +0000
+From: Will Deacon <will@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: Quentin Perret <qperret@google.com>, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
+	oliver.upton@linux.dev, mark.rutland@arm.com, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, broonie@kernel.org, vdonnefort@google.com
+Subject: Re: [PATCH v2 3/4] KVM: arm64: Factor out pKVM hyp vcpu creation to
+ separate function
+Message-ID: <20250303214947.GA30619@willie-the-truck>
+References: <20250226215520.1759218-1-tabba@google.com>
+ <20250226215520.1759218-4-tabba@google.com>
+ <Z8ISLxQRcsx2uuHw@google.com>
+ <CA+EHjTympdi0wei2Qx=hF2cYvHpzE0sWto2ypcJB3ddmonTROg@mail.gmail.com>
+ <20250303191811.GA30361@willie-the-truck>
+ <CA+EHjTySqDHDpOy=Vix5ZaNKWg61coySvV3Yk=+i0p8vg3mXTQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTySqDHDpOy=Vix5ZaNKWg61coySvV3Yk=+i0p8vg3mXTQ@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_134810_783326_59A5BF6F 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20250303_134957_274635_315CD91B 
+X-CRM114-Status: GOOD (  32.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,37 +81,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 03 Mar 2025 11:44:14 +0800, Andy Yan wrote:
-> Here is the v16
-> Patches that have already been merged in drm-misc-next are dropped.
+On Mon, Mar 03, 2025 at 07:21:33PM +0000, Fuad Tabba wrote:
+> On Mon, 3 Mar 2025 at 19:18, Will Deacon <will@kernel.org> wrote:
+> > On Mon, Mar 03, 2025 at 07:57:00AM +0000, Fuad Tabba wrote:
+> > > On Fri, 28 Feb 2025 at 19:44, Quentin Perret <qperret@google.com> wrote:
+> > > > On Wednesday 26 Feb 2025 at 21:55:19 (+0000), Fuad Tabba wrote:
+> > > > >  static int __pkvm_create_hyp_vm(struct kvm *host_kvm)
+> > > > >  {
+> > > > > -     size_t pgd_sz, hyp_vm_sz, hyp_vcpu_sz;
+> > > > > +     size_t pgd_sz, hyp_vm_sz;
+> > > > >       struct kvm_vcpu *host_vcpu;
+> > > > > -     pkvm_handle_t handle;
+> > > > >       void *pgd, *hyp_vm;
+> > > > >       unsigned long idx;
+> > > > >       int ret;
+> > > > > @@ -161,33 +178,12 @@ static int __pkvm_create_hyp_vm(struct kvm *host_kvm)
+> > > > >       if (ret < 0)
+> > > > >               goto free_vm;
+> > > > >
+> > > > > -     handle = ret;
+> > > > > +     WRITE_ONCE(host_kvm->arch.pkvm.handle, ret);
+> > > >
+> > > > What's the reason to make this a WRITE_ONCE? Does it mean we should
+> > > > update the readers to be READ_ONCE()?
+> > >
+> > > I don't remember the original reason, to be honest. In this case, it
+> > > was to make it consistent with downstream code in Android. That said,
+> > > I plan on revising all of these soon and fixing this (and related
+> > > code) in light of Will's comment regarding potential specter gadgets:
+> > >
+> > > https://lore.kernel.org/all/20250218092705.GA17030@willie-the-truck/
+> >
+> > I'm not sure the spectre stuff changes the concurrency aspects here, so
+> > Quentin's question presumably still stands even after that.
+> >
+> > Looking at the Android code, this WRITE_ONCE() pairs with a READ_ONCE()
+> > in pkvm_is_hyp_created() which is called without the config_lock held
+> > by kvm_arch_prepare_memory_region(). However, given that
+> > pkvm_is_hyp_created() is only testing against 0, I don't think the
+> > _ONCE() accessors are doing anything useful in that case.
+> >
+> > The more confusing stuff is where 'kvm->arch.pkvm.handle' is read
+> > directly without the 'config_lock' held. The MMU notifiers look like
+> > they can do that, so I wonder if there's a theoretical race where they
+> > can race with first run and issue TLB invalidation with the wrong handle?
+> > That would apply equally to the upstream code, I think.
 > 
-> I test it with a 1080P/4K HDMI output with modetest and weston
-> output.
-> 
-> If there are some one want to have a try, I have a tree based on
-> Linux 6.14-rc1 here[0]
-> 
-> [...]
+> Would using _ONCE accessors with the MMU notifiers be enough to avoid
+> the race, or do we need to reconsider the lock protecting the handle
+> and apply it to the notifiers?
 
-Applied, thanks!
+I'm not entirely sure... if we used _ONCE() then we'd get either the
+correct handle or zero, but we presumably need to order that against the
+page-table somehow. The 'mmu_lock' looks like it gives us that, but I
+don't think the notifiers are expecting an uninitialised handle in the
+case where the page-table is empty (i.e. if they fire before first run).
 
-[1/7] drm/rockchip: vop2: Register the primary plane and overlay plane separately
-      commit: 6fd4f8a26a21dd2075cfcc7eae3b9d440d886571
-[2/7] drm/rockchip: vop2: Set plane possible crtcs by possible vp mask
-      commit: b90fa71a11600276c993e620abea8ca9f2045401
-[3/7] drm/rockchip: vop2: Add uv swap for cluster window
-      commit: e7aae9f6d762139f8d2b86db03793ae0ab3dd802
-[4/7] dt-bindings: display: vop2: describe constraint SoC by SoC
-      commit: 1803bfb59656d41c4f9f7e5f23188248b649e1a4
-[5/7] dt-bindings: display: vop2: Add missing rockchip,grf property for rk3566/8
-      commit: 47d31e6598e4fda1433e747ef031cb972c57c5ae
-[6/7] dt-bindings: display: vop2: Add rk3576 support
-      commit: c3b7c5a4d7c17afb158ba5a41222e95a32886ada
-[7/7] drm/rockchip: vop2: Add support for rk3576
-      commit: 944757a4cba62b1b50fb51933d0608117599db71
+Given that the handle is necessary for TLB invalidation, I'd be inclined
+to make sure that the handle is allocated and published _before_ the
+kvm_pgtable pointer checked by the notifiers is set, but that means
+moving the handle allocation into kvm_arch_init_vm(). Is that do-able?
 
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+Will
 
