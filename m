@@ -4,71 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A99DC282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 14:21:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28BA1C282CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 14:23:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P7gGiZwjzyL+/+VA6we4MZXQRYxqsjECLv81vWaVcmo=; b=zHnh5Y0zfk8VAq/SQtbvlU8lm5
-	fA4j+05VMd7DHaeWu3/tRdho+C97TNbZAK2XcO5wLicgG52tooQ0syLvD9mxDxifSrHmilqLd7jSw
-	26zqLBNPtiKI2zypRnEDKsKcsBqHONn/Rcyiw/LQUjkEwQvID7qHPdm3XqdodrNCY9ul+lxZ8iyLX
-	iVtfEOJkZUwx09ozMsGUB4Fpebmm7dmh0ikRkgTuZUXscye4BFyhWbwqAGIi0FTHVhewis7BELW6l
-	ox3I2G+3ivIxfEdi/li5RIxH3VoemVmJvcBujyVd8pkrNCxo0TmWX8ZbbY8UT03zoMPTCW28EvJjB
-	tE/jqiYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Evb90FKrgPWzLV5Du6tP4VGKeYOTKgFcIlyLIolITHs=; b=c61uZdALDLuyYpX6sEaZrXNr2Y
+	Qoj0BJTAchtZo0/xat3Mh+IPQfi1uBvvbVh4O3IKZyQU7AkA3JQe4gw3FySm49lrD1QIHLiY3jDVx
+	Fm7G7HLXK4q+VQZVvBBlbpIt2HG1dB+J0rL0JKO05hrRuAnPLTcW0z0gnLPejZfOCuZ4URQV1Q+MD
+	CQKpGMIhxVXS/zTYRu4TTI712XucG9MTV/b2HsjZtUJ4qllU0aUWcolCZ2tV58LpAirS+e0YnIl/N
+	sGG2UPK51v6cCVGFpHmSaaAj91Wf+Uf+WNp8jR+9jHaHrXyDZGZTfPKDTckFq+KtBGYayYfhTVPSd
+	IdalGI+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp6fY-0000000151I-0zJX;
-	Mon, 03 Mar 2025 14:21:20 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1tp6h6-000000015Y3-0ljG;
+	Mon, 03 Mar 2025 14:22:56 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp6Nz-000000010wz-2gdv
+	id 1tp6OO-0000000113N-0ezF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 14:03:13 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.163])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4Z60lz518fz1ltYp;
-	Mon,  3 Mar 2025 21:58:55 +0800 (CST)
-Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id C0B1318001B;
-	Mon,  3 Mar 2025 22:03:05 +0800 (CST)
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Mon, 3 Mar 2025 22:03:04 +0800
-CC: <dave.hansen@linux.intel.com>, <bp@alien8.de>, <mingo@redhat.com>,
-	<linux-arm-kernel@lists.infradead.org>, <mpe@ellerman.id.au>,
-	<peterz@infradead.org>, <tglx@linutronix.de>, <will@kernel.org>,
-	<catalin.marinas@arm.com>, <yangyicong@hisilicon.com>,
-	<linuxppc-dev@lists.ozlabs.org>, <x86@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <morten.rasmussen@arm.com>,
-	<msuchanek@suse.de>, <gregkh@linuxfoundation.org>, <rafael@kernel.org>,
-	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
-	<linuxarm@huawei.com>, <xuwei5@huawei.com>, <guohanjun@huawei.com>,
-	<sshegde@linux.ibm.com>
-Subject: Re: [PATCH v11 2/4] arch_topology: Support SMT control for OF based
- system
-To: Dietmar Eggemann <dietmar.eggemann@arm.com>, <sudeep.holla@arm.com>,
-	<pierre.gondois@arm.com>
-References: <20250218141018.18082-1-yangyicong@huawei.com>
- <20250218141018.18082-3-yangyicong@huawei.com>
- <8a9aedef-08d7-445f-9b67-85e74ec6bd50@arm.com>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <21e74021-fb68-0003-f0f4-7f54dd674b9d@huawei.com>
-Date: Mon, 3 Mar 2025 22:03:04 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	Mon, 03 Mar 2025 14:03:39 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43995b907cfso28349305e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 06:03:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1741010614; x=1741615414; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Evb90FKrgPWzLV5Du6tP4VGKeYOTKgFcIlyLIolITHs=;
+        b=A8LtqzHGR5Wx8tSOoCF8AUENN24/8RrlzextAVylUa+Siisjvidhe/9hjUvCLMhnr6
+         gGwH8Ku3KNEnm4ldNutcVpSVcvtEV2YVJ5ukqaIakrZONV/vvi3I6bNLJ/KIsExMY7vL
+         vwfuhygFZS1SCJQMbA8PlmwZOId0uR2+u6tv0cfJ0jkeli8QEvzzuf5nRxCCR/d3zByz
+         8gDZRq2QvGrFSAfu7l6+50AhIZJ1r8vTzpklkUYd3A8O5K5AWO1DwM/g3fnV1W4dGa4n
+         MBarLHutU4D2FNtF7pcyoTp013D7vtxg93NKmM5jFDp1Qr0L0CxSn+S20JL/TGwS27WZ
+         Yuiw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741010614; x=1741615414;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Evb90FKrgPWzLV5Du6tP4VGKeYOTKgFcIlyLIolITHs=;
+        b=vFNJhRmUsBkuuLh2EQDywnXRXiDRhVcy9aU301SyCs1HZXo64nYCv3ZPbgKiI6njXv
+         sdGmvvFAuZR8UEFrk1dNe8Y1YwJms++6YUS2iIidACL/N+/18sf1/a0qMiOHCwJW64iM
+         7TAZjitPUkTKw5DCchL1EbyFkC2CtH6zZpXpar52yd8lI37O024KYqr6PJWL1mWSJfxV
+         gEQ8Rfe8LmRTl3hdpGZsGei3lru0ydgALV9nOrM/GOG+QjzRNheM+grGID1xFPh9JK6G
+         VDRmS7UdAGwzgXB65guxZW+vTgaKK5f5kmpquRSs79e8KrD+yY32MAXyOAjcapmhEwkX
+         bW7w==
+X-Forwarded-Encrypted: i=1; AJvYcCW9CpQWxaXef8ITeHq1Vk/Pb9bMoehmLN4Jw1fZNalY8b+7xcNIyp/tNUROTo9dF9uVHLurjfGgmQlMM59y5Hfr@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRo+udlpFrSsYGZpJC4f7n/W3weH7SiRloxuiBsvXdb9c2vx1J
+	h1MhxqPPst2X75CPy9nXDd6lCDLlC3pLdkNUrZAUHbnTe9shzPEPL2gzprl1i7o=
+X-Gm-Gg: ASbGncsN6QEwuZMgI+0rqO+Gwz76GuBXJ/YM4XyrIKKErvAwFdpWGhReF2RXXxc8ca/
+	qILJGcI1Z/wcRGVAIlcP9zcRTJLfsaRBLL4df+nhddv8H2f5iGjaEzzjHi2vV4pPk2TTPW3aDEW
+	O6RgaHiuy4nRvCpQDXJtr4g112dll0CupSVietUxVElDoJiVO6RG6xhC6PZAeHQacOCQpWnp0Ys
+	Osg2Ft+u/NPzWOTOpixhThfPQdlanqyCy1eH1exRQ77fEPypGyr5VKMXs2dR3niKWKNzrWQv/MU
+	A92tXs+N5nJaTwWHcaimyEI4KTQIzkz3YIy0IL8PjWfubXWD9NSmkvPwxjL8y7fvokUM95/q9Et
+	ILUPLgVbnhsWfZbdpQI98rSObcQ==
+X-Google-Smtp-Source: AGHT+IH+p7ThXgxbHvbT9aEZalC898OCXp/uZvsSO+RyrFtvjYhk8Dx7PziT3Aqfwo54nFZzgv1HgA==
+X-Received: by 2002:a05:600c:3505:b0:43a:b8eb:9e5f with SMTP id 5b1f17b1804b1-43ba66d588bmr103036975e9.3.1741010612945;
+        Mon, 03 Mar 2025 06:03:32 -0800 (PST)
+Received: from localhost (amontpellier-556-1-148-206.w109-210.abo.wanadoo.fr. [109.210.4.206])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bc48fc886sm26543925e9.4.2025.03.03.06.03.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Mar 2025 06:03:32 -0800 (PST)
+Date: Mon, 3 Mar 2025 15:03:29 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Dinh Nguyen <dinguyen@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 0/2] ARM: dts: socfpga: Add basic support for
+ Terrasic's de10-nano
+Message-ID: <xqe3grxdj62u6ixl5cdzcgzjo6swe64kegzjx4qabkfbkohlb5@rwu6rrh5lkzm>
+References: <cover.1738600838.git.u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
-In-Reply-To: <8a9aedef-08d7-445f-9b67-85e74ec6bd50@arm.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
- kwepemd200014.china.huawei.com (7.221.188.8)
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="747pyp5fjw7bmyol"
+Content-Disposition: inline
+In-Reply-To: <cover.1738600838.git.u.kleine-koenig@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_060312_076752_A11C6031 
-X-CRM114-Status: GOOD (  30.14  )
+X-CRM114-CacheID: sfid-20250303_060336_385681_33209DED 
+X-CRM114-Status: GOOD (  17.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,144 +100,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/2/28 19:11, Dietmar Eggemann wrote:
-> On 18/02/2025 15:10, Yicong Yang wrote:
->> From: Yicong Yang <yangyicong@hisilicon.com>
->>
->> On building the topology from the devicetree, we've already
->> gotten the SMT thread number of each core. Update the largest
->> SMT thread number and enable the SMT control by the end of
->> topology parsing.
->>
->> The core's SMT control provides two interface to the users [1]:
->> 1) enable/disable SMT by writing on/off
->> 2) enable/disable SMT by writing thread number 1/max_thread_number
-> 
-> 1/max_thread_number stands for '1 or max_thread_number', right ?
-> 
-> Aren't the two interfaces:
-> 
-> (a) /sys/devices/system/cpu/smt/active
-> (b) /sys/devices/system/cpu/smt/control
-> 
-> and you write 1) or 2) (or 'forceoff') into (b)?
 
-yes you're correct. "active" is a RO file for status only so not for this interface.
-Let me explicitly mention the /sys/devices/system/cpu/smt/control here in the commit.
+--747pyp5fjw7bmyol
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 0/2] ARM: dts: socfpga: Add basic support for
+ Terrasic's de10-nano
+MIME-Version: 1.0
 
-> 
->> If a system have more than one SMT thread number the 2) may
-> 
-> s/have/has
-> 
->> not handle it well, since there're multiple thread numbers in the
-> 
-> multiple thread numbers other than 1, right?
+Hello Dinh,
 
-according to the pr_warn_once() we implemented below it also includes the case
-where the system have one type of SMT cores and non-SMT cores (the thread number is 1):
-- 1 thread
-- X (!= 1) threads
+On Mon, Feb 03, 2025 at 05:46:35PM +0100, Uwe Kleine-K=F6nig wrote:
+> The only change since v2
+> (https://lore.kernel.org/linux-arm-kernel/20250130074553.92023-2-u.kleine=
+-koenig@baylibre.com):
+> is that I added patch 1/2 that is supposed to fix the warning that I
+> failed to notice with the testing I did. Thanks to Krzysztof and Rob for
+> their patience with me. I hope I got it right now.
 
-Discussion made in [1] and I thought we have agreement (hope I understood correctly)
-that all the asymmetric cases need to notify. Do you and Sudeep think we should not
-warn in such case?
+I didn't hear anything from your side on this patch set and I don't see
+it applied in next. Do you still have it on your radar?
 
-[1] https://lore.kernel.org/linux-arm-kernel/10082e64-b00a-a30b-b9c5-1401a54f6717@huawei.com/
+If you prefer me dropping the reg property on the fpga node, please
+tell me. Otherwise you dropping it on application is fine for me and
+keeping it is fine for the dt people, too.
 
-> 
->> system and 2) only accept 1/max_thread_number. So issue a warning
->> to notify the users if such system detected.
-> 
-> This paragraph seems to be about heterogeneous systems. Maybe mention this?
-> 
-> Heterogeneous system with SMT only on a subset of cores (like Intel
-> Hybrid): This one works (N threads per core with N=1 and N=2) just fine.
-> 
-> But on Arm64 (default) we would still see:
-> 
-> [0.075782] Heterogeneous SMT topology is partly supported by SMT control
-> 
+Best regards
+Uwe
 
-more clearer, will add it. Thanks.
+--747pyp5fjw7bmyol
+Content-Type: application/pgp-signature; name="signature.asc"
 
->> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/ABI/testing/sysfs-devices-system-cpu#n542
->>
->> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
->> ---
->>  drivers/base/arch_topology.c | 27 +++++++++++++++++++++++++++
->>  1 file changed, 27 insertions(+)
->>
->> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
->> index 3ebe77566788..23f425a9d77a 100644
->> --- a/drivers/base/arch_topology.c
->> +++ b/drivers/base/arch_topology.c
->> @@ -11,6 +11,7 @@
->>  #include <linux/cleanup.h>
->>  #include <linux/cpu.h>
->>  #include <linux/cpufreq.h>
->> +#include <linux/cpu_smt.h>
->>  #include <linux/device.h>
->>  #include <linux/of.h>
->>  #include <linux/slab.h>
->> @@ -506,6 +507,10 @@ core_initcall(free_raw_capacity);
->>  #endif
->>  
->>  #if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
->> +
->> +/* Maximum SMT thread number detected used to enable the SMT control */
-> 
-> maybe shorter ?
-> 
-> /* used to enable SMT control */
-> 
+-----BEGIN PGP SIGNATURE-----
 
-sure.
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmfFtq4ACgkQj4D7WH0S
+/k6dEAf/YqUHjcoJ4EMUtHBrWkZ2SOE8Hhtl8/9eJmOAuWiftC/qMfMXKzqOPIN0
+xTSnSCGP9Iuy5lGeSpdtNtzXMtvPQOmQxwSG41/5jRXG3Y2VR11i+OShfvskEd4m
+Pg8Pz8eUP0ZbzTzWXy4Vnmff8foS0a+FrF547HrZT63OEfH5+Ghj10tRX83zYKww
+Y5jZJStU0Yu1/1tpiBr40HCNT/KxVFxJd5mIcPX+ZIoJx3sQU9G4XRU1hG8u32Ab
+Du1tUwz9HJpcjIkgSp43kR0rFMnZ84JrX2E7gGjykaC7urgTI0lU5+wby0gzNdCu
+OuFHTdFjt+y6ax30NbrRxcKar1TxlQ==
+=6e6Z
+-----END PGP SIGNATURE-----
 
->> +static unsigned int max_smt_thread_num;
->> +
->>  /*
->>   * This function returns the logic cpu number of the node.
->>   * There are basically three kinds of return values:
->> @@ -565,6 +570,16 @@ static int __init parse_core(struct device_node *core, int package_id,
->>  		i++;
->>  	} while (1);
->>  
->> +	/*
->> +	 * If max_smt_thread_num has been initialized and doesn't match
->> +	 * the thread number of this entry, then the system has
->> +	 * heterogeneous SMT topology.
->> +	 */
->> +	if (max_smt_thread_num && max_smt_thread_num != i)
->> +		pr_warn_once("Heterogeneous SMT topology is partly supported by SMT control\n");
->> +
->> +	max_smt_thread_num = max_t(unsigned int, max_smt_thread_num, i);
->> +
->>  	cpu = get_cpu_for_node(core);
->>  	if (cpu >= 0) {
->>  		if (!leaf) {
->> @@ -677,6 +692,18 @@ static int __init parse_socket(struct device_node *socket)
->>  	if (!has_socket)
->>  		ret = parse_cluster(socket, 0, -1, 0);
->>  
->> +	/*
->> +	 * Notify the CPU framework of the SMT support. Initialize the
->> +	 * max_smt_thread_num to 1 if no SMT support detected or failed
->> +	 * to parse the topology. A thread number of 1 can be handled by
->> +	 * the framework so we don't need to check max_smt_thread_num to
->> +	 * see we support SMT or not.
-> 
-> Not sure whether the last sentence is needed here?
-> 
-
-We always need to call cpu_smt_set_num_threads() to notify the framework
-of the thread number even if SMT is not supported. In which case the
-thread number is 1 but the framework can handle this well. I worry readers
-may get confused for notifying a thread number of 1 so add this comment this.
-
-Will get rid of this if thought redundant.
-
-Thanks.
-
-
+--747pyp5fjw7bmyol--
 
