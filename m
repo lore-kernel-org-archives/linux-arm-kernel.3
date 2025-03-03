@@ -4,69 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0413C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 12:42:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07FE4C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 12:44:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wLBj6Nghf9FYnNuo11fi/+8qslgqcWFcnrXMBRPEmg8=; b=cEMTbRAxPcdiaZVGyMCaoe+ug6
-	i7He4Xs1rgfBFl23Sj4CM0XAvVQBbWUdh1YGsv3qUSLbcpfR5DVWIZc/Hq48szAGdDMmy9zSl3h4p
-	ZF1exXIaCUxGMLUB3Nc3yfIGzKQkJZrqceHn8U0LgADMlxJg4YVwZ3zBGwQr8K9vZ4tYHwGw8FpKN
-	0DD+ryHNHwBpiCS9ht10jpfi/8sO883E0r06BMIvh33hf/wgADkMfr9ffj083/TmpUzWkrZtq0w0Y
-	IQDZk3NafXYy5sdE6S8wc1tU0CKW4LqG0tN0TTvRULaofbZb1oUxiBUsUfElWLqJC7D0Ay4W7Fln6
-	QWOWQLwA==;
+	bh=QSJJX56zDhVqdKCOO7Zb5p+mglB7JczLAGdABH1H3qk=; b=x1/And86cWImd00WyL6wOuCGQi
+	AdIxKIpE24JXzbEaJVWma6qlPcbogsdMOh4DoLZ/PvJ3EIH65N1VZJ+WfByiz3b/OpKfB+4J1bgVp
+	A3hVW/8mvnX1QmqkBoaaTX4QwSwY1R8a2J7CwAowtXdfgWda641WUkUUtDPMJ8K29Vz2XEXmTfLCe
+	/NAvvaUzUnvPgw2099/gBRl37+cR6HtizTmG11nrWrZbPJJVbsLWWwxwSMGtCT8CDXFtT11jiIpz/
+	41lKF4PgaNSg9vEWHZKnxOtmvQnshp6ZFYe0jOtXYGvjifUoHvB3Dbd15UOg8B0RBc0ETwtlcXL7Q
+	QkY2iBTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp584-00000000mOT-410K;
-	Mon, 03 Mar 2025 12:42:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp4bQ-00000000gqt-2cVr
+	id 1tp59e-00000000n5e-0JTc;
+	Mon, 03 Mar 2025 12:44:18 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tp4wx-00000000kta-3f4e
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 12:08:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 018E0113E
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Mar 2025 04:09:08 -0800 (PST)
-Received: from e110455-lin.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A6E323F673
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Mar 2025 04:08:53 -0800 (PST)
-Date: Mon, 3 Mar 2025 12:08:51 +0000
-From: Liviu Dudau <liviu.dudau@arm.com>
-To: Marek Vasut <marex@denx.de>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Airlie <airlied@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Sebastian Reichel <sre@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Simona Vetter <simona@ffwll.ch>,
-	Steven Price <steven.price@arm.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, imx@lists.linux.dev
-Subject: Re: [PATCH 6/9] drm/panthor: Reset GPU after L2 cache power off
-Message-ID: <Z8Wb05rmGW0ORnJB@e110455-lin.cambridge.arm.com>
-References: <20250227170012.124768-1-marex@denx.de>
- <20250227170012.124768-7-marex@denx.de>
- <Z8GY0nWXOxCKF-XL@e110455-lin.cambridge.arm.com>
- <fa88c1c1-89ba-4a10-bd57-0819d7740c0a@denx.de>
+	Mon, 03 Mar 2025 12:31:13 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-aaf0f1adef8so857307966b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 04:31:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741005070; x=1741609870; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=QSJJX56zDhVqdKCOO7Zb5p+mglB7JczLAGdABH1H3qk=;
+        b=ul3aXxwRZ4UsnSPtQOwkkijsao9QpIYgdqiSol15kcoC2rPpSS0BUvLkQHshjecimG
+         vbArkMjdk7Y7eYQuIn0hGHIcvvb1HtJZVN8bhfPo7QjxbyjYEhhl20nC1rRDoRFDZjCo
+         t+wlEXuAnrpLMo+YkGIkrJu1M2vCJ2sknbD4I715glCdMCSEoXHrYNHInTfql8CSmENj
+         rIqwX1bQC/37uRqlzga3sS3+kiuvd/zKf9p9W3ujvt2vSxSSLW+BiDfd/AbZBxJ4Mqpr
+         08U4FWxISxUYIWXxa2++vfldIVnBQMhosIYsELqSEtl91bBhXkh0032ZO5V7BWQ0NFIv
+         xoaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741005070; x=1741609870;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QSJJX56zDhVqdKCOO7Zb5p+mglB7JczLAGdABH1H3qk=;
+        b=ZJmvF7IH6PMaMkKPjx7+tT/fuy+iLGnhz9601TCSFLO7HzIC2Kv1DgInRQ4foL9r+E
+         tBdbVcFrbOOeuynBUQu1AbTWjYelTnUdOdrgoiHF2ergsyC5F2QWK4kmsa12fp8SF3cO
+         HrBOjSb22GNwDluXpkBQobkvvimoihlRU67peito5rhhCJKgjPcK7a+wia4Rb18fpIeS
+         7W1+bK2ZKcJstjWGWQAKotV5TEgKoIoF5saK9G9dDxRlZqL8eeI33DH4mR/+byxrzWDr
+         aeUsPA9P0fEjNgYpvJESyQxvpY/AXmDaJFt2wfld1w1qruozK+/izcZE2eWC0LWuDH4x
+         KEKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWmVnJ1kTxJHcMSaEVPeKiRGQyz24BoEDy4zXabCx0MSqaMLt/XXDd3cJIeIc7ERthiOgpEqpFQIA+h0GCv58z9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8eFUtzetFm2/eHCiud3t3Nr2LPq8rIwJfhQwbxYb0XBVnHXbi
+	1Gzesk6NturTBIW5MHFq51VmgYk2voN139nfuT0qjWdrvcGP6MhFAyZGrqJGmzE=
+X-Gm-Gg: ASbGncuDcepy7gQZmS6HJnL/FYcC/NWeWvIxJRrNUOotOYhqdcDl8jaKRmEUcU1YX7O
+	Uo9iJSoXoVe3bEoKtGFiVgcaw9ORAb2VaKz/Z8/wc1iueytimMoMaCuxgJVIkVYfmuNgJFBa+cH
+	tm3OoJA6yPOcbQzi94VuVRkuI6tjxrarxvmQOLYDgEN7yMZEJPlWaz4HCr8tX9GV7cKqH2DyHPu
+	r4PPnjD8dQkbGREFcGxk0fUq7MKtOxbFUZWD58YGl6cYuHVzFZrx1sFo2kuCahkxzHSKVQAjuHr
+	9gX7ASAKphcYG42Hc+VFYFwOMIR6vGPW3pLajEGalZ5EqmuSZA==
+X-Google-Smtp-Source: AGHT+IHKV3lYMhfvx47Xr6aO9kD/bZ1DuA4juAnVEFf9awkbWhcDx/dzkyGXXFqyty1Heield7dhvg==
+X-Received: by 2002:a17:907:3e21:b0:abf:5e61:cde with SMTP id a640c23a62f3a-abf5e610f47mr976414466b.46.1741005070029;
+        Mon, 03 Mar 2025 04:31:10 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-abf17fa4a4asm762647466b.92.2025.03.03.04.31.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Mar 2025 04:31:09 -0800 (PST)
+Date: Mon, 3 Mar 2025 15:31:05 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: "Malladi, Meghana" <m-malladi@ti.com>
+Cc: rogerq@kernel.org, danishanwar@ti.com, pabeni@redhat.com,
+	kuba@kernel.org, edumazet@google.com, davem@davemloft.net,
+	andrew+netdev@lunn.ch, bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, u.kleine-koenig@baylibre.com,
+	matthias.schiffer@ew.tq-group.com, schnelle@linux.ibm.com,
+	diogo.ivo@siemens.com, glaroque@baylibre.com, macro@orcam.me.uk,
+	john.fastabend@gmail.com, hawk@kernel.org, daniel@iogearbox.net,
+	ast@kernel.org, srk@ti.com, Vignesh Raghavendra <vigneshr@ti.com>
+Subject: Re: [EXTERNAL] Re: [PATCH net-next v3 3/3] net: ti: icssg-prueth:
+ Add XDP support
+Message-ID: <2c0c1a4f-95d4-40c9-9ede-6f92b173f05d@stanley.mountain>
+References: <20250224110102.1528552-1-m-malladi@ti.com>
+ <20250224110102.1528552-4-m-malladi@ti.com>
+ <d362a527-88cf-4cd5-a22f-7eeb938d4469@stanley.mountain>
+ <21f21dfb-264b-4e01-9cb3-8d0133b5b31b@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <fa88c1c1-89ba-4a10-bd57-0819d7740c0a@denx.de>
+In-Reply-To: <21f21dfb-264b-4e01-9cb3-8d0133b5b31b@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_040856_782663_2CC17776 
-X-CRM114-Status: GOOD (  20.25  )
+X-CRM114-CacheID: sfid-20250303_043111_915720_4FAB494F 
+X-CRM114-Status: GOOD (  23.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,65 +107,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 28, 2025 at 06:05:36PM +0100, Marek Vasut wrote:
-> On 2/28/25 12:06 PM, Liviu Dudau wrote:
-> > Hi Marek,
-> 
-> Hi,
-> 
-> > On Thu, Feb 27, 2025 at 05:58:06PM +0100, Marek Vasut wrote:
-> > > This seems necessary on Freescale i.MX95 Mali G310 to reliably resume
-> > > from runtime PM suspend. Without this, if only the L2 is powered down
-> > > on RPM entry, the GPU gets stuck and does not indicate the firmware is
-> > > booted after RPM resume.
+On Mon, Mar 03, 2025 at 05:36:41PM +0530, Malladi, Meghana wrote:
+> > > +static int emac_run_xdp(struct prueth_emac *emac, struct xdp_buff *xdp,
+> > > +			struct page *page)
+> > > +{
+> > > +	struct net_device *ndev = emac->ndev;
+> > > +	int err, result = ICSSG_XDP_PASS;
+> > > +	struct bpf_prog *xdp_prog;
+> > > +	struct xdp_frame *xdpf;
+> > > +	int q_idx;
+> > > +	u32 act;
+> > > +
+> > > +	xdp_prog = READ_ONCE(emac->xdp_prog);
+> > > +	act = bpf_prog_run_xdp(xdp_prog, xdp);
+> > > +	switch (act) {
+> > > +	case XDP_PASS:
+> > > +		break;
+> > > +	case XDP_TX:
+> > > +		/* Send packet to TX ring for immediate transmission */
+> > > +		xdpf = xdp_convert_buff_to_frame(xdp);
+> > > +		if (unlikely(!xdpf))
 > > 
-> > That doesn't sound right. Can you tell me what GPU firmware are you running
-> > (we are now printing the git sha of the image at boot time).
-> Please see below. It could be some sort of NXP firmware fork ?
+> > This is the second unlikely() macro which is added in this patchset.
+> > The rule with likely/unlikely() is that it should only be added if it
+> > likely makes a difference in benchmarking.  Quite often the compiler
+> > is able to predict that valid pointers are more likely than NULL
+> > pointers so often these types of annotations don't make any difference
+> > at all to the compiled code.  But it depends on the compiler and the -O2
+> > options.
+> > 
 > 
-> It comes from the NXP firmware repo , mali-imx-r50.2-710cfb6 .
+> Do correct me if I am wrong, but from my understanding, XDP feature depends
+> alot of performance and benchmarking and having unlikely does make a
+> difference. Atleast in all the other drivers I see this being used for XDP.
 > 
-> panthor 4d900000.gpu: [drm] clock rate = 1000000000
-> panthor 4d900000.gpu: EM: created perf domain
-> panthor 4d900000.gpu: [drm] mali-unknown id 0xac74 major 0x0 minor 0x0
-> status 0x1
-> panthor 4d900000.gpu: [drm] Features: L2:0x7110306 Tiler:0x809 Mem:0x1
-> MMU:0x2830 AS:0xff
-> panthor 4d900000.gpu: [drm] shader_present=0x1 l2_present=0x1
-> tiler_present=0x1
-> panthor 4d900000.gpu: [drm] Firmware protected mode entry not be supported,
-> ignoring
-> panthor 4d900000.gpu: [drm] Firmware git sha:
-> 8e5cfcfec20cc8aff8509d37e72babc935d34a3b
 
-This looks like it has been part of a R50 release of the DDK, which is recent
-enough to consider it up-to-date. The issues you're seeing with fast resume are
-probably due to some integration issues or other quirks.
+Which compiler are you on when you say that "having unlikely does make a
+difference"?
 
-Boris has the most recent experience with playing with fast resume, maybe
-he can share some tips on where to add messages in Panthor to try to debug
-your problem.
+I'm on gcc version 14.2.0 (Debian 14.2.0-16) and it doesn't make a
+difference to the compiled code.  This matches what one would expect from
+a compiler.  Valid pointers are fast path and NULL pointers are slow path.
 
-Best regards,
-Liviu
+Adding an unlikely() is a micro optimization.  There are so many other
+things you can do to speed up the code.  I wouldn't start with that.
 
-> panthor 4d900000.gpu: [drm] CSF FW using interface v1.1.0, Features 0x0
-> Instrumentation features 0x71
-> [drm] Initialized panthor 1.3.0 for 4d900000.gpu on minor 0
-> 
-> $ sha256sum mali_csffw.bin
-> befd23b9279b26010ebf35c835cc3aa7d0f50758930c7306ff4f5abbe5218624
-> mali_csffw.bin
-> 
-> [...]
+regards,
+dan
 
--- 
-====================
-| I would like to |
-| fix the world,  |
-| but they're not |
-| giving me the   |
- \ source code!  /
-  ---------------
-    ¯\_(ツ)_/¯
 
