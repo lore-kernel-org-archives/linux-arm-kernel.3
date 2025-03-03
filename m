@@ -4,74 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D3E7C282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 15:36:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CA0EC282CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 15:37:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CiH4DXwFE1Biytfxts8kRShbn5OFLAeIwdTEbcHfEBs=; b=RHiBfjkkFMTDadFUhmCChdNyvu
-	tloKj2N+aZQvtI6FGt8XRdpPOiXNI3E6cNUC09N1Vt0PLcKuzUPX3TdO5/qbQ8Gg4rw7/2Z2uozIT
-	NirejEojkytES1OBNtpdXHI4oXZz+F2lU1Mm15cZkcPunszWZVfTTU8blW5UogoDHdg7vxrkIGNFI
-	voMvZI6OrqDujRC6eMYn/IEBUIrYeaY/m3viIUV4caVMjllED4rJ1JPPYeUAW+eJ/nSCO0vaS94QB
-	hQfwN/JX2xeE97sjOHebbVxXP/igmox48BFXElSqSNs9pDukoFxb4V8pTbci+8J1NXXmM1VdY1VY+
-	pSTzv2Dg==;
+	bh=VWj7fRL2wjv9R4mziQW8bTTqGP2D1A3sv3W8wRB2IlU=; b=nRSrk5Sg3ANwn6I2FAb6F7mTmM
+	2ESZ3V/9t0uJ9PzDrak+Mro+k3xWS6Tk8vRSCsrM9jHSYIHMxQC5GFS9ThOxuNrVyUYiq5O3UJaK/
+	kC4WopE6HqNRIBw1IvHmlDchjogr13jZzebIQX1mUlatYoYUibP3FO/UR3XY2huipdEw6+timCOgF
+	t8VZrsyr3I7ECvbzX/Not5xJptpPoYtKKj5uhn4ksK56ED7RUYDZQVxC57xndk3jyBHecy0yidA8y
+	JP+gXHkZyNeyTf2g8yyEBYAfl4THF1/QcDZgOEOcgNnZ2zGF+QmXDmDjzegAxMPAPVehbkRZyCklV
+	ZokyGMtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp7pu-00000001LXJ-2ktF;
-	Mon, 03 Mar 2025 15:36:06 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
+	id 1tp7rS-00000001Lok-1yM8;
+	Mon, 03 Mar 2025 15:37:42 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp7da-00000001IDJ-00Ek
+	id 1tp7dc-00000001IEa-14f4
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 03 Mar 2025 15:23:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=VWj7fRL2wjv9R4mziQW8bTTqGP2D1A3sv3W8wRB2IlU=; b=mtvOR/lLTkGp9N60TOrGEYtejh
+	1xcWcZ3yIYzqw6r85ES+aL0saiqfRaj8fDvV4G0I3/xX+PfxuEzhd+gfHHqXZ9PqyGmZUP/F7OwrM
+	b34fucCS42Td8nYoiHa53sum1eL+gUYvyTl539rx9A5OrYTvSzz34PO0vCpCUvIVSv8kI9Z+u/Lid
+	U2kLsl62ZasaLHHdUy9CMxYvRz2rGGSnA6R3vhYGBFg/KpJpTJac1yTuz5bgvyhmsS8pc4gJUqqn+
+	wqrH86xXP0mZ/s/I65jrIy8mdShCGsxBzcFCB8AM2H7OicHhqOe1JjfmTaiLBPt2Vlk0usgDJXOQk
+	pj6nWRYg==;
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tp7dY-00000004ZyZ-0qVV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 15:23:23 +0000
-Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-43bc4b16135so5813095e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 07:23:21 -0800 (PST)
+	Mon, 03 Mar 2025 15:23:22 +0000
+Received: by mail-wr1-x443.google.com with SMTP id ffacd0b85a97d-390f69e71c8so1672443f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 07:23:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741015401; x=1741620201; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1741015398; x=1741620198; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=CiH4DXwFE1Biytfxts8kRShbn5OFLAeIwdTEbcHfEBs=;
-        b=FGXjDq0dCCCyUa8oyuf5w3mjssQbjbwu+THtvh5eH3GCW0NAb1f2moghbnYTTDAssG
-         1Yn2eNeZuhK8A9+mFnh5BoFiXlpjvrpGK/chtnMvY4B57ea5Zfv8ytG4T9nQF0dAqZvb
-         heQEmHZZ+pGyx6Im1tJa88LOJikW/23D7MvqTnYt4a/4YksGShkiltc4voQnCklRw4LU
-         TC28zD7bgD5wxm0yqgWubuRNffxh2gC4WxLkE9jctfAgkgdE2wFYwoH697ks9Rdoyrqk
-         ya6gUjO7Q3BqMTzOLYcd2DSgcD17caai1CsMexo/Tay/iLjVv0qSm6CNPBTh+0oQxgSm
-         YFrg==
+        bh=VWj7fRL2wjv9R4mziQW8bTTqGP2D1A3sv3W8wRB2IlU=;
+        b=RLnzOQoa8BCAn06Pi8doRdWLX1ab/JMcJXCTpaOykO0LxHE2iLeVscjddAlDPi1Ipq
+         4bNXtYmjqbNnHlOJb+wXDpMM8HJhxtMhuxHHzCBDUORL9YD3GKwDqaYoprX0aH7vXzYi
+         xcFUnYjv/XRjMOMQ4mB72MU6ok82saiZhVkGJOi9i/8AsUhPGqxSKAm6oqYK/SK3nXeK
+         IK7FldT7KpqQFn8ly9G/QQq56jL9c9nVV4+YErJcMBdiayIkO6NCNv6+xEsX8mYTkFON
+         UaRaCqR1C7BjNFJkdjTVgiHE0Ofk6lhCg58Rus0ZA7FmLaw3QaT5Ke19REpDEO+ziMBu
+         82pg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741015401; x=1741620201;
+        d=1e100.net; s=20230601; t=1741015398; x=1741620198;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=CiH4DXwFE1Biytfxts8kRShbn5OFLAeIwdTEbcHfEBs=;
-        b=vqw0tpNH2xxuLo/uGg6yzzDNgtXlUQHz5eD3Gh4N5Sh7ukMXbRDQ9nXO8/uOQhWksW
-         gHv0ho8RUlznxiGaYtXKqDRzScgR1M/LD2SVkeBFCL3lgUEWxTlupROVgk9TSF8SG/TK
-         lcDA2Dm8Og1hyeYJ+70QxFWvGCaIzQtItHrV4CKeqqt+YpIKusYl8AkfwEeaw169d5HW
-         bVayKZSuKjMiJDSr9s9SUGT3bXb38In2FQ1dZ+W5x6YzTo3hjP91pIMQVAW+up0f37KO
-         a++gzktO3FKGRn7lJR49NzezxMlY8JvDNpiH94Sj2c/q1ssyJxUTrpVSGqMiaBveQrWW
-         jIdw==
-X-Forwarded-Encrypted: i=1; AJvYcCWg7GhLhLWcLUAaX5+TabYWblW2GKNbyH5WpfxngtEejYP8yjiwyiYN/kt5R71xQcN4oMik5+j1K5Z5EOXY77oQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2T71P17ZLcsdcQqFGAqEbFmQjE6yn7ruX49/zjmNQ/DXQdL/M
-	8ms6FPLJpe9qGVaA89mbvJJ43PP0Ho4vxXWoCljoLxmbPUd3bTe/
-X-Gm-Gg: ASbGncs9csc99tp7rb9tHnO3hg9X0h1Nw0rySl9ynpr1aiWw8jZFifSCNOPJlcH7azt
-	XI6Uz9dZJfyZUxirADUzEcirPfhlZNgP1jtLqZDaQ+6dGa0KcIsHV86BUXWxTfevoJZnEpnC7Oi
-	qaDkRl5HtciCpfos2U3sFHmMczcLSfWW073mOxCharD0r/pNK71IFfBvBiYfBSlw2GlB4eCx3Lp
-	0zUbPNNT7hm3+qeRrwq04HL+SFFJcuMXNWNxFOmZByyk98zQAlms37bzrzJS+2JneFdMKVLsbd3
-	vsMZUI7UPpj+Riu5LGkfq76VqVcdcJa2zQ==
-X-Google-Smtp-Source: AGHT+IGX9Uo3KWT7ZP1Tg6bcJFL7kn9d7FzFa8+K2r3RPDuxVc4WDWiD0YgV40rXuhBZGtIqZf8VUA==
-X-Received: by 2002:a05:600c:6b65:b0:439:a6db:1824 with SMTP id 5b1f17b1804b1-43bb3c30d77mr71469755e9.16.1741015400470;
-        Mon, 03 Mar 2025 07:23:20 -0800 (PST)
+        bh=VWj7fRL2wjv9R4mziQW8bTTqGP2D1A3sv3W8wRB2IlU=;
+        b=BpimqRNxcnSjCgTM3h47vZYu8/5OlCoMrGbyrhZhIMxzDgIVraS4x1pLvRN2NfjuPf
+         fFAiC+tOCz4btP66gZJOAbtLBP+sb0VftvT+vzd2ZWZmbcwCbFV9zyfZ+5+S+cUeq0t4
+         +n5W8uB0xNXbfojjqt2qmUKW0PuNq0XaNFbx98VQB5aAvaZFSs1UMo/3CU2QawyF5HJn
+         AuCrs4OR6KL0nG2UDwv9dMyYvPi0LgzLYKI0UQUzZhfSw1nZ+aThAFIEXesRlv75SIv3
+         lujlREfskSVr2awnZVwQBQIYHGS71nwevAWYsU7pY4V8HereWRnhYt3G3EG+YZrDZsmH
+         R2HA==
+X-Forwarded-Encrypted: i=1; AJvYcCXhYkgfbSyt1jFL2qATOLQPais6I9yv5J6qzlLR+sMjIgjShTJHc07PkfMeiYvzkyHUrTYf1Exf41zSMeqR0O+E@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxzml+sKfZN8d5B8GFo1ow2OYRILCiRHLg7a72VzY5EKoWyi8NK
+	wrIuFS3xNoc+BBBj/mtcTE5dir9DEnyZ/F/DfsMboLWmIs0GcNJx1xopLNvTN9s=
+X-Gm-Gg: ASbGncuQCiYXvSiPOocVHD6x1GVgv8PCyFIXfL2kGUo54zkMCJpIWw5XC5woD2N3mxG
+	B46LHXdqhUlwdDWOblx3q9PS0eDcCXcmeNsZuHnAyz4tXYlhh6WrnihI4U1Gue4kRAAiZqbshp2
+	itVhRFJcWPlI8feEi563JWNogmNUbzmLZzZMANfwRyW9oWfJyM06qMkJN2eZPVoWVnUq+1MAuXC
+	8l3e7y3ghR9V823q74eF5jOOn3693Lvk4fy36nbU1fmYxidqZO/j/L2r8kK9PK+s+QZCsh9gDWC
+	gLC/tYSp8tw4l8pOo7y0R93QYz+kcT9aWw==
+X-Google-Smtp-Source: AGHT+IFjm+ROX4Lt+V90Jn3TMk492UXdruKl3KBdRoIEAwuyla143y7WSrkvsYEZT3Xx7lgzY1sCvw==
+X-Received: by 2002:a05:6000:1787:b0:38d:df15:2770 with SMTP id ffacd0b85a97d-390e15da77amr15041952f8f.0.1741015397860;
+        Mon, 03 Mar 2025 07:23:17 -0800 (PST)
 Received: from localhost ([2a03:2880:31ff:b::])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bc11e1c8esm42306695e9.32.2025.03.03.07.23.19
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43b736f8034sm169770555e9.4.2025.03.03.07.23.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Mar 2025 07:23:19 -0800 (PST)
+        Mon, 03 Mar 2025 07:23:17 -0800 (PST)
 From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 To: bpf@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Cc: Ankur Arora <ankur.a.arora@oracle.com>,
+Cc: Barret Rhoden <brho@google.com>,
 	Linus Torvalds <torvalds@linux-foundation.org>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Will Deacon <will@kernel.org>,
@@ -83,25 +98,24 @@ Cc: Ankur Arora <ankur.a.arora@oracle.com>,
 	Eduard Zingerman <eddyz87@gmail.com>,
 	"Paul E. McKenney" <paulmck@kernel.org>,
 	Tejun Heo <tj@kernel.org>,
-	Barret Rhoden <brho@google.com>,
 	Josh Don <joshdon@google.com>,
 	Dohyun Kim <dohyunkim@google.com>,
 	linux-arm-kernel@lists.infradead.org,
 	kkd@meta.com,
 	kernel-team@meta.com
-Subject: [PATCH bpf-next v3 08/25] rqspinlock: Hardcode cond_acquire loops for arm64
-Date: Mon,  3 Mar 2025 07:22:48 -0800
-Message-ID: <20250303152305.3195648-9-memxor@gmail.com>
+Subject: [PATCH bpf-next v3 06/25] rqspinlock: Drop PV and virtualization support
+Date: Mon,  3 Mar 2025 07:22:46 -0800
+Message-ID: <20250303152305.3195648-7-memxor@gmail.com>
 X-Mailer: git-send-email 2.43.5
 In-Reply-To: <20250303152305.3195648-1-memxor@gmail.com>
 References: <20250303152305.3195648-1-memxor@gmail.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6192; h=from:subject; bh=OXZjfkj9vlmQB5DKUaVgZP2eUXPIscjbGs4w8nWWb1Y=; b=owEBbQKS/ZANAwAIAUzgyIZIvxHKAcsmYgBnxcWWOoYAiRmhF6y065QEj1LrKSfWllbpNyyYNZSa qSwKiLWJAjMEAAEIAB0WIQRLvip+Buz51YI8YRFM4MiGSL8RygUCZ8XFlgAKCRBM4MiGSL8RyoQ1D/ wLlVGYocGxdNg4s1QyAFfYsSQi2WqV1eBWYZSjpNeeklY5NGh1Tkry86bADuiPA41U+6sKcb/xJFWh P98uXD3GNRpR3Qc0ZlcFxJ8UNRa1pt3WjaL+WU2IF7ab7pFZ78BILJH5IehQy38rq89MVWCIwd2y8a RHZEOFbn9h2lwC+gVyaVp6R/8EqwozY7peLmtmdEFyLzkanBkkKXXc+vmf2LUSP//uz18W5Dvlk/u0 Ij4Dh4XIXBZs+zio7QVmeQ1DgFpVZqqqb4UgpoAdO7QiQV0VZszEUsbM5tyg0NeNseWkS9u9vn89cy o5IFAwdAf7z+FqxhLOTysBwrma0uhfKDfzVTbqISED2s8YCgwTcFTVLcOnpawilUTon7ijZDzJQQza 5cEcDi2MdF3WOvcWqxiMLcgBJpoJwzQQ6MByaMhPTBx+dbyWoJwX54M+fwqGKqjL1nIy4s38v/fflb 5KSHn5vrHcWHNLNI4f1kxITi+5bQsaMeifIC5ltUctjwP0uh/WVhq+B63kLgKyxgW8zDe5RkYxvVVZ W2bMlEgbU71tVLuA5VUZTOizoax2TL2hJ1Ox21/A0q4t3m/Th739SY3jusfPle/dtSkQURdfj5CVS+ 7WI5z2oPcdvV5Fu3sRfrtb1EwqRYq3nUqzxzQ781Ej823z3Nf0EW8WW0F5Dg==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6795; h=from:subject; bh=x1Z+pB9xhs3i58kf9Kac9b92frWP4j0eHxNENfgFcNU=; b=owEBbQKS/ZANAwAIAUzgyIZIvxHKAcsmYgBnxcWWAhlIoArRUBi9+QCUAqMzXrVAKF0JtHZdQgoX fPFJU92JAjMEAAEIAB0WIQRLvip+Buz51YI8YRFM4MiGSL8RygUCZ8XFlgAKCRBM4MiGSL8RygwXEA DAmIu9BajEdITHz1mKPuYwgeMXa7iRtPHxfqCpPmzf/TH+bsToJCV02MBZgALM6kWCm/5rAUSraLhw BnMrlVK/RcAw8Kxjwu1xmv4nZtV3SYbVUGx9WVMII5Oeyew86x2PDffmVG2n1obhHHjW3irYV8YsdE Yp1hHfinMz7/BSq/yV3BC5t/Xnfyeqm/J8YZY2QWNJBC4EKexPFCjmswgCSAaSFCcxhApWXXJzknMU MFRWSRvdZ44k9m+DhbcggcjpFSytSET3RxyTw4yuiGnXVqdQBBg0JBdMGJz/TatR2aEVIb7cJrYFAg j53Yifny9409xdRc2gl46en9AmpDm3/WgCsa0MG4u2UZyRfxyJFucVeD8D37S0ybhHJqnoRd8Idhi7 QmQz4h/wP2rzNMb9gJ5XgohE5pZ2V72I2JHpPuL7p4uQ5QTqHm+xQyirFjDGGmfxNDIuH/1w//0thM DL6ypO4I4NPgIyNpKI0IVWdOcJ4sbxDX2seupxCRksDYYMwlRTYnEPgbMhqobCiAvBuEuRRvINLHkc gdFHigGRIq+ZNPJc74y2xJvhNd4dehMSg8IlVcZDLDmYHHHUCDiHbmlnJLWJ+hw/5iLNlSJtmRadiM JCiKxpddvVm6tqQTMDIdqvcgLcDn7u2gAg21mmdVh/8SvCqLxQsKxzk73jWA==
 X-Developer-Key: i=memxor@gmail.com; a=openpgp; fpr=4BBE2A7E06ECF9D5823C61114CE0C88648BF11CA
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_072322_075827_4637E55F 
-X-CRM114-Status: GOOD (  23.28  )
+X-CRM114-CacheID: sfid-20250303_152320_532843_068BE536 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,175 +130,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, for rqspinlock usage, the implementation of
-smp_cond_load_acquire (and thus, atomic_cond_read_acquire) are
-susceptible to stalls on arm64, because they do not guarantee that the
-conditional expression will be repeatedly invoked if the address being
-loaded from is not written to by other CPUs. When support for
-event-streams is absent (which unblocks stuck WFE-based loops every
-~100us), we may end up being stuck forever.
+Changes to rqspinlock in subsequent commits will be algorithmic
+modifications, which won't remain in agreement with the implementations
+of paravirt spin lock and virt_spin_lock support. These future changes
+include measures for terminating waiting loops in slow path after a
+certain point. While using a fair lock like qspinlock directly inside
+virtual machines leads to suboptimal performance under certain
+conditions, we cannot use the existing virtualization support before we
+make it resilient as well.  Therefore, drop it for now.
 
-This causes a problem for us, as we need to repeatedly invoke the
-RES_CHECK_TIMEOUT in the spin loop to break out when the timeout
-expires.
+Note that we need to drop qspinlock_stat.h, as it's only relevant in
+case of CONFIG_PARAVIRT_SPINLOCKS=y, but we need to keep lock_events.h
+in the includes, which was indirectly pulled in before.
 
-Let us import the smp_cond_load_acquire_timewait implementation Ankur is
-proposing in [0], and then fallback to it once it is merged.
-
-While we rely on the implementation to amortize the cost of sampling
-check_timeout for us, it will not happen when event stream support is
-unavailable. This is not the common case, and it would be difficult to
-fit our logic in the time_expr_ns >= time_limit_ns comparison, hence
-just let it be.
-
-  [0]: https://lore.kernel.org/lkml/20250203214911.898276-1-ankur.a.arora@oracle.com
-
-Cc: Ankur Arora <ankur.a.arora@oracle.com>
+Reviewed-by: Barret Rhoden <brho@google.com>
 Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 ---
- arch/arm64/include/asm/rqspinlock.h | 93 +++++++++++++++++++++++++++++
- kernel/locking/rqspinlock.c         | 15 +++++
- 2 files changed, 108 insertions(+)
- create mode 100644 arch/arm64/include/asm/rqspinlock.h
+ kernel/locking/rqspinlock.c | 91 +------------------------------------
+ 1 file changed, 1 insertion(+), 90 deletions(-)
 
-diff --git a/arch/arm64/include/asm/rqspinlock.h b/arch/arm64/include/asm/rqspinlock.h
-new file mode 100644
-index 000000000000..5b80785324b6
---- /dev/null
-+++ b/arch/arm64/include/asm/rqspinlock.h
-@@ -0,0 +1,93 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_RQSPINLOCK_H
-+#define _ASM_RQSPINLOCK_H
-+
-+#include <asm/barrier.h>
-+
-+/*
-+ * Hardcode res_smp_cond_load_acquire implementations for arm64 to a custom
-+ * version based on [0]. In rqspinlock code, our conditional expression involves
-+ * checking the value _and_ additionally a timeout. However, on arm64, the
-+ * WFE-based implementation may never spin again if no stores occur to the
-+ * locked byte in the lock word. As such, we may be stuck forever if
-+ * event-stream based unblocking is not available on the platform for WFE spin
-+ * loops (arch_timer_evtstrm_available).
-+ *
-+ * Once support for smp_cond_load_acquire_timewait [0] lands, we can drop this
-+ * copy-paste.
-+ *
-+ * While we rely on the implementation to amortize the cost of sampling
-+ * cond_expr for us, it will not happen when event stream support is
-+ * unavailable, time_expr check is amortized. This is not the common case, and
-+ * it would be difficult to fit our logic in the time_expr_ns >= time_limit_ns
-+ * comparison, hence just let it be. In case of event-stream, the loop is woken
-+ * up at microsecond granularity.
-+ *
-+ * [0]: https://lore.kernel.org/lkml/20250203214911.898276-1-ankur.a.arora@oracle.com
-+ */
-+
-+#ifndef smp_cond_load_acquire_timewait
-+
-+#define smp_cond_time_check_count	200
-+
-+#define __smp_cond_load_relaxed_spinwait(ptr, cond_expr, time_expr_ns,	\
-+					 time_limit_ns) ({		\
-+	typeof(ptr) __PTR = (ptr);					\
-+	__unqual_scalar_typeof(*ptr) VAL;				\
-+	unsigned int __count = 0;					\
-+	for (;;) {							\
-+		VAL = READ_ONCE(*__PTR);				\
-+		if (cond_expr)						\
-+			break;						\
-+		cpu_relax();						\
-+		if (__count++ < smp_cond_time_check_count)		\
-+			continue;					\
-+		if ((time_expr_ns) >= (time_limit_ns))			\
-+			break;						\
-+		__count = 0;						\
-+	}								\
-+	(typeof(*ptr))VAL;						\
-+})
-+
-+#define __smp_cond_load_acquire_timewait(ptr, cond_expr,		\
-+					 time_expr_ns, time_limit_ns)	\
-+({									\
-+	typeof(ptr) __PTR = (ptr);					\
-+	__unqual_scalar_typeof(*ptr) VAL;				\
-+	for (;;) {							\
-+		VAL = smp_load_acquire(__PTR);				\
-+		if (cond_expr)						\
-+			break;						\
-+		__cmpwait_relaxed(__PTR, VAL);				\
-+		if ((time_expr_ns) >= (time_limit_ns))			\
-+			break;						\
-+	}								\
-+	(typeof(*ptr))VAL;						\
-+})
-+
-+#define smp_cond_load_acquire_timewait(ptr, cond_expr,			\
-+				      time_expr_ns, time_limit_ns)	\
-+({									\
-+	__unqual_scalar_typeof(*ptr) _val;				\
-+	int __wfe = arch_timer_evtstrm_available();			\
-+									\
-+	if (likely(__wfe)) {						\
-+		_val = __smp_cond_load_acquire_timewait(ptr, cond_expr,	\
-+							time_expr_ns,	\
-+							time_limit_ns);	\
-+	} else {							\
-+		_val = __smp_cond_load_relaxed_spinwait(ptr, cond_expr,	\
-+							time_expr_ns,	\
-+							time_limit_ns);	\
-+		smp_acquire__after_ctrl_dep();				\
-+	}								\
-+	(typeof(*ptr))_val;						\
-+})
-+
-+#endif
-+
-+#define res_smp_cond_load_acquire_timewait(v, c) smp_cond_load_acquire_timewait(v, c, 0, 1)
-+
-+#include <asm-generic/rqspinlock.h>
-+
-+#endif /* _ASM_RQSPINLOCK_H */
 diff --git a/kernel/locking/rqspinlock.c b/kernel/locking/rqspinlock.c
-index 6b547f85fa95..efa937ea80d9 100644
+index 414a3ec8cf70..98cdcc5f1784 100644
 --- a/kernel/locking/rqspinlock.c
 +++ b/kernel/locking/rqspinlock.c
-@@ -92,12 +92,21 @@ static noinline int check_timeout(struct rqspinlock_timeout *ts)
- 	return 0;
- }
+@@ -11,8 +11,6 @@
+  *          Peter Zijlstra <peterz@infradead.org>
+  */
  
-+/*
-+ * Do not amortize with spins when res_smp_cond_load_acquire is defined,
-+ * as the macro does internal amortization for us.
-+ */
-+#ifndef res_smp_cond_load_acquire
- #define RES_CHECK_TIMEOUT(ts, ret)                    \
- 	({                                            \
- 		if (!(ts).spin++)                     \
- 			(ret) = check_timeout(&(ts)); \
- 		(ret);                                \
- 	})
-+#else
-+#define RES_CHECK_TIMEOUT(ts, ret, mask)	      \
-+	({ (ret) = check_timeout(&(ts)); })
-+#endif
+-#ifndef _GEN_PV_LOCK_SLOWPATH
+-
+ #include <linux/smp.h>
+ #include <linux/bug.h>
+ #include <linux/cpumask.h>
+@@ -29,7 +27,7 @@
+  * Include queued spinlock definitions and statistics code
+  */
+ #include "qspinlock.h"
+-#include "qspinlock_stat.h"
++#include "lock_events.h"
  
  /*
-  * Initialize the 'spin' member.
-@@ -118,6 +127,12 @@ static noinline int check_timeout(struct rqspinlock_timeout *ts)
+  * The basic principle of a queue-based spinlock can best be understood
+@@ -75,38 +73,9 @@
+  * contexts: task, softirq, hardirq, nmi.
+  *
+  * Exactly fits one 64-byte cacheline on a 64-bit architecture.
+- *
+- * PV doubles the storage and uses the second cacheline for PV state.
   */
  static DEFINE_PER_CPU_ALIGNED(struct qnode, rqnodes[_Q_MAX_NODES]);
  
-+#ifndef res_smp_cond_load_acquire
-+#define res_smp_cond_load_acquire(v, c) smp_cond_load_acquire(v, c)
-+#endif
-+
-+#define res_atomic_cond_read_acquire(v, c) res_smp_cond_load_acquire(&(v)->counter, (c))
-+
+-/*
+- * Generate the native code for resilient_queued_spin_unlock_slowpath(); provide NOPs
+- * for all the PV callbacks.
+- */
+-
+-static __always_inline void __pv_init_node(struct mcs_spinlock *node) { }
+-static __always_inline void __pv_wait_node(struct mcs_spinlock *node,
+-					   struct mcs_spinlock *prev) { }
+-static __always_inline void __pv_kick_node(struct qspinlock *lock,
+-					   struct mcs_spinlock *node) { }
+-static __always_inline u32  __pv_wait_head_or_lock(struct qspinlock *lock,
+-						   struct mcs_spinlock *node)
+-						   { return 0; }
+-
+-#define pv_enabled()		false
+-
+-#define pv_init_node		__pv_init_node
+-#define pv_wait_node		__pv_wait_node
+-#define pv_kick_node		__pv_kick_node
+-#define pv_wait_head_or_lock	__pv_wait_head_or_lock
+-
+-#ifdef CONFIG_PARAVIRT_SPINLOCKS
+-#define resilient_queued_spin_lock_slowpath	native_resilient_queued_spin_lock_slowpath
+-#endif
+-
+-#endif /* _GEN_PV_LOCK_SLOWPATH */
+-
  /**
   * resilient_queued_spin_lock_slowpath - acquire the queued spinlock
   * @lock: Pointer to queued spinlock structure
+@@ -136,12 +105,6 @@ void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val)
+ 
+ 	BUILD_BUG_ON(CONFIG_NR_CPUS >= (1U << _Q_TAIL_CPU_BITS));
+ 
+-	if (pv_enabled())
+-		goto pv_queue;
+-
+-	if (virt_spin_lock(lock))
+-		return;
+-
+ 	/*
+ 	 * Wait for in-progress pending->locked hand-overs with a bounded
+ 	 * number of spins so that we guarantee forward progress.
+@@ -212,7 +175,6 @@ void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val)
+ 	 */
+ queue:
+ 	lockevent_inc(lock_slowpath);
+-pv_queue:
+ 	node = this_cpu_ptr(&rqnodes[0].mcs);
+ 	idx = node->count++;
+ 	tail = encode_tail(smp_processor_id(), idx);
+@@ -251,7 +213,6 @@ void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val)
+ 
+ 	node->locked = 0;
+ 	node->next = NULL;
+-	pv_init_node(node);
+ 
+ 	/*
+ 	 * We touched a (possibly) cold cacheline in the per-cpu queue node;
+@@ -288,7 +249,6 @@ void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val)
+ 		/* Link @node into the waitqueue. */
+ 		WRITE_ONCE(prev->next, node);
+ 
+-		pv_wait_node(node, prev);
+ 		arch_mcs_spin_lock_contended(&node->locked);
+ 
+ 		/*
+@@ -312,23 +272,9 @@ void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val)
+ 	 * store-release that clears the locked bit and create lock
+ 	 * sequentiality; this is because the set_locked() function below
+ 	 * does not imply a full barrier.
+-	 *
+-	 * The PV pv_wait_head_or_lock function, if active, will acquire
+-	 * the lock and return a non-zero value. So we have to skip the
+-	 * atomic_cond_read_acquire() call. As the next PV queue head hasn't
+-	 * been designated yet, there is no way for the locked value to become
+-	 * _Q_SLOW_VAL. So both the set_locked() and the
+-	 * atomic_cmpxchg_relaxed() calls will be safe.
+-	 *
+-	 * If PV isn't active, 0 will be returned instead.
+-	 *
+ 	 */
+-	if ((val = pv_wait_head_or_lock(lock, node)))
+-		goto locked;
+-
+ 	val = atomic_cond_read_acquire(&lock->val, !(VAL & _Q_LOCKED_PENDING_MASK));
+ 
+-locked:
+ 	/*
+ 	 * claim the lock:
+ 	 *
+@@ -341,11 +287,6 @@ void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val)
+ 	 */
+ 
+ 	/*
+-	 * In the PV case we might already have _Q_LOCKED_VAL set, because
+-	 * of lock stealing; therefore we must also allow:
+-	 *
+-	 * n,0,1 -> 0,0,1
+-	 *
+ 	 * Note: at this point: (val & _Q_PENDING_MASK) == 0, because of the
+ 	 *       above wait condition, therefore any concurrent setting of
+ 	 *       PENDING will make the uncontended transition fail.
+@@ -369,7 +310,6 @@ void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val)
+ 		next = smp_cond_load_relaxed(&node->next, (VAL));
+ 
+ 	arch_mcs_spin_unlock_contended(&next->locked);
+-	pv_kick_node(lock, next);
+ 
+ release:
+ 	trace_contention_end(lock, 0);
+@@ -380,32 +320,3 @@ void __lockfunc resilient_queued_spin_lock_slowpath(rqspinlock_t *lock, u32 val)
+ 	__this_cpu_dec(rqnodes[0].mcs.count);
+ }
+ EXPORT_SYMBOL(resilient_queued_spin_lock_slowpath);
+-
+-/*
+- * Generate the paravirt code for resilient_queued_spin_unlock_slowpath().
+- */
+-#if !defined(_GEN_PV_LOCK_SLOWPATH) && defined(CONFIG_PARAVIRT_SPINLOCKS)
+-#define _GEN_PV_LOCK_SLOWPATH
+-
+-#undef  pv_enabled
+-#define pv_enabled()	true
+-
+-#undef pv_init_node
+-#undef pv_wait_node
+-#undef pv_kick_node
+-#undef pv_wait_head_or_lock
+-
+-#undef  resilient_queued_spin_lock_slowpath
+-#define resilient_queued_spin_lock_slowpath	__pv_resilient_queued_spin_lock_slowpath
+-
+-#include "qspinlock_paravirt.h"
+-#include "rqspinlock.c"
+-
+-bool nopvspin;
+-static __init int parse_nopvspin(char *arg)
+-{
+-	nopvspin = true;
+-	return 0;
+-}
+-early_param("nopvspin", parse_nopvspin);
+-#endif
 -- 
 2.43.5
 
