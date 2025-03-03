@@ -4,124 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDF14C282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 13:59:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25E96C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 14:00:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KvSQXTXm2WJtvrSSulKAAYVeipdazZIwWA04KeDmP3s=; b=AIET0TJXr/taQ8nHIQDCOYMFec
-	srD2lloyp3fS2ZK54HVgIXA27oxdqI+AzKqLWQ3zuI1jSA+/iKQYCVwWI6/z4HB3Ar0/9BL/IY4d5
-	ar8eU/Zx5fwswBDYfsa8zUmFKQHk9MJ5njmeUNrRFjDy6POttSAVHzhADuwZ7rghLYtfEnsYjOHPE
-	zctAcDCJ4+VxMzyo2CFFj0gKOOx0p8bmMawhYmyx4Bg3T6ZBtmn6VpAtd52Bymxdl2X8YdkLopeJn
-	Ig92rLBX8E8bu0Xlp6zjafzXWnhZZede281YtuxrpW5GAVMHVFs1vSC3v8unYTMxLjx8HA9/HOsUD
-	e+dkXOSw==;
+	bh=ofmnRVwI5AT62ptxh8zklk/N01TYJ0oFg8f5/KIUZRw=; b=02gRPv2VVFA7BoEAydj7t/p8xk
+	hNoL3HI9oU7L/NTXqTt6Pux9yx8EtfRrZdo7kfk/JxHhVq3qmoU5IvCThcfd3PviVl6xwxcMfcV5r
+	mEQyc2w6yEtxozEvpGvTo/MaZbbuJpPZN+k/cVC7Vv/d7MXH+NRx9PR/6ToI25j6jloOxYR+wh33l
+	9DSoUapa781g/onTOMT18AmEF68qBDY66plkf5i5e04KeBo3ECm7cqZxJSDMvjHo3TvWQOF0dyBCZ
+	VvqHo90+86e8e2VtQe2fhUWsI3f9vAUZ8bEgHOcCJH/jT0oht0uCSQUihjPvEuKWKwNR16Qo8E2Pc
+	lBN2FJ6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp6Jv-000000010Jd-3NbC;
-	Mon, 03 Mar 2025 13:58:59 +0000
-Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
+	id 1tp6LT-000000010c5-2C3I;
+	Mon, 03 Mar 2025 14:00:35 +0000
+Received: from mx0b-001ae601.pphosted.com ([67.231.152.168])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp5sr-00000000vXO-0cK5
+	id 1tp5vH-00000000w4l-3or2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 13:31:02 +0000
-Received: by mail-pl1-x642.google.com with SMTP id d9443c01a7336-2238e884f72so25858585ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 05:31:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741008660; x=1741613460; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KvSQXTXm2WJtvrSSulKAAYVeipdazZIwWA04KeDmP3s=;
-        b=myH9/VgDofhjqBH+htsfJnGvQ9OY3Sct5z0QfLDr743wIsEyDnLGx/nZzv7tdPGsKi
-         NN0BRS2NBRtn+mW+NAy6J0tA18pfGs/vRvcidUNq5eKlospGIaCPx2ApoZECou9obFhK
-         krxLZ+8CdBLqyAkilrhg6plFM3ICiahV9aacORHe2sHt06VjkhEnffORGu4S5DW93wqi
-         DGyD1m5z1gzISu/VyZhWPJtYgIcg4N59dZJ2x4XBTTBW9iJtLXoa/ybv1hUx4YQOfNqe
-         JBmfkglfuoeobMtsa6aU+T6EhLqHvt0Nsr84b7i/ZKlnbso23IVY4HHRwRRyndQVUh6c
-         XG6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741008660; x=1741613460;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KvSQXTXm2WJtvrSSulKAAYVeipdazZIwWA04KeDmP3s=;
-        b=MrsPaI+RWgkP+tpO4Y0SPPjEdtuVJEOUTIuw/oRzjlexwAgOYD8emVQ7g5fVzHuOXB
-         T8K59Jui5jJQ3IqOna6BlKUxQQmP23fUn4IyzAwNJ4lutBsDsYLCB8SZx6Lrj19WOdYF
-         Ku3fd4XVFogR393R3wP+3/PeUnsH70mcdxtirWBDwyNrDn+vivRnO+CVZzHa9bcJOzlD
-         xFGuBnKtMkpNT9gy6bUb+9BinuQ2TK9MZzpk1kdhktCnUcTWlCfKmP9FPWPHXdIfvJ0b
-         cq5k/b565HPKnRaStl8B3Qbu36Z1PxC40/zMjV4H8uNMPZTW839NOBT+ukNqnEcP7My3
-         rcWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVtoaKiUfI8jTpjMmwpCd12iqJUUqC8WLnBOcLsmzc/GGvTKXOdHgYXfNxLonqmGQZN+Ctp5zi8cs9mJ3BJrGEH@lists.infradead.org
-X-Gm-Message-State: AOJu0YxlnsAGC4qHlyOnO794fHcAs4IvcG95TUu8snU/Mbb3TxM8yABY
-	XZ7q+GFEJTr6FyFpV9UzBSHsHnnl7M0vo7Tf1NKYgNM19FzHN8kB
-X-Gm-Gg: ASbGncuZoX2PQXPoT+/DQpghQHO8f0FdarxfCiuPejAeccjhutEi0iYlFpR68pjSEQL
-	/adPZRzfrtE6BnAKn7p2DEjVvF1yMZbhr8UUWXW0pLnnb1ztZJEZxjz0Mift9cQpZ7hkvuG3pmz
-	OgEHVHDlGL1PViaN4Z71Re/Weoghs31AzSK3CshLa8CA8UUy8hE1Yt7LGdFYzPB77KnLzQ/Wrx5
-	hQMO205VGHQzFRpmnRVYjnCC660f4qfMa9aFF8pBHbBuzaw08t17+L3NH4A/6g26IrEAvKWCPIS
-	YwrudupcyMc8qc17JWAoDUw9yFwCAZv1z+2cNjZAJ3roIiVzit3X+q9nSTLU8A==
-X-Google-Smtp-Source: AGHT+IFrx9yunejrhIIBax0i6zoJK5cErggOeRBXOxeJLSAEu6Vgq/DyW9livSLEsya9w6YWkG4/Ug==
-X-Received: by 2002:a17:902:fc8d:b0:223:44dc:3f36 with SMTP id d9443c01a7336-2236925eef4mr220020495ad.43.1741008660442;
-        Mon, 03 Mar 2025 05:31:00 -0800 (PST)
-Received: from localhost.localdomain ([43.129.244.20])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-223505359b8sm77297035ad.253.2025.03.03.05.30.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Mar 2025 05:31:00 -0800 (PST)
-From: Menglong Dong <menglong8.dong@gmail.com>
-X-Google-Original-From: Menglong Dong <dongml2@chinatelecom.cn>
-To: peterz@infradead.org,
-	rostedt@goodmis.org,
-	mark.rutland@arm.com,
-	alexei.starovoitov@gmail.com
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	mhiramat@kernel.org,
-	tglx@linutronix.de,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	x86@kernel.org,
-	hpa@zytor.com,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	andrii@kernel.org,
-	martin.lau@linux.dev,
-	eddyz87@gmail.com,
-	yonghong.song@linux.dev,
-	john.fastabend@gmail.com,
-	kpsingh@kernel.org,
-	sdf@fomichev.me,
-	jolsa@kernel.org,
-	davem@davemloft.net,
-	dsahern@kernel.org,
-	mathieu.desnoyers@efficios.com,
-	nathan@kernel.org,
-	nick.desaulniers+lkml@gmail.com,
-	morbo@google.com,
-	samitolvanen@google.com,
-	kees@kernel.org,
-	dongml2@chinatelecom.cn,
-	akpm@linux-foundation.org,
-	riel@surriel.com,
-	rppt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	bpf@vger.kernel.org,
-	netdev@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: [PATCH v4 4/4] arm64: implement per-function metadata storage for arm64
-Date: Mon,  3 Mar 2025 21:28:37 +0800
-Message-Id: <20250303132837.498938-5-dongml2@chinatelecom.cn>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250303132837.498938-1-dongml2@chinatelecom.cn>
-References: <20250303132837.498938-1-dongml2@chinatelecom.cn>
+	Mon, 03 Mar 2025 13:33:33 +0000
+Received: from pps.filterd (m0077474.ppops.net [127.0.0.1])
+	by mx0b-001ae601.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5236w7Hs006077;
+	Mon, 3 Mar 2025 07:33:11 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	PODMain02222019; bh=ofmnRVwI5AT62ptxh8zklk/N01TYJ0oFg8f5/KIUZRw=; b=
+	F6wdiybK2ED4uAxZOAJ/RRTtc+TbrgGGRp7AsLBjfNmeL1wxKEJe1gpttdgFAZQQ
+	aygpqZQDL0He9/cn7WEOggadA7TgBV94vVupVnreLa1ZfKSWLnpeNovjZ0o9eyC/
+	BDOwxgQ9w5V98ZV5k7y2uCBojEfbl6eO8A9BVEphTGXn+nG98/KF+LmSaCxm5QxL
+	gwZnIK/MUTFJNIPctafUXvydaEtKH/23TqUrELy/xlvQCOc7TIdT+iOC9LnuDmW3
+	q+w2QcBUh3Vxi31LaC6G+AMvTrlFW3vech1ZZUmPbzC0V4UbwTPa7El2/5x0XEV8
+	jDLmZRWhEvTMuB7mDkGsEg==
+Received: from ediex01.ad.cirrus.com ([84.19.233.68])
+	by mx0b-001ae601.pphosted.com (PPS) with ESMTPS id 453yhmcw74-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 03 Mar 2025 07:33:11 -0600 (CST)
+Received: from ediex01.ad.cirrus.com (198.61.84.80) by ediex01.ad.cirrus.com
+ (198.61.84.80) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 3 Mar
+ 2025 13:33:10 +0000
+Received: from ediswmail9.ad.cirrus.com (198.61.86.93) by
+ anon-ediex01.ad.cirrus.com (198.61.84.80) with Microsoft SMTP Server id
+ 15.2.1544.14 via Frontend Transport; Mon, 3 Mar 2025 13:33:10 +0000
+Received: from [198.90.208.18] (ediswws06.ad.cirrus.com [198.90.208.18])
+	by ediswmail9.ad.cirrus.com (Postfix) with ESMTP id E67B2820248;
+	Mon,  3 Mar 2025 13:33:09 +0000 (UTC)
+Message-ID: <84b7c543-7e81-4a20-9f58-7ddf6b2001e5@opensource.cirrus.com>
+Date: Mon, 3 Mar 2025 13:33:09 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 11/15] gpio: arizona: use new line value setter callbacks
+To: Bartosz Golaszewski <brgl@bgdev.pl>,
+        Linus Walleij
+	<linus.walleij@linaro.org>,
+        Michael Hennerich <michael.hennerich@analog.com>,
+        Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+        Mun Yew Tham
+	<mun.yew.tham@intel.com>, Joel Stanley <joel@jms.id.au>,
+        Andrew Jeffery
+	<andrew@codeconstruct.com.au>
+CC: <linux-gpio@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-pwm@vger.kernel.org>, <patches@opensource.cirrus.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-aspeed@lists.ozlabs.org>,
+        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+References: <20250303-gpiochip-set-conversion-v1-0-1d5cceeebf8b@linaro.org>
+ <20250303-gpiochip-set-conversion-v1-11-1d5cceeebf8b@linaro.org>
+Content-Language: en-GB
+From: Richard Fitzgerald <rf@opensource.cirrus.com>
+In-Reply-To: <20250303-gpiochip-set-conversion-v1-11-1d5cceeebf8b@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: CRfd2hqIDBqS4F2QrofR-T9cJdEBrOGR
+X-Authority-Analysis: v=2.4 cv=UeirSLSN c=1 sm=1 tr=0 ts=67c5af97 cx=c_pps a=uGhh+3tQvKmCLpEUO+DX4w==:117 a=uGhh+3tQvKmCLpEUO+DX4w==:17 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=KKAkSRfTAAAA:8 a=w1d2syhTAAAA:8 a=IHiEukr3ZQpEQQ-4GLUA:9 a=QEXdDO2ut3YA:10
+ a=cvBusfyB2V15izCimMoJ:22 a=YXXWInSmI4Sqt1AkVdoW:22
+X-Proofpoint-GUID: CRfd2hqIDBqS4F2QrofR-T9cJdEBrOGR
+X-Proofpoint-Spam-Reason: safe
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_053101_180339_9123B0FE 
-X-CRM114-Status: GOOD (  21.55  )
+X-CRM114-CacheID: sfid-20250303_053332_103262_1EF60BDD 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,179 +102,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The per-function metadata storage is already used by ftrace if
-CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS is enabled, and it store the pointer
-of the callback directly to the function padding, which consume 8-bytes,
-in the commit
-baaf553d3bc3 ("arm64: Implement HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS").
-So we can directly store the index to the function padding too, without
-a prepending. With CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS enabled, the
-function is 8-bytes aligned, and we will compile the kernel with extra
-8-bytes (2 NOPS) padding space. Otherwise, the function is 4-bytes
-aligned, and only extra 4-bytes (1 NOPS) is needed.
-
-However, we have the same problem with Mark in the commit above: we can't
-use the function padding together with CFI_CLANG, which can make the clang
-compiles a wrong offset to the pre-function type hash. He said that he was
-working with others on this problem 2 years ago. Hi Mark, is there any
-progress on this problem?
-
-Signed-off-by: Menglong Dong <dongml2@chinatelecom.cn>
----
- arch/arm64/Kconfig              | 15 +++++++++++++++
- arch/arm64/Makefile             | 23 ++++++++++++++++++++--
- arch/arm64/include/asm/ftrace.h | 34 +++++++++++++++++++++++++++++++++
- arch/arm64/kernel/ftrace.c      | 13 +++++++++++--
- 4 files changed, 81 insertions(+), 4 deletions(-)
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 940343beb3d4..7ed80f5eb267 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1536,6 +1536,21 @@ config NODES_SHIFT
- 	  Specify the maximum number of NUMA Nodes available on the target
- 	  system.  Increases memory reserved to accommodate various tables.
- 
-+config FUNCTION_METADATA
-+	bool "Per-function metadata storage support"
-+	default y
-+	select HAVE_DYNAMIC_FTRACE_NO_PATCHABLE if !FTRACE_MCOUNT_USE_PATCHABLE_FUNCTION_ENTRY
-+	depends on !CFI_CLANG
-+	help
-+	  Support per-function metadata storage for kernel functions, and
-+	  get the metadata of the function by its address with almost no
-+	  overhead.
-+
-+	  The index of the metadata will be stored in the function padding,
-+	  which will consume 4-bytes. If FUNCTION_ALIGNMENT_8B is enabled,
-+	  extra 8-bytes function padding will be reserved during compiling.
-+	  Otherwise, only extra 4-bytes function padding is needed.
-+
- source "kernel/Kconfig.hz"
- 
- config ARCH_SPARSEMEM_ENABLE
-diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-index 2b25d671365f..2df2b0f4dd90 100644
---- a/arch/arm64/Makefile
-+++ b/arch/arm64/Makefile
-@@ -144,12 +144,31 @@ endif
- 
- CHECKFLAGS	+= -D__aarch64__
- 
-+ifeq ($(CONFIG_FUNCTION_METADATA),y)
-+  ifeq ($(CONFIG_FUNCTION_ALIGNMENT_8B),y)
-+  __padding_nops := 2
-+  else
-+  __padding_nops := 1
-+  endif
-+else
-+  __padding_nops := 0
-+endif
-+
- ifeq ($(CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS),y)
-+  __padding_nops  := $(shell echo $(__padding_nops) + 2 | bc)
-   KBUILD_CPPFLAGS += -DCC_USING_PATCHABLE_FUNCTION_ENTRY
--  CC_FLAGS_FTRACE := -fpatchable-function-entry=4,2
-+  CC_FLAGS_FTRACE := -fpatchable-function-entry=$(shell echo $(__padding_nops) + 2 | bc),$(__padding_nops)
- else ifeq ($(CONFIG_DYNAMIC_FTRACE_WITH_ARGS),y)
-+  CC_FLAGS_FTRACE := -fpatchable-function-entry=$(shell echo $(__padding_nops) + 2 | bc),$(__padding_nops)
-   KBUILD_CPPFLAGS += -DCC_USING_PATCHABLE_FUNCTION_ENTRY
--  CC_FLAGS_FTRACE := -fpatchable-function-entry=2
-+else ifeq ($(CONFIG_FUNCTION_METADATA),y)
-+  CC_FLAGS_FTRACE += -fpatchable-function-entry=$(__padding_nops),$(__padding_nops)
-+  ifneq ($(CONFIG_FUNCTION_TRACER),y)
-+    KBUILD_CFLAGS += $(CC_FLAGS_FTRACE)
-+    # some file need to remove this cflag when CONFIG_FUNCTION_TRACER
-+    # is not enabled, so we need to export it here
-+    export CC_FLAGS_FTRACE
-+  endif
- endif
- 
- ifeq ($(CONFIG_KASAN_SW_TAGS), y)
-diff --git a/arch/arm64/include/asm/ftrace.h b/arch/arm64/include/asm/ftrace.h
-index bfe3ce9df197..aa3eaa91bf82 100644
---- a/arch/arm64/include/asm/ftrace.h
-+++ b/arch/arm64/include/asm/ftrace.h
-@@ -24,6 +24,16 @@
- #define FTRACE_PLT_IDX		0
- #define NR_FTRACE_PLTS		1
- 
-+#ifdef CONFIG_FUNCTION_METADATA
-+#ifdef CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
-+#define KFUNC_MD_DATA_OFFSET	(AARCH64_INSN_SIZE * 3)
-+#else
-+#define KFUNC_MD_DATA_OFFSET	AARCH64_INSN_SIZE
-+#endif
-+#define KFUNC_MD_INSN_SIZE	AARCH64_INSN_SIZE
-+#define KFUNC_MD_INSN_OFFSET	KFUNC_MD_DATA_OFFSET
-+#endif
-+
- /*
-  * Currently, gcc tends to save the link register after the local variables
-  * on the stack. This causes the max stack tracer to report the function
-@@ -216,6 +226,30 @@ static inline bool arch_syscall_match_sym_name(const char *sym,
- 	 */
- 	return !strcmp(sym + 8, name);
- }
-+
-+#ifdef CONFIG_FUNCTION_METADATA
-+#include <asm/text-patching.h>
-+
-+static inline bool kfunc_md_arch_exist(void *ip)
-+{
-+	return !aarch64_insn_is_nop(*(u32 *)(ip - KFUNC_MD_INSN_OFFSET));
-+}
-+
-+static inline void kfunc_md_arch_pretend(u8 *insn, u32 index)
-+{
-+	*(u32 *)insn = index;
-+}
-+
-+static inline void kfunc_md_arch_nops(u8 *insn)
-+{
-+	*(u32 *)insn = aarch64_insn_gen_nop();
-+}
-+
-+static inline int kfunc_md_arch_poke(void *ip, u8 *insn)
-+{
-+	return aarch64_insn_patch_text_nosync(ip, *(u32 *)insn);
-+}
-+#endif
- #endif /* ifndef __ASSEMBLY__ */
- 
- #ifndef __ASSEMBLY__
-diff --git a/arch/arm64/kernel/ftrace.c b/arch/arm64/kernel/ftrace.c
-index d7c0d023dfe5..4191ff0037f5 100644
---- a/arch/arm64/kernel/ftrace.c
-+++ b/arch/arm64/kernel/ftrace.c
-@@ -88,8 +88,10 @@ unsigned long ftrace_call_adjust(unsigned long addr)
- 	 * to `BL <caller>`, which is at `addr + 4` bytes in either case.
- 	 *
- 	 */
--	if (!IS_ENABLED(CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS))
--		return addr + AARCH64_INSN_SIZE;
-+	if (!IS_ENABLED(CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS)) {
-+		addr += AARCH64_INSN_SIZE;
-+		goto out;
-+	}
- 
- 	/*
- 	 * When using patchable-function-entry with pre-function NOPs, addr is
-@@ -139,6 +141,13 @@ unsigned long ftrace_call_adjust(unsigned long addr)
- 
- 	/* Skip the first NOP after function entry */
- 	addr += AARCH64_INSN_SIZE;
-+out:
-+	if (IS_ENABLED(CONFIG_FUNCTION_METADATA)) {
-+		if (IS_ENABLED(CONFIG_FUNCTION_ALIGNMENT_8B))
-+			addr += 2 * AARCH64_INSN_SIZE;
-+		else
-+			addr += AARCH64_INSN_SIZE;
-+	}
- 
- 	return addr;
- }
--- 
-2.39.5
-
+On 03/03/2025 1:18 pm, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> 
+> struct gpio_chip now has callbacks for setting line values that return
+> an integer, allowing to indicate failures. Convert the driver to using
+> them.
+> 
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> ---
+>   drivers/gpio/gpio-arizona.c | 9 +++++----
+>   1 file changed, 5 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/gpio/gpio-arizona.c b/drivers/gpio/gpio-arizona.c
+> index c15fda99120a..e530c94dcce8 100644
+> --- a/drivers/gpio/gpio-arizona.c
+> +++ b/drivers/gpio/gpio-arizona.c
+> @@ -121,7 +121,8 @@ static int arizona_gpio_direction_out(struct gpio_chip *chip,
+>   				  ARIZONA_GPN_DIR | ARIZONA_GPN_LVL, value);
+>   }
+>   
+> -static void arizona_gpio_set(struct gpio_chip *chip, unsigned offset, int value)
+> +static int arizona_gpio_set(struct gpio_chip *chip, unsigned int offset,
+> +			    int value)
+>   {
+>   	struct arizona_gpio *arizona_gpio = gpiochip_get_data(chip);
+>   	struct arizona *arizona = arizona_gpio->arizona;
+> @@ -129,8 +130,8 @@ static void arizona_gpio_set(struct gpio_chip *chip, unsigned offset, int value)
+>   	if (value)
+>   		value = ARIZONA_GPN_LVL;
+>   
+> -	regmap_update_bits(arizona->regmap, ARIZONA_GPIO1_CTRL + offset,
+> -			   ARIZONA_GPN_LVL, value);
+> +	return regmap_update_bits(arizona->regmap, ARIZONA_GPIO1_CTRL + offset,
+> +				  ARIZONA_GPN_LVL, value);
+>   }
+>   
+>   static const struct gpio_chip template_chip = {
+> @@ -139,7 +140,7 @@ static const struct gpio_chip template_chip = {
+>   	.direction_input	= arizona_gpio_direction_in,
+>   	.get			= arizona_gpio_get,
+>   	.direction_output	= arizona_gpio_direction_out,
+> -	.set			= arizona_gpio_set,
+> +	.set_rv			= arizona_gpio_set,
+>   	.can_sleep		= true,
+>   };
+>   
+> 
+Reviewed-by: Richard Fitzgerald <rf@opensource.cirrus.com>
 
