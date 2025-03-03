@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDFCCC282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 15:09:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 175DFC282CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 15:11:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iQuzuPi3dEBxN+dycBQgGTGLRVJwxD4hf+DE7IGKdTg=; b=p9JHYrwUPPzgFfWloSqyQ3VNxk
-	X8jOLHJGMNZsk7DGiGOg2CSUQNo3QGHlmd/AAYO9mv0amBKuc93UueY85wXCFyCDtDnITdXLekWbn
-	Xf3WzR1bL3EbyBf5ykWQmWTCfg4jCR9v8/WDhhvoX6OgNd2l6fvQ1VdLCcPuVatELoTUcpXBMPmGd
-	mirLD52vCku6klEXgXnbdfIHBYR8dL7KLEdv93IGwSjTWlR/OyGe9v9R3K1ZPnwUnAjkpWP9dRoCv
-	AXjAad2KbrGayC06I3K8sgu5urTk2MWvDgCmnYm0n5v2g/sB0agrv15K8y8katKhgT9oO+HDUtJ8c
-	5qKh4m7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kkrJJdtA5uhi9S/UflXwkZvZrgvrR9Tt98ToUZKE9oQ=; b=pgZEFFXawKDAmaBbC7Nsw84yl9
+	X3NpDl4LnE4cWJilB7cbuHtWJh6h89k3e0HFgQZPmPWkw1fZmbPt6e2nLhrD1pDX+0DfuZ+b2uPFE
+	Svwka2eVJtY0ZD/MMdXWN4/2HEpA0h26wbPv+m0MHLGofKenryX4Xi/cXi2WSAqxG6AgOKHtIv0Ib
+	9Fxa/CM10hUku5w/YjO8oaxuI068eL9/6o9wnWXsb7Xj6Qw9wZ1uCnGDCvLeR4M63aAcP+Dw3Kifl
+	TuBr9ieZstJ6994cXPglL8N/kdDnUObR3dCAthXE5av1Zbj3TVbVugKit2nRX6Jjo5XalSUKCTfSp
+	FZoDUb5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp7QH-00000001EUB-484r;
-	Mon, 03 Mar 2025 15:09:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp7MM-00000001Dck-0xlR
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 15:05:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BE735106F;
-	Mon,  3 Mar 2025 07:05:47 -0800 (PST)
-Received: from [10.1.39.33] (e122027.cambridge.arm.com [10.1.39.33])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AE1793F5A1;
-	Mon,  3 Mar 2025 07:05:29 -0800 (PST)
-Message-ID: <59f84354-e890-48c8-ba06-87dda471f364@arm.com>
-Date: Mon, 3 Mar 2025 15:05:25 +0000
+	id 1tp7Rp-00000001EmB-2xE6;
+	Mon, 03 Mar 2025 15:11:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tp7OQ-00000001E5G-1gih;
+	Mon, 03 Mar 2025 15:07:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D9FF0611E2;
+	Mon,  3 Mar 2025 15:07:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C42EC4CED6;
+	Mon,  3 Mar 2025 15:07:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741014461;
+	bh=HuPOnOviq8r+tHWc9h2eXFiWNQM7CuuwBrKHN13HnOM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=e8lsaej9A2HXVSBTtk7NEa22kgHyP3MX8CO9eEccqrCx2bictg+yFVDreriVq3Gvk
+	 HN1Jo4/Pu7xF/kgCJBQPGB46Z7EyG4nAYRI7ULlQMABBb3iyUgTNqdcDsGPsYqj2Dr
+	 q1FAglCF8KP7tT1/JssrxgPw8O1n9cwwlgWorHT+u7Zu5f7+2kAG6A7TrJsXocFIIr
+	 ZI+JL/h37Bqvfg/j8Ua6Jx3aOHE8uz/4Mg9OfyeFT2se1iJEXzqXE5NQ15JdGXtRxe
+	 h5JJLpwB0IVNFHpfJgyR2VitKa2EPa60FKPTfDl6govGN7YkD8aHAE/ucBNpVuJ8ze
+	 O3+dNqs3LQEdA==
+Date: Mon, 3 Mar 2025 09:07:39 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Yao Zi <ziyao@disroot.org>
+Cc: Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Shresth Prasad <shresthprasad7@gmail.com>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Heiko Stuebner <heiko@sntech.de>, linux-clk@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, linux-mmc@vger.kernel.org,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/8] dt-bindings: soc: rockchip: Add RK3528 VO GRF syscon
+Message-ID: <174101445900.1859153.5372866255768427473.robh@kernel.org>
+References: <20250301104250.36295-1-ziyao@disroot.org>
+ <20250301104250.36295-2-ziyao@disroot.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 05/45] arm64: RME: Add wrappers for RMI calls
-To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20250213161426.102987-1-steven.price@arm.com>
- <20250213161426.102987-6-steven.price@arm.com>
- <8f08b96b-8219-4d51-8f46-bc367bbf2031@redhat.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <8f08b96b-8219-4d51-8f46-bc367bbf2031@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_070534_399915_AEC991D3 
-X-CRM114-Status: GOOD (  20.56  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250301104250.36295-2-ziyao@disroot.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,120 +80,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/03/2025 03:42, Gavin Shan wrote:
-> On 2/14/25 2:13 AM, Steven Price wrote:
->> The wrappers make the call sites easier to read and deal with the
->> boiler plate of handling the error codes from the RMM.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> Changes from v5:
->>   * Further improve comments
->> Changes from v4:
->>   * Improve comments
->> Changes from v2:
->>   * Make output arguments optional.
->>   * Mask RIPAS value rmi_rtt_read_entry()
->>   * Drop unused rmi_rtt_get_phys()
->> ---
->>   arch/arm64/include/asm/rmi_cmds.h | 508 ++++++++++++++++++++++++++++++
->>   1 file changed, 508 insertions(+)
->>   create mode 100644 arch/arm64/include/asm/rmi_cmds.h
->>
-> 
-> With the following nitpicks addressed:
-> 
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
 
-Thanks, there were a couple of other pages and params_ptr references
-that I've updated to granules and just 'params' too now. With hindsight
-conflating pages and granules in the earlier versions of this series was
-a big mistake ;)
+On Sat, 01 Mar 2025 10:42:43 +0000, Yao Zi wrote:
+> Add compatible string for VO GRF found on RK3528 SoC.
+> 
+> Signed-off-by: Yao Zi <ziyao@disroot.org>
+> ---
+>  Documentation/devicetree/bindings/soc/rockchip/grf.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
 
-Steve
-
->> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/
->> asm/rmi_cmds.h
->> new file mode 100644
->> index 000000000000..043b7ff278ee
->> --- /dev/null
->> +++ b/arch/arm64/include/asm/rmi_cmds.h
->> @@ -0,0 +1,508 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->> +/*
->> + * Copyright (C) 2023 ARM Ltd.
->> + */
->> +
->> +#ifndef __ASM_RMI_CMDS_H
->> +#define __ASM_RMI_CMDS_H
->> +
-> 
-> [...]
-> 
->> +
->> +/**
->> + * rmi_rec_aux_count() - Get number of auxiliary granules required
->> + * @rd: PA of the RD
->> + * @aux_count: Number of pages written to this pointer
->                   ^^^^^^^^^^^^^^^
->                   Number of granules
->> + *
->> + * A REC may require extra auxiliary pages to be delegated for the
->> RMM to
->                                         ^^^^^
->                                         granules
-> 
->> + * store metadata (not visible to the normal world) in. This function
->> provides
->> + * the number of pages that are required.
->                     ^^^^^
->                     granules
->> + *
->> + * Return: RMI return code
->> + */
->> +static inline int rmi_rec_aux_count(unsigned long rd, unsigned long
->> *aux_count)
->> +{
->> +    struct arm_smccc_res res;
->> +
->> +    arm_smccc_1_1_invoke(SMC_RMI_REC_AUX_COUNT, rd, &res);
->> +
->> +    if (aux_count)
->> +        *aux_count = res.a1;
->> +    return res.a0;
->> +}
->> +
->> +/**
->> + * rmi_rec_create() - Create a REC
->> + * @rd: PA of the RD
->> + * @rec: PA of the target REC
->> + * @params_ptr: PA of REC parameters
->> + *
->> + * Create a REC using the parameters specified in the struct
->> rec_params pointed
->> + * to by @params_ptr.
->> + *
->> + * Return: RMI return code
->> + */
->> +static inline int rmi_rec_create(unsigned long rd, unsigned long rec,
->> +                 unsigned long params_ptr)
->> +{
->> +    struct arm_smccc_res res;
->> +
->> +    arm_smccc_1_1_invoke(SMC_RMI_REC_CREATE, rd, rec, params_ptr, &res);
->> +
->> +    return res.a0;
->> +}
->> +
-> 
-> 'params_ptr' may be renamed to 'params'.
-> 
-> 
-> [...]
->> +#endif /* __ASM_RMI_CMDS_H */
-> 
-> Thanks,
-> Gavin
-> 
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
