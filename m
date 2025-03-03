@@ -4,109 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C49ACC282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 07:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 190ACC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 07:26:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TAZt9bZkuhMK3xl5j9Jo0Thv7hZQ7De0iSCYDAJHnkY=; b=HffaStiKReV5k8X7ZAPwT1SvM9
-	bxRHqS0e5Z88YELRzrN9z+Z+h4KzBtAl4MPkZYf/qVT/Fse+B7fNiQ3kX4wra07GMW5BvujTpYAAY
-	x5bbhtNtnv3ojGRtBt5XS6WGHzUsXe1QRolS0KGMFUg2j9Ro0uTh3pqWLpJiSJNjq4vBTdIaKZ/0m
-	OjlVpKifH50J+cdN4QU5dnKA5EQiH/tqe7mZtZCnPD23Dc0VJPsq56BT7zb6iXXo98+vnq7s/OFJF
-	IrNz7lHC9YjVq9cmKv1VrTEu8KlNrVyxT38QaUp+hRoUWOEAdptxsh3z5cnx1t2o6dGa9uRuzbpMi
-	/4E4Sd9A==;
+	bh=9fyybMO7Uk1TdrgdX7raj8svI1HXk0M9bdiUtMPX9Hs=; b=idyQOYq+O3JoT8cjqQIPacJt79
+	jVo/+ofWPz2x/tRlx89gWIEU3jgjTDfF+7tt8vbqXoSkZbzvXG6Czx+2hErJW+e1G8TbNiag54GCk
+	QAqiaFTQnKb9snAgKish8ibKPwLHpMDkyjO2T/a6eJ1+W+jgQ4EkAfTMwpljz3PHHtWwDFgrBCL7C
+	TxpMhY7SCb4maBA29n+v3djZHLXk+g/ssh7dxmEwjpVQfcyYWuWEVNoQ4rci7FWxGLWGzq291jTns
+	tyi7Lu2EC3y/tACNQZJcH0Y/dLT5SHtV60OPJ8zvGYDDLuG45i/VVgbSC0S5Ys/n43XyhS1Qodiey
+	guJZDJ1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tozwC-0000000HOFr-2zbQ;
-	Mon, 03 Mar 2025 07:10:04 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tp0Bb-0000000HQbc-0vWY;
+	Mon, 03 Mar 2025 07:25:59 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tozud-0000000HO5b-1o2U
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 07:08:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1740985705;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TAZt9bZkuhMK3xl5j9Jo0Thv7hZQ7De0iSCYDAJHnkY=;
-	b=Ucv90RX0j6fMk/J+UW+yLq+wq/JxI76UefgA6rYm1Qd/Vq+c4NgXPpo/kaJIHaPmYU2zOe
-	A+axdN8NGnWCH+weNH7a40s8gUWCm0dlIwyGFiGEnm5gDQiRO6ywn0qVA5eHscPW/kAzKH
-	UQFr3RZXz7eV9gXp9oPVmCNWBVeZZ1A=
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com
- [209.85.214.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-588-CwaAKs6GMz6dpTVrelVyTg-1; Mon, 03 Mar 2025 02:08:14 -0500
-X-MC-Unique: CwaAKs6GMz6dpTVrelVyTg-1
-X-Mimecast-MFC-AGG-ID: CwaAKs6GMz6dpTVrelVyTg_1740985694
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-22367f4e9b9so50987985ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Mar 2025 23:08:14 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740985693; x=1741590493;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=TAZt9bZkuhMK3xl5j9Jo0Thv7hZQ7De0iSCYDAJHnkY=;
-        b=LP3mlhS8Qt5xKLJtAhbI5Sz/zMTZBCqhJb6E0cnw5ihcwZb7F97ZcqszZJn9cTSkqs
-         VNNl4bBfgqHVyNAudiHbZkagOblCzYImxSwW0MITFPXEXHkkZW0bCTQiAJ4WI/L6Xjz9
-         S7VvQIObnHJxmaJ2XNOHgB3XYXLzws4kBkqRiTVkfWwoB1bz1t/KuE7YdlTkFcneenV2
-         sl/AnFONmxUxwYAX1McvLLSTin4yaI6Bhr8pxV/0CCgVuAerJ2v3QF0gDDLLSCv8yNMK
-         u2+TX1JPerh57OMZQir9yG+OyirK+38sizopDFdzA9w9XOfbjuoRxbj3kWe4tbFIHHJd
-         ckoQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW6DwuxrlAISoYvmW3k/k/HIyzMhPNVA4EWOYaa4rKheD7k97o+pxBy809it+TgFZC+5pn+o0WKdrnWUgXjQxez@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2u6TKmLQQjj9IEgIOjmGNR+3wzQ4aqJ+gNwkD2JJnT2JgZyWh
-	azw7zHfJaQYH/MkIPWlt/gsXcDxo4sUp9VRDOem4iqjC2Z0UgPpDNnBiCmQDezTHjekfvOIZO7z
-	8dgRJNPRGh6qceNPxChcWeld+S7JrelXgIRoh1eLHy/X1f9PMDLxaf/CfSLrPNP+ni4L4ynSd
-X-Gm-Gg: ASbGnct3lGAthQJsaDLMVs2iAAQ+kKGeAxiGWQ2+cs+HCM8wraKDZR6/ehZ2amUl+V3
-	7rMvHwjs9DkMuGAxWZuKmCxFYX90j0FofziSgrYaxAhWsOop98l1TsKRgUounuJYFdzqRwZT2Ci
-	qweRV7Z3t+RvXwsbeXyqB4KplQJXi0MQIpyqRRnmOWN3cGGOSrsLghx4HbMYpkwg3W/UIaAjkUe
-	/sRm7Kw32k66GbWYkBwXw7dyq7mx0RtYNXwdtXKgBHAe/s7OAE2Zs3UtGeNZzGZD0JuFsbMiejH
-	abuWqKrj0sthk8Z1zw==
-X-Received: by 2002:a17:902:c951:b0:221:78a1:27fb with SMTP id d9443c01a7336-22368f72060mr189619885ad.11.1740985693566;
-        Sun, 02 Mar 2025 23:08:13 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFj6AXAjs67EIGwQMhzQQGbQbpNnv+WHLAlTElHzKGobUYvRKx1SI4QHA9TpJnCJTfgJ55bPw==
-X-Received: by 2002:a17:902:c951:b0:221:78a1:27fb with SMTP id d9443c01a7336-22368f72060mr189619505ad.11.1740985693207;
-        Sun, 02 Mar 2025 23:08:13 -0800 (PST)
-Received: from [192.168.68.55] ([180.233.125.164])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-223504c5cd2sm71285075ad.143.2025.03.02.23.08.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 02 Mar 2025 23:08:12 -0800 (PST)
-Message-ID: <7639eca7-8fd8-491c-90bd-1be084fbd710@redhat.com>
-Date: Mon, 3 Mar 2025 17:08:04 +1000
+	id 1tp0A2-0000000HQWL-0diz;
+	Mon, 03 Mar 2025 07:24:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3406D5C05A7;
+	Mon,  3 Mar 2025 07:22:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CB72C4CED6;
+	Mon,  3 Mar 2025 07:24:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740986660;
+	bh=VySOvvJYVOXMBNDZlPELZwP+g8cJ/Y6sF/YKn/PvvDk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=HbA7VZDtl/TNWqG62oFhLMl+naJrz6RHcKCe2eecOjSTmvNSgowWBBPxsqrF0Xutl
+	 Dh+A/xjoB+v7Ap3lvHzUuCe135CCplLe/N1S07bo2GYI6gkcl1AMINuRjrRBxE5//N
+	 j9I48zLi8ourbw6TRjONfcLqJdrhGI03lmYfyk0cy6xI9QGn6ituRFuS2RzH2yBl7b
+	 WWcnGOrM78y2AmOp5XWTzwjEhwuBAXYPo9EIBdC4yIS+8lfVThl/2HnWcYCR8N2m3t
+	 PyiITAnhBIZMCHJYkm99gtdy4ktesE9VcdxGvtqjWuJHQg7BI1X7JHUT+QqLIyL5K7
+	 OfjucJD27eRog==
+Message-ID: <354d6100-311f-44d7-b8a5-1fd671b651e3@kernel.org>
+Date: Mon, 3 Mar 2025 08:24:13 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 12/45] arm64: RME: Allocate/free RECs to match vCPUs
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20250213161426.102987-1-steven.price@arm.com>
- <20250213161426.102987-13-steven.price@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20250213161426.102987-13-steven.price@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: RXq4cQtzR_To4yncMLy-LYp3ffHFMibSUOGsdxc_uGk_1740985694
-X-Mimecast-Originator: redhat.com
+Subject: Re: [PATCH v2 3/8] dt-bindings: phy: add
+ samsung,exynos2200-usbcon-phy schema file
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
+ <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Abel Vesa <abel.vesa@linaro.org>,
+ linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250223122227.725233-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250223122227.725233-4-ivo.ivanov.ivanov1@gmail.com>
+ <20250224-curly-cyber-spaniel-efdc39@krzk-bin>
+ <a4f63721-d094-4eda-b68a-6ef62ff54680@gmail.com>
+ <c8184542-5dab-4403-bee4-867810397ae4@kernel.org>
+ <4502b578-96e6-49e0-8f3b-54f6e5640c55@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <4502b578-96e6-49e0-8f3b-54f6e5640c55@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_230827_533061_B26B287A 
-X-CRM114-Status: GOOD (  28.72  )
+X-CRM114-CacheID: sfid-20250302_232422_279890_E48803D4 
+X-CRM114-Status: GOOD (  28.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,103 +127,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/14/25 2:13 AM, Steven Price wrote:
-> The RMM maintains a data structure known as the Realm Execution Context
-> (or REC). It is similar to struct kvm_vcpu and tracks the state of the
-> virtual CPUs. KVM must delegate memory and request the structures are
-> created when vCPUs are created, and suitably tear down on destruction.
+On 02/03/2025 10:16, Ivaylo Ivanov wrote:
+> On 2/25/25 10:11, Krzysztof Kozlowski wrote:
+>> On 24/02/2025 11:48, Ivaylo Ivanov wrote:
+>>> On 2/24/25 10:56, Krzysztof Kozlowski wrote:
+>>>> On Sun, Feb 23, 2025 at 02:22:22PM +0200, Ivaylo Ivanov wrote:
+>>>>> The Exynos2200 SoC has a USB controller PHY, which acts as an
+>>>>> intermediary between a USB controller (typically DWC3) and other PHYs
+>>>>> (UTMI, PIPE3). Add a dt-binding schema for it.
+>>>>>
+>>>>> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>>>>> ---
+>>>>>  .../phy/samsung,exynos2200-usbcon-phy.yaml    | 76 +++++++++++++++++++
+>>>>>  1 file changed, 76 insertions(+)
+>>>>>  create mode 100644 Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
+>>>> You have undocumented dependencies which prevent merging this file.
+>>>> First, dependencies have to be clearly expressed.
+>>> They are, in the cover letter.
+>> Where? I read it twice. Dependencies is the most important thing and
+>> should scream at beginning of the cover letter, so if you bury them
+>> somewhere deep it also would not matter - just like they were missing.
+>>
+>>>> Second, you should
+>>>> rather decouple the code from header dependencies, otherwise this cannot
+>>>> be merged for current release (just use clocks with long names, without IDs).
+>>> Sure
+>>
+>>>>> diff --git a/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
+>>>>> new file mode 100644
+>>>>> index 000000000..7d879ec8b
+>>>>> --- /dev/null
+>>>>> +++ b/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
+>>>>> @@ -0,0 +1,76 @@
+>>>>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>>>>> +%YAML 1.2
+>>>>> +---
+>>>>> +$id: http://devicetree.org/schemas/phy/samsung,exynos2200-usbcon-phy.yaml#
+>>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>>>> +
+>>>>> +title: Exynos2200 USB controller PHY
+>>>>> +
+>>>>> +maintainers:
+>>>>> +  - Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>>>>> +
+>>>>> +description:
+>>>>> +  Exynos2200 USB controller PHY is an intermediary between a USB controller
+>>>>> +  (typically DWC3) and other PHYs (UTMI, PIPE3).
+>>>> Isn't this the same as usbdrd phy? see: samsung,usb3-drd-phy.yaml
+>>> It's not (I think). There's a few reasons I've decided to make this separate
+>>> from the usb3-drd-phy bindings and exynos5-usbdrd driver:
+>>>
+>>> 1. This PHY does not provide UTMI and PIPE3 on its own. There's no tuning
+>> USBDRD phy does not provide UTMI and PIPE on its own either if you look
+>> at diagram - they call it phy controller.
 > 
-> RECs must also be supplied with addition pages - auxiliary (or AUX)
-> granules - for storing the larger registers state (e.g. for SVE). The
-> number of AUX granules for a REC depends on the parameters with which
-> the Realm was created - the RMM makes this information available via the
-> RMI_REC_AUX_COUNT call performed after creating the Realm Descriptor (RD).
+> Ughm. What? So in most exynos cases, there's a combination of multiple phys?
+
+
 > 
-> Note that only some of register state for the REC can be set by KVM, the
-> rest is defined by the RMM (zeroed). The register state then cannot be
-> changed by KVM after the REC is created (except when the guest
-> explicitly requests this e.g. by performing a PSCI call). The RMM also
-> requires that the VMM creates RECs in ascending order of the MPIDR.
+>>
+>>> for them, and all that is needed from it is to disable HWACG, assert/
+>>> deassert reset and force bvalid/vbusvalid. After that SNPS eUSB2
+>>> initialization can be done and USB2 works. If the USBCON phy is not set
+>>> up before the eUSB2 one, the device hangs, so there is definitely a
+>>> dependancy between them. For PIPE3 we'd need to control the pipe3
+>>> attaching/deattaching and then initialize the synopsys USBDP combophy.
+>> Does it mean there is no USB DRD phy controller as before?
+>>
+>> Anyway the problem is you have DWC3 -> PHY -> PHY. Looks one phy too many.
 > 
-> See Realm Management Monitor specification (DEN0137) for more information:
-> https://developer.arm.com/documentation/den0137/
+> So...
 > 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes since v6:
->   * Avoid reporting the KVM_ARM_VCPU_REC feature if the guest isn't a
->     realm guest.
->   * Support host page size being larger than RMM's granule size when
->     allocating/freeing aux granules.
-> Changes since v5:
->   * Separate the concept of vcpu_is_rec() and
->     kvm_arm_vcpu_rec_finalized() by using the KVM_ARM_VCPU_REC feature as
->     the indication that the VCPU is a REC.
-> Changes since v2:
->   * Free rec->run earlier in kvm_destroy_realm() and adapt to previous patches.
-> ---
->   arch/arm64/include/asm/kvm_emulate.h |   7 ++
->   arch/arm64/include/asm/kvm_host.h    |   3 +
->   arch/arm64/include/asm/kvm_rme.h     |  18 +++
->   arch/arm64/kvm/arm.c                 |  13 +-
->   arch/arm64/kvm/reset.c               |  11 ++
->   arch/arm64/kvm/rme.c                 | 179 +++++++++++++++++++++++++++
->   6 files changed, 229 insertions(+), 2 deletions(-)
+> DWC3 -> USBDRD (USBCON) -> PHYs?
+
+No, drop last phy. You just wrote the same as me - two phys, because
+usbdrd is the phy. In all existing designs there is no such controllable
+object from the point of view of operating system.
+
 > 
+> ...with usbdrd controller connecting and controlling the USB2 and USB3
+> phys, as well as dual role mode?
 
-With the following one comment addressed:
+Yes.
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Well, where is the DRD part in the exynos5
+> driver?
 
-[...]
+DRD? I believe it is part of DWC3, the same as in every other standard
+implementation of Synopsys DWC3.
 
->   
->   /*
-> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
-> index 698bb48a8ae1..5db377943db4 100644
-> --- a/arch/arm64/include/asm/kvm_rme.h
-> +++ b/arch/arm64/include/asm/kvm_rme.h
-> @@ -6,6 +6,7 @@
->   #ifndef __ASM_KVM_RME_H
->   #define __ASM_KVM_RME_H
->   
-> +#include <asm/rmi_smc.h>
->   #include <uapi/linux/kvm.h>
->   
->   /**
-> @@ -65,6 +66,21 @@ struct realm {
->   	unsigned int ia_bits;
->   };
->   
-> +/**
-> + * struct realm_rec - Additional per VCPU data for a Realm
-> + *
-> + * @mpidr: MPIDR (Multiprocessor Affinity Register) value to identify this VCPU
-> + * @rec_page: Kernel VA of the RMM's private page for this REC
-> + * @aux_pages: Additional pages private to the RMM for this REC
-> + * @run: Kernel VA of the RmiRecRun structure shared with the RMM
-> + */
-> +struct realm_rec {
-> +	unsigned long mpidr;
-> +	void *rec_page;
-> +	struct page *aux_pages[REC_PARAMS_AUX_GRANULES];
-> +	struct rec_run *run;
-> +};
-> +
+> 
+> I guess it does perfectly fit the job of a usbdrd controller then (if it
+> even deals with DRD). But then again,  this brings up two questions:
+> 1. Should this driver even be named exynos2200-usbcon and not, for
+> example, exynos2200-usbdrd?
 
-REC_PARAMS_AUX_GRANULES represents the maximal number of the auxiliary granules.
-Since the base page size is always larger than or equal to granule size (4KB).
-The capacity of array @aux_pages[] needs to be REC_PARAMS_AUX_GRANULES. Ideally,
-the array's size can be computed dynamically and it's allocated in kvm_create_rec().
+Are you sure we talk about the same thing? USBDRD is IP block in the
+Exynos and a device driver. Call your device as appropriate it is -
+based on datasheet or downstream sources.
 
-Alternatively, to keep the code simple, a comment is needed here to explain why
-the array's size has been set to REC_PARAMS_AUX_GRANULES.
+> 2. Are the exynos5-usbdrd phys really only USBDRD, or do they implement
+> USB speed functionality? What is the UTMI/PIPE3 setup for then?
 
-An relevant question: Do we plan to support differentiated sizes between page
-and granule? I had the assumption this feature will be supported in the future
-after the base model (equal page and granule size) gets merged first.
+Dunno, I don't get what you mean by "exynos5-usbdrd phys really only
+USBDRD". USBDRD is just the name of the device.
 
-Thanks,
-Gavin
-
+Best regards,
+Krzysztof
 
