@@ -4,72 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CCAFC282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 17:05:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2394C282CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 17:09:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5YIhKVawvCB2Aqegf19Ipa1qkc8vmMbU4kU/Udk1Ums=; b=E595cr1cyJY2j+MDVembO4HWVf
-	PYIkljLdTDpaTIbSVATxh7YGInkoGT4AdZj88tCnKYBBhwbj3uP9UFUsU8cRndRnp2W6Ikfq3gq+2
-	5TorDJ3g+YFriDcLAz+Y6EjYBEjrK895dtgzEZqW5oSd6uYcIUi7nrMzwwbLUhc5S6PXMeMWy2tJC
-	Jt/WEbyWUw5yRE21EWj9iDS7YQYhqR2FvmwL75AeX/pviTfreX9+rirVhKEJhiFzeethUR+TxvDxT
-	N6ZRRsrTom+fcEsbpIgX7axOGGJoRLCt9XiES7CqsJh4mmDplHNsSdiq6GETsvGs87itxCFNtx/L6
-	lsXRC9rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oWFUEKRq0UCbK8vUCDwUAFeRtRvG5PRpuQ43W/KHMmE=; b=jNofieVzFiXm09C6FZijzkULuo
+	ncKdhxhOOmgIXBmS4C1d2W8Sdzs1E5vTofqKBtc2HA1e1jSaaqGlBkxkUYEKbwdN4R2SEpYgpibH6
+	3EANg6v+zSAst0slYEUStMKgYndON0vgUZ5D+i0eDK8ovcUoPkXEdVkaEcGGG9YGNySfwUWsONy73
+	uSamMKtqE/T0oDkV08G5fPi38GzXkjPsYk1aSbIZN5JPWjmV92AYft+0tN2mrJuWEFObCy2orYapf
+	iLq+bcuUoSt9grVPgIX3nDQNRgHbga5XqMSq4r4aJ3EULAojZ2Ablbc9XudpM6d/0P4miff9g7VkI
+	uYdwau7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp9EM-00000001fYf-149v;
-	Mon, 03 Mar 2025 17:05:26 +0000
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+	id 1tp9I9-00000001gFL-02Mm;
+	Mon, 03 Mar 2025 17:09:21 +0000
+Received: from mail-eastus2azlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c110::2] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp9CV-00000001fAt-0S6j
+	id 1tp9GZ-00000001g1G-1559
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 17:03:33 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 3511144414;
-	Mon,  3 Mar 2025 17:03:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1741021406;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5YIhKVawvCB2Aqegf19Ipa1qkc8vmMbU4kU/Udk1Ums=;
-	b=J4SGNnw2hL8GLotOrJNM0lbYBpcpXS/bs7Kvr8hZDymHa7TZJ3ifXuKx5XVLzEwoQlVVCh
-	5vJvq54ZtBMsh8fz6pigCr0XkgTuiuwtjaZKIviRKgHPZ64ungq6FNszJft688orkFTL0K
-	dMC7GUKWgROnTIVAjzvFimWMc2b8N3BaUghCWsZ+vPxQC5kYdE6sFMZhXX4/i+CZgm1rS2
-	hZiErf1iB8WOhzo2sJO6I5Hb2ft5PauOiaIQ9kvy6NgK/EkPl0ETXnPaF1YFgZTn0M0oFd
-	Uvpt7P5V/ulKbRVXwmueZWFfvAG+EineFjX5iHF3a6W4huI9zZ0lXGMrqoKtpw==
-Date: Mon, 3 Mar 2025 18:03:23 +0100
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: Meghana Malladi <m-malladi@ti.com>
-Cc: <javier.carrasco.cruz@gmail.com>, <diogo.ivo@siemens.com>,
- <horms@kernel.org>, <jacob.e.keller@intel.com>, <richardcochran@gmail.com>,
- <pabeni@redhat.com>, <kuba@kernel.org>, <edumazet@google.com>,
- <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
- <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>, Vignesh Raghavendra
- <vigneshr@ti.com>, Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
-Subject: Re: [PATCH net-next v3 1/2] net: ti: icss-iep: Add pwidth
- configuration for perout signal
-Message-ID: <20250303180323.1d9b51de@kmaincent-XPS-13-7390>
-In-Reply-To: <20250303135124.632845-2-m-malladi@ti.com>
-References: <20250303135124.632845-1-m-malladi@ti.com>
-	<20250303135124.632845-2-m-malladi@ti.com>
-Organization: bootlin
-X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
+	Mon, 03 Mar 2025 17:07:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EfvJQ+ul1+M9HKg+tBwJZ2cBW8NyV4d3W+6D4Fb25wHtRo8lp0E6jjNdAUOIRttsyBgSO+Vs8MDnyBA8j503Zl0mjZLlzl9Ywaq+CQOWtVj8P+lYhzpyT+26fUxL3yqrNYkQ0PxkjeK2tL/wYZX5jt0TtBar5czuS0Uvk1sALhpsfPK2Jfe1hlkRANjbY1aAEfr/7TWIO+QgLynvhnKeVJZGD3TE6WroSkQRY56Mf7C8AUUIhgMmSmZes/LiAJ6WEt3XqDAlnjPRYXTDmoy4FGHikzUEIfzb0HyhQAYYZTyDkAF+196b1CB8Q3hD+Ox9WnFr1p7DrbnxqYrwBf0O+g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oWFUEKRq0UCbK8vUCDwUAFeRtRvG5PRpuQ43W/KHMmE=;
+ b=ktjXXkMWJbkl38YxkH3XgDHIzdJxEQLGu78xeLsnqLp4738SBua+qWUfAADCNqEiqJ4CbSWC11As26WTYIpjjspDt/eHXLTi1GCgqR0Plz/DFo8WOAZ9uDyZ9fLy0ugpqoExxPlD8UDuJVzuzF/ew36QSTdr83ezBEvzhanWYB9ylsYlRKCLvLhLrRn/TJdR0SlcmT1jaPxEQ3OtXHxSba4xof3vRMwiiZi+VjQYDWgou1g8K+X2o4KOBtVfaDMfvnnigOHaDFS0hw07tj1fvqAbu8/jQF2BvMSCrs54yOYaQ6rxEqdrWkUOiuhINVYJgTpGJtwsqTGpDmTOjUf1QQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oWFUEKRq0UCbK8vUCDwUAFeRtRvG5PRpuQ43W/KHMmE=;
+ b=Il2X9PVDBl47XllaM4b0OGQwrkQvYZbOLC06kPMj3EV//63G724V8Z+flrIxSjLzRb8rQ6Cr0i8mmgVCYd3vu+nbm3i0b568+b7yEYimghCgG+X+9/jT6yNh52W6hVIief0zen379vKNDzHzXIxX5qFeSQdZl473fuhJ2YToGYk=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from SA3PR01MB8501.prod.exchangelabs.com (2603:10b6:806:39e::18) by
+ IA0PR01MB8278.prod.exchangelabs.com (2603:10b6:208:488::22) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8489.28; Mon, 3 Mar 2025 17:07:26 +0000
+Received: from SA3PR01MB8501.prod.exchangelabs.com
+ ([fe80::f7ae:9cc3:b435:c49d]) by SA3PR01MB8501.prod.exchangelabs.com
+ ([fe80::f7ae:9cc3:b435:c49d%3]) with mapi id 15.20.8489.025; Mon, 3 Mar 2025
+ 17:07:26 +0000
+Message-ID: <7869d30c-283f-4015-98ae-1bfc7d1efbc0@os.amperecomputing.com>
+Date: Mon, 3 Mar 2025 12:07:22 -0500
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4] firmware: smccc: Support optional Arm SMC SOC_ID name
+To: Sudeep Holla <sudeep.holla@arm.com>, Mark Rutland <mark.rutland@arm.com>
+Cc: linux-kernel@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ linux-arm-kernel@lists.infradead.org
+References: <20241114030452.10149-1-paul@os.amperecomputing.com>
+ <20250219005932.3466-1-paul@os.amperecomputing.com>
+ <Z8W6HXZy46K7ebWe@J2N7QTR9R3.cambridge.arm.com> <Z8XAiMSoaOmR5JxY@bogus>
+Content-Language: en-US
+From: Paul Benoit <paul@os.amperecomputing.com>
+In-Reply-To: <Z8XAiMSoaOmR5JxY@bogus>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SN6PR08CA0028.namprd08.prod.outlook.com
+ (2603:10b6:805:66::41) To SA3PR01MB8501.prod.exchangelabs.com
+ (2603:10b6:806:39e::18)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdelleeijecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthhqredtredtjeenucfhrhhomhepmfhorhihucforghinhgtvghnthcuoehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpefguddtfeevtddugeevgfevtdfgvdfhtdeuleetffefffffhffgteekvdefudeiieenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghlohepkhhmrghinhgtvghnthdqigfrufdqudefqdejfeeltddpmhgrihhlfhhrohhmpehkohhrhidrmhgrihhntggvnhhtsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduledprhgtphhtthhopehmqdhmrghllhgrughisehtihdrtghomhdprhgtphhtthhopehjrghvihgvrhdrtggrrhhrrghstghordgtrhhuiiesghhmrghilhdrtghomhdprhgtphhtthhopeguihhoghhordhivhhosehsihgvmhgvnhhsrdgtohhmpdhrtghpthhtohephhhorhhmsheskhgvrhhnvghlrdhorhhgpdhrt
- ghpthhtohepjhgrtghosgdrvgdrkhgvlhhlvghrsehinhhtvghlrdgtohhmpdhrtghpthhtoheprhhitghhrghruggtohgthhhrrghnsehgmhgrihhlrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhg
-X-GND-Sasl: kory.maincent@bootlin.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA3PR01MB8501:EE_|IA0PR01MB8278:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5b81a192-54ae-46a0-c9db-08dd5a75df3e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|366016|1800799024|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?YzdGVjhhaDhpQW9FanBlQWZveDF2SHQrQ0NuUDg0NWNqQnY2TjZhV2JhTW85?=
+ =?utf-8?B?alp1TG5LU29YZnJqdkhKTGFwSFBvYlg5bUpBWlV1T1V6b28yNFRMQWtHa3Q2?=
+ =?utf-8?B?T05IQWhIa2ozMXdaenFKYmN5d1FGUzN0ZzlURHJDQkFrNi9JWTdLclFDQ01q?=
+ =?utf-8?B?N2J3OHBqVlVORjhrMlovQjBoUGsxejVWQ2VvRmJ3OEh1SDdzZjlET1d0bStn?=
+ =?utf-8?B?TDRQejU5UVdwaDlBWUI0NFdIdUpFRWw3SjNoVHlBNWFyODhZWC9pTEtiZ0FB?=
+ =?utf-8?B?Z0d6Z3NIbXFKNXVCRVozcDdqNFJBdlRqTUg5UFpKSVFuT1ZYNkhmRk90Yjdz?=
+ =?utf-8?B?Q3JnNXE2N3BWY0ZYTFljY1U1OXowbzZ1U2JmUC9zZ1Z6YmU2YklZaVhnNnlT?=
+ =?utf-8?B?VXhCR1RYVm9KRGIrT3BBWnRrYm1DVEhpSVh4eW9acXdzR1F5RVBaMDNzUUpu?=
+ =?utf-8?B?WVcrMS9yS2VqSUhNZDNFb0tZMG5iZ1JydklqRlAyMXZDdUx1QU1PMk9tbWZ2?=
+ =?utf-8?B?bUhpbzFiOWgvRFNtYndxdVo3SjBpREcvdzJiOHVhRkEvUlBWbTdFUGJNRnU4?=
+ =?utf-8?B?V3BCdzVOdGhlQ1d6QnUrcjlyWDlxV1RvQmgyZUZSTWZzVkV4S1JpSGo1U3N6?=
+ =?utf-8?B?MWlNYlRmL1BQRksrVTJLRGM1c1BnNjFieGQ3WjB5Z2ZvdWFKRzU0eW1TaHR6?=
+ =?utf-8?B?eHc0dGNVWUU4WExrSVROeWJBM1lwbGJ6UnU1aDllQUg5NDJlRnNoMUR1ckhM?=
+ =?utf-8?B?RnBOTVAydFJnZUludXFKR2pqR3RwWUVRcDZrUVMrU2poNWpCQ2gvdytnTDMz?=
+ =?utf-8?B?aUlma2o5YW5HZkxzOW9nVFcvRW9IRWZKcW9YVy9jR3VVNjIrYWJhbGVaTHYr?=
+ =?utf-8?B?bG1nSUhWd1hFRFEySWw0Z0VRZ2xyeUoxODVaWVcraWY1ZDRqcTY1SExwdGx6?=
+ =?utf-8?B?a0RsMWE1SFlOWEtqOFMycXN4ZEhWWTBuazI5bkpYN0gwbzVpK3JpMjhNQkk4?=
+ =?utf-8?B?Y2tBaFgwNk0zRHpNVTZrUnNBUVhlY0FvMVcxYWNtTUdhOGkxZm5RZzFNejQ5?=
+ =?utf-8?B?c3FpUzZqaFdJOWtlNmVzazRySFlaVVRXMTFOTmFwV1dJSjYzSEFHSTR3K3Q4?=
+ =?utf-8?B?UGlsdHI1Unp4L2FyZXh2WG51eTIrQUlZU05PZW1CN0ZrWGVka2FJcXVtT0FB?=
+ =?utf-8?B?SUt0TDJlWkhNSXlsbkk1WklYWjRnb1MvSmIrVzJ5ZU5uNUE2L1YxOW8zY29j?=
+ =?utf-8?B?KzdJYXRibkk3YzNlU0VVU1BSbktWakpBbGg2ZFdpSG9Pc1d0UC9PeUdnNHhj?=
+ =?utf-8?B?UlFnc3hLSnJIVjRabWg4OHBtTzYzSm1jSWY4OVptOW4rNnNPY3dNSDdRNHMy?=
+ =?utf-8?B?ekZjZmdjT1JFZmRSMU5QNG92TnMzZmpVbXFRNXd3cGFQUmI3cXdRSnBnd0Vh?=
+ =?utf-8?B?bFJNc090bXQ5K0ROSGZvQUM0RVFHK0xTWWpoODQvSGlBS0RkTWY2S0hIZmVj?=
+ =?utf-8?B?VHRPdmFMQThQM1BLZlZZSDVyZUdlWXBpNmY3ZG5HTmdpbUExLzFxNFkwTDIr?=
+ =?utf-8?B?SXJTSU5UQ2s5ckRKdFZuOW9DVExGMGNVK0NRNytsWCtFNXAwSlFINkNHVVg0?=
+ =?utf-8?B?UWhLREg0T091UkZpL0JEeldNVjdrNVBXLy9XNG5xbVV5aTg0Y0FvbTJpZHNj?=
+ =?utf-8?B?UTEySkNKRHdaUFVHM0F2ekw3cDFRcUZncXNWMVZZa28zV1ZSZkc5R3l1TWhI?=
+ =?utf-8?B?SGFFQnpIU0dDSXgweXNzbkVlNFN4TkVSTEc1dnd4QmxSMUlmbi9ldy9xREdM?=
+ =?utf-8?B?cExmcUdVeTRQVzI2Mk84SERpdUZZR0JqSDdlWXNUcFMxWXhPc0VCaUJUNkMz?=
+ =?utf-8?B?WjZraDRLSHZWbWJvempUYnRYNmhxNGFESkYrSHU4VnpiWmtvZzZmbWpWaUNi?=
+ =?utf-8?Q?lOUxIcKB+im4KlFwELhYDGCGus8V9+qQ?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA3PR01MB8501.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(366016)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UTk1cm9sSnFXUUozaEFENzZwNElwNGRwOVcyUkwvaEM3RWp0bzB1K01EaFEz?=
+ =?utf-8?B?OG1yZzd6NTV3ellQTm1RczdvNVljRy9xM3RWbGs3VXphWFN2V1drbjRWZWR6?=
+ =?utf-8?B?WEVTM1ZxY2k2eGNmWHR6YXc3eEVUS3VjU0I0bDBCalY2Q0xKWkVXaVFUdnRZ?=
+ =?utf-8?B?b2UvVmZYNllFdW5XTnZISitVMUsrS2ZOTVBpaWwzS1VEZHdGUTVmRTJwSmdM?=
+ =?utf-8?B?MWhtNGZFdXNaUHc2VHBoRTg0OVFJK3lnZ3lhS1YwdFZBdndKYWxSckZTTGxO?=
+ =?utf-8?B?Wks5RFo2aE9LVHdZM0VCeXU2MXVYWWEyQ1AyeW92WTY3ZVlHQnhKWXk4QlQy?=
+ =?utf-8?B?d1hBUWkyc0ViNVZHNXg3SUhxdXN4NjdPdFNBdkNVTXIzZWRKcm5rYlNjaUxU?=
+ =?utf-8?B?RU00Q1V2aGN0UVdhMzdNekg3SGxqdllWQlF5VzVuVnlQeXBadWdFMU1oZ1ln?=
+ =?utf-8?B?clhoYUQrTFNlMHNOT0VsclZJYkNSWnE5ZkFXdm9Rem5GL2VrS1Y3dHh3VTd4?=
+ =?utf-8?B?b0JXK0I4dmZieGNDMDdTT0ZlMVB4NFFlbEFnZDFIcENhcFVCYzUrQTZuOWda?=
+ =?utf-8?B?SUthd3lYL3QyVHlqbDZYUnpmMFFQK2hVc1BTNlF4TTFQOFhkZWxRcEpRTVVz?=
+ =?utf-8?B?RWFnbTR6ZDMxYWNFZlRuRnJuc2M1NHVSMnVRZlVQZXJLUjdnS3RoUU11SWFU?=
+ =?utf-8?B?VFI4eEVSQ1NUUzFOWjlxNEZ3dHYyZmVqeHRKKzR5K2FFRWVCNmk2Y0kwbFJ0?=
+ =?utf-8?B?RkJuaTdNNldtZW1kY2EzeDczeFBWcUpPWDdrWEM2SHZVM3owbnZQcFNBRndB?=
+ =?utf-8?B?TXU4ZUhNMW9OaWNuU2JId0ZPT2xEbXA1Sk91YUh4RVhWYkNVNHpIMUtrZ2tI?=
+ =?utf-8?B?NHhuTEgycko2UnFRTUxGR1p3UjBWNHFMcmJOUmhIT2Y2d0RubFNFTHFmZUl5?=
+ =?utf-8?B?UktyTS90eENrbSs4Z1p6Sk9HM0M4dFBPaTJTQTJ4M2lKQWxnSUY1c25wWEw0?=
+ =?utf-8?B?ZnNJaFZjN1kxMWFtd1ZwSGUwS0ZITXlkcUtzTnhsQVRjSnBBdnZzY1FuK1Q5?=
+ =?utf-8?B?UUlTMUpBOUdndUJ4aDJuYnBWQ1p5ZUplTitFcUZpa0g0S0FsVzJkTkNtRGFX?=
+ =?utf-8?B?SEc4dmdidTltNHdrakMxajlMMHRCNWNZOEFqVzRyZHJsKzdiY3gyWWZyVy93?=
+ =?utf-8?B?alNaY2VQTlZON3lWaW9LY2lBUTcySWZmd0oyY2pmczBrYy82Y09VTW5iR3Jh?=
+ =?utf-8?B?RXg1c1pXNnVuUFM5aU1DSzlialpvZXlyMFp2YnE5bGt0dW9aTnJUTmg1SGMx?=
+ =?utf-8?B?Mnl2Tk9TQVE2V3NNWEZLWm9sNnRhL3RIbHc3aC9jZGtsY2VEc1NDUlpOdURw?=
+ =?utf-8?B?UXZIdGdOV3owMVgyWHluRXdkaGhQV1dxSk0xcGRqcEYwQkRQM0RKQWo0WEtH?=
+ =?utf-8?B?MGk1dGRqSWltYlczK216Wnp1OWxwQjluK3MzQjVERHpMM25wamRqcUxSdjJE?=
+ =?utf-8?B?Wk40NDVucW9aZ1VlQU5wZjlTQmgybHBFb0Nscm80NXJiK2hsaTArUDdQTmRC?=
+ =?utf-8?B?dnpWTUtxNnAwZm9mOFZoeS8zQThHY1ZacVVHRTh0ZFNVaStPaTJNWjhWOHhr?=
+ =?utf-8?B?cHdWa21xU1IvUHhBaGZaRUJCZ3BtTmlIR1FaTG95dmJRYW1CbnBpQi9MUCtq?=
+ =?utf-8?B?ZWhsV0RiMzVxR3hzY1BmNUZEeTh0MWNLdUYycnk2V09vTUt0WDNWVVFuNVBn?=
+ =?utf-8?B?QWZLWWdKRHlNZXdjVFErYmoycGwzY3M1N0p5VGN0SXE2b2FUSzd1QWI3ZS9Q?=
+ =?utf-8?B?NVMwVlc5THQ2Z1JMTFo2TVQ4aXV3aGJlUnRoMTFacERZeFZ0cTBURExYRnJu?=
+ =?utf-8?B?bDV6SEorcVdSQ0JyN3BXTlIrb3R2M2RrcHpOYUg1TERHWllYRjh3Q2N2dk1Y?=
+ =?utf-8?B?cTZWQlAxd2swc2FNU2xTL1FHc1pXMXpFamt5QnNycjJsa1JDaDV5SnZYN0lV?=
+ =?utf-8?B?Y3FiR1NzZnNLMm04S0svV3RvanRTb3gzVGFtNHVEZnpLTEQ0dU1KL2pDQzBU?=
+ =?utf-8?B?MmFORE1SOXNUczVTSVZYUzZPeTRWcm5lYzdiaFlLTEEvRVlsNUpwMUx2OEpR?=
+ =?utf-8?B?M1FDUjA4K3RwbkNINWVKT0c5VCtmQzBLQVRZVnJoTUxFWTZmR1J1dnVNVnZT?=
+ =?utf-8?Q?lr7XOx6Z7r9UQDbC66x7QQ8=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5b81a192-54ae-46a0-c9db-08dd5a75df3e
+X-MS-Exchange-CrossTenant-AuthSource: SA3PR01MB8501.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2025 17:07:26.1211
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 69+JUfvnOCxoEohzndQcq2G3UDddiB3DMYqxn0ulu4FfHRAQf7VlZ9yyJc/Uvr6uI1aQRQGCorS8ew2safit5/nMk1rTbAwQjLfUW6L5qj4=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR01MB8278
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_090331_278519_AD71FA17 
-X-CRM114-Status: GOOD (  19.54  )
+X-CRM114-CacheID: sfid-20250303_090743_320837_3888E884 
+X-CRM114-Status: GOOD (  17.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,83 +178,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 3 Mar 2025 19:21:23 +0530
-Meghana Malladi <m-malladi@ti.com> wrote:
+Thank you Sudeep and Mark.
 
-> icss_iep_perout_enable_hw() is a common function for generating
-> both pps and perout signals. When enabling pps, the application needs
-> to only pass enable/disable argument, whereas for perout it supports
-> different flags to configure the signal.
->=20
-> But icss_iep_perout_enable_hw() function is missing to hook the
-> configuration params passed by the app, causing perout to behave
-> same a pps (except being able to configure the period). As duty cycle
-> is also one feature which can configured for perout, incorporate this
-> in the function to get the expected signal.
+On 3/3/2025 9:45 AM, Sudeep Holla wrote:
+> On Mon, Mar 03, 2025 at 02:18:05PM +0000, Mark Rutland wrote:
+>> Hi Paul,
+>>
+>> This looks generally good with a couple of minor nits.
+>>
+>> On Tue, Feb 18, 2025 at 04:59:32PM -0800, Paul Benoit wrote:
+>>> Issue Number 1.6 of the Arm SMC Calling Convention introduces an optional
+>>> SOC_ID name string.  If implemented, point the 'machine' field of the SoC
+>>> Device Attributes at this string so that it will appear under
+>>> /sys/bus/soc/devices/soc0/machine.
+>>>
+>>> On Arm SMC compliant SoCs, this will allow things like 'lscpu' to
+>>> eventually get a SoC provider model name from there rather than each
+>>> tool/utility needing to get a possibly inconsistent, obsolete, or incorrect
+>>> model/machine name from its own hardcoded model/machine name table.
+>>>
+>>> Signed-off-by: Paul Benoit <paul@os.amperecomputing.com>
+>>> Cc: Mark Rutland <mark.rutland@arm.com>
+>>> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+>>> Cc: Sudeep Holla <sudeep.holla@arm.com>
+>>> Cc: linux-arm-kernel@lists.infradead.org
+>>> ---
+> 
+> [...]
+> 
+>>> +static char __init *smccc_soc_name_init(void)
+>>> +{
+>>> +	struct arm_smccc_1_2_regs args;
+>>> +	struct arm_smccc_1_2_regs res;
+>>> +	size_t len;
+>>> +
+>>> +	/*
+>>> +	 * Issue Number 1.6 of the Arm SMC Calling Convention
+>>> +	 * specification introduces an optional "name" string
+>>> +	 * to the ARM_SMCCC_ARCH_SOC_ID function.  Fetch it if
+>>> +	 * available.
+>>> +	 */
+>>> +	args.a0 = ARM_SMCCC_ARCH_SOC_ID;
+>>> +	args.a1 = 2;    /* SOC_ID name */
+>>> +	arm_smccc_1_2_invoke(&args, &res);
+>>> +	if ((u32)res.a0 == 0) {
+>>> +		const unsigned int regsize = sizeof(res.a1);
+>>> +
+>>> +		/*
+>>> +		 * Copy res.a1..res.a17 to the smccc_soc_id_name string
+>>> +		 * 8 bytes at a time.  As per Issue 1.6 of the Arm SMC
+>>> +		 * Calling Convention, the string will be NUL terminated
+>>> +		 * and padded, from the end of the string to the end of the
+>>> +		 * 136 byte buffer, with NULs.
+>>> +		 */
+>>> +		str_fragment_from_reg(smccc_soc_id_name + 0*regsize, res.a1);
+>>> +		str_fragment_from_reg(smccc_soc_id_name + 1*regsize, res.a2);
+>>> +		str_fragment_from_reg(smccc_soc_id_name + 2*regsize, res.a3);
+>>> +		str_fragment_from_reg(smccc_soc_id_name + 3*regsize, res.a4);
+>>> +		str_fragment_from_reg(smccc_soc_id_name + 4*regsize, res.a5);
+>>> +		str_fragment_from_reg(smccc_soc_id_name + 5*regsize, res.a6);
+>>> +		str_fragment_from_reg(smccc_soc_id_name + 6*regsize, res.a7);
+>>> +		str_fragment_from_reg(smccc_soc_id_name + 7*regsize, res.a8);
+>>> +		str_fragment_from_reg(smccc_soc_id_name + 8*regsize, res.a9);
+>>> +		str_fragment_from_reg(smccc_soc_id_name + 9*regsize, res.a10);
+>>> +		str_fragment_from_reg(smccc_soc_id_name + 10*regsize, res.a11);
+>>> +		str_fragment_from_reg(smccc_soc_id_name + 11*regsize, res.a12);
+>>> +		str_fragment_from_reg(smccc_soc_id_name + 12*regsize, res.a13);
+>>> +		str_fragment_from_reg(smccc_soc_id_name + 13*regsize, res.a14);
+>>> +		str_fragment_from_reg(smccc_soc_id_name + 14*regsize, res.a15);
+>>> +		str_fragment_from_reg(smccc_soc_id_name + 15*regsize, res.a16);
+>>> +		str_fragment_from_reg(smccc_soc_id_name + 16*regsize, res.a17);
+>>
+>> Please get rid of 'regsize' and use '8' directly. This only exists for
+>> arm64, where the registeres are 8 bytes, and the comment immediately
+>> above refers to "8 bytes" specifically anyway, so 'regsize' only serves
+>> to make this harder to read.
+>>
+>> It'd be a bit clearer as:
+>>
+>> 	str_fragment_from_reg(smccc_soc_id_name + 8 * 0,  res.a1);
+>> 	str_fragment_from_reg(smccc_soc_id_name + 8 * 1,  res.a2);
+>> 	...
+>> 	str_fragment_from_reg(smccc_soc_id_name + 8 * 15, res.a16);
+>> 	str_fragment_from_reg(smccc_soc_id_name + 8 * 16, res.a17);
+>>
+>> Sudeep, are you happy to fix that up when applying?
+>>
+>>> +
+>>> +		len = strnlen(smccc_soc_id_name, sizeof(smccc_soc_id_name));
+>>> +		if (len) {
+>>> +			if (len == sizeof(smccc_soc_id_name))
+>>> +				pr_warn(FW_BUG "Ignoring improperly formatted Name\n");
+>>
+>> It's odd that 'Name' is capitalized here. Not a big deal, but it doesn't
+>> look quite right.
+>>
+> 
+> I can fix both of these and apply. No need to repost.
+> 
 
-...
-
-> IEP_SYNC_CTRL_SYNC_EN); @@ -474,7 +484,38 @@ static int
-> icss_iep_perout_enable_hw(struct icss_iep *iep, static int
-> icss_iep_perout_enable(struct icss_iep *iep, struct ptp_perout_request *r=
-eq,
-> int on) {
-> -	return -EOPNOTSUPP;
-> +	int ret =3D 0;
-> +
-> +	mutex_lock(&iep->ptp_clk_mutex);
-> +
-> +	/* Reject requests with unsupported flags */
-> +	if (req->flags & ~PTP_PEROUT_DUTY_CYCLE) {
-> +		ret =3D -EOPNOTSUPP;
-> +		goto exit;
-> +	}
-
-The flags check does not need to be in the mutex lock.
-With this change:
-Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
-
-> +	if (iep->pps_enabled) {
-> +		ret =3D -EBUSY;
-> +		goto exit;
-> +	}
-> +
-> +	if (iep->perout_enabled =3D=3D !!on)
-> +		goto exit;
-> +
-> +	/* Set default "on" time (1ms) for the signal if not passed by the
-> app */
-> +	if (!(req->flags & PTP_PEROUT_DUTY_CYCLE)) {
-> +		req->on.sec =3D 0;
-> +		req->on.nsec =3D NSEC_PER_MSEC;
-> +	}
-> +
-> +	ret =3D icss_iep_perout_enable_hw(iep, req, on);
-> +	if (!ret)
-> +		iep->perout_enabled =3D !!on;
-> +
-> +exit:
-> +	mutex_unlock(&iep->ptp_clk_mutex);
-> +
-> +	return ret;
->  }
-> =20
->  static void icss_iep_cap_cmp_work(struct work_struct *work)
-> @@ -553,6 +594,8 @@ static int icss_iep_pps_enable(struct icss_iep *iep, =
-int
-> on) rq.perout.period.nsec =3D 0;
->  		rq.perout.start.sec =3D ts.tv_sec + 2;
->  		rq.perout.start.nsec =3D 0;
-> +		rq.perout.on.sec =3D 0;
-> +		rq.perout.on.nsec =3D NSEC_PER_MSEC;
->  		ret =3D icss_iep_perout_enable_hw(iep, &rq.perout, on);
->  	} else {
->  		ret =3D icss_iep_perout_enable_hw(iep, &rq.perout, on);
-
-
-
---=20
-K=C3=B6ry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
 
