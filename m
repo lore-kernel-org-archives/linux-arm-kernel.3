@@ -4,100 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 560F6C282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 17:20:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E247EC282CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 17:21:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sE2nwe2DjINW/dM2gZS6aKt8qAr3QCojkbk7uIqO54s=; b=5EYyBCRCDDrRKh46zGhKlyFMQH
-	NquR5WvbxfDa3V1tlCXMh2xLVGBLUWCPGz1CWnIt+ybjd8edpcuPomkimKps2OlNOiXLIX97xErC7
-	lR+qYyNFvLvtdNYgci2gGlxGPTCjU4zrWQGfW3Uj0EQbi1b0AI77EyRf04zBixHEih5UBPlkHYEwy
-	4eGPU2iJWY1Tf6nbrlnvZHU1pIYxYxkefjdgvAqVzm5NRCgOMqC7HQ1ecDIEb9Z1c9WDpBt6lXb1X
-	anOxZhdPfdKFzvZ4V5am+P6G0FCC/Nkjzu7KRgbMXxcd0vB+gl8aT4tXZttBRA9SF+sk+YIABNCej
-	rqbowttg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LRLgSxdqlBvInXl2DZuy/8p0+JAmavEVWC8IUWE/7IY=; b=b7d6AZeH0v6kYKjcfPT6WTc50N
+	265GVoJ+oztO5geop/QKyjrLkSLXtdTGCkurqvjtJtJShaxIWZZTE7px/LiKwOaPLpQMlTFxSNMu8
+	7ZyPgHrl7gv6RV96NIxaQjId6X4OCn17KCLGOjCd5xeJfXlOHDup/uvwvBqxySR60m2Jy2LlsF0EO
+	Iu+hyH5joAIcq7v8z3ylrpFHNncNvBX0d6ehliO8koUu4KTETGxLhWJJfVStaaesFNkZAHCNOKsEk
+	jpqotpPln0KoF6EEkKBJze+Q8lggovYvKnv5sM7rnI8px7VukOqPYb62O6rSeAFOo6AlF95m3/2+5
+	XPeR8jlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp9SK-00000001iYz-3xUF;
-	Mon, 03 Mar 2025 17:19:52 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1tp9Ts-00000001iuF-0tzB;
+	Mon, 03 Mar 2025 17:21:28 +0000
+Received: from mail-qv1-xf2c.google.com ([2607:f8b0:4864:20::f2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp9Qk-00000001iHm-25qA;
-	Mon, 03 Mar 2025 17:18:15 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-5e50de0b5easo3293890a12.3;
-        Mon, 03 Mar 2025 09:18:13 -0800 (PST)
+	id 1tp9SE-00000001iX6-1mD8
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Mar 2025 17:19:47 +0000
+Received: by mail-qv1-xf2c.google.com with SMTP id 6a1803df08f44-6e8a8d6c38fso43465316d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 09:19:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741022292; x=1741627092; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=sE2nwe2DjINW/dM2gZS6aKt8qAr3QCojkbk7uIqO54s=;
-        b=g3oki97Sc2Qiod2RyBLXzm3F2WSnA3sD/4tu40A34zC7osN1VSKXYh/t1kOXcw/BA5
-         yYzxqWoWXBmfyoqOJM4GP7jD9s/PIovpxFKvvHaWyNCoY2i8b06pxehgO2i6MhHg5PKF
-         Tql3rlnOZ2SA2t7UJKc0y1l1Tz6EUVW+k6XgCvj0M4XZLp1WiYChzhR+LefuzGhWSI/0
-         OYSh0DE3irme5S1txlHEyQJa+BdjSMucPDcce8hD59ZWcN2saPSEhIpVdBiziCy+P3F/
-         EHZljN/DebH1XaHAaGYXvnpAAch46/P1euujSDANexffe0zGG9+zr4kTAXwcwthHSz/F
-         3Ybg==
+        d=gmail.com; s=20230601; t=1741022385; x=1741627185; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=LRLgSxdqlBvInXl2DZuy/8p0+JAmavEVWC8IUWE/7IY=;
+        b=Rn7uEHsPaYU/QpXkyAg+ybkoagpQztfL1vyMjTL/aRrZolJOIeFXDcNzwRoYTaBH0m
+         h2Lwwnpuv6jOpQv6AqdddL/IYqQn+V1W9BxSAGzB/bGMPhfm3lgIYR4HZLg5iKZZpHx3
+         A/j3aAYOMVWfx08m0CTSEfH+98BTvzZCa4Hr7fUn0G6AdamdQp4kcLV5m2jiseSEqrQb
+         LMivfmyPGWUedwlt3wGdPs4K/XhEK8ZbfsMRRXj8aljCkrceSjXF89X270SO4c0CFwIi
+         SgPHY5M/nVGbZSuxihF9fjTvvhfpswyM5JJYp5Yi7HmiAhRrbVZ/X/E3fkXyb2V8W36M
+         56lQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741022292; x=1741627092;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=sE2nwe2DjINW/dM2gZS6aKt8qAr3QCojkbk7uIqO54s=;
-        b=nHRQahQRCxCirXyqN35Vl/WQXYAS5cxembwxNp+aBcZqMWJcwfSff0ta2x188iin5i
-         qaLS1jN7Ty8O2DNY+VNKGENymQxaero24eJo425l6s22blqrm7C8ndRbgMIwOzIgZ8hr
-         kqcANpCjNq7ydMtwh5vWvBETLF7UphWbTLjqg1XXMRF6/fhmzc5Vl/v9VJcvZejNZQKM
-         0Eb97/1rf/nakq53417Abai/reLx2wOGDW+rJfJYvpSO2s1mJgJwGitAnRQ+KLlgWMUP
-         rRbMGmAm9xwn5I2VYE4lHlozteHDH6/j9eCuT1VWazNGii/Ye6WQzENpYb75+jSNpuBP
-         NrKg==
-X-Forwarded-Encrypted: i=1; AJvYcCVElQU/o8WsGtvLCRiKym54U9nbD3hk5GjrFbZr/q4jg5q+l9gAbkvGk5qa3cy4GsJAvv2pE9mjSz5Q@lists.infradead.org, AJvYcCWbdnpxesjq+8LC7MpY1qvu2d/lrs1ZokgBVuapM+IWin1S1UzqqXw5eVNrEGA/o7ujUyWPLMTx6VuoDs8ixE4v@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMOPQRr97KG7IZ5OGuoNWfJyd/UXYfGMI3ainev/AH75dye/Kh
-	if4KHG63IyIB6nXwbTDjntqC6RARdQCJFfgJP4BtPKL5pYClXCuf
-X-Gm-Gg: ASbGncuymtd1QWRV/bSrzVLKLTgi94ocmVohZ1xlTJocmTqNILga5quHXR8Cqyq7oGv
-	G6kugh2dMcrM+gwssKHNli9rIhjowg5ovDQX6NkbBg0oAJ0pAs6PqjHVuVTQy+kHNOean1BBpN7
-	Oko/BRwEahPEVkE1G+pRj3nbmCVn8zgUZDbrx6BcJU+5Kw1ffHdTJnNGpF7Fc4YDz03BjRZnL+1
-	Zaf8CAsqNdhndAJQjsUKumkjydJzF7k34mBtpSkFYpiZbZEFQSaCuCdZkFoIeUU3B4CA3VmP189
-	PfGHXShVfeBfb3OU584dFUHGwqeTwIuVKswr993G+XhgRVsNpbtYjCiS/YQNIqVMUY1/OEoCkCq
-	NuHmnJpveMV9gtBkX12wuok4=
-X-Google-Smtp-Source: AGHT+IHI1CoDf0zET93TFTFwi+XLCs8pimREfQejaLODOte+CXbwQ8+LefkOYFI2CcaZ0a8rBCUzIw==
-X-Received: by 2002:a05:6402:2748:b0:5e5:71e:8c63 with SMTP id 4fb4d7f45d1cf-5e5071e8edemr14033147a12.15.1741022291813;
-        Mon, 03 Mar 2025 09:18:11 -0800 (PST)
-Received: from [192.168.1.105] (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e4c43a55besm7022334a12.72.2025.03.03.09.18.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Mar 2025 09:18:11 -0800 (PST)
-Message-ID: <9fb63a04-5b3d-40cc-b96f-eb4f297f307e@gmail.com>
-Date: Mon, 3 Mar 2025 19:18:09 +0200
+        d=1e100.net; s=20230601; t=1741022385; x=1741627185;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LRLgSxdqlBvInXl2DZuy/8p0+JAmavEVWC8IUWE/7IY=;
+        b=dwN9E0ikH8vgIh9EaxNAThnMk2L5W81CRviNqwkKk2oh6uUYuNeFL+sAy8Cv8oa8W1
+         /KVA8W39Az/AMwv2gB8MrO+mmAxRoPutIqtiInP2wWCrfgYroz1jNISjAU1yJUkhn0Dj
+         Pb8A6b1pYhYjtgZrtq6839oziAt7vCztRPpA0waxKVqxNAvq0C/t+7XuGNcQShNBoqLV
+         ofnucWlsEs5uvIH8CwGYpLNn3GQFBjFH+VnltZbys+pQHKo1aNMRpQjV1Vh7E/Z7xGIm
+         IN5Th2V1XX4PmSQ/R61Cck9oc3OYRe1ZLlvwBjvr6P0rOrMzyyponzjCmC7qejsTeOw3
+         3blw==
+X-Forwarded-Encrypted: i=1; AJvYcCWmDXVFMfnBz8kQcRHbXlJc52jYXBLWM1GRieMDOuBXS+C2+nWapI+7Fsmjg/+TewuFY08qYFGoBNh7X1BTWF9k@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+Ks59o1eGYr/KK8nuTVATShZZIgE9S3t602O148sCugIMHCnD
+	YO4YG60ev60fdlue27n4q4B5akQwZGMmRtdKrmQtzOgzfbAZCUMq
+X-Gm-Gg: ASbGncvLzK8i+NecGxhbnWvV52ctDNCtKQ5fa6CqpP+l6WOOt/FmU++duWe3mkolbnl
+	KUZaXWJy5YXYOZKtzwTaO0vAUe7+W7nIV23ov4Kn0TuQUEg2J2RUlgd2GMTqpONsUIzLcS5BZ2y
+	2nH9z8ZocxRtVptC2RjlLldGa291kDCR1S3pXDUMzByXIZU7ZUKylTRGIWlvSXEf0ocdqjCao+q
+	JAhKh3ztWyoebU8qbXuTOueNipOm9h/xjvGEjK+l/P1jZOWzFVyoO89/Pow05ey+HygehOUzzMZ
+	AedA5BPmQiMWspXH383PfDXK9lM5GfHphXgPFafp
+X-Google-Smtp-Source: AGHT+IG0zVy7lg60mYfgSImCsh74mBuzqU36VHUksDzxDuyNJ/s3ohxIrUrwvRq5twPzh4X1lLXSdA==
+X-Received: by 2002:ad4:5ec9:0:b0:6d4:c6d:17fe with SMTP id 6a1803df08f44-6e8a0d066f7mr250591406d6.25.1741022384595;
+        Mon, 03 Mar 2025 09:19:44 -0800 (PST)
+Received: from debian ([2607:fb90:8e63:c2b3:5405:c8bf:c1d1:41d5])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c378da08f2sm617957485a.81.2025.03.03.09.19.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Mar 2025 09:19:44 -0800 (PST)
+From: Fan Ni <nifan.cxl@gmail.com>
+X-Google-Original-From: Fan Ni <fan.ni@samsung.com>
+Date: Mon, 3 Mar 2025 09:19:38 -0800
+To: Shradha Todi <shradha.t@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, manivannan.sadhasivam@linaro.org,
+	lpieralisi@kernel.org, kw@linux.com, robh@kernel.org,
+	bhelgaas@google.com, jingoohan1@gmail.com,
+	Jonathan.Cameron@huawei.com, nifan.cxl@gmail.com,
+	a.manzanares@samsung.com, pankaj.dubey@samsung.com,
+	cassel@kernel.org, 18255117159@163.com, xueshuai@linux.alibaba.com,
+	renyu.zj@linux.alibaba.com, will@kernel.org, mark.rutland@arm.com
+Subject: Re: [PATCH v7 1/5] perf/dwc_pcie: Move common DWC struct definitions
+ to 'pcie-dwc.h'
+Message-ID: <Z8XkqnQir1CfilvM@debian>
+References: <20250221131548.59616-1-shradha.t@samsung.com>
+ <CGME20250221132024epcas5p13d6e617805e4ef0c081227b08119871b@epcas5p1.samsung.com>
+ <20250221131548.59616-2-shradha.t@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/8] dt-bindings: phy: add
- samsung,exynos2200-usbcon-phy schema file
-Content-Language: en-US
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
- <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Abel Vesa <abel.vesa@linaro.org>,
- linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250223122227.725233-1-ivo.ivanov.ivanov1@gmail.com>
- <20250223122227.725233-4-ivo.ivanov.ivanov1@gmail.com>
- <20250224-curly-cyber-spaniel-efdc39@krzk-bin>
- <a4f63721-d094-4eda-b68a-6ef62ff54680@gmail.com>
- <c8184542-5dab-4403-bee4-867810397ae4@kernel.org>
- <4502b578-96e6-49e0-8f3b-54f6e5640c55@gmail.com>
- <354d6100-311f-44d7-b8a5-1fd671b651e3@kernel.org>
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-In-Reply-To: <354d6100-311f-44d7-b8a5-1fd671b651e3@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250221131548.59616-2-shradha.t@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_091814_537482_A517FBD6 
-X-CRM114-Status: GOOD (  32.65  )
+X-CRM114-CacheID: sfid-20250303_091946_460754_0E0267A8 
+X-CRM114-Status: GOOD (  25.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,113 +107,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/3/25 09:24, Krzysztof Kozlowski wrote:
-> On 02/03/2025 10:16, Ivaylo Ivanov wrote:
->> On 2/25/25 10:11, Krzysztof Kozlowski wrote:
->>> On 24/02/2025 11:48, Ivaylo Ivanov wrote:
->>>> On 2/24/25 10:56, Krzysztof Kozlowski wrote:
->>>>> On Sun, Feb 23, 2025 at 02:22:22PM +0200, Ivaylo Ivanov wrote:
->>>>>> The Exynos2200 SoC has a USB controller PHY, which acts as an
->>>>>> intermediary between a USB controller (typically DWC3) and other PHYs
->>>>>> (UTMI, PIPE3). Add a dt-binding schema for it.
->>>>>>
->>>>>> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
->>>>>> ---
->>>>>>  .../phy/samsung,exynos2200-usbcon-phy.yaml    | 76 +++++++++++++++++++
->>>>>>  1 file changed, 76 insertions(+)
->>>>>>  create mode 100644 Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
->>>>> You have undocumented dependencies which prevent merging this file.
->>>>> First, dependencies have to be clearly expressed.
->>>> They are, in the cover letter.
->>> Where? I read it twice. Dependencies is the most important thing and
->>> should scream at beginning of the cover letter, so if you bury them
->>> somewhere deep it also would not matter - just like they were missing.
->>>
->>>>> Second, you should
->>>>> rather decouple the code from header dependencies, otherwise this cannot
->>>>> be merged for current release (just use clocks with long names, without IDs).
->>>> Sure
->>>>>> diff --git a/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
->>>>>> new file mode 100644
->>>>>> index 000000000..7d879ec8b
->>>>>> --- /dev/null
->>>>>> +++ b/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
->>>>>> @@ -0,0 +1,76 @@
->>>>>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->>>>>> +%YAML 1.2
->>>>>> +---
->>>>>> +$id: http://devicetree.org/schemas/phy/samsung,exynos2200-usbcon-phy.yaml#
->>>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>>>>> +
->>>>>> +title: Exynos2200 USB controller PHY
->>>>>> +
->>>>>> +maintainers:
->>>>>> +  - Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
->>>>>> +
->>>>>> +description:
->>>>>> +  Exynos2200 USB controller PHY is an intermediary between a USB controller
->>>>>> +  (typically DWC3) and other PHYs (UTMI, PIPE3).
->>>>> Isn't this the same as usbdrd phy? see: samsung,usb3-drd-phy.yaml
->>>> It's not (I think). There's a few reasons I've decided to make this separate
->>>> from the usb3-drd-phy bindings and exynos5-usbdrd driver:
->>>>
->>>> 1. This PHY does not provide UTMI and PIPE3 on its own. There's no tuning
->>> USBDRD phy does not provide UTMI and PIPE on its own either if you look
->>> at diagram - they call it phy controller.
->> Ughm. What? So in most exynos cases, there's a combination of multiple phys?
->
->>>> for them, and all that is needed from it is to disable HWACG, assert/
->>>> deassert reset and force bvalid/vbusvalid. After that SNPS eUSB2
->>>> initialization can be done and USB2 works. If the USBCON phy is not set
->>>> up before the eUSB2 one, the device hangs, so there is definitely a
->>>> dependancy between them. For PIPE3 we'd need to control the pipe3
->>>> attaching/deattaching and then initialize the synopsys USBDP combophy.
->>> Does it mean there is no USB DRD phy controller as before?
->>>
->>> Anyway the problem is you have DWC3 -> PHY -> PHY. Looks one phy too many.
->> So...
->>
->> DWC3 -> USBDRD (USBCON) -> PHYs?
-> No, drop last phy. You just wrote the same as me - two phys, because
-> usbdrd is the phy. In all existing designs there is no such controllable
-> object from the point of view of operating system.
+On Fri, Feb 21, 2025 at 06:45:44PM +0530, Shradha Todi wrote:
+> From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> 
+> Since these are common to all Desginware PCIe IPs, move them to a new
+> header 'pcie-dwc.h', so that other drivers like debugfs, perf and sysfs
+> could make use of them.
+> 
+> Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> Signed-off-by: Shradha Todi <shradha.t@samsung.com>
 
-What? Per my understanding, the phy property should refer to whatever is
-is connected to dwc3 UTMI. In this case it's the so-called USBDRD phy (called
-usbcon in downstream). Considering that the eUSB2 IP definitely also has UTMI
-that has to be connected to something, doesn't that mean we have clearly
-separated hardware blocks? Now, I guess one could argue that this USBCON
-hardware block could be classified as a syscon. But I don't see the problem
-with the current binding description, nor the modelling, as it represents
-how the hardware is (unless I've gotten it completely wrong).
+Reviewed-by: Fan Ni <fan.ni@samsung.com>
 
-Best regards,
-Ivaylo
-
->
->> ...with usbdrd controller connecting and controlling the USB2 and USB3
->> phys, as well as dual role mode?
-> Yes.
->
->> Well, where is the DRD part in the exynos5
->> driver?
-> DRD? I believe it is part of DWC3, the same as in every other standard
-> implementation of Synopsys DWC3.
->
->> I guess it does perfectly fit the job of a usbdrd controller then (if it
->> even deals with DRD). But then again,  this brings up two questions:
->> 1. Should this driver even be named exynos2200-usbcon and not, for
->> example, exynos2200-usbdrd?
-> Are you sure we talk about the same thing? USBDRD is IP block in the
-> Exynos and a device driver. Call your device as appropriate it is -
-> based on datasheet or downstream sources.
->
->> 2. Are the exynos5-usbdrd phys really only USBDRD, or do they implement
->> USB speed functionality? What is the UTMI/PIPE3 setup for then?
-> Dunno, I don't get what you mean by "exynos5-usbdrd phys really only
-> USBDRD". USBDRD is just the name of the device.
->
-> Best regards,
-> Krzysztof
-
+> ---
+>  MAINTAINERS                 |  1 +
+>  drivers/perf/dwc_pcie_pmu.c | 25 +++----------------------
+>  include/linux/pcie-dwc.h    | 34 ++++++++++++++++++++++++++++++++++
+>  3 files changed, 38 insertions(+), 22 deletions(-)
+>  create mode 100644 include/linux/pcie-dwc.h
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 3864d473f52f..6474a2d83de4 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -18167,6 +18167,7 @@ S:	Maintained
+>  F:	Documentation/devicetree/bindings/pci/snps,dw-pcie-ep.yaml
+>  F:	Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
+>  F:	drivers/pci/controller/dwc/*designware*
+> +F:	include/linux/pcie-dwc.h
+>  
+>  PCI DRIVER FOR TI DRA7XX/J721E
+>  M:	Vignesh Raghavendra <vigneshr@ti.com>
+> diff --git a/drivers/perf/dwc_pcie_pmu.c b/drivers/perf/dwc_pcie_pmu.c
+> index cccecae9823f..da30f2c2d674 100644
+> --- a/drivers/perf/dwc_pcie_pmu.c
+> +++ b/drivers/perf/dwc_pcie_pmu.c
+> @@ -13,6 +13,7 @@
+>  #include <linux/errno.h>
+>  #include <linux/kernel.h>
+>  #include <linux/list.h>
+> +#include <linux/pcie-dwc.h>
+>  #include <linux/perf_event.h>
+>  #include <linux/pci.h>
+>  #include <linux/platform_device.h>
+> @@ -99,26 +100,6 @@ struct dwc_pcie_dev_info {
+>  	struct list_head dev_node;
+>  };
+>  
+> -struct dwc_pcie_pmu_vsec_id {
+> -	u16 vendor_id;
+> -	u16 vsec_id;
+> -	u8 vsec_rev;
+> -};
+> -
+> -/*
+> - * VSEC IDs are allocated by the vendor, so a given ID may mean different
+> - * things to different vendors.  See PCIe r6.0, sec 7.9.5.2.
+> - */
+> -static const struct dwc_pcie_pmu_vsec_id dwc_pcie_pmu_vsec_ids[] = {
+> -	{ .vendor_id = PCI_VENDOR_ID_ALIBABA,
+> -	  .vsec_id = 0x02, .vsec_rev = 0x4 },
+> -	{ .vendor_id = PCI_VENDOR_ID_AMPERE,
+> -	  .vsec_id = 0x02, .vsec_rev = 0x4 },
+> -	{ .vendor_id = PCI_VENDOR_ID_QCOM,
+> -	  .vsec_id = 0x02, .vsec_rev = 0x4 },
+> -	{} /* terminator */
+> -};
+> -
+>  static ssize_t cpumask_show(struct device *dev,
+>  					 struct device_attribute *attr,
+>  					 char *buf)
+> @@ -529,14 +510,14 @@ static void dwc_pcie_unregister_pmu(void *data)
+>  
+>  static u16 dwc_pcie_des_cap(struct pci_dev *pdev)
+>  {
+> -	const struct dwc_pcie_pmu_vsec_id *vid;
+> +	const struct dwc_pcie_vsec_id *vid;
+>  	u16 vsec;
+>  	u32 val;
+>  
+>  	if (!pci_is_pcie(pdev) || !(pci_pcie_type(pdev) == PCI_EXP_TYPE_ROOT_PORT))
+>  		return 0;
+>  
+> -	for (vid = dwc_pcie_pmu_vsec_ids; vid->vendor_id; vid++) {
+> +	for (vid = dwc_pcie_rasdes_vsec_ids; vid->vendor_id; vid++) {
+>  		vsec = pci_find_vsec_capability(pdev, vid->vendor_id,
+>  						vid->vsec_id);
+>  		if (vsec) {
+> diff --git a/include/linux/pcie-dwc.h b/include/linux/pcie-dwc.h
+> new file mode 100644
+> index 000000000000..40f3545731c8
+> --- /dev/null
+> +++ b/include/linux/pcie-dwc.h
+> @@ -0,0 +1,34 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (C) 2021-2023 Alibaba Inc.
+> + *
+> + * Copyright 2025 Linaro Ltd.
+> + * Author: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> + */
+> +
+> +#ifndef LINUX_PCIE_DWC_H
+> +#define LINUX_PCIE_DWC_H
+> +
+> +#include <linux/pci_ids.h>
+> +
+> +struct dwc_pcie_vsec_id {
+> +	u16 vendor_id;
+> +	u16 vsec_id;
+> +	u8 vsec_rev;
+> +};
+> +
+> +/*
+> + * VSEC IDs are allocated by the vendor, so a given ID may mean different
+> + * things to different vendors.  See PCIe r6.0, sec 7.9.5.2.
+> + */
+> +static const struct dwc_pcie_vsec_id dwc_pcie_rasdes_vsec_ids[] = {
+> +	{ .vendor_id = PCI_VENDOR_ID_ALIBABA,
+> +	  .vsec_id = 0x02, .vsec_rev = 0x4 },
+> +	{ .vendor_id = PCI_VENDOR_ID_AMPERE,
+> +	  .vsec_id = 0x02, .vsec_rev = 0x4 },
+> +	{ .vendor_id = PCI_VENDOR_ID_QCOM,
+> +	  .vsec_id = 0x02, .vsec_rev = 0x4 },
+> +	{} /* terminator */
+> +};
+> +
+> +#endif /* LINUX_PCIE_DWC_H */
+> -- 
+> 2.17.1
+> 
 
