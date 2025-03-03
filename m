@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5916EC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 11:59:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F80EC282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 12:01:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HgkXR8Ms7wQS05VGAhqJOHjZc2vDa+KQurvhzWf1zv4=; b=wUJ3tgmKpeOu5m2d1qE3mZl7Ss
-	pMTZv+yBvEgBhrqezDkEvZh6Cs0GNcuAmurMK2cSaVICdE6+UCdlZdHSfN3nDH0DuCWXd/1CqwVjf
-	iXDmqYJXQto6yGONwASE7c6uElQXzIxRQ56VTW+fyEjWWv3emQ3LxZz6aF5zOXYbzi7YvbHaqEjsn
-	FO8d/rUUN/Tft4/w8VmXVY4DCg0k5nj3jE4//DpZgZD7re7+CuLUfYhVQa+xK6xyAOTMYDmkxijeT
-	+Rvo520VzQvaxmFEZzVMrkDe8CQlYvIylfYnDheOkG8pbmNt31LC78ejw8FTKSrGkOiAhYv6+BhH3
-	b5An9VSw==;
+	bh=kZM1ca5Q9+J4hpNMdg9ysh15hAgKOmycAt5hVatLnOo=; b=0GWRuYAHUTIckG47o6DzWVqhDi
+	s3A8hd6lHg6SEhacs9HX7KJR8reUMkwi/9lzY5e/PU4lFg4EoYjS3NuOTUy+inio1xNkaCCCbeY/K
+	oAva+M58lpPpORqzEXoIqU2wZjl0NfLPw8/Ks14ucNMIrjYBFEW+UNq+IrO3OeUmXlEuzA3pZsYJs
+	63fxdvUlSydCs2P5XxhgvR2LcZm10RD7SMbbdG014sXZW581qLSiCX9Bwk7c1YYfsfOP/txhpcSM4
+	eUOgYmRhQwTGVzmtUMQoe8KPCRdrTvyl8QsvQRWHbXP2qtzmhjlj9fsZh6/M+ytTnEbURxBV1bc4P
+	4S5pK6vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp4SU-00000000fLE-3HiK;
-	Mon, 03 Mar 2025 11:59:42 +0000
+	id 1tp4U2-00000000fY3-26U5;
+	Mon, 03 Mar 2025 12:01:18 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp3hf-00000000Ttk-3A2Y
+	id 1tp3hf-00000000TtG-1HQl
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 03 Mar 2025 11:11:21 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1741000278;
+	s=2020; t=1741000277;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=HgkXR8Ms7wQS05VGAhqJOHjZc2vDa+KQurvhzWf1zv4=;
-	b=qhBdyCjxtiKLWvOc1plokn7HfcVzmwf+d4glPAKt3DEO52YztEmLk02vb7L3VZogzU2A+4
-	kTs/E5ByKXP8uxQAXoDvY2FzGgDTE/UwbpxuKNixzQm5PoM/G7f8h9l/K3TWY8YtJv6qIE
-	6zEkYZnS+jXRTBXgB/usq3SvKKk97lqoryzHUq0M63j6tngeCcCLtVeZAPDdVHBVuKnm+x
-	GOK8rRB+IXVgo58Xt7K7XisPKf3Ikmf+bDcbXUTqt709HU9avzv7ceji+wiU9dlaSgDlpC
-	rM9eQEz3o52fHaITdsZRgMUYFGF5zkCTogNt5Phtjl5yY1MgwrKjP+SarcanYg==
+	bh=kZM1ca5Q9+J4hpNMdg9ysh15hAgKOmycAt5hVatLnOo=;
+	b=J2PnJ8ErcXhVIuRvqvkHXj7+dnNdS1EYL5YDEQZoOxgEkdIVKIFeg07b0VEIi3KThnzbt0
+	ah3FK8WH0SUuZVYvxjp9pmpwO9vjxDPFsKHVNT/DUtprc2AbKlrSe/944ut+VipnhpibNE
+	29SbO2Xuxo/jL/txmYAIO16qHVwJFP+bvw3QcgHJXU/FohbxePmQm/Y+7++xwQnw/Hws2/
+	Hfq0VCWqKAR6lbMcAGPJux4b9Ev4LSi4bIfjXBPTW28XOqHQejdiPSeTSjqNqMnc5FIwO/
+	uUO5w4RFlrbUUu8nnclDM2MIzMtXJU72CkI7ELp9NW9W5sVsPcqWIk3/EMh6Aw==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1741000278;
+	s=2020e; t=1741000277;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=HgkXR8Ms7wQS05VGAhqJOHjZc2vDa+KQurvhzWf1zv4=;
-	b=BMb3X3SY4t1L7AJIV4rv6PFcxHgHInWR8mh99SkR1hwnPPvG4cImQh/oz7XKHSBifrGyMb
-	AArbHGlpDvR3nyBg==
-Date: Mon, 03 Mar 2025 12:11:20 +0100
-Subject: [PATCH 18/19] vdso: Move arch related data before basetime
+	bh=kZM1ca5Q9+J4hpNMdg9ysh15hAgKOmycAt5hVatLnOo=;
+	b=GwBc4N7JUlvmihVy8GcCVvbKSPyE3aY+zPykltsPgrrIWLNMhdZU0VqRTlm2Ku0wvazGx9
+	XnuHfIQjnht8pgCw==
+Date: Mon, 03 Mar 2025 12:11:19 +0100
+Subject: [PATCH 17/19] powerpc/vdso: Prepare introduction of struct
+ vdso_clock
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250303-vdso-clock-v1-18-c1b5c69a166f@linutronix.de>
+Message-Id: <20250303-vdso-clock-v1-17-c1b5c69a166f@linutronix.de>
 References: <20250303-vdso-clock-v1-0-c1b5c69a166f@linutronix.de>
 In-Reply-To: <20250303-vdso-clock-v1-0-c1b5c69a166f@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -76,16 +77,16 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
  linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1741000267; l=2232;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1741000267; l=1274;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=+5uVvlPBOccXpBrllKubuXiCPd0eBucGi0zbF33gT3U=;
- b=X+HQHN+N5jVKZbjCjgYkbSkIIE7aQboC/nbk/mfHTATXfKThuTtUk4+181IgylalZLiBJjY7y
- fSrOanqYWacAJNG8ttNOKFyoifVvtbJU3lYM7zULF1yjrqrrAfTAZQe
+ bh=J/Meo4khXD/IuyjcSchvegknYNCvt5RiCWDXgeCNEuA=;
+ b=ipqT0aYN+nLJcWWGgAiulZ2z34jv+h8RZjUb8zE4PSrDBBV3fg7CNnQswUAW4p7fvphbY9V95
+ iF6oxWHwSrZAnFYXR+PzpHDR0Rb2CslyLmtoDfl4dn1AAze7BQJj/Ii
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_031119_962104_DEFE8E3A 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20250303_031119_533017_9C160251 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,66 +101,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Anna-Maria Behnsen <anna-maria@linutronix.de>
+From: Nam Cao <namcao@linutronix.de>
 
-Architecture related vdso data is required in fastpath when acquiring
-CLOCK_MONOTONIC or CLOCK_REALTIME. At the moment, this information is
-located at the end of the vdso_time_data structure. The whole structure has
-to be loaded into cache to be able to access this information.
+To support multiple PTP clocks, the VDSO data structure needs to be
+reworked. All clock specific data will end up in struct vdso_clock and in
+struct vdso_time_data there will be array of it. By now, vdso_clock is
+simply a define which maps vdso_clock to vdso_time_data.
 
-To minimize the number of required cachelines, the architecture specific
-vdso data struct is moved right before the basetime (basetime information
-is required anyway). This change does not have an impact on architectures
-with CONFIG_ARCH_HAS_VDSO_DATA=n. All other architectures could spare
-reading unnecessary cachelines.
+To prepare for the rework of the data structures, replace the struct
+vdso_time_data pointer with struct vdso_clock pointer whenever applicable.
 
-Signed-off-by: Anna-Maria Behnsen <anna-maria@linutronix.de>
+No functional change.
+
 Signed-off-by: Nam Cao <namcao@linutronix.de>
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- include/vdso/datapage.h | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/powerpc/include/asm/vdso/gettimeofday.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/include/vdso/datapage.h b/include/vdso/datapage.h
-index 1df22e8bb9b31153546b72b1e8b8c8aeaed7d9e3..bcd19c223783be7c22f90120330e7dddd0496f1a 100644
---- a/include/vdso/datapage.h
-+++ b/include/vdso/datapage.h
-@@ -70,6 +70,8 @@ struct vdso_timestamp {
+diff --git a/arch/powerpc/include/asm/vdso/gettimeofday.h b/arch/powerpc/include/asm/vdso/gettimeofday.h
+index dc955f2e0cc51f44d46f488a292aa0dbee3dc16c..99c9d6f43fde2efaf92d4777d3a5510677da7c92 100644
+--- a/arch/powerpc/include/asm/vdso/gettimeofday.h
++++ b/arch/powerpc/include/asm/vdso/gettimeofday.h
+@@ -99,7 +99,7 @@ static __always_inline u64 __arch_get_hw_counter(s32 clock_mode,
+ 	return get_tb();
+ }
  
- /**
-  * struct vdso_time_data - vdso datapage representation
-+ * @arch_data:		architecture specific data (optional, defaults
-+ *			to an empty struct)
-  * @seq:		timebase sequence counter
-  * @clock_mode:		clock mode
-  * @cycle_last:		timebase at clocksource init
-@@ -83,8 +85,6 @@ struct vdso_timestamp {
-  * @tz_dsttime:		type of DST correction
-  * @hrtimer_res:	hrtimer resolution
-  * @__unused:		unused
-- * @arch_data:		architecture specific data (optional, defaults
-- *			to an empty struct)
-  *
-  * vdso_time_data will be accessed by 64 bit and compat code at the same time
-  * so we should be careful before modifying this structure.
-@@ -105,6 +105,8 @@ struct vdso_timestamp {
-  * offset must be zero.
-  */
- struct vdso_time_data {
-+	struct arch_vdso_time_data arch_data;
-+
- 	u32			seq;
- 
- 	s32			clock_mode;
-@@ -125,8 +127,6 @@ struct vdso_time_data {
- 	s32			tz_dsttime;
- 	u32			hrtimer_res;
- 	u32			__unused;
--
--	struct arch_vdso_time_data arch_data;
- } ____cacheline_aligned;
- 
- #define vdso_clock vdso_time_data
+-static inline bool vdso_clocksource_ok(const struct vdso_time_data *vd)
++static inline bool vdso_clocksource_ok(const struct vdso_clock *vc)
+ {
+ 	return true;
+ }
 
 -- 
 2.48.1
