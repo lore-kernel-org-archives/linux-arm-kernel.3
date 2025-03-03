@@ -4,91 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D1A5C282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 18:58:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADAF0C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 19:01:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ByURWW4/51grEFFoJ5cNbGWq84mjT1dgOMDzzVdymTY=; b=coljVlkltylX1HntqgvHXNxgaX
-	818dlXg1+sPhq2vr122uYBuGlf0RpB0kiODCaxMDSMs8t20T29d6FH+nCVGDDxcqkWDqAyg372TCB
-	TY0+W+sy3qIIRULnsYdyf2/1mRQZsM62vTbI0bNX1IBCTMXzOaOem0dK5hK+M7Xd8JBrgeicxUGgN
-	A6tgMedctYuMmoZJkSkZGEbB3Gr3ZXDBHl3s95Kxx7kCkKq44SMAR7HiyJIGlpvAenqZxOE1jPHa+
-	ZAjjh5udwzQspMQVPfpxoTx1Ceupwg/Dcw1+5HnxzPZYTqyRvkZ8TtlpQDnUq0JKOwloAJvILcPle
-	7USt307w==;
+	bh=jjecqTzCVjKyUMqJsZlchSRC7uTnPEoveMbIb89DyeA=; b=KOLC+S5vij3opAyJS8aVDnsy0z
+	snz3StZJvH3TGzkltgoIRf12kdJKXuWd6KTek28rQcoJybcIpHnFh3dxaMJs+fgc29NijLLWFHbue
+	Px1YFv6O6WXrSfTNCRzP0hQ6aZXrr4ldTl1MXNlGiYuxd9imJvaAywgjEFp2iF1QquCXg3lej9Ab/
+	Xc2gNExgBsSZ9i2sVCF5MiAMuWQGE1QyE2KCH6g3eIXVdruF9qpmFF1aV3ymWpElPm01jObo2ZWMM
+	DQ0xIWwHE/w679b8SGs4SJBH8njKGuTRanakCVqza3ih/0jCnteeMWEljKlVbaauZpu0T4OfjLWSb
+	M3dBfC9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpAzl-000000020Lq-1DGQ;
-	Mon, 03 Mar 2025 18:58:29 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1tpB2o-000000020eg-26n0;
+	Mon, 03 Mar 2025 19:01:38 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpAyB-000000020CK-2fvl
+	id 1tpB1D-000000020Tw-33Ce
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 18:56:52 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43bbc8b7c65so16693995e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 10:56:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1741028210; x=1741633010; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ByURWW4/51grEFFoJ5cNbGWq84mjT1dgOMDzzVdymTY=;
-        b=BMZGAL0JsSVpu60waRK/WFDT6EDFzBiO/fvFdIPdPNh+xhJiMkLcweGj1kycf/dvqz
-         jqeqgH8KAT4YdfYxzLSfvSneRU4ydcD03VcN3JNxp7md5K4cD+RYbFl/Pgiqcsm+WS3d
-         RcoE70+P1HBPY0yejbjtzUzWrR1/zmSGzhDoejSDH2ynb87wAILhL5WthTzesO8bbzkg
-         ZaCFPaSbJU6bzNE09BJJLdl4N56/JF9AvA/5x+pkGHQ6SfpwmBUhrf3JlhLB2BSFK0fK
-         sYUumLLiwfWr4LhF+s6V1k2IczhNKrKfLya8RDyRSLLGx40nx38dY+wvbdrQjPgzuo57
-         YkRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741028210; x=1741633010;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ByURWW4/51grEFFoJ5cNbGWq84mjT1dgOMDzzVdymTY=;
-        b=U9E6268Qb4wid3+D2HN2XEVYrlNKWu+AB4hfstSbwjfi2q+FwsRt/yfcAkgsXG03Fl
-         Ox7p/p+OPLJpCesOzqNPtaAXLfgBhQc4zeMlPc+zRQT8WxnIkHGFekCDuM2/rJXnrqpa
-         wt3EqpK5kf121XZtfnInWRZIcE8gwmzcm/080pT6VdPDvoAHiKGk8ocMHRHgd3Bn4XJE
-         iwBwVZcrzajE3WyEYauR0rwa6AmZajOry71bKGpyBPXdORK+hblhEmOvSu0gQC+nkAq3
-         O7y94zKnOsvEnAzGQd1JA+rzD6nyVWj9fO746QsZmEYZKWr00Gv8cmh3kJyXmfI5aBx6
-         00Mw==
-X-Forwarded-Encrypted: i=1; AJvYcCUUx2gLmkaZzdYHN4FfTW3TEYz/B8aZ6vVxd/LLAT3SRZ10M+mu4FjBDEa4SgbDQScdb6/1mzCCSOcXx9NU7r43@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+eTvvFD7NgTC46xURjHzCkUD7UxOherKhhSASdiK8AJim62By
-	0YICJWyzwCXOG+VOnkgxDiQaksovXUhcvIuYcvNRa2ckD2KwSLmQwlnz5DgZ9ks=
-X-Gm-Gg: ASbGnct4SVNq6OUKvuPNEybBKEwvCfFJQ+lutiT2Pm2DNB9Ubu3VXIm2Vl+AHPLxfcV
-	bV4HJ8bYuZrdDrdazvKCX7xfkJu2gHe2LTVzFp8i1oT1VIiv9mNo+LUc7hXQ658xWWNthWmDD1j
-	IoAmLEi4aAJFak764BoDWVqQmA+VOPCnTRDSMuZgXqlKWZRGs/EzXWWjEHuCcK/crEpHHLMWQU8
-	Us9x/+kU40iHZO+o4gWqwF9S5WTwXgCr+oPnS7QNKkUohuhd+ohXLt4CuPEZIZLf6yJRNRslgqu
-	DCAPWA759eSoL4ZY3wEBR+2nriD8wymRjzAu9XA+8Z6cARtvSiep/w==
-X-Google-Smtp-Source: AGHT+IGVUE0CQu4ReThqwR4ny9E8a1exZ2jLsRFt7w170BeB8vADyu6EQUUGy2xTMtQFYKiXpDs9Pg==
-X-Received: by 2002:a05:600c:4fd3:b0:439:a255:b2ed with SMTP id 5b1f17b1804b1-43ba66e5f09mr144551665e9.9.1741028209871;
-        Mon, 03 Mar 2025 10:56:49 -0800 (PST)
-Received: from [192.168.50.4] ([82.78.167.138])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bc9c0fb1esm12229025e9.20.2025.03.03.10.56.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Mar 2025 10:56:49 -0800 (PST)
-Message-ID: <39213e99-3041-4602-9dd2-536e9b09ad11@tuxon.dev>
-Date: Mon, 3 Mar 2025 20:56:47 +0200
+	Mon, 03 Mar 2025 19:00:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 82267A44F19;
+	Mon,  3 Mar 2025 18:54:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 128A5C4CED6;
+	Mon,  3 Mar 2025 18:59:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741028398;
+	bh=Gp5b4c1zf97/draGEaY8yH71AhQTNUbCkCfT2p04Ckc=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=Q5M2YMHe2LJCMAbfg7cXsul2vfgCw+jK6xbaoDHy22zAQaeRbjIZEptLtF5zMYf2C
+	 NI7lQsAuXzCRPPtzU7mkqF8IW3uvEJUESZyhXBOQnhz7bu+jsMeTL/Vuau/sq4Qy4J
+	 n6h2XyRXx/tOQNduulh93PuocfF1B2AgiKHgtrSI05RAhObY7hep2TIxQ9Vc6Kv6C7
+	 GGKJmVYricZwzhj/TFjAKEaZWiRoHfV2MYIOnPnciB6l8WrlNMfYhjvV6m6uyFXySN
+	 pjF4vfPXj87/eo0t/8HnVzmsCUBpPMRXg/WAHewjVtACWEjqKC+yrXBDgXwMySrGMP
+	 EspRmDXAUFzYQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAEF23809A8F;
+	Mon,  3 Mar 2025 19:00:31 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/2] Add System Components for Microchip SAMA7D65 SoC
-To: Ryan.Wanner@microchip.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, nicolas.ferre@microchip.com,
- alexandre.belloni@bootlin.com, wim@linux-watchdog.org, linux@roeck-us.net
-Cc: vkoul@kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- dmaengine@vger.kernel.org, linux-watchdog@vger.kernel.org
-References: <cover.1740675317.git.Ryan.Wanner@microchip.com>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Content-Language: en-US
-In-Reply-To: <cover.1740675317.git.Ryan.Wanner@microchip.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH bpf-next v4 00/10] Introduce load-acquire and store-release
+ BPF instructions
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <174102843076.3686766.17440507185363251083.git-patchwork-notify@kernel.org>
+Date: Mon, 03 Mar 2025 19:00:30 +0000
+References: <cover.1740978603.git.yepeilin@google.com>
+In-Reply-To: <cover.1740978603.git.yepeilin@google.com>
+To: Peilin Ye <yepeilin@google.com>
+Cc: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org, bpf@ietf.org,
+ ast@kernel.org, xukuohai@huaweicloud.com, eddyz87@gmail.com,
+ void@manifault.com, daniel@iogearbox.net, andrii@kernel.org,
+ martin.lau@linux.dev, song@kernel.org, yonghong.song@linux.dev,
+ john.fastabend@gmail.com, kpsingh@kernel.org, sdf@fomichev.me,
+ haoluo@google.com, jolsa@kernel.org, corbet@lwn.net, paulmck@kernel.org,
+ puranjay@kernel.org, iii@linux.ibm.com, hca@linux.ibm.com, gor@linux.ibm.com,
+ catalin.marinas@arm.com, will@kernel.org, qmo@kernel.org, mykolal@fb.com,
+ shuah@kernel.org, ihor.solodrai@linux.dev, longyingchi24s@ict.ac.cn,
+ joshdon@google.com, brho@google.com, neelnatu@google.com, bsegall@google.com,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_105651_779708_1D9F420C 
-X-CRM114-Status: UNSURE (   6.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250303_105959_903558_ADD7539F 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,11 +84,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello:
+
+This series was applied to bpf/bpf-next.git (master)
+by Alexei Starovoitov <ast@kernel.org>:
+
+On Mon,  3 Mar 2025 05:36:27 +0000 you wrote:
+> Hi all!
+> 
+> This patchset adds kernel support for BPF load-acquire and store-release
+> instructions (for background, please see [1]), including core/verifier,
+> arm64/x86-64 JIT compiler and Documentation/ changes, as well as
+> selftests.  riscv64 is also planned to be supported.  The corresponding
+> LLVM changes can be found at:
+> 
+> [...]
+
+Here is the summary with links:
+  - [bpf-next,v4,01/10] bpf/verifier: Factor out atomic_ptr_type_ok()
+    https://git.kernel.org/bpf/bpf-next/c/b2d9ef71d4c9
+  - [bpf-next,v4,02/10] bpf/verifier: Factor out check_atomic_rmw()
+    https://git.kernel.org/bpf/bpf-next/c/d430c46c7580
+  - [bpf-next,v4,03/10] bpf/verifier: Factor out check_load_mem() and check_store_reg()
+    https://git.kernel.org/bpf/bpf-next/c/d38ad248fb7a
+  - [bpf-next,v4,04/10] bpf: Introduce load-acquire and store-release instructions
+    (no matching commit)
+  - [bpf-next,v4,05/10] arm64: insn: Add BIT(23) to {load,store}_ex's mask
+    (no matching commit)
+  - [bpf-next,v4,06/10] arm64: insn: Add load-acquire and store-release instructions
+    (no matching commit)
+  - [bpf-next,v4,07/10] bpf, arm64: Support load-acquire and store-release instructions
+    (no matching commit)
+  - [bpf-next,v4,08/10] bpf, x86: Support load-acquire and store-release instructions
+    (no matching commit)
+  - [bpf-next,v4,09/10] selftests/bpf: Add selftests for load-acquire and store-release instructions
+    (no matching commit)
+  - [bpf-next,v4,10/10] bpf, docs: Update instruction-set.rst for load-acquire and store-release instructions
+    (no matching commit)
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
-On 28.02.2025 17:24, Ryan.Wanner@microchip.com wrote:
-> Ryan Wanner (2):
->   ARM: dts: microchip: sama7d65: Add watchdog for sama7d65
-
-Applied to at91-dt, thanks!
 
