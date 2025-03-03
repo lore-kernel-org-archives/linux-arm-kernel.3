@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34EFBC282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 14:13:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 318B9C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 14:15:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lz8EOBn9FUAA9PUMl7yDcfKigTwB7zLIEjA+CKP0ZPA=; b=JJaJug3nz9cGGsn2cd+k3UPOaM
-	ym9ePudygm0zVBFE+b/DfwPLmBkoNXhQpvfCP/oAEws0txswHZu+fsHBlV5v6XkcwpKwdUF66YPa5
-	QNr4Rd9pvDkCcEFW9o2A9B4cwCrjfyNRGqCXA3fRNfJ7bdsKTQ1l5We0vyKdjXS6oPEYF9ipwKUpr
-	oVvZ211+ckvyytPoTumBTSXYJh+4HJSyU8BUXwNjHlBc2HRwMdwnQ8tiq8jUSut6YbcO2m+1GxQdt
-	1PIZyhLYDulERwf8CSEvSVWrQaiZ9V/764ceuwf92Vn//kjrM1XGZEwlPJB0wEtz+2aqAvXcU6Km3
-	RtUe7Z4g==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HKA6epoyG5k7PVVX2SWKSB8APlH9M5pg/2J3Q1G9Iqs=; b=Mhfe/FkhqZZnQjpFebuVP3GgF9
+	QQpltBDMegd5ZP85cNMucHmporHjHOUgPvvfZ0MNHUPITMxBLPRTrZy3CCvJx1ABYuy141pVXT5/1
+	uOj2BuvKEpBPPf4yCdzSQHF2ytnx70oKr5U0rxzqWdjst8JhavC0eAfasK/ZlS9MoXujAUlPKiVMF
+	W+b6v7NejSizHfjWUU5jFDr5vzUfVWn1jzPvs1xOb4q/2PWaLbLlHYOnxDUtJBzmpdEqInSpzD+A/
+	dnydJLjkrj0aYxialPMl16P00bsUqG7YjGN8aIOtzTSi5Xba114XGo+s4a9T3KBrzevtSLnW5wCv+
+	HOMayz1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp6Xo-000000012l4-1iu5;
-	Mon, 03 Mar 2025 14:13:20 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1tp6ZM-00000001312-0Iai;
+	Mon, 03 Mar 2025 14:14:56 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp6DX-00000000zIc-2DKI
+	id 1tp6DX-00000000zIf-41sM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 13:52:24 +0000
+	Mon, 03 Mar 2025 13:52:25 +0000
 Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 523DqFDJ3287675
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 523DqAQA2770688
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Mon, 3 Mar 2025 07:52:15 -0600
+	Mon, 3 Mar 2025 07:52:10 -0600
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1741009935;
-	bh=Lz8EOBn9FUAA9PUMl7yDcfKigTwB7zLIEjA+CKP0ZPA=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=CiOyJp6KRusPBdfZ7/h7j/VSlAOKo5ujK0iDwmb49mxCcMuBHL0SnSC/5PS1Dn9Kk
-	 wh7yeSTnFm4SwApy5PyypIn07tbNn0ZK4PmswvulqjnfiWXD9xWeQvVxk5CRmpp6O5
-	 qGthWuDvMINi7GC0q6nCFPK/LbOEiZMQIlzr+9/U=
-Received: from DLEE104.ent.ti.com (dlee104.ent.ti.com [157.170.170.34])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 523DqF79095313;
-	Mon, 3 Mar 2025 07:52:15 -0600
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
+	s=ti-com-17Q1; t=1741009930;
+	bh=HKA6epoyG5k7PVVX2SWKSB8APlH9M5pg/2J3Q1G9Iqs=;
+	h=From:To:CC:Subject:Date;
+	b=ZAQ4yBgK/Lk91iqOLs9LBj877KPeCh+db+1G/l/eZs3N1BA7S8TLyRradc9EKO9iD
+	 KFSeneUZOYTm/b8C2J7PsAXFWdnfMDJOjOSWxDYmDf/VQOtHJSnWAXkYghrReMMZgF
+	 4QiK2UjlOwILg+EEK3P9qI3lYfXyBw/8nU2aqVMs=
+Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 523DqANo095277;
+	Mon, 3 Mar 2025 07:52:10 -0600
+Received: from DFLE114.ent.ti.com (10.64.6.35) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 3
- Mar 2025 07:52:14 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ Mar 2025 07:52:10 -0600
+Received: from fllvsmtp7.itg.ti.com (10.64.40.31) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 3 Mar 2025 07:52:14 -0600
+ Frontend Transport; Mon, 3 Mar 2025 07:52:09 -0600
 Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 523DqEhA092412;
-	Mon, 3 Mar 2025 07:52:14 -0600
+	by fllvsmtp7.itg.ti.com (8.15.2/8.15.2) with ESMTP id 523Dq9k0047060;
+	Mon, 3 Mar 2025 07:52:09 -0600
 Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
-	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 523DqDP2018084;
-	Mon, 3 Mar 2025 07:52:14 -0600
+	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 523Dq8NA018076;
+	Mon, 3 Mar 2025 07:52:09 -0600
 From: Meghana Malladi <m-malladi@ti.com>
 To: <javier.carrasco.cruz@gmail.com>, <diogo.ivo@siemens.com>,
         <horms@kernel.org>, <jacob.e.keller@intel.com>, <m-malladi@ti.com>,
@@ -65,19 +65,18 @@ CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
         Vignesh Raghavendra
 	<vigneshr@ti.com>,
         Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
-Subject: [PATCH net-next v3 1/2] net: ti: icss-iep: Add pwidth configuration for perout signal
-Date: Mon, 3 Mar 2025 19:21:23 +0530
-Message-ID: <20250303135124.632845-2-m-malladi@ti.com>
+Subject: [PATCH net-next v3 0/2] Add perout configuration support in IEP driver
+Date: Mon, 3 Mar 2025 19:21:22 +0530
+Message-ID: <20250303135124.632845-1-m-malladi@ti.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250303135124.632845-1-m-malladi@ti.com>
-References: <20250303135124.632845-1-m-malladi@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_055223_663123_87050802 
-X-CRM114-Status: GOOD (  18.63  )
+X-CRM114-CacheID: sfid-20250303_055224_040192_5BC7AF64 
+X-CRM114-Status: UNSURE (   8.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,118 +91,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-icss_iep_perout_enable_hw() is a common function for generating
-both pps and perout signals. When enabling pps, the application needs
-to only pass enable/disable argument, whereas for perout it supports
-different flags to configure the signal.
+IEP driver supported both perout and pps signal generation
+but perout feature is faulty with half-cooked support
+due to some missing configuration. Hence perout feature is
+removed as a bug fix. This patch series adds back this feature
+which configures perout signal based on the arguments passed
+by the perout request.
 
-But icss_iep_perout_enable_hw() function is missing to hook the
-configuration params passed by the app, causing perout to behave
-same a pps (except being able to configure the period). As duty cycle
-is also one feature which can configured for perout, incorporate this
-in the function to get the expected signal.
+This patch series is continuation to the bug fix: 
+https://lore.kernel.org/all/20250227092441.1848419-1-m-malladi@ti.com/
+as suggested by Jakub Kicinski and Jacob Keller:
+https://lore.kernel.org/all/20250220172410.025b96d6@kernel.org/
 
-Signed-off-by: Meghana Malladi <m-malladi@ti.com>
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
----
-Changes from v2 (v3-v2):
-- Posted patch to net-next as feature addition
-- Collected RB tag from Jacob Keller <jacob.e.keller@intel.com>
+v2:https://lore.kernel.org/all/20250219062701.995955-1-m-malladi@ti.com/
 
- drivers/net/ethernet/ti/icssg/icss_iep.c | 49 ++++++++++++++++++++++--
- 1 file changed, 46 insertions(+), 3 deletions(-)
+Meghana Malladi (2):
+  net: ti: icss-iep: Add pwidth configuration for perout signal
+  net: ti: icss-iep: Add phase offset configuration for perout signal
 
-diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.c b/drivers/net/ethernet/ti/icssg/icss_iep.c
-index d59c1744840a..0411438a3b5d 100644
---- a/drivers/net/ethernet/ti/icssg/icss_iep.c
-+++ b/drivers/net/ethernet/ti/icssg/icss_iep.c
-@@ -406,9 +406,16 @@ static void icss_iep_update_to_next_boundary(struct icss_iep *iep, u64 start_ns)
- static int icss_iep_perout_enable_hw(struct icss_iep *iep,
- 				     struct ptp_perout_request *req, int on)
- {
-+	struct timespec64 ts;
-+	u64 ns_width;
- 	int ret;
- 	u64 cmp;
- 
-+	/* Calculate width of the signal for PPS/PEROUT handling */
-+	ts.tv_sec = req->on.sec;
-+	ts.tv_nsec = req->on.nsec;
-+	ns_width = timespec64_to_ns(&ts);
-+
- 	if (iep->ops && iep->ops->perout_enable) {
- 		ret = iep->ops->perout_enable(iep->clockops_data, req, on, &cmp);
- 		if (ret)
-@@ -419,8 +426,9 @@ static int icss_iep_perout_enable_hw(struct icss_iep *iep,
- 			regmap_write(iep->map, ICSS_IEP_CMP1_REG0, lower_32_bits(cmp));
- 			if (iep->plat_data->flags & ICSS_IEP_64BIT_COUNTER_SUPPORT)
- 				regmap_write(iep->map, ICSS_IEP_CMP1_REG1, upper_32_bits(cmp));
--			/* Configure SYNC, 1ms pulse width */
--			regmap_write(iep->map, ICSS_IEP_SYNC_PWIDTH_REG, 1000000);
-+			/* Configure SYNC, based on req on width */
-+			regmap_write(iep->map, ICSS_IEP_SYNC_PWIDTH_REG,
-+				     div_u64(ns_width, iep->def_inc));
- 			regmap_write(iep->map, ICSS_IEP_SYNC0_PERIOD_REG, 0);
- 			regmap_write(iep->map, ICSS_IEP_SYNC_START_REG, 0);
- 			regmap_write(iep->map, ICSS_IEP_SYNC_CTRL_REG, 0); /* one-shot mode */
-@@ -447,6 +455,8 @@ static int icss_iep_perout_enable_hw(struct icss_iep *iep,
- 				   + req->period.nsec;
- 			icss_iep_update_to_next_boundary(iep, start_ns);
- 
-+			regmap_write(iep->map, ICSS_IEP_SYNC_PWIDTH_REG,
-+				     div_u64(ns_width, iep->def_inc));
- 			/* Enable Sync in single shot mode  */
- 			regmap_write(iep->map, ICSS_IEP_SYNC_CTRL_REG,
- 				     IEP_SYNC_CTRL_SYNC_N_EN(0) | IEP_SYNC_CTRL_SYNC_EN);
-@@ -474,7 +484,38 @@ static int icss_iep_perout_enable_hw(struct icss_iep *iep,
- static int icss_iep_perout_enable(struct icss_iep *iep,
- 				  struct ptp_perout_request *req, int on)
- {
--	return -EOPNOTSUPP;
-+	int ret = 0;
-+
-+	mutex_lock(&iep->ptp_clk_mutex);
-+
-+	/* Reject requests with unsupported flags */
-+	if (req->flags & ~PTP_PEROUT_DUTY_CYCLE) {
-+		ret = -EOPNOTSUPP;
-+		goto exit;
-+	}
-+
-+	if (iep->pps_enabled) {
-+		ret = -EBUSY;
-+		goto exit;
-+	}
-+
-+	if (iep->perout_enabled == !!on)
-+		goto exit;
-+
-+	/* Set default "on" time (1ms) for the signal if not passed by the app */
-+	if (!(req->flags & PTP_PEROUT_DUTY_CYCLE)) {
-+		req->on.sec = 0;
-+		req->on.nsec = NSEC_PER_MSEC;
-+	}
-+
-+	ret = icss_iep_perout_enable_hw(iep, req, on);
-+	if (!ret)
-+		iep->perout_enabled = !!on;
-+
-+exit:
-+	mutex_unlock(&iep->ptp_clk_mutex);
-+
-+	return ret;
- }
- 
- static void icss_iep_cap_cmp_work(struct work_struct *work)
-@@ -553,6 +594,8 @@ static int icss_iep_pps_enable(struct icss_iep *iep, int on)
- 		rq.perout.period.nsec = 0;
- 		rq.perout.start.sec = ts.tv_sec + 2;
- 		rq.perout.start.nsec = 0;
-+		rq.perout.on.sec = 0;
-+		rq.perout.on.nsec = NSEC_PER_MSEC;
- 		ret = icss_iep_perout_enable_hw(iep, &rq.perout, on);
- 	} else {
- 		ret = icss_iep_perout_enable_hw(iep, &rq.perout, on);
+ drivers/net/ethernet/ti/icssg/icss_iep.c | 65 ++++++++++++++++++++++--
+ 1 file changed, 61 insertions(+), 4 deletions(-)
+
+
+base-commit: f77f12010f67259bd0e1ad18877ed27c721b627a
 -- 
 2.43.0
 
