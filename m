@@ -4,109 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10EF8C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 03:49:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24D7BC282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 03:51:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IEDc5a+qaJ461fEOorI0aPSdSVAqOPF0WWp/svcyhEc=; b=CG5s5JljzC4w/evt3TnBuyoZ6G
-	tHHKN8SkZOqVMcGvXpw8UZheoah2Qff4AB/6U+Y9P/w8H6z9loDGIVyq1bSX8JTryxyco4M9P/lzY
-	WWNPIPasGCxzWHVcqNFzX1hGMKDIH0JsjHAFYdCmqKMqYkGgxGIm8U0D4Lf9yUKpVNUv0FvovY6lQ
-	pcs7wYq5hp+/vcpQjuj7Yepb472qlPDTb2sEdi2DAivJYW4goko3El6Jctm6VWAhZ1PqDP4JDTPkD
-	8Ni+z8YiGuOtQS/QD47+k++yBnw7bLAje9ly0kER3KXH5VDSVHftXerM/jE7ZfVZ+slG1KFDKftcT
-	bWVQxgdA==;
+	bh=x5wpqKJUmSg4bQV96jwM4c9cPSXvq7N01GUYeXUKlfk=; b=v38r7XaBI+9R1yDBkhEHdrPXri
+	ZdLqeNB8g39oryxIo0nTqq2irYDCdHBJBsZb3MYckEcdM6QFRHXjjNh5jHUE7LO+eK7iBmV8SjZCa
+	4nx+cre1LUWGcc27pVD4B8le/ucfRkHxoEKTtUtq513boK5sWPoQVXwwbtbbX1yyFYH0BrVEOy0k8
+	DugG9usgrfFrWbDCj+qurqMmssFfpCqnb7YIaMhPO52pqoopJgHCWKWXa5Z9MZn84oS9idVCc4Fk0
+	XP1f2Z9YwBMDrT6xtv8usJ2s+WxMcwo55PzHHfN6tSKFriwMqmIHcDYxq9di5z1ylgCQ4lSxdJyTW
+	zXoiNpxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1towo0-0000000H6uq-2KDC;
-	Mon, 03 Mar 2025 03:49:24 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1towhX-0000000H5i6-21Gx
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 03:42:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1740973361;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IEDc5a+qaJ461fEOorI0aPSdSVAqOPF0WWp/svcyhEc=;
-	b=DJsj5rx8ZbDQsSTTP/4aBlOaErwxdWkBa3o1ySXbKx33ZQ7/I/NLXAAyt1mYlZycikg0Sa
-	Dnz7bRmtB0QkVQglo3GYDyIJ4T6I6IOcyCQgG33/4GOp08yubCtU9XaBuRG/uNzBNvTlEU
-	2jUnaAx5IuXTivuRzrX4injBpJnfhoY=
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com
- [209.85.216.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-266-Qsscg5eSOIeBHdF5obUP8A-1; Sun, 02 Mar 2025 22:42:39 -0500
-X-MC-Unique: Qsscg5eSOIeBHdF5obUP8A-1
-X-Mimecast-MFC-AGG-ID: Qsscg5eSOIeBHdF5obUP8A_1740973358
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-2fec3e38b60so4247053a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Mar 2025 19:42:39 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740973358; x=1741578158;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IEDc5a+qaJ461fEOorI0aPSdSVAqOPF0WWp/svcyhEc=;
-        b=fh6flN87WgyQOJkiBMPInjKsdo5EAtRfl665AUqPJwkGsSqhXsRaiaR7VR5Cid8H3g
-         Q7j4yGcf3wCQsZfO7s+pbvRW8cCz1G0zZDLKwOMXRewWH1VYsl4HxowHCMAKgH2IudXa
-         UCV2QlvD+v4Zi1od+8CKoA+4adLPg9lHZ/jpf7I8AQT3YyUWazycfoEtgRNcD3sFkjzD
-         YUw+8pcIHjcWC25CqQim/5mQM7zPSiM46/+tr0YxXcObGA+4jig/OKStbqoKN2LQcGeo
-         EPEVfM9B0YujCj5Yd9etChXPFh1m80ZcwqkK8iRnqFlNU4uJo9HC3bzC71TO4i3/DSkx
-         frLg==
-X-Forwarded-Encrypted: i=1; AJvYcCU2TFaFVN/FtFooybcvVHievu68YdceeiObTTULo6KQbE1mZNRAGS4SDpTIgeflNoLd9IzhfMPl7dYUVThx+jzz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy//klOycce4rKrBIRY8XbPdhMUVe+ZoMGykfFbnkAtpE/aFtNb
-	Ll1xKGB9fQ21ADZkjtMzjY9A0rFqzfy/jqb6p0cv/9Q12G/Jr/msXd1Tt8ThnuleWhlm9B+IPQb
-	qvgVDzqWOwYpr0JH2zYhm/66DHDNdD4iEmLDxPrzFVGpt/mGY6y0pyFBHf00Xrb12s6f+N+DB
-X-Gm-Gg: ASbGncuwEJQhbAaLyyC5KxTSE8TabgC44ZUXDAlxkmggzKYthl7/r3/4pNpiBwIf0OL
-	Ww4B3FLGjsxrNUM95qSD9A7i4eUEhcPEI+nFRsfBaD4Fr5VNYZ/gNoAvfIw6GQO+8+9bqa2KWip
-	iV1Q/2ZzaNALWq/fb0d8yTgd9tFQkUDZ5AJkrR6AjUy7I+NA0jhkXtuW90DwfPL5Jh5KcEe2g/V
-	hYL2okqxzDD4wrTi4eoQZ1FHkhYdZPv0tI34iLpSJaH8+uKnfNa2OmPJxgloZb4e6LLyxgSIUzn
-	O1LG26xhvuYUVUMuIg==
-X-Received: by 2002:a05:6a20:1585:b0:1f0:e708:56e2 with SMTP id adf61e73a8af0-1f2f4cffa11mr18287096637.22.1740973358568;
-        Sun, 02 Mar 2025 19:42:38 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IF5c7Qc3VVFcg30Esq5DIzJh6RfeW5P5eI8KFXRrs6oJHF3s/m+eXSunL5iyzYk2nV2q0PqZA==
-X-Received: by 2002:a05:6a20:1585:b0:1f0:e708:56e2 with SMTP id adf61e73a8af0-1f2f4cffa11mr18287060637.22.1740973358238;
-        Sun, 02 Mar 2025 19:42:38 -0800 (PST)
-Received: from [192.168.68.55] ([180.233.125.164])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7362e3b1c61sm4421335b3a.22.2025.03.02.19.42.31
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 02 Mar 2025 19:42:37 -0800 (PST)
-Message-ID: <8f08b96b-8219-4d51-8f46-bc367bbf2031@redhat.com>
-Date: Mon, 3 Mar 2025 13:42:29 +1000
+	id 1towpY-0000000H74R-0rnp;
+	Mon, 03 Mar 2025 03:51:00 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1towjp-0000000H63N-084E;
+	Mon, 03 Mar 2025 03:45:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=x5wpq
+	KJUmSg4bQV96jwM4c9cPSXvq7N01GUYeXUKlfk=; b=CA7EffsLWpedAONWrpiKw
+	EGFJh76138yfLmZ3tK1S4h7TKKMsE6zWfHm/znJ5gFtpUYZKuc9R5GUdm5RzivDz
+	MbLgduQXrf33Abzsuwc1UHGEMqJAvBtq+gtHSlt6AQydtxt2H/LHUiBNkZWJ9IzQ
+	QPADEAYo4KweVp1pWWGjKo=
+Received: from ProDesk.. (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id PSgvCgC3Oc2lJcVnaJliJg--.43523S7;
+	Mon, 03 Mar 2025 11:44:48 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: hjc@rock-chips.com,
+	krzk+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	derek.foreman@collabora.com,
+	detlev.casanova@collabora.com,
+	robh@kernel.org,
+	sebastian.reichel@collabora.com,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v16 5/7] dt-bindings: display: vop2: Add missing rockchip,grf property for rk3566/8
+Date: Mon,  3 Mar 2025 11:44:19 +0800
+Message-ID: <20250303034436.192400-6-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250303034436.192400-1-andyshrk@163.com>
+References: <20250303034436.192400-1-andyshrk@163.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 05/45] arm64: RME: Add wrappers for RMI calls
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20250213161426.102987-1-steven.price@arm.com>
- <20250213161426.102987-6-steven.price@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20250213161426.102987-6-steven.price@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: KrJ6znx-40RR9gGQtCKaY5FDUPuvEVlVYc-4_g3s93M_1740973358
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PSgvCgC3Oc2lJcVnaJliJg--.43523S7
+X-Coremail-Antispam: 1Uf129KBjvJXoW7tF4fZw43KFWxury3JF43KFg_yoW8Gr43pa
+	93CFWDWay0gr12qw1DtFn5Cr4v9F97Ca1UJFs3G3WIywnIgFn8Ka4agrn8XF4UGF4xZFWf
+	ua1Ygry5trs2vr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jz0PfUUUUU=
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0gMFXmfFIit2JAAAsz
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_194243_612743_1132E99F 
-X-CRM114-Status: GOOD (  22.73  )
+X-CRM114-CacheID: sfid-20250302_194505_404440_CB308BBA 
+X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,106 +83,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/14/25 2:13 AM, Steven Price wrote:
-> The wrappers make the call sites easier to read and deal with the
-> boiler plate of handling the error codes from the RMM.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes from v5:
->   * Further improve comments
-> Changes from v4:
->   * Improve comments
-> Changes from v2:
->   * Make output arguments optional.
->   * Mask RIPAS value rmi_rtt_read_entry()
->   * Drop unused rmi_rtt_get_phys()
-> ---
->   arch/arm64/include/asm/rmi_cmds.h | 508 ++++++++++++++++++++++++++++++
->   1 file changed, 508 insertions(+)
->   create mode 100644 arch/arm64/include/asm/rmi_cmds.h
-> 
+From: Andy Yan <andy.yan@rock-chips.com>
 
-With the following nitpicks addressed:
+The clock polarity of RGB signal output is controlled by GRF, this
+property is already being used in the current device tree, but
+forgot to describe it as a required property in the binding file.
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
-> new file mode 100644
-> index 000000000000..043b7ff278ee
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/rmi_cmds.h
-> @@ -0,0 +1,508 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright (C) 2023 ARM Ltd.
-> + */
-> +
-> +#ifndef __ASM_RMI_CMDS_H
-> +#define __ASM_RMI_CMDS_H
-> +
+---
 
-[...]
+(no changes since v13)
 
-> +
-> +/**
-> + * rmi_rec_aux_count() - Get number of auxiliary granules required
-> + * @rd: PA of the RD
-> + * @aux_count: Number of pages written to this pointer
-                   ^^^^^^^^^^^^^^^
-                   Number of granules
-> + *
-> + * A REC may require extra auxiliary pages to be delegated for the RMM to
-                                         ^^^^^
-                                         granules
+Changes in v13:
+- typo fix
+- Explain the function of this property.
 
-> + * store metadata (not visible to the normal world) in. This function provides
-> + * the number of pages that are required.
-                     ^^^^^
-                     granules
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_rec_aux_count(unsigned long rd, unsigned long *aux_count)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_REC_AUX_COUNT, rd, &res);
-> +
-> +	if (aux_count)
-> +		*aux_count = res.a1;
-> +	return res.a0;
-> +}
-> +
-> +/**
-> + * rmi_rec_create() - Create a REC
-> + * @rd: PA of the RD
-> + * @rec: PA of the target REC
-> + * @params_ptr: PA of REC parameters
-> + *
-> + * Create a REC using the parameters specified in the struct rec_params pointed
-> + * to by @params_ptr.
-> + *
-> + * Return: RMI return code
-> + */
-> +static inline int rmi_rec_create(unsigned long rd, unsigned long rec,
-> +				 unsigned long params_ptr)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_REC_CREATE, rd, rec, params_ptr, &res);
-> +
-> +	return res.a0;
-> +}
-> +
+Changes in v12:
+- Split from patch 10/13
 
-'params_ptr' may be renamed to 'params'.
+ .../devicetree/bindings/display/rockchip/rockchip-vop2.yaml   | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-
-[...]
-> +#endif /* __ASM_RMI_CMDS_H */
-
-Thanks,
-Gavin
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+index a5771edd83b5..083eadcf0588 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+@@ -146,6 +146,9 @@ allOf:
+         rockchip,vop-grf: false
+         rockchip,pmu: false
+ 
++      required:
++        - rockchip,grf
++
+   - if:
+       properties:
+         compatible:
+@@ -200,6 +203,7 @@ examples:
+                               "dclk_vp1",
+                               "dclk_vp2";
+                 power-domains = <&power RK3568_PD_VO>;
++                rockchip,grf = <&grf>;
+                 iommus = <&vop_mmu>;
+                 vop_out: ports {
+                     #address-cells = <1>;
+-- 
+2.34.1
 
 
