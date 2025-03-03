@@ -4,158 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C219C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 22:01:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA295C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 22:10:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1aTUAwKXUg9/Tgo4S4zYcikDxnpI32rMeKfY9HP7IQ4=; b=WByVh2Jp8sG6Dj6le83khqB26U
-	K/sBMykITcGqenngo9X917/SM+uF5CKEvZP5mM8rnz6Dm0RGQ/a0hwNNUEMWe34uzZNgrPqideBrY
-	Hv3bQElkRIYNWz+ebFXhClPfDilI0XTqs2RUWflb+TNHuEl8WX+lIgnoJHwpKZsltZwJlNBj/QThe
-	Sq9jdBNGnlTty8puOVilneuK7ja8V4HU+Nb4HF4GRqOHf5Y6dSTSyoo9I5iZqdZbE+MB8Py/TEao8
-	NZFVUP1oeBglQUVonbXAH3nKBze/9RSuTdj7Be92IiYbZ0sU92utAn32mmsIWBeOmYLBNU2vMkZp1
-	EI6FKfHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m1LlYx3lX3cmCu9HC5TAQ4F7fddxzpssEl8kFZBezXM=; b=SMvCQJcDv+n2k8K0ObVRFebGdS
+	7mR7/lzzjSklKOV1axTV75InoRBJRQw8pwkM1QhRtKOISrvaZ75ff1d8rDrW0C8ZenouJOYAETvHx
+	xskcR7TrqNmlIi45sq4I8gio6CuBPv/OKKPUqIZyZn+jNHvaxmcbJuaUfxauY+N8bPIuxjv0a40Gs
+	faM0jwyDkAh70UZ9z+HOIZAxCSNtiWuKuB06CxWWjqUe+WzKOvaAeh0SwMzJkZMFQ9tU0nQYF1IeY
+	ZUmM/uAGBknSzSnLxSEzaKIKkLAKRAn3+nIut1gvQZL3GLqYZZ9/rmwNNXXsypJ56jlkHTVXMJbYV
+	JVyQFosg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpDqr-00000002Q60-1Pg9;
-	Mon, 03 Mar 2025 22:01:29 +0000
-Received: from mail-northeuropeazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1tpDz9-00000002Qo8-0OUB;
+	Mon, 03 Mar 2025 22:10:03 +0000
+Received: from mail-oo1-xc2b.google.com ([2607:f8b0:4864:20::c2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpDoZ-00000002Pjs-1ZxD
+	id 1tpDxZ-00000002QjD-2jNg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 21:59:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MGsuK8M6mI0wRtf724ErKJDtjCvc1NpZYxA6m+OFUhUb2aAjcLJOM2j7J4/vyLwdxuKoqiFGB/IcucYvu1RBJMx5nBZpVdYK5vktYTMyF0QufjfAmqo7NvJ2T3LVOkahWPSUjXihE5VbJkpw1hRApt6rRYlMmZLEiqJqGDmtAlYfxnLSujGUntuwxUkslUf+WKCJPQayUo1ANZYO0sSmIFBzpvOOMDuPuW7KxQsqxpUqzIXeIQSa4Drd64U8DNHObWreP6DGkRWjoG+7SRXw+UugJ2XZVKJqEfyGVU8PR7wzybr2yfTHHV9OQ50VfwQhyv4ju6xdveX5CCk6YDFiRg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1aTUAwKXUg9/Tgo4S4zYcikDxnpI32rMeKfY9HP7IQ4=;
- b=sNp9cme+OhY8jy7Ess5S8hkrJEKxVnvPcArHpeydilRSyWl/pA2eGH3TLsxEM/ZkT9w/88bYSO3Xaa1nTs8dIyfMHutQvyUmfOfE5KKCbqAyucAegXL+QYKjU9BHYN5ezlKPs9yhMEFmGvg8wwwfUFqomVpY3bmP95y0ckRT0DiEgrHdKIIIGZvFYewCQIik3/EOobm86oLbCQb0ufXLlQR2HdKCE1ZHRcj9yC3kg169sfITjfU8bQHHaBWEPUl2ibgaHsWAd9puxaXtB5QXps/ukZXu7UIeSm0pMtKGz06K98ddE2YIPkA6LiZg4UwP3BtZKeFQwstdKKpgIKYyDw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1aTUAwKXUg9/Tgo4S4zYcikDxnpI32rMeKfY9HP7IQ4=;
- b=XiLUKuWIz169gPWQaJoRdNnnTNDoO1RjUdHW7wP+gJxINSiH85SlRWQzWw6sRUimFw2dCLXolUduYmQtRqFDg9Gh4uTlGbQWXTCliOPtumU0Zea+7fqpNvdu9ItUMRfWjk9LWAXcjJ8gmxx0ZKSEKSctkWtyhm+IH2SjUiJ53GUJYleXLWhAOvWp5USW7UgOm6zwmdxWZa3q5Kyu3NFyzjZAZoDhtk70lXzg4hAoTm8SrYHUNh0RotSyB5d60TwuCeRC9ZQBv5xmrdrqVG15nWp03RUxX0RZC8brMjk8t8E45kHuvpJ1zLoLlDDqNhmA/Zldko1aWELrjTY9MfdWuQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PAWPR04MB9910.eurprd04.prod.outlook.com (2603:10a6:102:380::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.28; Mon, 3 Mar
- 2025 21:59:04 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8489.019; Mon, 3 Mar 2025
- 21:59:04 +0000
-Date: Mon, 3 Mar 2025 16:58:56 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	Niklas Cassel <cassel@kernel.org>
-Subject: Re: [PATCH v9 4/7] PCI: dwc: Use devicetree 'ranges' property to get
- rid of cpu_addr_fixup() callback
-Message-ID: <Z8YmINgrQS7w0Myg@lizhi-Precision-Tower-5810>
-References: <20250128-pci_fixup_addr-v9-4-3c4bb506f665@nxp.com>
- <20250226233339.GA562682@bhelgaas>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250226233339.GA562682@bhelgaas>
-X-ClientProxiedBy: PH7P220CA0048.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:32b::19) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Mon, 03 Mar 2025 22:08:26 +0000
+Received: by mail-oo1-xc2b.google.com with SMTP id 006d021491bc7-5fcef5dc742so1306394eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 14:08:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1741039704; x=1741644504; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=m1LlYx3lX3cmCu9HC5TAQ4F7fddxzpssEl8kFZBezXM=;
+        b=DGSGLB9/zixquwtV+3e/jqtSoVMJTGSK1ZcGB1j4/coSLxavMUoTolyx2gx04UgULi
+         Qt8r9/tOjT8PRdIB72hvgNrnXkJz2/I5orEvbj+90pqh9zCfmK8H8Hhxe+CXoTVYVZkU
+         uqQRJTUXFeMvpKVuqg/KexWHUP7uzZiUSLNjw=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741039704; x=1741644504;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=m1LlYx3lX3cmCu9HC5TAQ4F7fddxzpssEl8kFZBezXM=;
+        b=Z0zqq4v6eFEnta9fLmIotYVIOjj3h8mc62Pzy65X94BkR2iK8BwDX4YBtY0y1UgRJi
+         A+iP5ftRr66gQzrB0RkmtUEfxUW9TJT+A27kOCStossIaZ+OTUUE55skoTmW1JyiAPEz
+         IDbJtT+IK1mEjLcgrXEabFCoykCm+tFXf986gdBJf374Q+a+pDtUZ7CEbZSqJ4DwxUDl
+         NWW6sJtd9unZJZqHSzrgxz0IGVwjbYz8DGag67cEzI5VwMCcQtEp6HbwXQuw0oG9yRdA
+         tt3QWF8h2XFrgVvZogkFriBmotGd3Qo/rbVeLv9f/Pl6/JhJ+aNjtbhtB2icfgkZiREy
+         g7RA==
+X-Forwarded-Encrypted: i=1; AJvYcCVvPKpXzlJoY46zS601gPuioERkahvdgNBi2AxIZ53IORH5RQnmhF38kmmZ0Toh3PSMuLI3aiBvZc2AIImcqAEE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4PfPPbT84sdq1q802rUyfcNcH3t2+oJzc79Cuiq+NuDbn/CNg
+	8s3qcN05FAl87d8QYw8/z53SLpEmV73PJtIHsQruwqqS1UBAFkeqHrVKbMwVKw==
+X-Gm-Gg: ASbGncuKPUfyPpKb1pd+blUTVrc8OjJRiTbDXNlV/VccaSPvUZACMkK4aSTrNi9Gc2v
+	/nZNMvDlKA6e+4gkCUBA1lr4GZIg57j3upW5EYbABvA9FuvtWAwXLZhyV8pbYfPXvGz/Tb/0ree
+	3PCTHfMEbdOcRezaeUM/GRxXEf1mdZ+zaaHmbG+dV41YyczpaxEwHHH4EqknvWmWu7sCE/jqCqz
+	so2ckYmMKo4UOeNHjdIzyC4Z3P4o9lYXys014cKKO0nQPXU0YzeCptkW7Y7JI4/egqX10tFlVhP
+	eiLKDvw43HqN76nuzjH/fPICunT4EpwocEX8cSj1NR8/j1V8fZ+gzUfuubAnRQKZInwC7/I7yFs
+	3aa70Vp6A
+X-Google-Smtp-Source: AGHT+IHEVCPRn+btmLTPyi7+Zllya/+YMJ9hICXwbK1mVgTBAEQzyvJDdOEMxmoti3Sm0FE6b1BkfA==
+X-Received: by 2002:a05:6870:5b97:b0:2c1:4eaf:5b6e with SMTP id 586e51a60fabf-2c1787befb5mr10220992fac.35.1741039704273;
+        Mon, 03 Mar 2025 14:08:24 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2c15c12e133sm2004144fac.19.2025.03.03.14.08.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 03 Mar 2025 14:08:23 -0800 (PST)
+Message-ID: <cbc21738-2212-4124-9763-bb20fd927ba9@broadcom.com>
+Date: Mon, 3 Mar 2025 14:08:16 -0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PAWPR04MB9910:EE_
-X-MS-Office365-Filtering-Correlation-Id: 51d6234e-adc4-4bcd-d0d4-08dd5a9e9d2c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?q0hWO6YQ8nbvCN4gfLL3wO+FUoAgk//JFVLAOd9sfhSBWDkYATulFtrzSvKJ?=
- =?us-ascii?Q?a47U1JLv34IGKq8lw5Tvd84Z7iidaa9hTXAAfTLsNIfsgyf7I6pQYJnPcMn4?=
- =?us-ascii?Q?Ab2xBHvpe4BnImTexmNfftaKMet0yqiGFWv9IbsmHXK2bHUtX9blg1FZ8JKC?=
- =?us-ascii?Q?/Rv2ww0GMC5jdtVDezuKnZHWcB5rxy23qulSXGYfY7DY2Hxesuyy9ScP1iiN?=
- =?us-ascii?Q?kjhgLsMOjml4TceldIxamtizIuZO5HQObpge5m2KVxGB2k0CvHO8q24YJZb0?=
- =?us-ascii?Q?PjtpCkpct8GdYFCnBjCFznVyvegs5lZZS4hMisSFvtwQH5y6sq1khics+p9b?=
- =?us-ascii?Q?RXRiMwChjdp8cpKM56fR4D4ATY4qbxpzvYsaOsMr9gKjvtApdlpPrDRq/pp3?=
- =?us-ascii?Q?Rp1DdTNHDGodz+CQwGPJch43zHzBrk+sA3WBr1EptklNC96FXsWlJZNgjQV7?=
- =?us-ascii?Q?ExzwuaiqRA2lJhyIJgHtP9XvDg8Uj8Heguw/ZbL2gFy5JUIgMhP53rPFujny?=
- =?us-ascii?Q?3FeE8esD+rTErcuLONklKWhJnXIisrjo6++eVoFRjSoP3mGnlzhCw4b3LqDm?=
- =?us-ascii?Q?/lDDHsNtgstDtAzJLfLimKjpVD1jvoNpjGcEQtkBIwk1vg0bsXw+QL4/5ZHr?=
- =?us-ascii?Q?Z5ytDpaDszCbSHX6uW5NzhFD+qvgPbvm86lj2QjV0sr0Zw2u5mrvn+UdiDlS?=
- =?us-ascii?Q?4xDidkJBgZ4Sk6qHTZBplEy6sWRI7H4diwT2oxanJzhnV4R4t926cuwvctJA?=
- =?us-ascii?Q?T3Z6FrBidCJuN/IzcJ3X7eVjCODcU6//2A/VmAL8wL/fNPZbLFelNPdsVtcL?=
- =?us-ascii?Q?7bm6eJ972uDkVRJdgCT0J9zdifRWEJCqKZR0NyXMJuqMpa15IPYV+zA2nbDK?=
- =?us-ascii?Q?GveNOZjZn8qeVGEmH6XxuqzHTH3CBzemQoKlLzstQQxLCwaw1gnPkCtJNOHW?=
- =?us-ascii?Q?WYxP98R5YLH9MsJa0R6D/G+Phb5DkiJVcDK4Tbb+vctUbfeQ3E70VE487qaG?=
- =?us-ascii?Q?jkiMLiAtURj6bpymxRlR3crL/Eb/9ehY+UmmNrzvjxr9sFs2ai2sFEuVxx5n?=
- =?us-ascii?Q?0fQJyVefFi1KLj+3+tKktuXNl+VMT0lSF1+6+2t4q2EopyKy/ZRYowfFU758?=
- =?us-ascii?Q?ONSuKUB3Su1fw+9nguOn+efNF6IFcJL8clkzbLL/Z145OnuBOeysCWtCsKQO?=
- =?us-ascii?Q?gj0faCR7uzfGf5uBzefdRD+6ZX383QK5/XzesHLSKs87dPOsn8NjeNVAuVUB?=
- =?us-ascii?Q?Pqc0THkNFfwnEX9Ds+pQrEFyDXNKkS3ZQvMMkZKoWj5Z2t3217hwUmAKAVS+?=
- =?us-ascii?Q?gokXFTaEkrd9ijV+yazy5fltn3Et15rqOccxzKeKdVFHxdY2iEaGQG2qwSLI?=
- =?us-ascii?Q?ua2k5wG4gEaOCMkizaRiVt/t6ztIfEG8Lg3+8AFuh2i6BvX8jQYN5WkAFtNa?=
- =?us-ascii?Q?IoDYsn0Pz8CmNdHkodkL3fzsyCEkpykF?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rLLPPO/CFV37ELDTgPJ+4MNrrinFQtWj4Rn3llDlKBuiLEEX0ao/EEV3I/8n?=
- =?us-ascii?Q?sT8d3iAimU9gJ0TpeyabxBR94KffC05c5wfq/SVAE4uPNmExv73P8EAH97cc?=
- =?us-ascii?Q?Q80asQDfAN8ysvM2sI7E0j8d+hJJY9JoD491qDReDZKqvfFL4SznKX8vK8+F?=
- =?us-ascii?Q?g65eEQ17NKDqEm/x/YKIn9FlTVT1mLif4CGUcvc3f48r1g7x0R6fnScokUbD?=
- =?us-ascii?Q?Ay4iniVqYHRUyJo10I3bVpRtfpM2s4rHTtd/F8bPG5t08pFHc13tEDJHbFYg?=
- =?us-ascii?Q?bCjcpdzvYW4FTVaSDoy9GPB57CwuvgMpr081PO8NYd5lV0R7nEnQVklxGgSU?=
- =?us-ascii?Q?lRMgqlt0dB/mLZJmHJq0CTutkW0HWAFmuGG8cz6QuDDobZ4+9ek76hVQBHKp?=
- =?us-ascii?Q?v0fIEUVkv1L72HdEalvpmkoUVszIem7WmzNeoDJT0K6eQWeXSAsyMzwlYtV8?=
- =?us-ascii?Q?YsHkHqU4khrhyxhyprzqxfN9HyfJ+v+EtffWJtd8Qu3tVEh/8pAQS5B3jei/?=
- =?us-ascii?Q?Z+QmO2Pmpfo7f2XeTXrRvJ1JTooQrDSrvUWWaHdOFUcL4yvkQ9qwaGcQkKZU?=
- =?us-ascii?Q?tyK/7yBXitDg8i+3c1H2xgJNDAI9G5ixOY6D4kkZJHyycMo84+ga5DmPPSSV?=
- =?us-ascii?Q?HttmGKuHuKwzLdi+z/U/FT2o0AeYENYASOKOuOq6glagCUOQM93ou5PNOPTh?=
- =?us-ascii?Q?Q4OXMpEvewvnY2Ck7Ps9YoYvDJiCp81OqrxUTFjWjYWTzXRCKlINo26Uh3c/?=
- =?us-ascii?Q?xGMtVa6LnagVEAiWRUvwUZwVSI2cIrV+RoQ12z4jXg1tC7RkVzgycR1rzXiE?=
- =?us-ascii?Q?cvXMG0tVxgWwT7YrggjChj3ie6KqP2AoBuyJ6qmZSfDUZ2iVUuFMrAkaOs3t?=
- =?us-ascii?Q?ltcdhnDJO5nsHSu7uRqZuURaUNc0WXJcdYcN+kvZgGnqWzw6JFG62WnGE3Zt?=
- =?us-ascii?Q?Xyf3uQ5B4sYfoIHaQLuZaNqeNBZWx4mQhYsu1H+3SQk71C5EAFom93lWcCT0?=
- =?us-ascii?Q?4dy9orfPNiiaKvMZTSdYtCjEiLl6w8OJVzjigcHF+iW1+aqUd1NczxcTB5bY?=
- =?us-ascii?Q?p86Stj0uY1UlRlD4dQtpmuqtgoRtFHRfj9cc2rzH8EIAztq0CFJHSGOQlXpm?=
- =?us-ascii?Q?i7/Z0mqw2qSJCTFGO5/40BXBkG1SN+NfyV7/E0NUMdiw3BWLiSz4Dltoz7cl?=
- =?us-ascii?Q?41lAzfP9Ny6iwf4QGfS3zVTnrPn0uCRo6qp69dmtig32EMu5qjCMlpYBgvXJ?=
- =?us-ascii?Q?N0D/KxCEvQH3LgOHKERO6GMGxPuwQHApmcT0JDZ2oDm+MYi6OdrJirdBGSgz?=
- =?us-ascii?Q?v82l/1+RtP1b+OpwpLro8cciQughaji4pQyOrzc0MWSP9S2wOJNULNCNYSFa?=
- =?us-ascii?Q?IyuDTGBHHIK1WdW0AWg5d/jfUrXGMOfyt3ofQoXROuVzt7sf8zjphJXTaIFN?=
- =?us-ascii?Q?gvbDFn0LsTn0v5YfMclFCixpSpJVKQPKuGoHGhRQjVZXnmF2IFWdkGT5aBXD?=
- =?us-ascii?Q?pz2zMEbFWQ9c5n92jO3jLdwkHN5BNqXYu3PNUzfZdnHUgtpTHE9bJNIo+NUh?=
- =?us-ascii?Q?0uLWLQfUK/Kr8aCCorvYMorvzYYjVhpLVw1UWjrm?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 51d6234e-adc4-4bcd-d0d4-08dd5a9e9d2c
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2025 21:59:04.6052
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: e4/gblCtvDGd4ogdnfgEiis5j6LZl63LDXOLzfKMUl/4gq2MqtN7Q+0X7sO2lS3wNbx53mMCEKGPr11d9qjrvg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9910
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 2/5] firmware: psci: Read and use vendor reset types
+To: Elliot Berman <quic_eberman@quicinc.com>,
+ Bjorn Andersson <andersson@kernel.org>, Sebastian Reichel <sre@kernel.org>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Vinod Koul <vkoul@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+ Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ cros-qcom-dts-watchers@chromium.org, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>
+Cc: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+ Satya Durga Srinivasu Prabhala <quic_satyap@quicinc.com>,
+ Melody Olvera <quic_molvera@quicinc.com>,
+ Shivendra Pratap <quic_spratap@quicinc.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Stephen Boyd <swboyd@chromium.org>, linux-pm@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, Elliot Berman <elliotb317@gmail.com>,
+ Elliot Berman <elliot.berman@oss.qualcomm.com>
+References: <20250303-arm-psci-system_reset2-vendor-reboots-v9-0-b2cf4a20feda@oss.qualcomm.com>
+ <20250303-arm-psci-system_reset2-vendor-reboots-v9-2-b2cf4a20feda@oss.qualcomm.com>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20250303-arm-psci-system_reset2-vendor-reboots-v9-2-b2cf4a20feda@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_135907_414987_82E5D1D4 
-X-CRM114-Status: GOOD (  26.28  )
+X-CRM114-CacheID: sfid-20250303_140825_727711_4A963C49 
+X-CRM114-Status: GOOD (  18.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,77 +147,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 26, 2025 at 05:33:39PM -0600, Bjorn Helgaas wrote:
-> On Tue, Jan 28, 2025 at 05:07:37PM -0500, Frank Li wrote:
-> > parent_bus_offset in resource_entry can indicate address information just
-> > ahead of PCIe controller. Most system's bus fabric use 1:1 map between
-> > input and output address. but some hardware like i.MX8QXP doesn't use 1:1
-> > map. See below diagram:
-> > ...
->
-> > @@ -448,6 +451,26 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
-> >  	if (IS_ERR(pp->va_cfg0_base))
-> >  		return PTR_ERR(pp->va_cfg0_base);
-> >
-> > +	if (pci->use_parent_dt_ranges) {
-> > +		if (pci->ops->cpu_addr_fixup) {
-> > +			dev_err(dev, "Use parent bus DT ranges, cpu_addr_fixup() must be removed\n");
-> > +			return -EINVAL;
-> > +		}
-> > +
-> > +		index = of_property_match_string(np, "reg-names", "config");
-> > +		if (index < 0)
-> > +			return -EINVAL;
-> > +
-> > +		 /*
-> > +		  * Retrieve the parent bus address of PCI config space.
-> > +		  * If the parent bus ranges in the device tree provide
-> > +		  * the correct address conversion information, set
-> > +		  * 'use_parent_dt_ranges' to true, The
-> > +		  * 'cpu_addr_fixup()' can be eliminated.
-> > +		  */
-> > +		of_property_read_reg(np, index, &pp->cfg0_base, NULL);
-> > +	}
->
-> I think all this code dealing with the "config" resource could go in a
-> helper function.  It's kind of a lot of clutter in
-> dw_pcie_host_init().
->
-> It would be nice to assign pp->cfg0_base once, not assign res->start
-> to it and then possibly overwrite it later.
->
-> > @@ -841,6 +841,15 @@ void dw_pcie_iatu_detect(struct dw_pcie *pci)
-> >  	pci->region_align = 1 << fls(min);
-> >  	pci->region_limit = (max << 32) | (SZ_4G - 1);
-> >
-> > +	if (pci->ops && pci->ops->cpu_addr_fixup) {
-> > +		/*
-> > +		 * If the parent 'ranges' property in DT correctly describes
-> > +		 * the address translation, cpu_addr_fixup() callback is not
-> > +		 * needed.
-> > +		 */
-> > +		dev_warn_once(pci->dev, "cpu_addr_fixup() usage detected. Please fix DT!\n");
-> > +	}
->
-> Can you split the warnings out to a separate patch?  I think we should
-> warn once in every initialization path where .cpu_addr_fixup() could
-> be used, i.e.,
->
->   dw_pcie_host_init()
->   dw_pcie_ep_init()
->   cdns_pcie_host_setup()
->   cdns_pcie_ep_setup()
->
-> IMO these should warn if .cpu_addr_fixup() is implemented, regardless
-> of use_parent_dt_ranges.
->
-> I'm still puzzling over some of the rest of this, so no need to post a
-> revised series yet.
+On 3/3/25 13:08, Elliot Berman wrote:
+> From: Elliot Berman <elliot.berman@oss.qualcomm.com>
+> 
+> SoC vendors have different types of resets and are controlled through
+> various registers. For instance, Qualcomm chipsets can reboot to a
+> "download mode" that allows a RAM dump to be collected. Another example
+> is they also support writing a cookie that can be read by bootloader
+> during next boot. PSCI offers a mechanism, SYSTEM_RESET2, for these
+> vendor reset types to be implemented without requiring drivers for every
+> register/cookie.
+> 
+> Add support in PSCI to statically map reboot mode commands from
+> userspace to a vendor reset and cookie value using the device tree.
+> 
+> A separate initcall is needed to parse the devicetree, instead of using
+> psci_dt_init because mm isn't sufficiently set up to allocate memory.
+> 
+> Reboot mode framework is close but doesn't quite fit with the
+> design and requirements for PSCI SYSTEM_RESET2. Some of these issues can
+> be solved but doesn't seem reasonable in sum:
+>   1. reboot mode registers against the reboot_notifier_list, which is too
+>      early to call SYSTEM_RESET2. PSCI would need to remember the reset
+>      type from the reboot-mode framework callback and use it
+>      psci_sys_reset.
+>   2. reboot mode assumes only one cookie/parameter is described in the
+>      device tree. SYSTEM_RESET2 uses 2: one for the type and one for
+>      cookie.
+>   3. psci cpuidle driver already registers a driver against the
+>      arm,psci-1.0 compatible. Refactoring would be needed to have both a
+>      cpuidle and reboot-mode driver.
+> 
+> Signed-off-by: Elliot Berman <elliot.berman@oss.qualcomm.com>
 
-Do you have additional comments, so I can post a revised series?
-
-Frank
-
->
-> Bjorn
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+Tested-by: Florian Fainelli <florian.fainelli@broadcom.com>
+-- 
+Florian
 
