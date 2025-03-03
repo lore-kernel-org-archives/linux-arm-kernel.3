@@ -4,75 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99564C282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 16:08:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E0AC282CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 16:09:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n0Dt2xssf1GoPTu8GDcN/Kk7cyOwV56Bbq6Wt1Q3WzU=; b=17sWx0aBMqwijSz0BFk8SwhEA4
-	IQ0JJLTtAZSo2IVivP/ZWp9Fkwj+0gqSa9V5POsQAYeShxtHzxhC9jy5P8Jgt5ZVgtJgknXNDITRf
-	9LqhmKKVJRsFuek2K+/DXsn9bxupk+4RJJQ/8U0B0LUCWWd8HidL2qeYcKQaBdafA82lZ6shVEuOQ
-	CXYFRO44RdmqmYYVAmtbGl7/PgYwqgww30iw/E9KomBlkQ9Isx/xplBW3gsANAX5DAEgO0i4riiM3
-	lHEiPlAnyRB+YEJSp/a4e3F1UiyPNWupH0Kzae6iV5qFnIXZRoEC3WcGMOOIoVVeytnQg82wy3/zf
-	CWzHX8LA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GcFhXK9O0fm1H52F4QkBlL0xR5AN1MAaleWB111VkOQ=; b=QQQjTUHmRZUO8VJQ+A2bizgjSw
+	pqL0Ixr0VP35OSerTFioE1X+bvL04vi3gdaL/6pFWo9MW23VIF4eDSMWB9T9rBqiMEX2RMNw1DdE/
+	cp1wLeFQ7hBnaDbVP24fdvUKdDY6Hm09zT/2cWbCpmaN4pMdIj37BJT/6AhQ2ZEd6Ic0SiVJSMQd+
+	/r8wysLnvxztOkhtLkU5LaX4W8rRxb+ErFrZgoDvk9a47mKYi61szYRSfIB7y4Z4oPx0LF4kqVGYd
+	hf2THJ5qaDRxjD+vgu8TscqOgOfkajsmGqijPrE8vYGdS+n+u1eLUJ4EO4xet6H7oOGQJPg5vPfcO
+	l7lV+xGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp8Kq-00000001RIV-3rSa;
-	Mon, 03 Mar 2025 16:08:04 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp7nk-00000001Kk3-3pZi;
-	Mon, 03 Mar 2025 15:33:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1741016030;
-	bh=jI58B/1xW047HSrQ6NfVLx7fR7HzmQWZHI4E46AshJA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=LtM/BmdP/EpF5iPUTB3zizv0GxX/OyA8rb1G/dB0OPmMYpvTnCr1l8kIEOOPvH6i5
-	 9kdIM2i3T1IZOSNTDEY4Hqgq3BTy2wQJZ5RUilr0N8wIkFuHomPYLRM5aMLA9pHJuO
-	 e18FZpjrukpQN0QaIorVdzzO4wMP22z8vQnsUhf1rNcO71r5NIvXj5q9JheDgGe3Vu
-	 S5eUrMd01cA07FX5hJXwpFgMkDRPaX7d12BLWFYDpKFbwI+PaLjkjPtcCl+Ybgkib/
-	 eaWcrV7iD3Cw/rHY06IMD9Hb6odEvJMryQVMcgP4jAc6K7gFPfXo/+xObfo1vpOVYZ
-	 pzCiV3L8+wI0Q==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 94A0517E05A6;
-	Mon,  3 Mar 2025 16:33:49 +0100 (CET)
-Message-ID: <24d3713c-026a-4ef7-bb7f-19150e06f395@collabora.com>
-Date: Mon, 3 Mar 2025 16:33:49 +0100
+	id 1tp8MP-00000001Rbj-1YkQ;
+	Mon, 03 Mar 2025 16:09:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tp7rd-00000001LqM-2ORW
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Mar 2025 15:37:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7E16B106F;
+	Mon,  3 Mar 2025 07:38:04 -0800 (PST)
+Received: from e129527.arm.com (unknown [10.57.67.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4151E3F5A1;
+	Mon,  3 Mar 2025 07:37:48 -0800 (PST)
+From: Hugues KAMBA MPIANA <hugues.kambampiana@arm.com>
+To: liviu.dudau@arm.com,
+	sudeep.holla@arm.com,
+	lpieralisi@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Hugues KAMBA MPIANA <hugues.kambampiana@arm.com>
+Subject: [PATCH] arm64: dts: corstone1000: Add definitions for secondary CPU cores
+Date: Mon,  3 Mar 2025 15:37:44 +0000
+Message-Id: <20250303153744.376419-1-hugues.kambampiana@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/20] ASoC: dt-bindings: Add document for
- mt6359-accdet
-To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, Sen Chu <sen.chu@mediatek.com>,
- Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>,
- Lee Jones <lee@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, kernel@collabora.com,
- linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org
-References: <20250302-mt6359-accdet-dts-v2-0-5bd633ee0d47@collabora.com>
- <20250302-mt6359-accdet-dts-v2-1-5bd633ee0d47@collabora.com>
- <628a81c5-b9f1-4be9-84ec-90022a3526da@collabora.com>
- <0120fe30-43c4-4fec-8b5e-fdb6b382fc2a@notapiano>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <0120fe30-43c4-4fec-8b5e-fdb6b382fc2a@notapiano>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_073353_128052_401F1FF4 
-X-CRM114-Status: GOOD (  19.79  )
+X-CRM114-CacheID: sfid-20250303_073753_656003_1C8F66A4 
+X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,69 +68,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 03/03/25 15:45, Nícolas F. R. A. Prado ha scritto:
-> On Mon, Mar 03, 2025 at 12:14:51PM +0100, AngeloGioacchino Del Regno wrote:
->> Il 02/03/25 17:30, Nícolas F. R. A. Prado ha scritto:
->>> Add dt-binding for the MT6359 ACCDET hardware block.
->>>
->>> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
->>> ---
->>>    .../bindings/sound/mediatek,mt6359-accdet.yaml     | 42 ++++++++++++++++++++++
->>>    1 file changed, 42 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt6359-accdet.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt6359-accdet.yaml
->>> new file mode 100644
->>> index 0000000000000000000000000000000000000000..d08a79301409374714c76135b061e20e8e8acfaf
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/sound/mediatek,mt6359-accdet.yaml
->>> @@ -0,0 +1,42 @@
->>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/sound/mediatek,mt6359-accdet.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: MT6359 Accessory Detection
->>> +
->>> +maintainers:
->>> +  - Nícolas F. R. A. Prado <nfraprado@collabora.com>
->>> +
->>> +description: |
->>> +  The MT6359 Accessory Detection block is part of the MT6359 PMIC and allows
->>> +  detecting audio jack insertion and removal, as well as identifying the type of
->>> +  events connected to the jack.
->>> +
->>> +properties:
->>> +  compatible:
->>> +    const: mediatek,mt6359-accdet
->>> +
->>> +  mediatek,hp-eint-high:
->>> +    type: boolean
->>> +    description:
->>> +      By default, the HP_EINT pin is assumed to be pulled high and connected to
->>
->> Just to be clearer about this pin being an internal one and not externally sourced,
->> so, *not* a SoC GPIO, but somehing that is completely provided and handled by the
->> accdet IP...
->>
->> "By default, the accdet IP's internal HP_EINT pin is assumed to be pulled ..."
-> 
-> The HP_EINT is an external, not internal, pin of the MT6359 PMIC. It is an input
-> pin of the MT6359 IC that gets wired to the tip (left channel) of a 3.5mm audio
-> jack to allow for detecting when a plug is connected.
-> 
-> Since this dt-binding is about an IP in the MT6359 PMIC, I think when saying
-> "HP_EINT pin" it is already clear that the pin is on the MT6359 IC, but if you
-> think it's necessary I could make it "MT6359's HP_EINT pin".
-> 
+Add `cpu1`, `cpu2` and `cpu3` nodes to the Corstone1000 device tree to
+enable support for secondary CPU cores.
 
-Eh I should've better clarified - I was meaning that the pin is managed internally,
-so we're not managing an external SoC pin.
+This update facilitates symmetric multiprocessing (SMP) support on
+the Corstone1000 Fixed Virtual Platform (FVP), allowing the
+secondary cores to be properly initialised and utilised.
 
-"MT6359's HP_EINT pin" looks good to me, btw.
+Signed-off-by: Hugues KAMBA MPIANA <hugues.kambampiana@arm.com>
+---
+ arch/arm64/boot/dts/arm/corstone1000-fvp.dts | 24 ++++++++++++++++++++
+ arch/arm64/boot/dts/arm/corstone1000.dtsi    |  2 +-
+ 2 files changed, 25 insertions(+), 1 deletion(-)
 
-Cheers!
-Angelo
-
-
+diff --git a/arch/arm64/boot/dts/arm/corstone1000-fvp.dts b/arch/arm64/boot/dts/arm/corstone1000-fvp.dts
+index abd013562995..df9700302b8d 100644
+--- a/arch/arm64/boot/dts/arm/corstone1000-fvp.dts
++++ b/arch/arm64/boot/dts/arm/corstone1000-fvp.dts
+@@ -49,3 +49,27 @@ sdmmc1: mmc@50000000 {
+ 		clock-names = "smclk", "apb_pclk";
+ 	};
+ };
++
++&cpus {
++	cpu1: cpu@1 {
++		device_type = "cpu";
++		compatible = "arm,cortex-a35";
++		reg = <0x1>;
++		enable-method = "psci";
++		next-level-cache = <&L2_0>;
++	};
++	cpu2: cpu@2 {
++		device_type = "cpu";
++		compatible = "arm,cortex-a35";
++		reg = <0x2>;
++		enable-method = "psci";
++		next-level-cache = <&L2_0>;
++	};
++	cpu3: cpu@3 {
++		device_type = "cpu";
++		compatible = "arm,cortex-a35";
++		reg = <0x3>;
++		enable-method = "psci";
++		next-level-cache = <&L2_0>;
++	};
++};
+diff --git a/arch/arm64/boot/dts/arm/corstone1000.dtsi b/arch/arm64/boot/dts/arm/corstone1000.dtsi
+index bb9b96fb5314..b4364c61901c 100644
+--- a/arch/arm64/boot/dts/arm/corstone1000.dtsi
++++ b/arch/arm64/boot/dts/arm/corstone1000.dtsi
+@@ -21,7 +21,7 @@ chosen {
+ 		stdout-path = "serial0:115200n8";
+ 	};
+ 
+-	cpus {
++	cpus: cpus {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+ 
 
