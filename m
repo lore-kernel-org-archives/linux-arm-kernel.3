@@ -4,70 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CA52C282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 14:03:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60283C282CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 14:05:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+NvbYf7uxpFxnfAxigPzbutqxrbeU3zLcuZDwWkiTBE=; b=XO/0mQwS/KkB/43LQhtocSs1WM
-	vQ2NfdWxODyKgMiD91PNn8Du9ZJVpCK2GTxz/E6dRGUkx24tvK6eNWiDUS8lEWVXy0lZuJMaA2THk
-	SnAtd6IxHaj7eRZnWtSEQliJ9ZR8caggjGMcjbpI92rZVO9K+E6TN77jlGeKARx4ibse9FKjTJ9e/
-	/dmXIM4BTt4kTxNjnNZSbGxaeRJVphiW1NSZr3nBXK6cp+5ziHB7BKrN6FgZHgDqfgwFYkTZMEG7E
-	Z0cQYM8m/N/gGmki4xFySBlRCplCskH+Xfv7cHlCXhZiT4wKpTcpAfvviJt1csEDAiXkEzHeARDMt
-	8xhXU3cg==;
+	bh=YsrLgmhopKk68gcwDTV/NQFgsX6Svsgvrj64ryk9wwg=; b=fqvTk/Xek1sCF7Ew02jihVKdpD
+	pk+N3U7wJaCpOKH61Lvx4WIYxgECHfjO0NB6/YcX2PBiE8kGfqe2yQ5Gk4fXp4sm3hYKd1VG3VsBl
+	bb0NQfEeTLrDuJi1mJyNkGyTj52K5E5mN+9zkO6VL/yLk9j//e4dIzszYKT9xQUODGNr3tyleWS0b
+	Rc1WwRLbRsrhIzjiLFOkO54JIKcoL9E+AVogk1GUCMgNzlnHp+naeMTR0U8EgozfO/98X6jvzBKNv
+	ySYJikbHTdSb8ZgsyaKQxCc0nDbhEmW25JULREDKmzqmyHb1S+0+Ci1C2XrIzoFtfEvGB/N5Q/8Uq
+	FeCv4cyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp6OY-0000000115r-2l3v;
-	Mon, 03 Mar 2025 14:03:46 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1tp6Q6-000000011Nn-1RGf;
+	Mon, 03 Mar 2025 14:05:22 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp5xR-00000000wVT-3Coa
+	id 1tp5yT-00000000wjy-0Pg3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 13:35:47 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4Z609V2G7zz9wF9;
-	Mon,  3 Mar 2025 21:32:30 +0800 (CST)
-Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id 6A48E14037B;
-	Mon,  3 Mar 2025 21:35:37 +0800 (CST)
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Mon, 3 Mar 2025 21:35:36 +0800
-CC: <yangyicong@hisilicon.com>, <linuxppc-dev@lists.ozlabs.org>,
-	<x86@kernel.org>, <linux-kernel@vger.kernel.org>, <morten.rasmussen@arm.com>,
-	<msuchanek@suse.de>, <gregkh@linuxfoundation.org>, <rafael@kernel.org>,
-	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
-	<linuxarm@huawei.com>, <xuwei5@huawei.com>, <guohanjun@huawei.com>,
-	<sshegde@linux.ibm.com>
-Subject: Re: [PATCH v11 1/4] cpu/SMT: Provide a default
- topology_is_primary_thread()
-To: Dietmar Eggemann <dietmar.eggemann@arm.com>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <sudeep.holla@arm.com>, <tglx@linutronix.de>,
-	<peterz@infradead.org>, <mpe@ellerman.id.au>,
-	<linux-arm-kernel@lists.infradead.org>, <mingo@redhat.com>, <bp@alien8.de>,
-	<dave.hansen@linux.intel.com>, <pierre.gondois@arm.com>
-References: <20250218141018.18082-1-yangyicong@huawei.com>
- <20250218141018.18082-2-yangyicong@huawei.com>
- <e3607ed0-bdf5-4fef-8731-b81fae649312@arm.com>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <af8d364e-a5e0-decb-4463-fd6b7c54a0d9@huawei.com>
-Date: Mon, 3 Mar 2025 21:35:35 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	Mon, 03 Mar 2025 13:36:50 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 523DaFOx2693754
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Mon, 3 Mar 2025 07:36:15 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1741008975;
+	bh=YsrLgmhopKk68gcwDTV/NQFgsX6Svsgvrj64ryk9wwg=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=AThAQGHZNeEI4KCqBCVdeJJtIRwBAEZYQVgkKje9cHHogVrGS+9oqS4lW9ujZYEKM
+	 tlCNdOtsVejDrivOD6u9N4titcuS2lPfiSiAc9ZeD4fZ5e1D8Tp8oq0gh0NwvSqM42
+	 bCyGzWrzn8Yu3jsljDGwILtjFXOmOMjoqb6uS81o=
+Received: from DLEE110.ent.ti.com (dlee110.ent.ti.com [157.170.170.21])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 523DaFPo086963;
+	Mon, 3 Mar 2025 07:36:15 -0600
+Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE110.ent.ti.com
+ (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 3
+ Mar 2025 07:36:15 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE107.ent.ti.com
+ (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 3 Mar 2025 07:36:15 -0600
+Received: from [172.24.21.156] (lt9560gk3.dhcp.ti.com [172.24.21.156])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 523Da8cj073172;
+	Mon, 3 Mar 2025 07:36:09 -0600
+Message-ID: <40ce8ed3-b36c-4d5f-b75a-7e0409beb713@ti.com>
+Date: Mon, 3 Mar 2025 19:06:07 +0530
 MIME-Version: 1.0
-In-Reply-To: <e3607ed0-bdf5-4fef-8731-b81fae649312@arm.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
- kwepemd200014.china.huawei.com (7.221.188.8)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [EXTERNAL] Re: [PATCH net-next v3 3/3] net: ti: icssg-prueth: Add
+ XDP support
+To: Dan Carpenter <dan.carpenter@linaro.org>
+CC: <rogerq@kernel.org>, <danishanwar@ti.com>, <pabeni@redhat.com>,
+        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
+        <andrew+netdev@lunn.ch>, <bpf@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <netdev@vger.kernel.org>, <u.kleine-koenig@baylibre.com>,
+        <matthias.schiffer@ew.tq-group.com>, <schnelle@linux.ibm.com>,
+        <diogo.ivo@siemens.com>, <glaroque@baylibre.com>, <macro@orcam.me.uk>,
+        <john.fastabend@gmail.com>, <hawk@kernel.org>, <daniel@iogearbox.net>,
+        <ast@kernel.org>, <srk@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>
+References: <20250224110102.1528552-1-m-malladi@ti.com>
+ <20250224110102.1528552-4-m-malladi@ti.com>
+ <d362a527-88cf-4cd5-a22f-7eeb938d4469@stanley.mountain>
+ <21f21dfb-264b-4e01-9cb3-8d0133b5b31b@ti.com>
+ <2c0c1a4f-95d4-40c9-9ede-6f92b173f05d@stanley.mountain>
+Content-Language: en-US
+From: "Malladi, Meghana" <m-malladi@ti.com>
+In-Reply-To: <2c0c1a4f-95d4-40c9-9ede-6f92b173f05d@stanley.mountain>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_053546_002644_7D08906B 
-X-CRM114-Status: GOOD (  13.43  )
+X-CRM114-CacheID: sfid-20250303_053649_356530_651A1AC7 
+X-CRM114-Status: GOOD (  28.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,43 +96,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/2/28 19:10, Dietmar Eggemann wrote:
-> On 18/02/2025 15:10, Yicong Yang wrote:
->> From: Yicong Yang <yangyicong@hisilicon.com>
+
+
+On 3/3/2025 6:01 PM, Dan Carpenter wrote:
+> On Mon, Mar 03, 2025 at 05: 36: 41PM +0530, Malladi, Meghana wrote: > > 
+>  > +static int emac_run_xdp(struct prueth_emac *emac, struct xdp_buff 
+> *xdp, > > > + struct page *page) > > > +{ > > > + struct net_device
+> ZjQcmQRYFpfptBannerStart
+> This message was sent from outside of Texas Instruments.
+> Do not click links or open attachments unless you recognize the source 
+> of this email and know the content is safe.
+> Report Suspicious
+> <https://us-phishalarm-ewt.proofpoint.com/EWT/v1/G3vK! 
+> uldqV3eFFkc7oMXFHHkDX4AFLVsE3ldskf6bPMMFmxDOsNtMfZjUscGelUkBFpAeybNre38L_c2LiiUb7AZxLvAeqSk9ifgbPE1AYFU$>
+> ZjQcmQRYFpfptBannerEnd
 > 
-> [...]
+> On Mon, Mar 03, 2025 at 05:36:41PM +0530, Malladi, Meghana wrote:
+>> > > +static int emac_run_xdp(struct prueth_emac *emac, struct xdp_buff *xdp,
+>> > > +			struct page *page)
+>> > > +{
+>> > > +	struct net_device *ndev = emac->ndev;
+>> > > +	int err, result = ICSSG_XDP_PASS;
+>> > > +	struct bpf_prog *xdp_prog;
+>> > > +	struct xdp_frame *xdpf;
+>> > > +	int q_idx;
+>> > > +	u32 act;
+>> > > +
+>> > > +	xdp_prog = READ_ONCE(emac->xdp_prog);
+>> > > +	act = bpf_prog_run_xdp(xdp_prog, xdp);
+>> > > +	switch (act) {
+>> > > +	case XDP_PASS:
+>> > > +		break;
+>> > > +	case XDP_TX:
+>> > > +		/* Send packet to TX ring for immediate transmission */
+>> > > +		xdpf = xdp_convert_buff_to_frame(xdp);
+>> > > +		if (unlikely(!xdpf))
+>> > 
+>> > This is the second unlikely() macro which is added in this patchset.
+>> > The rule with likely/unlikely() is that it should only be added if it
+>> > likely makes a difference in benchmarking.  Quite often the compiler
+>> > is able to predict that valid pointers are more likely than NULL
+>> > pointers so often these types of annotations don't make any difference
+>> > at all to the compiled code.  But it depends on the compiler and the -O2
+>> > options.
+>> > 
+>> 
+>> Do correct me if I am wrong, but from my understanding, XDP feature depends
+>> alot of performance and benchmarking and having unlikely does make a
+>> difference. Atleast in all the other drivers I see this being used for XDP.
+>> 
 > 
->> diff --git a/include/linux/topology.h b/include/linux/topology.h
->> index 52f5850730b3..b3aba443c4eb 100644
->> --- a/include/linux/topology.h
->> +++ b/include/linux/topology.h
->> @@ -240,6 +240,28 @@ static inline const struct cpumask *cpu_smt_mask(int cpu)
->>  }
->>  #endif
->>  
->> +#ifndef topology_is_primary_thread
->> +
->> +#define topology_is_primary_thread topology_is_primary_thread
->> +
->> +static inline bool topology_is_primary_thread(unsigned int cpu)
->> +{
->> +	/*
->> +	 * On SMT hotplug the primary thread of the SMT won't be disabled.
->> +	 * Architectures do have a special primary thread (e.g. x86) need
->> +	 * to override this function. Otherwise just make the first thread
->> +	 * in the SMT as the primary thread.
->> +	 *
->> +	 * The sibling cpumask of an offline CPU contains always the CPU
->> +	 * itself for architectures using CONFIG_GENERIC_ARCH_TOPOLOGY.
->> +	 * Other architectures should use this depend on their own
->> +	 * situation.
+> Which compiler are you on when you say that "having unlikely does make a
+> difference"?
+
+I'm on gcc version 10.3.1.
+
 > 
-> This sentence is hard to get. Do you want to say that other
-> architectures (CONFIG_GENERIC_ARCH_TOPOLOGY or
-> !CONFIG_GENERIC_ARCH_TOPOLOGY) have to check whether they can use this
-> default implementation or have to override it?
+> I'm on gcc version 14.2.0 (Debian 14.2.0-16) and it doesn't make a
+> difference to the compiled code.  This matches what one would expect from
+> a compiler.  Valid pointers are fast path and NULL pointers are slow path.
 > 
 
-yes exactly, will improve the comments. thanks.
+Can you tell me how did you verify this? I actually don't know what 
+level of optimization to expect from a compiler. I said so, because I 
+have checked with other drivers which implemented XDP and everywhere 
+unlikely is used. But now I understand its not the driver but the 
+compiler that plays the major role in defining the optimization.
+
+> Adding an unlikely() is a micro optimization.  There are so many other
+> things you can do to speed up the code.  I wouldn't start with that.
+>
+
+Ok, if you believe that unlikely is doing more harm than good, I am ok 
+with dropping them off.
+
+> regards,
+> dan
+> 
 
 
