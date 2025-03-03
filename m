@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F009C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 03:57:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76E7BC282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 03:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3Ff1YuoW1w/9iEkrNSlA4ob8xGNWh3OyF4nmQCZ1omc=; b=m2vhpGDor1NUZIz5d/rFpYM03W
-	rwc5eMhCsD9/t/m4LEVq42+iGfpQ9Uv4XM5/ugbTdDucHM1joAzkDtUBnfEZUoQPXbMjzCkaa8jLb
-	E9h+iFKyLrg+1ZVk6G/Q9yoKFb3S8llqfCxSYX49GP71cYKEdPh5RQ1PXIQ/hYVau2oQY2AAWTpGx
-	waY5XF8W7PLEu8PcZJjJ4JNQNmdktu7C5RQIhaq6rvoBJ3VjlCBI+bpPTLa+7jZGYrG+GOubsA9IY
-	j4oM58ntom4hG2oaDS32qSahJsW11bKVXAGBpA67wVVjJBNrOx7lsMMzQ0/M7aDiRxbl0KwBGU+mQ
-	TjU1SOIQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Km6EizC447oD4rRLPlLE4diqdKLJZXkfjn+wXPVTpbs=; b=fy3Uu7NCWRUyxUdsBbM65JHTcq
+	QGAAj1UNGlZeY4CXT4h00w9ZuB/lYvt7rYBnrhiUPZMX00kot5BfFKpMVbyV3LLd0VAZoAj8SCzqm
+	BltVYiqHy2OPGRfM0uFr0R474I4LBYobMWuGinkl/wdRPnAKNU5mxVdg5uIoOAe9itoETZuEfAfID
+	GcnzDheZJjrYiuHH2YHwEWoDryjD8n1SMx+D+3/PCZyE7G2AJ5Z7b35DD1ifKhLB8MwULNITqDbzS
+	3GrO3uSrI1kl4PBCG7kodBFcjqn8WxXTSexYdWgqFaD07QmqrzK/WYcBHnu8XMWi23mCVvPUSVJj0
+	yPdDjIKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1towvg-0000000H7fl-2SAz;
-	Mon, 03 Mar 2025 03:57:20 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
+	id 1towxD-0000000H7ni-2XDk;
+	Mon, 03 Mar 2025 03:58:55 +0000
+Received: from m16.mail.163.com ([220.197.31.4])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1towjq-0000000H63D-0AHQ;
-	Mon, 03 Mar 2025 03:45:08 +0000
+	id 1towjp-0000000H63C-0fTE;
+	Mon, 03 Mar 2025 03:45:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=3Ff1Y
-	uoW1w/9iEkrNSlA4ob8xGNWh3OyF4nmQCZ1omc=; b=EGkBSpv7f6+coIQAY/q1e
-	4XoVxgIPky8dhGmOtlHM2VDzMXPhlDFfi1OqdWdusbcv2h398dmodIjVIU5ot5QN
-	tYu/RVhyh+l0EGLRYW3oLINZdSxu8ef+ZfkcIKLyU+XAdRsprgBT0lidP01d6dqP
-	tWY/z0xGiX2VUV2P7twm7E=
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=Km6Ei
+	zC447oD4rRLPlLE4diqdKLJZXkfjn+wXPVTpbs=; b=NeTRfwVXihYomq/AcxEMA
+	K3WDl9nf4h8O5pP/nYo6AK/oIEmw4OIc+eQfKVBKDcFj/U0bFhE8jGxACn2Xn0sq
+	WjfgWDw+F9YoGziN3Uhvu9RfZWuvtmDM4Ty0x2XFXFKJtq6A2Hx6JbC8pudJRFZ0
+	7ik8qwnEKphAdJ/Pg6syYI=
 Received: from ProDesk.. (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id PSgvCgC3Oc2lJcVnaJliJg--.43523S2;
-	Mon, 03 Mar 2025 11:44:41 +0800 (CST)
+	by gzsmtp2 (Coremail) with SMTP id PSgvCgC3Oc2lJcVnaJliJg--.43523S5;
+	Mon, 03 Mar 2025 11:44:45 +0800 (CST)
 From: Andy Yan <andyshrk@163.com>
 To: heiko@sntech.de
 Cc: hjc@rock-chips.com,
@@ -48,23 +48,27 @@ Cc: hjc@rock-chips.com,
 	detlev.casanova@collabora.com,
 	robh@kernel.org,
 	sebastian.reichel@collabora.com,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH v16 0/7] VOP Support for rk3576
-Date: Mon,  3 Mar 2025 11:44:14 +0800
-Message-ID: <20250303034436.192400-1-andyshrk@163.com>
+	Andy Yan <andy.yan@rock-chips.com>,
+	Michael Riesch <michael.riesch@wolfvision.net>
+Subject: [PATCH v16 3/7] drm/rockchip: vop2: Add uv swap for cluster window
+Date: Mon,  3 Mar 2025 11:44:17 +0800
+Message-ID: <20250303034436.192400-4-andyshrk@163.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250303034436.192400-1-andyshrk@163.com>
+References: <20250303034436.192400-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PSgvCgC3Oc2lJcVnaJliJg--.43523S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxGry7uFyftrWxGryUJryDGFg_yoWrCFW8pa
-	ykG3s8XrWkKr1jqan7tw1xCr1SqanxJr13Cr93K3W3Ja1DKF1UKrWS9F1Ykr9xGr12vrWj
-	9F4Fy3W3K3W2vF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UlfOcUUUUU=
+X-CM-TRANSID: PSgvCgC3Oc2lJcVnaJliJg--.43523S5
+X-Coremail-Antispam: 1Uf129KBjvJXoW7tFW8Ww1kAF4UAw47JFy7ZFb_yoW8XrWfpr
+	43ArWqgw45Kw4Iq34kJFW5AFWfJwnxKay7Zws7tw1F9rW3KFyDG3Z0kFWUArnFyanFka17
+	tF93JrW7Zr10vrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jm388UUUUU=
 X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0hMFXmfFIit1YgAAsm
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0gEFXmfFIit1wAAAsW
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_194506_474875_88097A5E 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20250302_194505_529540_6B62BC29 
+X-CRM114-Status: UNSURE (   9.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,129 +85,40 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Andy Yan <andy.yan@rock-chips.com>
 
-Here is the v16
-Patches that have already been merged in drm-misc-next are dropped.
+The Cluster windows of upcoming VOP on rk3576 also support
+linear YUV support, we need to set uv swap bit for it.
 
-I test it with a 1080P/4K HDMI output with modetest and weston
-output.
+As the VOP2_WIN_UV_SWA register defined on rk3568/rk3588 is
+0xffffffff, so this register will not be touched on these
+two platforms.
 
-If there are some one want to have a try, I have a tree based on
-Linux 6.14-rc1 here[0]
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Tested-by: Michael Riesch <michael.riesch@wolfvision.net> # on RK3568
+Tested-by: Detlev Casanova <detlev.casanova@collabora.com>
+---
 
-[0]https://github.com/andyshrk/linux/tree/rk3576-vop2-upstream-v16
+(no changes since v1)
 
-Thanks.
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-Changes in v16:
-- Link to v15: https://lore.kernel.org/linux-rockchip/20250218112744.34433-1-andyshrk@163.com/
-- Rebase on drm-misc-next
-- Switch to dev_err_probe
-- Remove redundant empty line
-
-Changes in v15:
-- Link to v14: https://lore.kernel.org/linux-rockchip/20250212093530.52961-1-andyshrk@163.com/
-- Remove AFBC/AFBCD prefix of TRANSFORM_OFFSET register
-- Remove redundant blank line before function vop2_lock
-- Fix nr_regs arguments for smart windows register.
-
-Changes in v14:
-- Set maxItems constraint of clocks for rk3588 to 9 as a recently
-  merged patch added two optional clocks[0]:
-  [0]https://patchwork.freedesktop.org/patch/msgid/20250204-vop2-hdmi0-disp-modes-v3-1-d71c6a196e58@collabora.com
-
-Changes in v13:
-- Add maxItems constraint for clocks
-- Remove constraint for interrupts in allOf block, as the current
-  maxItems is already 1.
-- typo fix
-- Explain the function of this property.
-- Use maxItems constraint for clocks in allOf block
-
-Changes in v12:
-- Only change the description method for existing SoC.
-- Split from patch 10/13
-- Split from patch 10/13
-
-Changes in v11:
-- Remove redundant min/maxItems constraint
-- Remove redundant min/maxItems constraint
-
-Changes in v10:
-- Move interrupt-names back to top level
-- Add constraint of interrupts for all platform
-- Add constraint for all grf phandles
-- Reorder some properties
-- Move interrupt-names back to top level
-- Add constraint of interrupts for all platform
-- Add constraint for all grf phandles
-- Reorder some properties
-
-Changes in v9:
-- Drop 'vop-' prefix of interrupt-names.
-- Add blank line between DT properties
-- Remove list interrupt-names in top level
-- Drop 'vop-' prefix of interrupt-names.
-- Add blank line between DT properties
-- Remove list interrupt-names in top level
-- Drop 'vop-' prefix of interrupt-names.
-
-Changes in v8:
-- Fix dt_binding_check errors
-- ordered by soc name
-- Link to the previous version:
-  https://lore.kernel.org/linux-rockchip/6pn3qjxotdtpzucpul24yro7ppddezwuizneovqvmgdwyv2j7p@ztg4mqyiqmjf/T/#u
-- Fix dt_binding_check errors
-- ordered by soc name
-- Link to the previous version:
-  https://lore.kernel.org/linux-rockchip/6pn3qjxotdtpzucpul24yro7ppddezwuizneovqvmgdwyv2j7p@ztg4mqyiqmjf/T/#u
-
-Changes in v6:
--  More specific explanation about the AXI_BUS_ID register bit of
-   cluster window.
-
-Changes in v5:
-- Add axi id configuration
-- Remove the non-existent CBCR scale register.
-
-Changes in v4:
-- describe constraint SOC by SOC, as interrupts of rk3576 is very
-  different from others
-- Drop Krzysztof's Reviewed-by, as this version changed a lot.
-- describe constraint SOC by SOC, as interrupts of rk3576 is very
-  different from others
-- Drop Krzysztof's Reviewed-by, as this version changed a lot.
-
-Changes in v3:
-- Add comments for why we should treat rk3566 with special care.
-- ordered by soc name
-- Add description for newly added interrupt
-- ordered by soc name
-- Add description for newly added interrupt
-- Share the alpha setup function with rk3568
-- recoder the code block by soc
-
-Changes in v2:
-- Add dt bindings
-- Add dt bindings
-- Add platform specific callback
-
-Andy Yan (7):
-  drm/rockchip: vop2: Register the primary plane and overlay plane
-    separately
-  drm/rockchip: vop2: Set plane possible crtcs by possible vp mask
-  drm/rockchip: vop2: Add uv swap for cluster window
-  dt-bindings: display: vop2: describe constraint SoC by SoC
-  dt-bindings: display: vop2: Add missing rockchip,grf property for
-    rk3566/8
-  dt-bindings: display: vop2: Add rk3576 support
-  drm/rockchip: vop2: Add support for rk3576
-
- .../display/rockchip/rockchip-vop2.yaml       |  99 +-
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c  | 259 +++--
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.h  |  88 ++
- drivers/gpu/drm/rockchip/rockchip_vop2_reg.c  | 954 ++++++++++++++++--
- 4 files changed, 1223 insertions(+), 177 deletions(-)
-
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index 1280c5f07557..338cfb69e1cf 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -1377,10 +1377,8 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
+ 
+ 	rb_swap = vop2_win_rb_swap(fb->format->format);
+ 	vop2_win_write(win, VOP2_WIN_RB_SWAP, rb_swap);
+-	if (!vop2_cluster_window(win)) {
+-		uv_swap = vop2_win_uv_swap(fb->format->format);
+-		vop2_win_write(win, VOP2_WIN_UV_SWAP, uv_swap);
+-	}
++	uv_swap = vop2_win_uv_swap(fb->format->format);
++	vop2_win_write(win, VOP2_WIN_UV_SWAP, uv_swap);
+ 
+ 	if (fb->format->is_yuv) {
+ 		vop2_win_write(win, VOP2_WIN_UV_VIR, DIV_ROUND_UP(fb->pitches[1], 4));
 -- 
 2.34.1
 
