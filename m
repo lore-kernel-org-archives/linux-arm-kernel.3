@@ -4,75 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3CD3C282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 12:07:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59FEFC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 12:09:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xj1ondHkUDB4kusQaE47ncftB8bHAQQvSz6m4h0Jvy4=; b=OUhJ9XCwRYU2agEqlb3pgBRzll
-	Z667s6BZXZuYlreA3Zk5X2wzbAPUCSJBf2AS+r7DwsTZG3ZUiCKR9kDZ7ia7NGSIxHG9NFkKx09wE
-	P9wOlBX2pI/DcUo15it+a8WQhtNfO9yO93/C+n2u5khrsolNZXHKqCVA1ViIl8smhLweYKVkMn/qn
-	Pkz940i9YTf/dljIAIva6inbeSk5oRsWSK4339V5179DUVQRO48YMMbFQVD2g7Uks1U7QWug7K2mw
-	TDQ1n7ZtmyRWb42DnwmA4EAPiFsCf5qledEg1ddnToW8VJjdvbjpBsQlfT8if7suPPJznxhXZRSWD
-	CtXJNsXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ym2vB8taCXVhXuUVrfzAT1jmbvDb6jkdVJy/SrgbKTc=; b=1m47427UprTsmx4GHcHmah7p2y
+	JKUbRf+OYlGgwcnBXla6/4rk4UAUcUx/Tp7qSQLKG+Ci217KRqqDWi9NRGhu4u5KK0RGcr70iZxC5
+	W/3y4Nr+9PDW5oGX/4+YHq2Mi0xaPdN1Yic91KpashH1wqBtz+fD55Tx53Q2x4GU+vVHBY6D/0Xre
+	dXsBegaURma9h0T2FSWdZLQPxvIpeQM+XcGl0WmEVuJ4/c3iUPrsZbrz4beQ98rVdcfSBnl0pjcKM
+	zvgfJGhBVY7fYM+InXNJYQJxX6drwRFeTW8Xxjd8Aup9h6GeT0zJ961nhagP+94eEANMty5rJUIge
+	1ks1FGuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp4aC-00000000gbQ-1jy2;
-	Mon, 03 Mar 2025 12:07:40 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp3lf-00000000VGA-0d2t;
-	Mon, 03 Mar 2025 11:15:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1741000525;
-	bh=zHGCADU56T7A224lF133oGjwzLj/Y9hZrXbv8NOAx1U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Zp/H58vJ9rjRaEthdrCDdcQWdjaAb1mvE/B2PKHjamT9xW01devW47qz6T+qEtx6b
-	 M3E0H2siHWMutWk60bE3BnHGzRW5Eim8AOm7eBhMdBAln/VMk4Dd1OHZ/2MlPGZ+Qc
-	 lSfZ4gtN4+f6C/GCTf69DojqEueBPedXBGKiourDxcDKScxW3TnCK7US7PZ/wfq8jA
-	 0rGL0bUZkC19Jr6yWljZK6j9C5NpLmhWh1quFmZ3vosaz6I4szPUqLbOl2kFgnYtId
-	 SH4Q2ocYXq72C6WtD8FKYVuKSV7P1TeZ8/O75g86GPmSEBk4QVOEsvHyRyWdOEjMov
-	 NFjeojr1ZOgBQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7517517E086B;
-	Mon,  3 Mar 2025 12:15:24 +0100 (CET)
-Message-ID: <ea3cfb5c-bcba-4530-8bd4-6738acfaad90@collabora.com>
-Date: Mon, 3 Mar 2025 12:15:24 +0100
+	id 1tp4bj-00000000guK-3rv1;
+	Mon, 03 Mar 2025 12:09:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tp3mk-00000000VSq-1eRy
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Mar 2025 11:16:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5FC8E113E;
+	Mon,  3 Mar 2025 03:16:45 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0CDCF3F673;
+	Mon,  3 Mar 2025 03:16:26 -0800 (PST)
+Date: Mon, 3 Mar 2025 11:16:24 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Pierre Gondois <pierre.gondois@arm.com>
+Cc: Yicong Yang <yangyicong@huawei.com>, <catalin.marinas@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, <will@kernel.org>,
+	<tglx@linutronix.de>, <peterz@infradead.org>, <mpe@ellerman.id.au>,
+	<linux-arm-kernel@lists.infradead.org>, <mingo@redhat.com>,
+	<bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<dietmar.eggemann@arm.com>, <linuxppc-dev@lists.ozlabs.org>,
+	<x86@kernel.org>, <linux-kernel@vger.kernel.org>,
+	<morten.rasmussen@arm.com>, <msuchanek@suse.de>,
+	<gregkh@linuxfoundation.org>, <rafael@kernel.org>,
+	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
+	<linuxarm@huawei.com>, <yangyicong@hisilicon.com>,
+	<xuwei5@huawei.com>, <guohanjun@huawei.com>,
+	<sshegde@linux.ibm.com>
+Subject: Re: [PATCH v11 3/4] arm64: topology: Support SMT control on ACPI
+ based system
+Message-ID: <Z8WPiOweOjFZqTwN@bogus>
+References: <20250218141018.18082-1-yangyicong@huawei.com>
+ <20250218141018.18082-4-yangyicong@huawei.com>
+ <Z8HAkZiHYRjj97M7@bogus>
+ <336e9c4e-cd9c-4449-ba7b-60ee8774115d@arm.com>
+ <20250228190641.q23vd53aaw42tcdi@bogus>
+ <a52972c7-aadd-4a77-a292-057fa5f8372d@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 06/20] ASoC: mediatek: mt6359-accdet: Implement HP_EINT
- polarity configuration
-To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, Sen Chu <sen.chu@mediatek.com>,
- Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>,
- Lee Jones <lee@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>
-Cc: kernel@collabora.com, linux-sound@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-pm@vger.kernel.org, Andrew Perepech <andrew.perepech@mediatek.com>
-References: <20250302-mt6359-accdet-dts-v2-0-5bd633ee0d47@collabora.com>
- <20250302-mt6359-accdet-dts-v2-6-5bd633ee0d47@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250302-mt6359-accdet-dts-v2-6-5bd633ee0d47@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <a52972c7-aadd-4a77-a292-057fa5f8372d@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_031527_355415_91E4C9A0 
-X-CRM114-Status: UNSURE (   8.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250303_031634_473326_FB739891 
+X-CRM114-Status: GOOD (  22.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,18 +79,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 02/03/25 17:30, Nícolas F. R. A. Prado ha scritto:
-> From: Andrew Perepech <andrew.perepech@mediatek.com>
-> 
-> The driver currently reads the HP_EINT polarity from the Devicetree but
-> never actually configures the hardware accordingly.
-> 
-> Implement the polarity configuration in hardware.
-> 
-> Signed-off-by: Andrew Perepech <andrew.perepech@mediatek.com>
-> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+On Mon, Mar 03, 2025 at 10:56:12AM +0100, Pierre Gondois wrote:
+> On 2/28/25 20:06, Sudeep Holla wrote:
+> > > >
+> > > > Ditto as previous patch, can get rid if it is default 1.
+> > > >
+> > >
+> > > On non-SMT platforms, not calling cpu_smt_set_num_threads() leaves
+> > > cpu_smt_num_threads uninitialized to UINT_MAX:
+> > >
+> > > smt/active:0
+> > > smt/control:-1
+> > >
+> > > If cpu_smt_set_num_threads() is called:
+> > > active:0
+> > > control:notsupported
+> > >
+> > > So it might be slightly better to still initialize max_smt_thread_num.
+> > >
+> >
+> > Sure, what I meant is to have max_smt_thread_num set to 1 by default is
+> > that is what needed anyways and the above code does that now.
+> >
+> > Why not start with initialised to 1 instead ?
+> > Of course some current logic needs to change around testing it for zero.
+> >
+>
+> I think there would still be a way to check against the default value.
+> If we have:
+> unsigned int max_smt_thread_num = 1;
+>
+> then on a platform with 2 threads, the detection condition would trigger:
+> xa_for_each(&hetero_cpu, hetero_id, entry) {
+>     if (entry->thread_num != max_smt_thread_num && max_smt_thread_num)     <---- (entry->thread_num=2) and (max_smt_thread_num=1)
+>         pr_warn_once("Heterogeneous SMT topology is partly
+>                       supported by SMT control\n");
+>
+> so we would need an additional variable:
+> bool is_initialized = false;
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Sure, we could do that or skip the check if max_smt_thread_num == 1 ?
 
+I mean
+	if (entry->thread_num != max_smt_thread_num && max_smt_thread_num != 1)
 
+I assume entry->thread_num must be set to 1 on single threaded cores
+Won't that work ? Am I missing something still ?
+
+--
+Regards,
+Sudeep
 
