@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82517C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 15:16:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40EBBC282CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 15:17:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3tvtlBq8JKSeTMD/DhT8kwrhJN/4BirvMslD2h1VwbQ=; b=keRJR5+i/g53PllY4ac2HmMtGs
-	tAst7nVVC+cQmp5xilo1BPeZIuu17efkdsBuXMWOSlAUDOc3hweSy1vsMmhTn5cf3CxD1vQldkDsw
-	76wSOA011r981IyexFyqclkEU6sdauRI3Quwm9WU3okqK+hUy/kPj+/fc7XDFyw6kja3AnAieJvdt
-	jzmS2/W6Mkqa84TbQuSUJDBDUsgMXIg1mCpspwvEWvp2EtsSPKlvRHZEYstp947+88K5NxfVI9/8d
-	doA/wAujvzh/gBnmzuXecaSgs12eFGbbSXpPYKeyoy1eN1Lg6B4D+4Nw60HPvFhOI6d+xh4CGJBkf
-	AenfmnrQ==;
+	bh=ia2UV3r/DWdlCu9Y2+f241Vrp2ACDacTjx7N4cI4es4=; b=yTjxXVJa42bjerVNilC+/WZlUX
+	0Iumwb9AWp1kTmewP3YRoHaH/lbNB6r5dFYUl8C8IPDbt3nLKsfePOQKRn94sNU4/UamesD+DiPKa
+	HQQkF24I8D1fJs7pw6JeDlqdTYoOA39U0mfaOuPUDSQn5AOFgiVzXdns5re+oxYdBa0EWxKgpmM/3
+	pGh/9XcaygX+u0PhZJ6UiZg7mcsc+x2drZX5oZdzxMbY7FcWqUM62QmdLcSYbtGLkIACuHSeRlXey
+	4A3FUFiXelkoYFKi6I8mH+XH5YQp9DNAPe/oV2p3vnw5rHiDiya5RuiLNLmxxuo1IH7gav2GrOWM+
+	Vn3z0Q8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp7WU-00000001G2S-0HFs;
-	Mon, 03 Mar 2025 15:16:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tp7Y2-00000001GUQ-3R42;
+	Mon, 03 Mar 2025 15:17:38 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp7SH-00000001EtQ-1nck;
-	Mon, 03 Mar 2025 15:11:41 +0000
+	id 1tp7UG-00000001FE3-2Ti4;
+	Mon, 03 Mar 2025 15:13:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5CEB9611E2;
-	Mon,  3 Mar 2025 15:11:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACBC3C4CED6;
-	Mon,  3 Mar 2025 15:11:38 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0F74C5C5866;
+	Mon,  3 Mar 2025 15:11:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66C37C4CED6;
+	Mon,  3 Mar 2025 15:13:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741014698;
-	bh=G/dwvTYbi29J7qZDLqsdsunHt5wGMVf9N068m47ts/o=;
+	s=k20201202; t=1741014823;
+	bh=SBZUhpymT0Ng8SaIzcFPvGl+P4B6oU/H9HGvmO04ZRU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MY06sI307vcBUkl0yjLJUOLKbfIs9ElMYH5Nfmz2zop1X2cO2qijkn00N3ZSVDZSu
-	 94V89LwyvSzcRizck5nfgyHiTDh4H0JvWhTOGo/3txQJsTKOqszFNVw/z46/Jc/SK7
-	 AxvWjYo6rY24lPQAi/mTPc8tmPVTJX9jDFceZ36wtO+uzdSDRSG85o1ReH7hOoX8Ig
-	 +CltfvNKVL2iRLj1H6Nj89OK9vaj9k6ixUVjflUmemK52iNza3fJiIwBNsGYYJsYbC
-	 K3/C58ov5uThD31PFIW3ZfNxC8bmCrDis4MMz1uzLh3Xfv1sI7XqXpfWE0uLocmmY3
-	 F+yZHzV9WmYGQ==
-Date: Mon, 3 Mar 2025 09:11:37 -0600
+	b=HVD5y0vSsPRzl4ffSylCValEHdYfZACbN3DXT7ToG+Yo4xmYpiWkPgMq9EsURnvMO
+	 qow6QiO6v+Mi+w7MSpc9GxRMEG9R6nIj1MJkBLRhLMDDrLwAv7pbA6kHJrvVJ7hhur
+	 Pndcx8h01cmrjSiuOb2KlcH7AdedTY/NGaCn6g3ZvVw/A3s55Gn88NTWN7NhUaqWA9
+	 Z6YPNAYxRiTGGBmxhM5uuLVomxTwvOUlSDaC5uiNuuUC2Wa5Yx+KQVo/dg3YlncFsG
+	 OpSWdhfFDs+QYpHXzvxWaJy+i/zvLwLfOxbuWCvpyy1VbQ5bIkNby1ERABE2HNWM2M
+	 JGdo1lx90dhaQ==
+Date: Mon, 3 Mar 2025 09:13:41 -0600
 From: Rob Herring <robh@kernel.org>
 To: =?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>
 Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
@@ -57,16 +57,19 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
 	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH v2 01/20] ASoC: dt-bindings: Add document for
- mt6359-accdet
-Message-ID: <20250303151137.GA1862020-robh@kernel.org>
+Subject: Re: [PATCH v2 02/20] dt-bindings: mfd: mediatek: mt6397: Add accdet
+ subnode
+Message-ID: <20250303151341.GA1865196-robh@kernel.org>
 References: <20250302-mt6359-accdet-dts-v2-0-5bd633ee0d47@collabora.com>
- <20250302-mt6359-accdet-dts-v2-1-5bd633ee0d47@collabora.com>
+ <20250302-mt6359-accdet-dts-v2-2-5bd633ee0d47@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250302-mt6359-accdet-dts-v2-1-5bd633ee0d47@collabora.com>
+In-Reply-To: <20250302-mt6359-accdet-dts-v2-2-5bd633ee0d47@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250303_071344_670429_D8E0CA9D 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,65 +84,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 02, 2025 at 01:30:40PM -0300, Nícolas F. R. A. Prado wrote:
-> Add dt-binding for the MT6359 ACCDET hardware block.
+On Sun, Mar 02, 2025 at 01:30:41PM -0300, Nícolas F. R. A. Prado wrote:
+> Describe the accdet as a possible subnode of the MT6359 PMIC.
 > 
 > Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 > ---
->  .../bindings/sound/mediatek,mt6359-accdet.yaml     | 42 ++++++++++++++++++++++
->  1 file changed, 42 insertions(+)
+>  Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml | 7 +++++++
+>  1 file changed, 7 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt6359-accdet.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt6359-accdet.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..d08a79301409374714c76135b061e20e8e8acfaf
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/sound/mediatek,mt6359-accdet.yaml
-> @@ -0,0 +1,42 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/sound/mediatek,mt6359-accdet.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: MT6359 Accessory Detection
-> +
-> +maintainers:
-> +  - Nícolas F. R. A. Prado <nfraprado@collabora.com>
-> +
-> +description: |
+> diff --git a/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml b/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
+> index 6a89b479d10fad3c8b61cab5a3af1453baca4d1a..1a8c5748a28da6ad8aa091f8c0a74bc1dc709644 100644
+> --- a/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
+> +++ b/Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
+> @@ -224,6 +224,13 @@ properties:
+>      description:
+>        Pin controller
+>  
+> +  accdet:
+> +    type: object
+> +    $ref: /schemas/sound/mediatek,mt6359-accdet.yaml
+> +    unevaluatedProperties: false
 
-Don't need '|'.
+Don't need unevaluatedProperties here. The referenced schema already has 
+the constraint.
 
-> +  The MT6359 Accessory Detection block is part of the MT6359 PMIC and allows
-> +  detecting audio jack insertion and removal, as well as identifying the type of
-> +  events connected to the jack.
-> +
-> +properties:
-> +  compatible:
-> +    const: mediatek,mt6359-accdet
-> +
-> +  mediatek,hp-eint-high:
-> +    type: boolean
 > +    description:
-> +      By default, the HP_EINT pin is assumed to be pulled high and connected to
-> +      a normally open 3.5mm jack. Plug insertion is detected when the pin is
-> +      brought low in that case. Add this property if the behavior should be
-> +      inverted, for example if a normally closed 3.5mm jack is used, or if the
-> +      line is pulled low on open.
+> +      Accessory Detection
 > +
-> +required:
-> +  - compatible
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    accdet: accdet {
-> +        compatible = "mediatek,mt6359-accdet";
-> +        mediatek,hp-eint-high;
-> +    };
+>  required:
+>    - compatible
+>    - regulators
 > 
 > -- 
 > 2.48.1
