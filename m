@@ -4,66 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05C94C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 01:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B02C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 02:00:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KHMJZ+PBDPoJdIr2Mpzq4LEUmIWTTjJgD1i7rDnsrh8=; b=DYmVREhqARtdE8BSXOmLQNVSFH
-	D/aKshpN9Y9S4w7GvSC8UqyHJl7J/EzplH2KbiMFfXkl/bC2AMClyXjqU4+fThGUDdTE7Eh6ZM9Th
-	shotXQSVCRbWNlS6DxbSenpwh35OejkZvldVRNeuLRklXCwxYQUzjFi1AB3ISA2vdfT7UFR0S91eI
-	Cak8t13jjDf5DkS/0qhS03ZtyYqGDolSalA03w6WwYMck2GGwzxnWCuaL3+JVF8DMKotnDfk4tXo1
-	F312ly8Yy5pe5/QNZgsmO/RNac/BGK948lekCNt+tlGne3bTmvIYcIabzcqCJVQhdCDrZMflsbpLT
-	Thhi+5IA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	To:From:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6HfdgFCpqOX4tTcQS1T7RF2ySV+PscV4E/w42OUfLFE=; b=kglOZxbWAqrtuT
+	hCwQ7/Fp8lKBiIlUZxaH0HPv52lik8v4oex39wPjpde0+T3iA+p5FLA/Xi6NEGFXjgY8oL7fQq5WF
+	+wBCrbkuts8mgkU0BTojLIctZYROr/ngjCOTvugA2SNSav49TLOas+i2xJuHeeBpokeAmngw2IwBE
+	pf/Kqwhf5IUYI9Phpnh+XDC2Ge4HgRHshjBiv5LZ5lhesJpdov0/58LRLKs9+wTjKxW7VHhKYd0Dj
+	sxQsnm0Gc4/BxePrMdZwl9GOjYQo8ktK6Em7B3GGHMkHyGoTPYoMwSTzTROQHXDust2wKKHv2D8Qx
+	iIG2YNj1kgg8VnrhkKUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpHYY-00000002qB1-1G9b;
-	Tue, 04 Mar 2025 01:58:50 +0000
-Received: from mail-m1973175.qiye.163.com ([220.197.31.75])
+	id 1tpHa5-00000002qM1-3sJo;
+	Tue, 04 Mar 2025 02:00:25 +0000
+Received: from server54.mybundlepay.com ([207.231.110.219])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpH7m-00000002mB2-0xSl;
-	Tue, 04 Mar 2025 01:31:11 +0000
-Received: from [172.16.12.69] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id ccffe4af;
-	Tue, 4 Mar 2025 09:31:05 +0800 (GMT+08:00)
-Message-ID: <61bf39de-3aae-46fb-b1d4-c9c7fd0df4a7@rock-chips.com>
-Date: Tue, 4 Mar 2025 09:31:04 +0800
+	id 1tpHE7-00000002nTB-2OZj
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Mar 2025 01:37:44 +0000
+Received: from mybundlepay.com (unknown [20.57.137.16])
+	by server54.mybundlepay.com (Postfix) with ESMTPSA id 2FDD017DEDA
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Mar 2025 20:32:28 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=mybundlepay.com;
+	s=202411; t=1741033948;
+	bh=QieX1f1ZpVBpFqEYiQLHTccw08+B74/nkI53Ml21MeU=;
+	h=Reply-To:From:To:Subject:Date:From;
+	b=uI7YKbzDWh/e81OTtpJirkXYrebrbsUH744T4j8ybnqRkcZ8mmoy70eFkLUgHG8j1
+	 nNvB1x6WfXDybsgyoWOU00fUDDCz600GEkiZohfPct58ebZgjwJ79iUhakluCucIAD
+	 Dv+TK+0ehrbgatIB+zNIsKyqppN8jkWHOYTC/7brwSTt6deibEOz0ZhcC05SqpIG/a
+	 MhqhXlLGqvUL4fLje4nKAL05cE5wZe8cLAOWobjPRC3cqHkasv+fYpPFumnqOfALaJ
+	 8puoF60hCcyyC2ddjz//BFvJ5KPmAVcRotp0i1T+u4bGjbr6f6agfQdI102A/6oHGy
+	 jxSW+7aN3mqQg==
+From: Benjamin Elliot <do-not-reply-us@mybundlepay.com>
+To: linux-arm-kernel@lists.infradead.org
+Subject: INVESTMENT UPDATE
+Date: 03 Mar 2025 20:32:28 +0000
+Message-ID: <20250303203228.9E3C83D367A87F76@mybundlepay.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] drm/rockchip: lvds: Hide scary error messages on
- probe deferral
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: maarten.lankhorst@linux.intel.com, mripard@kernel.org,
- tzimmermann@suse.de, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, quentin.schulz@cherry.de,
- Heiko Stuebner <heiko.stuebner@cherry.de>
-References: <20250301173547.710245-1-heiko@sntech.de>
- <20250301173547.710245-3-heiko@sntech.de>
-Content-Language: en-US
-From: Andy Yan <andy.yan@rock-chips.com>
-In-Reply-To: <20250301173547.710245-3-heiko@sntech.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGh1CTlZDTklPTEseH0JOT0lWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a955ec727f109d6kunmccffe4af
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MTo6ISo4QzIII04dHU0fGDYd
-	KgkwCT5VSlVKTE9KS05KQ01NT0hNVTMWGhIXVRoVHwJVAhoVOwkUGBBWGBMSCwhVGBQWRVlXWRIL
-	WUFZTkNVSUlVTFVKSk9ZV1kIAVlBTEpLTDcG
-DKIM-Signature: a=rsa-sha256;
-	b=NjUmjvzSLTOdAuDwfT/iBdPhYaJ3GCp98Ll5sZLHMqmfPw6h78bYZzeLmguwNkHWtNa/JZH7RGc191tqXJrfGSHAjUKNBDTEa40AzYIw4pP2kkZaQW1Lgs93PZrrt3YeagYrDxRB87U9vWvlIoAv8RNs0v/hprtCX1MB8MdgArY=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=KHMJZ+PBDPoJdIr2Mpzq4LEUmIWTTjJgD1i7rDnsrh8=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_173110_426894_9D6386CE 
-X-CRM114-Status: GOOD (  23.04  )
+X-CRM114-CacheID: sfid-20250303_173743_656142_6E55DDAF 
+X-CRM114-Status: UNSURE (   0.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,191 +64,29 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: belliot.panfinconsulting@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+Hello Dear,
 
+I am  Benjamin Elliot. I am a Financial Consultant. My company=20
+represent the investment portfolio of a consortium of investors=20
+willing and readily available to fund any sustainable project=20
+that can yield a reasonable return on investment. What we do is=20
+that, we broker discreet financial services for high net=20
+individuals/Companies. We connect you to legitimate portfolio=20
+financiers that are willing and readily available to divert funds=20
+into sustainable and profitable project or business with a=20
+reasonable ROI. Do you have any ongoing project or a startup?=20
+Please contact me if you are looking for funds to invest in or=20
+expand your project or business. We would be happy to work with=20
+you.
 
-On 3/2/25 01:35, Heiko Stuebner wrote:
-> From: Heiko Stuebner <heiko.stuebner@cherry.de>
-> 
-> Commit 52d11c863ac9 ("drm/rockchip: lvds: do not print scary message when
-> probing defer") already started hiding scary messages that are not relevant
-> if the requested supply just returned EPROBE_DEFER, but there are more
-> possible sources - like the phy.
-> 
-> So modernize the whole logging in the probe path by replacing the
-> remaining deprecated DRM_DEV_ERROR with appropriate dev_err(_probe)
-> and drm_err calls.
-> 
-> The distinction here is that all messages talking about mishaps of the
-> lvds element use dev_err(_probe) while messages caused by interaction
-> with the main Rockchip drm-device use drm_err.
-> 
-> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+Look forward to your response.
 
-   Reviewed-by: Andy Yan <andy.yan@rock-chips.com>
-
-Thanks.
-> ---
->   drivers/gpu/drm/rockchip/rockchip_lvds.c | 61 ++++++++++--------------
->   1 file changed, 26 insertions(+), 35 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/rockchip/rockchip_lvds.c b/drivers/gpu/drm/rockchip/rockchip_lvds.c
-> index ecfae8d5da89..d8b2007123fa 100644
-> --- a/drivers/gpu/drm/rockchip/rockchip_lvds.c
-> +++ b/drivers/gpu/drm/rockchip/rockchip_lvds.c
-> @@ -453,10 +453,9 @@ static int rk3288_lvds_probe(struct platform_device *pdev,
->   		return PTR_ERR(lvds->regs);
->   
->   	lvds->pclk = devm_clk_get_prepared(lvds->dev, "pclk_lvds");
-> -	if (IS_ERR(lvds->pclk)) {
-> -		DRM_DEV_ERROR(lvds->dev, "could not get or prepare pclk_lvds\n");
-> -		return PTR_ERR(lvds->pclk);
-> -	}
-> +	if (IS_ERR(lvds->pclk))
-> +		return dev_err_probe(lvds->dev, PTR_ERR(lvds->pclk),
-> +				     "could not get or prepare pclk_lvds\n");
->   
->   	lvds->pins = devm_kzalloc(lvds->dev, sizeof(*lvds->pins),
->   				  GFP_KERNEL);
-> @@ -465,14 +464,14 @@ static int rk3288_lvds_probe(struct platform_device *pdev,
->   
->   	lvds->pins->p = devm_pinctrl_get(lvds->dev);
->   	if (IS_ERR(lvds->pins->p)) {
-> -		DRM_DEV_ERROR(lvds->dev, "no pinctrl handle\n");
-> +		dev_err(lvds->dev, "no pinctrl handle\n");
->   		devm_kfree(lvds->dev, lvds->pins);
->   		lvds->pins = NULL;
->   	} else {
->   		lvds->pins->default_state =
->   			pinctrl_lookup_state(lvds->pins->p, "lcdc");
->   		if (IS_ERR(lvds->pins->default_state)) {
-> -			DRM_DEV_ERROR(lvds->dev, "no default pinctrl state\n");
-> +			dev_err(lvds->dev, "no default pinctrl state\n");
->   			devm_kfree(lvds->dev, lvds->pins);
->   			lvds->pins = NULL;
->   		}
-> @@ -547,11 +546,10 @@ static int rockchip_lvds_bind(struct device *dev, struct device *master,
->   
->   	lvds->drm_dev = drm_dev;
->   	port = of_graph_get_port_by_id(dev->of_node, 1);
-> -	if (!port) {
-> -		DRM_DEV_ERROR(dev,
-> -			      "can't found port point, please init lvds panel port!\n");
-> -		return -EINVAL;
-> -	}
-> +	if (!port)
-> +		return dev_err_probe(dev, -EINVAL,
-> +				     "can't found port point, please init lvds panel port!\n");
-> +
->   	for_each_child_of_node(port, endpoint) {
->   		child_count++;
->   		of_property_read_u32(endpoint, "reg", &endpoint_id);
-> @@ -563,8 +561,7 @@ static int rockchip_lvds_bind(struct device *dev, struct device *master,
->   		}
->   	}
->   	if (!child_count) {
-> -		DRM_DEV_ERROR(dev, "lvds port does not have any children\n");
-> -		ret = -EINVAL;
-> +		ret = dev_err_probe(dev, -EINVAL, "lvds port does not have any children\n");
->   		goto err_put_port;
->   	} else if (ret) {
->   		dev_err_probe(dev, ret, "failed to find panel and bridge node\n");
-> @@ -581,8 +578,7 @@ static int rockchip_lvds_bind(struct device *dev, struct device *master,
->   		lvds->output = rockchip_lvds_name_to_output(name);
->   
->   	if (lvds->output < 0) {
-> -		DRM_DEV_ERROR(dev, "invalid output type [%s]\n", name);
-> -		ret = lvds->output;
-> +		ret = dev_err_probe(dev, lvds->output, "invalid output type [%s]\n", name);
->   		goto err_put_remote;
->   	}
->   
-> @@ -593,7 +589,7 @@ static int rockchip_lvds_bind(struct device *dev, struct device *master,
->   		lvds->format = rockchip_lvds_name_to_format(name);
->   
->   	if (lvds->format < 0) {
-> -		DRM_DEV_ERROR(dev, "invalid data-mapping format [%s]\n", name);
-> +		dev_err(dev, "invalid data-mapping format [%s]\n", name);
->   		ret = lvds->format;
->   		goto err_put_remote;
->   	}
-> @@ -604,8 +600,8 @@ static int rockchip_lvds_bind(struct device *dev, struct device *master,
->   
->   	ret = drm_simple_encoder_init(drm_dev, encoder, DRM_MODE_ENCODER_LVDS);
->   	if (ret < 0) {
-> -		DRM_DEV_ERROR(drm_dev->dev,
-> -			      "failed to initialize encoder: %d\n", ret);
-> +		drm_err(drm_dev,
-> +			"failed to initialize encoder: %d\n", ret);
->   		goto err_put_remote;
->   	}
->   
-> @@ -618,8 +614,8 @@ static int rockchip_lvds_bind(struct device *dev, struct device *master,
->   					 &rockchip_lvds_connector_funcs,
->   					 DRM_MODE_CONNECTOR_LVDS);
->   		if (ret < 0) {
-> -			DRM_DEV_ERROR(drm_dev->dev,
-> -				      "failed to initialize connector: %d\n", ret);
-> +			drm_err(drm_dev,
-> +				"failed to initialize connector: %d\n", ret);
->   			goto err_free_encoder;
->   		}
->   
-> @@ -633,9 +629,9 @@ static int rockchip_lvds_bind(struct device *dev, struct device *master,
->   
->   		connector = drm_bridge_connector_init(lvds->drm_dev, encoder);
->   		if (IS_ERR(connector)) {
-> -			DRM_DEV_ERROR(drm_dev->dev,
-> -				      "failed to initialize bridge connector: %pe\n",
-> -				      connector);
-> +			drm_err(drm_dev,
-> +				"failed to initialize bridge connector: %pe\n",
-> +				connector);
->   			ret = PTR_ERR(connector);
->   			goto err_free_encoder;
->   		}
-> @@ -643,8 +639,7 @@ static int rockchip_lvds_bind(struct device *dev, struct device *master,
->   
->   	ret = drm_connector_attach_encoder(connector, encoder);
->   	if (ret < 0) {
-> -		DRM_DEV_ERROR(drm_dev->dev,
-> -			      "failed to attach encoder: %d\n", ret);
-> +		drm_err(drm_dev, "failed to attach encoder: %d\n", ret);
->   		goto err_free_connector;
->   	}
->   
-> @@ -706,24 +701,20 @@ static int rockchip_lvds_probe(struct platform_device *pdev)
->   
->   	lvds->grf = syscon_regmap_lookup_by_phandle(dev->of_node,
->   						    "rockchip,grf");
-> -	if (IS_ERR(lvds->grf)) {
-> -		DRM_DEV_ERROR(dev, "missing rockchip,grf property\n");
-> -		return PTR_ERR(lvds->grf);
-> -	}
-> +	if (IS_ERR(lvds->grf))
-> +		return dev_err_probe(dev, PTR_ERR(lvds->grf), "missing rockchip,grf property\n");
->   
->   	ret = lvds->soc_data->probe(pdev, lvds);
-> -	if (ret) {
-> -		DRM_DEV_ERROR(dev, "Platform initialization failed\n");
-> -		return ret;
-> -	}
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Platform initialization failed\n");
->   
->   	dev_set_drvdata(dev, lvds);
->   
->   	ret = component_add(&pdev->dev, &rockchip_lvds_component_ops);
->   	if (ret < 0)
-> -		DRM_DEV_ERROR(dev, "failed to add component\n");
-> +		return dev_err_probe(dev, ret, "failed to add component\n");
->   
-> -	return ret;
-> +	return 0;
->   }
->   
->   static void rockchip_lvds_remove(struct platform_device *pdev)
+Best Regards,
+Benjamin Elliot - MD
+PAN Financial Consultant
+Anna Blamansingel 72, Amsterdam 1102ST, Netherlands.
 
