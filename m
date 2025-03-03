@@ -4,88 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82A70C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 09:46:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69729C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 09:49:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I7HD702RfpHXjFSS9LnmCasnaIsMWIVtBEVPu04XVSc=; b=0egNUXgXkgELUr1wPCUzUL1V7O
-	x54rMBTmPsrpY1JgKrko3GNulzgw6Gx4uGMnQ62OHGvQ4gC4B0xfotQJjZa7J4nLIfuiQqI73FNh+
-	Obvgi5+rVQ3C9sggDUfzf1JLoSsj5r1ZZzclEJQeToffvrlOmw2pwsV4eRadSv3bDOUGAM8QO/cMT
-	iZrbSwjs6SG18mUTrovAsuacjOldM3kHRHeI/INLEZnvIEUZ4RbT9hPTCyx/og3ITFz3NoiUT2Mq0
-	LqfNXCIOPhvI0N0dnYndQuBBjPJBUzLafN35sFoLXcqQ3cR5UU8jiHyAckUToZOfrIjgrNBR65j6M
-	XZAqkEcA==;
+	bh=CKA+Otx0H3SSzEwciVvwkw/A8oV7+p3SzrtXzaI0oPU=; b=AF7xtMSUycIxN//jzGQ6CFxR7b
+	/nSMUjeDVffjMmn2ARX/VdqIl15/ZnwIRl3XovRdtDbczdRMpmwAQvXNvpCi4FZX07V8dAKfQ3U7g
+	wD18elX8j3JSiea+8NlgB6gvAZrKw66VC7YypuaDFBy5i+tDIxoFroAgsN48LI6esjSegeWpfvdMh
+	HQv2Q7XFwD7OrtMrkl6ecDrKLaPXF5ZTO0uIAgQvyzUQxWsiRvysNpIYqTiK38jE+eCb8C881lG1J
+	PgbQbFCWkDswwO7Fdx89zkpJWeRXkQI22bWlwXmAD08NqA236O+3ASBCftj6ypovHYwI8vDADx/vu
+	49QgN2lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp2NJ-00000000Bwh-0RnE;
-	Mon, 03 Mar 2025 09:46:13 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1tp2QW-00000000CWk-12qW;
+	Mon, 03 Mar 2025 09:49:32 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp2KN-00000000BHJ-1udy
+	id 1tp2Ow-00000000CIJ-1Ymu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 09:43:13 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43bb6b0b898so9683515e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 01:43:10 -0800 (PST)
+	Mon, 03 Mar 2025 09:47:55 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-39104c1cbbdso456641f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 01:47:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1740994989; x=1741599789; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1740995272; x=1741600072; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=I7HD702RfpHXjFSS9LnmCasnaIsMWIVtBEVPu04XVSc=;
-        b=qfNuA6iQcsIg4s2b5I2f1Lhwbm1i4xUa3hIoXckc67zlFpY51O9G0quYLa4RJ/Bo5/
-         qPeonTTxPIKBprg8AF6SAC/WUH6Q+yV3rSNMCS0xfieKZT1oedmY2ozV9z7nk+0NPxpA
-         /5RNyrbquFOspKydQ3SSFUJ3qeeppIkojgFhclQvHJ+yNlobAX2uUXQq+86bcVxeSRqp
-         s7+OncoS9TGYVIdLbagDNOf/ZBBOc3hRmVCNWf23DJwvKn49VGrz993x9fyyW34OuyOY
-         hJCeI7N9bQ7j0NMK/Ele280STlaGWsKtsnJf0AMRb4Ly4nHHAuEzH+6ksauPy2fh5Y3K
-         ik0w==
+        bh=CKA+Otx0H3SSzEwciVvwkw/A8oV7+p3SzrtXzaI0oPU=;
+        b=VemC/vWuXW+XziNeMzof2tEsxkVNHF9eHA/W/ezHa0c8bG1AQGWQee8g2gUeHuEvlS
+         hN6jFSJ4p35MjWpCJZoKLLXTjV+D8sNA8eFPjEu0b+IKQJRgeciDjYTFjfalnqC7hjWZ
+         nsVA1W6eYKbcnQa718fJfvLFqixLtesORKMHCurXucD62ntl7/VLdT+vlmMf71IfiiL8
+         eKag8fAHuJF31Z72SuOWirNhfkmKT1N4sDDfAcb4trLlvph6WlxIR8vcycljFfFzjcrf
+         w96+H8gAuaICiP/VfpnTiyjb0NpOtndFM/Nrhr1bMBt20Ngh7Tb3u8fqhv6ELF80zQyc
+         5FYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740994989; x=1741599789;
+        d=1e100.net; s=20230601; t=1740995272; x=1741600072;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=I7HD702RfpHXjFSS9LnmCasnaIsMWIVtBEVPu04XVSc=;
-        b=NLM5Pozg76wf1BrWvtsMDYrlU4ppGMeb2VJ7joPZ8CJrb5Uccwum+SibHfRLafDWaB
-         PUxvsMH731pkLAymnuG0fcMpz+6yRHZ+tUebaGJz4UQ7qS4RhNf2h2OZGufnC6OTtpHz
-         LxAPzNY/cYz2v6MRB6gwHLRjXV/H443bxlIZxk+7y35fXwzEo1q2ygE55dW27v5F2dPe
-         I5DCe0hirVnUPIvrTWIC1QuVAh2f6iF4WeLpOYhcGY5RXA77foe+Pb+ADUWAPI/A2E0v
-         tmeV6UwfGkTob0pQcFG35wMX6fO62aWLPIgoI+pFiuvjpLTVqfkAUhIVPjUgnteGu9FM
-         Pqpw==
-X-Forwarded-Encrypted: i=1; AJvYcCU0iO99NTwi4Z+VOtiMWPiXYcKqyp1UxjUSg04EOMedZKYWBWk3tn2Hlb2Zjn2IssIvbFjjkHjscJ9S5N6ZjBED@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6dxJmOJ7i4DyXA7S/ExHRGRcrJ7E4MXRN61h20j/qbzEaERMR
-	AkQJQdbwxs2znkT2Apa9iqaynNRtKSITF60kuSWOY36M41zcCH1pUlCs2SdUf6nz7mNVAtxss5C
-	qnGI=
-X-Gm-Gg: ASbGnctm2DZNbTtYjPd/aG9W3cbYLedOpdDxMGQdKKpZz/teTWVywTXo9MTNgX+eCae
-	sRbK6IAP+RVbiQI9TdIrha50muEpOIJeSE9vmBX5OTmTvqJXQobBUzs6lQwW68It8+umgEqpc08
-	6gHiTeTcBQ4vUeIlggMWOoi5eK3oCPHhOerK5phi6t3FgoWsSMWoME8CdjvAoqKG8fTkNq6y+RI
-	NZahQ0Bff7uZUfgJxre6s6+ejYab0USkYCmvK11MBVk+KuBEE/s8m32+EXDdffGG3SHJ/JCubfa
-	H82eaRC+EEwzZEgewRxTy9YFx3OllFWE22IZmimFteoCqeoSaqyMCYiSBy8nnmz7rBEaLjH1k+E
-	2NpnM6b00fBtXkk9Qqr2+HN2QCg==
-X-Google-Smtp-Source: AGHT+IGioXL+ceLlmWfZZmydFoO+5l0CmYAT/WRogvwkcEnYKD7My0ndm6CmTHlXPf3FtWobh/14Lw==
-X-Received: by 2002:a05:600c:1547:b0:439:98f6:8bc8 with SMTP id 5b1f17b1804b1-43ba6760ca3mr81796515e9.26.1740994989516;
-        Mon, 03 Mar 2025 01:43:09 -0800 (PST)
-Received: from localhost (amontpellier-556-1-148-206.w109-210.abo.wanadoo.fr. [109.210.4.206])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e47b7b6asm14251498f8f.51.2025.03.03.01.43.08
+        bh=CKA+Otx0H3SSzEwciVvwkw/A8oV7+p3SzrtXzaI0oPU=;
+        b=FdFmkOjt1+4HLkrol8XiWr1WeuECOQpFl+m7NqbyZeQcjUIoi3brDyP9NXy5fHBC7k
+         08BQ4n3qKeCgIRL3KtStmVYx4qSfTgBCGX/A8pH329d2HHDJSKBFV/i7o1HazovVQYRA
+         nQEFRNoZGHSfMcA1jOR8yGsF4wm6yK4LOms0Y76Z4Z3++8LyxBz07NJ2zerqFaxkmBNs
+         DWqxV3duw6Tcnq5X4GTwIXtQSpdaqbix72Ux9epL8XkrrMg5bFaKOU0jbBWOvIBeRCVB
+         wLGQxg5M2asQwIWsLaSU7diKqXISnUOn0HoSEY0OF6uuBI7dx3vBVmE9SrSVOieg+Wyx
+         msaw==
+X-Forwarded-Encrypted: i=1; AJvYcCWbmmCH3WTOBphnv1figC7UnGncb76TZnraLycGa3pxbx0C75S8Q2ZMLTNDPd/LvU+LYWS7Tbv4b45Qh0L6VRSi@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRkGtb7iH798NWuy3/8i9BOuMQKTVRAVqxRzcke6Iqt98PSAQU
+	7ZZaLrn/JAqZHgJHbB+DMBgMsg1tlx+Zqru1qxXajECNqExE1WZz+Cm3iOGi2A==
+X-Gm-Gg: ASbGnctCJSXLf1FOErofOW/3btfHPht28uFxKboMOv5fdXy8vj/k8QLnCuwFB6KhgTW
+	lBF1152qL2UqxWzthinBAqghmTSu/WBIcra0t29ll4hrpcVtnRt7sAGSCWCmpqD1hTMd7Rj8vGu
+	rOplhvaJ5GMCZ6944qBoZgCO/1zokGK5ADs2q3Fclgefy5mMGnuWebJ8SdqB3P+0/aIJnUjukkO
+	aaB6Nu/mnmQKpNMyoKAlBbYsoKupDYnzUWX4ifOmaJuLFLKx9Khjgye9P3ewyL7YHCQk6OceDm+
+	qKmzyLhRaybpShRzO+p2REQnKZspSCKuTGsFBdMvXL9XJnh/lXQkTOSO6cVOq4cFEtdVP1Xf27m
+	Z3hIyOHaVfXSh
+X-Google-Smtp-Source: AGHT+IGZadExtmq2ZKN18m9L/PK1JThIrBLdkTgdsuEaaAEPwP3+f2+949dpjiKHv0jHI9BGV6sDlw==
+X-Received: by 2002:a05:6000:2ce:b0:390:f9d0:5e3 with SMTP id ffacd0b85a97d-390f9d0075cmr4936619f8f.1.1740995272497;
+        Mon, 03 Mar 2025 01:47:52 -0800 (PST)
+Received: from google.com (105.168.195.35.bc.googleusercontent.com. [35.195.168.105])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e4796051sm14170400f8f.12.2025.03.03.01.47.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Mar 2025 01:43:08 -0800 (PST)
-Date: Mon, 3 Mar 2025 10:43:07 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-pwm@vger.kernel.org
-Cc: linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] pwm: stmpe: Allow to compile as a module
-Message-ID: <miozabyaeoagqrw7evl4c44augcfbrdtupf4ium62xz5kb77cm@vndlz2rcoyj4>
-References: <20250215143723.636591-2-u.kleine-koenig@baylibre.com>
+        Mon, 03 Mar 2025 01:47:52 -0800 (PST)
+Date: Mon, 3 Mar 2025 09:47:48 +0000
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Quentin Perret <qperret@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/6] KVM: arm64: Move hyp state to hyp_vmemmap
+Message-ID: <Z8V6xOVCPp7OOX6g@google.com>
+References: <20250227003310.367350-1-qperret@google.com>
+ <20250227003310.367350-5-qperret@google.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="dszzsrs7iiegpzat"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250215143723.636591-2-u.kleine-koenig@baylibre.com>
+In-Reply-To: <20250227003310.367350-5-qperret@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_014311_491879_351E3A38 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20250303_014754_408547_E17B3489 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,46 +103,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+[...]
 
---dszzsrs7iiegpzat
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] pwm: stmpe: Allow to compile as a module
-MIME-Version: 1.0
+> diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
+> index 1a414288fe8c..955c431af5d0 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/setup.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/setup.c
+> @@ -194,16 +194,20 @@ static int fix_host_ownership_walker(const struct kvm_pgtable_visit_ctx *ctx,
+>  
+>  	/*
+>  	 * Adjust the host stage-2 mappings to match the ownership attributes
+> -	 * configured in the hypervisor stage-1.
+> +	 * configured in the hypervisor stage-1, and make sure to propagate them
+> +	 * to the hyp_vmemmap state.
+>  	 */
+>  	state = pkvm_getstate(kvm_pgtable_hyp_pte_prot(ctx->old));
+>  	switch (state) {
+>  	case PKVM_PAGE_OWNED:
+> +		set_hyp_state(phys, PKVM_PAGE_OWNED);
+>  		return host_stage2_set_owner_locked(phys, PAGE_SIZE, PKVM_ID_HYP);
+>  	case PKVM_PAGE_SHARED_OWNED:
+> +		set_hyp_state(phys, PKVM_PAGE_SHARED_OWNED);
+>  		set_host_state(phys, PKVM_PAGE_SHARED_BORROWED);
+>  		break;
+>  	case PKVM_PAGE_SHARED_BORROWED:
+> +		set_hyp_state(phys, PKVM_PAGE_SHARED_BORROWED);
+>  		set_host_state(phys, PKVM_PAGE_SHARED_OWNED);
+>  		break;
+>  	default:
 
-Hello,
+Are the SHARED_OWNED/SHARED_BORROWED still relevant since the introduction of
+"KVM: arm64: Don't map 'kvm_vgic_global_state' at EL2 with pKVM"? It doesn't
+seem we have any !OWNED pages in the hyp anymore at setup, do we?
 
-On Sat, Feb 15, 2025 at 03:37:22PM +0100, Uwe Kleine-K=F6nig wrote:
-> pwm-stmpe is the only driver that cannot be built as a module. Add the
-> necessary boilerplate to also make this driver modular.
->=20
-> Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
-
-Applied to
-
-https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
-next
-
-=2E
-
-Best regards
-Uwe
-
---dszzsrs7iiegpzat
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmfFeagACgkQj4D7WH0S
-/k5Q0Af/fTmRfYYk6lWXxsIcFhHDAF6paE6ZWIq5+TiCzoRCcX8S4fiH92Kmz0kD
-FcFDNskZuj/MZEUmfQ+xXClJVwpXTEhZL0589ALzo8uSv1FNZUg2tHk/tPT30Rxw
-wfNynJPHkyO4gVQ6dm81qJ2e82VI6B85KNxN54DkJphIYhynS/OstQdsuT/kvsFf
-cT1ei+v101ww6s1ycVH44lrCbC06sb9tC4XVkS3ZCQw443EzJM2A4nIE6MrIdLsa
-A8pb7ggUHf/sUtQC/BDssdTAvWvq1hgXDDQSnVpuhg8lXhUyAW4xeoCZan2mFPrk
-8nJ2zdNMDZPQ4WWaLC8jEJy5z4syUw==
-=Uees
------END PGP SIGNATURE-----
-
---dszzsrs7iiegpzat--
+> -- 
+> 2.48.1.658.g4767266eb4-goog
+> 
 
