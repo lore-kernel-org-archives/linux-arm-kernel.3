@@ -4,104 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A07CC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 03:47:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10EF8C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 03:49:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FrWpXWtpt+ZULEbiR2Up6sVFlN84+mzhnBc7WKp2O/Q=; b=B2xW+9rlPVyrzQW3XAzUXcs2Rk
-	mYgdofLBHcoe5lruYauCMCCTBgGB3paAvK1RX0WPlHy3GNlIqIva2Ht7AM2miv8ad6nghfDUrj3Pv
-	qru3UAvyQB1USUOL4W43Lxdti3AgztdmIWZsIJ29rz1+Fci4AEELuY2NEur21mRRaUaav4/j0Sho0
-	QS0nx7rQPvuRP5KAhZWaLvG88wBTk40bTkvOCXC3BxxL22hctVAOZeYmI/rtsSdGkt4IxWmM5ObGn
-	CltAPxJ9gP5JdnLrPaDEfADLt5BQZ7U/ebSMn7UmpfiVRtOojKjvhkD84fGM9dehSoqXHdNvjdbRN
-	Q04e+shg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IEDc5a+qaJ461fEOorI0aPSdSVAqOPF0WWp/svcyhEc=; b=CG5s5JljzC4w/evt3TnBuyoZ6G
+	tHHKN8SkZOqVMcGvXpw8UZheoah2Qff4AB/6U+Y9P/w8H6z9loDGIVyq1bSX8JTryxyco4M9P/lzY
+	WWNPIPasGCxzWHVcqNFzX1hGMKDIH0JsjHAFYdCmqKMqYkGgxGIm8U0D4Lf9yUKpVNUv0FvovY6lQ
+	pcs7wYq5hp+/vcpQjuj7Yepb472qlPDTb2sEdi2DAivJYW4goko3El6Jctm6VWAhZ1PqDP4JDTPkD
+	8Ni+z8YiGuOtQS/QD47+k++yBnw7bLAje9ly0kER3KXH5VDSVHftXerM/jE7ZfVZ+slG1KFDKftcT
+	bWVQxgdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1towmS-0000000H6hF-38vI;
-	Mon, 03 Mar 2025 03:47:48 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1towo0-0000000H6uq-2KDC;
+	Mon, 03 Mar 2025 03:49:24 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1towWH-0000000H4AE-2SKg
+	id 1towhX-0000000H5i6-21Gx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 03:31:06 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 522MkaCr005511;
-	Mon, 3 Mar 2025 03:30:57 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	FrWpXWtpt+ZULEbiR2Up6sVFlN84+mzhnBc7WKp2O/Q=; b=o27lRQMsgOndRnfS
-	SX9sBZqGcYVZSxvd9nXqHZ1ldhJQ8S50VIg4biYUUb+0/1XFb4F6zMMjgRhVUNiZ
-	sZS3N71TmOldYbG6eDheAsJPBk4d8Vt4f45OivZwnJyi1nNEQH1y3AXTVzcVULCi
-	jUqsoHlyTnciXG3MKI6xFVgJgB9NIB2wI632c+njwYVAxdk+QOa51ReU0KYnEyxH
-	OvR675ENBd8xr4PYLgpQ+baitNjufUmDTzObTJc2PbM3uhiPQvJroDqsHpM7XPPs
-	x4LamY7HvODQAX8F5uLisUbbCU66ZgtK7M/F7AELO5OkSQayfGjhOfVyNW7K/aMu
-	7lfzqQ==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 453t89ufyn-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 03 Mar 2025 03:30:56 +0000 (GMT)
-Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5233UtAJ005011
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 3 Mar 2025 03:30:55 GMT
-Received: from jiegan-gv.qualcomm.com (10.80.80.8) by
- nalasex01c.na.qualcomm.com (10.47.97.35) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Sun, 2 Mar 2025 19:30:49 -0800
-From: Jie Gan <quic_jiegan@quicinc.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        "Alexander
- Shishkin" <alexander.shishkin@linux.intel.com>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-CC: Tingwei Zhang <quic_tingweiz@quicinc.com>,
-        Jinlong Mao
-	<quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        Konrad Dybcio
-	<konrad.dybcio@oss.qualcomm.com>
-Subject: [PATCH v15 10/10] arm64: dts: qcom: sa8775p: Add CTCU and ETR nodes
-Date: Mon, 3 Mar 2025 11:29:31 +0800
-Message-ID: <20250303032931.2500935-11-quic_jiegan@quicinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250303032931.2500935-1-quic_jiegan@quicinc.com>
-References: <20250303032931.2500935-1-quic_jiegan@quicinc.com>
+	Mon, 03 Mar 2025 03:42:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1740973361;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IEDc5a+qaJ461fEOorI0aPSdSVAqOPF0WWp/svcyhEc=;
+	b=DJsj5rx8ZbDQsSTTP/4aBlOaErwxdWkBa3o1ySXbKx33ZQ7/I/NLXAAyt1mYlZycikg0Sa
+	Dnz7bRmtB0QkVQglo3GYDyIJ4T6I6IOcyCQgG33/4GOp08yubCtU9XaBuRG/uNzBNvTlEU
+	2jUnaAx5IuXTivuRzrX4injBpJnfhoY=
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com
+ [209.85.216.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-266-Qsscg5eSOIeBHdF5obUP8A-1; Sun, 02 Mar 2025 22:42:39 -0500
+X-MC-Unique: Qsscg5eSOIeBHdF5obUP8A-1
+X-Mimecast-MFC-AGG-ID: Qsscg5eSOIeBHdF5obUP8A_1740973358
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-2fec3e38b60so4247053a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Mar 2025 19:42:39 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740973358; x=1741578158;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=IEDc5a+qaJ461fEOorI0aPSdSVAqOPF0WWp/svcyhEc=;
+        b=fh6flN87WgyQOJkiBMPInjKsdo5EAtRfl665AUqPJwkGsSqhXsRaiaR7VR5Cid8H3g
+         Q7j4yGcf3wCQsZfO7s+pbvRW8cCz1G0zZDLKwOMXRewWH1VYsl4HxowHCMAKgH2IudXa
+         UCV2QlvD+v4Zi1od+8CKoA+4adLPg9lHZ/jpf7I8AQT3YyUWazycfoEtgRNcD3sFkjzD
+         YUw+8pcIHjcWC25CqQim/5mQM7zPSiM46/+tr0YxXcObGA+4jig/OKStbqoKN2LQcGeo
+         EPEVfM9B0YujCj5Yd9etChXPFh1m80ZcwqkK8iRnqFlNU4uJo9HC3bzC71TO4i3/DSkx
+         frLg==
+X-Forwarded-Encrypted: i=1; AJvYcCU2TFaFVN/FtFooybcvVHievu68YdceeiObTTULo6KQbE1mZNRAGS4SDpTIgeflNoLd9IzhfMPl7dYUVThx+jzz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy//klOycce4rKrBIRY8XbPdhMUVe+ZoMGykfFbnkAtpE/aFtNb
+	Ll1xKGB9fQ21ADZkjtMzjY9A0rFqzfy/jqb6p0cv/9Q12G/Jr/msXd1Tt8ThnuleWhlm9B+IPQb
+	qvgVDzqWOwYpr0JH2zYhm/66DHDNdD4iEmLDxPrzFVGpt/mGY6y0pyFBHf00Xrb12s6f+N+DB
+X-Gm-Gg: ASbGncuwEJQhbAaLyyC5KxTSE8TabgC44ZUXDAlxkmggzKYthl7/r3/4pNpiBwIf0OL
+	Ww4B3FLGjsxrNUM95qSD9A7i4eUEhcPEI+nFRsfBaD4Fr5VNYZ/gNoAvfIw6GQO+8+9bqa2KWip
+	iV1Q/2ZzaNALWq/fb0d8yTgd9tFQkUDZ5AJkrR6AjUy7I+NA0jhkXtuW90DwfPL5Jh5KcEe2g/V
+	hYL2okqxzDD4wrTi4eoQZ1FHkhYdZPv0tI34iLpSJaH8+uKnfNa2OmPJxgloZb4e6LLyxgSIUzn
+	O1LG26xhvuYUVUMuIg==
+X-Received: by 2002:a05:6a20:1585:b0:1f0:e708:56e2 with SMTP id adf61e73a8af0-1f2f4cffa11mr18287096637.22.1740973358568;
+        Sun, 02 Mar 2025 19:42:38 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IF5c7Qc3VVFcg30Esq5DIzJh6RfeW5P5eI8KFXRrs6oJHF3s/m+eXSunL5iyzYk2nV2q0PqZA==
+X-Received: by 2002:a05:6a20:1585:b0:1f0:e708:56e2 with SMTP id adf61e73a8af0-1f2f4cffa11mr18287060637.22.1740973358238;
+        Sun, 02 Mar 2025 19:42:38 -0800 (PST)
+Received: from [192.168.68.55] ([180.233.125.164])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7362e3b1c61sm4421335b3a.22.2025.03.02.19.42.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 02 Mar 2025 19:42:37 -0800 (PST)
+Message-ID: <8f08b96b-8219-4d51-8f46-bc367bbf2031@redhat.com>
+Date: Mon, 3 Mar 2025 13:42:29 +1000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01c.na.qualcomm.com (10.47.97.35)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: MST9PkTBJiEPb3SPBJTFJe-JapqdRSRc
-X-Proofpoint-GUID: MST9PkTBJiEPb3SPBJTFJe-JapqdRSRc
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-03_01,2025-02-28_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 lowpriorityscore=0
- impostorscore=0 priorityscore=1501 spamscore=0 phishscore=0 suspectscore=0
- malwarescore=0 clxscore=1015 adultscore=0 bulkscore=0 mlxlogscore=999
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2502100000
- definitions=main-2503030026
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 05/45] arm64: RME: Add wrappers for RMI calls
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20250213161426.102987-1-steven.price@arm.com>
+ <20250213161426.102987-6-steven.price@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20250213161426.102987-6-steven.price@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: KrJ6znx-40RR9gGQtCKaY5FDUPuvEVlVYc-4_g3s93M_1740973358
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_193105_743376_B9B668D4 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20250302_194243_612743_1132E99F 
+X-CRM114-Status: GOOD (  22.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,193 +121,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add CTCU and ETR nodes in DT to enable related functionalities.
+On 2/14/25 2:13 AM, Steven Price wrote:
+> The wrappers make the call sites easier to read and deal with the
+> boiler plate of handling the error codes from the RMM.
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes from v5:
+>   * Further improve comments
+> Changes from v4:
+>   * Improve comments
+> Changes from v2:
+>   * Make output arguments optional.
+>   * Mask RIPAS value rmi_rtt_read_entry()
+>   * Drop unused rmi_rtt_get_phys()
+> ---
+>   arch/arm64/include/asm/rmi_cmds.h | 508 ++++++++++++++++++++++++++++++
+>   1 file changed, 508 insertions(+)
+>   create mode 100644 arch/arm64/include/asm/rmi_cmds.h
+> 
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
----
- arch/arm64/boot/dts/qcom/sa8775p.dtsi | 153 ++++++++++++++++++++++++++
- 1 file changed, 153 insertions(+)
+With the following nitpicks addressed:
 
-diff --git a/arch/arm64/boot/dts/qcom/sa8775p.dtsi b/arch/arm64/boot/dts/qcom/sa8775p.dtsi
-index 3394ae2d1300..31aa94d2a043 100644
---- a/arch/arm64/boot/dts/qcom/sa8775p.dtsi
-+++ b/arch/arm64/boot/dts/qcom/sa8775p.dtsi
-@@ -2429,6 +2429,35 @@ crypto: crypto@1dfa000 {
- 			interconnect-names = "memory";
- 		};
- 
-+		ctcu@4001000 {
-+			compatible = "qcom,sa8775p-ctcu";
-+			reg = <0x0 0x04001000 0x0 0x1000>;
-+
-+			clocks = <&aoss_qmp>;
-+			clock-names = "apb";
-+
-+			in-ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					ctcu_in0: endpoint {
-+						remote-endpoint = <&etr0_out>;
-+					};
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					ctcu_in1: endpoint {
-+						remote-endpoint = <&etr1_out>;
-+					};
-+				};
-+			};
-+		};
-+
- 		stm: stm@4002000 {
- 			compatible = "arm,coresight-stm", "arm,primecell";
- 			reg = <0x0 0x4002000 0x0 0x1000>,
-@@ -2633,6 +2662,122 @@ qdss_funnel_in1: endpoint {
- 			};
- 		};
- 
-+		replicator@4046000 {
-+			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
-+			reg = <0x0 0x04046000 0x0 0x1000>;
-+
-+			clocks = <&aoss_qmp>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				port {
-+					qdss_rep_in: endpoint {
-+						remote-endpoint = <&swao_rep_out0>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					qdss_rep_out0: endpoint {
-+						remote-endpoint = <&etr_rep_in>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tmc_etr: tmc@4048000 {
-+			compatible = "arm,coresight-tmc", "arm,primecell";
-+			reg = <0x0 0x04048000 0x0 0x1000>;
-+
-+			clocks = <&aoss_qmp>;
-+			clock-names = "apb_pclk";
-+			iommus = <&apps_smmu 0x04c0 0x00>;
-+
-+			arm,scatter-gather;
-+
-+			in-ports {
-+				port {
-+					etr0_in: endpoint {
-+						remote-endpoint = <&etr_rep_out0>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					etr0_out: endpoint {
-+						remote-endpoint = <&ctcu_in0>;
-+					};
-+				};
-+			};
-+		};
-+
-+		replicator@404e000 {
-+			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
-+			reg = <0x0 0x0404e000 0x0 0x1000>;
-+
-+			clocks = <&aoss_qmp>;
-+			clock-names = "apb_pclk";
-+
-+			in-ports {
-+				port {
-+					etr_rep_in: endpoint {
-+						remote-endpoint = <&qdss_rep_out0>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					etr_rep_out0: endpoint {
-+						remote-endpoint = <&etr0_in>;
-+					};
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					etr_rep_out1: endpoint {
-+						remote-endpoint = <&etr1_in>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tmc_etr1: tmc@404f000 {
-+			compatible = "arm,coresight-tmc", "arm,primecell";
-+			reg = <0x0 0x0404f000 0x0 0x1000>;
-+
-+			clocks = <&aoss_qmp>;
-+			clock-names = "apb_pclk";
-+			iommus = <&apps_smmu 0x04a0 0x40>;
-+
-+			arm,scatter-gather;
-+			arm,buffer-size = <0x400000>;
-+
-+			in-ports {
-+				port {
-+					etr1_in: endpoint {
-+						remote-endpoint = <&etr_rep_out1>;
-+					};
-+				};
-+			};
-+
-+			out-ports {
-+				port {
-+					etr1_out: endpoint {
-+						remote-endpoint = <&ctcu_in1>;
-+					};
-+				};
-+			};
-+		};
-+
- 		funnel@4b04000 {
- 			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
- 			reg = <0x0 0x4b04000 0x0 0x1000>;
-@@ -2708,6 +2853,14 @@ out-ports {
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
-+				port@0 {
-+					reg = <0>;
-+
-+					swao_rep_out0: endpoint {
-+						remote-endpoint = <&qdss_rep_in>;
-+					};
-+				};
-+
- 				port@1 {
- 					reg = <1>;
- 					swao_rep_out1: endpoint {
--- 
-2.34.1
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+
+> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
+> new file mode 100644
+> index 000000000000..043b7ff278ee
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/rmi_cmds.h
+> @@ -0,0 +1,508 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (C) 2023 ARM Ltd.
+> + */
+> +
+> +#ifndef __ASM_RMI_CMDS_H
+> +#define __ASM_RMI_CMDS_H
+> +
+
+[...]
+
+> +
+> +/**
+> + * rmi_rec_aux_count() - Get number of auxiliary granules required
+> + * @rd: PA of the RD
+> + * @aux_count: Number of pages written to this pointer
+                   ^^^^^^^^^^^^^^^
+                   Number of granules
+> + *
+> + * A REC may require extra auxiliary pages to be delegated for the RMM to
+                                         ^^^^^
+                                         granules
+
+> + * store metadata (not visible to the normal world) in. This function provides
+> + * the number of pages that are required.
+                     ^^^^^
+                     granules
+> + *
+> + * Return: RMI return code
+> + */
+> +static inline int rmi_rec_aux_count(unsigned long rd, unsigned long *aux_count)
+> +{
+> +	struct arm_smccc_res res;
+> +
+> +	arm_smccc_1_1_invoke(SMC_RMI_REC_AUX_COUNT, rd, &res);
+> +
+> +	if (aux_count)
+> +		*aux_count = res.a1;
+> +	return res.a0;
+> +}
+> +
+> +/**
+> + * rmi_rec_create() - Create a REC
+> + * @rd: PA of the RD
+> + * @rec: PA of the target REC
+> + * @params_ptr: PA of REC parameters
+> + *
+> + * Create a REC using the parameters specified in the struct rec_params pointed
+> + * to by @params_ptr.
+> + *
+> + * Return: RMI return code
+> + */
+> +static inline int rmi_rec_create(unsigned long rd, unsigned long rec,
+> +				 unsigned long params_ptr)
+> +{
+> +	struct arm_smccc_res res;
+> +
+> +	arm_smccc_1_1_invoke(SMC_RMI_REC_CREATE, rd, rec, params_ptr, &res);
+> +
+> +	return res.a0;
+> +}
+> +
+
+'params_ptr' may be renamed to 'params'.
+
+
+[...]
+> +#endif /* __ASM_RMI_CMDS_H */
+
+Thanks,
+Gavin
 
 
