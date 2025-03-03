@@ -4,85 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94981C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 19:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5609C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 19:57:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k2CKI4zBybc+xDXiR4bNdoML7mcL6qio7NNqVOxcVnU=; b=FFqJ17VAE+ogfETXxr7RnJrOq3
-	hBzzoQhVxZY2lXXpVvN/jw9ou78c24RUPsMrGjjs+ZzzpSJqrYS954XP8qO+EPaEnorOPWHrssja+
-	BC5iCVo02v/eC1m6frdbgFdYb04DW7bjwlb6TfWzPkefi+S23k7n12DLrFQw1WGBwnMEEJD/NuwRR
-	8BQVybi9w/TNB+Aifj+Ppn7DRqUiPARdTszUjF6Ngd08z5ZqxsrTQre/oLFCZud9Xp79OT2p86axa
-	0DK09gN4x28iwYeIn7XiOlS8WgX8BU0iG1ImBa3hOWiXMiCYIjbeX8cOBCV5xJOC/9kgxF9RAwuNe
-	al0+hu9Q==;
+	bh=YHDom3rnMk0bhln+zgGx1XLmYDC3POyZRXoDcUpbYP0=; b=m/pMcTv6iwOHcygI0Qh1tuG/Ga
+	TqNQCum29E6CU1GvF9a6CT3opLXNaLgWFy87I3vcG7PMBppLGy3lePo9b8W8gnz5xKEV08Ue6R1Zj
+	VUij0M37Pb++Cyrws2R+HtlXjc2T57Mcdao0AngpyrnyzWwkcwIINLFkiXKzMrfCOn4NOA8rehIaH
+	MbeOQWk1WLevRfzqXbm4OoE+9eDfg0tZEQ06NAP+9+2eGAvSRx7VlS75sDWHvUQpm+Bo2iacSOBvj
+	wy2Ur2IR/qSq4DEsJad8ge9905k53zVvmUwQkh5bGsP2MczzaGtpt4cVBSK1XLWQs4ZrZlMr2lIBc
+	Xraszt7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpBr2-000000026wJ-1izW;
-	Mon, 03 Mar 2025 19:53:32 +0000
-Received: from mail-pl1-f182.google.com ([209.85.214.182])
+	id 1tpBuk-000000027dw-0yHR;
+	Mon, 03 Mar 2025 19:57:22 +0000
+Received: from mail-eastus2azlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c110::2] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpBpQ-000000026bC-3XLw
+	id 1tpBt9-000000027HB-3ApE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 19:51:54 +0000
-Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-22334203781so92984565ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 11:51:52 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741031512; x=1741636312;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=k2CKI4zBybc+xDXiR4bNdoML7mcL6qio7NNqVOxcVnU=;
-        b=N2UyF0MJMSAsQIhGvBj0MkgTPmBYykdaP+ciVBAjL42d3OJAEKFo2MUm5Q5SNQQUdu
-         9R2He7Z9lX0jLmgUExhnoBsNq2G7+Vm6a8rLmg/qbVVcutWkleE0vgO50oVptj1ZN7dj
-         eiURgXP2+/vPfcVP6ua+8V+7kxQVBWvVDCGrYF/x7iKzNK0mtcDrkazvVGF+HdhwT7nm
-         egI4IJ4UX321ToEQERXuJUW5OaG4eIi4n1WGuuvfzAJ2cZKGSAXZUaMZtybwSGy/+7QQ
-         Fea+vLkV3RUgb3j9pxPiLvPlSCRSLkVvLGrnzCtMs8VXtdp73KwxWa9hMQ6d9zosahBN
-         71gA==
-X-Forwarded-Encrypted: i=1; AJvYcCW2OEVoXtYZZNl0d2NwmXBN/G+Ojpb58ByOOc3QGXxMgLSwNLbgqTWdg0TQW17eDt/NVvSXhe6A2XsstIF/G5ox@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUUKIgXeAGJUnMngAJSr6TLzqr5Q178Ljn7kFlUVEckGQJmbOL
-	CRkoBg/q8ODqxBaawl2XPw97ANQ+y+f7z3wm6TZJ4TMeYziYNV99
-X-Gm-Gg: ASbGncvXiPzUlTEhimnBEJLz6GUEV+T/5s8dV8NdMt8OHBwafJQgX4USWHEgdDoY4M7
-	0i/sFo7tHXshnOnSaEz+DsAy8ixzJ926wUKXQtMv7xQURnxRd+TJGxdD2sMFEIRZLsiCEGClPx5
-	d4uubyeJ0HkLotXCuPXCP2r7n+u0ViAK2OcC4BYvGL7wxJqjGzaeOIFOZT5CH+f0771Z3SZe6X9
-	aonuWF8VXbUROGWhiTa4HWZVXX3jNeW3tOr1XYepbxaxFzqBUHKeubd3kj1kuYXS2dxQ54fhKLT
-	i6exPp4APyWyXFZCEt8BGWMbTlvzEs7pYMSWkmuFBdF81ITjzJ+WQbNSahWph11ka9MnZ6Abf4r
-	vFhY=
-X-Google-Smtp-Source: AGHT+IH+EFbEps/Env/viwecJzf7dRRJVQvIfNTlMDSlf181d0a4uYVPYlR1DNAdfEAQSeUvTmrcqA==
-X-Received: by 2002:a05:6a00:4b10:b0:736:47d3:b2f2 with SMTP id d2e1a72fcca58-7366e6414a5mr863083b3a.12.1741031511942;
-        Mon, 03 Mar 2025 11:51:51 -0800 (PST)
-Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-734a00255d8sm9272490b3a.88.2025.03.03.11.51.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Mar 2025 11:51:51 -0800 (PST)
-Date: Tue, 4 Mar 2025 04:51:49 +0900
-From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-To: Shradha Todi <shradha.t@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, manivannan.sadhasivam@linaro.org,
-	lpieralisi@kernel.org, robh@kernel.org, bhelgaas@google.com,
-	jingoohan1@gmail.com, Jonathan.Cameron@huawei.com,
-	fan.ni@samsung.com, nifan.cxl@gmail.com, a.manzanares@samsung.com,
-	pankaj.dubey@samsung.com, cassel@kernel.org, 18255117159@163.com,
-	xueshuai@linux.alibaba.com, renyu.zj@linux.alibaba.com,
-	will@kernel.org, mark.rutland@arm.com
-Subject: Re: [PATCH v7 0/5] Add support for debugfs based RAS DES feature in
- PCIe DW
-Message-ID: <20250303195149.GA1814481@rocinante>
-References: <CGME20250221132011epcas5p4dea1e9ae5c09afaabcd1822f3a7d15c5@epcas5p4.samsung.com>
- <20250221131548.59616-1-shradha.t@samsung.com>
- <20250225143001.GA1556729@rocinante>
+	Mon, 03 Mar 2025 19:55:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RFpADrNac2oFyN4Zkwa0omuYxU2xr/V2SnqmOpszF6jKTW0QTUoCiy2e1A7+wBgRYH24NX0reV7fGtU9dbEe3bPmkASSY6BtWbmR23ulaLZVWY1VGQIxJtZXdcGmDtPXUuQLu/ksGG1/gOiFC6rheSCn/n1AYe/wIlU4a2MyUeu487NyaSWeoeI2CGyV86jum756Arq2XmJKnAkS03iFGOZWbOfmpQc8XWPhfxo+11UCDZuw5WpKCt83fageblJNEqza1NEMroTnuGaNLNUNESfWC8XH5zNm8fSFB4/Zapr9Q987Kn1/ur/j6SIK54OSC1Mq+baAu9yT1t+egxMNIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YHDom3rnMk0bhln+zgGx1XLmYDC3POyZRXoDcUpbYP0=;
+ b=CaF8r6ZC9YYReYWq7nb1xs7JTxDyIqt+E6N7iGArYnkwB8YovS2R6j17i5BaF7/Xhceq7VGJ6vFDd15EVcaEZikR2nzicauWdhgCKap/15+nJM+KTb7NhHi8Xb6AoAky1NIb8RjVTyIODUTP/xjQfT9GzSaSbw53NEJ6ZBXblcgP+jrMc0uiRXyt0md9qpgrAvNRIjV5Fw/gH4pViZsvoC3wxSsOwHjxvHbpfDvQCtXp9mNewf3gW8NgyJMszuiFUsmOdHmWGNzGoPjim7bOnjHkHHtw5whP2N3HYBoFdkSpQnxVMHtVfrHUCVdwzz1NLEc3rDl0dlqhoez5hakrcg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YHDom3rnMk0bhln+zgGx1XLmYDC3POyZRXoDcUpbYP0=;
+ b=JcMicN69HPtV4LUAU6QiY8kJizbtYFWGiwrbotG09rxzZLvC6LzAMq9t6SG2nyBmwmGcOZBV3yeAVwlwlEgXTFcDsiZpmRvQ2f0HWL0XZLAvtOSw0FNYWBn38mJtbZEZ7bd/jsYd+CZOJcEXoybc/m2Tcq6s+dP9fqVUeYz7plA=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from BN0PR01MB6877.prod.exchangelabs.com (2603:10b6:408:161::22) by
+ CO1PR01MB7387.prod.exchangelabs.com (2603:10b6:303:15a::5) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8489.28; Mon, 3 Mar 2025 19:55:33 +0000
+Received: from BN0PR01MB6877.prod.exchangelabs.com
+ ([fe80::91fc:9877:8a2a:d4e0]) by BN0PR01MB6877.prod.exchangelabs.com
+ ([fe80::91fc:9877:8a2a:d4e0%4]) with mapi id 15.20.8489.023; Mon, 3 Mar 2025
+ 19:55:32 +0000
+Message-ID: <a382e902-6887-4880-a312-cf52defccaf5@os.amperecomputing.com>
+Date: Mon, 3 Mar 2025 11:55:28 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] arm64: Add BBM Level 2 cpu feature
+To: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>
+Cc: ryan.roberts@arm.com, suzuki.poulose@arm.com, catalin.marinas@arm.com,
+ will@kernel.org, joro@8bytes.org, jean-philippe@linaro.org,
+ mark.rutland@arm.com, joey.gouly@arm.com, oliver.upton@linux.dev,
+ james.morse@arm.com, broonie@kernel.org, maz@kernel.org, david@redhat.com,
+ akpm@linux-foundation.org, jgg@ziepe.ca, nicolinc@nvidia.com,
+ mshavit@google.com, jsnitsel@redhat.com, smostafa@google.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ iommu@lists.linux.dev
+References: <20250228182403.6269-2-miko.lenczewski@arm.com>
+ <20250228182403.6269-3-miko.lenczewski@arm.com>
+ <c572a93f-0899-4fc7-9764-d3e76e9fe6d1@os.amperecomputing.com>
+ <223a817b-66dd-4182-838f-a186b059fe41@os.amperecomputing.com>
+ <20250303094022.GA13345@e133081.arm.com>
+Content-Language: en-US
+From: Yang Shi <yang@os.amperecomputing.com>
+In-Reply-To: <20250303094022.GA13345@e133081.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: CH2PR10CA0009.namprd10.prod.outlook.com
+ (2603:10b6:610:4c::19) To BN0PR01MB6877.prod.exchangelabs.com
+ (2603:10b6:408:161::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250225143001.GA1556729@rocinante>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN0PR01MB6877:EE_|CO1PR01MB7387:EE_
+X-MS-Office365-Filtering-Correlation-Id: 121df901-ee72-4f5b-bd42-08dd5a8d5b58
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?aTl0TDY1eGtCV3JYM0N4NGs3dEx5dzcxcDZ1OWwyd1cwUTdld05EeklIcVJH?=
+ =?utf-8?B?dVF0ZnZjR3JWUDlZQ2cwaHRwcHVXakxUZzgxMUpnYXJ3aFRqeUtaTzY5Rlc4?=
+ =?utf-8?B?NSthMkhWMkQvdkJ1Z29uNWhDa3NiY2JaSTJqSzhRbHg3bmJ0c214bXhyQ2Qx?=
+ =?utf-8?B?ZGVPR0tnSDhWWTB6UTBzSGF1U3E5SWpMcHcxdXdCdDROcXRWZjUwY0UrTVlM?=
+ =?utf-8?B?TWFzMUwvLzJ2RmhUTGRFdVU5T1dxTno5TExIT0lPRy8wdFcrRG0vekRJNFg1?=
+ =?utf-8?B?R20yOENBTFlBSGZDSTYvcDc5ZjJJakJRZmxWU0ZnTUgyVXZKY2xFd2tpZVlt?=
+ =?utf-8?B?N2RFa1hlaHRRQlYrYWxuRnhBcnkxd2hNdWZiSzBJb05Cak5sQzV1QzZRclRD?=
+ =?utf-8?B?eXVDYnBwUDdzMjVLeVUraHE5M3EwM3hBTm5jcm92bEJjdGxzcjZkdlprc0dW?=
+ =?utf-8?B?Qmh5NEYxRWN0YlNFRmhHZkNGOGdDTUpkL25ZenlMWE5JVzV0bnViV2dKRDg0?=
+ =?utf-8?B?SUhFTGZTRXd6ZDZ1dVViRnNDMXlKNkJ4UThwamVKUXV5ckVwK3JvQ3BEdEp5?=
+ =?utf-8?B?WFREN2xxWmppeVFpMHlWMzZQa2lIWk0yWWg4dVM5NUQ2TjVLNUFnYlU0ZmEv?=
+ =?utf-8?B?NWRPWFBZQXZoL0ZjQitnczBIdDZIQU56RlFHdHJSaHNIenJkN1RhREJhV2hQ?=
+ =?utf-8?B?a2U2Z3pDWDNqcGdCWGtUWXAxbGo3TmFpYVd1RFNDMy95bCtMTGNScWtxOE41?=
+ =?utf-8?B?RlB4OE02allUaloySmFuNUgzelB5aThHTWRXc0dvVndhSGh6N2kweGJpSHFu?=
+ =?utf-8?B?bUptNHBBdGQwM2IvVlFtS3VCQ044cXZYbCtwaHQ3MHo2R1hqTjV5UXluaGw1?=
+ =?utf-8?B?SmJKZU9nYW8vdmIyVFd4V25mblduYVJjeGl3ckFPR29GL0dzV1dXa05PY2Jh?=
+ =?utf-8?B?QlFZYTgrQ1hSaHdjcTdpK1I2cG1rMGJJWDJFY29NOTc1TzVUck5ySnUyNVdm?=
+ =?utf-8?B?SVJyR1VHRS9FY1grM1BwUWpMR0YrMXpDOTFDYklzcmg4c1lKc2d1RDVBTFIx?=
+ =?utf-8?B?Rll3WUplNWc1UVkwZFRaWS9VVy9zYlNGUzVtRFNobnJ4aUJaQlF5RmM1bktM?=
+ =?utf-8?B?ZTBHa1h2ZkJ5OFVEeDlvZUU1NE9zcWZHczFQOXFlcy9IUE9Lck5iQ2RuOTBO?=
+ =?utf-8?B?cVlyUUtPRmEwUEZGUmhlL0dzU0JoK085VG0vemVNbDVNM3ZmQUhYeEN0MnR4?=
+ =?utf-8?B?aVkyZzZyT1lqeU00T3NwcDZkNjErVEN4N2x0Qm5oM1VkSVQyai9BVUIvK3U5?=
+ =?utf-8?B?M28ranBIcGNqRWE1cE1CZGRCakdKcTl2Lys3UlNUbWdDa0VlQU4rR3pxZ2RH?=
+ =?utf-8?B?eW52SExBOUM2NDFCT3VSUGJ5WFR2bElTWkc1dmg2TVd4SldWR082cFNSNi96?=
+ =?utf-8?B?SFp0MmlnUzdmSkJLeGliVkNpcTZkaE1neGpiRjY3TDBaQWlyQjluZjN0UTFw?=
+ =?utf-8?B?NmtFZ2VYRVpJMEpyNTIxbElHOUpLdUN3SWV1RElNUVh6dXdNNG9VS09tMXdi?=
+ =?utf-8?B?RUN6S2hzeUpZSFhZZ0toSSs3N212Uk1sd2UxR3VwOTNkcVYwWHVMamFXWEpw?=
+ =?utf-8?B?Z0p0cHgvdkhuSS9Xa1hhR0M3bmNYQWJ3Y25YSUpOa203USszWVdCa2xwSGpr?=
+ =?utf-8?B?VHdSQ01Da0l5OWhHVjZpTnlDcHk4WjlxY1lBOUtnZEtnU2dlYThWMHR2VVNt?=
+ =?utf-8?B?bTFOUGJ2UjA3YnhuYUlDSUtlZUFVNHlZakZpZDZBbGg4YktTTHhlRlVmZE9V?=
+ =?utf-8?B?clVadEtzWE9RQy92M20yWENsS2ZyM1JxODF5WXJyUWxUU1RhRkRRK1k4emhp?=
+ =?utf-8?Q?/sz2+qGIvphbU?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN0PR01MB6877.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cDZRaGpZaHF2UXdBR3JnajkyQjVDQjdzbzZFM04yU09LOXNNUHlEY1pHd2Ji?=
+ =?utf-8?B?N1c0Qy9rVkFxbjMyanZuMWRVNkVsY3VGTXlibHdaVWlpd2Q1R1k2d3hHdXhC?=
+ =?utf-8?B?WU5LQ09CamZ4RHd6Y3RpeWZodExPaE1mM0JjaXhsRkRRZmlDNk9rblY3V3VD?=
+ =?utf-8?B?RFVMZlp3eHNoajRJeTlZYm1LVGZ3bkM0bGtFZi9TVEc3anJTWTUwenBzK2Z4?=
+ =?utf-8?B?enhjZlVKd3NsOXVZQkdOdU9iRENiZmRZYm8weWV0VzUxblRvTHZIM2JDSHlT?=
+ =?utf-8?B?UEpwZEl2MkpSRmVUc2JQaXhZakh2MEppMlZRVzRMb01sTEZLeTVYYVczRzVX?=
+ =?utf-8?B?UmkyalMzRlRUZ1FNRjhRb1FKUCtFMndKL1RyVWEvM250eHlxcXp0MVNYV0g4?=
+ =?utf-8?B?bkhxUFZQSlJ6UjhBdy9HYlptUDYyU2RxQlQ2MGJnVHVlc0x2bTFJMWFBVC9q?=
+ =?utf-8?B?SFlaSGpQWmxFb2xNZWY2SXg1SkhsVlNBdlpNUGQxNlZTVXptZ1lMWndsVE1l?=
+ =?utf-8?B?eWk3WUV3elB2SE95alNHTUZJeXJoS0dOYlZpeUQ0QmgzcDRlWDZkUlpNcVU3?=
+ =?utf-8?B?Q3pMcUQzMjRGcmE0VkhubStOb0haZ1QyR2VSU3BBYzIybFhNYlFMcjU0QXJz?=
+ =?utf-8?B?R3ZPQUhSZGlvSlFTRzRUOXdRNWlJdWdDK2pjeGdOMGRzUkZHZUxZOUhuSkN6?=
+ =?utf-8?B?SlVaN3BDOUU5RXFhaFVQcTZwTVVmTjE0eUJUV3ZXSlo3TmpaOFd4OCtlZzl1?=
+ =?utf-8?B?cFBlR3RSeUtOVWFsY09CUlRWb1BlR2pEYnkwRCtweFNBeHdZSjN1Z05HSXRt?=
+ =?utf-8?B?L0NtQkc3STVjaXdNbHg2dkZFS0xaaTFjWTlPSnVhbVpidy9BTzB5QkVDQngw?=
+ =?utf-8?B?ZDRhbmNPMkJ4eVdzYStqRmZpVmtDeEJ2bU5Lb3pqdXI2ejMvUXNVTGpRT2tz?=
+ =?utf-8?B?am03dXRVbjkrTDhCY1hoMFRtUGtzRTI4RXI4WmVFakRMNUhvZVJ3bnlxWnMv?=
+ =?utf-8?B?ZXFGc2tGcGxNNFRBeGw2ZGlFTGpYcHloNWJadFBQS2N6S0c4dkNPZWtUa3VN?=
+ =?utf-8?B?Rm9hZnVNbGZwejg2Q2ZIYXNBMzRhQUNxRE1nVWdzRjdrVy9hTnVTdVFuU2Fy?=
+ =?utf-8?B?YW0rYjdId1VrZFNoTlNxTUlnZktMSTJHNjJkRDRUMHAvSUFZbFBYRzN0WVdw?=
+ =?utf-8?B?UHNTbm0rdmZqWDk2ZDhheWFEUGFoZXRieVFXbkw2R2JmeGV3cWVqQlNRSVd6?=
+ =?utf-8?B?YjUvSDdSNXZUU0s0RmRva3gvNjFDNUsxOWJkU2pYYVZJeDlzTEl6WGJCLzhW?=
+ =?utf-8?B?R1hWUjMyVUpPTlFqR2RmeHJwelZLREJGSFROR0I3LzVESlFsRkJFdkczd24z?=
+ =?utf-8?B?anBJVGdpTnc1TjkwbTRtTVUwK3ZaS0VDVmQra3kxMFc5dzVYMVJWTmo1ZHBD?=
+ =?utf-8?B?eXNJV3ZlS1pJd0NwaE9YazlSZVNHbkV6SGc4dGFUS0pJaUc3bldZQWM2NjU2?=
+ =?utf-8?B?YXU5cnRTbzZOQU8zdE14L0NGWjgrbjYyWHYrRFNrd2xzMVBBN3k5dGd0MWRm?=
+ =?utf-8?B?SU5aTWx3a3k0QXRHOVlEdkRtZzlkZ3pJZkxzcWxpalpreG9INnoxcXYrcE9G?=
+ =?utf-8?B?amtPRVJ5d1lseHZReENmSktYVk5RMXNsdzdWWVRLMFYrYnRyTHhyT0N2bHBv?=
+ =?utf-8?B?cU5XdEN1Z2JtSk4zSzRVbS9iTHZQMk16b2wzUmJnWFE1V0pKa1RQaGEwejhk?=
+ =?utf-8?B?V3dhQU92OEhrOUNYdW9TWVppa1krRUQ0V2E4bHNaQ2hiKy92aVdpVFZyYU9r?=
+ =?utf-8?B?YVFrbW9TVmxpT0cvWkVGcHZpUXgrUEI1OGFxMFhmUFU4R0hGWXlVb2tRVzFF?=
+ =?utf-8?B?UTRLSzhPUGNCL0FsTXp1TUhHMGpEZWxPb0FEcE85UW53WlVVMlhISmhMakZy?=
+ =?utf-8?B?dCsyczNkTUpuK3JyYWxLcUF5cUZUVi81aSt2MG5LUmZoWmV4N2RCQnRIelpF?=
+ =?utf-8?B?UXVlNjRQdXJ4bjBzSmx2RFhSL1dNU1J6Z0RLbGt2QkROQVoxZmMvMzJFWitD?=
+ =?utf-8?B?dVN6dndoQU55NkpFWkYrZ3E5RFFIOFUvbUd6TTlUNk55WGJzcGl2UUNDQlUy?=
+ =?utf-8?B?UFFIUHNpc2JhUmQ2WHNrWklrZGRIcGQrU3RVS1pDb2NsbHExbnc3QlVwVWRG?=
+ =?utf-8?Q?qgoQOHrsLTzw9L8wnTs9RUQ=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 121df901-ee72-4f5b-bd42-08dd5a8d5b58
+X-MS-Exchange-CrossTenant-AuthSource: BN0PR01MB6877.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2025 19:55:32.7290
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: eyjEtxu90FQIvbM3Pf7rx0Xi11SX7fx+rDum/SBeMIexWRx0Q8CtTsMQMBPpMR4Gh75AAXnFVtnnu12cGCm2XdivRF9EiaOcVIwV0Xywiyk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR01MB7387
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_115152_878837_DA9DAFDE 
-X-CRM114-Status: UNSURE (   7.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250303_115543_862102_A59409CA 
+X-CRM114-Status: GOOD (  19.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,14 +185,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
 
-[...]
-> Applied to controller/dwc, thank you!
 
-Updated the current branch with a few missing "Reviewed-by" tags from Fan Ni.
+On 3/3/25 1:40 AM, Mikołaj Lenczewski wrote:
+> On Fri, Feb 28, 2025 at 06:45:38PM -0800, Yang Shi wrote:
+>>
+>>
+>> On 2/28/25 5:29 PM, Yang Shi wrote:
+>>>
+>>>
+>>>> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+>>>> index 940343beb3d4..baae6d458996 100644
+>>>> --- a/arch/arm64/Kconfig
+>>>> +++ b/arch/arm64/Kconfig
+>>>> @@ -2057,6 +2057,17 @@ config ARM64_TLB_RANGE
+>>>>          The feature introduces new assembly instructions, and they were
+>>>>          support when binutils >= 2.30.
+>>>>    +config ARM64_ENABLE_BBML2_NOABORT
+>>>> +    bool "Enable support for Break-Before-Make Level 2 detection
+>>>> and usage"
+>>>> +    default y
+>>>> +    help
+>>>> +      FEAT_BBM provides detection of support levels for
+>>>> break-before-make
+>>>> +      sequences. If BBM level 2 is supported, some TLB maintenance
+>>>> requirements
+>>>> +      can be relaxed to improve performance. We additonally require the
+>>>> +      property that the implementation cannot ever raise TLB
+>>>> Conflict Aborts.
+>>>> +      Selecting N causes the kernel to fallback to BBM level 0
+>>>> behaviour
+>>>> +      even if the system supports BBM level 2.
+>>>> +
+>>>>    endmenu # "ARMv8.4 architectural features"
+>>>>      menu "ARMv8.5 architectural features"
+>>>> diff --git a/arch/arm64/include/asm/cpucaps.h
+>>>> b/arch/arm64/include/asm/cpucaps.h
+>>>> index 0b5ca6e0eb09..2d6db33d4e45 100644
+>>>> --- a/arch/arm64/include/asm/cpucaps.h
+>>>> +++ b/arch/arm64/include/asm/cpucaps.h
+>>>> @@ -23,6 +23,8 @@ cpucap_is_possible(const unsigned int cap)
+>>>>            return IS_ENABLED(CONFIG_ARM64_PAN);
+>>>>        case ARM64_HAS_EPAN:
+>>>>            return IS_ENABLED(CONFIG_ARM64_EPAN);
+>>>> +    case ARM64_HAS_BBML2_NOABORT:
+>>>> +        return IS_ENABLED(CONFIG_ARM64_BBML2_NOABORT);
+>>>>        case ARM64_SVE:
+>>>>            return IS_ENABLED(CONFIG_ARM64_SVE);
+>>>>        case ARM64_SME:
+>>>> diff --git a/arch/arm64/include/asm/cpufeature.h
+>>>> b/arch/arm64/include/asm/cpufeature.h
+>>>> index e0e4478f5fb5..108ef3fbbc00 100644
+>>>> --- a/arch/arm64/include/asm/cpufeature.h
+>>>> +++ b/arch/arm64/include/asm/cpufeature.h
+>>>> @@ -866,6 +866,11 @@ static __always_inline bool
+>>>> system_supports_mpam_hcr(void)
+>>>>        return alternative_has_cap_unlikely(ARM64_MPAM_HCR);
+>>>>    }
+>>>>    +static inline bool system_supports_bbml2_noabort(void)
+>>>> +{
+>>>> +    return alternative_has_cap_unlikely(ARM64_HAS_BBML2_NOABORT);
+>>>> +}
+>>> Hi Miko,
+>>>
+>>> I added AmpereOne mdir on top of this patch. I can see BBML2 feature is
+>>> detected via dmesg. But system_supports_bbml2_noabort() returns false.
+>>> The warning in the below debug patch is triggered:
+>>>
+>>> diff --git a/arch/arm64/kernel/cpufeature.c
+>>> b/arch/arm64/kernel/cpufeature.c
+>>> index faa9094d97dd..a70829ae2bd0 100644
+>>> --- a/arch/arm64/kernel/cpufeature.c
+>>> +++ b/arch/arm64/kernel/cpufeature.c
+>>> @@ -3814,6 +3814,9 @@ void __init setup_system_features(void)
+>>>   {
+>>>          setup_system_capabilities();
+>>>
+>>> +       if (!system_supports_bbml2_noabort())
+>>> +               WARN_ON_ONCE(1);
+>>> +
+>>>          kpti_install_ng_mappings();
+>>>
+>>>          sve_setup();
+>>>
+>>> I thought it may be too early. But it seems other system features work
+>>> well, for example, MPAM. I didn't figure out why. It is weird.
+>> I just figured out the problem It is because the wrong kconfig name is used
+>> in cpucaps.h. The code is:
+>>
+>> +    case ARM64_HAS_BBML2_NOABORT:
+>> +        return IS_ENABLED(CONFIG_ARM64_BBML2_NOABORT);
+>>
+>> But the kconfig name actually is:
+>>
+>> +config ARM64_ENABLE_BBML2_NOABORT
+>>
+>> IMHO, the "ENABLE" in kconfig name sounds unnecessary.
+>>
+>> Thanks,
+>> Yang
+>>
+>>
+> Hi Yang,
+>
+> Thank you for the review, and apologies for the slight delay.
+>
+> Thanks again for the spot, I agree that `ENABLE` is probably redundant
+> (and clearly, caused an issue here). Will remove this. Please let me
+> know if there are any other issues with rebasing your patches on top of
+> mine.
 
-Thank you!
+Thank you. I didn't spot any other problem on our machines. With this 
+addressed, you can have Tested-by: Yang Shi <yang@amperecomputing.com>, 
+although I can't test on asymmetric system.
 
-	Krzysztof
+Yang
+
+
+>
+
 
