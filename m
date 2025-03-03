@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5427FC282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 05:38:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3CB5C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 05:40:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9keALfR3MoLw+PD+al73HjvscKcrNY7AfZzPQJDJd+E=; b=OZAf6V/yxVZ5UhlPAIXP4jYDEU
-	KnHG4nPvvuaIB6BpAwQMTsL7EAgxPXdt70aHb3RNGAV2c6CX7XicuzXLtwyxzCtWRMxpFifk1p52e
-	+EOtDd9qZs8u4DEqi4azM2cf5CJGwbwrNtRiD9pYL4Q2N6phWf5GNdYBKL2w4684V4cHn74YILBug
-	5Ga+oz4Ita8D4i8E0zOtVfCYuxazOrFj5F5j0/ccfNOFEkPvXOeS10grbjVpypvS61BqK/Md4ubNo
-	RSKBbmyp+aTbJfiz38WOU2Etomh/LCrFo/uW7YlrTJA97vvgDOdZNizZxx+ETnldBb2WtWowaQB/h
-	VmRLhBUQ==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=11XVZ4zj75vGzfRxwzqc/xjgcajBZqFGyuNELSq3ePM=; b=3M983I+1GgirHegcWfrugeSsJh
+	yDEJn5ryvW+dKMox5a1enDsyVR7NQ2xKXdex7RgyLeBsr3J6LPd4Z2TbByQMOsqT0d/PY07U9ofkt
+	0ZGavSWqtAwbq9/iE9/yFEaydE6yM1afxRwnCNu/2Vij27aTEBobbE27X6mAMvIcARYu0ivZBXO2s
+	7e1JPyGrJ3ZpOiHPC+EcxY0Uw4ybxaiy/Fi9VFsccq2cCe6f9fJXWSeAl1CtMgLMvu9jDbw33tCY6
+	G35CrbAiVLWoTVFd+yZaAiYhy5neyJqaPjghqlzUcpMoHzSMq4o0HxTwBkXZrzMPtOU30kP4ayINo
+	1kCg61iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toyVe-0000000HGWf-2a7U;
-	Mon, 03 Mar 2025 05:38:34 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1toyXC-0000000HGqg-1M2b;
+	Mon, 03 Mar 2025 05:40:10 +0000
+Received: from mail-oa1-x49.google.com ([2001:4860:4864:20::49])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toyU4-0000000HGFh-20DE
+	id 1toyUO-0000000HGIa-0hrC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 05:36:57 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2fee7f85d03so4073598a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Mar 2025 21:36:55 -0800 (PST)
+	Mon, 03 Mar 2025 05:37:17 +0000
+Received: by mail-oa1-x49.google.com with SMTP id 586e51a60fabf-2c14aae048bso6165850fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Mar 2025 21:37:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740980215; x=1741585015; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=9keALfR3MoLw+PD+al73HjvscKcrNY7AfZzPQJDJd+E=;
-        b=cRfqZE37eStbyPQ34auTkh6UbV5n37MVwEVnuVkn5q2voeHutavj91RNbKL27zse2t
-         icXGnRP0Zz8gctlZPoZlW/HJHx/EnxxJFsMfdNKHWVE10py0kNtaOkoXYcACuPJPGjef
-         OAylPo4osXZ0bJjp0gnqO6UennA7QczodoXmORgBxjRqqhmYNRg6bZQm6p5Dy0xbzrPX
-         VyE3vZfo+SMlEo3y5wiscCJSOiyATrXKpqPG+CfStkw+rb6+bYrXNA0K2OK38Ow7x+sP
-         YL2eaC2kxhv/kll2zw2hA2cxutmTmZL710WqtffLcwZ63X0FYEA0F+/8udO9pC666dN4
-         wLYQ==
+        d=google.com; s=20230601; t=1740980235; x=1741585035; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=11XVZ4zj75vGzfRxwzqc/xjgcajBZqFGyuNELSq3ePM=;
+        b=pIe26oapykUSv8mG9HqH6htOXGbKH4stwG6BTgbdiUPeb+SiGaLL1HoiL3xNjYpIby
+         h0mNPyDO2tLwe2lmv/8rNBkMUXPkfzpMMxTIGdYwvvkow7OlGlDAgIzl43ITXUIEAiAK
+         ZpMBwP1sCwNyjK9I74nu4TZxbIyR7v7mutSDtPAUXewsHXs2qZX1EMQxtC1rFco2lzri
+         jMuQFUhjYJnzaFhWd9G6ipurIHy5eGbQwpWdZRqYXTxd1J/TCFJbza9EGPsyn2znTO1Y
+         dp5TfNwIUKuEdmJx3S63PNKH7Tjt5+FNSfEHkt4da9b5lX4Whkr87eWo6zdquXYhBcOd
+         4BHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740980215; x=1741585015;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=9keALfR3MoLw+PD+al73HjvscKcrNY7AfZzPQJDJd+E=;
-        b=PgOfxPL9Ai9l3HPQdYvRk3lFhs99ELECPwFP8AwPL6UQpHut+lB4qk7iRaEJEyevhs
-         jkB1fjEF6TernBmq2zUtbpVGD9W0BNJYdW2FQEOgmB8OKV+kqWwwq97GgpRRLmYqMIYK
-         INMzV7h3jOwMQ2LIT3FE8QrFQsELwBKNW3Xjqz+wm0DAkDQ+C4Pjn05Nl+itIJtHBLSv
-         iITlydOZTRwL3F2x0JFLQGj7ghonxJquQS1bZbdZcKbDzlgzf0kD7NGOoUzR6cY1neF9
-         /yWE0mh/8UBef2pxV9dqmRBmUitN6nfUGeWLZfrEYYNedm1fh+1aXQAlkfOV/VZDV0B+
-         h+6Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUtkxcJVnwC4gWJTjH9dEIIwspW22MGoHimYW/MlQga478EolCwK3upksF+JwAurHGGRXgiX3sDrEFmQ0yWdjLd@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLonHyyYD99+UTnWKcE8nd9bqHyJglBC18hjp2ogVvGqTz8HMu
-	k7e8Ne7c7hKYpqGovcbob13AElEh1S++oA87i/vsCP37JCa09ps72cv74mz55dWntY59qDRXh4c
-	Lq3GPeroa7g==
-X-Google-Smtp-Source: AGHT+IFZCe6yoXZlFRFDi90+BsBsfmlxusZPCR0Zo+o0Z5eNaDi5okT5qbRGGVjCh8760/l6FnXw9H9iaMirUA==
-X-Received: from pjbsu3.prod.google.com ([2002:a17:90b:5343:b0:2fa:284f:adb2])
+        d=1e100.net; s=20230601; t=1740980235; x=1741585035;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=11XVZ4zj75vGzfRxwzqc/xjgcajBZqFGyuNELSq3ePM=;
+        b=WDbVWCbNPevDyFgNDJnKF2zpQnVn7NiN+260gISH/bBx4OVRJH90FCns4ZEHoTyudN
+         Tk1dBGE+FUWJ9AM147iF/bGnh1E2KxPVYKh+kUWG/8pTXDXMkdXtQ1wMlx0++bJDw89g
+         Ygigzj0kAiOrBWlc0LiDDzEbJnMiRpp/rEh2535nYbId1QRB6adseR/VXIE5rhQ/GdOy
+         zi2XqlY6SViMd9ubstGhPgZB4no6jZ45wFapSnz2Y4KIod5/HV1pWkeoSCULbImt9aGK
+         +IYhUCnEf3LHYB57vavg00JpAJ33HEB37LLcyVcE3PiemOjdcIuTGRnLWVf20PScT9ox
+         8B4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCX95Hyox5Hq8RTiR+sqWh5Ib4oRwEX7rvLGU6d7AjRir9jfsHWo/CBx1Teur12jDuNfcZfKeWzcvfkZxNki5obQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyxUs6oiAO5/H8brKCGjs2rtQQkMnP9kFUOFoXeXJEu/lEdu4f0
+	Gh+LqtZyyATcPkHNS1I1GJJrm4cSxiMYdyIVbXMpTyClHql2K9Zy/W/u0Rb+KRslr3eoTiBgw1k
+	bIqmADhuwjw==
+X-Google-Smtp-Source: AGHT+IHCMcja7O5nHvC3arJ2BfVxXnE0ShNgQeyCXpt5rqYUWe3LnL8pz4yrPXjuWabnQEE7N86n3GCAwOPQKA==
+X-Received: from oablh23.prod.google.com ([2002:a05:6870:b17:b0:2ba:487b:683e])
  (user=yepeilin job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90b:3509:b0:2f9:9ddd:68b9 with SMTP id 98e67ed59e1d1-2febabd9c6bmr16920865a91.26.1740980214966;
- Sun, 02 Mar 2025 21:36:54 -0800 (PST)
-Date: Mon,  3 Mar 2025 05:36:27 +0000
+ 2002:a05:6870:332b:b0:2c1:7289:d62a with SMTP id 586e51a60fabf-2c1786d0bdamr7852051fac.36.1740980234887;
+ Sun, 02 Mar 2025 21:37:14 -0800 (PST)
+Date: Mon,  3 Mar 2025 05:37:07 +0000
+In-Reply-To: <cover.1740978603.git.yepeilin@google.com>
 Mime-Version: 1.0
+References: <cover.1740978603.git.yepeilin@google.com>
 X-Mailer: git-send-email 2.48.1.711.g2feabab25a-goog
-Message-ID: <cover.1740978603.git.yepeilin@google.com>
-Subject: [PATCH bpf-next v4 00/10] Introduce load-acquire and store-release
- BPF instructions
+Message-ID: <e5ef8b3116f3fffce78117a14060ddce05eba52a.1740978603.git.yepeilin@google.com>
+Subject: [PATCH bpf-next v4 01/10] bpf/verifier: Factor out atomic_ptr_type_ok()
 From: Peilin Ye <yepeilin@google.com>
 To: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Cc: Peilin Ye <yepeilin@google.com>, bpf@ietf.org, Alexei Starovoitov <ast@kernel.org>, 
@@ -84,8 +85,8 @@ Cc: Peilin Ye <yepeilin@google.com>, bpf@ietf.org, Alexei Starovoitov <ast@kerne
 	Benjamin Segall <bsegall@google.com>, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_213656_539423_71697AF2 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20250302_213716_208969_12441A53 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,131 +101,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all!
+Factor out atomic_ptr_type_ok() as a helper function to be used later.
 
-This patchset adds kernel support for BPF load-acquire and store-release
-instructions (for background, please see [1]), including core/verifier,
-arm64/x86-64 JIT compiler and Documentation/ changes, as well as
-selftests.  riscv64 is also planned to be supported.  The corresponding
-LLVM changes can be found at:
+Signed-off-by: Peilin Ye <yepeilin@google.com>
+---
+ kernel/bpf/verifier.c | 26 +++++++++++++++++++++-----
+ 1 file changed, 21 insertions(+), 5 deletions(-)
 
-  https://github.com/llvm/llvm-project/pull/108636
-
-Please refer to the LLVM PR and individual kernel patches for details.
-Thanks!
-
-v3: https://lore.kernel.org/bpf/cover.1740009184.git.yepeilin@google.com/
-v3..v4 notable changes:
-
-  o (Alexei) add x86-64 JIT support (including arena)
-  o add Acked-by: tags from Xu
-
-v2: https://lore.kernel.org/bpf/cover.1738888641.git.yepeilin@google.com/
-v2..v3 notable changes:
-
-  o (Alexei) change encoding to BPF_LOAD_ACQ=0x100, BPF_STORE_REL=0x110
-  o add Acked-by: tags from Ilya and Eduard
-  o make new selftests depend on:
-    * __clang_major__ >= 18, and
-    * ENABLE_ATOMICS_TESTS is defined (currently this means -mcpu=v3 or
-      v4), and
-    * JIT supports load_acq/store_rel (currenty only arm64)
-  o work around llvm-17 CI job failure by conditionally define
-    __arena_global variables as 64-bit if __clang_major__ < 18, to make
-    sure .addr_space.1 has no holes
-  o add Google copyright notice in new files
-
-v1: https://lore.kernel.org/all/cover.1737763916.git.yepeilin@google.com/
-v1..v2 notable changes:
-
-  o (Eduard) for x86 and s390, make
-             bpf_jit_supports_insn(..., /*in_arena=*/true) return false
-	     for load_acq/store_rel
-  o add Eduard's Acked-by: tag
-  o (Eduard) extract LDX and non-ATOMIC STX handling into helpers, see
-             PATCH v2 3/9
-  o allow unpriv programs to store-release pointers to stack
-  o (Alexei) make it clearer in the interpreter code (PATCH v2 4/9) that
-             only W and DW are supported for atomic RMW
-  o test misaligned load_acq/store_rel
-  o (Eduard) other selftests/ changes:
-    * test load_acq/store_rel with !atomic_ptr_type_ok() pointers:
-      - PTR_TO_CTX, for is_ctx_reg()
-      - PTR_TO_PACKET, for is_pkt_reg()
-      - PTR_TO_FLOW_KEYS, for is_flow_key_reg()
-      - PTR_TO_SOCKET, for is_sk_reg()
-    * drop atomics/ tests
-    * delete unnecessary 'pid' checks from arena_atomics/ tests
-    * avoid depending on __BPF_FEATURE_LOAD_ACQ_STORE_REL, use
-      __imm_insn() and inline asm macros instead
-
-RFC v1: https://lore.kernel.org/all/cover.1734742802.git.yepeilin@google.com
-RFC v1..v1 notable changes:
-
-  o 1-2/8: minor verifier.c refactoring patches
-  o   3/8: core/verifier changes
-         * (Eduard) handle load-acquire properly in backtrack_insn()
-         * (Eduard) avoid skipping checks (e.g.,
-                    bpf_jit_supports_insn()) for load-acquires
-         * track the value stored by store-releases, just like how
-           non-atomic STX instructions are handled
-         * (Eduard) add missing link in commit message
-         * (Eduard) always print 'r' for disasm.c changes
-  o   4/8: arm64/insn: avoid treating load_acq/store_rel as
-           load_ex/store_ex
-  o   5/8: arm64/insn: add load_acq/store_rel
-         * (Xu) include Should-Be-One (SBO) bits in "mask" and "value",
-                to avoid setting fixed bits during runtime (JIT-compile
-                time)
-  o   6/8: arm64 JIT compiler changes
-         * (Xu) use emit_a64_add_i() for "pointer + offset" to optimize
-                code emission
-  o   7/8: selftests
-         * (Eduard) avoid adding new tests to the 'test_verifier' runner
-         * add more tests, e.g., checking mark_precise logic
-  o   8/8: instruction-set.rst changes
-
-[1] https://lore.kernel.org/all/20240729183246.4110549-1-yepeilin@google.com/
-
-Thanks,
-Peilin Ye (10):
-  bpf/verifier: Factor out atomic_ptr_type_ok()
-  bpf/verifier: Factor out check_atomic_rmw()
-  bpf/verifier: Factor out check_load_mem() and check_store_reg()
-  bpf: Introduce load-acquire and store-release instructions
-  arm64: insn: Add BIT(23) to {load,store}_ex's mask
-  arm64: insn: Add load-acquire and store-release instructions
-  bpf, arm64: Support load-acquire and store-release instructions
-  bpf, x86: Support load-acquire and store-release instructions
-  selftests/bpf: Add selftests for load-acquire and store-release
-    instructions
-  bpf, docs: Update instruction-set.rst for load-acquire and
-    store-release instructions
-
- .../bpf/standardization/instruction-set.rst   |  78 ++++--
- arch/arm64/include/asm/insn.h                 |  12 +-
- arch/arm64/lib/insn.c                         |  29 ++
- arch/arm64/net/bpf_jit.h                      |  20 ++
- arch/arm64/net/bpf_jit_comp.c                 |  86 +++++-
- arch/s390/net/bpf_jit_comp.c                  |  14 +-
- arch/x86/net/bpf_jit_comp.c                   |  95 ++++++-
- include/linux/bpf.h                           |  15 +
- include/linux/filter.h                        |   2 +
- include/uapi/linux/bpf.h                      |   3 +
- kernel/bpf/core.c                             |  63 ++++-
- kernel/bpf/disasm.c                           |  12 +
- kernel/bpf/verifier.c                         | 234 +++++++++++-----
- tools/include/uapi/linux/bpf.h                |   3 +
- .../selftests/bpf/prog_tests/arena_atomics.c  |  66 ++++-
- .../selftests/bpf/prog_tests/verifier.c       |   4 +
- .../selftests/bpf/progs/arena_atomics.c       | 121 +++++++-
- .../bpf/progs/verifier_load_acquire.c         | 197 +++++++++++++
- .../selftests/bpf/progs/verifier_precision.c  |  49 ++++
- .../bpf/progs/verifier_store_release.c        | 264 ++++++++++++++++++
- 20 files changed, 1246 insertions(+), 121 deletions(-)
- create mode 100644 tools/testing/selftests/bpf/progs/verifier_load_acquire.c
- create mode 100644 tools/testing/selftests/bpf/progs/verifier_store_release.c
-
+diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+index eb1624f6e743..66b19fa4be48 100644
+--- a/kernel/bpf/verifier.c
++++ b/kernel/bpf/verifier.c
+@@ -6195,6 +6195,26 @@ static bool is_arena_reg(struct bpf_verifier_env *env, int regno)
+ 	return reg->type == PTR_TO_ARENA;
+ }
+ 
++/* Return false if @regno contains a pointer whose type isn't supported for
++ * atomic instruction @insn.
++ */
++static bool atomic_ptr_type_ok(struct bpf_verifier_env *env, int regno,
++			       struct bpf_insn *insn)
++{
++	if (is_ctx_reg(env, regno))
++		return false;
++	if (is_pkt_reg(env, regno))
++		return false;
++	if (is_flow_key_reg(env, regno))
++		return false;
++	if (is_sk_reg(env, regno))
++		return false;
++	if (is_arena_reg(env, regno))
++		return bpf_jit_supports_insn(insn, true);
++
++	return true;
++}
++
+ static u32 *reg2btf_ids[__BPF_REG_TYPE_MAX] = {
+ #ifdef CONFIG_NET
+ 	[PTR_TO_SOCKET] = &btf_sock_ids[BTF_SOCK_TYPE_SOCK],
+@@ -7652,11 +7672,7 @@ static int check_atomic(struct bpf_verifier_env *env, int insn_idx, struct bpf_i
+ 		return -EACCES;
+ 	}
+ 
+-	if (is_ctx_reg(env, insn->dst_reg) ||
+-	    is_pkt_reg(env, insn->dst_reg) ||
+-	    is_flow_key_reg(env, insn->dst_reg) ||
+-	    is_sk_reg(env, insn->dst_reg) ||
+-	    (is_arena_reg(env, insn->dst_reg) && !bpf_jit_supports_insn(insn, true))) {
++	if (!atomic_ptr_type_ok(env, insn->dst_reg, insn)) {
+ 		verbose(env, "BPF_ATOMIC stores into R%d %s is not allowed\n",
+ 			insn->dst_reg,
+ 			reg_type_str(env, reg_state(env, insn->dst_reg)->type));
 -- 
 2.48.1.711.g2feabab25a-goog
 
