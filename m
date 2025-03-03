@@ -4,116 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64A92C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 07:34:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9E67C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 07:42:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZrfT43/ChI686f8asUl/9QZweWrcr9+CbhtUfhxyfBk=; b=s4TqECY032CIL0UkRMa7vX7Ttv
-	B8XXSWJWmeXsKF1DkuIPiBu3JYRn+hjYJZmoHNBWOtkDFl78HUHq719W1xS6xF0swzKTijgcY0h3N
-	uKI804RiZYAsYY4gcgB4cqbqQgzvXYOoSM7ZM5zb7vFvLBneogv4RTd5HQDi/a+kIH4u3cUxLAzCe
-	fXS6mG1F0tMyzLUOv3Ft0gM887g2aQsuAXVAqu1G47UTRw08fjIvAfgRMv4861hjZf/nS3D60FLON
-	nCQ9OY1B87rXhGRV4MQJ79Kso9uyLUl2lAzEOAtHnmOQTB341O5bgH8pcHnUNbg8GIezrIBC3AoKK
-	fP+xXMeA==;
+	bh=GQ1xW2NPwpJqRZbwpFeIMuaFkeaa4B6mXxYKzB9+m6E=; b=ipp4JvKZvdzOH4MDHjWah2uQs5
+	N9SK7cPsHzTVTAl+byoBGkN8D585QKR+w/S/x6a1rExpC7vSOXeeWGqnEtHJczIV+DgBFoJfF6gif
+	U7hZO6Qad9edrUgw0fekidDkLHuNEJuRE/yDIApiyiKIqSz8cXHYKYTio/9/2i+o0Pf0N/9+VgGdh
+	w4W5l9/fNuHj12aXsfKFXuXhx3IIwxLtWn9pNdCVRXSR6rfAkAqPxC/N0C1f3Acyh+AvChuIBUZNl
+	JrWOIeccTGC61VksuYoEGwa/Ct+YAYy6/08FQx2z5Bv5RNSGA3my5ctKro5RVmiPZSE4kFYet/J9h
+	0+5Ke3VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp0K8-0000000HRKY-2I44;
-	Mon, 03 Mar 2025 07:34:48 +0000
-Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
+	id 1tp0RD-0000000HRwA-1Cuc;
+	Mon, 03 Mar 2025 07:42:07 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp0IZ-0000000HREl-2Dh9
+	id 1tp0Pe-0000000HRof-1rX3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 07:33:12 +0000
-Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-30737db1aa9so38342471fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Mar 2025 23:33:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740987189; x=1741591989; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ZrfT43/ChI686f8asUl/9QZweWrcr9+CbhtUfhxyfBk=;
-        b=DLkf6Y55xrvym7GAigXG35M8IcAl+ueqs4022niJti2cSd+oLvcMUJizbXSon03vQc
-         945s+3cVr/kr1BaF6LgyGVANy9ktmU3Y65MzQfUg3rLK395OvhT/hXLSRjDDNjygSxHg
-         f2oDvEmxShHlVkCeomFXiXJdUjcrzau04QDg1igfRKBeHAxNzJmYsto5+blFqP4cvZpT
-         C24jgvWkCvL8g+Ma2UqIjTs9u+iu9pI1uZEMY1wHpSQKSQMmhdrdaQs4OiPlV2W0oDu6
-         qNeAkSbxBsf9XSjyu5E0BUDcjvgxlZpGNP8OnYK4cOPa+5qiTOOJ4lr86KYYRGsKp4J3
-         DeVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740987189; x=1741591989;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZrfT43/ChI686f8asUl/9QZweWrcr9+CbhtUfhxyfBk=;
-        b=XiS8/B06W1z5erSQgNluRd8M3/3tlmbbsGNj2NZ1W+BpJoUvQk4i7oZEJeukFBkJSY
-         CdNO2VbygEl1TeQMkfvQxXMfv7J70RNgaSfGu8AlHqrvgLxzKAxb5M3l0uuK9746+kwy
-         4raeG0mPT+5GlSleKsVRx81WmR9Q9e8vg7WI3u+u+HvDjojxQuBdsCBkmNdYnVGd80N5
-         h/m8WyoRy8UPB9ZO2NJtb3ig2nxLNPdFn7pgL+QVEU+wIAU9JBnhrtjv4MpcFxICZ+sM
-         BrQJbIzEY0buuASgDpGBKIjh48j+Fm8Pkejh89kSTKJHw5Xpnth5UMulXeHeIFIMHlkz
-         LziQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW2JXGvIKyWZ0KL9PKHF/RtjdU1OeVuFGrPJW0fx6niF5Wvlh8IbfeKRZ1GM/2FhKULBzUmoo9Bn3sVakSOi69c@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqhDRG5onekuQEaAUEXB5Q2bsKmwDrp44qJmKipJWxS1gPuYWh
-	hvEGNpn3YuNFAAkGpM6U/V5vHDpKbsnsfbWYedGW25EkPzQZhV23
-X-Gm-Gg: ASbGnct8V2jb4Q7N2FlEtdhcEf3ymjIdhg1y6suX7vWrf3tJmASthf6cdZEyOD4Zx/D
-	OD+WBd8SvrnOc2gjVBoI4/sGqEgpgQ+ACAYpPshpfcxfOqT8VA1VLF+RT5TpuFukKcUJGhsMeJg
-	OrMdiL9aVgrN1kOvwKpmrP3rw3r2Q5egS6RxyBjAP79vZDurIADLJ/TNLSJBGmPbRJePgmoPLmq
-	up/MZgVtjz0TwBLqAzudGNxF2f9y3ahK+yjLpqY011dpa4eP6WJTEQ1Rju98OZ88oyKFfr7lR0y
-	YYNRyoSjpJ3/F4STTUVX+wpSwBtW7hrmmxTXvMOL2hNebmbbzNE4cRscGHvObtHjKu3yeJCQ8be
-	lf2eEsY7QeFvpHbz2xq44RmvCJA==
-X-Google-Smtp-Source: AGHT+IFYoPik8tqIuOOXAJZxxEM4FjnMpyrSDbqpvuiBUw+N4rWidoyXw4/acgqr1fgBuicookECFg==
-X-Received: by 2002:a05:6512:693:b0:545:b28:2fa9 with SMTP id 2adb3069b0e04-5494c122af7mr5686831e87.16.1740987189050;
-        Sun, 02 Mar 2025 23:33:09 -0800 (PST)
-Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5495a7d6a2csm602975e87.227.2025.03.02.23.33.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 02 Mar 2025 23:33:07 -0800 (PST)
-Message-ID: <ce2c1a21-f418-4ed9-9cd3-fe2a68f08c31@gmail.com>
-Date: Mon, 3 Mar 2025 09:33:05 +0200
+	Mon, 03 Mar 2025 07:40:32 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5237eP7M2626084
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 3 Mar 2025 01:40:25 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1740987625;
+	bh=GQ1xW2NPwpJqRZbwpFeIMuaFkeaa4B6mXxYKzB9+m6E=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=RBX5fAtOXtag7wzZX1/8h/+h6f5p88bKSHwRSH+/JDboHIdH52smlDBb44yPjGvQf
+	 1d8O++uq5j1eIMqsrVsrs2kgANSnAcU1hM3JNvZsyXCZVW6t+sGve7Alw1IBHuf6jF
+	 QezRUPyF0XU8eYWWRBscDC72kUm80xvHor/CPlS8=
+Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5237ePv9099697
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 3 Mar 2025 01:40:25 -0600
+Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 3
+ Mar 2025 01:40:24 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 3 Mar 2025 01:40:24 -0600
+Received: from [10.24.69.250] (dhcp-10-24-69-250.dhcp.ti.com [10.24.69.250])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5237eLjR131041;
+	Mon, 3 Mar 2025 01:40:22 -0600
+Message-ID: <3d01a502-47a6-467e-8743-392fde26e66e@ti.com>
+Date: Mon, 3 Mar 2025 13:10:21 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 06/10] iio: adc: ti-ads7924 Drop unnecessary function
- parameters
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
- Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Daniel Scally <djrscally@gmail.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Hugo Villeneuve <hvilleneuve@dimonoff.com>, Nuno Sa <nuno.sa@analog.com>,
- David Lechner <dlechner@baylibre.com>,
- Javier Carrasco <javier.carrasco.cruz@gmail.com>,
- Guillaume Stols <gstols@baylibre.com>,
- Olivier Moysan <olivier.moysan@foss.st.com>,
- Dumitru Ceclan <mitrutzceclan@gmail.com>,
- Trevor Gamblin <tgamblin@baylibre.com>,
- Matteo Martelli <matteomartelli3@gmail.com>,
- Alisa-Dariana Roman <alisadariana@gmail.com>,
- Ramona Alexandra Nechita <ramona.nechita@analog.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev
-References: <cover.1740421248.git.mazziesaccount@gmail.com>
- <38d39befcca110132fd4349c87fcb5d7ff51a2c8.1740421248.git.mazziesaccount@gmail.com>
- <20250302034649.2d9ec2a4@jic23-huawei>
-Content-Language: en-US, en-AU, en-GB, en-BW
-From: Matti Vaittinen <mazziesaccount@gmail.com>
-In-Reply-To: <20250302034649.2d9ec2a4@jic23-huawei>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH 2/5] arm64: dts: ti: k3-am62a-phycore-som: Add boot phase
+ tags
+To: Wadim Egorov <w.egorov@phytec.de>, <nm@ti.com>, <kristo@kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>
+References: <20250228101817.865811-1-w.egorov@phytec.de>
+ <20250228101817.865811-2-w.egorov@phytec.de>
+Content-Language: en-US
+From: Vignesh Raghavendra <vigneshr@ti.com>
+In-Reply-To: <20250228101817.865811-2-w.egorov@phytec.de>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_233311_575759_2B99599D 
-X-CRM114-Status: GOOD (  21.40  )
+X-CRM114-CacheID: sfid-20250302_234030_679988_805F9C56 
+X-CRM114-Status: UNSURE (   7.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,74 +89,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi dee Ho again Jonathan (and all),
+Hi Wadim
 
-On 02/03/2025 05:46, Jonathan Cameron wrote:
-> On Mon, 24 Feb 2025 20:34:01 +0200
-> Matti Vaittinen <mazziesaccount@gmail.com> wrote:
-> 
->> Device pointer is the only variable which is used by the
->> ads7924_get_channels_config() and which is declared outside this
->> function. Still, the function gets the iio_device and i2c_client as
->> parameters. The sole caller of this function (probe) already has the
->> device pointer which it can directly pass to the function.
->>
->> Simplify code by passing the device pointer directly as a parameter
->> instead of digging it from the iio_device's private data.
->>
->> Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
-> Looking again at this function it doesn't seem to be doing anything
-> useful at all.  It checks the channel nodes are in range, but
-> does nothing with that data. I'd just drop it entirely.
-> 
-> Ah. I see David suggested the same.
-> 
-> We can't really 'fix' what this was perhaps intended to do now
-> as what it does has become ABI :(
+[...]
 
+On 28/02/25 15:48, Wadim Egorov wrote:
+> @@ -168,6 +174,7 @@ &cpsw3g {
+>  	status = "okay";
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&main_rgmii1_pins_default>;
+> +	bootph-all;
 
-I took another look at this.
-The logic in the ads7924 driver (without this patch) is actually:
+One of the child nodes have bootph-all, so drop this from the parent.
 
-ads7924_get_channels_config(...)
-{
-	device_for_each_child_node(dev, node) {
-		if (fwnode_property_read_u32(node, "reg", &pval)) ..
-			continue;
+BTW don't you need main_pktdma to have bootph-all to go along this for
+ETH boot support?
 
-		if (channel >= ADS7924_CHANNELS)
-			continue;
+>  };
+>  
+>  &cpsw_port1 {
+> @@ -182,6 +189,7 @@ &cpsw3g_mdio {
+>  	cpsw3g_phy1: ethernet-phy@1 {
+>  		compatible = "ethernet-phy-id2000.a231", "ethernet-phy-ieee802.3-c22";
+>  		reg = <1>;
+> +		bootph-all;
+>  		ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
+>  		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+>  		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
+> @@ -196,6 +204,7 @@ &main_i2c0 {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&main_i2c0_pins_default>;
+>  	clock-frequency = <400000>;
+> +	bootph-all;
+>  	status = "okay";
+>  
+>  	pmic@30 {
+> @@ -318,6 +327,7 @@ serial_flash: flash@0 {
+>  		cdns,tchsh-ns = <60>;
+>  		cdns,tslch-ns = <60>;
+>  		cdns,read-delay = <0>;
+> +		bootph-all;
+>  	};
+>  };
+>  
+> @@ -326,5 +336,6 @@ &sdhci0 {
+>  	pinctrl-0 = <&main_mmc0_pins_default>;
+>  	disable-wp;
+>  	non-removable;
+> +	bootph-all;
+>  	status = "okay";
+>  };
+> -- 2.34.1
 
-		num_channels++;
-	}
-
-if (!num_channels)
-	return -EINVAL;
-}
-
-...
-
-ads7924_probe()
-{
-	ret = ads7924_get_channels_config(...);
-	if (ret < 0)
-		return dev_err_probe(...);
-}
-
-So, it still returns an error, if no channels with valid 'reg' property 
-were found from the DT. It will also fail the probe().
-
-Thus, this change is not quite as likely to cause things to break as it 
-seemed. Still, for now anything with even single valid 'channel' has 
-been Ok, even if all the rest were garbage. This new variant would fail 
-if any of the 'channel' nodes contained no or bad 'reg'. Thus this can 
-still break things.
-
-Anyways, I'll follow your suggestion and drop this patch (unless you 
-have second thoughts) - but I will keep the function so it still 
-requires at least 1 valid channel node to be found.
-
-Yours,
-	-- Matti
+-- 
+Regards
+Vignesh
+https://ti.com/opensource
 
 
