@@ -4,86 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A116C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 19:24:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8607C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 19:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PDLT3QzYiiEMxH3LRhvcTZswaNirfgCySO+G8g1d1Lw=; b=0m5T2hiq4paD4euV9UqGEEeyIt
-	LqNXve7WIZ/JXzBnhJEIgSx3T0C6DMGJweUHCxtucU2JsRaNZ4s1+PJqwGGCI5SlV5RON0iAT/R47
-	vbbJadpilPHnKKdrOC9rZQ3tmLTeO3OM3rGeiUhr9sXfwRNkUrxSDATjD3gZ48UFwvR1W0kItkoH6
-	g6yX7Qgm77QnrQbyCXkADm2B7k2K5jzj55LEs5RIknP5XYQeAN1II3iOUuf0vuv5cSSuxTU1kctUy
-	rNU/LdKGD3t56lCPOMbB3HQyDHE1/vIOS73IoYV70Tm1Pt+SFEZZDzGLybWCmlGMvxQGgtQVdTaD4
-	MLACLfFw==;
+	bh=e6Ssv1Pi5/l09GtY5Tp1NZoyz32uNw/sUvPD95BnsD8=; b=zI8n0zzg/T9ofAj86opGTbav1W
+	WgRgswqdyvN/K1eoMwZb2jGd4bHovBx1ugWeRZoFKfDL7wi773AxdGu8Qs4fye7/YN+Fl6ApgkvNQ
+	tGHVQvp66iQmpLfMxuPAQ5dgNnCZsTKgBxY3+l0xvOBBKrSzXTumV6qL6Mtb6iYSSmW8tNWpdnPAR
+	9yX2ETUEBZMEbuTJQHFTjMyYq0sONiG8tm9cTa8Q0xlJgwekP4ZCZ/bpwcd6SyLlpA6wOdYXE3B8Z
+	a2ngRjAny8JD3rba64W6Mmuahrrp3Bs4aQM9l7TFSdthT1KscXMNGaVYCTvBV3TrjBSUCZPb9UscY
+	VmnaIHvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpBOK-000000023ts-1CbT;
-	Mon, 03 Mar 2025 19:23:52 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1tpBSW-000000024Ht-2jFY;
+	Mon, 03 Mar 2025 19:28:12 +0000
+Received: from out-178.mta1.migadu.com ([95.215.58.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpBMk-000000023n6-3MUF
+	id 1tpBQw-0000000249m-2E8Y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 19:22:16 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5497363eeafso1174e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 11:22:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1741029733; x=1741634533; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=PDLT3QzYiiEMxH3LRhvcTZswaNirfgCySO+G8g1d1Lw=;
-        b=be36e1NSHehIRdVKhKO1bMB1GgLYgjy3j1P5AdEAkIvBc7B62RGN47kdUcP6jLJ7+9
-         ++Eql7P93jFmFbndY5ze6zrKoY8SrNO5DaMGHENNMXQ9R+hh1sz/MsIypBrgL+KZNI0i
-         wLjRrcN3wPIb0KU/wvvveFXxnBJcsm4nGfF7dqqP16CsTZZKIwJcqx0V9vzQTUy2Ewvr
-         nEtCI/2g783O1DLq6qD4j/Gs/0IDzUenQtjQy6jGWFMI32YbzLf+EuICNogyT3R6aTJm
-         TsHKnIqF2a77Xk/P9mGM6Vdh0MTpAzc+2LGJ1PZgsRPEvqL/cNtLjTGgyeJOz6aVVph/
-         MWvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741029733; x=1741634533;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=PDLT3QzYiiEMxH3LRhvcTZswaNirfgCySO+G8g1d1Lw=;
-        b=qMwngblSjRXhb8r5v7naX320QwUdQ/7g+alhZXTXFoLLxiNZo527VX/1pPCZwY1skX
-         6aoppp2AMVmbBB+47MZGukgaLuX/pKOGlGlAvt4fh/ItdLLthHWUPIaMfBDHbokog03l
-         wiosMJ+vzoMo1Tm//4M5RmdDHM4Hu3gLjMRrhRxlQWF/burURgeH8iRsjZR+hBsUqGWI
-         jymSBE7yF36xZ/V56WukCQOhmF7sRJq/bwYJcg4jryj1wTVfhCAok7AgRRb0zUruo1Dj
-         kApgUcIMVD+9c460A9tsBsPRORdXQO2YToy4los7YceyF++Xjza/SC8YyWCz7qsybn9I
-         Y/7w==
-X-Forwarded-Encrypted: i=1; AJvYcCW2kLDRtJANu5Jg4gGY94JfvUjhv7WMODPECbOQhsTydoZavQ0TP99t2mDJ/k50AfJliFLgLvqVFNI+tVDlr77l@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6Xs9ete8FBiMANo65c6KBr3jZRvz8ihL4qsSFwVPkNJrv1jBk
-	ZpRnHEDWwT//eFcw9UUMLtgnaUkyPi1OT8BnupjpA6wrHZvyjZLhCFTniKxmnVxld4KwGTw15uc
-	reHQqRbzecfx9S1hU/Yq7YOA9cviwc6PPhmN1
-X-Gm-Gg: ASbGncvtbXrATdJWOfD6CNeuRYWdtXSnGU1BIhFLy+JPCV4iqUMf4pHTHuehy9cVwxy
-	p/D61XkubmuAZTMDzyVSDZtSYsNsS8ee0A1i0YGw231ndWYWuMnSdpnWWHySu7R1kBEBSr58jlX
-	witjPWAti/V1EzTXTfYs8M7DLX
-X-Google-Smtp-Source: AGHT+IH0UTG3oJy1Apr/sXOoJuaoHHK92kRrLOibMfH2rbEqTUafssJ68yUuJTdCNdnYlytHqDJOqqFRXysa369aflM=
-X-Received: by 2002:a05:6512:3f1d:b0:549:73a8:c258 with SMTP id
- 2adb3069b0e04-54975de8114mr25263e87.0.1741029732676; Mon, 03 Mar 2025
- 11:22:12 -0800 (PST)
+	Mon, 03 Mar 2025 19:26:36 +0000
+Date: Mon, 3 Mar 2025 11:26:08 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1741029989;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=e6Ssv1Pi5/l09GtY5Tp1NZoyz32uNw/sUvPD95BnsD8=;
+	b=eFhViSfqEkZ4vo/8zItk5pKaSpk2SrRf5ADD1i/13+D1jULcmd/qNRMxEhT0n2KKindPvf
+	jaymDdXLv6vRnzAnGEtD9tNCfzmZQUpGN2+BFeyBnx9/mlhUlDuR4fsYbOPrCUC+MC0dn8
+	DGB4YRjuRVwPLZbEwriBSpv/8CrjoEo=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Akihiko Odaki <akihiko.odaki@daynix.com>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Andrew Jones <drjones@redhat.com>,
+	Shannon Zhao <shannon.zhao@linaro.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, devel@daynix.com
+Subject: Re: [PATCH] KVM: arm64: PMU: Fix SET_ONE_REG for vPMC regs
+Message-ID: <Z8YCUFkt8gdnWRSk@linux.dev>
+References: <20250302-pmc-v1-1-caff989093dc@daynix.com>
 MIME-Version: 1.0
-References: <20250226215520.1759218-1-tabba@google.com> <20250226215520.1759218-4-tabba@google.com>
- <Z8ISLxQRcsx2uuHw@google.com> <CA+EHjTympdi0wei2Qx=hF2cYvHpzE0sWto2ypcJB3ddmonTROg@mail.gmail.com>
- <20250303191811.GA30361@willie-the-truck>
-In-Reply-To: <20250303191811.GA30361@willie-the-truck>
-From: Fuad Tabba <tabba@google.com>
-Date: Mon, 3 Mar 2025 19:21:33 +0000
-X-Gm-Features: AQ5f1JovXie3lpePW4x4dhoQubm0OwM3WEY0HTJKnA6kBEqtNQIAaQvijWR7Ijk
-Message-ID: <CA+EHjTySqDHDpOy=Vix5ZaNKWg61coySvV3Yk=+i0p8vg3mXTQ@mail.gmail.com>
-Subject: Re: [PATCH v2 3/4] KVM: arm64: Factor out pKVM hyp vcpu creation to
- separate function
-To: Will Deacon <will@kernel.org>
-Cc: Quentin Perret <qperret@google.com>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, maz@kernel.org, oliver.upton@linux.dev, 
-	mark.rutland@arm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org, 
-	vdonnefort@google.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250302-pmc-v1-1-caff989093dc@daynix.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_112214_840948_3DBB296E 
-X-CRM114-Status: GOOD (  26.19  )
+X-CRM114-CacheID: sfid-20250303_112634_714237_982263C3 
+X-CRM114-Status: GOOD (  28.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,61 +73,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
+Hi Akihiko,
 
-On Mon, 3 Mar 2025 at 19:18, Will Deacon <will@kernel.org> wrote:
->
-> On Mon, Mar 03, 2025 at 07:57:00AM +0000, Fuad Tabba wrote:
-> > On Fri, 28 Feb 2025 at 19:44, Quentin Perret <qperret@google.com> wrote:
-> > >
-> > > On Wednesday 26 Feb 2025 at 21:55:19 (+0000), Fuad Tabba wrote:
-> > > >  static int __pkvm_create_hyp_vm(struct kvm *host_kvm)
-> > > >  {
-> > > > -     size_t pgd_sz, hyp_vm_sz, hyp_vcpu_sz;
-> > > > +     size_t pgd_sz, hyp_vm_sz;
-> > > >       struct kvm_vcpu *host_vcpu;
-> > > > -     pkvm_handle_t handle;
-> > > >       void *pgd, *hyp_vm;
-> > > >       unsigned long idx;
-> > > >       int ret;
-> > > > @@ -161,33 +178,12 @@ static int __pkvm_create_hyp_vm(struct kvm *host_kvm)
-> > > >       if (ret < 0)
-> > > >               goto free_vm;
-> > > >
-> > > > -     handle = ret;
-> > > > +     WRITE_ONCE(host_kvm->arch.pkvm.handle, ret);
-> > >
-> > > What's the reason to make this a WRITE_ONCE? Does it mean we should
-> > > update the readers to be READ_ONCE()?
-> >
-> > I don't remember the original reason, to be honest. In this case, it
-> > was to make it consistent with downstream code in Android. That said,
-> > I plan on revising all of these soon and fixing this (and related
-> > code) in light of Will's comment regarding potential specter gadgets:
-> >
-> > https://lore.kernel.org/all/20250218092705.GA17030@willie-the-truck/
->
-> I'm not sure the spectre stuff changes the concurrency aspects here, so
-> Quentin's question presumably still stands even after that.
->
-> Looking at the Android code, this WRITE_ONCE() pairs with a READ_ONCE()
-> in pkvm_is_hyp_created() which is called without the config_lock held
-> by kvm_arch_prepare_memory_region(). However, given that
-> pkvm_is_hyp_created() is only testing against 0, I don't think the
-> _ONCE() accessors are doing anything useful in that case.
->
-> The more confusing stuff is where 'kvm->arch.pkvm.handle' is read
-> directly without the 'config_lock' held. The MMU notifiers look like
-> they can do that, so I wonder if there's a theoretical race where they
-> can race with first run and issue TLB invalidation with the wrong handle?
-> That would apply equally to the upstream code, I think.
+On Sun, Mar 02, 2025 at 05:12:54PM +0900, Akihiko Odaki wrote:
+> Reset the current perf event when setting the vPMU counter (vPMC)
+> registers (PMCCNTR_EL0 and PMEVCNTR<n>_EL0). This is a change
+> corresponding to commit 9228b26194d1 ("KVM: arm64: PMU: Fix GET_ONE_REG
+> for vPMC regs to return the current value") but for SET_ONE_REG.
+> 
+> Values of vPMC registers are saved in sysreg files on certain occasions.
+> These saved values don't represent the current values of the vPMC
+> registers if the perf events for the vPMCs count events after the save.
+> The current values of those registers are the sum of the sysreg file
+> value and the current perf event counter value.  But, when userspace
+> writes those registers (using KVM_SET_ONE_REG), KVM only updates the
+> sysreg file value and leaves the current perf event counter value as is.
 
-Would using _ONCE accessors with the MMU notifiers be enough to avoid
-the race, or do we need to reconsider the lock protecting the handle
-and apply it to the notifiers?
+Are you trying to change the PMCs after the VM has started?
 
-Cheers,
-/fuad
+> Fix this by calling kvm_pmu_set_counter_value(), which resests the
+> current perf event as well.
 
-> Will
+I'm afraid this could introduce some oddities for save/restore of a VM.
+The PMU configuration (e.g. type, event filter, nr event counters) is
+subject to change before KVM_RUN.
+
+For example, if the VM programmed an event that was filtered on the
+source, KVM could erroneously allocate a perf event on the target if the
+filter is restored after the vCPU sysregs.
+
+A similar issue could happen with the PMU type not matching the final
+selection as well. Attaching the perf event in KVM_REQ_RELOAD_PMU avoids
+these sort of issues.
+
+> Fixes: 051ff581ce70 ("arm64: KVM: Add access handler for event counter register")
+> Signed-off-by: Akihiko Odaki <akihiko.odaki@daynix.com>
+> ---
+>  arch/arm64/kvm/sys_regs.c | 19 ++++++++++++++++++-
+>  1 file changed, 18 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 42791971f75887796afab905cc12f49fead39e10..1de990edc6a3e9be2a05a711621bb1bcbeac236a 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -1035,6 +1035,22 @@ static int get_pmu_evcntr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
+>  	return 0;
+>  }
+>  
+> +static int set_pmu_evcntr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
+> +			  u64 val)
+> +{
+> +	u64 idx;
+> +
+> +	if (r->CRn == 9 && r->CRm == 13 && r->Op2 == 0)
+> +		/* PMCCNTR_EL0 */
+> +		idx = ARMV8_PMU_CYCLE_IDX;
+> +	else
+> +		/* PMEVCNTRn_EL0 */
+> +		idx = ((r->CRm & 3) << 3) | (r->Op2 & 7);
+
+nitpick: Let's get rid of the manual decode for both the getter and
+setter. r->reg already provides the right info, we just need to
+transform that into a counter index.
+
+> +	kvm_pmu_set_counter_value(vcpu, idx, val);
+> +	return 0;
+
+WDYT about only calling kvm_pmu_set_counter_value() if the vCPU has
+already run once, otherwise update the in-memory value of the register?
+I think that would fix your issue while also guaranteeing that the perf
+event matches the final configuration of the vPMU.
+
+Thanks,
+Oliver
 
