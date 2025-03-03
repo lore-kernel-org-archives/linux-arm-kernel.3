@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4603C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 23:45:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 056CDC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 23:46:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Se0PI/BskJehrTSp/kAwz19cA4Xuimd8Lk9oU/vOpuk=; b=fr9kJ71r85qkf71p1VBcNHONHM
-	sJcd342dD4p39U6Ks/hc9Qd/97Zzo8l+l51gvQc/Ap3yPiqVyIk+EzcUPRg5XSgaDkQaZYo9150dh
-	24DpKMOaJmYeKO9bQ128ro81CilxewFdMHx+SOKOXNLkezoUU3VRZ4kyIZFas/7Dztdbsxcnv2Hqk
-	jJ0DrBkPta1pmJSDvFxoiHRJsKKLdr2NmFeVRo8C9VquMAyq3+yGH3y+7FOVmpTcgQ3aTcqQABEzw
-	irn+DjF4vVtgR8eePoTraLS9pHAJswBY7z712kK4LI4blRKONUySDSVy2d9O9dxYLEksgoiu6D0Wx
-	W6/4Ybiw==;
+	bh=z47Nd/3pjSaaOhM1lDHyH94jDdY9wmZ0DMhtpseq20c=; b=Idwrfz/ONGdi1Cxd8FncpKFCdN
+	B9EqCCc7FkZMZ3mR1zBe7E0Z0085Yb+szSvC5naSy+3qABcUh6BiNvjQP03rE+2GngNplu0+Ov3zu
+	iA9sySlc2p/AaDS5YP5Da/GqoV9yPXEbBPRK9tacGKbcJ1hHL9MNTCEujIwBIkfpMzsNEZRiPpsCm
+	d8tkofFfOunbTfvvAvI7AETxiVtJTEydUUgSGutzxHJiL1GiFq6kaBmpkWx/ccpXU+QfuTWErmvVc
+	DiEVwl8VVcrjEv5zF3whb+suoLICmaywlcOJ3zqXFZZfYnXy6caPY6z1g7lRmib1gJaUhPZO88eZ2
+	eh3zkstQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpFSq-00000002aUE-3SQg;
-	Mon, 03 Mar 2025 23:44:48 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tpFUO-00000002aba-1q01;
+	Mon, 03 Mar 2025 23:46:24 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpFRG-00000002aMC-3qZe
+	id 1tpFSd-00000002aSR-0knV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 23:43:12 +0000
+	Mon, 03 Mar 2025 23:44:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 22A58A44DE9;
-	Mon,  3 Mar 2025 23:37:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41B5BC4CEE8;
-	Mon,  3 Mar 2025 23:43:07 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 886F5A44D5C;
+	Mon,  3 Mar 2025 23:39:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B14BAC4CEE8;
+	Mon,  3 Mar 2025 23:44:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741045389;
-	bh=a8a9IK/kNpa34r9G10IOTtk/N5+iTd8OkmB8cSTMxgY=;
+	s=k20201202; t=1741045474;
+	bh=mYuhDBxNc/e89ws6z4cdoCMAAbClP8hLNaC+xBDI57E=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=U18h4J6eHzdpV/lQruFiVfI0FCi9kpiJl21LupatW+d1VqZD4BijRx2feSVu4Pdg3
-	 I1k6dRx8/BbjL8eOwBQkWbzkNdxB+nwD3qHtRNjhiTI1mS6wzdzppN5KN8CUXcWV5U
-	 45xubGB5Zm0UtnScNszufU1Qn96OKzP8XYzPQVXopp+JVl1/+2iDJRL+g6Lzn8Dmc/
-	 TnuQzfkJrNW/FuufAKgebUxjOol8dvfjv7U55kvM7WK3e8WI3QpQ8e5ZJGDMD8eq/K
-	 2O7iDJ4TlE7KLPoZi7RPcuQtg/QjuJQ2d3ljc2+f/dqjwqDWxkR4iqLqm7T0SjINVq
-	 imaYnUzij4rMw==
-Date: Mon, 3 Mar 2025 23:43:03 +0000
+	b=o31MaesClDbhQ7BppcXMKmMs6N/dQaiDATGICBZiGtiO6FycEHFyv3Nhx8qQCqSjj
+	 3xlP2WcD7i2kRRK4XemY3j54us/Dlx1x5kgB66WVjeERbGVE98/ARiHcYFwynH7AVw
+	 O5sVHJPRhV32fJQ+pK85kZMgyc4I+NZGHOUbYC+nx1UXnNZJUGJLdWeRSDlE8P5TVX
+	 2unjRESVuJIrVcj1r4b3+VcgKxQHTuvIvT9KW6WBiM5u2GFuecGi2z1yZG9zmuRg5o
+	 hlfQLUJHa08c9U7rQH0quO5M6Un+KhIuXjZpHwOtBt8tY6UR4k7YXwL9ZCH6pfC/uv
+	 sGoOZZp9lu/lg==
+Date: Mon, 3 Mar 2025 23:44:28 +0000
 From: Will Deacon <will@kernel.org>
-To: Sebastian Ene <sebastianene@google.com>
-Cc: catalin.marinas@arm.com, joey.gouly@arm.com, maz@kernel.org,
-	oliver.upton@linux.dev, snehalreddy@google.com,
-	sudeep.holla@arm.com, suzuki.poulose@arm.com, vdonnefort@google.com,
-	yuzenghui@huawei.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-team@android.com
-Subject: Re: [PATCH v2 3/4] KVM: arm64: Map the hypervisor FF-A buffers on
- ffa init
-Message-ID: <20250303234259.GA30749@willie-the-truck>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Sebastian Ene <sebastianene@google.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, catalin.marinas@arm.com,
+	joey.gouly@arm.com, oliver.upton@linux.dev, snehalreddy@google.com,
+	suzuki.poulose@arm.com, vdonnefort@google.com, yuzenghui@huawei.com,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel-team@android.com
+Subject: Re: [PATCH v2 2/4] KVM: arm64: Move the ffa_to_linux definition to
+ the ffa header
+Message-ID: <20250303234426.GB30749@willie-the-truck>
 References: <20250227181750.3606372-1-sebastianene@google.com>
- <20250227181750.3606372-4-sebastianene@google.com>
+ <20250227181750.3606372-3-sebastianene@google.com>
+ <20250227202557.d3fd6ylzbaho4pvx@bogus>
+ <Z8DxZY-09R6lwEW3@google.com>
+ <86wmdapei8.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250227181750.3606372-4-sebastianene@google.com>
+In-Reply-To: <86wmdapei8.wl-maz@kernel.org>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_154311_021313_21E63DFF 
-X-CRM114-Status: GOOD (  16.53  )
+X-CRM114-CacheID: sfid-20250303_154435_284094_A6B8B9E9 
+X-CRM114-Status: GOOD (  17.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,41 +81,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025 at 06:17:48PM +0000, Sebastian Ene wrote:
-> Map the hypervisor's buffers irrespective to the host and return
-> a linux error code from the FF-A error code on failure. Remove
-> the unmap ff-a buffers calls from the hypervisor as it will
-> never be called.
-> Prevent the host from using FF-A directly with Trustzone
-> if the hypervisor could not map its own buffers.
+On Fri, Feb 28, 2025 at 10:09:19AM +0000, Marc Zyngier wrote:
+> On Thu, 27 Feb 2025 23:12:37 +0000,
+> Sebastian Ene <sebastianene@google.com> wrote:
+> > 
+> > On Thu, Feb 27, 2025 at 08:25:57PM +0000, Sudeep Holla wrote:
+> > > On Thu, Feb 27, 2025 at 06:17:47PM +0000, Sebastian Ene wrote:
+> > > > Keep the ffa_to_linux error map in the header and move it away
+> > > > from the arm ffa driver to make it accessible for other components.
+> > > 
+> > > Do you plan to push/target these changes for v6.15 ? If not, I can take
+> > > this patch with other FF-A changes in my tree for v6.15. Otherwise, it
+> > > is must go along with other changes.
+> > > 
+> > 
+> > Yes, feel free to pick them with your changes and we can push them
+> > later.
 > 
-> Signed-off-by: Sebastian Ene <sebastianene@google.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/ffa.c | 46 +++++++++++++----------------------
->  1 file changed, 17 insertions(+), 29 deletions(-)
+> So this series is not a 6.15 candidate?
 
-[...]
-
-> @@ -861,6 +842,7 @@ int hyp_ffa_init(void *pages)
->  {
->  	struct arm_smccc_res res;
->  	void *tx, *rx;
-> +	int ret;
->  
->  	if (kvm_host_psci_config.smccc_version < ARM_SMCCC_VERSION_1_2)
->  		return 0;
-> @@ -911,5 +893,11 @@ int hyp_ffa_init(void *pages)
->  		.lock	= __HYP_SPIN_LOCK_UNLOCKED,
->  	};
->  
-> +	/* Map our hypervisor buffers into the SPMD */
-> +	ret = ffa_map_hyp_buffers();
-> +	if (ret)
-> +		return ret;
-
-Doesn't calling RXTX_MAP here undo the fix from c9c012625e12 ("KVM:
-arm64: Trap FFA_VERSION host call in pKVM") where we want to allow for
-the host to negotiate the version lazily?
+I think this is 6.15 stuff once it's been reviewed. Sudeep's message is
+a little confusing as it refers to 6.15 twice (I guess he meant 6.14 the
+first time?).
 
 Will
 
