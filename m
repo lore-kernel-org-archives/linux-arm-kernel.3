@@ -4,97 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17291C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 09:40:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2043EC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 09:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r2jFIZdUKx5Dbc3ZCsERsiLP2tPI95deItMdu/Cb6SQ=; b=nyjFX8BsjJVsuqWHpu48XHUP7C
-	3pOGBL6W0J6Igow70k1TlUYsxSjOlZSsEK8xktz62Zna3NuIewIP9Z4fABVRK1jwwtnNvJstjKdJf
-	Vt03V2U2Hz7079Hm+NABCps7ErFWGrQVR4UJ+c4cMiVU+pgPM6Kqi+v1mucmiDXsVwC+WQHEzH5eW
-	kYLQPwlaGx6x3WXsEdFffHqz6ffKBLMhQt3h1DzO/TS1uJ9fhLE4O0LPxZAgG6O+xivT412/yBJlq
-	qzA3eXaGkjp1SJeM+CWPwij2w5l/f0iGq5yolcbe25MvBOs0htYPHleMvTnLt0yrrl4rpiTT+F92d
-	OThRHDsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=40IljttzQ4D51zd6+tKieDE6wTjSWdKsG254DqLzf6A=; b=19cvPmpV7zDgH6MT1lIg9SfmFl
+	OEdQbvwyUXwR0PDRFWkF9LxIWMySgr4RMgWoXs1CSELAB+CBrPvjs/5sEW5ag1WC+gFsum5MMKo5V
+	l6EJnz+3faT/RuCY6lxuUlG6QIaRIrLiHmiSKb4Ff9ZWJddMKrgD3iZy0bvqhdz4OCQolL0z0g77W
+	WlAea8emAyrhaMkoPctUjA+uBYyHuk4xh01SuLd6jTwqPlBoWdkTh6SZLpA+oOfNbKZBv0EVc8yDe
+	ju/tpfoMkNwjyJV9I8uXJSimAHHeixAxVRBmS429VfvIQNKtu4XmWPZb9LckTsp5wM4S8Ec77ttPl
+	Yxl8x5rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp2HB-00000000AhV-0ycp;
-	Mon, 03 Mar 2025 09:39:53 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tp2Ih-00000000Asx-0bhJ;
+	Mon, 03 Mar 2025 09:41:27 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp27z-000000008x6-1Pw5
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 09:30:24 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52309L9i002169;
-	Mon, 3 Mar 2025 09:30:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	r2jFIZdUKx5Dbc3ZCsERsiLP2tPI95deItMdu/Cb6SQ=; b=ApAYQhp+bBNOfR+2
-	vDkaPsNp4jGa2/W771Qf0oy2K2APdg/A5NF9z0uEhHzd9O0xqpmJsWCB0/OIrd6Y
-	xLBzECAmWMGyMTbHNtoUhaFQS5ZgFFkuLcWU4TAcZu0hKpHsBwo9nEaMbg87C9hz
-	6haYxN3PRFBzSEcAR4jI8RBMCLEY9Ke/NjIKJ1O1f+7V9VhpOG2AXmiDVC2xWuhs
-	gETA/5iZf7WOcTf5sWes14WNx5Rpaxuch+FFte/i3Xn31MeX4HtJvLBrUnIsHttR
-	l4FstB60v1frcIm2QzUpcZkcSi4BZvQgxsX7Far31EQqxD3j+86u6Ui5sGYoPOHR
-	obSqcQ==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 453t88vf7v-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 03 Mar 2025 09:30:10 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5239U9Gp017890
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 3 Mar 2025 09:30:09 GMT
-Received: from [10.239.132.245] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 3 Mar 2025
- 01:30:03 -0800
-Message-ID: <45076e28-dd70-456f-83b2-7b4d532c455c@quicinc.com>
-Date: Mon, 3 Mar 2025 17:29:55 +0800
+	id 1tp28V-0000000091W-3rjB;
+	Mon, 03 Mar 2025 09:30:57 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4394a823036so39904255e9.0;
+        Mon, 03 Mar 2025 01:30:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740994254; x=1741599054; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=40IljttzQ4D51zd6+tKieDE6wTjSWdKsG254DqLzf6A=;
+        b=VFbhoSHzJDGFOAG/vxFwk57fbWbshWcnek0Dc15URXXZZbmhduFydfOTSRqAhQJcJH
+         M+ep8W7C7apMhZr8sAXdHGOyoPTrMGXmgw2AVQKe76W38iZt2MkcYfoJtvI5Z43XLchy
+         WSzSfDWtepBu7l1hqhe08CKc/uQMKnvNv9p9rpClIy+3ATm6SXLgjBTcSNPf+jvLSzLq
+         qocHbbbHyhr97kiNkvpCaVi8Svql26yUcwKwS1gMzbxnkUmQtZuFX/uOxoFMfaC///Cv
+         T+N8PGBB+sfaQSD1cxGjSI5/4BqRQMSJdWUaxv5r5nO98+3o4MvSYjjE+evzHbaG7rha
+         fFOQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740994254; x=1741599054;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=40IljttzQ4D51zd6+tKieDE6wTjSWdKsG254DqLzf6A=;
+        b=H3dS1m4VdxpKEU2fBm3PrBdweWarCAontmgBXii3uPOWm/ujtDyGPIvRiUp3i6OhYc
+         rj5dItjaxVEc7Xs/egyb6hrT3bEntt+iio5f7Lvp8e9u36Zci+LZaey4Y8j0+a9U/Gwg
+         l0f8J58GsESyHy43k0QUj76vPiFpUrhc+btM5As7ytaF/i1wOXBCq/I+XKpyZPW8/UMH
+         i1aKnS5U0JyVFLByoAMKI3HDIiFjbqHoDYlqezYiAvrfqeOyRPcavJqCzdj7aFxb7k1J
+         hUgSh/aZavNtF1tCIeqtRezMmM2YSN1UwtndRYUVaP1/96ML9c5XJiBqctgJrrN9muV1
+         WwyQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUDLJqV7xebWl1icyNMO+CDL3oEAQJ0S/jVTq22h+zJJjZUFIZstoSddq6fdO2goCjcRpCRNSOiv9E3@lists.infradead.org, AJvYcCWHoMGPsnxakozTwUQE3JGwgI9smcf2YHzp3b/lNKpT2r0oM1y8Zv/A0YibsTWHKHopnRtTrJqa6sKIuThiYmeh@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvwabdZHMqXtWCYATX/wScxQscwmP4g3nd7MksQNdFA4sZ9+Gd
+	RN/KHvXDe2NIU86ohG74sHTRNtgwePaAGj8RULl8hGhY38Z0KaJM
+X-Gm-Gg: ASbGncupZXS+bNPdDbfvCugM3fDYwz+ElCDXpN5a1sgwtvUtLzzhANKVwJu15Hni2J/
+	g1VYvGYthCaDzmuTVz62kswnOXV1ctpMqzb6IZclpARxGy8Gjqlwp1dMx3eny+EQOozStFiptFE
+	6QV/ieQMa1Cv5zp6oW1U03gAYCD3ksUqnFoF1mEuHf+2cPIMh8OGI2Sg0835Ylrhq6duVUjlFs1
+	B7n4TdqV13Z/+D61/p58Y9DttjbGK4PLFHWbnHsVSwP/uEKKcQxjqob3URj9JxCWN5tK2yNz7Ge
+	8GPO4f5I2dlJEIXAh2Q4lrMwAxslxFPc8SBoFuz+/I5f
+X-Google-Smtp-Source: AGHT+IE593cTzA3Ll5VUo6n9spv8sl0rB5EmPJ7Oo0urGlRI3JU+kEeG6M0t/EplWSVuxhmvW3R3dg==
+X-Received: by 2002:a05:600c:4444:b0:439:92ca:f01b with SMTP id 5b1f17b1804b1-43ba6708bd2mr103876125e9.13.1740994253402;
+        Mon, 03 Mar 2025 01:30:53 -0800 (PST)
+Received: from eichest-laptop ([2a02:168:af72:0:4dab:10cc:7f02:7565])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43aba5710c2sm179671575e9.32.2025.03.03.01.30.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Mar 2025 01:30:52 -0800 (PST)
+Date: Mon, 3 Mar 2025 10:30:51 +0100
+From: Stefan Eichenberger <eichest@gmail.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: vkoul@kernel.org, kishon@kernel.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	tharvey@gateworks.com, hongxing.zhu@nxp.com,
+	francesco.dolcini@toradex.com, linux-phy@lists.infradead.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>
+Subject: Re: [PATCH v1 1/2] phy: freescale: imx8m-pcie: cleanup reset logic
+Message-ID: <Z8V2yzfYGirBFi1u@eichest-laptop>
+References: <20250228103959.47419-1-eichest@gmail.com>
+ <20250228103959.47419-2-eichest@gmail.com>
+ <c965906ea8797385399534e974cabdba5564ae0f.camel@pengutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7] arm64: mm: Populate vmemmap at the page level if not
- section aligned
-To: David Hildenbrand <david@redhat.com>, <anshuman.khandual@arm.com>,
-        <catalin.marinas@arm.com>
-CC: <will@kernel.org>, <ardb@kernel.org>, <ryan.roberts@arm.com>,
-        <mark.rutland@arm.com>, <joey.gouly@arm.com>,
-        <dave.hansen@linux.intel.com>, <akpm@linux-foundation.org>,
-        <chenfeiyang@loongson.cn>, <chenhuacai@kernel.org>,
-        <linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <quic_tingweiz@quicinc.com>
-References: <20250217092907.3474806-1-quic_zhenhuah@quicinc.com>
- <8c1578ed-cfef-4fba-a334-ebf5eac26d60@redhat.com>
- <ce2bd045-3e3a-42bf-9a48-9ad806ff3765@quicinc.com>
- <871c0dae-c419-4ac2-9472-6901aab90dcf@redhat.com>
- <a5439884-551c-4104-9175-f95b0895a489@quicinc.com>
- <00c82c92-35a0-441c-b5b5-e4a6c8a4a9b7@redhat.com>
-Content-Language: en-US
-From: Zhenhua Huang <quic_zhenhuah@quicinc.com>
-In-Reply-To: <00c82c92-35a0-441c-b5b5-e4a6c8a4a9b7@redhat.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: jBcZU8ak7qkip-7X9ZyIEw8nwf0ChjlD
-X-Proofpoint-GUID: jBcZU8ak7qkip-7X9ZyIEw8nwf0ChjlD
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-03_03,2025-03-03_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 suspectscore=0
- impostorscore=0 spamscore=0 phishscore=0 lowpriorityscore=0 malwarescore=0
- priorityscore=1501 mlxlogscore=999 mlxscore=0 clxscore=1015 adultscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2502100000
- definitions=main-2503030072
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c965906ea8797385399534e974cabdba5564ae0f.camel@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_013023_484984_21673270 
-X-CRM114-Status: GOOD (  24.35  )
+X-CRM114-CacheID: sfid-20250303_013055_961112_75527496 
+X-CRM114-Status: GOOD (  21.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,133 +102,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Philipp,
 
-
-On 2025/2/27 1:13, David Hildenbrand wrote:
-> Sorry, I somehow missed this mail.
+On Fri, Feb 28, 2025 at 01:38:11PM +0100, Philipp Zabel wrote:
+> On Fr, 2025-02-28 at 11:38 +0100, Stefan Eichenberger wrote:
+> > From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+> > 
+> > Remove the switch statement and base perst release on whether it is
+> > found in the device tree. The probe function fails without the reset
+> > property, making it mandatory. Therefore, always release reset
+> > independent of the variant.
+> > 
+> > This does not change the behavior of the driver but reduces driver
+> > complexity and allows for easier future modifications.
+> > 
+> > Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+> > ---
+> >  drivers/phy/freescale/phy-fsl-imx8m-pcie.c | 12 ++++--------
+> >  1 file changed, 4 insertions(+), 8 deletions(-)
+> > 
+> > diff --git a/drivers/phy/freescale/phy-fsl-imx8m-pcie.c b/drivers/phy/freescale/phy-fsl-imx8m-pcie.c
+> > index e98361dcdeadf..00f957a42d9dc 100644
+> > --- a/drivers/phy/freescale/phy-fsl-imx8m-pcie.c
+> > +++ b/drivers/phy/freescale/phy-fsl-imx8m-pcie.c
+> > @@ -141,15 +141,11 @@ static int imx8_pcie_phy_power_on(struct phy *phy)
+> >  			   IMX8MM_GPR_PCIE_REF_CLK_PLL);
+> >  	usleep_range(100, 200);
+> >  
+> > -	switch (imx8_phy->drvdata->variant) {
+> > -	case IMX8MP:
+> > +	if (imx8_phy->perst)
+> 
+> This check is not necessary, reset_control_deassert(NULL) is a no-op:
 > 
 
-No problem. Thanks for your reply.
+Thanks for the feedback, I will remove the check in the next version.
 
->>>> Hi David,
->>>>
->>>> I had the same doubt initially.
->>>> After going through the codes, I noticed for vmemmap_populate(), the
->>>> arguments "start" and "end" passed down should already be within one
->>>> section.
->>>> early path:
->>>> for_each_present_section_nr
->>>>      __populate_section_memmap
->>>>          ..
->>>>          vmemmap_populate()
->>>>
->>>> hotplug path:
->>>> __add_pages
->>>>      section_activate
->>>>          vmemmap_populate()
->>>>
->>>> Therefore.. focusing only on the size seems OK to me, and fall back
->>>> solution below appears unnecessary?
->>>
->>> Ah, in that case it is fine. Might make sense to document/enforce that
->>> somehow for the time being ...
->>
->> Shall I document and WARN_ON if the size exceeds? like:
->> WARN_ON(end - start > PAGES_PER_SECTION * sizeof(struct page))
-> 
-> Probably WARN_ON_ONCE() along with a comment that we should never exceed 
-> a single memory section.
-
-Got it.
-
-> 
->>
->> Since vmemmap_populate() is implemented per architecture, the change
->> should apply for other architectures as well. However I have no setup to
->> test it on...
->> Therefore, May I implement it only for arm64 now ?
-> 
-> Would work for me; better than no warning.
-
-I made one patch several days ago, could you please help review once? 
-https://lore.kernel.org/linux-mm/20250219084001.1272445-1-quic_zhenhuah@quicinc.com/T/
-Is there anything else you would suggest besides preferring WARN_ON_ONCE() ?
-
-> 
->> Additionally, from previous discussion, the change is worth
->> backporting(apologies for missing to CC stable kernel in this version).
->> Keeping it for arm64 should simplify for backporting. WDYT?
-> 
-> Jup. Of course, we could add a generic warning in a separate patch.
-> 
->>
->>>
->>>
->>>>> +/*
->>>>> + * Try to populate PMDs, but fallback to populating base pages when
->>>>> ranges
->>>>> + * would only partially cover a PMD.
->>>>> + */
->>>>>     int __meminit vmemmap_populate_hugepages(unsigned long start,
->>>>> unsigned
->>>>> long end,
->>>>>                                             int node, struct 
->>>>> vmem_altmap
->>>>> *altmap)
->>>>>     {
->>>>> @@ -313,6 +317,9 @@ int __meminit vmemmap_populate_hugepages(unsigned
->>>>> long start, unsigned long end,
->>>>>            for (addr = start; addr < end; addr = next) {
->>>>
->>>> This for loop appears to be redundant for arm64 as well, as above
->>>> mentioned, a single call to pmd_addr_end() should suffice.
->>>
->>> Right, that was what was confusing me in the first place.
->>>
->>>>
->>>>>                    next = pmd_addr_end(addr, end);
->>>>>
->>>>> +               if (!IS_ALIGNED(addr, PMD_SIZE) || !IS_ALIGNED(next,
->>>>> PMD_SIZE))
->>>>> +                       goto fallback;
->>>>> +
->>>>>                    pgd = vmemmap_pgd_populate(addr, node);
->>>>>                    if (!pgd)
->>>>>                            return -ENOMEM;
->>>>> @@ -346,6 +353,7 @@ int __meminit vmemmap_populate_hugepages(unsigned
->>>>> long start, unsigned long end,
->>>>>                            }
->>>>>                    } else if (vmemmap_check_pmd(pmd, node, addr, 
->>>>> next))
->>>>>                            continue;
->>>>> +fallback:
->>>>>                    if (vmemmap_populate_basepages(addr, next, node,
->>>>> altmap))
->>>>>                            return -ENOMEM;
->>>>
->>>> It seems we have no chance to call populate_basepages here?
->>>
->>>
->>> Can you elaborate?
->>
->> It's invoked within vmemmap_populate_hugepages(), which is called by
->> vmemmap_populate(). This implies that we are always performing a whole
->> section hotplug?
-> 
-> Ah, you meant only in the context of this change, yes. I was confused, 
-> because there are other reasons why we run into that fallback (failing 
-> to allocate a PMD).
-
-I observed that this logic was introduced in 
-2045a3b8911b("mm/sparse-vmemmap: generalise 
-vmemmap_populate_hugepages()") which moved from arch-dependent 
-codes(such as vmemmap_set_pmd() in arch/loongarch/mm/init.c or 
-arch/x86/mm/init_64.c) to common arch-independent code(function 
-vmemmap_populate_hugepages).
-
-I suspect it might be causing the confusion, as it may not be fully 
-compatible with arm64. However, it does not seem to cause any bugs :)
-
-> 
-
+Regards,
+Stefan
 
