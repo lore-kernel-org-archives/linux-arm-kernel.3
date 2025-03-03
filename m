@@ -4,75 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF788C282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 13:51:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04847C282CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 13:52:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xymxijNAB4kPnYy2+51xfQ78DYkQAFFvh1BybSjX8uM=; b=kGRw6tbLiadD5Y4jHc+9lFAeWU
-	ijU1fHzVL+wjPpi3QGHPZ+8BloMrB4EbSXjDNCFZLZdDOK/ndzrJ6AuUx9+YuwtqolBBUDu00Oh4E
-	3UimFVf7I1OP1uGTngoYT7dBTp1aAh3A5tDADypXuOqEU8DeCS98shDIHOCEIAjWrv9fyUHGCX/qF
-	R7+7ttw6SvrMVBxxYspf4OdcYdlvZlEUl22WbNnUbUWvg0gfv1qZUmEDQ9pnvnaoddZObOXKvX+zl
-	TXVPeqKOJn8tUT5MKGNYd1ed2H4RmohggZ7SJY6ivueZhDWXkoTMgF96k65H1q6D+ZFe3AmDUZwDn
-	lE2jARVA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gNjkZXsFxPWFMyK2OgocbrFn2IS3HWHLODQTFVqVxX4=; b=ScoGFdg63rnNikn6N4/TD/HnP9
+	EwYPF9dm/0d91aDH7MswZ8IRfY9BNwjzlrIdwgZ5GwjjuvJw4d5EhYMnVXbqCuOe1LUq0Fe4U6QFp
+	2gilF21Q6qUUNbCobk/71gqFCJpT+perfz78qXEcqJYwWxKj73qdQW83qUr5Cy1BPoIh0h4V38L/x
+	6SgX8x0zop4Rvdhtf5BiDUMMKRaQiHAauROL+GzIeJwTp9aaQnekGAzHTIFr3LDes4wSlxTNlpQZu
+	OH9UiS+Ny2bnUy9AhSY4LE1h9SKC2AwwrAtj526vxOG440MS0j4pQNh2lll1hqu/kyqum7h9/bnkI
+	rSfVM+Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp6CE-00000000z60-0C7D;
-	Mon, 03 Mar 2025 13:51:02 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tp6Dl-00000000zJn-48nY;
+	Mon, 03 Mar 2025 13:52:37 +0000
+Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp5qr-00000000v0f-2ZKH;
-	Mon, 03 Mar 2025 13:28:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 352145C598E;
-	Mon,  3 Mar 2025 13:26:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8F0FC4CEE8;
-	Mon,  3 Mar 2025 13:28:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741008536;
-	bh=pU75ZWR55ytSqTfFyBXoZ15CdXjjZybmf3hZAq7hNZA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=fvovLgDuT8SSv3WCPvLaVtJ0pBNwyRk6mFp31yKWnf+m8GRu7OhSOpELYlOpzrLNN
-	 sqdAotELtlVNYxz7k6QnZtcBAlyXprLJPPsSicGaETkDSeNYREsV4LGPuE+zQwUzJU
-	 vJeo0lTRXJn33MqW9GSE1LA10t2CBcSeWWF/JJxdzVejirlmdmXYvnfYsJ3fudmtQ9
-	 7K9jdg92q+5e6jsT3P3a5357wIHHlB6QY+ZKso/Q1+ndSWBnoPz83uRD/qG8ERufGH
-	 tPdnoGpo5d5sWXgFI4mByp/QiN7oufWU1SvpUPzn8zcBQhD/Ssc50B2bSIWu3/5php
-	 wpKCziGZrfnaw==
-Received: by mail-pj1-f46.google.com with SMTP id 98e67ed59e1d1-2fee4d9c2efso2362168a91.3;
-        Mon, 03 Mar 2025 05:28:56 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWVg1Jx91o0O0dsYjXKxyLA3B2N+JonbCleGOKcysWmy/P/fh+u1RTSc403NWp9maagvbj3VQ7Neb6XsKuvlzs=@lists.infradead.org, AJvYcCX5if5HAK28tCKfkW/FQP33dnJLnE1wJ8IJ5JXA0bj3kcEzGK5jIYRNfV4gwS0DbhlOjycPANtQIj4Daxqb+ht5@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywvam2+tIA6Oid3S6XtGx0i3AAmxs2dOjhOoFQ7L5SZpOL+K+s3
-	s80zbml4ATPO6ZUpGf3T2X82tt+aUmSw1wf9k8GPtYD2wqbpsphYFR3PTOTbuX5vW38BUR2XfrL
-	Vgrof6H1RK9CIazUIMY3D+GaEOg==
-X-Google-Smtp-Source: AGHT+IHEdNW1OchHMbLS1cCfwrEs+3MwI78VEpSMNYRCH8bFSj4YHOZdW6AmaLLo8nvW04MvVqNc2fV4NRzXAOPbwh8=
-X-Received: by 2002:a17:90b:3d4e:b0:2fe:b9a2:fd3b with SMTP id
- 98e67ed59e1d1-2febabf8336mr20713936a91.30.1741008536294; Mon, 03 Mar 2025
- 05:28:56 -0800 (PST)
+	id 1tp5sL-00000000vLx-3wOo
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Mar 2025 13:30:32 +0000
+Received: by mail-pl1-x643.google.com with SMTP id d9443c01a7336-22349dc31bcso75967235ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 05:30:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741008629; x=1741613429; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=gNjkZXsFxPWFMyK2OgocbrFn2IS3HWHLODQTFVqVxX4=;
+        b=A4qmJfOrCA4+EE+FGjRhCUXVNRxz/BHUBEXECnY8bmNe3fgMsghSmnOhoYlQ/Y/jXA
+         2/FoL11U9ThdDlKc4uBGQ1ZPRhCb/l1UPSm6czNbcK0Xj1bGWxCnaQPRf45Vx0G6sUoz
+         M6x36Zl1qOBfdWB/c2eTp5KAerBsGSB6V/q7Yv7gg0E9MJVe9ZjLJm9h5O8UtZWiorf0
+         rGjVflw8/qarCJFAj1/jg3IfLxJVnkswOVKBp7EEpO/NR1P7gq9f0aHakk8Zk6P6OdcS
+         /BJSzZ8vNhIVU5PMDty1MeyDWAKJ0wCpcHd/zerdB6a7XTYMJI9GgE96YIlmZAZIMK/C
+         uUOg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741008629; x=1741613429;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gNjkZXsFxPWFMyK2OgocbrFn2IS3HWHLODQTFVqVxX4=;
+        b=d8z+zh3/M3UtN+08DeO5jXZRW50RIotHuSL1yKHMaVKtDnVms/PEkp29NaUq+8O4o3
+         4Blne+Hr099gtfNMFjXgm0XPTG/7dNCmQzozL8TY2N+cm5tLDm/zg/1PZ8B7Nh97L5Nz
+         5FMOHeXpwl99rOI8dwQOVKQoJjnMnxWXSsgVzFgCVeBaftaOxatQ9b5WXQJsqoyQODWR
+         G3zt9O+k3HUVjVa55cBnHuO9mCgvnzIXoJV2z/sb4/jfHFGr8E1qH1rL4H1EhvgAcjlw
+         pXb52Ht2dIUwJLq0qxHlFOwhIK4PMPCdtPAlnHT0u31DVsT7ARJAmC2VmyQ7xYVvnlpO
+         Pmzw==
+X-Forwarded-Encrypted: i=1; AJvYcCUWY665v4JT1kZEG2j+79q4UFS0WZw5pe5mHqMuiffltjhOq7PHegVvfwWlyT7GMwWg7m43Pxj4qso+3LpTbKa7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3nkF59NkOCLSntHPxuq0cWvho/PI1AE2EVt0NUqoXLxiS1uRS
+	8IjT5bUtnudLDyLQllcwrFlMCgEFlrVKM6yPUMufJDBYNRio5Fwk
+X-Gm-Gg: ASbGncudnDunly5HJKNHjsFXXu7ZQaiNbGDnzyZw8gKvs84yXmyKAcq/NIl7hAIQfpv
+	VkLNeoIxe3IH7odubu2HtnFPPRXq+BYrwHZKNJ0DzcZruhqg3ejfiP+dj5it8ijyh18cwJtM3MY
+	Fi7X9YcwImyGwizzfZT0weXTPA3IW+iBZ7SYt3Z9uYOdwUZuBsL/CAU/XYptAna3Q2DMVCPrvAJ
+	HL/pM/jDVXdbhynwXvb90mES0DqWyJJvXyMdwQtnaWGSYBji636fw75TYqqyhe6pqFd53Q9/Dd+
+	nhay4dp0SrJUnqE+0a7vdDP/JO0wSVrzuZFIvnLsLWc2C4IRffg5H03hx+QFHw==
+X-Google-Smtp-Source: AGHT+IGzwQpz8i9IoNIFYRlZqYmQzdkErFQv2wnbEGpUy1JVrV1T6QdikCneYnb/qYuevmlNGOS4BA==
+X-Received: by 2002:a17:903:244d:b0:210:fce4:11ec with SMTP id d9443c01a7336-22368f6a5f1mr188695035ad.1.1741008628736;
+        Mon, 03 Mar 2025 05:30:28 -0800 (PST)
+Received: from localhost.localdomain ([43.129.244.20])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-223505359b8sm77297035ad.253.2025.03.03.05.30.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Mar 2025 05:30:28 -0800 (PST)
+From: Menglong Dong <menglong8.dong@gmail.com>
+X-Google-Original-From: Menglong Dong <dongml2@chinatelecom.cn>
+To: peterz@infradead.org,
+	rostedt@goodmis.org,
+	mark.rutland@arm.com,
+	alexei.starovoitov@gmail.com
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	mhiramat@kernel.org,
+	tglx@linutronix.de,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	x86@kernel.org,
+	hpa@zytor.com,
+	ast@kernel.org,
+	daniel@iogearbox.net,
+	andrii@kernel.org,
+	martin.lau@linux.dev,
+	eddyz87@gmail.com,
+	yonghong.song@linux.dev,
+	john.fastabend@gmail.com,
+	kpsingh@kernel.org,
+	sdf@fomichev.me,
+	jolsa@kernel.org,
+	davem@davemloft.net,
+	dsahern@kernel.org,
+	mathieu.desnoyers@efficios.com,
+	nathan@kernel.org,
+	nick.desaulniers+lkml@gmail.com,
+	morbo@google.com,
+	samitolvanen@google.com,
+	kees@kernel.org,
+	dongml2@chinatelecom.cn,
+	akpm@linux-foundation.org,
+	riel@surriel.com,
+	rppt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	bpf@vger.kernel.org,
+	netdev@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: [PATCH v4 0/4] per-function storage support
+Date: Mon,  3 Mar 2025 21:28:33 +0800
+Message-Id: <20250303132837.498938-1-dongml2@chinatelecom.cn>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-References: <b754a408-4f39-4e37-b52d-7706c132e27f@stanley.mountain>
-In-Reply-To: <b754a408-4f39-4e37-b52d-7706c132e27f@stanley.mountain>
-From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Mon, 3 Mar 2025 21:29:43 +0800
-X-Gmail-Original-Message-ID: <CAAOTY__KF=9Pp=3PAnXG5WCPX4Hxkfd391eBu0dfhO-wz9dWqw@mail.gmail.com>
-X-Gm-Features: AQ5f1JoEyaQUFZqrdcQEIsbOBWMKKKZ_mrsKmQyi0xWBpqur_M_EISNLxHKjU88
-Message-ID: <CAAOTY__KF=9Pp=3PAnXG5WCPX4Hxkfd391eBu0dfhO-wz9dWqw@mail.gmail.com>
-Subject: Re: [PATCH RESEND] drm/mediatek: dsi: fix error codes in mtk_dsi_host_transfer()
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Julien STEPHAN <jstephan@baylibre.com>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, 
-	Daniel Vetter <daniel@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Mattijs Korpershoek <mkorpershoek@baylibre.com>, dri-devel@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_052857_764832_72A82BD7 
-X-CRM114-Status: GOOD (  21.25  )
+X-CRM114-CacheID: sfid-20250303_053029_977315_F41EEC1B 
+X-CRM114-Status: GOOD (  17.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,80 +133,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Dan:
+For now, there isn't a way to set and get per-function metadata with
+a low overhead, which is not convenient for some situations. Take
+BPF trampoline for example, we need to create a trampoline for each
+kernel function, as we have to store some information of the function
+to the trampoline, such as BPF progs, function arg count, etc. The
+performance overhead and memory consumption can be higher to create
+these trampolines. With the supporting of per-function metadata storage,
+we can store these information to the metadata, and create a global BPF
+trampoline for all the kernel functions. In the global trampoline, we
+get the information that we need from the function metadata through the
+ip (function address) with almost no overhead.
 
-Dan Carpenter <dan.carpenter@linaro.org> =E6=96=BC 2025=E5=B9=B41=E6=9C=888=
-=E6=97=A5 =E9=80=B1=E4=B8=89 =E4=B8=8B=E5=8D=885:36=E5=AF=AB=E9=81=93=EF=BC=
-=9A
->
-> There is a type bug because the return statement:
->
->         return ret < 0 ? ret : recv_cnt;
->
-> The issue is that ret is an int, recv_cnt is a u32 and the function
-> returns ssize_t, which is a signed long.  The way that the type promotion
-> works is that the negative error codes are first cast to u32 and then
-> to signed long.  The error codes end up being positive instead of
-> negative and the callers treat them as success.
+Another beneficiary can be ftrace. For now, all the kernel functions that
+are enabled by dynamic ftrace will be added to a filter hash if there are
+more than one callbacks. And hash lookup will happen when the traced
+functions are called, which has an impact on the performance, see
+__ftrace_ops_list_func() -> ftrace_ops_test(). With the per-function
+metadata supporting, we can store the information that if the callback is
+enabled on the kernel function to the metadata.
 
-Applied to mediatek-drm-next [1], thanks.
+In the 1st patch, we factor out FINEIBT_INSN_OFFSET and CFI_INSN_OFFSET to
+make fineibt works when the kernel function is 32-bytes aligned.
 
-[1] https://web.git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.=
-git/log/?h=3Dmediatek-drm-next
+In the 2nd patch, we implement the per-function metadata storage by
+storing the index of the metadata to the function padding space.
 
-Regards,
-Chun-Kuang.
+In the 3rd and 4th patch, we implement the per-function metadata storage
+for x86 and arm64. And in the feature, we can support more arch.
 
->
-> Fixes: 81cc7e51c4f1 ("drm/mediatek: Allow commands to be sent during vide=
-o mode")
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/r/202412210801.iADw0oIH-lkp@intel.com/
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-> Reviewed-by: Mattijs Korpershoek <mkorpershoek@baylibre.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
-ora.com>
-> ---
-> I sent this patch earlier:
-> https://lore.kernel.org/all/Y%2FyBC4yxTs+Po0TG@kili/
-> but it wasn't applied.  I've changed the commit message a bit and added
-> new tags.
->
->  drivers/gpu/drm/mediatek/mtk_dsi.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediate=
-k/mtk_dsi.c
-> index d871b1dba083..0acfda47f002 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-> @@ -1015,12 +1015,12 @@ static ssize_t mtk_dsi_host_transfer(struct mipi_=
-dsi_host *host,
->                                      const struct mipi_dsi_msg *msg)
->  {
->         struct mtk_dsi *dsi =3D host_to_dsi(host);
-> -       u32 recv_cnt, i;
-> +       ssize_t recv_cnt;
->         u8 read_data[16];
->         void *src_addr;
->         u8 irq_flag =3D CMD_DONE_INT_FLAG;
->         u32 dsi_mode;
-> -       int ret;
-> +       int ret, i;
->
->         dsi_mode =3D readl(dsi->regs + DSI_MODE_CTRL);
->         if (dsi_mode & MODE) {
-> @@ -1069,7 +1069,7 @@ static ssize_t mtk_dsi_host_transfer(struct mipi_ds=
-i_host *host,
->         if (recv_cnt)
->                 memcpy(msg->rx_buf, src_addr, recv_cnt);
->
-> -       DRM_INFO("dsi get %d byte data from the panel address(0x%x)\n",
-> +       DRM_INFO("dsi get %zd byte data from the panel address(0x%x)\n",
->                  recv_cnt, *((u8 *)(msg->tx_buf)));
->
->  restore_dsi_mode:
-> --
-> 2.45.2
->
+Changes since V3:
+- rebase to the newest tip/x86/core, the fineibt has some updating
+
+Changes since V2:
+- split the patch into a series.
+- considering the effect to cfi and fineibt and introduce the 1st patch.
+
+Changes since V1:
+- add supporting for arm64
+- split out arch relevant code
+- refactor the commit log
+
+Menglong Dong (4):
+  x86/ibt: factor out cfi and fineibt offset
+  add per-function metadata storage support
+  x86: implement per-function metadata storage for x86
+  arm64: implement per-function metadata storage for arm64
+
+ arch/arm64/Kconfig              |  15 ++
+ arch/arm64/Makefile             |  23 ++-
+ arch/arm64/include/asm/ftrace.h |  34 +++++
+ arch/arm64/kernel/ftrace.c      |  13 +-
+ arch/x86/Kconfig                |  18 +++
+ arch/x86/include/asm/cfi.h      |  13 +-
+ arch/x86/include/asm/ftrace.h   |  54 ++++++++
+ arch/x86/kernel/alternative.c   |  18 ++-
+ arch/x86/net/bpf_jit_comp.c     |  22 +--
+ include/linux/kfunc_md.h        |  25 ++++
+ kernel/Makefile                 |   1 +
+ kernel/trace/Makefile           |   1 +
+ kernel/trace/kfunc_md.c         | 239 ++++++++++++++++++++++++++++++++
+ 13 files changed, 450 insertions(+), 26 deletions(-)
+ create mode 100644 include/linux/kfunc_md.h
+ create mode 100644 kernel/trace/kfunc_md.c
+
+-- 
+2.39.5
+
 
