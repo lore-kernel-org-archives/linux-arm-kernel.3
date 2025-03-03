@@ -4,80 +4,211 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D948FC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 18:28:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC52CC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 18:41:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2OXcs9rd6LU272jx0hvJeNCeWilIYJbVsDhfgH7IVNQ=; b=ZTJkJZz0LsjEgbuXiYW22y2I3j
-	1EpTExOgLfOjV+L0mEqyfIZwZ/Y9AYK/Q4G9EnX7+p6b1ib1CtPsnBD5k/V+/rYFDXwL8OwuOOJ3R
-	HppDETEDSalXf3AG2VXxP3q2ki8aKJ7AGgXT8BlJ3Ttmfu1lsfa+oJfPEZJAY11dOW6bkGWKPkyzR
-	iMwf9MeoC+M2XtLILVZ5/oygwFmJ/zFN92JocB3rJ/Lu/lo6nVFkjkoLXNnD52QfhjUb/su1q7fno
-	HAmE1grsFLzy1MywQVE8hcbHZePSg//k6EQ4+J3xTAqfQJJEwoibeH+XVwe2bVfhezTzjp6FhKfFq
-	dunf9IMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bNEMcijvPEbnWteBdG/JQGiH94jTP0xm9bkdgeRaTww=; b=lnf5KmRou8rWt7fu9r7ddErSt1
+	gmRXkOCbDW8Bzr77pq+VkZ3hP0NValP924ZiyaHJdcSO8eCxcf/6vL4WCbbhJ4YwNjK0B+Gvjtnfv
+	ddxPychVA1c6bvNOqLVWrJs6/JVn/eQLr6ZltOMq3bnRrrxYoznTH6I2o6Q6lA0FDYxUIdhpfBYMA
+	1fLKgOdNj9+rhW29vPeohWsuywyAVNmlJ1MWt8/MphA5lruvCJCaCTxamtqYqC1EmjCxEyxfarNz7
+	Ei80YWQSkqDTFLCnld+OvAdd8CrPsKjT8/mLd9Tm3tq3UoB+eIH5TNQhT+LF10FsNoLnSq+27dbrQ
+	qTBC4YZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpAWh-00000001wNi-1Xri;
-	Mon, 03 Mar 2025 18:28:27 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1tpAim-00000001xbR-2NUY;
+	Mon, 03 Mar 2025 18:40:56 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpAV6-00000001w7U-29j4
+	id 1tpAhC-00000001xQ8-1qFp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 18:26:50 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 523IQfH32746417
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 3 Mar 2025 12:26:41 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1741026401;
-	bh=2OXcs9rd6LU272jx0hvJeNCeWilIYJbVsDhfgH7IVNQ=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=IP9//ev56TbGqMZ4D6UhiHjkB3UkqOwXIcxc/Lb7DUN08WlFG0BwY5JDQJ74taTO5
-	 PWMmHDzt2InU1W29kibhGNVQfSgkgj6JYZ6bxDb3RDYjmkbf4IBmGSGkAHxio2GU14
-	 BLc4drnHFmYwMbJiiapoI3/cLR7vT00hbjKI7tKY=
-Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 523IQfbc003604
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 3 Mar 2025 12:26:41 -0600
-Received: from DLEE109.ent.ti.com (157.170.170.41) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 3
- Mar 2025 12:26:41 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 3 Mar 2025 12:26:41 -0600
-Received: from [10.249.135.49] ([10.249.135.49])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 523IQbTg121603;
-	Mon, 3 Mar 2025 12:26:38 -0600
-Message-ID: <13bd564d-84bc-4b97-9591-126eb51772fb@ti.com>
-Date: Mon, 3 Mar 2025 23:56:37 +0530
-MIME-Version: 1.0
+	Mon, 03 Mar 2025 18:39:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1741027158; x=1772563158;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=U2keDVldpR+vuhrW/Kk6MhqBcI33XzE5seOsm8rku5M=;
+  b=S/d8bHme/+mYbamLwAwx/mc0QLKPfvhIetPpJ/dnzDUA1bdH9ZmPv3Gk
+   hcVxDMq/EtCCslVw0fc0EHHcMOWDjv+dFRpJkmpztS7ASp9ERtyQ1OEiV
+   4lA4vshfUZb3eRRzVH0NQZYAZzHmw2YjTSLeMzUaAKuZT9nxy1RjeXTmF
+   0FrXnun9zXKUydEUd3Aw6uh5c1qLU2xnPj3ux2bpFXPYLTdfHqjYGDqqw
+   op3hfA/2kycIVHTPht/DoJ766hX1ESIorb+s9oPGnbvfyczT1pkb1TMyE
+   gbhmCUiTqj6pg0KgG1NDWLNzdUbWiQ4jkR/ogLAN1UcWXnxms/hB6lWYz
+   Q==;
+X-CSE-ConnectionGUID: P3Bm0h+CSfip1XDCBai6RA==
+X-CSE-MsgGUID: 1j4Bpb9sSFiaf6uIILeY0A==
+X-IronPort-AV: E=McAfee;i="6700,10204,11362"; a="42037811"
+X-IronPort-AV: E=Sophos;i="6.13,330,1732608000"; 
+   d="scan'208";a="42037811"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Mar 2025 10:39:18 -0800
+X-CSE-ConnectionGUID: D/kgO2MXSD64U48yK7O2xw==
+X-CSE-MsgGUID: PKTcuOXBTxSdw7U37rVbSA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="123358508"
+Received: from orsmsx601.amr.corp.intel.com ([10.22.229.14])
+  by orviesa005.jf.intel.com with ESMTP/TLS/AES256-GCM-SHA384; 03 Mar 2025 10:39:17 -0800
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX601.amr.corp.intel.com (10.22.229.14) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Mon, 3 Mar 2025 10:39:17 -0800
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14 via Frontend Transport; Mon, 3 Mar 2025 10:39:17 -0800
+Received: from NAM11-DM6-obe.outbound.protection.outlook.com (104.47.57.172)
+ by edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Mon, 3 Mar 2025 10:39:15 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=d9r25bTaWp6JPN71VTSXZBTUj5p12QPYNUX3HSlK9Iq4kwVDTQOhnEqDXLN8IZnOV6Szu/0U6BamWKm4Eyrx8r4+4/dbU89Zw8NB/r8m7NQn3pXuLp0e+OgA7MKByvEKfOiTlvoYdzknFmS2OCSlTVBHxjnzI0GiOSeN6lFuLyKNdyo9NDYL3UK6jXo6KhZzNeh1Sotrn1L1Qx03vv4ALyyZBfZ86sv3amiLWe/md6g4ppxrqdPGOqhm3Kh84XOrh4kU4naqJ5ZvTb0Qt5PyEXSpcxW4iAw9bQ6RUGYsA83XT8g3rupQDa6/kKfMn5pS3SoIgwg5wbBnv0oVie7HFQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bNEMcijvPEbnWteBdG/JQGiH94jTP0xm9bkdgeRaTww=;
+ b=RHZiufcw1ZJlgGtxc7/PtTZM3KbmK0rU/SjxDTvPPQTSGo648nvcewdqfbvq+pO9Eex6BifG+oOAuhzFU0CVYy9bD08Q2O2GbdRmw69PXqqmeukVqI4IhLCzgEVDj7MbgcSqaq/cNefngyOju39EjntUkCXAfGJNpqiYMkw8tq6p2Uq6BXaKuN58u0rOAVlWI4RKp6lYFkD2AnZNUTGU8s4fGybUdc6fOaorJuNZZMmp8+QEgOFyRYuqOhCL4hSTR+ZHK3SmNbNaZXozjTdWjaJC+C5wne7N0bPGdsRM46SvEYnBFYKeLHo5h3hQnQVhMno4H2MdE2XboKGLitNg/A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from BYAPR11MB3605.namprd11.prod.outlook.com (2603:10b6:a03:f5::33)
+ by SN7PR11MB6679.namprd11.prod.outlook.com (2603:10b6:806:269::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.26; Mon, 3 Mar
+ 2025 18:38:59 +0000
+Received: from BYAPR11MB3605.namprd11.prod.outlook.com
+ ([fe80::1c0:cc01:1bf0:fb89]) by BYAPR11MB3605.namprd11.prod.outlook.com
+ ([fe80::1c0:cc01:1bf0:fb89%4]) with mapi id 15.20.8489.025; Mon, 3 Mar 2025
+ 18:38:59 +0000
+Message-ID: <c227a1c2-13a4-4078-87ee-ed3fe0638060@intel.com>
+Date: Mon, 3 Mar 2025 18:56:42 +0200
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] arm64: dts: ti: k3-am68-sk/k3-j721s2-mcu: Add
- bootph-all property to enable Ethernet boot
-To: Vignesh Raghavendra <vigneshr@ti.com>, Conor Dooley <conor+dt@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Rob Herring <robh@kernel.org>, Tero
- Kristo <kristo@kernel.org>,
-        Nishanth Menon <nm@ti.com>
-CC: <s-vadapalli@ti.com>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-References: <20250302153502.181832-1-c-vankar@ti.com>
- <20250302153502.181832-2-c-vankar@ti.com>
- <6b5839b3-84cb-42ee-8336-81ebf9b2e40d@ti.com>
+Subject: Re: [PATCH v3 01/12] perf script: Make printing flags reliable
+To: Leo Yan <leo.yan@arm.com>
+CC: Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim
+	<namhyung@kernel.org>, Ian Rogers <irogers@google.com>, James Clark
+	<james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, Mark Rutland
+	<mark.rutland@arm.com>, Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, "Liang,
+ Kan" <kan.liang@linux.intel.com>, Will Deacon <will@kernel.org>, "Graham
+ Woodward" <graham.woodward@arm.com>, <Paschalis.Mpeis@arm.com>,
+	<linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20250217195908.176207-1-leo.yan@arm.com>
+ <20250217195908.176207-2-leo.yan@arm.com>
+ <34795c29-d256-49ce-9d01-435f8cd91611@intel.com>
+ <20250303162210.GH2157064@e132581.arm.com>
+ <447bcafc-4c47-4b95-bf21-7aee2cb6a629@intel.com>
+ <20250303181152.GI2157064@e132581.arm.com>
 Content-Language: en-US
-From: "Vankar, Chintan" <c-vankar@ti.com>
-In-Reply-To: <6b5839b3-84cb-42ee-8336-81ebf9b2e40d@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+From: Adrian Hunter <adrian.hunter@intel.com>
+Organization: Intel Finland Oy, Registered Address: PL 281, 00181 Helsinki,
+ Business Identity Code: 0357606 - 4, Domiciled in Helsinki
+In-Reply-To: <20250303181152.GI2157064@e132581.arm.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-ClientProxiedBy: MI0P293CA0005.ITAP293.PROD.OUTLOOK.COM
+ (2603:10a6:290:44::19) To BYAPR11MB3605.namprd11.prod.outlook.com
+ (2603:10b6:a03:f5::33)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BYAPR11MB3605:EE_|SN7PR11MB6679:EE_
+X-MS-Office365-Filtering-Correlation-Id: 03e4e5bd-170f-418a-0573-08dd5a82a980
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?M1YrVzlOOVNIa1NUc3BjcVVVakcrNE5jVGxyVkt4Mzd1TjRkY0ZuT0N5ME9U?=
+ =?utf-8?B?MXhkNDQvRDVLOUo4Tnd4WlZYMjhTc2JwMmd4ZDRHZUF0TmJyVERHalJ5dEFi?=
+ =?utf-8?B?Wmk1ekxkcURSTGtwVWdra1l5UzJaakVoU1hDWVRyY2haRE9OOElsWlAzSXhI?=
+ =?utf-8?B?c3VzVFE2UUpzQnYyNnVSaXJjQllDOHZYTVNuSHNlT2lNWWU1ODYvVDhoQ20v?=
+ =?utf-8?B?WnNKcnlhVUN1WVh3akhjakNtVyt6KzFFYTRLREViT2hSOHJ5bDhQVFh5OG1T?=
+ =?utf-8?B?VGdacnltejdyckFwcFROb25Fay9aY2RRditGdjVxVm45WUdwUW95V2NIMWVX?=
+ =?utf-8?B?N0poeTVkZFpuZytCTVNzbkxzOW5YSzQyUmh2R00vN2huQ1lDc2V1RHVzU3dX?=
+ =?utf-8?B?T08xR3dZS05XWS9kMGZaK0kyQkRXNEFPQWtrNnVud2RLWmJ4NGx0ZHJTU2pC?=
+ =?utf-8?B?QTdPUDY2bE1qL3cxUE5YWVhVYktGTE5wWmc5YkpsNzJTaVhxS0tBMjFVQ2tl?=
+ =?utf-8?B?NmVHQi9BTjdvcnRKTnh2T1NEb3p0UUJEOEZ0d3BmamhXKzFPSWNhTjZTY3B2?=
+ =?utf-8?B?eHc4VVpMeTVhMUJzY215YXhiWi8xRnZ2N2R6akNCZVMxN3RHOElyN1dNSGpo?=
+ =?utf-8?B?Tk5Sayt2YTVyazBsRHFLWWFBU3BXUUxzYlA3cjJ3K3V5eXBCYmdGaS9kKytD?=
+ =?utf-8?B?YzVEMThwbldqU3hISy9GOUZ0Zi9jekgvaTlFLzhicDkrTWdMSHZjOVZweVIy?=
+ =?utf-8?B?c1oxTy9SaUxVWkR6MVhvNlFmb3RkL2JZaVlKc3ZwQUtYUFhyazRGUlh3NFgx?=
+ =?utf-8?B?d21Tb3RWLzNvbk1tOGtPOGNmRUpCQXJGcHJaM2JJRnRqNlhOZkptenE0a3oz?=
+ =?utf-8?B?eFZNWnd2VTdXTHFVM0llOTdka21QK2gzWW1hR1BIWFRmUEp5ZENPZlFaMGcx?=
+ =?utf-8?B?SURIR0dDVmxreExVRkVTVm04Y05UWUxJR09sSWdQQ09LTXpBcXh4U0ZaQ1BI?=
+ =?utf-8?B?d291VmlUeS9mYmJBZTVOeVdvUmxSNkV0NVdVY1NLMDVEeC9lSjVhWldMY3Bv?=
+ =?utf-8?B?MklYM0FLc28xejI1WmpSOGY1R255RnBkWEJ6QWxKTi9JVktYMDZUekJNRGha?=
+ =?utf-8?B?WkI1Mmd0WWIyKytPUnQwTlNjcWRiWjN5Vkt5RmMvMHBKZ0R1OU02eW5oczJl?=
+ =?utf-8?B?OUFXNU43TVhuWDBpdkhpRlRJcnFtQkRHVFFEVjZoUEFxbmxYSXoxNU1ZZkZv?=
+ =?utf-8?B?dlkxWWNPYW1wcHMyUVcxL1Mzbmt5RDNrZGFjak9HQ3hjTHY0L2duNFUrTjlU?=
+ =?utf-8?B?NHJmb0RkOVlHaHI1TlQxRm9ESTdsWEVmeklRc1A5Z2tJQ0htTFBoUC9OSGFE?=
+ =?utf-8?B?NU5UNXlCU0xvU3Fjb09MNGlucTFyTWRiYVBsQ09zdnk0ZldjMnZLMWhkdmo3?=
+ =?utf-8?B?MFg1cG9yNlpCdmRMS0dUdlV2bWtZVFVMS1NRSytmNUtRMlFoNS93RDJ4WWVx?=
+ =?utf-8?B?WW1Cb3B0V2llT3FxWUJMSTBjWmJZdTBRTEFGTEdsWVg3U1l5Z0gzejd3WFNN?=
+ =?utf-8?B?TWJaTGY1YTExYW9BUGcwYnpLYUREZWNOekMxek9JN2lLenErM3hmd1NWSEVz?=
+ =?utf-8?B?UU5BdEtpd2h4djE3Ym1Qc2RjKzJFU1draTA5SXlEc3FTdEpMWHBRMGlxQklS?=
+ =?utf-8?B?dVgxVys1MWdob0x3ZzhjTUhkS0hXdVpuTzBpWTlXYmxqRDhHamhTS244YVkr?=
+ =?utf-8?B?K0RpUHBUbnpaQmlKMG1NaEpxMUxISkxJY0d4NDV5bzFCcGhhUmg1cmhaNGtM?=
+ =?utf-8?B?TzBVQ0dqN3hyRHhKbkRIS3lpZFEyWjkwUnpKOUFQcTdWaXd0aWIxWnEzWEJM?=
+ =?utf-8?Q?qtVp6ryUnp20L?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BYAPR11MB3605.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N28xRjhoVDh4STNlNWZ2M29Ka0hRUVpRcytnS0ZEWmtDQm1Pa1F1VjBTc3Bh?=
+ =?utf-8?B?YmZLQ1g4eUNRVk5qZWtFTFZMWUNGRnpOR1Q5TjBldEp0NGV4TGZHZzZITjRP?=
+ =?utf-8?B?QXlaZVFtd1kzc3FMd0drUnB6azZXUTQ1aXJoTGJHaG1oUUkyT0F6N1dyWDNN?=
+ =?utf-8?B?aFNVVXBoSHczdVFmYmdKakdWTk0yUkkzTzB3VHdiS1JmaUN4UUlraUllYlc1?=
+ =?utf-8?B?NWVPL20rTXQreUtPVUc3M01lUENmU2VaaUN5bmdMNnBCaWw1RTcrd1JORnRK?=
+ =?utf-8?B?Y1huaXFpRnJOL3BKU1pPckxtUVNGL3F4STBwZ21vK3VNOUZncmlxNFVPcWQv?=
+ =?utf-8?B?dnduVGNBYWFVMjRmb2VlWGxldXJxRFlRaFlEd004WVZ1OVEraG1rMXlxengx?=
+ =?utf-8?B?cTE0dDhlWjRrNy9Tek1hN0s5NG1VZzBDR09OMnhFSWc1akpxb2pqN3ZJeFhQ?=
+ =?utf-8?B?OFJWWERSS3dnRTlsNTRGK0dvdWFzaFlPQkJSeWI0bHJZTEZzdFY3dFFOZVFW?=
+ =?utf-8?B?N0k0RjNvS0N0RGlNa3E2dFd5TWdCOWRVNFMrVFNtTzdSZWM3dG9jRDlnTnVw?=
+ =?utf-8?B?aWd0V2NTWU5LbWFNNVFPd0JRaitFeURRR2lCRDNRcHJOS2Y0Sk5rb3MrdFFD?=
+ =?utf-8?B?QlcyNmh5TDVQbWtVbXNVcmhyZ1p5TjY0SGdRUzQ0OE14eXEzdzVvemdNeG5C?=
+ =?utf-8?B?TlFHQzNIc0dMeTMvQmx2anhUeXI1SGRhVXgyUU84T3BwUDNKQ0dqL3YvbVlk?=
+ =?utf-8?B?YW5pMThuZG9WbTR6eERRSnQ5OVBvZmhqMWc5dFpmaWpmS24rWXI3ZHZVMHdE?=
+ =?utf-8?B?NjBQSEJqOHd1Y28wcUc5bmtRdk9PRmMrd28yUDB2eEVLOVUwSlAxdTBwQ05F?=
+ =?utf-8?B?d0pVcUVMYUxRa3NqL3VhSEtNWTBNbklQMGRBZVRja3Ayb1NWUlZJS0MvNzMz?=
+ =?utf-8?B?UWtCaWlveHY5c3hmdGNjakFPbDBjU0FyRXJhd0xkYlJYQlFrajVKV3ArYng2?=
+ =?utf-8?B?Uzk1ZjVlOTBINGNBcmFRSTFiNFVwakpiVWs2bTdxVGZYUjc2ckxuOUZHRTQr?=
+ =?utf-8?B?RUxpRktmV1ptNDVUTjhBVFA4UDlYWXBEMzBDd1ZUTXFqVlQzemRUTmxkaFF6?=
+ =?utf-8?B?SmNWU3hjUGI5ejVBejB1cVlQc2QxUzg4QjlxNWdpWHJmRGtBNGp4WmxYdXZH?=
+ =?utf-8?B?OHJzTnFZNE55a2w3RFJnRk9QS2dqVVh6bEFCeGtrL3Rkc281NTdLTTM5SXdS?=
+ =?utf-8?B?TkIyRGVjSENYRDhzMlVYUmVGY1hNMERMd21Tc2dyK05tOGtSWFlvWW1yT2Jj?=
+ =?utf-8?B?eDU4ZGFIbHBiYlN2UGdmTmJLT2FwRkx1ck5tZ1oxUnl1VDYxakU3d1hlc2Vm?=
+ =?utf-8?B?M2dxYzJ0d2tSTnpTdnlCb0tZQ25XN3hjWEJwVHk5aDhlNGY0Z0djWWZRNk0r?=
+ =?utf-8?B?TTYxUXFDeVo1d0RGVWhsajF1MXNlQnZpVnBGVGozdUR0dk55ckoxZCtzekZP?=
+ =?utf-8?B?NlFvVzRqeWJTZVU5TC9XdnR6clRoZk0wajR6VDFnMzlaOUZzbUFoc05NT3Yr?=
+ =?utf-8?B?T3B0c3JoZ3Y5N0RCS0F3MnI2Z0IrSWFWZU1XVlpHOEVTdHYzTXliN0Zzb1oz?=
+ =?utf-8?B?NjZ6SUlvQThwV3BDZWtzeVUvOFMzeGhDM3BhVmFLL0REMituOEFGZ1crZkdo?=
+ =?utf-8?B?QjREVHdEbzU1SkxyMHYvS0E0bU1mOTlMTnZPTFRiZUo4Q0Jsb3YzaDV1bGFX?=
+ =?utf-8?B?NTRXRGRUQ3I1MHBFSTBHRzN3SXYwRENyUG5vdzdPdFVMV0VmaSs3bklCcVcw?=
+ =?utf-8?B?Q2tDR0dQUGwxbWFCdU9MSlpHYWlKMnBOWlpQNnhwVzRJU24wVHVYLzdIQ2VO?=
+ =?utf-8?B?SGJSSTllMjAxdTNCRnROaTcvVEx0VnNBNlcydFRCQ2x6eW11RW10aUxrTnhk?=
+ =?utf-8?B?V056dVdsUVhQelRkcGlDM3ZMOXRnS2ozVGdBZEwrdHduYW1aWFJ2dFVlZXlW?=
+ =?utf-8?B?R1lCYnV1UXJFR0lpa040Znp3QjhGcjVTZDE4YVhCODZMK3c1UTN2dmY5QWRs?=
+ =?utf-8?B?UGlhdi9OSnZtWXpKNjRrWkRMOFNOUkhZcWFncnpMTDQ2eDJWRno5S1FQY3lm?=
+ =?utf-8?B?WmZiK3BkTHAxTjhGS2xwZWNZcE1HeHl1NVhhU09Ia085bUpWTmdGYkFKaWZ4?=
+ =?utf-8?B?MHc9PQ==?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 03e4e5bd-170f-418a-0573-08dd5a82a980
+X-MS-Exchange-CrossTenant-AuthSource: BYAPR11MB3605.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2025 18:38:59.6355
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: FQazGmmjnJ9kZNsl96L717IhTvWciXAqTFYa7o64pP5kcv1YzQdUiTNuCrYzW7n3XmpZMGeZZH4sQoQY823jGQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR11MB6679
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_102648_838820_F0BB016E 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20250303_103918_569439_7F40684E 
+X-CRM114-Status: GOOD (  16.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,103 +223,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Vignesh,
+On 3/03/25 20:11, Leo Yan wrote:
+> On Mon, Mar 03, 2025 at 05:05:13PM +0200, Adrian Hunter wrote:
+> 
+> [...]
+> 
+>>>>> +	ret = max(ret, SAMPLE_FLAGS_STR_ALIGNED_SIZE);
+>>>>> +	return fprintf(fp, "  %-*s ", ret, str);
+>>>>
+>>>> -21 means the field width is 21 and left-justified.  It should not
+>>>> truncate the string.
+>>>
+>>> No, it does not truncate the string.
+>>>
+>>> It calculates a maximum value between the returned length and 21 (
+>>> defined in SAMPLE_FLAGS_STR_ALIGNED_SIZE).  It keeps left-justified and
+>>> can printing a complete string if the string length is bigger than 21.
+>>
+>> Maybe I am missing something, but that isn't that what
+>>
+>> 	return fprintf(fp, "  %-21s ", str);
+>>
+>> does anyway?  Why change it to something more complicated.
+> 
+> You are right.  I should have done an experiment for this.
+> 
+> I will remove the max() sentence and update the last line:
+> 
+>         return fprintf(fp, "  %-*s ", SAMPLE_FLAGS_STR_ALIGNED_SIZE, str);
+> 
+> Another option is to drop this patch.  But I prefer to keep it, the
+> reason is except the benefit for the debugging log, an extra reason is
+> the SAMPLE_FLAGS_STR_ALIGNED_SIZE macro is used to replace the opened
+> value '21'.  The macro also will be used by a later patch for
+> right-alignment printing.  How about you think?
 
-On 3/3/2025 1:44 PM, Vignesh Raghavendra wrote:
-> 
-> 
-> On 02/03/25 21:05, Chintan Vankar wrote:
->> Ethernet boot requires CPSW nodes to be present starting from R5 SPL
->> stage. Add bootph-all property to required nodes to enable Ethernet boot
->> on AM68-SK and J721S2-EVM.
->>
->> Signed-off-by: Chintan Vankar <c-vankar@ti.com>
->> ---
->>
->> Link to v1:
->> https://lore.kernel.org/r/20250106123122.3531845-2-c-vankar@ti.com/
->>
->> Changes from v1 to v2:
->> - No changes.
->>
->>   arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts | 3 +++
->>   arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi | 4 ++++
->>   2 files changed, 7 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts b/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
->> index 11522b36e0ce..8e9101dd2152 100644
->> --- a/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
->> +++ b/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
->> @@ -333,6 +333,7 @@ J721S2_WKUP_IOPAD(0x008, PIN_OUTPUT, 0) /* (E22) MCU_RGMII1_TD3 */
->>   			J721S2_WKUP_IOPAD(0x018, PIN_OUTPUT, 0) /* (F21) MCU_RGMII1_TXC */
->>   			J721S2_WKUP_IOPAD(0x000, PIN_OUTPUT, 0) /* (F22) MCU_RGMII1_TX_CTL */
->>   		>;
->> +		bootph-all;
->>   	};
->>   
->>   	mcu_mdio_pins_default: mcu-mdio-default-pins {
->> @@ -340,6 +341,7 @@ mcu_mdio_pins_default: mcu-mdio-default-pins {
->>   			J721S2_WKUP_IOPAD(0x034, PIN_OUTPUT, 0) /* (A21) MCU_MDIO0_MDC */
->>   			J721S2_WKUP_IOPAD(0x030, PIN_INPUT, 0) /* (A22) MCU_MDIO0_MDIO */
->>   		>;
->> +		bootph-all;
->>   	};
->>   
->>   	mcu_mcan0_pins_default: mcu-mcan0-default-pins {
->> @@ -615,6 +617,7 @@ &mcu_cpsw {
->>   &davinci_mdio {
->>   	phy0: ethernet-phy@0 {
->>   		reg = <0>;
->> +		bootph-all;
->>   		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
->>   		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
->>   		ti,min-output-impedance;
->> diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi
->> index bc31266126d0..29cd4b1ffbbf 100644
->> --- a/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi
->> +++ b/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi
->> @@ -154,12 +154,14 @@ mcu_conf: bus@40f00000 {
->>   		cpsw_mac_syscon: ethernet-mac-syscon@200 {
->>   			compatible = "ti,am62p-cpsw-mac-efuse", "syscon";
->>   			reg = <0x200 0x8>;
->> +			bootph-all;
->>   		};
->>   
->>   		phy_gmii_sel: phy@4040 {
->>   			compatible = "ti,am654-phy-gmii-sel";
->>   			reg = <0x4040 0x4>;
->>   			#phy-cells = <1>;
->> +			bootph-all;
->>   		};
->>   
->>   	};
->> @@ -538,6 +540,7 @@ mcu_cpsw: ethernet@46000000 {
->>   		clocks = <&k3_clks 29 28>;
->>   		clock-names = "fck";
->>   		power-domains = <&k3_pds 29 TI_SCI_PD_EXCLUSIVE>;
->> +		bootph-all;
->>   
-> 
-> Since a child node has bootph-all, no need to put the same in the parent
-> hierarchy.
-> 
+Sure
 
-Thank you for pointing this out, I will remove it from the parent node
-and post the next version.
-
-Regards,
-Chintan.
-
->>   		dmas = <&mcu_udmap 0xf000>,
->>   		       <&mcu_udmap 0xf001>,
->> @@ -562,6 +565,7 @@ cpsw_port1: port@1 {
->>   				label = "port1";
->>   				ti,syscon-efuse = <&cpsw_mac_syscon 0x0>;
->>   				phys = <&phy_gmii_sel 1>;
->> +				bootph-all;
->>   			};
->>   		};
->>   
-> 
-> 
 
