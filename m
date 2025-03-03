@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB4DC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 21:51:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE401C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 21:55:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e4SsDEfQ73OaZ3p7/QQHcwSlyTin9grm306tgx0HvvI=; b=2T3Z76cuW3vKmtsqnMmeG5CMa3
-	YcbET/qM2DxVFdpLkqOGMwDMFatnhu1EK/4kjhokS0bGtgsIAc19mS9JxYyysmdtZJdqTuPrtMVyO
-	8RuQ/E12yDV58GNV4Uz3zq+IrNiLiHl5EQcWfTkmxyimHaFRToDAnge1lkTsfsN8eTi8Y2gKRad4u
-	xrArWtwhB4VRAXCoaXF/8QtoliPHMLnMUJI8r82veLbZSAfPvCV5jsXBqLoUywzdI54l7+Fr8+LtG
-	uzkFlQJaSm7TcjkzQPSGKP95phe7qYUxCEWVJvt6TuSc+1P6GlpLI5t0djRDlDCn5+mgSD0KLxJhz
-	JL8l0k/w==;
+	bh=xBOb7oGeYLEpXfq67SR7gONs2pzCSxu5VZhQZhEOe6c=; b=LZxmBGq+ozBn/6nL9AWju7oJMD
+	lWafYTX9Q75KmFL82TnY6FPFkJistg2Joa3upQtPJDI1/poHrYHHPbByFPn80uXVqkmIw/bYTDZ+I
+	C3mxQQiyDSsXc1nbso4BeekqnafWI8jjUUSNLLd+06UaS1kCluVzrMZWDSyDS+odtUGLvnNNXWBS5
+	ugb0gOizpO13KbiLrqjRgC5Wc6MXKo/UyqjH2E81msHf/xscrACYBKnPYVJYn3Egj2WJOOz/Yh8LX
+	dNf8r7ZBuY6iD1im2mgh0PsS48CEoDHH+jTUnpLvEq6FJK3aUj3Iq3k0FK1hjJ9ZahfS34woDsPf3
+	0+7LZVyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpDhG-00000002OtX-37Zd;
-	Mon, 03 Mar 2025 21:51:34 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tpDkW-00000002P8W-2TWw;
+	Mon, 03 Mar 2025 21:54:56 +0000
+Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpDfh-00000002Oix-0SYG
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 21:49:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 56E2DA45059;
-	Mon,  3 Mar 2025 21:44:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F4BAC4CED6;
-	Mon,  3 Mar 2025 21:49:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741038595;
-	bh=ALl48r6anu62p/kIZEp7WsaiglCB7bM580oIvR2O5OE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jWIZ0KngcSAXcOeweP07+DdJh1gp/KBc4UGaIKuJJhv2OU+lUjCHkVH64IHuPPTni
-	 2TPwlG4d4Tfe3R0CfuQ+wDoNygvw4yiDPq4++A2P9n4OrJKl+jW6rHH/R8oT0fxpfk
-	 txfO6GRqBGGVIKky1Fl+S2WZEl5/PcWZj+zk+sj9PWGEaB2kecs2VM6G/VenyRgm+S
-	 YBAkaS/zsuAcWtxZbgntV3Dj/NErFYNxPflOSa12U5YLCdt8/t9TFieZJU9sBfsSje
-	 OMwDDrAR+mZ6WBMnWQkU9ockiZv3fwAe3c5Wa93PIdvRmYI54gMPDa/UhbRUJsamI3
-	 HSjQhAWehhJiA==
-Date: Mon, 3 Mar 2025 21:49:50 +0000
-From: Will Deacon <will@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: Quentin Perret <qperret@google.com>, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
-	oliver.upton@linux.dev, mark.rutland@arm.com, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, broonie@kernel.org, vdonnefort@google.com
-Subject: Re: [PATCH v2 3/4] KVM: arm64: Factor out pKVM hyp vcpu creation to
- separate function
-Message-ID: <20250303214947.GA30619@willie-the-truck>
-References: <20250226215520.1759218-1-tabba@google.com>
- <20250226215520.1759218-4-tabba@google.com>
- <Z8ISLxQRcsx2uuHw@google.com>
- <CA+EHjTympdi0wei2Qx=hF2cYvHpzE0sWto2ypcJB3ddmonTROg@mail.gmail.com>
- <20250303191811.GA30361@willie-the-truck>
- <CA+EHjTySqDHDpOy=Vix5ZaNKWg61coySvV3Yk=+i0p8vg3mXTQ@mail.gmail.com>
+	id 1tpDiv-00000002P3B-3dnV;
+	Mon, 03 Mar 2025 21:53:20 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 6B05120457;
+	Mon,  3 Mar 2025 21:53:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1741038791;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xBOb7oGeYLEpXfq67SR7gONs2pzCSxu5VZhQZhEOe6c=;
+	b=mCLyG6hBbbcmuyXpIbTsjYLroVo6Y073oLGc5iIpWunCG6SjJWBZ/AJoHMoWREdxC7S6Nk
+	6GgGL/bUWpapqJdoccETbQhHWoy+6n7m1GncwhDEOdRrGasYG2WJe+4qvDbZHSfBctKoaR
+	IsWpDs1zNJ66dPivtbwU9WO3bSShsk/t5nRXE+CxdN9MoZV2QXkJeHgCLP+0Y+5E89lNPN
+	x7xpc6f0aQ5rlxWQkCn2x6oiITMkS1lzaWEcE6pA3lu1ceCWUEt6hzI3Igt6Ztrj/m386X
+	L/bbEVEfh0VlN/Xzm4HV8DwbUkQ3aAwT8WvoX4t9X2Jf6TUfTDE+78Ek8ul8Pg==
+Date: Mon, 3 Mar 2025 22:53:09 +0100
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: linux-rtc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Peng Fan <peng.fan@nxp.com>,
+	Antonio Borneo <antonio.borneo@foss.st.com>
+Subject: Re: [PATCH 0/7] rtc: Use devm_pm_set_wake_irq to simplify code
+Message-ID: <174103876909.1106916.958645902819103595.b4-ty@bootlin.com>
+References: <20250205-rtc-cleanup-v1-0-66165678e089@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CA+EHjTySqDHDpOy=Vix5ZaNKWg61coySvV3Yk=+i0p8vg3mXTQ@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20250205-rtc-cleanup-v1-0-66165678e089@nxp.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddutddtvdehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtuggjsehttdertddttddvnecuhfhrohhmpeetlhgvgigrnhgurhgvuceuvghllhhonhhiuceorghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepieejfefhffekjeeuheevueevjedvleevjeetudffheeutdffudefjeduffeuvddtnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpsghoohhtlhhinhdrtghomhenucfkphepjeejrdduhedtrddvgeeirddvudehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepjeejrdduhedtrddvgeeirddvudehpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedugedprhgtphhtthhopehmtghoqhhuvghlihhnrdhsthhmfedvsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghlvgigrghnughrvgdrthhorhhguhgvsehfohhsshdrshhtrdgtohhmpdhrtghpthhtoheplhhinhhushdrfigrlhhlvghijheslhhinhgrrhhordhorhhgpdhrtghpt
+ hhtoheptghonhhorhdrughoohhlvgihsehmihgtrhhotghhihhprdgtohhmpdhrtghpthhtohepuggrihhrvgdrmhgtnhgrmhgrrhgrsehmihgtrhhotghhihhprdgtohhmpdhrtghpthhtohepphgvnhhgrdhfrghnsehoshhsrdhngihprdgtohhmpdhrtghpthhtoheplhhinhhugidqrhhttgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhsthhmfedvsehsthdqmhguqdhmrghilhhmrghnrdhsthhorhhmrhgvphhlhidrtghomh
+X-GND-Sasl: alexandre.belloni@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_134957_274635_315CD91B 
-X-CRM114-Status: GOOD (  32.15  )
+X-CRM114-CacheID: sfid-20250303_135318_533030_5C4F2D22 
+X-CRM114-Status: UNSURE (   7.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,66 +82,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 03, 2025 at 07:21:33PM +0000, Fuad Tabba wrote:
-> On Mon, 3 Mar 2025 at 19:18, Will Deacon <will@kernel.org> wrote:
-> > On Mon, Mar 03, 2025 at 07:57:00AM +0000, Fuad Tabba wrote:
-> > > On Fri, 28 Feb 2025 at 19:44, Quentin Perret <qperret@google.com> wrote:
-> > > > On Wednesday 26 Feb 2025 at 21:55:19 (+0000), Fuad Tabba wrote:
-> > > > >  static int __pkvm_create_hyp_vm(struct kvm *host_kvm)
-> > > > >  {
-> > > > > -     size_t pgd_sz, hyp_vm_sz, hyp_vcpu_sz;
-> > > > > +     size_t pgd_sz, hyp_vm_sz;
-> > > > >       struct kvm_vcpu *host_vcpu;
-> > > > > -     pkvm_handle_t handle;
-> > > > >       void *pgd, *hyp_vm;
-> > > > >       unsigned long idx;
-> > > > >       int ret;
-> > > > > @@ -161,33 +178,12 @@ static int __pkvm_create_hyp_vm(struct kvm *host_kvm)
-> > > > >       if (ret < 0)
-> > > > >               goto free_vm;
-> > > > >
-> > > > > -     handle = ret;
-> > > > > +     WRITE_ONCE(host_kvm->arch.pkvm.handle, ret);
-> > > >
-> > > > What's the reason to make this a WRITE_ONCE? Does it mean we should
-> > > > update the readers to be READ_ONCE()?
-> > >
-> > > I don't remember the original reason, to be honest. In this case, it
-> > > was to make it consistent with downstream code in Android. That said,
-> > > I plan on revising all of these soon and fixing this (and related
-> > > code) in light of Will's comment regarding potential specter gadgets:
-> > >
-> > > https://lore.kernel.org/all/20250218092705.GA17030@willie-the-truck/
-> >
-> > I'm not sure the spectre stuff changes the concurrency aspects here, so
-> > Quentin's question presumably still stands even after that.
-> >
-> > Looking at the Android code, this WRITE_ONCE() pairs with a READ_ONCE()
-> > in pkvm_is_hyp_created() which is called without the config_lock held
-> > by kvm_arch_prepare_memory_region(). However, given that
-> > pkvm_is_hyp_created() is only testing against 0, I don't think the
-> > _ONCE() accessors are doing anything useful in that case.
-> >
-> > The more confusing stuff is where 'kvm->arch.pkvm.handle' is read
-> > directly without the 'config_lock' held. The MMU notifiers look like
-> > they can do that, so I wonder if there's a theoretical race where they
-> > can race with first run and issue TLB invalidation with the wrong handle?
-> > That would apply equally to the upstream code, I think.
+On Wed, 05 Feb 2025 08:58:18 +0800, Peng Fan (OSS) wrote:
+> This is a pick-up of patch 6-12 from patchset [1]
 > 
-> Would using _ONCE accessors with the MMU notifiers be enough to avoid
-> the race, or do we need to reconsider the lock protecting the handle
-> and apply it to the notifiers?
+> Since devm_pm_set_wake_irq is in 6.14, so resend the rtc parts.
+> 
+> R-b tags from Linus Walleij and Antonio Borneo are still kept.
+> 
+> [1] https://lore.kernel.org/all/CAJZ5v0jb=0c5m=FeA-W-aG30H4706Ay_xCHTsiC1S-7MuGxqTQ@mail.gmail.com/#r
+> 
+> [...]
 
-I'm not entirely sure... if we used _ONCE() then we'd get either the
-correct handle or zero, but we presumably need to order that against the
-page-table somehow. The 'mmu_lock' looks like it gives us that, but I
-don't think the notifiers are expecting an uninitialised handle in the
-case where the page-table is empty (i.e. if they fire before first run).
+Applied, thanks!
 
-Given that the handle is necessary for TLB invalidation, I'd be inclined
-to make sure that the handle is allocated and published _before_ the
-kvm_pgtable pointer checked by the notifiers is set, but that means
-moving the handle allocation into kvm_arch_init_vm(). Is that do-able?
+[1/7] rtc: stm32: Use resource managed API to simplify code
+      https://git.kernel.org/abelloni/c/04572d18921d
+[2/7] rtc: nxp-bbnsm: Use resource managed API to simplify code
+      https://git.kernel.org/abelloni/c/6b296dee3eb7
+[3/7] rtc: ds1343: Use devm_pm_set_wake_irq
+      https://git.kernel.org/abelloni/c/5ad218f101e4
+[4/7] rtc: pm8xxx: Use devm_pm_set_wake_irq
+      https://git.kernel.org/abelloni/c/e8a0b6e62429
+[5/7] rtc: ab8500: Use resource managed API to simplify code
+      https://git.kernel.org/abelloni/c/ca36c9301117
+[6/7] rtc: mpfs: Use devm_pm_set_wake_irq
+      https://git.kernel.org/abelloni/c/d8690ce183bb
+[7/7] rtc: pl031: Use resource managed API to simplify code
+      https://git.kernel.org/abelloni/c/90e0bcc9392d
 
-Will
+Best regards,
+
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
