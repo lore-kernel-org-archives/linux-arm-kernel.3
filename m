@@ -4,111 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C752C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 08:35:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72502C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 08:39:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XmNSgVQx2TRWl07lYMlRndbhi17biSxoKIbvOdQuVbQ=; b=OS7f3UA6bhZQlOGvax0iz3OLGy
-	pb4afc3w7uW/6o2SvwU5pU9li4KyDsCwBmL+KQBZEPs4wa4E8Nb9FNjTJio/u3Twz/wH9nS+tbeKg
-	csPudRoQ04iinKHiThNXHZInsHambk00FvMtL1B8T6F9Lyqsu+98oQ22bZ98YZIaLEbz2otqNBall
-	/C5IRfPAQBtoCMHojBFPNvMSJKyMnxxiUTTxUSAQkkgVEvSA4+Eviwv++vqrvpI49NitGwAOFO9Y0
-	Kuh43+wGdNSdgOkoc1Z8oXEuqemvGifqOmX23DGNX5RyAtt3MaLsRLe50m4ovmkcS8gEuN7f85zsq
-	9a1tFRJQ==;
+	bh=rHzoEXcX3rRgSypgjLl/rpTLfRP49fuHATm+VBKv9lY=; b=IVDbKsFLeWZ0tnKFi1XwATeY5Q
+	MgB7yKnXNrgp46QI2aBOYS1O8keu9LK3VcKbwFOZpPihAVb+sKpAqQDb04HPJ+xSKVcK5zLjvQcdW
+	gbo/udLGSfophRjp9nzcTC0+oR5AZGyGmnoE2H4hkMUBzbsNyX3YHlF7+g3oH97vv66qsiy4TqEcV
+	Jsyxf2NVUUfY2zUY0I6YbWeew6kcUQ8z3Sr1UeFBf/EWGABgx/Q6LIvooZdoNvx1JVaMY2QeB56Zd
+	sYo9evACKP2WlG3g0sU7DIVDJUblVGATzLIWErS1d4tRYC636FyeP9vSP3IAjEl9fT2NYrGlJjIOK
+	oB75ZtUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp1GU-0000000HXfI-3lcl;
-	Mon, 03 Mar 2025 08:35:06 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tp1KT-0000000HYny-1vIn;
+	Mon, 03 Mar 2025 08:39:13 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp1BQ-0000000HWyY-11e6
+	id 1tp1It-0000000HYE2-0ImS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 08:29:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D7EF45C4CD3;
-	Mon,  3 Mar 2025 08:27:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEFC8C4CED6;
-	Mon,  3 Mar 2025 08:29:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740990591;
-	bh=RqR9SRihLmzQt5O9ZRulN4EEyCvBsTXEDH7wWXh5EFA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=A4lJv7SnaDrdF/findgqea45v5k2Vuiv6jVvJFp1wx+o7KQ4Y8jbnXXDUzzY3b6X1
-	 iLjN6N391Xd3laMGtIIeegVr9x6rodyv3/a/vS/DXBEGi7BPIjkCHrBxDuYzNDwx0y
-	 U6n99ryeLRn4ppAccSq7SIPhOVe0zFW/XoKflnV1ykNB21jue4+3XKAhEKboWeS677
-	 74DaBDEITyg7qXOitt3QiYoMKQp7Mda7QnZ74o0za3DIdTW2lacVaUoD9RI/fo8cJ/
-	 jg4QJz1kUSk86X4y7whWjbbgX+/6xQ0RCyXKcZOgg3Rt55U8kUMxtkOu5/QeP13eWe
-	 HmDvZsbBrScfg==
-Message-ID: <edbbd971-1bd8-42cb-89fe-c844d582a361@kernel.org>
-Date: Mon, 3 Mar 2025 09:29:44 +0100
+	Mon, 03 Mar 2025 08:37:36 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-abf4d756135so292144466b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 00:37:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1740991053; x=1741595853; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=rHzoEXcX3rRgSypgjLl/rpTLfRP49fuHATm+VBKv9lY=;
+        b=CVcM7KtbPgDBNK1+hKXdfwHQqsCMsKJH0Bgt1+Ip5c2EIBYEtNECT4wHFe7+g90xnN
+         QScItuWDVxkMVQbln68yrjteS6k6fBQNfMkF4vcLGFfg7lEXsxr0MqWSiAPVXZP1SuI/
+         wn5fHxdiy9C3S4lH0smvnvRPAIMrE74qMJbWwsVjv2XgmI4LYnZ32PiE8gjoJJloYLCN
+         ahysZo0HR+b3Kn2lmiyVh/Q+KuETffTM+jjrzUN0uFs9U5S5dK4tFWT/Qw3mQlnL2sLc
+         1Rd7w8n8dvf2dh3AFZStFL7aNNc2vonY8YUAA3FtwM74jO9gFBUFh1FYrUqBZRD1vxyE
+         hFkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740991053; x=1741595853;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=rHzoEXcX3rRgSypgjLl/rpTLfRP49fuHATm+VBKv9lY=;
+        b=a/bRFTcXA4Kw7r+qI38QymvOX/4Op7soSUukRh7IxVv9LGKqznv5uSrfuab4MmyB8u
+         ljOZQ6BrdwIaTmF5R3FuEwWkevFCa0q5DG/gsT/4D17pcXfHtRJn1v8u61bCDMTC7jM8
+         SeS096hYlj52OYtSsgM3NKcpy/6YCzhxT3+1ZGDOcPzC0hgcl1YhkzDg+ol++e9YY2X1
+         LEpNpdMbJagzWlz9dawTZ8SNvJVrp6fJwm43d+8mcpY3Z4AGNryqs1EcRu8lo6CeIdEQ
+         BiAk7jjSQqjpPakzuWc3T8vVn+NUty6u0xN2aDLnpRa4RD741KSGOWITD7UwjIm9OxMc
+         j6Xg==
+X-Forwarded-Encrypted: i=1; AJvYcCW0cCjgeMczhWYvI8BJhEAAAm5XNddbN0cNIeUrQsYNbZ0rIFoVE4WFmZ4ma8mxneodQnUXMQfNOL8rJaSe2AkH@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSBNthrXD5XI/xIqW4GWuvxH/hNcm2hbPZj3vKzsp5qi9cWlQ0
+	Wdkgck5g5TqKXkdE70uZejd/XJVk4z/xFUu9l8S047cWzGCCwBnkMTMDZwyETWg=
+X-Gm-Gg: ASbGncvBAkGWmzufR+thj7oGxCFlO85u29qHtZPivsAfs3MpGZSo8TYI1ZFfPdBObR9
+	szMulEFDLlF4M7NafRBvkJIYRBBjEh60uEBYxaS/BuDOUwIEdwBbMtxM4N7/vkes5pH5UlP+dzy
+	tBgAHTHmvDwWKCNnTXGeVOE8O4JjV8IshM8m/l1FKqJlLjtc6ApN+5lbyE3L3Hh21VXqJDu2NTN
+	hax6AAodc0ZdrlodrmG5o4hi26Wnf/e1FtuWu7EpdvubyjsagItCVUIZL0xcwp6H/C41uC7gM6Z
+	zPxy2Q5mrfRs1V7aCd+2is5aSlb76MK4vSr+xv2TxMD0cWW9gLm129BE
+X-Google-Smtp-Source: AGHT+IEu4SCH3E4lm5pHLGphX1D/WhBV+YCMGBhWUNyZogIyLMScbPiRPIx0Mz9hoI+7dm2HVL+OtA==
+X-Received: by 2002:a17:907:97cf:b0:abf:38a:6498 with SMTP id a640c23a62f3a-abf26708c88mr1540344766b.55.1740991053091;
+        Mon, 03 Mar 2025 00:37:33 -0800 (PST)
+Received: from [192.168.50.159] ([82.78.167.138])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abf0c0dc601sm780828466b.68.2025.03.03.00.37.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 03 Mar 2025 00:37:32 -0800 (PST)
+Message-ID: <81354810-14e6-4840-9e50-52bdd0e63b95@tuxon.dev>
+Date: Mon, 3 Mar 2025 10:37:33 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] usb: dwc3: exynos: add support for exynos7870
-To: Kaustabh Chakraborty <kauschluss@disroot.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250301-exynos7870-usb-v3-0-f01697165d19@disroot.org>
- <20250301-exynos7870-usb-v3-2-f01697165d19@disroot.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v3 10/21] ARM: at91: pm: add DT compatible support for
+ sama7d65
+To: Ryan.Wanner@microchip.com, lee@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, sre@kernel.org,
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+ p.zabel@pengutronix.de
+Cc: linux@armlinux.org.uk, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
+References: <cover.1740671156.git.Ryan.Wanner@microchip.com>
+ <06b64869f2de4b499835d153411ba30512409168.1740671156.git.Ryan.Wanner@microchip.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250301-exynos7870-usb-v3-2-f01697165d19@disroot.org>
-Content-Type: text/plain; charset=UTF-8
+From: "claudiu beznea (tuxon)" <claudiu.beznea@tuxon.dev>
+In-Reply-To: <06b64869f2de4b499835d153411ba30512409168.1740671156.git.Ryan.Wanner@microchip.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_002952_371699_858D6B49 
-X-CRM114-Status: UNSURE (   9.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250303_003735_115396_515736C7 
+X-CRM114-Status: GOOD (  20.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,19 +105,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/02/2025 20:40, Kaustabh Chakraborty wrote:
-> Exynos7870 devices have a DWC3 compatible USB 2.0 controller.
-> Add support in the driver by:
->  - Adding its own compatible string, "samsung,exynos7870-dwusb3".
->  - Adding three USBDRD clocks named "bus_early", "ref", and "ctrl", to
->    be controlled by the driver.
+
+
+On 2/27/25 17:51, Ryan.Wanner@microchip.com wrote:
+> From: Ryan Wanner <Ryan.Wanner@microchip.com>
 > 
-> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
-> Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+> Add support for SAMA7D65 new compatible strings in pm.c file for wakeup source
+> IDs and PMC.
+> This is the first bits of PM for this new SoC. PM depends on other patches.
+> 
+> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+> [nicolas.ferre@microchip.com: split patch and address only the pm.c changes]
+> Signed-off-by: Nicolas Ferre <nicolas.ferre@microchip.com>
 > ---
+>   arch/arm/mach-at91/pm.c | 8 ++++++--
+>   1 file changed, 6 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm/mach-at91/pm.c b/arch/arm/mach-at91/pm.c
+> index 6c3e6aa22606..39644703244d 100644
+> --- a/arch/arm/mach-at91/pm.c
+> +++ b/arch/arm/mach-at91/pm.c
+> @@ -222,13 +222,16 @@ static const struct of_device_id sam9x60_ws_ids[] = {
+>   	{ /* sentinel */ }
+>   };
+>   
+> -static const struct of_device_id sama7g5_ws_ids[] = {
+> +static const struct of_device_id sama7_ws_ids[] = {
+> +	{ .compatible = "microchip,sama7d65-rtc",	.data = &ws_info[1] },
+>   	{ .compatible = "microchip,sama7g5-rtc",	.data = &ws_info[1] },
+>   	{ .compatible = "microchip,sama7g5-ohci",	.data = &ws_info[2] },
+>   	{ .compatible = "usb-ohci",			.data = &ws_info[2] },
+>   	{ .compatible = "atmel,at91sam9g45-ehci",	.data = &ws_info[2] },
+>   	{ .compatible = "usb-ehci",			.data = &ws_info[2] },
+> +	{ .compatible = "microchip,sama7d65-sdhci",	.data = &ws_info[3] },
+>   	{ .compatible = "microchip,sama7g5-sdhci",	.data = &ws_info[3] },
+> +	{ .compatible = "microchip,sama7d65-rtt",	.data = &ws_info[4] },
+>   	{ .compatible = "microchip,sama7g5-rtt",	.data = &ws_info[4] },
+>   	{ /* sentinel */ }
+>   };
+> @@ -1379,6 +1382,7 @@ static const struct of_device_id atmel_pmc_ids[] __initconst = {
+>   	{ .compatible = "atmel,sama5d2-pmc", .data = &pmc_infos[1] },
+>   	{ .compatible = "microchip,sam9x60-pmc", .data = &pmc_infos[4] },
+>   	{ .compatible = "microchip,sam9x7-pmc", .data = &pmc_infos[4] },
+> +	{ .compatible = "microchip,sama7d65-pmc", .data = &pmc_infos[4] },
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+According to the chapter 42.18.3. PMC System Clock Status Register at [1] there 
+is no AT91SAM926x_PMC_UDP for SAMA7D65 (which you are dropping in the next 
+patch). This patch would have to reflect what the documentation say instead of 
+fixing it in patch 12/21.
 
-Best regards,
-Krzysztof
+Thank you,
+Claudiu
+
+[1] 
+https://ww1.microchip.com/downloads/aemDocuments/documents/MPU32/ProductDocuments/DataSheets/SAMA7D6-Series-Data-Sheet-DS60001851.pdf
+
+>   	{ .compatible = "microchip,sama7g5-pmc", .data = &pmc_infos[5] },
+>   	{ /* sentinel */ },
+>   };
+> @@ -1672,7 +1676,7 @@ void __init sama7_pm_init(void)
+>   	at91_pm_modes_init(iomaps, ARRAY_SIZE(iomaps));
+>   	at91_pm_init(NULL);
+>   
+> -	soc_pm.ws_ids = sama7g5_ws_ids;
+> +	soc_pm.ws_ids = sama7_ws_ids;
+>   	soc_pm.config_pmc_ws = at91_sam9x60_config_pmc_ws;
+>   
+>   	soc_pm.sfrbu_regs.pswbu.key = (0x4BD20C << 8);
+
 
