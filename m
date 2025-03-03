@@ -4,70 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C663C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 22:45:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4603C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 23:45:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AVKxuo1W1BxE3FJKf7YbMkOhKpBvK2Ol0T0KlNBKv7o=; b=ROy95XwLRduiN+wp3IdoJGHLJM
-	HHzhXXg97Erk4v51oCi3texcqBpNATj7rqRK5Cu7IAfHWoMmXJYXzNPRb21zSymw9UPBaDdIx2h9q
-	dYDRqhGALLMNvz0s7Dv9j2MkJk+0ZH//seSbhq5lMGFWnhltJhiurh38MibGO/TnSTKBuzIls2ztP
-	sUb4y5F8f0cBcWTE9lr0mE4fC7BpVn5tItshwELHNXqXVrRsAyfx4VqrI1U5IdjAy9MKour3NrWMG
-	6SpF3otQhMifQg6HCx5rdPUA5Do/xuBu+DzGb0PYBaahG39Lq3rsY6VoWTgWLlhygKeQezSGOx3G5
-	isYTXDXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Se0PI/BskJehrTSp/kAwz19cA4Xuimd8Lk9oU/vOpuk=; b=fr9kJ71r85qkf71p1VBcNHONHM
+	sJcd342dD4p39U6Ks/hc9Qd/97Zzo8l+l51gvQc/Ap3yPiqVyIk+EzcUPRg5XSgaDkQaZYo9150dh
+	24DpKMOaJmYeKO9bQ128ro81CilxewFdMHx+SOKOXNLkezoUU3VRZ4kyIZFas/7Dztdbsxcnv2Hqk
+	jJ0DrBkPta1pmJSDvFxoiHRJsKKLdr2NmFeVRo8C9VquMAyq3+yGH3y+7FOVmpTcgQ3aTcqQABEzw
+	irn+DjF4vVtgR8eePoTraLS9pHAJswBY7z712kK4LI4blRKONUySDSVy2d9O9dxYLEksgoiu6D0Wx
+	W6/4Ybiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpEX9-00000002VM9-1qx3;
-	Mon, 03 Mar 2025 22:45:11 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tpFSq-00000002aUE-3SQg;
+	Mon, 03 Mar 2025 23:44:48 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpEVa-00000002V9B-0R6r;
-	Mon, 03 Mar 2025 22:43:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=AVKxuo1W1BxE3FJKf7YbMkOhKpBvK2Ol0T0KlNBKv7o=; b=aDnmYlnmuYrhIaA0ONYcTOUxRY
-	KZ7m8hrWZnAkSc/n4H5qBIjO2jzAITieERvYwcbgNsC4HJv6piGgoWLvrHd4WZ1lc25QWfFwcgXcC
-	KgrI0KQ5BSzpUXxPF1Mvlrms/K0lNbBNLgJmHB7ne0/52hnujUALKrWqF4TSTalaRCCr4upJ5Q9u8
-	Bt2a0hojXOOlm7Bzd24GXk0CKbp1jUmMa1OE/cEcYW6WGyjQdUHAu8mbMQ18aj6mbr8PlTPehwi4q
-	Mc1e//pi1ncYZlLsURNMjw2K0ed9G4Lh+9S/BGXKzEe5o7yfDHhIF55gN/jz3MRXEeJFalp06uhh2
-	pIE9G4RQ==;
-Received: from i53875a38.versanet.de ([83.135.90.56] helo=phil.fritz.box)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tpEVK-0005z3-Hk; Mon, 03 Mar 2025 23:43:18 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: hjc@rock-chips.com,
-	andy.yan@rock-chips.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH] drm/rockchip: vop2: add missing bitfield.h include
-Date: Mon,  3 Mar 2025 23:43:16 +0100
-Message-ID: <174104179297.19992.1129192365556530821.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250303182256.1727178-1-heiko@sntech.de>
-References: <20250303182256.1727178-1-heiko@sntech.de>
+	id 1tpFRG-00000002aMC-3qZe
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Mar 2025 23:43:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 22A58A44DE9;
+	Mon,  3 Mar 2025 23:37:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41B5BC4CEE8;
+	Mon,  3 Mar 2025 23:43:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741045389;
+	bh=a8a9IK/kNpa34r9G10IOTtk/N5+iTd8OkmB8cSTMxgY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=U18h4J6eHzdpV/lQruFiVfI0FCi9kpiJl21LupatW+d1VqZD4BijRx2feSVu4Pdg3
+	 I1k6dRx8/BbjL8eOwBQkWbzkNdxB+nwD3qHtRNjhiTI1mS6wzdzppN5KN8CUXcWV5U
+	 45xubGB5Zm0UtnScNszufU1Qn96OKzP8XYzPQVXopp+JVl1/+2iDJRL+g6Lzn8Dmc/
+	 TnuQzfkJrNW/FuufAKgebUxjOol8dvfjv7U55kvM7WK3e8WI3QpQ8e5ZJGDMD8eq/K
+	 2O7iDJ4TlE7KLPoZi7RPcuQtg/QjuJQ2d3ljc2+f/dqjwqDWxkR4iqLqm7T0SjINVq
+	 imaYnUzij4rMw==
+Date: Mon, 3 Mar 2025 23:43:03 +0000
+From: Will Deacon <will@kernel.org>
+To: Sebastian Ene <sebastianene@google.com>
+Cc: catalin.marinas@arm.com, joey.gouly@arm.com, maz@kernel.org,
+	oliver.upton@linux.dev, snehalreddy@google.com,
+	sudeep.holla@arm.com, suzuki.poulose@arm.com, vdonnefort@google.com,
+	yuzenghui@huawei.com, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-team@android.com
+Subject: Re: [PATCH v2 3/4] KVM: arm64: Map the hypervisor FF-A buffers on
+ ffa init
+Message-ID: <20250303234259.GA30749@willie-the-truck>
+References: <20250227181750.3606372-1-sebastianene@google.com>
+ <20250227181750.3606372-4-sebastianene@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250227181750.3606372-4-sebastianene@google.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_144334_142007_B6E162E4 
-X-CRM114-Status: UNSURE (   9.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250303_154311_021313_21E63DFF 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,21 +78,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 03 Mar 2025 19:22:56 +0100, Heiko Stuebner wrote:
-> Commit 328e6885996c ("drm/rockchip: vop2: Add platform specific callback")
-> moved per soc configuration code to the other per-soc data into
-> rockchip_vop2_reg.c, but forgot to also include bitfield.h for the used
-> FIELD_PREP macro. Add this missing include.
+On Thu, Feb 27, 2025 at 06:17:48PM +0000, Sebastian Ene wrote:
+> Map the hypervisor's buffers irrespective to the host and return
+> a linux error code from the FF-A error code on failure. Remove
+> the unmap ff-a buffers calls from the hypervisor as it will
+> never be called.
+> Prevent the host from using FF-A directly with Trustzone
+> if the hypervisor could not map its own buffers.
 > 
-> 
+> Signed-off-by: Sebastian Ene <sebastianene@google.com>
+> ---
+>  arch/arm64/kvm/hyp/nvhe/ffa.c | 46 +++++++++++++----------------------
+>  1 file changed, 17 insertions(+), 29 deletions(-)
 
-Applied, thanks!
+[...]
 
-[1/1] drm/rockchip: vop2: add missing bitfield.h include
-      commit: 95a5c9d197bb22a506913acb330a926d4e51aa95
+> @@ -861,6 +842,7 @@ int hyp_ffa_init(void *pages)
+>  {
+>  	struct arm_smccc_res res;
+>  	void *tx, *rx;
+> +	int ret;
+>  
+>  	if (kvm_host_psci_config.smccc_version < ARM_SMCCC_VERSION_1_2)
+>  		return 0;
+> @@ -911,5 +893,11 @@ int hyp_ffa_init(void *pages)
+>  		.lock	= __HYP_SPIN_LOCK_UNLOCKED,
+>  	};
+>  
+> +	/* Map our hypervisor buffers into the SPMD */
+> +	ret = ffa_map_hyp_buffers();
+> +	if (ret)
+> +		return ret;
 
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+Doesn't calling RXTX_MAP here undo the fix from c9c012625e12 ("KVM:
+arm64: Trap FFA_VERSION host call in pKVM") where we want to allow for
+the host to negotiate the version lazily?
+
+Will
 
