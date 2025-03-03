@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 071BAC282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 04:59:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A08CC282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 05:01:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TB0TPC4ZNqf5UK3o3lD2f+f8D+/BHzV1McX5c9FGRoQ=; b=edM1bUGDb+EFDG8tVV/WGVR0hb
-	sAw4UMqm8KKhPG2vGwyqCwNDyJvUZqb+nEnpysAo1Gvkc89zp7TbMprgNxe9M+kj2rq2rb5pXbwbl
-	e5SqnHwjHalYyjErY+3EVWYn98ReRDdFahVgCsIvcKzup84FKLBNCF7u4eDKdaOLFLcT0Wb0GPQUd
-	f03goov4s3IRekReKC4wn2kQi7sd2yetK7zmWmXSxJ/KmTuJUP1nJQXRxq4iJNXkhIA02UkuR5aTB
-	m9cqN2unHcJWBDGNNyNJwcb2ehUj9W8LhAd6TyV8WBcDkevqCP8fJBHIkpMlUuO8RZNeb6pFsF0/j
-	Q5qCevlw==;
+	bh=0gwfcLNFYkPRO9tV7WcTDZSJlvkg+gjxEny4VFBgD4Y=; b=FkjeJ1n7qoQanJa2Pn+RMFa7+n
+	ZICYFBTxFYOWjNYpDJiS6q18EAv+ncfZKSJwYspkFPznCbL9mrlwSKVciOWq/pByCG2Kha9LOm7mT
+	X3LIOz468aAGt9PEKvPOokl+epda08q2DDFLYW8+SuiN1WioGV8BAxhFS4T85iGSa46fdD8mFztqe
+	/fL46sTin95glO3VdcY0tShr/Yi5+UzN7ucWPyljqEZG3OfV44gbVrB+zZ5gP1FiZHRO5aAKW/gK+
+	bAffAGLsDTpwBFVpBem8dknbn4KLNhqpXG8M2FGs6WCTFvX7/wyaPAjb0GEQIHjHLHlQV30C9y7p5
+	lkgEPV1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1toxu6-0000000HCmB-4245;
-	Mon, 03 Mar 2025 04:59:46 +0000
+	id 1toxve-0000000HCwg-2SAg;
+	Mon, 03 Mar 2025 05:01:22 +0000
 Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1toxpk-0000000HBxI-3o1c
+	id 1toxq3-0000000HC7A-0TOw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 04:55:18 +0000
+	Mon, 03 Mar 2025 04:55:36 +0000
 Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5234tDVf2669155
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5234tWAe2669163
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sun, 2 Mar 2025 22:55:13 -0600
+	Sun, 2 Mar 2025 22:55:32 -0600
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1740977713;
-	bh=TB0TPC4ZNqf5UK3o3lD2f+f8D+/BHzV1McX5c9FGRoQ=;
+	s=ti-com-17Q1; t=1740977732;
+	bh=0gwfcLNFYkPRO9tV7WcTDZSJlvkg+gjxEny4VFBgD4Y=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=R306jY5z1XEukGO7gznMymOdUtvtV2r0v7QBtKlsPIgSkOeZfoBD1XH1xJ6nj0VPL
-	 Jl9vVYm4iJWgzV/ML/TQY66xnk/1MNEiyVOLBlGuTX0Lfeuy1j/UmAI7dyhHx+aexj
-	 hYpWrjFYG+9oBXCcXsc3S9JE9r50RLKhunDabFwc=
-Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5234tDbF070489
+	b=jgHXzBJKmr4qTo30v7HPt+0fJMg9adTzQVIVgtGVyCwALwcF7/gOzH/j8jURr5XxS
+	 N29bZSqWTKyKsBXkpgQk8mgtq3R7H6hAl08ba+UiwQJgPpXe2Qpx/ZRBQhNodjP27E
+	 bq689XgrrWU2cqGjAgc+9sHr88HAUC8RJZXcGzlE=
+Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5234tWgd070617
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Sun, 2 Mar 2025 22:55:13 -0600
-Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+	Sun, 2 Mar 2025 22:55:32 -0600
+Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Sun, 2
- Mar 2025 22:55:13 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ Mar 2025 22:55:31 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Sun, 2 Mar 2025 22:55:13 -0600
+ Frontend Transport; Sun, 2 Mar 2025 22:55:32 -0600
 Received: from uda0132425.dhcp.ti.com (dhcp-10-24-69-250.dhcp.ti.com [10.24.69.250])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5234t9eo114408;
-	Sun, 2 Mar 2025 22:55:10 -0600
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5234tSoS063226;
+	Sun, 2 Mar 2025 22:55:29 -0600
 From: Vignesh Raghavendra <vigneshr@ti.com>
 To: <nm@ti.com>, <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
         <conor+dt@kernel.org>, Siddharth Vadapalli <s-vadapalli@ti.com>
 CC: Vignesh Raghavendra <vigneshr@ti.com>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <srk@ti.com>
-Subject: Re: [PATCH 0/2] Add bootph-all to SERDES3 for USB DFU Boot on J721E
-Date: Mon, 3 Mar 2025 10:24:51 +0530
-Message-ID: <174092143357.3272913.15267994610926405442.b4-ty@ti.com>
+Subject: Re: [PATCH 0/2] Add boot phase tag to USB0 on AM62A7-SK and AM62P5-SK
+Date: Mon, 3 Mar 2025 10:25:21 +0530
+Message-ID: <174092143354.3272913.1834909531649290105.b4-ty@ti.com>
 X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250209081738.1874749-1-s-vadapalli@ti.com>
-References: <20250209081738.1874749-1-s-vadapalli@ti.com>
+In-Reply-To: <20250122124223.1118789-1-s-vadapalli@ti.com>
+References: <20250122124223.1118789-1-s-vadapalli@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_205517_043679_C95FDAC0 
-X-CRM114-Status: GOOD (  14.47  )
+X-CRM114-CacheID: sfid-20250302_205535_238611_FA98396B 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,23 +88,23 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Siddharth Vadapalli,
 
-On Sun, 09 Feb 2025 13:47:31 +0530, Siddharth Vadapalli wrote:
-> This series is based on linux-next tagged next-20250207.
-> 
-> J721E SoC supports USB DFU Boot via USB0 instance of USB. On both
-> J721E-EVM - (J721E SoM + J7 Common Processor Board) and
-> J721E-SK, the USB Type-C interface which is connected to USB0 via
-> SERDES3 is used for USB DFU boot.
+On Wed, 22 Jan 2025 18:11:47 +0530, Siddharth Vadapalli wrote:
+> This series adds the boot phase tag "bootph-all" to the device-tree node
+> for USB0 on AM62A7-SK and AM62P5-SK boards. USB0 instance of USB on the
+> AM62Ax and AM62Px SoCs which the aforementioned boards are based on, can
+> be used for USB DFU boot. Since USB0 has to be enabled at all stages of
+> the boot process when booting via USB DFU, the "bootph-all" tag is added
+> in the USB0 node of the respective board files.
 > 
 > [...]
 
 I have applied the following to branch ti-next on [1].
 Thank you!
 
-[1/2] arm64: dts: ti: k3-j721e-common-proc-board: Add boot phase tag to SERDES3
-      commit: 59ac3f9f54db76f676ac5db05054586956c57e39
-[2/2] arm64: dts: ti: k3-j721e-sk: Add boot phase tag to SERDES3
-      commit: 871c73229bd276fbdb43c42fb3f5a25bcd8a9c85
+[1/2] arm64: dts: ti: k3-am62a7-sk: Add boot phase tag for USB0
+      commit: e7ee00e314da736b00ebb26405f8e2cab84cfa22
+[2/2] arm64: dts: ti: k3-am62p5-sk: Add boot phase tag for USB0
+      commit: 732c4cffe463f222f7f694d469d1f730f4a3adab
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
