@@ -4,84 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20CB3C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 09:54:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFA36C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 09:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=40J+Ql5K6IK0gLn8z0lNt2yYrMqV11O1QyGkgGVKClI=; b=zocEqP/FpF7kDUGJJIqVvtcuy1
-	Km1WPlaDfVQkuZ/T+1xP5CB1ooUuTHVhARh2UnaAB/aLf+U6k8suY1AqsexkuEHzD4V2KMXnysXqD
-	TX3QhfoC1NW/U9cQ/iRZVsWcOA7Szfa/Izdeok2e7kFw3gEb+N2pbLCJ3ObaDegnCvWpwhYujqf1e
-	bxTHLXtL3Dfz92EewF808sS3liUO++SMbpXbRot248omeRLqbEe8Gh1AmETBdHqWRLseSqFgJsmsC
-	Fj2jSWiSQSh3jJmqKOqHVhx68PzkkWeUtAQMaznctjuTbqQ3XsO/FP5IzbUkurtX2RgljkazSBEs+
-	KGa/k3oA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lV8UTJCMsRq0l7Fp6O6xY5D76Ntv+8GETQYNeaUcv0c=; b=IhZ55QU6inMR3bVfKBqX+ELGSo
+	XJmHcXHFky9XcmL8KthvsoxpFClLxs1Sn+pxJH89yYM0horglq8UWdpUJuR2Z9T3xJe4qa59HN/8N
+	Cqlfg67Ziqd1BOQCHsAi7ofWodFWUSerEKttO+IGe8wK5w+EvRabnOf/JewyLZiG1GkOHIZYTat+l
+	QgEKIKmOIvOGtKjosY4pYUoutZcTru18nUNaZ4yX03i02CsOm+AfKKzATx32sxwsm5i3TmAPL4IGU
+	qu9o4SYhhIryFZPStSL+5AUePZnzELZvMzaKFbEQBsmTpsx7jpoj6hwihyPkwyepYT9+s5dHu8L0X
+	Ifh2vLqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp2V7-00000000DGC-31A1;
-	Mon, 03 Mar 2025 09:54:17 +0000
-Received: from mail-pl1-f180.google.com ([209.85.214.180])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp2Sy-00000000Cws-1VaQ
+	id 1tp2Yl-00000000GA1-2OZd;
+	Mon, 03 Mar 2025 09:58:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tp2X9-00000000FaM-2sMB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 09:52:05 +0000
-Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-223959039f4so23409975ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 01:52:03 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740995523; x=1741600323;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=40J+Ql5K6IK0gLn8z0lNt2yYrMqV11O1QyGkgGVKClI=;
-        b=WmSbDD957iHQTDBrd32fHksrCr3dWYZOs7o/qmKwtgcIYJXzeH5ge5SzIVLPjSEWio
-         sgu6Ne2kd9xnHNDzL+1e8lEH0qa6NhMfkeyU6h/AbxoJeN37pPBVQqNCvX3rg4bpql/h
-         MAAf5zpy81rsrepOAREjHQo56gxbaISxqZQZj40/FbQa8zRIb1LN9kiAyY/akfQx1aRl
-         0gHV0nIOLSqpmObpMAg3xZTiowxHkjALzaktO5nughKkAloqig0uMVK/okBdKyEnpua9
-         SnSjU981SxzVCBxU7TnwLZeT0GS1Yxrr3WEOlO4dyqoewxZjtLlbA0Jog3OQ4MAufHeP
-         ot/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVP9YTDQV9lQ76lKCJhaDzLxEN4F/krX+o1WHyd9tD38NoxeKGSlRZRaYqBIttblpIq4/y8aGuCAmqhUiE8lQP6@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQhDweVijhNbELsslBD3wp0BmhPCUXNZVAQorzogKYkvjLxVsA
-	YmgBS6vrRMihtli5ySGfPeoyk90Y6pDhM4jKZRaHuospQ573nwpm
-X-Gm-Gg: ASbGncsBb5b0GOmqc2/XiOeU+keA8SQM93iFCyHC1gLgr1NjVTofabcHbVKGDt4YqtA
-	JEYCyHQVDM4BzUoYate102HOMFqA9cwOtodcadXyk/Ev8mNASBsOgHm/DFHRdSjQ7KZVUVAo5N6
-	LislteXW7Nmfm63FRbN+17Yln4rMFxgLiEzx7lUminXvXQe5Pv2Ri0Q+fvVT+XfzvzgrywTIplT
-	Gqs//b/OcJtjiNY3f7DAHhyXrqKooNbF+ZW7BHMQWVXtS61ed9IZNacTqRjdAFCJ7dV/tNz9CRt
-	YxJK+1OlyV8aGjaeT7hCscH2buVGsSI0FCegMoN5Kmq2NzLJqgXFXKJGyb9HQ4m4l5rxcP1/VnO
-	/+gc=
-X-Google-Smtp-Source: AGHT+IEWAfT5Z97RfY9VXKqz6TqnQKfcazGhBUq366+ebKsHwhmWqH4G2doQhibh2hZGJVaVQ0CoDQ==
-X-Received: by 2002:a17:902:fc48:b0:223:66bb:8993 with SMTP id d9443c01a7336-22369207c1fmr208309815ad.43.1740995522806;
-        Mon, 03 Mar 2025 01:52:02 -0800 (PST)
-Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-2fea67532a2sm8540087a91.9.2025.03.03.01.52.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Mar 2025 01:52:02 -0800 (PST)
-Date: Mon, 3 Mar 2025 18:52:00 +0900
-From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-To: Shradha Todi <shradha.t@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, manivannan.sadhasivam@linaro.org,
-	lpieralisi@kernel.org, robh@kernel.org, bhelgaas@google.com,
-	jingoohan1@gmail.com, Jonathan.Cameron@huawei.com,
-	fan.ni@samsung.com, nifan.cxl@gmail.com, a.manzanares@samsung.com,
-	pankaj.dubey@samsung.com, cassel@kernel.org, 18255117159@163.com,
-	xueshuai@linux.alibaba.com, renyu.zj@linux.alibaba.com,
-	will@kernel.org, mark.rutland@arm.com
-Subject: Re: [PATCH v7 4/5] Add debugfs based error injection support in DWC
-Message-ID: <20250303095200.GB1065658@rocinante>
-References: <20250221131548.59616-1-shradha.t@samsung.com>
- <CGME20250221132039epcas5p31913eab0acec1eb5e7874897a084c725@epcas5p3.samsung.com>
- <20250221131548.59616-5-shradha.t@samsung.com>
+	Mon, 03 Mar 2025 09:56:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E78F6113E;
+	Mon,  3 Mar 2025 01:56:34 -0800 (PST)
+Received: from [192.168.1.12] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 797EA3F66E;
+	Mon,  3 Mar 2025 01:56:15 -0800 (PST)
+Message-ID: <a52972c7-aadd-4a77-a292-057fa5f8372d@arm.com>
+Date: Mon, 3 Mar 2025 10:56:12 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250221131548.59616-5-shradha.t@samsung.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 3/4] arm64: topology: Support SMT control on ACPI
+ based system
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Yicong Yang <yangyicong@huawei.com>, catalin.marinas@arm.com,
+ will@kernel.org, tglx@linutronix.de, peterz@infradead.org,
+ mpe@ellerman.id.au, linux-arm-kernel@lists.infradead.org, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, dietmar.eggemann@arm.com,
+ linuxppc-dev@lists.ozlabs.org, x86@kernel.org, linux-kernel@vger.kernel.org,
+ morten.rasmussen@arm.com, msuchanek@suse.de, gregkh@linuxfoundation.org,
+ rafael@kernel.org, jonathan.cameron@huawei.com, prime.zeng@hisilicon.com,
+ linuxarm@huawei.com, yangyicong@hisilicon.com, xuwei5@huawei.com,
+ guohanjun@huawei.com, sshegde@linux.ibm.com
+References: <20250218141018.18082-1-yangyicong@huawei.com>
+ <20250218141018.18082-4-yangyicong@huawei.com> <Z8HAkZiHYRjj97M7@bogus>
+ <336e9c4e-cd9c-4449-ba7b-60ee8774115d@arm.com>
+ <20250228190641.q23vd53aaw42tcdi@bogus>
+Content-Language: en-US
+From: Pierre Gondois <pierre.gondois@arm.com>
+In-Reply-To: <20250228190641.q23vd53aaw42tcdi@bogus>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_015204_396378_5E1A8029 
-X-CRM114-Status: UNSURE (   7.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250303_015623_831440_1587816E 
+X-CRM114-Status: GOOD (  32.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,18 +75,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
 
-[...]
-> +		29) Generates duplicate TLPs - duplicate_dllp
-> +		30) Generates Nullified TLPs - nullified_tlp
 
-Would the above field called "duplicate_dllp" for duplicate TLPs be
-a potential typo?  Perhaps this should be called "duplicate_tlp"?
+On 2/28/25 20:06, Sudeep Holla wrote:
+> On Fri, Feb 28, 2025 at 06:51:16PM +0100, Pierre Gondois wrote:
+>>
+>>
+>> On 2/28/25 14:56, Sudeep Holla wrote:
+>>> On Tue, Feb 18, 2025 at 10:10:17PM +0800, Yicong Yang wrote:
+>>>> From: Yicong Yang <yangyicong@hisilicon.com>
+>>>>
+>>>> For ACPI we'll build the topology from PPTT and we cannot directly
+>>>> get the SMT number of each core. Instead using a temporary xarray
+>>>> to record the heterogeneous information (from ACPI_PPTT_ACPI_IDENTICAL)
+>>>> and SMT information of the first core in its heterogeneous CPU cluster
+>>>> when building the topology. Then we can know the largest SMT number
+>>>> in the system. If a homogeneous system's using ACPI 6.2 or later,
+>>>> all the CPUs should be under the root node of PPTT. There'll be
+>>>> only one entry in the xarray and all the CPUs in the system will
+>>>> be assumed identical.
+>>>>
+>>>> The core's SMT control provides two interface to the users [1]:
+>>>> 1) enable/disable SMT by writing on/off
+>>>> 2) enable/disable SMT by writing thread number 1/max_thread_number
+>>>>
+>>>> If a system have more than one SMT thread number the 2) may
+>>>> not handle it well, since there're multiple thread numbers in the
+>>>> system and 2) only accept 1/max_thread_number. So issue a warning
+>>>> to notify the users if such system detected.
+>>>>
+>>>> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/ABI/testing/sysfs-devices-system-cpu#n542
+>>>>
+>>>> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+>>>> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+>>>> ---
+>>>>    arch/arm64/kernel/topology.c | 66 ++++++++++++++++++++++++++++++++++++
+>>>>    1 file changed, 66 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+>>>> index 1a2c72f3e7f8..6eba1ac091ee 100644
+>>>> --- a/arch/arm64/kernel/topology.c
+>>>> +++ b/arch/arm64/kernel/topology.c
+>>>> @@ -15,8 +15,10 @@
+>>>>    #include <linux/arch_topology.h>
+>>>>    #include <linux/cacheinfo.h>
+>>>>    #include <linux/cpufreq.h>
+>>>> +#include <linux/cpu_smt.h>
+>>>>    #include <linux/init.h>
+>>>>    #include <linux/percpu.h>
+>>>> +#include <linux/xarray.h>
+>>>>    #include <asm/cpu.h>
+>>>>    #include <asm/cputype.h>
+>>>> @@ -37,17 +39,28 @@ static bool __init acpi_cpu_is_threaded(int cpu)
+>>>>    	return !!is_threaded;
+>>>>    }
+>>>> +struct cpu_smt_info {
+>>>> +	unsigned int thread_num;
+>>>> +	int core_id;
+>>>> +};
+>>>> +
+>>>>    /*
+>>>>     * Propagate the topology information of the processor_topology_node tree to the
+>>>>     * cpu_topology array.
+>>>>     */
+>>>>    int __init parse_acpi_topology(void)
+>>>>    {
+>>>> +	unsigned int max_smt_thread_num = 0;
+>>>> +	struct cpu_smt_info *entry;
+>>>> +	struct xarray hetero_cpu;
+>>>> +	unsigned long hetero_id;
+>>>>    	int cpu, topology_id;
+>>>>    	if (acpi_disabled)
+>>>>    		return 0;
+>>>> +	xa_init(&hetero_cpu);
+>>>> +
+>>>>    	for_each_possible_cpu(cpu) {
+>>>>    		topology_id = find_acpi_cpu_topology(cpu, 0);
+>>>>    		if (topology_id < 0)
+>>>> @@ -57,6 +70,34 @@ int __init parse_acpi_topology(void)
+>>>>    			cpu_topology[cpu].thread_id = topology_id;
+>>>>    			topology_id = find_acpi_cpu_topology(cpu, 1);
+>>>>    			cpu_topology[cpu].core_id   = topology_id;
+>>>> +
+>>>> +			/*
+>>>> +			 * In the PPTT, CPUs below a node with the 'identical
+>>>> +			 * implementation' flag have the same number of threads.
+>>>> +			 * Count the number of threads for only one CPU (i.e.
+>>>> +			 * one core_id) among those with the same hetero_id.
+>>>> +			 * See the comment of find_acpi_cpu_topology_hetero_id()
+>>>> +			 * for more details.
+>>>> +			 *
+>>>> +			 * One entry is created for each node having:
+>>>> +			 * - the 'identical implementation' flag
+>>>> +			 * - its parent not having the flag
+>>>> +			 */
+>>>> +			hetero_id = find_acpi_cpu_topology_hetero_id(cpu);
+>>>> +			entry = xa_load(&hetero_cpu, hetero_id);
+>>>> +			if (!entry) {
+>>>> +				entry = kzalloc(sizeof(*entry), GFP_KERNEL);
+>>>> +				WARN_ON_ONCE(!entry);
+>>>> +
+>>>> +				if (entry) {
+>>>> +					entry->core_id = topology_id;
+>>>> +					entry->thread_num = 1;
+>>>> +					xa_store(&hetero_cpu, hetero_id,
+>>>> +						 entry, GFP_KERNEL);
+>>>> +				}
+>>>> +			} else if (entry->core_id == topology_id) {
+>>>> +				entry->thread_num++;
+>>>> +			}
+>>>>    		} else {
+>>>>    			cpu_topology[cpu].thread_id  = -1;
+>>>>    			cpu_topology[cpu].core_id    = topology_id;
+>>>> @@ -67,6 +108,31 @@ int __init parse_acpi_topology(void)
+>>>>    		cpu_topology[cpu].package_id = topology_id;
+>>>>    	}
+>>>> +	/*
+>>>> +	 * This should be a short loop depending on the number of heterogeneous
+>>>> +	 * CPU clusters. Typically on a homogeneous system there's only one
+>>>> +	 * entry in the XArray.
+>>>> +	 */
+>>>> +	xa_for_each(&hetero_cpu, hetero_id, entry) {
+>>>> +		if (entry->thread_num != max_smt_thread_num && max_smt_thread_num)
+>>>> +			pr_warn_once("Heterogeneous SMT topology is partly supported by SMT control\n");
+>>>
+>>> Ditto as previous patch about handling no threaded cores with threaded cores
+>>> in the system. I am not sure if that is required but just raising it here.
+>>>
+>>>> +
+>>>> +		max_smt_thread_num = max(max_smt_thread_num, entry->thread_num);
+>>>> +		xa_erase(&hetero_cpu, hetero_id);
+>>>> +		kfree(entry);
+>>>> +	}
+>>>> +
+>>>> +	/*
+>>>> +	 * Notify the CPU framework of the SMT support. Initialize the
+>>>> +	 * max_smt_thread_num to 1 if no SMT support detected. A thread
+>>>> +	 * number of 1 can be handled by the framework so we don't need
+>>>> +	 * to check max_smt_thread_num to see we support SMT or not.
+>>>> +	 */
+>>>> +	if (!max_smt_thread_num)
+>>>> +		max_smt_thread_num = 1;
+>>>> +
+>>>
+>>> Ditto as previous patch, can get rid if it is default 1.
+>>>
+>>
+>> On non-SMT platforms, not calling cpu_smt_set_num_threads() leaves
+>> cpu_smt_num_threads uninitialized to UINT_MAX:
+>>
+>> smt/active:0
+>> smt/control:-1
+>>
+>> If cpu_smt_set_num_threads() is called:
+>> active:0
+>> control:notsupported
+>>
+>> So it might be slightly better to still initialize max_smt_thread_num.
+>>
+> 
+> Sure, what I meant is to have max_smt_thread_num set to 1 by default is
+> that is what needed anyways and the above code does that now.
+> 
+> Why not start with initialised to 1 instead ?
+> Of course some current logic needs to change around testing it for zero.
+> 
 
-I wanted to make sure we have the correct field name.
+I think there would still be a way to check against the default value.
+If we have:
+unsigned int max_smt_thread_num = 1;
 
-Thank you!
+then on a platform with 2 threads, the detection condition would trigger:
+xa_for_each(&hetero_cpu, hetero_id, entry) {
+     if (entry->thread_num != max_smt_thread_num && max_smt_thread_num)     <---- (entry->thread_num=2) and (max_smt_thread_num=1)
+         pr_warn_once("Heterogeneous SMT topology is partly
+                       supported by SMT control\n");
 
-	Krzysztof
+so we would need an additional variable:
+bool is_initialized = false;
 
