@@ -4,27 +4,27 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E4C2C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 11:37:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7241BC282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 11:39:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xj+izrhaOcxy+xihfquH+xNLp8A7/ytMiHjX9X2ba9M=; b=k1FtoJdKecvPjslditED3W4MEc
-	AMswuUfQs6rJXnzySmV0XsUXYluSNU41kujAyoLTGjOqCxOKIO1Shi6mqpMTyIaqKTK0TUXOZuMqo
-	lYqZqIIsJESjmpUeJ5WqHVWVA2q8p7sugwonatPNkkxZ2o07e4mAl0v9g/i7BGgvLhKnuofbbN/Rx
-	CLekgL7lt1fLEFeaA1Ipe/+XXm1Sff/pbFULjXNtjeDY9fDWGTl8eLykF9UPbxD4JAkLEOvsw8Bzq
-	QhAT8hh4MsCRa2GiwW6jI9xkI1Hwq1mYFM92XEaKTV0JNvTrCynGyhRaeN0GmRCrQ/acT3b/ablZf
-	Fg6vSUWw==;
+	bh=bCdwRb62VTrbR5xUivRBa4yVRFUw7ANF4zJUEJ52hKQ=; b=G5aHxwUeLu1gsvLkwdSowzMiAz
+	uDxAS50i849d9mNXeqszXVGIsWMdljtTZEDVFMEFyH5abMxVmP9CECPC3EOX20PwZDcOJYoE6fNBw
+	Fz2UdtxXAE239TT3cOMD7zpn/dsGC+jZhciYKe5sJ/rejVDoGMrXJDitKovHzKigx4AWKeGMclq4a
+	nECXCVGkW7ke5Zyo/AWI2dOouIf/j5w7lL1zajKteqrAXpK62iwGucVafP5XrcXhDpSoTMsBYJJQr
+	AxNh9qfxxvLJEU6hmXbsCu3Qb2gl6sZvcYRL7fuREMpR2S3rhGK3uFwCdldRkwwFVeUeHnLNtdAx6
+	/LABL/Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp46v-00000000aqd-3GuQ;
-	Mon, 03 Mar 2025 11:37:25 +0000
+	id 1tp48U-00000000bEG-1kpv;
+	Mon, 03 Mar 2025 11:39:02 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp3hY-00000000TmD-0gAJ
+	id 1tp3hY-00000000TmH-0ioa
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 03 Mar 2025 11:11:13 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
@@ -34,27 +34,28 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=xj+izrhaOcxy+xihfquH+xNLp8A7/ytMiHjX9X2ba9M=;
-	b=Gxa5GXG1996oaCjjYl/Z6sgMF1KOjoNvxpBXX6w6eKXnxd6/0bfYOFDRsivWanOVtA+9ZS
-	BBwK+7G458P2Js+w8bvhlXENVl5k+2TIZXozC+NmmvNazvxFNgIk+1zOETFD/uugMTBBNl
-	B8Sxwq3Z+dwoi4PBPaC/yr+sruV7ytzkG44m5fG7jEU76o6VjSPGkYFLJb2OWiTIlwv5bp
-	vY2yEkOXk8/iMBBnMHPoYEDip2ucsdf/Q8NEoc8VK8ZY63A+XBuuQjmxEw5Gj+HK0Ha3WU
-	ky3nR1pqfPdC4avJQxL3yuhN/Pg3YEKdEWmHhSG6XD/KJ37oGU+Pi0rsHxUxfw==
+	bh=bCdwRb62VTrbR5xUivRBa4yVRFUw7ANF4zJUEJ52hKQ=;
+	b=HBXAYc6xl7KXGh/flCRILcVk+FA2fkf2y+XEkkT1eiInvI/WfegoID9q/3cIc6OHUqczQF
+	PQ49lZDS2Y/Fv2QRZ8112jLN7GiEnYGu/yh+XnDCfOB/9SGVDHAFD9V9jdStmPpM3ABntq
+	GsLYgwzT+9+c1Lw8VU9SftKkk2q/usKIBCN+bqSgFpqjRxL0YA2gkEorjyv4YN/5R1ZEkX
+	Qw6YbVEqPHHPDJGw3ayhJpxHlKzzXE1HIiT3eL9ovTtk0Jkt3bJqXZSGsFl1QBIij92k+7
+	mUZHjIT4lwCNeFK+4MY1FJAUL109K4ASHusMTysKX5yNBFMDuxvnmnQUgrufPA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
 	s=2020e; t=1741000270;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=xj+izrhaOcxy+xihfquH+xNLp8A7/ytMiHjX9X2ba9M=;
-	b=xuensp3Pa9Pm0DfWFv6ec0Nb8Q78eETUCr5ghIogZLmzP2K+5tv9Q5qn7Km2/eZ0HMuvAZ
-	V25m6gork9ijLVAQ==
-Date: Mon, 03 Mar 2025 12:11:05 +0100
-Subject: [PATCH 03/19] vdso: Make vdso_time_data cacheline aligned
+	bh=bCdwRb62VTrbR5xUivRBa4yVRFUw7ANF4zJUEJ52hKQ=;
+	b=BsJE+rCdiKDKT4eQUddPU2LUS6jWIEVrQpYFv2koHUfZ/lOXdy1hh77RadF1ejnQXTtr34
+	L5yNu905zFXDMuAQ==
+Date: Mon, 03 Mar 2025 12:11:06 +0100
+Subject: [PATCH 04/19] vdso/datapage: Define for vdso_data to make rework
+ of vdso possible
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250303-vdso-clock-v1-3-c1b5c69a166f@linutronix.de>
+Message-Id: <20250303-vdso-clock-v1-4-c1b5c69a166f@linutronix.de>
 References: <20250303-vdso-clock-v1-0-c1b5c69a166f@linutronix.de>
 In-Reply-To: <20250303-vdso-clock-v1-0-c1b5c69a166f@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -76,16 +77,16 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
  linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1741000267; l=1329;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1741000267; l=1096;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=+SD6yGnIFUmAVcH8siXM+pCjZMZm4i05faOszoaQfnQ=;
- b=3rnVtk2piKjEr1OX2HGOUwEZO6XTwkuvMBS8Th4Zl1Fyez4RcpeNoVQ+iQsPawv+KjUBtwrnC
- bR+EZ/DXucmA32/wVjS994HjsSLCu3iMbAMPCOkUa8SH8VgkE3QrxuF
+ bh=0x93loxlpgWqAeU5hAZly4hP7dcYpQTwV/L9FcTK/DQ=;
+ b=kgUrJ5kC5QvnFU2yA/1gFs7qZQK2tK6WILz/EsO+Lns9Hz6h0FnvKg0dzWfpJEOg1yXiisPne
+ d9rskmxoF0LDOR4RMMR3hpSsg0OkwAHBZhyMnuEvNn5qZQzT76LSfSA
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_031112_345725_0F826553 
-X-CRM114-Status: GOOD (  12.53  )
+X-CRM114-CacheID: sfid-20250303_031112_356541_948ABF20 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,43 +103,34 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Anna-Maria Behnsen <anna-maria@linutronix.de>
 
-vdso_time_data is not cacheline aligned at the moment. When instantiating
-an array, the start of the second array member is not cache line aligned.
-This increases the number of the required cache lines which needs to be
-read when handling e.g. CLOCK_MONOTONIC_RAW, because the data spawns an
-extra cache line if the previous data does not end at a cache line
-boundary.
+PTP clocks could also be supported by the vdso to use the advantages of
+this implementation. Therefore the struct must be reworked. For a
+transition to the new structure of the vdso, add a define which maps
+vdso_clock to vdso_data. This will be removed when all users are updated
+step by step.
 
-Therefore make struct vdso_time_data cacheline aligned.
+No functional change.
 
 Signed-off-by: Anna-Maria Behnsen <anna-maria@linutronix.de>
 Signed-off-by: Nam Cao <namcao@linutronix.de>
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- include/vdso/datapage.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ include/vdso/datapage.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/include/vdso/datapage.h b/include/vdso/datapage.h
-index ed4fb4c06e3ee6423fe68ccb476565213f234863..dfd98f969f151eca3c551c3e90f69af9ee8f22bb 100644
+index dfd98f969f151eca3c551c3e90f69af9ee8f22bb..1df22e8bb9b31153546b72b1e8b8c8aeaed7d9e3 100644
 --- a/include/vdso/datapage.h
 +++ b/include/vdso/datapage.h
-@@ -11,6 +11,7 @@
- 
- #include <vdso/align.h>
- #include <vdso/bits.h>
-+#include <vdso/cache.h>
- #include <vdso/clocksource.h>
- #include <vdso/ktime.h>
- #include <vdso/limits.h>
-@@ -126,7 +127,7 @@ struct vdso_time_data {
- 	u32			__unused;
- 
+@@ -129,6 +129,8 @@ struct vdso_time_data {
  	struct arch_vdso_time_data arch_data;
--};
-+} ____cacheline_aligned;
+ } ____cacheline_aligned;
  
++#define vdso_clock vdso_time_data
++
  /**
   * struct vdso_rng_data - vdso RNG state information
+  * @generation:	counter representing the number of RNG reseeds
 
 -- 
 2.48.1
