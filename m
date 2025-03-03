@@ -4,91 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B801EC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 08:44:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C49DC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 08:45:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7t59WyUTPd0L7Mi3cChysUXnRM6v1fDvAcY991WF1bQ=; b=Wygj314++V9SA8bEpPcF0SVepJ
-	Lf330wurk1iFWXVU6iB55M4CY+Nufzt6aw+JtaabTYlXsYDxlqF4h4k0x2yQ9Ds0Z7tcEae33OCpD
-	Ej8v6I75CMyHE6jsVU6mP0BPOdHARxM7R/chIT4Yq1tuhqyk8h6+Oon40iyrhXKMvxBvRHh1RF2kf
-	eekKza7HFdCfARbn7na8xw6JHZ4L3HhjtVccIXlDhgWmwrnAXt/LYVLgT4rSeCj28jWM3Z7UDwMfI
-	rCl7Nxg1ykNE58Cswyn/nGVRFr2XZSmN9EZWredopMz2y6AKgvzj/Qq5JwAi5aRTdi6QmvJxWobVb
-	ExecnN0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Qm3QR1l1rz75lcEGPLzMuxgJ74yGB+NJLQmmsI61JAE=; b=aD8xcF/Z5K1an2
+	lIT6AnmY78PTNvMqDerNfTS0k49/o/IhLFvPYjCCHAaII39CvAYby+H7M/karLl40VSaw2yAW+e4L
+	YhCDCJx43kTgrpKqfhcZ4YWz0uXAn9NoUM1pE9eZHu+3Rw19LxmKOG0CX9OZ4GIJCt68J7PfX/S0Z
+	7dWbqwRVvbGqvZzbiwbh+A+d4/rn3E/+MvHbjPRFTV5C917C701B6QPsmz3PcLRJPZDSvCe6/b5cM
+	huUe4mKSpMahPwbPudy+8ovUafrovN90xmYp8pfsopQIJQOApOohgRUikeeah9obeflsUO1vbUcsv
+	s7lbXT4PS0alcM4IKs0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp1P5-0000000HZgW-35Jk;
-	Mon, 03 Mar 2025 08:43:59 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1tp1Qd-0000000HZu2-05xc;
+	Mon, 03 Mar 2025 08:45:35 +0000
+Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp1Lk-0000000HZ8c-0ZkX
+	id 1tp1Mu-0000000HZGL-3qLo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 08:40:33 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-aaeec07b705so666843666b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 00:40:31 -0800 (PST)
+	Mon, 03 Mar 2025 08:41:46 +0000
+Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-30a303a656aso43007661fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 00:41:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1740991230; x=1741596030; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=7t59WyUTPd0L7Mi3cChysUXnRM6v1fDvAcY991WF1bQ=;
-        b=Ny10ATvsjTzzsV782j9r/G07rEV+ihLggcuQo2yVjSNFuNbFHmMnSzFfihn+hyYo9k
-         C1PwaNcSD6wOh0/CkmdkUZoaEVXc/xUwnaW0wZXKH0yhYO8ZpSbxuv07pl3oBVjLaIv3
-         eJy+MrOWN2EtgZAFnpKB1arEZzHhB8btP3/A+b7ZQ2+ciX7SUWeE5Y6LnWtwfpqR6QPz
-         Jjbo5vHysT2DRCvhi7UIKqXWmhHwLK5FTWxAdKnTjD9Kzh7jL74SkTxhLmvpMqqc8EbB
-         VFfGZ4bH7lnu4HhnmAup3g5rCA0AAZmXtnzvArWY3VjlF60Hbk3j6cCS7UWcmq5h4pF+
-         Oqtg==
+        d=linaro.org; s=google; t=1740991302; x=1741596102; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Qm3QR1l1rz75lcEGPLzMuxgJ74yGB+NJLQmmsI61JAE=;
+        b=xn4vtPUo8V6cSnltdaz5G2Z005A6IGA2FY4okZfk5INkzBUFa1TZck/Bm3p/rDVOPf
+         TA7HH9YQQb3RMQFNONK+Q87bcTKEvoa4ZqP56pANm8SIesOMoNSfUkJ1tOm4oK4CWKEX
+         1TfbVoeT0kYnQOkIK26SsPfr7eIZqxArkaPzRHstQcEJJ4npBV9z9fJXIbewcKWBDgT0
+         Wncgce1gPFDm/zddeozoDzdA5hCQi/U7SOFpIkHmW5fP3CdITkh0a6FCt0AirArk8XuI
+         vdPcxCR3+XA3yUZhlJrsyEvRnf7C909sfCS0g58Exx4CP2yBADOut61PF+VIjYMewfcu
+         jvtw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740991230; x=1741596030;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=7t59WyUTPd0L7Mi3cChysUXnRM6v1fDvAcY991WF1bQ=;
-        b=DFiupbIWTN/5LAYvAu4iHircgTqmlrqNCBdtrHgOeORtd3Yyt8aLTBfn+fMDHqh9L3
-         ZOF1M6kC3Ta9y9mhm7vkHv34cwMvU9fh+w7zTfCYNxrK1gGjGq5WXJZWYWLku7PE8u85
-         QyVyAN3LmUEYqdasgjeAkj23vBZy9ioc9jhikcPhkpGzyUJ4qIDsNsoidDTaN4LiQz0i
-         YmMvv0dN6WNd4xp0PUD1ZjTAGcySTW5AgblE2ms7ZY71qJebdcR27R/n+hZg7WJOTuJv
-         0Ymyl4WMmzicbXZubnPaqkViSItopvri7kL3fevu5kc+p/jvobNnCuzQ1lEW07wlqZRQ
-         KAiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWCLie1ZsMEE61NIjptv5BHOAWS2FwELCeC+iSzGXhHuKjztJenV8XAHWgJp8ydsULkaVBUvZdq2s5CA/+bN+ay@lists.infradead.org
-X-Gm-Message-State: AOJu0YwgyuO8MVs4yJsDImE+RQalVVYGI64juPgK3z+7K8JGLJqmxP0Y
-	7RWGZhbt2lyFD/H4+XKgYfJBhD5+5h2fpZ64W5VNslpkDfiHPZqQh9E/SzQOHQo=
-X-Gm-Gg: ASbGncsJwaTBcsPA5gWs9Wgd1zqm8m+Pe4GqSv+Oi59FUcbUjhgXfwbcmFjOpDCqD+b
-	NE5d1GWKlU9Q5UUrnsXu0HhUzcoyYqW+4Ia0qii7uGfRGF+OcoJbbFpiDZ5ggPuCuPHkM2lmmpy
-	RakRmS0xw+lc6YxtKem6S/RNy3KYrHjSPe+oADe55eqdY2Ti4vTcAKeXe3R2RrfDo1KxdOhIei5
-	6Nm5hj01MpaoTx+SczcvrlygdRKUxoW4VyjMrUO+OKNCncyqwuT6QH+JLqWPmorGKUUVem88Y0x
-	y/L6HWQ7N7NLYNGznaaTwR+7o7jMVcICYYy1t/AFWb4YJ08SSazCFA==
-X-Google-Smtp-Source: AGHT+IFbnHrYeaaWFN8nqN3k607A73JWI/jQQa94/Cd3rmC/xFunczpany1uHLkd1AybmzRvqJrINA==
-X-Received: by 2002:a17:907:7f0f:b0:ac0:b05:f0c0 with SMTP id a640c23a62f3a-ac00b05f592mr254231866b.1.1740991230131;
-        Mon, 03 Mar 2025 00:40:30 -0800 (PST)
-Received: from [192.168.50.4] ([82.78.167.138])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abf0c0b98e1sm764527166b.9.2025.03.03.00.40.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Mar 2025 00:40:29 -0800 (PST)
-Message-ID: <2a18e305-090c-41fe-9b27-97ebe93fd4e4@tuxon.dev>
-Date: Mon, 3 Mar 2025 10:40:25 +0200
+        d=1e100.net; s=20230601; t=1740991302; x=1741596102;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Qm3QR1l1rz75lcEGPLzMuxgJ74yGB+NJLQmmsI61JAE=;
+        b=EZm7wdYb/pJ2k37TIRqpInbfGzdDmb6YQWK1s+CS4qy80SGX74l+04vjiZ5Eo6IJN4
+         GCoKi6KbFjJjWiC7wtLTA8Ay0uNUo+itwMldtSivLwXXqbrNCER12jQMYUYZb/XnIRcr
+         0WNzoe7rykNT6+hDSSw9wVGXPA5GZGJkoGOKb2Mz0DnPTLIq6dOFyUavt9HRFX5b1+Eo
+         Dxpbr1Jg40R5F74tWfUisvsqa4zbljdWySdGnCkh6hsDM79nEpln4lT7Xp8rFmCSWVIg
+         yz9TDStnPiep7vdGj5D009u96l7zu+SQ2FmWVSttQxpt3uARwZageXigFJjnJcTp7fC7
+         Wv0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXS26hdDSn7Zj6ohLb7j8wImTLw2gcSzTjxG+2V1Jibv3xK8tojkN3m1aTTzaFre1qDvDn/VgEX0sdqn6/+TIU/@lists.infradead.org
+X-Gm-Message-State: AOJu0YyyNTADUDfs+g0/aVqQ25h5bCo3ispmlF2Bp7PLsheoF+8uKeP4
+	f35ki78NgIu381THarAzPqHQlT0KE+3x1OwDL6yOKk52m6ONlLziO82yvekWqnw=
+X-Gm-Gg: ASbGnctmVBBN3Ybg46CpgzswTmE+plsYi8ZZg1y9fcJSwUYN4i2N3cJ4SYYI1L4/Au9
+	Kny3YtOsSAHbi0XS9tHdDlf02aB7WcYKzISJzn8dk3C9rcnvxbZLDptACOsXhH/StryF+8/Z32i
+	qif+21MDQCYS2GZ/DjFc0UpzSbC/IxfdmasG1JSGxFhQRDO9BU5OGPOnxYNyykTz3yGCfCQgnx3
+	WhOHhURYFLKwQXo11tqndlJXh6hEBqm/aaexfKkZzvh3ESOW5x06XBS9vDxVuMLEk5+w60NWrPq
+	wUwKlQseuYvh1CResQdYrLrzsODATA5L07KpnFb1Y4feYUjxm6muzak=
+X-Google-Smtp-Source: AGHT+IHn6Tj7glT+a+fHasyXMm+tHoyL5R7gnvFAOlJhkpEYXGi85y3PLUTOtOvNOM+AGZKihutEzA==
+X-Received: by 2002:a2e:9f45:0:b0:300:4107:6294 with SMTP id 38308e7fff4ca-30b933139damr42795381fa.35.1740991302342;
+        Mon, 03 Mar 2025 00:41:42 -0800 (PST)
+Received: from [192.168.1.140] ([85.235.12.238])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30bc49d8b56sm827371fa.80.2025.03.03.00.41.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Mar 2025 00:41:41 -0800 (PST)
+From: Linus Walleij <linus.walleij@linaro.org>
+Subject: [PATCH 0/6] ASoC: samsung: GPIO descriptor conversion
+Date: Mon, 03 Mar 2025 09:41:40 +0100
+Message-Id: <20250303-samsung-codecs-v1-0-56a2299dd928@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 00/21] Enable Power Modes Support for SAMA7D65 SoC
-To: Ryan.Wanner@microchip.com, lee@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, sre@kernel.org,
- nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
- p.zabel@pengutronix.de
-Cc: linux@armlinux.org.uk, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
-References: <cover.1740671156.git.Ryan.Wanner@microchip.com>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Content-Language: en-US
-In-Reply-To: <cover.1740671156.git.Ryan.Wanner@microchip.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAERrxWcC/x3MQQqAIBBA0avErBPMIYmuEi1Kx5pFFg5FIN49a
+ fkW/2cQSkwCY5Mh0cPCZ6zo2gbcvsSNFPtqMNr0GrVRshxyx02505MTZdFa6lYMZkCo0ZUo8Ps
+ Pp7mUD3sEYwRgAAAA
+X-Change-ID: 20250302-samsung-codecs-6366e1b3f283
+To: Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-gpio@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_004032_180939_05B062F9 
-X-CRM114-Status: UNSURE (   7.48  )
+X-CRM114-CacheID: sfid-20250303_004144_968485_DA5279B3 
+X-CRM114-Status: UNSURE (   7.91  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,24 +103,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This drops unused includes and converts one Samsung
+codec to use GPIO descriptors.
 
+Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+---
+Linus Walleij (6):
+      ASoC: samsung: bells: Drop unused include
+      ASoC: samsung: littlemill: Drop unused include
+      ASoC: samsung: lowland: Drop unused include
+      ASoC: samsung: speyside: Convert to GPIO descriptor
+      ASoC: samsung: tobermory: Drop unused include
+      ASoC: samsung: tm2_wm5110: Drop unused include
 
-On 27.02.2025 17:51, Ryan.Wanner@microchip.com wrote:
-> Ryan Wanner (20):
->   ARM: at91: Add PM support to sama7d65
->   ARM: at91: pm: add DT compatible support for sama7d65
->   ARM: at91: PM: Add Backup mode for SAMA7D65
->   ARM: at91: pm: Enable ULP0/ULP1 for SAMA7D65
+ sound/soc/samsung/bells.c      |  1 -
+ sound/soc/samsung/littlemill.c |  1 -
+ sound/soc/samsung/lowland.c    |  1 -
+ sound/soc/samsung/speyside.c   | 37 ++++++++++++++++++++++++++++++-------
+ sound/soc/samsung/tm2_wm5110.c |  1 -
+ sound/soc/samsung/tobermory.c  |  1 -
+ 6 files changed, 30 insertions(+), 12 deletions(-)
+---
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+change-id: 20250302-samsung-codecs-6366e1b3f283
 
-Applied to at91-soc with some adjustments, please check!
+Best regards,
+-- 
+Linus Walleij <linus.walleij@linaro.org>
 
->   ARM: dts: microchip: sama7d65: Add Reset Controller to sama7d65 SoC
->   ARM: dts: microchip: sama7d65: Add Shutdown controller support
->   ARM: dts: microchip: sama7d65: Add RTC support for sama7d65
->   ARM: dts: microchip: sama7d65: Add SFRBU support to sama7d65
->   ARM: dts: microchip: sama7d65: Enable shutdown controller
-
-Applied to at91-dt with some adjustments, please check!
-
-Thank you!
 
