@@ -4,128 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0F03C282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 16:51:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E4C8C282CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 16:54:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f6twUH0//ksDRm2f064XsJv+UZF+J+plN/dZHzNZ8hs=; b=oTAcV4lnfGUvmsOuz8SSEXWQST
-	NR3QpYcv4LXVQdUmMZ7IXmxCA5fyc+wgkIWKzPMJO32gk6ZbkJjWWTqUUibb85juU4TGzsUYJs4Hs
-	SlqtWrM4smpgDyoeBKxaZTyDV/1oKT5bK2nBfRndLbKR1eg8QrXJy0ZHay61r2eY5NDc0xFX5NXcj
-	xxNJMDqyx7JrK3dVgN4yAt9yid5ZkqSRpb3GUWEezkZgT1ReXRGaByRNAl/BkzNj8ZpUavaldeYNA
-	MbUVrQo44JhjZQBf5AAcueEISjL7sYc15FMl6P1tYs7EHWcC9a1yYRBuqXT+r4yZznjwfr2Ok/zSd
-	T8/4Y4bw==;
+	bh=vVCncQiFroIxYBskOfYoTQ0oTclWTNPxKFNAE95aCHc=; b=Nd+vNINnjq8hrDNRkpxujxsupd
+	dbLAtJvS3qAGChgDuKo9mTNEm4v91G+00zYEABR1UvZHRRNgslkBvee6N8T8qNGMYr5p9JIk814Xs
+	Bcp4OQhd9WIPgBzopN1kuSNqEtH+2wJ8OEcC2HTbe0biScnKhwl4hLFKAVvwQKO96pVDmQnQkCimm
+	petuUNjz1tcf3rOCGUJlT/HUSWzQKGvtjyfP9zopIbOMKNih7fpUzDtjtnNj2d4bvDodxAMW4WFfP
+	uY2Eoxe6dFQ7lwpNu9s+Bn1+KswtNvIsS1Ncl6r5jcpg8bUxglLNIPLBnwJdm3MB0zf89zdS1JD71
+	M+KTvkXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp90C-00000001cK8-0pfB;
-	Mon, 03 Mar 2025 16:50:48 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1tp93s-00000001dHD-0Tao;
+	Mon, 03 Mar 2025 16:54:36 +0000
+Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp8y6-00000001bpM-28Qo
+	id 1tp92I-00000001cr6-03GB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 16:48:39 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43bc0b8520cso7943185e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 08:48:37 -0800 (PST)
+	Mon, 03 Mar 2025 16:52:59 +0000
+Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-7c3b533a683so157175985a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 08:52:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741020517; x=1741625317; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=f6twUH0//ksDRm2f064XsJv+UZF+J+plN/dZHzNZ8hs=;
-        b=zkD0b5vL/9f1Req0uurc8VQ7PCF+LHemAEH9IPd0QWiF/qXyfGnF0GLvkIeln6SSHs
-         qQEuE6ACzWnxSk4q+5JqV7aout/MnxK76vBoccav5gSaSU5udV+U7b6ZsOVkdMwL4w75
-         RqAUtngEfS0Vls52xzFhiZCB1TlFEu34hawousmdMQSmZMBQnU5Oc+VX9hSzc4fI+23e
-         q888G0YTiMXUB/ta0wDdCN9Ov5NhV9r7Y28eOUbxBTjJr5IfoU0/9k4ZB7pYHFBjO7q7
-         Xht0wiz0W1AfS52kQS860QRmbAtJ2B85zfGrMO+f5FEIdPDBV5C6ddjLHyl9ezdu19eF
-         RCLA==
+        d=ziepe.ca; s=google; t=1741020776; x=1741625576; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=vVCncQiFroIxYBskOfYoTQ0oTclWTNPxKFNAE95aCHc=;
+        b=pNWTWlVGiQ5f8G0nBChsG7J5HDZuMwdO4/dBS/ZpEOda5fWPaLWKTiBr/q5XYOzi3m
+         lsnWwaQEbQ7TKYwuu1WYItv5gltD0LOJeu6JQAIqMEPGFVJ0aamVQ5XGgkBuAeZ7Iht+
+         8p9PZE7SFL1vLOBd+jm2WqKOJTWaHMO0phPC7iEbidPUSCZ5nAiruZ7Bpyrvpdw2tbJU
+         5o64deedwJPkIr6axvN38eI36a5EJGYc+wNQWwBMlgJcZhiZsSxM8tFiGMQ2KNZprtIv
+         JmJzf6aPespi1nGI1UDEc7R3gx81gHVnqhp4FMITpaKc32mINPo9gTYdHmO6Wf0wZC5L
+         A99A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741020517; x=1741625317;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=f6twUH0//ksDRm2f064XsJv+UZF+J+plN/dZHzNZ8hs=;
-        b=b0G0xwyN5bGdPs/XzilgcaOmmk1xqflj0Nj87s3lDFVJAZhbNwOvVbs3omCfbaXKB6
-         qgttIwjvbDFQ/EgU7GSL941EAcELQln/2Q4SWh46UvUAphPleTw6T3cyOuFvT37X4m3w
-         T+gNpgyPy+V3fFpIiP0lU4//gf87LQR4SWGr+6J65bJSVEGDxA3fjnPkVrNGtvWCISwe
-         0Y6eJserGVu4LLe/+MLBwsAX6+FeM2gIvNyTByWSjeQfvifs0IGjNfQbHl6uch/buRs+
-         bzq0XK8GABHaRAxhQ92I8Yddcuv4yWT480a7F28a+Cos1N0gR2pa1puxiaw7FF0qiXut
-         cEwg==
-X-Forwarded-Encrypted: i=1; AJvYcCXYNrGOjT1Tuf0/8RxqIGiMBfoLfy71oj69XUgOiWaPXOkG5skHBJjKmEmfSG5Zep6Dj3jc7GGPll6BXm2Bd//8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2Sg5Yb51nlxMRBmqdCtNfqSIA81YDj5gZGn55o7CBGBifl7PD
-	XmkYmWQJs2GjLCl+otUQgeBxtI87Hq5KcFCQnE2Tj8tvkaFVctAcl/JIERgMyso=
-X-Gm-Gg: ASbGncsmxMzvxuriwFk3EgGAtM/+8C6WxSOhrbsMvxUNOtfcmBNqCwCV8EvPZBut6lQ
-	sLi068AgH6+9whFimR51mfxvsnQFqWBKuILl92ePfbYwdOGuAjab9lIziA1IpqGve7DI7E4GfWR
-	7hZlN6rpedoW7T3UekOqhmbkpqKE9WGgEMiixscilyJMsAFSzT6yNinabUUZFLp4hCqGtiZEkqI
-	F4FyTH8I+euzmI5O8jki30tlG4nP51+WF4H1MMtVn7FX2NKPaRNkXL1jkNkZabba2vWLxEs+CFd
-	ZjvqNBYViV0s1mGIil2ewvDzGxNg5vcQ+maG749LZ7sl9t5nfEwkNurgS8rK2orrzyihPcehIDh
-	bC60GK83aYJKqQk0ocoIxrw==
-X-Google-Smtp-Source: AGHT+IHuX0Dyyj2drftfOnysc3kce8KOWtX0dSt1AKvY/DMf+bm0V8XjPV4RbCnMrW3lKy8qr5E0yQ==
-X-Received: by 2002:a05:600c:1387:b0:439:a138:20 with SMTP id 5b1f17b1804b1-43ba675d737mr105069055e9.20.1741020516721;
-        Mon, 03 Mar 2025 08:48:36 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:982:cbb0:1c49:dea2:d749:5015? ([2a01:e0a:982:cbb0:1c49:dea2:d749:5015])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bbf2edf84sm52318185e9.40.2025.03.03.08.48.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Mar 2025 08:48:36 -0800 (PST)
-Message-ID: <7a84f5fa-7128-4b51-8b05-e557e21663d8@linaro.org>
-Date: Mon, 3 Mar 2025 17:48:35 +0100
+        d=1e100.net; s=20230601; t=1741020776; x=1741625576;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=vVCncQiFroIxYBskOfYoTQ0oTclWTNPxKFNAE95aCHc=;
+        b=Kri15kL585GqjRcbPMzvO22Fcb7xyvffjFVt7EbrxsFCMRVpWSnvy33afRpVh70pag
+         KJwWy7IR80dWx1GervAHB6FLMTi6VSfc4jKjCHRuyCon7CGunEtce8AOtQlI/xWOUNji
+         rxNyxooKiwT/+GZeAe6HUxiXW8Vf8SG42+T03o3XODtIqBwFCKtKulcwXetTkZuV7ZsX
+         kl2fMKgEQiXXNs5PfDpu4LQwGDCnDd07ZiEIdP64bi4d2w0hFX7gLu08pqoaTtd89P+r
+         /CmSIqYYmoLVJJbP8dRJLOYRhLn1BENaAOjIYgjMqIFKageSylh/wriHfq78iLLRzVG0
+         j72Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXSOpE9NmGnCzxazzYSGA+by2DfQ3WBZXaBZFcvi0LvjAEWQFVjV1/PeKH/TRjOCU5QbztP34qZhdbqz9yZlUqq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/Ka65B+sdh2dokkXsFnPCM7QTzfdmIdnWfVItYO/ZZXHrh9MC
+	lT9OPXNwuLxjql2TMHyvv80uSTW3Ndh6E14Lar7JDn6Hty6BMkdAy5r49R9bYsw=
+X-Gm-Gg: ASbGnctbzgbJFmnD6Y4RTOsWx3/T8wR6Tn2u8srKA8xuuUSr3n8Q4BRxK5VO+HUABNe
+	nTshY17G3EdIIwkuMeNPZYaS+2T4CpQj32sLfxbwvTSEXKgPYNrGypcDQiZ8A8wEUb5ZyeuSjzf
+	1QBK9cNXBKtMmHc/FgPF92JaeLQlC+oc2DVZtfdGw3h0H2rx1lpk1eWyjkvELFNkyrLN5mpMhfx
+	n8Px8CMdQRRU49uBGZBwKfMkcZVGF+CrTjRQboKL9LLBgdcxSJp2MH4PpsX+AcIYQxRgLp8AfrN
+	+9rVIVOaWvcAVsOKvkwqDz77dZ9NLJFFcSBYUBrRvLY9ZZ1cBpzcwXBuGkYftY1Fe99tgGeasGF
+	ZYWVHV1crAeEdA2rFwg==
+X-Google-Smtp-Source: AGHT+IFIf6jYsBfdvTc0EikS5Xpb0DbNcOeZPaKcF5x+vop09uaQoyucRacuzLKsWcUPdgqNiYKzIQ==
+X-Received: by 2002:a05:620a:190f:b0:7c0:b690:8468 with SMTP id af79cd13be357-7c39c4ca479mr1861404285a.33.1741020776537;
+        Mon, 03 Mar 2025 08:52:56 -0800 (PST)
+Received: from ziepe.ca (hlfxns017vw-142-68-128-5.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.128.5])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c3b8cd9d36sm165720585a.104.2025.03.03.08.52.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Mar 2025 08:52:55 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1tp92F-00000000ok6-047X;
+	Mon, 03 Mar 2025 12:52:55 -0400
+Date: Mon, 3 Mar 2025 12:52:55 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>
+Cc: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
+	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"yang@os.amperecomputing.com" <yang@os.amperecomputing.com>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"joro@8bytes.org" <joro@8bytes.org>,
+	"jean-philippe@linaro.org" <jean-philippe@linaro.org>,
+	"mark.rutland@arm.com" <mark.rutland@arm.com>,
+	"joey.gouly@arm.com" <joey.gouly@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"james.morse@arm.com" <james.morse@arm.com>,
+	"broonie@kernel.org" <broonie@kernel.org>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"david@redhat.com" <david@redhat.com>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"nicolinc@nvidia.com" <nicolinc@nvidia.com>,
+	"mshavit@google.com" <mshavit@google.com>,
+	"jsnitsel@redhat.com" <jsnitsel@redhat.com>,
+	"smostafa@google.com" <smostafa@google.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>
+Subject: Re: [PATCH v2 4/4] iommu/arm: Add BBM Level 2 smmu feature
+Message-ID: <20250303165255.GS5011@ziepe.ca>
+References: <20250228182403.6269-2-miko.lenczewski@arm.com>
+ <20250228182403.6269-6-miko.lenczewski@arm.com>
+ <20250228193221.GM5011@ziepe.ca>
+ <b23aa37f8e864dea82a6143bece912d6@huawei.com>
+ <20250303103102.GC13345@e133081.arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v7 0/5] Driver for pre-DCP apple display controller.
-To: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-Cc: Maxime Ripard <mripard@kernel.org>, fnkl.kernel@gmail.com,
- Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jessica Zhang <quic_jesszhan@quicinc.com>,
- asahi@lists.linux.dev, Janne Grunau <j@jannau.net>,
- linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Alyssa Ross <hi@alyssa.is>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Neal Gompa <neal@gompa.dev>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- Nick Chan <towinchenmi@gmail.com>
-References: <20250217-adpdrm-v7-0-ca2e44b3c7d8@gmail.com>
- <c3927b51-55ef-4a38-8931-18ff00caa8d8@linaro.org> <Z8XcH7xoDC7TA7ZC@blossom>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <Z8XcH7xoDC7TA7ZC@blossom>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250303103102.GC13345@e133081.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_084838_559963_AE9311AD 
-X-CRM114-Status: GOOD (  10.03  )
+X-CRM114-CacheID: sfid-20250303_085258_139596_3347F17A 
+X-CRM114-Status: GOOD (  20.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,47 +125,46 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/03/2025 17:43, Alyssa Rosenzweig wrote:
->>> Sasha Finkelstein (5):
->>>         dt-bindings: display: Add Apple pre-DCP display controller
->>>         drm: adp: Add Apple Display Pipe driver
->>>         drm: panel: Add a panel driver for the Summit display
->>>         arm64: dts: apple: Add touchbar screen nodes
->>>         MAINTAINERS: Add entries for touchbar display driver
->>>
->>>    .../display/apple,h7-display-pipe-mipi.yaml        |  83 +++
->>>    .../bindings/display/apple,h7-display-pipe.yaml    |  88 +++
->>>    .../bindings/display/panel/apple,summit.yaml       |  58 ++
->>>    MAINTAINERS                                        |  16 +
->>>    arch/arm64/boot/dts/apple/t8103-j293.dts           |  31 ++
->>>    arch/arm64/boot/dts/apple/t8103.dtsi               |  61 ++
->>>    arch/arm64/boot/dts/apple/t8112-j493.dts           |  31 ++
->>>    arch/arm64/boot/dts/apple/t8112.dtsi               |  61 ++
->>>    drivers/gpu/drm/Kconfig                            |   2 +
->>>    drivers/gpu/drm/Makefile                           |   1 +
->>>    drivers/gpu/drm/adp/Kconfig                        |  17 +
->>>    drivers/gpu/drm/adp/Makefile                       |   5 +
->>>    drivers/gpu/drm/adp/adp-mipi.c                     | 276 +++++++++
->>>    drivers/gpu/drm/adp/adp_drv.c                      | 617 +++++++++++++++++++++
->>>    drivers/gpu/drm/panel/Kconfig                      |   9 +
->>>    drivers/gpu/drm/panel/Makefile                     |   1 +
->>>    drivers/gpu/drm/panel/panel-summit.c               | 132 +++++
->>>    17 files changed, 1489 insertions(+)
->>> ---
->>> base-commit: b62cef9a5c673f1b8083159f5dc03c1c5daced2f
->>> change-id: 20241124-adpdrm-25fce3dd8a71
->>>
->>>
->>
->> All patches are reviewed, can we funnel patches 1, 2 & 5 via drm-misc-next now ?
+On Mon, Mar 03, 2025 at 10:31:02AM +0000, Mikołaj Lenczewski wrote:
+
+> > > On such a system it seems like your series would break previously
+> > > working SVA support because this patch will end up disabling it?
 > 
-> I'm planning to do so today, just need to get dim setup first :)
+> Perhaps my understanding is flawed here, but I was under the impression
+> that with SVA both the core and smmu MUST support BBML2 to use it safely
+> for core translations? 
 
-Nice, go ahead then !
+Yes
 
-Neil
+But today's kernel does not use BBML2 in the CPU or the SMMU so it is
+compatible with everything.
+
+So it is an upgrade issue, going from today's kernel without any BBML2
+support to tomorrow's kernel that does then you loose SVA on
+previously working HW.
+
+> Hopefully, as you say, the MIDR list restricts the breakage to a limited
+> (ideally, zero-size) set of implementations which advertise BBML2
+> without conflict aborts, but which do not support BBML2 on the smmu.
+> 
+> However, if my understanding of the BBML2 feature and how it interacts
+> with SVA is flawed, this will obviously be something for me to fix.
+
+Lets hope, I was not able to discover any NVIDIA platforms that have
+an issue with this series as is.
+
+But every addition to the MIDR list will require some consideration :\
+
+> On independently enabling BBML2 on the smmu but not the CPU, this should
+> be possible.
+
+What about the reverse? Could we disable BBML2 on the CPU side on a
+per-mm basis? Ie when an old SMMU attaches with disable the
+incompatible feature? Not something for this series, but if we get
+into trouble down the road
+
+Jason
 
