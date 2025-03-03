@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C237C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 08:33:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C752C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 08:35:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ao08RbXfytA8hwGmqSDJ8SpPrn4phPuAlxGiBJR9FFQ=; b=QUX9psWEWMIpAijFCFkfmv5T84
-	cBW0yPCaoaAfpB0Gs5sG3bV38i8kd00WThP2EG2O76lQf0+04m02ZieEEFCoWgnCPns0Y2QHi78L6
-	TtEq+9lDgG2DaSGE0yH/Xxwws9uv4qmtQkdMmScGgXTHDWIsFfIVovVebKMKd3kTyoUuVfxeUGBKX
-	bXGYgq5qulf7+3zcRLn1t4AuNn4d0NsdDNvvTsp5xDGd2D/Nnn0beyAykMQNdltrR19PvrGr9d4dq
-	56jMgePWy0kDSgU+L/nvZSjYNPSNe3uikbI1sh9qZEvrKMyZ1v2ilvU8/VJr8onjB+Zfq6y7ORSp3
-	x7QE7ssw==;
+	bh=XmNSgVQx2TRWl07lYMlRndbhi17biSxoKIbvOdQuVbQ=; b=OS7f3UA6bhZQlOGvax0iz3OLGy
+	pb4afc3w7uW/6o2SvwU5pU9li4KyDsCwBmL+KQBZEPs4wa4E8Nb9FNjTJio/u3Twz/wH9nS+tbeKg
+	csPudRoQ04iinKHiThNXHZInsHambk00FvMtL1B8T6F9Lyqsu+98oQ22bZ98YZIaLEbz2otqNBall
+	/C5IRfPAQBtoCMHojBFPNvMSJKyMnxxiUTTxUSAQkkgVEvSA4+Eviwv++vqrvpI49NitGwAOFO9Y0
+	Kuh43+wGdNSdgOkoc1Z8oXEuqemvGifqOmX23DGNX5RyAtt3MaLsRLe50m4ovmkcS8gEuN7f85zsq
+	9a1tFRJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp1Ex-0000000HXOe-0Edf;
-	Mon, 03 Mar 2025 08:33:31 +0000
+	id 1tp1GU-0000000HXfI-3lcl;
+	Mon, 03 Mar 2025 08:35:06 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp1B4-0000000HWtK-1DoE
+	id 1tp1BQ-0000000HWyY-11e6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 08:29:31 +0000
+	Mon, 03 Mar 2025 08:29:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BDD205C4CD3;
-	Mon,  3 Mar 2025 08:27:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D6C8C4CED6;
-	Mon,  3 Mar 2025 08:29:25 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D7EF45C4CD3;
+	Mon,  3 Mar 2025 08:27:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEFC8C4CED6;
+	Mon,  3 Mar 2025 08:29:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740990569;
-	bh=obB2ljcIPGtP0VJhm54WRUhHb1nNmOp3J/J2QdoPBuo=;
+	s=k20201202; t=1740990591;
+	bh=RqR9SRihLmzQt5O9ZRulN4EEyCvBsTXEDH7wWXh5EFA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=L5Fsc1d+BT3zlKoAvBi301/7lNQasBdGMjxy/bahG5gw9C2PhtdMds2Iks/K0vAYe
-	 Iv51saEZ1KNYkpulm9MfT97RNhx7uBEcsBq8cO6fnYfbb18iAtRpkxUUUILC23eiEF
-	 d9LScttTam79NgrVIW0q45mfu2FygdvM8Y3cw9bmAopH1YSHHeuzxsAT0rEpffJRU5
-	 xCmxo+7bkBn8/2sN4t0RZ/i+76ZscytuML7vdooupcPLSgOHIsthFQ5dMje/vZo+PS
-	 iK0PIUtlo1r0LV3k94CYaUrv9HLaJ3VA1EtNIUt1E18nlNPVmhAKZw0epCkQ3UvgF/
-	 Y3A0gihRihCyA==
-Message-ID: <929ed565-f842-49e6-9c7a-6d1df5266a62@kernel.org>
-Date: Mon, 3 Mar 2025 09:29:23 +0100
+	b=A4lJv7SnaDrdF/findgqea45v5k2Vuiv6jVvJFp1wx+o7KQ4Y8jbnXXDUzzY3b6X1
+	 iLjN6N391Xd3laMGtIIeegVr9x6rodyv3/a/vS/DXBEGi7BPIjkCHrBxDuYzNDwx0y
+	 U6n99ryeLRn4ppAccSq7SIPhOVe0zFW/XoKflnV1ykNB21jue4+3XKAhEKboWeS677
+	 74DaBDEITyg7qXOitt3QiYoMKQp7Mda7QnZ74o0za3DIdTW2lacVaUoD9RI/fo8cJ/
+	 jg4QJz1kUSk86X4y7whWjbbgX+/6xQ0RCyXKcZOgg3Rt55U8kUMxtkOu5/QeP13eWe
+	 HmDvZsbBrScfg==
+Message-ID: <edbbd971-1bd8-42cb-89fe-c844d582a361@kernel.org>
+Date: Mon, 3 Mar 2025 09:29:44 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] dt-bindings: usb: samsung,exynos-dwc3: add
- exynos7870 support
+Subject: Re: [PATCH v3 2/2] usb: dwc3: exynos: add support for exynos7870
 To: Kaustabh Chakraborty <kauschluss@disroot.org>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -57,9 +56,9 @@ Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
  linux-kernel@vger.kernel.org
 References: <20250301-exynos7870-usb-v3-0-f01697165d19@disroot.org>
- <20250301-exynos7870-usb-v3-1-f01697165d19@disroot.org>
-Content-Language: en-US
+ <20250301-exynos7870-usb-v3-2-f01697165d19@disroot.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -103,12 +102,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250301-exynos7870-usb-v3-1-f01697165d19@disroot.org>
+In-Reply-To: <20250301-exynos7870-usb-v3-2-f01697165d19@disroot.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_002930_416631_CE8F7A85 
-X-CRM114-Status: GOOD (  10.05  )
+X-CRM114-CacheID: sfid-20250303_002952_371699_858D6B49 
+X-CRM114-Status: UNSURE (   9.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,19 +124,15 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 28/02/2025 20:40, Kaustabh Chakraborty wrote:
-> Document compatible string for Exynos7870 DWC3-compatible USB 2.0
-> driver. The devicetree node requires three clocks, named "bus_early",
-> "ref", and "ctrl".
-> 
-> Unlike other variants, Exynos7870's USB controller requires a single
-> 3.0V regulator. Assert that the other 1.0V regulator requirement is
-> enforced on variants individually other than Exynos7870's.
+> Exynos7870 devices have a DWC3 compatible USB 2.0 controller.
+> Add support in the driver by:
+>  - Adding its own compatible string, "samsung,exynos7870-dwusb3".
+>  - Adding three USBDRD clocks named "bus_early", "ref", and "ctrl", to
+>    be controlled by the driver.
 > 
 > Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+> Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
 > ---
->  .../bindings/usb/samsung,exynos-dwc3.yaml          | 28 +++++++++++++++++++++-
->  1 file changed, 27 insertions(+), 1 deletion(-)
-> 
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
