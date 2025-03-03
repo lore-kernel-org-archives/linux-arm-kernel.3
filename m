@@ -4,103 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF15CC282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 16:05:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AB30C282CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 16:06:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c2YDELerz8rU9E2PXmGNUF4c5wFbG0aqMQwnamqYdcU=; b=H8NnlF4UcmD7LgUzqTDKfG6KGo
-	5S3wyMxx42TduKyf5+h9v/x4AY1aCAXQ7M6wzSO9M9vhmjtUaiE6WDj82UF7sRQVap4jSU793QW8n
-	MjOqbXDVldGhDBlrfvE8vvasPcEjtDdZf+fRk9i1YS8Y32mA4bHxaB2YGdUrNXNSI11egZ5m6Bhno
-	wio3yRZ+IMX1X62HAZtKeDyhVa7hJVUnh28FNsTY4Caf+MK4sVMCtDTXLsIVhZM1P2GgBH9vZdueM
-	EIn0MuBBkPtfT37abCrVhWKk9s4Y9Bp/EF11d353puMwAuKbMkRO7xztKxLe74Zdj5cz+UxViK2LX
-	sQdpWIrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WFHt+0PcUrjf2KPzth13ahqz68xbUj7oThx+bYUbytM=; b=KhyjR4fqsizgJ8ySi24AGfoDiE
+	D/YDNZ3CJJr5lUvS7+XRVn/FCO07z8I+JGdI/DtDBWDnG9wCjihEdEzVt+3pv2DpZ9YLFIN45/BPj
+	s+OSobjHhvK1z0IZGyP/XRgkROdi+TROb/nqldiYPAWsxKPs9JkXVDOa/FrG117m9aRkVnKKke+OK
+	pGXqYFgGrRJDwOnhUa55EQk/ie9LSa3neP2BmT6zn+k1ToXk31GYAmKMTA7zkDGLJ5jbX5TI/5AO7
+	sJIBQ/5JfO7J65R4LhdQT4+DSTDsNxI32nKbPuiRFh9dED4Ih2MxtjUNXLGXdhfvc66d2m8d2PFbd
+	Q34e5bfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp8Hj-00000001Qaa-3vJY;
-	Mon, 03 Mar 2025 16:04:51 +0000
-Received: from mail-wm1-f66.google.com ([209.85.128.66])
+	id 1tp8JI-00000001QwR-1JLo;
+	Mon, 03 Mar 2025 16:06:28 +0000
+Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp7dw-00000001IRT-0ioM
+	id 1tp7el-00000001Iki-3jDB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 15:23:45 +0000
-Received: by mail-wm1-f66.google.com with SMTP id 5b1f17b1804b1-43bc48ff815so5652935e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 07:23:44 -0800 (PST)
+	Mon, 03 Mar 2025 15:24:38 +0000
+Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-7c0a974d433so520657985a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 07:24:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741015422; x=1741620222; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=c2YDELerz8rU9E2PXmGNUF4c5wFbG0aqMQwnamqYdcU=;
-        b=GqDmh6bqPtklNu1/POTxaHbfjxDuNRe4+BTNb1rEwHc7qoaQgEqToS0yqWtQ9QcRrf
-         9ndQXXp3Gavyv2exhqaNXLoZo8HrX+zVdHFZIhO/pZE/10SUyS4osLIBvkJiiiE/e5or
-         mwxEswHg1pj7ThHa1qODKKnH1/m9/6+ZwJ+2KcyM2RmmhJw2SFEHVcC87FpcAtj+nvZ2
-         EJSAdNrbr4Y1leIGZtMO5xy6NR7HoK4H/oFXntvhNKtwtZOuoMi8KtSYNQOraMu5x/PR
-         LasZaObDIvMTHL95v0eB042sYUl0sUsiHvumgvzlwjUmw2rZEoDxmoG5DqBdDSpWgKZK
-         HKTw==
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1741015474; x=1741620274; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=WFHt+0PcUrjf2KPzth13ahqz68xbUj7oThx+bYUbytM=;
+        b=Rj2M+9WiAQ1RuI9gAuevVL0OijeaDzKgLsVqhknGCM0cXSwQVGJroSGPj4izGDI803
+         bfYXFMCxL+4DNRYuNafBaiIkz2+AbV2pgGACs0sxLhCWL61WwCxw2yCfwFZSIFNyzD+T
+         b4qnmLcdQtSnP5UljUnSNiXOlYKzUHmuWCwdbA3i5rcDp5ZBWK4f5X/V4RnK4PTMFOir
+         xYMFdCMyjMmaV5Y8YtvaTdC27T7I1tjw18Mzo23QZL1tHFaEj1KhwJHjthwZFLctgQpu
+         xR2Zb+75HON2dcM//5GbuE4WY4mzjK/Gb3rdIPYMATqrccNgk564zWCFHobjK3OCq63D
+         kyEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741015422; x=1741620222;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=c2YDELerz8rU9E2PXmGNUF4c5wFbG0aqMQwnamqYdcU=;
-        b=JwszqRl1As3LXDR+xBj1zIwCuL0kYPgnAVhge4yYzRiOyfGfuYKOrlY373lLqC6QI8
-         SKtogLSyaUa0EYFtzdo1ID5ijXtg9yMqrbvwhihDSrWR5yN1XkQH0K0mI8IOjKGKvfFM
-         vmqNfG+jcTHFAwuxYi1nLEber7FrH5oeGtSlgp6ZiAO2Tsfe7/q3p4YkPPDnq80oeQ3h
-         icFHEw5M264Srzv8n7KFpHYQniXcN9epK+lOHn7BaioYVALs2gbRu5OqB57vDTXjTEqK
-         mNlXl6ZaYnfVAfXdts9PyY8F1KXKEq+PR0HJXgZ7WfAlB06GaoL2TUsw+xxkI15pQyUy
-         wxrw==
-X-Forwarded-Encrypted: i=1; AJvYcCUBcF+3UkIflSSTgdms6y2539rOtEB8c4WUWCT9Ck5yD/JTC4O+GbLFMY8zuBn3THi7ST1KI/qmRVT8ux++wHU7@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHCC5BivtYuwNCPksaH3d2tDIUIE5b1npGCQDdoXMEHuOVXlEY
-	dUZG6GC0Q9Ogh0pjoibmxeBPGIc6QOz0sDygOyLgL/CmJTGvOkad
-X-Gm-Gg: ASbGnctef/LBpG84emlCWifEXSpOW+0l3ioOfB8RVkhhR/BUIZVF6sz5F9bswdxguuY
-	0jd+QUETjIyMRYxkSDDdQBgRf0/1qhmvdhFK1I4/yKdKjAt8DFvhjmrW6x3/jIHJzYY9/bGx9IG
-	g5wavjfaOupk2BGYAnJd1DMQip5wGHHqBIYoJ2sv9Qd2BWp0lkMxmoYuUIiQR5ZPfPVd/xHLMgt
-	SrP6ydmZOavN+jByRCxNIRad3qSQTgVOx8MzI1a7c6qVTEjkleF13cdWssKrH59JzXdbWTh9Z1k
-	lSRYMmTsbXmjP2mhilnOR1V7LYpmuyriGPk=
-X-Google-Smtp-Source: AGHT+IF1BwyKpBxufZL15FHfV1K+xkaoboqbhKYSSMajj4aWR8VsvlX6AMmLz83+PD1s+XMRyoVIXQ==
-X-Received: by 2002:a05:600c:ca:b0:439:91c7:895a with SMTP id 5b1f17b1804b1-43afddc6489mr144850385e9.7.1741015422319;
-        Mon, 03 Mar 2025 07:23:42 -0800 (PST)
-Received: from localhost ([2a03:2880:31ff:73::])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bc24a51bfsm38651415e9.10.2025.03.03.07.23.41
+        d=1e100.net; s=20230601; t=1741015474; x=1741620274;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=WFHt+0PcUrjf2KPzth13ahqz68xbUj7oThx+bYUbytM=;
+        b=CRew/w1rno6VIF+iWTUk5iho2PFy1oy5jhYsMbnrRrS7bSqOg6xtc1Wns+i/LXF9gO
+         MAIex/qQ90A+upq8BxRAajmmEVx8Sx2a48R1dRdx5NP887+iUqSZNKjApkWwesyeoRcI
+         H4xZ0Lxx7ecfBmUZkQiTg1bnyrSF1TK1ZQ03o3OLNkNjUdx6KnVnD8Ol8qTefaiQUhrq
+         LORjB5DE50RgjyMNg0dwLVlrbzTEnzfvhxxdovinFrtQ1voPFO+OeBnxhzWQGcNOqO/c
+         0pUDzfT1nlZMEdBs5fdniKCm+IJck9YBTHnJz5qWm5uNMQKn0pCXsSQqrFTv5ZrsegBl
+         932Q==
+X-Forwarded-Encrypted: i=1; AJvYcCX/iNuU7/OhY/X9PwNIS2qx5egKu9m0/MquLzCLsvKwqYo1oypFqOndkSj82rEiRdXCo2xRiYoyQKiLEWeAuMTL@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFq6K3u7RvrpTW/HbhNTHGm3FCGZDULytCw2YLQLTJ+D1N6Lfy
+	k6vsDCEmndbl49KOlmd7dg1xfTZx3xHCnBVoA5Q1WUvicKn9NUzQ4bSjS102Q6c=
+X-Gm-Gg: ASbGncuwHKkQj2fEi6lxnqVgQ8r9omiJdZAYxdxF9GnIBZo41UBMfUawG2C2fvBob6C
+	05LJ2RErKLymf792qCNgONlLv00FNgG1MJyUtquH27+kK728u4hMEO84zDmNXvB++ZNTle0LR5l
+	iMpA4YuiMuauxa7SS1+wJsbBN9cK7dKVJvxyLl0h79yQP2HWWO+ECAlbSFX+Ql/ov6a/N5/g5m0
+	Pih3uFJ8azvSHPoAfuY6e79hUSqlG3M66f7qBho7lQ3X7jcu9qsNqKM8NNw0ZirW7+xT0hn1KDn
+	rvI+WAzcd8LOla1TqN3UCjXJ/MI524wtK7tizAEJAIu4qgqYMw==
+X-Google-Smtp-Source: AGHT+IFfnYkxtmeyMx4cbVUhHoEgj8vIHk0FHdrXdCz4obVUHVFmEQgHCvy9FSBCGdXes2aYUVuO3Q==
+X-Received: by 2002:a05:620a:f06:b0:7bc:de68:e932 with SMTP id af79cd13be357-7c2a7632d54mr2279290185a.23.1741015473845;
+        Mon, 03 Mar 2025 07:24:33 -0800 (PST)
+Received: from ?IPv6:2606:6d00:11:e976::c41? ([2606:6d00:11:e976::c41])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c3c89408efsm27440485a.114.2025.03.03.07.24.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Mar 2025 07:23:41 -0800 (PST)
-From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-To: bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Will Deacon <will@kernel.org>,
-	Waiman Long <llong@redhat.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <martin.lau@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Tejun Heo <tj@kernel.org>,
-	Barret Rhoden <brho@google.com>,
-	Josh Don <joshdon@google.com>,
-	Dohyun Kim <dohyunkim@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kkd@meta.com,
-	kernel-team@meta.com
-Subject: [PATCH bpf-next v3 25/25] selftests/bpf: Add tests for rqspinlock
-Date: Mon,  3 Mar 2025 07:23:05 -0800
-Message-ID: <20250303152305.3195648-26-memxor@gmail.com>
-X-Mailer: git-send-email 2.43.5
-In-Reply-To: <20250303152305.3195648-1-memxor@gmail.com>
-References: <20250303152305.3195648-1-memxor@gmail.com>
+        Mon, 03 Mar 2025 07:24:33 -0800 (PST)
+Message-ID: <8b3dac7baed1de9542452547454c53188c384391.camel@ndufresne.ca>
+Subject: Re: [PATCH v4 1/2] media: videobuf2: Fix dmabuf cache sync/flush in
+ dma-contig
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Mikhail Rudenko <mike.rudenko@gmail.com>, Dafna Hirschfeld	
+ <dafna@fastmail.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+  Mauro Carvalho Chehab	 <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Tomasz Figa	 <tfiga@chromium.org>, Marek Szyprowski
+ <m.szyprowski@samsung.com>, Hans Verkuil	 <hverkuil@xs4all.nl>, Sergey
+ Senozhatsky <senozhatsky@chromium.org>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Mauro
+ Carvalho Chehab <mchehab+huawei@kernel.org>, stable@vger.kernel.org
+Date: Mon, 03 Mar 2025 10:24:32 -0500
+In-Reply-To: <20250303-b4-rkisp-noncoherent-v4-1-e32e843fb6ef@gmail.com>
+References: <20250303-b4-rkisp-noncoherent-v4-0-e32e843fb6ef@gmail.com>
+	 <20250303-b4-rkisp-noncoherent-v4-1-e32e843fb6ef@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=15728; h=from:subject; bh=U3o4FRMgSYlK94f6p6XtgMmHxSWNXlOtPMuGZSejx2w=; b=owEBbQKS/ZANAwAIAUzgyIZIvxHKAcsmYgBnxcWZzKIrFm1iuCUUDDtfLRnhLPc+SCt9cT5eXF6o 6N+GSmqJAjMEAAEIAB0WIQRLvip+Buz51YI8YRFM4MiGSL8RygUCZ8XFmQAKCRBM4MiGSL8RysxCD/ 0USidd7H00hBTlGhkNe1qL1P8T3pcVx1ejxkBbgrAma8ybJKZyercWVHVXCW8eQg784Ri97C4xBbFo 3V9qUCkJUJZUX4AnPiNsAdiAQCHKECTLYm0p0KqI9BcdgZKQv+HVHH54QDArzyN9nBuG4Uks81oq90 LbGJLfxQ/EP7x8KvPJqEa3auefyGtsq6f6d5JT+n+8gWtbOpnhncsq5NPk+Cfh4XjdHGw1ij0f6kb8 sYkYXwCPxGNbt7GuxA7DUA28RLTd+CWeLMnLz8sqlSHEqT3geqqTQ7zCGroosld1WZxYffYop/FpWT CK438ZkEWr6oW0Z9sokHWAwu5YnrGNcsZCNzUGyAnTFnYrhqn4p2oXPPWxdJP4MkivrQbM7nFp9g0W oGzGvCmn61ww7IdcCEK09nEtye3GvefEpTNPahCH5W1538XTcMV+ivRdfq2TzV48irQGjQEOLSEamT opLsWsX/ngZ8TSUM8rHQd6R1Xn/nxAehi9yFiEr8Afb4nBBoSL5SIDxtqDnDYjMBMZv/cHK/f0yOuL QwW/1Dd+qnhEq3YSKQmvGN8vnM1bubpAJGBgYYiv5mH/KDdvzmV0IA20+gJ8g+d9P9Z/RnqFZnIFPw ciMScGjt5UN3k63SRNESddfekGf3gq1yUKZbJrWdML5Zi9tRdfNR7DtyAqgg==
-X-Developer-Key: i=memxor@gmail.com; a=openpgp; fpr=4BBE2A7E06ECF9D5823C61114CE0C88648BF11CA
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_072344_334494_7574EB69 
-X-CRM114-Status: GOOD (  24.66  )
+X-CRM114-CacheID: sfid-20250303_072437_005113_EE752B5B 
+X-CRM114-Status: GOOD (  20.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,589 +106,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce selftests that trigger AA, ABBA deadlocks, and test the edge
-case where the held locks table runs out of entries, since we then
-fallback to the timeout as the final line of defense. Also exercise
-verifier's AA detection where applicable.
+Hi Mikhail,
 
-Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
----
- .../selftests/bpf/prog_tests/res_spin_lock.c  |  92 +++++++
- tools/testing/selftests/bpf/progs/irq.c       |  53 ++++
- .../selftests/bpf/progs/res_spin_lock.c       | 143 ++++++++++
- .../selftests/bpf/progs/res_spin_lock_fail.c  | 244 ++++++++++++++++++
- 4 files changed, 532 insertions(+)
- create mode 100644 tools/testing/selftests/bpf/prog_tests/res_spin_lock.c
- create mode 100644 tools/testing/selftests/bpf/progs/res_spin_lock.c
- create mode 100644 tools/testing/selftests/bpf/progs/res_spin_lock_fail.c
+Le lundi 03 mars 2025 =C3=A0 14:40 +0300, Mikhail Rudenko a =C3=A9crit=C2=
+=A0:
+> When support for V4L2_FLAG_MEMORY_NON_CONSISTENT was removed in
+> commit 129134e5415d ("media: media/v4l2: remove
+> V4L2_FLAG_MEMORY_NON_CONSISTENT flag"),
+> vb2_dc_dmabuf_ops_{begin,end}_cpu_access() functions were made
+> no-ops. Later, when support for V4L2_MEMORY_FLAG_NON_COHERENT was
+> introduced in commit c0acf9cfeee0 ("media: videobuf2: handle
+> V4L2_MEMORY_FLAG_NON_COHERENT flag"), the above functions remained
+> no-ops, making cache maintenance for non-coherent dmabufs allocated
+> by
+> dma-contig impossible.
+>=20
+> Fix this by reintroducing dma_sync_sgtable_for_{cpu,device} and
+> {flush,invalidate}_kernel_vmap_range calls to
+> vb2_dc_dmabuf_ops_{begin,end}_cpu_access() functions for non-coherent
+> buffers.
+>=20
+> Fixes: c0acf9cfeee0 ("media: videobuf2: handle
+> V4L2_MEMORY_FLAG_NON_COHERENT flag")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Mikhail Rudenko <mike.rudenko@gmail.com>
+> ---
+> =C2=A0.../media/common/videobuf2/videobuf2-dma-contig.c=C2=A0 | 22
+> ++++++++++++++++++++++
+> =C2=A01 file changed, 22 insertions(+)
+>=20
+> diff --git a/drivers/media/common/videobuf2/videobuf2-dma-contig.c
+> b/drivers/media/common/videobuf2/videobuf2-dma-contig.c
+> index
+> a13ec569c82f6da2d977222b94af32e74c6c6c82..d41095fe5bd21faf815d6b035d7
+> bc888a84a95d5 100644
+> --- a/drivers/media/common/videobuf2/videobuf2-dma-contig.c
+> +++ b/drivers/media/common/videobuf2/videobuf2-dma-contig.c
+> @@ -427,6 +427,17 @@ static int
+> =C2=A0vb2_dc_dmabuf_ops_begin_cpu_access(struct dma_buf *dbuf,
+> =C2=A0				=C2=A0=C2=A0 enum dma_data_direction
+> direction)
+> =C2=A0{
+> +	struct vb2_dc_buf *buf =3D dbuf->priv;
+> +	struct sg_table *sgt =3D buf->dma_sgt;
+> +
+> +	if (!buf->non_coherent_mem)
+> +		return 0;
+> +
+> +	if (buf->vaddr)
+> +		invalidate_kernel_vmap_range(buf->vaddr, buf->size);
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/res_spin_lock.c b/tools/testing/selftests/bpf/prog_tests/res_spin_lock.c
-new file mode 100644
-index 000000000000..563d0d2801bb
---- /dev/null
-+++ b/tools/testing/selftests/bpf/prog_tests/res_spin_lock.c
-@@ -0,0 +1,92 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (c) 2024 Meta Platforms, Inc. and affiliates. */
-+#include <test_progs.h>
-+#include <network_helpers.h>
-+
-+#include "res_spin_lock.skel.h"
-+#include "res_spin_lock_fail.skel.h"
-+
-+void test_res_spin_lock_failure(void)
-+{
-+	RUN_TESTS(res_spin_lock_fail);
-+}
-+
-+static volatile int skip;
-+
-+static void *spin_lock_thread(void *arg)
-+{
-+	int err, prog_fd = *(u32 *) arg;
-+	LIBBPF_OPTS(bpf_test_run_opts, topts,
-+		.data_in = &pkt_v4,
-+		.data_size_in = sizeof(pkt_v4),
-+		.repeat = 10000,
-+	);
-+
-+	while (!READ_ONCE(skip)) {
-+		err = bpf_prog_test_run_opts(prog_fd, &topts);
-+		ASSERT_OK(err, "test_run");
-+		ASSERT_OK(topts.retval, "test_run retval");
-+	}
-+	pthread_exit(arg);
-+}
-+
-+void test_res_spin_lock_success(void)
-+{
-+	LIBBPF_OPTS(bpf_test_run_opts, topts,
-+		.data_in = &pkt_v4,
-+		.data_size_in = sizeof(pkt_v4),
-+		.repeat = 1,
-+	);
-+	struct res_spin_lock *skel;
-+	pthread_t thread_id[16];
-+	int prog_fd, i, err;
-+	void *ret;
-+
-+	skel = res_spin_lock__open_and_load();
-+	if (!ASSERT_OK_PTR(skel, "res_spin_lock__open_and_load"))
-+		return;
-+	/* AA deadlock */
-+	prog_fd = bpf_program__fd(skel->progs.res_spin_lock_test);
-+	err = bpf_prog_test_run_opts(prog_fd, &topts);
-+	ASSERT_OK(err, "error");
-+	ASSERT_OK(topts.retval, "retval");
-+
-+	prog_fd = bpf_program__fd(skel->progs.res_spin_lock_test_held_lock_max);
-+	err = bpf_prog_test_run_opts(prog_fd, &topts);
-+	ASSERT_OK(err, "error");
-+	ASSERT_OK(topts.retval, "retval");
-+
-+	/* Multi-threaded ABBA deadlock. */
-+
-+	prog_fd = bpf_program__fd(skel->progs.res_spin_lock_test_AB);
-+	for (i = 0; i < 16; i++) {
-+		int err;
-+
-+		err = pthread_create(&thread_id[i], NULL, &spin_lock_thread, &prog_fd);
-+		if (!ASSERT_OK(err, "pthread_create"))
-+			goto end;
-+	}
-+
-+	topts.retval = 0;
-+	topts.repeat = 1000;
-+	int fd = bpf_program__fd(skel->progs.res_spin_lock_test_BA);
-+	while (!topts.retval && !err && !READ_ONCE(skel->bss->err)) {
-+		err = bpf_prog_test_run_opts(fd, &topts);
-+	}
-+
-+	WRITE_ONCE(skip, true);
-+
-+	for (i = 0; i < 16; i++) {
-+		if (!ASSERT_OK(pthread_join(thread_id[i], &ret), "pthread_join"))
-+			goto end;
-+		if (!ASSERT_EQ(ret, &prog_fd, "ret == prog_fd"))
-+			goto end;
-+	}
-+
-+	ASSERT_EQ(READ_ONCE(skel->bss->err), -EDEADLK, "timeout err");
-+	ASSERT_OK(err, "err");
-+	ASSERT_EQ(topts.retval, -EDEADLK, "timeout");
-+end:
-+	res_spin_lock__destroy(skel);
-+	return;
-+}
-diff --git a/tools/testing/selftests/bpf/progs/irq.c b/tools/testing/selftests/bpf/progs/irq.c
-index 298d48d7886d..74d912b22de9 100644
---- a/tools/testing/selftests/bpf/progs/irq.c
-+++ b/tools/testing/selftests/bpf/progs/irq.c
-@@ -11,6 +11,9 @@ extern void bpf_local_irq_save(unsigned long *) __weak __ksym;
- extern void bpf_local_irq_restore(unsigned long *) __weak __ksym;
- extern int bpf_copy_from_user_str(void *dst, u32 dst__sz, const void *unsafe_ptr__ign, u64 flags) __weak __ksym;
- 
-+struct bpf_res_spin_lock lockA __hidden SEC(".data.A");
-+struct bpf_res_spin_lock lockB __hidden SEC(".data.B");
-+
- SEC("?tc")
- __failure __msg("arg#0 doesn't point to an irq flag on stack")
- int irq_save_bad_arg(struct __sk_buff *ctx)
-@@ -510,4 +513,54 @@ int irq_sleepable_global_subprog_indirect(void *ctx)
- 	return 0;
- }
- 
-+SEC("?tc")
-+__failure __msg("cannot restore irq state out of order")
-+int irq_ooo_lock_cond_inv(struct __sk_buff *ctx)
-+{
-+	unsigned long flags1, flags2;
-+
-+	if (bpf_res_spin_lock_irqsave(&lockA, &flags1))
-+		return 0;
-+	if (bpf_res_spin_lock_irqsave(&lockB, &flags2)) {
-+		bpf_res_spin_unlock_irqrestore(&lockA, &flags1);
-+		return 0;
-+	}
-+
-+	bpf_res_spin_unlock_irqrestore(&lockB, &flags1);
-+	bpf_res_spin_unlock_irqrestore(&lockA, &flags2);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("function calls are not allowed")
-+int irq_wrong_kfunc_class_1(struct __sk_buff *ctx)
-+{
-+	unsigned long flags1;
-+
-+	if (bpf_res_spin_lock_irqsave(&lockA, &flags1))
-+		return 0;
-+	/* For now, bpf_local_irq_restore is not allowed in critical section,
-+	 * but this test ensures error will be caught with kfunc_class when it's
-+	 * opened up. Tested by temporarily permitting this kfunc in critical
-+	 * section.
-+	 */
-+	bpf_local_irq_restore(&flags1);
-+	bpf_res_spin_unlock_irqrestore(&lockA, &flags1);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("function calls are not allowed")
-+int irq_wrong_kfunc_class_2(struct __sk_buff *ctx)
-+{
-+	unsigned long flags1, flags2;
-+
-+	bpf_local_irq_save(&flags1);
-+	if (bpf_res_spin_lock_irqsave(&lockA, &flags2))
-+		return 0;
-+	bpf_local_irq_restore(&flags2);
-+	bpf_res_spin_unlock_irqrestore(&lockA, &flags1);
-+	return 0;
-+}
-+
- char _license[] SEC("license") = "GPL";
-diff --git a/tools/testing/selftests/bpf/progs/res_spin_lock.c b/tools/testing/selftests/bpf/progs/res_spin_lock.c
-new file mode 100644
-index 000000000000..40ac06c91779
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/res_spin_lock.c
-@@ -0,0 +1,143 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (c) 2024 Meta Platforms, Inc. and affiliates. */
-+#include <vmlinux.h>
-+#include <bpf/bpf_tracing.h>
-+#include <bpf/bpf_helpers.h>
-+#include "bpf_misc.h"
-+
-+#define EDEADLK 35
-+#define ETIMEDOUT 110
-+
-+struct arr_elem {
-+	struct bpf_res_spin_lock lock;
-+};
-+
-+struct {
-+	__uint(type, BPF_MAP_TYPE_ARRAY);
-+	__uint(max_entries, 64);
-+	__type(key, int);
-+	__type(value, struct arr_elem);
-+} arrmap SEC(".maps");
-+
-+struct bpf_res_spin_lock lockA __hidden SEC(".data.A");
-+struct bpf_res_spin_lock lockB __hidden SEC(".data.B");
-+
-+SEC("tc")
-+int res_spin_lock_test(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem1, *elem2;
-+	int r;
-+
-+	elem1 = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem1)
-+		return -1;
-+	elem2 = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem2)
-+		return -1;
-+
-+	r = bpf_res_spin_lock(&elem1->lock);
-+	if (r)
-+		return r;
-+	if (!bpf_res_spin_lock(&elem2->lock)) {
-+		bpf_res_spin_unlock(&elem2->lock);
-+		bpf_res_spin_unlock(&elem1->lock);
-+		return -1;
-+	}
-+	bpf_res_spin_unlock(&elem1->lock);
-+	return 0;
-+}
-+
-+SEC("tc")
-+int res_spin_lock_test_AB(struct __sk_buff *ctx)
-+{
-+	int r;
-+
-+	r = bpf_res_spin_lock(&lockA);
-+	if (r)
-+		return !r;
-+	/* Only unlock if we took the lock. */
-+	if (!bpf_res_spin_lock(&lockB))
-+		bpf_res_spin_unlock(&lockB);
-+	bpf_res_spin_unlock(&lockA);
-+	return 0;
-+}
-+
-+int err;
-+
-+SEC("tc")
-+int res_spin_lock_test_BA(struct __sk_buff *ctx)
-+{
-+	int r;
-+
-+	r = bpf_res_spin_lock(&lockB);
-+	if (r)
-+		return !r;
-+	if (!bpf_res_spin_lock(&lockA))
-+		bpf_res_spin_unlock(&lockA);
-+	else
-+		err = -EDEADLK;
-+	bpf_res_spin_unlock(&lockB);
-+	return err ?: 0;
-+}
-+
-+SEC("tc")
-+int res_spin_lock_test_held_lock_max(struct __sk_buff *ctx)
-+{
-+	struct bpf_res_spin_lock *locks[48] = {};
-+	struct arr_elem *e;
-+	u64 time_beg, time;
-+	int ret = 0, i;
-+
-+	_Static_assert(ARRAY_SIZE(((struct rqspinlock_held){}).locks) == 31,
-+		       "RES_NR_HELD assumed to be 31");
-+
-+	for (i = 0; i < 34; i++) {
-+		int key = i;
-+
-+		/* We cannot pass in i as it will get spilled/filled by the compiler and
-+		 * loses bounds in verifier state.
-+		 */
-+		e = bpf_map_lookup_elem(&arrmap, &key);
-+		if (!e)
-+			return 1;
-+		locks[i] = &e->lock;
-+	}
-+
-+	for (; i < 48; i++) {
-+		int key = i - 2;
-+
-+		/* We cannot pass in i as it will get spilled/filled by the compiler and
-+		 * loses bounds in verifier state.
-+		 */
-+		e = bpf_map_lookup_elem(&arrmap, &key);
-+		if (!e)
-+			return 1;
-+		locks[i] = &e->lock;
-+	}
-+
-+	time_beg = bpf_ktime_get_ns();
-+	for (i = 0; i < 34; i++) {
-+		if (bpf_res_spin_lock(locks[i]))
-+			goto end;
-+	}
-+
-+	/* Trigger AA, after exhausting entries in the held lock table. This
-+	 * time, only the timeout can save us, as AA detection won't succeed.
-+	 */
-+	if (!bpf_res_spin_lock(locks[34])) {
-+		bpf_res_spin_unlock(locks[34]);
-+		ret = 1;
-+		goto end;
-+	}
-+
-+end:
-+	for (i = i - 1; i >= 0; i--)
-+		bpf_res_spin_unlock(locks[i]);
-+	time = bpf_ktime_get_ns() - time_beg;
-+	/* Time spent should be easily above our limit (1/4 s), since AA
-+	 * detection won't be expedited due to lack of held lock entry.
-+	 */
-+	return ret ?: (time > 1000000000 / 4 ? 0 : 1);
-+}
-+
-+char _license[] SEC("license") = "GPL";
-diff --git a/tools/testing/selftests/bpf/progs/res_spin_lock_fail.c b/tools/testing/selftests/bpf/progs/res_spin_lock_fail.c
-new file mode 100644
-index 000000000000..3222e9283c78
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/res_spin_lock_fail.c
-@@ -0,0 +1,244 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* Copyright (c) 2024 Meta Platforms, Inc. and affiliates. */
-+#include <vmlinux.h>
-+#include <bpf/bpf_tracing.h>
-+#include <bpf/bpf_helpers.h>
-+#include <bpf/bpf_core_read.h>
-+#include "bpf_misc.h"
-+#include "bpf_experimental.h"
-+
-+struct arr_elem {
-+	struct bpf_res_spin_lock lock;
-+};
-+
-+struct {
-+	__uint(type, BPF_MAP_TYPE_ARRAY);
-+	__uint(max_entries, 1);
-+	__type(key, int);
-+	__type(value, struct arr_elem);
-+} arrmap SEC(".maps");
-+
-+long value;
-+
-+struct bpf_spin_lock lock __hidden SEC(".data.A");
-+struct bpf_res_spin_lock res_lock __hidden SEC(".data.B");
-+
-+SEC("?tc")
-+__failure __msg("point to map value or allocated object")
-+int res_spin_lock_arg(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem;
-+
-+	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem)
-+		return 0;
-+	bpf_res_spin_lock((struct bpf_res_spin_lock *)bpf_core_cast(&elem->lock, struct __sk_buff));
-+	bpf_res_spin_lock(&elem->lock);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("AA deadlock detected")
-+int res_spin_lock_AA(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem;
-+
-+	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem)
-+		return 0;
-+	bpf_res_spin_lock(&elem->lock);
-+	bpf_res_spin_lock(&elem->lock);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("AA deadlock detected")
-+int res_spin_lock_cond_AA(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem;
-+
-+	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem)
-+		return 0;
-+	if (bpf_res_spin_lock(&elem->lock))
-+		return 0;
-+	bpf_res_spin_lock(&elem->lock);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("unlock of different lock")
-+int res_spin_lock_mismatch_1(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem;
-+
-+	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem)
-+		return 0;
-+	if (bpf_res_spin_lock(&elem->lock))
-+		return 0;
-+	bpf_res_spin_unlock(&res_lock);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("unlock of different lock")
-+int res_spin_lock_mismatch_2(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem;
-+
-+	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem)
-+		return 0;
-+	if (bpf_res_spin_lock(&res_lock))
-+		return 0;
-+	bpf_res_spin_unlock(&elem->lock);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("unlock of different lock")
-+int res_spin_lock_irq_mismatch_1(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem;
-+	unsigned long f1;
-+
-+	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem)
-+		return 0;
-+	bpf_local_irq_save(&f1);
-+	if (bpf_res_spin_lock(&res_lock))
-+		return 0;
-+	bpf_res_spin_unlock_irqrestore(&res_lock, &f1);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("unlock of different lock")
-+int res_spin_lock_irq_mismatch_2(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem;
-+	unsigned long f1;
-+
-+	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem)
-+		return 0;
-+	if (bpf_res_spin_lock_irqsave(&res_lock, &f1))
-+		return 0;
-+	bpf_res_spin_unlock(&res_lock);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__success
-+int res_spin_lock_ooo(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem;
-+
-+	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem)
-+		return 0;
-+	if (bpf_res_spin_lock(&res_lock))
-+		return 0;
-+	if (bpf_res_spin_lock(&elem->lock)) {
-+		bpf_res_spin_unlock(&res_lock);
-+		return 0;
-+	}
-+	bpf_res_spin_unlock(&elem->lock);
-+	bpf_res_spin_unlock(&res_lock);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__success
-+int res_spin_lock_ooo_irq(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem;
-+	unsigned long f1, f2;
-+
-+	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem)
-+		return 0;
-+	if (bpf_res_spin_lock_irqsave(&res_lock, &f1))
-+		return 0;
-+	if (bpf_res_spin_lock_irqsave(&elem->lock, &f2)) {
-+		bpf_res_spin_unlock_irqrestore(&res_lock, &f1);
-+		/* We won't have a unreleased IRQ flag error here. */
-+		return 0;
-+	}
-+	bpf_res_spin_unlock_irqrestore(&elem->lock, &f2);
-+	bpf_res_spin_unlock_irqrestore(&res_lock, &f1);
-+	return 0;
-+}
-+
-+struct bpf_res_spin_lock lock1 __hidden SEC(".data.OO1");
-+struct bpf_res_spin_lock lock2 __hidden SEC(".data.OO2");
-+
-+SEC("?tc")
-+__failure __msg("bpf_res_spin_unlock cannot be out of order")
-+int res_spin_lock_ooo_unlock(struct __sk_buff *ctx)
-+{
-+	if (bpf_res_spin_lock(&lock1))
-+		return 0;
-+	if (bpf_res_spin_lock(&lock2)) {
-+		bpf_res_spin_unlock(&lock1);
-+		return 0;
-+	}
-+	bpf_res_spin_unlock(&lock1);
-+	bpf_res_spin_unlock(&lock2);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("off 1 doesn't point to 'struct bpf_res_spin_lock' that is at 0")
-+int res_spin_lock_bad_off(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem;
-+
-+	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem)
-+		return 0;
-+	bpf_res_spin_lock((void *)&elem->lock + 1);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("R1 doesn't have constant offset. bpf_res_spin_lock has to be at the constant offset")
-+int res_spin_lock_var_off(struct __sk_buff *ctx)
-+{
-+	struct arr_elem *elem;
-+	u64 val = value;
-+
-+	elem = bpf_map_lookup_elem(&arrmap, &(int){0});
-+	if (!elem) {
-+		// FIXME: Only inline assembly use in assert macro doesn't emit
-+		//	  BTF definition.
-+		bpf_throw(0);
-+		return 0;
-+	}
-+	bpf_assert_range(val, 0, 40);
-+	bpf_res_spin_lock((void *)&value + val);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("map 'res_spin.bss' has no valid bpf_res_spin_lock")
-+int res_spin_lock_no_lock_map(struct __sk_buff *ctx)
-+{
-+	bpf_res_spin_lock((void *)&value + 1);
-+	return 0;
-+}
-+
-+SEC("?tc")
-+__failure __msg("local 'kptr' has no valid bpf_res_spin_lock")
-+int res_spin_lock_no_lock_kptr(struct __sk_buff *ctx)
-+{
-+	struct { int i; } *p = bpf_obj_new(typeof(*p));
-+
-+	if (!p)
-+		return 0;
-+	bpf_res_spin_lock((void *)p);
-+	return 0;
-+}
-+
-+char _license[] SEC("license") = "GPL";
--- 
-2.43.5
+What would make me a lot more confortable with this change is if you
+enable kernel mappings for one test. This will ensure you cover the
+call to "invalidate" in your testing. I'd like to know about the
+performance impact. With this implementation it should be identical to
+the VB2 one.
+
+What I was trying to say in previous comments, is that my impression is
+that we can skip this for CPU read access, since we don't guaranty
+concurrent access anyway. Both address space can keep their cache in
+that case. Though, I see RKISP does not use kernel mapping plus I'm not
+reporting a bug, but checking if we should leave a comment for possible
+users of kernel mapping in the future ?
+
+> +
+> +	dma_sync_sgtable_for_cpu(buf->dev, sgt, direction);
+> +
+> =C2=A0	return 0;
+> =C2=A0}
+> =C2=A0
+> @@ -434,6 +445,17 @@ static int
+> =C2=A0vb2_dc_dmabuf_ops_end_cpu_access(struct dma_buf *dbuf,
+> =C2=A0				 enum dma_data_direction direction)
+> =C2=A0{
+> +	struct vb2_dc_buf *buf =3D dbuf->priv;
+> +	struct sg_table *sgt =3D buf->dma_sgt;
+> +
+> +	if (!buf->non_coherent_mem)
+> +		return 0;
+> +
+> +	if (buf->vaddr)
+> +		flush_kernel_vmap_range(buf->vaddr, buf->size);
+> +
+> +	dma_sync_sgtable_for_device(buf->dev, sgt, direction);
+> +
+> =C2=A0	return 0;
+> =C2=A0}
+> =C2=A0
+>=20
 
 
