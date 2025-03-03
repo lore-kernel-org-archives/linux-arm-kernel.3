@@ -4,84 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DD4FC282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 08:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42173C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 08:05:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eUO1jksSmzlhAfx/j3xxVgsgOha96dJxP5yOTtMR46M=; b=SQgOIOFXBNIGYNupgjXnCAZtgn
-	Q3xveLGOQjE51NC1+Mod6jqL9N8A/1ZlSBvWsujbo4dgYvpLWmFFRCx5gM6qZEs/s4SlxzByQY7Iy
-	HYU4hX8tPQNCeYIWjp5xPsV3ymhapnsseLV30uSI/h7Omps9wdfThZB3xQrN6HWOndGFHyBPpZqpn
-	rcO2gFw25Q/qh6lALp1u3MEcqQ9606YopwoXY+wJQZLqy9SBYZTqIbajGPPwaANvbWGSsmz0B47SY
-	9TEaNar63d6gdZ1OCyf5IxgFhkONQx4WqP37xUO0hUVxdlfKDyglSjZkidJIvqToMPTlsUU/7CYOd
-	vEIS9HSA==;
+	bh=L/kOfm+NCxRWU3KiubFOyYUQosuGisbp/XscJHpDiwI=; b=lWcY4nz281RkB9vKsPIjvZ5mdW
+	uyMGuG/SEygP3XZeqiaHBn/fAO9O58mqT4XFkWuHIzZD+24rcevCWOymCnlr44RwQD7AC9pmoaP5S
+	J5EG0QroChNtCxgZziosv4glkLQe9bLcKIAkenViAPCCZ91VNiH27w49GYxyskhoxN1/WM2DXOksA
+	pKLcuh3BAa50RGaPdH6cqYY9TJXWWd7UZ45IRoVX8F6WqdaIFMsIcNdRMb9Yef2RGc+kr0OoLJdgk
+	gYkF1QSbR2FeriS/oagR4KDFN4N2Q2rIaOYyPQnx+X542Pa7H98dCu5GC9dmPhG60AYhND7c9oJSX
+	uoWEUwOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp0ix-0000000HTNW-3Ptd;
-	Mon, 03 Mar 2025 08:00:27 +0000
-Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
+	id 1tp0nN-0000000HTfC-34LJ;
+	Mon, 03 Mar 2025 08:05:01 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp0hP-0000000HTHe-1fAk
+	id 1tp0lp-0000000HTZG-1gUy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 07:58:52 +0000
-Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-471f1dd5b80so320721cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Mar 2025 23:58:50 -0800 (PST)
+	Mon, 03 Mar 2025 08:03:26 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5e56b229d60so492132a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 00:03:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740988727; x=1741593527; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=eUO1jksSmzlhAfx/j3xxVgsgOha96dJxP5yOTtMR46M=;
-        b=VH+eu3tk6aBSjvMVlZhc6MbVtw3ybzFzDpqY/1U1vtGdfEFC30RHEo1EYJivi36B7w
-         EBgu+W5iCAHtieFlmd0/ayRxu5Yaj1UReANqvpX6IBVRzY3sxS8pl5lSDvcwapOn8k7m
-         OO+emSPyAG+WBNLK/0Od95yKWLIVfmR5H2LC3hiMBFMuOzyukPhnkmr8YAbyScJBtnkt
-         k/5hrg2tKFjAuYy+uL/uz2JYlw8e/rj4KXXuV7eekXiW20hzV7LrVNvNSzzE41WRN6N0
-         w+4L9cy9ynn8BWW4ieOjfp6VUbDCxyfHH4xVLbe8yRqmQIvPQxh92OUyvRHjcKnod3uW
-         HvFw==
+        d=linaro.org; s=google; t=1740989003; x=1741593803; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=L/kOfm+NCxRWU3KiubFOyYUQosuGisbp/XscJHpDiwI=;
+        b=uIxqmFmha9XZX9Iw4QFDRokkMAnxMLLe2C42zGm85fIvR0udxkG5mAdWa7IS/4oBtg
+         4QMlMkOJIKUilbteLgcnre9dXPQfDe+/r4PTNq6nsrbKPn9hB5u1EWmobgaM8dg56ak6
+         ULRn/Hs7jHKc6AyYYbjeka1m1I5zWgDoIcKH5L+NPmT/A1IU4re1Dj5iTmB+Q6lCkj6P
+         5o0R/rBpH8TJBils3FMwW8PiXDn/c9yGGP7Q7YZB/L//fe16i/NKVNZvdK1yEdQENFca
+         vrOHc0FYEt7c1geqWr46dSE3Prnqi1/0rOyrKyEKeg1u2euvwuDzxUPKApOhY4+zALxV
+         HGNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740988727; x=1741593527;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=eUO1jksSmzlhAfx/j3xxVgsgOha96dJxP5yOTtMR46M=;
-        b=gcXjcuQUt2w20iKm54MjNKFpCtyZT0LEslvNkwBe81M31Mc7luT69woGTK8g3c4UhD
-         0+M9KjuJfSsnP0I0Ak0gx0siddf9GEvE+iNOcI9Tz17HTbt/Mb72Te5maqAl4KHMvi/4
-         wwYF/aImnBQEvjypuvKrBprYzzAgKR1uu914b34ClvsQdTkt1hdvZ1+2Fybylvfc+K9O
-         cSflCqtuBPo1mzBwwlhO57WQKV69CNWqbAaMATVm6Dof7vSZSaU62TdsjcIhS1DtGjGB
-         k2EktTr7Dqmu+DxYkfj9ry6qYgHuIyqcMTupiQrpgUoHNT/rk8ohHet5fd7Gg2LtVeR/
-         04eg==
-X-Forwarded-Encrypted: i=1; AJvYcCVwgTpkygKyW2n/kiOBCm26s3gJNP0Lho+PNaZjhC09Gd6CBNsXw7fg+GaNWJVflIZzEZW3fAhKRReCjowAYR1L@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMfm07Cz31WTXrg+R6/BduUCAKSxypmwMZPG8Jlz1ADFqzGqI+
-	d0f45sqJRZg51aZNTFYDnXWFHWxNq7uUhIdmUmEJ+TBJma9BAuBBXVBBBxD6cUsh8Ip5ekYEDD/
-	SGMeaWJPtFeDpvGcNdSV7sMcojJaTIXcUoj1V
-X-Gm-Gg: ASbGncsjUVYyFkFK/TFIzsHd9hvwK7YnxpakQsuhtfn8G7HTxshbWURc4KisduVVVVG
-	Nugy+hulwTTG0Be/XAMlzEgCv2HTxmm44ZSoEPNZZ1gzJHyNBe7T0KN/ItxCh9dfN59M+/CbIpn
-	KhJGQT/Vnb6jV11HVLiuNWpzJm
-X-Google-Smtp-Source: AGHT+IE3FrgYtSi6fG4kXuYXuz/jK19In39DBZldcGqipI/hiKj7Ook8PSAQkhdmiEcyY+thrVu8z5Hwh6+LBERKFs4=
-X-Received: by 2002:a05:622a:6a8a:b0:474:e50d:e15e with SMTP id
- d75a77b69052e-474e50de602mr1680411cf.16.1740988726923; Sun, 02 Mar 2025
- 23:58:46 -0800 (PST)
+        d=1e100.net; s=20230601; t=1740989003; x=1741593803;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=L/kOfm+NCxRWU3KiubFOyYUQosuGisbp/XscJHpDiwI=;
+        b=v43MK2FPaPdgpgiCBi9zHAimLz6HjtUMLvmexJVnsAs0r+HichZlEPn28nnkx6qj+1
+         Md3PaVV8y35C1UUiGFJZwoGnI9HIYnPiC8Ee/ocLKzaLc4PipbNj0Xyt73T+v8R+WZY7
+         1RfnMFlStb4YTLZ1nzGvfFBL3mpv9GV2pmoT9Phmtoe7wGMJeGdjqsM8xrjp8kQPDngb
+         7LSqGkpDtOIBBI36TXsEgwRjSAMO5jdVwLKI2LxoO5Rq+N7M0dBFPhuOUYONdsH6jZOc
+         LRpM/m0BHsWTpEQV/Qnaq84+8kskcZAt4c50MWMWjpP1atm9Gnb0DPffcTwDWaqbSxu1
+         JZwg==
+X-Forwarded-Encrypted: i=1; AJvYcCUEixDY9C96XMr3/FdwYnIywCidWvJIutUjnH6YsLbH9Fu45woRRdjxbpe9itMLL3mEMYLCu4jzNEMx3+jDfMNk@lists.infradead.org
+X-Gm-Message-State: AOJu0YypVeHPofj5LiYmbBi90MYoU951l+ogyEyJqPvFFFTl4dUmJ4e3
+	bdMEPlCqsMSKHxY6+/WwwfCQXsXmayVAbajI9cT5g41elOC/lVQY0LjehYjvUXk=
+X-Gm-Gg: ASbGncu3cpGBWZEzo+HkVMy4SSYaeusmbYYy5eBxEfqcW8W2YjUj+059gDRcMlOQJws
+	uXzTfLMM4YvgrW3C+fzx4hSe2bx97H8bPm4Z5Lt1xKyMHAcXu/WNUXK0bUQmtKAEL6KHfIbzGR4
+	rZdPzNW7kdy2SnQaXoyvbkSz+D9WjhyEAUGVWDeZmhRhW25NXTpdz0ruGI2Kkhk5lePOouQl646
+	CrWb/s0ckk+CYJbpsLstemFV+MqnyRHhaMKa5OVp31MdPd8qUawtcDpzhvzHHZHHLnRLCppWbir
+	kA+C41ltTaRqFmKyvCSytAJWzTxfmMBurv/4bPWZd9drbvgFxQ==
+X-Google-Smtp-Source: AGHT+IHSJwyoyFbSkRa1UEg1HQ8PZPp0oWijLI/xxUyJmjC4df5Zae4YdAsynhyaSb+1Hid60bmPNw==
+X-Received: by 2002:a17:907:7f26:b0:ab7:f853:1445 with SMTP id a640c23a62f3a-abf26883e80mr1335907866b.26.1740989002624;
+        Mon, 03 Mar 2025 00:03:22 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-abf0c6ee730sm764757766b.104.2025.03.03.00.03.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Mar 2025 00:03:22 -0800 (PST)
+Date: Mon, 3 Mar 2025 11:03:18 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, devicetree@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v3 3/7] firmware: arm_scmi: imx: Add i.MX95 LMM protocol
+Message-ID: <2c8e8e93-4ce7-4260-94bd-eabba0b7732d@stanley.mountain>
+References: <20250303-imx-lmm-cpu-v3-0-7695f6f61cfc@nxp.com>
+ <20250303-imx-lmm-cpu-v3-3-7695f6f61cfc@nxp.com>
 MIME-Version: 1.0
-References: <20250226215520.1759218-1-tabba@google.com> <20250226215520.1759218-4-tabba@google.com>
- <Z8ISLxQRcsx2uuHw@google.com>
-In-Reply-To: <Z8ISLxQRcsx2uuHw@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Mon, 3 Mar 2025 07:57:00 +0000
-X-Gm-Features: AQ5f1Joaynh2cBRm8OtTCH-hJn2SnkXoThMxCC0fRrNpPRV0DAzWGfywmNtI5RU
-Message-ID: <CA+EHjTympdi0wei2Qx=hF2cYvHpzE0sWto2ypcJB3ddmonTROg@mail.gmail.com>
-Subject: Re: [PATCH v2 3/4] KVM: arm64: Factor out pKVM hyp vcpu creation to
- separate function
-To: Quentin Perret <qperret@google.com>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	maz@kernel.org, oliver.upton@linux.dev, mark.rutland@arm.com, will@kernel.org, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, broonie@kernel.org, vdonnefort@google.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250303-imx-lmm-cpu-v3-3-7695f6f61cfc@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_235851_458878_8A0FBAC3 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20250303_000325_447298_E890FFAE 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,71 +106,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Quentin,
+On Mon, Mar 03, 2025 at 10:53:24AM +0800, Peng Fan (OSS) wrote:
+> +static int scmi_imx_lmm_attributes(const struct scmi_protocol_handle *ph,
+> +				   u32 lmid, struct scmi_imx_lmm_info *info)
+> +{
+> +	struct scmi_msg_imx_lmm_attributes_out *out;
+> +	struct scmi_xfer *t;
+> +	int ret;
+> +
+> +	ret = ph->xops->xfer_get_init(ph, SCMI_IMX_LMM_ATTRIBUTES, sizeof(u32), 0, &t);
+> +	if (ret)
+> +		return ret;
+> +
+> +	put_unaligned_le32(lmid, t->tx.buf);
+> +	ret = ph->xops->do_xfer(ph, t);
+> +	if (!ret) {
+> +		out = t->rx.buf;
+> +		info->lmid = le32_to_cpu(out->lmid);
+> +		info->state = le32_to_cpu(out->state);
+> +		info->errstatus = le32_to_cpu(out->errstatus);
+> +		strscpy(info->name, out->name);
+> +		dev_dbg(ph->dev, "i.MX LMM: Logical Machine(%d), name: %s\n",
+> +			info->lmid, out->name);
 
-On Fri, 28 Feb 2025 at 19:44, Quentin Perret <qperret@google.com> wrote:
->
-> On Wednesday 26 Feb 2025 at 21:55:19 (+0000), Fuad Tabba wrote:
-> >  static int __pkvm_create_hyp_vm(struct kvm *host_kvm)
-> >  {
-> > -     size_t pgd_sz, hyp_vm_sz, hyp_vcpu_sz;
-> > +     size_t pgd_sz, hyp_vm_sz;
-> >       struct kvm_vcpu *host_vcpu;
-> > -     pkvm_handle_t handle;
-> >       void *pgd, *hyp_vm;
-> >       unsigned long idx;
-> >       int ret;
-> > @@ -161,33 +178,12 @@ static int __pkvm_create_hyp_vm(struct kvm *host_kvm)
-> >       if (ret < 0)
-> >               goto free_vm;
-> >
-> > -     handle = ret;
-> > +     WRITE_ONCE(host_kvm->arch.pkvm.handle, ret);
->
-> What's the reason to make this a WRITE_ONCE? Does it mean we should
-> update the readers to be READ_ONCE()?
+Print info->name instead of out->name.
 
-I don't remember the original reason, to be honest. In this case, it
-was to make it consistent with downstream code in Android. That said,
-I plan on revising all of these soon and fixing this (and related
-code) in light of Will's comment regarding potential specter gadgets:
+> +	} else {
+> +		dev_err(ph->dev, "i.MX LMM: Failed to get info of Logical Machine(%u)\n", lmid);
+> +	}
+> +
+> +	ph->xops->xfer_put(ph, t);
+> +
+> +	return ret;
+> +}
 
-https://lore.kernel.org/all/20250218092705.GA17030@willie-the-truck/
+regards,
+dan carpenter
 
-Cheers,
-/fuad
-
-> > -     host_kvm->arch.pkvm.handle = handle;
-> > -
-> > -     /* Donate memory for the vcpus at hyp and initialize it. */
-> > -     hyp_vcpu_sz = PAGE_ALIGN(PKVM_HYP_VCPU_SIZE);
-> >       kvm_for_each_vcpu(idx, host_vcpu, host_kvm) {
-> > -             void *hyp_vcpu;
-> > -
-> > -             /* Indexing of the vcpus to be sequential starting at 0. */
-> > -             if (WARN_ON(host_vcpu->vcpu_idx != idx)) {
-> > -                     ret = -EINVAL;
-> > -                     goto destroy_vm;
-> > -             }
-> > -
-> > -             hyp_vcpu = alloc_pages_exact(hyp_vcpu_sz, GFP_KERNEL_ACCOUNT);
-> > -             if (!hyp_vcpu) {
-> > -                     ret = -ENOMEM;
-> > -                     goto destroy_vm;
-> > -             }
-> > -
-> > -             ret = kvm_call_hyp_nvhe(__pkvm_init_vcpu, handle, host_vcpu,
-> > -                                     hyp_vcpu);
-> > -             if (ret) {
-> > -                     free_pages_exact(hyp_vcpu, hyp_vcpu_sz);
-> > +             ret = __pkvm_create_hyp_vcpu(host_vcpu);
-> > +             if (ret)
-> >                       goto destroy_vm;
-> > -             }
-> >       }
-> >
-> >       return 0;
-> > --
-> > 2.48.1.711.g2feabab25a-goog
-> >
 
