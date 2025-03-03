@@ -4,173 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9650DC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 03:30:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 916D4C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 03:32:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XMGvxyvzSxS8zJMU0Nl5DTqvGIgs3LiY/gK/dYawxs8=; b=yarfgEezaU4Nf29p/bw/+6M10S
-	rb5QcKrZsQ25BCqEXjK83d4p+Jc9Koa9yAYo2aRnlnLF23VGK7xmMAaQ2rZWkULjq/Kl39a339qmW
-	WUYZAQSxJUk+9h8YVWeMqJEqD4asezuTR9vdzUnNEs2VT37CeH+g5dlLVcuq3ytYQFiwMfyqRvNxr
-	Mdh8vXLxW035QHJtxo4gypSutwwl+WMyvwhb5uQ0ZBT1VzYLaudssD3okd7QDdT04ymzWKKEPfY5i
-	5qW5NvFfn+u88uMVRyKH+SjH/BxWA+zp6+2vp+s/VgQLCQf5tM9XsPFLcNP17cGZA+aCBmz/m34U2
-	A1+fVxSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hYAdSew6AptzJBVsbHhvREpcJmARjrEFgChOrvn1g98=; b=tULBDvjvYAkDxCH89QfGT9mraK
+	/LIFi/5hRxNrv8DqfYF0/o3fwQph8qC6bgc6FOcv3csk5dwMiWjpziOFNXQ0hf+HZWDPBEy4WMxdg
+	Z1FR937zSDDgdYb1bpCtjqLLan7wp7RdcBBH8EP/aWcC9uGAhm6enYzDCHwQwjRWwyo0T8v7qb6Ow
+	7aERx9tre0KO17fAAT0k5e73aTbkj3OR1gxhj/kDh6PLF08TgJmzYW228WaZ9RMiJV+XKSpXbJp3Z
+	joYFVjC7b7f8/vSxuyFG0aupHDYfaXmu19l3pIOcQ3Oa3q7Qh6dtDJUqyTxdfbKT7DU3ajaK7pVQ5
+	n5BdGl5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1towVN-0000000H3uW-1Hox;
-	Mon, 03 Mar 2025 03:30:09 +0000
-Received: from mail-northeuropeazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1towX4-0000000H4MN-4Ao7;
+	Mon, 03 Mar 2025 03:31:55 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1towTo-0000000H3lw-1Du5
+	id 1towVU-0000000H3wl-29OR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 03:28:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=l/Z1Ln1E3mCWxHmoPmxAH0f1wmS01tnLVQ1CFNVIjYv5UqdbdSICH9M/51rnG/PHdl7lffHV1LdPvbeLDe6Ccor5mGZUkEFflwC7WLUauFWBaZBPV5TolP59Tnqo457qWctjScJiQNqwVoGa6UeKma5CUs28VXHoEU1Gmt5cBae1IkqnIhcgPmvMvrTbXE1nbBT6HupWimh+bJydi320s1j4H9Agy+LBU/lCv3hLkqqkAWJBHCqxVUxNy1yEQlK6j7N8G9TS0dogLXuhTC7IGxdhG3/xR3MHReVVJrMvb6ZDomN2S4goETeIhhhSoVwq7RC1Tzj6mgdY00TVhIq0rA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XMGvxyvzSxS8zJMU0Nl5DTqvGIgs3LiY/gK/dYawxs8=;
- b=pylmwsjZ2MM5+CHja7VOyQ6jMowsLUqc0idqqtfRVDdksqFv4oaxCmaz6rzcidB4EQaVfFdbyQWb71WuEZHYxBmvQDg0eJVu4/kJrCssfCz6p27NKqS8f0KjHdPzo8NdPz3VwIjBdeNKjfn2gySWB6DO0Bdnduh18uOtA3jqrV7QPhSuCf2NCYc0g1orOn9HBmI56ANWkpRfXLFjEZBZfalhCROuQkIKKtYuc0zNqwBhFa3ZaIGEw9KHboMjlFPVSNAOem3yr6ybJPTUEtLlb54Ve9PdgrhT+Vs9bNSibb/pNL+1g+rVvcAu0kV7kCXneJ48mFzeRQJEFG6YEDQwcQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XMGvxyvzSxS8zJMU0Nl5DTqvGIgs3LiY/gK/dYawxs8=;
- b=xD4iZ3+ISH7bklImlv3LrCdXOg+qLoQm4pSRMVWaXCK3SsZy9UCwu0m9hHWwxo8LCvqhL3x1HxgbseX0lsLBtcKgWVlN+sR4Y/6XbXrxgfp8xPnEL1G4mQQ1lSNaxU5j0zNJsRZNc0AInjmTkjJTHVKAEiHt5hRF21KEQ6kfOaHQ6trQleZSAhlUsNFTwibyxbT3eehCQfYErDK63NVC4HPAA7uA0nb1ZoGSnsZRxhOQxKqn9W09exOG/HESJwx5gLMZRLfPB+mH+uM6ljRtukcPdRTndfzoPDFD+6xENGTNpEp27/j0pBNNIxpxeqPKKU+zp3nx3ktxHIkzlkqQmA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DBBPR04MB7722.eurprd04.prod.outlook.com (2603:10a6:10:207::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.28; Mon, 3 Mar
- 2025 03:28:26 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.8489.025; Mon, 3 Mar 2025
- 03:28:26 +0000
-Date: Mon, 3 Mar 2025 12:35:51 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Rob Herring <robh@kernel.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>, saravanak@google.com,
-	cristian.marussi@arm.com, krzk+dt@kernel.org, conor+dt@kernel.org,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [RFC] dt-bindings: firmware: scmi: Introduce compatible string
-Message-ID: <20250303043551.GE13236@nxa18884-linux>
-References: <20250226094456.2351571-1-peng.fan@oss.nxp.com>
- <20250226160945.GA2505223-robh@kernel.org>
- <20250227030924.GB11411@nxa18884-linux>
- <CAL_JsqJOqKeDRuASWxCT=EA5LJbONpCX=Re8=XxKUbPToWy2Dg@mail.gmail.com>
- <Z8HCZQQLofaiGtpG@bogus>
- <CAL_JsqLePri5m_dE989poUV4auasAxFvgAiYuXVuZHqLcOBGMg@mail.gmail.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAL_JsqLePri5m_dE989poUV4auasAxFvgAiYuXVuZHqLcOBGMg@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SG2PR06CA0218.apcprd06.prod.outlook.com
- (2603:1096:4:68::26) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Mon, 03 Mar 2025 03:30:18 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 522NoUxZ009232;
+	Mon, 3 Mar 2025 03:29:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=hYAdSew6AptzJBVsbHhvRE
+	pcJmARjrEFgChOrvn1g98=; b=P6YXCFTdM0F2R47QDe3L/Z9sXDejHL+qmFhq1J
+	Quw5p+SscZ/tr/C3jXSlx0IKSUPOHVk9rKTVsS3MTUquKF8Pu3qpl3vku+Qo56jw
+	QTHp9/SdkVRhhIU8P1ZGy1eQUSMb87fdi/soMruTyOu+Etc6mAlTWhglwznrxFZL
+	8acSgpZcXnCk91e9QOF0t9ojVqJ/tsCWjPWGA1B7XehusNRWKr5ZAMtP2OuOR4w9
+	QGFibJAdOx6FoMmcSZd7G71pPQr9wcPJU/KRJ8WR5WMOEsklp7NGU1LMl1gZRud3
+	3kRmv17gIdFXUIi7b//XtKjkRdFDdu2QZt5k08EJbBwDUK7Q==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 453t95ufpy-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 03 Mar 2025 03:29:56 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5233TtHv016864
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 3 Mar 2025 03:29:55 GMT
+Received: from jiegan-gv.qualcomm.com (10.80.80.8) by
+ nalasex01c.na.qualcomm.com (10.47.97.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Sun, 2 Mar 2025 19:29:49 -0800
+From: Jie Gan <quic_jiegan@quicinc.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+CC: Tingwei Zhang <quic_tingweiz@quicinc.com>,
+        Jinlong Mao
+	<quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>
+Subject: [PATCH v15 00/10] Coresight: Add Coresight TMC Control Unit driver
+Date: Mon, 3 Mar 2025 11:29:21 +0800
+Message-ID: <20250303032931.2500935-1-quic_jiegan@quicinc.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DBBPR04MB7722:EE_
-X-MS-Office365-Filtering-Correlation-Id: babc3737-6ba1-4229-6591-08dd5a0375e0
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|52116014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Qnpzd1dzZWt5Unh2aWZKdkNlZHkwenVWUVhBL0ZmOGVxbnVwWm92SGpVTjA5?=
- =?utf-8?B?V2RzU2QyVS9zaWo0d2w1VVJkVFkzRUhBL1FOcTJQQkxxVzQyRnJ0NXZ5dExy?=
- =?utf-8?B?emo2cWJsRHIwOVVtWXNSekdWTFJFNjAxOUkyeFRsTUhZVWQ4cTlhempiZEZ5?=
- =?utf-8?B?TXc2dmRLb3p1STAyTGZCakFsTXJUdXM4TmllL25uK0dPN05zS3N0RHAzQlhQ?=
- =?utf-8?B?WEJkOC9CQUxGamp4NXpVaDhQL3d4QzVualc2cDU4RWhLKzdTd0hPVmVKWEJ2?=
- =?utf-8?B?ZVA4cjdGSWNRdEVlVS8vOW8xTENuRnNCRzdjcXFSMGpNNzhTd1NCOWZRNjJu?=
- =?utf-8?B?WHhnMDdvUlVFaVM2akRLZTFVeENCTWJLM1Q0WDM1UE5kK2pNb0FnalFmQ0lE?=
- =?utf-8?B?RzhjbmtEWWYzUmdWY1lIRGhkV2NQWlQ1Q2dEOElvRHRkUEJ4Q0tIc2lRVU9Y?=
- =?utf-8?B?L28zU2liMUF6UzRoRHEvYWlkWnlFYnJPMzZibE8vbXVvcTR4RjlYMmxIRlJ4?=
- =?utf-8?B?TFI5UTN2OGM4L1BVeEV2bTJnWkY1SVd3VWt1eTRyOWlZb08rZk82UUhkTTZu?=
- =?utf-8?B?aGRxK3J6WkdPb3l6Vkl0aGpxRE1yOFIvUDhTaE91NGMvTW5PVnJIeFNDYS8x?=
- =?utf-8?B?R21Fa3I1RHluZlBYZ1JMdWVXN3E2aEdOVUpxc25HUHVFZmx1NW1DNnlWMEpP?=
- =?utf-8?B?WXlJRXJXZVBOTXdrMHR1cS83c3AyMTRGcHdQVW9XUHB5Ukt5U0pkQ2lQUUF2?=
- =?utf-8?B?ekJZRTFnUytpcWZ2QThoakdEaFNic0FuSGtXRmpMS082Z0JzanQ1Si9pS3hK?=
- =?utf-8?B?VnJZKy9XK3IxZEpIRGoxSHA0YjNQSDVpRUsxMDR1ejhtbDlhdDNsdU5RbEI5?=
- =?utf-8?B?VTBXK0JEdEYzTDNxYkdZalpSL01lM3hZbGJ1TnUzODMxdG5WTzQ1Q21rN2NZ?=
- =?utf-8?B?a0E4UHhCUk1mMUpNLzljYnZNNUlKdm5wRDk5ckxtYmJQdU5oMEE3K0dZY0FG?=
- =?utf-8?B?aC9WTCtURU82RzlVK3ArWVpVd3lHeDJ5Z1BlVXMvUnZyOVp2bDR6cXVDNHBG?=
- =?utf-8?B?QUYrZ1JQOFlpWVdpSHVoWVM5clAvY2lvN2ZMMjErcWdWb0RmVTRHdjRyMXdW?=
- =?utf-8?B?Y0lkbjJBcW1BRVA4eWdwbTlwbDRDMERPaXlKT1FReGU2blQ3bjZRWlE3Q0lU?=
- =?utf-8?B?RlVFK2l2NVpqN1lsZmROTXB4RTNWQTBVKytMSDFZUHpCUk5xSEo5YThwd1ZG?=
- =?utf-8?B?YkhJZitFYmc4d1d0VTY0RDVtSWltWVQvM1RlNStDZW5vTHl0R2Y3TGhwUVg0?=
- =?utf-8?B?YmNhOC8wdis0NytKeXI2T3RZNEJpYTFBbkxXVHBvdkVGZUZqZHN2ck9JWGxG?=
- =?utf-8?B?RU5Nc1oycnJPVXAwQzQ5K0NzQ2d5bUU4RTFsL0lZWHJZS2FFeTRMam5XRm15?=
- =?utf-8?B?MG9HTjAzSDRXSXhObmdQLzQybncyZFZ5MUVaY3A3U0VUZGpiUU10MTVVeDla?=
- =?utf-8?B?QXlPTENtc1UyYUZ3Q3RKYW14alRhN2dDd2Y3WEhRQ282ZzRiZ2EzMllDZ2Na?=
- =?utf-8?B?ekRTVWRBYmJybjN1ZUV4c2tkN2NZMjRvWm5WbWFJUDRjdGtmdWtkdW9mSm5n?=
- =?utf-8?B?ZEJtRDlFK0pVT1lQb2FuODdhMzFnZ3dzYVNHWFhDbmU5dlNHR01ucGprckNB?=
- =?utf-8?B?b3E5T1o4ZU5sb0xObHh4YjRabjhRK29wN2J4VVdIZVpHVVpHbm9XYkNENDFp?=
- =?utf-8?B?ejhSNUNDSnorYmVFZUhlMjBMeE55N01aOS9ZRVJVY3o4b0U2dTI0WnBkbStD?=
- =?utf-8?B?WlE3R2JPS05SM0lKdTJzMXI1OXZtVlJKWFQ3QUlxcE5BWXZOSW9qeDFOWmd6?=
- =?utf-8?B?YkNHZHdLNW8zRDFlL1BITlF5cEFkVEtxMXBRL3ZEY1M5dytjaERyNHNZVEdC?=
- =?utf-8?Q?NAt9vADbwI11fwqU//Cn+Kkn4QLPY8ho?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aU9uMFVGckFZbUs1Z2FTNXNGNmxxNFNneXdFUkJmdE9XbU5qbkZ3VlN6b3dZ?=
- =?utf-8?B?UzlPNVFGSXgrZXkvK3pNYmJMSEowTnMrajhkK3FpWHZzUjZVb0xPR1ZVeFls?=
- =?utf-8?B?QWpPdXdxMk16dkptQmRHbXd3a2JxZCtvZGlSamRDNzlUaWxXN0pvTHIrNk1Y?=
- =?utf-8?B?MFlEY2owREFoUXBnMzE4Y2pnMXZtUGlla1NCYzlQS2RMN2xzcWQ1OXJBRVRu?=
- =?utf-8?B?N0FPVDJ4ZnZVTG4wa2pXMk1QY0ZzbzNvUWExWUpzdWQ1V3gvdUFWc3o1UWN3?=
- =?utf-8?B?L1NGZTNoWXhHVFEweVRQR0s4Wm9ucUtkalowZ0c5alF0Y0tLSlhxTWcvNnho?=
- =?utf-8?B?MnhrV3VTZE1nMXJTeW5QTTIxT0lBTVhVd3FmM25VVkRoNWNyYi9zOTNvRTFO?=
- =?utf-8?B?U3Z5MGlHZ2tab1B6ekY1Ni9vQ2p5MlRSZXQ0WkdEbzAxZWJYTlNlbVFVSFBy?=
- =?utf-8?B?SFRSaVRyamRabGF5TFE3dlBIWmxZVDY1YmNRaGFCM053enJDbjg0UWNXdlFD?=
- =?utf-8?B?NWt4Y1lmb2l4Rm1xZEpxbTBiWlB3cmpJT3JxTFJXU3gxSUlFTmdmay85ZzIx?=
- =?utf-8?B?QTEvZEVmV3J0bFBISkc0SGJ0U05uaGtGeTRuNi9LQ0tOc0t0UzBQL1FIRmky?=
- =?utf-8?B?eXZGZC92cmRSQm9RMWxXTHFnM0xMUlFTZzlrMDNMN0NqQ25XVGJ2Ynk0NnBv?=
- =?utf-8?B?ZUNNNnNiZ0x1SHZjYk9wUFY0RjFmSkNWYytTV1psWlFzZzI1TFdDR0hrZTNU?=
- =?utf-8?B?bnErQW9BWGRGcGdDelI3OHc2dm0yb3J2WFQrZEJDVktUdXVKSndUUDFxblgr?=
- =?utf-8?B?bDdHQlR2VWRqWmhSWmNvbkppWHM5UXh6RUhwWUt6OTdPdERyMUxyMDFZU3hR?=
- =?utf-8?B?U3Y4emxZKzQvbkIvQzY5bGdMMW9jU3JJQ216SVo5dmlERDVuRC9LT29xd0Fv?=
- =?utf-8?B?bDFwOXpJRElsRkNnQUs3dExIWjFWaHl1M1JwdTVEdDR5bXI5b3FnU0kvMno2?=
- =?utf-8?B?Vk1GWDZuQnpZaXQwTG41dzJ5UXZYYkpDWWJQUVZnaDJBSW56d3RxVHllV1Ew?=
- =?utf-8?B?WXF3bkhPcUdpaVZIRE9WV21GSFVGS3VpMUZCTTRpRHJKQlhqMTZrSldBOVFG?=
- =?utf-8?B?c0pyMldYRjltWE52V3o4Tjh0U2o1amV5V3huV0VxSUMwd2t0WURhenZUT3BH?=
- =?utf-8?B?YVk2cTFCeWZaSGx6Zmg0dThiY0IyMUo3QSt0VE5xVkNhekJjVHhtSmpLTDR4?=
- =?utf-8?B?andBYWxBdkIxQmJJcXJvTkFJRUZMVVJyUzVvNmNoMDVQcXVGalZnV01aK3JW?=
- =?utf-8?B?ZmVHSTZZU1Q0SjQyZHU2b1ltVWswRDMvci8wMWpSOEUraTFaN2VkTkR4YU5K?=
- =?utf-8?B?TWRuTUdxeWc2RWk5ZVJFSmtEbld6SjNNRys3Vm1Qb0ZhTUYwdCszdHc1ZWtF?=
- =?utf-8?B?M3JkeTg1WDcyZFQxNStCM1dJamlhUmxTOU50YmpoQnZpWk1iaitROHU3aDBw?=
- =?utf-8?B?NjBlRHA4OEFpRzlkQy9UUFdtVlFhbER1eTEybDlxcXdBdnZiWVNMc1ExeDhH?=
- =?utf-8?B?THovenUyeGdrTmhBZ0tkTVErUlU4VDJpZmFROVoyTDFmVDdESVBZZVNsOSt6?=
- =?utf-8?B?TGJXK251RGU2TkhTMk1UTktlcVpTMjJjRGp2Q3J3MXAxeDgzdkp2YWlZVnp3?=
- =?utf-8?B?V2V0c3FReFpCNFlUTEMyeHY3RzVyTzhmTzFjOE5sbTNheXFPQWZKN2J5UGE0?=
- =?utf-8?B?QXJJT2FNRXoxVG9HTWJWUHlJcjNKNzVhRG9LVVN6Z3lDSmNzMU1iV1BEL041?=
- =?utf-8?B?dXJrWUJxUFNNZldSUEJsaVc2YmFtZUZ3UkpmU0JBMEd5VVpSM0RITWR6Ym5Y?=
- =?utf-8?B?SmtDZVJoZU5DOFJBNHU2bzVuWlYyRU4rbkFLTVJ3ZVd6TlB0eWxLSURteHpL?=
- =?utf-8?B?QzdFZ3YrNGc0a01MQXJERkpsVTZhbkFEalZyeVVkcVM1aStmYUxKc1Y3OHlG?=
- =?utf-8?B?RXpYckZqaGVXaXNBenpoQWQ2RHI1YlhBV2MxVVZMVTZaZlVOakh2TlV2VlFs?=
- =?utf-8?B?dmJ4aVVKMHowVVJPYnNCVWV1Q3Z0SXdKNlEyeER4Ni80cEJKOU8zdG8rWk55?=
- =?utf-8?Q?zBiqk7hwgHLnTi/I5TPqyyQ6I?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: babc3737-6ba1-4229-6591-08dd5a0375e0
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2025 03:28:26.7107
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZBV10tNVmW+Pe2zxVrgqtfgcXKEoL/kOk17VAM9NMlmCIInq9+W/5V7eCwI01VfZxrKsgtBDlJSNgVZT7QdvWQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7722
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: 6hN2KhVmMiXIs-I1uw5g3xcvOyyf0Z5-
+X-Proofpoint-GUID: 6hN2KhVmMiXIs-I1uw5g3xcvOyyf0Z5-
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-03_01,2025-02-28_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 mlxscore=0
+ phishscore=0 mlxlogscore=999 clxscore=1015 priorityscore=1501
+ lowpriorityscore=0 spamscore=0 malwarescore=0 suspectscore=0 adultscore=0
+ bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2502100000 definitions=main-2503030026
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_192832_329246_92A6D3C7 
-X-CRM114-Status: GOOD (  16.73  )
+X-CRM114-CacheID: sfid-20250302_193016_693908_B7F37D64 
+X-CRM114-Status: GOOD (  32.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,43 +111,301 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
-On Fri, Feb 28, 2025 at 08:17:03AM -0600, Rob Herring wrote:
->On Fri, Feb 28, 2025 at 8:04 AM Sudeep Holla <sudeep.holla@arm.com> wrote:
->>
->> On Fri, Feb 28, 2025 at 07:34:09AM -0600, Rob Herring wrote:
->> >
->> > - The parent driver creates child devices. The child devices can
->> > either reuse the parent DT node (i.e. set dev.of_node) or just get it
->> > from the parent device if needed.
->> >
->>
->> This is exactly what I was thinking to deal with the issue since this
->> discussion started. I will give this a go. I believe this must solve
->> the issue, but I didn't want to spit it out loud until I tried to hack
->> and check.
->
+From: Jie Gan <jie.gan@oss.qualcomm.com>
 
->The issue with fw_devlink is that it only checks the dependency of the
->parent which won't be enough. When the parent's probe creates the
->child device, that doesn't mean the child has probed. The child driver
->might not be loaded and/or probe is async. I don't think there's
->anyway for the parent probe to wait for child drivers to be probed and
+The Coresight TMC Control Unit(CTCU) device hosts miscellaneous configuration
+registers to control various features related to TMC ETR device.
 
-Please forgive if my understanding is wrong.
-Based on device tree, there is fwnode link created using fwnode_link_add,
-then in device_add, the fw_devlink_link_device will do the device supplier
-and consumer link. It is just device level link, not related to child's probe.
+The CTCU device works as a helper device physically connected to the TMC ETR device.
+---------------------------------------------------------
+             |ETR0|             |ETR1|
+              . \                 / .
+              .  \               /  .
+              .   \             /   .
+              .    \           /    .
+---------------------------------------------------
+ETR0ATID0-ETR0ATID3     CTCU    ETR1ATID0-ETR1ATID3
+---------------------------------------------------
+Each ETR has four ATID registers with 128 bits long in total.
+e.g. ETR0ATID0-ETR0ATID3 registers are used by ETR0 device.
 
-So if child device(work as supplier) is created only when a prarent's probe
-done, the consumer of the child device will not have link ready and consumer
-device's driver will not probe until the child device created and probe done.
+Based on the trace id which is programed in CTCU ATID register of
+specific ETR, trace data with that trace id can get into ETR's buffer
+while other trace data gets ignored. The number of CTCU ATID registers
+depends on the number of defined TMC ETR devices. For example, two TMC
+ETR devices need eight ATID registers. ETR0 with ETR0ATID0-ETR0ATID3
+and ETR1 with ETR1ATID0-ETRATID3.
 
-Thanks,
-Peng
+The significant challenge in enabling the data filter function is how
+to collect the trace ID of the source device. The introduction of
+trace_id callback function addresses this challenge. The callback function
+collects trace ID of the device and return it back. The trace ID will be
+stored in the structure called coresight_path and transmitted to helper
+and sink devices.
 
->ready. I think there's similar issues with the DWC3 wrapper and core
->driver split.
->
->Rob
+The coresight_path structure is created to address how to transmit
+parameters needs by coresight_enable_path/coresight_disbale_path
+functions.
+
+Here is the definition of the struct coresight_path:
+/**
+ * struct coresight_path - data needed by enable/disable path
+ * @path:               path from source to sink.
+ * @trace_id:           trace_id of the whole path.
+ */
+struct coresight_path {
+        struct list_head                path;
+        u8                              trace_id;
+};
+
+The atid_offset mentioned before is the offset to ATID register in CTCU
+device.
+
+Enabling the source device will configure one bit in the ATID register based
+on its trace ID.
+Disabling the source devices will reset the bit in the AITD register
+based on its trace ID.
+
+Useage:
+Enable:
+STM device with trace ID 5 and ETR0 is activated.
+Bitmap before the enablement:
+ETR0ATID0:
+31..................543210
+==========================
+0000000000000000000000...0
+==========================
+
+Bitmap after the enablement:
+31..................543210
+==========================
+0000000000000...0000100000
+==========================
+
+The bit 5 of the ETR0ATID0 register is configured to 1 when enabling the
+STM device.
+
+Disable:
+STM device with trace ID 5 and ETR0 is activated.
+Bitmap before the disablement:
+ETR0ATID0:
+31................6543210
+=========================
+000000000010111...0100000
+=========================
+
+Bitmap after the disablement
+ETR0ATID0:
+31................6543210
+=========================
+000000000010111...0000000
+=========================
+
+The bit 5 of the ETR0ATID0 register is reset to 0 when disabling the STM
+device.
+
+Sincere thanks to James Clark for providing an excellent idea to handle
+the trace_id of the path.
+
+---
+Changes in V15:
+1. Rebased on tag: next-20250228.
+2. Optimize patch(2/10), add check process before using sink.
+Link to V14 - https://lore.kernel.org/all/20250226041342.53933-1-quic_jiegan@quicinc.com/
+---
+
+---
+Changes in V14:
+1. Drop the reviewed-by tag for previous patch: Coresight-Introduce-a-new-struct-coresight_path
+   due to a massive modification.
+2. Split the patch, Coresight-Introduce-a-new-struct-coresight_path, into
+   four patches.
+   - Coresight-Introduce-a-new-struct-coresight_path
+   - Coresight-Allocate-trace-ID-after-building-the-path
+   - Coresight-Change-to-read-the-trace-ID-from-coresight_path
+   - Coresight-Change-functions-to-accept-the-coresight_path
+3. Change the type of the coresight_path_assign_trace_id function to void.
+4. Change the type of the path_list from struct list_head * to struct list_head to avoid
+   extra memory allocate/free.
+5. Rename the file coresight-ctcu.c to coresight-ctcu-core.c to improve scalibility.
+6. Add pm_ops for CTCU driver.
+7. Rename the struct ctcu_atid_config to ctcu_etr_config to improve scalibility.
+8. Optimize following functions of the CTCU driver to improve readability.
+   - ctcu_program_atid_register
+   - __ctcu_set_etr_traceid
+9. Change the way to get the port number. The new solution is searching
+   the sink device from CTCU's view.
+10. Add desc.access for CTCU driver.
+Link to V13 - https://lore.kernel.org/linux-arm-msm/20250221060543.2898845-1-quic_jiegan@quicinc.com/
+---
+
+---
+Changes in V13:
+1. Move the trace_id callback to coresight_ops to simplify the code.
+Link to V12 - https://lore.kernel.org/linux-arm-msm/20250217093024.1133096-1-quic_jiegan@quicinc.com/
+---
+
+---
+Changes in V12:
+1. Update the method for allocating trace_id for perf mode.
+Link to V11 - https://lore.kernel.org/linux-arm-msm/20250214024021.249655-1-quic_jiegan@quicinc.com/
+---
+
+---
+Changes in V11:
+1. Add reviewed-by tag to patch(2/7), (4/7), (6/7). Patch(3/7) is
+   contributed by James, so didnot add reviewed-by tag of James.
+2. Fix warning reported by kernel bot and verified with build(W=1).
+3. Restore to the original logic that responsible for allocate trace_id
+   of ETM device in perf mode according to James' comment.
+Link to V10 - https://lore.kernel.org/linux-arm-msm/20250207064213.2314482-1-quic_jiegan@quicinc.com/
+---
+
+---
+Changes in V10:
+1. Introduce a new API to allocate and read trace_id after path is built.
+2. Introduce a new API to allocate and read trace_id of ETM device.
+3. Add a new patch: [PATCH v10 3/7] Coresight: Use coresight_etm_get_trace_id() in traceid_show()
+4. Remove perf handle from coresight_path.
+5. Use u8 instead of atomic_t for traceid_refcnt.
+6. Optimize the part of code in CTCU drvier that is responsible for program atid register.
+Link to V9 - https://lore.kernel.org/all/20250124072537.1801030-1-quic_jiegan@quicinc.com/
+
+Changes in V9:
+1. Rebased on tag next-20250113.
+2. Separate the previous trace_id patch (patch 2/5 Coresight: Add trace_id function to
+   retrieving the trace ID) into two patches.
+3. Introduce a new struct coresight_path instead of cs_sink_data which was
+   created in previous version. The coresight_path will be initialized
+   and constructed in coresight_build_path function and released by
+   coresight_release_path function.
+   Detail of the struct coresight_path is shown below:
+/**
+ * struct coresight_path - data needed by enable/disable path
+ * @path:               path from source to sink.
+ * @trace_id:           trace_id of the whole path.
+ */
+struct coresight_path {
+        struct list_head                *path;
+        u8                              trace_id;
+};
+
+4. Introduce an array of atomic in CTCU driver to represent the refcnt or each
+   enabled trace_id for each sink. The reason is there is a scenario that more
+   than one TPDM device physically connected to the same TPDA device has
+   been enabled. The CTCU driver must verify the refcnt before resetting the
+   bit of the atid register according to the trace_id of the TPDA device.
+5. Remove redundant codes in CTCU driver.
+6. Add reviewed-by tag to the commit message for APB clock path(patch
+   1/5).
+Link to V8 - https://lore.kernel.org/all/20241226011022.1477160-1-quic_jiegan@quicinc.com/
+
+Changes in V8:
+1. Rebased on tag next-20241220.
+2. Use raw_spinlock_t instead of spinlock_t.
+3. Remove redundant codes in CTCU driver:
+   - Eliminate unnecessary parameter validations.
+   - Correct log level when an error occurs.
+   - Optimize codes.
+4. Correct the subject prefix for DT patch.
+5. Collected reviewed-by tag from Konrad Dybcib for DT patch.
+Link to V7 - https://lore.kernel.org/all/20241210031545.3468561-1-quic_jiegan@quicinc.com/
+
+Changes in V7:
+1. Rebased on tag next-20241204.
+2. Fix format issue for dts patch.
+   - Padding the address part to 8 digits
+Link to V6 - https://lore.kernel.org/linux-arm-msm/20241009112503.1851585-1-quic_jiegan@quicinc.com/
+
+Changes in V6:
+1. Collected reviewed-by tag from Rob for dt-binding patch.
+2. Rebased on tag next-20241008.
+3. Dropped all depends-on tags.
+Link to V5 - https://lore.kernel.org/linux-arm-msm/20240909033458.3118238-1-quic_jiegan@quicinc.com/
+
+Changes in V5:
+1. Fix the format issue for description paragrah in dt binding file.
+2. Previous discussion for why use "in-ports" property instead of "ports".
+Link to V4 - https://lore.kernel.org/linux-arm-msm/20240828012706.543605-1-quic_jiegan@quicinc.com/
+
+Changes in V4:
+1. Add TMC description in binding file.
+2. Restrict the number of ports for the CTCU device to a range of 0 to 1 in the binding file,
+   because the maximum number of CTCU devices is 2 for existing projects.
+Link to V3 - https://lore.kernel.org/linux-arm-kernel/20240812024141.2867655-1-quic_jiegan@quicinc.com/
+
+Changes in V3:
+1. Rename the device to Coresight TMC Control Unit(CTCU).
+2. Introduce a new way to define the platform related configs. The new
+   structure, qcom_ctcu_config, is used to store configurations specific
+   to a platform. Each platform should have its own qcom_ctcu_config structure.
+3. In perf mode, the ETM devices allocate their trace IDs using the
+   perf_sink_id_map. In sysfs mode, the ETM devices allocate their trace
+   IDs using the id_map_default.
+4. Considering the scenario where both ETR devices might be enabled simultaneously
+   with multiple sources, retrieving and using trace IDs instead of id_map is more effective
+   for the CTCU device in sysfs mode. For example, We can configure one ETR as sink for high
+   throughput trace data like ETM and another ETR for low throughput trace data like STM.
+   In this case, STM data won’t be flushed out by ETM data quickly. However, if we use id_map to
+   manage the trace IDs, we need to create a separate id_map for each ETR device. Addtionally, We
+   would need to iterate through the entire id_map for each configuration.
+5. Add support for apb's clock name "apb". If the function fails to obtain the clock with
+   the name "apb_pclk", it will attempt to acquire the clock with the name "apb".
+Link to V2 - https://lore.kernel.org/linux-arm-msm/20240705090049.1656986-1-quic_jiegan@quicinc.com/T/#t
+
+Changes in V2:
+1. Rename the device to Coresight Control Unit.
+2. Introduce the trace_id function pointer to address the challeng how to
+   properly collect the trace ID of the device.
+3. Introduce a new way to define the qcom,ccu-atid-offset property in
+device tree.
+4. Disabling the filter function blocked on acquiring the ATID-offset,
+   which will be addressed in a separate patch once it’s ready.
+Link to V1 - https://lore.kernel.org/lkml/20240618072726.3767974-1-quic_jiegan@quicinc.com/T/#t
+---
+
+James Clark (1):
+  Coresight: Use coresight_etm_get_trace_id() in traceid_show()
+
+Jie Gan (9):
+  Coresight: Add support for new APB clock name
+  Coresight: Add trace_id function to retrieving the trace ID
+  Coresight: Introduce a new struct coresight_path
+  Coresight: Allocate trace ID after building the path
+  Coresight: Change to read the trace ID from coresight_path
+  Coresight: Change functions to accept the coresight_path
+  dt-bindings: arm: Add Coresight TMC Control Unit hardware
+  Coresight: Add Coresight TMC Control Unit driver
+  arm64: dts: qcom: sa8775p: Add CTCU and ETR nodes
+
+ .../bindings/arm/qcom,coresight-ctcu.yaml     |  84 +++++
+ arch/arm64/boot/dts/qcom/sa8775p.dtsi         | 153 ++++++++
+ drivers/hwtracing/coresight/Kconfig           |  12 +
+ drivers/hwtracing/coresight/Makefile          |   2 +
+ drivers/hwtracing/coresight/coresight-core.c  | 125 +++++--
+ .../hwtracing/coresight/coresight-ctcu-core.c | 326 ++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-ctcu.h  |  39 +++
+ drivers/hwtracing/coresight/coresight-dummy.c |  15 +-
+ .../hwtracing/coresight/coresight-etm-perf.c  |  27 +-
+ .../hwtracing/coresight/coresight-etm-perf.h  |   2 +-
+ drivers/hwtracing/coresight/coresight-etm.h   |   1 -
+ .../coresight/coresight-etm3x-core.c          |  55 +--
+ .../coresight/coresight-etm3x-sysfs.c         |   3 +-
+ .../coresight/coresight-etm4x-core.c          |  55 +--
+ .../coresight/coresight-etm4x-sysfs.c         |   4 +-
+ drivers/hwtracing/coresight/coresight-etm4x.h |   1 -
+ drivers/hwtracing/coresight/coresight-priv.h  |  14 +-
+ drivers/hwtracing/coresight/coresight-stm.c   |  13 +-
+ drivers/hwtracing/coresight/coresight-sysfs.c |  17 +-
+ drivers/hwtracing/coresight/coresight-tpda.c  |  11 +
+ drivers/hwtracing/coresight/coresight-tpdm.c  |   2 +-
+ include/linux/coresight.h                     |  27 +-
+ 22 files changed, 827 insertions(+), 161 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
+ create mode 100644 drivers/hwtracing/coresight/coresight-ctcu-core.c
+ create mode 100644 drivers/hwtracing/coresight/coresight-ctcu.h
+
+-- 
+2.34.1
+
 
