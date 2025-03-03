@@ -4,115 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 190ACC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 07:26:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64A92C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 07:34:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9fyybMO7Uk1TdrgdX7raj8svI1HXk0M9bdiUtMPX9Hs=; b=idyQOYq+O3JoT8cjqQIPacJt79
-	jVo/+ofWPz2x/tRlx89gWIEU3jgjTDfF+7tt8vbqXoSkZbzvXG6Czx+2hErJW+e1G8TbNiag54GCk
-	QAqiaFTQnKb9snAgKish8ibKPwLHpMDkyjO2T/a6eJ1+W+jgQ4EkAfTMwpljz3PHHtWwDFgrBCL7C
-	TxpMhY7SCb4maBA29n+v3djZHLXk+g/ssh7dxmEwjpVQfcyYWuWEVNoQ4rci7FWxGLWGzq291jTns
-	tyi7Lu2EC3y/tACNQZJcH0Y/dLT5SHtV60OPJ8zvGYDDLuG45i/VVgbSC0S5Ys/n43XyhS1Qodiey
-	guJZDJ1w==;
+	bh=ZrfT43/ChI686f8asUl/9QZweWrcr9+CbhtUfhxyfBk=; b=s4TqECY032CIL0UkRMa7vX7Ttv
+	B8XXSWJWmeXsKF1DkuIPiBu3JYRn+hjYJZmoHNBWOtkDFl78HUHq719W1xS6xF0swzKTijgcY0h3N
+	uKI804RiZYAsYY4gcgB4cqbqQgzvXYOoSM7ZM5zb7vFvLBneogv4RTd5HQDi/a+kIH4u3cUxLAzCe
+	fXS6mG1F0tMyzLUOv3Ft0gM887g2aQsuAXVAqu1G47UTRw08fjIvAfgRMv4861hjZf/nS3D60FLON
+	nCQ9OY1B87rXhGRV4MQJ79Kso9uyLUl2lAzEOAtHnmOQTB341O5bgH8pcHnUNbg8GIezrIBC3AoKK
+	fP+xXMeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp0Bb-0000000HQbc-0vWY;
-	Mon, 03 Mar 2025 07:25:59 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tp0K8-0000000HRKY-2I44;
+	Mon, 03 Mar 2025 07:34:48 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp0A2-0000000HQWL-0diz;
-	Mon, 03 Mar 2025 07:24:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3406D5C05A7;
-	Mon,  3 Mar 2025 07:22:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CB72C4CED6;
-	Mon,  3 Mar 2025 07:24:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740986660;
-	bh=VySOvvJYVOXMBNDZlPELZwP+g8cJ/Y6sF/YKn/PvvDk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HbA7VZDtl/TNWqG62oFhLMl+naJrz6RHcKCe2eecOjSTmvNSgowWBBPxsqrF0Xutl
-	 Dh+A/xjoB+v7Ap3lvHzUuCe135CCplLe/N1S07bo2GYI6gkcl1AMINuRjrRBxE5//N
-	 j9I48zLi8ourbw6TRjONfcLqJdrhGI03lmYfyk0cy6xI9QGn6ituRFuS2RzH2yBl7b
-	 WWcnGOrM78y2AmOp5XWTzwjEhwuBAXYPo9EIBdC4yIS+8lfVThl/2HnWcYCR8N2m3t
-	 PyiITAnhBIZMCHJYkm99gtdy4ktesE9VcdxGvtqjWuJHQg7BI1X7JHUT+QqLIyL5K7
-	 OfjucJD27eRog==
-Message-ID: <354d6100-311f-44d7-b8a5-1fd671b651e3@kernel.org>
-Date: Mon, 3 Mar 2025 08:24:13 +0100
+	id 1tp0IZ-0000000HREl-2Dh9
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Mar 2025 07:33:12 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-30737db1aa9so38342471fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Mar 2025 23:33:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740987189; x=1741591989; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ZrfT43/ChI686f8asUl/9QZweWrcr9+CbhtUfhxyfBk=;
+        b=DLkf6Y55xrvym7GAigXG35M8IcAl+ueqs4022niJti2cSd+oLvcMUJizbXSon03vQc
+         945s+3cVr/kr1BaF6LgyGVANy9ktmU3Y65MzQfUg3rLK395OvhT/hXLSRjDDNjygSxHg
+         f2oDvEmxShHlVkCeomFXiXJdUjcrzau04QDg1igfRKBeHAxNzJmYsto5+blFqP4cvZpT
+         C24jgvWkCvL8g+Ma2UqIjTs9u+iu9pI1uZEMY1wHpSQKSQMmhdrdaQs4OiPlV2W0oDu6
+         qNeAkSbxBsf9XSjyu5E0BUDcjvgxlZpGNP8OnYK4cOPa+5qiTOOJ4lr86KYYRGsKp4J3
+         DeVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740987189; x=1741591989;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZrfT43/ChI686f8asUl/9QZweWrcr9+CbhtUfhxyfBk=;
+        b=XiS8/B06W1z5erSQgNluRd8M3/3tlmbbsGNj2NZ1W+BpJoUvQk4i7oZEJeukFBkJSY
+         CdNO2VbygEl1TeQMkfvQxXMfv7J70RNgaSfGu8AlHqrvgLxzKAxb5M3l0uuK9746+kwy
+         4raeG0mPT+5GlSleKsVRx81WmR9Q9e8vg7WI3u+u+HvDjojxQuBdsCBkmNdYnVGd80N5
+         h/m8WyoRy8UPB9ZO2NJtb3ig2nxLNPdFn7pgL+QVEU+wIAU9JBnhrtjv4MpcFxICZ+sM
+         BrQJbIzEY0buuASgDpGBKIjh48j+Fm8Pkejh89kSTKJHw5Xpnth5UMulXeHeIFIMHlkz
+         LziQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW2JXGvIKyWZ0KL9PKHF/RtjdU1OeVuFGrPJW0fx6niF5Wvlh8IbfeKRZ1GM/2FhKULBzUmoo9Bn3sVakSOi69c@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqhDRG5onekuQEaAUEXB5Q2bsKmwDrp44qJmKipJWxS1gPuYWh
+	hvEGNpn3YuNFAAkGpM6U/V5vHDpKbsnsfbWYedGW25EkPzQZhV23
+X-Gm-Gg: ASbGnct8V2jb4Q7N2FlEtdhcEf3ymjIdhg1y6suX7vWrf3tJmASthf6cdZEyOD4Zx/D
+	OD+WBd8SvrnOc2gjVBoI4/sGqEgpgQ+ACAYpPshpfcxfOqT8VA1VLF+RT5TpuFukKcUJGhsMeJg
+	OrMdiL9aVgrN1kOvwKpmrP3rw3r2Q5egS6RxyBjAP79vZDurIADLJ/TNLSJBGmPbRJePgmoPLmq
+	up/MZgVtjz0TwBLqAzudGNxF2f9y3ahK+yjLpqY011dpa4eP6WJTEQ1Rju98OZ88oyKFfr7lR0y
+	YYNRyoSjpJ3/F4STTUVX+wpSwBtW7hrmmxTXvMOL2hNebmbbzNE4cRscGHvObtHjKu3yeJCQ8be
+	lf2eEsY7QeFvpHbz2xq44RmvCJA==
+X-Google-Smtp-Source: AGHT+IFYoPik8tqIuOOXAJZxxEM4FjnMpyrSDbqpvuiBUw+N4rWidoyXw4/acgqr1fgBuicookECFg==
+X-Received: by 2002:a05:6512:693:b0:545:b28:2fa9 with SMTP id 2adb3069b0e04-5494c122af7mr5686831e87.16.1740987189050;
+        Sun, 02 Mar 2025 23:33:09 -0800 (PST)
+Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5495a7d6a2csm602975e87.227.2025.03.02.23.33.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 02 Mar 2025 23:33:07 -0800 (PST)
+Message-ID: <ce2c1a21-f418-4ed9-9cd3-fe2a68f08c31@gmail.com>
+Date: Mon, 3 Mar 2025 09:33:05 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/8] dt-bindings: phy: add
- samsung,exynos2200-usbcon-phy schema file
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
- <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v4 06/10] iio: adc: ti-ads7924 Drop unnecessary function
+ parameters
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
+ Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Abel Vesa <abel.vesa@linaro.org>,
- linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250223122227.725233-1-ivo.ivanov.ivanov1@gmail.com>
- <20250223122227.725233-4-ivo.ivanov.ivanov1@gmail.com>
- <20250224-curly-cyber-spaniel-efdc39@krzk-bin>
- <a4f63721-d094-4eda-b68a-6ef62ff54680@gmail.com>
- <c8184542-5dab-4403-bee4-867810397ae4@kernel.org>
- <4502b578-96e6-49e0-8f3b-54f6e5640c55@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <4502b578-96e6-49e0-8f3b-54f6e5640c55@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+ <conor+dt@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Daniel Scally <djrscally@gmail.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Hugo Villeneuve <hvilleneuve@dimonoff.com>, Nuno Sa <nuno.sa@analog.com>,
+ David Lechner <dlechner@baylibre.com>,
+ Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+ Guillaume Stols <gstols@baylibre.com>,
+ Olivier Moysan <olivier.moysan@foss.st.com>,
+ Dumitru Ceclan <mitrutzceclan@gmail.com>,
+ Trevor Gamblin <tgamblin@baylibre.com>,
+ Matteo Martelli <matteomartelli3@gmail.com>,
+ Alisa-Dariana Roman <alisadariana@gmail.com>,
+ Ramona Alexandra Nechita <ramona.nechita@analog.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev
+References: <cover.1740421248.git.mazziesaccount@gmail.com>
+ <38d39befcca110132fd4349c87fcb5d7ff51a2c8.1740421248.git.mazziesaccount@gmail.com>
+ <20250302034649.2d9ec2a4@jic23-huawei>
+Content-Language: en-US, en-AU, en-GB, en-BW
+From: Matti Vaittinen <mazziesaccount@gmail.com>
+In-Reply-To: <20250302034649.2d9ec2a4@jic23-huawei>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_232422_279890_E48803D4 
-X-CRM114-Status: GOOD (  28.09  )
+X-CRM114-CacheID: sfid-20250302_233311_575759_2B99599D 
+X-CRM114-Status: GOOD (  21.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,111 +128,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/03/2025 10:16, Ivaylo Ivanov wrote:
-> On 2/25/25 10:11, Krzysztof Kozlowski wrote:
->> On 24/02/2025 11:48, Ivaylo Ivanov wrote:
->>> On 2/24/25 10:56, Krzysztof Kozlowski wrote:
->>>> On Sun, Feb 23, 2025 at 02:22:22PM +0200, Ivaylo Ivanov wrote:
->>>>> The Exynos2200 SoC has a USB controller PHY, which acts as an
->>>>> intermediary between a USB controller (typically DWC3) and other PHYs
->>>>> (UTMI, PIPE3). Add a dt-binding schema for it.
->>>>>
->>>>> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
->>>>> ---
->>>>>  .../phy/samsung,exynos2200-usbcon-phy.yaml    | 76 +++++++++++++++++++
->>>>>  1 file changed, 76 insertions(+)
->>>>>  create mode 100644 Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
->>>> You have undocumented dependencies which prevent merging this file.
->>>> First, dependencies have to be clearly expressed.
->>> They are, in the cover letter.
->> Where? I read it twice. Dependencies is the most important thing and
->> should scream at beginning of the cover letter, so if you bury them
->> somewhere deep it also would not matter - just like they were missing.
+Hi dee Ho again Jonathan (and all),
+
+On 02/03/2025 05:46, Jonathan Cameron wrote:
+> On Mon, 24 Feb 2025 20:34:01 +0200
+> Matti Vaittinen <mazziesaccount@gmail.com> wrote:
+> 
+>> Device pointer is the only variable which is used by the
+>> ads7924_get_channels_config() and which is declared outside this
+>> function. Still, the function gets the iio_device and i2c_client as
+>> parameters. The sole caller of this function (probe) already has the
+>> device pointer which it can directly pass to the function.
 >>
->>>> Second, you should
->>>> rather decouple the code from header dependencies, otherwise this cannot
->>>> be merged for current release (just use clocks with long names, without IDs).
->>> Sure
+>> Simplify code by passing the device pointer directly as a parameter
+>> instead of digging it from the iio_device's private data.
 >>
->>>>> diff --git a/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
->>>>> new file mode 100644
->>>>> index 000000000..7d879ec8b
->>>>> --- /dev/null
->>>>> +++ b/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
->>>>> @@ -0,0 +1,76 @@
->>>>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->>>>> +%YAML 1.2
->>>>> +---
->>>>> +$id: http://devicetree.org/schemas/phy/samsung,exynos2200-usbcon-phy.yaml#
->>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>>>> +
->>>>> +title: Exynos2200 USB controller PHY
->>>>> +
->>>>> +maintainers:
->>>>> +  - Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
->>>>> +
->>>>> +description:
->>>>> +  Exynos2200 USB controller PHY is an intermediary between a USB controller
->>>>> +  (typically DWC3) and other PHYs (UTMI, PIPE3).
->>>> Isn't this the same as usbdrd phy? see: samsung,usb3-drd-phy.yaml
->>> It's not (I think). There's a few reasons I've decided to make this separate
->>> from the usb3-drd-phy bindings and exynos5-usbdrd driver:
->>>
->>> 1. This PHY does not provide UTMI and PIPE3 on its own. There's no tuning
->> USBDRD phy does not provide UTMI and PIPE on its own either if you look
->> at diagram - they call it phy controller.
+>> Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
+> Looking again at this function it doesn't seem to be doing anything
+> useful at all.  It checks the channel nodes are in range, but
+> does nothing with that data. I'd just drop it entirely.
 > 
-> Ughm. What? So in most exynos cases, there's a combination of multiple phys?
-
-
+> Ah. I see David suggested the same.
 > 
->>
->>> for them, and all that is needed from it is to disable HWACG, assert/
->>> deassert reset and force bvalid/vbusvalid. After that SNPS eUSB2
->>> initialization can be done and USB2 works. If the USBCON phy is not set
->>> up before the eUSB2 one, the device hangs, so there is definitely a
->>> dependancy between them. For PIPE3 we'd need to control the pipe3
->>> attaching/deattaching and then initialize the synopsys USBDP combophy.
->> Does it mean there is no USB DRD phy controller as before?
->>
->> Anyway the problem is you have DWC3 -> PHY -> PHY. Looks one phy too many.
-> 
-> So...
-> 
-> DWC3 -> USBDRD (USBCON) -> PHYs?
+> We can't really 'fix' what this was perhaps intended to do now
+> as what it does has become ABI :(
 
-No, drop last phy. You just wrote the same as me - two phys, because
-usbdrd is the phy. In all existing designs there is no such controllable
-object from the point of view of operating system.
 
-> 
-> ...with usbdrd controller connecting and controlling the USB2 and USB3
-> phys, as well as dual role mode?
+I took another look at this.
+The logic in the ads7924 driver (without this patch) is actually:
 
-Yes.
+ads7924_get_channels_config(...)
+{
+	device_for_each_child_node(dev, node) {
+		if (fwnode_property_read_u32(node, "reg", &pval)) ..
+			continue;
 
-> Well, where is the DRD part in the exynos5
-> driver?
+		if (channel >= ADS7924_CHANNELS)
+			continue;
 
-DRD? I believe it is part of DWC3, the same as in every other standard
-implementation of Synopsys DWC3.
+		num_channels++;
+	}
 
-> 
-> I guess it does perfectly fit the job of a usbdrd controller then (if it
-> even deals with DRD). But then again,  this brings up two questions:
-> 1. Should this driver even be named exynos2200-usbcon and not, for
-> example, exynos2200-usbdrd?
+if (!num_channels)
+	return -EINVAL;
+}
 
-Are you sure we talk about the same thing? USBDRD is IP block in the
-Exynos and a device driver. Call your device as appropriate it is -
-based on datasheet or downstream sources.
+...
 
-> 2. Are the exynos5-usbdrd phys really only USBDRD, or do they implement
-> USB speed functionality? What is the UTMI/PIPE3 setup for then?
+ads7924_probe()
+{
+	ret = ads7924_get_channels_config(...);
+	if (ret < 0)
+		return dev_err_probe(...);
+}
 
-Dunno, I don't get what you mean by "exynos5-usbdrd phys really only
-USBDRD". USBDRD is just the name of the device.
+So, it still returns an error, if no channels with valid 'reg' property 
+were found from the DT. It will also fail the probe().
 
-Best regards,
-Krzysztof
+Thus, this change is not quite as likely to cause things to break as it 
+seemed. Still, for now anything with even single valid 'channel' has 
+been Ok, even if all the rest were garbage. This new variant would fail 
+if any of the 'channel' nodes contained no or bad 'reg'. Thus this can 
+still break things.
+
+Anyways, I'll follow your suggestion and drop this patch (unless you 
+have second thoughts) - but I will keep the function so it still 
+requires at least 1 valid channel node to be found.
+
+Yours,
+	-- Matti
+
 
