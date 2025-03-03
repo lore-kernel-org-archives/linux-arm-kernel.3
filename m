@@ -4,58 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C541C282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 14:31:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05174C282CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 14:32:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/x1+tS5LVRnu5L7TTkYinyEr98t3FMfiCFSX1biy/OA=; b=X5TcRc0JeaoVnwpdwH4eTP5MoD
-	GutAWaVN2ctlajuPBLSJohJq/OmXLmq8o+ZHkIpwt9HvawPjmVqnzxrO43ba1RAy3qrDxxqB4jZyK
-	0/ag4Y/OrgbjYGbX/GkVnmgSLhAM4EKU9NM4H2tX21flfP54kMoi5KxNoAXtkP6rl7hSWblO3a1Jg
-	c2CVighZO+zPPdPg4jsnh83/7DgKMhpNxuGqIJagAPAHvKFhs3OkVAl6cHjOEV9G0xy7r5GiFWyrW
-	dAf8vHxDCVo+NC/8GoyB6BRwZ8yBS+Gaihz6gDuT5RzvpbewrecNVrArdl8L11ZO37TdKuPu9mm7c
-	ng2RAsgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cq7gdi5NxayTqZpSDp0z9Z6RZgP2PX5ON2jUhuY4DVI=; b=EyoTXhnZ6Vh7BGuiXHgxdi1lxA
+	1LGjuxZuVYa+rYwHteYrh2dUIe6mHcSmzq50Vv1kRzbpOQ2K7ofG5ThD7U1kT6GdiggVX5IvJi2ul
+	7hYLjG5m/PBYPLl/UNfYQQgyrJ2m1VMp2zZ/UiDNw1rmoGX/7I/lzWtTAxpEmh41V9Ai0QpLw2rh1
+	rEqYhRCsWxlBmN8u20tmidESi/cmadkYZjnNAjP/bb9LvPTQMh3MF2mBzwBewStF80t69yXBIPD3a
+	7c2WJyHhrCYd9r9LzbHcjrEbIokG6rfseqGi1capiVki4POYtdrwvj2tOT1DGlkYx5gE02eOUmD1c
+	/LsEhLBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp6oq-0000000170C-00ol;
-	Mon, 03 Mar 2025 14:30:56 +0000
+	id 1tp6qN-0000000178e-368f;
+	Mon, 03 Mar 2025 14:32:31 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp6ai-000000013RP-1eRT
+	id 1tp6cX-0000000148m-2CZh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 14:16:21 +0000
+	Mon, 03 Mar 2025 14:18:14 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DECF0106F;
-	Mon,  3 Mar 2025 06:16:31 -0800 (PST)
-Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5B11D3F66E;
-	Mon,  3 Mar 2025 06:16:16 -0800 (PST)
-Message-ID: <79b28d96-2a56-45b9-a5ae-5c120fe35a35@arm.com>
-Date: Mon, 3 Mar 2025 14:16:15 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B173106F;
+	Mon,  3 Mar 2025 06:18:25 -0800 (PST)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 034E83F66E;
+	Mon,  3 Mar 2025 06:18:09 -0800 (PST)
+Date: Mon, 3 Mar 2025 14:18:05 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Paul Benoit <paul@os.amperecomputing.com>
+Cc: linux-kernel@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4] firmware: smccc: Support optional Arm SMC SOC_ID name
+Message-ID: <Z8W6HXZy46K7ebWe@J2N7QTR9R3.cambridge.arm.com>
+References: <20241114030452.10149-1-paul@os.amperecomputing.com>
+ <20250219005932.3466-1-paul@os.amperecomputing.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/3] arm64: realm: Use aliased addresses for device DMA
- to shared buffers
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, linux-kernel@vger.kernel.org
-Cc: will@kernel.org, catalin.marinas@arm.com, maz@kernel.org,
- steven.price@arm.com, aneesh.kumar@kernel.org, gshan@redhat.com,
- linux-arm-kernel@lists.infradead.org,
- Jean-Philippe Brucker <jean-philippe@linaro.org>,
- Christoph Hellwig <hch@lst.de>, Marek Szyprowski <m.szyprowski@samsung.com>,
- Tom Lendacky <thomas.lendacky@amd.com>
-References: <20250227144150.1667735-1-suzuki.poulose@arm.com>
- <20250227144150.1667735-4-suzuki.poulose@arm.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20250227144150.1667735-4-suzuki.poulose@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250219005932.3466-1-paul@os.amperecomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_061620_481200_A76DBE62 
-X-CRM114-Status: GOOD (  19.49  )
+X-CRM114-CacheID: sfid-20250303_061813_716173_C99C4500 
+X-CRM114-Status: GOOD (  34.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,60 +64,216 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/02/2025 2:41 pm, Suzuki K Poulose wrote:
-> When a device performs DMA to a shared buffer using physical addresses,
-> (without Stage1 translation), the device must use the "{I}PA address" with the
-> top bit set in Realm. This is to make sure that a trusted device will be able
-> to write to shared buffers as well as the protected buffers. Thus, a Realm must
-> always program the full address including the "protection" bit, like AMD SME
-> encryption bits.
+Hi Paul,
+
+This looks generally good with a couple of minor nits.
+
+On Tue, Feb 18, 2025 at 04:59:32PM -0800, Paul Benoit wrote:
+> Issue Number 1.6 of the Arm SMC Calling Convention introduces an optional
+> SOC_ID name string.  If implemented, point the 'machine' field of the SoC
+> Device Attributes at this string so that it will appear under
+> /sys/bus/soc/devices/soc0/machine.
 > 
-> Enable this by providing arm64 specific dma_addr_{encrypted, canonical}
-> helpers for Realms. Please note that the VMM needs to similarly make sure that
-> the SMMU Stage2 in the Non-secure world is setup accordingly to map IPA at the
-> unprotected alias.
-
-FWIW,
-
-Reviewed-by: Robin Murphy <robin.murphy@arm.com>
-
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Robin Murphy <robin.murphy@arm.com>
-> Cc: Steven Price <steven.price@arm.com>
-> Cc: Christoph Hellwig <hch@lst.de>
-> Cc: Marek Szyprowski <m.szyprowski@samsung.com>
-> Cc: Tom Lendacky <thomas.lendacky@amd.com>
-> Cc: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
-> Changes since v2:
->   - Drop dma_addr_encrypted() helper, which is a NOP for CCA ( Aneesh )
->   - Only mask the "top" IPA bit and not all the bits beyond top bit. ( Robin )
->   - Use PROT_NS_SHARED, now that we only set/clear top bit. (Gavin)
-> ---
->   arch/arm64/include/asm/mem_encrypt.h | 11 +++++++++++
->   1 file changed, 11 insertions(+)
+> On Arm SMC compliant SoCs, this will allow things like 'lscpu' to
+> eventually get a SoC provider model name from there rather than each
+> tool/utility needing to get a possibly inconsistent, obsolete, or incorrect
+> model/machine name from its own hardcoded model/machine name table.
 > 
-> diff --git a/arch/arm64/include/asm/mem_encrypt.h b/arch/arm64/include/asm/mem_encrypt.h
-> index f8f78f622dd2..a2a1eeb36d4b 100644
-> --- a/arch/arm64/include/asm/mem_encrypt.h
-> +++ b/arch/arm64/include/asm/mem_encrypt.h
-> @@ -21,4 +21,15 @@ static inline bool force_dma_unencrypted(struct device *dev)
->   	return is_realm_world();
->   }
->   
+> Signed-off-by: Paul Benoit <paul@os.amperecomputing.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: Sudeep Holla <sudeep.holla@arm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> ---
+> 
+> v3->v4: Address code review identified issues of v3.
+> v2->v3: Add conditionalization to exclude SOC_ID Name from 32-bit builds.
+> v1->v2: Address code review identified issues.
+> 
+>  drivers/firmware/smccc/soc_id.c | 81 +++++++++++++++++++++++++++++++++
+>  include/linux/arm-smccc.h       | 40 ++++++++++++++++
+>  2 files changed, 121 insertions(+)
+> 
+> diff --git a/drivers/firmware/smccc/soc_id.c b/drivers/firmware/smccc/soc_id.c
+> index 1990263fbba0..7b0688d78dab 100644
+> --- a/drivers/firmware/smccc/soc_id.c
+> +++ b/drivers/firmware/smccc/soc_id.c
+> @@ -32,6 +32,86 @@
+>  static struct soc_device *soc_dev;
+>  static struct soc_device_attribute *soc_dev_attr;
+>  
+> +#ifdef CONFIG_ARM64
+> +
+> +static char __ro_after_init smccc_soc_id_name[136] = "";
+> +
+> +static inline void str_fragment_from_reg(char *dst, unsigned long reg)
+> +{
+> +	dst[0] = (reg >> 0)  & 0xff;
+> +	dst[1] = (reg >> 8)  & 0xff;
+> +	dst[2] = (reg >> 16) & 0xff;
+> +	dst[3] = (reg >> 24) & 0xff;
+> +	dst[4] = (reg >> 32) & 0xff;
+> +	dst[5] = (reg >> 40) & 0xff;
+> +	dst[6] = (reg >> 48) & 0xff;
+> +	dst[7] = (reg >> 56) & 0xff;
+> +}
+> +
+> +static char __init *smccc_soc_name_init(void)
+> +{
+> +	struct arm_smccc_1_2_regs args;
+> +	struct arm_smccc_1_2_regs res;
+> +	size_t len;
+> +
+> +	/*
+> +	 * Issue Number 1.6 of the Arm SMC Calling Convention
+> +	 * specification introduces an optional "name" string
+> +	 * to the ARM_SMCCC_ARCH_SOC_ID function.  Fetch it if
+> +	 * available.
+> +	 */
+> +	args.a0 = ARM_SMCCC_ARCH_SOC_ID;
+> +	args.a1 = 2;    /* SOC_ID name */
+> +	arm_smccc_1_2_invoke(&args, &res);
+> +	if ((u32)res.a0 == 0) {
+> +		const unsigned int regsize = sizeof(res.a1);
+> +
+> +		/*
+> +		 * Copy res.a1..res.a17 to the smccc_soc_id_name string
+> +		 * 8 bytes at a time.  As per Issue 1.6 of the Arm SMC
+> +		 * Calling Convention, the string will be NUL terminated
+> +		 * and padded, from the end of the string to the end of the
+> +		 * 136 byte buffer, with NULs.
+> +		 */
+> +		str_fragment_from_reg(smccc_soc_id_name + 0*regsize, res.a1);
+> +		str_fragment_from_reg(smccc_soc_id_name + 1*regsize, res.a2);
+> +		str_fragment_from_reg(smccc_soc_id_name + 2*regsize, res.a3);
+> +		str_fragment_from_reg(smccc_soc_id_name + 3*regsize, res.a4);
+> +		str_fragment_from_reg(smccc_soc_id_name + 4*regsize, res.a5);
+> +		str_fragment_from_reg(smccc_soc_id_name + 5*regsize, res.a6);
+> +		str_fragment_from_reg(smccc_soc_id_name + 6*regsize, res.a7);
+> +		str_fragment_from_reg(smccc_soc_id_name + 7*regsize, res.a8);
+> +		str_fragment_from_reg(smccc_soc_id_name + 8*regsize, res.a9);
+> +		str_fragment_from_reg(smccc_soc_id_name + 9*regsize, res.a10);
+> +		str_fragment_from_reg(smccc_soc_id_name + 10*regsize, res.a11);
+> +		str_fragment_from_reg(smccc_soc_id_name + 11*regsize, res.a12);
+> +		str_fragment_from_reg(smccc_soc_id_name + 12*regsize, res.a13);
+> +		str_fragment_from_reg(smccc_soc_id_name + 13*regsize, res.a14);
+> +		str_fragment_from_reg(smccc_soc_id_name + 14*regsize, res.a15);
+> +		str_fragment_from_reg(smccc_soc_id_name + 15*regsize, res.a16);
+> +		str_fragment_from_reg(smccc_soc_id_name + 16*regsize, res.a17);
+
+Please get rid of 'regsize' and use '8' directly. This only exists for
+arm64, where the registeres are 8 bytes, and the comment immediately
+above refers to "8 bytes" specifically anyway, so 'regsize' only serves
+to make this harder to read.
+
+It'd be a bit clearer as:
+
+	str_fragment_from_reg(smccc_soc_id_name + 8 * 0,  res.a1);
+	str_fragment_from_reg(smccc_soc_id_name + 8 * 1,  res.a2);
+	...
+	str_fragment_from_reg(smccc_soc_id_name + 8 * 15, res.a16);
+	str_fragment_from_reg(smccc_soc_id_name + 8 * 16, res.a17);
+
+Sudeep, are you happy to fix that up when applying?
+
+> +
+> +		len = strnlen(smccc_soc_id_name, sizeof(smccc_soc_id_name));
+> +		if (len) {
+> +			if (len == sizeof(smccc_soc_id_name))
+> +				pr_warn(FW_BUG "Ignoring improperly formatted Name\n");
+
+It's odd that 'Name' is capitalized here. Not a big deal, but it doesn't
+look quite right.
+
+> +			else
+> +				return smccc_soc_id_name;
+> +		}
+> +	}
+> +
+> +	return NULL;
+> +}
+> +
+> +#else
+> +
+> +static char __init *smccc_soc_name_init(void)
+> +{
+> +	return NULL;
+> +}
+> +
+> +#endif
+> +
+>  static int __init smccc_soc_init(void)
+>  {
+>  	int soc_id_rev, soc_id_version;
+> @@ -72,6 +152,7 @@ static int __init smccc_soc_init(void)
+>  	soc_dev_attr->soc_id = soc_id_str;
+>  	soc_dev_attr->revision = soc_id_rev_str;
+>  	soc_dev_attr->family = soc_id_jep106_id_str;
+> +	soc_dev_attr->machine = smccc_soc_name_init();
+>  
+>  	soc_dev = soc_device_register(soc_dev_attr);
+>  	if (IS_ERR(soc_dev)) {
+> diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
+> index 67f6fdf2e7cd..eb7eab04755a 100644
+> --- a/include/linux/arm-smccc.h
+> +++ b/include/linux/arm-smccc.h
+> @@ -639,5 +639,45 @@ asmlinkage void __arm_smccc_hvc(unsigned long a0, unsigned long a1,
+>  		method;							\
+>  	})
+>  
+> +#ifdef CONFIG_ARM64
+> +
+> +#define __fail_smccc_1_2(___res)					\
+> +	do {								\
+> +		if (___res)						\
+> +			___res->a0 = SMCCC_RET_NOT_SUPPORTED;		\
+> +	} while (0)
+> +
 > +/*
-> + * For Arm CCA guests, canonical addresses are "encrypted", so no changes
-> + * required for dma_addr_encrypted().
-> + * The unencrypted DMA buffers must be accessed via the unprotected IPA,
-> + * "top IPA bit" set.
+> + * arm_smccc_1_2_invoke() - make an SMCCC v1.2 compliant call
+> + *
+> + * @args: SMC args are in the a0..a17 fields of the arm_smcc_1_2_regs structure
+> + * @res: result values from registers 0 to 17
+> + *
+> + * This macro will make either an HVC call or an SMC call depending on the
+> + * current SMCCC conduit. If no valid conduit is available then -1
+> + * (SMCCC_RET_NOT_SUPPORTED) is returned in @res.a0 (if supplied).
+> + *
+> + * The return value also provides the conduit that was used.
 > + */
-> +#define dma_addr_unencrypted(x)		((x) | PROT_NS_SHARED)
+> +#define arm_smccc_1_2_invoke(args, res) ({				\
+> +		struct arm_smccc_1_2_regs *__args = args;		\
+> +		struct arm_smccc_1_2_regs *__res = res;			\
+> +		int method = arm_smccc_1_1_get_conduit();		\
+> +		switch (method) {					\
+> +		case SMCCC_CONDUIT_HVC:					\
+> +			arm_smccc_1_2_hvc(__args, __res);		\
+> +			break;						\
+> +		case SMCCC_CONDUIT_SMC:					\
+> +			arm_smccc_1_2_smc(__args, __res);		\
+> +			break;						\
+> +		default:						\
+> +			__fail_smccc_1_2(__res);			\
+> +			method = SMCCC_CONDUIT_NONE;			\
+> +			break;						\
+> +		}							\
+> +		method;							\
+> +	})
+> +#endif /*CONFIG_ARM64*/
+
+At some point I intend to rework the existing helpers to not return the
+conduit, but this is fine for now.
+
+With the fixups above:
+
+Acked-by: Mark Rutland <mark.rutland@arm.com>
+
+Mark.
+
 > +
-> +/* Clear the "top" IPA bit while converting back */
-> +#define dma_addr_canonical(x)		((x) & ~PROT_NS_SHARED)
-> +
->   #endif	/* __ASM_MEM_ENCRYPT_H */
+>  #endif /*__ASSEMBLY__*/
+>  #endif /*__LINUX_ARM_SMCCC_H*/
+> -- 
+> 2.48.1
+> 
 
