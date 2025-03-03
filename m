@@ -4,97 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 994AEC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 18:54:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D1A5C282CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 18:58:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tb5V6oxMTc5Lgs5t3WuZtNTHjuiR0TEmQLLvfX9+d/M=; b=OunKdzbqJHQnkvqeYrNkY968sH
-	YRgCoCLIFRaY1ZUE/o4EcJRtVKaJRXM0I1e9eqQHwZtgW3Dyk0bptwMe5Ori4EmaYtcXrv7+Pe26E
-	GpDfOuNSA1TvpA6ayNDjcYCeFyMGFSk5ONe7iXTAeVBdftBQi9I6+MXf2u4xFMBfhC/sUZyROmbd0
-	67TuLg1FBK03lue9rN/C0Ge3JHm9e3IawrWdCsJ7gGJvqPiuhJENf5LU4ZHSaHl6NCfTaXxxwQ4Is
-	2QdqB+LmDJWVk+VFP1t1GQ/4/uxOSqk7vHcKxtwog4S/3u+mIIix5OX17v/8RCDa0lpojwLWNvaOt
-	J02mY/Lg==;
+	bh=ByURWW4/51grEFFoJ5cNbGWq84mjT1dgOMDzzVdymTY=; b=coljVlkltylX1HntqgvHXNxgaX
+	818dlXg1+sPhq2vr122uYBuGlf0RpB0kiODCaxMDSMs8t20T29d6FH+nCVGDDxcqkWDqAyg372TCB
+	TY0+W+sy3qIIRULnsYdyf2/1mRQZsM62vTbI0bNX1IBCTMXzOaOem0dK5hK+M7Xd8JBrgeicxUGgN
+	A6tgMedctYuMmoZJkSkZGEbB3Gr3ZXDBHl3s95Kxx7kCkKq44SMAR7HiyJIGlpvAenqZxOE1jPHa+
+	ZAjjh5udwzQspMQVPfpxoTx1Ceupwg/Dcw1+5HnxzPZYTqyRvkZ8TtlpQDnUq0JKOwloAJvILcPle
+	7USt307w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpAve-00000001zkC-1nLD;
-	Mon, 03 Mar 2025 18:54:14 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1tpAzl-000000020Lq-1DGQ;
+	Mon, 03 Mar 2025 18:58:29 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpAtq-00000001zJQ-2gMZ
+	id 1tpAyB-000000020CK-2fvl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 18:52:23 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-390ec7c2cd8so2273488f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 10:52:22 -0800 (PST)
+	Mon, 03 Mar 2025 18:56:52 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43bbc8b7c65so16693995e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 10:56:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741027941; x=1741632741; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tb5V6oxMTc5Lgs5t3WuZtNTHjuiR0TEmQLLvfX9+d/M=;
-        b=fr2ub3cP2SYq7CttNkdAhHMyttEi2JTdl3yOMVA79zw0wTyE9wqhslj3wNw0RSFJcC
-         lhGFisrosP/qHswMySyZJ0S+4+CRueN5FeK/wxGes4b3M1qfoSvRo5J8qCsOcDwNQgIe
-         Ktq/+GNyP8Io7gVr0Y0p0/K65hIw9iPHAaYN9e+i/AqVtH5ovmGS/YMbHHuhW1lymAym
-         1GbMGl57IfcDKmLkGPeX3FE0edOGYCmvehEcaYPcKmDKByAdS0pPWMKMJQA+ZVKABdhA
-         F3NKufzBDWzWjG2N9ty+WEv+KrdcHXGPvKx4hllSrEVy1A7xBeSQUWKdpOu+EcLqNyRy
-         VWwA==
+        d=tuxon.dev; s=google; t=1741028210; x=1741633010; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ByURWW4/51grEFFoJ5cNbGWq84mjT1dgOMDzzVdymTY=;
+        b=BMZGAL0JsSVpu60waRK/WFDT6EDFzBiO/fvFdIPdPNh+xhJiMkLcweGj1kycf/dvqz
+         jqeqgH8KAT4YdfYxzLSfvSneRU4ydcD03VcN3JNxp7md5K4cD+RYbFl/Pgiqcsm+WS3d
+         RcoE70+P1HBPY0yejbjtzUzWrR1/zmSGzhDoejSDH2ynb87wAILhL5WthTzesO8bbzkg
+         ZaCFPaSbJU6bzNE09BJJLdl4N56/JF9AvA/5x+pkGHQ6SfpwmBUhrf3JlhLB2BSFK0fK
+         sYUumLLiwfWr4LhF+s6V1k2IczhNKrKfLya8RDyRSLLGx40nx38dY+wvbdrQjPgzuo57
+         YkRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741027941; x=1741632741;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=tb5V6oxMTc5Lgs5t3WuZtNTHjuiR0TEmQLLvfX9+d/M=;
-        b=s/Z97sUum2JxlMkRFaQt1BOEVTstysG3uvs/vmpr1A+A1idxO7jfc+ZNvVpOS6zXnc
-         d1SCZg1dy+1TV3vXHXfrwjafoKhOL/apM5olrx8RnZ1qgf6UqqXt4HVEa9ssUuSLpwfz
-         uku0BhVh5yMFmjMXsOgayd5ykNy6APmyxn+lnL9KB/gWPOnCB7QJ5Zz1CuuFgUGjZntL
-         5QKjq8pr1fP0RLxQ/6jE9Lnm0cTDKtzxSANDIOU2ebT7c2d1qk+sRNRsBxTqptoqb++P
-         Znh5RCa7H5oL3+M91m9h4rj4/b9oY+Z2bbLPvzvTsJEn+HF0141db/WaVUC//2GHU0Ai
-         k5jQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWYjs/kQI7jMkJUQJOaxgjHa5UIA/SKXNpvAeSCinTHAOsK8gUzkDcBguDzJJIqD+r3Xg5ANdZNTVMfCqsZjU6f@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5zr+wd0xWzRZZ/T2t6Jax91Q00AVDCwpuvm4X/ViHI4nkNFPT
-	4XSxGTfDsgL/ayb0b++QL7pL79H/7nZSFKhm3bceTRciN+38UPjmogEf1MgHC53dp4ITyCHLbOp
-	8UW6cmuN0X5Zv0AI5Q+5HmIzOAZo=
-X-Gm-Gg: ASbGncuXvD3rSg8xlkG2DbOB7zUUo+Cb9rpfI8dl9C8G8ddHfNT/NGlNh82vYINxkkd
-	b9qv60C3z4jWVhs7vRMnjxtZqyeJrY+KLu5KX+cibOYOCZ92xSRM5kuXEdwBWujOV9nmMDOYR8O
-	rUxVMcVowRql0A5e6h6SaFVAt5+hrV/xP9+IpWU90o8w==
-X-Google-Smtp-Source: AGHT+IHnZBbHX4QElW1DWMreZTHhDpaQknBh51JcyUMZfBlOP/B0HyGo9KEmQZFrsra49723GFGoT6jKhOTVwWemjok=
-X-Received: by 2002:a05:6000:1f8d:b0:390:fb37:1bd with SMTP id
- ffacd0b85a97d-390fb370470mr6928710f8f.46.1741027940749; Mon, 03 Mar 2025
- 10:52:20 -0800 (PST)
+        d=1e100.net; s=20230601; t=1741028210; x=1741633010;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ByURWW4/51grEFFoJ5cNbGWq84mjT1dgOMDzzVdymTY=;
+        b=U9E6268Qb4wid3+D2HN2XEVYrlNKWu+AB4hfstSbwjfi2q+FwsRt/yfcAkgsXG03Fl
+         Ox7p/p+OPLJpCesOzqNPtaAXLfgBhQc4zeMlPc+zRQT8WxnIkHGFekCDuM2/rJXnrqpa
+         wt3EqpK5kf121XZtfnInWRZIcE8gwmzcm/080pT6VdPDvoAHiKGk8ocMHRHgd3Bn4XJE
+         iwBwVZcrzajE3WyEYauR0rwa6AmZajOry71bKGpyBPXdORK+hblhEmOvSu0gQC+nkAq3
+         O7y94zKnOsvEnAzGQd1JA+rzD6nyVWj9fO746QsZmEYZKWr00Gv8cmh3kJyXmfI5aBx6
+         00Mw==
+X-Forwarded-Encrypted: i=1; AJvYcCUUx2gLmkaZzdYHN4FfTW3TEYz/B8aZ6vVxd/LLAT3SRZ10M+mu4FjBDEa4SgbDQScdb6/1mzCCSOcXx9NU7r43@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+eTvvFD7NgTC46xURjHzCkUD7UxOherKhhSASdiK8AJim62By
+	0YICJWyzwCXOG+VOnkgxDiQaksovXUhcvIuYcvNRa2ckD2KwSLmQwlnz5DgZ9ks=
+X-Gm-Gg: ASbGnct4SVNq6OUKvuPNEybBKEwvCfFJQ+lutiT2Pm2DNB9Ubu3VXIm2Vl+AHPLxfcV
+	bV4HJ8bYuZrdDrdazvKCX7xfkJu2gHe2LTVzFp8i1oT1VIiv9mNo+LUc7hXQ658xWWNthWmDD1j
+	IoAmLEi4aAJFak764BoDWVqQmA+VOPCnTRDSMuZgXqlKWZRGs/EzXWWjEHuCcK/crEpHHLMWQU8
+	Us9x/+kU40iHZO+o4gWqwF9S5WTwXgCr+oPnS7QNKkUohuhd+ohXLt4CuPEZIZLf6yJRNRslgqu
+	DCAPWA759eSoL4ZY3wEBR+2nriD8wymRjzAu9XA+8Z6cARtvSiep/w==
+X-Google-Smtp-Source: AGHT+IGVUE0CQu4ReThqwR4ny9E8a1exZ2jLsRFt7w170BeB8vADyu6EQUUGy2xTMtQFYKiXpDs9Pg==
+X-Received: by 2002:a05:600c:4fd3:b0:439:a255:b2ed with SMTP id 5b1f17b1804b1-43ba66e5f09mr144551665e9.9.1741028209871;
+        Mon, 03 Mar 2025 10:56:49 -0800 (PST)
+Received: from [192.168.50.4] ([82.78.167.138])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bc9c0fb1esm12229025e9.20.2025.03.03.10.56.48
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 03 Mar 2025 10:56:49 -0800 (PST)
+Message-ID: <39213e99-3041-4602-9dd2-536e9b09ad11@tuxon.dev>
+Date: Mon, 3 Mar 2025 20:56:47 +0200
 MIME-Version: 1.0
-References: <cover.1740978603.git.yepeilin@google.com> <8b39c94eac2bb7389ff12392ca666f939124ec4f.1740978603.git.yepeilin@google.com>
-In-Reply-To: <8b39c94eac2bb7389ff12392ca666f939124ec4f.1740978603.git.yepeilin@google.com>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Mon, 3 Mar 2025 10:52:08 -0800
-X-Gm-Features: AQ5f1JpXrd_zfB7BE28u8dY7mQWsRaJQVmXworXNHuBlKbek7ljLtxiaGy0Y8Kw
-Message-ID: <CAADnVQKyMx64_mP+u+rmnRGyzVoBs4rViTHeE4_0Rr+Kf3R5Tg@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v4 03/10] bpf/verifier: Factor out
- check_load_mem() and check_store_reg()
-To: Peilin Ye <yepeilin@google.com>
-Cc: bpf <bpf@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, bpf@ietf.org, 
-	Alexei Starovoitov <ast@kernel.org>, Xu Kuohai <xukuohai@huaweicloud.com>, 
-	Eduard Zingerman <eddyz87@gmail.com>, David Vernet <void@manifault.com>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
-	Jiri Olsa <jolsa@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	"Paul E. McKenney" <paulmck@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
-	Ilya Leoshkevich <iii@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Quentin Monnet <qmo@kernel.org>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
-	Ihor Solodrai <ihor.solodrai@linux.dev>, Yingchi Long <longyingchi24s@ict.ac.cn>, 
-	Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>, Neel Natu <neelnatu@google.com>, 
-	Benjamin Segall <bsegall@google.com>, LKML <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/2] Add System Components for Microchip SAMA7D65 SoC
+To: Ryan.Wanner@microchip.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, nicolas.ferre@microchip.com,
+ alexandre.belloni@bootlin.com, wim@linux-watchdog.org, linux@roeck-us.net
+Cc: vkoul@kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ dmaengine@vger.kernel.org, linux-watchdog@vger.kernel.org
+References: <cover.1740675317.git.Ryan.Wanner@microchip.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Content-Language: en-US
+In-Reply-To: <cover.1740675317.git.Ryan.Wanner@microchip.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_105222_680486_4F5E4094 
-X-CRM114-Status: UNSURE (   7.43  )
+X-CRM114-CacheID: sfid-20250303_105651_779708_1D9F420C 
+X-CRM114-Status: UNSURE (   6.08  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,16 +103,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 2, 2025 at 9:37=E2=80=AFPM Peilin Ye <yepeilin@google.com> wrot=
-e:
->
-> Extract BPF_LDX and most non-ATOMIC BPF_STX instruction handling logic
-> in do_check() into helper functions to be used later.  While we are
-> here, make that comment about "reserved fields" more specific.
->
-> Suggested-by: Eduard Zingerman <eddyz87@gmail.com>
-> Acked-by: Eduard Zingerman <eddyz87@gmail.com>
-> Signed-off-by: Peilin Ye <yepeilin@google.com>
 
-Applied the first 3 patches.
+
+On 28.02.2025 17:24, Ryan.Wanner@microchip.com wrote:
+> Ryan Wanner (2):
+>   ARM: dts: microchip: sama7d65: Add watchdog for sama7d65
+
+Applied to at91-dt, thanks!
 
