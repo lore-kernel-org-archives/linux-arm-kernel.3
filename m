@@ -4,81 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48BF6C282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 16:39:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A4DBC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 16:44:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VH1ACupLvAJdNlA5THBalJEs0SiV1YT5szGP401I0g4=; b=k4L4LEeQBmW+IthV81P51OvY5X
-	NxyTeEDz6yh5qxTM1yJh81rqBYTspwYxSDKJLw2y3xA3kNhoSSNRnTtTJl7dKi/5mil2IBFVn+Koe
-	Fy8q4t0gDZSmabv0EDl9qt7jkzvy7Goi/gRAPVg8WDIz1AxNzEIium1ZhcMg6XVGQs6rYn9gplwv2
-	SRUHeopVnF2BXYDuw5wcZDzepvp8wvLFIPHzJYw88t8beJW/oa9ybsU+vIui88ZYmHfBxh5grHZqO
-	3BIZr4gXx9rp/lyoHG9bhZbBwsVLZl4L1tTWH/LuKhTCKn9VbWPcTEyu49EMg1bR6kPw4hRY7Id5L
-	ihg9tdKw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iFKFKTz3f/ODCWb43+xuXVSlIieWn0Rv+6AT+FvWruI=; b=mj4JRLUpRz1O5IDCbOs0N/WnCr
+	vCrqAUqT9i66MBQBFPs1ISPbGLN+hObqW4xqYqlj760F0YeyEZtBQVNIMDdgoteej7oEYHO9935TE
+	3tD7AG9onF+TlkBAlYCdm5m4DudUThUd2KfvrvMtQht1uBXfQEKg7esHSt0LFDXaRdD1hVVWcyBNd
+	u/AQV5+6CiH6P0AQP9lwOO2LDNYJ71BBb2dXmBameXqa7C4QDGmzuFQfkiJ4HAyqqKD++7oZnJgif
+	A21+KAgbdG1IMAIQghF/zvKRi3cMzMYnhTujvAuyRH8X3GFZNcR4VU+Ulw5kkGMYtnmo/mnDaKBUO
+	raDinRIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp8ov-00000001ZGP-1Xd8;
-	Mon, 03 Mar 2025 16:39:09 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tp8tf-00000001aYT-17sP;
+	Mon, 03 Mar 2025 16:44:03 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp8nL-00000001Yx0-2YE5
+	id 1tp8s5-00000001a9d-0k0i
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 16:37:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 02D285C5A53
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Mar 2025 16:35:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84305C4CED6
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Mar 2025 16:37:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741019850;
-	bh=2xP1VNckQ2vULtbhOREqEVD3q8xkOcQG3iR8jMeveYc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=JzugNjmB6+Sf/dusRt5fDnVooJlQ0gk4B4/Kjro31zYbH+GW18PBym7it18/y/woV
-	 r5nKxsE3oayZkZ+4y1h0yhEX5KPXRPgdG/GVdMkPO6WVPDncCTsYExSKrEfNKatads
-	 GFTJzo1CJPASgZpQWfwXzN1zjI1xh0JYYkWIS+hFYKgB5trllvAbt8Uu7VeBUYEPD1
-	 paOuY0ay34eXjk/MjcUqv0ybymhfdiUM1r3kVlSP2DHuHUtkgVkl9antvRft7yjrIT
-	 baCzkHvDUGppLEuhrM0TQwfUpjxJWTGOA8NNWXo6/LQ2+Cqd2tU6nDjIoR0m5DExKV
-	 2DLBGdJqqlQVg==
-Received: by mail-ed1-f47.google.com with SMTP id 4fb4d7f45d1cf-5e52c1c3599so2934916a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 08:37:30 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCV8it1WcZG0Nvuwx/6BABJ7lPPND0SxbySjYOZPh7cEgQdBIEYM/1xAqu6kxr8OqHFUqcAgoxuQW7aM6u/k6YYC@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvxPEMA3E6LRePK0ohlKVUkffhcqgC7tHvWqWdCfIG2L4X8IQ/
-	1hkKBtpLmkuMlBouDPzEEhLRl6mbldJ9BvwEY7mxMo6HYdcYJ3LS9lcQ92QYgFnmODCJDQAA076
-	KzNeGkhq46NfgULLRn+KGWVbtVA==
-X-Google-Smtp-Source: AGHT+IHUsZAUSMpJRbmPIa6fiiDfbENTCpBzluX0zXK2ogy8xG9qRfPLy2SEI9L4RS00s4IFwPqdkKyO7j94lM74OL0=
-X-Received: by 2002:a17:907:7f1f:b0:ac1:dde7:a80b with SMTP id
- a640c23a62f3a-ac1dde7ab19mr235932466b.43.1741019848769; Mon, 03 Mar 2025
- 08:37:28 -0800 (PST)
+	Mon, 03 Mar 2025 16:42:26 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43bc638686eso5562535e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 08:42:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741020143; x=1741624943; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iFKFKTz3f/ODCWb43+xuXVSlIieWn0Rv+6AT+FvWruI=;
+        b=zWi1yvQdd2/RotrfnkSRWdkxZ6jkWteHSvl1/sVUuoE+JWagoc/TpPo4EEyKO2Ht/F
+         D53JVpAascvYmGL+9KZXpoxwlGrSXGbIStIfi1lIVoxENYvvDaJMCiMn3geXEMH0GFiK
+         41N+KsZkvyaahHpErYBQGYx2US81t41u4pv3ZwKvUbYPAs1JZjbTc0ZPDTOH4oFknPT8
+         Uqxevu6dINCzXPQI8cqCvxNOKUPgEE+j0ew3C+v9EpdtsfmG40Ycq/2BHdOX1CK7u+nO
+         2+8IoxDhSoGcViiCHfTWT/bQeLbB7YKZu3o329yCR8W89D/LPtrzWh/GWQoIOnd1SURF
+         eKHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741020143; x=1741624943;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=iFKFKTz3f/ODCWb43+xuXVSlIieWn0Rv+6AT+FvWruI=;
+        b=Md+JHXdcoxlxzQL+fWbV9BRBNdPVdoIOTP+Je3VFv3FZr1E7p50kSqAUr7MfmW+GAZ
+         99XWvACmPKMo7JCkCQrCiqT4MzL+RhftXvo17EsiK3r0ynZ7lXVIuQBPX2YSIlIxNlCF
+         aqKpHz1PFvQo8uV4WpSDrN9MEhVy1qtNbh01Sy9Qb0+Pna9xWr0zYX0Ai6YVKLcE1JDe
+         jjHlygxSRmMtcn52KddyaKrAQ6GcDakTd59TwfDjL2Jlk98D7sR3jR/gMU+vdWUQAOgh
+         RxfptGOLtX4GioHatSB9qNXfQ2gLmhdxpRrhMlFIpoa0x/qQv4hFtyRLMWwrkNJHpyIW
+         60zw==
+X-Gm-Message-State: AOJu0Yx4YbLcvHmNA8tUiLdd11K4PNKUvBO+7OC7DysFpWucEmn/ecoF
+	N6idGZiNemY1curVRA3h+3d2bg855DlVKi9hKPTX8/6bKJJRsIb7MW8P87JWp/U=
+X-Gm-Gg: ASbGncuE0jmDMRAjppXx3aasoDLqFIt0/ypzOkNYHx9kJ9U388Kc9d5zqbhDy0RlALI
+	hwPSfLi7p/XoMyUfKT4K0zL6faWhqLXhJB0oPCb+3v0+0BQ1330NXCSZYaNXkBu6wZejSS7dQHM
+	Cd8XpZy0CRxT5XCTHcgiD+Ec4G9azH4e2Q4IzNIbHTqcP46cLXFCg02ceursrOO0GcNeeOCBEXv
+	w4xFXVd6UtcqeBF8WzaCmBI9NjvlslDeMK8uF2vGk6a9dONofZxheMt4Sh/QgBkTY4KaW3tVfbZ
+	l8hMEZ+PRJPki7BkGJjMgADyVH0qZIIW1L7Fjir/0abfkt7DG/2JCEs9vAI6nHqdIjKZFUTomye
+	DeiolmKUK98Usn1QHWXG1bg==
+X-Google-Smtp-Source: AGHT+IERr7trlQog+kaqqAb3/Ic3azfyefHYSZ50wtP9WNSBDS9iVBnCIw5D4hRIB3JQ4kfjJRTwFQ==
+X-Received: by 2002:a05:6000:1fa9:b0:391:e1f:4c29 with SMTP id ffacd0b85a97d-3910e1f4d09mr3013310f8f.13.1741020143525;
+        Mon, 03 Mar 2025 08:42:23 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:982:cbb0:1c49:dea2:d749:5015? ([2a01:e0a:982:cbb0:1c49:dea2:d749:5015])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bc57529fasm28363735e9.31.2025.03.03.08.42.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 03 Mar 2025 08:42:23 -0800 (PST)
+Message-ID: <c3927b51-55ef-4a38-8931-18ff00caa8d8@linaro.org>
+Date: Mon, 3 Mar 2025 17:42:22 +0100
 MIME-Version: 1.0
-References: <20250217-adpdrm-v7-0-ca2e44b3c7d8@gmail.com> <174047913824.2131221.6545389561298332217.b4-ty@linaro.org>
- <CAA8EJpqM8ZQ-ScEtEBXaUF2Nargtp_TBAyMYvbJ49PGbwPWjaQ@mail.gmail.com> <2d51cb9e-b8c5-4cf1-bd7a-751fb633275c@linaro.org>
-In-Reply-To: <2d51cb9e-b8c5-4cf1-bd7a-751fb633275c@linaro.org>
-From: Rob Herring <robh@kernel.org>
-Date: Mon, 3 Mar 2025 10:37:16 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqKXguOAK2pge-TwH4M8JC3UnEi_ia_7QjrgE_6KZzGucg@mail.gmail.com>
-X-Gm-Features: AQ5f1JqXNkmMvtXvWaBKtRXTZitqf2vltXXW5gy5b2hrxmHRwoqFlvx_mv3N5EI
-Message-ID: <CAL_JsqKXguOAK2pge-TwH4M8JC3UnEi_ia_7QjrgE_6KZzGucg@mail.gmail.com>
-Subject: Re: (subset) [PATCH v7 0/5] Driver for pre-DCP apple display controller.
-To: neil.armstrong@linaro.org
-Cc: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Hector Martin <marcan@marcan.st>, 
-	Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev, 
-	Janne Grunau <j@jannau.net>, Sasha Finkelstein <fnkl.kernel@gmail.com>, 
-	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Alyssa Ross <hi@alyssa.is>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
-	Neal Gompa <neal@gompa.dev>, Nick Chan <towinchenmi@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH v7 0/5] Driver for pre-DCP apple display controller.
+To: Maxime Ripard <mripard@kernel.org>, fnkl.kernel@gmail.com,
+ Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jessica Zhang <quic_jesszhan@quicinc.com>,
+ asahi@lists.linux.dev, Janne Grunau <j@jannau.net>
+Cc: linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Alyssa Ross <hi@alyssa.is>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Neal Gompa <neal@gompa.dev>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+ Nick Chan <towinchenmi@gmail.com>
+References: <20250217-adpdrm-v7-0-ca2e44b3c7d8@gmail.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20250217-adpdrm-v7-0-ca2e44b3c7d8@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_083731_756314_594A904A 
-X-CRM114-Status: GOOD (  15.79  )
+X-CRM114-CacheID: sfid-20250303_084225_225236_1BEE0D11 
+X-CRM114-Status: GOOD (  18.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,40 +135,83 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 11:59=E2=80=AFAM Neil Armstrong
-<neil.armstrong@linaro.org> wrote:
->
-> On 25/02/2025 12:37, Dmitry Baryshkov wrote:
-> > On Tue, 25 Feb 2025 at 12:25, Neil Armstrong <neil.armstrong@linaro.org=
-> wrote:
-> >>
-> >> Hi,
-> >>
-> >> On Mon, 17 Feb 2025 12:39:30 +0100, Sasha Finkelstein wrote:
-> >>> This patch series adds support for a secondary display controller
-> >>> present on Apple M1/M2 chips and used to drive the display of the
-> >>> "touchbar" touch panel present on those.
-> >>>
-> >>>
-> >>
-> >> Thanks, Applied to https://gitlab.freedesktop.org/drm/misc/kernel.git =
-(drm-misc-next)
-> >>
-> >> [3/5] drm: panel: Add a panel driver for the Summit display
-> >>        https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/4011594=
-7b59f2ca361a47615304dff0a2b69a2b4
-> >
-> > Without the bindings?!
-> >
->
-> Bindings will be funneled with the rest of the ADP driver, the panel driv=
-er can be applied individually.
+Hi,
 
-Uh, no. The bindings go with the user. Now 'make dt_compatible_check'
-reports apple,summit is not documented.
+On 17/02/2025 12:39, Sasha Finkelstein via B4 Relay wrote:
+> Hi.
+> 
+> This patch series adds support for a secondary display controller
+> present on Apple M1/M2 chips and used to drive the display of the
+> "touchbar" touch panel present on those.
+> 
+> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+> ---
+> Changes in v7:
+> - No changes aside from adding r-b trailers, effectively a resend.
+> - Link to v6: https://lore.kernel.org/r/20250206-adpdrm-v6-0-c8ab9348b853@gmail.com
+> 
+> Changes in v6:
+> - Use the drm_connector_helper_get_modes_fixed helper.
+> - Split out into a separate MAINTAINERS entry
+> - Link to v5: https://lore.kernel.org/r/20250205-adpdrm-v5-0-4e4ec979bbf2@gmail.com
+> 
+> Changes in v5:
+> - Moved to using the component framework.
+> - Other lifetime fixes
+> - Link to v4: https://lore.kernel.org/r/20250114-adpdrm-v4-0-e9b5260a39f1@gmail.com
+> 
+> Changes in v4:
+> - Fixed dt bindings.
+> - Link to v3: https://lore.kernel.org/r/20250112-adpdrm-v3-0-c674dc19fa7f@gmail.com
+> 
+> Changes in v3:
+> - Fixed building as module after splitting out mipi block
+> - Addressing the review feedback.
+> - Link to v2: https://lore.kernel.org/r/20241126-adpdrm-v2-0-c90485336c09@gmail.com
+> 
+> Changes in v2:
+> - Addressing the review feedback.
+> - Split out the mipi part of the display controller into a separate device
+> - Link to v1: https://lore.kernel.org/r/20241124-adpdrm-v1-0-3191d8e6e49a@gmail.com
+> 
+> ---
+> Sasha Finkelstein (5):
+>        dt-bindings: display: Add Apple pre-DCP display controller
+>        drm: adp: Add Apple Display Pipe driver
+>        drm: panel: Add a panel driver for the Summit display
+>        arm64: dts: apple: Add touchbar screen nodes
+>        MAINTAINERS: Add entries for touchbar display driver
+> 
+>   .../display/apple,h7-display-pipe-mipi.yaml        |  83 +++
+>   .../bindings/display/apple,h7-display-pipe.yaml    |  88 +++
+>   .../bindings/display/panel/apple,summit.yaml       |  58 ++
+>   MAINTAINERS                                        |  16 +
+>   arch/arm64/boot/dts/apple/t8103-j293.dts           |  31 ++
+>   arch/arm64/boot/dts/apple/t8103.dtsi               |  61 ++
+>   arch/arm64/boot/dts/apple/t8112-j493.dts           |  31 ++
+>   arch/arm64/boot/dts/apple/t8112.dtsi               |  61 ++
+>   drivers/gpu/drm/Kconfig                            |   2 +
+>   drivers/gpu/drm/Makefile                           |   1 +
+>   drivers/gpu/drm/adp/Kconfig                        |  17 +
+>   drivers/gpu/drm/adp/Makefile                       |   5 +
+>   drivers/gpu/drm/adp/adp-mipi.c                     | 276 +++++++++
+>   drivers/gpu/drm/adp/adp_drv.c                      | 617 +++++++++++++++++++++
+>   drivers/gpu/drm/panel/Kconfig                      |   9 +
+>   drivers/gpu/drm/panel/Makefile                     |   1 +
+>   drivers/gpu/drm/panel/panel-summit.c               | 132 +++++
+>   17 files changed, 1489 insertions(+)
+> ---
+> base-commit: b62cef9a5c673f1b8083159f5dc03c1c5daced2f
+> change-id: 20241124-adpdrm-25fce3dd8a71
+> 
+> 
 
-Rob
+All patches are reviewed, can we funnel patches 1, 2 & 5 via drm-misc-next now ?
+
+Neil
+
 
