@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA739C282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 14:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB747C282CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 14:59:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	Cc:Subject:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zDbYOoICs0kyLksCA3nSrPEKG2UdDgw1p8IdLbEdbwc=; b=uy5HtVRYvAcTr7YH1cSfWNWqR1
-	Be+wujNvtiRJ6VxkyEWZ1GQWNjzHoHNvBH8XmM3fuMBJG/wXLzJriCLa1M7upuaLGHgA9OKtvf5a2
-	TLJCBErS3kNZhDwe4Hn9xXBNkkO0W29F7oAVh0I9zmrFYn/TMcspch3I+cyMxNRIS3RO/d8Fmf4GK
-	/s5ATozlrZl12Z4/xLPYS8iMoM4DkxO1wVH3b7lYDM9qwl+2ouq/WtokxeFo4rCxfiir6wJVKY8Eu
-	tzgoB5OXmzx+TRdu52CNV7mRoufimWHywHHazkZN3Xpa1MVuuNTRx+hi0Bqq+wiKJABxyqusLB1bH
-	5RhtxCaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:
+	Content-Transfer-Encoding:Content-Type:Mime-Version:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=C/mjUrCDUh8TvGQ0TNP99UWlQJSkPZIBxxqCtz4GkI0=; b=GlJ3bokXQrb0+q
+	NQoE7uI3lN8pZ/n8JBHP+nEhjOWbZLBmXXceE0U+TAfZ9XN6DHJVo7fXi2b9TbPrro/B/9g9YyKLd
+	U4jLxH44uuCyQ7XHWt6xitHC3fAy0PtvDSe+GRJQ+Na3uKeoWuYyJ3E+FxFfUcyTs/7JtgYsd9/OI
+	RWl0f0rtMQ2bRL/df4oZ1/2y6N+7nD/zaC6sy8Ba0uXj7FpXVQLApBGzmZWLM3x5kWYwLOACoj/RP
+	Px3qFfhn6N686wCNN4L1sBmhYtwWBmRig+ENuR7nUWcHHcfaIx/o2lnuQ8qwzIequNTXko8JjkzDb
+	ceM0ybJUSvUpxk3NMvbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp79m-00000001B3E-1MP3;
-	Mon, 03 Mar 2025 14:52:34 +0000
-Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
+	id 1tp7GM-00000001C1T-2huf;
+	Mon, 03 Mar 2025 14:59:22 +0000
+Received: from mail.hugovil.com ([162.243.120.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp74M-00000001AFR-12c1
+	id 1tp7Em-00000001Bne-15vU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 14:47:00 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 53A77441B6;
-	Mon,  3 Mar 2025 14:46:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1741013214;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zDbYOoICs0kyLksCA3nSrPEKG2UdDgw1p8IdLbEdbwc=;
-	b=iPeLLtChV/otssqNfOVqg/51Ax+8DPi61GCdSSCQbbagWxWJzYEBg3l40sx0HR8vL/FcjN
-	YPIEIj6U1vkI4upDHidgNQ8e9Km2WBlAReRsXPJxC6DxRxONNNmoAjW2I8Nj6LwQeuTNOC
-	Wp7lHluAeJ1lNWyGcUxejLyptqDRAs0cf6rFgciBihlwxe93sVob+FFtyJKPLOQ03LmlMT
-	KYqihn5tiLeSwsYURXSt8/wjPhVCWBBFSAtZ3uiGZDGFeDKhl9lH91V5qHQBHpwEazfZiT
-	JLeeuw63SVObqVR4c3RoHvK63HYEZuxBeTemjsouNPpS75JnLjMVgF3p2R7DCA==
+	Mon, 03 Mar 2025 14:57:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
+	; s=x; h=Subject:Content-Transfer-Encoding:Mime-Version:Message-Id:Cc:To:From
+	:Date:subject:date:message-id:reply-to;
+	bh=C/mjUrCDUh8TvGQ0TNP99UWlQJSkPZIBxxqCtz4GkI0=; b=cFgkZnKIv0/ZHT36d/Zwl7IRW1
+	fW9cvHeQLM8AeK7zGY/zPOWZy9w7wMXgJkCSy5z05SlMk8da27MCzCKt29/I0lhlBw2CscACezTh4
+	2mG4q/f/ES1WSSFlTCdeu0TFqSsnFwe8mN+Gu37FBSbil4W7sh78YpEv424PPHAysC1w=;
+Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168]:56514 helo=pettiford.lan)
+	by mail.hugovil.com with esmtpa (Exim 4.92)
+	(envelope-from <hugo@hugovil.com>)
+	id 1tp7EM-0000V2-1t; Mon, 03 Mar 2025 09:57:18 -0500
+Date: Mon, 3 Mar 2025 09:57:17 -0500
+From: Hugo Villeneuve <hugo@hugovil.com>
+To: Matti Vaittinen <mazziesaccount@gmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner
+ <dlechner@baylibre.com>, Matti Vaittinen
+ <matti.vaittinen@fi.rohmeurope.com>, Hugo Villeneuve
+ <hvilleneuve@dimonoff.com>, Lars-Peter Clausen <lars@metafoo.de>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Andy Shevchenko
+ <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>, Sakari Ailus
+ <sakari.ailus@linux.intel.com>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Danilo Krummrich <dakr@kernel.org>, Lad Prabhakar
+ <prabhakar.mahadev-lad.rj@bp.renesas.com>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
+ <samuel@sholland.org>, Nuno Sa <nuno.sa@analog.com>, Javier Carrasco
+ <javier.carrasco.cruz@gmail.com>, Guillaume Stols <gstols@baylibre.com>,
+ Olivier Moysan <olivier.moysan@foss.st.com>, Dumitru Ceclan
+ <mitrutzceclan@gmail.com>, Trevor Gamblin <tgamblin@baylibre.com>, Matteo
+ Martelli <matteomartelli3@gmail.com>, Alisa-Dariana Roman
+ <alisadariana@gmail.com>, Ramona Alexandra Nechita
+ <ramona.nechita@analog.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-acpi@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Message-Id: <20250303095717.56ef5ac016b99911fc34e198@hugovil.com>
+In-Reply-To: <7c79ce3a-0dc4-4aa4-941a-e05be9a34fb8@gmail.com>
+References: <cover.1740421248.git.mazziesaccount@gmail.com>
+	<20dd0e4ea72fe39b90b611f9c08dbd4bc1d5217f.1740421248.git.mazziesaccount@gmail.com>
+	<f0d0f114-3953-46b5-b9f6-9b35537e6f8e@baylibre.com>
+	<d391b012-0a8e-40ca-af56-ca73b3fd853b@gmail.com>
+	<20250302032713.1c834448@jic23-huawei>
+	<7c79ce3a-0dc4-4aa4-941a-e05be9a34fb8@gmail.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 03 Mar 2025 15:46:52 +0100
-Message-Id: <D86POCANGF07.3HE2LVK396FGX@bootlin.com>
-To: "Shawn Guo" <shawnguo2@yeah.net>
-Subject: Re: [PATCH v2 2/3] ARM: dts: imx6ul: Add Variscite VAR-SOM-MX6UL
- SoM support
-Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Shawn Guo"
- <shawnguo@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>,
- "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam"
- <festevam@gmail.com>, "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
-From: "Antonin Godard" <antonin.godard@bootlin.com>
-X-Mailer: aerc 0.20.1-0-g2ecb8770224a
-References: <20250127-varsom6ul-concerto-dts-v2-0-4dac29256989@bootlin.com>
- <20250127-varsom6ul-concerto-dts-v2-2-4dac29256989@bootlin.com>
- <Z7njGg4Hhc4wcZHU@dragon>
-In-Reply-To: <Z7njGg4Hhc4wcZHU@dragon>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdelleegtdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepggfgtgffkffvufevhffofhgjsehtqhertdertdejnecuhfhrohhmpedftehnthhonhhinhcuifhouggrrhgufdcuoegrnhhtohhnihhnrdhgohgurghrugessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepjedtteejveetjedtgfektddvvdduueevffetieejteegfeeitdekjeeufeduheejnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvrgdtudemtggsudegmeehheeimeejrgdttdemjegthegtmeeirgguvgemjeelgeekmeegtdehleenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudegmeehheeimeejrgdttdemjegthegtmeeirgguvgemjeelgeekmeegtdehledphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomheprghnthhonhhinhdrghhouggrrhgusegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedufedprhgtphhtthhopehshhgrfihnghhuohdvseihvggrhhdrnhgvthdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgp
- dhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehfvghsthgvvhgrmhesghhmrghilhdrtghomh
-X-GND-Sasl: antonin.godard@bootlin.com
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 70.80.174.168
+X-SA-Exim-Mail-From: hugo@hugovil.com
+Subject: Re: [PATCH v4 07/10] iio: adc: ti-ads7924: Respect device tree
+ config
+X-SA-Exim-Version: 4.2.1 (built Wed, 08 May 2019 21:11:16 +0000)
+X-SA-Exim-Scanned: Yes (on mail.hugovil.com)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_064659_038965_5E706CDE 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20250303_065744_375341_2E3D4B46 
+X-CRM114-Status: GOOD (  33.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,91 +99,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shawn,
+On Sun, 2 Mar 2025 15:10:12 +0200
+Matti Vaittinen <mazziesaccount@gmail.com> wrote:
 
-On Sat Feb 22, 2025 at 3:45 PM CET, Shawn Guo wrote:
-[...]
->> +	reg_gpio_dvfs: reg-gpio-dvfs {
->> +		compatible =3D "regulator-gpio";
->> +		regulator-min-microvolt =3D <1300000>;
->> +		regulator-max-microvolt =3D <1400000>;
->> +		regulator-name =3D "gpio_dvfs";
->> +		regulator-type =3D "voltage";
->> +		gpios =3D <&gpio4 13 GPIO_ACTIVE_HIGH>;
->
-> Don't we need 'enable-active-high'?
+> On 02/03/2025 05:27, Jonathan Cameron wrote:
+> > On Wed, 26 Feb 2025 08:39:11 +0200
+> > Matti Vaittinen <mazziesaccount@gmail.com> wrote:
+> > 
+> >> On 26/02/2025 02:09, David Lechner wrote:
+> >>> On 2/24/25 12:34 PM, Matti Vaittinen wrote:
+> >>>> The ti-ads7924 driver ignores the device-tree ADC channel specification
+> >>>> and always exposes all 4 channels to users whether they are present in
+> >>>> the device-tree or not. Additionally, the "reg" values in the channel
+> >>>> nodes are ignored, although an error is printed if they are out of range.
+> >>>>
+> >>>> Register only the channels described in the device-tree, and use the reg
+> >>>> property as a channel ID.
+> >>>>
+> >>>> Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
+> >>>>
+> >>>> ---
+> >>>> Revision history:
+> >>>> v3 => v4:
+> >>>>    - Adapt to 'drop diff-channel support' changes to ADC-helpers
+> >>>>    - select ADC helpers in the Kconfig
+> >>>> v2 => v3: New patch
+> >>>>
+> >>>> Please note that this is potentially breaking existing users if they
+> >>>> have wrong values in the device-tree. I believe the device-tree should
+> >>>> ideally be respected, and if it says device X has only one channel, then
+> >>>> we should believe it and not register 4. Well, we don't live in the
+> >>>> ideal world, so even though I believe this is TheRightThingToDo - it may
+> >>>> cause havoc because correct device-tree has not been required from the
+> >>>> day 1. So, please review and test and apply at your own risk :)
+> >>>
+> >>> The DT bindings on this one are a little weird. Usually, if we don't
+> >>> use any extra properties from adc.yaml, we leave out the channels. In
+> >>> this case it does seem kind of like the original intention was to work
+> >>> like you are suggesting, but hard to say since the driver wasn't actually
+> >>> implemented that way. I would be more inclined to actually not make the
+> >>> breaking change here and instead relax the bindings to make channel nodes
+> >>> optional and just have the driver ignore the channel nodes by dropping
+> >>> the ads7924_get_channels_config() function completely. This would make
+> >>> the driver simpler instead of more complex like this patch does.
+> >>
+> >> I have no strong opinion on this. I see this driver says 'Supported' in
+> >> MAINTAINERS. Maybe Hugo is able to provide some insight?
+> >>
+> > This seems to be ABI breakage.  Never something we can take if there is
+> > a significant chance of anyone noticing.  Here it looks like risk
+> > is too high.
+> 
+> Ok. I'll just drop this patch then. Thanks David & Jonathan :)
 
-I am not specifying 'enable-gpios' but 'gpios' here so from my understandin=
-g of
-gpio-regulator.yaml and examples from other device trees I don't think so.
+Hi Matti,
+I haven't really been able to follow all discussions, but as an
+historic note I developped this driver for a prototype that never
+materialized. So any changes would not have an impact, as far as I am
+concerned.
 
->> +		states =3D <1300000 0x1 1400000 0x0>;
->> +	};
->> +
->> +	rmii_ref_clk: rmii-ref-clk-grp {
->
-> What does "-grp" in node name mean?
-
-A mistake on my side, I will rename the label to "rmii-ref-clk".
-
->> +		compatible =3D "fixed-clock";
->> +		clock-output-names =3D "rmii-ref";
->> +	};
->> +};
->> +
->> +&cpu0 {
->> +	dc-supply =3D <&reg_gpio_dvfs>;
->> +};
->> +
->> +&clks {
->> +	assigned-clocks =3D <&clks IMX6UL_CLK_PLL4_AUDIO_DIV>;
->> +	assigned-clock-rates =3D <786432000>;
->> +};
->> +
->> +&fec1 {
->> +	pinctrl-names =3D "default";
->> +	pinctrl-0 =3D <&pinctrl_enet1>, <&pinctrl_enet1_gpio>, <&pinctrl_enet1=
-_mdio>;
->> +	phy-mode =3D "rmii";
->> +	phy-reset-gpios =3D <&gpio5 0 GPIO_ACTIVE_LOW>;
->> +	phy-reset-duration =3D <100>;
->> +	phy-handle =3D <&ethphy0>;
->> +	status =3D "okay";
->> +
->> +	mdio {
->> +		#address-cells =3D <1>;
->> +		#size-cells =3D <0>;
->> +
->> +		ethphy0: ethernet-phy@1 {
->> +			compatible =3D "ethernet-phy-ieee802.3-c22";
->> +			micrel,rmii-reference-clock-select-25-mhz =3D <1>;
->> +			micrel,led-mode =3D <1>;
->> +			clocks =3D <&rmii_ref_clk>;
->> +			clock-names =3D "rmii-ref";
->> +			reg =3D <1>;
->
-> We generally sort properties like:
->
->   - compatible
->   - reg
->   - generic ones
->   - vendor prefixed ones
->
-> So in this case, we will get:
->
-> 	compatible =3D "ethernet-phy-ieee802.3-c22";
-> 	reg =3D <1>;
-> 	clocks =3D <&rmii_ref_clk>;
-> 	clock-names =3D "rmii-ref";
-> 	micrel,rmii-reference-clock-select-25-mhz =3D <1>;
-> 	micrel,led-mode =3D <1>;
-
-Thanks for clarifying that! I will revise this for the next version.
-
-Antonin
-
---=20
-Antonin Godard, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Hugo.
 
