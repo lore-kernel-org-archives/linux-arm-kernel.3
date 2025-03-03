@@ -4,82 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF0BBC282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 08:58:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6687BC282CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 09:00:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HnzYFezVB5tVeSDfNBT9n44hastY2MKg1+ROV6aoAxk=; b=f4oSImelW8mTbdeQlYARFJ3XVq
-	9XGVHi9IeEkczOAw+MTPWj4qdBE2zX/dA/AybRA4OIm+1XTVWtCwNpmfEtz+2F29GbISi5ZikzKO/
-	OphoMtU1zw2Me7UcTECSZEGG/KuWawcRSbxeS/mvReFG8h64d/WnMXa52cjhJTiQQVEJF9NDU0W5H
-	QmUF7zGR0kJM5vm2dO6xALEg33pVBge6cDBIiFoJ7ykSzWr6lbCJk5t56Dz2wr/u1Vh/lNsX+wRPS
-	aHN+h5Vd3CkXntAo09emQkuZkb+Y5JWe84UeyAki4JGaTPfr0Ko2xaZbfIVPVPL/bTeRUM3Ky2l9R
-	Wesz8z/w==;
+	bh=UZfxzz+F2AUS0UG3TwWk5clSiHVP4htK+tqH+TNcQ5c=; b=KOfML6K2TW9xWxNBnYO9iaST28
+	bqd6AJa0wK539Don3B49/qKeOHSPF8IFzxYUUmDqscBO3eenMRf4MuqJVC9x0NUTGt4vLLUKBVqeK
+	5fgOagJss01jHhS1gmY1vXiNOfda8bhH/iVqY97nRiwuC/Gokb4NTKyXlAfInXjgWrddMAqaSJMX0
+	lUchGdJg0Md0LKh+5J6EcirSRMlbptpWe9KjIVFFfjW7Phe+WEcRf8kRRHAvlJ1KHVbw9Owzbawin
+	QwYKXcFYaeqaB0jLIx0ts1TXKe7cw1U22IWNK1A44UCb3O9FR6KXdpK9ha2Hdamzyw2Dka+10ceYu
+	FvTLwsXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp1cw-000000001ub-2EUg;
-	Mon, 03 Mar 2025 08:58:18 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1tp1eU-000000002XO-2G8P;
+	Mon, 03 Mar 2025 08:59:54 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp1U7-0000000HajA-2Urm
+	id 1tp1a7-000000000sf-37Ro
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 08:49:13 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Z5sqx1jRcz6K98L;
-	Mon,  3 Mar 2025 16:46:53 +0800 (CST)
-Received: from frapeml500006.china.huawei.com (unknown [7.182.85.219])
-	by mail.maildlp.com (Postfix) with ESMTPS id 6D8B6140442;
-	Mon,  3 Mar 2025 16:49:02 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (7.182.85.71) by
- frapeml500006.china.huawei.com (7.182.85.219) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Mon, 3 Mar 2025 09:49:02 +0100
-Received: from frapeml500008.china.huawei.com ([7.182.85.71]) by
- frapeml500008.china.huawei.com ([7.182.85.71]) with mapi id 15.01.2507.039;
- Mon, 3 Mar 2025 09:49:02 +0100
-From: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>, =?utf-8?B?TWlrb8WCYWogTGVuY3pld3NraQ==?=
-	<miko.lenczewski@arm.com>
-CC: "ryan.roberts@arm.com" <ryan.roberts@arm.com>, "suzuki.poulose@arm.com"
-	<suzuki.poulose@arm.com>, "yang@os.amperecomputing.com"
-	<yang@os.amperecomputing.com>, "catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
-	"joro@8bytes.org" <joro@8bytes.org>, "jean-philippe@linaro.org"
-	<jean-philippe@linaro.org>, "mark.rutland@arm.com" <mark.rutland@arm.com>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>, "james.morse@arm.com" <james.morse@arm.com>,
-	"broonie@kernel.org" <broonie@kernel.org>, "maz@kernel.org" <maz@kernel.org>,
-	"david@redhat.com" <david@redhat.com>, "akpm@linux-foundation.org"
-	<akpm@linux-foundation.org>, "nicolinc@nvidia.com" <nicolinc@nvidia.com>,
-	"mshavit@google.com" <mshavit@google.com>, "jsnitsel@redhat.com"
-	<jsnitsel@redhat.com>, "smostafa@google.com" <smostafa@google.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>
-Subject: RE: [PATCH v2 4/4] iommu/arm: Add BBM Level 2 smmu feature
-Thread-Topic: [PATCH v2 4/4] iommu/arm: Add BBM Level 2 smmu feature
-Thread-Index: AQHbig5Aoe4VsuxA9kWqieCP4z67+bNdChiAgAQQylA=
-Date: Mon, 3 Mar 2025 08:49:02 +0000
-Message-ID: <b23aa37f8e864dea82a6143bece912d6@huawei.com>
-References: <20250228182403.6269-2-miko.lenczewski@arm.com>
- <20250228182403.6269-6-miko.lenczewski@arm.com>
- <20250228193221.GM5011@ziepe.ca>
-In-Reply-To: <20250228193221.GM5011@ziepe.ca>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.203.177.241]
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Mon, 03 Mar 2025 08:55:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740992123; x=1772528123;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=qHRcyUI3/hi2BGAUKUDSudJssxHgKVCe/F4h7QO/AU8=;
+  b=Z8Q6krosb4OFYC4m9CbT9f7jKBoOt5vmkVf/FXB5dW28yxnZVUhCikQi
+   Zev6NjZsZCs25Khj3rsdQopaU9N0o5XoQVpZkdxqPVWWQy/qiiWObHEpe
+   6rD6ystFQLM3pYXo5jBVF8o5bwHauwR0wza7/m1L+hkljtCVKk1ZsLOcn
+   KGUaj91dkzOk//Wl/cYu7T5eDwDvJkUyD1ecd1kjLHXfmCWN6E3Nhq9GT
+   0skWVRf3wx7T5J271mY4T/36WigsBqKcxAh6eiLL8a7QhR3ARRdch7rwI
+   igG1UnvNMgczLbkaM5HKHxku8kop98Ai+puCc8+kbPfe7i1wvGqcPwQxc
+   A==;
+X-CSE-ConnectionGUID: d6V9eLW+SM+EcliU14Z6Rg==
+X-CSE-MsgGUID: quAm90F6R8O5D9gcBowssA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11361"; a="41745004"
+X-IronPort-AV: E=Sophos;i="6.13,329,1732608000"; 
+   d="scan'208";a="41745004"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Mar 2025 00:55:21 -0800
+X-CSE-ConnectionGUID: y+w4sugQRWKpajzmYyVbLA==
+X-CSE-MsgGUID: jEP1RSSlThqTB8fpBFAwUg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,329,1732608000"; 
+   d="scan'208";a="123095271"
+Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
+  by fmviesa004.fm.intel.com with ESMTP; 03 Mar 2025 00:55:14 -0800
+Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tp1Zv-000IES-2O;
+	Mon, 03 Mar 2025 08:55:11 +0000
+Date: Mon, 3 Mar 2025 16:55:03 +0800
+From: kernel test robot <lkp@intel.com>
+To: Peilin Ye <yepeilin@google.com>, bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: oe-kbuild-all@lists.linux.dev, Peilin Ye <yepeilin@google.com>,
+	bpf@ietf.org, Alexei Starovoitov <ast@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	David Vernet <void@manifault.com>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
+	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Quentin Monnet <qmo@kernel.org>,
+	Mykola Lysenko <mykolal@fb.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>
+Subject: Re: [PATCH bpf-next v4 04/10] bpf: Introduce load-acquire and
+ store-release instructions
+Message-ID: <202503031631.OeUhVRHz-lkp@intel.com>
+References: <2c82b29f3530b961b41f94a4942e490ab35a31c8.1740978603.git.yepeilin@google.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2c82b29f3530b961b41f94a4942e490ab35a31c8.1740978603.git.yepeilin@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_004911_915427_358623D9 
-X-CRM114-Status: GOOD (  25.21  )
+X-CRM114-CacheID: sfid-20250303_005523_801314_2D9FE164 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,54 +110,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DQoNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJvbTogSmFzb24gR3VudGhvcnBl
-IDxqZ2dAemllcGUuY2E+DQo+IFNlbnQ6IEZyaWRheSwgRmVicnVhcnkgMjgsIDIwMjUgNzozMiBQ
-TQ0KPiBUbzogTWlrb8WCYWogTGVuY3pld3NraSA8bWlrby5sZW5jemV3c2tpQGFybS5jb20+OyBT
-aGFtZWVyYWxpIEtvbG90aHVtDQo+IFRob2RpIDxzaGFtZWVyYWxpLmtvbG90aHVtLnRob2RpQGh1
-YXdlaS5jb20+DQo+IENjOiByeWFuLnJvYmVydHNAYXJtLmNvbTsgc3V6dWtpLnBvdWxvc2VAYXJt
-LmNvbTsNCj4geWFuZ0Bvcy5hbXBlcmVjb21wdXRpbmcuY29tOyBjYXRhbGluLm1hcmluYXNAYXJt
-LmNvbTsNCj4gd2lsbEBrZXJuZWwub3JnOyBqb3JvQDhieXRlcy5vcmc7IGplYW4tcGhpbGlwcGVA
-bGluYXJvLm9yZzsNCj4gbWFyay5ydXRsYW5kQGFybS5jb207IGpvZXkuZ291bHlAYXJtLmNvbTsg
-b2xpdmVyLnVwdG9uQGxpbnV4LmRldjsNCj4gamFtZXMubW9yc2VAYXJtLmNvbTsgYnJvb25pZUBr
-ZXJuZWwub3JnOyBtYXpAa2VybmVsLm9yZzsNCj4gZGF2aWRAcmVkaGF0LmNvbTsgYWtwbUBsaW51
-eC1mb3VuZGF0aW9uLm9yZzsgbmljb2xpbmNAbnZpZGlhLmNvbTsNCj4gbXNoYXZpdEBnb29nbGUu
-Y29tOyBqc25pdHNlbEByZWRoYXQuY29tOyBzbW9zdGFmYUBnb29nbGUuY29tOyBsaW51eC0NCj4g
-YXJtLWtlcm5lbEBsaXN0cy5pbmZyYWRlYWQub3JnOyBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwu
-b3JnOw0KPiBpb21tdUBsaXN0cy5saW51eC5kZXYNCj4gU3ViamVjdDogUmU6IFtQQVRDSCB2MiA0
-LzRdIGlvbW11L2FybTogQWRkIEJCTSBMZXZlbCAyIHNtbXUgZmVhdHVyZQ0KPiANCj4gT24gRnJp
-LCBGZWIgMjgsIDIwMjUgYXQgMDY6MjQ6MDRQTSArMDAwMCwgTWlrb8WCYWogTGVuY3pld3NraSB3
-cm90ZToNCj4gPiBGb3Igc3VwcG9ydGluZyBCQk0gTGV2ZWwgMiBmb3IgdXNlcnNwYWNlIG1hcHBp
-bmdzLCB3ZSB3YW50IHRvIGVuc3VyZQ0KPiA+IHRoYXQgdGhlIHNtbXUgYWxzbyBzdXBwb3J0cyBp
-dHMgb3duIHZlcnNpb24gb2YgQkJNIExldmVsIDIuIEx1Y2tpbHksIHRoZQ0KPiA+IHNtbXUgc3Bl
-YyAoSUhJIDAwNzBHIDMuMjEuMS4zKSBpcyBzdHJpY3RlciB0aGFuIHRoZSBhYXJjaDY0IHNwZWMg
-KERESQ0KPiA+IDA0ODdLLmEgRDguMTYuMiksIHNvIGFscmVhZHkgZ3VhcmFudGVlcyB0aGF0IG5v
-IGFib3J0cyBhcmUgcmFpc2VkIHdoZW4NCj4gPiBCQk0gbGV2ZWwgMiBpcyBjbGFpbWVkLg0KPiA+
-DQo+ID4gQWRkIHRoZSBmZWF0dXJlIGFuZCB0ZXN0aW5nIGZvciBpdCB1bmRlciBhcm1fc21tdV9z
-dmFfc3VwcG9ydGVkKCkuDQo+ID4NCj4gPiBTaWduZWQtb2ZmLWJ5OiBNaWtvxYJhaiBMZW5jemV3
-c2tpIDxtaWtvLmxlbmN6ZXdza2lAYXJtLmNvbT4NCj4gPiAtLS0NCj4gPiAgYXJjaC9hcm02NC9r
-ZXJuZWwvY3B1ZmVhdHVyZS5jICAgICAgICAgICAgICAgICAgfCA3ICsrKy0tLS0NCj4gPiAgZHJp
-dmVycy9pb21tdS9hcm0vYXJtLXNtbXUtdjMvYXJtLXNtbXUtdjMtc3ZhLmMgfCAzICsrKw0KPiA+
-ICBkcml2ZXJzL2lvbW11L2FybS9hcm0tc21tdS12My9hcm0tc21tdS12My5jICAgICB8IDMgKysr
-DQo+ID4gIGRyaXZlcnMvaW9tbXUvYXJtL2FybS1zbW11LXYzL2FybS1zbW11LXYzLmggICAgIHwg
-NCArKysrDQo+ID4gIDQgZmlsZXMgY2hhbmdlZCwgMTMgaW5zZXJ0aW9ucygrKSwgNCBkZWxldGlv
-bnMoLSkNCj4gDQo+IFRoaXMgcGF0Y2ggbG9va3MgZ29vZCwgZm9yIHdoYXQgaXQgZG9lcy4gSG93
-ZXZlciBmb3IgYmlzZWN0aW9uIHNhZmV0eQ0KPiBpdCBzaG91bGQgYmUgZWFybGllciwgYmVmb3Jl
-IHRoZSBwYXRjaGVzIHRoYXQgY2hhbmdlIHRoZSBwYWdlIHRhYmxlDQo+IGFsZ29yaXRobXMgdG8g
-YmUgdW5zYWZlIGZvciB0aGUgU01NVS4NCj4gDQo+IEhvd2V2ZXIsIEkndmUgaGVhcmQgcGVvcGxl
-IHRhbGtpbmcgYWJvdXQgc2hpcHBpbmcgY2hpcHMgdGhhdCBoYXZlIENQVXMNCj4gd2l0aCBCQk1M
-MiBidXQgU01NVXMgd2l0aG91dC4NCj4gDQo+IE9uIHN1Y2ggYSBzeXN0ZW0gaXQgc2VlbXMgbGlr
-ZSB5b3VyIHNlcmllcyB3b3VsZCBicmVhayBwcmV2aW91c2x5DQo+IHdvcmtpbmcgU1ZBIHN1cHBv
-cnQgYmVjYXVzZSB0aGlzIHBhdGNoIHdpbGwgZW5kIHVwIGRpc2FibGluZyBpdD8NCj4gDQo+IFRo
-b3VnaCBJIHNlZSB5b3VyIE1JRFJfUkVWIGxpc3QgaXMgbGltaXRlZCwgc28gcGVyaGFwcyB0aGF0
-IHdvcnJ5DQo+IGRvZXNuJ3QgZWZmZWN0IGFueSByZWFsIGNoaXBzIG1hZGUgd2l0aCB0aG9zZSBm
-YW1pbGllcz8gSSBhbSB0cnlpbmcgdG8NCj4gY2hlY2sgc29tZSBOVklESUEgcHJvZHVjdHMgYWdh
-aW5zdCB0aGlzIGxpc3QuLg0KDQpXZSBkbyBoYXZlIGltcGxlbWVudGF0aW9ucyB0aGF0IHN1cHBv
-cnQgQ1BVcyB3aXRoIEJCTE0yIHdpdGggVExCDQpjb25mbGljdCBhYm9ydHMgYW5kIFNNTVV2MyB3
-aXRoIEJCTUwyLiAgU28gZG9uJ3QgdGhpbmsgdGhvc2UgcGxhdGZvcm1zDQpiZSBhZmZlY3RlZCBi
-eSB0aGlzLiAgV2lsbCBjaGVjayB3aXRoIG91ciBoYXJkd2FyZSBmb2xrcyBpZiB0aGVyZSBpcw0K
-YW55dGhpbmcgdGhhdCB3aWxsIGJlIGFmZmVjdGVkIGJ5IHRoaXMuDQoNCkFsc28gd2UgIGhhdmUg
-cGxhbnMgdG8gdHJ5IHRvIHVzZSBTTU1VdjMgQkJNTDIgZHVyaW5nIFZNIGxpdmUgbWlncmF0aW9u
-DQp0byBzcGxpdCBibG9jayBwYWdlcyB0byA0Sy4gSSBndWVzcywgaW4gdGhhdCBjYXNlIHdlIGNh
-biBlbmFibGUgU01NVSBCQk1MMg0KaW5kZXBlbmRlbnQgb2YgQ1BVIHNpZGUuIA0KDQpUaGFua3Ms
-DQpTaGFtZWVyDQo=
+Hi Peilin,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on bpf-next/master]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Peilin-Ye/bpf-verifier-Factor-out-atomic_ptr_type_ok/20250303-134110
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git master
+patch link:    https://lore.kernel.org/r/2c82b29f3530b961b41f94a4942e490ab35a31c8.1740978603.git.yepeilin%40google.com
+patch subject: [PATCH bpf-next v4 04/10] bpf: Introduce load-acquire and store-release instructions
+config: arc-randconfig-002-20250303 (https://download.01.org/0day-ci/archive/20250303/202503031631.OeUhVRHz-lkp@intel.com/config)
+compiler: arc-elf-gcc (GCC) 13.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250303/202503031631.OeUhVRHz-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202503031631.OeUhVRHz-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from <command-line>:
+   kernel/bpf/core.c: In function '___bpf_prog_run':
+>> include/linux/compiler_types.h:542:45: error: call to '__compiletime_assert_459' declared with attribute error: Need native word sized stores/loads for atomicity.
+     542 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+         |                                             ^
+   include/linux/compiler_types.h:523:25: note: in definition of macro '__compiletime_assert'
+     523 |                         prefix ## suffix();                             \
+         |                         ^~~~~~
+   include/linux/compiler_types.h:542:9: note: in expansion of macro '_compiletime_assert'
+     542 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+         |         ^~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:545:9: note: in expansion of macro 'compiletime_assert'
+     545 |         compiletime_assert(__native_word(t),                            \
+         |         ^~~~~~~~~~~~~~~~~~
+   include/asm-generic/barrier.h:151:9: note: in expansion of macro 'compiletime_assert_atomic_type'
+     151 |         compiletime_assert_atomic_type(*p);                             \
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/asm-generic/barrier.h:176:29: note: in expansion of macro '__smp_load_acquire'
+     176 | #define smp_load_acquire(p) __smp_load_acquire(p)
+         |                             ^~~~~~~~~~~~~~~~~~
+   kernel/bpf/core.c:2222:45: note: in expansion of macro 'smp_load_acquire'
+    2222 |                                 DST = (SIZE)smp_load_acquire(   \
+         |                                             ^~~~~~~~~~~~~~~~
+   kernel/bpf/core.c:2228:25: note: in expansion of macro 'LOAD_ACQUIRE'
+    2228 |                         LOAD_ACQUIRE(DW, u64)
+         |                         ^~~~~~~~~~~~
+   include/linux/compiler_types.h:542:45: error: call to '__compiletime_assert_466' declared with attribute error: Need native word sized stores/loads for atomicity.
+     542 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+         |                                             ^
+   include/linux/compiler_types.h:523:25: note: in definition of macro '__compiletime_assert'
+     523 |                         prefix ## suffix();                             \
+         |                         ^~~~~~
+   include/linux/compiler_types.h:542:9: note: in expansion of macro '_compiletime_assert'
+     542 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+         |         ^~~~~~~~~~~~~~~~~~~
+   include/linux/compiler_types.h:545:9: note: in expansion of macro 'compiletime_assert'
+     545 |         compiletime_assert(__native_word(t),                            \
+         |         ^~~~~~~~~~~~~~~~~~
+   include/asm-generic/barrier.h:141:9: note: in expansion of macro 'compiletime_assert_atomic_type'
+     141 |         compiletime_assert_atomic_type(*p);                             \
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/asm-generic/barrier.h:172:55: note: in expansion of macro '__smp_store_release'
+     172 | #define smp_store_release(p, v) do { kcsan_release(); __smp_store_release(p, v); } while (0)
+         |                                                       ^~~~~~~~~~~~~~~~~~~
+   kernel/bpf/core.c:2238:33: note: in expansion of macro 'smp_store_release'
+    2238 |                                 smp_store_release(      \
+         |                                 ^~~~~~~~~~~~~~~~~
+   kernel/bpf/core.c:2244:25: note: in expansion of macro 'STORE_RELEASE'
+    2244 |                         STORE_RELEASE(DW, u64)
+         |                         ^~~~~~~~~~~~~
+
+
+vim +/__compiletime_assert_459 +542 include/linux/compiler_types.h
+
+eb5c2d4b45e3d2 Will Deacon 2020-07-21  528  
+eb5c2d4b45e3d2 Will Deacon 2020-07-21  529  #define _compiletime_assert(condition, msg, prefix, suffix) \
+eb5c2d4b45e3d2 Will Deacon 2020-07-21  530  	__compiletime_assert(condition, msg, prefix, suffix)
+eb5c2d4b45e3d2 Will Deacon 2020-07-21  531  
+eb5c2d4b45e3d2 Will Deacon 2020-07-21  532  /**
+eb5c2d4b45e3d2 Will Deacon 2020-07-21  533   * compiletime_assert - break build and emit msg if condition is false
+eb5c2d4b45e3d2 Will Deacon 2020-07-21  534   * @condition: a compile-time constant condition to check
+eb5c2d4b45e3d2 Will Deacon 2020-07-21  535   * @msg:       a message to emit if condition is false
+eb5c2d4b45e3d2 Will Deacon 2020-07-21  536   *
+eb5c2d4b45e3d2 Will Deacon 2020-07-21  537   * In tradition of POSIX assert, this macro will break the build if the
+eb5c2d4b45e3d2 Will Deacon 2020-07-21  538   * supplied condition is *false*, emitting the supplied error message if the
+eb5c2d4b45e3d2 Will Deacon 2020-07-21  539   * compiler has support to do so.
+eb5c2d4b45e3d2 Will Deacon 2020-07-21  540   */
+eb5c2d4b45e3d2 Will Deacon 2020-07-21  541  #define compiletime_assert(condition, msg) \
+eb5c2d4b45e3d2 Will Deacon 2020-07-21 @542  	_compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
+eb5c2d4b45e3d2 Will Deacon 2020-07-21  543  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
