@@ -4,80 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE592C282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 13:20:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37EB8C282CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 13:22:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sOVfAtbvZNxNCwgHpSyQRSngRcaBGZ7H2zzyJ3wS2ig=; b=SM7LgvpFWWu8jCU31s7T/qT0La
-	6j9WZrcgfuwYkudB5WtSPx13k3slkmOb3WFUQ+j1BHT0ESjemSaWuCklGWDoVQhav82jSrMTcUqPL
-	zzxnXDUtB3Cw9qEGDmqM/RG+2vwMmfUbSnb+2Sj9kPYNJlZ6hzjPVPVTfrItHIndGs0uahf+6MI5Q
-	x2/TM1QKrS2za1MkEsWYXd7SaEndBRp+lDH0v9IMXkLqbj0801LpF8RmDRaqD+qcpfvwcG6Xy24W1
-	PLopQjGa87nYC7kzMByJshXMVRMFBCE1kLQtzpkwPWIneSdeveI8ERie2P5G/wsAFziKbpw27FKDZ
-	UZDUmSPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yy1JVRlXR6nmaQaZdHV5up9VNNk75+ZYeI4CrMOgdUU=; b=gIFkbw8zgQZ0yw
+	/eVbGp5vB5V2H5mb871qQ+pzmEg/Hd4HXJDK7nhSBc3MVcFfh82Qi88uBlcgpYNKyjoNLMKDyLC6J
+	89r4KJLwcIK2NKpYrCzhH+tRg9U8+r0FHrf4hpj1aBi19/Z2g8v8NtrG1HffhKI9dSHG3w+c8dVps
+	QE2oEq3DG9VD8+F2ZNXKHSMQDkDPaM7uTSE3P2pRnV+rQbNBZ978TBPygm3lcA3CZAHe2Bt0fq3zw
+	5GL+kyhpf1jA6TDv56lin7WH7/eA+mG4eTYYiqef7f3sfHuJKvnZg1Y7gfOrWmVYZomhAPkR/3K5X
+	tLvKzy7znlwW/hUDAUBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp5iv-00000000t2p-2Bz6;
-	Mon, 03 Mar 2025 13:20:45 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tp5kT-00000000tc0-2L52;
+	Mon, 03 Mar 2025 13:22:21 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp5dP-00000000s9Z-3Jss;
-	Mon, 03 Mar 2025 13:15:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 41D595C596B;
-	Mon,  3 Mar 2025 13:12:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5463C4CEE8;
-	Mon,  3 Mar 2025 13:15:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741007702;
-	bh=nwrY5mTBKsH0VrIlw0M+a6qAcq9/UvmEmo3JfFgzxI8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ckAWY6ydEYES7IYxghoebGnlP5Hw44gzxvtzcBTYXWJD7h1D/ZFFdoE21onxb4qr9
-	 wOEmpbDpjBnTYSYj7FB2P3sP0957DntKshxe4U1Si6ofwrNHu8s5fmTD1hDjFzW9qm
-	 6VxrrffeSayrkbyHr6trQbkHvqaBKTA73rnG6yyQylko+hLrVJO3IqnNLhxynFzC4o
-	 vi5D6Kvkq3Hdj8nAF1DWy/ZdYwUBjJescwR38hv9Sc1MUNWRbPMzDGBxD9KB1R0G99
-	 sWoGq3f9fWNtf1FmlhGszXMh0jYbZsjz2Yexm7cQAKECTD+XyCni2siFzPQh0OxuP7
-	 lafJyce5Gnrmg==
-Received: by mail-pj1-f41.google.com with SMTP id 98e67ed59e1d1-2fe821570e4so6253324a91.0;
-        Mon, 03 Mar 2025 05:15:02 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUHUOX0Cdvap5o16MHgkQQuBiGrHiS70YaTvHvL++HEj0lx2DXbRXQxsgwWV3S4kyB3M35eTchRLadqL2xl9/g=@lists.infradead.org, AJvYcCXKU3xdtOzev9zkpM0GihkGeasN/4mHCURCdarz71TkU7ioYO9gMRpM117u2w8TFidTjM8MJWnhIX6GK3EHsR4x@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1yX3JpYXawcVtao/JiYwVj7Nt+n7TLnlA/m4XZ2/hEyo8SHJr
-	TjFH8H8E/2zFBwFQbAfYIRvFAQRijv2gDBcsajfNMX2SEwBmP+El7LcUS/+jqs3n3YpmKMYm9Iz
-	P34BXEGUL4kFCSSfLu8HWkGouFQ==
-X-Google-Smtp-Source: AGHT+IEdq6TIp16hKhBlDO4xfda53D7O9rz6s7IDZPVAapB9apF5VJ70jX9N1Qnsx75v9OLYhq9X6ox1YKUJZiNS6WQ=
-X-Received: by 2002:a17:90b:4ac6:b0:2fe:b9be:216 with SMTP id
- 98e67ed59e1d1-2febac10927mr18112467a91.31.1741007702343; Mon, 03 Mar 2025
- 05:15:02 -0800 (PST)
+	id 1tp5gu-00000000sVX-1sVK
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Mar 2025 13:18:41 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4394a823036so42280185e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 05:18:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1741007918; x=1741612718; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=yy1JVRlXR6nmaQaZdHV5up9VNNk75+ZYeI4CrMOgdUU=;
+        b=fr8LQ0rGu5ctduQD25aRoDuYrcgiwfD9+Aob/hr/Aal3CShpNe8GD34sMY96w+8RRY
+         Aa/6rtm5yD1QWueg8I6m7SL5AqFe2TnJpVaMqjFP1t7hhkKjXWJlk162JObQaTCGELuH
+         Ym74mnFpK05wE9J8cy6lQvMc7Vl0RBGfzlwP61UgVdRUTpFHpnPm3vCUGHEwp9WMCzIF
+         u4DLZLF4suwMzpETI4XRDezFMhbdodr4mojuzRYDTMzPxuVez+larcMM48DHqHhYbN9D
+         iRUf8FFZyT+yZS8bMJufhMxojW13ijbzHe6EFhaLrFlifcIB26zwXRzKMHFYuYcru1on
+         rMNg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741007918; x=1741612718;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yy1JVRlXR6nmaQaZdHV5up9VNNk75+ZYeI4CrMOgdUU=;
+        b=siCzg5Xl/XNqUnjLT/tUSprrEoQEYScSuaXiuBoJoDh/aMdPsSA3bWbZmTctu5fiwA
+         TZkSaBPnW15fZJy3UwnS1cyQndszjJZ7pEerCET08SfTkwLCOmUrI3vdPVZH7Xzgn1qV
+         rpxJ2HfzFkH5jAkGbKbCJzPK6znydkRhim1xuf89HMQYuKpe0CAQ6cU3Mdi4ZN7cyHEV
+         MZP3qA05CPNGS5+GrCz9xWQxc5dD/95ONwnN+RgK9y0FutzX0IsfADVna5fqZq1hJ1KA
+         xrXbfI/cTkcK9mg03kiKXcwEzaiIX3H/KVVJGGKOc0VSDy0KgNnLYALmrrjHJ2EaRCmZ
+         DRuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXdueH6yR+Z/U/5QPBEZI0Y0kLuj+XOF5f6Eh+llTwtIjDdbDhzjmWiz0Tmk7k5gxRZKp2ScP/vemqnEcNI4MD4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7p5DFs/TBkor+ZEo9Zc4BQc8FWkidNpYDfHFl+w9p2iAM2FCp
+	UAWQSC6bF4TdGrrnk0y3EIsYAjmLqJvluzZU/dud2dDwiZyHkLOchHEfGOIHD/4=
+X-Gm-Gg: ASbGncsKVVx0EnKgTRKoxE1lC5EeFanPWI3bwfVvrUffHMrLWab2QPHH2TTTOF7OQnp
+	UE9GMhth3Sjru8YCLijZfYdji/gdWJxUVTuIBqVQEkLGbPfMJc87dNLylvKcHGNjg3nWM58RfP4
+	3+/+/LS8iaUHuOpVpGHbxHkJ3YA+1oSWbzeJodfTGgivazlMXf9N3Amk2IOKdRug/owSZ/KpxIp
+	njpfnTWrx5JqvTmi4x73dGyoztzo4OYpBlo972JgwBXDKEvj1FgVCuwdbdLGk/X0CeyfeaIYpxk
+	1yA50kGFZDUWGXTEH5YKlf4CMujl93V5n1uV1w==
+X-Google-Smtp-Source: AGHT+IEYSoFbgh9Yo6fzCpbmc4OD7ixVh8/Qc+gBT9GOh1lnAk3c6PmzNiyXxz2KhEi+3a6qb7fiqw==
+X-Received: by 2002:a05:600c:44d6:b0:43b:c0fa:f9cd with SMTP id 5b1f17b1804b1-43bc0fb007dmr31862825e9.7.1741007917860;
+        Mon, 03 Mar 2025 05:18:37 -0800 (PST)
+Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:664a:9e92:6aa8:6007])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43aba538b9fsm194821915e9.17.2025.03.03.05.18.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Mar 2025 05:18:37 -0800 (PST)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: [PATCH 00/15] gpio: convert more drivers to using the new value
+ setters
+Date: Mon, 03 Mar 2025 14:18:25 +0100
+Message-Id: <20250303-gpiochip-set-conversion-v1-0-1d5cceeebf8b@linaro.org>
 MIME-Version: 1.0
-References: <20231023-display-support-v7-0-6703f3e26831@baylibre.com> <20231023-display-support-v7-3-6703f3e26831@baylibre.com>
-In-Reply-To: <20231023-display-support-v7-3-6703f3e26831@baylibre.com>
-From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Mon, 3 Mar 2025 21:15:50 +0800
-X-Gmail-Original-Message-ID: <CAAOTY__qg1R4JQDssy1bDDJMea8Ud7OsPXjek20cHV8S=jfNbA@mail.gmail.com>
-X-Gm-Features: AQ5f1JqYD6WJcU1BIk0mtXtCrxuXqvikkqhcdhVAAsXT4MVrnLil5ua2eCNjEcM
-Message-ID: <CAAOTY__qg1R4JQDssy1bDDJMea8Ud7OsPXjek20cHV8S=jfNbA@mail.gmail.com>
-Subject: Re: [PATCH v7 3/6] drm/mediatek: add MT8365 SoC support
-To: amergnat@baylibre.com
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Jitao Shi <jitao.shi@mediatek.com>, CK Hu <ck.hu@mediatek.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Simona Vetter <simona@ffwll.ch>, Simona Vetter <simona.vetter@ffwll.ch>, 
-	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Fabien Parent <fparent@baylibre.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACGsxWcC/x3MTQqAIBBA4avErBuwTPu5SrQom2w2KhoRRHfPW
+ r7F925IFJkSDMUNkU5O7F2OqizA7LOzhLzmhlrUSkgh0Qb2ZueAiQ403p0UP4Ot1NuiVdP1rYK
+ sQ6SNr/88Ts/zAth7bp9pAAAA
+To: Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, 
+ Michael Hennerich <michael.hennerich@analog.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mun Yew Tham <mun.yew.tham@intel.com>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-pwm@vger.kernel.org, patches@opensource.cirrus.com, 
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2063;
+ i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
+ bh=FTj6xoyS39LnNrJXGLhXAeRS3nQ1U42Zly5B+pL7Yio=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBnxawlRSaTKbF/S2ubujlU+T5mOtA2wT+5FfqLz
+ f0O24SM9OuJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCZ8WsJQAKCRARpy6gFHHX
+ ckWGD/9u+ceNcDwkzEAzs9WbMfq5vXhzHtIGaKqnxBBxx8KhWYFPKP7Se3MIVRL9v0JnhQ87GKy
+ HDgBiwVyHynXsOKVlQw0APVr2LPRIaJaggMbPEmN6tfFWYJFXsseLQH6tF86XmqyVRZFj6c3Ony
+ a2Ji8lD8KdpKO/hTUEHaEk1Y7QRzZR3e8sgS3FMq9xzd5GWdbGNLbVCi3bIcPaowv+oqGTsktY8
+ IxJz2cM8pV89YbZvcWD4mJlhwti/GUcqKMlzqaiaGYSviLcYsgCdCp7UsOjsNZa9+BRiFp6+u2G
+ HEc+at4+FRdvN14vwP083vAkOasL2iFM66uCpowT/QcpOV7uFMZsOYtaq9yzbx78N6FWFdahWYh
+ 9JwMY5WrPG9p4eUzMdEsDKKQN6u8tgZk1LUGg/uq3c4jH4NXUarz+uzydzMFxqXfRi/AoL9g+60
+ VUkNIpSaLu1JefQwXm4VOq72a8rl9Ko95MHqVnuwKQJFNCyOieV5D07Lg6VTQwq3189BSB8faoi
+ zlWMU1AEuEHIsLPV5ccoXeZEXD+S2JuM4av48cV6RU4YuT+xCqSPmjnhzwnl4JOxdJ7CFu72AsK
+ SoU70k9bxmFIe9uGlfJiCdi28nlSkLv3bW09urYrHNMjhGHjTXNTOdEJ32yXwu8R2VpkIqc9rs2
+ 0+3p2O8qDdv/SiQ==
+X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_051503_914728_F2C9D742 
-X-CRM114-Status: GOOD (  14.49  )
+X-CRM114-CacheID: sfid-20250303_051840_684570_E1FF707E 
+X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,71 +124,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Amergnat:
+New variants of set() and set_multiple() callbacks allow drivers to
+indicate failures back to callers. Convert more GPIO drivers to using
+them as the old ones are now deprecated.
 
-<amergnat@baylibre.com> =E6=96=BC 2025=E5=B9=B41=E6=9C=8810=E6=97=A5 =E9=80=
-=B1=E4=BA=94 =E4=B8=8B=E5=8D=889:31=E5=AF=AB=E9=81=93=EF=BC=9A
->
-> From: Fabien Parent <fparent@baylibre.com>
->
-> Add DRM support for MT8365 SoC.
->
-> Signed-off-by: Fabien Parent <fparent@baylibre.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
-ora.com>
+This series also contains some additional refactoring to the affected
+drivers wherever it makes the conversion easier.
 
-Applied to mediatek-drm-next [1], thanks.
+To: 
 
-[1] https://web.git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.=
-git/log/?h=3Dmediatek-drm-next
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+---
+Bartosz Golaszewski (15):
+      gpio: 74x164: use new line value setter callbacks
+      gpio: adnp: use lock guards for the I2C lock
+      gpio: adnp: use devm_mutex_init()
+      gpio: adnp: use new line value setter callbacks
+      gpio: adp5520: use new line value setter callbacks
+      gpio: adp5585: use new line value setter callbacks
+      gpio: altera-a10sr: use new line value setter callbacks
+      gpio: altera: use new line value setter callbacks
+      gpio: amd8111: use new line value setter callbacks
+      gpio: amd-fch: use new line value setter callbacks
+      gpio: arizona: use new line value setter callbacks
+      gpio: aspeed: use lock guards
+      gpio: aspeed: use new line value setter callbacks
+      gpio: aspeed-sgpio: use lock guards
+      gpio: aspeed-sgpio: use new line value setter callbacks
 
-Regards,
-Chun-Kuang.
+ drivers/gpio/gpio-74x164.c       |  16 ++---
+ drivers/gpio/gpio-adnp.c         | 136 +++++++++++++++++----------------------
+ drivers/gpio/gpio-adp5520.c      |  12 ++--
+ drivers/gpio/gpio-adp5585.c      |  10 +--
+ drivers/gpio/gpio-altera-a10sr.c |  14 ++--
+ drivers/gpio/gpio-altera.c       |   6 +-
+ drivers/gpio/gpio-amd-fch.c      |   7 +-
+ drivers/gpio/gpio-amd8111.c      |   6 +-
+ drivers/gpio/gpio-arizona.c      |   9 +--
+ drivers/gpio/gpio-aspeed-sgpio.c |  82 +++++++++--------------
+ drivers/gpio/gpio-aspeed.c       | 108 ++++++++++++-------------------
+ 11 files changed, 177 insertions(+), 229 deletions(-)
+---
+base-commit: 9778568dede2166c7bd124d473f9ec365f782935
+change-id: 20250303-gpiochip-set-conversion-736fb6548975
 
-> Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
-> ---
->  drivers/gpu/drm/mediatek/mtk_drm_drv.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
->
-> diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/med=
-iatek/mtk_drm_drv.c
-> index 0829ceb9967c..5471ef744cc1 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-> @@ -328,6 +328,10 @@ static const struct mtk_mmsys_driver_data mt8195_vdo=
-sys1_driver_data =3D {
->         .min_height =3D 1,
->  };
->
-> +static const struct mtk_mmsys_driver_data mt8365_mmsys_driver_data =3D {
-> +       .mmsys_dev_num =3D 1,
-> +};
-> +
->  static const struct of_device_id mtk_drm_of_ids[] =3D {
->         { .compatible =3D "mediatek,mt2701-mmsys",
->           .data =3D &mt2701_mmsys_driver_data},
-> @@ -355,6 +359,8 @@ static const struct of_device_id mtk_drm_of_ids[] =3D=
- {
->           .data =3D &mt8195_vdosys0_driver_data},
->         { .compatible =3D "mediatek,mt8195-vdosys1",
->           .data =3D &mt8195_vdosys1_driver_data},
-> +       { .compatible =3D "mediatek,mt8365-mmsys",
-> +         .data =3D &mt8365_mmsys_driver_data},
->         { }
->  };
->  MODULE_DEVICE_TABLE(of, mtk_drm_of_ids);
-> @@ -751,6 +757,8 @@ static const struct of_device_id mtk_ddp_comp_dt_ids[=
-] =3D {
->           .data =3D (void *)MTK_DISP_MUTEX },
->         { .compatible =3D "mediatek,mt8195-disp-mutex",
->           .data =3D (void *)MTK_DISP_MUTEX },
-> +       { .compatible =3D "mediatek,mt8365-disp-mutex",
-> +         .data =3D (void *)MTK_DISP_MUTEX },
->         { .compatible =3D "mediatek,mt8173-disp-od",
->           .data =3D (void *)MTK_DISP_OD },
->         { .compatible =3D "mediatek,mt2701-disp-ovl",
->
-> --
-> 2.25.1
->
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+
 
