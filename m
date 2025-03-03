@@ -4,73 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68DD8C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 10:56:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4CB0C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 10:58:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8VN9UPNNdCnSQLYCBghtlT63w+V581kVwQCE/FtNhyo=; b=eB8fji0Lj4G+MA+b7xOfpgWH7e
-	uuctB5WcYTf1FhMLDJWWe1+aqOQV+WAmKH+v/TO3Y6R0Gcje4Gh3ybDFe7WqiQ2ENz2C+sAQECRJY
-	DPRXjhABgj+/Xc2PVQx3P7GZyQsOoSkx1oTG6MaO3hqIM9KwL8mztGEkylfczI4fgUOciidm40sdX
-	QTELNgjw0Nq84j5oXa6wAitdNE4rexXHGYH5Fr7vOwEGCYUKP3/Bfo+8ZFvHRzsNg4HocOs8Fm+ZO
-	bL/XFzxC7jeRjmSRJXjkBcwAqNDWFzKkyhQ58wQ2fAufnF9jrQsj2ovN3/GV8nIYQ7yc4zInV6gcV
-	7PkiqqWQ==;
+	bh=SIyZUKYWMYzLj3p+4j1rlsjrhZvLG0ewUVskiNWMKJQ=; b=NFnCGpzZtMOk5zRR0uXjGjC6hA
+	LadQC0n9KFUzjQpROmtIvN6UMu1TwQhyInPNvfQhk2e+01aQAXm3OdIXxTxRDs9l327VS1j/vTBxL
+	1TcFqs73h9PHyH7vjbRu7lTr5oI0Eg9v1VnvpobGKMWS96V1Xj5F21sZ5FQ+swxGq6IL5mcni+mBp
+	DJ2wO94UBYB0ft8kJeK2tjpMIsNateKoawUiNkVmG7jRAKW4BgFqygkIrAnA05kpDqJsUAe7Pf7lK
+	LAVAQrZ+7Y7dZOez7h3K3+cGoNLfH9hwdZ2gyJP6x6sk4sKThSRaQy4Q9i9rYT8Q6eh6zO83yo8eC
+	qZvX6Pqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp3TK-00000000QB6-3JFo;
-	Mon, 03 Mar 2025 10:56:30 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp3Qu-00000000Pap-3oBp
+	id 1tp3Us-00000000QYO-26U5;
+	Mon, 03 Mar 2025 10:58:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tp3St-00000000Q5z-3Jqs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 10:54:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3B2C05C584A;
-	Mon,  3 Mar 2025 10:51:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8B62C4CED6;
-	Mon,  3 Mar 2025 10:53:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740999237;
-	bh=x9DafxnZjhibXkXWWLnjj9HDJzQbEq4SqW+dqvT9BE0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bsZj4rsmU/F1Q2BWq6kCpwkZDU8bVlA5ZeliPJWlRLGcHiBIqoXbE5TfGDzBOhBwc
-	 p8JrexXMSUL9Npt1IJkXoFZIXS/Xzpca/ZXIXmIcbJbBjLhIY9eqJdnAty/xT6cdJS
-	 ZXZR6JMTUGw1nGuLhCJT7vdxC66+OnAhbhg/rABx3SxOc5PrPYPP5wpEcCBFXoetOT
-	 GfiJcw2UwoDGJgYm0Z+rlVUwrAfT+oAzbbx8mxcsmqtjUirh9c+An1ud6YpVTgwgW6
-	 4F6WSjW8PBqOYFoOo7R3wf7ms0edgoSoPZJ5B7pucS4y2HSYxT13CeyYeHDnWlEyjQ
-	 6GzZwpJ/dD7Cw==
-Received: from johan by xi.lan with local (Exim 4.97.1)
-	(envelope-from <johan@kernel.org>)
-	id 1tp3Qm-000000004Ws-0yFQ;
-	Mon, 03 Mar 2025 11:53:52 +0100
-Date: Mon, 3 Mar 2025 11:53:52 +0100
-From: Johan Hovold <johan@kernel.org>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: Dan Carpenter <dan.carpenter@linaro.org>,
-	Sibi Sankar <quic_sibis@quicinc.com>, sudeep.holla@arm.com,
-	dmitry.baryshkov@linaro.org, maz@kernel.org,
-	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	konradybcio@kernel.org
-Subject: Re: [RFC V6 2/2] firmware: arm_scmi: Add quirk to bypass SCP fw bug
-Message-ID: <Z8WKQJcPTQDIXaKD@hovoldconsulting.com>
-References: <20250226024338.3994701-1-quic_sibis@quicinc.com>
- <20250226024338.3994701-3-quic_sibis@quicinc.com>
- <Z77M5iXHQsdMptWm@hovoldconsulting.com>
- <Z77W-fKBUqAALZKJ@hovoldconsulting.com>
- <759226e1-05aa-4ca2-b2f5-7f1a84dc427f@stanley.mountain>
- <Z77l1NflYXTnRyg0@hovoldconsulting.com>
- <Z8AjhHsVT9ZQTtZX@pluto>
+	Mon, 03 Mar 2025 10:56:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 836CD113E;
+	Mon,  3 Mar 2025 02:56:16 -0800 (PST)
+Received: from e133081.arm.com (unknown [10.57.37.136])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 77DE73F673;
+	Mon,  3 Mar 2025 02:55:58 -0800 (PST)
+Date: Mon, 3 Mar 2025 10:55:47 +0000
+From: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>
+To: David Hildenbrand <david@redhat.com>
+Cc: ryan.roberts@arm.com, suzuki.poulose@arm.com,
+	yang@os.amperecomputing.com, catalin.marinas@arm.com,
+	will@kernel.org, joro@8bytes.org, jean-philippe@linaro.org,
+	mark.rutland@arm.com, joey.gouly@arm.com, oliver.upton@linux.dev,
+	james.morse@arm.com, broonie@kernel.org, maz@kernel.org,
+	akpm@linux-foundation.org, jgg@ziepe.ca, nicolinc@nvidia.com,
+	mshavit@google.com, jsnitsel@redhat.com, smostafa@google.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev
+Subject: Re: [PATCH v2 3/4] arm64/mm: Elide tlbi in contpte_convert() under
+ BBML2
+Message-ID: <20250303105539.GA74129@e133081.arm.com>
+References: <20250228182403.6269-2-miko.lenczewski@arm.com>
+ <20250228182403.6269-5-miko.lenczewski@arm.com>
+ <f270bb5d-aa54-45d3-89ed-2b757ab3a4b0@redhat.com>
+ <20250303094947.GB13345@e133081.arm.com>
+ <7e987f17-ffcb-45e0-8588-2d569d90f776@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <Z8AjhHsVT9ZQTtZX@pluto>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <7e987f17-ffcb-45e0-8588-2d569d90f776@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_025401_041404_116D0AD7 
-X-CRM114-Status: GOOD (  34.44  )
+X-CRM114-CacheID: sfid-20250303_025603_918586_BA70B40D 
+X-CRM114-Status: GOOD (  40.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,87 +75,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cristian,
-
-On Thu, Feb 27, 2025 at 08:34:44AM +0000, Cristian Marussi wrote:
-> On Wed, Feb 26, 2025 at 10:58:44AM +0100, Johan Hovold wrote:
-
-> > Something like that, yes. :) I didn't try to implement it, but it seems
-> > like it should be possible implement this is a way that keeps the quirk
-> > handling isolated.
+On Mon, Mar 03, 2025 at 10:57:21AM +0100, David Hildenbrand wrote:
+> On 03.03.25 10:49, Mikołaj Lenczewski wrote:
+> > Hi David,
+> > 
+> > Thanks for taking the time to review.
+> > 
+> > On Mon, Mar 03, 2025 at 10:17:12AM +0100, David Hildenbrand wrote:
+> > > On 28.02.25 19:24, Mikołaj Lenczewski wrote:
+> > > > If we support bbml2 without conflict aborts, we can avoid the final
+> > > > flush and have hardware manage the tlb entries for us. Avoiding flushes
+> > > > is a win.
+> > > > 
+> > > > Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
+> > > > Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+> > > > ---
+> > > >    arch/arm64/mm/contpte.c | 3 ---
+> > > >    1 file changed, 3 deletions(-)
+> > > > 
+> > > > diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+> > > > index 145530f706a9..77ed03b30b72 100644
+> > > > --- a/arch/arm64/mm/contpte.c
+> > > > +++ b/arch/arm64/mm/contpte.c
+> > > > @@ -72,9 +72,6 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
+> > > >    		__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
+> > > >    	__set_ptes(mm, start_addr, start_ptep, pte, CONT_PTES);
+> > > > -
+> > > > -	if (system_supports_bbml2_noabort())
+> > > > -		__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
+> > > >    }
+> > > >    void __contpte_try_fold(struct mm_struct *mm, unsigned long addr,
+> > > 
+> > > What's the point of not squashing this into #2? :)
+> > > 
+> > > If this split was requested during earlier review, at least seeing patch #2
+> > > on its own confused me.
+> > 
+> > This split is a holdover from an earlier patchset, where it was still
+> > unknown whether the removal of the second flush was permitted with
+> > BBML2. Partly this was due to us being worried about conflict aborts
+> > after the removal, and partly this was because the "delay" is a separate
+> > optimisation that we could apply even if it turned out the final patch
+> > was not architecturally sound.
+> > 
+> > Now that we do not handle conflict aborts (preferring only systems that
+> > handle BBML2 without ever raising aborts), the first issue is not a
+> > problem. The reasoning behind the second patch is also a little bit
+> > outdated, but I can see the logical split between a tlbi reorder, and
+> > the removal of the tlbi. If this is truly redundant though, I would be
+> > happy to squash the two into a single patch.
 > 
-> I hope next week to have a better look at this, in tne meantime just a
-> few considerations....
+> Thanks for the information.
 > 
-> Sooner or later we should have introduced some sort of quirk framework
-> in SCMI to deal systematically with potentially out-of-spec FW, but as
-> in the name, it should be some sort of framework where you have a table of
-> quirks, related activation conditions and a few very well isolated points
-> where the quirks are placed and take action if enabled...this does not
-> seem the case here where instead an ad-hoc param is added to the function
-> that needs to be quirked...this does not scale and will make the codebase
-> a mess IMHO...
+> Does patch #2 (reordering the tlbi) have any benefit on its own? I read
+> "other threads will not see an invalid pagetable entry", but I am not sure
+> that is correct. A concurrent HW page table walker would still find the
+> invalid PTE? It's just a matter of TLB state.
 
-Sounds good. At least we have a good understanding now of how this
-particular firmware is broken so it would be great if you could use
-this as a test case for the implementation.
+I think I understand what you mean. I agree that it is possible for a
+concurrent walk to see an invalid TLBI state, if it is on the same TLB
+that the repaint is happening on. For other TLBs, the flush has not yet
+propagated our invalidated PTEs (from `__ptep_get_and_clear()`) though?
+That invalidation will only be seen by other TLBs after the
+`__flush_tlb_range()`, so we should save a few faults because only
+"local" threads will ever see the invalid entry, as opposed to all
+threads that try to read our modified range? Or it is the case that I
+have misunderstood something basic here, or that I have misinterpreted
+what you have written?
 
-In summary, we need to force the use of a fast channel for
-PERF_LEVEL_GET on these machines, or possibly fall back to the current
-behaviour of only using the domain attribute to determine whether the
-fast channels should be initialised.
-
-The latter may allow for a less intrusive implementation even if we'd
-still see:
-
-	arm-scmi arm-scmi.0.auto: Failed to get FC for protocol 13 [MSG_ID:6 / RES_ID:0] - ret:-95. Using regular messaging.
-	arm-scmi arm-scmi.0.auto: Failed to get FC for protocol 13 [MSG_ID:6 / RES_ID:1] - ret:-95. Using regular messaging.
-	arm-scmi arm-scmi.0.auto: Failed to get FC for protocol 13 [MSG_ID:6 / RES_ID:2] - ret:-95. Using regular messaging.
-
-when not supported for all messages (e.g. with the current firmware).
-
-> Last but not least, these quirks 'activations' in the SCMI world should
-> be driven mainly by the VENDOR/SUB-VENDOR/IMPLEMENTATION_VERS triple and
-> only as a last resort by a platform compatible match...because the
-> IMPLEMENTATION_VERSION, exposed by the FW and gathered via SCMI Base
-> protocol, is completely under the vendor control so it can, and should, be
-> used to identify broken FW-versions...indeed all the distinct SCMI protocols
-> are anyway versioned elsewhere according to the spec, so there is no need to
-> repeat SCMI protocol version here..I mean it is an IMPLEMENTATION version
+> If there is no benefit in having patch #2 independently, I'd just squash
+> them. Reordering to then remove is more complicated than just removing it
+> IMHO.
 > 
-> As an example on a JUNO the SCP reference FW reports:
+> -- 
+> Cheers,
 > 
-> arm-scmi arm-scmi.1.auto: SCMI Protocol v2.0 'arm:arm' Firmware version 0x20f0000
+> David / dhildenb
 > 
-> where the FW version represent something like the FW release tag, I think...not
-> really sure about the menaing our FW gys give to it, BUT definitely it is not
-> a bare copy of the SCMI protocol version...
-> 
-> So...
-> ...does the platfom-to-be-quirked at hand properly use the IMPLEMENTATION_VERSION
-> flag in a sensible way ?
-> IOW does that change between a bad and good (or less bad :D) version ?
 
-I guess only Sibi and Qualcomm can answer that. Both machines I have
-that suffer from this report:
-
-	arm-scmi arm-scmi.0.auto: SCMI Protocol v2.0 'Qualcomm:' Firmware version 0x20000
-
-and I'm not sure if any fixed firmware has made it out to the vendors
-yet or if the version was bumped when this was fixed.
-
-On the other hand, perhaps forcing fast channel initialisation for
-PERF_LEVEL_GET on all 'Qualcomm' firmware would work (i.e. only based on
-VENDOR).
-
-> Because shooting with the platform 'compatible-gun' should be the last resort
-> if all of the above does NOT happen in this beloved fw...
-> 
-> Anyway, after all of this babbling, I know, talk is cheap :D...so now I will shut
-> up and see if I can prototype something generic to deal with quirks, possibly
-> next week...
-
-Much appreciated, thanks.
-
-Johan
+-- 
+Kind regards,
+Mikołaj Lenczewski
 
