@@ -4,66 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A021C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 18:51:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D33EC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 18:52:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k7kXI1jBKPAC8RP9tx7Nca/HoTGKyGC+5OHf5U04hXY=; b=J0Pzf15EGvyQ/KHBfW663mYZLS
-	cztzXs0oGrIbXwUN2VKKgTPMaWSOcvRZAsc8mhx/13uA/DccMbHdBLgPofeufj+Pjf0SCxi5MBnWV
-	DMIs/ANXkb1vhyE7zwUrpVkDDHE6GlHu3q97ZnsqCKw5ZuDSxFEfIB5kez5Vq3GljeFtXTE0Rknc3
-	z3RprZk97+dF+63Lr15xvZ8F2haF12KhvEz/seCJ+wMlP9X4ewXdtIU+kgFvW710ga885QDWFBeGq
-	9Z/rLkiceFKmEjNk1gIAKH99ct7cG9a62v4GvwlTrMZdK58+ACMDhDpTpPiuIz9fg5NdZPMm04Hp1
-	Md0YYmug==;
+	bh=Ph3ScwWRu2TuwRLc+ZG4TvVe/7bgmrSr+8al0+WMn/w=; b=ZgbcKkOde6K7O+Gqpj39qsMNgJ
+	VshaVZ5yJ+OMGwG8V0PzpN+H/ypsg+0ziDb8QIre34XvKr84DjlcwZNbPTYTCtqj0qxEK12lNHpx3
+	3MO88MaNP3y7jPpf6FooHnGdbn1Tp9bxZX/RyrTz4S8Md3Z3Z7PdArI9Wy3yqlB4P5+A3nDzgFeLt
+	soFMtcAocwyTUMVFxkeuHHKWRPNRNTCQgFIH2kNEY0Ga69B0V0EQJ6ekSzk484bNvakC8Jig+7DsG
+	OKcTG3hs4J1ro/Dilms5plZh/DzaEGuwmC7s27B7ydyALqLzfOhOkswBFMbd7Tvi1xw4w9tWBc5M0
+	amLGWzmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpAsX-00000001z3N-4A2A;
-	Mon, 03 Mar 2025 18:51:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpAqx-00000001ysj-0gmf
+	id 1tpAu5-00000001zO8-2dx7;
+	Mon, 03 Mar 2025 18:52:37 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpAra-00000001ywa-0msY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 18:49:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0BC63106F;
-	Mon,  3 Mar 2025 10:49:36 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.2.76.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A063D3F5A1;
-	Mon,  3 Mar 2025 10:49:21 -0800 (PST)
-Date: Mon, 3 Mar 2025 18:49:17 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Adrian Hunter <adrian.hunter@intel.com>
-Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	Will Deacon <will@kernel.org>,
-	Graham Woodward <graham.woodward@arm.com>, Paschalis.Mpeis@arm.com,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 01/12] perf script: Make printing flags reliable
-Message-ID: <20250303184917.GJ2157064@e132581.arm.com>
-References: <20250217195908.176207-1-leo.yan@arm.com>
- <20250217195908.176207-2-leo.yan@arm.com>
- <34795c29-d256-49ce-9d01-435f8cd91611@intel.com>
- <20250303162210.GH2157064@e132581.arm.com>
- <447bcafc-4c47-4b95-bf21-7aee2cb6a629@intel.com>
- <20250303181152.GI2157064@e132581.arm.com>
- <c227a1c2-13a4-4078-87ee-ed3fe0638060@intel.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c227a1c2-13a4-4078-87ee-ed3fe0638060@intel.com>
+	Mon, 03 Mar 2025 18:50:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3E9CE5C5AC7;
+	Mon,  3 Mar 2025 18:47:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA80BC4CED6;
+	Mon,  3 Mar 2025 18:50:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741027800;
+	bh=ay2Mn2td7LnvXWZz0y/fV3J9yKVFlbL+Ii+8sPB9FlI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ZOyoKEdboUWUG+YMMkdL5RPjsQQjxkQgZljsCmkfUknphh5NWjVd5xuL2U5V5YcPd
+	 IycN7aSsNST2N/J6LErZhR1QBg+cSC2AxMlhHhMhlI5qge3YS08YlGALiMwSP4GGfx
+	 koSc1w6VFEM/kLaIoZAfFlHxtHrKzuxX0wstpuhDgBxe0fzvghFQVz+sZINJH7RgKz
+	 qqgvIF9/c79a16CFL7ks+slGk061OyzBAf2SapL7k3eydnwojqTphxYwrJKVV1hh75
+	 d04bon1Z4dwQWtqHZz6+s8JAIvbP1zuwf8LjklHvnl4IZoTdDALzF0KYPiPVsHkhYy
+	 noOLQ+bZpO1cg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tpArW-009xKj-CA;
+	Mon, 03 Mar 2025 18:49:58 +0000
+Date: Mon, 03 Mar 2025 18:49:58 +0000
+Message-ID: <86ikoqoso9.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Peter Chen <peter.chen@cixtech.com>
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	arnd@arndb.de,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	cix-kernel-upstream@cixtech.com,
+	marcin@juszkiewicz.com.pl,
+	Fugang Duan <fugang.duan@cixtech.com>
+Subject: Re: [PATCH v3 6/6] arm64: dts: cix: add initial CIX P1(SKY1) dts support
+In-Reply-To: <Z8WUxyJT1fdHKo67@nchen-desktop>
+References: <20250227120619.1741431-1-peter.chen@cixtech.com>
+	<20250227120619.1741431-7-peter.chen@cixtech.com>
+	<86r03ip0kf.wl-maz@kernel.org>
+	<Z8WUxyJT1fdHKo67@nchen-desktop>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: peter.chen@cixtech.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com, marcin@juszkiewicz.com.pl, fugang.duan@cixtech.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_104923_246573_BBFA3D9E 
-X-CRM114-Status: GOOD (  21.47  )
+X-CRM114-CacheID: sfid-20250303_105002_320361_CAF978C2 
+X-CRM114-Status: GOOD (  30.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,47 +96,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 03, 2025 at 06:56:42PM +0200, Adrian Hunter wrote:
-> On 3/03/25 20:11, Leo Yan wrote:
-> > On Mon, Mar 03, 2025 at 05:05:13PM +0200, Adrian Hunter wrote:
-> > 
-> > [...]
-> > 
-> >>>>> +	ret = max(ret, SAMPLE_FLAGS_STR_ALIGNED_SIZE);
-> >>>>> +	return fprintf(fp, "  %-*s ", ret, str);
-> >>>>
-> >>>> -21 means the field width is 21 and left-justified.  It should not
-> >>>> truncate the string.
-> >>>
-> >>> No, it does not truncate the string.
-> >>>
-> >>> It calculates a maximum value between the returned length and 21 (
-> >>> defined in SAMPLE_FLAGS_STR_ALIGNED_SIZE).  It keeps left-justified and
-> >>> can printing a complete string if the string length is bigger than 21.
-> >>
-> >> Maybe I am missing something, but that isn't that what
-> >>
-> >> 	return fprintf(fp, "  %-21s ", str);
-> >>
-> >> does anyway?  Why change it to something more complicated.
-> > 
-> > You are right.  I should have done an experiment for this.
-> > 
-> > I will remove the max() sentence and update the last line:
-> > 
-> >         return fprintf(fp, "  %-*s ", SAMPLE_FLAGS_STR_ALIGNED_SIZE, str);
-> > 
-> > Another option is to drop this patch.  But I prefer to keep it, the
-> > reason is except the benefit for the debugging log, an extra reason is
-> > the SAMPLE_FLAGS_STR_ALIGNED_SIZE macro is used to replace the opened
-> > value '21'.  The macro also will be used by a later patch for
-> > right-alignment printing.  How about you think?
+On Mon, 03 Mar 2025 11:38:47 +0000,
+Peter Chen <peter.chen@cixtech.com> wrote:
 > 
-> Sure
+> On 25-02-28 15:10:24, Marc Zyngier wrote:
+> 
+> Hi Marc,
+> 
+> Thanks for your detail review.
+> 
+> > > +
+> > > +             cpu10: cpu@a00 {
+> > > +                     compatible = "arm,cortex-a720";
+> > > +                     enable-method = "psci";
+> > > +                     reg = <0x0 0xa00>;
+> > > +                     device_type = "cpu";
+> > > +                     capacity-dmips-mhz = <1024>;
+> > > +             };
+> > > +
+> > > +             cpu11: cpu@b00 {
+> > > +                     compatible = "arm,cortex-a720";
+> > > +                     enable-method = "psci";
+> > > +                     reg = <0x0 0xb00>;
+> > > +                     device_type = "cpu";
+> > > +                     capacity-dmips-mhz = <1024>;
+> > > +             };
+> > 
+> > Given that half the A720s are advertised with lower clock speed, how
+> > comes they all have the same capacity?
+> 
+> According to Documentation/devicetree/bindings/cpu/cpu-capacity.txt
+> "capacity-dmips-mhz" is u32 value representing CPU capacity expressed
+> in normalized DMIPS/MHz, it means CPU capability per MHz. For sky1
+> SoC, both middle and big cores are A720, so their capability per MHz
+> are the same.
 
-Thanks a lot for confirmation and review!
+Ah, fair enough. I missed that detail.
 
-I will send new version in my tomorrow.
+> 
+> > > +
+> > > +     pmu-a520 {
+> > > +             compatible = "arm,cortex-a520-pmu";
+> > > +             interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW>;
+> > > +     };
+> > > +
+> > > +     pmu-a720 {
+> > > +             compatible = "arm,cortex-a720-pmu";
+> > > +             interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW>;
+> > > +     };
+> > 
+> > This is wrong. The default configuration for PPIs is to expose the
+> > *same* device on all CPUs. You must use PPI affinities for your PMUs.
+> > Please see the GICv3 binding for the details.
+> 
+> We have discussed internally, we have not seen the benefits routing
+> different PPI interrupt to dedicated CPUs. Any use cases?
 
-Leo
+This isn't about changing the PPI. It is about matching CPUs with
+their PMU. Here, you are saying "both PMU types are connected to all
+the CPUs using PPI7".
+
+That's obviously not the case.
+
+> I prefer changing pmu nodes as one generic Armv8 PMU node. Is it accepted?
+
+No, that's not acceptable.
+
+> Or must I keep both pmu for A520 and A720, and add PPI affinities to
+> describe hardware well?
+
+This is an established practice on all big-little systems: each PMU
+node has an affinity that indicates which CPUs they are connected
+to. For GICv3+, this is carried by the interrupt specifier.
+
+Please look at existing SoCs supported, such as rk3399, for example.
+
+> 
+> > 
+> > > +
+> > > +     pmu-spe {
+> > > +             compatible = "arm,statistical-profiling-extension-v1";
+> > > +             interrupts = <GIC_PPI 5 IRQ_TYPE_LEVEL_LOW>;
+> > > +     };
+> > > +
+> > > +     psci {
+> > > +             compatible = "arm,psci-1.0";
+> > > +             method = "smc";
+> > > +     };
+> > > +
+> > > +     soc@0 {
+> > > +             compatible = "simple-bus";
+> > > +             ranges = <0 0 0 0 0x20 0>;
+> > > +             dma-ranges;
+> > > +             #address-cells = <2>;
+> > > +             #size-cells = <2>;
+> > > +
+> > > +             gic: interrupt-controller@e010000 {
+> > > +                     compatible = "arm,gic-v3";
+> > > +                     reg = <0x0 0x0e010000 0 0x10000>,       /* GICD */
+> > > +                           <0x0 0x0e090000 0 0x300000>;       /* GICR * 12 */
+> > > +                     interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_LOW>;
+> > > +                     #interrupt-cells = <3>;
+> > 
+> > This will need to be bumped up to 4, and all the interrupt specifiers adjusted.
+> 
+> Depends on if PPI affinities is must.
+
+Definitely a must, unless you want to completely remove all traces of
+the PMU, which is of course silly, but a valid alternative.
+
+[...]
+
+> > > +             arm,no-tick-in-suspend;
+> > 
+> > Why do you need this? Is the HW so broken that you have implemented
+> > the global counter in a power domain that isn't always on?
+> > 
+> 
+> Not hardware broken, just arch timer will be powered off at cpu idle
+> and system suspend due to power consumption reason.
+
+This is not about the timer. This is about the global counter. If your
+counter stops ticking when you're in idle or suspended, your system is
+broken and you need this property. If the timer (or more precisely the
+comparator) is turned off because the CPU is off, then that's the
+expected behaviour and you don't need this property.
+
+
+-- 
+Without deviation from the norm, progress is not possible.
 
