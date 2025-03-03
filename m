@@ -4,61 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ACB4C282D2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 16:13:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACF5BC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 16:14:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=seEoy9RCdjq5gQ6u5K7vAkwJraDrjevBUwdT9habU9w=; b=XJ2gFxShSAIiHx3qkjK3iJR4OX
-	lspktEDIq6T6Bp98Z46B99we7zFZNUlPnsskYLKGgCHdUhh1+uPCgoMvR43q6e79wWC9LA8ag42z0
-	5O+R6VOAmtC5/hg+Ijw2U/YHKUlA0lQ7fJ+wLhkMOAxrnkpRyfGMycvIKBm9iJYt/piWn4hXkP2D/
-	jmpLbM4XG7x8oDddHNNc35h6LaIk8OhoLnhiOZxK+kh129iK8wSUBBLJtA9WyVgUDYyw9fF76+Pbk
-	SNB6wzpXpNpU1FBhLAJ6dGVtaCwkY5uKQSfImXQdAcbOfYx1aXwwspeOgN7Nc9Hd6/H0VVFk9kUch
-	KOs+Pl4w==;
+	bh=aR8tmI+bFqSQNSGqsOA9WHdMVHUZSanXCspyIqDFK9I=; b=FMAIJh6+nlZ8nvMIJPagACecX5
+	cQHVq/Urh36m8MloOMgmznb3yrtA7NG+lEturHBsrO/uI3Y6FlID4VaYOAwT7HbrwE/O6HZm2nj2p
+	edq4KYQbIVozGgHB+xQyzlOZQgpSYjw701ddmHpFGA93Xip9SBJHFIYJy6P1uH76MvxD9vtGFgS4o
+	QpQDgyA/dXqaCHchWEmAczeRr/dgmBl4ACXgdX8ZWSMytylcQ1gXv+u+Mfr01mJxIE+mV6PscUACC
+	Pa7hXA/4S+FURtPG38P1hdR6SFvEbwcRUL9ZNqoa6+xod9OsPg+sAe7TV+O1thLTOULs4b6eMygH3
+	Ms3RycIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp8PW-00000001SRE-0WtS;
-	Mon, 03 Mar 2025 16:12:54 +0000
-Received: from out-170.mta0.migadu.com ([2001:41d0:1004:224b::aa])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp7x0-00000001MoO-498P
+	id 1tp8R5-00000001StJ-2KqP;
+	Mon, 03 Mar 2025 16:14:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tp8Dh-00000001PkM-0XTz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 15:43:29 +0000
-Date: Mon, 3 Mar 2025 10:43:17 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
-	s=key1; t=1741016601;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=seEoy9RCdjq5gQ6u5K7vAkwJraDrjevBUwdT9habU9w=;
-	b=C9b4AFVy0sa2gaLc+VViC/urt5RncL82pVN2bUddo2Pm6GmNm4k4zSL16v11jS8d/6fOC7
-	g55aOKjHpoR8yR0NKmwOybhsR48aj94GXLU7qzRoiwMK2sRNdHhvG5AxAsOB9yX0vCrgvo
-	e6M4l0C4OSF4zy1I47k/DZExaosFGhcgJs43l5o0fPCsxL7yhdL5uTb/6jLYAwgvbJXJew
-	Mok98SgC+aDRdCTh39oIFM7AvwQAw18oXitpelTLxByxDJ87KXkDjzb9MuC45ZFOTFuPF8
-	NwBh2rSERnx4gzBOMcaQVwU4BCpP4mAwgED3X/seOjMbPaQOMSje6997bOz3KQ==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-To: Neal Gompa <neal@gompa.dev>
-Cc: asahi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>
-Subject: Re: [PATCH] MAINTAINERS: Add myself (Neal Gompa) as a reviewer for
- ARM Apple support
-Message-ID: <Z8XOFTclPeZwBKld@blossom>
-References: <20250303154012.1417088-1-neal@gompa.dev>
+	Mon, 03 Mar 2025 16:00:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 35789106F;
+	Mon,  3 Mar 2025 08:00:54 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6CF9B3F673;
+	Mon,  3 Mar 2025 08:00:38 -0800 (PST)
+Date: Mon, 3 Mar 2025 16:00:35 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Hugues KAMBA MPIANA <hugues.kambampiana@arm.com>
+Cc: <liviu.dudau@arm.com>, <lpieralisi@kernel.org>, <robh@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] arm64: dts: corstone1000: Add definitions for secondary
+ CPU cores
+Message-ID: <Z8XSIx75B4mtcV48@bogus>
+References: <20250303153744.376419-1-hugues.kambampiana@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250303154012.1417088-1-neal@gompa.dev>
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <20250303153744.376419-1-hugues.kambampiana@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_074327_621699_459156B0 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20250303_080041_212306_060CA2FB 
+X-CRM114-Status: GOOD (  18.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,34 +65,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Acked-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-
-Le Mon , Mar 03, 2025 at 10:40:10AM -0500, Neal Gompa a écrit :
-> As a member of the Asahi Linux project, I (Neal) have been involved in
-> reviewing the patches downstream as part of enabling the Fedora Asahi Remix
-> distribution for years and have recently been reviewing patches for upstream
-> submission as well.
+On Mon, Mar 03, 2025 at 03:37:44PM +0000, Hugues KAMBA MPIANA wrote:
+> Add `cpu1`, `cpu2` and `cpu3` nodes to the Corstone1000 device tree to
+> enable support for secondary CPU cores.
 > 
-> This formalizes my role as a reviewer for ARM Apple system support patches.
+> This update facilitates symmetric multiprocessing (SMP) support on
+> the Corstone1000 Fixed Virtual Platform (FVP), allowing the
+> secondary cores to be properly initialised and utilised.
 > 
-> Signed-off-by: Neal Gompa <neal@gompa.dev>
+> Signed-off-by: Hugues KAMBA MPIANA <hugues.kambampiana@arm.com>
 > ---
->  MAINTAINERS | 1 +
->  1 file changed, 1 insertion(+)
+>  arch/arm64/boot/dts/arm/corstone1000-fvp.dts | 24 ++++++++++++++++++++
+>  arch/arm64/boot/dts/arm/corstone1000.dtsi    |  2 +-
+>  2 files changed, 25 insertions(+), 1 deletion(-)
 > 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 8e0736dc2ee0..052e6e997817 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -2212,6 +2212,7 @@ ARM/APPLE MACHINE SUPPORT
->  M:	Sven Peter <sven@svenpeter.dev>
->  M:	Janne Grunau <j@jannau.net>
->  R:	Alyssa Rosenzweig <alyssa@rosenzweig.io>
-> +R:	Neal Gompa <neal@gompa.dev>
->  L:	asahi@lists.linux.dev
->  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
->  S:	Maintained
-> -- 
-> 2.48.1
-> 
+> diff --git a/arch/arm64/boot/dts/arm/corstone1000-fvp.dts b/arch/arm64/boot/dts/arm/corstone1000-fvp.dts
+> index abd013562995..df9700302b8d 100644
+> --- a/arch/arm64/boot/dts/arm/corstone1000-fvp.dts
+> +++ b/arch/arm64/boot/dts/arm/corstone1000-fvp.dts
+> @@ -49,3 +49,27 @@ sdmmc1: mmc@50000000 {
+>  		clock-names = "smclk", "apb_pclk";
+>  	};
+>  };
+> +
+> +&cpus {
+> +	cpu1: cpu@1 {
+> +		device_type = "cpu";
+> +		compatible = "arm,cortex-a35";
+> +		reg = <0x1>;
+> +		enable-method = "psci";
+> +		next-level-cache = <&L2_0>;
+> +	};
+> +	cpu2: cpu@2 {
+> +		device_type = "cpu";
+> +		compatible = "arm,cortex-a35";
+> +		reg = <0x2>;
+> +		enable-method = "psci";
+> +		next-level-cache = <&L2_0>;
+> +	};
+> +	cpu3: cpu@3 {
+> +		device_type = "cpu";
+> +		compatible = "arm,cortex-a35";
+> +		reg = <0x3>;
+> +		enable-method = "psci";
+> +		next-level-cache = <&L2_0>;
+> +	};
+
+Why are these not part of /cpus node in corstone1000.dtsi ?
+Also I see the original cpu@0 node doesn't have enable-method set to
+"psci" while these secondary cpus have. Please add the same and move all
+these changes in corstone1000.dtsi unless you have strong reasons not to.
+
+In that case, please clearly state the reason in the commit message.
+
+P.S: I was about to send PR soon for v6.15. If you want this change for
+v6.15, you need to be quicker.
+
+-- 
+Regards,
+Sudeep
 
