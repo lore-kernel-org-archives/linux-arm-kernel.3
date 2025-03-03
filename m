@@ -4,150 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC7A7C282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 10:03:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BE01C282CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 10:19:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XPMg8qYY6woJwUtyf2x+IAiV5yepPU5ZWaNNfhk/IJY=; b=XDuU2L8fEfxr9gd0k+O1qUBUlk
-	TIqYa0cs6u0MpB56nvgg0mV9/4lPJmJa+mV8T1tMZEu6JPDOwsnRKXydLgYJIy8NSCD7+jjXswNlM
-	MRWia2a67gXbU/cZXocRJfx8ZXnmbXbjlc3ESah6tr8QZs/hBZzFBhLLVojBB4jLJ9euVstTXgn0v
-	GYAO/JwFcuguWZOt8F/yYIdpjlz/HMWrdIklAUy+JhwvmLXHpyOVHEImrelAbwBrhKAev2WrKzPyx
-	5F84n8xUkQof0aTuZZcLa/EjGSHpALeoniB3zyu4VYbmZjt9ijWrIm+2E/xFgJetJq35NGE7zQabO
-	FhHlw2kg==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3BLjbeqOOztjLEC04HHfFwpw9Eul+9hcjdpsMo9ZuQc=; b=HwkvHG2IrZ1HRs7HBviNY52l0/
+	y+DcJQtysPsjfLVImEiIB+MKTG+FI+HCWjBJodL/12Y2JggAp/smZpCdV/wybwgLKanzHRJUs2kN9
+	oYSmExTGPkrIrq2VZjzaJRGZxPqAMf+M5/RKXVGYPc1DhO2F1fHf18tdsZTJzaiN+wlTLxYHkkDUS
+	CTNUE8PCe2iheEZkcAOHWErNUFUsXt5zgiQKxGh6ut9PO5tsK3fXMd4JjGbmE/TBjjp2DzAnY8CUS
+	khWY/MM/g5Mc+sWuEc4l8/E0nI18t5IE7gUDL1TsP2HWdtdmttMeGRpIpapINVQPZO2ArRw1JkW9v
+	nViNbHNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp2dn-00000000H44-1lIz;
-	Mon, 03 Mar 2025 10:03:15 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp2cD-00000000GpN-2U8u
+	id 1tp2tE-00000000IzH-0mFo;
+	Mon, 03 Mar 2025 10:19:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tp2re-00000000IgX-0IBt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 10:01:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1740996096;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=XPMg8qYY6woJwUtyf2x+IAiV5yepPU5ZWaNNfhk/IJY=;
-	b=WXCZRqyUT53/CF1fJqPmyZX86uwX4JS95QE3alHFKfCZBMx+RAxiF7Qn7fnUrpcP2WIFFE
-	acws0BTiMwH87VEkOkBFiC7B+tgfB+K/zsYpfQoSErXz0/i1ccEMThrZyC6X6F+O3IKVdb
-	DX3DEmR/YSwcGDAQUNsJlBTdVaWe0xA=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-583-JRvtL1JVMTWRDv0mccojQg-1; Mon, 03 Mar 2025 05:01:28 -0500
-X-MC-Unique: JRvtL1JVMTWRDv0mccojQg-1
-X-Mimecast-MFC-AGG-ID: JRvtL1JVMTWRDv0mccojQg_1740996087
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-390f365274dso1032692f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 02:01:28 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740996087; x=1741600887;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=XPMg8qYY6woJwUtyf2x+IAiV5yepPU5ZWaNNfhk/IJY=;
-        b=tbUoMMuD7lzcQbxw+Q8Iv0GKOXzlxVcSOj1DpuZqxK+HZong4fmjhLqDjHhny8c+ry
-         p5HYjLjvqdv8yGAY7/LdoacCFOXoI/IeyVAfHj3H0uzOPehMDjR3lqm1wicy+Q8Xgee0
-         N71gfafXizKqDoIXOSOvcRrhpobWj0Eaj1f1Jm4sa6lbBXXIbNfhVOypXVI39S41sc8j
-         ii7JTbIQSYXirnUPrNLOt1zfm5hvCSuN2SnZY5dVqAxuiU8GITR46BI367RJ6OUpm/R5
-         WY/rinJqGlLmoawU3jRNqk34waKQFQufNQhi3JOhChA7S2vP3BYSdXGmSZojo5TfRkXM
-         qnKA==
-X-Forwarded-Encrypted: i=1; AJvYcCWh53u1nl+oWgqiSCeg8upuBn30YDDKb08Qxu0w1hpCI4N9TuVycPpxRXRbB1lCXuUU1/3I6H/i+sQ1oABS27iW@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXGVm6I4ZYkz6f7JrIKclNfVHDf6MREjpVysJ5OVrYSxQTVHP8
-	dZAWkDy9N8Mf06qtvzB6uVpuyakIncOzPywf1Sg11YaGDeW5nF3O/KWJ9NQE8dShQbcqR8Hcmq6
-	3PJpUsiZ+KRAf5d/1kXnbCC+J/DjYX1bxoXI6OVJc3l2l9KNmInHFN85mdkLGEZkE0bAnZxnY
-X-Gm-Gg: ASbGncubgPXOOBRfXW4cTh+KdnE37bufIhCTSsaa1X+vtkqYn2nLcJN/cuBFIoMgwgM
-	RTpV6gAB5vKaTyQ8vqBbZNdIGbcMtJjRMilFbxb9H3RbcJ8wpqXxXUBakY8gAUd1QEj/yGugg9j
-	hYh34F8b5a9KVygnK5yRbi5TjdZG0PgQ8kiChipeoBqbF/gkPMy5NMCO2lsGypfkn1zUbYnWhd1
-	y+7cbtrJ4AKnYxznipol+AdhgWj0V1xgI43r2Y7pVb862fLtzjSVU2437xUT4iMw/nobdYZOJKa
-	jgODwY/7euWwVHH1oG+ELySisfsDs/EWN1cC6V4d7UkdMm4q0UALYjDS7csjFr5hYOlRdZMmdJ1
-	HDtrAsLUXqmv/dR51RnEoqFfFpWNXhMk+O7N2NxRkcJw=
-X-Received: by 2002:a5d:59a2:0:b0:390:ff84:532b with SMTP id ffacd0b85a97d-390ff845589mr3552475f8f.7.1740996087029;
-        Mon, 03 Mar 2025 02:01:27 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGXZqIa1M7mGR2dYNXiAZ4lWYbl7hOIdDdeUw6ofOE6vBxI8shgA38Lt8+iwmpijQWMi3sT/g==
-X-Received: by 2002:a5d:59a2:0:b0:390:ff84:532b with SMTP id ffacd0b85a97d-390ff845589mr3552443f8f.7.1740996086689;
-        Mon, 03 Mar 2025 02:01:26 -0800 (PST)
-Received: from ?IPV6:2003:cb:c734:9600:af27:4326:a216:2bfb? (p200300cbc7349600af274326a2162bfb.dip0.t-ipconnect.de. [2003:cb:c734:9600:af27:4326:a216:2bfb])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43b737043aasm152241565e9.14.2025.03.03.02.01.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Mar 2025 02:01:25 -0800 (PST)
-Message-ID: <78d55e35-6cda-4f5e-8e52-0a54b1e64592@redhat.com>
-Date: Mon, 3 Mar 2025 11:01:24 +0100
+	Mon, 03 Mar 2025 10:17:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4DA02113E;
+	Mon,  3 Mar 2025 02:17:47 -0800 (PST)
+Received: from [10.1.26.155] (XHFQ2J9959.cambridge.arm.com [10.1.26.155])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 110033F66E;
+	Mon,  3 Mar 2025 02:17:29 -0800 (PST)
+Message-ID: <43732270-8fd0-4a18-abec-096e383a6a4d@arm.com>
+Date: Mon, 3 Mar 2025 10:17:28 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8] arm64: mm: Populate vmemmap at the page level if not
- section aligned
-To: Zhenhua Huang <quic_zhenhuah@quicinc.com>, anshuman.khandual@arm.com,
- catalin.marinas@arm.com
-Cc: will@kernel.org, ardb@kernel.org, ryan.roberts@arm.com,
- mark.rutland@arm.com, joey.gouly@arm.com, dave.hansen@linux.intel.com,
- akpm@linux-foundation.org, chenfeiyang@loongson.cn, chenhuacai@kernel.org,
- linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, quic_tingweiz@quicinc.com,
- stable@vger.kernel.org
-References: <20250219084001.1272445-1-quic_zhenhuah@quicinc.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat
-In-Reply-To: <20250219084001.1272445-1-quic_zhenhuah@quicinc.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: W499eNm18C1NvyNih87GGIwXoHB3kLcJcD3BZvDWdZM_1740996087
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v2 4/4] iommu/arm: Add BBM Level 2 smmu feature
+Content-Language: en-GB
+To: Yang Shi <yang@os.amperecomputing.com>,
+ =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
+ suzuki.poulose@arm.com, catalin.marinas@arm.com, will@kernel.org,
+ joro@8bytes.org, jean-philippe@linaro.org, mark.rutland@arm.com,
+ joey.gouly@arm.com, oliver.upton@linux.dev, james.morse@arm.com,
+ broonie@kernel.org, maz@kernel.org, david@redhat.com,
+ akpm@linux-foundation.org, jgg@ziepe.ca, nicolinc@nvidia.com,
+ mshavit@google.com, jsnitsel@redhat.com, smostafa@google.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ iommu@lists.linux.dev
+References: <20250228182403.6269-2-miko.lenczewski@arm.com>
+ <20250228182403.6269-6-miko.lenczewski@arm.com>
+ <b46dc626-edc9-4d20-99d2-6cd08a01346c@os.amperecomputing.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <b46dc626-edc9-4d20-99d2-6cd08a01346c@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_020137_721456_5459F8EA 
-X-CRM114-Status: GOOD (  24.46  )
+X-CRM114-CacheID: sfid-20250303_021734_196972_360C787F 
+X-CRM114-Status: GOOD (  24.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,71 +73,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19.02.25 09:40, Zhenhua Huang wrote:
-> On the arm64 platform with 4K base page config, SECTION_SIZE_BITS is set
-> to 27, making one section 128M. The related page struct which vmemmap
-> points to is 2M then.
-> Commit c1cc1552616d ("arm64: MMU initialisation") optimizes the
-> vmemmap to populate at the PMD section level which was suitable
-> initially since hot plug granule is always one section(128M). However,
-> commit ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
-> introduced a 2M(SUBSECTION_SIZE) hot plug granule, which disrupted the
-> existing arm64 assumptions.
+On 01/03/2025 01:32, Yang Shi wrote:
 > 
-> The first problem is that if start or end is not aligned to a section
-> boundary, such as when a subsection is hot added, populating the entire
-> section is wasteful.
 > 
-> The next problem is if we hotplug something that spans part of 128 MiB
-> section (subsections, let's call it memblock1), and then hotplug something
-> that spans another part of a 128 MiB section(subsections, let's call it
-> memblock2), and subsequently unplug memblock1, vmemmap_free() will clear
-> the entire PMD entry which also supports memblock2 even though memblock2
-> is still active.
 > 
-> Assuming hotplug/unplug sizes are guaranteed to be symmetric. Do the
-> fix similar to x86-64: populate to pages levels if start/end is not aligned
-> with section boundary.
+> On 2/28/25 10:24 AM, Mikołaj Lenczewski wrote:
+>> For supporting BBM Level 2 for userspace mappings, we want to ensure
+>> that the smmu also supports its own version of BBM Level 2. Luckily, the
+>> smmu spec (IHI 0070G 3.21.1.3) is stricter than the aarch64 spec (DDI
+>> 0487K.a D8.16.2), so already guarantees that no aborts are raised when
+>> BBM level 2 is claimed.
+>>
+>> Add the feature and testing for it under arm_smmu_sva_supported().
+>>
+>> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
+>> ---
+>>   arch/arm64/kernel/cpufeature.c                  | 7 +++----
+>>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 3 +++
+>>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c     | 3 +++
+>>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     | 4 ++++
+>>   4 files changed, 13 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+>> index 63f6d356dc77..1022c63f81b2 100644
+>> --- a/arch/arm64/kernel/cpufeature.c
+>> +++ b/arch/arm64/kernel/cpufeature.c
+>> @@ -2223,8 +2223,6 @@ static bool has_bbml2_noabort(const struct
+>> arm64_cpu_capabilities *caps, int sco
+>>               if (!cpu_has_bbml2_noabort(__cpu_read_midr(cpu)))
+>>                   return false;
+>>           }
+>> -
+>> -        return true;
+>>       } else if (scope & SCOPE_LOCAL_CPU) {
+>>           /* We are a hot-plugged CPU, so only need to check our MIDR.
+>>            * If we have the correct MIDR, but the kernel booted on an
+>> @@ -2232,10 +2230,11 @@ static bool has_bbml2_noabort(const struct
+>> arm64_cpu_capabilities *caps, int sco
+>>            * we have an incorrect MIDR, but the kernel booted on a
+>>            * sufficient CPU, we will not bring up this CPU.
+>>            */
+>> -        return cpu_has_bbml2_noabort(read_cpuid_id());
+>> +        if (!cpu_has_bbml2_noabort(read_cpuid_id()))
+>> +            return false;
+>>       }
+>>   -    return false;
+>> +    return has_cpuid_feature(caps, scope);
 > 
-> Cc: <stable@vger.kernel.org> # v5.4+
-> Fixes: ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
-> Signed-off-by: Zhenhua Huang <quic_zhenhuah@quicinc.com>
-> ---
-> Hi Catalin and David,
-> Following our latest discussion, I've updated the patch for your review.
-> I also removed Catalin's review tag since I've made significant modifications.
->   arch/arm64/mm/mmu.c | 5 ++++-
->   1 file changed, 4 insertions(+), 1 deletion(-)
+> Do we really need this? IIRC, it means the MIDR has to be in the allow list
+> *AND* MMFR2 register has to be set too. AmpereOne doesn't have MMFR2 register set.
+
+Miko, I think this should have been squashed into patch #1? It doesn't belong in
+this patch.
+
+Yang, we discussed this internally and decided that we thought it was best to
+still require BBML2 being advertised in the feature register. That way if trying
+to use KVM to emulate a CPU that is in the allow list but doesn't really support
+BBML2, we won't try to use it.
+
+But we still end up with the same problem if running on a physical CPU that
+supports BBML2 with conflict aborts, but emulating a CPU in the allow list. So
+given AmpereOne doesn't advertise BBML2 but does support it, I'd be happy to
+remove this check.
+
+Thanks,
+Ryan
+
+
 > 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index b4df5bc5b1b8..de05ccf47f21 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -1177,8 +1177,11 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
->   		struct vmem_altmap *altmap)
->   {
->   	WARN_ON((start < VMEMMAP_START) || (end > VMEMMAP_END));
-> +	/* [start, end] should be within one section */
-> +	WARN_ON(end - start > PAGES_PER_SECTION * sizeof(struct page));
->   
-> -	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES))
-> +	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) ||
-> +		(end - start < PAGES_PER_SECTION * sizeof(struct page)))
-
-Indentation should be
-
-	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) ||
-	    (end - start < PAGES_PER_SECTION * sizeof(struct page)))
-
-
-Acked-by: David Hildenbrand <david@redhat.com>
-
-
-Thanks!
-
--- 
-Cheers,
-
-David / dhildenb
+> Thanks,
+> Yang
+> 
+>>   }
+>>     #ifdef CONFIG_ARM64_PAN
+>> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/
+>> arm/arm-smmu-v3/arm-smmu-v3-sva.c
+>> index 9ba596430e7c..6ba182572788 100644
+>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+>> @@ -222,6 +222,9 @@ bool arm_smmu_sva_supported(struct arm_smmu_device *smmu)
+>>           feat_mask |= ARM_SMMU_FEAT_VAX;
+>>       }
+>>   +    if (system_supports_bbml2_noabort())
+>> +        feat_mask |= ARM_SMMU_FEAT_BBML2;
+>> +
+>>       if ((smmu->features & feat_mask) != feat_mask)
+>>           return false;
+>>   diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/
+>> arm/arm-smmu-v3/arm-smmu-v3.c
+>> index 358072b4e293..dcee0bdec924 100644
+>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+>> @@ -4406,6 +4406,9 @@ static int arm_smmu_device_hw_probe(struct
+>> arm_smmu_device *smmu)
+>>       if (FIELD_GET(IDR3_RIL, reg))
+>>           smmu->features |= ARM_SMMU_FEAT_RANGE_INV;
+>>   +    if (FIELD_GET(IDR3_BBML, reg) == IDR3_BBML2)
+>> +        smmu->features |= ARM_SMMU_FEAT_BBML2;
+>> +
+>>       /* IDR5 */
+>>       reg = readl_relaxed(smmu->base + ARM_SMMU_IDR5);
+>>   diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/
+>> arm/arm-smmu-v3/arm-smmu-v3.h
+>> index bd9d7c85576a..85eaf3ab88c2 100644
+>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+>> @@ -60,6 +60,9 @@ struct arm_smmu_device;
+>>   #define ARM_SMMU_IDR3            0xc
+>>   #define IDR3_FWB            (1 << 8)
+>>   #define IDR3_RIL            (1 << 10)
+>> +#define IDR3_BBML            GENMASK(12, 11)
+>> +#define IDR3_BBML1            (1 << 11)
+>> +#define IDR3_BBML2            (2 << 11)
+>>     #define ARM_SMMU_IDR5            0x14
+>>   #define IDR5_STALL_MAX            GENMASK(31, 16)
+>> @@ -754,6 +757,7 @@ struct arm_smmu_device {
+>>   #define ARM_SMMU_FEAT_HA        (1 << 21)
+>>   #define ARM_SMMU_FEAT_HD        (1 << 22)
+>>   #define ARM_SMMU_FEAT_S2FWB        (1 << 23)
+>> +#define ARM_SMMU_FEAT_BBML2        (1 << 24)
+>>       u32                features;
+>>     #define ARM_SMMU_OPT_SKIP_PREFETCH    (1 << 0)
+> 
 
 
