@@ -4,71 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 125E5C282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 16:57:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4FA5C282CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 17:02:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=meSp1W4kNHGyd+88qlhZAmQUNLTT11sQ5+3aYaCOj4Q=; b=1Fbn2hIfGiUN2Cqe2b4dss05dU
-	QMntEO+EBKpnTLswLzP4724RMkc9S5Qe177eSgjQgxIKL5iGkfo24Qrp5VFv+O+SD6qyj1ZHtcEx5
-	DAecJB28WxByK/3hG5FEh/2oV6IThYjNNaQ8vBaiCUncMew2+ine2VhPCocWGkXFoC5F5iDU2OdtO
-	YDRn1vQvlcNjcH2z7Eg5IInQmI6PmuQ7Lqye1c/2ivsEez9Fxlh9BMSoYku5B1LFf3vlInmwVMmuz
-	nEgZYi45rEcrN7o+hWzAeo7lDffXu+vYHWe/2F7qcmfOu+gX0m7d0NPtoG109oj0c3lEE4y0KKCY1
-	tYuAAEXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VrTLtcaZKqpt4oNPAsTWCDaLlzxxZriU22/qH3PS1xg=; b=nsifeJq3svqDtLAmVwUo6pAwvd
+	TBNeYTr4q2Pq07trPRkdEgZEnA2a3ZnEBnoctjBbO2aXEK0PC97nOQZBmh5ZjrblD0Lf2LuIitiDr
+	LIOvpdhrpZF425eAVobK8rIfvhmXKykuzUIEnw4uT/kDxI+aBdltG3aCqQJ9Dk1x+QoxcHm7feBi2
+	jg6daC+IbDVOchG5p80G+NL/A8Tv7h3ztcw9ua0WKmoEMacd7GoCmVX18sawiAMQZRb+HoVO7RtkN
+	Zzpce/kuep9aS8bC4OEHd49m8xa+DEJBIaxD4nvHJOI19K6gHJOUhNuFaSEV922XaxyWkJgORO3+r
+	MQNCQ1cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp96y-00000001e5H-3EsJ;
-	Mon, 03 Mar 2025 16:57:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp94K-00000001dPz-1dX0
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 03 Mar 2025 16:55:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=meSp1W4kNHGyd+88qlhZAmQUNLTT11sQ5+3aYaCOj4Q=; b=dpP3ry4wKDt94DgihnFO+YYQXP
-	D4M9HLwKMcZ1dh8OJ465lh8hjlZIC4hPnM0yu+Bo48hJ25+geFXfhb2yh1JjsYv2G86e6y8Q9aA08
-	EjLGlZwFQIXS8MWxtg4rTznMRQuyEvPa+WNLe2pvD+BteV4xvApnMYQJAC79Lfq83FC8K1mS128bN
-	k9Syjw9M9tEsm1AZBCOn/Wwb3KXYOS3EzdY6uhs54+r5jAjfBJfy5gMkcPRofiRiBUAg2x+X/xWLJ
-	kVME0QXIFcySMe3OdN/xZXFu4nYKpWhju6aKjV+25lMMlQM+XB+vJn3aeblxRU6/Kea/FDiBN5mio
-	eEfj0fJA==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp94B-00000004aZY-0HlI;
-	Mon, 03 Mar 2025 16:54:55 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 38C6E3006C0; Mon,  3 Mar 2025 17:54:54 +0100 (CET)
-Date: Mon, 3 Mar 2025 17:54:54 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Menglong Dong <menglong8.dong@gmail.com>
-Cc: rostedt@goodmis.org, mark.rutland@arm.com, alexei.starovoitov@gmail.com,
-	catalin.marinas@arm.com, will@kernel.org, mhiramat@kernel.org,
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
-	martin.lau@linux.dev, eddyz87@gmail.com, yonghong.song@linux.dev,
-	john.fastabend@gmail.com, kpsingh@kernel.org, sdf@fomichev.me,
-	jolsa@kernel.org, davem@davemloft.net, dsahern@kernel.org,
-	mathieu.desnoyers@efficios.com, nathan@kernel.org,
-	nick.desaulniers+lkml@gmail.com, morbo@google.com,
-	samitolvanen@google.com, kees@kernel.org, dongml2@chinatelecom.cn,
-	akpm@linux-foundation.org, riel@surriel.com, rppt@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org,
-	netdev@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH v4 1/4] x86/ibt: factor out cfi and fineibt offset
-Message-ID: <20250303165454.GB11590@noisy.programming.kicks-ass.net>
-References: <20250303132837.498938-1-dongml2@chinatelecom.cn>
- <20250303132837.498938-2-dongml2@chinatelecom.cn>
+	id 1tp9B3-00000001erU-2ioN;
+	Mon, 03 Mar 2025 17:02:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tp99T-00000001ebv-2KBA
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Mar 2025 17:00:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5DA57106F;
+	Mon,  3 Mar 2025 09:00:35 -0800 (PST)
+Received: from e129527.arm.com (unknown [10.57.67.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 344C03F673;
+	Mon,  3 Mar 2025 09:00:19 -0800 (PST)
+From: Hugues KAMBA MPIANA <hugues.kambampiana@arm.com>
+To: sudeep.holla@arm.com
+Cc: conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	hugues.kambampiana@arm.com,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	liviu.dudau@arm.com,
+	lpieralisi@kernel.org,
+	robh@kernel.org
+Subject: [PATCH v2] arm64: dts: corstone1000: Add definitions for secondary CPU cores
+Date: Mon,  3 Mar 2025 17:00:12 +0000
+Message-Id: <20250303170012.469576-1-hugues.kambampiana@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <Z8XSIx75B4mtcV48@bogus>
+References: <Z8XSIx75B4mtcV48@bogus>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250303132837.498938-2-dongml2@chinatelecom.cn>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250303_090023_633977_10E315A2 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,61 +69,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 03, 2025 at 09:28:34PM +0800, Menglong Dong wrote:
-> For now, the layout of cfi and fineibt is hard coded, and the padding is
-> fixed on 16 bytes.
-> 
-> Factor out FINEIBT_INSN_OFFSET and CFI_INSN_OFFSET. CFI_INSN_OFFSET is
-> the offset of cfi, which is the same as FUNCTION_ALIGNMENT when
-> CALL_PADDING is enabled. And FINEIBT_INSN_OFFSET is the offset where we
-> put the fineibt preamble on, which is 16 for now.
-> 
-> When the FUNCTION_ALIGNMENT is bigger than 16, we place the fineibt
-> preamble on the last 16 bytes of the padding for better performance, which
-> means the fineibt preamble don't use the space that cfi uses.
-> 
-> The FINEIBT_INSN_OFFSET is not used in fineibt_caller_start and
-> fineibt_paranoid_start, as it is always "0x10". Note that we need to
-> update the offset in fineibt_caller_start and fineibt_paranoid_start if
-> FINEIBT_INSN_OFFSET changes.
-> 
-> Signed-off-by: Menglong Dong <dongml2@chinatelecom.cn>
+Add `cpu1`, `cpu2` and `cpu3` nodes to the Corstone1000 device tree to
+enable support for secondary CPU cores.
 
-I'm confused as to what exactly you mean.
+This update facilitates symmetric multiprocessing (SMP) support on
+the Corstone1000 Fixed Virtual Platform (FVP), allowing the
+secondary cores to be properly initialised and utilised.
 
-Preamble will have __cfi symbol and some number of NOPs right before
-actual symbol like:
+Only FVP platform will have SMP support and hence the secondary cpu definitions
+are not added to corstone1000.dtsi.
 
-__cfi_foo:
-  mov $0x12345678, %reg
-  nop
-  nop
-  nop
-  ...
-foo:
+Signed-off-by: Hugues KAMBA MPIANA <hugues.kambampiana@arm.com>
+---
+ arch/arm64/boot/dts/arm/corstone1000-fvp.dts | 24 ++++++++++++++++++++
+ arch/arm64/boot/dts/arm/corstone1000.dtsi    |  2 +-
+ 2 files changed, 25 insertions(+), 1 deletion(-)
 
-FineIBT must be at foo-16, has nothing to do with performance. This 16
-can also be spelled: fineibt_preamble_size.
-
-The total size of the preamble is FUNCTION_PADDING_BYTES + CFI_CLANG*5.
-
-If you increase FUNCTION_PADDING_BYTES by another 5, which is what you
-want I think, then we'll have total preamble of 21 bytes; 5 bytes kCFI,
-16 bytes nop.
-
-Then kCFI expects hash to be at -20, while FineIBT must be at -16.
-
-This then means there is no unambiguous hole for you to stick your
-meta-data thing (whatever that is).
-
-There are two options: make meta data location depend on cfi_mode, or
-have __apply_fineibt() rewrite kCFI to also be at -16, so that you can
-have -21 for your 5 bytes.
-
-I think I prefer latter.
-
-In any case, I don't think we need *_INSN_OFFSET. At most we need
-PREAMBLE_SIZE.
-
-Hmm?
+diff --git a/arch/arm64/boot/dts/arm/corstone1000-fvp.dts b/arch/arm64/boot/dts/arm/corstone1000-fvp.dts
+index abd013562995..df9700302b8d 100644
+--- a/arch/arm64/boot/dts/arm/corstone1000-fvp.dts
++++ b/arch/arm64/boot/dts/arm/corstone1000-fvp.dts
+@@ -49,3 +49,27 @@ sdmmc1: mmc@50000000 {
+ 		clock-names = "smclk", "apb_pclk";
+ 	};
+ };
++
++&cpus {
++	cpu1: cpu@1 {
++		device_type = "cpu";
++		compatible = "arm,cortex-a35";
++		reg = <0x1>;
++		enable-method = "psci";
++		next-level-cache = <&L2_0>;
++	};
++	cpu2: cpu@2 {
++		device_type = "cpu";
++		compatible = "arm,cortex-a35";
++		reg = <0x2>;
++		enable-method = "psci";
++		next-level-cache = <&L2_0>;
++	};
++	cpu3: cpu@3 {
++		device_type = "cpu";
++		compatible = "arm,cortex-a35";
++		reg = <0x3>;
++		enable-method = "psci";
++		next-level-cache = <&L2_0>;
++	};
++};
+diff --git a/arch/arm64/boot/dts/arm/corstone1000.dtsi b/arch/arm64/boot/dts/arm/corstone1000.dtsi
+index bb9b96fb5314..b4364c61901c 100644
+--- a/arch/arm64/boot/dts/arm/corstone1000.dtsi
++++ b/arch/arm64/boot/dts/arm/corstone1000.dtsi
+@@ -21,7 +21,7 @@ chosen {
+ 		stdout-path = "serial0:115200n8";
+ 	};
+ 
+-	cpus {
++	cpus: cpus {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+ 
 
