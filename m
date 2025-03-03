@@ -4,69 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C58DC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 14:29:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C541C282CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 14:31:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aGXrvnhNhRMBQYEvxEoQwzHx4+MaWX+ikfs//fVnTEE=; b=XWwcpsA+BduCdBdu+IhbRB0w4t
-	0olbOIB38x7sKiZ0SOsmENY7ZhkD3UYQjjGjBws8WIMZLryjsdodDUnV9lH2yI8lVYjSRy6qAk21s
-	kIqWBfQVt4tMZ6vODu8k22h9FUFq88lm62ERU2U1oibKYAgV+MZK8QYt/jU8lPXNLePhu+NMo5Rbl
-	J0zBahTX9hPvyBa2BOWTECWMk0+fus+/8P/QzIw+p0uWBauZVpRR1oUGHwjhn0KS79ONlCt91kQAF
-	83m4Tg5wD1KwFSuMC71IZcqwCRupZPi+GhEbYn6Nan0dIWwta7/D02AKVULfmzi/BZRUTCJgBzsoC
-	HjMbW8Iw==;
+	bh=/x1+tS5LVRnu5L7TTkYinyEr98t3FMfiCFSX1biy/OA=; b=X5TcRc0JeaoVnwpdwH4eTP5MoD
+	GutAWaVN2ctlajuPBLSJohJq/OmXLmq8o+ZHkIpwt9HvawPjmVqnzxrO43ba1RAy3qrDxxqB4jZyK
+	0/ag4Y/OrgbjYGbX/GkVnmgSLhAM4EKU9NM4H2tX21flfP54kMoi5KxNoAXtkP6rl7hSWblO3a1Jg
+	c2CVighZO+zPPdPg4jsnh83/7DgKMhpNxuGqIJagAPAHvKFhs3OkVAl6cHjOEV9G0xy7r5GiFWyrW
+	dAf8vHxDCVo+NC/8GoyB6BRwZ8yBS+Gaihz6gDuT5RzvpbewrecNVrArdl8L11ZO37TdKuPu9mm7c
+	ng2RAsgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp6nH-000000016iH-3mIy;
-	Mon, 03 Mar 2025 14:29:19 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp6WS-000000012UZ-0JiI
+	id 1tp6oq-0000000170C-00ol;
+	Mon, 03 Mar 2025 14:30:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tp6ai-000000013RP-1eRT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 14:11:57 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4Z60zH45dbz9wFB;
-	Mon,  3 Mar 2025 22:08:43 +0800 (CST)
-Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id AEBEC1800E5;
-	Mon,  3 Mar 2025 22:11:50 +0800 (CST)
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Mon, 3 Mar 2025 22:11:49 +0800
-CC: <yangyicong@hisilicon.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<tglx@linutronix.de>, <peterz@infradead.org>, <mpe@ellerman.id.au>,
-	<linux-arm-kernel@lists.infradead.org>, <mingo@redhat.com>, <bp@alien8.de>,
-	<dave.hansen@linux.intel.com>, <pierre.gondois@arm.com>,
-	<dietmar.eggemann@arm.com>, <linuxppc-dev@lists.ozlabs.org>,
-	<x86@kernel.org>, <linux-kernel@vger.kernel.org>, <morten.rasmussen@arm.com>,
-	<msuchanek@suse.de>, <gregkh@linuxfoundation.org>, <rafael@kernel.org>,
-	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
-	<linuxarm@huawei.com>, <xuwei5@huawei.com>, <guohanjun@huawei.com>,
-	<sshegde@linux.ibm.com>
-Subject: Re: [PATCH v11 2/4] arch_topology: Support SMT control for OF based
- system
-To: Sudeep Holla <sudeep.holla@arm.com>
-References: <20250218141018.18082-1-yangyicong@huawei.com>
- <20250218141018.18082-3-yangyicong@huawei.com> <Z8HAFftf7rAdc_MC@bogus>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <e6942ad5-e6dd-362a-a27e-ef722b8d30a7@huawei.com>
-Date: Mon, 3 Mar 2025 22:11:48 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	Mon, 03 Mar 2025 14:16:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DECF0106F;
+	Mon,  3 Mar 2025 06:16:31 -0800 (PST)
+Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5B11D3F66E;
+	Mon,  3 Mar 2025 06:16:16 -0800 (PST)
+Message-ID: <79b28d96-2a56-45b9-a5ae-5c120fe35a35@arm.com>
+Date: Mon, 3 Mar 2025 14:16:15 +0000
 MIME-Version: 1.0
-In-Reply-To: <Z8HAFftf7rAdc_MC@bogus>
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/3] arm64: realm: Use aliased addresses for device DMA
+ to shared buffers
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, linux-kernel@vger.kernel.org
+Cc: will@kernel.org, catalin.marinas@arm.com, maz@kernel.org,
+ steven.price@arm.com, aneesh.kumar@kernel.org, gshan@redhat.com,
+ linux-arm-kernel@lists.infradead.org,
+ Jean-Philippe Brucker <jean-philippe@linaro.org>,
+ Christoph Hellwig <hch@lst.de>, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Tom Lendacky <thomas.lendacky@amd.com>
+References: <20250227144150.1667735-1-suzuki.poulose@arm.com>
+ <20250227144150.1667735-4-suzuki.poulose@arm.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250227144150.1667735-4-suzuki.poulose@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_061156_470639_5ED6E2DC 
-X-CRM114-Status: GOOD (  27.47  )
+X-CRM114-CacheID: sfid-20250303_061620_481200_A76DBE62 
+X-CRM114-Status: GOOD (  19.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,110 +70,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/2/28 21:54, Sudeep Holla wrote:
-> On Tue, Feb 18, 2025 at 10:10:16PM +0800, Yicong Yang wrote:
->> From: Yicong Yang <yangyicong@hisilicon.com>
->>
->> On building the topology from the devicetree, we've already
->> gotten the SMT thread number of each core. Update the largest
->> SMT thread number and enable the SMT control by the end of
->> topology parsing.
->>
->> The core's SMT control provides two interface to the users [1]:
->> 1) enable/disable SMT by writing on/off
->> 2) enable/disable SMT by writing thread number 1/max_thread_number
->>
->> If a system have more than one SMT thread number the 2) may
->> not handle it well, since there're multiple thread numbers in the
->> system and 2) only accept 1/max_thread_number. So issue a warning
->> to notify the users if such system detected.
->>
->> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/ABI/testing/sysfs-devices-system-cpu#n542
->>
->> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
->> ---
->>  drivers/base/arch_topology.c | 27 +++++++++++++++++++++++++++
->>  1 file changed, 27 insertions(+)
->>
->> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
->> index 3ebe77566788..23f425a9d77a 100644
->> --- a/drivers/base/arch_topology.c
->> +++ b/drivers/base/arch_topology.c
->> @@ -11,6 +11,7 @@
->>  #include <linux/cleanup.h>
->>  #include <linux/cpu.h>
->>  #include <linux/cpufreq.h>
->> +#include <linux/cpu_smt.h>
->>  #include <linux/device.h>
->>  #include <linux/of.h>
->>  #include <linux/slab.h>
->> @@ -506,6 +507,10 @@ core_initcall(free_raw_capacity);
->>  #endif
->>  
->>  #if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
->> +
->> +/* Maximum SMT thread number detected used to enable the SMT control */
->> +static unsigned int max_smt_thread_num;
->> +
->>  /*
->>   * This function returns the logic cpu number of the node.
->>   * There are basically three kinds of return values:
->> @@ -565,6 +570,16 @@ static int __init parse_core(struct device_node *core, int package_id,
->>  		i++;
->>  	} while (1);
->>  
->> +	/*
->> +	 * If max_smt_thread_num has been initialized and doesn't match
->> +	 * the thread number of this entry, then the system has
->> +	 * heterogeneous SMT topology.
->> +	 */
->> +	if (max_smt_thread_num && max_smt_thread_num != i)
->> +		pr_warn_once("Heterogeneous SMT topology is partly supported by SMT control\n");
->> +
+On 27/02/2025 2:41 pm, Suzuki K Poulose wrote:
+> When a device performs DMA to a shared buffer using physical addresses,
+> (without Stage1 translation), the device must use the "{I}PA address" with the
+> top bit set in Realm. This is to make sure that a trusted device will be able
+> to write to shared buffers as well as the protected buffers. Thus, a Realm must
+> always program the full address including the "protection" bit, like AMD SME
+> encryption bits.
 > 
-> May be we need to make it more conditional as we may have to support
-> systems with few cores that are single threaded ? I think Dietmar's
-> comment is about that.
-> 
+> Enable this by providing arm64 specific dma_addr_{encrypted, canonical}
+> helpers for Realms. Please note that the VMM needs to similarly make sure that
+> the SMMU Stage2 in the Non-secure world is setup accordingly to map IPA at the
+> unprotected alias.
 
-it thought of ignoring the cores with single thread in one previous discussion
-as replied in Dietmar's thread.
+FWIW,
 
->> +	max_smt_thread_num = max_t(unsigned int, max_smt_thread_num, i);
->> +
->>  	cpu = get_cpu_for_node(core);
->>  	if (cpu >= 0) {
->>  		if (!leaf) {
->> @@ -677,6 +692,18 @@ static int __init parse_socket(struct device_node *socket)
->>  	if (!has_socket)
->>  		ret = parse_cluster(socket, 0, -1, 0);
->>  
->> +	/*
->> +	 * Notify the CPU framework of the SMT support. Initialize the
->> +	 * max_smt_thread_num to 1 if no SMT support detected or failed
->> +	 * to parse the topology. A thread number of 1 can be handled by
->> +	 * the framework so we don't need to check max_smt_thread_num to
->> +	 * see we support SMT or not.
->> +	 */
->> +	if (!max_smt_thread_num || ret)
->> +		max_smt_thread_num = 1;
->> +
-> 
-> For the failed parsing of topology, reset_cpu_topology() gets called.
-> I suggest resetting max_smt_thread_num to 1 belongs there.
+Reviewed-by: Robin Murphy <robin.murphy@arm.com>
 
-this is only used by ARM64 || RISCV for using arch_topology to parse
-the CPU topology, but the reset_cpu_topology() is also shared by arm/parisc.
-Should we move it there and add some ARM64 || RISCV protection macro?
-
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Robin Murphy <robin.murphy@arm.com>
+> Cc: Steven Price <steven.price@arm.com>
+> Cc: Christoph Hellwig <hch@lst.de>
+> Cc: Marek Szyprowski <m.szyprowski@samsung.com>
+> Cc: Tom Lendacky <thomas.lendacky@amd.com>
+> Cc: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> ---
+> Changes since v2:
+>   - Drop dma_addr_encrypted() helper, which is a NOP for CCA ( Aneesh )
+>   - Only mask the "top" IPA bit and not all the bits beyond top bit. ( Robin )
+>   - Use PROT_NS_SHARED, now that we only set/clear top bit. (Gavin)
+> ---
+>   arch/arm64/include/asm/mem_encrypt.h | 11 +++++++++++
+>   1 file changed, 11 insertions(+)
 > 
-> And if you start with max_smt_thread_num, we don't need to update it to
-> 1 explicitly here. So I would like to get rid of above check completely.
-> 
-> --
-> Regards,
-> Sudeep
-> 
-> .
-> 
+> diff --git a/arch/arm64/include/asm/mem_encrypt.h b/arch/arm64/include/asm/mem_encrypt.h
+> index f8f78f622dd2..a2a1eeb36d4b 100644
+> --- a/arch/arm64/include/asm/mem_encrypt.h
+> +++ b/arch/arm64/include/asm/mem_encrypt.h
+> @@ -21,4 +21,15 @@ static inline bool force_dma_unencrypted(struct device *dev)
+>   	return is_realm_world();
+>   }
+>   
+> +/*
+> + * For Arm CCA guests, canonical addresses are "encrypted", so no changes
+> + * required for dma_addr_encrypted().
+> + * The unencrypted DMA buffers must be accessed via the unprotected IPA,
+> + * "top IPA bit" set.
+> + */
+> +#define dma_addr_unencrypted(x)		((x) | PROT_NS_SHARED)
+> +
+> +/* Clear the "top" IPA bit while converting back */
+> +#define dma_addr_canonical(x)		((x) & ~PROT_NS_SHARED)
+> +
+>   #endif	/* __ASM_MEM_ENCRYPT_H */
 
