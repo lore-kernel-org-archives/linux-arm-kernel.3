@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6605CC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 22:40:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C663C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 22:45:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DsWrwEPA0jf6ymSLm56xpLPPzeLpifAMOAkYO6Yfc2c=; b=Uk2Wm8qpMow+Qz5a9X9DynBgE2
-	nzMqSc4+8KEzWw8ZAj/Uiak8c9f71R80rmziuZra4aQNb/tc8ud0oRcpeIg1UUs7mS1q1wV8qYGcN
-	DBg5UCRxdqe8ITvFINN+EJZ1iyDR4q1MWDpqQZpy1SDNgxyKcmv2HO3jyWsgnmiriPvL37jgjsOSD
-	kjtJjY/lFJcM266xfWFDP4WCfVk33EZfXSsvgZAXn8bMdCblmGj4mv3+Zvn9wd8tLy2pZzDOIdn2t
-	teZ2Ioi32xBiaOCoNXxSbw1aUtNQao73jGSHY/Lu7n5TlLMUwaadpKJXIS6BFGLFyGQZLTA7Id7vI
-	P7oLpyjw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AVKxuo1W1BxE3FJKf7YbMkOhKpBvK2Ol0T0KlNBKv7o=; b=ROy95XwLRduiN+wp3IdoJGHLJM
+	HHzhXXg97Erk4v51oCi3texcqBpNATj7rqRK5Cu7IAfHWoMmXJYXzNPRb21zSymw9UPBaDdIx2h9q
+	dYDRqhGALLMNvz0s7Dv9j2MkJk+0ZH//seSbhq5lMGFWnhltJhiurh38MibGO/TnSTKBuzIls2ztP
+	sUb4y5F8f0cBcWTE9lr0mE4fC7BpVn5tItshwELHNXqXVrRsAyfx4VqrI1U5IdjAy9MKour3NrWMG
+	6SpF3otQhMifQg6HCx5rdPUA5Do/xuBu+DzGb0PYBaahG39Lq3rsY6VoWTgWLlhygKeQezSGOx3G5
+	isYTXDXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpES0-00000002UiC-0cjn;
-	Mon, 03 Mar 2025 22:39:52 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1tpEX9-00000002VM9-1qx3;
+	Mon, 03 Mar 2025 22:45:11 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpEOy-00000002Tz0-3Jhq;
-	Mon, 03 Mar 2025 22:36:46 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 1A22F433EC;
-	Mon,  3 Mar 2025 22:36:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1741041401;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=DsWrwEPA0jf6ymSLm56xpLPPzeLpifAMOAkYO6Yfc2c=;
-	b=Rpblhqao8kf5CWt6HF8hM5sP3Tvdp8xstZXn92PJGdHbs3OyuH9BEap43QkIEf5cJCeUMX
-	stpwL9vYoSsajgkyN0q8uKU1ulrJh5C5K+bm5uGD89KXVsb0CMQqKL4WrqIR1PgRTrZVql
-	MJSscjUf4FKka+jA5tr4Z/9a7pFYRgALMuo+4vMqCJRKF2x8fJextvyPR9EDVwyU2cOoMj
-	/vyfOVZsIfaK/h3Z5p7WkogAslqAC5ycYNIgXcGf5QE2LQmrrFxTpQTPIpek/XxM4SxAH7
-	fpDYx1s78NIu0Y9Xr7C8q97VYQ7PyeZ5CpC6Py0H7OpawQtbSywUmJhcDDGhsQ==
-From: alexandre.belloni@bootlin.com
-To: Lee Jones <lee@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	linux-kernel@vger.kernel.org,
+	id 1tpEVa-00000002V9B-0R6r;
+	Mon, 03 Mar 2025 22:43:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=AVKxuo1W1BxE3FJKf7YbMkOhKpBvK2Ol0T0KlNBKv7o=; b=aDnmYlnmuYrhIaA0ONYcTOUxRY
+	KZ7m8hrWZnAkSc/n4H5qBIjO2jzAITieERvYwcbgNsC4HJv6piGgoWLvrHd4WZ1lc25QWfFwcgXcC
+	KgrI0KQ5BSzpUXxPF1Mvlrms/K0lNbBNLgJmHB7ne0/52hnujUALKrWqF4TSTalaRCCr4upJ5Q9u8
+	Bt2a0hojXOOlm7Bzd24GXk0CKbp1jUmMa1OE/cEcYW6WGyjQdUHAu8mbMQ18aj6mbr8PlTPehwi4q
+	Mc1e//pi1ncYZlLsURNMjw2K0ed9G4Lh+9S/BGXKzEe5o7yfDHhIF55gN/jz3MRXEeJFalp06uhh2
+	pIE9G4RQ==;
+Received: from i53875a38.versanet.de ([83.135.90.56] helo=phil.fritz.box)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tpEVK-0005z3-Hk; Mon, 03 Mar 2025 23:43:18 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: hjc@rock-chips.com,
+	andy.yan@rock-chips.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] rtc: mt6397: drop unused defines
-Date: Mon,  3 Mar 2025 23:36:37 +0100
-Message-ID: <20250303223637.1135362-1-alexandre.belloni@bootlin.com>
-X-Mailer: git-send-email 2.48.1
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH] drm/rockchip: vop2: add missing bitfield.h include
+Date: Mon,  3 Mar 2025 23:43:16 +0100
+Message-ID: <174104179297.19992.1129192365556530821.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250303182256.1727178-1-heiko@sntech.de>
+References: <20250303182256.1727178-1-heiko@sntech.de>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddutddtfeehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmnecuggftrfgrthhtvghrnhepgedtffeugeeftedtfffhiedtjeefieeuveelffetledvueeludeggedtjefgveevnecukfhppeejjedrudehtddrvdegiedrvdduheenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeejjedrudehtddrvdegiedrvdduhedphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomheprghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepjedprhgtphhtthhopehlvggvsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrghtthhhihgrshdrsghgghesghhmrghilhdrtghomhdprhgtphhtthhopegrnhhgvghlohhgihhorggttghhihhnohdruggvlhhrvghgnhhosegtohhllhgrsghorhgrrdgtohhmpdhrtghpthhtoheprghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgv
- ghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhmvgguihgrthgvkheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
-X-GND-Sasl: alexandre.belloni@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_143644_968867_9665E515 
-X-CRM114-Status: UNSURE (   6.74  )
+X-CRM114-CacheID: sfid-20250303_144334_142007_B6E162E4 
+X-CRM114-Status: UNSURE (   9.25  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,34 +82,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
 
-RTC_NUM_YEARS has never been used, the other defines are not used since
-commit 34bbdc12d04e ("rtc: mt6359: Add RTC hardware range and add support
-for start-year")
+On Mon, 03 Mar 2025 19:22:56 +0100, Heiko Stuebner wrote:
+> Commit 328e6885996c ("drm/rockchip: vop2: Add platform specific callback")
+> moved per soc configuration code to the other per-soc data into
+> rockchip_vop2_reg.c, but forgot to also include bitfield.h for the used
+> FIELD_PREP macro. Add this missing include.
+> 
+> 
 
-Signed-off-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
----
- include/linux/mfd/mt6397/rtc.h | 5 -----
- 1 file changed, 5 deletions(-)
+Applied, thanks!
 
-diff --git a/include/linux/mfd/mt6397/rtc.h b/include/linux/mfd/mt6397/rtc.h
-index 068ae1c0f0e8..27883af44f87 100644
---- a/include/linux/mfd/mt6397/rtc.h
-+++ b/include/linux/mfd/mt6397/rtc.h
-@@ -60,11 +60,6 @@
- #define RTC_PDN2               0x002e
- #define RTC_PDN2_PWRON_ALARM   BIT(4)
- 
--#define RTC_MIN_YEAR           1968
--#define RTC_BASE_YEAR          1900
--#define RTC_NUM_YEARS          128
--#define RTC_MIN_YEAR_OFFSET    (RTC_MIN_YEAR - RTC_BASE_YEAR)
--
- #define MTK_RTC_POLL_DELAY_US  10
- #define MTK_RTC_POLL_TIMEOUT   (jiffies_to_usecs(HZ))
- 
+[1/1] drm/rockchip: vop2: add missing bitfield.h include
+      commit: 95a5c9d197bb22a506913acb330a926d4e51aa95
+
+Best regards,
 -- 
-2.48.1
-
+Heiko Stuebner <heiko@sntech.de>
 
