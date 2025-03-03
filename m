@@ -4,124 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 792AAC282C5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 07:03:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36375C282C5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 07:05:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KvSQXTXm2WJtvrSSulKAAYVeipdazZIwWA04KeDmP3s=; b=nkshV42Uob/UB0olBcwJcafyuo
-	GaF4p9AsZ0m0YLueBTnHYAFlPv4wN8KUSZy42Vubd9GDkymoo5TV4ykgNWggaMYRjVdbuiBbVZ2Il
-	zDH/SGZj4EGydIHzObvvhBL9VGUYhGjgktcnZ9mdFguchSaYQVj7Mt3z2osr9bTjELiepzvAlL11b
-	KMOoOjYzjItj07Er4O95DsMSruygdo9ClPrdJXc/bwyv98uWU8kRxZPhZW6xAsYy+nA3J3NT0b9X6
-	MxMJA6ercvw0d2xHWMdQgz6G9ky4Zad48QyT70HVg4qpQqe4+5wxME6geWRQ/WcQlNJxTB6Xh3e+D
-	W5J5++9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tr5f5w3AYFWB1KA92eYhq721F+bNiSc5a2LP9QrZU0c=; b=hvd3Vssp+cG9H5ANbdoHH2XtdL
+	FOq/13GMKCCd1L7b3C/1CC9E/tpVS47Zy6ehoA0Uljquxfc3uSFZA03HYkFp/4hkkXPN7JloKwz1z
+	o7CLf7c/FERcZmez5l2tGvYrtxJYI/MtrLFPLaO2yYMvdlpWypwR1WSXNH7KvOtMGoj6RjMgXYqGz
+	prAdmJWEy0C0IK902dsqOtEaSij1MwAyfU/v2NkZgkdxLOboJ5v4qO/D46GC/Q7GX6K5pV6CLFOZu
+	w55CxFNBflbLfAWz1v39jsVoEu+E4e5wUwvup01EICeRh4lL3qQFWzlU3W4eyn6Ry66hTbIT3J8CE
+	Hf697Nlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tozpy-0000000HNVE-24Gl;
-	Mon, 03 Mar 2025 07:03:38 +0000
-Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
+	id 1tozrV-0000000HNcF-0Ybo;
+	Mon, 03 Mar 2025 07:05:13 +0000
+Received: from mail-vi1eur02on2062a.outbound.protection.outlook.com ([2a01:111:f403:2607::62a] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tozin-0000000HMbe-0Fla
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 06:56:14 +0000
-Received: by mail-pl1-x641.google.com with SMTP id d9443c01a7336-223378e2b0dso56856875ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Mar 2025 22:56:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740984972; x=1741589772; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KvSQXTXm2WJtvrSSulKAAYVeipdazZIwWA04KeDmP3s=;
-        b=fZuj9fA7a54RY+Dersq984gxMMlM5c2IBIa+J3C6o8asWXM4mI248G/1nj942+wFfi
-         5LCW3RLylrsTPD1DL3EVn+ZlAUlIsF7wuHxKDxCZcZ0ikWB2pDUPDdOfXLpQlb61p9rK
-         TcwdIAPV7+xEW0FVALf/1ACeJyxtIjp2FZoXL1Klh585FblPoe0jsZXivLivKYCsUQD8
-         zHlk0ChNFTZ8ai3cf183moIQW7aExOjfW/5t9iE01s2TeyK7ipYjxX76lo2IIeB6cq1D
-         XtkFFVR76lNI4rgHI7LWFZmNVRe6GJbdpc2iZ8HknLBh/8Sm0D++38e2LXm57Lqooq2D
-         78ug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740984972; x=1741589772;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KvSQXTXm2WJtvrSSulKAAYVeipdazZIwWA04KeDmP3s=;
-        b=nal6TQLhO3F84SX+4NuSS4zHGRBdl6Jl10h4awFsfZwdpgmoK3RfgCM6B9vzixBFzV
-         hKWNBy0Kk0Y1ZLWCGvIXUdxzkDRCpmTgAX0elZoM6WulbTuLpHRp9HpZo9nMT3UJjdNm
-         Nke00W5EUhugxiVFL14HwlcZ41bX+97y1M6i8dZv+5AmGfSeUlIUAtkTcitqNbhjjsc4
-         bJKCnX0BlcOC5nMIYJaKGZvnB+oUTV3NXXNr/qT+SQDBzNzAbx1glb2LwyFhYzeHe8Gv
-         SJpoPTr/6X075X1moNZmvAl8rFjv1pNsH0IwppwTMOQs5tbtU3T1sUhPsYp7Zya4y2F9
-         tRsA==
-X-Forwarded-Encrypted: i=1; AJvYcCUN8joVFb5G7XrCJGtqHzGOG+J2BgTEBiAe91SHNjIveRgS3Owdo9nmSr090yIHro6IzT1eX874mk38ZhIg61ys@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTSxTbSHmrwcfS5wXr/dQ6TkEJO64MQyEU03gfoCTed+Ch+tWI
-	Yg7yEZ+yJm6Va7PKsrOUzBHYYd6Js++TsdmQysgUQfnpZd2Q8hGi
-X-Gm-Gg: ASbGnct6ks/OnzEABYyaE9SPjau442WwgVyTyY5Q3QWx+WZGWFhWrPVvSWwrrZWgrPK
-	y8T5Ev21ZdL530bvLGe72bjPYBUQwNXAHE+xxhXJpO9TzX4SAWwOj+OaJuALGy3Zcmg55Lc1FBL
-	XsSBIDBHUBE/ernz/9DPTcFVyCOQN2eEd21UUbImOQMsXA3kB03K/GAMVKjmtXHOIpj33VG29q8
-	9z1g9fdxOJrJ1/ryWfQqOpSWOqMFxCN0Rk5saUwJOCQRSErNMB0Z90JC5TS/DzS3O4vImBJiNtA
-	EmY24rykS4ogW+m9/y8se0npAvd5cmw6n96XLDVxpmo4sHp0Sp08K1Ve5gkQvA==
-X-Google-Smtp-Source: AGHT+IHD7TOQHXPnvhY3fUJExGRRx5jR57Vtr+fKvMEWMLLg1ZWvH9nc0mv2BX9j9PlmWnQhBjDbsg==
-X-Received: by 2002:a17:903:3b83:b0:21f:6c3:aefb with SMTP id d9443c01a7336-2236920c418mr195671705ad.35.1740984972122;
-        Sun, 02 Mar 2025 22:56:12 -0800 (PST)
-Received: from localhost.localdomain ([43.129.244.20])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fea6769ad2sm8139575a91.11.2025.03.02.22.56.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 02 Mar 2025 22:56:11 -0800 (PST)
-From: Menglong Dong <menglong8.dong@gmail.com>
-X-Google-Original-From: Menglong Dong <dongml2@chinatelecom.cn>
-To: peterz@infradead.org,
-	rostedt@goodmis.org,
-	mark.rutland@arm.com,
-	alexei.starovoitov@gmail.com
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	mhiramat@kernel.org,
-	tglx@linutronix.de,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	x86@kernel.org,
-	hpa@zytor.com,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	andrii@kernel.org,
-	martin.lau@linux.dev,
-	eddyz87@gmail.com,
-	yonghong.song@linux.dev,
-	john.fastabend@gmail.com,
-	kpsingh@kernel.org,
-	sdf@fomichev.me,
-	jolsa@kernel.org,
-	davem@davemloft.net,
-	dsahern@kernel.org,
-	mathieu.desnoyers@efficios.com,
-	nathan@kernel.org,
-	nick.desaulniers+lkml@gmail.com,
-	morbo@google.com,
-	samitolvanen@google.com,
-	kees@kernel.org,
-	dongml2@chinatelecom.cn,
-	akpm@linux-foundation.org,
-	riel@surriel.com,
-	rppt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	bpf@vger.kernel.org,
-	netdev@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: [PATCH bpf-next v3 4/4] arm64: implement per-function metadata storage for arm64
-Date: Mon,  3 Mar 2025 14:53:45 +0800
-Message-Id: <20250303065345.229298-5-dongml2@chinatelecom.cn>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250303065345.229298-1-dongml2@chinatelecom.cn>
-References: <20250303065345.229298-1-dongml2@chinatelecom.cn>
+	id 1tozj0-0000000HMeJ-0eq6;
+	Mon, 03 Mar 2025 06:56:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wQ96K5hyBRQItgvHGr4H+uYVBU+7CUKmH1n/NMvQ7yYigpIv08sFyZkQsRXJiYXtRYjDBH20I8FGxiQJSlPbZAVy7bEQss90LQG8MKjISHlX8uElLTBnU+cskBEmsChH0u9Zcs4cWpwIp7EbRtpMrPAl5C69744NjFBgdpwD464K6sFMuQMuq+fl6A1IHT5n9pYxQyVAvYEDRynMrP6MycSasYmnhSy8jGuoRhN6BY+m6S4KnPNjpbkrgLcPSj5xe4hxAiZX20vo4DcMXOWXkZRnZFM5zG+UcJGx2WfnVR9K/+CXx36cIX66K+JCYJ0gtoB5lg92OIxWn2Fjms+Gag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tr5f5w3AYFWB1KA92eYhq721F+bNiSc5a2LP9QrZU0c=;
+ b=id7e1UI2ForsQewATOxFb/KMqfRD0kehNHZEStgMc0rAPqugUf0vyJgo4Zegt3wPDTAkIUIhrH1PIJZw0DH5quhNjxBoijPcirBTEORtt2L8qIvnCcC8byx9VQ/6+JOuZ+ar54S3Se7aZqcPxBQzplSdsnjs2qkhQ/LBsjU/0WfSyuWR3HuYbglckzxs+uahXP0NqZF9HWenAAv97CZ0herataL7QjU2G4p/boXuvAAzQWsd24Hoq2eoPlnNpZh32oIak+DLlTuMa+RJ1IYkrL2g518B87mRci9EUbMETPv7Vn9fuy7ldem0liR9D7EZR99ERWZAN8FhzM764opM7g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tr5f5w3AYFWB1KA92eYhq721F+bNiSc5a2LP9QrZU0c=;
+ b=BzzjY7tYYozptuZSjyRLvGy7PMQyMBDVeDRFMSFNExZFAfQvRW7nH8Qdwqol/DL8uz326Omy5IGz5ScWOZbYWJtJoJrATztM6e0xIspOBYtJuBPLIzHdipA3zmzjiqd97XYhFG0gGx5EHwwuUQP0v3Xwn8RT1zR7/q+Cdc4KfYiY3FdYrFWVrkMc2EcG+YN3Thc7Pzatv3SZm01Ppue3SuIU2ULe/dV8/GzHjU4njuG/+/SVr8M8JBVHpR2JKzs17pYWT+QF3cx9XN6AN/Q5rGpX5tc1+OhUO055jU7j1ojqCu9kL0iUY8ZDqmnb3vgLTX6Tk/WJjrLq+3t17supGQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AM9PR04MB8553.eurprd04.prod.outlook.com (2603:10a6:20b:434::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.18; Mon, 3 Mar
+ 2025 06:56:19 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.8489.025; Mon, 3 Mar 2025
+ 06:56:19 +0000
+Date: Mon, 3 Mar 2025 16:03:40 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>
+Cc: linux-rtc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Peng Fan <peng.fan@nxp.com>,
+	Antonio Borneo <antonio.borneo@foss.st.com>
+Subject: Re: [PATCH 0/7] rtc: Use devm_pm_set_wake_irq to simplify code
+Message-ID: <20250303080340.GA29084@nxa18884-linux>
+References: <20250205-rtc-cleanup-v1-0-66165678e089@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250205-rtc-cleanup-v1-0-66165678e089@nxp.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SG2PR04CA0162.apcprd04.prod.outlook.com (2603:1096:4::24)
+ To PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM9PR04MB8553:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0a2fde9c-0510-43fe-4922-08dd5a20802e
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?pDM6Edhw8dWV3W4LTfL3PKrM2SClqmtmyCubW3QLwUnUmLIAXjxlpRTvzSVF?=
+ =?us-ascii?Q?YYnAmGo43X+VfZEXDQWMzG0kFvryJR3bXCHZ3EluXkO46csAUl9i/2YAU6zF?=
+ =?us-ascii?Q?en07oSQwiea9XD+kPwVFdYAzwI3aomGdyQJIuROOT0RV5XSgZv6vxCvAvsNP?=
+ =?us-ascii?Q?exV6f7+WzJCFrkhWiMGnJ1d/ix6SOAEZb1j4N/ltPOBc362YAcYp/XSPA/cI?=
+ =?us-ascii?Q?i79xlFZxVbwjtRIZWrJnSnpEfd/g8ICgJd/JYo/ByV+XV0sZSPljOT/42OcE?=
+ =?us-ascii?Q?Wif5HGevGlJoV1J4TapTLd4CKZOcJfvZkIdlzcKz+EQQOe7G7HGL6fjELSqY?=
+ =?us-ascii?Q?WlLiP306JoJ63m/JXePMb2AO9jRs2CpJrebVCfECkCtw77LCbARX4nJwz8v7?=
+ =?us-ascii?Q?bZYy9f+48pdB0lNESbW407TwJEO9N5Pjd3sh4YwZwN8wWGMxNlb86xH7vvWv?=
+ =?us-ascii?Q?efsK2CinybllZjRUXlwUJPLw4kDYADvOkq7AI0kiTn+sixEOLXlX/t+GbHLV?=
+ =?us-ascii?Q?8xHLa9NrUriLK4wYU7bfpHcv8u67mvIL66wcPn42eF1EZs+HwS18loq2Sj4X?=
+ =?us-ascii?Q?i7IqX8lFmhcIXBufGYIrJsAPCMhDc5W9WltnKrMOJyTcRo0VQAZBLCYvsf/a?=
+ =?us-ascii?Q?DdNo43JHh2WYC8CzCWtZ9xKH1uEI0k5XVSB+0/KkE8VwOme7j/DBQzWU9viw?=
+ =?us-ascii?Q?T5y0legdL7JXWNK0MUWe8iVsSrcASHzC8TFtdLOBMueVJ1UWO8pBvwxcAs7c?=
+ =?us-ascii?Q?PqtvvkbqTpp/ZVTAB9Col93wUazO/pVl3jdzQvLul5b9guq7iznzqbPbo0dj?=
+ =?us-ascii?Q?CmxosQKml0rg9+1Q1oiCcf1Z2IG/1vYP39y4AJNQboVlj9xyTywvke9gImN/?=
+ =?us-ascii?Q?pFUdFc6K1WB3V0Ie253q/QjegdhUy28Jb6A1kwsHQ9kkohvpL+6bwrjYmTHa?=
+ =?us-ascii?Q?bXTuNyuLZrrfPxj4WFYocC08QEVLy3/HsvZhAMreul0+PbhUWD4OJObO7PJk?=
+ =?us-ascii?Q?YKHtmsIzwDEAv2Jgnxf2JrWsUmcVTDCjBKJmIo1RxoSzWW0qxRfCG9Zrp7Eh?=
+ =?us-ascii?Q?pEFHeBQGbliZhEGRwCzwJUludSpTaNJtGidqLx7NTctaaCkfejrsdBBwOxFL?=
+ =?us-ascii?Q?4uTBgYGDHqF4kTClAFOXuaVUQ6Sc7tUPsBOAxn1fvkmQooLIYOrw4Fakiu2z?=
+ =?us-ascii?Q?iV/cUipzZ6+RgX22mf3Y9pDiClkGc3NdjeBGcb6eii+z6f5dgyXfdIPuH/f6?=
+ =?us-ascii?Q?PnnJULGkXKRM0gBq3Qq2pHKHSHofS8l8GL7OuOBbnQW+Kd8a0wg9LVjWgrf4?=
+ =?us-ascii?Q?Pjy+bEfJmlNKhQGCdZdHleOY/t2OzYDtUA2qow4p6h1bXttqINcNCeCkiB6v?=
+ =?us-ascii?Q?CKRIWhwIs+laNjvTWpispD8bjEr+uz2KgDhTr10J3xpICVzn0A=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kLxzXTX7yUvpSVTz+pjmVoOkJUwnIlAiAOxy5F3eLZzNmFQal05YxyWiKZ+Z?=
+ =?us-ascii?Q?gMVOrgu4nVB4tGiaPTsB9VHUg9xs89KfL/Fb8ctyccOcLU11/5WNRLu2VXCS?=
+ =?us-ascii?Q?WlfnZx/vX6iyKelNXqvzbSedJ63hEdaLuRG29wlgX9/XDK6bsxmRI1i+rKhC?=
+ =?us-ascii?Q?EiJ1BFE7ymlY7DrAPYUS0zv3UrGphHEirBqSBhDmit0l3HvwL1xNm1P/GV9a?=
+ =?us-ascii?Q?DD8rIjZeBRI2lO2CvGj6+h7V5aeZn3Fyx4wczR3eESuyh+U6z2sekvnavlaQ?=
+ =?us-ascii?Q?dDDBCSTN9E6zPg/ea/wBqaZuwsTiwzcMzmEspU9dtkuhUJUhlEtKx3N+9z69?=
+ =?us-ascii?Q?lM/wvwihpNMxTTfu6zWo81AjHDbEF7zGEUigRbNS22KwIMjusAr4wIn4ynSn?=
+ =?us-ascii?Q?IdgVcUWAZX8wxBWPmPxD60X1rSANnnW0jpa4INAN0Yg8R9tErfPTLKA3cXhv?=
+ =?us-ascii?Q?aOESNRFrHsf5HqBX2ca62HVD4zrC5F0WWUX/3VaP0Wu8/5Meo+vcYvuJsZRb?=
+ =?us-ascii?Q?RmD6LbXCf3Ju4xBgjvT9RHdr+HOjYubgjoBH/iy9TqaAH9HVfFgFXWlGR4TJ?=
+ =?us-ascii?Q?lfwRA+FQhUuCsDYbkFgCzC5OzjFdb+WrYXSm1Lg7ACnlBdi9Op7ynfSwVljZ?=
+ =?us-ascii?Q?WOnGpx9wa8Swu8LloIQ8/LexNhl/0HTVqz6oAOwUieVG2J2BBJ8i/v8M/HGX?=
+ =?us-ascii?Q?wr1rSoa/HkOcANCMoriWiNiwot2HpU/4oz/YPb8QAEc5LQ1i6TkTzcQ8NQP8?=
+ =?us-ascii?Q?zeZXN+cGEhCT4EvrrApe9A/xMKYIg4ALwYDNIkjZ4ur92bx9Rm6vb386Dwxc?=
+ =?us-ascii?Q?gyJB5Aqkejac7mGiAqLT+XQ7DurvU1mr2/RpmeEi0uwZTRCFbPud6+Et1K6H?=
+ =?us-ascii?Q?UfpSQPLISY4BAEhqTyY2EXEj46F0H7syaPKSK0z58oM71ykmtc5mHnpqwF4V?=
+ =?us-ascii?Q?Pa4Oa+XD6HwrgTP9W6SqFDtqOiYfRbm8GhTYLk4gE3MEg2qBR0trhNbTtZ+k?=
+ =?us-ascii?Q?Oz25ly3pUk5L1VTx5bIFFsx/NQc0hRgI3109oPUNkCgQl1XJFEfhiLBbvpP6?=
+ =?us-ascii?Q?9+52TD8aA2DRoHzb81h+xJQYpKYjwCZYydKjLqVyiIDHKui9NEJVmr6ynHTb?=
+ =?us-ascii?Q?FbF3rlnvPRvBtZtO61y+E+WVVySvDOHHB6p0q1im41GkmbDwbSS/a5b+cVJy?=
+ =?us-ascii?Q?wmRh000QVakWP9m5wfpaMMjM+7oHRTMEnoXwBm54ILJDj8+NQGyJEHA3Rngd?=
+ =?us-ascii?Q?9qZn9h/aVRfesvTjjuMRfaHRqwYTLQ/mVOSjwZHbeluetXgTNEXep1x+BSig?=
+ =?us-ascii?Q?6EyMvG8phfBe46WUl2czo8J5E4lzYhD/XDfeGi1eSqykOqa0dKoZ6YFR1KDo?=
+ =?us-ascii?Q?ij56lI/wdiQpQtK/C+Edeb/yC6fLlmuNGBD6t0vpXaGB6g2Fg1/VJYy62oV5?=
+ =?us-ascii?Q?Y1/qwMUWYqK4t7BjG+2+oArP4phoiRJCDGZ/OFa7ZDwPeqcf6/dNjcmaP1R0?=
+ =?us-ascii?Q?B8QaAicGQcbKCb2Kui4F3kONsrUI5K4m5hL5GUTnlsyvSZm6nQ8eeRXJcb9g?=
+ =?us-ascii?Q?q3K9Yq/CabNd9JYbAxr4D+oBiVBE9HUE2yQU2Smj?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0a2fde9c-0510-43fe-4922-08dd5a20802e
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Mar 2025 06:56:19.5285
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Aj5aiX2iABejezd2+UYZai4FKsqcSAf51czNQQ60KBbY+KwvrRQ0SGJXRmDYai0syW6+6F1yDb6xct3DvbPZJQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8553
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250302_225613_101524_924A472E 
-X-CRM114-Status: GOOD (  21.55  )
+X-CRM114-CacheID: sfid-20250302_225626_197669_DC87178E 
+X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,179 +165,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The per-function metadata storage is already used by ftrace if
-CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS is enabled, and it store the pointer
-of the callback directly to the function padding, which consume 8-bytes,
-in the commit
-baaf553d3bc3 ("arm64: Implement HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS").
-So we can directly store the index to the function padding too, without
-a prepending. With CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS enabled, the
-function is 8-bytes aligned, and we will compile the kernel with extra
-8-bytes (2 NOPS) padding space. Otherwise, the function is 4-bytes
-aligned, and only extra 4-bytes (1 NOPS) is needed.
+Hi Alexandre,
 
-However, we have the same problem with Mark in the commit above: we can't
-use the function padding together with CFI_CLANG, which can make the clang
-compiles a wrong offset to the pre-function type hash. He said that he was
-working with others on this problem 2 years ago. Hi Mark, is there any
-progress on this problem?
+On Wed, Feb 05, 2025 at 08:58:18AM +0800, Peng Fan (OSS) wrote:
+>This is a pick-up of patch 6-12 from patchset [1]
+>
+Do you have time to give a look on this patchset?
 
-Signed-off-by: Menglong Dong <dongml2@chinatelecom.cn>
----
- arch/arm64/Kconfig              | 15 +++++++++++++++
- arch/arm64/Makefile             | 23 ++++++++++++++++++++--
- arch/arm64/include/asm/ftrace.h | 34 +++++++++++++++++++++++++++++++++
- arch/arm64/kernel/ftrace.c      | 13 +++++++++++--
- 4 files changed, 81 insertions(+), 4 deletions(-)
+Thanks,
+Peng
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 940343beb3d4..7ed80f5eb267 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1536,6 +1536,21 @@ config NODES_SHIFT
- 	  Specify the maximum number of NUMA Nodes available on the target
- 	  system.  Increases memory reserved to accommodate various tables.
- 
-+config FUNCTION_METADATA
-+	bool "Per-function metadata storage support"
-+	default y
-+	select HAVE_DYNAMIC_FTRACE_NO_PATCHABLE if !FTRACE_MCOUNT_USE_PATCHABLE_FUNCTION_ENTRY
-+	depends on !CFI_CLANG
-+	help
-+	  Support per-function metadata storage for kernel functions, and
-+	  get the metadata of the function by its address with almost no
-+	  overhead.
-+
-+	  The index of the metadata will be stored in the function padding,
-+	  which will consume 4-bytes. If FUNCTION_ALIGNMENT_8B is enabled,
-+	  extra 8-bytes function padding will be reserved during compiling.
-+	  Otherwise, only extra 4-bytes function padding is needed.
-+
- source "kernel/Kconfig.hz"
- 
- config ARCH_SPARSEMEM_ENABLE
-diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-index 2b25d671365f..2df2b0f4dd90 100644
---- a/arch/arm64/Makefile
-+++ b/arch/arm64/Makefile
-@@ -144,12 +144,31 @@ endif
- 
- CHECKFLAGS	+= -D__aarch64__
- 
-+ifeq ($(CONFIG_FUNCTION_METADATA),y)
-+  ifeq ($(CONFIG_FUNCTION_ALIGNMENT_8B),y)
-+  __padding_nops := 2
-+  else
-+  __padding_nops := 1
-+  endif
-+else
-+  __padding_nops := 0
-+endif
-+
- ifeq ($(CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS),y)
-+  __padding_nops  := $(shell echo $(__padding_nops) + 2 | bc)
-   KBUILD_CPPFLAGS += -DCC_USING_PATCHABLE_FUNCTION_ENTRY
--  CC_FLAGS_FTRACE := -fpatchable-function-entry=4,2
-+  CC_FLAGS_FTRACE := -fpatchable-function-entry=$(shell echo $(__padding_nops) + 2 | bc),$(__padding_nops)
- else ifeq ($(CONFIG_DYNAMIC_FTRACE_WITH_ARGS),y)
-+  CC_FLAGS_FTRACE := -fpatchable-function-entry=$(shell echo $(__padding_nops) + 2 | bc),$(__padding_nops)
-   KBUILD_CPPFLAGS += -DCC_USING_PATCHABLE_FUNCTION_ENTRY
--  CC_FLAGS_FTRACE := -fpatchable-function-entry=2
-+else ifeq ($(CONFIG_FUNCTION_METADATA),y)
-+  CC_FLAGS_FTRACE += -fpatchable-function-entry=$(__padding_nops),$(__padding_nops)
-+  ifneq ($(CONFIG_FUNCTION_TRACER),y)
-+    KBUILD_CFLAGS += $(CC_FLAGS_FTRACE)
-+    # some file need to remove this cflag when CONFIG_FUNCTION_TRACER
-+    # is not enabled, so we need to export it here
-+    export CC_FLAGS_FTRACE
-+  endif
- endif
- 
- ifeq ($(CONFIG_KASAN_SW_TAGS), y)
-diff --git a/arch/arm64/include/asm/ftrace.h b/arch/arm64/include/asm/ftrace.h
-index bfe3ce9df197..aa3eaa91bf82 100644
---- a/arch/arm64/include/asm/ftrace.h
-+++ b/arch/arm64/include/asm/ftrace.h
-@@ -24,6 +24,16 @@
- #define FTRACE_PLT_IDX		0
- #define NR_FTRACE_PLTS		1
- 
-+#ifdef CONFIG_FUNCTION_METADATA
-+#ifdef CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
-+#define KFUNC_MD_DATA_OFFSET	(AARCH64_INSN_SIZE * 3)
-+#else
-+#define KFUNC_MD_DATA_OFFSET	AARCH64_INSN_SIZE
-+#endif
-+#define KFUNC_MD_INSN_SIZE	AARCH64_INSN_SIZE
-+#define KFUNC_MD_INSN_OFFSET	KFUNC_MD_DATA_OFFSET
-+#endif
-+
- /*
-  * Currently, gcc tends to save the link register after the local variables
-  * on the stack. This causes the max stack tracer to report the function
-@@ -216,6 +226,30 @@ static inline bool arch_syscall_match_sym_name(const char *sym,
- 	 */
- 	return !strcmp(sym + 8, name);
- }
-+
-+#ifdef CONFIG_FUNCTION_METADATA
-+#include <asm/text-patching.h>
-+
-+static inline bool kfunc_md_arch_exist(void *ip)
-+{
-+	return !aarch64_insn_is_nop(*(u32 *)(ip - KFUNC_MD_INSN_OFFSET));
-+}
-+
-+static inline void kfunc_md_arch_pretend(u8 *insn, u32 index)
-+{
-+	*(u32 *)insn = index;
-+}
-+
-+static inline void kfunc_md_arch_nops(u8 *insn)
-+{
-+	*(u32 *)insn = aarch64_insn_gen_nop();
-+}
-+
-+static inline int kfunc_md_arch_poke(void *ip, u8 *insn)
-+{
-+	return aarch64_insn_patch_text_nosync(ip, *(u32 *)insn);
-+}
-+#endif
- #endif /* ifndef __ASSEMBLY__ */
- 
- #ifndef __ASSEMBLY__
-diff --git a/arch/arm64/kernel/ftrace.c b/arch/arm64/kernel/ftrace.c
-index d7c0d023dfe5..4191ff0037f5 100644
---- a/arch/arm64/kernel/ftrace.c
-+++ b/arch/arm64/kernel/ftrace.c
-@@ -88,8 +88,10 @@ unsigned long ftrace_call_adjust(unsigned long addr)
- 	 * to `BL <caller>`, which is at `addr + 4` bytes in either case.
- 	 *
- 	 */
--	if (!IS_ENABLED(CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS))
--		return addr + AARCH64_INSN_SIZE;
-+	if (!IS_ENABLED(CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS)) {
-+		addr += AARCH64_INSN_SIZE;
-+		goto out;
-+	}
- 
- 	/*
- 	 * When using patchable-function-entry with pre-function NOPs, addr is
-@@ -139,6 +141,13 @@ unsigned long ftrace_call_adjust(unsigned long addr)
- 
- 	/* Skip the first NOP after function entry */
- 	addr += AARCH64_INSN_SIZE;
-+out:
-+	if (IS_ENABLED(CONFIG_FUNCTION_METADATA)) {
-+		if (IS_ENABLED(CONFIG_FUNCTION_ALIGNMENT_8B))
-+			addr += 2 * AARCH64_INSN_SIZE;
-+		else
-+			addr += AARCH64_INSN_SIZE;
-+	}
- 
- 	return addr;
- }
--- 
-2.39.5
+>Since devm_pm_set_wake_irq is in 6.14, so resend the rtc parts.
+>
+>R-b tags from Linus Walleij and Antonio Borneo are still kept.
+>
+>[1] https://lore.kernel.org/all/CAJZ5v0jb=0c5m=FeA-W-aG30H4706Ay_xCHTsiC1S-7MuGxqTQ@mail.gmail.com/#r
 
+
+>
+>Signed-off-by: Peng Fan <peng.fan@nxp.com>
+>---
+>Peng Fan (7):
+>      rtc: stm32: Use resource managed API to simplify code
+>      rtc: nxp-bbnsm: Use resource managed API to simplify code
+>      rtc: ds1343: Use devm_pm_set_wake_irq
+>      rtc: pm8xxx: Use devm_pm_set_wake_irq
+>      rtc: ab8500: Use resource managed API to simplify code
+>      rtc: mpfs: Use devm_pm_set_wake_irq
+>      rtc: pl031: Use resource managed API to simplify code
+>
+> drivers/rtc/rtc-ab8500.c    | 11 ++---------
+> drivers/rtc/rtc-ds1343.c    |  8 +-------
+> drivers/rtc/rtc-mpfs.c      |  8 +-------
+> drivers/rtc/rtc-nxp-bbnsm.c | 29 +++++++++--------------------
+> drivers/rtc/rtc-pl031.c     |  6 ++----
+> drivers/rtc/rtc-pm8xxx.c    | 12 +-----------
+> drivers/rtc/rtc-stm32.c     | 10 ++--------
+> 7 files changed, 18 insertions(+), 66 deletions(-)
+>---
+>base-commit: 40b8e93e17bff4a4e0cc129e04f9fdf5daa5397e
+>change-id: 20250205-rtc-cleanup-d3d42ceb3d28
+>
+>Best regards,
+>-- 
+>Peng Fan <peng.fan@nxp.com>
+>
 
