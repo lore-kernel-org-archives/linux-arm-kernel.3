@@ -4,52 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05174C282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 14:32:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54F55C282CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 14:34:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cq7gdi5NxayTqZpSDp0z9Z6RZgP2PX5ON2jUhuY4DVI=; b=EyoTXhnZ6Vh7BGuiXHgxdi1lxA
-	1LGjuxZuVYa+rYwHteYrh2dUIe6mHcSmzq50Vv1kRzbpOQ2K7ofG5ThD7U1kT6GdiggVX5IvJi2ul
-	7hYLjG5m/PBYPLl/UNfYQQgyrJ2m1VMp2zZ/UiDNw1rmoGX/7I/lzWtTAxpEmh41V9Ai0QpLw2rh1
-	rEqYhRCsWxlBmN8u20tmidESi/cmadkYZjnNAjP/bb9LvPTQMh3MF2mBzwBewStF80t69yXBIPD3a
-	7c2WJyHhrCYd9r9LzbHcjrEbIokG6rfseqGi1capiVki4POYtdrwvj2tOT1DGlkYx5gE02eOUmD1c
-	/LsEhLBA==;
+	bh=KzOIw+wrBdEXnSH9JiAiSu/zA7y/aaKeIqkEVGXEnbw=; b=Y4i1gj1jUEEi+yUdlPKqSSKXxt
+	O1RohPx63eq8WzFduQef4SKG4oHfROjLclGH+M0fQtYNoQ2VZPSh2KUxHIy/iPW1/oOHBxSIG8uX9
+	uAXWyIYGg5nmROTs5kOze3oPLzDvCjGUj8M19EAQsbboDh5Ih1ePt3nnmS8zUgttHWNJugcBlwTJX
+	7lw8T/gI9qrsvvAG6kMHRmM6zdIogAuRD121qwuCwNqoxChYIRGrD7NtzuPBJkYjLEj7knYCszw3L
+	7GPxOka+/9s7NXVgB1uZG2k0fxWvAoOwsPDaSrCzR76uvK8zODQ2vvKhvpo52GgN2Amvo9O1onKkd
+	cgp5vWUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp6qN-0000000178e-368f;
-	Mon, 03 Mar 2025 14:32:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp6cX-0000000148m-2CZh
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 14:18:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B173106F;
-	Mon,  3 Mar 2025 06:18:25 -0800 (PST)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 034E83F66E;
-	Mon,  3 Mar 2025 06:18:09 -0800 (PST)
-Date: Mon, 3 Mar 2025 14:18:05 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Paul Benoit <paul@os.amperecomputing.com>
-Cc: linux-kernel@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4] firmware: smccc: Support optional Arm SMC SOC_ID name
-Message-ID: <Z8W6HXZy46K7ebWe@J2N7QTR9R3.cambridge.arm.com>
-References: <20241114030452.10149-1-paul@os.amperecomputing.com>
- <20250219005932.3466-1-paul@os.amperecomputing.com>
+	id 1tp6rv-000000017OW-1SFQ;
+	Mon, 03 Mar 2025 14:34:07 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tp6kE-000000016DB-1IxL;
+	Mon, 03 Mar 2025 14:26:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D65A35C59BF;
+	Mon,  3 Mar 2025 14:23:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A38DC4CED6;
+	Mon,  3 Mar 2025 14:26:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741011969;
+	bh=0g9fQWh0Jv15zl9OPaLLQofjM1L8RSDKnVZdipTRZCE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AXmZDD4Z9JhXaUrSlitgAjv2ProElafpbv8DEBeM8BFxzkXJaqr7hxgnvWCNxKnXg
+	 FpnnEOFIsP87R/dqG0i/j4TOH95iuIhzu3WHBJk239wRqEbMNg2y9dxsV67+PaIbvo
+	 01L4IIQpyjRChsYJbNunusnwgpusho9cFVWb77cLG4HN015/DME/JiNlr8wNWxKMU6
+	 eVsiPkCMqat8MCAj9PO8x+sKvOtRCVFnfbtwLwHKCb4UDRnoVv5+OD1cj8r3zxSjnI
+	 HE87mpYyQ3HaC2xmnZt2ZgCuAe/BijhRSQL8W6R4I2MnmVGrcJBP01yg+yEiJUM2Ca
+	 iRG1yvmq7s1qw==
+Date: Mon, 3 Mar 2025 08:26:07 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, kernel@collabora.com
+Subject: Re: [PATCH v3 4/6] dt-bindings: thermal: rockchip: document otp
+ thermal trim
+Message-ID: <174101196712.1786336.17880487519994518563.robh@kernel.org>
+References: <20250228-rk3576-tsadc-upstream-v3-0-4bfbb3b699b9@collabora.com>
+ <20250228-rk3576-tsadc-upstream-v3-4-4bfbb3b699b9@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250219005932.3466-1-paul@os.amperecomputing.com>
+In-Reply-To: <20250228-rk3576-tsadc-upstream-v3-4-4bfbb3b699b9@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_061813_716173_C99C4500 
-X-CRM114-Status: GOOD (  34.42  )
+X-CRM114-CacheID: sfid-20250303_062610_413784_246A03C4 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,216 +81,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
 
-This looks generally good with a couple of minor nits.
-
-On Tue, Feb 18, 2025 at 04:59:32PM -0800, Paul Benoit wrote:
-> Issue Number 1.6 of the Arm SMC Calling Convention introduces an optional
-> SOC_ID name string.  If implemented, point the 'machine' field of the SoC
-> Device Attributes at this string so that it will appear under
-> /sys/bus/soc/devices/soc0/machine.
+On Fri, 28 Feb 2025 21:06:54 +0100, Nicolas Frattaroli wrote:
+> Several Rockchip SoCs, such as the RK3576, can store calibration trim
+> data for thermal sensors in OTP cells. This capability should be
+> documented.
 > 
-> On Arm SMC compliant SoCs, this will allow things like 'lscpu' to
-> eventually get a SoC provider model name from there rather than each
-> tool/utility needing to get a possibly inconsistent, obsolete, or incorrect
-> model/machine name from its own hardcoded model/machine name table.
+> Such a rockchip thermal sensor may reference cell handles that store
+> both a chip-wide trim for all the sensors, as well as cell handles
+> for each individual sensor channel pointing to that specific sensor's
+> trim value.
 > 
-> Signed-off-by: Paul Benoit <paul@os.amperecomputing.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Sudeep Holla <sudeep.holla@arm.com>
-> Cc: linux-arm-kernel@lists.infradead.org
+> Additionally, the thermal sensor may optionally reference cells which
+> store the base in terms of degrees celsius and decicelsius that the trim
+> is relative to.
+> 
+> Each SoC that implements this appears to have a slightly different
+> combination of chip-wide trim, base, base fractional part and
+> per-channel trim, so which ones do which is documented in the bindings.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 > ---
+>  .../bindings/thermal/rockchip-thermal.yaml         | 61 ++++++++++++++++++++++
+>  1 file changed, 61 insertions(+)
 > 
-> v3->v4: Address code review identified issues of v3.
-> v2->v3: Add conditionalization to exclude SOC_ID Name from 32-bit builds.
-> v1->v2: Address code review identified issues.
-> 
->  drivers/firmware/smccc/soc_id.c | 81 +++++++++++++++++++++++++++++++++
->  include/linux/arm-smccc.h       | 40 ++++++++++++++++
->  2 files changed, 121 insertions(+)
-> 
-> diff --git a/drivers/firmware/smccc/soc_id.c b/drivers/firmware/smccc/soc_id.c
-> index 1990263fbba0..7b0688d78dab 100644
-> --- a/drivers/firmware/smccc/soc_id.c
-> +++ b/drivers/firmware/smccc/soc_id.c
-> @@ -32,6 +32,86 @@
->  static struct soc_device *soc_dev;
->  static struct soc_device_attribute *soc_dev_attr;
->  
-> +#ifdef CONFIG_ARM64
-> +
-> +static char __ro_after_init smccc_soc_id_name[136] = "";
-> +
-> +static inline void str_fragment_from_reg(char *dst, unsigned long reg)
-> +{
-> +	dst[0] = (reg >> 0)  & 0xff;
-> +	dst[1] = (reg >> 8)  & 0xff;
-> +	dst[2] = (reg >> 16) & 0xff;
-> +	dst[3] = (reg >> 24) & 0xff;
-> +	dst[4] = (reg >> 32) & 0xff;
-> +	dst[5] = (reg >> 40) & 0xff;
-> +	dst[6] = (reg >> 48) & 0xff;
-> +	dst[7] = (reg >> 56) & 0xff;
-> +}
-> +
-> +static char __init *smccc_soc_name_init(void)
-> +{
-> +	struct arm_smccc_1_2_regs args;
-> +	struct arm_smccc_1_2_regs res;
-> +	size_t len;
-> +
-> +	/*
-> +	 * Issue Number 1.6 of the Arm SMC Calling Convention
-> +	 * specification introduces an optional "name" string
-> +	 * to the ARM_SMCCC_ARCH_SOC_ID function.  Fetch it if
-> +	 * available.
-> +	 */
-> +	args.a0 = ARM_SMCCC_ARCH_SOC_ID;
-> +	args.a1 = 2;    /* SOC_ID name */
-> +	arm_smccc_1_2_invoke(&args, &res);
-> +	if ((u32)res.a0 == 0) {
-> +		const unsigned int regsize = sizeof(res.a1);
-> +
-> +		/*
-> +		 * Copy res.a1..res.a17 to the smccc_soc_id_name string
-> +		 * 8 bytes at a time.  As per Issue 1.6 of the Arm SMC
-> +		 * Calling Convention, the string will be NUL terminated
-> +		 * and padded, from the end of the string to the end of the
-> +		 * 136 byte buffer, with NULs.
-> +		 */
-> +		str_fragment_from_reg(smccc_soc_id_name + 0*regsize, res.a1);
-> +		str_fragment_from_reg(smccc_soc_id_name + 1*regsize, res.a2);
-> +		str_fragment_from_reg(smccc_soc_id_name + 2*regsize, res.a3);
-> +		str_fragment_from_reg(smccc_soc_id_name + 3*regsize, res.a4);
-> +		str_fragment_from_reg(smccc_soc_id_name + 4*regsize, res.a5);
-> +		str_fragment_from_reg(smccc_soc_id_name + 5*regsize, res.a6);
-> +		str_fragment_from_reg(smccc_soc_id_name + 6*regsize, res.a7);
-> +		str_fragment_from_reg(smccc_soc_id_name + 7*regsize, res.a8);
-> +		str_fragment_from_reg(smccc_soc_id_name + 8*regsize, res.a9);
-> +		str_fragment_from_reg(smccc_soc_id_name + 9*regsize, res.a10);
-> +		str_fragment_from_reg(smccc_soc_id_name + 10*regsize, res.a11);
-> +		str_fragment_from_reg(smccc_soc_id_name + 11*regsize, res.a12);
-> +		str_fragment_from_reg(smccc_soc_id_name + 12*regsize, res.a13);
-> +		str_fragment_from_reg(smccc_soc_id_name + 13*regsize, res.a14);
-> +		str_fragment_from_reg(smccc_soc_id_name + 14*regsize, res.a15);
-> +		str_fragment_from_reg(smccc_soc_id_name + 15*regsize, res.a16);
-> +		str_fragment_from_reg(smccc_soc_id_name + 16*regsize, res.a17);
 
-Please get rid of 'regsize' and use '8' directly. This only exists for
-arm64, where the registeres are 8 bytes, and the comment immediately
-above refers to "8 bytes" specifically anyway, so 'regsize' only serves
-to make this harder to read.
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-It'd be a bit clearer as:
-
-	str_fragment_from_reg(smccc_soc_id_name + 8 * 0,  res.a1);
-	str_fragment_from_reg(smccc_soc_id_name + 8 * 1,  res.a2);
-	...
-	str_fragment_from_reg(smccc_soc_id_name + 8 * 15, res.a16);
-	str_fragment_from_reg(smccc_soc_id_name + 8 * 16, res.a17);
-
-Sudeep, are you happy to fix that up when applying?
-
-> +
-> +		len = strnlen(smccc_soc_id_name, sizeof(smccc_soc_id_name));
-> +		if (len) {
-> +			if (len == sizeof(smccc_soc_id_name))
-> +				pr_warn(FW_BUG "Ignoring improperly formatted Name\n");
-
-It's odd that 'Name' is capitalized here. Not a big deal, but it doesn't
-look quite right.
-
-> +			else
-> +				return smccc_soc_id_name;
-> +		}
-> +	}
-> +
-> +	return NULL;
-> +}
-> +
-> +#else
-> +
-> +static char __init *smccc_soc_name_init(void)
-> +{
-> +	return NULL;
-> +}
-> +
-> +#endif
-> +
->  static int __init smccc_soc_init(void)
->  {
->  	int soc_id_rev, soc_id_version;
-> @@ -72,6 +152,7 @@ static int __init smccc_soc_init(void)
->  	soc_dev_attr->soc_id = soc_id_str;
->  	soc_dev_attr->revision = soc_id_rev_str;
->  	soc_dev_attr->family = soc_id_jep106_id_str;
-> +	soc_dev_attr->machine = smccc_soc_name_init();
->  
->  	soc_dev = soc_device_register(soc_dev_attr);
->  	if (IS_ERR(soc_dev)) {
-> diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
-> index 67f6fdf2e7cd..eb7eab04755a 100644
-> --- a/include/linux/arm-smccc.h
-> +++ b/include/linux/arm-smccc.h
-> @@ -639,5 +639,45 @@ asmlinkage void __arm_smccc_hvc(unsigned long a0, unsigned long a1,
->  		method;							\
->  	})
->  
-> +#ifdef CONFIG_ARM64
-> +
-> +#define __fail_smccc_1_2(___res)					\
-> +	do {								\
-> +		if (___res)						\
-> +			___res->a0 = SMCCC_RET_NOT_SUPPORTED;		\
-> +	} while (0)
-> +
-> +/*
-> + * arm_smccc_1_2_invoke() - make an SMCCC v1.2 compliant call
-> + *
-> + * @args: SMC args are in the a0..a17 fields of the arm_smcc_1_2_regs structure
-> + * @res: result values from registers 0 to 17
-> + *
-> + * This macro will make either an HVC call or an SMC call depending on the
-> + * current SMCCC conduit. If no valid conduit is available then -1
-> + * (SMCCC_RET_NOT_SUPPORTED) is returned in @res.a0 (if supplied).
-> + *
-> + * The return value also provides the conduit that was used.
-> + */
-> +#define arm_smccc_1_2_invoke(args, res) ({				\
-> +		struct arm_smccc_1_2_regs *__args = args;		\
-> +		struct arm_smccc_1_2_regs *__res = res;			\
-> +		int method = arm_smccc_1_1_get_conduit();		\
-> +		switch (method) {					\
-> +		case SMCCC_CONDUIT_HVC:					\
-> +			arm_smccc_1_2_hvc(__args, __res);		\
-> +			break;						\
-> +		case SMCCC_CONDUIT_SMC:					\
-> +			arm_smccc_1_2_smc(__args, __res);		\
-> +			break;						\
-> +		default:						\
-> +			__fail_smccc_1_2(__res);			\
-> +			method = SMCCC_CONDUIT_NONE;			\
-> +			break;						\
-> +		}							\
-> +		method;							\
-> +	})
-> +#endif /*CONFIG_ARM64*/
-
-At some point I intend to rework the existing helpers to not return the
-conduit, but this is fine for now.
-
-With the fixups above:
-
-Acked-by: Mark Rutland <mark.rutland@arm.com>
-
-Mark.
-
-> +
->  #endif /*__ASSEMBLY__*/
->  #endif /*__LINUX_ARM_SMCCC_H*/
-> -- 
-> 2.48.1
-> 
 
