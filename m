@@ -4,51 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5E73C282CD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 14:19:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A99DC282CD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Mar 2025 14:21:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=vqgSkFlCQVJ4CaUUmVwPWsAun4vxgHbAxdBt/2bRvcU=; b=KTSew1/DK01jlF
-	zNRbHSOtQuc1UXtfxM8ucBBPp4PBKFc7FyvrUuqyBR0tKX7pXhom/PO2B0pNb4tfuc7nCq4yBR6MW
-	U8HgIjfvPRMRPfiX/nLhaYDN+xkUrsuA8+1ceOOG+t5yidBik9qYVo+RoQP1B+m+aAzyJGDTv5V7I
-	XUwwEhVwqIx+t0Tvkfx3iZxLE16h5ceT3bZYBAEk4ULdgx6nhmxDYJUrdB86Z5P5fBGcJ9NvhWPss
-	1M9gwlHDkjgxqU88AudjBZK5F+7u+OG0grfRIpj/Kff+sGb9Eu23mdJyJW7sNIKLA8hVBY+0alR22
-	jIY+yyND2WeaD6bS7qbA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
+	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P7gGiZwjzyL+/+VA6we4MZXQRYxqsjECLv81vWaVcmo=; b=zHnh5Y0zfk8VAq/SQtbvlU8lm5
+	fA4j+05VMd7DHaeWu3/tRdho+C97TNbZAK2XcO5wLicgG52tooQ0syLvD9mxDxifSrHmilqLd7jSw
+	26zqLBNPtiKI2zypRnEDKsKcsBqHONn/Rcyiw/LQUjkEwQvID7qHPdm3XqdodrNCY9ul+lxZ8iyLX
+	iVtfEOJkZUwx09ozMsGUB4Fpebmm7dmh0ikRkgTuZUXscye4BFyhWbwqAGIi0FTHVhewis7BELW6l
+	ox3I2G+3ivIxfEdi/li5RIxH3VoemVmJvcBujyVd8pkrNCxo0TmWX8ZbbY8UT03zoMPTCW28EvJjB
+	tE/jqiYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp6e0-000000014i0-2BOD;
-	Mon, 03 Mar 2025 14:19:44 +0000
-Received: from mail.ispras.ru ([83.149.199.84])
+	id 1tp6fY-0000000151I-0zJX;
+	Mon, 03 Mar 2025 14:21:20 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tp6Nf-000000010u0-3EE1
+	id 1tp6Nz-000000010wz-2gdv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Mar 2025 14:02:53 +0000
-Received: from ldvnode.intra.ispras.ru (unknown [10.10.2.153])
-	by mail.ispras.ru (Postfix) with ESMTPSA id 02E6340CE182;
-	Mon,  3 Mar 2025 14:02:44 +0000 (UTC)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.ispras.ru 02E6340CE182
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ispras.ru;
-	s=default; t=1741010564;
-	bh=vqgSkFlCQVJ4CaUUmVwPWsAun4vxgHbAxdBt/2bRvcU=;
-	h=From:To:Cc:Subject:Date:From;
-	b=nai7WcceMGUZcGUxKsLVw+ByZ0zB426L99V6BXimgqOYhZ0gpVanAUZ6qjH6bN2NQ
-	 JPdn355SI9GJztXnYg9j9JJcOl8euBD3CbkJPzwu8husGgSvIqsokUvUxf07nI7x8M
-	 QOwFvGitGwy4NiKVWp8R2jIDFXoYzmRY26HJDwZA=
-From: Vitalii Mordan <mordan@ispras.ru>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Subject: [PATCH] rtc: at91sam9: fix call balance of rtc->sclk handling routines
-Date: Mon,  3 Mar 2025 17:02:29 +0300
-Message-Id: <20250303140229.642959-1-mordan@ispras.ru>
-X-Mailer: git-send-email 2.25.1
+	Mon, 03 Mar 2025 14:03:13 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.163])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4Z60lz518fz1ltYp;
+	Mon,  3 Mar 2025 21:58:55 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id C0B1318001B;
+	Mon,  3 Mar 2025 22:03:05 +0800 (CST)
+Received: from [10.67.121.177] (10.67.121.177) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Mon, 3 Mar 2025 22:03:04 +0800
+CC: <dave.hansen@linux.intel.com>, <bp@alien8.de>, <mingo@redhat.com>,
+	<linux-arm-kernel@lists.infradead.org>, <mpe@ellerman.id.au>,
+	<peterz@infradead.org>, <tglx@linutronix.de>, <will@kernel.org>,
+	<catalin.marinas@arm.com>, <yangyicong@hisilicon.com>,
+	<linuxppc-dev@lists.ozlabs.org>, <x86@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <morten.rasmussen@arm.com>,
+	<msuchanek@suse.de>, <gregkh@linuxfoundation.org>, <rafael@kernel.org>,
+	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
+	<linuxarm@huawei.com>, <xuwei5@huawei.com>, <guohanjun@huawei.com>,
+	<sshegde@linux.ibm.com>
+Subject: Re: [PATCH v11 2/4] arch_topology: Support SMT control for OF based
+ system
+To: Dietmar Eggemann <dietmar.eggemann@arm.com>, <sudeep.holla@arm.com>,
+	<pierre.gondois@arm.com>
+References: <20250218141018.18082-1-yangyicong@huawei.com>
+ <20250218141018.18082-3-yangyicong@huawei.com>
+ <8a9aedef-08d7-445f-9b67-85e74ec6bd50@arm.com>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <21e74021-fb68-0003-f0f4-7f54dd674b9d@huawei.com>
+Date: Mon, 3 Mar 2025 22:03:04 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <8a9aedef-08d7-445f-9b67-85e74ec6bd50@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_060252_366590_800DE5C3 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20250303_060312_076752_A11C6031 
+X-CRM114-Status: GOOD (  30.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,100 +80,147 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-rtc@vger.kernel.org, lvc-project@linuxtesting.org, Arnd Bergmann <arnd@arndb.de>, Boris Brezillon <bbrezillon@kernel.org>, linux-kernel@vger.kernel.org, Johan Hovold <johan@kernel.org>, Fedor Pchelkin <pchelkin@ispras.ru>, Vadim Mutilin <mutilin@ispras.ru>, Alexey Khoroshilov <khoroshilov@ispras.ru>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Vitalii Mordan <mordan@ispras.ru>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If rtc->sclk was enabled in at91_rtc_probe(), it must be disabled in
-all error paths to ensure proper cleanup. However, if
-devm_rtc_register_device() returns an error in at91_rtc_probe(), the
-rtc->sclk clock will not be disabled.
+On 2025/2/28 19:11, Dietmar Eggemann wrote:
+> On 18/02/2025 15:10, Yicong Yang wrote:
+>> From: Yicong Yang <yangyicong@hisilicon.com>
+>>
+>> On building the topology from the devicetree, we've already
+>> gotten the SMT thread number of each core. Update the largest
+>> SMT thread number and enable the SMT control by the end of
+>> topology parsing.
+>>
+>> The core's SMT control provides two interface to the users [1]:
+>> 1) enable/disable SMT by writing on/off
+>> 2) enable/disable SMT by writing thread number 1/max_thread_number
+> 
+> 1/max_thread_number stands for '1 or max_thread_number', right ?
+> 
+> Aren't the two interfaces:
+> 
+> (a) /sys/devices/system/cpu/smt/active
+> (b) /sys/devices/system/cpu/smt/control
+> 
+> and you write 1) or 2) (or 'forceoff') into (b)?
 
-Use the devm_clk_get_enabled() helper function to ensure proper call
-balance for rtc->sclk.
+yes you're correct. "active" is a RO file for status only so not for this interface.
+Let me explicitly mention the /sys/devices/system/cpu/smt/control here in the commit.
 
-Found by Linux Verification Center (linuxtesting.org) with Klever.
+> 
+>> If a system have more than one SMT thread number the 2) may
+> 
+> s/have/has
+> 
+>> not handle it well, since there're multiple thread numbers in the
+> 
+> multiple thread numbers other than 1, right?
 
-Fixes: a975f47f6e9a ("rtc: at91sam9: use clk API instead of relying on AT91_SLOW_CLOCK")
-Signed-off-by: Vitalii Mordan <mordan@ispras.ru>
----
- drivers/rtc/rtc-at91sam9.c | 28 +++++++---------------------
- 1 file changed, 7 insertions(+), 21 deletions(-)
+according to the pr_warn_once() we implemented below it also includes the case
+where the system have one type of SMT cores and non-SMT cores (the thread number is 1):
+- 1 thread
+- X (!= 1) threads
 
-diff --git a/drivers/rtc/rtc-at91sam9.c b/drivers/rtc/rtc-at91sam9.c
-index 38991cca5930..f4b7cf37397f 100644
---- a/drivers/rtc/rtc-at91sam9.c
-+++ b/drivers/rtc/rtc-at91sam9.c
-@@ -375,21 +375,16 @@ static int at91_rtc_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 	}
- 
--	rtc->sclk = devm_clk_get(&pdev->dev, NULL);
--	if (IS_ERR(rtc->sclk))
-+	rtc->sclk = devm_clk_get_enabled(&pdev->dev, NULL);
-+	if (IS_ERR(rtc->sclk)) {
-+		dev_err(&pdev->dev, "Could not get and enable slow clock\n");
- 		return PTR_ERR(rtc->sclk);
--
--	ret = clk_prepare_enable(rtc->sclk);
--	if (ret) {
--		dev_err(&pdev->dev, "Could not enable slow clock\n");
--		return ret;
- 	}
- 
- 	sclk_rate = clk_get_rate(rtc->sclk);
- 	if (!sclk_rate || sclk_rate > AT91_RTT_RTPRES) {
- 		dev_err(&pdev->dev, "Invalid slow clock rate\n");
--		ret = -EINVAL;
--		goto err_clk;
-+		return -EINVAL;
- 	}
- 
- 	mr = rtt_readl(rtc, MR);
-@@ -405,10 +400,8 @@ static int at91_rtc_probe(struct platform_device *pdev)
- 	rtt_writel(rtc, MR, mr);
- 
- 	rtc->rtcdev = devm_rtc_allocate_device(&pdev->dev);
--	if (IS_ERR(rtc->rtcdev)) {
--		ret = PTR_ERR(rtc->rtcdev);
--		goto err_clk;
--	}
-+	if (IS_ERR(rtc->rtcdev))
-+		return PTR_ERR(rtc->rtcdev);
- 
- 	rtc->rtcdev->ops = &at91_rtc_ops;
- 	rtc->rtcdev->range_max = U32_MAX;
-@@ -419,7 +412,7 @@ static int at91_rtc_probe(struct platform_device *pdev)
- 			       dev_name(&rtc->rtcdev->dev), rtc);
- 	if (ret) {
- 		dev_dbg(&pdev->dev, "can't share IRQ %d?\n", rtc->irq);
--		goto err_clk;
-+		return ret;
- 	}
- 
- 	/* NOTE:  sam9260 rev A silicon has a ROM bug which resets the
-@@ -433,11 +426,6 @@ static int at91_rtc_probe(struct platform_device *pdev)
- 			 dev_name(&rtc->rtcdev->dev));
- 
- 	return devm_rtc_register_device(rtc->rtcdev);
--
--err_clk:
--	clk_disable_unprepare(rtc->sclk);
--
--	return ret;
- }
- 
- /*
-@@ -450,8 +438,6 @@ static void at91_rtc_remove(struct platform_device *pdev)
- 
- 	/* disable all interrupts */
- 	rtt_writel(rtc, MR, mr & ~(AT91_RTT_ALMIEN | AT91_RTT_RTTINCIEN));
--
--	clk_disable_unprepare(rtc->sclk);
- }
- 
- static void at91_rtc_shutdown(struct platform_device *pdev)
--- 
-2.25.1
+Discussion made in [1] and I thought we have agreement (hope I understood correctly)
+that all the asymmetric cases need to notify. Do you and Sudeep think we should not
+warn in such case?
+
+[1] https://lore.kernel.org/linux-arm-kernel/10082e64-b00a-a30b-b9c5-1401a54f6717@huawei.com/
+
+> 
+>> system and 2) only accept 1/max_thread_number. So issue a warning
+>> to notify the users if such system detected.
+> 
+> This paragraph seems to be about heterogeneous systems. Maybe mention this?
+> 
+> Heterogeneous system with SMT only on a subset of cores (like Intel
+> Hybrid): This one works (N threads per core with N=1 and N=2) just fine.
+> 
+> But on Arm64 (default) we would still see:
+> 
+> [0.075782] Heterogeneous SMT topology is partly supported by SMT control
+> 
+
+more clearer, will add it. Thanks.
+
+>> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/ABI/testing/sysfs-devices-system-cpu#n542
+>>
+>> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+>> ---
+>>  drivers/base/arch_topology.c | 27 +++++++++++++++++++++++++++
+>>  1 file changed, 27 insertions(+)
+>>
+>> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+>> index 3ebe77566788..23f425a9d77a 100644
+>> --- a/drivers/base/arch_topology.c
+>> +++ b/drivers/base/arch_topology.c
+>> @@ -11,6 +11,7 @@
+>>  #include <linux/cleanup.h>
+>>  #include <linux/cpu.h>
+>>  #include <linux/cpufreq.h>
+>> +#include <linux/cpu_smt.h>
+>>  #include <linux/device.h>
+>>  #include <linux/of.h>
+>>  #include <linux/slab.h>
+>> @@ -506,6 +507,10 @@ core_initcall(free_raw_capacity);
+>>  #endif
+>>  
+>>  #if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
+>> +
+>> +/* Maximum SMT thread number detected used to enable the SMT control */
+> 
+> maybe shorter ?
+> 
+> /* used to enable SMT control */
+> 
+
+sure.
+
+>> +static unsigned int max_smt_thread_num;
+>> +
+>>  /*
+>>   * This function returns the logic cpu number of the node.
+>>   * There are basically three kinds of return values:
+>> @@ -565,6 +570,16 @@ static int __init parse_core(struct device_node *core, int package_id,
+>>  		i++;
+>>  	} while (1);
+>>  
+>> +	/*
+>> +	 * If max_smt_thread_num has been initialized and doesn't match
+>> +	 * the thread number of this entry, then the system has
+>> +	 * heterogeneous SMT topology.
+>> +	 */
+>> +	if (max_smt_thread_num && max_smt_thread_num != i)
+>> +		pr_warn_once("Heterogeneous SMT topology is partly supported by SMT control\n");
+>> +
+>> +	max_smt_thread_num = max_t(unsigned int, max_smt_thread_num, i);
+>> +
+>>  	cpu = get_cpu_for_node(core);
+>>  	if (cpu >= 0) {
+>>  		if (!leaf) {
+>> @@ -677,6 +692,18 @@ static int __init parse_socket(struct device_node *socket)
+>>  	if (!has_socket)
+>>  		ret = parse_cluster(socket, 0, -1, 0);
+>>  
+>> +	/*
+>> +	 * Notify the CPU framework of the SMT support. Initialize the
+>> +	 * max_smt_thread_num to 1 if no SMT support detected or failed
+>> +	 * to parse the topology. A thread number of 1 can be handled by
+>> +	 * the framework so we don't need to check max_smt_thread_num to
+>> +	 * see we support SMT or not.
+> 
+> Not sure whether the last sentence is needed here?
+> 
+
+We always need to call cpu_smt_set_num_threads() to notify the framework
+of the thread number even if SMT is not supported. In which case the
+thread number is 1 but the framework can handle this well. I worry readers
+may get confused for notifying a thread number of 1 so add this comment this.
+
+Will get rid of this if thought redundant.
+
+Thanks.
+
 
 
