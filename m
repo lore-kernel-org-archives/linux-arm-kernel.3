@@ -4,84 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADF58C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 17:32:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D891C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 17:34:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XA6n7Tk6ZRco5Uoy7ute4MTebhJQTrRMnucOQVIkMHA=; b=xUwoD3wCFQ0D/PMWljaBZICoF6
-	IVBhAGLB1rXH/PUN4sOf1i/QrnNi47PxU8nO8KveURpJWCSQ/zSLHhJBMH1YTKdAqh42NPhmonJ8g
-	KCPPdX+fG5gszwyxIPXQiZX3r1eZosQ9qunIxdDUsnSU0bCMx5J/nKGtncrf+hQhtp34R3xX8x7bX
-	xJ1YOGiDBrAzPmLFc8fJcP+lzBglz9jbKcPfvPSasfSWSKpFWg1o8a/9l0QqywZiZod2Eqe0Bj2uO
-	0j1WaEJ65/or+xnLfDg2WlIVFmMDlstwLjaJRbbDwYeuuPbbMCuP3SbNUZ0p5Z1YHK7uie6378S2i
-	exKPvY+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NoMZ/LXD0n6wHUQnbeanWfL4wspkznf22EfqsCZFOOo=; b=rzKgDyys01neRfoDyghDCijQOO
+	RqdSjEMQm9Uksv/Wyo+7O+hww2PmhBi8jNW+VVDvobZM4ZSNFTLpOjOtYiq6jFrQieFwKVsn3TTIy
+	B2n9D/VBzwLHryUknp07kH1+7EXrMlHTjfoDyxG4tDEAB1MiHQqKxHUz5RPfT99fwSHkqvYUAGpf2
+	mV8ZFusStIyU/0qfMGbkqZLncwrf5wZAw3K7rZf14ouqcEQ2ynO3O2TML5PIT0QV/hB72Iy9Mw38w
+	ZFvtNIkRNzHdPJLo3bVcoNhmp8oRa6ggQ73ANjLGxa8YVbImwuAK5q2aTiofLGsqvtKi2dbOuFiA8
+	hLKargsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpW84-00000005e9x-2FX9;
-	Tue, 04 Mar 2025 17:32:28 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1tpW9d-00000005eSq-1Btd;
+	Tue, 04 Mar 2025 17:34:05 +0000
+Received: from mail-pl1-f172.google.com ([209.85.214.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpUW4-00000005HrG-1DK0
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 15:49:10 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-30ba92c846eso31204401fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 07:49:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1741103346; x=1741708146; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XA6n7Tk6ZRco5Uoy7ute4MTebhJQTrRMnucOQVIkMHA=;
-        b=faAQ5YtLELwffpsh7jhbYKPnnz7bHkQYTzFUy9TWiYstGhPHqq/o0VP6CGHln6S1xN
-         JmX/ezn6jbLwpb/oLz/W0bcX99CWhXbjpvZVmsnWMsgcjeicOHQJlrYUoKmwpoD7tdDj
-         U5Cn5C4ovHO2irRvKJ55/U7SrO2CDv0aEfFt9Br6CQ+dlAMcaALdVblldzjeRs1Z6FVA
-         qU60K4ozriLT10wxKzvhzSjkaZEslDHLfCni8ZImzx8LTeEVzlMltHUIjHMvm8H7ptIy
-         4yhdHNDvAvvw9i3MTIB9+OuOXc6tA3//3QDpmj9EDNRzR/b95dl5NgJ48N+UxZokRwtV
-         Gu6Q==
+	id 1tpUqP-00000005MaY-2Mkq;
+	Tue, 04 Mar 2025 16:10:10 +0000
+Received: by mail-pl1-f172.google.com with SMTP id d9443c01a7336-223a3c035c9so39801705ad.1;
+        Tue, 04 Mar 2025 08:10:09 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741103346; x=1741708146;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XA6n7Tk6ZRco5Uoy7ute4MTebhJQTrRMnucOQVIkMHA=;
-        b=l4B7cczP0GoE7v/A+asumT3b/oZz9PZAZ0M6dmbEGiYY48LABgOgaMlvq4gpcHzDH5
-         cKVqsoiNPp/kvRRSeFmbb0IPuhsxJaI+sOmCsxsJivCd1squM/UdR/LuRTnjpeJ91NSf
-         Ub31oMlC8SkSDhIlE3OcRR+4BCwpW8f1dYjlGNjw5mQsg/OVuM3ik8VwW/nbBgZLKrDR
-         TVbrZIMCJziyYUIegcYAGDEHfRIG0n2sKQIeWBE0oagGY5snHOzLJmFhCGzlHVi7aD4U
-         BfEJK08bx1Oy5mlW42luaDrgtxWL3rOKn8HOqbnoAMmOEWEmuy+Ustqb3XbWl2p4hEDS
-         8Nbg==
-X-Forwarded-Encrypted: i=1; AJvYcCVSV2EZAbAGY7nmuGIAG7EKhy0i7NjeT+vMI98w92nwuGn+frHufHkli00fV83ZZk4Gj0N4KYpaiM1HHmvQTOe7@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxsj7/jaYm4NzMGjf5rUZxQ8M13iz6jGO32rFx2qCysNLjS7R5M
-	wJzMwTc/5hueBc71VR+R6WHxVnk/1h+G+4lLgyHlj3UVC0TZVICQ6CDAt1ftxAgyuLX57D6/Ng/
-	1NthXBWXnDtypV+iWjXyQAbrGKUNE6oMwjgVS0Q==
-X-Gm-Gg: ASbGnct+lcHixW1AmCgBgci48WiNZWz8xpCB0eWJAA+1eEXP+DvByfSleUs/KoCBo7s
-	0i836Sfy9DHIe2dDWSb/9G6E9Z2z+RZ2pZb6bFYm9I67GkDnY0hX+Lsm3cauwxgRxIVV7V3Wi0p
-	8/qGHAucydErn09mhn9nAjQWPleVXvvvC+Xr492/rjMOg7MU7hgbzUS44oqA==
-X-Google-Smtp-Source: AGHT+IGNYxY68hSY04NHeDnGF45WuYW30TweqyCBwT2x9jUZoSI7dfONpy9h4GhUJmNMztNWJp/TupvscySj3TQu+14=
-X-Received: by 2002:a2e:b890:0:b0:309:1fee:378d with SMTP id
- 38308e7fff4ca-30b932531aamr67179271fa.19.1741103345563; Tue, 04 Mar 2025
- 07:49:05 -0800 (PST)
+        d=1e100.net; s=20230601; t=1741104609; x=1741709409;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=NoMZ/LXD0n6wHUQnbeanWfL4wspkznf22EfqsCZFOOo=;
+        b=cEF90+SEk1n7eu8M84jVP3FVaQ9w3sPmDEOOslWrInHtxjE05FP2j7B1Tt8ai1R3P6
+         k0puxGZExYdEkcKQQChQFOJGTMLbYkh/02p+TDPXRDHerSrRLrisQMaTBpkzeBO6duvM
+         R6ar41YG23y5lzxJm4U/LBbwEOVrtVm40xEFrWjHu1iDTlAi3qN/n+W6Vo1vP9WGtOtB
+         xOWuqEQk87HvC83jxOOV02hHRSPMLB9FNEDXidwufv9xUvc1fqt+SsGk7ndiOGLv7ffT
+         /D56y+VWoyVMlFbQ/Oq/ksi0/UdSKKDAft4fcKuyEzJnfLNMnq+eOfFY3MNEewwPaqLj
+         yerQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWgVGDalfh8iFbGRAyw0KYJP59GDapGzBpKKPIdFu4CBB7TmyNy7A7FvtIzYbARAtq7o75h+6kitrpo96yA2b4N@lists.infradead.org, AJvYcCXuDKLWxKLNhmeIvjSIaQ/mSaAVV5WkksF2jU/gexPrAsw54gb2jhjrecsEN5Ie0hKq/1lvuRA2QHM1+jrCbSGPWQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxX/RMxclN5FpG+12yvEEmqvQ/Q32SUBD6l6iiOWB8QgyeTLaCh
+	bJLmuNcKsGeT5xWGx6OJvkiI4RVIuS7w3vAKSuY+YHP0pAmjVC5W
+X-Gm-Gg: ASbGncv2Az5vosdUrruxYkZwSxda3MR+F+/eHb2yR21/AJhV2vGEMyOqYUzo5q2+iqO
+	rCaYu6Y7AVlW7BgdBuwof5eanP3ilJhaiGfzq2wFzZT0ZMwCQ2zbyitVL1EhmwF4QQonRDs6Kf9
+	1jN1rvFDOiLDNCTmI31HJ6Ot1cHdX+41bTIC2VdqP0Z/96D1KTP6rAYGxithclZNW82tO1h0w1L
+	2LGqkPVH6WknDKKInQL5u3Q1RkhDkXVolULQOw6UKUaa30sZ4SAfc1l+pjfCCwEIIW3LL1KIhg6
+	rMSPcEIgKRVVwjws/NFezokYsKpwDlYCeLEB6tyMYYHPpL0d0onPQKTIOW0CZgfv+lEwVQZ9gjX
+	iY8o=
+X-Google-Smtp-Source: AGHT+IEg9fODno7y7kdKi9IiU5DrBqwcBYe3/nmHU0aecwM9g2wT01bptCub2WDnULreykf0DHrF6w==
+X-Received: by 2002:a17:902:8303:b0:215:758c:52e8 with SMTP id d9443c01a7336-223d9154390mr46974825ad.12.1741104608622;
+        Tue, 04 Mar 2025 08:10:08 -0800 (PST)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-22350514239sm97095005ad.219.2025.03.04.08.10.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Mar 2025 08:10:08 -0800 (PST)
+Date: Wed, 5 Mar 2025 01:10:06 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: Jim Quinlan <james.quinlan@broadcom.com>
+Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+	Cyril Brulebois <kibi@debian.org>,
+	Stanimir Varbanov <svarbanov@suse.de>,
+	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com,
+	Andrew Murray <amurray@thegoodpenguin.co.uk>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>
+Subject: Re: [PATCH v2 0/8] PCI: brcmstb: Misc small tweaks and fixes
+Message-ID: <20250304161006.GC2310180@rocinante>
+References: <20250214173944.47506-1-james.quinlan@broadcom.com>
+ <20250301144831.GA846783@rocinante>
 MIME-Version: 1.0
-References: <20250303-samsung-codecs-v1-0-56a2299dd928@linaro.org> <174110255924.87345.17067818310965896666.b4-ty@kernel.org>
-In-Reply-To: <174110255924.87345.17067818310965896666.b4-ty@kernel.org>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 4 Mar 2025 16:48:54 +0100
-X-Gm-Features: AQ5f1JrZSN7a9veGHD2nhdiFznQ7s35dZW-f_2MRRUu_xgWuisKdFa1xTMAGa9g
-Message-ID: <CAMRc=MfqNSZeQxBuEfM1nAo0F3NmEkyG-Les3dyxxuun=4XpuQ@mail.gmail.com>
-Subject: Re: [PATCH 0/6] ASoC: samsung: GPIO descriptor conversion
-To: Mark Brown <broonie@kernel.org>
-Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Linus Walleij <linus.walleij@linaro.org>, linux-sound@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250301144831.GA846783@rocinante>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_074908_558076_FCA809C9 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20250304_081009_599257_1F1B1BBE 
+X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,38 +99,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 4, 2025 at 4:36=E2=80=AFPM Mark Brown <broonie@kernel.org> wrot=
-e:
->
-> On Mon, 03 Mar 2025 09:41:40 +0100, Linus Walleij wrote:
-> > This drops unused includes and converts one Samsung
-> > codec to use GPIO descriptors.
-> >
-> >
->
-> Applied to
->
->    https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-=
-next
->
-> Thanks!
->
-> [1/6] ASoC: samsung: bells: Drop unused include
->       commit: b19d340d5d08c5940ce612c2a1b5fe3a8a401f9d
-> [2/6] ASoC: samsung: littlemill: Drop unused include
->       commit: c4b2d9643a06a5326a778c4d77d6fa60e0f3d6b1
-> [3/6] ASoC: samsung: lowland: Drop unused include
->       commit: 5c06f7f3d8374df1cec3b353306a4d1032a60f44
-> [4/6] ASoC: samsung: speyside: Convert to GPIO descriptor
->       commit: da9146c19b1774926148ff271c4a3dc8d7891b18
+Hello,
 
-I pointed out an issue with patch 4. :(
+> >   Six small fixes and improvements for the driver.  This may be applied
+> >   before or after Stan's V5 [1] on pci-next (they should not conflict).
+> 
+> Applied to controller/brcmstb, thank you!
 
-Bart
+Updated with missing "Reviewed-by" tags that Mani recently offered.
 
-> [5/6] ASoC: samsung: tobermory: Drop unused include
->       commit: c095b7a27529d1d18b3b36a47f77a1419f0de939
-> [6/6] ASoC: samsung: tm2_wm5110: Drop unused include
->       commit: 0a22454ab2eca530702b2689858909b608953703
->
+Thank you!
+
+	Krzysztof
 
