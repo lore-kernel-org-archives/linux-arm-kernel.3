@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 945BCC282D9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 19:17:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBC43C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 19:19:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=58rBYpw4Z7sNK8BbzGqHO/foCjMOd37qPIMpapYzMJA=; b=fbHHoBAoGqhkQWiqGKraB+1KJR
-	HHr7kptNeFmfAnYP1vBdOTqk4vqU4/TnjiMOdXvdPcDAM5OuyGhwGnLBpMDH8XluSFBk8gV6SROd8
-	5IwaEnnym+AU9SmIXpXvokCbltt19EWo62ZhQ1neYuMy5xuB0Zn+FF/pY/tgKAalzna9VKBTZhSUP
-	PSfgNotuHNbTus+3lLHKIZgkVcNbBVK9SU5MPxrHGJO0aZ+bv76V7ElOZnAuPie3bvLMf3TzxaWMd
-	bfURIFxuIO2mjnoZBLS6ZNrZrh0JmeNAGHFqL7Ydf17qDNpkMzHRbFx/W+y2tvayYmD2YaHEgcfAx
-	1D6UgZsw==;
+	bh=SYDQ2e7rPLq6jnzS+WCda4pi4joDoEM4IJKfErHVT40=; b=qX2YIqs060uN1MUgXMNluiBbfG
+	cI7nqOKIoUjmeaZIRq8tsCOJVXaDH4vw/k1ft6TEX4no0951MDT/6/vP3uaG4Zj5WhX7Ninu9TDkW
+	uEq1sfymUGu7CvxcOTzVSpXqO7Dc9FVsZFooee1g5E22PNpi3MUxbt1YjNKKjS60m1kNFeIdw9DVE
+	oX5Pc69Z8td7ZICHzAIa0rfd7cV2fYQLpyHtIDXAVMVbhDuzmccCPbha5MGxvrB5QlogpItMLklIP
+	KTIZ4DC/u7fRwxtESlmCczxD/7SM0i6Intuxn0lESCcN2SV5btWlyxUxzxVg1xDDMGDPHft4gKuIM
+	Sh2Ue/OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpXll-00000005zKy-0qrI;
-	Tue, 04 Mar 2025 19:17:33 +0000
+	id 1tpXnJ-00000005zeE-3gvx;
+	Tue, 04 Mar 2025 19:19:09 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpWFn-00000005g0n-139j
+	id 1tpWFn-00000005g0o-1pBm
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 04 Mar 2025 17:40:28 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 524FlZOw015142;
-	Tue, 4 Mar 2025 18:40:09 +0100
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 524Hbr1x027811;
+	Tue, 4 Mar 2025 18:40:10 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	58rBYpw4Z7sNK8BbzGqHO/foCjMOd37qPIMpapYzMJA=; b=js6Ia6v0jejZCERL
-	v4PUE8obmSRD3PLEtzBGJLbS2d0rbXm07UOEHrCB6j/86gsrUSj/OhkGJCnhgSi5
-	qVcnMR0naoQ0E0bWXdKUJ4iEGcUgDLpy4T98/8XOrBrhFZhcpBsdGh0TMo6DpwSl
-	Vpz2iSE8n+a2DfmxTlzqJmByt64bMCEeLdKuA6zDKE43OnG2kPxp3K9qTM3GTBvv
-	lWvMsneMNEl08tcctzZB73YAx8F8vKVjB+M8WL6eZ/fL5pcFOaVMvFeLFrnTmzQt
-	FmyEiWOjGwLc+bYjC7hz0A7ZJylfR+UVuR9ey7/ur/Cs0xnTXhZm3OLEN0+A2+0o
-	0GCCOA==
+	SYDQ2e7rPLq6jnzS+WCda4pi4joDoEM4IJKfErHVT40=; b=Pl2XyXfYPuIDqyM9
+	K9VLHLbjIi0Y+toylx1CnELzpUmMMaLICLWC24dOJoJHJhXJhOcP5HIxVzGXC76u
+	swyQ0W61IKsc1betxIFQXEdTyp0XbTn92r/fKe6NYIznjjUFaVxVSxSA6otD7hNO
+	FsWyrF6TvtMgRVumYPtpOeFX0iV81vEVbLo2PL+nMKWSIIaieJwL7o5hjI6Hzy8O
+	8AOyaH/gbgu4abhFcBALekNdCKOA6Ppuz3yschh6shFRmZqge2r2V4CIV1ovKRx7
+	qO2OAyYP6u0OMiojL845ZJK9lA9BlVKQ5eKLuHlqCKlbpEz4npaA/vL6xBaRNH2b
+	5Wz3Qg==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 453tf5nsgg-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 454cp8fgdf-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Tue, 04 Mar 2025 18:40:09 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 3995F40069;
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 90B20400B0;
 	Tue,  4 Mar 2025 18:39:00 +0100 (CET)
-Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id B82A55944E4;
-	Tue,  4 Mar 2025 18:32:47 +0100 (CET)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
- (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
+Received: from Webmail-eu.st.com (eqndag1node4.st.com [10.75.129.133])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id D6B1B5944D6;
+	Tue,  4 Mar 2025 18:32:46 +0100 (CET)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE4.st.com
+ (10.75.129.133) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 4 Mar
- 2025 18:32:47 +0100
+ 2025 18:32:46 +0100
 Received: from localhost (10.252.16.143) by SAFDAG1NODE1.st.com (10.75.90.17)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 4 Mar
- 2025 18:32:47 +0100
+ 2025 18:32:46 +0100
 From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 To: <lee@kernel.org>, <ukleinek@kernel.org>, <alexandre.torgue@foss.st.com>,
         <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
@@ -67,9 +67,9 @@ CC: <catalin.marinas@arm.com>, <will@kernel.org>, <devicetree@vger.kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
         <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
         <olivier.moysan@foss.st.com>, <fabrice.gasnier@foss.st.com>
-Subject: [PATCH v2 2/8] mfd: stm32-lptimer: add support for stm32mp25
-Date: Tue, 4 Mar 2025 18:32:23 +0100
-Message-ID: <20250304173229.3215445-3-fabrice.gasnier@foss.st.com>
+Subject: [PATCH v2 1/8] dt-bindings: mfd: stm32-lptimer: add support for stm32mp25
+Date: Tue, 4 Mar 2025 18:32:22 +0100
+Message-ID: <20250304173229.3215445-2-fabrice.gasnier@foss.st.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250304173229.3215445-1-fabrice.gasnier@foss.st.com>
 References: <20250304173229.3215445-1-fabrice.gasnier@foss.st.com>
@@ -83,8 +83,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-03-04_07,2025-03-03_04,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_094027_591976_41047BF6 
-X-CRM114-Status: GOOD (  21.88  )
+X-CRM114-CacheID: sfid-20250304_094027_772874_34D2F604 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,163 +99,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for STM32MP25 SoC.
-A new hardware configuration register (HWCFGR2) has been added, to gather
-number of capture/compare channels, autonomous mode and input capture
-capability. The full feature set is implemented in LPTIM1/2/3/4. LPTIM5
-supports a smaller set of features. This can now be read from HWCFGR
-registers.
-
-Add new registers to the stm32-lptimer.h: CCMR1, CCR2, HWCFGR1/2 and VERR.
-Update the stm32_lptimer data struct so signal the number of
-capture/compare channels to the child devices.
-Also Remove some unused bit masks (CMPOK_ARROK / CMPOKCF_ARROKCF).
+Add a new stm32mp25 compatible to stm32-lptimer dt-bindings, to support
+STM32MP25 SoC. Some features has been updated or added to the low-power
+timer:
+- new capture compare channels
+- up to two PWM channels
+- PWM input capture
+- peripheral interconnect in stm32mp25 has been updated (new triggers).
+- registers/bits has been added or revisited (IER access).
+So introduce a new compatible to handle this diversity.
 
 Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 ---
 Changes in V2:
-- rely on fallback compatible as no specific .data is associated to the
-  driver. Compatibility is added by reading hardware configuration
-  registers.
-- read version register, to be used by clockevent child driver
-- rename register/bits definitions
+- Use fallback compatibles, along with stm32mp25 specific compatible
+- trigger identifier can be up to 4 (e.g. from LPTIM1..5)
 ---
- drivers/mfd/stm32-lptimer.c       | 33 ++++++++++++++++++++++++++++-
- include/linux/mfd/stm32-lptimer.h | 35 ++++++++++++++++++++++++++++---
- 2 files changed, 64 insertions(+), 4 deletions(-)
+ .../bindings/mfd/st,stm32-lptimer.yaml        | 40 ++++++++++++++++---
+ 1 file changed, 34 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/mfd/stm32-lptimer.c b/drivers/mfd/stm32-lptimer.c
-index b2704a9809c7..09073dbc9c80 100644
---- a/drivers/mfd/stm32-lptimer.c
-+++ b/drivers/mfd/stm32-lptimer.c
-@@ -6,6 +6,7 @@
-  * Inspired by Benjamin Gaignard's stm32-timers driver
-  */
+diff --git a/Documentation/devicetree/bindings/mfd/st,stm32-lptimer.yaml b/Documentation/devicetree/bindings/mfd/st,stm32-lptimer.yaml
+index d41308856408..ca251994cda2 100644
+--- a/Documentation/devicetree/bindings/mfd/st,stm32-lptimer.yaml
++++ b/Documentation/devicetree/bindings/mfd/st,stm32-lptimer.yaml
+@@ -21,7 +21,12 @@ maintainers:
  
-+#include <linux/bitfield.h>
- #include <linux/mfd/stm32-lptimer.h>
- #include <linux/module.h>
- #include <linux/of_platform.h>
-@@ -49,6 +50,36 @@ static int stm32_lptimer_detect_encoder(struct stm32_lptimer *ddata)
- 	return 0;
- }
+ properties:
+   compatible:
+-    const: st,stm32-lptimer
++    oneOf:
++      - items:
++        - const: st,stm32mp25-lptimer
++        - const: st,stm32-lptimer
++      - items:
++        - const: st,stm32-lptimer
  
-+static int stm32_lptimer_detect_hwcfgr(struct stm32_lptimer *ddata)
-+{
-+	u32 val;
-+	int ret;
-+
-+	ret = regmap_read(ddata->regmap, STM32_LPTIM_VERR, &ddata->version);
-+	if (ret)
-+		return ret;
-+
-+	/* Try to guess parameters from HWCFGR: e.g. encoder mode (STM32MP15) */
-+	ret = regmap_read(ddata->regmap, STM32_LPTIM_HWCFGR1, &val);
-+	if (ret)
-+		return ret;
-+
-+	/* Fallback to legacy init if HWCFGR isn't present */
-+	if (!val)
-+		return stm32_lptimer_detect_encoder(ddata);
-+
-+	ddata->has_encoder = FIELD_GET(STM32_LPTIM_HWCFGR1_ENCODER, val);
-+
-+	ret = regmap_read(ddata->regmap, STM32_LPTIM_HWCFGR2, &val);
-+	if (ret)
-+		return ret;
-+
-+	/* Number of capture/compare channels */
-+	ddata->num_cc_chans = FIELD_GET(STM32_LPTIM_HWCFGR2_CHAN_NUM, val);
-+
-+	return 0;
-+}
-+
- static int stm32_lptimer_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -73,7 +104,7 @@ static int stm32_lptimer_probe(struct platform_device *pdev)
- 	if (IS_ERR(ddata->clk))
- 		return PTR_ERR(ddata->clk);
+   reg:
+     maxItems: 1
+@@ -48,13 +53,21 @@ properties:
+     minItems: 1
+     maxItems: 2
  
--	ret = stm32_lptimer_detect_encoder(ddata);
-+	ret = stm32_lptimer_detect_hwcfgr(ddata);
- 	if (ret)
- 		return ret;
- 
-diff --git a/include/linux/mfd/stm32-lptimer.h b/include/linux/mfd/stm32-lptimer.h
-index 06d3f11dc3c9..30ebd3152e1a 100644
---- a/include/linux/mfd/stm32-lptimer.h
-+++ b/include/linux/mfd/stm32-lptimer.h
-@@ -17,20 +17,28 @@
- #define STM32_LPTIM_IER		0x08	/* Interrupt Enable Reg      */
- #define STM32_LPTIM_CFGR	0x0C	/* Configuration Reg         */
- #define STM32_LPTIM_CR		0x10	/* Control Reg               */
--#define STM32_LPTIM_CMP		0x14	/* Compare Reg               */
-+#define STM32_LPTIM_CMP		0x14	/* Compare Reg (MP25 CCR1)   */
- #define STM32_LPTIM_ARR		0x18	/* Autoreload Reg            */
- #define STM32_LPTIM_CNT		0x1C	/* Counter Reg               */
-+#define STM32_LPTIM_CCMR1	0x2C	/* Capture/Compare Mode MP25 */
-+#define STM32_LPTIM_CCR2	0x34	/* Compare Reg2 MP25         */
++  power-domains:
++    maxItems: 1
 +
-+#define STM32_LPTIM_HWCFGR2	0x3EC	/* Hardware configuration register 2 - MP25 */
-+#define STM32_LPTIM_HWCFGR1	0x3F0	/* Hardware configuration register 1 - MP15 */
-+#define STM32_LPTIM_VERR	0x3F4	/* Version identification register - MP15 */
+   pwm:
+     type: object
+     additionalProperties: false
  
- /* STM32_LPTIM_ISR - bit fields */
-+#define STM32_LPTIM_CMP2_ARROK		(BIT(19) | BIT(4))
- #define STM32_LPTIM_CMPOK_ARROK		GENMASK(4, 3)
- #define STM32_LPTIM_ARROK		BIT(4)
- #define STM32_LPTIM_CMPOK		BIT(3)
+     properties:
+       compatible:
+-        const: st,stm32-pwm-lp
++        oneOf:
++          - items:
++            - const: st,stm32mp25-pwm-lp
++            - const: st,stm32-pwm-lp
++          - items:
++            - const: st,stm32-pwm-lp
  
- /* STM32_LPTIM_ICR - bit fields */
--#define STM32_LPTIM_ARRMCF		BIT(1)
-+#define STM32_LPTIM_CMP2OKCF_ARROKCF	(BIT(19) | BIT(4))
- #define STM32_LPTIM_CMPOKCF_ARROKCF	GENMASK(4, 3)
-+#define STM32_LPTIM_ARRMCF		BIT(1)
+       "#pwm-cells":
+         const: 3
+@@ -69,7 +82,12 @@ properties:
  
--/* STM32_LPTIM_IER - bit flieds */
-+/* STM32_LPTIM_IER - bit fields */
- #define STM32_LPTIM_ARRMIE	BIT(1)
+     properties:
+       compatible:
+-        const: st,stm32-lptimer-counter
++        oneOf:
++          - items:
++            - const: st,stm32mp25-lptimer-counter
++            - const: st,stm32-lptimer-counter
++          - items:
++            - const: st,stm32-lptimer-counter
  
- /* STM32_LPTIM_CR - bit fields */
-@@ -53,16 +61,37 @@
- /* STM32_LPTIM_ARR */
- #define STM32_LPTIM_MAX_ARR	0xFFFF
+     required:
+       - compatible
+@@ -80,7 +98,12 @@ properties:
  
-+/* STM32_LPTIM_CCMR1 */
-+#define STM32_LPTIM_CC2P	GENMASK(19, 18)
-+#define STM32_LPTIM_CC2E	BIT(17)
-+#define STM32_LPTIM_CC2SEL	BIT(16)
-+#define STM32_LPTIM_CC1P	GENMASK(3, 2)
-+#define STM32_LPTIM_CC1E	BIT(1)
-+#define STM32_LPTIM_CC1SEL	BIT(0)
-+
-+/* STM32_LPTIM_HWCFGR1 */
-+#define STM32_LPTIM_HWCFGR1_ENCODER	BIT(16)
-+
-+/* STM32_LPTIM_HWCFGR2 */
-+#define STM32_LPTIM_HWCFGR2_CHAN_NUM	GENMASK(3, 0)
-+
-+/* STM32_LPTIM_VERR */
-+#define STM32_LPTIM_VERR_23	0x23	/* STM32MP25 */
-+
- /**
-  * struct stm32_lptimer - STM32 Low-Power Timer data assigned by parent device
-  * @clk: clock reference for this instance
-  * @regmap: register map reference for this instance
-  * @has_encoder: indicates this Low-Power Timer supports encoder mode
-+ * @num_cc_chans: indicates the number of capture/compare channels
-+ * @version: indicates the major and minor revision of the controller
-  */
- struct stm32_lptimer {
- 	struct clk *clk;
- 	struct regmap *regmap;
- 	bool has_encoder;
-+	unsigned int num_cc_chans;
-+	u32 version;
- };
+     properties:
+       compatible:
+-        const: st,stm32-lptimer-timer
++        oneOf:
++          - items:
++            - const: st,stm32mp25-lptimer-timer
++            - const: st,stm32-lptimer-timer
++          - items:
++            - const: st,stm32-lptimer-timer
  
- #endif
+     required:
+       - compatible
+@@ -92,13 +115,18 @@ patternProperties:
+ 
+     properties:
+       compatible:
+-        const: st,stm32-lptimer-trigger
++        oneOf:
++          - items:
++            - const: st,stm32mp25-lptimer-trigger
++            - const: st,stm32-lptimer-trigger
++          - items:
++            - const: st,stm32-lptimer-trigger
+ 
+       reg:
+         description: Identify trigger hardware block.
+         items:
+           minimum: 0
+-          maximum: 2
++          maximum: 4
+ 
+     required:
+       - compatible
 -- 
 2.25.1
 
