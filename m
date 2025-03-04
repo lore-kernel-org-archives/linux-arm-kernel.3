@@ -4,58 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22E79C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 10:35:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 178BBC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 10:38:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xbSde886o+JYMAcp7GPNS8UU46+iMJnZAeP0RWUiOE0=; b=2ynPxNzgsti+LrGyytlEYI8jnR
-	0GDPa2A1wRNvx51o/T7gR18hHh0KtzBuuV0ZRDdkilPj8eayQz54Y+j831Ql4BHmpn71/GwcxLHUe
-	RdoQt36slOAoAt1tMaXgCRHfyNWgYlPhVyDxL0d+/rC/rKSI6J7qUF1Ph4Esp5sUq0i0WNJ/RDpYP
-	NjCwuCDea5h03VHhDI9OXRtq0o2W0qORFA21JEhhwh/5J/xvCI4vviDa1L+sL65gsnyw4ciyMtxL1
-	gQzogfQYIC3ndPvVl4Fr5PVc/S5QoBre0RY+w6qhlkC0c/FvWcSLbWMMOIp5i3hkHi8hltHI/DCoY
-	IvQbMufA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8WzGUY491awzdAlZM6EGgKTchb38mELIBf7/JrkbOFI=; b=PC9eGWBlBJLhgabXOFRnKqFnr+
+	kz5DfNdC4EbRRH9/Iuw8XllHhzmWdYThKTFE4//+9tl7GymAXgqdiFyhL3D9ksMrLLTE/T4c1tUvW
+	oIBZxnF50+ib7GkkeRxt/c0OhWsE9rF1ediBQHP73efSl8C3lX8k4R/TuekvtTU5r0UbifEJY3nDL
+	Na9ZR+UnztEuxz+C61jINMEBEO/LZi4Cv1fjPfjsUYba3rSBw7x90SL51amL0nPW9LmVe2rGQSvQZ
+	sdHy+vG6pvlCiwTUZDX4PUdZuI5cQJFUPWrx2g1dcvuBqLqIxI8BFWg/8eqjB0NneEIgIU9KgQk0J
+	ttQFaiOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPcn-00000004BJx-2tOg;
-	Tue, 04 Mar 2025 10:35:45 +0000
+	id 1tpPfZ-00000004DSJ-0J6l;
+	Tue, 04 Mar 2025 10:38:37 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPXh-000000049X1-3Dly
+	id 1tpPdw-00000004Cxm-32fL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 10:30:31 +0000
+	Tue, 04 Mar 2025 10:36:59 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B88D7FEC;
-	Tue,  4 Mar 2025 02:30:42 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1F18E3F5A1;
-	Tue,  4 Mar 2025 02:30:26 -0800 (PST)
-Date: Tue, 4 Mar 2025 10:30:24 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A01C3FEC;
+	Tue,  4 Mar 2025 02:37:09 -0800 (PST)
+Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 01D2B3F5A1;
+	Tue,  4 Mar 2025 02:36:53 -0800 (PST)
+Date: Tue, 4 Mar 2025 10:36:50 +0000
+From: Andre Przywara <andre.przywara@arm.com>
 To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Hugues KAMBA MPIANA <hugues.kambampiana@arm.com>, conor+dt@kernel.org,
-	Sudeep Holla <sudeep.holla@arm.com>, devicetree@vger.kernel.org,
-	krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, liviu.dudau@arm.com,
-	lpieralisi@kernel.org, robh@kernel.org
-Subject: Re: [PATCH v2] arm64: dts: corstone1000: Add definitions for
- secondary CPU cores
-Message-ID: <Z8bWQDVebIehuftS@bogus>
-References: <Z8XSIx75B4mtcV48@bogus>
- <20250303170012.469576-1-hugues.kambampiana@arm.com>
- <174108287362.420865.6246087705407586774.b4-ty@arm.com>
- <f6c7feb3-e003-4bbc-8179-3a3df533d2d5@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai
+ <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
+ <samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 04/15] dt-bindings: clk: sunxi-ng: document Allwinner
+ A523 CCU
+Message-ID: <20250304103650.704fd28b@donnerap.manchester.arm.com>
+In-Reply-To: <20250304-resilient-spiritual-crane-30d4e1@krzk-bin>
+References: <20250304012805.28594-1-andre.przywara@arm.com>
+	<20250304012805.28594-5-andre.przywara@arm.com>
+	<20250304-resilient-spiritual-crane-30d4e1@krzk-bin>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <f6c7feb3-e003-4bbc-8179-3a3df533d2d5@kernel.org>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_023029_846129_160D2BE9 
-X-CRM114-Status: GOOD (  17.59  )
+X-CRM114-CacheID: sfid-20250304_023656_865814_725E6105 
+X-CRM114-Status: GOOD (  26.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,41 +73,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 04, 2025 at 11:12:57AM +0100, Krzysztof Kozlowski wrote:
-> On 04/03/2025 11:08, Sudeep Holla wrote:
-> > On Mon, 03 Mar 2025 17:00:12 +0000, Hugues KAMBA MPIANA wrote:
-> >> Add `cpu1`, `cpu2` and `cpu3` nodes to the Corstone1000 device tree to
-> >> enable support for secondary CPU cores.
-> >>
-> >> This update facilitates symmetric multiprocessing (SMP) support on
-> >> the Corstone1000 Fixed Virtual Platform (FVP), allowing the
-> >> secondary cores to be properly initialised and utilised.
-> >>
-> >> [...]
+On Tue, 4 Mar 2025 09:25:24 +0100
+Krzysztof Kozlowski <krzk@kernel.org> wrote:
+
+Hi,
+
+> On Tue, Mar 04, 2025 at 01:27:54AM +0000, Andre Przywara wrote:
+> > The Allwinner A523/T527 SoCs have four CCUs, this adds the binding for
+> > the main CCU.
 > > 
-> > Applied to sudeep.holla/linux (for-next/juno/updates), thanks!
+> > The source clock list differs in some annoying details, and folding this
+> > into the existing Allwinner CCU clock binding document gets quite
+> > unwieldy, so create a new document for these CCUs.
+> > Add the new compatible string, along with the required input clock
+> > lists. This conditionally describes the input clock list, to make for
+> > an easier patch adding the other CCUs.
 > > 
-> > [1/1] arm64: dts: corstone1000: Add definitions for secondary CPU cores
-> >       https://git.kernel.org/sudeep.holla/c/21b9f56cec8f
+> > Also add the DT binding headers, listing all the clocks with their ID
+> > numbers.
+> > 
+> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> > ---
+> >  .../clock/allwinner,sun55i-a523-ccu.yaml      |  77 +++++++
+> >  include/dt-bindings/clock/sun55i-a523-ccu.h   | 189 ++++++++++++++++++
+> >  include/dt-bindings/reset/sun55i-a523-ccu.h   |  88 ++++++++
+> >  3 files changed, 354 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
+> >  create mode 100644 include/dt-bindings/clock/sun55i-a523-ccu.h
+> >  create mode 100644 include/dt-bindings/reset/sun55i-a523-ccu.h
+> > 
+> > diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
+> > new file mode 100644
+> > index 0000000000000..2eacaeaeabac7
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
+> > @@ -0,0 +1,77 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/clock/allwinner,sun55i-a523-ccu.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Allwinner A523 Clock Control Unit
+> > +
+> > +maintainers:
+> > +  - Andre Przywara <andre.przywara@arm.com>
+> > +
+> > +properties:
+> > +  "#clock-cells":
+> > +    const: 1
+> > +
+> > +  "#reset-cells":
+> > +    const: 1
+> > +
+> > +  compatible:
+> > +    enum:
+> > +      - allwinner,sun55i-a523-ccu
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  clocks:
+> > +    minItems: 4  
 > 
-> Why? Nothing improved here comparing to v1.
+> Drop, redundant.
 > 
-> Your comment are still valid and the patch is still not correct.
+> > +    maxItems: 4
+> > +
+> > +  clock-names:
+> > +    minItems: 4
+> > +    maxItems: 4  
+> 
+> Drop both and instead you need to list the items.
+
+> 
+> > +
+> > +required:
+> > +  - "#clock-cells"
+> > +  - "#reset-cells"
+> > +  - compatible
+> > +  - reg
+> > +  - clocks
+> > +  - clock-names
+> > +
+> > +if:  
+> 
+> Drop, you have here only one device, no need for if:then.
+
+I know, and I do understand the redundancy of the minItems/maxItems above,
+but as I wrote in the commit message, this paves the way for the follow up
+patch and makes both more readable.
+Apart from helping with the review, I didn't want to conflate both devices
+into one patch, I think I saw people complaining about that in the past.
+
+If you are fine with having them both added all in one go, I am happy to
+just squash the patches.
+
+Cheers,
+Andre
+
+> 
+> Best regards,
+> Krzysztof
 > 
 
-It was not marked clearly or noted as change. I agree that is confusing.
-
-However the following was added:
-
-"Only FVP platform will have SMP support and hence the secondary cpu
-definitions are not added to corstone1000.dtsi"
-
-Hugues pinged me in private to explain why it is done in that way and I
-asked him to add the reasoning in the commit message which he did but
-failed to capture in the v1->v2 changelog. I mentioned it in private
-again as he is new contributor to the kernel, I was less strict on him 😉.
-
---
-Regards,
-Sudeep
 
