@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3758C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 14:47:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DECFC282D2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 14:48:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5gAf5SLEw4dUgSmxoKqRtnXWvjNEtDTG73YW3GckkDc=; b=jR+X4B9Kkk3W8IWJ6+gmLcozzd
-	tuMNcjkETZ9/RYnfc6axcYw7Onip2uc6ce+cZzXyOHl5CGE2ItJ3sCII9nOIuz0u0VneGhuOB4QiF
-	155i8+JWKHcrTCz9gQ3+Bgfi7+6DiLXHZMw60VTgryN/Gvs+M8AfrnM+sUDxFfUWzv5jVI1NoYKHh
-	I6hGdBWPH5A3tR2SpI9JulrekK744wPKE5yyeXVk7wAJyaaCdyujf6Sdqz8taE0s6bw5xGpKJkciA
-	uTmLW0+47hQDA5vR6t1ZWjfRNGWStecdcqqxsK6RUP/ZoiaUphi5vGYKq1kU+ypdmlnUphI+Sih4T
-	azQUtX0w==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fHucvjkkK7SqSpK12zGxOb9Q94mZFL4sT/c2rekjY3c=; b=n0S/0Kntcd0cDTGcBubxgUOQai
+	k3ccUQvCE1xWLVWznA5Lw4VJDpKQu2pKoOvnOG86Asvk5GFK6x+ZZzAPW+/AAuZLHKpg3STH2hMc5
+	k1cZa+PncuJ1XLf+X6DnqfKNuL2x3CdRfa3MUulEWxg9kxDVsCMUlPjirXjTzyd+ZK+5mqWn+LIQ8
+	2sytd6eQsR3/f/JOB0xpOh+KxzabYAOWueqvIhMvGmSuo+W3Apr7J4omPF0MGhOzxZ06r2oUU9u51
+	Q+UkDp7xgIgcW5N/Kw/OVF1yAIOvzpyOKdUR2qKmYOiMUaRdRgbSDfbw/Ay7uUTQqsicVgaPe/d0J
+	PWsRJqFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpTXq-000000053Rw-0RI1;
-	Tue, 04 Mar 2025 14:46:54 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tpTZZ-000000053p9-1y1z;
+	Tue, 04 Mar 2025 14:48:41 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpTUt-000000052jm-2RAx
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 14:43:52 +0000
+	id 1tpTXz-000000053Ua-21hp;
+	Tue, 04 Mar 2025 14:47:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 09F755C5CB4;
-	Tue,  4 Mar 2025 14:41:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9B20C4CEED;
-	Tue,  4 Mar 2025 14:43:48 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 443FDA456BA;
+	Tue,  4 Mar 2025 14:41:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CD0DC4CEE7;
+	Tue,  4 Mar 2025 14:46:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741099430;
-	bh=XfSqRqYZsA+MUDEbRTfs5BMwtTnxrzx+0E/tO5qxzN0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=R5GulmQ+RL2iHOx2ATwQmKj/WdX6qgMFdeAbidKuBl8ZTCQo5UMrIKuC5y6h6MKMR
-	 bTBnvkBtU6K0yzZoSrWrCm5SSduKh/c/mYh7xFrut/IOCCdEV8H8X20YyX0/NCtBU3
-	 Mmq/613fgsVeVu52eMAUkHZ3g7THAsWyZlbf3wnKZOFG5rUgJHgjhwUzGvP1SylqDI
-	 2guAncPF+1nBF1cjhjki7w9ebw/L5Rq/K7xBYc1Y//7cMDhwX2FyiBrrpidjA/2x5n
-	 6ALc3bxyFvwHaibCCWfygsGYwxG2Bey40wnUrDu6v4eOZzlarpt9zG6PYnczEyDquj
-	 smzsF8NIBm8Yg==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>
-Cc: soc@lists.linux.dev,
-	Arnd Bergmann <arnd@arndb.de>,
-	Luke Parkin <luke.parkin@arm.com>,
-	Peng Fan <peng.fan@nxp.com>,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] firmware: arm_scmi: use ioread64() instead of ioread64_hi_lo()
-Date: Tue,  4 Mar 2025 15:43:34 +0100
-Message-Id: <20250304144346.1025658-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	s=k20201202; t=1741099621;
+	bh=rI+BVkT7Y2vGYeVP6jOXfszRKe3HLug8swUeKiDdZ2A=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=H9bOT7G9DGWcpw9B82UNVqOf3fzPTab4W0+jJ11PCHXDgeuFvcudBecTiFLVBdZni
+	 rHV7ZvwklvbtY6HBm8LSSkfOLRcfQLIceMTB5paPOXFK48evlciiUrcYu6nprTwyPY
+	 +cT6mt0pPjZ+2yVUVA9dp0j1YqRk+J7pbXrDFtgWx4i+GoB450j/vGRLT1e5Cf5Fxe
+	 K5zerKk94DFg+qJmXED0I/o3HBH5JDwVz5lSanRZXZ4Svk+RGsDIU4SKzxbzyQUYO6
+	 iU7/u7PGrSj3G8Dg6UGvRHpUaGHQZYzP3WfZhI1VQyyxX7+oHpWMghaIMllEj3dJfR
+	 vUI1FW/rIRHmA==
+Date: Tue, 4 Mar 2025 14:46:48 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+Cc: Lars-Peter Clausen <lars@metafoo.de>, Jonas Karlman <jonas@kwiboo.se>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Yao Zi <ziyao@disroot.org>,
+ linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/4] iio: adc: rockchip_saradc: Add support for RK3528
+Message-ID: <20250304144648.29f376f9@jic23-huawei>
+In-Reply-To: <11022969.nUPlyArG6x@diego>
+References: <20250227184058.2964204-1-jonas@kwiboo.se>
+	<20250227184058.2964204-3-jonas@kwiboo.se>
+	<11022969.nUPlyArG6x@diego>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_064351_673966_1F999947 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20250304_064703_582621_794FD0AB 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,47 +77,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Tue, 04 Mar 2025 12:51:47 +0100
+Heiko St=C3=BCbner <heiko@sntech.de> wrote:
 
-The scmi_common_fastchannel_db_ring() function calls either ioread64()
-or ioread64_hi_lo() depending on whether it is compiler for 32-bit
-or 64-bit architectures.
+> Am Donnerstag, 27. Februar 2025, 19:40:51 MEZ schrieb Jonas Karlman:
+> > The Successive Approximation ADC (SARADC) in RK3528 uses the v2
+> > controller and support:
+> > - 10-bit resolution
+> > - Up to 1MS/s sampling rate
+> > - 4 single-ended input channels
+> > - Current consumption: 0.5mA @ 1MS/s
+> >=20
+> > Add support for the 4 channels of 10-bit resolution supported by SARADC
+> > in RK3528.
+> >=20
+> > Signed-off-by: Jonas Karlman <jonas@kwiboo.se> =20
+>=20
+> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+>=20
+>=20
+Not sure why but I can't reply to cover letter.  Anyhow, replying here
+instead.  Applied patches 1-2 to iio.git / togreg which I'll push out
+a testing for 0-day to poke at it.
 
-The same logic is used to define ioread64() itself in the
-linux/io-64-nonatomic-hi-lo.h header file, so the special case
-is not really needed.
+Thanks,
 
-The behavior here should not change at all.
+Jonathan
 
-Fixes: 6f9ea4dabd2d ("firmware: arm_scmi: Generalize the fast channel support")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- drivers/firmware/arm_scmi/driver.c | 10 ----------
- 1 file changed, 10 deletions(-)
-
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 60050da54bf2..1c75a4c9c371 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -1997,17 +1997,7 @@ static void scmi_common_fastchannel_db_ring(struct scmi_fc_db_info *db)
- 	else if (db->width == 4)
- 		SCMI_PROTO_FC_RING_DB(32);
- 	else /* db->width == 8 */
--#ifdef CONFIG_64BIT
- 		SCMI_PROTO_FC_RING_DB(64);
--#else
--	{
--		u64 val = 0;
--
--		if (db->mask)
--			val = ioread64_hi_lo(db->addr) & db->mask;
--		iowrite64_hi_lo(db->set | val, db->addr);
--	}
--#endif
- }
- 
- /**
--- 
-2.39.5
+>=20
 
 
