@@ -4,76 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA942C282D2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 17:50:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C65A4C282D2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 17:53:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CqAT5+Gi1O68uLcYreVHzC9MDAGC4lcpXT9gC3flVdI=; b=45EJkxEHpJy3sQOLn75vSrC4p9
-	lPffOPjwdi+zJwm/Sdmayh47qKGo9rMmkydn34xAcU///l63su/epNZlPHGFv7P64g12fB3d7/H2T
-	xjRWcKIPglJ7/M5tGtr/tD6pCkqnfmFgg5k4My5AfNPUMgMUQqgDodRI/jkyA1C2agut59w04Hpc5
-	SOHFcREdE8SMRb187U2rqYIrup/tKAIEcEReUPM6P4JXMWx41Zf0IffSN3QcrXtsRjAOScTip7taF
-	+oWeD9WTSYs+3ELPmA+2Sf+lm/e7cPcfde3hwq5PpgfTMXIZBv3aJdXzheUkqicWx+8lpEKhG5zk+
-	dYkRP6iQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+QyCC8CcTX+xQp+BLqbobfaOcWMa+Lol1b2+RKYTYvw=; b=TKUdx9JWe5+xXnt08Kzwa3VuIb
+	L6YRWOPpan50wzVTRUCoPrWEcDtac+s4iYlbg9vusBGh1KUd3w7d5Qk8Y5R52njUgOMgJKr885hhX
+	wKXYX+PhQd9GdFkvcY0yseaMECjyuXPl25GRCHMkihkg23P3KdJVCl53VWw/SyE/q82L8gq+2Pfwo
+	v6p70O7yiPPUSDEzCXRlGXI0Qeo9GMasyCeJpm2/E1oTOKKC+Do204gZ2+fw1XMglWXdlg0rjJXyA
+	L1fr+Nx+cMfU9uysoVPGHTW5b4Yq68uDOzbs6ax+SvvMsJyNCSTpinnMbi0gxj1OLb3LBKxhFjasQ
+	GCF7vEDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpWPI-00000005iEN-3dm4;
-	Tue, 04 Mar 2025 17:50:17 +0000
-Received: from relay3-d.mail.gandi.net ([217.70.183.195])
+	id 1tpWSO-00000005ihj-1Xct;
+	Tue, 04 Mar 2025 17:53:28 +0000
+Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpUvV-00000005NsR-1ysH
+	id 1tpUzi-00000005Oqf-0z6k
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 16:15:26 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id C0A8720479;
-	Tue,  4 Mar 2025 16:15:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1741104921;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CqAT5+Gi1O68uLcYreVHzC9MDAGC4lcpXT9gC3flVdI=;
-	b=o9OpQSWCPcLhU75kNX2KB5/lnvHNChPaWtHihmyulicnkYRnOi0iBSibqDPh1HIurd5oXa
-	I8YiOwkICGHH3ijfJHOspj/VJLvjtz2DlSh+Bm5gAyC7rHHtSLhXp143kVLyZS0xblCbxy
-	GnHWOPVcYD+nAQ+wn2K1khX2vrkj+D8MMHwmxxkUTTFCFshXEbkYNMnhpxi7X2Lc7pqTfa
-	cNNZwJoEJqtLXnVLoXIKDuvzE+ZQybJEVzqdOfexBoUSMDrrWx0uFTJd3uDtXqx/sUU5je
-	uSScUY8lwpYIcZOGgvyNhh4fd3+xdXA3FGhygoOH6J5hzvElm5v03SYg1D1rww==
-Date: Tue, 4 Mar 2025 17:15:15 +0100
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Kory Maincent <kory.maincent@bootlin.com>
-Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
- <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Heiner Kallweit <hkallweit1@gmail.com>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>, Herve Codina
- <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Vladimir Oltean
- <vladimir.oltean@nxp.com>, Oleksij Rempel <o.rempel@pengutronix.de>, Simon
- Horman <horms@kernel.org>, Romain Gantois <romain.gantois@bootlin.com>,
- Piergiorgio Beruto <piergiorgio.beruto@gmail.com>
-Subject: Re: [PATCH net] net: ethtool: Set the req_info->dev on DUMP
- requests for each dev
-Message-ID: <20250304171515.297d15df@fedora.home>
-In-Reply-To: <20250304170051.607097e9@kmaincent-XPS-13-7390>
-References: <20250302162137.698092-1-maxime.chevallier@bootlin.com>
-	<20250304170051.607097e9@kmaincent-XPS-13-7390>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Tue, 04 Mar 2025 16:19:47 +0000
+Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-471f4909650so51984741cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 08:19:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1741105185; x=1741709985; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=+QyCC8CcTX+xQp+BLqbobfaOcWMa+Lol1b2+RKYTYvw=;
+        b=Ub9n6PvKwDpXfhpkhuhOWOWR9nP5RYGCLIr/WuL2o90klIsaj0i/3BHESxixVaGX3g
+         q13VMTj5c3VzwwbuKoxFXEOBnprEF6K6XcUcT/gmtSH5HHuXT2FOqhX87W3gGlo1RF0G
+         nUvwR64JZ7tjr9PvvEG8wwTo2Dmfl82i6woHtEJySCQjIgaPMWcJnqDN1f9y5hd634E3
+         m0odS0Jwv7Brg+e3fvFFA+Ru5OpQOmCIOXzIgC8+C2u+gZ44b9DBilTEcVCs54xJ2JZK
+         CDOzzsOQCRGFKhT1Q3iOg6nZrMpOuOrSKqhRWwl2dgjiOHhOt/TDkuxeb5+D0PNySoET
+         H8WA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741105185; x=1741709985;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=+QyCC8CcTX+xQp+BLqbobfaOcWMa+Lol1b2+RKYTYvw=;
+        b=W5FU1qTG8jiW4+6gwqhiv546mI5j6p3VEbajj71GFGoXBN0pyIbikLB7WUUCbI8P+Y
+         Z2iso5wi4c1/KV9jUnogm8fNiV+qfb+aq8Dootyd20L50yiiO2WXE8cI8qqw2juyqDE1
+         tTy13sU2djZL6uhQBPHxhoKZlZLYLKcqKZZF4FmQLQOn68H1G9n6erVPwFtGOp/oRtKE
+         LwEjWmZh3KrU+2PEv0XmbXRvybCWd2bSQjX7Uoa2rLujNyU6Na6DdKRwDQno4uhsSWSE
+         QlSMy01KqNmUM8++VnIdYEKD9mHD+5ME1LUutcYjXFZDP1HcqG2v8fJw20/j6RZl/a8k
+         jXRA==
+X-Forwarded-Encrypted: i=1; AJvYcCV+hPnSii2d25Rk4dfW/VBhOaRfctADBB5Y/avMXLqc/danU7MoJGjX/TasM+/nkOWbUL6xzScWpnmqQaNvhAxN@lists.infradead.org
+X-Gm-Message-State: AOJu0YyABikX0lSuy72dnQ1sd2roa6NM46A9J39G/uxMP06jXZDkyYwK
+	6FewOy+wHiln0bLI9t5aPI2stuhMizwpNGT2brZfS6hGkySgdXyD1U9DCHSIAaI=
+X-Gm-Gg: ASbGncsZXQ+y2j3m6dvaz3QF+i8vPH/NXn/EGX5EcwCdtUh/EBdzKFUXyJCuwgYFuSB
+	aBHuyULMpPrh8RQt3tiJL89Y8Px1la4FWKJiCTuLl1OFT28IN48coABYTsnbu6A4RCkgb67Q2vy
+	dPPnXAocgXWwV5D5Rx34MMKnTOoih/ZK/8GtUpccvQrZMDzZAkhTH5IEtkTn/7S3u7ZpdEimZRX
+	Cj2JFDv8tWTExokhUMYsAWBiodJCUBm9QrrMnOEmccua0FBRKrVgHn2gj2Td1DoCDPFA0D4f3lj
+	GykMNwmqz4N48YfgDWT7/Jhh0pzcRJtbwTM7gd9458BsL4QeLP1sgVS7AbgCuv/LBleVtkdWwcR
+	MvMeK7oAcjkVeixk3NQ==
+X-Google-Smtp-Source: AGHT+IEh35K+Rji/J97KgXv7b0qtNlNusVFI1SmT/EdTjyyFjXOLkEHdIcDO3dFOzig1wg6gty4MyA==
+X-Received: by 2002:ac8:5dd1:0:b0:472:15a8:4021 with SMTP id d75a77b69052e-474bc100267mr252633741cf.37.1741105184975;
+        Tue, 04 Mar 2025 08:19:44 -0800 (PST)
+Received: from ziepe.ca (hlfxns017vw-142-68-128-5.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.128.5])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-474f9a4f6a2sm17784561cf.1.2025.03.04.08.19.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Mar 2025 08:19:44 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1tpUzf-00000001Go8-445C;
+	Tue, 04 Mar 2025 12:19:43 -0400
+Date: Tue, 4 Mar 2025 12:19:43 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>,
+	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"yang@os.amperecomputing.com" <yang@os.amperecomputing.com>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"joro@8bytes.org" <joro@8bytes.org>,
+	"jean-philippe@linaro.org" <jean-philippe@linaro.org>,
+	"mark.rutland@arm.com" <mark.rutland@arm.com>,
+	"joey.gouly@arm.com" <joey.gouly@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"james.morse@arm.com" <james.morse@arm.com>,
+	"broonie@kernel.org" <broonie@kernel.org>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"david@redhat.com" <david@redhat.com>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"nicolinc@nvidia.com" <nicolinc@nvidia.com>,
+	"mshavit@google.com" <mshavit@google.com>,
+	"jsnitsel@redhat.com" <jsnitsel@redhat.com>,
+	"smostafa@google.com" <smostafa@google.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>
+Subject: Re: [PATCH v2 4/4] iommu/arm: Add BBM Level 2 smmu feature
+Message-ID: <20250304161943.GD5011@ziepe.ca>
+References: <20250228182403.6269-2-miko.lenczewski@arm.com>
+ <20250228182403.6269-6-miko.lenczewski@arm.com>
+ <20250228193221.GM5011@ziepe.ca>
+ <b23aa37f8e864dea82a6143bece912d6@huawei.com>
+ <20250303103102.GC13345@e133081.arm.com>
+ <20250303165255.GS5011@ziepe.ca>
+ <20250303190330.GA426248@e133081.arm.com>
+ <20250304142634.GC5011@ziepe.ca>
+ <67fbe3f4-4fb6-4753-b34c-320b7897fd16@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddutddvhedtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtqhertdertdejnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepuefhfefggfdthffghfdvhffhhfetuedtkeetgffhteevheehjeejgfduieduhedunecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddtpdhrtghpthhtohepkhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrt
- ghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <67fbe3f4-4fb6-4753-b34c-320b7897fd16@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_081525_641098_32B41511 
-X-CRM114-Status: GOOD (  30.14  )
+X-CRM114-CacheID: sfid-20250304_081946_271363_12D1B1D2 
+X-CRM114-Status: GOOD (  19.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,86 +132,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi K=C3=B6ry,
+On Tue, Mar 04, 2025 at 04:02:20PM +0000, Ryan Roberts wrote:
+> On 04/03/2025 14:26, Jason Gunthorpe wrote:
+> > On Mon, Mar 03, 2025 at 07:03:42PM +0000, Mikołaj Lenczewski wrote:
+> > 
+> >> For example, if we use BBML2 for kernel mappings, does that require us
+> >> to repaint all kernel mappings when disabling BBML2 on smmu attach? I
+> >> am not sure, but definitely something to be worked out.
+> > 
+> > No, it would be a per-mm_struct basis only if we did something like
+> > that
+> > 
+> > When the SMMU driver puts a SVA on top of the mm_struct it would
+> > disable BBML2 usage only for that mm_struct and it's contained VMAs.
+> 
+> I guess we would need to figure out some synchonization mechanism if disabling
+> BBML2 dynaically per-mm. If there was already a BBML2 operation in flight would
+> want to wait for it to end. But that's a problem to solve if/when it's shown to
+> be needed, I think.
 
-On Tue, 4 Mar 2025 17:00:51 +0100
-Kory Maincent <kory.maincent@bootlin.com> wrote:
+I have a feeling we can piggyback on the mmu notifiers to achieve this
+as all the changes to the PTEs should be bracketed by notifier
+callbacks..
 
-> On Sun,  2 Mar 2025 17:21:36 +0100
-> Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
->=20
-> > There are a few netlink commands that rely on the req_info->dev field
-> > being populated by ethnl in their ->prepare_data() and ->fill_reply().
-> >=20
-> > For a regular GET request, this will be set by ethnl_default_parse(),
-> > which calls ethnl_parse_header_dev_get().
-> >=20
-> > In the case of a DUMP request, the ->prepare_data() and ->fill_reply()
-> > callbacks will be called with the req_info->dev being NULL, which can
-> > cause discrepancies in the behaviour between GET and DUMP results.
-> >=20
-> > The main impact is that ethnl_req_get_phydev() will not find any
-> > phy_device, impacting :
-> >  - plca
-> >  - pse-pd
-> >  - stats
-> >=20
-> > Some other commands rely on req_info->dev, namely :
-> >  - coalesce in ->fill_reply to look for an irq_moder
-> >=20
-> > Although cable_test and tunnels also rely on req_info->dev being set,
-> > that's not a problem for these commands as :
-> >  - cable_test doesn't support DUMP
-> >  - tunnels rolls its own ->dumpit (and sets dev in the req_info).
-> >  - phy also has its own ->dumpit
-> >=20
-> > All other commands use reply_data->dev (probably the correct way of
-> > doing things) and aren't facing this issue.
-> >=20
-> > Simply set the dev in the req_info context when iterating to dump each
-> > dev.
-> >=20
-> > Fixes: c15e065b46dc ("net: ethtool: Allow passing a phy index for some
-> > commands") Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.=
-com>
-> > ---
-> >=20
-> > Fixes tag targets the phy-index commit, as it introduced a change in
-> > behaviour for PLCA. From what I can tell, coalesce never correctly
-> > detected irq_moder in DUMP requests.
-> >=20
-> > We could also consider fixing all individual commands that use
-> > req_info->dev, however I'm not actually sure it's incorrect to do so,
-> > feel free to correct me though.
-> >=20
-> > Maxime
-> >=20
-> >  net/ethtool/netlink.c | 1 +
-> >  1 file changed, 1 insertion(+)
-> >=20
-> > diff --git a/net/ethtool/netlink.c b/net/ethtool/netlink.c
-> > index b4c45207fa32..de967961d8fe 100644
-> > --- a/net/ethtool/netlink.c
-> > +++ b/net/ethtool/netlink.c
-> > @@ -582,6 +582,7 @@ static int ethnl_default_dumpit(struct sk_buff *skb,
-> >  		dev_hold(dev);
-> >  		rcu_read_unlock();
-> > =20
-> > +		ctx->req_info->dev =3D dev; =20
->=20
-> I would rather put it in ethnl_default_dump_one() before
-> ethnl_init_reply_data() call.
+Let's hope it isn't needed.
 
-Ah yes true, that'll be more consistent with the other callpaths.
-
-> With this change:
-> Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
-> Tested-by: Kory Maincent <kory.maincent@bootlin.com>
-
-Thank you for testing, I'll respin.
-
-Maxime
-
->=20
-
+Jasob
 
