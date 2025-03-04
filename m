@@ -4,168 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19E4AC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 08:28:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A34CC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 08:29:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C+yPs7ZatDgNXPCfHYK3sNkIzz2+iO9Kl9l8cVDtgIs=; b=cNAZVqdcS43pJbLCbmP2+8zZND
-	Bb3Ufk3O0VGlZmAxJdR1EMnrmaBhnHbKchnukF1Orjc/kYbIe/Iu9zGKteCpsddwoYSOpKuETiBUu
-	IqVlGGiVRvrgRbDAJo8w4VfJnqgWFUGnizpjUlh6XmisQ2lHHGVHtHYgGuGs83ocg1DjnePbiFK60
-	cR0uigcpqC/vcM6NFOmLmcuaA0MWykmdd8MMB+dTShuRDyZtHBb09DxcKugTKS2K5D7y483dcoro+
-	Jvg8wwHOLvd24wOYa5T77/3S0Uak8aYT5lY1+uj6maCUGC55aWX5sMwf41MNHehxuOLDOLHRLMS4s
-	26WpM8Cw==;
+	bh=ckNT9zT97qmSsY9ujs7VbRLG9X+HS54zgHMiqLy7EEg=; b=dT480vU6ZWw77+wGNjY8RjrG+U
+	f5YyqccUTvrbnxKA6e6hPAetY9cyp3Zqb+pN3NxYkj9hnzxJsooPHUF0E0pHB4C2HtGJK4pRqyskm
+	SA3dqIplH67gV2XqhO4ResSgPycpbSWs2x0t63jHOQQxADiJHdglDtBThirHXQFXTRqf9qCxexaSJ
+	vid33B5/xQXYOwp6exLp3q6Qgv2Fbgt/0ed6ueFcPykHFZwZTvxQMFrE48fI7Fb4kQuRuAoF9ORgB
+	UqRON4O5o+eqJUpHMoigjIp9YKAsznMGx9XtzX/Xi3tYPXAYzsrAH0TmZ0YbV9A/PBfVy/RfwJqZk
+	z5T/J2MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpNdN-00000003dKM-1ekS;
-	Tue, 04 Mar 2025 08:28:13 +0000
-Received: from mail-vi1eur02on2061f.outbound.protection.outlook.com ([2a01:111:f403:2607::61f] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
+	id 1tpNem-00000003djs-0G1Y;
+	Tue, 04 Mar 2025 08:29:40 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpNZH-00000003cQ9-0Yin
+	id 1tpMfS-00000003RKm-2GP4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 08:24:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=zWqYpekxMSTqHohY8gfEcaYGP85N5f1HIctwviXzBNmsDF+F7mAWmb8iwpmp8b8ICWWaIPNQ1dPssnguK9NnMY1CGVw8i2RWAF2HiQCofeP8pu0HeCXQS6WDyxDIj2Bz8uIXV4icwNEGE3jEYTzn0srEgK53t2BGd32lqysZguKXezk9jZHjQ2uliIuC9xzUNJI6uUaMuHtMjbuzy9VUTcMQG7MEHuhEHVxFKcgjDzymNr6GjgmnAmZBOmVx74lSofKKXYfNNgCeE4pdwhYRIIs08f9Y+DFB+Jt1gD9+HiLt+Xr0+tUkfBd3bGbEobyeCfyzYN92w0/S0mNDvtFw4g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=C+yPs7ZatDgNXPCfHYK3sNkIzz2+iO9Kl9l8cVDtgIs=;
- b=QligQlKeBj4fjDoBZEl3NXLWRYlzJRKPyJ2eDjjQv8/mWArsEYaVTBPEsMg0u0p47aB/UilenH1MvaPIjyF0St2FATSFAUHMd8gzl34Tpx4ArjeBkbMxOobtRIgqvPLgISZgIfMI9t8TGFZyyHhrReLQHKeXPCE4jZS3xFmWp6Mf8dNgC3Euimv5YeLhONlG639RU3DkMeRpK0miJKRI7TYTwcrIscLkm24s0zO4n6E/a6Pu/bhcbq2Ro4H4UHfIdVImqydET63VePDhyBi+WcNFvnOBTbHLhMyzMySzqO77tXDSfZgLDANAA2sBdh1SN//S6jVxs1m7dH52g65W3w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=C+yPs7ZatDgNXPCfHYK3sNkIzz2+iO9Kl9l8cVDtgIs=;
- b=X6GE5Rpz1trXPQ7y3QxWjBsJDXgTHRumoFjmmi5UiwBgAcdqhGSQqAQnrquoPf+iiQc8IetJrucHuNSVHmVHXpGyR346/x8DzPaM55/N2W9mEry9/fPxBMtquvaZjjBd+ZhWcu3w0vy8nzo8rczi9JvbNAB7g/0VhQYcrophqo0T5jEBHtvqnk18EibT3Jqq8la/0glHD2kTjoqO8cdPYbLFa0qtWWLPI8sCbZjBjPKkEuVyLq7Bj7D6jjQuJAAqW9GDx319afxGJurnjWOzomJzXNfWEA9+r2HYpWNYqlXeFvoFuTnu2kxu9//9Pmhwjy5Od8b17qUfktPgw15/gQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by PA2PR04MB10311.eurprd04.prod.outlook.com (2603:10a6:102:413::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.25; Tue, 4 Mar
- 2025 08:23:55 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90%3]) with mapi id 15.20.8489.025; Tue, 4 Mar 2025
- 08:23:55 +0000
-From: Liu Ying <victor.liu@nxp.com>
-To: devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	victor.liu@nxp.com,
-	andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	peng.fan@nxp.com,
-	alexander.stein@ew.tq-group.com,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v5 1/2] dt-bindings: soc: imx93-media-blk-ctrl: Add PDFC subnode to schema and example
-Date: Tue,  4 Mar 2025 16:24:33 +0800
-Message-Id: <20250304082434.834031-2-victor.liu@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250304082434.834031-1-victor.liu@nxp.com>
-References: <20250304082434.834031-1-victor.liu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SGAP274CA0006.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b6::18)
- To AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+	Tue, 04 Mar 2025 07:26:19 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 523NX4Cu017209;
+	Tue, 4 Mar 2025 07:26:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	ckNT9zT97qmSsY9ujs7VbRLG9X+HS54zgHMiqLy7EEg=; b=QQsLH7M73VHftWIk
+	UCeiSKxPmmnMOZM4QTni7oHMeF6h1dwvH3OoLi1Nc24vn8Fmgs5JE1x+qbOKAuSK
+	ysXwb+pUpT3q11qDF8EkMdrBI+IiwgY972pLXdrJFWd3JypzyUV1D7MU9NXxs4LT
+	lHkNw/oQdwlRTlD2Mg4ToUfCOBJ6NkN6zPdBOB7sKazbTsOyeAP8ZIzOedcpfcBA
+	qCBQjPmrSPpjw8dtT6XYJG3kNR5+5+Q//YnowFWHF72sdWpVQDx5PWTDf4Xy9ow6
+	9M8CKQsH81DEKfWIr76LvDvNMAMWO/vRMUGY7UauRlyIHHY/qBcB2d1PM+1NEAN1
+	cLjqvA==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 455p6th1yj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 04 Mar 2025 07:26:03 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5247Q2Pq012111
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 4 Mar 2025 07:26:03 GMT
+Received: from [10.253.15.36] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 3 Mar 2025
+ 23:25:58 -0800
+Message-ID: <b68799da-7290-418a-b7db-4cfad7b12e0f@quicinc.com>
+Date: Tue, 4 Mar 2025 15:25:55 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|PA2PR04MB10311:EE_
-X-MS-Office365-Filtering-Correlation-Id: 67d24b3d-932a-4e5b-e4ad-08dd5af5e73b
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wlx+6QlTNAdC0SIY45j3t1YnjFICiH4YBDECi/oIxpYBo8Fs70OAa+MuyIKZ?=
- =?us-ascii?Q?/rKyx5nBPmKETiUshRDWhufoxsDbfCE41x79s0U76xiR1svcqss5hAX0qnVM?=
- =?us-ascii?Q?tftYu5PlTKbkmRS3jOR4LiLcQ6hbl7Q1yRtOzUmHfcsEG1veXUUQDQLUF2wR?=
- =?us-ascii?Q?5rLT8UwLDJnS8pt/6VMYAb79EmO97OL0xjnnAIpIFMr4GSNjEYmrGjDbC2dE?=
- =?us-ascii?Q?qeAiHDjRDypcp2IDwjJPLQLGdo2MQOb0cVCL1hq7K9cZ94XEUCGMgBj9KM5Y?=
- =?us-ascii?Q?EHvcTuiH7elJoCmpT7ztRKMWGI3OKJJNAei5qTdAD40bwipPfbOIXxw+dX0V?=
- =?us-ascii?Q?tl6WPJR461eMyY62BSRQeocewfLRw4E4SxBxpv8pecDVjJB780FohhJAv/K9?=
- =?us-ascii?Q?/hSEDt791N8b9hgRra+uDkRIitVVgNv1wV7YZg5M8tyl1pZiwNk3MXfF7+o7?=
- =?us-ascii?Q?OdSx02K+h8W2EyU0o6O5HGvYVNSC9elCDxdB1CGIoObmUfTUU08e9H9yHhYN?=
- =?us-ascii?Q?lSvnr80LVJWRTOdmOYs8eAuCa5A/bdu7mVDjSo/UfLTipqWSdV1aVwFZYgq+?=
- =?us-ascii?Q?gZTTRWoxKhBMW8ewah7lnQGoqvi61Sc8yvy+kwWDrfQr9L9wEvFQZTdnQYmX?=
- =?us-ascii?Q?oq4Up/TxvnUUweKSvT/42R03Hi5Y+JkxhPMQoTzXN4PPwaCjfEv9cz8DdHuq?=
- =?us-ascii?Q?COMm7Qwtpkb4e9D03tLrvDb8FQH+d0U7Ze81y50HL8COcuOF7VLAV3PYZf4D?=
- =?us-ascii?Q?gUL9Go+d5i3NY2Z6gcrujHXXxWWqMBQ8DsbRyEdzEGEt5LeW4CE7zBOD5hME?=
- =?us-ascii?Q?rGo3zzXrSALENwj02ENvYB36XAc7h89cGh1pn9Sll/9HAtKpG2wxpo5O+uDQ?=
- =?us-ascii?Q?UDLYi0bUJdZL4I89RFyksW5RF7J9/hfsD7UBeV/B5TASB5frrCdNSc1Dmu9u?=
- =?us-ascii?Q?MvPpxG+4pokeI0uZ+tSJ6UR4dMgMgXsK4wGsod57UjVq5p2FWS6+KcbNaFgl?=
- =?us-ascii?Q?J6xQsD7uAk6VuGtQ7rAU+Uo6RG7qDfUcImCITeL+B6WHYK+RJkh9eUYHV4Ut?=
- =?us-ascii?Q?th2sBnPxgjXkmT/4b8zAej7+KJNBO0SdndjbHxbwVHxU6pkAzOEjyg4JwDZ5?=
- =?us-ascii?Q?mxMMpB61KYr/p7A5qruQxc8+3xeaArHJOqhprx14sJ7HlpE4AWDnuTCo1iwh?=
- =?us-ascii?Q?ANhlncNhQXlra7Z6Ual9PD3NfipPiI58BMDBVQq2GYgDMX+2mv1rZfeXEUj/?=
- =?us-ascii?Q?gimKfvpG6SpK0upUmgkW3X4u0GFmeKMuGLxXg99zq4yXodLgJXmEIAKmRnsb?=
- =?us-ascii?Q?w3b27BpuzSyiB2S9EBqJZrgzkPlWuvEkh1LgITvxqJ5MPbiAhdmMP2rEqHaw?=
- =?us-ascii?Q?DjFsfYcDE8kb5yCmBCAKwjso64Ygbjj/zhL3ktNyYnaQt6gyUIhKL68IaYOg?=
- =?us-ascii?Q?769b3nuQ+ORQs3aVclCPKuDV7jhj5vE/?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZvJiKoBSZ54fhaWj0/TIcSlVwu3qQMCKaLIKQUnXxxwYEN2lhoAYlHBSkMDk?=
- =?us-ascii?Q?3upkH3GE5qh3D+7vYzhlt+nFUIUzAzSdjN98Rs+Hr4qfcAGGHFOjbrSQcRED?=
- =?us-ascii?Q?bQRseqq3OvyglSabK3mrUnCKxt4NymzR0gMocqCuKtLVl7n9d+CLJH4bvJDo?=
- =?us-ascii?Q?QuEzkCKF4zVR2kekicMSVY6xpvnFR8GVeOVNkbqVFAn52TkPdaRvTGnZKl9e?=
- =?us-ascii?Q?tGiRJQf+ZvqfQlBeJl7euB7kIo9nsNvgZ13PKzR/kqzx3ux/tFkAmmih0vK5?=
- =?us-ascii?Q?D6DRhRnWZaOsi9MTDv+cgCMyOyRFiRT5ZurZJ7Ja4lraAwDaLJfkCbXLZeiM?=
- =?us-ascii?Q?TVjYHSTYQ1Ov/SF+5/nCdvIZN1mqKkFnS+5Ipe8YOqo5G4RNnGWHyH2Ar5v5?=
- =?us-ascii?Q?P8XNHYU0ip5cNk2EKZKMZre5zm2nDJuQqQ7C8/GbBjjaJG9n+SaQrc16F8Wj?=
- =?us-ascii?Q?TxT8xPWrQ7S0KLtLHJUO1bWQnUiOl9FZHkUuUfp6pf8ZsGwcD7vT0mnkiwhu?=
- =?us-ascii?Q?kA0dJTd97Cme5or7+ITqFluJSvREkLYlG6LPAxsK8+HoBG6JTNyO4DjWlkwg?=
- =?us-ascii?Q?PFV+GogfnVtnpPqQLlIQLn0RrieIhpu4ow8CjFqPymILMPVo5aykHvMYqio8?=
- =?us-ascii?Q?uMqoHT0sT+t0L2F+IBL3ooeqcU1vLHu773sZRcMkA0RyNHHnL9ZJhwMreDa4?=
- =?us-ascii?Q?/2r1WpIVHV5L+mYjc7JMvWW22X/Oy9CtKp1B8rz4it+Qngjvc6X34r3Bd86h?=
- =?us-ascii?Q?nulecxfi25TJ1GW6j8UstczIwZD4mw8N8SnCSOTvYAdByRSHFm12fFo0Jgwg?=
- =?us-ascii?Q?7fFHxDVFgAUGKEgBsfUiJ7wRCq8gjbnqJRbL6jQuAEOg8037EPUnhXzfpoeC?=
- =?us-ascii?Q?hyuH47zah3PRfW4KI+RP9RgqHiy/uqVM5RUT+EXDlvnoLNsNpWieNuCn7N2D?=
- =?us-ascii?Q?NBsj2EvUP4Ii6/l875djQlq4msMPI8v4UpVe9i0hfdzJim4zOEZcjsrarpi3?=
- =?us-ascii?Q?nA/KdoI+x/wDPLpcZY30XphgM6Q8C6zoVDB/S07FUnnC+swOgKkoEL1V0uTj?=
- =?us-ascii?Q?oil9nO5+v32JH6WrKnJOoImGKlNE+xEJTK142P1P9XNBZtNNhDdEOt1/82y6?=
- =?us-ascii?Q?Xi8ER9AhUHjF+Yg5UFHqcyj4wnuYd4vTdxdNgryZuV+FpYV7KSp5/7iJVmlX?=
- =?us-ascii?Q?rb5PVHJgOA5k2cahp0H4hukYmOXIAjCC5jwq6+ojPRgJZdpTDm29rVwEIlrA?=
- =?us-ascii?Q?WCYiw1SJbN+2+2Eav9M02jWtqbHqggZ3QoiiJO6AzMuOEpF4z9PWuqWh0eRo?=
- =?us-ascii?Q?MvpKLKMWuTaLsaddhAHlwxLgyYphjGNRDiB2zlmmnyk0xdq3T8olTJmLiJFn?=
- =?us-ascii?Q?XSdZizyVhGpJZ4BYuYrMwET1/8GRX5UgCrL9/7qLRr609YScwdyA81663WTZ?=
- =?us-ascii?Q?oxS3daSPEwp4NM38XFv16hHHS5skhtNuL9p+kJTCLcBEsCMTiRnYwT9xMmtv?=
- =?us-ascii?Q?AYpzpH+gRdIhQX6P/V7ISncvpc4DJizK/g095JYbAGg3KAvWZcNf3D94mdM0?=
- =?us-ascii?Q?zprtN1D/8xTQt0OQbPiUId3JN9ztjLUJQupEg+pC?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 67d24b3d-932a-4e5b-e4ad-08dd5af5e73b
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2025 08:23:55.1517
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XFOG5+kFb89PcpLsziDTjeJOR3qcH98dikQZxlcclSqkRh0nIa1baFDjF9joIWbuha5SFhLk2RX9LVvTk2qrDw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10311
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8] arm64: mm: Populate vmemmap at the page level if not
+ section aligned
+To: David Hildenbrand <david@redhat.com>, <anshuman.khandual@arm.com>,
+        <catalin.marinas@arm.com>
+CC: <will@kernel.org>, <ardb@kernel.org>, <ryan.roberts@arm.com>,
+        <mark.rutland@arm.com>, <joey.gouly@arm.com>,
+        <dave.hansen@linux.intel.com>, <akpm@linux-foundation.org>,
+        <chenfeiyang@loongson.cn>, <chenhuacai@kernel.org>,
+        <linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <quic_tingweiz@quicinc.com>,
+        <stable@vger.kernel.org>
+References: <20250219084001.1272445-1-quic_zhenhuah@quicinc.com>
+ <78d55e35-6cda-4f5e-8e52-0a54b1e64592@redhat.com>
+Content-Language: en-US
+From: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+In-Reply-To: <78d55e35-6cda-4f5e-8e52-0a54b1e64592@redhat.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Authority-Analysis: v=2.4 cv=PMb1+eqC c=1 sm=1 tr=0 ts=67c6ab0b cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8 a=20KFwNOVAAAA:8
+ a=OyIDkqIgn3q2G5mQ1iQA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: qN3xRsxJfR6rENMgdFiS9cnF5DmYD864
+X-Proofpoint-GUID: qN3xRsxJfR6rENMgdFiS9cnF5DmYD864
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-04_03,2025-03-03_04,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 mlxlogscore=999
+ phishscore=0 lowpriorityscore=0 malwarescore=0 priorityscore=1501
+ mlxscore=0 adultscore=0 spamscore=0 suspectscore=0 impostorscore=0
+ clxscore=1015 classifier=spam authscore=0 adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2502100000 definitions=main-2503040061
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_002359_172948_54700E03 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20250303_232618_589297_85016866 
+X-CRM114-Status: GOOD (  20.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,120 +108,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-i.MX93 SoC mediamix blk-ctrl contains one DISPLAY_MUX register which
-configures parallel display format by using the "PARALLEL_DISP_FORMAT"
-field. Document the Parallel Display Format Configuration(PDFC) subnode
-and add the subnode to example.
 
-Signed-off-by: Liu Ying <victor.liu@nxp.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
----
-v3->v5:
-* No change.
 
-v2->v3:
-* Newly introduced to replace the standalone dt-binding in v1 and v2. (Rob)
-* Resend with Conor's R-b tag and with the patch rebased upon v6.11-rc1.
+On 2025/3/3 18:01, David Hildenbrand wrote:
+> On 19.02.25 09:40, Zhenhua Huang wrote:
+>> On the arm64 platform with 4K base page config, SECTION_SIZE_BITS is set
+>> to 27, making one section 128M. The related page struct which vmemmap
+>> points to is 2M then.
+>> Commit c1cc1552616d ("arm64: MMU initialisation") optimizes the
+>> vmemmap to populate at the PMD section level which was suitable
+>> initially since hot plug granule is always one section(128M). However,
+>> commit ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
+>> introduced a 2M(SUBSECTION_SIZE) hot plug granule, which disrupted the
+>> existing arm64 assumptions.
+>>
+>> The first problem is that if start or end is not aligned to a section
+>> boundary, such as when a subsection is hot added, populating the entire
+>> section is wasteful.
+>>
+>> The next problem is if we hotplug something that spans part of 128 MiB
+>> section (subsections, let's call it memblock1), and then hotplug 
+>> something
+>> that spans another part of a 128 MiB section(subsections, let's call it
+>> memblock2), and subsequently unplug memblock1, vmemmap_free() will clear
+>> the entire PMD entry which also supports memblock2 even though memblock2
+>> is still active.
+>>
+>> Assuming hotplug/unplug sizes are guaranteed to be symmetric. Do the
+>> fix similar to x86-64: populate to pages levels if start/end is not 
+>> aligned
+>> with section boundary.
+>>
+>> Cc: <stable@vger.kernel.org> # v5.4+
+>> Fixes: ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
+>> Signed-off-by: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+>> ---
+>> Hi Catalin and David,
+>> Following our latest discussion, I've updated the patch for your review.
+>> I also removed Catalin's review tag since I've made significant 
+>> modifications.
+>>   arch/arm64/mm/mmu.c | 5 ++++-
+>>   1 file changed, 4 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>> index b4df5bc5b1b8..de05ccf47f21 100644
+>> --- a/arch/arm64/mm/mmu.c
+>> +++ b/arch/arm64/mm/mmu.c
+>> @@ -1177,8 +1177,11 @@ int __meminit vmemmap_populate(unsigned long 
+>> start, unsigned long end, int node,
+>>           struct vmem_altmap *altmap)
+>>   {
+>>       WARN_ON((start < VMEMMAP_START) || (end > VMEMMAP_END));
+>> +    /* [start, end] should be within one section */
+>> +    WARN_ON(end - start > PAGES_PER_SECTION * sizeof(struct page));
+>> -    if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES))
+>> +    if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) ||
+>> +        (end - start < PAGES_PER_SECTION * sizeof(struct page)))
+> 
+> Indentation should be
+> 
+>      if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) ||
+>          (end - start < PAGES_PER_SECTION * sizeof(struct page)))
+> 
 
- .../soc/imx/fsl,imx93-media-blk-ctrl.yaml     | 68 +++++++++++++++++++
- 1 file changed, 68 insertions(+)
+Thanks, I will repost with the above fix and WARN_ON_ONCE as you 
+preferred in v7.
 
-diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-index b3554e7f9e76..3f550c30d93d 100644
---- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-+++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-@@ -24,6 +24,12 @@ properties:
-   reg:
-     maxItems: 1
- 
-+  '#address-cells':
-+    const: 1
-+
-+  '#size-cells':
-+    const: 1
-+
-   '#power-domain-cells':
-     const: 1
- 
-@@ -46,9 +52,43 @@ properties:
-       - const: csi
-       - const: dsi
- 
-+  bridge@60:
-+    type: object
-+    additionalProperties: false
-+
-+    properties:
-+      compatible:
-+        const: nxp,imx93-pdfc
-+
-+      reg:
-+        maxItems: 1
-+
-+      ports:
-+        $ref: /schemas/graph.yaml#/properties/ports
-+
-+        properties:
-+          port@0:
-+            $ref: /schemas/graph.yaml#/properties/port
-+            description: Input port node to receive pixel data.
-+
-+          port@1:
-+            $ref: /schemas/graph.yaml#/properties/port
-+            description: Output port node to downstream pixel data receivers.
-+
-+        required:
-+          - port@0
-+          - port@1
-+
-+    required:
-+      - compatible
-+      - reg
-+      - ports
-+
- required:
-   - compatible
-   - reg
-+  - '#address-cells'
-+  - '#size-cells'
-   - power-domains
-   - clocks
-   - clock-names
-@@ -76,5 +116,33 @@ examples:
-                <&clk IMX93_CLK_MIPI_DSI_GATE>;
-                clock-names = "apb", "axi", "nic", "disp", "cam",
-                              "pxp", "lcdif", "isi", "csi", "dsi";
-+      #address-cells = <1>;
-+      #size-cells = <1>;
-       #power-domain-cells = <1>;
-+
-+      bridge@60 {
-+        compatible = "nxp,imx93-pdfc";
-+        reg = <0x60 0x4>;
-+
-+        ports {
-+          #address-cells = <1>;
-+          #size-cells = <0>;
-+
-+          port@0 {
-+            reg = <0>;
-+
-+            pdfc_from_lcdif: endpoint {
-+              remote-endpoint = <&lcdif_to_pdfc>;
-+            };
-+          };
-+
-+          port@1 {
-+            reg = <1>;
-+
-+            pdfc_to_panel: endpoint {
-+              remote-endpoint = <&panel_from_pdfc>;
-+            };
-+          };
-+        };
-+      };
-     };
--- 
-2.34.1
+> 
+> Acked-by: David Hildenbrand <david@redhat.com>
+> 
+> 
+> Thanks!
+> 
 
 
