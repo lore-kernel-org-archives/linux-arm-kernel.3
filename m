@@ -4,84 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9CCAC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 10:43:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF8BCC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 10:45:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J+CLe9wyo94MK43cR0KkLcVm2hrSOi/FbrLlXKM/n+c=; b=wWr5hCfUoufZ1hSxeXKn9P92lI
-	E8RYpHV9P5xJJ9hf+7s56/7WfU56qeu739ivqRwjkeFUp4in21rX5Ilp1X5LXrJY1oX15x6qqM9dD
-	NyrAb7Otu85yLsTEZ/mYO6LWkI8yq/lVVrzrn8q3rGOtoz9AqnmiVz8gEHE4jngvKWZn2HarmlxrN
-	2qIvDGZBXOZWSE5DgCXu4s92sqg4HTo0/0UUPhONweuUCvhUEkslaRAoCQ3l3GsgOAEL7H0428FBq
-	VYyPnT8V8pUGVA1RloxZBZ/nz2XQIgLAtUX/vocVPswf8wTaF8eJyOWyBiLeQfRS/yFSYjp4uQFMi
-	zG3K5ayQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fRLGX0BSFbSkbyHv+vppZ4+v0T0SuHCAkvGOI/AsUU4=; b=SQR1sWInj7+nh4tjBKG5QF8qwp
+	852I7jGb8AIreWDmdwPdAIqvgKUGlBR1SQ1X9BsPz+owLw2FLLpQyIpmKVaPi4vLbJa3PE0HZLWwm
+	teyhFwsdG0Q20TgNs3Lc10cW61I/4hylTkPbUV1qZrEEDDXhlSZ70YZTAhCZysM42YY87fSx9wjZg
+	5JT0RP5CdkwuTnCW0iLTHy4dKfMUkm30O24UshEfayLfoxwosfsa1Ns4nqYt3vhpKh7M9gbJCytAP
+	hpJs2Dq+aYZG/R4WpbeeLGbeKss/afZ06g5ccDOcsEGe5LAKpW/8vfSm9tbh8WjxVhaaWOpx2gks8
+	Alp55ObQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPkJ-00000004EwF-3nwD;
-	Tue, 04 Mar 2025 10:43:31 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1tpPlr-00000004FNk-3exN;
+	Tue, 04 Mar 2025 10:45:07 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPik-00000004ENC-0eOb
+	id 1tpPiv-00000004EQU-0YUR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 10:41:55 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-54959d1a856so3008320e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 02:41:53 -0800 (PST)
+	Tue, 04 Mar 2025 10:42:07 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43bca569b3bso1290165e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 02:42:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1741084912; x=1741689712; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=J+CLe9wyo94MK43cR0KkLcVm2hrSOi/FbrLlXKM/n+c=;
-        b=LQzbj1BNQcQZSlXNoMAqa6kfoyD9R9uUYGl7zUmlg0C/TLPGmh3z3TX4BWIdfm+ndW
-         xCT47quH5fZxJoYLNQzBDbTxi56HGJMzaZumanjzpsskFYZow12oZBLx8kK13lrICIl1
-         JykegGAxFA8U5DToYQW1lea4KD+D0dHiNw5IQdaHllspUDmPAmqu4zPU92fDVbbgimnr
-         iVazTkG/69cbEbfEpQZ217thhlEaXn0mCzhHQ5vUIZ3K9TE9ufCJg792yHJMYnN2P0vT
-         w/ky2+YbyGWBusoyOUWkVT7dTo+89wfjiKfG6CMMJNbuLvYsE9rgvDrvFa96JOc0NnoD
-         1xdg==
+        d=linaro.org; s=google; t=1741084923; x=1741689723; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=fRLGX0BSFbSkbyHv+vppZ4+v0T0SuHCAkvGOI/AsUU4=;
+        b=YqxcZl/02cx0NzcuXbnpSYvy+7FxD/Hu+DF6Ox121/a8NrbK6qS1W+/uLlG8YLRNUo
+         eVJg4SAmsPkPBXmLGI9mjCt5WhPPp8Z75RA4rYuWI8v5Zs3MDfsbMoZhM2/ppVakmJxt
+         0Yhg7hlYNZZk2jbyPd9VTvaXoA6aWYeJKK4Z2x+ITFUjGqzmyvhSiRtLGwKEPx2nvVYr
+         L90Zl3OXZ42gvhlts+aApdavEEBzuyz8gvvoFkxpUuIlXTKpLM50sLD81h503ung6q/w
+         4nVMwZcjyPwSFYHupBNgP4vd0mvF4tlcabITlFpH5Nhs/mJ+jlhfx9vWzvkJw1k/lhZh
+         KPkA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741084912; x=1741689712;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=J+CLe9wyo94MK43cR0KkLcVm2hrSOi/FbrLlXKM/n+c=;
-        b=MWfDahVVf38ufNRfhkJanQADcS4uHUydhjAPqSCKE5ClLsE9qw0l66KF7213DOOfgA
-         ojiLfN94le7lBUN3vxNflySVtunLEi2vIQoAcDP5z7mV/d/QCwjWULk7Vncr1CX+kzI1
-         cvYgv8AbdUCNecsa5S3E/mhDWOiCe4XMizz6bNh6qofrNMyn6uLp0EzDOE7PgWyEihek
-         D8F/k7XDazxj6S+MmuO+6rOpygSKXhLw7Qa5c4hSmDJyxlesTwmqDXNxLz5Z1F5Cot7I
-         1ynL7cLPEy90FOueIyUkiZCC1P9v4SPy+kN4QH+xmFDhWfHkq/wVsZiypu0c9Z9eMT16
-         rksg==
-X-Forwarded-Encrypted: i=1; AJvYcCVs5Mr4dZoECfPT8QT1Ui4zN2ZuZ0EIr8DYlUXUGQimow96fP9R+SjN0TH71IqMHykmYokrL5C2igl8Nec8wWrx@lists.infradead.org
-X-Gm-Message-State: AOJu0YxtA8snMrzRNzFoQH68A49LHnUu9q7hJ0cR8XztvqYYneuUDDj+
-	ljHH7qsdzI1l4OYeCYnm4DXYull7vR7NyHxfyCr6oSGtNAHVRoj+645rc99pgAnyuZiEnnQ/X+Z
-	OfbI/Q6wsPaRqfbLFJ/30pVqADg+X7z5kG6obhGBA7M7lkvkB
-X-Gm-Gg: ASbGncskpYZrdyDY117F/jJz9jlvjQSmn2hDFqCzp9wntJXj4ORdC32ppzW+LxFvnNE
-	upx2CuupkB7ZA0wdBZ7vBKVE/w+jsg+Ggk4ucPEJZwPZqvwXTSf0RPlPhvXo/eo3+nPAkZDt8V6
-	MMqMfQeiQ8Oqu48vIXyHW4ff4znUY3DjBTRhIfZQNMsyn6cptkHNJTIv3k3Q==
-X-Google-Smtp-Source: AGHT+IFW1dwugcBOwVBAmZrS6CMIuhv8KAFq4W6OW9+G0v4HXawDePl2UapUTtV4ZF3rFz9ZUUYtAhog6ikYaHBlhNI=
-X-Received: by 2002:a05:6512:a93:b0:545:dc8:9376 with SMTP id
- 2adb3069b0e04-549756bb8b2mr865753e87.5.1741084912286; Tue, 04 Mar 2025
- 02:41:52 -0800 (PST)
+        d=1e100.net; s=20230601; t=1741084923; x=1741689723;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fRLGX0BSFbSkbyHv+vppZ4+v0T0SuHCAkvGOI/AsUU4=;
+        b=eaCgvyRwnE6oJNd4AA2ukwatW+7mTA8v3OxbjGytzRzq4zpMOdeDMfVIkhXzuKLA7m
+         3Lg0kVVYFRH9uTerJZkDijI7bxq/CyAogM836MS/RufFWXgM2nkyUnzhxP9QvU6YY4b9
+         UO9iuqIb/1WIx6bSt9sgcNwN4o0vnHCTF4g3cGpBoXtzoEQZmFUAdsft//w2OgyS51pS
+         COu4LZ7upJUIGtDTOj07XB54+KlEoZNDPskt7PTlGPw/5EzOmKgZFR9eBAYyzhNL5OkI
+         Mdoe3Cs/2YB3OWFQOb99oqRJzj/wGzkHr0QNM7UHI3j6OxTBwmxRDI2aQ1BAYnvY9qcp
+         rfKw==
+X-Forwarded-Encrypted: i=1; AJvYcCUUP5oE78ZoRGcPip871DdWhvh+5J5VLt5YrxR1pv0bW4Q+6GcUlX9YWaOv0rBB/+F+xAkVMKHfCSdVCjwFUWsG@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXp3nOPysJN4QP8NRLes/4Vh30QEn49bhcAYC/h/3VTnl8fg18
+	abogcrMs3h9QHsI9ao4p6NVFaO/2gs4WufsTH02zzvAQmQFNv3s94i960PuCx3k=
+X-Gm-Gg: ASbGncs+dZ1tmOR7wzsn3hONMCTh6MM1ZHM73tjEK/05KbJ8Q/TkVB6NKb7+YmfR5Ge
+	5Qha2Gut33NlqX7vX2O0EvVL5X6U3xK/RZbfnThfPXOQ5SOUQZfj/wrCZA3li+dO5LxHbfOeus1
+	r3yQ86vQGOf8PYWkwxnX6UgX1XqSFgxufvrqZktRZ2F1zXkADiyf8uR/X2J6UT7E7KTc+0peThr
+	UbRNSxQHjpHZ6vBnWxhqx0pgzHOBnId56gd1qi77uxsvOqKzF+NDFBvb2K/R3wY92Gv1BkR6Cgx
+	BSfi1EGG+rOxTm0sF7ocNILgDUjwmIPgNPXNURjGf6avYHI1c8yujY7lNQQ=
+X-Google-Smtp-Source: AGHT+IFu+lUWQUJTNva4ATWrG4BJPlHZWRTzwg/XUajrbEnxSw1V0tjsJYbZeKjxr47p60rztgJf0A==
+X-Received: by 2002:a05:600c:1d86:b0:43b:c0fa:f9e5 with SMTP id 5b1f17b1804b1-43bcb969548mr7400795e9.4.1741084923281;
+        Tue, 04 Mar 2025 02:42:03 -0800 (PST)
+Received: from krzk-bin.. ([178.197.206.225])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e47b792asm17202257f8f.53.2025.03.04.02.42.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Mar 2025 02:42:02 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 1/2] arm64: dts: rockchip: Add ES8388 audio codec fallback on RK3399 ROC PC PLUS
+Date: Tue,  4 Mar 2025 11:41:59 +0100
+Message-ID: <20250304104200.76178-1-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20250303-samsung-codecs-v1-0-56a2299dd928@linaro.org> <20250303-samsung-codecs-v1-1-56a2299dd928@linaro.org>
-In-Reply-To: <20250303-samsung-codecs-v1-1-56a2299dd928@linaro.org>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 4 Mar 2025 11:41:40 +0100
-X-Gm-Features: AQ5f1JrTREE44_9-N9d1KpC5QVfqU80Q79Wuacg5Co0HVa8QMpwM4g47c1JzBGY
-Message-ID: <CAMRc=MevrFnw4BGRgwKrg+wj+saEmVmk+diGj=+sveE2P_hwYw@mail.gmail.com>
-Subject: Re: [PATCH 1/6] ASoC: samsung: bells: Drop unused include
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-gpio@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_024154_189604_340A5D20 
-X-CRM114-Status: GOOD (  15.39  )
+X-CRM114-CacheID: sfid-20250304_024205_177332_7F71AA63 
+X-CRM114-Status: GOOD (  13.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,34 +100,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 3, 2025 at 9:41=E2=80=AFAM Linus Walleij <linus.walleij@linaro.=
-org> wrote:
->
-> This file does not use the symbols from the legacy
-> <linux/gpio.h> header, so let's drop it.
->
-> Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
-> ---
->  sound/soc/samsung/bells.c | 1 -
->  1 file changed, 1 deletion(-)
->
-> diff --git a/sound/soc/samsung/bells.c b/sound/soc/samsung/bells.c
-> index 365b1aca4855c885e0b59a1101475d8edb86374f..b4c0857ae35134b58a125b074=
-6af07a5fff040fa 100644
-> --- a/sound/soc/samsung/bells.c
-> +++ b/sound/soc/samsung/bells.c
-> @@ -7,7 +7,6 @@
->  #include <sound/soc.h>
->  #include <sound/soc-dapm.h>
->  #include <sound/jack.h>
-> -#include <linux/gpio.h>
->  #include <linux/module.h>
->
->  #include "../codecs/wm5102.h"
->
-> --
-> 2.48.1
->
+Devicetree bindings for ES8388 audio codec expect the device to be
+marked as compatible with ES8328.
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+---
+
+Changeset depends on bindings patch being accepted to ASoC:
+https://lore.kernel.org/all/20250304103808.75236-1-krzysztof.kozlowski@linaro.org/
+
+Please take it to the same or next merge cycle as above ASoC binding.
+---
+ arch/arm64/boot/dts/rockchip/rk3399-roc-pc-plus.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-roc-pc-plus.dts b/arch/arm64/boot/dts/rockchip/rk3399-roc-pc-plus.dts
+index e2e9279fa267..8e3858cf988c 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-roc-pc-plus.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3399-roc-pc-plus.dts
+@@ -112,7 +112,7 @@ hym8563: rtc@51 {
+ 
+ &i2c1 {
+ 	es8388: es8388@11 {
+-		compatible = "everest,es8388";
++		compatible = "everest,es8388", "everest,es8328";
+ 		reg = <0x11>;
+ 		clocks = <&cru SCLK_I2S_8CH_OUT>;
+ 		#sound-dai-cells = <0>;
+-- 
+2.43.0
+
 
