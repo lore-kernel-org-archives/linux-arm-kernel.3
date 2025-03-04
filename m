@@ -4,166 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31291C282D6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 15:11:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 990EBC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 15:12:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+qRYErZuh/5nu8DU8GvOWimxZn4aHpAYt1U1K8bZhzY=; b=LCaCjbcjbx64xzbqslxQ4DNxOJ
-	3M0vK5gs3DKVRKfXr8LDWMNJuQxmr706KedQPFbIcnaVhbt51p9jiBuUruaq3b3O9GwW09N7mckC8
-	ycyMMi9NC3Z78bs8DXUo/DAlsUFhLD6AhhN8n8QQ4CxYvux2bq0zpcuJSMypSVDWmnH3BJn8P4hJs
-	taedl3I7YzBbn/hf9atKsH5Hd1BD7pnVLbUWOthkHW4EKtEAAS6M+7ywrc40CZlBeZy5D41lwFLAU
-	g5PcEGN/19fREcuVkWOZmnE1Hq349RRR5IE5hKUNcWn3uh7DuefC6poDkI2Z1pBtQP5jzdIowkH+w
-	qqcabsWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rZ9aoCppIsvGEXBhc3cafSnewuyIOdyCk4++oec/tuc=; b=RxS2+WKn3rLT4YhXiHAoBgd0Ie
+	JXEPXnyYnDc2FFJPXGdxCb2nMbftDwPfjAp11WtAP5zPAeojL3GpF+6tUhJOXAUV689/H5lqnjuo+
+	3ZxwkCqiRX8xGffjs0PHmm8iwo3ZpVN0J4sGiufjkC1sSKtHK2zuPxwCSk1KtV6mpE1tYI1421Ws0
+	9vJ+TaKNI5aELXKPSYKPkhWidfZ4mPRl5q/yiU1Oz2+zREvgsXoXGTLZyshUmFlPFrUtGr+UOofeS
+	UqRDyvZIk/44DDnItX4jcp6SrsYjIUzVcBxhhQ1PDWNQPqTBg0Mvr7hn7/pKXSiEV6+Yw4oVUpAka
+	bMhglzuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpTvH-000000058tg-1Xfx;
-	Tue, 04 Mar 2025 15:11:07 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1tpTwo-000000059G3-2mqa;
+	Tue, 04 Mar 2025 15:12:42 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpTjp-000000056DP-1QWi;
-	Tue, 04 Mar 2025 14:59:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Dq0RHyWsbnNSZtUo9Do9JwLAvyAtBHHZTWuikaS4OzTP1uHLAG9vCns5ZCZcKCbHXqE+18ARtlaqtaegVI4NFzv9zQf+Gj3DzrYxhy7B3MEZc/7W6944NdBOhaC4SqZP04yjVBTbwO7i+M4SSRLWcUjzFEfzNYF4g3VBUhGhA+jlFVduTbCYFgKdmkdzToI0nQhi+EnbhIb/4x9ZigJFxYz3jjZiKETlK00RwQCco2id6aP7HahNJQOjwurikRSJX7oR9BEhAQLtiKNLSKju5WCKsq7TpxBb0OEaabEXJfS5CyBFyWT+YfHb0E7g3w+l4aZ344t1MulsCjAGROGX7Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+qRYErZuh/5nu8DU8GvOWimxZn4aHpAYt1U1K8bZhzY=;
- b=wG5glbCZPhNiu1kRZPZQLBF3kngdmKmD2H8LMY/WpHZzWwNMt05Y1gEkO2HyP/4gjg7nT4vPONaiK2iMHLw94595H+6mpZ99RQgqX9DSU9kdvlnA7eQsuwvMnVRf/yj+uuXCG8VxugqO34sdXH1ePN24g6HRdCpH6lo7a2AT3GwcaE/YaYRz1nzKRuVc4G1ACS2sfcvUZRw7nH7E5tu3JDPl8Dl09mexrV7FWZEx2kGaUIsEAidFU8e37HiK0ka8E1DWI63GhkvrLubLDJjRb+hWavPsJaYIdmO8EiCf2dLZAOL1MqcgIu8faFeSIn2/qJIgUKPhY3vE9gVVcug7ig==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+qRYErZuh/5nu8DU8GvOWimxZn4aHpAYt1U1K8bZhzY=;
- b=Rn0dzO4lIF2Z/3qEt3AcPsLhpxmX39HtdxyPp5qp6/1+p1qJoa06/DARC8dsSnChTdP81TUDSJD8IY9FHbOGVam91haFNabjy/0GKgAVlQ/G+90Aeg3+DTHswSXj8SOwuE/SsAYoNQ02yybE9skRxa1mMT+8sdgb+/T8Or9SU1I=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
- by VI0PR04MB10210.eurprd04.prod.outlook.com (2603:10a6:800:245::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.26; Tue, 4 Mar
- 2025 14:59:10 +0000
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a%6]) with mapi id 15.20.8489.025; Tue, 4 Mar 2025
- 14:59:10 +0000
-Message-ID: <cd001ccb-41a8-4204-8945-8ea00006ef0c@cherry.de>
-Date: Tue, 4 Mar 2025 15:59:09 +0100
+	id 1tpTk5-000000056Gk-0NX0;
+	Tue, 04 Mar 2025 14:59:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1741100371;
+	bh=9HyvFC1aYme/RE3vNGSw0sgKg28mD1z9kYUKkFIiyxM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BAOf+MdmjNQkuO6XVmZbYvjFtPzDoVUkHmJ1ScRZt5kzyXivP8i9Zp34UBSUCVJfy
+	 lCr2algJccz8KqhxZub5KBIPIOtHFOPEKGJuvDB/GmYeZFfPuWcQ5AU73hNIngyWEW
+	 9uHvEr3MshsNsWznMkgi9/VFJ37wdP4MLuY//CImaB2yyD1sM+/GFOiTfDEWpZdWAw
+	 +5I0nwCU4vlGjY2pJSNwu5wWL/KAjc8zlDCg0FqbU1ZSkxhh0jszO9tAkv71DJ41wr
+	 knC/SRFiaQT/d5YGvgO3xDyVsyz5P7oOpFP0r4SMGSKiuHtmIgGsS++PwvukBKRlGJ
+	 aah2Yh6fcfKNw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9A37B17E0A4E;
+	Tue,  4 Mar 2025 15:59:30 +0100 (CET)
+Message-ID: <10163a0b-5865-4088-b38b-6c5680548fc4@collabora.com>
+Date: Tue, 4 Mar 2025 15:59:30 +0100
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/3] drm/rockchip: lvds: Hide scary error messages on
- probe deferral
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: andy.yan@rock-chips.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Heiko Stuebner <heiko.stuebner@cherry.de>
-References: <20250304124418.111061-1-heiko@sntech.de>
- <20250304124418.111061-3-heiko@sntech.de>
+Subject: Re: [v2,1/2] memory/mediatek: Add an interface to get current DDR
+ data rate
+To: Crystal Guo <crystal.guo@mediatek.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com,
+ kernel test robot <lkp@intel.com>
+References: <20250207014437.17920-1-crystal.guo@mediatek.com>
+ <20250207014437.17920-2-crystal.guo@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <20250304124418.111061-3-heiko@sntech.de>
+In-Reply-To: <20250207014437.17920-2-crystal.guo@mediatek.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR0P281CA0059.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:49::7) To AS8PR04MB8897.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::20)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|VI0PR04MB10210:EE_
-X-MS-Office365-Filtering-Correlation-Id: d07d5766-f900-4413-324d-08dd5b2d1ec8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bElYWlBta0VZTkpvMGlhMjJUbmRQbEdaLzBaNWlZU3liekxZamVJQ0pQbG0v?=
- =?utf-8?B?QmdtQWpTSy9kb1FMWGNuaDZMdSt6ZmtQMHRYQ1dRdWsvQ01SaGhIQU9XcWNE?=
- =?utf-8?B?RDRNRFdhZDVPS1YzeVova2preUdDMFAzU3haV1c1MmQyZ3JibUFwdEdMbXlu?=
- =?utf-8?B?RGxxdzZNdDB1QkExK0N5Tnd3ZldNeDVFTGIwZ04yamZZdzZMc2Fmb3l4VXpy?=
- =?utf-8?B?bkIrQ0c2bmp2MVdjdjBjWkNtYnpmSUJrODNyT3R4UGFWZDh2alNqV3VJUGNE?=
- =?utf-8?B?V0FuZ2ptVlh5dnpWNDNmaS9BUXdhMEthS1NXMEFZK3NycUV5SmU4R0Y5cE9y?=
- =?utf-8?B?aUJ5ck91anJHSXNGNHdmbEFqeE1aTm1uRVhUT2lKY085RVJ6bHNrWklsMnMx?=
- =?utf-8?B?ZWlFbmNFY0tBVlB3djI3N2lCUDZhV2pGWEg1Rk0xWHljb01wRmMxd0s2MGlu?=
- =?utf-8?B?QXFEVWJjYjk0dGlmT3AxUHFDMDV3Y3d6bGgxakxIc1hhdjVJNVpjbXpLcWIz?=
- =?utf-8?B?bTdQT0xzNDZnOFFSWG90bXJuVGEvd0pXK0o1dXFQb1pydndkWVBqNWlxKy9u?=
- =?utf-8?B?Nis2SXBqWG9YVi9FemtLRTJGNGNCdzlEemtlcU1ENmJMOXk0TWpmdUVHMG05?=
- =?utf-8?B?RDZ5czZvNTFVMTBzNWdpMVF4NnQ4cVlIMVFpNW9jQUtFU2l0TFRyeEpydGVS?=
- =?utf-8?B?aGR3UEd6NWtFb0tlelpVQmpLbmJUUnpxWHQ2dzJXZjhFd0lUV1lHaFRQSHZ6?=
- =?utf-8?B?dDE0L2ZvSzlBNW1nQ01Uei8rR0owK0w4MXptYi9iWXpvL05wbVM5Y2E5cjlS?=
- =?utf-8?B?VnkwV0djTXh5S0RTeTlJNGl3eGpoSzdDZ1VQZm8ydm93ekNyaHdHa2F2WVNR?=
- =?utf-8?B?dmhkajhHbERkU0h0TU5uam1UWWF4dyt6dy9OTk83N1VLa0djOUZMUzBNdHdG?=
- =?utf-8?B?UGhVeVdpS1VMOW9NbWhKVGdacHR1blBwQXlvbkhtL1ZuTG5iN2pIeEJOaGZC?=
- =?utf-8?B?TXRvTWRFREIyekI3Y3htTE5PR2ZORk1RZnhNajhMdjhuSGE3ZWRWWUVHbUVm?=
- =?utf-8?B?djNoTWhMalpSVU9xUmNsR1JBdGlpSnNhRXA1SU05Tmp5K3d3SmNVSmhIYzRI?=
- =?utf-8?B?dnpCVWwxSHZVKzdJT1d1OStWYU5mamN5eE5YNlAvRE02dVExSTcyT3ExTWJF?=
- =?utf-8?B?b1pEZi9aVFQyVWxQb1NTTnpuSVpjS0M0NlBhVnJRS2lUQTM3VnRtYWhsWVhj?=
- =?utf-8?B?Ky92b1ArbjhkcGJDR3dTeURwYTdCbFBzems2bE9qeWNhaHdzek1jQkkxZXdC?=
- =?utf-8?B?d0dnVk4wZ1RzcG5mNjBpV2FWeGp0VnZnTDA0WTk4UjNXL0ZlMnpVSm5oRnVk?=
- =?utf-8?B?ejdTL0NOeWl0YU95aEhJeWJ6VWpCUHYzblE3NGhEVllMMFQrK1BzMmxtSm91?=
- =?utf-8?B?SVl4Y2g3bmdPaWZIa0Rva3JvSCt5UkI5dzJKaytkQU9Rem1PTkwvSUNkRTBk?=
- =?utf-8?B?Qng1ZzNYbVdFeU1UbU15Rlg3UlF6cGh2Y2VaTE5Gd293bytnMnRiaWlpLzhv?=
- =?utf-8?B?MFh2VldmSDg3UFlOeHFNck5peWFWK0dFaVBraWFFbUhSeGNBcWdqWDFRcy8y?=
- =?utf-8?B?OW5KQ1I1NW51OXROMGdjYjdqTnMwVnc0anhxT2UxQzNSQ0N3Z1cySzcxU0s5?=
- =?utf-8?B?STlOTjdvalI1eERoTTVrWGtZN0xQMnZEcmNGY0pLT0xzVzZYWVRGVi9KNkNl?=
- =?utf-8?B?ZEZSTTE0bnhqbUxYNlpLS0JtbXJ2bzF3c21VNUl6akNYVHlxTDV5Q2JXS3p6?=
- =?utf-8?B?RkY0NmQ3cS9zL2puVGdDSHZIemtQZklxdHdZWnBIM1ZRRnRmNkdLbTZEWEFO?=
- =?utf-8?Q?vCq4YMf+UofDB?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UDEzZlZUNEdMb1hqSEpFMnNBQitEc0ROM1BUaFBob2l6L0xuRzJxQk5pWHJK?=
- =?utf-8?B?b2tHb2xObitlN1gvRGQ2a1p1TFVFL2ZoZzJhdzFuUG1UVHppRjJrRzNxS2pL?=
- =?utf-8?B?bk1xVTA3NFE2NHhFWDB5OVF3Rzhod0NVU21PMzA3cWRnajI4a2htTm5hbldT?=
- =?utf-8?B?U2I5cTM4c05pRFBhdHNhUkQ0bVNQQnhXSVZDTmQ0NE8weFVCWGFNanFRdVdL?=
- =?utf-8?B?M3RaU2F2MXdQYWRRbU50WkwzaWpOcVZ3am9EZTFsY1ROYllEZ25VdEk2NDhw?=
- =?utf-8?B?M0JVSHVhR2I1T1IrVGxKYlp3dDBiYmxXZnhyYW9lYitlRXJBT2I1Zk9QNWxu?=
- =?utf-8?B?V2JNbDN6SmtVYXpVbDd4eE9ZTDUzOStidlUvc3J4YjR3b1RUVWhrV3NuWmxL?=
- =?utf-8?B?N09ubWlkNGhnSjFhcVhRK2RqUW91M1pmcU1kSWJSQTdleldmTHNNRUFpblNJ?=
- =?utf-8?B?bnFUMHk4YTF6TVp2dGlNc0Z2VCtLM1RnMnNpUHlNeGtWZ04zNXl4aG5kWFpq?=
- =?utf-8?B?RmhaR1ZaUWVPTkV1Wm16aFFBdEN0RHFhL2xpd28yN05lUDMyQ3FUSzl2dy9S?=
- =?utf-8?B?cWtjZ2srZFFVOElLQUhNVEQ0b0RTdFNMR0JtR0tOSWZ1SGZSNVUyOTB5a0pt?=
- =?utf-8?B?L1VzT3N1eWkyWUlmc2NLd3k0T1d1c2psc1pTelRhNE9IWkxCcU1ieXQydHlj?=
- =?utf-8?B?SjNjMXRuTjBzYm4zRUNQNlRPeVdhUk9hM1ZlVVg2NllWUUZRUFNnS0N1cUIz?=
- =?utf-8?B?M1piQUR5Z0VmdXo2SEprT2pXTURNT29zS2QxcmZIZlNyQk9WU0dNUTR1aGxy?=
- =?utf-8?B?ZkE2R1BzZnFnZ0FtSFFPY3hPeElGMVJsVUFsR2tVOERhbHdWYk41T3JKVkV1?=
- =?utf-8?B?VGZoUlFmRnVjRzBVTmFrUjZaWWxETm5rcU5LRTQ0Z20yUFNJVWlnVit2ZG5m?=
- =?utf-8?B?YVh1YlNDOTBQZU5vMVQ5eXJrMVR1WGJDSkMrMXdCcEVFeGxOOWRGWGg4OFdX?=
- =?utf-8?B?WG12QTlpaE0vNGxCS1V3cEoyc21JckF2MC83RGJzeElzUkYzQnVMd1M0dkxy?=
- =?utf-8?B?bXZlYmp5SHlMT05CbjIycDNhdjVXeFh0ZFFnT1lHNnV5Q0VjY3ZhbXFQQ3gw?=
- =?utf-8?B?TmJURURvVXN1VDhlZDJFRWczRjEwT3crL29CbGhNZDBBR0hpVjlNUElkVXRt?=
- =?utf-8?B?Sm9QblpEaVNSM1kwSDRzSkI3Mmt2TnFOYXQ3SDBIRFlacGtjUlJKWk0yaWFC?=
- =?utf-8?B?UnEyWEZZcjE1SjJVRk9RSFBKNW9tVHZIdjJCbkxJNVhlaFl3dnZHRmtZOTRw?=
- =?utf-8?B?U1lHUk1Rc3h0aC9UR3JTd1pydm4zdDcxOGticnBobTVYanZZR09yZFRkSGtn?=
- =?utf-8?B?cnRoc2lnakVCNWtYK2JDcXpJOERJWDd6SkRtU0wrQkIxSzlvRlF6YmpwbkNY?=
- =?utf-8?B?bU1CaVJ3ZjU0Rys4dmFRanVYQ0MwajV6WmxpTEYxS3RGR2dGVVNKdlBVOHU4?=
- =?utf-8?B?MG8yZWVQRTZ1aUR4eU0zMG12ZTZsLzFmeGljNzUxWmFBTCtPSDlaaDFyMTZJ?=
- =?utf-8?B?NlN5N1NadSs3a3IzUFE3L0ZERXNWeGs1NnFqcDBxZnlpSG53dHd4Y0ZvaGFw?=
- =?utf-8?B?Q0JyRG9vREFHb1BKaGRmb0MyRWhnYTc2YjhMdXVFYlZRVjJJaTVlYmZ2Qkxu?=
- =?utf-8?B?M1hDSDUzK050bmUyeVNyOXEzY1loU0Y0UzFTeW03RmZheUs3VkNtdGw5bEVy?=
- =?utf-8?B?OUtSbmR2ZHJxeWVUR1hKYk1zRThvV1NRMlFqbzVnNUJKVlE0R1RCV2N3NGhH?=
- =?utf-8?B?bTVyaGRNNkRTa0c5djRsbzE5OHNQY2duZGU2enNjT2FXVVZqL1o3d2lVem1I?=
- =?utf-8?B?NHh6SVZ3enJQV3NUUmRQejF2S2NjM3hldnZPNkFHdzRMenNNVW56ai9Ib0ZN?=
- =?utf-8?B?YXVoMU1HS3hRTmlYQ3pmL1RZQnUyeXFwYzBJS3ZoU1lCM0pUbUlyL3MyZFd1?=
- =?utf-8?B?Y1FITlVQOWg1ZTF2SDI3V1VMcHJHeS81Z1gvOHpDUEd6T1BjRG9uZVp2aS9k?=
- =?utf-8?B?N3NoTzY3TmlXcFBscmNlMzRrQk5LdVBXUWJsRUUzUXZwT2JEbUhxUzc4R2FD?=
- =?utf-8?B?d1cxNW1QV3NvTVNncDhWU0JvU3hmVEgzZjZwMzkvSHMvSFJCUTJoaVVuRFp4?=
- =?utf-8?B?WHc9PQ==?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: d07d5766-f900-4413-324d-08dd5b2d1ec8
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2025 14:59:10.7157
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jeHP3RCe0DjsSw+3PIw8cjz94txdyuJFmnhdz6yJGNG280TBwzeh43tvwEvl5ngIL3JRjOPmUb9SoO5N8z1e83uAQXxBwPhJb2e9xPfr0bQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10210
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_065917_397763_1D5CAA8B 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20250304_065933_312856_EB6CDA08 
+X-CRM114-Status: GOOD (  29.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,28 +80,336 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+Il 07/02/25 02:42, Crystal Guo ha scritto:
+> Add MediaTek DRAMC driver to provide an interface that can
+> obtain current DDR data rate.
+> 
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202412210955.FvO0Pee3-lkp@intel.
+> com/
+> Signed-off-by: Crystal Guo <crystal.guo@mediatek.com>
+> ---
+>   drivers/memory/Kconfig              |   1 +
+>   drivers/memory/Makefile             |   1 +
+>   drivers/memory/mediatek/Kconfig     |  21 +++
+>   drivers/memory/mediatek/Makefile    |   2 +
+>   drivers/memory/mediatek/mtk-dramc.c | 196 ++++++++++++++++++++++++++++
+>   5 files changed, 221 insertions(+)
+>   create mode 100644 drivers/memory/mediatek/Kconfig
+>   create mode 100644 drivers/memory/mediatek/Makefile
+>   create mode 100644 drivers/memory/mediatek/mtk-dramc.c
+> 
+> diff --git a/drivers/memory/Kconfig b/drivers/memory/Kconfig
+> index c82d8d8a16ea..b1698549ff81 100644
+> --- a/drivers/memory/Kconfig
+> +++ b/drivers/memory/Kconfig
+> @@ -227,5 +227,6 @@ config STM32_FMC2_EBI
+>   
+>   source "drivers/memory/samsung/Kconfig"
+>   source "drivers/memory/tegra/Kconfig"
+> +source "drivers/memory/mediatek/Kconfig"
+>   
+>   endif
+> diff --git a/drivers/memory/Makefile b/drivers/memory/Makefile
+> index d2e6ca9abbe0..c0facf529803 100644
+> --- a/drivers/memory/Makefile
+> +++ b/drivers/memory/Makefile
+> @@ -27,6 +27,7 @@ obj-$(CONFIG_STM32_FMC2_EBI)	+= stm32-fmc2-ebi.o
+>   
+>   obj-$(CONFIG_SAMSUNG_MC)	+= samsung/
+>   obj-$(CONFIG_TEGRA_MC)		+= tegra/
+> +obj-$(CONFIG_MEDIATEK_MC)	+= mediatek/
+>   obj-$(CONFIG_TI_EMIF_SRAM)	+= ti-emif-sram.o
+>   obj-$(CONFIG_FPGA_DFL_EMIF)	+= dfl-emif.o
+>   
+> diff --git a/drivers/memory/mediatek/Kconfig b/drivers/memory/mediatek/Kconfig
+> new file mode 100644
+> index 000000000000..3f238e0d9647
+> --- /dev/null
+> +++ b/drivers/memory/mediatek/Kconfig
+> @@ -0,0 +1,21 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +config MEDIATEK_MC
+> +	bool "MediaTek Memory Controller support"
+> +	help
+> +	  This option allows to enable MediaTek memory controller drivers,
+> +	  which may include controllers for DRAM or others.
+> +	  Select Y here if you need support for MediaTek memory controller.
+> +	  If you don't need, select N.
+> +
+> +if MEDIATEK_MC
+> +
+> +config MTK_DRAMC
+> +	tristate "MediaTek DRAMC driver"
+> +	default y
+> +	help
+> +	  This option selects the MediaTek DRAMC driver, which provides
+> +	  an interface for reporting the current data rate of DRAM.
+> +	  Select Y here if you need support for the MediaTek DRAMC driver.
+> +	  If you don't need, select N.
+> +
+> +endif
+> diff --git a/drivers/memory/mediatek/Makefile b/drivers/memory/mediatek/Makefile
+> new file mode 100644
+> index 000000000000..a1395fc55b41
+> --- /dev/null
+> +++ b/drivers/memory/mediatek/Makefile
+> @@ -0,0 +1,2 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +obj-$(CONFIG_MTK_DRAMC)		+= mtk-dramc.o
+> diff --git a/drivers/memory/mediatek/mtk-dramc.c b/drivers/memory/mediatek/mtk-dramc.c
+> new file mode 100644
+> index 000000000000..d452483a98ce
+> --- /dev/null
+> +++ b/drivers/memory/mediatek/mtk-dramc.c
+> @@ -0,0 +1,196 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c) 2025 MediaTek Inc.
+> + */
+> +#include <linux/bitops.h>
+> +#include <linux/bitfield.h>
+> +#include <linux/device.h>
+> +#include <linux/io.h>
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_address.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/printk.h>
+> +
+> +#define POSDIV_PURIFY	BIT(2)
+> +#define PREDIV		7
+> +#define REF_FREQUENCY	26
 
-On 3/4/25 1:44 PM, Heiko Stuebner wrote:
-> From: Heiko Stuebner <heiko.stuebner@cherry.de>
-> 
-> Commit 52d11c863ac9 ("drm/rockchip: lvds: do not print scary message when
-> probing defer") already started hiding scary messages that are not relevant
-> if the requested supply just returned EPROBE_DEFER, but there are more
-> possible sources - like the phy.
-> 
-> So modernize the whole logging in the probe path by replacing the
-> remaining deprecated DRM_DEV_ERROR with appropriate dev_err(_probe)
-> and drm_err calls.
-> 
-> The distinction here is that all messages talking about mishaps of the
-> lvds element use dev_err(_probe) while messages caused by interaction
-> with the main Rockchip drm-device use drm_err.
-> 
-> Reviewed-by: Andy Yan <andy.yan@rock-chips.com>
+REF_FREQUENCY should be platform data, not a definition, as this is
+different in other SoCs.
 
-Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+> +#define SHUFFLE_OFFSET	0x700
+> +
+> +/*--------------------------------------------------------------------------*/
+> +/* Register Offset                                                          */
+> +/*--------------------------------------------------------------------------*/
+> +#define DPHY_DVFS_STA		0x0e98
+> +#define APHY_PHYPLL2		0x0908
+> +#define APHY_CLRPLL2		0x0928
+> +#define APHY_PHYPLL3		0x090c
+> +#define APHY_CLRPLL3		0x092c
+> +#define APHY_PHYPLL4		0x0910
+> +#define APHY_ARPI0		0x0d94
+> +#define APHY_CA_ARDLL1		0x0d08
+> +#define APHY_B0_TX0		0x0dc4
 
-Thanks!
-Quentin
+Aren't those also SoC-dependant?
+
+enum mtk_dramc_reg_index {
+	DRAMC_DPHY_DVFS_STA,
+	DRAMC_APHY_SHU_PHYPLL2,
+	....etc
+}
+
+static const u16 mtk_dramc_regs_mt8195[] = {
+	[DRAMC_DPHY_DVFS_STA] = 0x50c, /* ddrphy_config_NAO */
+	[DRAMC_APHY_SHU_PHYPLL2] = 0x704,
+	[DRAMC_APHY_SHU_CLRPLL2] = 0x724,
+	[DRAMC_APHY_SHU_PHYPLL3] = 0x708,
+	[DRAMC_APHY_SHU_CLRPLL3] = 0x728,
+	[DRAMC_APHY_SHU_PHYPLL4] = 0x70c,
+	...etc
+}
+
+static const u16 mtk_dramc_regs_mt8196[] = {
+	[DRAMC_DPHY_DVFS_STA] = 0xe98, /* ddrphy_config_misc */
+	[DRAMC_APHY_SHU_PHYPLL2] = 0x908,
+	[DRAMC_APHY_SHU_CLRPLL2] = 0x928,
+	.... etc
+}
+
+> +
+> +/*--------------------------------------------------------------------------*/
+> +/* Register Mask                                                            */
+> +/*--------------------------------------------------------------------------*/
+> +#define DPHY_DVFS_SHU_LV	GENMASK(15, 14)
+> +#define DPHY_DVFS_PLL_SEL	GENMASK(25, 25)
+> +#define APHY_PLL2_SDMPCW	GENMASK(18, 3)
+> +#define APHY_PLL3_POSDIV	GENMASK(13, 11)
+> +#define APHY_PLL4_FBKSEL	GENMASK(6, 6)
+> +#define APHY_ARPI0_SOPEN	GENMASK(26, 26)
+> +#define APHY_ARDLL1_CK_EN	GENMASK(0, 0)
+> +#define APHY_B0_TX0_SER_MODE	GENMASK(4, 3)
+
+And those masks should also be platform data, as those are also different
+in other SoCs.
+
+> +
+> +static unsigned int read_reg_field(void __iomem *base, unsigned int offset, unsigned int mask)
+> +{
+> +	unsigned int val = readl(base + offset);
+> +	unsigned int shift = __ffs(mask);
+> +
+> +	return (val & mask) >> shift;
+> +}
+> +
+> +struct mtk_dramc_pdata {
+> +	unsigned int fmeter_version;
+
+u8 fmeter_version;
+u8 ref_freq_mhz;
+const u16 *regs;
+
+...etc etc
+
+
+> +};
+> +
+> +struct mtk_dramc_dev_t {
+> +	void __iomem *anaphy_base;
+> +	void __iomem *ddrphy_base;
+> +	const struct mtk_dramc_pdata *pdata;
+> +};
+> +
+> +static int mtk_dramc_probe(struct platform_device *pdev)
+> +{
+> +	struct mtk_dramc_dev_t *dramc;
+> +	const struct mtk_dramc_pdata *pdata;
+> +	int ret;
+> +
+> +	dramc = devm_kzalloc(&pdev->dev, sizeof(struct mtk_dramc_dev_t), GFP_KERNEL);
+> +	if (!dramc)
+> +		return dev_err_probe(&pdev->dev, -ENOMEM, "Failed to allocate memory\n");
+> +
+> +	pdata = of_device_get_match_data(&pdev->dev);
+> +	if (!pdata)
+> +		return dev_err_probe(&pdev->dev, -EINVAL, "No platform data available\n");
+> +
+> +	dramc->pdata = pdata;
+> +
+> +	dramc->anaphy_base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(dramc->anaphy_base)) {
+> +		ret = PTR_ERR(dramc->anaphy_base);
+> +		return dev_err_probe(&pdev->dev, ret, "Unable to map DDRPHY NAO base\n");
+> +	}
+> +
+> +	dramc->ddrphy_base = devm_platform_ioremap_resource(pdev, 1);
+> +	if (IS_ERR(dramc->ddrphy_base)) {
+> +		ret = PTR_ERR(dramc->ddrphy_base);
+> +		return dev_err_probe(&pdev->dev, ret, "Unable to map DDRPHY AO base\n");
+> +	}
+> +
+> +	platform_set_drvdata(pdev, dramc);
+> +	return 0;
+> +}
+> +
+> +static unsigned int mtk_fmeter_v1(struct mtk_dramc_dev_t *dramc)
+> +{
+> +	unsigned int shu_level, pll_sel, offset;
+> +	unsigned int sdmpcw, posdiv, ckdiv4, fbksel, sopen, async_ca, ser_mode;
+> +	unsigned int perdiv_freq, posdiv_freq, vco_freq;
+> +	unsigned int final_rate;
+> +
+> +	shu_level = read_reg_field(dramc->ddrphy_base, DPHY_DVFS_STA, DPHY_DVFS_SHU_LV);
+> +	pll_sel = read_reg_field(dramc->ddrphy_base, DPHY_DVFS_STA, DPHY_DVFS_PLL_SEL);
+> +	offset = SHUFFLE_OFFSET * shu_level;
+> +
+> +	sdmpcw = read_reg_field(dramc->anaphy_base,
+> +				((pll_sel == 0) ? APHY_PHYPLL2 : APHY_CLRPLL2) + offset,
+> +				APHY_PLL2_SDMPCW);
+> +	posdiv = read_reg_field(dramc->anaphy_base,
+> +				((pll_sel == 0) ? APHY_PHYPLL3 : APHY_CLRPLL3) + offset,
+> +				APHY_PLL3_POSDIV);
+> +	fbksel = read_reg_field(dramc->anaphy_base, APHY_PHYPLL4 + offset, APHY_PLL4_FBKSEL);
+> +	sopen = read_reg_field(dramc->anaphy_base, APHY_ARPI0 + offset, APHY_ARPI0_SOPEN);
+> +	async_ca = read_reg_field(dramc->anaphy_base, APHY_CA_ARDLL1 + offset, APHY_ARDLL1_CK_EN);
+> +	ser_mode = read_reg_field(dramc->anaphy_base, APHY_B0_TX0 + offset, APHY_B0_TX0_SER_MODE);
+> +
+> +	ckdiv4 = (ser_mode == 1) ? 1 : 0;
+> +	posdiv &= ~(POSDIV_PURIFY);
+> +
+> +	perdiv_freq = REF_FREQUENCY * (sdmpcw >> PREDIV);
+
+s/perdiv/prediv/g
+
+> +	posdiv_freq = (perdiv_freq >> posdiv) >> 1;
+> +	vco_freq = posdiv_freq << fbksel;
+> +	final_rate = vco_freq >> ckdiv4;
+> +
+
+there's also one case in which `final_rate >>= 2`... please check if it is
+applicable to this driver (it should).
+
+Cheers,
+Angelo
+
+> +	if (sopen == 1 && async_ca == 1)
+> +		final_rate >>= 1;
+> +
+> +	return final_rate;
+> +}
+> +
+> +/*
+> + * mtk_dramc_get_data_rate - calculate DRAM data rate
+> + *
+> + * Returns DRAM data rate (MB/s)
+> + */
+> +static unsigned int mtk_dramc_get_data_rate(struct device *dev)
+> +{
+> +	struct mtk_dramc_dev_t *dramc_dev = dev_get_drvdata(dev);
+> +
+> +	if (!dramc_dev) {
+> +		dev_err(dev, "DRAMC device data not found\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (dramc_dev->pdata) {
+> +		if (dramc_dev->pdata->fmeter_version == 1)
+> +			return mtk_fmeter_v1(dramc_dev);
+> +
+> +		dev_err(dev, "Unsupported fmeter version\n");
+> +		return -EINVAL;
+> +	}
+> +	dev_err(dev, "DRAMC platform data not found\n");
+> +	return -EINVAL;
+> +}
+> +
+> +static ssize_t dram_data_rate_show(struct device *dev,
+> +				   struct device_attribute *attr, char *buf)
+> +{
+> +	return snprintf(buf, PAGE_SIZE, "DRAM data rate = %u\n",
+> +			mtk_dramc_get_data_rate(dev));
+> +}
+> +
+> +static DEVICE_ATTR_RO(dram_data_rate);
+> +
+> +static struct attribute *mtk_dramc_attrs[] = {
+> +	&dev_attr_dram_data_rate.attr,
+> +	NULL
+> +};
+> +ATTRIBUTE_GROUPS(mtk_dramc);
+> +
+> +static const struct mtk_dramc_pdata dramc_pdata_mt8196 = {
+> +	.fmeter_version = 1
+> +};
+> +
+> +static const struct of_device_id mtk_dramc_of_ids[] = {
+> +	{ .compatible = "mediatek,mt8196-dramc", .data = &dramc_pdata_mt8196 },
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(of, mtk_dramc_of_ids);
+> +
+> +static struct platform_driver mtk_dramc_driver = {
+> +	.probe = mtk_dramc_probe,
+> +	.driver = {
+> +		.name = "mtk_dramc_drv",
+> +		.of_match_table = mtk_dramc_of_ids,
+> +		.dev_groups = mtk_dramc_groups,
+> +	},
+> +};
+> +
+> +module_platform_driver(mtk_dramc_driver);
+> +
+> +MODULE_AUTHOR("Crystal Guo <crystal.guo@mediatek.com>");
+> +MODULE_DESCRIPTION("MediaTek DRAM Controller Driver");
+> +MODULE_LICENSE("GPL");
+
 
