@@ -4,83 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E16CCC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 09:10:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDC17C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 09:11:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iTG8fxlmYXAlax6nSmeXc8A6YgmKjSnnFRoCzKTT16E=; b=dv+TR/Bl+XfscIFMg9KN5oNycI
-	RbsfR4hjls0YII9oKd3TyxUCEyJ+cHCCIXuiVAvBVgC1hRmaDu8/M7IejKxi48fLFqlivCoSTLi7G
-	cCPPCXe2BKN9H0u+N8+J6PUqZrVbhms5IyonNPKUdWMn8L0Aa3TIRk0Thy5CD5cYb/dUSXHqJh1F8
-	ieTrhK3GzUQtbovfEJL3ivVqtRCuzehTY0tJTTSci33+9UX7J/DvNkKQ+ekSgE6BN4jKexfpw1LaI
-	Cydd3CsX43UYlz/phjh8kiN8+9y1HIzO7XddtrPh4DT3PW9JElX36ndlH04llLwDVeVeflYeyJ1Ui
-	oIWnqnqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tUJhQaYNJ+KP9IjzaIHtUMcbg4p7nFeoB9PoVn3AGzE=; b=zmBi0fWCIc3hIkWrTTbxgA6f0s
+	mbQ6a50p1wuvdvWiftFIUgjxGb/t/p8fA7YXkJS7v6D3lBxEcpYfMX9b9Ato2WsxL2LvpEG1CPd31
+	nP38OVcWb7eWchH3owp8CWkc6RiWm36rC7Re+aQ3E8WaAE4XqeR6tGLJqIY6OKLO2E4GcyMH58yok
+	6WrzuwcZ3HTKuQfidBQBWmMX/9Y5sgIH1aVjsuahbK8JGoNsBSbKw2tmG4769S3g2318tB+Ywu89c
+	jPs/onyVRoR67HfL7qrUtX1FslkzaSF0uWhj184OzWatuMiDBtwibKLWVGWztlrsz3yVZauuS9wPp
+	J62lNYxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOHn-00000003nd5-439G;
-	Tue, 04 Mar 2025 09:09:59 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1tpOJL-00000003nvN-39SI;
+	Tue, 04 Mar 2025 09:11:35 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOGC-00000003n5J-3RDe
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 09:08:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741079301; x=1772615301;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=GXuRz06hDfIRTVBK7Y7J5u3Fy/4jNuBeBSyafYInY64=;
-  b=C5YWoQqxrFlXBnJEqCviSGlZtU8sxMyRIAW943RjN6TT4Bi21kWkOoq+
-   AUEvs/KInq6bXX5ztwZpcNd8KE4QTpT2r2SAhUtiXcgziNnoQw58KBVZt
-   QZOAxmtwCGtrVetQKwwGQG7epPV9V4a+7ee+YMRP+fuCJqqO2FcMr4QVq
-   dPJq3kFf0bJ9rPzsyRKoj9IaM2H+9a1ZtMlRS8mYTtYOtgdthKrrF8OEZ
-   kA3eAi1Yxf96TABpxbzniUcw0/BiqmQWvZ7nCfCdyhXr3ktREU8hWxIhi
-   whQWkf8boBjYSuUUSpA1rcIZjjRx9Vq7PwEd3KwgG/2I3lkY2K050TRtT
-   Q==;
-X-CSE-ConnectionGUID: QmKNfZHoT8aZBeZ8NhQ3Qw==
-X-CSE-MsgGUID: ENxc/ytHS5WN8TNeEq9yNw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11362"; a="53391439"
-X-IronPort-AV: E=Sophos;i="6.13,331,1732608000"; 
-   d="scan'208";a="53391439"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Mar 2025 01:08:20 -0800
-X-CSE-ConnectionGUID: WsdSvD8kQSqq8xlLa15QJg==
-X-CSE-MsgGUID: wBNumz0fSaSG5Y1WNX0q2Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="119230033"
-Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
-  by orviesa008.jf.intel.com with ESMTP; 04 Mar 2025 01:08:16 -0800
-Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tpOG5-000JWI-26;
-	Tue, 04 Mar 2025 09:08:13 +0000
-Date: Tue, 4 Mar 2025 17:07:44 +0800
-From: kernel test robot <lkp@intel.com>
-To: Bartosz Golaszewski <brgl@bgdev.pl>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Michael Hennerich <michael.hennerich@analog.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mun Yew Tham <mun.yew.tham@intel.com>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pwm@vger.kernel.org, patches@opensource.cirrus.com,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org
-Subject: Re: [PATCH 02/15] gpio: adnp: use lock guards for the I2C lock
-Message-ID: <202503041612.G8O0Bdrg-lkp@intel.com>
-References: <20250303-gpiochip-set-conversion-v1-2-1d5cceeebf8b@linaro.org>
+	id 1tpOHP-00000003nWY-3O6J;
+	Tue, 04 Mar 2025 09:09:37 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-abf5f4e82caso475370166b.1;
+        Tue, 04 Mar 2025 01:09:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741079374; x=1741684174; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=tUJhQaYNJ+KP9IjzaIHtUMcbg4p7nFeoB9PoVn3AGzE=;
+        b=PHGsvk+FqIT+eoqWxZQ9Of4e1jcKrnr/Zqd8jixdb/nJiWsySsfOUz/GmiBIzfPBrs
+         rUR/+1r1MQWwhkiS+lLbMiTostvdJSmK9wtIXcHTCSf5Ox0Mywu5Cuizv61BKp3onXMK
+         CBGfZZUVw9jaoZ2pvm7XaCwASsqW4HhBUWPBXFeLxvXqnen+GFx0IADtd4QxqYE+sMzm
+         g3o5+cXZ0ZvNT0xTC8vKabiyPFETV4AKugtnC/ULA2hwqwCSQ+GbCmrj+dWgtT/b7vnd
+         PiFEpvYZIKJjxs2LbidrVajbyWYGaxrNSxzZ2LHKJptVP/1tm+ipRzuioOM0txtWshvh
+         5J8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741079374; x=1741684174;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=tUJhQaYNJ+KP9IjzaIHtUMcbg4p7nFeoB9PoVn3AGzE=;
+        b=sLKJy4GE2hZNuZohcWU6tbPA2ZWpZe0D1VtYcmdpCHYCEMZalDy2alPuFTHcBKpJBV
+         Kj7TCMPuYlrg7CwMQfXvY/E6c6L08+8AUeOQ46YMVJCI1vawSqLwBEEe+3p3ocCwurs2
+         oO8jHHqZlOt1gE4c4fVjMD96eYe2by3B287R0nqimXV1ydEb+b5QOqkf4aK8I3evNZYe
+         60QtKtifW6sEtJ9cK9CfJQZVLXyMQgoMMZ+yeU0SWvD5MjGs3IYQbXX6D3rNgiWvu8rv
+         +0IlLF9rhUOO/g9bK56wfg3t0btRcD11PkiK5oYBYGXWx0g8izWkfFHUBtpaQ2i6LYPd
+         KtcQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV5DtYsm9HIh58cIdlBGCV7vicC6PsYsWKxEMS4LrxK1y4RWdCkLy/1ebfyUTQGWPMcp2xpSCQi8Bkr3y9vT6FV@lists.infradead.org, AJvYcCX9lgIMrGGbkovaSPvbv++oWw4uR2RSkT2EJ4MW3J3bS9cWOPlJ7i+DMHFflC6RtAe/fusVSsp0Syn0@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsXXihlSQmAosAqY7Nnpsuc7+0ONZKaQbt6b58YO6qvH1QI9Dz
+	TQ4MP5tw25hUPw5WrSf7wum8blEGyTUG//QtAzpgtCRykvKnnc3S
+X-Gm-Gg: ASbGncvcM0RiJQC3Vuiqyt0kyigaUR2NhGrLkoN0Jz4ec3/yd7LzzMoSYdH9vPue6i5
+	HYpfEi+EfBs6geBpUkxtXGCwBlFbAqgw87CO8L8onn3dXwGV2higSmmKB4iC8c/6Ncuya4oIuv5
+	YfblnE7jEEQE0A2QUectIYMkEnLugKqGP66F6nmSH/XVLiIbCS89HhquiiZh50KojZZCghqIJYe
+	/llnkvWk7XPiP3bv7d2dYQrClTFUOnxQGentchRMQhmQwl94cZAn4gumyshFv6llhhiUJwwQSaK
+	0H6q5Tq+FHocCN6a5Yi5oyJAOnZd8XwgaRSp3ZcHPkO0Pk0pQqkbiR7Tzs0=
+X-Google-Smtp-Source: AGHT+IH6P2PZuxm+2sKzdyVK3yViDvKypolcGeIQSD9E5vIhDHGm27LOpDLzkoiZ0cOSnYMoTvPPYw==
+X-Received: by 2002:a17:907:9812:b0:ac1:f162:fb0d with SMTP id a640c23a62f3a-ac1f1631229mr242134566b.37.1741079373793;
+        Tue, 04 Mar 2025 01:09:33 -0800 (PST)
+Received: from [192.168.43.21] ([77.85.230.22])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abf75481eb4sm343379066b.83.2025.03.04.01.09.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 04 Mar 2025 01:09:33 -0800 (PST)
+Message-ID: <21460de5-76a0-4576-a7e6-f4873e40de48@gmail.com>
+Date: Tue, 4 Mar 2025 11:09:31 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250303-gpiochip-set-conversion-v1-2-1d5cceeebf8b@linaro.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/8] dt-bindings: phy: add
+ samsung,exynos2200-usbcon-phy schema file
+Content-Language: en-US
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
+ <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Abel Vesa <abel.vesa@linaro.org>,
+ linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250223122227.725233-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250223122227.725233-4-ivo.ivanov.ivanov1@gmail.com>
+ <20250224-curly-cyber-spaniel-efdc39@krzk-bin>
+ <a4f63721-d094-4eda-b68a-6ef62ff54680@gmail.com>
+ <c8184542-5dab-4403-bee4-867810397ae4@kernel.org>
+ <4502b578-96e6-49e0-8f3b-54f6e5640c55@gmail.com>
+ <354d6100-311f-44d7-b8a5-1fd671b651e3@kernel.org>
+ <9fb63a04-5b3d-40cc-b96f-eb4f297f307e@gmail.com>
+ <027decb4-3fa9-40a5-9cf4-65f9a69b4566@kernel.org>
+From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <027decb4-3fa9-40a5-9cf4-65f9a69b4566@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_010820_871128_0D9C318F 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20250304_010935_851432_35528D33 
+X-CRM114-Status: GOOD (  34.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,128 +113,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bartosz,
+On 3/4/25 09:21, Krzysztof Kozlowski wrote:
+> On 03/03/2025 18:18, Ivaylo Ivanov wrote:
+>> On 3/3/25 09:24, Krzysztof Kozlowski wrote:
+>>> On 02/03/2025 10:16, Ivaylo Ivanov wrote:
+>>>> On 2/25/25 10:11, Krzysztof Kozlowski wrote:
+>>>>> On 24/02/2025 11:48, Ivaylo Ivanov wrote:
+>>>>>> On 2/24/25 10:56, Krzysztof Kozlowski wrote:
+>>>>>>> On Sun, Feb 23, 2025 at 02:22:22PM +0200, Ivaylo Ivanov wrote:
+>>>>>>>> The Exynos2200 SoC has a USB controller PHY, which acts as an
+>>>>>>>> intermediary between a USB controller (typically DWC3) and other PHYs
+>>>>>>>> (UTMI, PIPE3). Add a dt-binding schema for it.
+>>>>>>>>
+>>>>>>>> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>>>>>>>> ---
+>>>>>>>>  .../phy/samsung,exynos2200-usbcon-phy.yaml    | 76 +++++++++++++++++++
+>>>>>>>>  1 file changed, 76 insertions(+)
+>>>>>>>>  create mode 100644 Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
+>>>>>>> You have undocumented dependencies which prevent merging this file.
+>>>>>>> First, dependencies have to be clearly expressed.
+>>>>>> They are, in the cover letter.
+>>>>> Where? I read it twice. Dependencies is the most important thing and
+>>>>> should scream at beginning of the cover letter, so if you bury them
+>>>>> somewhere deep it also would not matter - just like they were missing.
+>>>>>
+>>>>>>> Second, you should
+>>>>>>> rather decouple the code from header dependencies, otherwise this cannot
+>>>>>>> be merged for current release (just use clocks with long names, without IDs).
+>>>>>> Sure
+>>>>>>>> diff --git a/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
+>>>>>>>> new file mode 100644
+>>>>>>>> index 000000000..7d879ec8b
+>>>>>>>> --- /dev/null
+>>>>>>>> +++ b/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
+>>>>>>>> @@ -0,0 +1,76 @@
+>>>>>>>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>>>>>>>> +%YAML 1.2
+>>>>>>>> +---
+>>>>>>>> +$id: http://devicetree.org/schemas/phy/samsung,exynos2200-usbcon-phy.yaml#
+>>>>>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>>>>>>> +
+>>>>>>>> +title: Exynos2200 USB controller PHY
+>>>>>>>> +
+>>>>>>>> +maintainers:
+>>>>>>>> +  - Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>>>>>>>> +
+>>>>>>>> +description:
+>>>>>>>> +  Exynos2200 USB controller PHY is an intermediary between a USB controller
+>>>>>>>> +  (typically DWC3) and other PHYs (UTMI, PIPE3).
+>>>>>>> Isn't this the same as usbdrd phy? see: samsung,usb3-drd-phy.yaml
+>>>>>> It's not (I think). There's a few reasons I've decided to make this separate
+>>>>>> from the usb3-drd-phy bindings and exynos5-usbdrd driver:
+>>>>>>
+>>>>>> 1. This PHY does not provide UTMI and PIPE3 on its own. There's no tuning
+>>>>> USBDRD phy does not provide UTMI and PIPE on its own either if you look
+>>>>> at diagram - they call it phy controller.
+>>>> Ughm. What? So in most exynos cases, there's a combination of multiple phys?
+>>>>>> for them, and all that is needed from it is to disable HWACG, assert/
+>>>>>> deassert reset and force bvalid/vbusvalid. After that SNPS eUSB2
+>>>>>> initialization can be done and USB2 works. If the USBCON phy is not set
+>>>>>> up before the eUSB2 one, the device hangs, so there is definitely a
+>>>>>> dependancy between them. For PIPE3 we'd need to control the pipe3
+>>>>>> attaching/deattaching and then initialize the synopsys USBDP combophy.
+>>>>> Does it mean there is no USB DRD phy controller as before?
+>>>>>
+>>>>> Anyway the problem is you have DWC3 -> PHY -> PHY. Looks one phy too many.
+>>>> So...
+>>>>
+>>>> DWC3 -> USBDRD (USBCON) -> PHYs?
+>>> No, drop last phy. You just wrote the same as me - two phys, because
+>>> usbdrd is the phy. In all existing designs there is no such controllable
+>>> object from the point of view of operating system.
+>> What? Per my understanding, the phy property should refer to whatever is
+>> is connected to dwc3 UTMI. In this case it's the so-called USBDRD phy (called
+>> usbcon in downstream). Considering that the eUSB2 IP definitely also has UTMI
+>> that has to be connected to something, doesn't that mean we have clearly
+> The entire point is that eUSB2 is connected to DWC3, no? That's exactly
+> how it is done for example on Qualcomm SoC. Otherwise you claim that
+> DWC3 controls one phy, which controls another phy which controls UTMI...
 
-kernel test robot noticed the following build warnings:
+But where does the USBCON fit? Is it just a side controller? Why's it needed
+in the first place? This is what I don't understand.
 
-[auto build test WARNING on 9778568dede2166c7bd124d473f9ec365f782935]
+>
+>> separated hardware blocks? Now, I guess one could argue that this USBCON
+>> hardware block could be classified as a syscon. But I don't see the problem
+>> with the current binding description, nor the modelling, as it represents
+>> how the hardware is (unless I've gotten it completely wrong).
+> It is the first time you use argument that it represents how the
+> hardware is and this is what we actually disagree. It is not like that.
+> You do not have chain of phys. Just look at any USB 3.0 DRD DWC diagram
+> from any Samsung SoC: where would you squeeze these two phys in relation
+> to what is called there "USB 3.0 PHY" which would be the third phy (!!!).
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Bartosz-Golaszewski/gpio-74x164-use-new-line-value-setter-callbacks/20250303-212738
-base:   9778568dede2166c7bd124d473f9ec365f782935
-patch link:    https://lore.kernel.org/r/20250303-gpiochip-set-conversion-v1-2-1d5cceeebf8b%40linaro.org
-patch subject: [PATCH 02/15] gpio: adnp: use lock guards for the I2C lock
-config: x86_64-buildonly-randconfig-001-20250304 (https://download.01.org/0day-ci/archive/20250304/202503041612.G8O0Bdrg-lkp@intel.com/config)
-compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250304/202503041612.G8O0Bdrg-lkp@intel.com/reproduce)
+Yeah, my point was that it was different from any previous design. Now,
+I don't know if it's actually theoretically possible to design it like so. It's
+hard to just guess how the hardware is designed without having access
+to die shots, documentations or even just schematics.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202503041612.G8O0Bdrg-lkp@intel.com/
+Let's make it clear now, the changes your request are to document USBCON
+in the existing exynos binding, as well as to correct all explanations of how
+this block functions, right?
 
-All warnings (new ones prefixed by >>):
+Best regards,
+Ivaylo
 
->> drivers/gpio/gpio-adnp.c:241:8: warning: variable 'isr' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
-     241 |                         if (err < 0)
-         |                             ^~~~~~~
-   drivers/gpio/gpio-adnp.c:265:14: note: uninitialized use occurs here
-     265 |                 pending &= isr & ier;
-         |                            ^~~
-   drivers/gpio/gpio-adnp.c:241:4: note: remove the 'if' if its condition is always false
-     241 |                         if (err < 0)
-         |                         ^~~~~~~~~~~~
-     242 |                                 continue;
-         |                                 ~~~~~~~~
-   drivers/gpio/gpio-adnp.c:235:25: note: initialize the variable 'isr' to silence this warning
-     235 |                 u8 changed, level, isr, ier;
-         |                                       ^
-         |                                        = '\0'
->> drivers/gpio/gpio-adnp.c:245:8: warning: variable 'ier' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
-     245 |                         if (err < 0)
-         |                             ^~~~~~~
-   drivers/gpio/gpio-adnp.c:265:20: note: uninitialized use occurs here
-     265 |                 pending &= isr & ier;
-         |                                  ^~~
-   drivers/gpio/gpio-adnp.c:245:4: note: remove the 'if' if its condition is always false
-     245 |                         if (err < 0)
-         |                         ^~~~~~~~~~~~
-     246 |                                 continue;
-         |                                 ~~~~~~~~
-   drivers/gpio/gpio-adnp.c:241:8: warning: variable 'ier' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
-     241 |                         if (err < 0)
-         |                             ^~~~~~~
-   drivers/gpio/gpio-adnp.c:265:20: note: uninitialized use occurs here
-     265 |                 pending &= isr & ier;
-         |                                  ^~~
-   drivers/gpio/gpio-adnp.c:241:4: note: remove the 'if' if its condition is always false
-     241 |                         if (err < 0)
-         |                         ^~~~~~~~~~~~
-     242 |                                 continue;
-         |                                 ~~~~~~~~
-   drivers/gpio/gpio-adnp.c:235:30: note: initialize the variable 'ier' to silence this warning
-     235 |                 u8 changed, level, isr, ier;
-         |                                            ^
-         |                                             = '\0'
-   3 warnings generated.
+>
+> Best regards,
+> Krzysztof
 
-
-vim +241 drivers/gpio/gpio-adnp.c
-
-   225	
-   226	static irqreturn_t adnp_irq(int irq, void *data)
-   227	{
-   228		struct adnp *adnp = data;
-   229		unsigned int num_regs, i;
-   230	
-   231		num_regs = 1 << adnp->reg_shift;
-   232	
-   233		for (i = 0; i < num_regs; i++) {
-   234			unsigned int base = i << adnp->reg_shift, bit;
-   235			u8 changed, level, isr, ier;
-   236			unsigned long pending;
-   237			int err;
-   238	
-   239			scoped_guard(mutex, &adnp->i2c_lock) {
-   240				err = adnp_read(adnp, GPIO_PLR(adnp) + i, &level);
- > 241				if (err < 0)
-   242					continue;
-   243	
-   244				err = adnp_read(adnp, GPIO_ISR(adnp) + i, &isr);
- > 245				if (err < 0)
-   246					continue;
-   247	
-   248				err = adnp_read(adnp, GPIO_IER(adnp) + i, &ier);
-   249				if (err < 0)
-   250					continue;
-   251			}
-   252	
-   253			/* determine pins that changed levels */
-   254			changed = level ^ adnp->irq_level[i];
-   255	
-   256			/* compute edge-triggered interrupts */
-   257			pending = changed & ((adnp->irq_fall[i] & ~level) |
-   258					     (adnp->irq_rise[i] & level));
-   259	
-   260			/* add in level-triggered interrupts */
-   261			pending |= (adnp->irq_high[i] & level) |
-   262				   (adnp->irq_low[i] & ~level);
-   263	
-   264			/* mask out non-pending and disabled interrupts */
-   265			pending &= isr & ier;
-   266	
-   267			for_each_set_bit(bit, &pending, 8) {
-   268				unsigned int child_irq;
-   269				child_irq = irq_find_mapping(adnp->gpio.irq.domain,
-   270							     base + bit);
-   271				handle_nested_irq(child_irq);
-   272			}
-   273		}
-   274	
-   275		return IRQ_HANDLED;
-   276	}
-   277	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
