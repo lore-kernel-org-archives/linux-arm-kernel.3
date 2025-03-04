@@ -4,166 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0311EC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 23:30:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FB6EC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 23:44:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OYou3N35PhCOYtx4Ld/uaGKFWQt98y/q2GbA/qZ/5Is=; b=wI8yQMpLDwGvWLK3YcSuPiqXxV
-	KB0QXaFTE2xAYzG9yptSxJKhJs8M0WWW5QpIkXIERK1TZPy47Ce5Gor/jc7080p6+7BLfui59a+4u
-	PYx8KSxwvXhTdIqmnfoO/fGcRHMJCitLDH+tZNpgu9mYQDsUJntvF5kvBnzECUtWFR4DfV2/Do2ck
-	mslthAWN884UZVQGbJieYl8Db8hgEQr6M4ycu+VJrLuhQ0GkMAiS6tpVjNAwyzgItnP8h6BlzVy/j
-	MG5cXnQ5MTPLwImq8Jjvknqn2RxlDt4lTUvmUqtiUOjOA+kGb8Q3OxUqhHgIBaYOjkkgsSS+Mkyei
-	ZehttldA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2IOIxxPFP4GDDTx7VcfaGmRQ3L/x2sl/idlvIEr9qMo=; b=rf8bSIja0bpslpYk571XpOmzyB
+	UGVYjp99y0MAiRm1B9IZvDdKZOGirqwiKTtmIvlNTTQ3RJHh+XKh5d6A0B0VFTbQwu4YQ9EvtS06n
+	IDMSZXgPRAgzWPgqnnQ87r5XImhNqqdo4xcdSWUKcB3g1iICdk3NTcqNf3V5B48aMY6v7e6U3VZPB
+	RB5d2lM55uOAsYJgpyJ1XaR+UIGXxq3DlY+2pOrG82G0H5F6ne+sYEvaFtS9b0B2xMobb+ATK2gi/
+	1eT2fMN8XpwUfC+7QkFxbEb4183Z6QpKyZXjRhY4pZ4TFfmOip8JPUxEb8yoFfcePhbeOpZhnPip3
+	Ypdq6bJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpbhs-00000006WqG-1ADc;
-	Tue, 04 Mar 2025 23:29:48 +0000
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpad8-00000006OM9-1t5R
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 22:20:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qptUxtuiyliB0IHBf+YgkI0MorLTDfBnXcTi82Z+W0DMV9Poh+gCuKfrr56sP+69coO8m6qjlRd0oczKtBXR++WvhJb62KJjQI9U6upgZ0aJCgCVz0xxvP8xAu/SoQtNNnYhb6yaNpejMvRu4m4jI/0lP4Gz70hxjd8KG9w2mzZOITsm5ohEcFrxjHuEUgVChZaIi6q/p0iCr8pQyzap3gn0ng0s1ZVX3h2fOzru7vFyMjnErqwvjeRnGP81Qm1uccuH8o1JvM0VITeCdPJ/qCX4ukFGOQcmKJ1vzAQ+7c5gnJvevSR3/mT75WUQqiVw+YldzlLYRzvk5ouJF3HYxg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OYou3N35PhCOYtx4Ld/uaGKFWQt98y/q2GbA/qZ/5Is=;
- b=fYXGteuZaPGnfu04u59sHqTDgV0e52KgdkoLtq1JVCrAjs3sACJ9GeEea7+nMJr9jqEpYBJ37voXZY0HXPOssl2rp4lAfJXl0phfmuZ2kGuYUziBB5mbSKNXn1AufqdQtnACyPiiLtcj4U+16awZDV4U67EkZ4R3N8XYoVVGVq5vMaFALXwi7OzDbD+4V4zqMsuPurw7t+6cCK3RJrLL6GcJBbf25+RhVOmgkDwvW2gRyCyeJxzxN33asiV+pWDrxwR9JtxGi7BXB7qEOi8LqQWJ+KbN8vKmCNNCTqpZbDdleoJJkXoPSTACPCA/vJepfZn1rnyMjtq8hpTvF6W7UQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OYou3N35PhCOYtx4Ld/uaGKFWQt98y/q2GbA/qZ/5Is=;
- b=aQiWPhqB7AZXPnFz5t5hUBIL6z8QEAbER2ovwVWMPDt4GNukONNpBNtZoc4GxWC2s9aL6P9AK2TsRCsrhPZT+QYCtZWQe6AvZXIQyEqaHkwHqrxZB0shT8IEizi9Hn/VggemNitoKE87eACitXbpuuCuvZjex5dCmRLAjZmY0Xc=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- PH7PR01MB7931.prod.exchangelabs.com (2603:10b6:510:275::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8489.26; Tue, 4 Mar 2025 22:20:44 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%2]) with mapi id 15.20.8489.025; Tue, 4 Mar 2025
- 22:20:44 +0000
-From: Yang Shi <yang@os.amperecomputing.com>
-To: ryan.roberts@arm.com,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	Miko.Lenczewski@arm.com,
-	scott@os.amperecomputing.com,
-	cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [v3 PATCH 0/6] arm64: support FEAT_BBM level 2 and large block mapping when rodata=full
-Date: Tue,  4 Mar 2025 14:19:25 -0800
-Message-ID: <20250304222018.615808-1-yang@os.amperecomputing.com>
-X-Mailer: git-send-email 2.47.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SN7P222CA0014.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:124::8) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+	id 1tpbwO-00000006YMF-3Ttg;
+	Tue, 04 Mar 2025 23:44:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpahq-00000006P7R-0J28;
+	Tue, 04 Mar 2025 22:25:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A4AEB2F;
+	Tue,  4 Mar 2025 14:25:52 -0800 (PST)
+Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6FEDF3F5A1;
+	Tue,  4 Mar 2025 14:25:36 -0800 (PST)
+From: Andre Przywara <andre.przywara@arm.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	linux-mmc@vger.kernel.org,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	linux-watchdog@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	linux-phy@lists.infradead.org
+Subject: [PATCH v2 00/15] arm64: dts: allwinner: Add basic Allwinner A523 support
+Date: Tue,  4 Mar 2025 22:22:54 +0000
+Message-ID: <20250304222309.29385-1-andre.przywara@arm.com>
+X-Mailer: git-send-email 2.46.3
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|PH7PR01MB7931:EE_
-X-MS-Office365-Filtering-Correlation-Id: 95d43395-a70e-4b3f-d089-08dd5b6ace58
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?emNmYUkwNER3L0FDdm1wazdsa3lZTXQ5WG9EY3pKdnI3VWpqd0V2L3NqY2Nn?=
- =?utf-8?B?eU5vNUcxUHppaVpNV0cvN3lWZFJsSWFoK1o1WTJqUmR4a2toeTA3WVBkVEpo?=
- =?utf-8?B?dS8yN24yUFhPK0Nmb05Wc01vNUlQUEdaK1JhMHNwNEY1RUJSMzZSWHhQWWFm?=
- =?utf-8?B?RUdBTDcrYTBxSW1OMFQxSnlETGpCYTZDSVczM0NnanBPMDRHSGh1dEwxOWFH?=
- =?utf-8?B?L2RIb0FUa3pxcGxhK0ErM3V0Rjh3dzlnaFl4cEpzQy9VZHBJWFdzWXdBWUVn?=
- =?utf-8?B?VmNIY3hZOUZJZjAxNjRMbGQwME56bkRPdGJiTGRVWUZuMFdUaHZHOUQ0dHVZ?=
- =?utf-8?B?YTlPdDJmTWJDdHJqN2kzK2Y2MVJtejFlbFJBMS8wMXg5NEIrYjBhdzR1b2I3?=
- =?utf-8?B?Mk9iaGFkcEcwdSt2TU51OGFrQXYzaW9vUjlMb3BTR0J0VU4rTzAwOFZ4M0p6?=
- =?utf-8?B?M3p0SHBGd3dodzhHT3dkaFVJcTNTT1JuUFBheWNhc1FubUJCOFREbTUydVlI?=
- =?utf-8?B?UlplQlA0MFVhZUtud0Vud05mRDRPbW1EVXIwOTRQcS8yVmZZVGJiNDltV2Ra?=
- =?utf-8?B?MlNzN1hVelIwZlRqYnZwK1ZhUDhveFV2dFZORUZMTEdWd2pCck5HbWlFR1po?=
- =?utf-8?B?djNKTVpwMVlIQmRPYXVHbEFtbTVCUTRVS1FOKzdmaTE0RHJ2Q215ZXVseUZ1?=
- =?utf-8?B?dTUySUdyRDhnVk9jeGVacTFPOGhycGVBaE1rYWp0ZzNJRDdqeVV5WDRJZjd2?=
- =?utf-8?B?cTRydEVxN0tyZHNkb3Mxd243ampPUVJHb2lTaE9tdXQwdE5wU1Vpc3BpL1Rw?=
- =?utf-8?B?RXVFSURUNmUyNFQ4aTZZKzBkZFlteHVQTXpycktqQXNYYXJmaVZKSy9HNkNx?=
- =?utf-8?B?eUo3M3dZMjJvMC9oQnlmbzJmdE13MjNFV1hGbS9kRXF3QVkxclZFTkVvd0tr?=
- =?utf-8?B?TXo0TUo4cGdGN1dUUDVWamtyZy9xa1U1SUR6WlhxOUJQUFlZYm1aaU9yV3dS?=
- =?utf-8?B?NFNNVDR0Zk85dWZWb0FYd3NFcUZ1RDF5THFKSHlZdHhVemN4NzkySjU4eDFC?=
- =?utf-8?B?TGpzeEloOWhvS0R6RW8yUVI1SUxQUWVwR0FtRGIzOXpyMXdpQzUxWG9iRGZ4?=
- =?utf-8?B?YnpKT3dXZmJBdE8yRGc5REtqU2R5S3RzWFRGM1ZKZWFtaWM0RkMrek5ZYTk5?=
- =?utf-8?B?NUgwTVpRTWhFbDU5N245NnFBekY1d3BWZmxvSStpa0R0ZWJObm1IY3VGYW9x?=
- =?utf-8?B?SUhiVE9IWW9BeXA2elovRlNyTHRhM3dHYVhNREpsVnd6Skg4YUZXVnZmck9F?=
- =?utf-8?B?ZUhtdGVmdllBVGZ0NmRlT0h0QTRYc3NRMERqRmRIZEdmdnp3M2xZTVNBQXBp?=
- =?utf-8?B?SThkSnBrNTE3SitpM2RFdW5GUm5UaVAyanFhaUZYekNIRDhqYllqMGoyTlpn?=
- =?utf-8?B?dHhaaDZxMlUwemkybVE1V2F5RXdZZnQ3R1NIRDhadUZDWTJTM0ZEVkorRGtC?=
- =?utf-8?B?NDIvTHZmV0ZpVU81TVplYk9yeTNOMjZGYXBSTHZFY1p5anRoWENmenMrQmdF?=
- =?utf-8?B?VTN6dTBaeG94b0xRa3ZkeFJvTUgzK2wxSWtjUmpwZk11aG1BZHZUTnpFN3Ir?=
- =?utf-8?B?MW5jZTQ0eWpYOUpIbFFxN0k1NTgwK21IbVJicEFzREkyWHZjTG9UNHlFTmYw?=
- =?utf-8?B?ZEtqNnVMbXZ0Y2RRRTVVWG8yMUZFUVJNQ3hDMUJxdlBwMGxVWTlWT3NGYWlJ?=
- =?utf-8?B?d2RzdlNDaDF3MEVMbDhVdnBId1dleWVSeXFGcU0xNmtkOU5ieC9KMkdpeXE2?=
- =?utf-8?B?OUI3anEvNFJkaGhJQlV2UmVqWGxwSXY2TUh3NDV6eEZWYjhiSWJrd0wvWEFk?=
- =?utf-8?B?ZXh5bjM1Tlg1Nm91SHhNbW4wWFpxaUMyR2F3cEVvTFdySmJwMVJEcHVYY2NF?=
- =?utf-8?Q?tONoScrIdM+qhFLdS6/xQf4djidrUtb+?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(52116014)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cER5OUx0bXd3TWpaZWUzMy9yak91NC94YVlOc0xtYzhTRmxIQ3RqbHF0dWRW?=
- =?utf-8?B?ZUhOcklmTTRwbnBPbW52RXlZNjkvNTlOaVFNQkZVQzZSQnRBdGZVbHA0K2wv?=
- =?utf-8?B?YjN3V0tnY0lxVVhHRi9TMERORVlNblBhNEdOdUNXbnROdzk5dkdtek9uQkhj?=
- =?utf-8?B?L2Zna1VubjBYNUxaODJucUhTWllZaFB4aEdRSzMrVHh2YnYybkxPM0YrWWs0?=
- =?utf-8?B?TXlKc25KMjYvdlRVV3RDZnVEZGt0R29kMitSWFNpSlBKR21wNEx4OGliOEF4?=
- =?utf-8?B?WC9kM0Z6d0JodmpxOEU4OG12SmFLSFZpa0xjYkc4anZybFJxSUtsdU1lcy85?=
- =?utf-8?B?bmY4QnZXa1VsRDI5TEhGTGVodUtkYnFmY0dwVnMzODNlbFV0SGh4OHZnVGd5?=
- =?utf-8?B?Z3M5VFBhaTRoOHhXQkNQNmt4ZS9iRlpiT2hqeE13amo1UUNYUFFxcU9xR1RI?=
- =?utf-8?B?U1plYVVGMDR1eEk4aitnYWV5UEMxTExNcjA2dmlIQkY2RUlwTGI5ZmprQ2FU?=
- =?utf-8?B?TWRjMUFFSFZhL1VQTm5TVlY3TUY4UmxpM3R2QnlwRG5JVVB5dHhET1B3VUZI?=
- =?utf-8?B?anlBRmFJend3dkhrNS9XUGNUdkRjSjFFS1BrODB0WThuam5lMGpPdnp2Y1lJ?=
- =?utf-8?B?WkxQcUpVaUd4cHNvYXRrdVNHVWJBMm9oRmh0VERKY3Rpbys1L1RFOHAzZi9o?=
- =?utf-8?B?YW5TOE81Y1dkSWxWY05pZzk0U01vbmNQMWs4L0FyYUVFL1loemVYS2lSTDlk?=
- =?utf-8?B?dFBOSDBUUXNTbnpxanU4NmhJb09sN1pMZzJXVzdzWlVnUXhMc1dDRVoyQlZK?=
- =?utf-8?B?czJXcmlFOGtmWUJUTHhrYlovOGpONndkRUZEc2d2RWY1Q0wwQlZCKytwSXJU?=
- =?utf-8?B?dDJiOW1TUnIvdUtQbUVQaWxWM09vQ2RlMmp6WTI4ZnNxTEhIdmNZQTE4VGRo?=
- =?utf-8?B?U01ieUlINC82UjZaV3A5alAzaFp1OWc5S29JaUo2Syt1WXQvYWM1U2h2ZWVk?=
- =?utf-8?B?YXVPbis0cXZpZzFNM0xObDBSRm9xZ3U0cUJsYUpHWEsvazdnVThiL0JFOUxv?=
- =?utf-8?B?Ty9ybXVEZE8xK1VhamkrNUpqWEFDci9sQjhKWVVqcCs4cm1HMk56dUJ4bitq?=
- =?utf-8?B?LzUya04xb2hZLzFQcmVsSU15a3J4ckdFaU4zajhmL1ByTW5XZVZMZUY0Vngz?=
- =?utf-8?B?V0JEKzFhQ3p6NWowSVo2clIyV29EQzJhQmNDVlJobkZ6VkZCUTV2R3Z3MEts?=
- =?utf-8?B?R0plaTlBSEY0a0tlN0VwcEswY3phVndESmFpdUNWY0IxSDdjajdrQ3d5clpk?=
- =?utf-8?B?UGhqOGdLT21Kdmt1SVJFdnQ1Q0dWeDE5UGYwcmVnUzF2VmlFbkxDdWRFM1VT?=
- =?utf-8?B?TGFqbGxmVEZJaFpxZStydFRXWlhGeTZtU202ZlYyR29DQWFxVDc2SW9wenNm?=
- =?utf-8?B?emJwTFZkRXhYWDdoQWZjT1E3dnFpVGVJbGE4SWxNVk5TOCtRMkNKMEplTlRm?=
- =?utf-8?B?UWljdVR2dnBDZmpLaVF3L1E4Z2J4SjJ1ZWU0VmVuUWR5cGh3dkVSYkhsZmVU?=
- =?utf-8?B?azZYdFhCMTlKYWVKa05wOXRGN2ozQlhvQlRHVHJUaC9kK2d4SnltcThWU0wy?=
- =?utf-8?B?b3ZpMlpDTFU5ako0b2NrR2orc3FPYW14ZzRPVXk1RU5UWEZNbmtSaFVoZE9E?=
- =?utf-8?B?bjBHSDdpY1FYdXR2QmR6U2xab0kycFF2WGJ1Z2NhdFZXZ0Nsd3ljcG1IWEN5?=
- =?utf-8?B?V29SVFg5KzFkc1J1emZMNGxnYnF2M09XdFBHcDR2Wmd1Nm9ncFVaUzRhS3h3?=
- =?utf-8?B?WCtmVWRHK1RYK2RlbytFQS9BS2lIMHhUV0x5Tlhja3RyUGZ1cS96VU1IMU9v?=
- =?utf-8?B?Ynh1Vk9GTGtxemhHaGs4TkJyV29vWHZKNm1nY05lWE5NbllGZHZ1bFh6S1ZP?=
- =?utf-8?B?UDlDbXlzcE1zUER1M2VWNTdWNnZYcTBFamRPMFZ5d3hhVlhTN3pzNE8xeTVk?=
- =?utf-8?B?ZXp5TmhxSitPV0tMbVRBcDlzVktobTlsUCtxd1FEdXVOTnhlU29pM0VtZDB2?=
- =?utf-8?B?SjhTWW9YMU5Da2t6MDZvZ3dkeVV2Z3NZL3JRNlBlUEE5aVRzQ0JHbEl1Ylhv?=
- =?utf-8?B?cDRleVBHTmxqRFF4TWZSd2x6R045L3NGdFdGeDY2L2ZLUDJ6ZWkwdkp5YnJJ?=
- =?utf-8?Q?KnPPGrHadVOUdNxV0lpBXgo=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 95d43395-a70e-4b3f-d089-08dd5b6ace58
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2025 22:20:44.6202
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bMbtdK7EqzfsqT1AfHgaHoFvjjRRyhauTqVglsOAY6A7FhrHxptbTFM9gsnigyX0XSeMRSb22ipxv+pa8it7PsbOlCgEEdNr531b/FR/aRo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR01MB7931
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_142050_579268_2D8C7300 
-X-CRM114-Status: GOOD (  21.35  )
+X-CRM114-CacheID: sfid-20250304_142542_200374_F4AFAA6A 
+X-CRM114-Status: GOOD (  23.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,141 +75,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-Changelog
-=========
-v3:
-  * Rebased to v6.14-rc4.
-  * Based on Miko's BBML2 cpufeature patch (https://lore.kernel.org/linux-arm-kernel/20250228182403.6269-3-miko.lenczewski@arm.com/).
-    Also included in this series in order to have the complete patchset.
-  * Enhanced __create_pgd_mapping() to handle split as well per Ryan.
-  * Supported CONT mappings per Ryan.
-  * Supported asymmetric system by splitting kernel linear mapping if such
-    system is detected per Ryan. I don't have such system to test, so the
-    testing is done by hacking kernel to call linear mapping repainting
-    unconditionally. The linear mapping doesn't have any block and cont
-    mappings after booting.
+this in an update to the series introducing the basic DT support for the
+Allwinner A523 SoC. It now comes with DTs for three boards, using
+slightly different packages of that SoC.[1]
+Functionality-wise it relies on the pinctrl[2] and clock[3] support
+series, though there are no direct code dependency series between the
+series. Three binding patches from there are required to pass dtbs_check,
+git put their patch IDs in the footer below.
+Compared to v1 this drops the patches that have already been merged
+(I2C, USB, RTC), changes the proposed NMI controller binding, extends 
+the SoC .dtsi to include more device instances, also the secondary cores,
+and adds DTs for two new boards. On top of this I added v2 of the DT patch
+for an H616 board, since it shares the newly introduced YuzukiHD vendor
+name patch. Also it adds the tags from the diligent reviewers, many thanks
+for that! More detailed changelog below.
 
-RFC v2:
-  * Used allowlist to advertise BBM lv2 on the CPUs which can handle TLB
-    conflict gracefully per Will Deacon
-  * Rebased onto v6.13-rc5
-  * https://lore.kernel.org/linux-arm-kernel/20250103011822.1257189-1-yang@os.amperecomputing.com/
+The first patches add DT binding documentation for the most basic
+peripherals, most of them actually being already supported, courtesy of
+identical IP being used. This includes MMC and USB 2.0, so with the above
+mentioned clock and pinctrl support this gives an already somewhat usable
+mainline support for this new SoC family.
+The watchdog is not completely compatible, but is an easy addition, so
+this bit is included in here as well, the same is true for the NMI
+controller, required for delivering PMIC interrupts.
 
-RFC v1: https://lore.kernel.org/lkml/20241118181711.962576-1-yang@os.amperecomputing.com/
+The A523 features 8 Arm Cortex-A55 cores, organised in two clusters,
+clocked separately, with different OPP limits, in some kind of
+little/LITTLE configuration. The GPU is a Arm Mali G57 MC01, and the chip
+also features a single PCIe 2.1 lane, sharing a PHY with some USB 3.1
+controller - which means only one of the two can be used.
+The rest of the SoC is the usual soup of multimedia SoC IP, with eDP
+support and two Gigabit Ethernet MACs among the highlights.
 
-Description
-===========
-When rodata=full kernel linear mapping is mapped by PTE due to arm's
-break-before-make rule.
+The main feature is patch 08/15, which adds the SoC .dtsi. This for now
+is limited to the parts that are supported and could be tested. Compared
+to v1 we now have some basic TF-A support, so the PSCI nodes are in now.
 
-A number of performance issues arise when the kernel linear map is using
-PTE entries due to arm's break-before-make rule:
-  - performance degradation
-  - more TLB pressure
-  - memory waste for kernel page table
+The final patches add basic support for the Avaota-A1 router board, the
+X96QPro+ TV box, and the Radxa A5E development board.
 
-These issues can be avoided by specifying rodata=on the kernel command
-line but this disables the alias checks on page table permissions and
-therefore compromises security somewhat.
+The mainline firmware side in general is coming together now: we have
+basic U-Boot support working (including MMC and USB), most importantly
+with proper DRAM support, so no more binary blobs, and some basic TF-A
+support.
 
-With FEAT_BBM level 2 support it is no longer necessary to invalidate the
-page table entry when changing page sizes.  This allows the kernel to
-split large mappings after boot is complete.
+Please have a look at those DT bits here, ideally compare them to the
+available user manual, and test them if you have access to hardware.
 
-This patch adds support for splitting large mappings when FEAT_BBM level 2
-is available and rodata=full is used. This functionality will be used
-when modifying page permissions for individual page frames.
+Based on v6.14-rc1.
+I pushed a branch with all the three series combined here:
+https://github.com/apritzel/linux/commits/a523-v2/
 
-Without FEAT_BBM level 2 we will keep the kernel linear map using PTEs
-only.
+Cheers,
+Andre
 
-If the system is asymmetric, the kernel linear mapping may be repainted once
-the BBML2 capability is finalized on all CPUs.  See patch #6 for more details.
+Changelog v1 .. v2:
+- drop USB, I2C, RTC binding patches: already merged
+- add tags from reviewers (with thanks!)
+- drop unrelated deprecation comment from MMC binding patch
+- drop fallback compatible for NMI controller, stands on its own now
+- adjust PHY binding to merged A100 binding (dropping tag)
+- .dtsi: add secondary cores
+- .dtsi: enable PSCI
+- .dtsi: move 32K oscillator to board .dts files
+- .dtsi: adjust CCU source clocks
+- .dtsi: add MMC1 node (typcially for SDIO WiFi)
+- .dtsi: add remaining UARTs
+- .dtsi: add remaing I2C devices
+- add two new board .dts files
+- add DT bindings for those two new board names
+- avaota.dts: drop reserved memory from (TF-A now in SRAM)
+- avaota.dts: drop SD card dummy supply node
+- avaota.dts: add eMMC node (shipped on most boards)
+- avaota.dts: fix OTG mode, explain situation
+- add Chameleon .dts file (depends on YuzukiHD vendor name patch)
 
-We saw significant performance increases in some benchmarks with
-rodata=full without compromising the security features of the kernel.
+[1] https://linux-sunxi.org/A523#Family_of_sun55iw3
+[2] https://lore.kernel.org/linux-sunxi/20250227231447.20161-1-andre.przywara@arm.com/T/#u
+[3] https://lore.kernel.org/linux-sunxi/20250304012805.28594-1-andre.przywara@arm.com/T/#u
 
-Testing
-=======
-The test was done on AmpereOne machine (192 cores, 1P) with 256GB memory and
-4K page size + 48 bit VA.
+Andre Przywara (15):
+  dt-bindings: mmc: sunxi: Simplify compatible string listing
+  dt-bindings: mmc: sunxi: add compatible strings for Allwinner A523
+  dt-bindings: watchdog: sunxi: add Allwinner A523 compatible string
+  watchdog: sunxi_wdt: Add support for Allwinner A523
+  dt-bindings: irq: sun7i-nmi: document the Allwinner A523 NMI
+    controller
+  irqchip/sunxi-nmi: Support Allwinner A523 NMI controller
+  dt-bindings: phy: document Allwinner A523 USB-2.0 PHY
+  arm64: dts: allwinner: Add Allwinner A523 .dtsi file
+  dt-bindings: vendor-prefixes: Add YuzukiHD name
+  dt-bindings: arm: sunxi: Add new board names for A523 generation
+  arm64: dts: allwinner: a523: add Avaota-A1 router support
+  arm64: dts: allwinner: a523: add X96Q-Pro+ support
+  arm64: dts: allwinner: a523: add Radxa A5E support
+  dt-bindings: arm: sunxi: Add YuzukiHD Chameleon board name
+  arm64: dts: allwinner: h616: add YuzukiHD Chameleon support
 
-Function test (4K/16K/64K page size)
-  - Kernel boot.  Kernel needs change kernel linear mapping permission at
-    boot stage, if the patch didn't work, kernel typically didn't boot.
-  - Module stress from stress-ng. Kernel module load change permission for
-    linear mapping.
-  - A test kernel module which allocates 80% of total memory via vmalloc(),
-    then change the vmalloc area permission to RO, this also change linear
-    mapping permission to RO, then change it back before vfree(). Then launch
-    a VM which consumes almost all physical memory.
-  - VM with the patchset applied in guest kernel too.
-  - Kernel build in VM with guest kernel which has this series applied.
-  - rodata=on. Make sure other rodata mode is not broken.
-  - Boot on the machine which doesn't support BBML2.
-
-Performance
-===========
-Memory consumption
-Before:
-MemTotal:       258988984 kB
-MemFree:        254821700 kB
-
-After:
-MemTotal:       259505132 kB
-MemFree:        255410264 kB
-
-Around 500MB more memory are free to use.  The larger the machine, the
-more memory saved.
-
-Performance benchmarking
-* Memcached
-We saw performance degradation when running Memcached benchmark with
-rodata=full vs rodata=on.  Our profiling pointed to kernel TLB pressure.
-With this patchset we saw ops/sec is increased by around 3.5%, P99
-latency is reduced by around 9.6%.
-The gain mainly came from reduced kernel TLB misses.  The kernel TLB
-MPKI is reduced by 28.5%.
-
-The benchmark data is now on par with rodata=on too.
-
-* Disk encryption (dm-crypt) benchmark
-Ran fio benchmark with the below command on a 128G ramdisk (ext4) with disk
-encryption (by dm-crypt).
-fio --directory=/data --random_generator=lfsr --norandommap --randrepeat 1 \
-    --status-interval=999 --rw=write --bs=4k --loops=1 --ioengine=sync \
-    --iodepth=1 --numjobs=1 --fsync_on_close=1 --group_reporting --thread \
-    --name=iops-test-job --eta-newline=1 --size 100G
-
-The IOPS is increased by 90% - 150% (the variance is high, but the worst
-number of good case is around 90% more than the best number of bad case).
-The bandwidth is increased and the avg clat is reduced proportionally.
-
-* Sequential file read
-Read 100G file sequentially on XFS (xfs_io read with page cache populated).
-The bandwidth is increased by 150%.
+ .../devicetree/bindings/arm/sunxi.yaml        |  20 +
+ .../allwinner,sun7i-a20-sc-nmi.yaml           |   1 +
+ .../bindings/mmc/allwinner,sun4i-a10-mmc.yaml |  38 +-
+ .../phy/allwinner,sun50i-a64-usb-phy.yaml     |   4 +-
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ .../watchdog/allwinner,sun4i-a10-wdt.yaml     |   2 +
+ arch/arm64/boot/dts/allwinner/Makefile        |   4 +
+ .../sun50i-h618-yuzukihd-chameleon.dts        | 222 +++++++
+ .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 598 ++++++++++++++++++
+ .../dts/allwinner/sun55i-a527-radxa-a5e.dts   | 299 +++++++++
+ .../dts/allwinner/sun55i-h728-x96qpro+.dts    | 287 +++++++++
+ .../dts/allwinner/sun55i-t527-avaota-a1.dts   | 308 +++++++++
+ drivers/irqchip/irq-sunxi-nmi.c               |  50 +-
+ drivers/watchdog/sunxi_wdt.c                  |  11 +
+ 14 files changed, 1807 insertions(+), 39 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-h618-yuzukihd-chameleon.dts
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
 
 
-Mikołaj Lenczewski (1):
-      arm64: Add BBM Level 2 cpu feature
-
-Yang Shi (5):
-      arm64: cpufeature: add AmpereOne to BBML2 allow list
-      arm64: mm: make __create_pgd_mapping() and helpers non-void
-      arm64: mm: support large block mapping when rodata=full
-      arm64: mm: support split CONT mappings
-      arm64: mm: split linear mapping if BBML2 is not supported on secondary CPUs
-
- arch/arm64/Kconfig                  |  11 +++++
- arch/arm64/include/asm/cpucaps.h    |   2 +
- arch/arm64/include/asm/cpufeature.h |  15 ++++++
- arch/arm64/include/asm/mmu.h        |   4 ++
- arch/arm64/include/asm/pgtable.h    |  12 ++++-
- arch/arm64/kernel/cpufeature.c      |  95 +++++++++++++++++++++++++++++++++++++
- arch/arm64/mm/mmu.c                 | 397 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-------------------
- arch/arm64/mm/pageattr.c            |  37 ++++++++++++---
- arch/arm64/tools/cpucaps            |   1 +
- 9 files changed, 518 insertions(+), 56 deletions(-)
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+prerequisite-patch-id: 5b8a883819d2f3dfc975735a855291cb8b02dd39
+prerequisite-patch-id: ff4d42c2dcb0c3b4be45a4b0b8e22027207979ee
+prerequisite-patch-id: 4596fa402b501a9406821a9535f8329d30bf1ca4
+-- 
+2.46.3
 
 
