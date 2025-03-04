@@ -4,73 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A9BC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 18:27:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F10C7C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 18:29:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=759cfH/BZtZKVajOkbj6QRV6Y47F8oX4GGvDpPu2vlg=; b=W89ifI8YJ7NKYOBaTkdXvkNmtl
-	0hTtSFTB5abMt8KVAODjZ7PUDK8S1ROhuSua2vXxz8lUL2xtnG6Cg+C2TilRy5b6AEEnd45RjF23/
-	FrUL2iidJhEqsBxaaYHbcjiSSqA8iysgwH2HaK2O4y+rX20x6meFwIMcS/WwN84ijanfPZIyOq2Hb
-	vT6TkWLBm+GUuepHmnueNObqxX/JZTB5Oyqk55c7aCTXY+4AKD2P0/Lcx/rEYl4bJvYKv7b4Dgs1Y
-	M4+/77PVht10quNAhKfI/BwtpFrSU/UN0RM6BhCHYPXTIKH5h7CB7J+zzzLujKXDHQ1EZEvp6Fy4/
-	Jj3raDlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VwGP1hOkgqyt7cuslt+mBb5Pi8swKaj/YmncchBevCs=; b=zCsSTWFK9AmCwI
+	jXb2hg1ZX9W6ZLN5LksOF77uat+B/8pP+rcEqLkZ4QqckaYqhIb9R56IS3O0c+PYbYTtVpKhZYiYe
+	CUcFnZvqPraRyvauqA+VCriAiiDhccgZ9D/wFa4jos/UwVm5ZzkhDAY71GAMO9xm7CLxSgx5bWFvb
+	j+RY2JpvRzkzZ66TNG965gb4CoQ0Nr8ADVTvFhc0Le3bJJbJo87/RyaOBWnbI2rMdRxz3oVyBL2K5
+	Vce1fXHJS9YYuqMeexcZ75jJ3+S5w4plYzxBCNuckPr8kaW5TnigUCWLzyu4CfJTl9HB0xAoxw34R
+	ESz0TUmM8Bb7ECfQS2jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpWyz-00000005qDl-2QeU;
-	Tue, 04 Mar 2025 18:27:09 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tpX10-00000005qlu-3ALE;
+	Tue, 04 Mar 2025 18:29:14 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpVfz-00000005XY9-3M0s
+	id 1tpVi1-00000005Y8X-3a0j
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 17:03:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 25F87A459A0
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  4 Mar 2025 16:57:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F4F0C4CEEB
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  4 Mar 2025 17:03:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741107806;
-	bh=TKQ7m1KW0EDUZSOKBSYQtrQAfX8pph1vCn+eyQcex7E=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=qPziMNPPTpV7AZGdUSJ2pYZHvFof/rb0iJAdl6k+BJQLENzl9F/vV7Df+y7sKupaA
-	 a1zn3SDLQlTwb6tDEv2Ba4iq/jBLIkd3vheLWpE4K02jvvC4wt0MlF6PYyMe9ROVn1
-	 x9z4RcJuQRLw7GvPpsiqtCq61JrxalqOx6TtjqXV9zoORnT7JiF/HHCGNaZVcGOlBh
-	 /xy671WTBi974k8LS2Fdha1r42iqIcI58w5KS/S4bdLcP0mXU+P3P5G2SdI4JWBoKj
-	 e9DDkNQX8asdnyKuZTcAmKPblEs0ipfwxhH2B09QZ/pFaTuaoapSRIgAl7+ZXwGjcx
-	 ZpgP+490ep10g==
-Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-abf5f4e82caso564625466b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 09:03:26 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCV1fWM/4bOctunDTTKy4rR2CCrkYDcuHfgbSf5T4mPBDTnUF2erIqCLqLiEQlh+51P0/GxM/M6bXBl6/L0tgD4i@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4Hi0gGLEk7HxwMvGymhK/YxXxd05l66/JMLLOtleDDmA3KzmQ
-	aMYfF3uLhoFN02TPuqnVRCqUEnyFgHPo8nj70En3zU0IXOWfsD/YsRV5YVQIpx5eBhhFzJlMAyK
-	XpjLDCU1hIvEGm+jGOW3Luno2sg==
-X-Google-Smtp-Source: AGHT+IGsfY6fqe2YQl8Oj3jQOJXYsrLKdp1WEPofGDKrpvMKW/z4zof5UMwhD4wjXSR+/W1s+f5P1D2nlfXqLF0F4Ms=
-X-Received: by 2002:a17:907:d1a:b0:abf:d4a9:a0a5 with SMTP id
- a640c23a62f3a-abfd4a9b8fbmr946630666b.45.1741107804893; Tue, 04 Mar 2025
- 09:03:24 -0800 (PST)
+	Tue, 04 Mar 2025 17:05:35 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-abf4cebb04dso643789666b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 09:05:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741107931; x=1741712731; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=VwGP1hOkgqyt7cuslt+mBb5Pi8swKaj/YmncchBevCs=;
+        b=vHcbuQ1/KUWTMUj21D6/VxZhrO+gmlL4Gt2cqNXsHkE54CQ+eh1aDqmpKgonYvYQwQ
+         1RDPsS44XVvMpP4KjstNJVn/SYJyYuCZ+xa7XDJn1YcJWWnfeXDjOGWVa+zzzhJYv5Py
+         GOiwvMc3wRtlppzE8HU+Hl3JdhfBfTKL6UdifQPimyh1bS3yfOFkIwnc47KNcI05vfoe
+         qRx52PPhJ9CdFUPrEn82QHvf3j5iSKnopz1ZKVh8cbdvYdT7as5DkmqXTVNhtN9/SzLC
+         04uqKxztNPg4hfXIfTt74/7qkCt0vPoYc8dZmlTzrbZqlZ+gJuxh8aXwUls7V0i/GhGQ
+         laIA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741107931; x=1741712731;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=VwGP1hOkgqyt7cuslt+mBb5Pi8swKaj/YmncchBevCs=;
+        b=T6dO/4QUKAgBCwpIAel0qOLhFDlLSJYGTLNWitBm7USgxL454RtdDsN0+OWuHX07+B
+         junux849I9D7O4fyIy2ez3gR6gZr1Xy8NCLP5DgroG9XI5iVXhYfYr27Gds0CxD9PUbr
+         sac19Kc2qRoCVSJ45Cwb3r6TgQ7niLeNdEOBRqSawsbE4In9hS53+ntD7MVgxoGm1uFb
+         p87f/ka97tLqXWz5TGbKbahUDcEYCz5wzShd/XpcpRJEGcH1zBTRilCr5nfespUwJiQX
+         1JSjz0WM3Gsvsjq9s90BZubmiQ9PzDj5gix1YvjIgDLLxtXMI8HmdM11S+z8gSFDWkMd
+         YBiA==
+X-Forwarded-Encrypted: i=1; AJvYcCWUvOinE+l+wae8OjnEmzgwFvSPNZmNwa4e6pDUTKWRbtjI+I7njLomg9yZhvASrwAHqe+Zi1y+/HRaz2tEDrZa@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbaJ6VzNyGiHF85aktr12VpO2Nkz2ooXOWd6Kd2Q+za4M0BOS6
+	O7K1K4xe/hd8n57NrRBZjCBzZszIQv4S81hPESqUeVOaYVn9WLOHw8Im9Fr2XNs=
+X-Gm-Gg: ASbGncugOFawElEfza9cK/HsUwZ6NdPcItXc+hfUwCXDirvhpcG8J7b4S5z4304I0B3
+	AyAAQp+SgQA4y2jbLFCspu4P+s4lFOSHklXtN/QPcbwqXD6bx3dwR644TOXa6+auvIqfN4Dchf6
+	ClxN+OD5DWb+daVId216WhIviN3cY8TrvxezfqzsmK+ALojeM7Z+DQA59FKakds4DiSX+KL6klT
+	gI9+cQVY1ubJNYltPPtJ6UKar+zR0KPzzhaoZScmRpgb4kNLwKwdmKxqnzc4B9TDKl3MsZ4w2x6
+	yryqEkguyykLiT7GgyBvl7L/H7psb/Xa5DGBpC79cvh53fSEweKDyUmBR4qncEoefBAjm5g0ncG
+	qRB5a7J/jEwVf+0UjN62U7YM4gvA+
+X-Google-Smtp-Source: AGHT+IG1qDKc0hst2zevKKhfPXC0MrEb14O70/5mMsp5hFfaUprLxoI4xNFXRR1d5hlR/z34qhDcpw==
+X-Received: by 2002:a17:907:da0:b0:abf:23a7:fc6 with SMTP id a640c23a62f3a-ac1f1185263mr365511466b.16.1741107931351;
+        Tue, 04 Mar 2025 09:05:31 -0800 (PST)
+Received: from puffmais.c.googlers.com (30.171.91.34.bc.googleusercontent.com. [34.91.171.30])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abf795ba15esm367589066b.131.2025.03.04.09.05.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Mar 2025 09:05:30 -0800 (PST)
+From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Subject: [PATCH v2 00/16] a few rtc driver cleanups
+Date: Tue, 04 Mar 2025 17:05:28 +0000
+Message-Id: <20250304-rtc-cleanups-v2-0-d4689a71668c@linaro.org>
 MIME-Version: 1.0
-References: <20250226124245.9856-1-s-vadapalli@ti.com> <20250226124245.9856-2-s-vadapalli@ti.com>
-In-Reply-To: <20250226124245.9856-2-s-vadapalli@ti.com>
-From: Rob Herring <robh@kernel.org>
-Date: Tue, 4 Mar 2025 11:03:13 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqKDMecB3dD2oU2MJo-_8G66K-mVTfNKWUBuL-=_tWpjtw@mail.gmail.com>
-X-Gm-Features: AQ5f1Jo_MMcNezVZGplk__qmIGqhWMGwQvZlfARIVI6FBgde0NxdeBDApYXXBNM
-Message-ID: <CAL_JsqKDMecB3dD2oU2MJo-_8G66K-mVTfNKWUBuL-=_tWpjtw@mail.gmail.com>
-Subject: Re: [PATCH v2 1/3] arm64: dts: ti: k3-j721e-evm: Add overlay for PCIe
- NTB functionality
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: nm@ti.com, vigneshr@ti.com, kristo@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, srk@ti.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIANgyx2cC/3XMQQrCMBCF4auUWRtJxhSDK+9Rukjj2A6UpExqU
+ Urubuze5f/gfTtkEqYMt2YHoY0zp1gDTw2EyceRFD9qA2psNaJTsgYVZvLxtWRlMOihNXghb6F
+ eFqEnvw+u62tPnNckn0PfzG/9A21GaTVYGyjoq7PO3GeOXtI5yQh9KeULAj75TakAAAA=
+X-Change-ID: 20250228-rtc-cleanups-12c0b5123ea4
+To: Chanwoo Choi <cw00.choi@samsung.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ =?utf-8?q?T=C3=B3th_J=C3=A1nos?= <gomba007@gmail.com>, 
+ Dianlong Li <long17.cool@163.com>, Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
+Cc: linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org, 
+ linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-amlogic@lists.infradead.org, 
+ llvm@lists.linux.dev, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_090327_971735_1409007E 
-X-CRM114-Status: GOOD (  18.90  )
+X-CRM114-CacheID: sfid-20250304_090533_888881_55189040 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,103 +116,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 26, 2025 at 6:43=E2=80=AFAM Siddharth Vadapalli <s-vadapalli@ti=
-.com> wrote:
->
-> PCIe NTB (Non-Transparent-Bridge) allows connecting the memory of
-> multiple PCIe Hosts (Root-Complex). The number of such hosts is
-> determined by the number of PCIe instances configured for NTB operation
-> on the device which intends to enable NTB functionality. Add a device-tre=
-e
-> overlay to configure PCIE0 and PCIE1 instances of PCIe on J721E EVM for N=
-TB
-> operation. This shall allow connecting the memory of two PCIe Hosts via
-> PCIE0 and PCIE1 on J721E EVM.
->
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> ---
->
-> v1:
-> https://patchwork.kernel.org/project/linux-arm-kernel/patch/2025020209363=
-6.2699064-2-s-vadapalli@ti.com/
-> Changes since v1:
-> - s/epf_bus/epf-bus since node names shouldn't contain underscores.
->
-> Regards,
-> Siddharth.
->
->  arch/arm64/boot/dts/ti/Makefile               |  4 +
->  .../boot/dts/ti/k3-j721e-evm-pcie-ntb.dtso    | 91 +++++++++++++++++++
->  2 files changed, 95 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/ti/k3-j721e-evm-pcie-ntb.dtso
->
-> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Mak=
-efile
-> index 8a4bdf87e2d4..1097ab30f5a9 100644
-> --- a/arch/arm64/boot/dts/ti/Makefile
-> +++ b/arch/arm64/boot/dts/ti/Makefile
-> @@ -102,6 +102,7 @@ dtb-$(CONFIG_ARCH_K3) +=3D k3-j721e-beagleboneai64.dt=
-b
->  dtb-$(CONFIG_ARCH_K3) +=3D k3-j721e-common-proc-board-infotainment.dtbo
->  dtb-$(CONFIG_ARCH_K3) +=3D k3-j721e-evm.dtb
->  dtb-$(CONFIG_ARCH_K3) +=3D k3-j721e-evm-gesi-exp-board.dtbo
-> +dtb-$(CONFIG_ARCH_K3) +=3D k3-j721e-evm-pcie-ntb.dtbo
->  dtb-$(CONFIG_ARCH_K3) +=3D k3-j721e-evm-pcie0-ep.dtbo
->  dtb-$(CONFIG_ARCH_K3) +=3D k3-j721e-evm-pcie1-ep.dtbo
->  dtb-$(CONFIG_ARCH_K3) +=3D k3-j721e-sk.dtb
-> @@ -201,6 +202,8 @@ k3-j7200-evm-pcie1-ep-dtbs :=3D k3-j7200-common-proc-=
-board.dtb \
->         k3-j7200-evm-pcie1-ep.dtbo
->  k3-j721e-common-proc-board-infotainment-dtbs :=3D k3-j721e-common-proc-b=
-oard.dtb \
->         k3-j721e-common-proc-board-infotainment.dtbo
-> +k3-j721e-evm-pcie-ntb-dtbs :=3D k3-j721e-common-proc-board.dtb \
-> +       k3-j721e-evm-pcie-ntb.dtbo
->  k3-j721e-evm-pcie0-ep-dtbs :=3D k3-j721e-common-proc-board.dtb \
->         k3-j721e-evm-pcie0-ep.dtbo
->  k3-j721e-evm-pcie1-ep-dtbs :=3D k3-j721e-common-proc-board.dtb \
-> @@ -239,6 +242,7 @@ dtb- +=3D k3-am625-beagleplay-csi2-ov5640.dtb \
->         k3-am69-sk-pcie0-ep.dtb \
->         k3-j7200-evm-pcie1-ep.dtb \
->         k3-j721e-common-proc-board-infotainment.dtb \
-> +       k3-j721e-evm-pcie-ntb.dtb \
->         k3-j721e-evm-pcie0-ep.dtb \
->         k3-j721e-evm-pcie1-ep.dtb \
->         k3-j721e-sk-csi2-dual-imx219.dtb \
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-evm-pcie-ntb.dtso b/arch/arm=
-64/boot/dts/ti/k3-j721e-evm-pcie-ntb.dtso
-> new file mode 100644
-> index 000000000000..9b6b3e153e91
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/ti/k3-j721e-evm-pcie-ntb.dtso
-> @@ -0,0 +1,91 @@
-> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
-> +/**
-> + * DT Overlay for enabling NTB functionality using PCIE0 and PCIE1 insta=
-nces of
-> + * PCIe on the J7 common processor board.
-> + *
-> + * J7 Common Processor Board Product Link: https://www.ti.com/tool/J721E=
-XCPXEVM
-> + *
-> + * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.co=
-m/
-> + */
-> +
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include <dt-bindings/soc/ti,sci_pm_domain.h>
-> +
-> +#include "k3-pinctrl.h"
-> +
-> +&{/} {
-> +       epf-bus {
-> +               compatible =3D "pci-epf-bus";
+Hi,
 
-There is no such binding upstream nor one pending. This needs to be dropped=
-.
+While looking at RTC, I noticed that various drivers are keeping
+pointers to data that they're not using themselves throughout their
+lifetime.
 
-Rob
+So I took the liberty to drop these pointers and this series is the
+result.
+
+The last two patches also convert two drivers to using dev_err_probe(),
+as I looked slightly closer into those two. They don't exactly fit the
+general subject of removal of unneeded pointers, but I wanted to share
+them anyway, since they're ready.
+
+Drivers other than s5m were compile-tested only.
+
+Cheers,
+Andre'
+
+Signed-off-by: André Draszik <andre.draszik@linaro.org>
+---
+Changes in v2:
+- s5m: fix arguments to devm_i2c_new_dummy_device()
+- merge two rx8581 & sd3078 patches into one each (Alexandre)
+- Link to v1: https://lore.kernel.org/r/20250228-rtc-cleanups-v1-0-b44cec078481@linaro.org
+
+---
+André Draszik (16):
+      rtc: max77686: drop needless struct max77686_rtc_info::rtc member
+      rtc: s5m: drop needless struct s5m_rtc_info::i2c member
+      rtc: aspeed: drop needless struct aspeed_rtc::rtc_dev member
+      rtc: ds2404: drop needless struct ds2404::rtc member
+      rtc: ep93xx: drop needless struct ep93xx_rtc::rtc member
+      rtc: ftrtc010: drop needless struct ftrtc010_rtc::rtc_dev member
+      rtc: m48t86: drop needless struct m48t86_rtc_info::rtc member
+      rtc: meson: drop needless struct meson_rtc::rtc member
+      rtc: meson-vrtc: drop needless struct meson_vrtc_data::rtc member
+      rtc: pl030: drop needless struct pl030_rtc::rtc member
+      rtc: rx8581: drop needless struct rx8581
+      rtc: s35390a: drop needless struct s35390a::rtc member
+      rtc: sd2405al: drop needless struct sd2405al::rtc member
+      rtc: sd3078: drop needless struct sd3078
+      rtc: max77686: use dev_err_probe() where appropriate
+      rtc: s5m: convert to dev_err_probe() where appropriate
+
+ drivers/rtc/rtc-aspeed.c     | 16 ++++-----
+ drivers/rtc/rtc-ds2404.c     | 14 ++++----
+ drivers/rtc/rtc-ep93xx.c     | 16 ++++-----
+ drivers/rtc/rtc-ftrtc010.c   | 17 +++++----
+ drivers/rtc/rtc-m48t86.c     | 14 ++++----
+ drivers/rtc/rtc-max77686.c   | 37 +++++++++----------
+ drivers/rtc/rtc-meson-vrtc.c | 12 +++----
+ drivers/rtc/rtc-meson.c      | 16 ++++-----
+ drivers/rtc/rtc-pl030.c      | 14 ++++----
+ drivers/rtc/rtc-rx8581.c     | 85 +++++++++++++++++++-------------------------
+ drivers/rtc/rtc-s35390a.c    | 22 ++++++------
+ drivers/rtc/rtc-s5m.c        | 58 +++++++++++++-----------------
+ drivers/rtc/rtc-sd2405al.c   | 16 ++++-----
+ drivers/rtc/rtc-sd3078.c     | 71 +++++++++++++++---------------------
+ 14 files changed, 183 insertions(+), 225 deletions(-)
+---
+base-commit: 0226d0ce98a477937ed295fb7df4cc30b46fc304
+change-id: 20250228-rtc-cleanups-12c0b5123ea4
+
+Best regards,
+-- 
+André Draszik <andre.draszik@linaro.org>
+
 
