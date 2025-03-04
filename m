@@ -4,71 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79F4CC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 00:12:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E4E5C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 00:15:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tv6nfL6WueMjJzRa4hXNRmQ+BSSJGTk/KgTtLQl+qGE=; b=e03c+UpRhzTULi4a8aJTapCxX+
-	y2LZdhL3fgeN2ulLs4Cf9Il5jJNmF09U/mG//ivlyKL+0NFVkU9dgdAtngquR/vQo+DRdDehXK+mE
-	CCtkssbbaizRCVYJTC2E76luByPvd9MRbfwCWKR1K79zef6vAuPIvl1TwO9CzjwmFEstqE8/Bplsx
-	CAv+8BEGM8cmpIcWY7awb8IQhE0vK/ZsoSGvGEVlR+GvJc2yuygstgJTBFCjwNhqd8+r8k4WSd42W
-	UTtfnodRooKfFjrKcwKWubHb8oaM5TmdS9PoV/k/ceH4h3blwFhmB/ORbud89m1oQqBaHJ3ZXS5f4
-	iUlhVmyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Q3wqOikOcXwkFYQdHd+IOlFSNX40F3Q2Xvhkkctp+0E=; b=D3OhqsdEeCPuUUc4Rf1nomnUGr
+	JC9+AFMFSD7/CH4XUkS9A7VSb2h9/sC0NiCQs+lx3UiscIxADuB8zfO1muHnyp4iGgcaYtuxSplUj
+	2NWfwGaGLyQ91734KrMJqN0AtqUeKufAv94Uzmx614Wbkp6T/rHYKWteV0Ysw91J9NIcyfE+dkxh0
+	rH77sWL2gYXPhYX/Ru59nY7qfKLtCwZsoLRtE5spvf65wDciJiEChFY+2+aZBXwe8yrLCMPZ0cgx2
+	c2PzJY27ulVVwspB1yvEoZkHPhn+Fd58TZZj36e/4m6ZWIDDm6s5yvK0V6KIBnMiDnuvfgFWkTaTu
+	5Z7IsiUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpFtF-00000002cgS-2iUr;
-	Tue, 04 Mar 2025 00:12:05 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tpFwH-00000002dJG-1j5U;
+	Tue, 04 Mar 2025 00:15:13 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpFrf-00000002cUm-25RE
+	id 1tpFug-00000002cu5-2K7r
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 00:10:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9DD255C48EA;
-	Tue,  4 Mar 2025 00:08:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B3C1C4CEE4;
-	Tue,  4 Mar 2025 00:10:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741047026;
-	bh=mhb0R+JmZbuqZb2vKrLLB9HfKDaCWuI1Q6s/9+i/gkc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=hSNxcxjQZv/RKSYZQNum16KV0wryu2LL8z+zTyog6YdTtK1gF1VttJ/xPPcbtjVHU
-	 JZmil/BGqLpE9YLTHHzWIun8yrHJm+/uxcu/ucV3NF2apROYk68N6E6TFTzyEOSopS
-	 Jty+DVMyr4zLFToJtTEvwTqvv8X+DC7+joSl3XW/C6igqAT6n6pUTWDTg91XHvJTEA
-	 0WomYPJlQ6vQqWI2DjEtdX8BSwLWMZeK8AfhRVB1sbDI4T1aAiJ8xamF+Jv6J/tJ5w
-	 3/yHvoE8D8dHNXXPhhPIcJdlAxr6SsqcrsyMxOIxvGr956jKnaxA93cLPHpNqQuYHZ
-	 sskj05VhvjrOA==
-Date: Mon, 3 Mar 2025 16:10:24 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Heiner Kallweit
- <hkallweit1@gmail.com>, Parthiban Veerasooran
- <parthiban.veerasooran@microchip.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
- linux-arm-kernel@lists.infradead.org, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Vladimir Oltean
- <vladimir.oltean@nxp.com>, =?UTF-8?B?S8O2cnk=?= Maincent
- <kory.maincent@bootlin.com>, Oleksij Rempel <o.rempel@pengutronix.de>,
- Simon Horman <horms@kernel.org>, Romain Gantois
- <romain.gantois@bootlin.com>, Piergiorgio Beruto
- <piergiorgio.beruto@gmail.com>
-Subject: Re: [PATCH net v2] net: ethtool: netlink: Allow NULL nlattrs when
- getting a phy_device
-Message-ID: <20250303161024.43969294@kernel.org>
-In-Reply-To: <20250301141114.97204-1-maxime.chevallier@bootlin.com>
-References: <20250301141114.97204-1-maxime.chevallier@bootlin.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	Tue, 04 Mar 2025 00:13:36 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2236b6fb4a6so122389815ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 16:13:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1741047213; x=1741652013; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=Q3wqOikOcXwkFYQdHd+IOlFSNX40F3Q2Xvhkkctp+0E=;
+        b=k55C9em5gsQAzEatbrPEEbodbI7X0hYx01/OGQeozEo0bjPwEModNX69BWilmxI3G7
+         HJt3zO2kbaosZ3W6yNQJe3Oz4XkoiB7qgBkaNNSJCztuBH0+yKJgGxDQpA9AVmLJYkAZ
+         0dAXeE4sdgbOJi91AVcW9FRtnIw47kqSVmemwFI/NsNkrv5MGdtPt6t9btPFvplC9nE2
+         kHWsJApxMqt4tZED+O+ezsR4DI3V888K+BB24b/YFJIUiFE8BTfzWQh6oI8b4TQivI7e
+         eM5Ho0cNtzm5C0YJPzgaeAK7tWehrtvF9qCbd40Ac5SqHrP08jqtieLOE0FwhANAEzIQ
+         wfSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741047213; x=1741652013;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Q3wqOikOcXwkFYQdHd+IOlFSNX40F3Q2Xvhkkctp+0E=;
+        b=Y6oG0LujIoaJKlZ7Yd40ms+AYJAhsdMjGDwtymZOQUmMPith/Ou7Cs/kFaPLqakr24
+         490zcvPL80QOgdMXrwI0Xil8jJ6/3tntRzxMLKy6GFog23Osiq9SZbjWef42q2Gnho9s
+         CtiS/queSNjOmHTMvzLrtxF0QXlabdsiSCsG/vt3GOnqcZj2mvwZSE8vV3816/20vTQZ
+         J4/e0ODxlBNBydIx0ABcKw40RScJqo8rR+v34Z5ayATnk2fumt35Fue7VMFSsk8KDJuW
+         uhnD2XlB8T2KdbzSZ0VE6BizS8S4iBtbSKbT+TDWAwK7rr54zmUkdKGTOUzjK+L8UZ8S
+         Omag==
+X-Forwarded-Encrypted: i=1; AJvYcCWk7PHwtmhCieLp5nqIe/7CA2blP4RhCSHZ+ZA6s7XD7Pj8jAFPPRfFkp5AJ++zKF7HIreJvVzc3ENbZzk6JENq@lists.infradead.org
+X-Gm-Message-State: AOJu0YxYy9H0QGKHR0do8TRxNlJzd2j+RbdPi+pmyzz/atUbHCI8YX0p
+	y7w3unMyHbtfyjPQJ9mHGXRTEncvU9ZA31zcWF+voJMGwcaghAT2DTitkOALjw2D7yx6WsXrTy0
+	jqDHDQAcElw==
+X-Google-Smtp-Source: AGHT+IFmmwcjQ6DMOqtv0toPZx7xqVST7m9UxDsuCyxZVeBScrG92ahmY7O7H7tlXVdHzJYj2DAfC+7wUUyshA==
+X-Received: from pjbkl3.prod.google.com ([2002:a17:90b:4983:b0:2fa:a101:743])
+ (user=yepeilin job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:902:ecd0:b0:223:2aab:4626 with SMTP id d9443c01a7336-22368f60a3fmr247563795ad.11.1741047212605;
+ Mon, 03 Mar 2025 16:13:32 -0800 (PST)
+Date: Tue,  4 Mar 2025 00:13:19 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.48.1.711.g2feabab25a-goog
+Message-ID: <cover.1741046028.git.yepeilin@google.com>
+Subject: [PATCH bpf-next v5 0/6] Introduce load-acquire and store-release BPF instructions
+From: Peilin Ye <yepeilin@google.com>
+To: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Peilin Ye <yepeilin@google.com>, bpf@ietf.org, Alexei Starovoitov <ast@kernel.org>, 
+	Xu Kuohai <xukuohai@huaweicloud.com>, Eduard Zingerman <eddyz87@gmail.com>, 
+	David Vernet <void@manifault.com>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
+	Jiri Olsa <jolsa@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	"Paul E. McKenney" <paulmck@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
+	Ilya Leoshkevich <iii@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Quentin Monnet <qmo@kernel.org>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
+	Ihor Solodrai <ihor.solodrai@linux.dev>, Yingchi Long <longyingchi24s@ict.ac.cn>, 
+	Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>, Neel Natu <neelnatu@google.com>, 
+	Benjamin Segall <bsegall@google.com>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_161027_585952_453D99B5 
-X-CRM114-Status: GOOD (  16.78  )
+X-CRM114-CacheID: sfid-20250303_161334_601983_5414BBC8 
+X-CRM114-Status: GOOD (  16.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,45 +99,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat,  1 Mar 2025 15:11:13 +0100 Maxime Chevallier wrote:
-> ethnl_req_get_phydev() is used to lookup a phy_device, in the case an
-> ethtool netlink command targets a specific phydev within a netdev's
-> topology.
-> 
-> It takes as a parameter a const struct nlattr *header that's used for
-> error handling :
-> 
->        if (!phydev) {
->                NL_SET_ERR_MSG_ATTR(extack, header,
->                                    "no phy matching phyindex");
->                return ERR_PTR(-ENODEV);
->        }
-> 
-> In the notify path after a ->set operation however, there's no request
-> attributes available.
-> 
-> The typical callsite for the above function looks like:
-> 
-> 	phydev = ethnl_req_get_phydev(req_base, tb[ETHTOOL_A_XXX_HEADER],
-> 				      info->extack);
-> 
-> So, when tb is NULL (such as in the ethnl notify path), we have a nice
-> crash.
-> 
-> It turns out that there's only the PLCA command that is in that case, as
-> the other phydev-specific commands don't have a notification.
-> 
-> This commit fixes the crash by passing the cmd index and the nlattr
-> array separately, allowing NULL-checking it directly inside the helper.
-> 
-> Fixes: c15e065b46dc ("net: ethtool: Allow passing a phy index for some commands")
-> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Hi all!
 
-Well, this alone doesn't look too bad.. :) Hopefully we can address
-adding more suitable handlers for phy ops in net-next.
+This patchset adds kernel support for BPF load-acquire and store-release
+instructions (for background, please see [1]), including core/verifier
+and arm64/x86-64 JIT compiler changes, as well as selftests.  riscv64 is
+also planned to be supported.  The corresponding LLVM changes can be
+found at:
 
-Didn't someone report this, tho? I vaguely remember seeing an email,
-unless they said they don't want to be credited maybe we should add
-a Reported-by tag? You can post it in reply, no need to repost 
-the patch.
+  https://github.com/llvm/llvm-project/pull/108636
+
+The first 3 patches from v4 have already been applied:
+
+  - [bpf-next,v4,01/10] bpf/verifier: Factor out atomic_ptr_type_ok()
+    https://git.kernel.org/bpf/bpf-next/c/b2d9ef71d4c9
+  - [bpf-next,v4,02/10] bpf/verifier: Factor out check_atomic_rmw()
+    https://git.kernel.org/bpf/bpf-next/c/d430c46c7580
+  - [bpf-next,v4,03/10] bpf/verifier: Factor out check_load_mem() and check_store_reg()
+    https://git.kernel.org/bpf/bpf-next/c/d38ad248fb7a
+
+Please refer to the LLVM PR and individual kernel patches for details.
+Thanks!
+
+v4: https://lore.kernel.org/bpf/cover.1740978603.git.yepeilin@google.com/
+v4..v5 notable changes:
+
+  o (kernel test robot) for 32-bit arches: make the verifier reject
+                        64-bit load-acquires/store-releases, and fix
+                        build error in interpreter changes
+    * tested ARCH=arc build following instructions from kernel test
+      robot
+  o (Alexei) drop Documentation/ patch (v4 10/10) for now
+
+v3: https://lore.kernel.org/bpf/cover.1740009184.git.yepeilin@google.com/
+v3..v4 notable changes:
+
+  o (Alexei) add x86-64 JIT support (including arena)
+  o add Acked-by: tags from Xu
+
+v2: https://lore.kernel.org/bpf/cover.1738888641.git.yepeilin@google.com/
+v2..v3 notable changes:
+
+  o (Alexei) change encoding to BPF_LOAD_ACQ=0x100, BPF_STORE_REL=0x110
+  o add Acked-by: tags from Ilya and Eduard
+  o make new selftests depend on:
+    * __clang_major__ >= 18, and
+    * ENABLE_ATOMICS_TESTS is defined (currently this means -mcpu=v3 or
+      v4), and
+    * JIT supports load_acq/store_rel (currenty only arm64)
+  o work around llvm-17 CI job failure by conditionally define
+    __arena_global variables as 64-bit if __clang_major__ < 18, to make
+    sure .addr_space.1 has no holes
+  o add Google copyright notice in new files
+
+v1: https://lore.kernel.org/all/cover.1737763916.git.yepeilin@google.com/
+v1..v2 notable changes:
+
+  o (Eduard) for x86 and s390, make
+             bpf_jit_supports_insn(..., /*in_arena=*/true) return false
+	     for load_acq/store_rel
+  o add Eduard's Acked-by: tag
+  o (Eduard) extract LDX and non-ATOMIC STX handling into helpers, see
+             PATCH v2 3/9
+  o allow unpriv programs to store-release pointers to stack
+  o (Alexei) make it clearer in the interpreter code (PATCH v2 4/9) that
+             only W and DW are supported for atomic RMW
+  o test misaligned load_acq/store_rel
+  o (Eduard) other selftests/ changes:
+    * test load_acq/store_rel with !atomic_ptr_type_ok() pointers:
+      - PTR_TO_CTX, for is_ctx_reg()
+      - PTR_TO_PACKET, for is_pkt_reg()
+      - PTR_TO_FLOW_KEYS, for is_flow_key_reg()
+      - PTR_TO_SOCKET, for is_sk_reg()
+    * drop atomics/ tests
+    * delete unnecessary 'pid' checks from arena_atomics/ tests
+    * avoid depending on __BPF_FEATURE_LOAD_ACQ_STORE_REL, use
+      __imm_insn() and inline asm macros instead
+
+RFC v1: https://lore.kernel.org/all/cover.1734742802.git.yepeilin@google.com
+RFC v1..v1 notable changes:
+
+  o 1-2/8: minor verifier.c refactoring patches
+  o   3/8: core/verifier changes
+         * (Eduard) handle load-acquire properly in backtrack_insn()
+         * (Eduard) avoid skipping checks (e.g.,
+                    bpf_jit_supports_insn()) for load-acquires
+         * track the value stored by store-releases, just like how
+           non-atomic STX instructions are handled
+         * (Eduard) add missing link in commit message
+         * (Eduard) always print 'r' for disasm.c changes
+  o   4/8: arm64/insn: avoid treating load_acq/store_rel as
+           load_ex/store_ex
+  o   5/8: arm64/insn: add load_acq/store_rel
+         * (Xu) include Should-Be-One (SBO) bits in "mask" and "value",
+                to avoid setting fixed bits during runtime (JIT-compile
+                time)
+  o   6/8: arm64 JIT compiler changes
+         * (Xu) use emit_a64_add_i() for "pointer + offset" to optimize
+                code emission
+  o   7/8: selftests
+         * (Eduard) avoid adding new tests to the 'test_verifier' runner
+         * add more tests, e.g., checking mark_precise logic
+  o   8/8: instruction-set.rst changes
+
+[1] https://lore.kernel.org/all/20240729183246.4110549-1-yepeilin@google.com/
+
+Thanks,
+Peilin Ye (6):
+  bpf: Introduce load-acquire and store-release instructions
+  arm64: insn: Add BIT(23) to {load,store}_ex's mask
+  arm64: insn: Add load-acquire and store-release instructions
+  bpf, arm64: Support load-acquire and store-release instructions
+  bpf, x86: Support load-acquire and store-release instructions
+  selftests/bpf: Add selftests for load-acquire and store-release
+    instructions
+
+ arch/arm64/include/asm/insn.h                 |  12 +-
+ arch/arm64/lib/insn.c                         |  29 ++
+ arch/arm64/net/bpf_jit.h                      |  20 ++
+ arch/arm64/net/bpf_jit_comp.c                 |  86 +++++-
+ arch/s390/net/bpf_jit_comp.c                  |  14 +-
+ arch/x86/net/bpf_jit_comp.c                   |  95 ++++++-
+ include/linux/bpf.h                           |  15 +
+ include/linux/filter.h                        |   2 +
+ include/uapi/linux/bpf.h                      |   3 +
+ kernel/bpf/core.c                             |  67 ++++-
+ kernel/bpf/disasm.c                           |  12 +
+ kernel/bpf/verifier.c                         |  59 +++-
+ tools/include/uapi/linux/bpf.h                |   3 +
+ .../selftests/bpf/prog_tests/arena_atomics.c  |  66 ++++-
+ .../selftests/bpf/prog_tests/verifier.c       |   4 +
+ .../selftests/bpf/progs/arena_atomics.c       | 121 +++++++-
+ .../bpf/progs/verifier_load_acquire.c         | 197 +++++++++++++
+ .../selftests/bpf/progs/verifier_precision.c  |  49 ++++
+ .../bpf/progs/verifier_store_release.c        | 264 ++++++++++++++++++
+ 19 files changed, 1085 insertions(+), 33 deletions(-)
+ create mode 100644 tools/testing/selftests/bpf/progs/verifier_load_acquire.c
+ create mode 100644 tools/testing/selftests/bpf/progs/verifier_store_release.c
+
+-- 
+2.48.1.711.g2feabab25a-goog
+
 
