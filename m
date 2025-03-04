@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08904C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 14:45:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3758C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 14:47:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iRe8bA5fq5Dnerb6IrVuapdeqPHeVXv9pFZzkEkJmRo=; b=w9AGjgD4J7oVxaOOz6XQU0/vYj
-	2Z+HeDzceP/tF5/xAyHTOCes4BUM12aCKiBmatXme5o0pUdxr72xA2Hrb9JyGQmFDFTJmXuLAg5A8
-	dLf4bgKHdP6CUmDcIBdJ+gL3d11ybjyTKDNrP0Up0Is/7RAwP6XNWSUOTIuP70cD4SiP1Os/ojB5F
-	wEq15r/o87S+WfCIiXl7t8DIMrOifO18CmBgwxah1kYlzXoUgwvUL+C09bECzb6yIYhqSNwRlb0yH
-	Vpcy7SX44bW3QCihfvahCemGzr1Hul9QIKiwH/zEJH7iYKra1wR09yWjS9LNAeMXlrwqM0KsLuhC6
-	geOU7spg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5gAf5SLEw4dUgSmxoKqRtnXWvjNEtDTG73YW3GckkDc=; b=jR+X4B9Kkk3W8IWJ6+gmLcozzd
+	tuMNcjkETZ9/RYnfc6axcYw7Onip2uc6ce+cZzXyOHl5CGE2ItJ3sCII9nOIuz0u0VneGhuOB4QiF
+	155i8+JWKHcrTCz9gQ3+Bgfi7+6DiLXHZMw60VTgryN/Gvs+M8AfrnM+sUDxFfUWzv5jVI1NoYKHh
+	I6hGdBWPH5A3tR2SpI9JulrekK744wPKE5yyeXVk7wAJyaaCdyujf6Sdqz8taE0s6bw5xGpKJkciA
+	uTmLW0+47hQDA5vR6t1ZWjfRNGWStecdcqqxsK6RUP/ZoiaUphi5vGYKq1kU+ypdmlnUphI+Sih4T
+	azQUtX0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpTWI-0000000534l-1wxM;
-	Tue, 04 Mar 2025 14:45:18 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1tpTXq-000000053Rw-0RI1;
+	Tue, 04 Mar 2025 14:46:54 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpTUh-000000052gb-43Fp
+	id 1tpTUt-000000052jm-2RAx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 14:43:41 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id E11F544283;
-	Tue,  4 Mar 2025 14:43:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1741099415;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=iRe8bA5fq5Dnerb6IrVuapdeqPHeVXv9pFZzkEkJmRo=;
-	b=OjlSumgPR+Di0+R/SqIfwlocmtXNUmeGujQ9eyffd0YzGCom6RZHDLNRLH3fVl+T3moCWQ
-	x1FdbSetA4zu0h48UeLxbePp0CAVyEd/3nW55E6OyfiNkqLm1KDucpqXd/4J+0kFmbSoDG
-	SqJuGnZb8WOarIlXMEbCPWxqeyDpj2+VKmoK3mmEv5rAliUA2/cjRp5U3CY+086H8YNC4i
-	ANWB9ISfQYUa9hITU4YO345eDP7GXn+mkG8pD1NrUerrOpCRZYc6ygkuNW8mLqaIBADplB
-	xSp9wanjT23HIIF8glPrOBPJ1bxOKdqbVLBqsYDNeIwX1zVwMIUXe7T/8eXDjg==
-Date: Tue, 4 Mar 2025 15:43:30 +0100
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
- <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>, Heiner Kallweit
- <hkallweit1@gmail.com>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>, Herve Codina
- <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>, =?UTF-8?B?S8O2cnk=?= Maincent
- <kory.maincent@bootlin.com>, Oleksij Rempel <o.rempel@pengutronix.de>,
- Simon Horman <horms@kernel.org>, Romain Gantois
- <romain.gantois@bootlin.com>
-Subject: Re: [PATCH net-next v4 09/13] net: phylink: Use phy_caps_lookup for
- fixed-link configuration
-Message-ID: <20250304154330.6e00961b@fedora.home>
-In-Reply-To: <20250303090321.805785-10-maxime.chevallier@bootlin.com>
-References: <20250303090321.805785-1-maxime.chevallier@bootlin.com>
-	<20250303090321.805785-10-maxime.chevallier@bootlin.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Tue, 04 Mar 2025 14:43:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 09F755C5CB4;
+	Tue,  4 Mar 2025 14:41:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9B20C4CEED;
+	Tue,  4 Mar 2025 14:43:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741099430;
+	bh=XfSqRqYZsA+MUDEbRTfs5BMwtTnxrzx+0E/tO5qxzN0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=R5GulmQ+RL2iHOx2ATwQmKj/WdX6qgMFdeAbidKuBl8ZTCQo5UMrIKuC5y6h6MKMR
+	 bTBnvkBtU6K0yzZoSrWrCm5SSduKh/c/mYh7xFrut/IOCCdEV8H8X20YyX0/NCtBU3
+	 Mmq/613fgsVeVu52eMAUkHZ3g7THAsWyZlbf3wnKZOFG5rUgJHgjhwUzGvP1SylqDI
+	 2guAncPF+1nBF1cjhjki7w9ebw/L5Rq/K7xBYc1Y//7cMDhwX2FyiBrrpidjA/2x5n
+	 6ALc3bxyFvwHaibCCWfygsGYwxG2Bey40wnUrDu6v4eOZzlarpt9zG6PYnczEyDquj
+	 smzsF8NIBm8Yg==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>
+Cc: soc@lists.linux.dev,
+	Arnd Bergmann <arnd@arndb.de>,
+	Luke Parkin <luke.parkin@arm.com>,
+	Peng Fan <peng.fan@nxp.com>,
+	arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] firmware: arm_scmi: use ioread64() instead of ioread64_hi_lo()
+Date: Tue,  4 Mar 2025 15:43:34 +0100
+Message-Id: <20250304144346.1025658-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddutddvfedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudelpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepvgguuhhmrgiivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtoheplhhin
- hhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_064340_299699_28A91967 
-X-CRM114-Status: GOOD (  25.54  )
+X-CRM114-CacheID: sfid-20250304_064351_673966_1F999947 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,164 +75,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Arnd Bergmann <arnd@arndb.de>
 
-On Mon,  3 Mar 2025 10:03:15 +0100
-Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
+The scmi_common_fastchannel_db_ring() function calls either ioread64()
+or ioread64_hi_lo() depending on whether it is compiler for 32-bit
+or 64-bit architectures.
 
-> When phylink creates a fixed-link configuration, it finds a matching
-> linkmode to set as the advertised, lp_advertising and supported modes
-> based on the speed and duplex of the fixed link.
-> 
-> Use the newly introduced phy_caps_lookup to get these modes instead of
-> phy_lookup_settings(). This has the side effect that the matched
-> settings and configured linkmodes may now contain several linkmodes (the
-> intersection of supported linkmodes from the phylink settings and the
-> linkmodes that match speed/duplex) instead of the one from
-> phy_lookup_settings().
-> 
-> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> ---
+The same logic is used to define ioread64() itself in the
+linux/io-64-nonatomic-hi-lo.h header file, so the special case
+is not really needed.
 
-Maybe before anything goes further with this patch, I'd like to get
-some feedback from it on a particular point. This changes the linkmodes
-that are reported on fixed-link interfaces. Instead of reporting one
-single mode, we report all modes supported by the fixed-link' speed and
-duplex settings.
+The behavior here should not change at all.
 
-The following example is a before/after of the "ethtool ethX" output on
-a 1G fixed link :
+Fixes: 6f9ea4dabd2d ("firmware: arm_scmi: Generalize the fast channel support")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ drivers/firmware/arm_scmi/driver.c | 10 ----------
+ 1 file changed, 10 deletions(-)
 
-Before this patch :
-
-	Settings for eth0:
-	Supported ports: [ MII ]
-	Supported link modes:   1000baseT/Full 
-	Supported pause frame use: Symmetric
-	Supports auto-negotiation: Yes
-	Supported FEC modes: Not reported
-	Advertised link modes:  Not reported
-	Advertised pause frame use: No
-	Advertised auto-negotiation: No
-	Advertised FEC modes: Not reported
-	Speed: Unknown!
-	Duplex: Half
-	Port: MII
-	PHYAD: 0
-	Transceiver: internal
-	Auto-negotiation: off
-	Supports Wake-on: d
-	Wake-on: d
-	Link detected: no
-
-After :
-
-	Supported ports: [ MII ]
-	Supported link modes:   1000baseT/Full 
-	                        1000baseKX/Full 
-	                        1000baseX/Full 
-	                        1000baseT1/Full 
-	Supported pause frame use: Symmetric
-	Supports auto-negotiation: Yes
-	Supported FEC modes: Not reported
-	Advertised link modes:  Not reported
-	Advertised pause frame use: No
-	Advertised auto-negotiation: No
-	Advertised FEC modes: Not reported
-	Speed: Unknown!
-	Duplex: Half
-	Port: MII
-	PHYAD: 0
-	Transceiver: internal
-	Auto-negotiation: off
-	Supports Wake-on: d
-	Wake-on: d
-	Link detected: no
-
-The fixed-link in question is for the CPU port of a DSA switch.
-
-In my opinion, this is OK as the linkmodes expressed here don't match
-physical linkmodes on an actual wire, but as this is a user visible
-change, I'd like to make sure this is OK. Any comment here is more than
-welcome.
-
-Maxime
-
-> V4: Remove unnecessary linklmode_zero in phylink_set_fixed_link(),
-> follwing Russell's comment
-> 
->  drivers/net/phy/phylink.c | 27 +++++++++++++++------------
->  1 file changed, 15 insertions(+), 12 deletions(-)
-> 
-> diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-> index 6c67d5c9b787..0b9585cb508e 100644
-> --- a/drivers/net/phy/phylink.c
-> +++ b/drivers/net/phy/phylink.c
-> @@ -805,9 +805,10 @@ static int phylink_validate(struct phylink *pl, unsigned long *supported,
->  static int phylink_parse_fixedlink(struct phylink *pl,
->  				   const struct fwnode_handle *fwnode)
->  {
-> +	__ETHTOOL_DECLARE_LINK_MODE_MASK(match) = { 0, };
->  	__ETHTOOL_DECLARE_LINK_MODE_MASK(mask) = { 0, };
-> +	const struct link_capabilities *c;
->  	struct fwnode_handle *fixed_node;
-> -	const struct phy_setting *s;
->  	struct gpio_desc *desc;
->  	u32 speed;
->  	int ret;
-> @@ -879,8 +880,10 @@ static int phylink_parse_fixedlink(struct phylink *pl,
->  	linkmode_copy(pl->link_config.advertising, pl->supported);
->  	phylink_validate(pl, pl->supported, &pl->link_config);
->  
-> -	s = phy_lookup_setting(pl->link_config.speed, pl->link_config.duplex,
-> -			       pl->supported, true);
-> +	c = phy_caps_lookup(pl->link_config.speed, pl->link_config.duplex,
-> +			    pl->supported, true);
-> +	if (c)
-> +		linkmode_and(match, pl->supported, c->linkmodes);
->  
->  	linkmode_set_bit(ETHTOOL_LINK_MODE_Pause_BIT, mask);
->  	linkmode_set_bit(ETHTOOL_LINK_MODE_Asym_Pause_BIT, mask);
-> @@ -889,9 +892,10 @@ static int phylink_parse_fixedlink(struct phylink *pl,
->  
->  	phylink_set(pl->supported, MII);
->  
-> -	if (s) {
-> -		__set_bit(s->bit, pl->supported);
-> -		__set_bit(s->bit, pl->link_config.lp_advertising);
-> +	if (c) {
-> +		linkmode_or(pl->supported, pl->supported, match);
-> +		linkmode_or(pl->link_config.lp_advertising,
-> +			    pl->link_config.lp_advertising, match);
->  	} else {
->  		phylink_warn(pl, "fixed link %s duplex %dMbps not recognised\n",
->  			     pl->link_config.duplex == DUPLEX_FULL ? "full" : "half",
-> @@ -1879,21 +1883,20 @@ static int phylink_register_sfp(struct phylink *pl,
->  int phylink_set_fixed_link(struct phylink *pl,
->  			   const struct phylink_link_state *state)
->  {
-> -	const struct phy_setting *s;
-> +	const struct link_capabilities *c;
->  	unsigned long *adv;
->  
->  	if (pl->cfg_link_an_mode != MLO_AN_PHY || !state ||
->  	    !test_bit(PHYLINK_DISABLE_STOPPED, &pl->phylink_disable_state))
->  		return -EINVAL;
->  
-> -	s = phy_lookup_setting(state->speed, state->duplex,
-> -			       pl->supported, true);
-> -	if (!s)
-> +	c = phy_caps_lookup(state->speed, state->duplex,
-> +			    pl->supported, true);
-> +	if (!c)
->  		return -EINVAL;
->  
->  	adv = pl->link_config.advertising;
-> -	linkmode_zero(adv);
-> -	linkmode_set_bit(s->bit, adv);
-> +	linkmode_and(adv, pl->supported, c->linkmodes);
->  	linkmode_set_bit(ETHTOOL_LINK_MODE_Autoneg_BIT, adv);
->  
->  	pl->link_config.speed = state->speed;
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 60050da54bf2..1c75a4c9c371 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -1997,17 +1997,7 @@ static void scmi_common_fastchannel_db_ring(struct scmi_fc_db_info *db)
+ 	else if (db->width == 4)
+ 		SCMI_PROTO_FC_RING_DB(32);
+ 	else /* db->width == 8 */
+-#ifdef CONFIG_64BIT
+ 		SCMI_PROTO_FC_RING_DB(64);
+-#else
+-	{
+-		u64 val = 0;
+-
+-		if (db->mask)
+-			val = ioread64_hi_lo(db->addr) & db->mask;
+-		iowrite64_hi_lo(db->set | val, db->addr);
+-	}
+-#endif
+ }
+ 
+ /**
+-- 
+2.39.5
 
 
