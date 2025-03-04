@@ -4,84 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74EB2C282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 12:09:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F78FC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 12:09:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wRUzk5bTqm01beKg6HwXEmAMeVCJrPaBDA9inMAHOZs=; b=fuDan5WVGy5HtdqPmeeFqEQf2r
-	vYr71/KEQNhBsAR2zbEa7fnZWpuWTBuIbHCzwqGDQjetegn3ey24AnDukWc9Il8ofr5eZHR/lA8tt
-	6A+imAiWaSyHOO0zCW6MSnUKJ8rEVTdWbKufenOdBKTqOW6nIVD3uIC1uc1jAwWFhwXygTwMmcFoU
-	lksw+iXpM4BSxIjhsl9kn2K8qjvhh+JDMcbWX5tub69ZSuBLDwwI8Zuk45qt+FeTBKFJRWViDu6Us
-	qJWpcW1z3HbLJKo68nwGx9l5ViNb6WCYLRnqDrNFchmgcwbX9ibr4guw6dweCZp5jNzHHgf2cLnA0
-	XYsgv77A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=P0SzJuOIEPCOqv51XjL/0EjgYjY+plcmS0tb3ijkM+A=; b=IK0tFucb8w0ulZMtjtcfuUqs1R
+	HvTggimYeQLKWoPOZ6MMQAtvL3lhSdoE8sS9UO3wOPL9AJoMlU5tpBC/mB6spnu+reAWrLYUK9gqP
+	7lA7+TUfsbTmQa9FsTutErf5PvN142nn04ePKbEpxigorH1Xi9i41qT9fWNsxuC7jOh5ZAuP+GBsE
+	s1q5zeNcDkNZM7SLKBlb6KiAm2y8DPaSObExAwajriEPTftROR7fcZqT4mppn33xVIRCX4rTD+ESU
+	HuotKLM+4fwwWSVNJeoG4q1UbwnvkV394f/L333GOkkjrbSU+NsvHdPglzHx5NsGefUL+fGgFlVER
+	W62fk9VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpR4w-00000004Wm4-228Y;
-	Tue, 04 Mar 2025 12:08:54 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPyn-00000004Ir7-0B6B
+	id 1tpR4y-00000004Woy-18qb;
+	Tue, 04 Mar 2025 12:08:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpPzK-00000004Ixw-2DZi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 10:58:30 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 524AwJw13576389
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 4 Mar 2025 04:58:19 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1741085899;
-	bh=wRUzk5bTqm01beKg6HwXEmAMeVCJrPaBDA9inMAHOZs=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=UkKqzxOkPYEOwVCJelWNuGrtv5f8xbjxAg5TamFF7mw8ItEHQ1+F0Gn10w5E7lWSY
-	 O+K8U7FGC/8f0JpAMc5sVcMMNGwXmxpqLyyDMGfrAmrUoxtf/+eaSWuZJr4lIP/rwd
-	 vZRt3rFrF3kt6yMz4EJDXoulbUjCrKYH91wGsMQE=
-Received: from DLEE104.ent.ti.com (dlee104.ent.ti.com [157.170.170.34])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 524AwJkX036192
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 4 Mar 2025 04:58:19 -0600
-Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 4
- Mar 2025 04:58:18 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE101.ent.ti.com
- (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 4 Mar 2025 04:58:18 -0600
-Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 524AwIdP097457;
-	Tue, 4 Mar 2025 04:58:18 -0600
-Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
-	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 524AwHAQ017609;
-	Tue, 4 Mar 2025 04:58:18 -0600
-From: Meghana Malladi <m-malladi@ti.com>
-To: <javier.carrasco.cruz@gmail.com>, <diogo.ivo@siemens.com>,
-        <m-malladi@ti.com>, <horms@kernel.org>, <richardcochran@gmail.com>,
-        <pabeni@redhat.com>, <kuba@kernel.org>, <edumazet@google.com>,
-        <davem@davemloft.net>, <andrew+netdev@lunn.ch>
-CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>,
-        Jacob Keller <jacob.e.keller@intel.com>,
-        Kory Maincent
-	<kory.maincent@bootlin.com>
-Subject: [PATCH net-next v4 2/2] net: ti: icss-iep: Add phase offset configuration for perout signal
-Date: Tue, 4 Mar 2025 16:27:53 +0530
-Message-ID: <20250304105753.1552159-3-m-malladi@ti.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250304105753.1552159-1-m-malladi@ti.com>
-References: <20250304105753.1552159-1-m-malladi@ti.com>
+	Tue, 04 Mar 2025 10:59:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 85823FEC;
+	Tue,  4 Mar 2025 02:59:15 -0800 (PST)
+Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5A7183F5A1;
+	Tue,  4 Mar 2025 02:59:00 -0800 (PST)
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: ARM SoC Team <arm@kernel.org>,
+	SoC Team <soc@kernel.org>,
+	ALKML <linux-arm-kernel@lists.infradead.org>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Arnd Bergmann <arnd@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>
+Subject: [GIT PULL] arm64: dts: juno/vexpress: Updates for v6.15
+Date: Tue,  4 Mar 2025 10:58:56 +0000
+Message-Id: <20250304105856.432848-1-sudeep.holla@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_025829_166142_6D9C6C3B 
-X-CRM114-Status: GOOD (  15.97  )
+X-CRM114-CacheID: sfid-20250304_025902_656161_D9ECD39B 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,93 +65,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-icss_iep_perout_enable_hw() is a common function for generating
-both pps and perout signals. When enabling pps, the application needs
-to only pass enable/disable argument, whereas for perout it supports
-different flags to configure the signal.
+Hi ARM SoC Team,
 
-In case the app passes a valid phase offset value, the signal should
-start toggling after that phase offset, else start immediately or
-as soon as possible. ICSS_IEP_SYNC_START_REG register take number of
-clock cycles to wait before starting the signal after activation time.
-Set appropriate value to this register to support phase offset.
+Please pull !
 
-Signed-off-by: Meghana Malladi <m-malladi@ti.com>
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
-Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
----
-Changes from v3 (v4-v3):
-- Move flag checks out of mutex lock as suggested by Kory Maincent <kory.maincent@bootlin.com>
-- Collected RB tag from Kory Maincent <kory.maincent@bootlin.com>
+Regards,
+Sudeep
 
- drivers/net/ethernet/ti/icssg/icss_iep.c | 18 ++++++++++++++++--
- 1 file changed, 16 insertions(+), 2 deletions(-)
+-->8
 
-diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.c b/drivers/net/ethernet/ti/icssg/icss_iep.c
-index 2981c19c48b1..b4a34c57b7b4 100644
---- a/drivers/net/ethernet/ti/icssg/icss_iep.c
-+++ b/drivers/net/ethernet/ti/icssg/icss_iep.c
-@@ -407,6 +407,7 @@ static int icss_iep_perout_enable_hw(struct icss_iep *iep,
- 				     struct ptp_perout_request *req, int on)
- {
- 	struct timespec64 ts;
-+	u64 ns_start;
- 	u64 ns_width;
- 	int ret;
- 	u64 cmp;
-@@ -416,6 +417,14 @@ static int icss_iep_perout_enable_hw(struct icss_iep *iep,
- 	ts.tv_nsec = req->on.nsec;
- 	ns_width = timespec64_to_ns(&ts);
- 
-+	if (req->flags & PTP_PEROUT_PHASE) {
-+		ts.tv_sec = req->phase.sec;
-+		ts.tv_nsec = req->phase.nsec;
-+		ns_start = timespec64_to_ns(&ts);
-+	} else {
-+		ns_start = 0;
-+	}
-+
- 	if (iep->ops && iep->ops->perout_enable) {
- 		ret = iep->ops->perout_enable(iep->clockops_data, req, on, &cmp);
- 		if (ret)
-@@ -430,7 +439,8 @@ static int icss_iep_perout_enable_hw(struct icss_iep *iep,
- 			regmap_write(iep->map, ICSS_IEP_SYNC_PWIDTH_REG,
- 				     div_u64(ns_width, iep->def_inc));
- 			regmap_write(iep->map, ICSS_IEP_SYNC0_PERIOD_REG, 0);
--			regmap_write(iep->map, ICSS_IEP_SYNC_START_REG, 0);
-+			regmap_write(iep->map, ICSS_IEP_SYNC_START_REG,
-+				     div_u64(ns_start, iep->def_inc));
- 			regmap_write(iep->map, ICSS_IEP_SYNC_CTRL_REG, 0); /* one-shot mode */
- 			/* Enable CMP 1 */
- 			regmap_update_bits(iep->map, ICSS_IEP_CMP_CFG_REG,
-@@ -457,6 +467,8 @@ static int icss_iep_perout_enable_hw(struct icss_iep *iep,
- 
- 			regmap_write(iep->map, ICSS_IEP_SYNC_PWIDTH_REG,
- 				     div_u64(ns_width, iep->def_inc));
-+			regmap_write(iep->map, ICSS_IEP_SYNC_START_REG,
-+				     div_u64(ns_start, iep->def_inc));
- 			/* Enable Sync in single shot mode  */
- 			regmap_write(iep->map, ICSS_IEP_SYNC_CTRL_REG,
- 				     IEP_SYNC_CTRL_SYNC_N_EN(0) | IEP_SYNC_CTRL_SYNC_EN);
-@@ -487,7 +499,8 @@ static int icss_iep_perout_enable(struct icss_iep *iep,
- 	int ret = 0;
- 
- 	/* Reject requests with unsupported flags */
--	if (req->flags & ~PTP_PEROUT_DUTY_CYCLE)
-+	if (req->flags & ~(PTP_PEROUT_DUTY_CYCLE |
-+			  PTP_PEROUT_PHASE))
- 		return -EOPNOTSUPP;
- 
- 	mutex_lock(&iep->ptp_clk_mutex);
-@@ -588,6 +601,7 @@ static int icss_iep_pps_enable(struct icss_iep *iep, int on)
- 	if (on) {
- 		ns = icss_iep_gettime(iep, NULL);
- 		ts = ns_to_timespec64(ns);
-+		rq.perout.flags = 0;
- 		rq.perout.period.sec = 1;
- 		rq.perout.period.nsec = 0;
- 		rq.perout.start.sec = ts.tv_sec + 2;
--- 
-2.43.0
+The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
 
+  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/juno-updates-6.15
+
+for you to fetch changes up to 21b9f56cec8f8918b5bbb900d6d86eaf06d54537:
+
+  arm64: dts: corstone1000: Add definitions for secondary CPU cores (2025-03-03 17:07:15 +0000)
+
+----------------------------------------------------------------
+Armv8 FVP/Vexpress/Juno updates for v6.15
+
+The main and bulk of the addition this time is the support for the Arm
+reference Morello System Development Platform (SDP).
+
+The Morello architecture is an experimental extension to Armv8.2-A,
+enhancing the AArch64 execution state with capabilities for fine-grained
+memory protection and scalable software compartmentalization. However
+these changes doesn't add any of the support for security enhancements.
+This is mainly adding device tree support for Morello SDP.
+
+The platform iteslf is shipped with ACPI firmware. However, since the
+ACPI bindings for GPU, DPU, I2C, I2S,..etc are not well defined or not
+provided in the shipped ACPI firmware, there is a need for the device
+tree as alternative for the developers focusing on those features.
+
+The CPU is called rainier, the architecture is Morello and the platform
+is Morello SDP board. There is FVP equivalent of the same though they
+are not completely in feature parity with the real hardware.
+
+These changes provide the initial support for Morello SDP and FVP
+platforms.
+
+Apart from this, we have an update to add support for secondary cores
+on Corstone1000 FVP platform.
+
+----------------------------------------------------------------
+Hugues KAMBA MPIANA (1):
+      arm64: dts: corstone1000: Add definitions for secondary CPU cores
+
+Vincenzo Frascino (9):
+      arm64: Kconfig: Update description for CONFIG_ARCH_VEXPRESS
+      dt-bindings: arm: Add Morello compatibility
+      dt-bindings: arm: Add Morello fvp compatibility
+      dt-bindings: arm: Add Rainier compatibility
+      dt-bindings: arm-pmu: Add support for ARM Rainier PMU
+      arm64: dts: morello: Add support for common functionalities
+      arm64: dts: morello: Add support for soc dts
+      arm64: dts: morello: Add support for fvp dts
+      MAINTAINERS: Add Vincenzo Frascino as Arm Morello Maintainer
+
+ .../devicetree/bindings/arm/arm,morello.yaml       |  35 +++
+ Documentation/devicetree/bindings/arm/cpus.yaml    |   1 +
+ Documentation/devicetree/bindings/arm/pmu.yaml     |   1 +
+ MAINTAINERS                                        |   7 +
+ arch/arm64/Kconfig.platforms                       |   5 +-
+ arch/arm64/boot/dts/arm/Makefile                   |   1 +
+ arch/arm64/boot/dts/arm/corstone1000-fvp.dts       |  26 ++
+ arch/arm64/boot/dts/arm/corstone1000.dtsi          |   3 +-
+ arch/arm64/boot/dts/arm/morello-fvp.dts            |  77 +++++
+ arch/arm64/boot/dts/arm/morello-sdp.dts            | 157 ++++++++++
+ arch/arm64/boot/dts/arm/morello.dtsi               | 323 +++++++++++++++++++++
+ 11 files changed, 632 insertions(+), 4 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/arm/arm,morello.yaml
+ create mode 100644 arch/arm64/boot/dts/arm/morello-fvp.dts
+ create mode 100644 arch/arm64/boot/dts/arm/morello-sdp.dts
+ create mode 100644 arch/arm64/boot/dts/arm/morello.dtsi
 
