@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 165C3C282D2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 14:33:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AFA0C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 14:36:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tTAodclUAdCBU382l20ItnjkDcvqqEPMOb0qAu5ypcA=; b=qzuuiSQlXMBxYAYb0DU5LiGW5J
-	Ww1Pu/jseHOrxwbqQQTqCO0MtSes4p+b48EzQo2jUpogrGaC7wBPNAvQbe9uVR5iYBV0lQyo48QbP
-	5ACvAp6ra1AKsFmmgWkEh7NyPmwJn8u/7v05rx1Ly5qQeu2opM1LEDfkT/L0fCjJOAVKIVfMl40At
-	xZGrFku6ZcDIBgXyKf1MNy6bqknKKAOZYyP+vavAK9jwDgsHqkcZ7v+fQx2K9iM001etEYxxuqyxT
-	8pR2DOyXzKfpS4q1RTPC5SalxrCSLFiCbOmXKiOcG0digxBRLghW4NDNU2Ndb4FqbGHvK/v5V1Ecl
-	fNlsM59Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4Gqyom2Qw8VXFf3AYIpGbjCuS8c9RY7yiAyJBWvJUfc=; b=yQVNYfg+9lSbpJjOhkRxF1LBp9
+	EdRS3nMUWF1TFDVXUi3jqQCTvhUttE2EJ/B2Ew5KyC3vJn/f+yEJnbfoyApONtc5Ife0wDPM3RG7x
+	D9TmTpg4hsZkyKsyk/v/il4hPxdsPsU9MW5AdbbxhO9fW/CELQ4DTSCRhXppVzobq2Iav6MkR18FV
+	/zVZL+5RGsYbHveETYVuRw97trk/V/CQ6qku+2j4VbC030/pyYffk2uwRDkEjbWvvn2ruzyJ1zmOX
+	scw9r+EMJ87ZDdG2SbvwGhKWET0Q0hOwDOq4wOPUhdKBaV+xgB2r5AsVRgjDsROwsiTVJLsZTO1y3
+	czTAxjJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpTKp-000000050Tc-0c48;
-	Tue, 04 Mar 2025 14:33:27 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tpTNe-000000051FK-2mXJ;
+	Tue, 04 Mar 2025 14:36:22 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpTJF-000000050Ez-1bwJ;
-	Tue, 04 Mar 2025 14:31:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1741098703; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=mAce3bRInugDhWPhCQM6C2uCziq19ilL7/e+dDW2/FGcV1jAnkWk4bEkVhEqALuAwIKUQaz283m1L6+GjNg7wGKM/uLr6E+GmAow3mmPtDa0ZgSRfN9ymqKS30YZ8AGCmJr2RuWWgd8wjvsHdhmBFyY0T91/QvIe3g8dYbJP4AQ=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1741098703; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=tTAodclUAdCBU382l20ItnjkDcvqqEPMOb0qAu5ypcA=; 
-	b=Ihw5XlebV4G1xS/82TskIdALZ4f96MvsX6Qv1UmpB9tv/KyoKguhA+XkF/1QMufniyDdE93wgk/eIuvDnjR6D1YtiiCnJ42kddUTNNAhMHmMaLA94SRyyGqz/S2hLW6XmBsdXKQqLxDW9PmgC5xtmKV/QlfvUFVP7YaqrubOHcE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1741098703;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=tTAodclUAdCBU382l20ItnjkDcvqqEPMOb0qAu5ypcA=;
-	b=ULFskclwdgD84orDTDoYs2GbQMrFcN9IYWZlXv6GhiNxCMwrTweCDIby6f9Pw5PJ
-	Sc7NsYDgv8wk0GOQRn40+TOKILmhGITxhPaBgTLDybhMyj2+NFPkeXOVi1rUcGnUNB0
-	sF1qb5Z03fHMYAxI+Ugu1YrvPgvCd/7yX4yiFB0U=
-Received: by mx.zohomail.com with SMTPS id 1741098701479811.0457773113028;
-	Tue, 4 Mar 2025 06:31:41 -0800 (PST)
-Received: by venus (Postfix, from userid 1000)
-	id EB4EE180C9F; Tue, 04 Mar 2025 15:31:37 +0100 (CET)
-Date: Tue, 4 Mar 2025 15:31:37 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Arnd Bergmann <arnd@arndb.de>, linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] pmdomain: rockchip: add regulator dependency
-Message-ID: <2g5p6ucwp55zuisupqx6dglikmbm5rqy3yl34mqobs3giucfqe@um6uhmglxhex>
-References: <20250304142803.689201-1-arnd@kernel.org>
+	id 1tpTM4-000000050u0-3CkE;
+	Tue, 04 Mar 2025 14:34:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=4Gqyom2Qw8VXFf3AYIpGbjCuS8c9RY7yiAyJBWvJUfc=; b=KTdCEV/zTusAeUlTIrBuBAb6SW
+	QOPuOTIm7BL/bYx2YPLJAYBFDF28jitg9fxcPZ6HfAEBuQ/bthkTDwK5mTWRX18uOq1FNvKIvh7J6
+	nTZB1nFXW3Y9YXExh4df+JzoAmiG3am5R5qRJ7iGejoN6o5z8ZsxZtlZXjVud8XaTZOA/wZPmNnTU
+	gyqZTRpr2ewIXAoPpKPAfT8rwGqDQ6/IUPt7HnGhQrwTp9dhdUv2IhbA+BD94/tn+iAIwwDt931X8
+	61QfDmBDGVaoGcaaRbJJCC8q/qOP13pFtoMMx9v14XgF/L+KL4Bq5OYk1nh6j816lZCTw6sCXW70X
+	Ucn1A1wQ==;
+Received: from i53875a38.versanet.de ([83.135.90.56] helo=phil..)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tpTM2-0003uT-SQ; Tue, 04 Mar 2025 15:34:42 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Heiko Stuebner <heiko@sntech.de>
+Subject: Re: [PATCH 1/2] arm64: dts: rockchip: Add ES8388 audio codec fallback on RK3399 ROC PC PLUS
+Date: Tue,  4 Mar 2025 15:34:40 +0100
+Message-ID: <174109881585.132749.2987468837584062976.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250304104200.76178-1-krzysztof.kozlowski@linaro.org>
+References: <20250304104200.76178-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="6ftr5rqzgjozmvlj"
-Content-Disposition: inline
-In-Reply-To: <20250304142803.689201-1-arnd@kernel.org>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.4.2/241.78.79
-X-ZohoMailClient: External
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_063149_489607_EFF4A485 
-X-CRM114-Status: GOOD (  17.95  )
+X-CRM114-CacheID: sfid-20250304_063444_803331_4D3628F5 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,83 +80,24 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---6ftr5rqzgjozmvlj
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] pmdomain: rockchip: add regulator dependency
-MIME-Version: 1.0
+On Tue, 04 Mar 2025 11:41:59 +0100, Krzysztof Kozlowski wrote:
+> Devicetree bindings for ES8388 audio codec expect the device to be
+> marked as compatible with ES8328.
+> 
+> 
 
-Hi,
+Applied, thanks!
 
-On Tue, Mar 04, 2025 at 03:27:59PM +0100, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
->=20
-> When CONFIG_REGULATOR is disabled, this pmdomain driver fails to build:
->=20
-> drivers/pmdomain/rockchip/pm-domains.c:653:30: error: implicit declaratio=
-n of function 'devm_of_regulator_get'; did you mean 'devm_regulator_get'? [=
--Wimplicit-function-declaration]
->   653 |                 pd->supply =3D devm_of_regulator_get(pmu->dev, pd=
-->node, "domain");
->       |                              ^~~~~~~~~~~~~~~~~~~~~
->       |                              devm_regulator_get
-> drivers/pmdomain/rockchip/pm-domains.c:653:28: error: assignment to 'stru=
-ct regulator *' from 'int' makes pointer from integer without a cast [-Wint=
--conversion]
->   653 |                 pd->supply =3D devm_of_regulator_get(pmu->dev, pd=
-->node, "domain");
->       |                            ^
->=20
-> Add a Kconfig dependency.
->=20
-> Fixes: db6df2e3fc16 ("pmdomain: rockchip: add regulator support")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
+[1/2] arm64: dts: rockchip: Add ES8388 audio codec fallback on RK3399 ROC PC PLUS
+      commit: d83f6c32d70f96037cb187e63785e7a58f9e751b
+[2/2] arm64: dts: rockchip: Add ES8388 audio codec fallback on RK3588 boards
+      commit: ced36c336d241eafbc812fed27e6a52908d249bb
 
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Thanks for the heads up Krzysztof, about the asoc patches getting accepted
+for 6.15.
 
--- Sebastian
 
->  drivers/pmdomain/rockchip/Kconfig | 1 +
->  1 file changed, 1 insertion(+)
->=20
-> diff --git a/drivers/pmdomain/rockchip/Kconfig b/drivers/pmdomain/rockchi=
-p/Kconfig
-> index 7e4f9b628f0b..218d43186e5b 100644
-> --- a/drivers/pmdomain/rockchip/Kconfig
-> +++ b/drivers/pmdomain/rockchip/Kconfig
-> @@ -5,6 +5,7 @@ config ROCKCHIP_PM_DOMAINS
->  	bool "Rockchip generic power domain"
->  	depends on PM
->  	depends on HAVE_ARM_SMCCC_DISCOVERY
-> +	depends on REGULATOR
->  	select PM_GENERIC_DOMAINS
->  	help
->  	  Say y here to enable power domain support.
-> --=20
-> 2.39.5
->=20
-
---6ftr5rqzgjozmvlj
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmfHDsEACgkQ2O7X88g7
-+pp00g//aFcPbqAlUT+9ssFVmS1DZnzPVKvIpP2qpRgf3ZLhdIUUE/9ljAKaBhsB
-ibrwuSsht4nUebBiL/Ge9191zcdE/kG+oBIaOeUpRfUI1fVI5V501LzHoJAX9QJM
-nezzvh8SUWeoerVK2faqPrap0HJ/u/vkhoOpiUBoSBOOaD438GhSPbgAGV7SBH5L
-8dtv0H9PbRg0bjMWaSrUptVZKH1aOgew/ik30jvwDzXRJYGx/86Zzh4h8ryCh4LO
-lfwPZ72cq5QbpagWvO2rCznJrntpdWITqzCJ0Tg+OEjRhhcpDfSpI16krVIfFK37
-lFDhuK9/4VnA8PRmt92pDU2AfNMpUa8O1narQGFGsFTvG8ad9/h5xwxLVq9DMB5F
-r5D8Ild2hkvI1mkm1zj5Ur0aSN9p8kX91gbN5+cblCFw3GQPSRVBCe9iYQMWKOYI
-fJm46Nw4D6pbfMGAl4N4gxBwZsCUbFzVU60cqnUSDyVYVET+5sennBGpX9k/AKfk
-DBoG2efxxd0x34sq6orYAjL0+E0FLw+T/bfgcVwF6XOv6jJfYPPB7YVWREGR7EzQ
-t2ybqCXnUQIpyHe/cYSjJzcgYmfn4I5VlWhjsK5Zw4F6hSPAaDPiskS8PMqTDBGx
-GwR5n9e77eX49YHCd6frUZTZycygRe8J+vB77/bkFd1LcUNlcZI=
-=86c8
------END PGP SIGNATURE-----
-
---6ftr5rqzgjozmvlj--
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
