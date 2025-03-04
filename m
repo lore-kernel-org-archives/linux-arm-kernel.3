@@ -4,160 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB0E2C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 17:48:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA942C282D2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 17:50:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bZ9VSB9xT2b/qG8qHQbtvbJrR1seitoepvz5LJqLVZQ=; b=eeBHVaBOPoz0oh+hjBM6fiJlyx
-	LXUO20F4eMYiCi8yQIJ8Y5gJrssYho72W6+s/uXTWefHSSvcCXvJQJv9f+PntStsFSR7EffaOxFIL
-	HmxPzH8JhQGkrKlnq6bWCWV9eRQN4OJKYm5rfPOeeclg8p7Emo8AgFcME+iloUJE/Bl0qqROLNhA2
-	PyZ18IYbHH2lzmDjHGGkWbr7E9lmBuUVUgShmqTOO6FBCGxWewLwpCvZAxLx+ihc9/VSdJCu4BtHa
-	QABCuqkQFays77hdB7/Vd4yoYFIUs7FrRuTvXZy6Y6Kl6br/kYHtlJ4YUZ0SXr7l5d4Id3zApfucp
-	c1iB4s2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CqAT5+Gi1O68uLcYreVHzC9MDAGC4lcpXT9gC3flVdI=; b=45EJkxEHpJy3sQOLn75vSrC4p9
+	lPffOPjwdi+zJwm/Sdmayh47qKGo9rMmkydn34xAcU///l63su/epNZlPHGFv7P64g12fB3d7/H2T
+	xjRWcKIPglJ7/M5tGtr/tD6pCkqnfmFgg5k4My5AfNPUMgMUQqgDodRI/jkyA1C2agut59w04Hpc5
+	SOHFcREdE8SMRb187U2rqYIrup/tKAIEcEReUPM6P4JXMWx41Zf0IffSN3QcrXtsRjAOScTip7taF
+	+oWeD9WTSYs+3ELPmA+2Sf+lm/e7cPcfde3hwq5PpgfTMXIZBv3aJdXzheUkqicWx+8lpEKhG5zk+
+	dYkRP6iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpWNk-00000005hsF-0Od9;
-	Tue, 04 Mar 2025 17:48:40 +0000
-Received: from mail-am6eur05on20608.outbound.protection.outlook.com ([2a01:111:f403:2612::608] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1tpWPI-00000005iEN-3dm4;
+	Tue, 04 Mar 2025 17:50:17 +0000
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpUue-00000005NbE-0Ynz
+	id 1tpUvV-00000005NsR-1ysH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 16:14:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=m6ybHjbiI0Zr1RQZCzMCuTaANl0N3rZ0ZjQ/R4s/ztoFiQdMqEjVjjfi2gP84pKGGMIX2gMdTqax0C4lC1ubEecg8LSREV1Blg3pKyeBho22RDezDUdCAdu1avmnW3R0EHnIRdE7HQyiBNLCmxIQlC3Q21+sRrC9OsyQqHLS1imw2ErpDbCIG7HbW1DfcGJ1Y3SL7kXZVAncsO3qaCRnuqE3YdU0HoRRBAhhZNU9PaIdHbUIo6mPOHbgo/Jx633ChK0cAxupEg4haoZm5lGnf369dzlm/rpcEIUuGN0Lq2Ch/pyUIZ36Qewsy0p3tLCo9WaX1rvQb0CVK0y4dUjuuQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bZ9VSB9xT2b/qG8qHQbtvbJrR1seitoepvz5LJqLVZQ=;
- b=eG4QsW0O6MxGYEqfnpaU6cJzi6leFcgW0oB/9Nys+MvGjZ6nufPMcyP9a1H1MTFSemWpsrFEeAEQ74DDD3G4RE1x06/L0iQwDzvHLHr6HmIEjKkgJvbnDJnbYO/dTWdS9ufya17JkQacB2dodA6q6O8JumTFWMwIHdkLbV4jFbC5ECPTGVjxEX6jFe23gzhmOQnLsYTdTybj8xsZlrY2dX/SHznykUAZPTegO35ZDvXnnijnUg5K/0tHzGMxijktRt2plNLqsAEuhrw2nrQsBb4p12rFAdxUOx5Mxy36cQoCVeo/fHIYCKcfj8oeYi02vgjpATdAxBZiP8JfUrPZaw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bZ9VSB9xT2b/qG8qHQbtvbJrR1seitoepvz5LJqLVZQ=;
- b=Ec0yN36juzzPa0JNoywXcc0kXQzw9P4lk9Q/Vg8GqX/4255rN4zD/SgPcionxZaPUCgYg0yMmCyIFd2+DdWXqmANWYQ06cg84Bm3zJK3JKidfv6g4w4cG0A/wuvHPIcz1OaRj+08+f5EWYU0XSvzVhP9wWT+mdU8M/Rrm0ZUvItJ6l6B28Z3kB6KU9vOCHwpOa4V3S83UkRHJIvrlXlN++1plqPafS7xGxgzyQH10ZfiAvVJcTSwBZezhfQ7hyukkHYiXFy/eAISVk6U+hFYR2SPPFs3LtN/sLlM9htSVxSJqtkjfFaKjliXDCBQiKZ5PTN+w+Y2duUyhfaC8jH5JA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU7PR04MB11163.eurprd04.prod.outlook.com (2603:10a6:10:5b3::14)
- by DU4PR04MB11080.eurprd04.prod.outlook.com (2603:10a6:10:587::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.25; Tue, 4 Mar
- 2025 16:14:29 +0000
-Received: from DU7PR04MB11163.eurprd04.prod.outlook.com
- ([fe80::3a74:80e4:4144:62db]) by DU7PR04MB11163.eurprd04.prod.outlook.com
- ([fe80::3a74:80e4:4144:62db%4]) with mapi id 15.20.8489.028; Tue, 4 Mar 2025
- 16:14:29 +0000
-From: florin.leotescu@oss.nxp.com
-To: Jean Delvare <jdelvare@suse.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Shych <michaelsh@nvidia.com>,
-	linux-hwmon@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: viorel.suman@nxp.com,
-	carlos.song@nxp.com,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	festevam@gmail.com,
-	Florin Leotescu <florin.leotescu@nxp.com>
-Subject: [PATCH v3 3/3] hwmon: emc2305: Use devm_thermal_of_cooling_device_register
-Date: Tue,  4 Mar 2025 18:21:36 +0200
-Message-Id: <20250304162136.1963384-4-florin.leotescu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250304162136.1963384-1-florin.leotescu@oss.nxp.com>
-References: <20250304162136.1963384-1-florin.leotescu@oss.nxp.com>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AM0PR05CA0096.eurprd05.prod.outlook.com
- (2603:10a6:208:136::36) To DU7PR04MB11163.eurprd04.prod.outlook.com
- (2603:10a6:10:5b3::14)
+	Tue, 04 Mar 2025 16:15:26 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id C0A8720479;
+	Tue,  4 Mar 2025 16:15:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1741104921;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CqAT5+Gi1O68uLcYreVHzC9MDAGC4lcpXT9gC3flVdI=;
+	b=o9OpQSWCPcLhU75kNX2KB5/lnvHNChPaWtHihmyulicnkYRnOi0iBSibqDPh1HIurd5oXa
+	I8YiOwkICGHH3ijfJHOspj/VJLvjtz2DlSh+Bm5gAyC7rHHtSLhXp143kVLyZS0xblCbxy
+	GnHWOPVcYD+nAQ+wn2K1khX2vrkj+D8MMHwmxxkUTTFCFshXEbkYNMnhpxi7X2Lc7pqTfa
+	cNNZwJoEJqtLXnVLoXIKDuvzE+ZQybJEVzqdOfexBoUSMDrrWx0uFTJd3uDtXqx/sUU5je
+	uSScUY8lwpYIcZOGgvyNhh4fd3+xdXA3FGhygoOH6J5hzvElm5v03SYg1D1rww==
+Date: Tue, 4 Mar 2025 17:15:15 +0100
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Kory Maincent <kory.maincent@bootlin.com>
+Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
+ <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Heiner Kallweit <hkallweit1@gmail.com>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <christophe.leroy@csgroup.eu>, Herve Codina
+ <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>,
+ Russell King <linux@armlinux.org.uk>, Vladimir Oltean
+ <vladimir.oltean@nxp.com>, Oleksij Rempel <o.rempel@pengutronix.de>, Simon
+ Horman <horms@kernel.org>, Romain Gantois <romain.gantois@bootlin.com>,
+ Piergiorgio Beruto <piergiorgio.beruto@gmail.com>
+Subject: Re: [PATCH net] net: ethtool: Set the req_info->dev on DUMP
+ requests for each dev
+Message-ID: <20250304171515.297d15df@fedora.home>
+In-Reply-To: <20250304170051.607097e9@kmaincent-XPS-13-7390>
+References: <20250302162137.698092-1-maxime.chevallier@bootlin.com>
+	<20250304170051.607097e9@kmaincent-XPS-13-7390>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU7PR04MB11163:EE_|DU4PR04MB11080:EE_
-X-MS-Office365-Filtering-Correlation-Id: 88f2c751-fea6-45e1-e482-08dd5b37a3f3
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?TBIl8/nDFO928rWeRjFzo8EHeb3tYxHCok4V0/XuFW72fPPgfV/pedSGCg?=
- =?iso-8859-1?Q?dT6epkfA9NYRuYmPLdAaNkpUq+uSU1dmU8GqAJ+7gOaqVS58f0jSCXWM2O?=
- =?iso-8859-1?Q?rPkw3YAgG57L1FgABBYraUUUsdDepDVuZ3Sd8DVXfRC+beyHxa+fHrGyr3?=
- =?iso-8859-1?Q?B/quHR2Z3fuwgy8aUygcZjrx1zT6uX4YjINSHBv0JTGptK7hkyah2AMy6i?=
- =?iso-8859-1?Q?e9GhHrhjT7VxGKhzLPRAg1oPYzBLc9qNBhHHlN5U9VtDgVzYBvqxOQCVDG?=
- =?iso-8859-1?Q?edlN0TNviMCihSk160YRdcAKL7dVcobgM1i6Gtrwmc6o9t97GuBRQZsQDi?=
- =?iso-8859-1?Q?n26xlQBYXe1TyJClpL3N4vGvaAdhVfSJz1K19piKM9Zx659PT9b0Z4rFHl?=
- =?iso-8859-1?Q?OVfJO/FIMae81C2dlx8H34vsTXZK+q/bvTcuVSeeMhYjotx9XTZVBm0POR?=
- =?iso-8859-1?Q?x8wvgKn9t8BTMUNMhzpG0PxO2qudA9bZrSZm1GM/VsGtI81loealCZSb24?=
- =?iso-8859-1?Q?gvcxtG4FtWmPihXODtmQHFD72RWp+sVusocFB1Lj4akCy3/O+HdDtXTZwF?=
- =?iso-8859-1?Q?Bmw4ULUyVzKvu1dV64jJjdF6qCBmDjOrElvgVS18pqiSJYXkbA78H9dAEC?=
- =?iso-8859-1?Q?S9EWTD8P6ln4r4IiIgZZQPBfMfu/d/kPA6kdo4zhFw7ig/6l+5UyDSHx7M?=
- =?iso-8859-1?Q?ctC0x3mzETX1ODk51LjL4oLpVPQ0u76Ib5NyKbnIKohoHU6Ny97fwZlk3Z?=
- =?iso-8859-1?Q?tQFML0g4eCQ32T9L2+50cn/KQr8lWKGZOduJZ03hP33eqMvRTEGuVLDc6X?=
- =?iso-8859-1?Q?n79cgMNHEe3cajmbyIpb73gL9xdzIhqAJmKx9thtOIBD5ZdnYgYZe8U9Sf?=
- =?iso-8859-1?Q?LRfiM8NqUDys8zBxbA3u13sZulDQcwEfi7n+X9RuFMXiD9chxaTzuA94vi?=
- =?iso-8859-1?Q?YIU3zpnSSYUX2JcuSjaIVckWCxkSNK+iA2Z+wyHy88VOxT76dYgsqOcVqy?=
- =?iso-8859-1?Q?EawZrE2vBc4w1InMaPl7e0kAhd/n5H4UkMUyaxSRS2gojodOmXhMe57Oe1?=
- =?iso-8859-1?Q?c9zo1gQkqUO0z9AKmL1I6aEJVeFsgpA6bLe71IrKE9Cctob98Z7ZsGPcWI?=
- =?iso-8859-1?Q?GPgD7N6u5bc84rQdyAh/LLtHdO4WySfc72We3B/tvz+rgq8rdR8rtTXych?=
- =?iso-8859-1?Q?Fn8Cza6CRau8f3LK3ulHrtdgftNcCRwYxlJGCqKaP1c9fTWPGDWkbFvdAU?=
- =?iso-8859-1?Q?LTCXrNavgsX5Ib+lGDdX2mAs9WVzzkXh70DpdwU13J+ZHhOkIK6YhKFEu9?=
- =?iso-8859-1?Q?2F9Y+1aeIxMcsvHXnpog+IMl2hl1DEBHsODu6iuj9AiM7vhnC+UxetlskG?=
- =?iso-8859-1?Q?2tUGdvOr7M5mHBlomb0vB1hRWKoIwKrsZcLAZXsmnDuIGx1Q7p4nnUgM7/?=
- =?iso-8859-1?Q?RVHhoxBDybTWfUVI?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU7PR04MB11163.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?6+1sL8lrFJ94eM8LF9o0GUalvfWKKk7MuAd26pxZFg0XvDPHV3fEAoIEUe?=
- =?iso-8859-1?Q?P7B57aO33sxZ3gjiLlKK2re9FkPs3Vcden9Tud+iY+Vzf7D+gVp7vtK4hz?=
- =?iso-8859-1?Q?QbO4akxeULXjR5EAhyn2RZorTbV72d590On0n+7LD6uiVQB/MhflWll2ZY?=
- =?iso-8859-1?Q?n4ODmut8w5yf/0sNwCesVpjuOaXcyHGRPlMnFmmc6nixEqtbHnC1TfPgEG?=
- =?iso-8859-1?Q?+lepZvRYjonRXbarSbityvMMh0/qB5jXnRj9QXwsHHpe73ZcIUhR7yg67S?=
- =?iso-8859-1?Q?/7VNu4vPuTEuKGEGegxxvEdiqpXwZGPwi1wKt5FbUHZhSfTxDUthfgncPC?=
- =?iso-8859-1?Q?bVYGRBAHjJz12rgheHQDLMhorqEwgqtkxHSlbOTUMppeshC1vIxwP8mdJx?=
- =?iso-8859-1?Q?GIYObFxvbQhHjLcXUGDPXOuDwDsOWqWvPu7Z7HSTMTabfcaD9N/CePR0O7?=
- =?iso-8859-1?Q?DspWgF33D3aVSmCkIoEnCkbrA/JwgB2pEiDM3cDVAXNRJxA5Kp7KYY10Y+?=
- =?iso-8859-1?Q?5nIKLqCQr69kR+M18qtTK2trmrEKmSCzJjR1lvgpwl9vLYAxZXP1jU/mWk?=
- =?iso-8859-1?Q?7xG2ITfFyL24rw4uvc3yBYV4VN3KRGwZjGzdN5Pbgj6jruzJEavY8VeZok?=
- =?iso-8859-1?Q?X/B57p4kLE/waBsTgMu7cHwNoQetmBT+HnemBIC3Booo0hLq+z2B5NHS0O?=
- =?iso-8859-1?Q?e2jouekJrYiv0K4LirvelmdSvD9Ct4ZUDIcsr40hV+YSsKdMN4xTaqyNwp?=
- =?iso-8859-1?Q?7kMmsXUUvi84n00V+13+BQJL7Hyxt5TUE9goFPi2I8Lc6YNb3OLPUTId59?=
- =?iso-8859-1?Q?4rYi/trfZ+oyjIse6MGhVDVgPRi1L/ujQIVB1WC8ybtqZui7vG/RateH1R?=
- =?iso-8859-1?Q?vUuHXbLQgYIZhhT35+cd0C4P/YQEZRrpO6qii9/NKxI2yiEeThcjDMrEPo?=
- =?iso-8859-1?Q?KhI4W5HlYFNAJWL8qJCELakDZmIAppGuRjyXSJf9JRsVja8q4CSXRF66/0?=
- =?iso-8859-1?Q?aYTdAtukFASGzyzWVNRehJBjlR3R6uTt3AiWQjMJhrO8sDBgTSc0j+vWaA?=
- =?iso-8859-1?Q?N6NqVZ6XROBcBq7jobcTVTqQQu4ML6GjsjE0iyxSfADzRPjSHgPY6JHWaW?=
- =?iso-8859-1?Q?TGD40AC8kJ3QdxKCUzrCAhSDLPLQlQpDBplxbXauxaYMEV/RgCTc3bzFtF?=
- =?iso-8859-1?Q?2Jpro2Y0y4MKMh1NsugX1ynojAj3EtaZobmzjLHDZoreNcFDouHIqgSvoi?=
- =?iso-8859-1?Q?SKIf8RV4TJCidMyGu59Mz1j8wBwF3esH9Fj+RTyiIjBgzoY+Gk65tBN9DY?=
- =?iso-8859-1?Q?+hK0OOTGg98uS+yxToDnpocET8nWAUMYrVURjMoYYoNr0IPKkhIpMPTbic?=
- =?iso-8859-1?Q?tFTcgDRSXmSTSBx74tDN/lVYOUNwhf3BKmce+eDOS5TARY+K/a4LZapfPC?=
- =?iso-8859-1?Q?PgUxI7tN//r8x9CjtHJROZZKBX4xFYUM/S5wsFJWfqJvK0Kml4zbm3Niog?=
- =?iso-8859-1?Q?/FTLzdi4UjE0HGlHnj4LIiWp3dSizGF647hp3oeYq1TcQmzS9Zr9yHQzHO?=
- =?iso-8859-1?Q?bc2enWaRljkyPrIxbppVh6F4yhcTN9NhpTwg1O5bAsXgTV4ndUvwzJKyR6?=
- =?iso-8859-1?Q?0S1vDY0DJL+Hq378oLlY7/eA66zW797IEO?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 88f2c751-fea6-45e1-e482-08dd5b37a3f3
-X-MS-Exchange-CrossTenant-AuthSource: DU7PR04MB11163.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2025 16:14:29.0281
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SQLTIdhybw0Qc3VkNoNJJtHlpNyyQmbz99eI7stOGktcStZP+QKY4tDkr5+TOdSW8gtW1aBW7zfGWAQ7V2kMbg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11080
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddutddvhedtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtqhertdertdejnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepuefhfefggfdthffghfdvhffhhfetuedtkeetgffhteevheehjeejgfduieduhedunecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddtpdhrtghpthhtohepkhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrt
+ ghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_081432_176995_D1DCB983 
-X-CRM114-Status: GOOD (  15.87  )
+X-CRM114-CacheID: sfid-20250304_081525_641098_32B41511 
+X-CRM114-Status: GOOD (  30.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,89 +88,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Florin Leotescu <florin.leotescu@nxp.com>
+Hi K=C3=B6ry,
 
-This prepares emc2305 driver to use configuration from Device Tree nodes.
-Using devm_thermal_of_cooling_device_register also simplifies cleanup
-procedure, so we are able to remove the emc2305_unset_tz and emc2305_remove
-functions which are no longer used.
+On Tue, 4 Mar 2025 17:00:51 +0100
+Kory Maincent <kory.maincent@bootlin.com> wrote:
 
-Signed-off-by: Florin Leotescu <florin.leotescu@nxp.com>
----
- drivers/hwmon/emc2305.c | 28 +++-------------------------
- 1 file changed, 3 insertions(+), 25 deletions(-)
+> On Sun,  2 Mar 2025 17:21:36 +0100
+> Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
+>=20
+> > There are a few netlink commands that rely on the req_info->dev field
+> > being populated by ethnl in their ->prepare_data() and ->fill_reply().
+> >=20
+> > For a regular GET request, this will be set by ethnl_default_parse(),
+> > which calls ethnl_parse_header_dev_get().
+> >=20
+> > In the case of a DUMP request, the ->prepare_data() and ->fill_reply()
+> > callbacks will be called with the req_info->dev being NULL, which can
+> > cause discrepancies in the behaviour between GET and DUMP results.
+> >=20
+> > The main impact is that ethnl_req_get_phydev() will not find any
+> > phy_device, impacting :
+> >  - plca
+> >  - pse-pd
+> >  - stats
+> >=20
+> > Some other commands rely on req_info->dev, namely :
+> >  - coalesce in ->fill_reply to look for an irq_moder
+> >=20
+> > Although cable_test and tunnels also rely on req_info->dev being set,
+> > that's not a problem for these commands as :
+> >  - cable_test doesn't support DUMP
+> >  - tunnels rolls its own ->dumpit (and sets dev in the req_info).
+> >  - phy also has its own ->dumpit
+> >=20
+> > All other commands use reply_data->dev (probably the correct way of
+> > doing things) and aren't facing this issue.
+> >=20
+> > Simply set the dev in the req_info context when iterating to dump each
+> > dev.
+> >=20
+> > Fixes: c15e065b46dc ("net: ethtool: Allow passing a phy index for some
+> > commands") Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.=
+com>
+> > ---
+> >=20
+> > Fixes tag targets the phy-index commit, as it introduced a change in
+> > behaviour for PLCA. From what I can tell, coalesce never correctly
+> > detected irq_moder in DUMP requests.
+> >=20
+> > We could also consider fixing all individual commands that use
+> > req_info->dev, however I'm not actually sure it's incorrect to do so,
+> > feel free to correct me though.
+> >=20
+> > Maxime
+> >=20
+> >  net/ethtool/netlink.c | 1 +
+> >  1 file changed, 1 insertion(+)
+> >=20
+> > diff --git a/net/ethtool/netlink.c b/net/ethtool/netlink.c
+> > index b4c45207fa32..de967961d8fe 100644
+> > --- a/net/ethtool/netlink.c
+> > +++ b/net/ethtool/netlink.c
+> > @@ -582,6 +582,7 @@ static int ethnl_default_dumpit(struct sk_buff *skb,
+> >  		dev_hold(dev);
+> >  		rcu_read_unlock();
+> > =20
+> > +		ctx->req_info->dev =3D dev; =20
+>=20
+> I would rather put it in ethnl_default_dump_one() before
+> ethnl_init_reply_data() call.
 
-diff --git a/drivers/hwmon/emc2305.c b/drivers/hwmon/emc2305.c
-index a236f27c75bc..5f3f06308826 100644
---- a/drivers/hwmon/emc2305.c
-+++ b/drivers/hwmon/emc2305.c
-@@ -112,8 +112,6 @@ static char *emc2305_fan_name[] = {
- 	"emc2305_fan5",
- };
- 
--static void emc2305_unset_tz(struct device *dev);
--
- static int emc2305_get_max_channel(const struct emc2305_data *data)
- {
- 	return data->pwm_num;
-@@ -293,8 +291,9 @@ static int emc2305_set_single_tz(struct device *dev, int idx)
- 	pwm = data->pwm_min[cdev_idx];
- 
- 	data->cdev_data[cdev_idx].cdev =
--		thermal_cooling_device_register(emc2305_fan_name[idx], data,
--						&emc2305_cooling_ops);
-+		devm_thermal_of_cooling_device_register(dev, dev->of_node,
-+							emc2305_fan_name[idx], data,
-+							&emc2305_cooling_ops);
- 
- 	if (IS_ERR(data->cdev_data[cdev_idx].cdev)) {
- 		dev_err(dev, "Failed to register cooling device %s\n", emc2305_fan_name[idx]);
-@@ -337,21 +336,9 @@ static int emc2305_set_tz(struct device *dev)
- 	return 0;
- 
- thermal_cooling_device_register_fail:
--	emc2305_unset_tz(dev);
- 	return ret;
- }
- 
--static void emc2305_unset_tz(struct device *dev)
--{
--	struct emc2305_data *data = dev_get_drvdata(dev);
--	int i;
--
--	/* Unregister cooling device. */
--	for (i = 0; i < EMC2305_PWM_MAX; i++)
--		if (data->cdev_data[i].cdev)
--			thermal_cooling_device_unregister(data->cdev_data[i].cdev);
--}
--
- static umode_t
- emc2305_is_visible(const void *data, enum hwmon_sensor_types type, u32 attr, int channel)
- {
-@@ -599,14 +586,6 @@ static int emc2305_probe(struct i2c_client *client)
- 	return 0;
- }
- 
--static void emc2305_remove(struct i2c_client *client)
--{
--	struct device *dev = &client->dev;
--
--	if (IS_REACHABLE(CONFIG_THERMAL))
--		emc2305_unset_tz(dev);
--}
--
- static const struct of_device_id of_emc2305_match_table[] = {
- 	{ .compatible = "microchip,emc2301", },
- 	{ .compatible = "microchip,emc2302", },
-@@ -622,7 +601,6 @@ static struct i2c_driver emc2305_driver = {
- 		.of_match_table = of_emc2305_match_table,
- 	},
- 	.probe = emc2305_probe,
--	.remove	  = emc2305_remove,
- 	.id_table = emc2305_ids,
- };
- 
--- 
-2.34.1
+Ah yes true, that'll be more consistent with the other callpaths.
+
+> With this change:
+> Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
+> Tested-by: Kory Maincent <kory.maincent@bootlin.com>
+
+Thank you for testing, I'll respin.
+
+Maxime
+
+>=20
 
 
