@@ -4,96 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6ADBC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 00:40:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57A27C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 00:41:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U6X6RdB4UjE6/nuAZYBU8R5Fe+11M30bcPZso+kk5zo=; b=O5/sLef+gS3BkjmC+aGQlV4BcW
-	AGNwEe2KIawU+GPYyH7rHIOpesHJpueNB61LGaFEqXY6VH/yOgSFAV36qaW0SkT4Dq8K1OpCPaDNd
-	pQBBBSHO+A4fOcSg+0uZr1vPA/XI1EFxPBNfRP1C/NGhcUGMxxEWxZQ5XhEDGJQ62h39zInK7oQlu
-	7OL9motYaHtpI/mSEaNhH5YNRsztd8K2pZwLeonRuPp9gA9/5ZCCVh2yPx5JhaztzkVWJOikDsw0d
-	WcDMDQO5fA43Yuyi4weFmx6zVbuf6/+i7lu76JaKizK30pt79NAlqiPl4P7Sqrp4VazhnNnLOGkBA
-	J+S/JJ6w==;
+	bh=NZZ6RWDnljKub/rNqmhOhGtUl9a9akOzeS+eKL/NSi8=; b=V8tZmnUUq1Gz5rJ72AtA/WPS3S
+	IPAIpYDEWx9UY7jagNrrF5XOaHxOCKVPC0x/9QmAs4dIhtB6Bfe7EjcgXvO61oiwX51pCKUTbC/+4
+	O2IPWSZNv23IZAOqTpOsZ+k9YmCaJtHJC7Xv4udREsI/zsSitJGnumMZorG+q0ctUN7SIlqpt/rYw
+	LN9q7Vtu2UgrYIPBBGlEIxs2QezhDvac8AKEHzOj6UuWqKiYDj/2phj01A0oXk+OOJs53uer6dNYI
+	WsgAqT1q1NDkbdXGJRymlnj2WXHfFo8+5TWymq6f9MWw8xECD4j6pgZFOYzIXEz8nbozDPfFtYbHm
+	Ct0Bvy1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpGKF-00000002g8v-1Bw7;
-	Tue, 04 Mar 2025 00:39:59 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tpGLm-00000002gTK-3rBF;
+	Tue, 04 Mar 2025 00:41:34 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpGIe-00000002fnt-3D3X
+	id 1tpGKB-00000002g7I-3hSG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 00:38:21 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43bca0048c3so11505e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 16:38:19 -0800 (PST)
+	Tue, 04 Mar 2025 00:39:57 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-22342c56242so72305ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 16:39:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1741048698; x=1741653498; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1741048795; x=1741653595; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=U6X6RdB4UjE6/nuAZYBU8R5Fe+11M30bcPZso+kk5zo=;
-        b=cDadqx6+A+3lhdhV3BImcu5LAzM1OsYkHS+yHMp0C+WPMnqxoXvpzfITcOILtvsXCM
-         7/Iq33DvvLuFWMH0T3PIad3cDjtnL4IOIo84iABa6LXwfvAp9VRs5f7IlmWp8GEc/l62
-         hvjt68e9Hsr/wgU0C9yCpYlHjfDe7L1R7cgxJDUQm+UjP7mQG+PnmSGtjrYmWiuupJ7+
-         rn7r4onRmGWBHLE/kT7284n+VeTWce6XMVTyHGtbKbOmm2vvZX6hx6pmmrRqgEDT+6KT
-         M+yPBZNo2d2vexjZF3HL56iiZ2ELFMslZwrard9bW5NV6xDX7U0WcI9kRLwiqNGII0ep
-         +rQg==
+        bh=NZZ6RWDnljKub/rNqmhOhGtUl9a9akOzeS+eKL/NSi8=;
+        b=YiVnEzdKa6v3YKUEyQF+VDDQ2kLG/q0U6Zqsls22lcSbDbNZl9u3ucvE2YgN2DKyI1
+         8FHdyeQ/xLFBmTQ0WpjCigsGBXqd/lpnAXzT2datVIF+xkSyTzd2DJ5mKgt3f1WFQyfa
+         puYrnUzevfVdxOPGTr6JvZKHpnoDvDH4PRdRbLWXMC96glHyOQnTH6VX1NJMTtIHDY7E
+         wCnEFbu9HGr8dDSOePkbh18HFfO54Kx3A5jUyiSHyjZbN3iN+hEHXHsNv3ZCsSf4VtYT
+         f9DSGAnb/x/Z/4HeXbtyuYU4Y56W+DLuMbJhUkNiRwWvQaHD/++QIXMC1IQcJ+mZJk9H
+         7nnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741048698; x=1741653498;
+        d=1e100.net; s=20230601; t=1741048795; x=1741653595;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=U6X6RdB4UjE6/nuAZYBU8R5Fe+11M30bcPZso+kk5zo=;
-        b=Zb6O6/aPsGhXZRSRs1Tj3IzLMBiJbnu9x5MeydjYgTun6DDLYWle+tfejWvUc0nUAt
-         aCcMZN26OKx0vufijDSLz6yfUQ7wPn3jMIsIQij/D/ytgKTLnyO3MbYpzcFhdB8sfJSM
-         r0/nyu/M/7TGWGgtaN3evgxhpzzVjEzSMqknQDpjvQjd9mEQ/2gqbI/PkcKMa3yaa/3i
-         Rz37an6BIPjEysZA2FEUd20PppFM4fzEzteLMIsrlUEI2t6CK5rUxaDtiXLks4EtEfxE
-         Al/VsiGoYl41BsMNjLO2SC3ou11580dNa6oAK4pAdl510n2GcMS+6aWMETo50cqG9jub
-         YUJg==
-X-Forwarded-Encrypted: i=1; AJvYcCU8ztRREgD0XpY63p/Y+IVA46FOXhMSVLTV6zgcegT+VvS+MOtCzWscw505+VI4PxqDT1qHAuaNTJ1hhhnxR5L4@lists.infradead.org
-X-Gm-Message-State: AOJu0YwqQtkxl6b1xe84j8G2LgYdXRMqR5BIvAS9SJn8GlrgMF6GjWJo
-	ISqLed/teGwgieSUInxWAhrS3Sg3LEb5fsOvyyGQkOCaHmrO+IkL2M8NNcWtxUx6oVR1joDJd5h
-	yHMuY
-X-Gm-Gg: ASbGncuaL9W84dkuRpuqEiVoanodNboIsgfooh/2450kuwKtVoRfLWyH0/5mNX9sU3Q
-	BDBV77J2fiCNjvdhT0jDwwVVCXxY1dGpSWWFDbbFN+D2CDWgbRKUpLXSg5U41mVxe4ZQAOziI/i
-	hm8rsjzwooolgvjFwE5YvqDHz5NA3hFsTnbShb020XC55HD+f8A/P4R+PNC3QpX5PNDerDVYDr8
-	dnpoQVOLTpfw5q2hK6UyN29DS5o+/HhOfuYO8Qh2aDQyIpU8dS22Riy1rltYm8s2dZfhBdoCdHE
-	vT00f+OUoRclPCDy5alsvkPqfqkF5Qp8aUuh03jzepBkKu/64TLYkJfIXD3uQSv48fOv9Z7X4Sv
-	ciallvy5a/t8I
-X-Google-Smtp-Source: AGHT+IE9Y0VrehBJlDbDHPyoWXw+m1J69GUEuvY40Y+njXxv5FVs5PR5YGF4xAoIWOX1sa7YhrCg7Q==
-X-Received: by 2002:a05:600c:4295:b0:43b:c396:7405 with SMTP id 5b1f17b1804b1-43bcbe292f1mr260995e9.7.1741048698270;
-        Mon, 03 Mar 2025 16:38:18 -0800 (PST)
-Received: from google.com (100.235.22.34.bc.googleusercontent.com. [34.22.235.100])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e485dcc1sm15629062f8f.87.2025.03.03.16.38.16
+        bh=NZZ6RWDnljKub/rNqmhOhGtUl9a9akOzeS+eKL/NSi8=;
+        b=puiZuj1HhCaXwwBxZvlkTg16dme8YSCXlSg/3RanCzgrJFDQMf2xY13ON1X4noILwY
+         J/mHKb0p+8+KjfcC4vH4kecP0BUvaNQWmG8ElpHVk8NcCdGyLOOnYNhhng9V5xVZq+wS
+         0Pc4Y4Baq7+w1U+JTiMW7y7XWhXqAwK2yjj9iiShGIr57Jc8cm7kUE4zGs7LUO5Pkw1G
+         C5QaOSc0JCQMvpGqzdJ7s5j/k78DkVhl+Y5EWOoPoT8wuQXx/oSkRMVg+Sf+jaa7rUQp
+         5Z0p8X+uf0qC1q6jcKqiNT+6QZzNCOdVYRlA2t0fugzHferFNZQ9BgNcQGBl03elmFx7
+         WPXQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXPl+fzo4UoRJqhxn3AhCybmvi8HQYi+ED8Gx81fTXWyCE/BKG+OBSUSkNvIzHMnTXfa/Wjosl5MZoXjNE7V/bh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzp5GNTFkWsL3uYQPFHUqqZretMk+qHLo8pB/yRrpR/cVPIpY13
+	u1eIVMSVFmAlw5fNkJIxWcwzvTyN5M/K22JgTXIFL7ZsYvPHX9CNzEhKQigEvA==
+X-Gm-Gg: ASbGncsENY10nx4lh/EkMedH5Q3tEtjOBmQmCd+PWFWZE/rtDj2Ry3O3sYo17eE1Wp/
+	tVOS3luUYQxb9/cFVYzoV0ldvXpjWqgtF/jnRLnY3o2JppCxv6b7+6h5RKDjMEfAovtVIQgxL22
+	xYC5izbbX5ZVbN2g0KGoG/PZdP2Zjnv93ZkX0YM+ZXqkDWPt8hUU3Gm7rD/U3Ygdu933/EcF+VV
+	G8Cax/di5TGof2OWSKWjNf6U0Cm3HT7b5yHiLP7A73zMSlz0S5cLG3+hQjVdYEEOMgwXbBw3Va+
+	HZTQIVcH7CsFOR3tubK35GzzQJDT6noW1rVuZpeqV70CN202oEvB5BtMyB0aYeXyj7v/5KwjqMl
+	ptetZCFU=
+X-Google-Smtp-Source: AGHT+IEFZMvKPvqJtn6porx/jOyYtLyQRQGPPfM3zCCktwuBu79Q8Ew7WkeXkukdVZEY0NkgznAoKg==
+X-Received: by 2002:a17:902:ea05:b0:216:48d4:b3a8 with SMTP id d9443c01a7336-223d9e0df5cmr1199935ad.16.1741048794489;
+        Mon, 03 Mar 2025 16:39:54 -0800 (PST)
+Received: from google.com (147.141.16.34.bc.googleusercontent.com. [34.16.141.147])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-aee90c7e519sm6971619a12.61.2025.03.03.16.39.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Mar 2025 16:38:17 -0800 (PST)
-Date: Tue, 4 Mar 2025 00:38:15 +0000
-From: Sebastian Ene <sebastianene@google.com>
-To: Will Deacon <will@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
-	catalin.marinas@arm.com, joey.gouly@arm.com, oliver.upton@linux.dev,
-	snehalreddy@google.com, suzuki.poulose@arm.com,
-	vdonnefort@google.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-team@android.com
-Subject: Re: [PATCH v2 2/4] KVM: arm64: Move the ffa_to_linux definition to
- the ffa header
-Message-ID: <Z8ZLdwmFzS-lnssj@google.com>
-References: <20250227181750.3606372-1-sebastianene@google.com>
- <20250227181750.3606372-3-sebastianene@google.com>
- <20250227202557.d3fd6ylzbaho4pvx@bogus>
- <Z8DxZY-09R6lwEW3@google.com>
- <86wmdapei8.wl-maz@kernel.org>
- <20250303234426.GB30749@willie-the-truck>
+        Mon, 03 Mar 2025 16:39:53 -0800 (PST)
+Date: Tue, 4 Mar 2025 00:39:48 +0000
+From: Peilin Ye <yepeilin@google.com>
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: bpf <bpf@vger.kernel.org>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+	bpf@ietf.org, Alexei Starovoitov <ast@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	David Vernet <void@manifault.com>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
+	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Quentin Monnet <qmo@kernel.org>,
+	Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Yingchi Long <longyingchi24s@ict.ac.cn>,
+	Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>,
+	Neel Natu <neelnatu@google.com>,
+	Benjamin Segall <bsegall@google.com>,
+	LKML <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH bpf-next v5 1/6] bpf: Introduce load-acquire and
+ store-release instructions
+Message-ID: <Z8ZL1L69z8XWm8vl@google.com>
+References: <cover.1741046028.git.yepeilin@google.com>
+ <b0042990da762f5f6082cb6028c0af6b2b228c54.1741046028.git.yepeilin@google.com>
+ <CAADnVQKX+PoSUqPBB2+eZrR7wdq-8EVaMxy_Wur7g8wyy3Dcmg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250303234426.GB30749@willie-the-truck>
+In-Reply-To: <CAADnVQKX+PoSUqPBB2+eZrR7wdq-8EVaMxy_Wur7g8wyy3Dcmg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_163820_800624_D38758BB 
-X-CRM114-Status: GOOD (  21.74  )
+X-CRM114-CacheID: sfid-20250303_163955_929446_7023D115 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,35 +126,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 03, 2025 at 11:44:28PM +0000, Will Deacon wrote:
-> On Fri, Feb 28, 2025 at 10:09:19AM +0000, Marc Zyngier wrote:
-> > On Thu, 27 Feb 2025 23:12:37 +0000,
-> > Sebastian Ene <sebastianene@google.com> wrote:
-> > > 
-> > > On Thu, Feb 27, 2025 at 08:25:57PM +0000, Sudeep Holla wrote:
-> > > > On Thu, Feb 27, 2025 at 06:17:47PM +0000, Sebastian Ene wrote:
-> > > > > Keep the ffa_to_linux error map in the header and move it away
-> > > > > from the arm ffa driver to make it accessible for other components.
-> > > > 
-> > > > Do you plan to push/target these changes for v6.15 ? If not, I can take
-> > > > this patch with other FF-A changes in my tree for v6.15. Otherwise, it
-> > > > is must go along with other changes.
-> > > > 
-> > > 
-> > > Yes, feel free to pick them with your changes and we can push them
-> > > later.
-> > 
-> > So this series is not a 6.15 candidate?
-> 
-> I think this is 6.15 stuff once it's been reviewed. Sudeep's message is
-> a little confusing as it refers to 6.15 twice (I guess he meant 6.14 the
-> first time?).
-> 
+Hi Alexei,
 
-Right, I think it should be for 6.15 after it ticks the review boxes.
+On Mon, Mar 03, 2025 at 04:24:12PM -0800, Alexei Starovoitov wrote:
+> >         switch (insn->imm) {
+> > @@ -7780,6 +7813,24 @@ static int check_atomic(struct bpf_verifier_env *env, struct bpf_insn *insn)
+> >         case BPF_XCHG:
+> >         case BPF_CMPXCHG:
+> >                 return check_atomic_rmw(env, insn);
+> > +       case BPF_LOAD_ACQ:
+> > +#ifndef CONFIG_64BIT
+> > +               if (BPF_SIZE(insn->code) == BPF_DW) {
+> > +                       verbose(env,
+> > +                               "64-bit load-acquires are only supported on 64-bit arches\n");
+> > +                       return -EOPNOTSUPP;
+> > +               }
+> > +#endif
+> 
+> Your earlier proposal of:
+> if (BPF_SIZE(insn->code) == BPF_DW && BITS_PER_LONG != 64) {
+> 
+> was cleaner.
+> Why did you pick ifndef ?
 
-> Will
+Likely overthinking, but I wanted to avoid this check at all for 64-bit
+arches, so it's just a little bit faster.  Should I change it back to
+checking BITS_PER_LONG ?
 
 Thanks,
-Seb
+Peilin Ye
+
 
