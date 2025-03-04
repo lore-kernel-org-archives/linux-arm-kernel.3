@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E61BCC282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 00:20:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4964FC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 00:21:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6BuDMmX0jHHwSlxRNuzBpxukuM3wSJDBUPrtSODIeAg=; b=piicQiPNmdpR88dtIJyZJzgp7Q
-	1y3GH5YBfFK8dp2n/tzEVZV2tZyg5iSDOB8P4Mn02dnrV+B6zbe2dmKxkvd3XgJhyNLfSuaM97acC
-	s6BBZlzxF/wbFRPjHHGroMiY440vBoPtaOzB9Rr9LIWwHP04eOr2sFSSaYn40LDC+Nu468ApRbUpz
-	K9MCkr0ygucpZx01G9eeta8/kyi35dFDtLcrCWcHZ/Y5XxCVZ6FvtsB5F5LrCdZEYZTtjyKOqXifr
-	m0P+sum+38t2a4JjaWHbvoblYHz1Q96CPlcuiL2Bm0bF/JsxDZoXX/m+OfjEvlODMpEOwwnN1v/oL
-	A8shpARg==;
+	bh=8j2BSjmna2ghQKBcJTnNrRFDhjm44gnJpM2ihIwsNrg=; b=hcr0gKpuhR2Vs1Br80Nlx7s4pT
+	4fk72D7gjoXJ/oQaZ08vEdv5OBcfzmuG9HgCaU3G2hslNYGn6xz2mKRYvE5ruIDAH/JqI0S48sUBs
+	sW5goOhq8XWhVoia5ECPKOTWP8wx88+/FoDMwLw+N46FZFHxk2F8gFhcWimJ/Mz1Tx7pKXljwyTeJ
+	cC8/1QoNTrYmM5fL/s8K4aS4roGfDaDbjZOQShWw9TliGFc4AVn9YHZ3rHORyzfiRyEatlmBRz/Gz
+	W5xoeINBmdo05qfuIvC9+wcDD5TMYDg5Xki7iGPudGd/4w9Wp04I7L4Q0S+M+JVOYPRKi+ve98xmY
+	ZwZlvlJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpG0t-00000002dxg-1iil;
-	Tue, 04 Mar 2025 00:19:59 +0000
+	id 1tpG2R-00000002eAm-0KC1;
+	Tue, 04 Mar 2025 00:21:35 +0000
 Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpFvK-00000002d48-1Flg
+	id 1tpFvQ-00000002d69-0Hab
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 00:14:15 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2fec1f46678so11008491a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 16:14:13 -0800 (PST)
+	Tue, 04 Mar 2025 00:14:21 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2feb4648d4dso13865579a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 16:14:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1741047253; x=1741652053; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1741047259; x=1741652059; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=6BuDMmX0jHHwSlxRNuzBpxukuM3wSJDBUPrtSODIeAg=;
-        b=ednpOB0aWNqZ2LwT1vMIMR4ijnzBHkaB/TczhIbRBGJK9YE8NGmp7GBf74zJAYrDGM
-         1znWfI5pqWoVc8EKqLBJrYDba2V+RJayJbh2pAyk0bvMXUltxWWJBmQWG6+89JbNKRBU
-         sVvywBN2HCYl1KkiKqZRxkMQ+jbOThzH9wwZ2OAGKZ7uU2dlsjqF4p3YlrLitjSEYPci
-         l51pL9Kt/rvGXlg4kbeZ4BVZvmSnj6ELzOhpSdEmqSR3cLs2mIeDl+jBi5bZwLpy+euc
-         MsIN4F2NK7VcvsjviSavbR0DhpjmzZ+7+vUIuBbvpxCQMyn9kDe+oUJj2mheg+/cA/YA
-         xS9w==
+        bh=8j2BSjmna2ghQKBcJTnNrRFDhjm44gnJpM2ihIwsNrg=;
+        b=4chBx8hvEAXC/hGaeb+v2QG6vVt6r7SrK8XWea32cfJuZf6eg3yXbSKiwkRCkTyzHa
+         tPhI+b+gyDbULnBo8YERk0D7EsQxPNjKHBoyVQqKxkMXgtla+c72JEBE+dfFHsBsRPVH
+         +3ey6dz4K+x8KRcAe12kiIv/tMEdvUrNMLuiFqtnzeZRYpY15zCuuoCSSVh4q8RTwzfL
+         +JoN1deQwMb+Z2Ndkzb41WAVuHL20MNwKdjUdVblJSOGxNef3keIZku7mCr/Pg2CCD3o
+         aP6PDRxLX8/h1oZByWeDrmR9Xv3lJy99pFHY9kHp0tu9W/aEuh6A5/Fs2Zb/9ya8j2Kf
+         U1Uw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741047253; x=1741652053;
+        d=1e100.net; s=20230601; t=1741047259; x=1741652059;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=6BuDMmX0jHHwSlxRNuzBpxukuM3wSJDBUPrtSODIeAg=;
-        b=bBW7CEDQlHUONDUkd7eYByJ/UrFInkqlsDnlMDIiTUfwQL5NRbFGaULa6Lo20p4UbW
-         uv+nVvQytVZVsyTTUa/mHZpWzyP8J5Xj/90TSVVC1sLbuzcbDhLhtaZVI+NKpv2MO5fQ
-         WgkSP6UjlqrNqYKbCtw5qu9b0/V/eqBcmhgndLxJAjvQ6WR1nCaplDS1FgDquK5H4P+E
-         rvSN/5ufLrTYWavsnDJzm9m0jsJypeUUGCACJPqsnrYsh4j1V5QB6eHbcUQyo81WzXpb
-         0gucwGKY6f3hDo4wyJnlW+MbrrZEAgBwo4sGFJetYpcTjbS55hMGkGyxCIzpfdgg3GC7
-         anhQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVIhn0S9vjC3tSFCefXHeGEY/ONEX7D8D8bpc+PxQDF4ZifDdoHuOxacLTkDkZS0PjMsdLOaNf3euVVc+Qqu0ay@lists.infradead.org
-X-Gm-Message-State: AOJu0YxG1OU1dcDzMmSYUxuG4TTkqsLX3w9WwE/9FqAgQuV20o44brtT
-	16qVMCMcxcMjQEonbUJGbJcSh8E8wW9xlF9UzyhapbSuAuEc1cQs0fS1HA9FA13GeMgUPVAdzay
-	DOE41ZoeDow==
-X-Google-Smtp-Source: AGHT+IGOpCu3OXD73tEgxK9xxEUC9/5ESWDz1XBGz/lu7j8NatFRmGU1kGrob9P49WI8BfX2x2ISYP6if+iy9w==
-X-Received: from pjbsu16.prod.google.com ([2002:a17:90b:5350:b0:2fa:24c5:36e])
+        bh=8j2BSjmna2ghQKBcJTnNrRFDhjm44gnJpM2ihIwsNrg=;
+        b=ExEsiPYTMDgbrvLeRLVHfoTGorFDAZnUMWkpYT2B/2PcaDTiFvVph+r2/hJXhHRaV8
+         jWWnx9N+49rnw9/dnI6WWNpBjP5Gyv5ig+RsGUBanwdxFrGRIdeIiEKjRU0v88SxM+cy
+         sJ4m2xT5aNNi9elMJ1RjK6gZUZuso8yKiZUAzFty/tmngGusWz9I4VPS2jVoEdNg1P/x
+         zWVEmLammiNQ6O7L5kgHseMdT23HeKwmhH4t3sl61ntUfV+IfaLJYi0dtVf+Ni6ZVxTa
+         Ise4FKVq9qvZyHtGzxgYRoqJ0TdY7/060pVD5ApnNFGusF/CV1oDlv5qf9fcg5XGS2p5
+         HEtQ==
+X-Forwarded-Encrypted: i=1; AJvYcCULZQYA09xiX7pg59uKTojwRTbE1Ljw22XAQ9FA++JJuv2jBcGW+eCDVmU/jl7u9lFqGbko7JrXQGl+4A1xJHL9@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGPdnbluNugUrdRIm08W7tjTmrBimny9tR3q9r3Ukd8/hJK5uO
+	Y+wuWUiEa41zKq8vF7CLpt5SjpChkTq1L9cZJ2ziocVr3WOIGFsEReDTZWBy+WsyRfxXrTWxn0O
+	Tifu+k/2SiA==
+X-Google-Smtp-Source: AGHT+IFMIVdq6tii8p6eio9YIzGPiIzt2c6o+qQ5+Ro+WEeR+4w6njY2EQbyY4O8uOd8S00f8/XVAn3YIRE9Zg==
+X-Received: from pjbcz12.prod.google.com ([2002:a17:90a:d44c:b0:2fa:284f:adae])
  (user=yepeilin job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90b:3ecc:b0:2ee:8c98:a965 with SMTP id 98e67ed59e1d1-2febabf7cafmr20404417a91.34.1741047253086;
- Mon, 03 Mar 2025 16:14:13 -0800 (PST)
-Date: Tue,  4 Mar 2025 00:13:58 +0000
+ 2002:a17:90b:554f:b0:2ea:712d:9a82 with SMTP id 98e67ed59e1d1-2febabf8577mr23330143a91.29.1741047259169;
+ Mon, 03 Mar 2025 16:14:19 -0800 (PST)
+Date: Tue,  4 Mar 2025 00:14:16 +0000
 In-Reply-To: <cover.1741046028.git.yepeilin@google.com>
 Mime-Version: 1.0
 References: <cover.1741046028.git.yepeilin@google.com>
 X-Mailer: git-send-email 2.48.1.711.g2feabab25a-goog
-Message-ID: <f2f998afa813534f94a6b36a6224e04df08f9871.1741046028.git.yepeilin@google.com>
-Subject: [PATCH bpf-next v5 3/6] arm64: insn: Add load-acquire and
+Message-ID: <fb4784d569abe2ba66e33833e3e64c168a87465d.1741046028.git.yepeilin@google.com>
+Subject: [PATCH bpf-next v5 4/6] bpf, arm64: Support load-acquire and
  store-release instructions
 From: Peilin Ye <yepeilin@google.com>
 To: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -86,8 +86,8 @@ Cc: Peilin Ye <yepeilin@google.com>, bpf@ietf.org, Alexei Starovoitov <ast@kerne
 	Benjamin Segall <bsegall@google.com>, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_161414_329476_3106F3DF 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20250303_161420_104457_F79AE2B5 
+X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,110 +102,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add load-acquire ("load_acq", LDAR{,B,H}) and store-release
-("store_rel", STLR{,B,H}) instructions.  Breakdown of encoding:
+Support BPF load-acquire (BPF_LOAD_ACQ) and store-release
+(BPF_STORE_REL) instructions in the arm64 JIT compiler.  For example
+(assuming little-endian):
 
-                                size        L   (Rs)  o0 (Rt2) Rn    Rt
-             mask (0x3fdffc00): 00 111111 1 1 0 11111 1  11111 00000 00000
-  value, load_acq (0x08dffc00): 00 001000 1 1 0 11111 1  11111 00000 00000
- value, store_rel (0x089ffc00): 00 001000 1 0 0 11111 1  11111 00000 00000
+  db 10 00 00 00 01 00 00  r0 = load_acquire((u64 *)(r1 + 0x0))
+  95 00 00 00 00 00 00 00  exit
 
-As suggested by Xu [1], include all Should-Be-One (SBO) bits ("Rs" and
-"Rt2" fields) in the "mask" and "value" numbers.
+  opcode (0xdb): BPF_ATOMIC | BPF_DW | BPF_STX
+  imm (0x00000100): BPF_LOAD_ACQ
 
-It is worth noting that we are adding the "no offset" variant of STLR
-instead of the "pre-index" variant, which has a different encoding.
+The JIT compiler would emit an LDAR instruction for the above, e.g.:
 
-Reference: Arm Architecture Reference Manual (ARM DDI 0487K.a,
-           ID032224),
+  ldar  x7, [x0]
 
-  * C6.2.161 LDAR
-  * C6.2.353 STLR
+Similarly, consider the following 16-bit store-release:
 
-[1] https://lore.kernel.org/bpf/4e6641ce-3f1e-4251-8daf-4dd4b77d08c4@huaweicloud.com/
+  cb 21 00 00 10 01 00 00  store_release((u16 *)(r1 + 0x0), w2)
+  95 00 00 00 00 00 00 00  exit
+
+  opcode (0xcb): BPF_ATOMIC | BPF_H | BPF_STX
+  imm (0x00000110): BPF_STORE_REL
+
+An STLRH instruction would be emitted, e.g.:
+
+  stlrh  w1, [x0]
+
+For a complete mapping:
+
+  load-acquire     8-bit  LDARB
+ (BPF_LOAD_ACQ)   16-bit  LDARH
+                  32-bit  LDAR (32-bit)
+                  64-bit  LDAR (64-bit)
+  store-release    8-bit  STLRB
+ (BPF_STORE_REL)  16-bit  STLRH
+                  32-bit  STLR (32-bit)
+                  64-bit  STLR (64-bit)
+
+Arena accesses are supported.
+bpf_jit_supports_insn(..., /*in_arena=*/true) always returns true for
+BPF_LOAD_ACQ and BPF_STORE_REL instructions, as they don't depend on
+ARM64_HAS_LSE_ATOMICS.
 
 Acked-by: Xu Kuohai <xukuohai@huawei.com>
 Signed-off-by: Peilin Ye <yepeilin@google.com>
 ---
- arch/arm64/include/asm/insn.h |  8 ++++++++
- arch/arm64/lib/insn.c         | 29 +++++++++++++++++++++++++++++
- 2 files changed, 37 insertions(+)
+ arch/arm64/net/bpf_jit.h      | 20 ++++++++
+ arch/arm64/net/bpf_jit_comp.c | 90 ++++++++++++++++++++++++++++++++---
+ 2 files changed, 104 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
-index 2d8316b3abaf..39577f1d079a 100644
---- a/arch/arm64/include/asm/insn.h
-+++ b/arch/arm64/include/asm/insn.h
-@@ -188,8 +188,10 @@ enum aarch64_insn_ldst_type {
- 	AARCH64_INSN_LDST_STORE_PAIR_PRE_INDEX,
- 	AARCH64_INSN_LDST_LOAD_PAIR_POST_INDEX,
- 	AARCH64_INSN_LDST_STORE_PAIR_POST_INDEX,
-+	AARCH64_INSN_LDST_LOAD_ACQ,
- 	AARCH64_INSN_LDST_LOAD_EX,
- 	AARCH64_INSN_LDST_LOAD_ACQ_EX,
-+	AARCH64_INSN_LDST_STORE_REL,
- 	AARCH64_INSN_LDST_STORE_EX,
- 	AARCH64_INSN_LDST_STORE_REL_EX,
- 	AARCH64_INSN_LDST_SIGNED_LOAD_IMM_OFFSET,
-@@ -351,6 +353,8 @@ __AARCH64_INSN_FUNCS(ldr_imm,	0x3FC00000, 0x39400000)
- __AARCH64_INSN_FUNCS(ldr_lit,	0xBF000000, 0x18000000)
- __AARCH64_INSN_FUNCS(ldrsw_lit,	0xFF000000, 0x98000000)
- __AARCH64_INSN_FUNCS(exclusive,	0x3F800000, 0x08000000)
-+__AARCH64_INSN_FUNCS(load_acq,  0x3FDFFC00, 0x08DFFC00)
-+__AARCH64_INSN_FUNCS(store_rel, 0x3FDFFC00, 0x089FFC00)
- __AARCH64_INSN_FUNCS(load_ex,	0x3FC00000, 0x08400000)
- __AARCH64_INSN_FUNCS(store_ex,	0x3FC00000, 0x08000000)
- __AARCH64_INSN_FUNCS(mops,	0x3B200C00, 0x19000400)
-@@ -602,6 +606,10 @@ u32 aarch64_insn_gen_load_store_pair(enum aarch64_insn_register reg1,
- 				     int offset,
- 				     enum aarch64_insn_variant variant,
- 				     enum aarch64_insn_ldst_type type);
-+u32 aarch64_insn_gen_load_acq_store_rel(enum aarch64_insn_register reg,
-+					enum aarch64_insn_register base,
-+					enum aarch64_insn_size_type size,
-+					enum aarch64_insn_ldst_type type);
- u32 aarch64_insn_gen_load_store_ex(enum aarch64_insn_register reg,
- 				   enum aarch64_insn_register base,
- 				   enum aarch64_insn_register state,
-diff --git a/arch/arm64/lib/insn.c b/arch/arm64/lib/insn.c
-index b008a9b46a7f..9bef696e2230 100644
---- a/arch/arm64/lib/insn.c
-+++ b/arch/arm64/lib/insn.c
-@@ -540,6 +540,35 @@ u32 aarch64_insn_gen_load_store_pair(enum aarch64_insn_register reg1,
- 					     offset >> shift);
+diff --git a/arch/arm64/net/bpf_jit.h b/arch/arm64/net/bpf_jit.h
+index b22ab2f97a30..a3b0e693a125 100644
+--- a/arch/arm64/net/bpf_jit.h
++++ b/arch/arm64/net/bpf_jit.h
+@@ -119,6 +119,26 @@
+ 	aarch64_insn_gen_load_store_ex(Rt, Rn, Rs, A64_SIZE(sf), \
+ 				       AARCH64_INSN_LDST_STORE_REL_EX)
+ 
++/* Load-acquire & store-release */
++#define A64_LDAR(Rt, Rn, size)  \
++	aarch64_insn_gen_load_acq_store_rel(Rt, Rn, AARCH64_INSN_SIZE_##size, \
++					    AARCH64_INSN_LDST_LOAD_ACQ)
++#define A64_STLR(Rt, Rn, size)  \
++	aarch64_insn_gen_load_acq_store_rel(Rt, Rn, AARCH64_INSN_SIZE_##size, \
++					    AARCH64_INSN_LDST_STORE_REL)
++
++/* Rt = [Rn] (load acquire) */
++#define A64_LDARB(Wt, Xn)	A64_LDAR(Wt, Xn, 8)
++#define A64_LDARH(Wt, Xn)	A64_LDAR(Wt, Xn, 16)
++#define A64_LDAR32(Wt, Xn)	A64_LDAR(Wt, Xn, 32)
++#define A64_LDAR64(Xt, Xn)	A64_LDAR(Xt, Xn, 64)
++
++/* [Rn] = Rt (store release) */
++#define A64_STLRB(Wt, Xn)	A64_STLR(Wt, Xn, 8)
++#define A64_STLRH(Wt, Xn)	A64_STLR(Wt, Xn, 16)
++#define A64_STLR32(Wt, Xn)	A64_STLR(Wt, Xn, 32)
++#define A64_STLR64(Xt, Xn)	A64_STLR(Xt, Xn, 64)
++
+ /*
+  * LSE atomics
+  *
+diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+index bdda5a77bb16..70d7c89d3ac9 100644
+--- a/arch/arm64/net/bpf_jit_comp.c
++++ b/arch/arm64/net/bpf_jit_comp.c
+@@ -647,6 +647,81 @@ static int emit_bpf_tail_call(struct jit_ctx *ctx)
+ 	return 0;
  }
  
-+u32 aarch64_insn_gen_load_acq_store_rel(enum aarch64_insn_register reg,
-+					enum aarch64_insn_register base,
-+					enum aarch64_insn_size_type size,
-+					enum aarch64_insn_ldst_type type)
++static int emit_atomic_ld_st(const struct bpf_insn *insn, struct jit_ctx *ctx)
 +{
-+	u32 insn;
++	const s32 imm = insn->imm;
++	const s16 off = insn->off;
++	const u8 code = insn->code;
++	const bool arena = BPF_MODE(code) == BPF_PROBE_ATOMIC;
++	const u8 arena_vm_base = bpf2a64[ARENA_VM_START];
++	const u8 dst = bpf2a64[insn->dst_reg];
++	const u8 src = bpf2a64[insn->src_reg];
++	const u8 tmp = bpf2a64[TMP_REG_1];
++	u8 reg;
 +
-+	switch (type) {
-+	case AARCH64_INSN_LDST_LOAD_ACQ:
-+		insn = aarch64_insn_get_load_acq_value();
++	switch (imm) {
++	case BPF_LOAD_ACQ:
++		reg = src;
 +		break;
-+	case AARCH64_INSN_LDST_STORE_REL:
-+		insn = aarch64_insn_get_store_rel_value();
++	case BPF_STORE_REL:
++		reg = dst;
 +		break;
 +	default:
-+		pr_err("%s: unknown load-acquire/store-release encoding %d\n",
-+		       __func__, type);
-+		return AARCH64_BREAK_FAULT;
++		pr_err_once("unknown atomic load/store op code %02x\n", imm);
++		return -EINVAL;
 +	}
 +
-+	insn = aarch64_insn_encode_ldst_size(size, insn);
++	if (off) {
++		emit_a64_add_i(1, tmp, reg, tmp, off, ctx);
++		reg = tmp;
++	}
++	if (arena) {
++		emit(A64_ADD(1, tmp, reg, arena_vm_base), ctx);
++		reg = tmp;
++	}
 +
-+	insn = aarch64_insn_encode_register(AARCH64_INSN_REGTYPE_RT, insn,
-+					    reg);
++	switch (imm) {
++	case BPF_LOAD_ACQ:
++		switch (BPF_SIZE(code)) {
++		case BPF_B:
++			emit(A64_LDARB(dst, reg), ctx);
++			break;
++		case BPF_H:
++			emit(A64_LDARH(dst, reg), ctx);
++			break;
++		case BPF_W:
++			emit(A64_LDAR32(dst, reg), ctx);
++			break;
++		case BPF_DW:
++			emit(A64_LDAR64(dst, reg), ctx);
++			break;
++		}
++		break;
++	case BPF_STORE_REL:
++		switch (BPF_SIZE(code)) {
++		case BPF_B:
++			emit(A64_STLRB(src, reg), ctx);
++			break;
++		case BPF_H:
++			emit(A64_STLRH(src, reg), ctx);
++			break;
++		case BPF_W:
++			emit(A64_STLR32(src, reg), ctx);
++			break;
++		case BPF_DW:
++			emit(A64_STLR64(src, reg), ctx);
++			break;
++		}
++		break;
++	default:
++		pr_err_once("unexpected atomic load/store op code %02x\n",
++			    imm);
++		return -EINVAL;
++	}
 +
-+	return aarch64_insn_encode_register(AARCH64_INSN_REGTYPE_RN, insn,
-+					    base);
++	return 0;
 +}
 +
- u32 aarch64_insn_gen_load_store_ex(enum aarch64_insn_register reg,
- 				   enum aarch64_insn_register base,
- 				   enum aarch64_insn_register state,
+ #ifdef CONFIG_ARM64_LSE_ATOMICS
+ static int emit_lse_atomic(const struct bpf_insn *insn, struct jit_ctx *ctx)
+ {
+@@ -1641,11 +1716,17 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
+ 			return ret;
+ 		break;
+ 
++	case BPF_STX | BPF_ATOMIC | BPF_B:
++	case BPF_STX | BPF_ATOMIC | BPF_H:
+ 	case BPF_STX | BPF_ATOMIC | BPF_W:
+ 	case BPF_STX | BPF_ATOMIC | BPF_DW:
++	case BPF_STX | BPF_PROBE_ATOMIC | BPF_B:
++	case BPF_STX | BPF_PROBE_ATOMIC | BPF_H:
+ 	case BPF_STX | BPF_PROBE_ATOMIC | BPF_W:
+ 	case BPF_STX | BPF_PROBE_ATOMIC | BPF_DW:
+-		if (cpus_have_cap(ARM64_HAS_LSE_ATOMICS))
++		if (bpf_atomic_is_load_store(insn))
++			ret = emit_atomic_ld_st(insn, ctx);
++		else if (cpus_have_cap(ARM64_HAS_LSE_ATOMICS))
+ 			ret = emit_lse_atomic(insn, ctx);
+ 		else
+ 			ret = emit_ll_sc_atomic(insn, ctx);
+@@ -2667,13 +2748,10 @@ bool bpf_jit_supports_insn(struct bpf_insn *insn, bool in_arena)
+ 	if (!in_arena)
+ 		return true;
+ 	switch (insn->code) {
+-	case BPF_STX | BPF_ATOMIC | BPF_B:
+-	case BPF_STX | BPF_ATOMIC | BPF_H:
+ 	case BPF_STX | BPF_ATOMIC | BPF_W:
+ 	case BPF_STX | BPF_ATOMIC | BPF_DW:
+-		if (bpf_atomic_is_load_store(insn))
+-			return false;
+-		if (!cpus_have_cap(ARM64_HAS_LSE_ATOMICS))
++		if (!bpf_atomic_is_load_store(insn) &&
++		    !cpus_have_cap(ARM64_HAS_LSE_ATOMICS))
+ 			return false;
+ 	}
+ 	return true;
 -- 
 2.48.1.711.g2feabab25a-goog
 
