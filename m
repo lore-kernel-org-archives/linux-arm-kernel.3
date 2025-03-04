@@ -4,154 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 446C1C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 09:37:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FCFAC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 09:38:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0aVGcPq1zYwlpvNA6D78/GGSQILdRj984TJnVuLUBVc=; b=qPcT+4pbv7s8b1YYTgfi4pj78N
-	T1V5+p2mA2FC8hXDg2x3lXUSmNaEgMuIyfT53Oh4F5tKfZDt5p5JlgONQBZpuDb62zUuM3s6HeAof
-	mAyYIc569FYQJuthGjVY7BCXAy1VHKJi0DnPVo+TJD1MyFe5ITU+upE4cCdyRaW1vtOKqaDZNFi1U
-	L/39c0RBZNt5gBm6bwrD7dyIen4Lo2pqrKmlalpBnzfbfUkCwz9AWGnPdvMKSUMCbb5RGx+1yqCVr
-	DmyGz8yjXsVXOPw1W5PbXh+S1CA+VxBwTxCJzgErsJ12EoKxOYjG96hBvm7W8EVOTzCL2ppM50sEc
-	wI516g6g==;
+	bh=3XSDmssemR4TkQFiq7Jxa4Dv0YRrXqVa8+1ku5HSWRk=; b=Seiza+szN9PUcBWaLdrxxT2zFK
+	IaJ7cWRx0irTtw4mleQMs3kbiZ2XJDs2p35c6yG7nl9irHQgnf9RefbLMwvipgp7pSb8LMv9HgFBH
+	wpfNEsA24X7RBRXwvjh60roxn5O48ZcGcUpPxzRDGChusWi22WLoAGosN13wdDG7Yi8ezJN0nBHSf
+	DZiKb8RkHFo8rI38rXK+c13ITWZ5YqQgh//SPR0d7Q1q6IZaVAs/0GLQyjJBTigBqGrPzOin5rxop
+	b2QGAtEf6BjCrhi49beztw296B9QsPK0+QzDl8gCkRyNRaxh+sNmq1ckotk5OOvRtaX5IHh7q4qv4
+	SStqtrMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOiB-00000003vHg-1M5e;
-	Tue, 04 Mar 2025 09:37:15 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOcy-00000003tzH-28lf
+	id 1tpOjj-00000003vmP-2bPS;
+	Tue, 04 Mar 2025 09:38:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpOdS-00000003u7P-0L49
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 09:31:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=W2wOeCUab8GKNcOzjacY15rP25oJj74V0erPs1M95wjOdzGTMPgkMOGFhaBj39tFJVYAoMaylUg7HHXsYFhVHkKKU7di3QXWTOzPUQBBWwt4id/OdgfknTBZoAYqbSbAJsDWRISwfJldeFZUYfRkEi6HqDaz6fgaBwxAQRjpza/EFzlmwqpdwo8e89MJeeSshbv44SDxVDj/2L0j+hH4yBMovANupO5zagf2YQDsVIYgUk3AjT8i7pFqj3y0ut8FUqEFuvejlyLcqiwNStMcOunS+/0lOdC+YdaGmDbzrIHEJGRlIA6zI2wPh45O9VXHNjhdy3cK7QtqY9UCuJJ0PA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0aVGcPq1zYwlpvNA6D78/GGSQILdRj984TJnVuLUBVc=;
- b=YoV9osmgQob6bSX4b6qv6m6uukbeju1wYBY2fHQgVBuz2bQztWsCyhdYJTRtEnXrRDFqe/yW2qlpUONZD805M3HFjJfYAfyX06gyXgI8BE2sDGNI7t9aoQU+jthBBd1QMoyi38vetq2MBfXEmLdtGRxc//4UujvkqR8VPTWYizfo6FPkRY5AEtekfmxG6SIFpIXUfs6bLPVLullwQKHSA/ijcNHNv9Qk6yTZkgVd6OT90lrBqgx6DKlN/SHdNRhVDJj02xpOYjC1b3W4sLv2Kh6bDZ1xbFg0j2R3h3DK+S4Ye4DervtV0xdpvBZlx4rTN/y5a47QP8+/YcP1m8eV6Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0aVGcPq1zYwlpvNA6D78/GGSQILdRj984TJnVuLUBVc=;
- b=ODkh2Uy4Z/8g7S1sMs1aOux8H7/x0KloEGzMxTzu7sYSPnj/RvO79KIMq/Ss4gGamQLlai9PxfoJvPINmEWF7jizFroVAnlhljvQTIPugN9Ltu7BBM+p2Os5k//B4dX/92C80ULel1XvY1tdESBWryNNhlVnPYk1fBJG0cSacsensFfAuYwW0YUTAHGGpvdDzNuSdXY4V9btT54l2y+5wea2bbSjf8XWo/8t1hv97CkYLJOgwOZMcHNp+3Dsfyw9rseSC6BdeFRJpkoA5aUMogOkU47aB4cKoqsqMdUhBHy24QE8DYY0Z+wIQTyVpNNNFVLDd/WEESZqVj4/9XFU9A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
- by GVXPR04MB10381.eurprd04.prod.outlook.com (2603:10a6:150:1e1::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.27; Tue, 4 Mar
- 2025 09:31:49 +0000
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb]) by AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb%7]) with mapi id 15.20.8489.025; Tue, 4 Mar 2025
- 09:31:49 +0000
-From: Jacky Bai <ping.bai@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de
-Cc: kernel@pengutronix.de,
-	festevam@gmail.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	aisheng.dong@nxp.com,
-	peng.fan@nxp.com,
-	frank.li@nxp.com
-Subject: [PATCH v2 4/4] arm64: dts: freescale: Add minimal dts support for imx943 evk
-Date: Tue,  4 Mar 2025 17:31:27 +0800
-Message-Id: <20250304093127.1954549-5-ping.bai@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250304093127.1954549-1-ping.bai@nxp.com>
-References: <20250304093127.1954549-1-ping.bai@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR02CA0031.apcprd02.prod.outlook.com
- (2603:1096:3:18::19) To AS8PR04MB8642.eurprd04.prod.outlook.com
- (2603:10a6:20b:429::24)
+	Tue, 04 Mar 2025 09:32:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 59B18FEC;
+	Tue,  4 Mar 2025 01:32:32 -0800 (PST)
+Received: from [192.168.178.71] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E86613F66E;
+	Tue,  4 Mar 2025 01:32:14 -0800 (PST)
+Message-ID: <5435fd87-6209-4896-84cc-27a35ef3cea4@arm.com>
+Date: Tue, 4 Mar 2025 10:32:13 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8642:EE_|GVXPR04MB10381:EE_
-X-MS-Office365-Filtering-Correlation-Id: d73fbb34-4f22-43be-f5ac-08dd5aff63ef
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|52116014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Igkuy75uXYwyCPtWswTzHFn9Gh3TqEX7ILALeA6wo9O2+OyPKdjPoNVWHaCA?=
- =?us-ascii?Q?jL06He5SfxggkII4gXvTrf2TwnT6jc11vf+W5iSgfRav/sMyvwEhBp855lVw?=
- =?us-ascii?Q?WjqV1bSaqMxbP5Omh2ytVY0vk4Od2NGP/BCcCeNfGqMxXISYY1UqN2cq807K?=
- =?us-ascii?Q?tzzMNjOY2hKPc0GqOqc1QV6y+069SPK74MMmktRt9rq3SMCAdixOVnYmFpLj?=
- =?us-ascii?Q?uvDRjBQManpNrHqO1WvRTF4sIEs1epNisHUHgy7IfyqLSjitpP4cAfXqiDfo?=
- =?us-ascii?Q?FuiBE3ZS322S1Yho+Akv91pbc0IRFBnHQDnpGvuFY2XJkj367iUOZVqqCTod?=
- =?us-ascii?Q?+ewlcgJ1gRtrumh/9gRz8aX+SKQaD3UAPPEkUNU86/llLASxh924NfhMAZCn?=
- =?us-ascii?Q?OXB4J6nXQ6vOtUXk/Nj/5a8cB7jODTDNeB/QVPirldEgEBIyDu8iV3j4dsj4?=
- =?us-ascii?Q?vXZ8LYVIdXJBQamifJRNFp8z9srmAOqQUrzfTlYLPtzXRGtY2bPbdRZr1Bz7?=
- =?us-ascii?Q?yjn17R1Uhubfn2z7wnBB7sK3u0Nv1LGszED6HwOUgz/KtQpH6U73XVj4kvm4?=
- =?us-ascii?Q?iUJf852KgXGeV6v9Zt4adUlofSPPtKZuDc0FbSnizDW0VupxRqZPUAsgpXzG?=
- =?us-ascii?Q?tEXPe17vfAgRF/9O7wisOgLn/T8frrPkbSl5sSHfU4CL9tQSPuWhp04JujVA?=
- =?us-ascii?Q?BukVRL20jeHCbLzTiOgWxJ3Ml77FkOdrWFQYopHdb3GTArC4xgPCKxkPNQd0?=
- =?us-ascii?Q?JKk5fuOrTdtm1/jRxkRdIs7PnpxA6TuLzorG5R1WIBX4bfbfPwIL07Zad8/q?=
- =?us-ascii?Q?OsP3Ml7pUNAm/I12ewg7jAruL4funs8zMSUOhjfWzk4Wd/et4tOQutbOHWn2?=
- =?us-ascii?Q?F3aVkgrdpQuMwJvKpeU0qeMbDHhiaUVVKcrNJffXAWM0izDI/N1JLMic8niT?=
- =?us-ascii?Q?m7IEUBVQQnAjcZsitayrO67YzVevxqXD2q2lixWiQpk34RA/pJDpZZRTKhBo?=
- =?us-ascii?Q?vkuzWAX/8lUYTNDaxTN//EOhq45NPJ1B1Lnxl7VKWAXhzFeNuDfbIzJdlwkI?=
- =?us-ascii?Q?yu4voXCl0UXMreP6isXgv0TVeVrt0uDYwFD70zJFjNNztVABow4QL75qvhZ/?=
- =?us-ascii?Q?heFEBEy5wcJ3jRPsnaGQ3RPuqkPA494+u5NC16jP783UcVUi987UbeRKB/yy?=
- =?us-ascii?Q?Hn0cREHDOLDCEVyBZp0JTfHJFcQNbijb6BRBUztKiTFLkVs6oNL0++wPB0Ns?=
- =?us-ascii?Q?fXjjtGLRnHj7zNFgJ2Q0f8yTsn5zzZaymI5bJM7Nc9s3+Woa3M36RXdcTzUr?=
- =?us-ascii?Q?vQyT/7seR23qoVcgT62jYP0xAyvBrDcNu9WXkBGTP21pugcFVF8IMJlknFWh?=
- =?us-ascii?Q?gU2f7C49NrgvSNqyyNpfW6OoBPIyOJQj+mc+9zgWpbJC8e/rgYR4+sExiJB7?=
- =?us-ascii?Q?3RJMj/oeIrBE4pnZW9q9aorG9WeP16FD?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ka9Y7uFd+THo3zDYjfHKuudHwmqPME9YyOE3BTIzDvUfROQ8/On/ihTJP1X0?=
- =?us-ascii?Q?HcmYUzBn09rn10/NkEBV2KeEWeI0+g8FrPIOYNBF+YEKXRfRsZbRE6vfh1Aw?=
- =?us-ascii?Q?GH6g/Bf/3Zeqm1NgCnJSJ4hFtvs75YHzXfgf5Z8NOz1gxzdpJp5kmU0e1imM?=
- =?us-ascii?Q?HG8tOk5ZP2Cc5osdxRjO+wEy/hGCN0m6EOrp2+AP5fJxokXgRGvbzHnNnwhN?=
- =?us-ascii?Q?VxooU9lnPXN8C23AnFd/2094EjIkTJDbikY0aLbYtY7/AYJDK/OFYlDZbtWT?=
- =?us-ascii?Q?Uvcfo1Q/OCshKFPVFHneLFqfD3ejLzhjuSgj3iTsyljYP1OdJJuNu6/L+cn9?=
- =?us-ascii?Q?6goPwGBFBPPYrjmDQMkm6Jb3l7CBR78j+GDFXu4VFMTAIHfVUbN51ibiFJ/G?=
- =?us-ascii?Q?A3cs+KnJ1idPju+FMflBKDNMGn9Nw4CpOdLrQqW4sQ/v1JSrkfOcVQ648QrR?=
- =?us-ascii?Q?G26iQX0XDxZFRZFWYC2ooOcUuNXlozBbzxi0coQvcTlTtjNJyB1cJZrWuyRo?=
- =?us-ascii?Q?Std1TTr82sz/W9KAi1iPg0GBAZ/lHRiB9MiywJUP835Ul7JDP1xsjEOCAzGF?=
- =?us-ascii?Q?LNkdGSi9eUb3/Bbze1sTNL1C/nTumBNixoo3ReykcNfp+SAYBuCQPsoGw0mm?=
- =?us-ascii?Q?bM10hftFg0W71upK0GhlNKp/Nvlz5hwkckkyxSPiWeEAjR2F7JrwN6OAKgRv?=
- =?us-ascii?Q?YvtmQowYdWA80+IqfBgolelgHhNYg/QQA41v9XagMuL24vvxFDXIJQ+N53cN?=
- =?us-ascii?Q?jROrWE20WD7OgfY+fadgfb5Z+ppvEtVa8HJtEPE/r2vDxrURHZBN6NfgPkTE?=
- =?us-ascii?Q?H7a0x3RDKNobTfc1Y0uAAgg8p1TfR158HcuKqNRboZ9/H9NHCq7nPRIHTmAZ?=
- =?us-ascii?Q?lcfOEdSxiXliIMg5Wtsv4zikh5CV9KyVGp3kQ8Oba8lyziV1UZa/KaGgURJf?=
- =?us-ascii?Q?iRm4hL1FgZhHatge5LG2TcfqX1CM4c/NpvKGMAIqVyg/PCFVJclrkHC7Syc6?=
- =?us-ascii?Q?332n+qUd+yLkGNXCCs747Z12nCshs1RxktE7kuurKYmUlF6+RIiNsksaOaiY?=
- =?us-ascii?Q?KbtqzCXzHp9OxwpfkPcF/vMod8HzQiryvUuRv2HUl9352hSaOwUW+qTms8Zv?=
- =?us-ascii?Q?Fn3eOLscGfI43sH78iVSfPgtrcfVf6MTeSqHT/BLc1V1D27Jyr4p6OFPxdlK?=
- =?us-ascii?Q?Xf6yud5d6knnTQuycgeSBrx7QkLxReN/vxRqQJe6NabDqFquoPNId8PNZE0M?=
- =?us-ascii?Q?xKUA+4tZ4YUOVofTd0iW1Fae+J2VEq9KMnX0jGkEsWEKA7RwOVuVfDilycmg?=
- =?us-ascii?Q?geVT4w5NL4gjp5e+4kO5FPuFnojvFOWTgi4EUXDipjPhqhNPCh65gPg8RF0K?=
- =?us-ascii?Q?7bhII2JndxgatMur+tfqlaioa507AGKMkDDFKdM3JsSX6NJOa/3QghH6LuGB?=
- =?us-ascii?Q?9FoIghFxLyvEsDJ/fSzPS3dKlRNvThzjT0PYS6boXeGzpvEp3uyy6UH730P3?=
- =?us-ascii?Q?PGlx0uh82hUzAcGCr8DNji+p37wSTUjX4SMMBdgdLN5RVsRaWu/PXNM6AL8A?=
- =?us-ascii?Q?iHKdg/zYLWjMB8NkngInoMedo3hCKJ211XMAvBZ4?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d73fbb34-4f22-43be-f5ac-08dd5aff63ef
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2025 09:31:49.8242
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sd57wxF6xMBU4O2PmJZB1u1ptJTtKjHpYFAdI3n5cl66RaKUJ3/hOK+cSS1kyLWCr7ieHH7/MIMNi68YklMiPQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10381
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 2/4] arch_topology: Support SMT control for OF based
+ system
+To: Yicong Yang <yangyicong@huawei.com>, sudeep.holla@arm.com,
+ pierre.gondois@arm.com
+Cc: dave.hansen@linux.intel.com, bp@alien8.de, mingo@redhat.com,
+ linux-arm-kernel@lists.infradead.org, mpe@ellerman.id.au,
+ peterz@infradead.org, tglx@linutronix.de, will@kernel.org,
+ catalin.marinas@arm.com, yangyicong@hisilicon.com,
+ linuxppc-dev@lists.ozlabs.org, x86@kernel.org, linux-kernel@vger.kernel.org,
+ morten.rasmussen@arm.com, msuchanek@suse.de, gregkh@linuxfoundation.org,
+ rafael@kernel.org, jonathan.cameron@huawei.com, prime.zeng@hisilicon.com,
+ linuxarm@huawei.com, xuwei5@huawei.com, guohanjun@huawei.com,
+ sshegde@linux.ibm.com
+References: <20250218141018.18082-1-yangyicong@huawei.com>
+ <20250218141018.18082-3-yangyicong@huawei.com>
+ <8a9aedef-08d7-445f-9b67-85e74ec6bd50@arm.com>
+ <21e74021-fb68-0003-f0f4-7f54dd674b9d@huawei.com>
+From: Dietmar Eggemann <dietmar.eggemann@arm.com>
+Content-Language: en-US
+In-Reply-To: <21e74021-fb68-0003-f0f4-7f54dd674b9d@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_013152_711463_C5A7B692 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20250304_013222_207144_F4426B85 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,234 +76,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the minimal board dts support for i.MX943 EVK. Only the
-console uart, SD & eMMC are enabled for linux basic boot.
+On 03/03/2025 15:03, Yicong Yang wrote:
+> On 2025/2/28 19:11, Dietmar Eggemann wrote:
+>> On 18/02/2025 15:10, Yicong Yang wrote:
+>>> From: Yicong Yang <yangyicong@hisilicon.com>
 
-Signed-off-by: Jacky Bai <ping.bai@nxp.com>
----
- - v2 changes:
-  - newly added for board dts
----
- arch/arm64/boot/dts/freescale/Makefile       |   1 +
- arch/arm64/boot/dts/freescale/imx943-evk.dts | 196 +++++++++++++++++++
- 2 files changed, 197 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx943-evk.dts
+[...]
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 839432153cc7..02863c09bb8b 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -282,6 +282,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxca.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-var-som-symphony.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx943-evk.dtb
- 
- imx8mm-kontron-dl-dtbs			:= imx8mm-kontron-bl.dtb imx8mm-kontron-dl.dtbo
- 
-diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-new file mode 100644
-index 000000000000..d4a204eaf5e5
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-@@ -0,0 +1,196 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2024-2025 NXP
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx943.dtsi"
-+
-+/ {
-+	compatible = "fsl,imx943-evk", "fsl,imx94";
-+	model = "NXP i.MX943 EVK board";
-+
-+	aliases {
-+		mmc0 = &usdhc1;
-+		mmc1 = &usdhc2;
-+		serial0 = &lpuart1;
-+	};
-+
-+	chosen {
-+		stdout-path = &lpuart1;
-+	};
-+
-+	reg_usdhc2_vmmc: regulator-usdhc2 {
-+		compatible = "regulator-fixed";
-+		off-on-delay-us = <12000>;
-+		pinctrl-0 = <&pinctrl_reg_usdhc2_vmmc>;
-+		pinctrl-names = "default";
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-name = "VDD_SD2_3V3";
-+		gpio = <&gpio4 27 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	reserved-memory {
-+		ranges;
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+
-+		linux,cma {
-+			compatible = "shared-dma-pool";
-+			alloc-ranges = <0 0x80000000 0 0x7f000000>;
-+			reusable;
-+			size = <0 0x10000000>;
-+			linux,cma-default;
-+		};
-+	};
-+
-+	memory@80000000 {
-+		reg = <0x0 0x80000000 0x0 0x80000000>;
-+		device_type = "memory";
-+	};
-+};
-+
-+&lpuart1 {
-+	pinctrl-0 = <&pinctrl_uart1>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+&scmi_iomuxc {
-+	pinctrl_uart1: uart1grp {
-+		fsl,pins = <
-+			IMX94_PAD_UART1_TXD__LPUART1_TX		0x31e
-+			IMX94_PAD_UART1_RXD__LPUART1_RX		0x31e
-+		>;
-+	};
-+
-+	pinctrl_usdhc1_100mhz: usdhc1-100mhzgrp {
-+		fsl,pins = <
-+			IMX94_PAD_SD1_CLK__USDHC1_CLK		0x158e
-+			IMX94_PAD_SD1_CMD__USDHC1_CMD		0x138e
-+			IMX94_PAD_SD1_DATA0__USDHC1_DATA0	0x138e
-+			IMX94_PAD_SD1_DATA1__USDHC1_DATA1	0x138e
-+			IMX94_PAD_SD1_DATA2__USDHC1_DATA2	0x138e
-+			IMX94_PAD_SD1_DATA3__USDHC1_DATA3	0x138e
-+			IMX94_PAD_SD1_DATA4__USDHC1_DATA4	0x138e
-+			IMX94_PAD_SD1_DATA5__USDHC1_DATA5	0x138e
-+			IMX94_PAD_SD1_DATA6__USDHC1_DATA6	0x138e
-+			IMX94_PAD_SD1_DATA7__USDHC1_DATA7	0x138e
-+			IMX94_PAD_SD1_STROBE__USDHC1_STROBE	0x158e
-+		>;
-+	};
-+
-+	pinctrl_usdhc1_200mhz: usdhc1-200mhzgrp {
-+		fsl,pins = <
-+			IMX94_PAD_SD1_CLK__USDHC1_CLK		0x15fe
-+			IMX94_PAD_SD1_CMD__USDHC1_CMD		0x13fe
-+			IMX94_PAD_SD1_DATA0__USDHC1_DATA0	0x13fe
-+			IMX94_PAD_SD1_DATA1__USDHC1_DATA1	0x13fe
-+			IMX94_PAD_SD1_DATA2__USDHC1_DATA2	0x13fe
-+			IMX94_PAD_SD1_DATA3__USDHC1_DATA3	0x13fe
-+			IMX94_PAD_SD1_DATA4__USDHC1_DATA4	0x13fe
-+			IMX94_PAD_SD1_DATA5__USDHC1_DATA5	0x13fe
-+			IMX94_PAD_SD1_DATA6__USDHC1_DATA6	0x13fe
-+			IMX94_PAD_SD1_DATA7__USDHC1_DATA7	0x13fe
-+			IMX94_PAD_SD1_STROBE__USDHC1_STROBE	0x15fe
-+		>;
-+	};
-+
-+	pinctrl_usdhc1: usdhc1grp {
-+		fsl,pins = <
-+			IMX94_PAD_SD1_CLK__USDHC1_CLK		0x158e
-+			IMX94_PAD_SD1_CMD__USDHC1_CMD		0x138e
-+			IMX94_PAD_SD1_DATA0__USDHC1_DATA0	0x138e
-+			IMX94_PAD_SD1_DATA1__USDHC1_DATA1	0x138e
-+			IMX94_PAD_SD1_DATA2__USDHC1_DATA2	0x138e
-+			IMX94_PAD_SD1_DATA3__USDHC1_DATA3	0x138e
-+			IMX94_PAD_SD1_DATA4__USDHC1_DATA4	0x138e
-+			IMX94_PAD_SD1_DATA5__USDHC1_DATA5	0x138e
-+			IMX94_PAD_SD1_DATA6__USDHC1_DATA6	0x138e
-+			IMX94_PAD_SD1_DATA7__USDHC1_DATA7	0x138e
-+			IMX94_PAD_SD1_STROBE__USDHC1_STROBE	0x158e
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
-+		fsl,pins = <
-+			IMX94_PAD_SD2_CLK__USDHC2_CLK		0x158e
-+			IMX94_PAD_SD2_CMD__USDHC2_CMD		0x138e
-+			IMX94_PAD_SD2_DATA0__USDHC2_DATA0	0x138e
-+			IMX94_PAD_SD2_DATA1__USDHC2_DATA1	0x138e
-+			IMX94_PAD_SD2_DATA2__USDHC2_DATA2	0x138e
-+			IMX94_PAD_SD2_DATA3__USDHC2_DATA3	0x138e
-+			IMX94_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
-+		fsl,pins = <
-+			IMX94_PAD_SD2_CLK__USDHC2_CLK		0x15fe
-+			IMX94_PAD_SD2_CMD__USDHC2_CMD		0x13fe
-+			IMX94_PAD_SD2_DATA0__USDHC2_DATA0	0x13fe
-+			IMX94_PAD_SD2_DATA1__USDHC2_DATA1	0x13fe
-+			IMX94_PAD_SD2_DATA2__USDHC2_DATA2	0x13fe
-+			IMX94_PAD_SD2_DATA3__USDHC2_DATA3	0x13fe
-+			IMX94_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_gpio: usdhc2gpiogrp {
-+		fsl,pins = <
-+			IMX94_PAD_SD2_CD_B__GPIO4_IO20		0x31e
-+		>;
-+	};
-+
-+	pinctrl_usdhc2: usdhc2grp {
-+		fsl,pins = <
-+			IMX94_PAD_SD2_CLK__USDHC2_CLK		0x158e
-+			IMX94_PAD_SD2_CMD__USDHC2_CMD		0x138e
-+			IMX94_PAD_SD2_DATA0__USDHC2_DATA0	0x138e
-+			IMX94_PAD_SD2_DATA1__USDHC2_DATA1	0x138e
-+			IMX94_PAD_SD2_DATA2__USDHC2_DATA2	0x138e
-+			IMX94_PAD_SD2_DATA3__USDHC2_DATA3	0x138e
-+			IMX94_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
-+		>;
-+	};
-+
-+	pinctrl_reg_usdhc2_vmmc: usdhc2regvmmcgrp {
-+		fsl,pins = <
-+			IMX94_PAD_SD2_RESET_B__GPIO4_IO27	0x31e
-+		>;
-+	};
-+};
-+
-+&usdhc1 {
-+	pinctrl-0 = <&pinctrl_usdhc1>;
-+	pinctrl-1 = <&pinctrl_usdhc1_100mhz>;
-+	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
-+	pinctrl-3 = <&pinctrl_usdhc1>;
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
-+	bus-width = <8>;
-+	non-removable;
-+	no-sdio;
-+	no-sd;
-+	status = "okay";
-+};
-+
-+&usdhc2 {
-+	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-3 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
-+	bus-width = <4>;
-+	cd-gpios = <&gpio4 20 GPIO_ACTIVE_LOW>;
-+	vmmc-supply = <&reg_usdhc2_vmmc>;
-+	fsl,cd-gpio-wakeup-disable;
-+	status = "okay";
-+};
-+
-+&wdog3 {
-+	fsl,ext-reset-output;
-+	status = "okay";
-+};
--- 
-2.34.1
+>>> If a system have more than one SMT thread number the 2) may
+>>
+>> s/have/has
+>>
+>>> not handle it well, since there're multiple thread numbers in the
+>>
+>> multiple thread numbers other than 1, right?
+> 
+> according to the pr_warn_once() we implemented below it also includes the case
+> where the system have one type of SMT cores and non-SMT cores (the thread number is 1):
+> - 1 thread
+> - X (!= 1) threads
+> 
+> Discussion made in [1] and I thought we have agreement (hope I understood correctly)
+> that all the asymmetric cases need to notify. Do you and Sudeep think we should not
+> warn in such case?
 
+Systems with non-SMT and SMT-2 cores are IMHO a special case since for
+them the '/sys/devices/system/cpu/smt' interface still works correctly.
+And on X86 those systems do exist today.
+
+IMHO, it would be awkward to see the message 'Heterogeneous SMT topology
+is partly supported by SMT control' on arm64 but not on x86 on such a
+system.
+
+I do understand that this message is more tailored to theoretically
+possible 'multiple SMT-X (X>1) core' systems (e.g. 1,2,4).
+
+And here we cannot issue a '2 > ./control' since
+cpu_smt_num_threads_valid() only returns true for 1 or 4.
+
+IMHO, I would remove the warning and state clearly in the patch that for
+systems with multiple SMT-X (X>1) cores, this interface only support SMT
+completely on or off.
+
+Example Arm64 DT:
+
+cpu-map {
+        cluster0 {
+                core0 {
+                        thread0 {
+                                cpu = <&A53_0>;
+                        };
+                };
+                core1 {
+                        thread0 {
+                                cpu = <&A53_1>;
+                        };
+                };
+                core2 {
+                        thread0 {
+                                cpu = <&A53_2>;
+                        };
+                        thread1 {
+                                cpu = <&A53_3>;
+                        };
+                };
+                core3 {
+                        thread0 {
+                                cpu = <&A53_4>;
+                        };
+                        thread1 {
+                                cpu = <&A53_5>;
+                        };
+                        thread2 {
+                                cpu = <&A53_6>;
+                        };
+                        thread3 {
+                                cpu = <&A53_7>;
+                        };
+                };
+        };
+};
+
+# cat /proc/cpuinfo | grep ^processor
+processor	: 0
+processor	: 1
+processor	: 2
+processor	: 3
+processor	: 4
+processor	: 5
+processor	: 6
+processor	: 7
+
+/sys/devices/system/cpu/smt# echo 1 >control
+
+# cat /proc/cpuinfo | grep ^processor
+processor	: 0
+processor	: 1
+processor	: 2
+processor	: 4
+
+/sys/devices/system/cpu/smt# echo 2 >control
+-bash: echo: write error: Invalid argument
+
+[...]
 
