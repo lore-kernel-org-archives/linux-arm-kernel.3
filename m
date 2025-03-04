@@ -4,60 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65F08C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 10:35:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FAD3C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 10:35:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/MMr2br33D8nnVpqD7ZvG/06y/H62E/2RsJUAQTcNNg=; b=yUae3762ZAXt7nxyOqhrEW9NL4
-	h+59pPQrwpAAkYkdbvLj+UmZPdcIzfp/3JeEFm6bOZeZTLty5rgMTxYY4VTfvbMaLC5YDhi4hG/ZK
-	9iIn1BmthkBQMuc8H4NToowbYwI61jdHvC0GLRL56KtMQMi868ePvqedIyziSkqWcTzho4ePnUdrU
-	d2BC/i62uwF2jIeYW+ZyE8pBVdM1J+YNMLunN3ESVrDtLkdRNON7tCkY2sa+xHeZAFk5v140ZLIE6
-	xiNBz/weoUYeDzOoWT/n3iMp9OL74WE6dmBdLl2yiE/OcdgU79t1aWwdb0B8/lHDj/WbWj38DJQ5e
-	K63hZX8w==;
+	bh=5ZbNRIMgcdaAEDjh4F9v7bhqTVX6HzttHpOkjR8DhnQ=; b=O1jbUfN0CPWwVVp8KX3utzoDYz
+	dQ9yAMPoh7/b7fvuwN20JM3m9xt/MVcYtzTUbMbpScDFY2HhSOEwx2qFtAC3E5qarKm8gXiP5soBc
+	mxbgYtowSaIBrfmXxfsOCEzvYSaZ/OJymnXyo4RSBE5iFFPjAUdlea7itUMhZD76M7JooM3mlvI5k
+	dtaQlJRsw/I39zJsP1QZUjoEPtqTqngX23APRK1nHt5bDJ0Hqq+iEmXW94qOACtTKkprPsu8XuzRJ
+	2H/xDdyiwSU5A7C0nM58uq0Q1e6d97aQ/pEjB8gJl9LGHwBoyEslRfathwzG0R82tjHR9+TMXPFux
+	rD0E0ewA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPcc-00000004Axh-37dy;
-	Tue, 04 Mar 2025 10:35:34 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tpPcZ-00000004Aun-4460;
+	Tue, 04 Mar 2025 10:35:31 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPGp-000000044ks-1W0X
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 10:13:04 +0000
+	id 1tpP7y-000000043g5-0elj;
+	Tue, 04 Mar 2025 10:03:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D23A45C59B8;
-	Tue,  4 Mar 2025 10:10:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DADB1C4CEE8;
-	Tue,  4 Mar 2025 10:12:59 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 73E8CA447ED;
+	Tue,  4 Mar 2025 09:58:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A361C4CEE5;
+	Tue,  4 Mar 2025 10:03:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741083182;
-	bh=Vg/RWn3guOlPu3NnhDEqa5mQyoV3f87Ql2/DgfZqpY8=;
+	s=k20201202; t=1741082633;
+	bh=LsToREarlkUcdmSK26Fybef5PG3MprJurFiNIOBywsI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eCt5zUM1L+fL4wVKqlQDasmTPvBbpAHR5MaQcksQ0FHFTfoHjxYawj0LKdaCRFIwr
-	 a0Qz5eRCOB9l2tJDPHCar2NhuGwTftQJhpf2E7laUegwtJim9PEYpCHrymDQ4mg5DA
-	 8rmUN4KMn/udyON6eEiioxip8T99gjXOw/WYIp3irI9QanTBRjrCQQPTjWTtAs2oOZ
-	 eEj6JaSjdPFdiI8+e+nFQX8AvynPpB3n1lxzz1M8SKuNF2CBIe+tNeyRdjpKk9XwEi
-	 rjbopWZ27JLOpMRYAoYHGyK/wl+K7iKYvoZ37sSoDzzCq/8aVfB4zv+zIkMTcdOzTT
-	 Nnaaz+I6ztixQ==
-Message-ID: <f6c7feb3-e003-4bbc-8179-3a3df533d2d5@kernel.org>
-Date: Tue, 4 Mar 2025 11:12:57 +0100
+	b=XSgxmXoCGBbnvgr05BdImhZujcHoOxFZyxgrhRI6b/HZvpluJmPBiA5S4ulk9pHig
+	 rFE8j9HxBogOYicCQioQPhK5Fvf412W+cExmU7AYkL4kesVfdynxYEEfMHlpBuN4FA
+	 WMMt3wiOssuj3cdG6iVOmWVVr3vXMzqALDgYnhBMozhuFQQfFUNJoP14+W391nMlCU
+	 B1vccsUSu4JIgQNmuWuHHsMxXNkzO4BH7ppGwthK5grruRlvupmftcgjxIHfApb0Et
+	 G+8og3oai+m/v6RHhnNoLHKsl3pBD9wxNQBTK0VA4XDDzrwy7VVEysYR6pHG3Kqn5m
+	 9S2Bc2i9YXh/Q==
+Message-ID: <9ec6c2c6-cf99-4c6e-8fc2-871716987c54@kernel.org>
+Date: Tue, 4 Mar 2025 11:03:47 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: corstone1000: Add definitions for
- secondary CPU cores
-To: Sudeep Holla <sudeep.holla@arm.com>,
- Hugues KAMBA MPIANA <hugues.kambampiana@arm.com>
-Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, krzk+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- liviu.dudau@arm.com, lpieralisi@kernel.org, robh@kernel.org
-References: <Z8XSIx75B4mtcV48@bogus>
- <20250303170012.469576-1-hugues.kambampiana@arm.com>
- <174108287362.420865.6246087705407586774.b4-ty@arm.com>
-Content-Language: en-US
+Subject: Re: [PATCH v2 3/8] dt-bindings: phy: add
+ samsung,exynos2200-usbcon-phy schema file
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
+ <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Abel Vesa <abel.vesa@linaro.org>,
+ linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250223122227.725233-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250223122227.725233-4-ivo.ivanov.ivanov1@gmail.com>
+ <20250224-curly-cyber-spaniel-efdc39@krzk-bin>
+ <a4f63721-d094-4eda-b68a-6ef62ff54680@gmail.com>
+ <c8184542-5dab-4403-bee4-867810397ae4@kernel.org>
+ <4502b578-96e6-49e0-8f3b-54f6e5640c55@gmail.com>
+ <354d6100-311f-44d7-b8a5-1fd671b651e3@kernel.org>
+ <9fb63a04-5b3d-40cc-b96f-eb4f297f307e@gmail.com>
+ <027decb4-3fa9-40a5-9cf4-65f9a69b4566@kernel.org>
+ <21460de5-76a0-4576-a7e6-f4873e40de48@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -101,13 +111,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <174108287362.420865.6246087705407586774.b4-ty@arm.com>
+In-Reply-To: <21460de5-76a0-4576-a7e6-f4873e40de48@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_021303_508065_37A6CBE0 
-X-CRM114-Status: UNSURE (   9.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250304_020354_342158_DF6A859E 
+X-CRM114-Status: GOOD (  34.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,25 +131,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/03/2025 11:08, Sudeep Holla wrote:
-> On Mon, 03 Mar 2025 17:00:12 +0000, Hugues KAMBA MPIANA wrote:
->> Add `cpu1`, `cpu2` and `cpu3` nodes to the Corstone1000 device tree to
->> enable support for secondary CPU cores.
->>
->> This update facilitates symmetric multiprocessing (SMP) support on
->> the Corstone1000 Fixed Virtual Platform (FVP), allowing the
->> secondary cores to be properly initialised and utilised.
->>
->> [...]
+On 04/03/2025 10:09, Ivaylo Ivanov wrote:
+> On 3/4/25 09:21, Krzysztof Kozlowski wrote:
+>> On 03/03/2025 18:18, Ivaylo Ivanov wrote:
+>>> On 3/3/25 09:24, Krzysztof Kozlowski wrote:
+>>>> On 02/03/2025 10:16, Ivaylo Ivanov wrote:
+>>>>> On 2/25/25 10:11, Krzysztof Kozlowski wrote:
+>>>>>> On 24/02/2025 11:48, Ivaylo Ivanov wrote:
+>>>>>>> On 2/24/25 10:56, Krzysztof Kozlowski wrote:
+>>>>>>>> On Sun, Feb 23, 2025 at 02:22:22PM +0200, Ivaylo Ivanov wrote:
+>>>>>>>>> The Exynos2200 SoC has a USB controller PHY, which acts as an
+>>>>>>>>> intermediary between a USB controller (typically DWC3) and other PHYs
+>>>>>>>>> (UTMI, PIPE3). Add a dt-binding schema for it.
+>>>>>>>>>
+>>>>>>>>> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>>>>>>>>> ---
+>>>>>>>>>  .../phy/samsung,exynos2200-usbcon-phy.yaml    | 76 +++++++++++++++++++
+>>>>>>>>>  1 file changed, 76 insertions(+)
+>>>>>>>>>  create mode 100644 Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
+>>>>>>>> You have undocumented dependencies which prevent merging this file.
+>>>>>>>> First, dependencies have to be clearly expressed.
+>>>>>>> They are, in the cover letter.
+>>>>>> Where? I read it twice. Dependencies is the most important thing and
+>>>>>> should scream at beginning of the cover letter, so if you bury them
+>>>>>> somewhere deep it also would not matter - just like they were missing.
+>>>>>>
+>>>>>>>> Second, you should
+>>>>>>>> rather decouple the code from header dependencies, otherwise this cannot
+>>>>>>>> be merged for current release (just use clocks with long names, without IDs).
+>>>>>>> Sure
+>>>>>>>>> diff --git a/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
+>>>>>>>>> new file mode 100644
+>>>>>>>>> index 000000000..7d879ec8b
+>>>>>>>>> --- /dev/null
+>>>>>>>>> +++ b/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
+>>>>>>>>> @@ -0,0 +1,76 @@
+>>>>>>>>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>>>>>>>>> +%YAML 1.2
+>>>>>>>>> +---
+>>>>>>>>> +$id: http://devicetree.org/schemas/phy/samsung,exynos2200-usbcon-phy.yaml#
+>>>>>>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>>>>>>>> +
+>>>>>>>>> +title: Exynos2200 USB controller PHY
+>>>>>>>>> +
+>>>>>>>>> +maintainers:
+>>>>>>>>> +  - Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>>>>>>>>> +
+>>>>>>>>> +description:
+>>>>>>>>> +  Exynos2200 USB controller PHY is an intermediary between a USB controller
+>>>>>>>>> +  (typically DWC3) and other PHYs (UTMI, PIPE3).
+>>>>>>>> Isn't this the same as usbdrd phy? see: samsung,usb3-drd-phy.yaml
+>>>>>>> It's not (I think). There's a few reasons I've decided to make this separate
+>>>>>>> from the usb3-drd-phy bindings and exynos5-usbdrd driver:
+>>>>>>>
+>>>>>>> 1. This PHY does not provide UTMI and PIPE3 on its own. There's no tuning
+>>>>>> USBDRD phy does not provide UTMI and PIPE on its own either if you look
+>>>>>> at diagram - they call it phy controller.
+>>>>> Ughm. What? So in most exynos cases, there's a combination of multiple phys?
+>>>>>>> for them, and all that is needed from it is to disable HWACG, assert/
+>>>>>>> deassert reset and force bvalid/vbusvalid. After that SNPS eUSB2
+>>>>>>> initialization can be done and USB2 works. If the USBCON phy is not set
+>>>>>>> up before the eUSB2 one, the device hangs, so there is definitely a
+>>>>>>> dependancy between them. For PIPE3 we'd need to control the pipe3
+>>>>>>> attaching/deattaching and then initialize the synopsys USBDP combophy.
+>>>>>> Does it mean there is no USB DRD phy controller as before?
+>>>>>>
+>>>>>> Anyway the problem is you have DWC3 -> PHY -> PHY. Looks one phy too many.
+>>>>> So...
+>>>>>
+>>>>> DWC3 -> USBDRD (USBCON) -> PHYs?
+>>>> No, drop last phy. You just wrote the same as me - two phys, because
+>>>> usbdrd is the phy. In all existing designs there is no such controllable
+>>>> object from the point of view of operating system.
+>>> What? Per my understanding, the phy property should refer to whatever is
+>>> is connected to dwc3 UTMI. In this case it's the so-called USBDRD phy (called
+>>> usbcon in downstream). Considering that the eUSB2 IP definitely also has UTMI
+>>> that has to be connected to something, doesn't that mean we have clearly
+>> The entire point is that eUSB2 is connected to DWC3, no? That's exactly
+>> how it is done for example on Qualcomm SoC. Otherwise you claim that
+>> DWC3 controls one phy, which controls another phy which controls UTMI...
 > 
-> Applied to sudeep.holla/linux (for-next/juno/updates), thanks!
+> But where does the USBCON fit? Is it just a side controller? Why's it needed
+> in the first place? This is what I don't understand.
+
+I assume usbcon, so old usbdrd, is the second DWC3's phy, just like qcom
+qmpphy.
+
 > 
-> [1/1] arm64: dts: corstone1000: Add definitions for secondary CPU cores
->       https://git.kernel.org/sudeep.holla/c/21b9f56cec8f
+>>
+>>> separated hardware blocks? Now, I guess one could argue that this USBCON
+>>> hardware block could be classified as a syscon. But I don't see the problem
+>>> with the current binding description, nor the modelling, as it represents
+>>> how the hardware is (unless I've gotten it completely wrong).
+>> It is the first time you use argument that it represents how the
+>> hardware is and this is what we actually disagree. It is not like that.
+>> You do not have chain of phys. Just look at any USB 3.0 DRD DWC diagram
+>> from any Samsung SoC: where would you squeeze these two phys in relation
+>> to what is called there "USB 3.0 PHY" which would be the third phy (!!!).
+> 
+> Yeah, my point was that it was different from any previous design. Now,
+> I don't know if it's actually theoretically possible to design it like so. It's
+> hard to just guess how the hardware is designed without having access
+> to die shots, documentations or even just schematics.
+> 
+> Let's make it clear now, the changes your request are to document USBCON
+> in the existing exynos binding, as well as to correct all explanations of how
+> this block functions, right?
 
-Why? Nothing improved here comparing to v1.
+No, not necessarily. If USBCON is entirely different device than USBDRD
+(different register layout, different features), then go ahead with a
+new binding.
 
-Your comment are still valid and the patch is still not correct.
+I was questioning your chain of PHYs and this should be investigated.
+
 
 Best regards,
 Krzysztof
