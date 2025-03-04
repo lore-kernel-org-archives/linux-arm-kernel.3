@@ -4,123 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1012C282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 22:14:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A7BBC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 22:14:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Z3XcJjb5+vCVlKHuCLcWjoudOFW37p8+HdZ8IfVIOY=; b=0PWCODmx06NjIRh5qaeiEHPkh0
-	98wPITNq8h2EpaTj2BNSrOPsDzPXxM2oreaL6Amnd7GLbQcqPs83WK5n8fpjKE9thwHTPzZOog9UH
-	/bXWzBSVQkkrXkSGDl6NRgo0nXnspk9g/sRj5VaJj3/sX4VnSCvjn0Tycn0nKn9RDM8vsfem3MKN9
-	osVVtFXRj/jTyvzkCxm7DCjkyEAE4PBeEohE3dOSPcQ6ovNooMWpOU8F8bsOqTBMoMIlqrCnbS9Df
-	sZX0T6W3G5dypSr9LQ9/XLtvHytkCjODSBlAgM+5mR1ZgYEv3zxeLcxwqdxbCCOF6ZZvVHv68LS4Z
-	7Sg1lM/w==;
+	bh=LQce4qpcRmddUf2QLSsjxR1D9l6diq/uQYF6rsz7TN8=; b=MoT0RcdkJevkpHJ4nZ7SpszPas
+	zOn1tMftrE36D8xnsabuga8q2GM0EDPdDWY1lohLhfnxqUXnb/TIeLCTMYQmo7xAw6KMZmeXOwoIz
+	O8NfmrmQTnHjF0d2eKRV9hP2Tuqak+2DmEb+n3Z9OP3wTpffET3oFEPDLAjifmCDCFYS1JFlKAqdM
+	ECoAQFO+qnEIB0bSiM8YC1dqr1YG2C6Mj/z4RAK/pZtFuKeQUSkO6u9+z8RH66xs7cqGQO57JaV3m
+	YtbZ/xoCTy0PBX5d3NeEn/7jiCChcdxundNTV98nq2FQ9WvsQRb6/P2DM2Ln/3iPOgFRrRcp2nIiX
+	9I8o4/sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpaWV-00000006NhZ-0KXX;
-	Tue, 04 Mar 2025 22:13:59 +0000
+	id 1tpaXH-00000006Nm8-2gIG;
+	Tue, 04 Mar 2025 22:14:47 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpaH0-00000006LkD-35j8;
-	Tue, 04 Mar 2025 21:57:58 +0000
+	id 1tpZUR-00000006GS0-1HZF
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 04 Mar 2025 21:07:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=CC:To:In-Reply-To:References:Message-ID
+	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
 	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
 	:Reply-To:Content-ID:Content-Description;
-	bh=1Z3XcJjb5+vCVlKHuCLcWjoudOFW37p8+HdZ8IfVIOY=; b=lGWggmC5k1JOVVHgiaNHIByrqq
-	zsOW8Wp+34wKHtHgPgKYUmow0tK/qKcAA0vmtR4GXy3ylWAyWRRn4B8C1lGHMqD/7jPZwHhkO3jtd
-	ktDljoFRj281pptynwkuF4bN6Pa3+y3NoqBBZsW23y/BYFZh8DWuhOCMHu6WKFPF78jlhKnRqXbum
-	DDwgNuxlEkCIxt23gZOIXGXWG4YExrLmYuVX3YrjHWSnwsW0esrFWWL3I/aZkNNUp4Hw/R6V0gVrv
-	Jj5HK3yZ0A1aIFa9jxPEFHxQIVJmUtbFuhgbcfSnaAwGFZlawL6iGj9U1PA5DHkGt1Y2lAVXEv3er
-	262mgYNA==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	bh=LQce4qpcRmddUf2QLSsjxR1D9l6diq/uQYF6rsz7TN8=; b=QoO8LIxSI9XzourG66VXV6K+Zz
+	p6cnxWab0pNukg9gIyymd6r2L5WednQ//SRosq8Cvv4NsRgerYyF+uUPuvu8q6kMnO6rgqffQjuBX
+	TY7hMbunT/eKnjWKeGAZRcvIKpYrrz5+J8lzWiSjl/f6BBDz6QJ/RRzA6NDcRpPWpieDRfSQLKprj
+	ZS704qa327v/+kHh4EfRUePyQLEMclCHbj+LC8/MMK1n28KXxgM+9VxnjAfPBP9e+J0JUlsMmiVQH
+	F4Q+5Z9a6zAkbxlAme04GDi+zfMvbrIUCeKqgPKIDf3Kjap6rH1x071fkHyo8Tz4KuYHithn9DZHo
+	PA20C72A==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpaGv-00000004ApS-1hpY;
-	Tue, 04 Mar 2025 21:57:57 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 524AUmSo015598;
-	Tue, 4 Mar 2025 21:57:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	1Z3XcJjb5+vCVlKHuCLcWjoudOFW37p8+HdZ8IfVIOY=; b=NEBXkY4nB0jj1h5C
-	Artd2DAlZQGn542J7qPJZnlw4Mxh9gdJe9vS0bRVx8m+vl6vKcIZ2ON8pSKWGdNI
-	7MN/pbxZvbljBabjIed5Rwby3TEDxvpriVx8Rq15ZtSw9LTHcw7BjJfDy1hAr32w
-	8bZl8SAbEaV1u79XdpDSt4fuqSxvaQKSkloWRscwVq1lv4vYZkCbUcpWHLEFGHlU
-	zXVCLliQhnc7Lyu5kffTO+RQ5+gVhr6pykPyp3freXrdrvvtuJhcmu8qDSmYIaEx
-	KW7FJhdtyKVkTHrpBGv/3Dq7Ir6lFdb9gK1u78dZ9JBMNiF94Hj3TawmD7V35uGl
-	kxQhRA==
-Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 455p6v392v-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 04 Mar 2025 21:57:40 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 524LvdtS002947
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 4 Mar 2025 21:57:39 GMT
-Received: from hu-molvera-lv.qualcomm.com (10.49.16.6) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 4 Mar 2025 13:57:38 -0800
-From: Melody Olvera <quic_molvera@quicinc.com>
-Date: Tue, 4 Mar 2025 13:56:38 -0800
-Subject: [PATCH v2 5/9] phy: qcom: Update description for QCOM based eUSB2
- repeater
+	id 1tpZUO-0000000470n-1ReL
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Mar 2025 21:07:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1741122462;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LQce4qpcRmddUf2QLSsjxR1D9l6diq/uQYF6rsz7TN8=;
+	b=AcGodlElm9Ha1Lv6x3wswZayP8TfHWc/jTvj+W8WvSDbMGFNZbIuTShIcoh/Pu7V52PkWX
+	/uqrkvcXegdp6+MAC4jgeOecnbCTkeo6lR2YvubOICeJkC3aS8u5RPz3jUhiK+r4IeU9sz
+	V8O0a993EsuCl8jAmlkSOHLletEeNG4=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1741122462;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LQce4qpcRmddUf2QLSsjxR1D9l6diq/uQYF6rsz7TN8=;
+	b=AcGodlElm9Ha1Lv6x3wswZayP8TfHWc/jTvj+W8WvSDbMGFNZbIuTShIcoh/Pu7V52PkWX
+	/uqrkvcXegdp6+MAC4jgeOecnbCTkeo6lR2YvubOICeJkC3aS8u5RPz3jUhiK+r4IeU9sz
+	V8O0a993EsuCl8jAmlkSOHLletEeNG4=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1741122463;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LQce4qpcRmddUf2QLSsjxR1D9l6diq/uQYF6rsz7TN8=;
+	b=HRPhrwOxQfeMDUQN3ty8SozLjsP74NbRaunFETU+I/4l9f8XCXhrHBgr1/5FQ7ExDFBdpP
+	A2+rkMb+saN2V96gQ3y+8RPgJrELedG2NIsmzBxO8SSW5EO1HIjlwJSAaK5xjUeLymdTsu
+	e7UvUwwGS90/j5S6V0vb2I5FSS+k4Wc=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-451-aGf9to6LNquqNmDuxHVF4Q-1; Tue,
+ 04 Mar 2025 16:06:10 -0500
+X-MC-Unique: aGf9to6LNquqNmDuxHVF4Q-1
+X-Mimecast-MFC-AGG-ID: aGf9to6LNquqNmDuxHVF4Q_1741122365
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BDD911944EB8;
+	Tue,  4 Mar 2025 21:06:04 +0000 (UTC)
+Received: from asrivats-na.rmtustx.csb (unknown [10.2.16.107])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 8257C1800362;
+	Tue,  4 Mar 2025 21:05:57 +0000 (UTC)
+From: Anusha Srivatsa <asrivats@redhat.com>
+Date: Tue, 04 Mar 2025 16:05:32 -0500
+Subject: [PATCH v5 2/7] drm/hisilicon: move to
+ devm_platform_ioremap_resource() usage
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250304-sm8750_usb_master-v2-5-a698a2e68e06@quicinc.com>
-References: <20250304-sm8750_usb_master-v2-0-a698a2e68e06@quicinc.com>
-In-Reply-To: <20250304-sm8750_usb_master-v2-0-a698a2e68e06@quicinc.com>
-To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Wesley Cheng <quic_wcheng@quicinc.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Philipp Zabel
-	<p.zabel@pengutronix.de>,
-        Bjorn Andersson <andersson@kernel.org>,
-        "Konrad
- Dybcio" <konradybcio@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>
-CC: <linux-arm-msm@vger.kernel.org>, <linux-phy@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        "Melody
- Olvera" <quic_molvera@quicinc.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1741125455; l=1304;
- i=quic_molvera@quicinc.com; s=20241204; h=from:subject:message-id;
- bh=rG2hIvkvCmr9w0Z3u/Gq/i+ml+btiB0aeOWncDnPVwM=;
- b=C9KpiexEKeRmPWdl2+pqRSNM+eGF/jpIPx+jpuSQj+CSPFV6kEcR4lfkUC4pm6X9BR9Xkruyk
- KvU50oxzaALBP9faPEgmIzvRm2VprbPoQY0O+Ts5KQPQATudZ5CJ/YB
-X-Developer-Key: i=quic_molvera@quicinc.com; a=ed25519;
- pk=1DGLp3zVYsHAWipMaNZZTHR321e8xK52C9vuAoeca5c=
-X-Originating-IP: [10.49.16.6]
-X-ClientProxiedBy: nalasex01a.na.qualcomm.com (10.47.209.196) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: 2RC0TcdXfmvMmNpFnTA25P8bV3HyAuBb
-X-Proofpoint-ORIG-GUID: 2RC0TcdXfmvMmNpFnTA25P8bV3HyAuBb
-X-Authority-Analysis: v=2.4 cv=fatXy1QF c=1 sm=1 tr=0 ts=67c77759 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=3H110R4YSZwA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=COk6AnOGAAAA:8 a=peiAtfwJOusvP27HVpEA:9 a=QEXdDO2ut3YA:10
- a=T1PIRxOFuHhLvSGs3xkl:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-04_09,2025-03-04_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 bulkscore=0
- spamscore=0 priorityscore=1501 malwarescore=0 impostorscore=0
- lowpriorityscore=0 mlxlogscore=824 mlxscore=0 adultscore=0 suspectscore=0
- phishscore=0 classifier=spam authscore=0 adjust=0 reason=mlx scancount=1
- engine=8.19.0-2502100000 definitions=main-2503040175
+Message-Id: <20250304-mem-fixes-v1-2-fb3dab8d901f@redhat.com>
+References: <20250304-mem-fixes-v1-0-fb3dab8d901f@redhat.com>
+In-Reply-To: <20250304-mem-fixes-v1-0-fb3dab8d901f@redhat.com>
+To: Stefan Agner <stefan@agner.ch>, Alison Wang <alison.wang@nxp.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Xinliang Liu <xinliang.liu@linaro.org>, Tian Tao <tiantao6@hisilicon.com>, 
+ Xinwei Kong <kong.kongxinwei@hisilicon.com>, 
+ Sumit Semwal <sumit.semwal@linaro.org>, 
+ Yongqin Liu <yongqin.liu@linaro.org>, John Stultz <jstultz@google.com>, 
+ Marek Vasut <marex@denx.de>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Orson Zhai <orsonzhai@gmail.com>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Chunyan Zhang <zhang.lyra@gmail.com>, 
+ Alain Volmat <alain.volmat@foss.st.com>, 
+ Raphael Gallais-Pou <rgallaispou@gmail.com>, 
+ Thierry Reding <thierry.reding@gmail.com>, 
+ Mikko Perttunen <mperttunen@nvidia.com>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, Jonathan Corbet <corbet@lwn.net>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-tegra@vger.kernel.org, linux-doc@vger.kernel.org, 
+ Anusha Srivatsa <asrivats@redhat.com>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1741122340; l=2968;
+ i=asrivats@redhat.com; s=20250122; h=from:subject:message-id;
+ bh=oMnZPC9HfrwqOolnznL0vrEyroxHYMcgs+Plnnla5aQ=;
+ b=62rURfdaBIFw7DrCUv9fnUH7p6ysEIVMO/4/Yg5GBDo21fhkxUh+Ifx+cAee6vXqZcsPQaymk
+ krpxTrF8eWhBfqfD4RXviNahensiujDCY2uf/vUOK9KH3kGTS8MeCB8
+X-Developer-Key: i=asrivats@redhat.com; a=ed25519;
+ pk=brnIHkBsUZEhyW6Zyn0U92AeIZ1psws/q8VFbIkf1AU=
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_215753_663734_62808FE4 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20250304_210744_566223_D9936B0E 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,40 +147,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Wesley Cheng <quic_wcheng@quicinc.com>
+Replace platform_get_resource + devm_ioremap_resource
+with just devm_platform_ioremap_resource()
 
-The eUSB2 repeater that exists in the QCOM PMICs are utilized for several
-different eUSB2 PHY vendors, such as M31 or Synopsys.  Hence, the wording
-needs to be updated to remove associations to a specific vendor.
+Used Coccinelle to do this change. SmPl patch:
+@rule_1@
+identifier res;
+expression ioremap_res;
+identifier pdev;
+@@
+-struct resource *res;
+...
+-res = platform_get_resource(pdev,...);
+-ioremap_res = devm_ioremap_resource(...);
++ioremap_res = devm_platform_ioremap_resource(pdev,0);
 
-Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
-Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
+Cc: Xinliang Liu <xinliang.liu@linaro.org>
+Cc: Tian Tao <tiantao6@hisilicon.com>
+Cc: Xinwei Kong <kong.kongxinwei@hisilicon.com>
+Cc: Sumit Semwal <sumit.semwal@linaro.org>
+Cc: Yongqin Liu <yongqin.liu@linaro.org>
+Cc: John Stultz <jstultz@google.com>
+
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
+Signed-off-by: Anusha Srivatsa <asrivats@redhat.com>
 ---
- drivers/phy/qualcomm/Kconfig | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c    | 4 +---
+ drivers/gpu/drm/hisilicon/kirin/kirin_drm_ade.c | 4 +---
+ 2 files changed, 2 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/phy/qualcomm/Kconfig b/drivers/phy/qualcomm/Kconfig
-index 846f8c99547fd5132feaa1e41093b8eab51714f9..f281e3b7f3f20b4a4bb1602be94b8a1b041a876f 100644
---- a/drivers/phy/qualcomm/Kconfig
-+++ b/drivers/phy/qualcomm/Kconfig
-@@ -135,12 +135,12 @@ config PHY_QCOM_SNPS_EUSB2
- 	  on Qualcomm SOCs.
+diff --git a/drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c b/drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c
+index 2eea9fb0e76bf3ead8f5914e6ebb65b5b3603b9a..e80debdc41763357cb2cf321205c0dfac80a911e 100644
+--- a/drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c
++++ b/drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c
+@@ -825,7 +825,6 @@ static const struct component_ops dsi_ops = {
+ static int dsi_parse_dt(struct platform_device *pdev, struct dw_dsi *dsi)
+ {
+ 	struct dsi_hw_ctx *ctx = dsi->ctx;
+-	struct resource *res;
  
- config PHY_QCOM_EUSB2_REPEATER
--	tristate "Qualcomm SNPS eUSB2 Repeater Driver"
-+	tristate "Qualcomm PMIC eUSB2 Repeater Driver"
- 	depends on OF && (ARCH_QCOM || COMPILE_TEST)
- 	select GENERIC_PHY
- 	help
--	  Enable support for the USB high-speed SNPS eUSB2 repeater on Qualcomm
--	  PMICs. The repeater is paired with a Synopsys eUSB2 Phy
-+	  Enable support for the USB high-speed eUSB2 repeater on Qualcomm
-+	  PMICs. The repeater can be paired with a Synopsys or M31 eUSB2 Phy
- 	  on Qualcomm SOCs.
+ 	ctx->pclk = devm_clk_get(&pdev->dev, "pclk");
+ 	if (IS_ERR(ctx->pclk)) {
+@@ -833,8 +832,7 @@ static int dsi_parse_dt(struct platform_device *pdev, struct dw_dsi *dsi)
+ 		return PTR_ERR(ctx->pclk);
+ 	}
  
- config PHY_QCOM_M31_USB
+-	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+-	ctx->base = devm_ioremap_resource(&pdev->dev, res);
++	ctx->base = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(ctx->base)) {
+ 		DRM_ERROR("failed to remap dsi io region\n");
+ 		return PTR_ERR(ctx->base);
+diff --git a/drivers/gpu/drm/hisilicon/kirin/kirin_drm_ade.c b/drivers/gpu/drm/hisilicon/kirin/kirin_drm_ade.c
+index 2eb49177ac42bc6dba692328cca5c99d5925041c..45c4eb008ad5d639340f769ad022d186ec454722 100644
+--- a/drivers/gpu/drm/hisilicon/kirin/kirin_drm_ade.c
++++ b/drivers/gpu/drm/hisilicon/kirin/kirin_drm_ade.c
+@@ -844,7 +844,6 @@ static struct drm_plane_funcs ade_plane_funcs = {
+ static void *ade_hw_ctx_alloc(struct platform_device *pdev,
+ 			      struct drm_crtc *crtc)
+ {
+-	struct resource *res;
+ 	struct device *dev = &pdev->dev;
+ 	struct device_node *np = pdev->dev.of_node;
+ 	struct ade_hw_ctx *ctx = NULL;
+@@ -856,8 +855,7 @@ static void *ade_hw_ctx_alloc(struct platform_device *pdev,
+ 		return ERR_PTR(-ENOMEM);
+ 	}
+ 
+-	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+-	ctx->base = devm_ioremap_resource(dev, res);
++	ctx->base = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(ctx->base)) {
+ 		DRM_ERROR("failed to remap ade io base\n");
+ 		return ERR_PTR(-EIO);
 
 -- 
-2.46.1
+2.48.1
 
 
