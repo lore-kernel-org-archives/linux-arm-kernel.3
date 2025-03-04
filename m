@@ -4,54 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B02C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 02:00:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1A8FC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 02:02:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
-	To:From:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6HfdgFCpqOX4tTcQS1T7RF2ySV+PscV4E/w42OUfLFE=; b=kglOZxbWAqrtuT
-	hCwQ7/Fp8lKBiIlUZxaH0HPv52lik8v4oex39wPjpde0+T3iA+p5FLA/Xi6NEGFXjgY8oL7fQq5WF
-	+wBCrbkuts8mgkU0BTojLIctZYROr/ngjCOTvugA2SNSav49TLOas+i2xJuHeeBpokeAmngw2IwBE
-	pf/Kqwhf5IUYI9Phpnh+XDC2Ge4HgRHshjBiv5LZ5lhesJpdov0/58LRLKs9+wTjKxW7VHhKYd0Dj
-	sxQsnm0Gc4/BxePrMdZwl9GOjYQo8ktK6Em7B3GGHMkHyGoTPYoMwSTzTROQHXDust2wKKHv2D8Qx
-	iIG2YNj1kgg8VnrhkKUA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zBVXHW44BQFouOwdaXynIDnUqi/zab99HdqgOiOzjes=; b=Jqdv///ixbqGWj1NyVoJ8ok5mh
+	nBg58FWreiV7IhWMd9ID2nzBHPHWMr+fqFqTSz6I910CWFER74UTwsAYqQyL4FGS45WjMexx8sNVp
+	07hr4b4lNLmLrwpm/Gjqq9d5IqP2OaBbbZRBqmFurNkUkxQqcihFxUTkqNS4wkBhXWHc8pq9fd/ge
+	vtdLMQoKaHFJYjalEOa1veTt3bk52maw1uN2IusYlP/EIrzvHLgTqNYKFp4hIcq1K/dKvDa/JmGYb
+	Vd3Kv68mh9LhrNKC096MO8WtWDnGpWXAIJSPpY3/Hqe7249pjy+1owrtndmsi/snQHF34E0cfMVxS
+	5t/UXyfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpHa5-00000002qM1-3sJo;
-	Tue, 04 Mar 2025 02:00:25 +0000
-Received: from server54.mybundlepay.com ([207.231.110.219])
+	id 1tpHbd-00000002qbN-2jlc;
+	Tue, 04 Mar 2025 02:02:01 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpHE7-00000002nTB-2OZj
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 01:37:44 +0000
-Received: from mybundlepay.com (unknown [20.57.137.16])
-	by server54.mybundlepay.com (Postfix) with ESMTPSA id 2FDD017DEDA
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Mar 2025 20:32:28 +0000 (GMT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=mybundlepay.com;
-	s=202411; t=1741033948;
-	bh=QieX1f1ZpVBpFqEYiQLHTccw08+B74/nkI53Ml21MeU=;
-	h=Reply-To:From:To:Subject:Date:From;
-	b=uI7YKbzDWh/e81OTtpJirkXYrebrbsUH744T4j8ybnqRkcZ8mmoy70eFkLUgHG8j1
-	 nNvB1x6WfXDybsgyoWOU00fUDDCz600GEkiZohfPct58ebZgjwJ79iUhakluCucIAD
-	 Dv+TK+0ehrbgatIB+zNIsKyqppN8jkWHOYTC/7brwSTt6deibEOz0ZhcC05SqpIG/a
-	 MhqhXlLGqvUL4fLje4nKAL05cE5wZe8cLAOWobjPRC3cqHkasv+fYpPFumnqOfALaJ
-	 8puoF60hCcyyC2ddjz//BFvJ5KPmAVcRotp0i1T+u4bGjbr6f6agfQdI102A/6oHGy
-	 jxSW+7aN3mqQg==
-From: Benjamin Elliot <do-not-reply-us@mybundlepay.com>
-To: linux-arm-kernel@lists.infradead.org
-Subject: INVESTMENT UPDATE
-Date: 03 Mar 2025 20:32:28 +0000
-Message-ID: <20250303203228.9E3C83D367A87F76@mybundlepay.com>
+	id 1tpHKX-00000002o1s-0RD5;
+	Tue, 04 Mar 2025 01:44:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1741052659;
+	bh=SBKosOyQ+vqRRzYCaSZdG4Ns7DFVxhSrWT6ixWWkh/c=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=C/insOKgXcw6ARzrlNpuhz9Fm9s56VDre1JMRsUowSRkvTFqUJiI7XLv0/eQVGX1K
+	 Xz1cW0Pn/AiugnEvp5T15VjRpP/eS4MpGsDWoEGoSQCo67xJBsbkiqqFwUza8hwD2p
+	 LLCeQk/y9AA8d1PdEoqFHhVse34HXHejm/WJawNMvEWSoh+a6B/ehSgQGUSEGMGwxA
+	 dSCI2L56Yc4xHTGGXqHoPb1lSA9SX+RdjhDpVy5tCe/05S6Zp1Ig/CcbU3iVmzxS5g
+	 EOu//NGkvRMqeK71TGl50825S5+tTmakZXggSln/5t2mBTECrwxc4itn/Gf3oLxYIX
+	 6nFjpseAMQsFA==
+Received: from localhost (unknown [188.27.58.83])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id E9D9817E0E8E;
+	Tue,  4 Mar 2025 02:44:18 +0100 (CET)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Tue, 04 Mar 2025 03:44:01 +0200
+Subject: [PATCH v4 02/12] phy: hdmi: Add color depth configuration
 MIME-Version: 1.0
-Content-Type: text/plain;
-	charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250304-phy-sam-hdptx-bpc-v4-2-8657847c13f7@collabora.com>
+References: <20250304-phy-sam-hdptx-bpc-v4-0-8657847c13f7@collabora.com>
+In-Reply-To: <20250304-phy-sam-hdptx-bpc-v4-0-8657847c13f7@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: Algea Cao <algea.cao@rock-chips.com>, Sandor Yu <Sandor.yu@nxp.com>, 
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+ Maxime Ripard <mripard@kernel.org>, kernel@collabora.com, 
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_173743_656142_6E55DDAF 
-X-CRM114-Status: UNSURE (   0.77  )
+X-CRM114-CacheID: sfid-20250303_174421_321917_99C6CC35 
+X-CRM114-Status: UNSURE (   9.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -64,29 +76,38 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: belliot.panfinconsulting@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Dear,
+Extend the HDMI configuration options to allow managing bits per color
+channel.  This is required by some PHY drivers such as
+rockchip-samsung-hdptx.
 
-I am  Benjamin Elliot. I am a Financial Consultant. My company=20
-represent the investment portfolio of a consortium of investors=20
-willing and readily available to fund any sustainable project=20
-that can yield a reasonable return on investment. What we do is=20
-that, we broker discreet financial services for high net=20
-individuals/Companies. We connect you to legitimate portfolio=20
-financiers that are willing and readily available to divert funds=20
-into sustainable and profitable project or business with a=20
-reasonable ROI. Do you have any ongoing project or a startup?=20
-Please contact me if you are looking for funds to invest in or=20
-expand your project or business. We would be happy to work with=20
-you.
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ include/linux/phy/phy-hdmi.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Look forward to your response.
+diff --git a/include/linux/phy/phy-hdmi.h b/include/linux/phy/phy-hdmi.h
+index 6a696922bc7f29af63d88646701b2c0fcee5c885..f0ec963c6e84f1b7728acafc824dff191c6b873d 100644
+--- a/include/linux/phy/phy-hdmi.h
++++ b/include/linux/phy/phy-hdmi.h
+@@ -9,11 +9,13 @@
+ /**
+  * struct phy_configure_opts_hdmi - HDMI configuration set
+  * @tmds_char_rate: HDMI TMDS Character Rate in Hertz.
++ * @bpc: Bits per color channel.
+  *
+  * This structure is used to represent the configuration state of a HDMI phy.
+  */
+ struct phy_configure_opts_hdmi {
+ 	unsigned long long tmds_char_rate;
++	unsigned int bpc;
+ };
+ 
+ #endif /* __PHY_HDMI_H_ */
 
-Best Regards,
-Benjamin Elliot - MD
-PAN Financial Consultant
-Anna Blamansingel 72, Amsterdam 1102ST, Netherlands.
+-- 
+2.48.1
+
 
