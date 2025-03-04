@@ -4,67 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AFA0C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 14:36:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31562C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 14:38:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Gqyom2Qw8VXFf3AYIpGbjCuS8c9RY7yiAyJBWvJUfc=; b=yQVNYfg+9lSbpJjOhkRxF1LBp9
-	EdRS3nMUWF1TFDVXUi3jqQCTvhUttE2EJ/B2Ew5KyC3vJn/f+yEJnbfoyApONtc5Ife0wDPM3RG7x
-	D9TmTpg4hsZkyKsyk/v/il4hPxdsPsU9MW5AdbbxhO9fW/CELQ4DTSCRhXppVzobq2Iav6MkR18FV
-	/zVZL+5RGsYbHveETYVuRw97trk/V/CQ6qku+2j4VbC030/pyYffk2uwRDkEjbWvvn2ruzyJ1zmOX
-	scw9r+EMJ87ZDdG2SbvwGhKWET0Q0hOwDOq4wOPUhdKBaV+xgB2r5AsVRgjDsROwsiTVJLsZTO1y3
-	czTAxjJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+ygttRTKf7i4hHwUkxbYRbNGqV7dr+gxLZlkMmtHeME=; b=PloMIGTIYBCURdIqVOgPOdRs7H
+	f5eg6N0r0mDIMDdkwd/40PuwTYRh74ZqsL4ysvVqy5crsOCvMQce9GMdRoXG49jTFzicov8iW7zD5
+	riFgL0Njn/Zs2K3np7X+wCgL7PGk4ROQKPcTSxd88kCc40G0HPPIrrCpsDLgktKfUb0Hl82E4dUd9
+	mHi+Q7VjkeJwvE/tlVzp24f8S/3/he1gUFdEpwQVmisTkWvwWSkoi/afFvLMqaDM7Im3jhkPHzTw1
+	jkuU/BbE8sjSanwxBfoX8xNrXbNa5DFaDY2CfglO9HO1jiu+DrsLxjzN+RFocbdwIiI7aOWKa0sr8
+	x2V7SR1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpTNe-000000051FK-2mXJ;
-	Tue, 04 Mar 2025 14:36:22 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tpTPm-000000051eC-2ns6;
+	Tue, 04 Mar 2025 14:38:34 +0000
+Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpTM4-000000050u0-3CkE;
-	Tue, 04 Mar 2025 14:34:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=4Gqyom2Qw8VXFf3AYIpGbjCuS8c9RY7yiAyJBWvJUfc=; b=KTdCEV/zTusAeUlTIrBuBAb6SW
-	QOPuOTIm7BL/bYx2YPLJAYBFDF28jitg9fxcPZ6HfAEBuQ/bthkTDwK5mTWRX18uOq1FNvKIvh7J6
-	nTZB1nFXW3Y9YXExh4df+JzoAmiG3am5R5qRJ7iGejoN6o5z8ZsxZtlZXjVud8XaTZOA/wZPmNnTU
-	gyqZTRpr2ewIXAoPpKPAfT8rwGqDQ6/IUPt7HnGhQrwTp9dhdUv2IhbA+BD94/tn+iAIwwDt931X8
-	61QfDmBDGVaoGcaaRbJJCC8q/qOP13pFtoMMx9v14XgF/L+KL4Bq5OYk1nh6j816lZCTw6sCXW70X
-	Ucn1A1wQ==;
-Received: from i53875a38.versanet.de ([83.135.90.56] helo=phil..)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tpTM2-0003uT-SQ; Tue, 04 Mar 2025 15:34:42 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Heiko Stuebner <heiko@sntech.de>
-Subject: Re: [PATCH 1/2] arm64: dts: rockchip: Add ES8388 audio codec fallback on RK3399 ROC PC PLUS
-Date: Tue,  4 Mar 2025 15:34:40 +0100
-Message-ID: <174109881585.132749.2987468837584062976.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250304104200.76178-1-krzysztof.kozlowski@linaro.org>
-References: <20250304104200.76178-1-krzysztof.kozlowski@linaro.org>
+	id 1tpTOC-000000051Po-3TAS
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Mar 2025 14:36:57 +0000
+Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-472098e6e75so214401cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 06:36:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1741099016; x=1741703816; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=+ygttRTKf7i4hHwUkxbYRbNGqV7dr+gxLZlkMmtHeME=;
+        b=v1kkKRLn1vt/IguuvWU1KNAs0GK+9TPXAHlQM8y6uxVII5aHfgl3jfc6uMheMKdSCO
+         dkT0J7Ng+tBCrueZqq7d1KEZME0aV811/uQnXTYueQL8ocZrWLxL756DUQHKvdpZsxuZ
+         JrJh5331ZQWSCbDQD3ZQbO5+cdtsiMdUBtCktP0IvbCk5CcURSONLnUqyhdDYJJpVdBj
+         UvC48QpCFvaDvzYhJBrPK+3GMe+e4uBcLBMMPKV1JzfCbJUn03up/0ZcymWTi+Rm5OV4
+         xx9LfKJA4d6qiGeBN9sHExhldp8wFbE5DSToEz7yC6donlFF4Dz7kHz8BCyg+TZ7YAfj
+         ICPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741099016; x=1741703816;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+ygttRTKf7i4hHwUkxbYRbNGqV7dr+gxLZlkMmtHeME=;
+        b=t51C7IveGEWIkm44zl4lv0H+L1UJWTVJX5JGQ0/jyGIMgPndj1ezooFv4sAaRYxNo+
+         O8FYgiTH4D7vTqArBLZSjEmgOWuXBc7j5pKbVm8+l227kjgYnhh08p4bR5aChy35DGOl
+         daYRDhdub3uEO40hN/iE5lNT66niLk48rYLRLN54ITpyUbwASRV3PsAxo1iOkXrId94F
+         eaAi3wP3+5ZTaALWHYrDusj6sBK6lvT3SvV20wsKm8lG5J3BhFqYi3tvQxE5jpSMROhG
+         PyZ+9P2d3Z4pcJZDUMKwyFtEwQrUrgvoOgACp6/LkfDRwQ6gl96adB5mCEXpQAOufAlt
+         TUOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXfyrNiM3OsMmLA1X2QngP16wiYsqGYV2H56JCleg/0axlh8NnEamd0RzYkHir/3RC/SbjHrtiF14Al6N0AvyGS@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXHalTJpryTK4MwIu+HOJWoVo8Q7H3CWUy8KYAYdRsddhfHZbh
+	t3v/gm+/lgE2d/yGTG/T6bFJQASphQ+Eq0Foy88UysVVKjtxdz5j2f6UK3VlQQEd7RVp7JGYvcI
+	7TRZnXcd5Yasie37itxeFojiX4Q0ziu3PgNEt
+X-Gm-Gg: ASbGncs04oxuLEv7dDP4i1/ZAHSvGXRsJqLzkTj61txaDLD5smURKFb0eNwhTRnWxpo
+	ei/LjVSdtu1Sf3v0sxmfpu8u7VKjAmlCiUlTIMyKPus9ji5Znd1ENIYbEFG7NC677bRNqrF+G7o
+	JTU2pqwvjxpVCUwYhcp6VRQmTzx3Ut9WPazoiQXMfrq5hBiTdLRQaBOEU=
+X-Google-Smtp-Source: AGHT+IFeNCEP0siRwcGFMhDyxTwUgN/q4ESl7wZnSThP1BZE2VnPVYxln59ocl0tbMWx93FWKB2s5IMnvCUEO374htw=
+X-Received: by 2002:ac8:7e86:0:b0:471:939c:a304 with SMTP id
+ d75a77b69052e-474fc4f486bmr4445741cf.8.1741099015479; Tue, 04 Mar 2025
+ 06:36:55 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+References: <20250210184150.2145093-1-maz@kernel.org> <20250210184150.2145093-4-maz@kernel.org>
+In-Reply-To: <20250210184150.2145093-4-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Tue, 4 Mar 2025 14:36:19 +0000
+X-Gm-Features: AQ5f1Jo68p3yb9_4_jDKr_EIPn09Ol_E9D3YE9a_TVB0qWSEdbu-YNoM1obqL94
+Message-ID: <CA+EHjTwkX+sy1wuS8LvGM+=m_S-h-=xUUXOyMapnoLiHt0XpOw@mail.gmail.com>
+Subject: Re: [PATCH 03/18] KVM: arm64: Handle trapping of FEAT_LS64* instructions
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Mark Rutland <mark.rutland@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_063444_803331_4D3628F5 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20250304_063656_864167_3D7EDE74 
+X-CRM114-Status: GOOD (  24.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,25 +94,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Marc,
 
-On Tue, 04 Mar 2025 11:41:59 +0100, Krzysztof Kozlowski wrote:
-> Devicetree bindings for ES8388 audio codec expect the device to be
-> marked as compatible with ES8328.
-> 
-> 
+On Mon, 10 Feb 2025 at 18:42, Marc Zyngier <maz@kernel.org> wrote:
+>
+> We generally don't expect FEAT_LS64* instructions to trap, unless
+> they are trapped by a guest hypervisor.
+>
+> Otherwise, this is just the guest playing tricks on us by using
+> an instruction that isn't advertised, which we handle with a well
+> deserved UNDEF.
+>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/handle_exit.c | 64 ++++++++++++++++++++++++++++++++++++
+>  1 file changed, 64 insertions(+)
+>
+> diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
+> index 512d152233ff2..4f8354bf7dc5f 100644
+> --- a/arch/arm64/kvm/handle_exit.c
+> +++ b/arch/arm64/kvm/handle_exit.c
+> @@ -294,6 +294,69 @@ static int handle_svc(struct kvm_vcpu *vcpu)
+>         return 1;
+>  }
+>
+> +static int handle_ls64b(struct kvm_vcpu *vcpu)
+> +{
+> +       struct kvm *kvm = vcpu->kvm;
+> +       u64 esr = kvm_vcpu_get_esr(vcpu);
+> +       u64 iss = ESR_ELx_ISS(esr);
+> +       bool allowed;
+> +
+> +       switch (iss) {
+> +       case ESR_ELx_ISS_ST64BV:
+> +               allowed = kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64_V);
+> +               break;
+> +       case ESR_ELx_ISS_ST64BV0:
+> +               allowed = kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64_ACCDATA);
+> +               break;
+> +       case ESR_ELx_ISS_LDST64B:
+> +               allowed = kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64);
+> +               break;
+> +       default:
+> +               /* Clearly, we're missing something. */
+> +               goto unknown_trap;
+> +       }
+> +
+> +       if (!allowed)
+> +               goto undef;
+> +
+> +       if (vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu)) {
+> +               u64 hcrx = __vcpu_sys_reg(vcpu, HCRX_EL2);
+> +               bool fwd;
+> +
+> +               switch (iss) {
+> +               case ESR_ELx_ISS_ST64BV:
+> +                       fwd = !(hcrx & HCRX_EL2_EnASR);
+> +                       break;
+> +               case ESR_ELx_ISS_ST64BV0:
+> +                       fwd = !(hcrx & HCRX_EL2_EnAS0);
+> +                       break;
+> +               case ESR_ELx_ISS_LDST64B:
+> +                       fwd = !(hcrx & HCRX_EL2_EnALS);
+> +                       break;
+> +               default:
+> +                       /* We don't expect to be here */
+> +                       fwd = false;
+> +               }
+> +
+> +               if (fwd) {
+> +                       kvm_inject_nested_sync(vcpu, esr);
+> +                       return 1;
+> +               }
+> +       }
+> +
+> +unknown_trap:
+> +       /*
+> +        * If we land here, something must be very wrong, because we
+> +        * have no idea why we trapped at all. Warn and undef as a
+> +        * fallback.
+> +        */
+> +       WARN_ON(1);
 
-Applied, thanks!
+nit: should this be WARN_ONCE() instead?
 
-[1/2] arm64: dts: rockchip: Add ES8388 audio codec fallback on RK3399 ROC PC PLUS
-      commit: d83f6c32d70f96037cb187e63785e7a58f9e751b
-[2/2] arm64: dts: rockchip: Add ES8388 audio codec fallback on RK3588 boards
-      commit: ced36c336d241eafbc812fed27e6a52908d249bb
+> +
+> +undef:
+> +       kvm_inject_undefined(vcpu);
+> +       return 1;
+> +}
 
-Thanks for the heads up Krzysztof, about the asoc patches getting accepted
-for 6.15.
+I'm wondering if this can be simplified by having one switch()
+statement that toggles both allowed and fwd (or maybe even only fwd),
+and then inject depending on that, e.g.,
+
++static int handle_ls64b(struct kvm_vcpu *vcpu)
++{
++    struct kvm *kvm = vcpu->kvm;
++    bool is_nv = vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu);
++    u64 hcrx = __vcpu_sys_reg(vcpu, HCRX_EL2);
++    u64 esr = kvm_vcpu_get_esr(vcpu);
++    u64 iss = ESR_ELx_ISS(esr);
++    bool fwd = false;
++
++    switch (iss) {
++    case ESR_ELx_ISS_ST64BV:
++         fwd = kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64_V) &&
++                   !(hcrx & HCRX_EL2_EnASR)
++         break;
+...
++    default:
++        WARN_ONCE(1);
++ }
++
++    if (is_nv && fwd) {
++        kvm_inject_nested_sync(vcpu, esr);
++    else
++        kvm_inject_undefined(vcpu);
++
++    return 1;
++}
+
+I think this has the same effect as the code above.
+
+Cheers,
+/fuad
 
 
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+
+> +
+>  static exit_handle_fn arm_exit_handlers[] = {
+>         [0 ... ESR_ELx_EC_MAX]  = kvm_handle_unknown_ec,
+>         [ESR_ELx_EC_WFx]        = kvm_handle_wfx,
+> @@ -303,6 +366,7 @@ static exit_handle_fn arm_exit_handlers[] = {
+>         [ESR_ELx_EC_CP14_LS]    = kvm_handle_cp14_load_store,
+>         [ESR_ELx_EC_CP10_ID]    = kvm_handle_cp10_id,
+>         [ESR_ELx_EC_CP14_64]    = kvm_handle_cp14_64,
+> +       [ESR_ELx_EC_LS64B]      = handle_ls64b,
+>         [ESR_ELx_EC_HVC32]      = handle_hvc,
+>         [ESR_ELx_EC_SMC32]      = handle_smc,
+>         [ESR_ELx_EC_HVC64]      = handle_hvc,
+> --
+> 2.39.2
+>
 
