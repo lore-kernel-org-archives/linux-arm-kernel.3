@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 389C3C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 09:53:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A25C2C282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 09:54:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NMcI+cXZGABb51aVn5Gf0/vwUKUlUIvwtwFRy+dg7/k=; b=jK3zuvzWa2dQncHSUvUr21lLTj
-	8meri2r5TVAysofqALnRYavDSK8GUR8c+82QKWRiPeA+vIRSE0OWnwcgiKI5qfuBNDAVPvzwOF1Gp
-	R/L8N49J0yQGTe3HEIx/L935JpMSNQcpcye8ObvLHtIU/WoQSIID9Yxp8lpHyz9hUhevMNIY5JPdF
-	RZVd5+u+iK8iZvYFpV4hnzJmlbGKQPK+VX4zDv+RQ75WXeBKzv6309C61uW1AQQbVcPDrTPvGjzzi
-	uPwx667JZ71/04SzxdAcktDSUe26yvDoXmsVK3328bltb4pY39UlryI3iW4Oqfk4ilSjFhnJ+2f1S
-	i7DcgtXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R+snd39l7/xN3s1Qo+DJbJs4nIckPPRnGYnDiiy8gDQ=; b=t8GAauW0aShLGTas8O+8fV4zn0
+	KbCUU5Ettbb+BlhypDAMivbcCdwnBNQWetNapqlbkSdye5jgdG+UOcabNU/wHjL39vtYNdIIuBA9v
+	KPofg7ycq63+Nd53rWu+76CmIkkizPa7oFLb2DliT2l41OsHAvieSnYdO48GiN3/HVLqPLvkmPcCu
+	qNWCUrZVDxljJIo0gC4JyEr2jm4ncR/d8TuVicx2UqxUdHio1TqhQsg/897RidY5KeORXKbhPdtrj
+	O2vBl8wrNNQ3sMGHHwllnu+5hutVXJOO+3/8so2CJeAOwuBN2oU5LrZg5SaUnkJEVdUgRdgPHaFUZ
+	W5zIynxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOxg-000000040Q3-3WgB;
-	Tue, 04 Mar 2025 09:53:16 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1tpOzF-000000040wo-2LE2;
+	Tue, 04 Mar 2025 09:54:53 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOuK-00000003zON-3Mwt
+	id 1tpOvs-00000003zub-07zz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 09:49:50 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Z6W7F0Vl1z6D90N;
-	Tue,  4 Mar 2025 17:47:21 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 01C8F140A08;
-	Tue,  4 Mar 2025 17:49:33 +0800 (CST)
-Received: from localhost (10.96.237.92) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 4 Mar
- 2025 10:49:24 +0100
-Date: Tue, 4 Mar 2025 17:49:19 +0800
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Will Deacon <will@kernel.org>
-CC: Yicong Yang <yangyicong@huawei.com>, <mark.rutland@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<prime.zeng@hisilicon.com>, <linuxarm@huawei.com>,
-	<yangyicong@hisilicon.com>, <wangyushan12@huawei.com>
-Subject: Re: [PATCH 4/9] drivers/perf: hisi: Use ACPI driver_data to
- retrieve SLLC PMU information
-Message-ID: <20250304174919.00001e24@huawei.com>
-In-Reply-To: <20250301064347.GB27700@willie-the-truck>
-References: <20250218092000.41641-1-yangyicong@huawei.com>
-	<20250218092000.41641-5-yangyicong@huawei.com>
-	<20250301064347.GB27700@willie-the-truck>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Tue, 04 Mar 2025 09:51:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6D93D5C4EAA;
+	Tue,  4 Mar 2025 09:49:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89A97C4CEE5;
+	Tue,  4 Mar 2025 09:51:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741081882;
+	bh=3AC8YGVOMopiGMhE+q/wk3R/hqs4Zk918q6dZqSrKY8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TnukOhcELWDMHSi92I6AH2aVZA9crN168Hg83AUocvBIll0kQbw0l+fEnwj72lKJJ
+	 b3l7qDO1A6XN/OiOYGlOzZkiN2L8wkfPQtFMYX7FP0ETLgIufnIpxVK12lRO60Vwbn
+	 FOzW6bfq2OZ1q2lJp6qfDYvFRXw+uvRaFgOyophzj0eDVgP9G5AnvacAy8UsuVHExt
+	 YNdPupAKT8/17iBibqkWQVI4pWS79b9nO0nT0WeEA0TTAQa0sx00gKJ8e6J+G+PRpW
+	 sMsmCa7u4QWQ0Jo7HkcwyBjFYAzfI/zE5INB4pXxqNix5LhPtr98+WULFek4Pu9yPF
+	 sXmvtFguS0miw==
+Date: Tue, 4 Mar 2025 18:51:18 +0900
+From: William Breathitt Gray <wbg@kernel.org>
+To: Bence =?iso-8859-1?B?Q3Pza+Fz?= <csokas.bence@prolan.hu>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-iio@vger.kernel.org,
+	Kamel Bouhara <kamel.bouhara@bootlin.com>
+Subject: Re: [PATCH v6 1/3] include: uapi: counter: Add
+ microchip-tcb-capture.h
+Message-ID: <Z8bNFjh85p2jqK9C@ishi>
+References: <20250227144023.64530-1-csokas.bence@prolan.hu>
+ <20250227144023.64530-2-csokas.bence@prolan.hu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.96.237.92]
-X-ClientProxiedBy: lhrpeml500006.china.huawei.com (7.191.161.198) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="8INrE+XEHmoL1yAg"
+Content-Disposition: inline
+In-Reply-To: <20250227144023.64530-2-csokas.bence@prolan.hu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_014948_986135_ACB62F8E 
-X-CRM114-Status: GOOD (  19.92  )
+X-CRM114-CacheID: sfid-20250304_015124_176164_E46A7FFB 
+X-CRM114-Status: GOOD (  20.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,62 +75,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 1 Mar 2025 06:43:49 +0000
-Will Deacon <will@kernel.org> wrote:
 
-> On Tue, Feb 18, 2025 at 05:19:55PM +0800, Yicong Yang wrote:
-> > From: Junhao He <hejunhao3@huawei.com>
-> > 
-> > Make use of struct acpi_device_id::driver_data for version specific
-> > information rather than judge the version register. This will help
-> > to simplify the probe process and also a bit easier for extension.
-> > 
-> > Factor out SLLC register definition to struct hisi_sllc_pmu_regs.
-> > No functional changes intended.
-> > 
-> > Signed-off-by: Junhao He <hejunhao3@huawei.com>
-> > Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> > ---
-> >  drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c | 191 ++++++++++++------
-> >  1 file changed, 125 insertions(+), 66 deletions(-)
-> > 
-> > diff --git a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
-> > index dbd079016fc4..c1fd60d397c3 100644
-> > --- a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
-> > +++ b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
-> > @@ -36,11 +36,14 @@
-> >  #define SLLC_SRCID_NONE			0x0
-> >  #define SLLC_TGTID_EN			BIT(5)
-> >  #define SLLC_TGTID_NONE			0x0
-> > -#define SLLC_TGTID_MIN_SHIFT		1
-> > -#define SLLC_TGTID_MAX_SHIFT		12
-> > -#define SLLC_SRCID_CMD_SHIFT		1
-> > -#define SLLC_SRCID_MSK_SHIFT		12
-> > +#define SLLC_TGTID_MIN_MSK		GENMASK(11, 1)
-> > +#define SLLC_TGTID_MAX_MSK		GENMASK(22, 12)
-> > +#define SLLC_SRCID_CMD_MSK		GENMASK(11, 1)
-> > +#define SLLC_SRCID_MSK_MSK		GENMASK(22, 12)
-> >  #define SLLC_NR_EVENTS			0x80
-> > +#define SLLC_EVENT_CNTn(cnt0, n)	((cnt0) + (n) * 8)
-> > +#define SLLC_FIRST_BIT(_mask)		(find_first_bit((const unsigned long *)&(_mask), 32))
-> > +#define SLLC_FIELD_PREP(_mask, _val)	(_mask & (_val << SLLC_FIRST_BIT(_mask)))  
-> 
-> It's a bit of a shame to have to compute this dynamically given that th
-> input mask is constant for a given device. Is it not possible to use the
-> generic FIELD_PREP macro in per-device code and then just dispatch to
-> that, instead of funneling everything through hisi_sllc_pmu_regs?
-There is yet another ongoing discussion of handling non const
-field cases:
-https://lore.kernel.org/all/cover.1739540679.git.geert+renesas@glider.be/
+--8INrE+XEHmoL1yAg
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Maybe that will resolve with a nicer solution but I doubt it.
+On Thu, Feb 27, 2025 at 03:40:18PM +0100, Bence Cs=F3k=E1s wrote:
+> Add UAPI header for the microchip-tcb-capture.c driver.
+> This header will hold the various event channels, component numbers etc.
+> used by this driver.
+>=20
+> Signed-off-by: Bence Cs=F3k=E1s <csokas.bence@prolan.hu>
 
-Alternatively best plan may be a shift (and length) instead
-of the neat solution of FIELD_PREP().
+Oops, I almost missed this one! Make sure I'm included in the To field
+for the next revision. ;-)
 
-Jonathan
+By the way, b4 is a nifty tool that can save you some work and help you
+prep patch series for submission.[^1]
 
-> 
-> Will
+> +/*
+> + * The driver defines the following components:
+> + *
+> + * Count 0
+> + * \__  Synapse 0 -- Signal 0 (Channel A, i.e. TIOA)
+> + * \__  Synapse 1 -- Signal 1 (Channel B, i.e. TIOB)
+> + */
+> +
+> +enum counter_mchp_signals {
+> +	COUNTER_MCHP_SIG_TIOA,
+> +	COUNTER_MCHP_SIG_TIOB,
+> +};
 
+Are these meant to be used to identify the Signals in the
+microchip-tcb-capture.c file. You should set the the counter_signal id
+members to these enum constants then. However, this enum doesn't need to
+be exposed to userspace in that case.
+
+Or is the purpose of this to match the parent ID of the Signal when
+you create Counter watches? That won't work safely the way you intend
+because the Counter subsystem creates the userspace parent IDs
+independent of the kernelspace counter_signal struct id member.
+
+Right now the Counter subsystem just happens to create these parent IDs
+sequentially from 0 because it was a simple way to implement it at the
+time we introduced the feature. However, there is nothing that ensures
+this will stay that way in the future, and in fact the design intention
+was exactly to allow the possibility of a future change to this area of
+code.
+
+In other words, there's no gurantee the parent ID in userspace will
+remain the same even between driver reloads. The intended way for
+userspace to behave is to first identify the desired Signals at startup
+based on their "name" sysfs attribute and then set Counter watches and
+such accordingly thereafter as desired.
+
+If that is the only purpose of enum counter_mchp_signals, then we can
+omit this patch from the series and you won't need to send it in the
+next revision.
+
+William Breathitt Gray
+
+[^1] https://b4.docs.kernel.org/en/latest/
+
+--8INrE+XEHmoL1yAg
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQSNN83d4NIlKPjon7a1SFbKvhIjKwUCZ8bNFgAKCRC1SFbKvhIj
+K8vtAQDQtKdqNviMCtM14inLMV9gO9XK9+zhMyb3MGIEkiBZ6AEAmowtr8SAqf6v
+JEe9IFPC1iVoe0A355hZA2t2H7E3LwE=
+=Wees
+-----END PGP SIGNATURE-----
+
+--8INrE+XEHmoL1yAg--
 
