@@ -4,63 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55984C282D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 21:59:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FD89C282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 21:59:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ElnzQ303PfA4B5g1gtMvm2zchjHj9gy7dIO2NLrF/qY=; b=xqw5L0Uv76BsbDaPncFCNg1b4W
-	1Qd+nddg1rZ5CoJbG/an/JfJLMmv3cHTBEJlJLqZrxDqqxNDhbyq8Ibe/Jez+IU4jYUg8EqEcizIW
-	dKFFVwFMoEOMG/JkY4RLHROQZ+OmO1fB37+2SezjWi92Pj2mrUksYLB5pBEUwsG6xFbGCFnbEENBr
-	CdoQ09HpYkKlR4eZxHjzuCvFCZK5CtuCmEq+G4m89qC0KI+0Ui/iEcyXJMe4XKgb11TuqFl3M0o/B
-	zbZRNcKOiwEiKn04PNJXUnb8nt5B5i6azdy4Zs1r9XVLL7cyz0TW5Vu7aXJYs07TFxtDAMNbkVFuH
-	K8sKAUdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xe0gNALudh5AKNVpnsc99NpQysntPABXDZxfVbJ2638=; b=fgZ1CW7W6rrlcgsNAEMGAvR+QC
+	v86BQdIR2H+gqn+0E4MsD7zo8+8MEF8AqzZgtbsKbgOIvIt9AfkidLfnEkpTbF1tH9ae6G9YJyHEK
+	J4XevuqKnq5QgT8RGxppUGkHj+svwSRu2KlupLUi0tbKY3t1jftp3cr2HdNkGxJDZcezgw65182DU
+	Q/vvZ5C3rq+ucogDEmASfDv233ZxIimoLvvq42gf+tq2jKXk9n+SdYepyKe9warAfK6tEkqzCXDqS
+	uWX0MruRRFEfmxiZ7NlmrAaSSqtyCnhzF4pE+q6ayCUm/PMIw3UTlN2wNiIGWKeXmGlsG4MokH+wq
+	ChB27uBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpaIl-00000006M3X-2FGL;
-	Tue, 04 Mar 2025 21:59:47 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tpaIm-00000006M40-1jqq;
+	Tue, 04 Mar 2025 21:59:48 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpZ89-00000006DPu-3IDU;
-	Tue, 04 Mar 2025 20:44:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ElnzQ303PfA4B5g1gtMvm2zchjHj9gy7dIO2NLrF/qY=; b=khGMv6sWor2meFhrfpWQII3ocu
-	ZXfiolYMgsDqacRYWeZl5MtbzdCNfGtkktEW/NFF1DiCtSDEzOGchuf95/yQi+DHh2rXm0jV7IC+k
-	2wLuKL8yhHVYV/JqEHYwuXNUwkn4NH4waYjTygagq2IGpWuO8GVYvlnCVTTy9jh0UmAyvReBOOMA4
-	jOAxBWDSwdUUojUo4NCjl8z2h0TNPhdZSexKVRPnD2tuolCf/sdY0yncROnq4kHbj4q3lbGkUqUL/
-	BZA3aY7aFEqnrtbvr7YR7TYuvtRLfCmZuAOwxuVyKFuwMSGvO7DlJT5h14ObWcUt3lD3KPSdeFftX
-	4WVLGh7Q==;
-Received: from i53875a38.versanet.de ([83.135.90.56] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tpZ82-00062P-7p; Tue, 04 Mar 2025 21:44:38 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Ulf Hansson <ulf.hansson@linaro.org>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Arnd Bergmann <arnd@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, linux-pm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] pmdomain: rockchip: add regulator dependency
-Date: Tue, 04 Mar 2025 21:44:37 +0100
-Message-ID: <3938258.QJadu78ljV@diego>
-In-Reply-To: <20250304142803.689201-1-arnd@kernel.org>
-References: <20250304142803.689201-1-arnd@kernel.org>
+	id 1tpZ9m-00000006DvR-3EcC
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Mar 2025 20:46:28 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43bb6b0b898so26390255e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 12:46:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741121185; x=1741725985; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=xe0gNALudh5AKNVpnsc99NpQysntPABXDZxfVbJ2638=;
+        b=mMluDswgthzz1fMsRi9pkoQVos3jZIVGg+Con4ld1QLecoBVP09/ijr8DE+8DI3F3K
+         Z4fXVKgmzNrbnYrsrvtD971WHs6N2CB6UHpR/NZETiy3bv/yuKSOK2+ECPP9w7lhfnRA
+         kUXuPyyXWflMOMYa4LZVWJbvwnU/8Z7JImpNZY19wsXzbkhfrD2TEEJ01yrT2JmbSsEf
+         RlNPhcslyRxYu0agkvzlB6M2Cd6CUoG5dGqe9szAMWqtnwJdnKRPq77CfBy2wnu8DtY8
+         oPES+y4gaAYvcHm08OwVGJgjuUfvszzcf3y+bHLbnaGLVoIVrdNuzVZFA41hbTgM515D
+         vynw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741121185; x=1741725985;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=xe0gNALudh5AKNVpnsc99NpQysntPABXDZxfVbJ2638=;
+        b=LmyMu4pDR0kcns+ACG/USTIUycxwEfU41Zgzz8CkJvOhBQ09bc1+81GmIKQhSn2oUj
+         OAJwNF3qR+KphA/5vT8FX5LXxWNf+Qk+gV7+dDX/VYiprg9NS74rBa6+corYxlzbmSgD
+         PPIcyBm40zVat4CIybcar5IItuRZdLOnF3SolGxwadsKUAeuTbKxTI7TKGZswUMDqHFY
+         VrKfpp/G/WKZtTC3otjM3C1rA66bAWB4pmNO1bhWTMw1mn5r7KSIengpmsxWr+PbTK0z
+         kqe2RlmGp14hb1f3bXyLC9P1D3w8bwxwGBr0z7F6yYo7rmFQsV7vuDEGPkwR5AMXIfiu
+         UPZA==
+X-Forwarded-Encrypted: i=1; AJvYcCUAsyFndo9lv6vkn5H/+woorqFQ7WF+mBkQyOado3fhLX562NBOznM8MDqKH6NlSuZPhzc+mf18mrDahelX4xeK@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXnKuZUIeLCfOXYKUWcNoRtOke4ma6xdUOMU2WPWJU09enPZG8
+	AJPQgFt8xHAxCWYvjXFRizzwZNk3UUFdsZhzlLzoPxYmk5RSWhSzj4o2VE8Ivro=
+X-Gm-Gg: ASbGnctHNAeu8ukD+5137LjSKPwrsRDLInLTOndu4yNs7yojwHq5h8FJG/j10F9nvIb
+	/r3AOds0Fyklkp2GqL08MO3H1m5bvLxkNFuRQSKutaxVjTxR5EbHivZ5jd3ACPe4cxUxwYRV26n
+	VNoy7aKolYM7mRpEXtZs+ubyyRkyolCHyE0dCaZAJ/M1VUcGSxcKCUS/XyeRATI9Xhj6xs4o8J6
+	YlM4yzztBz0pCyY2Yo9nmh+yxvG9ckZj/bFS3ajRTIFURJj7Nc8fxgsxcXezqmVAPSEhv5hozo5
+	dNnlnKqx1u+2rS9cPDm+wbSMSWweSMguNnkbEe+Fh2OGxMGxgvERbG/aoWWS2iMSPw289Nh/ZOp
+	Ei0IWdxRf
+X-Google-Smtp-Source: AGHT+IHjEcU8uO80EjIqMe2Us3DZGx4pspSob8gq93Xc/2SwZ46ezNtIGH7ewMTX9XjP3bW/4xIyWA==
+X-Received: by 2002:a05:600c:46c6:b0:43b:c228:1ec8 with SMTP id 5b1f17b1804b1-43bd29463b9mr1995375e9.1.1741121184670;
+        Tue, 04 Mar 2025 12:46:24 -0800 (PST)
+Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43bcbcc53d3sm21750535e9.0.2025.03.04.12.46.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 04 Mar 2025 12:46:23 -0800 (PST)
+Message-ID: <e4dc9c1a-bdf2-45c9-950a-69f647f6283f@linaro.org>
+Date: Tue, 4 Mar 2025 21:46:22 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] clocksource: stm32-lptimer: add support for PM
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>, tglx@linutronix.de
+Cc: alexandre.torgue@foss.st.com, olivier.moysan@foss.st.com,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20250224172101.3448398-1-fabrice.gasnier@foss.st.com>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <20250224172101.3448398-1-fabrice.gasnier@foss.st.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_124445_839197_648CADF7 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20250304_124626_826598_23F525FF 
+X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,31 +102,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 4. M=C3=A4rz 2025, 15:27:59 MEZ schrieb Arnd Bergmann:
-> From: Arnd Bergmann <arnd@arndb.de>
->=20
-> When CONFIG_REGULATOR is disabled, this pmdomain driver fails to build:
->=20
-> drivers/pmdomain/rockchip/pm-domains.c:653:30: error: implicit declaratio=
-n of function 'devm_of_regulator_get'; did you mean 'devm_regulator_get'? [=
-=2DWimplicit-function-declaration]
->   653 |                 pd->supply =3D devm_of_regulator_get(pmu->dev, pd=
-=2D>node, "domain");
->       |                              ^~~~~~~~~~~~~~~~~~~~~
->       |                              devm_regulator_get
-> drivers/pmdomain/rockchip/pm-domains.c:653:28: error: assignment to 'stru=
-ct regulator *' from 'int' makes pointer from integer without a cast [-Wint=
-=2Dconversion]
->   653 |                 pd->supply =3D devm_of_regulator_get(pmu->dev, pd=
-=2D>node, "domain");
->       |                            ^
->=20
-> Add a Kconfig dependency.
->=20
-> Fixes: db6df2e3fc16 ("pmdomain: rockchip: add regulator support")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+On 24/02/2025 18:21, Fabrice Gasnier wrote:
+> Add support for power management on STM32 LPTIMER clocksource driver:
+> - Upon clockevents_suspend(), shutdown the LPTIMER, and balance the
+> clk_prepare_enable() from the probe routine.
+> - Upon clockevents_resume(), restore the prescaler that may have been lost
+> during low power mode, and restore the clock.
+> 
+> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+> ---
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Applied, thanks
 
 
+
+-- 
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
