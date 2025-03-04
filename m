@@ -4,116 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB04EC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 09:50:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F27E1C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 09:51:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D5t4LO5iZc4495dyi2ppzMU1jd7cqzfUiUSRCJpWlCU=; b=c0TFtdl/J+u53e
-	Wx91hGE5TcFfBs9SPgzLKDm9HB1n24/V0tPBXYxsuECnlH43735IrSa+Hy+vX70VG4fC8GBRuK8k2
-	Yt5Mf8tssfNx4atW75fQBeBetHAbHItRzo6eMYEm/6B/PUvZn7GtX7GHyU6rP0BcV5wo+m+eoRb90
-	0i6/NuezItGJTM7PHs0K2VvxLkBMBKmDbHzvj551cTCHjuI7IdnJA3HDxO8RIkaLeUTXRa4o0Osgf
-	kUGaDux+fOEz5S+E19nv287Xp90xQpvK6bHa7V+JRqdqzBGBApOW4G+8lQsiEifGLtOJ4/ti6tdNb
-	Yrdb+Ff0WUZGijK5+qXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qSm1lg2/FkL1yWeHeKV4bekvslQt2WvmtVqn6o+tUnQ=; b=yYeZvQZZPE/l4Fh+Gx4V8rLkq0
+	JxgZvOwWCI+0kkRCLWBbT527oevA25OWMH0BmXqEE/bPpW3XP7ruKJqZGZ/eb9LwgFxTsvTamhPF+
+	AID8DUsK2QpkGrSsl4dIlS114ipv8xCkisOhmd35KI8sMVVJ9s+ik6PnmJmEukOXEV6VeFkKIxx58
+	8ALJGKDLFvHYydHjevFEZZFeUwelooaJ6PNosujg1OtKGK18HysPk/q9UBSZOV4mqU4nMD+LZwTg7
+	YxVrgBV71ko4E/kdPYtfj7Zbzc9Rtp8YkQNVLy2Xe452xBLpzNM1W8Bjbn0YzqzTq/tzmaJMUCSZ4
+	yHHrn+DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOub-00000003zUN-06iq;
-	Tue, 04 Mar 2025 09:50:05 +0000
-Received: from cockroach.aspen.relay.mailchannels.net ([23.83.221.37])
+	id 1tpOw8-0000000401R-3zKs;
+	Tue, 04 Mar 2025 09:51:40 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOre-00000003yQb-1Ppl;
-	Tue, 04 Mar 2025 09:47:03 +0000
-X-Sender-Id: hostingeremail|x-authuser|chester.a.unal@arinc9.com
-Received: from relay.mailchannels.net (localhost [127.0.0.1])
-	by relay.mailchannels.net (Postfix) with ESMTP id 1B9A78C3E29;
-	Tue,  4 Mar 2025 09:46:57 +0000 (UTC)
-Received: from nl-srv-smtpout1.hostinger.io (trex-8.trex.outbound.svc.cluster.local [100.101.191.136])
-	(Authenticated sender: hostingeremail)
-	by relay.mailchannels.net (Postfix) with ESMTPA id E7C588C3ACC;
-	Tue,  4 Mar 2025 09:46:53 +0000 (UTC)
-ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1741081616; a=rsa-sha256;
-	cv=none;
-	b=af7eV8eu4Ky/VzUdDADBUxjgxKKKs7u3q1Ev7az2ONYZp4OxvPhkZo6tgrdIRJd2itYF0h
-	zrPfYU4JGa9mxZneKMiCPXRlWWtEowsV6wH5Si0VGLw+oZi3ot6njAU15PiHufC0VB3FtT
-	CGaPVd/WJS6koZnsxf/xUIASrxiJf/+dWTK8OaQtu7mR6vx7DM9wfO2KfZDoYvH1v4A3Up
-	/9oMWljF+mmEFKPrTA+ApQHX9ORnLDQDRBWMhjGdM/Nj91Oe6hFssniYCG6IjYPwnGraWb
-	itnZqmA1/OyXlms4EQfS2aBktOWTzdwlWvDmeBLyMy2OllmPfIHM7p1uTLbjlg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mailchannels.net;
-	s=arc-2022; t=1741081616;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:dkim-signature;
-	bh=D5t4LO5iZc4495dyi2ppzMU1jd7cqzfUiUSRCJpWlCU=;
-	b=GiAtfS43kFwoJr/tRcZ9Zn8Pz6XjVCRaYleWaTx2nTh0ioce/VASeJBkMXIWwtcNX9c1tF
-	vl8L1WEnDQuedsCyjqTv9cInWgcUbOI8k+jkuJaxabNhxKBOKUtDHWFu5SN3a1LzORLcVS
-	3B5Rpu8xmYavOQmb2Hhq1dXqdjHebCJHaDedcM0rDOgNK8FIfU+2bVB2fJ81Uz2wcGHbY2
-	MOz/fWFXHp9eFhvmv5khRrJBUNhIziGHOwk86F2ewRbT2okKv3aQAlrPOVNBHHEguDeh9A
-	kliPmYOC9yQKc2Yiuxe4I2mjciRPRxjwV0z25+ZNMb0M5ouB5a7gM7qjadpMjg==
-ARC-Authentication-Results: i=1;
-	rspamd-58748c789d-w6rjb;
-	auth=pass smtp.auth=hostingeremail smtp.mailfrom=chester.a.unal@arinc9.com
-X-Sender-Id: hostingeremail|x-authuser|chester.a.unal@arinc9.com
-X-MC-Relay: Bad
-X-MailChannels-SenderId: hostingeremail|x-authuser|chester.a.unal@arinc9.com
-X-MailChannels-Auth-Id: hostingeremail
-X-Slimy-Shoe: 19d76dbe66a13cec_1741081616908_3888167419
-X-MC-Loop-Signature: 1741081616908:8098079
-X-MC-Ingress-Time: 1741081616908
-Received: from nl-srv-smtpout1.hostinger.io (nl-srv-smtpout1.hostinger.io
- [145.14.150.87])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
-	by 100.101.191.136 (trex/7.0.2);
-	Tue, 04 Mar 2025 09:46:56 +0000
-Received: from [10.9.32.97] (unknown [185.182.236.36])
-	(Authenticated sender: chester.a.unal@arinc9.com)
-	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4Z6W6D2wtsz35BH3;
-	Tue, 04 Mar 2025 09:46:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arinc9.com;
-	s=hostingermail-a; t=1741081590;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=D5t4LO5iZc4495dyi2ppzMU1jd7cqzfUiUSRCJpWlCU=;
-	b=O3QbHPIru7AnlxKZ0j2JcvM0aDko5YyybmfATwJ7W6Uyy0cYcrQ0Ay3i69qGkiy1nlWaYc
-	1hWpE1a3EaybroRWRfsrOnJnL6kBJ6z5gCnUTJHTMxKVrs9DSkj0iBLAG6y/MkrZuhftMJ
-	R++VBdvY03avb4Esfcfg4EWVS0Nn2MnBWTT9KcJruUXjzKOwRs6863OXMnuPxIeELxq0J0
-	ZuyG6OlYYkt8NLFn3abG5liwj1OZXhB6AGl2oZgaPbYXoVwpo8/YhNSXLrv/Fg1wtRf7pP
-	V8vuI1Pvaxpb3sOMYi/9mm1f2h85PsbKQa10PHLAk6fSnYDG31414GFXiFez+w==
-Message-ID: <b63fcbaa-ef27-48a9-885c-7962bd92a8b9@arinc9.com>
+	id 1tpOsP-00000003ykz-0l1j
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Mar 2025 09:47:50 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43995b907cfso34471425e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 01:47:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741081667; x=1741686467; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=qSm1lg2/FkL1yWeHeKV4bekvslQt2WvmtVqn6o+tUnQ=;
+        b=lKD228HxOCYnV/W4DMb3iuskQR816t8J7IAoCBFAW6X6RD6QzdQ1GEvftv3foBH9HN
+         HYM0BAOu56La+bDUGrrj070hTRVDlng6qMmT94ud27Gq8iwjU3NLb2/7x2+9HYDoZ3VX
+         Oz6ygVQblA+mUvwKgTXhO2JkKq39fBBI8pk8FWV6rCrUmEXZoMzGQRy9k9RCJCzEK4nH
+         NFfPSisvpJOZH+xYgBgJDzUl5zr/eG6cEaC9cU38wSPG47UrkyeRRPBoIdoI/ja7urX7
+         2PWiJE4Vr+KHKnYNzpAqljEfvpqEJEdZ99e5p+bJ+vS6aZa7LtqP4i+2zMKdRJz+/jb0
+         qgYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741081667; x=1741686467;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=qSm1lg2/FkL1yWeHeKV4bekvslQt2WvmtVqn6o+tUnQ=;
+        b=jXxFxkJrSkETQMoFhOM1ORDfZf4p+J9igRHRQ9HPnP10OtIfKn8sqTMFuo9ishOXfG
+         4+iU2J+9BcPYj1OO7d/bzl+lnwrPY/ZzsJx53sXf+6ih6zs6kklHHH9cSqN5fItXGd7C
+         yMrQ+hsj/utYTsuy3QA1XJv5WlEQsOy2VhUv7DzIEgFNvP3WxUmycU4Rk3CeQTsbHb3+
+         xWdugCfxXPchkBwrV2S5HWxp7IW0Qz1ey1FnxrgnxWNXmoMast1MdtJMd4/HX35j9by/
+         4ubzW3vVS0oQZEHNtHBCuTzSY34C+/a+cxtw6Im7mutDc7Z/hK4tDnkHqhTJYLzq4GnJ
+         P06A==
+X-Forwarded-Encrypted: i=1; AJvYcCUqnT4xbclX3xfJMomdswVllV526NaQZ8ugMM4VO2x7ZlQJ6c9Tq0BzFXnk2Hs1gDQBtNC1CXQPedotamQQCKs4@lists.infradead.org
+X-Gm-Message-State: AOJu0YzAedwPOJNUvoXXRP4UGVsB7hm36qs3bUJtsyShGiTElFRJxAKz
+	l92ZrrRSHWlolbAkpKtaIC1rsx9b73Hc8H4/G2+NYzEoEG25Eg9SttenHpAz6AU=
+X-Gm-Gg: ASbGnctMXo1k0sYO9lYW7PDiCedjMKH9AtVnxuQuyfg/cFvNkRfayBylanJj3ulNMKh
+	QB7cyg0oeMyDsM9u10AUSrkTTL/H1bIHN3B+R1yGJRF6D8A2zAlWFmSz8PY+NGSlBG2MKL01elP
+	wn2eqOvl9JNMjk0nNhp5npQVIVIVrIZna1ZfNivdqBKOyZglqSd+m/SbEhnjjH4u1CToixVnot7
+	21+Md2zcjtwbSVo5/YXBqj+cGZHZchebqYyc5Y9R4Tg69N7AdvxnZkFGscY/awr2oF4nZtzF6c9
+	u2IxMkGPSbDCFBjIY5nAHa0LwDWI0QMvPBwXBvzwe0IvM5NJTFme+WgFKUjIlYhnYMNcapXEUOi
+	bsEHXoBMGgQ==
+X-Google-Smtp-Source: AGHT+IFDmnK5YYmULhWYfPkCzV4REgmiXkQRXkNfOTnHTpTo4USjUT1kKhF/sQF1HrBw+vy8AZd5Qw==
+X-Received: by 2002:a05:600c:a03:b0:439:9b19:9e2d with SMTP id 5b1f17b1804b1-43ba6702becmr158936035e9.16.1741081667192;
+        Tue, 04 Mar 2025 01:47:47 -0800 (PST)
+Received: from [192.168.0.35] (188-141-3-146.dynamic.upc.ie. [188.141.3.146])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e485e13fsm16964961f8f.100.2025.03.04.01.47.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 04 Mar 2025 01:47:46 -0800 (PST)
+Message-ID: <f5c2044e-e78e-4839-9c29-63610ff406e2@linaro.org>
+Date: Tue, 4 Mar 2025 09:47:44 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: dsa: mt7530: Fix traffic flooding for MMIO
- devices
-To: Lorenzo Bianconi <lorenzo@kernel.org>,
- Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>,
- Sean Wang <sean.wang@mediatek.com>, Andrew Lunn <andrew@lunn.ch>,
- Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20250304-mt7988-flooding-fix-v1-1-905523ae83e9@kernel.org>
+Subject: Re: [PATCH v14 2/2] arm64: dts: qcom:
+ qcs6490-rb3gen2-vision-mezzanine: Add vision mezzanine
+To: Jorge Ramirez <jorge.ramirez@oss.qualcomm.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
+ todor.too@gmail.com, mchehab@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, andersson@kernel.org,
+ konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
+ cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com,
+ will@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Konrad Dybcio <konrad.dybcio@linaro.org>
+References: <20250208225143.2868279-1-quic_vikramsa@quicinc.com>
+ <20250208225143.2868279-3-quic_vikramsa@quicinc.com>
+ <ca8e6569-b466-4f83-83af-38c51891d395@kernel.org> <Z8a7cMmxJuHIhgjo@trex>
+ <baae2a56-5299-486f-acf1-14fe13fd2f81@kernel.org> <Z8a/Dk7zjZ7RQT2/@trex>
 Content-Language: en-US
-From: "Chester A. Unal" <chester.a.unal@arinc9.com>
-In-Reply-To: <20250304-mt7988-flooding-fix-v1-1-905523ae83e9@kernel.org>
+From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+In-Reply-To: <Z8a/Dk7zjZ7RQT2/@trex>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Date: Tue, 04 Mar 2025 09:46:28 +0000 (UTC)
-X-CM-Envelope: MS4xfAak46EaWbKlaQAOOnK1fi3wYW/2+4l5aFepSvjx8uGgOA14qId//toYZLzeR8I+fViXYRlIlNrSjhVYMS07D3LEvzQpZSwyrxo5G9Gty/xvDUy3QReb 81z8mlUhj8RTJim8GAvhYmM6/pF4WuB98DsIwesDXLY0yHpEm/E4voVX2sYx/kRelHjE5ZBFitzVbCH6SbiW/rCQx6pIvy7WNTLecRcB4gK5PUnSvp6bgpI5 Vp8PZG773xMy9cwJSctfC0mHiuA7qSvV+toWfGyhQLx+BXpppAfLFYedocznA8KwlosasXFjoGihBHj2golKcOv0nfcU2dXferx/0xfaoGPlOcIKt7iabktN iA1sFATs9WZO9x3kSxeA8u0HpQbsPUk8JwvXAz/4qP7BTX5Kr6VPd7QoCEyK4d4jZfNG0kpgp9o9ch5t7YboX4IuSr2wCc7FVXkHFFM9wOnRdkfCqygd7Nes qmYirDGRadJL+OcTKysDx4Lkurf/dh8sR6T8eOa4D+633H0+QKjbxlbzKZyIzmaupWPgrbUydGKr3k0sgbv3j5wXbcJRhsyLqW/MOEHYH9wtACwUpPEkJCzM 0lOjmmauEwkKUWVjJhNGMxlojrEdw/Ov4DaRFHwbM0JHZmROfNaKWCZGkZae/Ku8PGSFRroLVy2cTdn+llFe4d+Ok3ttmbSFd85rV+z4OsljPg==
-X-CM-Analysis: v=2.4 cv=F4sFdbhN c=1 sm=1 tr=0 ts=67c6cbf6 a=jLKKKTx0pIsUXH9Z8yxYVg==:117 a=jLKKKTx0pIsUXH9Z8yxYVg==:17 a=IkcTkHD0fZMA:10 a=VwQbUJbxAAAA:8 a=GvHEsTVZAAAA:8 a=oMYzIxOzatuwx5kPrsYA:9 a=QEXdDO2ut3YA:10 a=aajZ2D0djhd3YR65f-bR:22
-X-AuthUser: chester.a.unal@arinc9.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_014702_775596_C4476BDE 
-X-CRM114-Status: UNSURE (   6.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250304_014749_228076_1A69F0E1 
+X-CRM114-Status: GOOD (  14.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,19 +112,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/03/2025 08:50, Lorenzo Bianconi wrote:
-> On MMIO devices (e.g. MT7988 or EN7581) unicast traffic received on lanX
-> port is flooded on all other user ports if the DSA switch is configured
-> without VLAN support since PORT_MATRIX in PCR regs contains all user
-> ports. Similar to MDIO devices (e.g. MT7530 and MT7531) fix the issue
-> defining default VLAN-ID 0 for MT7530 MMIO devices.
+On 04/03/2025 08:51, Jorge Ramirez wrote:
+> On 04/03/25 09:40:21, Krzysztof Kozlowski wrote:
+>> On 04/03/2025 09:36, Jorge Ramirez wrote:
+>>> On 03/03/25 18:13:20, Krzysztof Kozlowski wrote:
+>>>> On 08/02/2025 23:51, Vikram Sharma wrote:
+>>>>> The Vision Mezzanine for the Qualcomm RB3 Gen 2 ships with an imx577
+>>>>> camera sensor. Enable IMX577 on the vision mezzanine.
+>>>>>
+>>>>> An example media-ctl pipeline for the imx577 is:
+>>>>>
+>>>>> media-ctl --reset
+>>>>> media-ctl -V '"imx577 '17-001a'":0[fmt:SRGGB10/4056x3040 field:none]'
+>>>>
+>>>> AFAIU, camss does not support SRGGB10, but only SRGGB10P.
+>>>>
+>>>> Based on tests reported on IRC I think this might not have been tested
+>>>> correctly.
+>>>
+>>> I acquired SRGGB10P (10 bit packed) frames from the camera despite the
+>>> pipeline being set to SRGGB10 (16 bit) samples.
+>>>
+>>> so something does not add up.
+>>
+>> Then the commands are actually correct, just the camss or media behave
+>> here a bit unexpected?
+>>
 > 
-> Fixes: 110c18bfed414 ("net: dsa: mt7530: introduce driver for MT7988 built-in switch")
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> setting the pipeline (CSI) as SRGGB10 (16 bit samples) as per below
+> 
+> media-ctl --reset
+> media-ctl -v -V '"imx577 '19-001a'":0[fmt:SRGGB10/4056x3040 field:none]'
+> media-ctl -V '"msm_csiphy3":0[fmt:SRGGB10/4056x3040]'
+> media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
+> media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
+> media-ctl -l '"msm_csiphy3":1->"msm_csid0":0[1]'
+> media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
+> 
+> allows to capture SRGGB10P samples (frames-xxxx.bin files contain 10 bit samples for the size)
+> 
+>   ==> yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video0
+> 
+> 
+> shouldnt the CSI need to be set to SRGGB10P instead?
+> 
+> 
+>> Best regards,
+>> Krzysztof
+> 
 
-I was suspecting of this for a while. Thanks for addressing it.
+No an internal media bus format MEDIA_BUS_FMT_THING is used
 
-Reviewed-by: Chester A. Unal <chester.a.unal@arinc9.com>
+See
 
-Chester A.
+87889f1b7ea40d2544b49c62092e6ef2792dced7
+5480b0c67f120a6c293cc5eff72fa1d6a74de504
+3c1dfb5a69cf836f513a2a49113ee946a4b9d95d
+
+Yavta is specifying a v4l2 pixel format SRGGB10P which then gets 
+translated into a media bus format MEDIA_BUS_FMT_SRGGB10_1X10.
+
+I'm not sure what the historical reasons for that are, probably good ones.
+
+---
+bod
 
