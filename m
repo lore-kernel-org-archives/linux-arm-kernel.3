@@ -4,67 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B195C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 19:54:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E030C282DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 19:56:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lpitQsG9Lw5tQvA/VWCaKP4hbdUpVirbdTRn6Xat1Lw=; b=Env1nxBYrfcy11yIiVLKKKXdQd
-	IjUHsGibB60BbbAI2hlXKo9CDJYV2TLaHyOv4naOviMX7dKBKq9RN16oOWl8LKn+mGCAfYbz1Gw2D
-	xl0W5aGoUFIEUTs1mwf7+Lda1BOcgoCwceT+t2HzrDMQxBtzzIB2zfxUJ6vCa22FFhgI+cS/FSJ45
-	EMdPyMe7+i10XlI/7fu7pBHWH8II1YtUxX5el5FzZOcs5mFrlHSitotgehUKH5MsqyjwT6UIl5LrX
-	8DMC6VpJnw23I6if1gGYldIZa3KnWYkicU6nLNvOqebQAXRzrHgCjXJObwbdI4vARh+zpyTwcq8YX
-	MMUnqoVg==;
+	bh=YM8Ez/q06miNqJtCBk3k8n3HOLzBJgbDbaMVZIGyvCs=; b=E+cnAPGILlEKLXb7emd8E+kWf8
+	JagwU/jEEkwLuRRDTZvA5SORMADBW7HAUBsh+Hv9RvfYdh688MN1HQ4lw7t5+CAY6TZMal8VOjRs+
+	nOY3wi6iBtf6zBoKkr2HeNbuuS61J6nMiTec9IhU3lKxaOfn0F5oipiXNLzw4ysdZs2lT013pcCq9
+	hZaD9iHH9Rv/TmLU28KLVfjNKvrbjUW7QMZZua+PK+/KOzpt1TmLU6M0sU45O9oHNS72MtVXGec+5
+	2S/eilu5Gw5lt+XCKwlIniuGTPYjiKEJ5TH11Y/7YGmnW95p02gp8uluq5LqNWmJC07xfmvtqWp54
+	9Gg/Vj3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpYLe-000000067Nq-0mqM;
-	Tue, 04 Mar 2025 19:54:38 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tpYNB-000000067ct-3yXe;
+	Tue, 04 Mar 2025 19:56:13 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpXja-00000005yrE-2Xx9
+	id 1tpXkH-00000005z6U-0R9X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 19:15:20 +0000
+	Tue, 04 Mar 2025 19:16:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1820EA4491D;
-	Tue,  4 Mar 2025 19:09:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BA93C4CEE5;
-	Tue,  4 Mar 2025 19:15:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741115717;
-	bh=m8gpsFcvErC+OBg1crSKmlYcazdRoOwZ0xMnwbncoLg=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Wd+VYz5Z5pmq6PMWBMCh4meGD69gSJjcGdaQqppo0JES4AT8CP7BglSfJgGMVA3y7
-	 UTxQvO0wRGmTbAZ1rh01lKFGskbhM75iCjZ6guHgUT/y704xVrwXatSv5etp8opAL/
-	 hMX2QJSLGU+L4BspbNuRwWw7D+P0z4vZhF8JcjMhBRoudk+xaT0kjlBU8ik1AI4bbJ
-	 /804WbtwyRXPPLHq2RrTziJNifSXLCDEj8XSDDzcF/V/DkuC7iaKTrjOhKSmKp2bfF
-	 1M63SfvUoiIkLLZzovZrXd1NTBWJJQ7O8Xg5BWl8JiUITB6tWMIjQ2m2VpPjnnVLjG
-	 opGhzPH4Pok/A==
-Date: Tue, 04 Mar 2025 13:15:15 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9C86D5C6368;
+	Tue,  4 Mar 2025 19:13:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C4CBC4CEE5;
+	Tue,  4 Mar 2025 19:15:57 +0000 (UTC)
+Date: Tue, 4 Mar 2025 19:15:54 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ankur Arora <ankur.a.arora@oracle.com>
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, arnd@arndb.de,
+	will@kernel.org, peterz@infradead.org, mark.rutland@arm.com,
+	harisokn@amazon.com, cl@gentwo.org, memxor@gmail.com,
+	zhenglifeng1@huawei.com, joao.m.martins@oracle.com,
+	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
+Subject: Re: [PATCH 1/4] asm-generic: barrier: Add
+ smp_cond_load_relaxed_timewait()
+Message-ID: <Z8dRalfxYcJIcLGj@arm.com>
+References: <20250203214911.898276-1-ankur.a.arora@oracle.com>
+ <20250203214911.898276-2-ankur.a.arora@oracle.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: tglx@linutronix.de, jic23@kernel.org, linux-iio@vger.kernel.org, 
- olivier.moysan@foss.st.com, wbg@kernel.org, linux-kernel@vger.kernel.org, 
- linux-pwm@vger.kernel.org, alexandre.torgue@foss.st.com, 
- conor+dt@kernel.org, krzk+dt@kernel.org, daniel.lezcano@linaro.org, 
- devicetree@vger.kernel.org, will@kernel.org, lee@kernel.org, 
- catalin.marinas@arm.com, ukleinek@kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-In-Reply-To: <20250304173229.3215445-2-fabrice.gasnier@foss.st.com>
-References: <20250304173229.3215445-1-fabrice.gasnier@foss.st.com>
- <20250304173229.3215445-2-fabrice.gasnier@foss.st.com>
-Message-Id: <174111571576.3307031.12348647271786435979.robh@kernel.org>
-Subject: Re: [PATCH v2 1/8] dt-bindings: mfd: stm32-lptimer: add support
- for stm32mp25
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250203214911.898276-2-ankur.a.arora@oracle.com>
+X-TUID: lLrdoPZx9Q90
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_111518_771858_2D589487 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20250304_111601_245455_E8039CA4 
+X-CRM114-Status: GOOD (  29.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,59 +68,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Feb 03, 2025 at 01:49:08PM -0800, Ankur Arora wrote:
+> Add smp_cond_load_relaxed_timewait(), a timed variant of
+> smp_cond_load_relaxed(). This is useful for cases where we want to
+> wait on a conditional variable but don't want to wait indefinitely.
 
-On Tue, 04 Mar 2025 18:32:22 +0100, Fabrice Gasnier wrote:
-> Add a new stm32mp25 compatible to stm32-lptimer dt-bindings, to support
-> STM32MP25 SoC. Some features has been updated or added to the low-power
-> timer:
-> - new capture compare channels
-> - up to two PWM channels
-> - PWM input capture
-> - peripheral interconnect in stm32mp25 has been updated (new triggers).
-> - registers/bits has been added or revisited (IER access).
-> So introduce a new compatible to handle this diversity.
-> 
-> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> ---
-> Changes in V2:
-> - Use fallback compatibles, along with stm32mp25 specific compatible
-> - trigger identifier can be up to 4 (e.g. from LPTIM1..5)
-> ---
->  .../bindings/mfd/st,stm32-lptimer.yaml        | 40 ++++++++++++++++---
->  1 file changed, 34 insertions(+), 6 deletions(-)
-> 
+Bikeshedding: why not "timeout" rather than "timewait"?
 
-My bot found errors running 'make dt_binding_check' on your patch:
+> diff --git a/include/asm-generic/barrier.h b/include/asm-generic/barrier.h
+> index d4f581c1e21d..31de8ed2a05e 100644
+> --- a/include/asm-generic/barrier.h
+> +++ b/include/asm-generic/barrier.h
+> @@ -273,6 +273,54 @@ do {									\
+>  })
+>  #endif
+>  
+> +#ifndef smp_cond_time_check_count
+> +/*
+> + * Limit how often smp_cond_load_relaxed_timewait() evaluates time_expr_ns.
+> + * This helps reduce the number of instructions executed while spin-waiting.
+> + */
+> +#define smp_cond_time_check_count	200
+> +#endif
 
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/mfd/st,stm32-lptimer.yaml:26:9: [warning] wrong indentation: expected 10 but found 8 (indentation)
-./Documentation/devicetree/bindings/mfd/st,stm32-lptimer.yaml:29:9: [warning] wrong indentation: expected 10 but found 8 (indentation)
-./Documentation/devicetree/bindings/mfd/st,stm32-lptimer.yaml:67:13: [warning] wrong indentation: expected 14 but found 12 (indentation)
-./Documentation/devicetree/bindings/mfd/st,stm32-lptimer.yaml:70:13: [warning] wrong indentation: expected 14 but found 12 (indentation)
-./Documentation/devicetree/bindings/mfd/st,stm32-lptimer.yaml:87:13: [warning] wrong indentation: expected 14 but found 12 (indentation)
-./Documentation/devicetree/bindings/mfd/st,stm32-lptimer.yaml:90:13: [warning] wrong indentation: expected 14 but found 12 (indentation)
-./Documentation/devicetree/bindings/mfd/st,stm32-lptimer.yaml:103:13: [warning] wrong indentation: expected 14 but found 12 (indentation)
-./Documentation/devicetree/bindings/mfd/st,stm32-lptimer.yaml:106:13: [warning] wrong indentation: expected 14 but found 12 (indentation)
-./Documentation/devicetree/bindings/mfd/st,stm32-lptimer.yaml:120:13: [warning] wrong indentation: expected 14 but found 12 (indentation)
-./Documentation/devicetree/bindings/mfd/st,stm32-lptimer.yaml:123:13: [warning] wrong indentation: expected 14 but found 12 (indentation)
+While this was indeed added to the poll_idle() loop, it feels completely
+random in a generic implementation. It's highly dependent on the
+time_expr_ns passed. Can the caller not move the loop in time_expr_ns
+before invoking this macro?
 
-dtschema/dtc warnings/errors:
+> +
+> +/**
+> + * smp_cond_load_relaxed_timewait() - (Spin) wait for cond with no ordering
+> + * guarantees until a timeout expires.
+> + * @ptr: pointer to the variable to wait on
+> + * @cond: boolean expression to wait for
+> + * @time_expr_ns: evaluates to the current time
+> + * @time_limit_ns: compared against time_expr_ns
+> + *
+> + * Equivalent to using READ_ONCE() on the condition variable.
+> + *
+> + * Note that the time check in time_expr_ns can be synchronous or
+> + * asynchronous.
+> + * In the generic version the check is synchronous but kept coarse
+> + * to minimize instructions executed while spin-waiting.
+> + */
 
-doc reference errors (make refcheckdocs):
+Not sure exactly what synchronous vs asynchronous here mean. I see the
+latter more like an interrupt. I guess what you have in mind is the WFE
+wakeup events on arm64, though they don't interrupt the instruction
+flow. I'd not bother specifying this at all.
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250304173229.3215445-2-fabrice.gasnier@foss.st.com
+> +#ifndef __smp_cond_load_relaxed_spinwait
+> +#define __smp_cond_load_relaxed_spinwait(ptr, cond_expr, time_expr_ns,	\
+> +					 time_limit_ns) ({		\
+> +	typeof(ptr) __PTR = (ptr);					\
+> +	__unqual_scalar_typeof(*ptr) VAL;				\
+> +	unsigned int __count = 0;					\
+> +	for (;;) {							\
+> +		VAL = READ_ONCE(*__PTR);				\
+> +		if (cond_expr)						\
+> +			break;						\
+> +		cpu_relax();						\
+> +		if (__count++ < smp_cond_time_check_count)		\
+> +			continue;					\
+> +		if ((time_expr_ns) >= (time_limit_ns))			\
+> +			break;						\
+> +		__count = 0;						\
+> +	}								\
+> +	(typeof(*ptr))VAL;						\
+> +})
+> +#endif
+> +
+> +#ifndef smp_cond_load_relaxed_timewait
+> +#define smp_cond_load_relaxed_timewait  __smp_cond_load_relaxed_spinwait
+> +#endif
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+What I don't particularly like about this interface is (1) no idea of
+what time granularity it offers, how much it can slip past the deadline,
+even though there's some nanoseconds implied and (2) time_expr_ns leaves
+the caller to figure out why time function to use for tracking the time.
+Well, I can be ok with (2) if we make it a bit more generic.
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+The way it is written, I guess the type of the time expression and limit
+no longer matters as long as you can compare them. The naming implies
+nanoseconds but we don't have such precision, especially with the WFE
+implementation for arm64. We could add a slack range argument like the
+delta_ns for some of the hrtimer API and let the arch code decide
+whether to honour it.
 
-pip3 install dtschema --upgrade
+What about we drop the time_limit_ns and build it into the time_expr_ns
+as a 'time_cond' argument? The latter would return the result of some
+comparison and the loop bails out if true. An additional argument would
+be the minimum granularity for checking the time_cond and the arch code
+may decide to fall back to busy loops if the granularity is larger than
+what the caller required.
 
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+-- 
+Catalin
 
