@@ -4,69 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 313C1C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 17:21:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0A80C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 17:22:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WmIWZfNW61AlqLDV5lti3V+Y+HfZggvgwmSk+uB30ww=; b=VnGELW8OKwltE4/q8lFpRXcWyx
-	unv2V/LO4jo3QXRtFsKZviPSFuePOSm/IqsOa/WZLysubxwptTeXYQMCnDh59s8bXuti/QvcDoCYp
-	9T82heZZkI3xWau6RBO9Xx92wU6wMBODAqxRB3lVjIXZEucWjgdk8Ddi+3lwfsTfKnLqfgOxhOjN2
-	UZ05BmMxu6UOxdC0AT6oxYwJXaGnuwwQrSn+TkHIv7ufjb5PCl7QqX0OJLSR9kIRDEAEnN4zVFdSM
-	i+m+uvJGY3wy6g10U6E2cMAlfEPjKwJGVU+EN0R7Sdo2mbbdKojX8KfNwLTDUp5jmxkAqepxtRwoS
-	1alkzLhQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4XSXSXZkOTPzP/ElU7VIIb+WayljDzkuDpA7phGbpoU=; b=U+JxDfpyj2ZKI71pPMN6Xczr9o
+	QnFV7dD5PoCZmdOyM8gJ96wORLmhLwVRdsAtj+jLIlvTRFByc6Vb73SlEly4T/EylOu1jwPQ/IZPv
+	Osy9rK4QZjdLuCb8oSyqxhA+4mN3xion+0rPLqw2Kz1mRsno9M3sWx1FQylVi+o7of6+k2KFoVqSe
+	zlBwC7/op9rN0/Wj2S8L78KUNcTbuS91VBVcjHsMt6rXUzXI6t1bfDELYc/GrmS7zNOCshCMXJwPo
+	BYhiV2+g4MRdyjz6fYBuTKgjzGhJgmk9Tz0b9RqrZ935nucGb4GOhv4KDMI/Zjy2DUtbqfpYn4HNA
+	fXw+2gWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpVwy-00000005bNJ-3qKU;
-	Tue, 04 Mar 2025 17:21:00 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1tpVyW-00000005bgG-2Pg7;
+	Tue, 04 Mar 2025 17:22:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpUZI-00000005Ifs-1TKw
+	id 1tpUcV-00000005JVw-0hrf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 15:52:29 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 0B499A06C2;
-	Tue,  4 Mar 2025 16:52:27 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=WmIWZfNW61AlqLDV5lti
-	3V+Y+HfZggvgwmSk+uB30ww=; b=TfQlwImWIiuaBo5goUiawgvODWdiEZys0s/J
-	UP7u+kDMExYT1dg29p5kwD9L7QYXSI/DYZnoUTj9zwDgQpvX9DQnowO2poArfGWn
-	YG+ivLwHug0ceL13BWlOT58HgxueSstrCd7/qcup8ibCsi2jDh43EY83udMSOhA0
-	lXffaBb4OGxFFxiKgdL3r1t/NNPjAYP8SVU43B6sO1inVHbqM2FyBXu1gURb2Xql
-	ZzbZrLWwlT5MzRTTvP53EsEiOvtXGhhFaFDX1IE/Hpx48yeVUkQp9XAR1dAxx//X
-	DZ+n0G4Y8+vobgyjhdkaBtT5B9DcSUn2HprQ0oGhJooCqnXLyh7gr50jr344Ww2P
-	9DnMaydN6w5ajIVeRHzjkBrzP925/mL9wV7UyKjtnoiDOcqYEYBV11WUHPwFo+A8
-	oYHCUSa+24U6qat3eWF4mSy6I5c5SMPdX8sGSHmGnsxoemv6zajz0fjJRPIvADNT
-	tJ3/DV15ufes0h63eh23rirBMy2rNtUkyMY8ULX8wlden+COSXzdWsSmIO/zrssU
-	nu6Sts9MhWS4SzxOUupp6grwrgE5QLl9lqAMxN1iGNj47bZIl/1YAWB8o3AsdnR0
-	h6ztpfXpn7ospQR0DBcGhqjBftji8dRV/orAEJ/4Z7s0YBWKnqwamuEzBb9aX4q6
-	T0bPt6s=
-From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-To: <linux-arm-kernel@lists.infradead.org>, <linux-iio@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Kamel
- Bouhara" <kamel.bouhara@bootlin.com>, William Breathitt Gray <wbg@kernel.org>
-Subject: [PATCH v7 2/2] counter: microchip-tcb-capture: Add capture extensions for registers RA/RB
-Date: Tue, 4 Mar 2025 16:51:52 +0100
-Message-ID: <20250304155156.374150-3-csokas.bence@prolan.hu>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250304155156.374150-1-csokas.bence@prolan.hu>
-References: <20250304155156.374150-1-csokas.bence@prolan.hu>
+	Tue, 04 Mar 2025 15:55:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 55C975C4724;
+	Tue,  4 Mar 2025 15:53:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C59DBC4CEE5;
+	Tue,  4 Mar 2025 15:55:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741103744;
+	bh=6JjWe01Fb74ikB8E5k4hcgywO/QJhek4Q9koYh3qr0c=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=q6KlEHUoDyrUti0TfKHMzxq+d7SgBDZeYljnyM0jimqCHYr8M/tZOu/vlYpQDYLtd
+	 lECwbsJRJFwyBRBL3JiIr+9Jm9e+iVapkK+Fy9ITodWFSor6OemZT+pPoFtSy1q7ne
+	 sQDOV6guhLuqZlzWvof0eTCP5gYfAQ5errXfeucgoJ6Lh8uG85FH5xTWnbytWH6XwV
+	 DM/8ObgckJ6+P7Sm6cae7ukUaGL5cWTA0eReZAtcYXCY+sj31p5M9IwqrtdtdzE2YZ
+	 Kj0P9uUhwFE2QnbgIj8RFLxkglePvXRjK5vSQqTnZIZiCOPOjtbGi+b8+U8/T5RU0I
+	 7b6EK+8miPkoA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A1E91C021B8;
+	Tue,  4 Mar 2025 15:55:44 +0000 (UTC)
+From: "Chester A. Unal via B4 Relay" <devnull+chester.a.unal.arinc9.com@kernel.org>
+Date: Tue, 04 Mar 2025 15:55:36 +0000
+Subject: [PATCH] ARM: dts: BCM5301X: Fix switch port labels of ASUS
+ RT-AC3200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1741103546;VERSION=7985;MC=2493638075;ID=1544448;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A2980D94852637264
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250304-for-broadcom-fix-rt-ac3200-switch-ports-v1-1-7e249a19a13e@arinc9.com>
+X-B4-Tracking: v=1; b=H4sIAHcix2cC/x2NywrCMBAAf6Xs2YVt0oL6K+Ihj43dg92yCVUo/
+ XeDx4Fh5oDKJlzhPhxgvEsVXTuMlwHSEtYXo+TO4MjN5GnCoobRNOSkbyzyRWsYkndEWD/S0oK
+ bWquYuYwUyMd4vUGvbcbd/p8ez/P8AQpCTjx5AAAA
+X-Change-ID: 20250304-for-broadcom-fix-rt-ac3200-switch-ports-def10a03bb89
+To: Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Hauke Mehrtens <hauke@hauke-m.de>, 
+ =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <zajec5@gmail.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Tom Brautaset <tbrautaset@gmail.com>, 
+ "Chester A. Unal" <chester.a.unal@arinc9.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1741103743; l=1391;
+ i=chester.a.unal@arinc9.com; s=arinc9; h=from:subject:message-id;
+ bh=5BwPF9flLou8o24Bv8iNZhdALbMlAOZ+jVIvmAjgycU=;
+ b=PeGf3b5jyl/AR9FiXgqhGgQx7n+rYzrkdnnzZfnJJjgmQXZMpnSVYUJsyWjdEeBXq8Hup0E0s
+ siibCPmaodZANVCthjQnH02OQqMLTxYWmU0G2MU8BQrx0p5iwFE/CRz
+X-Developer-Key: i=chester.a.unal@arinc9.com; a=ed25519;
+ pk=/g3vBAV0YSvcIpSQ052xJbid7nrPXz8ExGKhTEuc6IY=
+X-Endpoint-Received: by B4 Relay for chester.a.unal@arinc9.com/arinc9 with
+ auth_id=306
+X-Original-From: "Chester A. Unal" <chester.a.unal@arinc9.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_075228_546884_51594321 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20250304_075547_306395_5BB5201F 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,135 +91,59 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: chester.a.unal@arinc9.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-TCB hardware is capable of capturing the timer value to registers RA and
-RB. Add these registers as capture extensions.
+From: "Chester A. Unal" <chester.a.unal@arinc9.com>
 
-Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+After using the device for a while, Tom reports that he initially described
+the switch port labels incorrectly. Apparently, ASUS's own firmware also
+describes them incorrectly. Correct them to what is seen on the chassis.
+
+Reported-by: Tom Brautaset <tbrautaset@gmail.com>
+Fixes: b116239094d8 ("ARM: dts: BCM5301X: Add DT for ASUS RT-AC3200")
+Signed-off-by: Chester A. Unal <chester.a.unal@arinc9.com>
 ---
+ arch/arm/boot/dts/broadcom/bcm4709-asus-rt-ac3200.dts | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-Notes:
-    Changes in v2:
-    * Add IRQs
-    Changes in v3:
-    * Move IRQs to previous patch
-    Changes in v4:
-    * Return the status of the regmap_*() operations
-    * Add names for the extension numbers
-    Changes in v6:
-    * Remove RC, as it is not a capture register
-    Changes in v7:
-    * Change enums to #define's in UAPI header
-    * Return early on error in `mchp_tc_count_cap_read()`
-
- drivers/counter/microchip-tcb-capture.c       | 58 +++++++++++++++++++
- .../linux/counter/microchip-tcb-capture.h     |  6 ++
- 2 files changed, 64 insertions(+)
-
-diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/microchip-tcb-capture.c
-index cc12c2e2113a..52493f7e8b57 100644
---- a/drivers/counter/microchip-tcb-capture.c
-+++ b/drivers/counter/microchip-tcb-capture.c
-@@ -254,6 +254,62 @@ static int mchp_tc_count_read(struct counter_device *counter,
- 	return 0;
- }
+diff --git a/arch/arm/boot/dts/broadcom/bcm4709-asus-rt-ac3200.dts b/arch/arm/boot/dts/broadcom/bcm4709-asus-rt-ac3200.dts
+index 53cb0c58f6d0574f4f13c6aeb1d1bc5961d80379..3da2daee0c849d536df94c868849af7610cc1ded 100644
+--- a/arch/arm/boot/dts/broadcom/bcm4709-asus-rt-ac3200.dts
++++ b/arch/arm/boot/dts/broadcom/bcm4709-asus-rt-ac3200.dts
+@@ -124,19 +124,19 @@ port@0 {
+ 		};
  
-+static int mchp_tc_count_cap_read(struct counter_device *counter,
-+				  struct counter_count *count, size_t idx, u64 *val)
-+{
-+	struct mchp_tc_data *const priv = counter_priv(counter);
-+	u32 cnt;
-+	int ret;
-+
-+	switch (idx) {
-+	case COUNTER_MCHP_EXCAP_RA:
-+		ret = regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], RA), &cnt);
-+		break;
-+	case COUNTER_MCHP_EXCAP_RB:
-+		ret = regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], RB), &cnt);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	if (ret < 0)
-+		return ret;
-+
-+	*val = cnt;
-+
-+	return 0;
-+}
-+
-+static int mchp_tc_count_cap_write(struct counter_device *counter,
-+				   struct counter_count *count, size_t idx, u64 val)
-+{
-+	struct mchp_tc_data *const priv = counter_priv(counter);
-+	int ret;
-+
-+	if (val > U32_MAX)
-+		return -ERANGE;
-+
-+	switch (idx) {
-+	case COUNTER_MCHP_EXCAP_RA:
-+		ret = regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], RA), val);
-+		break;
-+	case COUNTER_MCHP_EXCAP_RB:
-+		ret = regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], RB), val);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	return ret;
-+}
-+
-+static DEFINE_COUNTER_ARRAY_CAPTURE(mchp_tc_cnt_cap_array, 2);
-+
-+static struct counter_comp mchp_tc_count_ext[] = {
-+	COUNTER_COMP_ARRAY_CAPTURE(mchp_tc_count_cap_read, mchp_tc_count_cap_write,
-+				   mchp_tc_cnt_cap_array),
-+};
-+
- static struct counter_count mchp_tc_counts[] = {
- 	{
- 		.id = 0,
-@@ -262,6 +318,8 @@ static struct counter_count mchp_tc_counts[] = {
- 		.num_functions = ARRAY_SIZE(mchp_tc_count_functions),
- 		.synapses = mchp_tc_count_synapses,
- 		.num_synapses = ARRAY_SIZE(mchp_tc_count_synapses),
-+		.ext = mchp_tc_count_ext,
-+		.num_ext = ARRAY_SIZE(mchp_tc_count_ext),
- 	},
+ 		port@1 {
+-			label = "lan1";
++			label = "lan4";
+ 		};
+ 
+ 		port@2 {
+-			label = "lan2";
++			label = "lan3";
+ 		};
+ 
+ 		port@3 {
+-			label = "lan3";
++			label = "lan2";
+ 		};
+ 
+ 		port@4 {
+-			label = "lan4";
++			label = "lan1";
+ 		};
+ 	};
  };
- 
-diff --git a/include/uapi/linux/counter/microchip-tcb-capture.h b/include/uapi/linux/counter/microchip-tcb-capture.h
-index f3ef315fe9f6..136e2faa7730 100644
---- a/include/uapi/linux/counter/microchip-tcb-capture.h
-+++ b/include/uapi/linux/counter/microchip-tcb-capture.h
-@@ -12,6 +12,8 @@
-  * Count 0
-  * \__  Synapse 0 -- Signal 0 (Channel A, i.e. TIOA)
-  * \__  Synapse 1 -- Signal 1 (Channel B, i.e. TIOB)
-+ * \__  Extension capture0    (RA register)
-+ * \__  Extension capture1    (RB register)
-  *
-  * It also supports the following events:
-  *
-@@ -25,6 +27,10 @@
-  * - RC compare triggered
-  */
- 
-+/* Capture extensions */
-+#define COUNTER_MCHP_EXCAP_RA 0
-+#define COUNTER_MCHP_EXCAP_RB 1
-+
- /* Event channels */
- #define COUNTER_MCHP_EVCHN_CV 0
- #define COUNTER_MCHP_EVCHN_RA 0
+
+---
+base-commit: 768953614c1c13fdf771be5742f1be573eea8fa4
+change-id: 20250304-for-broadcom-fix-rt-ac3200-switch-ports-def10a03bb89
+
+Best regards,
 -- 
-2.48.1
+Chester A. Unal <chester.a.unal@arinc9.com>
 
 
 
