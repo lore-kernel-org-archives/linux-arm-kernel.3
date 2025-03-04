@@ -4,54 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92808C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 17:55:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED96FC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 17:59:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xS1iz9mM6zwGCInXQ6jHCS0iHrRwcIDwZ+4MfqyaPac=; b=Q+hmfFojhKClZn3C8gomzMAOQj
-	Hc64Snr2GOHlj8ROXFUs2MSfVE9zTuGV/FrI6pEc9kVLK5AZFOwDUKisshHrchVQLIXJXcHh2D8MH
-	Cg1IGI+bfqlfLQFKeCjauMLos9Zj32q2icEl6ZGUVSfO0l0VL65qnbEdLWJkUM2xRmJ0sgw/boL71
-	rIbfKwu2Z8+kDy7HfaAEjm8GbQq2fV2zAdsleTKT1nMI6miQA4LJSgUOhDR6XmX4T6uqIs0b3fJKX
-	M3+t5V8qEwdm8axEvbg0JtTr6a983JJ4jQrk043+1oVsiv1OyQR1qg48oVSN61IC6FGzxWTLGcFbj
-	64xZtzrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K+p2//aRdsiuoavzRbUf/RUw92RMdL7Cs3enGZgkaHc=; b=rYYoNgrcYhRrz5I9sZZfNUSpiX
+	/43+qiIvPLk6J2Y90oi+LnPiajATIodH+P7mPnVaujkL6WWy6n6+KxwvZJJuYefBhUxiO9wEwzkkd
+	fnprAkyIH9NCp0OaYQbIWRM4lkaH0tUl2/5d7CUZ1+//OZ6ODX7odK0xPrpaYGfTl2yoyg1UiEgCv
+	fK3OKSi/ahFvMbK/FQ2pHaO4MXaohUgvEWKOAm9DSnXvgnWzACu3D4M2LvmElpeg9V60gRXBNorI9
+	ZT6LQSU3ELjumDpib0cYkBcoKQi115SEz6kO9xs0K48EjrXWw2DiAgWqhtBACHQxjEt6iD0ob0aDY
+	ilPQERZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpWTx-00000005j7p-2Wvm;
-	Tue, 04 Mar 2025 17:55:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpV1D-00000005PEK-0P17
+	id 1tpWYT-00000005k59-1mxG;
+	Tue, 04 Mar 2025 17:59:45 +0000
+Received: from mail-northeuropeazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpUOl-00000005G5s-2ESX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 16:21:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 24A0A2F;
-	Tue,  4 Mar 2025 08:21:32 -0800 (PST)
-Received: from [10.57.83.152] (unknown [10.57.83.152])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CA73C3F5A1;
-	Tue,  4 Mar 2025 08:21:16 -0800 (PST)
-Message-ID: <0fe6f3b2-1011-4418-bc19-612a3b98c78d@arm.com>
-Date: Tue, 4 Mar 2025 16:21:14 +0000
+	Tue, 04 Mar 2025 15:41:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FM5XrJxka4xB0Prj1BeIzwfdeJvBeNGN+LPk6Oz2fTyXhJmP0clBGZPxxgTXIImnXlZIv+EegdLvnNM/qknih9NzVWlAF7HIphjKKXhXs11QhGSLspTQ07FbEpxwjnnRVqDRns/nGWWQYcqM1C/daNGS1U+RXXGksfss2+77rRkuPSCe2Ptv/0tuzOInditBlpfI75ttSLdplFiS+wbYy1FPtopQMiLU8psds+8Sh3oQVVslE4nV9o0F8xPW0rGZLhZT7uWnBsYOX4jYCrDM6M2W+I/FDLNCxxest/vZ4rKqV+UChW9kIu45UAIEQcLfmJur02N0plytBkcg54vttw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=K+p2//aRdsiuoavzRbUf/RUw92RMdL7Cs3enGZgkaHc=;
+ b=ZE+CpEwJlE4xn1lWCA9+cSwVRJyXuTqz01gCqvuvLxp0XSwKpT8x71NpT1S+hyodpA3KlceLWH4kUldPzIBxlJ46FyeI/GQO/mFTxSKQz8GOM2QDAJrJnRR9ao0BAANUv4JXc4ODJCATScL0ZG0FNAfwCpdvKBeUm0dVSNBqugmYhANE/oFJzaz3CPzRqjT+phRevx6IoX3PIQifQH9s9NRZBipe7wii63mAJX2tZUqeytOITeUuvgQcLU1BLtU54F0fq+Y1DKD7r/lfyDpXyOwR/vcuAYrW9fRoHgu1l5QoQPiDiPh/3GyCUGlz/5aKTnhnaVHQ0L5jU7uDLUEGgg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=K+p2//aRdsiuoavzRbUf/RUw92RMdL7Cs3enGZgkaHc=;
+ b=NJVYI7CdUWCQ9dLcl755xW2DVMTD34dcugvhk1ZVFgbtX6YVmogx5RWlCsC3ziBbugU/dCa/ogvI3WVZZYPbUeYy9pQJMYPOQuk56/jyXvQ3luKkramQuv4vszXKs2F0W59iFEFLwrbEfBILhpNIqcZrHOLrMcTouL9ZEv3AjQK02kr8IapNWJGsoXJGyUcWA+ENwFjgQ8Q++ZAe0Cxq7ktEV88n5Zp/L4jM8MXJq4qghV4mWt5HYBvQZ8o21vRYXMhGO+y8KSdmZQU16zP8mFYFZB5JdZeSWmJbEuBy/jtI0qgY1bR4+arrsc6G9JOGoeFYxc9UXdltswUHv2wFzQ==
+Received: from AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
+ by PAWPR04MB9887.eurprd04.prod.outlook.com (2603:10a6:102:390::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.28; Tue, 4 Mar
+ 2025 15:41:32 +0000
+Received: from AS8PR04MB8642.eurprd04.prod.outlook.com
+ ([fe80::50d3:c32a:2a83:34bb]) by AS8PR04MB8642.eurprd04.prod.outlook.com
+ ([fe80::50d3:c32a:2a83:34bb%7]) with mapi id 15.20.8489.025; Tue, 4 Mar 2025
+ 15:41:32 +0000
+From: Jacky Bai <ping.bai@nxp.com>
+To: Frank Li <frank.li@nxp.com>
+CC: "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de"
+	<s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Aisheng Dong <aisheng.dong@nxp.com>,
+	Peng Fan <peng.fan@nxp.com>
+Subject: RE: [PATCH v2 1/4] dt-bindings: dma: fsl-edma: add
+ interrupts-extended property
+Thread-Topic: [PATCH v2 1/4] dt-bindings: dma: fsl-edma: add
+ interrupts-extended property
+Thread-Index: AQHbjOgzpPILpRKVCUGBCMqX1iCwX7NjGcSAgAACl4A=
+Date: Tue, 4 Mar 2025 15:41:32 +0000
+Message-ID: <AS8PR04MB8642F46C61B544D4CC98F2F887C82@AS8PR04MB8642.eurprd04.prod.outlook.com>
+References: <20250304093127.1954549-1-ping.bai@nxp.com>
+ <20250304093127.1954549-2-ping.bai@nxp.com>
+ <Z8cboXGsy1uyJwgf@lizhi-Precision-Tower-5810>
+In-Reply-To: <Z8cboXGsy1uyJwgf@lizhi-Precision-Tower-5810>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR04MB8642:EE_|PAWPR04MB9887:EE_
+x-ms-office365-filtering-correlation-id: 39ee981d-2c2e-4d62-ffb9-08dd5b3309fb
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?h2LItTnjjdG01ppH1l4vLpVRwUO1FeqgImuMexbDbrZ1IQKpakUdkuQRMZpk?=
+ =?us-ascii?Q?QAZMqsBpecLgUfCIY8xjOpT8v971HJ2KMzhKAdy+NBgSNfJP/EuGdQbwnRlq?=
+ =?us-ascii?Q?fRQyBU32rMCuxEZJoxBreXOVfburdokDGIwAU49YProJlM2ioZs7HK8usHZU?=
+ =?us-ascii?Q?fkwabiA4SfCnLGQO4s89JlUO4s0G8ign2DbyPclKg6T0t/mVtcInRsMPf7zL?=
+ =?us-ascii?Q?AYn3Nu0l0FLDQeoF1PIZX3LDiFd+FYu8s76ZCzNc/G8SV3ViCsoTMEVZrIzS?=
+ =?us-ascii?Q?SnUD2S2kZ46ex4oGNiimhMZkie5tTUhV3ImdQrNpZn0tPuUEcHDLxzpM+fHv?=
+ =?us-ascii?Q?R+J7LD4BV6eJBN+AP6RUD1Dg0oMXVjGA8p833hFeRl779No3uV3+TzqFV62a?=
+ =?us-ascii?Q?OKvA/GzO2z5rGIjaunBj5UufKlPfBe0bv8JV6ZDDcQXN7hVvpVv8qqYEzMGJ?=
+ =?us-ascii?Q?cDazAXil3emmA+I2dulDlXjudfZ+5pepXNoRlSTj69GD5Erco5K5vwo7N6ZO?=
+ =?us-ascii?Q?v788sZV+gcK8On/VS5+ZYwy67qDrp4Pybgtu9UMI6P9KscsPAU6JAc1bRAOU?=
+ =?us-ascii?Q?VFieU9SM+gkYStzhaT7cf0u5H6nsKtXOlbZzEBWxUW3nBkctaPdFnq6VGxOS?=
+ =?us-ascii?Q?HMaK6k8/eE0zVNwrK7zY7tY71/FTbPCjJWZ8xwCZf86TAt3gOUUbUKYR3ut9?=
+ =?us-ascii?Q?3ZVPJiRjcRZ2Rk5pp8D3S7sYCNqqlDDZ4tmoS4rxcysfnA6EGiE386ICbduH?=
+ =?us-ascii?Q?5oxPllQjJuWuaN/h4kdpVmKUu7zASn1erIhQpvNXvHPPikwri/PuXKo7JfcJ?=
+ =?us-ascii?Q?I7eTAlaC0CiHwE1EVg7+MXju5lvp5/F/aLzAxmoS0xDRuzFLNKpMR4QP3T7T?=
+ =?us-ascii?Q?ZFSIlZ8Dfuuzk3VI++pIueF3ehOso1td4YNAQuhxwlmiqXJ5clxqzs2EZD7f?=
+ =?us-ascii?Q?df/eLM7akcNLy/UcyFfspczEonU5idX/eZjqMyfVllHzHdFhhjv1K+ugZEnT?=
+ =?us-ascii?Q?p7uM0jQkR7UmgRnu0Ug7pMpWgNDUtBMlQKtVOkR7Ru5sW2teqJavGTSdsLeL?=
+ =?us-ascii?Q?WTcaNwYoee5H0as3GSwyI0hVumYVnjFherSFKRpzTXj7LBnpMKeaqNTZ2oW0?=
+ =?us-ascii?Q?EtjiCaDwSiKZ7f+74A/vwMiTkw5b46yEAyygT1wsERfFD6C7hZkaLZhQQEd1?=
+ =?us-ascii?Q?dyXYI08NVQCN7uo3DXv72TYUFDThhrmPj+EP+AgHTk3lHY2uQq+P8I+69zhL?=
+ =?us-ascii?Q?CEfONrBMPRR1U4CYXi5Ws1n9KFSd1+YiDxee3XmKaEZUSVrjkFau/esjxX9n?=
+ =?us-ascii?Q?FlkOihj9ff6GX184wpiMVgRbKEojMYL3ptl+sR19KOnqH4sqBIZi2slSheq4?=
+ =?us-ascii?Q?c3XBkJFTn0VEonL8RQP+Iqtl2zP3i8U5s/NoAXBAbCrKP10aAaxcTCYNtlBO?=
+ =?us-ascii?Q?J9cDYAIKlH7fWr735nr9iVuHiWp2NMON?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Jc7v0k3H59DKF05QvQfRfkqzHchsPNuSYeOG0ro0JAYx7buvEoYBLIUyMJcQ?=
+ =?us-ascii?Q?3GeHTRDjTSiTswY5V6cidFvMxGD+nRy5gsAa2fCa5dqmhPoD8J1ifnRHsn56?=
+ =?us-ascii?Q?IjhIgiUMOpjndh6kjbWsoW1tO3zsOfDqBjkBzuK4a6h/zvwKtWt/7OTI1oFV?=
+ =?us-ascii?Q?hCA3ZBdK2KUB80VtL3Ufev9msTaAF3wKaGR1dNhTYzDuatNm8OJbdGRFEIWT?=
+ =?us-ascii?Q?x7ABBsjMX+PZ6iODS0l/D2E9JExyBAZkPR09YmvdBjHmUNycHn9B+wydLtuI?=
+ =?us-ascii?Q?shmbVxalSJ3aMJBgR4CRAfgt9G/Ixoh35CpQoHS3ldTXAGO+aQzCiv8j3JAQ?=
+ =?us-ascii?Q?nzVLhmK1ip5zpa0XvouZCPUNTswU+PjGfghu0bnZI32hmM1axmaSIahbBDzD?=
+ =?us-ascii?Q?gFoqG7vf0SFuEsWrntvI6Ee0DR8Ga5Kwkhp/pqMapnjkqbmZZV936DuyuWe+?=
+ =?us-ascii?Q?sc5AEL6CQCeHyXbfhnD2SCLZVqhPmiCVD/SNjHZlzM4DreeVsxsNcQGl7DrJ?=
+ =?us-ascii?Q?GuHRUUvb4xLhQr2WR1wfInqXyMpc6CvyWMEej3tcz2FCStUuoPzJehXfRSuL?=
+ =?us-ascii?Q?Z0b3CHxVCFUkZTpgGRDA6C2PXYPQPCBCYpIaCQOPiSAUy8DKOPX9YVIeP2YY?=
+ =?us-ascii?Q?uyj8RnCxdAqnhTonLLiUuGrtISquNbfjHyt8OH3tBxhXiy8oiQnS2Vxi9nIy?=
+ =?us-ascii?Q?TjtgDltTwgEole4xmFRykUft0ApxixkolmIWjaBw1t5f1Rw561Vnl4W9lHCO?=
+ =?us-ascii?Q?a2jonwThGNduucolrMFdVs3M7WtSzynCSeNdlMr1fvG07ktD1dtKYSf8w2d0?=
+ =?us-ascii?Q?23/Jgug1hKGKKFfyk2+jn43lzFQcDqydaVLVxG+ZoLNM/3K8fFPD+2XYkZvF?=
+ =?us-ascii?Q?3HZHAmiMmA6RjTlNWSJDawQz1X8WqbYyNALreRzR7nRq0QzoJpGK/2R+YAqg?=
+ =?us-ascii?Q?MjelJt3DBpTs0KyBjIr9UR1fV3jy4eyA3yzJxh+RqJR+HPQqcufpTI8Z+Dnm?=
+ =?us-ascii?Q?2pEMBBCjvHt1oNm6PCgzmOAdoV40wgy/JQCGPSw+GWnsuwMDY8nN+LjyEq77?=
+ =?us-ascii?Q?GzqZ8tF5t2N3SpLCEJ2BxO8LY12GZmdjgJb5bH3OrpSS5pH717xutG4dVtsk?=
+ =?us-ascii?Q?sapc39oeON8aA0uiPZ46vAzKyBQTalEk3Rr7nYHOe/aDU+t9fTv3sEs3aCuT?=
+ =?us-ascii?Q?H1NH20JS/+kV077z6t1f1eNslOC/NwVgo4uTg5RjE8R0vSIHv52pMib0Fn56?=
+ =?us-ascii?Q?iuMJ5Y0jiKzSK8ANbQM2AmsifXEaf7OO6bI8NbpdSBxRayaiEedU3oFglIeK?=
+ =?us-ascii?Q?8YE/m006tCVOKsRH891vZ4f2vY0uQvtVJ10YrxZWwQZxUorq0LfZ0agGupK7?=
+ =?us-ascii?Q?DbB1CsOLfGV0lsYZxG7uKJQDc67I6GaLpUsFhiuLNKgGyQTL8es0gQ/HDfRi?=
+ =?us-ascii?Q?ZgpQIGXFbalRVrzxBgs2fne69EcmT9zUYMrHsyg6WviPh5a4Wfu+3+y+Dgz6?=
+ =?us-ascii?Q?3syTxBHVj2Bn2PAtLgtKsZYM1rfNaEYvdGkVQeI3xihmFnbBTcVNLE1yUfgh?=
+ =?us-ascii?Q?In88wOS4W1zI8+CVQZ8=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/mm: Create level specific section mappings in
- map_range()
-Content-Language: en-GB
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>, linux-kernel@vger.kernel.org
-References: <20250303041834.2796751-1-anshuman.khandual@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250303041834.2796751-1-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 39ee981d-2c2e-4d62-ffb9-08dd5b3309fb
+X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Mar 2025 15:41:32.5019
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: D5xz7mvJV1YimB6bPEPJFaSO3GYpCwplmTX++a7LpbkM5bxZPOPMKWZUjF5UETHUoZoJ7U84NxSxkaJ1+E1EHQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9887
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_082119_235111_13C43A07 
-X-CRM114-Status: GOOD (  21.28  )
+X-CRM114-CacheID: sfid-20250304_074135_572017_F284B584 
+X-CRM114-Status: GOOD (  16.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,95 +169,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/03/2025 04:18, Anshuman Khandual wrote:
-> Currently PMD section mapping mask i.e PMD_TYPE_SECT is used while creating
-> section mapping at all page table levels except the last level. This works
-> fine as the section mapping masks are exactly the same (0x1UL) for all page
-> table levels.
-> 
-> This will change in the future with D128 page tables that have unique skip
-> level values (SKL) required for creating section mapping at different page
-> table levels. Hence use page table level specific section mapping macros
-> instead of the common PMD_TYPE_SECT.
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
-> This patch applies on 6.14-rc5
-> 
-> PGD_TYPE_SECT for level -1 section map handling has been added for 4K
-> base pages with 52 bit VA configuration that has 5 page table levels.
-> In such cases (CONFIG_PGTABLE_LEVELS = 5) early_map_kernel() can call
-> map_range() eventually with -1 (i.e 4 - CONFIG_PGTABLE_LEVELS) as the
-> root_level.
+> Subject: Re: [PATCH v2 1/4] dt-bindings: dma: fsl-edma: add
+> interrupts-extended property
+>=20
+> On Tue, Mar 04, 2025 at 05:31:24PM +0800, Jacky Bai wrote:
+> > Add interrupts-extended property for edma that has multiple interrupt
+> > controllers used.
+> >
+> > Signed-off-by: Jacky Bai <ping.bai@nxp.com>
+> > ---
+> >  - v2 changes:
+> >   - newly added entry
+> > ---
+> >  Documentation/devicetree/bindings/dma/fsl,edma.yaml | 11
+> ++++++++++-
+> >  1 file changed, 10 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/Documentation/devicetree/bindings/dma/fsl,edma.yaml
+> > b/Documentation/devicetree/bindings/dma/fsl,edma.yaml
+> > index d54140f18d34..549afb8611a9 100644
+> > --- a/Documentation/devicetree/bindings/dma/fsl,edma.yaml
+> > +++ b/Documentation/devicetree/bindings/dma/fsl,edma.yaml
+> > @@ -38,6 +38,10 @@ properties:
+> >      minItems: 1
+> >      maxItems: 64
+> >
+> > +  interrupts-extended:
+> > +    minItems: 1
+> > +    maxItems: 65
+> > +
+>=20
+> I suggest add error irq later because optional err-irq patch under review=
+.
+> https://lore.kernel.org/imx/20250228-edma_err-v1-0-d1869fe4163e@nxp.c
+> om/T/#t
+>=20
+> Frank
 
-Table Table D8-16 on page D8-6459 of ARM DDI 0487 L.a says that block mappings
-at level -1 are not permitted for 4K pages; only levels 0-3 support leaf
-mappings. Similarly for 16K, table D8-26 says only levels 1-3 permit leaf
-mappings. And for 64K, table D8-35 says only levels 1-3 permit leaf mappings.
+Ok, need the above patch ready first, then this patch can be dropped, I thi=
+nk.
 
-So I don't think PGD_TYPE_SECT is the right solution. Perhaps we need to
-explicitly force the unsupported levels to be table entries even if the
-alignment is correct?
-
-Thanks,
-Ryan
-
-> 
->  arch/arm64/include/asm/pgtable-hwdef.h |  1 +
->  arch/arm64/kernel/pi/map_range.c       | 23 +++++++++++++++++++++--
->  2 files changed, 22 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/pgtable-hwdef.h b/arch/arm64/include/asm/pgtable-hwdef.h
-> index a9136cc551cc..fd0a82e8878c 100644
-> --- a/arch/arm64/include/asm/pgtable-hwdef.h
-> +++ b/arch/arm64/include/asm/pgtable-hwdef.h
-> @@ -99,6 +99,7 @@
->  #define PGD_TYPE_TABLE		(_AT(pgdval_t, 3) << 0)
->  #define PGD_TABLE_BIT		(_AT(pgdval_t, 1) << 1)
->  #define PGD_TYPE_MASK		(_AT(pgdval_t, 3) << 0)
-> +#define PGD_TYPE_SECT		(_AT(pgdval_t, 1) << 0)
->  #define PGD_TABLE_AF		(_AT(pgdval_t, 1) << 10)	/* Ignored if no FEAT_HAFT */
->  #define PGD_TABLE_PXN		(_AT(pgdval_t, 1) << 59)
->  #define PGD_TABLE_UXN		(_AT(pgdval_t, 1) << 60)
-> diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
-> index 2b69e3beeef8..9ea869f5745f 100644
-> --- a/arch/arm64/kernel/pi/map_range.c
-> +++ b/arch/arm64/kernel/pi/map_range.c
-> @@ -44,8 +44,27 @@ void __init map_range(u64 *pte, u64 start, u64 end, u64 pa, pgprot_t prot,
->  	 * Set the right block/page bits for this level unless we are
->  	 * clearing the mapping
->  	 */
-> -	if (protval)
-> -		protval |= (level < 3) ? PMD_TYPE_SECT : PTE_TYPE_PAGE;
-> +	if (protval) {
-> +		switch (level) {
-> +		case 3:
-> +			protval |= PTE_TYPE_PAGE;
-> +			break;
-> +		case 2:
-> +			protval |= PMD_TYPE_SECT;
-> +			break;
-> +		case 1:
-> +			protval |= PUD_TYPE_SECT;
-> +			break;
-> +		case 0:
-> +			protval |= P4D_TYPE_SECT;
-> +			break;
-> +		case -1:
-> +			protval |= PGD_TYPE_SECT;
-> +			break;
-> +		default:
-> +			break;
-> +		}
-> +	}
->  
->  	while (start < end) {
->  		u64 next = min((start | lmask) + 1, PAGE_ALIGN(end));
-
+BR
+>=20
+> >    interrupt-names:
+> >      minItems: 1
+> >      maxItems: 64
+> > @@ -87,9 +91,14 @@ required:
+> >    - "#dma-cells"
+> >    - compatible
+> >    - reg
+> > -  - interrupts
+> >    - dma-channels
+> >
+> > +oneOf:
+> > +  - required:
+> > +    - interrupts
+> > +  - required:
+> > +    - interrupts-extended
+> > +
+> >  allOf:
+> >    - $ref: dma-controller.yaml#
+> >    - if:
+> > --
+> > 2.34.1
+> >
 
