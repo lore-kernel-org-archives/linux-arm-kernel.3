@@ -4,122 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4ABFC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 23:14:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A406C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 23:29:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l/Art59MAXr66IcTrnKnynv9YBdpqyuERMRL+TU0dgA=; b=KAn1xF/lVaX1ul2uF5dYQhKrlf
-	uuxJxF1MMfAiDqcY6ItABKnhNosB+sL9hPqNDJjKC4krHXqDh6W0rDyudOk0j404GmqXBjY6pkOUc
-	oAnfGYMviFPjlB3pRBYeDAg7VnAOHSZD5cV3MxJG0QulxjhDp/FTODb6GlJhw+nHuqFyRja/EgFs5
-	fUVefIR8SRNFtwhcxPXFGJMI+dXf+gXoOhd5DNGzlOaAoGtEs2OHKBNUs4maPXHL+CdDlbzfktr3f
-	uzk5mROwiHPeB2E5SZba10AcFJADdGpglzPia3wYLcNam4rECut6cnWKIfTyn9Kab8yU92DxWyZnT
-	fM/04wSg==;
+	bh=bc8S2OTbZME42pyY8V87xNGR1wOTsn5d4wbfYh2jm/s=; b=E+ESfVojlUxoheH2TpH98mFiXd
+	BFHJk7Z9psWcFVIfsMxuQ6XnZl4g4qRXTX4lYJxW1PstihE9gbVNy3z0/Dr3Be/Wk57posx5TM+Ky
+	So9+vDux2yJUf8+fJiDsKG4zo7rRod0eaqV8jUAzpEehTQvLx1GggXrfp8IV6mVwhCaHxdnFjoBU/
+	2MG5Bz8+I214Db1SaG/XeK3+uZhg3eEggltL7EX/qYq1Aaq3GfwpUeUUOBWVXkPblvDvqgesUGxdO
+	PYE2iIlLpE4AhP5yXcSvOyc123G2ZBNgHhPdUgFXV0nKf8oknb0o9SO+dGBQcn2/BSmMDWz+zUBDp
+	VKh2mmxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpbTM-00000006VXz-1jaj;
-	Tue, 04 Mar 2025 23:14:48 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tpbhs-00000006Wqc-3fFk;
+	Tue, 04 Mar 2025 23:29:48 +0000
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpaGz-00000006LjQ-0QDb;
-	Tue, 04 Mar 2025 21:57:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=CC:To:In-Reply-To:References:Message-ID
-	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=l/Art59MAXr66IcTrnKnynv9YBdpqyuERMRL+TU0dgA=; b=p3WjX2YxlIFPjsCsLpySLF8Xdf
-	f+udUQLYUd+AsnC/hFWoK6YiQ5fAh4+Cwh6a6WH16zZEMwqujcEH22iL3RCuXNf5nR57Le/qPSSN1
-	eIpNKJI1iqsPbrCw4y9O0XJOOgczMWfpZFQgbp3H4S4JDbNEDl+pp88R3JjOeElxo0xwh3kbVN9fB
-	ItGaMGNdkiSL+Wh36vVP/gEqVnc0cnL5A7g8egMRq+pr9fX1+7dTxSWLHy0SPCPM5Pfz+Ex2eyPbp
-	tJoVCWz+51Y4LRvRinAfpDN8LkHXlapNsNOFKmMUx+CxH4LdonPDJr/laq2PLwLtC734XhjgCfJkm
-	uLXbS/0Q==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpaGt-00000004AmD-3Tmy;
-	Tue, 04 Mar 2025 21:57:56 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 524ANMLj006090;
-	Tue, 4 Mar 2025 21:57:41 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	l/Art59MAXr66IcTrnKnynv9YBdpqyuERMRL+TU0dgA=; b=ZHFFVialpulRutBs
-	GvuIP60vlbsuCCcOFa/DxMmCM8qyoEwTy6QmoG+qH7UJf7oDi7W/m0q45xu2Dy10
-	jsYCDatYY2Yq/ASs6fvcjTI8sv35b1d/+70lI4rBO/DTvQFC15UFfqOQyi32RriC
-	P81Ac0S7E24A0+MNYdsvLaqaQG6UnwWp/y3Y80M+Fel7CZEgtbiQjWQn80Iss7Gh
-	kSdLqcA1Xoc0U/ZYi/VjYV62nREimm0+rCzSqXaNdKSyb/vRyBAPlsGoyunU2o8I
-	WfdHcA6mz4to8nOuR9lH3iE8w8igHoGJdJ7iHxZDBW5W541o4KXrNHlwYttPhpO8
-	KvmpvA==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 455p6tk9gn-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 04 Mar 2025 21:57:40 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 524LvdP0022642
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 4 Mar 2025 21:57:39 GMT
-Received: from hu-molvera-lv.qualcomm.com (10.49.16.6) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Tue, 4 Mar 2025 13:57:39 -0800
-From: Melody Olvera <quic_molvera@quicinc.com>
-Date: Tue, 4 Mar 2025 13:56:39 -0800
-Subject: [PATCH v2 6/9] phy: qcom: Add M31 based eUSB2 PHY driver
+	id 1tpadD-00000006OM9-0M0o
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Mar 2025 22:20:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ctmcsDz28ZWlzGRlPG96/CbChrHM1mmH9vKyvMLxESysPWp5Zof2rbngbx81HEDEH0CwoTSCD+T3SLUsZkpw/eLtoo9fz5aJ/sUGv03URB89Patnaladj/iCtHc64Mxo7/Qd42Qb/3Od0mWeIAeqjALi9dAiR/elDsrizDI5B1R4oe/+Ya1qBpEkFKaZQwNba0aP7HsguTJDugZGxGCbSDnbwinkjMoIMo+oW5tC+Wa6r+DavohzLGmOeRb7ps1CVGpnHG00+y0D+NfRAC8BOMYoaAOYEJj6EATxtGZePmEpAZIVi4ydqpI0zm5zvs7W49AQqtc+KhH1SagCOkm82Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bc8S2OTbZME42pyY8V87xNGR1wOTsn5d4wbfYh2jm/s=;
+ b=YLxBFJsJVcBCWonl06ZSNwIr7pCuNBey+JcFZMAeYTEtI+afJ1Zgp767YTcANKiuUr014W7tliMtyZ8m99UNYw7r3Egh9vyR1RzXLesYIj2Bk5xASRw/KQnjRcS+iTYTzLgQiWheActcxpZ+6AHybn/kmdLKQKX33KhbrbebBU0tCltQ88y//A6svmLBeqqtABFNeKvKEtIw1p/UNqVYFAmHfJ9HiUQ2zpkfqJLHuyO+wImCb2AeE5BbY0fhA6y/ZJeZWub0JNT8i8H3kuA5RYsEWwq9hx8Tvz0F0bj5OLCwR2lW6/USdAUv9X3EkyjW2rVhAUuXVYgNGOA5RlyxtQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bc8S2OTbZME42pyY8V87xNGR1wOTsn5d4wbfYh2jm/s=;
+ b=l95yYa9UaEDL7PgaSRZE6SzqrXnVcNVdFBfek0Y2GcSPLHw7mTP6NBB0bcNeywTyqiafUUeN+M4osf8TOJY3o0JUqPATfCypKjVpyUemmbr1BykbjwgD1Z9vG68lwJRcdN0ZsK4IM19973OnJCudEsR9iTpbJKthSqhMwBZnpm4=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ PH7PR01MB7931.prod.exchangelabs.com (2603:10b6:510:275::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8489.26; Tue, 4 Mar 2025 22:20:48 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%2]) with mapi id 15.20.8489.025; Tue, 4 Mar 2025
+ 22:20:48 +0000
+From: Yang Shi <yang@os.amperecomputing.com>
+To: ryan.roberts@arm.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	Miko.Lenczewski@arm.com,
+	scott@os.amperecomputing.com,
+	cl@gentwo.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [v3 PATCH 3/6] arm64: mm: make __create_pgd_mapping() and helpers non-void
+Date: Tue,  4 Mar 2025 14:19:28 -0800
+Message-ID: <20250304222018.615808-4-yang@os.amperecomputing.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20250304222018.615808-1-yang@os.amperecomputing.com>
+References: <20250304222018.615808-1-yang@os.amperecomputing.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SN7P222CA0014.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:124::8) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250304-sm8750_usb_master-v2-6-a698a2e68e06@quicinc.com>
-References: <20250304-sm8750_usb_master-v2-0-a698a2e68e06@quicinc.com>
-In-Reply-To: <20250304-sm8750_usb_master-v2-0-a698a2e68e06@quicinc.com>
-To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Wesley Cheng <quic_wcheng@quicinc.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Philipp Zabel
-	<p.zabel@pengutronix.de>,
-        Bjorn Andersson <andersson@kernel.org>,
-        "Konrad
- Dybcio" <konradybcio@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>
-CC: <linux-arm-msm@vger.kernel.org>, <linux-phy@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        "Melody
- Olvera" <quic_molvera@quicinc.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1741125455; l=10892;
- i=quic_molvera@quicinc.com; s=20241204; h=from:subject:message-id;
- bh=sDI7CRIA68pme73XAMZe8W3pD7h8geVpaKWD4Z1dTEI=;
- b=9mKbxbdrd5/WmH7+eGcqxbpLuhM54XfWkNPUS5OmoqMu74gHMYtzDwRh6k22HdnUjphi0Mjql
- LF6jxRf0m/6AgqyEFgFkyj2ePdqAjaL72apGRBwUj8PR+KvyiLCh4aT
-X-Developer-Key: i=quic_molvera@quicinc.com; a=ed25519;
- pk=1DGLp3zVYsHAWipMaNZZTHR321e8xK52C9vuAoeca5c=
-X-Originating-IP: [10.49.16.6]
-X-ClientProxiedBy: nalasex01a.na.qualcomm.com (10.47.209.196) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=HZbuTjE8 c=1 sm=1 tr=0 ts=67c77755 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=3H110R4YSZwA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=COk6AnOGAAAA:8 a=qRfy2wCDKxMDip9UI50A:9 a=QEXdDO2ut3YA:10
- a=RVmHIydaz68A:10 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: uZxFJ12t6j1mlhZchlOi2nznyNEQlW8L
-X-Proofpoint-ORIG-GUID: uZxFJ12t6j1mlhZchlOi2nznyNEQlW8L
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-04_09,2025-03-04_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
- adultscore=0 mlxscore=0 spamscore=0 clxscore=1015 phishscore=0 bulkscore=0
- priorityscore=1501 impostorscore=0 suspectscore=0 malwarescore=0
- mlxlogscore=999 classifier=spam authscore=0 adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2502100000 definitions=main-2503040175
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|PH7PR01MB7931:EE_
+X-MS-Office365-Filtering-Correlation-Id: 72ca7119-25e7-400d-f34e-08dd5b6ad0bd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|52116014|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WmpGZg1mjm2zsnrtHGa1zMKDmaPY8t489ZRZT0AUaVcylGUMneQRI+uYuEq5?=
+ =?us-ascii?Q?Ch/rLFwiblQxK0IQnudleXP5h9drxL9s9OKUlaoiIHOl+J2AGqhBEm5yBAY5?=
+ =?us-ascii?Q?rwgheAe4wY5zp7W7uxhOQE+hP748C1RFTY83Q6q9tA/NkrICvi0J/CqSkpAh?=
+ =?us-ascii?Q?KLtQ/OmvTMDSncHJG7J3J2n3Va8wl+VELdYEpqB4q7FECFtP8bTmQO7rrLiz?=
+ =?us-ascii?Q?X6NCupaAaFiA2s+dNJIKdkBrzKPR2zVcX012p9I+XtLfA4cFX9NJmNu8crPf?=
+ =?us-ascii?Q?EN0GrZwmYoJtp2GKFL8nSByJZGBTH2jT14W/F/bXEkdPvwugm9dh1RwHDQad?=
+ =?us-ascii?Q?Akq5k7eHkuGZnv+6oxMSu55clpr0w2kiNs8pbpr3fudnG0a484UQYDjOhIhR?=
+ =?us-ascii?Q?Y8a+HN4vd4Sy0QUXE/TVrK5NHK7eEaqRrtCXBwrbqN6E6L6taTL/Oh5uzyDh?=
+ =?us-ascii?Q?lf/1cCWlw8Dz9D8k6A2ZIhf9E3XiRsgrMDVwuRoTjXGIPrqitfmuunwR79iR?=
+ =?us-ascii?Q?OeGcfc2VSXIhZKWBBOWWlrXGHpDjngE/+b3+Q1IpmbXD52SagXKAmnKF1zkN?=
+ =?us-ascii?Q?Py4jXHAJspc0oYyNbRxq4eO2JzvvTlgw8sLJ/gDD9pxapQXYp6SsIbQeYT4e?=
+ =?us-ascii?Q?krBKIuySkTFc/04HLS6GG9ptwT3+3AwNvPLTvvKQps1KXDOYDhovZ2QDe1na?=
+ =?us-ascii?Q?4Url6cWdI/6c+7hRfZwiM3ggwatI0HDqlVVRYt9XYQZB6Z8IFCYGjCNeyKBg?=
+ =?us-ascii?Q?RM5T6XeHbW9qKfp6Qpu6d+PAEBCc7GyMzXF2yuUq8/TgiYW0fdLyGn17Quut?=
+ =?us-ascii?Q?IyGL3DfG5ZiD6c+fwH0iKNkSbcs92F+K9IoJlbbBz3vT/RKcuxd28XgCzXYO?=
+ =?us-ascii?Q?7H6fKEjVPw2aETVvGvtF5POgJEZ+atCyz2k8LzRc3vwNyLTiS6jMnXtCSb5j?=
+ =?us-ascii?Q?tIJZntcl2u2v7qBJ0m4tILP1e2a0xLWCEK5zSH1Z5hel0qit2dAtvNwp/AbX?=
+ =?us-ascii?Q?fHLcYHqfbIcFWMAlX1INeFxc/32sWwqi/N2cgIFhn54dYwy0nIhNBOfG7h2F?=
+ =?us-ascii?Q?XaNOlNzzgKip8COmYTahyATCDshqMWpl3kfLX6BQjh4PMnHInSqjkuXQrPnx?=
+ =?us-ascii?Q?9SeOzhs3as0wXeLF519vk2deH80fLwJO8lJwhRrP6ZWXHdE6gKtWy7WHeNBm?=
+ =?us-ascii?Q?ZcYuIIGNf+TZ4u9GT64Gv0vAffPCEB8yz/MYtNZXD8U1ofUkBJzSh8yUyc1z?=
+ =?us-ascii?Q?vYKbiqSjh301rqYKVw2wVmaiaQ9vsrZdX0fFnvrz3ol1LudiqsMd0d6auSuh?=
+ =?us-ascii?Q?zggMh370m0wez00gOHjhHTQmf6pJ4DNQbpRZmxPyMaBJMiYLiEXTBX81LsqM?=
+ =?us-ascii?Q?0F2DBZRh13JfAbuBdG16vTnnbY84sBygN3OOkP5o/GW2lvtnJ3YPbEk2iUM6?=
+ =?us-ascii?Q?QM66r/RQabo=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(52116014)(7053199007)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qgFq6QhRBOQ6J8oeEpGXvr17hwGbtmGHd9Mo2VtoWXQCTwCose8yfu5dPhPP?=
+ =?us-ascii?Q?7w+H9a3FRFVOebkwe/XCYNySLhOATkEyl63HjWK/gFIsrMQ1fpfDg03Vd5cT?=
+ =?us-ascii?Q?g8Vro333AxSQOERswn+QUmORVWEWBTllgSlES8MrAjWr67idMcGAy1kxqRuE?=
+ =?us-ascii?Q?0p+12CYScxrgUvHhVCztOJszFsWjWv6uNh6uK9swBYcx+vfOFrRRo4LS3C9y?=
+ =?us-ascii?Q?KILtS0UNCOL/8URjtc6riPkq5UUSUv0lMwXnzfrSQeBmF3/3WI89DxB9tMfE?=
+ =?us-ascii?Q?uaZ8O7APffqR45utWDuNFzBR+bV78ypo4PpNmhQDundAQMmon6AwOH5XVxCy?=
+ =?us-ascii?Q?33y5zEOo2L3QL8kpw2ua3hJy6JlVLU9PMOS5qta5nOFt423ezdYBtHrd6gxh?=
+ =?us-ascii?Q?GtUva/dSFVhD+vtfZPWMOQw2T0gjI14sgcAZHaeAMJ1BEs6pWHVYHjaPEj9d?=
+ =?us-ascii?Q?ZVf8xM/UG69xKZZZ9izBocQlEwBrbb+4RLqxmPKIl7E0xy4fx13tskOcvW7F?=
+ =?us-ascii?Q?MsNtVoeHroDC0XeouDQF8koGMak09XNLyQZ9lsHTGNWjKwLZbd1P8RjMnraY?=
+ =?us-ascii?Q?KQaAW7dbSifDMrGQKe7JX3+FW8dEh4ZEn6/iHeH+MPyiofhjrvebhoBh48I5?=
+ =?us-ascii?Q?oIAJ5hFwg8tuNVOjws8NyYflMj06vQSLUJ4nuXapWxOa/smJdjroPIHd0Yw0?=
+ =?us-ascii?Q?WZSBrpE7XgQHthqWUpSdaqMCXZsqSUqFksPQ3kP3715Jq+o42kzdnkXHH98j?=
+ =?us-ascii?Q?gmmkyZPMJ7+0QOLWIGa9tFxqq5CA0pxnu+4mtsZteH0nQFoPWqDqW/2u/+Id?=
+ =?us-ascii?Q?lzPk5m0dc4m7njWL9wLj1VWJdvbRLzEOJ7wVpZR9A1hPObkz8GPuQx6MqJua?=
+ =?us-ascii?Q?6yaTyPlAAMgoF7xwBz5fiSLIhnDg0EEenmRjNaq1HppsCnNhrXUqgHvnwGFz?=
+ =?us-ascii?Q?KLt/V/Jz5KLr99bEj4aijuVyy+k9eiPbxl58wqeBseyFkI1HxIJzwstSAUfd?=
+ =?us-ascii?Q?xVO9Zigvtpm+NPRCL30Pl7lOSSp978UkIK4RPAgau76TqFlcMt758ChalX+Y?=
+ =?us-ascii?Q?4C1EumGKrypzq65wh+uF9iOpH/jE/wOtOvzQe0t8vNfCA4tNEZjSxwU+4N3N?=
+ =?us-ascii?Q?WOjqUy/ZhKEjtB4yFBpvVXVOmCMCd4EErAGUd7ibn7kN6IyQ3cVGuouNInYc?=
+ =?us-ascii?Q?NGYdBEwkHTdU1VPW6dq1FfgJ2Y0UKrOrRkweJd9z2hnf6VjgW1/L1Rb+mhov?=
+ =?us-ascii?Q?g9l6TseByEh8fYwhUAIEVxVz2WCb2gh6edsVvH93W3Nd0yy+D68PGe+x9gcZ?=
+ =?us-ascii?Q?RKe2hxOc8pc2WVtnCV94/GFOaMWkCijC30HnWeJtFh/2qfIWvAjwKowZazKN?=
+ =?us-ascii?Q?JuYW1cO4IYE1VMvIG9fZXgnalYqTsNV7rcp5HGXr0HhgIqQpQ93MqLnXQQfh?=
+ =?us-ascii?Q?zAwv/wd2uBiz5+2DUrTooMIvpz/juagGfevKnqaNb690rliq5r+3TN1ZHpEG?=
+ =?us-ascii?Q?m31/LpzoiOisaM/Z8cefcbj4dwPHZZ3fR6dJHd0zCKAGd5gTiAfUECCa0WGV?=
+ =?us-ascii?Q?0/Oi9ZQkzcm8lBAfDb+X1b0peuPuzw3v3sPi9gSyOOh2NIM2nHryScueVPtC?=
+ =?us-ascii?Q?Au6zt/MQ5LqSc2ni0yaIEkE=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 72ca7119-25e7-400d-f34e-08dd5b6ad0bd
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2025 22:20:48.4636
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: PC7AaB4426Opvqc210fk/En2zA+SU+jw5I90ZbzMdiFSN71dOIOt6b3J9FAEGuj34O/67gt+2zprkHjszE2W5kzlSguvJzURS3E8CRyi0w4=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR01MB7931
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_215752_067722_03DDD9A5 
-X-CRM114-Status: GOOD (  25.12  )
+X-CRM114-CacheID: sfid-20250304_142055_129073_10BA2338 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,359 +163,320 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Wesley Cheng <quic_wcheng@quicinc.com>
+The later patch will enhance __create_pgd_mapping() and related helpers
+to split kernel linear mapping, it requires have return value.  So make
+__create_pgd_mapping() and helpers non-void functions.
 
-SM8750 utilizes an eUSB2 PHY from M31.  Add the initialization
-sequences to bring it out of reset and into an operational state.  This
-differs to the M31 USB driver, in that the M31 eUSB2 driver will
-require a connection to an eUSB2 repeater.  This PHY driver will handle
-the initialization of the associated eUSB2 repeater when required.
+And move the BUG_ON() out of page table alloc helper since failing
+splitting kernel linear mapping is not fatal and can be handled by the
+callers in the later patch.  Have BUG_ON() after
+__create_pgd_mapping_locked() returns to keep the current callers behavior
+intact.
 
-Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
-Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
+Suggested-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
 ---
- drivers/phy/qualcomm/Kconfig              |  10 +
- drivers/phy/qualcomm/Makefile             |   1 +
- drivers/phy/qualcomm/phy-qcom-m31-eusb2.c | 296 ++++++++++++++++++++++++++++++
- 3 files changed, 307 insertions(+)
+ arch/arm64/mm/mmu.c | 127 ++++++++++++++++++++++++++++++--------------
+ 1 file changed, 86 insertions(+), 41 deletions(-)
 
-diff --git a/drivers/phy/qualcomm/Kconfig b/drivers/phy/qualcomm/Kconfig
-index f281e3b7f3f20b4a4bb1602be94b8a1b041a876f..0dcdbef67d7e023a88c6f513825925e306e7579b 100644
---- a/drivers/phy/qualcomm/Kconfig
-+++ b/drivers/phy/qualcomm/Kconfig
-@@ -154,6 +154,16 @@ config PHY_QCOM_M31_USB
- 	  management. This driver is required even for peripheral only or
- 	  host only mode configurations.
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index b4df5bc5b1b8..dccf0877285b 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -189,11 +189,11 @@ static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
+ 	} while (ptep++, addr += PAGE_SIZE, addr != end);
+ }
  
-+config PHY_QCOM_M31_EUSB
-+	tristate "Qualcomm M31 eUSB2 PHY driver support"
-+	depends on USB && (ARCH_QCOM || COMPILE_TEST)
-+	select GENERIC_PHY
-+	help
-+	  Enable this to support M31 EUSB2 PHY transceivers on Qualcomm
-+	  chips with DWC3 USB core. It supports initializing and cleaning
-+	  up of the associated USB repeater that is paired with the eUSB2
-+	  PHY.
+-static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+-				unsigned long end, phys_addr_t phys,
+-				pgprot_t prot,
+-				phys_addr_t (*pgtable_alloc)(int),
+-				int flags)
++static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
++			       unsigned long end, phys_addr_t phys,
++			       pgprot_t prot,
++			       phys_addr_t (*pgtable_alloc)(int),
++			       int flags)
+ {
+ 	unsigned long next;
+ 	pmd_t pmd = READ_ONCE(*pmdp);
+@@ -208,6 +208,8 @@ static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+ 			pmdval |= PMD_TABLE_PXN;
+ 		BUG_ON(!pgtable_alloc);
+ 		pte_phys = pgtable_alloc(PAGE_SHIFT);
++		if (!pte_phys)
++			return -ENOMEM;
+ 		ptep = pte_set_fixmap(pte_phys);
+ 		init_clear_pgtable(ptep);
+ 		ptep += pte_index(addr);
+@@ -239,13 +241,16 @@ static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+ 	 * walker.
+ 	 */
+ 	pte_clear_fixmap();
 +
- config PHY_QCOM_USB_HS
- 	tristate "Qualcomm USB HS PHY module"
- 	depends on USB_ULPI_BUS
-diff --git a/drivers/phy/qualcomm/Makefile b/drivers/phy/qualcomm/Makefile
-index eb60e950ad53334a3ada3db618aa584afb33fb93..f88ba0f71a73cd6935184c8831d6cd6488d6551f 100644
---- a/drivers/phy/qualcomm/Makefile
-+++ b/drivers/phy/qualcomm/Makefile
-@@ -5,6 +5,7 @@ obj-$(CONFIG_PHY_QCOM_EDP)		+= phy-qcom-edp.o
- obj-$(CONFIG_PHY_QCOM_IPQ4019_USB)	+= phy-qcom-ipq4019-usb.o
- obj-$(CONFIG_PHY_QCOM_IPQ806X_SATA)	+= phy-qcom-ipq806x-sata.o
- obj-$(CONFIG_PHY_QCOM_M31_USB)		+= phy-qcom-m31.o
-+obj-$(CONFIG_PHY_QCOM_M31_EUSB)		+= phy-qcom-m31-eusb2.o
- obj-$(CONFIG_PHY_QCOM_PCIE2)		+= phy-qcom-pcie2.o
++	return 0;
+ }
  
- obj-$(CONFIG_PHY_QCOM_QMP_COMBO)	+= phy-qcom-qmp-combo.o phy-qcom-qmp-usbc.o
-diff --git a/drivers/phy/qualcomm/phy-qcom-m31-eusb2.c b/drivers/phy/qualcomm/phy-qcom-m31-eusb2.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..d14be08ce7c98eb183181d17f3ab9c92713e3785
---- /dev/null
-+++ b/drivers/phy/qualcomm/phy-qcom-m31-eusb2.c
-@@ -0,0 +1,296 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
-+ */
+-static void init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+-		     phys_addr_t phys, pgprot_t prot,
+-		     phys_addr_t (*pgtable_alloc)(int), int flags)
++static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
++		    phys_addr_t phys, pgprot_t prot,
++		    phys_addr_t (*pgtable_alloc)(int), int flags)
+ {
+ 	unsigned long next;
++	int ret = 0;
+ 
+ 	do {
+ 		pmd_t old_pmd = READ_ONCE(*pmdp);
+@@ -264,22 +269,27 @@ static void init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+ 			BUG_ON(!pgattr_change_is_safe(pmd_val(old_pmd),
+ 						      READ_ONCE(pmd_val(*pmdp))));
+ 		} else {
+-			alloc_init_cont_pte(pmdp, addr, next, phys, prot,
++			ret = alloc_init_cont_pte(pmdp, addr, next, phys, prot,
+ 					    pgtable_alloc, flags);
++			if (ret)
++				break;
+ 
+ 			BUG_ON(pmd_val(old_pmd) != 0 &&
+ 			       pmd_val(old_pmd) != READ_ONCE(pmd_val(*pmdp)));
+ 		}
+ 		phys += next - addr;
+ 	} while (pmdp++, addr = next, addr != end);
 +
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/err.h>
-+#include <linux/io.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/phy/phy.h>
-+#include <linux/platform_device.h>
-+#include <linux/reset.h>
-+#include <linux/slab.h>
++	return ret;
+ }
+ 
+-static void alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+-				unsigned long end, phys_addr_t phys,
+-				pgprot_t prot,
+-				phys_addr_t (*pgtable_alloc)(int), int flags)
++static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
++			       unsigned long end, phys_addr_t phys,
++			       pgprot_t prot,
++			       phys_addr_t (*pgtable_alloc)(int), int flags)
+ {
+ 	unsigned long next;
++	int ret = 0;
+ 	pud_t pud = READ_ONCE(*pudp);
+ 	pmd_t *pmdp;
+ 
+@@ -295,6 +305,8 @@ static void alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+ 			pudval |= PUD_TABLE_PXN;
+ 		BUG_ON(!pgtable_alloc);
+ 		pmd_phys = pgtable_alloc(PMD_SHIFT);
++		if (!pmd_phys)
++			return -ENOMEM;
+ 		pmdp = pmd_set_fixmap(pmd_phys);
+ 		init_clear_pgtable(pmdp);
+ 		pmdp += pmd_index(addr);
+@@ -314,21 +326,26 @@ static void alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+ 		    (flags & NO_CONT_MAPPINGS) == 0)
+ 			__prot = __pgprot(pgprot_val(prot) | PTE_CONT);
+ 
+-		init_pmd(pmdp, addr, next, phys, __prot, pgtable_alloc, flags);
++		ret = init_pmd(pmdp, addr, next, phys, __prot, pgtable_alloc, flags);
++		if (ret)
++			break;
+ 
+ 		pmdp += pmd_index(next) - pmd_index(addr);
+ 		phys += next - addr;
+ 	} while (addr = next, addr != end);
+ 
+ 	pmd_clear_fixmap();
 +
-+#define USB_PHY_UTMI_CTRL0		(0x3c)
++	return ret;
+ }
+ 
+-static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+-			   phys_addr_t phys, pgprot_t prot,
+-			   phys_addr_t (*pgtable_alloc)(int),
+-			   int flags)
++static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
++			  phys_addr_t phys, pgprot_t prot,
++			  phys_addr_t (*pgtable_alloc)(int),
++			  int flags)
+ {
+ 	unsigned long next;
++	int ret = 0;
+ 	p4d_t p4d = READ_ONCE(*p4dp);
+ 	pud_t *pudp;
+ 
+@@ -340,6 +357,8 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+ 			p4dval |= P4D_TABLE_PXN;
+ 		BUG_ON(!pgtable_alloc);
+ 		pud_phys = pgtable_alloc(PUD_SHIFT);
++		if (!pud_phys)
++			return -ENOMEM;
+ 		pudp = pud_set_fixmap(pud_phys);
+ 		init_clear_pgtable(pudp);
+ 		pudp += pud_index(addr);
+@@ -369,8 +388,10 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+ 			BUG_ON(!pgattr_change_is_safe(pud_val(old_pud),
+ 						      READ_ONCE(pud_val(*pudp))));
+ 		} else {
+-			alloc_init_cont_pmd(pudp, addr, next, phys, prot,
++			ret = alloc_init_cont_pmd(pudp, addr, next, phys, prot,
+ 					    pgtable_alloc, flags);
++			if (ret)
++				break;
+ 
+ 			BUG_ON(pud_val(old_pud) != 0 &&
+ 			       pud_val(old_pud) != READ_ONCE(pud_val(*pudp)));
+@@ -379,14 +400,17 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+ 	} while (pudp++, addr = next, addr != end);
+ 
+ 	pud_clear_fixmap();
 +
-+#define USB_PHY_UTMI_CTRL5		(0x50)
++	return ret;
+ }
+ 
+-static void alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+-			   phys_addr_t phys, pgprot_t prot,
+-			   phys_addr_t (*pgtable_alloc)(int),
+-			   int flags)
++static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
++			  phys_addr_t phys, pgprot_t prot,
++			  phys_addr_t (*pgtable_alloc)(int),
++			  int flags)
+ {
+ 	unsigned long next;
++	int ret = 0;
+ 	pgd_t pgd = READ_ONCE(*pgdp);
+ 	p4d_t *p4dp;
+ 
+@@ -398,6 +422,8 @@ static void alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+ 			pgdval |= PGD_TABLE_PXN;
+ 		BUG_ON(!pgtable_alloc);
+ 		p4d_phys = pgtable_alloc(P4D_SHIFT);
++		if (!p4d_phys)
++			return -ENOMEM;
+ 		p4dp = p4d_set_fixmap(p4d_phys);
+ 		init_clear_pgtable(p4dp);
+ 		p4dp += p4d_index(addr);
+@@ -412,8 +438,10 @@ static void alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+ 
+ 		next = p4d_addr_end(addr, end);
+ 
+-		alloc_init_pud(p4dp, addr, next, phys, prot,
++		ret = alloc_init_pud(p4dp, addr, next, phys, prot,
+ 			       pgtable_alloc, flags);
++		if (ret)
++			break;
+ 
+ 		BUG_ON(p4d_val(old_p4d) != 0 &&
+ 		       p4d_val(old_p4d) != READ_ONCE(p4d_val(*p4dp)));
+@@ -422,23 +450,26 @@ static void alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+ 	} while (p4dp++, addr = next, addr != end);
+ 
+ 	p4d_clear_fixmap();
 +
-+#define USB_PHY_HS_PHY_CTRL_COMMON0	(0x54)
-+#define FSEL				GENMASK(6, 4)
-+#define FSEL_38_4_MHZ_VAL		(0x6)
-+
-+#define USB_PHY_HS_PHY_CTRL2		(0x64)
-+
-+#define USB_PHY_CFG0			(0x94)
-+#define USB_PHY_CFG1			(0x154)
-+
-+#define USB_PHY_FSEL_SEL		(0xb8)
-+
-+#define USB_PHY_XCFGI_39_32		(0x16c)
-+#define USB_PHY_XCFGI_71_64		(0x17c)
-+#define USB_PHY_XCFGI_31_24		(0x168)
-+#define USB_PHY_XCFGI_7_0		(0x15c)
-+
-+#define M31_EUSB_PHY_INIT_CFG(o, b, v)	\
-+{				\
-+	.off = o,		\
-+	.mask = b,		\
-+	.val = v,		\
-+}
-+
-+struct m31_phy_tbl_entry {
-+	u32 off;
-+	u32 mask;
-+	u32 val;
-+};
-+
-+struct m31_eusb2_priv_data {
-+	const struct m31_phy_tbl_entry	*setup_seq;
-+	unsigned int			setup_seq_nregs;
-+	const struct m31_phy_tbl_entry	*override_seq;
-+	unsigned int			override_seq_nregs;
-+	const struct m31_phy_tbl_entry	*reset_seq;
-+	unsigned int			reset_seq_nregs;
-+	unsigned int			fsel;
-+};
-+
-+static const struct m31_phy_tbl_entry m31_eusb2_setup_tbl[] = {
-+	M31_EUSB_PHY_INIT_CFG(USB_PHY_CFG0, BIT(1), 1),
-+	M31_EUSB_PHY_INIT_CFG(USB_PHY_UTMI_CTRL5, BIT(1), 1),
-+	M31_EUSB_PHY_INIT_CFG(USB_PHY_CFG1, BIT(0), 1),
-+	M31_EUSB_PHY_INIT_CFG(USB_PHY_FSEL_SEL, BIT(0), 1),
-+};
-+
-+static const struct m31_phy_tbl_entry m31_eusb_phy_override_tbl[] = {
-+	M31_EUSB_PHY_INIT_CFG(USB_PHY_XCFGI_39_32, GENMASK(3, 2), 0),
-+	M31_EUSB_PHY_INIT_CFG(USB_PHY_XCFGI_71_64, GENMASK(3, 0), 7),
-+	M31_EUSB_PHY_INIT_CFG(USB_PHY_XCFGI_31_24, GENMASK(2, 0), 0),
-+	M31_EUSB_PHY_INIT_CFG(USB_PHY_XCFGI_7_0, GENMASK(1, 0), 0),
-+};
-+
-+static const struct m31_phy_tbl_entry m31_eusb_phy_reset_tbl[] = {
-+	M31_EUSB_PHY_INIT_CFG(USB_PHY_HS_PHY_CTRL2, BIT(3), 1),
-+	M31_EUSB_PHY_INIT_CFG(USB_PHY_HS_PHY_CTRL2, BIT(2), 1),
-+	M31_EUSB_PHY_INIT_CFG(USB_PHY_UTMI_CTRL0, BIT(0), 1),
-+	M31_EUSB_PHY_INIT_CFG(USB_PHY_HS_PHY_CTRL_COMMON0, BIT(1), 1),
-+	M31_EUSB_PHY_INIT_CFG(USB_PHY_HS_PHY_CTRL_COMMON0, BIT(2), 0),
-+	M31_EUSB_PHY_INIT_CFG(USB_PHY_UTMI_CTRL5, BIT(1), 0),
-+	M31_EUSB_PHY_INIT_CFG(USB_PHY_HS_PHY_CTRL2, BIT(3), 0),
-+	M31_EUSB_PHY_INIT_CFG(USB_PHY_CFG0, BIT(1), 0),
-+};
-+
-+static const char * const m31_eusb_phy_vreg_names[] = {
-+	"vdd", "vdda12",
-+};
-+
-+#define M31_EUSB_NUM_VREGS		ARRAY_SIZE(m31_eusb_phy_vreg_names)
-+
-+struct m31eusb2_phy {
-+	struct phy			 *phy;
-+	void __iomem			 *base;
-+	const struct m31_eusb2_priv_data *data;
-+
-+	struct regulator_bulk_data	 vregs[M31_EUSB_NUM_VREGS];
-+	struct clk			 *clk;
-+	struct reset_control		 *reset;
-+
-+	struct phy			 *repeater;
-+};
-+
-+static int msm_m31_eusb2_write_readback(void __iomem *base, u32 offset,
-+					const u32 mask, u32 val)
-+{
-+	u32 write_val;
-+	u32 tmp;
-+
-+	tmp = readl_relaxed(base + offset);
-+	tmp &= ~mask;
-+	write_val = tmp | val;
-+
-+	writel_relaxed(write_val, base + offset);
-+
-+	tmp = readl_relaxed(base + offset);
-+	tmp &= mask;
-+
-+	if (tmp != val) {
-+		pr_err("write: %x to offset: %x FAILED\n", val, offset);
++	return ret;
+ }
+ 
+-static void __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
+-					unsigned long virt, phys_addr_t size,
+-					pgprot_t prot,
+-					phys_addr_t (*pgtable_alloc)(int),
+-					int flags)
++static int __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
++				       unsigned long virt, phys_addr_t size,
++				       pgprot_t prot,
++				       phys_addr_t (*pgtable_alloc)(int),
++				       int flags)
+ {
+ 	unsigned long addr, end, next;
+ 	pgd_t *pgdp = pgd_offset_pgd(pgdir, virt);
++	int ret = 0;
+ 
+ 	/*
+ 	 * If the virtual and physical address don't have the same offset
+ 	 * within a page, we cannot map the region as the caller expects.
+ 	 */
+ 	if (WARN_ON((phys ^ virt) & ~PAGE_MASK))
+-		return;
 +		return -EINVAL;
-+	}
+ 
+ 	phys &= PAGE_MASK;
+ 	addr = virt & PAGE_MASK;
+@@ -446,29 +477,38 @@ static void __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
+ 
+ 	do {
+ 		next = pgd_addr_end(addr, end);
+-		alloc_init_p4d(pgdp, addr, next, phys, prot, pgtable_alloc,
++		ret = alloc_init_p4d(pgdp, addr, next, phys, prot, pgtable_alloc,
+ 			       flags);
++		if (ret)
++			break;
+ 		phys += next - addr;
+ 	} while (pgdp++, addr = next, addr != end);
 +
-+	return 0;
-+}
-+
-+static int m31eusb2_phy_write_sequence(struct m31eusb2_phy *phy,
-+				       const struct m31_phy_tbl_entry *tbl,
-+				       int num)
-+{
-+	int i;
++	return ret;
+ }
+ 
+-static void __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+-				 unsigned long virt, phys_addr_t size,
+-				 pgprot_t prot,
+-				 phys_addr_t (*pgtable_alloc)(int),
+-				 int flags)
++static int __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
++				unsigned long virt, phys_addr_t size,
++				pgprot_t prot,
++				phys_addr_t (*pgtable_alloc)(int),
++				int flags)
+ {
 +	int ret;
 +
-+	for (i = 0 ; i < num; i++, tbl++) {
-+		dev_dbg(&phy->phy->dev, "Offset:%x BitMask:%x Value:%x",
-+			tbl->off, tbl->mask, tbl->val);
+ 	mutex_lock(&fixmap_lock);
+-	__create_pgd_mapping_locked(pgdir, phys, virt, size, prot,
++	ret = __create_pgd_mapping_locked(pgdir, phys, virt, size, prot,
+ 				    pgtable_alloc, flags);
++	BUG_ON(ret);
+ 	mutex_unlock(&fixmap_lock);
 +
-+		ret = msm_m31_eusb2_write_readback(phy->base,
-+						   tbl->off, tbl->mask,
-+						   tbl->val << __ffs(tbl->mask));
-+		if (ret < 0)
-+			return ret;
-+	}
++	return ret;
+ }
+ 
+ #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+ extern __alias(__create_pgd_mapping_locked)
+-void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
+-			     phys_addr_t size, pgprot_t prot,
+-			     phys_addr_t (*pgtable_alloc)(int), int flags);
++int create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
++			    phys_addr_t size, pgprot_t prot,
++			    phys_addr_t (*pgtable_alloc)(int), int flags);
+ #endif
+ 
+ static phys_addr_t __pgd_pgtable_alloc(int shift)
+@@ -476,13 +516,17 @@ static phys_addr_t __pgd_pgtable_alloc(int shift)
+ 	/* Page is zeroed by init_clear_pgtable() so don't duplicate effort. */
+ 	void *ptr = (void *)__get_free_page(GFP_PGTABLE_KERNEL & ~__GFP_ZERO);
+ 
+-	BUG_ON(!ptr);
++	if (!ptr)
++		return 0;
 +
-+	return 0;
-+}
-+
-+static int m31eusb2_phy_init(struct phy *uphy)
-+{
-+	struct m31eusb2_phy *phy = phy_get_drvdata(uphy);
-+	const struct m31_eusb2_priv_data *data = phy->data;
-+	int ret;
-+
-+	ret = regulator_bulk_enable(ARRAY_SIZE(phy->vregs), phy->vregs);
-+	if (ret) {
-+		dev_err(&uphy->dev, "failed to enable regulator, %d\n", ret);
-+		return ret;
-+	}
-+
-+	ret = phy_init(phy->repeater);
-+	if (ret) {
-+		dev_err(&uphy->dev, "repeater init failed. %d\n", ret);
-+		goto disable_vreg;
-+	}
-+
-+	ret = clk_prepare_enable(phy->clk);
-+	if (ret) {
-+		dev_err(&uphy->dev, "failed to enable cfg ahb clock, %d\n", ret);
-+		goto disable_repeater;
-+	}
-+
-+	/* Perform phy reset */
-+	reset_control_assert(phy->reset);
-+	udelay(5);
-+	reset_control_deassert(phy->reset);
-+
-+	m31eusb2_phy_write_sequence(phy, data->setup_seq, data->setup_seq_nregs);
-+	msm_m31_eusb2_write_readback(phy->base,
-+				     USB_PHY_HS_PHY_CTRL_COMMON0, FSEL,
-+				     FIELD_PREP(FSEL, data->fsel));
-+	m31eusb2_phy_write_sequence(phy, data->override_seq, data->override_seq_nregs);
-+	m31eusb2_phy_write_sequence(phy, data->reset_seq, data->reset_seq_nregs);
-+
-+	return 0;
-+
-+disable_repeater:
-+	phy_exit(phy->repeater);
-+disable_vreg:
-+	regulator_bulk_disable(ARRAY_SIZE(phy->vregs), phy->vregs);
-+
-+	return 0;
-+}
-+
-+static int m31eusb2_phy_exit(struct phy *uphy)
-+{
-+	struct m31eusb2_phy *phy = phy_get_drvdata(uphy);
-+
-+	clk_disable_unprepare(phy->clk);
-+	regulator_bulk_disable(ARRAY_SIZE(phy->vregs), phy->vregs);
-+	phy_exit(phy->repeater);
-+
-+	return 0;
-+}
-+
-+static const struct phy_ops m31eusb2_phy_gen_ops = {
-+	.init	= m31eusb2_phy_init,
-+	.exit	= m31eusb2_phy_exit,
-+	.owner		= THIS_MODULE,
-+};
-+
-+static int m31eusb2_phy_probe(struct platform_device *pdev)
-+{
-+	struct phy_provider *phy_provider;
-+	const struct m31_eusb2_priv_data *data;
-+	struct device *dev = &pdev->dev;
-+	struct m31eusb2_phy *phy;
-+	int ret;
-+	int i;
-+
-+	phy = devm_kzalloc(dev, sizeof(*phy), GFP_KERNEL);
-+	if (!phy)
-+		return -ENOMEM;
-+
-+	data = of_device_get_match_data(dev);
-+	if (IS_ERR(data))
-+		return -EINVAL;
-+	phy->data = data;
-+
-+	phy->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(phy->base))
-+		return PTR_ERR(phy->base);
-+
-+	phy->reset = devm_reset_control_get_exclusive(dev, NULL);
-+	if (IS_ERR(phy->reset))
-+		return PTR_ERR(phy->reset);
-+
-+	phy->clk = devm_clk_get(dev, NULL);
-+	if (IS_ERR(phy->clk))
-+		return dev_err_probe(dev, PTR_ERR(phy->clk),
-+				     "failed to get clk\n");
-+
-+	phy->phy = devm_phy_create(dev, NULL, &m31eusb2_phy_gen_ops);
-+	if (IS_ERR(phy->phy))
-+		return dev_err_probe(dev, PTR_ERR(phy->phy),
-+				     "failed to create phy\n");
-+
-+	for (i = 0; i < M31_EUSB_NUM_VREGS; i++)
-+		phy->vregs[i].supply = m31_eusb_phy_vreg_names[i];
-+
-+	ret = devm_regulator_bulk_get(dev, M31_EUSB_NUM_VREGS, phy->vregs);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				"failed to get regulator supplies\n");
-+
-+	phy_set_drvdata(phy->phy, phy);
-+
-+	phy->repeater = devm_of_phy_get_by_index(dev, dev->of_node, 0);
-+	if (IS_ERR(phy->repeater))
-+		return dev_err_probe(dev, PTR_ERR(phy->repeater),
-+				     "failed to get repeater\n");
-+
-+	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
-+	if (!IS_ERR(phy_provider))
-+		dev_info(dev, "Registered M31 USB phy\n");
-+
-+	return PTR_ERR_OR_ZERO(phy_provider);
-+}
-+
-+static const struct m31_eusb2_priv_data m31_eusb_v1_data = {
-+	.setup_seq = m31_eusb2_setup_tbl,
-+	.setup_seq_nregs = ARRAY_SIZE(m31_eusb2_setup_tbl),
-+	.override_seq = m31_eusb_phy_override_tbl,
-+	.override_seq_nregs = ARRAY_SIZE(m31_eusb_phy_override_tbl),
-+	.reset_seq = m31_eusb_phy_reset_tbl,
-+	.reset_seq_nregs = ARRAY_SIZE(m31_eusb_phy_reset_tbl),
-+	.fsel = FSEL_38_4_MHZ_VAL,
-+};
-+
-+static const struct of_device_id m31eusb2_phy_id_table[] = {
-+	{ .compatible = "qcom,sm8750-m31-eusb2-phy", .data = &m31_eusb_v1_data },
-+	{ },
-+};
-+MODULE_DEVICE_TABLE(of, m31eusb2_phy_id_table);
-+
-+static struct platform_driver m31eusb2_phy_driver = {
-+	.probe = m31eusb2_phy_probe,
-+	.driver = {
-+		.name = "qcom-m31eusb2-phy",
-+		.of_match_table = m31eusb2_phy_id_table,
-+	},
-+};
-+
-+module_platform_driver(m31eusb2_phy_driver);
-+
-+MODULE_DESCRIPTION("eUSB2 Qualcomm M31 HSPHY driver");
-+MODULE_LICENSE("GPL");
-
+ 	return __pa(ptr);
+ }
+ 
+ static phys_addr_t pgd_pgtable_alloc(int shift)
+ {
+ 	phys_addr_t pa = __pgd_pgtable_alloc(shift);
++	if (!pa)
++		goto out;
+ 	struct ptdesc *ptdesc = page_ptdesc(phys_to_page(pa));
+ 
+ 	/*
+@@ -498,6 +542,7 @@ static phys_addr_t pgd_pgtable_alloc(int shift)
+ 	else if (shift == PMD_SHIFT)
+ 		BUG_ON(!pagetable_pmd_ctor(ptdesc));
+ 
++out:
+ 	return pa;
+ }
+ 
 -- 
-2.46.1
+2.47.1
 
 
