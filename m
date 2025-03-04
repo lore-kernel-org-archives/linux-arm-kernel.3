@@ -4,63 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52CF5C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 12:10:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34E70C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 12:10:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XALqRiTDTuOSqYmjbalZaLG3ALZoTVNBky71yHDurWY=; b=bQIBO90s1WyNLOMsaAm0Aj/2SX
-	tC+uJeo8Yuw/rd1zyLI54WofBBjVeRI64Q3jTHV9Wv8S6do1ERvqs1fdHZjJ4IOtdft2sFwZFJQsZ
-	CNQiH1UB2L4gQW1IJTMzlBn2o1Mn27Lt1M5gA4GVMiossQATHnJPI7EHaov3r/RxssmkP6HdhFFdw
-	cRxvvTXnGh31DGsimz3hwJvyb9Gc4VlRaq8GSeRorRfhJfZWKAVKuHMbpCgeI0YxbqiHxoLiFCT2O
-	A/YVSRTbGQKuHi+kDDey8Vy2ZYlc3K0vHVQ8M1se1ELkUjOMiVfUKYCpeYJWQ03ISIvuOeJxXiumI
-	HggW4IbQ==;
+	bh=oC5qjHB1PX1QOUkEpX5gtofRWcRiWb2GfBc+5/XWrCM=; b=dLaxBj+Sb3XcPu0lgfNQERGtT9
+	p8gmejEg62CKVxD8cmINckTwE4q98YQVbwTLuFEHCR0nq958wswLC8e5mPULI2J6dDOBkwzekQ9LJ
+	iK9B9GHjlpaUyHX1VBDiBkmaAFBpEYyaWJIxbJOrpPfOeKpzyCNFY8v2hVOsKf5NBd0B5/S0BAVeS
+	+4TcgAgis191SKQj9Mi3dn+icuHAQR0dT5K3SgdUHnSHrtKdGns2WHFWWCq0a+g8a055Xqqu3Eq9u
+	ULN/4qDbzXEB7a7ILa0XpIkIbAvlffyaOWvsNuGRVMuf5S8f1oAqFdXYEzCmBl8+n3E55nqH0m3xp
+	PvmtIpVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpR5t-00000004YMB-1pvb;
-	Tue, 04 Mar 2025 12:09:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpQXC-00000004PzO-1Lzy
+	id 1tpR6K-00000004Yy8-04Qc;
+	Tue, 04 Mar 2025 12:10:20 +0000
+Received: from mail-ot1-x331.google.com ([2607:f8b0:4864:20::331])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpQbC-00000004Qiz-40ik
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 11:34:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C189AFEC;
-	Tue,  4 Mar 2025 03:34:14 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.2.76.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A21523F5A1;
-	Tue,  4 Mar 2025 03:34:00 -0800 (PST)
-Date: Tue, 4 Mar 2025 11:33:50 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	Will Deacon <will@kernel.org>,
-	Graham Woodward <graham.woodward@arm.com>, Paschalis.Mpeis@arm.com,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 00/12] perf script: Refactor branch flags for Arm SPE
-Message-ID: <20250304113350.GK2157064@e132581.arm.com>
-References: <20250217195908.176207-1-leo.yan@arm.com>
- <20250303093853.GG2157064@e132581.arm.com>
- <Z8YYY2Q_ZPIaZ74g@google.com>
+	Tue, 04 Mar 2025 11:38:12 +0000
+Received: by mail-ot1-x331.google.com with SMTP id 46e09a7af769-7271cc3d73eso2992010a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 03:38:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741088287; x=1741693087; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=oC5qjHB1PX1QOUkEpX5gtofRWcRiWb2GfBc+5/XWrCM=;
+        b=HQhyYbGicQktE0VvrhocUcWuDkjOcvY/lPVYZHsnDNa5Nlj5YPmgHj/nqa4Smccu05
+         +lAN4nJEUDP65O1JZMa68uU6DUWvdvmXANeTCdzZTMmRhzdTYyfkW3danNaczaRQXa2v
+         XfFJX2ynBq75TJnD/X+zN/c04kWM4/OYYhwBbZNXx5Sp4l5rb/Teex5tVURdO2ap2Pn8
+         w+L8HVxPBFYH3MBI1zZ/7AVL8Vk73HURGQPNiodgnZYRWctaQQxRzZxeESHVBKyMn/dr
+         KWfyHWynzkiqkgnwtiT6GayqARj1pT+Gj8ySuuuNqypkM809KTSM0zwtvLrO7evSJqMD
+         ka0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741088287; x=1741693087;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=oC5qjHB1PX1QOUkEpX5gtofRWcRiWb2GfBc+5/XWrCM=;
+        b=GkPxyV3HviQiV43rmQKT66kc2vZ/yKqPhlTOoXaii5vUK20vdbsWxcpkYnPo65cJXr
+         sKmvGQcbKqbCVSuzVSVryyDXGf/fxBlcxktuxLqaqzWu2GAF8t7gi58/W/GtE8ObjVrj
+         eyKBJCD4SHr7l/RFM+s5k3+s7G1FiSXbs71kw26a/u+nWBVwCu1gYK/Xvozq9m4ojBhz
+         5jeLZowEkyfnSf/fWXD1BGR0PEO29pW888+GfJ8pz1/GxvfMO49xLi0KU0NCEXlK2hRm
+         AkPuFBeIcUONndBTuNoBoiaLIBQD6l5EmWJlD4OPSNS0ugY/Icv4K2Te1xQlou/Dg56b
+         /Z1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWIhlofbjW/hV2zeKPSoLHGaFhIUY2jFY9k43BkEv4GFVoXwDzCq2ikNEP6yjyXrALYC3MRy1q9904hEjWr7ulH@lists.infradead.org
+X-Gm-Message-State: AOJu0YxSSCEPQfQIq3V7U7pdIGAcrzwInS867qUCxADTKjAzztrD/iB5
+	DzjwM7Q7xXnHo7Z220feowR1hFq6FWHHVW4nu4XqxW1IGHPvuvmCuFfe5k802F9WmVpMqdbFzg/
+	OgEjd37Lsp18owdOYbYVU1cc9a+oECi8dzGjR4A==
+X-Gm-Gg: ASbGncusIsEsoNyiDF9zCXnXIAw/Str4uJn3NLBSLQrlDEAVGWarJU78jyJlguAhaUJ
+	4QM6bceT725tko8fyhWkgMFT7ImLueGU9rTW2XioQBWjKj9jXIeNA8j5bPueN5nocX4C2H+TFhx
+	gvSixLrB4yhOwXURMs2JnKNDPKf9k=
+X-Google-Smtp-Source: AGHT+IEl29p/uRr2dkieWp0OTEK1kdeHqqHxSZa3QXSfzg/07iBAOnkwXHFw1v1HZhu1dFp6njIHzwHLg7pvbXeNaRU=
+X-Received: by 2002:a05:6830:929:b0:727:f8f:b25 with SMTP id
+ 46e09a7af769-728b82f3176mr9942270a34.20.1741088287678; Tue, 04 Mar 2025
+ 03:38:07 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z8YYY2Q_ZPIaZ74g@google.com>
+References: <20250226220414.343659-1-peter.griffin@linaro.org>
+ <20250226220414.343659-7-peter.griffin@linaro.org> <015ce85d-c62b-472c-8527-33217ad815eb@acm.org>
+In-Reply-To: <015ce85d-c62b-472c-8527-33217ad815eb@acm.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Tue, 4 Mar 2025 11:37:56 +0000
+X-Gm-Features: AQ5f1JoxKZtvBwSf5o93rOZKsNyWnyc_-Mlje4_RgWAiq42ic3vdnFhmRmm7aMA
+Message-ID: <CADrjBPrOTMPh2BfROdMnCrPWBaKw+uQ=jH3yYNZ-HEKEjNahSA@mail.gmail.com>
+Subject: Re: [PATCH 6/6] scsi: ufs: exynos: put ufs device in reset on .exit()
+ and .suspend()
+To: Bart Van Assche <bvanassche@acm.org>
+Cc: alim.akhtar@samsung.com, James.Bottomley@hansenpartnership.com, 
+	martin.petersen@oracle.com, krzk@kernel.org, linux-scsi@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, willmcvicker@google.com, 
+	tudor.ambarus@linaro.org, andre.draszik@linaro.org, ebiggers@kernel.org, 
+	kernel-team@android.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_033402_408704_A6364533 
-X-CRM114-Status: GOOD (  20.09  )
+X-CRM114-CacheID: sfid-20250304_033811_000360_CE68AFBF 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,32 +98,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 03, 2025 at 01:00:19PM -0800, Namhyung Kim wrote:
-> On Mon, Mar 03, 2025 at 09:38:53AM +0000, Leo Yan wrote:
-> > Hi Arnaldo, Namhyung,
-> > 
-> > On Mon, Feb 17, 2025 at 07:58:56PM +0000, Leo Yan wrote:
-> > > This patch series refactors branch flags for support Arm SPE.  The patch
-> > > set is divided into two parts, the first part is for refactoring common
-> > > code and the second part is for enabling Arm SPE.
-> > 
-> > James has given review tags (including the new added patch 06).  Could
-> > you kindly pick up this series?
-> > 
-> > Sorry for pushing a bit, as we have dependency on it.
-> 
-> No problem, I'll add it to the tmp branch and run some tests.
+Hi Bart,
 
-Thanks a lot, Namhyung!
+Thanks for the review feedback.
 
-I saw you have picked patch series v3 in the tmp.perf-tools-next branch.
-On the other hand, to follow up on Adrian's comment, I have sent out
-v4 to remove an unnecessary change in patch 01, and the rest of the
-patches are exactly the same as v3.
+On Fri, 28 Feb 2025 at 19:21, Bart Van Assche <bvanassche@acm.org> wrote:
+>
+> On 2/26/25 2:04 PM, Peter Griffin wrote:
+> > GPIO_OUT[0] is connected to the reset pin of embedded UFS device.
+> > Before powering off the phy assert the reset signal.
+> Does the above apply to the GS implementation only or does it apply to
+> all SoC's with an Exynos UFS host controller?
 
-Please consider picking the latest change (either the whole v4 series or
-just the updated patch 01 would be fine).
+The reason I went with a generic approach (rather than adding another
+SoC specific hook) was that exynos_ufs_dev_hw_reset() is already
+called by all users of this driver. From that I concluded it is a
+common register shared by all exynos implementations.
+
+It is hard to be 100% sure though as I don't personally have any of
+the other Exynos platforms supported by this driver to test on.
+Another approach would be to add some more gs101 SoC specific hooks
+for suspend() and exit() to exynos_ufs_drv_data() or another
+EXYNOS_UFS_OPT_.
 
 Thanks,
-Leo
+
+Peter
 
