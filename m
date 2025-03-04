@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44DFEC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 08:33:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E9DCC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 08:34:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6U3xW6KGA45GadCYUOQf9uTOYOS5SGHDOkkRLxttvgU=; b=GaXOsc7jau9cqjp/7c9wf1Yc5L
-	WHjRAGpfohjLQgDMX8K30BEaJtannZ3Dr/AVcnd+h0EDkd5P63k5iq5SM6R8gbyaYbqt39msD3MZC
-	MvFmJbiMu3BH0+6+9P4r0Dv3eN5RH4mKqbeOwTEbBd070lnhpbiob1u2pZ4obmO/2Bqe4e+luxR1h
-	y/xSOy5/iZGs3z0TiU2TrhzBSzWa5NJRvFpc3nKuTq9Xq181hgcPwnfXMZWZpW4EjoSwgEj2KoGOe
-	fc3/N8ORC3UvWz5DKNl5gxm+bsrEY5shaQf4EXxHoxVOkYaBz1ZsKIrpPlmWn4BRNr3Va3Kt3eq5N
-	D09prW1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BPyo6yazjyUnhJj+joZfTPzFqELUcAwTIbrDY0AFd8k=; b=mDZLJdAX85/CSJIxUC5PCQDLB/
+	STxf+53ipIXKN/QsMTb/NGtpAPXpYqT6zxR3XSVXTgwwFMtp/JHi7nX1mtEcf96cnGkwAtJYGNoes
+	TriuIN43cAqZWuAUYGhIELRLb+Ir2ync67te1x+RXyK9PQby/Cw4bOeHt1N9z+9VfFSC8Kyq9N7bl
+	i07+giSJvsTu9zAjRbW5TathG/34GvrhSJznDYUqDKl2GKKNlaXN6tluEl87n0NMUN1+u1lr8VUa8
+	TNY7Lii/jwN7F1yAFgjLOSY3NzN5qKsMUbRgwOcGDTftEKKHviZt0vGmVYx/v07jvSZZFzPye1MZs
+	hvkU8DdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpNi2-00000003f16-0OpD;
-	Tue, 04 Mar 2025 08:33:02 +0000
+	id 1tpNjZ-00000003fCs-37J7;
+	Tue, 04 Mar 2025 08:34:37 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpNas-00000003cu8-0kTZ
+	id 1tpNb4-00000003cwG-06xm
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 04 Mar 2025 08:25:38 +0000
+	Tue, 04 Mar 2025 08:25:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=6U3xW6KGA45GadCYUOQf9uTOYOS5SGHDOkkRLxttvgU=; b=mif7fxcwU+AA1f1sdqj7kPJTxI
-	iGUeQnqVfGYkeTc/84OYqpnJoKwh6XduC2XMTxyHDjZVaHZFyEuEuoKvXeBYQM5iX/9Tw6yOm0QuK
-	rLn9JhCNNAg2Stj4AXgJcs+gEbanAA+shI0vaZHO2G1tQDB/YAHTYREGG5YPmJdymfyDOsrrft5sB
-	0+Pcz/Eoy7OBmNsJjbVuMvsHx7fDvLTiY0p15pxnYuMYUKAGj90eTjVkF3GeT2C0V3V3MAobwC5Th
-	F4QFvT5QQZ+gcx/fkJST5MFb9zoZA8IUfeoztOG/xWryfd8y3srUd3C+7SLzoEWyOdUhMNE/HMORi
-	RF3tgrhw==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpNap-00000000R9t-0IkX
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=BPyo6yazjyUnhJj+joZfTPzFqELUcAwTIbrDY0AFd8k=; b=bS6H40DA9nMI8ZpclYxzzPO4CM
+	dMpt8uNSTCMvJeJw3WsxuBo/M1ttieYd9bI+v79CIzTPUPa8fTa1vpVO8TV+4n9w5j9qb8SKAo9Rr
+	4U/0n3OQbgIFhVCkgGW/vp9Jyw/q80rb0zHByeLaJqNxWfwv0ILH50MkxPw76U5eyXc+FgCtuGAbt
+	mjJD4pBBCICl2FYKO6JAkoFKT6vCKj/fAevmrWs7s7zpS2URP5P3//FlfS9vLSOi1jme4/2F7pH/t
+	6zU6XoVsF+ne3CyV0pLVE41cYFW4QXVO1MyvnFxQ7jl6Y3WkXA2q5RIwMOthg+5aW9RzJgZdUWGhK
+	1kHHMB7A==;
+Received: from foss.arm.com ([217.140.110.172])
+	by casper.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpNb1-00000000RAh-0Xwu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 08:25:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4B20AA45343;
-	Tue,  4 Mar 2025 08:19:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F116BC4CEE5;
-	Tue,  4 Mar 2025 08:25:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741076727;
-	bh=EjG1Ayc6WOrjJoENYUK2AAQIO5stxQf7QR9qv10BbjU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PpDGT4pl9OvTRcB3fq/ZOwLw8spKntrGFEwzLqPphNVifkDf/CruyEbhZQHgk/2P2
-	 OaO/XH8YBr7vXXUzzAXb9MCxHwhS3Gv6Lw96scmHOli+H3nQsIXZDQDGC9W3emPS3N
-	 nY3Dit1FlyI7es4f9fPs1wsEjQbPiYY11PCcNL82Y5z3/khVERpMwEhADig/jJn80Q
-	 vxoAqgpGd+J/JtYDXZxRHPHA6yhMPJnjnhv1xxRiF8rjLhR7Ykgb7/Uf0tznDN5Gph
-	 VGcFHF5LGIIO9dp4qig6fzhiykzDqDLh2TTUyPQxfH7e7pYRq0jETxtmR9wLg1j4SA
-	 C5CHMLvKvr0yQ==
-Date: Tue, 4 Mar 2025 09:25:24 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 04/15] dt-bindings: clk: sunxi-ng: document Allwinner
- A523 CCU
-Message-ID: <20250304-resilient-spiritual-crane-30d4e1@krzk-bin>
-References: <20250304012805.28594-1-andre.przywara@arm.com>
- <20250304012805.28594-5-andre.przywara@arm.com>
+	Tue, 04 Mar 2025 08:25:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 634871063;
+	Tue,  4 Mar 2025 00:25:27 -0800 (PST)
+Received: from [10.34.129.29] (unknown [10.34.129.29])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A5ACD3F66E;
+	Tue,  4 Mar 2025 00:25:08 -0800 (PST)
+Message-ID: <2fdea4f6-db98-4dc7-947f-e19ee54d2c3c@arm.com>
+Date: Tue, 4 Mar 2025 09:25:02 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250304012805.28594-5-andre.przywara@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 3/4] arm64: topology: Support SMT control on ACPI
+ based system
+To: Yicong Yang <yangyicong@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>
+Cc: yangyicong@hisilicon.com, catalin.marinas@arm.com, will@kernel.org,
+ tglx@linutronix.de, peterz@infradead.org, mpe@ellerman.id.au,
+ linux-arm-kernel@lists.infradead.org, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, dietmar.eggemann@arm.com,
+ linuxppc-dev@lists.ozlabs.org, x86@kernel.org, linux-kernel@vger.kernel.org,
+ morten.rasmussen@arm.com, msuchanek@suse.de, gregkh@linuxfoundation.org,
+ rafael@kernel.org, jonathan.cameron@huawei.com, prime.zeng@hisilicon.com,
+ linuxarm@huawei.com, xuwei5@huawei.com, guohanjun@huawei.com,
+ sshegde@linux.ibm.com
+References: <20250218141018.18082-1-yangyicong@huawei.com>
+ <20250218141018.18082-4-yangyicong@huawei.com> <Z8HAkZiHYRjj97M7@bogus>
+ <336e9c4e-cd9c-4449-ba7b-60ee8774115d@arm.com>
+ <20250228190641.q23vd53aaw42tcdi@bogus>
+ <a52972c7-aadd-4a77-a292-057fa5f8372d@arm.com> <Z8WPiOweOjFZqTwN@bogus>
+ <32e572d6-dedd-d8a3-13be-6de02303a64d@huawei.com>
+Content-Language: en-US
+From: Pierre Gondois <pierre.gondois@arm.com>
+In-Reply-To: <32e572d6-dedd-d8a3-13be-6de02303a64d@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_082535_321086_F4C6F724 
-X-CRM114-Status: GOOD (  16.83  )
+X-CRM114-CacheID: sfid-20250304_082547_301016_D87D8FE0 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,88 +92,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 04, 2025 at 01:27:54AM +0000, Andre Przywara wrote:
-> The Allwinner A523/T527 SoCs have four CCUs, this adds the binding for
-> the main CCU.
-> 
-> The source clock list differs in some annoying details, and folding this
-> into the existing Allwinner CCU clock binding document gets quite
-> unwieldy, so create a new document for these CCUs.
-> Add the new compatible string, along with the required input clock
-> lists. This conditionally describes the input clock list, to make for
-> an easier patch adding the other CCUs.
-> 
-> Also add the DT binding headers, listing all the clocks with their ID
-> numbers.
-> 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> ---
->  .../clock/allwinner,sun55i-a523-ccu.yaml      |  77 +++++++
->  include/dt-bindings/clock/sun55i-a523-ccu.h   | 189 ++++++++++++++++++
->  include/dt-bindings/reset/sun55i-a523-ccu.h   |  88 ++++++++
->  3 files changed, 354 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
->  create mode 100644 include/dt-bindings/clock/sun55i-a523-ccu.h
->  create mode 100644 include/dt-bindings/reset/sun55i-a523-ccu.h
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
-> new file mode 100644
-> index 0000000000000..2eacaeaeabac7
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
-> @@ -0,0 +1,77 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/allwinner,sun55i-a523-ccu.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Allwinner A523 Clock Control Unit
-> +
-> +maintainers:
-> +  - Andre Przywara <andre.przywara@arm.com>
-> +
-> +properties:
-> +  "#clock-cells":
-> +    const: 1
-> +
-> +  "#reset-cells":
-> +    const: 1
-> +
-> +  compatible:
-> +    enum:
-> +      - allwinner,sun55i-a523-ccu
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    minItems: 4
 
-Drop, redundant.
 
-> +    maxItems: 4
-> +
-> +  clock-names:
-> +    minItems: 4
-> +    maxItems: 4
+On 3/3/25 15:40, Yicong Yang wrote:
+> On 2025/3/3 19:16, Sudeep Holla wrote:
+>> On Mon, Mar 03, 2025 at 10:56:12AM +0100, Pierre Gondois wrote:
+>>> On 2/28/25 20:06, Sudeep Holla wrote:
+>>>>>>
+>>>>>> Ditto as previous patch, can get rid if it is default 1.
+>>>>>>
+>>>>>
+>>>>> On non-SMT platforms, not calling cpu_smt_set_num_threads() leaves
+>>>>> cpu_smt_num_threads uninitialized to UINT_MAX:
+>>>>>
+>>>>> smt/active:0
+>>>>> smt/control:-1
+>>>>>
+>>>>> If cpu_smt_set_num_threads() is called:
+>>>>> active:0
+>>>>> control:notsupported
+>>>>>
+>>>>> So it might be slightly better to still initialize max_smt_thread_num.
+>>>>>
+>>>>
+>>>> Sure, what I meant is to have max_smt_thread_num set to 1 by default is
+>>>> that is what needed anyways and the above code does that now.
+>>>>
+>>>> Why not start with initialised to 1 instead ?
+>>>> Of course some current logic needs to change around testing it for zero.
+>>>>
+>>>
+>>> I think there would still be a way to check against the default value.
+>>> If we have:
+>>> unsigned int max_smt_thread_num = 1;
+>>>
+>>> then on a platform with 2 threads, the detection condition would trigger:
+>>> xa_for_each(&hetero_cpu, hetero_id, entry) {
+>>>      if (entry->thread_num != max_smt_thread_num && max_smt_thread_num)     <---- (entry->thread_num=2) and (max_smt_thread_num=1)
+>>>          pr_warn_once("Heterogeneous SMT topology is partly
+>>>                        supported by SMT control\n");
+>>>
+>>> so we would need an additional variable:
+>>> bool is_initialized = false;
+>>
+>> Sure, we could do that or skip the check if max_smt_thread_num == 1 ?
+>>
+>> I mean
+>> 	if (entry->thread_num != max_smt_thread_num && max_smt_thread_num != 1)
+>>
 
-Drop both and instead you need to list the items.
+I think it will be problematic if we parse:
+- first a CPU with 1 thread
+- then a CPU with 2 threads
 
-> +
-> +required:
-> +  - "#clock-cells"
-> +  - "#reset-cells"
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +
-> +if:
-
-Drop, you have here only one device, no need for if:then.
-
-Best regards,
-Krzysztof
-
+in that case we should detect the 'Heterogeneous SMT topology',
+but we cannot because we don't know whether max_smt_thread_num=1
+because 1 is the default value or we found a CPU with one thread.
 
