@@ -4,113 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 926A7C282D2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 18:11:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00070C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 18:14:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b9TUKd9a7WN/Vei80KJpEh3yaSlL39kRZI61E48XopQ=; b=e3ynP5MCHVo977YBmiMseJRW3X
-	cjl/Tjp9gqrXKIs6OIhQCcNtc9Z9psi9tfF37ML1RSeRIrdkC11+3HBPlKE4GU/7l8bC/wRnyaBQm
-	Oj2G2npJGPgMTsLjGwp6222Vtlj9HcLdF3PKSZlwqcw1k7ld9Fumwx/V/FlT/p2Yr11Hc7ojmCF3y
-	6cq/wB7bbIXrFz7BMCWr9NCO4bFm9ZkSV8BnB0qiQXft528BTS8YcdGXpdvFpWjy3l0sLdvi4T0GT
-	1CXBNUEO580atnC6b3ykXv3ZG4hjzkz+FrN3Jqi/cATpIk5GhY7/hs0zoIvOk9cJLXyRWz4T61a8I
-	Lo89saZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9DtRkP6CYCN2VX6LAP0NMel2JbBrN6HKmyX2jA5Yc7E=; b=TtisbY+nvuIk8V3X4ZUfPgP9BR
+	6doSiMroszlK7KIAczI6kym11JBuNhhD+d0yGfYv6PdYRdGZbUZBovhD/WiQPzSJunQnQvFoazto/
+	ExU0rndnn1J4NquhirxwnyKI+//unmlxAMe0TaqOQ6552wwMC9S6yEfFO6RQ5ToztxfNsAQlny0Ez
+	wYeaFBEGzw9ylCO2B5A0Otz85XKUKnjJD0z9DX5SqHcZgQ+BsXUC0wYhmODgyD5ltAQ87om6KwFLc
+	eTvzWD2byug3NuVEJEH+0xhF9hK6PQO7ZsIwZF/0W/2+gauzcKXb9a54TaM+kJjuJyMWBXNGkV2yd
+	ZmDLqhfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpWjR-00000005mSP-3f0h;
-	Tue, 04 Mar 2025 18:11:05 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tpWma-00000005nQf-3UTk;
+	Tue, 04 Mar 2025 18:14:20 +0000
+Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpVJ5-00000005T4R-1HRB
+	id 1tpVZF-00000005W5G-0A1v
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 16:39:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0180A5C5BAC;
-	Tue,  4 Mar 2025 16:29:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC6DEC4CEE5;
-	Tue,  4 Mar 2025 16:31:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741105915;
-	bh=1b7ToBllyPpn0zk+DtE2pK66E04RdkGhHH2S/sCQtoI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ojTooJ3elCLNG/aGdXcD7y+0S07fyNBZVVTXHKZiwN+h40LFTXwngX5eFCGc+xOMd
-	 Eh4dCwm0JFnhykfrmMbB7eB2fkYbrFByCulpXD+Ji/tTTxlevzV3/MRihZMTw1KYOi
-	 w1tu1/RqoDtHK823LgSU3PJqbH5bFeOYUq5Ha/yhD5vTXFZuUgFNMZLdWuJXM2et8+
-	 ARVKXGj6EVzau5WJuC/iqHc+geNzG3lTI7q1yfr9nDQSCFdy0o+cs62G7u0u98wXWu
-	 N1/NFMkPHjzUwobZpYZVpvUfMb7IpQIeF+g2OWID2M4rpPuDzTgNgvM/OHq3rbYHtS
-	 gOI/8uHbnHv9Q==
-Message-ID: <880bac84-c593-44fa-a9dc-63462e1cee9d@kernel.org>
-Date: Tue, 4 Mar 2025 17:31:47 +0100
+	Tue, 04 Mar 2025 16:56:30 +0000
+Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-4750a85a0ddso4901cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 08:56:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1741107388; x=1741712188; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=9DtRkP6CYCN2VX6LAP0NMel2JbBrN6HKmyX2jA5Yc7E=;
+        b=v/0X1Mx7zRFkw7ZWjqxKGt1MKxWcxhg1BLFqyAoeON4AwJetsskie0pV2IgK/RTeCb
+         MwZFolznq0g6euoY/pdKc24CQST+OfFkoGgJD7l/WSeTtD1kL3Xwkt5R+YRYIMyWvv5s
+         KLJjf7dz+t8RNoJvtGekbYeFqjftIYI1aRAX6Vwhs9UO8npJHsC+kkx2cc+I6azCyRpK
+         t6u2bFpiglWWv108ip4dFXV5VieorR37ZjlPwNVy92IeKzn+h5Z8hmD09J3BWS9dBabW
+         8ncAJeeoTdJZYJkfiiwj2jjGuBxThXuSZi1FRBNxhG6zcVH62+XyvkUl8iToaJwlzrDV
+         o4Gg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741107388; x=1741712188;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9DtRkP6CYCN2VX6LAP0NMel2JbBrN6HKmyX2jA5Yc7E=;
+        b=unQJNVU4jHSi4rgn4+aKpiP+WPO5quWux7eMIyzVzCis+mw96tEAkSfosFwZTf3w7I
+         4o4YZojB1YtSX2x3JDF745XSCGZQrjfzamSOYzp2g14yj/rMFKLKGXluOdi5xQI2Vy7f
+         6w5xQuUq8YaUloPelmkpD1FJUMxnA0b7iWk87yPInxVTeGAs3Ltx2nei493q1KDWYWHq
+         fVHzGB//rYcm9dTfgV9NzkbpHKHVNY0gAUDYCom7D9wE7OJi0MhRwUsZ9eWl3OL2dnCe
+         ZHnJqnqsRu8Irri4Ch7SDtwpCmd6Rhhaa3E7bqiHBl3s1nyYg6Hwvcs9y4fzV+Tcx32w
+         bfuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV+fmpQwwmIw7EEiaRWSnWdco9vg/8cXSuENVgskWmoC/V2kjwAYeozAWiWKbH6Cg5M1YPfHCG/pAfW+EdfSEkV@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywn2ec9FYMNiGeiU2DPt4TyqvrSXkegf2QfOG4S08E3VWjelnp7
+	hc8nNWBdnOh/wEAsVBcI6hVIQfbntCYzcuvD9hepCX4A5QbNClawg9X4qH24HWfi4CkgYJxFHkZ
+	g0GuAFlgqBzFBlc2ES8ubKv9VaGbOBzdULFMDs5qLPh6B2AYxJt3W
+X-Gm-Gg: ASbGnctiYIRwD2D2+u+/KClONFLjgSupjwaKP5Z8u0hQa5Fzh0FpTjfWzicqwdJwfv0
+	vTIs/cTsk+uktqu08uLMrYJpjK7CxQ6kNswIJ672xzMLLuN5JzJRNj52AOude3yusNSGYfGYK7L
+	OtTn6/UrDy4a78ldo4ViabGzRRP2fAreLbxj4f2AC89Z9br1KvVeNOqQ==
+X-Google-Smtp-Source: AGHT+IF23vzPgXJFq7laGxxdPorzVUnziNDjwTEtrDs+9M/YfHZweGHZAZN5eGiioteQmHR0kHXdQj+z0gs3Xcfs9rk=
+X-Received: by 2002:a05:622a:48e:b0:474:cbac:a983 with SMTP id
+ d75a77b69052e-4750a4d1015mr307611cf.6.1741107387427; Tue, 04 Mar 2025
+ 08:56:27 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] dt-bindings: hwmon: Add Microchip emc2305 yaml
- schema
-To: Conor Dooley <conor@kernel.org>, florin.leotescu@oss.nxp.com
-Cc: Jean Delvare <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Michael Shych <michaelsh@nvidia.com>,
- linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, viorel.suman@nxp.com, carlos.song@nxp.com,
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
- festevam@gmail.com, Florin Leotescu <florin.leotescu@nxp.com>
-References: <20250304162136.1963384-1-florin.leotescu@oss.nxp.com>
- <20250304162136.1963384-2-florin.leotescu@oss.nxp.com>
- <20250304-serving-stem-e059361db2b8@spud>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250304-serving-stem-e059361db2b8@spud>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250210184150.2145093-1-maz@kernel.org> <20250210184150.2145093-8-maz@kernel.org>
+In-Reply-To: <20250210184150.2145093-8-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Tue, 4 Mar 2025 16:55:50 +0000
+X-Gm-Features: AQ5f1JpeNlKdk-l5r71vf2tqDSYKeajf6KLHiNZ0LiUdyjmTYrSWEAH6GprWQ2A
+Message-ID: <CA+EHjTwm4CosWDGcaH_tnLU7zMNCq8twDyEcKd7-V0Lu7b-LcA@mail.gmail.com>
+Subject: Re: [PATCH 07/18] KVM: arm64: Compute FGT masks from KVM's own FGT tables
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Mark Rutland <mark.rutland@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_083947_444199_248F0975 
-X-CRM114-Status: UNSURE (   8.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250304_085629_079399_19E7A025 
+X-CRM114-Status: GOOD (  28.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,31 +94,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/03/2025 17:29, Conor Dooley wrote:
->> +properties:
->> +  compatible:
->> +    enum:
->> +      - microchip,emc2301
->> +      - microchip,emc2302
->> +      - microchip,emc2303
->> +      - microchip,emc2305
-> 
-> Driver has no match data etc, suggesting all of these are compatible.
-> Please pick one as a fallback compatible.
-> 
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +required:
->> +  - compatible
->> +  - reg
-> 
-> Missing descriptions of the fans, no?
-> See max6639 for an example.
+Hi Marc,
 
-Yes and missing $ref to fan-controller schema.
+On Mon, 10 Feb 2025 at 18:42, Marc Zyngier <maz@kernel.org> wrote:
+>
+> In the process of decoupling KVM's view of the FGT bits from the
+> wider architectural state, use KVM's own FGT tables to build
+> a synthitic view of what is actually known.
 
-Best regards,
-Krzysztof
+synthitic -> synthetic
+
+
+> This allows for some checking along the way.
+>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/include/asm/kvm_arm.h  |   4 ++
+>  arch/arm64/include/asm/kvm_host.h |  14 ++++
+>  arch/arm64/kvm/emulate-nested.c   | 102 ++++++++++++++++++++++++++++++
+>  3 files changed, 120 insertions(+)
+>
+> diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+> index 8d94a6c0ed5c4..e424085f2aaca 100644
+> --- a/arch/arm64/include/asm/kvm_arm.h
+> +++ b/arch/arm64/include/asm/kvm_arm.h
+> @@ -359,6 +359,10 @@
+>  #define __HAFGRTR_EL2_MASK     (GENMASK(49, 17) | GENMASK(4, 0))
+>  #define __HAFGRTR_EL2_nMASK    ~(__HAFGRTR_EL2_RES0 | __HAFGRTR_EL2_MASK)
+>
+> +/* Because the sysreg file mixes R and W... */
+> +#define HFGRTR_EL2_RES0                HFGxTR_EL2_RES0 (0)
+> +#define HFGWTR_EL2_RES0                (HFGRTR_EL2_RES0 | __HFGRTR_ONLY_MASK)
+
+__HFGRTR_ONLY_MASK is a hand-crafted bitmask. The only bit remaining
+in HFGxTR_EL2 that is RES0 is bit 51. If that were to be used as an
+HFGRTR-only bit without __HFGRTR_ONLY_MASK getting updated, then
+aggregate_fgt() below would set its bit in hfgwtr_masks. Could this be
+a problem if this happens and the polarity of this bit ends up being
+negative, thereby setting the corresponding nmask bit?
+
+Cheers,
+/fuad
+
+> +
+>  /* Similar definitions for HCRX_EL2 */
+>  #define __HCRX_EL2_RES0         HCRX_EL2_RES0
+>  #define __HCRX_EL2_MASK                (BIT(6))
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 7cfa024de4e34..4e67d4064f409 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -569,6 +569,20 @@ struct kvm_sysreg_masks {
+>         } mask[NR_SYS_REGS - __SANITISED_REG_START__];
+>  };
+>
+> +struct fgt_masks {
+> +       const char      *str;
+> +       u64             mask;
+> +       u64             nmask;
+> +       u64             res0;
+> +};
+> +
+> +extern struct fgt_masks hfgrtr_masks;
+> +extern struct fgt_masks hfgwtr_masks;
+> +extern struct fgt_masks hfgitr_masks;
+> +extern struct fgt_masks hdfgrtr_masks;
+> +extern struct fgt_masks hdfgwtr_masks;
+> +extern struct fgt_masks hafgrtr_masks;
+> +
+>  struct kvm_cpu_context {
+>         struct user_pt_regs regs;       /* sp = sp_el0 */
+>
+> diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+> index 607d37bab70b4..bbfe89c37a86e 100644
+> --- a/arch/arm64/kvm/emulate-nested.c
+> +++ b/arch/arm64/kvm/emulate-nested.c
+> @@ -2033,6 +2033,101 @@ static u32 encoding_next(u32 encoding)
+>         return sys_reg(op0 + 1, 0, 0, 0, 0);
+>  }
+>
+> +#define FGT_MASKS(__n, __m)                                            \
+> +       struct fgt_masks __n = { .str = #__m, .res0 = __m, }
+> +
+> +FGT_MASKS(hfgrtr_masks, HFGRTR_EL2_RES0);
+> +FGT_MASKS(hfgwtr_masks, HFGWTR_EL2_RES0);
+> +FGT_MASKS(hfgitr_masks, HFGITR_EL2_RES0);
+> +FGT_MASKS(hdfgrtr_masks, HDFGRTR_EL2_RES0);
+> +FGT_MASKS(hdfgwtr_masks, HDFGWTR_EL2_RES0);
+> +FGT_MASKS(hafgrtr_masks, HAFGRTR_EL2_RES0);
+> +
+> +static __init bool aggregate_fgt(union trap_config tc)
+> +{
+> +       struct fgt_masks *rmasks, *wmasks;
+> +
+> +       switch (tc.fgt) {
+> +       case HFGxTR_GROUP:
+> +               rmasks = &hfgrtr_masks;
+> +               wmasks = &hfgwtr_masks;
+> +               break;
+> +       case HDFGRTR_GROUP:
+> +               rmasks = &hdfgrtr_masks;
+> +               wmasks = &hdfgwtr_masks;
+> +               break;
+> +       case HAFGRTR_GROUP:
+> +               rmasks = &hafgrtr_masks;
+> +               wmasks = NULL;
+> +               break;
+> +       case HFGITR_GROUP:
+> +               rmasks = &hfgitr_masks;
+> +               wmasks = NULL;
+> +               break;
+> +       }
+> +
+> +       /*
+> +        * A bit can be reserved in either the R or W register, but
+> +        * not both.
+> +        */
+> +       if ((BIT(tc.bit) & rmasks->res0) &&
+> +           (!wmasks || (BIT(tc.bit) & wmasks->res0)))
+> +               return false;
+> +
+> +       if (tc.pol)
+> +               rmasks->mask |= BIT(tc.bit) & ~rmasks->res0;
+> +       else
+> +               rmasks->nmask |= BIT(tc.bit) & ~rmasks->res0;
+> +
+> +       if (wmasks) {
+> +               if (tc.pol)
+> +                       wmasks->mask |= BIT(tc.bit) & ~wmasks->res0;
+> +               else
+> +                       wmasks->nmask |= BIT(tc.bit) & ~wmasks->res0;
+> +       }
+> +
+> +       return true;
+> +}
+> +
+> +static __init int check_fgt_masks(struct fgt_masks *masks)
+> +{
+> +       unsigned long duplicate = masks->mask & masks->nmask;
+> +       u64 res0 = masks->res0;
+> +       int ret = 0;
+> +
+> +       if (duplicate) {
+> +               int i;
+> +
+> +               for_each_set_bit(i, &duplicate, 64) {
+> +                       kvm_err("%s[%d] bit has both polarities\n",
+> +                               masks->str, i);
+> +               }
+> +
+> +               ret = -EINVAL;
+> +       }
+> +
+> +       masks->res0 = ~(masks->mask | masks->nmask);
+> +       if (masks->res0 != res0)
+> +               kvm_info("Implicit %s = %016llx, expecting %016llx\n",
+> +                        masks->str, masks->res0, res0);
+> +
+> +       return ret;
+> +}
+> +
+> +static __init int check_all_fgt_masks(int ret)
+> +{
+> +       int err = 0;
+> +
+> +       err |= check_fgt_masks(&hfgrtr_masks);
+> +       err |= check_fgt_masks(&hfgwtr_masks);
+> +       err |= check_fgt_masks(&hfgitr_masks);
+> +       err |= check_fgt_masks(&hdfgrtr_masks);
+> +       err |= check_fgt_masks(&hdfgwtr_masks);
+> +       err |= check_fgt_masks(&hafgrtr_masks);
+> +
+> +       return ret ?: err;
+> +}
+> +
+>  int __init populate_nv_trap_config(void)
+>  {
+>         int ret = 0;
+> @@ -2097,8 +2192,15 @@ int __init populate_nv_trap_config(void)
+>                         ret = xa_err(prev);
+>                         print_nv_trap_error(fgt, "Failed FGT insertion", ret);
+>                 }
+> +
+> +               if (!aggregate_fgt(tc)) {
+> +                       ret = -EINVAL;
+> +                       print_nv_trap_error(fgt, "FGT bit is reserved", ret);
+> +               }
+>         }
+>
+> +       ret = check_all_fgt_masks(ret);
+> +
+>         kvm_info("nv: %ld fine grained trap handlers\n",
+>                  ARRAY_SIZE(encoding_to_fgt));
+>
+> --
+> 2.39.2
+>
 
