@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2C20C282D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 10:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08443C282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 10:35:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M8Zg1+yy7jMqKnmLLH02oHvA4wEz2Xw0HKFrMo4jjTs=; b=SdhmGQFuNZp65Do1EsppiSdU7x
-	wGAkrKQ/JJD+LLG7GlFwzPZLyB7IYZZUgGZWAN+1h1QwLq028+oMOe1hhcW+80Jsf+Y/NBProS1dI
-	accoSE1mea5BcTfRgd3QxyMrb0YcJtNyH7h5XCZ20pOFLF1NO4MLqdesSKz0NmxoOXS1FU7QzGkFj
-	FYCrWWGtBETM0iW7LeDavI6dki4SZ65q6b8FNxMKlLeQd/aW8BQq3YeZ9yhb7JfEJvpEzlfeOVZgq
-	6XfM9J9l472VTofQSmASAO7UDNVvlNuLk4+mduAWJgicKckWmRuSGrii6AbEoHgqQa+N2B+/t+WuN
-	Poh8ZQtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zjCfzkJWAuREuIOJtX7TyjCt6YvD8DU4xNEMjHgcK4A=; b=kzP9o4HfU8n5+0rsgz9g40ks9o
+	SOXHZmgnsACDnU+iuA/mt76sxGFXSTsjvce02orx2RqT8DgIT9GzzmPqy3MaxqZarwJ5JOt4AMAk4
+	+LR90fZTpI46ibDWVWa7xOBv+TI65QggBOlwYcMffe5CnvS1fqbDgPMY2NCGoAKhTwliu2O1R2IBA
+	vWef2O2KBjqEHCjIdIxJq01GeBzv8OsFyWX7f6fAEAv2lYO974SOHUDZ+8GIwClXpJW9d5IdJyD5w
+	JuembxGSMAnGmw9SEEsGvLnxupUdxvsatF7YaKA6XCLb/nrx1XX6zSNVerXLcSUVM+PQS8GhDpCO4
+	5EhyCu+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPcj-00000004BAa-3m2C;
+	id 1tpPcj-00000004B8k-0CjP;
 	Tue, 04 Mar 2025 10:35:41 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPQ5-0000000479d-3p5M
+	id 1tpPPB-000000046q0-0CSc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 10:22:39 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Z6WrP6rxjz6M4cP;
-	Tue,  4 Mar 2025 18:19:33 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 6878D1402C7;
-	Tue,  4 Mar 2025 18:22:29 +0800 (CST)
-Received: from localhost (10.96.237.92) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 4 Mar
- 2025 11:22:26 +0100
-Date: Tue, 4 Mar 2025 18:22:22 +0800
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Yicong Yang <yangyicong@huawei.com>
-CC: <will@kernel.org>, <mark.rutland@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<prime.zeng@hisilicon.com>, <linuxarm@huawei.com>,
-	<yangyicong@hisilicon.com>, <wangyushan12@huawei.com>
-Subject: Re: [PATCH 8/9] drivers/perf: hisi: Add support for HiSilicon NoC
- PMU
-Message-ID: <20250304182222.00006e5a@huawei.com>
-In-Reply-To: <20250218092000.41641-9-yangyicong@huawei.com>
-References: <20250218092000.41641-1-yangyicong@huawei.com>
-	<20250218092000.41641-9-yangyicong@huawei.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Tue, 04 Mar 2025 10:21:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 58002A40939;
+	Tue,  4 Mar 2025 10:16:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86506C4CEE5;
+	Tue,  4 Mar 2025 10:21:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741083699;
+	bh=zjCfzkJWAuREuIOJtX7TyjCt6YvD8DU4xNEMjHgcK4A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AXg83nEvmhFddBKQkWuL1eWXfxRdJQSPBBjEIKx6iMvMCHtJfBU4Q23zSJTVdpwAE
+	 BszUnEoe2edhT+0kPZwoOJg14R5z0Ie3SX/mA+i9OeHr9U2K8U2EReXklhEt5M/oOk
+	 YovJCudVjhpPBfnJfv3ytmGv3pWeIBfhjnxQ9DYhlet9AAJTOID2H/SbjjHBdOsPAt
+	 SX1chnX26HOg9juOVKHepSvEcy4LvoVNNddjVUYtTgaCZDnWe92vhjeuiBd06S/pAu
+	 nxarxFw73Ma/zt03aNkveQ75bOimb0bFDgFtqMt76oWsX99O2CRVwiNP1GdDheJihv
+	 jMzMSnsGeVhIA==
+Date: Tue, 4 Mar 2025 19:21:35 +0900
+From: William Breathitt Gray <wbg@kernel.org>
+To: =?iso-8859-1?B?Q3Pza+Fz?= Bence <csokas.bence@prolan.hu>
+Cc: linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Kamel Bouhara <kamel.bouhara@bootlin.com>
+Subject: Re: [PATCH v6 3/3] counter: microchip-tcb-capture: Add capture
+ extensions for registers RA/RB
+Message-ID: <Z8bULwq70CAAQRSe@ishi>
+References: <20250227144023.64530-1-csokas.bence@prolan.hu>
+ <20250227144023.64530-4-csokas.bence@prolan.hu>
+ <Z8awGBW8obpG1QPN@ishi>
+ <1604dce5-7be6-4a95-a51c-0c760a6c9a76@prolan.hu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.96.237.92]
-X-ClientProxiedBy: lhrpeml100006.china.huawei.com (7.191.160.224) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="8RKMqNlmenfe7hgf"
+Content-Disposition: inline
+In-Reply-To: <1604dce5-7be6-4a95-a51c-0c760a6c9a76@prolan.hu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_022238_238941_5C95DBA1 
-X-CRM114-Status: GOOD (  23.25  )
+X-CRM114-CacheID: sfid-20250304_022141_155254_80831C81 
+X-CRM114-Status: GOOD (  17.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,81 +77,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Feb 2025 17:19:59 +0800
-Yicong Yang <yangyicong@huawei.com> wrote:
 
-> From: Yicong Yang <yangyicong@hisilicon.com>
-> 
-> Adds the support for HiSilicon NoC (Network on Chip) PMU which
-> will be used to monitor the events on the system bus. The PMU
-> device will be named after the SCL ID (either Super CPU cluster
-> or Super IO cluster) and the index ID, just similar to other
-> HiSilicon Uncore PMUs. Below PMU formats are provided besides
-> the event:
-> 
-> - ch: the transaction channel (data, request, response, etc) which
->   can be used to filter the counting.
-> - tt_en: tracetag filtering enable. Just as other HiSilicon Uncore
->   PMUs the NoC PMU supports only counting the transactions with
->   tracetag.
-> 
-> The NoC PMU doesn't have an interrupt to indicate the overflow.
-> However we have a 64 bit counter which is large enough and it's
-> nearly impossible to overflow.
-> 
-> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-A few minor comments inline.
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-> ---
->  Documentation/admin-guide/perf/hisi-pmu.rst  |  11 +
->  drivers/perf/hisilicon/Makefile              |   3 +-
->  drivers/perf/hisilicon/hisi_uncore_noc_pmu.c | 391 +++++++++++++++++++
->  3 files changed, 404 insertions(+), 1 deletion(-)
->  create mode 100644 drivers/perf/hisilicon/hisi_uncore_noc_pmu.c
-> 
-> diff --git a/Documentation/admin-guide/perf/hisi-pmu.rst b/Documentation/admin-guide/perf/hisi-pmu.rst
-> index 48992a0b8e94..d858bd3a8802 100644
-> --- a/Documentation/admin-guide/perf/hisi-pmu.rst
-> +++ b/Documentation/admin-guide/perf/hisi-pmu.rst
-> @@ -112,6 +112,17 @@ uring channel. It is 2 bits. Some important codes are as follows:
->  - 2'b00: default value, count the events which sent to the both uring and
->    uring_ext channel;
->  
-> +6. ch: NoC PMU supports to filter the event counts of certain transaction
-supports filtering the event counts...
-> +channel with this option. The current supported channels are as follows:
-> +
-> +- 3'b010: Request channel
-> +- 3'b100: Snoop channel
-> +- 3'b110: Response channel
-> +- 3'b111: Data channel
-> +
-> +7. tt_en: NoC PMU supports to only count the transactions with tracetag by
+--8RKMqNlmenfe7hgf
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-supports counting only transactions that have tracetag set if this option is
-set.
+On Tue, Mar 04, 2025 at 11:03:17AM +0100, Cs=F3k=E1s Bence wrote:
+> On 2025. 03. 04. 8:47, William Breathitt Gray wrote:
+> > One final comment: is RA/RB the best way to differentiate these? One of
+> > the benefits of abstraction layers is that users won't need to be
+> > concerned about the hardware details, and naming the capture values
+> > after their respective general register hardware names feels somewhat
+> > antithetic to that end.
+> >=20
+> > I imagine there are better ways to refer to these that would communicate
+> > their relationship better, such as "primary capture" and "secondary
+> > capture". However at that point capture0 and capture1 would seem
+> > obvious enough, in which case you might not even need to expose these to
+> > userspace at all.
+>=20
+> Hmm. Well, RA and RB is what it says in the datasheet, and since we don't=
+ do
+> much processing on their value, I'd say we're still closely coupled to the
+> hardware. So, if one wants to understand what they do, they will have to
+> read the datasheet anyways in which case I think it's best to be consiste=
+nt
+> with it naming-wise.
 
-> +this option. See the 2nd list for more information about tracetag.
-> +
+All right, let's keep it as RA and RA then.
 
+William Breathitt Gray
 
-> +static int hisi_noc_pmu_probe(struct platform_device *pdev)
-> +{
-> +	struct hisi_pmu *noc_pmu;
-> +	char *name;
-> +	int ret;
-> +
-> +	noc_pmu = devm_kzalloc(&pdev->dev, sizeof(*noc_pmu), GFP_KERNEL);
-Quite a bit of use of &pdev->dev, maybe worth
-struct device *dev = &pdev->dev; to shorten all these lines.
+--8RKMqNlmenfe7hgf
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> +	if (!noc_pmu)
-> +		return -ENOMEM;
-> +
-> +	/*
-> +	 * HiSilicon Uncore PMU framework needs to get common hisi_pmu device
-> +	 * by device's drvdata.
+-----BEGIN PGP SIGNATURE-----
 
-from device's drvdata
+iHUEARYKAB0WIQSNN83d4NIlKPjon7a1SFbKvhIjKwUCZ8bULwAKCRC1SFbKvhIj
+Kw8WAQCRpc2Qw5kFGL9s5kdxmZ56vP/4YntVebgyQRU1I8GNUwEAk9SWhblz25jK
+Owtuglyhwhnmmc2OriiggEtxWMOhfAc=
+=ihCK
+-----END PGP SIGNATURE-----
 
+--8RKMqNlmenfe7hgf--
 
