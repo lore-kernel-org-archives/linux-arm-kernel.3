@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70516C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 05:49:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F50AC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 06:03:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ALe8gaqPx0ivwZMUhNjC7kbkgwdK+iS+cXrLOMiOcsg=; b=S1Np9lUJOzUM4MEF7l+8wcLQnd
-	tJkhxGw4+inGlz5oJyns/bMwos/9e4KmnQkh9xpvdScRvBp1bmSyJQmfcg9+5lXhmed3fB7dPw98b
-	ZvlFqHWIsAbP2oRQgyImO//TDoSmYp8Iwbc9gQJl1/W4Wp7MDhHkWIBbra0HYMPlJVlm/1lfQPAno
-	rOCSTEy1QTGJ1XKizXnzBTa9kSJC56GFismTR8CxPEElwkF148Lf3q/fzcp1/Rsz1uZSt0pMMZG7O
-	lvPOvqrkz+43leY+dIXTT34WnmQjBVp1wzg3b05e0jHygjA3Pbf+3uGanAFG3hNkiAvo+oCTBWp0d
-	tRgnqIog==;
+	bh=boHxbjq3P2vU0fO6UUb8Hfrkk8ida9vHUjKzaMq4o5k=; b=qgs1v/QrIOKFICvbTKE8ixy1E/
+	fgX6nNY8STKy1tfDA+VK0N0+ov3hw7aqxLV5RqEJ0Ug/dUezWC5TOSMFtd6BxWjQRfGlZL7xijyEr
+	q3foNrvpnnXQFHDtYl/M6YwdCikaMjQmmpaoF0NeFaJSb/IYWorwZdH5fEfM5wdU1REC0qbs0EqUL
+	Nb7geFti8IRP0dspqMpyYvBktpiUbUSGZx8CP3txRr4GrfH2uL+YA0TzKJC2a2/x79kg7RnhuoHVC
+	umHpMtQeDJcp3DEK4T60TfkibEWGWF5tMRsUjwNxpzKofryjDbqhqTyfTcll5Qmv2KOjypvjzBkzN
+	osuickAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpL9x-00000003ALP-1Rko;
-	Tue, 04 Mar 2025 05:49:41 +0000
+	id 1tpLMx-00000003B81-3btz;
+	Tue, 04 Mar 2025 06:03:07 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpL8N-00000003AEO-2eTT
+	id 1tpLLN-00000003Ayu-0KEB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 05:48:05 +0000
+	Tue, 04 Mar 2025 06:01:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741067281;
+	s=mimecast20190719; t=1741068087;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ALe8gaqPx0ivwZMUhNjC7kbkgwdK+iS+cXrLOMiOcsg=;
-	b=cDYZOCKSbxHn4yVmmzNX4T1//MQ5xNEZvrJzW90+cf/xSm2FDmRY2QpwhTNhsxjFZqyQkl
-	L/0KOZNWERGgROCSkRYyWgtY07SXmrTeqdFJsvBzZGoN6FH6zL4oVO5fm+cLOY9BO3or31
-	bHB5CiXiVg0ux4H0lOQS2UWKusD6jK4=
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com
- [209.85.214.200]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=boHxbjq3P2vU0fO6UUb8Hfrkk8ida9vHUjKzaMq4o5k=;
+	b=EUkq5IZrpr5zksZERM3x9cinzGEG6HM1jFScNNS+UZiLGn/IUheC/YkvQrpfUKuoJBKRnj
+	wuVDoShCm5cp/JJlMusxl6PV6N1LBtm6uyv5akkWGOqFrQd4TqmM4SLvDyBFCpIHoL3vBn
+	6n+YTWNoWGSRc4lEmezlJoNwiiuBFaU=
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
+ [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-13-VzU7f-MnPe-t28usPbiKrw-1; Tue, 04 Mar 2025 00:48:00 -0500
-X-MC-Unique: VzU7f-MnPe-t28usPbiKrw-1
-X-Mimecast-MFC-AGG-ID: VzU7f-MnPe-t28usPbiKrw_1741067279
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-22379af38e0so51901565ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 21:48:00 -0800 (PST)
+ us-mta-553-cEAfmPAbPMauOjXSwBzSDA-1; Tue, 04 Mar 2025 01:01:26 -0500
+X-MC-Unique: cEAfmPAbPMauOjXSwBzSDA-1
+X-Mimecast-MFC-AGG-ID: cEAfmPAbPMauOjXSwBzSDA_1741068085
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-22379c2e96aso23793495ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 22:01:26 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741067279; x=1741672079;
+        d=1e100.net; s=20230601; t=1741068085; x=1741672885;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ALe8gaqPx0ivwZMUhNjC7kbkgwdK+iS+cXrLOMiOcsg=;
-        b=Xw/1+2yP6edIBJelRp2G0wIRJhPh7J3euE7kNMFc8cfc7XnQOB52Meyh+7J2Z6ieAr
-         K55x/lHNxOBPE9TXdMcgymC5gpsKkrVBxovS1/8WSiVTMj7KEr3eEcYs+4GSaGMT125t
-         AN5/fz3YTe8uZ6Y30MrVgUu6e4Qxjje2fX2dMog1arimuUdfvitnesU607iIt8eJncGI
-         tczSgc998LQ7jA3nFVpPEBqTANZI9N3aDQbixRF1zpe+8bSZed8mNlCGEj0BwzfP0pGF
-         C+15gsODJXIt72+zrNQt2bxy5gedfpTZWEgSViCR8TKBJ2cbjVv0Ab2HgNCb0nFp1Xe5
-         1GsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVdzH8Ig2l9HSDCeDNNP/1DJpgB/Nb/+8X/vuLaXURtB7dwuQI0vHOnSPXfejcCNuaCBsEgxLqUJT/HIXf5dXlr@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLScsksZtgay8ijzBTKLiaiSXLFeJrb9Ha3onjRw/UxRf713gc
-	8nHnjVTewt3bxaJD1zpyuN3QoRI0RYJ5odcNwMc2OFbwugEmms7Ifb6kCe4MSqzdVtfxo00poB6
-	+MhRByK84zN3ycQMQSWQrIVn2VMaP2hu54fR5lU/3RjjrskYtk+oWMFfDHCjeyiC27al4/UC0
-X-Gm-Gg: ASbGncvRVL/G3gka50zkJdxv7A15Bj9Ty2Kwh/ILounkxU1/pCqtHDmjF6AOGeng8Hp
-	o3qy86rga0t9NMy3SCDg+HKeh+C6T7SlD0nNsVUfbxmxr6ApRnVvR3Z0nr4ufzS8novXEW6jttL
-	6KUBhrDrrgyI6vidR4TOeNoWVNYELIKbkYCgiSmi2lqHoYuvXcnjFtyFsW1Xgxf8D1ADcw/ZTll
-	5xF6qqO7jG7cvWzzO/u1UACCLwJIFOf+rGQ22Z6qlYlpunTiHRqVf3r4e0mdwQLqOFJbPdCFyJX
-	HF688GeuIk4RWaoRhw==
-X-Received: by 2002:a17:903:1988:b0:220:eade:d77e with SMTP id d9443c01a7336-22369255615mr277878245ad.40.1741067279411;
-        Mon, 03 Mar 2025 21:47:59 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFx0Lhe2HGT1KmpDnS5ZyyAdNkSfy6p9uQW7gR79fCGqriIN6Hj8entskHLAJfXfbmV6sWD4Q==
-X-Received: by 2002:a17:903:1988:b0:220:eade:d77e with SMTP id d9443c01a7336-22369255615mr277877915ad.40.1741067279165;
-        Mon, 03 Mar 2025 21:47:59 -0800 (PST)
+        bh=boHxbjq3P2vU0fO6UUb8Hfrkk8ida9vHUjKzaMq4o5k=;
+        b=mMVskIIcTf49C5mrmpYCKod9SCud0J+mW7DgvEbjT1fpaFhNoWfC/VE14aTeKwvwIe
+         /ztvHBi6WUC14b7z0LkmsteMmjd5djEM6GZbSSGsnuwhU92lounpwmTyglYwLbxFAFg9
+         UM2z/mt17C8eRI21o5eOFHzcZ4STbvF3d4fa4HnN06v1YiMqPosTDmXVf7qS9wcKgAnR
+         FT/5fbPf+nzUkn607WpZDIY/LQaDh8ZNRjq9RfDdg6nCbqv2jsXhJdlW4BLN5/aRZCE+
+         4/bR1oPP5o9nVX/4AfIpWwF99WUkYtdW4rQW7N8BOp46fMovY5RM5lTVZNlvNqahwiqw
+         tsVA==
+X-Forwarded-Encrypted: i=1; AJvYcCUppXBSL4eOvyDlM4u3hP3Kl0lgKyE0ZI064dlzw+2KwUMFkZsggUaO9FmaosL8r9D2DfXjc5OmSj3Qld9r7b9F@lists.infradead.org
+X-Gm-Message-State: AOJu0YwzEPXret+8tZxGNLBqootTQf8WPXqSnbCGBi/yup9lPwiK34DZ
+	5TLY+gA0HJmt67RKgbcHdcFin0HShjYjuDBKtY2zzUBG0kGttaheqoD/mdXyiC0FnBdq1fsORp5
+	2jPZPr5zCVkxA6bPMP0AxGwQyDnrULJMf2TzJ5m6+OQo7TL1s7Y8CALjMD/GksOYnVX1/nPfE
+X-Gm-Gg: ASbGncv9DbmGiMMuSUOZU5RkFmnZeRE1EUCnr0TgoyWDGtaxP218B5piMqtpEQ849rc
+	KfQTMOZjAYPAKkwPW70EyAk+W/UPQ6cwlvks8vKv+rF+xKm0JylLcc5xpAM/Ll5eohpEzalBj38
+	V890d7pjhGfOLdp+VrAJWk0vPn4QyqgA5NOFUlly5dVpVW6QtYvLzsoL2rVucS3w2a++8uBjhvw
+	gD9ryoYwbTZFlRLRi0J8imHB9DlBw/WtYbpYdL1uPU1xc7NQa+/uH0hbhBXmSZX2hYkbFrl5y1n
+	jJuL9VV/JUtsuguO9A==
+X-Received: by 2002:a17:902:d543:b0:210:f706:dc4b with SMTP id d9443c01a7336-22368f8901emr239972435ad.13.1741068085385;
+        Mon, 03 Mar 2025 22:01:25 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHElCuS6yRgRylUHMYlinoo6CRmRHfyntq1vELw6NqviCnDfsX3HH8S1d66GYPIYgVFC5KeFg==
+X-Received: by 2002:a17:902:d543:b0:210:f706:dc4b with SMTP id d9443c01a7336-22368f8901emr239972065ad.13.1741068085037;
+        Mon, 03 Mar 2025 22:01:25 -0800 (PST)
 Received: from [192.168.68.55] ([180.233.125.164])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-223501fae0esm87110695ad.93.2025.03.03.21.47.52
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-223504dc6desm87837665ad.168.2025.03.03.22.01.17
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Mar 2025 21:47:58 -0800 (PST)
-Message-ID: <2505ead3-64a6-4135-a96c-85c5dfef26d0@redhat.com>
-Date: Tue, 4 Mar 2025 15:47:50 +1000
+        Mon, 03 Mar 2025 22:01:24 -0800 (PST)
+Message-ID: <12b5ba41-4b1e-4876-9796-d1d6bb344015@redhat.com>
+Date: Tue, 4 Mar 2025 16:01:16 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 27/45] arm64: rme: allow userspace to inject aborts
+Subject: Re: [PATCH v7 28/45] arm64: rme: support RSI_HOST_CALL
 To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
  kvmarm@lists.linux.dev
 Cc: Joey Gouly <joey.gouly@arm.com>, Catalin Marinas
@@ -95,18 +95,18 @@ Cc: Joey Gouly <joey.gouly@arm.com>, Catalin Marinas
  Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
  <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
 References: <20250213161426.102987-1-steven.price@arm.com>
- <20250213161426.102987-28-steven.price@arm.com>
+ <20250213161426.102987-29-steven.price@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20250213161426.102987-28-steven.price@arm.com>
+In-Reply-To: <20250213161426.102987-29-steven.price@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ZYvNmAIRxoniHf1yUqyCykabnuO-8Xc_6FaPnlgSJvo_1741067279
+X-Mimecast-MFC-PROC-ID: ygD1faYaG2Q0cVUNxeLdHHtjrzUmxnp30v2R0WfuQR8_1741068085
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_214803_751502_741F5832 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20250303_220129_193729_10FC8D3A 
+X-CRM114-Status: GOOD (  23.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,17 +124,69 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 2/14/25 2:14 AM, Steven Price wrote:
 > From: Joey Gouly <joey.gouly@arm.com>
 > 
-> Extend KVM_SET_VCPU_EVENTS to support realms, where KVM cannot set the
-> system registers, and the RMM must perform it on next REC entry.
+> Forward RSI_HOST_CALLS to KVM's HVC handler.
 > 
 > Signed-off-by: Joey Gouly <joey.gouly@arm.com>
 > Signed-off-by: Steven Price <steven.price@arm.com>
 > ---
->   Documentation/virt/kvm/api.rst |  2 ++
->   arch/arm64/kvm/guest.c         | 24 ++++++++++++++++++++++++
->   2 files changed, 26 insertions(+)
+> Changes since v4:
+>   * Setting GPRS is now done by kvm_rec_enter() rather than
+>     rec_exit_host_call() (see previous patch - arm64: RME: Handle realm
+>     enter/exit). This fixes a bug where the registers set by user space
+>     were being ignored.
+> ---
+>   arch/arm64/kvm/rme-exit.c | 22 ++++++++++++++++++++++
+>   1 file changed, 22 insertions(+)
 > 
+> diff --git a/arch/arm64/kvm/rme-exit.c b/arch/arm64/kvm/rme-exit.c
+> index c785005f821f..4f7602aa3c6c 100644
+> --- a/arch/arm64/kvm/rme-exit.c
+> +++ b/arch/arm64/kvm/rme-exit.c
+> @@ -107,6 +107,26 @@ static int rec_exit_ripas_change(struct kvm_vcpu *vcpu)
+>   	return -EFAULT;
+>   }
+>   
+> +static int rec_exit_host_call(struct kvm_vcpu *vcpu)
+> +{
+> +	int ret, i;
+> +	struct realm_rec *rec = &vcpu->arch.rec;
+> +
+> +	vcpu->stat.hvc_exit_stat++;
+> +
+> +	for (i = 0; i < REC_RUN_GPRS; i++)
+> +		vcpu_set_reg(vcpu, i, rec->run->exit.gprs[i]);
+> +
+> +	ret = kvm_smccc_call_handler(vcpu);
+> +
+> +	if (ret < 0) {
+> +		vcpu_set_reg(vcpu, 0, ~0UL);
+> +		ret = 1;
+> +	}
+> +
+> +	return ret;
+> +}
+> +
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+I don't understand how a negative error can be returned from kvm_smccc_call_handler().
+Besides, SMCCC_RET_NOT_SUPPORTED has been set to GPR[0 - 3] if the request can't be
+supported. Why we need to set GPR[0] to ~0UL, which corresponds to SMCCC_RET_NOT_SUPPORTED
+if I'm correct. I guess change log or a comment to explain the questions would be
+nice.
+
+>   static void update_arch_timer_irq_lines(struct kvm_vcpu *vcpu)
+>   {
+>   	struct realm_rec *rec = &vcpu->arch.rec;
+> @@ -168,6 +188,8 @@ int handle_rec_exit(struct kvm_vcpu *vcpu, int rec_run_ret)
+>   		return rec_exit_psci(vcpu);
+>   	case RMI_EXIT_RIPAS_CHANGE:
+>   		return rec_exit_ripas_change(vcpu);
+> +	case RMI_EXIT_HOST_CALL:
+> +		return rec_exit_host_call(vcpu);
+>   	}
+>   
+>   	kvm_pr_unimpl("Unsupported exit reason: %u\n",
+
+Thanks,
+Gavin
 
 
