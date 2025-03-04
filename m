@@ -4,104 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65A13C282DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 19:44:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A24CC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 19:45:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2+a3Z9er7HS5GhzYho010S7pznnO0QcQ46P/wgZR3Rg=; b=Fp9DSNrLDs0RzjERffIUKWnLuY
-	oOWm03pRriY0GsuXUXN+H4KQ0GKZl7DynONvfmy3KY8Be57gGkJp0+0OZ8sKcxepU40kAxjhTPXiq
-	ZjhpijTCfl++nzqIm5kkRDdz/6GUlpRnlOVZTje1nQjkGKqcy+gjxHKPSxL8QG1p6/YpB7sNv5/12
-	1KPet25U7QDj+7/2v5sod5p0KkQ7fwD7FlxUsO2AiJ2wiQyQViypbL1A3HJopF/rlpx2ft2DOo/G9
-	LOtTi7X63jAmELUjWniq0gqjb9g7vlAERTApQq1bM2jAeBWUckqD8U9iumRfi7Iqua6+o6VJCdFhb
-	horElySg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dV66bSO3p7CPdI7VDIr32ThJ93exQDdyBO//zJP39OQ=; b=qi1sRVMx01EAhf
+	34V43+/BXtzWPsEhBIi3FCNMfbi0USJVpQsOSKaHGM4cLfeyiQ6xTNCEE7/+uj0CNCRji91BQFBzt
+	dL/rpkxgyiYmaMTPph03pUfpJmbeJmlq5xYP5Qfp8OaofCY5zt7cFl5vjvzdXjhCCO+3jbz6YGBX1
+	qOGzYrvIuGzZpWD6qT+W0VikWfkd8tn76cZl963BFS5dcNvaNxouOelJJGzKD0qTaOL80ZL0zHBgp
+	78z7Stb2fZakBPFmMPWio0XRhJ4yaoe0MYZxqeSwcMNuYzW3htDZauA5AcxH0awIcpdg6XhvXQSGt
+	Ns8wxRYWBmoaz0oP6deA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpYC6-000000064mo-070R;
-	Tue, 04 Mar 2025 19:44:46 +0000
-Received: from mail-wr1-f43.google.com ([209.85.221.43])
+	id 1tpYCI-000000064tN-2gCx;
+	Tue, 04 Mar 2025 19:44:58 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpViB-00000005YEr-3KjA
+	id 1tpXGx-00000005tOd-0WSo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 17:05:45 +0000
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-390ec449556so4764855f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 09:05:43 -0800 (PST)
+	Tue, 04 Mar 2025 18:45:44 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43937d315abso6388775e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 10:45:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741107942; x=1741712742; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2+a3Z9er7HS5GhzYho010S7pznnO0QcQ46P/wgZR3Rg=;
-        b=LU1OU3IkdWNWsUt/aewhUUtEn25SNdRZ7BOkoZwYtNsRO5HvLPGDu53YbqBeBoGAIy
-         s7zOskvE1NFqsk6mLZsBeFW/OK+2B8AMN50c2ITZH1UxsWAdZRLnA8B1rElC3jETrswO
-         rFdIhDOhNKMoAKhdS4rKAbC0Ft4gUMjRX9+CXzEyDCdlomCH1Oa6MvX0qHq0xxZ/92W/
-         RXdqio9G/wDbo3GHnsFabNQXLBIDODdX8vpE4vdvvEOjJn/E0P/AuGfKswljqz3GXGRi
-         AeBtaSoZ7qxgLQTcAW+LtkPmX0TgTLcTjCYkLqc1jLpIYzwauiABuAZd3A9TbKyo+p9a
-         ji6Q==
+        d=linaro.org; s=google; t=1741113941; x=1741718741; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dV66bSO3p7CPdI7VDIr32ThJ93exQDdyBO//zJP39OQ=;
+        b=JddLNFwkgyI2GpWjinXD8T73EvKK8uv/Fq84gKHoAAF+I1rrxQVRlz/nBgScpTJKzB
+         xNuPj6Qqk7b0vdBVtaCR0gl9yDcAMIpTWE9X7aX4OZhpeJp5Z49koD2ZHIOGMm+Uh6IS
+         w8ptRpkXEPvae7KJdX92X3PaZDhPD2p/LU5OLAoaGw6lLZipmvIlrB1GdjzUqJZBpkYb
+         wJNtNegk3sNUbl0/op3vMQYVk46Xx1hX/ctL/l5RbPpIHBp4iH5iiV1F2J4tXU5jMti0
+         kSG+yZcrg/C8z/7SOVyQQv9mTG5XwZECKYdtGln32J7sbfUz8yHxHTrVR9xxWQyfSwfm
+         /2fg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741107942; x=1741712742;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2+a3Z9er7HS5GhzYho010S7pznnO0QcQ46P/wgZR3Rg=;
-        b=uoxUrL5uNEPb1UIzG//87uGo39o0NW8sWIIQcot3CMB1xFq8gHUt2uWdrv+rmNGAR8
-         6os8Qlvq8G8JWjq/DkByHWFO/YzS12+6erhED05F8h/UsnEtoBjRYH7BndbpxPa5DCqr
-         ykYPug5dLNJOlJBT7REHfn0wRj3H0MKuJL1I+9tiVCmdZRuCftBZYFbMCtf6hYzFXxVP
-         M4YziFzK+39OF+i7aA13xXFlTuqdAA2svtxVYjihBkQa4WmTSF5E6fm4q5OXLXT8y6oA
-         yY3BJzwvwrrbRGts0F4Xm8HDVvGOimQx7zAOo4ngm1mDhd4MUv7A1wPZwOc4P0FG3/nX
-         8grg==
-X-Forwarded-Encrypted: i=1; AJvYcCVl5OfaQkh+GSUsOVe6OFAyFJbj33teOddqMs9c/6Kd78lj7UWlViGfrB0G42HZaezqKpihA40YyM0j2MAWE0zk@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcNqKR19LjoXNbcnLkCxJbk62S93fMDkmVgoMWD5AW2s6AgkpO
-	Ri5nBY7BiI/in0aJYYDQJyDv8fJfoBMU4/CeeWtYQwq1Ps2MkU94tIM09Chu+Q8=
-X-Gm-Gg: ASbGncuZeGv0xBs9Cqa1m5Di+9SAbCxx2TXSiprkSsmvYPAvuwk/3ZiCBF7OJNtV01g
-	ITVVPiGZMgToUkzaxuFPEFMQmKmgkuQ3x4jElqjM/KGtSYmcEl3hqdjUhaQ2Tn8/kNCNs+boTJF
-	t3fJnDcJSSq+jAZ3XM5bcq03joBxM2Fzn3wPec+tXsXr9o/LbgCLRbAXSAuJijPkbFQnBIcQtVC
-	lzforM+QjIEopeAFsmwarFMvooc+e+SJ6lrGVI9thMT8M2jPDSv/UYH3R7m7Wheq780JkkmVsNL
-	ipAhxc0teTjWOcjgZdrLX8VxpRpg+oqvEjjUtFIpKJ4BYfR8nI9XATliI/d3AIXnRfbjYsVTRHP
-	8cA+73eijd+4TAKIZ8YW0enJ1xRw6
-X-Google-Smtp-Source: AGHT+IFBi6JjsYJDnSEwMCPY80NtpnY/0pWo317IbLvcMp22I1j/lVgkodnN+FQ/p9Zn6V6GISOI9g==
-X-Received: by 2002:a05:6000:178c:b0:390:debd:70c3 with SMTP id ffacd0b85a97d-390eca25fbdmr19248281f8f.54.1741107941433;
-        Tue, 04 Mar 2025 09:05:41 -0800 (PST)
-Received: from puffmais.c.googlers.com (30.171.91.34.bc.googleusercontent.com. [34.91.171.30])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abf795ba15esm367589066b.131.2025.03.04.09.05.40
+        d=1e100.net; s=20230601; t=1741113941; x=1741718741;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=dV66bSO3p7CPdI7VDIr32ThJ93exQDdyBO//zJP39OQ=;
+        b=olSukirVmQLryYbV1t8O19oYTD4UVw/dyDbaOPQQsK8B1eDdtbRLp2yZ5BlUy5XJa2
+         1cpmhrqXYDi6R5iwoHg8B9lh40XjQIpO05Hh3ItBjUK7YgDMvdHjPU+fJKaVVxR8YZCh
+         cURVxDImV6QzzOgHcsNC/khCQNv+1h4bOe3BsEN45wP3gu+QNQ9w2g579M6h4xchvVI7
+         RHwfvjxSo9FnIn4b7AlxbUD689ljDVpV86ZN44rZ0vfx+LNOcl8kPqTQGMhpUJPR6oPB
+         UGG/xIojlrOQcHBrPG89dbZjnkhUF3tioMfo5URYOG2Wv3jYNnJIx6CJ81ZdBhNKxiVY
+         7f5g==
+X-Forwarded-Encrypted: i=1; AJvYcCXNxGGkZUsEDQgDWQo4Yu4InPdDAlgGlAEUbhnWOT+kLhZRJmVExbldLFs6ciPi3qZxc5P1lk+jGko9J+Huv3Ey@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6eSxPR5uTzJGe5bP8JNnqIO0pdITiEL0PHL3/FRUokNBqo2pZ
+	iZa9kULHI8Yq2DyncEkxBDr8023hXhq1vEQogzTA5LP18EB4H6w3DRcS5k66fjE=
+X-Gm-Gg: ASbGncvaBw7UEkShVbrdoMsghgrGRWNWdhwm/bs5Ju+ATiSu8lhKnFRQIvrAvbHM6gr
+	KXq1ryF2PIdLmS0Rdbq5yfXSdm8/EMKY8CoMx2669ecZZOibwprnNSg4KbEoKY/mW+qAVhOYXPW
+	AIFAVuPtvGvHglED1lvdmeC477JwEAkrnsaMrOQZknOYJt6nbeJG38zN60AyADDUnuy2wt58F0T
+	jNN7nPQuX8AJIPUDLv6M297QT2UqzuT/heVOaeXbOStXC9GvuqE4l611T95xXV7bOHjSUwn2YQ6
+	mhakKclBskkA49sPm1fAumtSl5CW0VdZkH4nTKJ1tBxyFvrIN51eBu5vgMGb
+X-Google-Smtp-Source: AGHT+IHswIEyCJXZp7woYZZuJpnAXAHgU63OvcCGWQJRtFTY7jo4WjlXR0PIT3yu2UR8Js69fWovDA==
+X-Received: by 2002:a5d:5850:0:b0:38d:e0ee:bb8 with SMTP id ffacd0b85a97d-3911641410amr1370787f8f.11.1741113941249;
+        Tue, 04 Mar 2025 10:45:41 -0800 (PST)
+Received: from [127.0.1.1] ([178.197.206.225])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e47b6ceesm18229985f8f.45.2025.03.04.10.45.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Mar 2025 09:05:41 -0800 (PST)
-From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Tue, 04 Mar 2025 17:05:43 +0000
-Subject: [PATCH v2 15/16] rtc: max77686: use dev_err_probe() where
- appropriate
+        Tue, 04 Mar 2025 10:45:40 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 0/2] clk: samsung: Two header cleanups
+Date: Tue, 04 Mar 2025 19:45:30 +0100
+Message-Id: <20250304-clk-samsung-headers-cleanup-v1-0-81718e38246e@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250304-rtc-cleanups-v2-15-d4689a71668c@linaro.org>
-References: <20250304-rtc-cleanups-v2-0-d4689a71668c@linaro.org>
-In-Reply-To: <20250304-rtc-cleanups-v2-0-d4689a71668c@linaro.org>
-To: Chanwoo Choi <cw00.choi@samsung.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- =?utf-8?q?T=C3=B3th_J=C3=A1nos?= <gomba007@gmail.com>, 
- Dianlong Li <long17.cool@163.com>, Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
-Cc: linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org, 
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-amlogic@lists.infradead.org, 
- llvm@lists.linux.dev, 
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAEpKx2cC/x2MywqDQAwAf0VybiD1TX+leFh3owbtVjYogvjvB
+ o8zDHOCchJW+GQnJN5F5R8N3q8M/OTiyCjBGHLKKyqoRL/MqO6nWxxxYhc4qTl2cVvRU9O3IVh
+ YE9hhTTzI8dy/3XXdYx3eU20AAAA=
+X-Change-ID: 20250304-clk-samsung-headers-cleanup-c07b8dd50360
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Sam Protsenko <semen.protsenko@linaro.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
  =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1611;
+ i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
+ bh=XDngEG8wtWQvhvF3YrSeK4X7ZGTxQunF/E8GOiLPgSs=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBnx0pN00BqtKjo8GLAIBcX4Q9OtViT91hhZMDba
+ VZfjobaseqJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCZ8dKTQAKCRDBN2bmhouD
+ 14bHD/9SLqOUAS4O36jLepNIa7itVCkJE3SddDL/7+JXCH/HT/7ForYiv2Pw5ZCaP5FQHVs8rXv
+ j8Wrrkh8F7rt6Io4KRK18qE84K4JC8GwEUCvG+TmryeajaUS6vg8ElbZ6zAHXeLIneWknMH6JRO
+ xtciD4Om3JIXD0eWluwV7ZAbi4DYV9jhxZcY5YwXmJI+a+VLCbDSkhaJzKl/fwZO89r9FqXgpQb
+ iJyp2P+UW+Wb1PyC8ZAJw/3a7V63Icadc/mzUKTiAQEqrHcPtnu2B8jwacPdrlo6bMuvT395Dq1
+ odV6qdKw7WxIe5WFczs6dPRsn9HIOqMU2xKT4w9nkCBzBfTbR1Qqezp+DwcrYRTiNFUAaJeVF3h
+ FwZ56GXbkyA+VtPJ+TqrLqVesOupSNLGsA9iNdxC1DI87ppon7f2/dIWNczjUhPAfsEdTCXe+j+
+ GL9QRA+3ZvVi55tIjq95uk4ewxdWdALQ2L/n/7dLD1TnhazHewO1d/vOyJa3Pywp5HqBwDSKR7I
+ 8Kavj9bnXIyPuZUfXzn+yhFILJkyzY69PoYcXnCKIbD2WYWgMRuxKjU+o2AU/o80c4IUc2JGS/j
+ Fke330DMu7cmYQ5rJV5yKYEXJhEZnVByMY16vLOw1jYACHQ62ZLsWqcXe9gH7H4iScZtUhzU4dC
+ 7Rdfp5W1qrpPmWA==
+X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
+ fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_090543_837033_0C9AD46E 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20250304_104543_162998_17BAD925 
+X-CRM114-Status: UNSURE (   9.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,73 +125,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-dev_err_probe() exists to simplify code and harmonise error messages,
-there's no reason not to use it here.
+Just two cleanups, no dependencies.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: André Draszik <andre.draszik@linaro.org>
+Best regards,
+Krzysztof
+
 ---
- drivers/rtc/rtc-max77686.c | 29 ++++++++++++-----------------
- 1 file changed, 12 insertions(+), 17 deletions(-)
+Krzysztof Kozlowski (2):
+      clk: samsung: Add missing mod_devicetable.h header
+      clk: samsung: Drop unused clk.h and of.h headers
 
-diff --git a/drivers/rtc/rtc-max77686.c b/drivers/rtc/rtc-max77686.c
-index 6b0d02b44c8097453f704cbec9f02580fb869ca3..69ea3ce75b5a5426d4a56b979773be71c4ee7562 100644
---- a/drivers/rtc/rtc-max77686.c
-+++ b/drivers/rtc/rtc-max77686.c
-@@ -704,10 +704,9 @@ static int max77686_init_rtc_regmap(struct max77686_rtc_info *info)
- 	}
- 
- 	info->regmap = dev_get_regmap(parent, NULL);
--	if (!info->regmap) {
--		dev_err(info->dev, "Failed to get rtc regmap\n");
--		return -ENODEV;
--	}
-+	if (!info->regmap)
-+		return dev_err_probe(info->dev, -ENODEV,
-+				     "Failed to get rtc regmap\n");
- 
- 	if (info->drv_data->rtc_i2c_addr == MAX77686_INVALID_I2C_ADDR) {
- 		info->rtc_regmap = info->regmap;
-@@ -716,28 +715,24 @@ static int max77686_init_rtc_regmap(struct max77686_rtc_info *info)
- 
- 	client = devm_i2c_new_dummy_device(info->dev, parent_i2c->adapter,
- 					   info->drv_data->rtc_i2c_addr);
--	if (IS_ERR(client)) {
--		dev_err(info->dev, "Failed to allocate I2C device for RTC\n");
--		return PTR_ERR(client);
--	}
-+	if (IS_ERR(client))
-+		return dev_err_probe(info->dev, PTR_ERR(client),
-+				     "Failed to allocate I2C device for RTC\n");
- 
- 	info->rtc_regmap = devm_regmap_init_i2c(client,
- 						info->drv_data->regmap_config);
--	if (IS_ERR(info->rtc_regmap)) {
--		ret = PTR_ERR(info->rtc_regmap);
--		dev_err(info->dev, "Failed to allocate RTC regmap: %d\n", ret);
--		return ret;
--	}
-+	if (IS_ERR(info->rtc_regmap))
-+		return dev_err_probe(info->dev, PTR_ERR(info->rtc_regmap),
-+				     "Failed to allocate RTC regmap\n");
- 
- add_rtc_irq:
- 	ret = regmap_add_irq_chip(info->rtc_regmap, info->rtc_irq,
- 				  IRQF_ONESHOT | IRQF_SHARED,
- 				  0, info->drv_data->rtc_irq_chip,
- 				  &info->rtc_irq_data);
--	if (ret < 0) {
--		dev_err(info->dev, "Failed to add RTC irq chip: %d\n", ret);
--		return ret;
--	}
-+	if (ret < 0)
-+		return dev_err_probe(info->dev, ret,
-+				     "Failed to add RTC irq chip\n");
- 
- 	return 0;
- }
+ drivers/clk/samsung/clk-exynos-audss.c   | 1 +
+ drivers/clk/samsung/clk-exynos-clkout.c  | 1 +
+ drivers/clk/samsung/clk-exynos3250.c     | 4 +---
+ drivers/clk/samsung/clk-exynos4.c        | 1 -
+ drivers/clk/samsung/clk-exynos4412-isp.c | 2 +-
+ drivers/clk/samsung/clk-exynos5250.c     | 1 +
+ drivers/clk/samsung/clk-exynos5260.c     | 3 ---
+ drivers/clk/samsung/clk-exynos5410.c     | 2 --
+ drivers/clk/samsung/clk-exynos5420.c     | 1 +
+ drivers/clk/samsung/clk-exynos5433.c     | 4 +---
+ drivers/clk/samsung/clk-exynos7.c        | 1 -
+ drivers/clk/samsung/clk-exynos7885.c     | 2 +-
+ drivers/clk/samsung/clk-exynos850.c      | 2 +-
+ drivers/clk/samsung/clk-exynos8895.c     | 2 +-
+ drivers/clk/samsung/clk-exynos990.c      | 2 +-
+ drivers/clk/samsung/clk-exynosautov9.c   | 2 +-
+ drivers/clk/samsung/clk-exynosautov920.c | 2 +-
+ drivers/clk/samsung/clk-fsd.c            | 2 +-
+ drivers/clk/samsung/clk-gs101.c          | 2 +-
+ drivers/clk/samsung/clk-s3c64xx.c        | 1 -
+ drivers/clk/samsung/clk-s5pv210-audss.c  | 1 +
+ drivers/clk/samsung/clk-s5pv210.c        | 1 -
+ drivers/clk/samsung/clk.c                | 1 -
+ 23 files changed, 16 insertions(+), 25 deletions(-)
+---
+base-commit: c0eb65494e59d9834af7cbad983629e9017b25a1
+change-id: 20250304-clk-samsung-headers-cleanup-c07b8dd50360
 
+Best regards,
 -- 
-2.48.1.711.g2feabab25a-goog
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 
