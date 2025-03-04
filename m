@@ -4,92 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C598C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 00:55:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30048C282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 01:05:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QcGW3hftQvU3jMggm2moyLYr9Q6yInAQjdzrqRR3vjc=; b=1JBpWLfyF5PEswLPGuLLSBFihb
-	v0Lfg1HLJjySdrlgBgbPGkFQ57hr7iM7MnNZplr8yFZ4gmK0Wqy3yAtyB00lh/bYOShn2IQr0U3Kb
-	ddgN5g42oRGTY01Du+Jm4RgVKMGZkoGLU+RyuIhSLIuGWe1lJxJiocEAOL5AX1J8KYkMKjXxBktJU
-	kR3KJd+rs8ITX+6wJoTr+rUzUfGtuJ8VE6jS3+rx3tOP8pxI1ljF1Ciys1SwZd8dVzaB2/SdpOMxg
-	rGg+LDdAeakdi5x6pCPYc9AZwdNneUASOphMS0JZSveg3G+125lE7tZqfS1pykN21/kUHTu/1+5ij
-	fz3TWAfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bnm2BczQeE+oTxQUkTu0mGWgYbP3KRiI/EZBYxWyGBw=; b=FUU3a9ez5vhKjs/+Z4WD14Lkfs
+	VXcE/2oH18XI/yfHEIfeQsVATGrWpx+hFvGjNK1rb/yijAMwCLZ3GRVA9AE3fkg5XFq6SUiEHBAUV
+	635cVwphofiIOdad3WxQCO+xSoFuqAmM0+e3hHwPmSNzZfdT/ubKHkfUw6cuXgXYPnrpdgiou/bFs
+	rAArxbez4mjC2uksTau3UZPrJ0eURECl/VXSFSzqOreO0SQ3mKiHgpylHTOJHh849isXiZg7/g1CQ
+	uq0SRKIGqhx6iy1CgQo+u+6JlaE9DnxE+aRM3jDHH2i6jYAKfTPxejBcpYRYrd/J5HFAuNtzVJU/v
+	0ivwYoNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpGYw-00000002i1g-0mmj;
-	Tue, 04 Mar 2025 00:55:10 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1tpGik-00000002itg-1yew;
+	Tue, 04 Mar 2025 01:05:18 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpGXK-00000002huN-2G9v
+	id 1tpGh7-00000002iiV-3CrA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 00:53:31 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-43bca0048c3so12095e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 16:53:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1741049609; x=1741654409; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=QcGW3hftQvU3jMggm2moyLYr9Q6yInAQjdzrqRR3vjc=;
-        b=Nnxp+r4w7NCwt6f3OHiISgO8nTwnr+Fg+IzxysDkIh+avxYXCsEpaycTZM6hv/bluP
-         /1ZMhxGgkmhu/wIYJomJgk39NcLyg72OBSr4+53fvxheMNMNDLRKe43LOcjcSg7v9vDx
-         7RYOOjml4uXSJGKozrh76lEsahq8F5oRr0QIsB0pPZOaQ2uxiKgvKSIZTXZ/2JCyiAIN
-         B2nUBcPwWzgZ5VzL6XmV5redpN1wjPq9UEvDk1diGj8u77FDcnM4W3O1lFvTo0Yi9uT2
-         Dk+kfRFDC/A93cghhjzAp0y6LndLLlSG9aNT44Pl6s1pKaPa4H3/e8/iO4ZV9071Itqt
-         dKjA==
+	Tue, 04 Mar 2025 01:03:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1741050216;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bnm2BczQeE+oTxQUkTu0mGWgYbP3KRiI/EZBYxWyGBw=;
+	b=E3gd43gT3HWq6LpqPb0Ge4U5+bokg2ld+ROxIZprq/iMHQuJdggwQpep6cNEO/UVsF8i5l
+	c+RrHOAitu+9YJBkXmisCvBZdbjD/9CYq4dp8m+8aPlPxoqN6HhY/2g90qrpGrHM7OcIXK
+	Dhx5sYnobzH3MRIzrnI7kwbufQ5Wi+I=
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com
+ [209.85.216.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-441-osPxg6TgOtqgV0b4mGc7eg-1; Mon, 03 Mar 2025 20:03:33 -0500
+X-MC-Unique: osPxg6TgOtqgV0b4mGc7eg-1
+X-Mimecast-MFC-AGG-ID: osPxg6TgOtqgV0b4mGc7eg_1741050212
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-2fe8fdfdd94so9920444a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 17:03:32 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741049609; x=1741654409;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QcGW3hftQvU3jMggm2moyLYr9Q6yInAQjdzrqRR3vjc=;
-        b=ZFOyMeJgl5wygcdh7QUB+g3eiTuqCNLGn9OiyU9KkZA3asfAPTbsNGCf4neVPsP9L4
-         fH4aRc3WsoJUDUiQxqJotQkfb9oakFgnnrXcJ/8CF76Hh/LWeKcaSdCjc/6bpyk4iQ1T
-         6BLU2S2BtY6FC6PAPaCoqvIL6FeOExGEfernSGV7UtisngjDUJGVDrJicj/vdFBuWyUq
-         vAa47/BkkzDYZNZFk3C3tMIpcO1dyHBygcPrvHlfx990rlf+DgRnoNebCBkLmnCNfRrA
-         4k4DnvM2k/z7s6xaIc6mOlj7tmFKpwnDFwhaFhqNcqaFXAQefhr9JN+qXKaWhi9QycBH
-         Ou4w==
-X-Forwarded-Encrypted: i=1; AJvYcCWlExo0wHWFLb9eC6sny940tinpSa5l0aHvUgPbKnvoDebSb33qrh8MlYONx6tCOmpca32/A6+anOPo8xd6kYT+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnEkU6Q6V6iAtwY/q/39C/ewwX3djhMp8AKt/TPm4DHKII3vGm
-	GsqZrWm9Lj/0dUnrdSXh79i7U0+Sr66RhWfIXOYxVyuZtmt7yi0X48bby4gmaw==
-X-Gm-Gg: ASbGnctJDXOp+z1WZePZRwJV73tHake/AJRkywXzfx8ZDJHzTw7UqGylZpNCQ6tViqH
-	MvgQBfvbL0Jyh63CecMgIvIrdujqVrOhHHtqrRLe9VUrr8AR9xETpSwRvmgno69EJUiie7t0P0v
-	WxdwC4yKV0Fu/l+O/zEZDbSIgaAzDKUpRJJLQ9hhhkcd6bsvVfM1KYZXfa/m1Ou8J+BQNVC7jqO
-	RFwZkvgSu4OPkJUR48nJ4DJr1zl9ahicAC6SeznNM667Q8PrCK3GahLocJY6WlFrXZoty/82niw
-	+XvTMWDHxfWoC8MF7k6kTalHppsti0vf13IrOKgFnR+7pqLw9pkDPw8OOf1z43u/5T+g1eslnH4
-	/hkUHpTI8zJum
-X-Google-Smtp-Source: AGHT+IGGyKa5a4dpqv99Cmt1pAVAafiGZn4JUYC2/5rtkoVDs1twq+6HqnYQlt8PwwJ67CJIVwLsOA==
-X-Received: by 2002:a05:600c:43d4:b0:439:9434:1b66 with SMTP id 5b1f17b1804b1-43bcbe262d7mr265745e9.1.1741049608743;
-        Mon, 03 Mar 2025 16:53:28 -0800 (PST)
-Received: from google.com (100.235.22.34.bc.googleusercontent.com. [34.22.235.100])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e4847fe5sm16074903f8f.73.2025.03.03.16.53.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Mar 2025 16:53:27 -0800 (PST)
-Date: Tue, 4 Mar 2025 00:53:25 +0000
-From: Sebastian Ene <sebastianene@google.com>
-To: Will Deacon <will@kernel.org>
-Cc: catalin.marinas@arm.com, joey.gouly@arm.com, maz@kernel.org,
-	oliver.upton@linux.dev, snehalreddy@google.com,
-	sudeep.holla@arm.com, suzuki.poulose@arm.com, vdonnefort@google.com,
-	yuzenghui@huawei.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-team@android.com
-Subject: Re: [PATCH v2 3/4] KVM: arm64: Map the hypervisor FF-A buffers on
- ffa init
-Message-ID: <Z8ZPBZF7J-qKdb_i@google.com>
-References: <20250227181750.3606372-1-sebastianene@google.com>
- <20250227181750.3606372-4-sebastianene@google.com>
- <20250303234259.GA30749@willie-the-truck>
+        d=1e100.net; s=20230601; t=1741050212; x=1741655012;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bnm2BczQeE+oTxQUkTu0mGWgYbP3KRiI/EZBYxWyGBw=;
+        b=ZQug7nQ30R0odQnvhWaN7sjZjXb7G91b8adr4SIUyCCLAICshMSIK2+4pH65MzjHUn
+         jS7r2/3p8Nz0kVWm8X8X1SxM4tKLigEHanfCv4v6C61TZ//EmXNjzcdVZf12tgwGPjV+
+         bm5eCl9VVbLUPO2sZypGrKmIbFmRaEB09e3hrmphJmqsi9sONUVM7gSpAx6VgkVLCfDf
+         G0kNnZYmEourdz5hnbWMDZG1W1rhOAuX4rZXZKTwNkp/sqYCXao1pPZ7Fven4GFoPRhg
+         X2Jf7Q513+dnARK7EF2Q20aS0MDPILOM/ox589zOdJYbsV90H2em9oOHkASyDoLKltw/
+         C38A==
+X-Forwarded-Encrypted: i=1; AJvYcCUM4UJDx5uot4yGKF+MW7tz0pDyWGsLg9X+dXFg7UHMTOj8DuAGT5mHiD0sVDzqnu0HhF4o9SCwWOvCkqxuVkuu@lists.infradead.org
+X-Gm-Message-State: AOJu0YyeOd5p7UeEnP5dB88uYw1zLkuf/dQLWmurnZX24HVaS8jPOlyF
+	AwF5YbZdAYw24fbaXJrwJQL5mtLQjuN7wN6tMiO3H425GwKI8Ht4D+eknyzYt8VgY9qIHEsyEpb
+	W7uiBcIixHkkyTtWIpZYwEIZ7t8XfSyi4R491fTTZmVhOGkwIcFHKk84v2+/PFLGQgEOBI016
+X-Gm-Gg: ASbGncujSyYoDBGMatjyCiDXvpI4Jegs0xCBYwreWgPQxmb26zoHHD66EwlUNqD/Zl+
+	G0NFSyzA7o5GO/jO5DiAk2aNDJ0pPt3VhPXA+xjDEfuQjQIsp00K8HHfkMF2yOTQ9ikWFOJCjRA
+	XoMAQP3/cdQRPyHW+8ZSe+gKTK6T3HQLt4CIV2JxD9KXtxoF+6XqbORWunlme91udIUHyOhqVmg
+	mNN/B9BXxVhzr+4Kiid8VNHqeXYeHffHWFgRDBjalWtqEQjr6+znZhZpCuD87R4G0YdbD0uOx7B
+	Rp/RcGAjyWRY+Io9Gg==
+X-Received: by 2002:a05:6a20:1594:b0:1ee:650b:ac22 with SMTP id adf61e73a8af0-1f2f4e4c8e2mr29503600637.40.1741050211923;
+        Mon, 03 Mar 2025 17:03:31 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEh6O0/XBxWNy8f6zQpOsX8TWQ/teZrvIDTKOnq0U3+AlSWoqSQsK295l3GALc1XNoc+vUz9w==
+X-Received: by 2002:a05:6a20:1594:b0:1ee:650b:ac22 with SMTP id adf61e73a8af0-1f2f4e4c8e2mr29503541637.40.1741050211560;
+        Mon, 03 Mar 2025 17:03:31 -0800 (PST)
+Received: from [192.168.68.55] ([180.233.125.164])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-aee7ddf2444sm9001374a12.3.2025.03.03.17.03.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 03 Mar 2025 17:03:30 -0800 (PST)
+Message-ID: <80983793-5df7-4828-96e8-90540e7d9183@redhat.com>
+Date: Tue, 4 Mar 2025 11:03:21 +1000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250303234259.GA30749@willie-the-truck>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 17/45] arm64: RME: Handle realm enter/exit
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20250213161426.102987-1-steven.price@arm.com>
+ <20250213161426.102987-18-steven.price@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20250213161426.102987-18-steven.price@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: UbcAN2kmGT5FJANiTYPDqXGBtTM6f6HG_1-Zkw0JAPo_1741050212
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_165330_600683_49560BEE 
-X-CRM114-Status: GOOD (  23.00  )
+X-CRM114-CacheID: sfid-20250303_170337_896193_D78C7351 
+X-CRM114-Status: GOOD (  28.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,50 +121,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 03, 2025 at 11:43:03PM +0000, Will Deacon wrote:
-> On Thu, Feb 27, 2025 at 06:17:48PM +0000, Sebastian Ene wrote:
-> > Map the hypervisor's buffers irrespective to the host and return
-> > a linux error code from the FF-A error code on failure. Remove
-> > the unmap ff-a buffers calls from the hypervisor as it will
-> > never be called.
-> > Prevent the host from using FF-A directly with Trustzone
-> > if the hypervisor could not map its own buffers.
-> > 
-> > Signed-off-by: Sebastian Ene <sebastianene@google.com>
-> > ---
-> >  arch/arm64/kvm/hyp/nvhe/ffa.c | 46 +++++++++++++----------------------
-> >  1 file changed, 17 insertions(+), 29 deletions(-)
+On 2/14/25 2:13 AM, Steven Price wrote:
+> Entering a realm is done using a SMC call to the RMM. On exit the
+> exit-codes need to be handled slightly differently to the normal KVM
+> path so define our own functions for realm enter/exit and hook them
+> in if the guest is a realm guest.
 > 
-> [...]
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v6:
+>   * Use vcpu_err() rather than pr_err/kvm_err when there is an associated
+>     vcpu to the error.
+>   * Return -EFAULT for KVM_EXIT_MEMORY_FAULT as per the documentation for
+>     this exit type.
+>   * Split code handling a RIPAS change triggered by the guest to the
+>     following patch.
+> Changes since v5:
+>   * For a RIPAS_CHANGE request from the guest perform the actual RIPAS
+>     change on next entry rather than immediately on the exit. This allows
+>     the VMM to 'reject' a RIPAS change by refusing to continue
+>     scheduling.
+> Changes since v4:
+>   * Rename handle_rme_exit() to handle_rec_exit()
+>   * Move the loop to copy registers into the REC enter structure from the
+>     to rec_exit_handlers callbacks to kvm_rec_enter(). This fixes a bug
+>     where the handler exits to user space and user space wants to modify
+>     the GPRS.
+>   * Some code rearrangement in rec_exit_ripas_change().
+> Changes since v2:
+>   * realm_set_ipa_state() now provides an output parameter for the
+>     top_iap that was changed. Use this to signal the VMM with the correct
+>     range that has been transitioned.
+>   * Adapt to previous patch changes.
+> ---
+>   arch/arm64/include/asm/kvm_rme.h |   3 +
+>   arch/arm64/kvm/Makefile          |   2 +-
+>   arch/arm64/kvm/arm.c             |  19 +++-
+>   arch/arm64/kvm/rme-exit.c        | 171 +++++++++++++++++++++++++++++++
+>   arch/arm64/kvm/rme.c             |  19 ++++
+>   5 files changed, 208 insertions(+), 6 deletions(-)
+>   create mode 100644 arch/arm64/kvm/rme-exit.c
 > 
-> > @@ -861,6 +842,7 @@ int hyp_ffa_init(void *pages)
-> >  {
-> >  	struct arm_smccc_res res;
-> >  	void *tx, *rx;
-> > +	int ret;
-> >  
-> >  	if (kvm_host_psci_config.smccc_version < ARM_SMCCC_VERSION_1_2)
-> >  		return 0;
-> > @@ -911,5 +893,11 @@ int hyp_ffa_init(void *pages)
-> >  		.lock	= __HYP_SPIN_LOCK_UNLOCKED,
-> >  	};
-> >  
-> > +	/* Map our hypervisor buffers into the SPMD */
-> > +	ret = ffa_map_hyp_buffers();
-> > +	if (ret)
-> > +		return ret;
-> 
-> Doesn't calling RXTX_MAP here undo the fix from c9c012625e12 ("KVM:
-> arm64: Trap FFA_VERSION host call in pKVM") where we want to allow for
-> the host to negotiate the version lazily?
 
-We still have the same behaviour where we don't allow memory
-sharing to happen until the version is negotiated but this
-separates the hypervisor buffer mapping part from the host.
+With below nitpicks addressed:
 
-> 
-> Will
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+
+[...]
+
+> diff --git a/arch/arm64/kvm/rme-exit.c b/arch/arm64/kvm/rme-exit.c
+> new file mode 100644
+> index 000000000000..aae1adefe1a3
+> --- /dev/null
+> +++ b/arch/arm64/kvm/rme-exit.c
+> @@ -0,0 +1,171 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2023 ARM Ltd.
+> + */
+> +
+> +#include <linux/kvm_host.h>
+> +#include <kvm/arm_hypercalls.h>
+> +#include <kvm/arm_psci.h>
+> +
+> +#include <asm/rmi_smc.h>
+> +#include <asm/kvm_emulate.h>
+> +#include <asm/kvm_rme.h>
+> +#include <asm/kvm_mmu.h>
+> +
+> +typedef int (*exit_handler_fn)(struct kvm_vcpu *vcpu);
+> +
+
+Duplicated to exit_handler_fn, defined in handle_exit.c, need move the
+definition to header file.
+
+> +static int rec_exit_reason_notimpl(struct kvm_vcpu *vcpu)
+> +{
+> +	struct realm_rec *rec = &vcpu->arch.rec;
+> +
+> +	vcpu_err(vcpu, "Unhandled exit reason from realm (ESR: %#llx)\n",
+> +		 rec->run->exit.esr);
+> +	return -ENXIO;
+> +}
+> +
+> +static int rec_exit_sync_dabt(struct kvm_vcpu *vcpu)
+> +{
+> +	return kvm_handle_guest_abort(vcpu);
+> +}
+> +
+> +static int rec_exit_sync_iabt(struct kvm_vcpu *vcpu)
+> +{
+> +	struct realm_rec *rec = &vcpu->arch.rec;
+> +
+> +	vcpu_err(vcpu, "Unhandled instruction abort (ESR: %#llx).\n",
+> +		 rec->run->exit.esr);
+> +	return -ENXIO;
+> +}
+> +
+> +static int rec_exit_sys_reg(struct kvm_vcpu *vcpu)
+> +{
+> +	struct realm_rec *rec = &vcpu->arch.rec;
+> +	unsigned long esr = kvm_vcpu_get_esr(vcpu);
+> +	int rt = kvm_vcpu_sys_get_rt(vcpu);
+> +	bool is_write = !(esr & 1);
+> +	int ret;
+> +
+> +	if (is_write)
+> +		vcpu_set_reg(vcpu, rt, rec->run->exit.gprs[0]);
+> +
+> +	ret = kvm_handle_sys_reg(vcpu);
+> +
+> +	if (ret >= 0 && !is_write)
+> +		rec->run->enter.gprs[0] = vcpu_get_reg(vcpu, rt);
+> +
+
+Unncessary blank line and the conditon isn't completely correct: kvm_handle_sys_reg()
+should return 0 if the requested emulation fails, even it always returns 1 for now.
+
+	ret = kvm_handle_sys_reg(vcpu);
+	if (ret > 0 && !is_write)
+		rec->run->enter.gprs[0] = vcpu_get_reg(vcpu, rt);
+
+> +	return ret;
+> +}
+> +
+
+[...]
 
 Thanks,
-Sebastian
+Gavin
+
 
