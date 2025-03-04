@@ -4,157 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 292D7C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 14:42:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08904C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 14:45:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QEv+Yz5u27z0p7M6x1Nm/nJOWjsJ4TWUa/sZkIyOtrs=; b=Yv319dKg3TlbeNXkoXeg53Ne5I
-	xF1sT5IvsWjUVIB+hU65ehif0yTpP8ryDUKI69ZXAotoBnuh/keJTmWlcY53KcrRAtHgFQVEJkGEm
-	0FEfXgpsMZ693QHg4cv2J0zCxoJm9LGHoWV67oWoSt7JCJu+xWN8vGbqFCoB5iDFGla8aePAyBMvm
-	/nFHrN+wMqYDDodKCQ7zai1nguQTuuE1MnMA+ehTp1OrjEliJlhqfoYpWXxgu0x7BY1nodcR8Z81Z
-	iB2pI/WhpYrWfWyIOktIBTTVvyigp4i0gd4Bqc7NZhKc9LkSdPBeghsF9kxr9cRcIqT/lv7GYECDg
-	P8tXVOeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iRe8bA5fq5Dnerb6IrVuapdeqPHeVXv9pFZzkEkJmRo=; b=w9AGjgD4J7oVxaOOz6XQU0/vYj
+	2Z+HeDzceP/tF5/xAyHTOCes4BUM12aCKiBmatXme5o0pUdxr72xA2Hrb9JyGQmFDFTJmXuLAg5A8
+	dLf4bgKHdP6CUmDcIBdJ+gL3d11ybjyTKDNrP0Up0Is/7RAwP6XNWSUOTIuP70cD4SiP1Os/ojB5F
+	wEq15r/o87S+WfCIiXl7t8DIMrOifO18CmBgwxah1kYlzXoUgwvUL+C09bECzb6yIYhqSNwRlb0yH
+	Vpcy7SX44bW3QCihfvahCemGzr1Hul9QIKiwH/zEJH7iYKra1wR09yWjS9LNAeMXlrwqM0KsLuhC6
+	geOU7spg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpTTN-000000052MT-2X6N;
-	Tue, 04 Mar 2025 14:42:17 +0000
-Received: from mail-northeuropeazlp170130004.outbound.protection.outlook.com ([2a01:111:f403:c200::4] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1tpTWI-0000000534l-1wxM;
+	Tue, 04 Mar 2025 14:45:18 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpTRm-00000005242-3Ek1
+	id 1tpTUh-000000052gb-43Fp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 14:40:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KvG7cSZrxL/1fshV2aCJPsKxRbZuK+voIdIF1HwQwkgKnCuDJquWF/tfMRaowzYTgRRnplhvQPCwkRdf3+1GQFn7QFaQWSxnJhfkW0p12unls2ViUESQ8R2Yg4AfvsBNk7vutTNDbDTE9NvwZVZ6oCWJazQvmkWgyrTdGiw8IUZ1tw3EkbEHy7iXJI5dUHZCBG31t1wBg80RFZtKTiVZMk4qpkOUnedLsYZysgl2CzcD7xNkWzEUCmFPbU8M72AYUd3F0OiDCHBsLwVz8JI25Bf0NLiTgTkKNKgXk9/p6pEEVbHlqELF7mMvSwXmocQQhwh2rt8IE9/epkmhieilJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QEv+Yz5u27z0p7M6x1Nm/nJOWjsJ4TWUa/sZkIyOtrs=;
- b=d19sc0vp1PAbE/SgaVJWtmATNEgtKCtoBs7Uvvr1rKoI7avhchIKVCM3WgUPPmamvI5wlCHwbABlkey41RAzdH3FNE30QoGe3hJGc5Exidfdt3rr47VrSOdDRTR38tC8Ya1RwUXMxtKpt6Ps73hfeuN3KcuLIihIKeb/QNyQ5LmmGeoNgSPxbnelvdUkjebXOIG7KVWA59TQ1jVhuf3iOhTHSvOfpGHocpuSEL0Xx9HrCBQhEuQ9ypjgS6eDHU5f0cKSOa41FeafjLKcJwwF+FP5hyEN5fC+JForcuoemqEeRk8gGLWnBvNHunibV6+PQnvefU+r2zt32BBbFoRALw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QEv+Yz5u27z0p7M6x1Nm/nJOWjsJ4TWUa/sZkIyOtrs=;
- b=Jvszs2jcH3gZpyDSP/EzRPuMbOFjKX5eCm/yuivfpWB8BAfmuClwZF2kxsEyrVILW8Gv3DzLaMQOSiW1c9K5ATH8gJGWWznfGAq4pN578j4A3iKYFW7JIJEmltf4JGCzG2mKo39tb10qAKzDfKWFwEDdylF1ueqmFsVFUkq/+VAdGjkWIKgrX1Qs+L+Hy2gbfMYeDMaTrbbu2zj72UuqGPn90hdjcJp7roLA+faYbIdFhgWy+fC128GlI+7FmQt9ECq1CBmu0xW2ZEIJM+lkQwYMekBLtIQEeerMixuc5KwbCv3SRrYbP0x1BkE4+rGYJwUSkQGPBqsIzQdeUlflsw==
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
- by DBAPR04MB7445.eurprd04.prod.outlook.com (2603:10a6:10:1a7::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.16; Tue, 4 Mar
- 2025 14:40:32 +0000
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb]) by AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb%7]) with mapi id 15.20.8489.025; Tue, 4 Mar 2025
- 14:40:32 +0000
-From: Jacky Bai <ping.bai@nxp.com>
-To: Rob Herring <robh@kernel.org>
-CC: "krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de"
-	<kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, Aisheng Dong <aisheng.dong@nxp.com>,
-	Peng Fan <peng.fan@nxp.com>, Frank Li <frank.li@nxp.com>
-Subject: RE: [PATCH v2 1/4] dt-bindings: dma: fsl-edma: add
- interrupts-extended property
-Thread-Topic: [PATCH v2 1/4] dt-bindings: dma: fsl-edma: add
- interrupts-extended property
-Thread-Index: AQHbjOgzpPILpRKVCUGBCMqX1iCwX7Ni9I4AgAAOCaA=
-Date: Tue, 4 Mar 2025 14:40:31 +0000
-Message-ID: <AS8PR04MB8642D20F0F5A7E8622A7685F87C82@AS8PR04MB8642.eurprd04.prod.outlook.com>
-References: <20250304093127.1954549-1-ping.bai@nxp.com>
- <20250304093127.1954549-2-ping.bai@nxp.com>
- <20250304131314.GA2441686-robh@kernel.org>
-In-Reply-To: <20250304131314.GA2441686-robh@kernel.org>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS8PR04MB8642:EE_|DBAPR04MB7445:EE_
-x-ms-office365-filtering-correlation-id: e3b0c6b9-1b8c-445b-37b7-08dd5b2a841c
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?XMbL7RgsvTaep2+USPHu6VXPS7lfq+a59OujAZeO97oJkMf0eUzRsDGG7WCB?=
- =?us-ascii?Q?vIxLzoGLmrHZubgkoke3KX1Y/CF82QJgI3UqzTZl0nZV+FHypMWOr1jwSSEI?=
- =?us-ascii?Q?hHxJIY91ziqoxa01kNEGUSk5Os3SMwcOkgowqGHhMHP+TPhXkx1lP2Py3gbK?=
- =?us-ascii?Q?jbmTjPGeeO9mcc2hsimT4MKi5yYTRdAN4ZJJGbfM61THbmt2HKO3QDsy6Fec?=
- =?us-ascii?Q?FfjgaEsajFKpGx0+1wP4kRD96BvkJyMMwvzUhCrhv20WGzLV5R4fRc/ASDxu?=
- =?us-ascii?Q?JON4B4mpdrQbqSlAF5iR97CjvmKkJhpQK276NB/wre6iE/EN+PtPFAxznfQ2?=
- =?us-ascii?Q?wDwQ9z15HRyqp/aHCgU86wU/kwFWYqYcV+goHJGBueV8uGQwjTiqpEGgHytm?=
- =?us-ascii?Q?9sH9AKKq2IU8RXr2ivCO9TgWrqQgR2bNBJ52Y4sbH1bsjTrUZYthN6BEJfjC?=
- =?us-ascii?Q?Hdpv1EGdJ9vglT7jLLchHJVy1YWq9fOrO0Py1Ek9hrw6mrsJN4IEqcQTl+zk?=
- =?us-ascii?Q?5eFJ8vl8RzW6TtLOO85m6qc4veRnlMasMR27aNx5zBDQ6lazfCz9YbOiQwzK?=
- =?us-ascii?Q?Ae81v/+dn1wp+l4oYxUYTPzws+S8rFos57KeHz0HdSJiP5DwJ95bbCHyZB7l?=
- =?us-ascii?Q?UoNQjTxRJQYOkC3bWmHiz6ccDkLRPVQn0piGcvaeQ+eU/6lMbgnwuJyn1uOp?=
- =?us-ascii?Q?QAT+CowqeEZN7YDg5qOEMrzQGylEcTSl7jQUN350TeKdn/el19+wc6YokwJg?=
- =?us-ascii?Q?gMhaPi2E4vcFpCyMlzKREAABnrkMDiUYXTcMHOYk0RSIwwnTjFQJzJFOCK9N?=
- =?us-ascii?Q?pTe4yp2d+NTcaIrFYzz517Rip1+wot8AnbRjAkBNv/5Xcs60+jST7SKJc75R?=
- =?us-ascii?Q?yku0q1nF3Xo5ww7FGHKd/ZPYDI1ET+l+LstM2rFT6Cy/OW+b8gW8EFack6o4?=
- =?us-ascii?Q?MJJ/q+WZV6XC7rbHH28eGQtZ9w+IZQZ4vPHe4VagHccADKnhIpm5IP7FHNdh?=
- =?us-ascii?Q?UPKltkW3m5wirKIOuxJNGsyCiTX6gHQG3Eqjys9HsCWw2Lu5B8kzGd6ucoId?=
- =?us-ascii?Q?JxVB1YbmimJhauufZek83LQ9kGcxJamU8dOYqoOTC4/iEG7l7/2KgKMwVLrM?=
- =?us-ascii?Q?mTcExAVy9UNBO4XRx80si3CXL7IcQ6G1c4V78N+LAe0r7etam/AkhJWY9Ug9?=
- =?us-ascii?Q?pHeFjMD2ZiSlytCG6X6UgAZED9IvtKcl2BzJSoPqO7F+Lh64G3Aecxvdk79M?=
- =?us-ascii?Q?2pn3V7qKcz60D8muBL5qklaFFlRiLWhF5zgwWK/a4FJsIdiPhLU/6KOwETmY?=
- =?us-ascii?Q?dPBAdrnFNRrdcWeD0DMPA3nDnRyr3PRzdTpk96TtWPFAmK4vRsAtvrUJObjP?=
- =?us-ascii?Q?arkq/VREK2E3NlNwmuAcdCaBzG9GLUWDbgeS/uJkrRRBUIUD6qn8gDqM7YzE?=
- =?us-ascii?Q?0XKoTU52khZ+6SzZS0Ut5nK45UtgjoPY?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?iqvFodj1Wu6CkdiPJ9h40MlFNAEx4h/cF+HdHrQX/T4kM6hnjOZY/Lpq8cxX?=
- =?us-ascii?Q?TNsvVYVa0gi+zSxNLDWtCDMV77270qlp5EBCNIPFcUH3pq6iduTpLZYEvYnK?=
- =?us-ascii?Q?hlvaJpjT9YZafJ+nBTQgNwQhRHWg2ZPlFP99ndHCpiG/nH1dJ8J/1SV4JMVr?=
- =?us-ascii?Q?O/KIsn2E/cP725NmtNcsq8Ju6AzQnyXDtESjQswdcJKrXper4VuZfvHLjNqt?=
- =?us-ascii?Q?ddZ4fUASYR5/KE5Vfwa7CGGdZmIcW8ak31gwo/xtV/uBZCyRa/gbzufbRWyu?=
- =?us-ascii?Q?Rvp3l0ySCQZsZV2AGifXjxc9nV9Om+GX0C0JNIqMa3MFChmiDYKx7Odmywcx?=
- =?us-ascii?Q?z7RNhTBpjb48yJdHNx0xlbyOluwPjinQfMEXGHru2yyBqeufSuANeSMhterZ?=
- =?us-ascii?Q?8lOTsYMsBDycOl+ZWzEt5SnqZBiIuniGlpjHvilyMTBqDwW4gDsiuJLpPCYe?=
- =?us-ascii?Q?gFxXUnxADImCsxKhqQDvck+4OZvPqkonQE0y5HgoUp1i/n4cp6xu3oPO6nXA?=
- =?us-ascii?Q?rZnolcaPQblOk7+KhPwqFPXtKZdqEq7F0GveIDhUH7G0GivDCEt7ILGpM8DQ?=
- =?us-ascii?Q?rr4Q1Z1TB8ERzkncWlnQExsWmzrVjEBsvkN99LZq0BjetrilD8LnsjUsj0wh?=
- =?us-ascii?Q?4gzFz/86vPz5cRvSCe3QsvzbEZxFRtgUnVKvShGUQ7Gr6aJs4wo9L6qN521R?=
- =?us-ascii?Q?rjJvOnStFXgwG1hMMxeDV/ze+v9p5q08wooCqDhLn9TacDOCZv4NACfRfU4a?=
- =?us-ascii?Q?YngSFoH+IXDaFwqUwstgjdpk/0572FO3ctydjddIWB8XCCYcv2VlSxpdINVP?=
- =?us-ascii?Q?0F8v3gNSRuUJNJzQr46w/3NZCLbRwORUYhHmFWyOFj2FNgs9SjrTu/ndle/5?=
- =?us-ascii?Q?/sNQ5tX3R/8KaKxhtXK0dsvFQeupAn+qVew3+M+jnWMvdCUzY6Wcl4hlLOHh?=
- =?us-ascii?Q?6uTse8MXfYr3Mh/E1V7leKQz2ZQF3lFPcwTkY0bliTc/bT81TTQc/UhI0RaC?=
- =?us-ascii?Q?xJCMihZB9vm7EWqshgyIW0QUi1jBr+b718yKsbzEgjWWovSWrvbXl76TkHOH?=
- =?us-ascii?Q?RnBKKgL59YB8UVz5jqGQgqpyGkhEQyUF/P799AEXkgRewMtPe8iOBnPJc2H7?=
- =?us-ascii?Q?pP1jzA4h1CWJwoYBEBvYbDi/MlGEAS+0H83hRy0phUoMNVafyV39HWfZH3Ru?=
- =?us-ascii?Q?dyAW9hoLh2krlQMSY1lBakFNvWxvNVTxlAYbo4j2TRiJs0sO3ezp6plMQc9S?=
- =?us-ascii?Q?Y2Rs6OO0zh7TUy1qLLv/d/L16L2038d2xWEZYwmi1gF3QrxoQ9lyE14rNIJT?=
- =?us-ascii?Q?VA83S0lHa/Mn5fIJu87ERwoFTpiyIGxBNL+bjMphjmDjmO0cjCmDcsGiupkR?=
- =?us-ascii?Q?U9cTH37fnInppSZ1bDnJw44cCq2iBBhLQMIHUUmE7h7ZRhZTNyQjwbvZPwsV?=
- =?us-ascii?Q?4przopbtYaQlAw4foYvPWA/ns/5nhJsLD+KiLloKb6138ckpl3V0s9T0Q3rv?=
- =?us-ascii?Q?Yl0ye9lDIZbDBkMsM+OSrbVPrm8abc1xJck9XxReSmCsdCkIxSBFPuwkKpl4?=
- =?us-ascii?Q?hArlU4lh7Mo3cJ9ROq4=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 04 Mar 2025 14:43:41 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id E11F544283;
+	Tue,  4 Mar 2025 14:43:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1741099415;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iRe8bA5fq5Dnerb6IrVuapdeqPHeVXv9pFZzkEkJmRo=;
+	b=OjlSumgPR+Di0+R/SqIfwlocmtXNUmeGujQ9eyffd0YzGCom6RZHDLNRLH3fVl+T3moCWQ
+	x1FdbSetA4zu0h48UeLxbePp0CAVyEd/3nW55E6OyfiNkqLm1KDucpqXd/4J+0kFmbSoDG
+	SqJuGnZb8WOarIlXMEbCPWxqeyDpj2+VKmoK3mmEv5rAliUA2/cjRp5U3CY+086H8YNC4i
+	ANWB9ISfQYUa9hITU4YO345eDP7GXn+mkG8pD1NrUerrOpCRZYc6ygkuNW8mLqaIBADplB
+	xSp9wanjT23HIIF8glPrOBPJ1bxOKdqbVLBqsYDNeIwX1zVwMIUXe7T/8eXDjg==
+Date: Tue, 4 Mar 2025 15:43:30 +0100
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
+ <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>, Heiner Kallweit
+ <hkallweit1@gmail.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <christophe.leroy@csgroup.eu>, Herve Codina
+ <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>, =?UTF-8?B?S8O2cnk=?= Maincent
+ <kory.maincent@bootlin.com>, Oleksij Rempel <o.rempel@pengutronix.de>,
+ Simon Horman <horms@kernel.org>, Romain Gantois
+ <romain.gantois@bootlin.com>
+Subject: Re: [PATCH net-next v4 09/13] net: phylink: Use phy_caps_lookup for
+ fixed-link configuration
+Message-ID: <20250304154330.6e00961b@fedora.home>
+In-Reply-To: <20250303090321.805785-10-maxime.chevallier@bootlin.com>
+References: <20250303090321.805785-1-maxime.chevallier@bootlin.com>
+	<20250303090321.805785-10-maxime.chevallier@bootlin.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e3b0c6b9-1b8c-445b-37b7-08dd5b2a841c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Mar 2025 14:40:31.9188
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 19bTG61yiTg2mjuGpEem9skSa4JTDhhuP/Sv6LP5SQ1V9jBZAKoXiL8gHD2dU7TMy6hgVgwPZqHng/xlUkGzGQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7445
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddutddvfedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudelpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepvgguuhhmrgiivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtoheplhhin
+ hhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_064038_809595_1BF5A8B3 
-X-CRM114-Status: GOOD (  18.71  )
+X-CRM114-CacheID: sfid-20250304_064340_299699_28A91967 
+X-CRM114-Status: GOOD (  25.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,59 +88,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+Hi,
 
-> Subject: Re: [PATCH v2 1/4] dt-bindings: dma: fsl-edma: add
-> interrupts-extended property
->=20
-> On Tue, Mar 04, 2025 at 05:31:24PM +0800, Jacky Bai wrote:
-> > Add interrupts-extended property for edma that has multiple interrupt
-> > controllers used.
->=20
-> Did you try using interrupts-extended? No. Because either is supported by=
- the
-> tools already.
->=20
+On Mon,  3 Mar 2025 10:03:15 +0100
+Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
 
-We need to use interrupts-extended property for i.MX94 because for the edma=
-'s
-interrupts, some are connected to irqsteer interrupt controller and some ar=
-e connected
-to the GIC. make dtbs_check report error, so I add this dt binding changes.
+> When phylink creates a fixed-link configuration, it finds a matching
+> linkmode to set as the advertised, lp_advertising and supported modes
+> based on the speed and duplex of the fixed link.
+> 
+> Use the newly introduced phy_caps_lookup to get these modes instead of
+> phy_lookup_settings(). This has the side effect that the matched
+> settings and configured linkmodes may now contain several linkmodes (the
+> intersection of supported linkmodes from the phylink settings and the
+> linkmodes that match speed/duplex) instead of the one from
+> phy_lookup_settings().
+> 
+> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> ---
 
-Sorry, Which tools are you referring?
+Maybe before anything goes further with this patch, I'd like to get
+some feedback from it on a particular point. This changes the linkmodes
+that are reported on fixed-link interfaces. Instead of reporting one
+single mode, we report all modes supported by the fixed-link' speed and
+duplex settings.
 
-> >
-> > Signed-off-by: Jacky Bai <ping.bai@nxp.com>
-> > ---
-> >  - v2 changes:
-> >   - newly added entry
-> > ---
-> >  Documentation/devicetree/bindings/dma/fsl,edma.yaml | 11
-> ++++++++++-
-> >  1 file changed, 10 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/Documentation/devicetree/bindings/dma/fsl,edma.yaml
-> > b/Documentation/devicetree/bindings/dma/fsl,edma.yaml
-> > index d54140f18d34..549afb8611a9 100644
-> > --- a/Documentation/devicetree/bindings/dma/fsl,edma.yaml
-> > +++ b/Documentation/devicetree/bindings/dma/fsl,edma.yaml
-> > @@ -38,6 +38,10 @@ properties:
-> >      minItems: 1
-> >      maxItems: 64
-> >
-> > +  interrupts-extended:
-> > +    minItems: 1
-> > +    maxItems: 65
->=20
-> Doesn't match the size for interrupt-names:
->=20
+The following example is a before/after of the "ethtool ethX" output on
+a 1G fixed link :
 
-The interrupt-names are only true for vf610, maxItems is
-enough for such case. do we still need to update it?=20
+Before this patch :
 
-> > +
-> >    interrupt-names:
-> >      minItems: 1
-> >      maxItems: 64
+	Settings for eth0:
+	Supported ports: [ MII ]
+	Supported link modes:   1000baseT/Full 
+	Supported pause frame use: Symmetric
+	Supports auto-negotiation: Yes
+	Supported FEC modes: Not reported
+	Advertised link modes:  Not reported
+	Advertised pause frame use: No
+	Advertised auto-negotiation: No
+	Advertised FEC modes: Not reported
+	Speed: Unknown!
+	Duplex: Half
+	Port: MII
+	PHYAD: 0
+	Transceiver: internal
+	Auto-negotiation: off
+	Supports Wake-on: d
+	Wake-on: d
+	Link detected: no
+
+After :
+
+	Supported ports: [ MII ]
+	Supported link modes:   1000baseT/Full 
+	                        1000baseKX/Full 
+	                        1000baseX/Full 
+	                        1000baseT1/Full 
+	Supported pause frame use: Symmetric
+	Supports auto-negotiation: Yes
+	Supported FEC modes: Not reported
+	Advertised link modes:  Not reported
+	Advertised pause frame use: No
+	Advertised auto-negotiation: No
+	Advertised FEC modes: Not reported
+	Speed: Unknown!
+	Duplex: Half
+	Port: MII
+	PHYAD: 0
+	Transceiver: internal
+	Auto-negotiation: off
+	Supports Wake-on: d
+	Wake-on: d
+	Link detected: no
+
+The fixed-link in question is for the CPU port of a DSA switch.
+
+In my opinion, this is OK as the linkmodes expressed here don't match
+physical linkmodes on an actual wire, but as this is a user visible
+change, I'd like to make sure this is OK. Any comment here is more than
+welcome.
+
+Maxime
+
+> V4: Remove unnecessary linklmode_zero in phylink_set_fixed_link(),
+> follwing Russell's comment
+> 
+>  drivers/net/phy/phylink.c | 27 +++++++++++++++------------
+>  1 file changed, 15 insertions(+), 12 deletions(-)
+> 
+> diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+> index 6c67d5c9b787..0b9585cb508e 100644
+> --- a/drivers/net/phy/phylink.c
+> +++ b/drivers/net/phy/phylink.c
+> @@ -805,9 +805,10 @@ static int phylink_validate(struct phylink *pl, unsigned long *supported,
+>  static int phylink_parse_fixedlink(struct phylink *pl,
+>  				   const struct fwnode_handle *fwnode)
+>  {
+> +	__ETHTOOL_DECLARE_LINK_MODE_MASK(match) = { 0, };
+>  	__ETHTOOL_DECLARE_LINK_MODE_MASK(mask) = { 0, };
+> +	const struct link_capabilities *c;
+>  	struct fwnode_handle *fixed_node;
+> -	const struct phy_setting *s;
+>  	struct gpio_desc *desc;
+>  	u32 speed;
+>  	int ret;
+> @@ -879,8 +880,10 @@ static int phylink_parse_fixedlink(struct phylink *pl,
+>  	linkmode_copy(pl->link_config.advertising, pl->supported);
+>  	phylink_validate(pl, pl->supported, &pl->link_config);
+>  
+> -	s = phy_lookup_setting(pl->link_config.speed, pl->link_config.duplex,
+> -			       pl->supported, true);
+> +	c = phy_caps_lookup(pl->link_config.speed, pl->link_config.duplex,
+> +			    pl->supported, true);
+> +	if (c)
+> +		linkmode_and(match, pl->supported, c->linkmodes);
+>  
+>  	linkmode_set_bit(ETHTOOL_LINK_MODE_Pause_BIT, mask);
+>  	linkmode_set_bit(ETHTOOL_LINK_MODE_Asym_Pause_BIT, mask);
+> @@ -889,9 +892,10 @@ static int phylink_parse_fixedlink(struct phylink *pl,
+>  
+>  	phylink_set(pl->supported, MII);
+>  
+> -	if (s) {
+> -		__set_bit(s->bit, pl->supported);
+> -		__set_bit(s->bit, pl->link_config.lp_advertising);
+> +	if (c) {
+> +		linkmode_or(pl->supported, pl->supported, match);
+> +		linkmode_or(pl->link_config.lp_advertising,
+> +			    pl->link_config.lp_advertising, match);
+>  	} else {
+>  		phylink_warn(pl, "fixed link %s duplex %dMbps not recognised\n",
+>  			     pl->link_config.duplex == DUPLEX_FULL ? "full" : "half",
+> @@ -1879,21 +1883,20 @@ static int phylink_register_sfp(struct phylink *pl,
+>  int phylink_set_fixed_link(struct phylink *pl,
+>  			   const struct phylink_link_state *state)
+>  {
+> -	const struct phy_setting *s;
+> +	const struct link_capabilities *c;
+>  	unsigned long *adv;
+>  
+>  	if (pl->cfg_link_an_mode != MLO_AN_PHY || !state ||
+>  	    !test_bit(PHYLINK_DISABLE_STOPPED, &pl->phylink_disable_state))
+>  		return -EINVAL;
+>  
+> -	s = phy_lookup_setting(state->speed, state->duplex,
+> -			       pl->supported, true);
+> -	if (!s)
+> +	c = phy_caps_lookup(state->speed, state->duplex,
+> +			    pl->supported, true);
+> +	if (!c)
+>  		return -EINVAL;
+>  
+>  	adv = pl->link_config.advertising;
+> -	linkmode_zero(adv);
+> -	linkmode_set_bit(s->bit, adv);
+> +	linkmode_and(adv, pl->supported, c->linkmodes);
+>  	linkmode_set_bit(ETHTOOL_LINK_MODE_Autoneg_BIT, adv);
+>  
+>  	pl->link_config.speed = state->speed;
+
 
