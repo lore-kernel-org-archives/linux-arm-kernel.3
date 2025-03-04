@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8889DC282D3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65F08C282EC
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 10:35:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,50 +12,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ANP8owQWDe70nVAfQXc2LpUj4bDpa1InTmeI3o5fL3Y=; b=rmaYegODQvl4LYxtJTBCYpLl/l
-	bbNkO9/tc3OAX56bEVbk+r9GtKlmwxxE9d1V7kTvKrTwXXcSl2mtGKBOWq3rNzgUVCQi5wMj4/LJw
-	1GNdioT98mr3vnb+uERl/udSsVw2wfQPy2YNVfyJlwF219fv0mrKaajqmXJXQsxPLE/nwsIOeKAwB
-	N+D7KY15uOQcSnKi3LQT8QefiR5clfCQI0W4Bk5Vq5S0/FQp8ICiCTIqqZr+zoKqC7/fnUrycO9lJ
-	pkQUwo+AFTNS/6r033bwDn//c6e+ktFvm3lFtWZ0XKa0kY4TutAYajO4WR+KFzJTLyvYd3ec6ITQs
-	PreRhN2w==;
+	bh=/MMr2br33D8nnVpqD7ZvG/06y/H62E/2RsJUAQTcNNg=; b=yUae3762ZAXt7nxyOqhrEW9NL4
+	h+59pPQrwpAAkYkdbvLj+UmZPdcIzfp/3JeEFm6bOZeZTLty5rgMTxYY4VTfvbMaLC5YDhi4hG/ZK
+	9iIn1BmthkBQMuc8H4NToowbYwI61jdHvC0GLRL56KtMQMi868ePvqedIyziSkqWcTzho4ePnUdrU
+	d2BC/i62uwF2jIeYW+ZyE8pBVdM1J+YNMLunN3ESVrDtLkdRNON7tCkY2sa+xHeZAFk5v140ZLIE6
+	xiNBz/weoUYeDzOoWT/n3iMp9OL74WE6dmBdLl2yiE/OcdgU79t1aWwdb0B8/lHDj/WbWj38DJQ5e
+	K63hZX8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPcd-00000004AyA-1Gtw;
-	Tue, 04 Mar 2025 10:35:35 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tpPcc-00000004Axh-37dy;
+	Tue, 04 Mar 2025 10:35:34 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPHK-000000044uM-3bCb
+	id 1tpPGp-000000044ks-1W0X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 10:13:36 +0000
+	Tue, 04 Mar 2025 10:13:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 05122A44AC2;
-	Tue,  4 Mar 2025 10:08:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33F49C4CEE5;
-	Tue,  4 Mar 2025 10:13:31 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D23A45C59B8;
+	Tue,  4 Mar 2025 10:10:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DADB1C4CEE8;
+	Tue,  4 Mar 2025 10:12:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741083213;
-	bh=tSly4mCMCg7dVdmVWaL/taV9g1SQHNObtoFQnE+k5hY=;
+	s=k20201202; t=1741083182;
+	bh=Vg/RWn3guOlPu3NnhDEqa5mQyoV3f87Ql2/DgfZqpY8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WlQOsWhNXid8j95Bwvji3nwiUxShDmNuzqHiVbnq7s00AOocTk1+QxICKYRb2U+Cx
-	 j7BRgA2bZOFVWj7swi+Dp0sD2HCeLJ9g8V420t7xw3X9F1uam/GaQ3YnLikaagvvkh
-	 Q+RMA+1ovszha6KLoiij5AeSuyk8Bu5CJfIWK2DXk5a0owQPw7WVvCJpVXvc/JaIJy
-	 Tuog+FDKfFw0YK/65KHO/IWpph9TMKlt8EIHgNgPSvBv+qidT0etNvRHvO/kMaol73
-	 blhkmzBX27bfkDpaGkWFCPFBnwRCZP3h5091iLVGlT9QfIOjCB3+E1WBaxla8T9sZX
-	 OEWxTqOJev85g==
-Message-ID: <eb423b6e-6142-4b78-b724-49a526a49d4d@kernel.org>
-Date: Tue, 4 Mar 2025 11:13:29 +0100
+	b=eCt5zUM1L+fL4wVKqlQDasmTPvBbpAHR5MaQcksQ0FHFTfoHjxYawj0LKdaCRFIwr
+	 a0Qz5eRCOB9l2tJDPHCar2NhuGwTftQJhpf2E7laUegwtJim9PEYpCHrymDQ4mg5DA
+	 8rmUN4KMn/udyON6eEiioxip8T99gjXOw/WYIp3irI9QanTBRjrCQQPTjWTtAs2oOZ
+	 eEj6JaSjdPFdiI8+e+nFQX8AvynPpB3n1lxzz1M8SKuNF2CBIe+tNeyRdjpKk9XwEi
+	 rjbopWZ27JLOpMRYAoYHGyK/wl+K7iKYvoZ37sSoDzzCq/8aVfB4zv+zIkMTcdOzTT
+	 Nnaaz+I6ztixQ==
+Message-ID: <f6c7feb3-e003-4bbc-8179-3a3df533d2d5@kernel.org>
+Date: Tue, 4 Mar 2025 11:12:57 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2] arm64: dts: corstone1000: Add definitions for
  secondary CPU cores
-To: Hugues KAMBA MPIANA <hugues.kambampiana@arm.com>, sudeep.holla@arm.com
+To: Sudeep Holla <sudeep.holla@arm.com>,
+ Hugues KAMBA MPIANA <hugues.kambampiana@arm.com>
 Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, krzk+dt@kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  liviu.dudau@arm.com, lpieralisi@kernel.org, robh@kernel.org
 References: <Z8XSIx75B4mtcV48@bogus>
  <20250303170012.469576-1-hugues.kambampiana@arm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <174108287362.420865.6246087705407586774.b4-ty@arm.com>
 Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -99,12 +101,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250303170012.469576-1-hugues.kambampiana@arm.com>
+In-Reply-To: <174108287362.420865.6246087705407586774.b4-ty@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_021335_031543_19A85CD4 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20250304_021303_508065_37A6CBE0 
+X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,30 +122,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/03/2025 18:00, Hugues KAMBA MPIANA wrote:
-> Add `cpu1`, `cpu2` and `cpu3` nodes to the Corstone1000 device tree to
-> enable support for secondary CPU cores.
+On 04/03/2025 11:08, Sudeep Holla wrote:
+> On Mon, 03 Mar 2025 17:00:12 +0000, Hugues KAMBA MPIANA wrote:
+>> Add `cpu1`, `cpu2` and `cpu3` nodes to the Corstone1000 device tree to
+>> enable support for secondary CPU cores.
+>>
+>> This update facilitates symmetric multiprocessing (SMP) support on
+>> the Corstone1000 Fixed Virtual Platform (FVP), allowing the
+>> secondary cores to be properly initialised and utilised.
+>>
+>> [...]
 > 
-> This update facilitates symmetric multiprocessing (SMP) support on
-> the Corstone1000 Fixed Virtual Platform (FVP), allowing the
-> secondary cores to be properly initialised and utilised.
+> Applied to sudeep.holla/linux (for-next/juno/updates), thanks!
 > 
-> Only FVP platform will have SMP support and hence the secondary cpu definitions
-> are not added to corstone1000.dtsi.
-> 
-> Signed-off-by: Hugues KAMBA MPIANA <hugues.kambampiana@arm.com>
-> ---
->  arch/arm64/boot/dts/arm/corstone1000-fvp.dts | 24 ++++++++++++++++++++
->  arch/arm64/boot/dts/arm/corstone1000.dtsi    |  2 +-
->  2 files changed, 25 insertions(+), 1 deletion(-)
-> 
-No, nothing improved.
+> [1/1] arm64: dts: corstone1000: Add definitions for secondary CPU cores
+>       https://git.kernel.org/sudeep.holla/c/21b9f56cec8f
 
-Provide detailed changelog after the ---.
+Why? Nothing improved here comparing to v1.
 
-Do not attach (thread) your patchsets to some other threads (unrelated
-or older versions). This buries them deep in the mailbox and might
-interfere with applying entire sets.
+Your comment are still valid and the patch is still not correct.
 
 Best regards,
 Krzysztof
