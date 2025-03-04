@@ -4,59 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72366C282D9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 19:38:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8735C282D9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 19:40:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
-	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4DnwlQPZc9YG4276dGNcfWwtiEc6GQlpgX7+AenO/Ak=; b=xPwk7y9CruyiBu7z5anp91D5UC
-	LP7SSCnP+BwpeQn5f4fKxLR2kTLYuTGa5irufTVHBoII3kbXNfn/71LLbtC5HZcTPBInv89NNUbkh
-	iNl3AtjWUS9KKgEvAD5Q4Y39Izj5jaobUMTwpOKe0WhM7Dogmo/iqTkBdIn1Gt+6lbh8EMFfAlob8
-	V7RLwk0HjULrtDwGR/H+9NRRYChYVCS0JDLtW2OhaAV6ihck3aTQuRUfKRQ6VMI/zJL9h8LtjeNIK
-	ONOKVsNMFXjqjk2bGS+LOjGj1g9dluRuOjj5TXIO6qcKWu9CZ9bYp+ut+0no/ARHQB8Ihspe9Y+5I
-	Qh6ekhTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rx3ABjWk1ldP5FCol6X6uLC9GxswBZMZjKTR2QA7emY=; b=ym1kM14kKxwQcsHz2KLPcllk1n
+	a3uLg7sFO0IqCwB06l3nMdtMvP7MuNXazJf00YT6EIxwXIi70fOfSRv6GcZ9vRGbl9hfGVlsaw7nh
+	fQ855s7yWl5vzAHX1WbFoC77zQCC4clGn+raY47rxPu8OKPggWXkJK8SV5a9u9YRr+tcUaf5CFGK1
+	59QfyHYp443B3jrvfINuuQwAyoH00LktIIzVTd+7oznrcj7q3BfhJ8HPPstxRVH95sqiRcb7N4IoU
+	GT8ezZtINEP1/aQE+3Hl2wbx0xiXgBFkrCqy3lRgrtu09w3ufYynQKlfasjBdl1R5nmbDjwpJ+1ne
+	2Gc6s5kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpY66-000000063Jv-17Yr;
-	Tue, 04 Mar 2025 19:38:34 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tpY7f-000000063nW-0mG5;
+	Tue, 04 Mar 2025 19:40:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpWr9-00000005obz-3IM2
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 18:19:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4A0665C621D;
-	Tue,  4 Mar 2025 18:16:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B625BC4CEE5;
-	Tue,  4 Mar 2025 18:19:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741112342;
-	bh=7bw48i0H6/MBvyCOgup5IexafXe/jlFudSz/GS/f0jE=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=WqMAvySZGaDBm0Jxa8T9HSI/EwuV+hxw9GHoBqXTHCROXsqHZejECMhM+x5Y5Ggrg
-	 14BWwQDJ4LEq17AAtgjK/N+furYAIzI212zZrUeVssXvQoKD4su+rP1YERhsiZ0JhE
-	 Y1h2awhCY2iVZajCPjRq/c0N355Xo5iBVK/QZ2/8egIBMATG3mbe+jbW4wCD3MyoKc
-	 0G/i0e3C1LRrUxELu+x01yqP/QeHlS6crW7w4pFe2ZCwT/+gqX7fKQ5kS98z4e8ZIu
-	 lEJ1omW9CKM04dgieEM9LRj0bdWSFSRBC/SnazC6o7WqAD1notKcHPPQTHGgOlaFQx
-	 F6VxzEwDJuRmA==
-Message-ID: <7b182615f1439dd39a17b8e74cf740bf.sboyd@kernel.org>
-Content-Type: text/plain; charset="utf-8"
+	id 1tpWzK-00000005qLk-0KyR;
+	Tue, 04 Mar 2025 18:27:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Rx3ABjWk1ldP5FCol6X6uLC9GxswBZMZjKTR2QA7emY=; b=U1QHWCT9UD8B5CFoYhbQgwOvsF
+	OOKGwJGGFZqykpEBZCeKHycT6lngMmBvJ5vbJ03Z7lsGsDBznVTQST/1zQL18qCDqAzP+ImzogFHa
+	cc/tNE6MeW59JiTn9y2rR3Jcg/7psRvSLpMxfxFnRY3Eqn4q0fCNWZu2yj1WgLwl3M5rA+/SVMpTp
+	1/Mbvvqf9tRei7TBZhgfDNKkCIcgtvxplRB3+lTt4PDbPTfTVu7N+MJJQq4zCgzLk7uQTLGCuk55k
+	0pZVOZ7MNMvhrjPGPbIVAHQYzwSuBQ2XdsxMceuMA3JDlIh3zpkvOaI6LqcTuEgjMIheV6KgKbgg4
+	OFD+MdTQ==;
+Received: from gloria.sntech.de ([185.11.138.130])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpWzG-000000009vl-2ZIS;
+	Tue, 04 Mar 2025 18:27:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Rx3ABjWk1ldP5FCol6X6uLC9GxswBZMZjKTR2QA7emY=; b=NnwGEh6AY17SgydLVqzuydkcBe
+	jteeXwmvTz7HIE32jeBKVj3KCJF8qYd8Izu3NvV6ORUZEGcWgIFUaA13CMp5L4My6GAaS9AH0/dof
+	GU99zZRbYbpiSAVjmL79REoXvj4bW50wcp9pVtYs8Upj3tDRuuNrmz0Ab26iwZpw2+FKkUTyuiF2Q
+	1HbV4v0wuXy8as4HO56T7BdhU5udPybpBKcjRj8ahSOZSLJpkR7eC8PYoh0F3oi7UoHtoJZblRDuB
+	nlkwGP46Iu5mQq8pp/kFEjcG5pWhjCjuV1Q8ADcwsBEL7r6nGzIPz6TvwcrBHirL/7SIXNaTvrq6y
+	B0khax1A==;
+Received: from i53875a38.versanet.de ([83.135.90.56] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tpWz9-0005NR-IB; Tue, 04 Mar 2025 19:27:19 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Yao Zi <ziyao@disroot.org>, linux-rockchip@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: (subset) [PATCH 0/7] rockchip: Add support for leds and user button on
+ Radxa E20C
+Date: Tue, 04 Mar 2025 19:27:18 +0100
+Message-ID: <8941439.NyiUUSuA9g@diego>
+In-Reply-To: <03c34bdf-d470-4c99-bb06-0eb7496465a3@kwiboo.se>
+References: <20250228064024.3200000-1-jonas@kwiboo.se>
+ <174108970986.65436.4272591414898454986.b4-ty@sntech.de>
+ <03c34bdf-d470-4c99-bb06-0eb7496465a3@kwiboo.se>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250223115601.723886-4-ivo.ivanov.ivanov1@gmail.com>
-References: <20250223115601.723886-1-ivo.ivanov.ivanov1@gmail.com> <20250223115601.723886-4-ivo.ivanov.ivanov1@gmail.com>
-Subject: Re: [PATCH v2 3/3] clk: samsung: introduce Exynos2200 clock driver
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-To: Alim Akhtar <alim.akhtar@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, Conor Dooley <conor+dt@kernel.org>, Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>
-Date: Tue, 04 Mar 2025 10:19:00 -0800
-User-Agent: alot/0.12.dev1+gaa8c22fdeedb
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_101903_910653_740266A5 
-X-CRM114-Status: GOOD (  18.97  )
+X-CRM114-CacheID: sfid-20250304_182726_812038_C83F1CC5 
+X-CRM114-Status: GOOD (  19.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,97 +92,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Ivaylo Ivanov (2025-02-23 03:56:00)
-> diff --git a/drivers/clk/samsung/clk-exynos2200.c b/drivers/clk/samsung/c=
-lk-exynos2200.c
-> new file mode 100644
-> index 000000000..151bdb35a
-> --- /dev/null
-> +++ b/drivers/clk/samsung/clk-exynos2200.c
-> @@ -0,0 +1,3928 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2025 Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-> + * Author: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-> + *
-> + * Common Clock Framework support for Exynos2200 SoC.
-> + */
-> +
-> +#include <linux/clk.h>
+Am Dienstag, 4. M=C3=A4rz 2025, 19:13:10 MEZ schrieb Jonas Karlman:
+> Hi Heiko,
+>=20
+> On 2025-03-04 13:02, Heiko Stuebner wrote:
+> >=20
+> > On Fri, 28 Feb 2025 06:40:06 +0000, Jonas Karlman wrote:
+> >> The Radxa E20C has three gpio leds and one gpio button.
+> >>
+> >> This series adds dt-binding, driver support, DT node in SoC .dtsi and
+> >> gpio-keys and gpio-leds nodes in board DT to support the leds and user
+> >> button.
+> >>
+> >> This series builds on top of the "rockchip: Add support for maskrom
+> >> button on Radxa E20C" series [1].
+> >>
+> >> [...]
+> >=20
+> > Applied, thanks!
+> >=20
+> > [1/7] dt-bindings: soc: rockchip: Add RK3528 ioc grf syscon
+> >       commit: ac32ad07a97648eb8330b2c4cb840b0ef46903ae
+> > [4/7] arm64: dts: rockchip: Add pinctrl and gpio nodes for RK3528
+> >       commit: a31fad19ae39ea27b5068e3b02bcbf30a905339b
+> > [5/7] arm64: dts: rockchip: Add uart0 pinctrl to Radxa E20C
+> >       commit: 0d2312f0d3e4ce74af0977c1519a07dfc71a82ac
+> >=20
+> > Patches 6+7 depend on the parallel saradc support series and thus
+> > do not apply - and need too much rework to safely apply.
+>=20
+> Do you want me to rebase/reorder and send an updated version with
+> remaining patches? Look like the iio saradc patches [2] is pending apply
+> so maybe not needed?
 
-Remove this include because this is a clk provider and not a clk
-consumer.
+Not sure how long the that test run will be taking ...
+and where after -rc5. But in theory things should be fine though.
 
-> +#include <linux/clk-provider.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +
-> +#include <dt-bindings/clock/samsung,exynos2200-cmu.h>
-> +
-> +#include "clk.h"
-> +#include "clk-exynos-arm64.h"
-> +
-> +/* NOTE: Must be equal to the last clock ID increased by one */
-> +#define CLKS_NR_TOP                    (CLK_DOUT_TCXO_DIV4 + 1)
-> +#define CLKS_NR_ALIVE                  (CLK_DOUT_ALIVE_DSP_NOC + 1)
-> +#define CLKS_NR_PERIS                  (CLK_DOUT_PERIS_DDD_CTRL + 1)
-> +#define CLKS_NR_CMGP                   (CLK_DOUT_CMGP_USI6 + 1)
-> +#define CLKS_NR_HSI0                   (CLK_DOUT_DIV_CLK_HSI0_EUSB + 1)
-[...]
-> +
-> +static int __init exynos2200_cmu_probe(struct platform_device *pdev)
-> +{
-> +       const struct samsung_cmu_info *info;
-> +       struct device *dev =3D &pdev->dev;
-> +
-> +       info =3D of_device_get_match_data(dev);
+So essentially up to you - and if you actually have spare minutes.
 
-Use device APIs to be firmware agnostic: device_get_match_data()=20
+Heiko
 
-> +       exynos_arm64_register_cmu(dev, dev->of_node, info);
-> +
-> +       return 0;
-> +}
-> +
-> +static const struct of_device_id exynos2200_cmu_of_match[] =3D {
-> +       {
-> +               .compatible =3D "samsung,exynos2200-cmu-cmgp",
-> +               .data =3D &cmgp_cmu_info,
-> +       }, {
-> +               .compatible =3D "samsung,exynos2200-cmu-hsi0",
-> +               .data =3D &hsi0_cmu_info,
-> +       }, {
-> +               .compatible =3D "samsung,exynos2200-cmu-peric0",
-> +               .data =3D &peric0_cmu_info,
-> +       }, {
-> +               .compatible =3D "samsung,exynos2200-cmu-peric1",
-> +               .data =3D &peric1_cmu_info,
-> +       }, {
-> +               .compatible =3D "samsung,exynos2200-cmu-peric2",
-> +               .data =3D &peric2_cmu_info,
-> +       }, {
-> +               .compatible =3D "samsung,exynos2200-cmu-ufs",
-> +               .data =3D &ufs_cmu_info,
-> +       }, {
-> +               .compatible =3D "samsung,exynos2200-cmu-vts",
-> +               .data =3D &vts_cmu_info,
-> +       }, { }
-> +};
-> +
-> +static struct platform_driver exynos2200_cmu_driver __refdata =3D {
-> +       .driver =3D {
-> +               .name =3D "exynos2200-cmu",
-> +               .of_match_table =3D exynos2200_cmu_of_match,
-> +               .suppress_bind_attrs =3D true,
-> +       },
-> +       .probe =3D exynos2200_cmu_probe,
-> +};
-> +
-> +static int __init exynos2200_cmu_init(void)
-> +{
-> +       return platform_driver_register(&exynos2200_cmu_driver);
 
-Was this supposed to be platform_driver_probe()? The __refdata usage
-suggests that but all of the __init markings and stuff in the samsung
-clk driver worry me.
+
+
 
