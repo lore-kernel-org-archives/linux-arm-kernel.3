@@ -4,63 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A25C2C282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 09:54:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B230C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 09:56:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R+snd39l7/xN3s1Qo+DJbJs4nIckPPRnGYnDiiy8gDQ=; b=t8GAauW0aShLGTas8O+8fV4zn0
-	KbCUU5Ettbb+BlhypDAMivbcCdwnBNQWetNapqlbkSdye5jgdG+UOcabNU/wHjL39vtYNdIIuBA9v
-	KPofg7ycq63+Nd53rWu+76CmIkkizPa7oFLb2DliT2l41OsHAvieSnYdO48GiN3/HVLqPLvkmPcCu
-	qNWCUrZVDxljJIo0gC4JyEr2jm4ncR/d8TuVicx2UqxUdHio1TqhQsg/897RidY5KeORXKbhPdtrj
-	O2vBl8wrNNQ3sMGHHwllnu+5hutVXJOO+3/8so2CJeAOwuBN2oU5LrZg5SaUnkJEVdUgRdgPHaFUZ
-	W5zIynxQ==;
+	bh=iUsHT7BkvvVZ2doNOAGllF0BwQPdhpWqLZzk/yD8Vrc=; b=RMUnzRIA2QlaunWGNSnkzurqq7
+	PHE4QPqIBVqj7onNvk6mkJJXxnHDgjq1kmcta1bHyri8lltoxa0voQ5+qpf6zZKeUYysDwZTwkqIH
+	yRxZF03hnYsSRQydcJpQbU1Yx+L8a7AlqSnOFmPemG8UdZBNgMksAPCFgquSIvm12QMRTs80lITtI
+	hW1JCF34sIOamOo9W5gBRnoE2yssx3O+9G7hZf7CXExTLXnw73ogrRdyFuO7PskubD/T94yE2Mc39
+	eFkeXEhiMauCMAwEOPF1IAecrbquzk7OIyF3Mn5UAt9EtwPb40HHSFJtYUf/bnSxcY/vA16xl66N5
+	htWGCV9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOzF-000000040wo-2LE2;
-	Tue, 04 Mar 2025 09:54:53 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tpP0n-000000041PH-0qJL;
+	Tue, 04 Mar 2025 09:56:29 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOvs-00000003zub-07zz
+	id 1tpOwl-000000040A5-2HKi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 09:51:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6D93D5C4EAA;
-	Tue,  4 Mar 2025 09:49:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89A97C4CEE5;
-	Tue,  4 Mar 2025 09:51:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741081882;
-	bh=3AC8YGVOMopiGMhE+q/wk3R/hqs4Zk918q6dZqSrKY8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TnukOhcELWDMHSi92I6AH2aVZA9crN168Hg83AUocvBIll0kQbw0l+fEnwj72lKJJ
-	 b3l7qDO1A6XN/OiOYGlOzZkiN2L8wkfPQtFMYX7FP0ETLgIufnIpxVK12lRO60Vwbn
-	 FOzW6bfq2OZ1q2lJp6qfDYvFRXw+uvRaFgOyophzj0eDVgP9G5AnvacAy8UsuVHExt
-	 YNdPupAKT8/17iBibqkWQVI4pWS79b9nO0nT0WeEA0TTAQa0sx00gKJ8e6J+G+PRpW
-	 sMsmCa7u4QWQ0Jo7HkcwyBjFYAzfI/zE5INB4pXxqNix5LhPtr98+WULFek4Pu9yPF
-	 sXmvtFguS0miw==
-Date: Tue, 4 Mar 2025 18:51:18 +0900
-From: William Breathitt Gray <wbg@kernel.org>
-To: Bence =?iso-8859-1?B?Q3Pza+Fz?= <csokas.bence@prolan.hu>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-iio@vger.kernel.org,
-	Kamel Bouhara <kamel.bouhara@bootlin.com>
-Subject: Re: [PATCH v6 1/3] include: uapi: counter: Add
- microchip-tcb-capture.h
-Message-ID: <Z8bNFjh85p2jqK9C@ishi>
-References: <20250227144023.64530-1-csokas.bence@prolan.hu>
- <20250227144023.64530-2-csokas.bence@prolan.hu>
+	Tue, 04 Mar 2025 09:52:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1741081939; x=1772617939;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=iUsHT7BkvvVZ2doNOAGllF0BwQPdhpWqLZzk/yD8Vrc=;
+  b=pg64BQ6vIOMSF1hhbS++W9BaD9aX4Qxn8PJvV4An8TcWNs6tiHb7UVzF
+   /QXduSUZ64MPpDboZ80gcMBkSwLCtW5sO/1V6RpZZoXVFZHRD1DQYRUjg
+   mt825yTxQaTDMJr0FYPxROcmpyWXOhnGQWfHLe/Sc8zcLgwINdlAOYF9h
+   FbBZdt9smT0f3ApnzG6g9oWEEWUVnsJREosZHw2AZhdYOV9BMJWq3fY/r
+   EKXSrschspSgC6nsFXOMym0WRK5tkWXMdKk1FquCZrQhHg7Zlq9SFm10Q
+   5OONuGSMJpoERlBj34liGOYkOH30/FNb7S6UvoM0RDYhWaEsmfps/WgfZ
+   A==;
+X-CSE-ConnectionGUID: /bl8OXK5RaaGQPX/3aiVLQ==
+X-CSE-MsgGUID: REU/aoFmSIOpOSZV6HugPg==
+X-IronPort-AV: E=Sophos;i="6.13,331,1732575600"; 
+   d="scan'208";a="42262157"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 04 Mar 2025 10:52:14 +0100
+X-CheckPoint: {67C6CD4E-28-97089932-E672704E}
+X-MAIL-CPID: 628BE1DE09BC53C991B85770F1670AD8_3
+X-Control-Analysis: str=0001.0A002111.67C6CD4E.00B4,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 54FF116CC2F;
+	Tue,  4 Mar 2025 10:52:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1741081930;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iUsHT7BkvvVZ2doNOAGllF0BwQPdhpWqLZzk/yD8Vrc=;
+	b=koFWoSw09WVbwOj8YlQRnL11S9C72pwazdD9v2+cQHPuYzuVo+7ciykwETxJbylbU/Ycqg
+	f82kmBhNIDF917h/CPFJcpQKdQJbCU6qE0fcNKX7/b9V0rLpz3jd3Vf72OBDBD0H3rqY7d
+	muwWJfuGQpHWrhWNHbaqNtC2GGp2rBte7V8a3c6Gr9eGxM16HXtHGA3BRJRaBgdcr11rfK
+	RDYryUbgqEOsN473Gj3/2gvVt49FEB6cgoJxboRSj4/vIC6EaLIEb2D2os2BL7VQ+tmvYu
+	tX9akweDqLrAk/X0RVLQBIw6RJrY3bv5OaF7g5j/YA0NO7yBQaknRVhoxdRs2Q==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, Liu Ying <victor.liu@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, victor.liu@nxp.com, andrzej.hajda@intel.com,
+ neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ airlied@gmail.com, simona@ffwll.ch, peng.fan@nxp.com,
+ Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v5 1/2] dt-bindings: soc: imx93-media-blk-ctrl: Add PDFC subnode
+ to schema and example
+Date: Tue, 04 Mar 2025 10:52:05 +0100
+Message-ID: <3348463.44csPzL39Z@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20250304082434.834031-2-victor.liu@nxp.com>
+References: <20250304082434.834031-1-victor.liu@nxp.com>
+ <20250304082434.834031-2-victor.liu@nxp.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="8INrE+XEHmoL1yAg"
-Content-Disposition: inline
-In-Reply-To: <20250227144023.64530-2-csokas.bence@prolan.hu>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_015124_176164_E46A7FFB 
-X-CRM114-Status: GOOD (  20.84  )
+X-CRM114-CacheID: sfid-20250304_015219_883181_CECF071C 
+X-CRM114-Status: GOOD (  14.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,79 +104,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---8INrE+XEHmoL1yAg
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+thanks for the update.
 
-On Thu, Feb 27, 2025 at 03:40:18PM +0100, Bence Cs=F3k=E1s wrote:
-> Add UAPI header for the microchip-tcb-capture.c driver.
-> This header will hold the various event channels, component numbers etc.
-> used by this driver.
+Am Dienstag, 4. M=E4rz 2025, 09:24:33 CET schrieb Liu Ying:
+> i.MX93 SoC mediamix blk-ctrl contains one DISPLAY_MUX register which
+> configures parallel display format by using the "PARALLEL_DISP_FORMAT"
+> field. Document the Parallel Display Format Configuration(PDFC) subnode
+> and add the subnode to example.
 >=20
-> Signed-off-by: Bence Cs=F3k=E1s <csokas.bence@prolan.hu>
-
-Oops, I almost missed this one! Make sure I'm included in the To field
-for the next revision. ;-)
-
-By the way, b4 is a nifty tool that can save you some work and help you
-prep patch series for submission.[^1]
-
-> +/*
-> + * The driver defines the following components:
-> + *
-> + * Count 0
-> + * \__  Synapse 0 -- Signal 0 (Channel A, i.e. TIOA)
-> + * \__  Synapse 1 -- Signal 1 (Channel B, i.e. TIOB)
-> + */
+> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> v3->v5:
+> * No change.
+>=20
+> v2->v3:
+> * Newly introduced to replace the standalone dt-binding in v1 and v2. (Ro=
+b)
+> * Resend with Conor's R-b tag and with the patch rebased upon v6.11-rc1.
+>=20
+>  .../soc/imx/fsl,imx93-media-blk-ctrl.yaml     | 68 +++++++++++++++++++
+>  1 file changed, 68 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-bl=
+k-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk=
+=2Dctrl.yaml
+> index b3554e7f9e76..3f550c30d93d 100644
+> --- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.=
+yaml
+> +++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.=
+yaml
+> @@ -24,6 +24,12 @@ properties:
+>    reg:
+>      maxItems: 1
+> =20
+> +  '#address-cells':
+> +    const: 1
 > +
-> +enum counter_mchp_signals {
-> +	COUNTER_MCHP_SIG_TIOA,
-> +	COUNTER_MCHP_SIG_TIOB,
-> +};
+> +  '#size-cells':
+> +    const: 1
+> +
+>    '#power-domain-cells':
+>      const: 1
+> =20
+> @@ -46,9 +52,43 @@ properties:
+>        - const: csi
+>        - const: dsi
+> =20
+> +  bridge@60:
+> +    type: object
+> +    additionalProperties: false
+> +
+> +    properties:
+> +      compatible:
+> +        const: nxp,imx93-pdfc
+> +
+> +      reg:
+> +        maxItems: 1
+> +
+> +      ports:
+> +        $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +        properties:
+> +          port@0:
+> +            $ref: /schemas/graph.yaml#/properties/port
+> +            description: Input port node to receive pixel data.
+> +
+> +          port@1:
+> +            $ref: /schemas/graph.yaml#/properties/port
+> +            description: Output port node to downstream pixel data recei=
+vers.
+> +
+> +        required:
+> +          - port@0
+> +          - port@1
+> +
+> +    required:
+> +      - compatible
+> +      - reg
+> +      - ports
+> +
+>  required:
+>    - compatible
+>    - reg
+> +  - '#address-cells'
+> +  - '#size-cells'
+>    - power-domains
+>    - clocks
+>    - clock-names
+> @@ -76,5 +116,33 @@ examples:
+>                 <&clk IMX93_CLK_MIPI_DSI_GATE>;
+>                 clock-names =3D "apb", "axi", "nic", "disp", "cam",
+>                               "pxp", "lcdif", "isi", "csi", "dsi";
+> +      #address-cells =3D <1>;
+> +      #size-cells =3D <1>;
+>        #power-domain-cells =3D <1>;
+> +
+> +      bridge@60 {
 
-Are these meant to be used to identify the Signals in the
-microchip-tcb-capture.c file. You should set the the counter_signal id
-members to these enum constants then. However, this enum doesn't need to
-be exposed to userspace in that case.
+Given that you add a subnode, I would assume Rob's comment from [1]
+also applies to you here.
 
-Or is the purpose of this to match the parent ID of the Signal when
-you create Counter watches? That won't work safely the way you intend
-because the Counter subsystem creates the userspace parent IDs
-independent of the kernelspace counter_signal struct id member.
+Despite that, looks good to me. With that fixed:
+Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 
-Right now the Counter subsystem just happens to create these parent IDs
-sequentially from 0 because it was a simple way to implement it at the
-time we introduced the feature. However, there is nothing that ensures
-this will stay that way in the future, and in fact the design intention
-was exactly to allow the possibility of a future change to this area of
-code.
+[1] https://lore.kernel.org/all/20250225145833.GB2361434-robh@kernel.org/
 
-In other words, there's no gurantee the parent ID in userspace will
-remain the same even between driver reloads. The intended way for
-userspace to behave is to first identify the desired Signals at startup
-based on their "name" sysfs attribute and then set Counter watches and
-such accordingly thereafter as desired.
+> +        compatible =3D "nxp,imx93-pdfc";
+> +        reg =3D <0x60 0x4>;
+> +
+> +        ports {
+> +          #address-cells =3D <1>;
+> +          #size-cells =3D <0>;
+> +
+> +          port@0 {
+> +            reg =3D <0>;
+> +
+> +            pdfc_from_lcdif: endpoint {
+> +              remote-endpoint =3D <&lcdif_to_pdfc>;
+> +            };
+> +          };
+> +
+> +          port@1 {
+> +            reg =3D <1>;
+> +
+> +            pdfc_to_panel: endpoint {
+> +              remote-endpoint =3D <&panel_from_pdfc>;
+> +            };
+> +          };
+> +        };
+> +      };
+>      };
+>=20
 
-If that is the only purpose of enum counter_mchp_signals, then we can
-omit this patch from the series and you won't need to send it in the
-next revision.
 
-William Breathitt Gray
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
 
-[^1] https://b4.docs.kernel.org/en/latest/
 
---8INrE+XEHmoL1yAg
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEARYKAB0WIQSNN83d4NIlKPjon7a1SFbKvhIjKwUCZ8bNFgAKCRC1SFbKvhIj
-K8vtAQDQtKdqNviMCtM14inLMV9gO9XK9+zhMyb3MGIEkiBZ6AEAmowtr8SAqf6v
-JEe9IFPC1iVoe0A355hZA2t2H7E3LwE=
-=Wees
------END PGP SIGNATURE-----
-
---8INrE+XEHmoL1yAg--
 
