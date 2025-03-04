@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB259C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 16:44:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 693CAC282D6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 16:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q3E91wuDfCT8BFLnPyL3EbfnCVT24U4SNlKSwb5/uX8=; b=0mK/lmcFb/ORfQhYTlkA6jYqyu
-	VfBh0AMMg9Skg8vsdN6NgU4JDn+qSpSkq/SUA+JWQdB2wAqUSTZ+pax1J+TjEnVu1N+PMeX9HuYXA
-	7rSHIwKp6kwjynBQbq9/49a9atOD59ZXzOICFn3cS4joaschMwT8y04ymfwAJd4XUAIkAW89IWIdj
-	f0l7JbMs53ngjk0k67bIg18ZEc1RO1xzBmjCOurpBj7MPDBRZhuv0uSFAoGTSqA2W24VffAk60t27
-	m+NsgDKKt9QpAfbzQztAXrQ0pP0m6ymPc8ffHom1C9U3WuddZSHUi+GD1WktCy1UgFgaeW/Sc/DbV
-	6lL58hHQ==;
+	bh=05+yUch1qVnnrqVG6RV+wIx5vc2UIZOaUlgwjSMdsHI=; b=Qy0og0NketBQLiIm9aVMdx3y+n
+	9AqMoxs3gQZ2gw8EdT7rk6pzdTtLYLRTeen2Evsmtz87CDj1T01XHtTipy5kxLAElJkmiI9161VAE
+	xCPLuYrTfKxxjQ5zyn+zY5B5HPtxPrMTflvjPdiGSuO9/nH2w4PaIPKL/cWZbpYJdVGobdgTAWy2N
+	aEvPP+m3mLMqsPVg3hrQuVzbW5C5YFKlTP+28BATsullJP2BPLKH5j/+5vtS8fWwXH3E1QjavUiv7
+	aDTZ2bhPqtuLwYvg82VY5Pw6JYw7JWyZr3CGy42sb11MWVgWJ3+4H/hyFRplcx6IzEb2lF+c+ft3P
+	+H4NLB2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpVNV-00000005Tv9-1mdV;
-	Tue, 04 Mar 2025 16:44:21 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpUJO-00000005ExK-1rpZ
+	id 1tpVNs-00000005U1O-2CbO;
+	Tue, 04 Mar 2025 16:44:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpTpY-000000057ZJ-274t
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 15:36:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D4B86A45843;
-	Tue,  4 Mar 2025 15:30:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CD44C4CEE5;
-	Tue,  4 Mar 2025 15:35:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741102561;
-	bh=52x7TUjSQQWpNjcLzsxfo3TSUHtkZ2ZLty6KE9TnZ1I=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=sUFIQLOEK/Fk9lumGa2oLz7mNk8mJeHZ9FpACCkSde6hagzcMxIH27nfrE9GqSBbO
-	 qdIgrhxvf0ukv+SQqVHtPH/1kYSdkcHGcsvu7d3ytk0ijwsHFWxElSaM5Fzj2CUDEn
-	 n1NOHACB1cq7kRWyx0T3Q05R+3/8n+8haiPURrMkAUW8uXyZ9LleVgSwrkX/MeSyL/
-	 4KbuZu7gCcUxa00ST3zmzSt4Fiz8y1vPyP80zFwCRTD8xKcYLh+2MY5+kN96auA3a4
-	 5nY1MKr/teMu2AkGtclt8gQCXtKUd+sgqP+k11RV3kO8SCA5DcHF2fhIWacuc636qQ
-	 fuTpiuJahbRtQ==
-From: Mark Brown <broonie@kernel.org>
-To: Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Bartosz Golaszewski <brgl@bgdev.pl>, 
- Linus Walleij <linus.walleij@linaro.org>
-Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-gpio@vger.kernel.org
-In-Reply-To: <20250303-samsung-codecs-v1-0-56a2299dd928@linaro.org>
-References: <20250303-samsung-codecs-v1-0-56a2299dd928@linaro.org>
-Subject: Re: [PATCH 0/6] ASoC: samsung: GPIO descriptor conversion
-Message-Id: <174110255924.87345.17067818310965896666.b4-ty@kernel.org>
-Date: Tue, 04 Mar 2025 15:35:59 +0000
+	Tue, 04 Mar 2025 15:05:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D45AB1C25;
+	Tue,  4 Mar 2025 07:05:25 -0800 (PST)
+Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4EB953F66E;
+	Tue,  4 Mar 2025 07:05:10 -0800 (PST)
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	David Hildenbrand <david@redhat.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 08/11] mm/vmalloc: Gracefully unmap huge ptes
+Date: Tue,  4 Mar 2025 15:04:38 +0000
+Message-ID: <20250304150444.3788920-9-ryan.roberts@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250304150444.3788920-1-ryan.roberts@arm.com>
+References: <20250304150444.3788920-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-1b0d6
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_073602_555217_EDB6BFBC 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20250304_070512_666771_FDAA8F8D 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,48 +75,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 03 Mar 2025 09:41:40 +0100, Linus Walleij wrote:
-> This drops unused includes and converts one Samsung
-> codec to use GPIO descriptors.
-> 
-> 
+Commit f7ee1f13d606 ("mm/vmalloc: enable mapping of huge pages at pte
+level in vmap") added its support by reusing the set_huge_pte_at() API,
+which is otherwise only used for user mappings. But when unmapping those
+huge ptes, it continued to call ptep_get_and_clear(), which is a
+layering violation. To date, the only arch to implement this support is
+powerpc and it all happens to work ok for it.
 
-Applied to
+But arm64's implementation of ptep_get_and_clear() can not be safely
+used to clear a previous set_huge_pte_at(). So let's introduce a new
+arch opt-in function, arch_vmap_pte_range_unmap_size(), which can
+provide the size of a (present) pte. Then we can call
+huge_ptep_get_and_clear() to tear it down properly.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+Note that if vunmap_range() is called with a range that starts in the
+middle of a huge pte-mapped page, we must unmap the entire huge page so
+the behaviour is consistent with pmd and pud block mappings. In this
+case emit a warning just like we do for pmd/pud mappings.
 
-Thanks!
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+---
+ include/linux/vmalloc.h |  8 ++++++++
+ mm/vmalloc.c            | 18 ++++++++++++++++--
+ 2 files changed, 24 insertions(+), 2 deletions(-)
 
-[1/6] ASoC: samsung: bells: Drop unused include
-      commit: b19d340d5d08c5940ce612c2a1b5fe3a8a401f9d
-[2/6] ASoC: samsung: littlemill: Drop unused include
-      commit: c4b2d9643a06a5326a778c4d77d6fa60e0f3d6b1
-[3/6] ASoC: samsung: lowland: Drop unused include
-      commit: 5c06f7f3d8374df1cec3b353306a4d1032a60f44
-[4/6] ASoC: samsung: speyside: Convert to GPIO descriptor
-      commit: da9146c19b1774926148ff271c4a3dc8d7891b18
-[5/6] ASoC: samsung: tobermory: Drop unused include
-      commit: c095b7a27529d1d18b3b36a47f77a1419f0de939
-[6/6] ASoC: samsung: tm2_wm5110: Drop unused include
-      commit: 0a22454ab2eca530702b2689858909b608953703
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+diff --git a/include/linux/vmalloc.h b/include/linux/vmalloc.h
+index 31e9ffd936e3..16dd4cba64f2 100644
+--- a/include/linux/vmalloc.h
++++ b/include/linux/vmalloc.h
+@@ -113,6 +113,14 @@ static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr, uns
+ }
+ #endif
+ 
++#ifndef arch_vmap_pte_range_unmap_size
++static inline unsigned long arch_vmap_pte_range_unmap_size(unsigned long addr,
++							   pte_t *ptep)
++{
++	return PAGE_SIZE;
++}
++#endif
++
+ #ifndef arch_vmap_pte_supported_shift
+ static inline int arch_vmap_pte_supported_shift(unsigned long size)
+ {
+diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+index fcdf67d5177a..6111ce900ec4 100644
+--- a/mm/vmalloc.c
++++ b/mm/vmalloc.c
+@@ -350,12 +350,26 @@ static void vunmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
+ 			     pgtbl_mod_mask *mask)
+ {
+ 	pte_t *pte;
++	pte_t ptent;
++	unsigned long size = PAGE_SIZE;
+ 
+ 	pte = pte_offset_kernel(pmd, addr);
+ 	do {
+-		pte_t ptent = ptep_get_and_clear(&init_mm, addr, pte);
++#ifdef CONFIG_HUGETLB_PAGE
++		size = arch_vmap_pte_range_unmap_size(addr, pte);
++		if (size != PAGE_SIZE) {
++			if (WARN_ON(!IS_ALIGNED(addr, size))) {
++				addr = ALIGN_DOWN(addr, size);
++				pte = PTR_ALIGN_DOWN(pte, sizeof(*pte) * (size >> PAGE_SHIFT));
++			}
++			ptent = huge_ptep_get_and_clear(&init_mm, addr, pte, size);
++			if (WARN_ON(end - addr < size))
++				size = end - addr;
++		} else
++#endif
++			ptent = ptep_get_and_clear(&init_mm, addr, pte);
+ 		WARN_ON(!pte_none(ptent) && !pte_present(ptent));
+-	} while (pte++, addr += PAGE_SIZE, addr != end);
++	} while (pte += (size >> PAGE_SHIFT), addr += size, addr != end);
+ 	*mask |= PGTBL_PTE_MODIFIED;
+ }
+ 
+-- 
+2.43.0
 
 
